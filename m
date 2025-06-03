@@ -4,59 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4CEC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 21:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBB1C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 21:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MTrgU+1AMH8ppDvhBBziD30T8+V1scNAGU4VvZ9oUo8=; b=mpt3T+J4ntUYhv0yj6wq22HeXy
-	sCvssEXwo2kuDhvKx0Fk4hpN09I67f3UZ4XrKUq14Nd7weJJNJD6IbJsaUc5aYgk4ITvaf95fL7yK
-	JzKLJlc2PxdOpTuLVXo5onW0SlUYcHufKGwP8CIoHIPhFWeSe+XP168BicFqh+mDyR6VEJ472DK9U
-	NI9TNdSeN6uxrH57WuK0ZFmFT8OyqYxIRwWj5wctCExPSnhib3g8QeZrZ489DBC0KtzvCxJOF6TT5
-	dHdCl9fgj/wowaHcYYOiHBayAPPoRF/9Ndf8nLwFD3rt/wVsdNuW9UZBKU0auCOooQo5cS/LRr9gh
-	zxCfg/Mg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=LccXvjPYPBUKmolpHX2IrRx+++KKrUgiEoyHX8qZbOw=; b=L2nZC77mvrYAmn
+	3RDaVIYMr/NQthBFc5JfVLlH1jbNmIHqhgMIQHR17c27HF+vXsSn6EHqwL3mQh61q1eE5XRPJ2czk
+	mZQympVSTUIeDEAqeraG7UwYXCz2rOD4QtbVXr084Z/CyyZOc1Z6kqr5dYaTRt6XfGQeyMY6rI5Lj
+	uLQFLi6kyHBOu6F005e3fyn3/TTGVlN4Yv8EZaf9cP2WPrC9wAU4CcsFIzMX4lH37DnqRxjPRxGDr
+	d/52fVHYMg89cLOfzhICy8jD0hkg1a6BRr5oyvkxaNEf2NJodGXOtd3Gl7qrMYPDF2E7wnPoTBBbl
+	7Byzh8KvdfEJZNCmXA2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMZU6-0000000BuPj-4BHj;
-	Tue, 03 Jun 2025 21:47:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uMZWE-0000000Buio-2qSJ;
+	Tue, 03 Jun 2025 21:50:02 +0000
+Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMZRv-0000000BtxZ-12pu
+	id 1uMZTE-0000000BuAC-27Ed
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 21:45:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=MTrgU+1AMH8ppDvhBBziD30T8+V1scNAGU4VvZ9oUo8=; b=nliAvRAXIFg3vXZcbWDKYDOZTF
-	+ICpkfgM1AmA6ULQ0px1RarDvIXCHCZufR/PninsH6nwPz5vU2DDUIePV1+eu7HwHNkBjCERsx+Qo
-	IXYc9PQlnqs6r8z9zNuvd+4GY2M99Abc5cYz0r4Cvhuta7uNmrBHGY9xvF91daqBy6j8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uMZRf-00Ec3N-Ta; Tue, 03 Jun 2025 23:45:19 +0200
-Date: Tue, 3 Jun 2025 23:45:19 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Donald Shannon <donalds@nvidia.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	joel@jms.id.au, andrew@codeconstruct.com.au,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: aspeed: Add device tree for Nvidia's GB200
- UT3.0b platform BMC
-Message-ID: <dbcdeb49-7118-4517-b965-af580164722b@lunn.ch>
-References: <20250603203241.727401-1-donalds@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250603203241.727401-1-donalds@nvidia.com>
+	Tue, 03 Jun 2025 21:46:57 +0000
+Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-72c0050a956so4751369a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 14:46:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1748987215; x=1749592015; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=LccXvjPYPBUKmolpHX2IrRx+++KKrUgiEoyHX8qZbOw=;
+        b=Z2aIW1ISXHB5EKQ4uGMKtZyEOdxk1/EFsTaiq52DntK/lq+c6sOkrGQyM0fLNDP9sX
+         TJ4gUmaMeypML73uDDuj1WfHLcQMvg+3Y1kPfRdk2nmSZ3pQaPY6UqRiUvYEJ6g5Sn4I
+         +iB/7eu9+rIEGsnOE1muYxMvbifnF2JOdpeQlrNBwJbZ869SZzIy2G0w9NYQZMWfv0Qu
+         cTJfpPBspc0p6gRFc+ee01KAXpGZO4CyuJ+7o6pftVKqYJsWOtERYt0QKITrOI6mwn4U
+         Rg3k2BW89yN4ZW4aP9wS8p0DH9TUHeKXehMyzNuJi38gBbgRxBAE/AnwsOp4VDJRrenW
+         IBvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748987215; x=1749592015;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LccXvjPYPBUKmolpHX2IrRx+++KKrUgiEoyHX8qZbOw=;
+        b=NuTGOznzvyNwEdqFP9xgFhmaWVC5j/YVpdI8BU3wyeWMJ7l1EmeK1So4tFFUuSoGec
+         29kY6EZ7RT3Z8GIgBnCh/7nuyviUjTLQPHfelFB3Ix+0Sdf1A4nP5U3rOD/3cEePKK2D
+         mIdsGqubTknWPq7GTXQA27qcB5LjLWmmb5U0L/6ony6IWo0OVM8/MNP9q8UO86sDABXl
+         +lWFYhmaah/iUjobBOSDc82F7nXLpPC9yxisD421yVLxVe4o4sKUF50ImUM/nwezRL8e
+         8GIe7Byn8nxk9I4j81Fur5Pdbnf894E/BoXWRe/o6MYieswbgxDjYu1H2wKmlmajJnWS
+         hOxg==
+X-Forwarded-Encrypted: i=1; AJvYcCUAn8A3RaHPdgRWfzAjxAHNR8JuQT4mMnosTBFPRUGzSfFg7B2fEPxS2obtTNtgLkeu6/Jbazpd37GE7j9F3zJq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH4WB6ik4Itfj2PZSNYS7D207AOmB3aGoLdaV+5q97YerNxkWu
+	LK4vACejmuxX79RID/TNGyejlJigeraDod/6wTT2lDV1vdFtupJRgMkEdf6VI9i3Ts2/CdZJD4f
+	/9RDy/l4yIxFiWtUxBGKbLrdv6g==
+X-Google-Smtp-Source: AGHT+IGVKt5ILqjSdW8OtKLqE/y3WeywMj3vX4/DzsQoxvrjy7RrNHS3PkxJz64AV7HAzQffHQulShSVI5b7iylTEA==
+X-Received: from oobdi8.prod.google.com ([2002:a05:6820:1e88:b0:60f:868:60e1])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6830:4882:b0:735:ebf8:b241 with SMTP id 46e09a7af769-73869d7c158mr529938a34.14.1748987214770;
+ Tue, 03 Jun 2025 14:46:54 -0700 (PDT)
+Date: Tue, 03 Jun 2025 21:46:54 +0000
+In-Reply-To: <aD4oS1_tnMPlgDJ6@linux.dev> (message from Oliver Upton on Mon, 2
+ Jun 2025 15:40:11 -0700)
+Mime-Version: 1.0
+Message-ID: <gsnt1ps033ch.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH 16/17] KVM: arm64: Add ioctl to partition the PMU when supported
+From: Colton Lewis <coltonlewis@google.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, mark.rutland@arm.com, shuah@kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_144535_284251_2B1515E4 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_144656_545543_B19346CC 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,20 +93,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&mac0 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	phy-mode = "rgmii-rxid";
+Oliver Upton <oliver.upton@linux.dev> writes:
 
-Does the PCB have an extra long transmit clock line?
+> On Mon, Jun 02, 2025 at 07:27:01PM +0000, Colton Lewis wrote:
+>> +	case KVM_ARM_PARTITION_PMU: {
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+> This should be a vCPU attribute similar to the other PMUv3 controls we
+> already have. Ideally a single attribute where userspace tells us it
+> wants paritioning and specifies the PMU ID to use. None of this can be
+> changed after INIT'ing the PMU.
 
-You probably want 'rgmii-id' here.
+Okay
 
-> +	max-speed = <1000>;
+>> +		struct arm_pmu *pmu;
+>> +		u8 host_counters;
+>> +
+>> +		if (unlikely(!kvm_vcpu_initialized(vcpu)))
+>> +			return -ENOEXEC;
+>> +
+>> +		if (!kvm_pmu_partition_supported())
+>> +			return -EPERM;
+>> +
+>> +		if (copy_from_user(&host_counters, argp, sizeof(host_counters)))
+>> +			return -EFAULT;
+>> +
+>> +		pmu = vcpu->kvm->arch.arm_pmu;
+>> +		return kvm_pmu_partition(pmu, host_counters);
 
-RGMII has a maximum speed of 1G, so this is pointless.
+> Yeah, we really can't be changing the counters available to the ARM PMU
+> driver at this point. What happens to host events already scheduled on
+> the CPU?
 
-	Andrew
+Okay. I remember talking about this before.
+
+> Either the partition of host / KVM-owned counters needs to be computed
+> up front (prior to scheduling events) or KVM needs a way to direct perf
+> to reschedule events on the PMU based on the new operating constraints.
+
+Yes. I will think about it.
 
