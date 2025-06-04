@@ -4,53 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54113C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 02:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4A0C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 02:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dhtDR0nxnNSaNBAYFKaWg4W6CvEuRy4L6IeZL65Wjtc=; b=HNNCClHFsxMGYiaVIQpwia8JXw
-	owO5nhrGTJ2jayoqRIdyC6eAoFJbDEv83SmsudKN6FR8x23Lx5qUlSKrmK++zjp3/8HjNupNUSMkT
-	N7zAxHKl/YeClC0y6ZN3mTFa4vxRHYN5E5gVw56EorvYU4bJCVtdRJ88DS0PdobBwa65cocHgoYOr
-	P4lLpoCinMxh6ZLqW+00E4WgjzoUOz0xNH4OZDpLqCN9oEP89wUQpaS6QgxSeU3Am5HRhqkQcoern
-	n2DKNGjFe7maF6bQ7veRncORvGFDzXW/FqEAoNOFcefMWf7/XGsec3WI6Mg5pztG1SZxPg0mAmfM3
-	DHHlCqfw==;
+	bh=slvHQaD9uRlfGP7hvv4mj6HceDPLPnenQgl89EqJft4=; b=jlz1lr/N4FxTaj6zO5zgGzTllY
+	wGqJ9bMvPNPSB4Dk/xbzh8wdobmnSAVHoxtPCidPe+PdnPMGWAilZnvRsICHKLtNhLmIgD9F1UAof
+	2HSI+OslBRgU6+8QE51xi+phC1QkltL0zzrfo8dfc/y01IXKxymdqtD1S7ZuHYt1Xd0QDU0hn3c8E
+	LMfDJBbx5OPlEIo+oRGw/bPK2Ms+f2tEq6hkMQ7w0+wIPbtMtTmWFr/VcnDzoUMTEpYJzg1TuYaC7
+	rEE7dTnXRqeNLnjoAFlbn1pe3jdEJmF7RKRR78LuZR1DLQSdrTew1AgfELYmIGvkYux2Zs99VMmn/
+	hlZ44k2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMdrX-0000000CJkK-2MvD;
-	Wed, 04 Jun 2025 02:28:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uMdtf-0000000CK2O-1fgk;
+	Wed, 04 Jun 2025 02:30:31 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcUu-0000000C84S-2Oou;
-	Wed, 04 Jun 2025 01:00:53 +0000
+	id 1uMcVy-0000000C8E3-3R9V
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Jun 2025 01:02:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D813439D3;
-	Wed,  4 Jun 2025 01:00:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F2F1C4CEED;
-	Wed,  4 Jun 2025 01:00:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2E693A4FDB9;
+	Wed,  4 Jun 2025 01:01:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0971CC4CEED;
+	Wed,  4 Jun 2025 01:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748998852;
-	bh=06/5TxgtZvM86mGzgWzAncs8N5P1lWHeSCmjUPHc7FI=;
+	s=k20201202; t=1748998917;
+	bh=8TmtqIkodckXRVA12QVSQZcHsz32wqBQ7xlBBVR0+P0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fzvrezxpRWiw8dmN8JfbCwQ5f+xkvVx4uCvVl9U0OYrRmHjE3wy/Khcz0DL5NfH4T
-	 QU8FpSo6ff1ZdT/xylVZMz7Hv6ttmmePXVVVMI+lQhr6fnpZ7W4aInKNr5W2eC/ZU6
-	 jLHuS0CpJhlAUutPYgWlTiBk2sXgY4CuED0dExJp377WVl4z2JnI/WsPYG6pKI/6zb
-	 yy8RnjwXP6WIEDe/QH5nVc763JHzNJ/dYOKmwo76b19NvyMjJYU8CeB8rPJxBrsHvX
-	 vHUS+X4NKUJCJ7PFTQMgngODVa0S7IeWg7Bm+b44BpWOY7vJ07vHb6s+R4UuAZUxF+
-	 pi/QH2nvuqADA==
+	b=vIznNZnE48PAKRAS8zpp9665VnCXCXH/Mq3AwLPHGvxdmWuPA4BTuq/w8Htj6pXKo
+	 elWMfBBbAz9Gc9qvTNgb1N+NRXA972BGAnEUw4O6lKJEwgv6RxLQW1LSij4GbPaCXI
+	 thSK/rXaNz+akZsLSRGGiDfEduiI+JUfx0EbpMDnvJocatCT/AOTLrFjUUY6Jp5hU2
+	 xBdMquX52xpYysuTZ/y5Xx3sTIuaFBtIaVzLIEp/5sqDozuIdIccDvKlyBe8JsuQze
+	 Luw9Yu3kkzkFnokDSgm0tN9xCfN0ztSZxF982iLYfqd2Sj8NDYTaAHyPix3ke0uYWF
+	 j7I4FHwkj4Xnw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Heiko Stuebner <heiko@sntech.de>,
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 50/93] clk: rockchip: rk3036: mark ddrphy as critical
-Date: Tue,  3 Jun 2025 20:58:36 -0400
-Message-Id: <20250604005919.4191884-50-sashal@kernel.org>
+	ulli.kroll@googlemail.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 87/93] net: ethernet: cortina: Use TOE/TSO on all TCP
+Date: Tue,  3 Jun 2025 20:59:13 -0400
+Message-Id: <20250604005919.4191884-87-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250604005919.4191884-1-sashal@kernel.org>
 References: <20250604005919.4191884-1-sashal@kernel.org>
@@ -61,8 +63,8 @@ X-stable-base: Linux 6.12.31
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_180052_649547_28EF3FC7 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20250603_180158_990657_93A28103 
+X-CRM114-Status: GOOD (  28.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +79,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko@sntech.de>
+From: Linus Walleij <linus.walleij@linaro.org>
 
-[ Upstream commit 596a977b34a722c00245801a5774aa79cec4e81d ]
+[ Upstream commit 6a07e3af4973402fa199a80036c10060b922c92c ]
 
-The ddrphy is supplied by the dpll, but due to the limited number of PLLs
-on the rk3036, the dpll also is used for other periperhals, like the GPU.
+It is desireable to push the hardware accelerator to also
+process non-segmented TCP frames: we pass the skb->len
+to the "TOE/TSO" offloader and it will handle them.
 
-So it happened, when the Lima driver turned off the gpu clock, this in
-turn also disabled the dpll and thus the ram.
+Without this quirk the driver becomes unstable and lock
+up and and crash.
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20250503202532.992033-4-heiko@sntech.de
+I do not know exactly why, but it is probably due to the
+TOE (TCP offload engine) feature that is coupled with the
+segmentation feature - it is not possible to turn one
+part off and not the other, either both TOE and TSO are
+active, or neither of them.
+
+Not having the TOE part active seems detrimental, as if
+that hardware feature is not really supposed to be turned
+off.
+
+The datasheet says:
+
+  "Based on packet parsing and TCP connection/NAT table
+   lookup results, the NetEngine puts the packets
+   belonging to the same TCP connection to the same queue
+   for the software to process. The NetEngine puts
+   incoming packets to the buffer or series of buffers
+   for a jumbo packet. With this hardware acceleration,
+   IP/TCP header parsing, checksum validation and
+   connection lookup are offloaded from the software
+   processing."
+
+After numerous tests with the hardware locking up after
+something between minutes and hours depending on load
+using iperf3 I have concluded this is necessary to stabilize
+the hardware.
+
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+Link: https://patch.msgid.link/20250408-gemini-ethernet-tso-always-v1-1-e669f932359c@linaro.org
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** This commit should absolutely be backported to stable kernel
-trees. Here's my detailed analysis: ## Critical System Stability Issue
-The commit fixes a **critical system stability problem** where the DDR
-PHY clock can be disabled, causing the system to lose access to RAM and
-crash. This is evidenced by: 1. **Root Cause Analysis**: The commit
-message clearly explains that "when the Lima driver turned off the gpu
-clock, this in turn also disabled the dpll and thus the ram" - this is a
-shared resource conflict that can brick the system. 2. **Hardware
-Limitation**: The RK3036 has "limited number of PLLs" where the DPLL is
-shared between the DDR PHY (memory controller) and GPU, creating an
-inherent conflict when GPU clock management affects memory access. ##
-Code Change Analysis The fix is **minimal and safe**: ```c static const
-char *const rk3036_critical_clocks[] __initconst = { "aclk_cpu",
-"aclk_peri", "hclk_peri", "pclk_peri", "pclk_ddrupctl", + "ddrphy", //
-<-- Single line addition }; ``` - **Single line change**: Adding
-"ddrphy" to the critical clocks array - **No functional changes**: Uses
-existing critical clock infrastructure - **No API modifications**:
-Compatible with all kernel versions that support Rockchip clocks - **No
-dependencies**: Self-contained fix within the clock driver ##
-Backporting Criteria Evaluation ✅ **Fixes important bug**: System
-crashes when GPU driver disables clocks ✅ **Small and contained**: One
-line addition to existing array ✅ **Minimal regression risk**: Only
-prevents clock from being disabled, no new functionality ✅ **Clear side
-effects**: Explicitly intended to keep DDR PHY always enabled ✅
-**Critical subsystem**: Memory controller availability is fundamental to
-system operation ## Similar Commit Pattern Analysis Looking at the
-provided similar commits, this follows the **exact same pattern** as
-Similar Commit #3 (Status: YES) which fixed "unrecoverable freezes and
-rcu_sched stall warnings" - both address critical system stability
-issues through clock configuration fixes. Unlike the other commits
-marked "NO" which were feature additions or exports, this is a **pure
-bugfix** addressing a **hardware design limitation** that causes system
-crashes. ## Conclusion This commit prevents **complete system failure**
-through a **trivial, safe change** that has **zero risk of regression**.
-The fix addresses a fundamental hardware limitation in the RK3036 where
-shared PLLs can cause memory controller clock starvation. This is
-exactly the type of critical stability fix that stable trees are
-designed to include.
+**YES** This commit should be backported to stable kernel trees based on
+the following analysis: ## Critical Stability Fix This commit addresses
+a critical hardware stability issue where the Cortina Gemini ethernet
+driver would "lock up and crash" after minutes to hours of operation
+under load. The commit message explicitly states: > "Without this quirk
+the driver becomes unstable and lock up and and crash." > "After
+numerous tests with the hardware locking up after something between
+minutes and hours depending on load using iperf3 I have concluded this
+is necessary to stabilize the hardware." ## Code Analysis of Changes The
+changes are minimal and contained within the `gmac_map_tx_bufs` function
+in `drivers/net/ethernet/cortina/gemini.c`: 1. **TCP Detection Logic**:
+The code adds early TCP protocol detection: ```c bool tcp = false; if
+(skb->protocol == htons(ETH_P_IP)) tcp = (ip_hdr(skb)->protocol ==
+IPPROTO_TCP); else tcp = (ipv6_hdr(skb)->nexthdr == IPPROTO_TCP); ``` 2.
+**TOE/TSO Activation for All TCP**: For non-GSO TCP frames, it now
+activates the hardware TOE/TSO engine: ```c } else if (tcp) { mss =
+netdev->mtu + skb_tcp_all_headers(skb); mss = min(mss, skb->len); word1
+|= TSS_MTU_ENABLE_BIT; word3 |= mss; ``` 3. **Simplified Checksum
+Logic**: The checksum handling is simplified by reusing the already-
+determined `tcp` boolean instead of recalculating it. ## Hardware
+Architecture Justification The commit explains this is necessary due to
+the coupled nature of the hardware's TOE (TCP Offload Engine) and TSO
+features: > "it is probably due to the TOE (TCP offload engine) feature
+that is coupled with the segmentation feature - it is not possible to
+turn one part off and not the other" This aligns with the datasheet
+description that the NetEngine performs "IP/TCP header parsing, checksum
+validation and connection lookup" as integrated hardware acceleration.
+## Pattern Match with Historical Commits Looking at the provided similar
+commits: - **Similar Commit #2**: "net: ethernet: cortina: Restore TSO
+support" (Status: YES) - This is the direct predecessor that restored
+TSO but didn't address the stability issue for non-segmented TCP frames
+- **Similar Commit #3**: "net: ethernet: cortina: Locking fixes"
+(Status: YES) - Another stability fix for the same driver Both
+historical commits addressing Cortina Gemini stability issues were
+marked as backport-worthy, establishing a pattern. ## Backport Criteria
+Assessment ✅ **Fixes important bugs**: Prevents driver crashes and
+hardware lockups ✅ **Small and contained**: Changes are localized to one
+function with clear logic ✅ **Minimal risk**: Only affects TCP frame
+handling, doesn't change architectural behavior ✅ **No new features**:
+Uses existing hardware capabilities more appropriately ✅ **Critical
+subsystem**: Network drivers are essential for system stability ## Risk
+Assessment The risk is very low because: - The changes only affect how
+TCP frames are processed by existing hardware features - The TOE/TSO
+hardware engine was already in use for segmented frames - The
+modification ensures consistent hardware state rather than leaving it
+partially enabled - The fix has been tested extensively by the author
+under load conditions This commit follows the stable tree criteria
+perfectly: it's an important bug fix that prevents system crashes, has
+minimal risk of regression, and doesn't introduce new features.
 
- drivers/clk/rockchip/clk-rk3036.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/cortina/gemini.c | 37 +++++++++++++++++++++------
+ 1 file changed, 29 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/clk/rockchip/clk-rk3036.c b/drivers/clk/rockchip/clk-rk3036.c
-index d341ce0708aac..e4af3a9286379 100644
---- a/drivers/clk/rockchip/clk-rk3036.c
-+++ b/drivers/clk/rockchip/clk-rk3036.c
-@@ -431,6 +431,7 @@ static const char *const rk3036_critical_clocks[] __initconst = {
- 	"hclk_peri",
- 	"pclk_peri",
- 	"pclk_ddrupctl",
-+	"ddrphy",
- };
+diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
+index 73e1c71c5092e..92833eefc04b4 100644
+--- a/drivers/net/ethernet/cortina/gemini.c
++++ b/drivers/net/ethernet/cortina/gemini.c
+@@ -1143,6 +1143,7 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
+ 	struct gmac_txdesc *txd;
+ 	skb_frag_t *skb_frag;
+ 	dma_addr_t mapping;
++	bool tcp = false;
+ 	void *buffer;
+ 	u16 mss;
+ 	int ret;
+@@ -1150,6 +1151,13 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
+ 	word1 = skb->len;
+ 	word3 = SOF_BIT;
  
- static void __init rk3036_clk_init(struct device_node *np)
++	/* Determine if we are doing TCP */
++	if (skb->protocol == htons(ETH_P_IP))
++		tcp = (ip_hdr(skb)->protocol == IPPROTO_TCP);
++	else
++		/* IPv6 */
++		tcp = (ipv6_hdr(skb)->nexthdr == IPPROTO_TCP);
++
+ 	mss = skb_shinfo(skb)->gso_size;
+ 	if (mss) {
+ 		/* This means we are dealing with TCP and skb->len is the
+@@ -1162,8 +1170,26 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
+ 			   mss, skb->len);
+ 		word1 |= TSS_MTU_ENABLE_BIT;
+ 		word3 |= mss;
++	} else if (tcp) {
++		/* Even if we are not using TSO, use the hardware offloader
++		 * for transferring the TCP frame: this hardware has partial
++		 * TCP awareness (called TOE - TCP Offload Engine) and will
++		 * according to the datasheet put packets belonging to the
++		 * same TCP connection in the same queue for the TOE/TSO
++		 * engine to process. The engine will deal with chopping
++		 * up frames that exceed ETH_DATA_LEN which the
++		 * checksumming engine cannot handle (see below) into
++		 * manageable chunks. It flawlessly deals with quite big
++		 * frames and frames containing custom DSA EtherTypes.
++		 */
++		mss = netdev->mtu + skb_tcp_all_headers(skb);
++		mss = min(mss, skb->len);
++		netdev_dbg(netdev, "TOE/TSO len %04x mtu %04x mss %04x\n",
++			   skb->len, netdev->mtu, mss);
++		word1 |= TSS_MTU_ENABLE_BIT;
++		word3 |= mss;
+ 	} else if (skb->len >= ETH_FRAME_LEN) {
+-		/* Hardware offloaded checksumming isn't working on frames
++		/* Hardware offloaded checksumming isn't working on non-TCP frames
+ 		 * bigger than 1514 bytes. A hypothesis about this is that the
+ 		 * checksum buffer is only 1518 bytes, so when the frames get
+ 		 * bigger they get truncated, or the last few bytes get
+@@ -1180,21 +1206,16 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
+ 	}
+ 
+ 	if (skb->ip_summed == CHECKSUM_PARTIAL) {
+-		int tcp = 0;
+-
+ 		/* We do not switch off the checksumming on non TCP/UDP
+ 		 * frames: as is shown from tests, the checksumming engine
+ 		 * is smart enough to see that a frame is not actually TCP
+ 		 * or UDP and then just pass it through without any changes
+ 		 * to the frame.
+ 		 */
+-		if (skb->protocol == htons(ETH_P_IP)) {
++		if (skb->protocol == htons(ETH_P_IP))
+ 			word1 |= TSS_IP_CHKSUM_BIT;
+-			tcp = ip_hdr(skb)->protocol == IPPROTO_TCP;
+-		} else { /* IPv6 */
++		else
+ 			word1 |= TSS_IPV6_ENABLE_BIT;
+-			tcp = ipv6_hdr(skb)->nexthdr == IPPROTO_TCP;
+-		}
+ 
+ 		word1 |= tcp ? TSS_TCP_CHKSUM_BIT : TSS_UDP_CHKSUM_BIT;
+ 	}
 -- 
 2.39.5
 
