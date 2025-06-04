@@ -4,61 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CD1C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CA3C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kDzZxSS5pAgakySOmEnisQPJw33Ve8a4ggUYF0KCQNs=; b=3YpxKxD35grSm2TRdwJj7CF89+
-	1qCUukF6JiK0nYmBX6jYAnOEpDlaTLCwy6itdLr2v3S6AqtY7sUJbqIkQn9ti6JJhEU7FAueUBWWV
-	3Knvi43Avg2qQvwclSQgOoQdm2xXSx9akwjWOzGEIWaERcuGoG+qtI8ZWj77apVj1XO5uoB97CpfO
-	PuoqQHGBOWgZJaNOhI3UBlO2wvSjAauFgkEpbH5VoHINlddLTEvaePqiDGZ5CrFpUTwXePyWo+1L9
-	UHCmaE0KLKH8GEJJQKRK3RJiZOgPrtIOuLZ1gLRVEUeY2mv3eneoVYRKq+Ec9+cUUVGUYD3zuPmJp
-	cDkfDpsw==;
+	bh=bCKMLvfrG58EXYW/q3xMdTa1ro6Bjgf7O9LMZV8k7Fg=; b=FgpbPiYRDLOeltD7L1TJ0A7cbH
+	8OANJqkmX+uA5noiD+xUDoHH4Ta8II5GDt0jAEKyl32S6PnM6M0Ztvm/hzBh2dnz0hqBrcXTEKvSK
+	ZpngXMjqi7OzQNY6uX7hCRmadNafmbxLIRXziFDNTyYVcL5M2sZ/MIJEPTqJHc3FfaMUfTVfg/1pm
+	2fyI/5LZgcR+18Q9ry3COFMqwfZiTm4KBf2rPpY7NZix02X9Y6nMwKwU8hXFf7JQ2GhSOYhPoqZPW
+	3T9rkWB0jQFGae99cLMI5WN9alcIp0kAanE4f7AZzahIOTkRGBDRdNttMyDWZXEmcueSYT1amsPaf
+	0aw1KIWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMojS-0000000DWM3-0pS3;
-	Wed, 04 Jun 2025 14:04:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uMoph-0000000DWwK-11gO;
+	Wed, 04 Jun 2025 14:11:09 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uModD-0000000DVQt-44lA
+	id 1uMona-0000000DWjX-2BPp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 13:58:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5A456A505DA;
-	Wed,  4 Jun 2025 13:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E53EAC4CEE7;
-	Wed,  4 Jun 2025 13:58:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749045495;
-	bh=Bqg4UfN3rwgsslMdb/hy9V7kMIKcpgx0adtAHnyJeUs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=tg77kAutQJ/i6IUyrsf2GE8fEIsvU219l2sdKoIoRAC6JETM9rVTYIV68AW2dBrcW
-	 nqnVR35PKl1LR08tz56gg+2vlOb6jQKagLUbN5oSLccDBz3rTM+0xMq0LzCAZ4zdKN
-	 /ntFtovHrpxFd6VhG+x+/cNPsCtvMFhMvx1/lKQBCSZOLBR7xO+z7Jpu6YQLT4ZndJ
-	 baaqSOUPtLwPRjFRf6KRqAYqT9BWWsIS7z/4JowUzsxjc5K9YD0NAO3jRyTSZYxofX
-	 JGh/7z4z/eOyspMzW3sHy5LLClo5pho5ySsFsUaJ6JtJEDBIcFyV/HwLX5tu+Z9fnC
-	 cs78vQ2MfZicg==
-Date: Wed, 04 Jun 2025 08:58:13 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 04 Jun 2025 14:09:00 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e817ac96e87so711777276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 07:08:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749046137; x=1749650937; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bCKMLvfrG58EXYW/q3xMdTa1ro6Bjgf7O9LMZV8k7Fg=;
+        b=ZpWvBcjBN+MrrGPrM3Tx8hhyl8gW7Xvz29XKeq1efNYAgq4j/quC91RGukYkuRD/WV
+         PXPaQyh5/VE15aupxf1OC0rVoLoY4fZCT+CjkJad+/iz/rwa7eoGN1Fie5J0YbijJWPN
+         D71gtH73MDk9Dd5BrvIaCFWo2mlIXyvcDqlU9JX8p6i1WDpEKo2SA4i7THctt7NbdWmP
+         IS1B2xWz2/tlXYUZj2QnJt/DM+3dt643SZdSFonSgkhTp0UeoyCkumKbN7nj+kzZThJ0
+         908loS5xoVXjMppHDdRwsNccLtxACAwzqF41xQc24cWBe9zR9dhIDHBAMRP3koQSWfzI
+         /BfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749046137; x=1749650937;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bCKMLvfrG58EXYW/q3xMdTa1ro6Bjgf7O9LMZV8k7Fg=;
+        b=I6o1XNeYToane4Aig05R41buNCR9E/DgcL2OUCHzDwjd+FwRmG92YQhN3sflzNcWzN
+         z0KI90Jxfvv323dHzIwdepwArNq2wdbnYlHMmnJsEj/Bu/wKepe8D+o88TyQCAePAHbi
+         fBXrZG8L69V8EVDfFnfH78zzHl34YocA9eaPISYL2eQFRzcCfZYaSLa/0OBdovHWKVoW
+         Xo3inNa6Fle/kFRBR4Q+n39yqZ0QLsz80PGT/YKP+cqZUlTMCb1hgbLvGgf7Qw2qAil/
+         haeZ4TQELCjdW8NHsnQEufddk8HMPCDNb2siD02vvstiiZJ9LbZwpCCCev7XRn0uOutF
+         kKWg==
+X-Forwarded-Encrypted: i=1; AJvYcCWLOocSwCFjfJESBKC2xrWxWuZxf5ydcUqqhhtafulLq8Uby2M2jZTU8lY+YyP6gdOui5kBk4k1qo0fuFYehMeP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfwxJ/1PnuiV3Y4ldeukjN1vEn8Fo59ok4axa8A3C1egJGnPA8
+	X7GZ81D33mzxZ2yAaEJwR13DS0V4FgaHcJKznvmkazAj27FRHbLgRPvUcGQ8+1Pb43/IWyHv1Vg
+	jmIbER9TOFLaKOAOjm7I3riKBkk87mCtekNkptDQRYA==
+X-Gm-Gg: ASbGncvolaGDugLGNGKegK06bF33Hgeo3acZT9P0PTZloXkusPqVtGM1kDID8Pl/RKM
+	ZzLgUOUVTHSYpMdSHL4Y+SdoSAQw+xUm9tvMap7sIf5iwoyoHXcHYfWIL81q/az09mgBFZv/YWm
+	ecItWkyg4rSDbWVzauXKKiFQaL3k+fD3CWDA==
+X-Google-Smtp-Source: AGHT+IH1uN9PQBI4TxvQgOMEHLZAQqYAI1FFT1QA2Z54eVoaJJVTZCIulnmyyn43PiYP3CgChRHTn+sbXKdyr+ZK87c=
+X-Received: by 2002:a05:6902:2291:b0:e81:8639:c5aa with SMTP id
+ 3f1490d57ef6-e818639ce67mr1014126276.32.1749046137370; Wed, 04 Jun 2025
+ 07:08:57 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: conor+dt@kernel.org, kristo@kernel.org, 
- linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, r-donadkar@ti.com, 
- linux-kernel@vger.kernel.org, vigneshr@ti.com, nm@ti.com, 
- devicetree@vger.kernel.org
-To: Jayesh Choudhary <j-choudhary@ti.com>
-In-Reply-To: <20250604104656.38752-1-j-choudhary@ti.com>
-References: <20250604104656.38752-1-j-choudhary@ti.com>
-Message-Id: <174904540135.3869675.422953390616565367.robh@kernel.org>
-Subject: Re: [PATCH 0/3] Enable audio support for J721S2-EVM
+References: <20250410-sets-bxs-4-64-patch-v1-v6-0-eda620c5865f@imgtec.com> <20250410-sets-bxs-4-64-patch-v1-v6-5-eda620c5865f@imgtec.com>
+In-Reply-To: <20250410-sets-bxs-4-64-patch-v1-v6-5-eda620c5865f@imgtec.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 4 Jun 2025 16:08:21 +0200
+X-Gm-Features: AX0GCFvzY5vbkEIzVaD80QV5URTGeK5dhN_mN9Qk3_Vhcas3hbWoHL7IT58BST4
+Message-ID: <CAPDyKFpKkSb=kGn4y18uFy9uhxFkjt7Gi2bUAzzqGnyUtTAoMg@mail.gmail.com>
+Subject: Re: [PATCH v6 05/18] drm/imagination: Add power domain control
+To: Matt Coster <matt.coster@imgtec.com>
+Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>, 
+	Darren Etheridge <detheridge@ti.com>, Michal Wilczynski <m.wilczynski@samsung.com>, 
+	Alessio Belle <alessio.belle@imgtec.com>, Alexandru Dadu <alexandru.dadu@imgtec.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_065816_138190_E11105E4 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250604_070858_562152_54B055F2 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,85 +99,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 10 Apr 2025 at 12:12, Matt Coster <matt.coster@imgtec.com> wrote:
+>
+> The first supported GPU only used a single power domain so this was
+> automatically handled by the device runtime.
+>
+> In order to support multiple power domains, they must be enumerated from
+> devicetree and linked to both the GPU device and each other to ensure
+> correct power sequencing at start time.
+>
+> For all Imagination Rogue GPUs, power domains are named "a", "b", etc. and
+> the sequence A->B->... is always valid for startup with the reverse true
+> for shutdown. Note this is not always the *only* valid sequence, but it's
+> simple and does not require special-casing for different GPU power
+> topologies.
+>
+> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> Reviewed-by: Frank Binns <frank.binns@imgtec.com>
 
-On Wed, 04 Jun 2025 16:16:53 +0530, Jayesh Choudhary wrote:
-> These 3 patches add the support to enable audio on J721S2-EVM.
-> 
-> This required the i2c-mux support[0] which is now in linux tree.
-> 
-> Now, this series ***depends upon only one dts change[1]*** to ensure there
-> are no dtbs_check warnings (no functional issues):
-> "ti,j721e-system-controller.yaml" refers to "ti,am654-ehrpwm-tbclk.yaml"
-> for clock-controller nodes, but for audio we need "ti,am62-audio-refclk".
-> When scm_conf is "simple-bus", there are no such warnings.
-> 
-> Test log: https://gist.github.com/Jayesh2000/840c19ef8f9b7f0f75dedd015ccbf98a
-> 
-> [0]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0fc829dbde9bf1f349631c677a85e08782037ecf
-> [1]: https://lore.kernel.org/all/20250603095609.33569-4-j-choudhary@ti.com/
-> 
-> 
-> Jayesh Choudhary (3):
->   arm64: dts: ti: k3-j721s2-main: Add McASP nodes
->   arm64: dts: ti: k3-j721s2-main: Add audio_refclk node
->   arm64: dts: ti: k3-j721s2-common-proc-board: Enable analog audio
->     support
-> 
->  .../dts/ti/k3-j721s2-common-proc-board.dts    | 131 ++++++++++++++++++
->  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi    |  99 +++++++++++++
->  2 files changed, 230 insertions(+)
-> 
-> --
-> 2.34.1
-> 
-> 
-> 
+Realize that I am a bit late to this, but I was recently pointed to
+this commit [1] by Michal.
 
+[...]
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+> +
+> +int pvr_power_domains_init(struct pvr_device *pvr_dev)
+> +{
+> +       struct device *dev = from_pvr_device(pvr_dev)->dev;
+> +
+> +       struct device_link **domain_links __free(kfree) = NULL;
+> +       struct device **domain_devs __free(kfree) = NULL;
+> +       int domain_count;
+> +       int link_count;
+> +
+> +       char dev_name[2] = "a";
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+It's certainly good to use a name to be future proof, but we should at
+least try to pick a somewhat descriptive name for what this PM domain
+is used for.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Moreover, this requires a corresponding update to the DT docs.
 
-  pip3 install dtschema --upgrade
+> +       int err;
+> +       int i;
+> +
+> +       domain_count = of_count_phandle_with_args(dev->of_node, "power-domains",
+> +                                                 "#power-domain-cells");
+> +       if (domain_count < 0)
+> +               return domain_count;
+> +
+> +       if (domain_count <= 1)
+> +               return 0;
+> +
+> +       link_count = domain_count + (domain_count - 1);
+> +
+> +       domain_devs = kcalloc(domain_count, sizeof(*domain_devs), GFP_KERNEL);
+> +       if (!domain_devs)
+> +               return -ENOMEM;
+> +
+> +       domain_links = kcalloc(link_count, sizeof(*domain_links), GFP_KERNEL);
+> +       if (!domain_links)
+> +               return -ENOMEM;
+> +
+> +       for (i = 0; i < domain_count; i++) {
+> +               struct device *domain_dev;
+> +
+> +               dev_name[0] = 'a' + i;
+> +               domain_dev = dev_pm_domain_attach_by_name(dev, dev_name);
+> +               if (IS_ERR_OR_NULL(domain_dev)) {
+> +                       err = domain_dev ? PTR_ERR(domain_dev) : -ENODEV;
+> +                       goto err_detach;
+> +               }
+> +
+> +               domain_devs[i] = domain_dev;
+> +       }
+> +
+> +       for (i = 0; i < domain_count; i++) {
+> +               struct device_link *link;
+> +
+> +               link = device_link_add(dev, domain_devs[i], DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
+> +               if (!link) {
+> +                       err = -ENODEV;
+> +                       goto err_unlink;
+> +               }
+> +
+> +               domain_links[i] = link;
+> +       }
+> +
+> +       for (i = domain_count; i < link_count; i++) {
+> +               struct device_link *link;
+> +
+> +               link = device_link_add(domain_devs[i - domain_count + 1],
+> +                                      domain_devs[i - domain_count],
+> +                                      DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
+> +               if (!link) {
+> +                       err = -ENODEV;
+> +                       goto err_unlink;
+> +               }
+> +
+> +               domain_links[i] = link;
+> +       }
 
+Most of the code above (and the error/remove-path) can be considered
+as boiler-plate code and can be replaced by using
+devm_pm_domain_attach_list() instead.
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250604 (best guess, 1/2 blobs matched)
+[...]
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+Kind regards
+Uffe
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250604104656.38752-1-j-choudhary@ti.com:
-
-arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:#clock-cells: 1 was expected
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:compatible:0: 'ti,am62-audio-refclk' is not one of ['ti,am654-ehrpwm-tbclk', 'ti,am64-epwm-tbclk', 'ti,am62-epwm-tbclk']
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:#clock-cells: 1 was expected
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:compatible:0: 'ti,am62-audio-refclk' is not one of ['ti,am654-ehrpwm-tbclk', 'ti,am64-epwm-tbclk', 'ti,am62-epwm-tbclk']
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:#clock-cells: 1 was expected
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:compatible:0: 'ti,am62-audio-refclk' is not one of ['ti,am654-ehrpwm-tbclk', 'ti,am64-epwm-tbclk', 'ti,am62-epwm-tbclk']
-	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
-
-
-
-
-
+[1]
+https://lore.kernel.org/all/a68e3bee-f4ad-4d73-a5a8-e39772c41711@samsung.com/
 
