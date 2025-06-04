@@ -4,88 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277A9C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 08:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BB4C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 08:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anhtEfC+aYWJeJvUly60jdWH8rm+sVcW8pcF9vb2eMk=; b=gouVlJbZT8A2SVG3/Z1vfQlwEV
-	CWHI5Z4H26EXfwPxWVjcxEElfbCAs2QCuHl0MKh0M5UEO/ogVuc+mbVM587pPK4tomab/Vm3mm7vx
-	GDWmnUFfs4TMi9iNY6Ims4TSbiGsnSjEMwb8mJTpuP8QtQ0HEGmYbXNzh6RXgGtV8/zPLJgDeERjm
-	enlDqJFIDoP1yAkWVN7HtopJSflwWc0cvOLSStwdaOS5LYsLlZsttw4xajdnG+IAL+fE0t4nuGDf4
-	XZxc9HrHGYpfgGLU920MJ5SoaTD8XpHWey0rFxXW20fl/DN6bqC/Hg8c7ANkKv4dvvZp1xEVGDQKO
-	wGIBeQdQ==;
+	bh=lQHwoMaMS3pBddPuGOSS8QoVRj/CJIKqPEmiKPR9kwM=; b=0k5SJwAmmaJT0C61iQTRAbdgtS
+	o8LXnwpyL6izHn1FFsF/I4hvnFJ0a2UZ1VQXE+XtF6cUpuQpiLXUG31TPag4ZxKR+9NSsG3DXuEfk
+	BkAoWK4oSxARX+i5XOUwGnevkFZqk7buJZMERfrdckZLEsTpoR11U8XChRpq1IP95TViJ9yjq4X8f
+	vHmajjqssqiN1vr1Ny2yga86H/djkcqE+HNNUdLzD/K7LvLooFNOpu271wseL6b3t7+jVrOhlJGhX
+	ITylPgBAB53KRFWJre0tJLmdXZ+K69fFPVD1rdwX3F9T9EEOT5uySuLSDl5KfReHgxDHsQdPYzqha
+	XpOZrBeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMjKv-0000000CsDx-1NvV;
-	Wed, 04 Jun 2025 08:19:01 +0000
-Received: from mail-ed1-f47.google.com ([209.85.208.47])
+	id 1uMjN0-0000000Csot-3u6O;
+	Wed, 04 Jun 2025 08:21:10 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMj0I-0000000Cod3-02Jo;
-	Wed, 04 Jun 2025 07:57:43 +0000
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6049431b409so11472627a12.3;
-        Wed, 04 Jun 2025 00:57:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749023861; x=1749628661;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=anhtEfC+aYWJeJvUly60jdWH8rm+sVcW8pcF9vb2eMk=;
-        b=LHs+IiuVcutNva6v8N3zgwvWG4MDVsns5dAXyg3UBXVYbK7drqeAFwUgaEtz4yKTSH
-         MqVpMru1+xC6zkUWQe6wDiHvVoE3TdqWGJH+6dVwW52zfVGJXmY29DoXfGQaqzjR0HFa
-         hpqIEL9qHLde/YUF/IBmMqmFL6rQ0df67gaVJpt3rhYKsg2TSQXZiENbP+zlf7gF6c8q
-         r33wnB5PdqpXTayvOPJaGJB7x8YK266UBkRWHHzvidvsLng8aRmCg+WDpUJfQEmFp1wr
-         xjVyFKmENGiU7YEXJ8AANLKXChO65eANmSB9Zdq7OxHbIk4UQfhiEge+iDXA9U7ykRyl
-         5q0g==
-X-Forwarded-Encrypted: i=1; AJvYcCXcz404SHxteFzGFv8hnOT4Cvc8rzVsGlrVtjLIxfZUZEQymeblOOPvhNfKex31yzVlHme84B51WPfk4r81PSo=@lists.infradead.org, AJvYcCXlgbhsERYfFvV7r9ZLvGdqW3tiQucLWYp4+2xcrcPLFN4CnFyCRMSkjPX2O0pPQzk+VEhL7XEqVGuuILYcVEqO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyItfBgVhiwlxJZyEELc/Bi88kuJJCzgVJqG9gS0kEXtBln94Bi
-	MorZKGT7pbv5GlWrt8n4Mp6pHQQBKBHa0YOCsk3VPOim04yHEntAHOaPQc/3xAzT
-X-Gm-Gg: ASbGncvU8NnTzS6+u/V+qU0JShv8kJ1kN6ORHvFnihVT3UsKNzJWQUw94Eywv8btvSi
-	KdQM8eqPiv1/tWaM+aXU0zCiBcPskPz1KJh7NivMlsLfIaAAEhC2VLKc8mfNcpA1OCQqab1PH0R
-	im15S2wgXpqZanIhCRon+sKC4RF1UI0FIEFRxx32nCvtJJlAcWSwn8RaLrdfRII2mGYLl2d2Arj
-	Mw7219f9xMnQLGxaciiepopdRPSBp5Hnndftt2rT8Q3ugtwMWC4CGtPNvSM0IVlApvAuVMj2Q89
-	xv9jobk/hvIysktJmCfQnUoihboR0jW8VqARKM0Li8HDOEHbw1m3k3HzjYakNI5XKUXV6pYkSwj
-	O4uChBo3vQQ==
-X-Google-Smtp-Source: AGHT+IEdWWoFUq/i9FS76C9R6P00UBxKykLRi5OkyXWDWifwVDn9o0aBT66QEk8p9MYrjo3JtwHUSA==
-X-Received: by 2002:a05:6402:234e:b0:602:c6a3:3f6 with SMTP id 4fb4d7f45d1cf-606e966e9b0mr2028441a12.13.1749023860547;
-        Wed, 04 Jun 2025 00:57:40 -0700 (PDT)
-Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-606fb36a160sm348569a12.45.2025.06.04.00.57.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 00:57:40 -0700 (PDT)
-From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Wed, 04 Jun 2025 09:57:23 +0200
-Subject: [PATCH v6 10/10] arm64: dts: rockchip: enable NPU on ROCK 5B
+	id 1uMj5P-0000000Cplf-2xDO;
+	Wed, 04 Jun 2025 08:03:00 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 553KpFxF006543;
+	Wed, 4 Jun 2025 08:02:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=lQHwoMaMS3p
+	BddPuGOSS8QoVRj/CJIKqPEmiKPR9kwM=; b=ESUGD/pUVt9p2Fd1+JnPE8DSvTp
+	z1Ly/GEHwN/Vlo+k9uEXXexBLGXSRQICsV5ax10u//6J96REJoqZKVd8Y3fQ7YFM
+	zwrL3OEFjJx7DxXOq4skKGDXfS1yBZ2AKw2oFp8nb8XTNBNF7kKthcF604MtvzdK
+	mzyB4ZWqoWDUuciRPS5aSGuYhNo0v6S7UUGuHvEzpfO11l2atOvbdCxh6VrcySlf
+	zcIsHLPvHK1m5obSIJnZTAkIS/uOZGy7t16dV+55pcX/A7LvEkOZIvAi+/WuBHn1
+	mVS0X1mmlcOs4GURBjhgJAuKmzfzgTDuCps0SE9Myr9dg3tSByYto91E7rw==
+Received: from aptaippmta02.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 471g8swa7x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Jun 2025 08:02:47 +0000 (GMT)
+Received: from pps.filterd (APTAIPPMTA02.qualcomm.com [127.0.0.1])
+	by APTAIPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 55482jWh003948;
+	Wed, 4 Jun 2025 08:02:45 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 46ytumens1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Jun 2025 08:02:45 +0000
+Received: from APTAIPPMTA02.qualcomm.com (APTAIPPMTA02.qualcomm.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 55482iRl003943;
+	Wed, 4 Jun 2025 08:02:44 GMT
+Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
+	by APTAIPPMTA02.qualcomm.com (PPS) with ESMTPS id 55482hB7003916
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 04 Jun 2025 08:02:44 +0000
+Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 4635958)
+	id 7AC4340D26; Wed,  4 Jun 2025 16:02:42 +0800 (CST)
+From: Wenbin Yao <quic_wenbyao@quicinc.com>
+To: catalin.marinas@arm.com, will@kernel.org,
+        linux-arm-kernel@lists.infradead.org, andersson@kernel.org,
+        konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+        conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        vkoul@kernel.org, kishon@kernel.org, sfr@canb.auug.org.au,
+        linux-phy@lists.infradead.org
+Cc: krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
+        quic_mrana@quicinc.com, quic_cang@quicinc.com,
+        qiang.yu@oss.qualcomm.com, quic_wenbyao@quicinc.com,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: [PATCH v4 2/5] arm64: dts: qcom: x1e80100: add bus topology for PCIe domain 3
+Date: Wed,  4 Jun 2025 16:02:34 +0800
+Message-Id: <20250604080237.494014-3-quic_wenbyao@quicinc.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250604080237.494014-1-quic_wenbyao@quicinc.com>
+References: <20250604080237.494014-1-quic_wenbyao@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250604-6-10-rocket-v6-10-237ac75ddb5e@tomeuvizoso.net>
-References: <20250604-6-10-rocket-v6-0-237ac75ddb5e@tomeuvizoso.net>
-In-Reply-To: <20250604-6-10-rocket-v6-0-237ac75ddb5e@tomeuvizoso.net>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
- Tomeu Vizoso <tomeu@tomeuvizoso.net>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: dSNcxvieKdWve-Kt8ZH-TWmqtoHavTOg
+X-Authority-Analysis: v=2.4 cv=EPcG00ZC c=1 sm=1 tr=0 ts=683ffda7 cx=c_pps
+ a=nuhDOHQX5FNHPW3J6Bj6AA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=ZDVFxM84AbWdf4itxYgA:9
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: dSNcxvieKdWve-Kt8ZH-TWmqtoHavTOg
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA0MDA2MyBTYWx0ZWRfX9VAlZbggzGFK
+ EcqjROSaieZ7UawfipqoPHwU099pTj90FiOolb1UedeMEuBO/+Y6Hrak9Rvxt2YzDYhz3kzTlZO
+ wIOkK7PuMmKjgEL23y1ETTmF3PmcXhmlJfH+WN9wQj4PPVZmAHNRErGnBOnAUlr8m/EtD97Vkt7
+ gHxMb06RZr4UpZbbdGdyZiY3RkaIJKaAqT87E85uttH0RQAJG4ehiUOEsldmQNp6HS07VCj3FYz
+ jK3aKBjl+jmyH9SWNqNJ3CaUfX1vpmI7hhIjNxAw2bCmibjuI4gaRlhOx6BHoJpRnwqaqbqJsE2
+ bK1yZ/aPRUsxtCbgk9f/AKO3V7b0y7u8ZcRhxGATjvsSawfGOjsMxa4/XhZQrtqWn7f9jawYUK4
+ pOKzOf1kSAFaBvtl/9G3AEUhqffBRpMp0ZfzTIbyMBX6uMom8JCodIU922vWfoHfVGkSKt8b
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-04_02,2025-06-03_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 suspectscore=0 bulkscore=0 priorityscore=1501 phishscore=0
+ impostorscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 mlxscore=0
+ clxscore=1015 mlxlogscore=942 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506040063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_005742_056660_B0CAE27A 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20250604_010259_744735_08C91A7A 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,101 +122,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+From: Qiang Yu <qiang.yu@oss.qualcomm.com>
 
-The NPU on the ROCK5B uses the same regulator for both the sram-supply
-and the npu's supply. Add this regulator, and enable all the NPU bits.
-Also add the regulator as a domain-supply to the pd_npu power domain.
+Add pcie3_port node to represent the PCIe bridge of PCIe3 so that PCI slot
+voltage rails can be described under this node in the board's dts.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Signed-off-by: Qiang Yu <qiang.yu@oss.qualcomm.com>
+Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 56 +++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ arch/arm64/boot/dts/qcom/x1e80100.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-index d22068475c5dc6cb885f878f3f527a66edf1ba70..49500f7cbcb14af4919a6c1997e9e53a01d84973 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
-@@ -316,6 +316,28 @@ regulator-state-mem {
- 	};
- };
+diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+index a8eb4c5fe..195404ccf 100644
+--- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
++++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
+@@ -3306,6 +3306,17 @@ opp-128000000 {
+ 					opp-peak-kBps = <15753000 1>;
+ 				};
+ 			};
++
++			pcie3_port: pcie@0 {
++				device_type = "pci";
++				compatible = "pciclass,0604";
++				reg = <0x0 0x0 0x0 0x0 0x0>;
++				bus-range = <0x01 0xff>;
++
++				#address-cells = <3>;
++				#size-cells = <2>;
++				ranges;
++			};
+ 		};
  
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c1m2_xfer>;
-+	status = "okay";
-+
-+	vdd_npu_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		reg = <0x42>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_npu_s0";
-+		regulator-boot-on;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+};
-+
- &i2c6 {
- 	status = "okay";
- 
-@@ -440,6 +462,10 @@ &pd_gpu {
- 	domain-supply = <&vdd_gpu_s0>;
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	hdmirx {
- 		hdmirx_hpd: hdmirx-5v-detection {
-@@ -500,6 +526,36 @@ &pwm1 {
- 	status = "okay";
- };
- 
-+&rknn_core_top {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_2 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_top {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_1 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_2 {
-+	status = "okay";
-+};
-+
- &saradc {
- 	vref-supply = <&avcc_1v8_s0>;
- 	status = "okay";
-
+ 		pcie3_phy: phy@1be0000 {
 -- 
-2.49.0
+2.34.1
 
 
