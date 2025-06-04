@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A089C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 12:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E1EC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 12:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XLzmrt7HH74wBMkQ1jIj6RZSL8Ap7h/ZY365Wy8qDIE=; b=SbqgBVGewGIr1f6sh+MHZgKF9W
-	FhgbjeCV8yuRqhCFZxi9/njxI0KE3P+oVkYb/eSl5YepRRTQaajVdvQFwSiO/Lw1n2sc63QPZ0Kck
-	XF4hFqI3r7Cv2XUnR0pjBJDUY9fwllF+OOyXvZ8ujUNvYaQa9Da1nJv63Pa44owj4aaRRUIqh81W0
-	RkKzyh/r9LaYSRsEUuEfwmvdaMuyBEhtw1zq+2zggoPKDoB54Sz0hbaUo35nKVtXz/peILqOqynxJ
-	3r1ZnU+eIxVEVSQc4bogR+5YxOy8uB3jqmw5KOTOlL5d5v3oXaSuUYjv6lBKmxagCyyQUC29sxE1r
-	cBO7N3XA==;
+	bh=Nq347pLBCt6jh1KVD9Wu7Qn059mejcf0np2rqK0xFfw=; b=yd+53jUHCSHdqTReOA5ZivQb0+
+	bRUuQHOhPLiEe7uKG/3fPKvap3o0TG+S0h62ooq2J/eT1XiqWP/PS/HQL+sZRAdKARArhMVE3T3L/
+	S8rGE9QrQJc20cLza7AO7v67olC1ZSUk7ZUriGOVlRJcTJVA4C37xwkQyNN6EUSgGCVHYGNBJB6G5
+	WegwnUxWkMPlREj3k6gQbeCnYuDDR1FCDMPbTl+UDJFc2cOgRmJnc2ref40jpmctsgR1nRTKCljI0
+	UNaWQ5NHlSJ3uFVeMFB3bjQBcjhIGC93lnEFT5wiZgwamd/aCFsc5GHoUa5adelESRQeYCXu3OTdI
+	xU9pa/Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMmxR-0000000DHzY-3sGn;
-	Wed, 04 Jun 2025 12:11:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMmzW-0000000DI8B-2lWO;
+	Wed, 04 Jun 2025 12:13:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMmdr-0000000DFPa-3AqU
+	id 1uMme1-0000000DFRt-0WAA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 11:50:49 +0000
+	Wed, 04 Jun 2025 11:50:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7CB6C49DF0;
-	Wed,  4 Jun 2025 11:50:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04A65C4CEEF;
-	Wed,  4 Jun 2025 11:50:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 56C9CA504C8;
+	Wed,  4 Jun 2025 11:50:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A582C4CEEF;
+	Wed,  4 Jun 2025 11:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749037847;
-	bh=MHb0T8EvRB2rgtEWggawV/NaKnjOHlkVsRie8KiLPrc=;
+	s=k20201202; t=1749037856;
+	bh=fGT+ENY9hAVokfZ1VOe2T4mkAYS/lF6idkXxeUS2ojU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rb8J/9xI3nhOn0X28+QZjVhppxiOJgiXN6e/6JuPat0MEhs8ycQp5VQSso21DGQu4
-	 KlQx/mqYK2TUKZAUszFcHuvQQV7vu0K9CJDruNENc51GBAUOXpz/dp9yA7LVpa9ZVt
-	 JTJ6hYjX75zqHQsu0GUI3MQ8hFY4IGs1UjYJ5jZ6OapYiWfWPF+lYyYR/QHCvRENYM
-	 +JsH6Nl1cSuJ6kcQH/xCszGE3Gd91fmeRaQMvDydXqK6KMVaKEtb69bOvFIbEYcoAD
-	 oheXGNg3tFgFM9QkE/RXtmJkx/ufqc/IgyUpxyu2x0ta64HEhz6O0NBZuPW5IsHht3
-	 zpG3VFk4D27jg==
+	b=P7YCcjnFXaqJWWxwtXDmhISzyV7mJC9JUhq50CRWLWfdQ9Og0QUQoQYGkjIZKpQ8s
+	 SqgB5CZm80CUMWICKovREmSzKrKt8kCP4WKFXZlOLgwfA3NOwTDv8j1mRbicnGHAme
+	 A6vGoQ2KeA8HceIXzHCxuXlxHWMj7+jvVD3PZGPocx7FqaaTMWU6NxxJDo/oLzY+pM
+	 zAQ0vyOeNotp5EGhejKtJDJu9ljBotDrq/3Y4ZQxlmnbUlefl5/qkeI6ssKIBEpAzD
+	 iel2lEqPWuwvir6Ew6U3Rt1FvzYY+Sx8q+GypUD52BroylJe9osDwnQ00kGgs3ISyX
+	 8IaTveTxMDxRQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -56,19 +56,19 @@ Cc: Sukrut Bellary <sbellary@baylibre.com>,
 	tony@atomide.com,
 	linux-omap@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 3/5] ARM: OMAP2+: Fix l4ls clk domain handling in STANDBY
-Date: Wed,  4 Jun 2025 07:50:39 -0400
-Message-Id: <20250604115042.209624-3-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 3/5] ARM: OMAP2+: Fix l4ls clk domain handling in STANDBY
+Date: Wed,  4 Jun 2025 07:50:48 -0400
+Message-Id: <20250604115050.209756-3-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250604115042.209624-1-sashal@kernel.org>
-References: <20250604115042.209624-1-sashal@kernel.org>
+In-Reply-To: <20250604115050.209756-1-sashal@kernel.org>
+References: <20250604115050.209756-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.237
+X-stable-base: Linux 5.4.293
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_045047_827535_5DBB7966 
+X-CRM114-CacheID: sfid-20250604_045057_302544_41D7D2C8 
 X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -153,7 +153,7 @@ index 68550b23c938d..eb6ca2ea80679 100644
  #define CLKDM_CAN_HWSUP		(CLKDM_CAN_ENABLE_AUTO | CLKDM_CAN_DISABLE_AUTO)
  #define CLKDM_CAN_SWSUP		(CLKDM_CAN_FORCE_SLEEP | CLKDM_CAN_FORCE_WAKEUP)
 diff --git a/arch/arm/mach-omap2/clockdomains33xx_data.c b/arch/arm/mach-omap2/clockdomains33xx_data.c
-index b4d5144df4454..c53df9d42ecf8 100644
+index 32c90fd9eba26..3303c41dcefe8 100644
 --- a/arch/arm/mach-omap2/clockdomains33xx_data.c
 +++ b/arch/arm/mach-omap2/clockdomains33xx_data.c
 @@ -27,7 +27,7 @@ static struct clockdomain l4ls_am33xx_clkdm = {
@@ -166,7 +166,7 @@ index b4d5144df4454..c53df9d42ecf8 100644
  
  static struct clockdomain l3s_am33xx_clkdm = {
 diff --git a/arch/arm/mach-omap2/cm33xx.c b/arch/arm/mach-omap2/cm33xx.c
-index ac4882ebdca33..be84c6750026e 100644
+index 084d454f60748..430a9de563a4e 100644
 --- a/arch/arm/mach-omap2/cm33xx.c
 +++ b/arch/arm/mach-omap2/cm33xx.c
 @@ -28,6 +28,9 @@
