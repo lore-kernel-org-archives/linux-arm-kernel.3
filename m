@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5A0C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 16:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D537C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 16:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0BbnVS9D20ezMI4EQTDWMDtbyTWlsW9ZoYQZlC7MMog=; b=TRCUDxNGil8w5uPlomuPt8J7+g
-	+du09ixriVkpFho/0wGzAPE5KmTIoZtL/cty8XKlqx5Efu5hNEYJfKYG37JJEtFbJgQmhyr4aB5Kk
-	JCiARJ4gqtst79BzKIbcuaz08Y+6NfNKMD0RanLkeGRsfEqy8wxgROJLKxcYv++PTVAP+SeaAKlae
-	5dbn9ckPt8kH6sjocfW7Xk2oNyPFqtH5pRgx4Be4FXN1ixjvPcQInNd4oDxrACLQ1OG4mIjrPitvw
-	vExp0fXZDTK4Si/0Q45QRkcQjA/McIapi+k8imi5Ro23z/lChp4MfbKueJ5SWWdJY47nmnT60IsOW
-	YTGqeXcg==;
+	bh=wFMCMbJITuoovSp6CQHXf/DpRmcuSqQ1RVhHc0lV4rE=; b=z7zLuOm1PXqHeMbO7xAxsI6PCc
+	2Jst+QL1QyZTAXm2gJaHuyQWwGD/br+Gu52m9ebyjb7DadnDcBFgieeZ3/5rabnUNUaG/82guBEot
+	eGAs2CbYRo66Lk9B34vPkQjnkBFcdr9LqjIZIAWTbHC2jt6OZzD8l7b0FI42g6o39A1fEx274lcXh
+	d2ZtGycwFNPirrGk7hxXgL/GvHfBm+R1sfcuAl4vWWHXcm/32vPlpfSD/bHtikKnYa9T424xxXKWp
+	93EHvmyAFS2MviCXdBnpKDOr47tePt5T9mDdUWVfnb3ZQTVPeiCVLAfwDqbrdoh6TsIF6rfDXZUki
+	BGdFFKFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrBe-0000000DoR6-3leU;
-	Wed, 04 Jun 2025 16:41:58 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uMrGI-0000000DosS-0Kce;
+	Wed, 04 Jun 2025 16:46:46 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMr9Z-0000000DoGj-0zyR
+	id 1uMrEB-0000000DomV-4BEt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 16:39:50 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 554F7slN011211;
-	Wed, 4 Jun 2025 18:39:21 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	0BbnVS9D20ezMI4EQTDWMDtbyTWlsW9ZoYQZlC7MMog=; b=mSugKeI2mDPxVCh1
-	HeGvrpJFummrgU1JBzlCbO6Inv6ABcTf1xTboAGXebQ4Va750dqiRf4t7gDXvgcp
-	WylEgtUpxhieyEkf9TNCZeZoPe6Oc0DQBD9JmAUCQhNLPztUPazCLOGgUSCwHoFx
-	2DEIoVPRSjgIfJOTjizbCsMG3KTVl44wQGE/Czla21dwM++eZZ3DCb6d+lJIvmbe
-	7mk7Y+PWPbC9AyIhOGtgRr6A9yIhAfXzbVA3BODhITE/zm00qhRKH0LI8SVW+PEU
-	arW8pHI5Jvm538mPnHgbSljWUwKisScM0COJ7pIgjE2Zslf6i4LMPz9yNWd4H4ug
-	qgA7Lg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 471g8vanv1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 04 Jun 2025 18:39:21 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B11B840049;
-	Wed,  4 Jun 2025 18:37:36 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 45605B4A8DE;
-	Wed,  4 Jun 2025 18:35:51 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 4 Jun
- 2025 18:35:50 +0200
-Message-ID: <3c7da784-e58e-4acd-a37f-93020796c0e7@foss.st.com>
-Date: Wed, 4 Jun 2025 18:35:49 +0200
+	Wed, 04 Jun 2025 16:44:37 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54c0fa6d455so976e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 09:44:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749055474; x=1749660274; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wFMCMbJITuoovSp6CQHXf/DpRmcuSqQ1RVhHc0lV4rE=;
+        b=H4PxF11BTopDqLHcxNODPSDg6yfovkpfvG5mcVbWq2vgxE8Qia2hHKNeqGY5ESnx7C
+         dIoVLAJbm7WqU1OVl8PTbHTYO984PRKXtKrFUgNF7FqJNNTXpyhaOPbbSeXBCOPF6JRS
+         EY0TZln3C/2AmovyCOsrRa0lVZqwzt30xw3IiNvuni8eYJDkmYvVQXyGYYcKhazM8CdE
+         uWCgs306CK4UyySEWYwSZqkqKFgqU0jKowg0MxGoU8wC7So2zato0IyEUkLrpYPRxkc1
+         QlG6xW7MtMlAX/v+XB4MSC/Wug2eR8wfeW+A3Qxy5D5p3oL5YcoQiBWYJVr/ETE5rzeO
+         o4pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749055474; x=1749660274;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wFMCMbJITuoovSp6CQHXf/DpRmcuSqQ1RVhHc0lV4rE=;
+        b=TwcNXWi+F60t/WjPhieVAcRiV2OwqWI4M19RaKavAXMWT9rgWgHWdd/75tjc+jr1BA
+         7ZSKh/KZBDHzG2qwJfFAv8P+UVm0C2rdYIup0T7Ff+KrBt2Ew5TLKwpizpz9DtGjSwrg
+         VmQBlppvuuFXZDaSMpC+qh+3LX4I18sZE1U3JtyFVZSIPSvMQP9h+PppjeqgKA2GZU0h
+         Pb22Qn4SMD4seUOaLiWhV/4Q+4gMIzomwirFMkmQLRv5WjjODaFoT1WEFiqYUOjtrQQH
+         pBZoCUzLVmJvKc1P6wMNsjWjeAV429+hlAu6NBo6Qg7bRnn4Y4PqurFg/JORfe0U4Y3c
+         3lMg==
+X-Forwarded-Encrypted: i=1; AJvYcCUfhBoVJHNSadfb5BNhSmdHySU5DnHGQn2gW4224Sd+Bx7dzlf3TfGe/qZjYRY2NLeDZhQG1HOg761a3OY/nrWB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9bwn3+H3gnwMbdOdeIu+CriFx/5eO0HiSTXmf7ucQoD/AljhE
+	oF609P+kw2OFDrNibnHPvxXNq/AgWtFDpFC7zaYA35zs6S6RLsGrtQ+DZxSMmKH10yPHiDtZPmX
+	OKkL49VcvReTeQwZDXoPre56CkFLVke0=
+X-Gm-Gg: ASbGncsHyTpI4WaDb8PlvxPa8gNKFsRQMLlkC7LdKTE1kqEAV2sRovHsenS80tQm0s6
+	Dcv9flcff4uqyMobX4fpHyeRVBOy6ocTvZQEJOnxUnrZKPEhKZk7oc6jjHkx6y/itS3DsXCCL1y
+	kGWwH8AJ5Y0CFmHxE38rJiZO//ZtDqSGyUTJfHII4nV32vbFByy5QE/NGvcWJivHPXGkUFTTq25
+	Je2ppd8bw4Ktg==
+X-Google-Smtp-Source: AGHT+IF/YsIUFahxFoeFKA3DR2RVxvuZILJjjOA/b6Zn6AHVPsWFoSWcKKxSdkTyVWeKMDIAuj3FRHVXkASKTjwKFFY=
+X-Received: by 2002:a05:6512:b86:b0:553:25b2:357d with SMTP id
+ 2adb3069b0e04-55357bd6f7fmr943933e87.52.1749055473351; Wed, 04 Jun 2025
+ 09:44:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Christian Bruel <christian.bruel@foss.st.com>
-Subject: Re: [PATCH v8 2/9] PCI: stm32: Add PCIe host support for STM32MP25
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-        <lpieralisi@kernel.org>, <kw@linux.com>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <thippeswamy.havalige@amd.com>,
-        <shradha.t@samsung.com>, <quic_schintav@quicinc.com>,
-        <cassel@kernel.org>, <johan+linaro@kernel.org>,
-        <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250423090119.4003700-1-christian.bruel@foss.st.com>
- <20250423090119.4003700-3-christian.bruel@foss.st.com>
- <gzw3rcuwuu7yswljzde2zszqlzkfsilozdfv2ebrcxjpvngpkk@hvzqb5wbjalb>
- <c01d0d72-e43c-4e10-b298-c8ed4f5d1942@foss.st.com>
- <ec33uuugief45swij7eu3mbx7htfxov6qa5miucqsrdp36z7qe@svpbhliveks4>
- <7df0c1e5-f53b-4a44-920a-c2dfe8842481@foss.st.com>
- <q4rbaadr7amsrtwaeickdjmcst77onuopir5rzpvixa7ow7udk@txwsmidjs3im>
-Content-Language: en-US
-In-Reply-To: <q4rbaadr7amsrtwaeickdjmcst77onuopir5rzpvixa7ow7udk@txwsmidjs3im>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-04_03,2025-06-03_02,2025-03-28_01
+References: <20250604153510.55689-1-stefano.radaelli21@gmail.com>
+In-Reply-To: <20250604153510.55689-1-stefano.radaelli21@gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 4 Jun 2025 13:44:22 -0300
+X-Gm-Features: AX0GCFtSAkrZTNsALuZF7FxrEF2hbsck5XT79hM6Y37nNbT0k-G0Qzh3cVE1Gmw
+Message-ID: <CAOMZO5BYBMq=5ir8WQBEH=h6SPpm4MiUrDoDJvJEH6ioUCB11g@mail.gmail.com>
+Subject: Re: [v2] arm64: dts: freescale: imx93-var-som: update eqos support
+ for MaxLinear PHY
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, othacehe@gnu.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_093949_764027_5C9A7841 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250604_094436_038128_9DDEB726 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Stefano,
 
+Nitpik: The subject line of your path should be:
 
->>>>>> +
->>>>>> +	ret = devm_pm_runtime_enable(dev);
->>>>>> +	if (ret < 0) {
->>>>>> +		dev_err(dev, "Failed to enable runtime PM %d\n", ret);
->>>>>> +		return ret;
->>>>>> +	}
->>>>>> +
->>>>>> +	pm_runtime_get_noresume(dev);
->>>>>> +
->>>>>
->>>>> I know that a lot of the controller drivers do this for no obvious reason. But
->>>>> in this case, I believe you want to enable power domain or genpd before
->>>>> registering the host bridge. Is that right?
->>>>
-...
-Runtime PM was broken in version 6.6 without pm_runtime_get_noresume()
+Subject: [PATCH v2] arm64: dts: ....
 
-On the 6.15 baseline, without this call, pm_genpd_summary reports the 
-correct information: active when a device is plugged, and suspended when not
+and not only
 
-So, I can proceed without pm_runtime_get_noresume(), as you mentioned in 
-your review.
-I suspect the other platforms might have this call for the same 
-historical reasons.
+Subject: [v2] rm64: dts: ....
 
-thank you,
+On Wed, Jun 4, 2025 at 12:36=E2=80=AFPM Stefano Radaelli
+<stefano.radaelli21@gmail.com> wrote:
+>
+> Variscite has updated the Ethernet PHY on the VAR-SOM-MX93 from the
+> Murata CYW43353 to the MaxLinear MXL86110, as documented in the
 
-Christian
+Murata CYW43353 is a Wifi chip, not an Ethernet PHY.
+
+I think you meant:
+
+"from the ADIN1300BCPZ to the MaxLinear MXL86110"
 
