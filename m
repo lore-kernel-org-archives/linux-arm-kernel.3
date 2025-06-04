@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9ADFC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 08:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50890C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 08:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LCPFAPADt8JOCJBFFfu1MyhQ+vPj22OqdN/un1YStz0=; b=G1r4AijniI9XKcZW+hRwkA/+ld
-	qTNZrkyRVjqCSecHoficanCNBrbCVt6tLHCe4FCrW6cGc4e/GFA4AeHC7r1z57h0Bftu4XTEVh+a9
-	LrvSF+OUgNTW2un+ZpdduVM7xiKGN/m0W0lCmOmEXo9wdD2oqs6DkLW6faHc0/dvXqvwMedPbJxXv
-	VJkjAIyE3mmCGPtB4uHiE5kz+VHCkkNFi9b0P6U2TeKJVJfR7PMnpk1a+HkUdKhUnWrzc+kW227iV
-	2foyektBPBA03kfxcTBX7Px6YRUtlGyGextoStXK97mkv4ZLlpL4xP0Q///dZ+QXO8HP6q8bzBG5P
-	n56EhE2w==;
+	bh=qhxUNZMk782m8rVDbncnLrWZuVZ5QZ3Bs0hyS8RTdoM=; b=FU48pfoNj49LLYwhjPZLgvgTNC
+	jrNddfLkmiBbMxzuKnU7fczTe8C+C7XdTlfOBjQGB8S066i737yJbCKvpPSKK8O8h8s/5St2wQCvw
+	YWb/1TSfbulXZXXpuU53Ivwn1yM8eJlWUWM3FR0GlLSLbI9NTobE0hhiye5lvJ5LQnHzWHui5Uq0F
+	M7oDKBdxsZQh/SHMBpk1xf9KDyeq9Qf5HbTxHzLJLxm2GS7+C+em9TRsWjvH1EtNvUKxsQGhNfCm4
+	wnERHqB7QOnQfnzUv8iW/VqMBdN95xw0xcHpfxqc51IvkZ6bHHFXjmw5Zj5zjKeH0lo7ftOm0HXZC
+	IZkE6Xpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMjk2-0000000CvnF-2qb3;
-	Wed, 04 Jun 2025 08:44:58 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uMjk6-0000000CvtX-2XYa;
+	Wed, 04 Jun 2025 08:45:02 +0000
+Received: from mail-vk1-f174.google.com ([209.85.221.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMjRd-0000000CtU5-3CMy;
-	Wed, 04 Jun 2025 08:25:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=LCPFAPADt8JOCJBFFfu1MyhQ+vPj22OqdN/un1YStz0=; b=Ddwg44kFMwOOqBVKp98e9Ri5nF
-	0t4YLM+TCicL6BAy/Ym89l27K60UgOgN0Vc/s9tMQSF5YXSjzwA0lYQnPqesHG8z3j3p6K0Saax9K
-	osb/9XUSHQMziUs9ZDdy7pCSb1HYjIcGaMA5832WtLeYsY/GluJ34pCVBJN/GHpl3quL+lVkUx/QG
-	jb6DFa5Arf5ERK2jYAZ60ww2w0ZibTjhmdj1k4BtYUmDXIyAH0b3t83H/xceFMDoK8SHCIvt34Ahj
-	ttPwCiE0naYusuB3fDhuEvn/D/yK497t98YVX/dPo98FdywF8tf7tODLvR6uYsqvlKJ/rjC1hXiwB
-	VOOuZPgQ==;
-Received: from i53875a2b.versanet.de ([83.135.90.43] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uMjR3-0006Av-Ec; Wed, 04 Jun 2025 10:25:21 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Kever Yang <kever.yang@rock-chips.com>,
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- Tomeu Vizoso <tomeu@tomeuvizoso.net>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v6 01/10] dt-bindings: npu: rockchip,rknn: Add bindings
-Date: Wed, 04 Jun 2025 10:25:20 +0200
-Message-ID: <2024813.jZfb76A358@diego>
-In-Reply-To: <20250604-6-10-rocket-v6-1-237ac75ddb5e@tomeuvizoso.net>
-References: <20250604-6-10-rocket-v6-0-237ac75ddb5e@tomeuvizoso.net>
- <20250604-6-10-rocket-v6-1-237ac75ddb5e@tomeuvizoso.net>
+	id 1uMjfu-0000000Cv9Q-0Rja
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Jun 2025 08:40:43 +0000
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-52b2290e28eso1796341e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 01:40:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749026439; x=1749631239;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qhxUNZMk782m8rVDbncnLrWZuVZ5QZ3Bs0hyS8RTdoM=;
+        b=KVv2UsEuMc7kuzd8WFfivCSoQYaVzvKrkE/3Tm4Blzl/gZ8a7Nwe3ZZ6Mk5OFBlQ+h
+         iwtDrxugpxVZ5O85TGb6sw4Vtdd+uV7BzxPTV1X0GhCdBy7Mjdc5mhzdsjUZUgHiHfbb
+         G9nd+FDtFYNmkiqf7Xn2KgIzDATp4N0/OdXgBGDgG4luLIUbAu10SoyC6Ag+sNahpR/P
+         D65vsQWrhaBZ1V6OXtxYPBaFIH1nasf/+TutDWNmIyPtM3jpF54gWQL+unIBzH7ZkRys
+         5lrC2gUZ549cp1ghYVtTobAnxLMqo4nWsvC69WnyX0dPyfys+NGPY7OhtmNvPhPEEFpn
+         3lXw==
+X-Gm-Message-State: AOJu0YzB/BYKxrhqzMgWhcKgNkPWBv0b0xRClBw+6mxEGJsTmpH3ojTh
+	cOVrd+tXoWHMxHeEcxvBRb9aCs2HMhh8w3L5/1HU/mKLVXuSZ+bU2CACsFTu6ft7
+X-Gm-Gg: ASbGncukLkPJxXoHn+OVqjy4uilGS5RgN1LcaWs/5vVLZgZ2HwBbxQ0NsXHquDHc61P
+	+axTXXKq2zUEB9rcHiRSaeA7PZ+iZ5JVrgk56PQbBF+mnnJIERosrLQCgEKOhF+4uUiGbYo7lN/
+	ZCTnEXzPWOpvdLiuSMa+uxGS2wO5pbGZPUH3G0OjGKdX96pRxchopLfzFVhqoNELXGHYmrPa0Af
+	5SofX5Q/9Q9FeXS7uVlIhaiMBAzvEsoKjX6IfZLhyzEPGOZKurggmpGNKZsa4tGgm/8ojlLcUou
+	ilnnVYDaRhFmsqSx9w2jq8hJio2VUFlmZe10DD0GBOw4Lvo2h9NI9xdDdstknKsKA3DFTqWMdJf
+	ilf3MrNA/SZsKg76M6esTjrCQ
+X-Google-Smtp-Source: AGHT+IH1qaAikYbqOzHwb8/UwBT0d1k4Sc++MRAW99NZprglanjIBDabMZmtCXQZVu4P4na92epw4A==
+X-Received: by 2002:a05:6122:a20:b0:526:2210:5b64 with SMTP id 71dfb90a1353d-530c893cc70mr806664e0c.9.1749026438623;
+        Wed, 04 Jun 2025 01:40:38 -0700 (PDT)
+Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com. [209.85.222.51])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53074ad9658sm10636675e0c.18.2025.06.04.01.40.37
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Jun 2025 01:40:38 -0700 (PDT)
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-87ea9ba1330so61522241.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 01:40:37 -0700 (PDT)
+X-Received: by 2002:a05:6102:26ca:b0:4e4:5e11:6832 with SMTP id
+ ada2fe7eead31-4e746d02e4bmr961072137.7.1749026437616; Wed, 04 Jun 2025
+ 01:40:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+References: <20250530225504.55042-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250530225504.55042-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 4 Jun 2025 10:40:25 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUFHKHKfymqa6jwfNnxZTAuH3kbj5WL+-zN=TR6XGd0eA@mail.gmail.com>
+X-Gm-Features: AX0GCFt2fyoFoIK_LxeiOZfQp_iroUz4k9ILNbeuJExEwejZlhTah3i6hKjIVnU
+Message-ID: <CAMuHMdUFHKHKfymqa6jwfNnxZTAuH3kbj5WL+-zN=TR6XGd0eA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] PCI/pwrctrl: Add optional slot clock to pwrctrl
+ driver for PCI slots
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_012557_819276_68E654AA 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20250604_014042_145752_36FF51A7 
+X-CRM114-Status: GOOD (  30.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,177 +88,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, linux-pci@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, Magnus Damm <magnus.damm@gmail.com>, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 4. Juni 2025, 09:57:14 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Tomeu Vizoso:
-> Add the bindings for the Neural Processing Unit IP from Rockchip.
->=20
-> v2:
-> - Adapt to new node structure (one node per core, each with its own
->   IOMMU)
-> - Several misc. fixes from Sebastian Reichel
->=20
-> v3:
-> - Split register block in its constituent subblocks, and only require
->   the ones that the kernel would ever use (Nicolas Frattaroli)
-> - Group supplies (Rob Herring)
-> - Explain the way in which the top core is special (Rob Herring)
->=20
-> v4:
-> - Change required node name to npu@ (Rob Herring and Krzysztof Kozlowski)
-> - Remove unneeded items: (Krzysztof Kozlowski)
-> - Fix use of minItems/maxItems (Krzysztof Kozlowski)
-> - Add reg-names to list of required properties (Krzysztof Kozlowski)
-> - Fix example (Krzysztof Kozlowski)
->=20
-> v5:
-> - Rename file to rockchip,rk3588-rknn-core.yaml (Krzysztof Kozlowski)
-> - Streamline compatible property (Krzysztof Kozlowski)
->=20
-> v6:
-> - Remove mention to NVDLA, as the hardware is only incidentally related
->   (Kever Yang)
-> - Mark pclk and npu clocks as required by all clocks (Rob Herring)
->=20
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../bindings/npu/rockchip,rk3588-rknn-core.yaml    | 144 +++++++++++++++=
-++++++
->  1 file changed, 144 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-c=
-ore.yaml b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.=
-yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..9a5e9e213912d0997da2f6ae2=
-6189adf044dcc7b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/npu/rockchip,rk3588-rknn-core.yaml
-> @@ -0,0 +1,144 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/npu/rockchip,rk3588-rknn-core.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Neural Processing Unit IP from Rockchip
-> +
-> +maintainers:
-> +  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> +
-> +description:
-> +  Rockchip IP for accelerating inference of neural networks.
-> +
-> +  There is to be a node per each core in the NPU. In Rockchip's design t=
-here
-> +  will be one core that is special and needs to be powered on before any=
- of the
-> +  other cores can be used. This special core is called the top core and =
-should
-> +  have the compatible string that corresponds to top cores.
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: '^npu@[a-f0-9]+$'
-> +
-> +  compatible:
-> +    enum:
-> +      - rockchip,rk3588-rknn-core-top
-> +      - rockchip,rk3588-rknn-core
-> +
-> +  reg:
-> +    maxItems: 3
-> +
-> +  reg-names:
-> +    items:
-> +      - const: pc
-> +      - const: cna
-> +      - const: core
-> +
-> +  clocks:
-> +    maxItems: 4
-> +
-> +  clock-names:
-> +    items:
-> +      - const: aclk
-> +      - const: hclk
-> +      - const: npu
-> +      - const: pclk
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  iommus:
-> +    maxItems: 1
-> +
-> +  npu-supply: true
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 2
-> +
-> +  reset-names:
-> +    items:
-> +      - const: srst_a
-> +      - const: srst_h
-> +
-> +  sram-supply: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - iommus
-> +  - power-domains
-> +  - resets
-> +  - reset-names
-> +  - npu-supply
-> +  - sram-supply
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rknn-core-top
+Hi Marek,
 
-should be rockchip,rk3588-rknn-core-top I think
+Thanks for your patch!
 
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 4
+On Sat, 31 May 2025 at 00:55, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Add the ability to enable optional slot clock into the pwrctrl driver.
+> This is used to enable slot clock in split-clock topologies, where the
+> PCIe host/controller supply and PCIe slot supply are not provided by
+> the same clock. The PCIe host/controller clock should be described in
+> the controller node as the controller clock, while the slot clock should
+> be described in controller bridge/slot subnode.
+>
+> Example DT snippet:
+> &pcicontroller {
+>     clocks = <&clk_dif 0>;             /* PCIe controller clock */
+>
+>     pci@0,0 {
+>         #address-cells = <3>;
+>         #size-cells = <2>;
+>         reg = <0x0 0x0 0x0 0x0 0x0>;
+>         compatible = "pciclass,0604";
+>         device_type = "pci";
+>         clocks = <&clk_dif 1>;         /* PCIe slot clock */
+
+I assume this should be documented in
+dtschema/schemas/pci/pci-bus-common.yaml, too?
+
+>         vpcie3v3-supply = <&reg_3p3v>;
+>         ranges;
+>     };
+> };
+>
+> Example clock topology:
+>  ____________                    ____________
+> |  PCIe host |                  | PCIe slot  |
+> |            |                  |            |
+> |    PCIe RX<|==================|>PCIe TX    |
+> |    PCIe TX<|==================|>PCIe RX    |
+> |            |                  |            |
+> |   PCIe CLK<|======..  ..======|>PCIe CLK   |
+> '------------'      ||  ||      '------------'
+>                     ||  ||
+>  ____________       ||  ||
+> |  9FGV0441  |      ||  ||
+> |            |      ||  ||
+> |   CLK DIF0<|======''  ||
+> |   CLK DIF1<|==========''
+> |   CLK DIF2<|
+> |   CLK DIF3<|
+> '------------'
+>
+> Reviewed-by: Anand Moon <linux.amoon@gmail.com>
+> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+
+> --- a/drivers/pci/pwrctrl/slot.c
+> +++ b/drivers/pci/pwrctrl/slot.c
+
+> @@ -30,6 +31,7 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
+>  {
+>         struct pci_pwrctrl_slot_data *slot;
+>         struct device *dev = &pdev->dev;
+> +       struct clk *clk;
+>         int ret;
+>
+>         slot = devm_kzalloc(dev, sizeof(*slot), GFP_KERNEL);
+> @@ -50,6 +52,13 @@ static int pci_pwrctrl_slot_probe(struct platform_device *pdev)
+>                 goto err_regulator_free;
+>         }
+>
+> +       clk = devm_clk_get_optional_enabled(dev, NULL);
+> +       if (IS_ERR(clk)) {
+> +               ret = dev_err_probe(dev, PTR_ERR(clk),
+> +                                   "Failed to enable slot clock\n");
+> +               goto err_regulator_disable;
+> +       }
+
+You are adding this block in the middle of the regulator handling.
+Please move it below, under the devm_add_action_or_reset() call
+(which is handled wrong, I have sent a patch[1]).
+
 > +
-> +        clock-names:
-> +          minItems: 4
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rknn-core
+>         ret = devm_add_action_or_reset(dev, devm_pci_pwrctrl_slot_power_off,
+>                                        slot);
+>         if (ret)
 
-should be rockchip,rk3588-rknn-core
+[1] https://lore.kernel.org/f60c445e965ba309f08c33de78bd62f358e68cd0.1749025687.git.geert+renesas@glider.be
 
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 2
-> +        clock-names:
-> +          maxItems: 2
+Gr{oetje,eeting}s,
+
+                        Geert
 
 
-Heiko
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
