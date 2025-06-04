@@ -4,63 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B868AC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A008C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LK6VpX04SwtO5xS11sN/O8n+68gw/07ItJasjDmV1c8=; b=JYhY90MYpoMlxTf7s3PKymruo5
-	ROtxx+/PsQMhA81VAkf6YPhEhwPfjPn1sXPUIB8UJatrsW4s5nPY4cHNG4IimB1dGpaBRSsm5Na/8
-	2pJiSvhMn/aTJtm6aKrcXXQZ0cip8sgToDXvzmaB/TbULRIu/ZJay0DsINtRg/KUPRggN9nXiP89n
-	eoS+nVOhO98fkhJ4Yhd/uRK09HXGKI7XNxRgE8ohKHyIsDwGBIK3hhH064qW2by8F4hVvPYW9YO6e
-	NvcJF2jZHL3P0UEndNg4h7i2vEecsuXnlk9ag4ZqPBeI+gQbsVmScaXW5AUVENb1q/0tcSCgNbYKt
-	8Yn/ts4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A32ObEoNOzLLIhJ2a8FlXtgVuyOGCOxMjYMX7sZKo4c=; b=ssrg+9rXkbhFet1YaqriSgWxU3
+	BqzJiBmXkQkqGiSej/oidEwNN41okBTtKcOl/e81B9h7bmSetSDHQD7tmjQYjZvK/tQ05qv/iHgly
+	7kGoZzgM+fTIEWLJyryClQaqktUpc+zd5YSlR5tqIye94kgqS8kYp4q6hDYNzUAVNQ0cq+MLhlM5L
+	L8YEy3LvZGT1WofqwBl3xFc6WNXiylgM0jY2XoILMd8cZ94jvYb5+wwmiLRjxlO2ZigyMGznqZ4OV
+	EuGYYY1ElIfW48Dnmo+savUCjXBqvEGsRBKyizlaO/apwuQiN5u73sgO03fF3gticzmgi3GWeP4xD
+	mqeI/q6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpFk-0000000DatN-1lab;
-	Wed, 04 Jun 2025 14:38:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uMpR9-0000000DcqZ-2e01;
+	Wed, 04 Jun 2025 14:49:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpDd-0000000DaWX-0puA
+	id 1uMpP2-0000000DcTm-1KUb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 14:35:54 +0000
+	Wed, 04 Jun 2025 14:47:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7029DA5044C;
-	Wed,  4 Jun 2025 14:35:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBA53C4CEE4;
-	Wed,  4 Jun 2025 14:35:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749047752;
-	bh=5t5I2NI/JMw2bEnJTqzhPKY9bh0Wo+3tCVbzxMva+CQ=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=H23h20oSkr5wnFXM8TFWBPGBAlo37cL9WeSh/3XpfRiqO85sbEluXHlyKDm6X+t4c
-	 QxYRJ3LVtLul3FRNiRQzBU33RJVk/E2DSICZKHACGdrVOiF0pwy7YNX/utROFlN0xO
-	 hkh/cOB0+K4gsRhr9bQV1KcPc3R+vMucXPoCviDd9Rz11hGxrmIj3xgQMPN3Gq0XXD
-	 ydSmYx9TTcSovNlXaONNOmh7clCqKil33EG5EoalAZWs4zpkpwGdPjU8Em9EZe46Nn
-	 ywAnKMrukcXgt2qVw3z+13ID6t4yYshD2Wy7cImNWDX/CVuTRNOUQPq88FigswQ5op
-	 ybAzCNkTM9Ehg==
-Date: Wed, 04 Jun 2025 09:35:49 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3B78AA5062D;
+	Wed,  4 Jun 2025 14:47:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4FD7C4CEEF;
+	Wed,  4 Jun 2025 14:47:37 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] arm64: dts: renesas: ebisu: Add CAN0 support
+Date: Wed,  4 Jun 2025 16:47:32 +0200
+Message-ID: <612b999870dd64789041e4b0e9c568389b3fb95e.1749048320.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org, 
- jassisinghbrar@gmail.com, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, joel@jms.id.au, linux-kernel@vger.kernel.org, 
- andrew@codeconstruct.com.au
-To: Jammy Huang <jammy_huang@aspeedtech.com>
-In-Reply-To: <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
-References: <20250604125558.1614523-1-jammy_huang@aspeedtech.com>
- <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
-Message-Id: <174904774987.4021667.10220150728052993146.robh@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: mailbox: Add ASPEED AST2700 series
- SoC
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_073553_301883_43BDD3E1 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250604_074740_424617_D04C8C32 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +60,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On R-Car E3, Classical CAN0/1 and CAN-FD share the same sets of pins, so
+only one of them can be used at the same time.
 
-On Wed, 04 Jun 2025 20:55:57 +0800, Jammy Huang wrote:
-> Introduce the mailbox module for AST27XX series SoC, which is responsible
-> for interchanging messages between asymmetric processors.
-> 
-> Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
-> ---
->  .../mailbox/aspeed,ast2700-mailbox.yaml       | 57 +++++++++++++++++++
->  1 file changed, 57 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
-> 
+Add support for using CAN0 instead of CAN-FD channel 0 on Ebisu.
+By default, only CAN-FD channel 0 is enabled, as before.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+Both CAN0 and CAN-FD channel 0 were tested on Ebisu-4D.
 
-yamllint warnings/errors:
+To be queued in renesas-devel for v6.17.
+---
+ arch/arm64/boot/dts/renesas/ebisu.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.example.dtb: mailbox@12c1c200 (aspeed,ast2700-mailbox): reg: [[0, 314688000], [0, 512]] is too long
-	from schema $id: http://devicetree.org/schemas/mailbox/aspeed,ast2700-mailbox.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250604125558.1614523-2-jammy_huang@aspeedtech.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/arch/arm64/boot/dts/renesas/ebisu.dtsi b/arch/arm64/boot/dts/renesas/ebisu.dtsi
+index 4f38b01ae18de4f7..c518638b58db129e 100644
+--- a/arch/arm64/boot/dts/renesas/ebisu.dtsi
++++ b/arch/arm64/boot/dts/renesas/ebisu.dtsi
+@@ -327,9 +327,18 @@ phy0: ethernet-phy@0 {
+ 	};
+ };
+ 
++&can0 {
++	pinctrl-0 = <&can0_pins>;
++	pinctrl-names = "default";
++
++	/* Please only enable canfd or can0 */
++	/* status = "okay"; */
++};
++
+ &canfd {
+ 	pinctrl-0 = <&canfd0_pins>;
+ 	pinctrl-names = "default";
++	/* Please only enable canfd or can0 */
+ 	status = "okay";
+ 
+ 	channel0 {
+@@ -579,6 +588,11 @@ avb_pins: avb {
+ 		function = "avb";
+ 	};
+ 
++	can0_pins: can0 {
++		groups = "can0_data";
++		function = "can0";
++	};
++
+ 	canfd0_pins: canfd0 {
+ 		groups = "canfd0_data";
+ 		function = "canfd0";
+-- 
+2.43.0
 
 
