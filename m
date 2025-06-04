@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09F4C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 06:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93FB8C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 06:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MyVjPzyLcJPTQJH1h6UfkUu9+f/KgbX90KrYVoyGLHY=; b=Qv6hGb1E6BVtURJn2bN811mC0z
-	fk2hVhdPCVboPu1uc7ltX7CxqWkbVl2vaMTaRp8U150xVKBvdvwpnQ2/AOm3w8/Bbx/Xw9265CjeF
-	dWyT/khcUP29lF5u1+PWAPtcIaK5IGR7MW2wqu9ZKSvEKpCIiAzHH6YLZ3PaZ95/94IJvgbjDodY9
-	beJn1ujM/MHgfkMYGo32IRLjlg15F3RIbiCMmI+GnbTX8Zw1L6mWCoNkzVNF6Nqfm6KD7Lqt7pPAe
-	cLUizZHbSLBqQTcJPJqHHk8Vezs8e6//N+NAgOGOKzzAeZzdAT7zAPude7pl7O39tRAdKmQv5WFik
-	eYT5/lWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v8HGAMvgvG3UZ4UC/tG4gpIAXZXxtoeUQmeefuQQdjY=; b=b40U3/6dM5+7qziGo2HkTlxdSi
+	FnyvXYBVaLhmRkA/OFh/V4gzLPuJ49uiLSSjzwbKI3l4jqxVBHcXe7hunXIuAIZQ8H6yKQC2MxdVH
+	7Gr3lFJTVe3hvefqWYKizE0p0bgSkv2WbJsaw/Z/lPmSTZsdvQ9HKZmNBzOA7IKT3vDAmzS1VZIJJ
+	mXEM6pxW2Zjp52eFsSNpceWtlj3IQ4RJvNw63KC2/F8ldycujxVIN71Vl7N7HVk/Rbf2C6ib4dj6+
+	KBNPhBfDFZUpsV1N6VULeTBCetc0FKfWMIUharvuATv4EFuEtYR7DXVP/koLwpD1UV/+4Lu81bZEY
+	ykEzJWqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMi39-0000000CiaD-1uiV;
-	Wed, 04 Jun 2025 06:56:35 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1uMi5F-0000000Ciqk-0kTn;
+	Wed, 04 Jun 2025 06:58:45 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMhzk-0000000Chu4-0jtJ;
-	Wed, 04 Jun 2025 06:53:05 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4a5851764e1so5971471cf.2;
-        Tue, 03 Jun 2025 23:53:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749019983; x=1749624783; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MyVjPzyLcJPTQJH1h6UfkUu9+f/KgbX90KrYVoyGLHY=;
-        b=QRT5QZeP42O4Ndgy9iOKL6dET0iv39HLUyuIUAzTHvjukhOaxYzRiLhEeZlE2/L77M
-         4kK5CHlQsmK6mqi9Glx0qfK3zzsi4RK1waqcXJzhc9k6JiEzqhAjqB4Q0nMX6/a58TXK
-         IlRM3eegSrBhbyChzEGfo8kW4CmKuCBDkcKVjywwE2txfvB1bGkN0zAV/+7a13McYOne
-         h2zW4iUSYbpZrAgHOgZecOU1LeSfRGMHXXd+CjD8a9ROedjplz0jt0eSluXlVNFrvR2X
-         AGgJaanpF0AATh1lMy7jy686HsJ1tzSQyPDurggs/Kwa+TichIvrSPPOlielrqT8uNfU
-         md7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749019983; x=1749624783;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MyVjPzyLcJPTQJH1h6UfkUu9+f/KgbX90KrYVoyGLHY=;
-        b=cOVjjfvfILSt8lPbDse70hGMBD9BeAHoDeSPoDA2fqHfvkSRVJyfQL41Y2JAMyaSUE
-         nDl0Ii859v5nml9J6uTEL+/DIZwUmE6iS4sty/gXOKLfyey+Bty4GywT19fJvI/lGBct
-         NMJ/y0TcxE1b1/yZ/7zLMrD8BsVxAIS9W4ejHDrG6DQvhEgN6uGJRTMtKu/1NsQTMJEa
-         xQIE8kow/gH9ouM4hKwHVxhdVEKSqAJaCsQn5YafHp2HVOio6/HlbLc6hAlkrILGI9BJ
-         qrEFL90qKOle8J9kADPHQ9qOtEQsHaBfqciSl2RF+LzWIZp9QwV3uXpDd7S+WPcDpU1E
-         FTMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUd6dAHh+dROHiVSmz1Kkz2tnD74mHGj+nN6cILbWQIIX76g98Z0V5byNqQG/Agkc5tsNXVF2VyBQzro8/OmC4=@lists.infradead.org, AJvYcCVE3+jebpjoCZ/7ihxvKAUZTF2K+YDNJSGe1+TdUPxL3UWn+eDUXvSnu9ROfxMqeRNIpTwftD6cxFcQoCXxqCGq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWmlEYjKDh5/VP29hic5NBRIRjzz7OI1/jmVBRUxr7+cYfq1YP
-	QDizP6fjjBe1shhHf/i7hdwN9cdIpsiccDNv2dc808vnCzpnMXD+ETCXF8jH077yC1+xyD9n0PR
-	WaDqGdfI8GHna2GO0zp6o4r2+1WMVXcY=
-X-Gm-Gg: ASbGncuwFEkL897tepTbLt+R3IzEUODbF1iaS/2IXCru4yskMfZPeC6fkaq7t+S66jX
-	UZfB0OHFZ+6BO4TiVJgaxauDfE6KpMVq+ipeNVm5XGaIFEJUFrWaQEDpSlCihknM9OcCIvO0KqK
-	x2TMoqZk8IUNQ1Pz2eiG/qpSfXUAsV2vg=
-X-Google-Smtp-Source: AGHT+IF7dEVyEdH+C/HunhhJcZxvr/1H6/oLSYayWQ8oFVL13uluh9+PHp86HTOwmJ9nRQzKHedGjPMItad1gxDjveE=
-X-Received: by 2002:a05:622a:4d94:b0:4a5:8b39:626b with SMTP id
- d75a77b69052e-4a5a57bbda3mr28729721cf.27.1749019982787; Tue, 03 Jun 2025
- 23:53:02 -0700 (PDT)
+	id 1uMi1G-0000000CiDJ-3YGn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Jun 2025 06:54:40 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uMi1D-0001En-I2; Wed, 04 Jun 2025 08:54:35 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uMi1D-001kRj-0o;
+	Wed, 04 Jun 2025 08:54:35 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1uMi1D-00AV4Z-0E;
+	Wed, 04 Jun 2025 08:54:35 +0200
+Date: Wed, 4 Jun 2025 08:54:35 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Adam Ford <aford173@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, aford@beaconembedded.com,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/4] arm64: dts: imx8mp: Configure VPU clocks for
+ overdrive
+Message-ID: <20250604065435.nl3l6h3wxrwstswl@pengutronix.de>
+References: <20250530221713.54804-1-aford173@gmail.com>
+ <20250530221713.54804-5-aford173@gmail.com>
+ <20250601183620.npuicmipv6kv54z6@pengutronix.de>
+ <CAHCN7xKjEt3rq4VUOSSTqcT4SyWxSCPLHGf6jR6KVHvor5wfKQ@mail.gmail.com>
+ <CAHCN7xLr-7YQ9P8022g3SNPVgfQcEU8rSzZ-grMMom8kLm6e0Q@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <20250603-sige5-updates-v1-2-717e8ce4ab77@gmail.com> <5590100.Sb9uPGUboI@workhorse>
-In-Reply-To: <5590100.Sb9uPGUboI@workhorse>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 4 Jun 2025 10:52:51 +0400
-X-Gm-Features: AX0GCFvSCwxOtW_Sjp_6g6sDf5cAGfQNHG5Np4jna6_VvTZF7K2r6CnfR_dIWK0
-Message-ID: <CABjd4YwtbMTT1W1rEdZzZ=KC3_EXXYKQBsTMiH5mPXPhgvQ=Lw@mail.gmail.com>
-Subject: Re: [PATCH 2/4] arm64: dts: rockchip: enable USB A ports on ArmSoM Sige5
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHCN7xLr-7YQ9P8022g3SNPVgfQcEU8rSzZ-grMMom8kLm6e0Q@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_235304_212645_22A40D9E 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250603_235438_885752_6F898CF1 
+X-CRM114-Status: GOOD (  35.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +87,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 3, 2025 at 9:51=E2=80=AFPM Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
->
-> On Tuesday, 3 June 2025 19:01:14 Central European Summer Time Alexey Char=
-kov wrote:
-> > Enable the two USB type A ports (USB2 and USB3) present on the ArmSoM
-> > Sige5 board.
+On 25-06-03, Adam Ford wrote:
+> On Mon, Jun 2, 2025 at 10:35 AM Adam Ford <aford173@gmail.com> wrote:
 > >
-> > Both ports use just one xHCI controller, with the USB 2.0 signals fed
-> > off the same USB OTG PHY through an onboard hub. VBUS of both ports is
-> > controlled by the same GPIO regulator (VCC_USBHOST in the schematics,
-> > toggled by GPIO4 RK_PA6).
+> > On Sun, Jun 1, 2025 at 1:36 PM Marco Felsch <m.felsch@pengutronix.de> wrote:
+> > >
+> > > Hi Adam,
+> > >
+> > > thanks for the patch.
+> > >
+> > > On 25-05-30, Adam Ford wrote:
+> > > > The defaults for this SoC are configured for overdrive mode, but
+> > > > the VPU clocks are currently configured for nominal mode.
+> > > > Increase VPU_G1_CLK_ROOT to 800MHZ from 600MHz,
+> > > > Increase VPU_G2_CLK_ROOT to 700MHZ from 500MHz, and
+> > > > Increase VPU_BUS_CLK_ROOT to 800MHz from 600MHz.
+> > > >
+> > > > This requires adjusting the clock parents. Since there is already
+> > > > 800MHz clock references, move the VPU_BUS and G1 clocks to it.
+> > > > This frees up the VPU_PLL to be configured at 700MHz to run
+> > > > the G2 clock at 700MHz.
+> > > >
+> > > > Signed-off-by: Adam Ford <aford173@gmail.com>
+> > > > ---
+> > > >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 12 ++++++------
+> > > >  1 file changed, 6 insertions(+), 6 deletions(-)
+> > > >
+> > > > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > index 909555a5da4b..848b25c9b752 100644
+> > > > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> > > > @@ -2256,8 +2256,8 @@ vpu_g1: video-codec@38300000 {
+> > > >                       interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> > > >                       clocks = <&clk IMX8MP_CLK_VPU_G1_ROOT>;
+> > > >                       assigned-clocks = <&clk IMX8MP_CLK_VPU_G1>;
+> > > > -                     assigned-clock-parents = <&clk IMX8MP_VPU_PLL_OUT>;
+> > > > -                     assigned-clock-rates = <600000000>;
+> > > > +                     assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>;
+> > > > +                     assigned-clock-rates = <800000000>;
+> > > >                       power-domains = <&vpumix_blk_ctrl IMX8MP_VPUBLK_PD_G1>;
+> > > >               };
+> > > >
+> > > > @@ -2267,8 +2267,8 @@ vpu_g2: video-codec@38310000 {
+> > > >                       interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+> > > >                       clocks = <&clk IMX8MP_CLK_VPU_G2_ROOT>;
+> > > >                       assigned-clocks = <&clk IMX8MP_CLK_VPU_G2>;
+> > > > -                     assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_1000M>;
+> > > > -                     assigned-clock-rates = <500000000>;
+> > > > +                     assigned-clock-parents = <&clk IMX8MP_VPU_PLL_OUT>;
+> > > > +                     assigned-clock-rates = <700000000>;
+> > > >                       power-domains = <&vpumix_blk_ctrl IMX8MP_VPUBLK_PD_G2>;
+> > > >               };
+> > > >
+> > > > @@ -2284,8 +2284,8 @@ vpumix_blk_ctrl: blk-ctrl@38330000 {
+> > > >                                <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
+> > > >                       clock-names = "g1", "g2", "vc8000e";
+> > > >                       assigned-clocks = <&clk IMX8MP_VPU_PLL>, <&clk IMX8MP_CLK_VPU_BUS>;
+> > > > -                     assigned-clock-parents = <0>, <&clk IMX8MP_VPU_PLL_OUT>;
+> > > > -                     assigned-clock-rates = <600000000>, <600000000>;
+> > > > +                     assigned-clock-parents = <0>, <&clk IMX8MP_SYS_PLL1_800M>;
+> > > > +                     assigned-clock-rates = <700000000>, <800000000>;
+> > >
+> > > I think we can drop the "assigned-clocks = <&clk IMX8MP_VPU_PLL>" part
+> > > completely.
+> > >
+> > > Before your patch the IMX8MP_VPU_PLL_OUT was used as clock-parent for
+> > > the IMX8MP_CLK_VPU_BUS. With yout patch IMX8MP_SYS_PLL1_800M is used.
 > >
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> >  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 38 ++++++++++++++=
-++++++++
-> >  1 file changed, 38 insertions(+)
-> >
->
-> This is already done here:
->
-> https://lore.kernel.org/linux-rockchip/20250507-rk3576-sige5-usb-v3-4-89b=
-f5a614ccf@collabora.com/
+> > I think you're right.  I'll fix that up and do a V2.  I forgot to add
+> > my own s-o-b tag, so I'll fix that too.  I'll try to do it this week.
+> 
+> Marco,
+> 
+> I tried removing the assigned-clock references to the IMX8MP_VPU_PLL,
+> but i found the defaul speed was 800MHz for the PLL even when asking
+> G2 to be 700MHz.  The only way that I found to set the G2 to 700MHz
+> was to set the VPU_PLL to 700MHz.  I can do that either inside the G2
+> node or the vpumix_blk_ctrl node. I generally like to have the
+> blk_ctrl do it since it controls the G1_ROOT and G2_ROOT clocks, but
+> it doesn't seem to hurt it being inside the G2 node either.  I can see
+> the argument for having it insde the G2 node, since the G2 clock is
+> what's requiring the VPU_PLL to be 700MHz.
+> 
+> Let me know your preferences, and I'll move forward accordingly.
 
-Oh cool! Sorry I missed that one. Your series is much more
-comprehensive, so this patch of mine can be dropped. Thanks for your
-work!
+Hi Adam,
 
-Would you mind chiming in on the other patches here, given your
-knowledge of the hardware?
+thanks for testing. IMHO we should do the clock handling within the G2
+node. This requires no comments because the code would be obvious else
+you need to comment the setup of the IMX8MP_VPU_PLL within the
+vpumix_blk_ctrl node because this is not obvious.
 
-By the way, you guys don't seem to carry those patches of yours in the
-Collabora tree [1]? Nor the TSADC updates as far as I can tell.
-
-[1] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/=
-blob/rockchip-release/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts?=
-ref_type=3Dheads
-
-Best regards,
-Alexey
+Regards,
+  Marco
 
