@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE58C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 13:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FFBC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 13:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tC9iYEXmlPpatd1qYNBGszNIrKERHR8YSkcQ5CjfbMM=; b=Id3SRbxowIFKHdyz3ByUPVb0mu
-	wKZeb7zS0Zvoz952uMYZOMDC5muaTXgAMOpASVnG4IYSmdBX+TgZ7F63KB7z4HR/A0waW0zIoknmu
-	P/GpZ6MtrhFdp46vuzCD+pmhhakWwhQSwLzAvn20Cc9oiJvMQADrnzz73poUHEFmRsV8Qc9qpHw90
-	iypHxICjvBVKlUpcviSZdzl9YVT1OdjrQ0YYVygrl/VfpVIlLkCpsJgWK1EAyGuhiDHCIyVAUbfa6
-	yXaNJARtFUKatUrXx5cXN3m8IFPbg1RASq22PzBS6qVD1gYOI5VyacDD3Sl434dQplY1S82COXbb1
-	prAQzBvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=42EU1sJyYdG5F1cgKizvK41dUy6Q1Og1sjraWSNVWMs=; b=fA0e/kHjAxsBT5ScLW0LF2kYXN
+	VBylIMZAUO4gAOqvuk5APWAx/nJ3jeOgoBuabtPhp11yEXzK47lGkYl1tJSYzRPFPsyUmXy767mZh
+	1LuOcQ4BVB1/v04Ybb2Me/7fSi17sWni6ja/GFMbQ1dN5HWLCZUmGH6EG1MozBCtbH1oyOfONRpxp
+	0h+FBS+wquA5h3u/3RwObVlmbJqB2j5PxIOZh8fHeChcPRWuWYvR7ELd3FPjDeLU3RSVWZX7AJcnZ
+	rF29mp74g7ob1NQcBYI8BDr7JG8WE4sSC6NaDaTZCYMjZ85oxgo2nyGqklrJzWvCBWLnFLvTvTbrX
+	RF7IH9pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMnuL-0000000DPmB-12lu;
-	Wed, 04 Jun 2025 13:11:53 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1uMo6C-0000000DRBD-2ZBo;
+	Wed, 04 Jun 2025 13:24:08 +0000
+Received: from mail-oa1-x29.google.com ([2001:4860:4864:20::29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMnr0-0000000DPKQ-3p6F
+	id 1uMo44-0000000DQwk-2yyc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 13:08:28 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e740a09eae0so5999689276.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 06:08:26 -0700 (PDT)
+	Wed, 04 Jun 2025 13:21:58 +0000
+Received: by mail-oa1-x29.google.com with SMTP id 586e51a60fabf-2cc57330163so4300295fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 06:21:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749042506; x=1749647306; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tC9iYEXmlPpatd1qYNBGszNIrKERHR8YSkcQ5CjfbMM=;
-        b=nfQshFw0dFfnxvhEJIuheFfw/kKTo4f0kGPY5LVrLQiv5wdQD0hV/bpXLP78lvVEAg
-         HroWj9scgP+3kyHi7d2hGyE3Q4dPJr1yUwgmAeJG11tBUWs93G9lFcDXBRcLWAk4R9xb
-         mnNVh9Cdh8NCHrN+BL/wtMQzvTbswqSFH/lvLlkD87s0dvbVUQL/c1RHooqPw7+vXX9q
-         /jwh5UxgS3hgYf3cjO1/R+cLCuZzmkzYi0perUnZS/CAj4cSUFZOVPfPQ2k9AMD9URBe
-         YA1xIyIBma/9o0VetuLpaxGHqgQ3jzEckqHr1K02z0bJKhJ1wNmA2pbkxWw43Oixnuee
-         VmEA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749043315; x=1749648115; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=42EU1sJyYdG5F1cgKizvK41dUy6Q1Og1sjraWSNVWMs=;
+        b=1JxLbpZNa31SZMANvx8iIV1SwpkUfA35lPK+ljwfUmE0wH+SVkGQUJtcjRlSGZop1o
+         y4nZl99vXdDksODj+spmgJsbNuuwdOtiwviXeWmXER/uFf5JiXGk+hnivk9j89Y2hdk/
+         b2RdRzWUtEzVEJ3kasz/xVMu5BC4+KVaHM35MySBxC99KLKi2jCuXBi4E3GZ8RLH6Y+1
+         dmMVRS6ehPH+LjQb3h8d3bHPl6fYUqlQBhpDki/lSBUE3qdLk3IEszc/5EwfJcoCyitq
+         MzazWnxrzs+cRyrh77ahlMJZceRjFELQW0Hss8cMcTBA8DunoMN4o7FFL0zQmk5aZNAe
+         MokQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749042506; x=1749647306;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tC9iYEXmlPpatd1qYNBGszNIrKERHR8YSkcQ5CjfbMM=;
-        b=c/QbfRgJY6w15pXaXkNVE4/OzR2Nq3PSjNWkfMDsrZTNMSXyvz8qhH6KZupbpb1UYD
-         Qhtb09p9CxEiNwvi9v+ApxDlhvVF7FwpvoWPsLiZFV+WG/MbD95TugSdS2m7opwApI5D
-         Lhv0Z2i0LB+USAAxDjSGGANJz8yWJY8QsZu5t+zTcUdxO0Q6nGDU1eH6vwkoXeTdvfu8
-         sOONf4LOqrpITNpJGr8AKw9yz1tKgFfqT+LyurF0MkDfEdE0sVpO9144gnyx7LcrBCpb
-         L/pCyugsK4D2TaxgVAoD4wZpS1i6VlUSmYk/jVpDlxmYLYoIRvsXDlAcVIxYtF+UIG3y
-         YVnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVhKR8M8y5U/hGLuZPFtuKgl424UiUijw/FBr2E7RzwyHtGAdi+Jso7f8bDjki5efgX8nQw8Bau7lVaYuTWFEl5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgqSrMuD60WDEnqsUXZeeEr9DB1yzw2TKAQ7ISbeKJ6zZWu0Px
-	/zLuj+fv5ANu+T2+3n8CasKT+js+c1xtEKFrtA0VHXugRr33zIv4dOVM1WGc61Rs3YaoV4C/uCg
-	v5A1WKAgm2DjKqKZhxUh5wUn/cn+ZSGQ=
-X-Gm-Gg: ASbGncu81f3Lmq9owEElhFntdzLrSRGggzKJh6mM5p1+/XTxsFzpsK4va8t2JTCpk/X
-	Nj2+9wy055wT22t93uMY7kKBwx7YrLPJUmmTQ4BaLgsUrn66WJjZx2irVrfmEOcPIie3pzmbhI3
-	+Hq6yBfiqiJSP2UtdEFEECYfGmVA1TXqA=
-X-Google-Smtp-Source: AGHT+IF7alnMbrbqO9NpYJkpsB5jxOjXxEiktzWLUbq/kLNxP6YnbLIfTtGPBT1xFbh0wT4mofPVUoUINuQKSsuFkGw=
-X-Received: by 2002:a05:6902:10c1:b0:e81:7e16:aac1 with SMTP id
- 3f1490d57ef6-e817e16e42bmr2304215276.35.1749042505640; Wed, 04 Jun 2025
- 06:08:25 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749043315; x=1749648115;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=42EU1sJyYdG5F1cgKizvK41dUy6Q1Og1sjraWSNVWMs=;
+        b=UMHNwBxSGp8AyJyMWCBywzTXbjZMkMcv9LHatISIwrIOS/hxnHxK1hIEq1vuQpQGrV
+         bmyov7vrc2oTLQanAVC36Y2brIO9k+3vt0D2y9k9pFEoaHV+pfvqCC9Sxmf5+O/JIrJ7
+         fNA0j+MDC1vlyRHrj66U4gPoUH341+3yrski3UhXXPI8KOUm2u7uNY8GKeKkBw9gd7ey
+         y8Xcl6bpGJVRnrqNjcIqZLcYqvRzOKfXLs6QG2jhJZG/JMOQDXOKZMWw34//LgJCbwm0
+         MCxnKDocP/95MJcTUYmGcG+7c1NtzoRI6HpzKVGQyfi51G/FY36zq9MaGLGORpqSQSOd
+         bRrQ==
+X-Gm-Message-State: AOJu0YzA93mob6hzyzIKnTkHdvXcn7DdRLUHr1nnrgjYsY8Pe3/CB3fX
+	SqP8slWOLIle11K3YXM3hrm2BtBeuxaYRaTUq9ecf0Ln5/9PEVAbmhD34RnzZ9ABomc=
+X-Gm-Gg: ASbGncvK8DRTEkqFtvjN3M3dbGfpYAx7ssNXiQimvOf5Wc4zyyRRSKOwTeFfa3qjdGX
+	JQgVm/GvWXUVtnNPs5XI9IdP3Yg+xQwsZ3auoisW8xJEnG3PP/8sY7q1yniXt+/XQZUkK1Oe62q
+	qA5sIKP2QC5y8QLvl5BsyRfXXdPdOZJ6hxBqMF/aAPe00RBiXVVFNEf2kJmw3O9HtYSEbywSpFG
+	MmplU6KDyBQS3hpm+2PZMmuIg6/KKkgMDyAaM5qGL2GrEkloBN9p5eK8I0qWmjuhykzxm9oU1E8
+	ZQcBrcxEpb1PEsoT4cm0GByjtHwpz6ufWoV3IahZE0NSU/SGJFBrpWzFDSm4DVTyOf/nFgyL8Iy
+	qsbORP45t9LjccVGjvEBQwlmpBaJpAiNstPiYDj8=
+X-Google-Smtp-Source: AGHT+IEeJlq8acVoI6eGj1GQFdyqUT4Gx77dcBUJqg3CfYkU0wTl237zJBQxk+ufigaGhCyRnVkMlA==
+X-Received: by 2002:a05:6871:42c4:b0:2d4:d9d6:c8bf with SMTP id 586e51a60fabf-2e9bfc6c923mr1651646fac.32.1749043315015;
+        Wed, 04 Jun 2025 06:21:55 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:56f4:67ce:c6e3:8f76? ([2600:8803:e7e4:1d00:56f4:67ce:c6e3:8f76])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2e906816c51sm2622910fac.28.2025.06.04.06.21.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Jun 2025 06:21:53 -0700 (PDT)
+Message-ID: <3ff77f5c-b13b-49f5-98b0-a799453768d0@baylibre.com>
+Date: Wed, 4 Jun 2025 08:21:51 -0500
 MIME-Version: 1.0
-References: <20250603221416.74523-1-stefano.radaelli21@gmail.com>
- <54c4a279-a528-4657-8319-c9374add54b7@lunn.ch> <CAK+owoihxp-2xAvFfVthvNELshti_3V-pFgD7D7jzd1XqiLgGQ@mail.gmail.com>
- <d5f891d7-d24a-4f85-b59d-313b925c4495@lunn.ch>
-In-Reply-To: <d5f891d7-d24a-4f85-b59d-313b925c4495@lunn.ch>
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Date: Wed, 4 Jun 2025 15:08:09 +0200
-X-Gm-Features: AX0GCFs1swEQiYv2NQSRcTQZ_03Yg7U17iAxPh_wyGwxwshbS1HFhm1xVLPn_sI
-Message-ID: <CAK+owog69JktbsBhHZj7ULYXmH_bZ-CO8=QEMqBVc0mjp8jz6g@mail.gmail.com>
-Subject: Re: [v1] arm64: dts: freescale: imx93-var-som: update eqos support
- for MaxLinear PHY
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] counter: microchip-tcb-capture: Add DMA support for
+ TC_RAB register reads
+To: Dharma.B@microchip.com, kamel.bouhara@bootlin.com, wbg@kernel.org,
+ Nicolas.Ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev
+Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250528-mchp-tcb-dma-v1-0-083a41fb7b51@microchip.com>
+ <20250528-mchp-tcb-dma-v1-2-083a41fb7b51@microchip.com>
+ <b45ea46b-3e17-4cb9-8e69-9eea0a3f8241@baylibre.com>
+ <27407669-a580-482c-8c60-226b56562ce6@microchip.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <27407669-a580-482c-8c60-226b56562ce6@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_060826_948145_0BE17212 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20250604_062156_830278_CC263B97 
+X-CRM114-Status: GOOD (  28.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +105,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On 6/4/25 1:15 AM, Dharma.B@microchip.com wrote:
+> On 29/05/25 9:03 pm, David Lechner wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>
+>> On 5/28/25 1:13 AM, Dharma Balasubiramani wrote:
+>>> Add optional DMA-based data transfer support to read the TC_RAB register,
+>>> which provides the next unread captured value from either RA or RB. This
+>>> improves performance and offloads CPU when mchp,use-dma-cap is enabled in
+>>> the device tree.
+>>
+>> It looks like this is using DMA to read a single register in the implementation
+>> of a sysfs read. Do you have measurements to show the performance difference?
+>> I find it hard to believe that this would actually make a significant difference
+>> compared to the overhead of the read syscall to read the sysfs attribute.
+>>
+> Hi David,
+> 
+> Thanks for the feedback.
+> 
+> You're right — in our current testing setup, I didn't observe any 
+> significant performance benefit from using DMA to read the TC_RAB 
+> register via sysfs. I benchmarked both DMA-based and direct MMIO 
+> register access using a userspace program generating high-frequency 
+> capture events, and the overhead of the sysfs read path seems to 
+> dominate in both cases.
+> 
+> Our initial motivation for using DMA was that the TCB IP in Microchip 
+> SoCs includes optional DMA support specifically for capture value 
+> transfers. I wanted to evaluate the potential benefit of offloading CPU 
+> load when frequent capture events are occurring. However, in practice, 
+> the complexity added (especially due to blocking behavior in atomic 
+> contexts like watch) does not appear to be justified, at least via sysfs 
+> or simple polling.
+> 
+> I also tried routing the DMA-based read through the 
+> COUNTER_COMPONENT_EXTENSION watch path, but as you may expect, that 
+> ended up hanging due to blocking behavior in non-sleepable contexts. So 
+> that route seems unsuitable without a more complex asynchronous 
+> buffering model.
+> 
+> Would you suggest exploring a different approach or a more appropriate 
+> interface for DMA-based capture (e.g., via a dedicated ioctl or char 
+> device with async support)? I’m happy to rework it if there's a suitable 
+> context where DMA adds measurable value.
+> 
+> Thanks again for your review and time.
+> 
 
-To clarify more precisely: hw team told me that the required 2 ns
-RGMII delays are
-implemented directly in hardware inside the SOM itself, through passive delay
-elements (filters) placed on the RX and TX lines. There is no reliance on PHY
-strap settings or any kind of delay configuration via registers.
+Adding a feature just to make use of something a chip can do doesn't
+seem like the wisest approach. Without know how people will actually
+want to use it, we would only be guessing during the design of the
+userspace interface. It would be better to wait until there is an
+actual real-world use case and design something around that need.
 
-This means:
-- The delays are fixed and cannot be changed via software.
-- From the point of view of any carrier board, the interface is
-already timing-compliant.
-
-Given that, using phy-mode = "rgmii" in the DTS is intentional and
-correct, since the
-necessary internal delays are already guaranteed by the SOM hardware design.
-
-Let me know if further clarification would be helpful, would it help if I add a
-clarification about this in the commit message for v2?
-
-Best regards,
-Stefano
-
-Il giorno mer 4 giu 2025 alle ore 14:01 Andrew Lunn <andrew@lunn.ch> ha scritto:
->
->
-> 61;8001;1cOn Wed, Jun 04, 2025 at 09:37:39AM +0200, Stefano Radaelli wrote:
-> > Hi Andrew,
-> >
-> > I double-checked with our hardware team, and it turns out that all required
-> > RGMII delays are already handled by the hardware on the SOM (trace
-> > tuning + PHY config).
->
-> What do you mean by PHY config?
->
-> The four RGMII modes you can use with phy-mode are purely about the
-> PCB. If you have the PHY strapped to add delays, what does not count
-> for PCB, and if you are not careful, future software could reconfigure
-> it.
->
->         Andrew
 
