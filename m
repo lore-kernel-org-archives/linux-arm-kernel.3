@@ -4,159 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F2BC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 04:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442B0C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 04:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ql9iWjnVGDohSwlk9rcqjImOKxbZtilwXuShfpV3aQg=; b=CgyHblXAIw7sw8i2vHiB3fSGfa
-	dP//jjaFCpHXS62K4f++7QZU9uMgvSyTjeZcfmVAv7H17glQqGbINe/ZACvybfw1aWM/9jdiPCEJr
-	UyC0FeKkwvMYjeq+o9n/ya8acRdqB22lknS0LXXCOMDQuntB+VOJYg7QXbDVLryt1CeJXoeO2xuz3
-	N3mKJyNtthc/3PbQQ0UJ1nSHn2rPaIto85KnQForUpri0Ds2Ygi8YV3a9U4ofyTpnZ45/i8Kq0Rw9
-	+tiPPcEnSx26ZeV/iBuCJ8h30gGDNDgw20QpBM+yD3SFnTWO81FLXz9nvk5dTbepgI4tjcNll2HVK
-	IY7ngveg==;
+	bh=t/oXCYfs8p22yX2veREcR01aN8OcxQDVRRVacg1XFbU=; b=xZY4YPP7LxZe204m2efwnDl/k7
+	IXt6DHeMExwf+xDvECyvSdJJvzwyd0ZdA/KYa9aA9Y3NTdFfEaaOdQoAObmrhW6d1mnXFVC1mxQYq
+	BpoT9TMZ5fH+mpVBu7Hhx203MBG4/R9VYBAEwixqfi8qMMgMlhmR7anM2nO29N7QBKKu8dKmChnRG
+	Lec+UA7fGCH2sf+nDMpDc8pH6SHvJOL3vXlxpao7CUK7jCTo5Sfr0jgu+COkYVZK0R08Ptdz4YAH2
+	lkjnTPjw70U7Wmbc0mqMenn7Bm/019x7TcKOcOprREccaPsAqE52KUWJhoHl2smkdQJ7VfO4mF7f8
+	9eGT5a3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMfdB-0000000CY2j-2rfG;
-	Wed, 04 Jun 2025 04:21:37 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uMffK-0000000CYKk-0AXh;
+	Wed, 04 Jun 2025 04:23:50 +0000
+Received: from mail-mw2nam12on2060d.outbound.protection.outlook.com ([2a01:111:f403:200a::60d] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMefZ-0000000CQYT-0qp9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 03:20:02 +0000
+	id 1uMeiZ-0000000CQnA-00gU;
+	Wed, 04 Jun 2025 03:23:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=efZ83OucKsW17V4DsougpAkAxm1wud2ZNfuCR7RUTHPq6vWehBqw5hsYybYK96SZM0yLdIQBZMPSThkP9ABLUep5dr2NLWpzbAb0Q/KGbbdQ2WIsM+AZ+kLO8qgpg4eDX1RvsZZf130YjH2xcgrUxdaK5dDrIb8NnQ6UadM8cUt8X6oIqDYyLsTGD+L6njYSvVF4P7LOJUIL37CdflhHWP+86qaGOVJnzl8Y3fW3dGTVXI/Qx2LVB+QCsbOuisQCUxR+ZOtigKllHQWxdSt+3ts5c+2qnHLlFAZv8MQQurU6RwqFDyuTRIrjanAFde02MONF6bvD/7YonrhIKBlMRw==
+ b=Jr8t8rryO7sagnj9+2ilIFZK3QtA9s6v1jrmY3E4LfhTtb7UoGKIp3erYDVnAsGdr2idw8qn3MMd7q90rHCCIlkLg1lU2mcxP/M+t83zLjFrLfDAEyeq7yuVQrKTRvFQyX6UqbH4GZvLlcxfzQZ4aZ7o4EyAeSvGTsILBCT7R9cQzHdueQNGp29EUpCWceCSFCidcZk33jH1RDRh4JKIl0IlIogxOCAQ8wHYfE45sk1uc2tbJkWvwJIGmkD2ImEQUrw9StR7P3OiIvLsLrwKkr7RHKD1VU9ahyzLJmD+5AHqR48oc7L2v4jFni4IHj1eKLec2nBzxppn3o4Uyp1+/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ql9iWjnVGDohSwlk9rcqjImOKxbZtilwXuShfpV3aQg=;
- b=sQ6QnAi9VHxiF4mYED5v9ItxG3Sw1cSSBxpOuiZqd7w8yNjETZaFAjNtG18C9OiGc4oB1vd5t+otQ4827YGQ8o6O7ETY2HfKIAvhkoAe4lE/BWYVIhcF0eRaXKyXPLlp0+hVqdf0U702GzXcZpNq9JHoFU6YLus4ndfz5tRr751XEktv5xr2lrlsgmLmKi1CJfgXwPsHBtDPMrmNKQqAlcegy0IjwP7r0scIFXrmgxMGbQ+n/8epc8xGTDDbQb0bSDOPicKFDFDR999k+mwhGdQrqQzo1NxNUcuhe2rOXMF/hkPO3ZyorCKpd5r0KEFSP12j5CQIuxKrNlOCv1nPwQ==
+ bh=t/oXCYfs8p22yX2veREcR01aN8OcxQDVRRVacg1XFbU=;
+ b=TbqWUCHLlCYrMVlrplKYOCPpqan16Li7ICOVwaRpiK18yILeoST54HEX0lKQq+HkK2qeGCdPhL8JesBo32yzJiv20dsrekxlJffAOg2UVBcq/2S/g7Ae4HK388uOYrzpARzBw2J1gPko3FD/2IHbYY2NukPAkRTT2RBklcpzUtijH2GPKzpS8S91CaBo5kEz+cEHftpaRqBH/oDVD6CFFOAJmO2W+dKBuNw6UZpaDEi++2Bsk4fer3RNHARmQR5oFH9edzjuhQE0n4qHKkOEP1ZpSwNFd66Armugaj5Gq0lsdtnn8757T/K8lOdiPfaZx9V2gaNGlZ5TNa9GVwZPKQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ql9iWjnVGDohSwlk9rcqjImOKxbZtilwXuShfpV3aQg=;
- b=OfMoNyMiUWIguLFvlecwLOpADIrw8ZcUnK8MyzRHxE2PhfOk95YX0vJLl+7uKd5pVDhq3FxFB0Ii1lSmYyCsOLwWgaLzps83y3eHovLpTHdfwbTKmzeMq1FpVDueRL5AJQn0z3IePJNLzVTmPxGJD64A4Fj5SUhEWXPeqsy2n0iXrsYvfqFUv89sqlMDxC0SslWn5EJdPCovx7IuA6/QDV4k4xkNq2NmTyISFRsVTPDUZSPCCDusKa4WFzNBb0vP9V6JVwi5Qd/VdaXakq4z426ZpjAmKSxwuopkCRj5GecvgvaxO7RyFjZDqf70yFtZHMAf3aFZe2vd4IfFAgml9g==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU4PR04MB10767.eurprd04.prod.outlook.com (2603:10a6:10:580::8) with
+ bh=t/oXCYfs8p22yX2veREcR01aN8OcxQDVRRVacg1XFbU=;
+ b=c/GpJUv8OW8i2Vhs66PzdqcH8lTANEO98IkESHP8wftmKVjZBtpNtZdJq52MuAL8ZZaKZaGDTRPZE0VTRDJlXhelhnhuoupo7wcjONfBQPSEfIMyWWslO+JtxuPNv2jfTtxUzZxQGqlyXd8o/jF8KiSLRph75RQHkcslbWm+xaMY0j7xZS1n1X1OaxIqeYT4qk30+1C8uer+2ksjtlGx8yH1ZXI5q6e31P1sJ1MN1RBQ1MRF1wqxIyAZyRDg1X2JNO7emDUMC4hoPrOUPF2NhIBgS+miG0a7lWy77GiqN3X8QRAGpyG5aQsrynlhPeMzPEPPa4gUyujeVjoYGnAtYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7728.namprd12.prod.outlook.com (2603:10b6:8:13a::10)
+ by MW3PR12MB4345.namprd12.prod.outlook.com (2603:10b6:303:59::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Wed, 4 Jun
- 2025 03:19:52 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8792.034; Wed, 4 Jun 2025
- 03:19:52 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Hiago De Franco <hiagofranco@gmail.com>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Ulf Hansson <ulf.hansson@linaro.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>
-CC: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>, Hiago De Franco
-	<hiago.franco@toradex.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>, "Iuliana Prodan (OSS)"
-	<iuliana.prodan@oss.nxp.com>, "Rafael J . Wysocki" <rafael@kernel.org>
-Subject: RE: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
- pre-booted remote cores
-Thread-Topic: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
- pre-booted remote cores
-Thread-Index: AQHb08EqHErDcF6d5U2TRnVBdQP9NrPyV0Zg
-Date: Wed, 4 Jun 2025 03:19:52 +0000
-Message-ID: <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250602131906.25751-1-hiagofranco@gmail.com>
- <20250602131906.25751-4-hiagofranco@gmail.com>
-In-Reply-To: <20250602131906.25751-4-hiagofranco@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DU4PR04MB10767:EE_
-x-ms-office365-filtering-correlation-id: e485fa79-8c43-40f2-0327-08dda316abee
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?AcJlTR6l8VCcTS/n1LD9MwF/hWJyAUl2Fkfjj/2a+C4/Gs2aVUbS6XMktqlq?=
- =?us-ascii?Q?a8WPGeXcozT8vaYKhjmvM3HPAXPoIi2O/sMGQVfojgzyUkvGfI4vnMNM0B+e?=
- =?us-ascii?Q?ggEu7A8avAlRIyFDjNWilnvT6oeCitORxR6vJ1HR+ZGUqUGSZqNjvd9Z7Hsr?=
- =?us-ascii?Q?4rbe5bNUJiad0L+o3vOgXwT9NzDbmBqZkuj94uxiCyUUxiJfLn5wDprMKPcZ?=
- =?us-ascii?Q?Ug4FsRYeTHPVMKzbOo1hZfKMY9nffBLyfRVsL6V0GcQdTrDIThPK9cisaM1J?=
- =?us-ascii?Q?qH0oKvibT72JcEhJjgGnldLKkDwhTwXEODoQR9liJ6CT/mAl8Zg+EGcudH5v?=
- =?us-ascii?Q?iUQmGbDokWSMUIuvS1t9Yaab0XYrD1BsoOayl6ZHDWH3hD/Bw1oQP+4V7txG?=
- =?us-ascii?Q?Lr0qme0J3GspPmJETajGfMZMjs/OciD5Tc6NQ7sXlND6/5o6ZWZmRsZ2y9/1?=
- =?us-ascii?Q?ZqaYDRmdv66VKVNaL41IE3Pf00iTfRLGWKdUwvHzEcyQzpBe61yG+Y55NErb?=
- =?us-ascii?Q?eb7ubUTzPKAj0SLYlvJca3S04SUSy1cMTLynsNRBVkrfHG2luRgRSEYM/do+?=
- =?us-ascii?Q?q6F/u0TlDjhu03THy/bf67bo4p9Sz5MmtV9HB777x6j5mWSH+1YG8RLTR1wO?=
- =?us-ascii?Q?eDthY00ou1p6uK11F2e4cMCol/9AvMVnCMliywc34Wnm+YMy5KSnq0RXF0Tf?=
- =?us-ascii?Q?vzOeMUeWaL0x3ccLhk7ENBj3O+nXKc+qX7gsRi3M6nrHeFMgWd4gzkJpkGvn?=
- =?us-ascii?Q?0WFet8zgCrijZxyhJRt5c0m8CjkNmgZ5Y6aLgPL4ZNv00alDsdfNI7eQmj6t?=
- =?us-ascii?Q?LYBc3ekf4zTl/IDhA1XMFHmNDLicamfIcuWzzlIXh1c8P7zikPAbCFRB8rDs?=
- =?us-ascii?Q?J8iKNvo7DpTAUQ97qmrp3V0rrJSXEoeB3D4A/82bXLQsAjcuYJdkMdSSZrO1?=
- =?us-ascii?Q?0b9453jI+vC7lD5PacY/iVPAp1DI3SQoDBl/LpUxz0xKmcDiKhJKyv4sax2b?=
- =?us-ascii?Q?UDqBMGalSb5xkSa/gfcZtwG9zqWJFVtBXfLdM2lLLUBD3aAunIqNEKgcbOlA?=
- =?us-ascii?Q?aizkanUBI3sp2yTavvf/hVA5vwLfmsHo73M43s+FsO9FaR2H2fy8B9mRGT/W?=
- =?us-ascii?Q?ryk4Yi0uaAiLRVWIGDfd/QdRQhcVJRTEtMDpwwQw/9AY95BiLEjqeSuR4MZx?=
- =?us-ascii?Q?5dnvOnW3s638XEsq1raYjo7GksM9KgPSLZkpNkkBJ/k1jCkHSt7iwgoMGGsX?=
- =?us-ascii?Q?zBOkY3awgqHtlgAn5RXRyg+W6llMcuTLjbj6B2q4TfMxR1o0wwrJmYMC7TWr?=
- =?us-ascii?Q?t1V4mMJ8OFP1OwFPBD661FLPgYTH2Y7Vy3FdP7MVcnZJKr2pgS+X3MBhFfeU?=
- =?us-ascii?Q?zPLBSuXA+SaGgp9r3Z35dRVMiNsINzcyTqOn9pD5bkoll/TMG7KY+HCpmD6c?=
- =?us-ascii?Q?ItsqmLR4ikjK7mOlF+iAHe0X5sKtUFpRn+t19kLDDacQ3iEzb4SS3vsTN7Ix?=
- =?us-ascii?Q?nAqNXc0CP0wBPcE=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?lser6MUE9ateQ386c5AeOjaBXUOcImb7yUOzmP8f3hwo95/4SFO+D59zURZJ?=
- =?us-ascii?Q?yvIv0A6m1IJpeST3LwCNTtdXrucVRoNczH6uU7vGBmasq+co9wLUzD7xG7wx?=
- =?us-ascii?Q?tmhDCEnEOmjYd37sm5CPpen6X/lAE0z2mviR5rpXgkZ2QPxktJEB7O7Ymo/J?=
- =?us-ascii?Q?Jl/FcGe1MO2p9PvoGp1NkZ87nnuw3NYvMGD0LgXz1/aKo0gS6w7MmVgZ72c9?=
- =?us-ascii?Q?hsHqCyxyZ1Jn4/88M8kXZc0hnFuuhRWSWpDo1j8MaRcBl8Wj1cYYJbPRBaUG?=
- =?us-ascii?Q?ljAE9vC1hj9xlbNLqTsBU6F8rOgGiqv9D6h7irwpZCFTNqQeI8guJYHIFtXi?=
- =?us-ascii?Q?9G0rKshnk3hRhqTZyz+Y4TFDiacHjlxhzJhu+VqxfePWirsy3AwTkLzTY1CU?=
- =?us-ascii?Q?JcVowVchcm84HG5BEm7QE4AGzi6JBOxg8uSw1xarIj096gJMqKGfMOlmSmdV?=
- =?us-ascii?Q?Beax4kNqN0r69HMc2Z9o0xpLZjYjt/uYj9uRLji+DikeCVWtggKOdSq7JkJl?=
- =?us-ascii?Q?Z7lUBiuYOgRwsqXY70R6jhlQfFMJ/Yy47+CqkfNAvbKsHkn336Lm9ahhGRyg?=
- =?us-ascii?Q?DhxdUB1A8dUdWtaFQIEzGIy2tcd0nPCjdDcxrqKr7qZQ3mzc/xF5GjgaHA4d?=
- =?us-ascii?Q?VrLWPjazsh0pjm1vIpqVqwKxy3tGYu5LuD5SvP8lfgUVy4ZysHcZD76Em8Tr?=
- =?us-ascii?Q?DBklZ88shrTmVgtVnGxDKikz5TA+0UyyiJPhq6B8eHfsRfz5EtN0734QDBoJ?=
- =?us-ascii?Q?nPOLekGiEZt6T+x5F03HeK41t4njjwUFZwSme7foa1iA2U7Ci//1djMxfhBI?=
- =?us-ascii?Q?tl4GB7woHnZXTBWZzi1KbdIm+pWdphuYIE6hoYTWi/ZNSa/Ec8+5qrPVOAtC?=
- =?us-ascii?Q?tvj5F+l2nQljmcqOKuEU3zHcIPATE/ApdL5yuju3Ub4/9rIUdZoFLuXI1wcl?=
- =?us-ascii?Q?MPVCjImiU40mPIZH25dcBXB/FwAZxpTWyWGJBPwsYX70854bWLW0sMdRkyCj?=
- =?us-ascii?Q?f/UQP/yUChL1OsPJYSKlL6tdrjJpnVEXVnoJlAx2x+mQlVzbg3EKnsEtRff1?=
- =?us-ascii?Q?RSvK3Nupn2vVXXHqwyMwpyYzHP7Mv4y+4ZnlrCxXQQI7ulWKw79+py+mzsXY?=
- =?us-ascii?Q?rlaF3YsNVRf9s6+L2efQE9KQFbzggMNNHsn8UkFQ3bGt+lPte/g986+Tynx3?=
- =?us-ascii?Q?pltZNrsDDW+mdN9Sa7tITZuJVFxa2k+vIET6yHh/f9hv43HSxIW/sVPzA9o/?=
- =?us-ascii?Q?foev32AYn0aeXqZ2ikcs0Hs1+R/RH6fPPUOqK9aoYULt6D6dooiKr1Qh1/RD?=
- =?us-ascii?Q?jCekm/boY7vEMYA5Dujq7kOEUXAWQJdvhGuGoOj5kWK8lG5uDBthQ6dB+Pzr?=
- =?us-ascii?Q?MbeRjfp88RGkWlLfNW/qejndLHkVZyJCG73FYJyeLo0z+QhCrsWuh8bYBihP?=
- =?us-ascii?Q?9oIHoU7P+qwqq85hfTIKbmdmWoUyfCp1QFUiq7DqRWXG/mSElhL189N1MtME?=
- =?us-ascii?Q?bdwEn3wt1H8gR9WGVA+Xbwa7gPELvIZfKvE4up7B97cwtklshhGNC5lsrCqm?=
- =?us-ascii?Q?cZbUVHI2bFO8bFL1nQM=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ 2025 03:23:01 +0000
+Received: from DS0PR12MB7728.namprd12.prod.outlook.com
+ ([fe80::f790:9057:1f2:6e67]) by DS0PR12MB7728.namprd12.prod.outlook.com
+ ([fe80::f790:9057:1f2:6e67%5]) with mapi id 15.20.8769.022; Wed, 4 Jun 2025
+ 03:23:01 +0000
+Date: Wed, 4 Jun 2025 13:22:56 +1000
+From: Alistair Popple <apopple@nvidia.com>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com, 
+	dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org, david@redhat.com, 
+	linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
+	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, 
+	zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org, balbirs@nvidia.com, 
+	lorenzo.stoakes@oracle.com, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, John@groves.net
+Subject: Re: [PATCH 01/12] mm: Remove PFN_MAP, PFN_SG_CHAIN and PFN_SG_LAST
+Message-ID: <ekafxsxxsf3y7mhgiogo6yoh7k45vfqwd73i3tzjb7gtsjdt5t@vwga6qbn3jcz>
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <cb45fa705b2eefa1228e262778e784e9b3646827.1748500293.git-series.apopple@nvidia.com>
+ <20250529124620.00006ac7@huawei.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250529124620.00006ac7@huawei.com>
+X-ClientProxiedBy: SY5P282CA0110.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:20b::15) To DS0PR12MB7728.namprd12.prod.outlook.com
+ (2603:10b6:8:13a::10)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7728:EE_|MW3PR12MB4345:EE_
+X-MS-Office365-Filtering-Correlation-Id: 54683ab3-b473-4e53-b754-08dda3171c38
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GVr/G4aJ4rDXJVN4SS0786b5vXzk5qo/hRdaGlcWRe8FkqPbwICk4ehwscxl?=
+ =?us-ascii?Q?xcdLpuiTM24Qj1o2eNAJyQgljAnkK+TsX2J8Pm8V5c/GH6sa/Jic5HEL8wHf?=
+ =?us-ascii?Q?/2xGkmduMiVp0brTzrxaaGKPaDd5WV+BMKLrjNLCjid62HYDQR/wJ3hNcUrN?=
+ =?us-ascii?Q?Zj3NtxGNaZDhhP1zzNAecafPt56UYXy4vf6wx84auk6piQ7Ewi0jtsr5vI10?=
+ =?us-ascii?Q?7Q9FHTfwFB9L9xQM1vbA9kH7O4yiBJaz6w7OHEbMe4YmHwJhdo9hEtKi5fBX?=
+ =?us-ascii?Q?W855iLktJDG37B0F19jFGoJeUzD7q7auOSE++GAMfrSwZo/QCirU2wSXJAZy?=
+ =?us-ascii?Q?p0IS8rrysxFpyfSm5cWWYbY+dvLZvDazRvAJ0TCpXsVRxTTVtBlxA+DLeI+O?=
+ =?us-ascii?Q?pRKjy/GSG2N/5l+QlI3HENYNsKum6FfnvLRsdyRNJXMzB/ydrNwhYlmXpqfg?=
+ =?us-ascii?Q?bz/vGLchmCO/AqhD2osrCNAQraGaceB10wYtxwwESGU+a8H+dz67xkom8R0M?=
+ =?us-ascii?Q?TaELbWFqcwh2JQkriMPa0yIz9iK7I5fa+dy36geVcr0u1sxbBUDpV83+xAH9?=
+ =?us-ascii?Q?6a2NMo+tddV3KE2SMqyM+vkBS6tDjjaRupWKIe14GLqmKfmIcRSEhXDUQ4vA?=
+ =?us-ascii?Q?BXSk4qcyVpJNAlkN/oqS5fDhuW5REr99jvUQEPm9ioUe+qRWPdx9w0CB004L?=
+ =?us-ascii?Q?4TVzLV2GRGSHTleO5nRRcdVr0aIgkI8XZ84cEAOyjpZHj1DXkzGexNMXqpEG?=
+ =?us-ascii?Q?hbpvZ9pvZ7YilDJXw6LU4k2GN7vTNzKH+pevv5akcl310eyrLdq8q+gj4dAQ?=
+ =?us-ascii?Q?oMoznIGk5VVpapIrSUAb2PY2Rv2KZTmg5KG42i+poZ08ELsEt3EMYOsynM8J?=
+ =?us-ascii?Q?Z4Qw/wEfv+VUF/R4rgXyvp9wEwdKy9fUn0qziYTtln4CUrZ/F8Uom6C1Trd1?=
+ =?us-ascii?Q?PCUxYXFtIATfhg9LOESYDpmlCacpFHXCcWaFG4JVCX+N/0HcUnAjW5RvCrCD?=
+ =?us-ascii?Q?G1T1dgMPcR2JtTw9Ih6lg3iJrmIFdV8wUFp09vOU6hfUcWppt1m6t1pv2pI0?=
+ =?us-ascii?Q?QsIO7oH3q3gRa8z4C2wwG+sjLK/eD8ZLwhXkeMSG3m7W6rloeu4PagVZCImE?=
+ =?us-ascii?Q?P8FUM8heulsmBDUfzEm+hbMw7jVPnQQCOF7Lba3Z7vFej7e7MkTDdll/1rEp?=
+ =?us-ascii?Q?CkF8BQkFMYqKxugeL0KD75XQe7bwUEzqj7Tn/+olBNbEUi7UJASexG0AJrRE?=
+ =?us-ascii?Q?86j+TO2DYEyPI5MOhSSdQcHoj7VoIQrUKiIOF4PPKXLNtLdLPlT5GRNvOLDY?=
+ =?us-ascii?Q?9Z8Wf0UmPxVjttTeIow+Wi8ezurkAuAxVeDdclPPfVaLRANgCPg/+ghfIE/6?=
+ =?us-ascii?Q?Af2eGBT70mUwa2snRdg+yqXEi1PzWjfQuK/Jt0ZuvYR4mUoEr/hRr351hzAP?=
+ =?us-ascii?Q?+TmTFYN5sKw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7728.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pIX7+dq6PKkLyFyjZE8czFpOvTTVkffwyxAG9efM7oyH7oUehlUPBAFOvQcy?=
+ =?us-ascii?Q?zj+HapJQ7+BXsqTq+xMOYBBjIMDBggbec5UsR0DBbjtQ2MkR0cQIiYjjeK/1?=
+ =?us-ascii?Q?g7vmDUZR6wjVBSfBS5uXREduiRxwpDNhRKcboyVnDaytrqqMJaeF+3aL554Q?=
+ =?us-ascii?Q?GaGYMW6Py4X7a7JMXSvCcLIvBRMcexcG1W0XfqhQr+xYk8TOctFt6zWZluJ+?=
+ =?us-ascii?Q?bRWB0D11tOhLwGtFWwtpPt/qALp3TTceSplPBO7R1tTpVZ0HILquY8w0ZUTP?=
+ =?us-ascii?Q?+KuKG4ROXjFrmgL1JUX1IVBhVHN47FWIpJlqY12jUOfkhVlcldXykm/aS4lI?=
+ =?us-ascii?Q?ShzckjKgeM8zpRLJFljv4dWfBFeFyJ2/cv/HNn7ccZ1/kPQqJx5S9GaOTvQ2?=
+ =?us-ascii?Q?FQhZphXMufkKNFcecZKsmmWlaxh503NsQ/S3NVoCNUn5fmPuXqncBJ7gdcyd?=
+ =?us-ascii?Q?fbWeFz6WcTU5iNwGbsGOYmjBCqrPC9oAIgI/d9yKsqDCaUtiCX3l5p8UQ9Iz?=
+ =?us-ascii?Q?Rvd69wvQG8Fl/8LSTps/glSOkg9h/lX27LbSvK+oUujqEUfaTQrEAbRcje9T?=
+ =?us-ascii?Q?xbkgIRJ80tXrfRq394yrWRSQQnY3lgMPD2rfdPsHuAQtOtNSLqFtEGok3mn1?=
+ =?us-ascii?Q?NXa7SZHRSRx0eJLmB+U5DLvmwAW1PB36Drzxt7YrHmI0CYRGvw4WLCm8j9Q6?=
+ =?us-ascii?Q?mV3ea9MlmziLLw8nWo4WIz5TSeMLwHY8mrl07+OLdqIcGeVvKC7XhijSqIJh?=
+ =?us-ascii?Q?064E43X3p0+HkiVljF519hLIq5Mo/X/3rxVHQSSzsbE1a6ieKxtoTL25zU4u?=
+ =?us-ascii?Q?pRz77Z9AgmW+Ycx4l+WYaxnWgMyPhEaAhcjZo37NtqXSMixhLIukijKEepXW?=
+ =?us-ascii?Q?Glpp0FMnm/LXC5wyyvSPt2spbzVvdD7f7KKaQkp4mFp0JLZi2ZIXbzNxsnL1?=
+ =?us-ascii?Q?LOcZbWACMA5uL+CDVrIZ93qFNxcRqWt5iX9Qp3o+Riu84F1qc5h8JhJG5znG?=
+ =?us-ascii?Q?p9VzvN9CdTrH2ROBaR6mquPgNmWmwvIyC0oSS4Pg25LWNPmR4XnE14vazqb2?=
+ =?us-ascii?Q?8Y4INjQB72sEkoyWwUGt08IjXSkIZmPSubQugVEjUHzUXwY6vICzPOFFZYVv?=
+ =?us-ascii?Q?ZJNlvWo3CAkxuxRsTOB3OdlAZoEhBn96QBdgDSyEsJMJ3Z0cJ0H+ed/E8Cu0?=
+ =?us-ascii?Q?GB88e4XIU84oeUDVrTBYM60ZeU3ep1wutMrXWDo1Z5pyLZJfFxs3S1eKITxO?=
+ =?us-ascii?Q?0A65GKqTOlthaUxkkKD1d9H1A+pVngBaNkacSHNpDYF2WTkRc0OZXgjMh3dI?=
+ =?us-ascii?Q?+1H6UWnZXLmYYup68fihgSKVX+hJSdSsvX3S9yhyHHneakevxrlVagActhkn?=
+ =?us-ascii?Q?vMkS7Mjxf/B+f/9ujWuY1T7hQNLeVXeJtCoG7yeu5brhXa/gWik/ZIqOIqwU?=
+ =?us-ascii?Q?3IlSw0OT697Lr5+OxdxKFlciG2WAVNL2C30R4kKWUFRVmL6VEhAdurm/P9Du?=
+ =?us-ascii?Q?8TgSE8oE+I25men7qL5A2hmWguoAPOPILRVTbQE/560pYXpHHeeSC4DA/7M+?=
+ =?us-ascii?Q?Ts8prSBazKjaZXmP3/mBzaOHIlBFB1Bgy5GCIaPf?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54683ab3-b473-4e53-b754-08dda3171c38
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7728.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e485fa79-8c43-40f2-0327-08dda316abee
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2025 03:19:52.5547
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jun 2025 03:23:01.1366
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4Cd0ySiUCBWQN9prb2TyPuELex78BJywSYOljXfTmAun73Rr1Qifv7y+txpaiBW471scoz48MYDInddB8gw/LA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10767
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oXLK1uYBPiIVPBcHZiJsRK2eEKSOW9NBAvaQ56JrerO1xO1FdZPiqsLpWadurR7oEnBxW2pVHxsHjnylhwywSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4345
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_202001_254245_7957E2AA 
-X-CRM114-Status: GOOD (  35.36  )
+X-CRM114-CacheID: sfid-20250603_202307_043252_8953792E 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,124 +163,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
-> pre-booted remote cores
->=20
-> From: Hiago De Franco <hiago.franco@toradex.com>
->=20
-> When the remote core is started before Linux boots (e.g., by the
-> bootloader), the driver currently is not able to attach because it only
-> checks for cores running in different partitions. If the core was kicked
-> by the bootloader, it is in the same partition as Linux and it is already
-> up and running.
->=20
-> This adds power mode verification through dev_pm_genpd_is_on(),
-> enabling the driver to detect when the remote core is already running
-> and properly attach to it if all the power domain devices are on.
->=20
-> To accomplish this, we need to avoid passing any attach_data or flags
-> to dev_pm_domain_attach_list(), letting the platform device become a
-> consumer of the power domain provider. With that the current power
-> state of the genpds will not change, allowing the detection of the
-> remote core power state.
->=20
-> We enable and sync the device runtime PM during probe to make sure
-> the power domains are correctly managed when the core is controlled
-> by the kernel.
->=20
-> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> ---
-> v4: Changed to use the new dev_pm_genpd_is_on() function instead,
-> as suggested by Ulf. This will now get the power status of the two
-> remote cores power domains to decided if imx_rpoc needs to attach or
-> not. In order to do that, pm_runtime_enable() and
-> pm_runtime_get_sync() were introduced and pd_data was removed.
-> v3: Unchanged.
-> v2: Dropped unecessary include. Removed the imx_rproc_is_on
-> function, as suggested.
-> v1:
-> ---
->  drivers/remoteproc/imx_rproc.c | 29 ++++++++++++++++++++++++-----
->  1 file changed, 24 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/remoteproc/imx_rproc.c
-> b/drivers/remoteproc/imx_rproc.c index
-> 627e57a88db2..6f9680142704 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -18,6 +18,7 @@
->  #include <linux/of_reserved_mem.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
-> +#include <linux/pm_runtime.h>
->  #include <linux/reboot.h>
->  #include <linux/regmap.h>
->  #include <linux/remoteproc.h>
-> @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct
-> notifier_block *nb,  static int imx_rproc_attach_pd(struct imx_rproc
-> *priv)  {
->  	struct device *dev =3D priv->dev;
-> -	int ret;
-> -	struct dev_pm_domain_attach_data pd_data =3D {
-> -		.pd_flags =3D PD_FLAG_DEV_LINK_ON,
-> -	};
-> +	int ret, i;
-> +	bool detached =3D true;
->=20
->  	/*
->  	 * If there is only one power-domain entry, the platform driver
-> framework @@ -902,7 +901,22 @@ static int
-> imx_rproc_attach_pd(struct imx_rproc *priv)
->  	if (dev->pm_domain)
->  		return 0;
->=20
-> -	ret =3D dev_pm_domain_attach_list(dev, &pd_data, &priv-
-> >pd_list);
-> +	ret =3D dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
-> +	/*
-> +	 * If all the power domain devices are already turned on, the
-> remote
-> +	 * core is already up when the kernel booted (e.g. kicked by
-> the
-> +	 * bootloader). In this case attach to it.
-> +	 */
-> +	for (i =3D 0; i < ret; i++) {
-> +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
-> +			detached =3D false;
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (detached)
-> +		priv->rproc->state =3D RPROC_DETACHED;
-> +
->  	return ret < 0 ? ret : 0;
->  }
->=20
-> @@ -1146,6 +1160,11 @@ static int imx_rproc_probe(struct
-> platform_device *pdev)
->  		}
->  	}
->=20
-> +	if (dcfg->method =3D=3D IMX_RPROC_SCU_API) {
-> +		pm_runtime_enable(dev);
-> +		pm_runtime_get_sync(dev);
+On Thu, May 29, 2025 at 12:46:20PM +0100, Jonathan Cameron wrote:
+> On Thu, 29 May 2025 16:32:02 +1000
+> Alistair Popple <apopple@nvidia.com> wrote:
+> 
+> > The PFN_MAP flag is no longer used for anything, so remove it. The
+> > PFN_SG_CHAIN and PFN_SG_LAST flags never appear to have been used so
+> > also remove them.
+> 
+> Superficial thing but you seem to be be removing PFN_SPECIAL as well and
+> this description and patche description don't mention that.
+> 
+> > 
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > Reviewed-by: Christoph Hellwig <hch@lst.de>
+> 
+> On superficial comment inline.
+> 
+> > ---
+> >  include/linux/pfn_t.h             | 31 +++----------------------------
+> >  mm/memory.c                       |  2 --
+> >  tools/testing/nvdimm/test/iomap.c |  4 ----
+> >  3 files changed, 3 insertions(+), 34 deletions(-)
+> > 
+> > diff --git a/include/linux/pfn_t.h b/include/linux/pfn_t.h
+> > index 2d91482..46afa12 100644
+> > --- a/include/linux/pfn_t.h
+> > +++ b/include/linux/pfn_t.h
+> > @@ -5,26 +5,13 @@
+> 
+> 
+> 
+> > diff --git a/tools/testing/nvdimm/test/iomap.c b/tools/testing/nvdimm/test/iomap.c
+> > index e431372..ddceb04 100644
+> > --- a/tools/testing/nvdimm/test/iomap.c
+> > +++ b/tools/testing/nvdimm/test/iomap.c
+> > @@ -137,10 +137,6 @@ EXPORT_SYMBOL_GPL(__wrap_devm_memremap_pages);
+> >  
+> >  pfn_t __wrap_phys_to_pfn_t(phys_addr_t addr, unsigned long flags)
+> >  {
+> > -	struct nfit_test_resource *nfit_res = get_nfit_res(addr);
+> > -
+> > -	if (nfit_res)
+> > -		flags &= ~PFN_MAP;
+> >          return phys_to_pfn_t(addr, flags);
+> 
+> Maybe not the time to point it out, but what is going on with indent here?
+> Looks like some spaces snuck in for that last line.
 
-Need put and disable in imx_rproc_remove.
+Yeah weird. I don't think that was me. In any case this gets deleted entirely
+later in the series so won't bother to fix it here.
 
-BTW: Has this patchset tested with M4 in a separate partition,
-saying M4 image packed in flash.bin?
-
-Regards,
-Peng
-> +	}
-> +
->  	ret =3D rproc_add(rproc);
->  	if (ret) {
->  		dev_err(dev, "rproc_add failed\n");
-> --
-> 2.39.5
->=20
-
+> >  }
+> >  EXPORT_SYMBOL(__wrap_phys_to_pfn_t);
+> 
 
