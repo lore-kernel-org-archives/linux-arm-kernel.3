@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5485BC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 02:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09186C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 02:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GlAzPMjPCg8ydaX/EMxTb6YHaF3nCIsASmhJgNInb6k=; b=dT/28ggrsE7lEkGYZRuqs5RJP6
-	y+KgbA7N/HmfvkaQMZ40Xg0ymVzuwnlvFrsrRQLXbUCi8klNFUZpupB91Lon2mOOk8HOvi8VFy1Qr
-	wrHmAsI6r10yvxR0Xrc/BMxBYAoT+/2hi4ngu0tqtRDxgChpTDrYEnQEBkCQ5hMxO2S10kdsfBNC4
-	ILW8DCUOPTmA6zOpZeapWpS8ezhzeEuq8Aza69vBrmlnUKZ3hhF+uvtUMcCpqFKT+LmqzTaWuR+BA
-	vERapdvrU89Iy6ykZQDBgc8D00EN337kyBVDMoROIjTUuosReP33ECX8yFD/Dho0Kbk74I7PErr7U
-	eE5wEpBA==;
+	bh=JgjxRqevZyEV3ebSe9dgPxbIWLbrtlkPKlls0rD5S7A=; b=3mMvlPFAgM5z5x6nRn9sBjl13G
+	SCiefdeVv4OFXWjXk5wIp3ErpBNj4QjiNpuhcRe7+lXx7MgxM9K2RsSfWcSirDImkOqS0p+8uTCCu
+	G877cKef3q18ddZas2ZxOs61ySLh0Lc6Vfobmh1lZvBVoMYz4pk+KGyq1HHY2buYEvpumKBf9r7cs
+	Y94k9YCuDtOyJ8h1uAr5wWx5/cb4O6YUauU7VgZVxnnNJBCr7axN+IOP8EbOj8+Rqx8UXFnpYwFxN
+	lS7fT6MDgczGBOm0jmSyE0nT51tpnSXAe/JnahPnvOyMvD1J+f/JCOrcXy6JZnTxMrR4WiFyGgwlS
+	k6J+ygRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMe6U-0000000CLaV-1LG8;
-	Wed, 04 Jun 2025 02:43:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uMe8d-0000000CLmg-0PSa;
+	Wed, 04 Jun 2025 02:45:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcX1-0000000C8Sq-0amc
+	id 1uMcX3-0000000C8Tp-29Ac
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 01:03:04 +0000
+	Wed, 04 Jun 2025 01:03:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D58C44A241;
-	Wed,  4 Jun 2025 01:03:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66B7CC4CEED;
-	Wed,  4 Jun 2025 01:03:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CD2BDA4FDB9;
+	Wed,  4 Jun 2025 01:03:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28027C4CEED;
+	Wed,  4 Jun 2025 01:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748998982;
-	bh=tMnxu4+mKVjKuCLC96lQwane5/2Vzm1rHOqUcTaWgQg=;
+	s=k20201202; t=1748998984;
+	bh=sEu2sKEihJLj2eLEtLWLy/KWt7ifanDrWQm4PkV/By8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qyi74c1/U0dX6a0dDJo8fAVrvPYGYmnjFsHdoUBCvdRlu/99olPnGM1OqKlA2Cgt6
-	 ak8oOuP6i5IQnun4vPqXPr2iARyBCdCA512d6gwTk33mB9Y0XxQ3606De+LrMyff9L
-	 WfBWxY7Ugnfxvtox4OMowlkjAs08OKaeWZtg7wbWZ9Q8LhLCFLtiSVjeGBMXfY9Euz
-	 9XHi7+B7hto4PEj7T/wUq1wn60z47DG9cA73+B4QbTBrLGI+vWN/SXs2DTucAoNsVY
-	 Ldzd4yTAYOPi6X9InsDuhILu2nKxMbR3eK2SwEd362GmHcT/j9GdkOQI0vO/JS39Eg
-	 CkpvrXwInv9dA==
+	b=XEeJs/uZAlB/hClNglTBqOHmK4BgLGwKcL+j+X3Pp1Pb8IZwEC9hewPpDRA3Y5Ux5
+	 CLOGmP5BFnobiLjlgrdfbvOVn3HrC6tRQIZN8YVEVCrqqN3MkOQiA5+efDVbJNVwpE
+	 6mSwtXV3u+ZCH5wLRCBDPhJSCvJ5a2Oxn2sC4zyP4rRc2NytrTVVbvcem4FlgH/lYO
+	 t44HPz57qtTxinhfj6DffayueyxCf+a7lvvbrwXeiwP6jpW7fFXT+IzyfY/ODNp/CD
+	 CKSQHYelaWTuxp996UpmV0gnyuOgLFvHlSwrgSXRsDmk5n2eqc721XiOWMUFFlSdQc
+	 ZaVmOR8gCB5ig==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -55,9 +55,9 @@ Cc: Gabor Juhos <j4g8y7@gmail.com>,
 	brgl@bgdev.pl,
 	linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.6 27/62] pinctrl: armada-37xx: propagate error from armada_37xx_gpio_get_direction()
-Date: Tue,  3 Jun 2025 21:01:38 -0400
-Message-Id: <20250604010213.3462-27-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 28/62] pinctrl: armada-37xx: propagate error from armada_37xx_pmx_gpio_set_direction()
+Date: Tue,  3 Jun 2025 21:01:39 -0400
+Message-Id: <20250604010213.3462-28-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250604010213.3462-1-sashal@kernel.org>
 References: <20250604010213.3462-1-sashal@kernel.org>
@@ -65,10 +65,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.92
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_180303_237683_66BFA8E0 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20250603_180305_694240_507D43D4 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,77 +86,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Gabor Juhos <j4g8y7@gmail.com>
 
-[ Upstream commit 6481c0a83367b0672951ccc876fbae7ee37b594b ]
+[ Upstream commit bfa0ff804ffa8b1246ade8be08de98c9eb19d16f ]
 
-The regmap_read() function can fail, so propagate its error up to
-the stack instead of silently ignoring that.
+The armada_37xx_gpio_direction_{in,out}put() functions can fail, so
+propagate their error values back to the stack instead of silently
+ignoring those.
 
 Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
-Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-6-07e9ac1ab737@gmail.com
+Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-5-07e9ac1ab737@gmail.com
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-Based on my analysis, let me provide my assessment: **YES** This commit
-should be backported to stable kernel trees. **Detailed Analysis:** 1.
-**Bug Fix Nature**: This commit addresses a real bug where
-`regmap_read()` errors are silently ignored in
-`armada_37xx_gpio_get_direction()`. The function signature shows it
-returns `int`, indicating it can fail and return error codes. 2. **Error
-Propagation Pattern**: Looking at similar drivers (e.g.,
-`/home/sasha/linux/drivers/pinctrl/meson/pinctrl-amlogic-a4.c`), the
-standard pattern is: ```c ret = regmap_read(bank->reg_gpio, reg, &val);
-if (ret) return ret; ``` This commit follows the exact same pattern,
-which is the correct approach. 3. **Critical Function**: The
-`armada_37xx_gpio_get_direction()` function is part of the GPIO
-subsystem API that userspace and kernel code rely on. If `regmap_read()`
-fails (due to hardware issues, power management states, etc.), the
-function currently returns a potentially garbage direction value, which
-could lead to: - Incorrect GPIO configuration - Silent hardware access
-failures - Potential system instability 4. **Small and Contained
-Change**: The fix is minimal: - Adds error checking for `regmap_read()`
-- Propagates the error up the stack - No architectural changes - No new
-features introduced 5. **Low Risk**: This change has minimal regression
-risk because: - It only affects error paths that were previously ignored
-- Normal operation (when regmap_read succeeds) is unchanged - It follows
-established patterns in the same subsystem 6. **Similar Historical
-Commits**: Looking at the provided examples, this aligns with commits
-marked as "Backport Status: YES": - Similar Commit #2 fixed
-direction_output callback behavior with error handling - The pattern of
-adding proper error propagation is common in stable backports 7.
-**Hardware Impact**: The Armada 37xx pinctrl driver is used in real
-hardware (Marvell Armada 3700 SoCs), so fixing silent error conditions
-improves reliability for users. 8. **Stable Criteria Compliance**: This
-commit meets stable tree criteria: - Fixes a real bug (silent error
-handling) - Small, contained change - No feature additions - Improves
-system reliability The commit properly addresses a silent failure mode
-in a hardware interface, making it a good candidate for stable
-backporting to ensure system reliability across kernel versions.
+Based on my comprehensive analysis, here is my determination: **YES** ##
+Extensive Analysis for Backport Recommendation ### 1. **Bug Severity and
+Real User Impact** This commit fixes a **genuine bug** where the
+`armada_37xx_pmx_gpio_set_direction()` function silently ignores errors
+from GPIO direction setting operations. The current code at lines
+476-481 shows: ```c if (input) armada_37xx_gpio_direction_input(chip,
+offset); // Return value ignored else
+armada_37xx_gpio_direction_output(chip, offset, 0); // Return value
+ignored return 0; // Always returns success regardless of actual result
+``` This silent failure can cause **real user-visible problems**: - GPIO
+pins may remain in the wrong direction (input vs output) without any
+indication - Hardware peripherals controlled by these GPIOs may
+malfunction - Applications believe GPIO operations succeeded when they
+actually failed - No error reporting prevents proper debugging of
+hardware issues ### 2. **Code Change Assessment - Small and Contained**
+The fix is **minimal and surgical**: - Adds only one variable
+declaration (`int ret`) - Changes two function calls to capture return
+values - Replaces `return 0` with `return ret` - **No architectural
+changes or new features** - **No changes to external APIs or data
+structures** This precisely matches the stable tree criteria for small,
+contained fixes. ### 3. **Comparison with Historical Similar Commits**
+Looking at the provided examples: - **Similar Commit #1** (Status: YES):
+Also fixes GPIO direction callback behavior in the same driver - this
+establishes precedent for backporting armada-37xx GPIO fixes - **Similar
+Commits #4 & #5** (Status: NO): These fix similar error propagation
+issues in different drivers, but the "NO" status appears to be due to
+them being newer cleanup patches rather than fixing actual bugs ### 4.
+**Pattern Recognition from Kernel Tree Analysis** My examination of the
+kernel repository reveals this is **part of a systematic fix series**
+addressing error propagation throughout this driver. I found related
+commits: - `4229c28323db`: "propagate error from
+armada_37xx_pmx_set_by_name()" (marked YES in autosel.txt) -
+`6481c0a83367`: "propagate error from armada_37xx_gpio_get_direction()"
+(marked YES in autosel.txt) This indicates the kernel maintainers
+consider these error propagation fixes important enough for stable
+backporting. ### 5. **Risk Assessment - Minimal Regression Risk** The
+change has **very low regression risk**: - Only affects error handling
+paths that were previously broken - If the underlying GPIO operations
+were succeeding before, they continue to succeed - If they were failing
+before (but silently), now they properly report the failure - **No
+functional behavior changes when hardware operates correctly** - The
+worst case is that previously silent failures now get reported (which is
+the desired behavior) ### 6. **Critical Subsystem Impact** This affects
+the **pinctrl/GPIO subsystem**, which is critical for: - Hardware
+initialization and control - Board-specific functionality - Device
+driver operation - Embedded system reliability Silent failures in this
+subsystem can cause hard-to-debug issues that affect system stability.
+### 7. **No Explicit Stable Backport Indicators** While the commit
+message lacks explicit `Cc: stable@vger.kernel.org` or `Fixes:` tags,
+this doesn't disqualify it. Many important bugfixes lack these tags, and
+the automated selection process (as evidenced by autosel.txt) is
+designed to catch such cases. ### 8. **Meets All Stable Tree Criteria**
+✅ **Fixes important bug**: Silent GPIO failures can cause real hardware
+issues ✅ **Minimal risk**: Only improves error reporting, no functional
+changes ✅ **Small and contained**: 4-line change in a single function ✅
+**No architectural changes**: Pure error handling improvement ✅
+**Affects critical subsystem**: GPIO/pinctrl is fundamental to hardware
+operation ### Conclusion This commit should be backported because it
+fixes a genuine bug where hardware failures are silently ignored,
+potentially causing real user issues. The fix is small, safe, and aligns
+with similar commits that have been marked for stable backporting. The
+change only improves error handling without modifying functional
+behavior, making it an ideal candidate for stable tree inclusion.
 
- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
-index 7a983f00dc9de..92679fbc1ee2c 100644
+index 92679fbc1ee2c..4623b5e44ba6a 100644
 --- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
 +++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
-@@ -400,10 +400,13 @@ static int armada_37xx_gpio_get_direction(struct gpio_chip *chip,
- 	struct armada_37xx_pinctrl *info = gpiochip_get_data(chip);
- 	unsigned int reg = OUTPUT_EN;
- 	unsigned int val, mask;
+@@ -470,16 +470,17 @@ static int armada_37xx_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+ {
+ 	struct armada_37xx_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+ 	struct gpio_chip *chip = range->gc;
 +	int ret;
  
- 	armada_37xx_update_reg(&reg, &offset);
- 	mask = BIT(offset);
--	regmap_read(info->regmap, reg, &val);
-+	ret = regmap_read(info->regmap, reg, &val);
-+	if (ret)
-+		return ret;
+ 	dev_dbg(info->dev, "gpio_direction for pin %u as %s-%d to %s\n",
+ 		offset, range->name, offset, input ? "input" : "output");
  
- 	if (val & mask)
- 		return GPIO_LINE_DIRECTION_OUT;
+ 	if (input)
+-		armada_37xx_gpio_direction_input(chip, offset);
++		ret = armada_37xx_gpio_direction_input(chip, offset);
+ 	else
+-		armada_37xx_gpio_direction_output(chip, offset, 0);
++		ret = armada_37xx_gpio_direction_output(chip, offset, 0);
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ static int armada_37xx_gpio_request_enable(struct pinctrl_dev *pctldev,
 -- 
 2.39.5
 
