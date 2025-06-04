@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7AF9C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 20:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23BFC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 20:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whSD1QJgMLLTFCSxB54/oIfrtIl4eEEgAXHw5GZp2dI=; b=GrXTIdZpgVS9P5b4d4RD7Ssrb9
-	LWq7MGAFfqR6oMW5ewrh4USbVZPIHCWPpySxhzHxL9UpoQzPaepb2ZfDxf191SBEMWDNXKY2T4P1M
-	6tVNjn9+SdIC+nw1TvUl0LVi6jLRDAM+AH/X9hYyzTiozQaeqK2rN2jadukcW2W1PF+RmkIgaa/W/
-	fsHdtk//UU8ogZ2hBF7NKaBuK5+oVdYlr4cH9mfVBSMvTTVYAMHgWJZ+mBgvSd1ekNbd8WJilKnT0
-	JpE+PrUI9sAjOwB5X3Q7P3edYDJXPtoNWgHYd6NvHY8eE/xPt/9h9+ShTvxrHPZKLk57iMzyFzbCJ
-	E5IozoLA==;
+	bh=n6kMhHXQajBMvjZwegLONW/ibe7PgaGpFlfzDC92XNE=; b=cy0yrfrj6eV5bB3g0ftxQjCh9K
+	cC5x0yiiLF8LBFSMPcnrIfZiz4uti8SXXeaDvhvh8OWED4GVT1AZ5X7vdE2Uu3nOVRUZobj6IypZe
+	4P1nh0nbFepfWtW8sKoUiv0W4LHXtQ41rKUSTplWnAeaL1POWPvVv+VQVdgQ6GINOMRCHpY4aVVJs
+	nZagT141/w7+CkNuBHCV3E8yKPGoZuMsbMZXv+R53ooU7fO5PTeqYwsQ7U2TkILM12zyuEitzLqFl
+	4rAnepg7AbzSqJNmoalDzBpinHICGrEieK6Dh/1bdfOfRsIiusEE29kCgZQSFh+YsoiglGYY5rxBE
+	9tuxePfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMubG-0000000EB8e-1W6W;
-	Wed, 04 Jun 2025 20:20:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uMudL-0000000EBFO-1h6V;
+	Wed, 04 Jun 2025 20:22:47 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMuR1-0000000E9qq-16bI;
-	Wed, 04 Jun 2025 20:10:04 +0000
+	id 1uMuR3-0000000E9rW-3KZI;
+	Wed, 04 Jun 2025 20:10:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749067801;
-	bh=WoCQoCxfZMDeUFZcKpyAMMWvReEUdUT+5X/64RM4JlQ=;
+	s=mail; t=1749067803;
+	bh=KgpRi1k6ad/ufFG3KTCWur/DBPHCkjsoWH2xe57dnAI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ilFs5QbpnMIrutQuLSN44BI7zgUPkbs5Sx7c9Eor1RyEJOiBH358ItSXpcyW3inA3
-	 ddr4l3rGqEMAUM0Kr0MwVwgrS9E5LkX3M6xPxYK3dwJnNsLxwGeBd+6OcTeekXQaX/
-	 K387NTt86n7xBhp4fIlvvOoVug3TthVTagoPA4kZs4XUell23E7QCyqeL6MbAcTASS
-	 drsMFErFG6NU5CwgtT+hs5JoMZw4JHWVOK99xyy62GaR93KAQegiXB8+tRrDWftJC+
-	 YCUVQYAl2KWvRonSUCxBkJpPvUJjaITy9rzdFAK+/RJu5BkCoyPN90oeeEM1x9Au2t
-	 4e31jBYpVeW5A==
+	b=kjRD6j5l2IfdIffSdDi0UfkoFmn6QoSriKkvAt3kO8ITEjZ1Jn012vaWCUVUfaK23
+	 3IkeM7HgSV+Rpn54anNo0JipZxc/63wuI0lNtm9eM65KzdNBmhRnxobjq7JEXdq6/d
+	 b/J5bMJN0wiOqrctfBE0lSbYLeyQ0FxGBfV7Ey5qkFyd8mRWR930CPSNe3cCzXzApj
+	 hPY4mc51IiR4hCzt2vLaVytxiZPKRLRjkhRRH2LsXYQBTM91AgLp7c/e315865Jgoz
+	 lii/zxVrEc0lrP6D8dvCaEJIQB79MjUI2pGKy1CC42P2e/LCnKSQR779V1HFYx5DzM
+	 y1rr3GVZuBgiQ==
 Received: from [192.168.13.145] (unknown [IPv6:2606:6d00:10:5285::5ac])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 11CE217E1045;
-	Wed,  4 Jun 2025 22:09:59 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1ABF617E10D3;
+	Wed,  4 Jun 2025 22:10:02 +0200 (CEST)
 From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Date: Wed, 04 Jun 2025 16:09:36 -0400
-Subject: [PATCH v3 2/5] media: vicodec: add support for manual completion
+Date: Wed, 04 Jun 2025 16:09:37 -0400
+Subject: [PATCH v3 3/5] media: mc: add debugfs node to keep track of
+ requests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-2-603db4749d90@collabora.com>
+Message-Id: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-3-603db4749d90@collabora.com>
 References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
 In-Reply-To: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
 To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
@@ -68,8 +69,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Hans Verkuil <hverkuil@xs4all.nl>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_131003_452643_E8E4710E 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250604_131005_988665_74EB9AA9 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,76 +87,233 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hans Verkuil <hverkuil@xs4all.nl>
 
-Manually complete the requests: this tests the manual completion
-code.
+Keep track of the number of requests and request objects of a media
+device. Helps to verify that all request-related memory is freed.
 
 Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
 Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 ---
- drivers/media/test-drivers/vicodec/vicodec-core.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ drivers/media/mc/mc-device.c  | 30 ++++++++++++++++++++++++++++++
+ drivers/media/mc/mc-devnode.c |  5 +++++
+ drivers/media/mc/mc-request.c |  6 ++++++
+ include/media/media-device.h  |  9 +++++++++
+ include/media/media-devnode.h |  4 ++++
+ include/media/media-request.h |  2 ++
+ 6 files changed, 56 insertions(+)
 
-diff --git a/drivers/media/test-drivers/vicodec/vicodec-core.c b/drivers/media/test-drivers/vicodec/vicodec-core.c
-index c45f5cf12ded3c8b57483b148bf7bbffb8a458c5..88cb6e6a713f08bd4f412ca2940b1309bb87513b 100644
---- a/drivers/media/test-drivers/vicodec/vicodec-core.c
-+++ b/drivers/media/test-drivers/vicodec/vicodec-core.c
-@@ -448,8 +448,10 @@ static void device_run(void *priv)
- 	ctx->comp_magic_cnt = 0;
- 	ctx->comp_has_frame = false;
- 	spin_unlock(ctx->lock);
--	if (ctx->is_stateless && src_req)
-+	if (ctx->is_stateless && src_req) {
- 		v4l2_ctrl_request_complete(src_req, &ctx->hdl);
-+		media_request_manual_complete(src_req);
-+	}
- 
- 	if (ctx->is_enc)
- 		v4l2_m2m_job_finish(dev->stateful_enc.m2m_dev, ctx->fh.m2m_ctx);
-@@ -1525,8 +1527,12 @@ static void vicodec_return_bufs(struct vb2_queue *q, u32 state)
- 			vbuf = v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
- 		if (vbuf == NULL)
- 			return;
--		v4l2_ctrl_request_complete(vbuf->vb2_buf.req_obj.req,
--					   &ctx->hdl);
-+		if (ctx->is_stateless && V4L2_TYPE_IS_OUTPUT(q->type)) {
-+			struct media_request *req = vbuf->vb2_buf.req_obj.req;
-+
-+			v4l2_ctrl_request_complete(req, &ctx->hdl);
-+			media_request_manual_complete(req);
-+		}
- 		spin_lock(ctx->lock);
- 		v4l2_m2m_buf_done(vbuf, state);
- 		spin_unlock(ctx->lock);
-@@ -1679,6 +1685,7 @@ static void vicodec_buf_request_complete(struct vb2_buffer *vb)
- 	struct vicodec_ctx *ctx = vb2_get_drv_priv(vb->vb2_queue);
- 
- 	v4l2_ctrl_request_complete(vb->req_obj.req, &ctx->hdl);
-+	media_request_manual_complete(vb->req_obj.req);
+diff --git a/drivers/media/mc/mc-device.c b/drivers/media/mc/mc-device.c
+index c0dd4ae5722725f1744bc6fd6282d5c765438059..5a458160200afb540d8014fed42d8bf2dab9c8c3 100644
+--- a/drivers/media/mc/mc-device.c
++++ b/drivers/media/mc/mc-device.c
+@@ -679,6 +679,23 @@ void media_device_unregister_entity(struct media_entity *entity)
  }
+ EXPORT_SYMBOL_GPL(media_device_unregister_entity);
  
- 
-@@ -2010,6 +2017,12 @@ static int vicodec_request_validate(struct media_request *req)
- 	return vb2_request_validate(req);
- }
- 
-+static void vicodec_request_queue(struct media_request *req)
++#ifdef CONFIG_DEBUG_FS
++/*
++ * Log the state of media requests.
++ * Very useful for debugging.
++ */
++static int media_device_requests(struct seq_file *file, void *priv)
 +{
-+	media_request_mark_manual_completion(req);
-+	v4l2_m2m_request_queue(req);
-+}
++	struct media_device *dev = dev_get_drvdata(file->private);
 +
- static const struct v4l2_file_operations vicodec_fops = {
- 	.owner		= THIS_MODULE,
- 	.open		= vicodec_open,
-@@ -2030,7 +2043,7 @@ static const struct video_device vicodec_videodev = {
++	seq_printf(file, "number of requests: %d\n",
++		   atomic_read(&dev->num_requests));
++	seq_printf(file, "number of request objects: %d\n",
++		   atomic_read(&dev->num_request_objects));
++	return 0;
++}
++#endif
++
+ void media_device_init(struct media_device *mdev)
+ {
+ 	INIT_LIST_HEAD(&mdev->entities);
+@@ -697,6 +714,9 @@ void media_device_init(struct media_device *mdev)
+ 		media_set_bus_info(mdev->bus_info, sizeof(mdev->bus_info),
+ 				   mdev->dev);
  
- static const struct media_device_ops vicodec_m2m_media_ops = {
- 	.req_validate	= vicodec_request_validate,
--	.req_queue	= v4l2_m2m_request_queue,
-+	.req_queue	= vicodec_request_queue,
++	atomic_set(&mdev->num_requests, 0);
++	atomic_set(&mdev->num_request_objects, 0);
++
+ 	dev_dbg(mdev->dev, "Media device initialized\n");
+ }
+ EXPORT_SYMBOL_GPL(media_device_init);
+@@ -748,6 +768,15 @@ int __must_check __media_device_register(struct media_device *mdev,
+ 
+ 	dev_dbg(mdev->dev, "Media device registered\n");
+ 
++#ifdef CONFIG_DEBUG_FS
++	if (!media_debugfs_root)
++		media_debugfs_root = debugfs_create_dir("media", NULL);
++	mdev->media_dir = debugfs_create_dir(dev_name(&devnode->dev),
++					     media_debugfs_root);
++	debugfs_create_devm_seqfile(&devnode->dev, "requests",
++				    mdev->media_dir, media_device_requests);
++#endif
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(__media_device_register);
+@@ -824,6 +853,7 @@ void media_device_unregister(struct media_device *mdev)
+ 
+ 	dev_dbg(mdev->dev, "Media device unregistered\n");
+ 
++	debugfs_remove_recursive(mdev->media_dir);
+ 	device_remove_file(&mdev->devnode->dev, &dev_attr_model);
+ 	media_devnode_unregister(mdev->devnode);
+ 	/* devnode free is handled in media_devnode_*() */
+diff --git a/drivers/media/mc/mc-devnode.c b/drivers/media/mc/mc-devnode.c
+index 56444edaf13651874331e7c04e86b0a585067d38..d0a8bcc11dd6350fdbc04add70f62de2c5f01178 100644
+--- a/drivers/media/mc/mc-devnode.c
++++ b/drivers/media/mc/mc-devnode.c
+@@ -45,6 +45,9 @@ static dev_t media_dev_t;
+ static DEFINE_MUTEX(media_devnode_lock);
+ static DECLARE_BITMAP(media_devnode_nums, MEDIA_NUM_DEVICES);
+ 
++/* debugfs */
++struct dentry *media_debugfs_root;
++
+ /* Called when the last user of the media device exits. */
+ static void media_devnode_release(struct device *cd)
+ {
+@@ -236,6 +239,7 @@ int __must_check media_devnode_register(struct media_device *mdev,
+ 	if (devnode->parent)
+ 		devnode->dev.parent = devnode->parent;
+ 	dev_set_name(&devnode->dev, "media%d", devnode->minor);
++	dev_set_drvdata(&devnode->dev, mdev);
+ 	device_initialize(&devnode->dev);
+ 
+ 	/* Part 2: Initialize the character device */
+@@ -313,6 +317,7 @@ static int __init media_devnode_init(void)
+ 
+ static void __exit media_devnode_exit(void)
+ {
++	debugfs_remove_recursive(media_debugfs_root);
+ 	bus_unregister(&media_bus_type);
+ 	unregister_chrdev_region(media_dev_t, MEDIA_NUM_DEVICES);
+ }
+diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+index 398d0806d1d274eb8c454fc5c37b77476abe1e74..829e35a5d56d41c52cc583cdea1c959bcb4fce60 100644
+--- a/drivers/media/mc/mc-request.c
++++ b/drivers/media/mc/mc-request.c
+@@ -75,6 +75,7 @@ static void media_request_release(struct kref *kref)
+ 		mdev->ops->req_free(req);
+ 	else
+ 		kfree(req);
++	atomic_dec(&mdev->num_requests);
+ }
+ 
+ void media_request_put(struct media_request *req)
+@@ -326,6 +327,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+ 
+ 	snprintf(req->debug_str, sizeof(req->debug_str), "%u:%d",
+ 		 atomic_inc_return(&mdev->request_id), fd);
++	atomic_inc(&mdev->num_requests);
+ 	dev_dbg(mdev->dev, "request: allocated %s\n", req->debug_str);
+ 
+ 	fd_install(fd, filp);
+@@ -349,10 +351,12 @@ static void media_request_object_release(struct kref *kref)
+ 	struct media_request_object *obj =
+ 		container_of(kref, struct media_request_object, kref);
+ 	struct media_request *req = obj->req;
++	struct media_device *mdev = obj->mdev;
+ 
+ 	if (WARN_ON(req))
+ 		media_request_object_unbind(obj);
+ 	obj->ops->release(obj);
++	atomic_dec(&mdev->num_request_objects);
+ }
+ 
+ struct media_request_object *
+@@ -417,6 +421,7 @@ int media_request_object_bind(struct media_request *req,
+ 	obj->req = req;
+ 	obj->ops = ops;
+ 	obj->priv = priv;
++	obj->mdev = req->mdev;
+ 
+ 	if (is_buffer)
+ 		list_add_tail(&obj->list, &req->objects);
+@@ -424,6 +429,7 @@ int media_request_object_bind(struct media_request *req,
+ 		list_add(&obj->list, &req->objects);
+ 	req->num_incomplete_objects++;
+ 	ret = 0;
++	atomic_inc(&obj->mdev->num_request_objects);
+ 
+ unlock:
+ 	spin_unlock_irqrestore(&req->lock, flags);
+diff --git a/include/media/media-device.h b/include/media/media-device.h
+index 53d2a16a70b0d9d6e5cc28fe1fc5d5ef384410d5..749c327e3c582c3c583e0394468321ccd6160da5 100644
+--- a/include/media/media-device.h
++++ b/include/media/media-device.h
+@@ -11,6 +11,7 @@
+ #ifndef _MEDIA_DEVICE_H
+ #define _MEDIA_DEVICE_H
+ 
++#include <linux/atomic.h>
+ #include <linux/list.h>
+ #include <linux/mutex.h>
+ #include <linux/pci.h>
+@@ -106,6 +107,9 @@ struct media_device_ops {
+  * @ops:	Operation handler callbacks
+  * @req_queue_mutex: Serialise the MEDIA_REQUEST_IOC_QUEUE ioctl w.r.t.
+  *		     other operations that stop or start streaming.
++ * @num_requests: number of associated requests
++ * @num_request_objects: number of associated request objects
++ * @media_dir:	DebugFS media directory
+  * @request_id: Used to generate unique request IDs
+  *
+  * This structure represents an abstract high-level media device. It allows easy
+@@ -179,6 +183,11 @@ struct media_device {
+ 	const struct media_device_ops *ops;
+ 
+ 	struct mutex req_queue_mutex;
++	atomic_t num_requests;
++	atomic_t num_request_objects;
++
++	/* debugfs */
++	struct dentry *media_dir;
+ 	atomic_t request_id;
  };
  
- static const struct v4l2_m2m_ops m2m_ops = {
+diff --git a/include/media/media-devnode.h b/include/media/media-devnode.h
+index d27c1c646c2805171be3997d72210dd4d1a38e32..dbcabeffcb572ae707f5fe1f51ff719d451c6784 100644
+--- a/include/media/media-devnode.h
++++ b/include/media/media-devnode.h
+@@ -20,9 +20,13 @@
+ #include <linux/fs.h>
+ #include <linux/device.h>
+ #include <linux/cdev.h>
++#include <linux/debugfs.h>
+ 
+ struct media_device;
+ 
++/* debugfs top-level media directory */
++extern struct dentry *media_debugfs_root;
++
+ /*
+  * Flag to mark the media_devnode struct as registered. Drivers must not touch
+  * this flag directly, it will be set and cleared by media_devnode_register and
+diff --git a/include/media/media-request.h b/include/media/media-request.h
+index 7f9af68ef19ac6de0184bbb0c0827dc59777c6dc..610ccfe8d7b20ec38e166383433f9ee208248640 100644
+--- a/include/media/media-request.h
++++ b/include/media/media-request.h
+@@ -292,6 +292,7 @@ struct media_request_object_ops {
+  * struct media_request_object - An opaque object that belongs to a media
+  *				 request
+  *
++ * @mdev: Media device this object belongs to
+  * @ops: object's operations
+  * @priv: object's priv pointer
+  * @req: the request this object belongs to (can be NULL)
+@@ -303,6 +304,7 @@ struct media_request_object_ops {
+  * another struct that contains the actual data for this request object.
+  */
+ struct media_request_object {
++	struct media_device *mdev;
+ 	const struct media_request_object_ops *ops;
+ 	void *priv;
+ 	struct media_request *req;
 
 -- 
 2.49.0
