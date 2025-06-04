@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7099C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 22:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA62C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 22:58:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Swzgs4fEZbULBfG6f9FFY0OBqD5WfWZgNz9e178/o4=; b=sU18uPzY6VLslktkEuPNh2Fb1X
-	SVBkwlmxOkFDXWYNXBTd0UU1Sjmge8WQQ7Bi/JTo4uPJ3lQt9P5xnsmQYClVLkBEXo4p6osqWPkK2
-	HdJmYj/VxfidEjIVgO4fTqn+YMYPsxxc08yVkXK4Q0njtBZ7KuUP2JXdxIVbQid+H0zhvjc7537Zp
-	52dWaaKbJIonfhIpE1c9mzKA3Y+DtUZPJTBnLlMvMaWaLCaYB3L+HkqDN18FrTUmLMDcJvBXzsfQ8
-	37lX3argkLkqVS+Va7/7tUVRQEt7QcWu6IBbEI36SZbYQ0YkFx8+Voi/eQ0RGN+mR0q7y+fl290ZQ
-	dpjzMEqA==;
+	bh=Qxm+NCuomLh4TtIVgaTi29L9RHe37Uqhg7YmepFi9rI=; b=bZLH50GisXy9YWJ9s+THqwnFeT
+	CEQ81AlWuJiLClZkxnlHmg+fS3tZcZJI4Vsjb65obQkpc99IZMaxI396F5EXVvt9NKs8BSTpZgyVk
+	wckuNDf+JnL+525eM1Gj2sHAI7UWBp6dR73uXTKEHhiZckJ/8R13vKcVBmbFuoE+NaOCZHMnZ/rdf
+	QlLQggcLCBvg4e5sZveOAUmhZhlVEj9aOCk7GAVrbKHFJ8X9c4RQz6qY6JIYedZ55aLpk7kk6tyEF
+	fKkx2PUFTbWHkRUgLIXIo477basHVLlbvNhThjSlawOMzdUQi9lmb7hRQD1I5Q6syPYN8aCfqIRkf
+	Ro9t8wgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMx0R-0000000ELJx-0IuK;
-	Wed, 04 Jun 2025 22:54:47 +0000
+	id 1uMx4H-0000000ELnU-3u00;
+	Wed, 04 Jun 2025 22:58:45 +0000
 Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMwx1-0000000EKxo-3DJ4
+	id 1uMx2B-0000000ELXe-20WD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 22:51:16 +0000
+	Wed, 04 Jun 2025 22:56:36 +0000
 Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
 	by finn.localdomain with esmtp (Exim 4.95)
 	(envelope-from <tharvey@gateworks.com>)
-	id 1uMwwt-007Xnl-MV;
-	Wed, 04 Jun 2025 22:51:07 +0000
+	id 1uMx28-007Xnu-DG;
+	Wed, 04 Jun 2025 22:56:32 +0000
 From: Tim Harvey <tharvey@gateworks.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -44,16 +44,17 @@ Cc: imx@lists.linux.dev,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
+	stable@vger.kernel.org,
 	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH v2] arm64: dts: imx8mp-venice-gw74xx: update name of M2SKT_WDIS2# gpio
-Date: Wed,  4 Jun 2025 15:51:04 -0700
-Message-Id: <20250604225104.1429156-1-tharvey@gateworks.com>
+Subject: [PATCH v2 1/4] arm64: dts: imx8mp-venice-gw71xx: fix TPM SPI frequency
+Date: Wed,  4 Jun 2025 15:56:27 -0700
+Message-Id: <20250604225630.1430502-1-tharvey@gateworks.com>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_155115_796905_D5D0EFAA 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250604_155635_516176_39EC1B90 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,56 +69,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GW74xx D revision has added a M2SKT_WDIS2# GPIO which routes to the
-W_DISABLE2# pin of the M.2 socket. Update the gpio name for consistency.
+The IMX8MPDS Table 37 [1] shows that the max SPI master read frequency
+depends on the pins the interface is muxed behind with ECSPI2
+muxed behind ECSPI2 supporting up to 25MHz.
 
-Fixes: 6a5d95b06d93 ("arm64: dts: imx8mp-venice-gw74xx: add M2SKT_GPIO10 gpio configuration")
+Adjust the spi-max-frequency based on these findings.
+
+[1] https://www.nxp.com/webapp/Download?colCode=IMX8MPIEC
+
+Fixes: 1a8f6ff6a291 ("arm64: dts: imx8mp-venice-gw71xx: add TPM device")
+Cc: stable@vger.kernel.org
 Signed-off-by: Tim Harvey <tharvey@gateworks.com>
 ---
-v2: update commit log to clarify we are just renaming a gpio
+v2: add cc to stable
 ---
- arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw71xx.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
-index 6daa2313f879..f00099f0cd4e 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
-@@ -301,7 +301,7 @@ &gpio2 {
- &gpio3 {
- 	gpio-line-names =
- 		"", "", "", "", "", "", "m2_rst", "",
--		"", "", "", "", "", "", "m2_gpio10", "",
-+		"", "", "", "", "", "", "m2_wdis2#", "",
- 		"", "", "", "", "", "", "", "",
- 		"", "", "", "", "", "", "", "";
- };
-@@ -310,7 +310,7 @@ &gpio4 {
- 	gpio-line-names =
- 		"", "", "m2_off#", "", "", "", "", "",
- 		"", "", "", "", "", "", "", "",
--		"", "", "m2_wdis#", "", "", "", "", "",
-+		"", "", "m2_wdis1#", "", "", "", "", "",
- 		"", "", "", "", "", "", "", "rs485_en";
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw71xx.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw71xx.dtsi
+index 2f740d74707b..4bf818873fe3 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw71xx.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw71xx.dtsi
+@@ -70,7 +70,7 @@ &ecspi2 {
+ 	tpm@1 {
+ 		compatible = "atmel,attpm20p", "tcg,tpm_tis-spi";
+ 		reg = <0x1>;
+-		spi-max-frequency = <36000000>;
++		spi-max-frequency = <25000000>;
+ 	};
  };
  
-@@ -811,14 +811,14 @@ pinctrl_hog: hoggrp {
- 			MX8MP_IOMUXC_GPIO1_IO09__GPIO1_IO09	0x40000040 /* DIO0 */
- 			MX8MP_IOMUXC_GPIO1_IO11__GPIO1_IO11	0x40000040 /* DIO1 */
- 			MX8MP_IOMUXC_SAI1_RXD0__GPIO4_IO02	0x40000040 /* M2SKT_OFF# */
--			MX8MP_IOMUXC_SAI1_TXD6__GPIO4_IO18	0x40000150 /* M2SKT_WDIS# */
-+			MX8MP_IOMUXC_SAI1_TXD6__GPIO4_IO18	0x40000150 /* M2SKT_WDIS1# */
- 			MX8MP_IOMUXC_SD1_DATA4__GPIO2_IO06	0x40000040 /* M2SKT_PIN20 */
- 			MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11	0x40000040 /* M2SKT_PIN22 */
- 			MX8MP_IOMUXC_SD2_CLK__GPIO2_IO13	0x40000150 /* PCIE1_WDIS# */
- 			MX8MP_IOMUXC_SD2_CMD__GPIO2_IO14	0x40000150 /* PCIE3_WDIS# */
- 			MX8MP_IOMUXC_SD2_DATA3__GPIO2_IO18	0x40000150 /* PCIE2_WDIS# */
- 			MX8MP_IOMUXC_NAND_DATA00__GPIO3_IO06	0x40000040 /* M2SKT_RST# */
--			MX8MP_IOMUXC_NAND_DQS__GPIO3_IO14	0x40000040 /* M2SKT_GPIO10 */
-+			MX8MP_IOMUXC_NAND_DQS__GPIO3_IO14	0x40000150 /* M2KST_WDIS2# */
- 			MX8MP_IOMUXC_SAI3_TXD__GPIO5_IO01	0x40000104 /* UART_TERM */
- 			MX8MP_IOMUXC_SAI3_TXFS__GPIO4_IO31	0x40000104 /* UART_RS485 */
- 			MX8MP_IOMUXC_SAI3_TXC__GPIO5_IO00	0x40000104 /* UART_HALF */
 -- 
 2.25.1
 
