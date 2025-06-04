@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32F5C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 19:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D18BC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 19:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RR07ZJb8JV1Gn3LQ5leTmhQEEeyoSF6a+ry7Y8x0k4k=; b=OINFApfKRq1nqwkPhAFrQ9nEou
-	D2uF7ZDIAjPOA5Q0r5b3K3jA+SQEhKpOHEzchuaven+QYegZX+zNjIVA9omHDlJ5CGha6u1QI3foq
-	fwwBc77lyNXilU1jRuG+zU6nWuSlpRO5ujzbeGIe0yRge7+UKpFQau28uMozpJjXILg80t4Dy6jW6
-	btd3uPDLDFYKyudEzNWp123Wcw7kCJ/EuHPP88h4Lx+5QIO4iCrQd/0xHK/OSwhuzN/e82idUeUNV
-	Xw/wFTBCNnihiuRZ4P+deGW7Te8Q+/YdhQ91dUyBsENtL9utpv6YkzRHALPEzixWPUhf4z92wfzUP
-	5li89vAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v68ILt8xt28THMlmyuKMfaQcpvhx4IXAkUL4p7ZYZOA=; b=sM7cXLkG6HuBknRzhppjypRoNd
+	XETkC6TTznv5+ZQA1CgXHE0TXcOg11FbRX2Jf2QQGbVn+OJnbdVycLbKg4D9IbNGnhRWukYJY+bPD
+	XDwd0H7+a27f1uIC7v5Zt8tZfq3MYgHQVuFU5xmIxhMMfAO94BTk1Fd8X9wd9P0R6FRxH7vYHjq3w
+	WGyAEWASgRI3A9P5x27IwpvfMvhIzC/S1LrRMoR5KX/m5kvJ0QN+qKhtf4mMQsUgmw7ityO10Krw4
+	7+W+4L2pcPCj8IaxLsfpwjR1tkfshKH7vKFjy2D6cSVbm4dR0elZwArGPXwGUm3YoY+TngdLDuisP
+	pQQ3IIcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMtPs-0000000E4C6-3u46;
-	Wed, 04 Jun 2025 19:04:48 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uMtZh-0000000E4oJ-3UY3;
+	Wed, 04 Jun 2025 19:14:57 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMtMh-0000000E3kb-1gqe;
-	Wed, 04 Jun 2025 19:01:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749063687; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=hUZbeOaldCTjbNvHXnX0G72M5BW9GejfrJ9UZJmeBTi+Fknig7vKZnLgpp4395QZcHCksZOkjDGEFwV61C+iwUACY/kCOowEBMoMYJOyHcm/2Jrs4c+bKNrNeap01G34BCMqGyIvt4zaXP7UuVxyWBfNH2y6D5Htz62lvUKwOro=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749063687; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=RR07ZJb8JV1Gn3LQ5leTmhQEEeyoSF6a+ry7Y8x0k4k=; 
-	b=b/4blPvALM0jm4+1EnZtq3tYPK77jJcnnFzvhTJgpZL4WnR1B49em+e1xPzwDpyVIGmkMof9S2VeJW4suNesUk8kipw0WBz20N4W1pCEcO51lPCijFS8nXH6EU1/YeQhw78HD/YU7HxsgIgKjM+KIfeQjNmMUcmWa9CldKg4dnE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749063687;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=RR07ZJb8JV1Gn3LQ5leTmhQEEeyoSF6a+ry7Y8x0k4k=;
-	b=cPBbrC+jF6wKlqbdkGk/TQz0dU7RSQZTij2iqSiQNILpLtaUuczypAivoSr4+iUU
-	fzbSSSBlbI49220TxrtPcsA8Y3aRSrOxDY27yGgmc/qGGAFQpcnJuzMqiybCRi8KfkP
-	lo13DsX2Nb4P6mdVAmcpFOFfNcetvjmnamBeTXDQ=
-Received: by mx.zohomail.com with SMTPS id 1749063684919734.5257602364985;
-	Wed, 4 Jun 2025 12:01:24 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Alexey Charkov <alchark@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alexey Charkov <alchark@gmail.com>
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: enable wifi on ArmSoM Sige5
-Date: Wed, 04 Jun 2025 21:01:20 +0200
-Message-ID: <11432858.nUPlyArG6x@workhorse>
-In-Reply-To: <20250603-sige5-updates-v1-3-717e8ce4ab77@gmail.com>
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <20250603-sige5-updates-v1-3-717e8ce4ab77@gmail.com>
+	id 1uMtXa-0000000E4fc-3Uq9;
+	Wed, 04 Jun 2025 19:12:48 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-4a4bb155edeso1487181cf.2;
+        Wed, 04 Jun 2025 12:12:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749064365; x=1749669165; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v68ILt8xt28THMlmyuKMfaQcpvhx4IXAkUL4p7ZYZOA=;
+        b=QcwJmAFIuWufOuwwGgfffsFIhR7uSTRh3y7o9MctWtrU1WWyVSYH2dzMWBl7B5tQl+
+         4JY1Y5f8RnwqxUTq7x+exyCxutRc4aaDHoASAP/U9LGaAbN4jQCZoSEI4JY+8CZmW2Fo
+         8o+1e9poO6mws0LXjCSnv6dGJh3q49JdrM2mLQET9eiJW22NsMTZf1ZYmYQGBAWjWTxx
+         8kcQKGCtfAlZxS7qDiX6hi0d/IOEznUgfvoC2WGuHeoe9kK92P8dmwjXY9kc/5V7jmRv
+         awJp5M93ioOrUwf3WD5TlpJPmu2ChFGRmM1bpMFg4RNUYpRDfllYKmPAKs16EOtDadaY
+         iECA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749064365; x=1749669165;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=v68ILt8xt28THMlmyuKMfaQcpvhx4IXAkUL4p7ZYZOA=;
+        b=Abiyrj8iZdzrMaUmanwXy5yG6BG3p93Gi8NkseVRwG3HRyF17HBpZIDcwzmsYifNql
+         MUvV70+Upb7LQN/8TJUIYJnUjciAmH/eSa8v1fyI5IyIFLP6j97+iWWxcpHCv75oCzFh
+         vVs2E9eRGd//WL1wByGP1mMhG0YECsMlaS87/3z4QnrA1gxw3axY1d9RKkp8oSvYQDAr
+         KCx/ymEhvfCWds4lcKsqprW2T4Rndm2Ysjhts/P2b215uGRvwBy0/ZsOKXEiyDqiRMZu
+         fwwLPoNUHOQZBkxGnFGQBaE57eLw1NHz8F2ea/9UC3d1Kjggn0kdtV1lFSwhJmkQnYxM
+         uoHA==
+X-Forwarded-Encrypted: i=1; AJvYcCVNurIIZb1+JFcPhzCItJg/EeqDE9Du0p9hWs3YMi6lk8hcI0wqgnYlB9zClNZ6CQMgIWRiMmFTIz1yeAfbsr8=@lists.infradead.org, AJvYcCXAnly5ohM/642lnOQFk20v6T1M1N9RrAKNq7FLIolI7NAMGqwxKqTQuv8KqpF/iXf7nmyQQ/WEWjmxyRO5vv5h@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNv+aQwQlF7hcjkV0FaByMSBK8g/XMtl5o4G8AOvfb5ROFFOPc
+	0O7TUM+7JrsM/9TQSYQCGpBB/cQKjDOSaPMJg6xNSW0NyBr+GdMRviy4+tC9M7XkkSSCtH6ZSSL
+	AuJ4JF3MaytUpoyefX+loNtTY9Re5eJA=
+X-Gm-Gg: ASbGncude7E2u659EJMu8mBIPZdiRR1hc15fs2zblxT9GR3ZuEaHW/k5xX2fACRkQir
+	eNYJ0Hmkeb/3PvaLFr0F+gY8RDmHjDS0Lv8hL1DE4NwlTsNSnNn6OBecnXUwieZ+RZR6bJ8Xfru
+	NhDG2lzr+YqvPa+OAV7YEEZfMEXm/psp8CCGmR4GjssGdXkGPYIq5jNoMNsHSlD7eGVw==
+X-Google-Smtp-Source: AGHT+IHkGcI9KV0dFs+7Hj/zh+wdAmNhv6TFy7eW9sMjhV5X2zUe4MTyLbGWK9esEy06HGIELxjaKcjO6066Mlf9nY0=
+X-Received: by 2002:ac8:5cd5:0:b0:48c:c121:7e27 with SMTP id
+ d75a77b69052e-4a5a584733cmr74376181cf.50.1749064365064; Wed, 04 Jun 2025
+ 12:12:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+ <20250603-sige5-updates-v1-1-717e8ce4ab77@gmail.com> <6656934.DvuYhMxLoT@workhorse>
+In-Reply-To: <6656934.DvuYhMxLoT@workhorse>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Wed, 4 Jun 2025 23:12:35 +0400
+X-Gm-Features: AX0GCFspbBIHwcLfNzc6-jDHvamdNprrbgOXqKsRv_8yqqyAsKIYJM_cipXfo4o
+Message-ID: <CABjd4Yx05SCm+03jWbsEP-A5AuhL14wLj=+VdKyQgqMbnxi3xQ@mail.gmail.com>
+Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_120131_521959_AE806D0B 
-X-CRM114-Status: GOOD (  29.14  )
+X-CRM114-CacheID: sfid-20250604_121246_892953_613C75FA 
+X-CRM114-Status: GOOD (  22.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,169 +96,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 3 June 2025 19:01:15 Central European Summer Time Alexey Charkov wrote:
-> ArmSoM Sige5 uses a soldered-on SDIO connected WiFi module. Namely,
-> board v1.1 uses a Realtek based BL-M8852BS2, while v1.2 uses a Broadcom
-> based BW3752-50B1.
-
-Okay, so there's two board revisions, which makes this patch and the
-following that adds bluetooth a problem. This patch here doesn't
-seem to actually add the SDIO Wi-Fi module node where it'll differ,
-so skirts around the issue AFAIU. It might also be that it's not
-needed for you and I just don't notice because I have v1.1 where the
-SDIO driver for that module doesn't exist yet iirc.
-
-But what we should think about is first doing
-- probably add a new compatible for armsom,sige5-v1.2
-- git mv arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts \
-         arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtsi
-- commit here like Sebastian Reichel had to do for [1]
-- create a new arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-  that includes the dtsi and moves the model and compatible property
-  there. Make sure the model includes v1.1 in the name, compatible
-  should remain the same
-- commit here that will be a squash commit like Sebastian Reichel
-  had to do in [2]
-- create a new arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5-v1.2.dts,
-  could be adding the Wi-Fi node here to cut down on how many patches we
-  do. I assume you only have the v1.2 board and can't test the older Wi-Fi,
-  which is fine.
-  compatible should probably be something like
-    compatible = "armsom,sige5-v1.2", "armsom,sige5", "rockchip,rk3576";
-  Don't forget to change the model property as well.
-
-I know this will be a royal PITA, especially considering they'll likely
-never produce v1.1 again and it now hogs the name, but keeping the
-current dts as 1.1 may be the best way forward, as it keeps compat (though
-the Wi-Fi changes won't affect anything already in there) and will stop
-people from accidentally picking the higher number better DTS like what
-happens with rockpro64 all the time where the non-numbered DTS is 2.1 and
-the numbered one is 2.0 and people keep picking 2.0.
-
-> 
-> Add required device tree nodes in the SoC .dtsi for the SDIO controller
-> and pinctrl / clock wiring in the board .dts for the module itself.
-> 
-> Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> ---
->  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 36 ++++++++++++++++++++++
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 16 ++++++++++
->  2 files changed, 52 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> index 7ce1fb1380b0863c902fdd9cbc7454ee6011cf92..dcd033859398312f7693bebb7f080ee4f2ecaa32 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> @@ -219,6 +219,15 @@ vcc_5v0_host: regulator-vcc-5v0-host {
->  		pinctrl-names = "default";
->  		pinctrl-0 = <&usb_host_pwren>;
->  	};
-> +
-> +	sdio_pwrseq: sdio-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		clocks = <&hym8563>;
-> +		clock-names = "ext_clock";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&wifi_reg_on>;
-> +		reset-gpios = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
-> +	};
->  };
->  
->  &combphy1_psu {
-> @@ -781,6 +790,16 @@ usb_host_pwren: usb-host-pwren {
->  			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
->  		};
->  	};
-> +
-> +	wireless-wlan {
-> +		wifi_wake_host: wifi-wake-host {
-> +			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_down>;
-> +		};
-> +
-> +		wifi_reg_on: wifi-reg-on {
-> +			rockchip,pins = <1 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
->  };
->  
->  &sai1 {
-> @@ -808,6 +827,23 @@ &sdhci {
->  	status = "okay";
->  };
->  
-> +&sdio {
-> +	bus-width = <4>;
-> +	cap-sdio-irq;
-> +	disable-wp;
-> +	keep-power-in-suspend;
-> +	mmc-pwrseq = <&sdio_pwrseq>;
-> +	no-sd;
-> +	no-mmc;
-> +	non-removable;
-> +	sd-uhs-sdr50;
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&vcc_3v3_s3>;
-> +	vqmmc-supply = <&vcc_1v8_s3>;
-> +	wakeup-source;
-> +	status = "okay";
-> +};
-> +
->  &sdmmc {
->  	bus-width = <4>;
->  	cap-mmc-highspeed;
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-
-Okay, I think adding the sdio node to the SoC dtsi should be a separate
-patch before this one.
-
-> index 1086482f04792325dc4c22fb8ceeb27eef59afe4..a09582470bb7f654b711308da1e51fa8571ca1e8 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> @@ -1695,6 +1695,22 @@ sdmmc: mmc@2a310000 {
->  			status = "disabled";
->  		};
->  
-> +		sdio: mmc@2a320000 {
-> +			compatible = "rockchip,rk3576-dw-mshc", "rockchip,rk3288-dw-mshc";
-> +			reg = <0x0 0x2a320000 0x0 0x4000>;
-> +			clocks = <&cru HCLK_SDIO>, <&cru CCLK_SRC_SDIO>;
-> +			clock-names = "biu", "ciu";
-> +			fifo-depth = <0x100>;
-> +			interrupts = <GIC_SPI 252 IRQ_TYPE_LEVEL_HIGH>;
-> +			max-frequency = <200000000>;
-> +			pinctrl-0 = <&sdmmc1m0_clk &sdmmc1m0_cmd &sdmmc1m0_bus4>;
-> +			pinctrl-names = "default";
-> +			power-domains = <&power RK3576_PD_SDGMAC>;
-> +			resets = <&cru SRST_H_SDIO>;
-> +			reset-names = "reset";
-> +			status = "disabled";
-> +		};
-> +
->  		sdhci: mmc@2a330000 {
->  			compatible = "rockchip,rk3576-dwcmshc", "rockchip,rk3588-dwcmshc";
->  			reg = <0x0 0x2a330000 0x0 0x10000>;
-> 
+On Wed, Jun 4, 2025 at 10:38=E2=80=AFPM Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
 >
+> On Tuesday, 3 June 2025 19:01:13 Central European Summer Time Alexey Char=
+kov wrote:
+> > List both CPU supply regulators which drive the little and big CPU
+> > clusters, respectively, so that cpufreq can pick them up.
+> >
+> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > ---
+> >  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 28 ++++++++++++++=
+++++++++
+> >  1 file changed, 28 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arc=
+h/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> > index b09e789c75c47fec7cf7e9810ab0dcca32d9404a..d9c129be55a0d997e04e6d6=
+77cdc98fb50353418 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> > @@ -207,6 +207,22 @@ vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
+> >       };
+> >  };
+> >
+> > +&cpu_b0 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> > +&cpu_b1 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> > +&cpu_b2 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> > +&cpu_b3 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> >  &combphy0_ps {
+> >       status =3D "okay";
+> >  };
+> > @@ -215,6 +231,18 @@ &cpu_l0 {
+> >       cpu-supply =3D <&vdd_cpu_lit_s0>;
+> >  };
+> >
+> > +&cpu_l1 {
+> > +     cpu-supply =3D <&vdd_cpu_lit_s0>;
+> > +};
+> > +
+> > +&cpu_l2 {
+> > +     cpu-supply =3D <&vdd_cpu_lit_s0>;
+> > +};
+> > +
+> > +&cpu_l3 {
+> > +     cpu-supply =3D <&vdd_cpu_lit_s0>;
+> > +};
+> > +
+> >  &gmac0 {
+> >       phy-mode =3D "rgmii-id";
+> >       clock_in_out =3D "output";
+> >
+> >
+>
+> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>
+> > so that cpufreq can pick them up.
+>
+> Fwiw, even without this patch they're picked up by cpufreq-dt for me:
+>
+>     user@trixie:~$ sudo cpupower frequency-info
+>       analyzing CPU 5:
+>       driver: cpufreq-dt
+>       CPUs which run at the same hardware frequency: 4 5 6 7
+>       CPUs which need to have their frequency coordinated by software: 4 =
+5 6 7
+>       maximum transition latency: 40.0 us
+>       hardware limits: 408 MHz - 2.30 GHz
+>       available frequency steps:  408 MHz, 600 MHz, 816 MHz, 1.01 GHz, 1.=
+20 GHz, 1.42 GHz, 1.61 GHz, 1.80 GHz, 2.02 GHz, 2.21 GHz, 2.30 GHz
+>       available cpufreq governors: ondemand userspace performance schedut=
+il
+>       current policy: frequency should be within 408 MHz and 2.30 GHz.
+>                       The governor "schedutil" may decide which speed to =
+use
+>                       within this range.
+>       current CPU frequency: 1.61 GHz (asserted by call to hardware)
+>     user@trixie:~$ uname -a
+>     Linux trixie 6.15.0-11173-g546b1c9e93c2 #2 SMP PREEMPT Wed Jun  4 20:=
+32:52 CEST 2025 aarch64 GNU/Linux
 
-So in conclusion:
-- bindings patch adding v1.2 compatible
-- SoC dtsi patch for the sdio node
-- git mv patch
-- rk3576-armsom-sige5.dts patch, ask maintainer to squash it into the
-  previous patch, make it obvious by giving it the same subject or something
-- rk3576-armsom-sige5-v1.2.dts patch
+Frequencies are fine, but I don't think the more power hungry big CPU
+cluster gets any voltage scaling without it. Once I try to load the
+system enough that the governor decides to bump the big cluster
+frequency up, the regulator stays at 850000 microvolts, causing random
+reboots when the whole cluster starts starving. With the patch,
+voltage oscillates between 700000-737000 microvolts in idle and jumps
+up to 950000 under load, and the system seems stable.
 
-Sorry to drop all this on you, it's a little unpleasant and in-the-woods
-with regards to preparing a patch series. Basically, the reason why I've
-held off on this for the moment is that I don't have a v1.2 board and my
-v1.1 board's Wi-Fi module doesn't seem to be supported (yet).
+Here's what I used to monitor the voltage (there must be a better way
+to do it, but it works):
+sige5 ~ # watch cat `grep -r . /sys/class/regulator/*/name | grep
+vdd_cpu_big_s0 | sed -e 's/name.*//'`/microvolts
 
-Kind regards,
-Nicolas Frattaroli
+And in another terminal:
+sige5 ~ # stress-ng -c8
 
-[1]: https://lore.kernel.org/linux-rockchip/20250508-rock5bp-for-upstream-v2-1-677033cc1ac2@kernel.org/
-[2]: https://lore.kernel.org/linux-rockchip/20250508-rock5bp-for-upstream-v2-2-677033cc1ac2@kernel.org/
+This might warrant a note in the commit message I guess :)
 
+Thanks for your review and testing!
 
-
+Best regards,
+Alexey
 
