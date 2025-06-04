@@ -4,96 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB3BC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C42C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 16:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdtlGBbQhSqI/YxxWo7AbxvTSFeRW0xEUAKtRdgiZ2Q=; b=3v8NkBS8aVWT9Gp/Dgi8eWHm5w
-	iNHGPqVTd/2pcsTEfJTvlrG6y6feuuIDYxhEu6O8D+gF3n7GWJoIZ1fakfUdrn59td6zsyVtcsTC+
-	aVfqY3G4bhzU7kLQiEaPmwv6HS58vE6v2uJJyMpAxr3i2t3VsPrTDMRTSQrlZ5WY/tRcTPPALr5Hz
-	yFORYIlDdBEe1W+3ZuqqaRDP98lqZgCgrwmWtmVCG3i4Dbxw6cdPIk8SmPTAtc2bPXHTjyIStRfGJ
-	fJL3z/VhLXQZy2zITLMBqQga+2u83sL3OacKk/XWiCAHmKc+4s3sYhG7hvCVtSo1kgiAfWcYhEbPZ
-	Tzo9fnaQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YIynu6tFioNf90fyxt9RTw63U+mL6PEes9Jg4hcXGI4=; b=oCWtm14pk84VEeOTYCvEq8MDgU
+	vaXVR+LIdgF9ljMbko8tqieyyQML9Q6czIodeE6hCRCvQAZ2aSLa9urSaAbTjEKj7wdMi/x4kYswQ
+	hUp0iPebbpDFZ40QNk9tXKKvKeH/grqtEAKaAIUpTwm1tMKVymhnh4bBe93g8lYXopOqOxP3T4LNz
+	qd3voYei6u48tjYu3NEizsEyCBamQ0CooHnhHbwe0XsFhTOhcdjxd7Kxj+6ai4Cb+tsLKchnuoa0M
+	1HKT+Hkwwm0ZKsnwS6Y5ISMGSbHch9gV5oEXPKhK2TwBoD20eFeKiRC2R77k+MgV5ru9QsU0vJRLs
+	FYHnO0Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMqVR-0000000DkS3-184w;
-	Wed, 04 Jun 2025 15:58:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMqTI-0000000DkEG-31lC
+	id 1uMqbn-0000000DlCP-3zI7;
+	Wed, 04 Jun 2025 16:04:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMqZg-0000000DkwC-0yvf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 15:56:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2CC2A5C61CC;
-	Wed,  4 Jun 2025 15:53:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 973F9C4CEE4;
-	Wed,  4 Jun 2025 15:56:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749052567;
-	bh=acLawW878StXvnWA+xjn0w4gxzlzkiefGpw3iDr4dkw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=prTlrsWiHcJqPPXwDnLSeFSH1u1eaZofMsODN2b4qWWr9lvdVJOIvAfnitx4UhVcY
-	 VXLHYyg1hEIgdjJPAr9PQQGyslvB3yAXfpiRkDy8nPPPMzzxi2KT0QQqoQmuSJQqji
-	 wRkh3SIK73BAoVJ6YuYyw1pTcxZhkRs65TI1zpw5PyRIBaa9jDx3uvWAQzkFNmdguH
-	 gcGEBitSnUEhKLrhYAA/5hnLyFS+GtWn4ZrMa1ZXOicI9ztcIU7TG5PCX1LgGrxZdc
-	 AVsKDHCGncCvFQrJkFYUOlPrV8mjePvB6QU/Gg6WvwJ4FcnhtDrhqq+dr3zacyZbWn
-	 3LJGOcZH2Sk3A==
-Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uMqTF-003GGp-8I;
-	Wed, 04 Jun 2025 16:56:05 +0100
-Date: Wed, 04 Jun 2025 16:56:02 +0100
-Message-ID: <878qm7ec19.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	andre.przywara@arm.com,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
-In-Reply-To: <aD/0tuak7Hja8k4g@lpieralisi>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
-	<20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
-	<aDhWlytLCxONZdF9@lpieralisi>
-	<CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
-	<aD6ouVAXy5qcZtM/@lpieralisi>
-	<CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
-	<CAFEAcA-JrS0BiT66iin-pRVFadrY-pnJZ8TkDNxcjErknSCnUA@mail.gmail.com>
-	<CAL_JsqL7x53an2-MaLHP5tfVXb4JxT8ORUMaA8pL-gMsWLJqkA@mail.gmail.com>
-	<aD/0tuak7Hja8k4g@lpieralisi>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	Wed, 04 Jun 2025 16:02:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E52251758;
+	Wed,  4 Jun 2025 09:02:25 -0700 (PDT)
+Received: from [10.1.27.175] (XHFQ2J9959.cambridge.arm.com [10.1.27.175])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5CF73F5A1;
+	Wed,  4 Jun 2025 09:02:40 -0700 (PDT)
+Message-ID: <99a0a2c8-d98e-4c81-9207-c55c72c00872@arm.com>
+Date: Wed, 4 Jun 2025 17:02:39 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6] arm64/mm: Optimize loop to reduce redundant operations
+ of contpte_ptep_get
+Content-Language: en-GB
+To: Xavier Xia <xavier_qy@163.com>, 21cnbao@gmail.com, dev.jain@arm.com,
+ ioworker0@gmail.com
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, david@redhat.com,
+ gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, will@kernel.org, willy@infradead.org,
+ ziy@nvidia.com, Barry Song <baohua@kernel.org>
+References: <20250510125948.2383778-1-xavier_qy@163.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250510125948.2383778-1-xavier_qy@163.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 149.88.19.236
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, robh@kernel.org, peter.maydell@linaro.org, krzk+dt@kernel.org, tglx@linutronix.de, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, andre.przywara@arm.com, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, suzuki.poulose@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_085608_845665_87BE5263 
-X-CRM114-Status: GOOD (  36.72  )
+X-CRM114-CacheID: sfid-20250604_090244_370481_3CC8D867 
+X-CRM114-Status: GOOD (  37.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,75 +68,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 04 Jun 2025 08:24:38 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
->=20
-> On Tue, Jun 03, 2025 at 02:11:34PM -0500, Rob Herring wrote:
-> > On Tue, Jun 3, 2025 at 10:37=E2=80=AFAM Peter Maydell <peter.maydell@li=
-naro.org> wrote:
-> > >
-> > > On Tue, 3 Jun 2025 at 16:15, Rob Herring <robh@kernel.org> wrote:
-> > > >
-> > > > On Tue, Jun 3, 2025 at 2:48=E2=80=AFAM Lorenzo Pieralisi <lpieralis=
-i@kernel.org> wrote:
-> > > > >
-> > > > > On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
-> > > > > > secure.txt says:
-> > > > > > # The general principle of the naming scheme for Secure world b=
-indings
-> > > > > > # is that any property that needs a different value in the Secu=
-re world
-> > > > > > # can be supported by prefixing the property name with "secure-=
-". So for
-> > > > > > # instance "secure-foo" would override "foo".
-> > > >
-> > > > Today I would say a 'secure-' prefix is a mistake. To my knowledge,
-> > > > it's never been used anyways. But I don't have much visibility into
-> > > > what secure world firmware is doing.
-> > >
-> > > QEMU uses it for communicating with the secure firmware if
-> > > you run secure firmware on the virt board. It's done that
-> > > since we introduced that binding. Indeed that use case is *why*
-> > > the binding is there. It works fine for the intended purpose,
-> > > which is "most devices are visible in both S and NS, but a few
-> > > things are S only (UART, a bit of RAM, secure-only flash").
-> >=20
-> > I meant "secure-" as a prefix allowed on *any* property, not
-> > "secure-status" specifically, which is the only thing QEMU uses
-> > AFAICT. IOW, I don't think we should be creating secure-reg,
-> > secure-interrupts, secure-clocks, etc.
->=20
-> Reading secure.txt, what does it mean "device present and usable in
-> the secure world" ?
->=20
-> So:
->=20
-> status =3D "disabled"
-> secure-status =3D "okay"
->=20
-> basically means that the device in question allows secure-only MMIO
-> access, is that what it says ?
->=20
-> If that's the case and we really want to have all config frames
-> in a single DT, would it be reasonable to have an IRS/ITS DT node
-> per-frame ?
->=20
-> Then yes, the secure- tag is not enough any longer (because we have to
-> cope with 4 interrupt domains) but that's a separate problem - again,
-> this would leave the current reviewed bindings unchanged.
+On 10/05/2025 13:59, Xavier Xia wrote:
+> This commit optimizes the contpte_ptep_get and contpte_ptep_get_lockless
+> function by adding early termination logic. It checks if the dirty and
+> young bits of orig_pte are already set and skips redundant bit-setting
+> operations during the loop. This reduces unnecessary iterations and
+> improves performance.
+> 
+> In order to verify the optimization performance, a test function has been
+> designed. The function's execution time and instruction statistics have
+> been traced using perf, and the following are the operation results on a
+> certain Qualcomm mobile phone chip:
+> 
+> Test Code:
 
-No, this is the same problem, and we need a way to address it.
-"secure-*" doesn't cut it in a system with FEAT_RME, where resources
-are only available to a single Physical Address Space (PAS). So we
-need a way to qualify these resources with a PAS.
+nit: It would have been good to include the source for the whole program,
+including #includes and the main() function to make it quicker for others to get
+up and running.
 
-Either that, or we have to restrict DT to describe the view of a
-single PAS. Which Peter will understandably be unhappy about.
+> 
+> 	#define PAGE_SIZE 4096
+> 	#define CONT_PTES 16
+> 	#define TEST_SIZE (4096* CONT_PTES * PAGE_SIZE)
+> 	#define YOUNG_BIT 8
+> 	void rwdata(char *buf)
+> 	{
+> 		for (size_t i = 0; i < TEST_SIZE; i += PAGE_SIZE) {
+> 			buf[i] = 'a';
+> 			volatile char c = buf[i];
+> 		}
+> 	}
+> 	void clear_young_dirty(char *buf)
+> 	{
+> 		if (madvise(buf, TEST_SIZE, MADV_FREE) == -1) {
+> 			perror("madvise free failed");
+> 			free(buf);
+> 			exit(EXIT_FAILURE);
+> 		}
+> 		if (madvise(buf, TEST_SIZE, MADV_COLD) == -1) {
+> 			perror("madvise free failed");
+> 			free(buf);
+> 			exit(EXIT_FAILURE);
+> 		}
 
-Thanks,
+nit: MADV_FREE clears both young and dirty so I don't think MADV_COLD is
+required? (MADV_COLD only clears young I think?)
 
-	M.
+> 	}
+> 	void set_one_young(char *buf)
+> 	{
+> 		for (size_t i = 0; i < TEST_SIZE; i += CONT_PTES * PAGE_SIZE) {
+> 			volatile char c = buf[i + YOUNG_BIT * PAGE_SIZE];
+> 		}
+> 	}
+> 
+> 	void test_contpte_perf() {
+> 		char *buf;
+> 		int ret = posix_memalign((void **)&buf, CONT_PTES * PAGE_SIZE,
+> 				TEST_SIZE);
+> 		if ((ret != 0) || ((unsigned long)buf % CONT_PTES * PAGE_SIZE)) {
+> 			perror("posix_memalign failed");
+> 			exit(EXIT_FAILURE);
+> 		}
+> 
+> 		rwdata(buf);
+> 	#if TEST_CASE2 || TEST_CASE3
+> 		clear_young_dirty(buf);
+> 	#endif
+> 	#if TEST_CASE2
+> 		set_one_young(buf);
+> 	#endif
+> 
+> 		for (int j = 0; j < 500; j++) {
+> 			mlock(buf, TEST_SIZE);
+> 
+> 			munlock(buf, TEST_SIZE);
+> 		}
+> 		free(buf);
+> 	}
+> 
+> 	Descriptions of three test scenarios
+> 
+> Scenario 1
+> 	The data of all 16 PTEs are both dirty and young.
+> 	#define TEST_CASE2 0
+> 	#define TEST_CASE3 0
+> 
+> Scenario 2
+> 	Among the 16 PTEs, only the 8th one is young, and there are no dirty ones.
+> 	#define TEST_CASE2 1
+> 	#define TEST_CASE3 0
+> 
+> Scenario 3
+> 	Among the 16 PTEs, there are neither young nor dirty ones.
+> 	#define TEST_CASE2 0
+> 	#define TEST_CASE3 1
+> 
+> Test results
+> 
+> |Scenario 1         |       Original|       Optimized|
+> |-------------------|---------------|----------------|
+> |instructions       |    37912436160|     18731580031|
+> |test time          |         4.2797|          2.2949|
+> |overhead of        |               |                |
+> |contpte_ptep_get() |         21.31%|           4.80%|
+> 
+> |Scenario 2         |       Original|       Optimized|
+> |-------------------|---------------|----------------|
+> |instructions       |    36701270862|     36115790086|
+> |test time          |         3.2335|          3.0874|
+> |Overhead of        |               |                |
+> |contpte_ptep_get() |         32.26%|          33.57%|
+> 
+> |Scenario 3         |       Original|       Optimized|
+> |-------------------|---------------|----------------|
+> |instructions       |    36706279735|     36750881878|
+> |test time          |         3.2008|          3.1249|
+> |Overhead of        |               |                |
+> |contpte_ptep_get() |         31.94%|          34.59%|
+> 
+> For Scenario 1, optimized code can achieve an instruction benefit of 50.59%
+> and a time benefit of 46.38%.
+> For Scenario 2, optimized code can achieve an instruction count benefit of
+> 1.6% and a time benefit of 4.5%.
+> For Scenario 3, since all the PTEs have neither the young nor the dirty
+> flag, the branches taken by optimized code should be the same as those of
+> the original code. In fact, the test results of optimized code seem to be
+> closer to those of the original code.
 
---=20
-Jazz isn't dead. It just smells funny.
+I re-ran these tests on Apple M2 with 4K base pages + 64K mTHP.
+
+Scenario 1: reduced to 56% of baseline execution time
+Scenario 2: reduced to 89% of baseline execution time
+Scenario 3: reduced to 91% of baseline execution time
+
+I'm pretty amazed that scenario 3 got faster given it is doing the same number
+of loops.
+
+> 
+> It can be proven through test function that the optimization for
+> contpte_ptep_get is effective. Since the logic of contpte_ptep_get_lockless
+> is similar to that of contpte_ptep_get, the same optimization scheme is
+> also adopted for it.
+> 
+> Reviewed-by: Barry Song <baohua@kernel.org>
+> Signed-off-by: Xavier Xia <xavier_qy@163.com>
+
+I don't love the extra complexity, but this version is much tidier. While the
+micro-benchmark is clearly contrived, it shows that there will be cases where it
+will be faster and there are no cases where it is slower. This will probably be
+more valuable for 16K kernels because the number of PTEs in a contpte block is
+128 there:
+
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Tested-by: Ryan Roberts <ryan.roberts@arm.com>
+
+> ---
+> Changes in v6:
+> - Move prot = pte_pgprot(pte_mkold(pte_mkclean(pte))) into the contpte_is_consistent(),
+>   as suggested by Barry.
+> - Link to v5: https://lore.kernel.org/all/20250509122728.2379466-1-xavier_qy@163.com/
+> 
+> Changes in v5:
+> - Replace macro CHECK_CONTPTE_CONSISTENCY with inline function contpte_is_consistent
+>   for improved readability and clarity, as suggested by Barry.
+> - Link to v4: https://lore.kernel.org/all/20250508070353.2370826-1-xavier_qy@163.com/
+> 
+> Changes in v4:
+> - Convert macro CHECK_CONTPTE_FLAG to an internal loop for better readability.
+> - Refactor contpte_ptep_get_lockless using the same optimization logic, as suggested by Ryan.
+> - Link to v3: https://lore.kernel.org/all/3d338f91.8c71.1965cd8b1b8.Coremail.xavier_qy@163.com/
+> ---
+>  arch/arm64/mm/contpte.c | 74 +++++++++++++++++++++++++++++++++++------
+>  1 file changed, 64 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index bcac4f55f9c1..71efe7dff0ad 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -169,17 +169,46 @@ pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+>  	for (i = 0; i < CONT_PTES; i++, ptep++) {
+>  		pte = __ptep_get(ptep);
+>  
+> -		if (pte_dirty(pte))
+> +		if (pte_dirty(pte)) {
+>  			orig_pte = pte_mkdirty(orig_pte);
+> -
+> -		if (pte_young(pte))
+> +			for (; i < CONT_PTES; i++, ptep++) {
+> +				pte = __ptep_get(ptep);
+> +				if (pte_young(pte)) {
+> +					orig_pte = pte_mkyoung(orig_pte);
+> +					break;
+> +				}
+> +			}
+> +			break;
+> +		}
+> +
+> +		if (pte_young(pte)) {
+>  			orig_pte = pte_mkyoung(orig_pte);
+> +			i++;
+> +			ptep++;
+> +			for (; i < CONT_PTES; i++, ptep++) {
+> +				pte = __ptep_get(ptep);
+> +				if (pte_dirty(pte)) {
+> +					orig_pte = pte_mkdirty(orig_pte);
+> +					break;
+> +				}
+> +			}
+> +			break;
+> +		}
+>  	}
+>  
+>  	return orig_pte;
+>  }
+>  EXPORT_SYMBOL_GPL(contpte_ptep_get);
+>  
+> +static inline bool contpte_is_consistent(pte_t pte, unsigned long pfn,
+> +					pgprot_t orig_prot)
+> +{
+> +	pgprot_t prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
+> +
+> +	return pte_valid_cont(pte) && pte_pfn(pte) == pfn &&
+> +			pgprot_val(prot) == pgprot_val(orig_prot);
+> +}
+> +
+>  pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+>  {
+>  	/*
+> @@ -202,7 +231,6 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+>  	pgprot_t orig_prot;
+>  	unsigned long pfn;
+>  	pte_t orig_pte;
+> -	pgprot_t prot;
+>  	pte_t *ptep;
+>  	pte_t pte;
+>  	int i;
+> @@ -219,18 +247,44 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+>  
+>  	for (i = 0; i < CONT_PTES; i++, ptep++, pfn++) {
+>  		pte = __ptep_get(ptep);
+> -		prot = pte_pgprot(pte_mkold(pte_mkclean(pte)));
+>  
+> -		if (!pte_valid_cont(pte) ||
+> -		   pte_pfn(pte) != pfn ||
+> -		   pgprot_val(prot) != pgprot_val(orig_prot))
+> +		if (!contpte_is_consistent(pte, pfn, orig_prot))
+>  			goto retry;
+>  
+> -		if (pte_dirty(pte))
+> +		if (pte_dirty(pte)) {
+>  			orig_pte = pte_mkdirty(orig_pte);
+> +			for (; i < CONT_PTES; i++, ptep++, pfn++) {
+> +				pte = __ptep_get(ptep);
+> +
+> +				if (!contpte_is_consistent(pte, pfn, orig_prot))
+> +					goto retry;
+> +
+> +				if (pte_young(pte)) {
+> +					orig_pte = pte_mkyoung(orig_pte);
+> +					break;
+> +				}
+> +			}
+> +			break;
+
+I considered for a while whether it is safe for contpte_ptep_get_lockless() to
+exit early having not seen every PTE in the contpte block and confirmed that
+they are all consistent. I eventually concluded that it is, as long as all the
+PTEs that it does check are consistent I believe this is fine.
+
+> +		}
+>  
+> -		if (pte_young(pte))
+> +		if (pte_young(pte)) {
+>  			orig_pte = pte_mkyoung(orig_pte);
+> +			i++;
+> +			ptep++;
+> +			pfn++;
+> +			for (; i < CONT_PTES; i++, ptep++, pfn++) {
+> +				pte = __ptep_get(ptep);
+> +
+> +				if (!contpte_is_consistent(pte, pfn, orig_prot))
+> +					goto retry;
+> +
+> +				if (pte_dirty(pte)) {
+> +					orig_pte = pte_mkdirty(orig_pte);
+> +					break;
+> +				}
+> +			}
+> +			break;
+> +		}
+>  	}
+>  
+>  	return orig_pte;
+
 
