@@ -4,51 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB891C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 07:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC6DC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 07:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wb1czdfy29BXnWFnYYwpe0HgjdonZh+TOYjzeKtPbZ0=; b=rqvQO+RIxQ1ODcytVzRtXjdC1y
-	qYX9t9r/6Gm0po4nhP/7Lbrs9Kle4WoDJeoI41Oa1bFbxw40wbcgHtWctyqGylnLcDMGPg5wMhKhP
-	mgu99uKFwFUuaTONglqHTM7EID1kmddjKbrGGNwfIyM2QmZyQaeX9IZBTQ8gs8PGyieJibZZvsGfa
-	oeQIvLEdv5KKzYE9CY2oQ89h/a5/B0E5x/qPsO3/i9RRjc2Wdl75xw5Xat6lLD/ArYauXLCprrUuh
-	dLkoQRanvTX6rHmZZDToBFprRs+PWT2PY7ZHwZFzSVQ8EZkSrerXhSZrUGdT8g9WdqgmXrE+Zu/md
-	xQWHoZPA==;
+	bh=bFgfoqbXBmLuwpBeWiaSnIfZqbpHx+6wXGb+4ajd7II=; b=XA+CEMIPpd45Bhr0b/57HMbaLa
+	P3gBmilqBhQSmtwdr1dUVIK4sMGFeaGzDf1JArOIWvbhl5osW6Fe7qT3x9EfIF4TT2esw/K3xaEiE
+	6U0P9u0B7yNeblqZvBahsNboqX0WPF7bpwzrhlaB4Hrkmw6cqHZtszJofuSyEb1NHBkpKf6YwjRO7
+	38kpQ4EL8Z8enxyTHcKMKgjnQBAgkNezgZ8mQGS53SQI7sZNrXk+64Yjez0ye2BMsyV/e1wJjpA1n
+	3yizzRsBrT5LOsBAbRNgdGYVB8vSj2RlXL5NRBndBVxpt+zh5oddwYrV+Q66uom+FO52O7xFoxvme
+	OOPnVvTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMiSX-0000000ClDo-39FH;
-	Wed, 04 Jun 2025 07:22:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMiQP-0000000CkxT-3L69
+	id 1uMiWa-0000000Cleh-2JxV;
+	Wed, 04 Jun 2025 07:27:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMiUS-0000000ClMb-2Efc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 07:20:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AFEBF1758;
-	Wed,  4 Jun 2025 00:20:17 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AEEAD3F5A1;
-	Wed,  4 Jun 2025 00:20:33 -0700 (PDT)
-Date: Wed, 4 Jun 2025 08:20:27 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Luka <luka.2016.cs@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [BUG] WARNING in do_sve_acc in Linux kernel v6.6
-Message-ID: <aD_zu4GNfOKxXXQk@J2N7QTR9R3>
-References: <CALm_T+0k9oZ-AN+4jk=07DPfLpWM7jZQK9s4KWi5kMiEjOi1Aw@mail.gmail.com>
+	Wed, 04 Jun 2025 07:24:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 07FEB5C3E57;
+	Wed,  4 Jun 2025 07:22:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFD61C4CEE7;
+	Wed,  4 Jun 2025 07:24:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749021887;
+	bh=d5VGZY3wjHIhKCGDSeV6VZbiBPYwu9t4ayf8AO8OlwU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=odyy8wQ5ON02zPffOE2SJpBxUwUYz5rmT5lsE2yOgNbb2cDXnIwb0ACfUhTX9uK8c
+	 bqVyvG+X44TOpZ6BjZz+yFBUGipEXDmEzroDs9BVd6rU1kd+cBPUWr4UygZJrRyDew
+	 2CvhfHn6EhiRYyOc99eZpfidTitTHMZs/OH+xzIToCaZNP4v3VLaXeHt8xZCAG+AR1
+	 HygqPF1tjl1zS5OKj2rvtKGX5HTGDoSj7qKMgGJEKYXjlNWHRkXg0QWLSlkBw8asQD
+	 FH64MJHBBiUK2uTUApfPhWXBcE6MzA63npN2mN7MtdGj9u9vf32BHi+hkcr+OfHtVx
+	 QFPWrpJi2/V7A==
+Date: Wed, 4 Jun 2025 09:24:38 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Peter Maydell <peter.maydell@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, andre.przywara@arm.com,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, suzuki.poulose@arm.com
+Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
+Message-ID: <aD/0tuak7Hja8k4g@lpieralisi>
+References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
+ <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
+ <aDhWlytLCxONZdF9@lpieralisi>
+ <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
+ <aD6ouVAXy5qcZtM/@lpieralisi>
+ <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
+ <CAFEAcA-JrS0BiT66iin-pRVFadrY-pnJZ8TkDNxcjErknSCnUA@mail.gmail.com>
+ <CAL_JsqL7x53an2-MaLHP5tfVXb4JxT8ORUMaA8pL-gMsWLJqkA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CALm_T+0k9oZ-AN+4jk=07DPfLpWM7jZQK9s4KWi5kMiEjOi1Aw@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_JsqL7x53an2-MaLHP5tfVXb4JxT8ORUMaA8pL-gMsWLJqkA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_002037_918602_B9DB0A85 
-X-CRM114-Status: GOOD (  26.83  )
+X-CRM114-CacheID: sfid-20250604_002448_657281_793FE218 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,101 +91,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 04, 2025 at 12:57:30PM +0800, Luka wrote:
-> Dear Kernel Maintainers,
+On Tue, Jun 03, 2025 at 02:11:34PM -0500, Rob Herring wrote:
+> On Tue, Jun 3, 2025 at 10:37 AM Peter Maydell <peter.maydell@linaro.org> wrote:
+> >
+> > On Tue, 3 Jun 2025 at 16:15, Rob Herring <robh@kernel.org> wrote:
+> > >
+> > > On Tue, Jun 3, 2025 at 2:48 AM Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > > >
+> > > > On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
+> > > > > secure.txt says:
+> > > > > # The general principle of the naming scheme for Secure world bindings
+> > > > > # is that any property that needs a different value in the Secure world
+> > > > > # can be supported by prefixing the property name with "secure-". So for
+> > > > > # instance "secure-foo" would override "foo".
+> > >
+> > > Today I would say a 'secure-' prefix is a mistake. To my knowledge,
+> > > it's never been used anyways. But I don't have much visibility into
+> > > what secure world firmware is doing.
+> >
+> > QEMU uses it for communicating with the secure firmware if
+> > you run secure firmware on the virt board. It's done that
+> > since we introduced that binding. Indeed that use case is *why*
+> > the binding is there. It works fine for the intended purpose,
+> > which is "most devices are visible in both S and NS, but a few
+> > things are S only (UART, a bit of RAM, secure-only flash").
 > 
-> I am writing to report a potential vulnerability identified in the
-> upstream Linux Kernel version v6.6, corresponding to the following
-> commit in the mainline repository:
-> 
-> Git Commit: ffc253263a1375a65fa6c9f62a893e9767fbebfa (tag: v6.6)
+> I meant "secure-" as a prefix allowed on *any* property, not
+> "secure-status" specifically, which is the only thing QEMU uses
+> AFAICT. IOW, I don't think we should be creating secure-reg,
+> secure-interrupts, secure-clocks, etc.
 
-For clarity, that's literally the v6.6 tag from 2023, not a recent
-stable v6.6.y tag.
+Reading secure.txt, what does it mean "device present and usable in
+the secure world" ?
 
-That also doesn't match the commit ID in the bug report linked below,
-where the kernel reports itself as:
+So:
 
-   6.6.30-android15-8-4k #1 dc911bbdaa9a863c41e12d277ee63ecb446e0526
+status = "disabled"
+secure-status = "okay"
 
-... which implies that the kernel you're using is derived from the
-v6.6.30 stable tag, i.e. commit:
+basically means that the device in question allows secure-only MMIO
+access, is that what it says ?
 
-  5697d159afef8c475f13a0b7b85f09bd4578106c (tag v6.6.30)
+If that's the case and we really want to have all config frames
+in a single DT, would it be reasonable to have an IRS/ITS DT node
+per-frame ?
 
-... in the upstream stable tree.
+Then yes, the secure- tag is not enough any longer (because we have to
+cope with 4 interrupt domains) but that's a separate problem - again,
+this would leave the current reviewed bindings unchanged.
 
-> This issue was discovered during the testing of the Android 15 AOSP
-> kernel, which is based on Linux kernel version 6.6, specifically from
-> the AOSP kernel branch:
-> 
-> AOSP kernel branch: android15-6.6
-> Manifest path: kernel/common.git
-> Source URL:  https://android.googlesource.com/kernel/common/+/refs/heads/android15-6.6
+Other than that as I mentioned we could use (? aka clutching at straws)
+reg-names but I don't think it is correct to have in the DT address
+space that the CPU is not allowed to address.
 
-The commit ID reported by the kernel in the linked bug report, i.e:
-
-  dc911bbdaa9a863c41e12d277ee63ecb446e0526
-
-... does not match anything in this tree, and the latest commits in that
-branch are based on v6.6.87.
-
-Is that a kernel you've built yourself, or something shipped by the
-hardware vendor?
-
-I suspect that this is whatever the vendor shipped, and you've guessed
-as to what exactly it's built from?
-
-> Although this kernel branch is used in Android 15 development, its
-> base is aligned with the upstream Linux v6.6 release. I observed this
-> issue while conducting stability and fuzzing tests on the Android 15
-> platform and identified that the root cause lies in the upstream
-> codebase.
-> 
-> 
-> Bug Location:  do_sve_acc+0x17c/0x3f4 arch/arm64/kernel/fpsimd.c:1479
-
-Looking at this and the report, I believe that you're running an old
-kernel, and hitting an issue which has already has a fix upstream, where
-that fix has already been backported to stable trees and the
-android15-6.6 branch.
-
-Specifically, I believe you're hitting the issue fixed by upstream
-commit:
-
-  751ecf6afd65 ("arm64/sve: Discard stale CPU state when handling SVE traps")
-
-... which was backported to the v6.6.y stable branch as commit:
-
-  51d11ea0250d ("arm64/sve: Discard stale CPU state when handling SVE traps")
-
-... landing in v6.6.61:
-
-  f1ab3a1bcbbc (tag v6.6.61)
-
-... which was merged into the android15-6.6 branch in commit:
-
-  cf775c9332b1 ("Merge 6.6.61 into android15-6.6-lts")
-
-... back in November 2024.
-
-Mark.
- 
-> Bug Report: https://hastebin.com/share/calarosado.css
-> 
-> Entire Log: https://hastebin.com/share/efepocaxoh.perl
-> 
-> 
-> Thank you very much for your time and attention. I sincerely apologize
-> that I am currently unable to provide a reproducer for this issue.
-> However, I am actively working on reproducing the problem, and I will
-> make sure to share any findings or reproducing steps with you as soon
-> as they are available.
-> 
-> I greatly appreciate your efforts in maintaining the Linux kernel and
-> your attention to this matter.
-> 
-> Best regards,
-> Luka
-> 
+Lorenzo
 
