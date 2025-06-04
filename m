@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F40DC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 21:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CDAC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 21:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3eaIlD6SgIwBKzFRuDf45UmSCQNYGCKtzx7DOTC83A8=; b=nmbkoVPNoFkIAytFLZnC4eMTkx
-	yD/TWngaAzQibBkUEhbRrPeQZnouj5022dmbPG7a8aAAzNnrBnc9rQ4k8QO4+wg473Y+beOBKhvsb
-	bMK7VU2GuE/0n/UVLP0N9QGyOLNf+CxAZNf8vn+IUy25jfUds84mDOPonQ8d1ZHR//lQGh9HYraCb
-	BahkcZrSTy6kWcPEvDku43J0eScoK33S+d4RCRGu/zDQoAK6BQNWB0tBM0MH6qquuaRz1Fv9g5bzG
-	SQwuFbQn3Zku1PRuXI8ZrVOVMPc3VXyVyD2Xstog7zij5hcqOzpkyW+3LxAIXcDQLJ2gjnBGJIaLC
-	NyV9H+NQ==;
+	bh=H257gCuXvj8EGhqdKp9CFD5jvI/A8wPkZOGfznF+wuY=; b=LU0MoGUeTMpjyT8Qc/zk1lcgs8
+	Pk2HxwsRQBlsxDxTSZdn0DqLNQ5zJZzXHG2UvcnbjKuUKhnBBvjAVLTlsTPDBk8sEXzn3se3l4dnf
+	W6U4DMaglNGx0Ux1ZmRfwVaAyBaYiVoXc9iad4RdlyXwKAoGVLU9eFFRopKPBwj74rlg3F0H2Lcd0
+	NfqEh/yoRVVukAum6/st1K5nyPNCx1UA93IGXYtpbeKDo5SuO117LTAh1IB5AlxImNS5GWEGfPNK5
+	fZ55GrIX+JBuoPUycXyJGA8DyPf0flxrd07IThw5jO7nt2YDCISHr5oFubCD4DRzmZkZlAgywR4pT
+	n+vnWTBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMvWE-0000000EFNL-3nPS;
-	Wed, 04 Jun 2025 21:19:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uMvlV-0000000EGSc-2SAo;
+	Wed, 04 Jun 2025 21:35:17 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMvU9-0000000EFJH-2GcZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 21:17:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749071839;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3eaIlD6SgIwBKzFRuDf45UmSCQNYGCKtzx7DOTC83A8=;
-	b=GzpanG8NQ2CYfGbBmBXebWqdCsaeMxRwHCzi4z8tA06xlWL00e2GQQtu6c/Xv92ssyRQcs
-	fTr/bJyw09/C48QrJSO4TgPCT5ibIum9R3Kjfya9GEZQvIVObGy5bofyRVP98om7EI/yAX
-	c29kGJN4grtbYtirsu8yDIfSqigXFQ8=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-439-3Q9vv6VwM1iF4G1qZvMxRg-1; Wed, 04 Jun 2025 17:17:18 -0400
-X-MC-Unique: 3Q9vv6VwM1iF4G1qZvMxRg-1
-X-Mimecast-MFC-AGG-ID: 3Q9vv6VwM1iF4G1qZvMxRg_1749071837
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a50049f8eeso212776f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 14:17:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749071837; x=1749676637;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3eaIlD6SgIwBKzFRuDf45UmSCQNYGCKtzx7DOTC83A8=;
-        b=g68a9K0m0VO3+fVD9i/SrZkwtSFXv+pyI3wNO5FrWfvlrfuWlTfRlI28xBnAWfTH+P
-         TBsQPVJojBEYcaiVfIjy/4qX7A6y2dWxB35j5Nn0rwK9CEQwnUPLp+6eqdnzeu0mz897
-         +ew10ggb+xq3qq3wA+D9oQuiXLrWo7+0Dsrp+qr9FNUJ3BDwiEd3s3P7LnBw3NS7Ckl0
-         4wTTzt8htXhS3hRYqYL10dFVEVERAetTm9aj7goSSYa1LGC8Nf5hdq4dbu8v5LJCYSVz
-         gdj89SmRIbG1MtWDTUqvOOi5jx6djr86Tua4/FL8EqFgcYXXHuCpuftkj39ZvlQshV1C
-         998Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXwOQISO2boJBbca4fPHbU+eT7Zj3Kn3lL4UxiS1KGpsiC3pC3uZzVLzEMvDuh2/gKW3gtO1CpYGMezgl+LYsf8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBC9xpE71Lc2GyOoEMP6y1tm4y2IalP8tjPb7pdhIkUKhAazej
-	2eTyJMxg2X5pMf4lPwUvafZx2A1qbDkBS9hQOFpgeXrSEEe11hlHGfCABB6Qd8LhssiVZBnx+bh
-	pshmT/m3Y/CvY0Uj6EIXSknEEsohay+SdqNYb7xmJTQGqGcTSOxUybHZ7VfUplP429kjyJM3tQL
-	mJ
-X-Gm-Gg: ASbGncs3SEqKuhuNzhiojJlkzl5TvU6l7xSDo8orCapLPPTj/LZsAinR/Fxc3Q9Ufwy
-	ehQib7pFIoBl7MOFvfoTh6boFdzrlNJpoI9TI9/SS6052KpKpYwjLd5G+ngsBdQ4yZCHvgJsJCx
-	3kOIx3aS5crAWgrJa3lHSYzYx0qOy9MDPjBUejdru12U4pX/l39QHKNTfhgNMQhUH7Z+tww+V9I
-	ok2/2aYN2qBp+b5xzvKhUXvZ1tktPW9hQWfchfVrDHQYhb8kw4vyQ7+9ZUbJuiteby4ZssrLqri
-	FY17bVprLadM+BkIpinTlUdzoRk5aq3w7oP/UrS+aVA0zAwahsdFr13K9K/e
-X-Received: by 2002:a05:6000:2512:b0:3a4:d274:1d9b with SMTP id ffacd0b85a97d-3a51d92f84amr3541712f8f.25.1749071837465;
-        Wed, 04 Jun 2025 14:17:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG/w3mTJC6PzaXkAlaJcofTyt+hL5Id0Z9sQ5spOyW0fO3Rb3p4l0Y62I6sWoWE4eFRofNvzg==
-X-Received: by 2002:a05:6000:2512:b0:3a4:d274:1d9b with SMTP id ffacd0b85a97d-3a51d92f84amr3541694f8f.25.1749071836994;
-        Wed, 04 Jun 2025 14:17:16 -0700 (PDT)
-Received: from rh (p200300f6af1bce00e6fe5f11c0a7f4a1.dip0.t-ipconnect.de. [2003:f6:af1b:ce00:e6fe:5f11:c0a7:f4a1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe6c842sm22506811f8f.29.2025.06.04.14.17.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 14:17:16 -0700 (PDT)
-Date: Wed, 4 Jun 2025 23:17:15 +0200 (CEST)
-From: Sebastian Ott <sebott@redhat.com>
-To: Zenghui Yu <yuzenghui@huawei.com>
-cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-    Colton Lewis <coltonlewis@google.com>, 
-    Ricardo Koller <ricarkol@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-    Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, 
-    linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-    linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] KVM: arm64: selftests: arch_timer_edge_cases
- fixes
-In-Reply-To: <9b9f7099-4e81-9b74-a1ac-37cd4965675b@redhat.com>
-Message-ID: <77f07e94-82a2-5dc4-2483-e2ecff151e66@redhat.com>
-References: <20250527142434.25209-1-sebott@redhat.com> <adf8b877-7ca2-f60b-fb59-578c70d0e3c0@huawei.com> <9b9f7099-4e81-9b74-a1ac-37cd4965675b@redhat.com>
+	id 1uMvjQ-0000000EGHV-0xwn;
+	Wed, 04 Jun 2025 21:33:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749072788; x=1780608788;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=O7vyp2UPZdtMd+kT/CGPsJnzViBUVjVC9sOrwdwPN/E=;
+  b=QTQTwGvLGWSqz6hoaDqlBZO+UMbP+PWnwZoAydaMclBKKj3ZAqaECxBL
+   o5UE8shFp5M/ydid+7rt7Xi5Y+b3wG0bmxpXY/FE+/CkYC528uWfRtXK1
+   tJNOtpg8IHQOT6RDNJGygDKTWnitbXW2ICUxt4x9IQVYy4tTn03Uip3Ap
+   EqYOjLnPLqV1jxX3SCqqIzqk1Vh59gAySvQEKOU6NM/cd97Ti9cAxyq3r
+   x+CDLS4rfQ5vIs0zheJ+5swwwqPawffGE3JAUThDcn2bY8hWj7SGx19uE
+   BlGYMzE8pzb4BwzX/pkRPjTZ6P6+/X6HYrEuoirjbI+1d/OA2O3274psC
+   Q==;
+X-CSE-ConnectionGUID: qvgof/lTQ+Ksxoa+qdYMPQ==
+X-CSE-MsgGUID: 0pcBwUwVSnG9vFD3svLvtw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11454"; a="51037573"
+X-IronPort-AV: E=Sophos;i="6.16,210,1744095600"; 
+   d="scan'208";a="51037573"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 14:33:07 -0700
+X-CSE-ConnectionGUID: q5l7A0fLTUinKKQu0uEbng==
+X-CSE-MsgGUID: cAOQcKgvSuaRNTkQw0B+IA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,210,1744095600"; 
+   d="scan'208";a="176264994"
+Received: from oandoniu-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.208])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 14:33:04 -0700
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 7707F11FBD1;
+	Thu,  5 Jun 2025 00:33:00 +0300 (EEST)
+Date: Wed, 4 Jun 2025 21:33:00 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com,
+	linux-media@vger.kernel.org,
+	Sebastian Fricke <sebastian.fricke@collabora.com>
+Subject: Re: [PATCH v3 3/5] media: mc: add debugfs node to keep track of
+ requests
+Message-ID: <aEC7jMDgRAg1cfXZ@kekkonen.localdomain>
+References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
+ <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-3-603db4749d90@collabora.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: jByhQNAsdurz6kGVaprbA0FqNdPdbrdjOz2jiVZq0ds_1749071837
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-3-603db4749d90@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_141721_837786_7EB50256 
-X-CRM114-Status: GOOD (  25.49  )
+X-CRM114-CacheID: sfid-20250604_143308_312765_AE74ABFC 
+X-CRM114-Status: GOOD (  33.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,88 +98,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 4 Jun 2025, Sebastian Ott wrote:
-> On Tue, 3 Jun 2025, Zenghui Yu wrote:
->>  On 2025/5/27 22:24, Sebastian Ott wrote:
->>>  Some small fixes for arch_timer_edge_cases that I stumbled upon
->>>  while debugging failures for this selftest on ampere-one.
->>>
->>>  Changes since v1: modified patch 3 based on suggestions from Marc.
->>>
->>>  I've done some tests with this on various machines - seems to be all
->>>  good, however on ampere-one I now hit this in 10% of the runs:
->>>  ==== Test Assertion Failure ====
->>>    arm64/arch_timer_edge_cases.c:481: timer_get_cntct(timer) >= DEF_CNT +
->>>    (timer_get_cntfrq() * (uint64_t)(delta_2_ms) / 1000)
->>>    pid=166657 tid=166657 errno=4 - Interrupted system call
->>>       1  0x0000000000404db3: test_run at arch_timer_edge_cases.c:933
->>>       2  0x0000000000401f9f: main at arch_timer_edge_cases.c:1062
->>>       3  0x0000ffffaedd625b: ?? ??:0
->>>       4  0x0000ffffaedd633b: ?? ??:0
->>>       5  0x00000000004020af: _start at ??:?
->>>    timer_get_cntct(timer) >= DEF_CNT + msec_to_cycles(delta_2_ms)
->>>
->>>  This is not new, it was just hidden behind the other failure. I'll
->>>  try to figure out what this is about (seems to be independent of
->>>  the wait time)..
->>
->>  Not sure if you have figured it out. I can easily reproduce it on my box
->>  and I *guess* it is that we have some random XVAL values when we enable
->>  the timer..
->
-> Yes, I think so, too.
->
->>  test_reprogramming_timer()
->>  {
->>   local_irq_disable();
->>   reset_timer_state(timer, DEF_CNT);
->
-> My first attempt was to also initialize cval here
+Hi Nicolas, Hans,
 
-Forgot to mention that I did this because my tests have shown
-that the interrupt didn't only trigger early (like before the
-reprogrammed delta) but instantly. This seemed to work but I think
-the order in set_tval_irq() is the actual issue.
+Thanks for the update.
 
+On Wed, Jun 04, 2025 at 04:09:37PM -0400, Nicolas Dufresne wrote:
+> From: Hans Verkuil <hverkuil@xs4all.nl>
+> 
+> Keep track of the number of requests and request objects of a media
+> device. Helps to verify that all request-related memory is freed.
+> 
+> Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> ---
+>  drivers/media/mc/mc-device.c  | 30 ++++++++++++++++++++++++++++++
+>  drivers/media/mc/mc-devnode.c |  5 +++++
+>  drivers/media/mc/mc-request.c |  6 ++++++
+>  include/media/media-device.h  |  9 +++++++++
+>  include/media/media-devnode.h |  4 ++++
+>  include/media/media-request.h |  2 ++
+>  6 files changed, 56 insertions(+)
+> 
+> diff --git a/drivers/media/mc/mc-device.c b/drivers/media/mc/mc-device.c
+> index c0dd4ae5722725f1744bc6fd6282d5c765438059..5a458160200afb540d8014fed42d8bf2dab9c8c3 100644
+> --- a/drivers/media/mc/mc-device.c
+> +++ b/drivers/media/mc/mc-device.c
+> @@ -679,6 +679,23 @@ void media_device_unregister_entity(struct media_entity *entity)
+>  }
+>  EXPORT_SYMBOL_GPL(media_device_unregister_entity);
+>  
+> +#ifdef CONFIG_DEBUG_FS
+> +/*
+> + * Log the state of media requests.
+> + * Very useful for debugging.
+> + */
 
->
->>
->>   /* Program the timer to DEF_CNT + delta_1_ms. */
->>   set_tval_irq(timer, msec_to_cycles(delta_1_ms), CTL_ENABLE);
->>
->>  	[...]
->>  }
->>
->>  set_tval_irq()
->>  {
->>   timer_set_ctl(timer, ctl);
->>
->>   // There is a window that we enable the timer with *random* XVAL
->>   // values and we may get the unexpected interrupt.. And it's
->>   // unlikely that KVM can be aware of TVAL's change (and
->>   // re-evaluate the interrupt's pending state) before hitting the
->>   // GUEST_ASSERT().
->>
->>   timer_set_tval(timer, tval_cycles);
->
-> Yes, I stumbled over this as well. I've always assumed that this order is
-> becauase of this from the architecture "If CNTV_CTL_EL0.ENABLE is 0, the 
-> value returned is UNKNOWN." However re-reading that part today I realized
-> that this only concerns register reads.
->
-> Maybe somone on cc knows why it's in that order?
->
-> I'm currently testing this with the above swapped and it's looking good,
-> so far.
->
->>  }
->>
->>  I'm not familiar with the test so I'm not 100% sure that this is the
->>  root cause. But I hope this helps with your analysis ;-) .
->
-> It did, thanks!
->
-> Sebastian
->
+Fits on a single line.
 
+> +static int media_device_requests(struct seq_file *file, void *priv)
+> +{
+> +	struct media_device *dev = dev_get_drvdata(file->private);
+> +
+> +	seq_printf(file, "number of requests: %d\n",
+> +		   atomic_read(&dev->num_requests));
+> +	seq_printf(file, "number of request objects: %d\n",
+> +		   atomic_read(&dev->num_request_objects));
+
+Newline here?
+
+> +	return 0;
+> +}
+> +#endif
+> +
+>  void media_device_init(struct media_device *mdev)
+>  {
+>  	INIT_LIST_HEAD(&mdev->entities);
+> @@ -697,6 +714,9 @@ void media_device_init(struct media_device *mdev)
+>  		media_set_bus_info(mdev->bus_info, sizeof(mdev->bus_info),
+>  				   mdev->dev);
+>  
+> +	atomic_set(&mdev->num_requests, 0);
+> +	atomic_set(&mdev->num_request_objects, 0);
+> +
+>  	dev_dbg(mdev->dev, "Media device initialized\n");
+>  }
+>  EXPORT_SYMBOL_GPL(media_device_init);
+> @@ -748,6 +768,15 @@ int __must_check __media_device_register(struct media_device *mdev,
+>  
+>  	dev_dbg(mdev->dev, "Media device registered\n");
+>  
+> +#ifdef CONFIG_DEBUG_FS
+> +	if (!media_debugfs_root)
+> +		media_debugfs_root = debugfs_create_dir("media", NULL);
+> +	mdev->media_dir = debugfs_create_dir(dev_name(&devnode->dev),
+> +					     media_debugfs_root);
+> +	debugfs_create_devm_seqfile(&devnode->dev, "requests",
+> +				    mdev->media_dir, media_device_requests);
+> +#endif
+
+I have no objection to this but it would have been great to have the Media
+device lifetime set in first and MC device and devnode merged. But maybe
+it's too late for that. Well, at least this won't change error handling...
+
+> +
+>  	return 0;
+>  }
+>  EXPORT_SYMBOL_GPL(__media_device_register);
+> @@ -824,6 +853,7 @@ void media_device_unregister(struct media_device *mdev)
+>  
+>  	dev_dbg(mdev->dev, "Media device unregistered\n");
+>  
+> +	debugfs_remove_recursive(mdev->media_dir);
+>  	device_remove_file(&mdev->devnode->dev, &dev_attr_model);
+>  	media_devnode_unregister(mdev->devnode);
+>  	/* devnode free is handled in media_devnode_*() */
+> diff --git a/drivers/media/mc/mc-devnode.c b/drivers/media/mc/mc-devnode.c
+> index 56444edaf13651874331e7c04e86b0a585067d38..d0a8bcc11dd6350fdbc04add70f62de2c5f01178 100644
+> --- a/drivers/media/mc/mc-devnode.c
+> +++ b/drivers/media/mc/mc-devnode.c
+> @@ -45,6 +45,9 @@ static dev_t media_dev_t;
+>  static DEFINE_MUTEX(media_devnode_lock);
+>  static DECLARE_BITMAP(media_devnode_nums, MEDIA_NUM_DEVICES);
+>  
+> +/* debugfs */
+> +struct dentry *media_debugfs_root;
+> +
+>  /* Called when the last user of the media device exits. */
+>  static void media_devnode_release(struct device *cd)
+>  {
+> @@ -236,6 +239,7 @@ int __must_check media_devnode_register(struct media_device *mdev,
+>  	if (devnode->parent)
+>  		devnode->dev.parent = devnode->parent;
+>  	dev_set_name(&devnode->dev, "media%d", devnode->minor);
+> +	dev_set_drvdata(&devnode->dev, mdev);
+>  	device_initialize(&devnode->dev);
+>  
+>  	/* Part 2: Initialize the character device */
+> @@ -313,6 +317,7 @@ static int __init media_devnode_init(void)
+>  
+>  static void __exit media_devnode_exit(void)
+>  {
+> +	debugfs_remove_recursive(media_debugfs_root);
+>  	bus_unregister(&media_bus_type);
+>  	unregister_chrdev_region(media_dev_t, MEDIA_NUM_DEVICES);
+>  }
+> diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+> index 398d0806d1d274eb8c454fc5c37b77476abe1e74..829e35a5d56d41c52cc583cdea1c959bcb4fce60 100644
+> --- a/drivers/media/mc/mc-request.c
+> +++ b/drivers/media/mc/mc-request.c
+> @@ -75,6 +75,7 @@ static void media_request_release(struct kref *kref)
+>  		mdev->ops->req_free(req);
+>  	else
+>  		kfree(req);
+> +	atomic_dec(&mdev->num_requests);
+>  }
+>  
+>  void media_request_put(struct media_request *req)
+> @@ -326,6 +327,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+>  
+>  	snprintf(req->debug_str, sizeof(req->debug_str), "%u:%d",
+>  		 atomic_inc_return(&mdev->request_id), fd);
+> +	atomic_inc(&mdev->num_requests);
+>  	dev_dbg(mdev->dev, "request: allocated %s\n", req->debug_str);
+>  
+>  	fd_install(fd, filp);
+> @@ -349,10 +351,12 @@ static void media_request_object_release(struct kref *kref)
+>  	struct media_request_object *obj =
+>  		container_of(kref, struct media_request_object, kref);
+>  	struct media_request *req = obj->req;
+> +	struct media_device *mdev = obj->mdev;
+>  
+>  	if (WARN_ON(req))
+>  		media_request_object_unbind(obj);
+>  	obj->ops->release(obj);
+> +	atomic_dec(&mdev->num_request_objects);
+>  }
+>  
+>  struct media_request_object *
+> @@ -417,6 +421,7 @@ int media_request_object_bind(struct media_request *req,
+>  	obj->req = req;
+>  	obj->ops = ops;
+>  	obj->priv = priv;
+> +	obj->mdev = req->mdev;
+>  
+>  	if (is_buffer)
+>  		list_add_tail(&obj->list, &req->objects);
+> @@ -424,6 +429,7 @@ int media_request_object_bind(struct media_request *req,
+>  		list_add(&obj->list, &req->objects);
+>  	req->num_incomplete_objects++;
+>  	ret = 0;
+> +	atomic_inc(&obj->mdev->num_request_objects);
+>  
+>  unlock:
+>  	spin_unlock_irqrestore(&req->lock, flags);
+> diff --git a/include/media/media-device.h b/include/media/media-device.h
+> index 53d2a16a70b0d9d6e5cc28fe1fc5d5ef384410d5..749c327e3c582c3c583e0394468321ccd6160da5 100644
+> --- a/include/media/media-device.h
+> +++ b/include/media/media-device.h
+> @@ -11,6 +11,7 @@
+>  #ifndef _MEDIA_DEVICE_H
+>  #define _MEDIA_DEVICE_H
+>  
+> +#include <linux/atomic.h>
+>  #include <linux/list.h>
+>  #include <linux/mutex.h>
+>  #include <linux/pci.h>
+> @@ -106,6 +107,9 @@ struct media_device_ops {
+>   * @ops:	Operation handler callbacks
+>   * @req_queue_mutex: Serialise the MEDIA_REQUEST_IOC_QUEUE ioctl w.r.t.
+>   *		     other operations that stop or start streaming.
+> + * @num_requests: number of associated requests
+> + * @num_request_objects: number of associated request objects
+> + * @media_dir:	DebugFS media directory
+>   * @request_id: Used to generate unique request IDs
+>   *
+>   * This structure represents an abstract high-level media device. It allows easy
+> @@ -179,6 +183,11 @@ struct media_device {
+>  	const struct media_device_ops *ops;
+>  
+>  	struct mutex req_queue_mutex;
+> +	atomic_t num_requests;
+> +	atomic_t num_request_objects;
+> +
+> +	/* debugfs */
+> +	struct dentry *media_dir;
+>  	atomic_t request_id;
+>  };
+>  
+> diff --git a/include/media/media-devnode.h b/include/media/media-devnode.h
+> index d27c1c646c2805171be3997d72210dd4d1a38e32..dbcabeffcb572ae707f5fe1f51ff719d451c6784 100644
+> --- a/include/media/media-devnode.h
+> +++ b/include/media/media-devnode.h
+> @@ -20,9 +20,13 @@
+>  #include <linux/fs.h>
+>  #include <linux/device.h>
+>  #include <linux/cdev.h>
+> +#include <linux/debugfs.h>
+>  
+>  struct media_device;
+>  
+> +/* debugfs top-level media directory */
+> +extern struct dentry *media_debugfs_root;
+> +
+>  /*
+>   * Flag to mark the media_devnode struct as registered. Drivers must not touch
+>   * this flag directly, it will be set and cleared by media_devnode_register and
+> diff --git a/include/media/media-request.h b/include/media/media-request.h
+> index 7f9af68ef19ac6de0184bbb0c0827dc59777c6dc..610ccfe8d7b20ec38e166383433f9ee208248640 100644
+> --- a/include/media/media-request.h
+> +++ b/include/media/media-request.h
+> @@ -292,6 +292,7 @@ struct media_request_object_ops {
+>   * struct media_request_object - An opaque object that belongs to a media
+>   *				 request
+>   *
+> + * @mdev: Media device this object belongs to
+
+This deserves at least a comment what this may be used for: generally once
+object is unbound, it's not related to a request anymore (nor a Media
+device). This field also adds a new Media device lifetime issue: nothing
+guarantees the mdev is not disappearing at a wrong time albeit this is
+very, very likely not user-triggerable without physically removing
+hardware.
+
+>   * @ops: object's operations
+>   * @priv: object's priv pointer
+>   * @req: the request this object belongs to (can be NULL)
+> @@ -303,6 +304,7 @@ struct media_request_object_ops {
+>   * another struct that contains the actual data for this request object.
+>   */
+>  struct media_request_object {
+> +	struct media_device *mdev;
+>  	const struct media_request_object_ops *ops;
+>  	void *priv;
+>  	struct media_request *req;
+> 
+
+-- 
+Regards,
+
+Sakari Ailus
 
