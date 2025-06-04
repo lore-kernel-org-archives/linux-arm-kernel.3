@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C84EC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CD1C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=24gvrYIGB/bTigGT42sNKeh+gKkK4A2K3YhUM4CzjXo=; b=o/SJUWm2j5VmIuwHoRnxJlDTve
-	nwqMlzV+eXss6aVIYdG2rYZajZzyFi2MdXeq4X121R0Vo/KDGuyj2GUEl+LP4nWnrOvVk0ZiI35al
-	pKwUOoK5CiwEz1uLTjPPXX77VYWamIl4fbOoCkqfhPOmC0/iG1v08kObiXY1HaV31dWo8Avmm2lQN
-	w7t3CcdXpqvVfBfA+9Sa514aAjLnnR8ynSjr/qYI4yTKhJd62Ebs3mQSqAQzQt89G44Sm0u4UDfc3
-	IliR2YSk102KBYZUX84uw3zJoam5G5wQKhCzypyHnmtBhEP6urta4tBgjyXNUlYAG1/PuGeCndK6u
-	C4+eopjw==;
+	bh=kDzZxSS5pAgakySOmEnisQPJw33Ve8a4ggUYF0KCQNs=; b=3YpxKxD35grSm2TRdwJj7CF89+
+	1qCUukF6JiK0nYmBX6jYAnOEpDlaTLCwy6itdLr2v3S6AqtY7sUJbqIkQn9ti6JJhEU7FAueUBWWV
+	3Knvi43Avg2qQvwclSQgOoQdm2xXSx9akwjWOzGEIWaERcuGoG+qtI8ZWj77apVj1XO5uoB97CpfO
+	PuoqQHGBOWgZJaNOhI3UBlO2wvSjAauFgkEpbH5VoHINlddLTEvaePqiDGZ5CrFpUTwXePyWo+1L9
+	UHCmaE0KLKH8GEJJQKRK3RJiZOgPrtIOuLZ1gLRVEUeY2mv3eneoVYRKq+Ec9+cUUVGUYD3zuPmJp
+	cDkfDpsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMohN-0000000DW5f-1nyc;
-	Wed, 04 Jun 2025 14:02:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uMojS-0000000DWM3-0pS3;
+	Wed, 04 Jun 2025 14:04:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uModC-0000000DVQY-34D3
+	id 1uModD-0000000DVQt-44lA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 13:58:14 +0000
+	Wed, 04 Jun 2025 13:58:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 094A76112A;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5A456A505DA;
+	Wed,  4 Jun 2025 13:58:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E53EAC4CEE7;
 	Wed,  4 Jun 2025 13:58:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9282EC4CEE4;
-	Wed,  4 Jun 2025 13:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749045493;
-	bh=+Zk0xNYskcCR1qYwRSmGjdTDUX7luU28zANHvoQ3zVI=;
+	s=k20201202; t=1749045495;
+	bh=Bqg4UfN3rwgsslMdb/hy9V7kMIKcpgx0adtAHnyJeUs=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=LYcbiahQIs1FeCD9VN0h5PbP6sZsBiigR/aMmkahcyhaHbtLxC/mUeNZ7djLmn709
-	 HYDo+6HpNe6lUZug18UDndeylBhdAg2CXOom9Wg+dW59loiW9SAbtcZcoPWM6xVajT
-	 F1pxL8nffMjuUW6KQugYN4abn+/iqgwxkRRB+3zrIrrw2hyppv0CNZHQd2p1GQrdE0
-	 p0n4x4+NsSlKvNtiGsuVA/zRUuwDNq7AzYngQOnpGQ6lcjulxp0RKHgxIFWHRmAUae
-	 2e2UdLbVxHCoKGBkyNKEBP0IrLy35TYFSKpRWyTSd8RPIXhmEpf6ATvFcSu6cL/6kB
-	 cTdXfo9usJzVQ==
-Date: Wed, 04 Jun 2025 08:58:12 -0500
+	b=tg77kAutQJ/i6IUyrsf2GE8fEIsvU219l2sdKoIoRAC6JETM9rVTYIV68AW2dBrcW
+	 nqnVR35PKl1LR08tz56gg+2vlOb6jQKagLUbN5oSLccDBz3rTM+0xMq0LzCAZ4zdKN
+	 /ntFtovHrpxFd6VhG+x+/cNPsCtvMFhMvx1/lKQBCSZOLBR7xO+z7Jpu6YQLT4ZndJ
+	 baaqSOUPtLwPRjFRf6KRqAYqT9BWWsIS7z/4JowUzsxjc5K9YD0NAO3jRyTSZYxofX
+	 JGh/7z4z/eOyspMzW3sHy5LLClo5pho5ySsFsUaJ6JtJEDBIcFyV/HwLX5tu+Z9fnC
+	 cs78vQ2MfZicg==
+Date: Wed, 04 Jun 2025 08:58:13 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: conor+dt@kernel.org, linux-aspeed@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, 
- andrew@codeconstruct.com.au, linux-kernel@vger.kernel.org, joel@jms.id.au, 
+Cc: conor+dt@kernel.org, kristo@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org, r-donadkar@ti.com, 
+ linux-kernel@vger.kernel.org, vigneshr@ti.com, nm@ti.com, 
  devicetree@vger.kernel.org
-To: Donald Shannon <donalds@nvidia.com>
-In-Reply-To: <20250604025054.981087-2-donalds@nvidia.com>
-References: <20250604025054.981087-2-donalds@nvidia.com>
-Message-Id: <174904540089.3869659.869773222407725254.robh@kernel.org>
-Subject: Re: [PATCH v2 0/1] ARM: dts: aspeed: Add device tree for Nvidia's
- GB200
+To: Jayesh Choudhary <j-choudhary@ti.com>
+In-Reply-To: <20250604104656.38752-1-j-choudhary@ti.com>
+References: <20250604104656.38752-1-j-choudhary@ti.com>
+Message-Id: <174904540135.3869675.422953390616565367.robh@kernel.org>
+Subject: Re: [PATCH 0/3] Enable audio support for J721S2-EVM
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250604_065816_138190_E11105E4 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,22 +74,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 03 Jun 2025 19:50:54 -0700, Donald Shannon wrote:
-> Changes in v2:
-> - Changed phy-mode to rgmii-id based on Andrew Lunn's feedback
-> - Fixed typo from gb200nvl to gb200 in Makefile
+On Wed, 04 Jun 2025 16:16:53 +0530, Jayesh Choudhary wrote:
+> These 3 patches add the support to enable audio on J721S2-EVM.
 > 
-> Donald Shannon (1):
->   ARM: dts: aspeed: Add device tree for Nvidia's GB200 UT3.0b platform
->     BMC
+> This required the i2c-mux support[0] which is now in linux tree.
 > 
->  arch/arm/boot/dts/aspeed/Makefile             |    1 +
->  .../aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts  | 1172 +++++++++++++++++
->  2 files changed, 1173 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
+> Now, this series ***depends upon only one dts change[1]*** to ensure there
+> are no dtbs_check warnings (no functional issues):
+> "ti,j721e-system-controller.yaml" refers to "ti,am654-ehrpwm-tbclk.yaml"
+> for clock-controller nodes, but for audio we need "ti,am62-audio-refclk".
+> When scm_conf is "simple-bus", there are no such warnings.
+> 
+> Test log: https://gist.github.com/Jayesh2000/840c19ef8f9b7f0f75dedd015ccbf98a
+> 
+> [0]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0fc829dbde9bf1f349631c677a85e08782037ecf
+> [1]: https://lore.kernel.org/all/20250603095609.33569-4-j-choudhary@ti.com/
+> 
+> 
+> Jayesh Choudhary (3):
+>   arm64: dts: ti: k3-j721s2-main: Add McASP nodes
+>   arm64: dts: ti: k3-j721s2-main: Add audio_refclk node
+>   arm64: dts: ti: k3-j721s2-common-proc-board: Enable analog audio
+>     support
+> 
+>  .../dts/ti/k3-j721s2-common-proc-board.dts    | 131 ++++++++++++++++++
+>  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi    |  99 +++++++++++++
+>  2 files changed, 230 insertions(+)
 > 
 > --
-> 2.43.0
+> 2.34.1
 > 
 > 
 > 
@@ -109,94 +124,31 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: failed to guess base
+ Base: tags/next-20250604 (best guess, 1/2 blobs matched)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250604025054.981087-2-donalds@nvidia.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250604104656.38752-1-j-choudhary@ti.com:
 
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@200 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@280 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@300 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@71 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@74 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@72 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@73 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@70 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@75 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@74 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@76 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@77 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@380 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@480 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@500 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@780 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@77 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c@800 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: i2c-mux@77 (nxp,pca9546): Unevaluated properties are not allowed ('vcc-supply' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:#clock-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:compatible:0: 'ti,am62-audio-refclk' is not one of ['ti,am654-ehrpwm-tbclk', 'ti,am64-epwm-tbclk', 'ti,am62-epwm-tbclk']
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:#clock-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:compatible:0: 'ti,am62-audio-refclk' is not one of ['ti,am654-ehrpwm-tbclk', 'ti,am64-epwm-tbclk', 'ti,am62-epwm-tbclk']
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4: 'assigned-clock-parents', 'assigned-clocks', 'clocks' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:#clock-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
+arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dtb: syscon@104000 (ti,j721e-system-controller): clock-controller@42e4:compatible:0: 'ti,am62-audio-refclk' is not one of ['ti,am654-ehrpwm-tbclk', 'ti,am64-epwm-tbclk', 'ti,am62-epwm-tbclk']
+	from schema $id: http://devicetree.org/schemas/soc/ti/ti,j721e-system-controller.yaml#
 
 
 
