@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3828AC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 03:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DA2C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 03:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoRPgY7gpUnwowRN4JgFUDVKrk6MECLv9W6lefq/Cj4=; b=c5Rq1yebElTggA3TNPpfujEga+
-	NiYkPfY6jTZv3XyIvGVRJ41mU4WUp3FMXNxBZ21dgnCorA25o6bUkuE8K17Ho7thqMwZ74ZcaHSZ6
-	316i4gwe1m+tKVfnZhkhWaEGONzDxmrPVBuCpcV5A+WrFKRdQb8LVdnjwuRrZvmSBLwCr+DgFfnM3
-	Ql/7s1SQXskTTtMiOMqWNm3rXEfgdkYFDIxLYzei+tGBdDSX5g1omDrxsvSotJBmcKbUDXdS59aJY
-	S8QpaSrmqRyL9NKE7jVFTWrW1ZLvoJdPYFbaXXQmQABZ/t8u+oVvF5zQ6FzZrMJH32POLJK3ExLJ4
-	69Y+8JGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cV9SrJmogHgdqp4OM5LO/TrDDsTxFCLEWXVRiXEZlrs=; b=vtxuoutZJjrJc7gNS2DIIMBrcp
+	lQ9kss9AxX5FcOeFYPWjBTWQ/sl0jvbkHyiIYMG3ed5lsKCdrY9ZfHkVKMl4SHyq64mQCYZ8xiHDS
+	W1uWRiMXywH1M7Q8+QSJTTPasboHdXqlOEjlpsyg4t02HlkbZkxGoAUWSGYq7+Mvbck/WOIXiWnII
+	ptz/g13OrosEwh5a9cTbAPs15e4LcmFYPbGnFxifHLBDpo61fjOTkCxQOdXgtrj2yarzRVLFkhjaE
+	8sr7zRCoxgEIRuV8pawu/aIgXFCWkAOLke4FRu/MGs4Ct322PJ1ULleUGaQwt8hxGLgUsqdKPbx9l
+	SF3A8sPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMf8u-0000000CTma-0CM2;
-	Wed, 04 Jun 2025 03:50:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMfB2-0000000CTxx-0gnx;
+	Wed, 04 Jun 2025 03:52:32 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcbN-0000000C9Er-0bCA;
-	Wed, 04 Jun 2025 01:07:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD08149DC3;
-	Wed,  4 Jun 2025 01:07:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECA08C4CEED;
-	Wed,  4 Jun 2025 01:07:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748999252;
-	bh=gbINnOBjYacAd4NURcM3UJtbzlVb3rdVAEYqAOgMVV4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lgFCoHW+D401LqlMg3OHSGLY9x1D0tjFirFlpfGpM186uloAE6p4AwmcXae+d9tud
-	 mv+iW45JDivB+QvZ1me5MowceOQJ4hBRoxVJOTcGfdcbBsF/9VgK7aD/X49x8av26Q
-	 iNtxxOUzf6VGu6LMzFEhI9+LoEY04vOwv5sC7Dot2y5cHlNra3qRBU4Kje3yrp6qk+
-	 PbqyiTa2pVowcuhBeGobaIm/aLD/GQwdxfah+Y2zsnUrqPxzfp3t8soteeLs+JWQq0
-	 CMoWzo+XDsCX+4U0g21u41tnmSX/GzKUkFpcuKFkHj/lt2TmHReL+RyPzhCVTfCHx5
-	 ShgbonQEpu2gA==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Sasha Levin <sashal@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.4 16/20] clk: rockchip: rk3036: mark ddrphy as critical
-Date: Tue,  3 Jun 2025 21:07:02 -0400
-Message-Id: <20250604010706.7395-16-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250604010706.7395-1-sashal@kernel.org>
-References: <20250604010706.7395-1-sashal@kernel.org>
+	id 1uMcms-0000000CAxJ-2c9z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Jun 2025 01:19:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=cV9SrJmogHgdqp4OM5LO/TrDDsTxFCLEWXVRiXEZlrs=; b=oo6Jqa1ctxJH/SN3B9yqYBwcf7
+	1zJIYbwtwEdRmedulYru49ATTBeL+amP1rXxOnfVdMvusb3xfjHLQCwOEmqoUBVGc2tZHpy0FsYBM
+	3lqUC5fS5ofiKGm8PYwgPrcVJAJ+uWTvhJEfmA59cfE12A0TkqvN3J8w7lHotpHKoUGI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uMcmi-00EdFl-Rg; Wed, 04 Jun 2025 03:19:16 +0200
+Date: Wed, 4 Jun 2025 03:19:16 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [v1] arm64: dts: freescale: imx93-var-som: update eqos support
+ for MaxLinear PHY
+Message-ID: <54c4a279-a528-4657-8319-c9374add54b7@lunn.ch>
+References: <20250603221416.74523-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.4.293
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250603221416.74523-1-stefano.radaelli21@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_180733_212864_44C2C9D6 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20250603_181926_658647_25AA243C 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,76 +75,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko@sntech.de>
+>  &eqos {
+> @@ -39,6 +26,7 @@ &eqos {
+>  	pinctrl-0 = <&pinctrl_eqos>;
+>  	phy-mode = "rgmii";
 
-[ Upstream commit 596a977b34a722c00245801a5774aa79cec4e81d ]
+I know this is not in the scope of what you are trying to do, but this
+is probably wrong:
 
-The ddrphy is supplied by the dpll, but due to the limited number of PLLs
-on the rk3036, the dpll also is used for other periperhals, like the GPU.
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
 
-So it happened, when the Lima driver turned off the gpu clock, this in
-turn also disabled the dpll and thus the ram.
-
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://lore.kernel.org/r/20250503202532.992033-4-heiko@sntech.de
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-**YES** This commit should absolutely be backported to stable kernel
-trees. Here's my detailed analysis: ## Critical System Stability Issue
-The commit fixes a **critical system stability problem** where the DDR
-PHY clock can be disabled, causing the system to lose access to RAM and
-crash. This is evidenced by: 1. **Root Cause Analysis**: The commit
-message clearly explains that "when the Lima driver turned off the gpu
-clock, this in turn also disabled the dpll and thus the ram" - this is a
-shared resource conflict that can brick the system. 2. **Hardware
-Limitation**: The RK3036 has "limited number of PLLs" where the DPLL is
-shared between the DDR PHY (memory controller) and GPU, creating an
-inherent conflict when GPU clock management affects memory access. ##
-Code Change Analysis The fix is **minimal and safe**: ```c static const
-char *const rk3036_critical_clocks[] __initconst = { "aclk_cpu",
-"aclk_peri", "hclk_peri", "pclk_peri", "pclk_ddrupctl", + "ddrphy", //
-<-- Single line addition }; ``` - **Single line change**: Adding
-"ddrphy" to the critical clocks array - **No functional changes**: Uses
-existing critical clock infrastructure - **No API modifications**:
-Compatible with all kernel versions that support Rockchip clocks - **No
-dependencies**: Self-contained fix within the clock driver ##
-Backporting Criteria Evaluation ✅ **Fixes important bug**: System
-crashes when GPU driver disables clocks ✅ **Small and contained**: One
-line addition to existing array ✅ **Minimal regression risk**: Only
-prevents clock from being disabled, no new functionality ✅ **Clear side
-effects**: Explicitly intended to keep DDR PHY always enabled ✅
-**Critical subsystem**: Memory controller availability is fundamental to
-system operation ## Similar Commit Pattern Analysis Looking at the
-provided similar commits, this follows the **exact same pattern** as
-Similar Commit #3 (Status: YES) which fixed "unrecoverable freezes and
-rcu_sched stall warnings" - both address critical system stability
-issues through clock configuration fixes. Unlike the other commits
-marked "NO" which were feature additions or exports, this is a **pure
-bugfix** addressing a **hardware design limitation** that causes system
-crashes. ## Conclusion This commit prevents **complete system failure**
-through a **trivial, safe change** that has **zero risk of regression**.
-The fix addresses a fundamental hardware limitation in the RK3036 where
-shared PLLs can cause memory controller clock starvation. This is
-exactly the type of critical stability fix that stable trees are
-designed to include.
-
- drivers/clk/rockchip/clk-rk3036.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/clk/rockchip/clk-rk3036.c b/drivers/clk/rockchip/clk-rk3036.c
-index 6a46f85ad8372..4a8c72d995735 100644
---- a/drivers/clk/rockchip/clk-rk3036.c
-+++ b/drivers/clk/rockchip/clk-rk3036.c
-@@ -429,6 +429,7 @@ static const char *const rk3036_critical_clocks[] __initconst = {
- 	"hclk_peri",
- 	"pclk_peri",
- 	"pclk_ddrupctl",
-+	"ddrphy",
- };
- 
- static void __init rk3036_clk_init(struct device_node *np)
--- 
-2.39.5
-
+	Andrew
 
