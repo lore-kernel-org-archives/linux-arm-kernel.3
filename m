@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196FBC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 13:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A13FFC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4krNLYqTu5PwEOLh0tYgHTp5VBnZZoifiHQYwqKpyGI=; b=w1zXJpRiKi7KtblKbwuTpRfVOt
-	HeNqxAxkOPimlvSi8bpn+D7E23LsDp3qymeU1rfZgl0/wupxW+icWIvEgTMi41H8i8+0HaC5hHt8b
-	45PMr7xref+B/+yXKX8Tt0TUK50ypEBae997MO/r0BW+pcXWvWR8Ds3tQKlul33dLkDpO8zFLk/Yc
-	5EvXE7hFfgkVwFKbayrKHZXCAU65UXauaE9ntHCljg2uj5ZcYvFwmc6PQShmH8LzVKj/de0gX+YAb
-	GpUdFW5nqd0/w/Jy64dVlMl06rdGeecCyj9u/We/Bs9G9YBK/n7C5J1Zv5j8k3Wfu+4esbpKgWhhF
-	crbo++Pw==;
+	bh=wc5G8Yf2oKEcs0kpIQpTG3DAUw9YNL8AgIzXMGGn/tg=; b=Hx5NWC6ycUGgJseODH15I+eT8D
+	GLN6REPqKzU1qyEBRjP4mgm4wpLeJOQOpESEauCLdJ82i7HS1sjFWvolW68qHV+QfCZNbbR6mbDoz
+	i6JTsuWOT8ns1Q++5YmEAZOkdNdIckqL/gHefLCG23DMHukrEhqB9kL/Ac/UQBkWlWNc8yTPptMeZ
+	20rDE1LjO6QYlrzJdODPISZYVNfh/VcL6QTqsrEPEYtC26LouzJpzioj1kqsPDJEGHxMabUnzI3Zf
+	AJ7x844OV5lkyvKlMQ6RsltU2nYjII/8xezyg8kAX72Rq2dfZDk6EZZ1/rYz4SnGHOXY61ESa5nZL
+	0NWDuigw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMoPy-0000000DUDR-3mVz;
-	Wed, 04 Jun 2025 13:44:34 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1uMofI-0000000DVvL-1orZ;
+	Wed, 04 Jun 2025 14:00:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMoNs-0000000DU5g-3Ow7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 13:42:25 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a36e090102so3983534f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 06:42:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1749044543; x=1749649343; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4krNLYqTu5PwEOLh0tYgHTp5VBnZZoifiHQYwqKpyGI=;
-        b=dbDB6U0UTBUSm23fWH3KJe9rw7hvlxiFFc56huXiOJz0XzB51qElbDVLHbYkOlNXQK
-         mkYNoIt1dR30U1MQveoGba6faxsMGC94cd/Hai4RDE+X7U8icICWCCDbioq1V1fWE0TN
-         m4k5h4JP5yZZ9640K4S6kbPE1gBhh65P5rzIriRo6l4y3pnPwYVeMCH9yONIiHu5G1a8
-         gQb6OqvjbAnK70HVJLNYCQdqqrYI3+I0nF6lXzsEMB0U8SKvn5jAH75O3T9gbAD8t1dB
-         yNNQfmEUkJv3xycfqOBH0pYMIxz+mNwA4a8Hm6ojGdiubbRc6qaJm6qEG9jZVMeyH7aw
-         717A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749044543; x=1749649343;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4krNLYqTu5PwEOLh0tYgHTp5VBnZZoifiHQYwqKpyGI=;
-        b=Amsrv2QaUuAIPircqu7Js/7jrnl3g/nvSIXWWxiGy5hLagmfKffJ86y36mOqnzeZ8e
-         1B6ZL/mJhuW6j+xEsmbWETh7mAz6j7QbKEVmKlS/Ozr402/2SjYTpj4x0gumXR2mdQju
-         sWsKMw/4zo+3bC8LsXfhD4qs+ApGhMVhvrVy0nLT8AuTg5ZlgANrXyKyf/i5JgBoBUV9
-         sMszaiRyCSS+XGGx7dLwYF5s2JLFYCYVb8NwREWpdorly6K4gKTJP9OI76Xtfl351wEd
-         vRSVsviBVUPgCRCX5UBzGqixqc9SeiFP7/K6KlmCleG0gsl68hv/8yPhyntxiUAp4XKH
-         SDbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXXOP/g2qWROeWTo6VRcyX1mvkHzTdg3SZVXCKaDw0w7yYnAKgGRQUSsWNqPI9TnGPuMzFSRdyP6Qh6E5dCdhfF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXVkANyz58m/bM8/qLmBHH7v04wWTFKn7i9j2KMmC4pv8rKoEC
-	beMJZ/I/IKtENcWdJlPqQ/sOLpgL5Cl8uzF+vrCIbAiH6DZ0iekrwa5o4KyPthxVZx4=
-X-Gm-Gg: ASbGncvwRTCwVhpRur6cVeT7GsCy5bbjlPF6CIoImAY9lFVUujbqB1qXEKTudp98a0W
-	OLBPrtoWiXd3NY0hqvccmjwGrgcoTC9U8zem7NA3+pcg5NqR01MaM0u8uuGIJ5lvQGM0LRf4Bd0
-	IjHzmxVcl7kYhFg3CeBxYVhNtAq3tjb2zlxRWafGHI3NRCKr/8pYp8sm6roM4es2BwD39Thtk5t
-	eeXUVzbpWtM7BtKbfJr5JmoptDyDAUJ1kW1zt3+YwX6u5uTomVXE4wAAwkzheEx5YW8tzHMBXzx
-	XhSFSZitnNvicNPmh71ftzciZxiH6C6pjcofwyJdN1Kc0OHlCwwYSw==
-X-Google-Smtp-Source: AGHT+IFBf1ks7FvkIM9/KgiSH1Nm0ceyhd9C2E9/xug+Okpyo/jMkoHYpfHI27ynqCD67VSiZ+dtUg==
-X-Received: by 2002:a5d:588d:0:b0:3a4:f7dc:8a62 with SMTP id ffacd0b85a97d-3a51db2deedmr2311080f8f.0.1749044543082;
-        Wed, 04 Jun 2025 06:42:23 -0700 (PDT)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e32feecsm8910312a91.47.2025.06.04.06.42.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 06:42:22 -0700 (PDT)
-Date: Wed, 4 Jun 2025 15:42:04 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: John Ogness <john.ogness@linutronix.de>
-Cc: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>,
-	'Michael Kelley' <mhklinux@outlook.com>,
-	'Ryo Takakura' <ryotkkr98@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: Problem with nbcon console and amba-pl011 serial port
-Message-ID: <aEBNLMYVUOGzusuR@pathway.suse.cz>
-References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
- <84y0u95e0j.fsf@jogness.linutronix.de>
- <84plfl5bf1.fsf@jogness.linutronix.de>
- <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
- <aEApOPTqbVOR35F_@pathway.suse.cz>
- <84o6v3ohdh.fsf@jogness.linutronix.de>
+	id 1uModB-0000000DVQA-0Ekn;
+	Wed, 04 Jun 2025 13:58:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4BEACA505CD;
+	Wed,  4 Jun 2025 13:58:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE84DC4CEE4;
+	Wed,  4 Jun 2025 13:58:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749045492;
+	bh=DmoZb/9o3rHGp2jGpcgoTHMl8Ju66rgQCq7at8FrRfM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Fb1apBZg+VOhlfLXG1iDiloTrcIMRFweni9mL+9petMCQ5sqx1/Ay5x4uPlWMHyFA
+	 RPU58NRypx5ukcZPLC40Gxx5v2ti+g2uLIGi2YwAxn/yuXikFUdyfGw332fZ9TpAnY
+	 3fg0DV30D+fSSS9/2as7/N2zy0B96Mbt9pqK1ZNcio0dXO6IbhCCfnI9/0cCHxzWqn
+	 7IHKk1Svq3I+hpK5ouwT71QmpS4xbqTBZFaEhIqjg74QcVUPo44fybVwCV+mYmzGt9
+	 7LxVyNiOKoincQzEV3t9EaykZj8625C4CFBO2SDxztmTIIq3J0+Hj8U6s1dcGrcpg+
+	 xdi4F/0uPUaBg==
+Date: Wed, 04 Jun 2025 08:58:09 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <84o6v3ohdh.fsf@jogness.linutronix.de>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org
+To: Alexey Charkov <alchark@gmail.com>
+In-Reply-To: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+Message-Id: <174904540020.3869609.29886103068021354.robh@kernel.org>
+Subject: Re: [PATCH 0/4] arm64: dts: rockchip: enable further peripherals
+ on ArmSoM Sige5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_064224_849183_A1B23011 
-X-CRM114-Status: GOOD (  23.74  )
+X-CRM114-CacheID: sfid-20250604_065813_228779_67BC8963 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +73,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 2025-06-04 13:56:34, John Ogness wrote:
-> On 2025-06-04, Petr Mladek <pmladek@suse.com> wrote:
-> > On Wed 2025-06-04 04:11:10, Toshiyuki Sato (Fujitsu) wrote:
-> >> > On 2025-06-03, John Ogness <john.ogness@linutronix.de> wrote:
-> >> > > On 2025-06-03, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com> wrote:
-> >> > >>> 4. pr_emerg() has a high logging level, and it effectively steals the console
-> >> > >>> from the "pr/ttyAMA0" task, which I believe is intentional in the nbcon
-> >> > design.
-> >> > >>> Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is doing
-> >> > >>> nbcon_enter_unsafe() and nbcon_exit_unsafe() around each character
-> >> > >>> that it outputs.  When pr_emerg() steals the console, nbcon_exit_unsafe()
-> >> > >>> returns 0, so the "for" loop exits. pl011_console_write_thread() then
-> >> > >>> enters a busy "while" loop waiting to reclaim the console. It's doing this
-> >> > >>> busy "while" loop with interrupts disabled, and because of the panic,
-> >> > >>> it never succeeds.
-> >
-> > I am a bit surprised that it never succeeds. The panic CPU takes over
-> > the ownership but it releases it when the messages are flushed. And
-> > the original owner should be able to reacquire it in this case.
+
+On Tue, 03 Jun 2025 21:01:12 +0400, Alexey Charkov wrote:
+> Add support for the two USB type A ports, link up the CPU regulators for
+> DVFS, enable WiFi and Bluetooth.
 > 
-> The problem is that other_cpu_in_panic() will return true forever, which
-> will cause _all_ acquires to fail forever. Originally we did allow
-> non-panic to take over again after panic releases ownership. But IIRC we
-> removed that capability because it allowed us to reduce a lot of
-> complexity. And now nbcon_waiter_matches() relies on "Lower priorities
-> are ignored during panic() until reboot."
+> The bluetooth part might warrant some discussion and thoughts from the
+> list, given that it's connected over UART and thus not discoverable. At
+> the same time, there are two revisions of the board which have different
+> Bluetooth chips soldered on: Realtek based on v1.1 and Broadcom based on
+> v1.2. I'm not sure if there is any way to determine board version from
+> software. Mine is v1.2, so the respective patch deals with the Broadcom
+> case only, but maybe it's better to move it into a .dtso and thus kick
+> the can down the road (i.e. make the user deal with board identification
+> and loading of the right overlay)? Thoughts welcome.
+> 
+> Best regards,
+> Alexey
+> 
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+> Alexey Charkov (4):
+>       arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
+>       arm64: dts: rockchip: enable USB A ports on ArmSoM Sige5
+>       arm64: dts: rockchip: enable wifi on ArmSoM Sige5
+>       arm64: dts: rockchip: enable bluetooth on ArmSoM Sige5
+> 
+>  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 135 +++++++++++++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  16 +++
+>  2 files changed, 151 insertions(+)
+> ---
+> base-commit: 546b1c9e93c2bb8cf5ed24e0be1c86bb089b3253
+> change-id: 20250602-sige5-updates-a162b501a1b1
+> 
+> Best regards,
+> --
+> Alexey Charkov <alchark@gmail.com>
+> 
+> 
+> 
 
-Great catch! I forgot it. And it explains everything.
 
-It would be nice to mention this in the commit message or
-in the comment above nbcon_reacquire_nobuf().
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-My updated prosal of the comment is:
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
- * Return:	True when the context reacquired the owner ship. The caller
- *		might try entering the unsafe state and restore the original
- *		console device setting. It must not access the output buffer
- *		anymore.
- *
- *		False when another CPU is in panic(). nbcon_try_acquire()
- *		would never succeed and the infinite loop would	prevent
- *		stopping this CPU on architectures without proper NMI.
- *		The caller should bail out immediately without
- *		touching the console device or the output buffer.
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-Best Regards,
-Petr
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 546b1c9e93c2bb8cf5ed24e0be1c86bb089b3253
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com:
+
+arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: mmc@2a320000 (rockchip,rk3576-dw-mshc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3576-dw-mshc', 'rockchip,rk3288-dw-mshc'] is too long
+	'rockchip,rk2928-dw-mshc' was expected
+	'rockchip,rk3288-dw-mshc' was expected
+	'rockchip,rk3576-dw-mshc' is not one of ['rockchip,px30-dw-mshc', 'rockchip,rk1808-dw-mshc', 'rockchip,rk3036-dw-mshc', 'rockchip,rk3128-dw-mshc', 'rockchip,rk3228-dw-mshc', 'rockchip,rk3308-dw-mshc', 'rockchip,rk3328-dw-mshc', 'rockchip,rk3368-dw-mshc', 'rockchip,rk3399-dw-mshc', 'rockchip,rk3528-dw-mshc', 'rockchip,rk3562-dw-mshc', 'rockchip,rk3568-dw-mshc', 'rockchip,rk3588-dw-mshc', 'rockchip,rv1108-dw-mshc', 'rockchip,rv1126-dw-mshc']
+	from schema $id: http://devicetree.org/schemas/mmc/rockchip-dw-mshc.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: mmc@2a320000 (rockchip,rk3576-dw-mshc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3576-dw-mshc', 'rockchip,rk3288-dw-mshc'] is too long
+	'rockchip,rk2928-dw-mshc' was expected
+	'rockchip,rk3288-dw-mshc' was expected
+	'rockchip,rk3576-dw-mshc' is not one of ['rockchip,px30-dw-mshc', 'rockchip,rk1808-dw-mshc', 'rockchip,rk3036-dw-mshc', 'rockchip,rk3128-dw-mshc', 'rockchip,rk3228-dw-mshc', 'rockchip,rk3308-dw-mshc', 'rockchip,rk3328-dw-mshc', 'rockchip,rk3368-dw-mshc', 'rockchip,rk3399-dw-mshc', 'rockchip,rk3528-dw-mshc', 'rockchip,rk3562-dw-mshc', 'rockchip,rk3568-dw-mshc', 'rockchip,rk3588-dw-mshc', 'rockchip,rv1108-dw-mshc', 'rockchip,rv1126-dw-mshc']
+	from schema $id: http://devicetree.org/schemas/mmc/rockchip-dw-mshc.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: mmc@2a320000 (rockchip,rk3576-dw-mshc): Unevaluated properties are not allowed ('compatible' was unexpected)
+	from schema $id: http://devicetree.org/schemas/mmc/rockchip-dw-mshc.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: mmc@2a320000 (rockchip,rk3576-dw-mshc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3576-dw-mshc', 'rockchip,rk3288-dw-mshc'] is too long
+	'rockchip,rk2928-dw-mshc' was expected
+	'rockchip,rk3288-dw-mshc' was expected
+	'rockchip,rk3576-dw-mshc' is not one of ['rockchip,px30-dw-mshc', 'rockchip,rk1808-dw-mshc', 'rockchip,rk3036-dw-mshc', 'rockchip,rk3128-dw-mshc', 'rockchip,rk3228-dw-mshc', 'rockchip,rk3308-dw-mshc', 'rockchip,rk3328-dw-mshc', 'rockchip,rk3368-dw-mshc', 'rockchip,rk3399-dw-mshc', 'rockchip,rk3528-dw-mshc', 'rockchip,rk3562-dw-mshc', 'rockchip,rk3568-dw-mshc', 'rockchip,rk3588-dw-mshc', 'rockchip,rv1108-dw-mshc', 'rockchip,rv1126-dw-mshc']
+	from schema $id: http://devicetree.org/schemas/mmc/rockchip-dw-mshc.yaml#
+arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: mmc@2a320000 (rockchip,rk3576-dw-mshc): compatible: 'oneOf' conditional failed, one must be fixed:
+	['rockchip,rk3576-dw-mshc', 'rockchip,rk3288-dw-mshc'] is too long
+	'rockchip,rk2928-dw-mshc' was expected
+	'rockchip,rk3288-dw-mshc' was expected
+	'rockchip,rk3576-dw-mshc' is not one of ['rockchip,px30-dw-mshc', 'rockchip,rk1808-dw-mshc', 'rockchip,rk3036-dw-mshc', 'rockchip,rk3128-dw-mshc', 'rockchip,rk3228-dw-mshc', 'rockchip,rk3308-dw-mshc', 'rockchip,rk3328-dw-mshc', 'rockchip,rk3368-dw-mshc', 'rockchip,rk3399-dw-mshc', 'rockchip,rk3528-dw-mshc', 'rockchip,rk3562-dw-mshc', 'rockchip,rk3568-dw-mshc', 'rockchip,rk3588-dw-mshc', 'rockchip,rv1108-dw-mshc', 'rockchip,rv1126-dw-mshc']
+	from schema $id: http://devicetree.org/schemas/mmc/rockchip-dw-mshc.yaml#
+
+
+
+
+
 
