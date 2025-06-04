@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6A1C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 09:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBD5C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 09:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1+Yrgh6Z4uyJ/+tbV7dwmp0mh5zinPbKsKU8zEJOQ44=; b=rYh3TAyIHXt4EdC9MjUlHXNAjZ
-	MrI5kfYLEhXZN1ePIJCJqY//5EPpdR4G+LkGCtrOahdTbzEbrJvdCZatYxfPfqlHOGFWNjl+lToJR
-	5G4yA2a7z8UjHZehX5ksnmpxOBDwBY42jF5OCn/nQfzDjY+YsmJVRjc7C9bCic0FNoxhkgRyxmSwV
-	fjCZBYYB0EDVj7TkjJCNOHGrYTbXemUnmhtTaOrxGIqr2n3hm7Qq99bHzIFu5ZW8LUAAU++ZJpwcA
-	ivdHSAgkc+5yk9+1od/EaQjylfzUIH5LXf0v1EvxGYsq4Bze6H02ZgHY9O/i6eGBxbxTe1mCsGIRI
-	Z262veow==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RIYky3gjpTsCWWoJfEf+lc/dCW5mVapm/m/j24bH0IQ=; b=T1DiKucoAdslyWj7Szoltct3wF
+	L07ssYlP8Wmkvxml1C3SvT8weIAfJIbqsOsAeNZb/WAAlnTw5uTNJ/Wauh/UEQS6IpONEsLYl/Oz4
+	ANLwHWw07GudBJ0+pkC5Cp04dYrunUJfkBWzsCh7sY3U6f89r0awHPUfSxIgAVkh4zuEa30YrQcJF
+	NpPWEqELEM/6uvnE9ZEsMrm5JZwOoZRyl2OZNttl2wBJDCZiGHULssrPUBE7IUW91XwijqzydzXgP
+	PDf4QwUnqZdpZGvpBJ2IA6hyuaLU2Fbf1KuvWVZHPKZwISpR2WIhCxf3qIOtaB/jh2OCduxlZ1ueG
+	ej/d2F3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMk22-0000000CySk-0ZmG;
-	Wed, 04 Jun 2025 09:03:34 +0000
-Received: from p-east3-cluster6-host4-snip4-10.eps.apple.com ([57.103.85.171] helo=outbound.qs.icloud.com)
+	id 1uMkCc-0000000Czjo-3ThA;
+	Wed, 04 Jun 2025 09:14:30 +0000
+Received: from out203-205-221-210.mail.qq.com ([203.205.221.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMjzv-0000000CyGB-46hB
+	id 1uMkAV-0000000CzRl-00Cp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 09:01:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=etehtsea.me; s=sig1;
-	bh=1+Yrgh6Z4uyJ/+tbV7dwmp0mh5zinPbKsKU8zEJOQ44=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme;
-	b=huS+KKUMXZFNne46uxDYoH2TR2b4rsBMdH4bZYwhzuRPOAK5oEn7fAMzN2Bjgsr4K
-	 Ii37TpCfis0bay6sNYvrbTdBswO6TnDxsOBfdUmnmnEqFQfq0bUkMd2gkWGkyfRtNj
-	 XSj4UvTR86eDIABeFDbSpJ4izmgB3N1X9eKBkDyXaeX5cPwx8g7dPhaB3cQDfwL4+A
-	 ifj05fcA7c+0MZsSMxvRZwFwbWrETI2ebICVZElPbMzP7BQx+PldPPdIg6o22xWddX
-	 pQJV6diBqHF03+BkUdw1GaPGJeCqRF7K5MXJZFigun/406jgsnJbpSjLL7ZrJgRMl/
-	 k4eTYmrJNETow==
-Received: from outbound.qs.icloud.com (localhost [127.0.0.1])
-	by outbound.qs.icloud.com (Postfix) with ESMTPS id C17A018002A8;
-	Wed,  4 Jun 2025 09:01:10 +0000 (UTC)
-Received: from localhost (qs-asmtp-me-k8s.p00.prod.me.com [17.57.155.37])
-	by outbound.qs.icloud.com (Postfix) with ESMTPSA id EC35618002AF;
-	Wed,  4 Jun 2025 09:01:07 +0000 (UTC)
-From: Konstantin Shabanov <mail@etehtsea.me>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: Konstantin Shabanov <mail@etehtsea.me>,
-	Dan Callaghan <djc@djc.id.au>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V5 RESEND] drm/rockchip: Reject AFBC for res >2560 on rk3399
-Date: Wed,  4 Jun 2025 09:00:53 +0000
-Message-ID: <20250604090054.7070-1-mail@etehtsea.me>
-X-Mailer: git-send-email 2.49.0
+	Wed, 04 Jun 2025 09:12:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1749028327;
+	bh=RIYky3gjpTsCWWoJfEf+lc/dCW5mVapm/m/j24bH0IQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=RvfJeaOjVTb7Of+8+ew2DkSYNg+7b58Vk8r8FKbC4BXsnQArGCmWRipHe7pGwqHno
+	 lT3sv9Qj1BF4uH+DCmxF2iGQPr1DxyQldOAGHj1GcoFxKaJ6ag0OAcqSC3MWW4I76E
+	 CQn6KrV2Ph1d4Ljzeqwrpn3RIW5YL2CxtoZaaK94=
+Received: from [10.56.52.9] ([39.156.73.10])
+	by newxmesmtplogicsvrszc16-0.qq.com (NewEsmtp) with SMTP
+	id 30098838; Wed, 04 Jun 2025 17:12:00 +0800
+X-QQ-mid: xmsmtpt1749028320tno68hupx
+Message-ID: <tencent_CC0310590D7085E8B3EC2E1955E45E4B4709@qq.com>
+X-QQ-XMAILINFO: NvKPbWBbh1DVYUNrtUaO4h9Jj+nOhO0LDaL7Td6QvGV4lWUff2j/vEKUwNnLFs
+	 OLHiU8HjtO7X0BTo/mZpmoEGAb9JuMxziyE13yu5EmANI/1w0vmju9epZ/bZzbSXA1flXKOlJCZZ
+	 0xdvAOAB8VyNKr2QluATxTOYVEe1IAEr29eygOc9y2gqvHEs7zbaNV8svwb2YcQomlJh10O1DWLo
+	 PXJrtg35/w2KjVub9G4hXlaaODVaIv5HxLJLIeGw8haZVbKol3pxT1UVrVP9PIE6iW6oGW1DASKk
+	 JglRxN8iFlXFrH408POil0NYTrv4Qls947B0al8UFnJ6xeYWFPfvmK+l6mw3Cl/4BLpWgDOMRt+k
+	 UrYDh0qAZTVf2FDZg6dIj2VABZbbalypmmpKQdY8zk4jeja07vCJfEocQCBNTybGixtgoKvRvcd0
+	 dSUcqfu9AgFxz8oM4ks2OZfJVc/+1YSKiZdZ5oWg4JzNvrD9IgDKripzGOCf2gfOXHhj67JKwtdc
+	 Xvt5qdrp6RIu3qv8q79nDMT9pBldnw+GpvGZd/GLfkykzwt4ZRmcEt2ADl0Bj/tfDN1XajAgi+NF
+	 AsgwcY3cJtX3K3Gh0WXK45o4Zof4kxKsygFeKzZU7NXl28+E4sH5vCLV4aIsOknG4m5D4CDUYdkm
+	 ac+ZcB+WCWf2D8wX5w4fMtWUtYNjW7X5EOQolpYsuNItcckXyWQP4hfCMgfdHYjzdbYS0UlIiByU
+	 buyWQSQCSzDpvNini1IwsOxoHQ0QcHWYCf9zveyqN85O1YLWoGw3uO39Vd/oSSS+IDCnTmE0vPoY
+	 owrNAXU/M0Msa9kRe2HGy9sJT5ME7CAy1QM/JX+1nQtOq0ShztSqPRXhjEkQ1Q9NeYf8YE416HyZ
+	 z06m9cTiKe6VUYzTY0knFb75smemeGwBRoXSxAC2fADTT93GciJy/QFtVo0WJYjvAQga58hOqboM
+	 8qdx5zDNtzNRgK0zCw8mhNrpqwX8kASut9RkRk/ypcFd0xG05u1ALrQq/VzpXCpTMwV84eDOcSsO
+	 PVaspGNOPthDgcgF8X
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+X-OQ-MSGID: <365843f4-d33d-490d-b567-fe9250577725@foxmail.com>
+Date: Wed, 4 Jun 2025 17:12:00 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: ZL3YM8dNqYDIvFCJ8br2ljtNZ7Y0DHdP
-X-Proofpoint-ORIG-GUID: ZL3YM8dNqYDIvFCJ8br2ljtNZ7Y0DHdP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-04_02,2025-06-03_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
- mlxlogscore=999 phishscore=0 bulkscore=0 mlxscore=0 clxscore=1030 spamscore=0
- adultscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.22.0-2503310001 definitions=main-2506040067
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next] selftests/bpf: Fix compile error of
+ bin_attribute::read/write()
+To: Jiri Olsa <olsajiri@gmail.com>
+Cc: andrii@kernel.org, eddyz87@gmail.com, rongtao@cestc.cn,
+ Mykola Lysenko <mykolal@fb.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Peter Zijlstra <peterz@infradead.org>, Amery Hung <ameryhung@gmail.com>,
+ Juntong Deng <juntong.deng@outlook.com>, Oleg Nesterov <oleg@redhat.com>,
+ "open list:BPF [SELFTESTS] (Test Runners & Infrastructure)"
+ <bpf@vger.kernel.org>,
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <tencent_A6502A28AF21A3CA88B106F3421159869708@qq.com>
+ <aEAJbBH00yL2iTgn@krava>
+Content-Language: en-US
+From: Rong Tao <rtoax@foxmail.com>
+In-Reply-To: <aEAJbBH00yL2iTgn@krava>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_020124_088846_8D80EBF7 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250604_021219_412924_F15756FB 
+X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,95 +106,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As it isn't supported by rk3399. From the datasheet[1]
-("1.2.10 Video IN/OUT", "Display Interface", p. 17):
 
-  Support AFBC function co-operation with GPU
-    * support 2560x1600 UI
+On 6/4/25 16:53, Jiri Olsa wrote:
+> On Wed, Jun 04, 2025 at 01:53:22PM +0800, Rong Tao wrote:
+>> From: Rong Tao <rongtao@cestc.cn>
+>>
+>> Since commit 97d06802d10a ("sysfs: constify bin_attribute argument of
+>> bin_attribute::read/write()"), make bin_attribute parameter of
+>> bin_attribute::read/write() const.
+> hi,
+> there's already fix for this in bpf/master
+>
+> thanks,
+> jirka
+I am confused, when should I use bpf/master[2] and when should I use
+bpf-next/master[1]? thank you :)
 
-Signed-off-by: Konstantin Shabanov <mail@etehtsea.me>
-Reported-by: Dan Callaghan <djc@djc.id.au>
-Closes: https://gitlab.freedesktop.org/mesa/mesa/-/issues/7968
-
-[1]: https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
----
- V4 -> V5: Extract AFBC support check into drv
- V3 -> V4: Correct redundant header inclusion
- V2 -> V3: Run check only on rk3399
- V1 -> V2: Move the check to the fb_create callback
-
- AFBC check is implemented in a similar manner as in the malidp driver.
- Resend of the https://lore.kernel.org/all/20250521160556.14346-2-mail@etehtsea.me/.
- 
- drivers/gpu/drm/rockchip/rockchip_drm_drv.c | 16 ++++++++++++++++
- drivers/gpu/drm/rockchip/rockchip_drm_drv.h |  2 ++
- drivers/gpu/drm/rockchip/rockchip_drm_fb.c  |  3 +++
- 3 files changed, 21 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-index 180fad5d49ad..9fb04022b2f3 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-@@ -42,6 +42,8 @@
- #define DRIVER_MAJOR	1
- #define DRIVER_MINOR	0
- 
-+#define RK3399_AFBC_MAX_WIDTH		2560
-+
- static const struct drm_driver rockchip_drm_driver;
- 
- /*
-@@ -350,6 +352,20 @@ int rockchip_drm_endpoint_is_subdriver(struct device_node *ep)
- 	return false;
- }
- 
-+bool rockchip_verify_afbc_framebuffer_size(struct drm_device *dev,
-+					   const struct drm_mode_fb_cmd2 *mode_cmd)
-+{
-+	if (of_machine_is_compatible("rockchip,rk3399") &&
-+	    mode_cmd->width > RK3399_AFBC_MAX_WIDTH) {
-+		DRM_DEBUG_KMS("AFBC is not supported for the width %d (max %d)\n",
-+			      mode_cmd->width,
-+			      RK3399_AFBC_MAX_WIDTH);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
- static void rockchip_drm_match_remove(struct device *dev)
- {
- 	struct device_link *link;
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-index c183e82a42a5..5dabceaa4fd6 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-@@ -86,6 +86,8 @@ int rockchip_drm_wait_vact_end(struct drm_crtc *crtc, unsigned int mstimeout);
- int rockchip_drm_encoder_set_crtc_endpoint_id(struct rockchip_encoder *rencoder,
- 					      struct device_node *np, int port, int reg);
- int rockchip_drm_endpoint_is_subdriver(struct device_node *ep);
-+bool rockchip_verify_afbc_framebuffer_size(struct drm_device *dev,
-+					   const struct drm_mode_fb_cmd2 *mode_cmd);
- extern struct platform_driver cdn_dp_driver;
- extern struct platform_driver dw_hdmi_rockchip_pltfm_driver;
- extern struct platform_driver dw_hdmi_qp_rockchip_pltfm_driver;
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-index 5829ee061c61..f0527f12f568 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_fb.c
-@@ -52,6 +52,9 @@ rockchip_fb_create(struct drm_device *dev, struct drm_file *file,
- 	}
- 
- 	if (drm_is_afbc(mode_cmd->modifier[0])) {
-+		if (!rockchip_verify_afbc_framebuffer_size(dev, mode_cmd))
-+			return ERR_PTR(-EINVAL);
-+
- 		ret = drm_gem_fb_afbc_init(dev, mode_cmd, afbc_fb);
- 		if (ret) {
- 			drm_framebuffer_put(&afbc_fb->base);
-
-base-commit: 685c407f168cb49a12cc703230d1e2d62767bfd2
--- 
-2.49.0
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
 
 
