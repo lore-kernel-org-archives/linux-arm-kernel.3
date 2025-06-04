@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0569C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  3 Jun 2025 23:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C050C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 00:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9L47Pw4FJq00Mo4o1EG2exd2hnFJSmIOUsOxTsjqiA=; b=B6l8FVfaROTRSrLzG2+8KViWtf
-	QMbe9LuUbnM0DlepBrJceq+1vriSh1LYzLCNuu059IEMuFoR9ckQRYNxNEMIKdmEzQPsKIsxuwEBJ
-	HAiJiXEhJlweTFMs9DpAHqNl+/micAajOdmTJ0w0g6h7WNNyRQ4FWZ/yNTxDbXL9yh96IOOmeMXmD
-	8CF4/QgLG0ZCT+g9vIcfvnDvP3nY1LfAMAk4x21lkpzJH32/CR/uQIVMuN0g/eLJMr8ZHilYZknba
-	TMtS4QlVGycqcduEYeFuSeCrMp39J+pcyap5jfBURNq5yzB/OUjM4jjB7jBwxdEXoenmDccCFDIyz
-	KBCcGX6w==;
+	bh=8MZYMhTjyXQwSFJY/e0Bg+aJ/DYLC4LmKmte6yFXBpM=; b=C7bfeLbo87Wou56DJXhc8LA1xW
+	2q+Wo1hDkqcczRc3f9VFf3YoP5gxK+l1xzBKC//ZRc4aFdyhr53GSpgVZ9UqA9Q3fYTHKIJG6f24X
+	0709xrquEEneG2KfHkdmozS6vDiqeyOc0Ny8gMSvuqLKGnVrTuf8Di9fX+Vx8T7JyoF44r5HUftTK
+	NaiIyzENUmhR12dVD+T2MCUcw2+YlSSyd0sF5Pf/Rp4SR29xvQEQAMrd0n0imtV2b70qQhOIe9cVb
+	E8hFTiMjSrvR876aakzyOR4CobJzgopYVxVc4uObMclL63FBUuczGQ+mZCWXmzSOimWE8IzIcKmI7
+	Nk517Z5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMbRe-0000000C2TC-3X5J;
-	Tue, 03 Jun 2025 23:53:26 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1uMc3V-0000000C4PI-2RG4;
+	Wed, 04 Jun 2025 00:32:33 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMbPU-0000000C2O8-2kWt
+	id 1uMc1I-0000000C4Ep-18eF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 03 Jun 2025 23:51:13 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-b2c4476d381so382248a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 16:51:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748994671; x=1749599471; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e9L47Pw4FJq00Mo4o1EG2exd2hnFJSmIOUsOxTsjqiA=;
-        b=KqN9NJbuGPTh3HuaK1UNCQbJlF6sQ+IweBDuSV3S4z3twCt9LSnxgbDnMO2KxSDC0L
-         BQm+sLqL7ISnMZCgy3xRD8kwqGPfDmeY3P8xnp+BJ3J/ZsnTCqEk4AgvTFr9d9HeQ1QO
-         +Uo2HHcZrZLb32f/JdycVED09FMMwkQVIBK1H9WA4eszhGJ/JHApGxQE99kdC3ebF5bs
-         IJFPr2k8ovgQfUiYmRkWmQDEJWtDNVPECGJUqkWD6BNEj54+C5lTljka3ocmvg2liwqW
-         2rI5FS2P9aKZRtaXuqyCqAPldtAQeqE0Axc3txiXXAee6a1B9VGnn9nJrmbPIyZXhXP6
-         6SRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748994671; x=1749599471;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e9L47Pw4FJq00Mo4o1EG2exd2hnFJSmIOUsOxTsjqiA=;
-        b=ZnPLXuZf67ZBiE4BWriVwL/eu9hCU2xXIbviuKxR1yXJo2d9caUjlCVe+yka+c8v4g
-         G6MOUaOHbBwuUjY3vTzz6uX3otVcxtP4BX4KQUTSOHLO6h8MIHTU5QuBV4s97S5NvNno
-         k1IBsy4WccUzwuRRtCl5zKpv6OCwlvkwB7wFVCbQsDbd6Q8hC+RIxaElmCE7XGuN0V/3
-         KMZyZy2D/4yBaPY6JOqkTWKNyGZbWN/fIo8AHSL3ccx26H6ksNuokslmTg66vIxB/+zk
-         hUTaZkyZ3BPbO1CRUAI+dHEmLxiZoira9ypG3PPKq0IQpinBTjQZDL7/YLm5/baSENFq
-         s9fA==
-X-Gm-Message-State: AOJu0YwRJyfNzCZ1htfymXaxkRGM7eRWCzgxoBTKbge/JClyQrRalk+Q
-	1jQHiuhjQ5NS1Gup/vsDcLldir3sL+DTFm5v+D9FQB+XeEZhM4RRrcbpV0xFwIxYLvIzRzzSXQk
-	7t4HY6fIoyxrEBKDPVBUp8vWYfg9qOnE=
-X-Gm-Gg: ASbGncvLoOQ5fHS2NMTEMLtqCYJDkUKF3C1NQfuE1vRn0aWgNbEvl6HR6mc8bvB0QJt
-	ShIi+PK++RSxETiXaE28bO6eXm/mi8cCByk0WMRtnvzmpLTn6M6G8m0pQM/eXWYnXyECrXSqY5C
-	JHtvu/qHtxiW804FAE2WqkroAkVEt4CuHV
-X-Google-Smtp-Source: AGHT+IFNst2H7GFHVcub0yd3Kmx7L7dZwZEJToym/csaIT88WJqNMHe3BnbzVXN+qxD/TPW9kbEM0Emgl9txshV4zbM=
-X-Received: by 2002:a17:90b:1c0b:b0:311:abba:53b6 with SMTP id
- 98e67ed59e1d1-3130dce1bcemr1068222a91.14.1748994671162; Tue, 03 Jun 2025
- 16:51:11 -0700 (PDT)
+	Wed, 04 Jun 2025 00:30:17 +0000
+Message-ID: <6138a043-5b5b-46af-ba8b-01dac55dee23@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748997001;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8MZYMhTjyXQwSFJY/e0Bg+aJ/DYLC4LmKmte6yFXBpM=;
+	b=WEPUnmjl01eoxpfj2bo/wjnCnhorQhBLZ1U6kM9OBHA8kNJHz74sZvC5bbf9Xq5wG8FEwv
+	2RVwYAOiBOU0zVcu1kuuJpmJnm5Ki55YySE0AfXWX4gcRbFoRZDZsm2tjcyYXSTjjwAR5F
+	F+e/j1567odazU5Fm1OHqh6K6+KqGGI=
+Date: Tue, 3 Jun 2025 17:29:55 -0700
 MIME-Version: 1.0
-References: <20250530221713.54804-1-aford173@gmail.com> <20250530221713.54804-5-aford173@gmail.com>
- <20250601183620.npuicmipv6kv54z6@pengutronix.de> <CAHCN7xKjEt3rq4VUOSSTqcT4SyWxSCPLHGf6jR6KVHvor5wfKQ@mail.gmail.com>
-In-Reply-To: <CAHCN7xKjEt3rq4VUOSSTqcT4SyWxSCPLHGf6jR6KVHvor5wfKQ@mail.gmail.com>
-From: Adam Ford <aford173@gmail.com>
-Date: Tue, 3 Jun 2025 18:51:00 -0500
-X-Gm-Features: AX0GCFtCdZakQVBK8i9Mwd6h5JPSbdyOFZQ8LmRy0bByuZIyxG3rUNoDH5Gee58
-Message-ID: <CAHCN7xLr-7YQ9P8022g3SNPVgfQcEU8rSzZ-grMMom8kLm6e0Q@mail.gmail.com>
-Subject: Re: [PATCH 4/4] arm64: dts: imx8mp: Configure VPU clocks for overdrive
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, aford@beaconembedded.com, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
+ 3.0
+To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
+ Andrew Jones <ajones@ventanamicro.com>
+Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Mayuresh Chitale <mchitale@ventanamicro.com>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org,
+ linux-riscv <linux-riscv-bounces@lists.infradead.org>
+References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
+ <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
+ <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
+ <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
+ <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
+ <20250526-224478e15ee50987124a47ac@orel>
+ <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
+ <20250528-ff9f6120de39c3e4eefc5365@orel>
+ <1169138f-8445-4522-94dd-ad008524c600@linux.dev>
+ <DA8KL716NTCA.2QJX4EW2OI6AL@ventanamicro.com>
+ <2bac252c-883c-4f8a-9ae1-283660991520@linux.dev>
+ <DA9G60UI0ZLC.1KIWBXCTX0427@ventanamicro.com>
+ <0dcd01cd-419f-4225-b22c-cbaf82718235@linux.dev>
+ <DACVBRLJ5MMV.1COZ83HBMUD6A@ventanamicro.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <DACVBRLJ5MMV.1COZ83HBMUD6A@ventanamicro.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_165112_702495_0DD42A2F 
-X-CRM114-Status: GOOD (  30.76  )
+X-CRM114-CacheID: sfid-20250603_173016_602231_23379C61 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,108 +90,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 2, 2025 at 10:35=E2=80=AFAM Adam Ford <aford173@gmail.com> wrot=
-e:
+
+On 6/3/25 4:40 AM, Radim Krčmář wrote:
+> 2025-05-30T12:29:30-07:00, Atish Patra <atish.patra@linux.dev>:
+>> On 5/30/25 4:09 AM, Radim Krčmář wrote:
+>>> 2025-05-29T11:44:38-07:00, Atish Patra <atish.patra@linux.dev>:
+>>>> On 5/29/25 3:24 AM, Radim Krčmář wrote:
+>>>>> I originally gave up on the idea, but I feel kinda bad for Drew now, so
+>>>>> trying again:
+>>>> I am sorry if some of my replies came across in the wrong way. That was
+>>>> never
+>>>> the intention.
+>>> I didn't mean to accuse you, my apologies.  I agree with Drew's
+>>> positions, so to expand on a question that wasn't touched in his mail:
+>>>
+>>>>> Even if userspace wants SBI for the M-mode interface, security minded
+>>>> This is probably a 3rd one ? Why we want M-mode interface in the user
+>>>> space ?
+>>> It is about turning KVM into an ISA accelerator.
+>>>
+>>> A guest thinks it is running in S/HS-mode.
+>>> The ecall instruction traps to M-mode.  RISC-V H extension doesn't
+>>> accelerate M-mode, so we have to emulate the trap in software.
+>> We don't need to accelerate M-mode. That's the beauty of the RISC-V H
+>> extension.
+> (It is a gap to me. :])
+RISC-V H extension is designed to virtualize S-mode and U-mode. Not M-mode.
+I don't think retrofitting M-mode virtualization has absolutely any 
+benefit. It has
+many challenges that will probably result in poor performance. It can be 
+a hobby project
+but I am not sure if it can be adopted in production.
+
+Are there any similar use cases in other ISAs ? Does anybody support 
+virtualizaing EL3 in ARM64 ?
+
+>> The ISA is designed in such a way that the SBI is the interface between
+>> the supervisor environment (VS/HS)
+>> and the supervisor execution environment (HS/M).
+> The ISA says nothing about the implementation of said interface.
 >
-> On Sun, Jun 1, 2025 at 1:36=E2=80=AFPM Marco Felsch <m.felsch@pengutronix=
-.de> wrote:
-> >
-> > Hi Adam,
-> >
-> > thanks for the patch.
-> >
-> > On 25-05-30, Adam Ford wrote:
-> > > The defaults for this SoC are configured for overdrive mode, but
-> > > the VPU clocks are currently configured for nominal mode.
-> > > Increase VPU_G1_CLK_ROOT to 800MHZ from 600MHz,
-> > > Increase VPU_G2_CLK_ROOT to 700MHZ from 500MHz, and
-> > > Increase VPU_BUS_CLK_ROOT to 800MHz from 600MHz.
-> > >
-> > > This requires adjusting the clock parents. Since there is already
-> > > 800MHz clock references, move the VPU_BUS and G1 clocks to it.
-> > > This frees up the VPU_PLL to be configured at 700MHz to run
-> > > the G2 clock at 700MHz.
-> > >
-> > > Signed-off-by: Adam Ford <aford173@gmail.com>
-> > > ---
-> > >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 12 ++++++------
-> > >  1 file changed, 6 insertions(+), 6 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/b=
-oot/dts/freescale/imx8mp.dtsi
-> > > index 909555a5da4b..848b25c9b752 100644
-> > > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > > @@ -2256,8 +2256,8 @@ vpu_g1: video-codec@38300000 {
-> > >                       interrupts =3D <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> > >                       clocks =3D <&clk IMX8MP_CLK_VPU_G1_ROOT>;
-> > >                       assigned-clocks =3D <&clk IMX8MP_CLK_VPU_G1>;
-> > > -                     assigned-clock-parents =3D <&clk IMX8MP_VPU_PLL=
-_OUT>;
-> > > -                     assigned-clock-rates =3D <600000000>;
-> > > +                     assigned-clock-parents =3D <&clk IMX8MP_SYS_PLL=
-1_800M>;
-> > > +                     assigned-clock-rates =3D <800000000>;
-> > >                       power-domains =3D <&vpumix_blk_ctrl IMX8MP_VPUB=
-LK_PD_G1>;
-> > >               };
-> > >
-> > > @@ -2267,8 +2267,8 @@ vpu_g2: video-codec@38310000 {
-> > >                       interrupts =3D <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-> > >                       clocks =3D <&clk IMX8MP_CLK_VPU_G2_ROOT>;
-> > >                       assigned-clocks =3D <&clk IMX8MP_CLK_VPU_G2>;
-> > > -                     assigned-clock-parents =3D <&clk IMX8MP_SYS_PLL=
-2_1000M>;
-> > > -                     assigned-clock-rates =3D <500000000>;
-> > > +                     assigned-clock-parents =3D <&clk IMX8MP_VPU_PLL=
-_OUT>;
-> > > +                     assigned-clock-rates =3D <700000000>;
-> > >                       power-domains =3D <&vpumix_blk_ctrl IMX8MP_VPUB=
-LK_PD_G2>;
-> > >               };
-> > >
-> > > @@ -2284,8 +2284,8 @@ vpumix_blk_ctrl: blk-ctrl@38330000 {
-> > >                                <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
-> > >                       clock-names =3D "g1", "g2", "vc8000e";
-> > >                       assigned-clocks =3D <&clk IMX8MP_VPU_PLL>, <&cl=
-k IMX8MP_CLK_VPU_BUS>;
-> > > -                     assigned-clock-parents =3D <0>, <&clk IMX8MP_VP=
-U_PLL_OUT>;
-> > > -                     assigned-clock-rates =3D <600000000>, <60000000=
-0>;
-> > > +                     assigned-clock-parents =3D <0>, <&clk IMX8MP_SY=
-S_PLL1_800M>;
-> > > +                     assigned-clock-rates =3D <700000000>, <80000000=
-0>;
-> >
-> > I think we can drop the "assigned-clocks =3D <&clk IMX8MP_VPU_PLL>" par=
-t
-> > completely.
-> >
-> > Before your patch the IMX8MP_VPU_PLL_OUT was used as clock-parent for
-> > the IMX8MP_CLK_VPU_BUS. With yout patch IMX8MP_SYS_PLL1_800M is used.
+> Returning 42 in x21 as a response to an ecall with 0x10 in a7 and 0x3 in
+> a6 is perfectly valid RISC-V implementation that KVM currently cannot
+> virtualize.
+
+If the concern is only supporting an older version of SBI version, we 
+can support that with onereg
+interface today. I think I already agreed on that earlier in this thread 
+and revise this series to have
+it ready for review.
+
+
+>>> The ISA doesn't say that M-mode means SBI.  We try really hard to have
+>>> SBI on all RISC-V, but I think KVM is taking it a bit too far.
+>>>
+>>> We can discuss how best to describe SBI, so userspace can choose to
+>>> accelerate the M-mode in KVM, but I think that the ability to emulate
+>>> M-mode in userspace should be provided.
+>> I am still trying to understand the advantages of emulating the M-mode
+>> in the user space.
+>> Can you please elaborate ?
+> This thread already has a lot of them, so to avoid repeating them, I
+> have to go into quite niche use-cases:
+> When developing M-mode software on RISC-V (when RISC-V has more useful
+> implementations than QEMU), a developer might want to accelerate the
+> S/U-modes in KVM.
+> It is also simpler to implement an old SBI interface (especially with
+> bugs/quirks) if virtualization just executes the old M-mode binary.
 >
-> I think you're right.  I'll fix that up and do a V2.  I forgot to add
-> my own s-o-b tag, so I'll fix that too.  I'll try to do it this week.
+> Why must KVM prevent userspace from virtualizing RISC-V?
 
-Marco,
+If there is a valid use case that can be put into production or
+if you have any prototype that it has better performance then we can 
+have it.
+In absence of either, isn't it better to spend our energy on things that 
+actually matter
+right now and improve RISC-V virtualization performance rather than 
+something that
+may or may not be possible in the very far future.
 
-I tried removing the assigned-clock references to the IMX8MP_VPU_PLL,
-but i found the defaul speed was 800MHz for the PLL even when asking
-G2 to be 700MHz.  The only way that I found to set the G2 to 700MHz
-was to set the VPU_PLL to 700MHz.  I can do that either inside the G2
-node or the vpumix_blk_ctrl node. I generally like to have the
-blk_ctrl do it since it controls the G1_ROOT and G2_ROOT clocks, but
-it doesn't seem to hurt it being inside the G2 node either.  I can see
-the argument for having it insde the G2 node, since the G2 clock is
-what's requiring the VPU_PLL to be 700MHz.
-
-Let me know your preferences, and I'll move forward accordingly.
-
-adam
->
-> adam
-> >
-> > Regards,
-> >   Marco
+>> I am assuming you are not hinting Nested virtualization which can be
+>> achieved with existing
+>> ISA provided mechanisms and accelerated by SBI NACL.
+> Right, I am talking about virtualization of RISC-V, because I don't have
+> a crystal ball to figure out what users will want.
 
