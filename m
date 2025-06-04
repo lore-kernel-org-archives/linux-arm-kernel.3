@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A52C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 03:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE27AC61CE5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 03:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZz/UOUSQU/mvosydqQbZmt/Dp34i8b7hBXEnrVJcJg=; b=L13KxSLu3hzxC5fPSjkIz78DBZ
-	CxmaFtjSZxk1Cndg1TA72tDPyUx29jKUL6/owtq0bLSAJepGqCt0CPDIh5fVl75cVeDh083Gqjmvn
-	DJwu/e8WYCAMADJfOJbZIb8vcpsgnPyZY4k5TsSBL7epYPLjuT53Il6S2HOagHfAUcpF/dOKr7JIE
-	G9VSk3TGIRuNSZfe/TPhw/MfUaPYa7WG2fhZjxct3PtQIT4Btqhv0aHhQR3iSNTMZ7LQYAbAI13wB
-	8Spz6fmCuGdykn7gM+N/JN7ks720c+Za/+dCIp6frz+0umpES4p03BE3q7XClx7243cpPB0wFjeZ2
-	MSXc8cKw==;
+	bh=bMYBgZlr981PtbcoVMO0rIw7tUs857+MBQFkNZrmYP8=; b=SSvY++x+sqlJNCKilIIEv63Mon
+	M9qAYe+gxvkvjRH83rkycIVFZTmFoHHpFvZO6mQwsKAZ59PyNnGNTBJChhjKcl2s1sYT6gu3SgQYE
+	uKMKa5Zk1SK2BGOCNu0dtszauphm1bP8CZUXtRE4PeZ3BoURQ6RJzm+NM//aWzPsZ8Yi4WaBzpTog
+	b1d3dPVhoNNdIbrWGD0UGW3Im2SvLzseqXgMhVMmEpOlM3TaS4HvMgNZMuOfQZb5md0i8UqClCWTM
+	QNzyXVlLT7bJOBBAjSWLlLTsV5QblOn1lZxdF0ZGCJeu4pbvrM9VlIg6zS6iNjau8RpvJxDfi3pZo
+	JDkaxwWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMfFJ-0000000CUJX-3IQd;
-	Wed, 04 Jun 2025 03:56:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uMfHS-0000000CUUy-2L7E;
+	Wed, 04 Jun 2025 03:59:10 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcZW-0000000C8wT-3rFh
+	id 1uMdIo-0000000CFgt-1duN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 01:05:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BE13C5C51A5;
-	Wed,  4 Jun 2025 01:03:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F36A3C4CEEF;
-	Wed,  4 Jun 2025 01:05:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748999137;
-	bh=5n/bCooFEzyKKeUk9aarbuYkpZqozCKM0q3C395FZ2s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bZncVLzHdoKU914VQ/Ta6XTecGCLmmQaqYg2OXAz3k0ySU+kYN/JLw1fESR7+3tzc
-	 LbUauBSMxip5rRZPiEo/ReqLZEydWqdJ+Zx15Mr/+EN8cr48LYWWZEs/3EJ3G4aYGE
-	 hwOmQ5wo4qhEE9SY4HAAwuxG9mkaBQqXQJ5p78HiR2mD9XTiI3RsGon9qZeyJXSNE/
-	 d8RT7tU/vb9Dze8GuIK/aPthxHEsNSQ1O0fMLlvqNzioHqLkM6avGFlpnyUra6jdw9
-	 H3m2e0E6t12sTeXwpZZ3HINJeXIfgG8ARFiI4C9BOmW47TPmJ61s0C4n57FE0qk9YE
-	 y+xk/nO9EJpWw==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Mike Tipton <quic_mdtipton@quicinc.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Sasha Levin <sashal@kernel.org>,
-	rafael@kernel.org,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.15 07/33] cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs
-Date: Tue,  3 Jun 2025 21:04:58 -0400
-Message-Id: <20250604010524.6091-7-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250604010524.6091-1-sashal@kernel.org>
-References: <20250604010524.6091-1-sashal@kernel.org>
+	Wed, 04 Jun 2025 01:52:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4bBr8C5Mgqz1BFj9;
+	Wed,  4 Jun 2025 09:48:27 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id EB4C1180237;
+	Wed,  4 Jun 2025 09:52:15 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 4 Jun 2025 09:52:15 +0800
+Subject: Re: [PATCH v2 3/5] genirq/msi: Move prepare() call to per-device
+ allocation
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: Marc Zyngier <maz@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>, Timothy Hayes
+	<timothy.hayes@arm.com>
+References: <20250513163144.2215824-1-maz@kernel.org>
+ <20250513163144.2215824-4-maz@kernel.org>
+ <0b1d7aec-1eac-a9cd-502a-339e216e08a1@huawei.com>
+ <aD7B96BiSb6mK9Bj@lpieralisi> <87jz5tdl9d.wl-maz@kernel.org>
+ <aD8Ioy+v8k/i0e8B@lpieralisi>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <7b9710fb-9438-6158-1e79-4f28674a5077@huawei.com>
+Date: Wed, 4 Jun 2025 09:52:14 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.15.184
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <aD8Ioy+v8k/i0e8B@lpieralisi>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_180539_044114_77DAD634 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20250603_185226_598672_1CA42B13 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,137 +79,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mike Tipton <quic_mdtipton@quicinc.com>
+On 2025/6/3 22:37, Lorenzo Pieralisi wrote:
+> On Tue, Jun 03, 2025 at 02:09:50PM +0100, Marc Zyngier wrote:
+> > On Tue, 03 Jun 2025 10:35:51 +0100,
+> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > >
+> > > On Tue, Jun 03, 2025 at 04:22:47PM +0800, Zenghui Yu wrote:
+> > > > > +	domain->dev = dev;
+> > > > > +	dev->msi.data->__domains[domid].domain = domain;
+> > > > > +
+> > > > > +	if (msi_domain_prepare_irqs(domain, dev, hwsize, &bundle->alloc_info)) {
+> > > >
+> > > > Does it work for MSI?
+> > >
+> > > This means that it does not work for MSI for you as it stands, right ?
+> > >
+> > > If you spotted an issue, thanks for that, report it fully please.
+> >
+> > Honestly, you're barking up the wrong tree. Zenghui points us to a
+> > glaring bug in the core code, with detailed information on what could
+> > go wrong, as well as what is wrong in the code. It doesn't get better
+> > than that.
+> >
+> > The usual level of bug reports is "its b0rken", sometimes followed by
+> > a trace with lots of hex and no information. Spot the difference?
+> 
+> Agreed, thanks again Zenghui for reporting it and forgive me if the
+> message sounded a bit patronizing, I did not mean it.
 
-[ Upstream commit 6c9bb86922728c7a4cceb99f131e00dd87514f20 ]
+Never mind :-)
 
-Currently, all SCMI devices with performance domains attempt to register
-a cpufreq driver, even if their performance domains aren't used to
-control the CPUs. The cpufreq framework only supports registering a
-single driver, so only the first device will succeed. And if that device
-isn't used for the CPUs, then cpufreq will scale the wrong domains.
-
-To avoid this, return early from scmi_cpufreq_probe() if the probing
-SCMI device isn't referenced by the CPU device phandles.
-
-This keeps the existing assumption that all CPUs are controlled by a
-single SCMI device.
-
-Signed-off-by: Mike Tipton <quic_mdtipton@quicinc.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Tested-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-
-Based on my comprehensive analysis of the commit and the Linux kernel
-codebase, here is my assessment: **YES** This commit should be
-backported to stable kernel trees. Here's my extensive analysis: ## Core
-Problem Analysis This commit fixes a **critical functional bug** in the
-SCMI cpufreq driver that causes CPU frequency scaling to fail on systems
-with multiple SCMI devices. The problem occurs when: 1. **Multiple SCMI
-devices exist** - Modern SoCs (particularly Qualcomm platforms) have
-multiple SCMI controllers for different subsystems (CPU, GPU, NPU, etc.)
-2. **Wrong device registers first** - All SCMI devices with performance
-domains attempt to register the same cpufreq driver, but only the first
-succeeds 3. **CPU frequency control breaks** - If a non-CPU SCMI device
-registers first, CPU frequency scaling becomes ineffective ## Technical
-Impact Assessment **Lines 430-439 of the diff show the core fix:** ```c
-if (!handle || !scmi_dev_used_by_cpus(dev)) return -ENODEV; ``` The
-added `scmi_dev_used_by_cpus()` function (lines 396-428) prevents wrong
-device registration by: - Checking CPU device tree nodes for clock or
-power-domain phandles to the current SCMI device - Only allowing cpufreq
-driver registration for SCMI devices actually referenced by CPUs -
-Returning early (-ENODEV) for non-CPU SCMI devices ## Backport
-Suitability Criteria ✅ **Fixes important user-affecting bug**: CPU
-frequency scaling failure is a critical system function issue ✅ **Small,
-contained change**: The fix is minimal (47 lines added) and self-
-contained within the SCMI cpufreq driver ✅ **No architectural changes**:
-Preserves existing assumptions and APIs, just adds validation logic ✅
-**Low regression risk**: Early return path with existing error code
-(-ENODEV) that drivers already handle ✅ **Clear side effects**: Well-
-defined behavior change that only affects multi-SCMI-device systems ✅
-**Extensive validation**: Strong community review from ARM ecosystem
-companies (ARM, NXP, Qualcomm, Linaro) with testing confirmation ##
-Comparison with Historical Precedents This commit closely matches the
-**Similar Commit #5 (Status: YES)** which also: - Fixed a critical
-cpufreq driver registration issue - Added early validation in the
-registration path - Used -EPROBE_DEFER/-ENODEV return codes
-appropriately - Addressed a fundamental framework limitation (single
-driver support) Unlike the "NO" status commits which were feature
-additions or cleanups, this addresses a concrete functional failure. ##
-Real-World Impact The commit author (Mike Tipton from Qualcomm) and the
-extensive review from major ARM vendors indicates this was discovered on
-real hardware where: - CPU performance scaling was completely broken -
-System performance would be significantly impacted - The failure would
-be silent and difficult to debug ## Risk Assessment **Minimal backport
-risk** because: - The change only affects the probe path with early
-returns - Existing single-SCMI-device systems continue working unchanged
-- Error handling paths are already well-tested - No changes to runtime
-frequency scaling logic This represents exactly the type of important,
-low-risk bugfix that stable kernels should include to ensure proper
-system functionality on modern multi-domain SoCs.
-
- drivers/cpufreq/scmi-cpufreq.c | 36 +++++++++++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index 8c9c2f710790f..1f12109526fa6 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -288,6 +288,40 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
- 	.register_em	= scmi_cpufreq_register_em,
- };
- 
-+static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
-+{
-+	struct device_node *scmi_np = dev_of_node(scmi_dev);
-+	struct device_node *cpu_np, *np;
-+	struct device *cpu_dev;
-+	int cpu, idx;
-+
-+	if (!scmi_np)
-+		return false;
-+
-+	for_each_possible_cpu(cpu) {
-+		cpu_dev = get_cpu_device(cpu);
-+		if (!cpu_dev)
-+			continue;
-+
-+		cpu_np = dev_of_node(cpu_dev);
-+
-+		np = of_parse_phandle(cpu_np, "clocks", 0);
-+		of_node_put(np);
-+
-+		if (np == scmi_np)
-+			return true;
-+
-+		idx = of_property_match_string(cpu_np, "power-domain-names", "perf");
-+		np = of_parse_phandle(cpu_np, "power-domains", idx);
-+		of_node_put(np);
-+
-+		if (np == scmi_np)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- static int scmi_cpufreq_probe(struct scmi_device *sdev)
- {
- 	int ret;
-@@ -296,7 +330,7 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
- 
- 	handle = sdev->handle;
- 
--	if (!handle)
-+	if (!handle || !scmi_dev_used_by_cpus(dev))
- 		return -ENODEV;
- 
- 	perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
--- 
-2.39.5
-
+Zenghui
 
