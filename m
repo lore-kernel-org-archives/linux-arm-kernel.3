@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8F8C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2D2C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ip8cYdBPRWgViqaCNUSb8tAk5oWEJ9P6Br8yrsq2eAs=; b=D+sJ5S0f09yrMck+8qXyeYvhhI
-	x8sHlROWOHDEoTLPaSll+MHz+CbIFRacz2B8J4xUw57FY5iUcOPzurUzNzpItOxxSzHK91qIst9dT
-	lRDJw7Cv0Woby2gy7uJJbqfTm8GnnSEbAGhyrc3r9Jg0ezJXEXpY8TiypUe6wLhvvSMwh5cbmOkmd
-	x2Dq0UepJMizbUl09pzVjqz9CrxlryrX0t6/yRtzPPLAVPc7jwpwo+enp94O1mZUO6M/ZINDmO8BF
-	8LRRDX9E4QL07tYKJCBYYphLNFfC5xpr9um68qftBKv2cR1RcWVDyrzPUb3pWVem2ro7APq9Hbv7X
-	OQp+nvMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=po4hRDSGCZuh9pjG/L2z6feCTEmaDMC+4+ptAw6xPXg=; b=hNIsHO/SwknjjZf3zCmXL1XRNe
+	zzi3wBk9X234oR5JhXwinbY44TkteeHr2jwaVpBcuKt1RxheyMp7AHhvQKRy6ktBx5RGma+N5ysns
+	HHfNZ8oOEugDQeJMgFoztq/ukZZHfA+PQf3gX/g+E2JFBP5lR3ZTF3K0rK1+kuoxaipwC5lbAUO/X
+	nPe0v1uZFIOrSidaXsNp4r4SuNVGStJgWJOg42gVCwTRXDctRRZvurTvQGa6WBOTsnskl5qp3fJp5
+	bFI6ZSdCTfYXdtusxo6DeU0zej16yJLhS6AftIE/vRN6xPWSzU+d2fEhpLm4mwgdrXxHl2x8DFMg9
+	/w48uqig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMq7I-0000000Dhox-2dmv;
-	Wed, 04 Jun 2025 15:33:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uMqCc-0000000DiY0-13l8;
+	Wed, 04 Jun 2025 15:38:54 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMq5C-0000000DhVg-3z0y
+	id 1uMqAV-0000000DiMr-2rOc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 15:31:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5253761137;
-	Wed,  4 Jun 2025 15:31:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECB9DC4CEE4;
-	Wed,  4 Jun 2025 15:31:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749051074;
-	bh=xjwQ85hYcU1ZrPH6YnswDzMKpczKMUcTOpAQm5SeA+8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RFZ1SKoCh5NLJ8Hir4XT3wS2hpvE9PKPaoXUwqK6A8Y6cyWPWxoiDHP0B3g97Ezw2
-	 oHmbFqVnwwa+1BujyqnxsP0HYVzTaaMYo6TvJmShbXRzO+7+74vAELoOyv7PXZfuuE
-	 vt8jqfGmV1yKX96vfbSYofPX1rrlrfdapV5NS/Q9kHfzwJkebOYVcgEkUqSvslFs+P
-	 qRMsf01mcU1aGfLgFUgwkHhPDv1PbR2dnAGoC4JMZ/2/DoRmTpjTQvOwvN9RywAc3o
-	 6IFzqzEnCBgdXkssXygB6MpnW+faE9oMjEnP1y9MXt03hRF5mZd6hxekaJkATa9hr4
-	 fyxQftlHoBWTQ==
-Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uMq59-003Fww-Fx;
-	Wed, 04 Jun 2025 16:31:11 +0100
-Date: Wed, 04 Jun 2025 16:31:08 +0100
-Message-ID: <87a56ned6r.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 06/11] KVM: arm64: Add trap configs for PMSDSFR_EL1
-In-Reply-To: <2fb1965b-bef9-4a8e-a1c7-c8a77d957b23@linaro.org>
-References: <20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org>
-	<20250529-james-perf-feat_spe_eft-v2-6-a01a9baad06a@linaro.org>
-	<867c1ze4pg.wl-maz@kernel.org>
-	<2fb1965b-bef9-4a8e-a1c7-c8a77d957b23@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 149.88.19.236
-X-SA-Exim-Rcpt-To: james.clark@linaro.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 04 Jun 2025 15:36:45 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-442f4a3a4d6so298255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 08:36:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749051402; x=1749656202; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=po4hRDSGCZuh9pjG/L2z6feCTEmaDMC+4+ptAw6xPXg=;
+        b=ASwRMBR/zvDwOBfV9AQY8l7JDBRjLLq6gvQTQ+bc7c9k1xHixMXsI/kQd2BioU6m33
+         yTzKmn1boIGVfd/2utaCFZ773JbHMH68ALX9SSMfWrFsdsxn7n/s6oMXB/LDbhO+KQrI
+         LLtkwcO+m70p6EuRdQGAP8iR4Nuc8J+PGDowts5742TinJDwG5ToaGnKEZnztdoiOd1X
+         CJaKxvGeFMs4UwgFdkbUMbpUOCMg+xQIOv/Rj0kuo32xhNfxgOzs7mpJSH4RjAM9IXQn
+         rimAA5pe7N2GEokrPghXPhbe5nm+zmikOVZskDGJMufV9gRrTqu7XiCfdI86MyTLc/Sh
+         270A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749051402; x=1749656202;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=po4hRDSGCZuh9pjG/L2z6feCTEmaDMC+4+ptAw6xPXg=;
+        b=e16mNGWU11latK2SyFgdeNWc2ps0oA4ZPyO3RxUzsH59hmYeJBJSGgNz7BStDuoI99
+         H66DPQ4oJ1CI++LKeCZKmFUMhp9XdLLH/N8Ks9J0PLUDfO3liRUyDz++gNq3MqcqTv4P
+         rwFwXFjBWDbTCaIzN6YpniayHRa8cO407IpiEry8rc/VoBZtUMtA+7VtAJdsJM2QA6/Y
+         yTTn7H5Hoi4qJa/Wkfy3jWpeHSKl747bwnjOF3oSONe//7NYExqYKi4yd4kXf4+gc0nw
+         TREZs/iAjzNca7kaOGHrUata+NLPnyh+bi7z0htRmZTo+alvPbchbVFD6V9Z63QEta2l
+         Zryg==
+X-Forwarded-Encrypted: i=1; AJvYcCXX2c6muJmdao9UCEFixJOS8PbEcX7rKTJH1GnAG8Z55ZG8o437Hr4WI8nvquLb8oGlFyy/B+3xf6hIkWQJ969Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJ/RusLdPom/qRWgNuK9J1KFNQ0rpdBymlK5zPLOCCNiwLxoRl
+	z77HmVLQPIKcQifw3DqPVmQh79ohW8UUOIvyV2Q6wtkE2B2vfPKzikxq
+X-Gm-Gg: ASbGnctdUZA45RkL49Y+HPULb4GbfupRDXGHY2PDJS8HZwugB9z5592SrcvZUnORGjT
+	7JTS1OgycPVuB5lilLB6zRoKlZGTH+sfTnyYO+32yIo4pN8tmodD2E3Mm0fCVKzKudITEpTLwTU
+	zkzXKEt2JspOSUBpqvzfkLEr+jFdo2N/487miLFj+LtktPBXvmd6boEKfy+D3TBEMCa5DVz9aL5
+	4pgbbhJ4pdGVnJ5uMKRwgrwNkm/6nmYX/aBRQVeUGTq8A17ohhoPiC3D7T2f9Ais+xvwmoaoZ/y
+	ZSOHPg0n8kUSN05IQBZgKSoyKzDPG/Gg9MH3d82NHOZK11+w0OCArvs1Mh4DxICJyQDJ1qwRFdF
+	yszg/Pz4Qkfw1Q1LD442iX3QRTgHyKcW6FTWKPT+Yh//zQw==
+X-Google-Smtp-Source: AGHT+IEiuiACGB5AsupJRC8pwPtzuBvDCDBA2W8wfZMmUi90dxJ20Ue6vRcyhVvfN7K/S5TF5w2O8g==
+X-Received: by 2002:a05:600c:8b26:b0:43b:c6a7:ac60 with SMTP id 5b1f17b1804b1-451efe946acmr30208025e9.10.1749051401531;
+        Wed, 04 Jun 2025 08:36:41 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d8012b09sm200711165e9.37.2025.06.04.08.36.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Jun 2025 08:36:41 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: othacehe@gnu.org,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [v2] arm64: dts: freescale: imx93-var-som: update eqos support for MaxLinear PHY
+Date: Wed,  4 Jun 2025 17:35:09 +0200
+Message-ID: <20250604153510.55689-1-stefano.radaelli21@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250604_083643_721133_CAC0E820 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,117 +105,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 03 Jun 2025 10:50:23 +0100,
-James Clark <james.clark@linaro.org> wrote:
-> 
-> 
-> 
-> On 29/05/2025 5:56 pm, Marc Zyngier wrote:
-> > On Thu, 29 May 2025 12:30:27 +0100,
-> > James Clark <james.clark@linaro.org> wrote:
-> >> 
-> >> SPE data source filtering (SPE_FEAT_FDS) adds a new register
-> >> PMSDSFR_EL1, add the trap configs for it.
-> >> 
-> >> Signed-off-by: James Clark <james.clark@linaro.org>
-> >> ---
-> >>   arch/arm64/kvm/emulate-nested.c | 1 +
-> >>   arch/arm64/kvm/sys_regs.c       | 1 +
-> >>   2 files changed, 2 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> >> index 0fcfcc0478f9..05d3e6b93ae9 100644
-> >> --- a/arch/arm64/kvm/emulate-nested.c
-> >> +++ b/arch/arm64/kvm/emulate-nested.c
-> >> @@ -1169,6 +1169,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
-> >>   	SR_TRAP(SYS_PMSIRR_EL1,		CGT_MDCR_TPMS),
-> >>   	SR_TRAP(SYS_PMSLATFR_EL1,	CGT_MDCR_TPMS),
-> >>   	SR_TRAP(SYS_PMSNEVFR_EL1,	CGT_MDCR_TPMS),
-> >> +	SR_TRAP(SYS_PMSDSFR_EL1,	CGT_MDCR_TPMS),
-> >>   	SR_TRAP(SYS_TRFCR_EL1,		CGT_MDCR_TTRF),
-> >>   	SR_TRAP(SYS_TRBBASER_EL1,	CGT_MDCR_E2TB),
-> >>   	SR_TRAP(SYS_TRBLIMITR_EL1,	CGT_MDCR_E2TB),
-> >> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> >> index 5dde9285afc8..9f544ac7b5a6 100644
-> >> --- a/arch/arm64/kvm/sys_regs.c
-> >> +++ b/arch/arm64/kvm/sys_regs.c
-> >> @@ -2956,6 +2956,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
-> >>   	{ SYS_DESC(SYS_PMBLIMITR_EL1), undef_access },
-> >>   	{ SYS_DESC(SYS_PMBPTR_EL1), undef_access },
-> >>   	{ SYS_DESC(SYS_PMBSR_EL1), undef_access },
-> >> +	{ SYS_DESC(SYS_PMSDSFR_EL1), undef_access },
-> > 
-> > PMSDSFR_EL1 has an offset in the VNCR page (0x858), and must be
-> > described as such. This is equally true for a bunch of other
-> > SPE-related registers, so you might as well fix those while you're at
-> > it.
-> > 
-> > Thanks,
-> > 
-> > 	M.
-> > 
-> 
-> I got a bit stuck with what that would look like with registers that
-> are only undef in case there was something that I missed, but do I
-> just document the offsets?
-> 
-> +++ b/arch/arm64/include/asm/vncr_mapping.h
-> @@ -87,6 +87,8 @@
->  #define VNCR_PMSICR_EL1         0x838
->  #define VNCR_PMSIRR_EL1         0x840
->  #define VNCR_PMSLATFR_EL1       0x848
-> +#define VNCR_PMSNEVFR_EL1       0x850
-> +#define VNCR_PMSDSFR_EL1        0x858
->
+Variscite has updated the Ethernet PHY on the VAR-SOM-MX93 from the
+Murata CYW43353 to the MaxLinear MXL86110, as documented in the
+August 2023 revision changelog.
+Link: https://variwiki.com/index.php?title=VAR-SOM-MX93_rev_changelog
 
-This should be enough.
+Update the device tree accordingly:
+- Drop the unused regulator node previously used to power the Murata PHY.
+- Add support for the reset line using GPIO1_IO07 with proper timings.
+- Configure the PHY LEDs via the LED subsystem under /sys/class/leds/,
+  leveraging the support implemented in the mxl86110 PHY driver
+  (drivers/net/phy/mxl-86110.c).
+  Two LEDs are defined to match the LED configuration on the Variscite
+  VAR-SOM Carrier Boards:
+    * LED@0: Yellow, netdev trigger.
+    * LED@1: Green, netdev trigger.
+- Adjust the RGMII clock pad control settings to match the updated PHY
+  requirements.
 
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -596,6 +596,16 @@ enum vcpu_sysreg {
->         VNCR(ICH_HCR_EL2),
->         VNCR(ICH_VMCR_EL2),
-> 
-> +       /* SPE Registers */
-> +       VNCR(PMBLIMITR_EL1),
-> +       VNCR(PMBPTR_EL1),
-> +       VNCR(PMBSR_EL1),
-> +       VNCR(PMSCR_EL1),
-> +       VNCR(PMSEVFR_EL1),
-> +       VNCR(PMSICR_EL1),
-> +       VNCR(PMSIRR_EL1),
-> +       VNCR(PMSLATFR_EL1),
+These changes ensure proper PHY initialization and LED status indication
+for the new MaxLinear MXL86110, improving board compatibility with the
+latest hardware revision.
 
-I don't see a point in having those until we actually have SPE support
-for guests, if ever, as these will potentially increase the size of
-the vcpu sysreg array for no good reason.
+Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+---
+v2:
+  - Clarified the use of 'rgmii' mode by adding a comment in the DT,
+    explaining that hardware delays are already implemented on the SOM PCB.
 
-> And then sys_reg_descs[] remain as "{ SYS_DESC(SYS_PMBLIMITR_EL1),
-> undef_access }," rather than EL2_REG_VNCR() because we don't actually
-> want to change to bad_vncr_trap()?
+v1: https://lore.kernel.org/imx/20250603221416.74523-1-stefano.radaelli21@gmail.com/
 
-This seem OK for now. We may want to refine this in the future though,
-as these registers cannot trap when NV is enabled. Yes, this is a bug
-in the architecture.
+ .../boot/dts/freescale/imx93-var-som.dtsi     | 45 ++++++++++++-------
+ 1 file changed, 30 insertions(+), 15 deletions(-)
 
-> There are some other parts about fine grained traps and res0 bits for
-> NV, but they all already look to be setup correctly. Except
-> HDFGRTR2_EL2.nPMSDSFR_EL1, but it's inverted, none of the FGT2 traps
-> are configured currently and PMSDSFR_EL1 is already trapped by
-> MDCR_EL2 anyway.
+diff --git a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+index 783938245e4f..cea8d792328c 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-var-som.dtsi
+@@ -19,26 +19,19 @@ mmc_pwrseq: mmc-pwrseq {
+ 		reset-gpios = <&gpio4 14 GPIO_ACTIVE_LOW>,	/* WIFI_RESET */
+ 			      <&gpio3 7 GPIO_ACTIVE_LOW>;	/* WIFI_PWR_EN */
+ 	};
+-
+-	reg_eqos_phy: regulator-eqos-phy {
+-		compatible = "regulator-fixed";
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_reg_eqos_phy>;
+-		regulator-name = "eth_phy_pwr";
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		gpio = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+-		enable-active-high;
+-		startup-delay-us = <100000>;
+-		regulator-always-on;
+-	};
+ };
+ 
+ &eqos {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_eqos>;
++	/*
++	 * The required RGMII TX and RX 2ns delays are implemented directly
++	 * in hardware via passive delay elements on the SOM PCB.
++	 * No delay configuration is needed in software via PHY driver.
++	 */
+ 	phy-mode = "rgmii";
+ 	phy-handle = <&ethphy0>;
++	snps,clk-csr = <5>;
+ 	status = "okay";
+ 
+ 	mdio {
+@@ -51,6 +44,27 @@ ethphy0: ethernet-phy@0 {
+ 			compatible = "ethernet-phy-ieee802.3-c22";
+ 			reg = <0>;
+ 			eee-broken-1000t;
++			reset-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <100000>;
++			leds {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				led@0 {
++					reg = <0>;
++					color = <LED_COLOR_ID_YELLOW>;
++					function = LED_FUNCTION_LAN;
++					linux,default-trigger = "netdev";
++				};
++
++				led@1 {
++					reg = <1>;
++					color = <LED_COLOR_ID_GREEN>;
++					function = LED_FUNCTION_LAN;
++					linux,default-trigger = "netdev";
++				};
++			};
+ 		};
+ 	};
+ };
+@@ -75,14 +89,15 @@ MX93_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x57e
+ 			MX93_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x57e
+ 			MX93_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2			0x57e
+ 			MX93_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3			0x57e
+-			MX93_PAD_ENET1_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK	0x5fe
++			MX93_PAD_ENET1_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK	0x58e
+ 			MX93_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL		0x57e
+ 			MX93_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0			0x57e
+ 			MX93_PAD_ENET1_TD1__ENET_QOS_RGMII_TD1			0x57e
+ 			MX93_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2			0x57e
+ 			MX93_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3			0x57e
+-			MX93_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x5fe
++			MX93_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x58e
+ 			MX93_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x57e
++			MX93_PAD_UART2_TXD__GPIO1_IO07				0x51e
+ 		>;
+ 	};
+ 
 
-Can you elaborate on that? We have:
-
-	SR_FGT(SYS_PMSDSFR_EL1,		HDFGRTR2, nPMSDSFR_EL1, 0),
-
-which seems to match the spec.
-
-We also have full support for FEAT_FGT2 already (even if we have no
-support for the stuff they trap).
-
-Thanks,
-
-	M.
-
+base-commit: a9dfb7db96f7bc1f30feae673aab7fdbfbc94e9c
+prerequisite-patch-id: 2335ebcc90360b008c840e7edf7e34a595880edf
 -- 
-Jazz isn't dead. It just smells funny.
+2.43.0
+
 
