@@ -4,78 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45FB3C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABC7C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUndK3xHCW/OCwR8vYg2xhuB6oekHDUu5nTertRE7Yc=; b=r2tCoZBuJTDFt87RBmztzyvtIn
-	Rc9smMmTCjBMpnMjKs116Km5+syvA22QY+hB0+vUnZpqNMW8eoT5cpU9eHsgBDXNLSUzkDdPqa8hu
-	p/8oQOlQwVLrXV9WNbOt3H6g6FFIDXXwWBdGRXmII03Ljgn3RpnEp3PDeh97msgsFl9iOe7gx5fo2
-	XymbrnY0gjTu5ii2TWsYOwIGcmulgALG8mcGo4lvzeY8uKId3Z17vba2tfpFV1YRlLCWK42X1aBaL
-	ZaH6JIb877vkmYTlsHcD7ja1v8MESgCHmJ05mjbgTYGY46XhK6be0b9hVsgXGnBHJF/xULCk3WbUn
-	TOWpptfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q91vroC6YhHXyJT/KzEEh70QlRcOJsCS7E/hBD/VZbI=; b=hzYNzWMo6o+5QYFeTSqXh2L4aj
+	R5lUJ8ZHTspsbJ5QgGxVvnm3sz8PwWjY32KaVJEU0mMC2HATooFkQdRlHn5xNpl8QirM4DqbnAwoY
+	8hPG3iQG8OHNAeGrFr4mmcgrl040jLmfJzzYanwvZcCzadAPoOHz9bXn9TrfiKqUJQfHCfqMxd1sQ
+	lvecQyHL07LAAJsmi2UMnddHlguFkLvqN4wRMAWRF1QJ1JfrWkCdSNIG+b6q/gMbO2E7c66Gqvwkm
+	3OXUbuMyP3tjNmDb6P55dHxNjVGLjHc7oz1xbYiHw60cDriEFhqgM7uZihF+60q5MYr9Jp8gNUyXw
+	jGLd8OAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpuW-0000000DgBF-30Ea;
-	Wed, 04 Jun 2025 15:20:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMpwb-0000000DgLt-1sQk;
+	Wed, 04 Jun 2025 15:22:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpsP-0000000DfxV-3FgK
+	id 1uMptg-0000000Dg6l-17Ga
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 15:18:02 +0000
+	Wed, 04 Jun 2025 15:19:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 689754A4DD;
-	Wed,  4 Jun 2025 15:18:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD57C4CEE4;
-	Wed,  4 Jun 2025 15:18:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BF8FE5C61FB;
+	Wed,  4 Jun 2025 15:17:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B084DC4CEE4;
+	Wed,  4 Jun 2025 15:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749050281;
-	bh=xD1KpN3NFnTFtqrapuhJVN0NufwIbEVuXgGuab0veIQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ntMESso9CJ0GSafJYxvNm8BI8FRxSZUoGrukBT7IcbxhyG0aO81pOPjvx4LXNmaV/
-	 P3gINQh7B+msycKa+el7GWmhwwPfgPjWkNWbUpygnTaKSWC2mL99h+sFKiy+h/8tfP
-	 H50t4iHGUFfYUebwk+eibLJQBjXGZn+3NHe/BZN4GYGkesDyCWP2bIM3XVFPPVpXcp
-	 I+41Ja/AyuZtUPXNBbPcoBnwsXipXLqnkABKjWPR9dezmpZN9QclcbJhwmf56FJNnx
-	 XnIpKNYhqN+fah0Bet+BlsPyDL6E9uwvS5EnJkV1CV8Ct7t5HKiONPONFNHyRea4Yr
-	 Vp9h/eicuw8ig==
-Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uMpsL-003Flv-TW;
-	Wed, 04 Jun 2025 16:17:58 +0100
-Date: Wed, 04 Jun 2025 16:17:56 +0100
-Message-ID: <87bjr3edsr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Miguel Luis <miguel.luis@oracle.com>
-Cc: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton
-	<oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 0/4] KVM: arm64: vcpu sysreg accessor rework
-In-Reply-To: <2264D21F-C28B-4523-9132-A53EB8ABFCF0@oracle.com>
-References: <20250603070824.1192795-1-maz@kernel.org>
-	<2264D21F-C28B-4523-9132-A53EB8ABFCF0@oracle.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 149.88.19.236
-X-SA-Exim-Rcpt-To: miguel.luis@oracle.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1749050359;
+	bh=F5H+kEb4qmnHuAE7ZDH5mZyO1eDuOcngv0I1ktHsl7k=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=R57Y0X2g/XsqFKtG2NT6XPCygBiTqilUdCdksF08H0AZ3SyVxDMJLj1XON+7Yz0oE
+	 FSCfAfQrYazhHLWDKq/YqtZ7uRzjqt+ArBQadROON8lHHiBGoKGL9OaeE5TH/8Py//
+	 JGCZCKcb+l0cz35o8LV9Wur0xgqggn53+Shw5qQA9WKO+OjYFzsjSwx5tbGkhtceyj
+	 I9FcdsQ8NdWe9Ayc1HZUSQnbmzNrClSqLgkFOV8N7ZKpWUaQRgT/kdUTwYL5tg7T8l
+	 UetSlbtE06pUYM++2hcammzC5lxjP7g9kusnaywf85OGz/3wmvri/lzh8L0ROga0SR
+	 SRtOQbJl7ThZA==
+Message-ID: <e27f3ea6-943d-4d78-b4d6-85d0dd521fe7@kernel.org>
+Date: Wed, 4 Jun 2025 17:19:14 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: mailbox: Add ASPEED AST2700 series
+ SoC
+To: Jammy Huang <jammy_huang@aspeedtech.com>, jassisinghbrar@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20250604125558.1614523-1-jammy_huang@aspeedtech.com>
+ <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_081801_850944_F05DE364 
-X-CRM114-Status: GOOD (  27.62  )
+X-CRM114-CacheID: sfid-20250604_081920_393246_EEC91495 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,67 +121,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 04 Jun 2025 11:47:57 +0100,
-Miguel Luis <miguel.luis@oracle.com> wrote:
-> 
-> Hi Marc,
-> 
-> > On 3 Jun 2025, at 07:08, Marc Zyngier <maz@kernel.org> wrote:
-> > 
-> > This series tries to bring some sanity to the way the RESx masks
-> > are applied when accessing the in-memory view of the guest's
-> > system registers.
-> > 
-> > Currently, we have *one* accessor (__vcpu_sys_reg()) that can either
-> > be used as a rvalue or lvalue while that applies the RESx masks behind
-> > the scenes. This works fine when used as a rvalue.
-> > 
-> > However, when used as a lvalue, it does the wrong thing, as it only
-> > sanitises the value we're about to overwrite. This is pointless work
-> > and potentially hides bugs.
-> > 
-> > I propose that we move to a set of store-specific accessors (for
-> > assignments and RMW) instead of the lvalue hack, ensuring that the
-> > assigned value is the one that gets sanitised. This then allows the 
-> > legacy accessor to be converted to rvalue-only.
-> > 
-> > Given the level of churn this introduces, I'd like this to land very
-> > early in the cycle. Either before 6.16-rc2, or early in 6.17.
-> > 
-> 
-> For the series:
-> Reviewed-by: Miguel Luis <miguel.luis@oracle.com>
+On 04/06/2025 14:55, Jammy Huang wrote:
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    mailbox@12c1c200 {
+> +        compatible = "aspeed,ast2700-mailbox";
+> +        reg = <0x0 0x12c1c200 0x0 0x200>;
 
-Thanks.
+Last time I asked to test, you responded you will test. What happened?
+You did not test. This is just disappointing.
 
-> 
-> nit: the rmw accessor implies an implicit assignment which could be specified
-> within its macro instead but it's fine by me.
-
-I'm not sure what you mean. Looking at this macro again, the early
-writeback to the sysreg array is pretty unfortunate, and could be
-avoided.
-
-Does the following change address your concern? If not, please clearly
-point out what you're after.
-
-	M.
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index b4ac2f515f94..382b382d14da 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1121,7 +1121,8 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
- #define __vcpu_rmw_sys_reg(v, r, op, val)				\
- 	do {								\
- 		const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt;	\
--		u64 __v = ctxt_sys_reg(ctxt, (r)) op (val);		\
-+		u64 __v = ctxt_sys_reg(ctxt, (r));			\
-+		__v op (val);						\
- 		if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__)	\
- 			__v = kvm_vcpu_apply_reg_masks((v), (r), __v);	\
- 									\
-
--- 
-Jazz isn't dead. It just smells funny.
+Best regards,
+Krzysztof
 
