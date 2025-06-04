@@ -4,98 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31703C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 21:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F354EC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 21:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IjFlZ2/sUA2L86ngL9b3sMgbK1PseoDFjEohelsa5Jg=; b=yWVePZD+3v9sQ0JGr/iQy8aRaE
-	dKrAHC/dcEpY644IZ2vMHJ7BiY8cjDIV4c9hK5dkoH1AzLL8/l15qyBBKq234cYVVvPq0llESGeuo
-	momr8RBRIjE+tsVHzmQHiaXkuJMAyOPIgoEJvJp1kYFOrHVYH38Oi2Wz5qaps21T9PZg3ye/FWk1Q
-	irJEKXETmK3nLDBxivjLqwbZ0VT1h+9KEgZV86anpizCy+6J6Ov4aKSMDGlpqdrMDWEZlkBGqW5XM
-	cLGGy21q5WtZxoiFo1T0NxZuKF/cWq+HnnucTRh9mxabGT4DTXtTKFYK55Awa+eMMW3eeF36/N2b6
-	C/VYAzDQ==;
+	bh=9RX3r7Bx5o1Q2/rGqlcJBQQyh3bMhqlHYkTVbU9jdVo=; b=SPFjrfiWPkMLNPJgaqI2J3v7RT
+	9boZ5p6KFvs0+bezQdXCkSB4p/WsVY0kJ7hcZJoADXu3hHY4jIqFl8DMR9hiBivQUdAilpof8ecT8
+	O0QdW1jlLlWw+i5Wikx7/+df8+0CgfmcuVzhDnBIRgzA6q1Ixb2GpixYu0vuD+y9Xa5wAU8NE6TVi
+	vEKCIF6yyrZf77OIcshqj3E/WwyYophgAzaxkjEHeR8pHQUxfn1Zn/KcxwKRnCOMySpgsQb3yNxw8
+	1LgXX9cEGTw1cR490ook11T3vFOVYrPYyQUiE9JTAaG02dkmyPnNzxDn5VrkM29StPy/8o5trfBFv
+	g1F9Nywg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMvFv-0000000EE3Z-3c3K;
-	Wed, 04 Jun 2025 21:02:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uMvK6-0000000EEWh-32BM;
+	Wed, 04 Jun 2025 21:06:58 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMvCL-0000000EDqE-3t98
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 20:59:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749070735;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IjFlZ2/sUA2L86ngL9b3sMgbK1PseoDFjEohelsa5Jg=;
-	b=hKaS5he9ZwmMwa2vzrC1tPtC5wBLDMACM7iumqhIFqYC/THZoykJwm0C0yUVZfx+9npUb/
-	E64lOevoeo+fzzs81H491Db3mOCTG1OAAQr0LFwDwSe2QJMmy7qkbsfJV1DbG2kVofSOHr
-	v797OkXmDXdXvmeD/F5GQdksGVrVLyY=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-532-U8ATUlbdO6e59xvJTjrr8w-1; Wed, 04 Jun 2025 16:58:51 -0400
-X-MC-Unique: U8ATUlbdO6e59xvJTjrr8w-1
-X-Mimecast-MFC-AGG-ID: U8ATUlbdO6e59xvJTjrr8w_1749070731
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3a503f28b09so139539f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 13:58:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749070730; x=1749675530;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IjFlZ2/sUA2L86ngL9b3sMgbK1PseoDFjEohelsa5Jg=;
-        b=V1pLfvNXgniLOeORc7XRTwq4dDBva99+beh+/dVzh7TByy/mBRMnl3YMRRnYp0LTor
-         UimcChqJz3ewX8A/AazwZV/3Vaz7X8kdfjSIkKzccgj+UkZqs63VZSvM8zuWlIp9uxLM
-         XXs1+Vie4mEKzUh+Ts2sSCXj8LdHNXlswLLy8SU/ujeo0deu0Prg9KpJTVleJmN8sYBo
-         /xM3zhrM2i+eFl/icP5bN61SQvzQPS5hiKJKKeyQ3ySmWh6JJdBrp2I+d9H4cW7lkLeJ
-         FapEefRGRXjMDn2aCbH0x3V1wM2xO3rqY0ACV2EjJVQUzWH+HZ/jyXoQTcSx/ThI8hmM
-         dNEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVdUqW+2PdM2rpj04bXKjU1maAcHx5H/O4aE/wr10nrnVfnbQ0qr2t9z8jBf3W1yjoZ7qYOkzIGCIdSrZ0pkI5y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeDFr/648kRvqy/Cyi6rApZRxngAJpp4jIgp5K6GNKrNiaMWhj
-	8Cj2yNI5jc3KKQwDgaASLdyLnMk4Kgag2cr28b6LLgP3WF+YyecArJbNjHkO7srznfWFWgYvwHk
-	e1gT9MKTD4xozl6X3jbeZPOzcUd+/pXAXvTMnVKRJ8xYePE+tC4WbQkeS1tHG8OLNGTXnuIORSF
-	60
-X-Gm-Gg: ASbGncv5sciXrexeH8TcLHWI4SXjmTmVcUAbu1+jbuSfLhMg7BkxAbhoTSJtLLCsDL9
-	N0oANMnECubv8MkNhb7oJOH8ujUd/BRoU8Wyo5kx3mZYL8Fkjh2gtWJVHQq4DFefyEbqSRDpw3H
-	rBQcafnuzwV40+LV6p/VACv7WUvIGSCtGZtXjlkfXKmyoVDHc0G2IBZ2UmDXQNmez1MjSGnx/F5
-	ysUJK/z0crKGxQ+kjwUsuu3v5KMeaQACxSEYeUKh8tASjMnDPCC0cTZGxJgq6Fubn4tSTfBzIYr
-	I/dGjms53graqupudzSO8Rb9qS+qb/wEoKuDSFWvnVN74h9xxGUa5SZmqM0y
-X-Received: by 2002:a05:6000:2890:b0:3a4:e603:3d2 with SMTP id ffacd0b85a97d-3a526a84717mr847208f8f.0.1749070730441;
-        Wed, 04 Jun 2025 13:58:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEa+Gezp8iiTLoB/KqZ3gWK809er5J18zOcbOHxYhrjEk3yJTf+o6JBeAedMNn9aSfhfWFJMQ==
-X-Received: by 2002:a05:6000:2890:b0:3a4:e603:3d2 with SMTP id ffacd0b85a97d-3a526a84717mr847196f8f.0.1749070730088;
-        Wed, 04 Jun 2025 13:58:50 -0700 (PDT)
-Received: from rh (p200300f6af1bce00e6fe5f11c0a7f4a1.dip0.t-ipconnect.de. [2003:f6:af1b:ce00:e6fe:5f11:c0a7:f4a1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4efe754acsm23052362f8f.59.2025.06.04.13.58.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 13:58:49 -0700 (PDT)
-Date: Wed, 4 Jun 2025 22:58:48 +0200 (CEST)
-From: Sebastian Ott <sebott@redhat.com>
-To: Zenghui Yu <yuzenghui@huawei.com>
-cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-    Colton Lewis <coltonlewis@google.com>, 
-    Ricardo Koller <ricarkol@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-    Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, 
-    linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-    linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] KVM: arm64: selftests: arch_timer_edge_cases
- fixes
-In-Reply-To: <adf8b877-7ca2-f60b-fb59-578c70d0e3c0@huawei.com>
-Message-ID: <9b9f7099-4e81-9b74-a1ac-37cd4965675b@redhat.com>
-References: <20250527142434.25209-1-sebott@redhat.com> <adf8b877-7ca2-f60b-fb59-578c70d0e3c0@huawei.com>
+	id 1uMvI0-0000000EEDl-0HGK;
+	Wed, 04 Jun 2025 21:04:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749071088; x=1780607088;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Ax0LaVdVrMdodaXbxHS1uMp0e5JdIRTqR6F8VUnG4bM=;
+  b=mi/dcBHyJq3pbqA6akg8rTbhgYlACGJOYiJtvgnigBvGdbVBoi4aqj7L
+   k3Y8GFL3B8add5IMqpN9wgoi5XI2KinteTPVGBZK5k9n8XZz1+72W9LcP
+   T5x7DAU/nY0cHmkQRToGg1+JJxDG+b50pywBGzkb4kLK4PevAO8XLO+rt
+   r/X2HJc4O0UeWG5FnYOShveKfG358W47z+pAW/5mgfwBNW0P+Iyhw/zFi
+   jnUoaS7Rd1VTm5Pm4dUH3rCk6s14dQAO1k5nsUVtz/rI3DCohWI0U836J
+   CcgOWBY3lQCpwsYEIuuDloJYF8dl2+W12rrXvb22MMnM7XV5/6qOb45SL
+   A==;
+X-CSE-ConnectionGUID: HQChXKgHRqeTSit/MOU+vg==
+X-CSE-MsgGUID: 7PzsZKdWQH6rc59mJ6TWwg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11454"; a="54971360"
+X-IronPort-AV: E=Sophos;i="6.16,210,1744095600"; 
+   d="scan'208";a="54971360"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 14:04:46 -0700
+X-CSE-ConnectionGUID: 9nD5U/QeTjKVSwVuA2BoHA==
+X-CSE-MsgGUID: o9yLbTW1Tli1Atn+6utNZw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,210,1744095600"; 
+   d="scan'208";a="150458314"
+Received: from oandoniu-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.208])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 14:04:42 -0700
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 5809A11F83C;
+	Thu,  5 Jun 2025 00:04:39 +0300 (EEST)
+Date: Wed, 4 Jun 2025 21:04:39 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel@collabora.com,
+	linux-media@vger.kernel.org,
+	Sebastian Fricke <sebastian.fricke@collabora.com>
+Subject: Re: [PATCH v3 1/5] media: mc: add manual request completion
+Message-ID: <aEC05991kEIIifDB@kekkonen.localdomain>
+References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
+ <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-1-603db4749d90@collabora.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: elPsl1k_fbIbnOzYuOJas4QqXYVfEe1Hr1notuY93KQ_1749070731
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-1-603db4749d90@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_135858_034832_937D916A 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20250604_140448_157023_A7BFD48F 
+X-CRM114-Status: GOOD (  38.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +97,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zenghui,
+Hi Nicolas,
 
-On Tue, 3 Jun 2025, Zenghui Yu wrote:
-> On 2025/5/27 22:24, Sebastian Ott wrote:
->> Some small fixes for arch_timer_edge_cases that I stumbled upon
->> while debugging failures for this selftest on ampere-one.
->>
->> Changes since v1: modified patch 3 based on suggestions from Marc.
->>
->> I've done some tests with this on various machines - seems to be all
->> good, however on ampere-one I now hit this in 10% of the runs:
->> ==== Test Assertion Failure ====
->>   arm64/arch_timer_edge_cases.c:481: timer_get_cntct(timer) >= DEF_CNT + (timer_get_cntfrq() * (uint64_t)(delta_2_ms) / 1000)
->>   pid=166657 tid=166657 errno=4 - Interrupted system call
->>      1  0x0000000000404db3: test_run at arch_timer_edge_cases.c:933
->>      2  0x0000000000401f9f: main at arch_timer_edge_cases.c:1062
->>      3  0x0000ffffaedd625b: ?? ??:0
->>      4  0x0000ffffaedd633b: ?? ??:0
->>      5  0x00000000004020af: _start at ??:?
->>   timer_get_cntct(timer) >= DEF_CNT + msec_to_cycles(delta_2_ms)
->>
->> This is not new, it was just hidden behind the other failure. I'll
->> try to figure out what this is about (seems to be independent of
->> the wait time)..
->
-> Not sure if you have figured it out. I can easily reproduce it on my box
-> and I *guess* it is that we have some random XVAL values when we enable
-> the timer..
+Thanks for the update.
 
-Yes, I think so, too.
+On Wed, Jun 04, 2025 at 04:09:35PM -0400, Nicolas Dufresne wrote:
+> From: Hans Verkuil <hverkuil@xs4all.nl>
+> 
+> By default when the last request object is completed, the whole
+> request completes as well.
+> 
+> But sometimes you want to delay this completion to an arbitrary point in
+> time so add a manual complete mode for this.
+> 
+> In req_queue the driver marks the request for manual completion by
+> calling media_request_mark_manual_completion, and when the driver
+> wants to manually complete the request it calls
+> media_request_manual_complete().
+> 
+> Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> ---
+>  drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
+>  include/media/media-request.h | 38 +++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 73 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+> index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
+> --- a/drivers/media/mc/mc-request.c
+> +++ b/drivers/media/mc/mc-request.c
+> @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
+>  	req->access_count = 0;
+>  	WARN_ON(req->num_incomplete_objects);
+>  	req->num_incomplete_objects = 0;
+> +	req->manual_completion = false;
+>  	wake_up_interruptible_all(&req->poll_wait);
+>  }
+>  
+> @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+>  	req->mdev = mdev;
+>  	req->state = MEDIA_REQUEST_STATE_IDLE;
+>  	req->num_incomplete_objects = 0;
+> +	req->manual_completion = false;
+>  	kref_init(&req->kref);
+>  	INIT_LIST_HEAD(&req->objects);
+>  	spin_lock_init(&req->lock);
+> @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
+>  
+>  	req->num_incomplete_objects--;
+>  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
+> -	    !req->num_incomplete_objects) {
+> +	    !req->num_incomplete_objects && !req->manual_completion) {
+>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>  		completed = true;
+>  		wake_up_interruptible_all(&req->poll_wait);
+> @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
+>  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+>  		goto unlock;
+>  
+> -	if (!--req->num_incomplete_objects) {
+> +	if (!--req->num_incomplete_objects && !req->manual_completion) {
+>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>  		wake_up_interruptible_all(&req->poll_wait);
+>  		completed = true;
+> @@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
+>  		media_request_put(req);
+>  }
+>  EXPORT_SYMBOL_GPL(media_request_object_complete);
+> +
+> +void media_request_manual_complete(struct media_request *req)
+> +{
+> +	unsigned long flags;
 
-> test_reprogramming_timer()
-> {
-> 	local_irq_disable();
-> 	reset_timer_state(timer, DEF_CNT);
+I'd declare flags as last.
 
-My first attempt was to also initialize cval here
+> +	bool completed = false;
+> +
+> +	if (WARN_ON(!req))
+> +		return;
+> +	if (WARN_ON(!req->manual_completion))
+> +		return;
 
->
-> 	/* Program the timer to DEF_CNT + delta_1_ms. */
-> 	set_tval_irq(timer, msec_to_cycles(delta_1_ms), CTL_ENABLE);
->
-> 	[...]
-> }
->
-> set_tval_irq()
-> {
-> 	timer_set_ctl(timer, ctl);
->
-> 	// There is a window that we enable the timer with *random* XVAL
-> 	// values and we may get the unexpected interrupt.. And it's
-> 	// unlikely that KVM can be aware of TVAL's change (and
-> 	// re-evaluate the interrupt's pending state) before hitting the
-> 	// GUEST_ASSERT().
->
-> 	timer_set_tval(timer, tval_cycles);
+I think I'd use WARN_ON_ONCE() consistently: this is a driver (or
+framework) bug and telling once about it is very probably enough.
 
-Yes, I stumbled over this as well. I've always assumed that this order is
-becauase of this from the architecture "If CNTV_CTL_EL0.ENABLE is 0, the 
-value returned is UNKNOWN." However re-reading that part today I realized
-that this only concerns register reads.
+> +
+> +	spin_lock_irqsave(&req->lock, flags);
+> +	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+> +		goto unlock;
+> +
+> +	req->manual_completion = false;
+> +	/*
+> +	 * It is expected that all other objects in this request are
+> +	 * completed when this function is called. WARN if that is
+> +	 * not the case.
+> +	 */
+> +	if (!WARN_ON(req->num_incomplete_objects)) {
+> +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+> +		wake_up_interruptible_all(&req->poll_wait);
+> +		completed = true;
+> +	}
 
-Maybe somone on cc knows why it's in that order?
+A newline would be nice here.
 
-I'm currently testing this with the above swapped and it's looking good,
-so far.
+> +unlock:
+> +	spin_unlock_irqrestore(&req->lock, flags);
+> +	if (completed)
+> +		media_request_put(req);
+> +}
+> +EXPORT_SYMBOL_GPL(media_request_manual_complete);
+> diff --git a/include/media/media-request.h b/include/media/media-request.h
+> index d4ac557678a78372222704400c8c96cf3150b9d9..7f9af68ef19ac6de0184bbb0c0827dc59777c6dc 100644
+> --- a/include/media/media-request.h
+> +++ b/include/media/media-request.h
+> @@ -56,6 +56,9 @@ struct media_request_object;
+>   * @access_count: count the number of request accesses that are in progress
+>   * @objects: List of @struct media_request_object request objects
+>   * @num_incomplete_objects: The number of incomplete objects in the request
+> + * @manual_completion: if true, then the request won't be marked as completed
+> + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
+> + * to complete the request after @num_incomplete_objects == 0.
+>   * @poll_wait: Wait queue for poll
+>   * @lock: Serializes access to this struct
+>   */
+> @@ -68,6 +71,7 @@ struct media_request {
+>  	unsigned int access_count;
+>  	struct list_head objects;
+>  	unsigned int num_incomplete_objects;
+> +	bool manual_completion;
+>  	wait_queue_head_t poll_wait;
+>  	spinlock_t lock;
+>  };
+> @@ -218,6 +222,38 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
+>  int media_request_alloc(struct media_device *mdev,
+>  			int *alloc_fd);
+>  
+> +/**
+> + * media_request_mark_manual_completion - Enable manual completion
+> + *
+> + * @req: The request
+> + *
+> + * Mark that the request has to be manually completed by calling
+> + * media_request_manual_complete().
+> + *
+> + * This function shall be called in the req_queue callback.
+> + */
+> +static inline void
+> +media_request_mark_manual_completion(struct media_request *req)
+> +{
+> +	req->manual_completion = true;
+> +}
+> +
+> +/**
+> + * media_request_manual_complete - Mark the request as completed
+> + *
+> + * @req: The request
+> + *
+> + * This function completes a request that was marked for manual completion by an
+> + * earlier call to media_request_mark_manual_completion(). The request's
+> + * @manual_completion flag is reset to false.
 
-> }
->
-> I'm not familiar with the test so I'm not 100% sure that this is the
-> root cause. But I hope this helps with your analysis ;-) .
+s/flag/field/
 
-It did, thanks!
+> + *
+> + * All objects contained in the request must have been completed previously. It
+> + * is an error to call this function otherwise. If such an error occurred, the
+> + * function will WARN and the object completion will be delayed until
+> + * @num_incomplete_objects is 0.
+> + */
+> +void media_request_manual_complete(struct media_request *req);
+> +
+>  #else
+>  
+>  static inline void media_request_get(struct media_request *req)
+> @@ -336,7 +372,7 @@ void media_request_object_init(struct media_request_object *obj);
+>   * @req: The media request
+>   * @ops: The object ops for this object
+>   * @priv: A driver-specific priv pointer associated with this object
+> - * @is_buffer: Set to true if the object a buffer object.
+> + * @is_buffer: Set to true if the object is a buffer object.
+>   * @obj: The object
+>   *
+>   * Bind this object to the request and set the ops and priv values of
+> 
 
-Sebastian
+-- 
+Regards,
 
+Sakari Ailus
 
