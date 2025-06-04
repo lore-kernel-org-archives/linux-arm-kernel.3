@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8701CC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 22:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7099C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 22:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Swzgs4fEZbULBfG6f9FFY0OBqD5WfWZgNz9e178/o4=; b=2G1jYuAvQqJaJIC8ohzAJDXZYR
-	iLrZIaXXIf+phdqTPBJt0khsPPVThGrhQPhGbeg7Gtbk/duFt5Ds0RoOKpSbPSLxEgZCjnjVk5T8Z
-	TUzWSR/x2rBWDdODkgnlq0V2JHVpr6hfCrYtJK590fnlnSD5OBxkpsl/kf8uIfKtzwNkTiMe3zkUR
-	hcnUU2QWIKtHjr0fKTOaFMP3RLdmC7+NjgT0JJVYPqnktcH8S71BwlVdnuMq/0Cczjbeu8mOL8YJ+
-	ac9RzeZo4ckLsy/nfiE8GzCbzbacJgdKpmFZcu/NK2qUiWxArrlHZBg5/vxhz8g98pDOCBrkvJfsA
-	e/4ELm+w==;
+	bh=3Swzgs4fEZbULBfG6f9FFY0OBqD5WfWZgNz9e178/o4=; b=sU18uPzY6VLslktkEuPNh2Fb1X
+	SVBkwlmxOkFDXWYNXBTd0UU1Sjmge8WQQ7Bi/JTo4uPJ3lQt9P5xnsmQYClVLkBEXo4p6osqWPkK2
+	HdJmYj/VxfidEjIVgO4fTqn+YMYPsxxc08yVkXK4Q0njtBZ7KuUP2JXdxIVbQid+H0zhvjc7537Zp
+	52dWaaKbJIonfhIpE1c9mzKA3Y+DtUZPJTBnLlMvMaWaLCaYB3L+HkqDN18FrTUmLMDcJvBXzsfQ8
+	37lX3argkLkqVS+Va7/7tUVRQEt7QcWu6IBbEI36SZbYQ0YkFx8+Voi/eQ0RGN+mR0q7y+fl290ZQ
+	dpjzMEqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMwyN-0000000EL4e-16YX;
-	Wed, 04 Jun 2025 22:52:39 +0000
+	id 1uMx0R-0000000ELJx-0IuK;
+	Wed, 04 Jun 2025 22:54:47 +0000
 Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMwwG-0000000EKtQ-0H7v
+	id 1uMwx1-0000000EKxo-3DJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 22:50:29 +0000
+	Wed, 04 Jun 2025 22:51:16 +0000
 Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
 	by finn.localdomain with esmtp (Exim 4.95)
 	(envelope-from <tharvey@gateworks.com>)
-	id 1uMwwC-007Xnc-DK;
-	Wed, 04 Jun 2025 22:50:24 +0000
+	id 1uMwwt-007Xnl-MV;
+	Wed, 04 Jun 2025 22:51:07 +0000
 From: Tim Harvey <tharvey@gateworks.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -45,15 +45,15 @@ Cc: imx@lists.linux.dev,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
 	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH] arm64: dts: imx8mp-venice-gw74xx: update name of M2SKT_WDIS2# gpio
-Date: Wed,  4 Jun 2025 15:50:22 -0700
-Message-Id: <20250604225022.1429093-1-tharvey@gateworks.com>
+Subject: [PATCH v2] arm64: dts: imx8mp-venice-gw74xx: update name of M2SKT_WDIS2# gpio
+Date: Wed,  4 Jun 2025 15:51:04 -0700
+Message-Id: <20250604225104.1429156-1-tharvey@gateworks.com>
 X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_155028_106680_D8A43915 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250604_155115_796905_D5D0EFAA 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
