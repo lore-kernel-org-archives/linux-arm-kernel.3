@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6211CC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 23:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20BA7C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 23:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pju1tqlE5NQD1bEdiZWRB0j8wfF10vPgeufCpXRZ8fc=; b=c2b6Zmmf6TPwLaH+hc7fbOLp7Z
-	rpNNfj9o563mnFu6baqM6OQXZ5cpioTSWp7gc533imwazx4W42VY2StzWUe4I7MIrLCkGGY7jAWaa
-	LOStckk46jrY1qryYcOalFwSlCDYuuvx589QEiln2bubVQkNXzcI6AoDkoq1W1o5bQtTsuWHFE7mU
-	POtcVjMD15vJEiSNSyRWquP4xGZwEsQVE4tBlsesK9/kt/Ty/1X92lcO7Khl4uVG+chTv8WBM9T13
-	IkQkbR6Uxj99q4TQp3Ki66dDxhS1kO78A+HcKVAkTHiGvJ/z8iOBlaH07rv1X2IWjC1QwZLKBT0zN
-	lkgrMKIg==;
+	bh=ieuk2y04vI1ZiaeW7urF/LwYFgHlgZxsg4Zg5sUW1S8=; b=0J/C3yJX2Oia9tpwb8xnOJlako
+	n/HJVYWFmKx6YSqfQW17rc5hun6ATk4Nvf1mRO2zluqR0P2XkiY3CRfXAE+lLEYfv9Y4sKEs4svHA
+	Krj7VwebxLTGPptou9DR4vvf+tvXLjEEz5FMHIWKKbPuZ0v6xkEljfa+Q0gnURjP3hO5t1SnC2vib
+	bQtHP4VzUubIZJkFJLbn9Z4ePBTZ6EyPl4np0Ur1MDS+ZZC8cCzQgBx0klMISATx1/XX7rrsBpk42
+	vKRrM0Vj4tx1nXtDzyLVkf/uumxhDfi+ajcoWUG7VZrqpy7xWBqaxZePkR5JW1blC40oyIAF2wYkJ
+	1lISoH3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMx8P-0000000EMCH-1BeJ;
-	Wed, 04 Jun 2025 23:03:01 +0000
+	id 1uMxAU-0000000EMMI-08ek;
+	Wed, 04 Jun 2025 23:05:10 +0000
 Received: from finn.gateworks.com ([108.161.129.64] helo=finn.localdomain)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMx2C-0000000ELYF-2gSz
+	id 1uMx2C-0000000ELYG-2sCj
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 04 Jun 2025 22:56:37 +0000
 Received: from syn-068-189-091-139.biz.spectrum.com ([68.189.91.139] helo=tharvey.pdc.gateworks.com)
 	by finn.localdomain with esmtp (Exim 4.95)
 	(envelope-from <tharvey@gateworks.com>)
-	id 1uMx2A-007Xnu-Cx;
-	Wed, 04 Jun 2025 22:56:34 +0000
+	id 1uMx2B-007Xnu-CM;
+	Wed, 04 Jun 2025 22:56:35 +0000
 From: Tim Harvey <tharvey@gateworks.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -46,17 +46,17 @@ Cc: imx@lists.linux.dev,
 	Fabio Estevam <festevam@gmail.com>,
 	stable@vger.kernel.org,
 	Tim Harvey <tharvey@gateworks.com>
-Subject: [PATCH v2 3/4] arm64: dts: imx8mp-venice-gw73xx: fix TPM SPI frequency
-Date: Wed,  4 Jun 2025 15:56:29 -0700
-Message-Id: <20250604225630.1430502-3-tharvey@gateworks.com>
+Subject: [PATCH v2 4/4] arm64: dts: imx8mp-venice-gw74xx: fix TPM SPI frequency
+Date: Wed,  4 Jun 2025 15:56:30 -0700
+Message-Id: <20250604225630.1430502-4-tharvey@gateworks.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250604225630.1430502-1-tharvey@gateworks.com>
 References: <20250604225630.1430502-1-tharvey@gateworks.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_155636_675230_6FB36BAD 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250604_155636_722644_45522F66 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,23 +79,25 @@ Adjust the spi-max-frequency based on these findings.
 
 [1] https://www.nxp.com/webapp/Download?colCode=IMX8MPIEC
 
-Fixes: 2b3ab9d81ab4 ("arm64: dts: imx8mp-venice-gw73xx: add TPM device")
+Fixes: 531936b218d8 ("arm64: dts: imx8mp-venice-gw74xx: update to revB PCB")
 Cc: stable@vger.kernel.org
 Signed-off-by: Tim Harvey <tharvey@gateworks.com>
 ---
-v2: add cc to stable
+v2:
+ - add cc to stable
+ - add missing reference
 ---
- arch/arm64/boot/dts/freescale/imx8mp-venice-gw73xx.dtsi | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw73xx.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw73xx.dtsi
-index e2b5e7ac3e46..5eb114d2360a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw73xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw73xx.dtsi
-@@ -122,7 +122,7 @@ &ecspi2 {
- 	tpm@1 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
+index f00099f0cd4e..12de7cf1e853 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-venice-gw74xx.dts
+@@ -201,7 +201,7 @@ &ecspi1 {
+ 	tpm@0 {
  		compatible = "atmel,attpm20p", "tcg,tpm_tis-spi";
- 		reg = <0x1>;
+ 		reg = <0x0>;
 -		spi-max-frequency = <36000000>;
 +		spi-max-frequency = <25000000>;
  	};
