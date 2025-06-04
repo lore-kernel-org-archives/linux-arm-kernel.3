@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC6DC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 07:27:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FBFC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 07:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bFgfoqbXBmLuwpBeWiaSnIfZqbpHx+6wXGb+4ajd7II=; b=XA+CEMIPpd45Bhr0b/57HMbaLa
-	P3gBmilqBhQSmtwdr1dUVIK4sMGFeaGzDf1JArOIWvbhl5osW6Fe7qT3x9EfIF4TT2esw/K3xaEiE
-	6U0P9u0B7yNeblqZvBahsNboqX0WPF7bpwzrhlaB4Hrkmw6cqHZtszJofuSyEb1NHBkpKf6YwjRO7
-	38kpQ4EL8Z8enxyTHcKMKgjnQBAgkNezgZ8mQGS53SQI7sZNrXk+64Yjez0ye2BMsyV/e1wJjpA1n
-	3yizzRsBrT5LOsBAbRNgdGYVB8vSj2RlXL5NRBndBVxpt+zh5oddwYrV+Q66uom+FO52O7xFoxvme
-	OOPnVvTA==;
+	bh=UGyEvteZgKnU06vg7rbdizKIZLoS7zNjKeoB/6iPxjM=; b=3kAGQAz92JVZw6797BUXp9w1oB
+	a/S83p951oiJdgVJ3eo5FbGZI4TKO3vUae/alcvBvBioDuY0aDKbVo3he23F1HBa5+HdgGkYLlUv3
+	cS1pt6qodwq4b7Ou2P5mfLVFZBtj4T+ZFT7zs21rHahRkpUPcKX6CWzlNpGtG0gV3n05WSuEGJPmb
+	D/iScqqYYIQaGydZljmwpKWBwHdXsqpy9lC07I0fBFUrNn4phLbNaLcbOBomEKZ+D7qR7gvWikxzG
+	+ZthhOH0rIOYQkogBQNhRdg1VB13gtq4BBEriek8ZooSYmFD9WxB/p8221hxbOysqBziQhOW+HCSX
+	5ijXeIYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMiWa-0000000Cleh-2JxV;
-	Wed, 04 Jun 2025 07:27:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uMijH-0000000CmfV-3tc4;
+	Wed, 04 Jun 2025 07:40:07 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMiUS-0000000ClMb-2Efc
+	id 1uMihA-0000000CmQj-1OiA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 07:24:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 07FEB5C3E57;
-	Wed,  4 Jun 2025 07:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFD61C4CEE7;
-	Wed,  4 Jun 2025 07:24:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749021887;
-	bh=d5VGZY3wjHIhKCGDSeV6VZbiBPYwu9t4ayf8AO8OlwU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=odyy8wQ5ON02zPffOE2SJpBxUwUYz5rmT5lsE2yOgNbb2cDXnIwb0ACfUhTX9uK8c
-	 bqVyvG+X44TOpZ6BjZz+yFBUGipEXDmEzroDs9BVd6rU1kd+cBPUWr4UygZJrRyDew
-	 2CvhfHn6EhiRYyOc99eZpfidTitTHMZs/OH+xzIToCaZNP4v3VLaXeHt8xZCAG+AR1
-	 HygqPF1tjl1zS5OKj2rvtKGX5HTGDoSj7qKMgGJEKYXjlNWHRkXg0QWLSlkBw8asQD
-	 FH64MJHBBiUK2uTUApfPhWXBcE6MzA63npN2mN7MtdGj9u9vf32BHi+hkcr+OfHtVx
-	 QFPWrpJi2/V7A==
-Date: Wed, 4 Jun 2025 09:24:38 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Peter Maydell <peter.maydell@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, andre.przywara@arm.com,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 01/26] dt-bindings: interrupt-controller: Add Arm GICv5
-Message-ID: <aD/0tuak7Hja8k4g@lpieralisi>
-References: <20250513-gicv5-host-v4-0-b36e9b15a6c3@kernel.org>
- <20250513-gicv5-host-v4-1-b36e9b15a6c3@kernel.org>
- <aDhWlytLCxONZdF9@lpieralisi>
- <CAFEAcA_3YLMSy+OsSsRayaRciQ1+jjh-dGzEjrh2Wa8BqdmqrA@mail.gmail.com>
- <aD6ouVAXy5qcZtM/@lpieralisi>
- <CAL_JsqJ5N2ZUBeAes=wexq=EstRSZ5=heF1_6crAw76yZ9uXog@mail.gmail.com>
- <CAFEAcA-JrS0BiT66iin-pRVFadrY-pnJZ8TkDNxcjErknSCnUA@mail.gmail.com>
- <CAL_JsqL7x53an2-MaLHP5tfVXb4JxT8ORUMaA8pL-gMsWLJqkA@mail.gmail.com>
+	Wed, 04 Jun 2025 07:37:57 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-6ff4faf858cso43796197b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 00:37:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749022675; x=1749627475; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UGyEvteZgKnU06vg7rbdizKIZLoS7zNjKeoB/6iPxjM=;
+        b=WSxnlr+E6rM1beswjFin8YK8Ex4dhTo4JL2tSy5OEonrbRexFjrrtkJsrp90y88yx0
+         mtTYNqJqk5CzI4aFLeWr02BzBImP5z1q/dY4+iVLXXdb8/umkbplDEeJ1+To8VHl0hva
+         icQJ0wIKQMPgvfwzrBHkJzl6jRdU14i8SBjoepAbnNV2QfjbYCaVli8eK7kmeiVVHfKD
+         NPdqRYgANTixYw9tioRYnCI0o6onhu6eaMAz2GEPbvlFf1Mjc/DN177QbrHLcHhBuGUz
+         BZSBGc+dKnwVTZjpVJWLzjgRvput+pkFy+hBq4muJsyRiWVHonp7v5YuQOn3GbGRKsxn
+         i9Pw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749022675; x=1749627475;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UGyEvteZgKnU06vg7rbdizKIZLoS7zNjKeoB/6iPxjM=;
+        b=bSmgrnCiDSlYbya4ENIigY76DiYSCl4CnNoVqLXHSq3uhEkkaJAzQvGaOoZuRMS0BT
+         hmWJWt5swvZ+k+Bk2Nva1yqe7AyIFswjkZJP5TGjAsppSs3UIv3ZiacPdtSPTfwcvAdb
+         JWHs3t6vVNPOcrALPvgpkQ4ApkayjD3VoJJc5nvoXXc5Rr5D4jhgMOXjC8SpalCrXFHC
+         h4rUwFQTH/J1BHF8jc7SG7IkKtYx5OYFYtztnDrLlClFf7hwuv9bUGXsiw35p4lMb1LS
+         Ll3KOZ0I4l+fcUhvsInks3QKsdW3gzLOp2Cr3Qd/sSf82+kbWt1id1+VQnBQBo+wDHof
+         paPw==
+X-Forwarded-Encrypted: i=1; AJvYcCWCZ2LcGGDQLIEBA4at6iYnCtFl2muWoWL6POz9tML+iGRX1A1jkx+/xQmBlrKrlvCB5AYcbElXOAhhURvMW3DO@lists.infradead.org
+X-Gm-Message-State: AOJu0YySlhPNEws4aVYbFwlAhzxUuKUHl0vGqkjjWW6/T892MgcU1p0H
+	8TK8bSEiiiQn7ylWWBU6vvl08VLKkmE8nWiAFXLElqwuPLPIyqRr5O2iP5l3fu07jiNtAvVQRj3
+	+8XJmlj2V4r0ddEUIfZXqgh5ktB83IWk=
+X-Gm-Gg: ASbGncsOzzQ9819lO1QNUgWaLXOqCC3r37oi7hSr8w5g2hrbgfppxotLzAUFH2hCxIj
+	A5j65bRcGGpZLpIXGKQ5FXektIqhijIKHxGV857IKAFRtqIRcpsJd/KT4Y1kOi7spTPi5y54MTx
+	mz+YQyzMZEWrnVG2TBs7n+ZtwjXe6/+vo=
+X-Google-Smtp-Source: AGHT+IGHg4yQNqLxlEDyCRgZJI7fvT2fCV18b3MewIJSWl1vbtr5SlMeusJ8GHaIW23IfmQnep32kSeTquJrDU0sBd0=
+X-Received: by 2002:a05:690c:fc1:b0:70d:f6ff:cc6f with SMTP id
+ 00721157ae682-710d99fd79bmr21852057b3.4.1749022675335; Wed, 04 Jun 2025
+ 00:37:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqL7x53an2-MaLHP5tfVXb4JxT8ORUMaA8pL-gMsWLJqkA@mail.gmail.com>
+References: <20250603221416.74523-1-stefano.radaelli21@gmail.com> <54c4a279-a528-4657-8319-c9374add54b7@lunn.ch>
+In-Reply-To: <54c4a279-a528-4657-8319-c9374add54b7@lunn.ch>
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Date: Wed, 4 Jun 2025 09:37:39 +0200
+X-Gm-Features: AX0GCFseUcNPKK85MVzyXpWJtxDlkMihOveN5Hr-KtFZ69h6Q8KR1YgWhWyHsUg
+Message-ID: <CAK+owoihxp-2xAvFfVthvNELshti_3V-pFgD7D7jzd1XqiLgGQ@mail.gmail.com>
+Subject: Re: [v1] arm64: dts: freescale: imx93-var-som: update eqos support
+ for MaxLinear PHY
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_002448_657281_793FE218 
-X-CRM114-Status: GOOD (  27.83  )
+X-CRM114-CacheID: sfid-20250604_003756_387517_718A07A1 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +96,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 02:11:34PM -0500, Rob Herring wrote:
-> On Tue, Jun 3, 2025 at 10:37 AM Peter Maydell <peter.maydell@linaro.org> wrote:
-> >
-> > On Tue, 3 Jun 2025 at 16:15, Rob Herring <robh@kernel.org> wrote:
-> > >
-> > > On Tue, Jun 3, 2025 at 2:48 AM Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> > > >
-> > > > On Thu, May 29, 2025 at 02:17:26PM +0100, Peter Maydell wrote:
-> > > > > secure.txt says:
-> > > > > # The general principle of the naming scheme for Secure world bindings
-> > > > > # is that any property that needs a different value in the Secure world
-> > > > > # can be supported by prefixing the property name with "secure-". So for
-> > > > > # instance "secure-foo" would override "foo".
-> > >
-> > > Today I would say a 'secure-' prefix is a mistake. To my knowledge,
-> > > it's never been used anyways. But I don't have much visibility into
-> > > what secure world firmware is doing.
-> >
-> > QEMU uses it for communicating with the secure firmware if
-> > you run secure firmware on the virt board. It's done that
-> > since we introduced that binding. Indeed that use case is *why*
-> > the binding is there. It works fine for the intended purpose,
-> > which is "most devices are visible in both S and NS, but a few
-> > things are S only (UART, a bit of RAM, secure-only flash").
-> 
-> I meant "secure-" as a prefix allowed on *any* property, not
-> "secure-status" specifically, which is the only thing QEMU uses
-> AFAICT. IOW, I don't think we should be creating secure-reg,
-> secure-interrupts, secure-clocks, etc.
+Hi Andrew,
 
-Reading secure.txt, what does it mean "device present and usable in
-the secure world" ?
+I double-checked with our hardware team, and it turns out that all required
+RGMII delays are already handled by the hardware on the SOM (trace
+tuning + PHY config).
+So "rgmii" is indeed intentional here, no additional software delay needed.
+Thanks for pointing it out, it made me double-check, which is always a
+good thing.
 
-So:
+Best Regards,
 
-status = "disabled"
-secure-status = "okay"
+Stefano
 
-basically means that the device in question allows secure-only MMIO
-access, is that what it says ?
-
-If that's the case and we really want to have all config frames
-in a single DT, would it be reasonable to have an IRS/ITS DT node
-per-frame ?
-
-Then yes, the secure- tag is not enough any longer (because we have to
-cope with 4 interrupt domains) but that's a separate problem - again,
-this would leave the current reviewed bindings unchanged.
-
-Other than that as I mentioned we could use (? aka clutching at straws)
-reg-names but I don't think it is correct to have in the DT address
-space that the CPU is not allowed to address.
-
-Lorenzo
+Il giorno mer 4 giu 2025 alle ore 03:19 Andrew Lunn <andrew@lunn.ch> ha scritto:
+>
+> >  &eqos {
+> > @@ -39,6 +26,7 @@ &eqos {
+> >       pinctrl-0 = <&pinctrl_eqos>;
+> >       phy-mode = "rgmii";
+>
+> I know this is not in the scope of what you are trying to do, but this
+> is probably wrong:
+>
+> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+>
+>         Andrew
 
