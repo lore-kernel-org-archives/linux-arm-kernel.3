@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAF9C5B555
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 06:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B52C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 06:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dxK57rrh1jvoo1g24molYIQ1YbfbH2OZpE0y+PyiV/c=; b=FGG7cIcrNyPhIBord/72irvDAd
-	7yjEzg76CXIYtOVrvrHQq3+LEDnQyCr5tmuo7uHgduKHRGz5qUdLzC1y6ceODjwXYmSGZaedEF667
-	HW/Cxv4bM2Ke/zyWYC634st7IOzXJYsSUnci3q0DL+sNPvY+i65qsRD47fzjO+7xuUico8pFFTfFf
-	Um5+Kvxzdw3nXlgnfcLgiq+Tz5jyi0ApJCzUrEKHW3n4mnVox5nI2heMubSZcYsOE/b2r4bKwfWh8
-	MaisYIIcPPrOs2PyLuk0MVkfi2py7xhXoMCQ7PeHnWkbh+5XNoC/Eu/86sKcZyCwJDePzCtjVTwRR
-	ULQcDVXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PAy9QRs+URYOSibw7zob5IFAEG0hyuzUJocLWB2PBys=; b=I8AIbAAa61hexRKfnhfAxaEKar
+	SAhZCYBbMj+0M6sB8VhDTyhiHGClJesx9boUq9A8UTq1Imawbm6o02rFOFOSuVm/uL0CbornlEcH4
+	ERrdjDVh5uOL7mkzllAflchftjGX5BVjL0G08dkqLGApE41LLlH0QQd8/yqSDeQVxBi10gvLum3lY
+	gm8/t9LfMKQlBtrC3QFwPYF/BlO1EQ39pNOndm5l7OcRoagcf7HcLcyzJWTXlZ7DjphtxyLOkaaHk
+	pdxpB8CwEoEFB3fYQqZpeDMrVQQ3SmZIVHePxjjGbfMj4U5PwZLS4MeQIpm+k6sH9M1LxcDXE/wdI
+	cq3WNSrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMhDE-0000000CeqC-1vD8;
-	Wed, 04 Jun 2025 06:02:56 +0000
-Received: from out203-205-221-173.mail.qq.com ([203.205.221.173])
+	id 1uMi12-0000000CiAV-1WWN;
+	Wed, 04 Jun 2025 06:54:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMh9C-0000000CeM4-2RVd
+	id 1uMhys-0000000Chnx-3vK9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 05:58:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1749016414;
-	bh=dxK57rrh1jvoo1g24molYIQ1YbfbH2OZpE0y+PyiV/c=;
-	h=From:To:Cc:Subject:Date;
-	b=j8EUBg02aEnilOpHZCWkZ0BRObtR1z8LLex8B0Nmvp5bywuBr0tqIFXqpgqtUN+Ek
-	 DWPPmbKeK4FnK0LlnspTPyYrY9B0PEtfBFOqyuVCiSacdCNh6hpkMGmiTvADD9h8hR
-	 R5EBvV1PNxaxflrmWghZzuC5hKu64CLZQWydpB9o=
-Received: from NUC10.. ([39.156.73.10])
-	by newxmesmtplogicsvrszgpua8-0.qq.com (NewEsmtp) with SMTP
-	id D5E8A2A8; Wed, 04 Jun 2025 13:53:30 +0800
-X-QQ-mid: xmsmtpt1749016410tl4fl36g6
-Message-ID: <tencent_A6502A28AF21A3CA88B106F3421159869708@qq.com>
-X-QQ-XMAILINFO: NQzH8pzEc5hGPs3uj3kHrPeahZXak4dASrsyrlzi8+3SJ7ZOTDpWGr79QAvJA0
-	 fhuR2sbv+Msr+YEK+VIb74pqi2uxdzWNu1OdHXfeB+gQ03Su/LZcBfmkwasrzX9FYuUnQXit9C+8
-	 0IGhc4QLAqbKjZD2amrQ9T+2pXDPAHE6zE9GoK//b4lUK7qCg59+iZvbfFjqbiBHo2ENmXdEPY9o
-	 zCcyfK05WmOKNR16Gm10Z71NYlowvtf8olaxSsExCHxDWghK7mKS53Z0w1Zlidk+iXMa/C4XQCiy
-	 3PtbVLIPiynLUyTUW/WJrl/7CuVbUIpWgTYSdKL2pqwNrw/tDpSXOQ1hw8QsaEC9qQxeM4siDjic
-	 xO5BKctg33BahoFO/o11+aebzWKaRomZaU9YeqRZILrG8rtEGKIjvpnFbIUvnHFq5qKCaV/1g9CE
-	 b+Tvda3WblLyGp5R4B1ybfjTRi7bzLIhcObdUeogv0Ovz6nBlKdAlkhDlk/7TzI+JgLq0urLwHZn
-	 Bd9mfje5NdZvG0aBDfd3HsARwebUUxi79N7F1hd+64PcRbaGV3qtIpaCdA6jwIHWOSb/VvXsf3Xq
-	 2IIeq/+33mu/I7IkCFknTgMP3obpfF8b6sR+EIZJfYDoRArzXNZcHoZUv/2RgZ4mWUUvtu4yLLBQ
-	 AML7h0BY4RTkSoFxrTSd5U0M4q0xWbywZiDdrTcKkLGDH4a8DZ0kJlCf2dljGbY0+QrBDnGbLd7U
-	 YrdmJeSInyQ/AiQwoj5qfElxvyst5HOcko0dhXHeacRUWEDDbeEXzm5w5+s7gzq8AkXqMZqt1nKK
-	 gawqU30CpqXDpEHnLpgGZ+tmOIklp4yY8TCXhdfQ9i1gjILJFTDL4EQZoLUrF26XXA8SGgzGoY9G
-	 5SIOqn0KAkov8Plr9prRgfZzXXi4meZrkw/iUdPHs+vY5gdNQTZiakfZPdradkPBZ75gVmMfQ+fG
-	 mzxismGJH8a23K/56wMcUloUA3OxUmqFqRJc0tai9nrTW5oqwHvx/QQNkfGv28p3VR+OPlF3U=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
-From: Rong Tao <rtoax@foxmail.com>
-To: andrii@kernel.org,
-	eddyz87@gmail.com
-Cc: rongtao@cestc.cn,
-	rtoax@foxmail.com,
-	Mykola Lysenko <mykolal@fb.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Amery Hung <ameryhung@gmail.com>,
-	Juntong Deng <juntong.deng@outlook.com>,
-	Oleg Nesterov <oleg@redhat.com>,
-	bpf@vger.kernel.org (open list:BPF [SELFTESTS] (Test Runners & Infrastructure)),
-	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH bpf-next] selftests/bpf: Fix compile error of bin_attribute::read/write()
-Date: Wed,  4 Jun 2025 13:53:22 +0800
-X-OQ-MSGID: <20250604055324.222850-1-rtoax@foxmail.com>
-X-Mailer: git-send-email 2.49.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 04 Jun 2025 06:52:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0497A43B1A;
+	Wed,  4 Jun 2025 06:52:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6B90C4CEE7;
+	Wed,  4 Jun 2025 06:52:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749019929;
+	bh=5KeFKazHO/RDTwQDMbsuVfCpSFTYFiD5R/uZirrpxkY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pWLjssjWhc5BhlTOpqxa7mY0ESCuLngkoIOaDwKKUF1z06qvZBib37tGuLFweC27Q
+	 JdRwa/c+AwIIclQ9hSAyT7L7F0WJNM0AkWQ6MoyLN5kKLwl5rzhtUoNjRLUziSiHkH
+	 X35Y3xyRO4kQ9EfuUgCAMMsfUuUfyWOM7EbR87Icf0CjA/V8Xk3jDBnZg6xI5oUlpU
+	 YBHUX35NW0yacBHq4MnD0U7y9k43+i8LLvWhfwcTIzrn+gwmOGwe2rheDu2/Ubqkhq
+	 q1GEP5XTFC3rSK4GTD5u2GUnJQorgKNJmHYxSTjD5T/Q4gfrcgIJSX58SKnQQ+CZ3Y
+	 8kxHJVi4vrKQQ==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uMhyp-0038Yq-88;
+	Wed, 04 Jun 2025 07:52:07 +0100
+Date: Wed, 04 Jun 2025 07:52:05 +0100
+Message-ID: <87ecw0dmne.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Miguel Luis <miguel.luis@oracle.com>
+Cc: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton
+	<oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 1/4] KVM: arm64: Add assignment-specific sysreg accessor
+In-Reply-To: <84553621-E2B8-47A0-A812-FE273505ED47@oracle.com>
+References: <20250603070824.1192795-1-maz@kernel.org>
+	<20250603070824.1192795-2-maz@kernel.org>
+	<84553621-E2B8-47A0-A812-FE273505ED47@oracle.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: miguel.luis@oracle.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_225846_922993_9ECE5D40 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_235211_014246_BA99A23B 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,49 +91,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rong Tao <rongtao@cestc.cn>
+On Tue, 03 Jun 2025 19:01:34 +0100,
+Miguel Luis <miguel.luis@oracle.com> wrote:
+> 
+> Hi Marc,
+> 
+> > On 3 Jun 2025, at 07:08, Marc Zyngier <maz@kernel.org> wrote:
+> > 
+> > Assigning a value to a system register doesn't do what it is
+> > supposed to be doing if that register is one that has RESx bits.
+> > 
+> > The main problem is that we use __vcpu_sys_reg(), which can be used
+> > both as a lvalue and rvalue. When used as a lvalue, the bit masking
+> > occurs *before* the new value is assigned, meaning that we (1) do
+> > pointless work on the old cvalue, and (2) potentially assign an
+> > invalid value as we fail to apply the masks to it.
+> > 
+> > Fix this by providing a new __vcpu_assign_sys_reg() that does
+> > what it says on the tin, and sanitises the *new* value instead of
+> > the old one. This comes with a significant amount of churn.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> > arch/arm64/include/asm/kvm_host.h          | 11 ++++++
+> > arch/arm64/kvm/arch_timer.c                | 16 ++++----
+> > arch/arm64/kvm/hyp/exception.c             |  4 +-
+> > arch/arm64/kvm/hyp/include/hyp/switch.h    |  4 +-
+> > arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h |  6 +--
+> > arch/arm64/kvm/hyp/nvhe/hyp-main.c         |  4 +-
+> > arch/arm64/kvm/hyp/vhe/switch.c            |  4 +-
+> > arch/arm64/kvm/hyp/vhe/sysreg-sr.c         | 44 +++++++++++-----------
+> > arch/arm64/kvm/pmu-emul.c                  | 14 +++----
+> > arch/arm64/kvm/sys_regs.c                  | 38 ++++++++++---------
+> > arch/arm64/kvm/sys_regs.h                  |  4 +-
+> > arch/arm64/kvm/vgic/vgic-v3-nested.c       | 10 ++---
+> > 12 files changed, 86 insertions(+), 73 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index d941abc6b5eef..3b84ad91116b4 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -1107,6 +1107,17 @@ static inline u64 *___ctxt_sys_reg(const struct kvm_cpu_context *ctxt, int r)
+> > #define ctxt_sys_reg(c,r) (*__ctxt_sys_reg(c,r))
+> > 
+> > u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+> > +
+> > +#define __vcpu_assign_sys_reg(v, r, val) \
+> > + do { \
+> > + const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt; \
+> > + u64 __v = (val); \
+> > + if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__) \
+> 
+> Would it make sense to make it more strict by testing < NR_SYS_REGS too?
 
-Since commit 97d06802d10a ("sysfs: constify bin_attribute argument of
-bin_attribute::read/write()"), make bin_attribute parameter of
-bin_attribute::read/write() const.
+It is important to notice that you don't pass random integers here.
+You pass something that is of an enum type, for which the maximum
+value is NR_SYS_REGS. So as long as you pass a literal value, you're
+100% safe. If you pass a constant value that goes over the limit, you
+will hit the *existing* BUILD_BUG_ON().
 
-Signed-off-by: Rong Tao <rongtao@cestc.cn>
----
- tools/testing/selftests/bpf/test_kmods/bpf_testmod.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+You could fall into a trap by iterating over a base value and going
+over the limit. But your check will only catch you going over the
+array, and not the state corruption you will have introduced.
 
-diff --git a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-index e6c248e3ae54..e9e918cdf31f 100644
---- a/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-+++ b/tools/testing/selftests/bpf/test_kmods/bpf_testmod.c
-@@ -385,7 +385,7 @@ int bpf_testmod_fentry_ok;
- 
- noinline ssize_t
- bpf_testmod_test_read(struct file *file, struct kobject *kobj,
--		      struct bin_attribute *bin_attr,
-+		      const struct bin_attribute *bin_attr,
- 		      char *buf, loff_t off, size_t len)
- {
- 	struct bpf_testmod_test_read_ctx ctx = {
-@@ -465,7 +465,7 @@ ALLOW_ERROR_INJECTION(bpf_testmod_test_read, ERRNO);
- 
- noinline ssize_t
- bpf_testmod_test_write(struct file *file, struct kobject *kobj,
--		      struct bin_attribute *bin_attr,
-+		      const struct bin_attribute *bin_attr,
- 		      char *buf, loff_t off, size_t len)
- {
- 	struct bpf_testmod_test_write_ctx ctx = {
-@@ -567,7 +567,7 @@ static void testmod_unregister_uprobe(void)
- 
- static ssize_t
- bpf_testmod_uprobe_write(struct file *file, struct kobject *kobj,
--			 struct bin_attribute *bin_attr,
-+			 const struct bin_attribute *bin_attr,
- 			 char *buf, loff_t off, size_t len)
- {
- 	unsigned long offset = 0;
+Finally, this is performance critical code, and I'd rather not add
+extra checks that will only be a burden at runtime. If you want to
+catch these overflows, using KASAN+UBSAN makes a lot more sense.
+
+	M.
+
 -- 
-2.49.0
-
+Jazz isn't dead. It just smells funny.
 
