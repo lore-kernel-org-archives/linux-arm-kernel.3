@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC40C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 02:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EC2C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 03:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x4Ex7/nAAiXdbh/ZDETVRDI/LR8lS6Dw72mvwzODGR8=; b=JxAjyHjgdEo1fjJ0aJlRqsjb5B
-	fp4oNf/fyJd3FHt0IEIUUBv+MzWbe3tzZjkNNw4bzVBbx2t+rFh9zlF8NkafH5j9iAND9smLlTD+v
-	JEw/zICCTobjW+YDxAz7KFOm1AI8yQXW5BVs3QXjDfa69vcTUMFoVq6cNWlyWNmbJRQPU/6u8QGB/
-	dGmnH8PALtEBwEeuGyatX9NV1/s1/oUlzncDzXt1Drtb4EGRiziL1pPf6ZqwTKtCRAy9A5jgUDA0T
-	lGm/00EmZScSL6vi7TYD1rx7EEobFPBotyyij6I9G2N4hsEN+QTmigbPfa0lOHmPrtH6xxuqHPwHj
-	4uhhi6EA==;
+	bh=8YaDE1iPgVHtf9zTx2ZwoiTyLZHx+nuRVrGxmuTFGR0=; b=E949bmfVBAbpkhUjJfkzjge0we
+	Z9UuMqgliYY6FIbHNFO/bWBU/ewJD4LyA0EmM3s8gknvema3uyn8jalhx8Ngu2ErCxwhibu0OyAxQ
+	Yb9Om56RaRVUUl1TBdAKwjsJkDeeD2bUKiUgbgZzHPqQJ4YkoCZMVF1K+QlFziFUDY982U86YnxRO
+	352UK97EO3VvYzOhMfXL+ktbTKapbRVt414x+0SxQKxWwQAywvgdlgJl4u5DD5ygIWABzhiAuDDRb
+	IZLJDz4IMXrFUlq0/QZdgf8uXC8EkAu5lhdwI/FZdL3xLh6ZbpZf8mp/g3ANy6QvdVeYiFlT3OPDd
+	tHEKSOzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMeLT-0000000COIr-1AzP;
-	Wed, 04 Jun 2025 02:59:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uMeNe-0000000COsD-2mvq;
+	Wed, 04 Jun 2025 03:01:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcYL-0000000C8ha-15VV
+	id 1uMcYe-0000000C8n1-309R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 01:04:26 +0000
+	Wed, 04 Jun 2025 01:04:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CF1AC5C4B35;
-	Wed,  4 Jun 2025 01:02:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01737C4CEF1;
-	Wed,  4 Jun 2025 01:04:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EEF09A4F2A3;
+	Wed,  4 Jun 2025 01:04:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DFB5C4CEED;
+	Wed,  4 Jun 2025 01:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748999064;
-	bh=7sbTUe4rbGn0R+n/uqo1b2CMuldZkjg8IMWWeXzYOSU=;
+	s=k20201202; t=1748999083;
+	bh=MufHod0A/BdviTTzQlbdv34CCtmNQk+UQzrnAhhW2fs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IWnfdlnVqx1YiesR8aTvoKRkyEoQD22s78YAl/C1QJ2ikcbI3GvW6ONz1opzWdSSs
-	 NEIIXXSae25oSLy187ba9P5bTOiphk/8uDUTZyngJrxPqUc5bBA/9ubZ7APOS/oiMn
-	 qW13iO1ncL9GB5gO2o3WjvoB8ohwBmbIaSb/gCgfCLr7EMASboKORecUlfzzb0GG4H
-	 X/QnW+ORj8AhZ+wdZAKUD2Y60FzbJlMaUMQyu2UnuvzrM8gBGzMQns4VW55IzTR3Yg
-	 GzJUA9gmJuvDJMi2hOf1X/HN1x+MY9hhvgELZLVMHLirrWiwa4OmUIU13wlgY5y9KO
-	 G65LH8M+BvIqg==
+	b=Pqq03vnIL+eE11SJCKkhCvsEeObSP79n91M/rPKTlyRxuG92FWbgB+K9fEfWsT5O6
+	 FStAkem9YhWGqAfiC9xnRStwHn4oRT8351Gm8Xifg0r/r9QnlWhvmURLZZQQxOCYTQ
+	 /Zczf3fTt2wcckTI2sozIK0WJ9bQdVWUaNdGPzBK3qXLcB2lDlg6lnssJcV8ZL+nf7
+	 QEeeEEnQmPpqcFuMKRq69DprCIU5KgCLJQlCsnWerpaUsbRvSgk7wnmrUa4IXPiNQ7
+	 OWv+9zjrgZsRmNb1Dben7rkGvxnU4WQ8oqoOBg5EAXAtOebbz9npI+QmR09cp/SQfs
+	 S0UqecSjopgdg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Mike Tipton <quic_mdtipton@quicinc.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
+Cc: Gabor Juhos <j4g8y7@gmail.com>,
+	Imre Kaloz <kaloz@openwrt.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	rafael@kernel.org,
-	arm-scmi@vger.kernel.org,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	brgl@bgdev.pl,
 	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.1 10/46] cpufreq: scmi: Skip SCMI devices that aren't used by the CPUs
-Date: Tue,  3 Jun 2025 21:03:28 -0400
-Message-Id: <20250604010404.5109-10-sashal@kernel.org>
+	linux-gpio@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.1 21/46] pinctrl: armada-37xx: propagate error from armada_37xx_pmx_set_by_name()
+Date: Tue,  3 Jun 2025 21:03:39 -0400
+Message-Id: <20250604010404.5109-21-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250604010404.5109-1-sashal@kernel.org>
 References: <20250604010404.5109-1-sashal@kernel.org>
@@ -68,8 +68,8 @@ X-stable-base: Linux 6.1.140
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_180425_418931_8F44359E 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20250603_180444_897779_599FB6E2 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,136 +84,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mike Tipton <quic_mdtipton@quicinc.com>
+From: Gabor Juhos <j4g8y7@gmail.com>
 
-[ Upstream commit 6c9bb86922728c7a4cceb99f131e00dd87514f20 ]
+[ Upstream commit 4229c28323db141eda69cb99427be75d3edba071 ]
 
-Currently, all SCMI devices with performance domains attempt to register
-a cpufreq driver, even if their performance domains aren't used to
-control the CPUs. The cpufreq framework only supports registering a
-single driver, so only the first device will succeed. And if that device
-isn't used for the CPUs, then cpufreq will scale the wrong domains.
+The regmap_update_bits() function can fail, so propagate its error
+up to the stack instead of silently ignoring that.
 
-To avoid this, return early from scmi_cpufreq_probe() if the probing
-SCMI device isn't referenced by the CPU device phandles.
-
-This keeps the existing assumption that all CPUs are controlled by a
-single SCMI device.
-
-Signed-off-by: Mike Tipton <quic_mdtipton@quicinc.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Tested-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-7-07e9ac1ab737@gmail.com
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-Based on my comprehensive analysis of the commit and the Linux kernel
-codebase, here is my assessment: **YES** This commit should be
-backported to stable kernel trees. Here's my extensive analysis: ## Core
-Problem Analysis This commit fixes a **critical functional bug** in the
-SCMI cpufreq driver that causes CPU frequency scaling to fail on systems
-with multiple SCMI devices. The problem occurs when: 1. **Multiple SCMI
-devices exist** - Modern SoCs (particularly Qualcomm platforms) have
-multiple SCMI controllers for different subsystems (CPU, GPU, NPU, etc.)
-2. **Wrong device registers first** - All SCMI devices with performance
-domains attempt to register the same cpufreq driver, but only the first
-succeeds 3. **CPU frequency control breaks** - If a non-CPU SCMI device
-registers first, CPU frequency scaling becomes ineffective ## Technical
-Impact Assessment **Lines 430-439 of the diff show the core fix:** ```c
-if (!handle || !scmi_dev_used_by_cpus(dev)) return -ENODEV; ``` The
-added `scmi_dev_used_by_cpus()` function (lines 396-428) prevents wrong
-device registration by: - Checking CPU device tree nodes for clock or
-power-domain phandles to the current SCMI device - Only allowing cpufreq
-driver registration for SCMI devices actually referenced by CPUs -
-Returning early (-ENODEV) for non-CPU SCMI devices ## Backport
-Suitability Criteria ✅ **Fixes important user-affecting bug**: CPU
-frequency scaling failure is a critical system function issue ✅ **Small,
-contained change**: The fix is minimal (47 lines added) and self-
-contained within the SCMI cpufreq driver ✅ **No architectural changes**:
-Preserves existing assumptions and APIs, just adds validation logic ✅
-**Low regression risk**: Early return path with existing error code
-(-ENODEV) that drivers already handle ✅ **Clear side effects**: Well-
-defined behavior change that only affects multi-SCMI-device systems ✅
-**Extensive validation**: Strong community review from ARM ecosystem
-companies (ARM, NXP, Qualcomm, Linaro) with testing confirmation ##
-Comparison with Historical Precedents This commit closely matches the
-**Similar Commit #5 (Status: YES)** which also: - Fixed a critical
-cpufreq driver registration issue - Added early validation in the
-registration path - Used -EPROBE_DEFER/-ENODEV return codes
-appropriately - Addressed a fundamental framework limitation (single
-driver support) Unlike the "NO" status commits which were feature
-additions or cleanups, this addresses a concrete functional failure. ##
-Real-World Impact The commit author (Mike Tipton from Qualcomm) and the
-extensive review from major ARM vendors indicates this was discovered on
-real hardware where: - CPU performance scaling was completely broken -
-System performance would be significantly impacted - The failure would
-be silent and difficult to debug ## Risk Assessment **Minimal backport
-risk** because: - The change only affects the probe path with early
-returns - Existing single-SCMI-device systems continue working unchanged
-- Error handling paths are already well-tested - No changes to runtime
-frequency scaling logic This represents exactly the type of important,
-low-risk bugfix that stable kernels should include to ensure proper
-system functionality on modern multi-domain SoCs.
+Based on my analysis of the commit and the code context, here's my
+assessment: **YES** This commit should be backported to stable kernel
+trees. Here's my extensive analysis: ## Code Analysis The commit changes
+`armada_37xx_pmx_set_by_name()` function from: ```c
+regmap_update_bits(info->regmap, reg, mask, val); return 0; ``` To: ```c
+return regmap_update_bits(info->regmap, reg, mask, val); ``` ## Why This
+Should Be Backported 1. **Bug Fix Nature**: This is a clear bug fix that
+addresses silent error handling. The `regmap_update_bits()` function
+returns an integer error code (0 on success, negative on failure), but
+the original code was ignoring this return value and always returning
+success (0). 2. **Error Propagation Impact**: The function
+`armada_37xx_pmx_set_by_name()` is called from: -
+`armada_37xx_pmx_set()` - the main pinmux set function -
+`armada_37xx_gpio_request_enable()` - GPIO request handler that already
+checks return values 3. **Consistency with Similar Fixes**: Looking at
+the historical commits provided: - **Similar Commit #2** (Backport
+Status: YES) shows the exact same pattern where
+`armada_37xx_gpio_request_enable()` was updated to check return values
+from `armada_37xx_pmx_set_by_name()` - This current commit completes
+that fix by ensuring the function actually returns errors when they
+occur 4. **Critical Subsystem**: This affects the pinctrl subsystem
+which is fundamental to GPIO and pin configuration. Silent failures in
+pin configuration can lead to: - Hardware not being configured correctly
+- GPIO requests appearing to succeed when they actually failed -
+Difficult-to-debug hardware issues 5. **Minimal Risk**: The change is
+extremely small and contained: - No new functionality added - No
+architectural changes - Simple error propagation fix - Maintains
+existing API contract 6. **Stable Tree Criteria Compliance**: - ✅ Fixes
+an important bug affecting users - ✅ Small, contained change - ✅ No new
+features - ✅ Minimal regression risk - ✅ Affects critical kernel
+subsystem 7. **Real-World Impact**: Without this fix, regmap failures
+(which can occur due to hardware issues, power management problems, or
+I2C/SPI communication errors) would be silently ignored, leading to
+unpredictable system behavior where pin configurations appear successful
+but are actually failed. The commit follows the pattern established in
+the historical commit #2 which was marked for backporting, and
+represents the completion of proper error handling in this driver's
+critical path.
 
- drivers/cpufreq/scmi-cpufreq.c | 36 +++++++++++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
+ drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index e4989764efe2a..6ff77003a96ea 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -299,6 +299,40 @@ static struct cpufreq_driver scmi_cpufreq_driver = {
- 	.register_em	= scmi_cpufreq_register_em,
- };
+diff --git a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+index 261b46841b9f6..df0683bd663b5 100644
+--- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
++++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+@@ -360,9 +360,7 @@ static int armada_37xx_pmx_set_by_name(struct pinctrl_dev *pctldev,
  
-+static bool scmi_dev_used_by_cpus(struct device *scmi_dev)
-+{
-+	struct device_node *scmi_np = dev_of_node(scmi_dev);
-+	struct device_node *cpu_np, *np;
-+	struct device *cpu_dev;
-+	int cpu, idx;
-+
-+	if (!scmi_np)
-+		return false;
-+
-+	for_each_possible_cpu(cpu) {
-+		cpu_dev = get_cpu_device(cpu);
-+		if (!cpu_dev)
-+			continue;
-+
-+		cpu_np = dev_of_node(cpu_dev);
-+
-+		np = of_parse_phandle(cpu_np, "clocks", 0);
-+		of_node_put(np);
-+
-+		if (np == scmi_np)
-+			return true;
-+
-+		idx = of_property_match_string(cpu_np, "power-domain-names", "perf");
-+		np = of_parse_phandle(cpu_np, "power-domains", idx);
-+		of_node_put(np);
-+
-+		if (np == scmi_np)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- static int scmi_cpufreq_probe(struct scmi_device *sdev)
- {
- 	int ret;
-@@ -307,7 +341,7 @@ static int scmi_cpufreq_probe(struct scmi_device *sdev)
+ 	val = grp->val[func];
  
- 	handle = sdev->handle;
+-	regmap_update_bits(info->regmap, reg, mask, val);
+-
+-	return 0;
++	return regmap_update_bits(info->regmap, reg, mask, val);
+ }
  
--	if (!handle)
-+	if (!handle || !scmi_dev_used_by_cpus(dev))
- 		return -ENODEV;
- 
- 	perf_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
+ static int armada_37xx_pmx_set(struct pinctrl_dev *pctldev,
 -- 
 2.39.5
 
