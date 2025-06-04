@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB05DC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 13:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196FBC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 13:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCNTPJfskIhANg0RiKYHsBz7kOPSHztZlUotAgnVEF0=; b=prpq8wbIqe4bjZRe0dY1RGtJR7
-	aPD1+YLlMtqvWMKm9fATDC0jr3QhhMz235qVBq8DBRhN62jMxzvp9YsdxYx7GfGZQdFajcew33ADe
-	D8RJYzyETx99mEITFtBmLN6y8Gah+nlYhgufY7ySR6Ib0W111bnZ7YrO2FArtEZmK3An5ZFCdBfKK
-	kbNgj6WTfxW9u6loxyZEL+MEJC7FZL6jdmmBuUWR/QajMBm00piTQhJ+jFrgJHunwQ48EanwlThRm
-	Es5XYxmYGxMRZZIzhrW/1O05v9zp6hX78Aw/o7fhvZLX5Mc2phHVK0jTM4L5UoiF9QkMklDv1Bp4G
-	1/oVWmUQ==;
+	bh=4krNLYqTu5PwEOLh0tYgHTp5VBnZZoifiHQYwqKpyGI=; b=w1zXJpRiKi7KtblKbwuTpRfVOt
+	HeNqxAxkOPimlvSi8bpn+D7E23LsDp3qymeU1rfZgl0/wupxW+icWIvEgTMi41H8i8+0HaC5hHt8b
+	45PMr7xref+B/+yXKX8Tt0TUK50ypEBae997MO/r0BW+pcXWvWR8Ds3tQKlul33dLkDpO8zFLk/Yc
+	5EvXE7hFfgkVwFKbayrKHZXCAU65UXauaE9ntHCljg2uj5ZcYvFwmc6PQShmH8LzVKj/de0gX+YAb
+	GpUdFW5nqd0/w/Jy64dVlMl06rdGeecCyj9u/We/Bs9G9YBK/n7C5J1Zv5j8k3Wfu+4esbpKgWhhF
+	crbo++Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMo8j-0000000DRcY-2mJi;
-	Wed, 04 Jun 2025 13:26:45 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uMoPy-0000000DUDR-3mVz;
+	Wed, 04 Jun 2025 13:44:34 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMo6c-0000000DRIh-1kXM;
-	Wed, 04 Jun 2025 13:24:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749043468; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=kh2iUeK+/ZYvPaLk72mpcP5zsfS7Ua6a0zQkfuPR0A8pLHFxw5SebyZVlhNSojGKB6mARcZGBI4FSAjlXaUquHJtOK4j+mWE0XCvntWTcQZ+9Ou393Zy51U70n4BKZVPRaj7xeUyJlidIhlLYyZeuXIk61Xep5NLtYfJCGQQ+74=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749043468; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wCNTPJfskIhANg0RiKYHsBz7kOPSHztZlUotAgnVEF0=; 
-	b=mNAlllKP7hd6uFXPYjbLfO0KOaSUQoKMkvprCj3dlSDo+EvdRXd7Q4e+n4FxAQWZglZZQgJ9zO2N1prnuR7tnTA9J1YupRZmfVE3AQE9xNrb1F7Gd7fWTm9MFH/ZT/57jN1BJ7/jClg2bZFWjgDPoLeB+Y/At9gCIdGGN4sHO4U=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749043468;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=wCNTPJfskIhANg0RiKYHsBz7kOPSHztZlUotAgnVEF0=;
-	b=UFuUk7U0iVkVcYwV/BWOTKu/Mn7HG3BvcbST3LvUU6rPkqSe1mJ96LESVOJ85ore
-	G69LWWzPm1Ne4TX1P1PQ/qN3qn0y0Sv/VngAVb7tQmkKnn1EES8ldDwEDh9Kbrckav+
-	O05rTCJcYTQhscMv1DcWSeDHAPfCiwC+WyD9Nhz4=
-Received: by mx.zohomail.com with SMTPS id 1749043466448171.76502669274078;
-	Wed, 4 Jun 2025 06:24:26 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] arm64: dts: rockchip: enable USB A ports on ArmSoM Sige5
-Date: Wed, 04 Jun 2025 15:24:22 +0200
-Message-ID: <4317526.1IzOArtZ34@workhorse>
-In-Reply-To: <CABjd4YwtbMTT1W1rEdZzZ=KC3_EXXYKQBsTMiH5mPXPhgvQ=Lw@mail.gmail.com>
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <5590100.Sb9uPGUboI@workhorse>
- <CABjd4YwtbMTT1W1rEdZzZ=KC3_EXXYKQBsTMiH5mPXPhgvQ=Lw@mail.gmail.com>
+	id 1uMoNs-0000000DU5g-3Ow7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Jun 2025 13:42:25 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a36e090102so3983534f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 06:42:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1749044543; x=1749649343; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4krNLYqTu5PwEOLh0tYgHTp5VBnZZoifiHQYwqKpyGI=;
+        b=dbDB6U0UTBUSm23fWH3KJe9rw7hvlxiFFc56huXiOJz0XzB51qElbDVLHbYkOlNXQK
+         mkYNoIt1dR30U1MQveoGba6faxsMGC94cd/Hai4RDE+X7U8icICWCCDbioq1V1fWE0TN
+         m4k5h4JP5yZZ9640K4S6kbPE1gBhh65P5rzIriRo6l4y3pnPwYVeMCH9yONIiHu5G1a8
+         gQb6OqvjbAnK70HVJLNYCQdqqrYI3+I0nF6lXzsEMB0U8SKvn5jAH75O3T9gbAD8t1dB
+         yNNQfmEUkJv3xycfqOBH0pYMIxz+mNwA4a8Hm6ojGdiubbRc6qaJm6qEG9jZVMeyH7aw
+         717A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749044543; x=1749649343;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4krNLYqTu5PwEOLh0tYgHTp5VBnZZoifiHQYwqKpyGI=;
+        b=Amsrv2QaUuAIPircqu7Js/7jrnl3g/nvSIXWWxiGy5hLagmfKffJ86y36mOqnzeZ8e
+         1B6ZL/mJhuW6j+xEsmbWETh7mAz6j7QbKEVmKlS/Ozr402/2SjYTpj4x0gumXR2mdQju
+         sWsKMw/4zo+3bC8LsXfhD4qs+ApGhMVhvrVy0nLT8AuTg5ZlgANrXyKyf/i5JgBoBUV9
+         sMszaiRyCSS+XGGx7dLwYF5s2JLFYCYVb8NwREWpdorly6K4gKTJP9OI76Xtfl351wEd
+         vRSVsviBVUPgCRCX5UBzGqixqc9SeiFP7/K6KlmCleG0gsl68hv/8yPhyntxiUAp4XKH
+         SDbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXOP/g2qWROeWTo6VRcyX1mvkHzTdg3SZVXCKaDw0w7yYnAKgGRQUSsWNqPI9TnGPuMzFSRdyP6Qh6E5dCdhfF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXVkANyz58m/bM8/qLmBHH7v04wWTFKn7i9j2KMmC4pv8rKoEC
+	beMJZ/I/IKtENcWdJlPqQ/sOLpgL5Cl8uzF+vrCIbAiH6DZ0iekrwa5o4KyPthxVZx4=
+X-Gm-Gg: ASbGncvwRTCwVhpRur6cVeT7GsCy5bbjlPF6CIoImAY9lFVUujbqB1qXEKTudp98a0W
+	OLBPrtoWiXd3NY0hqvccmjwGrgcoTC9U8zem7NA3+pcg5NqR01MaM0u8uuGIJ5lvQGM0LRf4Bd0
+	IjHzmxVcl7kYhFg3CeBxYVhNtAq3tjb2zlxRWafGHI3NRCKr/8pYp8sm6roM4es2BwD39Thtk5t
+	eeXUVzbpWtM7BtKbfJr5JmoptDyDAUJ1kW1zt3+YwX6u5uTomVXE4wAAwkzheEx5YW8tzHMBXzx
+	XhSFSZitnNvicNPmh71ftzciZxiH6C6pjcofwyJdN1Kc0OHlCwwYSw==
+X-Google-Smtp-Source: AGHT+IFBf1ks7FvkIM9/KgiSH1Nm0ceyhd9C2E9/xug+Okpyo/jMkoHYpfHI27ynqCD67VSiZ+dtUg==
+X-Received: by 2002:a5d:588d:0:b0:3a4:f7dc:8a62 with SMTP id ffacd0b85a97d-3a51db2deedmr2311080f8f.0.1749044543082;
+        Wed, 04 Jun 2025 06:42:23 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e32feecsm8910312a91.47.2025.06.04.06.42.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Jun 2025 06:42:22 -0700 (PDT)
+Date: Wed, 4 Jun 2025 15:42:04 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>,
+	'Michael Kelley' <mhklinux@outlook.com>,
+	'Ryo Takakura' <ryotkkr98@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: Problem with nbcon console and amba-pl011 serial port
+Message-ID: <aEBNLMYVUOGzusuR@pathway.suse.cz>
+References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
+ <84y0u95e0j.fsf@jogness.linutronix.de>
+ <84plfl5bf1.fsf@jogness.linutronix.de>
+ <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+ <aEApOPTqbVOR35F_@pathway.suse.cz>
+ <84o6v3ohdh.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <84o6v3ohdh.fsf@jogness.linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_062434_516374_FC771B5A 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20250604_064224_849183_A1B23011 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,76 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 4 June 2025 08:52:51 Central European Summer Time Alexey Char=
-kov wrote:
-> On Tue, Jun 3, 2025 at 9:51=E2=80=AFPM Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
+On Wed 2025-06-04 13:56:34, John Ogness wrote:
+> On 2025-06-04, Petr Mladek <pmladek@suse.com> wrote:
+> > On Wed 2025-06-04 04:11:10, Toshiyuki Sato (Fujitsu) wrote:
+> >> > On 2025-06-03, John Ogness <john.ogness@linutronix.de> wrote:
+> >> > > On 2025-06-03, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com> wrote:
+> >> > >>> 4. pr_emerg() has a high logging level, and it effectively steals the console
+> >> > >>> from the "pr/ttyAMA0" task, which I believe is intentional in the nbcon
+> >> > design.
+> >> > >>> Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is doing
+> >> > >>> nbcon_enter_unsafe() and nbcon_exit_unsafe() around each character
+> >> > >>> that it outputs.  When pr_emerg() steals the console, nbcon_exit_unsafe()
+> >> > >>> returns 0, so the "for" loop exits. pl011_console_write_thread() then
+> >> > >>> enters a busy "while" loop waiting to reclaim the console. It's doing this
+> >> > >>> busy "while" loop with interrupts disabled, and because of the panic,
+> >> > >>> it never succeeds.
 > >
-> > On Tuesday, 3 June 2025 19:01:14 Central European Summer Time Alexey Ch=
-arkov wrote:
-> > > Enable the two USB type A ports (USB2 and USB3) present on the ArmSoM
-> > > Sige5 board.
-> > >
-> > > Both ports use just one xHCI controller, with the USB 2.0 signals fed
-> > > off the same USB OTG PHY through an onboard hub. VBUS of both ports is
-> > > controlled by the same GPIO regulator (VCC_USBHOST in the schematics,
-> > > toggled by GPIO4 RK_PA6).
-> > >
-> > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > > ---
-> > >  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 38 ++++++++++++=
-++++++++++
-> > >  1 file changed, 38 insertions(+)
-> > >
-> >
-> > This is already done here:
-> >
-> > https://lore.kernel.org/linux-rockchip/20250507-rk3576-sige5-usb-v3-4-8=
-9bf5a614ccf@collabora.com/
->=20
-> Oh cool! Sorry I missed that one. Your series is much more
-> comprehensive, so this patch of mine can be dropped. Thanks for your
-> work!
->=20
-> Would you mind chiming in on the other patches here, given your
-> knowledge of the hardware?
+> > I am a bit surprised that it never succeeds. The panic CPU takes over
+> > the ownership but it releases it when the messages are flushed. And
+> > the original owner should be able to reacquire it in this case.
+> 
+> The problem is that other_cpu_in_panic() will return true forever, which
+> will cause _all_ acquires to fail forever. Originally we did allow
+> non-panic to take over again after panic releases ownership. But IIRC we
+> removed that capability because it allowed us to reduce a lot of
+> complexity. And now nbcon_waiter_matches() relies on "Lower priorities
+> are ignored during panic() until reboot."
 
-I gave the others a brief look yesterday, I'll give a more in-depth look
-and test today and send you my Tested-by and Reviewed-by.
+Great catch! I forgot it. And it explains everything.
 
->=20
-> By the way, you guys don't seem to carry those patches of yours in the
-> Collabora tree [1]? Nor the TSADC updates as far as I can tell.
->=20
-> [1] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/=
-=2D/blob/rockchip-release/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.=
-dts?ref_type=3Dheads
->=20
+It would be nice to mention this in the commit message or
+in the comment above nbcon_reacquire_nobuf().
 
-Yeah, I just sent them upstream directly, since at this stage it wasn't a
-SoC and board in wide enough circulation yet where a ready-to-use public
-tree with all the in-flight patches made sense for the added chore of
-rebasing things when new version of patch series get submitted imho.
-Though since some of them have been languishing with no upstream response
-for quite a while (*cough* TSADC *cough*) and some more RK3576 hardware,
-notably the RADXA ROCK 4D, released in the meantime, it may make sense to
-have them included in either our rockchip-release or rockchip-devel tree.
+My updated prosal of the comment is:
 
-If you want to keep up to date on what's in flight, our RK3576 mainline
-status matrix at https://col.la/rk3576status is usually kept fairly up to
-date.
+ * Return:	True when the context reacquired the owner ship. The caller
+ *		might try entering the unsafe state and restore the original
+ *		console device setting. It must not access the output buffer
+ *		anymore.
+ *
+ *		False when another CPU is in panic(). nbcon_try_acquire()
+ *		would never succeed and the infinite loop would	prevent
+ *		stopping this CPU on architectures without proper NMI.
+ *		The caller should bail out immediately without
+ *		touching the console device or the output buffer.
 
-Hopefully once v6.16-rc1 drops, upstream maintainers/reviewers are in a
-better position to take a look at some of those patch series again, I'll
-resubmit them when the time comes. Nothing lights a fire like a RESEND
-prefix in a series.
-
-> Best regards,
-> Alexey
->=20
-
-Kind regards,
-Nicolas Frattaroli
-
-
+Best Regards,
+Petr
 
