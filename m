@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE13C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 01:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36664C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 01:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fyl+UtwnFe9bTJq1Nroq8JP5bYJ46o0xscttxEcc4oY=; b=0wsNPaO6P1k0r/blQXQc/ML+je
-	Kqjd6pTtGL15TCaWb61k9csE03hehIIt9DBwfvtxpaaPScdMFhTj2w3/tNkFNuxVCJYL9/8PHtjL8
-	72bLSBNsPx84mQw1m6HjyNpF2eJW66v0KFk6J36PKZ91L/0RxYP3d38Xyh5yEP3lX3+QlKYQ/ijNk
-	UwQW7Jdwh/5hkeNrU2bxTtV/XfAE1vFW0spsnauxNfT8vATQwVdaWDReoWrcc6HSGm7C8VEb5HTRS
-	k+WEyYWTvl3udoTtURp9LebKOeONR/JYgzJLEhqDCXgAD7lxcX0i6huUczsBro7swGhSad3D+FoVG
-	GVL22EwA==;
+	bh=5gnxWLFy4fnE0jN24eOCIKGzD4OoRh5h5ohMsvYqjVU=; b=pd3Snu+Rbkl5fQcrKGCFRSk1b5
+	6fDB8lTM1U0ULw8QMqfya+VzLMIftGnBvFLTlo7GjyhPi2kzvOs7uUlazQQc4OG205XBZ2eMjWAym
+	RuFfuDpC/3JZ4Djn14hnpKbyF0ww0PKDLYCMK0KWrz7aTq+5cUIO5CgN+PzCYqtLgQuoaLcsUjy3W
+	uePMjdYLVNBeW3bCAZr7D++axad7vWtn1Tk+Do6r+vwLC6+JFsdYBiXyT2aaa0I5hPky402ptA3/U
+	llzEW1P4MN957tqqOZWX/D7djXLVyYLFjv0f49cYd+WiQAQzuvc2g+homqstEVScNkw+tiokJLPtg
+	Jr53A7Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcei-0000000C9gx-0C98;
-	Wed, 04 Jun 2025 01:11:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uMcgq-0000000C9ys-3SvL;
+	Wed, 04 Jun 2025 01:13:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcM0-0000000C6O5-0j5D
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 00:51:41 +0000
+	id 1uMcMD-0000000C6QR-3Ju3;
+	Wed, 04 Jun 2025 00:51:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C1DA25C2458;
-	Wed,  4 Jun 2025 00:49:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 983B3C4CEEF;
-	Wed,  4 Jun 2025 00:51:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8586B43A48;
+	Wed,  4 Jun 2025 00:51:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D886AC4CEF1;
+	Wed,  4 Jun 2025 00:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748998299;
-	bh=i2guXKq/zzHATlE+CQ8FXCickmwgBEE1jP63DXsldoM=;
+	s=k20201202; t=1748998313;
+	bh=KQRPWiVIirFM5HlqIdlbktPx3zZ+EkbTpPF8djX4G4I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AQVzTD85R3zrqLUEBtuwoLPt3sLfaFkf4E4JD493Y8scQ4dlavKM0xbsuWwXgqvUQ
-	 zX1fxUCY0Ym1A/CHBS/KZEPe01OVlliHYl5zxB9YFZVJdrPiDhYRNB+ZXKhTGlXZhs
-	 43Ghr2QGrL4SRglSo89kUspDtaNZA0IdDg8VJx7j31YoeM8ZxrWm18ciaM/cqppYSl
-	 CnHuBQURdr7VfjMlrxJpf1m7abogAtpF+O/0dBemhHBteBIV8mEHT+3qyV5DpZGqfj
-	 78D2ZxbLmIz763WKOLzuowCXMtOM5Fszccdw10LVfpcfI3LmFzbmh1WZd/3ZMkyccL
-	 BT4JUbSpGZuUQ==
+	b=F1+zSFVBNfUIC9vLfCMo8uqHv2WsFrb2wvRUwcgKSUsIEvZ+/Y4xEIJQ1kjnVslUc
+	 4R4CoRqEG6uOf6njrxf9YkJfBui2tp/hf766naypq1FwskHmawSOAjShiz1cn4mvOW
+	 W7QqP8MHyjVW6p+HqpFNBIEjN31PjhfFUxUXslop0J3yAIbuigQ9wJdw90a9NkbVev
+	 hD0hHNe3GrgAEgszqIUCAgA2X1toNI0F1XZOBxqiY/YnoBX5PHbhVxLogMrpTEiarg
+	 ob5RbAyQFQi+mf6d8Z/jofMUXS/RBHOc+mtJoQzbiikBk9Rt5NbtxCpBQR4LaKqGGU
+	 gCHe61RIZXTQA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Hector Martin <marcan@marcan.st>,
-	Neal Gompa <neal@gompa.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Sven Peter <sven@svenpeter.dev>,
-	Andi Shyti <andi.shyti@kernel.org>,
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	maddy@linux.ibm.com,
-	mpe@ellerman.id.au,
-	sven@kernel.org,
-	j@jannau.net,
-	linuxppc-dev@lists.ozlabs.org,
-	asahi@lists.linux.dev,
+	daniel@makrotopia.org,
+	dqfext@gmail.com,
+	SkyLake.Huang@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.15 024/118] i2c: pasemi: Enable the unjam machine
-Date: Tue,  3 Jun 2025 20:49:15 -0400
-Message-Id: <20250604005049.4147522-24-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.15 029/118] net: phy: mediatek: do not require syscon compatible for pio property
+Date: Tue,  3 Jun 2025 20:49:20 -0400
+Message-Id: <20250604005049.4147522-29-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250604005049.4147522-1-sashal@kernel.org>
 References: <20250604005049.4147522-1-sashal@kernel.org>
@@ -69,11 +66,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.15
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_175140_302266_6C041B2D 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250603_175153_871738_D3FE55FA 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,85 +84,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+From: Frank Wunderlich <frank-w@public-files.de>
 
-[ Upstream commit 88fe3078b54c9efaea7d1adfcf295e37dfb0274f ]
+[ Upstream commit 15d7b3dfafa98270eade6c77d2336790dde0a40d ]
 
-The I2C bus can get stuck under some conditions (desync between
-controller and device). The pasemi controllers include an unjam feature
-that is enabled on reset, but was being disabled by the driver. Keep it
-enabled by explicitly setting the UJM bit in the CTL register. This
-should help recover the bus from certain conditions, which would
-otherwise remain stuck forever.
+Current implementation requires syscon compatible for pio property
+which is used for driving the switch leds on mt7988.
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Signed-off-by: Sven Peter <sven@svenpeter.dev>
-Link: https://lore.kernel.org/r/20250427-pasemi-fixes-v3-1-af28568296c0@svenpeter.dev
-Signed-off-by: Andi Shyti <andi.shyti@kernel.org>
+Replace syscon_regmap_lookup_by_phandle with of_parse_phandle and
+device_node_to_regmap to get the regmap already assigned by pinctrl
+driver.
+
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Link: https://patch.msgid.link/20250510174933.154589-1-linux@fw-web.de
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-Based on my thorough analysis of the commit and the surrounding
-codebase, I can now provide a comprehensive assessment. **YES** ##
-Extensive Analysis ### Nature of the Fix This commit addresses a **real
-hardware bug** where I2C buses can become permanently stuck under
-certain conditions. The analysis shows: 1. **Hardware Feature**: CTL_UJM
-is defined as `BIT(8)` in the control register and stands for "UnJaM
-mode" - a hardware feature specifically designed to automatically detect
-and recover from bus jam conditions. 2. **Real Problem**: The codebase
-reveals extensive jam detection mechanisms: - `SMSTA_JAM` (BIT(24)) and
-`SMSTA_JMD` (BIT(25)) status bits for detecting jams - Bus status
-polling that specifically waits for `!(status & SMSTA_JAM)` - Automatic
-resets triggered when `SMSTA_JMD` is detected 3. **User Impact**: The
-commit message states "The I2C bus can get stuck under some conditions
-(desync between controller and device)" and "would otherwise remain
-stuck forever" - indicating this causes **complete system functionality
-loss** for affected I2C peripherals. ### Code Change Analysis The fix is
-**minimal and surgical**: ```c -u32 val = (CTL_MTR | CTL_MRR |
-(smbus->clk_div & CTL_CLK_M)); +u32 val = (CTL_MTR | CTL_MRR | CTL_UJM |
-(smbus->clk_div & CTL_CLK_M)); ``` This single-line change adds
-`CTL_UJM` to the control register value during reset, enabling the
-hardware unjam feature that was previously being disabled. ### Stability
-Criteria Assessment ✅ **Fixes Important Bug**: Resolves permanent I2C
-bus lockups affecting system functionality ✅ **Small and Contained**:
-Single bit flip in one register during reset operation ✅ **Minimal
-Risk**: - Uses existing hardware feature (CTL_UJM already defined) -
-Only affects reset behavior - Hardware designed to handle this bit
-safely - No architectural changes ✅ **Clear Side Effects**: Only enables
-a hardware recovery mechanism - no negative side effects expected ✅
-**Critical Subsystem**: I2C is fundamental infrastructure used by many
-system components ### Platform Context This affects **production
-hardware**: - Apple Silicon (M1, M2, etc.) devices - Maintained by
-active Asahi Linux team - Real users depend on functional I2C for USB-
-PD, audio, and other critical peripherals ### Comparison to Similar
-Commits This aligns closely with **Similar Commit #2** (marked YES)
-which also addressed I2C bus recovery by improving lockup detection and
-triggering recovery mechanisms. Both commits: - Fix real I2C bus lockup
-issues - Make minimal, targeted changes - Improve hardware recovery
-capabilities - Have low regression risk ### Conclusion This commit
-represents an ideal stable backport candidate: it fixes a serious
-hardware issue that completely breaks I2C functionality with a minimal,
-low-risk change that enables an existing hardware recovery feature. The
-fix prevents permanent system failures on affected hardware platforms.
+**YES** This commit should be backported to stable kernel trees. ##
+Analysis ### Core Issue Being Fixed The commit addresses a **device tree
+compatibility problem** in the MediaTek MT7988 PHY driver. The original
+code used `syscon_regmap_lookup_by_phandle()` which **requires** the
+target device node to have a "syscon" compatible string. This created an
+artificial requirement that forced users to modify their device trees
+even when the pinctrl driver already provided the necessary regmap. ###
+Code Changes Analysis The change is minimal but significant: ```c //
+OLD: Forces syscon compatible requirement regmap =
+syscon_regmap_lookup_by_phandle(np, "mediatek,pio"); // NEW: Works with
+any regmap provider pio_np = of_parse_phandle(np, "mediatek,pio", 0);
+regmap = device_node_to_regmap(pio_np); of_node_put(pio_np); ``` **Key
+differences:** - `syscon_regmap_lookup_by_phandle()` requires "syscon"
+compatible - `device_node_to_regmap()` works with any device that has
+registered a regmap - Proper error handling maintained with
+`of_node_put()` ### Why This Should Be Backported **1. Fixes Real User
+Issues:** - MT7988 hardware is actively deployed (BananaPi R4,
+networking devices) - Users cannot use PHY LED functionality without
+modifying device trees - This affects real hardware in production, not
+just development boards **2. Low Risk Change:** - Only 9 insertions, 1
+deletion - No functional behavior change - same register access, same
+error paths - Uses well-established kernel APIs - **Backward
+compatible:** Still works with DTs that have syscon compatible -
+**Forward compatible:** Also works with DTs that don't have syscon
+compatible **3. High Impact Fix:** - Removes artificial device tree
+constraints - Enables legitimate hardware configurations without DT
+hacks - Prevents fragmentation of MT7988 ecosystem across kernel
+versions - LED functionality is important for networking hardware
+visibility **4. Fits Stable Criteria:** - Fixes important functionality
+for users - Does not introduce new features - No architectural changes -
+Confined to one driver/subsystem - Minimal regression risk ###
+Comparison to Similar Commits Looking at the historical examples
+provided, this commit is similar to "clk: mediatek: Get regmap without
+syscon compatible check" which also moved from `syscon_node_to_regmap()`
+to `device_node_to_regmap()` for the same compatibility reasons. The
+pattern of removing unnecessary syscon requirements is well-established
+and safe. ### Real-World Impact Without this fix, users with legitimate
+device trees (where pinctrl doesn't have syscon compatible) cannot use
+MT7988 PHY LED functionality. This forces them to either: 1. Patch their
+device trees (not always possible in production) 2. Use older kernel
+versions 3. Lose LED functionality entirely The commit solves a
+**compatibility regression** rather than adding new functionality,
+making it an ideal stable backport candidate.
 
- drivers/i2c/busses/i2c-pasemi-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/phy/mediatek/mtk-ge-soc.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/i2c/busses/i2c-pasemi-core.c b/drivers/i2c/busses/i2c-pasemi-core.c
-index bd128ab2e2ebb..27ab09854c927 100644
---- a/drivers/i2c/busses/i2c-pasemi-core.c
-+++ b/drivers/i2c/busses/i2c-pasemi-core.c
-@@ -71,7 +71,7 @@ static inline int reg_read(struct pasemi_smbus *smbus, int reg)
+diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
+index 175cf5239bba8..21975ef946d5b 100644
+--- a/drivers/net/phy/mediatek/mtk-ge-soc.c
++++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
+@@ -7,6 +7,7 @@
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/phy.h>
+ #include <linux/regmap.h>
++#include <linux/of.h>
  
- static void pasemi_reset(struct pasemi_smbus *smbus)
+ #include "../phylib.h"
+ #include "mtk.h"
+@@ -1319,6 +1320,7 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
  {
--	u32 val = (CTL_MTR | CTL_MRR | (smbus->clk_div & CTL_CLK_M));
-+	u32 val = (CTL_MTR | CTL_MRR | CTL_UJM | (smbus->clk_div & CTL_CLK_M));
+ 	struct device_node *np = dev_of_node(&phydev->mdio.bus->dev);
+ 	struct mtk_socphy_shared *shared = phy_package_get_priv(phydev);
++	struct device_node *pio_np;
+ 	struct regmap *regmap;
+ 	u32 reg;
+ 	int ret;
+@@ -1336,7 +1338,13 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
+ 	 * The 4 bits in TPBANK0 are kept as package shared data and are used to
+ 	 * set LED polarity for each of the LED0.
+ 	 */
+-	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,pio");
++	pio_np = of_parse_phandle(np, "mediatek,pio", 0);
++	if (!pio_np)
++		return -ENODEV;
++
++	regmap = device_node_to_regmap(pio_np);
++	of_node_put(pio_np);
++
+ 	if (IS_ERR(regmap))
+ 		return PTR_ERR(regmap);
  
- 	if (smbus->hw_rev >= 6)
- 		val |= CTL_EN;
 -- 
 2.39.5
 
