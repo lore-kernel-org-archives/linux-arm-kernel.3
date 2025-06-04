@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36664C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 01:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46EFC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 01:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5gnxWLFy4fnE0jN24eOCIKGzD4OoRh5h5ohMsvYqjVU=; b=pd3Snu+Rbkl5fQcrKGCFRSk1b5
-	6fDB8lTM1U0ULw8QMqfya+VzLMIftGnBvFLTlo7GjyhPi2kzvOs7uUlazQQc4OG205XBZ2eMjWAym
-	RuFfuDpC/3JZ4Djn14hnpKbyF0ww0PKDLYCMK0KWrz7aTq+5cUIO5CgN+PzCYqtLgQuoaLcsUjy3W
-	uePMjdYLVNBeW3bCAZr7D++axad7vWtn1Tk+Do6r+vwLC6+JFsdYBiXyT2aaa0I5hPky402ptA3/U
-	llzEW1P4MN957tqqOZWX/D7djXLVyYLFjv0f49cYd+WiQAQzuvc2g+homqstEVScNkw+tiokJLPtg
-	Jr53A7Cw==;
+	bh=X9VZVPOy8SbaDRhwrcBgThyhQ8CZcF3r0eQ68FHAQBM=; b=BCZmsgclySL9ZV0LhGYejW7myd
+	XIZluajP3H6VCCTJJYZ1x07gql2YuEhAXoa4SlpPl813ycNUiKR3BxWuNQIAcbVZ5CxzdnI1wz7fm
+	+P9CuvigVtPIpBfdZIptUEhh9LV5o7tGj6Lf+V1E4OeWJSVvR6+AFPLk2lkhN9E3KIZpiF8z/Esjm
+	9X0NjPgg6usCC0bNUsb9darsBjFRUEwdgdis+0ScReeBov0PhHGnJb/y2XB9mIO4GZfB5I931JyXD
+	7glyRrZ6NhYq+6n0cRHRCicIkcqWezn1exVpffKnXgc73k4nVbMZK//SYBYHKu+uZWFZWXLVrKlay
+	v9yAePBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcgq-0000000C9ys-3SvL;
-	Wed, 04 Jun 2025 01:13:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMciz-0000000CAQF-0ojp;
+	Wed, 04 Jun 2025 01:15:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcMD-0000000C6QR-3Ju3;
-	Wed, 04 Jun 2025 00:51:55 +0000
+	id 1uMcMf-0000000C6V0-27p5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Jun 2025 00:52:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8586B43A48;
-	Wed,  4 Jun 2025 00:51:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D886AC4CEF1;
-	Wed,  4 Jun 2025 00:51:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 262B45C1673;
+	Wed,  4 Jun 2025 00:50:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B722C4CEF1;
+	Wed,  4 Jun 2025 00:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748998313;
-	bh=KQRPWiVIirFM5HlqIdlbktPx3zZ+EkbTpPF8djX4G4I=;
+	s=k20201202; t=1748998340;
+	bh=2kRGOPkvhptSKXDiIvei8nHWVzu14Fiuvz/CG3AE8jk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F1+zSFVBNfUIC9vLfCMo8uqHv2WsFrb2wvRUwcgKSUsIEvZ+/Y4xEIJQ1kjnVslUc
-	 4R4CoRqEG6uOf6njrxf9YkJfBui2tp/hf766naypq1FwskHmawSOAjShiz1cn4mvOW
-	 W7QqP8MHyjVW6p+HqpFNBIEjN31PjhfFUxUXslop0J3yAIbuigQ9wJdw90a9NkbVev
-	 hD0hHNe3GrgAEgszqIUCAgA2X1toNI0F1XZOBxqiY/YnoBX5PHbhVxLogMrpTEiarg
-	 ob5RbAyQFQi+mf6d8Z/jofMUXS/RBHOc+mtJoQzbiikBk9Rt5NbtxCpBQR4LaKqGGU
-	 gCHe61RIZXTQA==
+	b=FZs+kQ+mN2PjafLuAv8mjHNOpRGdlkRrCP5b+K3L/VDKCcohff/HfRemeo1TcivJ3
+	 w/sKuqxrGJP2P98WXfYXAHjbFd4N2/zmxgoV0RyhdLnlqAbBnW0325BpRqH7VOgRKh
+	 2V0D6PJZtHKwrJnUAV5WScknKcPANelI/3X6t0HfvGrqJR1TNd55DdbZg7vtf8JRo4
+	 /KwZ5Xrq2debgpE4SkTnr9wkcwUjdSuPlxGFucb2dOcan5KAWw1nIaiXv+GzlOnaBd
+	 Hz0h0FbLIjVcJbUT0sRy2fCtwMHU0DqflPHXZbIEuDaEK+yY6bz8VPmSqaVDhYzd9A
+	 EongHKQJx3K0g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	Jakub Kicinski <kuba@kernel.org>,
+Cc: Gabor Juhos <j4g8y7@gmail.com>,
+	Imre Kaloz <kaloz@openwrt.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	daniel@makrotopia.org,
-	dqfext@gmail.com,
-	SkyLake.Huang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	brgl@bgdev.pl,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.15 029/118] net: phy: mediatek: do not require syscon compatible for pio property
-Date: Tue,  3 Jun 2025 20:49:20 -0400
-Message-Id: <20250604005049.4147522-29-sashal@kernel.org>
+	linux-gpio@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.15 046/118] pinctrl: armada-37xx: propagate error from armada_37xx_pmx_set_by_name()
+Date: Tue,  3 Jun 2025 20:49:37 -0400
+Message-Id: <20250604005049.4147522-46-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250604005049.4147522-1-sashal@kernel.org>
 References: <20250604005049.4147522-1-sashal@kernel.org>
@@ -66,10 +65,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.15
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_175153_871738_D3FE55FA 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20250603_175221_630527_BADFD12A 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,105 +84,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+From: Gabor Juhos <j4g8y7@gmail.com>
 
-[ Upstream commit 15d7b3dfafa98270eade6c77d2336790dde0a40d ]
+[ Upstream commit 4229c28323db141eda69cb99427be75d3edba071 ]
 
-Current implementation requires syscon compatible for pio property
-which is used for driving the switch leds on mt7988.
+The regmap_update_bits() function can fail, so propagate its error
+up to the stack instead of silently ignoring that.
 
-Replace syscon_regmap_lookup_by_phandle with of_parse_phandle and
-device_node_to_regmap to get the regmap already assigned by pinctrl
-driver.
-
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-Link: https://patch.msgid.link/20250510174933.154589-1-linux@fw-web.de
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-7-07e9ac1ab737@gmail.com
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** This commit should be backported to stable kernel trees. ##
-Analysis ### Core Issue Being Fixed The commit addresses a **device tree
-compatibility problem** in the MediaTek MT7988 PHY driver. The original
-code used `syscon_regmap_lookup_by_phandle()` which **requires** the
-target device node to have a "syscon" compatible string. This created an
-artificial requirement that forced users to modify their device trees
-even when the pinctrl driver already provided the necessary regmap. ###
-Code Changes Analysis The change is minimal but significant: ```c //
-OLD: Forces syscon compatible requirement regmap =
-syscon_regmap_lookup_by_phandle(np, "mediatek,pio"); // NEW: Works with
-any regmap provider pio_np = of_parse_phandle(np, "mediatek,pio", 0);
-regmap = device_node_to_regmap(pio_np); of_node_put(pio_np); ``` **Key
-differences:** - `syscon_regmap_lookup_by_phandle()` requires "syscon"
-compatible - `device_node_to_regmap()` works with any device that has
-registered a regmap - Proper error handling maintained with
-`of_node_put()` ### Why This Should Be Backported **1. Fixes Real User
-Issues:** - MT7988 hardware is actively deployed (BananaPi R4,
-networking devices) - Users cannot use PHY LED functionality without
-modifying device trees - This affects real hardware in production, not
-just development boards **2. Low Risk Change:** - Only 9 insertions, 1
-deletion - No functional behavior change - same register access, same
-error paths - Uses well-established kernel APIs - **Backward
-compatible:** Still works with DTs that have syscon compatible -
-**Forward compatible:** Also works with DTs that don't have syscon
-compatible **3. High Impact Fix:** - Removes artificial device tree
-constraints - Enables legitimate hardware configurations without DT
-hacks - Prevents fragmentation of MT7988 ecosystem across kernel
-versions - LED functionality is important for networking hardware
-visibility **4. Fits Stable Criteria:** - Fixes important functionality
-for users - Does not introduce new features - No architectural changes -
-Confined to one driver/subsystem - Minimal regression risk ###
-Comparison to Similar Commits Looking at the historical examples
-provided, this commit is similar to "clk: mediatek: Get regmap without
-syscon compatible check" which also moved from `syscon_node_to_regmap()`
-to `device_node_to_regmap()` for the same compatibility reasons. The
-pattern of removing unnecessary syscon requirements is well-established
-and safe. ### Real-World Impact Without this fix, users with legitimate
-device trees (where pinctrl doesn't have syscon compatible) cannot use
-MT7988 PHY LED functionality. This forces them to either: 1. Patch their
-device trees (not always possible in production) 2. Use older kernel
-versions 3. Lose LED functionality entirely The commit solves a
-**compatibility regression** rather than adding new functionality,
-making it an ideal stable backport candidate.
+Based on my analysis of the commit and the code context, here's my
+assessment: **YES** This commit should be backported to stable kernel
+trees. Here's my extensive analysis: ## Code Analysis The commit changes
+`armada_37xx_pmx_set_by_name()` function from: ```c
+regmap_update_bits(info->regmap, reg, mask, val); return 0; ``` To: ```c
+return regmap_update_bits(info->regmap, reg, mask, val); ``` ## Why This
+Should Be Backported 1. **Bug Fix Nature**: This is a clear bug fix that
+addresses silent error handling. The `regmap_update_bits()` function
+returns an integer error code (0 on success, negative on failure), but
+the original code was ignoring this return value and always returning
+success (0). 2. **Error Propagation Impact**: The function
+`armada_37xx_pmx_set_by_name()` is called from: -
+`armada_37xx_pmx_set()` - the main pinmux set function -
+`armada_37xx_gpio_request_enable()` - GPIO request handler that already
+checks return values 3. **Consistency with Similar Fixes**: Looking at
+the historical commits provided: - **Similar Commit #2** (Backport
+Status: YES) shows the exact same pattern where
+`armada_37xx_gpio_request_enable()` was updated to check return values
+from `armada_37xx_pmx_set_by_name()` - This current commit completes
+that fix by ensuring the function actually returns errors when they
+occur 4. **Critical Subsystem**: This affects the pinctrl subsystem
+which is fundamental to GPIO and pin configuration. Silent failures in
+pin configuration can lead to: - Hardware not being configured correctly
+- GPIO requests appearing to succeed when they actually failed -
+Difficult-to-debug hardware issues 5. **Minimal Risk**: The change is
+extremely small and contained: - No new functionality added - No
+architectural changes - Simple error propagation fix - Maintains
+existing API contract 6. **Stable Tree Criteria Compliance**: - ✅ Fixes
+an important bug affecting users - ✅ Small, contained change - ✅ No new
+features - ✅ Minimal regression risk - ✅ Affects critical kernel
+subsystem 7. **Real-World Impact**: Without this fix, regmap failures
+(which can occur due to hardware issues, power management problems, or
+I2C/SPI communication errors) would be silently ignored, leading to
+unpredictable system behavior where pin configurations appear successful
+but are actually failed. The commit follows the pattern established in
+the historical commit #2 which was marked for backporting, and
+represents the completion of proper error handling in this driver's
+critical path.
 
- drivers/net/phy/mediatek/mtk-ge-soc.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
-index 175cf5239bba8..21975ef946d5b 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.c
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
-@@ -7,6 +7,7 @@
- #include <linux/pinctrl/consumer.h>
- #include <linux/phy.h>
- #include <linux/regmap.h>
-+#include <linux/of.h>
+diff --git a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+index 335744ac83105..68fd469a338a7 100644
+--- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
++++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+@@ -358,9 +358,7 @@ static int armada_37xx_pmx_set_by_name(struct pinctrl_dev *pctldev,
  
- #include "../phylib.h"
- #include "mtk.h"
-@@ -1319,6 +1320,7 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
- {
- 	struct device_node *np = dev_of_node(&phydev->mdio.bus->dev);
- 	struct mtk_socphy_shared *shared = phy_package_get_priv(phydev);
-+	struct device_node *pio_np;
- 	struct regmap *regmap;
- 	u32 reg;
- 	int ret;
-@@ -1336,7 +1338,13 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
- 	 * The 4 bits in TPBANK0 are kept as package shared data and are used to
- 	 * set LED polarity for each of the LED0.
- 	 */
--	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,pio");
-+	pio_np = of_parse_phandle(np, "mediatek,pio", 0);
-+	if (!pio_np)
-+		return -ENODEV;
-+
-+	regmap = device_node_to_regmap(pio_np);
-+	of_node_put(pio_np);
-+
- 	if (IS_ERR(regmap))
- 		return PTR_ERR(regmap);
+ 	val = grp->val[func];
  
+-	regmap_update_bits(info->regmap, reg, mask, val);
+-
+-	return 0;
++	return regmap_update_bits(info->regmap, reg, mask, val);
+ }
+ 
+ static int armada_37xx_pmx_set(struct pinctrl_dev *pctldev,
 -- 
 2.39.5
 
