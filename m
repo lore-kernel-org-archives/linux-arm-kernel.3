@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2251EC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 12:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4526C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 12:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3o2Al+ah5HLHId+sovtfURIatXMLe6xwgsl5Nxm6Ms=; b=YXQg+fHK7PJ8Aqmsb+nzrqwc0G
-	LNtmQp/Xs5B8ckPjCCgL8tKrnQ2WxPqeb40BRRShSKB1oXwupnyh5CZWlzcCvnMKd9HbT0FdXCbU0
-	HgS8wvumDyBhL2gSIQ+3/vIgiWteSCDKl4Ybj1S+t63R5rnL74EcAgBxNvd7M9h3EkNUPWXj98BHv
-	IOIQcwIwe19Xy8Z0f2Vy7QpOVUnVKKfL9yxk95AHq1S4kzj1nudrK63uGm2VZC0IAukWrJN6hrTzb
-	rbY6BSHjsyJPAa/AbA4fffYGAzWu2YHULbdAGOOL3hzlBrBALKRghIJcZMBLinnaEaxC01UVT1TaX
-	arh3I/Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=waKYFNIYf4LrJ42FOyiZV+jusnWxW7j8zewA7/spaT0=; b=BzgIG9XqRCBXewiwv+jGf0nXkr
+	DMr47FSjWlLQFtGSSsm6M0YqIBB8V2WOQHWQbYM5Ecaaaq6QbbNA7DcTVoAGap0P4KeWq8GMvGd3k
+	rq8dm3zehyeGIEAGJofywVGqkI1GGKedYrzYJ13WpqG90XUMRYEbXg3yCyiPqaGgZhRiQv+0mwDOs
+	WJw/8dASjO7lyh748y7+h5+Gat7hLj2CxO5SHqVUU2pmWmrEscTZZvGpusO3sCwYMaYD2NFwIxguH
+	UFAa3QNGm2MIPLT43sIQeKHYhbP4oa1CpTdMNay/5KmqLPKqihzrS/bJoo37TYWF64opgd8VBqxM6
+	tb7dZxLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMn1c-0000000DIdn-0F15;
-	Wed, 04 Jun 2025 12:15:20 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uMn3g-0000000DJ1K-3AXg;
+	Wed, 04 Jun 2025 12:17:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMmk9-0000000DGJ5-09Qs
+	id 1uMmnq-0000000DGgo-06HV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 11:57:18 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a50fc7ac4dso1845051f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 04:57:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749038235; x=1749643035; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=U3o2Al+ah5HLHId+sovtfURIatXMLe6xwgsl5Nxm6Ms=;
-        b=JjMNAwlepLmO2lMOZau2NtGNJUuk3mYo5iivgza+OgiFlLYBa+8Q5jXz50VWwW4rjs
-         vavqL4BI2ITA/2+Mwlo2eOx1kqdDTUFXKBemoPDx8xF4Q5bhvV6qAySyGoweZxphEhbz
-         DA77FeP6nfK6po0pcuzg8tmso2SHlD1h0v4MLLwS1TIMdc+7MarIcYp9moLOXtTgYa2l
-         qbEsWcwt05CP9Vgpc5fUOa6VVAIT6/NLjFg55sjjT70wgBntDqW1fuOn5SDehGcrJsed
-         vJovxQ8giWzf5pPnjvL/cX0+EunKCOUIEzEKCuDcNzkRW0HUZoflAR2zXdf54afzk7Xl
-         cciw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749038235; x=1749643035;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=U3o2Al+ah5HLHId+sovtfURIatXMLe6xwgsl5Nxm6Ms=;
-        b=L7k2Efp1OcoTB8rf5rpByBXGU2Jw20KHvgVLU9/fcbpQSZ7PEaYrrI+AiZVPettAlv
-         RlW8w6EY57gjmatew/n4XHVJbwg43XDD9dCa/Dr86hQN1QQcxIEhxC5Vw/ohqN8aJRWK
-         WWx7/LP8TYvYrIMe2O2FqjgqbGvAkMwHWl2LQPKMF80kJ/MLosjHc59GHH+W6xMhjFgg
-         Nxm5vYCRf875cAb2cc3wklg2SpOlIbEU4pOGZiPStYqFLiwu4/pWv+C3q2di/bzVvFNU
-         4cR9HICu2CfuNAe0iSk3zplHUolEMHoewUPmseF4/fgbEy+A2jfpOIFhM+1a6849YnjO
-         iZ5w==
-X-Forwarded-Encrypted: i=1; AJvYcCVuEslrE3QzkEDIuiAQGlgc2Nqnj4ryGP3IBVul2zQc8rTSugvO4SMSlMCYGIDjt6dOpWIH3EJtelBWoXWsZJq6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYj7zDvOCp2hJ+4lnjbWstH06Raxl0nwWB6QtpUgzZNslzw3cV
-	EsmA5UGA1WaP30djADxy6YyqURx70d//AHFEaYFDI+n4HFR1434knngSaQrJ7ta+2NsLhHcR4cB
-	7Xk9eUAM=
-X-Gm-Gg: ASbGnctSEoaZ4GjkU0ULUGRobeLNmYEdVeAUmouYLKEQeklHhdekdu+sS50YUNJL+nc
-	TxAU823y2LjqyWqJHcDPEfYju/M848yUxPeu6O6w3i4LFka3wmZ55qMcbRKrlVBwTkRORXeOBU4
-	iZSMNDaaFonnQK/JEnberM+0BP3lxxCzR8fTSoT8CHSBKY52zjElX7dDh7e4jQW3gw2u4Ja4cLy
-	ZaxKHYKg7JrvKNyTMdJpTYFKt1iDwNCz35q4hymJAUNd+MrS4r7HjslQ6CD4gqeF/8f4xPo56Bt
-	s1S5q95fkvig/HK6N+UO0nQffv4xqSuBoxLfhryHFhla59qqO7f/catRCHh7U9VE2ac=
-X-Google-Smtp-Source: AGHT+IGGx/pRBN6Nlohu7KEh/U2KfqTQe9QEj4xrqThZZd7vVFzq9OIm8hn6xKWvFYQxHWXlRnyzYw==
-X-Received: by 2002:a05:6000:188b:b0:3a5:221:2bf6 with SMTP id ffacd0b85a97d-3a51d973d79mr2079356f8f.57.1749038235206;
-        Wed, 04 Jun 2025 04:57:15 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d7fb80f6sm194615105e9.28.2025.06.04.04.57.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Jun 2025 04:57:14 -0700 (PDT)
-Message-ID: <189edea6-49d8-4829-88ce-fa75d83401d6@linaro.org>
-Date: Wed, 4 Jun 2025 12:57:13 +0100
+	Wed, 04 Jun 2025 12:01:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=waKYFNIYf4LrJ42FOyiZV+jusnWxW7j8zewA7/spaT0=; b=xRjnYFbiM4mwUIe/PxOIVrTZj5
+	asr9kZnkbk7H9VDjzpjU3n4TP0fwjdA+YMIKqSrPV2h+yxSf1LTP8bP4bYSjYqqGr4bRzEsQC2pUS
+	4mXAMtQGi6d9mkurCGQxZgaXBKRO2tS+PEmY1dVNLm3gTIo1cggd2NJtv4uo/P++Pn94=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uMmnf-00Eg4w-Ap; Wed, 04 Jun 2025 14:00:55 +0200
+Date: Wed, 4 Jun 2025 14:00:55 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [v1] arm64: dts: freescale: imx93-var-som: update eqos support
+ for MaxLinear PHY
+Message-ID: <d5f891d7-d24a-4f85-b59d-313b925c4495@lunn.ch>
+References: <20250603221416.74523-1-stefano.radaelli21@gmail.com>
+ <54c4a279-a528-4657-8319-c9374add54b7@lunn.ch>
+ <CAK+owoihxp-2xAvFfVthvNELshti_3V-pFgD7D7jzd1XqiLgGQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [boot-wrapper] aarch64: Enable access into FEAT_SPE_FDS register
- from EL2 and below
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>
-References: <20250604114604.629782-1-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250604114604.629782-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAK+owoihxp-2xAvFfVthvNELshti_3V-pFgD7D7jzd1XqiLgGQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_045717_098507_71006A5B 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20250604_050106_062127_5A320ED3 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,80 +77,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 04/06/2025 12:46 pm, Anshuman Khandual wrote:
-> FEAT_SPE_FDS adds system register PMSDSFR_EL1. But accessing that system
-> register from EL2 and below exception levels, will trap into EL3 unless
-> MDCR_EL3.EnPMS3 is set.
+61;8001;1cOn Wed, Jun 04, 2025 at 09:37:39AM +0200, Stefano Radaelli wrote:
+> Hi Andrew,
 > 
-> Enable access to FEAT_SPE_FDS registers when they are implemented.
-> 
-> Cc: James Clark <james.clark@linaro.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Mark Brown <broonie@kernel.org>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->   arch/aarch64/include/asm/cpu.h | 4 ++++
->   arch/aarch64/init.c            | 3 +++
->   2 files changed, 7 insertions(+)
-> 
-> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-> index 2b3a659..ac50474 100644
-> --- a/arch/aarch64/include/asm/cpu.h
-> +++ b/arch/aarch64/include/asm/cpu.h
-> @@ -55,6 +55,7 @@
->   #define MDCR_EL3_NSTB_NS_NOTRAP			(UL(3) << 24)
->   #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT	(UL(3) << 32)
->   #define MDCR_EL3_ENPMSN				BIT(36)
-> +#define MDCR_EL3_ENPMS3				BIT(42)
->   #define MDCR_EL3_EBWE				BIT(43)
->   #define MDCR_EL3_EnPM2				BIT(7)
->   
-> @@ -185,6 +186,9 @@
->   
->   #define SCTLR_EL1_CP15BEN	(1 << 5)
->   
-> +#define PMSIDR_EL1		s3_0_c9_c9_7
-> +#define PMSIDR_EL1_FDS		BIT(7)
-> +
->   #ifdef KERNEL_32
->   /*
->    * When booting a 32-bit kernel, EL1 uses AArch32 and registers which are
-> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
-> index e1640a9..b6f740c 100644
-> --- a/arch/aarch64/init.c
-> +++ b/arch/aarch64/init.c
-> @@ -146,6 +146,9 @@ static void cpu_init_el3(void)
->   	if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 3)
->   		mdcr |= MDCR_EL3_ENPMSN;
->   
-> +	if (mrs_field(PMSIDR_EL1, FDS))
-> +		mdcr |= MDCR_EL3_ENPMS3;
-> +
+> I double-checked with our hardware team, and it turns out that all required
+> RGMII delays are already handled by the hardware on the SOM (trace
+> tuning + PHY config).
 
-You are only allowed to read PMSIDR if SPE is implemented otherwise it's 
-undef so it needs another check.
+What do you mean by PHY config?
 
-It would be much easier to unconditionally set all the known MDCR bits. 
-If the feature is implemented then setting them to 1 disables the traps, 
-which we want, and if it's not implemented it does nothing which we also 
-want.
+The four RGMII modes you can use with phy-mode are purely about the
+PCB. If you have the PHY strapped to add delays, what does not count
+for PCB, and if you are not careful, future software could reconfigure
+it.
 
-Doing them all conditionally is quite error prone and extra work for 
-nothing. In TFA it's already done unconditionally:
-
-*
-* MDCR_EL3.EnPMSN (ARM v8.7) and MDCR_EL3.EnPMS3: Do not trap access to
-* PMSNEVFR_EL1 or PMSDSFR_EL1 register at NS-EL1 or NS-EL2 to EL3 if 
-FEAT_SPEv1p2
-* or FEAT_SPE_FDS are implemented. Setting these bits to 1 doesn't have any
-* effect on it when the features aren't implemented.
-*/
-mdcr_el3_val |= MDCR_NSPB(MDCR_NSPB_EL1) | MDCR_EnPMSN_BIT | 
-MDCR_EnPMS3_BIT;
-
->   	if (mrs_field(ID_AA64DFR0_EL1, TRACEBUFFER))
->   		mdcr |= MDCR_EL3_NSTB_NS_NOTRAP;
->   
-
+	Andrew
 
