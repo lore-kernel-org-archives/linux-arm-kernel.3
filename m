@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61262C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 12:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A412C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 12:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WuJsBEQO3vOHs70HHUYSLQfGS4A7b1VGRI3y13ObEFA=; b=pk7o45NwYiYkE7L3NWdNWCCKMq
-	QG3FSzA1oYHi9x1YiMu4l8wJm9GoV8U14KyUMlPlugFfxhar30Xvf79ES/hpz/2cx0Jni8HWmuX/I
-	z4jgU8+pb8JRZvvUJXyz93cVN/srTbeSi8/YSSUKEsW5kaLc/pZTudEr2lpzznAt1CT3IoA8Pngqq
-	8i1AvgCI7CLrmW1/s6lqRJD7HuiHirmC0xU3s5+8NTuqheFLemsc9d9nM12DrTbuAXH16WMWR7es4
-	MY5IZS1Mjy5byqI5e4cYYAYaWWgtAOe6R43E4TDnb0KflrJ/63fIP7YV+e8221Yd8R9y7ooXScFnD
-	JOqDVOlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XLzmrt7HH74wBMkQ1jIj6RZSL8Ap7h/ZY365Wy8qDIE=; b=NgB6vZb+X46r65za0BvPFBzbDM
+	sGNO0alUXnlcAd4O2HVGpfD8BwW32265tqiLlgTCmSvexX37jx4++5n+hShrtpNjdywzUIazoQxyb
+	nQgc5C2/raMMhbRIB2QZqOQnaHEE06VX8lbrlglwLLMfzqrjrkHuY9yVIKcFVoOQkXxQoPXAQEZUB
+	yl/wGfyWBeHZwera7kJywTvCFM6dz4d6xvNOEA4Gw6tsZUyRmS4pfUHh67J0fMtLjPAS1UMlw5+cf
+	6Pz39AeWO7AGXMaihFwL4mKOFWmidMWDKQIiZiWGX+kBgE1sijrD517V4LA8at3qzDPBr+gam2V0o
+	i92Mib2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMmtJ-0000000DHOV-2DKu;
-	Wed, 04 Jun 2025 12:06:45 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uMmvN-0000000DHcP-0zns;
+	Wed, 04 Jun 2025 12:08:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMmdj-0000000DFM5-1cOS
+	id 1uMmdj-0000000DFMt-2maL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 11:50:40 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1749037835;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WuJsBEQO3vOHs70HHUYSLQfGS4A7b1VGRI3y13ObEFA=;
-	b=oLegIJNmlkhOaetnuHLnch2mHHI+88mIOb3Y0cYl7lskKBYEEzGVCM1wsH1KXlak8ffUBR
-	nZUMyHq+WVjSRiI+J5d+zSeEV6tTJpcCuHO6QGXQvXnS7EHGCqDLEy3X8CWDi4ijbAKM2F
-	Px3eU6Ao/vZiGBWf6Ty5mCa1tRsEJ+KjayDZD6WJmYQVW52RS4Jbi+JJi3em83Lj9LfVQC
-	p969a8IZOgd9cM9f5pzgSRNX6OLiL9uc5gVFSdgA4gntA1s/mCv+UU/ctr6r/wI0WzBmj6
-	r8nyemYWNPFPNtWON1uz44w64Ej3ZByT/sIkP1z23H2cRcIHzjIA+LfcceOBvg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1749037835;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WuJsBEQO3vOHs70HHUYSLQfGS4A7b1VGRI3y13ObEFA=;
-	b=SmWCssRSGTRTgB2qp0+RPYebju8bTkPSVINOn6Di4Y+SjIWdqd2It7SNMy+NVWjVCDXVWa
-	TpYNl84Bb9OtHzCw==
-To: Petr Mladek <pmladek@suse.com>, "Toshiyuki Sato (Fujitsu)"
- <fj6611ie@fujitsu.com>
-Cc: 'Michael Kelley' <mhklinux@outlook.com>, 'Ryo Takakura'
- <ryotkkr98@gmail.com>, Russell King <linux@armlinux.org.uk>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
- <jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
- <linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: Problem with nbcon console and amba-pl011 serial port
-In-Reply-To: <aEApOPTqbVOR35F_@pathway.suse.cz>
-References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
- <84y0u95e0j.fsf@jogness.linutronix.de>
- <84plfl5bf1.fsf@jogness.linutronix.de>
- <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
- <aEApOPTqbVOR35F_@pathway.suse.cz>
-Date: Wed, 04 Jun 2025 13:56:34 +0206
-Message-ID: <84o6v3ohdh.fsf@jogness.linutronix.de>
+	Wed, 04 Jun 2025 11:50:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 08217A504CB;
+	Wed,  4 Jun 2025 11:50:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52B65C4CEEF;
+	Wed,  4 Jun 2025 11:50:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749037838;
+	bh=MHb0T8EvRB2rgtEWggawV/NaKnjOHlkVsRie8KiLPrc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Jgsk920717lozvJe/jSfZ98fEgyGvXUwX5FTa9hY1dL3XYukGL6FlgRX5gWJU1VGw
+	 e3Y3iqbMXtRyEqEkfVy/HYhG21jqj7vhpP3i69ovKBwHKL12zxCVKp9XfcXE+LuuMG
+	 eIsBc/BTldBiyYHPg0z3peFLjEv1p4t5SY2YrJZK68bLap6vKK8RJ0/tTPLPA+fM5G
+	 wBRVoRkZ6vUvjk6Vxmumrrs7WvlQXZ+3hmn9mr0RfhJskclstuKjoJzOnKM0CoFbs3
+	 WMcKKjn92Fl2LzB+A3MiXiyCcIPKWUr4BKM7IV+uuGX30rsRHrPVcgEQpCNybMFs5M
+	 H2jE8LnBcdztg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Sukrut Bellary <sbellary@baylibre.com>,
+	Judith Mendez <jm@ti.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Sasha Levin <sashal@kernel.org>,
+	paul@pwsan.com,
+	aaro.koskinen@iki.fi,
+	andreas@kemnade.info,
+	rogerq@kernel.org,
+	tony@atomide.com,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.15 3/5] ARM: OMAP2+: Fix l4ls clk domain handling in STANDBY
+Date: Wed,  4 Jun 2025 07:50:31 -0400
+Message-Id: <20250604115033.209492-3-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250604115033.209492-1-sashal@kernel.org>
+References: <20250604115033.209492-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 5.15.184
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_045039_560996_95BA7C63 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250604_045039_839167_ADDA0233 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,31 +84,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-04, Petr Mladek <pmladek@suse.com> wrote:
-> On Wed 2025-06-04 04:11:10, Toshiyuki Sato (Fujitsu) wrote:
->> > On 2025-06-03, John Ogness <john.ogness@linutronix.de> wrote:
->> > > On 2025-06-03, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com> wrote:
->> > >>> 4. pr_emerg() has a high logging level, and it effectively steals the console
->> > >>> from the "pr/ttyAMA0" task, which I believe is intentional in the nbcon
->> > design.
->> > >>> Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is doing
->> > >>> nbcon_enter_unsafe() and nbcon_exit_unsafe() around each character
->> > >>> that it outputs.  When pr_emerg() steals the console, nbcon_exit_unsafe()
->> > >>> returns 0, so the "for" loop exits. pl011_console_write_thread() then
->> > >>> enters a busy "while" loop waiting to reclaim the console. It's doing this
->> > >>> busy "while" loop with interrupts disabled, and because of the panic,
->> > >>> it never succeeds.
->
-> I am a bit surprised that it never succeeds. The panic CPU takes over
-> the ownership but it releases it when the messages are flushed. And
-> the original owner should be able to reacquire it in this case.
+From: Sukrut Bellary <sbellary@baylibre.com>
 
-The problem is that other_cpu_in_panic() will return true forever, which
-will cause _all_ acquires to fail forever. Originally we did allow
-non-panic to take over again after panic releases ownership. But IIRC we
-removed that capability because it allowed us to reduce a lot of
-complexity. And now nbcon_waiter_matches() relies on "Lower priorities
-are ignored during panic() until reboot."
+[ Upstream commit 47fe74098f3dadba2f9cc1e507d813a4aa93f5f3 ]
 
-John Ogness
+Don't put the l4ls clk domain to sleep in case of standby.
+Since CM3 PM FW[1](ti-v4.1.y) doesn't wake-up/enable the l4ls clk domain
+upon wake-up, CM3 PM FW fails to wake-up the MPU.
+
+[1] https://git.ti.com/cgit/processor-firmware/ti-amx3-cm3-pm-firmware/
+
+Signed-off-by: Sukrut Bellary <sbellary@baylibre.com>
+Tested-by: Judith Mendez <jm@ti.com>
+Link: https://lore.kernel.org/r/20250318230042.3138542-2-sbellary@baylibre.com
+Signed-off-by: Kevin Hilman <khilman@baylibre.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+**YES** This commit should be backported to stable kernel trees. Here's
+my detailed analysis: ## Analysis of the Bug Fix **Critical Power
+Management Issue**: This commit fixes a fundamental system hang
+condition where the AM33xx SoC cannot resume from standby mode. The l4ls
+(L4 Low Speed) clock domain is being incorrectly put to sleep during
+standby, which prevents the CM3 PM firmware from communicating with the
+MPU to wake it up. ## Code Changes Analysis **1. Minimal and Targeted
+Changes**: - Adds a single new flag `CLKDM_STANDBY_FORCE_WAKEUP` in
+clockdomain.h - Applies this flag only to the l4ls clock domain in
+clockdomains33xx_data.c - Modifies am33xx_clkdm_clk_disable() to check
+for standby state and avoid sleeping this specific domain **2.
+Conservative Approach**: The fix only prevents the problematic behavior
+(putting l4ls to sleep during standby) rather than changing the overall
+power management architecture. It follows the existing pattern already
+documented in the codebase for similar GFX_L4LS workarounds. **3. Well-
+Contained Risk**: - Changes are limited to AM33xx-specific code paths -
+No changes to external APIs or device tree bindings - The conditional
+check `pm_suspend_target_state == PM_SUSPEND_STANDBY` ensures the change
+only affects standby mode ## Backport Justification **Meets Stable Tree
+Criteria**: 1. **Important Bug Fix**: Resolves critical system hang
+during suspend/resume 2. **Minimal Risk**: Surgical change with very low
+regression potential 3. **No New Features**: Pure bug fix with no
+architectural changes 4. **Platform-Specific**: Contained to AM33xx
+SoCs, no cross-platform impact **High Impact for Users**: This affects
+fundamental system reliability for devices using AM335x chips
+(BeagleBone, industrial IoT systems). The current bug makes standby mode
+unusable, requiring users to avoid this power saving feature entirely.
+**Low Regression Risk**: The only potential side effect is marginally
+higher standby power consumption from keeping one clock domain awake,
+which is acceptable given the critical nature of the fix. This is
+exactly the type of targeted, low-risk fix that stable trees are
+designed for - addressing a critical functional issue with minimal code
+changes and clear benefit to users.
+
+ arch/arm/mach-omap2/clockdomain.h           |  1 +
+ arch/arm/mach-omap2/clockdomains33xx_data.c |  2 +-
+ arch/arm/mach-omap2/cm33xx.c                | 14 +++++++++++++-
+ 3 files changed, 15 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/mach-omap2/clockdomain.h b/arch/arm/mach-omap2/clockdomain.h
+index 68550b23c938d..eb6ca2ea80679 100644
+--- a/arch/arm/mach-omap2/clockdomain.h
++++ b/arch/arm/mach-omap2/clockdomain.h
+@@ -48,6 +48,7 @@
+ #define CLKDM_NO_AUTODEPS			(1 << 4)
+ #define CLKDM_ACTIVE_WITH_MPU			(1 << 5)
+ #define CLKDM_MISSING_IDLE_REPORTING		(1 << 6)
++#define CLKDM_STANDBY_FORCE_WAKEUP		BIT(7)
+ 
+ #define CLKDM_CAN_HWSUP		(CLKDM_CAN_ENABLE_AUTO | CLKDM_CAN_DISABLE_AUTO)
+ #define CLKDM_CAN_SWSUP		(CLKDM_CAN_FORCE_SLEEP | CLKDM_CAN_FORCE_WAKEUP)
+diff --git a/arch/arm/mach-omap2/clockdomains33xx_data.c b/arch/arm/mach-omap2/clockdomains33xx_data.c
+index b4d5144df4454..c53df9d42ecf8 100644
+--- a/arch/arm/mach-omap2/clockdomains33xx_data.c
++++ b/arch/arm/mach-omap2/clockdomains33xx_data.c
+@@ -27,7 +27,7 @@ static struct clockdomain l4ls_am33xx_clkdm = {
+ 	.pwrdm		= { .name = "per_pwrdm" },
+ 	.cm_inst	= AM33XX_CM_PER_MOD,
+ 	.clkdm_offs	= AM33XX_CM_PER_L4LS_CLKSTCTRL_OFFSET,
+-	.flags		= CLKDM_CAN_SWSUP,
++	.flags		= CLKDM_CAN_SWSUP | CLKDM_STANDBY_FORCE_WAKEUP,
+ };
+ 
+ static struct clockdomain l3s_am33xx_clkdm = {
+diff --git a/arch/arm/mach-omap2/cm33xx.c b/arch/arm/mach-omap2/cm33xx.c
+index ac4882ebdca33..be84c6750026e 100644
+--- a/arch/arm/mach-omap2/cm33xx.c
++++ b/arch/arm/mach-omap2/cm33xx.c
+@@ -28,6 +28,9 @@
+ #include "cm-regbits-34xx.h"
+ #include "cm-regbits-33xx.h"
+ #include "prm33xx.h"
++#if IS_ENABLED(CONFIG_SUSPEND)
++#include <linux/suspend.h>
++#endif
+ 
+ /*
+  * CLKCTRL_IDLEST_*: possible values for the CM_*_CLKCTRL.IDLEST bitfield:
+@@ -336,8 +339,17 @@ static int am33xx_clkdm_clk_disable(struct clockdomain *clkdm)
+ {
+ 	bool hwsup = false;
+ 
++#if IS_ENABLED(CONFIG_SUSPEND)
++	/*
++	 * In case of standby, Don't put the l4ls clk domain to sleep.
++	 * Since CM3 PM FW doesn't wake-up/enable the l4ls clk domain
++	 * upon wake-up, CM3 PM FW fails to wake-up th MPU.
++	 */
++	if (pm_suspend_target_state == PM_SUSPEND_STANDBY &&
++	    (clkdm->flags & CLKDM_STANDBY_FORCE_WAKEUP))
++		return 0;
++#endif
+ 	hwsup = am33xx_cm_is_clkdm_in_hwsup(clkdm->cm_inst, clkdm->clkdm_offs);
+-
+ 	if (!hwsup && (clkdm->flags & CLKDM_CAN_FORCE_SLEEP))
+ 		am33xx_clkdm_sleep(clkdm);
+ 
+-- 
+2.39.5
+
 
