@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C678FC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 11:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2538CC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 12:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JLG6mY6MrSnv/kBCuQ7TAdZ7qyo8oybZ29TJ3XnXLTk=; b=ynwruEeqdQHbMfdSfm5e7yaVgx
-	3g5woHPGZTOAcSQMN1L+CHRgYxZpSbvQEwhx9ihMUodI7igSgjlY/rmuIfBdZ5NH9FjsyGJV+470n
-	GvkKD88ka9+5TgQ21QEPqWqkAXFwTfc9kEP6nZZlKZ/cN9uMcwGAN+0FO47OPMdo4tuACLnpMy6lc
-	MfjY2IZY7mN6JPYWnAMNjnVkHaAY0pi9lxMHWOYB+TkYsedBu33tnENES/EN28iBv0P2vL5hxnPtx
-	fO18MvmXXAz/oEn/XKl74+uKn2vKHRlj+3c92dP9QuBOMDgc8Vz/4xX+dB8PmEhmp86zOTMWtNywz
-	3A/Uzttg==;
+	bh=JLG6mY6MrSnv/kBCuQ7TAdZ7qyo8oybZ29TJ3XnXLTk=; b=BscbP6ENLlqUU8Qrme01J0ilAs
+	uBeldC3mPsn8qkooJUj+hknsph8WhjFXiYpj4XzhHcCa1TgOTck2TqnSbab68VcjqRsU9oSOekJGS
+	jNfsDxXHceHGAqL7sXjUoh1s5PCpNDP1jVjKVHBLesF2vLH1P9400x1ZO2Li/XKzOIiom/xjcyMXw
+	q3Ou5ElHSjXwvbgQnnBxk+2wvV6dGUsSkMduCN9I4AZ/Wm54EIt7iQ+R1xWv2XhqpuVBScW84f0Bi
+	fOKSQprqVAh/Tf9OHLpPKxjhNe720wVPX5XhnV7HoatrYn3mExVIru334ahKZuBbgupPIoYewDUz2
+	8u3yjSqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMml1-0000000DGLg-2cmI;
-	Wed, 04 Jun 2025 11:58:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uMmn5-0000000DGXd-1krJ;
+	Wed, 04 Jun 2025 12:00:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMmd2-0000000DFDI-1H6y
+	id 1uMmdF-0000000DFFK-3Run
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 11:49:57 +0000
+	Wed, 04 Jun 2025 11:50:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B09764A7B9;
-	Wed,  4 Jun 2025 11:49:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2792AC4CEF0;
-	Wed,  4 Jun 2025 11:49:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 792FF61F1E;
+	Wed,  4 Jun 2025 11:50:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9C6C4CEEF;
+	Wed,  4 Jun 2025 11:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749037795;
+	s=k20201202; t=1749037807;
 	bh=/7QKGrTwN7WFNPqZXaHQRNv6Glm9M4Hd1rhi/yG9yGA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OouUBZqBnZ11/PX1HGKh/rUSdNc0kHO3I4LROhi2zbIXDawEHlbvk3INdbWVJ6c6n
-	 87psT19drbWDK1j6qGM6qkqSjr64PePb1h8bAm39gzbvvrgX7HHE4tV4HmjLRjtGjv
-	 p8vF4e8xBWutG7SP2efmKneORB8tNa/H7em/ke3tSr3riuBipTsmIFTRfUNdZ8tKey
-	 bJqseEAV8z2bvrHqfLcih9ezgIubaWryhgEc11VlejdCLgLpiMTfAFayirvaCy69pZ
-	 DXXdaRXt5t8NFvkMFt15Y0ylBOPUWnb3U12jy5bb+DdRYM4Cm5Gsg2bMVYfBsHIYT9
-	 /yt6EQinQuL2w==
+	b=DdLJAgUpxpBvmcQ6S4rc8YB+zZGO5ohyS9zBn9s6J3YDDFBoBqNdX6TLovurlOEX2
+	 VpCnqz09c7/2GHtRYyWbUv1ChVk6O3N1wYziZjkbRTmZNHrhyWQVUqbU39FU+bFMGj
+	 oKJNAkUNoJOO0GpDoKOJbZYVxSa7z8zPxXJRMMVGMFQoV7UnkTFvvD42snyPS1nJLb
+	 +VTbr5fBx+VZ6GYYt2ynfK+XipcQquZHzQPasiHFgNd/TpmMzI9Wf23hfKXKrNvpp0
+	 cYxYV0LwrQ704WJkuHydovmqFgSTpx5ZCDGZOvisef0bdgNZyu51SBXECIpkB9xRs2
+	 qIDCNbQVIfKFA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -56,20 +56,17 @@ Cc: Sukrut Bellary <sbellary@baylibre.com>,
 	tony@atomide.com,
 	linux-omap@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 6/8] ARM: OMAP2+: Fix l4ls clk domain handling in STANDBY
-Date: Wed,  4 Jun 2025 07:49:41 -0400
-Message-Id: <20250604114944.208828-6-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 4/6] ARM: OMAP2+: Fix l4ls clk domain handling in STANDBY
+Date: Wed,  4 Jun 2025 07:49:56 -0400
+Message-Id: <20250604114959.209031-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250604114944.208828-1-sashal@kernel.org>
-References: <20250604114944.208828-1-sashal@kernel.org>
+In-Reply-To: <20250604114959.209031-1-sashal@kernel.org>
+References: <20250604114959.209031-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.14.9
+X-stable-base: Linux 6.12.31
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_044956_374723_E26C5191 
-X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
