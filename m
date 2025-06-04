@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399CFC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 20:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28DFAC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 20:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5e+qkQycOr4SI78ZL9F8/Fg8TAXsu/n3fxrAPqYb6BQ=; b=aUCNS+xaKQejVkc+tcd2QJdr+y
-	v5GPvRh8g4/ZWWKR+e9G0dlqjaSF6mZ1pVXveFKAvQcR7s24VH/Z1MS7dHlpiD8b0QaH/QdC1QHyM
-	sAjR+utB7AwtAADsk1UoprImvXQn0qXFMcbl277D7Z+rEktUsRKF7bLv/L3zAHdjwitPFUMD2Cxc/
-	gXAdJ/JqEoroHACNg7gInbhZ7SdM0hGnI9xPcm3XEH764fUuovziXli3LlRLGnOsWHwzPlxxvZnsZ
-	Ne+CZJ0mw+D5WagMe0KMbkoqyvJLFVMbpuAAtzWDCrEePg25tO/9kvsoe1s5wcY4o8TTVdNh6dZDY
-	gg9PObsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ew2KKUfxZ/eWg/FoAGC7r3/GrjX85J4YGoGYiljFpSo=; b=kF9nlO5s62+FerFNnyjeFJ6pwf
+	RxuCzP1rmJ1reyzzNBFMj5Tw+BkBPZx4XgvPGQdsozzxDexkm4tCZc1gXW5wGfknubiix0ypxfS8W
+	xhkjL9MPb0c2HtGWQBRYQxH5YI63l4h4YrjMlruQaFYZgicrTkP4a1bLPA0OVj8c+2099PeIrKW8D
+	pIFDXQNBSSPzj0Ow/ub4RjCtWvXbEpm66wfONccmtCk29NLE/ocmcxg9uOxcJyNh/gIIBKD8hzkNC
+	3fDPxL+YTMPszBtOzaTPjFoT51rhZs79MMc37vfMDLKpvyRGDVghOEBdJ7Kg4gQUNV2GLlRFYNfu4
+	438iV1iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMupu-0000000ECHW-47V2;
-	Wed, 04 Jun 2025 20:35:46 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uMurz-0000000ECSC-25uJ;
+	Wed, 04 Jun 2025 20:37:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMufS-0000000EBQ4-1D8X;
-	Wed, 04 Jun 2025 20:25:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=5e+qkQycOr4SI78ZL9F8/Fg8TAXsu/n3fxrAPqYb6BQ=; b=SSZHyL2aJpIy3IsMu5f/QhEP0c
-	HCQH6PkBlUd8KSqGJuoWbUsG+d9KxqTGUVrZp5XmH4dxZ1EQMGOXHReWVL2GehzkM0Kj3JifRtQlI
-	PSTc/Mfw69eOcJDtwJIsU7h9UZHCyEXSmkBivAISQymAo2dsrEAS3WfQkzdgn4HjtChD1+AKXFvNC
-	h3UenP5eVUITN/s3yYSlQvkWk6etQyXIwl6XYO7U8NvZBviRQFewayFGrRSz8DR6JUEJTR2nI7aoR
-	VTYN6mEkAk+IFUgLY5T2I0LTm2wuWFKKzzTivtslY2HsiRzAwG7GNFKyaWTv4r09sOUoM2A8lK6zz
-	iLxKb1Cw==;
-Received: from i53875a2b.versanet.de ([83.135.90.43] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uMufH-0003SS-CB; Wed, 04 Jun 2025 22:24:47 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	jonas@kwiboo.se,
-	dsimic@manjaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: add regulator-enable-ramp-delay to RK860-2/-3 regulators
-Date: Wed,  4 Jun 2025 22:24:25 +0200
-Message-ID: <20250604202425.239924-1-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
+	id 1uMukl-0000000EBqR-1j12;
+	Wed, 04 Jun 2025 20:30:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8122944BD9;
+	Wed,  4 Jun 2025 20:30:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC073C4CEE4;
+	Wed,  4 Jun 2025 20:30:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749069026;
+	bh=LhtwtfigN8JEw9i0rxsCWNRKRm3pIR9KXYnKVRzhQDU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y3NK2ujC+1GVDKiRZ6teN8gSNhF8tO2TRhppHrdlfRlSfiNeuu9jI5VyUgF38Nba3
+	 b0KddAlFf2U4HeU1Cs/izzo7cg8WVQ5vP3vT7aE6l6ip/ENGRjcofXz4RJEynYcq8F
+	 nvonBhGL//OVTO6q678bagJ1WIRJR50ruQacSK/28yNKuua86DdsKkEoFV6swLqqjY
+	 Ulb87MbBpm0SLBI3A78+zfMkuhfdR0OPdsDxwfhdj1LRSStXhvaQm3jBAS+A30V6fJ
+	 CIHhYo4HVXiFEgO6gXi8H1M8pww/PATd+7VAlLPHdPgg/8WHnhZVzhlTTWWvr81HHM
+	 ZR1lZushcOTmQ==
+Date: Wed, 4 Jun 2025 15:30:22 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Wenbin Yao <quic_wenbyao@quicinc.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, vkoul@kernel.org, kishon@kernel.org, sfr@canb.auug.org.au, 
+	linux-phy@lists.infradead.org, krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com, 
+	quic_mrana@quicinc.com, quic_cang@quicinc.com, qiang.yu@oss.qualcomm.com
+Subject: Re: [PATCH v4 1/5] arm64: Kconfig: enable PCI Power Control Slot
+ driver for QCOM
+Message-ID: <46r6cdcugwvyuvkjqbi3tq4f7ddkrgy4jut5fwqjsfwbsfoke4@upmtzhcmc7ni>
+References: <20250604080237.494014-1-quic_wenbyao@quicinc.com>
+ <20250604080237.494014-2-quic_wenbyao@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250604080237.494014-2-quic_wenbyao@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_132458_642358_881EBF4A 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20250604_133027_474593_793F4F85 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,761 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK860-2/-3 regulators are used on rk3588 boards to supply components
-like the big cpu-clusters and npu individually.
+On Wed, Jun 04, 2025 at 04:02:33PM +0800, Wenbin Yao wrote:
+> From: Qiang Yu <qiang.yu@oss.qualcomm.com>
+> 
+> Enable the pwrctrl driver, which is utilized to manage the power supplies
+> of the devices connected to the PCI slots. This ensures that the voltage
+> rails of the standard PCI slots on some platforms eg. X1E80100-QCP can be
+> correctly turned on/off if they are described under PCIe port device tree
+> node.
+> 
+> Signed-off-by: Qiang Yu <qiang.yu@oss.qualcomm.com>
+> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
+> ---
+>  arch/arm64/Kconfig.platforms | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index a541bb029..0ffd65e36 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -270,6 +270,7 @@ config ARCH_QCOM
+>  	select GPIOLIB
+>  	select PINCTRL
+>  	select HAVE_PWRCTRL if PCI
+> +	select PCI_PWRCTRL_SLOT if PCI
 
-Most of these things will be, and in fact most regulator nodes right now are,
-always-on - probably nobody has tried completely turning of the big clusters
-for example.
+PWRCTL isn't a fundamental feature of ARCH_QCOM, so why do we select it
+here?
 
-This changed with the new NPU driver, which does combined runtime-suspends
-with the regulator being tied to the power-domain (it supplies the pd).
+Regards,
+Bjorn
 
-If the NPU runtime-suspends while running a load and then starts again
-hangs can be observed with messages like
-
-  rockchip-pm-domain fd8d8000.power-management:power-controller: failed to set domain 'nputop' on, val=0
-
-Removing the regulator from the domain and instead setting it to always-on
-"fixes" the issue, which suggests that the domain is trying to get current
-from the regulator before it is ready when it gets turned back on.
-
-And in fact the datasheet for the regulator defines an "Internal soft-start
-time". For a target output voltage of 1.0V the _typical_ time to reach at
-least 92% of the output is given as 260uS.
-
-So that value is dependent on the target voltage (up to 1.5V for the type)
-and also the rest of the board design.
-
-So add a regulator-enable-ramp-delay to all rk860-2/-3 nodes we have in
-mainline right now. I've chosen 500uS to be on the safe side, as
-260uS is the "typical" value for 1.0V and sadly no max value is given
-in the datasheet.
-
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts            | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi           | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts          | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi           | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588-fet3588-c.dtsi            | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi   | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi  | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi  | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts           | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts                | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi            | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi           | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts            | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi              | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi                | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts           | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi           | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts            | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts        | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts      | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts         | 2 ++
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi           | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts            | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi          | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts              | 3 +++
- arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts              | 3 +++
- 27 files changed, 73 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-index e04f21d8c831..a290360c3c49 100644
---- a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-@@ -219,6 +219,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -236,6 +237,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -264,6 +266,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi
-index e44125e9a8fb..d44685f7a8dc 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi
-@@ -86,6 +86,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -103,6 +104,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-index ae9274365bed..0d0ff629127a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-@@ -212,6 +212,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -229,6 +230,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi
-index cc37f082adea..9606d3378b95 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi
-@@ -152,6 +152,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -169,6 +170,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -190,6 +192,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi
-index 8a783dc64c0e..27f92fe334c4 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-common.dtsi
-@@ -98,6 +98,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -115,6 +116,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-fet3588-c.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-fet3588-c.dtsi
-index 4331cdc70f97..a7e4b0cf44b5 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-fet3588-c.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-fet3588-c.dtsi
-@@ -154,6 +154,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -171,6 +172,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -194,6 +196,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi
-index 80e16ea4154c..610305dc8b78 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi
-@@ -56,6 +56,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-name = "vdd_cpu_big0_s0";
-@@ -74,6 +75,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -96,6 +98,7 @@ vdd_npu_s0: vdd_npu_mem_s0: regulator@42 {
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-name = "vdd_npu_s0";
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
-index 6726eeb49255..50d3cda8956e 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
-@@ -56,6 +56,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-name = "vdd_cpu_big0_s0";
-@@ -73,6 +74,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-name = "vdd_cpu_big1_s0";
-@@ -96,6 +98,7 @@ vdd_npu_s0: vdd_npu_mem_s0: regulator@42 {
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-name = "vdd_npu_s0";
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi
-index af431fdcbea7..070c9930dd30 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi
-@@ -146,6 +146,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -163,6 +164,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -184,6 +186,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts b/arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts
-index 73d8ce4fde2b..f871c99e5b9a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts
-@@ -241,6 +241,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -258,6 +259,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-index ebe77cdd24e8..f13ecd02dafa 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
-@@ -394,6 +394,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-@@ -411,6 +412,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -505,6 +507,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-index 3d8b6f0c5541..4cb4fe409cd4 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-@@ -411,6 +411,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -428,6 +429,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -449,6 +451,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
-index 91d56c34a1e4..e8e66e72ea54 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi
-@@ -230,6 +230,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -247,6 +248,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-index 7de17117df7a..ee0e49643acc 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-@@ -307,6 +307,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -324,6 +325,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -347,6 +349,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
-index 6052787d2560..2d91fa8185a8 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
-@@ -281,6 +281,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -298,6 +299,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-index c4933a08dd1e..1546a81cca50 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-@@ -198,6 +198,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-@@ -270,6 +271,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -287,6 +289,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts b/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts
-index 5a428e00ab93..29e6e730548b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts
-@@ -232,6 +232,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -249,6 +250,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-index 60ad272982ad..189bce24e656 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-@@ -133,6 +133,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -150,6 +151,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -173,6 +175,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-index 8b717c4017a4..c95a1386d61b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-@@ -251,6 +251,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -268,6 +269,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -289,6 +291,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
-index 873a2bd6a6de..009b6a0579e7 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dts
-@@ -470,6 +470,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		compatible = "rockchip,rk8602";
- 		reg = <0x42>;
- 		fcs,suspend-voltage-selector = <1>;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-name = "vdd_cpu_big0_s0";
-@@ -485,6 +486,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		compatible = "rockchip,rk8603", "rockchip,rk8602";
- 		reg = <0x43>;
- 		fcs,suspend-voltage-selector = <1>;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-name = "vdd_cpu_big1_s0";
-@@ -504,6 +506,7 @@ vdd_npu_s0: regulator@42 {
- 		compatible = "rockchip,rk8602";
- 		reg = <0x42>;
- 		fcs,suspend-voltage-selector = <1>;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-name = "vdd_npu_s0";
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-index 4ec7bc4a9e96..f9896bce86f7 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dts
-@@ -296,6 +296,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		reg = <0x42>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-name = "vdd_cpu_big0_s0";
-@@ -313,6 +314,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		reg = <0x43>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-name = "vdd_cpu_big1_s0";
-@@ -334,6 +336,7 @@ vdd_npu_s0: regulator@42 {
- 		reg = <0x42>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-name = "vdd_npu_s0";
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-index 2c22abaf40a8..caafb142ae4f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dts
-@@ -233,6 +233,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -250,6 +251,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index fbf062ec3bf1..9d87d129f00c 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -267,6 +267,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -284,6 +285,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -303,6 +305,7 @@ vdd_npu_s0: regulator@42 {
- 		reg = <0x42>;
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-name = "vdd_npu_s0";
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-index a72063c55140..d081adaf7be4 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts
-@@ -280,6 +280,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -297,6 +298,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -318,6 +320,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-index 4fedc50cce8c..afbf69e23cb0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-@@ -217,6 +217,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -234,6 +235,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -255,6 +257,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-index f894742b1ebe..b4a302c97a50 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
-@@ -195,6 +195,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -212,6 +213,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -233,6 +235,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-index dd7317bab613..072dbf877fec 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
-@@ -294,6 +294,7 @@ vdd_cpu_big0_s0: regulator@42 {
- 		regulator-name = "vdd_cpu_big0_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -311,6 +312,7 @@ vdd_cpu_big1_s0: regulator@43 {
- 		regulator-name = "vdd_cpu_big1_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <1050000>;
- 		regulator-ramp-delay = <2300>;
-@@ -339,6 +341,7 @@ vdd_npu_s0: regulator@42 {
- 		regulator-name = "vdd_npu_s0";
- 		regulator-always-on;
- 		regulator-boot-on;
-+		regulator-enable-ramp-delay = <500>;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
- 		regulator-ramp-delay = <2300>;
--- 
-2.47.2
-
+>  	help
+>  	  This enables support for the ARMv8 based Qualcomm chipsets.
+>  
+> -- 
+> 2.34.1
+> 
 
