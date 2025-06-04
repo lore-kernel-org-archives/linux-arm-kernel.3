@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBD5C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 09:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECA6C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 09:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RIYky3gjpTsCWWoJfEf+lc/dCW5mVapm/m/j24bH0IQ=; b=T1DiKucoAdslyWj7Szoltct3wF
-	L07ssYlP8Wmkvxml1C3SvT8weIAfJIbqsOsAeNZb/WAAlnTw5uTNJ/Wauh/UEQS6IpONEsLYl/Oz4
-	ANLwHWw07GudBJ0+pkC5Cp04dYrunUJfkBWzsCh7sY3U6f89r0awHPUfSxIgAVkh4zuEa30YrQcJF
-	NpPWEqELEM/6uvnE9ZEsMrm5JZwOoZRyl2OZNttl2wBJDCZiGHULssrPUBE7IUW91XwijqzydzXgP
-	PDf4QwUnqZdpZGvpBJ2IA6hyuaLU2Fbf1KuvWVZHPKZwISpR2WIhCxf3qIOtaB/jh2OCduxlZ1ueG
-	ej/d2F3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SRV0Q86dcfMGK7s8qaqpOjDtaB6acLpurJwiHDkiJCQ=; b=IEO/VnATsGyxvihJ3D2fcPyEo/
+	MUTz96c0W4bW4VoD0bV+b0fXxwGWlL1dHkpP9WT4v9hdlQxVJ9ScLjOvla4fWOEDpluC/jft0sJg5
+	M9zDOnmMtffez8ILYaDR2eMXLo8oNsoeQDTLMQxI2T9Fhyzjl6fbPKpI1blAuxUYSBsEgEQCqWOsx
+	ubsObIKEI7X6TPEJ9SsQMvZLBDYFqAxUSweGwegVahhluRoAG1+4FbVPXhL0rJYE4jRqf0WlBCqqT
+	cSfwAo7/smCboS9t+d7GbMdJ7ltVLoBfh8+8LiVt4iBO7ewOUPT+UxYXu5pNbd5Pvijn/NV9pbDBJ
+	kMlF1cWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMkCc-0000000Czjo-3ThA;
-	Wed, 04 Jun 2025 09:14:30 +0000
-Received: from out203-205-221-210.mail.qq.com ([203.205.221.210])
+	id 1uMkEh-0000000D0BZ-3ozE;
+	Wed, 04 Jun 2025 09:16:39 +0000
+Received: from mail-ua1-f54.google.com ([209.85.222.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMkAV-0000000CzRl-00Cp
+	id 1uMkCI-0000000Czfr-1M8e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 09:12:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1749028327;
-	bh=RIYky3gjpTsCWWoJfEf+lc/dCW5mVapm/m/j24bH0IQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RvfJeaOjVTb7Of+8+ew2DkSYNg+7b58Vk8r8FKbC4BXsnQArGCmWRipHe7pGwqHno
-	 lT3sv9Qj1BF4uH+DCmxF2iGQPr1DxyQldOAGHj1GcoFxKaJ6ag0OAcqSC3MWW4I76E
-	 CQn6KrV2Ph1d4Ljzeqwrpn3RIW5YL2CxtoZaaK94=
-Received: from [10.56.52.9] ([39.156.73.10])
-	by newxmesmtplogicsvrszc16-0.qq.com (NewEsmtp) with SMTP
-	id 30098838; Wed, 04 Jun 2025 17:12:00 +0800
-X-QQ-mid: xmsmtpt1749028320tno68hupx
-Message-ID: <tencent_CC0310590D7085E8B3EC2E1955E45E4B4709@qq.com>
-X-QQ-XMAILINFO: NvKPbWBbh1DVYUNrtUaO4h9Jj+nOhO0LDaL7Td6QvGV4lWUff2j/vEKUwNnLFs
-	 OLHiU8HjtO7X0BTo/mZpmoEGAb9JuMxziyE13yu5EmANI/1w0vmju9epZ/bZzbSXA1flXKOlJCZZ
-	 0xdvAOAB8VyNKr2QluATxTOYVEe1IAEr29eygOc9y2gqvHEs7zbaNV8svwb2YcQomlJh10O1DWLo
-	 PXJrtg35/w2KjVub9G4hXlaaODVaIv5HxLJLIeGw8haZVbKol3pxT1UVrVP9PIE6iW6oGW1DASKk
-	 JglRxN8iFlXFrH408POil0NYTrv4Qls947B0al8UFnJ6xeYWFPfvmK+l6mw3Cl/4BLpWgDOMRt+k
-	 UrYDh0qAZTVf2FDZg6dIj2VABZbbalypmmpKQdY8zk4jeja07vCJfEocQCBNTybGixtgoKvRvcd0
-	 dSUcqfu9AgFxz8oM4ks2OZfJVc/+1YSKiZdZ5oWg4JzNvrD9IgDKripzGOCf2gfOXHhj67JKwtdc
-	 Xvt5qdrp6RIu3qv8q79nDMT9pBldnw+GpvGZd/GLfkykzwt4ZRmcEt2ADl0Bj/tfDN1XajAgi+NF
-	 AsgwcY3cJtX3K3Gh0WXK45o4Zof4kxKsygFeKzZU7NXl28+E4sH5vCLV4aIsOknG4m5D4CDUYdkm
-	 ac+ZcB+WCWf2D8wX5w4fMtWUtYNjW7X5EOQolpYsuNItcckXyWQP4hfCMgfdHYjzdbYS0UlIiByU
-	 buyWQSQCSzDpvNini1IwsOxoHQ0QcHWYCf9zveyqN85O1YLWoGw3uO39Vd/oSSS+IDCnTmE0vPoY
-	 owrNAXU/M0Msa9kRe2HGy9sJT5ME7CAy1QM/JX+1nQtOq0ShztSqPRXhjEkQ1Q9NeYf8YE416HyZ
-	 z06m9cTiKe6VUYzTY0knFb75smemeGwBRoXSxAC2fADTT93GciJy/QFtVo0WJYjvAQga58hOqboM
-	 8qdx5zDNtzNRgK0zCw8mhNrpqwX8kASut9RkRk/ypcFd0xG05u1ALrQq/VzpXCpTMwV84eDOcSsO
-	 PVaspGNOPthDgcgF8X
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
-X-OQ-MSGID: <365843f4-d33d-490d-b567-fe9250577725@foxmail.com>
-Date: Wed, 4 Jun 2025 17:12:00 +0800
+	Wed, 04 Jun 2025 09:14:11 +0000
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-87dfe8388f8so1356513241.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 02:14:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749028448; x=1749633248;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SRV0Q86dcfMGK7s8qaqpOjDtaB6acLpurJwiHDkiJCQ=;
+        b=V7WbfJ/qd5N324Qm/927mXrxIoCSjCNCIqITcPG24sy9w8c3lNCkrEFOCUc+W3b1wx
+         Qm28z5umcEcW8lNm4fTT1lyOeCUEXWwm1+31x1BvFtl4xokGGDK9osr5kH3m2zEKvfVP
+         8pTdnMr5bjpPcki3+M2dyOiqv/6huMFwud8TUKBb2lO/urjNoXqoUJfb99xMXuONOINC
+         +pgiaHA6NoabpDstPwawVVEOr6jcTzIKjSjSPT2vXcIC31Uhorn7vZMc0OkJFD/uJ2p2
+         tsWVA6K1DXWlIvcCRORgbJrB1I4f2UDqwLEYtNNekoRCctF90Hey+b5qwTeHOd5wagjp
+         KaOA==
+X-Gm-Message-State: AOJu0YzG1gxBofw8eRJtY/46a8gqAWfHh1I6oZ8F03fe4Nr269XdVOS9
+	dF04Td6qXDgPh6kEM+Sit7VVHQPXgYKtRte3+Zj+2a/eSDSm9vD90A2n4WB2wWeZ
+X-Gm-Gg: ASbGnctc7rYU5PJ2RakWCLwmn/kn5ITBajD9bQsQ42ncgMwtleDrT0ZZYvDCeSoN22s
+	3/zwZNdufVj7aBciR0Bh096JDwR4BVEsPrRjIbD+V+y9QywaV31OA43LpYaCQVipud/7TdGgTZX
+	gShbd4Edq8E1hF5nM3Ce7xKyG4G23WtusWZhD618QS7HI6YOUhQSz03CCg7S+SIFW7/31/HxCrK
+	oClm+mCdw6jRh6LXJOg6mWUUdCLSJl5AGXIA/nMqt55hFLIlcucyTGpwFVX5CKlwQm0acz3TYCl
+	hoHyrBnZTY2+NlPNbtVo+WrUNP0hhjlQEo3VfeawzmAI5MtPre4Toqr4NiPtFMa2Ag7/XSzbTxY
+	CwEyTTaH/iE8oTg==
+X-Google-Smtp-Source: AGHT+IGOrKg6gNFkyZiIaPEeJDK0gEMSrZknGNeL9q4/lrHodHlFrwwOGY5fAHFIwVSVlP07W1V3Ag==
+X-Received: by 2002:a05:6102:5a91:b0:4e5:9380:9c25 with SMTP id ada2fe7eead31-4e746ce3cadmr1123114137.3.1749028447915;
+        Wed, 04 Jun 2025 02:14:07 -0700 (PDT)
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4e64449ad1asm9794285137.17.2025.06.04.02.14.07
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Jun 2025 02:14:07 -0700 (PDT)
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-86d5e3ddb66so1738112241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 02:14:07 -0700 (PDT)
+X-Received: by 2002:a05:6102:4192:b0:4e6:d784:3f7 with SMTP id
+ ada2fe7eead31-4e746de3672mr1008327137.15.1749028447356; Wed, 04 Jun 2025
+ 02:14:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next] selftests/bpf: Fix compile error of
- bin_attribute::read/write()
-To: Jiri Olsa <olsajiri@gmail.com>
-Cc: andrii@kernel.org, eddyz87@gmail.com, rongtao@cestc.cn,
- Mykola Lysenko <mykolal@fb.com>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
- Shuah Khan <shuah@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Peter Zijlstra <peterz@infradead.org>, Amery Hung <ameryhung@gmail.com>,
- Juntong Deng <juntong.deng@outlook.com>, Oleg Nesterov <oleg@redhat.com>,
- "open list:BPF [SELFTESTS] (Test Runners & Infrastructure)"
- <bpf@vger.kernel.org>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <tencent_A6502A28AF21A3CA88B106F3421159869708@qq.com>
- <aEAJbBH00yL2iTgn@krava>
-Content-Language: en-US
-From: Rong Tao <rtoax@foxmail.com>
-In-Reply-To: <aEAJbBH00yL2iTgn@krava>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250530225504.55042-1-marek.vasut+renesas@mailbox.org> <20250530225504.55042-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250530225504.55042-2-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 4 Jun 2025 11:13:54 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVMnjryv6nfP=7DTmsCtucuw7RAuYxW_zTRhCnwFxR34A@mail.gmail.com>
+X-Gm-Features: AX0GCFv3oImgu85Rwzjgo0touyo51sp9hBFNSI5sTOBJmChOTLWl5fT7ekg_o3E
+Message-ID: <CAMuHMdVMnjryv6nfP=7DTmsCtucuw7RAuYxW_zTRhCnwFxR34A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] arm64: dts: renesas: r8a779g0: Describe root port
+ on R-Car V4H
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_021219_412924_F15756FB 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250604_021410_362184_2E3E61E2 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +99,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marek,
 
-On 6/4/25 16:53, Jiri Olsa wrote:
-> On Wed, Jun 04, 2025 at 01:53:22PM +0800, Rong Tao wrote:
->> From: Rong Tao <rongtao@cestc.cn>
->>
->> Since commit 97d06802d10a ("sysfs: constify bin_attribute argument of
->> bin_attribute::read/write()"), make bin_attribute parameter of
->> bin_attribute::read/write() const.
-> hi,
-> there's already fix for this in bpf/master
+On Sat, 31 May 2025 at 00:55, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Add node which describes the root port into PCIe controller DT node.
+> This can be used together with pwrctrl driver to control clock and
+> power supply to a PCIe slot. For example usage, refer to V4H Sparrow
+> Hawk board.
 >
-> thanks,
-> jirka
-I am confused, when should I use bpf/master[2] and when should I use
-bpf-next/master[1]? thank you :)
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf.git
+Thanks for your patch!
 
+LGTM, so
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+
+I will wait a bit for more comments (if any) before applying.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
