@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285D6C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 07:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F214C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 07:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CaUBwKIEL6gYu/LhMMd/q2hSFrXFhJp+PTp1JhKEikg=; b=a7az99BdnPv31SrxC7Imf2KQ4r
-	MsHSz7rqAP+HT0tPZqhUDMTVS/xGHq66sXaoEpZpCyG2CbAt6/xh19TekgYb+o1PdJc592Hkde2Hz
-	uVoU4PxY0Z/z0jS25ru6VtXXyBz7SVHeLOXu1ILSh3AwucfTVCQUdVBE9oTSjgvBZl13EY1f+bmxi
-	+ILfpcffAdxWxWAmp2BtHhVjz5prY5PFQ/2t0GAOlnZ7jCqiRvXjqvaaEC/Yg/qyno2z/bb01+a0Z
-	HYobQ+gTJZdhhuDlyL1iAziRkP9qjRbog30w+D/iBflxlvbwVCh3GSxuJyeKxBjJ9LlpUbMKczA2D
-	5En+UGtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uxxYGGPVhEVYQnWDmi0qjryVI8On5yy5JrIx7t0q32E=; b=l4WVjbvbi8rbyX
+	zUtvCjOP7LeUrIFGU6gv0J8rtP7eghDjh+rF+q/WPCSRLTBt90mJGhj7cCU5+wND5Hr7ttEybS/fh
+	x+YdcVPjc+/jvPlpMMS83FFXrfyT6bfBWwjg4kN6j6SKb8kBkNbuvo3xiBcoaodUDDyKqXxJQIZrT
+	ri5VseMve2TimsQB83m0POxZSKHQUpS0bgnp50KgG7tInQ0Z0LEsiSm7gHOi9cIO+83htP4zgA7li
+	r38+bbrNIt1iRV0ZIkYaBZLKypKO/IxlFSSkg0lF9gLboF6vdtJzI/9r20NCOmlWxl+SkmzSy3Hke
+	4HleX0yRULM6frU0V63w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMiz5-0000000CoKf-0D90;
-	Wed, 04 Jun 2025 07:56:27 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uMj2A-0000000Cp5E-28rn;
+	Wed, 04 Jun 2025 07:59:38 +0000
+Received: from mail-ed1-f47.google.com ([209.85.208.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMiv9-0000000Co1C-2WSV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 07:52:24 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1749023540;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CaUBwKIEL6gYu/LhMMd/q2hSFrXFhJp+PTp1JhKEikg=;
-	b=BBG70Qvg7fI5r/SBmAdFEu06d3IMuZuMq4Vi4Lo91jbiWSPT7QqEEJh+PcnjWMELb3Szjd
-	L9oSzQStJ7sR+vBQx+M43+ranfV/BjiI3awSQP82ZKk4QSDrp5WFux8msZCeTqaMftxl0/
-	6cxj49JeWUEZ4ROxvGj2ICjVObu4OTzq0j3CLK4BBtpOOHtzYqtcT0DP4VQV/zr69m6Q3D
-	6RzjW/qdVIxatvS5ptEDE2r8axsDlRqcQ17JGFSRQcoND5lznMW1HqvdUREBSI6T/aZSUZ
-	W1WH6SbYnCQAXv+iKOO1e4IkPBoEODztXQfXDnCPlFL5p7RZE86kcUppeJTxYw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1749023540;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CaUBwKIEL6gYu/LhMMd/q2hSFrXFhJp+PTp1JhKEikg=;
-	b=psY2YnPHoLBZUoEQmkEOMxqILHQXXXfL7mmtNEiRqoU8yoAAegO6WTHBsHdrhrRw0Wlcp3
-	ZOLksnkr5Bqu+jDg==
-To: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>, 'Michael Kelley'
- <mhklinux@outlook.com>
-Cc: "pmladek@suse.com" <pmladek@suse.com>, 'Ryo Takakura'
- <ryotkkr98@gmail.com>, Russell King <linux@armlinux.org.uk>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
- <jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
- <linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "Toshiyuki Sato (Fujitsu)"
- <fj6611ie@fujitsu.com>
-Subject: RE: Problem with nbcon console and amba-pl011 serial port
-In-Reply-To: <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
-References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
- <84y0u95e0j.fsf@jogness.linutronix.de>
- <84plfl5bf1.fsf@jogness.linutronix.de>
- <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
-Date: Wed, 04 Jun 2025 09:58:19 +0206
-Message-ID: <84tt4wndu4.fsf@jogness.linutronix.de>
+	id 1uMj01-0000000CoS9-1Jdf;
+	Wed, 04 Jun 2025 07:57:27 +0000
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-60461fc88d7so13088511a12.0;
+        Wed, 04 Jun 2025 00:57:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749023843; x=1749628643;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uxxYGGPVhEVYQnWDmi0qjryVI8On5yy5JrIx7t0q32E=;
+        b=WkXhLJWzOrClUtYbHzIr/NdyZdN9TTjZVVjPN6cjhMtfbQYopqrqTWHQnAcRN0yKaw
+         0WYfxjlmPKAmCMwaQsBlkSpttSwjYFEHBWvDnTbKIv+artGMg36qLAZy6lCcxi2a3CGi
+         DYItaKFx/8TO6wbo+C75jD7aJtrD7/9iw5HtLpblJflEd+pqnbRmXldKKUbIy9S9k/zI
+         TllFEj0zvct7DOCHAYn/vG6EJRC4LV5KV0rFc3tunJyA4CMubpJ6teqh90hYKBSEbIVF
+         ggbpYrOUl0smOZVBQibvmb+jtL5m0AWvxHXigf1ZY6Zl+Ik4Rmq5cvGuP685g3zhUhuX
+         Bopw==
+X-Forwarded-Encrypted: i=1; AJvYcCUoD2XRqNt9tjD1EyCOmB/CGToV2k/h3W9O6oxYhR6/EVGrhjcUAi3fCy/GbWO6aYDP0cAXVjfRtiW7IuBfghk=@lists.infradead.org, AJvYcCW/uhjxxauQh7wzuVFGS9UHgR8itGv164UFiBvCCdySQbPpa5UFXu0W2bvpo6OWUDyBwpAdRJHxMzMsyCbkMpdk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJR+IN1dK51j2v/4zunqMR3PbBA+0pJBlborYIdQCGXXwYkp8w
+	ekc8O4+WU+fhY5Ff/KmsYlxVkcEr6O8W4CwlYpf5IAU1q/egNZT8DMPK69IEYCcb
+X-Gm-Gg: ASbGncsULny0aGt6nXwjCkRFAARe/ZgTCuu6VDb+7IfwFDe2UWBurrLJuloH01hr5j6
+	FONmG3Q9cF30cnU82Wz3YOU9ppS/QaDeZ+GdQnlf6SqWmDI1IYaLhGzI5bluiN07NEJ9H5j/T4I
+	uK63cAAEZEOi7gFdlyLGmlvqMvQFtdSwk2eJKGtfPYtwNY9N0kpEX8Q4jrKOSMHSz9eqXbpd4Ec
+	3KGL7UKYnseeK9pwdRrCGMmEHENtCwQ/Do0r/UR0niETtEc8IhITeNIkFVVDvcFs+2Odhe5Y+3F
+	QNCdH5S8TUgcZaF6vec1XnpFKMDa+TaT6aN7lFmeCFO7TCXWu3FVJ+4HZYFD8F6AKO99nJ1MQQ3
+	Gl8xLGsgdOQ==
+X-Google-Smtp-Source: AGHT+IEZtmjhfMvdiTBqQ3KrjPtemiMa58uAXN8NL9Oz74jU+f3Xz3Mbx/uxfwFliJgWoAvBATYWXg==
+X-Received: by 2002:a05:6402:40ca:b0:601:89d4:968e with SMTP id 4fb4d7f45d1cf-606f0ed4379mr1469272a12.27.1749023843024;
+        Wed, 04 Jun 2025 00:57:23 -0700 (PDT)
+Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-606fb36a160sm348569a12.45.2025.06.04.00.57.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Jun 2025 00:57:22 -0700 (PDT)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Subject: [PATCH v6 00/10] New DRM accel driver for Rockchip's RKNN NPU
+Date: Wed, 04 Jun 2025 09:57:13 +0200
+Message-Id: <20250604-6-10-rocket-v6-0-237ac75ddb5e@tomeuvizoso.net>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFn8P2gC/23OwWrDMBAE0F8JOldltZaUuKf8R8lBXq0aUWoVy
+ RFNg/+9cqA0pj7OwDzmJgrnyEW87G4ic40lprEF+7QTdHbjG8voWxYIqMEqlFYqkDnRO0+y75T
+ 1HEhp2ou2+Mwc4tddez21fI5lSvl6x6ta2m2nKgkSLLA+MDs0cJzSB19q/E4lPY88iUWr+CsYQ
+ DRrAZvgtR8ouOWP2ha6P8Eouxa6Juxb7ahvuh+2Bf0o9GtBLx+sD8EOmsDxtmAeBIS1YJqgDtS
+ Tg0BDR/+FeZ5/AKJhlVG0AQAA
+X-Change-ID: 20240612-6-10-rocket-9316defc14c7
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+ Tomeu Vizoso <tomeu@tomeuvizoso.net>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_005223_799650_AA15E5F5 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250604_005725_359777_60890651 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +106,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-04, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com> wrote:
-> This is a proposed fix to force termination by returning false from
-> nbcon_reacquire_nobuf when a panic occurs within pl011_console_write_thread.
->  (I believe this is similar to what John suggested in his previous reply.)
->
-> While I couldn't reproduce the issue using sysrq-trigger in my environment
->  (It seemed that the panic was being executed before the thread processing),
-> I did observe nbcon_reacquire_nobuf failing to complete when injecting an
-> NMI (SError) during pl011_console_write_thread. 
-> Applying this fix seems to have resolved the "SMP: failed to stop secondary
-> CPUs" issue.
->
-> This patch is for test.
-> Modifications to imx and other drivers, as well as adding __must_check, 
-> will likely be required.
->
-> Michael, could you please test this fix in your environment?
->
-> Regards,
-> Toshiyuki Sato
->
-> diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-> index 11d650975..c3a2b22e6 100644
-> --- a/drivers/tty/serial/amba-pl011.c
-> +++ b/drivers/tty/serial/amba-pl011.c
-> @@ -2577,8 +2577,10 @@ pl011_console_write_thread(struct console *co, struct nbcon_write_context *wctxt
->  		}
->  	}
->  
-> -	while (!nbcon_enter_unsafe(wctxt))
-> -		nbcon_reacquire_nobuf(wctxt);
-> +	while (!nbcon_enter_unsafe(wctxt)) {
+This series adds a new driver for the NPU that Rockchip includes in its
+newer SoCs, developed by them on the NVDLA base.
 
-I realize this is just a test patch. But for the real patch, there needs
-to be some comment here about bailing out. On panic, the driver is
-leaving the clock enabled and not restoring REG_CR. At a quick glance
-this appears to be a bug. So the comment is needed to make it clear that
-the driver is exiting on purpose without proper completion. And perhaps
-also mentioning why this is safe during panic. Thanks.
+In its current form, it supports the specific NPU in the RK3588 SoC.
 
-> +		if (!nbcon_reacquire_nobuf(wctxt))
-> +			return;
-> +	}
->  
->  	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
->  		cpu_relax();
+The userspace driver is part of Mesa and an initial draft can be found at:
 
-John Ogness
+https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
+
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+---
+Changes in v6:
+- Make all cores depend on pclk and npu clocks
+- Fix BO sync direction logic
+- Misc. cleanups
+- Link to v5: https://lore.kernel.org/r/20250520-6-10-rocket-v5-0-18c9ca0fcb3c@tomeuvizoso.net
+
+Changes in v5:
+- Use bulk clk API
+- Rename bindings file
+- Syntax improvement to bindings
+- Link to v4: https://lore.kernel.org/r/20250519-6-10-rocket-v4-0-d6dff6b4c0ae@tomeuvizoso.net
+
+Changes in v4:
+- Several fixes to DT bindings.
+- Link to v3: https://lore.kernel.org/r/20250516-6-10-rocket-v3-0-7051ac9225db@tomeuvizoso.net
+
+Changes in v3:
+- Reference in the device tree only the register blocks that are
+  actually used.
+- Several style and robustness fixes suggested in the mailing list.
+- Added patches from Nicolas Frattaroli that add support to the NPU for
+  the Rock 5B board.
+- Link to v2: https://lore.kernel.org/r/20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net
+
+Changes in v2:
+- Drop patch adding the rk3588 compatible to rockchip-iommu (Sebastian Reichel)
+- Drop patch adding support for multiple power domains to rockchip-iommu (Sebastian Reichel)
+- Link to v1: https://lore.kernel.org/r/20240612-6-10-rocket-v1-0-060e48eea250@tomeuvizoso.net
+
+---
+Nicolas Frattaroli (2):
+      arm64: dts: rockchip: add pd_npu label for RK3588 power domains
+      arm64: dts: rockchip: enable NPU on ROCK 5B
+
+Tomeu Vizoso (8):
+      dt-bindings: npu: rockchip,rknn: Add bindings
+      arm64: dts: rockchip: Add nodes for NPU and its MMU to rk3588-base
+      arm64: dts: rockchip: Enable the NPU on quartzpro64
+      accel/rocket: Add registers header
+      accel/rocket: Add a new driver for Rockchip's NPU
+      accel/rocket: Add IOCTL for BO creation
+      accel/rocket: Add job submission IOCTL
+      accel/rocket: Add IOCTLs for synchronizing memory accesses
+
+ Documentation/accel/index.rst                      |    1 +
+ Documentation/accel/rocket/index.rst               |   19 +
+ .../bindings/npu/rockchip,rk3588-rknn-core.yaml    |  144 +
+ MAINTAINERS                                        |   10 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   89 +-
+ .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts |   30 +
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |   56 +
+ drivers/accel/Kconfig                              |    1 +
+ drivers/accel/Makefile                             |    1 +
+ drivers/accel/rocket/Kconfig                       |   25 +
+ drivers/accel/rocket/Makefile                      |   10 +
+ drivers/accel/rocket/rocket_core.c                 |   80 +
+ drivers/accel/rocket/rocket_core.h                 |   59 +
+ drivers/accel/rocket/rocket_device.c               |   31 +
+ drivers/accel/rocket/rocket_device.h               |   30 +
+ drivers/accel/rocket/rocket_drv.c                  |  300 ++
+ drivers/accel/rocket/rocket_drv.h                  |   17 +
+ drivers/accel/rocket/rocket_gem.c                  |  208 +
+ drivers/accel/rocket/rocket_gem.h                  |   31 +
+ drivers/accel/rocket/rocket_job.c                  |  694 +++
+ drivers/accel/rocket/rocket_job.h                  |   50 +
+ drivers/accel/rocket/rocket_registers.h            | 4425 ++++++++++++++++++++
+ include/uapi/drm/rocket_accel.h                    |  145 +
+ 23 files changed, 6455 insertions(+), 1 deletion(-)
+---
+base-commit: a6d708809579ed3d902465785666085ff07a1d7c
+change-id: 20240612-6-10-rocket-9316defc14c7
+
+Best regards,
+-- 
+Tomeu Vizoso <tomeu@tomeuvizoso.net>
+
 
