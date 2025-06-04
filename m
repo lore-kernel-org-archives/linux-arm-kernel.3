@@ -4,82 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1311C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 05:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D9DC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 05:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f1C4xwS1oja4BGMpJEnpH51GbWTCvJSr7fg34G4M8Z0=; b=Y8KoDP3JqN/OCozDt0np5+8GWS
-	JGOh3Kbi0SPeMsm3V5HgrIwTwXVkdj4Du1eAbo2H8RvO+lDt/NI23tbtbj9PPZYgtpbh9W3NAtWsx
-	mZ+PwaMvsdgh0X9EH1klgLeGUcC3bAPV3tjoytdgtwta+zMkRD0aadRgRZAGNhDieSRBmXjx2w6Z2
-	9SL8PWudz0WOSNdlqOpi2RWPu30Nl9++yE3PFjdHZN72jZjug+cQv9VvdUTa0uMCIT+A3IQ4YeNLT
-	ZdDgBSiJ+RTSGc84iLxMvUN+YL7CU/ziOE+smY3JJsMLasmXnQFKVZklVCby9GbMIY3+f45r7//J0
-	KosEiSLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=46g+Y4rzw6OgFN4C/iFfyuhlC/DzWzniHuW+sWYWUrg=; b=siZUiWwkS3uYrMTQZTBCZEy/E3
+	DgoGCgvygbNoI4gwnajxLALB+0ufmYbTfK3R99cmC45dH3ERq93mJKSvzBobolpdWUmqnvbc5Nw/r
+	bESGhEhBMQxo4BlSZWQH7KGNOwAQL9H0SkXCCQdpE4MyCoRdqCfLGPfYpezcHW9mT1LtxfX6dkxc1
+	XpIrwf7phBg7m4gKJpsMFGpwHi5P8nT/w7iEJGwW029RBhsQXgH0nTdlDm7+NZDLzCTXc/mJK9pF5
+	47LOEkoY1hj5c7Lmj8/8V4q5O4mw7i9VJTsx4FYCoRf/DpeYW+9Z2y0vC10NHrztdejpmbaEMCY/R
+	hRdsvkjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMgc5-0000000Ccnz-2wwa;
-	Wed, 04 Jun 2025 05:24:33 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uMgmz-0000000CdIw-2Kpz;
+	Wed, 04 Jun 2025 05:35:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMgNG-0000000CbLL-0ddC
+	id 1uMgkp-0000000CdDu-3fcV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 05:09:15 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-311d067b3faso9572002a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 03 Jun 2025 22:09:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749013753; x=1749618553; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=f1C4xwS1oja4BGMpJEnpH51GbWTCvJSr7fg34G4M8Z0=;
-        b=kHzr6QUXTkyoYW+g/Nr6sQ8UoG0QVjt5+dJoIQr1n/P7slzacJFx10P2gXMU2IQzP6
-         zC1x2e4te5bKiDBMJ73g4/R5lFnbRQAjUG41WaG4wZo7gi/f7HoILwCvXTnmfVecNjcn
-         9vA8msMKUsABxPlUTXieGE/b87sZYKXgeRQ50hMkBln9J62Q+UP27K5G1AvmX//Fv5uT
-         c525pH4UBeGudUu9VH6LUdx5vRL8wKmm67gBh5AED9aOEt7awwMcyCab1UiyVRQC1fn+
-         ldFZHKxKBvbwElZt2Rn69mVC7YaxJ0aNyvBq+VH/yP0Jq6+dYhT/QEjKMWCgZA3j8Ax6
-         bOJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749013753; x=1749618553;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=f1C4xwS1oja4BGMpJEnpH51GbWTCvJSr7fg34G4M8Z0=;
-        b=Mr1p7LjKQIUHK4Fb0GdtFeEMfi6ngGpYeIpiQTAUMhLINi6XzYwryxk9eLmLRZW1yV
-         biDeelNCi2dg7wm6cDQaddUIjvPFV5zMbekRXY3iFySm0H6PeQkeUQXJk/jxD8+PQco8
-         AxbnFiX6rpN92jRf0/CC/EEtPRKMCS+tG0b1eYquLJFmjquo1rY2+y3dDO6o1lElRIc9
-         CPQMTkKZmKReuCH08C0IhodSjHaO6kNpvroV/dbRgrHWWBuIZM4f2gZnBlICZDkSylpG
-         /uiG2cVkQx6ZEI/HvtmzgGKkDAh33OZL0O/TmyezKJi2hv91Opt3Mnh85E/aihFxUjVA
-         3vdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXOa2hyfdcm7krR0Ty9xPSgek9j9r6pEgbx3BxfwRPcUI7BI54no0tBKWoEJ1SDLA1mmB89Q27N/oXU7bIiYPVn@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOVuQ4hiAJMLk6kqJXQeHMXjO9YZIFgJeDt3xm7CmF9WrYjI7K
-	xvoV4XA+3qVTobU3wKvRWlEjS1Djd09PAUyoGC+X2oh2dA0Tx4pef3QhrxIQ5FKyorwl8DHz4Vm
-	cMeRl7uBXl/uSgg==
-X-Google-Smtp-Source: AGHT+IE37oF7FCdLRpvsoThAtQNnQsYjorBYGpuYCRvh2E+9sV6A3UsbG7Yq0ZEVRpNgSOSMEJKUi/G7O4PeZg==
-X-Received: from pjbpw6.prod.google.com ([2002:a17:90b:2786:b0:311:4201:4021])
- (user=jiaqiyan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:35c6:b0:30e:ee4:3094 with SMTP id 98e67ed59e1d1-3130ccf5129mr2212286a91.1.1749013752906;
- Tue, 03 Jun 2025 22:09:12 -0700 (PDT)
-Date: Wed,  4 Jun 2025 05:09:01 +0000
-In-Reply-To: <20250604050902.3944054-1-jiaqiyan@google.com>
-Mime-Version: 1.0
-References: <20250604050902.3944054-1-jiaqiyan@google.com>
-X-Mailer: git-send-email 2.50.0.rc0.604.gd4ff7b7c86-goog
-Message-ID: <20250604050902.3944054-7-jiaqiyan@google.com>
-Subject: [PATCH v2 6/6] Documentation: kvm: new uAPI for handling SEA
-From: Jiaqi Yan <jiaqiyan@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev
-Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	duenwen@google.com, rananta@google.com, jthoughton@google.com, 
-	Jiaqi Yan <jiaqiyan@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 04 Jun 2025 05:33:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 212ABA484C7;
+	Wed,  4 Jun 2025 05:33:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43465C4CEE7;
+	Wed,  4 Jun 2025 05:33:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749015214;
+	bh=yV/wecZx2w3FmjoTE00rqdyD3fwFIRjV5TRum8MbLcA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mKtpplDZKls1Kon89EJI0fQFZLuI3A4hD0c9UedxbmsWi6Rm5LOUh8dNso6nGryvk
+	 Da+C5c15+dU3LP3RS7I4v5+cLgnM3lFydPIkylrLwscpKg3sXb8uLDIqMXfIDwIF0Y
+	 4ztkU4m70Zbpk60/bGhpXjbPOc3fSfqi8SOw6xOhG1kAivdSOuzeFeUbhC356ZYJuL
+	 N0MKd7nFYmlecmVWneKYKoWGRd3t9ZEpTo1yKf+XBwa899cLDLtmKQ7WCgDWN8mHsP
+	 fqKjjKzdnnDXK0+p9q662PkUeXwiFRoLrQuCwbuQ3d9jYczSOiSiU3T8h5eIAPo3oM
+	 etK0kPWk7BYjA==
+Message-ID: <84abac9d-8de1-47bb-9506-139f18c29d9d@kernel.org>
+Date: Wed, 4 Jun 2025 07:33:30 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] ARM: dts: aspeed: Add device tree for Nvidia's
+ GB200 UT3.0b platform BMC
+To: Donald Shannon <donalds@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20250604025054.981087-2-donalds@nvidia.com>
+ <20250604025054.981087-3-donalds@nvidia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250604025054.981087-3-donalds@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_220914_198838_ED6089EE 
-X-CRM114-Status: GOOD (  27.72  )
+X-CRM114-CacheID: sfid-20250603_223336_051899_BF05D297 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,191 +120,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the new userspace-visible features and APIs for handling
-synchronous external abort (SEA)
-- KVM_CAP_ARM_SEA_TO_USER: How userspace enables the new feature.
-- KVM_EXIT_ARM_SEA: When userspace needs to handle SEA and what
-  userspace gets while taking the SEA.
-- KVM_CAP_ARM_INJECT_EXT_(D|I)ABT: How userspace injects SEA to
-  guest while taking the SEA.
+On 04/06/2025 04:50, Donald Shannon wrote:
+> The GB200NVL UT3.0b BMC is an Aspeed Ast2600 based BMC
+> for Nvidia Blackwell GB200NVL platform.
+> Reference to Ast2600 SOC [1].
+> Reference to Blackwell GB200NVL Platform [2].
+> 
+> Link: https://www.aspeedtech.com/server_ast2600/ [1]
+> Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
+> 
+> Signed-off-by: Donald Shannon <donalds@nvidia.com>
+> ---
+>  arch/arm/boot/dts/aspeed/Makefile             |    1 +
+>  .../aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts  | 1172 +++++++++++++++++
+>  2 files changed, 1173 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
+> 
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+> index b3170fdd3096..1101bc74e8c8 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -51,6 +51,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+>  	aspeed-bmc-lenovo-hr855xg2.dtb \
+>  	aspeed-bmc-microsoft-olympus.dtb \
+>  	aspeed-bmc-nvidia-gb200nvl-bmc.dtb \
+> +	aspeed-bmc-nvidia-gb200-ut30b.dtb \
+>  	aspeed-bmc-opp-lanyang.dtb \
+>  	aspeed-bmc-opp-mowgli.dtb \
+>  	aspeed-bmc-opp-nicole.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
+> new file mode 100644
+> index 000000000000..52cbc591c577
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
+> @@ -0,0 +1,1172 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/dts-v1/;
+> +
+> +#include "aspeed-g6.dtsi"
+> +#include <dt-bindings/i2c/i2c.h>
+> +#include <dt-bindings/gpio/aspeed-gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +
+> +/ {
+> +	model = "AST2600 GB200 UT3.0b BMC";
+> +	compatible = "nvidia,gb200nvl-bmc", "aspeed,ast2600";
 
-Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
----
- Documentation/virt/kvm/api.rst | 128 +++++++++++++++++++++++++++++----
- 1 file changed, 115 insertions(+), 13 deletions(-)
+Missing bindings.
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index fe3d6b5d2acca..c58ecb72a4b4d 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -1236,8 +1236,9 @@ directly to the virtual CPU).
- 		__u8 serror_pending;
- 		__u8 serror_has_esr;
- 		__u8 ext_dabt_pending;
-+		__u8 ext_iabt_pending;
- 		/* Align it to 8 bytes */
--		__u8 pad[5];
-+		__u8 pad[4];
- 		__u64 serror_esr;
- 	} exception;
- 	__u32 reserved[12];
-@@ -1292,20 +1293,57 @@ ARM64:
- 
- User space may need to inject several types of events to the guest.
- 
-+Inject SError
-+~~~~~~~~~~~~~
-+
- Set the pending SError exception state for this VCPU. It is not possible to
- 'cancel' an Serror that has been made pending.
- 
--If the guest performed an access to I/O memory which could not be handled by
--userspace, for example because of missing instruction syndrome decode
--information or because there is no device mapped at the accessed IPA, then
--userspace can ask the kernel to inject an external abort using the address
--from the exiting fault on the VCPU. It is a programming error to set
--ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO or
--KVM_EXIT_ARM_NISV. This feature is only available if the system supports
--KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which provides commonality in
--how userspace reports accesses for the above cases to guests, across different
--userspace implementations. Nevertheless, userspace can still emulate all Arm
--exceptions by manipulating individual registers using the KVM_SET_ONE_REG API.
-+Inject SEA (synchronous external abort)
-+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+- If the guest performed an access to I/O memory which could not be handled by
-+  userspace, for example because of missing instruction syndrome decode
-+  information or because there is no device mapped at the accessed IPA.
-+
-+- If the guest consumed an uncorrected memory error, and RAS extension in the
-+  Trusted Firmware chooses to notify PE with SEA, KVM has to handle it when
-+  host APEI is unable to claim the SEA. For the following types of faults,
-+  if userspace has enabled KVM_CAP_ARM_SEA_TO_USER, KVM returns to userspace
-+  with KVM_EXIT_ARM_SEA:
-+
-+  - Synchronous external abort, not on translation table walk or hardware
-+    update of translation table.
-+
-+  - Synchronous external abort on stage-1 translation table walk or hardware
-+    update of stage-1 translation table, including all levels.
-+
-+  - Synchronous parity or ECC error on memory access, not on translation table
-+    walk.
-+
-+  - Synchronous parity or ECC error on memory access on stage-1 translation
-+    table walk or hardware update of stage-1 translation table, including
-+    all levels.
-+
-+Note that external abort or ECC error on memory access on stage-2 translation
-+table walk or hardware update of stage-2 translation table does not results in
-+KVM_EXIT_ARM_SEA, even if KVM_CAP_ARM_SEA_TO_USER is enabled.
-+
-+For the cases above, userspace can ask the kernel to replay either an external
-+data abort (by setting ext_dabt_pending) or an external instruction abort
-+(by setting ext_iabt_pending) into the faulting VCPU. KVM will use the address
-+from the existing fault on the VCPU. Setting both ext_dabt_pending and
-+ext_iabt_pending at the same time will return -EINVAL.
-+
-+It is a programming error to set ext_dabt_pending or ext_iabt_pending after an
-+exit which was not KVM_EXIT_MMIO, KVM_EXIT_ARM_NISV or KVM_EXIT_ARM_SEA.
-+Injecting SEA for data and instruction abort is only available if KVM supports
-+KVM_CAP_ARM_INJECT_EXT_DABT and KVM_CAP_ARM_INJECT_EXT_IABT respectively.
-+
-+This is a helper which provides commonality in how userspace reports accesses
-+for the above cases to guests, across different userspace implementations.
-+Nevertheless, userspace can still emulate all Arm exceptions by manipulating
-+individual registers using the KVM_SET_ONE_REG API.
- 
- See KVM_GET_VCPU_EVENTS for the data structure.
- 
-@@ -7163,6 +7201,58 @@ The valid value for 'flags' is:
-   - KVM_NOTIFY_CONTEXT_INVALID -- the VM context is corrupted and not valid
-     in VMCS. It would run into unknown result if resume the target VM.
- 
-+::
-+
-+    /* KVM_EXIT_ARM_SEA */
-+    struct {
-+      __u64 esr;
-+  #define KVM_EXIT_ARM_SEA_FLAG_GVA_VALID   (1ULL << 0)
-+  #define KVM_EXIT_ARM_SEA_FLAG_GPA_VALID   (1ULL << 1)
-+      __u64 flags;
-+      __u64 gva;
-+      __u64 gpa;
-+    } arm_sea;
-+
-+Used on arm64 systems. When the VM capability KVM_CAP_ARM_SEA_TO_USER is
-+enabled, a VM exit is generated if guest causes a synchronous external abort
-+(SEA) and the host APEI fails to handle the SEA.
-+
-+Historically KVM handles SEA by first delegating the SEA to host APEI as there
-+is high chance that the SEA is caused by consuming uncorrected memory error.
-+However, not all platforms support SEA handling in APEI, and KVM's fallback
-+handling is to inject an async SError into the guest, which usually panics
-+guest kernel unpleasantly. As an alternative, userspace can participate into
-+the SEA handling by enabling KVM_CAP_ARM_SEA_TO_USER at VM creation, after
-+querying the capability. Once enabled, when KVM has to handle the guest
-+caused SEA, it returns to userspace with KVM_EXIT_ARM_SEA, with details
-+about the SEA available in 'arm_sea'.
-+
-+The 'esr' field holds the value of the exception syndrome register (ESR) while
-+KVM taking the SEA, which tells userspace the character of the current SEA,
-+such as its Exception Class, Synchronous Error Type, Fault Specific Code and
-+so on. For more details on ESR, check the Arm Architecture Registers
-+documentation.
-+
-+The 'flags' field indicates if the faulting addresses are valid while taking
-+the SEA:
-+
-+  - KVM_EXIT_ARM_SEA_FLAG_GVA_VALID -- the faulting guest virtual address
-+    is valid and userspace can get its value in the 'gva' field.
-+  - KVM_EXIT_ARM_SEA_FLAG_GPA_VALID -- the faulting guest physical address
-+    is valid and userspace can get its value in the 'gpa' field.
-+
-+Userspace needs to take actions to handle guest SEA synchronously, namely in
-+the same thread that runs KVM_RUN and receives KVM_EXIT_ARM_SEA. One of the
-+encouraged approaches is to utilize the KVM_SET_VCPU_EVENTS to inject the SEA
-+to the faulting VCPU. This way, the guest has the opportunity to keep running
-+and limit the blast radius of the SEA to the particular guest application that
-+caused the SEA. If the Exception Class indicated by 'esr' field in 'arm_sea'
-+is data abort, userspace should inject data abort. If the Exception Class is
-+instruction abort, userspace should inject instruction abort. Userspace may
-+also emulate the SEA to VM by itself using the KVM_SET_ONE_REG API. In this
-+case, it can use the valid values from 'gva' and 'gpa' fields to manipulate
-+VCPU's registers (e.g. FAR_EL1, HPFAR_EL1).
-+
- ::
- 
- 		/* Fix the size of the union. */
-@@ -8490,7 +8580,7 @@ ENOSYS for the others.
- When enabled, KVM will exit to userspace with KVM_EXIT_SYSTEM_EVENT of
- type KVM_SYSTEM_EVENT_SUSPEND to process the guest suspend request.
- 
--7.37 KVM_CAP_ARM_WRITABLE_IMP_ID_REGS
-+7.42 KVM_CAP_ARM_WRITABLE_IMP_ID_REGS
- -------------------------------------
- 
- :Architectures: arm64
-@@ -8508,6 +8598,18 @@ aforementioned registers before the first KVM_RUN. These registers are VM
- scoped, meaning that the same set of values are presented on all vCPUs in a
- given VM.
- 
-+7.43 KVM_CAP_ARM_SEA_TO_USER
-+----------------------------
-+
-+:Architecture: arm64
-+:Target: VM
-+:Parameters: none
-+:Returns: 0 on success, -EINVAL if unsupported.
-+
-+This capability, if KVM_CHECK_EXTENSION indicates that it is available, means
-+that KVM has an implementation that allows userspace to participate in handling
-+synchronous external abort caused by VM, by an exit of KVM_EXIT_ARM_SEA.
-+
- 8. Other capabilities.
- ======================
- 
--- 
-2.49.0.1266.g31b7d2e469-goog
+Please run scripts/checkpatch.pl on the patches and fix reported
+warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+patches and (probably) fix more warnings. Some warnings can be ignored,
+especially from --strict run, but the code here looks like it needs a
+fix. Feel free to get in touch if the warning is not clear.
 
+
+
+...
+
+> +
+> +    fixedregulator_standby_power: fixedregulator_standby_power {
+
+Follow DTS about naming. Also, that's really poor name in general.
+Please use name for all fixed regulators which matches current format
+recommendation: 'regulator-[0-9]v[0-9]'
+
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml?h=v6.11-rc1#n46
+
+> +		status = "okay";
+
+Where was it disabled?
+
+Why order of properties is completely opposite to DTS coding style?
+
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "standby_power";
+> +		gpio = <&gpio0 ASPEED_GPIO(M, 3) GPIO_ACTIVE_HIGH>;
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		//startup-delay-us = <5000000>;
+
+Hm?
+
+> +		enable-active-high;
+> +		regulator-always-on;
+> +	};
+> +};
+> +
+> +// Enable Primary flash on FMC for bring up activity
+> +&fmc {
+> +	status = "okay";
+> +	flash@0 {
+> +		status = "okay";
+
+Read DTS coding style.
+
+This code has also indentation issues in multiple places.
+
+Best regards,
+Krzysztof
 
