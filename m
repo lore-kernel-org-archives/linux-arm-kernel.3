@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1841C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45FB3C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q6OKa9Bkbeq4QpUjqQVjbZ+Iqs4t8ntQfpdJAOPX7Vc=; b=OlQEqIxti3w2jGOx6UTqvzrkug
-	SilA/GdiAI/yJ2hTD+CFxS6KgPVj26un5YxsL8lqWxhCjpTmpTaf/3vnbN+NIh1llIq0Jd6ikctgH
-	1C1oz34KCpZHYTLhjV/elXt5/YNW0B/m+4a5V7XmfydGoTyhSd3kjqhyVFybGb2RwPFQZvbkPDw78
-	niKAARhZ0svglS/hRWwnTrge+FvitioTOdrGp7mtqBPy5+U4XXm4o30Ws/Bf70BhqenXxL049ISVS
-	eBmwFE0JKLKD1cNtehavjEQodnQ4TLWoCvk1ljfQ8GlMqVySNQCIU7Iheo0ZrhxJQwArV0FyuVUBn
-	hqg2JfKA==;
+	bh=VUndK3xHCW/OCwR8vYg2xhuB6oekHDUu5nTertRE7Yc=; b=r2tCoZBuJTDFt87RBmztzyvtIn
+	Rc9smMmTCjBMpnMjKs116Km5+syvA22QY+hB0+vUnZpqNMW8eoT5cpU9eHsgBDXNLSUzkDdPqa8hu
+	p/8oQOlQwVLrXV9WNbOt3H6g6FFIDXXwWBdGRXmII03Ljgn3RpnEp3PDeh97msgsFl9iOe7gx5fo2
+	XymbrnY0gjTu5ii2TWsYOwIGcmulgALG8mcGo4lvzeY8uKId3Z17vba2tfpFV1YRlLCWK42X1aBaL
+	ZaH6JIb877vkmYTlsHcD7ja1v8MESgCHmJ05mjbgTYGY46XhK6be0b9hVsgXGnBHJF/xULCk3WbUn
+	TOWpptfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpqU-0000000Dfhm-3iFd;
-	Wed, 04 Jun 2025 15:16:02 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uMpuW-0000000DgBF-30Ea;
+	Wed, 04 Jun 2025 15:20:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpoN-0000000DfQt-2GRS
+	id 1uMpsP-0000000DfxV-3FgK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 15:13:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=q6OKa9Bkbeq4QpUjqQVjbZ+Iqs4t8ntQfpdJAOPX7Vc=; b=m38/as1GRwuEE/yLC+KrimAYLN
-	p5Up5uPCb0ci1r27PA7kzZouknOp+tn2vZc+nNydEmWtumnypEZYwYvZ8Hhl/Ii4/+/m08Jx5yO8c
-	q/uzfxVyk1WbcynBj15QrlowY7Ez2XH//58JJL9eZHAw+FxgORYT/5ir59n/UledaC6Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uMpoF-00Egtl-Pm; Wed, 04 Jun 2025 17:13:43 +0200
-Date: Wed, 4 Jun 2025 17:13:43 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [v1] arm64: dts: freescale: imx93-var-som: update eqos support
- for MaxLinear PHY
-Message-ID: <1d755cbf-4dee-4784-98b7-e72061219e3f@lunn.ch>
-References: <20250603221416.74523-1-stefano.radaelli21@gmail.com>
- <54c4a279-a528-4657-8319-c9374add54b7@lunn.ch>
- <CAK+owoihxp-2xAvFfVthvNELshti_3V-pFgD7D7jzd1XqiLgGQ@mail.gmail.com>
- <d5f891d7-d24a-4f85-b59d-313b925c4495@lunn.ch>
- <CAK+owog69JktbsBhHZj7ULYXmH_bZ-CO8=QEMqBVc0mjp8jz6g@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAK+owog69JktbsBhHZj7ULYXmH_bZ-CO8=QEMqBVc0mjp8jz6g@mail.gmail.com>
+	Wed, 04 Jun 2025 15:18:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 689754A4DD;
+	Wed,  4 Jun 2025 15:18:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD57C4CEE4;
+	Wed,  4 Jun 2025 15:18:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749050281;
+	bh=xD1KpN3NFnTFtqrapuhJVN0NufwIbEVuXgGuab0veIQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ntMESso9CJ0GSafJYxvNm8BI8FRxSZUoGrukBT7IcbxhyG0aO81pOPjvx4LXNmaV/
+	 P3gINQh7B+msycKa+el7GWmhwwPfgPjWkNWbUpygnTaKSWC2mL99h+sFKiy+h/8tfP
+	 H50t4iHGUFfYUebwk+eibLJQBjXGZn+3NHe/BZN4GYGkesDyCWP2bIM3XVFPPVpXcp
+	 I+41Ja/AyuZtUPXNBbPcoBnwsXipXLqnkABKjWPR9dezmpZN9QclcbJhwmf56FJNnx
+	 XnIpKNYhqN+fah0Bet+BlsPyDL6E9uwvS5EnJkV1CV8Ct7t5HKiONPONFNHyRea4Yr
+	 Vp9h/eicuw8ig==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uMpsL-003Flv-TW;
+	Wed, 04 Jun 2025 16:17:58 +0100
+Date: Wed, 04 Jun 2025 16:17:56 +0100
+Message-ID: <87bjr3edsr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Miguel Luis <miguel.luis@oracle.com>
+Cc: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton
+	<oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 0/4] KVM: arm64: vcpu sysreg accessor rework
+In-Reply-To: <2264D21F-C28B-4523-9132-A53EB8ABFCF0@oracle.com>
+References: <20250603070824.1192795-1-maz@kernel.org>
+	<2264D21F-C28B-4523-9132-A53EB8ABFCF0@oracle.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: miguel.luis@oracle.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_081351_664729_219089D1 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250604_081801_850944_F05DE364 
+X-CRM114-Status: GOOD (  27.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +90,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 04, 2025 at 03:08:09PM +0200, Stefano Radaelli wrote:
-> Hi Andrew,
+On Wed, 04 Jun 2025 11:47:57 +0100,
+Miguel Luis <miguel.luis@oracle.com> wrote:
 > 
-> To clarify more precisely: hw team told me that the required 2 ns
-> RGMII delays are
-> implemented directly in hardware inside the SOM itself, through passive delay
-> elements (filters) placed on the RX and TX lines. There is no reliance on PHY
-> strap settings or any kind of delay configuration via registers.
+> Hi Marc,
 > 
-> This means:
-> - The delays are fixed and cannot be changed via software.
-> - From the point of view of any carrier board, the interface is
-> already timing-compliant.
+> > On 3 Jun 2025, at 07:08, Marc Zyngier <maz@kernel.org> wrote:
+> > 
+> > This series tries to bring some sanity to the way the RESx masks
+> > are applied when accessing the in-memory view of the guest's
+> > system registers.
+> > 
+> > Currently, we have *one* accessor (__vcpu_sys_reg()) that can either
+> > be used as a rvalue or lvalue while that applies the RESx masks behind
+> > the scenes. This works fine when used as a rvalue.
+> > 
+> > However, when used as a lvalue, it does the wrong thing, as it only
+> > sanitises the value we're about to overwrite. This is pointless work
+> > and potentially hides bugs.
+> > 
+> > I propose that we move to a set of store-specific accessors (for
+> > assignments and RMW) instead of the lvalue hack, ensuring that the
+> > assigned value is the one that gets sanitised. This then allows the 
+> > legacy accessor to be converted to rvalue-only.
+> > 
+> > Given the level of churn this introduces, I'd like this to land very
+> > early in the cycle. Either before 6.16-rc2, or early in 6.17.
+> > 
+> 
+> For the series:
+> Reviewed-by: Miguel Luis <miguel.luis@oracle.com>
 
-Great. Please add a comment in the DT explaining this. 99% of the time
-'rgmii' is wrong, but this is the 1%. We should make it clear this is
-not just another cut/paste error, but very intentional and correct
-because of the PCB design.
+Thanks.
 
-There is a patch to checkpatch.pl i want to introduce in the next
-development cycle which will look for 'rgmii', and if found, look on
-the line before for a comment including the word 'PCB'. If it finds
-'rgmii' without such a comment it will issue a warning. So it would be
-nice to avoid that in your correct case.
+> 
+> nit: the rmw accessor implies an implicit assignment which could be specified
+> within its macro instead but it's fine by me.
 
-     Andrew
+I'm not sure what you mean. Looking at this macro again, the early
+writeback to the sysreg array is pretty unfortunate, and could be
+avoided.
+
+Does the following change address your concern? If not, please clearly
+point out what you're after.
+
+	M.
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index b4ac2f515f94..382b382d14da 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1121,7 +1121,8 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+ #define __vcpu_rmw_sys_reg(v, r, op, val)				\
+ 	do {								\
+ 		const struct kvm_cpu_context *ctxt = &(v)->arch.ctxt;	\
+-		u64 __v = ctxt_sys_reg(ctxt, (r)) op (val);		\
++		u64 __v = ctxt_sys_reg(ctxt, (r));			\
++		__v op (val);						\
+ 		if (vcpu_has_nv((v)) && (r) >= __SANITISED_REG_START__)	\
+ 			__v = kvm_vcpu_apply_reg_masks((v), (r), __v);	\
+ 									\
+
+-- 
+Jazz isn't dead. It just smells funny.
 
