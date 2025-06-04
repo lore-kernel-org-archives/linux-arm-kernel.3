@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690AEC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21038C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 14:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jsTyGOl46pmuW0jc1Gc/nA1x6/Xifbnkkp9MALW3WSk=; b=CWqME+bY9LsVPYLl/Ncsn5Gg26
-	h82PvyWo1C1iISQtix882LtZjARFfDWqZ52z6l2rtu59ZVr316eu5iXJO3aRymDu7ZYsi+Y1oOXad
-	jD3rtPcxHHlgb002zAzgxQ6CSahf8SwiBGcJh//eGOF7bzuNAzzwve5nPlmYlfdtzzuKFSG7uKATe
-	iyh+Fchils93Tf9B+Q+kR4TeKqckQu3oVD876X4Ek7DyPW9mGfR0i4WKdHq1pklSHefw9R1VcAboe
-	1a76mDFSjq5ixOlHQSdf4f79yAoARDUbcUUumrl7mov71w8MZxa8Hqytk7/add5Bjn9tvPvGdKblV
-	59QVayxw==;
+	bh=eTse5vrYvFcYTCoeZnZ0RP8Tv+FPYtF/vmyXO0zhtAs=; b=tYXdcUA/oqFPP2RO7dPdSBYD+B
+	25tX4Rk806TAatb+Mt7UNYVY1kexKEMGFSl2kl4kByLd+SxNxvTTg2NusKkBvlBc5NWeArmN5cob3
+	AXAqkDhuzofqkQjkDKjMV+sKNcEEf4TfDU7cwaoVNXLMoI41gB4Ae61mOQ7FMwy+P/FJZB5u0Vep6
+	mD4OWdmcGgf16cIu46ALA2iIc3S0dsGaEFydDXrfKQrDN0+YmwY5uEKmZEA7XyZ6exOBwCkTg16Uy
+	G6Xx640XnhQmBrmwqJ0pXwuXVNV0NA2rcL185GPxG8anit5Bu+nAGcSQE0tl1IVcgFRfU4Nftd3ZA
+	+HJeu4FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMork-0000000DXDx-3ut1;
-	Wed, 04 Jun 2025 14:13:16 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uMotq-0000000DXNm-2ke2;
+	Wed, 04 Jun 2025 14:15:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMop4-0000000DWsr-2jli
+	id 1uMopd-0000000DWvH-3UjT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 14:10:31 +0000
+	Wed, 04 Jun 2025 14:11:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D7FD3A505E9;
-	Wed,  4 Jun 2025 14:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95DEAC4CEE4;
-	Wed,  4 Jun 2025 14:10:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 06F16614BC;
+	Wed,  4 Jun 2025 14:11:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7574BC4CEE4;
+	Wed,  4 Jun 2025 14:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749046229;
-	bh=HqA+R87orsdoOs/Jn/ihLSl7JTKNEUTdR/FSCbhLcWI=;
+	s=k20201202; t=1749046264;
+	bh=QHd963OG136C8dBtaEAon6yYYj9jJAr3IfwDyW0E51I=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=dlvsPzPXxvOn01+Cp2ZTrilk+OhUKFB01Gf4MRV73nMpG42WChW4A8lycFTpHSzBo
-	 0eyEdxSXRSL+MAkK5DkeMTLq2WezLO5p+UwNEOefFbRNaUr5NsuAHUeBWfnjVacKtD
-	 2kPLQqkuVPLvMHr9pllpwL7wzemK+C/sDkX7qh2pBGSwDTgI3dSZxCja+d80m4ZXqW
-	 qBPxkdIkOAUkgzylc/AW1H38qRjCL5Gu4v8vPoT/kuozlGEHegUpvgMUSYA65oOEY2
-	 XdyvS6VeFNY9x7UnDFRKVkADLtpli/B47K6U7dLi6FBA8LsF92UcLMBIli9n7HFd/5
-	 y6WMqZz2b87gQ==
-Message-ID: <9bf60780-30fa-4ac1-88cf-8964f1ade593@kernel.org>
-Date: Wed, 4 Jun 2025 16:10:24 +0200
+	b=ho+WukD5xc0a1WdsrxBBknOO9JpQgmQF8l05lLIp3lJo9O3XiTaMGV4+DduWyvb+H
+	 5S8DoTr1Bufu3UJ8DvY+kd/9IdmfMeS3hYtslLukYxcCAIaKDZvavA4YEOEYTV+gt5
+	 pW8nGI/Uu1wXh6GedEOJPaWVePZxg/BqM9Phu41gay1+zCmyHhtCajrf0rUUTtdd9o
+	 L5gKB8y8jTIgiQ0yqx2bK/U9FzYqgNzgWgLugNtZZIRfaVnCImvgKqPJ9fB4IzP5ug
+	 7a30ux4acE0KaiDiQAiJ8mTkTDQktUIspnqZ/XOngL9r2v4bJDFx3siK3f489XRVyt
+	 u7avk61cI+KsQ==
+Message-ID: <56e8101a-76f3-4a27-9826-fcb97320a9c5@kernel.org>
+Date: Wed, 4 Jun 2025 16:10:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] ASPEED: Add mailbox driver for AST2700 series
-To: Jammy Huang <jammy_huang@aspeedtech.com>,
- "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: mailbox: Add ASPEED AST2700 series
+ SoC
+To: Jammy Huang <jammy_huang@aspeedtech.com>, jassisinghbrar@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
 References: <20250604125558.1614523-1-jammy_huang@aspeedtech.com>
- <e967473f-f1cc-42d8-9786-437f52db4162@kernel.org>
- <SEZPR06MB65691F4A1A28AC189D38A55EF16CA@SEZPR06MB6569.apcprd06.prod.outlook.com>
+ <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +100,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <SEZPR06MB65691F4A1A28AC189D38A55EF16CA@SEZPR06MB6569.apcprd06.prod.outlook.com>
+In-Reply-To: <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_071030_832155_0B709636 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,22 +117,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/06/2025 15:07, Jammy Huang wrote:
->> On 04/06/2025 14:55, Jammy Huang wrote:
->>> Add mailbox controller driver for AST27XX SoCs, which provides
->>> independent tx/rx mailbox between different processors. There are 4
->>> channels for each tx/rx mailbox and each channel has an 32-byte FIFO.
->>>
->>>  v2 changes:
->>>   - Update document
->>
->> This is vague. What did you update there?
-> Sorry, let me supply some information as below.
->  1. Correct error in dts example.
->  2. Drop description for mbox-cell as you suggested previously.
+On 04/06/2025 14:55, Jammy Huang wrote:
+> Introduce the mailbox module for AST27XX series SoC, which is responsible
+> for interchanging messages between asymmetric processors.
+> 
+> Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
 
-Then please write proper, descriptive changelogs. I am sure U asked
-Aspeed that already.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
 Best regards,
 Krzysztof
