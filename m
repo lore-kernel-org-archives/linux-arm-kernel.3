@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68C5C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 17:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641EDC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 17:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjOqoffUv6nOmVjkm22wWdvmrQyYX67LoFIA7eUIS4c=; b=LiLaFuwXFDznMh8bOr99lV+CVv
-	E70WSLjqY4k5n41EXjXAmF+JbhwhCtAcdjp3Em+j373RAfgSbyJtXvlPDjFEmsu5T3ToQ1Oi2PT5f
-	fb/2EE+fizn+wkuy2Tuzr9ZkoYWwqZhYm3RoJCp59UNJZGFwKnNdUAcVmdNCKhHbTBuDF0PFqkCV2
-	xeHrqGf685DBAimzLMHFIswvV9HaXyii0KgbSCeUPjdz87uq8cyZn2nzHqjSaHJf3mOpfEqHQ0r4L
-	6R4BzwZXFG18CYRC6N1YFehTnZyLF2Aw1Zpp/o+uLjIQhERFs+vVHyzhev6g3/yhXCgUY1kiOQyzu
-	AD9KXWFA==;
+	bh=q7B9otxjjw86LIN97ls2HG35KDJxQJSkzx4ZMv9DYuA=; b=GOn6XKO6e085ugbzjpYfN3Zc44
+	4bzmJwIMiUSNWNrQRkk87TITogTLhV4P+C06jFi3b8GhAP/hDD9Ff6OWfF+95X0iuaQc1B1gp0aPf
+	i12r3Ss2rb2oOBmnzHHuNAjvvTd3xtj9xOCAlxiiil/UgLTwpwEWzPeK4IJ4jvCIH8IUEVjQ4/ZAz
+	cpK5LjHEa5mencsr/EUstv0EmPH4sA4RtfOqyKZHwQ4JUfshAm+8KPkBI71BL90wzq7GSY0KdWtyK
+	VAOLwz3OAHDAN9M0Egmk5UoDCJ1CE6qpEnsSdr+9AKfhqc7f/7IPIu4htjyQ1fgPUTkNTeRtlF7fO
+	iB4aFOBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrx9-0000000Dwnn-1ipX;
-	Wed, 04 Jun 2025 17:31:03 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1uMrzD-0000000DwyE-0dKN;
+	Wed, 04 Jun 2025 17:33:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrt5-0000000DwEg-0GEi
+	id 1uMrtf-0000000DwM2-49UT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 04 Jun 2025 17:27:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=q7B9otxjjw86LIN97ls2HG35KDJxQJSkzx4ZMv9DYuA=; b=iOM0JYBx5HYfzRjR/weCBa52mb
+	Q1LTZ7avCv18NNqjmdqghxejtHunqMEMU+Oh5SLB5fkZGtNpm+p7MQ9idRrVgfnm9+3V2zKU2RtJ0
+	Hi+7iSlCN4HY3KOJMcH+ycPIbLPom2gZy+NrPuRihllqTHmP/iRK1sMNhZwhcLAPBXcS0Lkf3Egq2
+	QDAQq2cXCVkKFKQaA1zdw2gqlFgE9El0DBeKGiHQUVLv2yYDSspwBDHqd8tgZtNSBRdMUI05GzSM3
+	Mi03yN8rfukJd0BFrmfsOeB1KBoDTvjjTdYhiF7AY79UVokSizP20I359y449tchZhmnbyLLU+MT7
+	IrqXiCKg==;
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMrtc-00000000wak-43Fk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 17:26:52 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b26f5f47ba1so27877a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 10:26:50 -0700 (PDT)
+	Wed, 04 Jun 2025 17:27:26 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-235e1d4cba0so837455ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 10:27:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749058010; x=1749662810; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1749058041; x=1749662841; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=tjOqoffUv6nOmVjkm22wWdvmrQyYX67LoFIA7eUIS4c=;
-        b=hY/tlo+gg92Sbvy8RdgL08Wl+CTIsT2Cg8wyfCtdXGcRck7O9yMTRlrEs3ymRtdzEt
-         BgEqgAxgc229noZqJVuPVcrkROSZBprb/TJgvbzSGeEZihQVZp45vLR2CSSNQyovKvzy
-         /AxgdV4VBcIbX46H8gT9z4R9HyuaVmfkm6oa4nPkZhC34IPjptn/NJrta5QwocUHAn++
-         ca8VH0mnYzH+rGzgxI7C+Vn3hg43m1aEahL1oWj+QkWWXVATc74nQqB2Mfnc3H7wFugL
-         Vkd5mjWpVx9jiU4gaVcD2wxbsEmt8c97JNwV/UD/cU/soVk18F7KIvG2UVyVKEfEdfuT
-         c+/A==
+        bh=q7B9otxjjw86LIN97ls2HG35KDJxQJSkzx4ZMv9DYuA=;
+        b=S4maj8bctJcN66F4OXbxv6BChnwGiAJ6tJwo3gEiWPIi9G+C6WKT75NSaDm9ecSsHK
+         4gG2EwRidq5GoMhEmvxeF3nJY/goP+N2vGKg4kZBgb0McYfPdFM8NR5h8HbNWtqpCKfj
+         dDMmAgS/prIkwnoV3lXvb4gMKbh1a/gIRRt67ZCDhXyNvRnqdkJWaNs+f4s2kCf9u9dm
+         z3CbAMj6Z23eg+wmeLMr2HdRCKcpS64EzKWbcH2yWMAuSa/weBA5NRNpQdxPlegbxm/G
+         FVtENfpNA8sEmgHmQL4dtFfQEbb3UkYFsG6rwbXhQTUYUCbxoz1C0bGLE9VOS82NkEEC
+         kr4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749058010; x=1749662810;
+        d=1e100.net; s=20230601; t=1749058041; x=1749662841;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tjOqoffUv6nOmVjkm22wWdvmrQyYX67LoFIA7eUIS4c=;
-        b=DljcEAd2Sg5vpqilj0rRV3SluwiVyBFZOzbccVtWxfBE/yQTykz7dsXeJc5Xych1wO
-         WV5X4RH4RoUKUyQI8ClGrymaTKBMyAEYJvgQYTJvHX7aUGodrRPqlmzrS6AgEUqcayOL
-         ury1oWF2JJYed7HicOsejYckdVcDGAGSkw0PMGAv2fSMtNXR4pxhCzUBrn2hKiAYXkOU
-         zzNueoR2T1MwV9y35ZyH5DGFBw/b1idTRv7+oZIawHbp6KYTLrdW/dmBDa9XoM18vhgq
-         /lGJ7EU3tu4xgIK1aC7hUejPOKPDVWGFY4PaEJ4zyIKEZJWwqVg4i/GdLJPeyfvSOw/z
-         FRUw==
-X-Gm-Message-State: AOJu0YwQL2gW9nmFBk0NYx/fRPZ8fed6N2+mSW6u+rdY+0J0Z1LR52ai
-	PxFVfn4y+AZu6Wx/CplP9v6R3Fc8fuXepVUR1MABrmFQCPlVVW60iF51ysqUmiQ5Uu8UhAIX2Gl
-	j2Uw=
-X-Gm-Gg: ASbGnct4a8fjGz8NKatzgfd8m4QxNgGr02g6B8SmKfbGVwMdQRBEuGPZnSZKFtpmwfm
-	XHvacem+GnL6BkqVVSKJpqwn840DG96uI7RqUUZzTRgQ503aFhwsYfQ5dPCPUMesDT9mIeqNuwY
-	HFooU12rXa7ll6GZLsMLyzdBe0vGTQ4Fc3/f6vZAQ6i2Fk3Vnggx1bWskHorGBsco27fCONgCQu
-	PanqpyppTrTB9OzraKx4k8BlPaspPTSd6qPvebwISPqgPW/x9urMNmq0KtURxmG1UJJY7wJWXFY
-	+nizqKpqtd5S8f3vddNdpa/Row4g1ucyjwRUGlmT9uXy3/k39my8NuAgMZB8Mw==
-X-Google-Smtp-Source: AGHT+IE7pUgMHsiK6fiB03xw5h0r4hqVnNjoiuF0h4s03T9Q5QTp4kFOwhIfaUC9GczffqkQkUVkZA==
-X-Received: by 2002:a17:90b:4a41:b0:311:ea13:2e62 with SMTP id 98e67ed59e1d1-3130cd5dd59mr5987202a91.24.1749058010346;
-        Wed, 04 Jun 2025 10:26:50 -0700 (PDT)
+        bh=q7B9otxjjw86LIN97ls2HG35KDJxQJSkzx4ZMv9DYuA=;
+        b=A6N4JJjqp9wCMVGk4kQJan2jfmStvzV2VTIb3jZZMV1CPU4rFd0b1GJOlo7wfaVLGA
+         Uqb6pN9rdzGSLrO1kSCEleVCtgors3wy1//TS7gZO5BajfLZ+QCLsjTbob7E0+DIBf7e
+         A5Pla6EweS3VQZgcROvyhw5Tn9OA1zsGtBrOFr+HIhq3ACeTA1TxAG4mNWF3xIHx1K5Y
+         NNYpY6mREV3WmsGL4wkrRdq92LyBMy64Rk1Xi1Po7FSxVaSweCCJGmyx2uks6HBYm4fT
+         han5AfZkp5CFFsJxQfXRLYshKWXu41bpe1L3+I0xCYVHR6k1NNVTQPPcxJF1ZEyHXPwg
+         qd3A==
+X-Gm-Message-State: AOJu0YyMSS5CAOozt74vHzQozC8GRQri+R0ASQfNtw7If0VEvryyeFaf
+	XTrjEie9AASIb5AsENpS9WmO6Gwsos2X4P8bnzO5p/zT7YIa2qqeOblh5DI2dKXpbA==
+X-Gm-Gg: ASbGncvohSZLWpQuCk+yAv2bAzn754rKab0W5gQC3WVvw7RyFVNaSzgV35MI7nGNDVI
+	53Basgq1op0Kmg9J01AlgYoLXuNI4PS5TDaqQyFN6LBXNmk/Wi+Y5J4yC06PtxHVHxVzSlncxjO
+	+Il/nnYfdgGvG/ntnDKnrElZEtC9MTW+89zHumSLpAkW9HOrDiOHBky33NsAp2cpuTw5cp6oEc2
+	Y74w1HdFxwYNjtly2cugHm7yxLwX9X5ET0ks0JRQfsAca1qFpxzt+rf/ySBGR1o2WBX98mFg7M5
+	cm+QGVAwIS0wohEbaLZ4ZtsZt8JRhC9OUCr0y86jcp4RzlVYlwDlHGLz0xa/Uw==
+X-Google-Smtp-Source: AGHT+IH1DWvZbMUTKY0iYBnPsO3u5V0VrOXZgYbT6v4V4ZwUlpiIxHERxxyfrv3KJRUYnHRg6IZfnA==
+X-Received: by 2002:a17:902:dacb:b0:234:d10d:9f9f with SMTP id d9443c01a7336-235e11fc8bfmr52595515ad.40.1749058041460;
+        Wed, 04 Jun 2025 10:27:21 -0700 (PDT)
 Received: from thinkpad ([120.60.60.253])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e322315sm9178577a91.43.2025.06.04.10.26.45
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506bd92f8sm106368255ad.88.2025.06.04.10.27.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 10:26:49 -0700 (PDT)
-Date: Wed, 4 Jun 2025 22:56:43 +0530
+        Wed, 04 Jun 2025 10:27:21 -0700 (PDT)
+Date: Wed, 4 Jun 2025 22:57:13 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, 
@@ -78,19 +92,19 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Rob Herring <robh@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
 	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] arm64: dts: renesas: r8a779g0: Describe root port
- on R-Car V4H
-Message-ID: <mu2zj3ph5px34iyclaeirhry4nknevwqkqhqyyecugio2gpkst@fsaxfqtnc6nn>
+Subject: Re: [PATCH v2 3/3] arm64: dts: renesas: r8a779g3: Describe split
+ PCIe clock on V4H Sparrow Hawk
+Message-ID: <gfr63eotna6javssbrxj6lxifo3o3gypv62t5kg3tzjcyp6zbn@skh6th5vggwb>
 References: <20250530225504.55042-1-marek.vasut+renesas@mailbox.org>
- <20250530225504.55042-2-marek.vasut+renesas@mailbox.org>
+ <20250530225504.55042-3-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250530225504.55042-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250530225504.55042-3-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_102651_101323_50D0E867 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20250604_182725_273041_97684DE7 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,11 +119,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 31, 2025 at 12:53:20AM +0200, Marek Vasut wrote:
-> Add node which describes the root port into PCIe controller DT node.
-> This can be used together with pwrctrl driver to control clock and
-> power supply to a PCIe slot. For example usage, refer to V4H Sparrow
-> Hawk board.
+On Sat, May 31, 2025 at 12:53:21AM +0200, Marek Vasut wrote:
+> The V4H Sparrow Hawk board supplies PCIe controller input clock and PCIe
+> bus clock from separate outputs of Renesas 9FGV0441 clock generator chip.
+> Describe this split bus configuration in the board DT. The topology looks
+> as follows:
+> 
+>  ____________                    _____________
+> | R-Car PCIe |                  | PCIe device |
+> |            |                  |             |
+> |    PCIe RX<|==================|>PCIe TX     |
+> |    PCIe TX<|==================|>PCIe RX     |
+> |            |                  |             |
+> |   PCIe CLK<|======..  ..======|>PCIe CLK    |
+> '------------'      ||  ||      '-------------'
+>                     ||  ||
+>  ____________       ||  ||
+> |  9FGV0441  |      ||  ||
+> |            |      ||  ||
+> |   CLK DIF0<|======''  ||
+> |   CLK DIF1<|==========''
+> |   CLK DIF2<|
+> |   CLK DIF3<|
+> '------------'
 > 
 > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
@@ -132,49 +164,85 @@ Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 > Cc: linux-pci@vger.kernel.org
 > Cc: linux-renesas-soc@vger.kernel.org
 > ---
-> V2: New patch
+> V2: Use pciec0_rp/pciec1_rp phandles to refer to root port moved to core r8a779g0.dtsi
 > ---
->  arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
+>  .../dts/renesas/r8a779g3-sparrow-hawk.dts     | 31 +++++++++++++++++--
+>  1 file changed, 29 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> index 6dbf05a559357..8d9ca30c299c9 100644
-> --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> @@ -798,6 +798,16 @@ pciec0: pcie@e65d0000 {
->  					<0 0 0 4 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
->  			snps,enable-cdm-check;
->  			status = "disabled";
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+> index b8698e07add56..9ba23129e65ec 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+> @@ -130,6 +130,13 @@ mini_dp_con_in: endpoint {
+>  		};
+>  	};
+>  
+> +	/* Page 26 / PCIe.0/1 CLK */
+> +	pcie_refclk: clk-x8 {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <25000000>;
+> +	};
 > +
-> +			/* PCIe bridge, Root Port */
-> +			pciec0_rp: pci@0,0 {
-> +				#address-cells = <3>;
-> +				#size-cells = <2>;
-> +				reg = <0x0 0x0 0x0 0x0 0x0>;
-> +				compatible = "pciclass,0604";
-> +				device_type = "pci";
-> +				ranges;
+>  	reg_1p2v: regulator-1p2v {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "fixed-1.2V";
+> @@ -404,6 +411,14 @@ i2c0_mux2: i2c@2 {
+>  			reg = <2>;
+>  			#address-cells = <1>;
+>  			#size-cells = <0>;
+> +
+> +			/* Page 26 / PCIe.0/1 CLK */
+> +			pcie_clk: clk@68 {
+> +				compatible = "renesas,9fgv0441";
+> +				reg = <0x68>;
+> +				clocks = <&pcie_refclk>;
+> +				#clock-cells = <1>;
 > +			};
 >  		};
 >  
->  		pciec1: pcie@e65d8000 {
-> @@ -835,6 +845,16 @@ pciec1: pcie@e65d8000 {
->  					<0 0 0 4 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
->  			snps,enable-cdm-check;
->  			status = "disabled";
-> +
-> +			/* PCIe bridge, Root Port */
-> +			pciec1_rp: pci@0,0 {
-> +				#address-cells = <3>;
-> +				#size-cells = <2>;
-> +				reg = <0x0 0x0 0x0 0x0 0x0>;
-> +				compatible = "pciclass,0604";
-> +				device_type = "pci";
-> +				ranges;
-> +			};
->  		};
+>  		i2c0_mux3: i2c@3 {
+> @@ -487,26 +502,38 @@ msiof1_snd_endpoint: endpoint {
 >  
->  		pciec0_ep: pcie-ep@e65d0000 {
+>  /* Page 26 / 2230 Key M M.2 */
+>  &pcie0_clkref {
+> -	clock-frequency = <100000000>;
+> +	status = "disabled";
+>  };
+>  
+>  &pciec0 {
+> +	clocks = <&cpg CPG_MOD 624>, <&pcie_clk 0>;
+>  	reset-gpios = <&gpio2 2 GPIO_ACTIVE_LOW>;
+>  	status = "okay";
+>  };
+>  
+> +&pciec0_rp {
+> +	clocks = <&pcie_clk 1>;
+> +	vpcie3v3-supply = <&reg_3p3v>;
+> +};
+> +
+>  /* Page 25 / PCIe to USB */
+>  &pcie1_clkref {
+> -	clock-frequency = <100000000>;
+> +	status = "disabled";
+>  };
+>  
+>  &pciec1 {
+> +	clocks = <&cpg CPG_MOD 625>, <&pcie_clk 2>;
+>  	/* uPD720201 is PCIe Gen2 x1 device */
+>  	num-lanes = <1>;
+>  	reset-gpios = <&gpio2 0 GPIO_ACTIVE_LOW>;
+>  	status = "okay";
+>  };
+>  
+> +&pciec1_rp {
+> +	clocks = <&pcie_clk 3>;
+> +	vpcie3v3-supply = <&reg_3p3v>;
+> +};
+> +
+>  &pfc {
+>  	pinctrl-0 = <&scif_clk_pins>;
+>  	pinctrl-names = "default";
 > -- 
 > 2.47.2
 > 
