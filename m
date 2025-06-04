@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CA3C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 03:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D80C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 03:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5B/9oJnm9fEZ8OCKdGDDT05eKl3dvJhZJsqTG6nAsU=; b=V3LEwCyAkLAOzrkYEzbx93VnJD
-	KefkS3KZq62qRdkqjOBVvmQZAWngLSx7/oqvyFp5P80bTb79xKh4VX59oqQmLmCkWZhwGqOu0QKpQ
-	Y6qGtgSCVHC7Yo7ZZ+ODFAUw04LXZ5IjcWXYEOb0X3Rpz0mpFHjlj/CSxGa7nVD47XTDhlFLKkzFK
-	RrLciCnvp3GXiXpeckwNlQdm09lQWrRqPgOJdku4d64Q1vdpfpCPcqOZsNmk15r5MMgqK1pU76bZo
-	8ej68Wo9jEe8SwWMc+23WJhf/ZntL2vSQlc4DQZ1HvsFgyBdNQHBO0k1W/xP8xENzlFAlyo96Xfd1
-	7wRoknNg==;
+	bh=plSmHSndiuDXOg13P9pI15wcgr/wKduXPQw1tP6SZhk=; b=MuVEYlj7rqo4w8AgWy0MRGqi3+
+	zePJfreVvl/LvXTlDN3Vk6yjYzaKUSrUdph1tvxh9VLBxG67IS3DmRaCMg6lv1vI8tEN6D08JZ0Pz
+	wDNEIBZk3c1XRXD0EqAWlUJGv2FSsWYIFD+n9J/vnVi3hNTYoJ114bWkAC9rQvYw6FaEH5UiwB6fV
+	vkucdAjEj7VdwkN53+y8nudZhvyvG3JeHKb1L2p6Eu1yqqMohVDAzcQ9TO/0jmDit8LelZiZavUpZ
+	s6Xr7RCP6uw4JVDeoBgZkJlPhl1tVqdvAsMOMRxL9cDeZ/bUsKHDk/ks7puQvZQWA4DPWog6yS+f2
+	d7kaARhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMeYP-0000000CPyE-47En;
-	Wed, 04 Jun 2025 03:12:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uMeaY-0000000CQ93-2sM5;
+	Wed, 04 Jun 2025 03:14:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcZG-0000000C8uE-082T
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 01:05:22 +0000
+	id 1uMcZS-0000000C8vf-2j66;
+	Wed, 04 Jun 2025 01:05:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 69427629E5;
-	Wed,  4 Jun 2025 01:05:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BFB8C4CEEF;
-	Wed,  4 Jun 2025 01:05:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5CCFD43C8F;
+	Wed,  4 Jun 2025 01:05:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3C88C4CEED;
+	Wed,  4 Jun 2025 01:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748999121;
-	bh=RRww7Y1JJRUbdaIMXelEPD9Hp/nb7W1PLdQyvuMe86Q=;
+	s=k20201202; t=1748999134;
+	bh=sTr+czi8H5o5+cE59kBVVJbF4lBVkGlhby/Bbqi5gO8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AdbyMkXLqBp21Ww1eCCs6Lt8Uvz+Y1Zmgm+hcDvDH7v8UjVIHtIUeYI9ArXEU43Un
-	 duf/jC7qjfrTtxHVYGIy0NMhzYw6iUixLR7OT6P5aiiiPOraz1jOkhq6wGI6KB8E5y
-	 9IpAH2z4UX2S+wlDD8fopnCf/cvxa1xpT5FkGdm8LjjPJ6DwtiyyGGm1AP8+JeVVz5
-	 AjnnEsTIkEEfSbPPeh5JTtQ+w2PBuczNNXpkXsm44wqVZ5hspThBoss6aSu7Dagg35
-	 +qYpG1xh8LxOaU/z1egjFaOMrWWZjoSl4n77qqbSQGG08Bvpfvghi6ZcExs4B1SZ+r
-	 61w0/FBxL8M7Q==
+	b=EglhJB6H9jJKtFVcN0CMwmxuJ1sDu7Hep+mXsdn6jVefTy/4xjwHWxBliW+pzRqgM
+	 zlKmjSzPlGlfW5plhd19kJ9TEhEG6sf/fy+VYAJW3SPrpcqiTgZIQWSKxf5hpsGdJj
+	 mpnpPyAXDdxHtlWlsqqiYmYNRIAo8R/u8DNIzX4qbAWNBmDMM1cmWEbPSSzezyC83w
+	 jxlr8rzHyvimg6RiNgAgq/yuprdqxC+SZkAOJ470gDsqepDHlKWu8dlpBnpCckQ/Mj
+	 X6J+megIlVp1vsXkf//m5Q53A48pnRPdmbyL7CaUh6sycISBSF5pmJH5PY+F7Dmo4u
+	 otHEGBQ2A3d1A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Jakub Kicinski <kuba@kernel.org>,
+Cc: Henk Vergonet <henk.vergonet@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	ulli.kroll@googlemail.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 45/46] net: ethernet: cortina: Use TOE/TSO on all TCP
-Date: Tue,  3 Jun 2025 21:04:03 -0400
-Message-Id: <20250604010404.5109-45-sashal@kernel.org>
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	uwu@icenowy.me,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.15 05/33] wifi: mt76: mt76x2: Add support for LiteOn WN4516R,WN4519R
+Date: Tue,  3 Jun 2025 21:04:56 -0400
+Message-Id: <20250604010524.6091-5-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250604010404.5109-1-sashal@kernel.org>
-References: <20250604010404.5109-1-sashal@kernel.org>
+In-Reply-To: <20250604010524.6091-1-sashal@kernel.org>
+References: <20250604010524.6091-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.140
+X-stable-base: Linux 5.15.184
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250603_180534_731945_C962E560 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,181 +83,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Linus Walleij <linus.walleij@linaro.org>
+From: Henk Vergonet <henk.vergonet@gmail.com>
 
-[ Upstream commit 6a07e3af4973402fa199a80036c10060b922c92c ]
+[ Upstream commit 3c0e4f606d8693795a2c965d6f4987b1bfc31097 ]
 
-It is desireable to push the hardware accelerator to also
-process non-segmented TCP frames: we pass the skb->len
-to the "TOE/TSO" offloader and it will handle them.
+Adds support for:
+ - LiteOn WN4516R
+ - LiteOn WN4519R
+ Both use:
+ - A nonstandard USB connector
+ - Mediatek chipset MT7600U
+ - ASIC revision: 76320044
 
-Without this quirk the driver becomes unstable and lock
-up and and crash.
+Disabled VHT support on ASIC revision 76320044:
 
-I do not know exactly why, but it is probably due to the
-TOE (TCP offload engine) feature that is coupled with the
-segmentation feature - it is not possible to turn one
-part off and not the other, either both TOE and TSO are
-active, or neither of them.
+ This fixes the 5G connectibity issue on LiteOn WN4519R module
+ see https://github.com/openwrt/mt76/issues/971
 
-Not having the TOE part active seems detrimental, as if
-that hardware feature is not really supposed to be turned
-off.
+ And may also fix the 5G issues on the XBox One Wireless Adapter
+ see https://github.com/openwrt/mt76/issues/200
 
-The datasheet says:
+ I have looked at the FCC info related to the MT7632U chip as mentioned in here:
+ https://github.com/openwrt/mt76/issues/459
+ These confirm the chipset does not support 'ac' mode and hence VHT should be turned of.
 
-  "Based on packet parsing and TCP connection/NAT table
-   lookup results, the NetEngine puts the packets
-   belonging to the same TCP connection to the same queue
-   for the software to process. The NetEngine puts
-   incoming packets to the buffer or series of buffers
-   for a jumbo packet. With this hardware acceleration,
-   IP/TCP header parsing, checksum validation and
-   connection lookup are offloaded from the software
-   processing."
-
-After numerous tests with the hardware locking up after
-something between minutes and hours depending on load
-using iperf3 I have concluded this is necessary to stabilize
-the hardware.
-
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-Link: https://patch.msgid.link/20250408-gemini-ethernet-tso-always-v1-1-e669f932359c@linaro.org
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Signed-off-by: Henk Vergonet <henk.vergonet@gmail.com>
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Link: https://patch.msgid.link/20250418143914.31384-1-henk.vergonet@gmail.com
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-**YES** This commit should be backported to stable kernel trees based on
-the following analysis: ## Critical Stability Fix This commit addresses
-a critical hardware stability issue where the Cortina Gemini ethernet
-driver would "lock up and crash" after minutes to hours of operation
-under load. The commit message explicitly states: > "Without this quirk
-the driver becomes unstable and lock up and and crash." > "After
-numerous tests with the hardware locking up after something between
-minutes and hours depending on load using iperf3 I have concluded this
-is necessary to stabilize the hardware." ## Code Analysis of Changes The
-changes are minimal and contained within the `gmac_map_tx_bufs` function
-in `drivers/net/ethernet/cortina/gemini.c`: 1. **TCP Detection Logic**:
-The code adds early TCP protocol detection: ```c bool tcp = false; if
-(skb->protocol == htons(ETH_P_IP)) tcp = (ip_hdr(skb)->protocol ==
-IPPROTO_TCP); else tcp = (ipv6_hdr(skb)->nexthdr == IPPROTO_TCP); ``` 2.
-**TOE/TSO Activation for All TCP**: For non-GSO TCP frames, it now
-activates the hardware TOE/TSO engine: ```c } else if (tcp) { mss =
-netdev->mtu + skb_tcp_all_headers(skb); mss = min(mss, skb->len); word1
-|= TSS_MTU_ENABLE_BIT; word3 |= mss; ``` 3. **Simplified Checksum
-Logic**: The checksum handling is simplified by reusing the already-
-determined `tcp` boolean instead of recalculating it. ## Hardware
-Architecture Justification The commit explains this is necessary due to
-the coupled nature of the hardware's TOE (TCP Offload Engine) and TSO
-features: > "it is probably due to the TOE (TCP offload engine) feature
-that is coupled with the segmentation feature - it is not possible to
-turn one part off and not the other" This aligns with the datasheet
-description that the NetEngine performs "IP/TCP header parsing, checksum
-validation and connection lookup" as integrated hardware acceleration.
-## Pattern Match with Historical Commits Looking at the provided similar
-commits: - **Similar Commit #2**: "net: ethernet: cortina: Restore TSO
-support" (Status: YES) - This is the direct predecessor that restored
-TSO but didn't address the stability issue for non-segmented TCP frames
-- **Similar Commit #3**: "net: ethernet: cortina: Locking fixes"
-(Status: YES) - Another stability fix for the same driver Both
-historical commits addressing Cortina Gemini stability issues were
-marked as backport-worthy, establishing a pattern. ## Backport Criteria
-Assessment ✅ **Fixes important bugs**: Prevents driver crashes and
-hardware lockups ✅ **Small and contained**: Changes are localized to one
-function with clear logic ✅ **Minimal risk**: Only affects TCP frame
-handling, doesn't change architectural behavior ✅ **No new features**:
-Uses existing hardware capabilities more appropriately ✅ **Critical
-subsystem**: Network drivers are essential for system stability ## Risk
-Assessment The risk is very low because: - The changes only affect how
-TCP frames are processed by existing hardware features - The TOE/TSO
-hardware engine was already in use for segmented frames - The
-modification ensures consistent hardware state rather than leaving it
-partially enabled - The fix has been tested extensively by the author
-under load conditions This commit follows the stable tree criteria
-perfectly: it's an important bug fix that prevents system crashes, has
-minimal risk of regression, and doesn't introduce new features.
+**YES** This commit should be backported to stable kernel trees. Here's
+my detailed analysis: ## Comparison with Similar Commits This commit
+closely matches **Similar Commit #1** (XBox One wifi adapter support)
+which was marked as **YES** for backporting. Both commits: - Add new USB
+device IDs for wireless adapters - Include hardware-specific workarounds
+for device limitations - Fix connectivity issues for specific hardware
+## Code Changes Analysis ### 1. USB Device ID Additions (Low Risk) ```c
+{ USB_DEVICE(0x0471, 0x2126) }, /bin /bin.usr-is-merged /boot /dev /etc
+/home /init /lib /lib.usr-is-merged /lib64 /lost+found /media /mnt /opt
+/proc /root /run /sbin /sbin.usr-is-merged /snap /srv /sys /tmp /usr
+/var LiteOn WN4516R module, nonstandard USB connector linux/ {
+USB_DEVICE(0x0471, 0x7600) }, /bin /bin.usr-is-merged /boot /dev /etc
+/home /init /lib /lib.usr-is-merged /lib64 /lost+found /media /mnt /opt
+/proc /root /run /sbin /sbin.usr-is-merged /snap /srv /sys /tmp /usr
+/var LiteOn WN4519R module, nonstandard USB connector linux/ ``` -
+**Risk**: Minimal - adding device IDs is very safe - **Impact**: Enables
+support for new hardware without affecting existing devices - **Scope**:
+Contained to device identification ### 2. VHT Capability Fix (Critical
+Bug Fix) ```c switch (dev->mt76.rev) { case 0x76320044: /bin /bin.usr-
+is-merged /boot /dev /etc /home /init /lib /lib.usr-is-merged /lib64
+/lost+found /media /mnt /opt /proc /root /run /sbin /sbin.usr-is-merged
+/snap /srv /sys /tmp /usr /var these ASIC revisions do not support VHT
+linux/ vht = false; break; default: vht = true; break; } ``` - **Fixes
+critical connectivity issues**: The commit explicitly fixes 5G
+connectivity problems - **Hardware-specific workaround**: Targets a
+specific ASIC revision (0x76320044) - **Conservative approach**:
+Disables problematic VHT only for affected hardware - **Minimal
+regression risk**: Existing devices continue using VHT as before ##
+Backport Suitability Criteria ✅ **Fixes user-affecting bugs**: Resolves
+5G connectivity issues on LiteOn modules and potentially XBox One
+adapters ✅ **Small and contained**: Changes are minimal - 2 new USB IDs
+and a targeted VHT disable ✅ **No architectural changes**: Uses existing
+framework, just adds device support and fixes capability detection ✅
+**References external issues**: Links to GitHub issues #971 and #200,
+indicating real user problems ✅ **Clear side effects documentation**:
+VHT disabling is well-documented and justified with FCC information ✅
+**Follows stable tree rules**: Important hardware support fix with
+minimal regression risk ✅ **Confined to subsystem**: Changes limited to
+mt76x2 USB driver ## Hardware Impact Assessment The commit addresses
+**confirmed hardware limitations** where VHT was incorrectly enabled on
+chipsets that don't support it, causing: - Connection failures in 5GHz
+band - Potential instability when VHT features are attempted This
+matches the pattern of **Similar Commit #1** which added support for
+newer XBox One adapters and was successfully backported. The
+risk/benefit ratio strongly favors backporting: minimal code changes
+that fix real connectivity issues for specific hardware without
+affecting other devices.
 
- drivers/net/ethernet/cortina/gemini.c | 37 +++++++++++++++++++++------
- 1 file changed, 29 insertions(+), 8 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt76x2/usb.c     |  2 ++
+ .../net/wireless/mediatek/mt76/mt76x2/usb_init.c    | 13 ++++++++++++-
+ 2 files changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-index 7cc0ea3737b2d..729a69007ec47 100644
---- a/drivers/net/ethernet/cortina/gemini.c
-+++ b/drivers/net/ethernet/cortina/gemini.c
-@@ -1148,6 +1148,7 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
- 	struct gmac_txdesc *txd;
- 	skb_frag_t *skb_frag;
- 	dma_addr_t mapping;
-+	bool tcp = false;
- 	void *buffer;
- 	u16 mss;
- 	int ret;
-@@ -1155,6 +1156,13 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
- 	word1 = skb->len;
- 	word3 = SOF_BIT;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
+index 9369515f36a3a..4e14548d27215 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
+@@ -17,6 +17,8 @@ static const struct usb_device_id mt76x2u_device_table[] = {
+ 	{ USB_DEVICE(0x057c, 0x8503) },	/* Avm FRITZ!WLAN AC860 */
+ 	{ USB_DEVICE(0x7392, 0xb711) },	/* Edimax EW 7722 UAC */
+ 	{ USB_DEVICE(0x0e8d, 0x7632) },	/* HC-M7662BU1 */
++	{ USB_DEVICE(0x0471, 0x2126) }, /* LiteOn WN4516R module, nonstandard USB connector */
++	{ USB_DEVICE(0x0471, 0x7600) }, /* LiteOn WN4519R module, nonstandard USB connector */
+ 	{ USB_DEVICE(0x2c4e, 0x0103) },	/* Mercury UD13 */
+ 	{ USB_DEVICE(0x0846, 0x9053) },	/* Netgear A6210 */
+ 	{ USB_DEVICE(0x045e, 0x02e6) },	/* XBox One Wireless Adapter */
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/usb_init.c b/drivers/net/wireless/mediatek/mt76/mt76x2/usb_init.c
+index 85dcdc22fbebf..41b9a99665822 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x2/usb_init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x2/usb_init.c
+@@ -191,6 +191,7 @@ int mt76x2u_register_device(struct mt76x02_dev *dev)
+ {
+ 	struct ieee80211_hw *hw = mt76_hw(dev);
+ 	struct mt76_usb *usb = &dev->mt76.usb;
++	bool vht;
+ 	int err;
  
-+	/* Determine if we are doing TCP */
-+	if (skb->protocol == htons(ETH_P_IP))
-+		tcp = (ip_hdr(skb)->protocol == IPPROTO_TCP);
-+	else
-+		/* IPv6 */
-+		tcp = (ipv6_hdr(skb)->nexthdr == IPPROTO_TCP);
+ 	INIT_DELAYED_WORK(&dev->cal_work, mt76x2u_phy_calibrate);
+@@ -215,7 +216,17 @@ int mt76x2u_register_device(struct mt76x02_dev *dev)
+ 
+ 	/* check hw sg support in order to enable AMSDU */
+ 	hw->max_tx_fragments = dev->mt76.usb.sg_en ? MT_TX_SG_MAX_SIZE : 1;
+-	err = mt76_register_device(&dev->mt76, true, mt76x02_rates,
++	switch (dev->mt76.rev) {
++	case 0x76320044:
++		/* these ASIC revisions do not support VHT */
++		vht = false;
++		break;
++	default:
++		vht = true;
++		break;
++	}
 +
- 	mss = skb_shinfo(skb)->gso_size;
- 	if (mss) {
- 		/* This means we are dealing with TCP and skb->len is the
-@@ -1167,8 +1175,26 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
- 			   mss, skb->len);
- 		word1 |= TSS_MTU_ENABLE_BIT;
- 		word3 |= mss;
-+	} else if (tcp) {
-+		/* Even if we are not using TSO, use the hardware offloader
-+		 * for transferring the TCP frame: this hardware has partial
-+		 * TCP awareness (called TOE - TCP Offload Engine) and will
-+		 * according to the datasheet put packets belonging to the
-+		 * same TCP connection in the same queue for the TOE/TSO
-+		 * engine to process. The engine will deal with chopping
-+		 * up frames that exceed ETH_DATA_LEN which the
-+		 * checksumming engine cannot handle (see below) into
-+		 * manageable chunks. It flawlessly deals with quite big
-+		 * frames and frames containing custom DSA EtherTypes.
-+		 */
-+		mss = netdev->mtu + skb_tcp_all_headers(skb);
-+		mss = min(mss, skb->len);
-+		netdev_dbg(netdev, "TOE/TSO len %04x mtu %04x mss %04x\n",
-+			   skb->len, netdev->mtu, mss);
-+		word1 |= TSS_MTU_ENABLE_BIT;
-+		word3 |= mss;
- 	} else if (skb->len >= ETH_FRAME_LEN) {
--		/* Hardware offloaded checksumming isn't working on frames
-+		/* Hardware offloaded checksumming isn't working on non-TCP frames
- 		 * bigger than 1514 bytes. A hypothesis about this is that the
- 		 * checksum buffer is only 1518 bytes, so when the frames get
- 		 * bigger they get truncated, or the last few bytes get
-@@ -1185,21 +1211,16 @@ static int gmac_map_tx_bufs(struct net_device *netdev, struct sk_buff *skb,
- 	}
- 
- 	if (skb->ip_summed == CHECKSUM_PARTIAL) {
--		int tcp = 0;
--
- 		/* We do not switch off the checksumming on non TCP/UDP
- 		 * frames: as is shown from tests, the checksumming engine
- 		 * is smart enough to see that a frame is not actually TCP
- 		 * or UDP and then just pass it through without any changes
- 		 * to the frame.
- 		 */
--		if (skb->protocol == htons(ETH_P_IP)) {
-+		if (skb->protocol == htons(ETH_P_IP))
- 			word1 |= TSS_IP_CHKSUM_BIT;
--			tcp = ip_hdr(skb)->protocol == IPPROTO_TCP;
--		} else { /* IPv6 */
-+		else
- 			word1 |= TSS_IPV6_ENABLE_BIT;
--			tcp = ipv6_hdr(skb)->nexthdr == IPPROTO_TCP;
--		}
- 
- 		word1 |= tcp ? TSS_TCP_CHKSUM_BIT : TSS_UDP_CHKSUM_BIT;
- 	}
++	err = mt76_register_device(&dev->mt76, vht, mt76x02_rates,
+ 				   ARRAY_SIZE(mt76x02_rates));
+ 	if (err)
+ 		goto fail;
 -- 
 2.39.5
 
