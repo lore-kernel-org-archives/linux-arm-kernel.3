@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1CBC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 17:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68C5C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 17:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nANItJ3n9rHzK0lPnEVgoGoN0BgH3bisoRcHmb6FsOY=; b=hCEn5Z/Zm3GzB9sWPIhPgYB33h
-	2DeKGqIv/vkA3k1IoiQLd2mYRZrDxp3HrqdLOxicr/5mVEqYNlSU+k+mr9vBDP0f7HPhCnS3RT3jf
-	tOJcjstWgjcYAXE97C6WGUAfN9KRJbl7TEUGr6hG79o3bvT9W5NYOHsMFkUONvHdQKpZZfvsUyss0
-	EZPVjt+xRW8Wg5JJUELe7cZCZIeFT6/WhZSMw3mwjzAMLEdwHQ9RPZuKyaf0zLRW0B01ntyetlS3U
-	x34Ajz9Y27q2YyPNqcpdlC3a0EsKxab/G0vnARGTP/bWS3to77RFWDXlGsyuJ61kBKqQpGdI8nkyz
-	nzT61fpg==;
+	bh=tjOqoffUv6nOmVjkm22wWdvmrQyYX67LoFIA7eUIS4c=; b=LiLaFuwXFDznMh8bOr99lV+CVv
+	E70WSLjqY4k5n41EXjXAmF+JbhwhCtAcdjp3Em+j373RAfgSbyJtXvlPDjFEmsu5T3ToQ1Oi2PT5f
+	fb/2EE+fizn+wkuy2Tuzr9ZkoYWwqZhYm3RoJCp59UNJZGFwKnNdUAcVmdNCKhHbTBuDF0PFqkCV2
+	xeHrqGf685DBAimzLMHFIswvV9HaXyii0KgbSCeUPjdz87uq8cyZn2nzHqjSaHJf3mOpfEqHQ0r4L
+	6R4BzwZXFG18CYRC6N1YFehTnZyLF2Aw1Zpp/o+uLjIQhERFs+vVHyzhev6g3/yhXCgUY1kiOQyzu
+	AD9KXWFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrv4-0000000DwWE-2wgS;
-	Wed, 04 Jun 2025 17:28:54 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1uMrx9-0000000Dwnn-1ipX;
+	Wed, 04 Jun 2025 17:31:03 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrqv-0000000Dvkl-0JTx
+	id 1uMrt5-0000000DwEg-0GEi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 17:24:38 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e694601f624so100595276.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 10:24:36 -0700 (PDT)
+	Wed, 04 Jun 2025 17:26:52 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b26f5f47ba1so27877a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 10:26:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749057876; x=1749662676; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=nANItJ3n9rHzK0lPnEVgoGoN0BgH3bisoRcHmb6FsOY=;
-        b=LgwW9kcFVk2/cXfJ+qYcjPlrmfFarDVkKoxrMhlmE7IVdylDwxMZ5xitFAktMtWA5R
-         cuZ1v53Mpgj1Kj7GsBbG5FfhWZ/YzTst61VLu/kGRRyxa29ZRbA/1Oy86fBmVvSasYOx
-         PHUf5MFKPO7Ldjvop4SzPCd9c7BaEgG2BySv/dYqQDJEF0CLMZ1mUXH5oz93WnnBEvwN
-         /JwG4gAE05wrGJM019LKBMthtGCNEL5abrnxlaBAK61hF2qPD27SYWuQsprIlsW0hrfx
-         hH1709ND2jPmDLUbfyp8L0/x30lVfAM9KEoOGBbBbf+GxjHLF/yMrOtuxnOHB0xyLTiJ
-         UN0w==
+        d=linaro.org; s=google; t=1749058010; x=1749662810; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=tjOqoffUv6nOmVjkm22wWdvmrQyYX67LoFIA7eUIS4c=;
+        b=hY/tlo+gg92Sbvy8RdgL08Wl+CTIsT2Cg8wyfCtdXGcRck7O9yMTRlrEs3ymRtdzEt
+         BgEqgAxgc229noZqJVuPVcrkROSZBprb/TJgvbzSGeEZihQVZp45vLR2CSSNQyovKvzy
+         /AxgdV4VBcIbX46H8gT9z4R9HyuaVmfkm6oa4nPkZhC34IPjptn/NJrta5QwocUHAn++
+         ca8VH0mnYzH+rGzgxI7C+Vn3hg43m1aEahL1oWj+QkWWXVATc74nQqB2Mfnc3H7wFugL
+         Vkd5mjWpVx9jiU4gaVcD2wxbsEmt8c97JNwV/UD/cU/soVk18F7KIvG2UVyVKEfEdfuT
+         c+/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749057876; x=1749662676;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=nANItJ3n9rHzK0lPnEVgoGoN0BgH3bisoRcHmb6FsOY=;
-        b=cPO8XuLO1khdvvSIpW9PISHkFBMYIIRKDMkFntQAdklaa6cuO8zDfEdxRJhtP6izQY
-         NvXmaHjEo/vqV+6difLCbj0eTUZwAznOapnvPRGcAjXq6XxF/2YIJZ+n31W8kditNM/r
-         LgpT2Y56a6WPfUKdT3gQ7N+0kslVOrw9CEnTipMRNVnS9DsYNYLksuvx8xSLXj5ZFQUQ
-         TNUwzwj/AjTYS4yQXRZbeFfIROoKNP0fn8eGMiKAAU82QaKWkgNNOD1nDvhtWMStVgon
-         IxOtOyd2ElMz89sas68oO+B6PsQgmoWU6v00FjtgdY2Xk1AdFsgo7Tz/QMXjDDVqkbZz
-         Kb5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVCMYb6EC7QaX/a43K5l8OtpAuRJu7BouAqVtJEzDwQKK+2CXu+TWq0J9llXgXlfnVh3kIUq6OdW9UH4MwoEVPM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCtRcCPx3GKuiDqHmx8FQFQu80aTUhrVPMyoRPziElh5drJCjJ
-	JHNKsaaBFC8UI5dwJG6FYUY8CCMPMdj52uoy+YDX0/gwVZi5bFXJSovOnBJnfasSLo8RopGfHUz
-	t91vcU3O9kEMd05stW51VfxV329lrysM=
-X-Gm-Gg: ASbGnctyu2DGU/5CHNZYGb7eZshCCB8rJU1A+751Bd/LMHS2Bg8+1ixhCbOP3H/qoS8
-	pZGA7+PL4kwOlsKeDLyuvGiohIbbKHZ2gDwhlYHclBbdeLmdiWkMoSUX1UpY2LoiyqQAKo+tlJb
-	+tHbiabklNA7jV4X3m4zOf246NpQqLHn4JqAJ4lx2I2w==
-X-Google-Smtp-Source: AGHT+IFqkrIQksf+ZagsLNKprT5D9Gkx/ZIPUPXWNL3tQVC5N49QOKwKG+17ubQNHdTkJZuEZwnE8mYB9j3MltCsOrE=
-X-Received: by 2002:a05:690c:4988:b0:70f:87c5:5270 with SMTP id
- 00721157ae682-710d9afc82cmr54862237b3.19.1749057875817; Wed, 04 Jun 2025
- 10:24:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749058010; x=1749662810;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tjOqoffUv6nOmVjkm22wWdvmrQyYX67LoFIA7eUIS4c=;
+        b=DljcEAd2Sg5vpqilj0rRV3SluwiVyBFZOzbccVtWxfBE/yQTykz7dsXeJc5Xych1wO
+         WV5X4RH4RoUKUyQI8ClGrymaTKBMyAEYJvgQYTJvHX7aUGodrRPqlmzrS6AgEUqcayOL
+         ury1oWF2JJYed7HicOsejYckdVcDGAGSkw0PMGAv2fSMtNXR4pxhCzUBrn2hKiAYXkOU
+         zzNueoR2T1MwV9y35ZyH5DGFBw/b1idTRv7+oZIawHbp6KYTLrdW/dmBDa9XoM18vhgq
+         /lGJ7EU3tu4xgIK1aC7hUejPOKPDVWGFY4PaEJ4zyIKEZJWwqVg4i/GdLJPeyfvSOw/z
+         FRUw==
+X-Gm-Message-State: AOJu0YwQL2gW9nmFBk0NYx/fRPZ8fed6N2+mSW6u+rdY+0J0Z1LR52ai
+	PxFVfn4y+AZu6Wx/CplP9v6R3Fc8fuXepVUR1MABrmFQCPlVVW60iF51ysqUmiQ5Uu8UhAIX2Gl
+	j2Uw=
+X-Gm-Gg: ASbGnct4a8fjGz8NKatzgfd8m4QxNgGr02g6B8SmKfbGVwMdQRBEuGPZnSZKFtpmwfm
+	XHvacem+GnL6BkqVVSKJpqwn840DG96uI7RqUUZzTRgQ503aFhwsYfQ5dPCPUMesDT9mIeqNuwY
+	HFooU12rXa7ll6GZLsMLyzdBe0vGTQ4Fc3/f6vZAQ6i2Fk3Vnggx1bWskHorGBsco27fCONgCQu
+	PanqpyppTrTB9OzraKx4k8BlPaspPTSd6qPvebwISPqgPW/x9urMNmq0KtURxmG1UJJY7wJWXFY
+	+nizqKpqtd5S8f3vddNdpa/Row4g1ucyjwRUGlmT9uXy3/k39my8NuAgMZB8Mw==
+X-Google-Smtp-Source: AGHT+IE7pUgMHsiK6fiB03xw5h0r4hqVnNjoiuF0h4s03T9Q5QTp4kFOwhIfaUC9GczffqkQkUVkZA==
+X-Received: by 2002:a17:90b:4a41:b0:311:ea13:2e62 with SMTP id 98e67ed59e1d1-3130cd5dd59mr5987202a91.24.1749058010346;
+        Wed, 04 Jun 2025 10:26:50 -0700 (PDT)
+Received: from thinkpad ([120.60.60.253])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e322315sm9178577a91.43.2025.06.04.10.26.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Jun 2025 10:26:49 -0700 (PDT)
+Date: Wed, 4 Jun 2025 22:56:43 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] arm64: dts: renesas: r8a779g0: Describe root port
+ on R-Car V4H
+Message-ID: <mu2zj3ph5px34iyclaeirhry4nknevwqkqhqyyecugio2gpkst@fsaxfqtnc6nn>
+References: <20250530225504.55042-1-marek.vasut+renesas@mailbox.org>
+ <20250530225504.55042-2-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-References: <20250604153510.55689-1-stefano.radaelli21@gmail.com> <92e4de77-07da-4583-bf0f-46891101c327@lunn.ch>
-In-Reply-To: <92e4de77-07da-4583-bf0f-46891101c327@lunn.ch>
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Date: Wed, 4 Jun 2025 19:24:19 +0200
-X-Gm-Features: AX0GCFsi-0DPQCLx4D-kw5G9NJPOyVhmZhQWfWIPFkfSiLFQtS5JLkD2hBDD0uQ
-Message-ID: <CAK+owogo4+R+DM9rM_-ZqKRPX1wV6Vhdjrh6KWM71pqjQpYNuQ@mail.gmail.com>
-Subject: Re: [v2] arm64: dts: freescale: imx93-var-som: update eqos support
- for MaxLinear PHY
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, othacehe@gnu.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250530225504.55042-2-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_102437_119531_C449B733 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250604_102651_101323_50D0E867 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +105,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you Andrew,
+On Sat, May 31, 2025 at 12:53:20AM +0200, Marek Vasut wrote:
+> Add node which describes the root port into PCIe controller DT node.
+> This can be used together with pwrctrl driver to control clock and
+> power supply to a PCIe slot. For example usage, refer to V4H Sparrow
+> Hawk board.
+> 
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-would it be ok to add your Reviewed-by tag in v3 after applying also
-the corrections suggested by Fabio Estevam?
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-Best,
-Stefano
+- Mani
 
-Il giorno mer 4 giu 2025 alle ore 19:16 Andrew Lunn <andrew@lunn.ch> ha scritto:
->
-> >  &eqos {
-> >       pinctrl-names = "default";
-> >       pinctrl-0 = <&pinctrl_eqos>;
-> > +     /*
-> > +      * The required RGMII TX and RX 2ns delays are implemented directly
-> > +      * in hardware via passive delay elements on the SOM PCB.
-> > +      * No delay configuration is needed in software via PHY driver.
-> > +      */
-> >       phy-mode = "rgmii";
->
-> For this part only:
->
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->
->     Andrew
+> ---
+> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+> V2: New patch
+> ---
+>  arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+> index 6dbf05a559357..8d9ca30c299c9 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+> @@ -798,6 +798,16 @@ pciec0: pcie@e65d0000 {
+>  					<0 0 0 4 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
+>  			snps,enable-cdm-check;
+>  			status = "disabled";
+> +
+> +			/* PCIe bridge, Root Port */
+> +			pciec0_rp: pci@0,0 {
+> +				#address-cells = <3>;
+> +				#size-cells = <2>;
+> +				reg = <0x0 0x0 0x0 0x0 0x0>;
+> +				compatible = "pciclass,0604";
+> +				device_type = "pci";
+> +				ranges;
+> +			};
+>  		};
+>  
+>  		pciec1: pcie@e65d8000 {
+> @@ -835,6 +845,16 @@ pciec1: pcie@e65d8000 {
+>  					<0 0 0 4 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
+>  			snps,enable-cdm-check;
+>  			status = "disabled";
+> +
+> +			/* PCIe bridge, Root Port */
+> +			pciec1_rp: pci@0,0 {
+> +				#address-cells = <3>;
+> +				#size-cells = <2>;
+> +				reg = <0x0 0x0 0x0 0x0 0x0>;
+> +				compatible = "pciclass,0604";
+> +				device_type = "pci";
+> +				ranges;
+> +			};
+>  		};
+>  
+>  		pciec0_ep: pcie-ep@e65d0000 {
+> -- 
+> 2.47.2
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
