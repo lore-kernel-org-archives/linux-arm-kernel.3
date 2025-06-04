@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D61C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 09:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72985C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 09:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBMX+Dz0hWZn3u61TkOzdRuiBkDqYb9ZBGePVYRUeEQ=; b=1Gok4j7M08N8wlmq25zP3rzxWE
-	05wDjNJRh3G78rUKoNQuIT6Qij4bvKntLe6xHTC9maXnxymaSB1zJkDAvhSVEjICiXUcQG/u6WOxd
-	s2qe+MjtHSuC0gQkQMAgcKELPgR5HERWhOnThM7t/ehQpQWjcZVuQRbztTNiP1IMS+SDLWYBMojf4
-	TcSpizJBg+H0N/QtywG2w2Rnt+cu2qCpGTmA4bWsnE8MH5cEPl2FJsCk1++mkjXWxcqv+MHGr80wH
-	pvvl1YnfPyncNBuVtCcbruCn+XrQw0xsv+zFtyrWXbbE4QShCJNTP6PBaT0kkmB4lMDaTkuBVFn8u
-	EaJvIWmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ND5I1wqWQVSRJHCCfO9DhtqF0hOCpub/kFuUDNFnLtY=; b=0WuODcLzoLF+gX3TNIh5CZaj7C
+	GN3oEwW/QF0W/1WXRVOUExJfJhfXeFjMDpkUdHPdJ1xkwNZPuLwFiZNs7neAh02joEQafnzeHLcSL
+	+a9Xo6Lzc39qH55tTqsrlRgNp5JJeLQg7BzQ/vIiReDBZSy+yw+M8eKz6MrRUTKUz1rPp6In3io3v
+	B0EshK+KJIVJSmPKYay7Q9lOemGPKK4zYmNbw2iNC7DIZVFEinMHwH/wsFzGa3XviDBB61zMgK0nK
+	2ur9GVpdthyTwU3bPwTsDHMFmgJccW7c6akFtHDiyuNrHQAaa2blaOpy/V+2oV1FTaGuYLltOHT4J
+	9PnXR8Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMkQh-0000000D26B-3uCE;
-	Wed, 04 Jun 2025 09:29:03 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uMkVK-0000000D2WN-2nml;
+	Wed, 04 Jun 2025 09:33:50 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMkNH-0000000D1rt-0OjU
+	id 1uMkTE-0000000D2PL-11Sv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 09:25:32 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1749029128;
+	Wed, 04 Jun 2025 09:31:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1749029500; x=1780565500;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ND5I1wqWQVSRJHCCfO9DhtqF0hOCpub/kFuUDNFnLtY=;
+  b=AJ2zO8QR4i/739hnFP9WXRU6mKjMxiCl81OhtU/wO/+X7G8HnvVGmlyv
+   NBVEg6U/exn5fb9mSI9JnjrU12VUX96/nfGIHXFAN6oDuPl1jxLDpN4f4
+   P+WPU3T9fA8GGd6TGSAEubVS0p8t1C/2OKifeN0Yw5AnDM+PCIGJdQsr8
+   0p8QsH+BD0pf7k1FNrxDrPGXsQt5/OErMJTExdV21uWEYQowMyjYZYBpy
+   1ujqi8eNYEnkFKbjtxvLANYEYMRbNmUJ0b4x33/ZXUHMorEdrJp8W1PPK
+   7miRTjAx3Kjq3q/biual+jzKtjr5tjNvLjWk/N4Y0rpK0pJknFumTKjca
+   w==;
+X-CSE-ConnectionGUID: F7Ph8sD+Q/e2bF0tYrF90g==
+X-CSE-MsgGUID: iBNkwfGuQi6WVFYwDypSOg==
+X-IronPort-AV: E=Sophos;i="6.16,208,1744063200"; 
+   d="scan'208";a="44448632"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Jun 2025 11:31:35 +0200
+X-CheckPoint: {68401277-2E-28ACC837-DD1065DB}
+X-MAIL-CPID: 598B4D6943D72BDFD2099B674382E52C_2
+X-Control-Analysis: str=0001.0A006372.6840129B.0081,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A093E170BCF;
+	Wed,  4 Jun 2025 11:31:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1749029491;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CBMX+Dz0hWZn3u61TkOzdRuiBkDqYb9ZBGePVYRUeEQ=;
-	b=lv6FqFP85RWJPgGMKGEGoJ8fiGRsIIzMsw+C7cOmFYjjXtG04m4TEDQemXvE7cgRqsFXPd
-	z9JmC21/h22ICKLDGvKbWODuvaDqs1n9z/wmi0MKitLwCrTJfTEK8Cw43K8HfBBSIqx9wh
-	tdgflehM7qIrUvaSaUCiYk+xjd3buIE1rmUwM7VxmhxRXxwzqU1W7LouUzJ8HtQnbPt4Fk
-	/ZR0KEJSqjZr+rcPyt2msUa9iKw4Ekmr+/WyajSXe4MayGDWAODKZuGRTaCBAPcxKsWR8r
-	ebYighvkz1eHgXHDMZJFMMFF2aKbIigPm42zRd/JYfSUq5yvKHeQArPiweohMw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1749029128;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CBMX+Dz0hWZn3u61TkOzdRuiBkDqYb9ZBGePVYRUeEQ=;
-	b=c1OQwLBvCBk634Hl0YCxp3U/Cu3qvpqjvtecbJXF8ha8hIIihbmfAWiMhx8D+fuTdnN108
-	EqoL8TGlJRCOImBw==
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, daniel.lezcano@linaro.org
-Cc: Jim Cromie <jim.cromie@gmail.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter
- <jonathanh@nvidia.com>, "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Marco Elver <elver@google.com>, Nam Cao <namcao@linutronix.de>,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, John Stulz <jstultz@google.com>, Will
- McVicker <willmcvicker@google.com>, Peter Griffin
- <peter.griffin@linaro.org>, Saravan Kanna <saravanak@google.com>
-Subject: Re: [PATCH v1 7/7] time: Export symbol for sched_clock register
- function
-In-Reply-To: <20250602151853.1942521-8-daniel.lezcano@linaro.org>
-References: <20250602151853.1942521-1-daniel.lezcano@linaro.org>
- <20250602151853.1942521-8-daniel.lezcano@linaro.org>
-Date: Wed, 04 Jun 2025 11:25:27 +0200
-Message-ID: <87wm9rq2ns.ffs@tglx>
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ND5I1wqWQVSRJHCCfO9DhtqF0hOCpub/kFuUDNFnLtY=;
+	b=qMjaYYAoyG2iSRnPM1FeM2/C1cqDqsX8Qx2OVv6BTNz1GKdkHLAErgvW2kruonHN1pPwMW
+	L0JXZ9IGa3Vr9aEKQNjiGfeBYPVl627s38q47LhP5rr67xMY/ufw4KG+r+xNGFSAFFzDME
+	dvDJIKKHZcTLqnHfWxG2MV4LS5stcpe4kNLmWg3w9MWHNo29YhpEcS5nV2B+ceBxjgosYP
+	7CETJ29D0JaGDBTdgGZFdZ7wLUB1MLEjLVP3NIedg2Bt2vi9LF5oOpFVQXGU5GlzWvlE3N
+	XIwdkCyeyN5QGrDLQXX9adHt2sHjY56QtES0MjIVclsXnw+/ilsQpeuBrCP3aQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/1] arm64: dts: freescale: imx93-tqma9352: add memory node
+Date: Wed,  4 Jun 2025 11:31:21 +0200
+Message-ID: <20250604093122.203929-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_022531_275029_6A0991A2 
-X-CRM114-Status: UNSURE (   4.97  )
+X-CRM114-CacheID: sfid-20250604_023140_777764_78D69C62 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,13 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 02 2025 at 17:18, Daniel Lezcano wrote:
+From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 
-$Subject:  s@time:@time/sched_clock:@
+Although the bootloader should fixup with real memory size,
+add memory node here with smallest assembled size for
+readability.
 
-please
+Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Other than that:
+diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
+index 53e9ee6e9ca3b..3a23e2eb9febe 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi
+@@ -11,6 +11,12 @@ /{
+ 	model = "TQ-Systems i.MX93 TQMa93xxLA/TQMa93xxCA SOM";
+ 	compatible = "tq,imx93-tqma9352", "fsl,imx93";
+ 
++	memory@80000000 {
++		device_type = "memory";
++		/* our minimum RAM config will be 1024 MiB */
++		reg = <0x00000000 0x80000000 0 0x40000000>;
++	};
++
+ 	reserved-memory {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+-- 
+2.43.0
 
-Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
 
