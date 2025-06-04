@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43140C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 17:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 469EAC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 17:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOObWxm0mCeJEpZwglb2CEVZr9rm6jEf/VR9UY9bUP8=; b=M1XQWlvKpLgTpcd3FbjegzhCWB
-	mme5OjFBH2XANY73oVvXtnM4n2FOTjKw4L2TwUXSyHSa0DE0fpkpAaavtC/hnIO6kDQ4ZziBGDtv9
-	S803bdVrQ9t5P43hTtEpFhbxQobSSbR94lfjKGiwYJL3ncC7jN3i62TbCA6MO11eAJmuPNcqKE9IS
-	q9676DqCwKDWCIy3mD3UO8Lrloa+KP2A0Q6furcqZRLnqkVstGvR76zdgoSMhkZI8GynLf4sRdGFw
-	Bq27ytYngyAb5VeAWgqawomzwo6fWVCs+rfyNdXFHy3pJyYUi9ncCYmJHb6rH/CLK+K1OY9DRrJun
-	9v0wOTVw==;
+	bh=Imfqw/toyNUrbHQezVHBo1nlOiaFHJLrR+wJoVAGROw=; b=Uno/WjbPtGJC8KcpKgcE1Lsy5b
+	Eq/ckAYq9IIw0NnvYAqUoMfdfj06L0lOIwN65nHidqqQsxzoYWrNGt0X9NdEpJaTQvY9zfsbwBPAn
+	tqvxJjwqzTBeiHeNF0yHzpHifu6pT+gD+iLvv4qLJ0ZWa1ZRxkEE0nXYxW7H0eOCpSCWgQewzm42D
+	dsDVQSn+9OjdH3XddsCl8vZn3R+PHMTN4VBLwq/s+HthcgMuujUcvE3ZZXPV04wiLJUfdnVWnfgPp
+	+P/4CKhjVw0m94uPwpi1V+PgHZbkByauAIhW8ATPKyEg5D3scslAD6RCc4c36CXxsCzkJRqGrhupV
+	zliJlGMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMs1I-0000000DxBa-1AOS;
-	Wed, 04 Jun 2025 17:35:20 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1uMsAF-0000000Dxl4-0euS;
+	Wed, 04 Jun 2025 17:44:35 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrxK-0000000DwpC-16VJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 17:31:15 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-235ea292956so1094705ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 10:31:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749058273; x=1749663073; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=xOObWxm0mCeJEpZwglb2CEVZr9rm6jEf/VR9UY9bUP8=;
-        b=nTpjHwPr8hOkLf5Jq2PDjWvn4K11JEv/SroeLjt/A29KjCHWyT0iwFR6BsdIFBggo8
-         swsPxVDBVmCtHsCKw4jFrYAu8ELPxV2u6KrKAeCoQPdKWKjQjMKNjWPkPeL7GE4DgLph
-         D8H1CT9LN/jNxBNvqJMw+VEzgyGBPVb98Yid4syc88Sno8d4iNlIeSeNSeTGTwEBgE6t
-         z0RdqNFI12WLOK9Vk0nmR/yhqI3VZm12vETYhe+G14/BUUoCM9HZijWYVn9dbQuSf8mj
-         jvI3UwGjZxBzo7NKSq6L8m1nQzxS+3mJFaUYp92nCNkQBmj3YOGUKGkq+2HD3gqGb9zW
-         zVsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749058273; x=1749663073;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xOObWxm0mCeJEpZwglb2CEVZr9rm6jEf/VR9UY9bUP8=;
-        b=BT+uqlTTlRzgla3wk87ScJqzJUmVdVyWx22G+Uw7yZash9nvrVJkRs9WAwj3nawAXJ
-         i2YSJ+lTm08tFYevE+vizjJaQANwsptSVaJ02jGR0D4pA8AdCmsbvjqwRgyohZ6iK8L0
-         0nlhld46sTf6pT6NtuLCW3tBHwFQQV/qKo0HEzfLs6JWwqVtVKC1aC+Cnpz6Np7YyWCY
-         acCbGXUKhSQ1Lwg3r1jKvgnnBAL7bAAVTGvJmDYTCoTlwbsas5F0CEJjs9MjI4z5yFRb
-         9P605HJekKxry12MwohNuPoCzjNi5V8AND9flfWztOSpi/XdJ7WwfGJB7k5OyapVNwsn
-         3SXw==
-X-Forwarded-Encrypted: i=1; AJvYcCWNtwZqYbQ3LXFQKh/IQUQnpyVBM8NMnqbN9QU0sG5WKNYfWbZ85Cf1zJxwjwfXkSTmjnStuphH+tfKut+OPs9j@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywmq8KI2cRrTXegD4U9ZoKG4fWscnPwfO2MhHMiCBssEO52DtEa
-	mP9Q9VFVFg3yjATIPDpnVdsmEeCzwknl3EhXFgdd3fwqbywH3XIa3ZlPg5msPakNTg==
-X-Gm-Gg: ASbGncu04dQwugqzS21YKcTv66/5BB1AtHEGlvhirk6B329ypJI+Tdzt+d25QueBVqa
-	Z+2Vg69YCkHhceEV3yc3Ed9K/FKF5WERsybWTqbg3oRKQw843eaCo3lQqRJSI1/9yfvNrJ9xCBp
-	b+1DC6KpYu8kD2975ZqPZf31rjgUBBH3n18SoAJIl7uuBfajP5LJabKCevTw5qu7gDLfFXIdb6K
-	Bne0elQb597STdtyy8c5z7dUR+Y2y0UQS5ssLMrrcnx91dymy/FgW8c5JwKHZ1mjCpfz0oYavqR
-	OJE3Sj8YiluNHQcKaB/5bLf2OXeEWfpcZYnFPjyFJlvphULyrmC+9bMJ2BBwsA==
-X-Google-Smtp-Source: AGHT+IGIJbSx2qDc2q2Gt3qbCZCgqmWW4FPwxtFTdbgDTBwo3IdO7XqHuYRl/uF5BzOmzUrf40UoSQ==
-X-Received: by 2002:a17:903:1c9:b0:235:6e7:8df2 with SMTP id d9443c01a7336-235e11fcb67mr57141715ad.41.1749058273586;
-        Wed, 04 Jun 2025 10:31:13 -0700 (PDT)
-Received: from thinkpad ([120.60.60.253])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506cf50c9sm106668185ad.162.2025.06.04.10.31.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 10:31:13 -0700 (PDT)
-Date: Wed, 4 Jun 2025 23:01:02 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	linux-arm-kernel@lists.infradead.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] arm64: dts: renesas: r8a779g3: Describe split
- PCIe clock on V4H Sparrow Hawk
-Message-ID: <egtsvxsfc5c2s4hrwucsqk3s5dv7xsi6ghrnf6jd3mvf3zvskb@z7hvehbd33t5>
-References: <20250530225504.55042-1-marek.vasut+renesas@mailbox.org>
- <20250530225504.55042-3-marek.vasut+renesas@mailbox.org>
- <CAMuHMdUVYzaUyP=OUOST8SK66_BpubOh0WCXcaVWBy=RxBrquA@mail.gmail.com>
+	id 1uMs88-0000000Dxcj-3Rru;
+	Wed, 04 Jun 2025 17:42:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749058941; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=eMXojg86QR8llNFDQfUYPsppCp4d11NgWNnR868ClQD0NH96rizDt+Ejb5GNHYAD7aPUuubkE1rXNzqS8LlBn5BdiBfBGdf+UvRKkDvDE8Q0hd7kXjCI6CkDXSO1KUMSYp79/95pwPp7/LFG9MAGInzc75wNUvdWZaPHtKbpUms=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1749058941; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Imfqw/toyNUrbHQezVHBo1nlOiaFHJLrR+wJoVAGROw=; 
+	b=h2OobGEpTvffyBXFIDWCjz/C/fuIdmgSgz0rLg4x28tXPVZsowJVKBmpklI5yUaSrkZyYOG0vZYdZ1M6uKmSmnCBGeckZffOivAPFjMdqCIiZGIIX8ZbGXSgHH7ExEa2UPu8Ly+F+kzjp/5yjc1VVMBXsYfrxTDEdBPgwFJPGX4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749058941;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=Imfqw/toyNUrbHQezVHBo1nlOiaFHJLrR+wJoVAGROw=;
+	b=EYY+7lgUKsSliK6UV4MdkV34F1U8SNsvwzqdvBSC+JT50alt/0wZW6S9S9nyrREg
+	nQSyhg6jyQm3MqPwwrMhJxim4bHYdggPZ6yLAmQZIU9Jgngbnu3R7XgGY+ruUuQ1VNu
+	KScjCJgkGysLoNh80YaRSP/3xvMvtQcJqo0owbjc=
+Received: by mx.zohomail.com with SMTPS id 1749058939078558.9112570826974;
+	Wed, 4 Jun 2025 10:42:19 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Pei Xiao <xiaopei01@kylinos.cn>
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: Re: [PATCH 2/2] ASOC: rockchip: Use helper function devm_clk_get_enabled()
+Date: Wed, 04 Jun 2025 19:42:15 +0200
+Message-ID: <24654754.ouqheUzb2q@workhorse>
+In-Reply-To: <3b3d8f60e553af09a51b501b8ff5406fa5e898dd.1749006565.git.xiaopei01@kylinos.cn>
+References: <cover.1749006565.git.xiaopei01@kylinos.cn>
+ <3b3d8f60e553af09a51b501b8ff5406fa5e898dd.1749006565.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMuHMdUVYzaUyP=OUOST8SK66_BpubOh0WCXcaVWBy=RxBrquA@mail.gmail.com>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_103114_307539_51A8B646 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20250604_104224_931628_1AB03A0A 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,54 +77,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 04, 2025 at 11:24:17AM +0200, Geert Uytterhoeven wrote:
-> Hi Marek,
+On Wednesday, 4 June 2025 05:13:30 Central European Summer Time Pei Xiao wrote:
+> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prepared
+> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now be
+> replaced by devm_clk_get_enabled() when driver enables the clocks for the
+> whole lifetime of the device. Moreover, it is no longer necessary to
+> unprepare and disable the clocks explicitly.
 > 
-> On Sat, 31 May 2025 at 00:55, Marek Vasut
-> <marek.vasut+renesas@mailbox.org> wrote:
-> > The V4H Sparrow Hawk board supplies PCIe controller input clock and PCIe
-> > bus clock from separate outputs of Renesas 9FGV0441 clock generator chip.
-> > Describe this split bus configuration in the board DT. The topology looks
-> > as follows:
-> >
-> >  ____________                    _____________
-> > | R-Car PCIe |                  | PCIe device |
-> > |            |                  |             |
-> > |    PCIe RX<|==================|>PCIe TX     |
-> > |    PCIe TX<|==================|>PCIe RX     |
-> > |            |                  |             |
-> > |   PCIe CLK<|======..  ..======|>PCIe CLK    |
-> > '------------'      ||  ||      '-------------'
-> >                     ||  ||
-> >  ____________       ||  ||
-> > |  9FGV0441  |      ||  ||
-> > |            |      ||  ||
-> > |   CLK DIF0<|======''  ||
-> > |   CLK DIF1<|==========''
-> > |   CLK DIF2<|
-> > |   CLK DIF3<|
-> > '------------'
-> >
-> > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+> ---
+>  sound/soc/rockchip/rockchip_sai.c | 8 +-------
+>  1 file changed, 1 insertion(+), 7 deletions(-)
 > 
-> Thanks for your patch!
-> 
-> > V2: Use pciec0_rp/pciec1_rp phandles to refer to root port moved to core r8a779g0.dtsi
-> 
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> 
-> I understand this has a hard dependency on [PATCH v2 1/3] (and on
-> enabling CONFIG_PCI_PWRCTRL_SLOT), so I cannot apply this before that
-> patch is upstream?
+> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
+> index 79b04770da1c..2ec675708681 100644
+> --- a/sound/soc/rockchip/rockchip_sai.c
+> +++ b/sound/soc/rockchip/rockchip_sai.c
+> @@ -1448,16 +1448,12 @@ static int rockchip_sai_probe(struct platform_device *pdev)
+>  				     "Failed to get mclk\n");
+>  	}
+>  
+> -	sai->hclk = devm_clk_get(&pdev->dev, "hclk");
+> +	sai->hclk = devm_clk_get_enabled(&pdev->dev, "hclk");
+>  	if (IS_ERR(sai->hclk)) {
+>  		return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
+>  				     "Failed to get hclk\n");
+>  	}
+>  
+> -	ret = clk_prepare_enable(sai->hclk);
+> -	if (ret)
+> -		return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
+> -
+>  	regmap_read(sai->regmap, SAI_VERSION, &sai->version);
+>  
+>  	ret = rockchip_sai_init_dai(sai, res, &dai);
+> @@ -1512,8 +1508,6 @@ static int rockchip_sai_probe(struct platform_device *pdev)
+>  	if (pm_runtime_put(&pdev->dev))
+>  		rockchip_sai_runtime_suspend(&pdev->dev);
+>  err_disable_hclk:
+> -	clk_disable_unprepare(sai->hclk);
+> -
+>  	return ret;
+>  }
+>  
 > 
 
-TBH, this patch is describing the binding properly. So even though the driver
-change is necessary to make the device functional, I don't see it as a hard
-dependency. But since people care about functionality, if both driver and DTS
-changes go into the same release, it should be fine IMO.
+Please get rid of the err_disable_hclk label, and change the
 
-- Mani
+    goto err_disable_hclk;
 
--- 
-மணிவண்ணன் சதாசிவம்
+in the resume failure condition to a 
+
+    return ret;
+
+Other than that, patch tested to be working fine.
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
