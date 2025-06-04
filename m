@@ -4,89 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AB4C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 04:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F2BC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 04:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K5tJfWsZg4D5KKF09o2j+UH7TIHcW+5LN/4ZYf9xWmI=; b=nbpFfOMsEzmPz+FoGaigSgsiUL
-	QAVtosnRg4c24VtCK6uIiepY8PPifRgG1Q60uFq2Nj3hdmNGoA5uY0hj2qL0afpJ5aicoWudcf0al
-	HgWAZwPQczjVUgjg2tag/UUCHsrkwuAJSeR6SjRZrZ1L2XPKrNOOsnaVKSNUgb0pZ7JAXX3DKCb7C
-	6CNHk/ZzDvo2qSLDYlvVjBg6ZnqfFuq+gp0j3Otrg+kWv8NszQZz2FNUKt6cfGX+cgOoHqRyPl1Yd
-	6ChPnkuQ3Ew8/uniXl6bqTTi/QodmaIWZAf3niISUGl8xvKE9lvDe1IWeJaYZRh2VpEtrUCP1omgj
-	bPVkJaow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ql9iWjnVGDohSwlk9rcqjImOKxbZtilwXuShfpV3aQg=; b=CgyHblXAIw7sw8i2vHiB3fSGfa
+	dP//jjaFCpHXS62K4f++7QZU9uMgvSyTjeZcfmVAv7H17glQqGbINe/ZACvybfw1aWM/9jdiPCEJr
+	UyC0FeKkwvMYjeq+o9n/ya8acRdqB22lknS0LXXCOMDQuntB+VOJYg7QXbDVLryt1CeJXoeO2xuz3
+	N3mKJyNtthc/3PbQQ0UJ1nSHn2rPaIto85KnQForUpri0Ds2Ygi8YV3a9U4ofyTpnZ45/i8Kq0Rw9
+	+tiPPcEnSx26ZeV/iBuCJ8h30gGDNDgw20QpBM+yD3SFnTWO81FLXz9nvk5dTbepgI4tjcNll2HVK
+	IY7ngveg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMfb3-0000000CXpJ-1S2d;
-	Wed, 04 Jun 2025 04:19:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uMfdB-0000000CY2j-2rfG;
+	Wed, 04 Jun 2025 04:21:37 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMefR-0000000CQY2-3gjo;
-	Wed, 04 Jun 2025 03:19:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=K5tJfWsZg4D5KKF09o2j+UH7TIHcW+5LN/4ZYf9xWmI=; b=dRRBp8IhXQ7nzLDC67Y5Y4rsWN
-	KoQ5nNRcukBWbWTHGmBI6wmk3JCBMnCSl4mk5eicizOkXITFuyH31whmnFzH69xVAKjAJ9En3glOr
-	4TA/iwkqbq+zGuyVGYaBT9QEt5qqH23DMqK03lfFmpzrSBLoIwX8Ht+leVSyMtuTPlV+89UHZDdom
-	SnjEkLQhHt/aBhReBcDNhPyLUWUUj0s0KavpqItUv6q820iDkCpOxAUrvXXDpP5Tszyy70U6uMsSe
-	W4lNNKLgCiWb/KWJEtM3nuZP6HPpkCfbTuo0VEHXW1REV4sBusShxVKKGAt3pxQ/mAhj6q2h2JMzy
-	cOAV2IDw==;
-Received: from mailgw.kylinos.cn ([124.126.103.232])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMefO-00000000qvn-1jph;
-	Wed, 04 Jun 2025 03:19:52 +0000
-X-UUID: e81f4cd240f111f0b29709d653e92f7d-20250604
-X-CTIC-Tags: HR_CC_AS_FROM, HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_DIGIT_LEN
-	HR_FROM_NAME, HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER
-	HR_SJ_NOR_SYM, HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT
-	HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED, DN_TRUSTED
-	SA_TRUSTED, SA_EXISTED, SN_TRUSTED, SN_EXISTED, SPF_NOPASS
-	DKIM_NOPASS, DMARC_NOPASS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:346cf5ee-0cb7-48fc-945a-500199bca67b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:20
-X-CID-INFO: VERSION:1.1.45,REQID:346cf5ee-0cb7-48fc-945a-500199bca67b,IP:0,URL
-	:0,TC:0,Content:0,EDM:25,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:20
-X-CID-META: VersionHash:6493067,CLOUDID:9f2decd7cee3c8013ae9919a70940931,BulkI
-	D:250604111339G3SRF8AR,BulkQuantity:0,Recheck:0,SF:17|19|38|66|78|81|82|10
-	2,TC:nil,Content:0|50,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,B
-	EC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
-X-UUID: e81f4cd240f111f0b29709d653e92f7d-20250604
-X-User: xiaopei01@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1639636581; Wed, 04 Jun 2025 11:13:37 +0800
-From: Pei Xiao <xiaopei01@kylinos.cn>
-To: nicolas.frattaroli@collabora.com,
-	linux-rockchip@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH 1/2] ASOC: rochchip: Simplify the condition logic in rockchip_sai_xfer_stop
-Date: Wed,  4 Jun 2025 11:13:29 +0800
-Message-Id: <81c7955216f5cc7565a396e50e5474ec8f6e3017.1749006565.git.xiaopei01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1749006565.git.xiaopei01@kylinos.cn>
-References: <cover.1749006565.git.xiaopei01@kylinos.cn>
+	id 1uMefZ-0000000CQYT-0qp9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 04 Jun 2025 03:20:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=efZ83OucKsW17V4DsougpAkAxm1wud2ZNfuCR7RUTHPq6vWehBqw5hsYybYK96SZM0yLdIQBZMPSThkP9ABLUep5dr2NLWpzbAb0Q/KGbbdQ2WIsM+AZ+kLO8qgpg4eDX1RvsZZf130YjH2xcgrUxdaK5dDrIb8NnQ6UadM8cUt8X6oIqDYyLsTGD+L6njYSvVF4P7LOJUIL37CdflhHWP+86qaGOVJnzl8Y3fW3dGTVXI/Qx2LVB+QCsbOuisQCUxR+ZOtigKllHQWxdSt+3ts5c+2qnHLlFAZv8MQQurU6RwqFDyuTRIrjanAFde02MONF6bvD/7YonrhIKBlMRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ql9iWjnVGDohSwlk9rcqjImOKxbZtilwXuShfpV3aQg=;
+ b=sQ6QnAi9VHxiF4mYED5v9ItxG3Sw1cSSBxpOuiZqd7w8yNjETZaFAjNtG18C9OiGc4oB1vd5t+otQ4827YGQ8o6O7ETY2HfKIAvhkoAe4lE/BWYVIhcF0eRaXKyXPLlp0+hVqdf0U702GzXcZpNq9JHoFU6YLus4ndfz5tRr751XEktv5xr2lrlsgmLmKi1CJfgXwPsHBtDPMrmNKQqAlcegy0IjwP7r0scIFXrmgxMGbQ+n/8epc8xGTDDbQb0bSDOPicKFDFDR999k+mwhGdQrqQzo1NxNUcuhe2rOXMF/hkPO3ZyorCKpd5r0KEFSP12j5CQIuxKrNlOCv1nPwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ql9iWjnVGDohSwlk9rcqjImOKxbZtilwXuShfpV3aQg=;
+ b=OfMoNyMiUWIguLFvlecwLOpADIrw8ZcUnK8MyzRHxE2PhfOk95YX0vJLl+7uKd5pVDhq3FxFB0Ii1lSmYyCsOLwWgaLzps83y3eHovLpTHdfwbTKmzeMq1FpVDueRL5AJQn0z3IePJNLzVTmPxGJD64A4Fj5SUhEWXPeqsy2n0iXrsYvfqFUv89sqlMDxC0SslWn5EJdPCovx7IuA6/QDV4k4xkNq2NmTyISFRsVTPDUZSPCCDusKa4WFzNBb0vP9V6JVwi5Qd/VdaXakq4z426ZpjAmKSxwuopkCRj5GecvgvaxO7RyFjZDqf70yFtZHMAf3aFZe2vd4IfFAgml9g==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU4PR04MB10767.eurprd04.prod.outlook.com (2603:10a6:10:580::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Wed, 4 Jun
+ 2025 03:19:52 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8792.034; Wed, 4 Jun 2025
+ 03:19:52 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Hiago De Franco <hiagofranco@gmail.com>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>
+CC: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>, Hiago De Franco
+	<hiago.franco@toradex.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>, "Iuliana Prodan (OSS)"
+	<iuliana.prodan@oss.nxp.com>, "Rafael J . Wysocki" <rafael@kernel.org>
+Subject: RE: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
+ pre-booted remote cores
+Thread-Topic: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
+ pre-booted remote cores
+Thread-Index: AQHb08EqHErDcF6d5U2TRnVBdQP9NrPyV0Zg
+Date: Wed, 4 Jun 2025 03:19:52 +0000
+Message-ID: <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250602131906.25751-1-hiagofranco@gmail.com>
+ <20250602131906.25751-4-hiagofranco@gmail.com>
+In-Reply-To: <20250602131906.25751-4-hiagofranco@gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DU4PR04MB10767:EE_
+x-ms-office365-filtering-correlation-id: e485fa79-8c43-40f2-0327-08dda316abee
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?AcJlTR6l8VCcTS/n1LD9MwF/hWJyAUl2Fkfjj/2a+C4/Gs2aVUbS6XMktqlq?=
+ =?us-ascii?Q?a8WPGeXcozT8vaYKhjmvM3HPAXPoIi2O/sMGQVfojgzyUkvGfI4vnMNM0B+e?=
+ =?us-ascii?Q?ggEu7A8avAlRIyFDjNWilnvT6oeCitORxR6vJ1HR+ZGUqUGSZqNjvd9Z7Hsr?=
+ =?us-ascii?Q?4rbe5bNUJiad0L+o3vOgXwT9NzDbmBqZkuj94uxiCyUUxiJfLn5wDprMKPcZ?=
+ =?us-ascii?Q?Ug4FsRYeTHPVMKzbOo1hZfKMY9nffBLyfRVsL6V0GcQdTrDIThPK9cisaM1J?=
+ =?us-ascii?Q?qH0oKvibT72JcEhJjgGnldLKkDwhTwXEODoQR9liJ6CT/mAl8Zg+EGcudH5v?=
+ =?us-ascii?Q?iUQmGbDokWSMUIuvS1t9Yaab0XYrD1BsoOayl6ZHDWH3hD/Bw1oQP+4V7txG?=
+ =?us-ascii?Q?Lr0qme0J3GspPmJETajGfMZMjs/OciD5Tc6NQ7sXlND6/5o6ZWZmRsZ2y9/1?=
+ =?us-ascii?Q?ZqaYDRmdv66VKVNaL41IE3Pf00iTfRLGWKdUwvHzEcyQzpBe61yG+Y55NErb?=
+ =?us-ascii?Q?eb7ubUTzPKAj0SLYlvJca3S04SUSy1cMTLynsNRBVkrfHG2luRgRSEYM/do+?=
+ =?us-ascii?Q?q6F/u0TlDjhu03THy/bf67bo4p9Sz5MmtV9HB777x6j5mWSH+1YG8RLTR1wO?=
+ =?us-ascii?Q?eDthY00ou1p6uK11F2e4cMCol/9AvMVnCMliywc34Wnm+YMy5KSnq0RXF0Tf?=
+ =?us-ascii?Q?vzOeMUeWaL0x3ccLhk7ENBj3O+nXKc+qX7gsRi3M6nrHeFMgWd4gzkJpkGvn?=
+ =?us-ascii?Q?0WFet8zgCrijZxyhJRt5c0m8CjkNmgZ5Y6aLgPL4ZNv00alDsdfNI7eQmj6t?=
+ =?us-ascii?Q?LYBc3ekf4zTl/IDhA1XMFHmNDLicamfIcuWzzlIXh1c8P7zikPAbCFRB8rDs?=
+ =?us-ascii?Q?J8iKNvo7DpTAUQ97qmrp3V0rrJSXEoeB3D4A/82bXLQsAjcuYJdkMdSSZrO1?=
+ =?us-ascii?Q?0b9453jI+vC7lD5PacY/iVPAp1DI3SQoDBl/LpUxz0xKmcDiKhJKyv4sax2b?=
+ =?us-ascii?Q?UDqBMGalSb5xkSa/gfcZtwG9zqWJFVtBXfLdM2lLLUBD3aAunIqNEKgcbOlA?=
+ =?us-ascii?Q?aizkanUBI3sp2yTavvf/hVA5vwLfmsHo73M43s+FsO9FaR2H2fy8B9mRGT/W?=
+ =?us-ascii?Q?ryk4Yi0uaAiLRVWIGDfd/QdRQhcVJRTEtMDpwwQw/9AY95BiLEjqeSuR4MZx?=
+ =?us-ascii?Q?5dnvOnW3s638XEsq1raYjo7GksM9KgPSLZkpNkkBJ/k1jCkHSt7iwgoMGGsX?=
+ =?us-ascii?Q?zBOkY3awgqHtlgAn5RXRyg+W6llMcuTLjbj6B2q4TfMxR1o0wwrJmYMC7TWr?=
+ =?us-ascii?Q?t1V4mMJ8OFP1OwFPBD661FLPgYTH2Y7Vy3FdP7MVcnZJKr2pgS+X3MBhFfeU?=
+ =?us-ascii?Q?zPLBSuXA+SaGgp9r3Z35dRVMiNsINzcyTqOn9pD5bkoll/TMG7KY+HCpmD6c?=
+ =?us-ascii?Q?ItsqmLR4ikjK7mOlF+iAHe0X5sKtUFpRn+t19kLDDacQ3iEzb4SS3vsTN7Ix?=
+ =?us-ascii?Q?nAqNXc0CP0wBPcE=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?lser6MUE9ateQ386c5AeOjaBXUOcImb7yUOzmP8f3hwo95/4SFO+D59zURZJ?=
+ =?us-ascii?Q?yvIv0A6m1IJpeST3LwCNTtdXrucVRoNczH6uU7vGBmasq+co9wLUzD7xG7wx?=
+ =?us-ascii?Q?tmhDCEnEOmjYd37sm5CPpen6X/lAE0z2mviR5rpXgkZ2QPxktJEB7O7Ymo/J?=
+ =?us-ascii?Q?Jl/FcGe1MO2p9PvoGp1NkZ87nnuw3NYvMGD0LgXz1/aKo0gS6w7MmVgZ72c9?=
+ =?us-ascii?Q?hsHqCyxyZ1Jn4/88M8kXZc0hnFuuhRWSWpDo1j8MaRcBl8Wj1cYYJbPRBaUG?=
+ =?us-ascii?Q?ljAE9vC1hj9xlbNLqTsBU6F8rOgGiqv9D6h7irwpZCFTNqQeI8guJYHIFtXi?=
+ =?us-ascii?Q?9G0rKshnk3hRhqTZyz+Y4TFDiacHjlxhzJhu+VqxfePWirsy3AwTkLzTY1CU?=
+ =?us-ascii?Q?JcVowVchcm84HG5BEm7QE4AGzi6JBOxg8uSw1xarIj096gJMqKGfMOlmSmdV?=
+ =?us-ascii?Q?Beax4kNqN0r69HMc2Z9o0xpLZjYjt/uYj9uRLji+DikeCVWtggKOdSq7JkJl?=
+ =?us-ascii?Q?Z7lUBiuYOgRwsqXY70R6jhlQfFMJ/Yy47+CqkfNAvbKsHkn336Lm9ahhGRyg?=
+ =?us-ascii?Q?DhxdUB1A8dUdWtaFQIEzGIy2tcd0nPCjdDcxrqKr7qZQ3mzc/xF5GjgaHA4d?=
+ =?us-ascii?Q?VrLWPjazsh0pjm1vIpqVqwKxy3tGYu5LuD5SvP8lfgUVy4ZysHcZD76Em8Tr?=
+ =?us-ascii?Q?DBklZ88shrTmVgtVnGxDKikz5TA+0UyyiJPhq6B8eHfsRfz5EtN0734QDBoJ?=
+ =?us-ascii?Q?nPOLekGiEZt6T+x5F03HeK41t4njjwUFZwSme7foa1iA2U7Ci//1djMxfhBI?=
+ =?us-ascii?Q?tl4GB7woHnZXTBWZzi1KbdIm+pWdphuYIE6hoYTWi/ZNSa/Ec8+5qrPVOAtC?=
+ =?us-ascii?Q?tvj5F+l2nQljmcqOKuEU3zHcIPATE/ApdL5yuju3Ub4/9rIUdZoFLuXI1wcl?=
+ =?us-ascii?Q?MPVCjImiU40mPIZH25dcBXB/FwAZxpTWyWGJBPwsYX70854bWLW0sMdRkyCj?=
+ =?us-ascii?Q?f/UQP/yUChL1OsPJYSKlL6tdrjJpnVEXVnoJlAx2x+mQlVzbg3EKnsEtRff1?=
+ =?us-ascii?Q?RSvK3Nupn2vVXXHqwyMwpyYzHP7Mv4y+4ZnlrCxXQQI7ulWKw79+py+mzsXY?=
+ =?us-ascii?Q?rlaF3YsNVRf9s6+L2efQE9KQFbzggMNNHsn8UkFQ3bGt+lPte/g986+Tynx3?=
+ =?us-ascii?Q?pltZNrsDDW+mdN9Sa7tITZuJVFxa2k+vIET6yHh/f9hv43HSxIW/sVPzA9o/?=
+ =?us-ascii?Q?foev32AYn0aeXqZ2ikcs0Hs1+R/RH6fPPUOqK9aoYULt6D6dooiKr1Qh1/RD?=
+ =?us-ascii?Q?jCekm/boY7vEMYA5Dujq7kOEUXAWQJdvhGuGoOj5kWK8lG5uDBthQ6dB+Pzr?=
+ =?us-ascii?Q?MbeRjfp88RGkWlLfNW/qejndLHkVZyJCG73FYJyeLo0z+QhCrsWuh8bYBihP?=
+ =?us-ascii?Q?9oIHoU7P+qwqq85hfTIKbmdmWoUyfCp1QFUiq7DqRWXG/mSElhL189N1MtME?=
+ =?us-ascii?Q?bdwEn3wt1H8gR9WGVA+Xbwa7gPELvIZfKvE4up7B97cwtklshhGNC5lsrCqm?=
+ =?us-ascii?Q?cZbUVHI2bFO8bFL1nQM=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e485fa79-8c43-40f2-0327-08dda316abee
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Jun 2025 03:19:52.5547
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4Cd0ySiUCBWQN9prb2TyPuELex78BJywSYOljXfTmAun73Rr1Qifv7y+txpaiBW471scoz48MYDInddB8gw/LA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10767
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_041951_100246_60A22204 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_202001_254245_7957E2AA 
+X-CRM114-Status: GOOD (  35.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +171,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cocci warning:
-./sound/soc/rockchip/rockchip_sai.c:387:8-10:
-	WARNING: possible condition with no effect (if == else)
+> Subject: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
+> pre-booted remote cores
+>=20
+> From: Hiago De Franco <hiago.franco@toradex.com>
+>=20
+> When the remote core is started before Linux boots (e.g., by the
+> bootloader), the driver currently is not able to attach because it only
+> checks for cores running in different partitions. If the core was kicked
+> by the bootloader, it is in the same partition as Linux and it is already
+> up and running.
+>=20
+> This adds power mode verification through dev_pm_genpd_is_on(),
+> enabling the driver to detect when the remote core is already running
+> and properly attach to it if all the power domain devices are on.
+>=20
+> To accomplish this, we need to avoid passing any attach_data or flags
+> to dev_pm_domain_attach_list(), letting the platform device become a
+> consumer of the power domain provider. With that the current power
+> state of the genpds will not change, allowing the detection of the
+> remote core power state.
+>=20
+> We enable and sync the device runtime PM during probe to make sure
+> the power domains are correctly managed when the core is controlled
+> by the kernel.
+>=20
+> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> ---
+> v4: Changed to use the new dev_pm_genpd_is_on() function instead,
+> as suggested by Ulf. This will now get the power status of the two
+> remote cores power domains to decided if imx_rpoc needs to attach or
+> not. In order to do that, pm_runtime_enable() and
+> pm_runtime_get_sync() were introduced and pd_data was removed.
+> v3: Unchanged.
+> v2: Dropped unecessary include. Removed the imx_rproc_is_on
+> function, as suggested.
+> v1:
+> ---
+>  drivers/remoteproc/imx_rproc.c | 29 ++++++++++++++++++++++++-----
+>  1 file changed, 24 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/remoteproc/imx_rproc.c
+> b/drivers/remoteproc/imx_rproc.c index
+> 627e57a88db2..6f9680142704 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -18,6 +18,7 @@
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+> +#include <linux/pm_runtime.h>
+>  #include <linux/reboot.h>
+>  #include <linux/regmap.h>
+>  #include <linux/remoteproc.h>
+> @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct
+> notifier_block *nb,  static int imx_rproc_attach_pd(struct imx_rproc
+> *priv)  {
+>  	struct device *dev =3D priv->dev;
+> -	int ret;
+> -	struct dev_pm_domain_attach_data pd_data =3D {
+> -		.pd_flags =3D PD_FLAG_DEV_LINK_ON,
+> -	};
+> +	int ret, i;
+> +	bool detached =3D true;
+>=20
+>  	/*
+>  	 * If there is only one power-domain entry, the platform driver
+> framework @@ -902,7 +901,22 @@ static int
+> imx_rproc_attach_pd(struct imx_rproc *priv)
+>  	if (dev->pm_domain)
+>  		return 0;
+>=20
+> -	ret =3D dev_pm_domain_attach_list(dev, &pd_data, &priv-
+> >pd_list);
+> +	ret =3D dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
+> +	/*
+> +	 * If all the power domain devices are already turned on, the
+> remote
+> +	 * core is already up when the kernel booted (e.g. kicked by
+> the
+> +	 * bootloader). In this case attach to it.
+> +	 */
+> +	for (i =3D 0; i < ret; i++) {
+> +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
+> +			detached =3D false;
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (detached)
+> +		priv->rproc->state =3D RPROC_DETACHED;
+> +
+>  	return ret < 0 ? ret : 0;
+>  }
+>=20
+> @@ -1146,6 +1160,11 @@ static int imx_rproc_probe(struct
+> platform_device *pdev)
+>  		}
+>  	}
+>=20
+> +	if (dcfg->method =3D=3D IMX_RPROC_SCU_API) {
+> +		pm_runtime_enable(dev);
+> +		pm_runtime_get_sync(dev);
 
-Simplify the condition logic in rockchip_sai_xfer_stop() by removing the
-redundant SNDRV_PCM_STREAM_PLAYBACK branch. The modified logic now:
-1. For stream < 0: handles both playback and capture
-2. For all other cases (both PLAYBACK and CAPTURE):
-   sets playback = true and capture = false
+Need put and disable in imx_rproc_remove.
 
-Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
----
- sound/soc/rockchip/rockchip_sai.c | 3 ---
- 1 file changed, 3 deletions(-)
+BTW: Has this patchset tested with M4 in a separate partition,
+saying M4 image packed in flash.bin?
 
-diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
-index 602f1ddfad00..79b04770da1c 100644
---- a/sound/soc/rockchip/rockchip_sai.c
-+++ b/sound/soc/rockchip/rockchip_sai.c
-@@ -384,9 +384,6 @@ static void rockchip_sai_xfer_stop(struct rk_sai_dev *sai, int stream)
- 	if (stream < 0) {
- 		playback = true;
- 		capture = true;
--	} else if (stream == SNDRV_PCM_STREAM_PLAYBACK) {
--		playback = true;
--		capture = false;
- 	} else {
- 		playback = true;
- 		capture = false;
--- 
-2.25.1
+Regards,
+Peng
+> +	}
+> +
+>  	ret =3D rproc_add(rproc);
+>  	if (ret) {
+>  		dev_err(dev, "rproc_add failed\n");
+> --
+> 2.39.5
+>=20
 
 
