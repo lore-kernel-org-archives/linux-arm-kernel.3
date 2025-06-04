@@ -4,60 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6EAC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 01:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79AEC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 01:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7td2HqoBK/Dfg32oKV6itN1Hv0LTjDUba2LHzLkCQMI=; b=rgFPA6d11tqwnsLZLS8JqOn1Z9
-	iQVwF4SvbvUkszVgQjrtEsCZWTswzedLyns+xhdAXbwMbtUSgRTrTHVJdHJEXh+uKUQdhxr8/oJ+c
-	GfHJyHJBYh2siyu/k79Xyg2nbwNg58y9+SiPc5R7JPIDRA53CLP/OMuOyYsowrgePuoyR6vbbTTy5
-	EuoHYkZktl7IgdcDnWcNBWIAULK7jH9X3ROk9xfX3AlbSuDNqnZ/J7lrVUTTxNil9gfy8o8q4tK77
-	IvC23ivdxYYtU+ENyLabF65Gm9QsUEUtjuxYkebeYpcOYa8Y6RypBc0mt2uC8UQfpmxoN4w1qm/0G
-	1e29Jvow==;
+	bh=dhtDR0nxnNSaNBAYFKaWg4W6CvEuRy4L6IeZL65Wjtc=; b=O7PbbTazjY66wIw6YhwUOVomvP
+	c6LfKuaVjYVyhHaMhWk/BAUlFov2xC2KAqkkO6jyY2j7s7Zet7YJIQm+6jb2GKbUlfc0F9Iqy0LiS
+	RItBI1O8S3wa+6yPuJZi/FbBPOqxEZTb/NW/9uVc+wshu8tCwUpvZpTXx+RNqwD3tfaHBC70juVIE
+	yVR+OFcsjKP1YhWDe/dJftn2zNwDIFYFaKqoJ0JqLP/elEFPnFbmZXDea3idRsXRCAGsKrBgVvami
+	daLbA+SJ9z0DvLsj6s2mXayzj8juPA3aNk5i+uD05EfZRQGXO3yekbisi3Mru/0HfyWKwtog0ZA03
+	GDqjKREA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMdNh-0000000CG9p-3Dmp;
-	Wed, 04 Jun 2025 01:57:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uMdPp-0000000CGHc-2E4U;
+	Wed, 04 Jun 2025 01:59:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMcRG-0000000C7NE-1MTU
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 00:57:06 +0000
+	id 1uMcRd-0000000C7Pi-1Q4m;
+	Wed, 04 Jun 2025 00:57:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BDC30614B8;
-	Wed,  4 Jun 2025 00:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B475C4CEEF;
-	Wed,  4 Jun 2025 00:57:04 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AE2D6A4FE56;
+	Wed,  4 Jun 2025 00:57:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A47C3C4CEED;
+	Wed,  4 Jun 2025 00:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748998625;
-	bh=Gy3GWvRDo+6BopqXzKv4lQ8sW1fQR0See/ZlHY9z3bo=;
+	s=k20201202; t=1748998648;
+	bh=06/5TxgtZvM86mGzgWzAncs8N5P1lWHeSCmjUPHc7FI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EcvXl4GASEqiMo9vup4qh1HHu630q4IxV4dttmdhUvMqgVwf9bAqSJX770dXcGQ0o
-	 pL0eoUQWX+56/izW9UBYMTcfmOnDBuHGWnpgEV3HdoJVZS/kZVfzUozAh+KDxzzQ1g
-	 ngJe+NCh2CZLx3nOBsyKC3yu/qdRRHZ1WbJELY6MNednh59a/wIfEewmUAj1zGEvSx
-	 hN1PAIUnA6Evc1yfYVbnBcT8Zq2B7YWU8gXB/+D7fGI0QIDWFdU7R70WO0XV7i+w5V
-	 ycZldT4eEDh3I5S/hjnHlMz3YPJxmNQTXO2FzMYwNhMvGmV+Vm9UnfC2vuDxzoYOe3
-	 JkMgRVXl9kN/Q==
+	b=teuvQhVUKnG3ZSVPiR+AxFiQK26psRGoxOs8b0/SBgX6yqLTgtBd1BVcSB06WIvEp
+	 f5jbrXv9E64dgegixgX5+Wj0YBO+Yn7UkwNSRnSh2jyyAvEGnW2YLygU9hlDnTM+iP
+	 xTAkNeVk1pm/S7Ai7SnhNJDn7ttJIx46s1o4Ak37uBlsqIzKezUwdFijJYhY8BDOs5
+	 fh5l8+Q5QXJY4JT1kSdqNcXQ17fgd8OjSroAIe9ZDmT7tDu3epznhY6A38TBdXRNLg
+	 gALqz/PCKAeFWPOsPaE63rWLU9Bfc+9uTenhP6SaV/RKE3r6NOmvMJ71VyP9zpymRl
+	 FmAQxdt7eghhw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Gabor Juhos <j4g8y7@gmail.com>,
-	Imre Kaloz <kaloz@openwrt.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Linus Walleij <linus.walleij@linaro.org>,
+Cc: Heiko Stuebner <heiko@sntech.de>,
 	Sasha Levin <sashal@kernel.org>,
-	gregory.clement@bootlin.com,
-	sebastian.hesselbarth@gmail.com,
-	brgl@bgdev.pl,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.14 048/108] pinctrl: armada-37xx: propagate error from armada_37xx_gpio_get()
-Date: Tue,  3 Jun 2025 20:54:31 -0400
-Message-Id: <20250604005531.4178547-48-sashal@kernel.org>
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 056/108] clk: rockchip: rk3036: mark ddrphy as critical
+Date: Tue,  3 Jun 2025 20:54:39 -0400
+Message-Id: <20250604005531.4178547-56-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250604005531.4178547-1-sashal@kernel.org>
 References: <20250604005531.4178547-1-sashal@kernel.org>
@@ -67,6 +60,9 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.9
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250603_175729_494583_68970B5C 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,88 +77,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Gabor Juhos <j4g8y7@gmail.com>
+From: Heiko Stuebner <heiko@sntech.de>
 
-[ Upstream commit 57273ff8bb16f3842c2597b5bbcd49e7fa12edf7 ]
+[ Upstream commit 596a977b34a722c00245801a5774aa79cec4e81d ]
 
-The regmap_read() function can fail, so propagate its error up to
-the stack instead of silently ignoring that.
+The ddrphy is supplied by the dpll, but due to the limited number of PLLs
+on the rk3036, the dpll also is used for other periperhals, like the GPU.
 
-Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
-Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-4-07e9ac1ab737@gmail.com
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+So it happened, when the Lima driver turned off the gpu clock, this in
+turn also disabled the dpll and thus the ram.
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://lore.kernel.org/r/20250503202532.992033-4-heiko@sntech.de
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
-Based on my comprehensive analysis, here is my determination: **YES**
-This commit should be backported to stable kernel trees. Here's my
-detailed analysis: ## Analysis of the Code Change The commit fixes a
-clear bug in the `armada_37xx_gpio_get()` function in
-`drivers/pinctrl/mvebu/pinctrl-armada-37xx.c`. The specific changes are:
-1. **Before**: `regmap_read(info->regmap, reg, &val);` - ignores return
-value 2. **After**: `ret = regmap_read(info->regmap, reg, &val); if
-(ret) return ret;` - properly handles errors ## Backport Suitability
-Assessment ### ✅ **Meets Stable Tree Criteria:** 1. **Bug Fix**: This
-clearly fixes a real bug where regmap read failures are silently
-ignored, potentially returning garbage data to userspace. 2. **Small and
-Contained**: The change is minimal (3 lines added) and extremely
-focused, affecting only error handling in a single function. 3. **Low
-Regression Risk**: The change only adds error checking where none
-existed before. It cannot introduce new bugs - it can only prevent
-incorrect behavior. 4. **No Architectural Changes**: This is purely
-error handling improvement with no changes to the driver's architecture
-or interfaces. 5. **Important Subsystem**: GPIO operations are
-fundamental and used by many kernel subsystems and userspace
-applications. ### ✅ **Follows Established Kernel Patterns:** My analysis
-of other GPIO drivers shows this error handling pattern is **universal**
-across the kernel: - `gpio-arizona.c`, `gpio-bd71828.c`, `gpio-
-madera.c`, `gpio-max77620.c`, `pinctrl-axp209.c`, and many others -
-**Every examined driver** checks `regmap_read` return values in GPIO get
-functions - The armada-37xx driver was an outlier in ignoring these
-errors ### ✅ **Real-World Impact:** This fix addresses scenarios where:
-- **Hardware communication failures** (I2C/SPI bus errors, device power
-issues) - **Device disconnect events** (hot-plug scenarios, power
-management) - **Timing/electrical issues** causing intermittent regmap
-failures Without this fix, `gpio_get()` would return potentially garbage
-values (using uninitialized `val`) when hardware communication fails,
-leading to incorrect GPIO state reporting to userspace. ### ✅
-**Reference Similar Commits:** Looking at the provided examples, this
-commit closely resembles: - **Similar Commit #3 (Status: YES)**: "Fix
-irq_of_parse_and_map() return value" - fixes incorrect error handling -
-**Similar Commit #1 (Status: YES)**: "Convert to use dev_err_probe()" -
-improves error handling patterns Both are small, focused error handling
-improvements that were deemed suitable for backporting. ## Conclusion
-This is a textbook example of a stable tree candidate: it's a small,
-safe bug fix that brings the driver in line with kernel-wide error
-handling standards, addresses real hardware failure scenarios, and has
-zero risk of regression while providing tangible benefits for system
-reliability.
+**YES** This commit should absolutely be backported to stable kernel
+trees. Here's my detailed analysis: ## Critical System Stability Issue
+The commit fixes a **critical system stability problem** where the DDR
+PHY clock can be disabled, causing the system to lose access to RAM and
+crash. This is evidenced by: 1. **Root Cause Analysis**: The commit
+message clearly explains that "when the Lima driver turned off the gpu
+clock, this in turn also disabled the dpll and thus the ram" - this is a
+shared resource conflict that can brick the system. 2. **Hardware
+Limitation**: The RK3036 has "limited number of PLLs" where the DPLL is
+shared between the DDR PHY (memory controller) and GPU, creating an
+inherent conflict when GPU clock management affects memory access. ##
+Code Change Analysis The fix is **minimal and safe**: ```c static const
+char *const rk3036_critical_clocks[] __initconst = { "aclk_cpu",
+"aclk_peri", "hclk_peri", "pclk_peri", "pclk_ddrupctl", + "ddrphy", //
+<-- Single line addition }; ``` - **Single line change**: Adding
+"ddrphy" to the critical clocks array - **No functional changes**: Uses
+existing critical clock infrastructure - **No API modifications**:
+Compatible with all kernel versions that support Rockchip clocks - **No
+dependencies**: Self-contained fix within the clock driver ##
+Backporting Criteria Evaluation ✅ **Fixes important bug**: System
+crashes when GPU driver disables clocks ✅ **Small and contained**: One
+line addition to existing array ✅ **Minimal regression risk**: Only
+prevents clock from being disabled, no new functionality ✅ **Clear side
+effects**: Explicitly intended to keep DDR PHY always enabled ✅
+**Critical subsystem**: Memory controller availability is fundamental to
+system operation ## Similar Commit Pattern Analysis Looking at the
+provided similar commits, this follows the **exact same pattern** as
+Similar Commit #3 (Status: YES) which fixed "unrecoverable freezes and
+rcu_sched stall warnings" - both address critical system stability
+issues through clock configuration fixes. Unlike the other commits
+marked "NO" which were feature additions or exports, this is a **pure
+bugfix** addressing a **hardware design limitation** that causes system
+crashes. ## Conclusion This commit prevents **complete system failure**
+through a **trivial, safe change** that has **zero risk of regression**.
+The fix addresses a fundamental hardware limitation in the RK3036 where
+shared PLLs can cause memory controller clock starvation. This is
+exactly the type of critical stability fix that stable trees are
+designed to include.
 
- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/clk/rockchip/clk-rk3036.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
-index 2438785c9ef88..cd238730fcb7e 100644
---- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
-+++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
-@@ -441,11 +441,14 @@ static int armada_37xx_gpio_get(struct gpio_chip *chip, unsigned int offset)
- 	struct armada_37xx_pinctrl *info = gpiochip_get_data(chip);
- 	unsigned int reg = INPUT_VAL;
- 	unsigned int val, mask;
-+	int ret;
+diff --git a/drivers/clk/rockchip/clk-rk3036.c b/drivers/clk/rockchip/clk-rk3036.c
+index d341ce0708aac..e4af3a9286379 100644
+--- a/drivers/clk/rockchip/clk-rk3036.c
++++ b/drivers/clk/rockchip/clk-rk3036.c
+@@ -431,6 +431,7 @@ static const char *const rk3036_critical_clocks[] __initconst = {
+ 	"hclk_peri",
+ 	"pclk_peri",
+ 	"pclk_ddrupctl",
++	"ddrphy",
+ };
  
- 	armada_37xx_update_reg(&reg, &offset);
- 	mask = BIT(offset);
- 
--	regmap_read(info->regmap, reg, &val);
-+	ret = regmap_read(info->regmap, reg, &val);
-+	if (ret)
-+		return ret;
- 
- 	return (val & mask) != 0;
- }
+ static void __init rk3036_clk_init(struct device_node *np)
 -- 
 2.39.5
 
