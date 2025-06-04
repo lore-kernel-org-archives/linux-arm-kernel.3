@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ACE4C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8F8C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  4 Jun 2025 15:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wC7mKSrr4kiaf3UIcJvhXmaBddWPavsd+lLtVOh+oBA=; b=lPO3hi1qDFfClsDjuVmO5nOxGa
-	UYF2cGSMQsYuxAr3o1n6qDcWp/9IXYzvRtHY/SqvC9yD8MrAaWO2/Uec2ALjn2iefaQYw14V3ybcd
-	0h1L1Ocvjde5o8Vo5hetMXOyr2g164wu8FZMA3pKJqfQxUlPtkK2cCGjZka+U/q+eC89eH8wMuaTX
-	s7mvuUlEtWwRIHayBrLGs1xVN2YK0eqlqYywwSWzvXMPiOJmfFyhqnX6mh9TqFSvShi2OrCewWHQW
-	5WTs4beqUCYXk4WoXfSF8CzqA0XeIRbRIbL+A5ilNKv5J968IkiNw2AWWijMkFU7kgvlatXbegYed
-	81yY6Xmg==;
+	bh=Ip8cYdBPRWgViqaCNUSb8tAk5oWEJ9P6Br8yrsq2eAs=; b=D+sJ5S0f09yrMck+8qXyeYvhhI
+	x8sHlROWOHDEoTLPaSll+MHz+CbIFRacz2B8J4xUw57FY5iUcOPzurUzNzpItOxxSzHK91qIst9dT
+	lRDJw7Cv0Woby2gy7uJJbqfTm8GnnSEbAGhyrc3r9Jg0ezJXEXpY8TiypUe6wLhvvSMwh5cbmOkmd
+	x2Dq0UepJMizbUl09pzVjqz9CrxlryrX0t6/yRtzPPLAVPc7jwpwo+enp94O1mZUO6M/ZINDmO8BF
+	8LRRDX9E4QL07tYKJCBYYphLNFfC5xpr9um68qftBKv2cR1RcWVDyrzPUb3pWVem2ro7APq9Hbv7X
+	OQp+nvMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpyg-0000000DgWS-0Yi9;
-	Wed, 04 Jun 2025 15:24:30 +0000
-Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
+	id 1uMq7I-0000000Dhox-2dmv;
+	Wed, 04 Jun 2025 15:33:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpvV-0000000DgGN-0uba
+	id 1uMq5C-0000000DhVg-3z0y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 04 Jun 2025 15:21:14 +0000
-Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e803de44766so5038292276.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 08:21:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749050472; x=1749655272; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wC7mKSrr4kiaf3UIcJvhXmaBddWPavsd+lLtVOh+oBA=;
-        b=cuq0MXdcNF6AqYH8Pp/Mza9H7HxCNC/oUFOJRpCBlOFNDdOlsjPo2y+I8fwbDN4yfL
-         BvJR6+vIg6hcAmSGgJ474i41Pqc/QpbTcmMrV5XtWMgAzUapFdHmcEsO6I1WoYzUMz63
-         fX4R1X21kcjj2rP0owuJUfNCTL8C74ZWeFEK2R0/jF+Eu5H24zXgzZpF1oXKwJO4+wX2
-         FPTH+PWhtlc5XrQ8RR35u3IalUHjSwbA+sjZLFz2poIkjK8TfVbXPEi22lCLvM2g2sV7
-         zFaHzv+sfd9Ev5B71Z6kVddeTnGyaY8Cm08paMR4HOGfhkCWhJm3HGpyug2XKEezCXH7
-         iDAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749050472; x=1749655272;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wC7mKSrr4kiaf3UIcJvhXmaBddWPavsd+lLtVOh+oBA=;
-        b=s+3zO8nOUbntI27TSJLZltKPxnySokc1ZBiZXOKVlY5c9LdSoqeXVOzuZfwak/a9Gw
-         0RNIYYdkaHPrRVj0tT0SsMuO8hgmP3Zqiyhs4vx53YbZiMRl6XxpUWQciib/LkiQ0ZUB
-         lAakuFpDaZAc/m4+QrYowUdtvpbN5fndCmQPZAUDgEGIrefajxulmCm6jiFqlbQavVGN
-         qxnN2HndaxnvKT3KTbG9qRi/lz9iWVRyW+1LPU058aZT0dURiafHr2iXjfM28DpjiGt4
-         AmXpv0plO2DKcIgg24PWNY1HoocHPwmLrCQ961uW5cBe3BYrXhcFD2NFKLUCHXVrHKh+
-         mkFg==
-X-Forwarded-Encrypted: i=1; AJvYcCWCzfpwpJnPuBAlvJxOyiB3RqbUxnueUX2KJIzXwzSfD+5D1HS/JXKuhQ+C/n7UuuhzSgqAAC9Jwt3qCb4HZ6IC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXCGVwVlVytwTcMd7svJl7TTCAc78KvBZW6zFqTIrc+nG6E9cr
-	ViaGZhcVZOeOW1wDQeGAHnrTNLFYiVxtm7PKakvrVU4nG+ug10IRasViR9pDFgxaCujeaZCLaDF
-	yif+DSEQvH8kWQPsFenemgjanbIFyc30=
-X-Gm-Gg: ASbGnctZb0xWUjuJiXIzzzP0OMqs6GhE/O9NP1RZaz9SBBU38aTAjV0BavEldUm6Yh6
-	fdzx+ZXDcEBE0QWJY/4JIks4ZNJlhiEZg/wB8ZTgphW8tQ7q/iNLD3U+43DXyuVgxmPIEeOK0s1
-	oUrAKGisz6q3DYp8XlsiBcrL9PzCNlLvk=
-X-Google-Smtp-Source: AGHT+IGREyE12fbHjJBCwDCkpDdLrlnY34Qx31wboQATvSL9xppWlFT+MzuRD7abZcfpqgHcsVZXAPbDl5OG9kjk1cs=
-X-Received: by 2002:a05:6902:2102:b0:e7d:6d7c:c33e with SMTP id
- 3f1490d57ef6-e8179da11c7mr3933634276.44.1749050472139; Wed, 04 Jun 2025
- 08:21:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250603221416.74523-1-stefano.radaelli21@gmail.com>
- <54c4a279-a528-4657-8319-c9374add54b7@lunn.ch> <CAK+owoihxp-2xAvFfVthvNELshti_3V-pFgD7D7jzd1XqiLgGQ@mail.gmail.com>
- <d5f891d7-d24a-4f85-b59d-313b925c4495@lunn.ch> <CAK+owog69JktbsBhHZj7ULYXmH_bZ-CO8=QEMqBVc0mjp8jz6g@mail.gmail.com>
- <1d755cbf-4dee-4784-98b7-e72061219e3f@lunn.ch>
-In-Reply-To: <1d755cbf-4dee-4784-98b7-e72061219e3f@lunn.ch>
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Date: Wed, 4 Jun 2025 17:20:56 +0200
-X-Gm-Features: AX0GCFssVbXWXo-ClT4FiYIScIddnBW-kBko0Lugw34l6NVIDWlAS9mHkPVmzfg
-Message-ID: <CAK+owog-Mipq2Oc0=gd8+LziHmVUrC5R7HidYYZWu9_AWu02TA@mail.gmail.com>
-Subject: Re: [v1] arm64: dts: freescale: imx93-var-som: update eqos support
- for MaxLinear PHY
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_082113_259419_AD1E91B1 
-X-CRM114-Status: GOOD (  22.28  )
+	Wed, 04 Jun 2025 15:31:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5253761137;
+	Wed,  4 Jun 2025 15:31:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECB9DC4CEE4;
+	Wed,  4 Jun 2025 15:31:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749051074;
+	bh=xjwQ85hYcU1ZrPH6YnswDzMKpczKMUcTOpAQm5SeA+8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RFZ1SKoCh5NLJ8Hir4XT3wS2hpvE9PKPaoXUwqK6A8Y6cyWPWxoiDHP0B3g97Ezw2
+	 oHmbFqVnwwa+1BujyqnxsP0HYVzTaaMYo6TvJmShbXRzO+7+74vAELoOyv7PXZfuuE
+	 vt8jqfGmV1yKX96vfbSYofPX1rrlrfdapV5NS/Q9kHfzwJkebOYVcgEkUqSvslFs+P
+	 qRMsf01mcU1aGfLgFUgwkHhPDv1PbR2dnAGoC4JMZ/2/DoRmTpjTQvOwvN9RywAc3o
+	 6IFzqzEnCBgdXkssXygB6MpnW+faE9oMjEnP1y9MXt03hRF5mZd6hxekaJkATa9hr4
+	 fyxQftlHoBWTQ==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uMq59-003Fww-Fx;
+	Wed, 04 Jun 2025 16:31:11 +0100
+Date: Wed, 04 Jun 2025 16:31:08 +0100
+Message-ID: <87a56ned6r.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: James Clark <james.clark@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 06/11] KVM: arm64: Add trap configs for PMSDSFR_EL1
+In-Reply-To: <2fb1965b-bef9-4a8e-a1c7-c8a77d957b23@linaro.org>
+References: <20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org>
+	<20250529-james-perf-feat_spe_eft-v2-6-a01a9baad06a@linaro.org>
+	<867c1ze4pg.wl-maz@kernel.org>
+	<2fb1965b-bef9-4a8e-a1c7-c8a77d957b23@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: james.clark@linaro.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, corbet@lwn.net, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +103,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-Absolutely, thanks again for pointing this out! I'm actually glad you asked,
-because it pushed me to double-check internally with our hardware team
-and confirm the exact implementation details.
-
-I'll make sure to include a proper comment in the device tree right above the
-'phy-mode = "rgmii";' line in v2, clearly stating that the RGMII delays are
-handled via fixed passive components on the SOM's PCB itself, with no
-software or strap-based configuration involved.
-
-Thanks again,
-Stefano
-
-Il giorno mer 4 giu 2025 alle ore 17:13 Andrew Lunn <andrew@lunn.ch> ha scritto:
+On Tue, 03 Jun 2025 10:50:23 +0100,
+James Clark <james.clark@linaro.org> wrote:
+> 
+> 
+> 
+> On 29/05/2025 5:56 pm, Marc Zyngier wrote:
+> > On Thu, 29 May 2025 12:30:27 +0100,
+> > James Clark <james.clark@linaro.org> wrote:
+> >> 
+> >> SPE data source filtering (SPE_FEAT_FDS) adds a new register
+> >> PMSDSFR_EL1, add the trap configs for it.
+> >> 
+> >> Signed-off-by: James Clark <james.clark@linaro.org>
+> >> ---
+> >>   arch/arm64/kvm/emulate-nested.c | 1 +
+> >>   arch/arm64/kvm/sys_regs.c       | 1 +
+> >>   2 files changed, 2 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> >> index 0fcfcc0478f9..05d3e6b93ae9 100644
+> >> --- a/arch/arm64/kvm/emulate-nested.c
+> >> +++ b/arch/arm64/kvm/emulate-nested.c
+> >> @@ -1169,6 +1169,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+> >>   	SR_TRAP(SYS_PMSIRR_EL1,		CGT_MDCR_TPMS),
+> >>   	SR_TRAP(SYS_PMSLATFR_EL1,	CGT_MDCR_TPMS),
+> >>   	SR_TRAP(SYS_PMSNEVFR_EL1,	CGT_MDCR_TPMS),
+> >> +	SR_TRAP(SYS_PMSDSFR_EL1,	CGT_MDCR_TPMS),
+> >>   	SR_TRAP(SYS_TRFCR_EL1,		CGT_MDCR_TTRF),
+> >>   	SR_TRAP(SYS_TRBBASER_EL1,	CGT_MDCR_E2TB),
+> >>   	SR_TRAP(SYS_TRBLIMITR_EL1,	CGT_MDCR_E2TB),
+> >> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> >> index 5dde9285afc8..9f544ac7b5a6 100644
+> >> --- a/arch/arm64/kvm/sys_regs.c
+> >> +++ b/arch/arm64/kvm/sys_regs.c
+> >> @@ -2956,6 +2956,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+> >>   	{ SYS_DESC(SYS_PMBLIMITR_EL1), undef_access },
+> >>   	{ SYS_DESC(SYS_PMBPTR_EL1), undef_access },
+> >>   	{ SYS_DESC(SYS_PMBSR_EL1), undef_access },
+> >> +	{ SYS_DESC(SYS_PMSDSFR_EL1), undef_access },
+> > 
+> > PMSDSFR_EL1 has an offset in the VNCR page (0x858), and must be
+> > described as such. This is equally true for a bunch of other
+> > SPE-related registers, so you might as well fix those while you're at
+> > it.
+> > 
+> > Thanks,
+> > 
+> > 	M.
+> > 
+> 
+> I got a bit stuck with what that would look like with registers that
+> are only undef in case there was something that I missed, but do I
+> just document the offsets?
+> 
+> +++ b/arch/arm64/include/asm/vncr_mapping.h
+> @@ -87,6 +87,8 @@
+>  #define VNCR_PMSICR_EL1         0x838
+>  #define VNCR_PMSIRR_EL1         0x840
+>  #define VNCR_PMSLATFR_EL1       0x848
+> +#define VNCR_PMSNEVFR_EL1       0x850
+> +#define VNCR_PMSDSFR_EL1        0x858
 >
-> On Wed, Jun 04, 2025 at 03:08:09PM +0200, Stefano Radaelli wrote:
-> > Hi Andrew,
-> >
-> > To clarify more precisely: hw team told me that the required 2 ns
-> > RGMII delays are
-> > implemented directly in hardware inside the SOM itself, through passive delay
-> > elements (filters) placed on the RX and TX lines. There is no reliance on PHY
-> > strap settings or any kind of delay configuration via registers.
-> >
-> > This means:
-> > - The delays are fixed and cannot be changed via software.
-> > - From the point of view of any carrier board, the interface is
-> > already timing-compliant.
->
-> Great. Please add a comment in the DT explaining this. 99% of the time
-> 'rgmii' is wrong, but this is the 1%. We should make it clear this is
-> not just another cut/paste error, but very intentional and correct
-> because of the PCB design.
->
-> There is a patch to checkpatch.pl i want to introduce in the next
-> development cycle which will look for 'rgmii', and if found, look on
-> the line before for a comment including the word 'PCB'. If it finds
-> 'rgmii' without such a comment it will issue a warning. So it would be
-> nice to avoid that in your correct case.
->
->      Andrew
+
+This should be enough.
+
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -596,6 +596,16 @@ enum vcpu_sysreg {
+>         VNCR(ICH_HCR_EL2),
+>         VNCR(ICH_VMCR_EL2),
+> 
+> +       /* SPE Registers */
+> +       VNCR(PMBLIMITR_EL1),
+> +       VNCR(PMBPTR_EL1),
+> +       VNCR(PMBSR_EL1),
+> +       VNCR(PMSCR_EL1),
+> +       VNCR(PMSEVFR_EL1),
+> +       VNCR(PMSICR_EL1),
+> +       VNCR(PMSIRR_EL1),
+> +       VNCR(PMSLATFR_EL1),
+
+I don't see a point in having those until we actually have SPE support
+for guests, if ever, as these will potentially increase the size of
+the vcpu sysreg array for no good reason.
+
+> And then sys_reg_descs[] remain as "{ SYS_DESC(SYS_PMBLIMITR_EL1),
+> undef_access }," rather than EL2_REG_VNCR() because we don't actually
+> want to change to bad_vncr_trap()?
+
+This seem OK for now. We may want to refine this in the future though,
+as these registers cannot trap when NV is enabled. Yes, this is a bug
+in the architecture.
+
+> There are some other parts about fine grained traps and res0 bits for
+> NV, but they all already look to be setup correctly. Except
+> HDFGRTR2_EL2.nPMSDSFR_EL1, but it's inverted, none of the FGT2 traps
+> are configured currently and PMSDSFR_EL1 is already trapped by
+> MDCR_EL2 anyway.
+
+Can you elaborate on that? We have:
+
+	SR_FGT(SYS_PMSDSFR_EL1,		HDFGRTR2, nPMSDSFR_EL1, 0),
+
+which seems to match the spec.
+
+We also have full support for FEAT_FGT2 already (even if we have no
+support for the stuff they trap).
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
