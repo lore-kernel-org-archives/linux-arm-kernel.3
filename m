@@ -4,76 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B38C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 20:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E16C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 20:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxQJiw6KehtsmawjILJfcN0IbIxuxAumV+XFX5XH8hI=; b=3oWnRp+9JHgB9SsdbpB6p+HC3I
-	9iaaX4CFzGErNkc50nZcjo2GjsiHJ4LNArnvKoSPd0EJC2yzwVF9xz/EsZJU/a3scq4fvSNRJhrGs
-	3b9wuhWujXd6UneitQOy29nejLQHAIFMjAzDEeTaht5YNkyZOrFzH82a3UBhSH2PSRM36Pk9g//jE
-	WH9x62fsAqWooKjwRoqjg2DWApw/VHzJUueopyEUndfqFx7bOsWnVh5oBLvLVWRlkM6/9fryEfK19
-	BlQXs9qv+vFnDVoOfY4FS0Mfz+aw64setbX6AOhlHQq9omXHMoSGc5/N3q4MH5p5H8+9/Vl6RUx7p
-	BYx/NuuQ==;
+	bh=dOUnQwTXSwB8075n3m53HXseNHJ7KLP2YTuJpqraiJo=; b=Vl7oU7EPCJSEcwCNjix8l688Hq
+	0LevMyShX4vQdBFozE3fdcnA6JShPwhxmUl6eMDTzym/Zdy8au6s618YcyxmTGDjedjtzzd6li1UR
+	7OYA6POi/yMo1jXmnmWkUnoyqFW9ieuDq+CJyuTUrVXBlcbn0FF0eNiASx+ZkfigQi4uuvZXuY4+D
+	UNpw2YyJkWZY5aWbVEnGY3QtEJEKmbB3F/ncI0lWzRkHgA4nldVlQ4XcdWfjlwEBhKqFC7MDOAJwg
+	8EJq64ONV3agiirjqPFdamsVNcF2YSS+ME0+qD+hTWCHikUOBe6x1rNu81I0pmKEs4ZYQ7SR5VKIV
+	bE4W3lTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNH8N-0000000GaTv-13AL;
-	Thu, 05 Jun 2025 20:24:19 +0000
-Received: from mail.nppct.ru ([195.133.245.4])
+	id 1uNHGk-0000000GbA8-09Wl;
+	Thu, 05 Jun 2025 20:32:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNH4A-0000000Ga6h-2XMs
+	id 1uNHEe-0000000Gb0R-0HWa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 20:20:00 +0000
-Received: from mail.nppct.ru (localhost [127.0.0.1])
-	by mail.nppct.ru (Postfix) with ESMTP id 46F871C2ABB
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Jun 2025 23:19:57 +0300 (MSK)
-Authentication-Results: mail.nppct.ru (amavisd-new); dkim=pass (1024-bit key)
-	reason="pass (just generated, assumed good)" header.d=nppct.ru
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nppct.ru; h=
-	content-transfer-encoding:mime-version:references:in-reply-to
-	:x-mailer:message-id:date:date:subject:subject:to:from:from; s=
-	dkim; t=1749154796; x=1750018797; bh=TeGhnktdSvFxXreUkwhblyYxGqC
-	rkCLuVr00TRFUiKg=; b=rm6yCB+o3Z3hQU5WzYf37ke60L1n2HbJe+h6EnbXih6
-	PUVbK5yUD2rjoHyBT10ycx8Dsm2hpwKQVrnM2cN1EOeeZIU+Pg8oPcT+lM3EK50R
-	CQwPMc90Ia6mXLIqGX/ivzrwDEqwHV0Ee4xBHyAC6NyOtck6F0kieuB5yDM8I+cA
-	=
-X-Virus-Scanned: Debian amavisd-new at mail.nppct.ru
-Received: from mail.nppct.ru ([127.0.0.1])
-	by mail.nppct.ru (mail.nppct.ru [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id PJ7YMn1Mwr6u for <linux-arm-kernel@lists.infradead.org>;
-	Thu,  5 Jun 2025 23:19:56 +0300 (MSK)
-Received: from localhost.localdomain (unknown [87.249.24.51])
-	by mail.nppct.ru (Postfix) with ESMTPSA id 11A101C1151;
-	Thu,  5 Jun 2025 23:19:48 +0300 (MSK)
-From: Alexey Nepomnyashih <sdl@nppct.ru>
-To: Lyude Paul <lyude@redhat.com>
-Cc: Alexey Nepomnyashih <sdl@nppct.ru>,
-	Danilo Krummrich <dakr@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	dri-devel@lists.freedesktop.org,
-	nouveau@lists.freedesktop.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2 2/2] drm/nouveau/instmem/gk20a: fix incorrect argument in iommu_unmap
-Date: Thu,  5 Jun 2025 20:19:21 +0000
-Message-ID: <20250605201927.339352-2-sdl@nppct.ru>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250605201927.339352-1-sdl@nppct.ru>
-References: <20250605201927.339352-1-sdl@nppct.ru>
+	Thu, 05 Jun 2025 20:30:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2FBD5629D1;
+	Thu,  5 Jun 2025 20:30:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3C17C4CEE7;
+	Thu,  5 Jun 2025 20:30:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749155446;
+	bh=bv0xFgLcZNNYnV0+6JE5/3qYI/y7M2/uLuyVgvXsdDg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=cMBVX7VWG55izBQYKOvnv+nhhRJ5MH0Wab48RdreVFHrmW1Fs2zxVa0JNAiz8OpUI
+	 cwpzT6hXNxjT9lnUHpWpKogAaySOwlX9Dsz9bwdwV7aR/VmvSu0p2aQdggsOTI63RX
+	 2jzNknvau7mD6kwfN05nExyh+SJV65TuWITYKatjTj4cx2Tu2IoUeVeeLGRZBNSv6R
+	 /C98oD///1ILjFW3oA9xmqs1lIBxiag7HhfmPZpv/LrUDW2JTkLWlnvfth6nJxkRNo
+	 WfhhlyVEyct+8pMX4MeDh/XAsIK/nyJsHo/JFhcTYYnyA75udGHbg/LhlS/hLz67xV
+	 y6yfQTtVv8D7g==
+Message-ID: <86b6c9a8-5ecf-4aa5-a6cf-afee64d28efa@kernel.org>
+Date: Thu, 5 Jun 2025 22:30:42 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_131958_803838_DD0626EA 
-X-CRM114-Status: GOOD (  12.37  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] memory: brcmstb_memc: Simplify compatible matching
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Rob Herring <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, justin.chen@broadcom.com,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20250523184354.1249577-1-florian.fainelli@broadcom.com>
+ <20250523184354.1249577-3-florian.fainelli@broadcom.com>
+ <20250605185557.GA3023589-robh@kernel.org>
+ <ac57663b-3bcc-42ae-898e-06592d417715@broadcom.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ac57663b-3bcc-42ae-898e-06592d417715@broadcom.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,41 +123,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The unmap logic assumes a fixed step size of PAGE_SIZE, but the
-actual IOVA step depends on iommu_pgshift, not PAGE_SHIFT. If
-iommu_pgshift > PAGE_SHIFT, this results in mismatched offsets and
-causes iommu_unmap() to target incorrect addresses, potentially
-leaving mappings intact or corrupting IOMMU state.
+On 05/06/2025 21:10, Florian Fainelli wrote:
+> On 6/5/25 11:55, Rob Herring wrote:
+>> On Fri, May 23, 2025 at 11:43:54AM -0700, Florian Fainelli wrote:
+>>> Now that a "brcm,brcmstb-memc-ddr-rev-b.2.x" fallback compatible string
+>>> has been defined, we can greatly simplify the matching within the driver
+>>> to only look for that compatible string and nothing else.
+>>>
+>>> The fallback "brcm,brcmstb-memc-ddr" is also updated to assume the V21
+>>> register layout since that is the most common nowadays.
+>>>
+>>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>>> ---
+>>>   drivers/memory/brcmstb_memc.c | 58 ++---------------------------------
+>>>   1 file changed, 3 insertions(+), 55 deletions(-)
+>>>
+>>> diff --git a/drivers/memory/brcmstb_memc.c b/drivers/memory/brcmstb_memc.c
+>>> index c87b37e2c1f0..ec4c198ddc49 100644
+>>> --- a/drivers/memory/brcmstb_memc.c
+>>> +++ b/drivers/memory/brcmstb_memc.c
+>>> @@ -181,65 +181,13 @@ static const struct of_device_id brcmstb_memc_of_match[] = {
+>>>   		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V20]
+>>>   	},
+>>>   	{
+>>> -		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.1",
+>>> +		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.x",
+>>>   		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
+>>
+>> This entry is pointless because the default will get V21.
+>>
+>> In fact, I don't think you need the new compatible string at all. It
+>> doesn't work to add fallbacks after the fact.
+> 
+> I agree and would prefer to keep adding new compatible strings which is 
 
-Fix this by recomputing the offset per index using the same logic as
-in the map loop, ensuring symmetry and correctness.
+So you agree that adding such entries is pointless?
 
-Found by Linux Verification Center (linuxtesting.org) with SVACE.
+> what I initially did here:
+> 
+> https://lore.kernel.org/all/20241217194439.929040-2-florian.fainelli@broadcom.com/
+> 
+> but the feedback was that this should not be done, and hence this 
+> attempt at defining a compatible string that would avoid needless churn.
+> 
+> So which way should I go now?
 
-Cc: stable@vger.kernel.org # v4.3+
-Fixes: a7f6da6e758c ("drm/nouveau/instmem/gk20a: add IOMMU support")
-Signed-off-by: Alexey Nepomnyashih <sdl@nppct.ru>
----
- drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+And the advice was to use v2.1 fallback, not replace v2.1 with something
+else or keep adding pointless entries:
+https://lore.kernel.org/all/2e33t7ft5ermsfr7c4ympxrn6l5sqdef3wml4hlbnhdupoouwj@gfjpbmowjadi/
 
-diff --git a/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c b/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c
-index 17a0e1a46211..f58e0d4fb2b1 100644
---- a/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c
-+++ b/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c
-@@ -481,8 +481,9 @@ gk20a_instobj_ctor_iommu(struct gk20a_instmem *imem, u32 npages, u32 align,
- 			nvkm_error(subdev, "IOMMU mapping failure: %d\n", ret);
- 
- 			while (i-- > 0) {
--				offset -= PAGE_SIZE;
--				iommu_unmap(imem->domain, offset, PAGE_SIZE);
-+				iommu_unmap(imem->domain,
-+					    ((unsigned long)r->offset + i) << imem->iommu_pgshift,
-+					    PAGE_SIZE);
- 			}
- 			goto release_area;
- 		}
--- 
-2.43.0
 
+Best regards,
+Krzysztof
 
