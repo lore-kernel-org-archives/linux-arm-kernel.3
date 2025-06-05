@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7424FC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 17:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD601C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 17:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+dyrRE+P/HVPL+mD5kMclNeCojAU/XWM9mGFrbrBfI=; b=Skr96R+cGkwLP/4dZA9wuwrXXw
-	am8n5K6CuG+/NCs8OnuvkIjBFAMCcosS08o6yTKZLXvQqXSLZduWA2hzRHIgR/sfOw64N376C8h++
-	039cLYNbTZSI+u1XBCpA223pputqVzc3dgwmDu+iSUP3mUdKKOqN6KTiIOBxvmyjvFrmajk4tFvGZ
-	YLcO3tW5CrH1Vzmn0VQ5sL07ZiMRoJAShYqg6DETYq+Ehf4CcKAztJF3+AX3zY2FT2fe07koul1/E
-	72KmO68Fj7xp91XsxtChs6U2AXNrMV5cIdX0veCfT6Z+JdG1a48N8Yb1N5gjzXyK1Lnc9bqoMNQ7w
-	tFa2h/Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qbjK09Oo/KaBZYVKJXBavz+0zUWrLWJSsqESbFdRw2A=; b=axFdcBy7s9EZIWNErMWOP9gM6C
+	0XheHFnAuvnzE8GIn0YDaKE8eDdbdi7cgjc/uxUVs2JD0fzfCmobpQvOC0Cfrhq9NpBNpfiJqnSMo
+	YviFEN5EKGxD73+DLC1Yk/klC+Dl726ppac6xDt6koSYWu3cl7wg9WJPSQMsznb4qPOf/j9HCY7Mh
+	C+KH6eRUP94NYomoWNeqOVHZmKeKoeTclsFWqFgo73u+ySsUlX+GhvBExu7sjZDuHZmDDRKfTYNoS
+	7KlaPTec9qnoppr+GOqJsjLurhugUT5oQcJ7E/jXdKc5+3GeDgNgGwI4dnziiwcsiSMZGeZculBQl
+	trgSSUmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNDxo-0000000G5tK-2aiy;
-	Thu, 05 Jun 2025 17:01:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uNDzy-0000000G62t-3Btk;
+	Thu, 05 Jun 2025 17:03:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNDtw-0000000G5Wg-28Is;
-	Thu, 05 Jun 2025 16:57:12 +0000
+	id 1uNDue-0000000G5ZH-10bX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 16:57:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EBE8A629E6;
-	Thu,  5 Jun 2025 16:57:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C677C4CEE7;
-	Thu,  5 Jun 2025 16:57:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A0FB440F3;
+	Thu,  5 Jun 2025 16:57:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C99E9C4CEE7;
+	Thu,  5 Jun 2025 16:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749142631;
-	bh=uWq41XjmaBPeNaNo0Twmva32kiVlfQyvpWdJh2HxoW8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GEW/DkBw2lWryrvdZAxurWAqS5vJ3gpkNuBoRSWCh/SwHFmTJzYQh6yBsfbk5Uqtq
-	 MzCBTKkwIYhEtvhJ21OOUTeYVMWiU75SuyilBVymrJP533mpXdDoflSafA6cBYtVvz
-	 Tbh+q09my85GQzBiotHxEy3y22UpjYEfsp2Ebi06likhlL3VjNeiMBQQB+xiCwkKWZ
-	 pDa6WhtU7Jid9nAdR6eLD1jrhhm8QmKMmWm/W9URrPnZLis9IEIc2i2yvEU1uPLA5t
-	 eoS8P9F9PuhCeWZAzLQVAmnrnbGOc8Umd4HL3SU40NwQRaJ8MO8jj1UnG34SIw+Vfb
-	 OT1UTMdT3+aKQ==
-Date: Thu, 5 Jun 2025 18:57:09 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Ben Greear <greearb@candelatech.com>
-Cc: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Bo Jiao <Bo.Jiao@mediatek.com>,
-	Peter Chiu <chui-hao.chiu@mediatek.com>,
-	linux-wireless@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH mt76 5/5] wifi: mt76: Remove RCU section in
- mt7996_mac_sta_rc_work()
-Message-ID: <aEHMZe0_vuml8eI9@lore-desk>
-References: <20250605-mt7996-sleep-while-atomic-v1-0-d46d15f9203c@kernel.org>
- <20250605-mt7996-sleep-while-atomic-v1-5-d46d15f9203c@kernel.org>
- <909d2ca8-8409-997a-768f-8e9be4c5168e@candelatech.com>
+	s=k20201202; t=1749142674;
+	bh=pjV3bNzBf1YJf1rM+e/SvZsaxG6fHSEEd/WI3ExKBGY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=rrONN9qW1aHmF5/UQgqLlnYMX7Q4VsokJ4R22HjDxXA934YUU0zNzq6yjAiwujQMa
+	 KT2BDFGdKRzP/RiPPMOj3guszhi3/xzuwAkbC8zf2uYgpL1CGRX07vzgnZ+LbK+xoO
+	 S2POrMn3TLOiLPh2aqFY3eGuyCbLN4ntVHjMM3uDVAdrSljSC7F2eLY7W2WdHOS1SE
+	 cy2QFsEcSrC8D7r4pgLvv2jWy1wy9HjfqVoMuyJZ3jhsnzspvg/5ibV+eTyT0dIGxA
+	 rMpal3yosEluCov6TPplKm4A0gxOA4DKDDgyiLlBBzwaH/JJD+eU+Jm3ASXDOvhYFq
+	 Mtl+lu6HSwUZw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB1FD39D60B4;
+	Thu,  5 Jun 2025 16:58:27 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="X71w9KW41lasa3QR"
-Content-Disposition: inline
-In-Reply-To: <909d2ca8-8409-997a-768f-8e9be4c5168e@candelatech.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH bpf-next] selftests/bpf: Fix compile error of
+ bin_attribute::read/write()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174914270651.3142609.5571647506914286281.git-patchwork-notify@kernel.org>
+Date: Thu, 05 Jun 2025 16:58:26 +0000
+References: <tencent_A6502A28AF21A3CA88B106F3421159869708@qq.com>
+In-Reply-To: <tencent_A6502A28AF21A3CA88B106F3421159869708@qq.com>
+To: Rong Tao <rtoax@foxmail.com>
+Cc: andrii@kernel.org, eddyz87@gmail.com, rongtao@cestc.cn, mykolal@fb.com,
+ ast@kernel.org, daniel@iogearbox.net, martin.lau@linux.dev, song@kernel.org,
+ yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
+ sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, shuah@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ peterz@infradead.org, ameryhung@gmail.com, juntong.deng@outlook.com,
+ oleg@redhat.com, bpf@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250605_095756_298378_D9DDEA30 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
---X71w9KW41lasa3QR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This patch was applied to bpf/bpf-next.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
 
-> On 6/5/25 04:14, Lorenzo Bianconi wrote:
-> > Since mt7996_mcu_add_rate_ctrl() and mt7996_mcu_set_fixed_field() can't
-> > run in atomic context, move RCU critical section in
-> > mt7996_mcu_add_rate_ctrl() and mt7996_mcu_set_fixed_field(). This patch
-> > fixes a 'sleep while atomic' issue in mt7996_mac_sta_rc_work().
-> >=20
-> > Fixes: 0762bdd30279 ("wifi: mt76: mt7996: rework mt7996_mac_sta_rc_work=
- to support MLO")
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-> Thanks for the quick fix on this, it appears to solve the problems we
-> saw related to this.
+On Wed,  4 Jun 2025 13:53:22 +0800 you wrote:
+> From: Rong Tao <rongtao@cestc.cn>
+> 
+> Since commit 97d06802d10a ("sysfs: constify bin_attribute argument of
+> bin_attribute::read/write()"), make bin_attribute parameter of
+> bin_attribute::read/write() const.
+> 
+> Signed-off-by: Rong Tao <rongtao@cestc.cn>
+> 
+> [...]
 
-ack, thx. Can you please add your 'tested-by' tag in this case?
+Here is the summary with links:
+  - [bpf-next] selftests/bpf: Fix compile error of bin_attribute::read/write()
+    https://git.kernel.org/bpf/bpf-next/c/4b65d5ae9714
 
-Regards,
-Lorenzo
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
->=20
-> Thanks,
-> Ben
->=20
-> --=20
-> Ben Greear <greearb@candelatech.com>
-> Candela Technologies Inc  http://www.candelatech.com
->=20
->=20
 
---X71w9KW41lasa3QR
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaEHMZAAKCRA6cBh0uS2t
-rPSwAQC/WKz8QxMEL+41maplaE+rUaOHZFrptyyd5B5oIoW7JAEA0M1Ih8nwvA2X
-H0mMs8QIq+Oq5TX55w8vnReI92NFQQw=
-=h9y9
------END PGP SIGNATURE-----
-
---X71w9KW41lasa3QR--
 
