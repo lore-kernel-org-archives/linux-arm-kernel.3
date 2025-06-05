@@ -4,87 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A8EC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060B5C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ecAphYkfEdsn3BUh426paPfp1MReJf3vodIqrsyJcGQ=; b=qMDdyPdfdVphwYc046YYMSb86u
-	/caUXuErp5X1oWNBA5EsVtlNZd47mblRktv03ydrNLJj4dinzHWkOi4gLTGXQdyfkHBAcSUPhe2M2
-	ohcPm+W9HHA/4iK5Qq7OZNv81f0fGibXFgPoUhdbbqJ6tUOh03yz1qt3Nbf0SvWbMM5pJdx9VOVTL
-	pxB8ZeVx5Ff6QiKxQzb2KClT/nXwy7ZCaNf4VUmhGNWkbHCQMCnmX98/2vjn6Qa5VaT6YqDUksKcZ
-	QuEeorrX58LJJMbVulB+NntwuQf4po+bXB3/IwiTk2kgxH+ihJpLrxQ23GhUXZ30k/LS09WQXx6le
-	lFxlqS0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uObjRkQUmOCERXxPU8EgQSceGJ0+5kvG/cdegAQh8Ys=; b=jO0SgyYkxtqVuTpF3DQo0j5JS0
+	cO/Ux51g7lWKyFnZA8qZqsF3XhPuT3XKT99jf/HMln25lZKOFpM+mnOx6cFyCbjR6OOS2bvSQ/7it
+	iwK5IQ1KmlKpzcOM26rXltLGcLf9/KWhlvDVNNjB9CK7hwG8p6A58uf327B2XHf60pP9nGR91O8+R
+	lwv793w9iwh1EZfEqGuur3zz4i4LB/O/pWQ5tes/EyavbKT2XFHzrYFrDWG8e6lFJ9w686p9qKF0P
+	lae96PpQbsgF+FnIFeLEUrJeF4DJcyAWcjZsQAsSz5EZjJsGUP3g/Hq/XmvPHtce4ncX5Q5A/rD/V
+	d+Ytz+Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAMh-0000000FYxo-06rS;
-	Thu, 05 Jun 2025 13:10:39 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1uNAOr-0000000FZB4-04jR;
+	Thu, 05 Jun 2025 13:12:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNACq-0000000FXYA-2Ufy
+	id 1uNADh-0000000FXdD-2OQp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 13:00:29 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-72c09f8369cso242333a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 06:00:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749128427; x=1749733227; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ecAphYkfEdsn3BUh426paPfp1MReJf3vodIqrsyJcGQ=;
-        b=hi18g+n24Ev/syLCoU4IEDKk1AtRcdEWW2oHSX7OrqjFwcKBPwqemrKHlVZWGreU6Y
-         elf2iFa1KjlVFQzlLKsgsULQIYBSN3cBDJQkj2fZokxgqCXImvvWSWyQbcTViEO4AwJS
-         rPBLewWsgG0Bn41v8JICXiiCQnAHNxodA1iXRJ5dbEK/sdtGxHJzqFVmNcEd43CnWMxE
-         KfZbhDI+BJU5afapOwG7BQO1Ki+vpyj674r9Ju4GhaJvbF49/HYaobSC81+p22SxnACq
-         To5QKmpjThoOXHwJynvuv3udTne2VNMpdG+sfj3spGfh0o7JVqgAfwW9I2mHqUjJ6iZA
-         P0kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749128427; x=1749733227;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ecAphYkfEdsn3BUh426paPfp1MReJf3vodIqrsyJcGQ=;
-        b=dirnAjwjfIxoo/fxFHC+R+u/ysh84A5e6oN2ai47yTdkOa656WUVQTBr5USbHTLeUw
-         zynlpblCTpNIy8db+ZhMFsg4NzLh7VzHKgz2KOG6y4s9Bx8ofwDllUlJge1EnudYsP5r
-         B56nK1hSzb6us5wmbxk62IALsB8Y4AHDe1mM8wHk5NDbgR9TQ0Dp27qj9QzhDLCWLjQb
-         8SYjRnwkN1FV8A3Cjl7t2orV+uVopo4ogeCrCo+TJu8Pb9CPnFyCx/gQs5U21mOXN1TN
-         mz6GANgr0+hUdfVhshVyWizrAfdZ6YpzQVq7gedY9AKZeGRWgQqjl0cVzaZ3Yn6/4dl+
-         J7Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCWBWdsnJ2i8BHIPAP6/1l7U2cuQ+0v4WU2LvcILq9h7oj+o7H4wJaY4Ooa1tdhCyNZkAe7jIN5I/KmOgiuPjx7Z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4EB1q3sYJ+tYKgIcb8RJS3iwFgXLxz752uFabuL45EN5ibK93
-	icTi4x0YLhL1vDqLjuIzrMC+/bf8Fm6Ohn7gAltb8Gwdiwb7DWz4lCXRzryAqcnFJ5vwr+D8rWs
-	9dvwy5ASpCJXeAqJm8+JSdul7hpsgPGEz5GY+NL74JA==
-X-Gm-Gg: ASbGncs3WxSwTd2dDVzq/Ii4BW9Mo4zHexBi0+tqwvgebNHG4pfrIkwcs4aZYHnGyE/
-	+R0NN3Qye6cB4dPoCR+l7jw0p5TB3mQSQAta8H6jesbv6m0SwsNc6JnlfX4xJKXXVqSXXegmrq9
-	cRMKGNrN4W6YBFoeymxPgd7+3DWpRrrHaA2YM=
-X-Google-Smtp-Source: AGHT+IG+FTUmGJ+/COgbGtwp15niG+cd9riFL26aortlN2WN5OKeL0bGxpdnRDnCKPZKQj5eRuIFsDW+Z69953+bUJA=
-X-Received: by 2002:a05:6820:2686:b0:60f:9d6:bd08 with SMTP id
- 006d021491bc7-60f0c7333b0mr4096808eaf.3.1749128425365; Thu, 05 Jun 2025
- 06:00:25 -0700 (PDT)
+	Thu, 05 Jun 2025 13:01:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EB03AA50727;
+	Thu,  5 Jun 2025 13:01:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4064C4CEE7;
+	Thu,  5 Jun 2025 13:01:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749128480;
+	bh=u8KzIXkEL0K1wlu7o8cYAV0SDadmZjM4Ep+VP7pxYNQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Yn6hwgkz7tVish+xfF2fS7zUqUvcYFSMne0TxpQS8H08SxoROnxBvsqhuImYuuavX
+	 XyZyjyyRyVO4QEFjFbZhcKYpPg+BxX4anKUYAXTQPWbECQ+vgV5wMPqszmpRiahU/h
+	 Zg7H6VFkVnaoiX/sdyZx0LIrOeiLG7GK0LlI82kgA84cIOeC0mAPO1MIbmhzTdfpkX
+	 CqBJnQzZuO3EXxrSGEBttfltTegJtFZYhyF5jC89uFqlEdPzg/9DivDIFb/3fWPHOE
+	 Xn66BfBpNYcUsit0J7XtLMjtT+hU7/ACpLw+9gDAZ+S5Qv/UUFEICJzNOPcneGV0H/
+	 ks4tp/d8cnDDg==
+Message-ID: <759f9900-a74b-40a2-ae53-5e5a6261f963@kernel.org>
+Date: Thu, 5 Jun 2025 15:01:15 +0200
 MIME-Version: 1.0
-References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be> <20250523-b4-gs101_max77759_fg-v4-5-b49904e35a34@uclouvain.be>
-In-Reply-To: <20250523-b4-gs101_max77759_fg-v4-5-b49904e35a34@uclouvain.be>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 5 Jun 2025 14:00:14 +0100
-X-Gm-Features: AX0GCFsta0Lv7B_0omf8fUD6lFICgS_5x_1K74aulND6HJZCGnhF0KZN-f9c7f0
-Message-ID: <CADrjBPr4QNQPBddcFBe8V4u7G9YW0vs=8jyxEuQ1gVDt1zcfiA@mail.gmail.com>
-Subject: Re: [PATCH v4 5/5] arm64: dts: exynos: gs101-oriole: enable Maxim
- max77759 fuel gauge
-To: t.antoine@uclouvain.be
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] dt-bindings: media: allegro-dvt: add decoder
+ dt-bindings for Gen3 IP
+To: yassine.ouaissa@allegrodvt.com, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Michael Tretter <m.tretter@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20250605-allegro_dvt_al300_dec_driver-v2-0-1ef4839f5f06@allegrodvt.com>
+ <20250605-allegro_dvt_al300_dec_driver-v2-2-1ef4839f5f06@allegrodvt.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250605-allegro_dvt_al300_dec_driver-v2-2-1ef4839f5f06@allegrodvt.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_060028_631199_623ED884 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20250605_060121_745673_FAB35C22 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,74 +123,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+On 05/06/2025 14:26, Yassine Ouaissa via B4 Relay wrote:
+> From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+> 
+> Add compatible for video decoder on allegrodvt Gen 3 IP.
 
-Thanks for your patch and work to enable fuel gauge on Pixel 6!
+A nit, subject: drop second/last, redundant "dt-bindings". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-On Fri, 23 May 2025 at 13:52, Thomas Antoine via B4 Relay
-<devnull+t.antoine.uclouvain.be@kernel.org> wrote:
->
-> From: Thomas Antoine <t.antoine@uclouvain.be>
->
-> Add the node for the Maxim MAX77759 fuel gauge as a slave of the i2c.
->
-> The TODO is still applicable given there are other slaves on the
-> bus (e.g. PCA9468, other MAX77759 functions and the MAX20339 OVP).
->
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+
+Subject prefix(es): still wrong. You can get them for example with `git
+log --oneline -- DIRECTORY_OR_FILE` on the directory your patch is
+touching. For bindings, the preferred subjects are explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+
+> 
+> v2:
+> - Change the YAML file name, use the existing vendor-prefix.
+> - Improuve the dt-bindings description.
+> - Change the device compatible identifier, from "allegrodvt, al300-vdec",
+>   to "allegro, al300-vdec"
+> - Simplify the register property specification,
+>   by using the simple min/max items constraint (Krzysztof Kozlowski)
+> - Remove the clock-names property. And remove it from the required
+>   properties list (Krzysztof Kozlowski) (Conor Dooley)
+> - Use the simple maxItems constraint for the memory-region property.
+>   Also for the firmware-name (Krzysztof Kozlowski)
+> - Example changes:
+>   - Use header provides definitions for the interrupts (Conor Dooley)
+>   - Improuve Interrupt specification using GIC constants (Conor Dooley)
+>   - Use generic node name "video-decoder" (Krzysztof Kozlowski) (Conor Dooley)
+>   - Remove unused label (Krzysztof Kozlowski)
+>   - Change clock reference from <&mcu_clock_dec> to <&mcu_core_clk>
+>   - Use hex format for reg property (Krzysztof Kozlowski) (Conor Dooley)
+>   - Reduce memory region size (Krzysztof Kozlowski) (Conor Dooley)
+
+All this goes to changelog
+
+> 
+>   - Link v1: https://patchwork.linuxtv.org/project/linux-media/patch/20250511144752.504162-4-yassine.ouaissa@allegrodvt.com/
+
+Drop
+
+> 
+> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 > ---
->  arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> index b25230495c64dce60916b7cd5dcb9a7cce5d0e4e..84fc10c3562958ab1621f24644709e85a9433b9b 100644
-> --- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-> @@ -10,6 +10,7 @@
->
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/input/input.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/usb/pd.h>
->  #include "gs101-pinctrl.h"
->  #include "gs101.dtsi"
-> @@ -188,6 +189,15 @@ usbc0_role_sw: endpoint {
->                         };
->                 };
->         };
+>  .../bindings/media/allegro,al300-vdec.yaml         | 75 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  2 +
+>  2 files changed, 77 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..26f9ac39682431b1d4828aed5d1ed43ef099e204
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
+> @@ -0,0 +1,75 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/allegro,al300-vdec.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +       fuel-gauge@36 {
-> +               compatible = "maxim,max77759-fg";
-> +               reg = <0x36>;
-> +               reg-names = "m5";
-> +               interrupt-parent = <&gpa9>;
-> +               interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-> +               shunt-resistor-micro-ohms = <5000>;
-> +       };
->  };
->
+> +title: Allegro DVT Video IP Decoder Gen 3
+> +
+> +maintainers:
+> +  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
+> +
+> +description: The al300-vdec represents the gen 3 of Allegro DVT IP video
 
-If gpa-9-3 is being used for the interrupt I think we should also add
-the pinctrl configuration for it. Taking a look at downstream the pin
-is defined as
+Blank line after description:
 
-&pinctrl_0 {
-/* [MAX77759: FG_INTB] > FG_INT_L > [XEINT_23 : SC59845XWE] */
-        if_pmic_fg_irq: if-pmic-fg-irq {
-                samsung,pins = "gpa9-3"; /* XEINT_23 */
-                samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-                samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-                samsung,pin-drv = <GS101_PIN_DRV_2_5_MA>;
-        };
-};
+> +  decoding technology, offering significant advancements over its
+> +  predecessors. This new decoder features enhanced processing capabilities
+> +  with improved throughput and reduced latency.
+> +
+> +  Communication between the host driver software and the MCU is implemented
+> +  through a specialized mailbox interface mechanism. This mailbox system
+> +  provides a structured channel for exchanging commands, parameters, and
+> +  status information between the host CPU and the MCU controlling the codec
+> +  engines.
+> +
+> +properties:
+> +  compatible:
+> +    const: allegro,al300-vdec
+> +
+> +  reg:
+> +    maxItems: 2
+> +    minItems: 2
 
-and then the fuel-gauge node declares
+Drop
 
-/* FG_INT_L -> XEINT_23 */
-pinctrl-names = "default";
-pinctrl-0 = <&if_pmic_fg_irq>;
+> +
+> +  reg-names:
+> +    items:
+> +      - const: regs
 
-regards,
+base? apb is also "regs", because this is "reg" property, so "regs"
+feels redundant.
 
-Peter
+Unless this is something entirely else (quite different address in
+example), so maybe this should not be reg at all.
+
+Also, make the example complete - missing memory region.
+
+> +      - const: apb
+> +
+Best regards,
+Krzysztof
 
