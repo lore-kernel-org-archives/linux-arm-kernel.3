@@ -4,108 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DCFC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 06:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BD8C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 06:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKm9WUU6FtOobKgGi3oLuOuCpaIOCGX5shuFJq51i+M=; b=UcJ9M6VFdCeZyjnEgAly5E/ZDp
-	QTiJVOiwm+41t+gToJTxkOvCxXsWc5zLvIq+07coKZs/LiyHfSlgnxcEPX85EcT3/+h+QMGpImGur
-	18YdcWY/KUuMtudByANgzYVQYtkoiKel5SRvAvyKE4VeiXVHktEgIivrm0maF5vkqpxmerBfraJ2w
-	t6nBBdPxyKlbGt7ChKAsNX1xY1CkT0giFm3pGJk8x713B7SLpQ7BsP5aGidh/2DyAklhMjdtYkVCl
-	PTM1CSW6Ujn09MFp6o3pm5QrFM3XC92qqoFxdNlXrJhrN6mEd9xaZZKIDy1RK8tRxloDO58iBleXH
-	Vx76JrhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZLwho06vrhR2st2QbPaI2lCYTW/PqUtL05pCheR4f6I=; b=wvorauABKjtA9lhNDdfrT9Nalk
+	8yJlnFWgT0NwWaQm0avrX9YuETRKQjMt/fvhXFFgWZudu2FYh8CRna6dBEeL06kQ5jR+HXgjdXONn
+	e9KIwWHwB0Ab5z7HELImsa+PwVZIox8924yORkBOEpHh3i1NPGpyqtEKbjBlP9o5MuR9Z5YQqtw+S
+	O6tUpHUdQJteU8OYXYYGF0fAL/yz1p9od1JPidm3KN47ydGvRacJbDDUNNIjldWTXeRj5D1MiBoQ3
+	7bfn7R39IymMtJjRmdGkX8CTPSc6Nw/ZMWH/rF2jw4xLHjcICQh54N32VG9oLl/lop4fO1gI+TFjp
+	t9rQZOGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN475-0000000ErB6-2Ae7;
-	Thu, 05 Jun 2025 06:30:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uN4Il-0000000EsEg-2Hcx;
+	Thu, 05 Jun 2025 06:42:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN44q-0000000Er3D-20HB
+	id 1uN4CG-0000000ErlG-0mdn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Jun 2025 06:35:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZLwho06vrhR2st2QbPaI2lCYTW/PqUtL05pCheR4f6I=; b=gtmKKQ1OiA15xtyiHGLdp9SoZa
+	Ph8LfHsDfz7vSwAOO/YqQeyk3LiECw3dkDTVikgO8VDa1cj4blbhSMZzpuCBIweYEkdDDZnog2RFU
+	1FlfFDvgXrARw9ioHpUR/yvJXXjpS+ZLCSybG7AE8h8y9OtMGbzf1/Lrg3s/Xo8njfD4W2nONiXRL
+	jo3RhfbQm/XgBb948gY1rCjS/zXaYHZxn/rI0kHfu7Nb1CXHRIAzwS4yqKy6Hxvyr/Act+h1xvWSk
+	pKI54MoJUhMZTCZJtQWHGwQuFTIv98KbRAfn9Ee96bq0+BEQApHKaqBFmL3keLozYczE6evu4zbjq
+	V/ztQ3dA==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uN4CD-0000000158n-29cJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 06:27:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2A5055C0FCE;
-	Thu,  5 Jun 2025 06:25:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE585C4CEE7;
-	Thu,  5 Jun 2025 06:27:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749104867;
-	bh=gDi9w7D4lkLR0DHzkrmwUCrgnOmwd+WEWLFetO+9nSo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kMBmXy5xTgkhTPikKP7MVdcOQaSRoHC1RUf7UdqM+4iV6RFgrRQuT8U1TXrZap9Pi
-	 n1KVw6az9N4VLjgxtrlWfuc6bfLmsPtCELVm35YIkIENkLcRX3fK/qt+5YFu3zkmP6
-	 4+aSVy1EzbKZJm9qw7VlhJFWDfvFiJsWBSAb8FAg0a8o+i3INFviVaEHG9KtY2QXxL
-	 CmN6F3OWn674sFvEB6mPbDi9aojRwtLGulIWS384QowsBWW7vusi6euXkASMd+i3Dd
-	 mT9HHKng9LDq2nqLsiHLAiRDH0YzblR+cf5+ZD3UA7NtaZH19CHa0a9VBQEfQP+ej6
-	 KN5QAAj2ofwtA==
-Message-ID: <47df36d0-db0b-4100-aafe-ffaa0dc0e4b5@kernel.org>
-Date: Thu, 5 Jun 2025 08:27:43 +0200
+	Thu, 05 Jun 2025 06:35:27 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5556ZJwj1031528;
+	Thu, 5 Jun 2025 01:35:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749105319;
+	bh=ZLwho06vrhR2st2QbPaI2lCYTW/PqUtL05pCheR4f6I=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=JHy/TmF+N5zOIkgG/JkWvCtoShNuSUSQ4WJlDioN7kZzmDai/icZz1q1MkLQpIER/
+	 +YrJpdo5B3rdtyjoEuHKFUjtY3zzoUvv2yZf+K+MKfZUVgBc5WRyf5V4gBJKGKNndQ
+	 D5CDbJCVS0142sBuXczgvNaBOyK8NPXLfcn4iE0M=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5556ZJY3948598
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 5 Jun 2025 01:35:19 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Jun 2025 01:35:18 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Jun 2025 01:35:18 -0500
+Received: from a0497641-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5556Z7Va3168702;
+	Thu, 5 Jun 2025 01:35:15 -0500
+From: Neha Malcom Francis <n-francis@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <n-francis@ti.com>
+Subject: [PATCH v4 2/2] arm64: dts: ti: k3-j784s4-j742s2-main-common: Add PBIST_14 node
+Date: Thu, 5 Jun 2025 12:05:06 +0530
+Message-ID: <20250605063506.2005637-3-n-francis@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250605063506.2005637-1-n-francis@ti.com>
+References: <20250605063506.2005637-1-n-francis@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/1] ARM: dts: aspeed: Add device tree for Nvidia's
- GB200 UT3.0b platform BMC
-To: Donald Shannon <donalds@nvidia.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250605041550.1940089-2-donalds@nvidia.com>
- <20250605041550.1940089-3-donalds@nvidia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250605041550.1940089-3-donalds@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_232748_614980_8AE69CE7 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250605_073525_850170_D468EFA6 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,58 +100,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/06/2025 06:15, Donald Shannon wrote:
-> The GB200NVL UT3.0b BMC is an Aspeed Ast2600 based BMC
-> for Nvidia Blackwell GB200NVL platform.
-> Reference to Ast2600 SOC [1].
-> Reference to Blackwell GB200NVL Platform [2].
-> 
-> Link: https://www.aspeedtech.com/server_ast2600/ [1]
-> Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
-> 
-> Signed-off-by: Donald Shannon <donalds@nvidia.com>
-> ---
->  arch/arm/boot/dts/aspeed/Makefile             |    1 +
->  .../aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts  | 1125 +++++++++++++++++
->  2 files changed, 1126 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
-> 
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-> index b3170fdd3096..1101bc74e8c8 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -51,6 +51,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
->  	aspeed-bmc-lenovo-hr855xg2.dtb \
->  	aspeed-bmc-microsoft-olympus.dtb \
->  	aspeed-bmc-nvidia-gb200nvl-bmc.dtb \
-> +	aspeed-bmc-nvidia-gb200-ut30b.dtb \
->  	aspeed-bmc-opp-lanyang.dtb \
->  	aspeed-bmc-opp-mowgli.dtb \
->  	aspeed-bmc-opp-nicole.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
-> new file mode 100644
-> index 000000000000..81c44a1e4f5d
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
-> @@ -0,0 +1,1125 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/dts-v1/;
-> +
-> +#include "aspeed-g6.dtsi"
-> +#include <dt-bindings/i2c/i2c.h>
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +
-> +/ {
-> +	model = "AST2600 GB200 UT3.0b BMC";
-> +	compatible = "nvidia,gb200nvl-bmc", "aspeed,ast2600";
+Add DT node for PBIST_14 that is responsible for triggering the PBIST
+self-tests for the MAIN_R5_2_x cores.
 
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
+---
+Changes since v3:
+- add support for J742S2 as well by moving node to common DTSI
 
-Nothing improved.
+ .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi     | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-Also, where is the changelog (see submitting patches)?
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+index 1944616ab357..50954e9d5779 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+@@ -2670,4 +2670,15 @@ mcasp4: mcasp@2b40000 {
+ 		power-domains = <&k3_pds 269 TI_SCI_PD_EXCLUSIVE>;
+ 		status = "disabled";
+ 	};
++
++	bist_main14: bist@33c0000 {
++		compatible = "ti,j784s4-bist";
++		reg = <0x00 0x033c0000 0x00 0x400>,
++		      <0x00 0x0010c1a0 0x00 0x01c>;
++		reg-names = "cfg", "ctrl_mmr";
++		clocks = <&k3_clks 237 7>;
++		power-domains = <&k3_pds 237 TI_SCI_PD_EXCLUSIVE>;
++		bootph-pre-ram;
++		ti,sci-dev-id = <234>;
++	};
+ };
+-- 
+2.34.1
 
-
-Best regards,
-Krzysztof
 
