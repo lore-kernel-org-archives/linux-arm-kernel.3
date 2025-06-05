@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD10C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285A8C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LV3SY2EwFIN9MVVGnq1S2+QMD2WUzdffJmfnCXZtj9k=; b=AScH5J/eVHD14uf9NSu6kzIkto
-	bTQUpAc25Pp4uwL3oPeAYMD8oAXId/29x3PAcJN0Kkl9aXaie8elkYtAY1H1UOeyJjVRflU3wyfpI
-	9FP982VeMslbwxdRDaLlfyVtxoftCBHc4e2Iqik9rRt4PnPbRDD4IeHjO3lHmYM9T5hFLHNQfi4wM
-	cSe6iyu4wza5+NSR/SH+Zc+ANpgDh9IWYHPqvCj1OF4OVmZUqIjS+fayDF0ZtjNLxVp0lkjbfLkwJ
-	m3C1GmDQqDB+oLt3kvv3oXF3AVhWNGPjn/xX5JkJDNr6Q2vxMHgBU5D7OjQDsXMDCeRsEEB/aXEuK
-	n4ENs0+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Of4vTHHo0c3fLH3Y13EMcDavOhIYjcqdwDcNmNcqIeM=; b=HQOvSLtWMSiLKnGoYv7GJHGH+6
+	706X7JOgN081L6ySyXYQTNkvmn+iL3/MYqh6XFx+LU9ooeCade2iVFJ+U3q4tFeJx/4WZ0R1oshYv
+	E+haP2cOlmGt8f1ui0nyKnfk0KvXJivONXcxGAq7y14QFFW/Woju1f/7oj/b+Q200VqU3lePVQgG/
+	Bv4BDbB73pi+BmMYuiaOswG+1ggj4/KPrh3gdB/pH8FaPoJJmwUmYpPXcbn/vV1sYANeKIREYx9Rt
+	6CqU2rWtaOkB36qEMdzdtsII0SiueP63XguA9+69VviudPiTV6gBFTXLszTcZGE3/ccLpS6xBbQZW
+	C0Ubyiiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAgM-0000000FeGT-3SiH;
-	Thu, 05 Jun 2025 13:30:58 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uNAiX-0000000FelH-0uoO;
+	Thu, 05 Jun 2025 13:33:13 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAY9-0000000FcFZ-2XFW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 13:22:30 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-234d366e5f2so12189145ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 06:22:29 -0700 (PDT)
+	id 1uNAYZ-0000000FcK4-2ygh;
+	Thu, 05 Jun 2025 13:22:57 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6049431b409so1533798a12.3;
+        Thu, 05 Jun 2025 06:22:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749129749; x=1749734549; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=LV3SY2EwFIN9MVVGnq1S2+QMD2WUzdffJmfnCXZtj9k=;
-        b=IDzPhbqW50wIR0vdYgSu7R50fFXByC2LDPSSaaFHTJj9bQ9YVlppgx+QyBNR6b1/ze
-         4tkQ27kB0jTVl/loeeLl6t3twTuX2UfIYApthjeYvwR95X9+Ns99ORfdTz1VOFB0/MSr
-         hCGeWWUimiUkAw3zp0/U5Qhx7S8g2nw/VCIqIup7ZsoLN2Rgm4XoxtzrqnOgCbatcvvK
-         FKvKCzN2YFukJq4MctLitR/RXcqTmO80LBM9kUCt4j9y21VryqezQ9pfgNbN4Dj2Y1OC
-         0s7HzEziaSIXxZYmL4Kw+YxTxdi5zD56XulMOJJcleD//yTTVk9xGkR3VDB3QLzkvJ3f
-         h3xQ==
+        d=gmail.com; s=20230601; t=1749129774; x=1749734574; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Of4vTHHo0c3fLH3Y13EMcDavOhIYjcqdwDcNmNcqIeM=;
+        b=JP1iQrH4FBdJJsGWtgyf10Qu/As5c4P7QUjwTlZmpjW/7AKXXBI5HCzAYRotZ/zHrd
+         VZspK4lyKeZeUk7Eo+2m4gbIKw+DHi+9qKujPjUSfmGRiDWmoCrukBrbWWZYVcwQEyVX
+         I58dNHJnZHcgtndAlcE5IdsPBdnH6zbPh/hUBoZqlB0TMFsdjHA27YtdSy8VSBFBgFWH
+         BUg4sus68bkyEI0IQ3KTHlLcQ7xzUqC3dhgI42pabitGBud/HV4M/7GYPPxoQSOTLioO
+         YWRszvKM9R+xZHX/1cDx++2HCPQM/MJrPSzFN7AmQoej8zVLfideH2VZO3muf8JQzjWL
+         J9KQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749129749; x=1749734549;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LV3SY2EwFIN9MVVGnq1S2+QMD2WUzdffJmfnCXZtj9k=;
-        b=BRUnp9Bzpmkq1A1lgRtl8so5G74liiFeQWzlRr8g6HCTQRuaXXPTqTgD2FgruRQ0UR
-         VXd3C6ITJDJLO73gW2nEScV1K6f55u6NTLqzQ2M3H/nDNsUQMreN6KXTPNHjN+0pTC2O
-         zeaBz+uucgvq8MI6sQouZ6w/lHXEAbtkLPJoV6ZTYMZiUjAQ4tnSwWUpp7qaM9Iavm8n
-         mtAQ2hjfko8X3BWg4YjMKIR/ix5AWwl6ANqRyN7LaBJ6mXgTMcr7VDD9V+xqRLWK6M2g
-         vBIqNqcBd35eWCwaG4FXH4bD2vJn2FP/8fTyyMQ/eUTrj/uX3hbPBmcjiYJhJrsX1s5y
-         Q/Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCVuknWa3eeyuCg4v+PqUPoxFNVagiW2rToYJGh/K54FbQs/iEw2ZzHHEAghUpFNlMcI2IesGc8MbsTTbO6lK45r@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxpCqSS65cUJPKCh5OqiRLQT8c3XINpQ5eMpi4DegGcPNNJwxw
-	EyCu9lO7+eak8nXR+ZkQ7C+J9IOtXsff9uE3xyK2kcZh3/u65Q9wp/uf0jheyOlVCA==
-X-Gm-Gg: ASbGncvYZ1akXEshVQMmOCHfwO6/04K40ZcRY/C0LJs6douTHFMff/cuH9WAdQCvWcq
-	ai4TyNlRZl/ZSDDSNg8U6ZHf60SYYhURfc1cp2z0aT92Z8cexH9HUDaxVTs7dffM54pboolAZYt
-	E5tBlg/TiLrsFpEa48iye/+XW24hsDvK1XAlS+RKG9pA55wM/n9kJKElvdq7w1kTmPMnQ7O4JMO
-	kIWXmdvS5En2wJ2x+tVljKBYj6tODCuGZaPsbcapVUVkkWU4qobhjpUaOB5lxSxsOgFwKK9iHVr
-	5Z8yd93GpyE9Ix8dKU9qpmAaTafKpXWbchXIRjfEai685+/cAYYPimQrOnIptLj00K/JsVgqdAn
-	X3kaWyw==
-X-Google-Smtp-Source: AGHT+IFEBRSheUsMgn6DbcDEdV5Hlv1VHBEQineqLpLn6Kld/K5JudvAtaK8XUU4yswu66c9Km4KIw==
-X-Received: by 2002:a17:902:d48c:b0:234:d292:be83 with SMTP id d9443c01a7336-235e1016969mr104503775ad.10.1749129748735;
-        Thu, 05 Jun 2025 06:22:28 -0700 (PDT)
-Received: from thinkpad ([120.60.50.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506bd8e2dsm119379115ad.56.2025.06.05.06.22.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jun 2025 06:22:28 -0700 (PDT)
-Date: Thu, 5 Jun 2025 18:52:21 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Hans Zhang <18255117159@163.com>, 
-	Laszlo Fiat <laszlo.fiat@proton.me>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <fgd5dlxthuvjfszidyvcxn4wb37k5hgixvar4wbgofee6knkpi@4xldvqn6x6tr>
-References: <rrtrcwajj4vjvbqzosskdnroqnijzaafncgckoh2dlk3c4njvs@twop3vyidmh7>
- <20250604184445.GA567382@bhelgaas>
- <aEGNefEgf56P-mBM@ryzen>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aEGNefEgf56P-mBM@ryzen>
+        d=1e100.net; s=20230601; t=1749129774; x=1749734574;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Of4vTHHo0c3fLH3Y13EMcDavOhIYjcqdwDcNmNcqIeM=;
+        b=UOpzbl2YXt1vq1cEr7Mxu9eA+oed3wgbgYaZHruf+v94cfsCM7wSNemyBSTL88FSpm
+         XdJy2XU6gmSyObVp75vV5jiQYy5vvXG4OJoeR01iEmLgXj4DpW7muXZ50xu2zXJK5G+O
+         IiWqQnvGzGyKbMcjdOnl1GhISfbx6SeptIC0my6eqKeUnFXOG+Ke9i2AhrJVGJ0yVtfj
+         UNAXj4tGr8bIwPl7rxefD4odYit+Yqq52ZknIlL99/gGPat7++pTm+q8R0H2MyePVyYE
+         HtnjUwG0LxPoSp42/YPP2vuNDuAjgxN2vZRdJFVR6ynwXbOD1LVCCY+HzRG+0zNzkAG2
+         hqsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUxSEVZ3YDWVEy/EZD7nlb3D3IteHJ+ldShKxkY5EWQt/rpU4kW9eKyX0XYdLboao51jBfBkj802es6Bxn8lnNq@lists.infradead.org, AJvYcCXHmDOTioW3J7pu4vQADMka6/dgNlFyRYZtSG3srmlsfD7aUhOjC6lUM0dWKt8eWxUOXlaUbwpaWiUI8jiFq+M=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAQMNqnR+nujaeUOp82oNH/ftZR2dGOQRC8XQgBYS3cfkAJu29
+	XEzZtOIdKj6j6gzpb479tI/U+bYPusq0Hd4a8by2jzTteMh+KK366AMFti2DOw==
+X-Gm-Gg: ASbGncuVk/7z3xA3Qg6hI8vVpQ9i8zy5MMrOEmMRIBha38zl3f2frHLkJ4e0HwkoaWv
+	9fjL8QAEtOswUokFmLg17GqjnjUX+sWPEeucPW8vYhGAi12MsgHidAAl8Z1SdCh5J2cvQ/s2Hpf
+	LwxgBj124x1CUCLN9BPJQnq/tjAOcuTXSRE7lHevs3k+dVM2d0VncUS+fJYdKES2pOxCZMHiG+0
+	S7niltnNa13vBRPB5P1rssxkQKPCZ0vKu5kfWx6zUc/Yhbwnb1ZEkUPHETG02MpofjRLP2pDGJn
+	mFlXuLTBPXX6GRMgiSQuT+zMC3CNgOYeSyIY9VD4XlN2AP1QbwhBBVB2WN4XpXwg25cu6/A81RU
+	=
+X-Google-Smtp-Source: AGHT+IFzTwW0TcXzPL/9HV49c8h7szVsDRMxjGRBWs1/HHxFZV/8F9GvGOd1FZ+sNDL/yaa7WrK/WA==
+X-Received: by 2002:a05:6402:358a:b0:5f8:36b2:dc1a with SMTP id 4fb4d7f45d1cf-606ea17a74amr6862983a12.16.1749129773399;
+        Thu, 05 Jun 2025 06:22:53 -0700 (PDT)
+Received: from smtpclient.apple ([89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6073d367974sm313209a12.70.2025.06.05.06.22.52
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 05 Jun 2025 06:22:53 -0700 (PDT)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
+Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM
+ Sige5
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <CABjd4Yx05SCm+03jWbsEP-A5AuhL14wLj=+VdKyQgqMbnxi3xQ@mail.gmail.com>
+Date: Thu, 5 Jun 2025 15:22:41 +0200
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <512E950E-E8CB-443B-8E47-79F073D217E8@gmail.com>
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+ <20250603-sige5-updates-v1-1-717e8ce4ab77@gmail.com>
+ <6656934.DvuYhMxLoT@workhorse>
+ <CABjd4Yx05SCm+03jWbsEP-A5AuhL14wLj=+VdKyQgqMbnxi3xQ@mail.gmail.com>
+To: Alexey Charkov <alchark@gmail.com>
+X-Mailer: Apple Mail (2.3826.600.51.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_062229_645672_38BDEDB1 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20250605_062255_749269_03944730 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +110,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 02:28:41PM +0200, Niklas Cassel wrote:
-> On Wed, Jun 04, 2025 at 01:44:45PM -0500, Bjorn Helgaas wrote:
-> > On Wed, Jun 04, 2025 at 10:40:09PM +0530, Manivannan Sadhasivam wrote:
-> > 
-> > > > If we add a 100 ms sleep after wait_for_link(), then I suggest that we
-> > > > also reduce LINK_WAIT_SLEEP_MS to something shorter.
-> > > 
-> > > No. The 900ms sleep is to make sure that we wait 1s before erroring out
-> > > assuming that the device is not present. This is mandated by the spec. So
-> > > irrespective of the delay we add *after* link up, we should try to detect the
-> > > link up for ~1s.
-> > 
-> > I think it would be sensible for dw_pcie_wait_for_link() to check for
-> > link up more frequently, i.e., reduce LINK_WAIT_SLEEP_MS and increase
-> > LINK_WAIT_MAX_RETRIES.
-> > 
-> > If LINK_WAIT_SLEEP_MS * LINK_WAIT_MAX_RETRIES is for the 1.0s
-> > mentioned in sec 6.6.1, seems like maybe we should make a generic
-> > #define for it so we could include the spec reference and use it
-> > across all drivers.  And resolve the question of 900ms vs 1000ms.
-> 
-> Like Bjorn mentioned, when I wrote reduce LINK_WAIT_SLEEP_MS,
-> I simply meant that we should poll for link up more frequently.
-> 
 
-Sorry, I couldn't decipher it.
 
-> But yes, if we reduce LINK_WAIT_SLEEP_MS we should bump
-> LINK_WAIT_MAX_RETRIES to not change the current max wait time.
-> 
+> Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alchark@gmail.com> =
+w dniu 4 cze 2025, o godz. 21:12:
+>=20
+> On Wed, Jun 4, 2025 at 10:38=E2=80=AFPM Nicolas Frattaroli
+> <nicolas.frattaroli@collabora.com> wrote:
+>>=20
+>>=20
+>=20
+> Frequencies are fine, but I don't think the more power hungry big CPU
+> cluster gets any voltage scaling without it. Once I try to load the
+> system enough that the governor decides to bump the big cluster
+> frequency up, the regulator stays at 850000 microvolts, causing random
+> reboots when the whole cluster starts starving. With the patch,
+> voltage oscillates between 700000-737000 microvolts in idle and jumps
+> up to 950000 under load, and the system seems stable.
+>=20
+> Here's what I used to monitor the voltage (there must be a better way
+> to do it, but it works):
+> sige5 ~ # watch cat `grep -r . /sys/class/regulator/*/name | grep
+> vdd_cpu_big_s0 | sed -e 's/name.*//'`/microvolts
+>=20
+> And in another terminal:
+> sige5 ~ # stress-ng -c8
 
-I agree. And I like the idea of having a generic define which Bjorn suggested
-for the wait delay.
+Alexey,
+I see you are using rk3576 board like me (nanopi-m5)
+Have you on your board correctly working cpu dvfs?
+I mean: [1][desired clocks reported by kernel sysfs are in pair with =
+[2[]cur clocks?
+In my case i see mine cpu lives totally on it=E2=80=99s own with dvfs:
 
-- Mani
+Requested is [1]
+Running is [2]
+Measured is [3]
 
--- 
-மணிவண்ணன் சதாசிவம்
+random read 1:
+Requested CPU4: 408 MHz=20
+Requested CPU0: 408 MHz=20
+Running CPU4: 1800 MHz=20
+Running CPU0: 1416 MHz=20
+Measured on HW: 1579.03 MHz
+
+random read 2:
+Requested CPU4: 1608 MHz=20
+Requested CPU0: 408 MHz=20
+Running CPU4: 2016 MHz=20
+Running CPU0: 1800 MHz=20
+Measured on HW: 410.33 MHz
+
+random read 3:
+Requested CPU4: 600 MHz=20
+Requested CPU0: 1800 MHz=20
+Running CPU4: 816 MHz=20
+Running CPU0: 1008 MHz=20
+Measured on HW: 2275.07 MHz
+
+random read 4:
+Requested CPU4: 1608 MHz=20
+Requested CPU0: 1200 MHz=20
+Running CPU4: 816 MHz=20
+Running CPU0: 816 MHz=20
+Measured on HW: 2114.58 MHz
+
+this is on rk3576
+on i.e allwinner h618 or rk3588 all looks quite normal - [1] and [2] are =
+equal... =20
+
+my scaling governor is on_demand - so for sure clocks are dynamic - but =
+i.e. on 3588 with the same binaries - i can't catch -at any random read =
+- that requested is not equal to running while on 3576 almost any random =
+read gives significant differences.
+=20
+[1] scaling_cur_freq in sysfs
+[2] cpuinfo_cur_freq in sysfs
+[3] code to estimate arm cpu clock from =
+http://uob-hpc.github.io/2017/11/22/arm-clock-freq.html
+ =20
+=20
+
+>=20
+> This might warrant a note in the commit message I guess :)
+>=20
+> Thanks for your review and testing!
+>=20
+> Best regards,
+> Alexey
+>=20
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+
 
