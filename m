@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E5F9C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 07:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B53C5B559
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 07:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Yg2TszODfSWyu/tkAewlOKe9bmGQWD5HRPUFzitAq0=; b=B+Jg7frXC/tOwwpDAY0QXedhC5
-	XSq8G/XaPoDykcE3/3SQ2ccwHftC9NDz7jWBinpv+wnMtMVwgNkzUQ5z65cAGLDSJuWIesQayR8cF
-	VJiJ70PLuhQLzgwf74+wR4RMlmuUXqn3T1J+wIukXeq0pn2K4dGADSdE6SASQFAQzWdFhIgjTgvKI
-	frovB37ttlBSv9MflHCHPDW1a3xgkIpukLZzip94kc4VXLjYPrvh0Kmg9RatcO+tvOQ2Kc5IUHK/L
-	yzEZ1GCgHKIOnP25s3dGx9UyjjvxNXJyd/fWh/O7RdX9UnoznPWF2nEb7Z2zsZN5TMtHQala6c4wn
-	/WPjFLrA==;
+	bh=xVNbV2XHvQT3/8z4B+RVq7tYXw6lKXe0E7JWahAFCMk=; b=Z1ttu7ZEjjDi3ysY5p1x8ZnywW
+	LGyEPvvyNatzygsE7pPaLkJ/m+/wAM50ZItKGnlRyYK40aMJLuqV0LlA23JlrJKJHpAfQiowijs90
+	ZGxG+CmZWjRnX+7t3FNnErliqV3XBAb6jAnXH5kPfzryNJryK+aoClSmP/EOSoFVm6rgCF+E+RjTQ
+	EIkFSvE228uJtd1WUqvopqmWFONM7RKzYybEqCKgWyqayD6AzbNQtdcwnIoaskyTXRymv5sYFllZo
+	nwzXlsCeIGqRPsHLkMbt6nCfZq5JJVapzZJOf5uRUYXqgWWHrtrsx3ktUuUmeW9t9MBPdRA/7o/je
+	VL7au2/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN5Ap-0000000ExdV-0cp9;
-	Thu, 05 Jun 2025 07:38:03 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1uN5GJ-0000000Ey9o-3EmF;
+	Thu, 05 Jun 2025 07:43:43 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN58H-0000000ExGc-1SiP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 07:35:30 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5236843935;
-	Thu,  5 Jun 2025 07:35:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749108920;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5Yg2TszODfSWyu/tkAewlOKe9bmGQWD5HRPUFzitAq0=;
-	b=kj784Nm5ZgltuTXJv+pbKGMDA1t5/ru/eck+iLsRHT9bh9dUAeKg1UtiSce3r6Rlkt7NZG
-	qIToZTnegQa10FbPzHFs+21XG8fPMSJ9luRmHf0Tcez7mIKtXf9cvIyEX0qlJeupy/3EGv
-	MrWDfRryvUUNfeFlQnZP3sB5mO5Z0Q7yCadc1YSb2Q4hFOq0DMbigaRqE5MeN8JAuyOXOS
-	tdRwbxKu/TiRONaFFbT1o0xDZe9esDi5hlY10LwDmFTJoQ+xZELZxa87B0WtIdPEUOanPV
-	hRLRzekmcstDQk4EaSTKY5DBrLMkgQ6hPQxyzj9+v0rfzvpRPaSdlch0EXpxZg==
-Mime-Version: 1.0
+	id 1uN49L-0000000ErJc-2APY;
+	Thu, 05 Jun 2025 06:32:33 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-af6a315b491so482891a12.1;
+        Wed, 04 Jun 2025 23:32:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749105146; x=1749709946; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xVNbV2XHvQT3/8z4B+RVq7tYXw6lKXe0E7JWahAFCMk=;
+        b=EeOxBeMlEsaS2bK06bmrfzed7qNMib+94A89ms7EN9ygQZXedKg/9OjeXqOvGzYpPL
+         1OkhMAtUI0Mgqm3nm4FH6q57BhDAKSyrKEqFTaaU8iRfpRRxPwmuaBsJP8M1Gbxy9RXN
+         +ZMRIT/Zr31SlyO70kcc3M81WWASmGGYz9Ll/Th31t29Z3459s+T6IiDQqZx1Cj/HY92
+         /aVj6Ntxl3XwIcbCaLq4AJ19gpjBkdfWBpvQJjERUxXBaIETlrwXwOf/5dXJYmgNxl8+
+         ugvjY+QmIaXi0hNQMhGHs0z9DKlMF7mIZXPQZKgxc4dXbBUuknPyPlrgPv5IgaEQbeVY
+         oy+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749105146; x=1749709946;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xVNbV2XHvQT3/8z4B+RVq7tYXw6lKXe0E7JWahAFCMk=;
+        b=U8TFYv/n3v7NdHFWj7HzHwM50iQ1THjV2jNd1QTN1AcGejxHCHFbW57CKdvno78Xu5
+         bDNqOL0YUfi3wmWn1qGLGf0e96+iJzOFph7JfMAgbF94EUOpSS0DR4ctwGN/dg//2GVx
+         cU8nyrNt72neCBlNpibC9ZI8fYJ+hFOdk4ESYmvht8EWHlDG17HyNV/aOVFDyzhrDolx
+         upWZR7g9VvTIqi9uLPCUT3EN2mw2PW0kMglah4PrYEqEnrVQAlQ+immCO18fXmvz9Jo/
+         gGWTOpw48LO7JhSIGKQGL/19jasFG1DsY5o8kowJ/XTTJx/QZwDALveI7myt6vUwnxmM
+         MdSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUUs9sGu7JHYSiw2e8JaE8DR0Ke1p71uSfNKTGQAU0Nf7qhaYWcdX/OVwYMANBJ55dZhMtILQGO29Kb6f53y7OI@lists.infradead.org, AJvYcCWuxOda1bero9hT/XBlEINmXA9rs/+t5temmD4job9o2i8vl7DMpOMLgyiAmG+5s8DHkZhDNBG9Rk5Zqb4ipVM=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXrcO1lr9KsrlZTm5TGD41QTNQNiEU1F+w52lvez3sr23ugvGX
+	hO0FFykKqmkevxFMoqKYwmKOmBmSE8HJ5zaSRAEQAvOtz6AAekNJcJ2BXfqpZ4KNOXWE9biygZ9
+	VJkCYi0RKSIkTSxaLZz+w/sXbJp7oKjNXZjg3zJy/iprM
+X-Gm-Gg: ASbGnctltw4pwa9ZHZhsD3naF5cRfZbSfdPmf62Z8NpiCE7WprksvryRawwetg4UJ/B
+	To0/5zhAC0abKowp/6+uvtuA+LEDzg2X1cfpcRpAjDAGB/yaT3VRFBV9DMa684EIrd6cVSO4HXx
+	SJhzbwGFATgdir+45C7CML43Si0mSEzdrT69y6iwMvufhV318iTINb1AgmJVKeAuT3Xw==
+X-Google-Smtp-Source: AGHT+IH4DMJVVSc23A8ySI5zWwdnqMPJwI4JcymO9uLuxpbdW2R54hTNG5gzhmW7FhrMsuuLb3uqrUpjAv6uXp6wyzs=
+X-Received: by 2002:a05:622a:578f:b0:4a4:3c3e:5754 with SMTP id
+ d75a77b69052e-4a5a587c45emr97845681cf.32.1749105134671; Wed, 04 Jun 2025
+ 23:32:14 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+ <20250603-sige5-updates-v1-3-717e8ce4ab77@gmail.com> <CALWfF7JOJSihtfqrFiZtTxnzvoU6FP3WXuWjYOVaAvjPJZWWgg@mail.gmail.com>
+In-Reply-To: <CALWfF7JOJSihtfqrFiZtTxnzvoU6FP3WXuWjYOVaAvjPJZWWgg@mail.gmail.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Thu, 5 Jun 2025 10:32:06 +0400
+X-Gm-Features: AX0GCFuUQCw_ESq8wm50RxhnfDipXmHgsUt5otEO_3lzHNgvENZEo2Fw1AWJjAY
+Message-ID: <CABjd4Yyw5xStJYU5c5snUGpBjEYL8=qoj=bWYLnuzSWzr8shaA@mail.gmail.com>
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: enable wifi on ArmSoM Sige5
+To: Jimmy Hon <honyuenkwun@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 05 Jun 2025 09:35:15 +0200
-Message-Id: <DAEFD2WH7HRV.2SOG9Q00QSEXH@bootlin.com>
-Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
- "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Song Liu"
- <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "KP Singh"
- <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
- <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
- <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Mykola Lysenko" <mykolal@fb.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Florent Revest" <revest@chromium.org>,
- "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
- <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>, <dwarves@vger.kernel.org>
-Subject: Re: [Question] attributes encoding in BTF
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Andrii Nakryiko"
- <andrii.nakryiko@gmail.com>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
- <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
- <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
- <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
- <CAEf4BzZHMYyGDZ4c4eNXG7Fm=ecxCCbKhKbQTbCjvWmKtdwvBw@mail.gmail.com>
- <D9E9IQQ3QKXM.3UJ17G9CBS1FH@bootlin.com>
- <DADMLIVHMSSO.3AXSI5216WCT6@bootlin.com>
- <9a2ba0ad-b34d-42f8-89a6-d9a44f007bdc@linux.dev>
-In-Reply-To: <9a2ba0ad-b34d-42f8-89a6-d9a44f007bdc@linux.dev>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdeffedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefuhffvofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffvddufffhieffheetfffggeeugedtieduheeilefguddvheegvdeuffeuveeltdenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvuddvrddutdehrdduhedtrddvhedvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdduvddruddthedrudehtddrvdehvddphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefvddprhgtphhtthhopehihhhorhdrshholhhoughrrghisehlihhnuhigrdguvghvpdhrtghpthhtoheprghnughrihhirdhnrghkrhihihhkohesghhmrghilhdrtghomhdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesihhoghgvrghrsghogidrnhgvt
- hdprhgtphhtthhopehjohhhnhdrfhgrshhtrggsvghnugesghhmrghilhdrtghomhdprhgtphhtthhopegrnhgurhhiiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghusehlihhnuhigrdguvghvpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomh
-X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_003526_134505_09EDD160 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20250604_233227_558100_15149B4B 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,55 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ihor,
-
-On Wed Jun 4, 2025 at 7:31 PM CEST, Ihor Solodrai wrote:
-> On 6/4/25 2:02 AM, Alexis Lothor=C3=83=C2=A9 wrote:
-
-[...]
-
->> Could I be missing something obvious ? Or did I misunderstand the actual
->> attribute encoding feature ?
+On Thu, Jun 5, 2025 at 6:43=E2=80=AFAM Jimmy Hon <honyuenkwun@gmail.com> wr=
+ote:
 >
-> Hi Alexis.
+> >
+> > +&sdio {
+> > +       bus-width =3D <4>;
+> > +       cap-sdio-irq;
+> > +       disable-wp;
+> > +       keep-power-in-suspend;
+> > +       mmc-pwrseq =3D <&sdio_pwrseq>;
+> > +       no-sd;
+> > +       no-mmc;
+> > +       non-removable;
+> > +       sd-uhs-sdr50;
+> > +       sd-uhs-sdr104;
+> > +       vmmc-supply =3D <&vcc_3v3_s3>;
+> > +       vqmmc-supply =3D <&vcc_1v8_s3>;
+> > +       wakeup-source;
+> > +       status =3D "okay";
+> > +};
 >
-> The changes recently landed in pahole and libbpf re attributes had a=20
-> very narrow goal: passing through particular attributes for some BPF=20
-> kfuncs from the kernel source to vmlinux.h
->
-> BTF now has a way of encoding any attribute (as opposed to only bpf=20
-> type/decl tags) by setting type/decl tag kind flag [1]. So it is=20
-> possible to represent attributes like packed and aligned in BTF.
->
-> However, the BTF tags need to be generated by something, in case of=20
-> vmlinux by pahole. Pahole generates BTF by parsing DWARF. And, as far as=
-=20
-> I understand, attributes are not (can not be?) represented in DWARF in a=
-=20
-> generic way, it really depends on specifics of the attribute.
->
-> In order to support packed/aligned, pahole needs to know how to figure=20
-> them out from DWARF input and add the tags to BTF. And this does not=20
-> happen right now, which is why you don't see anything in bpftool output.
->
-> [1]=20
-> https://lore.kernel.org/bpf/20250130201239.1429648-1-ihor.solodrai@linux.=
-dev/
+> When you enable the sdio node on your v1.2 board with the broadcom
+> chip (using SYN43752), does the btsdio.ko bind to the device and
+> create an extra rfkill bluetooth node?
 
-Thanks for the details ! I have missed this possibility, as I have been
-assuming that DWARF info was exposing the needed info. I'll take a look at
-it, but if those attributes can not be represented by DWARF, I'll have to
-find another way of getting those packing/alignment modifications on data
-type (eg: re-use/share btf__align_of from libbpf, as suggested by Andrii,
-but it may not able to cover all cases).
+Good question, I didn't have it enabled in my build:
 
-Thanks,
+# CONFIG_BT_HCIBTSDIO is not set
 
-Alexis
+Let me add it and report back.
 
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> If so, you'll want to blacklist the SYN43752 chip in the btsdio.ko.
+> Similar to https://github.com/jimmyhon/linux/commit/81c14dc2dea2ceaea8d39=
+0188b352d32e278abc8
+> The original logic was introduced in
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit=
+/drivers/bluetooth/btsdio.c?id=3Db4cdaba274247c9c841c6a682c08fa91fb3aa549
 
+I will check, thank you for the pointers!
+
+Best regards,
+Alexey
 
