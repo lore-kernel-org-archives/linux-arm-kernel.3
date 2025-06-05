@@ -4,200 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13132C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 05:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856F2C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 05:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+CS9X0uJhb8QJM2GuE1aLMDLzTdSPOhixu6ued5Dcg=; b=znfYTL7qOdqXsdmwZcaQ4y+OvX
-	oOQjL+du68tQKHJrGmaR3RHXy608wZscBfK0mdvsuJSSWBdKBJ2ZL4fXpC9vik/GKR6YoFr0RFbCi
-	/cIDzhlQ0OQDtCi77H2xIh+LqE13LjQY94mX7q3ASH22Q9B7ikHGnpqiPmMB1+KN9gR3v2mO8Zsi+
-	yOmVeOhuHWTuKcB5dI9PSiYJNizsbnrweltmzmr86qvdab0PeQuqrGMtBLFSG2WfCJN+vNulesnY7
-	RcWKvU2PfLy6jzjmRui66HDCNiVcnK/Wf36Klpe6Ru8JsuJ3SWXxyQ4gK+F4oil3CNFAMPWWTllfg
-	VwqCCI1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=naiNfKI5FAi+uyC3lJxSBIRFVeN4EMfE9uXp4ORAMmM=; b=ySigNgPvUReLEPodPlrRwvLf7J
+	AG1qzeZjjEZMyC7Xb7uLhOAusGg1HQvo539Hf8sdj2xVzC2LNMOoBs7BstjOU6AqhfFDuQZjMuxwX
+	lSSAyqMULp6dElKq9aqhxPhBNLN17sB7vinj4LWwtVOipd0yD5OvvSPv3brxok+TrjYqUeApsDzjG
+	V9ZM5DCd/Zn22IXjp02H0nQNDRQwUQfIiabls7al7PWVVJMZgyom9ztZ1LwNW5TrkTSbAP269VNtQ
+	ybCfRm5nNi287ke5GAfzYBuH0pd2GaLQ6BuIi3Z9tMaO/GdzEXHBX1kICBklvYNNKQlNxWniQlE2d
+	HIxeVt8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3BI-0000000ElQL-2Qli;
-	Thu, 05 Jun 2025 05:30:24 +0000
-Received: from esa6.fujitsucc.c3s2.iphmx.com ([68.232.159.83])
+	id 1uN3UZ-0000000EmWW-11zJ;
+	Thu, 05 Jun 2025 05:50:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN399-0000000ElEn-3E3k
+	id 1uN3SR-0000000EmCt-3jci
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 05:28:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
-  t=1749101291; x=1780637291;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=4WacdIv35+wOp98dew2rNUvaZoWPGatNnN/MLLZH6Mk=;
-  b=Di/toVgwz695lb/xT0ZfXdcJ5/TOhwdbjbq9Rfuv5uOG9Y4XcrPFzf1s
-   CwZQdW1L6oSNMMGY3qyhYJt/6G7Tn+4IZVFDibV2ZJTU5T0Cqwt3Dd2fM
-   dgTFwYgh7nc1Ka38g0hiSpX9dzA5UpOIuGGp7+l9hR070kcYS2Mtk+cIQ
-   40M4VfeXiz91a/3K7BicpwwLfG3TAvBdGeEFXKsdYH+uE3Tzr29Y2CZun
-   8VTzaEBGgbjv1eCHQD+YFT8J6B6Wjr0L6PxKkZyOYd1FBcT/zptajT00t
-   +3BIMFbBkkTmalL4nO0j1WYeueWNlSZZOPkhUXjUhuhB3xgZFwq8ZpkW8
-   w==;
-X-CSE-ConnectionGUID: wOqpEzyMQHOXeb0vh8TE9w==
-X-CSE-MsgGUID: yUr2hx9mSpOerSS9v5jrHQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11454"; a="157654801"
-X-IronPort-AV: E=Sophos;i="6.16,211,1744038000"; 
-   d="scan'208";a="157654801"
-Received: from mail-japaneastazon11010016.outbound.protection.outlook.com (HELO TY3P286CU002.outbound.protection.outlook.com) ([52.101.229.16])
-  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2025 14:28:01 +0900
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=keaqVbbMxRtvgevSXaQdugwQKVFFX/TfmV5nUILGjsbBjD2AQmobAm9JNL0bANAGAtYQAm1XROgSGKK5W0lC3mtSQuopdh4x0AEzOhtvB4O+I+ELpyiMgtuyvxE5ppw92uI5LOWxgmrpj7FiSF/d4U4CXy4YDo/XYykAIScuxCwJTxOTRNYc1HgFoBlYPf29EqYXDQPFm3pQ6KCvAT3plSI6u4adGqqokPe6QDX62FN+RSlHTReob81UgSOHRNDdpLh2wj+kQR6Zi0hcQ6snFKhMzPhOrw9Zxy/Tl5vr9WSINhWfSPl4kcqFT9wfTzMGPgJDN+P1KI8sArvYaKm99Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i+CS9X0uJhb8QJM2GuE1aLMDLzTdSPOhixu6ued5Dcg=;
- b=yb5m9Ex6KlHx+ZEbWToJ581Noz4qgCbW2UE/w6X655rd/SYgaL9EbkuA6FFIhQ/Dl1JoQdHE43CAzglkkzbsE7Vrkdu5IG2fRRTG4jxRAho4s3werPRd4XRwAX55yTAv99/haGavCsz8920QQW57zjqbJHurmfn4cY8Pkqx1wFiHKgU1yLHcokN5yteaOFN/7cfUVRYQO5MDOM4LpiIOkbhvVDQtorviWHfubz24PpxJWqlXK7R28xltJSqnVCGkZrXFosZdwHCVoQNo7iXkHkBCklMVbk1xQrO8c14uoUjDIpKJfAfX5B+S+iMuwjHpQ0cGpSnreQLnYEVna2grww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
- dkim=pass header.d=fujitsu.com; arc=none
-Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com (2603:1096:405:1f8::9)
- by TYYPR01MB6761.jpnprd01.prod.outlook.com (2603:1096:400:cc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Thu, 5 Jun
- 2025 05:27:56 +0000
-Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com
- ([fe80::60b7:270b:27c7:4fcc]) by TY4PR01MB13777.jpnprd01.prod.outlook.com
- ([fe80::60b7:270b:27c7:4fcc%7]) with mapi id 15.20.8813.018; Thu, 5 Jun 2025
- 05:27:56 +0000
-From: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>
-To: 'Petr Mladek' <pmladek@suse.com>, John Ogness <john.ogness@linutronix.de>
-CC: 'Michael Kelley' <mhklinux@outlook.com>, 'Ryo Takakura'
-	<ryotkkr98@gmail.com>, Russell King <linux@armlinux.org.uk>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
-	<jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
-	<linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "Toshiyuki Sato (Fujitsu)"
-	<fj6611ie@fujitsu.com>
-Subject: RE: Problem with nbcon console and amba-pl011 serial port
-Thread-Topic: Problem with nbcon console and amba-pl011 serial port
-Thread-Index: AdvULbS8DdGjT9TLS9OOSVhbv2AtDgAN1+gwAALFDgAAAfWTAAAeB8NgABQ6MwAAAXadAAAD5OQAABRXfIA=
-Date: Thu, 5 Jun 2025 05:27:56 +0000
-Message-ID: <TY4PR01MB13777CC92C858572B9C19394FD76FA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
-References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
- <84y0u95e0j.fsf@jogness.linutronix.de> <84plfl5bf1.fsf@jogness.linutronix.de>
- <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
- <aEApOPTqbVOR35F_@pathway.suse.cz> <84o6v3ohdh.fsf@jogness.linutronix.de>
- <aEBNLMYVUOGzusuR@pathway.suse.cz>
-In-Reply-To: <aEBNLMYVUOGzusuR@pathway.suse.cz>
-Accept-Language: ja-JP, en-US
-Content-Language: ja-JP
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ActionId=f68cbbd2-6115-4122-99d1-407f6af113b4;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ContentBits=0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Enabled=true;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Method=Privileged;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Name=FUJITSU-PUBLIC?;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SetDate=2025-06-04T23:30:40Z;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=fujitsu.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY4PR01MB13777:EE_|TYYPR01MB6761:EE_
-x-ms-office365-filtering-correlation-id: d5daddf9-9d8e-4e6e-f465-08dda3f1ba57
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018|1580799027;
-x-microsoft-antispam-message-info: =?iso-2022-jp?B?eW01aW8ycUNnelNZUkdJTDlsWXlBekJscDJ0ZzE5MlNqWkFTdXYrdGlz?=
- =?iso-2022-jp?B?ZElXRDloK0hWOE1qWEplV0RuY2VkVmhDZ0plSWxZS2hYcE84aEVVaHZT?=
- =?iso-2022-jp?B?MGhXcHp1dlpQaWxXU0tJQlFVTXF5RUpSeW9KaFlic1RPRGs0WEw1d1F1?=
- =?iso-2022-jp?B?Tk5sUCtMMldNdGtkN0k5aVg3T3Z5SURmRFJFek9UL3NreldDMDdjalRQ?=
- =?iso-2022-jp?B?MlRQaW93SmM3K2ZFcnM1bXZwd2JiOER6RFI4ajZmQmRjbkFJZmtHL09m?=
- =?iso-2022-jp?B?dlBwOEFlWmFSak8zck0vWGtmd0hGa1NOTThib09BekxRSmxYT00zVmRs?=
- =?iso-2022-jp?B?VTRmR1NJcWhVMGtFTHo2bWdYbkNlbDQyQkFHYmJWVWE5eHhaOHhqTHh6?=
- =?iso-2022-jp?B?Z0tkaFkxRk1lTmZsSHR2S3RBL3lKOXRpVXN0QklIYlU1dEZtcEZCRTg3?=
- =?iso-2022-jp?B?ODVSK0tON3p5b3RVM2ZtcC90S3gvdU0zL0NVYkV0akp5cWRESzVEN0Jt?=
- =?iso-2022-jp?B?cHkzS2xUYlNwTWRtYW1zcnV6N2ZjQkxOVFBIMUVzeEFaU1VRSTI4L2M4?=
- =?iso-2022-jp?B?TjhJMnp1QjNNcTl6Z0pTR3QzY0R5b3Z2a3RBNlRweEQ5ZlJ0LzExeVVH?=
- =?iso-2022-jp?B?WXJ2UjdXcWp2ekVpV1B5S0VCL3JBOHU5T1pWRnNrZjFPbExNUlpSYllV?=
- =?iso-2022-jp?B?YktpSGVlc2wwM1ZYVUl0MDc5Y1FYMnhqTHZDVkNaWWp3RmtSRk9DM2ZM?=
- =?iso-2022-jp?B?cWMxaFFXUyt4azJjaXBwVHRicGpHMkFnbWRaaSsyK0JwdGF0WWQ1Nk1L?=
- =?iso-2022-jp?B?eFQ4Umc0SmJTRjJxTFB1NzFOd0lvS1B3ZjU0VTJTUFpheEJnaTIvQllk?=
- =?iso-2022-jp?B?dmgyOU9Zb2p2MU1sN1RTbkR4TENLdXhxMnZJc2dQUlhzbnZQTGFVQkpy?=
- =?iso-2022-jp?B?UXFSSTU1ZDBvcUxIMjRQTGZnaXc0K1RLMVJEL0dyc25hZkVkRThLbVM3?=
- =?iso-2022-jp?B?WGhXN1c3eFlVcFVmNk5RRXJnWG5iQnVvRlVMQWs4V1dHeTVFais4L2Nx?=
- =?iso-2022-jp?B?WFJhT0xhTisrL0RuRCs0RklhZUxDNy96MDVMUDMxcXRqT3N0eFpSNDR3?=
- =?iso-2022-jp?B?MXF1L3VsY1RZeUpTMU9uQmFndDRKZzd5eVZBVGZnY0lsRWdVSXBxNHRK?=
- =?iso-2022-jp?B?NXBYS3IzMDY0eGZaT0EyVVN2M2RkSVEwaDFISVFOT29FdHRmYm5mcmgx?=
- =?iso-2022-jp?B?UjN0a3JIVkJVRFArbVU5MWNWSUtieWhQMHFSOFlGZGt1T3pjNUxJT3pj?=
- =?iso-2022-jp?B?UTE4YWFrZ01kemNBSHRyN3JrbW5KUjA4T1loMUR5YkZRNFJhK0dXTEZm?=
- =?iso-2022-jp?B?NHB3K054TVluYTZyaFNqaWNoaUI2cXNKd3o5NzkrUUtURUV4WHY0UGpp?=
- =?iso-2022-jp?B?TGdFS3E2S1ZEdFlMRDRuWFp0bE1GUmRZRnBMVmZGczRHRzJuaEdsdDBj?=
- =?iso-2022-jp?B?NnYvdVI5VEVRQ1lTWFpYb0pjSytLV045MkpMVWs3MDRwL0ZqT1pnNHc2?=
- =?iso-2022-jp?B?UUF4dEc2OWU2MS9LL3YxWUdHa3dDa2Z0SWlNL2FlcGI5WnJHYWhDNEc3?=
- =?iso-2022-jp?B?ZDExS3BWQ3p6T00zRGx6eVN5YTdrVzcwRXVjWnFILzFhVHlwY283RDI2?=
- =?iso-2022-jp?B?Kzh2RHJ4M3Ard3ZSM25ScER4WWw5ZlVCT3cxUmJJbWNuZkk2V3NZYmtX?=
- =?iso-2022-jp?B?Rk5WbzloS0EyWDZCMFd0aWEyN2FwbWpKRTExT3Nsajl6Tm1WTzdkeUJ0?=
- =?iso-2022-jp?B?aWJsdVRZUTlZRHVBcG82eTVHcFRmNU1Ra2hSblpZWGV4TDF5d01TSzNM?=
- =?iso-2022-jp?B?MENYWXpCeTAvNWdvVE90Mk9OaWxKdmxaVnd6MFgvUE5sTTlpcFNrVmVJ?=
- =?iso-2022-jp?B?YmdoektmY2dzZjNKVW9UcXFTMVF3OGFqa1lrMWRTWmJ1ZXFEdzdtOWlU?=
- =?iso-2022-jp?B?ZkVQUFRWOXZGSTFEY0tWckRvamRHVjN2Y3Z3VXZSVUNXSlg2aFhpM1RV?=
- =?iso-2022-jp?B?eW9id2daM1RQZjBFRnhPWmFkaGdWWmFSK2pjVVFiRTVicFRoRUlBWmdV?=
- =?iso-2022-jp?B?ZE9rY09LY2tFVG9pcUd3TzUyZWR0WFNqem9LcDFjelJmUllQSFhyUkJw?=
- =?iso-2022-jp?B?V2VWVldlc3czNzZyVEI3UzVZclIzZk8r?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB13777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018)(1580799027);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?c1FldkdqNnJKVDlrMVdLRTFKaGxOVTJHZWM0VjUrbWIvai9nNExOK1NX?=
- =?iso-2022-jp?B?K1BSMjB0VjJiUnRpQ0NGUjBxOEtFMjI5MkdiZ2pVUEtBRmIybG1IaWZO?=
- =?iso-2022-jp?B?bkdnZFNId2t6ODFLaW8wdDd0VVNUbm91RWcxN2Z4allPRlA1V3YyYXky?=
- =?iso-2022-jp?B?alZMS1Q4bzlIRjc0cGZzNjV3YVcvbWRwZ1J0OE9SVjVmZGVjcXFzdE1T?=
- =?iso-2022-jp?B?L2VJcVpvSkM0WlFDcEZqaXpSRXhic0U0VWFQbGFuU1JLekFmNHB6dXM4?=
- =?iso-2022-jp?B?ZXBTY3QydDY5eDJHR2pKTHE5VVFoTkFGTFl5YlNsTnVXL3NGZ0ptQXU2?=
- =?iso-2022-jp?B?bXZWUDA0UE5lYmhlYkxyd0lUU3BYK0M4dTZHODU0OHF4YlZmVS9sOCtj?=
- =?iso-2022-jp?B?RGc4VEZxT3NIRUlFdG54WllhNFAzOUUraHIzL0pGTFZOS0JaeTU2cHVY?=
- =?iso-2022-jp?B?ZnRQdy9HNnVmV0p1UUF6dnp0REV5ekdUWUZEKzRQZ2Y4QzY4Y0duNHdq?=
- =?iso-2022-jp?B?WGlvazVObWpoYzhib1grUG44V0hMQXVWNTdmT3NQRjRFUHpnTjZvSG40?=
- =?iso-2022-jp?B?V0REY1hTL3NkLyswS1l2V3FjZWJEM1ZKMWQ3a3VLWG5ZS0hwQTA0bTRQ?=
- =?iso-2022-jp?B?d2dyL3ZpeHVVOGJwbG9UTDVhTjdocDdWcVBxRjI4WGdKZkVHUm5qR2Na?=
- =?iso-2022-jp?B?Ni9vZHNPdXJBYTY2TUI1dVd2YkR1bk8vMEltSGZRSjYwOFcvR21zUUtD?=
- =?iso-2022-jp?B?T1NyQzF3b1AwcVU3eWVLeEN4K3krVzlCUDlrbFlMWEhOdXFqYkY4TC85?=
- =?iso-2022-jp?B?QUY4REV2N3lHdlZBZndHMi9RMDlPQzRad2x4WThycmFJMmZsd2xuaTZl?=
- =?iso-2022-jp?B?M0djYzdscUNDY0IwTmdwMGRsWXMvTGlvaHVBQnZ1dTE2Skx3ZmxBYUxV?=
- =?iso-2022-jp?B?RlovNDNsTWNGRzRIZzFTZGlHOGY1VVNjbnBtcnlYOHN6YkZtcjdsZ3BV?=
- =?iso-2022-jp?B?NGVXaDZCOHlzN3dQZ2JxcUYvT01od2x4NHhWSFVzenN1OS92dEl5cWFS?=
- =?iso-2022-jp?B?eTNnTXBLdUhPWjJKcUFFQmYzL001eHkyQS9JWW1oRjJNUmoxUm5HUmhn?=
- =?iso-2022-jp?B?ak41Z20yaFdtdE5MRHhuMFhxMVZkUGREZmpGRWNiR1kwL3U0b2M0eTBI?=
- =?iso-2022-jp?B?V0JqQXBhU1pBQkdBOC81OWVHVUZmeWczczNKUWtqR3JqeVRtSmExY2dt?=
- =?iso-2022-jp?B?WURRYWVFeE80WFEyWWZ4VG14RkwzSk82NEJqMzNWMWlLUEZUNW82UGJ6?=
- =?iso-2022-jp?B?T0JQM0RWb3o3NTVBUGJpeGplaEpucUF3VTNuR1FjdTgrcnQwc0l4TzR5?=
- =?iso-2022-jp?B?YlB5aEp1dUpPNmtOZ21URjB5b3ZCSFJIcTEzNTJWL3Y2WnlSc0ZhYkFG?=
- =?iso-2022-jp?B?M0lkeUxlbUszNTEzckpLOCtmSE5lR0E3YUswaGtrVFZpUmo2aVZ1UTB2?=
- =?iso-2022-jp?B?SU5jMXhncnRneXJNRjZhQWtkQ2VzTzJ4dExhNkhpazNzWEZhbDU2eHRh?=
- =?iso-2022-jp?B?WUo5ejF6MkNJMlluOVBxK3ppcXFPNXR1Qis2M2xEUjVtbFJuUmE3SG1U?=
- =?iso-2022-jp?B?T05pUGJmZFVraGErU3YvaFFPMEZ2QitaWGVGN3dDdlpMODUzc20rRzlv?=
- =?iso-2022-jp?B?WGU0bDlMSDdyaUNqTllLSjhkV1VuUmh3WXQraHRvVXVJNm9nM2NtUGYx?=
- =?iso-2022-jp?B?enVxdGlzT0RWbHV2QUJIK0x3WFU3ajFkRjJac2l5YnRHeTVaeFJCL2V1?=
- =?iso-2022-jp?B?MEl1dXR5L1h0VlNWVDU5UW5OUHNtUUZjbjB4cHhhTWV6U0pkdUxxRm91?=
- =?iso-2022-jp?B?cnhicDVxekVyZDJzc2dpa2dKcTJEeXJFYS9Rb0dDa2Q3UXBvRzN2MDhm?=
- =?iso-2022-jp?B?S0N6ZTBCcjMwMjQ2UGdYand5M0xaSW1LbmpjSVpxdHFzbE4wMGpac1BD?=
- =?iso-2022-jp?B?MmMreG5ZSGhUTGFyZ3EzdUpleGxUWnhEMDdLTWFwSTI4T3VMWVVNVUxD?=
- =?iso-2022-jp?B?cHlteTFLNFVMVEVtYjNqa2NpM3Nhb21WWHJoVzZPc3pTem0rVzlJb01q?=
- =?iso-2022-jp?B?OTVrZERENk14bDNYVm9iMHArR2hRZk1VVUVKUkMwL2xzeFYwbjRIOUM1?=
- =?iso-2022-jp?B?TmJMR2M2YmVhdDZBOVdzSzJsbitOL0RDeVhWenYxdWtnamovaWZTdDFM?=
- =?iso-2022-jp?B?eU9HWjJhR2hLby8yOTJ4TitOQzFxcGltbFlIRjJTZlBOekMzcW16RVcv?=
- =?iso-2022-jp?B?SzZTbkFleDdsWXVmQzlPRUpCOUlVK2JPWHc9PQ==?=
-Content-Type: text/plain; charset="iso-2022-jp"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 05 Jun 2025 05:48:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8A4EFA459D4;
+	Thu,  5 Jun 2025 05:48:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D1CEC4CEE7;
+	Thu,  5 Jun 2025 05:48:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749102486;
+	bh=9t5rT9ry6WPHa53KUFn8dkbO9OaKcc8ExoqUN9Ekk5U=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=R4L+vMRr6jtUNaccghDB5FifpMtUuRHZ1mq3p5RzbIDFNeRtZ9P4QeEHATFzOzMw9
+	 o9lOGuqSIALSiNnveV+r+BiHeQrnEI6vJSDAkWg0w6+3E7CWm4/QomlmA2ySlt7pR0
+	 03b4qxFYCWywntenPlTzhVqMsl8H70OmvM9DholIxjxbFwKieqmLndYZsG4eDK/QUK
+	 mzjhpsnz7Qv8ZXzrptNkDjBuhCtcKlDc1k/Ba3NVisRoJXZ1Sw6gENzthiRjt/xEkW
+	 SZ5yJfJiTlpBpAbBVtOcgZ/dI4CsoBJMGeUDIm6O6JsXHOZ28hvNPvdQZ6nq8nrzPh
+	 KyGBG10wlv8bg==
+Message-ID: <e9a1d863-a08c-4f6a-97b3-4a752606544a@kernel.org>
+Date: Thu, 5 Jun 2025 07:48:01 +0200
 MIME-Version: 1.0
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: EUiOUkhy/jENzmUhuZ008D4YlGGCJz5pBht/5tf9Ckd3JsqVeo3sd9tL8pr3T/L2thp5XOhtginHFHa1Gc/Ztm2bjmd2BfIysxkF4OVpQmIw7FH/NtfOI6RTfF3wte6n58BKF+Pu80OC4U3fEoslY5dErOtKKaC6nTWljl+pzGHhscwDBO85C1PDDmMMPKn3vzzuNZHiF3KIpw99HeN9IwEeMQ1Xkn6HQfQaJDYT17tv+A04n4ELDPtlDTQkONK1mZJd0N5Z0f+eRSPkfeOj82crH2O5OuHkutwHiwq8OzOyhttCv4rm/PKqtIrbzGPT0e4C72KuNZ2Fcdh5wtERbQ66CaJZDctvBUGsX41oC4gG6exSC9K/gykA8ZwaYpD+Y+xBxJtB9MEKYHjnZ+Pf/Mjmg22xLZs6TU/wX54Ze2rqFNSz8cBrxviPAzfsbHsUuJqraMgEm78bh4vpd9eom50dE5QwahgIXMx5BpNFIhzsOB513IN3dnY3hQFtBrjSV+2n3yVJqRQD8kVWme/fjVTmjNUnCcZ7aBvJBIUZk2EnvaNgQwc6sCzqKYncmemvCgvl17OazeVMfDeEkXh8AmO/xwRDU0s6EL+vhPOWgygNXbjlxd5+nBQibjZSdy6H
-X-OriginatorOrg: fujitsu.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB13777.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5daddf9-9d8e-4e6e-f465-08dda3f1ba57
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jun 2025 05:27:56.4979
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9GeVFuf7XPaosawI4kiqGUembLYm4bj0fNoGsFJQGhPzwTzXK8QlHYIOBv/kvoiLt3wyXIRr32vVPoRuy7CWUG5gCx1l5iBvkxK8W6uulXQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB6761
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: mailbox: Add ASPEED AST2700 series
+ SoC
+To: Jammy Huang <jammy_huang@aspeedtech.com>,
+ "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "joel@jms.id.au" <joel@jms.id.au>,
+ "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250604125558.1614523-1-jammy_huang@aspeedtech.com>
+ <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
+ <e27f3ea6-943d-4d78-b4d6-85d0dd521fe7@kernel.org>
+ <TYZPR06MB656866677C78C34A5AFDC985F16FA@TYZPR06MB6568.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <TYZPR06MB656866677C78C34A5AFDC985F16FA@TYZPR06MB6568.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_222812_438900_753E137A 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20250604_224808_090106_B55BC16E 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,97 +129,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi John and Petr,
+On 05/06/2025 03:44, Jammy Huang wrote:
+>> On 04/06/2025 14:55, Jammy Huang wrote:
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +
+>>> +    mailbox@12c1c200 {
+>>> +        compatible = "aspeed,ast2700-mailbox";
+>>> +        reg = <0x0 0x12c1c200 0x0 0x200>;
+>>
+>> Last time I asked to test, you responded you will test. What happened?
+>> You did not test. This is just disappointing.
+> I did test for my last patch. In the end, the errors shown as below did not include ast2700-mailbox.
+> So I think it is ok. I will check what's wrong on my environment.
 
-> On Wed 2025-06-04 13:56:34, John Ogness wrote:
-> > On 2025-06-04, Petr Mladek <pmladek@suse.com> wrote:
-> > > On Wed 2025-06-04 04:11:10, Toshiyuki Sato (Fujitsu) wrote:
-> > >> > On 2025-06-03, John Ogness <john.ogness@linutronix.de> wrote:
-> > >> > > On 2025-06-03, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>=
- wrote:
-> > >> > >>> 4. pr_emerg() has a high logging level, and it effectively ste=
-als the console
-> > >> > >>> from the "pr/ttyAMA0" task, which I believe is intentional in =
-the nbcon
-> > >> > design.
-> > >> > >>> Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is=
- doing
-> > >> > >>> nbcon_enter_unsafe() and nbcon_exit_unsafe() around each chara=
-cter
-> > >> > >>> that it outputs.  When pr_emerg() steals the console, nbcon_ex=
-it_unsafe()
-> > >> > >>> returns 0, so the "for" loop exits. pl011_console_write_thread=
-() then
-> > >> > >>> enters a busy "while" loop waiting to reclaim the console. It'=
-s doing this
-> > >> > >>> busy "while" loop with interrupts disabled, and because of the=
- panic,
-> > >> > >>> it never succeeds.
-> > >
-> > > I am a bit surprised that it never succeeds. The panic CPU takes over
-> > > the ownership but it releases it when the messages are flushed. And
-> > > the original owner should be able to reacquire it in this case.
-> >
-> > The problem is that other_cpu_in_panic() will return true forever, whic=
-h
-> > will cause _all_ acquires to fail forever. Originally we did allow
-> > non-panic to take over again after panic releases ownership. But IIRC w=
-e
-> > removed that capability because it allowed us to reduce a lot of
-> > complexity. And now nbcon_waiter_matches() relies on "Lower priorities
-> > are ignored during panic() until reboot."
->=20
-> Great catch! I forgot it. And it explains everything.
->=20
-> It would be nice to mention this in the commit message or
-> in the comment above nbcon_reacquire_nobuf().
->=20
-> My updated prosal of the comment is:
->=20
->  * Return:	True when the context reacquired the owner ship. The caller
->  *		might try entering the unsafe state and restore the original
->  *		console device setting. It must not access the output buffer
->  *		anymore.
->  *
->  *		False when another CPU is in panic(). nbcon_try_acquire()
->  *		would never succeed and the infinite loop would	prevent
->  *		stopping this CPU on architectures without proper NMI.
->  *		The caller should bail out immediately without
->  *		touching the console device or the output buffer.
->=20
-> Best Regards,
-> Petr
+No, it is not ok and with simple dt_binding_check I immediately
+reproduced the issue (wrong addresses in example), thus you did not test it.
 
-Thank you for your comments and suggestions.
-
-After consideration,=20
-I believe that there is no problem with forcibly terminating the process wh=
-en=20
-nbcon_reacquire_nobuf returns false at the pl011 driver level,=20
-as in the test patch.
-
-It feels a bit harsh that a thread which started processing before the pani=
-c
-and then transferred ownership to an atomic operation isn't allowed to perf=
-orm
-cleanup during panic handling or the grace period before the CPU halts.
-
-I would like to hear your opinion on this.
-If nbcon_reacquire_nobuf() could acquire ownership even after the panic,=20
-then driver-side modifications might not be necessary.=20
-(The responsibility to complete the process without hindering the panic pro=
-cess
-would still remain.)
-
-Would it be difficult to make an exception to the rule,
-  "Lower priorities are ignored during panic() until reboot,"
-depending on the situation?
-
-This is just my personal opinion.
-I think it would be good to get feedback from other UART driver developers =
-as well.
-
-Regards,
-Toshiyuki Sato
-
+Best regards,
+Krzysztof
 
