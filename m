@@ -4,154 +4,199 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F425C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 06:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39CE0C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 06:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1hOQmkpsflD/+CcZH3UNpeXbduMr+zQBBS3YBIfNS8=; b=iYbC4ota1+ASP17A6TaCabVPSP
-	dULCBvLL5Upw37qrXgmlpQfzFAoZLThgBZTf07pPA7ydTXhCRqCVkGg9R0OLfdAQbkI8MGRMWbrWP
-	JoVGL6U+vthIuBd1km7CTtoT+YbE8DrslN6bqNWJEaE3hOMU+G7UzMmSuJ6f8SC88q/5iAL/mlGwL
-	+201Dj8qaRslmK8FSQAiXawKRq0kXWYYmN5BWAAIhff3VXq2wKdHKVp2om3+gd02DCYqMjVeSgXlW
-	ThvLt3GW48WMkltMmg2jB5/DM+N1hbeS387hYvflIxkoerDkvdWhukU7a8lUkAvhLHAO/Q5+geZbJ
-	gsXM3LDw==;
+	bh=LDpQwsvMeQhy1g5Qe37w/GUbJI+9UWBLoxRQQxyIY+o=; b=ASQBn/+FAr75dyljOicJFrzGeQ
+	hQ1eVgEog/N1cxQ7ovq2sI+wns5ToL/2Zp8dKG5oY0KvjY6g/B7xrHSSqoiUFsmU2RFyogDzEkWIW
+	NgCNc7PNuSu1/f9NzIOkRAR/nYFZDwOfwCZD1cDvQ/+Ofo/seW6Enjq9a4TIknB4x0GPjfVYi0Cza
+	CbdRUEHWDhIwkdRWn+vo/oNe35DgoeddHvQJcgWo+3XMHWkjZOgiTdngXdfLMcAu2qjdFgWzUmqQ1
+	lj5hIrwJtug3n3zZDLnjNqE3XepIz0r548utcd/ofNJUy7zXHdQyOZ4AqqeCmgN3SV1o1Jx0kMg0A
+	fNnj2JRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3fU-0000000Enbm-29aI;
-	Thu, 05 Jun 2025 06:01:36 +0000
-Received: from mail-am0eur02on2062d.outbound.protection.outlook.com ([2a01:111:f403:2606::62d] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1uN42N-0000000EqtB-0Ybn;
+	Thu, 05 Jun 2025 06:25:15 +0000
+Received: from esa10.fujitsucc.c3s2.iphmx.com ([68.232.159.247])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3cq-0000000EnLf-3IHG
+	id 1uN408-0000000Eqjf-01fw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 05:58:54 +0000
+	Thu, 05 Jun 2025 06:22:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
+  t=1749104575; x=1780640575;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=HtiquZ78IvL/gzgledz+tIW9669mSu2I0yTW6vb5fn4=;
+  b=XFmFAidMsWOb5RLGaK4bPeFGeNiUlbXzZKT4Krjr4//3ANndLRfTMaQa
+   C/DSAu2az6qx2nsDZijKzFtIHfyQPOgX4Zwi+jCRbvKh83KgKrsEi4rWF
+   TXW1xLSLmhbZ/GyK2a2m7LPPu10seFG5Jpne30tQ997PTbb6lmmt6u+91
+   fMyu6jLiyY+50bRWzncdMjdd7Fk+BF1bZK4ZKM1p4+A+jZjJrVmyfDky5
+   XcdwKapTAzQvOf3k/wHfcMMv7RgR4zn4IC9Jguto/qVOZzbw1te2McowD
+   VTSpFrGSVWk+muDtVWxTLGOzIHL+yHrODkdkcnnzj3+BHUc2pLEysCi28
+   Q==;
+X-CSE-ConnectionGUID: 7lX69ihpSLS+xYTctCToXw==
+X-CSE-MsgGUID: 7H41dKylTOKZP48ClbgQmg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11454"; a="157755964"
+X-IronPort-AV: E=Sophos;i="6.16,211,1744038000"; 
+   d="scan'208";a="157755964"
+Received: from mail-japanwestazon11011060.outbound.protection.outlook.com (HELO OS0P286CU010.outbound.protection.outlook.com) ([40.107.74.60])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2025 15:22:35 +0900
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u7gL7gYYxMY/1r34cSS/ZApd/5EWl2+LTdX4WjCxqauFHf3Y18H94/cJtzc1V0QfTM4+/WGfGTVUN312H3T0gOee9My+y43ocKAuu7xJrA5tJzcI3QZcbc4hsREsmK3hXGVEus3C+p3s4O8b4hbx1v6NrmJ8N/V98uFlMNuL6rky4Rq+fRjoZundB6Ay8ayvDYNMC07k/0OyT5BHTJmIOhXmuvD+el+XBvO91XT0Db14nRoLCTkzYdotqPpXxnUoSXpHDd4//pIl1HgKi6iYK++BNy63+ehhRd74G2G3N68aFGNRaJBWJNRdkjRsy2ZAtXa6pIqIMlqbHiIfB0uxew==
+ b=AiWF3wEchJQYiEZdPd1/9vlVXndWpf0WpG2l4zrHCdMRZbuSGD5/97pMfoHSC1PFshFwPzPYDw0G1Uf0YhJ1IBEYmNdJ3tVXpapVKFI8oCgMxO04ZpiBOtaLEW4tPc4b55zZbDSdgP2tY5GUreLF+ykQQ3P5EpNdb3yHJhU2IFCkXQGv1QsRmEJaNv5uygFPIWvALg06kUQw7/P9adbqdhWk91fzymdmkysdW1jeCazqOVcq8AzG6dAp9LLFMvopMJcLQwZTA8dsjqwe4nSwGGm3QmxLYPiFkGlh2gGK3ux1TtWy7dTIzw4YbHlc6FgEEXQzgRcRCf4aT1EtwBOs4g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J1hOQmkpsflD/+CcZH3UNpeXbduMr+zQBBS3YBIfNS8=;
- b=Wv20kZChY84UPZyF4/Udo+ZvfwCjQr3voLckdMfTRByozXef7BxrVOfqEmsT6s/IpfyQrmm5kzOKAVII9A2Q/eSiKSXBae0G8ZMD2zbtF8X05V5rWAclIHFm+AKrxH+cvZd0eSXuFEc9gbv1y4x6GuXLv2pDWOOnSHdMtKSsFlhJQ7pdBLeP17dQ7FmLR14ZPAj72YgT0yXRqt/rACOHUMunL395RP2xJV+edVzcYXhxcBDDKR95QsljbIaT2D7lzGaubbsSbiDc+ZG6/DPPAXUcPTWb3RIy76EXTMMVBpEUSH4esnS9mFgZguKweD/PR36zfIjgCLI13uHG+w6+ng==
+ bh=LDpQwsvMeQhy1g5Qe37w/GUbJI+9UWBLoxRQQxyIY+o=;
+ b=bcvuD+bxJVwrFrTzfF313tSzOUi77209d9uH/IJP6V5T/8Lc2++3l8GseX2HreEDsaiXchqQtJDdG9ZcrK9l0bhxnQYZ3E3InxT+BW4ZKxnCIJnUHOrICuB5SJSJoOhpPINC3PiQ0JaZfGx9VIz2PaqegX3trd/N6nJZFAGmUfQr132VXS5bDBmlg/MX2V6dpJgpkEAE6PF2lgwWqSD/B6ipVwleHv+KsJWE/4EPiDOxFB9xSx2g31TnJmP+zN4oWT/dIQJK+Aw9tU27edQkGHntOZ/26QWp2U1Vp3EHbqjUw7jrmzFTufUXJAB8D4DH9/iwUi+yqzglAamdhlEeOQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J1hOQmkpsflD/+CcZH3UNpeXbduMr+zQBBS3YBIfNS8=;
- b=RZHI/1VDZuzMoJPwGxCuEu057vRwGakgSRvt4sXMPyHWqO8ZSN4fmNUDzER+X853qiZq8JDFLk06hDE5uYMfksURRXkI0JxIDPLpc/XVi68G2wM7BRsLHX8f/4I1FwUiL2svGJgLViQVfzav2+zgdRXlR82DqWQfWi7UuDkTXnsBxwHqWonrOoEbFAdagAvYRfW9rxB2v+EBv0JMkyeLRtDVRdDAHlfUqqy8QQwYqJ0SzjfF94daRsnqJZKQISdNzXzdgWHxULLVLR86razg5RdqqeW2rtyqg9EGE/eADNErKktYlzBsgg0LhSuvKTMK3kNRD15uj5YfZFTa8vsihw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DBAPR04MB7206.eurprd04.prod.outlook.com (2603:10a6:10:1a4::17) with
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com (2603:1096:405:1f8::9)
+ by TYWPR01MB10971.jpnprd01.prod.outlook.com (2603:1096:400:390::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.32; Thu, 5 Jun
- 2025 05:58:44 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8813.018; Thu, 5 Jun 2025
- 05:58:44 +0000
-Date: Thu, 5 Jun 2025 15:04:53 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Fabian Pflug <f.pflug@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add support for NXP i.MX93
- FRDM
-Message-ID: <20250605070453.GA20292@nxa18884-linux>
-References: <20250526-fpg-nxp-imx93-frdm-v2-0-e5ad0efaec33@pengutronix.de>
- <20250526-fpg-nxp-imx93-frdm-v2-2-e5ad0efaec33@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250526-fpg-nxp-imx93-frdm-v2-2-e5ad0efaec33@pengutronix.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI1PR02CA0047.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::15) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Thu, 5 Jun
+ 2025 06:22:32 +0000
+Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com
+ ([fe80::60b7:270b:27c7:4fcc]) by TY4PR01MB13777.jpnprd01.prod.outlook.com
+ ([fe80::60b7:270b:27c7:4fcc%7]) with mapi id 15.20.8813.018; Thu, 5 Jun 2025
+ 06:22:32 +0000
+From: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>
+To: 'Michael Kelley' <mhklinux@outlook.com>
+CC: 'John Ogness' <john.ogness@linutronix.de>, "pmladek@suse.com"
+	<pmladek@suse.com>, 'Ryo Takakura' <ryotkkr98@gmail.com>, Russell King
+	<linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
+	<linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "Toshiyuki Sato (Fujitsu)"
+	<fj6611ie@fujitsu.com>
+Subject: RE: Problem with nbcon console and amba-pl011 serial port
+Thread-Topic: Problem with nbcon console and amba-pl011 serial port
+Thread-Index: AdvULbS8DdGjT9TLS9OOSVhbv2AtDgAN1+gwAALFDgAAAfWTAAAeB8NgADP4FvAABDFXIA==
+Date: Thu, 5 Jun 2025 06:22:32 +0000
+Message-ID: <TY4PR01MB1377757DD5E7F27A41F0B4723D76FA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
+ <84y0u95e0j.fsf@jogness.linutronix.de> <84plfl5bf1.fsf@jogness.linutronix.de>
+ <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+ <SN6PR02MB41575419E1223B8A8B0A1F1FD46FA@SN6PR02MB4157.namprd02.prod.outlook.com>
+In-Reply-To: <SN6PR02MB41575419E1223B8A8B0A1F1FD46FA@SN6PR02MB4157.namprd02.prod.outlook.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ActionId=73bc6bbe-f07a-4241-8f3d-c0bd835e27e2;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ContentBits=0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Enabled=true;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Method=Privileged;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Name=FUJITSU-PUBLIC?;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SetDate=2025-06-05T04:22:32Z;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4PR01MB13777:EE_|TYWPR01MB10971:EE_
+x-ms-office365-filtering-correlation-id: 560be7a4-5eb7-4f74-a469-08dda3f95af4
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018|1580799027;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?RHFGUGExZHJ0SS9LYWNydUE5bllJT2ZJU2pkQ1BrUVZwSlA2bVpnWGd0?=
+ =?iso-2022-jp?B?L0Z4dm1VS3p0YWhPSkNOU0tZLzJuVlFpZWRGWm1aSTFCRytUaFlJNzMr?=
+ =?iso-2022-jp?B?a1dyMnBrMTNTOXE4RVM3cE9LMWxSY1RmOTc1c042TVlwbkx5eGJQcEM1?=
+ =?iso-2022-jp?B?STArWU4xSFJNOEpKbVgrK2pPNER0aXQwMi80TE1BS1dNdWtheWZkc2U0?=
+ =?iso-2022-jp?B?K1pEQldDZXpBY294cUNGUmhsM0dlVlZ6RU9YY3ZHTEQ4cVZMc3RQRTlB?=
+ =?iso-2022-jp?B?elUyM3pjUU13Zmo4VnhLbUxiL2ptNnJvUW5DNW5BKzJoUmR6RnRmZjJR?=
+ =?iso-2022-jp?B?Z0lLdFJJUnZ4ME84c3hvR2FpRk9GL05hTjNoY0ZDOU5TZ2FmWjA4bjhB?=
+ =?iso-2022-jp?B?cDQ0QnhENDlMLzJqazBZeTgvQ09mL2hVUHJWT2NBS1BmZ1VEZW8zNDdh?=
+ =?iso-2022-jp?B?OFJIZDhSdDY0RGRveHpnMG4vYzhxTGt6SnorVDRVeElZMHlCMGphM21r?=
+ =?iso-2022-jp?B?QmYvNzY4akZCU0lIYUJ0MUp2YzBGQUpva1JVSHkzNVl3Yk1JWnR5YU5W?=
+ =?iso-2022-jp?B?RkU5ZXU0TkRvRGlnUkRIenJMT3RZY0R3eFpuNFpka0E3MXZNNEdCR1pJ?=
+ =?iso-2022-jp?B?U3RjQ0duYWZJdlEvN3cyNjl0dXBEN0tCS2ZldDBkUGl3MEorbXhKWW1s?=
+ =?iso-2022-jp?B?UmtJTGpnaWdnem9HV29DZUJxRFlaTkNEY2RObXRySWNYbzhxWGRGYy9o?=
+ =?iso-2022-jp?B?Z253T0p6bGFnTEFZQkxVUzF2Z1k3UnVWaW9HaHNuMkJIWUFQaTdYZ3Vl?=
+ =?iso-2022-jp?B?Q0FNRjFJZ1pLalJVZ2kyZU9wVEpYUGhYVEFMOXlsZ2VJa0toV2FPMEVv?=
+ =?iso-2022-jp?B?Ym94WVdwaUFEeXFrUXQyRHBlemxCOEFSbHRNbWlPRnpiVkUvRWdxb3J3?=
+ =?iso-2022-jp?B?L25VVkRuZzBEa3hIclJ1cDFUWTlOT0dBUlpzWGhYemR5MUp4U0R1bFVo?=
+ =?iso-2022-jp?B?czJrcGNyM25YZUw0dzcrb2NNSE0yRUJNSHNyNjc3bnUvL0oxN2o3VTlz?=
+ =?iso-2022-jp?B?VmI4aVVzNENtWnpXUjJUZUVTeG9OUHorSkloWlE1R2xzTFAyWnB1bU55?=
+ =?iso-2022-jp?B?SEpndmhIaVhmc2xHbGR3bkpqRWtrNzI4L2hqZEVPNmFWOVFudXBENXh6?=
+ =?iso-2022-jp?B?T3RhcUk1QkV3WmtlYUVhQXhVZytROXMxcUVPMWZsQXlKWEVUNDEycjJP?=
+ =?iso-2022-jp?B?MzVKeG5ITUI4cHFJZXgxejdwTUZHdTJSdXA5ZXJlVmtaR0hSTlQrcFEv?=
+ =?iso-2022-jp?B?cGIzaENGNlZZTU1FOWM3bTBJeFB4aElnSHBxa1FnM2ozeWs3YXJpblFu?=
+ =?iso-2022-jp?B?QVB6dmZhRjNBUlpsVkFibytkMldRa2U5bUw3bEtEQ2xPckhBS3AycXRJ?=
+ =?iso-2022-jp?B?K1VDMTU5ZElFcEFqYTRoMUIwSHhoZjVHMmh1VkRTVHorNHYzWmp3RmpM?=
+ =?iso-2022-jp?B?VFp1aU96U3VXR3B3M1ZvbWswSEExWktkZnB2M0ZDaHlXcjduSlQ2Yll5?=
+ =?iso-2022-jp?B?Q0hMOXV3UHh1RVBEOVU5THhYQXlicHVidWdCZ2pESUdaUll3ODFoY29Q?=
+ =?iso-2022-jp?B?Qnpsd0V2M3FoWVJ2eEJMbmVVVmR0bE1GS21kOU5sUkl0ZlRtMDdZV3Vq?=
+ =?iso-2022-jp?B?M2tlWlJ6Ulc5TXJmRlhxV3dBZEt4bHU2Lzlkc3BmeHQ3aG1oMXd0UXc2?=
+ =?iso-2022-jp?B?N1JOSHh3Z1JuZXJMdk1iVVZVVXYrdnFoZml2VmFEU2Uxc0V1WmlhaUVh?=
+ =?iso-2022-jp?B?UnplTGhKdHN3TnpkcmxhS0sxbERhM0t0T1U4dUFoU2UrVlhSaUxtNGVW?=
+ =?iso-2022-jp?B?RW5JdWFqaWFjNGF4VmExTUdhN2ZaVnJ2M1hSUitEa3NLMGlpMVdXaFlI?=
+ =?iso-2022-jp?B?RjduYU1YSzdQSVM5SmtxTmYrRG0veG5QZHd4N21SV3VIUHlCOXhrNEQ1?=
+ =?iso-2022-jp?B?RDN1NkF3azhvNUs5TlpIdGcreVJRVExaN0Q4ejl5RlkySStpdlhGQVRO?=
+ =?iso-2022-jp?B?TUg3UGdrWGlibmJQN2FoT2wrM3gvTUlVZnlOckFOeTBaY05DaE9hMTZY?=
+ =?iso-2022-jp?B?b2lBbk5uK2w0VGNPRW1hLzBDSjh6U2ErWXZTLzVDeHpHK0pNbWN1eUtW?=
+ =?iso-2022-jp?B?bzh4bStiVXhURXNFcU5nZXdHYTlJUVlu?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB13777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018)(1580799027);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?dE5waEdTMmVkUG84R1IwSFRhcU5xQWM1UGdQQjdkcFJtUjRtMjd0NzBC?=
+ =?iso-2022-jp?B?Skt1YUNlS0tOYlJpeEswbFJtVUZ4ejRnNEJzRy80NVdxR291MnVWSm5U?=
+ =?iso-2022-jp?B?S3ZZbE5xZWFDRDljV3pkaVJoZGZUVWdwMXphRTUrdHgxMGR2L0xTamtB?=
+ =?iso-2022-jp?B?RWEzeXRPeERpUHN5TjhmMS9QaEhidy9lY1ZCbkpEd0RwR2ZHdUN3QjVa?=
+ =?iso-2022-jp?B?L3RQc0oyOXdsc0RCb1dCaGdFNDBiRldDeHM2Vy9TdzBDOFFGQ0ZMN2Nn?=
+ =?iso-2022-jp?B?RnRSTVUyalJlR3FGQ2V1VWRBN0MwUzZzM3FzTnJJLzVVMTdCM2tGMkF2?=
+ =?iso-2022-jp?B?VHNaV01rZnd4a0NLQ1FuVk5LVVV3cjE4RWo1VlBBUlV6RUxwamZCbGM4?=
+ =?iso-2022-jp?B?TDlwMG0ySCtZOUhxWGw5NG9jZnFZT0o1NkZ2dzdadkZ2TG9MT21vVWk5?=
+ =?iso-2022-jp?B?QzdVb2tzVjJHVGthaldGb2ZwcktkSktRZTBQNzgyMll4VWk2WXMxdGtP?=
+ =?iso-2022-jp?B?SFRzRlNSQTRETUdiNjIvZ2NqMExTcTczVTlmUTNwTUw3cGpjMFdHRGhR?=
+ =?iso-2022-jp?B?bUVKZGYrMGFEMGFzTnVJL3F4Wll4SnFjTHlwOUZsZ1JKMUZNTWhEQ0N2?=
+ =?iso-2022-jp?B?ZUo3YSsxRTFGUWIvWUZ0UlRXL3VNWU1iTTF0YU8zRnFER05Rb0NNS2JJ?=
+ =?iso-2022-jp?B?NnQvc0NGQnJoZEF0R2MrYStTWnVQeWx5NEVvZFU3NEdRcjZuTTVxWVpH?=
+ =?iso-2022-jp?B?bkVPTUNadUtTNDhFdzRLR0NYa3NYUlNEVXBWVExRbWlDeVJmelAvWmVs?=
+ =?iso-2022-jp?B?eG1veWU2WVRnYmltNUtSZzRnRHBHT0xJWnN4WlhPdXkvdy9QV2RMNVB1?=
+ =?iso-2022-jp?B?enBkTzRWVldTNDdHSkZNUUhXdkJoU0psQTYva21KVi9WMU9vZkxxREQx?=
+ =?iso-2022-jp?B?eHF2L1dYYTYwNWRoYW95czF5T1VMQUJ3ZmgzQlk0T3V2Mkp4QmdvcU1w?=
+ =?iso-2022-jp?B?a1p6dTNiODM0N05YSHVIRFNwaG9vLzdZbkNSNjZKRlpVU2FzNTVpalll?=
+ =?iso-2022-jp?B?cTR3RHFEZ1AvN04yMDB5SEJQRVJxYXQxdzY5Nk1NUUEyeWM4QlBMQVM1?=
+ =?iso-2022-jp?B?MitYWEs4NkF0dVlFNXQ5S3VxVnI5dng3eVdqR3VqYmU2SC80NitPMHRO?=
+ =?iso-2022-jp?B?NTN3TUxVM0NVTE1WaFhrZmpLR1hxaVgwYzV6bDZ6YXhzUWZTU1NXbGg3?=
+ =?iso-2022-jp?B?aDNkL3hXeTI1Q0ljMytTYUpvRVBYblF4TndHS1loblo5cExBZHVBaXNy?=
+ =?iso-2022-jp?B?THcvRkw4ZlExc2F6QUV4aytSUWZTYW5qaVFaaWdDdG9mYzUwMUErZ2Jw?=
+ =?iso-2022-jp?B?MUF6Yy9TcU5SbWZ4WTRsTHFpVnAxR0FmUGlta2J6Q3IzN2F4SHJhSUJs?=
+ =?iso-2022-jp?B?NmxvbDZUK1grQTZuQW42cWVvY2I4VkxLSnU1NFdLSU00K3VxUlU1UVlM?=
+ =?iso-2022-jp?B?dkUyRFhreG5BRlNjZnd2dVI1VHNPRFZ5Qzk5UGREN2N0OGpiRENwSjVH?=
+ =?iso-2022-jp?B?bXhFTmVYTDI1WHpIdklrRHllV2x1RkNSZGpHajR2ckUva3ZMSUVVTWty?=
+ =?iso-2022-jp?B?MklXbENOVDViTVRxdUNPOFlXaEloZFhLbDQrd2FaQXpjSXQxbUQyMDZU?=
+ =?iso-2022-jp?B?UXUvbEl0b1dmeG1FbzVPVktoK2ZNcmY1WjRUUHFCRi8rTlNFbjVvS2Q2?=
+ =?iso-2022-jp?B?cGZhS01uUHJ6dE4zUS9hbVRqMEN4bTBZV2J6ZytPZXpNL2wvajNGZGly?=
+ =?iso-2022-jp?B?MGlqaVhtYjJ3cVNFTytlWDBoSEJ4LzhJT2tTLytrVDhlVy9mcDJDTklp?=
+ =?iso-2022-jp?B?R2ZqNTNET01QckJKbU9xT2dtcXhkUWxOeW9tQUdJYlArZHprcjZBWnVR?=
+ =?iso-2022-jp?B?N2UzdE1ubTJRZVdOWTVNTXEyNzc4RG5BdnNCZXhDeDVMR25YTFBocm9O?=
+ =?iso-2022-jp?B?anJxajZIQnJnaDZMR3UrMXFWd1F6c3UrOHh3VGtxelFvRGFTMVBpRzdP?=
+ =?iso-2022-jp?B?UnBjRTFraFhuZU5uVVVvZGQ1bTZCT3JGS1hLd3hBM0hKSFQybjBNdTEr?=
+ =?iso-2022-jp?B?VkRPU3NMZmRzWEZ3QW9iWExNSWJvempMTFRuUWdBOTdLWUdSOVBWTFBy?=
+ =?iso-2022-jp?B?UTlNSkY2UzNPQ1JyZzRXUXp4QjkvTmFUQ1plVXAzNThwSFdvTjhxL2Fw?=
+ =?iso-2022-jp?B?ZlhjdjRZRHZ1ejhQb2tsbDlBWEx4U3hkMWdOYkxnbUtIL3FrQ2VteFNX?=
+ =?iso-2022-jp?B?NzhRd0FjQjRuQml5WitMb2tFa1hyZjRwcXc9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DBAPR04MB7206:EE_
-X-MS-Office365-Filtering-Correlation-Id: c6c669fe-5526-44b7-da0b-08dda3f60750
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BQX2PIcTwDYD47T9EJ7R3BHJVrENfNCdjXsJlVoI/g46cx0NFifX1xpLS7c+?=
- =?us-ascii?Q?EMXXw+53Z257ICe6y1O3FzFDWyPorWuobJYTK1IWF2VtcsyOgCtr2la0KID+?=
- =?us-ascii?Q?8zKHHaiG0tInVQzxrWad9kAzY1lknOaazNOxLKKm61SiRW5dIgorY81i4VoB?=
- =?us-ascii?Q?e+kX4XrcZdSnPH+LnKHg+YR1JSTsAWjIJ8IEyiKArq20yo86vj4MfkK4j5KN?=
- =?us-ascii?Q?5tqRJDyN3mfissVMa2g2koY/38Hq0M/IBLOsNTTqU35W8zS7OeTeDy26SvMx?=
- =?us-ascii?Q?c7Fc+ZNF4kfIz1q1LXzldC6CmPnGihY0yuTIMzSqblgNMVM3lMhyDsIDWayL?=
- =?us-ascii?Q?jBtnkqfIxxoSWDeperwpyorMggJPUV8jZ3jKfIa7RzirqWlG7PH1uRvyGkUK?=
- =?us-ascii?Q?dWCaCpHfXuPRy3mYuHlM4Wu/t+jlhd1AP3LQN4p9Nu7IH6TroKwU0lb7leLH?=
- =?us-ascii?Q?HjnY23WR5YvGBL8rHEYkG1FLr868ovC7op1BUzVe+FhwQPJHGVFDpikAfg6e?=
- =?us-ascii?Q?yS67RFIPfn962t1TxDA0SfLaExQFx+XeO8klNkukUzUwWXIeYlRa5KnLTSdE?=
- =?us-ascii?Q?L1MAHAzFnt2o6of0NeFwRucnaZvoj+dcjxjAI9TR+Ym1uX473XLiw0sTXc6m?=
- =?us-ascii?Q?4muH1Tt+Vm8bVlEM8Izee7Wf5otoFaYkemNMDysekuSaAXaPrQeitqrmzbkR?=
- =?us-ascii?Q?lUBAHXl3qkWi2UnG1GM+UmXGPxlSIL2oEtqYJfWy4r+5/jVHBEkJmN2vnGfu?=
- =?us-ascii?Q?KoFT47rb4JDyZ1X/MhvMM0Qh7GSwNALU+w981Io0v4KlokOhIbKx4MaiRxjw?=
- =?us-ascii?Q?FNOYqVew5goDgXZ52LSzpUPdNQ3l5lzoRYI915hLPWqwvymCbgGWEQhqPJ6+?=
- =?us-ascii?Q?GAgmEQq2AMOiXDBfm81TbsEFJlRmD/+r2QFFCv5cW5THqB1cI6xSxQiS3PxO?=
- =?us-ascii?Q?pZOfMW8YEHMV4bvd+2AbxZ3DeplJNRzy4OZV84zFnK0pY0GT6Cz0Xj5qfXsv?=
- =?us-ascii?Q?5f0qgP8b74A0dYiDlmIkMpnRBgnXlBsnj/pbHk1AP4ZdIefKWtHpm7afRJJA?=
- =?us-ascii?Q?cmTUUb0zbCKcuHazmSCjRAuxxuBaalGefTlGTcfNmwCEYzlZ77IfNTF6dVih?=
- =?us-ascii?Q?FRMqDnpByP6aM/IT+I+nvthWlhvAJKmzqHHsHfzdkYsCpfpQC4OZ2UVXaOrr?=
- =?us-ascii?Q?YhZnRoMHElkVqhwfFG6hlRV1XZwwv8tzDAdvTKS7iRbj8vEGNpAaGABEDvqG?=
- =?us-ascii?Q?07Jh++uSpRDYELRi9JhyMeLuYDfeo09y0m4cXkc8u4dVZOLnwd+2l3SuJvOz?=
- =?us-ascii?Q?yJfKZ8tFGvBVDkVqMS+E3bL87+AlNuOKtoIO0zP5lbWZCkaNX+7sho1mhr0Y?=
- =?us-ascii?Q?rJzHjMs5NGaZU0hfE73Rbq46XTFSB6L2fN/aeyDNTFmb3PqhGcyt0NFT58/P?=
- =?us-ascii?Q?9ZF9sNhmRIIwDrRVbvvVzHxjIQyVc07Tlm4OksiOsW8zPXzMHPtkHw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Tet4SPVTE/BXEf/07Sx88VHeTx0+ZXzduEOTgp26C5TV71c9H5a+hhEPsztR?=
- =?us-ascii?Q?0f+Z1lInxi0osNub/xTGIyhoen8/xV2VhKoKH/0izsI5BoPYAhPRE0y4tcdC?=
- =?us-ascii?Q?RCIPZI4BrUzTjy1fhc/ZtRFBlVYvyrKaKrZTxnIqc43NevW/QnqY8+iftOzk?=
- =?us-ascii?Q?Vbb6jTEE9/BJo2xYiB59l2oml+ygQ5sbKHaXwhKzB6zBquUq643mE/8EmD7B?=
- =?us-ascii?Q?RY1EE3+8CZ75Hodx/83k0/cxIkX1xrJ3hPMTEoK7pIg86OgAWgbWFW4qv0QK?=
- =?us-ascii?Q?tW0EeaEnwUd8U608cCXKjcoS310gLKI5O5ofuXoDExMby2ZxoDCKAV3MFZPw?=
- =?us-ascii?Q?JldbDMfc46CQRL0H3nhzpoZSMUtlT6ND9bO0AtuWIcV5ShciYVkpE5EszNBo?=
- =?us-ascii?Q?Ca48qK2R5jp5V3VkXuJX4AJlzXdRThx90NxJhX3IhaNmDWc3mAKPhtfWicoN?=
- =?us-ascii?Q?GJ9WtbrHO6pvxD1LxiFGCEduI5WFrRvy/EBghWT0vBli0GVHzLGbbVuwALel?=
- =?us-ascii?Q?ckDQJAbYCbdbYp8te4EOw4Jbi9y7l7TsO0sGqFsHnst17cCgZhsDArf4uRWD?=
- =?us-ascii?Q?VsRY3sd1w2z60VboZlW5+40SZfGYXhJgPtVnTLcg52lB67ilvQ1LSJbjzT5n?=
- =?us-ascii?Q?7XX+7uqnCUIAwZHms2zpFZUfjBt+AyvDwZUZh8rxGUI0/CqwafRYJAwfBA7A?=
- =?us-ascii?Q?KT3SagXw3ReBWC91WVRD8xkig/kgvIZlBFVK7mhL+IgZqAfvQ0/ff3E5E6g0?=
- =?us-ascii?Q?5t+xKm0xBUzMSbtBP12UP/6bYinUmu9Za0JVXGj0vLRJB7Jxep6wp5AJVU6r?=
- =?us-ascii?Q?r3cKodDYXbi8EruDCUornyyPgfWTG7gZL8AD15w0zZYJk28tUGUqnr+DK3bq?=
- =?us-ascii?Q?ai251NftCgS4c3uZLePv2qRYdj+4bEEng4qiya7I3TLtVp1dLwp0jxz5nDG5?=
- =?us-ascii?Q?omQayWQCNa1u7chMNdubF0VW7+9nrcq5LkkZdhXNWL5rXNXiB3szMl9Rigzh?=
- =?us-ascii?Q?6pespAJ5k0FntWnZfxbEdOyNuKz0TLBZD3d25Oy0fWKbn4pVc9OTDuKKdW0S?=
- =?us-ascii?Q?FipM2XZwVheZYo32eoOodBH6+HOHt173l59WQ5kdz9c736dcTKMcC5afR39M?=
- =?us-ascii?Q?4DYXLyb184OAr5VODcGo+KuuRSwFm9k5cKqHMC9vteiuxJ8U+sKCwxbgj5ke?=
- =?us-ascii?Q?cGsHnln0hrK04Rd+kf/ztdntmjuEmvAl5F+NiWO+otZn1dEJusi8/ZJlxcVa?=
- =?us-ascii?Q?woKwdgvEfIYeQW/duzymlKV4MdC3D5o/eXRpzi6MtHiF9rFbb4gVi2AoVwpD?=
- =?us-ascii?Q?vuSieADhbx7iby8M1ht60uonEYmyEMFG8KdaN7w4YfoteoEU6dVhyejXi+EB?=
- =?us-ascii?Q?ymoHgPfsmf/EBOW7cgdb4c402NInrQIM9fuUlBbe5vAqnShiYqfxJSKoX5W5?=
- =?us-ascii?Q?TdwVO13zCaS+svppzV0p42KuBnpHTyJ4TqfDfIZSaFve2vVsguVSprDmV40Q?=
- =?us-ascii?Q?8omB3Vb7iXs0dOO09wpDKANmlY/htCoH1xW8LECUOE6+r7ekXVEBl1jYCdX1?=
- =?us-ascii?Q?YdH+SycVbeKkZFHjKWDgmOgsSzgSQm+6qPyS+uXK?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c6c669fe-5526-44b7-da0b-08dda3f60750
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 6/8o4zQnaHAhvBkhQG+Uu+g2KnMS/FxbpeaHyuWiR47M6JmuKB48YJBohStRzv/bYLNAsBs00vhukaOUTOZfchT0X45T+7uqujuc6zDWPphYFKIwm4SxIs90jDvYe7tCR2ueL/It2t14BpG65YAZQNwmQWqqWU2KhEBtchLMeyz7r9vTWtQ59i/J5wzkhenoSW8C9llDtVcfXGX1cELJeE6Htayq/MONoeigwPdYbmP2J21pExSuP/GvRhUoFrgOCJeXig0kTxr0XSdjg0mGrtvi7o0d12SMOMwMFahXhDmUyIgyZEG2nto0XzGsirW1C026o2pBKitA2f1fwGEN/UykkVjHivNeY1YGgCd240Di9mcPnrLA5hZ1DmLa0ZGgPQV5CQ2y7Co0N3LhyMEj4Nm/1gwCftaB5Ppwmv47mr9+m42/8e5vokcb5oKmru8r6y0qE0KZPOalJaPq43+36xGWXk+uEVrku3/XC9yj1bXgOyzH+jM2I+oPRKWQjh2y6zGa8tJRz/hSyTXPSby0b2NfnLqdG9ZLrB287mDRpGluOLz+Ez7+n/hdjqIo5aTvIrbkKuN2myIeT2DV9K7SuMaewGa1WI56TY6kpzR4lonyi85NenpewO9nqfKTmbeg
+X-OriginatorOrg: fujitsu.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2025 05:58:44.6589
+X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB13777.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 560be7a4-5eb7-4f74-a469-08dda3f95af4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jun 2025 06:22:32.4399
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: twxJ2I+EpSOOq4ylvMWrgw4VGTcls1j39iJGUtxy0aFpn/+ayABsYcZCzKuT8bdRBjgeqwEfMhiVYB9BwWbaWA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7206
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: U+CFWThe6dVfqKZjVlXyCtu/PKEEOgzWkn8KH1gCBwUP36tYNE3pJMMw2tnwCZiTnGWYy5EfUL1xaqd7aZ7nt+NDqtR/Ke9lD9/bCEgFtLM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB10971
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_225853_004778_0FE06EEE 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250604_232256_513293_82823C52 
+X-CRM114-Status: GOOD (  29.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,427 +211,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 01:02:36PM +0200, Fabian Pflug wrote:
->The FRDM i.MX 93 development board is a low-cost and compact development
->board featuring the i.MX93 applications processor.
->
->It features:
->- Dual Cortex-A55
->- 2 GB LPDDR4X / LPDDR4
->- 32 GB eMMC5.1
->- MicroSD slot
->- GbE RJ45 x 2
->- USB2.0 1x Type C, 1x Type A
->
->This file is based upon the one provided by nxp in their own kernel and
->yocto meta layer for the device, but adapted for mainline.
->
->Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
->---
-> arch/arm64/boot/dts/freescale/Makefile             |   1 +
-> arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 613 +++++++++++++++++++++
-> 2 files changed, 614 insertions(+)
->
->diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
->index b6d3fe26d621234ab84353165d20af9d2536f839..c703fce2ebfd8074bd0c6ee76f3c6f9bbd9cf179 100644
->--- a/arch/arm64/boot/dts/freescale/Makefile
->+++ b/arch/arm64/boot/dts/freescale/Makefile
->@@ -295,6 +295,7 @@ imx93-9x9-qsb-i3c-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-i3c.dtbo
-> dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
-> 
-> dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
->+dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
-> dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
->diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
->new file mode 100644
->index 0000000000000000000000000000000000000000..dc6348858024d833a450a6b5d2e54e4fefe9e9cd
->--- /dev/null
->+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
->@@ -0,0 +1,613 @@
->+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
->+/dts-v1/;
->+
->+#include <dt-bindings/usb/pd.h>
->+#include "imx93.dtsi"
->+
->+/ {
->+	compatible = "fsl,imx93-11x11-frdm", "fsl,imx93";
->+	model = "NXP i.MX93 11X11 FRDM board";
->+
->+	aliases {
->+		mmc0 = &usdhc1; /* EMMC */
->+		mmc1 = &usdhc2; /* uSD */
->+		rtc0 = &pcf2131;
->+		serial0 = &lpuart1;
->+	};
->+
->+	chosen {
->+		stdout-path = &lpuart1;
->+	};
->+
->+	reg_vref_1v8: regulator-adc-vref {
->+		compatible = "regulator-fixed";
->+		regulator-min-microvolt = <1800000>;
->+		regulator-max-microvolt = <1800000>;
->+		regulator-name = "vref_1v8";
->+	};
->+
->+	reg_usdhc2_vmmc: regulator-usdhc2 {
->+		compatible = "regulator-fixed";
->+		off-on-delay-us = <12000>;
->+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
->+		pinctrl-names = "default";
->+		regulator-min-microvolt = <3300000>;
->+		regulator-max-microvolt = <3300000>;
->+		regulator-name = "VSD_3V3";
->+		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
->+		enable-active-high;
->+	};
->+
->+	reg_usdhc3_vmmc: regulator-usdhc3 {
->+		compatible = "regulator-fixed";
->+		regulator-min-microvolt = <3300000>;
->+		regulator-max-microvolt = <3300000>;
->+		regulator-name = "WLAN_EN";
->+		gpio = <&pcal6524 20 GPIO_ACTIVE_HIGH>;
->+		enable-active-high;
->+		/*
->+		 * IW612 wifi chip needs more delay than other wifi chips to complete
->+		 * the host interface initialization after power up, otherwise the
->+		 * internal state of IW612 may be unstable, resulting in the failure of
->+		 * the SDIO3.0 switch voltage.
->+		 */
->+		startup-delay-us = <20000>;
->+	};
->+
->+	reserved-memory {
->+		ranges;
->+		#address-cells = <2>;
->+		#size-cells = <2>;
->+
->+		linux,cma {
->+			compatible = "shared-dma-pool";
->+			alloc-ranges = <0 0x80000000 0 0x30000000>;
->+			reusable;
->+			size = <0 0x10000000>;
->+			linux,cma-default;
->+		};
->+
->+		rsc_table: rsc-table@2021e000 {
->+			reg = <0 0x2021e000 0 0x1000>;
->+			no-map;
->+		};
->+
->+		vdev0vring0: vdev0vring0@a4000000 {
->+			reg = <0 0xa4000000 0 0x8000>;
->+			no-map;
->+		};
->+
->+		vdev0vring1: vdev0vring1@a4008000 {
->+			reg = <0 0xa4008000 0 0x8000>;
->+			no-map;
->+		};
->+
->+		vdev1vring0: vdev1vring0@a4010000 {
->+			reg = <0 0xa4010000 0 0x8000>;
->+			no-map;
->+		};
->+
->+		vdev1vring1: vdev1vring1@a4018000 {
->+			reg = <0 0xa4018000 0 0x8000>;
->+			no-map;
->+		};
->+
->+		vdevbuffer: vdevbuffer@a4020000 {
->+			compatible = "shared-dma-pool";
->+			reg = <0 0xa4020000 0 0x100000>;
->+			no-map;
->+		};
->+	};
->+
->+	usdhc3_pwrseq: usdhc3_pwrseq {
->+		compatible = "mmc-pwrseq-simple";
->+		reset-gpios = <&pcal6524 12 GPIO_ACTIVE_LOW>;
->+	};
->+};
->+
->+&adc1 {
->+	vref-supply = <&reg_vref_1v8>;
->+	status = "okay";
->+};
->+
->+&cm33 {
->+	mboxes = <&mu1 0 1>,
->+		 <&mu1 1 1>,
->+		 <&mu1 3 1>;
->+	mbox-names = "tx", "rx", "rxdb";
->+	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
->+			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
->+	status = "okay";
->+};
->+
->+&eqos {
->+	phy-handle = <&ethphy1>;
->+	phy-mode = "rgmii-id";
->+	pinctrl-0 = <&pinctrl_eqos>;
->+	pinctrl-1 = <&pinctrl_eqos_sleep>;
->+	pinctrl-names = "default", "sleep";
->+	status = "okay";
->+
->+	mdio {
->+		compatible = "snps,dwmac-mdio";
->+		#address-cells = <1>;
->+		#size-cells = <0>;
->+		clock-frequency = <5000000>;
->+
->+		ethphy1: ethernet-phy@1 {
->+			reg = <1>;
->+			reset-assert-us = <10000>;
->+			reset-deassert-us = <80000>;
->+			reset-gpios = <&pcal6524 15 GPIO_ACTIVE_LOW>;
->+		};
->+	};
->+};
->+
->+&fec {
->+	phy-handle = <&ethphy2>;
->+	phy-mode = "rgmii-id";
->+	pinctrl-0 = <&pinctrl_fec>;
->+	pinctrl-1 = <&pinctrl_fec_sleep>;
->+	pinctrl-names = "default", "sleep";
->+	fsl,magic-packet;
->+	status = "okay";
->+
->+	mdio {
->+		#address-cells = <1>;
->+		#size-cells = <0>;
->+		clock-frequency = <5000000>;
->+
->+		ethphy2: ethernet-phy@2 {
->+			reg = <2>;
->+			eee-broken-1000t;
->+			reset-assert-us = <10000>;
->+			reset-deassert-us = <80000>;
->+			reset-gpios = <&pcal6524 16 GPIO_ACTIVE_LOW>;
->+		};
->+	};
->+};
->+
->+&lpi2c2 {
->+	clock-frequency = <400000>;
->+	pinctrl-0 = <&pinctrl_lpi2c2>;
->+	pinctrl-names = "default";
->+	status = "okay";
->+
->+	pcal6524: gpio@22 {
->+		compatible = "nxp,pcal6524";
->+		reg = <0x22>;
->+		#interrupt-cells = <2>;
->+		interrupt-controller;
->+		interrupt-parent = <&gpio3>;
->+		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
->+		#gpio-cells = <2>;
->+		gpio-controller;
->+		pinctrl-0 = <&pinctrl_pcal6524>;
->+		pinctrl-names = "default";
->+	};
->+
->+	pmic@25 {
->+		compatible = "nxp,pca9451a";
->+		reg = <0x25>;
->+		interrupt-parent = <&pcal6524>;
->+		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
->+
->+		regulators {
->+
->+			buck1: BUCK1 {
->+				regulator-name = "BUCK1";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <650000>;
->+				regulator-max-microvolt = <2237500>;
->+				regulator-ramp-delay = <3125>;
->+			};
->+
->+			buck2: BUCK2 {
->+				regulator-name = "BUCK2";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <600000>;
->+				regulator-max-microvolt = <2187500>;
->+				regulator-ramp-delay = <3125>;
->+			};
->+
->+			buck4: BUCK4 {
->+				regulator-name = "BUCK4";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <600000>;
->+				regulator-max-microvolt = <3400000>;
->+			};
->+
->+			buck5: BUCK5 {
->+				regulator-name = "BUCK5";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <600000>;
->+				regulator-max-microvolt = <3400000>;
->+			};
->+
->+			buck6: BUCK6 {
->+				regulator-name = "BUCK6";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <600000>;
->+				regulator-max-microvolt = <3400000>;
->+			};
->+
->+			ldo1: LDO1 {
->+				regulator-name = "LDO1";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <1600000>;
->+				regulator-max-microvolt = <3300000>;
->+			};
->+
->+			ldo4: LDO4 {
->+				regulator-name = "LDO4";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <800000>;
->+				regulator-max-microvolt = <3300000>;
->+			};
->+
->+			ldo5: LDO5 {
->+				regulator-name = "LDO5";
->+				regulator-always-on;
->+				regulator-boot-on;
->+				regulator-min-microvolt = <1800000>;
->+				regulator-max-microvolt = <3300000>;
->+			};
->+		};
->+	};
->+
->+	eeprom: eeprom@50 {
->+		compatible = "atmel,24c256";
->+		reg = <0x50>;
->+		pagesize = <64>;
->+	};
->+};
->+
->+&lpi2c3 {
->+	#address-cells = <1>;
->+	#size-cells = <0>;
->+	clock-frequency = <400000>;
->+	pinctrl-0 = <&pinctrl_lpi2c3>;
->+	pinctrl-names = "default";
->+	status = "okay";
->+
->+	ptn5110: tcpc@50 {
->+		compatible = "nxp,ptn5110", "tcpci";
->+		reg = <0x50>;
->+		interrupt-parent = <&gpio3>;
->+		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
->+
->+		typec1_con: connector {
->+			compatible = "usb-c-connector";
->+			data-role = "dual";
->+			label = "USB-C";
->+			op-sink-microwatt = <15000000>;
->+			power-role = "dual";
->+			self-powered;
->+			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)
->+				     PDO_VAR(5000, 20000, 3000)>;
->+			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
->+			try-power-role = "sink";
->+
->+			ports {
->+				#address-cells = <1>;
->+				#size-cells = <0>;
->+
->+				port@0 {
->+					reg = <0>;
->+
->+					typec1_dr_sw: endpoint {
->+						remote-endpoint = <&usb1_drd_sw>;
->+					};
->+				};
->+			};
->+		};
->+	};
->+
->+	pcf2131: rtc@53 {
->+		compatible = "nxp,pcf2131";
->+		reg = <0x53>;
->+		interrupt-parent = <&pcal6524>;
->+		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
->+	};
->+};
->+
->+&lpuart1 { /* console */
->+	pinctrl-0 = <&pinctrl_uart1>;
->+	pinctrl-names = "default";
->+	status = "okay";
->+};
->+
->+&usbotg1 {
->+	adp-disable;
->+	disable-over-current;
->+	dr_mode = "otg";
->+	hnp-disable;
->+	srp-disable;
->+	usb-role-switch;
->+	samsung,picophy-dc-vol-level-adjust = <7>;
->+	samsung,picophy-pre-emp-curr-control = <3>;
->+	status = "okay";
->+
->+	port {
->+
->+		usb1_drd_sw: endpoint {
->+			remote-endpoint = <&typec1_dr_sw>;
->+		};
->+	};
->+};
->+
->+&usbotg2 {
->+	disable-over-current;
->+	dr_mode = "host";
->+	samsung,picophy-dc-vol-level-adjust = <7>;
->+	samsung,picophy-pre-emp-curr-control = <3>;
->+	status = "okay";
->+};
->+
->+&usdhc1 {
->+	bus-width = <8>;
->+	non-removable;
->+	pinctrl-0 = <&pinctrl_usdhc1>;
->+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
->+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
->+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
->+	status = "okay";
->+};
->+
->+&usdhc2 {
->+	bus-width = <4>;
->+	cd-gpios = <&gpio3 00 GPIO_ACTIVE_LOW>;
->+	no-mmc;
->+	no-sdio;
->+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
->+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
->+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
->+	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_gpio_sleep>;
->+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
->+	vmmc-supply = <&reg_usdhc2_vmmc>;
->+	status = "okay";
->+};
->+
->+&wdog3 {
->+	status = "okay";
+Hi Michael,
 
-Is there a need to set WDOG_ANY to trigger pmic reset?
+> From: Michael Kelley <mhklinux@outlook.com>
+> Sent: Thursday, June 5, 2025 11:49 AM
+> > Hi Michael, John,
+> >
+>=20
+> [snip]
+>=20
+> >
+> > This is a proposed fix to force termination by returning false from
+> > nbcon_reacquire_nobuf when a panic occurs within pl011_console_write_th=
+read.
+> >  (I believe this is similar to what John suggested in his previous
+> > reply.)
+> >
+> > While I couldn't reproduce the issue using sysrq-trigger in my
+> > environment  (It seemed that the panic was being executed before the
+> > thread processing), I did observe nbcon_reacquire_nobuf failing to
+> > complete when injecting an NMI (SError) during pl011_console_write_thre=
+ad.
+> > Applying this fix seems to have resolved the "SMP: failed to stop
+> > secondary CPUs" issue.
+> >
+> > This patch is for test.
+> > Modifications to imx and other drivers, as well as adding
+> > __must_check, will likely be required.
+> >
+> > Michael, could you please test this fix in your environment?
+>=20
+> I've tested the fix in my primary environment (ARM64 VM in the Azure clou=
+d), and I've seen no failures to stop a CPU. I kept my
+> custom logging in place, so I could confirm that the problem path is stil=
+l happening, and the fix recovers from the problem path.
+> So the good results are not due to just a timing change. The "pr/ttyAMA0"=
+ task is still looping forever trying to get ownership
+> of the console, but it is doing so at a higher level in nbcon_kthread_fun=
+c() and in calling nbcon_emit_one(), and interrupts are
+> enabled for part of the loop.
+>=20
+> Full disclosure: I have a secondary environment, also an ARM64 VM in the =
+Azure cloud, but running on an older version of
+> Hyper-V. In this environment I see the same custom logging results, and t=
+he "pr/ttyAMA0" task is indeed looping with
+> interrupts enabled. But for some reason, the CPU doesn't stop in response=
+ to IPI_CPU_STOP. I don't see any evidence that this
+> failure to stop is due to the Linux pl011 driver or nbcon. This older ver=
+sion of Hyper-V has a known problem in pl011 UART
+> emulation, and I have a theory on how that problem may be causing the fai=
+lure to stop. It will take me some time to investigate
+> further, but based on what I know now, that investigation should not hold=
+ up this fix.
+>=20
+> Michael
+
+Thank you for testing the patch.
+I'm concerned about the thread looping...
 
 Regards,
-Peng
+Toshiyuki Sato
+
 
