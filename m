@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF561C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 11:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A95D9C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 11:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3F+TWyR8dDheU8NnxXwe5Wz+/9Mx7JCqjIuMynKbPvI=; b=P0v1oYRJi3h1557ApdWd5uzmX5
-	tscp3e4s80TmZXvRQEQ76FwNkLlv3bOs4eSleIdazwuvm/XmR8ZqxdFPb1Rkw8e6Ou7Gfpi/ntsVi
-	iZb+8rxl3a3UZlal9RsSTdfpccFAg8cEi2WKLy/P/lM1KQYzv3cUvvXramYncYZ83nTpED4Dv6qtA
-	t13VmWaZIhK2BPCj6P4iyAIL9UdM9mzazTP0GdtAZUdwwm+pv3171q3MgJ/ZJx5+rDNhu2VSxRMWW
-	CC1si6a5jr0kSeEoPuXNYnoZUkkBFQFwi0XMLKDoPNsIAtk1CY6Ay8gyp5zve2BcR5t7Rv+ZNqoxP
-	Nk11I9NQ==;
+	bh=GDizFze/hyxfmmFH+Z9n7Pgzu80dINVRGBjV8qhWnzA=; b=AkWPcV+nDuU5sKgjI17JePOP50
+	gHMxMzZcLIlaML8ELtHlSq4iOpz11zmZmEmwtOuUGNZ4crt6jCO7b3+WM+xV/yg/dLbIICuc/oIw9
+	2RGGy/6/Da4YXB0uCC90MkArIZ0RFDggjGB557SWRyKk8fp/rLRdOoqxXsIcy7IagpyI4tgQsB1tW
+	3EnmKMojBRVtcEC2MdGc93oFZcYq/YYlz+cnl/t0sG3dAnAFMvIotoVtebakLUBDdU1/kUSlW7m1/
+	yMiwq8Y6hLWdQ/AxrWmm3Al5S6BR4hAOXCIIp1MQoWhw/O4dcpNbOtxy2cZAOjOxZaY2DNBBFlyyr
+	esOZ1OLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN8rH-0000000FN19-1Mxi;
-	Thu, 05 Jun 2025 11:34:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uN8tR-0000000FNDY-1Y7A;
+	Thu, 05 Jun 2025 11:36:21 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN8cH-0000000FLWm-2949;
-	Thu, 05 Jun 2025 11:18:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9430629C8;
-	Thu,  5 Jun 2025 11:18:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45E00C4CEE7;
-	Thu,  5 Jun 2025 11:18:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749122316;
-	bh=BxVJrLzkppVqibFuXB/8/X3glUbvHD6lsDPdbsmwtOE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=R7Z20CzkBfM9mtDSOuq6/r0NFGYA4Iqzhxg6sJGGX4TGa70R/J97XM+5zYs3zBjnb
-	 OQzc0pBRw1hfSSQyeiUQ1i6WyXetn82zw5cS5AaJYBquB+54Tl78aim7WEL1+cXDcv
-	 pPN/mfnGNV6nVSH7132+GLKq3ILV1U/cPF/zuUNzSEsxA6BWBnxDFr3HlX6Iepq63m
-	 8awXuprR9Yamb51bXy9nHSoOBKcXaSSZNTB02WOu5BPO11ear8e1kcrs0HzZXyFgar
-	 vmc+haivPCNsiZSi6r7u1/i/GQ/A7IKATQ1E0whAY2LB/AvKGuSC2xGF3+g8Py06L9
-	 xGsfOS12YXUAg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 05 Jun 2025 13:14:20 +0200
-Subject: [PATCH mt76 5/5] wifi: mt76: Remove RCU section in
- mt7996_mac_sta_rc_work()
+	id 1uN8gv-0000000FLxT-18nv;
+	Thu, 05 Jun 2025 11:23:26 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4a4bb155edeso9668631cf.2;
+        Thu, 05 Jun 2025 04:23:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749122604; x=1749727404; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GDizFze/hyxfmmFH+Z9n7Pgzu80dINVRGBjV8qhWnzA=;
+        b=RYgnbj3Rbqqy4KqP52HZ+L5ewOUPJeyHe2qE4jxA1mf8qWgwlGnTHRiXQtMctQIf29
+         lVRHQ/cxNnulcCYldEEIT1H+4buLpZPNyNk+YBu67YddmsGj0Kh7pfBWIOF+Coq88k+c
+         maipLwlAs3LXkewbJ3963wdJxIAyBnf4C1xEVdkidQcDEpNs78lNg5m4ve0a1U0tED63
+         gjRyyEQlyDY7eEUpBgKhL7eofNXhkHxhCBaKwFcz1Tmo6UxV7dcKFjONglaQv9B5fklT
+         et4RDhMJMGXsK8oCuc6WO0gHTzox6NpVjHU58gMTnOaKnUDv/k9Qz0mUBz2uJZHcskT4
+         jjTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749122604; x=1749727404;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GDizFze/hyxfmmFH+Z9n7Pgzu80dINVRGBjV8qhWnzA=;
+        b=RtTiNf+CxqyYb+a2/YApzv6CXIZJ6/TWEMstMPbX/ZJexDMcETeZQXJt3t+baISvbs
+         V1TGkP9vHk+QP24o4omx9R3HM1p9umzALA5doIgxNWs+knM/1Uhzg/Yv74T8LhtieiS8
+         CweJ4vBuiBvjMIRW7sq4Y/L2HF0rCBGyRnrfHGn02XeFAl1G4IB10fPpAGn1Jl6cLsYa
+         ADiY55yr8Yt82mbhsEIly+BvNiXH0PwLnQgPqfB3ANtM/4SkUeuYZX2qCdVjqb5oOfmP
+         ZWto5A9MAUlICO8+SUj527XhXQxNWYqsrbXmmjUFinHHzYAXItp+rFscERBFLVvcQEfJ
+         xRXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV13GlgZSN2ZfLllsoNULqnTRaUU5ZfWN1zWiLLSIH8dlocguVBXBLcw3gn3KhgawdT1+RQ4cX86EfOf794PcI=@lists.infradead.org, AJvYcCXX5UbG4u2+dom4vcgWfIrYjZq2H2MbyU+2P+VRbaM4AIxTDYIIn0NideZIme8fdbtQdxo6yg6UuEVJMZzmA0n2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVkiX+B8oDpH3ZGDEOxZj3VsBFV++EhN0NUiLRtqy2pvV1XrW/
+	WgpT3hMdSND6vkwz/tXXampOjJ2oP4Wpiywgd72f1xWInNRVjzkzLDiioyvy+WPjOGUQG87db8t
+	0VR3nGHvJhWDQhWhbyVpX4QsLzX836u0=
+X-Gm-Gg: ASbGncsZc0EB49BVg9RVX7/BmDamh51Y6H7wrAeOhMNqsbCDK1tz9s8F2o6CakC+g9Y
+	1bvl6mwhgOUKkNCfz38tuad6C7OKBK8aj6QBjIgNYbnBsk9C7h0Cd3VI9dMjCn/3xRWv8QzQR/E
+	rKudXgr+AufRXeDOEv34cvUEHMNclBBep3xhl4Tcrf9g==
+X-Google-Smtp-Source: AGHT+IFxaSe8SmfOVrKj5PzC+PDhsrX1HEfaz65+xtZxnKyLtWkEJUtGUuyZJdJWYe7NQXeqgh0Qo15kLkJ4vnPGagY=
+X-Received: by 2002:ac8:5cd5:0:b0:48c:c121:7e27 with SMTP id
+ d75a77b69052e-4a5a584733cmr119373931cf.50.1749122603602; Thu, 05 Jun 2025
+ 04:23:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250605-mt7996-sleep-while-atomic-v1-5-d46d15f9203c@kernel.org>
-References: <20250605-mt7996-sleep-while-atomic-v1-0-d46d15f9203c@kernel.org>
-In-Reply-To: <20250605-mt7996-sleep-while-atomic-v1-0-d46d15f9203c@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Ben Greear <greearb@candelatech.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+ <20250603-sige5-updates-v1-1-717e8ce4ab77@gmail.com> <DAEK3EQVNWQX.24DOM2VICSGCP@cknow.org>
+In-Reply-To: <DAEK3EQVNWQX.24DOM2VICSGCP@cknow.org>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Thu, 5 Jun 2025 15:23:16 +0400
+X-Gm-Features: AX0GCFsY4gmlZjHIBycyRoHQVN5KjE-g17VnqUGnair-V8LWvXbVvGhXOwb0_dY
+Message-ID: <CABjd4YzyGx60AeyxL049UrEFkhN_03+wHo64DLL778FimDvGeg@mail.gmail.com>
+Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
+To: Diederik de Haas <didi.debian@cknow.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250605_042325_310990_D96B07C3 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,96 +96,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since mt7996_mcu_add_rate_ctrl() and mt7996_mcu_set_fixed_field() can't
-run in atomic context, move RCU critical section in
-mt7996_mcu_add_rate_ctrl() and mt7996_mcu_set_fixed_field(). This patch
-fixes a 'sleep while atomic' issue in mt7996_mac_sta_rc_work().
+On Thu, Jun 5, 2025 at 3:18=E2=80=AFPM Diederik de Haas <didi.debian@cknow.=
+org> wrote:
+>
+> On Tue Jun 3, 2025 at 7:01 PM CEST, Alexey Charkov wrote:
+> > List both CPU supply regulators which drive the little and big CPU
+> > clusters, respectively, so that cpufreq can pick them up.
+> >
+> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > ---
+> >  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 28 ++++++++++++++=
+++++++++
+> >  1 file changed, 28 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arc=
+h/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> > index b09e789c75c47fec7cf7e9810ab0dcca32d9404a..d9c129be55a0d997e04e6d6=
+77cdc98fb50353418 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> > @@ -207,6 +207,22 @@ vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
+> >       };
+> >  };
+> >
+> > +&cpu_b0 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> > +&cpu_b1 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> > +&cpu_b2 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> > +&cpu_b3 {
+> > +     cpu-supply =3D <&vdd_cpu_big_s0>;
+> > +};
+> > +
+> >  &combphy0_ps {
+> >       status =3D "okay";
+> >  };
+>
+> The &cpu_bN nodes should come after the &combphy0_ps node.
 
-Fixes: 0762bdd30279 ("wifi: mt76: mt7996: rework mt7996_mac_sta_rc_work to support MLO")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 38 +++++--------------------
- 1 file changed, 7 insertions(+), 31 deletions(-)
+True, thanks for spotting it. Don't know why they ended up separated
+from &cpu_l*
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index 5561b1098e3fb0d25551fde3cfdb3057217395fd..445fe149ac0d7e194497a2dc884a599b9546c9ef 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -2353,20 +2353,12 @@ void mt7996_mac_update_stats(struct mt7996_phy *phy)
- void mt7996_mac_sta_rc_work(struct work_struct *work)
- {
- 	struct mt7996_dev *dev = container_of(work, struct mt7996_dev, rc_work);
--	struct ieee80211_bss_conf *link_conf;
--	struct ieee80211_link_sta *link_sta;
- 	struct mt7996_sta_link *msta_link;
--	struct mt7996_vif_link *link;
--	struct mt76_vif_link *mlink;
--	struct ieee80211_sta *sta;
- 	struct ieee80211_vif *vif;
--	struct mt7996_sta *msta;
- 	struct mt7996_vif *mvif;
- 	LIST_HEAD(list);
- 	u32 changed;
--	u8 link_id;
- 
--	rcu_read_lock();
- 	spin_lock_bh(&dev->mt76.sta_poll_lock);
- 	list_splice_init(&dev->sta_rc_list, &list);
- 
-@@ -2377,44 +2369,28 @@ void mt7996_mac_sta_rc_work(struct work_struct *work)
- 
- 		changed = msta_link->changed;
- 		msta_link->changed = 0;
--
--		sta = wcid_to_sta(&msta_link->wcid);
--		link_id = msta_link->wcid.link_id;
--		msta = msta_link->sta;
--		mvif = msta->vif;
--		vif = container_of((void *)mvif, struct ieee80211_vif, drv_priv);
--
--		mlink = rcu_dereference(mvif->mt76.link[link_id]);
--		if (!mlink)
--			continue;
--
--		link_sta = rcu_dereference(sta->link[link_id]);
--		if (!link_sta)
--			continue;
--
--		link_conf = rcu_dereference(vif->link_conf[link_id]);
--		if (!link_conf)
--			continue;
-+		mvif = msta_link->sta->vif;
-+		vif = container_of((void *)mvif, struct ieee80211_vif,
-+				   drv_priv);
- 
- 		spin_unlock_bh(&dev->mt76.sta_poll_lock);
- 
--		link = (struct mt7996_vif_link *)mlink;
--
- 		if (changed & (IEEE80211_RC_SUPP_RATES_CHANGED |
- 			       IEEE80211_RC_NSS_CHANGED |
- 			       IEEE80211_RC_BW_CHANGED))
- 			mt7996_mcu_add_rate_ctrl(dev, msta_link->sta, vif,
--						 link_id, true);
-+						 msta_link->wcid.link_id,
-+						 true);
- 
- 		if (changed & IEEE80211_RC_SMPS_CHANGED)
--			mt7996_mcu_set_fixed_field(dev, msta, NULL, link_id,
-+			mt7996_mcu_set_fixed_field(dev, msta_link->sta, NULL,
-+						   msta_link->wcid.link_id,
- 						   RATE_PARAM_MMPS_UPDATE);
- 
- 		spin_lock_bh(&dev->mt76.sta_poll_lock);
- 	}
- 
- 	spin_unlock_bh(&dev->mt76.sta_poll_lock);
--	rcu_read_unlock();
- }
- 
- void mt7996_mac_work(struct work_struct *work)
-
--- 
-2.49.0
-
+Best regards,
+Alexey
 
