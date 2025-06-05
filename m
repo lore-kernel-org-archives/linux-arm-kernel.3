@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A8BC5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 07:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABAAC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 07:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FA625NrqD4qvBQNaAhyUhXitr38lRtVRqZSGqy0z2c4=; b=fsklJnvr0Cls1Vq52onQDogtl4
-	wA/KpEmYtHxYw2HIvxtN+wxu1EdVOAQG2ZS5A8sPOqwk88+rE+tgoR9L7FJju9l0GkFvDJSBmnBEI
-	5MOVHIo9pxdyA3ChSk49k3oX7BIShLiUgAOlpls5I+0f566gR/s04fk1VcCgrGhjQgD9leRK+2Bmc
-	leEahD+CK48R/F7NGDIgCaURfbCdZtx/3WLepA9uCobU5hvJdON1iwBNGFGsvvx0dNGol0YRptv5O
-	z+ck3pCqdQOvH3Z+ufcQDd8/giSnzSw4mhJF8xT12Bjsx4NZXhV/2jMYt65NEWPJiE7Rn4FAfOLhE
-	HUavy+NQ==;
+	bh=UPXygViugK2qDdRyZqMS+7O5LAWGbwutgev5XJq8gb8=; b=XP7wcD/UmWDVA4XBPRlwV2LPNL
+	kUJQ/KXHXX0YnvuqTfROEMBrKP0ab0UoCwlQ6vjB7APaWaHJlZ/oi3hgo3Coz8daAbQqqBHpcu9hm
+	cuxjO1VsKVqZCVjc58Gw+n8C7PI9do8CZ8D9gkmbXIuGajy+3bgPT7HVSv6nAq+YTYwy0Kkr0L8/J
+	RTRxCuatFKRECSAM1MfQTTlF6tk0VTRgq1PdcJPKtKEAFCj4KyzvoXW1foq+iswn8JKCWj2vSkqGN
+	WTcO89fjYfLAfuLZphm04WgllQ7TrNt4XVcQwd1hoecPJ870NEMHrtQTu6TXGV5z1lAY5EXuyzysv
+	mYTngg2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN4wL-0000000EwCG-0vPG;
-	Thu, 05 Jun 2025 07:23:05 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1uN58e-0000000ExIc-3gBp;
+	Thu, 05 Jun 2025 07:35:48 +0000
+Received: from mail-ua1-f44.google.com ([209.85.222.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN4u2-0000000EvyB-26hb;
-	Thu, 05 Jun 2025 07:20:48 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-742af84818cso509788b3a.1;
-        Thu, 05 Jun 2025 00:20:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749108041; x=1749712841; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FA625NrqD4qvBQNaAhyUhXitr38lRtVRqZSGqy0z2c4=;
-        b=eKM/JMxUhJRnlh7BzrtGvnmbAHx7p3w9BO9wn49uXR4FAYKuu9egtq4PVnTGORKyI0
-         FQv8gZg2aJG+Krtigq/HJcP7UR7pqNYOX2GVb3RCdPAunPj8+nVO9w/mOOtWmviyOwpv
-         6BUeio3ekPFcrYIDFzofbFFBJeQks3TElrBcnP4hFc13Z/483bxEBwI9mQU1ms2pAEoq
-         e8TIsemunm2qL/AwXTaHA0ZfaoVK5OKz4GdlLRX7i9Ap6bV8yMtlvB4IU+UYo/LABVh7
-         kXZOGKg5NaNIgK/tly7RGAowKuZOI3F5ZBgx8AUW/i4nKaCSy8KLEjmFeeS2UijsrJHi
-         ti6g==
+	id 1uN56O-0000000Ex58-2lR9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 07:33:32 +0000
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-87df3dffe63so198968241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 00:33:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749108041; x=1749712841;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=FA625NrqD4qvBQNaAhyUhXitr38lRtVRqZSGqy0z2c4=;
-        b=hnR3UH4JwpMNz12Be76av4n7Lye0Ro+RwEQM35bcBLI4WZKisD01iJh6r4XEa/M5pM
-         KQqv7pwz4XJrviDFUlbpz+Q/tEvjGlB3lvfFi+acTYfYJmwT0SXjql8JP6L2GBVhlm9D
-         B9+tilmX2wnORdanp0Qw/JbdjVz1r2ftLJnNwCjAOfcZVDGqsvljufltz2zQEGwT4p6A
-         6P5CbpH3ksAlHBTVeFQyZNnVwZ+eOnfYqqzgqkMU65AcuT6B6x44o7TDirKA84DdZDyW
-         C8jJPvICIx3KX7VepDrPuFlcYH0pgjaBxUHU31PpSoHBYangkeMMclCEPH2A4mjrobZe
-         8irA==
-X-Forwarded-Encrypted: i=1; AJvYcCXKtbbi+0Cx+rBh9zsF6+FlFWB78re8UmjjMjBD4YQOdxKUzjgrQicyzdB0zTElM+vRdDwnz5Ha8YkG9xU=@lists.infradead.org, AJvYcCXLdjVviAihyvFUidn8BV/bhwVXUANQXmfa0plVmC8VMcQAvpetwUAWljGo/gCXUhyGV71SFGMXzsWqMq3hSUft@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZmobpjAjVQzZoT0Le73t/jct83qOAwcE03ixX51W/kdY7R6Zj
-	1xnBJ4u6l4uHYRpHlY4zMCyosjtEMkZfV2Svj5L4+iM4srz5hIj0GPt7ZT9i1TYe
-X-Gm-Gg: ASbGncumRWn639ENJnlcGzDYFU2EIU65ypLg669siLLsPvY8fCBBoAiP5MBwy6I3iMR
-	EwPmng1vGa8VMO+S24qLjiHEtGYmQ6ph36Mg990etyYB98ja8X7QoBZEyFotBy+BW3vdXIoTFhL
-	aDfl5uhRaCzIEytER/E+9YQWmhRCM07FoDa/PNOPnVpR0HOKY278GgDpjbtkpak0KgzKavhL6XK
-	M4FuljLRAXWgRqve7BAj7HEQDh6Wlvk73TfSvza3AXFT4U/31PW0dFOIzdc3dLnWh4u6ox46qTP
-	8hUgVnbOOJj1XMLePXsh6/3SUvdYjyjer1Km4jivzd/UJFVXxWIzgCJLLWZkPvr4yaG4CJX+S/p
-	6jPdfwKge11gz6+LYAoBr6Tu8tuvaDYmVqQ==
-X-Google-Smtp-Source: AGHT+IFD//RPz7ru1g21LutghSu3t+G8Yuhv3ZX4QuwTNEkZ18KvKr5lhdrA1j/AUPiBIQk/dzX11w==
-X-Received: by 2002:a05:6a00:853:b0:736:7270:4d18 with SMTP id d2e1a72fcca58-7480cf8b97amr7468180b3a.14.1749108041124;
-        Thu, 05 Jun 2025 00:20:41 -0700 (PDT)
-Received: from localhost (p4138183-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.129.206.183])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747afeab109sm12229223b3a.40.2025.06.05.00.20.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jun 2025 00:20:40 -0700 (PDT)
-Date: Thu, 05 Jun 2025 16:20:22 +0900 (JST)
-Message-Id: <20250605.162022.1856520286549134654.fujita.tomonori@gmail.com>
-To: miguel.ojeda.sandonis@gmail.com
-Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
- hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
- hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
- alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
- aliceryhl@google.com, tmgross@umich.edu, dakr@kernel.org
-Subject: Re: [PATCH v6 0/4] rust: Add bug/warn abstractions
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-In-Reply-To: <CANiq72=GXWj-aj1kPwnH=9mwR=GgrfJ4xsQUK36SFBRedk3oYg@mail.gmail.com>
-References: <20250502094537.231725-1-fujita.tomonori@gmail.com>
-	<CANiq72=GXWj-aj1kPwnH=9mwR=GgrfJ4xsQUK36SFBRedk3oYg@mail.gmail.com>
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=utf-8
-Content-Transfer-Encoding: base64
+        d=1e100.net; s=20230601; t=1749108802; x=1749713602;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UPXygViugK2qDdRyZqMS+7O5LAWGbwutgev5XJq8gb8=;
+        b=QZIDLcBvod94HrFxVHExvdqBf7EmXhA9Ixlby0nV8ZmZfKbUFqcgKG6VQJN3aj1dlg
+         xOlyF3aL3Q8PazNWsOD4HcAxYsXOI/GuAJlonbON7I6sTfPxJxO10I9LDrXfCpHYFLvN
+         gCDgWchB0mpAdY7uXFcroU/3ql+w1Cc1c/B8WxlK5Ek75sz5dyWP9RhkpMzm2KOkxhtC
+         cnocZ6jzj76f2vUuVw8BjZf3bIr1xN2oxkuKp0y5vQkudkpzbEiFYCultCeJDRJyIGE0
+         zhIEZgwBiNnLzT6x1UuaDk+Zxk+NIvVPeRgKCIq8jZaMAqgNcfQuo5w401eOOfuE+TwS
+         J30Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVBv91YDOOLcVp3/8oZI50MP6RXwXCyLFKnowtcBnXrTBx9rDAO7spoVNC9gkxUOWQc7ktabwNAXabc19dxjqTG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjG1fh4FlNwqgn+0pzyK47Q2yqoI7HfsFa4Ub78dacufvLozw1
+	hch3+5uHtOOXTWV+FTd127fTdeq4O4k3LGrSzHoRwlCZ+m+gIcLNE6nhNcJRuBlt
+X-Gm-Gg: ASbGnct6rHfqIgOD0XhIzTGy5iJYjXlobsrKk5f5cjyksFNyWHDbJKRzHi/sxQKQUsT
+	PymjEb1hrq2n64P4aVZgFA77YkZU7uMQiYEyk+3Rm44Nb4YtMKVU1kzGY9Xd8KizCeScN0+q0Jh
+	DXeNsUfCAkxgZxggjcFIR2Ql8JomaxaDuFwWyVzF+zH2ToPIcHlQIKgJm2mXz3pnUbO0+j9mJU7
+	jyzPE5TcD6SuNCUoNzXlpIY8V07DUB/6UP4Izi89Qq8QOsMPfK6Ywv1WnUuWdACJcOugH5K24M0
+	kL2DRwCA1mheSmoc5bEkx11pAlpzsjvevWoRUq3hBlSD+kL2fYoiYlkVgxCKLhANHv/FaruZFQP
+	pcIje4S31tGcTKw==
+X-Google-Smtp-Source: AGHT+IGjhQMjeUOYADvCsJEho44KIksvC8QsiPx+pFbGBxAgmT1okRczvgarKwghkmZfpQ/J4E5ovA==
+X-Received: by 2002:a05:6102:2acf:b0:4e5:9323:d2b9 with SMTP id ada2fe7eead31-4e746ce3628mr4953324137.2.1749108802252;
+        Thu, 05 Jun 2025 00:33:22 -0700 (PDT)
+Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com. [209.85.217.47])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-87eaf07ca07sm1242570241.0.2025.06.05.00.33.21
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Jun 2025 00:33:21 -0700 (PDT)
+Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-4e7374f2dc1so207528137.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 00:33:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUgNkAKqRunzwa3e+fJhe2yRaQP4h/gbeD45ZGlzIleu4ObgG3c92Xdf1lhgDhq0e3AQK59WLZC6jIjS7xWaoyf@lists.infradead.org
+X-Received: by 2002:a05:6102:1496:b0:4bc:82f:b4e0 with SMTP id
+ ada2fe7eead31-4e746e4976fmr4848002137.22.1749108801250; Thu, 05 Jun 2025
+ 00:33:21 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250530225504.55042-1-marek.vasut+renesas@mailbox.org>
+ <20250530225504.55042-3-marek.vasut+renesas@mailbox.org> <CAMuHMdUVYzaUyP=OUOST8SK66_BpubOh0WCXcaVWBy=RxBrquA@mail.gmail.com>
+ <egtsvxsfc5c2s4hrwucsqk3s5dv7xsi6ghrnf6jd3mvf3zvskb@z7hvehbd33t5>
+In-Reply-To: <egtsvxsfc5c2s4hrwucsqk3s5dv7xsi6ghrnf6jd3mvf3zvskb@z7hvehbd33t5>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 5 Jun 2025 09:33:08 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWEmGk0iE0vroGRWOwsK3+EFpbqzO-OH3aVDQTud3wVtQ@mail.gmail.com>
+X-Gm-Features: AX0GCFtG6IELptLOfKa-AavRTgQeGCljZvKI3BSZXgMtp-NgzVLc1G-6_2R8iug
+Message-ID: <CAMuHMdWEmGk0iE0vroGRWOwsK3+EFpbqzO-OH3aVDQTud3wVtQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: renesas: r8a779g3: Describe split PCIe
+ clock on V4H Sparrow Hawk
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-arm-kernel@lists.infradead.org, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Bjorn Helgaas <bhelgaas@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_002042_542626_EF8F6ECB 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250605_003328_707904_6FE2FA13 
+X-CRM114-Status: GOOD (  31.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,12 +102,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCA1IEp1biAyMDI1IDAzOjU2OjMxICswMjAwDQpNaWd1ZWwgT2plZGEgPG1pZ3VlbC5v
-amVkYS5zYW5kb25pc0BnbWFpbC5jb20+IHdyb3RlOg0KDQo+IE9uIEZyaSwgTWF5IDIsIDIwMjUg
-YXQgMTE6NDbigK9BTSBGVUpJVEEgVG9tb25vcmkNCj4gPGZ1aml0YS50b21vbm9yaUBnbWFpbC5j
-b20+IHdyb3RlOg0KPj4NCj4+IFRoaXMgcGF0Y2hzZXQgYWRkcyB3YXJuX29uIG1hY3JvIHdpdGgg
-dGhlIGJ1Zy93YXJuIGFic3RyYWN0aW9uIHRoYXQNCj4+IHV0aWxpemVzIHRoZSBrZXJuZWwncyBC
-VUcvV0FSTiBmZWF0dXJlIHZpYSBhc3NlbWJseS4NCj4gDQo+IFRoaXMgcGFzc2VkIG15IHVzdWFs
-IHRlc3RzIC0tIEkgd2lsbCB0YWtlIGEgYmV0dGVyIGxvb2sgYW5kIHBpY2sgaXQNCj4gZWFybHkg
-bmV4dCBjeWNsZS4NCg0KUGVyZmVjdCwgdGhhbmsgeW91IHNvIG11Y2ghDQoNCg==
+Hi Mani,
+
+On Wed, 4 Jun 2025 at 19:31, Manivannan Sadhasivam
+<manivannan.sadhasivam@linaro.org> wrote:
+> On Wed, Jun 04, 2025 at 11:24:17AM +0200, Geert Uytterhoeven wrote:
+> > On Sat, 31 May 2025 at 00:55, Marek Vasut
+> > <marek.vasut+renesas@mailbox.org> wrote:
+> > > The V4H Sparrow Hawk board supplies PCIe controller input clock and PCIe
+> > > bus clock from separate outputs of Renesas 9FGV0441 clock generator chip.
+> > > Describe this split bus configuration in the board DT. The topology looks
+> > > as follows:
+> > >
+> > >  ____________                    _____________
+> > > | R-Car PCIe |                  | PCIe device |
+> > > |            |                  |             |
+> > > |    PCIe RX<|==================|>PCIe TX     |
+> > > |    PCIe TX<|==================|>PCIe RX     |
+> > > |            |                  |             |
+> > > |   PCIe CLK<|======..  ..======|>PCIe CLK    |
+> > > '------------'      ||  ||      '-------------'
+> > >                     ||  ||
+> > >  ____________       ||  ||
+> > > |  9FGV0441  |      ||  ||
+> > > |            |      ||  ||
+> > > |   CLK DIF0<|======''  ||
+> > > |   CLK DIF1<|==========''
+> > > |   CLK DIF2<|
+> > > |   CLK DIF3<|
+> > > '------------'
+> > >
+> > > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> >
+> > Thanks for your patch!
+> >
+> > > V2: Use pciec0_rp/pciec1_rp phandles to refer to root port moved to core r8a779g0.dtsi
+> >
+> > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> >
+> > I understand this has a hard dependency on [PATCH v2 1/3] (and on
+> > enabling CONFIG_PCI_PWRCTRL_SLOT), so I cannot apply this before that
+> > patch is upstream?
+>
+> TBH, this patch is describing the binding properly. So even though the driver
+> change is necessary to make the device functional, I don't see it as a hard
+> dependency. But since people care about functionality, if both driver and DTS
+> changes go into the same release, it should be fine IMO.
+
+Applying the DTS change without the driver change would introduce a
+regression in my tree.  While the regression would be fixed in linux-next,
+it would still hurt bisectability.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
