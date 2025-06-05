@@ -4,86 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C838C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 14:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2619FC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 14:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b1Aw1oATIRI4U6r0tJJxa/pTsMT8z1zs/O7llSWlNeU=; b=dBFWRRVijtoS+n28S3tRS4CMOx
-	7pvJPpXh2+F+AyOkDPLK07/VrWpGI7cWWt8Z0yCh7oi5I1nSHH8anNYgWtUdAHg9V4iaK1tRot3/1
-	9BlB8S+j9S9zI8Fu6LGC8piSu/2KO1StydYMoh2zXBYaPDybRxO/Y6cboLlApnwJfasuBOB50YtAS
-	+Cp51SBKkaLFTStfOzsW++NQ1tp4DxUXpB+eo/wHccuJCZVaiLNGoPzWKQWajwqvn+1cGEtR0ZXn/
-	aXW+u65QqSZzv5JWVDDnPlGzlIZp2NIdJp8wgNYp+Uv4refxkSl1lGQq2I5Ey7T2x8UHfPfl68hUq
-	tJULr19w==;
+	bh=7zrUi5cv6WmvKUOvdEvSjyHa1HTgMZD5XZ5ETxtLdwo=; b=JDXfzkVzTVnXkMtJf7iNehItN5
+	jHXgmr8bb2jA1Whmos7jNJTsqocwMb5qswOcsFPRxxzxHCGsVloyNoIheByDMh/9DD2eO9Y3fEvy3
+	CGhu78N1Ifjr4m/rWeAWit8Uo3VOjE6/Radn5M0/0EgAHAbJro40PkU9Xvif+gZYO3rSeOF8mx2FC
+	d7JLNfAhtlciYolaPcVmwKQVFuQS6rkWMZoxbZrPIVON0MIX6gA4jH7VZeezJ9GCPElouoVlU2oAe
+	MGUVDGgm51XZmrdts18PdL1Euh3o6UM98WfNhMfBjoCGiPABeRudXDmBVFDbg/rlKmvlcrWdoD3ny
+	6XlR9FkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNBHE-0000000Fjgd-1zVK;
-	Thu, 05 Jun 2025 14:09:04 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1uNBJP-0000000FjrQ-08tk;
+	Thu, 05 Jun 2025 14:11:19 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNArn-0000000FgJN-3tky;
-	Thu, 05 Jun 2025 13:42:49 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4a4bb155eb1so10364681cf.1;
-        Thu, 05 Jun 2025 06:42:47 -0700 (PDT)
+	id 1uNAzV-0000000Fhbr-24P1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 13:50:46 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-451d54214adso8460975e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 06:50:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749130966; x=1749735766; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=b1Aw1oATIRI4U6r0tJJxa/pTsMT8z1zs/O7llSWlNeU=;
-        b=nTj0X2RhLDU7vnpfXjXQFlthSIDDh55r+tVVSU2PfFeTgtvMQ5FTumQ4+nhTMwEaGv
-         JZ4+8wCoxCvPjUXAbThxWARUfwJ9sOIFi8MKFSYooB3XuwhScX9N72o9ev6y0fHD4r9L
-         7zzr4/4Qp6IQ75ei5wclnjawL0is9sNS/KML4kZ1/SJpaNLYEDhIKFO01DatwIkiKjp3
-         fbGQv4I0rQCc1e7LWGrW496kur4TJGjPmZm50Pfsb+1DCP1m3E94tFRuXhGPDfNZKPH1
-         xGUOhZ+8hlmwqHyMEx4VmtIOh2XP/yGtFZoh9J5QCi4n6FqACwBcbVl4MnLGkLEHWZpR
-         K9Dg==
+        d=linaro.org; s=google; t=1749131443; x=1749736243; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7zrUi5cv6WmvKUOvdEvSjyHa1HTgMZD5XZ5ETxtLdwo=;
+        b=tP5XGdeu228SbOcAPqog+GOEjDfyN/BVLho4Ipg2ocnqCTvjCRBY4pXZmCIGhRersR
+         yZGHo7svcbOQVrZdtneD/eXtmcnBwC8AMijsAKiC3b+EBmM8/LPqegL++SQhROONsKiU
+         Z8L6GGKgFuJ4RtWdTr+1N2AeshOePbB6WhcZoQeDykyWkzQieCkVLaImxRyQId1U/oi3
+         pe7tiEXDtLbSnfNJmMjU+DQ+Q3VpmIhos4zanQ9FFhYMRJW2wvY4T5JmV4WhmmROv/Zz
+         lQtKUUjaOVA4ikF29ePq0q/MwQ+0z6tL1+gMiK/u6jRqfZ7GRaCFFrFd8507Opix12Lh
+         eFdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749130966; x=1749735766;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=b1Aw1oATIRI4U6r0tJJxa/pTsMT8z1zs/O7llSWlNeU=;
-        b=kRX0yYR/Toj96W6CYn6bTBimYeVOZw2Ip+lzZJE+jXo8ogDmmi7xIv67E6uvhOHQvS
-         2Xrji41DFrEZgLvCOd5SP/l3ODRFkijm5iPx/WWi14a+aZFXrySftxTwGuwx6f5BdtWZ
-         iUWkohldvHh3VfUv0XStLB4Vi7XKUrmEiGO7sSCpkpdEVBM5slxmcRhAvLVSNmY6qct3
-         ZwR84ltPc+x2co+jorHE24LC88CiL/mSa3quk66fmOMowJEQc6jcAlOOawBOu/ii/4wm
-         Bh4SIegnpPjZL0faFyOqFtoWGMhNoDz3zcU5Y4g/IW0fwvE1PFlq62AJDABul2GmjGlM
-         TTtw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGaDv5WJkQJx4dTjoAG8xuRgardE3KJrzVOwktD/95p4Ymqaq2Q3Hx3JSQEPgke9IRSHyMKOiYsgXqv6Gcy4ht@lists.infradead.org, AJvYcCUaoA5mqY5VyijEUO4GqUUFENFViwtsDWc5DlOJV9hO/Cxs5dGHMtdHlL7elikCeEGdlTUgby0keF9vcJpt8WU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOGEYH/zYGAZrpU6jFPIw8xEyKeuZUFNVCbQULJYOqXR3woBW+
-	4HHXphlGeqZOO8quCQzcHwZunhBHguLddcL2197hwoOlONu/4ZdaNMQerxVPhz0dvp9ynERh5hW
-	GxFl+4xVfr0hZrlPpmvORyQcRdpzoFSk=
-X-Gm-Gg: ASbGncvdNLMrD+ZAY2+KbXaI2XomDNRl+TuFx94QwESAHUMzJA9mEbagYiD3XvIADd/
-	4akqJazs0tfhmaZioXcidMiyVT/BsCCtFhD6n5s6gb10tyHzQDKzKNmFZCjIQ7pLZscI3tXCMnG
-	pFsWAMv7JdEiEXvgYIeee5KtmT8qAujp6QWq4IME9ISud2
-X-Google-Smtp-Source: AGHT+IG0MMWP+x7U8tsJQ6YRTMkTZzqpNjJO/whvvcK/0u3aHGtE8WDWz1uwITy8x/Dviq7md8X536qbBtEfOUabryE=
-X-Received: by 2002:a05:622a:8ca:b0:494:b2db:eeca with SMTP id
- d75a77b69052e-4a5a585f3ecmr94610721cf.26.1749130966422; Thu, 05 Jun 2025
- 06:42:46 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749131443; x=1749736243;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7zrUi5cv6WmvKUOvdEvSjyHa1HTgMZD5XZ5ETxtLdwo=;
+        b=veaqhXZfZO4mG7E+uIVk+T2Z88ayU3SBhfxtzm4UP7hlwPRNcRr79eehBdMC07UbFo
+         0os2RDG1hoyfbKbfu5ed0neF4BfxYc6QIlKXFAchUbyT2MjGvF2o7W1Y9/kvFC4z5Tjj
+         +GmsvAxGMcSk8+mkS8fpmeLRm9S8jtdkH5plL3cLp6+g5B6nhRGE8ylri92vKlFWN5Dl
+         +A9oWOjZ+6utdQKi8zcBOnkjzc9XGORmxLyujffs3DVoCf8itsx5mwIDER+R72qQznlr
+         x1himk1mKLt2VCOapnPKjGZa/JWPPUuI2wetU1/EunwXsiAAjPYTWnAIqNvmZrNlAqTp
+         1wnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/43laJlqNIF0hL20P4CF8pBTOMBfVkdZbiZ4P8BOegWm2uQ06+hHoXu0wn/P9XFCnFov6QIJ9u7PNAzep4Noy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyavpQ36eWRejzxkVb9+XHhWczDJeBkY7mvBme4WYCN12V4/4no
+	q+NB4B0NiggE5N2N9rnrGYdpm+gEH7NoSRm1skdsACerUWPLkGHHFmCMLuNaEMSkPzmYHXh9CFL
+	TUxevf+8=
+X-Gm-Gg: ASbGnctuNe3nm1kuoxLbn+0S74Nv1/8sWQ9ZAUEQMNdOe3Dl83CDC8cQCVbgJhoXcrh
+	puMasfITRGvZYYxgf8Tm6RwC6OYNtG3XAX1esekp3rzRIweeE1zm4uqW6N/EeLrwzaJPZAaAx53
+	uK3zobIN23uujU5gCcawlRreMc2f3F9k1eAE2ufo7A9+kS04ecFbiFvzSxIOADCbJQwe8hktxuX
+	8Z0vNxAsoct6DIP3KkbQUIA48pCYAyNdd/gdwalrPY4LkJp7lyg7ba9kXvksh/rq+UGcY1vGr1I
+	X9zSJHIiJRxxpgA2AWHghAooYzRKkp7qgfH1m1pte3SrZ87h7Uww/6SmP2ZAZzWHpcc=
+X-Google-Smtp-Source: AGHT+IFIIhKCcmom8mdp1AUShBH2bxfbvTwtYDQyJE1UCTRRyhAvqBGXgYyC2tfJmGHzzizRZVCtjQ==
+X-Received: by 2002:a05:600c:4446:b0:441:ac58:ead5 with SMTP id 5b1f17b1804b1-451f0b3e164mr76182145e9.31.1749131443334;
+        Thu, 05 Jun 2025 06:50:43 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a52a1993ebsm1756368f8f.93.2025.06.05.06.50.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Jun 2025 06:50:42 -0700 (PDT)
+Message-ID: <29c83380-6df4-4c92-a2ab-6af994afea04@linaro.org>
+Date: Thu, 5 Jun 2025 14:50:41 +0100
 MIME-Version: 1.0
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <20250603-sige5-updates-v1-1-717e8ce4ab77@gmail.com> <6656934.DvuYhMxLoT@workhorse>
- <CABjd4Yx05SCm+03jWbsEP-A5AuhL14wLj=+VdKyQgqMbnxi3xQ@mail.gmail.com> <512E950E-E8CB-443B-8E47-79F073D217E8@gmail.com>
-In-Reply-To: <512E950E-E8CB-443B-8E47-79F073D217E8@gmail.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 5 Jun 2025 17:42:38 +0400
-X-Gm-Features: AX0GCFsTzLQL93s6ofhHt9HSu3m-CxEmKHnPQLzRarGwazT_7OOgybpDR17U5os
-Message-ID: <CABjd4YxGQP=rH15EX12w36b7+82Dedf+rVH3v5V6gBwNv3V3iw@mail.gmail.com>
-Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
-To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 00/11] CoreSight: Refactor CPU PM and hotplug
+To: Leo Yan <leo.yan@arm.com>
+References: <20250516160742.1200904-1-leo.yan@arm.com>
+Content-Language: en-US
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, Yabin Cui <yabinc@google.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250516160742.1200904-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_064247_972035_F37F11E6 
-X-CRM114-Status: GOOD (  34.89  )
+X-CRM114-CacheID: sfid-20250605_065045_544021_487ED791 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,113 +101,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 5, 2025 at 5:22=E2=80=AFPM Piotr Oniszczuk
-<piotr.oniszczuk@gmail.com> wrote:
->
->
->
-> > Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alchark@gmail.com> w=
- dniu 4 cze 2025, o godz. 21:12:
-> >
-> > On Wed, Jun 4, 2025 at 10:38=E2=80=AFPM Nicolas Frattaroli
-> > <nicolas.frattaroli@collabora.com> wrote:
-> >>
-> >>
-> >
-> > Frequencies are fine, but I don't think the more power hungry big CPU
-> > cluster gets any voltage scaling without it. Once I try to load the
-> > system enough that the governor decides to bump the big cluster
-> > frequency up, the regulator stays at 850000 microvolts, causing random
-> > reboots when the whole cluster starts starving. With the patch,
-> > voltage oscillates between 700000-737000 microvolts in idle and jumps
-> > up to 950000 under load, and the system seems stable.
-> >
-> > Here's what I used to monitor the voltage (there must be a better way
-> > to do it, but it works):
-> > sige5 ~ # watch cat `grep -r . /sys/class/regulator/*/name | grep
-> > vdd_cpu_big_s0 | sed -e 's/name.*//'`/microvolts
-> >
-> > And in another terminal:
-> > sige5 ~ # stress-ng -c8
->
-> Alexey,
-> I see you are using rk3576 board like me (nanopi-m5)
-> Have you on your board correctly working cpu dvfs?
-> I mean: [1][desired clocks reported by kernel sysfs are in pair with [2[]=
-cur clocks?
-> In my case i see mine cpu lives totally on it=E2=80=99s own with dvfs:
 
-Hi Piotr,
 
-I haven't tried to validate actual running frequencies vs. requested
-frequencies, but subjective performance and power consumption seem to
-be in line with what I expect.
+On 16/05/2025 5:07 pm, Leo Yan wrote:
+> Besides managing tracers (ETM) in CPU PM and hotplug flows, the
+> CoreSight framework is found the issues below:
+> 
+> Firstly, on some hardware platforms, CoreSight links (e.g., funnels and
+> replicators, etc) reside in a cluster power domain.  If the cluster is
+> powered off, the link components also will lose their context.  In this
+> case, Arm CoreSight drivers report errors when detect unpaired self-host
+> claim tags.
+> 
+> Secondly, if a path has been activated from per CPU's tracer (ETM) to
+> links and a sink in Sysfs mode, then when the CPU is hot-plugged off,
+> only the associated ETM will be disabled.  Afterwards, the links and the
+> sink always keep on and no chance to be disabled.
+> 
+> The last issue was reported by Yabin Cui (Google) that the TRBE driver
+> misses to save and restore context during CPU low power states.  As a
+> result, it may cause hardware lockup issue on some devices.
+> 
+> To resolve the power management issues, this series extends CPU power
+> management to cover the entire activated path, including links and
+> sinks.  It moves CPU PM and hotplug notifiers from the ETMv4 driver to
+> the CoreSight core layer.  The core layer has sufficient info to
+> maintain activated paths and can traverse the entire path to manipulate
+> CoreSight modules accordingly.
+> 
+> Patch 01 is to fix a bug in ETMv4 save and restore callbacks.
+> 
+> Patches 02 ~ 06 move CPU PM code from ETMv4 driver to the core layer, and
+> extends to maintain activated paths and control links.
+> 
+> Patches 07 and 08 support save and restore context for per-CPU sink
+> (TRBE).  Note, for avoid long latency, system level's sinks in an
+> activated path are not touched during CPU suspend and resume.
+> 
+> Patches 09 ~ 11 move CPU hotplug notifier from ETMv4 driver to the core
+> layer.  The entire path will be controlled if the corresponding CPU is
+> hot-plugged on or off.
+> 
+> This series has been verified on Hikey960 for CPUIdle and hotplug.  And
+> it is tested on FVP for verifying TRBE with idle states.
+> 
+> 
 
-Big thing to note here is that on Rockchip the kernel does not really
-set the CPU frequency directly. It only issues an SCMI request to the
-ATF firmware with the desired target frequency and provides sufficient
-voltage via the supply regulator as defined by the respective OPP.
+Hi Leo,
 
-What the ATF firmware (running on a dedicated MCU completely separate
-from the OS) then does is it takes the desired target frequency,
-matches it to a loop length for the PVTPLL block via an internal
-lookup table, and PVTPLL then determines the stable frequency that
-this particular chip specimen can run at with the provided loop length
-and voltage. This frequency then gets applied to the hardware via the
-CRU - and as you can imagine, it can well differ from what the kernel
-was requesting via SCMI.
+I ran this stress test on Juno by enabling and disabling concurrently 
+with no sleeps:
 
-> Requested is [1]
-> Running is [2]
-> Measured is [3]
->
-> random read 1:
-> Requested CPU4: 408 MHz
-> Requested CPU0: 408 MHz
-> Running CPU4: 1800 MHz
-> Running CPU0: 1416 MHz
-> Measured on HW: 1579.03 MHz
+   # echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+   # while true; do \
+         echo 0 > /sys/devices/system/cpu/cpu2/online; \
+         echo 1 > /sys/devices/system/cpu/cpu2/online; \
+         done &
 
-Hmm, have you tried pinning a particular frequency on each of the
-clusters, so that the governor doesn't change it while you are going
-from the point where you read the "requested" frequency to "running"
-and "measured"? Also I think it would be a good idea to "taskset" the
-measuring thread to particular CPU cores - otherwise I'm not sure what
-it shows when the scheduler can bounce the process between cores as it
-pleases it.
+   # while true; do \
+         echo 1 > /sys/bus/coresight/devices/etm2/enable_source; \
+         echo 0 > /sys/bus/coresight/devices/etm2/enable_source; \
+         done &
 
-> random read 2:
-> Requested CPU4: 1608 MHz
-> Requested CPU0: 408 MHz
-> Running CPU4: 2016 MHz
-> Running CPU0: 1800 MHz
-> Measured on HW: 410.33 MHz
->
-> random read 3:
-> Requested CPU4: 600 MHz
-> Requested CPU0: 1800 MHz
-> Running CPU4: 816 MHz
-> Running CPU0: 1008 MHz
-> Measured on HW: 2275.07 MHz
->
-> random read 4:
-> Requested CPU4: 1608 MHz
-> Requested CPU0: 1200 MHz
-> Running CPU4: 816 MHz
-> Running CPU0: 816 MHz
-> Measured on HW: 2114.58 MHz
->
-> this is on rk3576
-> on i.e allwinner h618 or rk3588 all looks quite normal - [1] and [2] are =
-equal...
+I get lots of these:
 
-Are these taken on the mainline kernel or Rockchip one? Binary BL31
-from Rockchip or opensource TF-A? With big-core CPUs linked up to
-their supply regulator (as per this patch) or without?
+   coresight tmc_etr0: timeout while waiting for TMC to be Ready
+   coresight tmc_etr0: Failed to enable : TMC not ready
 
-Can't see why the behavior would differ vs. RK3588 though, unless
-there are some bugs somewhere.
+And then even after disabling the source and sink the Perf tests don't 
+pass anymore:
 
-Best regards,
-Alexey
+   # perf test -F -vvv "arm coresight trace"
+   --- start ---
+   Recording trace (only user mode) with path: CPU0 => tmc_etf0
+   Looking at perf.data file for dumping branch samples:
+   CoreSight path testing (CPU0 -> tmc_etf0): FAIL
+
+I suppose it's possible this isn't entirely related to your changes, and 
+I know we've seen some of those timeout issues before. But it's probably 
+worth investigating.
+
+Thanks
+James
+
 
