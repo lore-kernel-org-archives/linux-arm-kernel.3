@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2149EC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD05FC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/jHbf1z3/GwHh0dqw8iaphItBx/HLohsmLRkiqAGrw=; b=ZAsa4nLEYCx8aaNnw5YJ0YdQ9W
-	RuQ2e0ymFA3Uo+sT+fdWtMvasTDaRCHnxBBjnp1rxWnTuUVqUwAnquzqhZQhn7kKJfzeTdsO5DVdN
-	TNv829R3BU3WKbth8l0xJYGe//uKqIqR7wXl7Fnvhbfp1SjodUAQQzZOSLQjcPc5+twNCNk2yWzqR
-	yclcE5QNJoL2CK2TRM3mgFBstH1Ejk36J4m6wqBur2UwnFI5JT0yIbGro/b12XfCdx3W7yeo4ZTZC
-	qMy9Sx+yPYMst82P86SSb8wdBbh4jo+nUdIa1vbMol4PVQ8wutM+4nyKz0pC0nkwvqXx+9/qNOArG
-	r4eVWFjQ==;
+	bh=LxXez72tmox59Cq75Oo66zXwfJ67mOMcPg20hwp9f4M=; b=rCPeoFWOXk4eGMdZW3+eslREAz
+	CJEYFSZLzO918h9oFMjZ2WSiW7Zns2Kp0Jx8EVu/nilwp80+MUx6jKQXAPikY54v7uh+5CrX39zFG
+	ngHrXcC0vez00n3SVpiAuWPJKoTCrkiVMupldju1JYwXfg5S6pmjkoldIAFd9Alj3dpqKud993kQm
+	YhbIwyuBJd4Ns4upBh1oNcU6BwhtDFKFk7XHgrtJ12A0ufzEbDUI1krFsOInYVZYv5Jytpl7Uitxq
+	pQ47yKwK1+AV5BIKAHUZEKXlMjwoHTCV8Ua5kmvlHcWRzkInq47GrOS8rFWHlYhOBpOXwZkHxSd3F
+	Txl+4HQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAc2-0000000FdCe-0UVE;
-	Thu, 05 Jun 2025 13:26:30 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1uNAeB-0000000Fdjk-3koa;
+	Thu, 05 Jun 2025 13:28:43 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNARm-0000000Faps-0s05
+	id 1uNASd-0000000Fb4s-2U5H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 13:15:55 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-54acc0cd458so1081839e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 06:15:53 -0700 (PDT)
+	Thu, 05 Jun 2025 13:16:48 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5533303070cso1083072e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 06:16:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749129352; x=1749734152; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749129406; x=1749734206; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=H/jHbf1z3/GwHh0dqw8iaphItBx/HLohsmLRkiqAGrw=;
-        b=lvqKx/HtgKTIkvuY7BzArpX4JshYdZWTGQMH2MrZ30XbFmeMALSxtdrAhnc/vZrXh6
-         y6NIBM8JX3U5w25GodNnMMDsSU3ZjjJIURrzNlPPXr/lEOhsW6VcO6n/5TuyEAedxIna
-         kU7+b2V86hq/WKYQ09m3YO898Gc+HYVBPHHcqDfocJvE+P1stSS2P5TVWFqyK+L+VvvX
-         xeC3+ZTwBq+IJXz8Mf1236ElOyeFxubYS2F7EOCSKRKEujPuPEfHe4QRhvJp1Ku/fziw
-         EW44XbmvYuKD9dDMK9ms+0GQp3pJ6tKOWeFVO0/VLfZvVRVoHffM6ELTAoxAWqcUN2ke
-         5rLQ==
+        bh=LxXez72tmox59Cq75Oo66zXwfJ67mOMcPg20hwp9f4M=;
+        b=EYtlRZJS6FK2oZNO5Ix5wwTkeQJT6SEZ8SoQ7+uOtPQP5qAxH6Csf/YdoWrp7ef/H1
+         uB7iDJttGUTcuYrWRGZDsQwoURcTIxjeU0MwXSqfvWb8kmuZAnjL9cFyOZQBXVOIHr+f
+         GDAhno85WizrQxTXwKIKqK7mw3KzIqr1vkMZiLnEkreWeFDWdOpjDHseGYaWbqE9rA5v
+         Gu08K7GGRLq1mp4G9e81ts3mxz1DsQNWxHneb3Aq2+hMovIZ9Vb5sR3IDl8gfifcZUIV
+         lxPcUP/uZ7SaWKt0p6qMCkRIdKesUCcPnMuO4hIpxMGFy8q+ytlAI5Eq/sv1QK1grv1P
+         aI2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749129352; x=1749734152;
+        d=1e100.net; s=20230601; t=1749129406; x=1749734206;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=H/jHbf1z3/GwHh0dqw8iaphItBx/HLohsmLRkiqAGrw=;
-        b=jIdFNZWBVaXPBDCU/pT6mVMAyMlh2LALZGc8+suj1VmLtGSwFG8Fe9bsJfNE3jvnp6
-         tkPfUzPfrOagaWPaTedVMAwBtKEHp1w4dYPpKRsPSo160g8bC/hxqM/D0HYORJZ2LBjt
-         feddIZmkMnouFfMVgGcSdL0NrwBPCQaAcwe1/qS5vaUighJMmXFCrUishCGPCdeamjus
-         IbUSD4ctCT8d9XMt1tH0JXcAdrtIyhzzNRPVCapq8H/0GLUZ/sztLBMApgOVt+DWIvkU
-         yJcCXK3MHLQI7TFXUaWE62ra90zhO9CO9z0gqslrPULyAIQC/52waTaJo2DAaHAxDDH9
-         AwAw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwx9CsGEz2Fv7jlMWTeC/8J+elevVr8L7L/4+KAaNs8BS5RyeCedmZIfpqaxJqNZBqQNQvM6Q6Jn1jC52rEufd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3FVp+pvEK9GJ0aeo6EQ5nAfz0nclzMVl9mLBRWRkFldkksXJj
-	qV0+nIrXPnVkD57DXJnP8svAkZ7wGesVziXgLrZOBJUoGasVfUmGYUdTs6JwKjFuR30UBeTE7vJ
-	BtS5kB1bwr9XLoYLcqtTNiPQhS5Zn9cgdDSO1QUIPzw==
-X-Gm-Gg: ASbGncvEdEJ3oeUGWKhneYPa6MEphvI2RWx9behrMfzm+TePt3mPTgTfNjbY6nzoP1E
-	NLnR6k0Ie4kq1+JzJkLkNN+rC0A3HJqPpxkJt0gSCJj+eaPx8863iN8SdYVexDbBpnlXI1xpzzN
-	T0XmCLvGZSpju0b3rYsttshACx2DCx0HH7
-X-Google-Smtp-Source: AGHT+IEtw+KFs74hmFMtpGQr1aKa935b0NpsGGWQpNnG5XrBRWdWQpRB3tC7HlaBnfp0RMDHb822Vw1dn34eoThSi1s=
-X-Received: by 2002:a05:6512:3d9e:b0:553:2eff:8d74 with SMTP id
- 2adb3069b0e04-55356c04ba8mr1984451e87.42.1749129352237; Thu, 05 Jun 2025
- 06:15:52 -0700 (PDT)
+        bh=LxXez72tmox59Cq75Oo66zXwfJ67mOMcPg20hwp9f4M=;
+        b=Yy9jX0iNEhRGUIybFARigMOEyUXwDxTAb9owS1/mf8jfTOo7bjmP1WwMASJ4jEFpd+
+         dBHltDvfIghXIx7H/fy+RvaReq0k+W4sLQj4KuafOdKd/mkH/qWfi9iIpXLO17l1qJg9
+         dKHOQdkd0mvYB1etDWVHVKHYOaagoAl61syl04LS2pshVQvOgnOZOiUcmTKJX3+GMbA7
+         s89H86NCk7haxNg6nXV+R2SUBor87Dm3n0RMr+Teu0N1g/s30VEjXUE8QHu/BF/VVYLU
+         GU5bDqXDAxLAYywByAJbjq1ev8eqwz9OhUbJCmgd/wCfGfQkeYrxex4s1WbKa7Qk4NKE
+         UtmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXOhV4MYBpFgaJMLpF0TDlcoOz9gv/DW/6XViiw7vOw+4L07uvLaV1XdwqCRU9kffe9JgzzycHBsB9DjhGJQE4Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKGFoBKaa/1Ji5FkCPtxQRatShvwWixxvhcZfq969qWWkQ+KjG
+	6mneP3oX+IXNqLC4q0csPa2rER0NkzKBihYqk6SGFtN5poQQqrlv1ypwz4fm9SyeoB1gmTazQOr
+	w9y9xF6ETBUQOfx/pALcj4kly2oL+zl7+u3HtYYBaFw==
+X-Gm-Gg: ASbGncswO51xxiU6A5iso0C1shIeY5eViJ7raqHg75YBRGwfaW0em4hqu6U/IrrDOVY
+	NdGlU0hN7YBYWvpzHdsegZCsEghzmNLVNV8HJJIy4fgWXzF8RdUjI9d/N3R6QZQjlcpQzXRiBTF
+	LdHdjPUJ4l9T3CkYPCWCBCOapO8avaoDdvA0p34mPL2vZQj/t85YcaSXeeYDMbOVg=
+X-Google-Smtp-Source: AGHT+IG1FLIfsa6ezMp3MccDVHC5XAJOHj0QyInfJVqCTEun1SDxwdcWFvKFJCuA2PNkGlpvqJmb88wRcDaLGqLLsh0=
+X-Received: by 2002:a05:6512:10ce:b0:553:37e7:867c with SMTP id
+ 2adb3069b0e04-55356df2a9emr2071437e87.50.1749129405586; Thu, 05 Jun 2025
+ 06:16:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250528092201.52132-2-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250528092201.52132-2-krzysztof.kozlowski@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 5 Jun 2025 15:15:40 +0200
-X-Gm-Features: AX0GCFuNPPFv5Vg_JE6Z7nHnr_dSwu-FURjQf4TaIcbuLPNkU0UKRo1LK_MzVe8
-Message-ID: <CACRpkdand3H_XzUk_hSXxstPhbdfxd-hUP-nZUcEe_Qa0D5j7A@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: st: Drop unused st_gpio_bank() function
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>, Srinivas Kandagatla <srini@kernel.org>, 
-	Mark Brown <broonie@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com> <CACRpkdZ2NUfcn7O7tKSFDyAr8Hni3pvpTN6QpOz7N3J+EsFdLg@mail.gmail.com>
+In-Reply-To: <CACRpkdZ2NUfcn7O7tKSFDyAr8Hni3pvpTN6QpOz7N3J+EsFdLg@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Thu, 5 Jun 2025 15:16:34 +0200
+X-Gm-Features: AX0GCFt62eNdDo8nSZ5fnuh_lgkPFAVa1oZqnviWb6rgA9ggBUhsLTEWXYkHUBU
+Message-ID: <CAMRc=Mddp=rmogziQ2XrzsO-TiRh9A5U3v8UxJqz_so1otPMLw@mail.gmail.com>
+Subject: Re: [PATCH v4 0/9] Introduce HDP support for STM32MP platforms
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_061554_245323_A7A5391F 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250605_061647_736044_2632941E 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,19 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 11:22=E2=80=AFAM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-
-> Static inline st_gpio_bank() function is not referenced:
+On Thu, Jun 5, 2025 at 3:04=E2=80=AFPM Linus Walleij <linus.walleij@linaro.=
+org> wrote:
 >
->   pinctrl-st.c:377:19: error: unused function 'st_gpio_bank' [-Werror,-Wu=
-nused-function]
+> On Wed, May 28, 2025 at 3:33=E2=80=AFPM Cl=C3=A9ment Le Goffic
+> <clement.legoffic@foss.st.com> wrote:
 >
-> Fixes: 701016c0cba5 ("pinctrl: st: Add pinctrl and pinconf support.")
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > Cl=C3=A9ment Le Goffic (9):
+> >       gpio: mmio: add BGPIOF_NO_INPUT flag for GPO gpiochip
+> >       dt-bindings: pinctrl: stm32: Introduce HDP
+> >       pinctrl: stm32: Introduce HDP driver
+> >       MAINTAINERS: add Cl=C3=A9ment Le Goffic as STM32 HDP maintainer
+>
+> Can I apply the driver and bindings patches 1-4 separately
+> from the rest of the series?
+>
+> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp13
+> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp15
+> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp25
+> >       ARM: dts: stm32: add alternate pinmux for HDP pin and add HDP pin=
+ctrl node
+> >       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp157c-dk2=
+ board
+>
+> Or does it need to be merged along with these?
+>
 
-Patch applied for fixes!
+Would you mind me taking patch 1/9 through the GPIO tree as I'll have
+some gpio-mmio rework going on next cycle? I will then send you an
+immutable tag to pull.
 
-Yours,
-Linus Walleij
+Bartosz
 
