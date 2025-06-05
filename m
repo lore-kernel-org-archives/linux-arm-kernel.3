@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24B1C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 01:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C92C5B555
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 02:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hxHhCDDPHxwIzDJ0REZ0X+PrkWb9cpY+n8pdJBmfk4E=; b=CsY2Widn/jTYdjRQ59O8L4iutd
-	Q7/3ysg0vbtZQ3RxPZO+nbqYunMYaWe0hzp+9FBo4+6KhllsrccKhRzNdL7M+P3v+8MuUV9wAxMRr
-	y+GaftqhCHf7FfPlqIzo26PkrbzbSUTf2367V6jYtSrr/YFQlV0srOGKycjqHzMCoBpy4gseZooOx
-	JC23oG26jdKetXhdVRyn5F2Zza6Zo6K0uQ/4FQWB5q2sbMIkATrzWL8g4UuWJVmdyB5Iaf39InPeN
-	ZfhBAkUVp9JEFFMTl9KMs51FtI/xhFAu0SIt8Qvahi3tOpS5uV8FHQz+AbzDd3yU2dSN0RvTH2ANC
-	w8GMgbIw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uglp5nAw/99VUT2HSyEXwee1qOylSsGriNYEmpzYBh4=; b=ORSF49ZRMmfz0jkGCHrYhp4Oqk
+	iLm2PYK/HzL17CZe9qcqhnSR4esdKtElH06JODxBhi1uJPwZLf5Ok9mETChNbSq9eCfmjBo2WrNhF
+	OMwycZdRwjXBxaQeuRmUODXJhThCuDVDHokVvQUgWlsPZG22zGellSwaOd/S7hnlTnU/DHlfqx3q/
+	VK7mMeflPhIzj20+YTRPpJl1rRQbhIoEQowZW/P8QbL2dRnoaGlwDMJcLxlUMXVPp7I/s/+UE1z4a
+	dWwMkTnUeKR05HOOXFHq6RP36Rr6QWc5D1NncO6iHiiiONY6t+Z9IgKsYmNrwuTaIF5TTSHGYlWim
+	QQIHr8KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMzsf-0000000EYAp-2LWm;
-	Thu, 05 Jun 2025 01:58:57 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1uMzuk-0000000EYU0-2TeY;
+	Thu, 05 Jun 2025 02:01:06 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMzqX-0000000EXvQ-3ZTZ;
-	Thu, 05 Jun 2025 01:56:46 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-311f6be42f1so74524a91.0;
-        Wed, 04 Jun 2025 18:56:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749088604; x=1749693404; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hxHhCDDPHxwIzDJ0REZ0X+PrkWb9cpY+n8pdJBmfk4E=;
-        b=ahi+1UnHvx17nV6SOQEVLhk9cTpV1B7u7khNG1wsTpYLpK53nm38VamZTX2uS0Wo3m
-         NUtZkQdL88eO6t1bnD6LC2tHzhAEPDfQ1YmmnTdGwdPFSFSf3AfKYSsrU+GOldbhXbl3
-         zoX4ynMbJ07OE8DMbz2waYmgcQ1ynGWGRvRE15DEpgMsMvMb+NoMiVWQcoWEb4f8GMhF
-         Uki6xu/5wDZl5Zjf7G7L6bK00+BG2oHaUdQs59gfa18WXeKcHhnbCWCLuteGSdGyxela
-         4V+l0WGc0BN+iMod5qo4ZpJPTJkg85qIwfUOmuADdF5a/S/xqmBqBSOwQM6cb9iVpeti
-         pMoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749088604; x=1749693404;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hxHhCDDPHxwIzDJ0REZ0X+PrkWb9cpY+n8pdJBmfk4E=;
-        b=E5skNQ0nOz7zcrELMV1+opzDl4b9LoCE3pbnJVq767XcZ17SmUZumzyHZ5u65k8nNL
-         P6WjzddNVfZs2JUQa6TQZDHHFFCfYcdlrBfYyNyMMI+2YofJE8zdSePr6RnYQj6AOIIn
-         7X5uPX+pHjRRqt2hiUTkeEYHBUofiSJJChU5s8EajoFMe705O6J1UAYU6LNQxYKqiPa7
-         XuviaJywvy5W+3aSYu0WPmy4orDbdpI9yqTZL58yGSs9DcRchl/XbbH+LBnKLnMsbKAS
-         9WueGRom9/EmvSKDzjuaBJyBFtcaVeppE5Iqf3Qfju4l62dQwBnhP5yLeaMCJkTJFxuM
-         9iYw==
-X-Forwarded-Encrypted: i=1; AJvYcCU60sbU7FLS9aZlEh0hf0clyMEFP99k0kQF8Ph+rBwwtj7VVsDltDGBMDgIdWsHQ/QFp8u+xZUD7Yk93i8tALFl@lists.infradead.org, AJvYcCWA2XCNwY+Mg4wTXMEDXIhC3fEtnmxLsr5nPV5LrzLqT8ugYMCzbZLxUeImTvX9CCic/FJv7nff3jEALGw=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfxIV51ehq12ri296pnT42R4j7zTm28qWFiJRlWGUBHfn11tPZ
-	R4FHSpbu5GfVNb5THLIXJM/USuqt/BL8VRPdZLwMjuVxuUKOXEPKOaaYM/4l9FOq109A6diEAMl
-	w+fyIna56dVlj92kwXPkvmc7PFu/BifE=
-X-Gm-Gg: ASbGncuUKOEFkfEUk3KjJgjk8SULNBkWGC69jm+EOpZnvnUxSkOxJiu0aELlOGl5G+q
-	/l+C9nlplSHo5YYS+LJjw2jF+Y2jEfvTfJ96CIYImNpI+ujeZL5u3VcEaGjnGuEXYeGhCWpDnca
-	xrswDGDtYpN9DHswDBLRhsqP9mF4y1EztY
-X-Google-Smtp-Source: AGHT+IFHh37ON8OdKdzVBBFcxedCAlOOwXK4V/iC1EPOOjVJZxdYBvuNOsHpf8VVt21G19e5ASyjwRRmZcF7LJTAmMs=
-X-Received: by 2002:a17:90b:48c6:b0:30a:80bc:ad4 with SMTP id
- 98e67ed59e1d1-3130cabf1f7mr2575310a91.0.1749088604483; Wed, 04 Jun 2025
- 18:56:44 -0700 (PDT)
+	id 1uMzrs-0000000EY3l-3BXf;
+	Thu, 05 Jun 2025 01:58:10 +0000
+X-UUID: 7f6d354041b011f0b29709d653e92f7d-20250605
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:fd0b5c91-f519-4ec9-892f-9d599c009841,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:6493067,CLOUDID:fdcaecf91da6615da2a4ee37ccdfa291,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|52,EDM:
+	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 7f6d354041b011f0b29709d653e92f7d-20250605
+Received: from node4.com.cn [(10.44.16.170)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA)
+	with ESMTP id 1383227863; Thu, 05 Jun 2025 09:57:55 +0800
+Received: from node4.com.cn (localhost [127.0.0.1])
+	by node4.com.cn (NSMail) with SMTP id 729B216001A00;
+	Thu,  5 Jun 2025 09:57:55 +0800 (CST)
+X-ns-mid: postfix-6840F9A3-383599263
+Received: from [10.42.13.56] (unknown [10.42.13.56])
+	by node4.com.cn (NSMail) with ESMTPA id 08FBB16001CC7;
+	Thu,  5 Jun 2025 01:57:54 +0000 (UTC)
+Message-ID: <3f668462-ac5f-49fa-bd9d-140d32fc9627@kylinos.cn>
+Date: Thu, 5 Jun 2025 09:57:54 +0800
 MIME-Version: 1.0
-References: <20250502094537.231725-1-fujita.tomonori@gmail.com>
-In-Reply-To: <20250502094537.231725-1-fujita.tomonori@gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 5 Jun 2025 03:56:31 +0200
-X-Gm-Features: AX0GCFugcCm505NwwgN-68q9ZVnBp5bIOw8-paPBHPB9oCMtC5Zudgwp1svRBNU
-Message-ID: <CANiq72=GXWj-aj1kPwnH=9mwR=GgrfJ4xsQUK36SFBRedk3oYg@mail.gmail.com>
-Subject: Re: [PATCH v6 0/4] rust: Add bug/warn abstractions
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	x86@kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org, 
-	kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn, 
-	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com, 
-	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
-	benno.lossin@proton.me, a.hindborg@kernel.org, aliceryhl@google.com, 
-	tmgross@umich.edu, dakr@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] ASOC: rochchip: Simplify the condition logic in
+ rockchip_sai_xfer_stop
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1749006565.git.xiaopei01@kylinos.cn>
+ <81c7955216f5cc7565a396e50e5474ec8f6e3017.1749006565.git.xiaopei01@kylinos.cn>
+ <5104592.0VBMTVartN@workhorse>
+From: Pei Xiao <xiaopei01@kylinos.cn>
+In-Reply-To: <5104592.0VBMTVartN@workhorse>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_185645_891157_DEA1CC87 
-X-CRM114-Status: UNSURE (   6.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250604_185809_101253_EAA5CADD 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,15 +83,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 2, 2025 at 11:46=E2=80=AFAM FUJITA Tomonori
-<fujita.tomonori@gmail.com> wrote:
+
+=E5=9C=A8 2025/6/5 01:23, Nicolas Frattaroli =E5=86=99=E9=81=93:
+> On Wednesday, 4 June 2025 05:13:29 Central European Summer Time Pei Xia=
+o wrote:
+>> cocci warning:
+>> ./sound/soc/rockchip/rockchip_sai.c:387:8-10:
+>> 	WARNING: possible condition with no effect (if =3D=3D else)
+>>
+>> Simplify the condition logic in rockchip_sai_xfer_stop() by removing t=
+he
+>> redundant SNDRV_PCM_STREAM_PLAYBACK branch. The modified logic now:
+>> 1. For stream < 0: handles both playback and capture
+>> 2. For all other cases (both PLAYBACK and CAPTURE):
+>>    sets playback =3D true and capture =3D false
+>>
+>> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+>> ---
+>>  sound/soc/rockchip/rockchip_sai.c | 3 ---
+>>  1 file changed, 3 deletions(-)
+>>
+>> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/ro=
+ckchip_sai.c
+>> index 602f1ddfad00..79b04770da1c 100644
+>> --- a/sound/soc/rockchip/rockchip_sai.c
+>> +++ b/sound/soc/rockchip/rockchip_sai.c
+>> @@ -384,9 +384,6 @@ static void rockchip_sai_xfer_stop(struct rk_sai_d=
+ev *sai, int stream)
+>>  	if (stream < 0) {
+>>  		playback =3D true;
+>>  		capture =3D true;
+>> -	} else if (stream =3D=3D SNDRV_PCM_STREAM_PLAYBACK) {
+>> -		playback =3D true;
+>> -		capture =3D false;
+>>  	} else {
+>>  		playback =3D true;
+>>  		capture =3D false;
+>>
+> You can probably get rid of the locals playback and capture altogether:
 >
-> This patchset adds warn_on macro with the bug/warn abstraction that
-> utilizes the kernel's BUG/WARN feature via assembly.
+>     static void rockchip_sai_xfer_stop(struct rk_sai_dev *sai, int stre=
+am)
+>     {
+>         unsigned int msk, val, clr;
+>
+>         msk =3D SAI_XFER_TXS_MASK;
+>         val =3D SAI_XFER_TXS_DIS;
+>         clr =3D SAI_CLR_TXC;
+>        =20
+>         if (stream < 0) {
+>             msk |=3D SAI_XFER_RXS_MASK;
+>             val |=3D SAI_XFER_RXS_DIS;
+>             clr |=3D SAI_CLR_RXC;
+>         }
+>
+>         regmap_update_bits(sai->regmap, SAI_XFER, msk, val);
+>         rockchip_sai_poll_stream_idle(sai, true, stream < 0);
+>
+>         rockchip_sai_clear(sai, clr);
+>     }
+>
+> but this in general makes me suspicious of the intent of the code in
+> the first place. Playback always being true and capture only being
+> true if playback is also true seems odd. Checking the callsites of
 
-This passed my usual tests -- I will take a better look and pick it
-early next cycle.
+Yes,it's very odd to me too.So I send this patch to ask for your advice.
 
-Cheers,
-Miguel
+> this function confirms my suspicions that while this fixes the cocci
+> warning, it just means the code is now intentionally broken.
+>
+> This here may be closer to the original intent:
+>
+>     static void rockchip_sai_xfer_stop(struct rk_sai_dev *sai, int stre=
+am)
+>     {
+>             unsigned int msk =3D 0, val =3D 0, clr =3D 0;
+>             bool capture =3D stream =3D=3D SNDRV_PCM_STREAM_CAPTURE || =
+stream < 0;
+>             /* could be <=3D 0 but we don't want to depend on enum valu=
+es */
+>             bool playback =3D stream =3D=3D SNDRV_PCM_STREAM_PLAYBACK |=
+| stream < 0;
+
+
+bool invalid =3D=C2=A0 stream < 0;=C2=A0
+
+bool capture =3D=C2=A0 stream =3D=3D SNDRV_PCM_STREAM_CAPTURE || invalid;=
+=C2=A0
+
+bool playback =3D stream =3D=3D SNDRV_PCM_STREAM_PLAYBACK || invalid;
+
+Would this modification be acceptable?=C2=A0
+
+It could shorten each line since the stream value only needs to be evalua=
+ted once.
+
+>             if (playback) {
+>                     msk |=3D SAI_XFER_TXS_MASK;
+>                     val |=3D SAI_XFER_TXS_DIS;
+>                     clr |=3D SAI_CLR_TXC;
+>             }
+>
+>             if (capture) {
+>                     msk |=3D SAI_XFER_RXS_MASK;
+>                     val |=3D SAI_XFER_RXS_DIS;
+>                     clr |=3D SAI_CLR_RXC;
+>             }
+>
+>             regmap_update_bits(sai->regmap, SAI_XFER, msk, val);
+>             rockchip_sai_poll_stream_idle(sai, playback, capture);
+>
+>             rockchip_sai_clear(sai, clr);
+>     }
+>
+>
+> Please let me know whether this looks right to you.
+
+thanks=EF=BC=81
+
+Pei.
+
+> Kind regards,
+> Nicolas Frattaroli
+>
+>
 
