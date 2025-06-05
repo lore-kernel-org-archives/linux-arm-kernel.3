@@ -4,105 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B50C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 17:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFA7C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 17:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P/LvlbNnuwOiZOV3rDrVkAmhqs32M7kHPIko2ahgFaM=; b=Nna+siQhLS5pRtqcLp0DTqPjBX
-	Ha6su+6HGpR4jOQJd9r67j0NtA4aQhjcRhZI8JzON7gKvAfNKKTF9HDulXxqFrYmmJFw6g+vOM/5F
-	2nCE9VM1JuazVVKD/JflZzjP3kd7vB9nMyLLneloFVQKX/IEdkV3eO9pt+mjdtAdLkb/EsvzW832v
-	LFthka/wm/mFYQvHyqXWldAsv1YirT+v7WvJZ1atbkCuFttNneAAxiEkYI0YLjdBIVT3ccHnVFz6x
-	+CLKYu+h7+UM8tliCfdBnP2ddjfXiCC8nPSWL9d6DwMCKdMlOD9pCoSD+raXngoMe7B7lVuK8ScVY
-	79+JKWCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0W8nfA1bMXsn6PSlEDDAH4jqJvD0ggJSj0wpvqfC2iA=; b=TZ61S/PFDuoNCNx2YdPVOMvpjf
+	gc2QbUA/OYTf8TU/vtWPnWKZR5AFlvAn8YZoyHogiRO9VTv+1ietLbOjbmRvKoZiY7c4ld3PE6Wvj
+	kJBM5gCKOq9C+oWhjeqHgTYCga5MfFhC01kuARk/yM3HoFNI+a19d2m+1MIY2mOVuYN45VuxELpe3
+	aEzYSDhXz+Ic1iCPfM0xDSYYoNcraJ1pdl/ow68HsPAbJ71jQemuyg+0AodJACBG+zMZC3lw58I73
+	sRPrF/qk7dVggIyRX6YtFzhqFY+V6mC8/pg0FYry8xXIApxOLytCZkAvpktcIjdnfCzjYug5HtSuB
+	QHcLMRfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNEWZ-0000000GAB7-17SO;
-	Thu, 05 Jun 2025 17:37:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uNEcE-0000000GAe6-14DO;
+	Thu, 05 Jun 2025 17:42:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNEUM-0000000GA15-2v77
+	id 1uNEa1-0000000GASD-3PLL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 17:34:51 +0000
+	Thu, 05 Jun 2025 17:40:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEBBF4A47C;
-	Thu,  5 Jun 2025 17:34:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 736B8C4CEE7;
-	Thu,  5 Jun 2025 17:34:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 40FFF44B3C;
+	Thu,  5 Jun 2025 17:40:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D971CC4CEE7;
+	Thu,  5 Jun 2025 17:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749144889;
-	bh=6NCxqu7v4UWy0UxOIfb0/A4soX96yrnrGRMd21U+GXc=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=qQBlux8ZVWeEr0UZ4ffKr6V5wuD5VVlBTg6ZnAUONmMVr9uZJ2V3Sdzo0UxUJY+DP
-	 PWz1ihkeshDb3tJPFHQneBshG0UbMVxmfirBD1MlLFh/V9FTPHc05d2AHrV3kvOp/d
-	 Pe4ZFy4IsvHpDN1h6MuSgbBkVuSDJrbSI8Fdaxx5nxxCYJCNV416G+ArLas0Aq8Yh9
-	 rPWCcUtwZndV695bQgnQ/q/IaEHJjY912Rp9hsvQtXNqeLMrhKCi+vXdK/Awg4GqFT
-	 UCGgGkAQCtvRtiyifGEWfnd/8qrPhKV/pikWxiRphk/jI+UA8H3vuhRmVBxYkWY1AG
-	 80rAgGix9cj2Q==
-Message-ID: <79df2566-dfbf-4fe9-a524-3344a81d71ce@kernel.org>
-Date: Thu, 5 Jun 2025 19:34:46 +0200
+	s=k20201202; t=1749145241;
+	bh=dEVPAHAs6GM46/4q8XuV29zFZGVWXGkMMYOk3Wo8Z9w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=exT4mXlpk1yVcJjGb6Npz3esjShXs3wJ6X82IbN5IwLhtb9p0A419mEWFimR/v39u
+	 rFqm50o/z5Nnda/udtm0/EI0/SSBKw+qYws9UlT1Bs18BJdZW8ISJisB+UDx2ryTLD
+	 X6ilWCN0sTtijfhB+mZns6o4vtmvBpT6bCeysaloloj2BPPfBXDM6mH7je4B0vf131
+	 tyKcS+bPY0aBf6x6n69HVko8vIlifIMoI2+8G0drj2awLoa+oWl7aOat1MbvLPCOoR
+	 f7LPRI+Lh2x7S74WB8eTTYBm/MYB/yT1wgDfL8Ate1SJi9BMHRUze37n78ph3IgiIk
+	 Zuh5NzvI8evKQ==
+Date: Thu, 5 Jun 2025 12:40:38 -0500
+From: Rob Herring <robh@kernel.org>
+To: Meng Li <Meng.Li@windriver.com>
+Cc: linux@roeck-us.net, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	linux-watchdog@vger.kernel.org, imx@lists.linux.dev,
+	shawnguo@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [v4 PATCH 1/2] dt-bindings: watchdog: fsl-imx-wdt: add
+ compatible string fsl,ls1046a-wdt
+Message-ID: <20250605174038.GA2911346-robh@kernel.org>
+References: <20250604034246.3234837-1-Meng.Li@windriver.com>
+ <20250604034246.3234837-2-Meng.Li@windriver.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable camcc and videocc on Qualcomm
- SM8450+
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250605154207.141224-2-krzysztof.kozlowski@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250605154207.141224-2-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250604034246.3234837-2-Meng.Li@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_103450_778708_267AACAA 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20250605_104041_871873_758AA0A3 
+X-CRM114-Status: UNSURE (   7.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,19 +77,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/06/2025 17:42, Krzysztof Kozlowski wrote:
-> Enable the drivers for camera clock controllers on Qualcomm SM8550 and
-> SM8650 SoC (enabled in all DTS files like SM8550-HDK or SM8650-HDK) and
-> video clock controllers on Qualcomm SM8450 SoC (enabled in SM8450-HDK
-> DTS).
+On Wed, Jun 04, 2025 at 11:42:45AM +0800, Meng Li wrote:
+> Add compatible string fsl,ls1046a-wdt for ls1046a SoC. fsl,ls1046a-wdt
+> allows big-endian property.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Meng Li <Meng.Li@windriver.com>
 > ---
->  arch/arm64/configs/defconfig | 3 +++
->  1 file changed, 3 insertions(+)
+>  Documentation/devicetree/bindings/watchdog/fsl-imx-wdt.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-And I forgot to CC qcom maintainers. :/ I will send v2.
+You missed Cc'ing the watchdog maintainer if you want this applied.
 
-Best regards,
-Krzysztof
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
