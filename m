@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B53C5B559
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 07:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30EB0C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 07:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xVNbV2XHvQT3/8z4B+RVq7tYXw6lKXe0E7JWahAFCMk=; b=Z1ttu7ZEjjDi3ysY5p1x8ZnywW
-	LGyEPvvyNatzygsE7pPaLkJ/m+/wAM50ZItKGnlRyYK40aMJLuqV0LlA23JlrJKJHpAfQiowijs90
-	ZGxG+CmZWjRnX+7t3FNnErliqV3XBAb6jAnXH5kPfzryNJryK+aoClSmP/EOSoFVm6rgCF+E+RjTQ
-	EIkFSvE228uJtd1WUqvopqmWFONM7RKzYybEqCKgWyqayD6AzbNQtdcwnIoaskyTXRymv5sYFllZo
-	nwzXlsCeIGqRPsHLkMbt6nCfZq5JJVapzZJOf5uRUYXqgWWHrtrsx3ktUuUmeW9t9MBPdRA/7o/je
-	VL7au2/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kbCOyIxCpnaE8Cfg+DoqPNyQm2IjwjvAEIhJ23+mq04=; b=ptc6S97AswegQB2NJHM2LoHOVJ
+	y9GFBsv1Kx5FpGhUKrlspfp+b/uh7eOO2RKCzGMkhz5xaQ4Ipt8e3ZaW2P+O0EZxvJWvaf4EzZeCG
+	tx3aQzen78/SVVSwGcwZdz+hYqmCSOMvRwibMeiJA/EBFxeI6OdPG3fr1A7deEDdBJtdX+keMNGHg
+	ZMTKoAiC27LtFH55sWmciR3J6BJ4EMwEarZfH9w4x9QUsNbdbX/VljHelHAlloOfq666zzFaKo3sq
+	nCqUgCgbeB+lWhQZX+328tOVyF4hwBixpnui3P/GcBcDRTa9WmYBmQ8Jxp5ZpKpzgYMxxGF6yuKwu
+	779Udnsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN5GJ-0000000Ey9o-3EmF;
-	Thu, 05 Jun 2025 07:43:43 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1uN5GK-0000000EyAG-2mIe;
+	Thu, 05 Jun 2025 07:43:44 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN49L-0000000ErJc-2APY;
-	Thu, 05 Jun 2025 06:32:33 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-af6a315b491so482891a12.1;
-        Wed, 04 Jun 2025 23:32:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749105146; x=1749709946; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xVNbV2XHvQT3/8z4B+RVq7tYXw6lKXe0E7JWahAFCMk=;
-        b=EeOxBeMlEsaS2bK06bmrfzed7qNMib+94A89ms7EN9ygQZXedKg/9OjeXqOvGzYpPL
-         1OkhMAtUI0Mgqm3nm4FH6q57BhDAKSyrKEqFTaaU8iRfpRRxPwmuaBsJP8M1Gbxy9RXN
-         +ZMRIT/Zr31SlyO70kcc3M81WWASmGGYz9Ll/Th31t29Z3459s+T6IiDQqZx1Cj/HY92
-         /aVj6Ntxl3XwIcbCaLq4AJ19gpjBkdfWBpvQJjERUxXBaIETlrwXwOf/5dXJYmgNxl8+
-         ugvjY+QmIaXi0hNQMhGHs0z9DKlMF7mIZXPQZKgxc4dXbBUuknPyPlrgPv5IgaEQbeVY
-         oy+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749105146; x=1749709946;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xVNbV2XHvQT3/8z4B+RVq7tYXw6lKXe0E7JWahAFCMk=;
-        b=U8TFYv/n3v7NdHFWj7HzHwM50iQ1THjV2jNd1QTN1AcGejxHCHFbW57CKdvno78Xu5
-         bDNqOL0YUfi3wmWn1qGLGf0e96+iJzOFph7JfMAgbF94EUOpSS0DR4ctwGN/dg//2GVx
-         cU8nyrNt72neCBlNpibC9ZI8fYJ+hFOdk4ESYmvht8EWHlDG17HyNV/aOVFDyzhrDolx
-         upWZR7g9VvTIqi9uLPCUT3EN2mw2PW0kMglah4PrYEqEnrVQAlQ+immCO18fXmvz9Jo/
-         gGWTOpw48LO7JhSIGKQGL/19jasFG1DsY5o8kowJ/XTTJx/QZwDALveI7myt6vUwnxmM
-         MdSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUUs9sGu7JHYSiw2e8JaE8DR0Ke1p71uSfNKTGQAU0Nf7qhaYWcdX/OVwYMANBJ55dZhMtILQGO29Kb6f53y7OI@lists.infradead.org, AJvYcCWuxOda1bero9hT/XBlEINmXA9rs/+t5temmD4job9o2i8vl7DMpOMLgyiAmG+5s8DHkZhDNBG9Rk5Zqb4ipVM=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXrcO1lr9KsrlZTm5TGD41QTNQNiEU1F+w52lvez3sr23ugvGX
-	hO0FFykKqmkevxFMoqKYwmKOmBmSE8HJ5zaSRAEQAvOtz6AAekNJcJ2BXfqpZ4KNOXWE9biygZ9
-	VJkCYi0RKSIkTSxaLZz+w/sXbJp7oKjNXZjg3zJy/iprM
-X-Gm-Gg: ASbGnctltw4pwa9ZHZhsD3naF5cRfZbSfdPmf62Z8NpiCE7WprksvryRawwetg4UJ/B
-	To0/5zhAC0abKowp/6+uvtuA+LEDzg2X1cfpcRpAjDAGB/yaT3VRFBV9DMa684EIrd6cVSO4HXx
-	SJhzbwGFATgdir+45C7CML43Si0mSEzdrT69y6iwMvufhV318iTINb1AgmJVKeAuT3Xw==
-X-Google-Smtp-Source: AGHT+IH4DMJVVSc23A8ySI5zWwdnqMPJwI4JcymO9uLuxpbdW2R54hTNG5gzhmW7FhrMsuuLb3uqrUpjAv6uXp6wyzs=
-X-Received: by 2002:a05:622a:578f:b0:4a4:3c3e:5754 with SMTP id
- d75a77b69052e-4a5a587c45emr97845681cf.32.1749105134671; Wed, 04 Jun 2025
- 23:32:14 -0700 (PDT)
+	id 1uN4C3-0000000Erjs-3iio
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 06:35:21 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5556ZBIG1031472;
+	Thu, 5 Jun 2025 01:35:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749105311;
+	bh=kbCOyIxCpnaE8Cfg+DoqPNyQm2IjwjvAEIhJ23+mq04=;
+	h=From:To:CC:Subject:Date;
+	b=Y0GRIczJqm0Ss3af5D4K+1T2sfQyU99zS98KTwu3Bq1XFLrVhudTTAs20QstMOtQH
+	 wjRKNu/MNN0BiP7letipH1mb5lkwXqbo0wKLFRCaKnLQ8/PNY4L+iYy4K0IWvYuuG4
+	 mjmbVUQrdtzDIWwswqXHd0r4Q30i4/J1apRpzppk=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5556ZBFR948533
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 5 Jun 2025 01:35:11 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
+ Jun 2025 01:35:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 5 Jun 2025 01:35:11 -0500
+Received: from a0497641-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5556Z7VY3168702;
+	Thu, 5 Jun 2025 01:35:08 -0500
+From: Neha Malcom Francis <n-francis@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <n-francis@ti.com>
+Subject: [PATCH v4 0/2] Add support for K3 BIST
+Date: Thu, 5 Jun 2025 12:05:04 +0530
+Message-ID: <20250605063506.2005637-1-n-francis@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <20250603-sige5-updates-v1-3-717e8ce4ab77@gmail.com> <CALWfF7JOJSihtfqrFiZtTxnzvoU6FP3WXuWjYOVaAvjPJZWWgg@mail.gmail.com>
-In-Reply-To: <CALWfF7JOJSihtfqrFiZtTxnzvoU6FP3WXuWjYOVaAvjPJZWWgg@mail.gmail.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Thu, 5 Jun 2025 10:32:06 +0400
-X-Gm-Features: AX0GCFuUQCw_ESq8wm50RxhnfDipXmHgsUt5otEO_3lzHNgvENZEo2Fw1AWJjAY
-Message-ID: <CABjd4Yyw5xStJYU5c5snUGpBjEYL8=qoj=bWYLnuzSWzr8shaA@mail.gmail.com>
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: enable wifi on ArmSoM Sige5
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_233227_558100_15149B4B 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20250604_233515_971985_7E18976D 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,46 +82,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 5, 2025 at 6:43=E2=80=AFAM Jimmy Hon <honyuenkwun@gmail.com> wr=
-ote:
->
-> >
-> > +&sdio {
-> > +       bus-width =3D <4>;
-> > +       cap-sdio-irq;
-> > +       disable-wp;
-> > +       keep-power-in-suspend;
-> > +       mmc-pwrseq =3D <&sdio_pwrseq>;
-> > +       no-sd;
-> > +       no-mmc;
-> > +       non-removable;
-> > +       sd-uhs-sdr50;
-> > +       sd-uhs-sdr104;
-> > +       vmmc-supply =3D <&vcc_3v3_s3>;
-> > +       vqmmc-supply =3D <&vcc_1v8_s3>;
-> > +       wakeup-source;
-> > +       status =3D "okay";
-> > +};
->
-> When you enable the sdio node on your v1.2 board with the broadcom
-> chip (using SYN43752), does the btsdio.ko bind to the device and
-> create an extra rfkill bluetooth node?
+BIST (Built-In Self Test) is an IP responsible for triggering hardware
+circuitry tests on both logic as well as memory blocks. This driver is
+currently being upstreamed in U-Boot [1] (on hold till the dt-binding
+is approved here) and triggers these tests on cores. This patch series
+adds the dt-binding as well as a node for BIST on J784S4 and J742S2.
 
-Good question, I didn't have it enabled in my build:
+Changes since v3:
+https://lore.kernel.org/all/20250514072056.639346-1-n-francis@ti.com/
+- Udit
+	- add support for J742S2
 
-# CONFIG_BT_HCIBTSDIO is not set
+Changes since v2:
+https://lore.kernel.org/all/20250328111439.374748-1-n-francis@ti.com/
+- Krzysztof
+	- use existing common definition (ti,sci-dev-id) for grabbing
+	  the device ID instead of redefining properties
 
-Let me add it and report back.
+Changes since v1:
+https://lore.kernel.org/all/20241128140825.263216-1-n-francis@ti.com/
+- Krzysztof
+	- move from misc/ to soc/ti/
+	- minor property changes
+	- drop ti,bist-instance and instead opt for ti,bist-under-test
+	- correct example dt
 
-> If so, you'll want to blacklist the SYN43752 chip in the btsdio.ko.
-> Similar to https://github.com/jimmyhon/linux/commit/81c14dc2dea2ceaea8d39=
-0188b352d32e278abc8
-> The original logic was introduced in
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit=
-/drivers/bluetooth/btsdio.c?id=3Db4cdaba274247c9c841c6a682c08fa91fb3aa549
+[1] https://lore.kernel.org/all/20250204123147.939917-1-n-francis@ti.com/
 
-I will check, thank you for the pointers!
+Neha Malcom Francis (2):
+  dt-bindings: soc: ti: bist: Add BIST for K3 devices
+  arm64: dts: ti: k3-j784s4-j742s2-main-common: Add PBIST_14 node
 
-Best regards,
-Alexey
+ .../bindings/soc/ti/ti,j784s4-bist.yaml       | 63 +++++++++++++++++++
+ .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  | 11 ++++
+ 2 files changed, 74 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/ti/ti,j784s4-bist.yaml
+
+-- 
+2.34.1
+
 
