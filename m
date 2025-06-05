@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47506C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 12:29:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13C4C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 12:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SLVyqathnPvBkEJ+fROOetdc35tiXrqhe9zFIZwP8pI=; b=Z8ZrjuD/PYTfhxpwOe1Sdw2UnV
-	cqXDk5D/a5IKomllkeAAAfub5pdcPxIdmM5bibyNK1Rq3s/oFIYmei4D4zC3sFwna+BXzAjTvzn+Z
-	9jGXtKvSCpWOxApSfVnhzz6xl5wC23HAjCJ613GOrb7529+A9vUlq0s+OZQmQZks4/z+7vmSf58vx
-	a+9h5Qs7vOVAuygDytslzhzADMOX+8caSvR/rTaN4NOBHQHJPiKBY2OgiVLSqWwyA4MlFdcxC+VNe
-	yVolfxG/hr+T1bCj7Xf93s/9HmlE7QohfSbT55cJdQIsKKl7dim1tkwbc665KQAog3wTFMT1TB+5l
-	pvUzTBig==;
+	bh=+lnIW+Ps3Z9K2Gu99l+QHz0gPvCcJVpWSIbkXO3AWRA=; b=DDR7wcuvi/aYXKR7wVkz8t/9W1
+	wszGk6deUmNFrUL1hzCmkOxYOFfARUXF2YluAyZ4ljc3aZn5DkM++W0wQXqwFERMqbZFRB7bj96T2
+	iI0D4gSuVt9udK+8IB0WLzIAJ8Vhv4Gll+oaP5mKoNU+vCbBxLy8K/dAHLjZZP9fwmvY72g+q8Jsi
+	gVy3bXbD3hvp51+NTDvcoctLGxKzfkImItbEQOlWagLzTx/pURMvXj/zjZ6+Cz0VdqGSciOO48YXC
+	IBhKYM4etCWfSjLak1XPT+Q4A2o9dNZc7CrUHnYY2uPwHnbgYOS3epnTuhJrHr5EPSU8BZtYe2A11
+	cjDzua5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN9ik-0000000FTnA-4B4E;
-	Thu, 05 Jun 2025 12:29:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uN9kv-0000000FU3h-34DE;
+	Thu, 05 Jun 2025 12:31:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN9gZ-0000000FTRN-2WPa
+	id 1uN9gZ-0000000FTRQ-3RSH
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 05 Jun 2025 12:27:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D422E629E6;
-	Thu,  5 Jun 2025 12:27:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 64F09C4CEEE;
+	by tor.source.kernel.org (Postfix) with ESMTP id 11868629ED;
+	Thu,  5 Jun 2025 12:27:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6F4F8C4CEEB;
 	Thu,  5 Jun 2025 12:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1749126426;
-	bh=0t/Pj0E1HAm09Ep6Ym+EnNXhmlhQUHqvu1SyTkbUVMQ=;
+	bh=fyHeRo41514/MWnur/Zog9VGxEsADZDdW2r1BhXwQSY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=tGqetUg+sPTVlOnzWKE+WZLxRH6iB4gzTig0u4pgUkm8SvUyrwzohA8VLI6pBzsyT
-	 /MBEdyKs8szp7KXaChc6JuQmgq/Pj1FbmvU+Xbtxx6OgJn9YvQP62ABUXuzK8wpPfB
-	 m/z89qHOhRX6o4N9dBP3B5rDRx+PI2iNhL51e9pV4MLKks5LxfXjt1turI96qfByom
-	 97Tbk37+gOrBw/HxWLFhitwE08WCB3IP0S+6eMQaAfiy60UMp/+jsy7DUez2e7L12V
-	 5R5EAoWqZ7A+/tVCQjpbHxuWW29xjFb5oOBTJiHXJ+Xbpfg4MaC5lRZNBBq+9zcAPB
-	 wWWMNb33GJlUA==
+	b=mV4X3C5w5joySugjC1c0ALHr6hPe3HSnaWIWZFyXsxonyl7w4ZIpNdnqyeCJrVMCK
+	 2Z1Xk2UqZ4BTgUyVOVSK9CnSysgcEkGutqUIhA6eVI8P9B358W9XlVHm5hNtKI6Kyv
+	 M2Wl8ooKOKCLfBHDTZUTzr++P8yUM0qQlGj/70JOXnHjizK/kJrg7MQG85BqiSmLml
+	 chEy7yrKWIzjG99AvOz1Yli0y8NrNw2jaPnqHPTv1smG6f2aq1UpH6v1crTa1eb5oh
+	 cS4GrpjRjOEBxX75pCT8eCHV/zqub05maqKPAL30vim2d2Mawphpav+dmlXu/BRUZr
+	 kAw/cZ6liwmKw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56F72C5B555;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 63929C5AE59;
 	Thu,  5 Jun 2025 12:27:06 +0000 (UTC)
 From: Yassine Ouaissa via B4 Relay <devnull+yassine.ouaissa.allegrodvt.com@kernel.org>
-Date: Thu, 05 Jun 2025 12:26:56 +0000
-Subject: [PATCH v2 1/4] media: allegro-dvt: Move the current driver to a
- subdirectory
+Date: Thu, 05 Jun 2025 12:26:57 +0000
+Subject: [PATCH v2 2/4] dt-bindings: media: allegro-dvt: add decoder
+ dt-bindings for Gen3 IP
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250605-allegro_dvt_al300_dec_driver-v2-1-1ef4839f5f06@allegrodvt.com>
+Message-Id: <20250605-allegro_dvt_al300_dec_driver-v2-2-1ef4839f5f06@allegrodvt.com>
 References: <20250605-allegro_dvt_al300_dec_driver-v2-0-1ef4839f5f06@allegrodvt.com>
 In-Reply-To: <20250605-allegro_dvt_al300_dec_driver-v2-0-1ef4839f5f06@allegrodvt.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -66,13 +66,13 @@ To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7230;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4465;
  i=yassine.ouaissa@allegrodvt.com; h=from:subject:message-id;
- bh=mB2DF3b3IX9HBLQRlzY2Y3Z4XGuRJDLzgEw1Mri1Jts=;
- b=owGbwMvMwCV2oHftXqU9jLMZT6slMWQ49oof8PsybbassaeCZb7g0fVHd4dd8r4+rzfWa77J9
- r6zz54odZSyMIhxMciKKbJ8MFj67Atbjc+MFrb5MHNYmUCGMHBxCsBE9mQw/A8N2Sn76M7n3Pt5
- lz8Z+UapzEmMnVO6KXGGfICvF1NqqjTD/4ior/8NebqOHPZfpP31/Xprv4JtfD83l13XPe/wrkz
- 8IAsA
+ bh=gyDJpDMIBTqzfypvbD80Y9BICAPF5u6vCQosYsoMsbw=;
+ b=owGbwMvMwCV2oHftXqU9jLMZT6slMWQ49oobrHHl/iGfJWFz6vXtrfNPnnny9khEPovGGpXCI
+ I/emfOOdZSyMIhxMciKKbJ8MFj67Atbjc+MFrb5MHNYmUCGMHBxCsBEnA8w/NO7wS323m3ryVxl
+ ta74V3E6Ukds/lpusLLeJ1HTPL1/83pGhrNGViHn9/61/iLDXl8X7st05vejAzrvL9d8yBM90CP
+ tzQsA
 X-Developer-Key: i=yassine.ouaissa@allegrodvt.com; a=openpgp;
  fpr=B0CE218FC8E89064DAED6179042F935CFB3AD0CC
 X-Endpoint-Received: by B4 Relay for yassine.ouaissa@allegrodvt.com/default
@@ -95,151 +95,131 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 
-In preparation for the upcoming driver update, we need to relocate the
-current driver.
-This will help ensure a clean transition and avoid any potential
-conflicts with the new driver.
-This patch is crucial for keeping our directory organized and
-facilitating a smooth integration of the new driver.
+Add compatible for video decoder on allegrodvt Gen 3 IP.
+
+v2:
+- Change the YAML file name, use the existing vendor-prefix.
+- Improuve the dt-bindings description.
+- Change the device compatible identifier, from "allegrodvt, al300-vdec",
+  to "allegro, al300-vdec"
+- Simplify the register property specification,
+  by using the simple min/max items constraint (Krzysztof Kozlowski)
+- Remove the clock-names property. And remove it from the required
+  properties list (Krzysztof Kozlowski) (Conor Dooley)
+- Use the simple maxItems constraint for the memory-region property.
+  Also for the firmware-name (Krzysztof Kozlowski)
+- Example changes:
+  - Use header provides definitions for the interrupts (Conor Dooley)
+  - Improuve Interrupt specification using GIC constants (Conor Dooley)
+  - Use generic node name "video-decoder" (Krzysztof Kozlowski) (Conor Dooley)
+  - Remove unused label (Krzysztof Kozlowski)
+  - Change clock reference from <&mcu_clock_dec> to <&mcu_core_clk>
+  - Use hex format for reg property (Krzysztof Kozlowski) (Conor Dooley)
+  - Reduce memory region size (Krzysztof Kozlowski) (Conor Dooley)
+
+  - Link v1: https://patchwork.linuxtv.org/project/linux-media/patch/20250511144752.504162-4-yassine.ouaissa@allegrodvt.com/
 
 Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 ---
- MAINTAINERS                                             |  2 +-
- drivers/media/platform/allegro-dvt/Kconfig              | 16 +---------------
- drivers/media/platform/allegro-dvt/Makefile             |  5 +----
- drivers/media/platform/allegro-dvt/zynqmp/Kconfig       | 17 +++++++++++++++++
- drivers/media/platform/allegro-dvt/zynqmp/Makefile      |  6 ++++++
- .../platform/allegro-dvt/{ => zynqmp}/allegro-core.c    |  0
- .../platform/allegro-dvt/{ => zynqmp}/allegro-mail.c    |  0
- .../platform/allegro-dvt/{ => zynqmp}/allegro-mail.h    |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c  |  0
- .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h  |  0
- 14 files changed, 26 insertions(+), 20 deletions(-)
+ .../bindings/media/allegro,al300-vdec.yaml         | 75 ++++++++++++++++++++++
+ MAINTAINERS                                        |  2 +
+ 2 files changed, 77 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..26f9ac39682431b1d4828aed5d1ed43ef099e204
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
+@@ -0,0 +1,75 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/allegro,al300-vdec.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Allegro DVT Video IP Decoder Gen 3
++
++maintainers:
++  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
++
++description: The al300-vdec represents the gen 3 of Allegro DVT IP video
++  decoding technology, offering significant advancements over its
++  predecessors. This new decoder features enhanced processing capabilities
++  with improved throughput and reduced latency.
++
++  Communication between the host driver software and the MCU is implemented
++  through a specialized mailbox interface mechanism. This mailbox system
++  provides a structured channel for exchanging commands, parameters, and
++  status information between the host CPU and the MCU controlling the codec
++  engines.
++
++properties:
++  compatible:
++    const: allegro,al300-vdec
++
++  reg:
++    maxItems: 2
++    minItems: 2
++
++  reg-names:
++    items:
++      - const: regs
++      - const: apb
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: MCU core clock
++
++  memory-region:
++    maxItems: 1
++
++  firmware-name:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - interrupts
++  - clocks
++
++additionalProperties: False
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    axi {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        video-decoder@a0120000 {
++            compatible = "allegro,al300-vdec";
++            reg = <0x00 0xa0120000 0x00 0x10000>,
++                  <0x01 0x80000000 0x00 0x8000>;
++            reg-names = "regs", "apb";
++            interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
++            clocks = <&mcu_core_clk>;
++            firmware-name = "al300_vdec.fw";
++        };
++    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index eecc41c39a9cb467e91023307b92a181af6ee23d..abc6ba61048771303bc219102f2db602266b7c30 100644
+index abc6ba61048771303bc219102f2db602266b7c30..1ff78b9a76cb8cdf32263fcd9b4579b4a2bb6b2a 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -817,7 +817,7 @@ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+@@ -816,7 +816,9 @@ M:	Michael Tretter <m.tretter@pengutronix.de>
+ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
  L:	linux-media@vger.kernel.org
  S:	Maintained
++F:	Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
  F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
--F:	drivers/media/platform/allegro-dvt/
-+F:	drivers/media/platform/allegro-dvt/zynqmp
++F:	drivers/media/platform/allegro-dvt/al300
+ F:	drivers/media/platform/allegro-dvt/zynqmp
  
  ALLIED VISION ALVIUM CAMERA DRIVER
- M:	Tommaso Merciai <tomm.merciai@gmail.com>
-diff --git a/drivers/media/platform/allegro-dvt/Kconfig b/drivers/media/platform/allegro-dvt/Kconfig
-index 2182e1277568a407f51a23ea437811c50b1183c8..e9008614c27b9490d1cd29fab887977a1918ede4 100644
---- a/drivers/media/platform/allegro-dvt/Kconfig
-+++ b/drivers/media/platform/allegro-dvt/Kconfig
-@@ -2,18 +2,4 @@
- 
- comment "Allegro DVT media platform drivers"
- 
--config VIDEO_ALLEGRO_DVT
--	tristate "Allegro DVT Video IP Core"
--	depends on V4L_MEM2MEM_DRIVERS
--	depends on VIDEO_DEV
--	depends on ARCH_ZYNQMP || COMPILE_TEST
--	select V4L2_MEM2MEM_DEV
--	select VIDEOBUF2_DMA_CONTIG
--	select REGMAP_MMIO
--	help
--	  Support for the encoder video IP core by Allegro DVT. This core is
--	  found for example on the Xilinx ZynqMP SoC in the EV family and is
--	  called VCU in the reference manual.
--
--	  To compile this driver as a module, choose M here: the module
--	  will be called allegro.
-+source "drivers/media/platform/allegro-dvt/zynqmp/Kconfig"
-diff --git a/drivers/media/platform/allegro-dvt/Makefile b/drivers/media/platform/allegro-dvt/Makefile
-index 66108a3037747020d549bc0a427881e0667a3f0a..d2aa6875edcf7760901996aac4d5ac98282cce20 100644
---- a/drivers/media/platform/allegro-dvt/Makefile
-+++ b/drivers/media/platform/allegro-dvt/Makefile
-@@ -1,6 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--allegro-objs := allegro-core.o allegro-mail.o
--allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
--
--obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
-+obj-y += zynqmp/
-diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Kconfig b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..0a0a697c420da47f87f05153a2dbfbe5d3ccf988
---- /dev/null
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
-@@ -0,0 +1,17 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config VIDEO_ALLEGRO_DVT
-+	tristate "Allegro DVT Video IP Core for ZynqMP"
-+	depends on V4L_MEM2MEM_DRIVERS
-+	depends on VIDEO_DEV
-+	depends on ARCH_ZYNQMP || COMPILE_TEST
-+	select V4L2_MEM2MEM_DEV
-+	select VIDEOBUF2_DMA_CONTIG
-+	select REGMAP_MMIO
-+	help
-+	  Support for the encoder video IP core by Allegro DVT. This core is
-+	  found for example on the Xilinx ZynqMP SoC in the EV family and is
-+	  called VCU in the reference manual.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called allegro.
-diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Makefile b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-new file mode 100644
-index 0000000000000000000000000000000000000000..66108a3037747020d549bc0a427881e0667a3f0a
---- /dev/null
-+++ b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+allegro-objs := allegro-core.o allegro-mail.o
-+allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
-+
-+obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
-diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-core.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
-diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.h b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/allegro-mail.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-h264.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-h264.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-hevc.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.c
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
-diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
-similarity index 100%
-rename from drivers/media/platform/allegro-dvt/nal-rbsp.h
-rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
 
 -- 
 2.30.2
