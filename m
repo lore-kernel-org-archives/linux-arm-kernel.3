@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A01DDC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 16:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37301C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 16:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Jr1AjOf8uNWev/Vso1mJTfg4siB3r6WSL8vizNNJAl0=; b=tQ8ORLqUP0uLOzz0zM5sZ3l+fW
-	pi7I/sk/Lha/9sTAgkeHHwXtS7ioMblvpORfPN9uHNjbn/buHLSrfARLeGqRO1oSamTjz3zhni9vW
-	M2rcxCX7e8w6BE7Fsj1qi1pdiCPwWH6kzBd7XdYAT2C4KF9GerJtUlw6yraB102blQ74GbOzmOkXZ
-	7tQDkTTxend8rH9bw15N79nzNJ7ZlB9R9iKffYMDfj5BGMUnN5gPY652fyHF6FMnG8Z/W+Mc2qrl9
-	C3L0wEiJvxS9Oj1NwYb1H/4x7VojE7cLJL/Bx/R5kitIJsUDYX1C2F3a4cHFENQUPHi/4fmGwjg9o
-	CXJZng/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jJWiZIM9t6hCE1uumiX5l0IHS1cRZpJdK7FC7mUHd60=; b=GLbHuSIOpdK16ymYuj+K+ihPBN
+	SzibMUahhyQ1VU8FHm5wl+frGAG1z0WxLDtklEntBgaOWFHgcZTgdXD/uPfAtg/B1TQhaFlv+EijG
+	RMpomuCJ9eesH0oP6xJGAWgoAQd5SqyRmwkCNlo7cwXFOtluRXGBcjs0LczKKfVwpt/GCWqAoxidE
+	mtPw8KDT25ZHYtqdVCPcyFnk4YDDRkWWVDf8PdA52CN1LM8zyCnqNvlMf8Q6syoT/0SvFrkG5cYyK
+	DFoAiPT03lRmk/o24g2b11lawoyoe4YtMSxmGwS0dHTyQytnsL3t2Icu4hbzTjYXpN1H/OpX4WgJM
+	v3jFi4Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNDtV-0000000G5TR-24CC;
-	Thu, 05 Jun 2025 16:56:45 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uNDvf-0000000G5i0-14JW;
+	Thu, 05 Jun 2025 16:58:59 +0000
+Received: from dispatch1-us1.ppe-hosted.com ([67.231.154.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNDnq-0000000G4hk-3bUe;
-	Thu, 05 Jun 2025 16:50:56 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-73c17c770a7so1288692b3a.2;
-        Thu, 05 Jun 2025 09:50:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749142254; x=1749747054; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Jr1AjOf8uNWev/Vso1mJTfg4siB3r6WSL8vizNNJAl0=;
-        b=l32yiho3s7oV6n5lgrfvmz1JBlg7f3LVe07bogXx4egnNsyM1Pdsh8ba1UWrGDAcRm
-         +kPt+MMIqZj8gJ7AmyA8YPmuGwokLGbEoGBE+1rQnHwzvamZz83I4e/7v0vgr6DdcJVb
-         uYiSo7wJJ1/FHsWAtKUiVl+u8veKmocK6Vfy5c6EZIbLpPgkvQYyg0DdMpQ/+bV/kn4S
-         D3YwPwrhikTQEjEMJODBHV+HZEkCOCg99wFRBJ+kKA3rcTVsl+hQhUINPHdN6tWwHIP4
-         QFdPy4KzByv2e8UawL8a0LZsPDSjuowe4glVr1XJvsOATZ6OGPqJSdLFzIPvKkbZ+UyD
-         /2/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749142254; x=1749747054;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jr1AjOf8uNWev/Vso1mJTfg4siB3r6WSL8vizNNJAl0=;
-        b=j9i/TMOvNwvLhtXWll6XJbkdT3pf805pY5uRUQopM1j3rGGN2RXxD+CI5kXld40qik
-         YaN7a1qarcBn7fPQLzGS+jEYsvov501KPl9+tunuVuPDOdJJ47/8oMrIBF629gsRHRmj
-         LCgQBXBJfEkVo4wCr8olrbgzDLl5kyFEvrT+I3oxXCgXnBzTKqb3uXG/F8TJW3KfSVV8
-         Qu97JNrqig/SVQRso8GsgEsdeD2HH5tOcWwDM2dDJ/y/qaGB6keLKGYIehFswLuY49aj
-         vwGzQDo9eIq1HmR9H6GI20C6O9T6Rx2pV4ITaW6vly5jEi3bEGPKQuPMA5FSRj2yesJr
-         y3cQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUgc72TanXF1IbTNSs5kgALwJNa4fiGqPwYBYwxI5d+1+JS3jBBRg9or0DgnH388goxpvQ23I96u1iI+gpHVvBy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy25b/qMSgFHtBIx7GJVRNmVhN15+fZCZEMOvsr3W/DdX9ytYUF
-	+6Cfw5ONbdRHCpFID23nbCOAeVdOu5FMJqQgpKEbt4+S9hsW3GUeTYO8iHE2JjKl
-X-Gm-Gg: ASbGnctYepwvNQlKmQwULbl29D1kb99lhlGwQoq70FsbGH0AU6ay1dfZ51y6LCZsZYv
-	rDDPU1uCXtK7lwuLRb8GyDG9LUZ2TWQkcpG+jXQ7l+zK3ecb9+TmbV1lbdDdAtigU6UjR6RbNLQ
-	N3r9MVHRwMYrvEcU8v/rmH2VdF+3Wd6JEuYXS82vXbdPFKEQxzE2MHjKl8IO6Ww+RQ455GREe3f
-	JRkxUsnnZRjUoqETMb5rnx90JxbNwv2RwRQMAZxpckENhe4zskzy5e7CFFx0fFy8nQRnd2GWoZQ
-	S3VL4RYUiTcNvqCKzTf8A7FL+U0EEToysPhD6vo=
-X-Google-Smtp-Source: AGHT+IF2YLBAw2b9nyArKYI1W0OrOBCWggspyFjLKv1f0P5D1GAck9jyxFdfQ/L9pHNfflmpDzKqAg==
-X-Received: by 2002:a05:6a00:1956:b0:73f:f816:dd78 with SMTP id d2e1a72fcca58-74827f09cd8mr531718b3a.15.1749142254029;
-        Thu, 05 Jun 2025 09:50:54 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:110a::dead:c001])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747afe96825sm13061717b3a.36.2025.06.05.09.50.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jun 2025 09:50:53 -0700 (PDT)
-Date: Thu, 5 Jun 2025 13:50:47 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Hugh Cole-Baker <sigmaris@gmail.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [RESEND RFC PATCH 2/2] arm64: dts: rockchip: drop PCIe 3v3 always-on
- and boot-on
-Message-ID: <aEHK5zQbjQuCR1ui@geday>
+	id 1uNDnv-0000000G4jO-0wQ2;
+	Thu, 05 Jun 2025 16:51:00 +0000
+Received: from engine.ppe-hosted.com (unknown [10.110.48.11])
+	by dispatch1-us1.ppe-hosted.com (PPE Hosted ESMTP Server) with ESMTPS id 21E4060131;
+	Thu,  5 Jun 2025 16:50:58 +0000 (UTC)
+X-Virus-Scanned: Proofpoint Essentials engine
+Received: from mail3.candelatech.com (mail.candelatech.com [208.74.158.173])
+	by mx1-us1.ppe-hosted.com (PPE Hosted ESMTP Server) with ESMTP id EAF509C00B0;
+	Thu,  5 Jun 2025 16:50:55 +0000 (UTC)
+Received: from [192.168.100.159] (unknown [50.251.239.81])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail3.candelatech.com (Postfix) with ESMTPSA id 3F18C13C2B0;
+	Thu,  5 Jun 2025 09:50:55 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail3.candelatech.com 3F18C13C2B0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=candelatech.com;
+	s=default; t=1749142255;
+	bh=KKU7JGwV630uYHk6oyMArrGMBq6T30H84Y9tnAFAvKw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k5QS/hwpRfikGil4LjTvurxBGdjCrV4JEMC9nrpUGxiuATFcHAqyMRzxoSfAsowpY
+	 Q2ltuMgyEKXz3BJ7Y9ukhK+r8oxb1HfTMG9vl/Tr1NmAfFxxAEDMrGFA66ZYkLcFGs
+	 Zj217yiVs0I+uJE8ObcgjquzKcZ2YQT81tDH9Or8=
+Message-ID: <909d2ca8-8409-997a-768f-8e9be4c5168e@candelatech.com>
+Date: Thu, 5 Jun 2025 09:50:54 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH mt76 5/5] wifi: mt76: Remove RCU section in
+ mt7996_mac_sta_rc_work()
+Content-Language: en-US
+To: Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Bo Jiao <Bo.Jiao@mediatek.com>, Peter Chiu <chui-hao.chiu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250605-mt7996-sleep-while-atomic-v1-0-d46d15f9203c@kernel.org>
+ <20250605-mt7996-sleep-while-atomic-v1-5-d46d15f9203c@kernel.org>
+From: Ben Greear <greearb@candelatech.com>
+Organization: Candela Technologies
+In-Reply-To: <20250605-mt7996-sleep-while-atomic-v1-5-d46d15f9203c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MDID: 1749142257-XPExwF6mYgA3
+X-PPE-STACK: {"stack":"us5"}
+X-MDID-O: us5;at1;1749142257;XPExwF6mYgA3;<greearb@candelatech.com>;cd09869c97ce2e719a3744df88686fd8
+X-PPE-TRUSTED: V=1;DIR=OUT;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_095054_902342_6226E705 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250605_095059_342999_A2156E8D 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +90,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Example commit of needed dropping of regulator always-on/boot-on
-declarations to make sure quirky devices known to not be working
-on RK3399 are able to enumerate on second try without
-assertion/deassertion of PERST# in-band PCIe reset signal.
+On 6/5/25 04:14, Lorenzo Bianconi wrote:
+> Since mt7996_mcu_add_rate_ctrl() and mt7996_mcu_set_fixed_field() can't
+> run in atomic context, move RCU critical section in
+> mt7996_mcu_add_rate_ctrl() and mt7996_mcu_set_fixed_field(). This patch
+> fixes a 'sleep while atomic' issue in mt7996_mac_sta_rc_work().
+> 
+> Fixes: 0762bdd30279 ("wifi: mt76: mt7996: rework mt7996_mac_sta_rc_work to support MLO")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-One example only, to avoid patch-bomb.
+Thanks for the quick fix on this, it appears to solve the problems we
+saw related to this.
 
-Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+Thanks,
+Ben
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-index 8ce7cee92af0..d31fd3d34cda 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399pro-vmarc-som.dtsi
-@@ -25,8 +25,6 @@ vcc3v3_pcie: regulator-vcc-pcie {
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pcie_pwr>;
- 		regulator-name = "vcc3v3_pcie";
--		regulator-always-on;
--		regulator-boot-on;
- 		vin-supply = <&vcc5v0_sys>;
- 	};
- 
 -- 
-2.49.0
+Ben Greear <greearb@candelatech.com>
+Candela Technologies Inc  http://www.candelatech.com
+
 
 
