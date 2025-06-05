@@ -4,111 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060B5C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6054C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uObjRkQUmOCERXxPU8EgQSceGJ0+5kvG/cdegAQh8Ys=; b=jO0SgyYkxtqVuTpF3DQo0j5JS0
-	cO/Ux51g7lWKyFnZA8qZqsF3XhPuT3XKT99jf/HMln25lZKOFpM+mnOx6cFyCbjR6OOS2bvSQ/7it
-	iwK5IQ1KmlKpzcOM26rXltLGcLf9/KWhlvDVNNjB9CK7hwG8p6A58uf327B2XHf60pP9nGR91O8+R
-	lwv793w9iwh1EZfEqGuur3zz4i4LB/O/pWQ5tes/EyavbKT2XFHzrYFrDWG8e6lFJ9w686p9qKF0P
-	lae96PpQbsgF+FnIFeLEUrJeF4DJcyAWcjZsQAsSz5EZjJsGUP3g/Hq/XmvPHtce4ncX5Q5A/rD/V
-	d+Ytz+Jw==;
+	bh=PVT5EJpM+m1cOTQkhZPkhfUXOCLKAPtm4dYD8NRnSuE=; b=Sl3zY1y3OZHhzl7Dxz5AdKIHD4
+	VM+EGmcDIRyBnbGlf8PWBZM0KG0vDqsmGx6RLEm9HdwOkIOsm3hibk9sghxn/EM0ieh7cjMUqzZUH
+	0MmPvqXyxC9qVg0nEqp3zLFrzRVre77P11AqTRrsdrvRAfoxw04hBEcRsnamKjre7ibkd8/e0tkY7
+	vb+oTmIC5Mc7Xhd/MT4BT+JkJcny9wfNQ1YPzhUUsam8aOWhjZucXyo0MKD6yo9/QTrH6bVYhjEU9
+	4IZVjW/pmBuedzr3OxOz5x6wueS91f0gtlkCA8UBZZGSg1xw+ZXAkvyf55jCYkKX97W94n7fzNugx
+	R5Nv4Asw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAOr-0000000FZB4-04jR;
-	Thu, 05 Jun 2025 13:12:53 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uNAR7-0000000FaM4-1K3B;
+	Thu, 05 Jun 2025 13:15:13 +0000
+Received: from mail-lf1-f46.google.com ([209.85.167.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNADh-0000000FXdD-2OQp
+	id 1uNAFI-0000000FXuk-0514
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 13:01:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EB03AA50727;
-	Thu,  5 Jun 2025 13:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4064C4CEE7;
-	Thu,  5 Jun 2025 13:01:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749128480;
-	bh=u8KzIXkEL0K1wlu7o8cYAV0SDadmZjM4Ep+VP7pxYNQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Yn6hwgkz7tVish+xfF2fS7zUqUvcYFSMne0TxpQS8H08SxoROnxBvsqhuImYuuavX
-	 XyZyjyyRyVO4QEFjFbZhcKYpPg+BxX4anKUYAXTQPWbECQ+vgV5wMPqszmpRiahU/h
-	 Zg7H6VFkVnaoiX/sdyZx0LIrOeiLG7GK0LlI82kgA84cIOeC0mAPO1MIbmhzTdfpkX
-	 CqBJnQzZuO3EXxrSGEBttfltTegJtFZYhyF5jC89uFqlEdPzg/9DivDIFb/3fWPHOE
-	 Xn66BfBpNYcUsit0J7XtLMjtT+hU7/ACpLw+9gDAZ+S5Qv/UUFEICJzNOPcneGV0H/
-	 ks4tp/d8cnDDg==
-Message-ID: <759f9900-a74b-40a2-ae53-5e5a6261f963@kernel.org>
-Date: Thu, 5 Jun 2025 15:01:15 +0200
+	Thu, 05 Jun 2025 13:03:02 +0000
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-54b10594812so1075934e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 06:02:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749128577; x=1749733377; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PVT5EJpM+m1cOTQkhZPkhfUXOCLKAPtm4dYD8NRnSuE=;
+        b=h7fmz+fJdgSM6pK6zT/Iycwn0Bfa0hTMtlt+3KzcrTpOJCLo8HlMpYvYlxpqjbbPBB
+         +lctTv1LsQy/dUm9zXj7tsFk0ZDEROkBgyfNYJ4VMUHzFy7V/hwGxZgwhNVutJLdXuHd
+         NHIu0gIBOVwNSwe+KwFw/9oxTr7Jh0Q9UrzKMpHUmF6bj4mK+IzoStwFwpJwlavyA/Vo
+         VxVVMR+GPklBYbJaiaODUuXgcG/8QxW0uSQyqEsJpNh68tfOSX0xV+14dMtNaasaWG+D
+         oj2ap84Emg3fYIaLxX1jAsQLCtrwRYAWakwtOsCrPt23Waf6AERiLVtKXffQTcNKSaqy
+         RDDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749128577; x=1749733377;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PVT5EJpM+m1cOTQkhZPkhfUXOCLKAPtm4dYD8NRnSuE=;
+        b=eqmja2ORz2bquN4zmabDwnVWjUWKEdBKiYVVn94mNseEX7HdIfO34ugJA0+W20wKZ7
+         FtwkJvqVjOfWBnsZCYLfJjnISO/jzRgi8CuwcJTnB1pp2rt0AGjM6FKMfeJtcNH8njzF
+         P3FucoZqRBVtjLzDpaPuFw5z5fwu78x3geRG1IYDThKC2i9vMbrQtsel5pYcfNV6MY0o
+         J2QOjRs95iHn3+poY78ixJ0KH3tbu6OrFAWhu0Ni+6sMbN5fK3s0JynZEaendV0XTV1E
+         jfHSzS0kEIYyRLRXO0cuaU+YU9En3pyQWjn9tQbMFhht83ZLDJJTYoIhfIygqbiyM20v
+         sBTw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBrpFHqomay3dHjHHRtU3IQ2udC9ow7vbX+kCcwP7xUF/X8Nrp6Uut/8FKy7Kl9Lg4nM1iSATicTyD+5tPdMPA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF3r0ST+tX4DRMUKPdXyVOfuG5R7Nz5tAC2+/qv3oXXtaxyB+c
+	qlKJn+4fhJ3JwRF2YK/bQHpp511p6FtaleH8SMFrDfgOHv92J50dDYVWt9++7bb9H5qTGzZuGty
+	uki5KvoC1CcKOKavDakGf/9S6RWytJ09OSd0qi4g5uQ==
+X-Gm-Gg: ASbGncsKdEeHa3Y1UzzB8Si5dgw/iMKB2b47/BhwG4aO3r8UWDkf3hEjx6f345J9WZh
+	p2XgqjyUBdZ+DE9xs7SDCtvxA+r/zQVcyB9rvI6N30vZBm4ktAieJ0wYCZQdYGWErRk4bQ8i4Ma
+	ehqndh2UKEXgX9qJPPlj/FxLJ1fyi8yzeV
+X-Google-Smtp-Source: AGHT+IEtlN9LmFKCqkTfr1fMDsTcWr6BPb/SNfXLFckAF9Sr8ZXGsmd9lFBvMAQkVfe0s88El5iAUEXMpQYKE5AAkEc=
+X-Received: by 2002:a05:6512:3043:b0:553:5283:980f with SMTP id
+ 2adb3069b0e04-55356df2aeemr2183360e87.51.1749128577147; Thu, 05 Jun 2025
+ 06:02:57 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] dt-bindings: media: allegro-dvt: add decoder
- dt-bindings for Gen3 IP
-To: yassine.ouaissa@allegrodvt.com, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Michael Tretter <m.tretter@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-References: <20250605-allegro_dvt_al300_dec_driver-v2-0-1ef4839f5f06@allegrodvt.com>
- <20250605-allegro_dvt_al300_dec_driver-v2-2-1ef4839f5f06@allegrodvt.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250605-allegro_dvt_al300_dec_driver-v2-2-1ef4839f5f06@allegrodvt.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com> <20250528-hdp-upstream-v4-3-7e9b3ad2036d@foss.st.com>
+In-Reply-To: <20250528-hdp-upstream-v4-3-7e9b3ad2036d@foss.st.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 5 Jun 2025 15:02:45 +0200
+X-Gm-Features: AX0GCFun0Zlf8oI1kptxrVzEZHeoQoovvg-1R2vISTKQmzQE4bFTIdqUSf5gGUc
+Message-ID: <CACRpkdZsyUR6_Rbxcbs-yUUm=U9UKGCuFp7kmmogqsUAxzTZuw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/9] pinctrl: stm32: Introduce HDP driver
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_060121_745673_FAB35C22 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20250605_060300_074876_65E964D3 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,113 +98,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/06/2025 14:26, Yassine Ouaissa via B4 Relay wrote:
-> From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
-> 
-> Add compatible for video decoder on allegrodvt Gen 3 IP.
+On Wed, May 28, 2025 at 3:33=E2=80=AFPM Cl=C3=A9ment Le Goffic
+<clement.legoffic@foss.st.com> wrote:
 
-A nit, subject: drop second/last, redundant "dt-bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+> This patch introduce the driver for the Hardware Debug Port available on
+> STM32MP platforms. The HDP allows the observation of internal SoC
+> signals by using multiplexers. Each HDP port can provide up to 16
+> internal signals (one of them can be software controlled as a GPO).
+>
+> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
 
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-Subject prefix(es): still wrong. You can get them for example with `git
-log --oneline -- DIRECTORY_OR_FILE` on the directory your patch is
-touching. For bindings, the preferred subjects are explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-> 
-> v2:
-> - Change the YAML file name, use the existing vendor-prefix.
-> - Improuve the dt-bindings description.
-> - Change the device compatible identifier, from "allegrodvt, al300-vdec",
->   to "allegro, al300-vdec"
-> - Simplify the register property specification,
->   by using the simple min/max items constraint (Krzysztof Kozlowski)
-> - Remove the clock-names property. And remove it from the required
->   properties list (Krzysztof Kozlowski) (Conor Dooley)
-> - Use the simple maxItems constraint for the memory-region property.
->   Also for the firmware-name (Krzysztof Kozlowski)
-> - Example changes:
->   - Use header provides definitions for the interrupts (Conor Dooley)
->   - Improuve Interrupt specification using GIC constants (Conor Dooley)
->   - Use generic node name "video-decoder" (Krzysztof Kozlowski) (Conor Dooley)
->   - Remove unused label (Krzysztof Kozlowski)
->   - Change clock reference from <&mcu_clock_dec> to <&mcu_core_clk>
->   - Use hex format for reg property (Krzysztof Kozlowski) (Conor Dooley)
->   - Reduce memory region size (Krzysztof Kozlowski) (Conor Dooley)
-
-All this goes to changelog
-
-> 
->   - Link v1: https://patchwork.linuxtv.org/project/linux-media/patch/20250511144752.504162-4-yassine.ouaissa@allegrodvt.com/
-
-Drop
-
-> 
-> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
-> ---
->  .../bindings/media/allegro,al300-vdec.yaml         | 75 ++++++++++++++++++++++
->  MAINTAINERS                                        |  2 +
->  2 files changed, 77 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..26f9ac39682431b1d4828aed5d1ed43ef099e204
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
-> @@ -0,0 +1,75 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/allegro,al300-vdec.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allegro DVT Video IP Decoder Gen 3
-> +
-> +maintainers:
-> +  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
-> +
-> +description: The al300-vdec represents the gen 3 of Allegro DVT IP video
-
-Blank line after description:
-
-> +  decoding technology, offering significant advancements over its
-> +  predecessors. This new decoder features enhanced processing capabilities
-> +  with improved throughput and reduced latency.
-> +
-> +  Communication between the host driver software and the MCU is implemented
-> +  through a specialized mailbox interface mechanism. This mailbox system
-> +  provides a structured channel for exchanging commands, parameters, and
-> +  status information between the host CPU and the MCU controlling the codec
-> +  engines.
-> +
-> +properties:
-> +  compatible:
-> +    const: allegro,al300-vdec
-> +
-> +  reg:
-> +    maxItems: 2
-> +    minItems: 2
-
-Drop
-
-> +
-> +  reg-names:
-> +    items:
-> +      - const: regs
-
-base? apb is also "regs", because this is "reg" property, so "regs"
-feels redundant.
-
-Unless this is something entirely else (quite different address in
-example), so maybe this should not be reg at all.
-
-Also, make the example complete - missing memory region.
-
-> +      - const: apb
-> +
-Best regards,
-Krzysztof
+Yours,
+Linus Walleij
 
