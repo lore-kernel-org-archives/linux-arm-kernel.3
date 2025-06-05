@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BBF6C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 22:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67997C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 22:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T8lVMdDNWIa0lymqUQrX07OKAzHsZPVjkk8T9xoa1cw=; b=vvkg3o+opmngrA4Nahl7jjlnib
-	VxI7RLl6lgBLaeDRj7UZAVuuv0N2oL0m9rVDJWjalH6et8hJbnK/Sn4rmL5vD07iN7xDAAhVP9AXT
-	c/i1zvKGyv21/uZzibTNV4u2RMjGGUAX9DZ+Kv7QVTWR5jB9a6lSHpi72C5HMTZV4ndzRRLL1jUFx
-	2ZpyWBDl87SiUBQYNMuJkGfo4s8P+gGvp7GaLAgKBMtGYZSIbjvJQDi//sSKXuFtj2+W+7Shyv3W+
-	ZJMAI78Zpy08LQg3xN8Z+m5Pqc04VPATrzrYirxt/OsH4olbkrCefUMAKiLdF5v7Pz9E3uByjJ6Yy
-	ucXToo2A==;
+	bh=GjLzMU1bTvfgSMb6z/XT3mAl96bxRQT3GNEN/mU0hKA=; b=IF/PF3MwtsrCWfWdi05D7TwNqf
+	/stn0XAZioGr3b+ZgBTwUQc4HDEYoJQ6wHPkpEsvm0nuVuNkfI5kBBB0MsJBRrKdkWSyKCEsyLbjP
+	vJjRDPCuCjDrCN1PBN4eUU2FAMEgOz5n5fUNV+5Tk4SlP7xJNxpPubGYatIcVCTwAFvKNgzdjDz25
+	8IsUVWTICWzB94XERHhrsHVkkq2H9fHsLOFhpnD342ufyceBJiiZtBZMMZd/3K8atScE721AtOthc
+	CWLjcVFQAvk2xNCLiDeHceLHpoI27FfTZGDmvz6VGaeD41VbCfzz2GITWjAlnFnbcxKNr6A309r6q
+	/VsAfOVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNIrv-0000000Gj31-1mf7;
-	Thu, 05 Jun 2025 22:15:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uNJE5-0000000Gk2y-2BGV;
+	Thu, 05 Jun 2025 22:38:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNIpk-0000000GirG-0vxB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 22:13:13 +0000
+	id 1uNJBu-0000000Gjuy-3pMn;
+	Thu, 05 Jun 2025 22:36:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 798CCA4FCE8;
-	Thu,  5 Jun 2025 22:13:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E845EC4CEE7;
-	Thu,  5 Jun 2025 22:13:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7864A4FF30;
+	Thu,  5 Jun 2025 22:36:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C8C2C4CEE7;
+	Thu,  5 Jun 2025 22:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749161591;
-	bh=BLfA4ZAVbtNmh+Wd7A/4kqT3/Wp/5XmJ0077S+Wl6Uw=;
+	s=k20201202; t=1749162965;
+	bh=1Jbyu6lBg3cYdJFmXVp6tcUglO4vtoW6ecMJkoWr3Jk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JBWIQJ9QhBXQmamEEFJUAvjxOnHvxneQRcEYEpoBNI1H553B5myDsXEI4gWfpaNia
-	 /HecHxWS+MrSqUXmngyI4NHxzDJxDzuJkpJrEGlXp0kUtmImsD44mBjhdArwuQZDzS
-	 tp4CxQWsylneH02xA7bhDNe6imKa5AkSbl+waWJaHHqEZ1nLfjMUaEtg/xVRXSq5Q7
-	 L0CUU/4LvfROVZlmQaK44sjOHikKhd7dVOcKe03ZW4lz6ETWFVkWpJlyfEkei5GW3K
-	 E+YOtGwX/Wy/hrzo+aW89OBT9SAW+xQyG+HrVNWJZsMAYHuvFmh7L/cGxh/hZzic/p
-	 Xsm1ojDqrfAyQ==
-Date: Thu, 5 Jun 2025 17:13:08 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: conor+dt@kernel.org, geert+renesas@glider.be,
-	linux-renesas-soc@vger.kernel.org,
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
-	mturquette@baylibre.com, lpieralisi@kernel.org,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	p.zabel@pengutronix.de, linux-kernel@vger.kernel.org,
-	magnus.damm@gmail.com, john.madieu.xa@bp.renesas.com,
-	linux-pci@vger.kernel.org, kw@linux.com, bhelgaas@google.com,
-	krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	manivannan.sadhasivam@linaro.org, sboyd@kernel.org
-Subject: Re: [PATCH v2 3/8] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
- documentation for the PCIe IP on Renesas RZ/G3S
-Message-ID: <174916158571.3344975.11147858201870776077.robh@kernel.org>
-References: <20250530111917.1495023-1-claudiu.beznea.uj@bp.renesas.com>
- <20250530111917.1495023-4-claudiu.beznea.uj@bp.renesas.com>
+	b=GI97G40wn+NwPG+muuWyuZ+k5CAX2GTR5U1pKevTXMAB1l/zytenR8dLG303w8nm8
+	 /lQ5wbzVqL8RVMqg28CYTp3o6XX6Oh8du6nxJ6Y3C6AC/9w1bSARIWm4asoir85iQq
+	 Tr/aljwW+wh3Iwsdg05AC3MUAMj6WSqJnYGCpCWl0cZMRBZTuWYiH6kI7DEdfV+Qyu
+	 wZ/8yINzrom+p78SpH0KT+ef3QcaHXqfePHwTN7evo0O2GaGeoaFnDBxFlRby+lKhF
+	 y6J7yjh3uRkCaRQe05VgfsY2Un70OWq6w5iDQO3TL89evBzvjrQ/ujajwrqR/A26uN
+	 1l7Bpl/+/oagw==
+Date: Thu, 5 Jun 2025 17:36:03 -0500
+From: Rob Herring <robh@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: PCI: brcm,stb-pcie: Add num-lanes
+ property
+Message-ID: <20250605223603.GA3375348-robh@kernel.org>
+References: <20250530224035.41886-1-james.quinlan@broadcom.com>
+ <20250530224035.41886-2-james.quinlan@broadcom.com>
+ <6c3ec1c3-8f62-4d76-86d3-c1bbe3e1418f@broadcom.com>
+ <2f79ae4e-6349-472c-b0cc-ea774b8ac7cf@broadcom.com>
+ <CA+-6iNz48EFUGUOiHCSaqgsU_tKGV1=Xvw4fjoUS_AMhUHAi6w@mail.gmail.com>
+ <3037cd65-89e8-4029-9ee2-4695db5987ad@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250530111917.1495023-4-claudiu.beznea.uj@bp.renesas.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3037cd65-89e8-4029-9ee2-4695db5987ad@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_151312_325938_135EB46F 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250605_153607_017898_0CB3A357 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 03, 2025 at 10:17:26AM -0700, Florian Fainelli wrote:
+> On 6/3/25 10:16, Jim Quinlan wrote:
+> > On Tue, Jun 3, 2025 at 12:24 PM Florian Fainelli
+> > <florian.fainelli@broadcom.com> wrote:
+> > > 
+> > > On 5/30/25 16:32, Florian Fainelli wrote:
+> > > > On 5/30/25 15:40, Jim Quinlan wrote:
+> > > > > Add optional num-lanes property Broadcom STB PCIe host controllers.
+> > > > > 
+> > > > > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> > > > 
+> > > > Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> > > 
+> > > Sorry I take that back, I think this should be:
+> > > 
+> > > num-lanes:
+> > >     enum: [ 1, 2, 4 ]
+> > > 
+> > > We are basically documenting the allowed values, not specifying that we
+> > > can repeat the num-lames property between 1 and 4 times.
 
-On Fri, 30 May 2025 14:19:12 +0300, Claudiu wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
-> Base Specification 4.0. It is designed for root complex applications and
-> features a single-lane (x1) implementation. Add documentation for it.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> ---
-> 
-> Changes in v2:
-> - update the interrupt names by dropping "int" and "rc" string; due
->   to this the patch description was adjusted
-> - added "interrupt-controller" and made it mandatory
-> - s/clkl1pm/pm/g
-> - dropped the legacy-interrupt-controller node; with this the gic
->   interrupt controller node was dropped as well as it is not needed
->   anymore
-> - updated interrupt-map in example and added interrupt-controller
-> - added clock-names as required property as the pm clock is not
->   handled though PM domains; this will allow the driver to have
->   the option to request the pm clock by its name when implementation
->   will be adjusted to used the pm clock
-> - adjusted the size of dma-ranges to reflect the usage on
->   SMARC module board
-> - moved "renesas,sysc" at the end of the node in example to align
->   with dts coding style
-> 
->  .../pci/renesas,r9a08g045s33-pcie.yaml        | 202 ++++++++++++++++++
->  1 file changed, 202 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
-> 
+Are you confused with maxItems?
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > 
+> > num-lanes is already defined as
+> > 
+> >      enum: [ 1, 2, 4, 8, 16, 32 ]
+> 
+> Right, but then we need to re-define it with our own specific constraints,
+> still, don't we?
 
+It is correct as-is.
+
+Rob
 
