@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2B1C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 03:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99134C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 03:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6e2st0+iShieSpNODIcFg9Fz76rcQ8IPCC/t8w4mYog=; b=bK7NeZ+rCs6guEFM64rXjh/Pyo
-	oIYTQmd+M6zdju9hAb8/5+X+CtTMUc5QSckz2y00EKGAEgE6xudwwuAL9Bi+JYbQBTOdsFZjddHTi
-	36UncPXRf1qYRRKqxZD2Bb2wCZqOUfttrNBiwO1VvqulrA0THbZTM2OvDp6uYOZKEJgdvzLRUUsjV
-	JOtkFV5cVqUytVrTVyVk2Bw99BTgRKABxiamOnym/JbfY4CPl84tpX3POzww6TmIs1y3JIwN++lF8
-	MuUDGbKoPKAq312s2c2mLX900FiLFhhT4tnWFQ6OmsbTkO+qe5owMu3Nb8+XFOXu+KWH66mUPk7fb
-	0q9OPoJw==;
+	bh=Xbtqvsf7BRpbL9q0tKGzMc/ghsVtwuf5Kl78Wf246CI=; b=SAm0AnKyumogrAVnJ40pkVNpUT
+	dMN+2u4Hy28ueQbcP/zk7YBEH2pfulKGcMRphrEgdTsSfmnBZp1KLqKdIgirPpJSIn8aLOwL+UC/6
+	WIiJPLOr3K1Bo1Z/OmnfwBmduHWHt2IuaeYYACCwPNEXmE+nNDfKOLwKR0+FogppghLoAMP9n/bFx
+	gn5/O0XRG+lyxyOfb+7MElXG4KBuJ8gJhneDUg5xKYPQmhVjiTxT3PyifkjZTlbDYypUG/GuwYgAg
+	zmOLMtqX0ja7kPWd9raXBE5usGcb4XsU/1vDBgRFUgD9jtgO0kBWl7d3SUX9pTobV/IQys+Gktmj3
+	j0CSB0ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN1fM-0000000EfTC-3TpX;
-	Thu, 05 Jun 2025 03:53:20 +0000
+	id 1uN1hR-0000000EfeJ-2pR1;
+	Thu, 05 Jun 2025 03:55:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN1ZC-0000000Eeup-3y56
+	id 1uN1ZE-0000000Eevr-3xK5
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Jun 2025 03:46:59 +0000
+	Thu, 05 Jun 2025 03:47:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=6e2st0+iShieSpNODIcFg9Fz76rcQ8IPCC/t8w4mYog=; b=EYJ6iH4sg4CQKyQqOeBto7e+p2
-	AGpENj7HaghyZ5he35C5qRB7kbt4odSKDHwoCsUNv6zUQ0XsfeuzKvo0NSmUcfkZhGGPhsBgkAPii
-	EZDNLht6f4yGiecqTceTCrvRTuDwyaMZjkW1eSUNiDULnSt8Y0RAvzLpk7P0UfLwavv6nnpLttGKc
-	7Dr0H9kbpWgWgj0KatqM6hVOKbIKrwHJJ9+MSK5+KM89vv4Zvz3qkou/Aes1wpbEyVDhecnC/pyj9
-	WoqJmit4nWHEFlTgb9UIojRI2xwOx7SgYKVQZfQdcNcW4ULK28PHT84OGzMWzvMR8egkJ1oNyBzvD
-	Zx1z/Efg==;
+	bh=Xbtqvsf7BRpbL9q0tKGzMc/ghsVtwuf5Kl78Wf246CI=; b=GF0LttqVSFopupIn4nkfS8tMKu
+	sslGiGiTRKATyI4fyEjmmBX3kKjyh+9Tc2ikFuu5B+tbqOIZvwJrpAeKJ7ItiyL0rIiUau6Lks0N5
+	iCVAb2h1RHJXCOuww/NItu5coFI1+mjGVxFebFFDVkwhk43oeBsExato0AsL8GVGoiPoE+Eu2DvTV
+	tV+180kEdtXKWjB3EptUv4Qxly1wxZU7Or/7JpSVyAzr+mXqSuO/BaSqyWEs8giv/CGwbEDoI9Nab
+	upTIfK6jDsd7XBOf6V9e1GN76YfPNOmWmrxfMdidckSQqZ75T2w3vX0XvZCsb6FcxXg/Gxd8dg8hX
+	yZIKvs6w==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN1Z9-000000013U8-26X5
+	id 1uN1ZC-000000013UN-13LU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 03:46:57 +0000
+	Thu, 05 Jun 2025 03:47:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749095206;
+	s=mimecast20190719; t=1749095209;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=6e2st0+iShieSpNODIcFg9Fz76rcQ8IPCC/t8w4mYog=;
-	b=IqBnXkKTUGpMxA78Uh8HhDyXwvubDllKnj9Pz4ZzLUCbGBGymMJKY0xgXszjgEp7/ZokEG
-	ALakDkyenBQiC2KdcNto2DynYa2EolnDLXvkC2MKnlSy3jCYfePkDNQimitBaMSpHqogWk
-	4tgCWc0IHA0aEEBdE/h/GomdErtRcvM=
+	bh=Xbtqvsf7BRpbL9q0tKGzMc/ghsVtwuf5Kl78Wf246CI=;
+	b=G49cCE/4Ls4In6ufSQ2dLnLMsFUlfMqhOxwn1/ZxX+U0ke6dJvLMkD3mdtQZcKck39SXVn
+	C0e7vWe4daL5OZaoOat+1oPSviYuZLK/cnCzqqYEaB4OteqnSquIYW7EhTtObPfzZsgGh1
+	ByTNdVEaUuEkpsAo+1HZn6ArBrDw7k8=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749095214;
+	s=mimecast20190719; t=1749095216;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=6e2st0+iShieSpNODIcFg9Fz76rcQ8IPCC/t8w4mYog=;
-	b=Of+TAtldOaFUAY5Vbk3MTwWOEzU72PUFa9KueUioeCOWtRwZF+xwzi1e4rhGpOI9oxIv3p
-	6WvFTP2z3M1jHEJKtBUzbgkfMz4BzYCagFZ0xe+xaz+I/lmgKArGSFWST1v8hnMnXq07ez
-	8sly80HoSoopiRD6VNWvTSGMyPmLKFM=
+	bh=Xbtqvsf7BRpbL9q0tKGzMc/ghsVtwuf5Kl78Wf246CI=;
+	b=bvnEgLX2+qaJrcGaB/zX4rXtmXv8l662ptRBghtUoJWGliKuVQYjtCa5M9v5dmmvzlB6MA
+	bAnyDH4NRXgdUTEjEFTLv9oFJlKlO7WMuA4cNsjFqxW6ywXpIrHwK93/w6x6qYsqTmUNLD
+	RrYsEDZHQ9ZZMpvUP5a3wlZB0+PP0ds=
 Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-516-qugyn03mOlKnyIwd7JPoig-1; Wed,
- 04 Jun 2025 23:46:41 -0400
-X-MC-Unique: qugyn03mOlKnyIwd7JPoig-1
-X-Mimecast-MFC-AGG-ID: qugyn03mOlKnyIwd7JPoig_1749095198
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-526-hSawOjZCOlCHJFa_3Q4gJg-1; Wed,
+ 04 Jun 2025 23:46:45 -0400
+X-MC-Unique: hSawOjZCOlCHJFa_3Q4gJg-1
+X-Mimecast-MFC-AGG-ID: hSawOjZCOlCHJFa_3Q4gJg_1749095202
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0E3511956087;
-	Thu,  5 Jun 2025 03:46:37 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6BC631956087;
+	Thu,  5 Jun 2025 03:46:42 +0000 (UTC)
 Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.229])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 333EC30002D0;
-	Thu,  5 Jun 2025 03:46:31 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6157C30002C0;
+	Thu,  5 Jun 2025 03:46:37 +0000 (UTC)
 From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Wed, 04 Jun 2025 22:45:11 -0500
-Subject: [PATCH 2/4] drm/panel/samsung-dsicm: Keep up with refcounting
+Date: Wed, 04 Jun 2025 22:45:12 -0500
+Subject: [PATCH 3/4] drm/panel/sun4i: Keep up with refcounting
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250604-of_drm_find_panel_part1-v1-2-c632e12e131d@redhat.com>
+Message-Id: <20250604-of_drm_find_panel_part1-v1-3-c632e12e131d@redhat.com>
 References: <20250604-of_drm_find_panel_part1-v1-0-c632e12e131d@redhat.com>
 In-Reply-To: <20250604-of_drm_find_panel_part1-v1-0-c632e12e131d@redhat.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -105,17 +105,17 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  linux-samsung-soc@vger.kernel.org, Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749095111; l=724;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749095111; l=688;
  i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=MUHWOWeXTgH9muEniE1HyqfCld1wHUnfwns2dOYTIa0=;
- b=cbmycYmHSdj0wZkt3skRJ+iJH83a782N60NXKJyhCr1Otr9BxxDh1Y4WRMxJOXiqnntYUVaDi
- RbiUhWsYhRoDKaddXeGeS5o2Wqs82qUAiaYXWug1uhWM7Kz5R6/4y/o
+ bh=8TEfN32KZd6YJhzTAU5W2FFXyAmDYouG69xkiU/38RY=;
+ b=hgLlqDE82iA86gpJEHX2fHQf4POVn+EIXHPqw81ubtcFdUfF7dPMQSIdXkUcX+ngUZhsvVlPw
+ DGg2MsfGbjfD5ueMCo+9yUhN+O3RALKd7EZxCHZgGjVQKTML4WQ1aJ5
 X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
  pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_044655_868224_A949C09D 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250605_044658_533724_FED4E79C 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,21 +135,22 @@ longer using it.
 
 Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 0014c497e3fe7d8349a119dbdda30d65d816cccf..3667855ff0d6d1b608c579573de657af7fd14388 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1748,6 +1748,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 			dsi->out_bridge = ERR_PTR(-EINVAL);
- 	}
+diff --git a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c b/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+index c35b70d83e53b7397c6e38dde45824bd49fdf099..36d47d7cedde1e1e3e83eb670520664100bd0a25 100644
+--- a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
++++ b/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+@@ -990,6 +990,8 @@ static int sun6i_dsi_detach(struct mipi_dsi_host *host,
  
-+	drm_panel_put(panel);
- 	of_node_put(remote);
+ 	drm_kms_helper_hotplug_event(dsi->drm);
  
- 	if (IS_ERR(dsi->out_bridge)) {
++	drm_panel_put(dsi->panel);
++
+ 	return 0;
+ }
+ 
 
 -- 
 2.48.1
