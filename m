@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EFEC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 11:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64820C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 11:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0DK6uM4OCMEufJaM16uRm6cXGr0jOYtB1myNeR7Sl5w=; b=PEftkwY2Qh4LoGKxIrMgsfNiz7
-	L/eySHOIIA+cZ7J/Vvvd4eziT4TEJ4CL2fYV+wF90jMLDBPA0VyuQsUhyXad6uC7BrboNRAtkuK3L
-	vSUduonltwpPlG2+fZlypoqzYsvanqeEECzZ1NYGamOUxMxYu7NI7TfswhKSDHIdg7QMJ1CO2na28
-	mLVVy0tbY1c88S9oZy70ReyUCi+85ckzzkUihCv5ltayGXO3mpwmTe0PgMeT3NF7hxt6Hqf8Peyby
-	y0VNuPznUk2P/LTdsCHynQrj7l8QqAbkHJdSsJ8Vpp3ivIdqMDLTxhvlcnThkEXyN45AZHm8qzd6O
-	Xt2fELUA==;
+	bh=j9Rue6bPIg/trhgv/sEGIp6PJe+iLR+ZUbz2D5vC1ck=; b=XizW6cAchrpYaq2KzhAzCmWvNf
+	aDozSlT8QK2EN6o+fUjYd9FmnBrXupC5YjkXzaSv8t1EhOaKhZal252iju9dqme/gz/Ccgk8Fwyjw
+	zXgPmSXKeZ+q0+2wqGHwwAYAme9ZhtyFvfgw9tDErJVhovieuqvNd9MPjYSOaajaUHcSOYYYNTx8D
+	IIGrXrFr9dMyd9bXfapsSzJHY7u8Qv8IFof5HL1v23p4jRVGlMDlJ4XUaaGfAvXGn4GUXyA+hnEDQ
+	FRPmw4E1pBifoyqZbHWlyKdJmCnCqokMWJmA9igphotqM3fOn2VXoeol023/SP6LDK1Biteq87EEj
+	1yCYaPfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN8O7-0000000FKNx-092C;
-	Thu, 05 Jun 2025 11:03:59 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uN8QG-0000000FKdi-3fxB;
+	Thu, 05 Jun 2025 11:06:12 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN8Al-0000000FIGo-0Ro2
+	id 1uN8Am-0000000FIHh-1hmE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 10:50:12 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-450cf0025c0so5183155e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 03:50:10 -0700 (PDT)
+	Thu, 05 Jun 2025 10:50:13 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a50fc819f2so645427f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 03:50:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749120609; x=1749725409; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1749120611; x=1749725411; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0DK6uM4OCMEufJaM16uRm6cXGr0jOYtB1myNeR7Sl5w=;
-        b=q8xwB7ZaJmmCTd6izHM/CYYtD1GwVMEDTVswrctl59bs0/+elCgp8Ii3qCB9Sp4bAi
-         d73tMBmF/c/iUTsun5GlWoZf3wiavzzhpRl5G88eIa3MmbHAW2UQwElwSJrEMmrMN4Ox
-         cKSG7F6OmUAcvmXLQMa7CBYoJ/U+vUsJzsemQy7O+Z1GldSKFeXnEpaLUvxHoXpKtL4b
-         RYNuvKdPkReZ67Fz5fVPK06XaT/vt2aewlFoE4Ab+7UR3sCY2f4kbPw8F99pCos99o/w
-         8duRlRsM1C04ULJbfx9j0i376UjFnhAK1ezWdhuHdTIJvc1xehhSJ3LlHlIUlQriRQ6p
-         BqGg==
+        bh=j9Rue6bPIg/trhgv/sEGIp6PJe+iLR+ZUbz2D5vC1ck=;
+        b=JGZAHM+Ho+PTngunIbKaLARrWbDoZFs4DWdhZyEGqMDbjcNRsecTEqfDUplAnRIoVZ
+         qg8FO3DxyXFnljvCbihFlt3gf7M+nMrQqUY6pLndfPKEBG2ORJYDzh13XbkxFndhvb+j
+         NPC3+e4Ot9Pa248XBVFLpbMN72XCNmhcAT5XgdvmqHmYsi6vOoeo8HiWBGfCVfIWJGp6
+         XmyJbOfg5f89Th5heQbgkIXwbwU/xy1nmAgLOd1Lslsr7yPOa4VZZKNZSI8vns2CWdh+
+         QGFcksz36Lw0ei/M2tDWr6p8LFt3x+68NxbmCYHQgMx5hURC5uJOi4vcHe/km87Nijsg
+         m6sA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749120609; x=1749725409;
+        d=1e100.net; s=20230601; t=1749120611; x=1749725411;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0DK6uM4OCMEufJaM16uRm6cXGr0jOYtB1myNeR7Sl5w=;
-        b=A+3cmddBs2E1Za+LHuAGUIOAE25QUqKWeWjZbSvs+5WdnDjRqvKSDebiOLZgiACc98
-         onIgNPQ1uOs0ZhEUCa4k/PblC0ODDus/+p1U5fuuRt6WvZ0Z8X8oW7fYLpfSDwPKtn4+
-         Z1vfWZPHa8TnVuAidbl+kfTHt1+SyZ2zSCpy6wQUVnxvwbhIPKXZQF2ZpcP25a+TF6tA
-         xXWMxzu6Bwp5gKgD7IHwZgVGybcSoxM42FLoT4Nkd13Si9viQHV1WKuvXdcSVGYVbZ7v
-         FyHq/u2AzYqpi+pb1sc7rkgIpxEm3lW3XdFhHaOR8sujanHRHoEEiDZq/hNdtXuFpA3a
-         SghQ==
-X-Gm-Message-State: AOJu0YwQ7x7NyGCXS29/9RizXbguIdYlAOg5tlslphmYeT1szIksengm
-	SeaS9AYm/HYUZraYzf7teSuNsm/tEf8LnB11ROKALe4iZulsbPfv/9nr7Tz9VpGepoA=
-X-Gm-Gg: ASbGncu3oZwd6RhdD1rRW0AbjiY+ilrc5HTKW6SR4ME46J524Nlr7FNM7hIMLTRXz6s
-	OYndQax/2bFvTP/f+jt0Ap3uyR1SgA6tApb1HhsuSgF55HuSLJl8XJvQCRZwIhZz2f5D5XD+I3a
-	wukf8q8zDYzXiU1ZVpQ0aVvR9swQcn92ji4p1vIUUa/P54TP4aX1a2DLYhSuD5xG0uECQg9YY9s
-	vz2lK5TmrVRrL0O3szs8YU0RbeK9pRGKwbq0sthpfYLHovsOqqarTl3BYjvPiq/Y2PC7kIs+Hk1
-	N4MUvSNSTkaOhX7OSPCf77Rve9OJS/yZjWELTruoNy5fxZyJdtQakV25qixePdH6LGUuAEw=
-X-Google-Smtp-Source: AGHT+IHW1X+WENRurUa43xQ9bej2IvG2qfN9i4ZVKvWxfljVS3ufqAHPvcXy1cLSRDDK8lgBUz9YNg==
-X-Received: by 2002:a05:600c:a089:b0:43d:45a:8fbb with SMTP id 5b1f17b1804b1-451f0b0c598mr53918705e9.22.1749120609367;
-        Thu, 05 Jun 2025 03:50:09 -0700 (PDT)
+        bh=j9Rue6bPIg/trhgv/sEGIp6PJe+iLR+ZUbz2D5vC1ck=;
+        b=Qfsz8+xbwxFV8y9HYfPGZJZSaCtRAVlgSNq95/7obDMuBm/2aZTVVCo5rkZ+IVkypP
+         25f0sqz7w+xP8eZk59q9bGAPhkOlwphErrHdZ7A68Iiw2F+rZAMa1dT16Lxm4iWgzFYz
+         zBMednR6LklqlRSd65ZtQp4ELeevfW+1zYFrowwEfGgtRtVHMerVjGDxo87gXwaZKeNU
+         YcWgu0Rza7GBMuaz8vh5fVHh1mnWWm+adsb1Gmlk430XZ1uukCxtx3ce5LrVLfwFyKhd
+         j52lrBi2nE8D/bPVF/Z/v3GoUZlprMv7LQjsVWxn9umVhZ4fenn3UcIID6Ld84+Dmr8Z
+         8xog==
+X-Gm-Message-State: AOJu0YycAeGc0MIWRkzuCW3Q/r7xEjsnY/SlC2s5TXI/K6VoLmLcECle
+	lCszA65qvv0ZUxTwBt6E3RaTeT11bMjaF/+I3DVWnCTScrx06Kwi5gFsouKtkQ0ViMM=
+X-Gm-Gg: ASbGncuGVPeyekf4yVkOizNH/N1I5ZJl3l4e2t+HGG6Sgsd6+H33ZiDdCkp3U2lqSOU
+	MaP6dJVojeo75j2Fn1Hlrp8edNhRSrfruk0G5ybtdTwAClbnVR+FIqov1150IKWN/qzSl9/1xTE
+	UQjKE30OUYxvGuBQ4lWeQ/VMv6L6kwtlNMNkUbYUBCtXtWLRfbUsk7Gfs7EJy6ECCtW/b7iEyXg
+	uooqailZ84o91yAXwNeDg8IXLthTZ7lf0+TshAaJLwk42EUWyJ/fkt0OTW5bwSdyi57lJf81JoD
+	VXBQq9Z3ptF6AoMsJ0dKVMUfuiaR7UADWf1GqCPbttktniyOjlA7WIghoO0a
+X-Google-Smtp-Source: AGHT+IGgu16RRFx+Y09hUhjKjxwfPfRayhA9cKQUsDuzGVsP3y8rnAFwlUH2ULqYWuFyxL3gPk8m4w==
+X-Received: by 2002:a05:6000:2389:b0:3a4:deb9:8964 with SMTP id ffacd0b85a97d-3a51d91f899mr5503049f8f.17.1749120610702;
+        Thu, 05 Jun 2025 03:50:10 -0700 (PDT)
 Received: from ho-tower-lan.lan ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-451f990cfe3sm20629965e9.23.2025.06.05.03.50.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-451f990cfe3sm20629965e9.23.2025.06.05.03.50.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jun 2025 03:50:08 -0700 (PDT)
+        Thu, 05 Jun 2025 03:50:10 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Thu, 05 Jun 2025 11:49:03 +0100
-Subject: [PATCH v3 05/10] KVM: arm64: Add trap configs for PMSDSFR_EL1
+Date: Thu, 05 Jun 2025 11:49:04 +0100
+Subject: [PATCH v3 06/10] perf: Add perf_event_attr::config4
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250605-james-perf-feat_spe_eft-v3-5-71b0c9f98093@linaro.org>
+Message-Id: <20250605-james-perf-feat_spe_eft-v3-6-71b0c9f98093@linaro.org>
 References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
 In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -92,8 +92,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_035011_154163_A2249CD2 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20250605_035012_498794_E09CD17F 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,55 +108,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SPE data source filtering (SPE_FEAT_FDS) adds a new register
-PMSDSFR_EL1, add the trap configs for it. PMSNEVFR_EL1 was also missing
-its VNCR offset so add it along with PMSDSFR_EL1.
+Arm FEAT_SPE_FDS adds the ability to filter on the data source of a
+packet using another 64-bits of event filtering control. As the existing
+perf_event_attr::configN fields are all used up for SPE PMU, an
+additional field is needed. Add a new 'config4' field.
 
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- arch/arm64/include/asm/vncr_mapping.h | 2 ++
- arch/arm64/kvm/emulate-nested.c       | 1 +
- arch/arm64/kvm/sys_regs.c             | 1 +
- 3 files changed, 4 insertions(+)
+ include/uapi/linux/perf_event.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
-index 6f556e993644..dba0e58a5fac 100644
---- a/arch/arm64/include/asm/vncr_mapping.h
-+++ b/arch/arm64/include/asm/vncr_mapping.h
-@@ -92,6 +92,8 @@
- #define VNCR_PMSICR_EL1         0x838
- #define VNCR_PMSIRR_EL1         0x840
- #define VNCR_PMSLATFR_EL1       0x848
-+#define VNCR_PMSNEVFR_EL1       0x850
-+#define VNCR_PMSDSFR_EL1        0x858
- #define VNCR_TRFCR_EL1          0x880
- #define VNCR_MPAM1_EL1          0x900
- #define VNCR_MPAMHCR_EL2        0x930
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 3a384e9660b8..60bd8b7f0e5b 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -1174,6 +1174,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
- 	SR_TRAP(SYS_PMSIRR_EL1,		CGT_MDCR_TPMS),
- 	SR_TRAP(SYS_PMSLATFR_EL1,	CGT_MDCR_TPMS),
- 	SR_TRAP(SYS_PMSNEVFR_EL1,	CGT_MDCR_TPMS),
-+	SR_TRAP(SYS_PMSDSFR_EL1,	CGT_MDCR_TPMS),
- 	SR_TRAP(SYS_TRFCR_EL1,		CGT_MDCR_TTRF),
- 	SR_TRAP(SYS_TRBBASER_EL1,	CGT_MDCR_E2TB),
- 	SR_TRAP(SYS_TRBLIMITR_EL1,	CGT_MDCR_E2TB),
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index a6cf2888d150..4a88ba15c7df 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -3008,6 +3008,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	{ SYS_DESC(SYS_PMBLIMITR_EL1), undef_access },
- 	{ SYS_DESC(SYS_PMBPTR_EL1), undef_access },
- 	{ SYS_DESC(SYS_PMBSR_EL1), undef_access },
-+	{ SYS_DESC(SYS_PMSDSFR_EL1), undef_access },
- 	/* PMBIDR_EL1 is not trapped */
+diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+index 78a362b80027..0d0ed85ad8cb 100644
+--- a/include/uapi/linux/perf_event.h
++++ b/include/uapi/linux/perf_event.h
+@@ -382,6 +382,7 @@ enum perf_event_read_format {
+ #define PERF_ATTR_SIZE_VER6			120	/* Add: aux_sample_size */
+ #define PERF_ATTR_SIZE_VER7			128	/* Add: sig_data */
+ #define PERF_ATTR_SIZE_VER8			136	/* Add: config3 */
++#define PERF_ATTR_SIZE_VER9			144	/* add: config4 */
  
- 	{ PMU_SYS_REG(PMINTENSET_EL1),
+ /*
+  * 'struct perf_event_attr' contains various attributes that define
+@@ -543,6 +544,7 @@ struct perf_event_attr {
+ 	__u64	sig_data;
+ 
+ 	__u64	config3; /* extension of config2 */
++	__u64	config4; /* extension of config3 */
+ };
+ 
+ /*
 
 -- 
 2.34.1
