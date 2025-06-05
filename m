@@ -4,88 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25743C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 06:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C24C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 07:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wjRQKpwdfncbd0O/dki73F1JUU1ewne2muXBQ3NfojA=; b=SX6qZ5lF0TjhD4ZxqaWHz+BMPb
-	jZxppjH9pz4FQF2BKVajxXxBQOveKtxIGPJs+yCPNoUJCZ+l1V+RzSlTT/0gKu2Il4aTMb+z/jHMr
-	Cjp4YXIv1kkoAIfLcokA4zQ/FTzjzKKFDqzGv1P0D+PxWb5K7xax5yaGFdcGVQV/T1U4OgXhIFspI
-	SOAgrSKkmPB5rps3JEY3UjrfA7+L6qv/b57fc7y3aNMX3UMxPLnqAu9d1x0W7SwPIsboiFSMjvNK9
-	igt6BLSWEhew0VgKdxjmtnV9fRL1nbsKaiZyqhPaywpgWq2+wQpnqsOjfS6LRrpguH6li7AIuzU/t
-	gQbPCX5A==;
+	bh=rEz6T0rwGuFy0+gzW4ROaLMGZedszCt4+kjvdR0KDaQ=; b=smlKYQQy3XTr2vkDNH34UZM3MZ
+	Q440rjdC8oa+Z1MKBzE/BhFo+tU2POiSvey0VMNI/HP7SDU/u9Np3mXWEa/3X4sKIKZ2J35ppMiMW
+	+9LZD/6uXSjQWe8NLd9hTAYGpw5kZne8BSidMw6lIZXoWh8H100K9ow7D1wStzG40CRw4hCPLAFk5
+	gymkbWRhfzpwoxwJPsvxFP1+bNzY9nah2wXws4regInfhynxdK2S6DEFLNt2MPlB/JEavr/7V684y
+	yKHBMLgPkeTXXh6bjkmGoQLSzOfH+2LAADS68CCyPBNEEvoUVVkFbz8h5is5KTYgLPA4j5QsS9IIZ
+	TFWdcSTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN4Tg-0000000Et3l-2U2o;
-	Thu, 05 Jun 2025 06:53:28 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1uN4lv-0000000Euj0-0EAi;
+	Thu, 05 Jun 2025 07:12:19 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN4RS-0000000EstQ-1yOK;
-	Thu, 05 Jun 2025 06:51:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749106270; x=1780642270;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=4u0cpenPUYwUhEIn7H4Eq3mCfXok80FoEd4oOTI+Xe4=;
-  b=b0NdycWLHsyogvpmAAZTlwVenVv9Ks/UZ1EF8CNrNLoxrw35FSOCNgbG
-   GSa+CW6FvtnqLFcMcKkzzH2MXWJuvijQFBX1UhbwFKBpVXPPWLQyP3b0F
-   JcX+z7Wv1JAEqWnHQmfvqMbOB2I5t2CIKdeWEBT7TwsVhBtgi5cs7FchM
-   eUwAX3NGKSZ3/xFoVwpVI4HuhXnMOWXZbiUAQrFynmNxklTc7cbS4KU45
-   Jkla9kRQDZn6a0pz6frjYHNV7j4fcyosMtmzDrv+U8DcZhe+aWek3jsDs
-   pbWQc1KSx8hRNbyMGZEACON3bUejjm6S5kE44z7ztx8f3HWmgSnxq4PtN
-   w==;
-X-CSE-ConnectionGUID: Vu/grbJUS6e05afHid0L1g==
-X-CSE-MsgGUID: nuEfmfCNRxaiHsbJhnLP8Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11454"; a="62262543"
-X-IronPort-AV: E=Sophos;i="6.16,211,1744095600"; 
-   d="scan'208";a="62262543"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 23:51:07 -0700
-X-CSE-ConnectionGUID: xu2tSk4iTv2MRpKjasZFEA==
-X-CSE-MsgGUID: oJ/ST0IjQoWa8lS+Ksbi+A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,211,1744095600"; 
-   d="scan'208";a="150569068"
-Received: from cpetruta-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.16])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 23:51:03 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 8AECE12023B;
-	Thu,  5 Jun 2025 09:51:00 +0300 (EEST)
-Date: Thu, 5 Jun 2025 06:51:00 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Tiffany Lin <tiffany.lin@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel@collabora.com,
-	linux-media@vger.kernel.org,
-	Sebastian Fricke <sebastian.fricke@collabora.com>
-Subject: Re: [PATCH v3 1/5] media: mc: add manual request completion
-Message-ID: <aEE-VFfJDhUbM2nA@kekkonen.localdomain>
-References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
- <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-1-603db4749d90@collabora.com>
- <aEC05991kEIIifDB@kekkonen.localdomain>
- <1ccaaec7f782afc71bae5c3b0f60a786a907555c.camel@collabora.com>
+	id 1uN4jd-0000000EuS3-2jR5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 07:10:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=riNQRQqECixGWSY3+UwU739E0wTtZJAICrnQzMYrHCcWsJtVaX/89xV2W3ivMPIHkgvaU6BzKXAMfrGrd/+c2mlNj0ibjrNR5K3aFqP0DL+jnYAuOsCw3o3QvpDNE3DiS7y9Ip0IF40dQ/p1KrJxbZGBy30jOFWUeimuJ3aoKuZ0WtXSTlgbKm/ZuuP3N39ze2Iysj3J3+B+XqC8D3jG8a4Gh0TBb8x+0dBbU12TOqpEIhhTNL9itkKCn194QNf5t2m8x6KpPF3IiseonSdANsI/d1q1OZlFPru8BCdIIqrfiJFB2FEkXEIcFMrgV6qVUjvR3Kwq1LtXtFYIh0pecQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rEz6T0rwGuFy0+gzW4ROaLMGZedszCt4+kjvdR0KDaQ=;
+ b=Pk8QTAmhiWFppQcSUyDnDE5O2b6WULJLMxgETSYweCTmiKWAjyL2/GHmHhe6lqYjsypPg/WFtG9mD1nrGVoW8ZKRiwV1wA0lzNy1wq9m3VFCPUul6uO2e5O6GiiGA+GxMUexmkfQQrT2F9YpwiUUbGRJS9bKEGETL5/GJmTq0iijJDZRWY8INLEg3ploePFUHTklV8/DJOHTsuVnVAslyBDKetHJmUuGVt8E5jeRnJvQ0C6EEzq+ldGIKrSSKwMdF4ZS1iJrJpCypTR9K42m+TZrQSOO1FzKZpQrASa6yVtHF9rSDoI8PTS598En4OzKxWZ7qF07Ujz0A9ayLNC8kA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=technexion.com; dmarc=pass action=none
+ header.from=technexion.com; dkim=pass header.d=technexion.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=technexion.onmicrosoft.com; s=selector2-technexion-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rEz6T0rwGuFy0+gzW4ROaLMGZedszCt4+kjvdR0KDaQ=;
+ b=IG0aSeExmFMj4k0xlyuR7A1Gc3KnexW5rpFM7FOWyUCcZReQ9EpXsCqYR/NKZXqV1vL1234XZ7JtUvloqbXagD0VAOLtvY3GFfYaE6IvcE8CYQmg0QlRFYI2Oy8q9hcek/VQmFYr4FXHqaxQ6gKrbQy4QUNkyPss34+mgsXwIkE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=technexion.com;
+Received: from KL1PR03MB7454.apcprd03.prod.outlook.com (2603:1096:820:ed::7)
+ by TYZPR03MB8034.apcprd03.prod.outlook.com (2603:1096:400:463::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Thu, 5 Jun
+ 2025 07:09:46 +0000
+Received: from KL1PR03MB7454.apcprd03.prod.outlook.com
+ ([fe80::980e:3c71:3a5b:6404]) by KL1PR03MB7454.apcprd03.prod.outlook.com
+ ([fe80::980e:3c71:3a5b:6404%4]) with mapi id 15.20.8769.031; Thu, 5 Jun 2025
+ 07:09:46 +0000
+From: Richard Hu <richard.hu@technexion.com>
+Date: Thu, 05 Jun 2025 15:09:41 +0800
+Subject: [PATCH v2 1/2] dt-bindings: arm: fsl: Add EDM-G-IMX8M-PLUS SOM and
+ WB-EDM-G carrier board
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250605-add-technexion-edm-g-imx8m-plus-som-v2-1-db5a7bbe3c84@technexion.com>
+References: <20250605-add-technexion-edm-g-imx8m-plus-som-v2-0-db5a7bbe3c84@technexion.com>
+In-Reply-To: <20250605-add-technexion-edm-g-imx8m-plus-som-v2-0-db5a7bbe3c84@technexion.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Richard Hu <richard.hu@technexion.com>, 
+ Ray Chang <ray.chang@technexion.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749107384; l=1183;
+ i=richard.hu@technexion.com; s=20250604; h=from:subject:message-id;
+ bh=5FpoZ2s84dZoSUmvYTuRL2xXk/Ef0wNpduDEiDDYLGY=;
+ b=tmJMp8CBSDxHybtmnKtItA5unt42RxsjWYqQqSt4UFUFf4vErCuOzADnK2Nuaj+8fo77n6Nvy
+ kmxvNFtefJ0DBFVkAwMTzKU5AMEtlzt8zMOkTFMqPD2POIrm/k+LUEq
+X-Developer-Key: i=richard.hu@technexion.com; a=ed25519;
+ pk=MKoW0/U0r4MjJdRNaq37Tb25KE1fzJUdMN0pa8XBJSA=
+X-ClientProxiedBy: TPYP295CA0017.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:a::9)
+ To KL1PR03MB7454.apcprd03.prod.outlook.com (2603:1096:820:ed::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1ccaaec7f782afc71bae5c3b0f60a786a907555c.camel@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7454:EE_|TYZPR03MB8034:EE_
+X-MS-Office365-Filtering-Correlation-Id: d62fd411-3679-4f8d-cc42-08dda3fff41e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MFhrb2crNllXZDVycU1QM2F2L000SFloVEwzbTc3V2EvN3dzODk0cjVud2c5?=
+ =?utf-8?B?RW1HK05uNlZHNnlnd2lvaXgrWS90S3ZUbHh0dEorNlVKTEFLMTFrSUZDOTEz?=
+ =?utf-8?B?cTZNdlVrSXQvZkt0QWtMcHFEazJxMUkyQzlReXRhSG12b0pXb01DVDVYZnVL?=
+ =?utf-8?B?WnAwZFBOZFV0V3BBcWx0MzByVTdEazl4dzdPYkJmM3FhTjBiQkI1bGtDaTNi?=
+ =?utf-8?B?RmJ0WG83clFSaGtzNnRBVi96aWNLbWt3ZzFram5xUS9Ka1pZQjZhSkNuck56?=
+ =?utf-8?B?TmQrQWQ3Q1RLeCtXdDVuaHR0aFdDbk1HTUM5SW1sZHFpS29QRTZ6RU5ZNnVD?=
+ =?utf-8?B?anFyeTdENTAzaHhadnVsTFZyVzhJYnk5L0xvQUJXY2U0UHFRb2NRLzhzeXVR?=
+ =?utf-8?B?UHR6VWNneWpwOWR1R0FhQ0dzaEJJYi9mVG1BTTFva1UyWFZuallZZThhNUlF?=
+ =?utf-8?B?S28yOVRpQ3FzMlNJVitiQStIanp1TGFSKzFzNithRmQ5S2h6MVBML2UvcG1o?=
+ =?utf-8?B?T1Y5b2FTc0UveVVTRXpHNXQ3YmtFaTBrdzRubXpLbitDSGNLWW1iU3h2R2Y4?=
+ =?utf-8?B?eS9wbWw1dE5oMmx1cm1OckFsVmhqbEZlYTdaSGhkN3lWTjZ5cHVaSEFRelEr?=
+ =?utf-8?B?ZjMwNHIrZHp3eGVQS3ZWeW1UbjRsUlJHZC9zMmsyOHhVNUozMVVXZm1mbmlr?=
+ =?utf-8?B?RkQ0emFUZXQvQjV6bDczbG5MY29WWWp0cFFJbXVQdnEzSjNsMUwwcTRXSE84?=
+ =?utf-8?B?YVNhNjl2N0NUbHJ1a0hVRERKZkcyaHlBb2VWa0x6ejc4SDZiVk0xNzBRR1lQ?=
+ =?utf-8?B?MmlLWUt2OTJ2T2hLYTJJQzJJczQ3enIwZTNvTXpQNytsM3loOXBTQmtNR2JC?=
+ =?utf-8?B?Ny84cWZla1p1TFRZd3dRNUVQb09iUDlzRGprbTdkaURaWTZMSnZ4bzFOekMz?=
+ =?utf-8?B?VGErdCtHNlFzaWlVaDVYY3UyZXJ6WkkrVkNld2pTTFEyOXE3NVhmWkhBaXRW?=
+ =?utf-8?B?ZnV4Z2hRWk03ejRRK1V0QmN1aDBnU3VZdFlFOWxJK0JlKzNWcHR4TWlkNThW?=
+ =?utf-8?B?M1NhZGIrRnBzTnhVYnBzWTJmVFFER1oxYTY5TVdlMHBRc21qZ1VRK0crdkVh?=
+ =?utf-8?B?QUpDUmJzejRsazNUQzdua0pKVEhhZ3VhQytmMjRQbUd4WW5Kb0VJODl6R2I5?=
+ =?utf-8?B?YytmaVBQS2NTQzBZejhRV1lVR05pOUs5K3pUS3lSeU9jYUE2Y2lPU3dsaFJN?=
+ =?utf-8?B?Zm9qOEUrbTROYWdjeVZ1SWFHYit3cWdTZzZsanYycW4xUDZNNU9XemhPcGlH?=
+ =?utf-8?B?UTl0VnlpSW5FcURZOWd3N09vS2hLT0ROOVcyakR5dWZwTjZXcU5xc1VLY1Rq?=
+ =?utf-8?B?MEYzNmhuQmFuUTBQTUQ2Q3FLdUZ2UzJta0hRNjZYcWdVMGVUQlRLdEc4UVgy?=
+ =?utf-8?B?MWxzZTBMTmppOWJZcm4wWG1VaTQ3UmRmM0VCSzUySWFYamxKQ0F6TnhZMkN2?=
+ =?utf-8?B?YWsvczRZVStVQjFVcFhoUjFuMTZidE04T2VRb1ZPVkFRSlRPK3Juc3BTVFRQ?=
+ =?utf-8?B?emQwRStoUDNlb25SMWlwcVZrTTBTMldBS1kvb1F4MVZZV3M4N3lLdHBIdWZ3?=
+ =?utf-8?B?L2VpSXlBVzJyNWZNS3pEQW9QUnhFUTBiUGZCSk4zM05rRkFHWWMrUk9ONWlO?=
+ =?utf-8?B?WEVHVnBleXVKUkd5cDkrbEhvNG5mMlg2R2RsYVY2UThDejNHZVpLV0NkMThJ?=
+ =?utf-8?B?V0NFd2FZMjRlUzFpcE9YVmZPMjhpWW5pdnJQU1cvNWQzUisyVnpBbDBUMnRn?=
+ =?utf-8?B?Vk0xNWpwNDZCM3MzOXQ0Nm9ONk9Kall6b2hSOUsxZDcwNWRlQitmT0pHbGs2?=
+ =?utf-8?B?ZUs4RXpTbk5aTFJmRk9XWWJzSi84ZHRZVzVQYTBrcG53R2cxY0FoVnd2TGRJ?=
+ =?utf-8?B?ZkZYNHpEL0orZFVITWs3UmlReFdjd3l6ZDVjbGZqZDB3czE0ZlBFUGtEd2ZG?=
+ =?utf-8?B?YWs5bkphaEJBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7454.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cnpRaVZPYTE0aHBkMFhqWkluN0srQUtCSWZ4ajc5a2c3T3NiWkFNcFlPTTBt?=
+ =?utf-8?B?OHFKRmo4RHpCbzlxVlFNRjBiTk4yc2svQ25aOXZWLzhuZWpldm51bkx0VzlX?=
+ =?utf-8?B?VmFkeURYWDV5cFRUWEpRTWRFN2c1TTRscXBZMG40Nkx1WWRFdXI0QlFNZllt?=
+ =?utf-8?B?bFEyZitCcXVuRisyUy96K24zSTIyVXl4L3dLNUNuVjluVEJZRUN3ZlR1VEhC?=
+ =?utf-8?B?bFY2NlJvM0QyTHZPRHlLS2FicXdOL0hvQm5FMW5pOTFSQmVaamMvVFNnbHVX?=
+ =?utf-8?B?WDdVMkZzZ1dWRDk2d3dpaENxR2FERSt0QklFY2VUVGN4QTFERHlmaktzck10?=
+ =?utf-8?B?WXI4b0xQTWgyYWk1djVNeExrWWI1OGtDc2F0VVluNkVMZEF0WThTV2daMFRz?=
+ =?utf-8?B?SGwyVE9SNFB1cVh5Sld6VVpjdHI1WUdybE5rRzlMSWwwUXZZWVJuYk5kdHl6?=
+ =?utf-8?B?bFBGUHNQUjZXRWtpVUptNERpMHdnejRNaU9tVGp5YTIwb0VWVjdDNnQ4Smhj?=
+ =?utf-8?B?Nk1yM0xueDhQQXNDT3VkTHNZNDFma20rYjdFeGJwTEE4TEl1Y1dwNG9NUnV4?=
+ =?utf-8?B?RFpqakRrMk1aNG1tMnNNb0RuMU0wWWV6a240WDVEdW1pOUQvM3Rhc0I3VENk?=
+ =?utf-8?B?SmRiay9uOHdPdGJJUVluMDFHRUVYcHJhb3hsTHAzdUVjMUZZTWFoN3ZwMjRt?=
+ =?utf-8?B?ai9rY3VHenVtV2lhN3VoT3M4a0dib0daclJMZlpMV1BNUVpmZzZlVWExTUtS?=
+ =?utf-8?B?QWJOcGd0aW5haWEvb3liWXJqVGJ0bmtteUFLcmdGT3pwdFhVajUwSW9yeFBN?=
+ =?utf-8?B?amVJUXM1V3FLL2YyQlV6Q2h2aVdvYU9iK0gxQmdoc01sMXdSakVKcEQ0Szdi?=
+ =?utf-8?B?UnlyOW5UZGlGR1BINEI1MjdkUUpsd1dQTERwVk13UzZaTVJkWnNwRnVEOC9S?=
+ =?utf-8?B?RnF2YkR5U3dNR3FLbnE2azl4T25PWHRma2ZiYVBiZGtNSExPZ1djcFJGSjhp?=
+ =?utf-8?B?aUtFTWtWemFaN2J4emdGeTgzOXh0aVMzOGVWaTJZSW9RRDJSZ25NZGxLcEh2?=
+ =?utf-8?B?bE1SNWJZbzV6dnY0UkhvWlhtZ0g4US8vTFB6NjJIYmJzTHhCc090dkNtbjQ3?=
+ =?utf-8?B?aDdoaGlDQUMvNUZqZnpSK2Y5N3ZSdWNzcmY3eExybGxSTkk4L0tjSnlhcUcw?=
+ =?utf-8?B?WWEzZnV0REZ4b1l3cFdURlJBaXh2QXVPYTBvbDJUTm5vZmRqckVXWEVIaita?=
+ =?utf-8?B?L2Y3bHpPYUJuZjBzOUk1OExLazg1S1llYVc3OUVhaGFnZVFJUEZ3dUk0VDAw?=
+ =?utf-8?B?WXNQKy9PZUlwK2pnb3VRU1FjQ3VLaTFoTGdOYTFjRWdWWXlpL0FOblhURXNV?=
+ =?utf-8?B?VTRXcm9NMEI1Z0tJWWgvWEVQOTV2bnhEVjRQdzZrL0w2UnVXSnZwOTRKOC9u?=
+ =?utf-8?B?NnVhZ2pLMTBSZGl5YmplcElFZWt4SU95Z3cvL21odTduSVRkaFJSN1F6cFo3?=
+ =?utf-8?B?aVNSSjIxVXRWcnRJMUd5WTZzUVNlR0ZmaWdKbHdMRVh3U1ZoV0lzWGFIdGdY?=
+ =?utf-8?B?MEJpay94eWQyYjNobFVXd3d3ajdLdWJtc3NFdUF6dVZrU2VsT1FsMVZTUmRX?=
+ =?utf-8?B?UW5kcU9ueDhIMVV2eDRGYXM5aWFFT2ZzVnJzRnIxeTV1UE41TWtFTTZybHZP?=
+ =?utf-8?B?d0VSaEY0V0hWTHRQZm1mYkVJUEsrQlRSVElycUhQaWl6QUZvQi9FTzhsZDFh?=
+ =?utf-8?B?aWpHOGJITnczYkptTEV3U09nZTJjN3VLd1U5UDNkZHE1WXpVMHlpK0RmOXI4?=
+ =?utf-8?B?YzdGVCs4bGVuRmhGeERXQ2xERTJnV2NkQVlDNVZiUmQxRi9xYUh3SkV6WDYr?=
+ =?utf-8?B?NXJKWVluRkNuMnBQemMwS0xISHE5bmJINnE5MFozckx1czY5YUFXSW12WlBH?=
+ =?utf-8?B?S3lSaFJ4ZWI0YXdheGdLQzVLc056YmpkL1ZTYmc1cHE3Y0x5S2NTcnhoeTZH?=
+ =?utf-8?B?Z0pkTjFmRVlrY0c1U2ZCeGV2RkhNY2s5VFFiQllnd1Q0clJsb2tLb1pHdC9I?=
+ =?utf-8?B?L0trQVBEVFRvYVNqdzdGUk1MclIvZ1Z5empOODQvbENxUjBrQ1Vydm9hbUdW?=
+ =?utf-8?B?VlJHU21IK210N2cvZXJ2MTRYditJejBpcVpFclZoVEEzVWhld3AyOTlhdys0?=
+ =?utf-8?B?MUE9PQ==?=
+X-OriginatorOrg: technexion.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d62fd411-3679-4f8d-cc42-08dda3fff41e
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7454.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2025 07:09:46.6321
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5ee19679-b9a6-4497-8ed2-1eda849e753b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PBqMxodhk8/8ZgeQeS0Lv02b8U9tEQH1/4TnPBNEJVbLoMlA0KYxaotcUKmvvRbEWYKZolctGmieFUhynw3b3ZTsF6cknMBH5u8fUXZQsX0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB8034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_235110_581270_0BD969BA 
-X-CRM114-Status: GOOD (  47.17  )
+X-CRM114-CacheID: sfid-20250605_000957_686030_FA9A1D2B 
+X-CRM114-Status: UNSURE (   7.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,214 +190,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+From: Ray Chang <ray.chang@technexion.com>
 
-On Wed, Jun 04, 2025 at 07:19:27PM -0400, Nicolas Dufresne wrote:
-> Le mercredi 04 juin 2025 à 21:04 +0000, Sakari Ailus a écrit :
-> > Hi Nicolas,
-> > 
-> > Thanks for the update.
-> > 
-> > On Wed, Jun 04, 2025 at 04:09:35PM -0400, Nicolas Dufresne wrote:
-> > > From: Hans Verkuil <hverkuil@xs4all.nl>
-> > > 
-> > > By default when the last request object is completed, the whole
-> > > request completes as well.
-> > > 
-> > > But sometimes you want to delay this completion to an arbitrary point in
-> > > time so add a manual complete mode for this.
-> > > 
-> > > In req_queue the driver marks the request for manual completion by
-> > > calling media_request_mark_manual_completion, and when the driver
-> > > wants to manually complete the request it calls
-> > > media_request_manual_complete().
-> > > 
-> > > Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-> > > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > > ---
-> > >  drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
-> > >  include/media/media-request.h | 38 +++++++++++++++++++++++++++++++++++++-
-> > >  2 files changed, 73 insertions(+), 3 deletions(-)
-> > > 
-> > > diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
-> > > index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
-> > > --- a/drivers/media/mc/mc-request.c
-> > > +++ b/drivers/media/mc/mc-request.c
-> > > @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
-> > >  	req->access_count = 0;
-> > >  	WARN_ON(req->num_incomplete_objects);
-> > >  	req->num_incomplete_objects = 0;
-> > > +	req->manual_completion = false;
-> > >  	wake_up_interruptible_all(&req->poll_wait);
-> > >  }
-> > >  
-> > > @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
-> > >  	req->mdev = mdev;
-> > >  	req->state = MEDIA_REQUEST_STATE_IDLE;
-> > >  	req->num_incomplete_objects = 0;
-> > > +	req->manual_completion = false;
-> > >  	kref_init(&req->kref);
-> > >  	INIT_LIST_HEAD(&req->objects);
-> > >  	spin_lock_init(&req->lock);
-> > > @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
-> > >  
-> > >  	req->num_incomplete_objects--;
-> > >  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
-> > > -	    !req->num_incomplete_objects) {
-> > > +	    !req->num_incomplete_objects && !req->manual_completion) {
-> > >  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
-> > >  		completed = true;
-> > >  		wake_up_interruptible_all(&req->poll_wait);
-> > > @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
-> > >  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
-> > >  		goto unlock;
-> > >  
-> > > -	if (!--req->num_incomplete_objects) {
-> > > +	if (!--req->num_incomplete_objects && !req->manual_completion) {
-> > >  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
-> > >  		wake_up_interruptible_all(&req->poll_wait);
-> > >  		completed = true;
-> > > @@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
-> > >  		media_request_put(req);
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(media_request_object_complete);
-> > > +
-> > > +void media_request_manual_complete(struct media_request *req)
-> > > +{
-> > > +	unsigned long flags;
-> > 
-> > I'd declare flags as last.
-> > 
-> > > +	bool completed = false;
-> > > +
-> > > +	if (WARN_ON(!req))
-> > > +		return;
-> > > +	if (WARN_ON(!req->manual_completion))
-> > > +		return;
-> > 
-> > I think I'd use WARN_ON_ONCE() consistently: this is a driver (or
-> > framework) bug and telling once about it is very probably enough.
-> 
-> Just to be sure, you only mean for the two checks above ? Or did
-> you mean for the entire function ?
+Add support for TechNexion EDM-G-IMX8M-PLUS SOM and WB-EDM-G carrier board.
 
-For the entire function. I thought that if this is user-triggerable, the
-amount of data ending up in logs could be very large.
+Signed-off-by: Ray Chang <ray.chang@technexion.com>
+Signed-off-by: Richard Hu <richard.hu@technexion.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-> 
-> > 
-> > > +
-> > > +	spin_lock_irqsave(&req->lock, flags);
-> 
-> In practice, if you call this specific function from two places at the same
-> time you have a bug, but I realize that moving the the warning on the check
-> manual_completion inside that lock would massively help detect that case.
-> 
-> What do you think ?
-
-Seems reasonable to me.
-
-> 
-> > > +	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
-> > > +		goto unlock;
-> > > +
-> > > +	req->manual_completion = false;
-> > > +	/*
-> > > +	 * It is expected that all other objects in this request are
-> > > +	 * completed when this function is called. WARN if that is
-> > > +	 * not the case.
-> > > +	 */
-> > > +	if (!WARN_ON(req->num_incomplete_objects)) {
-> > > +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
-> > > +		wake_up_interruptible_all(&req->poll_wait);
-> > > +		completed = true;
-> > > +	}
-> > 
-> > A newline would be nice here.
-> > 
-> > > +unlock:
-> > > +	spin_unlock_irqrestore(&req->lock, flags);
-> > > +	if (completed)
-> > > +		media_request_put(req);
-> > > +}
-> > > +EXPORT_SYMBOL_GPL(media_request_manual_complete);
-> > > diff --git a/include/media/media-request.h b/include/media/media-request.h
-> > > index d4ac557678a78372222704400c8c96cf3150b9d9..7f9af68ef19ac6de0184bbb0c0827dc59777c6dc 100644
-> > > --- a/include/media/media-request.h
-> > > +++ b/include/media/media-request.h
-> > > @@ -56,6 +56,9 @@ struct media_request_object;
-> > >   * @access_count: count the number of request accesses that are in progress
-> > >   * @objects: List of @struct media_request_object request objects
-> > >   * @num_incomplete_objects: The number of incomplete objects in the request
-> > > + * @manual_completion: if true, then the request won't be marked as completed
-> > > + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
-> > > + * to complete the request after @num_incomplete_objects == 0.
-> > >   * @poll_wait: Wait queue for poll
-> > >   * @lock: Serializes access to this struct
-> > >   */
-> > > @@ -68,6 +71,7 @@ struct media_request {
-> > >  	unsigned int access_count;
-> > >  	struct list_head objects;
-> > >  	unsigned int num_incomplete_objects;
-> > > +	bool manual_completion;
-> > >  	wait_queue_head_t poll_wait;
-> > >  	spinlock_t lock;
-> > >  };
-> > > @@ -218,6 +222,38 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
-> > >  int media_request_alloc(struct media_device *mdev,
-> > >  			int *alloc_fd);
-> > >  
-> > > +/**
-> > > + * media_request_mark_manual_completion - Enable manual completion
-> > > + *
-> > > + * @req: The request
-> > > + *
-> > > + * Mark that the request has to be manually completed by calling
-> > > + * media_request_manual_complete().
-> > > + *
-> > > + * This function shall be called in the req_queue callback.
-> > > + */
-> > > +static inline void
-> > > +media_request_mark_manual_completion(struct media_request *req)
-> > > +{
-> > > +	req->manual_completion = true;
-> > > +}
-> > > +
-> > > +/**
-> > > + * media_request_manual_complete - Mark the request as completed
-> > > + *
-> > > + * @req: The request
-> > > + *
-> > > + * This function completes a request that was marked for manual completion by an
-> > > + * earlier call to media_request_mark_manual_completion(). The request's
-> > > + * @manual_completion flag is reset to false.
-> > 
-> > s/flag/field/
-> > 
-> > > + *
-> > > + * All objects contained in the request must have been completed previously. It
-> > > + * is an error to call this function otherwise. If such an error occurred, the
-> > > + * function will WARN and the object completion will be delayed until
-> > > + * @num_incomplete_objects is 0.
-> > > + */
-> > > +void media_request_manual_complete(struct media_request *req);
-> > > +
-> > >  #else
-> > >  
-> > >  static inline void media_request_get(struct media_request *req)
-> > > @@ -336,7 +372,7 @@ void media_request_object_init(struct media_request_object *obj);
-> > >   * @req: The media request
-> > >   * @ops: The object ops for this object
-> > >   * @priv: A driver-specific priv pointer associated with this object
-> > > - * @is_buffer: Set to true if the object a buffer object.
-> > > + * @is_buffer: Set to true if the object is a buffer object.
-> > >   * @obj: The object
-> > >   *
-> > >   * Bind this object to the request and set the ops and priv values of
-> > > 
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 1b90870958a2..ca0bc46a6f8b 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1176,6 +1176,13 @@ properties:
+           - const: polyhex,imx8mp-debix-som-a       # Polyhex Debix SOM A
+           - const: fsl,imx8mp
+ 
++      - description: TechNexion EDM-G-IMX8M-PLUS SoM based boards
++        items:
++          - enum:
++              - technexion,edm-g-imx8mp-wb          # TechNexion EDM-G-IMX8MP SOM on WB-EDM-G
++          - const: technexion,edm-g-imx8mp          # TechNexion EDM-G-IMX8MP SOM
++          - const: fsl,imx8mp
++
+       - description: Toradex Boards with Verdin iMX8M Plus Modules
+         items:
+           - enum:
 
 -- 
-Kind regards,
+2.43.0
 
-Sakari Ailus
 
