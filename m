@@ -4,60 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E06EC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 03:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388BFC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 03:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jg24Yo+Bw83kcQE5Zz+uHIe9HXkorbFQAvED/E/Ahmc=; b=Eq666vxJPfjNaGrN3Q4R8OFmTa
-	adFqU0tcvsVzrdY1hgDO5ooryGfY5mMc3GcZ0J0H31OolJgK3EYSrn2VzKz8tTTHB5NdRvjfo+tyU
-	6dICrzBU9BzgP78yQH2tXkQLWMxp4J/C4Dk7cxHN0yEbck8/GDRLMCFQ9jU67euN7ffcPw5gnCQAu
-	/LqQ14LGcxk8wmzMRCEwTzS7PDkMvSEAvKqO0bh0EhxfNaKpuacybtUTIX2gkrFxnOhEx86AxarrU
-	SJthjA7GzDKM3ptwzgjEM/NCGVAIrYFIyQBC5tWaHdZZ5tq+UGUG+EAIot8GLLbwOFnKmL3WIn4ZH
-	GhGbPHiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P8cBtavqwoj0Dfsn1SH3McNU+r0/YgR/+XFrRVKWytE=; b=bIwp1hpxu8KLC34Buby4l9yDiY
+	khsfqIAgIua+MfE6T1ECqZYeSRBEFMMTP3eh1JGNks4CTj1viPNq/5FSRDlfAXxQxy1JsaVUmpsPx
+	IwR4u/Ya0MJ5rU6F6L4ZN3yYuQZN9Mym5k1lT7nUkNVjozWANIyBCX3Jmmf8Ui3CjwxIjJliblrow
+	Fxh25t4oKiXmSrVB2uLlA0QGvX8cBmFpSfpf0tniKsGKuOOraSSSV3KPweEYQVjyRYLneROhtiaTE
+	4S/NXl8O4+TC3u0OvHl2X++hdOy0uU016lyAXVhPYVlkh7V9Dd+kyKC/tzfCQBj5ghF/g2ioDZ+KN
+	uV5JsJdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN0v5-0000000Ed1l-0ZSO;
-	Thu, 05 Jun 2025 03:05:31 +0000
-Received: from smtp20.cstnet.cn ([159.226.251.20] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN0sx-0000000EcoC-0LEY
+	id 1uN16q-0000000Eda7-2xEe;
+	Thu, 05 Jun 2025 03:17:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uN14j-0000000EdTB-3mXy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 03:03:21 +0000
-Received: from chenglingfei22s$ict.ac.cn ( [115.42.62.11] ) by
- ajax-webmail-APP-10 (Coremail) ; Thu, 5 Jun 2025 11:02:51 +0800 (GMT+08:00)
-X-Originating-IP: [115.42.62.11]
-Date: Thu, 5 Jun 2025 11:02:51 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?56iL5YeM6aOe?= <chenglingfei22s@ict.ac.cn>
-To: sven@svenpeter.dev, j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev
-Cc: zhangzhenwei22b@ict.ac.cn, wangzhe12@ict.ac.cn, 
-	chenglingfei22s@ict.ac.cn, maddy@linux.ibm.com, mpe@ellerman.id.au, 
-	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org, 
-	andi.shyti@kernel.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [BUG] rmmod i2c-pasemi-platform causing kernel crash on Apple M1.
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.1-cmXT5 build
- 20240627(e6c6db66) Copyright (c) 2002-2025 www.mailtech.cn cnic.cn
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Thu, 05 Jun 2025 03:15:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4BD8169C;
+	Wed,  4 Jun 2025 20:15:10 -0700 (PDT)
+Received: from [10.164.18.47] (a077893.blr.arm.com [10.164.18.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B84E83F59E;
+	Wed,  4 Jun 2025 20:15:26 -0700 (PDT)
+Message-ID: <18ecc087-d5bd-4e98-9543-a6dcbf3e8c11@arm.com>
+Date: Thu, 5 Jun 2025 08:45:23 +0530
 MIME-Version: 1.0
-Message-ID: <5c598fea.3165d.1973e0a9a3a.Coremail.chenglingfei22s@ict.ac.cn>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: tACowABnWYXcCEForT8GAA--.62932W
-X-CM-SenderInfo: xfkh0wpolqwwthlsj2g6lf3hldfou0/1tbiBgoEDmhA0QvjOgAAst
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VW3Jw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [boot-wrapper] aarch64: Enable access into FEAT_SPE_FDS register
+ from EL2 and below
+To: James Clark <james.clark@linaro.org>, linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>
+References: <20250604114604.629782-1-anshuman.khandual@arm.com>
+ <189edea6-49d8-4829-88ce-fa75d83401d6@linaro.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <189edea6-49d8-4829-88ce-fa75d83401d6@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_200319_494329_D0211444 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250604_201530_032173_309DDB82 
+X-CRM114-Status: GOOD (  21.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +65,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksIGFsbCEKCldl4oCZdmUgZW5jb3VudGVyZWQgYSBrZXJuZWwgY3Jhc2ggd2hlbiBydW5uaW5n
-IHJtbW9kIGkyYy1wYXNlbWktcGxhdGZvcm0gb24gYSBNYWMgTWluaSBNMSAoVDgxMDMpIHJ1bm5p
-bmcgQXNhaGkgQXJjaCBMaW51eC4gCgpUaGUgYnVnIHdhcyBmaXJzdCBmb3VuZCBvbiB0aGUgTGlu
-dXggdjYuNiwgd2hpY2ggaXMgYnVpbHQgbWFudWFsbHkgd2l0aCB0aGUgQXNhaGkgZ2l2ZW4gY29u
-ZmlnIHRvIHJ1biBvdXIgc2VydmljZXMuIApBdCB0aGF0IHRpbWUsIHRoZSBpMmMtcGFzZW1pLXBs
-YXRmb3JtIHdhcyBpMmMtYXBwbGUuCgpXZSBub3RpY2VkIGluIHRoZSBMaW51eCB2Ni43LCB0aGUg
-cGFzZW1pIGlzIHNwbGl0dGVkIGludG8gdHdvIHNlcGFyYXRlIG1vZHVsZXMsIG9uZSBvZiB3aGlj
-aCBpcyBpMmMtcGFzZW1pLXBsYXRmb3JtLgpUaGVyZWZvcmUsIHdlIGJ1aWx0IExpbnV4IHY2LjE0
-LjYgYW5kIHRyaWVkIHRvIHJtbW9kIGkyYy1wYXNlbWktcGxhdGZvcm0gYWdhaW4sIHRoZSBjcmFz
-aCBzdGlsbCBleGlzdHMuIE1vcmVvdmVyLCB3ZSBmZXRjaGVkIAp0aGUgbGF0ZXN0IGkyYy1wYXNl
-bWktcGxhdGZvcm0gb24gbGludXgtbmV4dCg5MTE0ODNiMjU2MTJjOGJjMzJhNzA2YmE5NDA3Mzhj
-YzQzMjk5NDk2KSBhbmQgYXNhaGksIGJ1aWx0IHRoZW0gYW5kIAp0ZXN0ZWQgYWdhaW4gd2l0aCBM
-aW51eCB2Ni4xNC42LCBidXQgdGhlIGNyYXNoIHJlbWFpbnMuCgpCZWNhdXNlIGtleGVjIGlzIG5v
-dCBzdXBwb3J0ZWQgYW5kIHdpbGwgbmV2ZXIgYmUgZnVsbHkgc3VwcG9ydGVkIG9uIEFwcGxlIFNp
-bGljb24gcGxhdGZvcm1zIGR1ZSB0byBoYXJkd2FyZSBhbmQgZmlybXdhcmUgCmRlc2lnbiBjb25z
-dHJhaW50cywgd2UgY2FuIG5vdCByZWNvcmQgdGhlIHBhbmljIGxvZ3MgdGhyb3VnaCBrZHVtcC4K
-ClRodXMgd2UgdHJpZWQgdG8gZmluZCB0aGUgcm9vdCBjYXVzZSBvZiB0aGUgaXNzdWUgbWFudWFs
-bHkuIFdoZW4gd2UgcGVyZm9ybSBybW1vZCwgdGhlIGtlcm5lbCBwZXJmb3JtcyBkZXZpY2UgcmVs
-ZWFzaW5nIG9uIAp0aGUgaTJjIGJ1cywgdGhlbiBjYWxscyB0aGUgcmVtb3ZlIGZ1bmN0aW9uIGlu
-IHNuZC1zb2MtY3M0Mmw4My1pMmMsIHdoaWNoIGNhbGxzIHRoZSBjczQybDQyX2NvbW1vbl9yZW1v
-dmUgaW4gY3M0Mmw0MiwgCmJlY2F1c2UgY3M0Mmw0Mi0mZ3Q7aW5pdF9kb25lIGlzIHRydWUsIGl0
-IHBlcmZvcm1zIHJlZ21hcF93cml0ZSwgYW5kIGZpbmFsbHkgY2FsbHMgaW50byBwYXNlbWlfc21i
-X3dhaXRyZWFkeSBpbiBpMmMtcGFzZW1pCi1jb3JlLmMuIFdlIG5vdGljZWQgdGhhdCBzbWJ1cy0m
-Z3Q7dXNlX2lycSBpcyB0cnVlLCBhbmQgYWZ0ZXIgaXQgY2FsbHMgaW50byB3YWl0X2Zvcl9jb21w
-bGV0aW9uX3RpbWVvdXQsIHRoZSBzeXN0ZW0gY3Jhc2hzIQoKV2UgZm91bmQgdGhhdCB3YWl0X2Zv
-cl9jb21wbGV0aW9uX3RpbWVvdXQgaXMgb25lIG9mIHRoZSBjb3JlIHNjaGVkdWxlciBBUElzIHVz
-ZWQgYnkgdGVucyBvZiB0aG91c2FuZHMgb2Ygb3RoZXIgZHJpdmVycywKaXQgaXMgdW5saWtlbHkg
-Y2F1c2luZyB0aGUgY3Jhc2guIFNvIHdlIHRyaWVkIHRvIHJlbW92ZSB0aGUgY2FsbCB0byB3YWl0
-X2Zvcl9jb21wbGV0aW9uX3RpbWVvdXQsIHRoZW4gdGhlIHN5c3RlbSBzZWVtcyB0bwpydW4gd2Vs
-bC4KCkhvd2V2ZXIsIGJlY2F1c2Ugd2UgaGF2ZSBsaXR0bGUga25vd2xlZGdlIGFib3V0IGkyYyBk
-ZXZpY2VzIGFuZCBzcGVjaWZpY2F0aW9ucywgd2UgYXJlIG5vdCBzdXJlIHdoZXRoZXIgdGhpcyBj
-aGFuZ2Ugd2lsbCAKY2F1c2Ugb3RoZXIgcG90ZW50aWFsIGhhcm1zIGZvciB0aGUgc3lzdGVtIGFu
-ZCBkZXZpY2UuIElzIHRoaXMgY2FsbCB0byB3YWl0IG5lY2VzYXJ5IGhlcmU/IE9yIGNhbiB5b3Ug
-Z2l2ZSBhIG1vcmUgCnNvcGhpc3RpY2F0ZWQgZml4PwoKV2XigJlyZSBoYXBweSB0byBwcm92aWRl
-IGFkZGl0aW9uYWwgbG9ncywgY29uZmlncywgb3IgdGVzdGluZyBhc3Npc3RhbmNlLiBBbnkgZ3Vp
-ZGFuY2Ugd291bGQgYmUgZ3JlYXRseSBhcHByZWNpYXRlZCEKCgo=
+
+
+On 6/4/25 17:27, James Clark wrote:
+> 
+> 
+> On 04/06/2025 12:46 pm, Anshuman Khandual wrote:
+>> FEAT_SPE_FDS adds system register PMSDSFR_EL1. But accessing that system
+>> register from EL2 and below exception levels, will trap into EL3 unless
+>> MDCR_EL3.EnPMS3 is set.
+>>
+>> Enable access to FEAT_SPE_FDS registers when they are implemented.
+>>
+>> Cc: James Clark <james.clark@linaro.org>
+>> Cc: Mark Rutland <mark.rutland@arm.com>
+>> Cc: Mark Brown <broonie@kernel.org>
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>   arch/aarch64/include/asm/cpu.h | 4 ++++
+>>   arch/aarch64/init.c            | 3 +++
+>>   2 files changed, 7 insertions(+)
+>>
+>> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
+>> index 2b3a659..ac50474 100644
+>> --- a/arch/aarch64/include/asm/cpu.h
+>> +++ b/arch/aarch64/include/asm/cpu.h
+>> @@ -55,6 +55,7 @@
+>>   #define MDCR_EL3_NSTB_NS_NOTRAP            (UL(3) << 24)
+>>   #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT    (UL(3) << 32)
+>>   #define MDCR_EL3_ENPMSN                BIT(36)
+>> +#define MDCR_EL3_ENPMS3                BIT(42)
+>>   #define MDCR_EL3_EBWE                BIT(43)
+>>   #define MDCR_EL3_EnPM2                BIT(7)
+>>   @@ -185,6 +186,9 @@
+>>     #define SCTLR_EL1_CP15BEN    (1 << 5)
+>>   +#define PMSIDR_EL1        s3_0_c9_c9_7
+>> +#define PMSIDR_EL1_FDS        BIT(7)
+>> +
+>>   #ifdef KERNEL_32
+>>   /*
+>>    * When booting a 32-bit kernel, EL1 uses AArch32 and registers which are
+>> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
+>> index e1640a9..b6f740c 100644
+>> --- a/arch/aarch64/init.c
+>> +++ b/arch/aarch64/init.c
+>> @@ -146,6 +146,9 @@ static void cpu_init_el3(void)
+>>       if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 3)
+>>           mdcr |= MDCR_EL3_ENPMSN;
+>>   +    if (mrs_field(PMSIDR_EL1, FDS))
+>> +        mdcr |= MDCR_EL3_ENPMS3;
+>> +
+> 
+> You are only allowed to read PMSIDR if SPE is implemented otherwise it's undef so it needs another check.
+
+The same is true for the earlier bit MDCR_EL3_ENPMSN as well. FEAT_SPE_FnE should
+have been checked from PMSIDR_EL1.FnE but the feature is guaranteed to be present
+when FEAT_SPEv1p2 is present. Hence PMSVER >= 3 check alone is sufficient here.
+
+But for for FEAT_SPE_FDS feature, ARM DDI 0487 L.A is not very much clear on its
+dependency for FEAT_SPE and its versions. It says the following but not the other
+way around.
+
+"If FEAT_SPE_FDS is implemented, then FEAT_SPEv1p4 is implemented"
+
+Even PMSIDR_EL1.FDS field is valid only when FEAT_SPEv1p4 is implemented. Hence
+you are right - we need to check both before enabling MDCR_EL3_ENPMS3.
+
+        if ((mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 5) &&
+            (mrs_field(PMSIDR_EL1, FDS)))
+                        mdcr |= MDCR_EL3_ENPMS3;
+
+> 
+> It would be much easier to unconditionally set all the known MDCR bits. If the feature is implemented then setting them to 1 disables the traps, which we want, and if it's not implemented it does nothing which we also want.
+> 
+> Doing them all conditionally is quite error prone and extra work for nothing. In TFA it's already done unconditionally:
+
+But leaving all MDCR_EL3 fields set when corresponding features are not implemented
+goes against "don't set register fields when not required even when ignored in HW"
+principle and hence might not be ideal.
+
+But will leave it upto Mark and others. Dropping all these conditionality while
+setting MDCR_EL3 fields will be a subsequent patch later as if changes existing
+fields.
+
+> 
+> *
+> * MDCR_EL3.EnPMSN (ARM v8.7) and MDCR_EL3.EnPMS3: Do not trap access to
+> * PMSNEVFR_EL1 or PMSDSFR_EL1 register at NS-EL1 or NS-EL2 to EL3 if FEAT_SPEv1p2
+> * or FEAT_SPE_FDS are implemented. Setting these bits to 1 doesn't have any
+> * effect on it when the features aren't implemented.
+> */
+> mdcr_el3_val |= MDCR_NSPB(MDCR_NSPB_EL1) | MDCR_EnPMSN_BIT | MDCR_EnPMS3_BIT;
+> 
+>>       if (mrs_field(ID_AA64DFR0_EL1, TRACEBUFFER))
+>>           mdcr |= MDCR_EL3_NSTB_NS_NOTRAP;
+>>   
+> 
 
