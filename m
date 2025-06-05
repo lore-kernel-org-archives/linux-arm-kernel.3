@@ -4,166 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE412C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 09:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3534C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 09:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nB9KLm1Szno+5xA4SokLhU2/Egrk2cKBGoNKvMk7gIg=; b=ksg/jvzboTTR3LlUxbZt/BDUYX
-	sfr0BHmwyNyfSmz+XuYFrzLVNS3T0zrsvR1v9ASsZpenzl0Y/yRnzRZvWpxENimaf/Wnoocg7UuPh
-	TgxEUpecVXzVvlCtWwOMoq1843I62S3ckmCUw0I1zBDHPVJoPTUH9kQgoynFGEXkOeaVh7jsFkA9P
-	qE7DRlVYx4yTqAzYlvcq1AHQf+ZJJ5Sv7OKpgTzX+7YqVJdFZcXpDT3Cjboz4LE0kWBPpP8wVu81M
-	xp0XuvR6r+J28zyLvvAvSIbezyBCLxwBp1MH16iKAKfl0RsAG8leuDSBnsftjk9c59AMZpMJmDzKA
-	5j0O8h2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R9WazpzKcumwLrqZyJ4/uWFbtdp85eK2+cFv/S9/2yA=; b=umMVHKJVs9QCyo1NsLzbkcFTN2
+	ra8zgYQbE2GTGP5QT10dQIW0YEd+dE3mTd+iO9cEn9+MhZG0mTc1Q81CBpcYIMG19OvhtIZgYds4K
+	3g1+T/n9Z+eyv2FUAo7/QOR+rm0yLUt3EVf0tVLVvToTsAS0V5jlyOcB6SEJHYCj0KK8ZZ5og3bCo
+	l/TdmRnXA/k32RjAII1FjwCEqTj3HwedRGMfQwvxA/YYLVjPfFfHczlHDPEWRJzjbcroJdauK3X4U
+	7CKjTX/Y//f/lFzfJMXT7HGatcqNVT6mISMGCAgh3d1BHaEqJvSbur2yQbk/Os58+6TvW8i0qvpli
+	K+7J3d1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN6qB-0000000F9hY-0IeN;
-	Thu, 05 Jun 2025 09:24:51 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uN75B-0000000FBCU-4AVn;
+	Thu, 05 Jun 2025 09:40:22 +0000
+Received: from dane.soverin.net ([185.233.34.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN6nw-0000000F9U8-0biF;
-	Thu, 05 Jun 2025 09:22:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MoQaFJO4xzS+wFz8Dfeoz5oWpDARoF9G9vjmWVasnDqlf3t+jxokvUOp/cRVEeZ/P+DPpSZTnLvM47VRFfmw+umWPAHWpt6vR7/IiY/zFJMAif29k3pVjgJnx5zRKjlvPWSp4xgX3NJOHdz9QOmnBeu3h76DohFIzltdjZwuSW5VS+2Mrx11gpEle7gS6ORnQVUZEsN7/x1tBuC2qjp+DCCgG6IY6IBRU8AAY8yILnFoMduKVKCDyS5afLigdxu2mQPb9BBsoOGVMSMjIGyKjjhoqX7mvNjoMofvt+Sj79b3Nm3cAG1EMYVm110V+0qVUEeeyQwCXA0eIOSDhpuhFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nB9KLm1Szno+5xA4SokLhU2/Egrk2cKBGoNKvMk7gIg=;
- b=ORHfqyuoWwWlUokJAmSbm+AlB7gZHedPHNS0IW9COvJ1RobsidTCIVR0b2R2Vaw5Xg8C99BOACI9Ubw2JISoVPtXZVIskt66zMxcgrR3l9h6oKjMkJRDAiv+EL7BNI/0RYkglMFHEogJolu9PsGMalalgmab34HZx/AWkBiCcu0IxSgYPV1mggo6vd/J2DU3xSk/xhTh3+YgdvO4Ldwg8tLQlLCMnJTU4v5B3pH17faB/kbVLNd6er9/hWWp1tOyLQF3bqMuubEd+fOpahI200ctbnXsfcZTpf9A3sqYaUNiFkg0HhKMTSom87SodKBxdurdoF8BMG0v3r0Skh9YTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nB9KLm1Szno+5xA4SokLhU2/Egrk2cKBGoNKvMk7gIg=;
- b=EMfk8BnyX2wwfIDrEggZr4Pl5lV6IMigL9TVQXoKbXTjwXC+LvSOGHydJkGexgngOGdVGQ79r9N0C+0Sx8g5WeLGKhoB4cBcWm16ags3CmM5XToN68jqkhnerFWn/weimuAAejUUmuHhWb4ExugzR4EG9EsbHmcUHZM6i3XsvEA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by DBBPR04MB7721.eurprd04.prod.outlook.com (2603:10a6:10:1f6::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.33; Thu, 5 Jun
- 2025 09:22:27 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8813.018; Thu, 5 Jun 2025
- 09:22:27 +0000
-Message-ID: <b42e28fb-e254-4901-932f-c5282c189dea@cherry.de>
-Date: Thu, 5 Jun 2025 11:22:26 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: add regulator-enable-ramp-delay to
- RK860-2/-3 regulators
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: jonas@kwiboo.se, dsimic@manjaro.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250604202425.239924-1-heiko@sntech.de>
- <e4a1bf0a-0fc5-4c15-96dc-7e9c7ae3ccd5@cherry.de> <49977521.MN2xkq1pzW@diego>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <49977521.MN2xkq1pzW@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR0P281CA0197.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ad::20) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1uN72w-0000000FAzq-1fKE;
+	Thu, 05 Jun 2025 09:38:06 +0000
+Received: from smtp.freedom.nl (unknown [10.10.4.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	by dane.soverin.net (Postfix) with ESMTPS id 4bCfWR6KG9z1Sm4;
+	Thu,  5 Jun 2025 09:37:55 +0000 (UTC)
+Received: from smtp.freedom.nl (smtp.freedom.nl [10.10.4.107]) by freedom.nl (Postfix) with ESMTPSA id 4bCfWQ60tpz4M;
+	Thu,  5 Jun 2025 09:37:54 +0000 (UTC)
+Authentication-Results: smtp.freedom.nl;
+	dkim=pass (2048-bit key; unprotected) header.d=jjverkuil.nl header.i=@jjverkuil.nl header.a=rsa-sha256 header.s=soverin1 header.b=r3an6fmG;
+	dkim-atps=neutral
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jjverkuil.nl;
+	s=soverin1; t=1749116275;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=R9WazpzKcumwLrqZyJ4/uWFbtdp85eK2+cFv/S9/2yA=;
+	b=r3an6fmGZTBObi6EKTD2YCpu6SNkYb9IRdGwEFcPL7mXbGnavNUMRQU9c5j0KWJQuDUCYA
+	I920bDJPn5zPmnpb1IHBoqrQDWw4eLeeJoK+YIMQ7sHVa1G/YWCDuGp8tTBR77/AZFVVhK
+	SVdxDJ37Vd4dS3wAgM499YVDD0tvBjjpV7/IYAHQ5GTI1MfldaKLbm72p5IRuvpJ2Z/Nda
+	yEO+e744hng5s9tJZGB0HydlMt0LDKs6w01YELc9gRoskvq0f+w1lKoASYOBkyNT1GY2cs
+	O/Q+xgkfsMxzevT60T63Hy7+X5wBmE33Ywxjaw5oj86Yee03d1R8OtRUKAwmfA==
+X-CM-Envelope: MS4xfPNnir3sPSCo/uIfr9wdSIkrlJmw7w2T4mmt9sw3/63llGQMHPmnbKjnWOlPM3fz2++hGJ1vHhdK55sXbwmuzmYAEPTGHGINjMs0DvGUDV5RloKBexeb dcCbmYY6WggIobwm6ieNLQcBrqB46U0WbiKlNc8RmlT0cv9hgubja+Heq+TvCml5YqzxgYZ52GQc1FmNqzXdoCmrtcFX752w+DToG14drept+ygZTssrfyY+ bsR3+CxmFZ54H/KAR9Rn0+171nzGsiFPNonkJPNN8JEp0b8iNH4BLEJGpQkPJq/Ol6DmHbq+w4NkbUYEKD6racwi36/9K23OgKud0heUgvLeZ4aaFhxSQix+ 59T0NUAnsNR6Uxo05lMCfUzcwGmYE1Ci2Xstq6G4uvrGcRZTZqRI4FIHGjJBA27AQh3BY6tBCi7xdidFVOiurjDr32fAGdTq/XkpjcwsaKnv5b4inHW2LCNC CXRwvT3HPhL9Hse8OkOHw2ZwgKxjXMCXiTiWZz5wHiO59CkyU4ASf8dniasjpK3fmwq+Lif0apyOFcEUpdy7AGvwFeGKgZ4vjxN0ICc1ECF8wuhqE9T586Mg 0EqaVmFoz4iPSv/nBnZgqjpGBDv4F1Vi17SMvp6eFdI4ViUPPVqHPSbl56p8NksFPlhgF/5UhGJ9gJoPYUJNLs0CKMN+1QRz/PLu/tCj5lGG3Gxrlj/h4INN n5v8LK6+N4hCy2nh5JgI3g2vujh0Q0Qk78qxmAXdn6csLZgcl8tx3v69MMDdhIiP2yhKQTajirXdQa4Scns4iUx+hNuzxUz1dPm1MoZcxYoSOba16nhHPDrw jox0NopQoL3x7/SyzwqMbqGTjHSjdsUX31WVBmt/pDUvVA4KkoAepyOBP6z6F0+3vliOpe3ItldFVDzulB1e04Hy2Ncg8zHsm6DaFsBr
+X-CM-Analysis: v=2.4 cv=d/oPyQjE c=1 sm=1 tr=0 ts=68416573 a=rRPUdUMkfOuWADC4PY0RbA==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=xOd6jRPJAAAA:8 a=QX4gbG5DAAAA:8 a=7u75VyA4us0rJz3QA60A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=AbAUZ8qAyYyZVLSsDulk:22
+Message-ID: <8b1ed01a-b6e3-4670-a4e0-d8eee7ddc524@jjverkuil.nl>
+Date: Thu, 5 Jun 2025 11:37:54 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DBBPR04MB7721:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab0489fe-3587-4489-0c2b-08dda4127d0a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dUZYZG5qaHJQNjFnNndCVUJ2emljN2RhYTZTN1NhcWVrK1B5VWREOWRseUR5?=
- =?utf-8?B?bGpGRHc2ZnJiT0MzWWZsTmZldGhJWDMwZ0VmQWFyeTM4dlJYN3VrNjc1SVFP?=
- =?utf-8?B?WldpRGlCb2U2VW95Qm14TE5LTEthNGdaWk9ZdUhYK0l1R1NHek1mNmo3ejJ5?=
- =?utf-8?B?Q0w3RmxxMDRrcStoaExoUGVkWmpMa2JMVzJLUUJ3MVF4R3QyelFZSStGT3VK?=
- =?utf-8?B?bDBOcEowaC8vQmk2TFFRMW1mcllHZUJHb2oxdHZ4ekx2NFkycEJXM09Ka3lp?=
- =?utf-8?B?Y3BNVXpEVzgzNEJHVkRuMnVKbGRXNURVblpOK29BOHdEbzI4YUJHeE5Gb0dK?=
- =?utf-8?B?OFhKNzFBTXVtSkYwNitBenloM3ViWHAvb0doWDBIa3hzWjdLVDZBYnpYQzdX?=
- =?utf-8?B?a0UyMDRhRzJ2Y0o5Y05OL1Yzd21hSzdicjNSM0tCZHM5Qk9Fa1lzby8yenFQ?=
- =?utf-8?B?bW0zSGdhancrUCtLaHVPbnhYRkpHZC8xRlA3bTlWWlU2eG1kYWtURVJuNnNs?=
- =?utf-8?B?UlB4enpWd1pMMDhLRjFwUnp6RWFJVmxDVDNsajRKSzRjdU1jY0kzU2dTa1BY?=
- =?utf-8?B?UTFzWGRjQnh5aXkrS3JHcnNiNDhPblRSaENWYlN3Y2c5bTJlVkV3RXdZcGFm?=
- =?utf-8?B?cWo2M0lrNk5uUmpCclhrTFVodnlMaEJ5MFdtNm41SmtLRU9UWExWVUM1dERv?=
- =?utf-8?B?cDY2WHZvT0FaWEtxbW9yK0lsdmNpWjJpQjg4N1ZnWVp4eFdCOWQ3ckZpSmxq?=
- =?utf-8?B?eXU0QUtSWFJmWmNlWVhFbUZsTmsxWUFZeW9RbjBSOE9lem5zUUZveThtWVU1?=
- =?utf-8?B?T2JuVXZuNnNwSUZlc1lLa1hzVkxaSzM4WjJLRlRHS3hKV2NuM1RKV01rcXBr?=
- =?utf-8?B?QVhYTDMzQk1reXRCL2U0ZkxWeTNudHBuV2hxVHFJV0R2dlR2VmNxczBnQVlN?=
- =?utf-8?B?elRYQUNkdEJEQmJGQ0g3cUptemhDN3FFM2hlU3d2U2tVS2tRZXJEcHhoNVZR?=
- =?utf-8?B?R3BsdjV3cHNpQmVUdHQyWUMxWmdBeHFvb3lVYWpRQmRidVVjR2xGcTl3VWhB?=
- =?utf-8?B?NVRDK0J4cTRPSW9Hb0lrbmcwVDNmWVhDV3BhcXNUS09HUEpRK3kyK0IzT1Rx?=
- =?utf-8?B?QzJWMVNNMEVzc1cwSEFkaGJ0eCtZOGdxSVdjZUNyQTAzVUFSZHBTczhJQWVa?=
- =?utf-8?B?aGZBU1ZjOUtwRi9kS29ZR2YrRmsxTGdGeUdSeDJnMFQ2elhxcHhjdXQ2RTRq?=
- =?utf-8?B?akt4UmFKRWx5ZHRwMllBUU5naE5CdEdVUzNYY2V6U3NVWkxQSjhmSFhCMDVv?=
- =?utf-8?B?Z1ZMMXA4YU5LZnYrcnI3SXU4MUFRY3ZDYzZNcEVCNEtxZEI0L04xYmtWTWYr?=
- =?utf-8?B?NVBaOWgzK29zb01JSUpJMjJjQ2xkSGZ3ak92YWhKMTNIM0V5UjhYc05XVGJh?=
- =?utf-8?B?OXZCS0dPV0ZWTVBsSGRnTUtiOUY4N3QrOVNzQjd4bEZyaDlDV2VUOUpsUDB1?=
- =?utf-8?B?UHMxQmRKaGlNa2NLVnhpbUxNeUpnKzFVeTFsV3pGOE1SYk4rT1lucHd4cXd2?=
- =?utf-8?B?Q0d6V3ZOTVR3eUY4MG4xNnV3TkE5TlBjaVkwNEN0aGlVdloyR3ZoQnR1Vnc1?=
- =?utf-8?B?V1FBOEVFeVpWcHJFcnVLUWFZSzZYQXc0dE1YWTB6UUFYbFQ1WDcrTGZBQk54?=
- =?utf-8?B?Y2xvbEhwQ0VMamV6Qk9jWUNsRjVYR0RtRzdpTFBmK3YvejJ4bUV0cEZMTlZM?=
- =?utf-8?B?S0NFUnJkT2s2TFp5RVZ4d2pMdTNpK1dPMXFSQllQNDFHSDRuNGVMYmNhQ1Nt?=
- =?utf-8?B?K2p1MkFBSkdtRTNBY0NrVU9VN21xME9VYUxNWlJUcXR1TDhSZ3Fna2Y2clY3?=
- =?utf-8?B?dkI3bVpNc3VwRHQ1RExMdXM0ODg3VVY5Y05DTXRCT3VwOHBHcWdKckdBREYr?=
- =?utf-8?Q?ZDinEPqXFuo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VVhEVUIrcW10TG82dVhyUktlNUl0bkFQYjdhK0FhS0hUK0hleHU3dEQvK01O?=
- =?utf-8?B?YW5oQU1hNkpiTlcvQmoxVHlpT3hmYzhsb3hqNzY2cDVWalVxK1B4MkhLS2VP?=
- =?utf-8?B?d2lIZi8vM0hhdzhnWU5FeUVTVllHSFI3Q243NldsTGNUL2cxMUFKMU0zSjUz?=
- =?utf-8?B?VlJlaW9FMXIyNVlTSlNNVFAxU0c1cUhidzlUaEFpKzJEUXdDZnFxSHRIQVdl?=
- =?utf-8?B?MHZtSkdlWGdrdW05U01ORkZqQkNRVlFVSXZQckhnSVc2c0E3NHpBaCtyK1FZ?=
- =?utf-8?B?djIvdzN1VWF3NXpFMHAxYTZzU3UxOGlJKzdtOFRPYVJhaHRZYlptQ0ViV1FD?=
- =?utf-8?B?L1hlT1FRc3QvL0pTY1RBNmsxWnJjYXFobnBWdGUvdVluclVSTzl5ZVBzZVRn?=
- =?utf-8?B?RkhkM3RETDV6Q05yWWN1Y2Jaa3BURGV0M0pZV0Vlb0YwNWxQNEtZRE8wNHov?=
- =?utf-8?B?SExhUnNWUUgya2ZjUWpoOGc5azg4TWVpQ2x2dHFUdWdDVG0rNFJVWmxtNHlv?=
- =?utf-8?B?QUVvNW9qdzVCbE9VN0pySXRsSDNEQ3ZOeldoT05PTUdFcDFaQWdVamExcUJa?=
- =?utf-8?B?WVdwTFJhMWlLZDJkVkg2NUhxcUN4cTVRRitzWmdnbVZLcjRWb3lTdGNKczd3?=
- =?utf-8?B?OENibTY2ZFhPa2s2Vml1TDZ0S3FJZ09xWXp2djNFWFNWOUVCZXRPbU9DcXhj?=
- =?utf-8?B?dDNMZWtEV1RlUjQ2RUNkdzYrNU9iMlpyYTZzYmhFdlFDS3VuSU9OODh1OTNk?=
- =?utf-8?B?dktHRWVYNW9WQXdUZjBMN1hSeHQ0dVJ4bDIwTEhvVFBMS0NMZFpKVk5iMDY4?=
- =?utf-8?B?Q1ZDL1c0WTZERk03SzZtNmdadVpUandpMEJWNWYzSzBlbnlYbDdFTTVPd2Jn?=
- =?utf-8?B?a0FIKzJERGhKQWZ6NzQyUm04Q2hXaGpGazlQN3pkdmtvQnNXZENRaHQ2K0c5?=
- =?utf-8?B?Y2s5NWJMQlBBUExzWlZVMzU2SER4bDAwWWxqZ1RNTFRUNDVBL2FlY1pnQnhu?=
- =?utf-8?B?cXBDRGtLUzlIVzdqaUVXMG1rcUQxbVY5MWtrSDRNSytQWk8zaGVtRDRQRHBo?=
- =?utf-8?B?SXVxMkdMV29IdlZhQ1pnRzhYOGRPbjJYNmlyclJzeVBGV3RnNjYyOVptQ0Ir?=
- =?utf-8?B?cHpnSVZEWUZ5Z3VoN0FVRjdWeFdHb3NySzMzMFlGS29ndWd5QWt0WjhMdU5n?=
- =?utf-8?B?THNtSGg1NTNpVjRNWVlIYWZnNnR4RXk5UFMxS3NMTmNoaUkrd3RuY21ZcnVv?=
- =?utf-8?B?QlJyTHZBbXpRVkhtdXBqK3VIT1cxK0hPUDdtQXJQUWVRT2xwL2ZrYURLbTJr?=
- =?utf-8?B?R2tSbDNXellsa1ZyUGw1NjdhdDRuV0pXZHp1b2xKcXBXTU0xcEM3SEZJYlpU?=
- =?utf-8?B?emdoMm1UcVpLQXpkbWxMOWhDdWV1R0trWE5SWmJDeW8rUDVhSzE4NFkzR2ZF?=
- =?utf-8?B?cFRaT3ZGczRmckNKYVc0K1BOaUhWTWhlU1ZkQ2s0L3Yya2ZxaXlKUXFySVFZ?=
- =?utf-8?B?NVFzQXdhY1dZOXlzM3JDSzhpenlzOVg3QW9mS3FJSUlFeGQ3VU9iNUZPZlZ2?=
- =?utf-8?B?Vk41ZHR0Nldzb1hVRHQ1OWVqRXJlYTRkcVR3MzZ1UmV2dDRkd0VBZ2t3ejFl?=
- =?utf-8?B?TXlsKzNJRDF2ajE5bG5ydVh5WDdEM1dRK0U1NVE4WlZEZ1ozbURmdkxuaGJp?=
- =?utf-8?B?SUxPUGRuT3A2N2Z5MDNuYlVTRWh1b0xYMGh3dVlqZklCaVZQNTRjbU1nVFM4?=
- =?utf-8?B?TDRjTEFFVUltZk1JQmxIaU9tQnM5YXdBbzhxR0UweVFYVi9qK1lTVm8ybjhk?=
- =?utf-8?B?ekJZdXVLT2RkdWtSTEFRWlBlb0JWZzlLSlpkN3cyYUdSRmRjYkdHT3g1Q0JK?=
- =?utf-8?B?cW44S2tya09lbnVIV2UyUHh5OW9WK0RCUUduSEJUUXk2d09vb1o3Zk9leTd5?=
- =?utf-8?B?cnh4SVNaSU1OSkZQWVEyelR2WWVXdkJVY0dQdG1ZRlRsUksyaUdhS0JORzRK?=
- =?utf-8?B?TEJCZjk1WXlDZFhzV0ZhSmdqeGVWWk1obXhiOUYvS2ROZElwWHRQeVFRbHc2?=
- =?utf-8?B?NzVzYWc0RGRUQ3lNYS9FYVVtcWRLRzg5Z0h6Z3Q2NjBJNklSeDZHc2JzT003?=
- =?utf-8?B?QnQ3TnBWck5GV3FoZlVTMlBMbVZzM1ZsLzJFN2tCZkJUU2Z6T2V5ckdXUHVQ?=
- =?utf-8?B?ZWc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab0489fe-3587-4489-0c2b-08dda4127d0a
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2025 09:22:27.1868
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Zo1rM8bUMn6dai9OOZHaBy4BtCuNH+RJa6cBMy8sbK0r3TNy8UayxWntdaTdabtqLGLuzCrEWxNVxej6qfds+eDdoXL/i5vKri0+HaPoV8w=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7721
+Subject: Re: [PATCH v3 1/5] media: mc: add manual request completion
+Content-Language: en-US
+To: Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil
+ <hverkuil@xs4all.nl>, Tiffany Lin <tiffany.lin@mediatek.com>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, kernel@collabora.com,
+ linux-media@vger.kernel.org,
+ Sebastian Fricke <sebastian.fricke@collabora.com>
+References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
+ <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-1-603db4749d90@collabora.com>
+ <aEC05991kEIIifDB@kekkonen.localdomain>
+ <1ccaaec7f782afc71bae5c3b0f60a786a907555c.camel@collabora.com>
+ <aEE-VFfJDhUbM2nA@kekkonen.localdomain>
+From: Hans Verkuil <hans@jjverkuil.nl>
+In-Reply-To: <aEE-VFfJDhUbM2nA@kekkonen.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spampanel-Class: ham
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_022232_192112_8814BF30 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20250605_023803_491392_157E15C4 
+X-CRM114-Status: GOOD (  32.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,60 +96,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
-
-On 6/5/25 11:09 AM, Heiko Stübner wrote:
-> Am Donnerstag, 5. Juni 2025, 10:57:13 Mitteleuropäische Sommerzeit schrieb Quentin Schulz:
->> Hi Heiko,
->>
->> On 6/4/25 10:24 PM, Heiko Stuebner wrote:
-[...]
->>> And in fact the datasheet for the regulator defines an "Internal soft-start
->>> time". For a target output voltage of 1.0V the _typical_ time to reach at
->>> least 92% of the output is given as 260uS.
+On 6/5/25 08:51, Sakari Ailus wrote:
+> Hi Nicolas,
+> 
+> On Wed, Jun 04, 2025 at 07:19:27PM -0400, Nicolas Dufresne wrote:
+>> Le mercredi 04 juin 2025 à 21:04 +0000, Sakari Ailus a écrit :
+>>> Hi Nicolas,
 >>>
->>
->> Indeed. Now looking at the existing Device Trees, it seems some set the
->> ramp-up delay already, but to 2300 and not 500 like suggested here.
->> Maybe it'd be safer to go for 2300 by default then?
-> 
-> enable-ramp-delay is a totally different beast than the ramp-delay.
-> ramp-delay is needed when changing the running voltage and uses a unit
-> of "uV/us", so microvolt per microsecond ... where the enable-ramp-delay
-> is the one for enabling the regulator and uses uS.
-
-Thanks for the explanation.
-
-[...]
-
->>> mainline right now. I've chosen 500uS to be on the safe side, as
->>> 260uS is the "typical" value for 1.0V and sadly no max value is given
->>> in the datasheet.
+>>> Thanks for the update.
 >>>
+>>> On Wed, Jun 04, 2025 at 04:09:35PM -0400, Nicolas Dufresne wrote:
+>>>> From: Hans Verkuil <hverkuil@xs4all.nl>
+>>>>
+>>>> By default when the last request object is completed, the whole
+>>>> request completes as well.
+>>>>
+>>>> But sometimes you want to delay this completion to an arbitrary point in
+>>>> time so add a manual complete mode for this.
+>>>>
+>>>> In req_queue the driver marks the request for manual completion by
+>>>> calling media_request_mark_manual_completion, and when the driver
+>>>> wants to manually complete the request it calls
+>>>> media_request_manual_complete().
+>>>>
+>>>> Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+>>>> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+>>>> ---
+>>>>  drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
+>>>>  include/media/media-request.h | 38 +++++++++++++++++++++++++++++++++++++-
+>>>>  2 files changed, 73 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+>>>> index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
+>>>> --- a/drivers/media/mc/mc-request.c
+>>>> +++ b/drivers/media/mc/mc-request.c
+>>>> @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
+>>>>  	req->access_count = 0;
+>>>>  	WARN_ON(req->num_incomplete_objects);
+>>>>  	req->num_incomplete_objects = 0;
+>>>> +	req->manual_completion = false;
+>>>>  	wake_up_interruptible_all(&req->poll_wait);
+>>>>  }
+>>>>  
+>>>> @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+>>>>  	req->mdev = mdev;
+>>>>  	req->state = MEDIA_REQUEST_STATE_IDLE;
+>>>>  	req->num_incomplete_objects = 0;
+>>>> +	req->manual_completion = false;
+>>>>  	kref_init(&req->kref);
+>>>>  	INIT_LIST_HEAD(&req->objects);
+>>>>  	spin_lock_init(&req->lock);
+>>>> @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
+>>>>  
+>>>>  	req->num_incomplete_objects--;
+>>>>  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
+>>>> -	    !req->num_incomplete_objects) {
+>>>> +	    !req->num_incomplete_objects && !req->manual_completion) {
+>>>>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>>>>  		completed = true;
+>>>>  		wake_up_interruptible_all(&req->poll_wait);
+>>>> @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
+>>>>  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+>>>>  		goto unlock;
+>>>>  
+>>>> -	if (!--req->num_incomplete_objects) {
+>>>> +	if (!--req->num_incomplete_objects && !req->manual_completion) {
+>>>>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>>>>  		wake_up_interruptible_all(&req->poll_wait);
+>>>>  		completed = true;
+>>>> @@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
+>>>>  		media_request_put(req);
+>>>>  }
+>>>>  EXPORT_SYMBOL_GPL(media_request_object_complete);
+>>>> +
+>>>> +void media_request_manual_complete(struct media_request *req)
+>>>> +{
+>>>> +	unsigned long flags;
+>>>
+>>> I'd declare flags as last.
+>>>
+>>>> +	bool completed = false;
+>>>> +
+>>>> +	if (WARN_ON(!req))
+>>>> +		return;
+>>>> +	if (WARN_ON(!req->manual_completion))
+>>>> +		return;
+>>>
+>>> I think I'd use WARN_ON_ONCE() consistently: this is a driver (or
+>>> framework) bug and telling once about it is very probably enough.
 >>
->> Reading the rk808 regulator driver... maybe we should also set the
->> typical delay as default in the fan53555.c driver? See rk805_reg which
->> sets the enable_time for some (typically the LDO with 400 and the DCDC
->> at 0). I assume those can be overridden from the DT anyway, but at least
->> we would have some decently safe defaults?
+>> Just to be sure, you only mean for the two checks above ? Or did
+>> you mean for the entire function ?
+> 
+> For the entire function. I thought that if this is user-triggerable, the
+> amount of data ending up in logs could be very large.
+
+It's not user-triggerable, if this happens, then it is a driver bug.
+
+Regards,
+
+	Hans
+
+> 
 >>
->> If we do not do this, then we should probably force the presence of
->> regulator-ramp-delay property for the rk860x DT binding so we don't
->> forget for future Device Trees?
+>>>
+>>>> +
+>>>> +	spin_lock_irqsave(&req->lock, flags);
+>>
+>> In practice, if you call this specific function from two places at the same
+>> time you have a bug, but I realize that moving the the warning on the check
+>> manual_completion inside that lock would massively help detect that case.
+>>
+>> What do you think ?
 > 
-> that is scope-creep (rk808 != rk860) ... but I find the idea of trying to
-
-I was just hinting at the possibility to set a default enable_time if 
-one's missing from the Device Tree because the rk808 driver seems to be 
-doing something like that. rk860-x is indeed supported by a different 
-driver, which doesn't set this by default, hence my suggestion :)
-
-> set the enable-ramp-delay as required for the rk860-x interesting :-) .
+> Seems reasonable to me.
+> 
+>>
+>>>> +	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+>>>> +		goto unlock;
+>>>> +
+>>>> +	req->manual_completion = false;
+>>>> +	/*
+>>>> +	 * It is expected that all other objects in this request are
+>>>> +	 * completed when this function is called. WARN if that is
+>>>> +	 * not the case.
+>>>> +	 */
+>>>> +	if (!WARN_ON(req->num_incomplete_objects)) {
+>>>> +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>>>> +		wake_up_interruptible_all(&req->poll_wait);
+>>>> +		completed = true;
+>>>> +	}
+>>>
+>>> A newline would be nice here.
+>>>
+>>>> +unlock:
+>>>> +	spin_unlock_irqrestore(&req->lock, flags);
+>>>> +	if (completed)
+>>>> +		media_request_put(req);
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(media_request_manual_complete);
+>>>> diff --git a/include/media/media-request.h b/include/media/media-request.h
+>>>> index d4ac557678a78372222704400c8c96cf3150b9d9..7f9af68ef19ac6de0184bbb0c0827dc59777c6dc 100644
+>>>> --- a/include/media/media-request.h
+>>>> +++ b/include/media/media-request.h
+>>>> @@ -56,6 +56,9 @@ struct media_request_object;
+>>>>   * @access_count: count the number of request accesses that are in progress
+>>>>   * @objects: List of @struct media_request_object request objects
+>>>>   * @num_incomplete_objects: The number of incomplete objects in the request
+>>>> + * @manual_completion: if true, then the request won't be marked as completed
+>>>> + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
+>>>> + * to complete the request after @num_incomplete_objects == 0.
+>>>>   * @poll_wait: Wait queue for poll
+>>>>   * @lock: Serializes access to this struct
+>>>>   */
+>>>> @@ -68,6 +71,7 @@ struct media_request {
+>>>>  	unsigned int access_count;
+>>>>  	struct list_head objects;
+>>>>  	unsigned int num_incomplete_objects;
+>>>> +	bool manual_completion;
+>>>>  	wait_queue_head_t poll_wait;
+>>>>  	spinlock_t lock;
+>>>>  };
+>>>> @@ -218,6 +222,38 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
+>>>>  int media_request_alloc(struct media_device *mdev,
+>>>>  			int *alloc_fd);
+>>>>  
+>>>> +/**
+>>>> + * media_request_mark_manual_completion - Enable manual completion
+>>>> + *
+>>>> + * @req: The request
+>>>> + *
+>>>> + * Mark that the request has to be manually completed by calling
+>>>> + * media_request_manual_complete().
+>>>> + *
+>>>> + * This function shall be called in the req_queue callback.
+>>>> + */
+>>>> +static inline void
+>>>> +media_request_mark_manual_completion(struct media_request *req)
+>>>> +{
+>>>> +	req->manual_completion = true;
+>>>> +}
+>>>> +
+>>>> +/**
+>>>> + * media_request_manual_complete - Mark the request as completed
+>>>> + *
+>>>> + * @req: The request
+>>>> + *
+>>>> + * This function completes a request that was marked for manual completion by an
+>>>> + * earlier call to media_request_mark_manual_completion(). The request's
+>>>> + * @manual_completion flag is reset to false.
+>>>
+>>> s/flag/field/
+>>>
+>>>> + *
+>>>> + * All objects contained in the request must have been completed previously. It
+>>>> + * is an error to call this function otherwise. If such an error occurred, the
+>>>> + * function will WARN and the object completion will be delayed until
+>>>> + * @num_incomplete_objects is 0.
+>>>> + */
+>>>> +void media_request_manual_complete(struct media_request *req);
+>>>> +
+>>>>  #else
+>>>>  
+>>>>  static inline void media_request_get(struct media_request *req)
+>>>> @@ -336,7 +372,7 @@ void media_request_object_init(struct media_request_object *obj);
+>>>>   * @req: The media request
+>>>>   * @ops: The object ops for this object
+>>>>   * @priv: A driver-specific priv pointer associated with this object
+>>>> - * @is_buffer: Set to true if the object a buffer object.
+>>>> + * @is_buffer: Set to true if the object is a buffer object.
+>>>>   * @obj: The object
+>>>>   *
+>>>>   * Bind this object to the request and set the ops and priv values of
+>>>>
 > 
 
-But incompatible with the "default in driver" approach :) So one or the 
-other :)
-
-Cheers,
-Quentin
 
