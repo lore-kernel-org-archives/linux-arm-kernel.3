@@ -4,53 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388BFC5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 03:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F097C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 03:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8cBtavqwoj0Dfsn1SH3McNU+r0/YgR/+XFrRVKWytE=; b=bIwp1hpxu8KLC34Buby4l9yDiY
-	khsfqIAgIua+MfE6T1ECqZYeSRBEFMMTP3eh1JGNks4CTj1viPNq/5FSRDlfAXxQxy1JsaVUmpsPx
-	IwR4u/Ya0MJ5rU6F6L4ZN3yYuQZN9Mym5k1lT7nUkNVjozWANIyBCX3Jmmf8Ui3CjwxIjJliblrow
-	Fxh25t4oKiXmSrVB2uLlA0QGvX8cBmFpSfpf0tniKsGKuOOraSSSV3KPweEYQVjyRYLneROhtiaTE
-	4S/NXl8O4+TC3u0OvHl2X++hdOy0uU016lyAXVhPYVlkh7V9Dd+kyKC/tzfCQBj5ghF/g2ioDZ+KN
-	uV5JsJdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XXvmdmmn1tFYv0uxxK5u4EJQqXxf5VTQjxQB6qyj6BY=; b=d4wwRVIiRL+yjA
+	regWFKXhBURO4Ezf5dkom+py9jGR7LLVh4sSsmbz6OV6Rb2DkNn6juQE//MC7P9k4dTUnbYFtUekC
+	zlKgKAaIi10140T8/6P23MH09ao35o6P0liJNmc667svEKfQ3PFiMSZGA0tDkjzt8TvljiCBQeYL7
+	o1zmQIcD7rY7gUY3at/KSiTq7OH48O/K/ZZsV1mkRNqFsycatGc95EvagkzAggI2GsOPK5DRGgue4
+	+Y5/K3W2LGaYnW08+CwRfbelI99H794rxZmMN8/ExaddelAAhVjS0ynwFGrG2UI+3/L0WMZudGHez
+	7QsUKVZ21E3qAixy825w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN16q-0000000Eda7-2xEe;
-	Thu, 05 Jun 2025 03:17:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN14j-0000000EdTB-3mXy
+	id 1uN1bE-0000000Ef5e-1prk;
+	Thu, 05 Jun 2025 03:49:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uN1Z7-0000000EetX-2S7L
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 05 Jun 2025 03:46:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=XXvmdmmn1tFYv0uxxK5u4EJQqXxf5VTQjxQB6qyj6BY=; b=V/xhJbqgAuOphAluZMdtEOrI/6
+	qhgqvkeWTbJSlSUCp+wlleuLzrn1vz+2+HWY3zezzo3wlDnlIpPSFUt8wnhdXgMvv5iRA/G+U+aLa
+	lyT4C/LH7q9zdSnqfm+ddzVIfnWdFuEYGvJegNFS6xb85RvGWHfLpBQ2Y01QZv9OfP0ipAwRyaJI2
+	jKT9NlEL6lilH4p6L7+StnFTT+hQEa18Wf41pAGJoSJJA5Ec2o8QpMJxCv2CbyTyR18k1X1nVKk8I
+	D5amkt3VdNXTc0Hdl3Q0O4tOBSHPBY5XKeNwU8/yE/+YM2UUDGM4Qi5N7van1JZmfYUNnA0M8WHDP
+	ozlYUpwA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uN1Z2-000000013TV-1EuW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 03:15:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4BD8169C;
-	Wed,  4 Jun 2025 20:15:10 -0700 (PDT)
-Received: from [10.164.18.47] (a077893.blr.arm.com [10.164.18.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B84E83F59E;
-	Wed,  4 Jun 2025 20:15:26 -0700 (PDT)
-Message-ID: <18ecc087-d5bd-4e98-9543-a6dcbf3e8c11@arm.com>
-Date: Thu, 5 Jun 2025 08:45:23 +0530
+	Thu, 05 Jun 2025 03:46:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749095193;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XXvmdmmn1tFYv0uxxK5u4EJQqXxf5VTQjxQB6qyj6BY=;
+	b=NrcRNScxpyPrVmhx0TF1VypAWuv7QtdJNq6YusL6a1Sc7k11tLyGBN+n8nIU2IhGeJD/Ma
+	9kqIte2chLfw5VOBgDhm78lbKXDTXx7F30G+YbeLoMOmYUpRN096HbNwT4gWPFnp/VOEWy
+	Fg5Hi3jgIaRgNSGwBZ1vBksbUaj19Zw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749095204;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XXvmdmmn1tFYv0uxxK5u4EJQqXxf5VTQjxQB6qyj6BY=;
+	b=QKtC1DjnB0DwZRCwuXjyZVoBjRuz73s/wE9cCDaS+gDREImcfJlk87mk1sMXbXoSw9ytHB
+	byQOrkxLvMdKWC/4CjStBWM3gJKQwr1wxmwihr/FRbz9RwIPF5H2fwlD5kjdHEB04dVJa6
+	kmOYI04q1dTsUnRw0aHvdql5G7JFHE0=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-32-h8rxEJLaO1qYFezv_spyhw-1; Wed,
+ 04 Jun 2025 23:46:29 -0400
+X-MC-Unique: h8rxEJLaO1qYFezv_spyhw-1
+X-Mimecast-MFC-AGG-ID: h8rxEJLaO1qYFezv_spyhw_1749095186
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C9C3118003FD;
+	Thu,  5 Jun 2025 03:46:24 +0000 (UTC)
+Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.229])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7EDFA30002C0;
+	Thu,  5 Jun 2025 03:46:18 +0000 (UTC)
+From: Anusha Srivatsa <asrivats@redhat.com>
+Subject: [PATCH 0/4] Integrate refcounting across of_drm_find_panel()
+ callers
+Date: Wed, 04 Jun 2025 22:45:09 -0500
+Message-Id: <20250604-of_drm_find_panel_part1-v1-0-c632e12e131d@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [boot-wrapper] aarch64: Enable access into FEAT_SPE_FDS register
- from EL2 and below
-To: James Clark <james.clark@linaro.org>, linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>
-References: <20250604114604.629782-1-anshuman.khandual@arm.com>
- <189edea6-49d8-4829-88ce-fa75d83401d6@linaro.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <189edea6-49d8-4829-88ce-fa75d83401d6@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMUSQWgC/x2MWwqAIBAArxL7nWDag7pKhFiutVAWa0QQ3T3pZ
+ 2A+Zh6IyIQRuuwBxosi7SFJkWcwLTbMKMglByVVJWtZit0bx5vxFJw5bMA1kc9CaG2Vw7FpVVV
+ Dqg9GT/d/7of3/QCEmLcdaQAAAA==
+X-Change-ID: 20250604-of_drm_find_panel_part1-33a2deb79256
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <quic_jesszhan@quicinc.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>, 
+ Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-samsung-soc@vger.kernel.org, Anusha Srivatsa <asrivats@redhat.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749095111; l=1449;
+ i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
+ bh=rPF1Y/Lj5T3DhXlPLFMCFyqGLjxlQBeRLLgsB6ClAEU=;
+ b=SeeBSMW5SkSz2m1U56oKwm8PDfWdG4toxWnKciRa8oqK8kQqUV5RtZYYVHAvOk1mvJzF3/GNs
+ 3m9IvhcutyHAcccJkhr85frr56vbFC+VUXRCu9sj/CoQvwuR6Se3vYX
+X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
+ pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_201530_032173_309DDB82 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20250605_044648_788161_ABEE738F 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,100 +131,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+With the panel refcount allocation infrastructure  merged: [1]
+and all drivers converted to use the new API: [2],[3] and [4],
+the next chunk of work involves integrating refcounting across
+different callers across various drivers.
 
+First patch was added to the original series [1] but later
+removed. Adding it here with the initial of_drm_find_panel()
+callers being updated with refcounting. This is not an exhaustive
+list. Remaining drivers to be updated will be sent in next set
+of series.
 
-On 6/4/25 17:27, James Clark wrote:
-> 
-> 
-> On 04/06/2025 12:46 pm, Anshuman Khandual wrote:
->> FEAT_SPE_FDS adds system register PMSDSFR_EL1. But accessing that system
->> register from EL2 and below exception levels, will trap into EL3 unless
->> MDCR_EL3.EnPMS3 is set.
->>
->> Enable access to FEAT_SPE_FDS registers when they are implemented.
->>
->> Cc: James Clark <james.clark@linaro.org>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Mark Brown <broonie@kernel.org>
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>   arch/aarch64/include/asm/cpu.h | 4 ++++
->>   arch/aarch64/init.c            | 3 +++
->>   2 files changed, 7 insertions(+)
->>
->> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
->> index 2b3a659..ac50474 100644
->> --- a/arch/aarch64/include/asm/cpu.h
->> +++ b/arch/aarch64/include/asm/cpu.h
->> @@ -55,6 +55,7 @@
->>   #define MDCR_EL3_NSTB_NS_NOTRAP            (UL(3) << 24)
->>   #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT    (UL(3) << 32)
->>   #define MDCR_EL3_ENPMSN                BIT(36)
->> +#define MDCR_EL3_ENPMS3                BIT(42)
->>   #define MDCR_EL3_EBWE                BIT(43)
->>   #define MDCR_EL3_EnPM2                BIT(7)
->>   @@ -185,6 +186,9 @@
->>     #define SCTLR_EL1_CP15BEN    (1 << 5)
->>   +#define PMSIDR_EL1        s3_0_c9_c9_7
->> +#define PMSIDR_EL1_FDS        BIT(7)
->> +
->>   #ifdef KERNEL_32
->>   /*
->>    * When booting a 32-bit kernel, EL1 uses AArch32 and registers which are
->> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
->> index e1640a9..b6f740c 100644
->> --- a/arch/aarch64/init.c
->> +++ b/arch/aarch64/init.c
->> @@ -146,6 +146,9 @@ static void cpu_init_el3(void)
->>       if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 3)
->>           mdcr |= MDCR_EL3_ENPMSN;
->>   +    if (mrs_field(PMSIDR_EL1, FDS))
->> +        mdcr |= MDCR_EL3_ENPMS3;
->> +
-> 
-> You are only allowed to read PMSIDR if SPE is implemented otherwise it's undef so it needs another check.
+[1] -> https://patchwork.freedesktop.org/series/146750/
+[2] -> https://patchwork.freedesktop.org/series/147082/
+[3] -> https://patchwork.freedesktop.org/series/147157/
+[4] -> https://patchwork.freedesktop.org/series/147246/
 
-The same is true for the earlier bit MDCR_EL3_ENPMSN as well. FEAT_SPE_FnE should
-have been checked from PMSIDR_EL1.FnE but the feature is guaranteed to be present
-when FEAT_SPEv1p2 is present. Hence PMSVER >= 3 check alone is sufficient here.
+Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
+---
+Anusha Srivatsa (4):
+      drm/panel: get/put panel reference in drm_panel_add/remove()
+      drm/panel/samsung-dsicm: Keep up with refcounting
+      drm/panel/sun4i: Keep up with refcounting
+      drm/panel/exynos: Keep up with refcounting
 
-But for for FEAT_SPE_FDS feature, ARM DDI 0487 L.A is not very much clear on its
-dependency for FEAT_SPE and its versions. It says the following but not the other
-way around.
+ drivers/gpu/drm/bridge/samsung-dsim.c   | 1 +
+ drivers/gpu/drm/drm_panel.c             | 2 ++
+ drivers/gpu/drm/exynos/exynos_drm_dpi.c | 1 +
+ drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c  | 2 ++
+ 4 files changed, 6 insertions(+)
+---
+base-commit: 685c407f168cb49a12cc703230d1e2d62767bfd2
+change-id: 20250604-of_drm_find_panel_part1-33a2deb79256
 
-"If FEAT_SPE_FDS is implemented, then FEAT_SPEv1p4 is implemented"
+Best regards,
+-- 
+Anusha Srivatsa <asrivats@redhat.com>
 
-Even PMSIDR_EL1.FDS field is valid only when FEAT_SPEv1p4 is implemented. Hence
-you are right - we need to check both before enabling MDCR_EL3_ENPMS3.
-
-        if ((mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 5) &&
-            (mrs_field(PMSIDR_EL1, FDS)))
-                        mdcr |= MDCR_EL3_ENPMS3;
-
-> 
-> It would be much easier to unconditionally set all the known MDCR bits. If the feature is implemented then setting them to 1 disables the traps, which we want, and if it's not implemented it does nothing which we also want.
-> 
-> Doing them all conditionally is quite error prone and extra work for nothing. In TFA it's already done unconditionally:
-
-But leaving all MDCR_EL3 fields set when corresponding features are not implemented
-goes against "don't set register fields when not required even when ignored in HW"
-principle and hence might not be ideal.
-
-But will leave it upto Mark and others. Dropping all these conditionality while
-setting MDCR_EL3 fields will be a subsequent patch later as if changes existing
-fields.
-
-> 
-> *
-> * MDCR_EL3.EnPMSN (ARM v8.7) and MDCR_EL3.EnPMS3: Do not trap access to
-> * PMSNEVFR_EL1 or PMSDSFR_EL1 register at NS-EL1 or NS-EL2 to EL3 if FEAT_SPEv1p2
-> * or FEAT_SPE_FDS are implemented. Setting these bits to 1 doesn't have any
-> * effect on it when the features aren't implemented.
-> */
-> mdcr_el3_val |= MDCR_NSPB(MDCR_NSPB_EL1) | MDCR_EnPMSN_BIT | MDCR_EnPMS3_BIT;
-> 
->>       if (mrs_field(ID_AA64DFR0_EL1, TRACEBUFFER))
->>           mdcr |= MDCR_EL3_NSTB_NS_NOTRAP;
->>   
-> 
 
