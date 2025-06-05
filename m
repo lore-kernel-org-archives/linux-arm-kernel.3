@@ -4,84 +4,215 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3534C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 09:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F17C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 09:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9WazpzKcumwLrqZyJ4/uWFbtdp85eK2+cFv/S9/2yA=; b=umMVHKJVs9QCyo1NsLzbkcFTN2
-	ra8zgYQbE2GTGP5QT10dQIW0YEd+dE3mTd+iO9cEn9+MhZG0mTc1Q81CBpcYIMG19OvhtIZgYds4K
-	3g1+T/n9Z+eyv2FUAo7/QOR+rm0yLUt3EVf0tVLVvToTsAS0V5jlyOcB6SEJHYCj0KK8ZZ5og3bCo
-	l/TdmRnXA/k32RjAII1FjwCEqTj3HwedRGMfQwvxA/YYLVjPfFfHczlHDPEWRJzjbcroJdauK3X4U
-	7CKjTX/Y//f/lFzfJMXT7HGatcqNVT6mISMGCAgh3d1BHaEqJvSbur2yQbk/Os58+6TvW8i0qvpli
-	K+7J3d1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P2PtWBA494Z54whBkAy0RtVaHiyY+dOZO8WfdJJ6y3k=; b=ygdInvFn4LUXyQ/l92GWr9Ohkl
+	DTYM0zLcXFbbzTC07nFA0We3aD0habUesSRQIRbEzqTqhvtHuB3MxbS0VheYJg8SXHyZPJplPBZZZ
+	mEMMTNHNd9g1sDi9zAS8LKPM5TR5Y10btv6T7ENZAnqtydygsqv521frglfErGSBnq6zySIVut/hQ
+	nU3/phiTYgWhw4I5Nz7Jl14sB8mSP8KK0nOkw+d//1UqUECy0D2dymSdiaXYXIAZ+KsuWPpfh3PzO
+	8ZbB0FeKq/d20DhG3dX/eGfelOLijoy9COZzAo208JxdGIUETvcFcV7UV0S0zVFaLdj0YdviMZh6+
+	2yusxvvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN75B-0000000FBCU-4AVn;
-	Thu, 05 Jun 2025 09:40:22 +0000
-Received: from dane.soverin.net ([185.233.34.11])
+	id 1uN79C-0000000FBZ6-39hc;
+	Thu, 05 Jun 2025 09:44:30 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN72w-0000000FAzq-1fKE;
-	Thu, 05 Jun 2025 09:38:06 +0000
-Received: from smtp.freedom.nl (unknown [10.10.4.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by dane.soverin.net (Postfix) with ESMTPS id 4bCfWR6KG9z1Sm4;
-	Thu,  5 Jun 2025 09:37:55 +0000 (UTC)
-Received: from smtp.freedom.nl (smtp.freedom.nl [10.10.4.107]) by freedom.nl (Postfix) with ESMTPSA id 4bCfWQ60tpz4M;
-	Thu,  5 Jun 2025 09:37:54 +0000 (UTC)
-Authentication-Results: smtp.freedom.nl;
-	dkim=pass (2048-bit key; unprotected) header.d=jjverkuil.nl header.i=@jjverkuil.nl header.a=rsa-sha256 header.s=soverin1 header.b=r3an6fmG;
-	dkim-atps=neutral
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jjverkuil.nl;
-	s=soverin1; t=1749116275;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R9WazpzKcumwLrqZyJ4/uWFbtdp85eK2+cFv/S9/2yA=;
-	b=r3an6fmGZTBObi6EKTD2YCpu6SNkYb9IRdGwEFcPL7mXbGnavNUMRQU9c5j0KWJQuDUCYA
-	I920bDJPn5zPmnpb1IHBoqrQDWw4eLeeJoK+YIMQ7sHVa1G/YWCDuGp8tTBR77/AZFVVhK
-	SVdxDJ37Vd4dS3wAgM499YVDD0tvBjjpV7/IYAHQ5GTI1MfldaKLbm72p5IRuvpJ2Z/Nda
-	yEO+e744hng5s9tJZGB0HydlMt0LDKs6w01YELc9gRoskvq0f+w1lKoASYOBkyNT1GY2cs
-	O/Q+xgkfsMxzevT60T63Hy7+X5wBmE33Ywxjaw5oj86Yee03d1R8OtRUKAwmfA==
-X-CM-Envelope: MS4xfPNnir3sPSCo/uIfr9wdSIkrlJmw7w2T4mmt9sw3/63llGQMHPmnbKjnWOlPM3fz2++hGJ1vHhdK55sXbwmuzmYAEPTGHGINjMs0DvGUDV5RloKBexeb dcCbmYY6WggIobwm6ieNLQcBrqB46U0WbiKlNc8RmlT0cv9hgubja+Heq+TvCml5YqzxgYZ52GQc1FmNqzXdoCmrtcFX752w+DToG14drept+ygZTssrfyY+ bsR3+CxmFZ54H/KAR9Rn0+171nzGsiFPNonkJPNN8JEp0b8iNH4BLEJGpQkPJq/Ol6DmHbq+w4NkbUYEKD6racwi36/9K23OgKud0heUgvLeZ4aaFhxSQix+ 59T0NUAnsNR6Uxo05lMCfUzcwGmYE1Ci2Xstq6G4uvrGcRZTZqRI4FIHGjJBA27AQh3BY6tBCi7xdidFVOiurjDr32fAGdTq/XkpjcwsaKnv5b4inHW2LCNC CXRwvT3HPhL9Hse8OkOHw2ZwgKxjXMCXiTiWZz5wHiO59CkyU4ASf8dniasjpK3fmwq+Lif0apyOFcEUpdy7AGvwFeGKgZ4vjxN0ICc1ECF8wuhqE9T586Mg 0EqaVmFoz4iPSv/nBnZgqjpGBDv4F1Vi17SMvp6eFdI4ViUPPVqHPSbl56p8NksFPlhgF/5UhGJ9gJoPYUJNLs0CKMN+1QRz/PLu/tCj5lGG3Gxrlj/h4INN n5v8LK6+N4hCy2nh5JgI3g2vujh0Q0Qk78qxmAXdn6csLZgcl8tx3v69MMDdhIiP2yhKQTajirXdQa4Scns4iUx+hNuzxUz1dPm1MoZcxYoSOba16nhHPDrw jox0NopQoL3x7/SyzwqMbqGTjHSjdsUX31WVBmt/pDUvVA4KkoAepyOBP6z6F0+3vliOpe3ItldFVDzulB1e04Hy2Ncg8zHsm6DaFsBr
-X-CM-Analysis: v=2.4 cv=d/oPyQjE c=1 sm=1 tr=0 ts=68416573 a=rRPUdUMkfOuWADC4PY0RbA==:617 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=xOd6jRPJAAAA:8 a=QX4gbG5DAAAA:8 a=7u75VyA4us0rJz3QA60A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=AbAUZ8qAyYyZVLSsDulk:22
-Message-ID: <8b1ed01a-b6e3-4670-a4e0-d8eee7ddc524@jjverkuil.nl>
-Date: Thu, 5 Jun 2025 11:37:54 +0200
-MIME-Version: 1.0
-Subject: Re: [PATCH v3 1/5] media: mc: add manual request completion
+	id 1uN76v-0000000FBNB-1fgr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 09:42:15 +0000
+Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5554vCtU021326;
+	Thu, 5 Jun 2025 09:40:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-id:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=P2PtWBA494Z54whBkAy0RtVaHiyY+dOZO8WfdJJ6y3k=; b=
+	fqIZT7b1dgLtUCbPVmup3p8xgnliO64x3AS1ymyNWihE7+IfMre9L3g0B9kkZB7O
+	AWH9elRj2pJXiII3T0MW7GgTeQ0MOScL0eg0r7T/yGuZnhZTMIvvLCz+PTTot9LX
+	nTFXrMbhBKaM1GSNEKXUjWc8HBKOxdEEkLyhkGobqumHFWhC1flQpN/VpsYBc4v9
+	j9dpuFUm1W2k7VUkANIqOnqzf8S09oR9k5QSHJ9r6IrgTIEwTuqg4hWEFQ78ql/l
+	SU1GhVrfVbF3K6XdjCpTVd5OAesJglHs9GTYoYEeCKwslHYaPmT0KX24rien6Zya
+	LZQQEtdnakmn9brqZiX65Q==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 471gahdwg0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 05 Jun 2025 09:40:50 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5557q7jk034815;
+	Thu, 5 Jun 2025 09:40:49 GMT
+Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10on2071.outbound.protection.outlook.com [40.107.93.71])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 46yr7c3y9k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 05 Jun 2025 09:40:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JIF/OVWX4D2ar2sk3JTwu/FTNzdcCUfPUcRNPn5uahoQuQKxMD47xGjnEKoRbiESXdcTXyDgdmWYkmXoknRT8BtFL8lx63ExD75x0iWze9uQCfXG28qxQjTjzSEuq9h+a7T7PL0gDdrf4V8ZN0YWuwKNjdI44otRqzc3raTbuaiM+VfSfs2yrVmXFlBuoEi/eIlntE5BFEEuJchnCHVxBHK50LWwwj46VFz1wsAlPT6LYRai5+d+YhtaafdUHhjJFNBlf4o4+AIXYZiYgXMODrVLg8QNNWcLTsGTOWOoIRiv9Cu4uWU3KrBtynI3nofLH+LMx4ZqG5c0eWJTnF00Cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P2PtWBA494Z54whBkAy0RtVaHiyY+dOZO8WfdJJ6y3k=;
+ b=IzmsTwEcpvTTm7dvI7Cu1dgGjryLzDF6AyoW/WTOMzx9/zUnxf8RErE3GDX/39un+Otoq4ISDvIku7RTrxvQVhfgSUcSi+m3nwbOHiAXxE3buYFy7c2UUUTTQHKZrPM+GbCWcvldDEh23LIebPXp/BwVJYPcoaFwZHh4dcnEV5XPVONNzJZbJLOZdkGzBsKfSVi9x84SR8JTzINKb7gbs4jAWaEvbV+7Xad7cOMpuloipCeX0VhUhrxhMMol28Xq0xjc/VIQ97egaMQ73Yt/QjUwofqDNmH8A2JUTtOSUpSA/8gRg7L55mgnUWiVVfAeU+fH0raII0ded/q9t5Xklw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P2PtWBA494Z54whBkAy0RtVaHiyY+dOZO8WfdJJ6y3k=;
+ b=DGmrOH6w563rES/qBJ6gaznJs3+p4sGqerU2667M2lgXEMbOdB79L/nEyWTznphbd4t45maddKudAicDaluvuk2M/JsI1AsaVz6tmiKY0xpohPB0gKwIdPAXx0ScQ+S9cBbp3HgykiE5Xk6l9Ma0AULOLddH1ObE0F1Ct0yUjNw=
+Received: from PH0PR10MB5433.namprd10.prod.outlook.com (2603:10b6:510:e0::9)
+ by CH4PR10MB8123.namprd10.prod.outlook.com (2603:10b6:610:23f::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.41; Thu, 5 Jun
+ 2025 09:40:47 +0000
+Received: from PH0PR10MB5433.namprd10.prod.outlook.com
+ ([fe80::47be:ad6e:e3be:ba80]) by PH0PR10MB5433.namprd10.prod.outlook.com
+ ([fe80::47be:ad6e:e3be:ba80%7]) with mapi id 15.20.8813.021; Thu, 5 Jun 2025
+ 09:40:47 +0000
+From: Miguel Luis <miguel.luis@oracle.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Oliver Upton
+	<oliver.upton@linux.dev>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 0/4] KVM: arm64: vcpu sysreg accessor rework
+Thread-Topic: [PATCH v2 0/4] KVM: arm64: vcpu sysreg accessor rework
+Thread-Index: AQHb1FZzymAUnIIEoUuFA1EqPZKnrrPy04qAgABLewCAAAnBgIAAM8mAgAD2ioA=
+Date: Thu, 5 Jun 2025 09:40:46 +0000
+Message-ID: <2DFD74B1-4D2A-46FF-89DA-0178BA93A82A@oracle.com>
+References: <20250603070824.1192795-1-maz@kernel.org>
+ <2264D21F-C28B-4523-9132-A53EB8ABFCF0@oracle.com>
+ <87bjr3edsr.wl-maz@kernel.org>
+ <AD26CFBA-FE32-4C7D-A75B-53729B70C591@oracle.com>
+ <877c1re3lo.wl-maz@kernel.org>
+In-Reply-To: <877c1re3lo.wl-maz@kernel.org>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-To: Sakari Ailus <sakari.ailus@linux.intel.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil
- <hverkuil@xs4all.nl>, Tiffany Lin <tiffany.lin@mediatek.com>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com,
- linux-media@vger.kernel.org,
- Sebastian Fricke <sebastian.fricke@collabora.com>
-References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
- <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-1-603db4749d90@collabora.com>
- <aEC05991kEIIifDB@kekkonen.localdomain>
- <1ccaaec7f782afc71bae5c3b0f60a786a907555c.camel@collabora.com>
- <aEE-VFfJDhUbM2nA@kekkonen.localdomain>
-From: Hans Verkuil <hans@jjverkuil.nl>
-In-Reply-To: <aEE-VFfJDhUbM2nA@kekkonen.localdomain>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spampanel-Class: ham
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH0PR10MB5433:EE_|CH4PR10MB8123:EE_
+x-ms-office365-filtering-correlation-id: 10fbe84f-e597-4e6a-17e9-08dda4150cad
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?eGFVZTVDTERNaFRTeVVCY0NsU2xvOXhueDRlMkVUUjEzTkpCV1h2YXlpNVpR?=
+ =?utf-8?B?Z1hyY2ZZZ2ZQU2sxb3V3Q29GV3QxUUdzdDNvM0V0dTF1U1Z1cnlza2tuZVJz?=
+ =?utf-8?B?S2FEZWU3Q3pXOEZaVkJKMm1tMmNXa3M4UUc1RVMxOHc1MS90eEttYlcrU2du?=
+ =?utf-8?B?NGttdlhla05QQWpFMWxoR0xvdzlyQ0tCbDYwdVlGTGVGR250NUFuQk5vZmxO?=
+ =?utf-8?B?RWNmM2FlOC9udVpic29ML3FzR0JCcHNaK000c3Z0SWJHWGNmdk5EVnV0dWlL?=
+ =?utf-8?B?ckhMSkVpVU1jVGlDQXhZMm1mdXcxVklJOEdlK2tVeXl1RmJiN1c4T0FNZXVy?=
+ =?utf-8?B?R3FUUzZTa0R3bDQ5U3JJbFlqdWZ3YlJuYUlPUWVuOVhDL2xXL0FPTERrTVNE?=
+ =?utf-8?B?d0xid3ZRWWRiZ3M5Um8zTVdla1dSNVVSM0c1UkF5NlRrYkJraVBPY0oxa3Nh?=
+ =?utf-8?B?WDBiMzJQR1pBdHBQbE9ZVjNzeGczVnR3Z1Nud2h5eDZPREFSN2Y1SG42UThp?=
+ =?utf-8?B?UkZKckpVQWxnVlJSVXE5QWpYRlNUamt0T29LZjBraG51ajYvMERCeG9GdlpB?=
+ =?utf-8?B?bzJPYmpSYzhUOEZxeHFPdlo1bWJNTjNqdm5yL3EwVlVXUGNzVDhSdVlJUmE1?=
+ =?utf-8?B?R3orZjM4VUZoY2J5NzJoWnl5dU5OZG8rbjAzQklDdDRNQnFQMERWQWZMdUo1?=
+ =?utf-8?B?RFNUZW90YVAzK2FvcWxaejZMbjJJNmFuVElJc2l4SXNSLzk5NUh4Wm5HdmZj?=
+ =?utf-8?B?dHFEUlRaMUNzMHNUb1VtRlJhalpjV1h1RXZHQkVsZkhaWjVYMFRpWWtDSG0r?=
+ =?utf-8?B?eGpDNlhZc1I4S0x3aGFxOW16QXdmQmxpbUYwL1JhejY5OVlKcVhOUUt5QklU?=
+ =?utf-8?B?V0V3WTdlV3NDSTlMYjBrOUNtNVBNR3FUNE5tYUlsKzZKQmE4V0VWVkk4ckdz?=
+ =?utf-8?B?OFdsek1ocE4vWWhrVmZuQXVVRHU5THgwclRlZkFNUGRiODVwY29ZTkpDejF4?=
+ =?utf-8?B?Q0w0U2hkVUNsMGJ2ZldMdDBIc1V0OEZCV3pWUW0xMjJuTFl3U25pVklYK25W?=
+ =?utf-8?B?K3Bya3ExaVl6R1hoL3FpczdEVDNRWnppMEp0OUNWRnY4aFl0OWhRTGtwV054?=
+ =?utf-8?B?bkRYazdHcDNFVkdOOHo0dStsdjViYy84SEJrNWNBc0FmK1RjZ0VTUEd4OUt0?=
+ =?utf-8?B?SDJiVHh5Z0oxSVFtbFVzRVlvVUVsRVpVeHVhMVFqRnYrUjhFS20rRzdaL0x6?=
+ =?utf-8?B?SWRHSndtZFoySEIrMmdjTU5SRURYN1lDRzM0WHQrYTB5a2NMcXpkUm1WTnNi?=
+ =?utf-8?B?WkV2QTkrUE5GT1NNVElNeTZPcE5wY0M3V2FLQ3o5bHNFcUdXYm05K3p5OU5Q?=
+ =?utf-8?B?SmhPQ29aVUxEY21QaWdscGtWU056TVB6MzZzbEtrZlhRUG9sRGdLaVpvWkFu?=
+ =?utf-8?B?M3BIck5lc1RCcjFIMThoQk1Za2hKV0g3STlleTFLZHZmY0tUcVJqSGRINGdE?=
+ =?utf-8?B?dmxxSkxQYkFmUURKaTR6UTFhUGNUQUtQcGhSdkNhUUVydHhrKzB5QU5sOHNi?=
+ =?utf-8?B?N1Yzc3JLam8ycjZTUW41WXU5R2huMUxuaGVKdnhsb1ROQTB0dlpFYys0RGpV?=
+ =?utf-8?B?Nm1RNWtwNy9iUXppYzA1azZtdVpkL0tUN0RvTmpvR1ZERk5mVlRhdys0UHJo?=
+ =?utf-8?B?T25jbmExbHFydzJoMzVhMDV5OU1wbHVYQjRhZDQ5Y1QveVEvTTRvcEhDWWZN?=
+ =?utf-8?B?WGUrTmIxN0Y4S29ISEpaOWx5VTZKY2NDWWZBa2NYNmZyMC9CSlVWOEdORnNQ?=
+ =?utf-8?B?WG1yTUloaEJGZ3RMYW9wYmtXTGJEWjM0L3diaDQzemdSak5zbnZ4L2lCMDFi?=
+ =?utf-8?B?ZzcxL0JuTVVRb1pqaUJHNHJ4OXI3SjVlc2lOeUIzMVgwb3VkSHVFN2pKVEdN?=
+ =?utf-8?B?V2duV0JJVCtJcGVlTEhrZjZHSVZlR0NmZ1JCdDFialp1RXFOM016dTJVbzBO?=
+ =?utf-8?Q?HVC2Y9PHBJnZyvP/dbjqg708KOj4dU=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR10MB5433.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NXlxSHdGOTRFTXBySFJuVnFlRFJDYTlTbWhQOEZSUVNoRFhGTy9PbjEreTlH?=
+ =?utf-8?B?REV6MStuTysxSTgxMk44Q2EzQ1l0dzh3eDNMY3FQVTJyWFpTZ0dBbnlMMlFD?=
+ =?utf-8?B?RWp4ZkNJWjZQKzE0MmtlZDBTbklPTHBZa3UzcTljaVRpN3RybjJUZk5RNkhL?=
+ =?utf-8?B?ZWg3WnJaY3VGSHVuYmwza1I1dFNXN1pqNjQ3Q3YxbFQyZmZPd0xVM0lYZnFm?=
+ =?utf-8?B?TG5NN2FJT2cybzRlVktnTVZSK09rVk0vanZmZWd0ZWM2MEw1akNwUjhHWEhu?=
+ =?utf-8?B?QlRFOGp3UFR5OEt6cjNhdm9EaXVwcnN1KzVFOFF6RzlNNGg2TkVScmlpeDNN?=
+ =?utf-8?B?M1NWL1hrOWVaSHJaeWRvQjViNklrc1FrWnIrT245MzVrTFIwcDNOU3R5bzhj?=
+ =?utf-8?B?Y2xHVXVGQTR5cjBYSGJJai9JOVh6bVhOeloxKzBYS084cEc4ellwdkJTa2py?=
+ =?utf-8?B?VDAweWpBVmQ1ZXBVa09KcTR4WElzNFNxNk9qM2RzNVQ4VkNNZUFwMzFrcEdX?=
+ =?utf-8?B?dHBWQ0gzWmltZXkwbjdYaWVQdHR0M25ONWJXOGlJTUdjcXhnU3Y1eTRkYk1r?=
+ =?utf-8?B?YmZSQ2J0bEtZTUIvd2lvMjhBZDNNMDZnOTRHaVh2eXRrL1FGWG1aTnZ5d3pa?=
+ =?utf-8?B?aDB5b1kraHlZdmRmYjhjam4xZk1yK1cvRnFXbm5wNnNvdnJyVDAxYWN0eXVi?=
+ =?utf-8?B?Y2hJODhGVFA3ejU2d241ZmFmQ1dwbno1MENDOWE5Wk5rTzl3aGQ5YTcyZ3Jy?=
+ =?utf-8?B?cXRnNlY0VkdiSDBqcDNEa3Q1V3o4VStHUk96S2JnZzdlazZiRTc1T0VlQksx?=
+ =?utf-8?B?bEcvTU9qOTBHRXhyTmk1a0k2NGNNT29XYjBEbGZQR1RMNzNtSERZWlFwYW9x?=
+ =?utf-8?B?N1ZGMlEzRnBEQWE5UUI1Z0pIUTJmU3ZncU9KelJWakFUNTZGUzQwcytBR2R1?=
+ =?utf-8?B?dmhUeGlTQ0lnaGNLQ2JIVWtuMVprSHdZMk5ad01Nc3NibWNCUVRyU1M4cEwr?=
+ =?utf-8?B?WDJpNjJqYUVRVHJHZTU1MXNhWHVOa0UrZlFKSVQ1YkIvNE5uRll3WEtDTWxB?=
+ =?utf-8?B?MmhITGZ6R2NIdGxpQXorT002S3krbUxsNEYvUDBZOUVTYnBWWkZ2MEpmL3RO?=
+ =?utf-8?B?ck9JR2JlQWpIUS9kTDNadnlCMi95M1pUUTBhR0tHYmtmWDU3TU12dzBHbncz?=
+ =?utf-8?B?cEplaUU2eUU2SEI1UzhWSEhmV3FpbG5kVm1BemFERkE0NHBCcU82NnBKTWRj?=
+ =?utf-8?B?T3RveFJ0NTFtNFo2WnJMT1NkNUFyRjJ6QTZxdEF5aFFqeWo2SjVFVkl1ZjBy?=
+ =?utf-8?B?VlFiK240S0NhNC9yV1dxamt6QklKSGsxeDc5c3crMFdMSFF0UEJLYnVTVnB2?=
+ =?utf-8?B?aVBUa1NhejFmQU9TT1F1SWRmMVlFN29VUXNuMStSWis0UkhEUWtEdkdJcHF4?=
+ =?utf-8?B?RDQ4RkN6TlM5Z2FaT3JaNzZtTHd3Z0pYT1M1Q2RwbWprRXpwZmRFUjNHNU8y?=
+ =?utf-8?B?d3FBV0pZN1Z5YUlZbUlVMmphZWNxOVRjQ1krMXRaNkVXR253WEtKTkJOS204?=
+ =?utf-8?B?bG1SWFZLcjVCbWM4RjA3TzRPVzFpSVpQU2hLRUJ4RnBjUTFrUUhCb0dnOHdM?=
+ =?utf-8?B?UUlNYmxuNGhwQVJ0ZFU0N0lWbTMwVXErL1BRRUNPUGIyS2V6Q1ZsTHYyemZR?=
+ =?utf-8?B?THdJWHFFYkhDMnFoczNlaDlrUTRFVGFNMXZJRDU3cnJDcEx3OHVZdE82aEgx?=
+ =?utf-8?B?YjUvUXRsRnlHaTBCZmE2dmFBN01oNGxTS0tTMzUzN0NHNElkWEczaTc5VnJ0?=
+ =?utf-8?B?RGs1dmZsVDQvVC8zNXgxeStrUjJSc0JhNWhiSnRmMUJmUmFLNVIvenVBZzZw?=
+ =?utf-8?B?Uk4ybXdrMEZLZjFyd0E5U2p6eUtFV2NEWGhaZFUycXFvM1ZqTTVES1NodTk3?=
+ =?utf-8?B?UWVkd0w2M2xmMG1pTDhyOVVZRENLU3NlT2swV1M5TzUzTS93M2pmRU9ibTFT?=
+ =?utf-8?B?NkFUU2JjSnVoTHBDM3lyTTFNWVo2SUFtZ3V0SXJ4RHFqeFZnWUNmTGZ5VWdQ?=
+ =?utf-8?B?ZGlqc25YRW5QbVBqNWc3cnk4TVh2aGx1QWgrWHNLQUZhNHNhYmxMbVNpb1Zz?=
+ =?utf-8?B?N3ZiQXQ3TWFVcUwzaGZybk44aGFBb3doc2lkOUliSDJraE1zOVZKZzFYZ3BD?=
+ =?utf-8?B?R2c9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <B2E560D092D0894CA1EC5808679F6FC0@namprd10.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 3TMWUb8bBXSQ4HUXQfBpsjb4XcAgkcsE9MYS9MwX02gh//mqmfMv4GWoAOQaxifFZyK/gCgekwK2mnQgHdSd88DsgFkYc+zVcpOo8zsq8Gvhl3+fT2xhO90gSOb9DrwO+Wubx1SU7hXnyGBWtfym0BB97ygQPTEhKgzYMb6EuZTQlsOcgEO0biKu9xrQlVHHPr37NejYb1sAtkVoemJMK9lIRyrVzMPUk5N/2svsYQuaqDcuvtK5eIvI1VYYeW7Ic1umWdm5Peh8Yd7eXe/vjsIrQl8IEQcBF1VkAFnqWuzo2GHzNNUIm0mIGz6mXf29nLpdqtDaz6XUM3uL0JCguOBNCqRu+JYGRyHP9REpRDs8eqlI/ueCabAQAsrb4oKOKUZGO4bvT2JZl0rcfMmWK+N0cxdPQ2bu+iVKGbtfF14gNJu+RKGxzfvBSh39JIiCDI4+I2R9HmbhRT3FYz4bL8cFQXtC1hSDAdE+t0mkPVJTN3TPGrzNwySvM879jexHMbsI0p/sgVqN0gP2Sq+JN9kyHdJ/tIuZSI4Xb4uZG4EnPygDoiLAztiUPqW3ifeTxI7INnYOqzmh+5Lg9ScYknCKUiM/PCFy143BmUoU+q8=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR10MB5433.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 10fbe84f-e597-4e6a-17e9-08dda4150cad
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jun 2025 09:40:46.9819
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3PK+UoO3Iauc7UIyMc9pULam+zD+IX5ZoKM9cTMLqEMFlfgcySn0HvU4pz13Y5B23Y4EiZgjaZ850bmaDSi/Rw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR10MB8123
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-05_02,2025-06-03_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 mlxlogscore=999
+ bulkscore=0 spamscore=0 suspectscore=0 malwarescore=0 mlxscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2505160000 definitions=main-2506050084
+X-Authority-Analysis: v=2.4 cv=aqqyCTZV c=1 sm=1 tr=0 ts=68416622 b=1 cx=c_pps a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=GoEa3M9JfhUA:10 a=VwQbUJbxAAAA:8 a=yPCof4ZbAAAA:8 a=96a7OwkIOOS2I4pYGhwA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: LWjDDNXHmxdkY-vZwvkcN_XHsduVPpQK
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA1MDA4NCBTYWx0ZWRfX7XJkGiJeTjUf RXsXAa4B3k5vphYEJFo7DpxCmElFbDH8D27M2sored/K4OvyVQNuTnm+LztzSRz6XfnGj3/eEdN /2xI0ryzRIPGeqovWisI9nvEGaMogrSAOPWxKimM+MJEN071s290QhAAD3seTaRvsYEkeoLu5vw
+ iJIBX9gjsF8hBFEf1OuQGkF8bvLGw5ymdCOegv/lfcz+IE2/UWRLTUDq250hdXEdRFcmsUHPb4z 43IUxnDK3AbPC9jcglFWxszppzSnaXfBf7ygh9ayuL/N5/kbNGdWP4IrctghLWw6frEhdC+jp0h 89HF69eS8kIqxQtN2406Szg/sAKsCBHXNKF4/e+fXNgyUESaCRrZMRRzDkalsb19ojKXsYXcleO
+ b48la+rYWlWDXvgzwY/TAzkCJ9KzhLsc7HUDgfn7pLEKIgwPXjEdiz0a6vdHqQGg/eqwhxBc
+X-Proofpoint-ORIG-GUID: LWjDDNXHmxdkY-vZwvkcN_XHsduVPpQK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_023803_491392_157E15C4 
-X-CRM114-Status: GOOD (  32.66  )
+X-CRM114-CacheID: sfid-20250605_024210_258333_6FBA08B2 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,219 +227,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/5/25 08:51, Sakari Ailus wrote:
-> Hi Nicolas,
-> 
-> On Wed, Jun 04, 2025 at 07:19:27PM -0400, Nicolas Dufresne wrote:
->> Le mercredi 04 juin 2025 à 21:04 +0000, Sakari Ailus a écrit :
->>> Hi Nicolas,
->>>
->>> Thanks for the update.
->>>
->>> On Wed, Jun 04, 2025 at 04:09:35PM -0400, Nicolas Dufresne wrote:
->>>> From: Hans Verkuil <hverkuil@xs4all.nl>
->>>>
->>>> By default when the last request object is completed, the whole
->>>> request completes as well.
->>>>
->>>> But sometimes you want to delay this completion to an arbitrary point in
->>>> time so add a manual complete mode for this.
->>>>
->>>> In req_queue the driver marks the request for manual completion by
->>>> calling media_request_mark_manual_completion, and when the driver
->>>> wants to manually complete the request it calls
->>>> media_request_manual_complete().
->>>>
->>>> Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
->>>> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->>>> ---
->>>>  drivers/media/mc/mc-request.c | 38 ++++++++++++++++++++++++++++++++++++--
->>>>  include/media/media-request.h | 38 +++++++++++++++++++++++++++++++++++++-
->>>>  2 files changed, 73 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
->>>> index 5edfc2791ce7c7485def5db675bbf53ee223d837..398d0806d1d274eb8c454fc5c37b77476abe1e74 100644
->>>> --- a/drivers/media/mc/mc-request.c
->>>> +++ b/drivers/media/mc/mc-request.c
->>>> @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
->>>>  	req->access_count = 0;
->>>>  	WARN_ON(req->num_incomplete_objects);
->>>>  	req->num_incomplete_objects = 0;
->>>> +	req->manual_completion = false;
->>>>  	wake_up_interruptible_all(&req->poll_wait);
->>>>  }
->>>>  
->>>> @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
->>>>  	req->mdev = mdev;
->>>>  	req->state = MEDIA_REQUEST_STATE_IDLE;
->>>>  	req->num_incomplete_objects = 0;
->>>> +	req->manual_completion = false;
->>>>  	kref_init(&req->kref);
->>>>  	INIT_LIST_HEAD(&req->objects);
->>>>  	spin_lock_init(&req->lock);
->>>> @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
->>>>  
->>>>  	req->num_incomplete_objects--;
->>>>  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
->>>> -	    !req->num_incomplete_objects) {
->>>> +	    !req->num_incomplete_objects && !req->manual_completion) {
->>>>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
->>>>  		completed = true;
->>>>  		wake_up_interruptible_all(&req->poll_wait);
->>>> @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
->>>>  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
->>>>  		goto unlock;
->>>>  
->>>> -	if (!--req->num_incomplete_objects) {
->>>> +	if (!--req->num_incomplete_objects && !req->manual_completion) {
->>>>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
->>>>  		wake_up_interruptible_all(&req->poll_wait);
->>>>  		completed = true;
->>>> @@ -499,3 +501,35 @@ void media_request_object_complete(struct media_request_object *obj)
->>>>  		media_request_put(req);
->>>>  }
->>>>  EXPORT_SYMBOL_GPL(media_request_object_complete);
->>>> +
->>>> +void media_request_manual_complete(struct media_request *req)
->>>> +{
->>>> +	unsigned long flags;
->>>
->>> I'd declare flags as last.
->>>
->>>> +	bool completed = false;
->>>> +
->>>> +	if (WARN_ON(!req))
->>>> +		return;
->>>> +	if (WARN_ON(!req->manual_completion))
->>>> +		return;
->>>
->>> I think I'd use WARN_ON_ONCE() consistently: this is a driver (or
->>> framework) bug and telling once about it is very probably enough.
->>
->> Just to be sure, you only mean for the two checks above ? Or did
->> you mean for the entire function ?
-> 
-> For the entire function. I thought that if this is user-triggerable, the
-> amount of data ending up in logs could be very large.
-
-It's not user-triggerable, if this happens, then it is a driver bug.
-
-Regards,
-
-	Hans
-
-> 
->>
->>>
->>>> +
->>>> +	spin_lock_irqsave(&req->lock, flags);
->>
->> In practice, if you call this specific function from two places at the same
->> time you have a bug, but I realize that moving the the warning on the check
->> manual_completion inside that lock would massively help detect that case.
->>
->> What do you think ?
-> 
-> Seems reasonable to me.
-> 
->>
->>>> +	if (WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
->>>> +		goto unlock;
->>>> +
->>>> +	req->manual_completion = false;
->>>> +	/*
->>>> +	 * It is expected that all other objects in this request are
->>>> +	 * completed when this function is called. WARN if that is
->>>> +	 * not the case.
->>>> +	 */
->>>> +	if (!WARN_ON(req->num_incomplete_objects)) {
->>>> +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
->>>> +		wake_up_interruptible_all(&req->poll_wait);
->>>> +		completed = true;
->>>> +	}
->>>
->>> A newline would be nice here.
->>>
->>>> +unlock:
->>>> +	spin_unlock_irqrestore(&req->lock, flags);
->>>> +	if (completed)
->>>> +		media_request_put(req);
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(media_request_manual_complete);
->>>> diff --git a/include/media/media-request.h b/include/media/media-request.h
->>>> index d4ac557678a78372222704400c8c96cf3150b9d9..7f9af68ef19ac6de0184bbb0c0827dc59777c6dc 100644
->>>> --- a/include/media/media-request.h
->>>> +++ b/include/media/media-request.h
->>>> @@ -56,6 +56,9 @@ struct media_request_object;
->>>>   * @access_count: count the number of request accesses that are in progress
->>>>   * @objects: List of @struct media_request_object request objects
->>>>   * @num_incomplete_objects: The number of incomplete objects in the request
->>>> + * @manual_completion: if true, then the request won't be marked as completed
->>>> + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
->>>> + * to complete the request after @num_incomplete_objects == 0.
->>>>   * @poll_wait: Wait queue for poll
->>>>   * @lock: Serializes access to this struct
->>>>   */
->>>> @@ -68,6 +71,7 @@ struct media_request {
->>>>  	unsigned int access_count;
->>>>  	struct list_head objects;
->>>>  	unsigned int num_incomplete_objects;
->>>> +	bool manual_completion;
->>>>  	wait_queue_head_t poll_wait;
->>>>  	spinlock_t lock;
->>>>  };
->>>> @@ -218,6 +222,38 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
->>>>  int media_request_alloc(struct media_device *mdev,
->>>>  			int *alloc_fd);
->>>>  
->>>> +/**
->>>> + * media_request_mark_manual_completion - Enable manual completion
->>>> + *
->>>> + * @req: The request
->>>> + *
->>>> + * Mark that the request has to be manually completed by calling
->>>> + * media_request_manual_complete().
->>>> + *
->>>> + * This function shall be called in the req_queue callback.
->>>> + */
->>>> +static inline void
->>>> +media_request_mark_manual_completion(struct media_request *req)
->>>> +{
->>>> +	req->manual_completion = true;
->>>> +}
->>>> +
->>>> +/**
->>>> + * media_request_manual_complete - Mark the request as completed
->>>> + *
->>>> + * @req: The request
->>>> + *
->>>> + * This function completes a request that was marked for manual completion by an
->>>> + * earlier call to media_request_mark_manual_completion(). The request's
->>>> + * @manual_completion flag is reset to false.
->>>
->>> s/flag/field/
->>>
->>>> + *
->>>> + * All objects contained in the request must have been completed previously. It
->>>> + * is an error to call this function otherwise. If such an error occurred, the
->>>> + * function will WARN and the object completion will be delayed until
->>>> + * @num_incomplete_objects is 0.
->>>> + */
->>>> +void media_request_manual_complete(struct media_request *req);
->>>> +
->>>>  #else
->>>>  
->>>>  static inline void media_request_get(struct media_request *req)
->>>> @@ -336,7 +372,7 @@ void media_request_object_init(struct media_request_object *obj);
->>>>   * @req: The media request
->>>>   * @ops: The object ops for this object
->>>>   * @priv: A driver-specific priv pointer associated with this object
->>>> - * @is_buffer: Set to true if the object a buffer object.
->>>> + * @is_buffer: Set to true if the object is a buffer object.
->>>>   * @obj: The object
->>>>   *
->>>>   * Bind this object to the request and set the ops and priv values of
->>>>
-> 
-
+DQoNCj4gT24gNCBKdW4gMjAyNSwgYXQgMTg6NTgsIE1hcmMgWnluZ2llciA8bWF6QGtlcm5lbC5v
+cmc+IHdyb3RlOg0KPiANCj4gT24gV2VkLCAwNCBKdW4gMjAyNSAxNjo1MzowMSArMDEwMCwNCj4g
+TWlndWVsIEx1aXMgPG1pZ3VlbC5sdWlzQG9yYWNsZS5jb20+IHdyb3RlOg0KPj4gDQo+PiANCj4+
+IA0KPj4+IE9uIDQgSnVuIDIwMjUsIGF0IDE1OjE3LCBNYXJjIFp5bmdpZXIgPG1hekBrZXJuZWwu
+b3JnPiB3cm90ZToNCj4+PiANCj4+PiBPbiBXZWQsIDA0IEp1biAyMDI1IDExOjQ3OjU3ICswMTAw
+LA0KPj4+IE1pZ3VlbCBMdWlzIDxtaWd1ZWwubHVpc0BvcmFjbGUuY29tPiB3cm90ZToNCj4+Pj4g
+DQo+Pj4+IEhpIE1hcmMsDQo+Pj4+IA0KPj4+Pj4gT24gMyBKdW4gMjAyNSwgYXQgMDc6MDgsIE1h
+cmMgWnluZ2llciA8bWF6QGtlcm5lbC5vcmc+IHdyb3RlOg0KPj4+Pj4gDQo+Pj4+PiBUaGlzIHNl
+cmllcyB0cmllcyB0byBicmluZyBzb21lIHNhbml0eSB0byB0aGUgd2F5IHRoZSBSRVN4IG1hc2tz
+DQo+Pj4+PiBhcmUgYXBwbGllZCB3aGVuIGFjY2Vzc2luZyB0aGUgaW4tbWVtb3J5IHZpZXcgb2Yg
+dGhlIGd1ZXN0J3MNCj4+Pj4+IHN5c3RlbSByZWdpc3RlcnMuDQo+Pj4+PiANCj4+Pj4+IEN1cnJl
+bnRseSwgd2UgaGF2ZSAqb25lKiBhY2Nlc3NvciAoX192Y3B1X3N5c19yZWcoKSkgdGhhdCBjYW4g
+ZWl0aGVyDQo+Pj4+PiBiZSB1c2VkIGFzIGEgcnZhbHVlIG9yIGx2YWx1ZSB3aGlsZSB0aGF0IGFw
+cGxpZXMgdGhlIFJFU3ggbWFza3MgYmVoaW5kDQo+Pj4+PiB0aGUgc2NlbmVzLiBUaGlzIHdvcmtz
+IGZpbmUgd2hlbiB1c2VkIGFzIGEgcnZhbHVlLg0KPj4+Pj4gDQo+Pj4+PiBIb3dldmVyLCB3aGVu
+IHVzZWQgYXMgYSBsdmFsdWUsIGl0IGRvZXMgdGhlIHdyb25nIHRoaW5nLCBhcyBpdCBvbmx5DQo+
+Pj4+PiBzYW5pdGlzZXMgdGhlIHZhbHVlIHdlJ3JlIGFib3V0IHRvIG92ZXJ3cml0ZS4gVGhpcyBp
+cyBwb2ludGxlc3Mgd29yaw0KPj4+Pj4gYW5kIHBvdGVudGlhbGx5IGhpZGVzIGJ1Z3MuDQo+Pj4+
+PiANCj4+Pj4+IEkgcHJvcG9zZSB0aGF0IHdlIG1vdmUgdG8gYSBzZXQgb2Ygc3RvcmUtc3BlY2lm
+aWMgYWNjZXNzb3JzIChmb3INCj4+Pj4+IGFzc2lnbm1lbnRzIGFuZCBSTVcpIGluc3RlYWQgb2Yg
+dGhlIGx2YWx1ZSBoYWNrLCBlbnN1cmluZyB0aGF0IHRoZQ0KPj4+Pj4gYXNzaWduZWQgdmFsdWUg
+aXMgdGhlIG9uZSB0aGF0IGdldHMgc2FuaXRpc2VkLiBUaGlzIHRoZW4gYWxsb3dzIHRoZSANCj4+
+Pj4+IGxlZ2FjeSBhY2Nlc3NvciB0byBiZSBjb252ZXJ0ZWQgdG8gcnZhbHVlLW9ubHkuDQo+Pj4+
+PiANCj4+Pj4+IEdpdmVuIHRoZSBsZXZlbCBvZiBjaHVybiB0aGlzIGludHJvZHVjZXMsIEknZCBs
+aWtlIHRoaXMgdG8gbGFuZCB2ZXJ5DQo+Pj4+PiBlYXJseSBpbiB0aGUgY3ljbGUuIEVpdGhlciBi
+ZWZvcmUgNi4xNi1yYzIsIG9yIGVhcmx5IGluIDYuMTcuDQo+Pj4+PiANCj4+Pj4gDQo+Pj4+IEZv
+ciB0aGUgc2VyaWVzOg0KPj4+PiBSZXZpZXdlZC1ieTogTWlndWVsIEx1aXMgPG1pZ3VlbC5sdWlz
+QG9yYWNsZS5jb20+DQo+Pj4gDQo+Pj4gVGhhbmtzLg0KPj4+IA0KPj4+PiANCj4+Pj4gbml0OiB0
+aGUgcm13IGFjY2Vzc29yIGltcGxpZXMgYW4gaW1wbGljaXQgYXNzaWdubWVudCB3aGljaCBjb3Vs
+ZCBiZSBzcGVjaWZpZWQNCj4+Pj4gd2l0aGluIGl0cyBtYWNybyBpbnN0ZWFkIGJ1dCBpdCdzIGZp
+bmUgYnkgbWUuDQo+Pj4gDQo+Pj4gSSdtIG5vdCBzdXJlIHdoYXQgeW91IG1lYW4uIExvb2tpbmcg
+YXQgdGhpcyBtYWNybyBhZ2FpbiwgdGhlIGVhcmx5DQo+Pj4gd3JpdGViYWNrIHRvIHRoZSBzeXNy
+ZWcgYXJyYXkgaXMgcHJldHR5IHVuZm9ydHVuYXRlLCBhbmQgY291bGQgYmUNCj4+PiBhdm9pZGVk
+Lg0KPj4+IA0KPj4+IERvZXMgdGhlIGZvbGxvd2luZyBjaGFuZ2UgYWRkcmVzcyB5b3VyIGNvbmNl
+cm4/IElmIG5vdCwgcGxlYXNlIGNsZWFybHkNCj4+PiBwb2ludCBvdXQgd2hhdCB5b3UncmUgYWZ0
+ZXIuDQo+PiANCj4+IEkgYmVsaWV2ZSB0aGlzIHNob3VsZCBnaXZlIGEgY2xlYXJlciBpZGVhIHdo
+aWxlIGF2b2lkcyByZXBlYXRpbmcgdGhlIGFzc2lnbm1lbnQgZXZlcnl3aGVyZQ0KPj4gdGhlIGFj
+Y2Vzc29yIGlzIHVzZWQuIEp1c3QgcmVwbGFjZSDigJgmPeKAmCBhbmQg4oCYfD3igJggYnkg4oCY
+JuKAmSBhbmQg4oCYfOKAmS4NCj4gDQo+IEkgaGF2ZSB0aGUgb3Bwb3NpdGUgdmlldy4gSSB0aGlu
+ayB0aGUgJz0nIHNpZ24gY29udmV5cyBhbiBpbXBvcnRhbnQNCj4gbWVhbmluZywgYW5kIGhpZGlu
+ZyBpdCBtYWtlcyB0aGluZ3MgbGVzcyBvYnZpb3VzLiBJZiBJIGhhZCBsb3N0IGNvbW1vbg0KPiBz
+ZW5zZSBhbmQgd2FzIHdyaXRpbmcgQysrICwgSSB3b3VsZCBoYXZlIHNpbXBseSBvdmVybG9hZGVk
+IHRoZSB2YXJpb3VzDQo+IG9wZXJhdG9ycywgcmV0YWluaW5nIHRoZSBleGlzdGluZyBzeW50YXgu
+IFRoaXMgbWFjcm8gZG9lcyB0aGUgaGFyZCBqb2INCj4gb2YgYXBwbHlpbmcgdGhlIFJFU3ggbWFz
+a3MsIGJ1dCB0aGUgb3BlcmF0b3IgaXMgd2hhdCBpcyBzZW1hbnRpY2FsbHkNCj4gc2lnbmlmaWNh
+bnQuDQo+IA0KDQpUaGF04oCZcyB1bmRlcnN0YW5kYWJsZS4gVGhlIFJlYWQtTW9kaWZ5LVdyaXRl
+IG9yIOKAmHJtd+KAmSBvbiB0aGUgYWNjZXNzb3INCnJlaW5mb3JjZXMgdGhlIHNhbWUgaW1wb3J0
+YW50IG1lYW5pbmcgYXMgdGhlIOKAmD3igJggc2lnbiBpcyBjb252ZXlpbmcgd2hlbg0KZXhwcmVz
+c2VkIG9uIHRoZSBhY2Nlc3NvciB1c2FnZS4gUGVyIHNlIG5vdCBhIHByb2JsZW0uDQoNClRoYW5r
+cywNCk1pZ3VlbA0KDQo+IFRoYW5rcywNCj4gDQo+IE0uDQo+IA0KPiAtLSANCj4gSmF6eiBpc24n
+dCBkZWFkLiBJdCBqdXN0IHNtZWxscyBmdW5ueS4NCg0KDQo=
 
