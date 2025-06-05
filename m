@@ -4,102 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12A8C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 15:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C89B0C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 15:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=69scRkVxEedfu2A05mr2qUJ6E6ZjjFxsp+26832+0SY=; b=O1tNlDLbNhKR9RiYj3P3CRarNn
-	MJakI8OuVNrw348e2rw19oQzrgbQu/tTsdzgL1Ho/ciVC/3tQGl7bZr5QsiUe5To8VmpnB+w9GFLr
-	/PqNtlhbYmVSWnAdLzfopJkfGIUsvkbGPvKw9RK7Iyxr+vpkC8/osbmpap5OoBMN3XmQQwbRXY6KW
-	HGvNK/ZoR9ujn6eaoOz3G0Qf3gAOvdWHffOPsxziNwGyu07+pDCT1Uwe375bqLLOQ/WMHFdz572qj
-	JH9OZTiNWv8gkDNRNBaKfJ15K5iAdqjtBzMgSoZGe7s92j/ouvJ2sApRtB0TcrJx8rBacpC2sP0jP
-	5onRbpmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rX6u7Aq9/0JxECxj/aZ/tionNKvV2Dc5J4XYWqn2DZk=; b=cKXrgtJlhf2z7OnTqTrOeQYwBr
+	WiQjwxwS2GOjbvki9afWCO5BTQByskxqQIC9k7myTG1rMlGIhT98KwPkw5GWYU94BMNMOH/vLujqq
+	k7iHPtoH2A/+CY27dszl53hu/F2T6mN5jDgU+4qqBrVh+f8qSA8gN8EZWAwaJMzKUaR7xBpyqkkDa
+	UpYSfy14GqWDs2Qe+WA+3dsQh3V0i1k12WFzAdNdqxeBzDr3feOCOgn8yODgXA0yPaOwiBssiNIaT
+	VXcX0DFmcP0kwtpJXNaGku53Sh4XSrpw75XW3WY8jUvHK7IEJM4rlZJEDcMy9x8xXOjBMbUP6eLFT
+	eS180Zsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNCiF-0000000FvVD-3Gsk;
-	Thu, 05 Jun 2025 15:41:03 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uNCkl-0000000Fvv1-2asX;
+	Thu, 05 Jun 2025 15:43:39 +0000
+Received: from smtp-42aa.mail.infomaniak.ch ([84.16.66.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNCg2-0000000Fv0o-0Nua
+	id 1uNCiY-0000000FvYX-1deu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 15:38:47 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-451e24dfe1aso9641215e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 08:38:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749137924; x=1749742724; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=69scRkVxEedfu2A05mr2qUJ6E6ZjjFxsp+26832+0SY=;
-        b=FxvMoi4MH2voyMY4nz7ds67++n2jZxFImlZOS7kbHMaOuM2ANEp9/JXXVKp/WR90lS
-         qVmHsUOCy17V6oFgy5Wmhp/p4UyVRx1FaIxWTkiEUxmGgoNbXwcJejJObb1yUl37Ntpu
-         x3cdwxLho2Z4SPy8ORgYELxads7rlmFf+0S5eZNvRuMGVH9XaLEmaY+GwZE2Eh52Y3Fj
-         +7kal2JSj+kFLDFX5ZAFpXx3+0x9qSVQ3VjMyKPkjubdbPFySZTbGg1sKW6NoaGIg71Q
-         8YAk4lKLvvT2YaOlczE+//A7tbjwzeVkMYTDZZB+xXK0LmD5xq5OPpNwLcO/Z2gHG2mf
-         F2nQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749137924; x=1749742724;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=69scRkVxEedfu2A05mr2qUJ6E6ZjjFxsp+26832+0SY=;
-        b=bwumCwsWW7zDKgnOV4riRjHZskgFEcVrqhxIfUo8tUlpu6XlLq39zP5S/WohmNn1jc
-         mIIlU8CLmSOosd6oPLmCpTVSol0dHQfy7l2tu2L0CVCM5LyoO5Fb5kwvb1TdD0IinfKp
-         S+e5HF/Ty8siXk2jUihz1+vAFIcACylubbDvZQyaYuJNdjnpyqs4uy4Vg0t/XQbu1NDr
-         CS3oeIz2UX5g5y7dyFEIDEPUEJwsigi0M+STdAdotnP3SalCkmoi4Dx1WLcB0fqca7Lk
-         JkRzdVKXwGuKOPo1KPCgxtuDmPbPMzbZoUR8vFvZF7qpnZgkN+5gGGllMq0dUk8DIUn3
-         TGVw==
-X-Forwarded-Encrypted: i=1; AJvYcCX8TyfHcM6T24EfwTmDlrhnmfjph+SOuaFQHTWO2FNSao04FBArBTDEX9i40qV1cWKoAPc+SUd+kUxT677k2VME@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+ZjAjeHWirNAP13yG+XEzJJYlwulCXbRo3Hy2N06VSTLqSmvU
-	wQQe1Nem4K77DvrcibzlbJgeqoYMxMt7eGOcCXAWBdyD5jY26grD8bDEEEjhj7jH5q4=
-X-Gm-Gg: ASbGncvYudJ1N3gU9kTNfj6hVc2Uw0ACwPYy/hGIDYmUAv5hMA3LORTggZirg11MnUT
-	7i52x3AIucH3AJRSY5ZobHDoxA+1/UFhJdRYZq+/z5R3P7OIBtHJo8y1Az+v2uCd/tcAQNC+W/U
-	5AdZlQEeKC0w+IO1K5KEGfPyddi/VBaFLRZ7Vw0s7+oMyj9cSG8xIi7f/pTupGFVDPFnieAQwbQ
-	3jP9jSJD4RYXzSAv0aePVZ46doLVylKoMkv8rt3C0fe44pT54kq1LefV93VZVf8IU+MFV10oOxV
-	URE8HpPDBZX52E2nFzofudMcNHH/1/ZA8AT6gctw30DsASKIzEw3PqmfjNERcPeBletqC92NzrB
-	KHMaLMIziSpYteVT+RGck3CCzWffTuDI5ASKgYxefYw==
-X-Google-Smtp-Source: AGHT+IEasUAnsCjjEU7kkZN4XsU9GWJ8G3GIagukhq7hmK1v/JFF3UnIXc8rWmqtDB232dzP+SQlog==
-X-Received: by 2002:a05:600c:8b03:b0:43d:fa58:81d3 with SMTP id 5b1f17b1804b1-451f0fade9fmr66739725e9.32.1749137923998;
-        Thu, 05 Jun 2025 08:38:43 -0700 (PDT)
-Received: from ta2.c.googlers.com (213.20.187.35.bc.googleusercontent.com. [35.187.20.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-451fb2088a5sm22158835e9.21.2025.06.05.08.38.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jun 2025 08:38:43 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Thu, 05 Jun 2025 15:38:26 +0000
-Subject: [PATCH] firmware: exynos-acpm: fix timeouts on xfers handling
+	Thu, 05 Jun 2025 15:41:24 +0000
+Received: from smtp-3-0000.mail.infomaniak.ch (smtp-3-0000.mail.infomaniak.ch [10.4.36.107])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4bCpZl743dztGn;
+	Thu,  5 Jun 2025 17:41:19 +0200 (CEST)
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4bCpZl1zQJzpLP;
+	Thu,  5 Jun 2025 17:41:19 +0200 (CEST)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Thu, 05 Jun 2025 17:41:06 +0200
+Subject: [PATCH v2 1/4] dt-bindings: mfd: rk806: allow to customize PMIC
+ reset mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250605-acpm-timeout-v1-1-1dbfdbee30da@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAPG5QWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDMwNT3cTkglzdkszc1PzSEl0TYxNTcwtTA4NEYxMloJaCotS0zAqwcdG
- xtbUAor0BA14AAAA=
-X-Change-ID: 20250605-acpm-timeout-434578500a34
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250605-rk8xx-rst-fun-v2-1-143d190596dd@cherry.de>
+References: <20250605-rk8xx-rst-fun-v2-0-143d190596dd@cherry.de>
+In-Reply-To: <20250605-rk8xx-rst-fun-v2-0-143d190596dd@cherry.de>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, 
+ Daniel Semkowicz <dse@thaumatec.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749137922; l=4289;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=qNAmmRKC2jTglldpcDlO2KCXuzEUgGG1x8yJRBImMT8=;
- b=1Z/GFCXW1+ZqzSheOjbJBBWUWhL1BfaxkJJGRkPiPuLM//cM8JZvKHw0CmMrB7Drg80EUon9w
- qW0ghk9KheqD1dG72mvPSAGxwmTt5zE9tTIXcHWMMHWa49n73BUgWqT
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_083846_143400_466C6E3C 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20250605_084122_587719_F4D5142C 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,105 +71,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mailbox framework has a single inflight request at a time. If
-a request is sent while another is still active, it will be queued
-to the mailbox core ring buffer.
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-ACPM protocol did not serialize the calls to the mailbox subsystem so we
-could start the timeout ticks in parallel for multiple requests, while
-just one was being inflight.
+The RK806 PMIC allows to configure its reset/restart behavior whenever
+the PMIC is reset either programmatically or via some external pins
+(e.g. PWRCTRL or RESETB).
 
-Consider a hypothetical case where the xfer timeout is 100ms and an ACPM
-transaction takes 90ms:
-      | 0ms: Message #0 is queued in mailbox layer and sent out, then sits
-      |      at acpm_dequeue_by_polling() with a timeout of 100ms
-      | 1ms: Message #1 is queued in mailbox layer but not sent out yet.
-      |      Since send_message() doesn't block, it also sits at
-      |      acpm_dequeue_by_polling() with a timeout of 100ms
-      |  ...
-      | 25ms: Message #0 is completed, txdone is called and message #1 is sent
-      | 31ms: Message #1 times out since the count started at 1ms. Even though
-      |       it has only been inflight for 11ms.
+The following modes exist:
+ - 0 (RK806_RESTART) restart PMU,
+ - 1 (RK806_RESET) reset all power off reset registers and force
+   state to switch to ACTIVE mode,
+ - 2 (RK806_RESET_NOTIFY) same as RK806_RESET and also pull
+   RESETB pin down for 5ms,
 
-Fix the problem by moving mbox_send_message() and mbox_client_txdone()
-immediately after the message has been written to the TX queue and while
-still keeping the ACPM TX queue lock. We thus tie together the TX write
-with the doorbell ring and mark the TX as done after the doorbell has
-been rung. This guarantees that the doorbell has been rang before
-starting the timeout ticks. We should also see some performance
-improvement as we no longer wait to receive a response before ringing
-the doorbell for the next request, so the ACPM firmware shall be able to
-drain faster the TX queue. Another benefit is that requests are no
-longer able to ring the doorbell one for the other, so it eases
-debugging. Finally, the mailbox software queue will always contain a
-single doorbell request due to the serialization done at the ACPM TX
-queue level. Protocols like ACPM, that handle their own hardware queues
-need a passthrough mailbox API, where they are able to just ring the
-doorbell or flip a bit directly into the mailbox controller. The mailbox
-software queue mechanism, the locking done into the mailbox core is not
-really needed, so hopefully this lays the foundation for a passthrough
-mailbox API.
+For example, some hardware may require a full restart
+(RK806_RESTART mode) in order to function properly as regulators
+are shortly interrupted in this mode.
 
-Reported-by: André Draszik <andre.draszik@linaro.org>
-Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+This is the case for RK3588 Jaguar and RK3588 Tiger which have a
+companion microcontroller running on an independent power supply and
+monitoring the PMIC power rail to know the state of the main system.
+When it detects a restart, it resets its own IPs exposed to the main
+system as if to simulate its own reset. Failing to perform this fake
+reset of the microcontroller may break things (e.g. watchdog not
+automatically disabled, buzzer still running until manually disabled,
+leftover configuration from previous main system state, etc...).
+
+Some other systems may be depending on the power rails to not be
+interrupted even for a small amount of time[1].
+
+This allows to specify how the PMIC should perform on the hardware level
+and may differ between harwdare designs, so a DT property seems
+warranted. I unfortunately do not see how this could be made generic
+enough to make it a non-vendor property.
+
+[1] https://lore.kernel.org/linux-rockchip/2577051.irdbgypaU6@workhorse/
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- drivers/firmware/samsung/exynos-acpm.c | 25 +++++++++----------------
- 1 file changed, 9 insertions(+), 16 deletions(-)
+ .../devicetree/bindings/mfd/rockchip,rk806.yaml    | 23 ++++++++++++++++++++++
+ include/dt-bindings/mfd/rockchip,rk8xx.h           | 17 ++++++++++++++++
+ 2 files changed, 40 insertions(+)
 
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index e02f14f4bd7c96de6ebb50473005de520aba1c4f..56b5cfdc63036b6214e5e8a5d30faabdd63b2dc3 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -430,6 +430,9 @@ int acpm_do_xfer(const struct acpm_handle *handle, const struct acpm_xfer *xfer)
- 		return -EOPNOTSUPP;
- 	}
+diff --git a/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml b/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
+index 3c2b06629b75ea94f90712470bf14ed7fc16d68d..c555b5956cea9f594d80ebd3b27e8489e520d97d 100644
+--- a/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
++++ b/Documentation/devicetree/bindings/mfd/rockchip,rk806.yaml
+@@ -31,6 +31,29 @@ properties:
  
-+	msg.chan_id = xfer->acpm_chan_id;
-+	msg.chan_type = EXYNOS_MBOX_CHAN_TYPE_DOORBELL;
+   system-power-controller: true
+ 
++  rockchip,reset-mode:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1, 2]
++    description:
++      Mode to use when a reset of the PMIC is triggered.
 +
- 	scoped_guard(mutex, &achan->tx_lock) {
- 		tx_front = readl(achan->tx.front);
- 		idx = (tx_front + 1) % achan->qlen;
-@@ -446,25 +449,15 @@ int acpm_do_xfer(const struct acpm_handle *handle, const struct acpm_xfer *xfer)
- 
- 		/* Advance TX front. */
- 		writel(idx, achan->tx.front);
--	}
- 
--	msg.chan_id = xfer->acpm_chan_id;
--	msg.chan_type = EXYNOS_MBOX_CHAN_TYPE_DOORBELL;
--	ret = mbox_send_message(achan->chan, (void *)&msg);
--	if (ret < 0)
--		return ret;
--
--	ret = acpm_wait_for_message_response(achan, xfer);
-+		ret = mbox_send_message(achan->chan, (void *)&msg);
-+		if (ret < 0)
-+			return ret;
- 
--	/*
--	 * NOTE: we might prefer not to need the mailbox ticker to manage the
--	 * transfer queueing since the protocol layer queues things by itself.
--	 * Unfortunately, we have to kick the mailbox framework after we have
--	 * received our message.
--	 */
--	mbox_client_txdone(achan->chan, ret);
-+		mbox_client_txdone(achan->chan, ret);
-+	}
- 
--	return ret;
-+	return acpm_wait_for_message_response(achan, xfer);
- }
- 
- /**
++      The reset can be triggered either programmatically, via one of
++      the PWRCTRL pins (provided additional configuration) or
++      asserting RESETB pin low.
++
++      The following modes are supported (see also
++      include/dt-bindings/mfd/rockchip,rk8xx.h)
++
++      - 0 (RK806_RESTART) restart PMU,
++      - 1 (RK806_RESET) reset all power off reset registers and force
++        state to switch to ACTIVE mode,
++      - 2 (RK806_RESET_NOTIFY) same as RK806_RESET and also pull
++        RESETB pin down for 5ms,
++
++      For example, some hardware may require a full restart
++      (RK806_RESTART mode) in order to function properly as regulators
++      are shortly interrupted in this mode.
++
+   vcc1-supply:
+     description:
+       The input supply for dcdc-reg1.
+diff --git a/include/dt-bindings/mfd/rockchip,rk8xx.h b/include/dt-bindings/mfd/rockchip,rk8xx.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..f058ed1ca661185f79738a358aa2d4f04539c590
+--- /dev/null
++++ b/include/dt-bindings/mfd/rockchip,rk8xx.h
+@@ -0,0 +1,17 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
++/*
++ * Device Tree defines for Rockchip RK8xx PMICs
++ *
++ * Copyright 2025 Cherry Embedded Solutions GmbH
++ *
++ * Author: Quentin Schulz <quentin.schulz@cherry.de>
++ */
++
++#ifndef _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
++#define _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
++
++#define RK806_RESTART		0
++#define RK806_RESET		1
++#define RK806_RESET_NOTIFY	2
++
++#endif
 
----
-base-commit: a0bea9e39035edc56a994630e6048c8a191a99d8
-change-id: 20250605-acpm-timeout-434578500a34
-
-Best regards,
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+2.49.0
 
 
