@@ -4,71 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651F0C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 02:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1FE0C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 02:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H10o/tY3AC1MMCzRbOwQ4LuZubC3gNtit07JxX/EFNA=; b=AvgvtMM+U1rVW1JUqR5RdLt3z7
-	oB7wU9rPyqOq0P7vtQmrDVKuPam0TA6yLi7wucRd2pBf1tRJLHFnhoNsncJlXIqxOvxQd+e0L9gcx
-	J0Yw4kL1B4UnZuZ6IcbwtVW0XlIlFVtaM4UYPrlqt8X67jreaYpJ7BOqjndm4YpOmqXqwL1jpt8n2
-	MjOS7IKgzKrFDfaO33n5nb2BblrSDQ6bPbn5EfxL2lky8X8Y8L0JMvgUtpPo7J5v0twJq96EMnivR
-	Gb3cnIcRRZx6+gAO8r7sVU9e8kPm8QPtf3ZptOJrFf+IeCLPOi/aMvEljFMgz18tNk5Rz+Cd3DfWk
-	Av5YxP4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YVIsnd8y9mTEQzykMTYlKep/DTad4B7wKRqRECe6s/A=; b=nTyBNIWrNnfa1wjb+5gZs4esxN
+	ndtE81Qu2+bj2YLxM0YHce7z8ZIepkuDiAEng1V61vMRWeqh5QY/dysSKMvbBli8P3usbx7fRHoJF
+	wXU4IHPYLzlNSljv5EFzkx3zs34a+/z7ZBiNgeHX9quVJnwbGixQdR5qJOQKdL5VLcfjQmsJH9xJU
+	gzsZjUqEuO1Ib6Yu+n1cjbGE2osZwsmMR/eQ/zhhdsNtQWlx9mnoFjOqzoDKoecuQQ2N4s9MSDUEE
+	1N9pL0cAF2ElWoVTGf/eRFwCQidQ8ZuLkKMossCbN21JkyF7bYSy+jvPAiYoWigNRt5mg+YBEHl3n
+	V4tmk0Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMzyw-0000000EZ6Z-0HIf;
-	Thu, 05 Jun 2025 02:05:26 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1uN012-0000000EZVi-1Pxj;
+	Thu, 05 Jun 2025 02:07:36 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMztv-0000000EYQE-25tr;
-	Thu, 05 Jun 2025 02:00:16 +0000
-X-UUID: cdf716fe41b011f0b29709d653e92f7d-20250605
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:42cce35d-b191-4d52-8bd2-d3791e58895d,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:40a90521bca85b4a2152347b6db4d582,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|52,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: cdf716fe41b011f0b29709d653e92f7d-20250605
-Received: from node4.com.cn [(10.44.16.170)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA)
-	with ESMTP id 2077564834; Thu, 05 Jun 2025 10:00:07 +0800
-Received: from node4.com.cn (localhost [127.0.0.1])
-	by node4.com.cn (NSMail) with SMTP id 2D31716001A00;
-	Thu,  5 Jun 2025 10:00:07 +0800 (CST)
-X-ns-mid: postfix-6840FA26-862248265
-Received: from [10.42.13.56] (unknown [10.42.13.56])
-	by node4.com.cn (NSMail) with ESMTPA id 8FE2816001CC7;
-	Thu,  5 Jun 2025 02:00:05 +0000 (UTC)
-Message-ID: <6399b093-f8ce-4dff-9cf8-f483d221d034@kylinos.cn>
-Date: Thu, 5 Jun 2025 10:00:05 +0800
+	id 1uMzyI-0000000EYrZ-3i2b;
+	Thu, 05 Jun 2025 02:04:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749089087; x=1780625087;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=7y3dxA8J3xesYiYhw//lZdAvyFAU/muCn8/qB8yzXpA=;
+  b=XFojsLADoCD+86gbX3s4NrX++l1Cx7eTPlbomCsUttPGsEvF3D2PTS2S
+   wKKvfqmhlV4eaGEPlkbglBU3NzK/CeWsVxqk3tjrv/85UAKpPJqS59y6q
+   LiBvJr1dM42zwBYKRpybBTAANoMlFkyHJjMxm+A6MVwM3Wqu7UEsvtZmr
+   7aLodt7KiGLfM/TCG357K5Iiz0BS6zxF5VX437Thny+OqqRsevLfmA1hG
+   AZQhL/YyM3HmEJzF/ScUs1VuJnpJPEeKZSox87fgKa2zr3H39i9LzLbJi
+   Rm5q73NoP5Pe+Be4t23kDXzUVe8NIeeLXHQ847C3D5KHcrP6Z48WVQ2wR
+   g==;
+X-CSE-ConnectionGUID: 5gJzos/ERUGrjNGKahK3yA==
+X-CSE-MsgGUID: KBL43+eIT2ShTj8kmvECfg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11454"; a="54852699"
+X-IronPort-AV: E=Sophos;i="6.16,210,1744095600"; 
+   d="scan'208";a="54852699"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 19:04:40 -0700
+X-CSE-ConnectionGUID: cqgM76XcTR+siKFdBxDcaA==
+X-CSE-MsgGUID: 118nHMKfT8yD5kWsHhLIOg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,210,1744095600"; 
+   d="scan'208";a="146298980"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jun 2025 19:02:30 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Wed, 4 Jun 2025 19:02:29 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Wed, 4 Jun 2025 19:02:29 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (40.107.94.70) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.55; Wed, 4 Jun 2025 19:02:29 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xBoRBazUpotngTB2DswS561QonY+Y/ZzoXTWaSwRMju3lj9itEyUQFGs3idwYfgENJ45sgYIjqB3TN0mssAGOwZi0tNP3NWQw0HoHsipLFMkRkCE7HP4v0DLUV+xmwledZzHhc3awfp1XqvpWRHu2xat2dRxSlKocWddXAzckyuBsQ2Bz+i79w+7G+WECwlmy183Y9HgU9A1bhtvWeCKQLz3gL218qLVMTCBGbfN+20Z7JbTQf2ARET02uKcDeQnmW7Ao6aFHJ3+X5pDC2qJleV+Jih/D0IZDN2iZG2RN0BJG3dYBeuKTzoioJU5c4pPV1AMiGMWEQSyL3yY1ww7/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YVIsnd8y9mTEQzykMTYlKep/DTad4B7wKRqRECe6s/A=;
+ b=uDVLDI0eph82QVjhpsGhKZRcTMgtd5NehnybOETG5lzkO8JF1zxJYl6NIa9PBCPPl1UbR3zVmYpHTJqPnqItF/OxQ4X0z6GBuqVfp05tFkYd6weIp0eIf8JpmDF9iVfU3RfFvdTEEVPxWlcbQeuSGoWVcFivBfD6fzpXTH9AVy7Y4nh4sx+bVtiHrrB7JC89PD3YRXmFXJWWyzMc9iWQf0L64SbD7bJHLgPkfy7Kx/lnjxXYqzqmLJW9CUbBVIUgPBd7LjyZhwnYLCWVOx5FONjTIbBol5UAj9CqE5QKWQRvyyejlKjswSWbpI8iMNyB9ko/9VqbvIq8lzo5yBgAxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by MW3PR11MB4604.namprd11.prod.outlook.com (2603:10b6:303:2f::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Thu, 5 Jun
+ 2025 02:02:27 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%5]) with mapi id 15.20.8769.031; Thu, 5 Jun 2025
+ 02:02:27 +0000
+Date: Wed, 4 Jun 2025 19:02:24 -0700
+From: Dan Williams <dan.j.williams@intel.com>
+To: Alistair Popple <apopple@nvidia.com>, <linux-mm@kvack.org>
+CC: Alistair Popple <apopple@nvidia.com>, <gerald.schaefer@linux.ibm.com>,
+	<dan.j.williams@intel.com>, <jgg@ziepe.ca>, <willy@infradead.org>,
+	<david@redhat.com>, <linux-kernel@vger.kernel.org>, <nvdimm@lists.linux.dev>,
+	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
+	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <hch@lst.de>,
+	<zhang.lyra@gmail.com>, <debug@rivosinc.com>, <bjorn@kernel.org>,
+	<balbirs@nvidia.com>, <lorenzo.stoakes@oracle.com>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<linux-cxl@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+	<John@groves.net>
+Subject: Re: [PATCH 04/12] mm: Convert vmf_insert_mixed() from using
+ pte_devmap to pte_special
+Message-ID: <6840faaff197a_24911007d@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <171c8ae407198160c434797a96fe56d837cdc1cd.1748500293.git-series.apopple@nvidia.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <171c8ae407198160c434797a96fe56d837cdc1cd.1748500293.git-series.apopple@nvidia.com>
+X-ClientProxiedBy: SJ0PR13CA0105.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c5::20) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ASOC: rockchip: Use helper function
- devm_clk_get_enabled()
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1749006565.git.xiaopei01@kylinos.cn>
- <3b3d8f60e553af09a51b501b8ff5406fa5e898dd.1749006565.git.xiaopei01@kylinos.cn>
- <24654754.ouqheUzb2q@workhorse>
-From: Pei Xiao <xiaopei01@kylinos.cn>
-In-Reply-To: <24654754.ouqheUzb2q@workhorse>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|MW3PR11MB4604:EE_
+X-MS-Office365-Filtering-Correlation-Id: b587d396-9805-4370-50c7-08dda3d50538
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sFEza5/+kxd1MXVAvAspWt7+XTp4+brAKFLZjNsCkFuK5npSif9r9Pnenkr9?=
+ =?us-ascii?Q?XJ9l7f8QN3ZeHwfdCGgPN+93CDDsySY8faQwM2Oil15YlFtRR7yujbrplLCV?=
+ =?us-ascii?Q?jmzvZ5q2fo74DW/t/1fpyjSxYbJEJ3tp/s6b12Kv2zOm/994Pay5NfBcY6YH?=
+ =?us-ascii?Q?LkOm/3cxWGuAQlhzvqEUjmVAItkuk2aiiSWG+pVTgJdBvunY9Lp47idoLRRA?=
+ =?us-ascii?Q?RH5TTvSk+F0vSEXcQBB7cZgHJWhE+LTkzRvBJ10x+tTssEr3doZ6K6O298ws?=
+ =?us-ascii?Q?vI9BuRdedyfuTtJ1aL5Jfrr5ROKoP5fXRDfkkk/VvIb0eSvl1y3wFwRZpeum?=
+ =?us-ascii?Q?vtuYbL5kyWCJb04iA8wb6M78QVS2sbQCofzR4ClFoMscVvavzFdol77zVVAc?=
+ =?us-ascii?Q?ZcVS4EmLcCWFnyc5LqSF5Bbvl7cgRbLAPodIAS8SYY00CX1A1OiEHOeOwmYf?=
+ =?us-ascii?Q?04whc5WEmNRTMpPKj6oFLgQIJvCUJGjxHf0zwOf3ba5E3jchAzKaGlPvZ0aV?=
+ =?us-ascii?Q?bwLa4CthRY2jY5lhn+r9Rn2Zl28m5a9bDhXd0aSzvy9gd6oG/f0vM7tcYOaf?=
+ =?us-ascii?Q?nvs7nSMjqH+m+jUDstGKMy2LbTI7r/kp0/a54qRPHkJABaQpayoVvYvarBxi?=
+ =?us-ascii?Q?XzTir3Jk5J0ZLoHrzID8M2AxEw3bsj4cIoI18u0vmxr2Y90e5kUSnWdJtA3y?=
+ =?us-ascii?Q?kQO4mKmrtwBtHtfB/IsbXQc6x8ZOANmNAtTCThi87lJ6xe74vVJzHJ1RzY7H?=
+ =?us-ascii?Q?+MJHFES03HsOvmjvcy8rILEGHyNvD3R9yhaAf75sxDYbgYCxhRqSYOFfBbco?=
+ =?us-ascii?Q?eqH9tdth/0EtiGv6yG+1SBazKeQ7MjSwfhJj6VUTNloFnGkV77rYDXWqceKk?=
+ =?us-ascii?Q?JSHGK//W0YWEJms3imKyiXChkMUyUvGHG1l2a+ioFZXGdm/kbwClcMQ/yKCY?=
+ =?us-ascii?Q?5QQv5VyIHhvrZ2ebwYUwK0X2Ee3WAPQcDH8Pcbn0FfNU9O91D94gK9/N8+C3?=
+ =?us-ascii?Q?p9NB0fsIgqn7v2PNqz4Qs8mofXJ7bf+/tHuyB+KOTUX3lU+qH1m/u87q/RYl?=
+ =?us-ascii?Q?jy1cvyUj8xJSembxXx+rtuBftYpjbyvyhCy94pTBo237ov2EPJnSFUtsaXgU?=
+ =?us-ascii?Q?Us1OzMuoC5P9g/wcns2q7+pMEwXJfN9sNDQV8oAKAkt3JGL5VPEYrDlKJgRS?=
+ =?us-ascii?Q?O0WeqTDJBdZQP/sVJLAxq9cVrH0vUgnt9jtPFH28BaGqCp7vyEoUEEP1LhL7?=
+ =?us-ascii?Q?ZL6/KImXP+Amjz8oDZvgHL9n64sCFGxNAsVrTP7v+K4Pb0u8aYE/3wheR/8K?=
+ =?us-ascii?Q?LGdd7bF/eI0Nglmy0cQ+rjOb3wUU5fZEvFGY+FP9qjln997SvILcPsdqQEGx?=
+ =?us-ascii?Q?FWQ3mmf1ACF3dV6iw7OV1kf3Mcs4uY6hUFxZugbghZxmOip09zOnLOEjCiJM?=
+ =?us-ascii?Q?GCSxjsg/CXQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fEKK2h45XYObxBcT4vooGVeXjA01uYGS4DviP04N3sbB+2evApabG2Fasd48?=
+ =?us-ascii?Q?IDc7jeUzOWl0+waLtcu6YMUcrHYhInL/k95Yb6e/agQ2kbZe9Kr2YTQ3OvJ6?=
+ =?us-ascii?Q?OFSOi5spKGEm354Mih8o/eO00GYuBZQ+SzuhSGEPD0lt2KobKSH/iuAEpdB4?=
+ =?us-ascii?Q?2xPhduhVYTy8wbTYtE1fmMUjskLiwK4VteDOfjR6ePBb7RzK/tBTyW5E+p14?=
+ =?us-ascii?Q?15hFg/BPHza2GiHBuhEgXLMTwvatw4GU93rrrFVKHhAlx99606DCGgtMJeF8?=
+ =?us-ascii?Q?zteXiKX1SMivoMRbloO/aCXzgeIuFoKITR9kmgYxZwk19hsGhPhIiYKbqGY+?=
+ =?us-ascii?Q?ubHeIEwXza7PWnpJhycWMECSI7veFMu9dDPbPnrup2kIsIGFFDcFF2sSwP7c?=
+ =?us-ascii?Q?8C9VbDkIO6hGrwH8TVcUFSQmmkoEL9d8QzbsGNCoce6WGqInexKq8qJpXD2P?=
+ =?us-ascii?Q?DzA3LFU82tHrGaRS9TtSXmyMp/YQ/bvZxvMXORlV1dv9wmMLUQZCMDW/P2DN?=
+ =?us-ascii?Q?ZgN2mz0AlN9zgpEcanRurEaydWvvPZnv0H+0CeDj08ZpHJuyAq3gQTVJfhx8?=
+ =?us-ascii?Q?g6to2dNm4l33WW02w1eota3aEoveJKRHNGm4f4VP6IxyHpOv3t7T/jroZWWb?=
+ =?us-ascii?Q?JBnIlzVDt3b1u7DcxByA1CzgdBaS6zRdZ9kqeWGqZJRW5zNdYxA1PsowKbAe?=
+ =?us-ascii?Q?SoYL9TsA0pBHU4VvUU9sFaszaUJMMHKQbbr3RVaPb/I9NZNc2W5HUe4IuRMz?=
+ =?us-ascii?Q?Dj+h+4QHPG/KMHsgl1cVEalIweDjFRhiBD5gN6FoEDB82clc7akItPKHLXIS?=
+ =?us-ascii?Q?aMejloRRWGFR4kbR/CjpHBIW5d+eMtAeaopVBXpGuAeHBwrHK0Qw0AbiV+16?=
+ =?us-ascii?Q?9mcjhWQHA7DlO+aHFhQOEVV5vJl6k1JFYFyx1+oKcWTBUlwF9BnR7esYvLJz?=
+ =?us-ascii?Q?SXXkNFBXIvcWL2P1FAoxF2hcPuzcXMeZnakThAEuS3ehNTN4K+nRVUld/XrN?=
+ =?us-ascii?Q?7wr73DtUVkW9PxaWxykFYD3rZyC2Tfqbub9IRSq26dIfenA3s0wipNaR6UwD?=
+ =?us-ascii?Q?Xi7a/lSi/PjA56hKcXUWPZS4U8qNx46krnWqGcU8e86K8FAlQL8N8SuNkFyc?=
+ =?us-ascii?Q?qc/nudN2c9ShqaaM0ZS+rNI1hcjg07tE0kWAnCy0cHRHLlmN/+Log3k4PD4U?=
+ =?us-ascii?Q?nAe6fvWQwApyTLDL3caAS1la9qKWwuNFeXju6eFzVJPuUL2sQ9eqj+pOPm2P?=
+ =?us-ascii?Q?D1xQIuvfjr5Ntob3ObNguBtREn2EKoK/9eBF9OC951FuZtehQZOM0ttsNgpU?=
+ =?us-ascii?Q?l49j2IiRQP3ZKghp7AFWpdygFn+JGh7ZUpA4s+UtrXchbkPjQgvd5kFK+wtT?=
+ =?us-ascii?Q?pBj2tVJrwDX/B2EBrU3PlHiie7seeCmuHrhpcM8HCbpezTThA79Pp3KQZwec?=
+ =?us-ascii?Q?KQEe6Vl5XtoKyW45esS9MnLlg45eHnHrKkwQUxLFYnApnWVqjdOPVc1bzDgt?=
+ =?us-ascii?Q?VyvMAeTyu7X7v2T17sWVmKuMKtBPoIye7nJ913sSdVAUfeVCsz/FX8lfWtIz?=
+ =?us-ascii?Q?R/0T40Vcy+TIznRpe+CfpOcaBKkWSiuB+Pmxmf2NkflYj3BOC6p3t7t8LFva?=
+ =?us-ascii?Q?Rw=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: b587d396-9805-4370-50c7-08dda3d50538
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2025 02:02:26.9341
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eEqwRu1gHkZgYqLlhhcNaDumsojCbtGS0veyG/qTZxy/UN0QQyRcQV/u2axeNyBcuxfj9kgPHuzgTokXyh0orad2gHrgXl+Kccs/29cQ7KA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR11MB4604
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_190015_837404_BF4491BD 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250604_190446_963337_CF04B8CB 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,73 +201,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Alistair Popple wrote:
+> DAX no longer requires device PTEs as it always has a ZONE_DEVICE page
+> associated with the PTE that can be reference counted normally. Other users
+> of pte_devmap are drivers that set PFN_DEV when calling vmf_insert_mixed()
+> which ensures vm_normal_page() returns NULL for these entries.
+> 
+> There is no reason to distinguish these pte_devmap users so in order to
+> free up a PTE bit use pte_special instead for entries created with
+> vmf_insert_mixed(). This will ensure vm_normal_page() will continue to
+> return NULL for these pages.
+> 
+> Architectures that don't support pte_special also don't support pte_devmap
+> so those will continue to rely on pfn_valid() to determine if the page can
+> be mapped.
 
-=E5=9C=A8 2025/6/5 01:42, Nicolas Frattaroli =E5=86=99=E9=81=93:
-> On Wednesday, 4 June 2025 05:13:30 Central European Summer Time Pei Xia=
-o wrote:
->> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prep=
-ared
->> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now =
-be
->> replaced by devm_clk_get_enabled() when driver enables the clocks for =
-the
->> whole lifetime of the device. Moreover, it is no longer necessary to
->> unprepare and disable the clocks explicitly.
->>
->> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
->> ---
->>  sound/soc/rockchip/rockchip_sai.c | 8 +-------
->>  1 file changed, 1 insertion(+), 7 deletions(-)
->>
->> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/ro=
-ckchip_sai.c
->> index 79b04770da1c..2ec675708681 100644
->> --- a/sound/soc/rockchip/rockchip_sai.c
->> +++ b/sound/soc/rockchip/rockchip_sai.c
->> @@ -1448,16 +1448,12 @@ static int rockchip_sai_probe(struct platform_=
-device *pdev)
->>  				     "Failed to get mclk\n");
->>  	}
->> =20
->> -	sai->hclk =3D devm_clk_get(&pdev->dev, "hclk");
->> +	sai->hclk =3D devm_clk_get_enabled(&pdev->dev, "hclk");
->>  	if (IS_ERR(sai->hclk)) {
->>  		return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
->>  				     "Failed to get hclk\n");
->>  	}
->> =20
->> -	ret =3D clk_prepare_enable(sai->hclk);
->> -	if (ret)
->> -		return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
->> -
->>  	regmap_read(sai->regmap, SAI_VERSION, &sai->version);
->> =20
->>  	ret =3D rockchip_sai_init_dai(sai, res, &dai);
->> @@ -1512,8 +1508,6 @@ static int rockchip_sai_probe(struct platform_de=
-vice *pdev)
->>  	if (pm_runtime_put(&pdev->dev))
->>  		rockchip_sai_runtime_suspend(&pdev->dev);
->>  err_disable_hclk:
->> -	clk_disable_unprepare(sai->hclk);
->> -
->>  	return ret;
->>  }
->> =20
->>
-> Please get rid of the err_disable_hclk label, and change the
->
->     goto err_disable_hclk;
->
-> in the resume failure condition to a=20
->
->     return ret;
+Looks good,
 
-ok,thanks!
-
-> Other than that, patch tested to be working fine.
->
-> Kind regards,
-> Nicolas Frattaroli
->
->
+Reviewed-by: Dan Williams <dan.j.williams@intel.com>
 
