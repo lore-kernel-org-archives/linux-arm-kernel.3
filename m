@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63138C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 14:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6C2C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 14:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=resss7K4qvU6NWyxFJWLS6WsVQuzoxAMiEubRGdhp+M=; b=yT2w9GHn58FlXrFPMjopV57t1y
-	zXaAEv3JDzDqfpXHRH1tNmeIFsAOVEkfxyqQuAvL4iV5a9MTe+6EcUPdYpGJK0L8NqHajPvQkQVU4
-	W0JlExZUtVxwJ7QbBwzSkpQoSlXZChy6OqrT/D6IQjboDSJrAI1Dwo0YM4AbzWdCmvs+htblu9iEv
-	6++9DZPwx4xsHqpvrHsupNL9yIYtBEN6B2olfQMD5wwZUVw3s7rCnQer2LFJf8mEf/B17ysPrr06g
-	TLuj6Yr1KxVSzJaeB5Cccpi6s9ZLvrQBB4+J1eMvpgBN529K1O4lyJ7/DrZ5OCLVtPSGSUimJYHQZ
-	70vz88+g==;
+	bh=0uzu1/EqrenMvPymkgwGDWP8FLVCKuEu8+xxxlpKXEc=; b=s7O0yGzzzutpfxNY7G8EhYw7VB
+	eqw4Fuutk/Jiwumji8lUUM5THcEZrhc2fQtsbmrKLkk6pLWoZJVsXADp0SS5P43TxfuI12EZbPpS4
+	XiL7cB6/Eu9RCrotWJCnaiUOvFEu+UGIXXh22uimafxpLT0JqgN+zvzT3SXumKvmU6aaoDfeHEG2T
+	pXjA4rO3r+1fMKwY7Ie3cqe2w1gyZMdM0dykA5g2znRZ92OHK16W70eU2yaOIrK0+5QAyBiP/QPja
+	WegJ+ubBdHyGjezga/1ruEmlyYRwuRd4r7ERJMMEdj0aa2Y0qV1BwdtJqhZQG2XZsZZlrZ1GEbLD3
+	JreEebug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNBfr-0000000FnWh-0Q6C;
-	Thu, 05 Jun 2025 14:34:31 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1uNBj5-0000000Fnzu-1qYz;
+	Thu, 05 Jun 2025 14:37:51 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNBbi-0000000Fmfm-1ew0;
-	Thu, 05 Jun 2025 14:30:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749133806; cv=none; 
+	id 1uNBgp-0000000Fnk2-3XSk;
+	Thu, 05 Jun 2025 14:35:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749134114; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Cm6ZjglNs1wvYweT9Us5An1inTGf+KVBAMEoRfRgpwb/tVgCvqw5/BBIb12lFIcVoJzKO8ps4bXSaQgl0MkA9akys2LOITPXnPSNa9Xu7pS7x74JDhDglcfp4dQQ2UI9G++tEWnV6bQNYjfOcQEZKZVuXukoAxESDeX6J+IdFvA=
+	b=NKn+SpOWGZY0QJiLOqY4x5Ai/Yv0TIZeaJezXC5g0ZWILWNQmwGJFWpEwycIA2HzIN1mCmRJ3lrQ+hHCgl6pjkXRIxothuFj2Ag8wxZl4+Ty/ThCLtpKCUsR4cTkTfcd7NP1DlPYr95uR7DP313/2QpjpFOHEQwx04AgqXCylHc=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749133806; h=Content-Type:Content-Transfer-Encoding:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
-	bh=resss7K4qvU6NWyxFJWLS6WsVQuzoxAMiEubRGdhp+M=; 
-	b=KuaIYvqILDw8UfenDJos4jntoe/D5HYkaffoElx+5GCNVyVzIuEgDstaVqOBxoplsXs1f2ybuT8n4KRDqEpX9jYHU/GjZim5ncbTThEUhWvCP36TwnyFuN2+wFscmmrbyG8xZQxQgu4XXe0bfNUClB2ckaswZs67NRHYZVF1Tvw=
+	t=1749134114; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=0uzu1/EqrenMvPymkgwGDWP8FLVCKuEu8+xxxlpKXEc=; 
+	b=LmLYwrivhz2E1yJeeGrUCihMh7inHsS0qrHwn1M+edFm2h8MYO4b8dGKP2O91A2LYT6yhG/u4seV30tnNEs+I/hgrhTBC7fMw/qyFiP6jdjelXdpn8fHFHGjX+ys+2vHF6bm3aA2cHibTTvwRpciXC+p8Iw4QuSvPDEAif/ZDUk=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749133806;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749134114;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To:Cc;
-	bh=resss7K4qvU6NWyxFJWLS6WsVQuzoxAMiEubRGdhp+M=;
-	b=Rrj3d25/g82afDgjAU4l4eHRMxr+5QuKjS82B7ekAYmIf8HM3Jp1zDRmrF59/4Yg
-	iZETA2HIRQSDRoveFZHmj7SdN/Nrs3GLyCFwomxsrp3e3OYtx2p/jMOdcFfjGAEQaiY
-	pGHzEU0GV9e+/ZmytoJkzRuWXsKLuUl5oQFO+3Ks=
-Received: by mx.zohomail.com with SMTPS id 1749133803848946.3319019454383;
-	Thu, 5 Jun 2025 07:30:03 -0700 (PDT)
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=0uzu1/EqrenMvPymkgwGDWP8FLVCKuEu8+xxxlpKXEc=;
+	b=OSILMwkw/0Mp9nvmWRFPhHe7GWjcRXLUfogUADlprLqTFnfGNGmypMwGhjY1dvCe
+	0EmTHbfvP8VDn5JKm/e502sL90mToWYUGwiectxirFIjH5j1AD2h6HDBGLPRN0WzvdN
+	Jbh/ZHimXwKzwzBG6KNOXPJrui4kvu7M+EB3/NPA=
+Received: by mx.zohomail.com with SMTPS id 1749134112355222.8330067732718;
+	Thu, 5 Jun 2025 07:35:12 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Pei Xiao <xiaopei01@kylinos.cn>
-Subject: Re: [PATCH 1/2] ASOC: rochchip: Simplify the condition logic in
- rockchip_sai_xfer_stop
-Date: Thu, 05 Jun 2025 16:30:00 +0200
-Message-ID: <5905546.31r3eYUQgx@workhorse>
-In-Reply-To: <3f668462-ac5f-49fa-bd9d-140d32fc9627@kylinos.cn>
-References: <cover.1749006565.git.xiaopei01@kylinos.cn> <5104592.0VBMTVartN@workhorse>
- <3f668462-ac5f-49fa-bd9d-140d32fc9627@kylinos.cn>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ William Breathitt Gray <wbg@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Kever Yang <kever.yang@rock-chips.com>, Yury Norov <yury.norov@gmail.com>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>,
+ Leon Romanovsky <leon@kernel.org>, Lee Jones <lee@kernel.org>,
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+ linux-iio@vger.kernel.org, kernel@collabora.com,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 1/7] dt-bindings: pinctrl: rockchip: increase max amount of
+ device functions
+Date: Thu, 05 Jun 2025 16:35:05 +0200
+Message-ID: <5876990.GXAFRqVoOG@workhorse>
+In-Reply-To: <CACRpkdZRjLFa3Bni=wMG1LBoWnW+Zenj2FVP=_2s+U_1eykt7Q@mail.gmail.com>
+References: <20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com>
+ <20250602-rk3576-pwm-v2-1-a6434b0ce60c@collabora.com>
+ <CACRpkdZRjLFa3Bni=wMG1LBoWnW+Zenj2FVP=_2s+U_1eykt7Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_073014_507380_BB9BE4CF 
-X-CRM114-Status: GOOD (  27.29  )
+X-CRM114-CacheID: sfid-20250605_073531_944642_E398FADC 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,150 +93,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 5 June 2025 03:57:54 Central European Summer Time Pei Xiao wro=
-te:
+On Thursday, 5 June 2025 15:29:03 Central European Summer Time Linus Wallei=
+j wrote:
+> On Mon, Jun 2, 2025 at 6:20=E2=80=AFPM Nicolas Frattaroli
+> <nicolas.frattaroli@collabora.com> wrote:
 >=20
-> =E5=9C=A8 2025/6/5 01:23, Nicolas Frattaroli =E5=86=99=E9=81=93:
-> > On Wednesday, 4 June 2025 05:13:29 Central European Summer Time Pei Xia=
-o wrote:
-> >> cocci warning:
-> >> ./sound/soc/rockchip/rockchip_sai.c:387:8-10:
-> >> 	WARNING: possible condition with no effect (if =3D=3D else)
-> >>
-> >> Simplify the condition logic in rockchip_sai_xfer_stop() by removing t=
-he
-> >> redundant SNDRV_PCM_STREAM_PLAYBACK branch. The modified logic now:
-> >> 1. For stream < 0: handles both playback and capture
-> >> 2. For all other cases (both PLAYBACK and CAPTURE):
-> >>    sets playback =3D true and capture =3D false
-> >>
-> >> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-> >> ---
-> >>  sound/soc/rockchip/rockchip_sai.c | 3 ---
-> >>  1 file changed, 3 deletions(-)
-> >>
-> >> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/ro=
-ckchip_sai.c
-> >> index 602f1ddfad00..79b04770da1c 100644
-> >> --- a/sound/soc/rockchip/rockchip_sai.c
-> >> +++ b/sound/soc/rockchip/rockchip_sai.c
-> >> @@ -384,9 +384,6 @@ static void rockchip_sai_xfer_stop(struct rk_sai_d=
-ev *sai, int stream)
-> >>  	if (stream < 0) {
-> >>  		playback =3D true;
-> >>  		capture =3D true;
-> >> -	} else if (stream =3D=3D SNDRV_PCM_STREAM_PLAYBACK) {
-> >> -		playback =3D true;
-> >> -		capture =3D false;
-> >>  	} else {
-> >>  		playback =3D true;
-> >>  		capture =3D false;
-> >>
-> > You can probably get rid of the locals playback and capture altogether:
+> > With the introduction of the RK3576, the maximum device function ID used
+> > increased to 14, as anyone can easily verify for themselves with:
 > >
-> >     static void rockchip_sai_xfer_stop(struct rk_sai_dev *sai, int stre=
-am)
-> >     {
-> >         unsigned int msk, val, clr;
+> >   rg -g '*-pinctrl.dtsi' '<\d+\s+RK_P..\s+(?<func>\d+)\s.*>;$' --trim \
+> >   -NI -r '$func' arch/arm64/boot/dts/rockchip/ | sort -g | uniq
 > >
-> >         msk =3D SAI_XFER_TXS_MASK;
-> >         val =3D SAI_XFER_TXS_DIS;
-> >         clr =3D SAI_CLR_TXC;
-> >        =20
-> >         if (stream < 0) {
-> >             msk |=3D SAI_XFER_RXS_MASK;
-> >             val |=3D SAI_XFER_RXS_DIS;
-> >             clr |=3D SAI_CLR_RXC;
-> >         }
+> > Unfortunately, this wasn't caught by dt-validate as those pins are
+> > omit-if-no-ref and we had no reference to them in any tree so far.
 > >
-> >         regmap_update_bits(sai->regmap, SAI_XFER, msk, val);
-> >         rockchip_sai_poll_stream_idle(sai, true, stream < 0);
+> > Once again kick the can down the road by increasing the limit to 14.
 > >
-> >         rockchip_sai_clear(sai, clr);
-> >     }
-> >
-> > but this in general makes me suspicious of the intent of the code in
-> > the first place. Playback always being true and capture only being
-> > true if playback is also true seems odd. Checking the callsites of
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 >=20
-> Yes,it's very odd to me too.So I send this patch to ask for your advice.
+> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 >=20
-> > this function confirms my suspicions that while this fixes the cocci
-> > warning, it just means the code is now intentionally broken.
-> >
-> > This here may be closer to the original intent:
-> >
-> >     static void rockchip_sai_xfer_stop(struct rk_sai_dev *sai, int stre=
-am)
-> >     {
-> >             unsigned int msk =3D 0, val =3D 0, clr =3D 0;
-> >             bool capture =3D stream =3D=3D SNDRV_PCM_STREAM_CAPTURE || =
-stream < 0;
-> >             /* could be <=3D 0 but we don't want to depend on enum valu=
-es */
-> >             bool playback =3D stream =3D=3D SNDRV_PCM_STREAM_PLAYBACK |=
-| stream < 0;
+> Is this something I can just apply?
 >=20
+> Yours,
+> Linus Walleij
 >=20
-> bool invalid =3D  stream < 0;=20
 
-This isn't correct, -1 isn't passed as invalid but as both streams. This is
-because it wants to pass something as an argument from the asoc core
-directly in one code path (rockchip_sai_trigger to rockchip_sai_stop to
-rockchip_sai_xfer_stop) but it also wants to clear both streams at once
-in a different code path, and the enums aren't powers of two so it can't
-just be flags bitwise-OR'd together.
-
->=20
-> bool capture =3D  stream =3D=3D SNDRV_PCM_STREAM_CAPTURE || invalid;=20
->=20
-> bool playback =3D stream =3D=3D SNDRV_PCM_STREAM_PLAYBACK || invalid;
->=20
-> Would this modification be acceptable?=20
->=20
-> It could shorten each line since the stream value only needs to be evalua=
-ted once.
-
-This isn't really the right place for microoptimisations and the compiler i=
-s likely
-doing this for us already anyway.
+Absolutely, there's no harm in it landing early, and is only tangentially
+related to the rest of the series because it came up while I was pinmuxing
+my PWM pins.
 
 Kind regards,
 Nicolas Frattaroli
-
->=20
-> >             if (playback) {
-> >                     msk |=3D SAI_XFER_TXS_MASK;
-> >                     val |=3D SAI_XFER_TXS_DIS;
-> >                     clr |=3D SAI_CLR_TXC;
-> >             }
-> >
-> >             if (capture) {
-> >                     msk |=3D SAI_XFER_RXS_MASK;
-> >                     val |=3D SAI_XFER_RXS_DIS;
-> >                     clr |=3D SAI_CLR_RXC;
-> >             }
-> >
-> >             regmap_update_bits(sai->regmap, SAI_XFER, msk, val);
-> >             rockchip_sai_poll_stream_idle(sai, playback, capture);
-> >
-> >             rockchip_sai_clear(sai, clr);
-> >     }
-> >
-> >
-> > Please let me know whether this looks right to you.
->=20
-> thanks=EF=BC=81
->=20
-> Pei.
->=20
-> > Kind regards,
-> > Nicolas Frattaroli
-> >
-> >
->=20
-
-
 
 
 
