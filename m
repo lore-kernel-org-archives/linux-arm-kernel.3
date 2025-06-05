@@ -4,158 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BA2C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 19:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51472C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 19:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a4OOMDk1aRmcPuVJ6Z2ciUvkgjvJGT5f24nhCfaT2zM=; b=2iZsbxJcaVGKo9N0GgNKnV8eTW
-	QuO+MZIA5uCYVbXGbBcsBXe9w1PYeO5rCcyOd/YLaGR1kobH3AatfNDqfpxV1N/2E+ulnqAm+ya+g
-	L1qW2xRCv81mnbsmkxDEyNN3h6tms4wZuJMObU1+nhWP6qh+wZC+bMNkNoQYhqumF/yqjP5o2bYWG
-	4eOTmUQecGIjYdJhfLwyOn9VAjQJQ1C6mHjryieQirjWSqm0jhzhRC680eRAjOZ17m8jibiDKFXsV
-	/CU2ggVVd/1aCKkku7VXqJkYIBln0PGs6SCJ3ppWoVerenPAX7jP3SdM5BVgz/mmRgKcolFivv6j7
-	5/4zfu6w==;
+	bh=Dd4ORy4qs2zF7lWHMN546s19RoxioNK3m5rogePSzFk=; b=RBvB00nptl2c6IPcf1nFRmuPVq
+	XUQCkXbyzNzvp0WEf4lyamJNNrmC0VC3suHP1OohSDsUgkSYrTSu+xCh/eNiWgEhMfo4zZ+0qhJJ8
+	iiNnzoy7eFeOZVENuRk+ESsMcUXjux1EgPVfIEAncrklnYvgT8h96omgOu1mU+v2fT5+P5rvK9eAc
+	+hj7xZg+ynkQqb9wc4oqF10Xs3FkV+p/8ieZNePinm2ZL5z17k1zbKOswOT++MTD89DytBP5qV2YO
+	a++Z1WzyuQ1CILmzoPHojX1QQARUGZk3745pZTFkTeezcX4/srRYGIlgF4SkGKc4UdSzV8hBd0CF7
+	gXh+pnWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNGUI-0000000GWA9-44Rf;
-	Thu, 05 Jun 2025 19:42:54 +0000
-Received: from mail-dm6nam11on20625.outbound.protection.outlook.com ([2a01:111:f403:2415::625] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1uNGWQ-0000000GWUT-1E2y;
+	Thu, 05 Jun 2025 19:45:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNGS9-0000000GVw9-3QNQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 19:40:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L2MkvZr1+yl39ZaPLcpZsPINkbEJ82pNOI3Zr1YkS244BzdyqSukpz3uzKdkiwaoeOmZXx7Zen1d/I5Cq1G1mSUPobq2FixLl7AAUzVB8cHabWDSDfmkeuw4Kn5bCtjIm+22ZM65aYAyZ1HTaR6EdZEwVV1TeMEIh2F5NKjdM/aWLF5j7qGiLHempSWHpj58oEe9oZhCzfzQEvHgoyRo9YgRtKgq4+U/gxHDmBBGcWrL6AET0q+CQxrEleLWDlw9HaaBc8cLNhSudsBjUe5gNZkg1NQ2oERev/wvvL+VUtA6wdhaDv3aaG7xU3htVXolA8OCabOE0hzFnQNn/ZwZ1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a4OOMDk1aRmcPuVJ6Z2ciUvkgjvJGT5f24nhCfaT2zM=;
- b=di3Q46KcR3sqkkWEwUcZmqXCC8vsaV1ACWef+Uyv84SMSAgrS0p/K/sAJIGAUVHWg0lqG5qeRRB8j1VNK8dos4CZdmlO/9V8/xxtMo9ewQzucH4I/pbRZx/8+udeNHkc3yPgaA/cgHf5OljqArHl4KbKDHq9t0WQ6sHOBFkpeSeUrAsU9PcEAGEBd1/hQ0Ctv4jc5LaG2oekDgKWaL3DfHCjsem5RpzewZzBR6sF9EfYY76BtxmsEvFzrCVvV412cl9huJ4zNnhlUQ+dMWVApCs4P4XkohuM9wdBDLBFEymRel5CPNy5GLTpbUu7jF+UqfmbEIyLSagKtq9atBfB1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a4OOMDk1aRmcPuVJ6Z2ciUvkgjvJGT5f24nhCfaT2zM=;
- b=n3E9o5zrfn9+mpE36epu8zjQZR8vaYz3RGu9FfwyGErlgjBljw6dQjBvYnwocHIaRry79lilWABKdLBuZvThNXacovYYHBKEvFzzEc212o9N6E4KEqxllwmh2RYJaiw1xBOgXvVcCAIprKBautr6uCGGRcgx+J4XEM4hnmybliy9AoAyx3SjEl0r2/XhMOFkIGYMCe8kehA8mapBg5WCBtVBAM/NhKPGNSVm1XsTeLlcfdrAgxUhxnNPW9l9vf2hDOAD8y6/rih/7Naf2vXGg/7YuL7cVhY55OmlqNJK+5Lqn+JXTDH/9UnJDSB3jbRa09Rc394c4vVnLqBksOwSDg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DM4PR12MB5865.namprd12.prod.outlook.com (2603:10b6:8:64::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Thu, 5 Jun
- 2025 19:40:36 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8792.034; Thu, 5 Jun 2025
- 19:40:35 +0000
-Date: Thu, 5 Jun 2025 16:40:34 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com
-Subject: Re: [PATCH v5 10/29] iommufd: Abstract iopt_pin_pages and
- iopt_unpin_pages helpers
-Message-ID: <20250605194034.GF19710@nvidia.com>
-References: <cover.1747537752.git.nicolinc@nvidia.com>
- <49f7143c1b513049fd8158278a11d9f8b6c837d3.1747537752.git.nicolinc@nvidia.com>
- <20250528171754.GY61950@nvidia.com>
- <aEEY28ZXH+NqiE+T@Asurada-Nvidia>
- <20250605151648.GD19710@nvidia.com>
- <aEHOI522eucrOZyI@Asurada-Nvidia>
+	id 1uNGTS-0000000GW40-32gj;
+	Thu, 05 Jun 2025 19:42:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1317A5C696F;
+	Thu,  5 Jun 2025 19:39:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 424BCC4CEF0;
+	Thu,  5 Jun 2025 19:42:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749152521;
+	bh=/oeOikRCVc75mRYlz60dHqs3VC+0eqPN2O3dFH58FeE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qs4vplCNxnMotvO+YBSEbYEggdm/N7gei6jp7DyncaYzVGxaTpTcMNdz8P4T4ECIT
+	 YeA0hr3Xz5W1RGNyVuPGwVBfGpqHVRZj8ezwhcPdjBbDEtGoRusvLu+cLUrsCa9moR
+	 7ObaPX5SG3U7DaJ3JLiGj7rHbTDjw7u1MATAi2isa/OsKn5A30DaByjrqqCRyRurWl
+	 CdUS94cwsVc633dF5knLvvljR6ghRm/kgA0BtT+nwTKYzFchEuVer2x5qqlCwp5u3w
+	 wro77pFw0mnRG0XHNK4tUnhA9WWwD8iUsS7xwul3pOK9okOIOYhiOY/8BNtMySfGo/
+	 hcjovGxHrtTHw==
+Date: Thu, 5 Jun 2025 14:41:59 -0500
+From: Rob Herring <robh@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Quentin Schulz <foss+kernel@0leil.net>, Lee Jones <lee@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	linux-rockchip@lists.infradead.org,
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
+	Daniel Semkowicz <dse@thaumatec.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH 1/4] dt-bindings: mfd: rk806: allow to customize PMIC
+ reset method
+Message-ID: <20250605194159.GA3039863-robh@kernel.org>
+References: <20250526-rk8xx-rst-fun-v1-0-ea894d9474e0@cherry.de>
+ <8ca5a908-467f-4738-8bfa-185f3eecc399@kernel.org>
+ <1cf00dfe-c987-46ee-9cdf-a9ba243740ad@cherry.de>
+ <2577051.irdbgypaU6@workhorse>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aEHOI522eucrOZyI@Asurada-Nvidia>
-X-ClientProxiedBy: YT4PR01CA0053.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:111::20) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM4PR12MB5865:EE_
-X-MS-Office365-Filtering-Correlation-Id: 835d488b-c92f-48dd-bffd-08dda468d794
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TAjkhcOxNW7bI0l0cdK9k3B41LOuYDGPNrQ57YoiYie84GGikDOcjyk0au/8?=
- =?us-ascii?Q?22xIqfT3nnaLFqaDuHzsX9yPDRf3SuBlujG5gPTLwSGTSc2FVFZ8UWmE51jZ?=
- =?us-ascii?Q?m/NLCGzvreQ9FpJLyftA2j/PwFEcAb12GanTvRp+KsuH2GIWtpTV2dYAGk0b?=
- =?us-ascii?Q?chFrYp3itebRQQJeRtRFJszU4XpSlYiH41lc5LKDxwmzT+zNb7pxwMYimi+a?=
- =?us-ascii?Q?h+5K0FFGare+L6VxZm5HMYnkhCsYtv4EU8x73hNomfzDCj+0DIaqxrJ5/HJF?=
- =?us-ascii?Q?Ekix84+gT+0zgMaoIOro39FEjPIhquqwB6b3diH6WfDGTy8aMeLHRi4E58fQ?=
- =?us-ascii?Q?IrrXN1+mEWQlWNWZIwTQA9THh+6YUZUAXb2UW6UrKOqrSUjNCJuMZ5r3uyLN?=
- =?us-ascii?Q?VlU+h5ItUXlkSmCFCo/GXQoCXpA1tcLDKtrt8TRuIbTe/BvllHJk8ExSVFHw?=
- =?us-ascii?Q?1lB5kMGRE9hnvKXCDLPzuveQfXvXxwFNwo0dSwqCqFD6tkLctUYgVT5wPVtZ?=
- =?us-ascii?Q?P6BXvJfqTuvnMqkvSVP8eJ8CyO1v/rZKz1CpNKVoHlz/DyEYrFVFxtgsWZq0?=
- =?us-ascii?Q?xeyMAGTgUOVsQsaI/9jt7Om39+0C50kziv8Dain9GEL/pSXmTbP5mX8rZEfQ?=
- =?us-ascii?Q?sWOmesl9l7p4jUS2sFO9AEuvDTNKSaMSSEqK3hLEWr/HnXURgFyOtARsSvV9?=
- =?us-ascii?Q?YTm3k4enrAzVskG1BX+/02qurt/EmQLwR9WfoClP/9l3nz1pp/hNrlXqmtJr?=
- =?us-ascii?Q?FyMp6uM23mv6BAvZqVdlfpWdPdsVJfBCk5LavVXD8snm2RRLPS22bKYgSgkZ?=
- =?us-ascii?Q?u8v9Y7fo7HY3tjEi46vH8PVO6nd/0H1Sfpz1vkYiSW4c+56D3SalEoDg/bDt?=
- =?us-ascii?Q?4UR07HBobpR3q4hL2KkRaFct7BnTWgUtFhuawDj5ANkZaYEwS9EI/WUObyUu?=
- =?us-ascii?Q?WlCNRCJhyi9tBJy2Z2BJ+sIPsbYTWKe6h2m5oExM6SS53HoJ3NKQcZO2R1RR?=
- =?us-ascii?Q?/1S5urk1dPPrg/JEwHLhOBLWx4Lip5cBN2K7GlumvATYdhhYVWcZIvJwMq2p?=
- =?us-ascii?Q?A9r327rKsODB2nY/InqI+EhiMoy8uLMweSXIkwIyO/eGpxBcMSNxHc77ZvWI?=
- =?us-ascii?Q?c9ANxWPqVHZo4uw3SW4h374LJNmOoJH5VM9yM1It+9ghiJXKugizdsoSpwh9?=
- =?us-ascii?Q?+3pj/mRcEKYBmP/oy7moOlrh7n33uJsRndCUTTFoO68nWzmBrzajR4kzPIsc?=
- =?us-ascii?Q?i8i7F4UeJLj/RGycA3N0jWnk1Xv3AUuGt9XtgkTCADNfPXEue6PXMxR4uxkj?=
- =?us-ascii?Q?VaE63Bfqul9RAgTxuabe7ouIyRv4R9YKvaDfB0p8sFSesEgen4860bMoLxzx?=
- =?us-ascii?Q?x63i0jnYjxoUwCCj2m9/qP5OhG31oITIAwiK4MJuCZ9UdsTqeA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4wF8f2WmN/r4x1dMbvqTx30SVlFGJMaGWmlOvseAdjkIn/AqFmllswgsXlzJ?=
- =?us-ascii?Q?T16BouJtLkbuJDffdCa+4jEqzb9t9GDh8OQIfBtuRRSsR4GJUND/UymCE1aE?=
- =?us-ascii?Q?7y3faRtkmIPxkrNo4itQnYezqSYVclrByMzjEKOsmEVjthUieOzAtzk44U43?=
- =?us-ascii?Q?h0+04DHrBTiwqngliYC0Jmum8BDmljyh+lf1TJg9KrQ0mgKKBPXViG9Zq9DW?=
- =?us-ascii?Q?SfwnSUCowfwmw/9DQo9pBrfnCTCiYuYqPVOAStkjpOmWmi0vkaF4kM31oe7u?=
- =?us-ascii?Q?RZEcFUDfUUnCrpocWTQFqZT0kQMiHAGzcOyEbzBbadG8hzfKgRFoI+u1N9Jd?=
- =?us-ascii?Q?yelZL0RBFgRXddAQmNEIKlOTMQVLfbKANYWYQtDY+AKGyKr45wDA+h/b1t/g?=
- =?us-ascii?Q?3+RBjtTiIJn4nxy+F4qiLO07NdFy22If3J+iBHAepd8uSc+wTSYJw/HxPv62?=
- =?us-ascii?Q?7A3mVBuWxD3183x4891Vfao8pwHmDHMra6MtMJvi/NolaH2LV66LSfo3PkBD?=
- =?us-ascii?Q?zlapFDGBRooq3hk2UR7yQ3WAq69Xowz8bqFzw0AUdoazpuCCupxTD4UqXhMz?=
- =?us-ascii?Q?ykIzbvqPO2Z8AFdcpdkuNS7eSndWo4yplNoxULYObFIyyH7BE0SN0mV7MPDC?=
- =?us-ascii?Q?2uO1L7pwr/bbCy0AgtF8EXmjSBRBuGDvI9dljSiFUUVNNo7J0kvRj44twvhz?=
- =?us-ascii?Q?hbL3qSO/WMZLJWHJotBhbpKehiKfwWb78sKDuFzrSipdwhpkdeDsXKiuWIvt?=
- =?us-ascii?Q?95vs6XLicpVxE7VDY006BRn0URMINJxGfwcqbGTI8k92/36+vUWP8uqLCjyX?=
- =?us-ascii?Q?X5W1rTqUKiIAE+/FPH3JKdKmrXXJ39cUxUlBtriAOiy3+m3WEyfKsS8qkgRB?=
- =?us-ascii?Q?jlHxKk2XXBnCgRedz8KV6Z022gN0geJ3Sdv+Omj7xiVyb/i4OAvjZ+o4PHHf?=
- =?us-ascii?Q?DGxoL4bt4HS1HrDwhA5a9IIvN2+U45qa39PjeizYLzIJ2gxJiOA7TDTAhc7M?=
- =?us-ascii?Q?y1TzkI9j9YCl4bOqnW7JYIwUqLVyWp9x1LZxyZ1TsYKnQuP9M0brO4AZCwd5?=
- =?us-ascii?Q?GrX7/gLP6+Rwvur522P759dZ+1XVRaAWT+n6rBdvldEQDxwPMRIIktjAwWn5?=
- =?us-ascii?Q?77TQg4lNvasV7KilNbnrl5JD1M6owego3DIaZgYVR1N4KiirgMGpn9Sp6PEw?=
- =?us-ascii?Q?AQn057SLwEdlfVJdvuI6RKacGaHxivj+d+qspuraIsoZ5zQjPCky2WGf5MoV?=
- =?us-ascii?Q?9OSYnlXCYtNQRCAmKIM740l9vAXVjtXM3qLnvQa6RtlJF/tVcpgg/imfq8eW?=
- =?us-ascii?Q?gZbFMJZbLaYdcsog+fWqoVhqYcldxD0sxFjk0dp2A7W48Efl+EuGu7qHPVUJ?=
- =?us-ascii?Q?3JNpi7zhcHIevjcHPpX/gXaey5dC/CvrJ9QlLi+ElI4saLWFFI/TFI5uRF2z?=
- =?us-ascii?Q?x6Z67sisBfBfH/litmFcFKwrNzdfEiPIPgus2gWy7tJw/5qHCdYNSjmYXVKh?=
- =?us-ascii?Q?7JpGqSH8lil3Vl3y0qwCYwxHyWLbmyCUMa6i5mOZiK5R+jf6OKoeJL3JOOnz?=
- =?us-ascii?Q?rf7NSBPXYiZAUJ16Z5QB3hk7pj3/JUc6kP7QmgaI?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 835d488b-c92f-48dd-bffd-08dda468d794
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2025 19:40:35.8559
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YTF4fRKDRLjhMF74Xt6y0ddDiYrDvf9WOHCO8YaRIpZNYE0A3RnwLbnq2pCklVDi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5865
+In-Reply-To: <2577051.irdbgypaU6@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_124041_872640_3FFA7586 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250605_124202_852444_DE03BB1F 
+X-CRM114-Status: GOOD (  44.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,34 +83,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 10:04:35AM -0700, Nicolin Chen wrote:
-> On Thu, Jun 05, 2025 at 12:16:48PM -0300, Jason Gunthorpe wrote:
-> > On Wed, Jun 04, 2025 at 09:11:07PM -0700, Nicolin Chen wrote:
-> > 
-> > > I found the entire ictx would be locked by iommufd_access_create(),
-> > > then the release fop couldn't even get invoked to destroy objects.
-> > 
-> > Yes, that makes sense..
-> > 
-> > It looks to me like you can safely leave ictx as NULL instead of
-> > adding a flag? That would be nicer than leaving a unrefcounted
-> > pointer floating around..
+On Tue, May 27, 2025 at 01:18:20PM +0200, Nicolas Frattaroli wrote:
+> Hi Quentin,
 > 
-> Hmm, there are a few iommufd_get_object calls using access->ictx
-> in iommufd_access_attach() and iommufd_access_destroy().
+> On Tuesday, 27 May 2025 11:26:49 Central European Summer Time Quentin Schulz wrote:
+> > Hi Krzysztof,
+> > 
+> > On 5/27/25 11:08 AM, Krzysztof Kozlowski wrote:
+> > > On 27/05/2025 10:48, Quentin Schulz wrote:
+> > [...]
+> > >>
+> > >> likely a purpose to it. Especially if they also change the
+> > >> silicon-default in their own downstream fork AND provide you with a way
+> > >> to change their new default from Device Tree.
+> > >>
+> > >> We can hardcode the change in the driver without using DT, but I wager
+> > >> we're going to see a revert in a few releases because it broke some
+> > >> devices. It may break in subtle ways as well, for example our boards
+> > >> seem to be working just fine except that because the PMIC doesn't
+> > >> entirely reset the power rails, our companion microcontroller doesn't
+> > >> detect the reboot.
+> > >>
+> > >> If it's deemed a SW policy by the DT binding people, is there a way to
+> > >> customize this without having it hardcoded to the same value for all
+> > >> users of RK806 and without relying on module params?
+> > > 
+> > > sysfs, reboot mode etc. I don't know what is the right here, because you
+> > > did not explain the actual hardware issue being fixed here. You only
+> > > described that bootloader does something, so you want to write something
+> > > else there.
+> > > 
+> > 
+> > We have a companion microcontroller on the PCB of both products which 
+> > needs to detect if the board was reset. When the board is reset, the MCU 
+> > FW does a few things, like essentially resetting its internal logic such 
+> > as the PWM controller (so the beeper stops beeping), watchdogs and 
+> > reinit most user-exposed registers so that it's like "fresh" out of 
+> > reset (even though it actually wasn't reset since it's continuously 
+> > powered, not from the PMIC).
+> > 
+> > To detect a reboot, it senses one of the power rails (DCDC8; vcc_3v3_s3 
+> > on our boards) from the PMIC. This power rail is only "restarted" when 
+> > RST_FUN is set to 0 ("restart PMU" mode) according to our experiments.
+> > 
+> > I assume it is possible other boards do not want this (all?) power rail 
+> > to be quickly interrupted when rebooting? But that I do not know.
+> 
+> I agree that this sounds like a pretty big change in behavior, yes. I am
+> somewhat suspicious of any silent mainline difference from silicon defaults
+> as being the result of cargo-culting from downstream hacks to make things
+> work, and are unresolved technical debt in need of cleanup.
+> 
+> On the RK3576 board I'm currently working on, where an RK806 is used as
+> well, then DCDC8 cutting out would wreak havoc on warm reboots I'd wager
+> as it's used for a lot of 1.8V IO voltage supply things, including one
+> instance where the DCDC8 rail going low would feed into a downstream
+> regulator that's being kept enabled as long as a different supply is on.
+> 
+> If you don't want to deal with DT bindings people (sysfs for reset
+> behaviour? What?) a workaround for this could be to add the necessary
+> register write to your bootloader's (probably u-boot?) board init code.
+> 
+> I do think however that "what does this board hardware expect to happen to
+> power rails on reset" is a pretty strongly board specific non-enumerable
+> hardware difference that belongs in DT as a declarative property, but
+> perhaps in a different form than the bare register contents for this, so
+> that it can hopefully be used as a more generic (even if vendor) property
+> for future PMICs going forward. Think regulator-always-on but for this
+> specific case.
 
-I counted:
+I don't have an issue with this being in DT as it would seem to me to 
+be based on how the board is wired. However, how does reset work before 
+you run something that parses the DT? Seems to me it needs to be 
+initialized early (or power on in the right state).
 
-iommufd_access_change_ioas_id
- * Don't call this
-iommufd_access_destroy_object
- * Don't put if null
-iommufd_access_create
- * Don't set it
-iommufd_access_destroy
- * Call iommufd_object_destroy_user directly
-iommufd_access_notify_unmap
- * Check for null access->ops->unmap and skip the lock_obj/put_obj
-
-Jason
+Rob
 
