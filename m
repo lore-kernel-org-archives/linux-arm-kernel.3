@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07144C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 11:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E81EC5B559
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 11:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NXYWQYJwVQQ5jEVIP2z582vjRVMjyPXpfZ4/8yMmTM=; b=RHWW4Ab0nlXyk8HRFTh1zUNNWp
-	wo6V/4BqEVC4E+LXSc8TSwAsQP9GPvl5Q7CQZGIoUbKEMA1/c4sm6zRk+q3ClPXKfeTlQsf9a6pZ2
-	/exD4HQyFFD4XHuZwflKx3ToLC3hEOp1eBO4FmWaHsSZoHQBNANFvoDDCDpzSZqmr+vlWxaryim3D
-	jzFuKOqyXFeKykqykRceL9sucOALy13p34+htXsS2cjkpK8laMTwVykugwPrFNGkputrqQOsdC3S2
-	0i+IJEzSfujmelX8hk/eEedfN5zUuGnpZpfrjJCIekSGgojKbW8JEjhyB904AtP4w1Ok0CM6QDVJA
-	IP0S9edQ==;
+	bh=iC+1UaYzbH3mj6snjrsNxHovfMele6u1Y64LQQeBv6Y=; b=IPH4U3vSU7W5erca/w9s38dety
+	cIt0XCl9PjmX/FQHC1vGZXZuChQ66fpXHJJhLa/kdJMgrGkXReBIfg3yNk5b6b6BIXPE4cQ8CeoKx
+	ofdkf/E4ukOoXI7ru5PU4DTvxia/r/5z4NY729nql9rPEo1oMu3GN4P5+pO84FODmqioKoHB1gsCj
+	q97p2IDxQN4kKMyhloB+M6JfY1IpKPkrw50aCj//aVVr9tNmzcjJM3L39cVnuC1ie4t7DCJqs6RF5
+	77L5IG/nOrB2prE+miTz6lgTEUOkiAzTNA5FIO0zuTypbrQ+bTcfjECWdXIS/Z7GvSrXt/PdqTgyF
+	Cb3WuhBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN8ia-0000000FM4g-1nkm;
-	Thu, 05 Jun 2025 11:25:08 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uN8kk-0000000FMSB-3fd7;
+	Thu, 05 Jun 2025 11:27:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN8c7-0000000FLUJ-2uez;
-	Thu, 05 Jun 2025 11:18:28 +0000
+	id 1uN8c9-0000000FLUi-1gKY;
+	Thu, 05 Jun 2025 11:18:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 33C0DA50627;
-	Thu,  5 Jun 2025 11:18:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58E3CC4CEEB;
-	Thu,  5 Jun 2025 11:18:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE1244A28E;
+	Thu,  5 Jun 2025 11:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F641C4CEE7;
+	Thu,  5 Jun 2025 11:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749122305;
-	bh=oBSODQMsy1/d5/U6vE4OfmyUvi5gh7AawwYdZIj6y5E=;
+	s=k20201202; t=1749122308;
+	bh=+EbdnKGqeXIQ6r1cYATj3UjjPd1X6oB6b0iOJMSSB4s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MycVClR7i4Ggd4SLTz8CmzHwMSEzB/HiZKzqwvdl99ZbjSM08LzPexT01HXjeaZJY
-	 xNCuc+03lYp4Jiuyo5xv2c7KYe+ycdRNClQAnPkiha/9mmdDB0cZzejavJyNe0eU/o
-	 EXcxzMjitXzc6/qOX+ioylo18VrsukR0LzacOPfUAqLuiYpavBeW7e2oYcX+0nTPkH
-	 ZfTycHPsEREIiGXDiNPaglCh+/imgXwfZwZZZFhogFHU2Lak6d1Pj/7lTqFqxk2edL
-	 kDSlIrGtgqe+UpkPuzstMcQB0TAXL4VytFnGA3AKXhka3pKq+/RxgBAZ0w3ie9uk50
-	 W39gFTtib4aQg==
+	b=hIwEy9UFek2bJ/MTmm2e2OR15E7mjDyL18jWBXC3YSLFvma7xGd0M69C/WCth5WeU
+	 ToPUweUREatEw6BAoe6fSq2or4pb0VQKLUPpy+JgrLO0JNWKYei6s2BkeQ5cmIKd1m
+	 SRfnrLXlgI4jT8rUy7jUkNsLlSJKAhH3dG73MqkQbEpR98OSyDNX1aHPO9NrVDq2qK
+	 m1gqYvvu5ZJrzM7YOjmM5zEgF6y6ycyQL/qgf83F+kIpY76Siyikb3p78rPH4BbkWC
+	 4qBHzyWiYxYlSTia9h8363A4ljWeXS+UZsNuaXMlbp0iPukxNfepnUjMW93Sm5sn3G
+	 KjE6+JVxgHhww==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 05 Jun 2025 13:14:16 +0200
-Subject: [PATCH mt76 1/5] wifi: mt76: Assume
- __mt76_connac_mcu_alloc_sta_req runs in atomic context
+Date: Thu, 05 Jun 2025 13:14:17 +0200
+Subject: [PATCH mt76 2/5] wifi: mt76: Move RCU section in
+ mt7996_mcu_set_fixed_field()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250605-mt7996-sleep-while-atomic-v1-1-d46d15f9203c@kernel.org>
+Message-Id: <20250605-mt7996-sleep-while-atomic-v1-2-d46d15f9203c@kernel.org>
 References: <20250605-mt7996-sleep-while-atomic-v1-0-d46d15f9203c@kernel.org>
 In-Reply-To: <20250605-mt7996-sleep-while-atomic-v1-0-d46d15f9203c@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
@@ -61,8 +61,8 @@ Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_041827_810084_CB5BB733 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250605_041829_488649_6F4F4006 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +77,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rely on GFP_ATOMIC flag in __mt76_connac_mcu_alloc_sta_req since it can
-run in atomic context. This is a preliminary patch to fix a 'sleep while
-atomic' issue in mt7996_mac_sta_rc_work().
+Since mt76_mcu_skb_send_msg() routine can't be executed in atomic context,
+move RCU section in mt7996_mcu_set_fixed_field() and execute
+mt76_mcu_skb_send_msg() in non-atomic context. This is a preliminary
+patch to fix a 'sleep while atomic' issue in mt7996_mac_sta_rc_work().
 
 Fixes: 0762bdd30279 ("wifi: mt76: mt7996: rework mt7996_mac_sta_rc_work to support MLO")
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c    |  5 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c   |  3 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 68 ++++++++++++++++------
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h | 10 ++--
+ 4 files changed, 57 insertions(+), 29 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-index cb13d0a768789af956f810e5af19507e436a449a..fa08e952dffa9d6e623a1f6819f136be3a5a0c76 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-@@ -287,7 +287,7 @@ __mt76_connac_mcu_alloc_sta_req(struct mt76_dev *dev, struct mt76_vif_link *mvif
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index 0dbd4662bc842947abf09f9ae3aa4a1d4b86cba8..7444bd374b50bdfdcf7e1973993f496b740a1c51 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -2405,11 +2405,10 @@ void mt7996_mac_sta_rc_work(struct work_struct *work)
+ 			       IEEE80211_RC_BW_CHANGED))
+ 			mt7996_mcu_add_rate_ctrl(dev, vif, link_conf,
+ 						 link_sta, link, msta_link,
+-						 true);
++						 link_id, true);
  
- 	mt76_connac_mcu_get_wlan_idx(dev, wcid, &hdr.wlan_idx_lo,
- 				     &hdr.wlan_idx_hi);
--	skb = mt76_mcu_msg_alloc(dev, NULL, len);
-+	skb = __mt76_mcu_msg_alloc(dev, NULL, len, len, GFP_ATOMIC);
- 	if (!skb)
- 		return ERR_PTR(-ENOMEM);
+ 		if (changed & IEEE80211_RC_SMPS_CHANGED)
+-			mt7996_mcu_set_fixed_field(dev, link_sta, link,
+-						   msta_link, NULL,
++			mt7996_mcu_set_fixed_field(dev, msta, NULL, link_id,
+ 						   RATE_PARAM_MMPS_UPDATE);
  
+ 		spin_lock_bh(&dev->mt76.sta_poll_lock);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 78ae9f5cb1760ababc088fc21bfc3957cfe02506..a096b5bab001de8d4fe3270ab37b1a6dab702ab1 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1114,7 +1114,8 @@ mt7996_mac_sta_event(struct mt7996_dev *dev, struct ieee80211_vif *vif,
+ 
+ 			err = mt7996_mcu_add_rate_ctrl(dev, vif, link_conf,
+ 						       link_sta, link,
+-						       msta_link, false);
++						       msta_link, link_id,
++						       false);
+ 			if (err)
+ 				return err;
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+index f0adc0b4b8b6ccdc6ce11991a4d99b89500fe7a9..33c61e795b734e84af42fdea5ba33975e3e3365a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+@@ -1905,22 +1905,35 @@ int mt7996_mcu_set_fixed_rate_ctrl(struct mt7996_dev *dev,
+ 				     MCU_WM_UNI_CMD(RA), true);
+ }
+ 
+-int mt7996_mcu_set_fixed_field(struct mt7996_dev *dev,
+-			       struct ieee80211_link_sta *link_sta,
+-			       struct mt7996_vif_link *link,
+-			       struct mt7996_sta_link *msta_link,
+-			       void *data, u32 field)
++int mt7996_mcu_set_fixed_field(struct mt7996_dev *dev, struct mt7996_sta *msta,
++			       void *data, u8 link_id, u32 field)
+ {
+-	struct sta_phy_uni *phy = data;
++	struct mt7996_vif *mvif = msta->vif;
++	struct mt7996_sta_link *msta_link;
+ 	struct sta_rec_ra_fixed_uni *ra;
++	struct sta_phy_uni *phy = data;
++	struct mt76_vif_link *mlink;
+ 	struct sk_buff *skb;
++	int err = -ENODEV;
+ 	struct tlv *tlv;
+ 
+-	skb = __mt76_connac_mcu_alloc_sta_req(&dev->mt76, &link->mt76,
++	rcu_read_lock();
++
++	mlink = rcu_dereference(mvif->mt76.link[link_id]);
++	if (!mlink)
++		goto error_unlock;
++
++	msta_link = rcu_dereference(msta->link[link_id]);
++	if (!msta_link)
++		goto error_unlock;
++
++	skb = __mt76_connac_mcu_alloc_sta_req(&dev->mt76, mlink,
+ 					      &msta_link->wcid,
+ 					      MT7996_STA_UPDATE_MAX_SIZE);
+-	if (IS_ERR(skb))
+-		return PTR_ERR(skb);
++	if (IS_ERR(skb)) {
++		err = PTR_ERR(skb);
++		goto error_unlock;
++	}
+ 
+ 	tlv = mt76_connac_mcu_add_tlv(skb, STA_REC_RA_UPDATE, sizeof(*ra));
+ 	ra = (struct sta_rec_ra_fixed_uni *)tlv;
+@@ -1935,27 +1948,45 @@ int mt7996_mcu_set_fixed_field(struct mt7996_dev *dev,
+ 		if (phy)
+ 			ra->phy = *phy;
+ 		break;
+-	case RATE_PARAM_MMPS_UPDATE:
++	case RATE_PARAM_MMPS_UPDATE: {
++		struct ieee80211_sta *sta = wcid_to_sta(&msta_link->wcid);
++		struct ieee80211_link_sta *link_sta;
++
++		link_sta = rcu_dereference(sta->link[link_id]);
++		if (!link_sta) {
++			dev_kfree_skb(skb);
++			goto error_unlock;
++		}
++
+ 		ra->mmps_mode = mt7996_mcu_get_mmps_mode(link_sta->smps_mode);
+ 		break;
++	}
+ 	default:
+ 		break;
+ 	}
+ 	ra->field = cpu_to_le32(field);
+ 
++	rcu_read_unlock();
++
+ 	return mt76_mcu_skb_send_msg(&dev->mt76, skb,
+ 				     MCU_WMWA_UNI_CMD(STA_REC_UPDATE), true);
++error_unlock:
++	rcu_read_unlock();
++
++	return err;
+ }
+ 
+ static int
+ mt7996_mcu_add_rate_ctrl_fixed(struct mt7996_dev *dev,
+ 			       struct ieee80211_link_sta *link_sta,
+ 			       struct mt7996_vif_link *link,
+-			       struct mt7996_sta_link *msta_link)
++			       struct mt7996_sta_link *msta_link,
++			       u8 link_id)
+ {
+ 	struct cfg80211_chan_def *chandef = &link->phy->mt76->chandef;
+ 	struct cfg80211_bitrate_mask *mask = &link->bitrate_mask;
+ 	enum nl80211_band band = chandef->chan->band;
++	struct mt7996_sta *msta = msta_link->sta;
+ 	struct sta_phy_uni phy = {};
+ 	int ret, nrates = 0;
+ 
+@@ -1996,8 +2027,7 @@ mt7996_mcu_add_rate_ctrl_fixed(struct mt7996_dev *dev,
+ 
+ 	/* fixed single rate */
+ 	if (nrates == 1) {
+-		ret = mt7996_mcu_set_fixed_field(dev, link_sta, link,
+-						 msta_link, &phy,
++		ret = mt7996_mcu_set_fixed_field(dev, msta, &phy, link_id,
+ 						 RATE_PARAM_FIXED_MCS);
+ 		if (ret)
+ 			return ret;
+@@ -2018,8 +2048,7 @@ mt7996_mcu_add_rate_ctrl_fixed(struct mt7996_dev *dev,
+ 		else
+ 			mt76_rmw_field(dev, addr, GENMASK(15, 12), phy.sgi);
+ 
+-		ret = mt7996_mcu_set_fixed_field(dev, link_sta, link,
+-						 msta_link, &phy,
++		ret = mt7996_mcu_set_fixed_field(dev, msta, &phy, link_id,
+ 						 RATE_PARAM_FIXED_GI);
+ 		if (ret)
+ 			return ret;
+@@ -2027,8 +2056,7 @@ mt7996_mcu_add_rate_ctrl_fixed(struct mt7996_dev *dev,
+ 
+ 	/* fixed HE_LTF */
+ 	if (mask->control[band].he_ltf != GENMASK(7, 0)) {
+-		ret = mt7996_mcu_set_fixed_field(dev, link_sta, link,
+-						 msta_link, &phy,
++		ret = mt7996_mcu_set_fixed_field(dev, msta, &phy, link_id,
+ 						 RATE_PARAM_FIXED_HE_LTF);
+ 		if (ret)
+ 			return ret;
+@@ -2150,7 +2178,8 @@ int mt7996_mcu_add_rate_ctrl(struct mt7996_dev *dev,
+ 			     struct ieee80211_bss_conf *link_conf,
+ 			     struct ieee80211_link_sta *link_sta,
+ 			     struct mt7996_vif_link *link,
+-			     struct mt7996_sta_link *msta_link, bool changed)
++			     struct mt7996_sta_link *msta_link,
++			     u8 link_id, bool changed)
+ {
+ 	struct sk_buff *skb;
+ 	int ret;
+@@ -2178,7 +2207,8 @@ int mt7996_mcu_add_rate_ctrl(struct mt7996_dev *dev,
+ 	if (ret)
+ 		return ret;
+ 
+-	return mt7996_mcu_add_rate_ctrl_fixed(dev, link_sta, link, msta_link);
++	return mt7996_mcu_add_rate_ctrl_fixed(dev, link_sta, link, msta_link,
++					      link_id);
+ }
+ 
+ static int
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index 1ad6bc046f7c01d43452252ed46677d42e0c8850..a529c2bae7cbf83589650c593f033e6ec5e714a8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -625,18 +625,16 @@ int mt7996_mcu_add_rate_ctrl(struct mt7996_dev *dev,
+ 			     struct ieee80211_bss_conf *link_conf,
+ 			     struct ieee80211_link_sta *link_sta,
+ 			     struct mt7996_vif_link *link,
+-			     struct mt7996_sta_link *msta_link, bool changed);
++			     struct mt7996_sta_link *msta_link,
++			     u8 link_id, bool changed);
+ int mt7996_set_channel(struct mt76_phy *mphy);
+ int mt7996_mcu_set_chan_info(struct mt7996_phy *phy, u16 tag);
+ int mt7996_mcu_set_tx(struct mt7996_dev *dev, struct ieee80211_vif *vif,
+ 		      struct ieee80211_bss_conf *link_conf);
+ int mt7996_mcu_set_fixed_rate_ctrl(struct mt7996_dev *dev,
+ 				   void *data, u16 version);
+-int mt7996_mcu_set_fixed_field(struct mt7996_dev *dev,
+-			       struct ieee80211_link_sta *link_sta,
+-			       struct mt7996_vif_link *link,
+-			       struct mt7996_sta_link *msta_link,
+-			       void *data, u32 field);
++int mt7996_mcu_set_fixed_field(struct mt7996_dev *dev, struct mt7996_sta *msta,
++			       void *data, u8 link_id, u32 field);
+ int mt7996_mcu_set_eeprom(struct mt7996_dev *dev);
+ int mt7996_mcu_get_eeprom(struct mt7996_dev *dev, u32 offset, u8 *buf, u32 buf_len);
+ int mt7996_mcu_get_eeprom_free_block(struct mt7996_dev *dev, u8 *block_num);
 
 -- 
 2.49.0
