@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 856F2C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 05:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4833FC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 05:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=naiNfKI5FAi+uyC3lJxSBIRFVeN4EMfE9uXp4ORAMmM=; b=ySigNgPvUReLEPodPlrRwvLf7J
-	AG1qzeZjjEZMyC7Xb7uLhOAusGg1HQvo539Hf8sdj2xVzC2LNMOoBs7BstjOU6AqhfFDuQZjMuxwX
-	lSSAyqMULp6dElKq9aqhxPhBNLN17sB7vinj4LWwtVOipd0yD5OvvSPv3brxok+TrjYqUeApsDzjG
-	V9ZM5DCd/Zn22IXjp02H0nQNDRQwUQfIiabls7al7PWVVJMZgyom9ztZ1LwNW5TrkTSbAP269VNtQ
-	ybCfRm5nNi287ke5GAfzYBuH0pd2GaLQ6BuIi3Z9tMaO/GdzEXHBX1kICBklvYNNKQlNxWniQlE2d
-	HIxeVt8g==;
+	bh=DlnRdw8EHAFuq29jtQGD7WPjZ0CO1laKLk5uGetbmKo=; b=srUCCSoELqQGfXghJPimw93VUF
+	F778nB+ds6yjXidAum5vMc9fzRcG0lN/H+0obY/TxcYJDw4Pms+3s7S26y6r60WDcDs82Yvedsdw8
+	VpvxldSwm2kt1JOstBQps1rZAKhU433d6ELT0wJLGUg9itzkrVw5rKYit5Stz0laEFdgvakqEu/ik
+	JnrjDoIlai5mlBXtAQo0mZbi7h+fMjUbt0hZVBHSXH0sgBBpNbjTB5yEfakUPioZpgkGuZrZG4xn+
+	li+VDi769pY7l6ds+vBflnLJxObvgpiw+vA/Q8VRd9RtXgFZMfc/iDbfXZb9j4YMBtuVTD5lqGmqe
+	FF/LEAdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3UZ-0000000EmWW-11zJ;
-	Thu, 05 Jun 2025 05:50:19 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uN3Xr-0000000EmvF-1chf;
+	Thu, 05 Jun 2025 05:53:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3SR-0000000EmCt-3jci
+	id 1uN3Vm-0000000Emmw-06HE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 05:48:09 +0000
+	Thu, 05 Jun 2025 05:51:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8A4EFA459D4;
-	Thu,  5 Jun 2025 05:48:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D1CEC4CEE7;
-	Thu,  5 Jun 2025 05:48:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ECB9760007;
+	Thu,  5 Jun 2025 05:51:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8E36C4CEE7;
+	Thu,  5 Jun 2025 05:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749102486;
-	bh=9t5rT9ry6WPHa53KUFn8dkbO9OaKcc8ExoqUN9Ekk5U=;
+	s=k20201202; t=1749102692;
+	bh=R9ZU7C4rQ0t5XOOUUDx00muG4HBw07Usm+yiH+RoIL4=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=R4L+vMRr6jtUNaccghDB5FifpMtUuRHZ1mq3p5RzbIDFNeRtZ9P4QeEHATFzOzMw9
-	 o9lOGuqSIALSiNnveV+r+BiHeQrnEI6vJSDAkWg0w6+3E7CWm4/QomlmA2ySlt7pR0
-	 03b4qxFYCWywntenPlTzhVqMsl8H70OmvM9DholIxjxbFwKieqmLndYZsG4eDK/QUK
-	 mzjhpsnz7Qv8ZXzrptNkDjBuhCtcKlDc1k/Ba3NVisRoJXZ1Sw6gENzthiRjt/xEkW
-	 SZ5yJfJiTlpBpAbBVtOcgZ/dI4CsoBJMGeUDIm6O6JsXHOZ28hvNPvdQZ6nq8nrzPh
-	 KyGBG10wlv8bg==
-Message-ID: <e9a1d863-a08c-4f6a-97b3-4a752606544a@kernel.org>
-Date: Thu, 5 Jun 2025 07:48:01 +0200
+	b=U+3IIXWK1xtFRSMz3ntK5nUyElIy8FlDEa5GlUkne7JgAdhEsIN1vqa6yi13m7bW4
+	 Azu4mcoDkxkZPQ1moxmPwTW78OtPDLj+Gahg3rXYRpPcNDg/zkD5Jf6PgEchap77Rk
+	 ywUFef3tQul8VK8qWwgfkJVCvn/UPjUvLxtGdqMkio/JdlWSchAEMmrqIGbvyfSH9o
+	 o7VPDrvNMaQxZJ1MntH1zsRzBWlKcI/c1Vzq5yzCBgP8of4yT6+LhFdPP1psFKz8ZC
+	 q2Rp2WW9wOjXQCV6Ca8ArIUbgXC/4Wjl/H0Vc9R8eBoZnamdeCUFFgw5dZmT1Sv74f
+	 wgPg3NGK+RCOw==
+Message-ID: <7d4ec7c9-c95a-4e7e-9750-f6310ecb59fc@kernel.org>
+Date: Thu, 5 Jun 2025 07:51:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: mailbox: Add ASPEED AST2700 series
- SoC
-To: Jammy Huang <jammy_huang@aspeedtech.com>,
- "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
+Subject: Re: [PATCH 1/4] arm64: dts: imx95-19x19-evk: add adc0 flexcan[1,2]
+ i2c[2,3] uart5 spi3 and tpm3
+To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+ "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
  <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20250604125558.1614523-1-jammy_huang@aspeedtech.com>
- <20250604125558.1614523-2-jammy_huang@aspeedtech.com>
- <e27f3ea6-943d-4d78-b4d6-85d0dd521fe7@kernel.org>
- <TYZPR06MB656866677C78C34A5AFDC985F16FA@TYZPR06MB6568.apcprd06.prod.outlook.com>
+ open list <linux-kernel@vger.kernel.org>
+References: <20250604200301.1192096-1-Frank.Li@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,13 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <TYZPR06MB656866677C78C34A5AFDC985F16FA@TYZPR06MB6568.apcprd06.prod.outlook.com>
+In-Reply-To: <20250604200301.1192096-1-Frank.Li@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_224808_090106_B55BC16E 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,24 +123,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/06/2025 03:44, Jammy Huang wrote:
->> On 04/06/2025 14:55, Jammy Huang wrote:
->>> +
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>> +
->>> +    mailbox@12c1c200 {
->>> +        compatible = "aspeed,ast2700-mailbox";
->>> +        reg = <0x0 0x12c1c200 0x0 0x200>;
->>
->> Last time I asked to test, you responded you will test. What happened?
->> You did not test. This is just disappointing.
-> I did test for my last patch. In the end, the errors shown as below did not include ast2700-mailbox.
-> So I think it is ok. I will check what's wrong on my environment.
+On 04/06/2025 22:02, Frank Li wrote:
+> +	num-cs = <1>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_lpspi7>;
+> +	cs-gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
+> +	status = "okay";
+> +
+> +	spidev0: spi@0 {
+> +		reg = <0>;
+> +		compatible = "lwn,bk4-spi";
 
-No, it is not ok and with simple dt_binding_check I immediately
-reproduced the issue (wrong addresses in example), thus you did not test it.
+NAK
+
+You do not have big excavator attached to your eval kit. Don't add fake,
+non-existing or incorrect nodes.
+
 
 Best regards,
 Krzysztof
