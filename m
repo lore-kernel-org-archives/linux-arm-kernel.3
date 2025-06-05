@@ -4,98 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285A8C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAADFC5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 13:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Of4vTHHo0c3fLH3Y13EMcDavOhIYjcqdwDcNmNcqIeM=; b=HQOvSLtWMSiLKnGoYv7GJHGH+6
-	706X7JOgN081L6ySyXYQTNkvmn+iL3/MYqh6XFx+LU9ooeCade2iVFJ+U3q4tFeJx/4WZ0R1oshYv
-	E+haP2cOlmGt8f1ui0nyKnfk0KvXJivONXcxGAq7y14QFFW/Woju1f/7oj/b+Q200VqU3lePVQgG/
-	Bv4BDbB73pi+BmMYuiaOswG+1ggj4/KPrh3gdB/pH8FaPoJJmwUmYpPXcbn/vV1sYANeKIREYx9Rt
-	6CqU2rWtaOkB36qEMdzdtsII0SiueP63XguA9+69VviudPiTV6gBFTXLszTcZGE3/ccLpS6xBbQZW
-	C0Ubyiiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FfxhwSOG/RM0gPvUyXeyOo3ZKbVYGqvyCyXESojdWoQ=; b=I8Bzw0/gmuTaVyFOvAGwSFDLkY
+	B7JnrK+FRRj616Q9Jsrozf7iIqD3a2U+ciktV+lK7T3FXASmzDLjkP5B02IV1/jBdK+nP0ODzX7rs
+	rljLLogCIzo6iDUwv7NNs0u0wDdRMdUG9qkEoHUI338sLMcyueRY7xzCMDRjAgIIHxjEC5L1TXC21
+	u89jLTK20JBUmaCdlUSkX9/7yGwlDdwNhVfHh2Ip6fpXHcAdSm8TB0Qs551zAAX46SbmKbgKFFw8s
+	TkflvH+VIjGFL0xR9zLR9oau7g+fLOPg2DvfNfyrVYtPeiGAIReTZ4qO1krsOPYgmXVKYrVRqTr8n
+	KkK0Sq5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAiX-0000000FelH-0uoO;
-	Thu, 05 Jun 2025 13:33:13 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uNAki-0000000FfE1-2Zsu;
+	Thu, 05 Jun 2025 13:35:28 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAYZ-0000000FcK4-2ygh;
-	Thu, 05 Jun 2025 13:22:57 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6049431b409so1533798a12.3;
-        Thu, 05 Jun 2025 06:22:54 -0700 (PDT)
+	id 1uNAao-0000000Fctz-39W8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 13:25:15 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-747fba9f962so873473b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 06:25:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749129774; x=1749734574; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Of4vTHHo0c3fLH3Y13EMcDavOhIYjcqdwDcNmNcqIeM=;
-        b=JP1iQrH4FBdJJsGWtgyf10Qu/As5c4P7QUjwTlZmpjW/7AKXXBI5HCzAYRotZ/zHrd
-         VZspK4lyKeZeUk7Eo+2m4gbIKw+DHi+9qKujPjUSfmGRiDWmoCrukBrbWWZYVcwQEyVX
-         I58dNHJnZHcgtndAlcE5IdsPBdnH6zbPh/hUBoZqlB0TMFsdjHA27YtdSy8VSBFBgFWH
-         BUg4sus68bkyEI0IQ3KTHlLcQ7xzUqC3dhgI42pabitGBud/HV4M/7GYPPxoQSOTLioO
-         YWRszvKM9R+xZHX/1cDx++2HCPQM/MJrPSzFN7AmQoej8zVLfideH2VZO3muf8JQzjWL
-         J9KQ==
+        d=gmail.com; s=20230601; t=1749129913; x=1749734713; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=FfxhwSOG/RM0gPvUyXeyOo3ZKbVYGqvyCyXESojdWoQ=;
+        b=ByXS8FjlY+zs8QXqQ8qIvmytl8gxSnKBM92LVwX3kEegw1r2heCLxZQ4T9hXicGpat
+         iWPUXdqg80hbH4JyRtHvzOT1Mm3u9yO1QQw/FNyhAmgINQEKRYekTtksDXiVJ2l/0aRK
+         CRxvmwweYtgdTwzz6qiVQ+Olx1mgBero1CzOy0dbi8StZeG8DXPp2gEVE1Yr4DWWOutV
+         04LxZmrltm1tezrRWPYjEb7tpI2oOMPhP0eQ8VOHRto7VBLeHAUgIxZml76HK2H0Y1ob
+         xSjhUUAC/0Qm4zw1XY7v6BwRgXt8ALkRvVzyL4rNpJxppkyM/eTCplkvR32AyIjFYbIw
+         KI2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749129774; x=1749734574;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Of4vTHHo0c3fLH3Y13EMcDavOhIYjcqdwDcNmNcqIeM=;
-        b=UOpzbl2YXt1vq1cEr7Mxu9eA+oed3wgbgYaZHruf+v94cfsCM7wSNemyBSTL88FSpm
-         XdJy2XU6gmSyObVp75vV5jiQYy5vvXG4OJoeR01iEmLgXj4DpW7muXZ50xu2zXJK5G+O
-         IiWqQnvGzGyKbMcjdOnl1GhISfbx6SeptIC0my6eqKeUnFXOG+Ke9i2AhrJVGJ0yVtfj
-         UNAXj4tGr8bIwPl7rxefD4odYit+Yqq52ZknIlL99/gGPat7++pTm+q8R0H2MyePVyYE
-         HtnjUwG0LxPoSp42/YPP2vuNDuAjgxN2vZRdJFVR6ynwXbOD1LVCCY+HzRG+0zNzkAG2
-         hqsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxSEVZ3YDWVEy/EZD7nlb3D3IteHJ+ldShKxkY5EWQt/rpU4kW9eKyX0XYdLboao51jBfBkj802es6Bxn8lnNq@lists.infradead.org, AJvYcCXHmDOTioW3J7pu4vQADMka6/dgNlFyRYZtSG3srmlsfD7aUhOjC6lUM0dWKt8eWxUOXlaUbwpaWiUI8jiFq+M=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAQMNqnR+nujaeUOp82oNH/ftZR2dGOQRC8XQgBYS3cfkAJu29
-	XEzZtOIdKj6j6gzpb479tI/U+bYPusq0Hd4a8by2jzTteMh+KK366AMFti2DOw==
-X-Gm-Gg: ASbGncuVk/7z3xA3Qg6hI8vVpQ9i8zy5MMrOEmMRIBha38zl3f2frHLkJ4e0HwkoaWv
-	9fjL8QAEtOswUokFmLg17GqjnjUX+sWPEeucPW8vYhGAi12MsgHidAAl8Z1SdCh5J2cvQ/s2Hpf
-	LwxgBj124x1CUCLN9BPJQnq/tjAOcuTXSRE7lHevs3k+dVM2d0VncUS+fJYdKES2pOxCZMHiG+0
-	S7niltnNa13vBRPB5P1rssxkQKPCZ0vKu5kfWx6zUc/Yhbwnb1ZEkUPHETG02MpofjRLP2pDGJn
-	mFlXuLTBPXX6GRMgiSQuT+zMC3CNgOYeSyIY9VD4XlN2AP1QbwhBBVB2WN4XpXwg25cu6/A81RU
-	=
-X-Google-Smtp-Source: AGHT+IFzTwW0TcXzPL/9HV49c8h7szVsDRMxjGRBWs1/HHxFZV/8F9GvGOd1FZ+sNDL/yaa7WrK/WA==
-X-Received: by 2002:a05:6402:358a:b0:5f8:36b2:dc1a with SMTP id 4fb4d7f45d1cf-606ea17a74amr6862983a12.16.1749129773399;
-        Thu, 05 Jun 2025 06:22:53 -0700 (PDT)
-Received: from smtpclient.apple ([89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6073d367974sm313209a12.70.2025.06.05.06.22.52
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 05 Jun 2025 06:22:53 -0700 (PDT)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
-Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM
- Sige5
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-In-Reply-To: <CABjd4Yx05SCm+03jWbsEP-A5AuhL14wLj=+VdKyQgqMbnxi3xQ@mail.gmail.com>
-Date: Thu, 5 Jun 2025 15:22:41 +0200
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <512E950E-E8CB-443B-8E47-79F073D217E8@gmail.com>
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <20250603-sige5-updates-v1-1-717e8ce4ab77@gmail.com>
- <6656934.DvuYhMxLoT@workhorse>
- <CABjd4Yx05SCm+03jWbsEP-A5AuhL14wLj=+VdKyQgqMbnxi3xQ@mail.gmail.com>
-To: Alexey Charkov <alchark@gmail.com>
-X-Mailer: Apple Mail (2.3826.600.51.1.1)
+        d=1e100.net; s=20230601; t=1749129913; x=1749734713;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FfxhwSOG/RM0gPvUyXeyOo3ZKbVYGqvyCyXESojdWoQ=;
+        b=jf80HsQbesmLaqQ7NXuRVahzIuL9AoxZo+EwiAprndKRAx6w0VzLGalhO+5fIEqcco
+         If2cWbAozLCukU7eU3pJlIWMw7PDwB5Hk7eqyQ1Ll8Nv1VkyDx5RoffbOynGLvWtVbrT
+         TXR2KZScTjXV/xeYQtdoMIYL063pkivQJR4dktMSo+ZLhagXpnDsUHRiUA8E91E2Zs6/
+         cPx5zYyvbaXw5G/nCeQtcp9JaR/7vdDcSJLb++HnKHKGJDS+DOHNUjdSRMbBENKadud8
+         6VWYd1E/ggGEQGRKHQwdc4RTZKH4YAXRLTFB/JNlu1fXkDY+NvEmMV20VFBApQkTwrow
+         ri5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUjzoDu96R0iUe9JJAGCYeyvyHfPlCcxZ/TT7TpjN+ysCti9yimvpEAR7plU5OBZZiRMnnGwpL3yH5tfIhbLGkT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXuYvMVoVw++e6oQEfCgTSBO7qCcUTH7ZfB85L2orIrO7lGZ0G
+	utfKQLTuL+LB7nK50r7e8I/MB84u7Oekvs/i9DAmdZM9jWv/vIVuloLH
+X-Gm-Gg: ASbGncv/enonigbhqa/q4Nd7ZnRhkDa9FXa3OlRRX/LcpRBpex8MnBqCs0fHNAyHBVc
+	uQidMmQ+ACZVE1XEpR8/IO7eSew+ZmVLncdsVEkrTdLMrcYdYP2vr+HRf8HZ2wDh/rsJLdNljzt
+	cWzpJUxQfn/KF/+JN6e0dRmXcLSRllMwLYxf4MMLlPhMdXYDC8tGBVvemH4DFgCyXDef2g0VC9u
+	qIqiXZ4SY5e29YaXtsOdml1TZKIlXjODoNXUM+q92TEmcAdH2iZA3K2MkMaxkPyNe0+QBNw2feu
+	PBQwSq/3VGnEPkb62MuzIqBNZ2GJJpGBn7KuZ6N2ROKyr5AvMw==
+X-Google-Smtp-Source: AGHT+IHQGzKHWpB4RSPbdx58AntCVZ2keB8gOeLail6WPggKiKp/eXtko5QLgS4IoilLjWPFK9AAoA==
+X-Received: by 2002:a05:6a00:c83:b0:746:2ae9:fc49 with SMTP id d2e1a72fcca58-748184ab829mr4203417b3a.9.1749129913242;
+        Thu, 05 Jun 2025 06:25:13 -0700 (PDT)
+Received: from hiago-nb ([67.159.246.222])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747afeab79bsm13234842b3a.50.2025.06.05.06.25.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Jun 2025 06:25:12 -0700 (PDT)
+Date: Thu, 5 Jun 2025 10:25:07 -0300
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	"Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
+ pre-booted remote cores
+Message-ID: <20250605132507.2td5zlnlapraoggn@hiago-nb>
+References: <20250602131906.25751-1-hiagofranco@gmail.com>
+ <20250602131906.25751-4-hiagofranco@gmail.com>
+ <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_062255_749269_03944730 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20250605_062514_812681_94ED9991 
+X-CRM114-Status: GOOD (  42.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,98 +112,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Peng,
 
+On Wed, Jun 04, 2025 at 03:19:52AM +0000, Peng Fan wrote:
+> > Subject: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
+> > pre-booted remote cores
+> > 
+> > From: Hiago De Franco <hiago.franco@toradex.com>
+> > 
+> > When the remote core is started before Linux boots (e.g., by the
+> > bootloader), the driver currently is not able to attach because it only
+> > checks for cores running in different partitions. If the core was kicked
+> > by the bootloader, it is in the same partition as Linux and it is already
+> > up and running.
+> > 
+> > This adds power mode verification through dev_pm_genpd_is_on(),
+> > enabling the driver to detect when the remote core is already running
+> > and properly attach to it if all the power domain devices are on.
+> > 
+> > To accomplish this, we need to avoid passing any attach_data or flags
+> > to dev_pm_domain_attach_list(), letting the platform device become a
+> > consumer of the power domain provider. With that the current power
+> > state of the genpds will not change, allowing the detection of the
+> > remote core power state.
+> > 
+> > We enable and sync the device runtime PM during probe to make sure
+> > the power domains are correctly managed when the core is controlled
+> > by the kernel.
+> > 
+> > Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> > ---
+> > v4: Changed to use the new dev_pm_genpd_is_on() function instead,
+> > as suggested by Ulf. This will now get the power status of the two
+> > remote cores power domains to decided if imx_rpoc needs to attach or
+> > not. In order to do that, pm_runtime_enable() and
+> > pm_runtime_get_sync() were introduced and pd_data was removed.
+> > v3: Unchanged.
+> > v2: Dropped unecessary include. Removed the imx_rproc_is_on
+> > function, as suggested.
+> > v1:
+> > ---
+> >  drivers/remoteproc/imx_rproc.c | 29 ++++++++++++++++++++++++-----
+> >  1 file changed, 24 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/remoteproc/imx_rproc.c
+> > b/drivers/remoteproc/imx_rproc.c index
+> > 627e57a88db2..6f9680142704 100644
+> > --- a/drivers/remoteproc/imx_rproc.c
+> > +++ b/drivers/remoteproc/imx_rproc.c
+> > @@ -18,6 +18,7 @@
+> >  #include <linux/of_reserved_mem.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/pm_domain.h>
+> > +#include <linux/pm_runtime.h>
+> >  #include <linux/reboot.h>
+> >  #include <linux/regmap.h>
+> >  #include <linux/remoteproc.h>
+> > @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct
+> > notifier_block *nb,  static int imx_rproc_attach_pd(struct imx_rproc
+> > *priv)  {
+> >  	struct device *dev = priv->dev;
+> > -	int ret;
+> > -	struct dev_pm_domain_attach_data pd_data = {
+> > -		.pd_flags = PD_FLAG_DEV_LINK_ON,
+> > -	};
+> > +	int ret, i;
+> > +	bool detached = true;
+> > 
+> >  	/*
+> >  	 * If there is only one power-domain entry, the platform driver
+> > framework @@ -902,7 +901,22 @@ static int
+> > imx_rproc_attach_pd(struct imx_rproc *priv)
+> >  	if (dev->pm_domain)
+> >  		return 0;
+> > 
+> > -	ret = dev_pm_domain_attach_list(dev, &pd_data, &priv-
+> > >pd_list);
+> > +	ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
+> > +	/*
+> > +	 * If all the power domain devices are already turned on, the
+> > remote
+> > +	 * core is already up when the kernel booted (e.g. kicked by
+> > the
+> > +	 * bootloader). In this case attach to it.
+> > +	 */
+> > +	for (i = 0; i < ret; i++) {
+> > +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
+> > +			detached = false;
+> > +			break;
+> > +		}
+> > +	}
+> > +
+> > +	if (detached)
+> > +		priv->rproc->state = RPROC_DETACHED;
+> > +
+> >  	return ret < 0 ? ret : 0;
+> >  }
+> > 
+> > @@ -1146,6 +1160,11 @@ static int imx_rproc_probe(struct
+> > platform_device *pdev)
+> >  		}
+> >  	}
+> > 
+> > +	if (dcfg->method == IMX_RPROC_SCU_API) {
+> > +		pm_runtime_enable(dev);
+> > +		pm_runtime_get_sync(dev);
+> 
+> Need put and disable in imx_rproc_remove.
 
-> Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alchark@gmail.com> =
-w dniu 4 cze 2025, o godz. 21:12:
->=20
-> On Wed, Jun 4, 2025 at 10:38=E2=80=AFPM Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
->>=20
->>=20
->=20
-> Frequencies are fine, but I don't think the more power hungry big CPU
-> cluster gets any voltage scaling without it. Once I try to load the
-> system enough that the governor decides to bump the big cluster
-> frequency up, the regulator stays at 850000 microvolts, causing random
-> reboots when the whole cluster starts starving. With the patch,
-> voltage oscillates between 700000-737000 microvolts in idle and jumps
-> up to 950000 under load, and the system seems stable.
->=20
-> Here's what I used to monitor the voltage (there must be a better way
-> to do it, but it works):
-> sige5 ~ # watch cat `grep -r . /sys/class/regulator/*/name | grep
-> vdd_cpu_big_s0 | sed -e 's/name.*//'`/microvolts
->=20
-> And in another terminal:
-> sige5 ~ # stress-ng -c8
+I will add it in a v5, thanks.
 
-Alexey,
-I see you are using rk3576 board like me (nanopi-m5)
-Have you on your board correctly working cpu dvfs?
-I mean: [1][desired clocks reported by kernel sysfs are in pair with =
-[2[]cur clocks?
-In my case i see mine cpu lives totally on it=E2=80=99s own with dvfs:
+> 
+> BTW: Has this patchset tested with M4 in a separate partition,
+> saying M4 image packed in flash.bin?
 
-Requested is [1]
-Running is [2]
-Measured is [3]
+Not yet, I will prepare this test today and let you know.
 
-random read 1:
-Requested CPU4: 408 MHz=20
-Requested CPU0: 408 MHz=20
-Running CPU4: 1800 MHz=20
-Running CPU0: 1416 MHz=20
-Measured on HW: 1579.03 MHz
+> 
+> Regards,
+> Peng
+> > +	}
+> > +
+> >  	ret = rproc_add(rproc);
+> >  	if (ret) {
+> >  		dev_err(dev, "rproc_add failed\n");
+> > --
+> > 2.39.5
+> > 
+> 
 
-random read 2:
-Requested CPU4: 1608 MHz=20
-Requested CPU0: 408 MHz=20
-Running CPU4: 2016 MHz=20
-Running CPU0: 1800 MHz=20
-Measured on HW: 410.33 MHz
-
-random read 3:
-Requested CPU4: 600 MHz=20
-Requested CPU0: 1800 MHz=20
-Running CPU4: 816 MHz=20
-Running CPU0: 1008 MHz=20
-Measured on HW: 2275.07 MHz
-
-random read 4:
-Requested CPU4: 1608 MHz=20
-Requested CPU0: 1200 MHz=20
-Running CPU4: 816 MHz=20
-Running CPU0: 816 MHz=20
-Measured on HW: 2114.58 MHz
-
-this is on rk3576
-on i.e allwinner h618 or rk3588 all looks quite normal - [1] and [2] are =
-equal... =20
-
-my scaling governor is on_demand - so for sure clocks are dynamic - but =
-i.e. on 3588 with the same binaries - i can't catch -at any random read =
-- that requested is not equal to running while on 3576 almost any random =
-read gives significant differences.
-=20
-[1] scaling_cur_freq in sysfs
-[2] cpuinfo_cur_freq in sysfs
-[3] code to estimate arm cpu clock from =
-http://uob-hpc.github.io/2017/11/22/arm-clock-freq.html
- =20
-=20
-
->=20
-> This might warrant a note in the commit message I guess :)
->=20
-> Thanks for your review and testing!
->=20
-> Best regards,
-> Alexey
->=20
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
-
+Best Regards,
+Hiago.
 
