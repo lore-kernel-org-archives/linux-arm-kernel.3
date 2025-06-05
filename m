@@ -4,68 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593E7C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 22:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69FD5C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 22:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBnPDe0pdlHxZsoSWMILi5Eye5T7J8KUuxzbghc/g+Y=; b=kUrEq9kMcXR9LDRCC8bmHqx+dK
-	sv+NsCNKniU//6NtJgvw11E25ns+79AQdoANyd1iRLQDyJ53nJvBNDqFTspzLlTyXZrmWckAy6TPV
-	uiJvhpkAjzdCFX8GfeVjZNnMv3G2cg2uHe5bVm+gYVmdjC2yNmlaiz2lbOkFQVSgYqfPNbxlgKE0O
-	KUovfuP61v+C74yP4mC71NvFrvs+L9W5l7QbvdrK8Zef7qyCPMV0QmF9zSSVp6gjgVFxHXrrbtgT3
-	b4yORVF/Z1EX//B+6Kr+Cf2vrlfZm706V2OZBhtZrLLaJjigHSP0U7W7kYosGixw963/TTf7e2kCJ
-	E/QhM+KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q5468u4m8pLTcYAildW7Ghv+ZFxFp/ImHQGuCTAzbeI=; b=TyQGgOgNZATm2qJkNIp0MYX6mV
+	89GwnvNTKZiEO1aQj9xsd+JWXx6QJjA1NIkRqsqyqqZk4MJ+eEuYOXpbTKNmEnt73QoSU4BN+n1BQ
+	tXBJVYGUWLaqHa1mb96mbjM1JuH3AKegzSz5czoxgKcBW/WLeSouImlao0ruuosUh6PFktQbm2D3A
+	w0NsGdJKbtZkJOU5Rs27P8paZGHJqAYH6Q/I8h+mC4FOfwzPF9LVlp053GPKa/MBdW3XsIS1zZ2aJ
+	Q4sF1bGBn3FsJD55bvHSRo7lXBF4BUPyDTNmrfFaIJuTOOdTnuJkx1VFDjlXjV5o8G0s99y2ywunU
+	6bZfCpsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNJJU-0000000GkPx-10n9;
-	Thu, 05 Jun 2025 22:43:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uNJLg-0000000Gkoq-1moT;
+	Thu, 05 Jun 2025 22:46:12 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNJHK-0000000GkDg-2cz2;
-	Thu, 05 Jun 2025 22:41:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A62D46154E;
-	Thu,  5 Jun 2025 22:41:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE720C4CEE7;
-	Thu,  5 Jun 2025 22:41:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749163301;
-	bh=hIS2pQctSMpFIPaTq3L1zuxzZbTTneZFumBe8jVekkM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tuTWCTNvhw0Qv8ZeFQeiEq6lkY864n1iROVB2/iNWkI3ajSPoxBdSWAJ+c4I0QWK1
-	 LnMJMP/VRfRUF+fFTdkk2kOzj+cluF5kO++6SGxTpvEAQUP7/lEcnDO/q94sdply0c
-	 dz7ZfUr5SZ5S8PEhqa1FvnnBTlYwwzgfx15boVFjqQEM/KMmSk+o/50AElgPC8TQig
-	 +6IdQbf/WcBznprlXZMiPrMJ11Hj1JrlrlfD2JPWKTutdM1XYGpzjzWVn2Yni35d8V
-	 0pYCBQUWwlHq9RqsAuVGbcYhAltRNSkhExMYa/li+z5wjIQzLGXTnp2vEgrMe7DgVV
-	 sN/V6lJhkmVHA==
-Date: Thu, 5 Jun 2025 17:41:38 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>
+	id 1uNJI4-0000000GkLE-0kOk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 22:42:29 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-234b440afa7so15892345ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 15:42:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1749163347; x=1749768147; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q5468u4m8pLTcYAildW7Ghv+ZFxFp/ImHQGuCTAzbeI=;
+        b=Omk9HXkOrlD8UO5jTJ8cSpyO896OGuyTK03rYVp7PrV7l6LrgpfGAbMtI7McrCJNSs
+         xL/3v/S9qhF3WsuGt3kqbrKl66GmVjT5HdKBOwxyTwsuy7ZDARJIW5tfpdgzQfwiUWdM
+         0L3KoFAmo/0FmEokr6Uw3iF5N9QzmAHKemZlk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749163347; x=1749768147;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Q5468u4m8pLTcYAildW7Ghv+ZFxFp/ImHQGuCTAzbeI=;
+        b=NZHx+f4/EvyUgTEoxn4thZSF7aWvJ4u4C/KLFOve+5+WETSbi+h0fdwowT8hIfUXWq
+         IG/vTO6WTe0MJHWbccc2HAdt0kU8dMythfsZMScpUMKrJ+EmUXn7fNL0wvYe9HoCbmVT
+         z4IJziRveof3LqEx1gqRU7CzKYTkNt7FmS72AmuRrEGtynAh3IoUhksM3f8ZwA182kyr
+         6hHMTU36hiY1rSsnNdFi+CncTk3wpgL1AKIYzsFj/yBth2JGoNJF4R9BYnVUBIgp44B/
+         8Y7H0xXlwtSF5gTr5UwusITHgGD7m6Ooy85JHyJ//EZ5tw+bftLcSz2DsqrapbXpEsw9
+         7GOA==
+X-Forwarded-Encrypted: i=1; AJvYcCVXM9LTafNlnJGojalO7rw1qEBfr23L3YyUUg48DbQGoz6anisxuqr7cRdZxhyEl4llYKOjxlZ+XOtp7BNCssVA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUS9xiCzmgrmd9DalVBXt2AuVYbmTwWkF6FpBocQ7TRjJWeRwu
+	gkh5vYDBlyTxTo3z+czwVWbD4uKAxn3rHWHE0gSh+jNTkApJMgn0brt8/a+LnmCrow==
+X-Gm-Gg: ASbGncs0Ei9d0c/Ws/uZdSuZ1zoCzJA6Rny7E+dR/41M2P9XiSEwgH918YZFI8nzEij
+	JUNnll8d7vuzHR2v38rMJ275glitCyIqCCR3WGnRUib51TghvwA8Xd7mBgBirKcpFabsliIEFhN
+	A6EW/yw9er7m4YSXHq4pplUb458bU6gE47gcSJfkp26yJWjryNR0/Xm6hT/5O3a76JWSndY9zin
+	HeCvBrANagMqXEkanuHmzD7ICGLtXYhpfBC413B1zCssIFigq9L3cQdyfOB0VPAR5adiazlILyg
+	2KJXKVppOnE0GBgzBSr5wI79quQCscyC6fcAOGO3iMensA7Bj5NNX78KZ22LIl4OgVbwB+34hGu
+	REN8tyITAPTroRfw=
+X-Google-Smtp-Source: AGHT+IHHHFpE6BSf2Tcrq2DmOOYCDTLBu5+JqxnkzhVqzpPGSyscTwfKDff0mEiWe3sKIkDAXlZjpg==
+X-Received: by 2002:a17:903:1245:b0:234:8e54:2d53 with SMTP id d9443c01a7336-23601da9ad1mr13792835ad.45.1749163346985;
+        Thu, 05 Jun 2025 15:42:26 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236030926dcsm1157345ad.65.2025.06.05.15.42.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Jun 2025 15:42:25 -0700 (PDT)
+Message-ID: <91ba9f70-3e8e-46f4-bd77-36abb8fae850@broadcom.com>
+Date: Thu, 5 Jun 2025 15:42:23 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/2] dt-bindings: PCI: brcm,stb-pcie: Add num-lanes
  property
-Message-ID: <174916329542.3386220.14917608144191847883.robh@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
 References: <20250530224035.41886-1-james.quinlan@broadcom.com>
  <20250530224035.41886-2-james.quinlan@broadcom.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250530224035.41886-2-james.quinlan@broadcom.com>
+ <6c3ec1c3-8f62-4d76-86d3-c1bbe3e1418f@broadcom.com>
+ <2f79ae4e-6349-472c-b0cc-ea774b8ac7cf@broadcom.com>
+ <CA+-6iNz48EFUGUOiHCSaqgsU_tKGV1=Xvw4fjoUS_AMhUHAi6w@mail.gmail.com>
+ <3037cd65-89e8-4029-9ee2-4695db5987ad@broadcom.com>
+ <20250605223603.GA3375348-robh@kernel.org>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250605223603.GA3375348-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250605_154228_268939_185EC398 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,16 +151,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 30 May 2025 18:40:32 -0400, Jim Quinlan wrote:
-> Add optional num-lanes property Broadcom STB PCIe host controllers.
+On 6/5/25 15:36, Rob Herring wrote:
+> On Tue, Jun 03, 2025 at 10:17:26AM -0700, Florian Fainelli wrote:
+>> On 6/3/25 10:16, Jim Quinlan wrote:
+>>> On Tue, Jun 3, 2025 at 12:24 PM Florian Fainelli
+>>> <florian.fainelli@broadcom.com> wrote:
+>>>>
+>>>> On 5/30/25 16:32, Florian Fainelli wrote:
+>>>>> On 5/30/25 15:40, Jim Quinlan wrote:
+>>>>>> Add optional num-lanes property Broadcom STB PCIe host controllers.
+>>>>>>
+>>>>>> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+>>>>>
+>>>>> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+>>>>
+>>>> Sorry I take that back, I think this should be:
+>>>>
+>>>> num-lanes:
+>>>>      enum: [ 1, 2, 4 ]
+>>>>
+>>>> We are basically documenting the allowed values, not specifying that we
+>>>> can repeat the num-lames property between 1 and 4 times.
 > 
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> ---
->  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
+> Are you confused with maxItems?
+
+Yes I am.
+
 > 
+>>>
+>>> num-lanes is already defined as
+>>>
+>>>       enum: [ 1, 2, 4, 8, 16, 32 ]
+>>
+>> Right, but then we need to re-define it with our own specific constraints,
+>> still, don't we?
+> 
+> It is correct as-is.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+Thanks!
+-- 
+Florian
 
