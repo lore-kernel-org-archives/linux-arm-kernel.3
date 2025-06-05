@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94646C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 12:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C03C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 12:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b4ChSjx4fk69gfHv1GMVRwlzOo/IGJIW9wvLwq+kdsI=; b=NYCBgP4QnkEWSvyv2hBOTk2ypY
-	OdDqNHwqIANWPsfWu4kaDjfIq9tWIK25wcZvw/cndrpRV8XrSQFGo3sWjmJUKfJMZPuPbbuTJuaNr
-	5Zid58zd09roC+5ASwKY3aquFRqQXMXrRbL1X0Z9W6iRjxE0i5xGjxmGV3FINjvJ/rBrLxFjsO1kr
-	yHpyIUoS/+UTtekZb4y9uy+vbooIl1pNuxjumJKHCEvINqHtUZNiBSNLCclzOT9W7IDJkEirzcBjL
-	0iEjh8Xc9qudd0BhEvX8I/YtpKswytyuQbQRVeQPKojjBDydJFjrPdLe3m9g8ksW3gQzZlX3iyqO9
-	k+VEAgMw==;
+	bh=MHytYTBz8Jqox6VQpT16hfvjWmYP5f5ufAlb0eIhBvs=; b=QFVuqDEpgB3jTelIqyZw5jb6bK
+	2uJb/ewyxWfiimoTULKgii6Wow/N2IBZN6M84U0Uj9H1hjQ25sIF8v4J1Eju3/Qrs6xJNwuw8Ja4c
+	/hpYbHqN6wqRu+f91Q7Tkb1+KJIsbqnnheCpapPxItRQE5/3rABCexyHnKSRCmcQRPrTZM6OyfyrU
+	PTN2WnicPGaFX8S5BYaCrHZ+cY/PGv8OGRtOaXNmw9V1E3yBeud/lYTjDaovVHm7N3PQU7DcnEkj0
+	23QEJ9Jqe/q40rLZoqEAPxy4KNqGERUZyK7sMjK8eljoEyEZIJAzu0xs5UWB2osu2HS9Wzve2Lrp8
+	teBbxEeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN9tb-0000000FUsf-2upG;
-	Thu, 05 Jun 2025 12:40:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uN9vl-0000000FV78-3SEQ;
+	Thu, 05 Jun 2025 12:42:49 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN9iD-0000000FTj3-0tRr;
-	Thu, 05 Jun 2025 12:28:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D0D3EA506E7;
-	Thu,  5 Jun 2025 12:28:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80FADC4CEE7;
-	Thu,  5 Jun 2025 12:28:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749126527;
-	bh=OsTzD+oORNTzhAZmxmT/ueCMxPcm05WUBUz9VWZM/PI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g2s7MXZrn6Og/9t2StYKytwNqM8xht9QkdPBaXhclk+Rpfm8jYQGfNh+/87G9Z7Aj
-	 bUjNTQDxBwTbexMFcNXzCn/g2ap8mMmhubkmnKRIcFwa7OM2PqvMrSk+Cb5DhL05VG
-	 RUNxClMieuWFyzVnIeyEAYVQVdGLK1B33ObOk+791RlcHnjPIbuKqV+TU7+ghzBphh
-	 BS/IkXrrg40u2+6oU3XMvhlPhqFNhgW7EwLTg3XwTJq+IDQPbJixpzZCQmwoPv528A
-	 /98ac8Rix/Iw+xCS0pULxLA1GOPJnaZCWjLb12W3cq0O7Q1ODGUZHPfWTnUfC9KkDR
-	 8jNrzYlOgItEg==
-Date: Thu, 5 Jun 2025 14:28:41 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Hans Zhang <18255117159@163.com>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <aEGNefEgf56P-mBM@ryzen>
-References: <rrtrcwajj4vjvbqzosskdnroqnijzaafncgckoh2dlk3c4njvs@twop3vyidmh7>
- <20250604184445.GA567382@bhelgaas>
+	id 1uN9jT-0000000FTsY-0xCJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 12:30:08 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4a58f79d6e9so8772201cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 05:30:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1749126605; x=1749731405; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=MHytYTBz8Jqox6VQpT16hfvjWmYP5f5ufAlb0eIhBvs=;
+        b=K05BOL6aoyxh9bEzSmTM5Q2pomeewBavpHGxuS5WrCHkRIBNrR7CKjz7ayEY+rnx19
+         gaNjg3rAeLaaaXc/T5H7c9lTiLTGDjaPC1ezOso0+6OITL/435+WIoQM9MfOHtZw8wR4
+         kSon4RzguMCdMCr1mySX6eWhnZ6tY8V9fntyPFkwVTHAfvPFwT0xK1QLSPECDGLLoP4w
+         1bRRmjwGGOwmGkgaSNyUUvKOla8eTSNlhIOBPQqraeXrKxJ0BGjBpDdI0NUQ1ab3yBUf
+         L/so/0or5zdnRnIrrniZOjxgvuUmdcymtSl2F5Dl2BDAUlcQcpCEYPTkSOe/Xp3LnO7v
+         fnoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749126605; x=1749731405;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MHytYTBz8Jqox6VQpT16hfvjWmYP5f5ufAlb0eIhBvs=;
+        b=t5zVeAS7QVWHUfnRzw+G6kYV8zMDTvCzWs7su0k3le0HmvCVyixipQ1sBonKyu7OEu
+         MhnJAaq6/LByjSrO0nllEBRlPWiMd2KbN+jUP0AzV/0ark7ncqkLLB9vANmC75itzJ9l
+         Gjf+tWQGPBa/dZSvYBLaJyn0Z1yYjAbIaLj7d+TEFsq+ufwnMFTxr8f5Y3Mqe2eMSE1B
+         tXv4NN+Yfps0kogX4ki2pm5iJL+wR48kII6dPyICvjhC81+Rttd+o9uKzZEDiLKEfHDn
+         WqJJgU0uMrVq3aCUvgs+kffDOjte1UMpc6dHJaomvBc/lTLVOtcOUYnC/vJTR0Xk2rHf
+         N9bw==
+X-Forwarded-Encrypted: i=1; AJvYcCWSxRbAnoyzl+lQ/8XP/fG5gWxJDeHph7iuycVX5pEuWvSuhliL4r3mF7Z+u7ojA+pcGVpokFY94Ud3ki3Lx/7Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuHB+7ui4y6XUIhBzNxIdq2JFAS5a57svLGE1gZZ6Et0u+6WMq
+	25ANgKLqXACgiVi2KEd/5uI95lIodja/nzf3+eGQ08zotrJ52lrNPMMPaxFMa5wCPm/tMDVymDy
+	YhVIJqQrwZV4QfzZwSRlTcOsdy8ZXDLd8FlqGWLr6gg==
+X-Gm-Gg: ASbGnctGqab1JEbCRcukocvE/QCazR/AJtG/14K6sGh5GpbueWzmjbQJ5cbv8+6rQie
+	TGM8aMF/2V+MJepg8s6FAH8YHG4gpTtxRHMDqYuYvSktuxdpYTEvVMV1ytacnZqxRVaCAmuuBTV
+	fg/Y4R/wAp1NzOL8OcXim/BcVVFiLg704=
+X-Google-Smtp-Source: AGHT+IGJAH4AP5XYgqu4Dz9W2BoN5h6LEeBf/9Q8A7vKd11Zim4MAapYM0SxBDOcqHNIkaF48u81Kw+0gnFTHvWWddM=
+X-Received: by 2002:a05:622a:4010:b0:4a5:a5df:a95d with SMTP id
+ d75a77b69052e-4a5a685bf82mr117127441cf.4.1749126605571; Thu, 05 Jun 2025
+ 05:30:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250604184445.GA567382@bhelgaas>
+References: <20250604-6-10-rocket-v6-0-237ac75ddb5e@tomeuvizoso.net>
+ <20250604-6-10-rocket-v6-6-237ac75ddb5e@tomeuvizoso.net> <CAPj87rPv7Pd5tbXhpRLaUJCGB8JmD4kfF50WRsEiST2gvtg3Bg@mail.gmail.com>
+ <cc21a090-801d-4b32-bac2-01cebf896c85@arm.com> <CAAObsKDMhuqYtn=+xR6-n=Uk+5_rU91OqVKyQ5cxhqfTo5svjg@mail.gmail.com>
+In-Reply-To: <CAAObsKDMhuqYtn=+xR6-n=Uk+5_rU91OqVKyQ5cxhqfTo5svjg@mail.gmail.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Thu, 5 Jun 2025 13:29:54 +0100
+X-Gm-Features: AX0GCFvvNcCeZ1g6JOrd8mRl54fhnHPJ-VauKDXwMUlQ5VUcNOU5PCV9zv8SWHk
+Message-ID: <CAPj87rOKGcufM0xB+uMCxhs0SdXCHpViyTd+jQ0+=B1kSihvVw@mail.gmail.com>
+Subject: Re: [PATCH v6 06/10] accel/rocket: Add IOCTL for BO creation
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Cc: Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Kever Yang <kever.yang@rock-chips.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_052849_318288_98831719 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20250605_053007_418040_B5ADAE1F 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +98,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 04, 2025 at 01:44:45PM -0500, Bjorn Helgaas wrote:
-> On Wed, Jun 04, 2025 at 10:40:09PM +0530, Manivannan Sadhasivam wrote:
-> 
-> > > If we add a 100 ms sleep after wait_for_link(), then I suggest that we
-> > > also reduce LINK_WAIT_SLEEP_MS to something shorter.
-> > 
-> > No. The 900ms sleep is to make sure that we wait 1s before erroring out
-> > assuming that the device is not present. This is mandated by the spec. So
-> > irrespective of the delay we add *after* link up, we should try to detect the
-> > link up for ~1s.
-> 
-> I think it would be sensible for dw_pcie_wait_for_link() to check for
-> link up more frequently, i.e., reduce LINK_WAIT_SLEEP_MS and increase
-> LINK_WAIT_MAX_RETRIES.
-> 
-> If LINK_WAIT_SLEEP_MS * LINK_WAIT_MAX_RETRIES is for the 1.0s
-> mentioned in sec 6.6.1, seems like maybe we should make a generic
-> #define for it so we could include the spec reference and use it
-> across all drivers.  And resolve the question of 900ms vs 1000ms.
+Hey,
 
-Like Bjorn mentioned, when I wrote reduce LINK_WAIT_SLEEP_MS,
-I simply meant that we should poll for link up more frequently.
+On Thu, 5 Jun 2025 at 08:41, Tomeu Vizoso <tomeu@tomeuvizoso.net> wrote:
+> > Indeed if you're using the IOMMU API directly then you need to do your
+> > own address space management either way, so matching bits of process VA
+> > space is pretty simple to put on the table.
+>
+> My impression was that the VM_BIND facility is intended for SVM as in
+> OpenCL and maybe Vulkan?
+>
+> Guess my question is, what would such an accelerator driver win by
+> letting userspace manage the address space?
 
-But yes, if we reduce LINK_WAIT_SLEEP_MS we should bump
-LINK_WAIT_MAX_RETRIES to not change the current max wait time.
+I mean, not a lot gained, but otoh there's also not much to be gained
+by using the kernel's range allocator either, and it saves userspace a
+roundtrip to discover the VA for a BO it just created/mapped?
 
-
-Bjorn, should I send something out after -rc1, or did you want
-to work on this yourself?
-
-
-Kind regards,
-Niklas
+Cheers,
+Daniel
 
