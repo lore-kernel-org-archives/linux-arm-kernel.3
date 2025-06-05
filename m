@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65A3C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 18:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC545C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 18:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oy2pccGzUhIgcD/UNo48l/ttg+ASkC+LyrAMqWUjx+I=; b=aSDHRS5g5cPd/z6NhhmQaDcvkq
-	cKuRJdZv0EM+92ig6oMQKnZlItYngGr7YT4Up89nL7dYRVS01KXNtmOSVojTt19lbwdhDXaIRJjeb
-	AqVsMlp7k578dR/p/u3Xmk3mrZaPPhpEmom1rxarY8wJfJbLmUGKtWM1P31ayLIw38txGfXyU2IDo
-	aazvc7dBLU/034AxIZsPgK0G7jsd+EmGET8283BZvEawOKuJtJJ5xQlWPhFt3H0E1EMKAEDvB1dek
-	OcQmTl0QmQAU2/hPwG/HeTpA6kPXugoqMyzdtGHYIlVDvwRAzEvPpV2/1fAR2gluJPtIFxf69GMIp
-	TyvUalqg==;
+	bh=q8yOLhECqdBYlQDfblWUN872eg1h7k1HPEZxUfwmZ/o=; b=DYZPVWKS2Sk0oWzLgtKpAC/2wg
+	C2Y/gVjzQpfoDUOT1EGgrllTICkh76Zdn+IrqwTzKa0lNihUtv3S3yL0KX73wqukkjOME9nekPLf7
+	B0lox5Qn9OunQv22j+bdwMfD3AhHB4fVmPyj1ZyWEQRCsCHuCTGZcTy0UDqdNynR5q7JgPyA9ivnW
+	VjpN5bkzSDQJbtQWD2Ofpkbm9qYOR8NDRJrtfbqhUqkmKDgHUAV4N9fOEbzhZgm5HIce+r3VOAfiS
+	JoFEN2KiNkFVyHDW1wpHJnvaVODzzfiZ1W11ST+YiuniOrWDGmoDhZlExXtDVAVbJyWDnNmjfi++/
+	iVCrhhdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNFMH-0000000GFXy-0j6x;
-	Thu, 05 Jun 2025 18:30:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uNFON-0000000GFsj-2BXB;
+	Thu, 05 Jun 2025 18:32:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNFJV-0000000GFD7-2zjC;
-	Thu, 05 Jun 2025 18:27:41 +0000
+	id 1uNFKh-0000000GFKF-2rbI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 05 Jun 2025 18:28:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 05901629D1;
-	Thu,  5 Jun 2025 18:27:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83269C4CEE7;
-	Thu,  5 Jun 2025 18:27:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 66DC649BA1;
+	Thu,  5 Jun 2025 18:28:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF5E8C4CEEB;
+	Thu,  5 Jun 2025 18:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749148060;
-	bh=LrHf+kL0S4F64MAYya3xzRVnHNkRHGI5W4EOABOWHXc=;
+	s=k20201202; t=1749148135;
+	bh=SxpCD6ISZ6SNV7q5q5PMNqCiQzrvFjlEMuMk0hZKHNM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bS5w7tKC4ZHtosuXqgcOD8vuu3xDAr8tH1Kct+EUSeEtFzs1ul27YTsTfwMi2BBky
-	 oPfwt0xjFnvbuIEz+8wd9+nZpMTFAremPqjsm/6kB+/lWDD3CNJ76sa4yw+Uo/bIpF
-	 89UL9o7EJRFfGXkCo8PQYFhnM92tqNXyjXydDQNN+eGcvdYDGTHA4kpmPjPLYwcjDs
-	 560DTWQnPPNkWndioNb9k4+mkzX8FLcZOpenht3/J44lUV9JyiFSnpYczSrXqLo39X
-	 9vDUMwYMcTbtVpRVxOD5qzDiAH3Wc2zZoIzp6a76dFcAL3dxGa0vUnF93iiKhk33t/
-	 jRCvGbnMQmsnw==
-Date: Thu, 5 Jun 2025 13:27:37 -0500
-From: Rob Herring <robh@kernel.org>
-To: Irui Wang <irui.wang@mediatek.com>
-Cc: Hans Verkuil <hverkuil-cisco@xs4all.nl>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
+	b=hbr+e/HGgvpeQJh6yW6or2nZr4ZfFYL8fAZJYSY95Ear0/KmNWxkYyLIvzUGMiAKo
+	 Rqrplat/dc/fSpzFNnL+eGpPtowTXRuDVaCaS+923qM+9yvSlgUFJvRwnFSdMSRPsF
+	 NptqeeiElj4/OQ3F8jbVqleqAmV/ylOzkBSTVulWzH3f38dy1UO8foevSrzTkobRUY
+	 1xT0+n4M6rNB//nE0Jq/U5aFfcqqd99QYY7heY34oTr2zdOkjvB5UwdV68kN8ZmCmv
+	 pxtSBhmqWaCG4ItmEA9vwXR+1fKjuMd/H801aFoUcBd87s7KDveNiqTrDAIcU94Ymr
+	 pi6jvxByoOOWQ==
+Date: Thu, 5 Jun 2025 13:28:51 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Conor Dooley <conor+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	angelogioacchino.delregno@collabora.com,
-	nicolas.dufresne@collabora.com, wenst@chromium.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Longfei Wang <longfei.wang@mediatek.com>
-Subject: Re: [PATCH v2 5/6] dt-bindings: media: mediatek: encoder: Add
- encoder dt-bindings for MT8196
-Message-ID: <20250605182737.GB2983549-robh@kernel.org>
-References: <20250528063633.14054-1-irui.wang@mediatek.com>
- <20250528063633.14054-6-irui.wang@mediatek.com>
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev, Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	Mark Brown <broonie@kernel.org>, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>
+Subject: Re: [PATCH v2 1/1] ASoC: dt-bindings: covert mxs-audio-sgtl5000.txt
+ to yaml format
+Message-ID: <174914812962.2988981.13376867927592691613.robh@kernel.org>
+References: <20250528165755.692264-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250528063633.14054-6-irui.wang@mediatek.com>
+In-Reply-To: <20250528165755.692264-1-Frank.Li@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250605_112855_747609_8638DA10 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +79,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 02:36:31PM +0800, Irui Wang wrote:
-> Add MT8196 encoder compatible string, which will reference VCP device.
 
-Also work on your subject. No need to say dt-bindings and encoder twice:
-
-media: dt-bindings: mediatek,vcodec-encoder: Add MT8196
-
+On Wed, 28 May 2025 12:57:54 -0400, Frank Li wrote:
+> Convert mxs-audio-sgtl5000.txt to yaml format.
 > 
-> Signed-off-by: Irui Wang <irui.wang@mediatek.com>
+> Additional changes:
+> - Add compatible string:
+>     bluegiga,apx4devkit-sgtl5000
+>     denx,m28evk-sgtl5000
+>     fsl,imx28-mbmx28lc-sgtl500
+> - Remove audio-routing from required list.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../bindings/media/mediatek,vcodec-encoder.yaml      | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+> change in v2
+> - add missed commit change (all decleared in Additional changes of commit
+> message).
+> ---
+>  .../sound/fsl,mxs-audio-sgtl5000.yaml         | 81 +++++++++++++++++++
+>  .../bindings/sound/mxs-audio-sgtl5000.txt     | 42 ----------
+>  2 files changed, 81 insertions(+), 42 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/sound/fsl,mxs-audio-sgtl5000.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/sound/mxs-audio-sgtl5000.txt
 > 
-> diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-> index ebc615584f92..7675391d7eb0 100644
-> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-> @@ -24,6 +24,7 @@ properties:
->                - mediatek,mt8188-vcodec-enc
->                - mediatek,mt8192-vcodec-enc
->                - mediatek,mt8195-vcodec-enc
-> +              - mediatek,mt8196-vcodec-enc
->        - items:
->            - const: mediatek,mt8186-vcodec-enc
->            - const: mediatek,mt8183-vcodec-enc
-> @@ -76,6 +77,17 @@ required:
->    - iommus
->  
->  allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - mediatek,mt8196-vcodec-enc
-> +
-> +    then:
-> +      required:
-> +        - mediatek,vcp
-> +
->    - if:
->        properties:
->          compatible:
-> -- 
-> 2.45.2
-> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
