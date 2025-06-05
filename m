@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BD8C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 06:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB82DC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 06:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLwho06vrhR2st2QbPaI2lCYTW/PqUtL05pCheR4f6I=; b=wvorauABKjtA9lhNDdfrT9Nalk
-	8yJlnFWgT0NwWaQm0avrX9YuETRKQjMt/fvhXFFgWZudu2FYh8CRna6dBEeL06kQ5jR+HXgjdXONn
-	e9KIwWHwB0Ab5z7HELImsa+PwVZIox8924yORkBOEpHh3i1NPGpyqtEKbjBlP9o5MuR9Z5YQqtw+S
-	O6tUpHUdQJteU8OYXYYGF0fAL/yz1p9od1JPidm3KN47ydGvRacJbDDUNNIjldWTXeRj5D1MiBoQ3
-	7bfn7R39IymMtJjRmdGkX8CTPSc6Nw/ZMWH/rF2jw4xLHjcICQh54N32VG9oLl/lop4fO1gI+TFjp
-	t9rQZOGg==;
+	bh=sHorIJaAHlLNAC/CEcdVdcbzPlpS0AvrpfkYlnBs0SI=; b=M9mbcIJ8FsW3fNutnVdQf6uHQw
+	SiJ1OT6z/veFa8Gthl6Wm7lNCYp8ApVstI0zKyE8Gj3EdjAJo4Mm08phHKPHzfS6FIjBBzr9AlOsA
+	hMVGMSLFGfjAFN1VT7YoYO0h07U1vfnZmMcUMCNTM5tnoC3ddPJBEQ7CMVx+nPcBegrRinDM8LfJT
+	et4iEXzQEs/M2LZK2fGfIi/VrP4i1y3uwqfkR4CAEmnZIgTtTeRn3H3gdg9oXzaagIr82iUuKziYe
+	OzTOG/LPi001lAVdMFGMpD10fppE/LYwNSSXw7cS0OyZUM1NxHkRv34efDCI0jB+5pJUSgsLSxn1R
+	7vy/DHvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN4Il-0000000EsEg-2Hcx;
-	Thu, 05 Jun 2025 06:42:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uN4PW-0000000Esgn-2mcT;
+	Thu, 05 Jun 2025 06:49:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN4CG-0000000ErlG-0mdn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 05 Jun 2025 06:35:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZLwho06vrhR2st2QbPaI2lCYTW/PqUtL05pCheR4f6I=; b=gtmKKQ1OiA15xtyiHGLdp9SoZa
-	Ph8LfHsDfz7vSwAOO/YqQeyk3LiECw3dkDTVikgO8VDa1cj4blbhSMZzpuCBIweYEkdDDZnog2RFU
-	1FlfFDvgXrARw9ioHpUR/yvJXXjpS+ZLCSybG7AE8h8y9OtMGbzf1/Lrg3s/Xo8njfD4W2nONiXRL
-	jo3RhfbQm/XgBb948gY1rCjS/zXaYHZxn/rI0kHfu7Nb1CXHRIAzwS4yqKy6Hxvyr/Act+h1xvWSk
-	pKI54MoJUhMZTCZJtQWHGwQuFTIv98KbRAfn9Ee96bq0+BEQApHKaqBFmL3keLozYczE6evu4zbjq
-	V/ztQ3dA==;
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN4CD-0000000158n-29cJ
+	id 1uN4NH-0000000EsXj-0ExN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 06:35:27 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5556ZJwj1031528;
-	Thu, 5 Jun 2025 01:35:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749105319;
-	bh=ZLwho06vrhR2st2QbPaI2lCYTW/PqUtL05pCheR4f6I=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=JHy/TmF+N5zOIkgG/JkWvCtoShNuSUSQ4WJlDioN7kZzmDai/icZz1q1MkLQpIER/
-	 +YrJpdo5B3rdtyjoEuHKFUjtY3zzoUvv2yZf+K+MKfZUVgBc5WRyf5V4gBJKGKNndQ
-	 D5CDbJCVS0142sBuXczgvNaBOyK8NPXLfcn4iE0M=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5556ZJY3948598
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 5 Jun 2025 01:35:19 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 5
- Jun 2025 01:35:18 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 5 Jun 2025 01:35:18 -0500
-Received: from a0497641-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5556Z7Va3168702;
-	Thu, 5 Jun 2025 01:35:15 -0500
-From: Neha Malcom Francis <n-francis@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <n-francis@ti.com>
-Subject: [PATCH v4 2/2] arm64: dts: ti: k3-j784s4-j742s2-main-common: Add PBIST_14 node
-Date: Thu, 5 Jun 2025 12:05:06 +0530
-Message-ID: <20250605063506.2005637-3-n-francis@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250605063506.2005637-1-n-francis@ti.com>
-References: <20250605063506.2005637-1-n-francis@ti.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Thu, 05 Jun 2025 06:46:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id ABE0F5C3ED0;
+	Thu,  5 Jun 2025 06:44:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26139C4CEE7;
+	Thu,  5 Jun 2025 06:46:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749106010;
+	bh=TkwPaC5LkiD2AzRfVu53V8vYeTTkIIo3sfS9ma0nNMo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NLwSt/rXojX3cThmkkKEtcWLjAXAPd5COS5p+Snz0xS/Qt8dFWs9aFgZTSynHEUYt
+	 0WOgzX/u8wBdR1j6HqyW778WPuvy9f3QYkxnimgdhuDMOygd9mYMAWGifExKCLCd2C
+	 6Dpws77QthBmsN2YZHenwEBVBlrMaVwWZcxCwoBQVttY5qYr16STOTp/MFQjmBft6o
+	 tGT/3MadWrMWAQ7QZcFsjcmMNtj6NDoE6bqtXzRZGcm5zqbZBnI7ZgSiqHahi3K7az
+	 odhwsr187j3x+jQY/oGDRNaQDwepertrh9W+B4O7Xuvtv5v+l4mT0CU/n9uuSEVSAP
+	 pGnZ4w/x9+jyw==
+Received: from [149.88.19.236] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uN4ND-0049uH-Cb;
+	Thu, 05 Jun 2025 07:46:47 +0100
+Date: Thu, 05 Jun 2025 07:46:45 +0100
+Message-ID: <875xhaeld6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Zenghui Yu <yuzenghui@huawei.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Colton Lewis <coltonlewis@google.com>,
+	Ricardo Koller <ricarkol@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] KVM: arm64: selftests: arch_timer_edge_cases fixes
+In-Reply-To: <9b9f7099-4e81-9b74-a1ac-37cd4965675b@redhat.com>
+References: <20250527142434.25209-1-sebott@redhat.com>
+	<adf8b877-7ca2-f60b-fb59-578c70d0e3c0@huawei.com>
+	<9b9f7099-4e81-9b74-a1ac-37cd4965675b@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 149.88.19.236
+X-SA-Exim-Rcpt-To: sebott@redhat.com, yuzenghui@huawei.com, oliver.upton@linux.dev, coltonlewis@google.com, ricarkol@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_073525_850170_D468EFA6 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250604_234651_185474_FDD1FEBD 
+X-CRM114-Status: GOOD (  34.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +94,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT node for PBIST_14 that is responsible for triggering the PBIST
-self-tests for the MAIN_R5_2_x cores.
+On Wed, 04 Jun 2025 21:58:48 +0100,
+Sebastian Ott <sebott@redhat.com> wrote:
+> 
+> Hi Zenghui,
+> 
+> On Tue, 3 Jun 2025, Zenghui Yu wrote:
+> > On 2025/5/27 22:24, Sebastian Ott wrote:
+> >> Some small fixes for arch_timer_edge_cases that I stumbled upon
+> >> while debugging failures for this selftest on ampere-one.
+> >> 
+> >> Changes since v1: modified patch 3 based on suggestions from Marc.
+> >> 
+> >> I've done some tests with this on various machines - seems to be all
+> >> good, however on ampere-one I now hit this in 10% of the runs:
+> >> ==== Test Assertion Failure ====
+> >>   arm64/arch_timer_edge_cases.c:481: timer_get_cntct(timer) >= DEF_CNT + (timer_get_cntfrq() * (uint64_t)(delta_2_ms) / 1000)
+> >>   pid=166657 tid=166657 errno=4 - Interrupted system call
+> >>      1  0x0000000000404db3: test_run at arch_timer_edge_cases.c:933
+> >>      2  0x0000000000401f9f: main at arch_timer_edge_cases.c:1062
+> >>      3  0x0000ffffaedd625b: ?? ??:0
+> >>      4  0x0000ffffaedd633b: ?? ??:0
+> >>      5  0x00000000004020af: _start at ??:?
+> >>   timer_get_cntct(timer) >= DEF_CNT + msec_to_cycles(delta_2_ms)
+> >> 
+> >> This is not new, it was just hidden behind the other failure. I'll
+> >> try to figure out what this is about (seems to be independent of
+> >> the wait time)..
+> > 
+> > Not sure if you have figured it out. I can easily reproduce it on my box
+> > and I *guess* it is that we have some random XVAL values when we enable
+> > the timer..
+> 
+> Yes, I think so, too.
+> 
+> > test_reprogramming_timer()
+> > {
+> > 	local_irq_disable();
+> > 	reset_timer_state(timer, DEF_CNT);
+> 
+> My first attempt was to also initialize cval here
 
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
----
-Changes since v3:
-- add support for J742S2 as well by moving node to common DTSI
+Note that CVAL and TVAL are two views of the same thing. It should be
+enough to initialise one of them (though TVAL is stupidly narrow).
 
- .../boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi     | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+> 
+> > 
+> > 	/* Program the timer to DEF_CNT + delta_1_ms. */
+> > 	set_tval_irq(timer, msec_to_cycles(delta_1_ms), CTL_ENABLE);
+> > 
+> > 	[...]
+> > }
+> > 
+> > set_tval_irq()
+> > {
+> > 	timer_set_ctl(timer, ctl);
+> > 
+> > 	// There is a window that we enable the timer with *random* XVAL
+> > 	// values and we may get the unexpected interrupt.. And it's
+> > 	// unlikely that KVM can be aware of TVAL's change (and
+> > 	// re-evaluate the interrupt's pending state) before hitting the
+> > 	// GUEST_ASSERT().
+> > 
+> > 	timer_set_tval(timer, tval_cycles);
+> 
+> Yes, I stumbled over this as well. I've always assumed that this order is
+> becauase of this from the architecture "If CNTV_CTL_EL0.ENABLE is 0,
+> the value returned is UNKNOWN." However re-reading that part today I
+> realized
+> that this only concerns register reads.
+> 
+> Maybe somone on cc knows why it's in that order?
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-index 1944616ab357..50954e9d5779 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-@@ -2670,4 +2670,15 @@ mcasp4: mcasp@2b40000 {
- 		power-domains = <&k3_pds 269 TI_SCI_PD_EXCLUSIVE>;
- 		status = "disabled";
- 	};
-+
-+	bist_main14: bist@33c0000 {
-+		compatible = "ti,j784s4-bist";
-+		reg = <0x00 0x033c0000 0x00 0x400>,
-+		      <0x00 0x0010c1a0 0x00 0x01c>;
-+		reg-names = "cfg", "ctrl_mmr";
-+		clocks = <&k3_clks 237 7>;
-+		power-domains = <&k3_pds 237 TI_SCI_PD_EXCLUSIVE>;
-+		bootph-pre-ram;
-+		ti,sci-dev-id = <234>;
-+	};
- };
+I can't think of a valid reason. Enabling the timer without having set
+the deadline first is just silly.
+
+> I'm currently testing this with the above swapped and it's looking good,
+> so far.
+
+The swapped version (set xVAL, then enable the timer) is the only one
+that makes any sense.
+
+Thanks,
+
+	M.
+
 -- 
-2.34.1
-
+Jazz isn't dead. It just smells funny.
 
