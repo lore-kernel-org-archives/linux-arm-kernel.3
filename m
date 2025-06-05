@@ -4,65 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B9DC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 12:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1A0C5AE59
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 12:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r7IpEflrvA/2kvxZTTilFfI1MRRiaZDIoLS5WRWIJdU=; b=Nq9y4/8KjcC3aUPBrjo4Sa7cEj
-	rdiDA8mv7A3ZetZ7XYR/IGIvSXG7rem9RXuvCo2A1HRX2HAnyC8jZj3kFTVFWU+LVH2Zt4GB9A+TE
-	Qw0/e6la9L5GwLNXQ2UBl7/X3Tfva0Ab487pNigTNhYY4e/rO6TynNlh3Erscq5g7yM0urLYM/Xok
-	0E8qjVkt9eHrUcp6TfUgBKlj30EjrAbsDUURkz5nrQsgcPICZIBFcq5miKUh+BvnI7BQAW1gPLuES
-	V0mFzXga3CCi68Q8CuvGAwaBp6+VlP15NRaeyst+JfCLcEhC3OStNAlJeYQMRxqFrBXT8dFNOYKvW
-	M0wNglTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XRgTBCHGaqms3YJmNqW9+520iIG56vcIriWOMDiIPmM=; b=Lr8dNLSeFrro4hY2RI54H/IeXw
+	s+AnT59dJhsuFyZhiEeLCeMoJZRowqso15KYvSLzTbQMPi6ffTNYAQLO9xSf7+tPhBK8nrTLk63N0
+	Aq+JUm/xmuWHrF5guct3LcoL+1QHbOO6Q0V5UmNmo+CuiiIVzj8iNCQJeztrd34+f5Sc+lKLGt1Ri
+	wvMAf0ESjqOfPmwyjceQ7eL/ZhM5Ip29EuBL2D7nufK8nDVCdSjVWHZA8YLlDbciy5feOPqF3K7B3
+	03tQPHHcH12iMVR1AJBtx6HNaluVbKByS0LdUYhQxWX7+ZKtAXWHFx8fjIhlXFMKUl6GrUh84DG17
+	FN4sDSKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNA4V-0000000FWeE-2Yzk;
-	Thu, 05 Jun 2025 12:51:51 +0000
+	id 1uNABs-0000000FXNJ-2Blg;
+	Thu, 05 Jun 2025 12:59:28 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNA2I-0000000FWNF-3ltJ
+	id 1uNA9f-0000000FX35-06Aa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 12:49:36 +0000
+	Thu, 05 Jun 2025 12:57:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CE854A268;
-	Thu,  5 Jun 2025 12:49:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45E53C4CEE7;
-	Thu,  5 Jun 2025 12:49:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF10949EC2;
+	Thu,  5 Jun 2025 12:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A28A7C4CEE7;
+	Thu,  5 Jun 2025 12:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749127773;
-	bh=wOyBq9EpZecYJyv7wq3MR1rHkJcXHOvYjUqxSvokmTs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=TfKV+Pmr4EFYF/h1fgPP3YxemfqOZpw0nMbXRgxITIFZqso5TKk+Hx5jlEPHLyuxt
-	 3mc62gPFkfv23qGaYPR+uvCLsKbTCFGzaAEgdShaPBslHe76A95rzyd3wjsOu+Wrls
-	 zbghj0o+6XGS2r4+wSocF3xWXtaow9AkfCk0x2J9IMFLPCZoscSohWBmJX1AC0X3Yo
-	 VVU8OWdUUUI/PgCUkNtG9PInP4pjTJ2lkql8HaUqm98hk9jGPiosrXKo+RGbT8jW5T
-	 jUut+9pTd8famE37mdM/khYhJdXvmnBxz98WJKPCCG39In05ee+3moUlePAaz2gdVK
-	 I4sKpERPkZ/og==
-Date: Thu, 05 Jun 2025 07:49:31 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1749128230;
+	bh=Byr/oEoXo9QKBDnSzkZLZeIjz9Ei0CO0nz0HapLAasA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=R9OS9HRefttAMjUUukDbCjUUxkF6L3e6PQtquhTwt+9rcPHTkQd+Smke+02RP9JJt
+	 LMQ+TcTYeE9NJNoktZgPHvEikLaA2/dUdiRc1i1t6ZsiqHsVi/CBBZO1Nc9CnutplL
+	 +ocvvQtY4t+q4AkY082rwuZMhnPNI4PdsoAUObS+jExBONZ5F5S7RYcmE2nO/mTcIC
+	 hXdO9CELjXl4i88/FlE7bYmKj6TqFrHCYb4dNwESQcjMouUf6IPTdlg9EjOsXdZN0k
+	 7cOCYVWMQQg4uO89bEBqaBPdOIq2KFp2koMMNwVUXFSqDAthhqAwDbEqsvqXnbfXSr
+	 Q5qA48/s4vIZA==
+Message-ID: <be92ce49-7eaa-49b8-bba8-53a0b0012113@kernel.org>
+Date: Thu, 5 Jun 2025 14:57:05 +0200
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Ray Chang <ray.chang@technexion.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>
-To: Richard Hu <richard.hu@technexion.com>
-In-Reply-To: <20250605-add-technexion-edm-g-imx8m-plus-som-v2-0-db5a7bbe3c84@technexion.com>
-References: <20250605-add-technexion-edm-g-imx8m-plus-som-v2-0-db5a7bbe3c84@technexion.com>
-Message-Id: <174912725086.2341088.4909342714758146412.robh@kernel.org>
-Subject: Re: [PATCH v2 0/2] Add TechNexion EDM-G-IMX8M-PLUS SOM and
- WB-EDM-G carrier board support
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] media: Add Gen 3 IP stateful decoder driver
+To: yassine.ouaissa@allegrodvt.com, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Michael Tretter <m.tretter@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20250605-allegro_dvt_al300_dec_driver-v2-0-1ef4839f5f06@allegrodvt.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250605-allegro_dvt_al300_dec_driver-v2-0-1ef4839f5f06@allegrodvt.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_054934_977900_8497B451 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20250605_055711_120484_E6710A3F 
+X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +122,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 05 Jun 2025 15:09:40 +0800, Richard Hu wrote:
-> Add initial support for TechNexion EDM-G-IMX8M-PLUS SOM and WB-EDM-G
-> carrier board.
+On 05/06/2025 14:26, Yassine Ouaissa via B4 Relay wrote:
+> This patch series introduces a new stateful decoder driver for the
+> allegrodvt GEN 3 IPs.
 > 
-> Change in V2:
-> - Ensured accurate `To:` and `Cc:` addresses by utilizing
->   `b4 prep --auto-to-cc`. (Thanks to Krzysztof Kozlowski for the
->   tip on this command and helpful suggestion from Rob Herring)
-> 
-> in patch 1/2:
->         - Add Acked-by tag
-> 
-> in patch 2/2:
->         - Generic Node Naming: Refactored device tree node names for I2C
->           GPIO expanders, the USB Type-C controller, and the PMIC to adhere
->           to generic naming conventions (e.g., `gpio@21`, `usb-typec@67`,
->           `pmic@25`).
-> 
->         - Removed Unused SPI Node: Eliminated the `spidev1` node due to an
->           incorrect and non-existent compatible string (`rohm,dh2228fv`).
-> 
->         - Minor formatting improvements (e.g., whitespace, indentation).
-> 
-> Signed-off-by: Richard Hu <richard.hu@technexion.com>
-> ---
-> Ray Chang (1):
->       dt-bindings: arm: fsl: Add EDM-G-IMX8M-PLUS SOM and WB-EDM-G carrier board
-> 
-> Richard Hu (1):
->       arm64: dts: imx8mp: Add TechNexion EDM-G-IMX8M-PLUS SOM on WB-EDM-G carrier board
-> 
->  Documentation/devicetree/bindings/arm/fsl.yaml    |   7 +
->  arch/arm64/boot/dts/freescale/Makefile            |   1 +
->  arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dts | 403 +++++++++++
->  arch/arm64/boot/dts/freescale/imx8mp-edm-g.dtsi   | 839 ++++++++++++++++++++++
->  4 files changed, 1250 insertions(+)
-> ---
-> base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
-> change-id: 20250604-add-technexion-edm-g-imx8m-plus-som-79adf0b397eb
-> 
-> Best regards,
-> --
-> Richard Hu <richard.hu@technexion.com>
-> 
-> 
-> 
+> Changes in v2:
+> - patch 2: Fix dt-bindings reviews (Krzysztof Kozlowski) (Conor Dooley)
 
+That's just way too vague. What change specifically?
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250605-add-technexion-edm-g-imx8m-plus-som-v2-0-db5a7bbe3c84@technexion.com:
-
-arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dtb: i2c-gpio-brd-conf (i2c-gpio): $nodename:0: 'i2c-gpio-brd-conf' does not match '^i2c(@.+|-[a-z0-9]+)?$'
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-gpio.yaml#
-arch/arm64/boot/dts/freescale/imx8mp-edm-g-wb.dtb: i2c-gpio-brd-conf (i2c-gpio): Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'clock-frequency' were unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-gpio.yaml#
-
-
-
-
-
+Best regards,
+Krzysztof
 
