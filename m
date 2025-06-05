@@ -4,126 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34DDCC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 05:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13132C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 05:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1a9JgcopP9bJ5yF1Me7vfccRLe+8BXkEbBw51pVceW8=; b=ZCYYx8SiUZY5s3XaWgnaZjnjl6
-	Uv/NLe8J+SOZ9up+Ts7vqXQ7BEA20gs0XEfiv0Jv+mcyP4OgFdfDAMix5EOpmD3wSpFbOVZAvWIOV
-	+unpeQecwK2PA0tajEbPS7eOjv0u96fTIV1YWxksu/K98NngQRmUPfIg99Uzivd3zDIisB2bmPXeU
-	WzcyfiDe0X2jqW4dfw32cAsGz7jWgWSPXJp+8htZI5DTsx7o+1d81WxiDxto60eZZ3n9/zPPyrqJR
-	hdMBi9CcPnvvn3Ec8Jv+HNHhIUC+vgV2wXxWc/3GXTPSFGwncsaNRWCRcDyiuzwtmjnFaBSVrMIfq
-	43pfh6/A==;
+	bh=i+CS9X0uJhb8QJM2GuE1aLMDLzTdSPOhixu6ued5Dcg=; b=znfYTL7qOdqXsdmwZcaQ4y+OvX
+	oOQjL+du68tQKHJrGmaR3RHXy608wZscBfK0mdvsuJSSWBdKBJ2ZL4fXpC9vik/GKR6YoFr0RFbCi
+	/cIDzhlQ0OQDtCi77H2xIh+LqE13LjQY94mX7q3ASH22Q9B7ikHGnpqiPmMB1+KN9gR3v2mO8Zsi+
+	yOmVeOhuHWTuKcB5dI9PSiYJNizsbnrweltmzmr86qvdab0PeQuqrGMtBLFSG2WfCJN+vNulesnY7
+	RcWKvU2PfLy6jzjmRui66HDCNiVcnK/Wf36Klpe6Ru8JsuJ3SWXxyQ4gK+F4oil3CNFAMPWWTllfg
+	VwqCCI1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN388-0000000El91-2vdl;
-	Thu, 05 Jun 2025 05:27:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uN3BI-0000000ElQL-2Qli;
+	Thu, 05 Jun 2025 05:30:24 +0000
+Received: from esa6.fujitsucc.c3s2.iphmx.com ([68.232.159.83])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN360-0000000Ekmy-3oOo
+	id 1uN399-0000000ElEn-3E3k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 05:24:58 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5550K9BV018268
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 5 Jun 2025 05:24:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=1a9JgcopP9bJ5yF1Me7vfccR
-	Le+8BXkEbBw51pVceW8=; b=RTox0ObqdSLNR5F8asiRpPLHATO4WAFotd9IbWWM
-	/Lcf2ZR2kFLHkaKRMdSv2q4ftBQC/CjKMEuuv0HoB4nudfoFyp1Kf+sPRaVvor4O
-	2lwZer5akc+gE7QGMyK2fsmh/IySUhT8GaU9GOfyx5/bUgM189yuu+pD/IT3FXl4
-	3R0/SQD1nCAptg5c2MgX+7ssKO5eZCgmASLqFVS0VyXpXiVRoHGSUlqZvB5w7Gp+
-	i7alpuLT9V0xPdSY5KS8vdAFMtpSJbzfPOkStceSW2aNv/Xz2/H94/Nb2AJSmRPz
-	n6Ju7powBABYrI/9whDi5XTkm9ndIeOc6lwlXR0pumhPzg==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 471g8u06wm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 05 Jun 2025 05:24:53 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b1fa2cad5c9so349538a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 04 Jun 2025 22:24:53 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749101092; x=1749705892;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1a9JgcopP9bJ5yF1Me7vfccRLe+8BXkEbBw51pVceW8=;
-        b=akbb3yWivK1nOkBkOEsGoYRNKiut0686IdQxYxhK5l6Crm8+8+wcHNCcYWC+ck5KKB
-         ql/ZwJvGg+IBJcz29nNklBTpnVRUvM7PFkPd76jMjx4HEIBUh75obOBI9VQ7+Iz0/YYt
-         3qe05qClnBsLjR/83em85T7FmGY9tXaEjNulxBusk1Jy8OuR+B6oQ65uyR8bH8UIHQLK
-         FFHm5enipQdsQZkyP51rYz6nBgm3AflczvEoukFdqKsTVOGbENwL4CefRocygnaaPG3o
-         0SzO/bcurLDp2cjzJ8dXbaKMld68XfqdaJ3AJGVPfgr9qZ3fc9tdSgtZp1WueXGG0R+Q
-         G88Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUzjhgWhmrJCQr8Qva1NXNxVug0THtx/YOq0k1qMQGqlyC0ItFiYlBYAXQ/bNXjhWuALePK7FaxxFU36mwl2evI@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywql7MYECtf/u/kLzOt6nw/ORJ9SNxyURn8v0C34WVc9tEkPdy+
-	JxqbpO2Cb3eoJ8DckRDv05quj6c/U3iUsnE7pvDsldhNBFK3rTmM+pPswWLjx7LZrPqdI3uGiQ7
-	MRPIDKgB7RfNY7UwHslxzVWhr0xYRlx3FLtL2cUkG0fdVVp9lGZcLiMv/ZDobnRBhki8qBLtlon
-	ePLQ==
-X-Gm-Gg: ASbGncvdsIrqudh/fybz/68ImTpI2npZgA6HJMSFLdi8O6L+XTUjs+y/TH6yYN3+0rX
-	rkxpKDpNHeYE78kses685MgLRxn3K7s85HH8xm4vHKojaECVG2N5bN+QhX4ThEBYi/wUrfB1Exv
-	xcLWT/tuf9LIuFvh+73DpbyD9s6YkxZubG6EXbg/e2ZL53V43OYGp0y68LXwIA2wMYa3CY1MSvx
-	xBZ1ReKeys/d5F3ySZH2DsZrEO/Evm+o8ewgp1G5kE06kkB33LHjbaXERdPucAkDlkmVPB3/6En
-	wVQ8pOxNGWBM1UrEcwIizRimIX5k+b3EjbugKD4AuQKYQQEU3dMFy+oTEws=
-X-Received: by 2002:a05:6a21:3287:b0:1f5:9098:e42e with SMTP id adf61e73a8af0-21d22a6cab8mr8581882637.7.1749101092399;
-        Wed, 04 Jun 2025 22:24:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IELuWY/1bcdQXTlNAC0FeBkJQ7D653GZ5CNEp7sdXfBrnquNDS8cgkO69w0uf0qsyvNLiEZIg==
-X-Received: by 2002:a05:6a21:3287:b0:1f5:9098:e42e with SMTP id adf61e73a8af0-21d22a6cab8mr8581844637.7.1749101091990;
-        Wed, 04 Jun 2025 22:24:51 -0700 (PDT)
-Received: from hu-qianyu-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747afe96781sm12040801b3a.29.2025.06.04.22.24.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 22:24:51 -0700 (PDT)
-Date: Wed, 4 Jun 2025 22:24:49 -0700
-From: Qiang Yu <qiang.yu@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
-        will@kernel.org, linux-arm-kernel@lists.infradead.org,
-        konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        vkoul@kernel.org, kishon@kernel.org, sfr@canb.auug.org.au,
-        linux-phy@lists.infradead.org, krishna.chundru@oss.qualcomm.com,
-        quic_vbadigan@quicinc.com, quic_mrana@quicinc.com,
-        quic_cang@quicinc.com
-Subject: Re: [PATCH v4 1/5] arm64: Kconfig: enable PCI Power Control Slot
- driver for QCOM
-Message-ID: <aEEqIWSU5P9Xp9J/@hu-qianyu-lv.qualcomm.com>
-References: <20250604080237.494014-1-quic_wenbyao@quicinc.com>
- <20250604080237.494014-2-quic_wenbyao@quicinc.com>
- <46r6cdcugwvyuvkjqbi3tq4f7ddkrgy4jut5fwqjsfwbsfoke4@upmtzhcmc7ni>
+	Thu, 05 Jun 2025 05:28:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj1;
+  t=1749101291; x=1780637291;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=4WacdIv35+wOp98dew2rNUvaZoWPGatNnN/MLLZH6Mk=;
+  b=Di/toVgwz695lb/xT0ZfXdcJ5/TOhwdbjbq9Rfuv5uOG9Y4XcrPFzf1s
+   CwZQdW1L6oSNMMGY3qyhYJt/6G7Tn+4IZVFDibV2ZJTU5T0Cqwt3Dd2fM
+   dgTFwYgh7nc1Ka38g0hiSpX9dzA5UpOIuGGp7+l9hR070kcYS2Mtk+cIQ
+   40M4VfeXiz91a/3K7BicpwwLfG3TAvBdGeEFXKsdYH+uE3Tzr29Y2CZun
+   8VTzaEBGgbjv1eCHQD+YFT8J6B6Wjr0L6PxKkZyOYd1FBcT/zptajT00t
+   +3BIMFbBkkTmalL4nO0j1WYeueWNlSZZOPkhUXjUhuhB3xgZFwq8ZpkW8
+   w==;
+X-CSE-ConnectionGUID: wOqpEzyMQHOXeb0vh8TE9w==
+X-CSE-MsgGUID: yUr2hx9mSpOerSS9v5jrHQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11454"; a="157654801"
+X-IronPort-AV: E=Sophos;i="6.16,211,1744038000"; 
+   d="scan'208";a="157654801"
+Received: from mail-japaneastazon11010016.outbound.protection.outlook.com (HELO TY3P286CU002.outbound.protection.outlook.com) ([52.101.229.16])
+  by ob1.fujitsucc.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2025 14:28:01 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=keaqVbbMxRtvgevSXaQdugwQKVFFX/TfmV5nUILGjsbBjD2AQmobAm9JNL0bANAGAtYQAm1XROgSGKK5W0lC3mtSQuopdh4x0AEzOhtvB4O+I+ELpyiMgtuyvxE5ppw92uI5LOWxgmrpj7FiSF/d4U4CXy4YDo/XYykAIScuxCwJTxOTRNYc1HgFoBlYPf29EqYXDQPFm3pQ6KCvAT3plSI6u4adGqqokPe6QDX62FN+RSlHTReob81UgSOHRNDdpLh2wj+kQR6Zi0hcQ6snFKhMzPhOrw9Zxy/Tl5vr9WSINhWfSPl4kcqFT9wfTzMGPgJDN+P1KI8sArvYaKm99Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i+CS9X0uJhb8QJM2GuE1aLMDLzTdSPOhixu6ued5Dcg=;
+ b=yb5m9Ex6KlHx+ZEbWToJ581Noz4qgCbW2UE/w6X655rd/SYgaL9EbkuA6FFIhQ/Dl1JoQdHE43CAzglkkzbsE7Vrkdu5IG2fRRTG4jxRAho4s3werPRd4XRwAX55yTAv99/haGavCsz8920QQW57zjqbJHurmfn4cY8Pkqx1wFiHKgU1yLHcokN5yteaOFN/7cfUVRYQO5MDOM4LpiIOkbhvVDQtorviWHfubz24PpxJWqlXK7R28xltJSqnVCGkZrXFosZdwHCVoQNo7iXkHkBCklMVbk1xQrO8c14uoUjDIpKJfAfX5B+S+iMuwjHpQ0cGpSnreQLnYEVna2grww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com (2603:1096:405:1f8::9)
+ by TYYPR01MB6761.jpnprd01.prod.outlook.com (2603:1096:400:cc::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Thu, 5 Jun
+ 2025 05:27:56 +0000
+Received: from TY4PR01MB13777.jpnprd01.prod.outlook.com
+ ([fe80::60b7:270b:27c7:4fcc]) by TY4PR01MB13777.jpnprd01.prod.outlook.com
+ ([fe80::60b7:270b:27c7:4fcc%7]) with mapi id 15.20.8813.018; Thu, 5 Jun 2025
+ 05:27:56 +0000
+From: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>
+To: 'Petr Mladek' <pmladek@suse.com>, John Ogness <john.ogness@linutronix.de>
+CC: 'Michael Kelley' <mhklinux@outlook.com>, 'Ryo Takakura'
+	<ryotkkr98@gmail.com>, Russell King <linux@armlinux.org.uk>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
+	<jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
+	<linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "Toshiyuki Sato (Fujitsu)"
+	<fj6611ie@fujitsu.com>
+Subject: RE: Problem with nbcon console and amba-pl011 serial port
+Thread-Topic: Problem with nbcon console and amba-pl011 serial port
+Thread-Index: AdvULbS8DdGjT9TLS9OOSVhbv2AtDgAN1+gwAALFDgAAAfWTAAAeB8NgABQ6MwAAAXadAAAD5OQAABRXfIA=
+Date: Thu, 5 Jun 2025 05:27:56 +0000
+Message-ID: <TY4PR01MB13777CC92C858572B9C19394FD76FA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
+ <84y0u95e0j.fsf@jogness.linutronix.de> <84plfl5bf1.fsf@jogness.linutronix.de>
+ <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+ <aEApOPTqbVOR35F_@pathway.suse.cz> <84o6v3ohdh.fsf@jogness.linutronix.de>
+ <aEBNLMYVUOGzusuR@pathway.suse.cz>
+In-Reply-To: <aEBNLMYVUOGzusuR@pathway.suse.cz>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ActionId=f68cbbd2-6115-4122-99d1-407f6af113b4;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_ContentBits=0;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Enabled=true;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Method=Privileged;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_Name=FUJITSU-PUBLIC?;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SetDate=2025-06-04T23:30:40Z;MSIP_Label_1e92ef73-0ad1-40c5-ad55-46de3396802f_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4PR01MB13777:EE_|TYYPR01MB6761:EE_
+x-ms-office365-filtering-correlation-id: d5daddf9-9d8e-4e6e-f465-08dda3f1ba57
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018|1580799027;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?eW01aW8ycUNnelNZUkdJTDlsWXlBekJscDJ0ZzE5MlNqWkFTdXYrdGlz?=
+ =?iso-2022-jp?B?ZElXRDloK0hWOE1qWEplV0RuY2VkVmhDZ0plSWxZS2hYcE84aEVVaHZT?=
+ =?iso-2022-jp?B?MGhXcHp1dlpQaWxXU0tJQlFVTXF5RUpSeW9KaFlic1RPRGs0WEw1d1F1?=
+ =?iso-2022-jp?B?Tk5sUCtMMldNdGtkN0k5aVg3T3Z5SURmRFJFek9UL3NreldDMDdjalRQ?=
+ =?iso-2022-jp?B?MlRQaW93SmM3K2ZFcnM1bXZwd2JiOER6RFI4ajZmQmRjbkFJZmtHL09m?=
+ =?iso-2022-jp?B?dlBwOEFlWmFSak8zck0vWGtmd0hGa1NOTThib09BekxRSmxYT00zVmRs?=
+ =?iso-2022-jp?B?VTRmR1NJcWhVMGtFTHo2bWdYbkNlbDQyQkFHYmJWVWE5eHhaOHhqTHh6?=
+ =?iso-2022-jp?B?Z0tkaFkxRk1lTmZsSHR2S3RBL3lKOXRpVXN0QklIYlU1dEZtcEZCRTg3?=
+ =?iso-2022-jp?B?ODVSK0tON3p5b3RVM2ZtcC90S3gvdU0zL0NVYkV0akp5cWRESzVEN0Jt?=
+ =?iso-2022-jp?B?cHkzS2xUYlNwTWRtYW1zcnV6N2ZjQkxOVFBIMUVzeEFaU1VRSTI4L2M4?=
+ =?iso-2022-jp?B?TjhJMnp1QjNNcTl6Z0pTR3QzY0R5b3Z2a3RBNlRweEQ5ZlJ0LzExeVVH?=
+ =?iso-2022-jp?B?WXJ2UjdXcWp2ekVpV1B5S0VCL3JBOHU5T1pWRnNrZjFPbExNUlpSYllV?=
+ =?iso-2022-jp?B?YktpSGVlc2wwM1ZYVUl0MDc5Y1FYMnhqTHZDVkNaWWp3RmtSRk9DM2ZM?=
+ =?iso-2022-jp?B?cWMxaFFXUyt4azJjaXBwVHRicGpHMkFnbWRaaSsyK0JwdGF0WWQ1Nk1L?=
+ =?iso-2022-jp?B?eFQ4Umc0SmJTRjJxTFB1NzFOd0lvS1B3ZjU0VTJTUFpheEJnaTIvQllk?=
+ =?iso-2022-jp?B?dmgyOU9Zb2p2MU1sN1RTbkR4TENLdXhxMnZJc2dQUlhzbnZQTGFVQkpy?=
+ =?iso-2022-jp?B?UXFSSTU1ZDBvcUxIMjRQTGZnaXc0K1RLMVJEL0dyc25hZkVkRThLbVM3?=
+ =?iso-2022-jp?B?WGhXN1c3eFlVcFVmNk5RRXJnWG5iQnVvRlVMQWs4V1dHeTVFais4L2Nx?=
+ =?iso-2022-jp?B?WFJhT0xhTisrL0RuRCs0RklhZUxDNy96MDVMUDMxcXRqT3N0eFpSNDR3?=
+ =?iso-2022-jp?B?MXF1L3VsY1RZeUpTMU9uQmFndDRKZzd5eVZBVGZnY0lsRWdVSXBxNHRK?=
+ =?iso-2022-jp?B?NXBYS3IzMDY0eGZaT0EyVVN2M2RkSVEwaDFISVFOT29FdHRmYm5mcmgx?=
+ =?iso-2022-jp?B?UjN0a3JIVkJVRFArbVU5MWNWSUtieWhQMHFSOFlGZGt1T3pjNUxJT3pj?=
+ =?iso-2022-jp?B?UTE4YWFrZ01kemNBSHRyN3JrbW5KUjA4T1loMUR5YkZRNFJhK0dXTEZm?=
+ =?iso-2022-jp?B?NHB3K054TVluYTZyaFNqaWNoaUI2cXNKd3o5NzkrUUtURUV4WHY0UGpp?=
+ =?iso-2022-jp?B?TGdFS3E2S1ZEdFlMRDRuWFp0bE1GUmRZRnBMVmZGczRHRzJuaEdsdDBj?=
+ =?iso-2022-jp?B?NnYvdVI5VEVRQ1lTWFpYb0pjSytLV045MkpMVWs3MDRwL0ZqT1pnNHc2?=
+ =?iso-2022-jp?B?UUF4dEc2OWU2MS9LL3YxWUdHa3dDa2Z0SWlNL2FlcGI5WnJHYWhDNEc3?=
+ =?iso-2022-jp?B?ZDExS3BWQ3p6T00zRGx6eVN5YTdrVzcwRXVjWnFILzFhVHlwY283RDI2?=
+ =?iso-2022-jp?B?Kzh2RHJ4M3Ard3ZSM25ScER4WWw5ZlVCT3cxUmJJbWNuZkk2V3NZYmtX?=
+ =?iso-2022-jp?B?Rk5WbzloS0EyWDZCMFd0aWEyN2FwbWpKRTExT3Nsajl6Tm1WTzdkeUJ0?=
+ =?iso-2022-jp?B?aWJsdVRZUTlZRHVBcG82eTVHcFRmNU1Ra2hSblpZWGV4TDF5d01TSzNM?=
+ =?iso-2022-jp?B?MENYWXpCeTAvNWdvVE90Mk9OaWxKdmxaVnd6MFgvUE5sTTlpcFNrVmVJ?=
+ =?iso-2022-jp?B?YmdoektmY2dzZjNKVW9UcXFTMVF3OGFqa1lrMWRTWmJ1ZXFEdzdtOWlU?=
+ =?iso-2022-jp?B?ZkVQUFRWOXZGSTFEY0tWckRvamRHVjN2Y3Z3VXZSVUNXSlg2aFhpM1RV?=
+ =?iso-2022-jp?B?eW9id2daM1RQZjBFRnhPWmFkaGdWWmFSK2pjVVFiRTVicFRoRUlBWmdV?=
+ =?iso-2022-jp?B?ZE9rY09LY2tFVG9pcUd3TzUyZWR0WFNqem9LcDFjelJmUllQSFhyUkJw?=
+ =?iso-2022-jp?B?V2VWVldlc3czNzZyVEI3UzVZclIzZk8r?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB13777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018)(1580799027);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?c1FldkdqNnJKVDlrMVdLRTFKaGxOVTJHZWM0VjUrbWIvai9nNExOK1NX?=
+ =?iso-2022-jp?B?K1BSMjB0VjJiUnRpQ0NGUjBxOEtFMjI5MkdiZ2pVUEtBRmIybG1IaWZO?=
+ =?iso-2022-jp?B?bkdnZFNId2t6ODFLaW8wdDd0VVNUbm91RWcxN2Z4allPRlA1V3YyYXky?=
+ =?iso-2022-jp?B?alZMS1Q4bzlIRjc0cGZzNjV3YVcvbWRwZ1J0OE9SVjVmZGVjcXFzdE1T?=
+ =?iso-2022-jp?B?L2VJcVpvSkM0WlFDcEZqaXpSRXhic0U0VWFQbGFuU1JLekFmNHB6dXM4?=
+ =?iso-2022-jp?B?ZXBTY3QydDY5eDJHR2pKTHE5VVFoTkFGTFl5YlNsTnVXL3NGZ0ptQXU2?=
+ =?iso-2022-jp?B?bXZWUDA0UE5lYmhlYkxyd0lUU3BYK0M4dTZHODU0OHF4YlZmVS9sOCtj?=
+ =?iso-2022-jp?B?RGc4VEZxT3NIRUlFdG54WllhNFAzOUUraHIzL0pGTFZOS0JaeTU2cHVY?=
+ =?iso-2022-jp?B?ZnRQdy9HNnVmV0p1UUF6dnp0REV5ekdUWUZEKzRQZ2Y4QzY4Y0duNHdq?=
+ =?iso-2022-jp?B?WGlvazVObWpoYzhib1grUG44V0hMQXVWNTdmT3NQRjRFUHpnTjZvSG40?=
+ =?iso-2022-jp?B?V0REY1hTL3NkLyswS1l2V3FjZWJEM1ZKMWQ3a3VLWG5ZS0hwQTA0bTRQ?=
+ =?iso-2022-jp?B?d2dyL3ZpeHVVOGJwbG9UTDVhTjdocDdWcVBxRjI4WGdKZkVHUm5qR2Na?=
+ =?iso-2022-jp?B?Ni9vZHNPdXJBYTY2TUI1dVd2YkR1bk8vMEltSGZRSjYwOFcvR21zUUtD?=
+ =?iso-2022-jp?B?T1NyQzF3b1AwcVU3eWVLeEN4K3krVzlCUDlrbFlMWEhOdXFqYkY4TC85?=
+ =?iso-2022-jp?B?QUY4REV2N3lHdlZBZndHMi9RMDlPQzRad2x4WThycmFJMmZsd2xuaTZl?=
+ =?iso-2022-jp?B?M0djYzdscUNDY0IwTmdwMGRsWXMvTGlvaHVBQnZ1dTE2Skx3ZmxBYUxV?=
+ =?iso-2022-jp?B?RlovNDNsTWNGRzRIZzFTZGlHOGY1VVNjbnBtcnlYOHN6YkZtcjdsZ3BV?=
+ =?iso-2022-jp?B?NGVXaDZCOHlzN3dQZ2JxcUYvT01od2x4NHhWSFVzenN1OS92dEl5cWFS?=
+ =?iso-2022-jp?B?eTNnTXBLdUhPWjJKcUFFQmYzL001eHkyQS9JWW1oRjJNUmoxUm5HUmhn?=
+ =?iso-2022-jp?B?ak41Z20yaFdtdE5MRHhuMFhxMVZkUGREZmpGRWNiR1kwL3U0b2M0eTBI?=
+ =?iso-2022-jp?B?V0JqQXBhU1pBQkdBOC81OWVHVUZmeWczczNKUWtqR3JqeVRtSmExY2dt?=
+ =?iso-2022-jp?B?WURRYWVFeE80WFEyWWZ4VG14RkwzSk82NEJqMzNWMWlLUEZUNW82UGJ6?=
+ =?iso-2022-jp?B?T0JQM0RWb3o3NTVBUGJpeGplaEpucUF3VTNuR1FjdTgrcnQwc0l4TzR5?=
+ =?iso-2022-jp?B?YlB5aEp1dUpPNmtOZ21URjB5b3ZCSFJIcTEzNTJWL3Y2WnlSc0ZhYkFG?=
+ =?iso-2022-jp?B?M0lkeUxlbUszNTEzckpLOCtmSE5lR0E3YUswaGtrVFZpUmo2aVZ1UTB2?=
+ =?iso-2022-jp?B?SU5jMXhncnRneXJNRjZhQWtkQ2VzTzJ4dExhNkhpazNzWEZhbDU2eHRh?=
+ =?iso-2022-jp?B?WUo5ejF6MkNJMlluOVBxK3ppcXFPNXR1Qis2M2xEUjVtbFJuUmE3SG1U?=
+ =?iso-2022-jp?B?T05pUGJmZFVraGErU3YvaFFPMEZ2QitaWGVGN3dDdlpMODUzc20rRzlv?=
+ =?iso-2022-jp?B?WGU0bDlMSDdyaUNqTllLSjhkV1VuUmh3WXQraHRvVXVJNm9nM2NtUGYx?=
+ =?iso-2022-jp?B?enVxdGlzT0RWbHV2QUJIK0x3WFU3ajFkRjJac2l5YnRHeTVaeFJCL2V1?=
+ =?iso-2022-jp?B?MEl1dXR5L1h0VlNWVDU5UW5OUHNtUUZjbjB4cHhhTWV6U0pkdUxxRm91?=
+ =?iso-2022-jp?B?cnhicDVxekVyZDJzc2dpa2dKcTJEeXJFYS9Rb0dDa2Q3UXBvRzN2MDhm?=
+ =?iso-2022-jp?B?S0N6ZTBCcjMwMjQ2UGdYand5M0xaSW1LbmpjSVpxdHFzbE4wMGpac1BD?=
+ =?iso-2022-jp?B?MmMreG5ZSGhUTGFyZ3EzdUpleGxUWnhEMDdLTWFwSTI4T3VMWVVNVUxD?=
+ =?iso-2022-jp?B?cHlteTFLNFVMVEVtYjNqa2NpM3Nhb21WWHJoVzZPc3pTem0rVzlJb01q?=
+ =?iso-2022-jp?B?OTVrZERENk14bDNYVm9iMHArR2hRZk1VVUVKUkMwL2xzeFYwbjRIOUM1?=
+ =?iso-2022-jp?B?TmJMR2M2YmVhdDZBOVdzSzJsbitOL0RDeVhWenYxdWtnamovaWZTdDFM?=
+ =?iso-2022-jp?B?eU9HWjJhR2hLby8yOTJ4TitOQzFxcGltbFlIRjJTZlBOekMzcW16RVcv?=
+ =?iso-2022-jp?B?SzZTbkFleDdsWXVmQzlPRUpCOUlVK2JPWHc9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <46r6cdcugwvyuvkjqbi3tq4f7ddkrgy4jut5fwqjsfwbsfoke4@upmtzhcmc7ni>
-X-Proofpoint-GUID: UUSQJlPh1gnkMxwwEtfPA_Fz3uBGJPw9
-X-Authority-Analysis: v=2.4 cv=Qspe3Uyd c=1 sm=1 tr=0 ts=68412a25 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
- a=yafonziSkLk5LdqN7hYA:9 a=CjuIK1q_8ugA:10 a=x9snwWr2DeNwDh03kgHS:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA1MDA0NSBTYWx0ZWRfXzVcqJrJfoPS+
- nON23XfPsoObsSPolwucGp9OpwlNd3vtVo10Lhu/XE+LnN//qQOb0vWuFHmp/njzG5xqibeURp0
- sDD0KCtHTT5enELsEp+UtZAfvdHQZaloL2PH/zIWGCv1f/yl+pROG22j5nR2zT6xa7ccad6Yjp4
- xvlRSnmXlzI+OInlFSPZko733+HaA6B3xeKeI3ZRu9e27qPWuBq+PemYaE/D+Jy8HpCIs+qPxUr
- wCGt1DSDX1teGiFqwFP2TQelL6c+Yf63VJV22PKxxjuQ6P3FL4vgPteZs8xlEmFKNEhsz2vF75L
- WTV+2keRsiX+3RPa4exJ+1o8IWUuzNYmooHKx3XscOZbHwJtpmOIxXIp7iBE0udJcpGAjzYP6tn
- GXZMDEBJQa0aj+8VT9jQcjANvI9KYORF5PvsvDK1GEjsrLtiWhSfPPeg3QLU1+a5Kf3UYF+2
-X-Proofpoint-ORIG-GUID: UUSQJlPh1gnkMxwwEtfPA_Fz3uBGJPw9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-05_01,2025-06-03_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 mlxscore=0 spamscore=0 priorityscore=1501 mlxlogscore=999
- lowpriorityscore=0 suspectscore=0 impostorscore=0 malwarescore=0
- clxscore=1011 adultscore=0 phishscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506050045
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: EUiOUkhy/jENzmUhuZ008D4YlGGCJz5pBht/5tf9Ckd3JsqVeo3sd9tL8pr3T/L2thp5XOhtginHFHa1Gc/Ztm2bjmd2BfIysxkF4OVpQmIw7FH/NtfOI6RTfF3wte6n58BKF+Pu80OC4U3fEoslY5dErOtKKaC6nTWljl+pzGHhscwDBO85C1PDDmMMPKn3vzzuNZHiF3KIpw99HeN9IwEeMQ1Xkn6HQfQaJDYT17tv+A04n4ELDPtlDTQkONK1mZJd0N5Z0f+eRSPkfeOj82crH2O5OuHkutwHiwq8OzOyhttCv4rm/PKqtIrbzGPT0e4C72KuNZ2Fcdh5wtERbQ66CaJZDctvBUGsX41oC4gG6exSC9K/gykA8ZwaYpD+Y+xBxJtB9MEKYHjnZ+Pf/Mjmg22xLZs6TU/wX54Ze2rqFNSz8cBrxviPAzfsbHsUuJqraMgEm78bh4vpd9eom50dE5QwahgIXMx5BpNFIhzsOB513IN3dnY3hQFtBrjSV+2n3yVJqRQD8kVWme/fjVTmjNUnCcZ7aBvJBIUZk2EnvaNgQwc6sCzqKYncmemvCgvl17OazeVMfDeEkXh8AmO/xwRDU0s6EL+vhPOWgygNXbjlxd5+nBQibjZSdy6H
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB13777.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d5daddf9-9d8e-4e6e-f465-08dda3f1ba57
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jun 2025 05:27:56.4979
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 9GeVFuf7XPaosawI4kiqGUembLYm4bj0fNoGsFJQGhPzwTzXK8QlHYIOBv/kvoiLt3wyXIRr32vVPoRuy7CWUG5gCx1l5iBvkxK8W6uulXQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB6761
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_222457_137204_4C1E3964 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20250604_222812_438900_753E137A 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,53 +212,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 04, 2025 at 03:30:22PM -0500, Bjorn Andersson wrote:
-> On Wed, Jun 04, 2025 at 04:02:33PM +0800, Wenbin Yao wrote:
-> > From: Qiang Yu <qiang.yu@oss.qualcomm.com>
-> > 
-> > Enable the pwrctrl driver, which is utilized to manage the power supplies
-> > of the devices connected to the PCI slots. This ensures that the voltage
-> > rails of the standard PCI slots on some platforms eg. X1E80100-QCP can be
-> > correctly turned on/off if they are described under PCIe port device tree
-> > node.
-> > 
-> > Signed-off-by: Qiang Yu <qiang.yu@oss.qualcomm.com>
-> > Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
-> > ---
-> >  arch/arm64/Kconfig.platforms | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> > index a541bb029..0ffd65e36 100644
-> > --- a/arch/arm64/Kconfig.platforms
-> > +++ b/arch/arm64/Kconfig.platforms
-> > @@ -270,6 +270,7 @@ config ARCH_QCOM
-> >  	select GPIOLIB
-> >  	select PINCTRL
-> >  	select HAVE_PWRCTRL if PCI
-> > +	select PCI_PWRCTRL_SLOT if PCI
-> 
-> PWRCTL isn't a fundamental feature of ARCH_QCOM, so why do we select it
-> here?
-> 
-We were asked to select it in the same way as PCI_PWRCTL_PWRSEQ, following
-an approach like:
+Hi John and Petr,
 
-select PCI_PWRCTL_SLOT if ARCH_QCOM in Kconfig and nothing in defconfig.
+> On Wed 2025-06-04 13:56:34, John Ogness wrote:
+> > On 2025-06-04, Petr Mladek <pmladek@suse.com> wrote:
+> > > On Wed 2025-06-04 04:11:10, Toshiyuki Sato (Fujitsu) wrote:
+> > >> > On 2025-06-03, John Ogness <john.ogness@linutronix.de> wrote:
+> > >> > > On 2025-06-03, "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>=
+ wrote:
+> > >> > >>> 4. pr_emerg() has a high logging level, and it effectively ste=
+als the console
+> > >> > >>> from the "pr/ttyAMA0" task, which I believe is intentional in =
+the nbcon
+> > >> > design.
+> > >> > >>> Down in pl011_console_write_thread(), the "pr/ttyAMA0" task is=
+ doing
+> > >> > >>> nbcon_enter_unsafe() and nbcon_exit_unsafe() around each chara=
+cter
+> > >> > >>> that it outputs.  When pr_emerg() steals the console, nbcon_ex=
+it_unsafe()
+> > >> > >>> returns 0, so the "for" loop exits. pl011_console_write_thread=
+() then
+> > >> > >>> enters a busy "while" loop waiting to reclaim the console. It'=
+s doing this
+> > >> > >>> busy "while" loop with interrupts disabled, and because of the=
+ panic,
+> > >> > >>> it never succeeds.
+> > >
+> > > I am a bit surprised that it never succeeds. The panic CPU takes over
+> > > the ownership but it releases it when the messages are flushed. And
+> > > the original owner should be able to reacquire it in this case.
+> >
+> > The problem is that other_cpu_in_panic() will return true forever, whic=
+h
+> > will cause _all_ acquires to fail forever. Originally we did allow
+> > non-panic to take over again after panic releases ownership. But IIRC w=
+e
+> > removed that capability because it allowed us to reduce a lot of
+> > complexity. And now nbcon_waiter_matches() relies on "Lower priorities
+> > are ignored during panic() until reboot."
+>=20
+> Great catch! I forgot it. And it explains everything.
+>=20
+> It would be nice to mention this in the commit message or
+> in the comment above nbcon_reacquire_nobuf().
+>=20
+> My updated prosal of the comment is:
+>=20
+>  * Return:	True when the context reacquired the owner ship. The caller
+>  *		might try entering the unsafe state and restore the original
+>  *		console device setting. It must not access the output buffer
+>  *		anymore.
+>  *
+>  *		False when another CPU is in panic(). nbcon_try_acquire()
+>  *		would never succeed and the infinite loop would	prevent
+>  *		stopping this CPU on architectures without proper NMI.
+>  *		The caller should bail out immediately without
+>  *		touching the console device or the output buffer.
+>=20
+> Best Regards,
+> Petr
 
-But to be honest, we didn't figure out a more appropriate way. Unlike
-PCI_PWRCTL_PWRSEQ, which is selected by ath11k/ath12k, PCI_PWRCTL_SLOT
-doesn't have a specific endpoint device driver to select it. Would it be
-appropriate to add "select PCI_PWRCTL_SLOT if HAVE_PWRCTL" in the Kconfig
-for portdrv? Do you have any recommendations?
+Thank you for your comments and suggestions.
 
-> Regards,
-> Bjorn
-> 
-> >  	help
-> >  	  This enables support for the ARMv8 based Qualcomm chipsets.
-> >  
-> > -- 
-> > 2.34.1
-> > 
+After consideration,=20
+I believe that there is no problem with forcibly terminating the process wh=
+en=20
+nbcon_reacquire_nobuf returns false at the pl011 driver level,=20
+as in the test patch.
+
+It feels a bit harsh that a thread which started processing before the pani=
+c
+and then transferred ownership to an atomic operation isn't allowed to perf=
+orm
+cleanup during panic handling or the grace period before the CPU halts.
+
+I would like to hear your opinion on this.
+If nbcon_reacquire_nobuf() could acquire ownership even after the panic,=20
+then driver-side modifications might not be necessary.=20
+(The responsibility to complete the process without hindering the panic pro=
+cess
+would still remain.)
+
+Would it be difficult to make an exception to the rule,
+  "Lower priorities are ignored during panic() until reboot,"
+depending on the situation?
+
+This is just my personal opinion.
+I think it would be good to get feedback from other UART driver developers =
+as well.
+
+Regards,
+Toshiyuki Sato
+
 
