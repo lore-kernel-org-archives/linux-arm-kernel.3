@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BD1C5AE59
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 20:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645E3C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  5 Jun 2025 20:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxQJiw6KehtsmawjILJfcN0IbIxuxAumV+XFX5XH8hI=; b=MxApFQR0ZPQVRulJQCVJvvNd7n
-	gt9DCHvlnjZ3J2DijCK0glaT60B/SblixCWKzJdRm8s67rzrVO54aXUL5IfzBJqh5iLwXm2epCrzY
-	jNUzALQm+6VgfGbCz143M7sYFyV8uFpA58QTFPZ+ehtJNUKkHCD7eNWPjTcQgO4RmZ2fjSHPQCpvU
-	GKp9kx9+NboWblBpCfpmW71yfcQisC4KYO1QFkDnGihxU0snqLd5O9MLGA+AFLABhHcX1GI0hNkV2
-	G0wHGGTVT559ot0KRuZySE5JZL4bzoLQpbMaTVSiMIRmhpUdLbYIbGMJ6qprpmQYnuaUhognEgv/9
-	maoIquZw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5wJ8z5IIgpEu/V2X7F5mJ1HG+C5cXnSuWs7oq4/DAVk=; b=uY7mYsXLZ4zZdlQsJAvI/mC6QB
+	r/PRzGBQsj8y/5O3PoCN2AZodnRWjd/osBCR+ThQIYoZWkrDsjBS/pRP2iOA5Vo5x8aU23o3zosFs
+	xYOnUYWhrE+idfx2nQUNAtvg3v9Cbe7cxPcODV6Z47jp7QJctAKjaznzyu45fJBihCxiU0QVJAjfU
+	dcQOIWRwRdP/l4/BMY0NpiaZDsWPwfVnFTW1sXDu5GkW9+rrHUgU2SSaceXuVzIqwUmOHVLJUG7H2
+	KU7LLvKdt2Kp3EHeXkIsjSdDvvF+XKPCUpIiXQNyXk4QToj7Zxrp+tkBE48Br5+JqJQxK8C94KkMs
+	MwC5hHVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNGqz-0000000GYz8-2vKt;
-	Thu, 05 Jun 2025 20:06:21 +0000
+	id 1uNGt6-0000000GZ7g-1Ytg;
+	Thu, 05 Jun 2025 20:08:32 +0000
 Received: from mail.nppct.ru ([195.133.245.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNGop-0000000GYlV-2wWI
+	id 1uNGou-0000000GYlU-2wqZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 05 Jun 2025 20:04:10 +0000
+	Thu, 05 Jun 2025 20:04:15 +0000
 Received: from mail.nppct.ru (localhost [127.0.0.1])
-	by mail.nppct.ru (Postfix) with ESMTP id A378B1C1200
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Jun 2025 23:03:51 +0300 (MSK)
+	by mail.nppct.ru (Postfix) with ESMTP id C03FC1C2AB1
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  5 Jun 2025 23:03:45 +0300 (MSK)
 Authentication-Results: mail.nppct.ru (amavisd-new); dkim=pass (1024-bit key)
 	reason="pass (just generated, assumed good)" header.d=nppct.ru
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nppct.ru; h=
-	content-transfer-encoding:mime-version:references:in-reply-to
-	:x-mailer:message-id:date:date:subject:subject:to:from:from; s=
-	dkim; t=1749153831; x=1750017832; bh=TeGhnktdSvFxXreUkwhblyYxGqC
-	rkCLuVr00TRFUiKg=; b=muyYK09AKsd5svyarCM+wgyXi06Ne0zIQpr8osYyGlM
-	mvFv38mvh3e1slWQweEQvM33yQ2sJPuyYfezhOkuBx44rteHQiJ3P3ULqQ0CTKY+
-	Yf6RfncjFBjitQYbMnjScBBdtAJZeidKE5vZzL2zX0n+++cfU7vC7VRQHVDjnJt8
-	=
+	content-transfer-encoding:mime-version:x-mailer:message-id:date
+	:date:subject:subject:to:from:from; s=dkim; t=1749153825; x=
+	1750017826; bh=o1vWj2peYFzT+9B8W1tqxLwFgYA9lzDCmka4MeMf2gg=; b=K
+	I9nhAcIiu7lrXTn3NaSpYUL8bNKN3JuEZPUAtssONVOxwA0OfQrmMVRtqDrTfQST
+	kfd5pvsOhmYcS89KLUgIxIfiT1B07gzs9+gNkR1YbWtLTB6hmsD1SiWoIZQ8MmcF
+	WObORsAQhNJAosjXCOvEpGDGM+Y6fvXsMWBkPfkouw=
 X-Virus-Scanned: Debian amavisd-new at mail.nppct.ru
 Received: from mail.nppct.ru ([127.0.0.1])
 	by mail.nppct.ru (mail.nppct.ru [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id StmhWMHnIKxS for <linux-arm-kernel@lists.infradead.org>;
-	Thu,  5 Jun 2025 23:03:51 +0300 (MSK)
+	with ESMTP id yoUHzQz2zH46 for <linux-arm-kernel@lists.infradead.org>;
+	Thu,  5 Jun 2025 23:03:45 +0300 (MSK)
 Received: from localhost.localdomain (unknown [87.249.24.51])
-	by mail.nppct.ru (Postfix) with ESMTPSA id EA2801C2ABA;
-	Thu,  5 Jun 2025 23:03:49 +0300 (MSK)
+	by mail.nppct.ru (Postfix) with ESMTPSA id 786081C0D75;
+	Thu,  5 Jun 2025 23:03:40 +0300 (MSK)
 From: Alexey Nepomnyashih <sdl@nppct.ru>
-To: Lyude Paul <lyude@redhat.com>
+To: 
 Cc: Alexey Nepomnyashih <sdl@nppct.ru>,
 	Danilo Krummrich <dakr@kernel.org>,
 	David Airlie <airlied@gmail.com>,
@@ -63,17 +62,15 @@ Cc: Alexey Nepomnyashih <sdl@nppct.ru>,
 	linux-kernel@vger.kernel.org,
 	lvc-project@linuxtesting.org,
 	stable@vger.kernel.org
-Subject: [PATCH 2/2] drm/nouveau/instmem/gk20a: fix incorrect argument in iommu_unmap
-Date: Thu,  5 Jun 2025 20:03:24 +0000
-Message-ID: <20250605200332.336245-2-sdl@nppct.ru>
+Subject: [PATCH 1/2] drm/nouveau/instmem/gk20a: fix overflow in IOVA calculation for iommu_map/unmap
+Date: Thu,  5 Jun 2025 20:03:23 +0000
+Message-ID: <20250605200332.336245-1-sdl@nppct.ru>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250605200332.336245-1-sdl@nppct.ru>
-References: <20250605200332.336245-1-sdl@nppct.ru>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_130407_911477_C33853A0 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250605_130412_911067_F228703F 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The unmap logic assumes a fixed step size of PAGE_SIZE, but the
-actual IOVA step depends on iommu_pgshift, not PAGE_SHIFT. If
-iommu_pgshift > PAGE_SHIFT, this results in mismatched offsets and
-causes iommu_unmap() to target incorrect addresses, potentially
-leaving mappings intact or corrupting IOMMU state.
-
-Fix this by recomputing the offset per index using the same logic as
-in the map loop, ensuring symmetry and correctness.
+Fix possible overflow in the address expression used as the second
+argument to iommu_map() and iommu_unmap(). Without an explicit cast,
+this expression may overflow when 'r->offset' or 'i' are large. Cast
+the result to unsigned long before shifting to ensure correct IOVA
+computation and prevent unintended wraparound.
 
 Found by Linux Verification Center (linuxtesting.org) with SVACE.
 
-Cc: stable@vger.kernel.org # v4.3+
-Fixes: a7f6da6e758c ("drm/nouveau/instmem/gk20a: add IOMMU support")
+Cc: stable@vger.kernel.org # v4.4+
 Signed-off-by: Alexey Nepomnyashih <sdl@nppct.ru>
 ---
- drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c b/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c
-index 17a0e1a46211..f58e0d4fb2b1 100644
+index 201022ae9214..17a0e1a46211 100644
 --- a/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c
 +++ b/drivers/gpu/drm/nouveau/nvkm/subdev/instmem/gk20a.c
-@@ -481,8 +481,9 @@ gk20a_instobj_ctor_iommu(struct gk20a_instmem *imem, u32 npages, u32 align,
- 			nvkm_error(subdev, "IOMMU mapping failure: %d\n", ret);
+@@ -334,7 +334,7 @@ gk20a_instobj_dtor_iommu(struct nvkm_memory *memory)
+ 	/* Unmap pages from GPU address space and free them */
+ 	for (i = 0; i < node->base.mn->length; i++) {
+ 		iommu_unmap(imem->domain,
+-			    (r->offset + i) << imem->iommu_pgshift, PAGE_SIZE);
++			    ((unsigned long)r->offset + i) << imem->iommu_pgshift, PAGE_SIZE);
+ 		dma_unmap_page(dev, node->dma_addrs[i], PAGE_SIZE,
+ 			       DMA_BIDIRECTIONAL);
+ 		__free_page(node->pages[i]);
+@@ -472,7 +472,7 @@ gk20a_instobj_ctor_iommu(struct gk20a_instmem *imem, u32 npages, u32 align,
  
- 			while (i-- > 0) {
--				offset -= PAGE_SIZE;
--				iommu_unmap(imem->domain, offset, PAGE_SIZE);
-+				iommu_unmap(imem->domain,
-+					    ((unsigned long)r->offset + i) << imem->iommu_pgshift,
-+					    PAGE_SIZE);
- 			}
- 			goto release_area;
- 		}
+ 	/* Map into GPU address space */
+ 	for (i = 0; i < npages; i++) {
+-		u32 offset = (r->offset + i) << imem->iommu_pgshift;
++		unsigned long offset = ((unsigned long)r->offset + i) << imem->iommu_pgshift;
+ 
+ 		ret = iommu_map(imem->domain, offset, node->dma_addrs[i],
+ 				PAGE_SIZE, IOMMU_READ | IOMMU_WRITE,
 -- 
 2.43.0
 
