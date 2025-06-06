@@ -4,64 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AA6C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 08:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E95FDC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 08:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RaYpsPgJJHeNg4Z6G85HvxDq+rrSNHiEHejBmAZBSBs=; b=tfudkwKZ7q8nmw416Shs1eO5KA
-	EvulczsUhBfrSfo2icAfOuf4KcXJne/9u/uD+gXeJL2ws1vbgBs6aWIHhIJBmKl6ZJbH8JMNSYASv
-	eK6RGaK8NbXGXjaLaGunR1L4zlbYeRCGcLy205TSeSb4GzqOL/HdtDUWEAU9roQZeiX8tawFjuS4R
-	YGKhGLPlf17aCfauOw8anzRMMxArxWeAfFya7mnRJ9W86FHivg0ZiCsyZOKtJXE0NNkQTg+SQymaZ
-	ZLnqrXZP6p0433AeosNV70+uQ4DkPrwUZ4Fw1mRjHg1JSt1AYrDEAf1oILjKhewdyLx7SY8kZz3Bn
-	5mkiRm0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yMvcZEOsoUfwAm2DY+5tfN7WW+vNPolDhsQtNVYBCZs=; b=hoi8fMpoR5NrnCjqaoRp7YnA4Z
+	QzzSg8PrkqMaSp8l6FeRUAdhWaHb/QYLYr8EjDduGjp8aynTxv8qUb2c5sjaFL2tpIlSW/xrbPa8d
+	mgWxd2SCoIqihS+Nvh9jpsdKaMfa6ZbAjddR+r5deERzij/os2nIDmUyFHxLaT5wcRnvUbnKuaao+
+	iXiOU8o2LnpeSiiqCNw9TiN+TvKyLenmE9d/I/Ad/K1LOUMQbmsqk6BhwPlGIcs0LI5QUJW6fb+i5
+	kmGeB620tIu+PON/M2SddgsB0IWqrj9wSMINYDrurIyErXQkw31s52yUCDD7HowO/cSwhDvNqTPDj
+	5QRAjarQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNSSa-0000000HPVj-0yjo;
-	Fri, 06 Jun 2025 08:29:56 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1uNSUi-0000000HPq2-42XL;
+	Fri, 06 Jun 2025 08:32:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNSPU-0000000HOuR-1m2I;
-	Fri, 06 Jun 2025 08:26:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749198402; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=b350DFtfUedur7zBIMRauTVll3wzUq/8EEXa4/OZnxG4gtK048GBPd7gBlTKV7+QxtNWFmOMdLgbCTq7ca61CNBIMDPzuyNcF7fVuLkv2T+W8DmLB4Y6cRbnJn/sDfiLkP++JzF6JyG8bFg9kKYhFt021kaGwlLLn2G9U2CmnLM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749198402; h=Content-Type:Content-Transfer-Encoding:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
-	bh=RaYpsPgJJHeNg4Z6G85HvxDq+rrSNHiEHejBmAZBSBs=; 
-	b=EJ6G2a+EznvdWSFMcrOZ92fnTeugzxllS4zd13h7jTOg2oR+CIgG5Nfk/zHh/PIvl+t5S8uNS8wCnmVIp1hANxeGRQFkE080kjhogModZ7hmVV+IC/myrDSnQUPQFl06iRUcdTWLQ/XAvf2OFmZQzzVXxV0h9MSUOFgW5k0AB/I=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749198402;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To:Cc;
-	bh=RaYpsPgJJHeNg4Z6G85HvxDq+rrSNHiEHejBmAZBSBs=;
-	b=c9OJCCPXAHT6EhmKgJ6A2wg23RjKUXmZWwGn/+UUqIypKLtpwDBG5YNShBPFkU/S
-	428Z0fjqPBHjLMtw6dzxYtIAokLSiDRN2qVkC+NEi8MLXN9KBhxkimFMYOannJ9BBV2
-	bulOUHREm+9SPPpKO58YV50moLjw28r84Tmzcj/k=
-Received: by mx.zohomail.com with SMTPS id 1749198399941963.5389095677118;
-	Fri, 6 Jun 2025 01:26:39 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Pei Xiao <xiaopei01@kylinos.cn>
-Subject: Re: [PATCH 2/2] ASOC: rockchip: Use helper function devm_clk_get_enabled()
-Date: Fri, 06 Jun 2025 10:26:36 +0200
-Message-ID: <2895073.PYKUYFuaPT@workhorse>
-In-Reply-To: <3f589ddf-e421-494f-85e5-1adebd19d03a@kylinos.cn>
-References: <cover.1749006565.git.xiaopei01@kylinos.cn> <24654754.ouqheUzb2q@workhorse>
- <3f589ddf-e421-494f-85e5-1adebd19d03a@kylinos.cn>
+	id 1uNSQH-0000000HP6e-1cwr;
+	Fri, 06 Jun 2025 08:27:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B72A24A100;
+	Fri,  6 Jun 2025 08:27:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEDA4C4CEF0;
+	Fri,  6 Jun 2025 08:27:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749198451;
+	bh=1rGlRVjSZPJRrzPluhWaoHUnHwZJhdUL6Aqwr9RzSoc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XSLGYVQlSts7oEwwuQ3Q08mw0laKIlKJOhi+9Mw3I5X38+oFfYNBRfM+1BYZzx0Bt
+	 sMj42KKZ5lO9nlBP0uzp04ltasOB0cptKlCizmE+Bgof5b8KXdbYyr+5/hHDBNHe1Q
+	 /2lTnuPhuCQBGBIaUrfVCim0AwYifrl4OaRNOMJaK8Yeun8jkemorn7jwc6Cd4l/O3
+	 VJe90UIjf+fIJ/gjduuPROp1BBG5ChtuSYVvYJEGg+d+Jok6yGyjrk/+4LPQlcp04A
+	 abcxgMlLF2hHFG5w2ThDNVfTUyyFxL3f+I9D8HcMT6YOKV+9RjVlIkvrPWhxTBvPLl
+	 wlNcuG+lgPnUw==
+Message-ID: <a9512a7d-1e8e-414a-9c92-b0a4e1af3617@kernel.org>
+Date: Fri, 6 Jun 2025 10:27:24 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: mfd: mediatek: mt6397: Add
+ #sound-dai-cells property
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Hui Liu <hui.liu@mediatek.com>, Yong Wu <yong.wu@mediatek.com>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Tinghan Shen
+ <tinghan.shen@mediatek.com>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ iommu@lists.linux.dev
+References: <20250514-mt8395-dtb-errors-v2-0-d67b9077c59a@collabora.com>
+ <20250514-mt8395-dtb-errors-v2-1-d67b9077c59a@collabora.com>
+ <20250522-independent-ginger-bullfrog-4552d1@kuoka>
+ <cee1e8bc-f4b0-49b9-a67b-2f54382c3d8e@notapiano>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <cee1e8bc-f4b0-49b9-a67b-2f54382c3d8e@notapiano>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_012644_532570_192D8BF4 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20250606_012733_463978_914861E9 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,177 +131,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 6 June 2025 05:27:13 Central European Summer Time Pei Xiao wrote:
->=20
-> =E5=9C=A8 2025/6/5 01:42, Nicolas Frattaroli =E5=86=99=E9=81=93:
-> > On Wednesday, 4 June 2025 05:13:30 Central European Summer Time Pei Xia=
-o wrote:
-> >> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prep=
-ared
-> >> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now =
-be
-> >> replaced by devm_clk_get_enabled() when driver enables the clocks for =
-the
-> >> whole lifetime of the device. Moreover, it is no longer necessary to
-> >> unprepare and disable the clocks explicitly.
-> >>
-> >> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-> >> ---
-> >>  sound/soc/rockchip/rockchip_sai.c | 8 +-------
-> >>  1 file changed, 1 insertion(+), 7 deletions(-)
-> >>
-> >> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/ro=
-ckchip_sai.c
-> >> index 79b04770da1c..2ec675708681 100644
-> >> --- a/sound/soc/rockchip/rockchip_sai.c
-> >> +++ b/sound/soc/rockchip/rockchip_sai.c
-> >> @@ -1448,16 +1448,12 @@ static int rockchip_sai_probe(struct platform_=
-device *pdev)
-> >>  				     "Failed to get mclk\n");
-> >>  	}
-> >> =20
-> >> -	sai->hclk =3D devm_clk_get(&pdev->dev, "hclk");
-> >> +	sai->hclk =3D devm_clk_get_enabled(&pdev->dev, "hclk");
-> >>  	if (IS_ERR(sai->hclk)) {
-> >>  		return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
-> >>  				     "Failed to get hclk\n");
-> >>  	}
-> >> =20
-> >> -	ret =3D clk_prepare_enable(sai->hclk);
-> >> -	if (ret)
-> >> -		return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
-> >> -
-> >>  	regmap_read(sai->regmap, SAI_VERSION, &sai->version);
-> >> =20
-> >>  	ret =3D rockchip_sai_init_dai(sai, res, &dai);
-> >> @@ -1512,8 +1508,6 @@ static int rockchip_sai_probe(struct platform_de=
-vice *pdev)
-> >>  	if (pm_runtime_put(&pdev->dev))
-> >>  		rockchip_sai_runtime_suspend(&pdev->dev);
-> >>  err_disable_hclk:
-> >> -	clk_disable_unprepare(sai->hclk);
-> >> -
-> >>  	return ret;
-> >>  }
-> >> =20
-> >>
-> > Please get rid of the err_disable_hclk label, and change the
-> >
-> >     goto err_disable_hclk;
-> >
-> > in the resume failure condition to a=20
-> >
-> >     return ret;
-> May I ask, could we use the dev_err_probe function instead?
->=20
-> return dev_err_probe(&pdev->dev, ret, "Failed to initialize DAI\n");
+On 29/05/2025 17:53, Nícolas F. R. A. Prado wrote:
+> On Thu, May 22, 2025 at 09:52:07AM +0200, Krzysztof Kozlowski wrote:
+>> On Wed, May 14, 2025 at 10:19:56AM GMT, Julien Massot wrote:
+>>> The 'mt6359.dtsi' file already uses the '#sound-dai-cells' property.
+>>> Add the corresponding property to the binding to fix the following
+>>> dtb-check error:
+>>>
+>>> mediatek/mt8395-radxa-nio-12l.dtb: pmic: '#sound-dai-cells', 'mt6359rtc' do not match any of the regexes: 'pinctrl-[0-9]+'
+>>> from schema $id: http://devicetree.org/schemas/mfd/mediatek,mt6397.yaml#
+>>
+>> If this is a random drive-by, would be fine, but if that's your platform
+>> which you should know, then I expect this to be a real reason instead
+>> something which can easily be rejected with: what if DTS is wrong?
+>>
+>> I could not find the ASoC driver for that compatible and quick glance to
+>> MFD shown me no usage of dai cells, so you need proper explanation here.
+>>
+>> Especially, that there is a subnode audio-codec, so adding dai cells to
+>> the parent node feels just wrong. One is wrong - either subnode or
+>> parent is a codec.
+> 
+> The driver is sound/soc/codecs/mt6359.c, which defines 2 DAIs. It's currently
+> probed by the MFD through the driver name, hence the parent MFD device is the
 
-Absolutely, dev_err_probe states the following in its documentation:
+It does not matter whether MFD or simple bus instantiates a device. Really.
 
-    Using this helper in your probe function is totally fine even if @err
-    is known to never be -EPROBE_DEFER.
+> one used to register the audio component.
 
-This means you can use it for every error case in the probe function.
-
->=20
->=20
-> @@ -1441,28 +1441,22 @@ static int rockchip_sai_probe(struct platform_dev=
-ice *pdev)
->                                      "Failed to get mclk\n");
->         }
-> =20
-> -       sai->hclk =3D devm_clk_get(&pdev->dev, "hclk");
-> +       sai->hclk =3D devm_clk_get_enabled(&pdev->dev, "hclk");
->         if (IS_ERR(sai->hclk)) {
->                 return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
->                                      "Failed to get hclk\n");
->         }
-> =20
-> -       ret =3D clk_prepare_enable(sai->hclk);
-> -       if (ret)
-> -               return dev_err_probe(&pdev->dev, ret, "Failed to enable h=
-clk\n");
-> -
->         regmap_read(sai->regmap, SAI_VERSION, &sai->version);
-> =20
->         ret =3D rockchip_sai_init_dai(sai, res, &dai);
->         if (ret) {
-> -               dev_err(&pdev->dev, "Failed to initialize DAI: %d\n", ret=
-);
-> -               goto err_disable_hclk;
-> +               return dev_err_probe(&pdev->dev, ret, "Failed to initiali=
-ze DAI\n");
->         }
-
-This would now be a one-line statement in the if branch, so checkpatch will
-advise you to remove the redundant { } from the if, so that it becomes
-
-    if (ret)
-            return dev_err_probe(&pdev->dev, ret, "Failed to initialize DAI=
-\n");
-
-You can run `./scripts/checkpatch.pl` on either a git commit range or a
-patch file, and it'll let you know. If you use b4, it'll run that
-script with some recommended flags on all commits in your series with
-`b4 prep --check`.
-
-> =20
->         ret =3D rockchip_sai_parse_paths(sai, node);
->         if (ret) {
-> -               dev_err(&pdev->dev, "Failed to parse paths: %d\n", ret);
-> -               goto err_disable_hclk;
-> +               return dev_err_probe(&pdev->dev, ret, "Failed to parse pa=
-ths\n");
->         }
-
-Same here
-
-> =20
->         /*
-> @@ -1475,8 +1469,7 @@ static int rockchip_sai_probe(struct platform_devic=
-e *pdev)
->         pm_runtime_get_noresume(&pdev->dev);
->         ret =3D rockchip_sai_runtime_resume(&pdev->dev);
->         if (ret) {
-> -               dev_err(&pdev->dev, "Failed to resume device: %pe\n", ERR=
-_PTR(ret));
-> -               goto err_disable_hclk;
-> +               return dev_err_probe(&pdev->dev, ret, "Failed to resume d=
-evice\n");
->         }
-
-Same here
-
-> =20
->         ret =3D devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
-> @@ -1504,8 +1497,6 @@ static int rockchip_sai_probe(struct platform_devic=
-e *pdev)
->         /* If we're !CONFIG_PM, we get -ENOSYS and disable manually */
->         if (pm_runtime_put(&pdev->dev))
->                 rockchip_sai_runtime_suspend(&pdev->dev);
-> -err_disable_hclk:
-> -       clk_disable_unprepare(sai->hclk);
-> =20
->         return ret;
->  }
->=20
-> thanks!
->=20
-> Pei.
-
-Kind regards,
-Nicolas Frattaroli
-
->=20
-> > Other than that, patch tested to be working fine.
-> >
-> > Kind regards,
-> > Nicolas Frattaroli
-> >
-> >
->=20
+I see codecs/mt6359.c registering the component, not the parent MFD
+device. This change does not look right but maybe the binding needs
+fixes as well.
 
 
 
-
+Best regards,
+Krzysztof
 
