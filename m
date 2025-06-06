@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD84C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 03:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5516BC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 03:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66x3DMqeh1pSZEcin5Aqa5bRDez4w+rYbaQr7U0zXsQ=; b=qS2opGQJ73KD3HD416ysZImd0Z
-	LWHqJLDzqlYoPGen628qWOl6G9luqk4RWq7bPcP26JKhDxasjgK1Tx5mVQnBMnuy2tcm+h8zMQwCu
-	QHw85PZtuee5Jdw57Q8ohneA3GJwnFQoZlL0sb/clmGHaVC3fmui51J0wLJtEt7fSbeMTryYBZGrQ
-	pUhUqOMpB4gui3stX1h/Q8lbaWwbIYGcXKvlZjXqmK93fTpgUj93Go+cdYvxjj/eEZg10ujKsxGKP
-	yMRQxRRQRCPSl6wLMCNoajUQy/wzYLHO8LcpCxfF8hpBbZ7QA69/JO6qtNaDXqWDAi9Uj24VYwnXq
-	S3U6jpVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r16hWBUndeglOyHc/PMj0JrJ/P5Tg3iMDROy/6f5Y08=; b=wy+4SpdF6hcHY2BWfQsk7EcNx+
+	Rjteu6R4N/trwUK9lLaq489ELUTgxXtWTjcHb/WO8WjC+5Lq8Mf3V3vyS5bKyXAEe0Y7z66ZPjqVx
+	RCSbrVUP2iEoGKHgF55IarErH/5PP4C4hdlUzdnPxmkcvu/Zq/uhhDKGVZnDreoPjVmUfKbkTE2Ui
+	uQC/BJX5QhdSsEnKWUlrKcl/Fuf9m6yblK63t2+bTmi0GjSXC6ZaLiWg0Y2+1HCqMX8AGcd31xbJb
+	3k2M2QimoxPvLYZhhttPkWhkvOmaEO+S82JnIZHyYjum1o2bCpuf0f4lsE63n+YSapB1DSi9+FjUg
+	2CIU1wEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNNm8-0000000H2AF-0evd;
-	Fri, 06 Jun 2025 03:29:48 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1uNO52-0000000H3Qy-1l40;
+	Fri, 06 Jun 2025 03:49:20 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNNjt-0000000H24S-30pY;
-	Fri, 06 Jun 2025 03:27:31 +0000
-X-UUID: 24be5cc4428611f0b29709d653e92f7d-20250606
+	id 1uNO2r-0000000H3Gj-3FoD;
+	Fri, 06 Jun 2025 03:47:06 +0000
+X-UUID: e6e5fd0a428811f09f706fa2197c6ceb-20250605
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=r16hWBUndeglOyHc/PMj0JrJ/P5Tg3iMDROy/6f5Y08=;
+	b=POJ6A0pPFIQPYR+WdU6XRTw0n4Q2bNms7QtMi4cN1rsONRisjgNoVYXHBGde6i1eM3wiqpsGStvRh+hv0tuIBEpHJWs+4Abpx87gFfMoV6d8Kiyv+bgrzZpL1qpkDsnr+ORtkn/O56tTGZY8u4il/tz3cRq+UQYWu9X5+yTUY6k=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.45,REQID:b5740708-e9d2-4d9f-87c8-2456abc1d479,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:6493067,CLOUDID:bf5a24c28619cba9b3ca4c7f565fe913,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|52,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.2.1,REQID:5ac1ea70-68ac-4298-badd-0633ce1e27d9,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:54866258-abad-4ac2-9923-3af0a8a9a079,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0,NGT
 X-CID-BAS: 0,NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 24be5cc4428611f0b29709d653e92f7d-20250606
-Received: from node4.com.cn [(10.44.16.170)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA)
-	with ESMTP id 163200506; Fri, 06 Jun 2025 11:27:15 +0800
-Received: from node4.com.cn (localhost [127.0.0.1])
-	by node4.com.cn (NSMail) with SMTP id 93A3416001A01;
-	Fri,  6 Jun 2025 11:27:15 +0800 (CST)
-X-ns-mid: postfix-68426013-513704641
-Received: from [10.42.13.56] (unknown [10.42.13.56])
-	by node4.com.cn (NSMail) with ESMTPA id 00CC516001CC7;
-	Fri,  6 Jun 2025 03:27:13 +0000 (UTC)
-Message-ID: <3f589ddf-e421-494f-85e5-1adebd19d03a@kylinos.cn>
-Date: Fri, 6 Jun 2025 11:27:13 +0800
+X-UUID: e6e5fd0a428811f09f706fa2197c6ceb-20250605
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <kuyo.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 686649875; Thu, 05 Jun 2025 20:47:00 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 6 Jun 2025 11:46:57 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n1.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
+ Transport; Fri, 6 Jun 2025 11:46:57 +0800
+Message-ID: <8e1018116ad7c5c325eced2cb17b65c73ca2ceca.camel@mediatek.com>
+Subject: Re: [PATCH 1/1] sched/core: Fix migrate_swap() vs. hotplug
+From: Kuyo Chang <kuyo.chang@mediatek.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
+	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Ben
+ Segall" <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, "Valentin
+ Schneider" <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Date: Fri, 6 Jun 2025 11:46:57 +0800
+In-Reply-To: <20250605100009.GO39944@noisy.programming.kicks-ass.net>
+References: <20250602072242.1839605-1-kuyo.chang@mediatek.com>
+	 <20250605100009.GO39944@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ASOC: rockchip: Use helper function
- devm_clk_get_enabled()
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1749006565.git.xiaopei01@kylinos.cn>
- <3b3d8f60e553af09a51b501b8ff5406fa5e898dd.1749006565.git.xiaopei01@kylinos.cn>
- <24654754.ouqheUzb2q@workhorse>
-From: Pei Xiao <xiaopei01@kylinos.cn>
-In-Reply-To: <24654754.ouqheUzb2q@workhorse>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_202730_062511_936835BE 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20250605_204705_819384_FA0BA82F 
+X-CRM114-Status: GOOD (  29.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,168 +90,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+T24gVGh1LCAyMDI1LTA2LTA1IGF0IDEyOjAwICswMjAwLCBQZXRlciBaaWpsc3RyYSB3cm90ZToK
+PiAKPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBh
+dHRhY2htZW50cyB1bnRpbAo+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNv
+bnRlbnQuCj4gCj4gCj4gT24gTW9uLCBKdW4gMDIsIDIwMjUgYXQgMDM6MjI6MTNQTSArMDgwMCwg
+S3V5byBDaGFuZyB3cm90ZToKPiAKPiBIb3cgZWFzeSBjYW4geW91IHJlcHJvZHVjZSB0aGlzPwo+
+IAoKVGhlIHByb2JhYmlsaXR5IG9mIGR1cGxpY2F0aW9uIGlzIHZlcnkgbG93LCByb3VnaGx5IHdp
+dGggYW4gb2NjdXJyZW5jZQpmcmVxdWVuY3kgb2YgYWJvdXQgZXZlcnkgMX4yIHdlZWtzLgpJIHRo
+aW5rIHRoaXMgaXNzdWUgY2FuIG9ubHkgb2NjdXIgaWYgYWxsIGJlbG93IHR5cGVzIG9mIHJhY2Vz
+IGhhcHBlbmVkLgoxLnN0b3BfdHdvX2NwdXMgdnMuIGhvdHBsdWcKMi5jcHUxIHNjaGVkdWxlKCkK
+My50dHd1IHF1ZXVlIGlwaSBsYXRlbmN5IAoKU28gbXkgaW5pdGlhbCBpbnRlbnRpb24gdG8gZml4
+IHRoaXMgaXMgYnkgYWRkaW5nCmNwdXNfcmVhZF9sb2NrL2NwdXNfcmVhZF91bmxvY2sgYXJvdW5k
+IHN0b3BfdHdvX2NwdXMtKDEpCgo+ID4gU28sIHRoZSBwb3RlbnRpYWwgcmFjZSBzY2VuYXJpbyBp
+czoKPiA+IAo+ID4gwqDCoMKgwqDCoCBDUFUwwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIENQVTEKPiA+IMKgwqDCoMKgwqAgLy8gZG9pbmcgbWlncmF0ZV9zd2Fw
+KGNwdTAvY3B1MSkKPiA+IMKgwqDCoMKgwqAgc3RvcF90d29fY3B1cygpCj4gPiDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAuLi4KPiA+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvLyBkb2luZwo+
+ID4gX2NwdV9kb3duKCkKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IHNjaGVkX2NwdV9kZWFjdGl2YXRlKCkKPiA+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgCj4gPiBzZXRfY3B1X2FjdGl2ZShjcHUsIGZhbHNlKTsKPiA+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gPiBi
+YWxhbmNlX3B1c2hfc2V0KGNwdSwgdHJ1ZSk7Cj4gPiDCoMKgwqDCoMKgIGNwdV9zdG9wX3F1ZXVl
+X3R3b193b3Jrcwo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhz
+dG9wcGVyMSwuLi4pOwo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29y
+ayhzdG9wcGVyMiwuLik7Cj4gPiDCoMKgwqDCoMKgIHN0b3BfY3B1c19pbl9wcm9ncmVzcyAtPiB0
+cnVlCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBwcmVlbXB0X2VuYWJsZSgpOwo+ID4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgLi4uCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIDFzdAo+ID4gYmFsYW5jZV9wdXNoCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gPiBzdG9wX29uZV9jcHVfbm93YWl0Cj4gPiDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gPiBjcHVf
+c3RvcF9xdWV1ZV93b3JrCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgCj4gPiBfX2NwdV9zdG9wX3F1ZXVlX3dvcmsKPiA+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IGxpc3RfYWRkX3RhaWzCoCAt
+PiAxc3QgYWRkIHB1c2hfd29yawo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoAo+ID4gd2FrZV91cF9xKCZ3YWtlcSk7wqAgLT4gIndha2VxIGlzIGVt
+cHR5Lgo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgIFRo
+aXMgaW1wbGllcyB0aGF0IHRoZSBzdG9wcGVyIGlzIGF0IHdha2VxQG1pZ3JhdGVfc3dhcC4iCj4g
+PiDCoMKgwqDCoMKgIHByZWVtcHRfZGlzYWJsZQo+ID4gwqDCoMKgwqDCoCB3YWtlX3VwX3EoJndh
+a2VxKTsKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2VzcyAvLyB3
+YWtldXAgbWlncmF0ZS8wCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHRy
+eV90b193YWtlX3VwCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqAgdHR3dV9xdWV1ZQo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgdHR3dV9xdWV1ZV9jb25kIC0+bWVldCBiZWxvdyBjYXNlCj4gPiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGlmIChj
+cHUgPT0gc21wX3Byb2Nlc3Nvcl9pZCgpKQo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiBmYWxzZTsKPiA+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB0dHd1X2RvX2FjdGl2YXRlCj4g
+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLy9taWdyYXRlLzAg
+d2FrZXVwIGRvbmUKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2Vz
+cyAvLyB3YWtldXAgbWlncmF0ZS8xCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCB0cnlfdG9fd2FrZV91cAo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB0
+dHd1X3F1ZXVlCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+dHR3dV9xdWV1ZV9jb25kCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgdHR3dV9xdWV1ZV93YWtlbGlzdAo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIF9fdHR3dV9xdWV1ZV93YWtlbGlzdAo+ID4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIF9fc21wX2NhbGxfc2luZ2xlX3F1ZXVlCj4gPiDC
+oMKgwqDCoMKgIHByZWVtcHRfZW5hYmxlKCk7Cj4gPiAKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMm5kCj4gPiBiYWxhbmNlX3B1c2gKPiA+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IHN0b3Bf
+b25lX2NwdV9ub3dhaXQKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAKPiA+IGNwdV9zdG9wX3F1ZXVlX3dvcmsKPiA+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IF9fY3B1X3N0b3BfcXVldWVfd29y
+awo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoAo+
+ID4gbGlzdF9hZGRfdGFpbMKgIC0+IDJuZCBhZGQgcHVzaF93b3JrLCBzbyB0aGUgZG91YmxlIGxp
+c3QgYWRkIGlzCj4gPiBkZXRlY3RlZAo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCAuLi4KPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqAgLi4uCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNwdTEgZ2V0IGlwaSwKPiA+IGRvIHNjaGVkX3R0d3VfcGVu
+ZGluZywgd2FrZXVwIG1pZ3JhdGUvMQo+ID4gCj4gCj4gU28gdGhpcyBiYWxhbmNlX3B1c2goKSBp
+cyBwYXJ0IG9mIHNjaGVkdWxlKCksIGFuZCBzY2hlZHVsZSgpIGlzCj4gc3VwcG9zZWQKPiB0byBz
+d2l0Y2ggdG8gc3RvcHBlciB0YXNrLCBidXQgYmVjYXVzZSBvZiB0aGlzIHJhY2UgY29uZGl0aW9u
+LAo+IHN0b3BwZXIKPiB0YXNrIGlzIHN0dWNrIGluIFdBS0lORyBzdGF0ZSBhbmQgbm90IGFjdHVh
+bGx5IHZpc2libGUgdG8gYmUgcGlja2VkLgo+IAo+IFRoZXJlZm9yZSBDUFUxIGNhbiBkbyBhbm90
+aGVyIHNjaGVkdWxlKCkgYW5kIGVuZCB1cCBkb2luZyBhbm90aGVyCj4gYmFsYW5jZV9wdXNoKCkg
+ZXZlbiB0aG91Z2ggdGhlIGxhc3Qgb25lIGhhc24ndCBiZWVuIGRvbmUgeWV0Lgo+IAo+IFNvIGhv
+dyBhYm91dCB3ZSBkbyBzb21ldGhpbmcgbGlrZSB0aGlzPyBEb2VzIHRoaXMgaGVscD8KPiAKClRo
+YW5rIHlvdSBmb3IgeW91ciBwYXRjaC4KSSBiZWxpZXZlIHRoaXMgcGF0Y2ggYWxzbyBlZmZlY3Rp
+dmVseSBhZGRyZXNzZXMgdGhpcyByYWNlIGNvbmRpdGlvbi4KSSB3aWxsIHF1ZXVlIGl0IGluIG91
+ciB0ZXN0IHBvb2wgZm9yIHRlc3RpbmcuCgo+IC0tLQo+IGRpZmYgLS1naXQgYS9rZXJuZWwvc2No
+ZWQvY29yZS5jIGIva2VybmVsL3NjaGVkL2NvcmUuYwo+IGluZGV4IDYyYjM0MTZmNWU0My4uYzM3
+YjgwYmQ1M2U2IDEwMDY0NAo+IC0tLSBhL2tlcm5lbC9zY2hlZC9jb3JlLmMKPiArKysgYi9rZXJu
+ZWwvc2NoZWQvY29yZS5jCj4gQEAgLTM5MzksNiArMzkzOSwxMSBAQCBzdGF0aWMgaW5saW5lIGJv
+b2wgdHR3dV9xdWV1ZV9jb25kKHN0cnVjdAo+IHRhc2tfc3RydWN0ICpwLCBpbnQgY3B1KQo+IMKg
+wqDCoMKgwqDCoMKgIGlmICghc2N4X2FsbG93X3R0d3VfcXVldWUocCkpCj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiBmYWxzZTsKPiAKPiArI2lmZGVmIENPTkZJR19TTVAK
+PiArwqDCoMKgwqDCoMKgIGlmIChwLT5zY2hlZF9jbGFzcyA9PSAmc3RvcF9zY2hlZF9jbGFzcykK
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gZmFsc2U7Cj4gKyNlbmRpZgo+
+ICsKPiDCoMKgwqDCoMKgwqDCoCAvKgo+IMKgwqDCoMKgwqDCoMKgwqAgKiBEbyBub3QgY29tcGxp
+Y2F0ZSB0aGluZ3Mgd2l0aCB0aGUgYXN5bmMgd2FrZV9saXN0IHdoaWxlCj4gdGhlIENQVSBpcwo+
+IMKgwqDCoMKgwqDCoMKgwqAgKiBpbiBob3RwbHVnIHN0YXRlLgo+IGRpZmYgLS1naXQgYS9rZXJu
+ZWwvc3RvcF9tYWNoaW5lLmMgYi9rZXJuZWwvc3RvcF9tYWNoaW5lLmMKPiBpbmRleCA1ZDJkMDU2
+MjExNWIuLjg4NTVhNTBjYzIxNiAxMDA2NDQKPiAtLS0gYS9rZXJuZWwvc3RvcF9tYWNoaW5lLmMK
+PiArKysgYi9rZXJuZWwvc3RvcF9tYWNoaW5lLmMKPiBAQCAtODIsMTggKzgyLDE1IEBAIHN0YXRp
+YyB2b2lkIGNwdV9zdG9wX3NpZ25hbF9kb25lKHN0cnVjdAo+IGNwdV9zdG9wX2RvbmUgKmRvbmUp
+Cj4gwqB9Cj4gCj4gwqBzdGF0aWMgdm9pZCBfX2NwdV9zdG9wX3F1ZXVlX3dvcmsoc3RydWN0IGNw
+dV9zdG9wcGVyICpzdG9wcGVyLAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjcHVfc3Rv
+cF93b3JrICp3b3JrLAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCB3YWtlX3FfaGVhZCAq
+d2FrZXEpCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0IGNwdV9zdG9wX3dvcmsgKndvcmspCj4gwqB7Cj4gwqDC
+oMKgwqDCoMKgwqAgbGlzdF9hZGRfdGFpbCgmd29yay0+bGlzdCwgJnN0b3BwZXItPndvcmtzKTsK
+PiAtwqDCoMKgwqDCoMKgIHdha2VfcV9hZGQod2FrZXEsIHN0b3BwZXItPnRocmVhZCk7Cj4gwqB9
+Cj4gCj4gwqAvKiBxdWV1ZSBAd29yayB0byBAc3RvcHBlci7CoCBpZiBvZmZsaW5lLCBAd29yayBp
+cyBjb21wbGV0ZWQKPiBpbW1lZGlhdGVseSAqLwo+IMKgc3RhdGljIGJvb2wgY3B1X3N0b3BfcXVl
+dWVfd29yayh1bnNpZ25lZCBpbnQgY3B1LCBzdHJ1Y3QKPiBjcHVfc3RvcF93b3JrICp3b3JrKQo+
+IMKgewo+IMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjcHVfc3RvcHBlciAqc3RvcHBlciA9ICZwZXJf
+Y3B1KGNwdV9zdG9wcGVyLCBjcHUpOwo+IC3CoMKgwqDCoMKgwqAgREVGSU5FX1dBS0VfUSh3YWtl
+cSk7Cj4gwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBmbGFnczsKPiDCoMKgwqDCoMKgwqDC
+oCBib29sIGVuYWJsZWQ7Cj4gCj4gQEAgLTEwMSwxMiArOTgsMTIgQEAgc3RhdGljIGJvb2wgY3B1
+X3N0b3BfcXVldWVfd29yayh1bnNpZ25lZCBpbnQKPiBjcHUsIHN0cnVjdCBjcHVfc3RvcF93b3Jr
+ICp3b3JrKQo+IMKgwqDCoMKgwqDCoMKgIHJhd19zcGluX2xvY2tfaXJxc2F2ZSgmc3RvcHBlci0+
+bG9jaywgZmxhZ3MpOwo+IMKgwqDCoMKgwqDCoMKgIGVuYWJsZWQgPSBzdG9wcGVyLT5lbmFibGVk
+Owo+IMKgwqDCoMKgwqDCoMKgIGlmIChlbmFibGVkKQo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhzdG9wcGVyLCB3b3JrLCAmd2FrZXEpOwo+ICvC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhzdG9wcGVy
+LCB3b3JrKTsKPiDCoMKgwqDCoMKgwqDCoCBlbHNlIGlmICh3b3JrLT5kb25lKQo+IMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjcHVfc3RvcF9zaWduYWxfZG9uZSh3b3JrLT5kb25lKTsK
+PiDCoMKgwqDCoMKgwqDCoCByYXdfc3Bpbl91bmxvY2tfaXJxcmVzdG9yZSgmc3RvcHBlci0+bG9j
+aywgZmxhZ3MpOwo+IAo+IC3CoMKgwqDCoMKgwqAgd2FrZV91cF9xKCZ3YWtlcSk7Cj4gK8KgwqDC
+oMKgwqDCoCB3YWtlX3VwX3Byb2Nlc3Moc3RvcHBlci0+dGhyZWFkKTsKCkJUVywgc2hvdWxkIHdl
+IGFkZCBlbmFibGVkIGNoZWNrIGhlcmU/CglpZiAoZW5hYmxlZCnCoAoJCXdha2VfdXBfcHJvY2Vz
+cyhzdG9wcGVyLT50aHJlYWQpOwoKPiDCoMKgwqDCoMKgwqDCoCBwcmVlbXB0X2VuYWJsZSgpOwo+
+IAo+IMKgwqDCoMKgwqDCoMKgIHJldHVybiBlbmFibGVkOwo+IEBAIC0yNjQsNyArMjYxLDYgQEAg
+c3RhdGljIGludCBjcHVfc3RvcF9xdWV1ZV90d29fd29ya3MoaW50IGNwdTEsCj4gc3RydWN0IGNw
+dV9zdG9wX3dvcmsgKndvcmsxLAo+IMKgewo+IMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjcHVfc3Rv
+cHBlciAqc3RvcHBlcjEgPSBwZXJfY3B1X3B0cigmY3B1X3N0b3BwZXIsCj4gY3B1MSk7Cj4gwqDC
+oMKgwqDCoMKgwqAgc3RydWN0IGNwdV9zdG9wcGVyICpzdG9wcGVyMiA9IHBlcl9jcHVfcHRyKCZj
+cHVfc3RvcHBlciwKPiBjcHUyKTsKPiAtwqDCoMKgwqDCoMKgIERFRklORV9XQUtFX1Eod2FrZXEp
+Owo+IMKgwqDCoMKgwqDCoMKgIGludCBlcnI7Cj4gCj4gwqByZXRyeToKPiBAQCAtMzAwLDggKzI5
+Niw4IEBAIHN0YXRpYyBpbnQgY3B1X3N0b3BfcXVldWVfdHdvX3dvcmtzKGludCBjcHUxLAo+IHN0
+cnVjdCBjcHVfc3RvcF93b3JrICp3b3JrMSwKPiDCoMKgwqDCoMKgwqDCoCB9Cj4gCj4gwqDCoMKg
+wqDCoMKgwqAgZXJyID0gMDsKPiAtwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhz
+dG9wcGVyMSwgd29yazEsICZ3YWtlcSk7Cj4gLcKgwqDCoMKgwqDCoCBfX2NwdV9zdG9wX3F1ZXVl
+X3dvcmsoc3RvcHBlcjIsIHdvcmsyLCAmd2FrZXEpOwo+ICvCoMKgwqDCoMKgwqAgX19jcHVfc3Rv
+cF9xdWV1ZV93b3JrKHN0b3BwZXIxLCB3b3JrMSk7Cj4gK8KgwqDCoMKgwqDCoCBfX2NwdV9zdG9w
+X3F1ZXVlX3dvcmsoc3RvcHBlcjIsIHdvcmsyKTsKPiAKPiDCoHVubG9jazoKPiDCoMKgwqDCoMKg
+wqDCoCByYXdfc3Bpbl91bmxvY2soJnN0b3BwZXIyLT5sb2NrKTsKPiBAQCAtMzE2LDcgKzMxMiw4
+IEBAIHN0YXRpYyBpbnQgY3B1X3N0b3BfcXVldWVfdHdvX3dvcmtzKGludCBjcHUxLAo+IHN0cnVj
+dCBjcHVfc3RvcF93b3JrICp3b3JrMSwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+Z290byByZXRyeTsKPiDCoMKgwqDCoMKgwqDCoCB9Cj4gCj4gLcKgwqDCoMKgwqDCoCB3YWtlX3Vw
+X3EoJndha2VxKTsKPiArwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2VzcyhzdG9wcGVyMS0+dGhy
+ZWFkKTsKPiArwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2VzcyhzdG9wcGVyMi0+dGhyZWFkKTsK
+PiDCoMKgwqDCoMKgwqDCoCBwcmVlbXB0X2VuYWJsZSgpOwo+IAo+IMKgwqDCoMKgwqDCoMKgIHJl
+dHVybiBlcnI7Cgo=
 
-=E5=9C=A8 2025/6/5 01:42, Nicolas Frattaroli =E5=86=99=E9=81=93:
-> On Wednesday, 4 June 2025 05:13:30 Central European Summer Time Pei Xia=
-o wrote:
->> Since commit 7ef9651e9792 ("clk: Provide new devm_clk helpers for prep=
-ared
->> and enabled clocks"), devm_clk_get() and clk_prepare_enable() can now =
-be
->> replaced by devm_clk_get_enabled() when driver enables the clocks for =
-the
->> whole lifetime of the device. Moreover, it is no longer necessary to
->> unprepare and disable the clocks explicitly.
->>
->> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
->> ---
->>  sound/soc/rockchip/rockchip_sai.c | 8 +-------
->>  1 file changed, 1 insertion(+), 7 deletions(-)
->>
->> diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/ro=
-ckchip_sai.c
->> index 79b04770da1c..2ec675708681 100644
->> --- a/sound/soc/rockchip/rockchip_sai.c
->> +++ b/sound/soc/rockchip/rockchip_sai.c
->> @@ -1448,16 +1448,12 @@ static int rockchip_sai_probe(struct platform_=
-device *pdev)
->>  				     "Failed to get mclk\n");
->>  	}
->> =20
->> -	sai->hclk =3D devm_clk_get(&pdev->dev, "hclk");
->> +	sai->hclk =3D devm_clk_get_enabled(&pdev->dev, "hclk");
->>  	if (IS_ERR(sai->hclk)) {
->>  		return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
->>  				     "Failed to get hclk\n");
->>  	}
->> =20
->> -	ret =3D clk_prepare_enable(sai->hclk);
->> -	if (ret)
->> -		return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk\n");
->> -
->>  	regmap_read(sai->regmap, SAI_VERSION, &sai->version);
->> =20
->>  	ret =3D rockchip_sai_init_dai(sai, res, &dai);
->> @@ -1512,8 +1508,6 @@ static int rockchip_sai_probe(struct platform_de=
-vice *pdev)
->>  	if (pm_runtime_put(&pdev->dev))
->>  		rockchip_sai_runtime_suspend(&pdev->dev);
->>  err_disable_hclk:
->> -	clk_disable_unprepare(sai->hclk);
->> -
->>  	return ret;
->>  }
->> =20
->>
-> Please get rid of the err_disable_hclk label, and change the
->
->     goto err_disable_hclk;
->
-> in the resume failure condition to a=20
->
->     return ret;
-May I ask, could we use the=C2=A0dev_err_probe=C2=A0function instead?
-
-return dev_err_probe(&pdev->dev, ret, "Failed to initialize DAI\n");
-
-
-@@ -1441,28 +1441,22 @@ static int rockchip_sai_probe(struct platform_dev=
-ice *pdev)
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "Faile=
-d to get mclk\n");
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
-=C2=A0
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 sai->hclk =3D devm_clk_get(&pdev->d=
-ev, "hclk");
-+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 sai->hclk =3D devm_clk_get_enabled(=
-&pdev->dev, "hclk");
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (IS_ERR(sai->hclk)) {
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "Faile=
-d to get hclk\n");
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
-=C2=A0
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D clk_prepare_enable(sai->hcl=
-k);
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret)
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 return dev_err_probe(&pdev->dev, ret, "Failed to enable hclk=
-\n");
--
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 regmap_read(sai->regmap, SAI_V=
-ERSION, &sai->version);
-=C2=A0
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D rockchip_sai_init_dai(=
-sai, res, &dai);
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret) {
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 dev_err(&pdev->dev, "Failed to initialize DAI: %d\n", ret);
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 goto err_disable_hclk;
-+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 return dev_err_probe(&pdev->dev, ret, "Failed to initialize =
-DAI\n");
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
-=C2=A0
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D rockchip_sai_parse_pat=
-hs(sai, node);
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret) {
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 dev_err(&pdev->dev, "Failed to parse paths: %d\n", ret);
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 goto err_disable_hclk;
-+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 return dev_err_probe(&pdev->dev, ret, "Failed to parse paths=
-\n");
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
-=C2=A0
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /*
-@@ -1475,8 +1469,7 @@ static int rockchip_sai_probe(struct platform_devic=
-e *pdev)
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pm_runtime_get_noresume(&pdev-=
->dev);
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D rockchip_sai_runtime_r=
-esume(&pdev->dev);
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret) {
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 dev_err(&pdev->dev, "Failed to resume device: %pe\n", ERR_PT=
-R(ret));
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 goto err_disable_hclk;
-+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 return dev_err_probe(&pdev->dev, ret, "Failed to resume devi=
-ce\n");
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
-=C2=A0
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D devm_snd_dmaengine_pcm=
-_register(&pdev->dev, NULL, 0);
-@@ -1504,8 +1497,6 @@ static int rockchip_sai_probe(struct platform_devic=
-e *pdev)
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* If we're !CONFIG_PM, we get=
- -ENOSYS and disable manually */
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (pm_runtime_put(&pdev->dev)=
-)
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 rockchip_sai_runtime_suspend(&pdev->dev);
--err_disable_hclk:
--=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clk_disable_unprepare(sai->hclk);
-=C2=A0
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return ret;
-=C2=A0}
-
-thanks!
-
-Pei.
-
-> Other than that, patch tested to be working fine.
->
-> Kind regards,
-> Nicolas Frattaroli
->
->
 
