@@ -4,153 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AF2C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 04:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5400EC5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 05:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EDMBr25Rd5V/4UNv3zTo9MCi6cLNrHYng1lWkmFyUmA=; b=ymW+kMi074CLggO0jDS0p/S6nS
-	0x88zU9/CD+nlq/t0D4CfxIQ5chJeb+dkKrtbqkFFHVj1cEUIwr9G2E0VMELu60stxHQBXRY91Se7
-	Se+1YxvkdCQqREF+eRHBlJHHQ4kzStMtKLKDZwG9tt9cR21y2+cRAu0sQs6G5GYtu5x1WMNaps9kb
-	ya4qfbDHEnqSIj628aXaRT4Uy7cAHRbmyh1Lqjx9f+gK45szCIxmOTxRbm3oK0SqXjpDmyLij7y0K
-	41zGhOwaTdfWEA1ddKLc3dVXjx0KRzPPKkeo/vod82SRTD+5R1jpZQtbpE98URdrRKJWmW5ZP3BHl
-	FNQZLNow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gxWcTo1W0h0Ok1LsQC+B/+1V/Etwb0M4/RsXuCLiW6M=; b=uYSW3iR+EfCnfNoXQG+nhHeSi0
+	zn6ZwkNEiWfvg185bZodAvdscDxUhvCyofECDcD8rvEzwiHwf+dU8okiZXKcO3J8lPdgk3c4Ply2y
+	L8+Qp1gZ0rHKVum1uvYr+xkcw60DdrZQPucukxt2FCUDNFNt3U9PZJF9ychzdAu3RVqYo7vihG+1d
+	HOx12sQOlLy1HoPIfvTEA4S1a+y73W0HEASGF9HxW+HdhoSM6opSO0SqwdwEB3TsKNqWLVPyiy0n+
+	WIiL3/PxwX6UIPmxRHfza1JW4KBa9cLa8HUfVbOTT4HgpYRZPxiRPsSNPNzhaUBNW8Xb+Irz/Kri/
+	b6RrWUuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNP2T-0000000H6aQ-1Weg;
-	Fri, 06 Jun 2025 04:50:45 +0000
-Received: from mail-dm6nam11on2060f.outbound.protection.outlook.com ([2a01:111:f403:2415::60f] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNOyk-0000000H6My-0TSC
+	id 1uNPd4-0000000H7wS-1rW8;
+	Fri, 06 Jun 2025 05:28:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uNPam-0000000H7qc-34wk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 04:46:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JvvNzVCcEZlqPLTlcpLt/Nw3gcjdBiwhUz8DpGiU2LykE+heikMi60rA2oP2ky9+JqZzsokYWJQf7SeKctkbR1hQEiiEvZ/kvVO0wsPqEJsR1mr4xV5/bnEmkFReu5iiwylZnK3LCpnEaqlhXGAlbXVwcbN3Em1UFtG9uYc6rdebHMPoF358F08XyNkSR1OPP7HoUrr2BEX+6GYPYM55IfPbl0fBaJkFBGRi/5HeoHh957MXO4eoMhmsvwXEehwuRk/JIN4EeuypdC0DrNyUYZDsSq21CjKOx7qCt2k2yxND7quvy7DWZxgTRHT7Auw071r3dQd00ysDCr2mpCTtvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EDMBr25Rd5V/4UNv3zTo9MCi6cLNrHYng1lWkmFyUmA=;
- b=FTcDdNMTCo7qKxcV6L9EY7P0zPCMDU0ZBM+ERKH4JdJL++oD94uYVrPkKwAds6pH1Ypgb+vgz6dKgiWP7ZTuzgFigRUD5YCyu7A/SnMJbU2wjFoCLMHUps2IgO59uTI9kebDWhrtjbR9N5JVC5F8OQy3msDSkLes2b2tLCct/MJH7SwKs00OitK9LjqQPWqqsi615FTyQa/saDzyQ9twJyPMmCInirAgDWe54c9rjX1U/Go/6Y6KfXyUmZgFLQix/+A15Wo4K3gs4QULvA4cQzNc5EsfYCB1cplmOFLupTTavjMvHm2dbMk4fMKxyGL9Sl/ShxVqqad4PG4ZL5fNCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EDMBr25Rd5V/4UNv3zTo9MCi6cLNrHYng1lWkmFyUmA=;
- b=L161cLuSOXA+uQ+QpbQpk5BhOXXyOpIbnvsAZXjEvXGC/boKaCDwutYtTDOJ2eezMO4xit7IvI3s8KHrmPHX2XIKzE+oFVS1q83GF+udmAqtcLxgRpxHNDx7p2usAHolupsnb4WCWKbCNBVyPTgOan1ieyPgjVjT9h9oBmNaY+4caKkojhdxj7ZHuuwXdUyz0v1w2CPL4X+py4ASgkU4gW3YQJBTluxmLnaAN/E0nGhVXC7L0UZ3PQT9aEWWbFSPKPF+l6d0uhiPCEJpz/JvW3igb/RbY+9DDpnowmA3ulx3USTZTGkba2Zq1YFI5eFH1rwQQy3G0q1cl5m/0U40Hg==
-Received: from MW4PR04CA0172.namprd04.prod.outlook.com (2603:10b6:303:85::27)
- by PH8PR12MB7181.namprd12.prod.outlook.com (2603:10b6:510:22a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.32; Fri, 6 Jun
- 2025 04:46:45 +0000
-Received: from SJ5PEPF00000204.namprd05.prod.outlook.com
- (2603:10b6:303:85:cafe::bd) by MW4PR04CA0172.outlook.office365.com
- (2603:10b6:303:85::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.19 via Frontend Transport; Fri,
- 6 Jun 2025 04:46:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ5PEPF00000204.mail.protection.outlook.com (10.167.244.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8792.29 via Frontend Transport; Fri, 6 Jun 2025 04:46:44 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 5 Jun 2025
- 21:46:32 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 5 Jun
- 2025 21:46:32 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 5 Jun 2025 21:46:30 -0700
-Date: Thu, 5 Jun 2025 21:46:28 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v5 10/29] iommufd: Abstract iopt_pin_pages and
- iopt_unpin_pages helpers
-Message-ID: <aEJypNAzkGGT375k@Asurada-Nvidia>
-References: <cover.1747537752.git.nicolinc@nvidia.com>
- <49f7143c1b513049fd8158278a11d9f8b6c837d3.1747537752.git.nicolinc@nvidia.com>
- <20250528171754.GY61950@nvidia.com>
- <aEEY28ZXH+NqiE+T@Asurada-Nvidia>
- <20250605151648.GD19710@nvidia.com>
- <aEHOI522eucrOZyI@Asurada-Nvidia>
- <20250605194034.GF19710@nvidia.com>
+	Fri, 06 Jun 2025 05:26:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35D2E1595;
+	Thu,  5 Jun 2025 22:25:53 -0700 (PDT)
+Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 636D63F59E;
+	Thu,  5 Jun 2025 22:26:09 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: [boot-wrapper PATCH V2] aarch64: Enable access into FEAT_SPE_FDS register from EL2 and below
+Date: Fri,  6 Jun 2025 10:56:02 +0530
+Message-Id: <20250606052602.3387225-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250605194034.GF19710@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000204:EE_|PH8PR12MB7181:EE_
-X-MS-Office365-Filtering-Correlation-Id: 699a4de5-c5a2-4073-9ca2-08dda4b523a7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|36860700013|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hzgwbogu5Hwb6Bg92lwYHmC1OWuoUGYVGV3KTDtA7Ubx1IFkSzbmIzsVYLje?=
- =?us-ascii?Q?hFC9Mkg4HQ/sp2bQkcV37R7c2Hd3N4s3umYIJz1WNiXHHRQ8eEuHmi4nG1FK?=
- =?us-ascii?Q?k3Nb5AjCHLp+kHpnF8FTePrELgXOPVfapUNYpNpZqpzJrO5yXrgALsW3Vqet?=
- =?us-ascii?Q?Cm9z7NbP/v8CoUGt65k4v8WSbNcUF5rxdOcPi60xKYKaS4z6SRXjviGsbftC?=
- =?us-ascii?Q?p0EYLucx+nQR+n5E2wrHELSKg+TwbSPfgQFrZPDCw+XrY1A3I86/NQZ6G/uD?=
- =?us-ascii?Q?dqV2BoVXEBu17GjPCC7lwTrZNnUPqlUmut2RmrN+r1WokoL8Xi0ZHF88AD8V?=
- =?us-ascii?Q?kCm0BNPOey4TS6kpUSZNNsJi5sEhq3galp0M0NLFjU3PgUlgk0YxM0Klyv1C?=
- =?us-ascii?Q?xvrUKQ60D8rEe3EBAk1sMnj/s3HZ8+TMp+iS0x0jy9yJs3jHvv71OA+2DssM?=
- =?us-ascii?Q?TsKqf9TRw/sXPcqNxW32IjkVHRRegnRvqTlPHgHTbaTbjtItLHea7BDoR2Hf?=
- =?us-ascii?Q?HJjmOb0/HK+TzfiAFVSGLdVuo5YVPsbQdeiLj2mzdxj8TVGAyerISpOSxoCw?=
- =?us-ascii?Q?A1R55nzkmSLJca5hNhAwIITOFzcD2Zn6LNmZoIprzeX/Lx5XR7FvTUEpTx5b?=
- =?us-ascii?Q?Ur/Nc45f+JNY6OnxJ8XmflnkqkVKjLk5UukFNQdTslq62A08FbF6UWte3VnI?=
- =?us-ascii?Q?4LoJgVVokWgfmFNg0wTaPhBz25bH4KYpa88Y7YyPGMlx+ITDJn9qKdD6FNss?=
- =?us-ascii?Q?DSak1tIpnirLJyj9ame3Tz8WS4B0Dr6LYDLANC5jBCq6Up+GHEWbOSL5IKPB?=
- =?us-ascii?Q?Fm8M7z1idAsi3uDdZO9zeGY5Kwz4ijLD2gFW/Iwd+wnCsvF93OrlFCNpKm9Z?=
- =?us-ascii?Q?f23uC8GEaHTsHlTpkm1DJrCaT1qFNVXlNYqdsyGL64J//X/UVIUk4M8A8Etz?=
- =?us-ascii?Q?hbGMYAo/zyki07YX5nQNeZBjMr/AHA37dO+jLJ11VwWLi8DzSOLx9HvRvRUT?=
- =?us-ascii?Q?1v21FGXMzwLSz4a/tg5Unntg2Isttsj5Usxi6oD+nvUDUzvwioYGlQrgeohu?=
- =?us-ascii?Q?w0GtiVYAkx5NdRBwJ2IdhDOwDPJ7BiDQNGkiC2dtrgPdbBv0n6sf+DKpzM2n?=
- =?us-ascii?Q?xs0fahXBmAByz311zb5DQ/G6t+LtbJV7viixGODBnwQ6ybWryzfwH67M5A/Q?=
- =?us-ascii?Q?d1n0Vkzbtu2XU9r0DgnylrbHWfOwkCodcQUSIPEf4mFogHVttWosG4R3BqFN?=
- =?us-ascii?Q?2Bo6dRXmvZy7uOUEyMUIZaY6II4aKV5hy5dt3yudQMOVvy5qupLDXL2WIiMj?=
- =?us-ascii?Q?DUTxWFP2hWnIRJo755OGRhmnUrbSV2vG/JH43Os4HDZqM9UEIOw2MT4LzYRj?=
- =?us-ascii?Q?xk0gd/J/wNst7SnePCC1r0LmThNlL3dR+TsJE7jtgyygWl0fCCEI+ftWA62y?=
- =?us-ascii?Q?j7InS8luWdX9ez6f0buTYk9/gexI6WL3OtWP1Y7uiFcJ+8HKrP44+mC3XkOg?=
- =?us-ascii?Q?BDn3i/H+g8RcOITYxnYs6MG3imrK/Rskoder?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2025 04:46:44.9665
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 699a4de5-c5a2-4073-9ca2-08dda4b523a7
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000204.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7181
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_214654_158034_E1D9D132 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250605_222612_821457_C8DF42B3 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,45 +62,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 04:40:34PM -0300, Jason Gunthorpe wrote:
-> On Thu, Jun 05, 2025 at 10:04:35AM -0700, Nicolin Chen wrote:
-> > On Thu, Jun 05, 2025 at 12:16:48PM -0300, Jason Gunthorpe wrote:
-> > > On Wed, Jun 04, 2025 at 09:11:07PM -0700, Nicolin Chen wrote:
-> > > 
-> > > > I found the entire ictx would be locked by iommufd_access_create(),
-> > > > then the release fop couldn't even get invoked to destroy objects.
-> > > 
-> > > Yes, that makes sense..
-> > > 
-> > > It looks to me like you can safely leave ictx as NULL instead of
-> > > adding a flag? That would be nicer than leaving a unrefcounted
-> > > pointer floating around..
-> > 
-> > Hmm, there are a few iommufd_get_object calls using access->ictx
-> > in iommufd_access_attach() and iommufd_access_destroy().
-> 
-> I counted:
-> 
-> iommufd_access_change_ioas_id
->  * Don't call this
-> iommufd_access_destroy_object
->  * Don't put if null
-> iommufd_access_create
->  * Don't set it
-> iommufd_access_destroy
->  * Call iommufd_object_destroy_user directly
-> iommufd_access_notify_unmap
->  * Check for null access->ops->unmap and skip the lock_obj/put_obj
+FEAT_SPE_FDS adds system register PMSDSFR_EL1. But accessing that system
+register from EL2 and below exception levels, will trap into EL3 unless
+MDCR_EL3.EnPMS3 is set.
 
-Yea. And I added a set of lighter "_internal" helpers so the caller
-side looks consistent:
+Enable access to FEAT_SPE_FDS registers when they are implemented.
 
-	access = iommufd_access_create_internal(viommu->ictx);
-	rc = iommufd_access_attach_internal(access, viommu->hwpt->ioas);
-	...
-	iommufd_access_detach_internal(access);
-	iommufd_access_destroy_internal(ictx, access);
+Cc: James Clark <james.clark@linaro.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+Changes in V2:
 
-Thanks
-Nicolin
+- Check for FEAT_SPE implementation before accessing PMSIDR_EL1 register
+
+Changes in V1:
+
+https://lore.kernel.org/all/20250604114604.629782-1-anshuman.khandual@arm.com/
+
+ arch/aarch64/include/asm/cpu.h | 4 ++++
+ arch/aarch64/init.c            | 9 +++++++++
+ 2 files changed, 13 insertions(+)
+
+diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
+index 2b3a659..ac50474 100644
+--- a/arch/aarch64/include/asm/cpu.h
++++ b/arch/aarch64/include/asm/cpu.h
+@@ -55,6 +55,7 @@
+ #define MDCR_EL3_NSTB_NS_NOTRAP			(UL(3) << 24)
+ #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT	(UL(3) << 32)
+ #define MDCR_EL3_ENPMSN				BIT(36)
++#define MDCR_EL3_ENPMS3				BIT(42)
+ #define MDCR_EL3_EBWE				BIT(43)
+ #define MDCR_EL3_EnPM2				BIT(7)
+ 
+@@ -185,6 +186,9 @@
+ 
+ #define SCTLR_EL1_CP15BEN	(1 << 5)
+ 
++#define PMSIDR_EL1		s3_0_c9_c9_7
++#define PMSIDR_EL1_FDS		BIT(7)
++
+ #ifdef KERNEL_32
+ /*
+  * When booting a 32-bit kernel, EL1 uses AArch32 and registers which are
+diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
+index e1640a9..df43d2d 100644
+--- a/arch/aarch64/init.c
++++ b/arch/aarch64/init.c
+@@ -146,6 +146,15 @@ static void cpu_init_el3(void)
+ 	if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 3)
+ 		mdcr |= MDCR_EL3_ENPMSN;
+ 
++	/*
++	 * PMSIDR_EL1 register is present, only when FEAT_SPE
++	 * feature is implemeneted. Otherwise direct accesses
++	 * to PMSIDR_EL1 are UNDEFINED.
++	 */
++	if ((mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 1) &&
++	    (mrs_field(PMSIDR_EL1, FDS)))
++		mdcr |= MDCR_EL3_ENPMS3;
++
+ 	if (mrs_field(ID_AA64DFR0_EL1, TRACEBUFFER))
+ 		mdcr |= MDCR_EL3_NSTB_NS_NOTRAP;
+ 
+-- 
+2.25.1
+
 
