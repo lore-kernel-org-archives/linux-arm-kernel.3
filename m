@@ -4,149 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ECD7C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 16:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E10D5C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 16:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Lo+SHKP+oNW1ZZewkkx/csNzeZKDn1CWnGph+dPzgRU=; b=oDH4/qLx+ot6ZBkRflQDGh3cfi
-	+WEn6CFEXdndK58UZ/WcfDjH+N10gHn8kAkBw65HyCwKELaZBQ1XjkJWDMAJIXLeN1+sqrQNHfa0T
-	vcZ/8QWw4t439d4Ym73xdMncS/V2x0gsm1C6OUlF7apM8eBr21lLHlras3ebEGfPo/+5DTUSAdAK5
-	oJ2LP8q0gltCJt4I+NtceCeQdjhM+D8thXaHCR7xeAz9sxwkE03jmBfsT0gwjThH1IYvkQKXZDo0q
-	gDKLFaWM8C/TcHzGR0gVOwPYtjUJYXIRpaGcCuN4N7ns/iYDBoJhDh3BfTUC9rRsIN9juQKK9fRqo
-	WcSnEpgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HftJddo3FWvmWayu0Jw1+BrgjmbwvjbCIHNgV4/Xs/c=; b=bNX+PH/xGo+rCKTB7DKbAcqVUL
+	I4zF1iK0DOJj6Z163Ml7RLkw7b4A0nC4gLykumPx2Zje474JwqIqYXic0/sss8PTZUvI8D2SwOILL
+	X5M2Q532v9vQksjPfC8peodT9/u0ua8u/mQ2FplL+JmVngb8Q89c0dDWyPNZUFAi9bZ15bpMyjs5Q
+	Hprogw1dPfbnwJOoERD8gUVx6eW3EVYVEO8DksiaxQUHVtHna7+5kHyR1VEzptmzJJk8yt+bZ/BZg
+	ttDss9l7gEJaGdK/wh2zWxuCm4t57tJtG2l+zjoVqJxR0oNoYHS1A1Og71JI5kGlXXbq7J1EFzsCB
+	Rb3/i+Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNa9S-00000000eiu-0j9z;
-	Fri, 06 Jun 2025 16:42:42 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uNaML-00000000gH7-2ehQ;
+	Fri, 06 Jun 2025 16:56:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNa7K-00000000eZT-37lM
+	id 1uNaKE-00000000g8h-17TT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 16:40:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E3psfFZOvHZbfuTb1glq2P0fS6Gfk5SJKjrbMexgHJMjgMWzif7SvchyNuzlbk+8hz7kYq1aJs5oyshdF5MP5aHJRe2LeSuKaxNrhEGTEmvciTKfoZLqVC3M1m5Ap3EzIQV0cX02dm1d76i1B3cCuE1vqiHBDxJkLe8axGx8rXFt6Jg5r697wgdn4LZb77qvnTtWZtYwzORX3UjHRPxZhaVx0yAJQ97+PEYxzP+DZxnkloKSBy81Wr67Drst+ntiyauczt/SzG7RINv2HzqShCWI+GxNeWOmwpLVHQu2tgcv7bVobZx0hoh2WoHV9xEPK9MJZXnzz3FeQ8lEeXAncQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Lo+SHKP+oNW1ZZewkkx/csNzeZKDn1CWnGph+dPzgRU=;
- b=XiF0NHNGbF81QNAx5TA6ZnN60xUhrcngDP1S/RJeeIiA2rpkWFIKwUztO2HxJn4jPFYRrjJbuq1BQxYeVjAu/fGSjhHhSVxUv/o5Pj71f9LiXld/lfVGxV9gj+tyZI7B2WWcmwuPjNo+oZE8zZxFEyharORCZzTnYb1FV5hJpTIkqZIDIlqvILdMrCmXBkeIxIaVlOT07S4Cj2a9hVtXd1dgadDPr7GGMBd+g1a/x4Eq3AJFE8KAA1n6I/8km3cDKJwTtWPeLt+VpmESMjY/PAGYRk307+9iUPF39cBpjWQT+eRkf/S3IOWoaksOJ2cvm006tvAGePuTUwLC+vYdXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Lo+SHKP+oNW1ZZewkkx/csNzeZKDn1CWnGph+dPzgRU=;
- b=CyPqolG9UiDwfJhD5DJCAS/VVPa8WNiFBFw1Aw/g0azz7SFOD0vMuD4RaTnao4eSjoEqevnRkIV9fKaxTyFsyZiI+6blYoyWv4Gj4tgV67haGRtGgiPpIt89kjzwAyajLkMOZEklh5DeoH7CoW/5YXYqoOYwdE6UbzV90WzZHA9rbNW/zGz2RJSIaBybHFfTiitnFR3EgM/UhN1zwb9Jti97bE5y6ir8N2PvbJE/axhuHMGdfA82iNFs4I3vGZS2iTyWcUlUY55Zdvnoyz/WauTJyOF4jRIZ1EBTo+JnJsplkmrnS3b4oVDCVEim4Uu75ueY/f1I/5GdNW05zzp+xg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU2PR04MB9132.eurprd04.prod.outlook.com (2603:10a6:10:2f7::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.33; Fri, 6 Jun
- 2025 16:40:27 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8769.025; Fri, 6 Jun 2025
- 16:40:27 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Roland Stigge <stigge@antcom.de>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH v2 1/1] dt-bindings: arm: lpc: add missed lpc43xx board
-Date: Fri,  6 Jun 2025 12:40:11 -0400
-Message-Id: <20250606164012.1363896-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH7PR02CA0027.namprd02.prod.outlook.com
- (2603:10b6:510:33d::16) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 06 Jun 2025 16:53:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 499C744EAC;
+	Fri,  6 Jun 2025 16:53:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3404C4CEEB;
+	Fri,  6 Jun 2025 16:53:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749228829;
+	bh=THcPoC12IS1aNiP83TwV4A0pYFP1HxQtv158X0rPetw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XqZiNuPL2J1wV7m7uAqxjXFSAFfsrDOzIPFasQyZgFA5XXVdkxOwZqRd6Hei5VHUx
+	 aDJnLxclyH4xzOUZzHn5zrY395DoP3a6oEf3GLs/TlNSPBkqge9UydXzB0BqURQ/YO
+	 fk0f1vkcdj3fhB6dkSpL0ueIHnM5LiHR5eJ0NK1oQG5sOeE7d3/e3KSG/qXhFqLaGR
+	 vwbDGsalBTRcGy3X0WPvAvSS8xdisSE5+BOJOE2Vs/d48Dv11U56EKKFNgyPUsWuzV
+	 tWt/SjKMUG4DQVyxD70myUO9W5qxMNJ6B1I9O8252BAz2rvRJBnzTk12Hs4m6cMhSi
+	 cCU04D8sETx3A==
+Date: Fri, 6 Jun 2025 19:53:45 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
+	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
+Subject: Re: [PATCH 2/2] tpm: tpm_crb_ffa: maunally register tpm_crb_ffa
+ driver when it's built-in
+Message-ID: <aEMdGXXBSym7cXmK@kernel.org>
+References: <20250606105754.1202649-1-yeoreum.yun@arm.com>
+ <20250606105754.1202649-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB9132:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5f67da6-03cf-48cc-b77f-08dda518d791
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dP0OEx30T9osozgPfOo0b1qVg3D+2FcOcILmlvS5JfKxRfrvB2EFcb3Dwr8Q?=
- =?us-ascii?Q?H78cpJpUPutXnnoTWzQj7KsqLDiKnljlyFRMEMqa6KRCEAfeXbN9GYNScG3q?=
- =?us-ascii?Q?U/AAecp5BcD5WD9g8iXvXqruXVe1MNUQ3z5f+FYZUD3FXTaPqgXlNAXu/cGY?=
- =?us-ascii?Q?/6nEkLY1s/L437sia65A6Hd5oK0zpQLZ9K2o3BnujDZRAj6p3ZDjeFpJe8oK?=
- =?us-ascii?Q?ujWROSgNjgO/KPk1k35Rv0g08tWwrg4go+TI5mqftnTV4Zi+WviKZtR0oxtt?=
- =?us-ascii?Q?QrRqdpLsBlSkTYlHWoBMfOjhm0sg6fLwEqthEuYKteQFxg4UAyENyjlmRDBv?=
- =?us-ascii?Q?tGXJTDHXznuhhE9jUGbRTHGNZTZd/7q5AU6Xn8/rKw659+k+AbwbYuAldnZb?=
- =?us-ascii?Q?RYj6JFWVRtrfMA2tj/ize6mi+hsWeUtOvhYeS+BsHRw24O4McyfUlEDY99Qp?=
- =?us-ascii?Q?JYaqT8BQil/Z5kKYHL7ypzj4795oPbcmY2ROVVoVXLbhoZ1jQw381wSzohZu?=
- =?us-ascii?Q?rCee83ytbanj4kWVZ5dyabs6jCypsEKBalB1ihQzAyvTH+rycBQlqzLrhyP/?=
- =?us-ascii?Q?iKfYTjpXcjWvhiknA755HGJzCJ2z1Wiu1iJ2pzaGMw/exa4d9H6EFbhobTAt?=
- =?us-ascii?Q?LM9mrcP3NbqXl4nbXfYHoSf5NN4tRWycEQA5UEQ/I5rr9wMxF1kJ0Xu1ItD6?=
- =?us-ascii?Q?6PQSxHGOzIvIwMfQj02lFKODuprXKj5EFq7kpTA6GA+Y6AHwc0Cbw8oRVzN8?=
- =?us-ascii?Q?sPelrFSVTiKW59BMvQvhsFZM1ch7jrKM9lbQr+Poe3qhUEf4Y/iWewjtG1lj?=
- =?us-ascii?Q?jCQ83M2C1/ZwWu6Clzmql7HaHrBGmJHp/Ht+tjRulpky8i7OlojrE29xwaso?=
- =?us-ascii?Q?P48Tfjw+HIKfCrGmWnlz1/zp0l+XY8RbnwCP7B/EKRZilzAEkpzHmAn5Urvz?=
- =?us-ascii?Q?2u1ktaxLSMLOUfeWJm6OUuW/ldKMsMCj+WXPeAe+NtqyQX2IMzhm1QaQc9Q6?=
- =?us-ascii?Q?K4t3xPVB9bDYjpBA44ma54X9SOadvGrC/vtd0+TlrDIMLki/o8leRhcIh6zo?=
- =?us-ascii?Q?INTcxptEoP+KKk5XUqVw1FqLFqdPHlUJojq8w7jW2TEOPEnLjE1X6/U3uTAq?=
- =?us-ascii?Q?Ajyvo/Y6QuwTqJPYSin5dibD/XWrS1iSrVRjDWwv45KLGBjLp3s1ivrTvnjP?=
- =?us-ascii?Q?VpY2X62KjVYYdLywTXeZXcybCRxd5zTrQuKGqCjenPcWt89J3f6tg2uZplXR?=
- =?us-ascii?Q?naM0XlzH+gn4aBndoEI9JpSvGD9qECq5fTtGBZkZxrvQSVWSTtRYDN4W9KtN?=
- =?us-ascii?Q?6/O+GF5/jTToLOi1WzMzw/wGqyZwlb2d0glGklM+yEl+dSHzqqqWyvyBGzeY?=
- =?us-ascii?Q?oGVHoZO0hmK5kJlFmZu79a5wAeJBKlu7j/Fqr1wU8LZuYRlzSs71NvIpuvHx?=
- =?us-ascii?Q?5/ZiFe8QWl73hS9ALo2TG388japmxy2eyyvFAIyPdg+JqF5XNvvTug=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ipLFsO84LNmWdri3cPTzKLi0DfEF+Ec87Wwbw0taRMr2rn01+XURud8+O6KF?=
- =?us-ascii?Q?UA/9IcNYnYIHiFpbuFfb82S8T/2RXwOMV58FQW7hFV8GhkM2xpltgklZkPHY?=
- =?us-ascii?Q?DeawkFncp94ArvCooOoC8TCynY/TKcyywasQNtV/UsTH/fyPz16dYyZ9z95a?=
- =?us-ascii?Q?1jKb0ssfS2yD69HAGfSErTatZz2xI3563DvteBkLmeoZ/OqoDFinuGLSqfPZ?=
- =?us-ascii?Q?Fmu4khsbJanz892IzK/e481xcxLXFWPuD3KFw1kkFMi//TIix8FN3aKsEyh8?=
- =?us-ascii?Q?BVfHFBIgpO2xqe9La3rLCbiZQi/2fH/RcAFOg0r3zFwwvX3LFnv39/cOfian?=
- =?us-ascii?Q?+bq8rjPbxZs3pOl+C7NgBh0fsEcQVesxzPdR2tYwWvu+6xaJvfXdhpOYxu/q?=
- =?us-ascii?Q?/gYZbW9leNrqS9O6ABlxA5Fye0kT6+13syt/zTc4cONHcdVi3MLlqf5sd+m+?=
- =?us-ascii?Q?TRx+8kcqx70pJ7SgFfFgQkLkFjwiLgms4uHd14PdVZNKsewq3By+chEpea9T?=
- =?us-ascii?Q?gtio1GOscW3qY5fCVxgbZ9uXtUWzVopfzro3u7qvgngbGVTQorhXVEFTZLJ4?=
- =?us-ascii?Q?qRczsTHbfKqVgaZfSuPg7AJxASi4qPD9UTuspzFcNOnjKz/OF+1p/yS2MGQW?=
- =?us-ascii?Q?MMVdxIUpDET+5mBN6EukmxknAKWjJx0SJLzgG6n0lr544j4AYMFk93vRKjlv?=
- =?us-ascii?Q?yEe06G85BepNE8nGsv8Wb3BX9QgaRuGOEZP0Ot0PM8Erl03tLPXR2hmebnFh?=
- =?us-ascii?Q?IObRyQ/EyNw4JDXCZYgFXrPMXgzJ0NXYwfaT3+YUDFT8vOLdd960hmUBMCxB?=
- =?us-ascii?Q?yfrSF/N3W5+6vyMk7BVAt2XdJxlFfNNa0gHqKNp0vKTpzPjvZpjRVc5MLv5X?=
- =?us-ascii?Q?i1DJ9sRBeT4Ruq7CyZCeG1T3++2b4zvfbWtEuu7gBHrVGNrIBJsli6OdHANz?=
- =?us-ascii?Q?lX2AapEVM0Wz5zHcYd8JzvHwLa2T9657GOr40v9mj4Fw8gfkcPPsX2bSXZQX?=
- =?us-ascii?Q?pjUyVz5Miii/0kh0xCWCqFYBIhB7x97HulfUxrpCaJFOExKpjVYAYySFl1KM?=
- =?us-ascii?Q?ru7io17w5VMaoHInmb9KFYlmvGY86B1GNb1XEwM7hGNTmR5IQx0T40c0UAlB?=
- =?us-ascii?Q?uuWe3xKWNOGRl+M4/e1S9GKJo8mj7UmR6+lf3uCNGSy0E3CaNSp7strK4K49?=
- =?us-ascii?Q?J124eFXsbNyfPNT0pMiWzyEOOwJ5OTdmm8tF58irAX0YzXK5Nnqoo+7F+glR?=
- =?us-ascii?Q?Wa+Thd4RHSQdZldgxSJrX0RNiJ8xoIYfnfsQ2WXV2ocGrCewfqy8KRFakZIQ?=
- =?us-ascii?Q?yU3b/vZI/1EiMdSLp3PQJQxDh0W6GUJrbpuI8HA0QExZkzUy4Wdr/5LXUHHV?=
- =?us-ascii?Q?mu1VTgkIdveK1kSh5s3H09pMxLIY9MrmZeNUUUIOGH11R7w28hExmEkfjQp+?=
- =?us-ascii?Q?moWCcSrbxe7ovH2gO65kpdTzIdm9/WY0M/tSaNUTmuTHSqiIPBTwxm6T1c8e?=
- =?us-ascii?Q?V3XEXw+GlbWHRgDbqp3a96MS4loeSXr9V3W4bM/Wjw+iUbVocpZHxdaQdbRP?=
- =?us-ascii?Q?EEDns2n4B4DES/vSGjH5RzTqlSo9IBV4Ftebzl0E?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5f67da6-03cf-48cc-b77f-08dda518d791
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2025 16:40:27.3360
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: N6XQYqCPGqYkXzObRhC9Pwb/32aOXfTaUwNZ3wKU8xXxMvaduhldhi6FbIqNki2NrVuq7CDrjDcGKbrOtVr3pw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9132
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250606105754.1202649-3-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_094030_788014_F1C222C0 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20250606_095350_322571_1D3C33F2 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -162,52 +75,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missed legancy lpc43xx board compatible string to fix below CHECK_DTB
-warnings:
-arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dtb: /: failed to match any schema with compatible: ['ciaa,lpc4337', 'nxp,lpc4337', 'nxp,lpc4350']
+On Fri, Jun 06, 2025 at 11:57:54AM +0100, Yeoreum Yun wrote:
+> To integrate tpm_event_log with IMA subsystem,
+> tpm_crb and tpm_crb_ffa driver should be built as built-in
+> (CONFIG_TCG_CRB=y && CONFIG_TCG_CRB_FFA=y).
+> 
+> However, this could make failure for ima_init() gets tpm chip when
+> each initcall function deployed like:
+> 
+> 0000000000000888 l       .initcall6.init	0000000000000000 crb_acpi_driver_init
+> 000000000000088c l       .initcall6.init	0000000000000000 tpm_crb_ffa_driver_init
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v2
-- move to nxp lpc32xx.yaml
-- fix ea,lpc4357-developers-kit include lpc4337
----
- .../devicetree/bindings/arm/nxp/lpc32xx.yaml  | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+The only failure I see is the patch 1/2 which changes init call level,
+and leaves kernel Git to a broken state.
 
-diff --git a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
-index f1bd6f50e726d..73dda0d8c28e2 100644
---- a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
-+++ b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
-@@ -22,5 +22,27 @@ properties:
-               - phytec,phy3250
-           - const: nxp,lpc3250
+It breaks the famous "zero regressions policy".
+
+BR, Jarkko
  
-+      - items:
-+          - enum:
-+              - ea,lpc4357-developers-kit
-+          - const: nxp,lpc4357
-+          - const: nxp,lpc4350
-+
-+      - items:
-+          - enum:
-+              - ciaa,lpc4337
-+          - const: nxp,lpc4337
-+          - const: nxp,lpc4350
-+
-+      - items:
-+          - enum:
-+              - hitex,lpc4350-eval-board
-+          - const: nxp,lpc4350
-+
-+      - items:
-+          - enum:
-+              - myir,myd-lpc4357
-+          - const: nxp,lpc4357
-+
- additionalProperties: true
- ...
--- 
-2.34.1
-
 
