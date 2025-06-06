@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FB9C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 06:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98116C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 06:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JMvFo5QL3bZFz0qcgL/CL0qvkVwIy7LI7zBc66tFtZI=; b=kfTt1zw/CqvwIe/7cNNgbWBOa2
-	/eYZqU+7uMSikAh5BFevZTbeDHRUGO1DKCdXdFWEDX2+FQoUCFEtLE+9a208FXYDgi+UET3jw4AdA
-	+P6ePQO6qs/S6a/I3kjeKuktF4vq3g4a0u9f/JBuXPuauQGzOHd7cN2jrBmOTTw0NjRAGzh282sFb
-	f0/LmaDY8gvaPtGpIcRqQS37es+kwVgzsncJPseu0OyCrv/AO5AZaj7L7eoV6A8/mVUplTN7Q7Bqy
-	6+a1EgkSnU8sooWgOpA6ZsBNMFa7EbdQJMi8BXFcY77A2EPIIagns8R9XP7xxZz81XEenRpnBsG6H
-	AZ7ocTdw==;
+	bh=anhtEfC+aYWJeJvUly60jdWH8rm+sVcW8pcF9vb2eMk=; b=PX2awV/hoDB3M8hQjC27wXM0D6
+	gBJDLOOBf9IX/AwQRZ0oZZI2Q22cFKqres+wS01X9lQqAnev2jfX5Ap1WIgs7t0VWex3/h2vSCw77
+	MLk+cq4bKG1nmlYXg0ijT5rfn8b98HSJlTO2mIlfQ78KCwFLcfEgm0t5dcOX9MvspVkp++zTGV4u3
+	76ECcKqOXXWh/cBFW/QHw3a5wMYyuuQIXyUwmq9JVHGwb5TtO/4MvpLw8ZZm78/eLotOUD/CSGuus
+	WjUZB9mDjS2RpgJCOgjo70/rmfDgXPdxTRkN2eOsC1Q8B6q7m7V8UKaAvIwIC5x6RWcIXI7YxJzIR
+	oKy8PC7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNQtb-0000000HEnO-20lW;
-	Fri, 06 Jun 2025 06:49:43 +0000
-Received: from mail-ej1-f54.google.com ([209.85.218.54])
+	id 1uNQvl-0000000HF0m-2Tp7;
+	Fri, 06 Jun 2025 06:51:57 +0000
+Received: from mail-ej1-f49.google.com ([209.85.218.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNQZl-0000000HBrX-2F0O;
-	Fri, 06 Jun 2025 06:29:14 +0000
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-ad88d77314bso348351366b.1;
-        Thu, 05 Jun 2025 23:29:13 -0700 (PDT)
+	id 1uNQZm-0000000HBtT-43EE;
+	Fri, 06 Jun 2025 06:29:16 +0000
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-ad88d77314bso348353966b.1;
+        Thu, 05 Jun 2025 23:29:14 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749191352; x=1749796152;
+        d=1e100.net; s=20230601; t=1749191354; x=1749796154;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JMvFo5QL3bZFz0qcgL/CL0qvkVwIy7LI7zBc66tFtZI=;
-        b=Q2bTGFehd3b9jblmGVe1Wj5Qq9LEoovuhsSpXeNfuTalLoQWc4SB63lH1naXu8a/H6
-         46UtIWagchdp1Dcxu9N8d/Z16VVt76TTCcSTTtpgGj7KY9RxG9l8tet68xpC15VbGBVp
-         Brc4tFGr+4EktVFBiJaMZzoyIYbYFDZF3vTvFrzSjVlbKqSC1h5BU/HAov9PbP8xDkr2
-         ohwTddgkRDAmLbliuLG+dkhSkZM3cXSc55fgVwiCYP4xa+lXokkcvZrbPNVtWF6+nybr
-         rjqKOZl+OQkN+qzO2ROJP8Wq/krxpMoPLqC3WzZj38WIqAIZQgWGCA17fic3BmJDf0Cr
-         Gd8A==
-X-Forwarded-Encrypted: i=1; AJvYcCV2/zhX96rUnuwv9auaVPdGbfl7a7B5XpEVfeSWZ0KeaMLgNiAt23+v8skH85vjv6uavLbVCMdvNx0DTqTdXZQ=@lists.infradead.org, AJvYcCV9Imln28gacHKKYn/xHCOvxlxh4+jn3N67LgP+k3pXmT/df3mHOLjqCfCoK1jz3cxLZ1Ir9hwLnDqFlI5WFNDF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBKj7wG+ThsbSuBsXgmYaooyIgz5hegpWOl2WuUr8Z5feBBQfq
-	zR8wpP2rTtesThCtY7BUuNlwlgzBm2Q6Z2wflW/ockf0qkm5OkVTaFg1
-X-Gm-Gg: ASbGncvd+v3kSQ5k/AzcHjJfJDWi3mdrsnq/Q4GAwh7QwfbWbJTdKrda2PJJwSyKp6W
-	RCwGpc77P+bvLVpa2wXmhEpWMKw47zFxPaiSWsmXEeoqZwzop+VtT5uNO5elZksv4hk16HHMg6P
-	v97LqWWMZ9y6fH3illzCVKltyTgaXE2xe9orTnVpVMBrYDFCzouvPlGZIxwa6QZl3EQcuczoB0m
-	KDYtpP2uqAiNSgSwA6SDDjc4qH54PhEHKUoP1/2YZBpg9kXZF1N8Lf9Qg57ZWPUc2IuO+j0OCiC
-	PGGtX5OqzdOjNRcXsFc87StgkGI5tOGrp6idUNWbrYgZQoQhWU9Huuq0QZHKFn6gdDkom2cxMkx
-	FbiXGtuEKpQ==
-X-Google-Smtp-Source: AGHT+IH386t4fpjPSjXu6Q/P93pz2H4oKr1u5C7rbyqEt7KH415Hf2G+JglZ1eWXhfGWu7b+7DDqgw==
-X-Received: by 2002:a17:907:97c2:b0:ad8:8efe:3206 with SMTP id a640c23a62f3a-ade1a9e825dmr164077166b.42.1749191351781;
-        Thu, 05 Jun 2025 23:29:11 -0700 (PDT)
+        bh=anhtEfC+aYWJeJvUly60jdWH8rm+sVcW8pcF9vb2eMk=;
+        b=OgVxUE7ICrQawVJeK7Aft8CWdxHwPE3nQv3WZPFGkffe35Godsw7jJ+aX3AwN+o2AV
+         hL+Ac2B3+FbvfStiwhOE9GsQBb9CHs6s7LCzGNlD3P089Nvys63DUwOoInoQPR28fKcG
+         rlNRx5EtgHlpKKR3Bv4GUfwalbgQJgi3ZNEJjjde11l9Xs+S0GgrCoAY0DNgo+Xrmbgx
+         xGPGmktVG9A9B0WDoD0rGdZQYLljLOic75fZZkviZo1S1IpLvAxB2frGIkbdj4F0u/qT
+         USo/64AoUlUhwHwGNR2pwzri9cbe3gudnj3yrJRJpj0Qwhm6Zm8oapRwVGoSblKt/cKd
+         07Iw==
+X-Forwarded-Encrypted: i=1; AJvYcCV7Qsv2ezUuMu86PSaftAUCxBgpCSi3izYVJ6QIYo+JSDBvDmLDwooCTAWp5qjY8hXbtWsi6+P8x6+2a0DuAGI=@lists.infradead.org, AJvYcCXkV7o0V8yx/lqCTS6log4piIuOfKD2d4XyKRtPuoFdPx8g8QKi5IzskJDTqscu6/ij40qdOG+NQqZ8oS7lhs61@lists.infradead.org
+X-Gm-Message-State: AOJu0YwU4xPSmLTFKe1fAItDs+Usjz+ccJ1Tdy/vGxViWiWYJiOgqVFG
+	0HpST5o1VtOq3rEINcR/FclOmipDnptt1FvdA0OXv08CLaslMY9CCuwU
+X-Gm-Gg: ASbGncsbg8cCxpTe1dyDAabAYZQeu8iUJkkFkXIiWuoM+BzTKl0ZLI17eg0QVra4Jx9
+	AkPR3QNTc9asZxtO/4sTupiGCdK3fpoLadg+hjT5KPlVArvRowNCO/gG3mw5VSn6KBHytzEAmrz
+	kJlOQITqsfcYmAONmIw8ScfGquFLz+7K+Hpr8xMLVR0042otYYT5F92DDkDznT2oWYpCEqxnZ2B
+	W6LDwhp5cbsR/d8qeqiYvE0BmrGKJzriJdlwr9vOXPmR4EM+1Tsfri1IvDbeskyjo1h9kgsJh5G
+	/Zr3IWxWqyD6sGpk4aalFZySpeK6lm8azlBcHHfk4+HDpXt5xTETXJ+Q73aFQcP2MH9zVIQqKyg
+	aTTs3EzZIhfT5d3yG7Ewx
+X-Google-Smtp-Source: AGHT+IEQhHpZGVCxH1ZaUqlfgXtzTnbNuSiyE94GQATLfAusLPGKyuMEVAdsVmPX89pYi5j539z3bQ==
+X-Received: by 2002:a17:907:94c8:b0:ad5:55db:e413 with SMTP id a640c23a62f3a-ade1a9248d4mr174784266b.26.1749191353364;
+        Thu, 05 Jun 2025 23:29:13 -0700 (PDT)
 Received: from [10.42.0.1] (cst-prg-46-162.cust.vodafone.cz. [46.135.46.162])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1d754653sm67989966b.20.2025.06.05.23.29.10
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1d754653sm67989966b.20.2025.06.05.23.29.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 Jun 2025 23:29:11 -0700 (PDT)
+        Thu, 05 Jun 2025 23:29:12 -0700 (PDT)
 From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Fri, 06 Jun 2025 08:28:29 +0200
-Subject: [PATCH v7 09/10] arm64: dts: rockchip: Enable the NPU on
- quartzpro64
+Date: Fri, 06 Jun 2025 08:28:30 +0200
+Subject: [PATCH v7 10/10] arm64: dts: rockchip: enable NPU on ROCK 5B
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250606-6-10-rocket-v7-9-dc16cfe6fe4e@tomeuvizoso.net>
+Message-Id: <20250606-6-10-rocket-v7-10-dc16cfe6fe4e@tomeuvizoso.net>
 References: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
 In-Reply-To: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -86,8 +85,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Tomeu Vizoso <tomeu@tomeuvizoso.net>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_232913_572446_CDAC3F7A 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20250605_232915_000236_892F79E6 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +101,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the nodes added in a previous commit to the rk3588s device tree.
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-v2:
-- Split nodes (Sebastian Reichel)
-- Sort nodes (Sebastian Reichel)
-- Add board regulators (Sebastian Reichel)
+The NPU on the ROCK5B uses the same regulator for both the sram-supply
+and the npu's supply. Add this regulator, and enable all the NPU bits.
+Also add the regulator as a domain-supply to the pd_npu power domain.
 
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 ---
- .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts | 30 ++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 56 +++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts b/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
-index 78aaa6635b5d20a650aba8d8c2d0d4f498ff0d33..2e45b213c25b99571dd71ce90bc7970418f60276 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
-@@ -415,6 +415,36 @@ &pcie3x4 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index d22068475c5dc6cb885f878f3f527a66edf1ba70..49500f7cbcb14af4919a6c1997e9e53a01d84973 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -316,6 +316,28 @@ regulator-state-mem {
+ 	};
+ };
+ 
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1m2_xfer>;
++	status = "okay";
++
++	vdd_npu_s0: regulator@42 {
++		compatible = "rockchip,rk8602";
++		reg = <0x42>;
++		fcs,suspend-voltage-selector = <1>;
++		regulator-name = "vdd_npu_s0";
++		regulator-boot-on;
++		regulator-min-microvolt = <550000>;
++		regulator-max-microvolt = <950000>;
++		regulator-ramp-delay = <2300>;
++		vin-supply = <&vcc5v0_sys>;
++
++		regulator-state-mem {
++			regulator-off-in-suspend;
++		};
++	};
++};
++
+ &i2c6 {
+ 	status = "okay";
+ 
+@@ -440,6 +462,10 @@ &pd_gpu {
+ 	domain-supply = <&vdd_gpu_s0>;
+ };
+ 
++&pd_npu {
++	domain-supply = <&vdd_npu_s0>;
++};
++
+ &pinctrl {
+ 	hdmirx {
+ 		hdmirx_hpd: hdmirx-5v-detection {
+@@ -500,6 +526,36 @@ &pwm1 {
  	status = "okay";
  };
  
 +&rknn_core_top {
 +	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_mem_s0>;
++	sram-supply = <&vdd_npu_s0>;
 +	status = "okay";
 +};
 +
 +&rknn_core_1 {
 +	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_mem_s0>;
++	sram-supply = <&vdd_npu_s0>;
 +	status = "okay";
 +};
 +
 +&rknn_core_2 {
 +	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_mem_s0>;
++	sram-supply = <&vdd_npu_s0>;
 +	status = "okay";
 +};
 +
@@ -153,7 +192,7 @@ index 78aaa6635b5d20a650aba8d8c2d0d4f498ff0d33..2e45b213c25b99571dd71ce90bc79704
 +};
 +
  &saradc {
- 	vref-supply = <&vcc_1v8_s0>;
+ 	vref-supply = <&avcc_1v8_s0>;
  	status = "okay";
 
 -- 
