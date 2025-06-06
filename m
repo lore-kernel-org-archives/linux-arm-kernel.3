@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1DBC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 11:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E757AC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 12:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QqaoojFiVes+ZO0jsy6RpLFdw7INbC2+V4FCCgGkvIo=; b=tD/uxHm6W3gI9oVjLR75I0cMeX
-	zyWa48wvO3Rwr3E9DE8A//LNKT76aAOscP2xLeFSRHhvkuyB9+8Zrv5rHUrhVCsCpmZ/DdNPLGuCw
-	wTVSYD3lK8fBhX8i6fw5psVbM37KDcTDICqp02p1XnMmVy+UxszuP1s7TO7Hf/A0xa5q8xuWbuSt3
-	uzxCYl4yWwlwbshx7VRHq8dC+gYDgmdO40XEnJFJKQWHYWs2SUt1j7Qlk09ylx7KO7b4RVb5XWvjz
-	XVthaSBWQ93ArYbGAABpiQpw2InJViWEq0rFbexgNULg9Uu9M+PtpDuq4aYNLIj41aJj3sHsrfI9h
-	fMrNdjgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NZ72lF+hhXNKmCevWKcG5DoRm0RMmZ0c+B4PXvPNvtc=; b=HtjchwF/wXUB9srOb4T11mtRa7
+	tlXwn1A6UyDI7UOD5/RaVOv7u8sXJqvxYh+E2iV4Y4NukNZW0COjGKpReqAa+9AcYAAxd1A5UmLWL
+	90Jff5bPpYSRke0WdzWNggOCre8SwzvcgqBoESUGfnggTnP7CzJInJA74NlNlmA2Se3zCkF7FA0l1
+	ySG2mpqn3rfvks+PeJ7WlfIx+C4grpvUPwn6fcsMhtY4QmQg0NOOWHMc2PEHaJm0yBZ90SOEJydDo
+	n/rxc168EQgayrPuLXzH6kvy2Ho8/UAdEpcCnj35v8E70HUUk1up8Sb/wxpSFLsM134d6SXP2YBfz
+	/m1xPXCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNVTD-000000009AZ-2pX9;
-	Fri, 06 Jun 2025 11:42:47 +0000
-Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
+	id 1uNVpD-00000000BaN-2k14;
+	Fri, 06 Jun 2025 12:05:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNVR5-00000000906-49gr
+	id 1uNVn8-00000000BR4-17tr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 11:40:37 +0000
-Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-6062e41916dso989347eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 04:40:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749210035; x=1749814835; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QqaoojFiVes+ZO0jsy6RpLFdw7INbC2+V4FCCgGkvIo=;
-        b=DccEARIQEARbAjXPW0c3L0JKnM43pxI36XlNEermsYBy3tfvgBMMHjDGghnKTpYqv5
-         eRZZANJkrzAMR2t9R2/+sn393I+XNt/EisoijtVbqPEd5cpC9nUQ1AA8q94mwdmdC64m
-         p7BHhSNWn/qSJYVISfem70i0QdAEC50JiU8iWOVzrBhALEsZPlxZTYfdCwETQjVNPaQw
-         WpDex/u/DnG0o1LXl73PpP12FhOOXHwlq4F3dKT3Jdrx7XMQkCEYmmTSJhZdlXDU3xaY
-         s4/cjZ4Akc3HO8IP9MKt6l1ADjgd706VO04oGe3OSlFMbz9Xu+ZOrcydru9AAbQBGTQQ
-         ewkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749210035; x=1749814835;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QqaoojFiVes+ZO0jsy6RpLFdw7INbC2+V4FCCgGkvIo=;
-        b=DaUY6ILNxg18DszpSyWiLMXyvJKtLmfmP5Eh7ZaYiAnfgsxjdlXNnFCBNeCe73icbl
-         aFvKML1XSzHRbADs8prA0JTrCX5pcQHvPNBRoTiiO/Ql9DeidtmiyyOfWR7Nkn/6aaQJ
-         UNt4dUFG6ndlmNd6xpwdz4BU1JIM9SPeEvzxj5bJed++9UArQmrwzYsj5MXBE73GZd7e
-         zkDnAt4T7i4DtUNfK35WlGJz0084sILDhLNY5DnFbaNfvRk6/kV7eVhOw0//tu3dD+qZ
-         9OGoil2y8FEqEypL08S+SMMesrfyuQnftLyqqre2o/WY4jQSVmtINDCknrmnGja+/Jy7
-         v6YA==
-X-Forwarded-Encrypted: i=1; AJvYcCXrqnvtxFuGWLxn+nO/iOz/P3eglwXBo++c/WAgoWkp72pS1F5tSzXQiEMpOV9OWOnvvCaWnXEqzzOjqsDi/FBh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTz8usD6WIR6wfsc7iuuL8zCD+ulJJGAx2h5Me37bAE6TY6O4l
-	Vx84ktO92M8SvNRbvesFPu/hqUrodhm8sV09JpZkj8cc+61PGO0J7qla9XlKU73JE09nowDs2D/
-	cSadySBPwKyQXd+GR5/dD73GDjeFpXa9OzKmVcCEd1A==
-X-Gm-Gg: ASbGnctS6VF7Dq3uEJSlfzhY8VhnyADfnl+h0PSF4Glwcbz7dHgxx+rr9DNtOCrSzg5
-	GiCn0DRU/mYBPtdWtenVlGBpELl+UJ7+8gW0uyLv8E3W4cpIhO3kRKoYkY4m93kn9bFwlmCaFjb
-	INhqxcxd1vqJDX80DlCn30qgyaUoA5X7i29w==
-X-Google-Smtp-Source: AGHT+IGPaAGn9iQyMBJtFjG6VFBrTrEjl1SqdtOd+jkmmGGT5jvCC0aGOFstBgHykg8Ve8H76UnHvFuNqDfGC3ioIYM=
-X-Received: by 2002:a05:6820:2112:b0:60b:b134:a1 with SMTP id
- 006d021491bc7-60f3cf2e2c5mr1700381eaf.6.1749210034900; Fri, 06 Jun 2025
- 04:40:34 -0700 (PDT)
+	Fri, 06 Jun 2025 12:03:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 90D846000A;
+	Fri,  6 Jun 2025 12:03:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C16BFC4CEEB;
+	Fri,  6 Jun 2025 12:03:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749211401;
+	bh=6oz9cLgBpq1+bwaTR5/JwtLIYahXmjDOpJo1Ih+IxD4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SeNM+vw6o2R/VlOg+xOelhhzCXW9usTQ42ANhiV95Y2x9Zn03fWe3qeJLHG/Irx/V
+	 Ql+SwV5H4mHoIKAcoaq2UwshrQHD6bGBm4u6t2zp9iHtjOBL0ZO9RabpIdByFPnF0h
+	 nqzutpLb25wSNP2wH9Foo26YdAFUOUXmRhUVtbiPA3qPycHZ1fc6C8cXHnKZfVN+WK
+	 xT3fOBQgnFjYwte/ANAF2HV/22aK4vTebfl33KbuQ5bPgOrZYwCk0Z72Q37FigH+8c
+	 eqeO+OdQDej06AfYvflVWtrLcZWKoxbZUqoCCKaYZuYGy8Kmsvx7XGjdirdcgiNxpO
+	 sdTSFPhyYXnPQ==
+Date: Fri, 6 Jun 2025 14:03:18 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Anusha Srivatsa <asrivats@redhat.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+	Jessica Zhang <quic_jesszhan@quicinc.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH 2/4] drm/panel/samsung-dsicm: Keep up with refcounting
+Message-ID: <20250606-radical-rigorous-buzzard-ca09cd@houat>
+References: <20250604-of_drm_find_panel_part1-v1-0-c632e12e131d@redhat.com>
+ <20250604-of_drm_find_panel_part1-v1-2-c632e12e131d@redhat.com>
 MIME-Version: 1.0
-References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be> <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
-In-Reply-To: <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 6 Jun 2025 12:40:23 +0100
-X-Gm-Features: AX0GCFuEetRBi0jDLFg0Uft93KobL6YT9ud-De2FOwUUfLokKDe78RZcyXziMWE
-Message-ID: <CADrjBPqOMOyHP=aQ1+fg2X58NWRp-=MJBRZfpbEhQsTzaZ9LHw@mail.gmail.com>
-Subject: Re: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
-To: t.antoine@uclouvain.be
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_044036_044387_A3978672 
-X-CRM114-Status: GOOD (  49.05  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="naqzmlhexuyovrm5"
+Content-Disposition: inline
+In-Reply-To: <20250604-of_drm_find_panel_part1-v1-2-c632e12e131d@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,340 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
 
-Thanks for your patch and working to get fuel gauge functional on
-Pixel 6! I've tried to do quite an in-depth review comparing with the
-downstream driver.
+--naqzmlhexuyovrm5
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/4] drm/panel/samsung-dsicm: Keep up with refcounting
+MIME-Version: 1.0
 
-On Fri, 23 May 2025 at 13:52, Thomas Antoine via B4 Relay
-<devnull+t.antoine.uclouvain.be@kernel.org> wrote:
->
-> From: Thomas Antoine <t.antoine@uclouvain.be>
->
-> The interface of the Maxim MAX77759 fuel gauge has a lot of common with t=
-he
-> Maxim MAX1720x. A major difference is the lack of non-volatile memory
-> slave address. No slave is available at address 0xb of the i2c bus, which
-> is coherent with the following driver from google: line 5836 disables
-> non-volatile memory for m5 gauge.
->
-> Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a68c3=
-6bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
->
-> Other differences include the lack of V_BATT register to read the battery
-> level. The voltage must instead be read from V_CELL, the lowest voltage o=
-f
-> all cells. The mask to identify the chip is different. The computation of
-> the charge must also be changed to take into account TASKPERIOD, which
-> can add a factor 2 to the result.
->
-> Add support for the MAX77759 by taking into account all of those
-> differences based on chip type.
->
-> Do not advertise temp probes using the non-volatile memory as those are
-> not available.
->
-> The regmap was proposed by Andr=C3=A9 Draszik in
->
-> Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455a11=
-6.camel@linaro.org/
-
-I think it would be worth noting in the commit message this is basic
-initial support for the M5 gauge in MAX77759, and things like loading
-& saving the m5 model aren't implemented yet.
-
-That's important as some values such as the REPSOC register value used
-for POWER_SUPPLY_PROP_CAPACITY show the result after all processing
-including ModelGauge mixing etc, so these values won't be as accurate
-as downstream.
-
->
-> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+On Wed, Jun 04, 2025 at 10:45:11PM -0500, Anusha Srivatsa wrote:
+> Put the panel reference back when driver is no
+> longer using it.
+>=20
+> Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
 > ---
->  drivers/power/supply/max1720x_battery.c | 265 ++++++++++++++++++++++++++=
-++----
->  1 file changed, 238 insertions(+), 27 deletions(-)
->
-> diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/supp=
-ly/max1720x_battery.c
-> index 68b5314ecf3a234f906ec8fe400e586855b69cd9..c9ad452ada9d0a2a51f37d04f=
-d8c3260be522405 100644
-> --- a/drivers/power/supply/max1720x_battery.c
-> +++ b/drivers/power/supply/max1720x_battery.c
-> @@ -37,6 +37,7 @@
->  #define MAX172XX_REPCAP                        0x05    /* Average capaci=
-ty */
->  #define MAX172XX_REPSOC                        0x06    /* Percentage of =
-charge */
->  #define MAX172XX_TEMP                  0x08    /* Temperature */
-> +#define MAX172XX_VCELL                 0x09    /* Lowest cell voltage */
->  #define MAX172XX_CURRENT               0x0A    /* Actual current */
->  #define MAX172XX_AVG_CURRENT           0x0B    /* Average current */
->  #define MAX172XX_FULL_CAP              0x10    /* Calculated full capaci=
-ty */
-> @@ -54,15 +55,28 @@
->  #define MAX172XX_BATT                  0xDA    /* Battery voltage */
->  #define MAX172XX_ATAVCAP               0xDF
->
-> +#define MAX77759_DEV_NAME_TYPE_MASK    GENMASK(15, 9)
-> +#define MAX77759_DEV_NAME_TYPE_MAX77759        0x31
-> +#define MAX77759_TASKPERIOD            0x3C
-> +#define MAX77759_TASKPERIOD_175MS      0x1680
-> +#define MAX77759_TASKPERIOD_351MS      0x2D00
-> +
->  static const char *const max1720x_manufacturer =3D "Maxim Integrated";
->  static const char *const max17201_model =3D "MAX17201";
->  static const char *const max17205_model =3D "MAX17205";
-> +static const char *const max77759_model =3D "MAX77759";
-> +
-> +enum chip_id {
-> +       MAX1720X_ID,
-> +       MAX77759_ID,
-> +};
->
->  struct max1720x_device_info {
->         struct regmap *regmap;
->         struct regmap *regmap_nv;
->         struct i2c_client *ancillary;
->         int rsense;
-> +       enum chip_id id;
->  };
->
->  /*
-> @@ -271,6 +285,80 @@ static const enum power_supply_property max1720x_bat=
-tery_props[] =3D {
->         POWER_SUPPLY_PROP_MANUFACTURER,
->  };
->
-> +/*
-> + * Registers 0x80 up to 0xaf which contain the model for the fuel gauge
-> + * algorithm (stored in nvmem for the max1720x) are locked. They can
-> + * be unlocked by writing 0x59 to 0x62 and 0xc4 to 0x63. They should be
-> + * enabled in the regmap if the driver is extended to manage the model.
-> + */
-> +static const struct regmap_range max77759_registers[] =3D {
-> +       regmap_reg_range(0x00, 0x4f),
-> +       regmap_reg_range(0xb0, 0xbf),
-> +       regmap_reg_range(0xd0, 0xd0),
-> +       regmap_reg_range(0xdc, 0xdf),
-> +       regmap_reg_range(0xfb, 0xfb),
-> +       regmap_reg_range(0xff, 0xff),
-> +};
-> +
-> +static const struct regmap_range max77759_ro_registers[] =3D {
-> +       regmap_reg_range(0x3d, 0x3d),
-> +       regmap_reg_range(0xfb, 0xfb),
-> +       regmap_reg_range(0xff, 0xff),
-> +};
-> +
-> +static const struct regmap_access_table max77759_write_table =3D {
-> +       .no_ranges =3D max77759_ro_registers,
-> +       .n_no_ranges =3D ARRAY_SIZE(max77759_ro_registers),
-> +};
-> +
-> +static const struct regmap_access_table max77759_rd_table =3D {
-> +       .yes_ranges =3D max77759_registers,
-> +       .n_yes_ranges =3D ARRAY_SIZE(max77759_registers),
-> +};
-> +
-> +static const struct regmap_config max77759_regmap_cfg =3D {
-> +       .reg_bits =3D 8,
-> +       .val_bits =3D 16,
-> +       .max_register =3D 0xff,
-> +       .wr_table =3D &max77759_write_table,
-> +       .rd_table =3D &max77759_rd_table,
-> +       .val_format_endian =3D REGMAP_ENDIAN_LITTLE,
-> +       .cache_type =3D REGCACHE_NONE,
-> +};
-> +
-> +static const enum power_supply_property max77759_battery_props[] =3D {
-> +       POWER_SUPPLY_PROP_PRESENT,
+>  drivers/gpu/drm/bridge/samsung-dsim.c | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/brid=
+ge/samsung-dsim.c
+> index 0014c497e3fe7d8349a119dbdda30d65d816cccf..3667855ff0d6d1b608c579573=
+de657af7fd14388 100644
+> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
+> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+> @@ -1748,6 +1748,7 @@ static int samsung_dsim_host_attach(struct mipi_dsi=
+_host *host,
+>  			dsi->out_bridge =3D ERR_PTR(-EINVAL);
+>  	}
+> =20
+> +	drm_panel_put(panel);
+>  	of_node_put(remote);
+> =20
+>  	if (IS_ERR(dsi->out_bridge)) {
 
-I checked the register values match downstream - this looks correct
+Explaining in your commit log why you think it's a good idea to put it
+there would be really nice. In particular, it looks super odd to me that
+you would put the panel reference in attach.
 
-> +       POWER_SUPPLY_PROP_CAPACITY,
+Also, your patch doesn't work, and you have a reference inbalance. You
+have one taken by the panel driver, put in remove. You have one in
+drm_panel_add, put in drm_panel_remove. Which reference do you put here?
 
-I checked the register offset matchs downstream. The value reported
-varies a bit versus downstream. As mentioned above that is likely due
-to the REPSOC register reporting after mixing with the m5 model which
-is not loaded currently. Also the application specific values and cell
-characterization information used by the model isn't configured
-currently (see link below in _TEMP property below for the initial fuel
-gauge params used by downstream.
+This applies to your other patches too.
 
-> +       POWER_SUPPLY_PROP_VOLTAGE_NOW,
+Maxime
 
-I checked the register offset matchs downstream. Values reported look sensi=
-ble.
+--naqzmlhexuyovrm5
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +       POWER_SUPPLY_PROP_CHARGE_FULL,
+-----BEGIN PGP SIGNATURE-----
 
-Downstream has a slightly different implementation than upstream for
-this property. See here
-https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
-73cc8629cc1d121eb6a81ab68c/max1720x_battery.c#2244
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaELY/wAKCRAnX84Zoj2+
+diBYAXwKsnGG/hDaACTi2QF85rFrKiFaFWibUe+aygZ2K7/QBjFUhuAmCr4gs9ij
+KBDYTjQBgNXlwuo0a1Tzh+JZDgdPXgj1NZYl1UppVoWcYCBkxzww5vfwCw0+YexU
+o1W0BPKmpA==
+=VbEd
+-----END PGP SIGNATURE-----
 
-> +       POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN,
-
-I checked the register offset value is correct. However this is
-reporting 3000000 and downstream reports 4524000. I checked and it's
-just converting the register reset value of DESIGNCAP which is 0xbb8.
-
-This is listed as a "application specific" value, so it maybe we just
-need to write the correct initial value to DESIGNCAP (see TEMP section
-below)
-
-
-> +       POWER_SUPPLY_PROP_CHARGE_AVG,
-
-This property isn't reported downstream. The value is changing and not
-just the reset value. I noticed REPSOC is an output of the ModelGauge
-algorithm so it is likely not to be completely accurate.
-
-> +       POWER_SUPPLY_PROP_TEMP,
-
-I checked the register offset value is correct. However the
-temperature is always being reported as the register reset value of
-220. This is for obvious reasons quite an important one to report
-correctly.
-
-I started debugging this a bit, and it is caused by an incorrectly
-configured CONFIG (0x1D) register. In particular the TEX[8] bit is 1
-on reset in this register which means temperature measurements are
-written from the host AP. When this bit is set to 0, measurements on
-the AIN pin are converted to a temperature value and stored in the
-Temperature register (I then saw values of 360 and the value
-changing).
-
-See here for the bits in that CONFIG register
-https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
-73cc8629cc1d121eb6a81ab68c/max_m5_reg.h#403
-
-In downstream all these initial register settings are taken from DT
-here  https://android.googlesource.com/kernel/google-modules/raviole-device=
-/+/refs/heads/android14-gs-pixel-6.1/arch/arm64/boot/dts/google/gs101-fake-=
-battery-data.dtsi#27
-
-For temperature when TEX=3D0, TGAIN, TOFF and TCURVE registers should
-also be configured to adjust the temperature measurement.
-
-I think it would likely be worth initialising all the fuel gauge
-registers referenced in maxim,fg-params as that includes some of the
-application specific values for DESIGNCAP, also some of the cell
-characterization information, and hopefully we will get more accurate
-values from the fuel gauge generally.
-
-> +       POWER_SUPPLY_PROP_CURRENT_NOW,
-
-I checked the register offset matches downstream. Values reported look
-reasonable.
-
-> +       POWER_SUPPLY_PROP_CURRENT_AVG,
-
-I checked the register offset matches downstream. Values reported look
-reasonable.
-
-> +       POWER_SUPPLY_PROP_MODEL_NAME,
-
-This property isn't reported downstream.
-
-> +       POWER_SUPPLY_PROP_MANUFACTURER,
-> +};
-> +
-> +
-> +struct chip_data {
-> +       bool has_nvmem;
-> +       const struct regmap_config *regmap_cfg;
-> +       enum chip_id id;
-> +};
-> +
-> +static const struct chip_data max1720x_data  =3D {
-> +       .has_nvmem =3D true,
-> +       .regmap_cfg =3D &max1720x_regmap_cfg,
-> +       .id =3D MAX1720X_ID,
-> +};
-> +
-> +static const struct chip_data max77759_data =3D {
-> +       .has_nvmem =3D false,
-> +       .regmap_cfg =3D &max77759_regmap_cfg,
-> +       .id =3D MAX77759_ID,
-> +};
-> +
->  /* Convert regs value to power_supply units */
->
->  static int max172xx_time_to_ps(unsigned int reg)
-> @@ -288,12 +376,41 @@ static int max172xx_voltage_to_ps(unsigned int reg)
->         return reg * 1250;      /* in uV */
->  }
->
-> +static int max172xx_cell_voltage_to_ps(unsigned int reg)
-> +{
-> +       return reg * 625 / 8;   /* in uV */
-> +}
-> +
->  static int max172xx_capacity_to_ps(unsigned int reg,
->                                    struct max1720x_device_info *info)
->  {
->         return reg * (500000 / info->rsense);   /* in uAh */
->  }
->
-> +static int max77759_capacity_lsb(struct max1720x_device_info *info,
-> +                                unsigned int *lsb)
-> +{
-> +       unsigned int reg_task_period;
-> +       int ret;
-> +
-> +       ret =3D regmap_read(info->regmap, MAX77759_TASKPERIOD, &reg_task_=
-period);
-> +       if (ret < 0)
-> +               return ret;
-> +
-> +       switch (reg_task_period) {
-> +       case MAX77759_TASKPERIOD_175MS:
-> +               *lsb =3D 1;
-> +               break;
-> +       case MAX77759_TASKPERIOD_351MS:
-> +               *lsb =3D 2;
-> +               break;
-> +       default:
-> +               return -ENODEV;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  /*
->   * Current and temperature is signed values, so unsigned regs
->   * value must be converted to signed type
-> @@ -390,16 +507,36 @@ static int max1720x_battery_get_property(struct pow=
-er_supply *psy,
->                 val->intval =3D max172xx_percent_to_ps(reg_val);
->                 break;
->         case POWER_SUPPLY_PROP_VOLTAGE_NOW:
-> -               ret =3D regmap_read(info->regmap, MAX172XX_BATT, &reg_val=
-);
-> -               val->intval =3D max172xx_voltage_to_ps(reg_val);
-> +               if (info->id =3D=3D MAX1720X_ID) {
-> +                       ret =3D regmap_read(info->regmap, MAX172XX_BATT, =
-&reg_val);
-> +                       val->intval =3D max172xx_voltage_to_ps(reg_val);
-
-I think MAX1720X using MAX172XX_BATT register is likely a bug as the
-downstream driver uses MAX172XX_VCELL for that variant  see here
-https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
-73cc8629cc1d121eb6a81ab68c/max1720x.h#304
-
-Having said that, if we do need to cope with differing register
-offsets for the different fuel gauge variants it would be nicer to
-abstract them in a way similar to the downstream driver. See here
-https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
-73cc8629cc1d121eb6a81ab68c/max_m5.c#1235.
-I think that would be more scalable in supporting multiple variants in
-one driver. Otherwise we will have an explosion of if(id=3D=3Dblah) else
-if (id=3D=3Dblah) in the driver.
-
-kind regards,
-
-Peter
+--naqzmlhexuyovrm5--
 
