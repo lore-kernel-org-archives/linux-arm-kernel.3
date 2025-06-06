@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF97C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CE7C5B559
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Wj8ecJw8sQMELv22VyqXO77n+w+BEzjGz6ZQfwvvzw=; b=IE7vqWA2wxonfViJPPkTlsHWTU
-	1bzi73PRCrRhpoKXwTHpJZxN+TlwmQYhCbXL+49sx5XvhJGA2BybnnARBSh8CRB1ZLZY00ZqAwKgL
-	uv/J5oGhYsK58s4i/Tv6Ode2F+bJKdLsAe0h2gFL5TGtfXzVJHfurwif0p+MbEji36/iBmzkMlyNZ
-	0f4LTDN3iZhjTPVNCIVyDs8FojCSRTuZES6RWsdLcd6YCZlH4B2/4k+lh1DYZL08sFLN9weCjSoMY
-	2f/ngEFzNf/LoO8Owl5hTEwJKimFebcrbxHgXkVfIg10soDWPd2WRNcCVMfrbW4shfPQM2VjvY9ib
-	Ti2j1a9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MiiOBFHtT5ZtQA/f0RodEb62SyXtn3/Wda9R6Uedtxg=; b=zs5yov2pQGgrtJ1TFf4/Ok0JDZ
+	QYCe8eq1/6pIS/UR3OVjPByEkOwMAgxYqz52Ayn+zuYYFExkfylVmPy+fhYSeDEOv7ogT6b1xEFRY
+	6zUrbnjdNa4amPl3UdQ0eIMIbFi7RDQYSgy6IBFrG1X7/inxQsnYdFW/K0CJKJHKprkXOBZiiCcDn
+	8ti5u0i43j4FRqNlmnw+xb1xGgyC6d/KOV6B4150UMOj9A/bfYv3UDayV66ehWLnh2PtOGICPHUlQ
+	JqoESJMjo0RnJkAbg5ZRs0kMVO/YzRcentiFcrGLlmuGGpmzTd1rFpxiZx7VTvhXRzGzhtsY7s/NZ
+	IA9M0EaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUDJ-000000002Jz-31TN;
-	Fri, 06 Jun 2025 10:22:17 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uNUFN-000000002Ty-1c17;
+	Fri, 06 Jun 2025 10:24:25 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUAl-000000001zh-1vAB
+	id 1uNUC8-000000002EK-3i0d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 10:19:40 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1749205176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Wj8ecJw8sQMELv22VyqXO77n+w+BEzjGz6ZQfwvvzw=;
-	b=NAcC5HuIuZMqVi0R070oigm72+7GL9UEurnIlPXXJZ3LfgUaFtk0M2Za0cGz/tUqCN+vr/
-	b5YdrvdC2jhJwxrsQD45HLC6oAWzXVejuT3MuPcYfyZ3zmDUJNvN++edpV0XbMn7cPVMrg
-	mF0NqAMkjNudN/f0dMo8nOS2CDMbILTm2jD0jTeO/m2N/9RYDMqta++hz3YEYHEC+JcZF4
-	P8g+YCmJqQ+hUdUH30LbU9toOmsYkpjwDooAi6MPzvXt9u0ncTB/f5bv2lf8kFYr9EJ3yo
-	Qi2ZlQzJ9K6Yc/K1RIemL0Bh5eTXnXB8OMMgviFVyMA7Vzg8NBQQHLx5HYVmXA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1749205176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2Wj8ecJw8sQMELv22VyqXO77n+w+BEzjGz6ZQfwvvzw=;
-	b=oU5sfJAxPYPEf4Mjq9ihtQjWLaP3Dg/H2+yCANCmxnuvywVX0+sZLQKU+aAWpT5RSmH39E
-	6+95i4B+bR+O5eAA==
-To: Petr Mladek <pmladek@suse.com>, "Toshiyuki Sato (Fujitsu)"
- <fj6611ie@fujitsu.com>
-Cc: 'Michael Kelley' <mhklinux@outlook.com>, 'Ryo Takakura'
- <ryotkkr98@gmail.com>, Russell King <linux@armlinux.org.uk>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
- <jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
- <linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: Problem with nbcon console and amba-pl011 serial port
-In-Reply-To: <aEGeARVcCwqcoHb8@pathway.suse.cz>
-References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
- <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
- <84y0u95e0j.fsf@jogness.linutronix.de>
- <84plfl5bf1.fsf@jogness.linutronix.de>
- <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
- <aEApOPTqbVOR35F_@pathway.suse.cz> <84o6v3ohdh.fsf@jogness.linutronix.de>
- <aEBNLMYVUOGzusuR@pathway.suse.cz>
- <TY4PR01MB13777CC92C858572B9C19394FD76FA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
- <aEGeARVcCwqcoHb8@pathway.suse.cz>
-Date: Fri, 06 Jun 2025 12:25:35 +0206
-Message-ID: <84frgdcgug.fsf@jogness.linutronix.de>
+	Fri, 06 Jun 2025 10:21:06 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-60179d8e65fso3669682a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 03:21:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749205263; x=1749810063; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MiiOBFHtT5ZtQA/f0RodEb62SyXtn3/Wda9R6Uedtxg=;
+        b=jtAzXzPX6iduv+hxV+GoEBVX2aJvbZKmJFDL81mrw541WwVW+Hsbb8pjZP6wy+1sUH
+         q2QvT+cDLmymxp6GyBZM+e813kj80xS1JA0x/yxx8JyNQZc0JIjaI7kdtheW1go5zUg7
+         fWdkczt0uLsszMy0aS3lJkQeLSkNXIxkVK0Gs7SOAaPHUjehC010OlXiYm6GtAocgmse
+         VZBOT29a2dOrowq4wzNJZZwOaSDhkdZOvHneNpFKXYRuXmm/YPlrst40C8JhuCpNL+MT
+         JQ2sGdOiMc3EUA2rK2R26SIyMz3gL61j/QNxnaAcZLHYNyqnEW7EyERm08jvr67HQyRr
+         e6tQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749205263; x=1749810063;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MiiOBFHtT5ZtQA/f0RodEb62SyXtn3/Wda9R6Uedtxg=;
+        b=NK+SzDEvpInXWkn2euObL3s02vWDStA3+HMmRa36+xk+GVaBbA/mW2OjfWeqziKBhK
+         oPM7mbPzuzivwjCQtMn8GHXSy3chLMGyGr0fgQ3lsUDkXtnhFRZjVuKoRfLkIhvGAly7
+         nKyM3f0NnFESMrwm6gLYyq66N1Z0jxRjV5WgCZ62K5VZbD1FYhhBI3ghXyPzQRfNtpTA
+         N5prDMjfPqE13vgO7FlSP3KoWkJ/8FIL1U5jlahsmhdgJtavty2LOrpERe6hc0m6bBlv
+         U1TKemDH3fZyCPNMLcnVZy07ueZi4kgn6tRCgRCHrbC2iLKTopr+JYN6QKCpkRTTB/s/
+         VUgA==
+X-Forwarded-Encrypted: i=1; AJvYcCUgEJYvaxJLV8GXJRvsbkqpbacsltn7mqWym3S5xfN0iezuqSJhDZPBa7t6pTFGGnWZ6KrYLeY5v8UNcywMBBVU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMW8qkWLOYYPq4Lh3oulx02rcstrV8s9eBm8pZHoXtP1Lc06nv
+	yEtfkbpdYG3Vqc9npjS44v9P8QRdmV/V+/VsVCNiXabKmn4sgqDH6T1W
+X-Gm-Gg: ASbGnctM7OYbumM5qYBKPmSW6ID4jyfALa6yaLHhePy52ENObF+GeXV5BPF+gr1z+L4
+	0wVAyfVjdmyNxjKnghFtlk7YYIJ2rN5Ai5++QJ+EqDPKAiw6veFdUt6T6JszONvtlDYDzi3VS1E
+	GBT6tVir6MmRIsVJKBktPVS014XPFm44V00a5J6WkZC0UGr5Lm4aJOdau3Oxa5MMabJfTcCY+7A
+	JMJIGoAsjNYJ+0br6kPkS0hShm8A9fM4MHMiXyMbGOdFrL74ffGQ2u1M86iP2klM/MT3U6QKPC+
+	sFTD3QhAB73npWo47vNADaa1sMe5bfx7R2XVmVWzdOsGo/F7wdHPK2HPdCG4CfVhkx2d13tkXDI
+	=
+X-Google-Smtp-Source: AGHT+IEhapm1K8w4bky257wfwPuqvgCoQuQfxgO95l+/hUIeSvoPyiy84rQ6sHS7x6VE6POMwqilxg==
+X-Received: by 2002:a05:6402:1d4b:b0:606:f836:c666 with SMTP id 4fb4d7f45d1cf-60774a856bemr2463366a12.30.1749205262677;
+        Fri, 06 Jun 2025 03:21:02 -0700 (PDT)
+Received: from archlinux.ad.harman.com ([212.133.80.198])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-607783dd3c5sm809256a12.57.2025.06.06.03.21.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jun 2025 03:21:02 -0700 (PDT)
+From: Bartlomiej Dziag <bartlomiejdziag@gmail.com>
+To: 
+Cc: bartlomiejdziag@gmail.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	Wojciech Drewek <wojciech.drewek@intel.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] net: stmmac: Change the busy-wait loops timing
+Date: Fri,  6 Jun 2025 12:19:49 +0200
+Message-ID: <20250606102100.12576-1-bartlomiejdziag@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_031939_778013_0A6E0FD3 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20250606_032104_920335_2EB1A248 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,162 +110,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-05, Petr Mladek <pmladek@suse.com> wrote:
-> The question is if it is worth it. Is the clean up really important?
+After writing a new value to the PTP_TAR or PTP_STSUR registers,
+the driver waits for the addend/adjust operations to complete.
+Sometimes, the first check operation fails, resulting in
+a 10 milliseconds busy-loop before performing the next check.
+Since updating the registers takes much less than 10 milliseconds,
+the kernel gets stuck unnecessarily. This may increase the CPU usage.
+Fix that with changing the busy-loop interval to 5 microseconds.
+The registers will be checked more often.
 
-I must admit that I am not happy about encouraging the proposed solution
-so far (i.e. expecting driver authors to create special unsafe code in
-the panic situation). It leads down the "hope and pray" path that nbcon
-was designed to fix.
+Signed-off-by: Bartlomiej Dziag <bartlomiejdziag@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-What if during non-panic-CPU shutdown, we allow reacquires to succeed
-only for _direct_ acquires? The below diff shows how this could be
-implemented. Since it only supports direct acquires, it does not violate
-any state rules. And also, since it only involves the reacquire, there
-is no ugly battling for console printing between the panic and non-panic
-CPUs.
-
-Thoughts?
-
-John Ogness
-
-diff --git a/include/linux/printk.h b/include/linux/printk.h
-index 5b462029d03c1..d58ebdc8170b3 100644
---- a/include/linux/printk.h
-+++ b/include/linux/printk.h
-@@ -208,6 +208,7 @@ extern bool nbcon_device_try_acquire(struct console *con);
- extern void nbcon_device_release(struct console *con);
- void nbcon_atomic_flush_unsafe(void);
- bool pr_flush(int timeout_ms, bool reset_on_progress);
-+void nbcon_panic_allow_reacquire_set(bool value);
- #else
- static inline __printf(1, 0)
- int vprintk(const char *s, va_list args)
-@@ -321,6 +322,10 @@ static inline bool pr_flush(int timeout_ms, bool reset_on_progress)
- 	return true;
- }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+index e2840fa241f2..f8e1278a1837 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
+@@ -144,11 +144,11 @@ static int config_addend(void __iomem *ioaddr, u32 addend)
+ 	writel(value, ioaddr + PTP_TCR);
  
-+static inline void nbcon_panic_allow_reacquire_set(bool value)
-+{
-+}
-+
- #endif
- 
- bool this_cpu_in_panic(void);
-diff --git a/kernel/panic.c b/kernel/panic.c
-index b0b9a8bf4560d..8f572630c9f7e 100644
---- a/kernel/panic.c
-+++ b/kernel/panic.c
-@@ -292,6 +292,12 @@ static void panic_other_cpus_shutdown(bool crash_kexec)
- 		panic_triggering_all_cpu_backtrace = false;
+ 	/* wait for present addend update to complete */
+-	limit = 10;
++	limit = 10000;
+ 	while (limit--) {
+ 		if (!(readl(ioaddr + PTP_TCR) & PTP_TCR_TSADDREG))
+ 			break;
+-		mdelay(10);
++		udelay(5);
  	}
+ 	if (limit < 0)
+ 		return -EBUSY;
+@@ -187,11 +187,11 @@ static int adjust_systime(void __iomem *ioaddr, u32 sec, u32 nsec,
+ 	writel(value, ioaddr + PTP_TCR);
  
-+	/*
-+	 * Temporarily allow non-panic CPUs to finish any nbcon cleanup
-+	 * in case they were interrupted due to the panic.
-+	 */
-+	nbcon_panic_allow_reacquire_set(true);
-+
- 	/*
- 	 * Note that smp_send_stop() is the usual SMP shutdown function,
- 	 * which unfortunately may not be hardened to work in a panic
-@@ -304,6 +310,8 @@ static void panic_other_cpus_shutdown(bool crash_kexec)
- 		smp_send_stop();
- 	else
- 		crash_smp_send_stop();
-+
-+	nbcon_panic_allow_reacquire_set(false);
- }
- 
- /**
-diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-index d60596777d278..d960cb8a05558 100644
---- a/kernel/printk/nbcon.c
-+++ b/kernel/printk/nbcon.c
-@@ -235,7 +235,8 @@ static void nbcon_seq_try_update(struct nbcon_context *ctxt, u64 new_seq)
-  *			the handover acquire method.
-  */
- static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
--					    struct nbcon_state *cur)
-+					    struct nbcon_state *cur,
-+					    bool ignore_other_cpu_in_panic)
- {
- 	unsigned int cpu = smp_processor_id();
- 	struct console *con = ctxt->console;
-@@ -249,7 +250,7 @@ static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
- 		 * nbcon_waiter_matches(). In particular, the assumption that
- 		 * lower priorities are ignored during panic.
- 		 */
--		if (other_cpu_in_panic())
-+		if (other_cpu_in_panic() && !ignore_other_cpu_in_panic)
- 			return -EPERM;
- 
- 		if (ctxt->prio <= cur->prio || ctxt->prio <= cur->req_prio)
-@@ -568,7 +569,7 @@ static struct printk_buffers panic_nbcon_pbufs;
-  * in an unsafe state. Otherwise, on success the caller may assume
-  * the console is not in an unsafe state.
-  */
--static bool nbcon_context_try_acquire(struct nbcon_context *ctxt)
-+static bool nbcon_context_try_acquire(struct nbcon_context *ctxt, bool ignore_other_cpu_in_panic)
- {
- 	unsigned int cpu = smp_processor_id();
- 	struct console *con = ctxt->console;
-@@ -577,7 +578,7 @@ static bool nbcon_context_try_acquire(struct nbcon_context *ctxt)
- 
- 	nbcon_state_read(con, &cur);
- try_again:
--	err = nbcon_context_try_acquire_direct(ctxt, &cur);
-+	err = nbcon_context_try_acquire_direct(ctxt, &cur, ignore_other_cpu_in_panic);
- 	if (err != -EBUSY)
- 		goto out;
- 
-@@ -892,6 +893,12 @@ bool nbcon_exit_unsafe(struct nbcon_write_context *wctxt)
- }
- EXPORT_SYMBOL_GPL(nbcon_exit_unsafe);
- 
-+static bool nbcon_panic_allow_reacquire;
-+void nbcon_panic_allow_reacquire_set(bool value)
-+{
-+	nbcon_panic_allow_reacquire = value;
-+}
-+
- /**
-  * nbcon_reacquire_nobuf - Reacquire a console after losing ownership
-  *				while printing
-@@ -913,7 +920,7 @@ void nbcon_reacquire_nobuf(struct nbcon_write_context *wctxt)
- {
- 	struct nbcon_context *ctxt = &ACCESS_PRIVATE(wctxt, ctxt);
- 
--	while (!nbcon_context_try_acquire(ctxt))
-+	while (!nbcon_context_try_acquire(ctxt, READ_ONCE(nbcon_panic_allow_reacquire)))
- 		cpu_relax();
- 
- 	nbcon_write_context_set_buf(wctxt, NULL, 0);
-@@ -1101,7 +1108,7 @@ static bool nbcon_emit_one(struct nbcon_write_context *wctxt, bool use_atomic)
- 		cant_migrate();
+ 	/* wait for present system time adjust/update to complete */
+-	limit = 10;
++	limit = 10000;
+ 	while (limit--) {
+ 		if (!(readl(ioaddr + PTP_TCR) & PTP_TCR_TSUPDT))
+ 			break;
+-		mdelay(10);
++		udelay(5);
  	}
- 
--	if (!nbcon_context_try_acquire(ctxt))
-+	if (!nbcon_context_try_acquire(ctxt, false))
- 		goto out;
- 
- 	/*
-@@ -1486,7 +1493,7 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq,
- 	ctxt->prio			= nbcon_get_default_prio();
- 	ctxt->allow_unsafe_takeover	= allow_unsafe_takeover;
- 
--	if (!nbcon_context_try_acquire(ctxt))
-+	if (!nbcon_context_try_acquire(ctxt, false))
- 		return -EPERM;
- 
- 	while (nbcon_seq_read(con) < stop_seq) {
-@@ -1784,7 +1791,7 @@ bool nbcon_device_try_acquire(struct console *con)
- 	ctxt->console	= con;
- 	ctxt->prio	= NBCON_PRIO_NORMAL;
- 
--	if (!nbcon_context_try_acquire(ctxt))
-+	if (!nbcon_context_try_acquire(ctxt, false))
- 		return false;
- 
- 	if (!nbcon_context_enter_unsafe(ctxt))
+ 	if (limit < 0)
+ 		return -EBUSY;
+-- 
+2.49.0
+
 
