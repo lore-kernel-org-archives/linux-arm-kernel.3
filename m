@@ -4,154 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD493C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 19:10:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94715C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 19:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g1tLZZIiKLQv0qjAh5AVUEgiz1sOq215XU2X7u3Qm7o=; b=N/LtEJb/AHXb7ogeryyYixt0/v
-	mtOqKNN63Nq0XzHxfX03gji5wTVffe3datyOl7BqII04NW5nutOa6X6Z2OaYj3YGT38zCpVjRnUoa
-	c4x1fkZyd9AHNS1aAkZnyQkDnRNL56DYqBHhM5ExLNPzEB/9Zv0JgFwgXsuHusGeyjOtBSD9OdC6Q
-	iA6thAJb741PW1qdtN8rLg6Hdqil2wFdV1X6yTKYb+cC9U52bZ5XR7jDQrr/RUUlgtGBSse1wjIdk
-	0PKUiuNq6atCsqxgNGWACQusLIzbv9opKgPYLKLyHHZGFQpnbrRBsnmS/DUH67W6clS7vVR7CmRak
-	5tkdFlWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tlazCEab9PCIfCSPMgFb4BeOPrc+WPM3MHVdbOBtAeE=; b=TsHIQ8N8wFjCA1nvyKxbYrMgQ0
+	mJTyVqlLyFJQUqSg3HzkAedBQGtGEAOV+S1EAGMQkCjuGKpd2byVk/5tFYxDD1gPpItCXwL2PJJ8Y
+	vI/7dt7TKne5u3aCbIZfm0eWKK6p5Scqx/3PAY803Ui9XaxU5ns0j8OYomtbltUzXVqz0nX6z4rL9
+	LWOFFloXKp89VYeWcF+iptFWNP2ASHn39SGhkrOP/Jn0WUVcR00SySHbmgGfIXDbToRIWVbkAjcsT
+	MIVPaI75ELpHYAT0SZdbEpvSFZZvog5wUy/gHmtmdRUlrTO2mxyOrF4N+6vWsToRIUO7D+qO3Rod8
+	WhBsMURw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNcSq-00000000rPO-3cRV;
-	Fri, 06 Jun 2025 19:10:52 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uNcgN-00000000sKp-1RYk;
+	Fri, 06 Jun 2025 19:24:51 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNcKL-00000000qUA-2R0h
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 19:02:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TnLXImFvaRU13UgJrpNIrCdlmvn2Q/D5aooPXhW7yZu0kLRCdUe2bnHS0r+XEGVMzf5ui4cxYeWuI9/CvrUBD8Ud3KFFyvg7G9vwbPOzAnigbvSsHdDSet10z8aVK3lzThrJ69kmoWzkMupXELIwNPntcNx1DhTcNda/U9qG57W2kbj0Stv07AiaxVHZ3WZhi42xQFkREP1vhs2p7NJDk2jibZGuyWOhmBy7QAw+Mg9udlgP0Ug/T9CLt1CajxeqloYqLhu7plpNmcS1XNHXLBZrTqbxu1ww9JmZeLN0cR7xycxJJRI7GTa8LMeCRtn2RLKHy1dp0dklTZwNNQrK8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g1tLZZIiKLQv0qjAh5AVUEgiz1sOq215XU2X7u3Qm7o=;
- b=eqi4B5GmZDnFfdz9vfa+CNaOH2ChcItwb/GkzrkSZyL/6OOz6fPFGY1VGv2VXztg2mydGBQhv1f17aoZ2agvlPFGL9E4k6QctbswX7bDj1GE2nUISPSE1RJFXycxngCk8LUsVJWo+8m+UDdyeqJhhsoPABTo6nE17N+3PjZrbs2hReodKGGX35a9d2zE53RnOZZTfvNvpT7k2Xp7ZihklNAA649dyJuxWB2hKo0RI7sK3sa1J5sw75p0XRpcRJNVr2D2wN86a8UX59YGH4yEUi69ehaw2ihEFIfi9LujzEZydiZr5XIjbTRfbX+UG28KWtol2nO82gLM9wsAB+RLkA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g1tLZZIiKLQv0qjAh5AVUEgiz1sOq215XU2X7u3Qm7o=;
- b=HJYsrTMjPmqGZ3vyyAggnqdJiEgYB2r6Uium0D7WDYHnMe98q9JiS/dhId13+KBAUOdmAPR6+/pY7dq1Zcu8P6BaQKrI24uSgNnKTlhHKZq7Uh+BemI5/SVgFylmbfxPHb7ueJHNBJPyeoVl3YKa+LqEmDQZpiXihqfHx6HNX73l3Br3fJNxYUunhbXvApzK5leCtxuWtR3B+KU8n30IXNnVZVN5NgwyoeutXGbq6Lkii4E1fv4IabQaJZWjtTd+PlbLgyyV2kuhJ9gz5CHePR50aam6iKch7tY+0b7x/9JpMluv9Filbq8NEWCB8g5MKwkG3WyHvMEMvpxdLot1tA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU6PR04MB11087.eurprd04.prod.outlook.com (2603:10a6:10:5c2::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Fri, 6 Jun
- 2025 19:01:59 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8769.025; Fri, 6 Jun 2025
- 19:01:59 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
+	id 1uNceE-00000000s4w-3UYi;
+	Fri, 06 Jun 2025 19:22:39 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a0ac853894so2167845f8f.3;
+        Fri, 06 Jun 2025 12:22:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749237757; x=1749842557; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tlazCEab9PCIfCSPMgFb4BeOPrc+WPM3MHVdbOBtAeE=;
+        b=AVB9FEPzP8q8TMYFrJ1WT1FEeqNiJAUfcywAcbjJQEXZ/FOu8ATOkvaBgOIlB5w8qm
+         mfVrbcjW3ezdtHVtQYfMIT9ceEgFrYYtdXxn8TLkR8eig0IruNVh+ZAQV73DOQbZxfUo
+         N2laqyJ3AZVAVAlpK9eNH8+qarTm82KXt1urSOHN9xBJyoQHx2dOCy8nCjRpfsbnskmn
+         RDNZc2W/bAprCZRR7XhvfuuVPAMFOzZbIyZ/xELq6tZkPGSMikqhgZHa16pAnlKMMIcg
+         fvLrOr5r9Is7XOByHIjoPiL6Xg6WRs53HLHoOa5nnOG6CjaAin9U9TlzVyXIv3J5+DTY
+         247w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749237757; x=1749842557;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tlazCEab9PCIfCSPMgFb4BeOPrc+WPM3MHVdbOBtAeE=;
+        b=sWyEGOtaFyOOwq5RwZdK7hvjIGgm5EhGop9oVTbouq/41RtDsvrf9dg5dsqeN0ruUa
+         HInGi8rYFiiwrodSqh2KgGAk4VYQR5OBg3bRvuXGf9G1CKTJOpnMgMxPaDgVnXNamADH
+         MHwwiIh5l0P7IaF6l7e86U7huRdWFRh8U90xinjvNPWmzVG43WplrMHGk//D0u28fnY9
+         OIe7GJMF9UpS+mb9VqixZFTzlz8DpzBdn2e99xTVdbxUvVF/7uegTs4X4tS3++9JuVL2
+         PPNrQANTX663CZYoS368flNFkMjy5Yb9+305KSLWb5WUxfwjoQRJ9zvdvuLFs26tCZ/k
+         ucMA==
+X-Forwarded-Encrypted: i=1; AJvYcCURJp7mdqyvpLqApLJKxkDbhXkHomllWniJ9r0tMkj/vWw7qUWgXRFn4lFUAqCasDOwM7M9glLGyXpul7W5DweE@lists.infradead.org, AJvYcCWMSWFrl5hdAIPAnzfHthSLNeB19X6Ny6EH82whHA0CG9BNGM62biOLQlVBdgSiqiUiVlTJEvketcGl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4VQtvX2vWCS81OI/pGBnccIIpQBd9J5R8WkvPSzw7TkUn0Cyg
+	PRpe6Gvndu8X+OrHP/pfcnXIpIlNaCKBrQRKJGRNoAy1QninX0MtrAQ5wAVpwg==
+X-Gm-Gg: ASbGnct3DG1pbusryM3GOBXv6iTHManMZnaAhyRhMkzl/6bWtL/Nl6HFTAs8+a32Ygo
+	TFwY8x8l9evYu4rA+jRah7YG+4TGwyzHGimg0rCSlzFDgbkLv8BP9Wka3JYScewxcPO6X3oZcoL
+	LwRxWF01aYzLza+Y4tCl8f8yASX4YoNSNnirnBaBLJxu6if4BDJxfvZHXR8EpkBkHfK5J3uXT0u
+	iywJCm3HWMe3t1jJbhjGywFR56nmOarB2ZTdcrvmdixqlU3q8Zbz04ntnfoSJ6ivPZ90/fsywNh
+	aS6NQBAqZ+eg5lcbeA/mDVR3K3cizgpKZi+Ra2ClnKjD7mX4wpNIW3KPBF/0CgzFlS34CDuHybO
+	/BMkYrkYMGOdh40nv+F/n
+X-Google-Smtp-Source: AGHT+IEw/6dmOwp3prbi2DO3yB49zmc9WP0nbK2kCidb002uvYU077DaQ9rddciHPvHuj++HjpiSYQ==
+X-Received: by 2002:a05:6000:2082:b0:3a3:4baa:3f3d with SMTP id ffacd0b85a97d-3a5319b69d2mr4142128f8f.6.1749237756611;
+        Fri, 06 Jun 2025 12:22:36 -0700 (PDT)
+Received: from localhost.localdomain (93-34-88-225.ip49.fastwebnet.it. [93.34.88.225])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-452730b9b27sm30951595e9.23.2025.06.06.12.22.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jun 2025 12:22:35 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH v2 4/4] arm64: dts: imx95-19x19-evk: add GPIO reset for ethphy0
-Date: Fri,  6 Jun 2025 15:00:44 -0400
-Message-Id: <20250606190045.1438740-4-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250606190045.1438740-1-Frank.Li@nxp.com>
-References: <20250606190045.1438740-1-Frank.Li@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ2PR07CA0007.namprd07.prod.outlook.com
- (2603:10b6:a03:505::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] phy: airoha: add support for AN7583 PCIe PHY driver
+Date: Fri,  6 Jun 2025 21:22:01 +0200
+Message-ID: <20250606192208.26465-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU6PR04MB11087:EE_
-X-MS-Office365-Filtering-Correlation-Id: c9337426-978a-4742-431d-08dda52c9d11
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ubVzq+rRan7gNRm7f2KAT95cpTN2rzgXKo+RdQrmjDj9oVWM5ZcCyIGtMtUD?=
- =?us-ascii?Q?8ThSil9cEC2I7qxpywaGzJe+zAffP6miFPJIUkcOPPBQ9w35nTjPdWJv/MzM?=
- =?us-ascii?Q?NIRd3LzMsyxmSv7xfioNKx0ROopbNymQIgrFyupkYnUJ9WMGeNtzVTwTw+mg?=
- =?us-ascii?Q?7VrNshvaWQsDSoDYwNATG1HIo83cgh4sXVMteibo1YO9mIUwsZACc8DmPDH4?=
- =?us-ascii?Q?tARQRv3yJ00KGCxf6T8AVXqiDkW77YkowUl0l5CPhil350kkO0EqHjCTYpCJ?=
- =?us-ascii?Q?7m8V7jGZuejV9z1wSzpnGzJZSAe9lAFC9PnvBuR0lc2f1/7MKYJCI6u9vUZ8?=
- =?us-ascii?Q?Lz3shbLTHufYPlJcdn9qnP1h25ujcZoiVUE2+HvNDfysSTI0u+gCYCSmk1JW?=
- =?us-ascii?Q?EbHIUwUnFW9iId/+RM0RluE+SRQm/byGyzjFGKljtSW37XaKDF97zOFCQrkz?=
- =?us-ascii?Q?vGPFDFzUSEzy4ec3psD1NgZTD5grgYNkE+xCE3zD1J6REVofz9uREmfZiZAe?=
- =?us-ascii?Q?SXsAafKzUsp2l68JVgyKpJFPVW7Y5/fZoXYE2I2cfeyC+X5kzFVmnsEnFh+7?=
- =?us-ascii?Q?nbcoFxzaTbDw5X9HkubvPstK46whMAN260vyf5mGLbjoFd2Bv4mANgEaAApv?=
- =?us-ascii?Q?G/jQ49D0BGDaQRpcGHZr2zV1JDw66983z/lYoNwwGT16qiPHDRYR38qZscTt?=
- =?us-ascii?Q?7xEmCuTTTg8uD+qhQ+EJaFiB69BZ/yrCWpTFWA84LyUCav1Zu2FZA8vD+THW?=
- =?us-ascii?Q?a2EYOEEX0dZaJUprdY2a6TKSHaGmesi+1cdsXq+NWMuSM5SE2MGzbmiYwe45?=
- =?us-ascii?Q?8I1PcEtYKWcZOoUGh0N165dxN5B3zpA0AV3/Q81k3WabXARN61rE9oxqyFWq?=
- =?us-ascii?Q?ZWrMFlJBF2kge0kbKdbI0YE0PLO2+zsxaAVZflQDjGNJBENUn4kg5a5rcysO?=
- =?us-ascii?Q?qqRt1hsSvbXX4qtFUiT4saA5bUjVCP4XDr7ghKVcV9zVj4H2fttNtP4a4mTv?=
- =?us-ascii?Q?V/wua/nNIbXQ+S0h9ZXk0wSg9MN78XLf0mLZ5g60rSdacwd/iHyw7Xp3Ek/s?=
- =?us-ascii?Q?zNY8iegbaUXv7mFyj0lZHgQ2uzeWb6tgWcRnx7rT5zOVjw1sqgsT/+CUJcqL?=
- =?us-ascii?Q?GNB2AUCLxcNuQjCz3obyyCBbV0eRpA5ORoyzxjFm2YAom9asUdMONe23qabE?=
- =?us-ascii?Q?QW3PIpKbINM2wir2293Au3XiTms7FEZxxOQvUxhAJC5AicRKcn0JPFcCxVer?=
- =?us-ascii?Q?+hv0R2ocXKaIUJldKmeI/JZJc+U8MYBebCUo0Bq8VLdDFksDD8sPeuwc5FWG?=
- =?us-ascii?Q?92K6yHS7tS1P11yD89Cs+MOgw6lC9j0lMzwEwK1RLrf5PDmlII5K+LvOyebQ?=
- =?us-ascii?Q?M0mqpn0/+iu6pRLYun6Vuvjmdv+id3IjIkhhQl3x7Og6PTlm3T9DYkJ1hpjh?=
- =?us-ascii?Q?WAmsTtrh31ob/pdoOnpjbqC0G97xUF6Rbx6eJ13qDm+XfBEaIRnS6oX/0L8i?=
- =?us-ascii?Q?Sol1xSNnILf1qUA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9fem/prTrlRykVVRgSH3OZ+3dglviSMarqZjV4pcowdrDVBeXNzoi2C7X/jQ?=
- =?us-ascii?Q?3FGuXmkHys7asIFpCVyQnOPXKxrUaLdyT/5QiX6klVUREczxJtBV99AP38Cc?=
- =?us-ascii?Q?EGekH5hNxF60+4V/nxy/CB5qqNEQravV3TGo2ifqiX7KSvo2qpHzr81iit4z?=
- =?us-ascii?Q?iKeTfelV5vIXGywyft3iR+s8qh70sXb5BM53LvfEenj3/hB6u2VDacbjOilk?=
- =?us-ascii?Q?vBpN9mSf06cQl+OMeXk09OCi3kiMs2yT262zI4V/UHEfYXxgLw59y1NZ+Vcj?=
- =?us-ascii?Q?peIu5wFHK+GVQxyziVyVuYnFwwNOEb9Qg+p0x3/U/XzgRlWp4JT0Do0BRtD3?=
- =?us-ascii?Q?zowhyYdv+O1ryIn8iLp80uSNO7H9HbfFJ85JyOa7SE+n1hXIXdqX7v0SMXxp?=
- =?us-ascii?Q?6aO2H2OeC/F0/mR/219VhSkV+vzJR6GfSzFxLmGkLpRb/CgCR4lhgq93lLCf?=
- =?us-ascii?Q?XXcsKRTuFfSeomE78YkyAiJNvogR3fi7ub0P4lCb/1ejyd86XSOpWgjqnlSJ?=
- =?us-ascii?Q?ZWTikkQEDpC2ZpD8ixR+XZ7M6Igsl/69v4AFtFoOIeNmLOgxBZBbmec4z+NX?=
- =?us-ascii?Q?1kjmMAtiu3fQwk5YIxGIPddXVrl2szhuFeal75PM+JBAtfdawfONldD2emMP?=
- =?us-ascii?Q?eqrlTkKNuMFLwLAO1YOaAD1cgCW7JK742ZsEdQSoxOS3SkojlG8Ndz1iTq4D?=
- =?us-ascii?Q?yp/cuC8atB195xmRz23uupXHNwbV41fWUxchr+QS3hTYoyWLPXDL+EuKnTeb?=
- =?us-ascii?Q?ez1ycC36D1Ab8aQUhMfLPkN3ItHX7eh0A35ctcbP7K5EM5k0NQPhtg7aIGYZ?=
- =?us-ascii?Q?j0QYuqJVUUM5OB+GaTQzisiTHZA2zgZYvSLpfHNOTvluR5Pfof1kg9CG5tYs?=
- =?us-ascii?Q?HrncxU+HJf9J7MqXR9Cwy+SL/4hjrzL+whc/NhB54gOP34KUWDlRmZ0SIPWV?=
- =?us-ascii?Q?9F4UsVX2ZBIY64uA3x6W9qtecYczClCqPYCGqlTjy7FFHKs+QUtSW4pQ10fG?=
- =?us-ascii?Q?xW4eArH+aX1YgLQrwa7XKSKeKsNy3N3NhHHyPMJW40Xu4CDtckiuqbwKKLkH?=
- =?us-ascii?Q?5ZMq67Of7yL+LKxZOovtkjOyZDBIwNY/t2/cks382XLP80bohdtkuHNoDTS5?=
- =?us-ascii?Q?EH7UJ87JMw73sh1V/you1HB10paujNPdql4AHwVsEi8RrSN9VmJH5wTgKsqr?=
- =?us-ascii?Q?CkxElRwycUKnQI/Ejjt0PtS4ws7gG+uPsiYYV2qWycYPpJivYVI8WB5+bE0g?=
- =?us-ascii?Q?ommZd5Cj5Y8oCF5umFplMYTfHKPD0OJsBQtTSAwHSyTMQMzYbfd5tn1W227D?=
- =?us-ascii?Q?56KPDPiVCgIyx5BTwIaLRJ4QZYOX9dWVLMN9XF+yqKrBX6fwdlJsAh3gxKVS?=
- =?us-ascii?Q?63wK1PxC9fqhbGwv2AiyRe3kMtK0FIf61sJVEZsQTV3clLr0iKTUmnbhpRvJ?=
- =?us-ascii?Q?ma6fajmSTWFcV/9oocS1UrwwAtkDb+Qu8LNUGnEsbD/+dbp78+j299UphpAP?=
- =?us-ascii?Q?zT/bsrti9N9027/VJ94i5JLa+efdedrWdJMeCwcF+KGS/nNbqHPyUdwnPkWD?=
- =?us-ascii?Q?kmJVm/B7Kn0rNjIU7Abjf/sY/xnQhLg9SmmFiCOx?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c9337426-978a-4742-431d-08dda52c9d11
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2025 19:01:59.2350
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xMaHGPyg95XODH8N62CL/GIYviDuzDjTAMtAYNm0SZLMNnmAudG6/Q/m7EnN0sXsjeUedajLjw/U/iI/7j/pSg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11087
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_120205_620920_A63865AC 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250606_122238_870050_303FEAA6 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,34 +102,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wei Fang <wei.fang@nxp.com>
+This small series move the current Airoha EN7581 PCIe PHY driver
+to a dedicated directory and introduce support for Airoha AN7583 PCIe PHY.
 
-Add GPIO reset for ethphy0.
+It's not possible to reuse the EN7581 code as the register changed between
+the 2 SoC and also the setup method changed (different calibration logic)
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v2
-- none
----
- arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 3 +++
- 1 file changed, 3 insertions(+)
+Moving the PHY in a dedicated directory is also needed for other series
+current pending that will add USB PHY support.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-index b6822b56374c4..48ca09464e832 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-@@ -505,6 +505,9 @@ &netc_emdio {
- 
- 	ethphy0: ethernet-phy@1 {
- 		reg = <1>;
-+		reset-gpios = <&i2c5_pcal6408 2 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
- 		realtek,clkout-disable;
- 	};
- };
+Also a dedicated schema is added as the register names is entirely
+different compared to EN7581.
+
+Christian Marangi (4):
+  phy: move Airoha PCIe PHY driver to dedicated directory
+  phy: airoha: add EN7581 tag to PCIe PHY driver
+  dt-bindings: phy: airoha: Document support for AN7583 PCIe PHY
+  phy: airoha: add support for AN7583 PCIe PHY driver
+
+ .../bindings/phy/airoha,an7583-pcie-phy.yaml  |   72 ++
+ MAINTAINERS                                   |   14 +-
+ drivers/phy/Kconfig                           |   11 +-
+ drivers/phy/Makefile                          |    4 +-
+ drivers/phy/airoha/Kconfig                    |   23 +
+ drivers/phy/airoha/Makefile                   |    3 +
+ .../phy/airoha/phy-airoha-an7583-pcie-regs.h  |  550 +++++++++
+ drivers/phy/airoha/phy-airoha-an7583-pcie.c   | 1069 +++++++++++++++++
+ .../phy-airoha-en7581-pcie-regs.h}            |    0
+ .../phy-airoha-en7581-pcie.c}                 |    6 +-
+ 10 files changed, 1734 insertions(+), 18 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7583-pcie-phy.yaml
+ create mode 100644 drivers/phy/airoha/Kconfig
+ create mode 100644 drivers/phy/airoha/Makefile
+ create mode 100644 drivers/phy/airoha/phy-airoha-an7583-pcie-regs.h
+ create mode 100644 drivers/phy/airoha/phy-airoha-an7583-pcie.c
+ rename drivers/phy/{phy-airoha-pcie-regs.h => airoha/phy-airoha-en7581-pcie-regs.h} (100%)
+ rename drivers/phy/{phy-airoha-pcie.c => airoha/phy-airoha-en7581-pcie.c} (99%)
+
 -- 
-2.34.1
+2.48.1
 
 
