@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16B0C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AA1C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m4qcksG7kBfJfRp18aWDNsqzcVUHxFO+EPP7YXzEuMs=; b=RbeuWhASGNTcfKqu94MPWpDq1k
-	ovFkoUTJemrgihYEMXbIysT8/RnDIYJF++fPvJk2pqX2eL/DhFEUyYisOvDKo74Tgu5PILc584Wix
-	StecAEyH+AFD9TJ0QhkumN2M30bmLMzz7WDJ6bj8nFKln/F48U2UF/r2bThkxnaucm2i3GTfIX6AL
-	qfxYoZuTmcEGdugSiSuG9/0PxOiPmcfu3AaMMEEk1dmgnsjeZHKUYaYi//ny7DS8jUS9hkkh1FN4m
-	jI2pgCo3eSGb6kTgvYAUu65sTrg55aP/+2ZqroJcfdI3gXgKlMduUvtVpvu5xnbfphUNUPC0MDG6H
-	+Pv+BA5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FNlEqQbY+fa98gHMzcIrLM+qc3h/stf4tBXFHk8HQmQ=; b=Kw80cuZxz3c5mcrEAuTBzlLaTZ
+	G0q6C6KoNkk62ffO3LZui9BoCTlYqvV8aOxBy3vHXEQ8OJR6glVvMweoEKv+l30pMxzjJbdKCn8HG
+	hED2tz6/F2lC5kifxpnpHo95zKDE7Pl5NrHEt0v45UFUOqF5WccCWcLeJEwcwVRYCo0NLP/h7Ghmq
+	i7NRcU5XgEkLTSX0+PnkOyPtZgiTmmr/4YaruyxAiowm1u0FPWyFGhfDcenOtCbAMmjWEYMoFlKBp
+	rEoMh0OfdQr0Tc3+fBAL6ogWFlTO1+On5P6nYL6+YxhgA+6kqYD2zTOE8nvH4siwR+sanVZ5z2Iuh
+	g3pPv3fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUZn-000000004cY-2s5h;
-	Fri, 06 Jun 2025 10:45:31 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uNUbv-0000000058W-0cbR;
+	Fri, 06 Jun 2025 10:47:43 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUKQ-000000002tX-13sN;
-	Fri, 06 Jun 2025 10:29:40 +0000
-Received: from [192.168.1.102] (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 93FEB1449;
-	Fri,  6 Jun 2025 12:29:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749205768;
-	bh=9MM74xoBnZjeb+7dlcAgIXr4ZI2P++CHv1REUpu+GeY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=er7gwa/tSh7C4H/PxSZsAhdzkpBC6d9YzX0Xc1X+dcVMz4NsSoRAqbo7uSCi9gPRO
-	 ujHcJvb+EYg2cT8HfW3Tqwa6qjZtK5nvIfBofSR1Iy5V51YdSdnV/X1tc63Q9WW9Hd
-	 nDT5vSrL4edUEMVsQIrpRxNrX6Hr2Hv5APrL442o=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Fri, 06 Jun 2025 12:29:22 +0200
-Subject: [PATCH v7 2/4] media: pisp_be: Remove config validation from
- schedule()
+	id 1uNUPk-000000003Yj-1RCY
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Jun 2025 10:35:09 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1749206106;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FNlEqQbY+fa98gHMzcIrLM+qc3h/stf4tBXFHk8HQmQ=;
+	b=tY4fxOkzUOGEzSfuyTD1Xd7XXCr0wIg9z+OmDJ1uHXs/0D6FrBM/ARQL+JKenmmx/SpN1Z
+	JAaEnnksFD2pAgpGepixdsCDbPwxD74kL6ismmFvB9cLDuRgf8ibnKAFi5/2b5701+mDCg
+	5VpEE4EglAvv54Fl8fO/P2s7xX4L3DtAiHURV80AJrT7N47nWHbrRREZFuqYmx38diQKZs
+	BKUf+HgD+rtvBpRhYWfMzpNZuqVoW4oPOpDSwEJeV5WekTNskz0yvoEUH1kCnq2ICR1vVE
+	YbvnoKZtWzTI3AC6z4Ds2rIK1sD6dpBSviLaFZzF+GvfnCIm4DZojFmf8kxmVA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1749206106;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FNlEqQbY+fa98gHMzcIrLM+qc3h/stf4tBXFHk8HQmQ=;
+	b=nRJZ20AcwHFYUmZVwaWsjyLVYVVIrcXFd2uY86bpZxAlNp2w/pQPxHQZvAEKp0MqcL8Y+l
+	KcVTJEOFTSVwaWBg==
+To: Petr Mladek <pmladek@suse.com>, "Toshiyuki Sato (Fujitsu)"
+ <fj6611ie@fujitsu.com>
+Cc: 'Michael Kelley' <mhklinux@outlook.com>, 'Ryo Takakura'
+ <ryotkkr98@gmail.com>, Russell King <linux@armlinux.org.uk>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
+ <jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
+ <linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: Problem with nbcon console and amba-pl011 serial port
+In-Reply-To: <84frgdcgug.fsf@jogness.linutronix.de>
+References: <SN6PR02MB4157A4C5E8CB219A75263A17D46DA@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
+ <84y0u95e0j.fsf@jogness.linutronix.de>
+ <84plfl5bf1.fsf@jogness.linutronix.de>
+ <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+ <aEApOPTqbVOR35F_@pathway.suse.cz> <84o6v3ohdh.fsf@jogness.linutronix.de>
+ <aEBNLMYVUOGzusuR@pathway.suse.cz>
+ <TY4PR01MB13777CC92C858572B9C19394FD76FA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+ <aEGeARVcCwqcoHb8@pathway.suse.cz> <84frgdcgug.fsf@jogness.linutronix.de>
+Date: Fri, 06 Jun 2025 12:41:06 +0206
+Message-ID: <84cybhcg4l.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250606-pispbe-mainline-split-jobs-handling-v6-v7-2-46169f0622b7@ideasonboard.com>
-References: <20250606-pispbe-mainline-split-jobs-handling-v6-v7-0-46169f0622b7@ideasonboard.com>
-In-Reply-To: <20250606-pispbe-mainline-split-jobs-handling-v6-v7-0-46169f0622b7@ideasonboard.com>
-To: Naushir Patuck <naush@raspberrypi.com>, 
- Nick Hollinghurst <nick.hollinghurst@raspberrypi.com>, 
- David Plowman <david.plowman@raspberrypi.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Hans Verkuil <hverkuil@xs4all.nl>
-Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2974;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=9MM74xoBnZjeb+7dlcAgIXr4ZI2P++CHv1REUpu+GeY=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoQsMJrEbciS8x2BHdIWih/2w10/v2vY3ocpNYy
- +Fd9/iyT8KJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaELDCQAKCRByNAaPFqFW
- PGTXD/0UhSC7RVmTpo7+6azLUS7zBmkMT5p/G08Lu2Wz9NEezo5GvXp2P4dx3ruWpU6OowFF/1W
- tPjwlj4rC1K1ZG0ZSt1xQFsmr76YjKRUrAHJIsaaKoYYnskRlOKZ2DereCPP2XePKeA7EGp9/iZ
- bx9uNfBMbyPvProqMdb65iuiwawNCXQMOUxjGabt5Wi0m0cT9WiEYeULiJE7xDwgRg461bIh1rE
- n5CVOC+crpNPBCsUa9ZEQjvKJSCu9sL1hBYupMDV/U6DE39oeNyKbgwZjGxtY6lX+D2HI691YHP
- snqwIL+fk52+jAr2PJq6ra0waUAEtQmNFVWD5i+3C98KJ+fbZNIfxA77trkJwCjnoaiQiCHM579
- 2Msc4h0secTqAh+4K0AE/HJR4BkKK3ifXaXnfu9boznO0KCYlYFIpOoHA5ZoVfpRHm/mYBiI/M/
- Wow6KHFqzkaFB14cd/STuDAV2CVB9mePsvcyl9x4Tz0FP0tY8YTe3FyaBmkI32S1rtnjjqKrTh8
- wPnH6hR9iEsmvqhNShfZ57smIAPazXg/+eSZTTiS3bBhN9Tf85ruh8WBD1wHd2u6dqoOSqN0Tul
- Nj8Dqbm0WyPR3xNtvBSCpokm4Ek1Hk0Dnesf4upKXwH8WCxTbEksz9HUFDpXTEa3S0G6/a1BhVw
- 2hXbLEgfTTTgQGA==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_032938_432626_0A075A7A 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250606_033508_666008_B2047D6E 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,83 +88,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The config parameters buffer is already validated in
-pisp_be_validate_config() at .buf_prepare() time.
+On 2025-06-06, John Ogness <john.ogness@linutronix.de> wrote:
+> On 2025-06-05, Petr Mladek <pmladek@suse.com> wrote:
+>> The question is if it is worth it. Is the clean up really important?
+>
+> I must admit that I am not happy about encouraging the proposed solution
+> so far (i.e. expecting driver authors to create special unsafe code in
+> the panic situation). It leads down the "hope and pray" path that nbcon
+> was designed to fix.
+>
+> What if during non-panic-CPU shutdown, we allow reacquires to succeed
+> only for _direct_ acquires? The below diff shows how this could be
+> implemented. Since it only supports direct acquires, it does not violate
+> any state rules. And also, since it only involves the reacquire, there
+> is no ugly battling for console printing between the panic and non-panic
+> CPUs.
 
-However some of the same validations are also performed at
-pispbe_schedule() time. In particular the function checks that:
+Thinking about it some more, since it does not involve printing, why not
+just always allow reacquiring directly in panic?
 
-1) config.num_tiles is valid
-2) At least one of the BAYER or RGB input is enabled
+This simplifies the diff significantly.
 
-The input config validation is already performed in
-pisp_be_validate_config() and while job.hw_enables is modified by
-pispbe_xlate_addrs(), the function only resets the input masks if
+John
 
-- there is no input buffer available, but pispbe_prepare_job() fails
-  before calling pispbe_xlate_addrs() in this case
-- bayer_enable is 0, but in this case rgb_enable is valid as guaranteed
-  by pisp_be_validate_config()
-- only outputs are reset in rgb_enable
-
-For this reasons there is no need to repeat the check at
-pispbe_schedule() time.
-
-The num_tiles validation can be moved to pisp_be_validate_config() as
-well. As num_tiles is a u32 it can'be be < 0, so change the sanity
-check accordingly.
-
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
----
- .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 25 ++++++----------------
- 1 file changed, 7 insertions(+), 18 deletions(-)
-
-diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-index b1449245f394..92c452891d6c 100644
---- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-+++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-@@ -588,24 +588,6 @@ static void pispbe_schedule(struct pispbe_dev *pispbe, bool clear_hw_busy)
- 	pispbe->hw_busy = true;
- 	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
+index d60596777d278..26c229b7f56ea 100644
+--- a/kernel/printk/nbcon.c
++++ b/kernel/printk/nbcon.c
+@@ -235,7 +235,8 @@ static void nbcon_seq_try_update(struct nbcon_context *ctxt, u64 new_seq)
+  *			the handover acquire method.
+  */
+ static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
+-					    struct nbcon_state *cur)
++					    struct nbcon_state *cur,
++					    bool ignore_other_cpu_in_panic)
+ {
+ 	unsigned int cpu = smp_processor_id();
+ 	struct console *con = ctxt->console;
+@@ -249,7 +250,7 @@ static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
+ 		 * nbcon_waiter_matches(). In particular, the assumption that
+ 		 * lower priorities are ignored during panic.
+ 		 */
+-		if (other_cpu_in_panic())
++		if (other_cpu_in_panic() && !ignore_other_cpu_in_panic)
+ 			return -EPERM;
  
--	if (job.config->num_tiles <= 0 ||
--	    job.config->num_tiles > PISP_BACK_END_NUM_TILES ||
--	    !((job.hw_enables.bayer_enables | job.hw_enables.rgb_enables) &
--	      PISP_BE_BAYER_ENABLE_INPUT)) {
--		/*
--		 * Bad job. We can't let it proceed as it could lock up
--		 * the hardware, or worse!
--		 *
--		 * For now, just force num_tiles to 0, which causes the
--		 * H/W to do something bizarre but survivable. It
--		 * increments (started,done) counters by more than 1,
--		 * but we seem to survive...
--		 */
--		dev_dbg(pispbe->dev, "Bad job: invalid number of tiles: %u\n",
--			job.config->num_tiles);
--		job.config->num_tiles = 0;
--	}
--
- 	pispbe_queue_job(pispbe, &job);
+ 		if (ctxt->prio <= cur->prio || ctxt->prio <= cur->req_prio)
+@@ -568,7 +569,7 @@ static struct printk_buffers panic_nbcon_pbufs;
+  * in an unsafe state. Otherwise, on success the caller may assume
+  * the console is not in an unsafe state.
+  */
+-static bool nbcon_context_try_acquire(struct nbcon_context *ctxt)
++static bool nbcon_context_try_acquire(struct nbcon_context *ctxt, bool ignore_other_cpu_in_panic)
+ {
+ 	unsigned int cpu = smp_processor_id();
+ 	struct console *con = ctxt->console;
+@@ -577,7 +578,7 @@ static bool nbcon_context_try_acquire(struct nbcon_context *ctxt)
  
- 	return;
-@@ -703,6 +685,13 @@ static int pisp_be_validate_config(struct pispbe_dev *pispbe,
- 		return -EIO;
+ 	nbcon_state_read(con, &cur);
+ try_again:
+-	err = nbcon_context_try_acquire_direct(ctxt, &cur);
++	err = nbcon_context_try_acquire_direct(ctxt, &cur, ignore_other_cpu_in_panic);
+ 	if (err != -EBUSY)
+ 		goto out;
+ 
+@@ -913,7 +914,7 @@ void nbcon_reacquire_nobuf(struct nbcon_write_context *wctxt)
+ {
+ 	struct nbcon_context *ctxt = &ACCESS_PRIVATE(wctxt, ctxt);
+ 
+-	while (!nbcon_context_try_acquire(ctxt))
++	while (!nbcon_context_try_acquire(ctxt, true))
+ 		cpu_relax();
+ 
+ 	nbcon_write_context_set_buf(wctxt, NULL, 0);
+@@ -1101,7 +1102,7 @@ static bool nbcon_emit_one(struct nbcon_write_context *wctxt, bool use_atomic)
+ 		cant_migrate();
  	}
  
-+	if (config->num_tiles == 0 ||
-+	    config->num_tiles > PISP_BACK_END_NUM_TILES) {
-+		dev_dbg(dev, "%s: Invalid number of tiles: %d\n", __func__,
-+			config->num_tiles);
-+		return -EINVAL;
-+	}
-+
- 	/* Ensure output config strides and buffer sizes match the V4L2 formats. */
- 	fmt = &pispbe->node[TDN_OUTPUT_NODE].format;
- 	if (bayer_enables & PISP_BE_BAYER_ENABLE_TDN_OUTPUT) {
-
--- 
-2.49.0
-
+-	if (!nbcon_context_try_acquire(ctxt))
++	if (!nbcon_context_try_acquire(ctxt, false))
+ 		goto out;
+ 
+ 	/*
+@@ -1486,7 +1487,7 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq,
+ 	ctxt->prio			= nbcon_get_default_prio();
+ 	ctxt->allow_unsafe_takeover	= allow_unsafe_takeover;
+ 
+-	if (!nbcon_context_try_acquire(ctxt))
++	if (!nbcon_context_try_acquire(ctxt, false))
+ 		return -EPERM;
+ 
+ 	while (nbcon_seq_read(con) < stop_seq) {
+@@ -1784,7 +1785,7 @@ bool nbcon_device_try_acquire(struct console *con)
+ 	ctxt->console	= con;
+ 	ctxt->prio	= NBCON_PRIO_NORMAL;
+ 
+-	if (!nbcon_context_try_acquire(ctxt))
++	if (!nbcon_context_try_acquire(ctxt, false))
+ 		return false;
+ 
+ 	if (!nbcon_context_enter_unsafe(ctxt))
 
