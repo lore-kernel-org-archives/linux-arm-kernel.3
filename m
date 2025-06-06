@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CE7C5B559
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13ABEC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MiiOBFHtT5ZtQA/f0RodEb62SyXtn3/Wda9R6Uedtxg=; b=zs5yov2pQGgrtJ1TFf4/Ok0JDZ
-	QYCe8eq1/6pIS/UR3OVjPByEkOwMAgxYqz52Ayn+zuYYFExkfylVmPy+fhYSeDEOv7ogT6b1xEFRY
-	6zUrbnjdNa4amPl3UdQ0eIMIbFi7RDQYSgy6IBFrG1X7/inxQsnYdFW/K0CJKJHKprkXOBZiiCcDn
-	8ti5u0i43j4FRqNlmnw+xb1xGgyC6d/KOV6B4150UMOj9A/bfYv3UDayV66ehWLnh2PtOGICPHUlQ
-	JqoESJMjo0RnJkAbg5ZRs0kMVO/YzRcentiFcrGLlmuGGpmzTd1rFpxiZx7VTvhXRzGzhtsY7s/NZ
-	IA9M0EaA==;
+	bh=Kq75SIqPsOJ1DQd3x8jl/mu37HxVt1wTwstMgXOJ46M=; b=fivHOPPpJRP0EG2oACPaSZB//U
+	XJbMImGAtqhjXBt60hjBsI/wZ9c2H5M7z1sJDbZmwM9bw0pEFqqjyHu5yNXr2o89mXDKZGf13AVGZ
+	+ZDhgwS0zr6CVuvbTgnWoiI2UWTyyNnpbDSaFV33jYQ+hnPBHTxby1bTtxYRleykUTikIzPlUGNIl
+	Qj6vx+8BdFokIQ3hLHEPOBP0bmW5cq3o3kWL/B+dN+3agcALJMLB1bhWKZbFqcroNDFNyRxmEZtGV
+	ZhYF/hJzOaWvkTSxuuXJVJfSilwQ+rhnr8SBYp5ndNRwHJbKlFcbDh0ibRE1HYKSmSu7hFFGhTFGM
+	Uh8JqqCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUFN-000000002Ty-1c17;
-	Fri, 06 Jun 2025 10:24:25 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1uNUL6-0000000033S-1nHa;
+	Fri, 06 Jun 2025 10:30:20 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUC8-000000002EK-3i0d
+	id 1uNUIy-000000002fh-2LYH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 10:21:06 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-60179d8e65fso3669682a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 03:21:04 -0700 (PDT)
+	Fri, 06 Jun 2025 10:28:09 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-235ea292956so19742185ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 03:28:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749205263; x=1749810063; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MiiOBFHtT5ZtQA/f0RodEb62SyXtn3/Wda9R6Uedtxg=;
-        b=jtAzXzPX6iduv+hxV+GoEBVX2aJvbZKmJFDL81mrw541WwVW+Hsbb8pjZP6wy+1sUH
-         q2QvT+cDLmymxp6GyBZM+e813kj80xS1JA0x/yxx8JyNQZc0JIjaI7kdtheW1go5zUg7
-         fWdkczt0uLsszMy0aS3lJkQeLSkNXIxkVK0Gs7SOAaPHUjehC010OlXiYm6GtAocgmse
-         VZBOT29a2dOrowq4wzNJZZwOaSDhkdZOvHneNpFKXYRuXmm/YPlrst40C8JhuCpNL+MT
-         JQ2sGdOiMc3EUA2rK2R26SIyMz3gL61j/QNxnaAcZLHYNyqnEW7EyERm08jvr67HQyRr
-         e6tQ==
+        d=gmail.com; s=20230601; t=1749205687; x=1749810487; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kq75SIqPsOJ1DQd3x8jl/mu37HxVt1wTwstMgXOJ46M=;
+        b=IRrQPDBvS6sZg+1vSI3A6pvSn9RacGWyaNE9JxyKTM5wTn8SGVCez10HLtXd581WqA
+         Qu47+B9gpMAYQbxei49rl51/SoMRSBDfMGMW8cdSUEVYa0i3BG5vm2u6SSKyHil0U6u3
+         V22eM+kNGh/KhwCpuMIE6tgRH8RYF4y/L688xdgNvvJacRrWiBH2UIckLl8qMyfGGI/8
+         gguO+BEF9rN5UQys6pHip1EqSl8FZE6FDUncljCwD65xfLI9aEMQVYiZbEyavyScRFU7
+         P++bu2HXWXLc4HPbuPd90xGFMspOFvpE9k063uEx2CEGmBGQyZ93iL4fDzqhF5pgmVGO
+         A13g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749205263; x=1749810063;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MiiOBFHtT5ZtQA/f0RodEb62SyXtn3/Wda9R6Uedtxg=;
-        b=NK+SzDEvpInXWkn2euObL3s02vWDStA3+HMmRa36+xk+GVaBbA/mW2OjfWeqziKBhK
-         oPM7mbPzuzivwjCQtMn8GHXSy3chLMGyGr0fgQ3lsUDkXtnhFRZjVuKoRfLkIhvGAly7
-         nKyM3f0NnFESMrwm6gLYyq66N1Z0jxRjV5WgCZ62K5VZbD1FYhhBI3ghXyPzQRfNtpTA
-         N5prDMjfPqE13vgO7FlSP3KoWkJ/8FIL1U5jlahsmhdgJtavty2LOrpERe6hc0m6bBlv
-         U1TKemDH3fZyCPNMLcnVZy07ueZi4kgn6tRCgRCHrbC2iLKTopr+JYN6QKCpkRTTB/s/
-         VUgA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgEJYvaxJLV8GXJRvsbkqpbacsltn7mqWym3S5xfN0iezuqSJhDZPBa7t6pTFGGnWZ6KrYLeY5v8UNcywMBBVU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMW8qkWLOYYPq4Lh3oulx02rcstrV8s9eBm8pZHoXtP1Lc06nv
-	yEtfkbpdYG3Vqc9npjS44v9P8QRdmV/V+/VsVCNiXabKmn4sgqDH6T1W
-X-Gm-Gg: ASbGnctM7OYbumM5qYBKPmSW6ID4jyfALa6yaLHhePy52ENObF+GeXV5BPF+gr1z+L4
-	0wVAyfVjdmyNxjKnghFtlk7YYIJ2rN5Ai5++QJ+EqDPKAiw6veFdUt6T6JszONvtlDYDzi3VS1E
-	GBT6tVir6MmRIsVJKBktPVS014XPFm44V00a5J6WkZC0UGr5Lm4aJOdau3Oxa5MMabJfTcCY+7A
-	JMJIGoAsjNYJ+0br6kPkS0hShm8A9fM4MHMiXyMbGOdFrL74ffGQ2u1M86iP2klM/MT3U6QKPC+
-	sFTD3QhAB73npWo47vNADaa1sMe5bfx7R2XVmVWzdOsGo/F7wdHPK2HPdCG4CfVhkx2d13tkXDI
-	=
-X-Google-Smtp-Source: AGHT+IEhapm1K8w4bky257wfwPuqvgCoQuQfxgO95l+/hUIeSvoPyiy84rQ6sHS7x6VE6POMwqilxg==
-X-Received: by 2002:a05:6402:1d4b:b0:606:f836:c666 with SMTP id 4fb4d7f45d1cf-60774a856bemr2463366a12.30.1749205262677;
-        Fri, 06 Jun 2025 03:21:02 -0700 (PDT)
-Received: from archlinux.ad.harman.com ([212.133.80.198])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-607783dd3c5sm809256a12.57.2025.06.06.03.21.01
+        d=1e100.net; s=20230601; t=1749205687; x=1749810487;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kq75SIqPsOJ1DQd3x8jl/mu37HxVt1wTwstMgXOJ46M=;
+        b=vX2/CRQLhoWXNHvGU00XcfWI2ZhNUh9zxun74dxtUKCk9XldU9+UIZNtG5ChRo/G34
+         XBQv5yNAoaRab3o+W5k1GPPrubH/2Oy3r1lXiuKA4RJdIBNdj0kX/OFjBu6QKHre4d52
+         DB1psOdYw/YQBv56ok5y1ouSTt/8TfPy3LKKb4O2BR6DMlC+96fCFq00/Nd4B5+5S+OL
+         Xt7sOH7NQmXHQhDdVuUpTqz23MRDQECxD6irjjFAbieYwH2lF3MtDQ3g4E/7klnD50Jo
+         0GT9GuF7E0x6w//8fov6/6OQ4cCTCBjrMaNTfic3MHppMJxFzqG90ytxy1TBndR5CDdB
+         othg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfCeFGbPny9RfWlsePDrs0bRVJJm9SYBP8wWm9HQ9SDNt1b/iQnhBueIdb2q7HPau1wIPs7+y8Wks1Sanz4UhS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrCPIm+l+IXWeYCuyNmqoD3Zlpo5+Zuz8t8MWkTsK0T8Q8ppW9
+	MYHgeoNh8/wIqZJLASaxlyMcE220PLvfFYm1SYN31ei/V4VyiZmjv9Tc
+X-Gm-Gg: ASbGncsRemo9gjswn7qEpHwCBaglTwEi3eWTZwZvtAwnAeC9oGbRfI4Jnv8XrccR0YZ
+	5xwIMdjQvpt1hjvILYgTPItxxSlFENaQ5bUPAx/wKagQyXzm5iaS1jUCJQXLLkExelcOiTbHkMK
+	fMHZh6me1Pb6hPbnmrzAerKLohdrNsdoP9FYL2Ed1tGMhhxQxn+GYG05SsGLmFECTn+UGuQIPmq
+	aYXltn7V9Ib6tdJs99Q026CU6iSRZQiiymw0EMoRerHIEZXVB53rJormg7tOLapjDtckdOmQtyK
+	wXCfTbAMOuJ9u0SldzxSXYZ4lPZTa+Zd6W+8xrWkGNIY/m/1nSQiXoK0NTRACbn5gTHbK2f564k
+	Grph8AGUzKD9STCWg9AuH8YpadJWIns3X0+73tITL4BFG7kqxd9cfrE5+GrRvftnuaFSIUZFz7X
+	s=
+X-Google-Smtp-Source: AGHT+IHWIRzmPF9hBfCr89nWxfu/OXV/L7N6WZrJscNojX76/huWUu2nhvxP0kFj4o42XVFggGnTGQ==
+X-Received: by 2002:a17:902:f652:b0:235:779:edfd with SMTP id d9443c01a7336-23601d97820mr40085765ad.39.1749205687155;
+        Fri, 06 Jun 2025 03:28:07 -0700 (PDT)
+Received: from fred-System-Product-Name.. (2001-b400-e35c-06eb-80f3-97a6-ae1b-00f8.emome-ip6.hinet.net. [2001:b400:e35c:6eb:80f3:97a6:ae1b:f8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2360307813bsm9632885ad.22.2025.06.06.03.28.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Jun 2025 03:21:02 -0700 (PDT)
-From: Bartlomiej Dziag <bartlomiejdziag@gmail.com>
-To: 
-Cc: bartlomiejdziag@gmail.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Wojciech Drewek <wojciech.drewek@intel.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+        Fri, 06 Jun 2025 03:28:06 -0700 (PDT)
+From: Fred Chen <fredchen.openbmc@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: stmmac: Change the busy-wait loops timing
-Date: Fri,  6 Jun 2025 12:19:49 +0200
-Message-ID: <20250606102100.12576-1-bartlomiejdziag@gmail.com>
+Subject: [PATCH v1 0/2] Add Meta(Facebook) Santabarbara BMC(AST2600)
+Date: Fri,  6 Jun 2025 18:27:52 +0800
+Message-ID: <20250606102802.1821638-1-fredchen.openbmc@gmail.com>
 X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_032104_920335_2EB1A248 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250606_032808_597576_924D3A7F 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,52 +102,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After writing a new value to the PTP_TAR or PTP_STSUR registers,
-the driver waits for the addend/adjust operations to complete.
-Sometimes, the first check operation fails, resulting in
-a 10 milliseconds busy-loop before performing the next check.
-Since updating the registers takes much less than 10 milliseconds,
-the kernel gets stuck unnecessarily. This may increase the CPU usage.
-Fix that with changing the busy-loop interval to 5 microseconds.
-The registers will be checked more often.
+Summary:
+Add linux device tree entry related to Meta(Facebook) Santabarbara
+specific devices connected to BMC(AST2600) SoC.
 
-Signed-off-by: Bartlomiej Dziag <bartlomiejdziag@gmail.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Fred Chen (2):
+  dt-bindings: arm: aspeed: add Meta Santabarbara board
+  ARM: dts: aspeed: santabarbara: Add Meta Santabarbara BMC
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-index e2840fa241f2..f8e1278a1837 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_hwtstamp.c
-@@ -144,11 +144,11 @@ static int config_addend(void __iomem *ioaddr, u32 addend)
- 	writel(value, ioaddr + PTP_TCR);
- 
- 	/* wait for present addend update to complete */
--	limit = 10;
-+	limit = 10000;
- 	while (limit--) {
- 		if (!(readl(ioaddr + PTP_TCR) & PTP_TCR_TSADDREG))
- 			break;
--		mdelay(10);
-+		udelay(5);
- 	}
- 	if (limit < 0)
- 		return -EBUSY;
-@@ -187,11 +187,11 @@ static int adjust_systime(void __iomem *ioaddr, u32 sec, u32 nsec,
- 	writel(value, ioaddr + PTP_TCR);
- 
- 	/* wait for present system time adjust/update to complete */
--	limit = 10;
-+	limit = 10000;
- 	while (limit--) {
- 		if (!(readl(ioaddr + PTP_TCR) & PTP_TCR_TSUPDT))
- 			break;
--		mdelay(10);
-+		udelay(5);
- 	}
- 	if (limit < 0)
- 		return -EBUSY;
+ .../bindings/arm/aspeed/aspeed.yaml           |   1 +
+ arch/arm/boot/dts/aspeed/Makefile             |   1 +
+ .../aspeed-bmc-facebook-santabarbara.dts      | 978 ++++++++++++++++++
+ 3 files changed, 980 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
+
 -- 
 2.49.0
 
