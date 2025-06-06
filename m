@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D28C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 17:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E245CC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 17:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k95L5dONGc9CGpjQXqAX4pgyDviRC1HRrOs4s2XHP00=; b=fTs2HTzMCKwXigALCS/Bn64VDM
-	RvgG+L4qlJbBfAgNv6s/SdszfOypkZHhgSgkOZm3wGDSyGt8xKRD9z73ciNXfwtDkZvydWPjCQ209
-	qKi7pnT1Nd40sRc55E9MFXSvtMDd2+GwIexnbaaS6q6MdWpOglk0BfPk1eVxaOKNBvQ/U8BuV0KS/
-	8waUmQBWkNdEckNbj5GT1LAZz3tpSezT6WHYoFWstl2O+u1kN/LbH62p/qwzFpiJ2K/UJyRhkpAdH
-	wAbblKWMxN4SX3sw/7Y9D5ZkqEHO7nK3dvl9Qty4P8jHVGus1nxFO3ffLslxg2gOlACFbAdk2oO5j
-	pob4Cbyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QkCC156cFLZ32G7VZvrODLuLWj+/VBaRP7kkagtS93k=; b=r766R7vB6IBVj90jC4MW4PFR9L
+	ahT8bkr2Qsj9JvoWhyjQqsFe5ONGvAEPeNdpkTwdGTbSyBnWynQZAc7tQGzrn0QOjTTUsO4NFoIJu
+	7z1WeAZ6QOssv+8F2h1PQqKnyf62ZHABVnzl/QGhJZAwOx4AT5IeTeleNHGFUrBDpgoMQGOY/zaqz
+	LE4KjWBQ2ph889PCypKixX5ZH87ZY7J46I9VUHg228j/UxTy42iwUO6Xz22g9SSIjN/rKReGgBAYN
+	hMQE32826QkkuMEZpBU5+Yi/ADjGQv+FXIOyz4IrmoNi8cvbdW8UYEuzsk1YApxLXoUacNZipNar8
+	91qDDHtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNaQn-00000000gu4-0pxw;
-	Fri, 06 Jun 2025 17:00:37 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uNbDo-00000000l1T-3nAi;
+	Fri, 06 Jun 2025 17:51:16 +0000
+Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNaOe-00000000gTG-2eLd
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 16:58:26 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1749229102;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k95L5dONGc9CGpjQXqAX4pgyDviRC1HRrOs4s2XHP00=;
-	b=35ARZ3cWSCFsiwLfUkdujv+aKxhUsCTUh2IX4MmwT3dO0YvNhz8mxqLjOLSmRedTSFebTq
-	psSABq/JZEzPlaUlHXBoeRc1oUYheu3iQI9vWbhT1AgIwul1wKZhwKSByI/aTYyprU81AP
-	WDs52bDysUvt+72dq1xUeXUJxknI1Zij1y76fKpF69gei+VLeesoQgLgGfI3JlPIW20Cq1
-	yWVwMlT2Kl1M/LZEdGyYhkTBiYx8FuORb+ERVlRo27PChn4RZE5gkqCGWNiTkgqqzzDW7K
-	kgzePptvKAELg7I58UBeLnnPQ9pGPu4PhTNHLy/mdwBh7lGsczKGkYLat+gSUQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1749229102;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k95L5dONGc9CGpjQXqAX4pgyDviRC1HRrOs4s2XHP00=;
-	b=D/ZzWL1WLUKSjbYuu1m6EkVXeRSKEWqtK71hgfzILpbVD+lKbq+WraD7rm7MeCUilnhyBo
-	Z/6FCBLz9/2tTICg==
-To: Petr Mladek <pmladek@suse.com>
-Cc: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>, 'Michael Kelley'
- <mhklinux@outlook.com>, 'Ryo Takakura' <ryotkkr98@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
- <linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: Problem with nbcon console and amba-pl011 serial port
-In-Reply-To: <aEL0tZgSEhsR9qbf@pathway.suse.cz>
-References: <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
- <84y0u95e0j.fsf@jogness.linutronix.de>
- <84plfl5bf1.fsf@jogness.linutronix.de>
- <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
- <aEApOPTqbVOR35F_@pathway.suse.cz> <84o6v3ohdh.fsf@jogness.linutronix.de>
- <aEBNLMYVUOGzusuR@pathway.suse.cz>
- <TY4PR01MB13777CC92C858572B9C19394FD76FA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
- <aEGeARVcCwqcoHb8@pathway.suse.cz> <84frgdcgug.fsf@jogness.linutronix.de>
- <aEL0tZgSEhsR9qbf@pathway.suse.cz>
-Date: Fri, 06 Jun 2025 19:04:22 +0206
-Message-ID: <84msakdcy9.fsf@jogness.linutronix.de>
+	id 1uNbBh-00000000ksJ-1IL6;
+	Fri, 06 Jun 2025 17:49:06 +0000
+Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-60700a745e5so1558734a12.3;
+        Fri, 06 Jun 2025 10:49:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749232144; x=1749836944; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QkCC156cFLZ32G7VZvrODLuLWj+/VBaRP7kkagtS93k=;
+        b=BI7Qti8IxjdiG7/gqU0QmkT0lP9Y4C27kp6Px41W+n/pl9DLItbTuvdEz2uTwA6GaO
+         ItYx9FMFFu94Jd3OUvWPHTYId8OjECz12DV2DBpzq1Yd89VA3BP6mAsnYS6GbtB2+Gyk
+         LsnAI/zyr2qaGmkEZcj2aucmTNsCqA1I06poPO02+usi2RzRrzrCY2e+CmviDpL3jonD
+         OJPAzUyjfnopRj1Eyvp0rHY70+9Rbr3iTi6bGO6PR2+QSUP3meE4lUJjPPvA8m5/xvMJ
+         Ju1oGA41XCdpqQDK3ojGbMW6bd8rEJ76tq2V0bAvvwDx6bB6GxVcbvETnNFqxRrHca7p
+         dYwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749232144; x=1749836944;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QkCC156cFLZ32G7VZvrODLuLWj+/VBaRP7kkagtS93k=;
+        b=pJOvUk5JCgRbalMKrrwJ9uXsqOY56roLP4ro0RGEuDenfbZRs8H2r7xox/Jr23T17O
+         XQaK1hx0EUO1hw1lC0yBAGMEHay5j19t3eXtDhSVHNM30PL6DwMOFGqdpuMn8B9QKuLr
+         AEVB7BDR6db/MY12orFZiiEj2ym80VMLsNVfXtSGs6wJ/cqbh4LtAfFRkFmwNOgZDseq
+         8+9pslWiaEMxQXgPjOJ1/m24tq98vgnKus+Z5lhVf7yEsR0x6EmyTGIlNeRauI224Zzg
+         wqSXfWS7BpFQt3JSwoDs7Bngq8dAi5mJY+EqA7IntCJhWw1ekJgF7y3SAssOExL03jvc
+         oReQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV2X2TZtFalBE1o+P9qc2IGuW9zn2OYnfiXAbPXbF/jt6WkxMSy1d3Aocor3oMN7p9h1LTHJDEXwhTL9qxwFjXv@lists.infradead.org, AJvYcCVe3Z76VfiIcrJ0H7lTJsobXOXq08vqEM0qtp8SwUsCmDz20AJsA7b9gMpHooCc4cX+zIjLexdPdhCYs6qW1IE=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCe/YnZDjgJI+8WA7T2UkiEKWHBcMkowHq1ADx+1WEkrLy64JL
+	xcJGT9EqkD13DcrostA/FfbAm52O7kslm9a8/ovrbOTrXufANJofeqdtod3xCpSQCfTIjuz3COS
+	rtjTcYD76y//uvzyWuDcPCMnglYZaJ2o=
+X-Gm-Gg: ASbGncuxcIa7G98SPBtN6keMawvzfky/S1hbVoryXjvr/P8qHirjfVCVTddFNW57m10
+	wDflp6i+ALZWJAnsUhBTdFUYsbR6bWp8wDuegJsHc1jS4i11kplg+PLmpTxYuisd6AyvuMEaltt
+	qioRMbHBcKJPxQewe3PWgLIZH+NFyksZ2X2K4uaNoO1DM=
+X-Google-Smtp-Source: AGHT+IHXAoU/5KkMHOwPj/9FFVapAMcrkwidaA20pDZe+6fW4OeNUdufuvg0OsHg+lbWtoD1W9V+6MaUGDrLNkTMyhA=
+X-Received: by 2002:a17:907:60d1:b0:adb:2462:d921 with SMTP id
+ a640c23a62f3a-ade1a9160c3mr401179666b.5.1749232143541; Fri, 06 Jun 2025
+ 10:49:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20250606071709.4738-1-chenqiuji666@gmail.com> <ff77f70e-344d-4b8a-a27f-c8287d49339c@linaro.org>
+ <CANgpojXWk1zvu32bMuGgkVGVNvPw+0NWmSUC62Sbc3WcUXAd3A@mail.gmail.com> <ca3ce8df-aa4f-4422-8455-29db2440d8d5@linaro.org>
+In-Reply-To: <ca3ce8df-aa4f-4422-8455-29db2440d8d5@linaro.org>
+From: Qiu-ji Chen <chenqiuji666@gmail.com>
+Date: Sat, 7 Jun 2025 01:48:51 +0800
+X-Gm-Features: AX0GCFs2ajWvvueyvPNV-snyunQFsI1e-MJEy6pQ_bQ_hu8xTMdazrmACi39OKk
+Message-ID: <CANgpojV51R5sKvowPiMk5MRAzJ3KZoti6mRXjD3Knfz6kk6+MA@mail.gmail.com>
+Subject: Re: [PATCH] dmaengine: mediatek: Fix a flag reuse error in mtk_cqdma_tx_status()
+To: Eugen Hristev <eugen.hristev@linaro.org>
+Cc: sean.wang@mediatek.com, vkoul@kernel.org, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, dmaengine@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, baijiaju1990@gmail.com, stable@vger.kernel.org, 
+	kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_095824_950347_2A7863B1 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20250606_104905_351588_CB0C6DF2 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,119 +97,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-06, Petr Mladek <pmladek@suse.com> wrote:
->> What if during non-panic-CPU shutdown, we allow reacquires to succeed
->> only for _direct_ acquires? The below diff shows how this could be
->> implemented. Since it only supports direct acquires, it does not violate
->> any state rules. And also, since it only involves the reacquire, there
->> is no ugly battling for console printing between the panic and non-panic
->> CPUs.
->
-> Interesting idea. I thought a lot about it, see below.
->
->
->> diff --git a/include/linux/printk.h b/include/linux/printk.h
->> index 5b462029d03c1..d58ebdc8170b3 100644
->> --- a/include/linux/printk.h
->> +++ b/include/linux/printk.h
->> diff --git a/kernel/panic.c b/kernel/panic.c
->> index b0b9a8bf4560d..8f572630c9f7e 100644
->> --- a/kernel/panic.c
->> +++ b/kernel/panic.c
->> @@ -304,6 +310,8 @@ static void panic_other_cpus_shutdown(bool crash_kexec)
->>  		smp_send_stop();
->>  	else
->>  		crash_smp_send_stop();
->> +
->> +	nbcon_panic_allow_reacquire_set(false);
->>  }
->
-> I have two concerns here:
->
-> 1. I wonder whether this is reliable enough. It seems that
->    smp_send_stop() waits at least 1 sec until the CPUs
->    get stopped. But is this enough on virtualized systems?
->
-> 2. It might increase a risk when CPUs are stopped using NMI.
->    The change would allow a non-panic CPU to reacquire the ownership
->    and enter _unsafe_ section right before being stopped by NMI.
->
->
-> The 1st problem might be avoided by allowing the reacquire all
-> the time unless an "unsafe" takeover happened.
->
-> The 2nd problem is worse. But allowing the reacquire all the time
-> might actually help as well.
->
-> Note that the information about the "unsafe_takeover" is stored
-> in struct console so that we even won't need a new global
-> variable.
+Hello Eugen,
 
-That is a good idea. We should add unsafe_takeover as a condition as
-well. That can only happen way after the smp_send_stop() anyway. But it
-means that only the atomic printing code would ever need to worry about
-unsafe_takeover (assuming a driver were to implement some sort of
-handling of it).
+Thank you for discussing this with me!
 
->>  /**
->> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
->> index d60596777d278..d960cb8a05558 100644
->> --- a/kernel/printk/nbcon.c
->> +++ b/kernel/printk/nbcon.c
->> @@ -235,7 +235,8 @@ static void nbcon_seq_try_update(struct nbcon_context *ctxt, u64 new_seq)
->>   *			the handover acquire method.
->>   */
->>  static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
->> -					    struct nbcon_state *cur)
->> +					    struct nbcon_state *cur,
->> +					    bool ignore_other_cpu_in_panic)
->>  {
->>  	unsigned int cpu = smp_processor_id();
->>  	struct console *con = ctxt->console;
->> @@ -249,7 +250,7 @@ static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
->>  		 * nbcon_waiter_matches(). In particular, the assumption that
->>  		 * lower priorities are ignored during panic.
->>  		 */
->> -		if (other_cpu_in_panic())
->> +		if (other_cpu_in_panic() && !ignore_other_cpu_in_panic)
->
-> If you agree with allowing the reacquire all the time then I would
-> rename the parameter to @is_reacquire and do something like:
->
-> 	if (other_cpu_in_panic() &&
-> 	   (!is_reacquire || cur->unsafe_takeover))
+In this specific code scenario, the lock acquisition order is strictly
+fixed (e.g., pc->lock is always acquired before vc->lock). This
+sequence is linear and won't interleave with other code paths in a
+conflicting nested pattern (e.g., the pc =E2=86=92 vc sequence never coexis=
+ts
+with a potential vc =E2=86=92 pc sequence). Therefore, a standard spin_lock=
+()
+is sufficient to safely prevent deadlocks, and explicitly declaring a
+nesting level via spin_lock_nested() is unnecessary.
 
-Looks fine to me.
+Additionally, using spin_lock_nested() would require specifying an
+extra nesting subclass parameter. This adds unnecessary complexity to
+the code and could adversely affect maintainability for other
+developers working on it in the future.
 
->>  			return -EPERM;
->>  
->>  		if (ctxt->prio <= cur->prio || ctxt->prio <= cur->req_prio)
->> @@ -913,7 +920,7 @@ void nbcon_reacquire_nobuf(struct nbcon_write_context *wctxt)
->>  {
->>  	struct nbcon_context *ctxt = &ACCESS_PRIVATE(wctxt, ctxt);
->>  
->> -	while (!nbcon_context_try_acquire(ctxt))
->> +	while (!nbcon_context_try_acquire(ctxt, READ_ONCE(nbcon_panic_allow_reacquire)))
->
-> And here it would be:
->
-> 	while (!nbcon_context_try_acquire(ctxt, true))
+Best regards,
+Qiu-ji Chen
 
-Right.
-
->>  		cpu_relax();
->>  
->>  	nbcon_write_context_set_buf(wctxt, NULL, 0);
+> On 6/6/25 12:14, Qiu-ji Chen wrote:
+> >> On 6/6/25 10:17, Qiu-ji Chen wrote:
+> >>> Fixed a flag reuse bug in the mtk_cqdma_tx_status() function.
+> >> If the first spin_lock_irqsave already saved the irq flags and disable=
+d
+> >> them, would it be meaningful to actually use a simple spin_lock for th=
+e
+> >> second lock ? Or rather spin_lock_nested since there is a second neste=
+d
+> >> lock taken ?
+> >>
+> >> Eugen
+> >>
+> >
+> > Hello Eugen,
+> >
+> > Thanks for helpful suggestion. The modification has been submitted in
+> > patch v2 as discussed.
+> >
+> > Best regards,
+> > Qiu-ji Chen
 >
->
-> Summary:
->
-> I open to give this alternative approach a chance when we allow the
-> reacquire all the time. It might work well. And it won't require
-> any special "panic" handling in all console drivers.
-
-Agreed. Thanks for being open about this approach. I will put together
-an official patch.
-
-John
+> You are welcome, but in fact I suggested two alternatives. Any reason
+> you picked this one instead of the other ?
 
