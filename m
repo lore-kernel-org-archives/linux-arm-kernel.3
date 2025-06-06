@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886B8C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 02:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B41C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 02:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zvqyrk8kJ2uCb2GN+GGEe5HFwqiqtZruRDoufvNL+rA=; b=RiDf7CjhXGT46FV2D+mCD/qELn
-	y4iKmmeDH0IkxyaXiqFWdnTnoZcYvEZAkwwIBgWwZjpwjqVsLVhsEXneTUNzpM3T5LWbUOrbCygmN
-	RxyY7uOM5v/6kA1qidWc3mIIZ6KTx0lafusA2K6AyzF/HoGUNpyJqXD01CPsSRmn5p/hOlihuRfrA
-	WLSgZFKjLiHhd0fmJ8WtumLOsaXqIJ1kQpLZ4yKpX2cXBXm8U6Tiq48tfQt8goh81yxAmvCJs2BDz
-	gdbHFpLfgQ0DmABrd9i7NQMAPMJ6Z+ihyDoi2z8khUoxxv4spBVFgtR1mnHCaPr49Kj1yR2hchYNz
-	f42vlGDw==;
+	bh=zvqyrk8kJ2uCb2GN+GGEe5HFwqiqtZruRDoufvNL+rA=; b=wmzFWjKz0ldmAYKgpdrzKNuCMA
+	qv04hCfvLNwH5zQYgmXOJ8N1QKUeJbCTiNpMWKsTjYAzwckZuL+3YSuttnFO+ecwwhST6EVQqYczg
+	thEOhUl3AMFAOh0gN4ITjg5ra9lAmE6VFbIOG3eyuPkNO0pliBpL9Mi76QHp8kjOtFpCDodPzb4d9
+	wjiklh+rVmSdTKCafqZg7YZ0MPT1l5Bj9u+BFBlrn7fOfNCdcPWAsvS0qz/JV+ESmt9kQpCNmQWNd
+	C5mvEOFVGF5VCnpUGV5HeyCAnXi40W5k0QpMNkYyCbmyW2bXT3jxt2YBegKS1KuTxdK2U0wDX7WfY
+	LU2al9xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNMV5-0000000Gwmn-3Z63;
-	Fri, 06 Jun 2025 02:08:07 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uNMXF-0000000Gx1r-2Ouu;
+	Fri, 06 Jun 2025 02:10:21 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNMKx-0000000GvrV-467p;
-	Fri, 06 Jun 2025 01:57:41 +0000
-X-UUID: 9d35d40a427911f09f706fa2197c6ceb-20250605
+	id 1uNML6-0000000Gvtl-0D32;
+	Fri, 06 Jun 2025 01:57:49 +0000
+X-UUID: a2f3d52c427911f09eb0dd999d3936bf-20250605
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
 	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zvqyrk8kJ2uCb2GN+GGEe5HFwqiqtZruRDoufvNL+rA=;
-	b=XpvsXfYeD1uF/vfENodM+iWWdAiwHuPyj+WeYPdLPxVKcFmOH1IWved2s9kaPofZPIvdgpmpCYxSsSSo3sWCugb6vGUFaii0Sxr09lPXlrVRUt7htqA66FMqcFITBwelB4CyTs5Xryr8Rx+DOT7sHyxm94BvviLJXB3FO1iouFQ=;
+	b=c451iHvUFND2MP+owIGUkc9BGH0qXO8kJu99ot/PPbkgqA+FocHFZNG5Dxh8X9vEM8JoRmQ9h8WeJaS+NL+cwwNn6TY96nAmiF2hctt3Fa1dpMIrHj70PvZ6O6Viwmmz3oBxlV4LysFBiBTFyYwstXhwO8OQ0M5HY+G+rtsI1VE=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:e0d7b546-e925-402e-835e-ada80e837e32,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:98feb9a7-2558-4a5d-83ce-395ae39c0166,IP:0,UR
 	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:-5
-X-CID-META: VersionHash:0ef645f,CLOUDID:3731edf1-fe3f-487e-8db5-d099c876a5c3,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:85466158-abad-4ac2-9923-3af0a8a9a079,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
 	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
 	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 9d35d40a427911f09f706fa2197c6ceb-20250605
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+X-UUID: a2f3d52c427911f09eb0dd999d3936bf-20250605
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
 	(envelope-from <macpaul.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1992971898; Thu, 05 Jun 2025 18:57:34 -0700
+	with ESMTP id 1250415756; Thu, 05 Jun 2025 18:57:44 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 6 Jun 2025 09:57:30 +0800
+ 15.2.1258.39; Fri, 6 Jun 2025 09:57:40 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 6 Jun 2025 09:57:30 +0800
+ 15.2.1258.39 via Frontend Transport; Fri, 6 Jun 2025 09:57:40 +0800
 From: Macpaul Lin <macpaul.lin@mediatek.com>
 To: <patches@lists.linux.dev>, <stable@vger.kernel.org>
 CC: Bjorn Helgaas <bhelgaas@google.com>, Matthias Brugger
 	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
 	<angelogioacchino.delregno@collabora.com>, Ajay Agarwal
-	<ajayagarwal@google.com>, Daniel Stodden <daniel.stodden@gmail.com>, "Macpaul
- Lin" <macpaul.lin@mediatek.com>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
+	<ajayagarwal@google.com>, Daniel Stodden <daniel.stodden@gmail.com>, Macpaul
+ Lin <macpaul.lin@mediatek.com>, =?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?=
 	<kwilczynski@kernel.org>, <linux-pci@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, Deren Wu <Deren.Wu@mediatek.com>,
-	"Ramax Lo" <ramax.lo@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
-	"MediaTek Chromebook Upstream"
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Johnny-CC Chang
-	<Johnny-CC.Chang@mediatek.com>
-Subject: [PATCH 6.12 1/1] PCI/ASPM: Disable L1 before disabling L1 PM Substates
-Date: Fri, 6 Jun 2025 09:57:03 +0800
-Message-ID: <20250606015703.2724092-1-macpaul.lin@mediatek.com>
+	<linux-mediatek@lists.infradead.org>, Deren Wu <Deren.Wu@mediatek.com>, Ramax
+ Lo <ramax.lo@mediatek.com>, Macpaul Lin <macpaul@gmail.com>, MediaTek
+ Chromebook Upstream <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	Johnny-CC Chang <Johnny-CC.Chang@mediatek.com>
+Subject: [PATCH 6.11 1/1] PCI/ASPM: Disable L1 before disabling L1 PM Substates
+Date: Fri, 6 Jun 2025 09:57:38 +0800
+Message-ID: <20250606015738.2724220-1-macpaul.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_185740_028335_8F2BC2F0 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20250605_185748_088523_3275E80A 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
