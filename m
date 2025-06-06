@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B474C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 12:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94702C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 12:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W/b5rf3oXvJbp5RjgoEAox/zVVtLJhtfIVF0t4VBCTk=; b=hRURQwwXLylXXjwdmJ0ZNLJl6Q
-	cezHbbVDhURxFOnqZeHoy4xSIIXdpZ4bdKbleOpTzNKzk35QDfVbpSbcGkPQm+ZVSANQpiDY6ZInA
-	h+ssq44RF7PYBlCXFXO7eVN0YQDLOrw6rTrPMQoNDrKGIKcJ4auN+2vnYQdyQ05RYuII6Lj++qtcf
-	sJ4gQKLq/Lqbz8A82MDzzk68kaA3LXprD43Tti7t2mCiRgqN8Cx4011aX/tjgUkbExOJNyC9BWJA+
-	3suSWBUCaW4PGR/ulT79ulmAB/UOkdrqDi/3MTix8uAddk8QmdZNxqXOZGH+8GX6I6ME/HERsaKgT
-	HVd3PIxA==;
+	bh=dqSyvqg/DCutmZYR08AUPck2KrbsO719AwfMelsY7wg=; b=fi+DSfkB/vsSwj1JSXNUU+jTFC
+	eoUjKwNZzFkWyuF50cfGCgUKRTmD86g1JWOAxoB0sXamTKSLehAMF0kw9b0fDGam05ywIR+vn1S1/
+	2cpuzUzffKpcUfw09/hbXPSn11mcY4Q8BzJOig2QqZzkJuKjoPwPy4Q77xTl7nQi6J9Efau0GfF42
+	Xpd3opNFyu686JAsKgQ9whpYuDD9FmJzw3ErsfGub4H/x+KKa3ic057Vw2tO2WloMY9Gf5jxj9MyF
+	u0cV9eIbVSkpvnPwzyL5PxK23jjuFc809cdJDtZQuu+HGx81KnDWSLBwTqFAx50NOuZKfqAghEcR+
+	vXmlnUgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNWMd-00000000G9S-3PFQ;
-	Fri, 06 Jun 2025 12:40:03 +0000
+	id 1uNWPl-00000000GSC-2ly1;
+	Fri, 06 Jun 2025 12:43:17 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNWH0-00000000FSz-1w6z
+	id 1uNWNe-00000000GEz-22fc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 12:34:15 +0000
+	Fri, 06 Jun 2025 12:41:07 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 00E1811DD;
-	Fri,  6 Jun 2025 14:34:06 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BE0D211DD;
+	Fri,  6 Jun 2025 14:41:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749213247;
-	bh=KUB1zHF41EieIHY6D7XrX8haH8SMgp958TtlLmEVyME=;
+	s=mail; t=1749213660;
+	bh=1N+xCDZJ/0b4qoHVQOlp9TIGFKwd8yBxgETiQhT7ccs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iYmgYv6/bkOqUY27LwbLH8YpzTftPCEyojGssCbFJDNzi/e7NTTfKskNvC6JTRalL
-	 weTLpS/8iDMAjVRE9f4JNBoBaRviTxp+dQ7r2//TfTQYSbQpKveA36ua5KsYHRFkoe
-	 Jp4lyDEB7i1raRFKlZvqzbOwFywnH6ytawPeQg9k=
-Date: Fri, 6 Jun 2025 15:34:00 +0300
+	b=IjqZbUCBHbdcVQfrDKzQGdv2IuKbNQccf7oIsi9R1bvR9ykq2PAIYLRgiIDNtHKK6
+	 toGy0XWAjz4HHl6lvXBf0RmnGLhIoeBtpydCWlsjLWwmHl4lEBC29XwTc20Ik9ueL3
+	 sjkTh+GGLlqPMLVyrDea76VDk4M/tSfxpQNS02/A=
+Date: Fri, 6 Jun 2025 15:40:54 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Isaac Scott <isaac.scott@ideasonboard.com>
 Cc: kieran.bingham@ideasonboard.com, rmfrfs@gmail.com, martink@posteo.de,
@@ -45,17 +45,18 @@ Cc: kieran.bingham@ideasonboard.com, rmfrfs@gmail.com, martink@posteo.de,
 	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
 	linux-media@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] media: platform: Refactor interrupt status registers
-Message-ID: <20250606123400.GB27510@pendragon.ideasonboard.com>
+Subject: Re: [PATCH 2/2] media: platform: Add user line interrupt to
+ imx-mipi-csis driver
+Message-ID: <20250606124054.GC27510@pendragon.ideasonboard.com>
 References: <20250606121403.498153-1-isaac.scott@ideasonboard.com>
- <20250606121403.498153-2-isaac.scott@ideasonboard.com>
+ <20250606121403.498153-3-isaac.scott@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250606121403.498153-2-isaac.scott@ideasonboard.com>
+In-Reply-To: <20250606121403.498153-3-isaac.scott@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_053414_642435_73933BDB 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20250606_054106_808732_E4D524D4 
+X-CRM114-Status: GOOD (  31.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,131 +75,182 @@ Hi Isaac,
 
 Thank you for the patch.
 
-On Fri, Jun 06, 2025 at 01:14:02PM +0100, Isaac Scott wrote:
-> The NXP i.MX 8 MP CSI-2 receiver features multiple interrupt and debug
-> status sources which span multiple registers. The driver currently
-> supports two interrupt source registers, and attributes the
-> mipi_csis_event event entries to those registers through a boolean debug
-> field that indicate if the event relates to the main interrupt status
-> (false) or debug interrupt status (true) register. To make it easier to
-> add new event fields, replace the debug bool with a 'status index'
-> integer than indicates the index of the corresponding status register.
+On Fri, Jun 06, 2025 at 01:14:03PM +0100, Isaac Scott wrote:
+> The NXP i.MX 8M Plus features an interrupt that triggers after the MIPI
+> CSI receiver counts a user-configurable number of lines. This is useful
+> for debugging, as it allows users to check if the amount of lines per
+> frame equals what they are expecting.
+> 
+> Add support for this interrupt in the driver, and an entry into debugfs to
+> allow the user to configure whether the interrupt is enabled, as well as
+> the number of lines after which to trigger the interrupt.
+> 
+> This debugfs control can be altered while a stream is in progress, with
+> 0 disabling the interrupt and >0 setting a new desired line count.
 > 
 > Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
 > ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 64 +++++++++++-----------
->  1 file changed, 31 insertions(+), 33 deletions(-)
+>  drivers/media/platform/nxp/imx-mipi-csis.c | 45 +++++++++++++++++++++-
+>  1 file changed, 44 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index d060eadebc7a..bbc549c22aff 100644
+> index bbc549c22aff..0e6bc3c87be4 100644
 > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
 > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -249,7 +249,7 @@
->  #define MIPI_CSI2_DATA_TYPE_USER(x)		(0x30 + (x))
+> @@ -88,6 +88,10 @@
+>  #define MIPI_CSIS_INT_MSK_ERR_CRC		BIT(1)
+>  #define MIPI_CSIS_INT_MSK_ERR_UNKNOWN		BIT(0)
 >  
->  struct mipi_csis_event {
-> -	bool debug;
-> +	unsigned int status_index;
->  	u32 mask;
->  	const char * const name;
->  	unsigned int counter;
-> @@ -257,30 +257,30 @@ struct mipi_csis_event {
+> +/* CSIS Interrupt mask 1 */
+> +#define MIPI_CSIS_INT_MSK_1			0x18
+> +#define MIPI_CSIS_INT_MSK_1_LINE_END		BIT(0)
+> +
+>  /* CSIS Interrupt source */
+>  #define MIPI_CSIS_INT_SRC			0x14
+>  #define MIPI_CSIS_INT_SRC_EVEN_BEFORE		BIT(31)
+> @@ -109,6 +113,10 @@
+>  #define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
+>  #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
 >  
->  static const struct mipi_csis_event mipi_csis_events[] = {
->  	/* Errors */
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS,		"SOT Error" },
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS,		"Lost Frame Start Error" },
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE,		"Lost Frame End Error" },
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_OVER,		"FIFO Overflow Error" },
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_CRC,		"CRC Error" },
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_UNKNOWN,		"Unknown Error" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,	"Data Type Ignored" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME,	"Truncated Frame" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE,	"Early Frame End" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS,	"Early Frame Start" },
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_SOT_HS,		"SOT Error"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_LOST_FS,		"Lost Frame Start Error"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_LOST_FE,		"Lost Frame End Error"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_OVER,		"FIFO Overflow Error"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,		"Wrong Configuration Error"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_ECC,			"ECC Error"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_CRC,			"CRC Error"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ERR_UNKNOWN,		"Unknown Error"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,		"Data Type Ignored"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME,	"Truncated Frame"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_EARLY_FE,		"Early Frame End"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_EARLY_FS,		"Early Frame Start"},
->  	/* Non-image data receive events */
-> -	{ false, MIPI_CSIS_INT_SRC_EVEN_BEFORE,		"Non-image data before even frame" },
-> -	{ false, MIPI_CSIS_INT_SRC_EVEN_AFTER,		"Non-image data after even frame" },
-> -	{ false, MIPI_CSIS_INT_SRC_ODD_BEFORE,		"Non-image data before odd frame" },
-> -	{ false, MIPI_CSIS_INT_SRC_ODD_AFTER,		"Non-image data after odd frame" },
-> +	{ 0, MIPI_CSIS_INT_SRC_EVEN_BEFORE,		"Non-image data before even frame"},
-> +	{ 0, MIPI_CSIS_INT_SRC_EVEN_AFTER,		"Non-image data after even frame"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ODD_BEFORE,		"Non-image data before odd frame"},
-> +	{ 0, MIPI_CSIS_INT_SRC_ODD_AFTER,		"Non-image data after odd frame"},
->  	/* Frame start/end */
-> -	{ false, MIPI_CSIS_INT_SRC_FRAME_START,		"Frame Start" },
-> -	{ false, MIPI_CSIS_INT_SRC_FRAME_END,		"Frame End" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL,	"VSYNC Falling Edge" },
-> -	{ true, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE,	"VSYNC Rising Edge" },
-> +	{ 0, MIPI_CSIS_INT_SRC_FRAME_START,		"Frame Start"},
-> +	{ 0, MIPI_CSIS_INT_SRC_FRAME_END,		"Frame End"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL,	"VSYNC Falling Edge"},
-> +	{ 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE,	"VSYNC Rising Edge"},
+> +/* CSIS Interrupt source 1 */
+> +#define MIPI_CSIS_INT_SRC_1			0x1c
+> +#define MIPI_CSIS_INT_SRC_1_LINE_END		BIT(0)
+> +
+>  /* D-PHY status control */
+>  #define MIPI_CSIS_DPHY_STATUS			0x20
+>  #define MIPI_CSIS_DPHY_STATUS_ULPS_DAT		BIT(8)
+> @@ -221,6 +229,7 @@
+>  #define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE	BIT(0)
+>  
+>  #define MIPI_CSIS_FRAME_COUNTER_CH(n)		(0x0100 + (n) * 4)
+> +#define MIPI_CSIS_LINE_INTERRUPT_RATIO(n)	(0x0110 + (n) * 4)
+>  
+>  /* Non-image packet data buffers */
+>  #define MIPI_CSIS_PKTDATA_ODD			0x2000
+> @@ -281,6 +290,8 @@ static const struct mipi_csis_event mipi_csis_events[] = {
+>  	{ 0, MIPI_CSIS_INT_SRC_FRAME_END,		"Frame End"},
+>  	{ 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL,	"VSYNC Falling Edge"},
+>  	{ 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE,	"VSYNC Rising Edge"},
+> +	/* User Line interrupt */
+> +	{ 2, MIPI_CSIS_INT_SRC_1_LINE_END,		"Line End"}
 >  };
 >  
 >  #define MIPI_CSIS_NUM_EVENTS ARRAY_SIZE(mipi_csis_events)
-> @@ -765,32 +765,30 @@ static irqreturn_t mipi_csis_irq_handler(int irq, void *dev_id)
+> @@ -333,11 +344,14 @@ struct mipi_csis_device {
+>  
+>  	spinlock_t slock;	/* Protect events */
+>  	struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
+> +
+>  	struct dentry *debugfs_root;
+>  	struct {
+>  		bool enable;
+>  		u32 hs_settle;
+>  		u32 clk_settle;
+> +		u32 int_line;
+> +		u32 last_int_line;
+>  	} debug;
+>  };
+>  
+> @@ -686,6 +700,15 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+>  			MIPI_CSIS_DPHY_BCTRL_L_B_DPHYCTRL(20000000));
+>  	mipi_csis_write(csis, MIPI_CSIS_DPHY_BCTRL_H, 0);
+>  
+> +	if (csis->debug.int_line > 0)
+> +		mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
+> +				csis->debug.int_line - 1);
+
+Should this become 
+
+	mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
+			max(csis->debug.int_line, 1U) - 1);
+
+to write MIPI_CSIS_LINE_INTERRUPT_RATIO to 0 when int_lines == 0, like
+below ?
+
+> +
+> +	mipi_csis_write(csis, MIPI_CSIS_INT_MSK_1,
+> +			csis->debug.int_line ?
+> +			MIPI_CSIS_INT_MSK_1_LINE_END : 0);
+
+You should also read csis->debug.int_line into a local variable like in
+the interrupt handler to avoid races.
+
+And you also need to clear MIPI_CSIS_INT_MSK_1 in
+mipi_csis_enable_interrupts() (when on == false).
+
+> +	csis->debug.last_int_line = csis->debug.int_line;
+> +
+>  	/* Update the shadow register. */
+>  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+>  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
+> @@ -765,10 +788,12 @@ static irqreturn_t mipi_csis_irq_handler(int irq, void *dev_id)
 >  	struct mipi_csis_device *csis = dev_id;
 >  	unsigned long flags;
 >  	unsigned int i;
-> -	u32 status;
-> -	u32 dbg_status;
-> +	u32 status[2];
+> -	u32 status[2];
+> +	u32 int_lines;
+> +	u32 status[3];
 >  
-> -	status = mipi_csis_read(csis, MIPI_CSIS_INT_SRC);
-> -	dbg_status = mipi_csis_read(csis, MIPI_CSIS_DBG_INTR_SRC);
-> +	status[0] = mipi_csis_read(csis, MIPI_CSIS_INT_SRC);
-> +	status[1] = mipi_csis_read(csis, MIPI_CSIS_DBG_INTR_SRC);
+>  	status[0] = mipi_csis_read(csis, MIPI_CSIS_INT_SRC);
+>  	status[1] = mipi_csis_read(csis, MIPI_CSIS_DBG_INTR_SRC);
+> +	status[2] = mipi_csis_read(csis, MIPI_CSIS_INT_SRC_1);
 >  
 >  	spin_lock_irqsave(&csis->slock, flags);
 >  
->  	/* Update the event/error counters */
-> -	if ((status & MIPI_CSIS_INT_SRC_ERRORS) || csis->debug.enable) {
-> +	if ((status[0] & MIPI_CSIS_INT_SRC_ERRORS) || csis->debug.enable) {
->  		for (i = 0; i < MIPI_CSIS_NUM_EVENTS; i++) {
->  			struct mipi_csis_event *event = &csis->events[i];
->  
-> -			if ((!event->debug && (status & event->mask)) ||
-> -			    (event->debug && (dbg_status & event->mask)))
-> +			if (status[event->status_index] & event->mask)
->  				event->counter++;
->  		}
->  	}
->  
-> -	if (status & MIPI_CSIS_INT_SRC_FRAME_START)
-> +	if (status[0] & MIPI_CSIS_INT_SRC_FRAME_START)
+> @@ -785,10 +810,25 @@ static irqreturn_t mipi_csis_irq_handler(int irq, void *dev_id)
+>  	if (status[0] & MIPI_CSIS_INT_SRC_FRAME_START)
 >  		mipi_csis_queue_event_sof(csis);
 >  
+> +	int_lines = READ_ONCE(csis->debug.int_line);
+> +	if (int_lines != csis->debug.last_int_line) {
+> +		if (int_lines > 0)
+> +			mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
+> +					max(int_lines, 1U) - 1);
+> +		else
+> +			mipi_csis_write(csis,
+> +					MIPI_CSIS_LINE_INTERRUPT_RATIO(0), 0);
+
+The whole can be replaced with
+
+		mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
+				max(int_lines, 1U) - 1);
+
+> +
+> +		csis->debug.last_int_line = int_lines;
+> +		mipi_csis_write(csis, MIPI_CSIS_INT_MSK_1,
+> +				int_lines ? MIPI_CSIS_INT_MSK_1_LINE_END : 0);
+> +	}
+> +
+
+I don't think you need to do any of this with the spinlock held as the
+spinlock covers the events field only, which you don't touch here. You
+can move the code after spin_unlock_irqrestore().
+
 >  	spin_unlock_irqrestore(&csis->slock, flags);
 >  
-> -	mipi_csis_write(csis, MIPI_CSIS_INT_SRC, status);
-> -	mipi_csis_write(csis, MIPI_CSIS_DBG_INTR_SRC, dbg_status);
-> +	mipi_csis_write(csis, MIPI_CSIS_INT_SRC, status[0]);
-> +	mipi_csis_write(csis, MIPI_CSIS_DBG_INTR_SRC, status[1]);
+>  	mipi_csis_write(csis, MIPI_CSIS_INT_SRC, status[0]);
+>  	mipi_csis_write(csis, MIPI_CSIS_DBG_INTR_SRC, status[1]);
+> +	mipi_csis_write(csis, MIPI_CSIS_INT_SRC_1, status[2]);
 >  
 >  	return IRQ_HANDLED;
 >  }
+> @@ -928,6 +968,7 @@ static void mipi_csis_debugfs_init(struct mipi_csis_device *csis)
+>  {
+>  	csis->debug.hs_settle = UINT_MAX;
+>  	csis->debug.clk_settle = UINT_MAX;
+> +	csis->debug.int_line = 0;
+>  
+>  	csis->debugfs_root = debugfs_create_dir(dev_name(csis->dev), NULL);
+>  
+> @@ -939,6 +980,8 @@ static void mipi_csis_debugfs_init(struct mipi_csis_device *csis)
+>  			   &csis->debug.clk_settle);
+>  	debugfs_create_u32("ths_settle", 0600, csis->debugfs_root,
+>  			   &csis->debug.hs_settle);
+> +	debugfs_create_u32("int_line_0", 0600, csis->debugfs_root,
+> +			   &csis->debug.int_line);
+>  }
+>  
+>  static void mipi_csis_debugfs_exit(struct mipi_csis_device *csis)
 
 -- 
 Regards,
