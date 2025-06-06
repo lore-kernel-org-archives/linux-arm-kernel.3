@@ -4,155 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF5D1C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 15:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4476C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 16:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fKKpqt7bYD8BpfCD9Jy07xmrYOoRXiaa/RTP9F++AfA=; b=JDn8/Cu8vx4h/fFn+pZvn0RfS3
-	qOyxlAJADWhzzDxJ9LcnRUGm0htQNmsSsKfmWXYwS2bG0iNooGbWDXxahnalZQia+7t+Pox9B6FKp
-	eEFLaTNT3s5l1BkqfRVYwrSM+r5ZO3n5vzpOfKuWj4iQLelkOADyUe4OoaB8IWIfEQ2BDKLYr+5xC
-	xQHwSTg1JCb46YdRmbqpSqv1V12lbjwVTGfDnfQ9fLnrdSbEm53eKq0sYo/XGEUvHlrvp/1Ejoplr
-	jtFIEHO1mm+8V8V8ifaY+hSKAn6aEd2rmMhVNt4B11LrxKcxG4KO6DtCg5gE12sckpTgF+qOs1D62
-	jFZD9qWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4NlKIg2a1lGubO5sNSfmyFBsfmLI6eZhDm94jolhDTQ=; b=b9kAk09K/qSZ/aX8NtWQTM0vHh
+	LiQnFvmvneP8N3BIu3v5dWxS5cUMu51adKxhZgC89KIyHfIFzef7GBayzp5sqQLEsRnxuJbjR81lc
+	tVSCqj7IuGTuVtUIunWzx+6BJGnSzSztZp0DqPGIAUqO/tAzDO3i2DKz4G1Vnvi94NHYOXRTtishk
+	e+9OB3ISV5WcaR9iV7l15hYjYKjKiOekgDfHsGMlG5iUjbqoGJ5PnJZAXl0ZCOni7eqFev6z4TcfC
+	LFUh4s4RHupish2NbC9ctK8rZ4YQBoy+MvND/+yTTfgL05ZNXBp6BDEnW3jENaGDZajB81VzUIXoM
+	IzBqH0eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNZTK-00000000ayy-2TMi;
-	Fri, 06 Jun 2025 15:59:10 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uNZn4-00000000cWq-3wPt;
+	Fri, 06 Jun 2025 16:19:34 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNZRD-00000000aiw-0rWW
+	id 1uNZkx-00000000cMW-2FEU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 15:57:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JAgqgOhHaCswN4uSRfzjqb5Q53t0n7JvAqmazHb2/Qn9Q5sva15pJvAXzNwbEhfzjZtzXGj7cy7IJnmCZyi/EIIt6Q9zaOwcOo4NzxcA8PEzHnFCiPwc+LSyk6IEzX1T13JOLYfrwgOlRGQTjlfdLJZkaWl7uus/eBEiho/b4K9PNQyxj3kCPKc1AWCg89+PQ/vPRGr/UwnaYU8D1/uZAA87VxQz72u3giRAfrT/T1AXAiuoktmJLZesUW/nfA9SY5gwGUK5q4ph6deva+8dvDM0WimhSMb6dDMCyUpsJ1JcdZAT0IZw4EckAXcWUkPhHstXpTT2N0gaz6iPOYff9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fKKpqt7bYD8BpfCD9Jy07xmrYOoRXiaa/RTP9F++AfA=;
- b=w0kv1SeXQWUlHXgVel1egmW6NUYTEk2/A0YGLxLHoOGOSocO+icQjvoxscITg4+vw7n4DiojMQAdwihV223aOd4scH780Bm8b7YJKxV2CLisc0Q57QlYoVO1SO5kL5Vul5fYWar0sDML6F0WAPbFo8xA9NBYwUCTI8j9a3gj5wbY+zRlEulF8rjkoI8t/0eja5e/ae8HgnoSUyRpWogH8ReB6st8S4Uh3gvZcX8sIE8gif1DofGgmtDpKChMj+rth3FAcNkVDX0JIbDM6o3Fx/ITdD8v8GcWKN0m4Sc2RZydDqOdVAHO4w+yFiBSht4O7iosLWespqp6WLSjKl9TxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fKKpqt7bYD8BpfCD9Jy07xmrYOoRXiaa/RTP9F++AfA=;
- b=jJdQIME91m0kd17GrCT8bpp/DFVOF3dk+J5fge7IT9IBWpg+/oe51XZKbVYRcFFeGCv6OrY7czxET+ropaEdJ//4qxiHgav7Cr4pwQK+iy6fL7FdjdXpzju/CjPQ0EgZIHC4Rh5p6tvel0UfiEDSaNb8RnmPa+4ra3UJ/XeXpB8WiN58f7wcEc3MZid+IBXjaOW6CpOS7YqPmBXE8Ze/aWDPBqLF7aw/Pkqbf8D12c4cQuio+oXGu7OlUqQRxJ31CcqFIZJPA7488QNHJJHPh6AzPLU6f7AHMEVwUtwaEN0ZwmLw+cP6LMFyEJjciPzPEAhMneEE5j8o8h47qeGYwQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM0PR04MB7187.eurprd04.prod.outlook.com (2603:10a6:208:196::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Fri, 6 Jun
- 2025 15:56:52 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8769.025; Fri, 6 Jun 2025
- 15:56:52 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	netdev@vger.kernel.org (open list:NETWORKING DRIVERS),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-kernel@vger.kernel.org (open list),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support)
-Cc: imx@lists.linux.dev
-Subject: [PATCH v3 1/1] dt-bindings: ieee802154: Convert at86rf230.txt yaml format
-Date: Fri,  6 Jun 2025 11:56:33 -0400
-Message-Id: <20250606155638.1355908-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BYAPR07CA0017.namprd07.prod.outlook.com
- (2603:10b6:a02:bc::30) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM0PR04MB7187:EE_
-X-MS-Office365-Filtering-Correlation-Id: d79e7142-1794-4c2a-4e29-08dda512c0d3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5kD/Rnr8GNDaR+rp7xCaHXeTXIX36D4e0ldasvewbBBgqba2xGF9uPVHJ/i2?=
- =?us-ascii?Q?UpbUrkV75W1F2FagyIlX6rB272lTJCZ9vngL//K4rB0qOz8RFbfxgBfj4WF/?=
- =?us-ascii?Q?rSMc9UJ51beCAG4HrSWL3l0epq/ygg6TLf1wBUMEIpB+zziSwNFaUlNfp1VD?=
- =?us-ascii?Q?aVjjJe5ul+lIEvuBgFE1k4WsIyCJ2joBEcRJq2BFNQulTv5yIbnN9HVPs2Sr?=
- =?us-ascii?Q?p4ix6+YpEOoTwAbnEgUsm3yS9grkEY4uPmVYHVhGY8TZct/P/cComXy/Ij8l?=
- =?us-ascii?Q?dieYqrbFmbj02a7yjufkp5gO2at1hmhir86GOYVryKiOY0wNGRk/0WSrbJp4?=
- =?us-ascii?Q?BtmCj+QTEk3eH5CpGZqGPPYi0yhxDCO3CLHdR/gnby2QC0oJSkI1YXpEz6J6?=
- =?us-ascii?Q?dJZg0sYZCaR6OiBVs9Q/NGWdvOguy2+glz6TbXxpfWaY1FFfOeZzQm2gphMP?=
- =?us-ascii?Q?0j5baGAI1U2EKndkDY+dhFRBNjXN7/+rijLVM8JYEA169HuuJQmB3K1syRPt?=
- =?us-ascii?Q?pRz2oH2x0jeF1dxtVlU8odL9FQjHAWKXitE+c/h3DHg7f3li91L76gITbkTV?=
- =?us-ascii?Q?6ONTr6hxy24mqkaPAnjXnVxRJlNHk5DW0923n2P56qL64CF0u+0Jf2MFzGMx?=
- =?us-ascii?Q?qSDo+dG5Iv/HqwxrTBL/bbdwnJW1OF+6BPPpwcuW5bAOLTVoVPag+4D3i5Lo?=
- =?us-ascii?Q?7fnSIOSxnP7jLo/qM+UROHqjYO2/O5fyEWyn/M24615M5LpUydIHVTbTQuCG?=
- =?us-ascii?Q?ZtitOIgr+2X99X4zSMEyHYf6fG/rBBfR8gbjEukPyijwC9E5qKSL3hgCY1gS?=
- =?us-ascii?Q?6KojWeJ4wCMIPdU7ufsNyeSkiNL/plqD8rqC2yE3AFWpymyD/w70Oiv/apJZ?=
- =?us-ascii?Q?qD52aOiRHff25I9Q8U4uR0HPmhMWeOiIBVlEt64F6tcm7D/QO0vKYpxmHEOX?=
- =?us-ascii?Q?fQBHb4qZr3CDaMDE8H14uVqlROkA2QwbhAz+SVhCophB1OcHwvF9zVk2uZ8i?=
- =?us-ascii?Q?wGWtXcifq7K+3ebpE3edMTO8B9CBGB6Y+cT3Eb/xXExqyky/zXT1bVKtuuK3?=
- =?us-ascii?Q?SDwKspeOXTx7EbG0znaV5QRZVkT0oJbuVdN1R+oUmdN94W3Cmu6d+GiKzbuN?=
- =?us-ascii?Q?P2YZT1/c+Fhd6YLk1CT/6SVfkcx6QpA3Rm8TwcGQULhEAEZf7nEhu6aYB/Yn?=
- =?us-ascii?Q?rkONsiI4IAyj1Ow6wvrsQT1o4f4QjJOE+K9BJjKOTvDw18hOgrzGKGUU5EQO?=
- =?us-ascii?Q?L0Z1SoLKWTx088EmT3NvSjSqKeTBVFvXyXtvY+B95mo0UxPqU54GWwBYhTXu?=
- =?us-ascii?Q?8UamXsx6RbpzIOwyuMZLj0xRU6X3K3+NYp3iEvhyaNviNh586iA9wPNtzzsZ?=
- =?us-ascii?Q?Rsv+zfu6ok5i0gWYR0w7UNYGuU7Mo95I7W88iWTVi5VsBDINeG4Auz4Rc10O?=
- =?us-ascii?Q?JybUVYLJUJji/OccVvEkCHqHfLnlUYDd?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sZ5h64Je3wuHLu6sVthYs8Hp3d1/J10DJtjWe/mVGfwU54ws112n3AKa9GfR?=
- =?us-ascii?Q?o9dXC7NTWYS6FQ/KqLLD5gbTCAlYXCXKzKK8qDssiJm/qyhA+9zRGPY3pkBZ?=
- =?us-ascii?Q?loQsMyIgTGZDqt/wZcJ4CTerY+XSq8a72N9Iv2uNQu9w3DkmDahGUMZEyvPe?=
- =?us-ascii?Q?KNZlKUhNtsTci2zIo0PEvZeZu+iQi9546diPwb+rZS5QhKzIRtU+3kRHtEz6?=
- =?us-ascii?Q?1f4qGLlm2u6Fx1C1ZQMxkTYqnf8Iom3KXYwg2aKzS/Dq6h/W1XWF2vTmUadR?=
- =?us-ascii?Q?DHSQCn/AF3hIAfoKGo6QdHxB6CgsLeQ7kwuMfj9rB4deNeo9PF9ovGWkbRtD?=
- =?us-ascii?Q?ycJ+Hd0cLG1ffHYWX5keyFyeRgJup8IZCOC04OGprvUscerSVi8J+Z2QanuP?=
- =?us-ascii?Q?7pjT/kC0md8Mqt0/2UP0n0Z1L/rBlk9aJw+4ZOItdhnouEkcc10ExjsgSWOy?=
- =?us-ascii?Q?vPyBayr5YMhzyA8GhtdqJySanBBey4H8WBOuwZTS/66fi/36T6ROy+XDzaKq?=
- =?us-ascii?Q?GUZWPx7BDHfisbplsdD5+jpzPrFyieB5w1IAfMXRDnH/T2K/T/pAFzky8VWk?=
- =?us-ascii?Q?EAwGJG9X4ep+OTXf65KVvRTta0EwVbcqe97s4j7rlKZra540G+HPYcFtQ7IO?=
- =?us-ascii?Q?apgTmI/GV1pOHeVIKVSEYCeoh05o+d/j82v0YkGD4Ns2fjBx++EFk0WAjP5q?=
- =?us-ascii?Q?vjbaPjrixXFwF3XWYaVVANAvyS3RTFLAV1baCOhw8GQRdEESIOHG0N5FVqUd?=
- =?us-ascii?Q?aUtSKlml6TkTMGidqyW3sv7Mn/qyU0zRSRZFn288wIwZ71Km5P6YMjohjryJ?=
- =?us-ascii?Q?K1IEw7+BkEyiLRpbSD5SEqsToobaPbeS/FMbZ5uP9xGnEdrfK5g9W4kSQ/8o?=
- =?us-ascii?Q?/Rj7fhaicVCcEn+s47FktQZkXHZb/ubZjQseOtC2UVMi2mcHhv0YYwJBxqMJ?=
- =?us-ascii?Q?t9fD3wAE8jyfqWZgkW3aopVmmYspTsIQWSWRjTUAvqF9dXVyynvyIMOWcv4b?=
- =?us-ascii?Q?/W3vNOOak0unEP8tblrBeXiniAl0qtxuPGL8vJ171Mv1sILzixKvl+XjfsDD?=
- =?us-ascii?Q?2mrVqhikRDM6YQrgfZxJoK3XHDzx1UP8tNQTfuNuaxhTm6I21wS7TqF5/MYf?=
- =?us-ascii?Q?DXS0Tb8AY5NuqbVNKUjMF2RhKXvQXiC53dJ5WdGi01BOzHOfL9KOaZdXVw2J?=
- =?us-ascii?Q?wcQFOqLfv+wSia0fLu1WFpfndIT4LT8+sXf+pRf2B4I3U2DijJW0GcpSDu7Y?=
- =?us-ascii?Q?h4lA1TezpJEfb/GVuptvnrBaOX+G4q9nvnsEkgQkejlMI2Xcd0ojBLy+DzyD?=
- =?us-ascii?Q?5nqQaoy78+mLslV7EWfjqqAIK45Q4X0+ze16nFbbUr13lkcBQCwbxoNdC03y?=
- =?us-ascii?Q?J70TYX8vskyumABw+TzF32cjF4pU1aNfniPfaoTSICH62xK40K6dV7s14Biz?=
- =?us-ascii?Q?OFcHKHsUCLal+Ldr9A2fLjFpH0Wrh6BbLcPgalLnEw0dYOXXjKmNof4kEfMT?=
- =?us-ascii?Q?et9IOVvg9pc6A5u4WalkKy7IYuOYAlZe15Ljzdm0MbkqEIn/2i80Lp1fvJmP?=
- =?us-ascii?Q?3fO4/esQeTop/G0o1R0Hx72ErobFlTDu0aX2CP5y?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d79e7142-1794-4c2a-4e29-08dda512c0d3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2025 15:56:52.1904
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +NKeSpYSG41nOjC5jr8Ya3B78+3ypnTQrnpLIEXDWgFP1026YIMoq3i1qaKle2Aqx2LTjt1aP08tdEx8Y+Jk9A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7187
+	Fri, 06 Jun 2025 16:17:24 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-451d3f72391so29619925e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 09:17:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749226642; x=1749831442; darn=lists.infradead.org;
+        h=in-reply-to:references:to:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4NlKIg2a1lGubO5sNSfmyFBsfmLI6eZhDm94jolhDTQ=;
+        b=RxX2+Nv++ASYjKdwVxVpee5MaatXm5fXusQqjDoEXX/llKr+HnGP2QIRFz0FahyRYv
+         yTy9slPTFCFYVclUJku1NfRl2eOdDG69/V+rDcWRRXp/VZRF8qq67tx4+nrB+UaU5pHb
+         YFuPHt9bdZQ2QwXS/O+Tmr2syzg7lLvny33hgN0htOlaXsuyavKSG2Eou8+n9nNQir97
+         QTkDodPg9xRggateshJu/aSxroUdMkSCUkTv0v1C77WVvM2SqYctEhIokHSlcJNZh1Eb
+         liUd9hbNlXCOh2Vr/W69u1vCLOYaFFSsqXvR/XUDVCLbLdNRtkZRl6HKhqeBjnWjMOK6
+         6/KA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749226642; x=1749831442;
+        h=in-reply-to:references:to:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4NlKIg2a1lGubO5sNSfmyFBsfmLI6eZhDm94jolhDTQ=;
+        b=JZTVlllr1sEznfmU1o4SqcqYxQ3DowZujL009fk1JbAeTpTohFvWzw+10T8qgtRott
+         g96N4RAMT2h+4Wrq/SfN4KF5OIXLytOumdSXTw8xrThTNC9QRytGKSU6JZaNmbooENdG
+         jCe2VkFyMEh6cZcWjOoyrgaPXCwgm23bmls89TpX0Bgm2SKeQZhKon27hki72T4GGyDy
+         FDQFRfTw+GZ19QJ25BL8KvpyA/hlxvU7Scq+4Im+s0FX3DM2OKj8xwVIlKCCuQSO6GAS
+         PWy9naDUC2fT73TwDto7eTeoNfkcSx9wkfUpdal3T8bGbMOW/yi6IvwwwXS8ybatY5Yh
+         FQ8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUc05n3iteHeX63FD4QnV8dfBn1Pf3Nxx+V88TD8uO1lprI3zOFIpu9XlnL/zqftfdAVmInFRw5rvjTp/06fQrF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhYGlbgysI2sKWf78+g+UhW1U6IUwe5v4ctZXw6l1dZwGRLUBM
+	ZEBXtT8siuxXsIUUZLYTkqCF6z8TcrRS6efkL62MeEodk1ft2amOKCzx
+X-Gm-Gg: ASbGncs/Haews+b4bKuq7q7tgr7CsyQefLYC4UlPXoQmAzqZ33JNmV5M9g51MMGNGCH
+	+pug8Y/ohI8378+3d+BJ6h3HeledTPENCb1dvUXsbZIy+kb58RTxE0+8xSxTgSyHf3zwGP9bB6u
+	IOWO9vSWRSPCtenMiUzGzpp8juEoP2T67IHjS4X+3c1n5cnLPsADcIFZEYZRNeAopSzvS12nf/N
+	/sThCPzM5IlGj0c+vXheS1MHCbooAxnKrFhasN8PhUBQN6sApjeOQmoBGTxNkddORE9IS5EU/nX
+	pTda/cjJYloStmycKwnmnrsDHdAU8Suxe6Nozf851iJgHAD2RK5PHB0XN/j3FH+WGNKiYm5Db8u
+	Oa8OhOwQwKYfrMg==
+X-Google-Smtp-Source: AGHT+IFEPwne2ttMNKIa+n0ICE8jkRX3AQsfZ+fAiNXrpYKRs5y4Ypd8txsA2x6HPfCUIi/0m2BD+g==
+X-Received: by 2002:a05:6000:25c7:b0:3a4:ee36:ee4b with SMTP id ffacd0b85a97d-3a53188238cmr3679704f8f.11.1749226641555;
+        Fri, 06 Jun 2025 09:17:21 -0700 (PDT)
+Received: from localhost (a95-94-245-170.cpe.netcabo.pt. [95.94.245.170])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a5322ae43fsm2281609f8f.25.2025.06.06.09.17.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jun 2025 09:17:21 -0700 (PDT)
+From: Rui Miguel Silva <rmfrfs@gmail.com>
+X-Google-Original-From: "Rui Miguel Silva" <rui.silva@linaro.com>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 06 Jun 2025 17:17:20 +0100
+Message-Id: <DAFL3CTS8R5D.1FIGCAM5SXJPL@linaro.com>
+Cc: <kieran.bingham@ideasonboard.com>, <rmfrfs@gmail.com>,
+ <martink@posteo.de>, <kernel@puri.sm>, <mchehab@kernel.org>,
+ <shawnguo@kernel.org>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
+ <festevam@gmail.com>, <linux-media@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/2] media: Add line end IRQ to imx-mipi-csis driver
+To: "Isaac Scott" <isaac.scott@ideasonboard.com>,
+ <laurent.pinchart@ideasonboard.com>
+References: <20250606154414.540290-1-isaac.scott@ideasonboard.com>
+In-Reply-To: <20250606154414.540290-1-isaac.scott@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_085659_250932_33ABA8A2 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20250606_091723_572590_A532EE03 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,133 +103,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert at86rf230.txt yaml format.
+Hi Isaac,
+Many thanks for the patches.
 
-Additional changes:
-- Add ref to spi-peripheral-props.yaml.
-- Add parent spi node in examples.
+On Fri Jun 6, 2025 at 4:44 PM WEST, Isaac Scott wrote:
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v3
-- add maximum: 0xf for xtal-trim
-- drop 'u8 value ...' for xtal-trim's description
+> Many boards, such as the NXP i.MX 8M Plus, feature multiple interrupt
+> registers. This series refactors interrupt status register debug handling=
+ to make
+> it more intuitive to add other registers such as LINE_END, which has an
+> entire register containing only one interrupt. Previously, the
+> mipi_csi_events[] list contained a debug enable field, and this replaces
+> that with a status_index, which indicates which status register contains
+> the mask for the interrupt.
+>
+> The second patch adds the user line interrupt, which is useful for
+> debugging, as it allows a user to trigger an interrupt after the MIPI
+> CSI receiver has counted a configurable number of lines. This can make
+> it possible to discern the true resolution of the image stream reaching
+> the CSI receiver. It adds an entry to debugfs which lets users choose
+> how many lines are needed to trigger the interrupt, and can be disabled
+> both within and outside streaming by setting the value to 0.
 
-change in v2
-- xtal-trim to uint8
----
- .../bindings/net/ieee802154/at86rf230.txt     | 27 --------
- .../net/ieee802154/atmel,at86rf233.yaml       | 66 +++++++++++++++++++
- 2 files changed, 66 insertions(+), 27 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt
- create mode 100644 Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml
+LGTM.
+for the all series:
 
-diff --git a/Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt b/Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt
-deleted file mode 100644
-index 168f1be509126..0000000000000
---- a/Documentation/devicetree/bindings/net/ieee802154/at86rf230.txt
-+++ /dev/null
-@@ -1,27 +0,0 @@
--* AT86RF230 IEEE 802.15.4 *
--
--Required properties:
--  - compatible:		should be "atmel,at86rf230", "atmel,at86rf231",
--			"atmel,at86rf233" or "atmel,at86rf212"
--  - spi-max-frequency:	maximal bus speed, should be set to 7500000 depends
--			sync or async operation mode
--  - reg:		the chipselect index
--  - interrupts:		the interrupt generated by the device. Non high-level
--			can occur deadlocks while handling isr.
--
--Optional properties:
--  - reset-gpio:		GPIO spec for the rstn pin
--  - sleep-gpio:		GPIO spec for the slp_tr pin
--  - xtal-trim:		u8 value for fine tuning the internal capacitance
--			arrays of xtal pins: 0 = +0 pF, 0xf = +4.5 pF
--
--Example:
--
--	at86rf231@0 {
--		compatible = "atmel,at86rf231";
--		spi-max-frequency = <7500000>;
--		reg = <0>;
--		interrupts = <19 4>;
--		interrupt-parent = <&gpio3>;
--		xtal-trim = /bits/ 8 <0x06>;
--	};
-diff --git a/Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml b/Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml
-new file mode 100644
-index 0000000000000..32cdc30009cc0
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ieee802154/atmel,at86rf233.yaml
-@@ -0,0 +1,66 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ieee802154/atmel,at86rf233.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: AT86RF230 IEEE 802.15.4
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - atmel,at86rf212
-+      - atmel,at86rf230
-+      - atmel,at86rf231
-+      - atmel,at86rf233
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  reset-gpio:
-+    maxItems: 1
-+
-+  sleep-gpio:
-+    maxItems: 1
-+
-+  spi-max-frequency:
-+    maximum: 7500000
-+
-+  xtal-trim:
-+    $ref: /schemas/types.yaml#/definitions/uint8
-+    maximum: 0xf
-+    description: |
-+      Fine tuning the internal capacitance arrays of xtal pins:
-+        0 = +0 pF, 0xf = +4.5 pF
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+
-+allOf:
-+  - $ref: /schemas/spi/spi-peripheral-props.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    spi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        zigbee@0 {
-+            compatible = "atmel,at86rf231";
-+            reg = <0>;
-+            spi-max-frequency = <7500000>;
-+            interrupts = <19 4>;
-+            interrupt-parent = <&gpio3>;
-+            xtal-trim = /bits/ 8 <0x06>;
-+        };
-+    };
--- 
-2.34.1
+Reviewed-by: Rui Miguel Silva <rui.silva@linaro.org>
+
+Cheers,
+    Rui
+
+>
+> ---
+>
+> Changes since v1:
+> - Moved from magic number to enum in status_index
+> - Clear INT_MSK_1 in enable_interrupts() when on =3D=3D false
+> - use local variable in set_params() as in the interrupt handler
+> - move interrupt handling code outside of spinlock
+>
+> Isaac Scott (2):
+>   media: platform: Refactor interrupt status registers
+>   media: platform: Add user line interrupt to imx-mipi-csis driver
+>
+>  drivers/media/platform/nxp/imx-mipi-csis.c | 107 ++++++++++++++-------
+>  1 file changed, 74 insertions(+), 33 deletions(-)
+>
+> --=20
+> 2.43.0
+
+
 
 
