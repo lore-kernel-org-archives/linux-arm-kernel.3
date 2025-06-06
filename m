@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86081C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 00:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E256FC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 00:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+L9DXCjLorTxOh1B5xNStH2dnZ/sReG4cpxDvwmWD0Y=; b=W7uXZDimI3xO2QyztS1FzM8pgV
-	E22zcp9tZEm4XuHC4BZJW+WDEcGzHeZ6MDemrXUPO3wIurOHLNSWNVjViC9zfE1W0W8SHz+el0LEw
-	y+BCmUtiJbqTKyYy6o/RaiBsuZkCR16Bh+EqujV2K/GSObJke1C0js4LuVqEuWBcQrYbDuj3TrK1/
-	7/NOHlNLbvkir6ov735MyfB+KheifPoz66DWugLwYuD3B90rBGv49l2fAIfaowGu2+50aT0PJoGgn
-	Q4Va6mTkvsxwWOKVw6dndnjfQc6UBSbON0fUHhZC0Zt778nKOV7IwHH1laSj+n1O+FPGlQyYMjvK7
-	v+TCyvGg==;
+	bh=bI+dCH5hC9M27KLLqOGE5y8W3x/cx8Zy7I+fEhr9Uww=; b=vi/TqlTGml1QDIZ1hXI7FF8ZW9
+	Kh5qso0QS9PbDXuaK5cZqovEBEu4wwh+TQxq9iOFR6V+AWnFIjRUE28Wy6fYbDIwTlLrkDhtV8Imp
+	rSEIq019qAfQNcePeYUTDWCpRt0Vu1xjFOxsXDN26F4javlGxT/IOZ1Xt2Z6Wd3N5xfnJ79BlriNY
+	wh9hZEIf0gZwiMOrtOimXvwsrhrn70IdumwPh57yjcp28g31kiM68zkuDH5r1glfcMrFmKTS92vV1
+	zYaCpuOdMopKkKIQtCHoBgU89/gkVrmxhGH9Fr0YbnoU3xILO+9t6W087/OQvtQjazWLaY2od+6MM
+	Sk58ofMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNhKU-00000001BAk-2ozv;
-	Sat, 07 Jun 2025 00:22:34 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uNhMa-00000001BIX-2WMh;
+	Sat, 07 Jun 2025 00:24:44 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNgvZ-000000019D8-33hY
+	id 1uNgvb-000000019ED-3o8m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 23:56:50 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7480d44e6f9so2443206b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 16:56:49 -0700 (PDT)
+	Fri, 06 Jun 2025 23:56:53 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-73e0094706bso3566046b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 16:56:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749254209; x=1749859009; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749254210; x=1749859010; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+L9DXCjLorTxOh1B5xNStH2dnZ/sReG4cpxDvwmWD0Y=;
-        b=nvYv9AESqWri0ecLfY9/hO4JxTdboeIaPvruFljiVhZA1ktyaXN0Rr0V9cNPBfTieF
-         Mc2UdPaaNeyFuz61aHGQzUmpuMvF3twrtP37hOtfyTmnaAzR1zZLorw0L+1l78Uty+hw
-         YGnpJLsM0W5GbAMrUrA2ktZthKjb5cISFbKke557h/fZjfaRt+W0V744X3r99a6hcqUw
-         Szioc2vOqtPbCBVkUPUi7Qd/LZ1N4YNe84DMgJiuvTro70k/7RlrBuzQ3LSAKGwRmQYm
-         xjwYj8gY+SmFo4IjhB5oefJYDNbFMo4CjasAOwmhE6xMEr/aylklJk4xDxOXOHfxcBXt
-         gOCg==
+        bh=bI+dCH5hC9M27KLLqOGE5y8W3x/cx8Zy7I+fEhr9Uww=;
+        b=0NL9RK7bBCdatYugR9wH3cGctzA/q9fz5NlCVn0/JUA5s1hjEVkcQ81LhzIPl10Ixc
+         esKOT05TuH/cNAhh20rYQW5rwtR1cQWPGaVLW9AoeyFgVxP2LNbfUtyIXJkYky20aIja
+         awidsfVt0V2Ph3vmnUlALkdm+qwQmbSHA42uh6yJ9MZgTgAzNIoWn1/xiG5mG6NSQxHU
+         ZszEz3+4ie3sWQBi8e0Gb11luNvYayJuLGk+q12WrtBQkK1UnuAcs2MdOloMtdZMwtiO
+         pM+9bVre1vdeDK/LWnVmh5vtYMODy9usxUcGb7sK+EAC3YYudPilj8RV64wwa9oX8vnm
+         PByA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749254209; x=1749859009;
+        d=1e100.net; s=20230601; t=1749254210; x=1749859010;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+L9DXCjLorTxOh1B5xNStH2dnZ/sReG4cpxDvwmWD0Y=;
-        b=Pn7ArLSr2cMEZ3IG9kwdM/eufdry/6xHgwbyN5c9OCL57/Sg3asgyg/GsqnO+EdhM5
-         xADcs+dqZ13aJVF94bdPcr7KeFSvGQoZNLKabSl2LxRwoL8QorwI2WXcaQIXVKs5SRZJ
-         BH/X+GK0PLMQr+IaUccGUMay8Laq30dcOhQGzbbQx28x/brsULgC5jFNCm4PpjvurMQB
-         vOASLrjtbCJ3dALgRRb4YFH3wNbcFNwx1J6FbgxoZ8XeLFwd+nBBfWX4gzYCwMmOpxwG
-         ixRikfqQPni5njJ4AdrY7W7dhF9YIBtO+LO5Tbi3KNF6LfSdEsWFaGUzKcSmQjY5n7LE
-         qbdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWsByWjKux+1EPFoprukATaetW13amD5fJZBb8A+Ewhx7pTNdqSmyWztaC/cZsb8TB5fzAuuKJJSE2j+vdcW4pm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4REAnqt8Lx8AynrgYhgBkxtzm4/8aj6tVHhQ6crFW7L1PprVX
-	KcpvcPk7MJCvHrn8vIqLbXVR98JaxFigzP6TYyaG4GZHZAFuExrhRUbHbDIpZoKMXIB2+SQWEE2
-	CVeBnHOwiuw==
-X-Google-Smtp-Source: AGHT+IG03XZnvqZOkOqBwMRzzNhIPgcN1ZsHQWgIs4EPRw8vsSrtSnCZF4xjJkBMv/LE7Ar4ODi53Kp40Xk2
-X-Received: from pfbdw13.prod.google.com ([2002:a05:6a00:368d:b0:746:30f0:9b33])
- (user=vipinsh job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:3016:b0:742:a23e:2a67
- with SMTP id d2e1a72fcca58-74827f14a6dmr7102295b3a.16.1749254208946; Fri, 06
- Jun 2025 16:56:48 -0700 (PDT)
-Date: Fri,  6 Jun 2025 16:56:15 -0700
+        bh=bI+dCH5hC9M27KLLqOGE5y8W3x/cx8Zy7I+fEhr9Uww=;
+        b=imwIBcXNFrCcUEWzMJP5n+lRDhxwmewml4/tg5/W5HQdujNfLvRpshiyQF8uBqfFA3
+         A64H/0ZBq39SzyDGk66HQxKH2WuuEn39WYUTDslVTUyEYXRGj4zQGUV+fXZBqQh2GbRH
+         zehGuh/fB0MiRXNBPDRN8/WCpb7sKmOZhdYfa277IvWfktEggZzPVAeJnAE5r+MYSo+E
+         4+u2oWuKeUjROkmdj7Wlp21R77ohMPuTNk3ZzwmrJmeG7LyjfuN8wbXdQvjqISMHQuBG
+         BIbYl4jrDPd8VFL09mg3GIvVUwSUTZqukQ/JgjgbwZ6jP4b64IVVJBV6pHN/dX9znrtc
+         iJ6A==
+X-Forwarded-Encrypted: i=1; AJvYcCW0NSXKTgPL/aONfE+oqDYYORFgS/ekW8J1hVlXKvNZ16CaBsL53TnNOT1QDt9GowxELEkKUq1tqeVFheyQq4GP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTpyipupA56+sv3zeKkrNX6MhY+x+YV+ttDUwp3M2hiZNTlyFN
+	bSfXF+pCw1wQx3uf0wL4IB+dgmbTckkmaijKxrq/HXnQsCCm3aEQnO4YL6IvmniLWygvvJOxAen
+	auJtCcgaVcw==
+X-Google-Smtp-Source: AGHT+IEcm3TCu/f/rvFUhWHhOnJWkDnm0m8ygPSpPL6JO03WGLuMKDviodzbpYo0sDs2lozYhoSMzQ6GTbYK
+X-Received: from pfgt25.prod.google.com ([2002:a05:6a00:1399:b0:747:cffb:bb21])
+ (user=vipinsh job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:1910:b0:736:5b85:a911
+ with SMTP id d2e1a72fcca58-74827e74748mr8110047b3a.8.1749254210518; Fri, 06
+ Jun 2025 16:56:50 -0700 (PDT)
+Date: Fri,  6 Jun 2025 16:56:16 -0700
 In-Reply-To: <20250606235619.1841595-1-vipinsh@google.com>
 Mime-Version: 1.0
 References: <20250606235619.1841595-1-vipinsh@google.com>
 X-Mailer: git-send-email 2.50.0.rc0.604.gd4ff7b7c86-goog
-Message-ID: <20250606235619.1841595-12-vipinsh@google.com>
-Subject: [PATCH v2 11/15] KVM: selftests: Auto generate default tests for KVM
- Selftests Runner
+Message-ID: <20250606235619.1841595-13-vipinsh@google.com>
+Subject: [PATCH v2 12/15] KVM: selftests: Add x86 auto generated test files
+ for KVM Selftests Runner
 From: Vipin Sharma <vipinsh@google.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +77,9 @@ Cc: seanjc@google.com, pbonzini@redhat.com, anup@brainfault.org,
 	Vipin Sharma <vipinsh@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_165649_785130_65D08815 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250606_165651_949862_9E08D3F7 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +94,799 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add logic in Makefile.kvm to auto generate default test files for KVM
-Selftests Runner. Preserve the hierarchy of test executables for
-autogenerated files.
+Add auto generated test files for x86 platform.
 
-Autogeneration of default test files guards against missing these files
-for new tests cases or rename of existing ones. These autogenerated
-files will be checked in so that during git-diff one can easily identify
-if the existing test files for the same test binary also needs an
-update. It also add new tests automatically in the default coverage.
-
-These files will be auto generated with each make invocation but
-overhead should be very small as these are very small files and won't
-be shown in git-diff unless test name changes.
+These files will not show up in git-diff again unless a test is renamed.
+In future patches more .test files will be added to run selftests with
+their command line arguments.
 
 Signed-off-by: Vipin Sharma <vipinsh@google.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../selftests/kvm/tests/access_tracking_perf_test/default.test   | 1 +
+ tools/testing/selftests/kvm/tests/coalesced_io_test/default.test | 1 +
+ .../testing/selftests/kvm/tests/demand_paging_test/default.test  | 1 +
+ tools/testing/selftests/kvm/tests/dirty_log_test/default.test    | 1 +
+ tools/testing/selftests/kvm/tests/guest_memfd_test/default.test  | 1 +
+ tools/testing/selftests/kvm/tests/guest_print_test/default.test  | 1 +
+ .../selftests/kvm/tests/hardware_disable_test/default.test       | 1 +
+ .../selftests/kvm/tests/kvm_binary_stats_test/default.test       | 1 +
+ .../selftests/kvm/tests/kvm_create_max_vcpus/default.test        | 1 +
+ .../testing/selftests/kvm/tests/kvm_page_table_test/default.test | 1 +
+ .../kvm/tests/memslot_modification_stress_test/default.test      | 1 +
+ tools/testing/selftests/kvm/tests/memslot_perf_test/default.test | 1 +
+ tools/testing/selftests/kvm/tests/mmu_stress_test/default.test   | 1 +
+ .../selftests/kvm/tests/pre_fault_memory_test/default.test       | 1 +
+ tools/testing/selftests/kvm/tests/rseq_test/default.test         | 1 +
+ .../selftests/kvm/tests/set_memory_region_test/default.test      | 1 +
+ tools/testing/selftests/kvm/tests/steal_time/default.test        | 1 +
+ .../selftests/kvm/tests/system_counter_offset_test/default.test  | 1 +
+ tools/testing/selftests/kvm/tests/x86/amx_test/default.test      | 1 +
+ .../selftests/kvm/tests/x86/apic_bus_clock_test/default.test     | 1 +
+ tools/testing/selftests/kvm/tests/x86/cpuid_test/default.test    | 1 +
+ .../selftests/kvm/tests/x86/cr4_cpuid_sync_test/default.test     | 1 +
+ tools/testing/selftests/kvm/tests/x86/debug_regs/default.test    | 1 +
+ .../kvm/tests/x86/dirty_log_page_splitting_test/default.test     | 1 +
+ .../kvm/tests/x86/exit_on_emulation_failure_test/default.test    | 1 +
+ tools/testing/selftests/kvm/tests/x86/fastops_test/default.test  | 1 +
+ .../selftests/kvm/tests/x86/feature_msrs_test/default.test       | 1 +
+ .../selftests/kvm/tests/x86/fix_hypercall_test/default.test      | 1 +
+ tools/testing/selftests/kvm/tests/x86/hwcr_msr_test/default.test | 1 +
+ tools/testing/selftests/kvm/tests/x86/hyperv_clock/default.test  | 1 +
+ tools/testing/selftests/kvm/tests/x86/hyperv_cpuid/default.test  | 1 +
+ tools/testing/selftests/kvm/tests/x86/hyperv_evmcs/default.test  | 1 +
+ .../kvm/tests/x86/hyperv_extended_hypercalls/default.test        | 1 +
+ .../testing/selftests/kvm/tests/x86/hyperv_features/default.test | 1 +
+ tools/testing/selftests/kvm/tests/x86/hyperv_ipi/default.test    | 1 +
+ .../testing/selftests/kvm/tests/x86/hyperv_svm_test/default.test | 1 +
+ .../selftests/kvm/tests/x86/hyperv_tlb_flush/default.test        | 1 +
+ .../selftests/kvm/tests/x86/kvm_buslock_test/default.test        | 1 +
+ .../testing/selftests/kvm/tests/x86/kvm_clock_test/default.test  | 1 +
+ tools/testing/selftests/kvm/tests/x86/kvm_pv_test/default.test   | 1 +
+ .../selftests/kvm/tests/x86/max_vcpuid_cap_test/default.test     | 1 +
+ .../selftests/kvm/tests/x86/monitor_mwait_test/default.test      | 1 +
+ .../selftests/kvm/tests/x86/nested_emulation_test/default.test   | 1 +
+ .../selftests/kvm/tests/x86/nested_exceptions_test/default.test  | 1 +
+ .../selftests/kvm/tests/x86/nx_huge_pages_test/default.test      | 1 +
+ .../selftests/kvm/tests/x86/platform_info_test/default.test      | 1 +
+ .../selftests/kvm/tests/x86/pmu_counters_test/default.test       | 1 +
+ .../selftests/kvm/tests/x86/pmu_event_filter_test/default.test   | 1 +
+ .../kvm/tests/x86/private_mem_conversions_test/default.test      | 1 +
+ .../kvm/tests/x86/private_mem_kvm_exits_test/default.test        | 1 +
+ .../selftests/kvm/tests/x86/recalc_apic_map_test/default.test    | 1 +
+ .../testing/selftests/kvm/tests/x86/set_boot_cpu_id/default.test | 1 +
+ .../testing/selftests/kvm/tests/x86/set_sregs_test/default.test  | 1 +
+ .../testing/selftests/kvm/tests/x86/sev_init2_tests/default.test | 1 +
+ .../selftests/kvm/tests/x86/sev_migrate_tests/default.test       | 1 +
+ .../testing/selftests/kvm/tests/x86/sev_smoke_test/default.test  | 1 +
+ .../kvm/tests/x86/smaller_maxphyaddr_emulation_test/default.test | 1 +
+ tools/testing/selftests/kvm/tests/x86/smm_test/default.test      | 1 +
+ tools/testing/selftests/kvm/tests/x86/state_test/default.test    | 1 +
+ .../selftests/kvm/tests/x86/svm_int_ctl_test/default.test        | 1 +
+ .../kvm/tests/x86/svm_nested_shutdown_test/default.test          | 1 +
+ .../kvm/tests/x86/svm_nested_soft_inject_test/default.test       | 1 +
+ .../testing/selftests/kvm/tests/x86/svm_vmcall_test/default.test | 1 +
+ .../testing/selftests/kvm/tests/x86/sync_regs_test/default.test  | 1 +
+ .../selftests/kvm/tests/x86/triple_fault_event_test/default.test | 1 +
+ tools/testing/selftests/kvm/tests/x86/tsc_msrs_test/default.test | 1 +
+ .../selftests/kvm/tests/x86/tsc_scaling_sync/default.test        | 1 +
+ .../selftests/kvm/tests/x86/ucna_injection_test/default.test     | 1 +
+ .../selftests/kvm/tests/x86/userspace_io_test/default.test       | 1 +
+ .../selftests/kvm/tests/x86/userspace_msr_exit_test/default.test | 1 +
+ .../selftests/kvm/tests/x86/vmx_apic_access_test/default.test    | 1 +
+ .../kvm/tests/x86/vmx_close_while_nested_test/default.test       | 1 +
+ .../selftests/kvm/tests/x86/vmx_dirty_log_test/default.test      | 1 +
+ .../x86/vmx_exception_with_invalid_guest_state/default.test      | 1 +
+ .../kvm/tests/x86/vmx_invalid_nested_guest_state/default.test    | 1 +
+ tools/testing/selftests/kvm/tests/x86/vmx_msrs_test/default.test | 1 +
+ .../kvm/tests/x86/vmx_nested_tsc_scaling_test/default.test       | 1 +
+ .../selftests/kvm/tests/x86/vmx_pmu_caps_test/default.test       | 1 +
+ .../kvm/tests/x86/vmx_preemption_timer_test/default.test         | 1 +
+ .../kvm/tests/x86/vmx_set_nested_state_test/default.test         | 1 +
+ .../selftests/kvm/tests/x86/vmx_tsc_adjust_test/default.test     | 1 +
+ .../testing/selftests/kvm/tests/x86/xapic_ipi_test/default.test  | 1 +
+ .../selftests/kvm/tests/x86/xapic_state_test/default.test        | 1 +
+ .../testing/selftests/kvm/tests/x86/xcr0_cpuid_test/default.test | 1 +
+ .../testing/selftests/kvm/tests/x86/xen_shinfo_test/default.test | 1 +
+ .../testing/selftests/kvm/tests/x86/xen_vmcall_test/default.test | 1 +
+ tools/testing/selftests/kvm/tests/x86/xss_msr_test/default.test  | 1 +
+ 87 files changed, 87 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/tests/access_tracking_perf_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/coalesced_io_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/demand_paging_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/dirty_log_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/guest_memfd_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/guest_print_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/hardware_disable_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/kvm_binary_stats_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/kvm_create_max_vcpus/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/kvm_page_table_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/memslot_modification_stress_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/memslot_perf_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/mmu_stress_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/pre_fault_memory_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/rseq_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/set_memory_region_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/steal_time/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/system_counter_offset_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/amx_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/apic_bus_clock_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/cpuid_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/cr4_cpuid_sync_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/debug_regs/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/dirty_log_page_splitting_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/exit_on_emulation_failure_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/fastops_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/feature_msrs_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/fix_hypercall_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hwcr_msr_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_clock/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_cpuid/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_evmcs/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_extended_hypercalls/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_features/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_ipi/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_svm_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/hyperv_tlb_flush/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/kvm_buslock_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/kvm_clock_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/kvm_pv_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/max_vcpuid_cap_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/monitor_mwait_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/nested_emulation_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/nested_exceptions_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/nx_huge_pages_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/platform_info_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/pmu_counters_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/pmu_event_filter_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/private_mem_conversions_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/private_mem_kvm_exits_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/recalc_apic_map_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/set_boot_cpu_id/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/set_sregs_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/sev_init2_tests/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/sev_migrate_tests/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/sev_smoke_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/smaller_maxphyaddr_emulation_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/smm_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/state_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/svm_int_ctl_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/svm_nested_shutdown_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/svm_nested_soft_inject_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/svm_vmcall_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/sync_regs_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/triple_fault_event_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/tsc_msrs_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/tsc_scaling_sync/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/ucna_injection_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/userspace_io_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/userspace_msr_exit_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_apic_access_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_close_while_nested_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_dirty_log_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_exception_with_invalid_guest_state/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_invalid_nested_guest_state/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_msrs_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_nested_tsc_scaling_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_pmu_caps_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_preemption_timer_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_set_nested_state_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/vmx_tsc_adjust_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/xapic_ipi_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/xapic_state_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/xcr0_cpuid_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/xen_shinfo_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/xen_vmcall_test/default.test
+ create mode 100644 tools/testing/selftests/kvm/tests/x86/xss_msr_test/default.test
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 307ef31d3557..a76502406123 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -201,6 +201,14 @@ TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH))
- TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH))
- LIBKVM += $(LIBKVM_$(ARCH))
- 
-+$(foreach tc, $(TEST_PROGS), $(shell mkdir -p tests/$(patsubst %.sh,%,$(tc))))
-+$(foreach tc, $(TEST_PROGS), \
-+	$(shell echo $(tc) > $(patsubst %.sh,tests/%/default.test,$(tc))))
-+
-+$(foreach tc, $(TEST_GEN_PROGS), $(shell mkdir -p tests/$(tc)))
-+$(foreach tc, $(TEST_GEN_PROGS), \
-+	$(shell echo $(tc) > $(patsubst %,tests/%/default.test,$(tc))))
-+
- OVERRIDE_TARGETS = 1
- 
- # lib.mak defines $(OUTPUT), prepends $(OUTPUT)/ to $(TEST_GEN_PROGS), and most
+diff --git a/tools/testing/selftests/kvm/tests/access_tracking_perf_test/default.test b/tools/testing/selftests/kvm/tests/access_tracking_perf_test/default.test
+new file mode 100644
+index 000000000000..93e0f5d35525
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/access_tracking_perf_test/default.test
+@@ -0,0 +1 @@
++access_tracking_perf_test
+diff --git a/tools/testing/selftests/kvm/tests/coalesced_io_test/default.test b/tools/testing/selftests/kvm/tests/coalesced_io_test/default.test
+new file mode 100644
+index 000000000000..9c3e8fb05142
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/coalesced_io_test/default.test
+@@ -0,0 +1 @@
++coalesced_io_test
+diff --git a/tools/testing/selftests/kvm/tests/demand_paging_test/default.test b/tools/testing/selftests/kvm/tests/demand_paging_test/default.test
+new file mode 100644
+index 000000000000..9ce2eaf620e1
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/demand_paging_test/default.test
+@@ -0,0 +1 @@
++demand_paging_test
+diff --git a/tools/testing/selftests/kvm/tests/dirty_log_test/default.test b/tools/testing/selftests/kvm/tests/dirty_log_test/default.test
+new file mode 100644
+index 000000000000..56a07cffab15
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/dirty_log_test/default.test
+@@ -0,0 +1 @@
++dirty_log_test
+diff --git a/tools/testing/selftests/kvm/tests/guest_memfd_test/default.test b/tools/testing/selftests/kvm/tests/guest_memfd_test/default.test
+new file mode 100644
+index 000000000000..1e68140a8a4b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/guest_memfd_test/default.test
+@@ -0,0 +1 @@
++guest_memfd_test
+diff --git a/tools/testing/selftests/kvm/tests/guest_print_test/default.test b/tools/testing/selftests/kvm/tests/guest_print_test/default.test
+new file mode 100644
+index 000000000000..9f83cb6e379d
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/guest_print_test/default.test
+@@ -0,0 +1 @@
++guest_print_test
+diff --git a/tools/testing/selftests/kvm/tests/hardware_disable_test/default.test b/tools/testing/selftests/kvm/tests/hardware_disable_test/default.test
+new file mode 100644
+index 000000000000..bd0aae00519b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/hardware_disable_test/default.test
+@@ -0,0 +1 @@
++hardware_disable_test
+diff --git a/tools/testing/selftests/kvm/tests/kvm_binary_stats_test/default.test b/tools/testing/selftests/kvm/tests/kvm_binary_stats_test/default.test
+new file mode 100644
+index 000000000000..fd0f99fe7b94
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/kvm_binary_stats_test/default.test
+@@ -0,0 +1 @@
++kvm_binary_stats_test
+diff --git a/tools/testing/selftests/kvm/tests/kvm_create_max_vcpus/default.test b/tools/testing/selftests/kvm/tests/kvm_create_max_vcpus/default.test
+new file mode 100644
+index 000000000000..68e5174fb84d
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/kvm_create_max_vcpus/default.test
+@@ -0,0 +1 @@
++kvm_create_max_vcpus
+diff --git a/tools/testing/selftests/kvm/tests/kvm_page_table_test/default.test b/tools/testing/selftests/kvm/tests/kvm_page_table_test/default.test
+new file mode 100644
+index 000000000000..4988836740b7
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/kvm_page_table_test/default.test
+@@ -0,0 +1 @@
++kvm_page_table_test
+diff --git a/tools/testing/selftests/kvm/tests/memslot_modification_stress_test/default.test b/tools/testing/selftests/kvm/tests/memslot_modification_stress_test/default.test
+new file mode 100644
+index 000000000000..ccb1d45ab009
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/memslot_modification_stress_test/default.test
+@@ -0,0 +1 @@
++memslot_modification_stress_test
+diff --git a/tools/testing/selftests/kvm/tests/memslot_perf_test/default.test b/tools/testing/selftests/kvm/tests/memslot_perf_test/default.test
+new file mode 100644
+index 000000000000..2de1264b631b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/memslot_perf_test/default.test
+@@ -0,0 +1 @@
++memslot_perf_test
+diff --git a/tools/testing/selftests/kvm/tests/mmu_stress_test/default.test b/tools/testing/selftests/kvm/tests/mmu_stress_test/default.test
+new file mode 100644
+index 000000000000..0e1ed1e3b971
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/mmu_stress_test/default.test
+@@ -0,0 +1 @@
++mmu_stress_test
+diff --git a/tools/testing/selftests/kvm/tests/pre_fault_memory_test/default.test b/tools/testing/selftests/kvm/tests/pre_fault_memory_test/default.test
+new file mode 100644
+index 000000000000..4e352e629be5
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/pre_fault_memory_test/default.test
+@@ -0,0 +1 @@
++pre_fault_memory_test
+diff --git a/tools/testing/selftests/kvm/tests/rseq_test/default.test b/tools/testing/selftests/kvm/tests/rseq_test/default.test
+new file mode 100644
+index 000000000000..fabc9ae64128
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/rseq_test/default.test
+@@ -0,0 +1 @@
++rseq_test
+diff --git a/tools/testing/selftests/kvm/tests/set_memory_region_test/default.test b/tools/testing/selftests/kvm/tests/set_memory_region_test/default.test
+new file mode 100644
+index 000000000000..c3f91720e105
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/set_memory_region_test/default.test
+@@ -0,0 +1 @@
++set_memory_region_test
+diff --git a/tools/testing/selftests/kvm/tests/steal_time/default.test b/tools/testing/selftests/kvm/tests/steal_time/default.test
+new file mode 100644
+index 000000000000..5f3e20693d58
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/steal_time/default.test
+@@ -0,0 +1 @@
++steal_time
+diff --git a/tools/testing/selftests/kvm/tests/system_counter_offset_test/default.test b/tools/testing/selftests/kvm/tests/system_counter_offset_test/default.test
+new file mode 100644
+index 000000000000..4d76b9f44147
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/system_counter_offset_test/default.test
+@@ -0,0 +1 @@
++system_counter_offset_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/amx_test/default.test b/tools/testing/selftests/kvm/tests/x86/amx_test/default.test
+new file mode 100644
+index 000000000000..423ce501efee
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/amx_test/default.test
+@@ -0,0 +1 @@
++x86/amx_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/apic_bus_clock_test/default.test b/tools/testing/selftests/kvm/tests/x86/apic_bus_clock_test/default.test
+new file mode 100644
+index 000000000000..e985ff8520f5
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/apic_bus_clock_test/default.test
+@@ -0,0 +1 @@
++x86/apic_bus_clock_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/cpuid_test/default.test b/tools/testing/selftests/kvm/tests/x86/cpuid_test/default.test
+new file mode 100644
+index 000000000000..d2b2a48b25af
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/cpuid_test/default.test
+@@ -0,0 +1 @@
++x86/cpuid_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/cr4_cpuid_sync_test/default.test b/tools/testing/selftests/kvm/tests/x86/cr4_cpuid_sync_test/default.test
+new file mode 100644
+index 000000000000..0d8e182cd2ca
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/cr4_cpuid_sync_test/default.test
+@@ -0,0 +1 @@
++x86/cr4_cpuid_sync_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/debug_regs/default.test b/tools/testing/selftests/kvm/tests/x86/debug_regs/default.test
+new file mode 100644
+index 000000000000..440eeb9ab33d
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/debug_regs/default.test
+@@ -0,0 +1 @@
++x86/debug_regs
+diff --git a/tools/testing/selftests/kvm/tests/x86/dirty_log_page_splitting_test/default.test b/tools/testing/selftests/kvm/tests/x86/dirty_log_page_splitting_test/default.test
+new file mode 100644
+index 000000000000..71e98eb3103c
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/dirty_log_page_splitting_test/default.test
+@@ -0,0 +1 @@
++x86/dirty_log_page_splitting_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/exit_on_emulation_failure_test/default.test b/tools/testing/selftests/kvm/tests/x86/exit_on_emulation_failure_test/default.test
+new file mode 100644
+index 000000000000..351242070720
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/exit_on_emulation_failure_test/default.test
+@@ -0,0 +1 @@
++x86/exit_on_emulation_failure_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/fastops_test/default.test b/tools/testing/selftests/kvm/tests/x86/fastops_test/default.test
+new file mode 100644
+index 000000000000..d51c860be0d9
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/fastops_test/default.test
+@@ -0,0 +1 @@
++x86/fastops_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/feature_msrs_test/default.test b/tools/testing/selftests/kvm/tests/x86/feature_msrs_test/default.test
+new file mode 100644
+index 000000000000..57d867b6b94c
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/feature_msrs_test/default.test
+@@ -0,0 +1 @@
++x86/feature_msrs_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/fix_hypercall_test/default.test b/tools/testing/selftests/kvm/tests/x86/fix_hypercall_test/default.test
+new file mode 100644
+index 000000000000..f95e114d8241
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/fix_hypercall_test/default.test
+@@ -0,0 +1 @@
++x86/fix_hypercall_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/hwcr_msr_test/default.test b/tools/testing/selftests/kvm/tests/x86/hwcr_msr_test/default.test
+new file mode 100644
+index 000000000000..4a957c09db6b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hwcr_msr_test/default.test
+@@ -0,0 +1 @@
++x86/hwcr_msr_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_clock/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_clock/default.test
+new file mode 100644
+index 000000000000..a3ff8a689773
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_clock/default.test
+@@ -0,0 +1 @@
++x86/hyperv_clock
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_cpuid/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_cpuid/default.test
+new file mode 100644
+index 000000000000..66b0d85430eb
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_cpuid/default.test
+@@ -0,0 +1 @@
++x86/hyperv_cpuid
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_evmcs/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_evmcs/default.test
+new file mode 100644
+index 000000000000..aa34233db0c1
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_evmcs/default.test
+@@ -0,0 +1 @@
++x86/hyperv_evmcs
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_extended_hypercalls/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_extended_hypercalls/default.test
+new file mode 100644
+index 000000000000..4fdfc3714d54
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_extended_hypercalls/default.test
+@@ -0,0 +1 @@
++x86/hyperv_extended_hypercalls
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_features/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_features/default.test
+new file mode 100644
+index 000000000000..dc486adbe756
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_features/default.test
+@@ -0,0 +1 @@
++x86/hyperv_features
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_ipi/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_ipi/default.test
+new file mode 100644
+index 000000000000..b21cc166efdb
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_ipi/default.test
+@@ -0,0 +1 @@
++x86/hyperv_ipi
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_svm_test/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_svm_test/default.test
+new file mode 100644
+index 000000000000..0e973fbf7e5a
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_svm_test/default.test
+@@ -0,0 +1 @@
++x86/hyperv_svm_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/hyperv_tlb_flush/default.test b/tools/testing/selftests/kvm/tests/x86/hyperv_tlb_flush/default.test
+new file mode 100644
+index 000000000000..bcbd02d50d68
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/hyperv_tlb_flush/default.test
+@@ -0,0 +1 @@
++x86/hyperv_tlb_flush
+diff --git a/tools/testing/selftests/kvm/tests/x86/kvm_buslock_test/default.test b/tools/testing/selftests/kvm/tests/x86/kvm_buslock_test/default.test
+new file mode 100644
+index 000000000000..b9e46fc3ecb8
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/kvm_buslock_test/default.test
+@@ -0,0 +1 @@
++x86/kvm_buslock_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/kvm_clock_test/default.test b/tools/testing/selftests/kvm/tests/x86/kvm_clock_test/default.test
+new file mode 100644
+index 000000000000..434a1c13d9e6
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/kvm_clock_test/default.test
+@@ -0,0 +1 @@
++x86/kvm_clock_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/kvm_pv_test/default.test b/tools/testing/selftests/kvm/tests/x86/kvm_pv_test/default.test
+new file mode 100644
+index 000000000000..c785934d98a8
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/kvm_pv_test/default.test
+@@ -0,0 +1 @@
++x86/kvm_pv_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/max_vcpuid_cap_test/default.test b/tools/testing/selftests/kvm/tests/x86/max_vcpuid_cap_test/default.test
+new file mode 100644
+index 000000000000..3b36b5dcbbb3
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/max_vcpuid_cap_test/default.test
+@@ -0,0 +1 @@
++x86/max_vcpuid_cap_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/monitor_mwait_test/default.test b/tools/testing/selftests/kvm/tests/x86/monitor_mwait_test/default.test
+new file mode 100644
+index 000000000000..ec31250b319a
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/monitor_mwait_test/default.test
+@@ -0,0 +1 @@
++x86/monitor_mwait_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/nested_emulation_test/default.test b/tools/testing/selftests/kvm/tests/x86/nested_emulation_test/default.test
+new file mode 100644
+index 000000000000..68262f28e738
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/nested_emulation_test/default.test
+@@ -0,0 +1 @@
++x86/nested_emulation_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/nested_exceptions_test/default.test b/tools/testing/selftests/kvm/tests/x86/nested_exceptions_test/default.test
+new file mode 100644
+index 000000000000..1361448740dd
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/nested_exceptions_test/default.test
+@@ -0,0 +1 @@
++x86/nested_exceptions_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/nx_huge_pages_test/default.test b/tools/testing/selftests/kvm/tests/x86/nx_huge_pages_test/default.test
+new file mode 100644
+index 000000000000..5229d1f85e2f
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/nx_huge_pages_test/default.test
+@@ -0,0 +1 @@
++x86/nx_huge_pages_test.sh
+diff --git a/tools/testing/selftests/kvm/tests/x86/platform_info_test/default.test b/tools/testing/selftests/kvm/tests/x86/platform_info_test/default.test
+new file mode 100644
+index 000000000000..2fe74d5d32bd
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/platform_info_test/default.test
+@@ -0,0 +1 @@
++x86/platform_info_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/pmu_counters_test/default.test b/tools/testing/selftests/kvm/tests/x86/pmu_counters_test/default.test
+new file mode 100644
+index 000000000000..c94201dbdfb3
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/pmu_counters_test/default.test
+@@ -0,0 +1 @@
++x86/pmu_counters_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/pmu_event_filter_test/default.test b/tools/testing/selftests/kvm/tests/x86/pmu_event_filter_test/default.test
+new file mode 100644
+index 000000000000..c64ec1b8fba4
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/pmu_event_filter_test/default.test
+@@ -0,0 +1 @@
++x86/pmu_event_filter_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/private_mem_conversions_test/default.test b/tools/testing/selftests/kvm/tests/x86/private_mem_conversions_test/default.test
+new file mode 100644
+index 000000000000..933293725304
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/private_mem_conversions_test/default.test
+@@ -0,0 +1 @@
++x86/private_mem_conversions_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/private_mem_kvm_exits_test/default.test b/tools/testing/selftests/kvm/tests/x86/private_mem_kvm_exits_test/default.test
+new file mode 100644
+index 000000000000..a2dd9876cb54
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/private_mem_kvm_exits_test/default.test
+@@ -0,0 +1 @@
++x86/private_mem_kvm_exits_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/recalc_apic_map_test/default.test b/tools/testing/selftests/kvm/tests/x86/recalc_apic_map_test/default.test
+new file mode 100644
+index 000000000000..bc01f48e2c3e
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/recalc_apic_map_test/default.test
+@@ -0,0 +1 @@
++x86/recalc_apic_map_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/set_boot_cpu_id/default.test b/tools/testing/selftests/kvm/tests/x86/set_boot_cpu_id/default.test
+new file mode 100644
+index 000000000000..79ff27988952
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/set_boot_cpu_id/default.test
+@@ -0,0 +1 @@
++x86/set_boot_cpu_id
+diff --git a/tools/testing/selftests/kvm/tests/x86/set_sregs_test/default.test b/tools/testing/selftests/kvm/tests/x86/set_sregs_test/default.test
+new file mode 100644
+index 000000000000..fc02c20dda19
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/set_sregs_test/default.test
+@@ -0,0 +1 @@
++x86/set_sregs_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/sev_init2_tests/default.test b/tools/testing/selftests/kvm/tests/x86/sev_init2_tests/default.test
+new file mode 100644
+index 000000000000..9d839dba35c1
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/sev_init2_tests/default.test
+@@ -0,0 +1 @@
++x86/sev_init2_tests
+diff --git a/tools/testing/selftests/kvm/tests/x86/sev_migrate_tests/default.test b/tools/testing/selftests/kvm/tests/x86/sev_migrate_tests/default.test
+new file mode 100644
+index 000000000000..f0579e499629
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/sev_migrate_tests/default.test
+@@ -0,0 +1 @@
++x86/sev_migrate_tests
+diff --git a/tools/testing/selftests/kvm/tests/x86/sev_smoke_test/default.test b/tools/testing/selftests/kvm/tests/x86/sev_smoke_test/default.test
+new file mode 100644
+index 000000000000..2550f6eff2d6
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/sev_smoke_test/default.test
+@@ -0,0 +1 @@
++x86/sev_smoke_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/smaller_maxphyaddr_emulation_test/default.test b/tools/testing/selftests/kvm/tests/x86/smaller_maxphyaddr_emulation_test/default.test
+new file mode 100644
+index 000000000000..1382d34b4863
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/smaller_maxphyaddr_emulation_test/default.test
+@@ -0,0 +1 @@
++x86/smaller_maxphyaddr_emulation_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/smm_test/default.test b/tools/testing/selftests/kvm/tests/x86/smm_test/default.test
+new file mode 100644
+index 000000000000..4437978a3e77
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/smm_test/default.test
+@@ -0,0 +1 @@
++x86/smm_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/state_test/default.test b/tools/testing/selftests/kvm/tests/x86/state_test/default.test
+new file mode 100644
+index 000000000000..9f222c727d7f
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/state_test/default.test
+@@ -0,0 +1 @@
++x86/state_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/svm_int_ctl_test/default.test b/tools/testing/selftests/kvm/tests/x86/svm_int_ctl_test/default.test
+new file mode 100644
+index 000000000000..51fe44a36633
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/svm_int_ctl_test/default.test
+@@ -0,0 +1 @@
++x86/svm_int_ctl_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/svm_nested_shutdown_test/default.test b/tools/testing/selftests/kvm/tests/x86/svm_nested_shutdown_test/default.test
+new file mode 100644
+index 000000000000..642895b3cb5b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/svm_nested_shutdown_test/default.test
+@@ -0,0 +1 @@
++x86/svm_nested_shutdown_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/svm_nested_soft_inject_test/default.test b/tools/testing/selftests/kvm/tests/x86/svm_nested_soft_inject_test/default.test
+new file mode 100644
+index 000000000000..6947cbcb1da5
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/svm_nested_soft_inject_test/default.test
+@@ -0,0 +1 @@
++x86/svm_nested_soft_inject_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/svm_vmcall_test/default.test b/tools/testing/selftests/kvm/tests/x86/svm_vmcall_test/default.test
+new file mode 100644
+index 000000000000..68f22e39b1d6
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/svm_vmcall_test/default.test
+@@ -0,0 +1 @@
++x86/svm_vmcall_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/sync_regs_test/default.test b/tools/testing/selftests/kvm/tests/x86/sync_regs_test/default.test
+new file mode 100644
+index 000000000000..1c88e7df625a
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/sync_regs_test/default.test
+@@ -0,0 +1 @@
++x86/sync_regs_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/triple_fault_event_test/default.test b/tools/testing/selftests/kvm/tests/x86/triple_fault_event_test/default.test
+new file mode 100644
+index 000000000000..868d1d396abd
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/triple_fault_event_test/default.test
+@@ -0,0 +1 @@
++x86/triple_fault_event_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/tsc_msrs_test/default.test b/tools/testing/selftests/kvm/tests/x86/tsc_msrs_test/default.test
+new file mode 100644
+index 000000000000..b9e8ce298fe8
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/tsc_msrs_test/default.test
+@@ -0,0 +1 @@
++x86/tsc_msrs_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/tsc_scaling_sync/default.test b/tools/testing/selftests/kvm/tests/x86/tsc_scaling_sync/default.test
+new file mode 100644
+index 000000000000..92dbcfdab5d0
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/tsc_scaling_sync/default.test
+@@ -0,0 +1 @@
++x86/tsc_scaling_sync
+diff --git a/tools/testing/selftests/kvm/tests/x86/ucna_injection_test/default.test b/tools/testing/selftests/kvm/tests/x86/ucna_injection_test/default.test
+new file mode 100644
+index 000000000000..135561c81334
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/ucna_injection_test/default.test
+@@ -0,0 +1 @@
++x86/ucna_injection_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/userspace_io_test/default.test b/tools/testing/selftests/kvm/tests/x86/userspace_io_test/default.test
+new file mode 100644
+index 000000000000..9584eb38ca61
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/userspace_io_test/default.test
+@@ -0,0 +1 @@
++x86/userspace_io_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/userspace_msr_exit_test/default.test b/tools/testing/selftests/kvm/tests/x86/userspace_msr_exit_test/default.test
+new file mode 100644
+index 000000000000..a2bbdd1a2469
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/userspace_msr_exit_test/default.test
+@@ -0,0 +1 @@
++x86/userspace_msr_exit_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_apic_access_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_apic_access_test/default.test
+new file mode 100644
+index 000000000000..561e8b72a074
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_apic_access_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_apic_access_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_close_while_nested_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_close_while_nested_test/default.test
+new file mode 100644
+index 000000000000..fca3eaff03d4
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_close_while_nested_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_close_while_nested_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_dirty_log_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_dirty_log_test/default.test
+new file mode 100644
+index 000000000000..0332d8fbfec4
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_dirty_log_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_dirty_log_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_exception_with_invalid_guest_state/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_exception_with_invalid_guest_state/default.test
+new file mode 100644
+index 000000000000..8d89b505f680
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_exception_with_invalid_guest_state/default.test
+@@ -0,0 +1 @@
++x86/vmx_exception_with_invalid_guest_state
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_invalid_nested_guest_state/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_invalid_nested_guest_state/default.test
+new file mode 100644
+index 000000000000..df2df912448b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_invalid_nested_guest_state/default.test
+@@ -0,0 +1 @@
++x86/vmx_invalid_nested_guest_state
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_msrs_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_msrs_test/default.test
+new file mode 100644
+index 000000000000..677b1bdda6af
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_msrs_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_msrs_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_nested_tsc_scaling_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_nested_tsc_scaling_test/default.test
+new file mode 100644
+index 000000000000..c8400ea69265
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_nested_tsc_scaling_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_nested_tsc_scaling_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_pmu_caps_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_pmu_caps_test/default.test
+new file mode 100644
+index 000000000000..a641daa14081
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_pmu_caps_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_pmu_caps_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_preemption_timer_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_preemption_timer_test/default.test
+new file mode 100644
+index 000000000000..aba7235296f4
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_preemption_timer_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_preemption_timer_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_set_nested_state_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_set_nested_state_test/default.test
+new file mode 100644
+index 000000000000..4ee968527e4a
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_set_nested_state_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_set_nested_state_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/vmx_tsc_adjust_test/default.test b/tools/testing/selftests/kvm/tests/x86/vmx_tsc_adjust_test/default.test
+new file mode 100644
+index 000000000000..10c93b9145e7
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/vmx_tsc_adjust_test/default.test
+@@ -0,0 +1 @@
++x86/vmx_tsc_adjust_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/xapic_ipi_test/default.test b/tools/testing/selftests/kvm/tests/x86/xapic_ipi_test/default.test
+new file mode 100644
+index 000000000000..e1b4250bc93b
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/xapic_ipi_test/default.test
+@@ -0,0 +1 @@
++x86/xapic_ipi_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/xapic_state_test/default.test b/tools/testing/selftests/kvm/tests/x86/xapic_state_test/default.test
+new file mode 100644
+index 000000000000..e700e34638b1
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/xapic_state_test/default.test
+@@ -0,0 +1 @@
++x86/xapic_state_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/xcr0_cpuid_test/default.test b/tools/testing/selftests/kvm/tests/x86/xcr0_cpuid_test/default.test
+new file mode 100644
+index 000000000000..fd8909f37682
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/xcr0_cpuid_test/default.test
+@@ -0,0 +1 @@
++x86/xcr0_cpuid_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/xen_shinfo_test/default.test b/tools/testing/selftests/kvm/tests/x86/xen_shinfo_test/default.test
+new file mode 100644
+index 000000000000..b948bbaed045
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/xen_shinfo_test/default.test
+@@ -0,0 +1 @@
++x86/xen_shinfo_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/xen_vmcall_test/default.test b/tools/testing/selftests/kvm/tests/x86/xen_vmcall_test/default.test
+new file mode 100644
+index 000000000000..63b943d0544c
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/xen_vmcall_test/default.test
+@@ -0,0 +1 @@
++x86/xen_vmcall_test
+diff --git a/tools/testing/selftests/kvm/tests/x86/xss_msr_test/default.test b/tools/testing/selftests/kvm/tests/x86/xss_msr_test/default.test
+new file mode 100644
+index 000000000000..f8322c6d0117
+--- /dev/null
++++ b/tools/testing/selftests/kvm/tests/x86/xss_msr_test/default.test
+@@ -0,0 +1 @@
++x86/xss_msr_test
 -- 
 2.50.0.rc0.604.gd4ff7b7c86-goog
 
