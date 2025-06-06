@@ -4,102 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FA2C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 09:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5D1C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 09:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zY1UJXwwdXuV/sjsPfipNC1p4dsxIugLMJFfrvt+Ih0=; b=KpUCCYEPJi8oFZQdcasXTtOksC
-	3eGGTTaxIvrb9O3MGEgB1zGd0uf+8g9c29VgIQIaqexeTzoQem0X9YoSoGtn1ZhtoBXpE680b4fkO
-	82xMJsRR11bckg+s+XjU7IbUabfOIlLwy6xAS20qRfJw1hUTvxh5SaoW3p8HYa+aFY6JHovt8syT5
-	BUB7eSxaO+Jm88xFo8ulFJxcoikeaBSOv2x2B74Ht5OLa3qhpFFQ2FiOeAdkfgcU+NDRdU6dZf9Gm
-	GpS0Av/zTvOKYyoyM10+u2spEojYzQz9C7+MvBNv2XvQP1TE0wjR2HFBYQtuOqMM9dSX2hUqJAd6S
-	K4Sd5EqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wc+ifX+7O38yry593NEDWvp79xQMU3g4ALAygrP5+5k=; b=tUMP4PiU8sFxn56n9dWBeRBbtM
+	s5Mcfm/vWDsULoczXd6m3GFIFoR8BCRXmY+b1lR7N5SKmbo0TCLjsy259eIniHzBSY3ooqXkr/7J7
+	0NmdMSKzJmvbm6uOMwODoB7+36LyfWQ82j8FGDIGewaXbUaMKdyO3BJC6RysoICG6R0m1VP4oQCNP
+	FV8wgHl32mbTyc16ysCyxLAunmQVAw6IgnjsBWpwfm/joggxOjIzxnKIZwl7PkKERJl386tnHAl62
+	2y1atAtbQN7I7ND4m3ceG6aLryNi26upCCbDkB6kBgC+31CuhFpFI/ZKOboBzmS2WhWciuFRoHQzc
+	FwVmqz9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNT6F-0000000HUZ7-1CzK;
-	Fri, 06 Jun 2025 09:10:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uNT9p-0000000HV4P-12NN;
+	Fri, 06 Jun 2025 09:14:37 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNT3c-0000000HUIE-42hh
+	id 1uNT7i-0000000HUnd-1Bfk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 09:08:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749200890;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=zY1UJXwwdXuV/sjsPfipNC1p4dsxIugLMJFfrvt+Ih0=;
-	b=e6XJqSIHD1siUHi5vyTM+HysXJkvF3BolSVY63rvVC4ENOCeUkqnaWcMcgbOp74X1w43tO
-	qdZwzfYno96B2sCjaVrZHQZoSx6euXuEF+OQMBRk0wjwqBS5Ula65QbcMs9CXbenugWzK/
-	ufPDwpKkoEhrcs9YSmI5xvDYp7eJKe4=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-184-ysLb5-APObSWUlmR6RCSrQ-1; Fri, 06 Jun 2025 05:08:09 -0400
-X-MC-Unique: ysLb5-APObSWUlmR6RCSrQ-1
-X-Mimecast-MFC-AGG-ID: ysLb5-APObSWUlmR6RCSrQ_1749200888
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-451e24dfe1dso15132435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 02:08:08 -0700 (PDT)
+	Fri, 06 Jun 2025 09:12:27 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-addda47ebeaso367306266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 02:12:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1749201144; x=1749805944; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Wc+ifX+7O38yry593NEDWvp79xQMU3g4ALAygrP5+5k=;
+        b=hxf5edsbArza+DZ1IEAjtDvCAa4KPXstSNn8B9mEtPRZVUgwF9q+naCD45ly4xABWQ
+         EkDsaQDhpY41lF1ihXpPT1m0ZhBuOYZd5S65+WXRTHXTT3vs0C3DphhQQgjWrVY3EfqE
+         CC1l2FEF+qGxKjUn4onUTbaeL7gSZMqOGqFpusOw7BALlwX1AmvFaWogI/nOeq8lZLr1
+         4Y1LW/zX65c9fC++d0fcp8cDfrJ83E+ZL5OTRRMEdv4zItVeFfKOVpPMUBTT0C42eoGx
+         aitfUWp7mueLySOI/2I1DegiXu7JyJLuPKvXT4Lu2nsTeLKIBv/bsNl8gxqg1MriDVwj
+         Pemg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749200888; x=1749805688;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zY1UJXwwdXuV/sjsPfipNC1p4dsxIugLMJFfrvt+Ih0=;
-        b=H4l9PFHrBOdUeYDYsXJnguJDvs12RkFNpfG9E47RL17Zu/96D1OSvbWkvlYoH18XfN
-         Y8VHtK/F1xjTzh512wOntJwlLu+0RRGgFVf57rDl1nw70fcoLdeNMbo+BFHLWN9zOKoO
-         y4NAB82pbXV5e+tm1mJ0SSCYP8cW6cGhrZL6EE29njYoQgaoyWQq4yk9wqnuROYmTNMB
-         Hyzdy1qYVsIYqjNHfXcF4w3WKmW3tp5jATnMGZUfNo07FaUbUIK8l3ama5k579BI/smU
-         67t2j2oc9KDYy3QYwf7oB9m7yc4ZA+wRWtCzMiHHjWRyEOmeqzbslC+LjHomRQjxRUyf
-         HE4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUezxDMISwcBXYN53oHZFOx03vFsy0VAocsUBwOtQzm8rFUoOnPgzlYUYsO5MISXlAxlaEpVt6oTFgp2fBphXnF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzg4BR5YolxMR1QeMmyi9CvaUeaDdY+zvyNkz1AgV1MQGyZWFiy
-	332TOi/WkfwsqKL/ekcr1FPTF4sOad1LPOiW8bg4x1t/ojTPHaDGvdZvBw6JthqOYzuVn9VCH33
-	itanS+/s5nmrHEAbSotuLrLRhm4qS28PDZmFJIh5fq3c/NWrCGES0fqkTINqAAKb5A4mblQfIei
-	sz
-X-Gm-Gg: ASbGnctIli44Z86hRxnqjgRzf8+IDn6RNOnKuzcnQH2gYVBYYYtsNOrfc3mJlQXoW4X
-	Ko5vUkvGRypipPL4jzWgWW2S+N79+/kXTy6qELeWTL3os7OvoI1VjjypJFXgPxzUsFsCJWuo0+6
-	xjsRvbqk6umiweF6fPGDbJrw7l8C35enKCGvdSIOyLjvvSTk1d/1Pj1KgmIwyqZH8x+zrW6Di8k
-	PLD7NQirzxc4AY4TNLuYZciVmqtmbN7moVHSU2RZRDr6NYPl8V9oVD1TLFlfPC6egqF4soB4iCy
-	akOzspy0fhJ/ahSV+IkSOtb/FzNhbxKrqLfMbpiMbADSw/V+rAfqMDSVIf5UCbE8A5t2
-X-Received: by 2002:a05:600c:b86:b0:450:cd25:e68f with SMTP id 5b1f17b1804b1-452014e9325mr24877545e9.27.1749200887751;
-        Fri, 06 Jun 2025 02:08:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGFgCfJhv5D4WKiJLVPtf7WFxx5mFScPGVIDDWdSB4TB7uCI+iacBtSoT4d2UV7tlwIeLe0gg==
-X-Received: by 2002:a05:600c:b86:b0:450:cd25:e68f with SMTP id 5b1f17b1804b1-452014e9325mr24877175e9.27.1749200887316;
-        Fri, 06 Jun 2025 02:08:07 -0700 (PDT)
-Received: from lbulwahn-thinkpadx1carbongen9.rmtde.csb ([2a02:810d:7e01:ef00:b52:2ad9:f357:f709])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-452137290b9sm17000835e9.34.2025.06.06.02.08.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Jun 2025 02:08:06 -0700 (PDT)
-From: Lukas Bulwahn <lbulwahn@redhat.com>
-X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org
-Cc: Javier Martinez Canillas <javierm@redhat.com>,
-	kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lukas Bulwahn <lukas.bulwahn@redhat.com>
-Subject: [PATCH] pmdomain: arm: scmi_pm_domain: remove code clutter
-Date: Fri,  6 Jun 2025 11:08:02 +0200
-Message-ID: <20250606090802.597504-1-lukas.bulwahn@redhat.com>
-X-Mailer: git-send-email 2.49.0
+        d=1e100.net; s=20230601; t=1749201144; x=1749805944;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wc+ifX+7O38yry593NEDWvp79xQMU3g4ALAygrP5+5k=;
+        b=IgGR74RZfcHKwK6LmB7O7KietOBs5IgYXgdOtpTnFFwfD0tGAViebjLUOROauQAwzA
+         jEdXL/+YrBgNpmZ50+rjOwxhaRsSabR6rT3O+CLvOsYpVFACkdSuafBBjwl3ANn7j3LU
+         EPRSDI51jxmsrn11p64fm/Cr/W59rt4PgPqiamh8JE64hiyQmvICeQTWso5NlT9+NOhO
+         t/RA4dgxd0sn+l65XEtpSDlAm0xNaS00j8RsFCT7xkOmKPv0XeRkCeF4qnLweROqTkno
+         TulLAacfnbFM8lD3J0K+tf5eE3johJ72fajxHsx/UQtyQ7tzufqEi3J/KJgkW1UzW/Nx
+         uN+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVw0MYF8czF0N3ItAw6vkaa1hwW/S7TUH55B39Mg5iYOSJtRBxI84sOzVEY9ujMqcCgSJ4hCps9u4O8pObAhpxp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4tYCJHgfF77QMwgqQ5vIKOLfwFanp6vxhLiMN/Oaf9ql8gMN/
+	reERZqznv0LksDkPgMVAXTkgLgoBuC6olFDvwMxE7E6x9fuQG7ThlKjEQeDoqPMsk+c=
+X-Gm-Gg: ASbGncsbNpJ/T2W9/HQo8DhYPth5w6aqD4ykE16mTZo3zggwi7IM3Et9NyZuF0y5bFw
+	3m+YSy/1MJhNBlMIKlZTd6tPhLPBFPH3klhfukh/fOkGd/tPm4H9yhdCV9aTmhrOzzm0nj0HB8M
+	Ds9DMQMx1Sg6ehg1nVKeVuRvRZaySoa49OZU3ID4AhNGINtrfq2vsNE9DQAzW2jNuoyDoYMO8mj
+	C2Dson1bacnBD9pBFqshsxgNArku4J0oZX6vuIDlOHUWg4uqT2f78N18Fq6avsuAWR12j62nR2s
+	rL2RIXZUsf2Gggo4GC5k02+eyvgPf1/us5w/NLWitB0ZSmpKAVN0/w82PfjD
+X-Google-Smtp-Source: AGHT+IEjDHiLE7sMo+a12s7VFlD8SjfCEiBfxxMF3QVGmJjKfSvQI7x7ZEGc6pDRlowYGNhvaszk6A==
+X-Received: by 2002:a17:907:bb49:b0:adb:428f:f748 with SMTP id a640c23a62f3a-ade1aa06c95mr206620466b.21.1749201143788;
+        Fri, 06 Jun 2025 02:12:23 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.126])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1dc7d300sm85900566b.179.2025.06.06.02.12.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Jun 2025 02:12:23 -0700 (PDT)
+Message-ID: <53921bd9-6ac9-49fb-8c9d-2c439ec8cd5b@tuxon.dev>
+Date: Fri, 6 Jun 2025 12:12:21 +0300
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: yvk-QilnLEimbLKrkg6p66IR9BZAVgxvrp6zX7vxfcg_1749200888
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/8] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+ manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
+ mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
+ linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ john.madieu.xa@bp.renesas.com,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250605225730.GA625963@bhelgaas>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <20250605225730.GA625963@bhelgaas>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_020813_072834_BC5E7632 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20250606_021226_415988_B9449B39 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,55 +107,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Hi, Bjorn,
 
-There is no need to introduce the boolean power_on to select the constant
-value for state. Simply pass the value for state as argument. Just remove
-this code clutter.
+On 06.06.2025 01:57, Bjorn Helgaas wrote:
+> On Fri, May 30, 2025 at 02:19:13PM +0300, Claudiu wrote:
+>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>
+>> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+>> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+>> only as a root complex, with a single-lane (x1) configuration. The
+>> controller includes Type 1 configuration registers, as well as IP
+>> specific registers (called AXI registers) required for various adjustments.
+> 
+>> +/* Timeouts */
+>> +#define RZG3S_REQ_ISSUE_TIMEOUT_US		2500
+>> +#define RZG3S_LTSSM_STATE_TIMEOUT_US		1000
+>> +#define RZG3S_LS_CHANGE_TIMEOUT_US		1000
+>> +#define RZG3S_LINK_UP_TIMEOUT_US		500000
+> 
+> Are any of these timeouts related to values in the PCIe spec?  If so,
+> use #defines from drivers/pci/pci.h, or add a new one if needed.
+> 
+> If they come from the RZ/G3S spec, can you include citations?
 
-No functional change.
+The values here were retrieved by experimenting. They are not present in
+RZ/G3S specification. I'll look though the header you pointed and use any
+defines if they match.
 
-Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
----
- drivers/pmdomain/arm/scmi_pm_domain.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+> 
+>> +static int rzg3s_pcie_host_init(struct rzg3s_pcie_host *host, bool probe)
+>> +{
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	/* Initialize the PCIe related registers */
+>> +	ret = rzg3s_pcie_config_init(host);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* Initialize the interrupts */
+>> +	rzg3s_pcie_irq_init(host);
+>> +
+>> +	ret = reset_control_bulk_deassert(host->data->num_cfg_resets,
+>> +					  host->cfg_resets);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* Wait for link up */
+>> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, val,
+>> +				 !(val & RZG3S_PCI_PCSTAT1_DL_DOWN_STS), 5000,
+>> +				 RZG3S_LINK_UP_TIMEOUT_US);
+> 
+> Where do we wait for PCIE_T_RRS_READY_MS before pci_host_probe()
+> starts issuing config requests to enumerate devices?
 
-diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
-index 2a213c218126..8fe1c0a501c9 100644
---- a/drivers/pmdomain/arm/scmi_pm_domain.c
-+++ b/drivers/pmdomain/arm/scmi_pm_domain.c
-@@ -22,27 +22,21 @@ struct scmi_pm_domain {
- 
- #define to_scmi_pd(gpd) container_of(gpd, struct scmi_pm_domain, genpd)
- 
--static int scmi_pd_power(struct generic_pm_domain *domain, bool power_on)
-+static int scmi_pd_power(struct generic_pm_domain *domain, u32 state)
- {
--	u32 state;
- 	struct scmi_pm_domain *pd = to_scmi_pd(domain);
- 
--	if (power_on)
--		state = SCMI_POWER_STATE_GENERIC_ON;
--	else
--		state = SCMI_POWER_STATE_GENERIC_OFF;
--
- 	return power_ops->state_set(pd->ph, pd->domain, state);
- }
- 
- static int scmi_pd_power_on(struct generic_pm_domain *domain)
- {
--	return scmi_pd_power(domain, true);
-+	return scmi_pd_power(domain, SCMI_POWER_STATE_GENERIC_ON);
- }
- 
- static int scmi_pd_power_off(struct generic_pm_domain *domain)
- {
--	return scmi_pd_power(domain, false);
-+	return scmi_pd_power(domain, SCMI_POWER_STATE_GENERIC_OFF);
- }
- 
- static int scmi_pm_domain_probe(struct scmi_device *sdev)
--- 
-2.49.0
+I missed adding it as RZ/G3S manual don't mention this delay.
 
+> 
+>> +	if (ret) {
+>> +		reset_control_bulk_assert(host->data->num_cfg_resets,
+>> +					  host->cfg_resets);
+>> +		return ret;
+>> +	}
+>> +
+>> +	val = readl(host->axi + RZG3S_PCI_PCSTAT2);
+>> +	dev_info(host->dev, "PCIe link status [0x%x]\n", val);
+>> +
+>> +	val = FIELD_GET(RZG3S_PCI_PCSTAT2_STATE_RX_DETECT, val);
+>> +	dev_info(host->dev, "PCIe x%d: link up\n", hweight32(val));
+>> +
+>> +	if (probe) {
+>> +		ret = devm_add_action_or_reset(host->dev,
+>> +					       rzg3s_pcie_cfg_resets_action,
+>> +					       host);
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+> 
+>> +		 * According to the RZ/G3S HW manual (Rev.1.10, section
+>> +		 * 34.3.1.71 AXI Window Mask (Lower) Registers) HW expects first
+>> +		 * 12 LSB bits to be 0xfff. Extract 1 from size for this.
+> 
+> s/Extract/Subtract/
+
+OK.
+
+Thank you for your review,
+Claudiu
 
