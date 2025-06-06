@@ -4,191 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 693B3C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81510C5B559
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jj+2RbZthBBqCc/VyY6kJCF9irffaBJjy0DOCj9k1+g=; b=jvPu2haWs4cQmRy/f321s/byYK
-	LHUOQECeZ9SeuT06VFW1/awAjsYshD4wc0F4F+m8pd3OMgwFuYAdBBwnIOcnBXKpkHAlaw+QjrXBk
-	83ZXcD/VlCcy9ww94TY/AEKeWEPIpeY0vRanMxm2wV7fRHIAL5/KIMHuQLr3BLjXU+MxzhE/y/5Gi
-	We3uTMnOSA/JyQwTlD5FYI1OAumoCcbAEZShgiNSmHqNRz+elqu0qF2YttghRIOFIY+sP7a/qAJ+Y
-	I+WN53gr9zVs3K2r3qQe21sdRXN1JczWiR6rpVSa/JMg7uFgV7z82mgYYxpAqUsLH9jRb2E5uAWk4
-	xwVL0QFA==;
+	bh=MUm770nsjTk7RKaqGJXS/UXMbcC3CLIfXaIBHht8qoo=; b=lNE6atfPYSTisLl/r04dUbt4nV
+	50RgNqcf3KNBFzf5ajpceSeb8M3F8RbG9ELeKG2skVvhXH/b+g1ilVfwZAuDvYB1IwYK5duHx0Nhb
+	6MCaEadjaYnD+4bMMeFpJKyYR9lQSYJGnGs8fVPDsnPWlYRdiFhUpbLGmtVrMZ73rbOhrLbdxcqhm
+	kVliGJS51gq2aqj+fg42SGUAhYwtLwCvD0z9EBq7BfA8f89pkYh+a0VsOl7Kgi5iZFKLh+F88PF3V
+	4Z4Fy09/EVVpjfLtiY6BT3vu/uQq8d/s3jD0VQxjNcuYmbj2Q0jMB+kLu6MFhPQrU+W1MnRRSZDkR
+	56zHDm4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNTyO-000000000zz-2lXL;
-	Fri, 06 Jun 2025 10:06:52 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1uNUBD-00000000246-3kEA;
+	Fri, 06 Jun 2025 10:20:07 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNTv9-000000000fj-3p2d
+	id 1uNU96-000000001s0-0kiP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 10:03:33 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5565NG2O011382;
-	Fri, 6 Jun 2025 10:03:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=Jj+2RbZthBBqCc/VyY
-	6kJCF9irffaBJjy0DOCj9k1+g=; b=IpIAdLhIb8+ohlJlKZiZlkWUcURndbQeZ4
-	Rf8UtsffrHDpWATdrcHdY/JoAoTnQ8JD4eLluaFmDk/9KmaBwlKnXfd59pgv9qDh
-	zqfKEMopHyqHMPLkRz6nNRzVua1uFHll1CXMUqCggZ44Ik6dv4PeF+j97aYmjqd0
-	dUnX7QMe2EQ1Wb/jnX93YpIG5ai7eCvOjgy9iYUMvc2iMNBuI/ssNMyP/U2oo6al
-	kBX5xSrQroz80rm72S0EvsudsDoe9X6y0wfRKU9biff57J+NK/dmedQdSO91Jwne
-	zUd84YLfeks09MEFP30TSDP+P9q367het1rzW/V7zjDGuKtk5R7w==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 471gwhfk27-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 06 Jun 2025 10:03:19 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5568ZAVi030643;
-	Fri, 6 Jun 2025 10:03:17 GMT
-Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013015.outbound.protection.outlook.com [40.107.201.15])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 46yr7d44t7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 06 Jun 2025 10:03:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jgUHM5kTrok3j1fvFy+pXIgzrZC6gi+HUrwTpxiS0kpSYP2pq9RadkyGEo3RWytSjI0WS7wDSztdWhpYsf6JChJGZ16POCMlx9cfHXpj21LpGYnfD0u99y62QyB1xaEzn6aRZDfllF98evWiwdbAaPZuv2rq50NrPdX56fe8WmBy1CuIByk41FEZ03EDL0R6i2aFoct+F3dw0x+L8wQ91wUKHNC2QJ67BCQqrlPM3OZMZWzRmkOjPRh39qvud89vnmwzk3n2IJogs+x0HBOgh6Z01Ebyey9lTRB/Tn0Sw4327n18HuVb/euGcx/2yCTauYNkdqiKwPZQsIZgUm1uYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jj+2RbZthBBqCc/VyY6kJCF9irffaBJjy0DOCj9k1+g=;
- b=TAOHVk+9LuZVdhN7KDdmeo1x7FzH1oR/ew9qA5Wpfd/CdXU7Y+PQY8Ggs41kwNM8ktBlRXolL4vWyXB36sBqPF5cRouA+WHQsj+p/4GigUMaYaDsz/6XtlkLfRTO7DCQn87X336f/3UkfQ6EJ11AZ3VvjG9uKSpfGJqVI0RnpvBNI8KV3wQEA8DbQGzim9B38M79YWfyNRaxKl8esW/0K5qlOsGkHIux4swXrhfFdrPV5wnM/L/HIOAwd5u0XnZ9RBSgNRDkaV8JxiDMk/CEe4S4jgDTgBIsCl5MKVVs5H6D6CIAgXpn3Y1q46szbgJ0RmdK3pbVM9i6MPO4vcTTMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jj+2RbZthBBqCc/VyY6kJCF9irffaBJjy0DOCj9k1+g=;
- b=f4mIjhXgxerCO58+W6870WlMVN95oRYSpkQeG4YUAvqmapXc9ARAvB31bx+gNz65zqzO3kDtCvl3xXKVnKoSkKX9uu21DuIVwNEccU12pQ/jMlO/Nlsr50Ouf2rBk0T9BfXCaZ3KjCdDe4B2kbmHDfO7oNTySLmRhANl1vzbo5E=
-Received: from BL4PR10MB8229.namprd10.prod.outlook.com (2603:10b6:208:4e6::14)
- by SN4PR10MB5624.namprd10.prod.outlook.com (2603:10b6:806:20b::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Fri, 6 Jun
- 2025 10:03:01 +0000
-Received: from BL4PR10MB8229.namprd10.prod.outlook.com
- ([fe80::552b:16d2:af:c582]) by BL4PR10MB8229.namprd10.prod.outlook.com
- ([fe80::552b:16d2:af:c582%4]) with mapi id 15.20.8813.018; Fri, 6 Jun 2025
- 10:03:01 +0000
-Date: Fri, 6 Jun 2025 11:02:58 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, catalin.marinas@arm.com,
-        will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz,
-        rppt@kernel.org, surenb@google.com, mhocko@suse.com,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        suzuki.poulose@arm.com, steven.price@arm.com, gshan@redhat.com,
-        linux-arm-kernel@lists.infradead.org, Jann Horn <jannh@google.com>,
-        Yang Shi <yang@os.amperecomputing.com>,
-        Ryan Roberts <ryan.roberts@arm.com>
-Subject: Re: [PATCH 1/3] mm: Allow pagewalk without locks
-Message-ID: <0b2cf458-4e5f-4ab3-bdd5-82cec8f0aec7@lucifer.local>
-References: <20250530090407.19237-1-dev.jain@arm.com>
- <20250530090407.19237-2-dev.jain@arm.com>
- <6a60c052-9935-489e-a38e-1b03a1a79155@lucifer.local>
- <ecfed817-105d-487f-80ba-52965f926c1e@arm.com>
+	Fri, 06 Jun 2025 10:17:57 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5569HTgF012952
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 6 Jun 2025 10:17:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=MUm770nsjTk7RKaqGJXS/UXM
+	bcC3CLIfXaIBHht8qoo=; b=W/8NzpW0F9AfIenOSQKcaHAtJd6pwGHnLQ78YdyZ
+	VRa0/MQkCsHkOd05mCswdst64V2qpJjZbOf0Hqh3w1gjcq4siRG8fCEIn3blroMS
+	AkU6oTlRt+c8EZI67XOllofobWQ7GAizeV2l0rhhTYLVFLBgoR9AeS+wYaGtjIZs
+	GKv7HFBC3/J0UBIqyRIUkIwcTf9VnkN80hEc31kIUThXYYeJaXqWN7oUSgKMSGQG
+	V0VvQfcTJUMkssvLnMV5MO337dGkbpNd8wFQom6S+aZeqHf/JYdAaNeTDY8zq3mM
+	rofkJBm+IznBjcgn34id9RcF4n79GuZ8Thl6QmmicpyZaA==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47202whvt2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 10:17:55 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-234fedd3e51so19064405ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 03:17:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749205073; x=1749809873;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MUm770nsjTk7RKaqGJXS/UXMbcC3CLIfXaIBHht8qoo=;
+        b=e5ipRYHapGmp0kB+QpPKLoO2yWWAmhvZ24AFs042/Iqs4VMcWNQdfRvlGii6menmzX
+         k0GuCGPOlv2dKMHQdazBQc30PzZWJ9IyXcepEbUljlCqEtYodBAPJSJLhDOBubz0qmJ7
+         s9UqMOlUM1hHyk79SZl36Gy+qLNbVBbm8mvpyQhbeo5WHLvT1UJPpaZtfaY12XBrh8lA
+         Lqbin8hJxVS7zL+afpy210/aoxVp5/QR2zJfdiZZ41c4X/uM534fe2pims3pcVQgh+JS
+         kZKM/oMA08OH8bZre3mAhsgtdVgdxe+9iYISs6MsD3OZuidX+bpmZRewnkAZyH/LqkrX
+         VC3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXjeYUADeEe2YQ2PaYqfeIiOMf4PRiAGXRxaUnY+71rzYr4kXW8w7RmOQYqXF+mtEqaFqHTI10KL3hpbyIK2Scd@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLZeCMGNwr4uaZXPK7uId7b2O2PNBBocikmpWCzjfdoG2+q5uT
+	SN5jQk5NqzLXgpdAb6TiZL83YLKP2Ydby6NMUtY/ckqODgYCVrVeypf2UtGjqR0c+h8z1Lu/XRy
+	9N3A0JtnxXcJ84SM627mxNdyvpOFkTKMEJLIXQ+xwPv4dx0pSfcGkMlBikrrjveGpItCet5Q3kW
+	HmQe3WleVycAcCy/A=
+X-Gm-Gg: ASbGncvIJYl+9gHdVpL/uIF9/W9unuQ1FYuhTZ2LZBuMZugpNomvb8QJc+tTJ4YOxsi
+	AoeIwFY+6eAtQbVZhYcfqXIC6BQJQxseuxPFbiptxqvxkxibx6KD6ZDN/kcvG97f8RU78f1RQHF
+	TUdxuowc/Bgf/cLUca0IONrkJRWqNyWt66LuoOqSbQWDvtW9ZciEy9QX+x6ktXlJh5ibggopP4W
+	m1VVX3V5MsexTdZ4cQgYqj15J8Dq17vlqpMblume0YgWO2RRfLadQbnIQ9VBj5UaYEU4l9rPZAN
+	JWrBmaEg3k6xmMe/5Etj7WelxHnwyqrkGFtM/vftL0pDFg8Omdg+fEAtvr4=
+X-Received: by 2002:a17:902:e5cf:b0:234:d7b2:2ab4 with SMTP id d9443c01a7336-23601d038c2mr38586475ad.17.1749205073609;
+        Fri, 06 Jun 2025 03:17:53 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHWEq5utuN+xciTxdEM9oY6Q/JAcry9JQaMjmy2DyusLiUkQ5pFcrFEA1HGQcbYN9+4KF154A==
+X-Received: by 2002:a17:902:e5cf:b0:234:d7b2:2ab4 with SMTP id d9443c01a7336-23601d038c2mr38586135ad.17.1749205073233;
+        Fri, 06 Jun 2025 03:17:53 -0700 (PDT)
+Received: from hu-qianyu-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23603077e9dsm9466565ad.1.2025.06.06.03.17.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jun 2025 03:17:52 -0700 (PDT)
+Date: Fri, 6 Jun 2025 03:17:50 -0700
+From: Qiang Yu <qiang.yu@oss.qualcomm.com>
+To: Johan Hovold <johan@kernel.org>
+Cc: Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
+        will@kernel.org, linux-arm-kernel@lists.infradead.org,
+        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        vkoul@kernel.org, kishon@kernel.org, sfr@canb.auug.org.au,
+        linux-phy@lists.infradead.org, krishna.chundru@oss.qualcomm.com,
+        quic_vbadigan@quicinc.com, quic_mrana@quicinc.com,
+        quic_cang@quicinc.com, Johan Hovold <johan+linaro@kernel.org>,
+        Abel Vesa <abel.vesa@linaro.org>
+Subject: Re: [PATCH v4 5/5] phy: qcom: qmp-pcie: add x1e80100 qref supplies
+Message-ID: <aELATuLue/Vs8lHz@hu-qianyu-lv.qualcomm.com>
+References: <20250604080237.494014-1-quic_wenbyao@quicinc.com>
+ <20250604080237.494014-6-quic_wenbyao@quicinc.com>
+ <aEBh2xHu3QDtUrxe@hovoldconsulting.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ecfed817-105d-487f-80ba-52965f926c1e@arm.com>
-X-ClientProxiedBy: LO4P123CA0365.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:18e::10) To BL4PR10MB8229.namprd10.prod.outlook.com
- (2603:10b6:208:4e6::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL4PR10MB8229:EE_|SN4PR10MB5624:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1cf9fac8-a2a2-4734-024f-08dda4e15223
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GtELHw4GxEOVKCK7dGZzAB7yh+LlZnldItvnZN1qoyjj1gphIFubc9uEs7Gz?=
- =?us-ascii?Q?iIZzImftAWh9na0P9paBNkOBZfTuheSMjAIm7aepDfH2JofVDOP1yqATRCjx?=
- =?us-ascii?Q?Z/B0iRfRSSQJIL+e3fflBFY/kAOeT/T8sB6+P6JrI3+tE69Q8NpjCRARlFnb?=
- =?us-ascii?Q?XHOMoHdLQAamvsPALbxMhsOla++ARfQ45yxJOqus5CulKwAGsi7ICjuxmySg?=
- =?us-ascii?Q?/8LZDzXU1dQnk75koWYeSFHZXiLDyJY5keYiAN+kgRYZ3WhDsb0njX7tpZlH?=
- =?us-ascii?Q?oFGS4ytzxs1iliIueKvIirtiBzY1vOGBsL75FUv2/aufIjlamQ3lEDwXD11L?=
- =?us-ascii?Q?P/8FqF8JXrn8+ycg4Mn0NaqnUgHqCF+HpH6X/uuS7Iajb9tY1ZLpZK2A8F7n?=
- =?us-ascii?Q?BecOtVoHwJIpdBhwoowLU9O8jeb634muuww/zp5oSZd9ImLTS/vuzoEL7mm3?=
- =?us-ascii?Q?y+jIk513mksbK7oKmNF6/T9NhaS1PxKKtDYIuM9DAQxw1J11XcEUfyoCjvfj?=
- =?us-ascii?Q?S7QFMa0kpH2cVRsgeIdmTfdkN0l0jJ4k6zVrmyRYKMc5DrLshhUw+CSTgRdr?=
- =?us-ascii?Q?BmOwafCY883dyAx/YvYTwJvccXCu1ne7bvfP+Zbwibvixl5R180Iot/wr7OF?=
- =?us-ascii?Q?LSCNiKatxlqGaCZ2rpnKITeHn2URU7WJFjy7t4+C8aeBvnhL6oUx8G2LG+kj?=
- =?us-ascii?Q?4np766VDzHKP8Psqn298KD5rviOyjk6ZtauUYUqPhQVMofZUNSOKEl9JYBlX?=
- =?us-ascii?Q?raaL5x8x3PP0hJSxJFKBHmvNsTECNRw+6nyeD6pomHKHySUCZxONXbsY2eig?=
- =?us-ascii?Q?HLgIHXAzRUmnjpJYOKPAd9GmQX5hX2QmPasFMIZHHDUGCjlJZPa2Ee6gb+uo?=
- =?us-ascii?Q?2TPKPiTN1usq8iAZfxUgdzn6Y5TVVFqi9UiEWzswDzElJiCQ9a6rpV0Lk6v1?=
- =?us-ascii?Q?LYbhCVK6zovao9WSu7xMqmQ7l5YHXFnRwHLJ+lhtcUXZzBiBOYIAEiHRKI9I?=
- =?us-ascii?Q?OZbFV64YEDTN5J7TxcOD8hBxAfr3SQQsFZ4F5xIlaiNmaASxW8AYOUo8f95H?=
- =?us-ascii?Q?gj6uJ79+HITmlLDrB5WF4brXS3OKuRwo4/uJulIfJsC4SihAUaq2ZRh/qMFP?=
- =?us-ascii?Q?0o4R5U51wTXGVBWqNQWMWlkE4rViNhhk+pZR45FPsenKHwjSXv3V6KTGHH1r?=
- =?us-ascii?Q?si6n7EHkYT6e9nFbGmNDqpU8Td+eGHO57c7HdNGqoXn3xiS+IaJkQc4DDgXJ?=
- =?us-ascii?Q?vAHssF/fIMf73hEZ9r5PDeB/YLPeki94Jk4ye7LodGsVxUiG7M3XRciKSbEO?=
- =?us-ascii?Q?6VBZRV+3O/vUKOJ0d8gd/jM+GOrIj7ypBHNgWVeuKZ/11PBi9rT9PT7143Ks?=
- =?us-ascii?Q?GRHeNIyLbF6CGpCfeKlJ5kpEZ/8nHacy+3aIKR0VP6wk04PD68eTCGBCKv+6?=
- =?us-ascii?Q?UMAqGBHHHRRbXyPNJw41x6ife3kN0IhA?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR10MB8229.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dLnNM6/mOe9H/E7qbN9UVFqoTRh/adWiME/c7kvnC1T+5D1U+o+1c6RMMafB?=
- =?us-ascii?Q?Rzme5xEs8TGDo5Eoi3t0cUqz2L1UPxp0Iwdy/oEmjz07wTRz8RtktKm/7McN?=
- =?us-ascii?Q?B9tGoM1XiNLfpWnxqXKaN18CGrZjetrv6xkW9ZxZCywDpwic43U7bKIqTBUn?=
- =?us-ascii?Q?pIy37xe1l5Hqxq+sdwGbnZh9PnpNlWErt6dMJlL6ECp8Sb7bqPBRUCN8M5v7?=
- =?us-ascii?Q?BQCzBM92MH0+xyPDmGr6RezBjSSeKfhiKAFzdJH1wVaSpRfNM3o2Ta54HpP2?=
- =?us-ascii?Q?G1omi70F5wVjK7g2tC0fNS3DVF79n9GGOZ+R41YfrJKZmu9N3rOvB8AFQDzX?=
- =?us-ascii?Q?2LB4ge9fHKUlTeb/Y0dHWAUz0YQUqntn2c2IRRxSQ9szF3WoTY0fqqnjXppT?=
- =?us-ascii?Q?lSbd21W0/kE8PrF8YDDXlkp3bnu6BGca7T08RgFSBbhOXaUM0f6xwCJ7KgKL?=
- =?us-ascii?Q?t9FeIR6teLnpYcSqIGRvsui2mIAnaBqFn3/zjOkhKe7AO2gUY2HaoGfGcaIK?=
- =?us-ascii?Q?am2VFbjvK+8gx43cTSA9m1AgVeEAwuOsmFLDlLBsAaXL4uJnYOsgDWyuo+fn?=
- =?us-ascii?Q?kD5QLjws2t6Ef3viUJcue9J6jhSRzVNpfKSgH3plbwtGlToE7isRcHPDwAvh?=
- =?us-ascii?Q?V8VF1dH68BayZakU7UdQL3ltd8+M6u1iKgaAvBxxh/i1RrMSe8tUInUZhBZq?=
- =?us-ascii?Q?qKY8Di1pI1LL1ZEDWEf8nVyvoXp6b911e62lYYbl+83WKeDGt4a6uSnr1ep0?=
- =?us-ascii?Q?coMb8LXvQBKgR55m/VETmMUaGsSyjO3mRLljVAgTRgitLcQ/vErPsYIZv8Td?=
- =?us-ascii?Q?hgkBxppE0htLVAOxGheUDH0JH8pa6arZIX/4bJ/8EkA1w/MfVUTBQD8u2lao?=
- =?us-ascii?Q?/eAYANFfHJs16ZgeesOcOoQyB3gyjDVd7nO7/ZhXYDaPYjjv/p+5DTj8rtUY?=
- =?us-ascii?Q?uH4umR99/heGWvXZnQ/D7nI/3/grL//ZcGZtv80xPwKHGhu33GHjIob3RxhE?=
- =?us-ascii?Q?P6/n7BR7MOHOUf56KYkeUxv7nKUQuUkucoF6BHf4zj16xBA/zx3LzMdPkRXq?=
- =?us-ascii?Q?PD8lOtmf1SeQ/xtv6rzbYuiIg7Zo0uAmZiyYARLO0VrO4JKgC6mPTWmZjKcH?=
- =?us-ascii?Q?e9wWHNPMLgAHv/p0I1ernL5VOBH7JrT0jYOcQnSCBSDM3klqtm9OyCWdXcHe?=
- =?us-ascii?Q?XK+T0mEtFbcErsLco2y+Icvi5EwBbpGHsV527b9gzkj2RRQImNNQTmrTwU3u?=
- =?us-ascii?Q?DjrN7ma31Hw9cdnLThW86Xh3pADu7EtRszxPd2Vl0uszkoXZRAwtJumFpKOe?=
- =?us-ascii?Q?njVne87o9vhiZM7Lm2NsDSR/1xl4ZNX/KX9dEB3k9qezgFenJdZysH6ASD91?=
- =?us-ascii?Q?8QXz0gGwOycVhd4eogxtuyWNUZ+LyuGdQzfG/CScfTuXEiqA4r99iVYi44cJ?=
- =?us-ascii?Q?ZBZCBzJsMVIHqSsWtIklRrRWnYVRcAI4lXWa3+haxxw1Id81buzMpndjpS02?=
- =?us-ascii?Q?tmbbJzp7GFT9ng9W6y32LVcfaOgc7/zmHQ95eZJ/aEfbwiFSOCNvpt8zrKqL?=
- =?us-ascii?Q?FF5xMUziuZDoUerc3h0SwjNlqsX4RfotJqqeKAxdYAtpMfwKSyLneAAzfKMc?=
- =?us-ascii?Q?eQ=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 7SUrae/+fdqEGXipPrIC2rPRV2BxZXalsxWK3l0BEGojr++QVPLUS7Mr/LVFDXpLV+Epuj/G1jeRYlwcPuz4eY4ryLxqaG+xdMJ2sm42r9sCDHYABwd70JJvcsVus4w+L6Q12vm4C0q7/PNVCDAtBMEUdeefyec7jJKB6V1rfvarTDw4wIsMe353kCRwqwk/uy4eWwVW80/WTgWK3kxyx0iAZ0AZjfsXobE59PIlFAvR/npypkpdenRXMM5yQw09192EH344sv9d5cGOj1ETRjwmji8L/67iNS6kolANr0n46xl2nUhs+Lrf7CTs/pXnIbRJdm85Z2DQmDnPhhfAoIzaIBejaLvR6ddEt+v9VVsQ7Et7/y4VVDqjqfwyC1V5cCk6WEgnTpbrLoH6EqjjBwhioukX+qafMOFDYIlkMLiZKSwPl9Xy+QLcBu6jNEXYtZHznzPz9MD7dWTju6DuRRvTA8IzykxpUQ8Eb1zjQxI8jcyP6Soc8y1gW4mQj0nkW5+lMJBiKPS/tl2pmRdSjYIiGlCg1Qi+UGflMdhpyr1yTQ5tpKgMlz4RJwbslOha3qkY79QT5mOBRo+Wm0C4YivD0pZMkG0wlUMUGxsRF+g=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1cf9fac8-a2a2-4734-024f-08dda4e15223
-X-MS-Exchange-CrossTenant-AuthSource: BL4PR10MB8229.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2025 10:03:01.2923
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2furwG2GVLBDqoHaFzeRyoPLT0+z+1TkHF63Rc0TTPF35D832SlpRLlzcGA4TczGx1t/WdA0FrKOnpFjVd4WMjqbhzLfSuz7kllqkflqiVw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR10MB5624
+In-Reply-To: <aEBh2xHu3QDtUrxe@hovoldconsulting.com>
+X-Proofpoint-ORIG-GUID: pLJ5OfZBG1gMkH-k2PVDWTx1gf9rEWZl
+X-Proofpoint-GUID: pLJ5OfZBG1gMkH-k2PVDWTx1gf9rEWZl
+X-Authority-Analysis: v=2.4 cv=Y/D4sgeN c=1 sm=1 tr=0 ts=6842c053 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8 a=zitRP-D0AAAA:8
+ a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8 a=Kn45tV52aVggcf7Ks3EA:9
+ a=CjuIK1q_8ugA:10 a=GvdueXVYPmCkWapjIL-Q:22 a=xwnAI6pc5liRhupp6brZ:22
+ a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA2MDA5MyBTYWx0ZWRfX8ThQ+c0qcmYg
+ kPoxU4m7zrFbuWs3e2+USh8WW3Tr9Kvcv8URx401lH4b9nD1M14C4lwFIUR5o8bmV991eFPH95r
+ nyJbVyxmfPjH4P8B7V/16Z5Mvt4uMGOFx0UvhZzko1b2WxwYCZhWEtSKr48qzfIy8g20TCepPf/
+ PXHkRltLgYqmOSGKPw4TPCT9K4Q+mYGJA/TWJ6L55AKJ3h7eJRQYbZmvgrjyzDIcOPWhKBgdJFj
+ f0OcEpjsOQ/CMSltBVhdt+GgoDswxmv1jyPLDRV7k1JfGooY5JAnSYEMLKFBknIH7F0K3th4XQo
+ i4eO+09DolinNN5Dfo7Ps3NYfNe4FPTlci0GusrXjZTmk/ia2ajlS9W/VHo6nGtssJVlK2/WRMT
+ pqmG7wvLModHrp4gXfLNbE8jtthDfoCgsGAk+F2V0rysExWCF490g8YZS33sH9B5xZ//ftc3
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-06_03,2025-06-05_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 malwarescore=0
- suspectscore=0 phishscore=0 adultscore=0 spamscore=0 mlxlogscore=999
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2505160000 definitions=main-2506060092
-X-Authority-Analysis: v=2.4 cv=Wu0rMcfv c=1 sm=1 tr=0 ts=6842bce7 b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=GoEa3M9JfhUA:10 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=7qp52ovlw9--blVHXKAA:9 a=CjuIK1q_8ugA:10 a=PG6Q-FFm6skA:10 a=a-qgeE7W1pNrGK8U0ZQC:22 cc=ntf awl=host:14714
-X-Proofpoint-GUID: dawVMZ30N4P_P_YcfFhkNlPLb3u7wkE1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA2MDA5MiBTYWx0ZWRfX1ZHUjNHwOScl B5ZFrbmIvzQ3k8Xma2md0/jzijIFdhif0QrOlC0TaSBqe3Bmz4xhPLSnLpA7MBmt0ouK4IC/9A9 l0JB/Hcb4wCxFcwwTj9U+JxCO/9h3JABPtr/7b0Li94J1gOH3piE+Ck+WgN1yrhE/o8uw52pK3g
- doGf//0qs5m1fWVWEYsNDUvv2VIQh3VhDYptg9wy8q6QXIH5h54QwfI5XXmTOXTMDv7ghml8AKg x2IHDGSgrVt7BXWyduQ6QvFJegrw5cSNt6f7Zi6o7x9Eh6Ps+7BOak9/o3OKOKQcRCs3q7OMDez 5JWQz/IqJ6I+ro3TUzjjiToxY3zBVPhbMpWyFGKrwJqgLH2nhcssi0ARbN/N7co+rF8KSgzmK8+
- dE1p72iv/rW82omJIn0L/3EOJkyU0gC5HDRUTu+BVZvu4i20EtSQVB7IeqiHmiwAmkgXCfXr
-X-Proofpoint-ORIG-GUID: dawVMZ30N4P_P_YcfFhkNlPLb3u7wkE1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 spamscore=0 adultscore=0 impostorscore=0
+ lowpriorityscore=0 phishscore=0 mlxscore=0 mlxlogscore=999 malwarescore=0
+ bulkscore=0 suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506060093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_030331_962312_3C68F98B 
-X-CRM114-Status: GOOD (  29.65  )
+X-CRM114-CacheID: sfid-20250606_031756_330564_9DBA2447 
+X-CRM114-Status: GOOD (  26.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,290 +139,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(One thing to note here is that I have refactored this walk_page_range_novma()
-function so the kernel equivalent is now walk_kernel_page_table_range().)
+On Wed, Jun 04, 2025 at 05:10:19PM +0200, Johan Hovold wrote:
+> On Wed, Jun 04, 2025 at 04:02:37PM +0800, Wenbin Yao wrote:
+> > From: Qiang Yu <qiang.yu@oss.qualcomm.com>
+> > 
+> > All PCIe PHYs on the X1E80100 SOC require the vdda-qref, which feeds QREF
+> > clocks provided by the TCSR device.
+> 
+> As I just mentioned in the thread where this is still being discussed:
+> 
+> 	https://lore.kernel.org/all/aEBfV2M-ZqDF7aRz@hovoldconsulting.com
+> 
+> you need to provide a lot more detail on why you think modelling these
+> supplies as PHY supplies (which they are not) is the right thing to do.
+> 
 
-Overall, I'm questioning doing this in the walker code at all.
+TCSR_PCIE_xx_CLKREF_EN is not always in TCSR, they're custom
+bits to enable pieces of the distribution network. We always classify them
+as "TCSR" even though they're not always in that module.
 
-The use of mmap locks for kernel mappings is essentially a convention among
-callers, it's not something that is actually required for kernel page table
-mappings.
+So even if we put the QREF supplies in tscr device tree node, it still
+doesn't describe the hardware correctly as the hardware itself does't have
+a unified structure.
 
-And now we're introducing a new mode where we say 'ok that convention is
-out the window, we won't assert anything'.
+Since the TCSR_PCIE_xx_CLKREF_EN is only required by PCIe, why can't we
+model these supplies consumed by TCSR_PCIE_xx_CLKREF_EN as PHY supplies,
+treating PCIe PHY and TCSR_PCIE_xx_CLKREF_EN as a whole.
 
-Not sure I want to add yet another way you can use the kernel walker code here,
-not at least until I can unravel the mess of why we're even using these locks at
-all.
-
-Strikes me that init_mm.mmap_lock is just being used as a convenient mutual
-exclusion for all other callers.
-
-So as per my (new :P) comment to 2/3, maybe we should just fix apply_to_range()
-no?
-
-David - any thoughts here?
-
-On Fri, Jun 06, 2025 at 02:51:48PM +0530, Dev Jain wrote:
->
-> On 30/05/25 4:27 pm, Lorenzo Stoakes wrote:
-> > +cc Jan for page table stuff.
-> >
-> > On Fri, May 30, 2025 at 02:34:05PM +0530, Dev Jain wrote:
-> > > It is noted at [1] that KFENCE can manipulate kernel pgtable entries during
-> > > softirqs. It does this by calling set_memory_valid() -> __change_memory_common().
-> > > This being a non-sleepable context, we cannot take the init_mm mmap lock.
-> > > Therefore, add PGWALK_NOLOCK to enable walk_page_range_novma() usage without
-> > > locks.
-> > Hm This is worrying.
-> >
-> > You're unconditionally making it possible for dangerous usage here - to
-> > walk page tables without a lock.
-> >
-> > We need to assert this is only being used in a context where this makes
-> > sense, e.g. a no VMA range under the right circumstances.
-> >
-> > At the very least we need asserts that we are in a circumstance where this
-> > is permitted.
-> >
-> > For VMAs, you must keep the VMA stable, which requires a VMA read lock at
-> > minimum.
-> >
-> > See
-> > https://origin.kernel.org/doc/html/latest/mm/process_addrs.html#page-tables
-> > for details where these requirements are documented.
-> >
-> > I also think we should update this documentation to cover off this non-VMA
-> > task context stuff. I can perhaps do this so as not to egregiously add
-> > workload to this series :)
-> >
-> > Also, again this commit message is not enough for such a major change to
-> > core mm stuff. I think you need to underline that - in non-task context -
-> > you are safe to manipulate _kernel_ mappings, having precluded KFENCE as a
-> > concern.
->
-> Sorry for late reply, after your comments I had to really go and understand
-> kernel pagetable walking properly by reading your process_addrs documentation
-> and reading the code, so that I could prepare an answer and improve my
-> understanding, thanks for your review!
-
-Of course, that's fine, it's all super confusing, and continues to be so... :)
-
->
-> How does the below comment above PGWALK_NOLOCK look?
->
-> "Walk without any lock. Use of this is only meant for the
->  case where there is no underlying VMA, and the user has
->  exclusive control over the range, guaranteeing no concurrent
->  access. For example, changing permissions of vmalloc objects."
+> Also please answer the question I've asked three times now on how the
+> QREF supplies map to PHY supplies on X1E as no one will be able to use
+> this binding unless this is documented somewhere (and similar for other
+> SoCs).
 >
 
-OK so now I think I understand better... this seems to wholly be about unwinding
-the convention in this walker code that an mmap lock be taken on init_mm because
-you have a context where that doesn't work.
+PCIe3,
+VDD_A_QREFS_0P875_0,
+VDD_A_QREFS_0P875_B,
+VDD_A_QREFS_1P2_B,
 
-Yeah, even more inclined to say no to this now.
+PCIe4,
+VDD_A_QREFS_0P875_B,
+VDD_A_QREFS_1P2_B
 
-Or if we absolutely cannot do this in apply_to_range(), then we should
-explicitly have a function for this, like:
+PCIe5,
+VDD_A_QREFS_0P875_2,
+VDD_A_QREFS_0P875_B,
+VDD_A_QREFS_1P2_B,
 
-/*
- * Does not assert any locks have been taken. You must absolutely be certain
- * that appropriate locks are held.
- */
-int walk_kernel_page_table_range_unlocked(unsigned long start, unsigned long end,
-		const struct mm_walk_ops *ops, pgd_t *pgd, void *private);
+PCIe6
+VDD_A_QREFS_0P875_A,
+VDD_A_QREFS_1P2_A
 
-An alternative would be to have a new parameter that specifies locking to
-walk_kerenl_page_table_range(), but I'd rather not have to churn up all the
-callers yet again :)
+> The fact that you so far have not been able to provide an answer
+> seems to suggest that these supplies need to be managed by the TCSR
+> clock driver which can handle the mapping.
+> 
+> > Hence, restore the vdda-qref request for the 6th and the 3th PCIe instance
+> > by reverting commit 031b46b4729b ("phy: qcom: qmp-pcie: drop bogus x1e80100
+> > qref supplies") and commit eb7a22f830f6("phy: qcom: qmp-pcie: drop bogus
+> > x1e80100 qref supply"). For the 4th PCIe instance (Gen3 x2), add a new
+> > driver data entry, namely x1e80100_qmp_gen3x2_pciephy_cfg, which is a copy
+> > of sm8550_qmp_gen3x2_pciephy_cfg but uses sm8550_qmp_phy_vreg_l instead.
+> > 
+> > Fixes: eb7a22f830f6 ("phy: qcom: qmp-pcie: drop bogus x1e80100 qref supplies")
+> > Fixes: 031b46b4729b ("phy: qcom: qmp-pcie: drop bogus x1e80100 qref supplies")
+> > Fixes: 606060ce8fd0 ("phy: qcom-qmp-pcie: Add support for X1E80100 g3x2 and g4x2 PCIE")
+> > Cc: Johan Hovold <johan+linaro@kernel.org>
+> > Cc: Abel Vesa <abel.vesa@linaro.org>
+> > Signed-off-by: Qiang Yu <qiang.yu@oss.qualcomm.com>
+> > Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
+> 
+> NAK, for now, and please don't post any new revisions of this patch
+> until this has been resolved.
 
-> and the patch description can be modified as
-> "
-> It is noted at [1] that KFENCE can manipulate kernel pgtable entries during
-> softirqs. It does this by calling set_memory_valid() -> __change_memory_common().
-> This being a non-sleepable context, we cannot take the init_mm mmap lock.
-> Therefore, add PGWALK_NOLOCK to enable walk_page_range_novma() usage without
-> locks.
-> Currently, apply_to_page_range is being used by __change_memory_common()
-> to change permissions over a range of vmalloc space, without any locking.
-> Patch 2 in this series shifts to the usage of walk_page_range_novma(), hence
-> this patch is needed. We do not need any locks because the vmalloc object
-> has exclusive access to the range, i.e two vmalloc objects do not share
-> the same physical address.
-> "
+OK, I will remove this patch from the series if other patches require
+updates and submit it separately when it is required.
 
-Thanks for expanding, but this sort of dives into the KFENCE thing without
-explaining why or the context or what it relates to. It's like diving into the
-ocean to look for an oyster but never mentioning the oyster and only talking
-about your wet suit :P
+- Qiang Yu
 
->
->
-> >
-> > > [1] https://lore.kernel.org/linux-arm-kernel/89d0ad18-4772-4d8f-ae8a-7c48d26a927e@arm.com/
-> > Basically expand upon this information.
-> >
-> > Basically the commit message refers to your usage, but describes a patch
-> > that makes it possible to do unlocked page table walks.
-> >
-> > As I get into below, no pun intended, but this needs to be _locked down_
-> > heavily.
-> >
-> > - Only walk_page_range_novma() should allow it. All other functions should
-> >    return -EINVAL if this is set.
->
-> Sure.
->
-> >
-> > - walk_page_range_novma() should assert we're in the appropriate context
-> >    where this is feasible.
->
-> There should be two conditions: that the mm is init_mm, and the start address
-> belongs to the vmalloc (or module) space. I am a little nervous about the second. On searching
-> throughout the codebase, I could find only vmalloc and module addresses getting
-> modified through set_memory_* API, but I couldn't prove that all such usages
-> are being done on vmalloc/module addresses.
-
-Hmm, yeah that's concerning.
-
->
-> >
-> > - Comments should be updated accordingly.
-> >
-> > - We should assert (at least CONFIG_DEBUG_VM asserts) in every place that
-> >    checks for a VMA that we are not in this lock mode, since this is
-> >    disallowed.
-> >
-> > > Signed-off-by: Dev Jain <dev.jain@arm.com>
-> > > ---
-> > >   include/linux/pagewalk.h |  2 ++
-> > >   mm/pagewalk.c            | 12 ++++++++----
-> > >   2 files changed, 10 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/include/linux/pagewalk.h b/include/linux/pagewalk.h
-> > > index 9700a29f8afb..9bc8853ed3de 100644
-> > > --- a/include/linux/pagewalk.h
-> > > +++ b/include/linux/pagewalk.h
-> > > @@ -14,6 +14,8 @@ enum page_walk_lock {
-> > >   	PGWALK_WRLOCK = 1,
-> > >   	/* vma is expected to be already write-locked during the walk */
-> > >   	PGWALK_WRLOCK_VERIFY = 2,
-> > > +	/* no lock is needed */
-> > > +	PGWALK_NOLOCK = 3,
-> > I'd prefer something very explicitly documenting that, at the very least, this
-> > can only be used for non-VMA cases.
-> >
-> > It's hard to think of a name here, but the comment should be explicit as to
-> > under what circumstances this is allowed.
-> >
-> > >   };
-> > >
-> > >   /**
-> > > diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-> > > index e478777c86e1..9657cf4664b2 100644
-> > > --- a/mm/pagewalk.c
-> > > +++ b/mm/pagewalk.c
-> > > @@ -440,6 +440,8 @@ static inline void process_vma_walk_lock(struct vm_area_struct *vma,
-> > >   	case PGWALK_RDLOCK:
-> > >   		/* PGWALK_RDLOCK is handled by process_mm_walk_lock */
-> > >   		break;
-> > > +	default:
-> > > +		break;
-> > Please no 'default' here, we want to be explicit and cover all cases.
->
-> Sure.
->
-> >
-> > And surely, since you're explicitly only allowing this for non-VMA ranges, this
-> > should be a WARN_ON_ONCE() or something?
->
-> Sounds good, maybe a WARN_ON_ONCE(vma)?
->
-> >
-> > >   	}
-> > >   #endif
-> > >   }
-> > > @@ -640,10 +642,12 @@ int walk_page_range_novma(struct mm_struct *mm, unsigned long start,
-> > >   	 * specified address range from being freed. The caller should take
-> > >   	 * other actions to prevent this race.
-> > >   	 */
-> > All functions other than this should explicitly disallow this locking mode
-> > with -EINVAL checks. I do not want to see this locking mode made available
-> > in a broken context.
-> >
-> > The full comment:
-> >
-> > 	/*
-> > 	 * 1) For walking the user virtual address space:
-> > 	 *
-> > 	 * The mmap lock protects the page walker from changes to the page
-> > 	 * tables during the walk.  However a read lock is insufficient to
-> > 	 * protect those areas which don't have a VMA as munmap() detaches
-> > 	 * the VMAs before downgrading to a read lock and actually tearing
-> > 	 * down PTEs/page tables. In which case, the mmap write lock should
-> > 	 * be hold.
-> > 	 *
-> > 	 * 2) For walking the kernel virtual address space:
-> > 	 *
-> > 	 * The kernel intermediate page tables usually do not be freed, so
-> > 	 * the mmap map read lock is sufficient. But there are some exceptions.
-> > 	 * E.g. memory hot-remove. In which case, the mmap lock is insufficient
-> > 	 * to prevent the intermediate kernel pages tables belonging to the
-> > 	 * specified address range from being freed. The caller should take
-> > 	 * other actions to prevent this race.
-> > 	 */
-> >
-> > Are you walking kernel memory only? Point 1 above explicitly points out why
-> > userland novma memory requires a lock.
-> >
-> > For point 2 you need to indicate why you don't need to consider hotplugging,
->
-> Well, hotunplugging will first offline the physical memory, and since the
-> vmalloc object has the reference to the pages, there is no race.
-
-Right, but fundamentally you are holding vmalloc locks no? So this is what
-protects things? Or more broadly, vmalloc wholly controls its ranges.
-
->
-> > etc.
-> >
-> > But as Ryan points out elsewhere, you should be expanding this comment to
-> > explain your case...
-> >
-> > You should also assert you're in a context where this applies and error
-> > out/WARN if not.
-> >
-> > > -	if (mm == &init_mm)
-> > > -		mmap_assert_locked(walk.mm);
-> > > -	else
-> > > -		mmap_assert_write_locked(walk.mm);
-> > > +	if (ops->walk_lock != PGWALK_NOLOCK) {
-> > I really don't like the idea that you're allowing no lock for userland mappings.
-> >
-> > This should at the very least be:
-> >
-> > if (mm == &init_mm)  {
-> > 	if (ops->walk_lock != PGWALK_NOLOCK)
-> > 		mmap_assert_locked(walk.mm);
-> > } else {
-> > 	mmap_assert_write_locked(walk.mm);
-> > }
->
-> Sure.
->
-> >
-> > > +		if (mm == &init_mm)
-> > > +			mmap_assert_locked(walk.mm);
-> > > +		else
-> > > +			mmap_assert_write_locked(walk.mm);
-> > > +	}
-> > >
-> > >   	return walk_pgd_range(start, end, &walk);
-> > >   }
-> > > --
-> > > 2.30.2
-> > >
-> > We have to be _really_ careful with this stuff. It's very fiddly and
-> > brokenness can be a security issue.
+> 
+> Johan
 
