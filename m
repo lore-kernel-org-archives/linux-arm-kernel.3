@@ -4,78 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5516BC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 03:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC94AC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 04:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r16hWBUndeglOyHc/PMj0JrJ/P5Tg3iMDROy/6f5Y08=; b=wy+4SpdF6hcHY2BWfQsk7EcNx+
-	Rjteu6R4N/trwUK9lLaq489ELUTgxXtWTjcHb/WO8WjC+5Lq8Mf3V3vyS5bKyXAEe0Y7z66ZPjqVx
-	RCSbrVUP2iEoGKHgF55IarErH/5PP4C4hdlUzdnPxmkcvu/Zq/uhhDKGVZnDreoPjVmUfKbkTE2Ui
-	uQC/BJX5QhdSsEnKWUlrKcl/Fuf9m6yblK63t2+bTmi0GjSXC6ZaLiWg0Y2+1HCqMX8AGcd31xbJb
-	3k2M2QimoxPvLYZhhttPkWhkvOmaEO+S82JnIZHyYjum1o2bCpuf0f4lsE63n+YSapB1DSi9+FjUg
-	2CIU1wEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FaDJZ2sncosKmz2RZ6DwBfhsTIBINWyAgPvy2yi26U4=; b=XApGYtO9LyDMz2Bm1e6wQ59ZD7
+	64Ijgf7UgYGirbAU+fuN67gWy2G+nLqAqNmpE3HsOKQWTMHjr4O2effNhAHm1KM3GOamubxmoLbdn
+	BHrKOq2sr+kR9m0+TjrAZNAwHdoGfPgkeE/2x4zbi8f6tqCKOoO6yop9qnNRHKZyLmEm0eq/bcD/N
+	pJTeI2R9H82yYfvIkamziZ62mfoFzLHO8F5+O5DlqHi7/zHHUZLxthc6zvfE7z+EMfKN3Z9Ag+2m0
+	y0MLVC9inMFCXnhqXlJhaRdEt2Pv8F4YaNKslTlpxz7eu0cYdL5rgd0liBVakt0kIl23f9rjelXlm
+	AbAyq52w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNO52-0000000H3Qy-1l40;
-	Fri, 06 Jun 2025 03:49:20 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNO2r-0000000H3Gj-3FoD;
-	Fri, 06 Jun 2025 03:47:06 +0000
-X-UUID: e6e5fd0a428811f09f706fa2197c6ceb-20250605
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=r16hWBUndeglOyHc/PMj0JrJ/P5Tg3iMDROy/6f5Y08=;
-	b=POJ6A0pPFIQPYR+WdU6XRTw0n4Q2bNms7QtMi4cN1rsONRisjgNoVYXHBGde6i1eM3wiqpsGStvRh+hv0tuIBEpHJWs+4Abpx87gFfMoV6d8Kiyv+bgrzZpL1qpkDsnr+ORtkn/O56tTGZY8u4il/tz3cRq+UQYWu9X5+yTUY6k=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:5ac1ea70-68ac-4298-badd-0633ce1e27d9,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:54866258-abad-4ac2-9923-3af0a8a9a079,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: e6e5fd0a428811f09f706fa2197c6ceb-20250605
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 686649875; Thu, 05 Jun 2025 20:47:00 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 6 Jun 2025 11:46:57 +0800
-Received: from [10.233.130.16] (10.233.130.16) by mtkmbs13n1.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
- Transport; Fri, 6 Jun 2025 11:46:57 +0800
-Message-ID: <8e1018116ad7c5c325eced2cb17b65c73ca2ceca.camel@mediatek.com>
-Subject: Re: [PATCH 1/1] sched/core: Fix migrate_swap() vs. hotplug
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Ben
- Segall" <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, "Valentin
- Schneider" <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Date: Fri, 6 Jun 2025 11:46:57 +0800
-In-Reply-To: <20250605100009.GO39944@noisy.programming.kicks-ass.net>
-References: <20250602072242.1839605-1-kuyo.chang@mediatek.com>
-	 <20250605100009.GO39944@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1uNP0D-0000000H6Sn-2nuR;
+	Fri, 06 Jun 2025 04:48:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uNOxu-0000000H6Cl-0yWP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Jun 2025 04:46:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D0761596;
+	Thu,  5 Jun 2025 21:45:40 -0700 (PDT)
+Received: from [10.163.32.49] (unknown [10.163.32.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 90C923F673;
+	Thu,  5 Jun 2025 21:45:56 -0700 (PDT)
+Message-ID: <55321f56-74e4-407e-ab83-df45c46002ee@arm.com>
+Date: Fri, 6 Jun 2025 10:15:51 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [boot-wrapper] aarch64: Enable access into FEAT_SPE_FDS register
+ from EL2 and below
+To: James Clark <james.clark@linaro.org>, linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>
+References: <20250604114604.629782-1-anshuman.khandual@arm.com>
+ <189edea6-49d8-4829-88ce-fa75d83401d6@linaro.org>
+ <18ecc087-d5bd-4e98-9543-a6dcbf3e8c11@arm.com>
+ <246b4372-b86a-4a42-9298-d51aab81fc65@linaro.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <246b4372-b86a-4a42-9298-d51aab81fc65@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_204705_819384_FA0BA82F 
-X-CRM114-Status: GOOD (  29.29  )
+X-CRM114-CacheID: sfid-20250605_214602_365025_19A9DCA6 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,175 +67,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTA2LTA1IGF0IDEyOjAwICswMjAwLCBQZXRlciBaaWpsc3RyYSB3cm90ZToK
-PiAKPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBh
-dHRhY2htZW50cyB1bnRpbAo+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNv
-bnRlbnQuCj4gCj4gCj4gT24gTW9uLCBKdW4gMDIsIDIwMjUgYXQgMDM6MjI6MTNQTSArMDgwMCwg
-S3V5byBDaGFuZyB3cm90ZToKPiAKPiBIb3cgZWFzeSBjYW4geW91IHJlcHJvZHVjZSB0aGlzPwo+
-IAoKVGhlIHByb2JhYmlsaXR5IG9mIGR1cGxpY2F0aW9uIGlzIHZlcnkgbG93LCByb3VnaGx5IHdp
-dGggYW4gb2NjdXJyZW5jZQpmcmVxdWVuY3kgb2YgYWJvdXQgZXZlcnkgMX4yIHdlZWtzLgpJIHRo
-aW5rIHRoaXMgaXNzdWUgY2FuIG9ubHkgb2NjdXIgaWYgYWxsIGJlbG93IHR5cGVzIG9mIHJhY2Vz
-IGhhcHBlbmVkLgoxLnN0b3BfdHdvX2NwdXMgdnMuIGhvdHBsdWcKMi5jcHUxIHNjaGVkdWxlKCkK
-My50dHd1IHF1ZXVlIGlwaSBsYXRlbmN5IAoKU28gbXkgaW5pdGlhbCBpbnRlbnRpb24gdG8gZml4
-IHRoaXMgaXMgYnkgYWRkaW5nCmNwdXNfcmVhZF9sb2NrL2NwdXNfcmVhZF91bmxvY2sgYXJvdW5k
-IHN0b3BfdHdvX2NwdXMtKDEpCgo+ID4gU28sIHRoZSBwb3RlbnRpYWwgcmFjZSBzY2VuYXJpbyBp
-czoKPiA+IAo+ID4gwqDCoMKgwqDCoCBDUFUwwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgIENQVTEKPiA+IMKgwqDCoMKgwqAgLy8gZG9pbmcgbWlncmF0ZV9zd2Fw
-KGNwdTAvY3B1MSkKPiA+IMKgwqDCoMKgwqAgc3RvcF90d29fY3B1cygpCj4gPiDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAuLi4KPiA+IMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvLyBkb2luZwo+
-ID4gX2NwdV9kb3duKCkKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IHNjaGVkX2NwdV9kZWFjdGl2YXRlKCkKPiA+IMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgCj4gPiBzZXRfY3B1X2FjdGl2ZShjcHUsIGZhbHNlKTsKPiA+IMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gPiBi
-YWxhbmNlX3B1c2hfc2V0KGNwdSwgdHJ1ZSk7Cj4gPiDCoMKgwqDCoMKgIGNwdV9zdG9wX3F1ZXVl
-X3R3b193b3Jrcwo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhz
-dG9wcGVyMSwuLi4pOwo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29y
-ayhzdG9wcGVyMiwuLik7Cj4gPiDCoMKgwqDCoMKgIHN0b3BfY3B1c19pbl9wcm9ncmVzcyAtPiB0
-cnVlCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBwcmVlbXB0X2VuYWJsZSgpOwo+ID4g
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgLi4uCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIDFzdAo+ID4gYmFsYW5jZV9wdXNoCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gPiBzdG9wX29uZV9jcHVfbm93YWl0Cj4gPiDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgCj4gPiBjcHVf
-c3RvcF9xdWV1ZV93b3JrCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgCj4gPiBfX2NwdV9zdG9wX3F1ZXVlX3dvcmsKPiA+IMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IGxpc3RfYWRkX3RhaWzCoCAt
-PiAxc3QgYWRkIHB1c2hfd29yawo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoAo+ID4gd2FrZV91cF9xKCZ3YWtlcSk7wqAgLT4gIndha2VxIGlzIGVt
-cHR5Lgo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgIFRo
-aXMgaW1wbGllcyB0aGF0IHRoZSBzdG9wcGVyIGlzIGF0IHdha2VxQG1pZ3JhdGVfc3dhcC4iCj4g
-PiDCoMKgwqDCoMKgIHByZWVtcHRfZGlzYWJsZQo+ID4gwqDCoMKgwqDCoCB3YWtlX3VwX3EoJndh
-a2VxKTsKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2VzcyAvLyB3
-YWtldXAgbWlncmF0ZS8wCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHRy
-eV90b193YWtlX3VwCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgdHR3dV9xdWV1ZQo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgdHR3dV9xdWV1ZV9jb25kIC0+bWVldCBiZWxvdyBjYXNlCj4gPiDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGlmIChj
-cHUgPT0gc21wX3Byb2Nlc3Nvcl9pZCgpKQo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiBmYWxzZTsKPiA+IMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB0dHd1X2RvX2FjdGl2YXRlCj4g
-PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLy9taWdyYXRlLzAg
-d2FrZXVwIGRvbmUKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2Vz
-cyAvLyB3YWtldXAgbWlncmF0ZS8xCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCB0cnlfdG9fd2FrZV91cAo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB0
-dHd1X3F1ZXVlCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-dHR3dV9xdWV1ZV9jb25kCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgdHR3dV9xdWV1ZV93YWtlbGlzdAo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgIF9fdHR3dV9xdWV1ZV93YWtlbGlzdAo+ID4gwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIF9fc21wX2NhbGxfc2luZ2xlX3F1ZXVlCj4gPiDC
-oMKgwqDCoMKgIHByZWVtcHRfZW5hYmxlKCk7Cj4gPiAKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMm5kCj4gPiBiYWxhbmNlX3B1c2gKPiA+IMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IHN0b3Bf
-b25lX2NwdV9ub3dhaXQKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAKPiA+IGNwdV9zdG9wX3F1ZXVlX3dvcmsKPiA+IMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAKPiA+IF9fY3B1X3N0b3BfcXVldWVfd29y
-awo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoAo+
-ID4gbGlzdF9hZGRfdGFpbMKgIC0+IDJuZCBhZGQgcHVzaF93b3JrLCBzbyB0aGUgZG91YmxlIGxp
-c3QgYWRkIGlzCj4gPiBkZXRlY3RlZAo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCAuLi4KPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgLi4uCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNwdTEgZ2V0IGlwaSwKPiA+IGRvIHNjaGVkX3R0d3VfcGVu
-ZGluZywgd2FrZXVwIG1pZ3JhdGUvMQo+ID4gCj4gCj4gU28gdGhpcyBiYWxhbmNlX3B1c2goKSBp
-cyBwYXJ0IG9mIHNjaGVkdWxlKCksIGFuZCBzY2hlZHVsZSgpIGlzCj4gc3VwcG9zZWQKPiB0byBz
-d2l0Y2ggdG8gc3RvcHBlciB0YXNrLCBidXQgYmVjYXVzZSBvZiB0aGlzIHJhY2UgY29uZGl0aW9u
-LAo+IHN0b3BwZXIKPiB0YXNrIGlzIHN0dWNrIGluIFdBS0lORyBzdGF0ZSBhbmQgbm90IGFjdHVh
-bGx5IHZpc2libGUgdG8gYmUgcGlja2VkLgo+IAo+IFRoZXJlZm9yZSBDUFUxIGNhbiBkbyBhbm90
-aGVyIHNjaGVkdWxlKCkgYW5kIGVuZCB1cCBkb2luZyBhbm90aGVyCj4gYmFsYW5jZV9wdXNoKCkg
-ZXZlbiB0aG91Z2ggdGhlIGxhc3Qgb25lIGhhc24ndCBiZWVuIGRvbmUgeWV0Lgo+IAo+IFNvIGhv
-dyBhYm91dCB3ZSBkbyBzb21ldGhpbmcgbGlrZSB0aGlzPyBEb2VzIHRoaXMgaGVscD8KPiAKClRo
-YW5rIHlvdSBmb3IgeW91ciBwYXRjaC4KSSBiZWxpZXZlIHRoaXMgcGF0Y2ggYWxzbyBlZmZlY3Rp
-dmVseSBhZGRyZXNzZXMgdGhpcyByYWNlIGNvbmRpdGlvbi4KSSB3aWxsIHF1ZXVlIGl0IGluIG91
-ciB0ZXN0IHBvb2wgZm9yIHRlc3RpbmcuCgo+IC0tLQo+IGRpZmYgLS1naXQgYS9rZXJuZWwvc2No
-ZWQvY29yZS5jIGIva2VybmVsL3NjaGVkL2NvcmUuYwo+IGluZGV4IDYyYjM0MTZmNWU0My4uYzM3
-YjgwYmQ1M2U2IDEwMDY0NAo+IC0tLSBhL2tlcm5lbC9zY2hlZC9jb3JlLmMKPiArKysgYi9rZXJu
-ZWwvc2NoZWQvY29yZS5jCj4gQEAgLTM5MzksNiArMzkzOSwxMSBAQCBzdGF0aWMgaW5saW5lIGJv
-b2wgdHR3dV9xdWV1ZV9jb25kKHN0cnVjdAo+IHRhc2tfc3RydWN0ICpwLCBpbnQgY3B1KQo+IMKg
-wqDCoMKgwqDCoMKgIGlmICghc2N4X2FsbG93X3R0d3VfcXVldWUocCkpCj4gwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiBmYWxzZTsKPiAKPiArI2lmZGVmIENPTkZJR19TTVAK
-PiArwqDCoMKgwqDCoMKgIGlmIChwLT5zY2hlZF9jbGFzcyA9PSAmc3RvcF9zY2hlZF9jbGFzcykK
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gZmFsc2U7Cj4gKyNlbmRpZgo+
-ICsKPiDCoMKgwqDCoMKgwqDCoCAvKgo+IMKgwqDCoMKgwqDCoMKgwqAgKiBEbyBub3QgY29tcGxp
-Y2F0ZSB0aGluZ3Mgd2l0aCB0aGUgYXN5bmMgd2FrZV9saXN0IHdoaWxlCj4gdGhlIENQVSBpcwo+
-IMKgwqDCoMKgwqDCoMKgwqAgKiBpbiBob3RwbHVnIHN0YXRlLgo+IGRpZmYgLS1naXQgYS9rZXJu
-ZWwvc3RvcF9tYWNoaW5lLmMgYi9rZXJuZWwvc3RvcF9tYWNoaW5lLmMKPiBpbmRleCA1ZDJkMDU2
-MjExNWIuLjg4NTVhNTBjYzIxNiAxMDA2NDQKPiAtLS0gYS9rZXJuZWwvc3RvcF9tYWNoaW5lLmMK
-PiArKysgYi9rZXJuZWwvc3RvcF9tYWNoaW5lLmMKPiBAQCAtODIsMTggKzgyLDE1IEBAIHN0YXRp
-YyB2b2lkIGNwdV9zdG9wX3NpZ25hbF9kb25lKHN0cnVjdAo+IGNwdV9zdG9wX2RvbmUgKmRvbmUp
-Cj4gwqB9Cj4gCj4gwqBzdGF0aWMgdm9pZCBfX2NwdV9zdG9wX3F1ZXVlX3dvcmsoc3RydWN0IGNw
-dV9zdG9wcGVyICpzdG9wcGVyLAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjcHVfc3Rv
-cF93b3JrICp3b3JrLAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHN0cnVjdCB3YWtlX3FfaGVhZCAq
-d2FrZXEpCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgc3RydWN0IGNwdV9zdG9wX3dvcmsgKndvcmspCj4gwqB7Cj4gwqDC
-oMKgwqDCoMKgwqAgbGlzdF9hZGRfdGFpbCgmd29yay0+bGlzdCwgJnN0b3BwZXItPndvcmtzKTsK
-PiAtwqDCoMKgwqDCoMKgIHdha2VfcV9hZGQod2FrZXEsIHN0b3BwZXItPnRocmVhZCk7Cj4gwqB9
-Cj4gCj4gwqAvKiBxdWV1ZSBAd29yayB0byBAc3RvcHBlci7CoCBpZiBvZmZsaW5lLCBAd29yayBp
-cyBjb21wbGV0ZWQKPiBpbW1lZGlhdGVseSAqLwo+IMKgc3RhdGljIGJvb2wgY3B1X3N0b3BfcXVl
-dWVfd29yayh1bnNpZ25lZCBpbnQgY3B1LCBzdHJ1Y3QKPiBjcHVfc3RvcF93b3JrICp3b3JrKQo+
-IMKgewo+IMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjcHVfc3RvcHBlciAqc3RvcHBlciA9ICZwZXJf
-Y3B1KGNwdV9zdG9wcGVyLCBjcHUpOwo+IC3CoMKgwqDCoMKgwqAgREVGSU5FX1dBS0VfUSh3YWtl
-cSk7Cj4gwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBmbGFnczsKPiDCoMKgwqDCoMKgwqDC
-oCBib29sIGVuYWJsZWQ7Cj4gCj4gQEAgLTEwMSwxMiArOTgsMTIgQEAgc3RhdGljIGJvb2wgY3B1
-X3N0b3BfcXVldWVfd29yayh1bnNpZ25lZCBpbnQKPiBjcHUsIHN0cnVjdCBjcHVfc3RvcF93b3Jr
-ICp3b3JrKQo+IMKgwqDCoMKgwqDCoMKgIHJhd19zcGluX2xvY2tfaXJxc2F2ZSgmc3RvcHBlci0+
-bG9jaywgZmxhZ3MpOwo+IMKgwqDCoMKgwqDCoMKgIGVuYWJsZWQgPSBzdG9wcGVyLT5lbmFibGVk
-Owo+IMKgwqDCoMKgwqDCoMKgIGlmIChlbmFibGVkKQo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhzdG9wcGVyLCB3b3JrLCAmd2FrZXEpOwo+ICvC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhzdG9wcGVy
-LCB3b3JrKTsKPiDCoMKgwqDCoMKgwqDCoCBlbHNlIGlmICh3b3JrLT5kb25lKQo+IMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjcHVfc3RvcF9zaWduYWxfZG9uZSh3b3JrLT5kb25lKTsK
-PiDCoMKgwqDCoMKgwqDCoCByYXdfc3Bpbl91bmxvY2tfaXJxcmVzdG9yZSgmc3RvcHBlci0+bG9j
-aywgZmxhZ3MpOwo+IAo+IC3CoMKgwqDCoMKgwqAgd2FrZV91cF9xKCZ3YWtlcSk7Cj4gK8KgwqDC
-oMKgwqDCoCB3YWtlX3VwX3Byb2Nlc3Moc3RvcHBlci0+dGhyZWFkKTsKCkJUVywgc2hvdWxkIHdl
-IGFkZCBlbmFibGVkIGNoZWNrIGhlcmU/CglpZiAoZW5hYmxlZCnCoAoJCXdha2VfdXBfcHJvY2Vz
-cyhzdG9wcGVyLT50aHJlYWQpOwoKPiDCoMKgwqDCoMKgwqDCoCBwcmVlbXB0X2VuYWJsZSgpOwo+
-IAo+IMKgwqDCoMKgwqDCoMKgIHJldHVybiBlbmFibGVkOwo+IEBAIC0yNjQsNyArMjYxLDYgQEAg
-c3RhdGljIGludCBjcHVfc3RvcF9xdWV1ZV90d29fd29ya3MoaW50IGNwdTEsCj4gc3RydWN0IGNw
-dV9zdG9wX3dvcmsgKndvcmsxLAo+IMKgewo+IMKgwqDCoMKgwqDCoMKgIHN0cnVjdCBjcHVfc3Rv
-cHBlciAqc3RvcHBlcjEgPSBwZXJfY3B1X3B0cigmY3B1X3N0b3BwZXIsCj4gY3B1MSk7Cj4gwqDC
-oMKgwqDCoMKgwqAgc3RydWN0IGNwdV9zdG9wcGVyICpzdG9wcGVyMiA9IHBlcl9jcHVfcHRyKCZj
-cHVfc3RvcHBlciwKPiBjcHUyKTsKPiAtwqDCoMKgwqDCoMKgIERFRklORV9XQUtFX1Eod2FrZXEp
-Owo+IMKgwqDCoMKgwqDCoMKgIGludCBlcnI7Cj4gCj4gwqByZXRyeToKPiBAQCAtMzAwLDggKzI5
-Niw4IEBAIHN0YXRpYyBpbnQgY3B1X3N0b3BfcXVldWVfdHdvX3dvcmtzKGludCBjcHUxLAo+IHN0
-cnVjdCBjcHVfc3RvcF93b3JrICp3b3JrMSwKPiDCoMKgwqDCoMKgwqDCoCB9Cj4gCj4gwqDCoMKg
-wqDCoMKgwqAgZXJyID0gMDsKPiAtwqDCoMKgwqDCoMKgIF9fY3B1X3N0b3BfcXVldWVfd29yayhz
-dG9wcGVyMSwgd29yazEsICZ3YWtlcSk7Cj4gLcKgwqDCoMKgwqDCoCBfX2NwdV9zdG9wX3F1ZXVl
-X3dvcmsoc3RvcHBlcjIsIHdvcmsyLCAmd2FrZXEpOwo+ICvCoMKgwqDCoMKgwqAgX19jcHVfc3Rv
-cF9xdWV1ZV93b3JrKHN0b3BwZXIxLCB3b3JrMSk7Cj4gK8KgwqDCoMKgwqDCoCBfX2NwdV9zdG9w
-X3F1ZXVlX3dvcmsoc3RvcHBlcjIsIHdvcmsyKTsKPiAKPiDCoHVubG9jazoKPiDCoMKgwqDCoMKg
-wqDCoCByYXdfc3Bpbl91bmxvY2soJnN0b3BwZXIyLT5sb2NrKTsKPiBAQCAtMzE2LDcgKzMxMiw4
-IEBAIHN0YXRpYyBpbnQgY3B1X3N0b3BfcXVldWVfdHdvX3dvcmtzKGludCBjcHUxLAo+IHN0cnVj
-dCBjcHVfc3RvcF93b3JrICp3b3JrMSwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-Z290byByZXRyeTsKPiDCoMKgwqDCoMKgwqDCoCB9Cj4gCj4gLcKgwqDCoMKgwqDCoCB3YWtlX3Vw
-X3EoJndha2VxKTsKPiArwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2VzcyhzdG9wcGVyMS0+dGhy
-ZWFkKTsKPiArwqDCoMKgwqDCoMKgIHdha2VfdXBfcHJvY2VzcyhzdG9wcGVyMi0+dGhyZWFkKTsK
-PiDCoMKgwqDCoMKgwqDCoCBwcmVlbXB0X2VuYWJsZSgpOwo+IAo+IMKgwqDCoMKgwqDCoMKgIHJl
-dHVybiBlcnI7Cgo=
+On 05/06/25 3:19 PM, James Clark wrote:
+> 
+> 
+> On 05/06/2025 4:15 am, Anshuman Khandual wrote:
+>>
+>>
+>> On 6/4/25 17:27, James Clark wrote:
+>>>
+>>>
+>>> On 04/06/2025 12:46 pm, Anshuman Khandual wrote:
+>>>> FEAT_SPE_FDS adds system register PMSDSFR_EL1. But accessing that system
+>>>> register from EL2 and below exception levels, will trap into EL3 unless
+>>>> MDCR_EL3.EnPMS3 is set.
+>>>>
+>>>> Enable access to FEAT_SPE_FDS registers when they are implemented.
+>>>>
+>>>> Cc: James Clark <james.clark@linaro.org>
+>>>> Cc: Mark Rutland <mark.rutland@arm.com>
+>>>> Cc: Mark Brown <broonie@kernel.org>
+>>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>> ---
+>>>>    arch/aarch64/include/asm/cpu.h | 4 ++++
+>>>>    arch/aarch64/init.c            | 3 +++
+>>>>    2 files changed, 7 insertions(+)
+>>>>
+>>>> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
+>>>> index 2b3a659..ac50474 100644
+>>>> --- a/arch/aarch64/include/asm/cpu.h
+>>>> +++ b/arch/aarch64/include/asm/cpu.h
+>>>> @@ -55,6 +55,7 @@
+>>>>    #define MDCR_EL3_NSTB_NS_NOTRAP            (UL(3) << 24)
+>>>>    #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT    (UL(3) << 32)
+>>>>    #define MDCR_EL3_ENPMSN                BIT(36)
+>>>> +#define MDCR_EL3_ENPMS3                BIT(42)
+>>>>    #define MDCR_EL3_EBWE                BIT(43)
+>>>>    #define MDCR_EL3_EnPM2                BIT(7)
+>>>>    @@ -185,6 +186,9 @@
+>>>>      #define SCTLR_EL1_CP15BEN    (1 << 5)
+>>>>    +#define PMSIDR_EL1        s3_0_c9_c9_7
+>>>> +#define PMSIDR_EL1_FDS        BIT(7)
+>>>> +
+>>>>    #ifdef KERNEL_32
+>>>>    /*
+>>>>     * When booting a 32-bit kernel, EL1 uses AArch32 and registers which are
+>>>> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
+>>>> index e1640a9..b6f740c 100644
+>>>> --- a/arch/aarch64/init.c
+>>>> +++ b/arch/aarch64/init.c
+>>>> @@ -146,6 +146,9 @@ static void cpu_init_el3(void)
+>>>>        if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 3)
+>>>>            mdcr |= MDCR_EL3_ENPMSN;
+>>>>    +    if (mrs_field(PMSIDR_EL1, FDS))
+>>>> +        mdcr |= MDCR_EL3_ENPMS3;
+>>>> +
+>>>
+>>> You are only allowed to read PMSIDR if SPE is implemented otherwise it's undef so it needs another check.
+>>
+>> The same is true for the earlier bit MDCR_EL3_ENPMSN as well. FEAT_SPE_FnE should
+>> have been checked from PMSIDR_EL1.FnE but the feature is guaranteed to be present
+>> when FEAT_SPEv1p2 is present. Hence PMSVER >= 3 check alone is sufficient here.
+>>
+> 
+> Exactly, ENPMSN availability can be determined only on the SPE version, avoiding the read of PMSIDR. So it's not really the same, as you mention.
+> 
+>> But for for FEAT_SPE_FDS feature, ARM DDI 0487 L.A is not very much clear on its
+>> dependency for FEAT_SPE and its versions. It says the following but not the other
+>> way around.
+>>
+>> "If FEAT_SPE_FDS is implemented, then FEAT_SPEv1p4 is implemented"
+>>
+>> Even PMSIDR_EL1.FDS field is valid only when FEAT_SPEv1p4 is implemented. Hence
+> 
+> That's not strictly true. For any implemented version of SPE it's valid and res0, so it behaves the same way in the end. The only thing that's not valid is reading it when SPE isn't implemented at all which would give you an undef.
+> 
+>> you are right - we need to check both before enabling MDCR_EL3_ENPMS3.
+>>
+>>          if ((mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 5) &&
+>>              (mrs_field(PMSIDR_EL1, FDS)))
+>>                          mdcr |= MDCR_EL3_ENPMS3;
+>>
+> 
+> Yes, either that or PMSVER >= 1. Personally I would do >= 1 because it's allowed and then you don't need to change it again if FEAT_SPE_FDS is relaxed to previous versions.
+
+Hmm if this conditional dependency can be relaxed for earlier SPE
+versions later on then it makes sense to compare against 1 itself.
+
+> 
+>>>
+>>> It would be much easier to unconditionally set all the known MDCR bits. If the feature is implemented then setting them to 1 disables the traps, which we want, and if it's not implemented it does nothing which we also want.
+>>>
+>>> Doing them all conditionally is quite error prone and extra work for nothing. In TFA it's already done unconditionally:
+>>
+>> But leaving all MDCR_EL3 fields set when corresponding features are not implemented
+>> goes against "don't set register fields when not required even when ignored in HW"
+>> principle and hence might not be ideal.
+>>
+> 
+> But having to do 3 versions of something just to set 1 bit correctly that could have been set unconditionally with the same end result probably means that a blanket application of that principle isn't ideal either.
+> 
+>> But will leave it upto Mark and others. Dropping all these conditionality while
+>> setting MDCR_EL3 fields will be a subsequent patch later as if changes existing
+>> fields.
+>>
+> 
+> It's probably not worth the subsequent patch because it was only supposed to save time for this patch, but it might be interesting to discuss anyway.> 
+>>>
+>>> *
+>>> * MDCR_EL3.EnPMSN (ARM v8.7) and MDCR_EL3.EnPMS3: Do not trap access to
+>>> * PMSNEVFR_EL1 or PMSDSFR_EL1 register at NS-EL1 or NS-EL2 to EL3 if FEAT_SPEv1p2
+>>> * or FEAT_SPE_FDS are implemented. Setting these bits to 1 doesn't have any
+>>> * effect on it when the features aren't implemented.
+>>> */
+>>> mdcr_el3_val |= MDCR_NSPB(MDCR_NSPB_EL1) | MDCR_EnPMSN_BIT | MDCR_EnPMS3_BIT;
+>>>
+>>>>        if (mrs_field(ID_AA64DFR0_EL1, TRACEBUFFER))
+>>>>            mdcr |= MDCR_EL3_NSTB_NS_NOTRAP;
+>>>>    
+>>>
+> 
+
+
+
 
 
