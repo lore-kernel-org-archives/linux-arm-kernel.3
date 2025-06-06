@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94702C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 12:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AC0C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 12:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqSyvqg/DCutmZYR08AUPck2KrbsO719AwfMelsY7wg=; b=fi+DSfkB/vsSwj1JSXNUU+jTFC
-	eoUjKwNZzFkWyuF50cfGCgUKRTmD86g1JWOAxoB0sXamTKSLehAMF0kw9b0fDGam05ywIR+vn1S1/
-	2cpuzUzffKpcUfw09/hbXPSn11mcY4Q8BzJOig2QqZzkJuKjoPwPy4Q77xTl7nQi6J9Efau0GfF42
-	Xpd3opNFyu686JAsKgQ9whpYuDD9FmJzw3ErsfGub4H/x+KKa3ic057Vw2tO2WloMY9Gf5jxj9MyF
-	u0cV9eIbVSkpvnPwzyL5PxK23jjuFc809cdJDtZQuu+HGx81KnDWSLBwTqFAx50NOuZKfqAghEcR+
-	vXmlnUgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y0U8YySrCzcQCHx1OTzJZTq9ssrB3rQxiNR/F/5giYA=; b=VSHB/3O1+dR5mtsGGgTpRSQChv
+	7SYHEjy0VFJ2XNdWFwVqsdF0u+mO+IkHwekmiY/mtyrkMKO2rnwhZSAemo3JPylh9KCFdnjIKrdsi
+	ur7zfGXEVUUlzdgrZQ/4izIMXxZ5NavLcaJZ2Ufv2OGIlgnvdXMuPO6QXuT6ozSOukp1fjobVJrYz
+	cHf9XS7fg+tq+yFivXq9517RahyEZJ0IBDWSbCCAbt9ZEENj6uR5eM5E9lt4/n+pNvoDwET/mIYfO
+	/uV3BHFqDxM4d7ilz98kFlqWO53lPq52ANbky/v7hxH6SyCJ6Ax+3AD353iy7dWsA6aHQzGGIGX5L
+	vSVYp2zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNWPl-00000000GSC-2ly1;
-	Fri, 06 Jun 2025 12:43:17 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uNWaZ-00000000Hkg-34lv;
+	Fri, 06 Jun 2025 12:54:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNWNe-00000000GEz-22fc
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 12:41:07 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BE0D211DD;
-	Fri,  6 Jun 2025 14:41:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749213660;
-	bh=1N+xCDZJ/0b4qoHVQOlp9TIGFKwd8yBxgETiQhT7ccs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IjqZbUCBHbdcVQfrDKzQGdv2IuKbNQccf7oIsi9R1bvR9ykq2PAIYLRgiIDNtHKK6
-	 toGy0XWAjz4HHl6lvXBf0RmnGLhIoeBtpydCWlsjLWwmHl4lEBC29XwTc20Ik9ueL3
-	 sjkTh+GGLlqPMLVyrDea76VDk4M/tSfxpQNS02/A=
-Date: Fri, 6 Jun 2025 15:40:54 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: kieran.bingham@ideasonboard.com, rmfrfs@gmail.com, martink@posteo.de,
-	kernel@puri.sm, mchehab@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] media: platform: Add user line interrupt to
- imx-mipi-csis driver
-Message-ID: <20250606124054.GC27510@pendragon.ideasonboard.com>
-References: <20250606121403.498153-1-isaac.scott@ideasonboard.com>
- <20250606121403.498153-3-isaac.scott@ideasonboard.com>
+	id 1uNWYS-00000000Hc8-2suH;
+	Fri, 06 Jun 2025 12:52:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1749214333;
+	bh=ONaGR/IRVw2brl1DvzP1xMGhlckfUTMY9+SsqjrbfPg=;
+	h=From:Date:Subject:To:Cc:From;
+	b=UsuohR8BVGL3hoDGKOENRcMyYwrH7PXGB6nIzpJJcd9dsTKapwMwwIYfjThp3U4Dj
+	 CjE2pYUEez99p0mmuzfBhOyyKiF2s5qLMNNuLg1/ULMYVLKfBrQOcphJAoWk+ZdXLF
+	 8mpXv9jZ7u29tNa4f4z3ZtyBkBmPeDp23ebvVPLnErLe6Ya8E07dAEON8q91eTq1vy
+	 YE7i54WFjwBLn6EPsvWC0EPaxXsrsfgkWbzr6zcnnsLhNigHIDiCZJOSmMwaiF8+8+
+	 HU0+OVLXzNp3JVyHzzy3KVfNdix50em8HlLgSO+7aG3reF1ziMjJpsr7sErTDDwjIf
+	 f9gp6zkfw5Mng==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1A8D817E0097;
+	Fri,  6 Jun 2025 14:52:13 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 06 Jun 2025 14:50:12 +0200
+Subject: [PATCH] drm/mediatek: mtk_dpi: Reorder output formats on MT8195/88
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250606121403.498153-3-isaac.scott@ideasonboard.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250606-mtk_dpi-mt8195-fix-wrong-color-v1-1-47988101b798@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAPkQmgC/zWN0QrCMAxFf6Xk2UBX2NT9igzp1mwGbTvbqoOxf
+ zc4fAon3HvPCpkSU4ZWrZDozZljEKgOCoabDRMhO2Ew2tS60Q36cr+6meWeqnONIy/4STFMOMR
+ HTFhb2+uxccaZI8jInEgiP8Gl2znR8yWesj+ht5mk7D2XVgVaCv5d0G3bF5y7KZShAAAA
+X-Change-ID: 20250606-mtk_dpi-mt8195-fix-wrong-color-5aab0f6d2d27
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749214333; l=1912;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=ONaGR/IRVw2brl1DvzP1xMGhlckfUTMY9+SsqjrbfPg=;
+ b=r+8ZRVrWvUhL7zhQKD0bz2TF1ADcbbp8UxfIUYKGE063dqymCkH8GA0zB9oOA53Fu0uliBLWk
+ yAQnN9JQ/64DgZai79+2/AT7eYsADajmrCfzOgjnNv6+STVh5slLa1M
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_054106_808732_E4D524D4 
-X-CRM114-Status: GOOD (  31.25  )
+X-CRM114-CacheID: sfid-20250606_055216_885763_360F669F 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,189 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Isaac,
+Reorder output format arrays in both MT8195 DPI and DP_INTF block
+configuration by decreasing preference order instead of alphanumeric
+one, as expected by the atomic_get_output_bus_fmts callback function
+of drm_bridge controls, so the RGB ones are used first during the
+bus format negotiation process.
 
-Thank you for the patch.
+Fixes: 20fa6a8fc588 ("drm/mediatek: mtk_dpi: Allow additional output formats on MT8195/88")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_dpi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-On Fri, Jun 06, 2025 at 01:14:03PM +0100, Isaac Scott wrote:
-> The NXP i.MX 8M Plus features an interrupt that triggers after the MIPI
-> CSI receiver counts a user-configurable number of lines. This is useful
-> for debugging, as it allows users to check if the amount of lines per
-> frame equals what they are expecting.
-> 
-> Add support for this interrupt in the driver, and an entry into debugfs to
-> allow the user to configure whether the interrupt is enabled, as well as
-> the number of lines after which to trigger the interrupt.
-> 
-> This debugfs control can be altered while a stream is in progress, with
-> 0 disabling the interrupt and >0 setting a new desired line count.
-> 
-> Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 45 +++++++++++++++++++++-
->  1 file changed, 44 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> index bbc549c22aff..0e6bc3c87be4 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -88,6 +88,10 @@
->  #define MIPI_CSIS_INT_MSK_ERR_CRC		BIT(1)
->  #define MIPI_CSIS_INT_MSK_ERR_UNKNOWN		BIT(0)
->  
-> +/* CSIS Interrupt mask 1 */
-> +#define MIPI_CSIS_INT_MSK_1			0x18
-> +#define MIPI_CSIS_INT_MSK_1_LINE_END		BIT(0)
-> +
->  /* CSIS Interrupt source */
->  #define MIPI_CSIS_INT_SRC			0x14
->  #define MIPI_CSIS_INT_SRC_EVEN_BEFORE		BIT(31)
-> @@ -109,6 +113,10 @@
->  #define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
->  #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
->  
-> +/* CSIS Interrupt source 1 */
-> +#define MIPI_CSIS_INT_SRC_1			0x1c
-> +#define MIPI_CSIS_INT_SRC_1_LINE_END		BIT(0)
-> +
->  /* D-PHY status control */
->  #define MIPI_CSIS_DPHY_STATUS			0x20
->  #define MIPI_CSIS_DPHY_STATUS_ULPS_DAT		BIT(8)
-> @@ -221,6 +229,7 @@
->  #define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE	BIT(0)
->  
->  #define MIPI_CSIS_FRAME_COUNTER_CH(n)		(0x0100 + (n) * 4)
-> +#define MIPI_CSIS_LINE_INTERRUPT_RATIO(n)	(0x0110 + (n) * 4)
->  
->  /* Non-image packet data buffers */
->  #define MIPI_CSIS_PKTDATA_ODD			0x2000
-> @@ -281,6 +290,8 @@ static const struct mipi_csis_event mipi_csis_events[] = {
->  	{ 0, MIPI_CSIS_INT_SRC_FRAME_END,		"Frame End"},
->  	{ 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL,	"VSYNC Falling Edge"},
->  	{ 1, MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE,	"VSYNC Rising Edge"},
-> +	/* User Line interrupt */
-> +	{ 2, MIPI_CSIS_INT_SRC_1_LINE_END,		"Line End"}
->  };
->  
->  #define MIPI_CSIS_NUM_EVENTS ARRAY_SIZE(mipi_csis_events)
-> @@ -333,11 +344,14 @@ struct mipi_csis_device {
->  
->  	spinlock_t slock;	/* Protect events */
->  	struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
-> +
->  	struct dentry *debugfs_root;
->  	struct {
->  		bool enable;
->  		u32 hs_settle;
->  		u32 clk_settle;
-> +		u32 int_line;
-> +		u32 last_int_line;
->  	} debug;
->  };
->  
-> @@ -686,6 +700,15 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
->  			MIPI_CSIS_DPHY_BCTRL_L_B_DPHYCTRL(20000000));
->  	mipi_csis_write(csis, MIPI_CSIS_DPHY_BCTRL_H, 0);
->  
-> +	if (csis->debug.int_line > 0)
-> +		mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
-> +				csis->debug.int_line - 1);
+diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediatek/mtk_dpi.c
+index 6fb85bc6487a019cdcdb3770dc06a1deab8d5bda..a2fdceadf209f6d2166e7523b82ca18c82c7d435 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dpi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+@@ -1095,7 +1095,6 @@ static const u32 mt8183_output_fmts[] = {
+ };
+ 
+ static const u32 mt8195_dpi_output_fmts[] = {
+-	MEDIA_BUS_FMT_BGR888_1X24,
+ 	MEDIA_BUS_FMT_RGB888_1X24,
+ 	MEDIA_BUS_FMT_RGB888_2X12_LE,
+ 	MEDIA_BUS_FMT_RGB888_2X12_BE,
+@@ -1103,18 +1102,19 @@ static const u32 mt8195_dpi_output_fmts[] = {
+ 	MEDIA_BUS_FMT_YUYV8_1X16,
+ 	MEDIA_BUS_FMT_YUYV10_1X20,
+ 	MEDIA_BUS_FMT_YUYV12_1X24,
++	MEDIA_BUS_FMT_BGR888_1X24,
+ 	MEDIA_BUS_FMT_YUV8_1X24,
+ 	MEDIA_BUS_FMT_YUV10_1X30,
+ };
+ 
+ static const u32 mt8195_dp_intf_output_fmts[] = {
+-	MEDIA_BUS_FMT_BGR888_1X24,
+ 	MEDIA_BUS_FMT_RGB888_1X24,
+ 	MEDIA_BUS_FMT_RGB888_2X12_LE,
+ 	MEDIA_BUS_FMT_RGB888_2X12_BE,
+ 	MEDIA_BUS_FMT_RGB101010_1X30,
+ 	MEDIA_BUS_FMT_YUYV8_1X16,
+ 	MEDIA_BUS_FMT_YUYV10_1X20,
++	MEDIA_BUS_FMT_BGR888_1X24,
+ 	MEDIA_BUS_FMT_YUV8_1X24,
+ 	MEDIA_BUS_FMT_YUV10_1X30,
+ };
 
-Should this become 
+---
+base-commit: b3bded85d838336326ce78e394e7818445e11f20
+change-id: 20250606-mtk_dpi-mt8195-fix-wrong-color-5aab0f6d2d27
 
-	mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
-			max(csis->debug.int_line, 1U) - 1);
-
-to write MIPI_CSIS_LINE_INTERRUPT_RATIO to 0 when int_lines == 0, like
-below ?
-
-> +
-> +	mipi_csis_write(csis, MIPI_CSIS_INT_MSK_1,
-> +			csis->debug.int_line ?
-> +			MIPI_CSIS_INT_MSK_1_LINE_END : 0);
-
-You should also read csis->debug.int_line into a local variable like in
-the interrupt handler to avoid races.
-
-And you also need to clear MIPI_CSIS_INT_MSK_1 in
-mipi_csis_enable_interrupts() (when on == false).
-
-> +	csis->debug.last_int_line = csis->debug.int_line;
-> +
->  	/* Update the shadow register. */
->  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
->  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
-> @@ -765,10 +788,12 @@ static irqreturn_t mipi_csis_irq_handler(int irq, void *dev_id)
->  	struct mipi_csis_device *csis = dev_id;
->  	unsigned long flags;
->  	unsigned int i;
-> -	u32 status[2];
-> +	u32 int_lines;
-> +	u32 status[3];
->  
->  	status[0] = mipi_csis_read(csis, MIPI_CSIS_INT_SRC);
->  	status[1] = mipi_csis_read(csis, MIPI_CSIS_DBG_INTR_SRC);
-> +	status[2] = mipi_csis_read(csis, MIPI_CSIS_INT_SRC_1);
->  
->  	spin_lock_irqsave(&csis->slock, flags);
->  
-> @@ -785,10 +810,25 @@ static irqreturn_t mipi_csis_irq_handler(int irq, void *dev_id)
->  	if (status[0] & MIPI_CSIS_INT_SRC_FRAME_START)
->  		mipi_csis_queue_event_sof(csis);
->  
-> +	int_lines = READ_ONCE(csis->debug.int_line);
-> +	if (int_lines != csis->debug.last_int_line) {
-> +		if (int_lines > 0)
-> +			mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
-> +					max(int_lines, 1U) - 1);
-> +		else
-> +			mipi_csis_write(csis,
-> +					MIPI_CSIS_LINE_INTERRUPT_RATIO(0), 0);
-
-The whole can be replaced with
-
-		mipi_csis_write(csis, MIPI_CSIS_LINE_INTERRUPT_RATIO(0),
-				max(int_lines, 1U) - 1);
-
-> +
-> +		csis->debug.last_int_line = int_lines;
-> +		mipi_csis_write(csis, MIPI_CSIS_INT_MSK_1,
-> +				int_lines ? MIPI_CSIS_INT_MSK_1_LINE_END : 0);
-> +	}
-> +
-
-I don't think you need to do any of this with the spinlock held as the
-spinlock covers the events field only, which you don't touch here. You
-can move the code after spin_unlock_irqrestore().
-
->  	spin_unlock_irqrestore(&csis->slock, flags);
->  
->  	mipi_csis_write(csis, MIPI_CSIS_INT_SRC, status[0]);
->  	mipi_csis_write(csis, MIPI_CSIS_DBG_INTR_SRC, status[1]);
-> +	mipi_csis_write(csis, MIPI_CSIS_INT_SRC_1, status[2]);
->  
->  	return IRQ_HANDLED;
->  }
-> @@ -928,6 +968,7 @@ static void mipi_csis_debugfs_init(struct mipi_csis_device *csis)
->  {
->  	csis->debug.hs_settle = UINT_MAX;
->  	csis->debug.clk_settle = UINT_MAX;
-> +	csis->debug.int_line = 0;
->  
->  	csis->debugfs_root = debugfs_create_dir(dev_name(csis->dev), NULL);
->  
-> @@ -939,6 +980,8 @@ static void mipi_csis_debugfs_init(struct mipi_csis_device *csis)
->  			   &csis->debug.clk_settle);
->  	debugfs_create_u32("ths_settle", 0600, csis->debugfs_root,
->  			   &csis->debug.hs_settle);
-> +	debugfs_create_u32("int_line_0", 0600, csis->debugfs_root,
-> +			   &csis->debug.int_line);
->  }
->  
->  static void mipi_csis_debugfs_exit(struct mipi_csis_device *csis)
-
+Best regards,
 -- 
-Regards,
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-Laurent Pinchart
 
