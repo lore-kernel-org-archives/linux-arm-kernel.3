@@ -4,210 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B957C5B559
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99917C5B559
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 10:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=961aqrBQ0f+htkBIvOVIbfhfEgaVeWmdPKZzAqm78fk=; b=bnsfgXoETNPDZRypsum3npI4+X
-	oKyPxvvl0SbK7Jlrjhi3AqUdFuJ35Hvl122PpZ3ys2MGAHjr6yc2QYB6JBpqLiCoe3Ks5f2Nza5cl
-	pzGAtaTxhyF6AL87OGrS43miU+jgaNPNJ+TH+EsbWnk25+e3SYj5i11L7rB/8SBRoMVks+GO05KPl
-	7whRzxAx4GD6Z7gebnx9+79CD8k9Ymj4rRM/2uyu5NcWpWDQE+1ZChlXu8NjkcFLHbTg7jXXo0NE7
-	2hfp6MV9+1RoKwEkGUuERQ1il9K3bgpgpWWXIGLyMkIhZaWnJTBNg4zSqWlNsN3YdB0EGqFFpKkOL
-	bH25XZYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BRFHALx1m3zetPOEUD4i+1o0+6rIFbdrwCz54veiK6s=; b=Wii2CjDBhBN99GCggjs1UhrD2m
+	apcy9bd8Z62X+HA/0S3bTuAgYDm1Lly4k0+vAIRMxcotUsoy0zPBcWMh9lcrJpvu5ZDg/BJSrebH5
+	mgecHMrYsXEzSaKimI5kOvIByDt10qRqTTykJ1kJM5RzTmLxaGWfjW6pgNwbha+K7mX1mvEMPKU2D
+	MW8edQefpOvuPpLg5z0PCo1j6ChSE1QXnt1NJirWrEuLbMxnvcFUQgOwMk8Q4zTx3Ze26Of0o9QHB
+	y4InHBSWS8M/ioP1XHWg7lfxvAKZxWAbY78bbm9fhWiZ65Q9GKybGiQeyf5UNPKE0Ixppj1WSuxD1
+	a9+jMTXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUe0-000000005JN-2jEe;
-	Fri, 06 Jun 2025 10:49:52 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uNUg6-000000005ah-2Her;
+	Fri, 06 Jun 2025 10:52:02 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUVB-000000003uY-0ErD
+	id 1uNUa0-000000004fX-2sZH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 10:40:47 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=SGKjZZy069PcD7jyWYL1dqbOtYEJ/mQ7LHxkdQoeFp/LDNftAf22RXijG7YVUUtQ5qkuY/s0BYH9QO9FUK//UB8yAJZmHl77W9nqCa1KLy+ge67j0AHHeUesc3ZtbLToEVbQ3/BcPpC00EOC5GngJhm/XAw4x+TyZpUWQvyv+xF/w+LUyBdRUUJ9NxOh9Sjs4P5D+ezWy1lRoZD6YGJG85JTGO7uUNXxAIpcqy2a3GsizY9JlYw3SNCaMjVRnFeO4blMkNS/XfY54fDKikUR0eHaoU7NbW9bB5Qu6jkQvYGKlZU7xJGHvgo1nXxkhmbI5TTQwJQXoBmCDJc6IM1Xgg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=961aqrBQ0f+htkBIvOVIbfhfEgaVeWmdPKZzAqm78fk=;
- b=UlIiplBzw3O2EIoGjUWts+jNZPGWWwKrmN4NgapzhuqkW9NcpnAEJocdTms5UYdWTneK24szHHAD2GAp9TOc+dAZOdE5wPS8lrCEUL6qKMvyLLvj5zkRaPSKB+TVkg8KuPzp9oCUJF9j1aFxJeG8R+UxaO7M6XnRXUoP+7X4ZYClhUBoZOa7evejiSWhqqQS59V4td0br/tfGymrvrk0pas1KPcWYxO6heJJHQrW66H3SBG528lddBWhg1MX2qbTlFQFX1/7VYgR0sWdiTLOZMZuYtu+BAMfK+OBZ7SmsuhwSWazXvKjntfLLqnPVMyjBBYKYlMOTQogQtzzrcBzPw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=oracle.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=961aqrBQ0f+htkBIvOVIbfhfEgaVeWmdPKZzAqm78fk=;
- b=aeVSWA2Wb1nMsH98WaVdsQw+09CMYu+gGwsQjOqcuooxzK5CFOgntU32KfclYbTvoq3MmJSV3XRDofsvGwif7RzUSLQplPWbZ9QmACH+WRHt7ac2wwokWk8WAx4q7YJIWuTFj+pG/KogG5RhFgvYb5zbrZsPKTq8bmuQxdqa2dQ=
-Received: from PR3P251CA0026.EURP251.PROD.OUTLOOK.COM (2603:10a6:102:b5::30)
- by DBBPR08MB10554.eurprd08.prod.outlook.com (2603:10a6:10:52d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Fri, 6 Jun
- 2025 10:40:33 +0000
-Received: from AMS0EPF000001AC.eurprd05.prod.outlook.com
- (2603:10a6:102:b5:cafe::a2) by PR3P251CA0026.outlook.office365.com
- (2603:10a6:102:b5::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.19 via Frontend Transport; Fri,
- 6 Jun 2025 10:40:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001AC.mail.protection.outlook.com (10.167.16.152) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.29
- via Frontend Transport; Fri, 6 Jun 2025 10:40:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=poCmkboU0jnesBJtiIEvaFj2LWgKJ4H+5RocwiUXOYIx06SnxcZmNdGtC6lSP3bKtl+WoRKWqyux0+o3iKQ3QZV+3IyDvjuYkdXpQzstezexDPPz5bb/f4IlhS/PbC1LcGg3ri0ZT92pCFrPG7L9fQOyrf+FUN1aDAX599zsYpvhsai3IKidmLTz87URFwgg5M/4eFwUTGtvtogDqRfDJoUXAxcWwCFRkPbkuXlZeB0YoiU1Z2iluui1oqmsTQgUC2UkBdwVo29h27R4N4Rs5ti5B21FcQ5Lsd4rYTqujqA/a4fETNtDWdHz3SoCGJtujAd3XsCoUocVKqjPNCn4CA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=961aqrBQ0f+htkBIvOVIbfhfEgaVeWmdPKZzAqm78fk=;
- b=Z3o4Qd+W5WDNQXFE8LvwPn2m38DiLVrFNx7r7Co9ceu2Hx6mEcB1CLlwIozCMaEeflhjHPwOPyWfDGjJxAh4sK/1fn7U800mD1trn/ei77863RVWMbei6FFlqObXSs6sfrdlxpZeIQG1whvMjrtZojt237obvgAbMQY9RdARe+m88o7B7o1voX4/v/9+i/03fS8gKuF1VRxl2kjHGD2mpxreZ7rzo3vLGiPG6QOxuPVpbyhZSZMB6lLGsxPCYJtqECDqUorFTpN6R6iIAQAVMKTPqICqh+/ayGA4adF+VkTAQ9fE6U1mm1YxqkCfLGT4OuozC7pEllX0hfvBRGnz7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=961aqrBQ0f+htkBIvOVIbfhfEgaVeWmdPKZzAqm78fk=;
- b=aeVSWA2Wb1nMsH98WaVdsQw+09CMYu+gGwsQjOqcuooxzK5CFOgntU32KfclYbTvoq3MmJSV3XRDofsvGwif7RzUSLQplPWbZ9QmACH+WRHt7ac2wwokWk8WAx4q7YJIWuTFj+pG/KogG5RhFgvYb5zbrZsPKTq8bmuQxdqa2dQ=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by AS2PR08MB9666.eurprd08.prod.outlook.com (2603:10a6:20b:606::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Fri, 6 Jun
- 2025 10:39:57 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%2]) with mapi id 15.20.8813.018; Fri, 6 Jun 2025
- 10:39:57 +0000
-Message-ID: <f6b203cc-de3e-45ac-b2e3-b2d9f8ae0c31@arm.com>
-Date: Fri, 6 Jun 2025 16:09:51 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: pageattr: Use walk_page_range_novma() to
- change memory permissions
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
- surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
- gshan@redhat.com, linux-arm-kernel@lists.infradead.org
-References: <20250530090407.19237-1-dev.jain@arm.com>
- <20250530090407.19237-3-dev.jain@arm.com>
- <f528506e-b04d-4c80-93c3-93ba4ca385bd@lucifer.local>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <f528506e-b04d-4c80-93c3-93ba4ca385bd@lucifer.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0090.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ae::19) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
+	Fri, 06 Jun 2025 10:45:46 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a3798794d3so1555216f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 03:45:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749206743; x=1749811543; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BRFHALx1m3zetPOEUD4i+1o0+6rIFbdrwCz54veiK6s=;
+        b=ItCHg1Obdsgvyosn+7uR1KJRweo/QbbKpL70jxWf0Vj9hgHzTI6EeMszOjO4Uai/f/
+         VPyRLdP39kiBQFwBbz+556HYcMYywazZaQb0eZpYMddWWLXyeLP3vMYXFa9/P/hqVGkO
+         G+GG9pTBRqFvXmuNGxXO5zk/l9cpXK6GuYnd6Kn1OUulTJfNaVva8mNheIGfgz6LsTwz
+         X7k0AJZHzGEoZHZIBGQ/8by8sdkHK+Ed01xu9yPQIQjURoDJbliHP9pKhsE5DGqunfd7
+         Nb7zbUtwK0opvkDt1Hk4fdspCOOqnyJ4tyYvnY+qjTiY5ZEoMTcN3DJvwrLXCXPDM6qY
+         HesQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749206743; x=1749811543;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BRFHALx1m3zetPOEUD4i+1o0+6rIFbdrwCz54veiK6s=;
+        b=V3RK4Gq8iFEcJZE0jhRlQs+nki/ftn92GD81/csMHmAK7sp9omL+ocWsT23dZO4ozH
+         RL+//1aiqoZNGsH2fAUO+8AM/aMQet0Dvwyzyf6KdL2Apo0jxHYQahfpvryPCZojkJvr
+         o94Im5mSVIb8ehk5IqOx8SDy+TPBe3xyQhaWmUFcygZ4rDPbmay0UBwFIWQ06EDSsIvE
+         FSLdptCUYda8v6ppq71SQNUAYewaHr7BpriS6DCu4bbs7YbsQye+grhFoKnClgVFb5MV
+         jTGbnT6uwpQZ8zGZISjXLKtk851+t8VSe0cvOt+Xi0KhXAW5OuAKwcTzQpQpY6/fPeqX
+         8TkA==
+X-Forwarded-Encrypted: i=1; AJvYcCWdC46s6MlQ7FqS7TPkhLoRaLw/72tdB/PvZL3qcAjoudiJN2kzZJr/a5MXvdb96U5/XkaqcbnumddfkN7gSkJD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRmYPx53ozvbbwQ5/vU1lWzdqw7R/GaQkpCupIMyeMvHew04UK
+	mogp6oNETqhF64ghG1Fe8pNwIa7Xq1WJ+9rOORHx28sbtbUDEvauJpIyag/wqi4qCu4=
+X-Gm-Gg: ASbGncvzNmDk3e33CL63KqMqw9YIXe6xxANwU6Ev8vg9PBGJ6kGHSfbumOD1TZxCPf0
+	/UIEpSgvVIlFD3Y9JLYnM/9/eKRNtuhzcRRxEIPdwEV45hxhdUvaeSy65uy/awNOx7W+Y0+61RY
+	8aTBZNCSnEuzGop0UdwdXmVuSi5UWaQh3aFYnsLBXEGnAa/ItCnbneYxSdu8vlURej4eHSlqoMG
+	5yrU409fllYRGQxDwFvXnN60sSMKwHmebN4AjMyfWRmqqnbML75tQEWQ+jdlGAynaHWfNCKbo5F
+	n1tNw9mq+e8mswMoZPlQSXt7hl8N3SWJlg2iFowVDIdaGYBuukB7PTLT2hf9bRPimPLDk/5awDk
+	PnNa0Qat1AoMb62vnB7vrS9nTGYomOlKNJ84NZ0PevA==
+X-Google-Smtp-Source: AGHT+IG81ROpSS11hYFgizfgeqwfBE+434gV6QInGeIi/uhBiwAIOcylPzJAGiQB9jMO1IoJY5jW7A==
+X-Received: by 2002:a5d:64c7:0:b0:3a4:d0dc:184f with SMTP id ffacd0b85a97d-3a531cdcfa0mr2411229f8f.39.1749206743044;
+        Fri, 06 Jun 2025 03:45:43 -0700 (PDT)
+Received: from ta2.c.googlers.com (213.20.187.35.bc.googleusercontent.com. [35.187.20.213])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a5323bee86sm1468810f8f.43.2025.06.06.03.45.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jun 2025 03:45:42 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Fri, 06 Jun 2025 10:45:37 +0000
+Subject: [PATCH v2] firmware: exynos-acpm: fix timeouts on xfers handling
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|AS2PR08MB9666:EE_|AMS0EPF000001AC:EE_|DBBPR08MB10554:EE_
-X-MS-Office365-Filtering-Correlation-Id: 11712f1f-4818-43ea-3637-08dda4e68fb2
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?V081SFhSeDZFZDgwdlVEcDBldHBHT1pQbDJGYk1CNWVlNjMydGtzMS9LbytQ?=
- =?utf-8?B?Y1dta3RyVVNnSkFROUhMcUVwSUxuWW5tZmJjZEhqWU5xUmMyc0NLMjNRWE5M?=
- =?utf-8?B?a0Z1WlFqZXEvdFJzU09TRWw2MlJ5T0ZPMXUydHNZQk1rdzBHbzBvOUsyY2lx?=
- =?utf-8?B?ZVNMdXZZcTV3R1o2YTVzWXB6VktXbmVoa3FsaEpHV1hyTDQ4cFU1b2U4RVU4?=
- =?utf-8?B?N0EvYmwzbDRBUHJDWGVJdXR3R09EbnVpNWNVNjV3eWJtUVZuRU5kUlBqdVYy?=
- =?utf-8?B?alNhTmZPSVc5UU0zSEkxS2d6QWNQTEdnZElqREFFcllyRWxZQUxUNEQ2QlB2?=
- =?utf-8?B?R1p5UkpockdrQnQwUXR5ZnVmT2xJVERCOGl1V20weFBQaStGbHhaaU92dWhZ?=
- =?utf-8?B?Vy9QbTBGeGpzTmRvUi96c0dya1puMnQ0SjJVNjJXZFliZHBqTSs3Z3hPK3N3?=
- =?utf-8?B?eEhZa0NUQzB1bVNsQXozL1VBMXRYN3R0VlhCeUxTOTFBRElReWhGck52SXU0?=
- =?utf-8?B?c2Z0d0xhVkRITXRHdE0ybEpMOE5vTGY1UDhlVkJpM2lteUFsSi83YTF0emJm?=
- =?utf-8?B?eUpTMkE0MTMvbFR5dTVQMEY2WW04cEFvK1Q5a1FVeTNOOWJjVnNUcXU2NnNM?=
- =?utf-8?B?UGVkemJtU0lWVy9PUkFLYWpUZ1ROQlpGbVJIbEdpa09NUmdJNEdaajlzZFhz?=
- =?utf-8?B?bEt6cDFKYlY4bjBKbm9HZDdZRTFSOTY4VUovYUZwMU95RWNIRE91cXByUlRF?=
- =?utf-8?B?bGpadXgvTDhPUVRPS0U4Rk8vWDJGZjRaQ0Q4YVdYSmdMSkVUVEl2YVBtZzV2?=
- =?utf-8?B?Ykh1ak1QUGRnVTloY3pudTZmMUtvY1VodjlTSmxpelV2cER5T29EYUNQamFt?=
- =?utf-8?B?cGI3dlVHdjEzcTVnVDdmSCswODhNTXVpTmhaVC9od3hzZWRQc0k2NUd4V2dW?=
- =?utf-8?B?RG5YbWlHKzNGbjZlTTFiUmhpTmNremlreGdFcmVKYWtlUEFiNXhzb0NBK1hR?=
- =?utf-8?B?YVdnWHhRbE50WDBYTm5aMnFCM3ovdmJ0bng2dnJDeDNBSDRuZm9relRoYitj?=
- =?utf-8?B?K01xcHlsck4zb1dJRHJWME8welJGNlRJdE1GWm50a1YyRFBhVDI5QUdGczgy?=
- =?utf-8?B?KzQxMTRvdWhXSWtlSTZ6Tmp6VW5aOW9jMm9xMm1hNHpWR2YxK3JGM1pxeUlH?=
- =?utf-8?B?VTNmakVGM2VpVkZMOGpjYy8wdXJaSnhmUHkzbDFEZFJ3N2p6RlVtUys3Q0t6?=
- =?utf-8?B?VVR3dnFRcmZqZ3dKNUFlWUpvQm94VUVzcm83WCsxZytLOEZVTks5ZVlQdDhx?=
- =?utf-8?B?eEs3aTJMWUVyQzhxZjB5SEIvSmdUd2IxTGFaVXdQL3U0VmN4U2tzR3dzRVRY?=
- =?utf-8?B?dWY5MlJQL2phVXdtSUxKVzhzRXNvd1E4enUyZVJhZkFKVTh1bnRkZjl0cGlr?=
- =?utf-8?B?ZnVmRkdlbGJITlFtY2FRNzdycTdYRUpBaWhYWmhZMm1ybWRuRnFDeHVvckdC?=
- =?utf-8?B?M2RFakxzTDV2MjdQWW1LS2FpeHlhdFJVa3p6VE0rRVBoOENyOFdLVWFUeEpm?=
- =?utf-8?B?TEJncVg5TEhkY0NJVnNOU3dZbnNrbFlxaEJBWWt6M0YwR3U2NkgvTTBId3ZC?=
- =?utf-8?B?NnVQaHNWZTZkeUxwT1JQSWd3ekRDLzl3dnpGb2tldHhBU0VnYlZrMGpiUlRD?=
- =?utf-8?B?WW50ZUFPY2VqMVZKT0Fld2dkNlkxWjlLU2pwVVVQb3VwS1pMRzNjZUQwQTBl?=
- =?utf-8?B?QTJHVFFPa1lDZGxDM0dRbnh0L29OVlduTGI4NStqaGI3QUpzcm1tU1VJQU9h?=
- =?utf-8?B?WVphTGxmaFFsZE1SYjRNa1d6dStjZXo4cE1LYzVRcFplSTlNaWVNVjdkNlpU?=
- =?utf-8?B?ckNrZzVnTW9qNVhiMlNTeWpCNHJkUkZIUGhWeUwvYS9OL1VMZnNST1NTUGVX?=
- =?utf-8?Q?n4Cih1p8bSY=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9666
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001AC.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 84369619-d634-4937-bbb1-08dda4e67b33
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|35042699022|82310400026|376014|7416014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cWRpanlscWpZRVBSaEltWDNVM08ydHdKcWI4bjQyS0pVdHluOHN6K2g3SlJF?=
- =?utf-8?B?U1NTalhWR0k1SGRlaVBBUmp6TStOYkFqMDUwbTlCTmx4K3lFSnJyNkNyUWVo?=
- =?utf-8?B?c25scVdBTExFSlZIR2o1L1lmK3hmbGJQUHh6UEhoZ2JLeUtTQzE5dVlFWkdC?=
- =?utf-8?B?M1U0WXNQT3MxcE40NEhIbW1McmJEMHNnYWJsQXk2SGpWQXRoa09xMTFZR1dk?=
- =?utf-8?B?WDB3NmtEbGdWUEVSekVoT2s5SWtsM3NxaGI5bFBKcXZRMzNPUC9yUzkvUzBq?=
- =?utf-8?B?VlUwSXpyWHZPUW96M1Q3RnRIVHZ2dXdJSEh4N2dIbXFnUDVzVXpoWXM5NWZ5?=
- =?utf-8?B?VUVWVHJ6TmtYbzRQUmFzT1V2dE5DcXNpb09ZVmczWXR6TVdJeU9MZlFNd3hH?=
- =?utf-8?B?QytrQ0FVak1wWVp6Nkg4dEoxY1VtRytsK1d2TFFxNzhidWdzUG1SOGd2N2Rx?=
- =?utf-8?B?R3NzWHpRS1hmWFJMdjhNVlhiRUpNTUVocC9iNUlMV09ZK1l5V0NzUU45VzZl?=
- =?utf-8?B?R2JNSUxxQkZRZXJQMTBXQTd0VGFlYVdCbHFHNzJMZEVFSUVnNUtnTURycEVz?=
- =?utf-8?B?aXdGTzk3RHYzWFJ5WitOWnBWSy9NdG5RTlFlbVJKak9zNjJHYzE2YWdITE5i?=
- =?utf-8?B?NzZScXRhdWFWTWdRWjNLbkU4QjB1Wk5Ja0VoM2ZtdGxWZE1JdXBBVHdpMkls?=
- =?utf-8?B?cTczV1FoKzZremZxbHJieGM3dDB0RjRBQ2RPeGxLSllGdnQrZWcvOGhvcHRL?=
- =?utf-8?B?K2NkODdZZlF6ZGlDdkl1ZTNzdkFCa3dhQlQ3bHA4WnMwTTYxdjY4bno2dUhR?=
- =?utf-8?B?b2NQQnZUZVV2NU5JM0FNbElobDBwWm1CVE9IeGFIb1JuNTJ6MXFrQnRyaVY1?=
- =?utf-8?B?WlpwbUdhY3Y1bmttN3h1ZDN0VDhRWUZVMmI2bUMzUkFLQTBSYXd2cEpLYWEz?=
- =?utf-8?B?ZDJUZTEzMVVGTmY2OTVUR2U4cTB0WlVJOXpEaGtXZ1JkcWFaZUsvWDFhVWVK?=
- =?utf-8?B?emRpTDRQNmZWb1JYZ0JQRCtYbkpZTG5XSG91d2xIdnBjVDRLd3NCRDZxVnIz?=
- =?utf-8?B?Wm5GZUNxUG9VbHh4OVpQUUxjWEpaZDNPTVhuakV0Znd0S2NzVUZsNW9IUUE4?=
- =?utf-8?B?b1A4VUVSZlluZ2RVSSt6dnk2QW4vem5sSUYvN1ZXTm5tUDZQL2VTNWlETVY3?=
- =?utf-8?B?c3FEU3J2MzFVM2hwVm5SbGdvSlUvY2lqZUw1RmpNcFlUazR2Qm5MTTR3YXhq?=
- =?utf-8?B?dnNRek50eGxhaUdHNER4T3VtbC9ZM1EzSHM5anI4eDlyeWI2Yk9ncDc2N0Iy?=
- =?utf-8?B?eVZuMUpzTXA2b1JGL0VGS042cFdYaE5ZM3VIM0RvUGZYeUtwSUltNTFoa0lW?=
- =?utf-8?B?eXN5VXRKdmNjTWE0NzdWWmRLZXRJdjNQUWtSNitHMlBEZ0ROSUFpdTNSSDZ1?=
- =?utf-8?B?ekNBdi9nbWJqVmpsL1BDTFJsbWRid1JKakl4b0U1QTVxK2hZSHFMTUN3WjlC?=
- =?utf-8?B?V3B1bHRHaUFTeGQ5dTRtdThyeEZrSU9sQjFOeUxwdkRFTlgvWWZGUjBMVmRm?=
- =?utf-8?B?bTdYenNqUVJOaytNUUxMMmxQRU14aVJNVDJua29NaWM3Tm5rMGMxZnNndnlO?=
- =?utf-8?B?WUNTa1ZLL2lqekJoaDFLTURtdml0NzVSRms2OTlGcGNXY2VpZ3NPdGlST3pl?=
- =?utf-8?B?S0xGakdySW0wNWxlYzl1ZVJCZ2R2a3NSVXpxMHRCYzJYUjBtajBYKzFjUGVU?=
- =?utf-8?B?clVOb084M1ZXK09xa1YwRXpHY2NOTGtBNTFCTy9mc0NnQjNoczlkVHVDekV4?=
- =?utf-8?B?aDJlVXRGTnpFSCtpUEpVbERxazg0QmY3WDBWMTlWNGdlejVENU9qa05QNUJZ?=
- =?utf-8?B?ajY0V251WGZ5d2JFVXJJSEdoc3FKZEhrQUpJQWNPU01GTkU5a0Q1RGZnbm51?=
- =?utf-8?B?Q3ZyNHhva1NieVg1Y3VjVjJ5YStCcFBKVkVnUTU1SzFpQzhSSUZtckQzbjVt?=
- =?utf-8?B?RTRYV0lVb05DbFVxWlYrKzJZVVBvaTdobmlkT3FPVDE0UFlTRC9DSFhSZHAx?=
- =?utf-8?Q?iNoa3C?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(35042699022)(82310400026)(376014)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2025 10:40:31.5769
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 11712f1f-4818-43ea-3637-08dda4e68fb2
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001AC.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10554
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250606-acpm-timeout-v2-1-306b1aa07a6c@linaro.org>
+X-B4-Tracking: v=1; b=H4sIANDGQmgC/3WMyw6CMBBFf4XM2prShxpX/IdhUegAk0hL2tpoS
+ P/dyt7c1bnJOTtEDIQR7s0OATNF8q6CODUwLsbNyMhWBsGF5heumRm3lSVa0b8SU1Lp601zbqS
+ CqmwBJ3ofuUdfeaGYfPgc9dz+3j+h3LI6O0x2QJTcmu5JzgR/9mGGvpTyBXlSLqOpAAAA
+X-Change-ID: 20250605-acpm-timeout-434578500a34
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ arm-scmi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749206742; l=5028;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=YkGEBOcrE27T8r3ixhzP0IJ28+ma+k+fBnXwC3McJO4=;
+ b=/ygRXRUpI7htlMsGDL1WdAqzFsl3yUxqAWzsl8X50cOc+eJBsU4cW6YrAzSyW/kOU4+5Rcj1m
+ 7EAslsdO6LiCG5U41ftFPI1qbJm37L6utdNYTfU8JCZQs6jnxC05Vta
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_034045_370204_34CB445C 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20250606_034544_732903_4E8E3E86 
+X-CRM114-Status: GOOD (  25.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -222,154 +114,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The mailbox framework has a single inflight request at a time. If
+a request is sent while another is still active, it will be queued
+to the mailbox core ring buffer.
 
-On 06/06/25 3:19 pm, Lorenzo Stoakes wrote:
-> On Fri, May 30, 2025 at 02:34:06PM +0530, Dev Jain wrote:
->> Move away from apply_to_page_range(), which does not honour leaf mappings,
->> to walk_page_range_novma(). The callbacks emit a warning and return EINVAL
->> if a partial range is detected.
-> Hm a follow up question here - why not just improve apply_to_page_range() to
-> honour leaf mappings?
->
-> What does honouring leaf mappings actually mean? You mean handling huge pages?
+ACPM protocol did not serialize the calls to the mailbox subsystem so we
+could start the timeout ticks in parallel for multiple requests, while
+just one was being inflight.
 
-Sorry, I always confuse between block, page and leaf mappings :) I mean to say
-block mappings, yes, huge pages.
+Consider a hypothetical case where the xfer timeout is 100ms and an ACPM
+transaction takes 90ms:
+      | 0ms: Message #0 is queued in mailbox layer and sent out, then sits
+      |      at acpm_dequeue_by_polling() with a timeout of 100ms
+      | 1ms: Message #1 is queued in mailbox layer but not sent out yet.
+      |      Since send_message() doesn't block, it also sits at
+      |      acpm_dequeue_by_polling() with a timeout of 100ms
+      |  ...
+      | 90ms: Message #0 is completed, txdone is called and message #1 is sent
+      | 101ms: Message #1 times out since the count started at 1ms. Even though
+      |       it has only been inflight for 11ms.
 
->
-> Would it be all that difficult to implement?
+Fix the problem by moving mbox_send_message() and mbox_client_txdone()
+immediately after the message has been written to the TX queue and while
+still keeping the ACPM TX queue lock. We thus tie together the TX write
+with the doorbell ring and mark the TX as done after the doorbell has
+been rung. This guarantees that the doorbell has been rang before
+starting the timeout ticks. We should also see some performance
+improvement as we no longer wait to receive a response before ringing
+the doorbell for the next request, so the ACPM firmware shall be able to
+drain faster the TX queue. Another benefit is that requests are no
+longer able to ring the doorbell one for the other, so it eases
+debugging. Finally, the mailbox software queue will always contain a
+single doorbell request due to the serialization done at the ACPM TX
+queue level. Protocols like ACPM, that handle their own hardware queues
+need a passthrough mailbox API, where they are able to just ring the
+doorbell or flip a bit directly into the mailbox controller. The mailbox
+software queue mechanism, the locking done into the mailbox core is not
+really needed, so hopefully this lays the foundation for a passthrough
+mailbox API.
 
-That is how I did it initially. But I think we get into the same problem
-which you are describing w.r.t extending walk_page_range_novma - currently we
-return EINVAL in case we encounter a block mapping in apply_to_page_range,
-basically asserting that the callers always operate on page mappings. Removing this
-assertion and generalizing apply_to_page_range kind of sounds the same as
-removing the locking assertion and generalizing walk_page_range_novma...
+Reported-by: André Draszik <andre.draszik@linaro.org>
+Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+---
+Changes in v2:
+- update commit message and fix the time shown in the example.
+- pass zero for the second argument of mbox_client_txdone().
+  mbox_send_message() returns a non negative token on success, and
+  mbox_client_txdone() expects the status of last transmission. Doesn't
+  change behavior for ACPM, but fix it for correctness.
+- add to Cc the arm_scmi list, they had a similar fix at:
+  Link: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=da1642bc97c4e
+- chckpatch complains that Reported-by: shall be followed by Closes:,
+  but the problem was reported offline, so I don't have a Closes: tag.
+- Link to v1: https://lore.kernel.org/r/20250605-acpm-timeout-v1-1-1dbfdbee30da@linaro.org
+---
+ drivers/firmware/samsung/exynos-acpm.c | 25 +++++++++----------------
+ 1 file changed, 9 insertions(+), 16 deletions(-)
 
->
-> It seems like you're pushing a bunch of the 'applying' logic over from there to
-> a walker that isn't maybe best suited to it and having to introduce an iffy new
-> form of locking...
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index e02f14f4bd7c96de6ebb50473005de520aba1c4f..3a69fe3234c75e0b5a93cbea6bb210dc6f69d2a6 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -430,6 +430,9 @@ int acpm_do_xfer(const struct acpm_handle *handle, const struct acpm_xfer *xfer)
+ 		return -EOPNOTSUPP;
+ 	}
+ 
++	msg.chan_id = xfer->acpm_chan_id;
++	msg.chan_type = EXYNOS_MBOX_CHAN_TYPE_DOORBELL;
++
+ 	scoped_guard(mutex, &achan->tx_lock) {
+ 		tx_front = readl(achan->tx.front);
+ 		idx = (tx_front + 1) % achan->qlen;
+@@ -446,25 +449,15 @@ int acpm_do_xfer(const struct acpm_handle *handle, const struct acpm_xfer *xfer)
+ 
+ 		/* Advance TX front. */
+ 		writel(idx, achan->tx.front);
+-	}
+ 
+-	msg.chan_id = xfer->acpm_chan_id;
+-	msg.chan_type = EXYNOS_MBOX_CHAN_TYPE_DOORBELL;
+-	ret = mbox_send_message(achan->chan, (void *)&msg);
+-	if (ret < 0)
+-		return ret;
+-
+-	ret = acpm_wait_for_message_response(achan, xfer);
++		ret = mbox_send_message(achan->chan, (void *)&msg);
++		if (ret < 0)
++			return ret;
+ 
+-	/*
+-	 * NOTE: we might prefer not to need the mailbox ticker to manage the
+-	 * transfer queueing since the protocol layer queues things by itself.
+-	 * Unfortunately, we have to kick the mailbox framework after we have
+-	 * received our message.
+-	 */
+-	mbox_client_txdone(achan->chan, ret);
++		mbox_client_txdone(achan->chan, 0);
++	}
+ 
+-	return ret;
++	return acpm_wait_for_message_response(achan, xfer);
+ }
+ 
+ /**
 
-IMHO I think it is the reverse. Commit aee16b3cee2746880e40945a9b5bff4f309cfbc4
-introduces apply_to_page_range, and commit e6473092bd9116583ce9ab8cf1b6570e1aa6fc83
-introduces pagewalk. The commit messages say that the former is meant to be used
-on page mappings, while the latter is generic. The latter implies that the former
-was actually never meant to exist...
+---
+base-commit: a0bea9e39035edc56a994630e6048c8a191a99d8
+change-id: 20250605-acpm-timeout-434578500a34
 
->
-> Can we go vice-versa? :)
->
-> Also obviously walk_page_range_novma() doesn't exist any more :P
-> walk_kernel_page_table_range() is the preferred solution.
->
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>   arch/arm64/mm/pageattr.c | 69 +++++++++++++++++++++++++++++++++++++---
->>   1 file changed, 64 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index 39fd1f7ff02a..a5c829c64969 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -8,6 +8,7 @@
->>   #include <linux/mem_encrypt.h>
->>   #include <linux/sched.h>
->>   #include <linux/vmalloc.h>
->> +#include <linux/pagewalk.h>
->>
->>   #include <asm/cacheflush.h>
->>   #include <asm/pgtable-prot.h>
->> @@ -20,6 +21,67 @@ struct page_change_data {
->>   	pgprot_t clear_mask;
->>   };
->>
->> +static pteval_t set_pageattr_masks(unsigned long val, struct mm_walk *walk)
->> +{
->> +	struct page_change_data *masks = walk->private;
->> +	unsigned long new_val = val;
->> +
->> +	new_val &= ~(pgprot_val(masks->clear_mask));
->> +	new_val |= (pgprot_val(masks->set_mask));
->> +
->> +	return new_val;
->> +}
->> +
->> +static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	pud_t val = pudp_get(pud);
->> +
->> +	if (pud_leaf(val)) {
->> +		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
->> +			return -EINVAL;
->> +		val = __pud(set_pageattr_masks(pud_val(val), walk));
->> +		set_pud(pud, val);
->> +		walk->action = ACTION_CONTINUE;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	pmd_t val = pmdp_get(pmd);
->> +
->> +	if (pmd_leaf(val)) {
->> +		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
->> +			return -EINVAL;
->> +		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
->> +		set_pmd(pmd, val);
->> +		walk->action = ACTION_CONTINUE;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
->> +			      unsigned long next, struct mm_walk *walk)
->> +{
->> +	pte_t val = ptep_get(pte);
->> +
->> +	val = __pte(set_pageattr_masks(pte_val(val), walk));
->> +	set_pte(pte, val);
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct mm_walk_ops pageattr_ops = {
->> +	.pud_entry	= pageattr_pud_entry,
->> +	.pmd_entry	= pageattr_pmd_entry,
->> +	.pte_entry	= pageattr_pte_entry,
->> +	.walk_lock	= PGWALK_NOLOCK,
->> +};
->> +
->>   bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
->>
->>   bool can_set_direct_map(void)
->> @@ -49,9 +111,6 @@ static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
->>   	return 0;
->>   }
->>
->> -/*
->> - * This function assumes that the range is mapped with PAGE_SIZE pages.
->> - */
->>   static int __change_memory_common(unsigned long start, unsigned long size,
->>   				pgprot_t set_mask, pgprot_t clear_mask)
->>   {
->> @@ -61,8 +120,8 @@ static int __change_memory_common(unsigned long start, unsigned long size,
->>   	data.set_mask = set_mask;
->>   	data.clear_mask = clear_mask;
->>
->> -	ret = apply_to_page_range(&init_mm, start, size, change_page_range,
->> -					&data);
->> +	ret = walk_page_range_novma(&init_mm, start, start + size,
->> +				    &pageattr_ops, NULL, &data);
->>
->>   	/*
->>   	 * If the memory is being made valid without changing any other bits
->> --
->> 2.30.2
->>
+Best regards,
+-- 
+Tudor Ambarus <tudor.ambarus@linaro.org>
+
 
