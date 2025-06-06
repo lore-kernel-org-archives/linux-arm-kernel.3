@@ -4,213 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AF3AC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 11:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1DBC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 11:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anwSU70I5sZHHSEdYyScDb/+deGA5K7JxsW4H73Zlq0=; b=Q2JiebRUyphFgXXV7vcD9tVM3o
-	svAnB2cbXRgo0TJAkJ94wP9TrWp+592qLvjzfQVWUmisHO4pBPex9gn9MhJnBkeJ52JK5yzvhT276
-	IWkB2xRp0neagPg0qoiHhAv2lXMY5bBZPYWw0qm/0OWHM4ciEU6Qre5jrtHzX2UhJpJQ6nT4mkeVE
-	tz0RobgUV9gCCqtYaNih0t9BHkVQib4+y5KYmZnqnWiTMX2qyJ1Zv5B92jiM7T6yzYt5cc18Oz/RN
-	4Ot9+hT4OQctUhNVakFx7TAmSAZDDImuyXZMKGXX3WKxWhEOFeZL3ceh34quskRGHQ7i4znqWISo0
-	8HYOwU9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QqaoojFiVes+ZO0jsy6RpLFdw7INbC2+V4FCCgGkvIo=; b=tD/uxHm6W3gI9oVjLR75I0cMeX
+	zyWa48wvO3Rwr3E9DE8A//LNKT76aAOscP2xLeFSRHhvkuyB9+8Zrv5rHUrhVCsCpmZ/DdNPLGuCw
+	wTVSYD3lK8fBhX8i6fw5psVbM37KDcTDICqp02p1XnMmVy+UxszuP1s7TO7Hf/A0xa5q8xuWbuSt3
+	uzxCYl4yWwlwbshx7VRHq8dC+gYDgmdO40XEnJFJKQWHYWs2SUt1j7Qlk09ylx7KO7b4RVb5XWvjz
+	XVthaSBWQ93ArYbGAABpiQpw2InJViWEq0rFbexgNULg9Uu9M+PtpDuq4aYNLIj41aJj3sHsrfI9h
+	fMrNdjgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUyh-000000007RR-2CyE;
-	Fri, 06 Jun 2025 11:11:15 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uNVTD-000000009AZ-2pX9;
+	Fri, 06 Jun 2025 11:42:47 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNUwa-000000007JR-1Avz
+	id 1uNVR5-00000000906-49gr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 11:09:05 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=RretKA24+htvGxTXQ+8O9UZGheOKUOIMiye9DHYevYRWftuAI7biCQnwnnjZJX+CFycdPVdGmpepG8q4gEUHaqNzoL9aEPZMJIjbt8euY8pYwiFXMPC/Qxrd9+7aC7KJAM3ZS9Tc1diykzWYYOpzYAucUE4hKGt5+wFmI2gARvnHQGJTWRrNu4ZsKHgAFD2mqGiGU19pt+9Tz8Klk4quLrNJBBuPo0tN9uNXEh4JqjrJTJ5xEG0Igo2i0SOe8EAOw54g47fpP9Li5lKsho60zOUSM3Rbaor/gfKyeP8NbAWnGI2utNsaaHBaT8pisbEPBpKd0mV7j2yqcT4NkOkorQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=anwSU70I5sZHHSEdYyScDb/+deGA5K7JxsW4H73Zlq0=;
- b=NySmcCVv3SvGujSlxu1OiZzAvl70OoXR5/NynoKo6noTVoKeCFw+8Cf2A9NmPGIHEG29trpE2wEB+zOWFfCb9cnc22RA0jYDgYG0ngXCBBcgmF7PAuCczOKRkseSfLfHKpBTVgbnELhtVs07GEO+iuiksFER8KIDXvySQQ+Op8mzIlgT/XM0mOe+HTvXZghj6IaKzYcdbY6nuRWt8vydMbJxfZsFxw2yk1hmwcPi3CbssuT+7nVo9OKvAPPMGc/N81F1UQRKzKgDiye9fCRkdQiyKyJtq3qPmdUnJ2R1QerzrexsnfZW/JQeexcTugba/RclurkZ3ZVPEJTY0Krcng==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=oracle.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=anwSU70I5sZHHSEdYyScDb/+deGA5K7JxsW4H73Zlq0=;
- b=P875yah8FCxLPPUaRQER4FAkFoqf4uSPuTOdtOXzBhqQaHUV2BKT8H26GbliSm9G1J02/KxAaLyGX9RwIydlY9UHsHCb5UqmXhRMDZymUiQHI9JL8q/AytB3zsUtP8aU1eWRsOIPqnF6Ok+ha+E4j+MC3ZqbLxUJYsF824ctLTY=
-Received: from AS4P250CA0025.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:5e3::15)
- by AS2PR08MB8361.eurprd08.prod.outlook.com (2603:10a6:20b:544::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Fri, 6 Jun
- 2025 11:08:58 +0000
-Received: from AM4PEPF00025F95.EURPRD83.prod.outlook.com
- (2603:10a6:20b:5e3:cafe::3c) by AS4P250CA0025.outlook.office365.com
- (2603:10a6:20b:5e3::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.23 via Frontend Transport; Fri,
- 6 Jun 2025 11:08:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00025F95.mail.protection.outlook.com (10.167.16.4) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.2 via
- Frontend Transport; Fri, 6 Jun 2025 11:08:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eCUEfbH94hIhOpahy/soRviCmgbeVfdL4SFI7al/uvcHWozEaajeqiGJhRB8dNmf518eK+ezbnMF7BSYwQcDg0hURuHDlMyFq7NsNVBin3ev6+qGo6dGJoALZC6eYdLVAkieWEjATWxHVUC+j3Q0T8YblODLmiyxCx4bhESmbdGVME2ktO5XBaIJsQkIRYf3uPQg/JdG6ASJFwgunU9MZHWetPO0dJwYVsPEzyj2oJE/1o2tOZ+5Vi/YwONhsq2OlNcSI5gl1UnqgfHD4ptgXEpLDlCmOTL7EgD+L+pX/ZmwEQgurUymMCB5jCyAEHe3Cz1e/4B38wlIUo3U6dBbpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=anwSU70I5sZHHSEdYyScDb/+deGA5K7JxsW4H73Zlq0=;
- b=nD1TEzuQUsz+Z8oR3oBarzbRozn5/SF76feUrQ2xf9BcTwdr8S+PSvxQGVni96sSw5rlUWb2yx2dWUsyYZaeT23Tph0G6jAGGw/211j9xvuExkHzQnt3D2q7tYBa81CgSvfgNuspJBoJmrHOfN+a5Ar0C5wCsVs0HK9YNOL+iShikzS+bKAnKUJ825ZLvxYBTTw37VRVon/Jto3eXMwn9P8dljvAHzi/fVp73lY3tC9SLgQBFqHVbqrSMw4+ex/wmKf8g4KfKh9xVIjVzi6yfIKE+natMJJpjOZjI7y5zWZSRDSVpYbEODfyBrZ7F0q7rZbK9d1fwrHR1j6sDz8kPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=anwSU70I5sZHHSEdYyScDb/+deGA5K7JxsW4H73Zlq0=;
- b=P875yah8FCxLPPUaRQER4FAkFoqf4uSPuTOdtOXzBhqQaHUV2BKT8H26GbliSm9G1J02/KxAaLyGX9RwIydlY9UHsHCb5UqmXhRMDZymUiQHI9JL8q/AytB3zsUtP8aU1eWRsOIPqnF6Ok+ha+E4j+MC3ZqbLxUJYsF824ctLTY=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by PR3PR08MB5818.eurprd08.prod.outlook.com (2603:10a6:102:8b::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Fri, 6 Jun
- 2025 11:08:24 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%2]) with mapi id 15.20.8813.018; Fri, 6 Jun 2025
- 11:08:24 +0000
-Message-ID: <a6d9c651-6743-4002-8a0b-fdad617ced56@arm.com>
-Date: Fri, 6 Jun 2025 16:38:18 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: pageattr: Use walk_page_range_novma() to
- change memory permissions
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
- surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
- gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
- Yang Shi <yang@os.amperecomputing.com>, Ryan Roberts <ryan.roberts@arm.com>
-References: <20250530090407.19237-1-dev.jain@arm.com>
- <20250530090407.19237-3-dev.jain@arm.com>
- <f528506e-b04d-4c80-93c3-93ba4ca385bd@lucifer.local>
- <f6b203cc-de3e-45ac-b2e3-b2d9f8ae0c31@arm.com>
- <d2ace2dc-0d1e-491c-b574-b1fcc65f9a88@lucifer.local>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <d2ace2dc-0d1e-491c-b574-b1fcc65f9a88@lucifer.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0063.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ac::17) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
+	Fri, 06 Jun 2025 11:40:37 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-6062e41916dso989347eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 04:40:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749210035; x=1749814835; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QqaoojFiVes+ZO0jsy6RpLFdw7INbC2+V4FCCgGkvIo=;
+        b=DccEARIQEARbAjXPW0c3L0JKnM43pxI36XlNEermsYBy3tfvgBMMHjDGghnKTpYqv5
+         eRZZANJkrzAMR2t9R2/+sn393I+XNt/EisoijtVbqPEd5cpC9nUQ1AA8q94mwdmdC64m
+         p7BHhSNWn/qSJYVISfem70i0QdAEC50JiU8iWOVzrBhALEsZPlxZTYfdCwETQjVNPaQw
+         WpDex/u/DnG0o1LXl73PpP12FhOOXHwlq4F3dKT3Jdrx7XMQkCEYmmTSJhZdlXDU3xaY
+         s4/cjZ4Akc3HO8IP9MKt6l1ADjgd706VO04oGe3OSlFMbz9Xu+ZOrcydru9AAbQBGTQQ
+         ewkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749210035; x=1749814835;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QqaoojFiVes+ZO0jsy6RpLFdw7INbC2+V4FCCgGkvIo=;
+        b=DaUY6ILNxg18DszpSyWiLMXyvJKtLmfmP5Eh7ZaYiAnfgsxjdlXNnFCBNeCe73icbl
+         aFvKML1XSzHRbADs8prA0JTrCX5pcQHvPNBRoTiiO/Ql9DeidtmiyyOfWR7Nkn/6aaQJ
+         UNt4dUFG6ndlmNd6xpwdz4BU1JIM9SPeEvzxj5bJed++9UArQmrwzYsj5MXBE73GZd7e
+         zkDnAt4T7i4DtUNfK35WlGJz0084sILDhLNY5DnFbaNfvRk6/kV7eVhOw0//tu3dD+qZ
+         9OGoil2y8FEqEypL08S+SMMesrfyuQnftLyqqre2o/WY4jQSVmtINDCknrmnGja+/Jy7
+         v6YA==
+X-Forwarded-Encrypted: i=1; AJvYcCXrqnvtxFuGWLxn+nO/iOz/P3eglwXBo++c/WAgoWkp72pS1F5tSzXQiEMpOV9OWOnvvCaWnXEqzzOjqsDi/FBh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTz8usD6WIR6wfsc7iuuL8zCD+ulJJGAx2h5Me37bAE6TY6O4l
+	Vx84ktO92M8SvNRbvesFPu/hqUrodhm8sV09JpZkj8cc+61PGO0J7qla9XlKU73JE09nowDs2D/
+	cSadySBPwKyQXd+GR5/dD73GDjeFpXa9OzKmVcCEd1A==
+X-Gm-Gg: ASbGnctS6VF7Dq3uEJSlfzhY8VhnyADfnl+h0PSF4Glwcbz7dHgxx+rr9DNtOCrSzg5
+	GiCn0DRU/mYBPtdWtenVlGBpELl+UJ7+8gW0uyLv8E3W4cpIhO3kRKoYkY4m93kn9bFwlmCaFjb
+	INhqxcxd1vqJDX80DlCn30qgyaUoA5X7i29w==
+X-Google-Smtp-Source: AGHT+IGPaAGn9iQyMBJtFjG6VFBrTrEjl1SqdtOd+jkmmGGT5jvCC0aGOFstBgHykg8Ve8H76UnHvFuNqDfGC3ioIYM=
+X-Received: by 2002:a05:6820:2112:b0:60b:b134:a1 with SMTP id
+ 006d021491bc7-60f3cf2e2c5mr1700381eaf.6.1749210034900; Fri, 06 Jun 2025
+ 04:40:34 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|PR3PR08MB5818:EE_|AM4PEPF00025F95:EE_|AS2PR08MB8361:EE_
-X-MS-Office365-Filtering-Correlation-Id: 46376c03-8cdc-474f-349a-08dda4ea88aa
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|366016|376014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?eG9MQzJ5VjNZNmxNWTdROTRkYTVWZmw3N3ArR2hIb1pocTQzeE5seHJYazNu?=
- =?utf-8?B?ZmpWc1BaS2liZVBuNDk0MjBXSlJCQUl5SkEwVWpFemJ0b2Z2ZG1JT1phWnMy?=
- =?utf-8?B?THhrbTN6THJOMUNvWTlucUNXOWZaVTVKaWlQU2xvNnFDMUZ3Sm1DVnpMWFRy?=
- =?utf-8?B?aFBibjZoSC9sOVZJOWlZWkQ3eTYzaXVXb2ZEVnVmZzM2bWFmY0E3UFUya09j?=
- =?utf-8?B?aW0xQi8wR0pNT0hFc09hbFNSWVZCdmFUMWgvdlR0Q2xzWjBySk5ia3RjZ2pV?=
- =?utf-8?B?b1RyYlkyZEtVWklIYUp3Y1lhaEZQd09VdFZSRGhzUStkdGlsYk1hd0JWUXM1?=
- =?utf-8?B?eXRER0srT2JGMXcwLzNvTkNPaTR6aFVWR29ZdmxxSFJDZVJDalBKbTFmcHNV?=
- =?utf-8?B?ODJiMzUvKzZ0RVluY0drckVLSnBwUVJkVUdRQlhGdTA4TDFVZmgrNDhPWGJi?=
- =?utf-8?B?RkVWRnpSSnhyT3puRkJSS3c5K0I2eVQ4WDV6NjhYZlVUdXlDbmNMWU5NcDcx?=
- =?utf-8?B?YW1KcUVsVWxnYUdxWEZ6eWxZWjJ4SGU5cDQwUUZpWUloczNFcG04UnhtSEhP?=
- =?utf-8?B?S3VWdFFSd1RYM1luMi9hV291UCtMSWpJWmp2MHZUY2ZtbmdiZlkvRGcvL1Nw?=
- =?utf-8?B?OVl1dXBzNlNUSisvMUFPZUZUR2g1anNFYkhHUkZBZVErSkN1TDZVQVpnRWNT?=
- =?utf-8?B?dnZLVTJ1bXZlVExwSWlsbUdhZE9tb0s3VGJJMDRsa1IvUnc0QTcvOXp0SlNI?=
- =?utf-8?B?YnRJWEYrZ2hUQ2g3c2RXNnl4cFpVM1daTW00R2NSMndkbVdDeW9Ya2FxRktv?=
- =?utf-8?B?NXo2VmhTQVNuTm1sWm1Dd2R3bzdTS0VlOVNWV096OG5aVmZMN21DanRjd0lv?=
- =?utf-8?B?dU01aUNLR0pubVZDM2R0K0FkQXBPUDZxQU84S0FRdDNRTDhJSUdaTEV6Vkps?=
- =?utf-8?B?cFFtdERIL0tSb1VzcXRhWURER0NyeEh5NGF6TjNXenQwdWwrb0YrcmZCcDA1?=
- =?utf-8?B?Z0owMnkzbDltSWQ3L2tvaDhMWEhxWnNlYTZoaWFYbmhEcWxyREt2Y3J6NVg0?=
- =?utf-8?B?OHNta2VIQ1hRMzRTZWhQYUpnV05lYlVvUVUyWk9yZzhwNER3VDhBalUxaUxL?=
- =?utf-8?B?Wml4RWh3RjV6Uis3Y0JWQTZuQ0lFNkN0Zml3aG53Nm42T3IwTk8zOE5YdnFD?=
- =?utf-8?B?Ly9wTkMyWXhkYnQwdklSZ3hyNWQrSDJHalRUd3dXOWpIUEFpMFZmblU4NDVn?=
- =?utf-8?B?TnRiR2VKdjhWUXBsMlRZdEFXSjJUaktPVmZ1SnpBUk9heUhXWjE0bGVTTUFw?=
- =?utf-8?B?amtZYStyeWxsWk9wb2gyQzRUZHpiNU5hajBYYytNRFBkSU1kNjFleU0zRmhx?=
- =?utf-8?B?REk1dSt6SDBEOXZBZmVwVHpicW5hT1VzOWNwMmlPWTdraWtJcjZ1UTNYcEo2?=
- =?utf-8?B?QS90QU9yQUcyLy9jQkFaQ2p6NjNtT3loTDFEK1JGR0ozeTRXWjk1THNtTjE1?=
- =?utf-8?B?QWl3dGVwVUNNS0hyVzJ2ano0V21nN21vb1hzalNRL29NMU4wb081a2tFWlJO?=
- =?utf-8?B?cXE5NkJNVjB4V05zL21ROVBidFpORkNjWGQwUU92dW1EalVkSGMwek1lMThn?=
- =?utf-8?B?RE5HRWdtQVZ3NzVhblZTdkhOM3R0czBFLzd0bnVFQ0p2SGNYQ2Zaa2VrUHhv?=
- =?utf-8?B?Y0tJeWg0Q3luRGJUcGpiMndyaEREMk1TankycXVZZXRDMWJhdkh5SWxQODZP?=
- =?utf-8?B?dnJQR201cmY2S2xPZDY4Y2tlWWFKNzYreGlBM3dJMXFmL0QraGgyYTdZVnlx?=
- =?utf-8?B?WlNsR29ZT0VJaDNwNmJRZ0RtVmN4QTQxTDBkN1RONzAvVzcxUnU0S2pzUXdx?=
- =?utf-8?B?U3BGN1Y0Mm5teXllTENtaVJ2aGd1L0dLdFZDUjR5eGJFeUxHTFVmNjFWeGZG?=
- =?utf-8?Q?OpNfUrLqqhs=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR08MB5818
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00025F95.EURPRD83.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 87334a4c-ea07-4179-6da4-08dda4ea74c4
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|14060799003|35042699022|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dFV5aFpBVFcwMGFpNlIxSHNWK04wTVUzZklHTXkwUmRNZHFRNm9VSENzdUlP?=
- =?utf-8?B?MVJiMHlrdEd5YmQ5bCtQRjlPMHJQMUxNeW1EalR1QjVWbU9ybS9iYk5GeElH?=
- =?utf-8?B?VUx1WXE4M3JXYVgrMlpZSVg0WFIxTENLYTZRc0wvOFFoUmtLRGVsMHdKcWxO?=
- =?utf-8?B?K1ZwM0FKSTd0UktuSFVKcW1DVXZXVnVYOUNwZm5tTXlUNC94YjBFcTJRaXBL?=
- =?utf-8?B?S2ZMTTNibVpyNWwxKzFycW52THNZcVl0KzBkdWZZWWhPd01aQWw0SEVmcWVL?=
- =?utf-8?B?MHVCZ1Zwc1ZabmZCYXNUWmsvWUtJZ2RDZENjSUExN1ZtY2F6NktDZW81a0Jx?=
- =?utf-8?B?WWhOcGVsZkJTS0dpMjJXek1ZQ3E1Z0k0RjFXdU9xNnhmM3dBRnAyKzhTYlJF?=
- =?utf-8?B?TCtjN0ZKZ0NkcnU3WTlXdXN6bjB6T1I3UlhJVG9qV0ZVWUppT0YwcTFnZU5I?=
- =?utf-8?B?YmZRa2d1ZnAwLzBReXpWSDNQNmtUKzhmWktwZkdMMHRFVnl5cFBnM2I0Z05y?=
- =?utf-8?B?c1ppZHJybEllTEpVZG5WTWVqWnYwWFNSNCt3VjdKMkhidm92THBQeFpWWnRy?=
- =?utf-8?B?QU1sYlJvY3I4Yzh0c0diZmRHWGozS1NsNVZLTGc5cWd4N1E3Y3hWZTRzUWlR?=
- =?utf-8?B?b3FJcnI2ajJMalBQZlRXTDdwZStjdzBkQ2RZajUvSkV4Nk8yckpEREdjN0t1?=
- =?utf-8?B?WEpSN3JiQVhCYW9odFhlKzhoR1JqbVVvL3dRNUVLYWVyVzR6WWFXVXZIdDh2?=
- =?utf-8?B?UTNUQXNabUorV1pKRDhwSlhUQk1UbGZUbExzd3VxNm9rbkxsZXM4UlRYWUNG?=
- =?utf-8?B?Q1lNaDk1Y0h3YVV5WitONEdXNUwvQ05tcC9DVTV3MHNxTjRESHowendQUjZW?=
- =?utf-8?B?YWFCR21nbUZUdGswS05jdSs3TXROZHdlcHJ4c2w3R3p3MklnOUo4eEhFZFpr?=
- =?utf-8?B?KzQzdkl2M25NWGRCU2c4dUlKeEsvQ04wNElkbjNHRnlYengxZnJoN0tKYnNo?=
- =?utf-8?B?Nm55cVJjendiMk5oNnRkNWhKb1Z6eFBIVlh6MW1xMTBaZHlQMGJPQ3JtdUZW?=
- =?utf-8?B?Ym1hUzExRHNSVXpvOFBOMDZpNDZ4clpLUVBBY3RVVlcrckVxT3NDZGZwaVRM?=
- =?utf-8?B?TUZBUFp2N0VVdHNydlNyWFlhZmVoY1IvRmRGc2JOOW5hMkkwTTNsNmwrTC82?=
- =?utf-8?B?Mm43Y2dEUnJXZ0tydkREZWpUMGYzQnZuRy9MQkwrNHdZYkJUaTVqdnIyZWdN?=
- =?utf-8?B?RXFoZEdLSUtlNk9QOU1XUUgxZnBEMmNMM1M5bGhVUDN2UGNncGlWREY3eDZw?=
- =?utf-8?B?VUNJT2FkMFdxS2FHSXRuT3FiNmRUekEyNFN1WDNQSyswalQycFdmUG85SFJl?=
- =?utf-8?B?K1JwdDNLTGR1bHlGcnJhSFVhb1dZSlVmMm9QbzhaUG5vOUVTaW5yMGxxdmZG?=
- =?utf-8?B?Vk90SUI1cDhwWFg4UkJGY2tLZTNsczAyQzZSNWtoWTdBTS9yeHI1QXY5b3N1?=
- =?utf-8?B?QXZvTlVWZlNtNENLbGU1eEFwMkVpbUplbGw4SHFSOXJzS2dZR3Q1OFJiR3VP?=
- =?utf-8?B?TG5CS0VGOHdhbHBMOHIwOHc5VmRnUVBPMGl2Vlczc0xnL3lpTEN1blBOR0p4?=
- =?utf-8?B?a1ZJTWtQeGs5MlJ2UDF2MjBJQWUxTUs4Q3FlUzBvSTVXMmhubFhDak13MHUx?=
- =?utf-8?B?SU1PdXN2dDVCYjl1RU1LRzRqcXpoSGRjdTBCYjNycUlxaFBQY05XM1BoU2tW?=
- =?utf-8?B?YUcwYU0ranV4QSs0SEw0MkpTb05NNVczamhzZnJMR0p1RHd3M1ZWVXJEYURt?=
- =?utf-8?B?aUx4M2NzOTY1T1VxaThvWUJOb09aTGlyUTJVQU1TVWFoMlNTanFnUW1DV2l5?=
- =?utf-8?B?SWQ1ZEJpM09haGo5NDc5bjY4NnBLd2xyczVMNDJ5THhad0liYmwxV2R2NkJW?=
- =?utf-8?B?MjVqREF6SzBNb3k4a0hkMlNIQjV4anF3MmJDUWUwUC9oMVVxVFhDb2F6SVNh?=
- =?utf-8?B?a1cyL1FMZ0ZEMWZFcE5KZVk1SDBpam1BRHRWK0hiSjdTRHBOQWdkTk5KbnhM?=
- =?utf-8?Q?gl2bRp?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(14060799003)(35042699022)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2025 11:08:57.7710
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 46376c03-8cdc-474f-349a-08dda4ea88aa
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F95.EURPRD83.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8361
+References: <20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be> <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
+In-Reply-To: <20250523-b4-gs101_max77759_fg-v4-2-b49904e35a34@uclouvain.be>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 6 Jun 2025 12:40:23 +0100
+X-Gm-Features: AX0GCFuEetRBi0jDLFg0Uft93KobL6YT9ud-De2FOwUUfLokKDe78RZcyXziMWE
+Message-ID: <CADrjBPqOMOyHP=aQ1+fg2X58NWRp-=MJBRZfpbEhQsTzaZ9LHw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/5] power: supply: add support for max77759 fuel gauge
+To: t.antoine@uclouvain.be
+Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Dimitri Fedrau <dima.fedrau@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_040904_474240_40F26644 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250606_044036_044387_A3978672 
+X-CRM114-Status: GOOD (  49.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -225,182 +100,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Thomas,
 
-On 06/06/25 4:26 pm, Lorenzo Stoakes wrote:
-> On Fri, Jun 06, 2025 at 04:09:51PM +0530, Dev Jain wrote:
->> On 06/06/25 3:19 pm, Lorenzo Stoakes wrote:
->>> On Fri, May 30, 2025 at 02:34:06PM +0530, Dev Jain wrote:
->>>> Move away from apply_to_page_range(), which does not honour leaf mappings,
->>>> to walk_page_range_novma(). The callbacks emit a warning and return EINVAL
->>>> if a partial range is detected.
->>> Hm a follow up question here - why not just improve apply_to_page_range() to
->>> honour leaf mappings?
->>>
->>> What does honouring leaf mappings actually mean? You mean handling huge pages?
->> Sorry, I always confuse between block, page and leaf mappings :) I mean to say
->> block mappings, yes, huge pages.
-> Sometimes I think we like to give different names to things just to make life
-> confusing ;)
+Thanks for your patch and working to get fuel gauge functional on
+Pixel 6! I've tried to do quite an in-depth review comparing with the
+downstream driver.
+
+On Fri, 23 May 2025 at 13:52, Thomas Antoine via B4 Relay
+<devnull+t.antoine.uclouvain.be@kernel.org> wrote:
 >
->>> Would it be all that difficult to implement?
->> That is how I did it initially. But I think we get into the same problem
->> which you are describing w.r.t extending walk_page_range_novma - currently we
->> return EINVAL in case we encounter a block mapping in apply_to_page_range,
->> basically asserting that the callers always operate on page mappings. Removing this
->> assertion and generalizing apply_to_page_range kind of sounds the same as
->> removing the locking assertion and generalizing walk_page_range_novma...
-> (Again keep in mind walk_page_range_novma no longer exists :)
+> From: Thomas Antoine <t.antoine@uclouvain.be>
+>
+> The interface of the Maxim MAX77759 fuel gauge has a lot of common with t=
+he
+> Maxim MAX1720x. A major difference is the lack of non-volatile memory
+> slave address. No slave is available at address 0xb of the i2c bus, which
+> is coherent with the following driver from google: line 5836 disables
+> non-volatile memory for m5 gauge.
+>
+> Link: https://android.googlesource.com/kernel/google-modules/bms/+/1a68c3=
+6bef474573cc8629cc1d121eb6a81ab68c/max1720x_battery.c
+>
+> Other differences include the lack of V_BATT register to read the battery
+> level. The voltage must instead be read from V_CELL, the lowest voltage o=
+f
+> all cells. The mask to identify the chip is different. The computation of
+> the charge must also be changed to take into account TASKPERIOD, which
+> can add a factor 2 to the result.
+>
+> Add support for the MAX77759 by taking into account all of those
+> differences based on chip type.
+>
+> Do not advertise temp probes using the non-volatile memory as those are
+> not available.
+>
+> The regmap was proposed by Andr=C3=A9 Draszik in
+>
+> Link: https://lore.kernel.org/all/d1bade77b5281c1de6b2ddcb4dbbd033e455a11=
+6.camel@linaro.org/
 
-Ya I mean the pagewalk API.
+I think it would be worth noting in the commit message this is basic
+initial support for the M5 gauge in MAX77759, and things like loading
+& saving the m5 model aren't implemented yet.
+
+That's important as some values such as the REPSOC register value used
+for POWER_SUPPLY_PROP_CAPACITY show the result after all processing
+including ModelGauge mixing etc, so these values won't be as accurate
+as downstream.
 
 >
-> Yeah it's problematic I guess in that you have a pte_fn_t and would have to get
-> into gross stuff like pretending a PMD entry is a PTE entry etc.
-
-Yes, since the pagewalk API has level callbacks it makes life easier.
-
+> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+> ---
+>  drivers/power/supply/max1720x_battery.c | 265 ++++++++++++++++++++++++++=
+++----
+>  1 file changed, 238 insertions(+), 27 deletions(-)
 >
-> Ugh god why do we do this to ourselves.
-
-I know right :)
-
+> diff --git a/drivers/power/supply/max1720x_battery.c b/drivers/power/supp=
+ly/max1720x_battery.c
+> index 68b5314ecf3a234f906ec8fe400e586855b69cd9..c9ad452ada9d0a2a51f37d04f=
+d8c3260be522405 100644
+> --- a/drivers/power/supply/max1720x_battery.c
+> +++ b/drivers/power/supply/max1720x_battery.c
+> @@ -37,6 +37,7 @@
+>  #define MAX172XX_REPCAP                        0x05    /* Average capaci=
+ty */
+>  #define MAX172XX_REPSOC                        0x06    /* Percentage of =
+charge */
+>  #define MAX172XX_TEMP                  0x08    /* Temperature */
+> +#define MAX172XX_VCELL                 0x09    /* Lowest cell voltage */
+>  #define MAX172XX_CURRENT               0x0A    /* Actual current */
+>  #define MAX172XX_AVG_CURRENT           0x0B    /* Average current */
+>  #define MAX172XX_FULL_CAP              0x10    /* Calculated full capaci=
+ty */
+> @@ -54,15 +55,28 @@
+>  #define MAX172XX_BATT                  0xDA    /* Battery voltage */
+>  #define MAX172XX_ATAVCAP               0xDF
 >
->>> It seems like you're pushing a bunch of the 'applying' logic over from there to
->>> a walker that isn't maybe best suited to it and having to introduce an iffy new
->>> form of locking...
->> IMHO I think it is the reverse. Commit aee16b3cee2746880e40945a9b5bff4f309cfbc4
->> introduces apply_to_page_range, and commit e6473092bd9116583ce9ab8cf1b6570e1aa6fc83
->> introduces pagewalk. The commit messages say that the former is meant to be used
->> on page mappings, while the latter is generic. The latter implies that the former
->> was actually never meant to exist...
-> What a mess.
+> +#define MAX77759_DEV_NAME_TYPE_MASK    GENMASK(15, 9)
+> +#define MAX77759_DEV_NAME_TYPE_MAX77759        0x31
+> +#define MAX77759_TASKPERIOD            0x3C
+> +#define MAX77759_TASKPERIOD_175MS      0x1680
+> +#define MAX77759_TASKPERIOD_351MS      0x2D00
+> +
+>  static const char *const max1720x_manufacturer =3D "Maxim Integrated";
+>  static const char *const max17201_model =3D "MAX17201";
+>  static const char *const max17205_model =3D "MAX17205";
+> +static const char *const max77759_model =3D "MAX77759";
+> +
+> +enum chip_id {
+> +       MAX1720X_ID,
+> +       MAX77759_ID,
+> +};
 >
-> Maybe the least-worst solution is to just add a new
-> walk_kernel_page_table_range_unlocked() function without an assert and in the
-> comment heavily underline that _you must have made sure this is safe_.
+>  struct max1720x_device_info {
+>         struct regmap *regmap;
+>         struct regmap *regmap_nv;
+>         struct i2c_client *ancillary;
+>         int rsense;
+> +       enum chip_id id;
+>  };
 >
-> This needs revisting in general, I find the use of init_mm.mmap_lock pretty
-> gross.
+>  /*
+> @@ -271,6 +285,80 @@ static const enum power_supply_property max1720x_bat=
+tery_props[] =3D {
+>         POWER_SUPPLY_PROP_MANUFACTURER,
+>  };
+>
+> +/*
+> + * Registers 0x80 up to 0xaf which contain the model for the fuel gauge
+> + * algorithm (stored in nvmem for the max1720x) are locked. They can
+> + * be unlocked by writing 0x59 to 0x62 and 0xc4 to 0x63. They should be
+> + * enabled in the regmap if the driver is extended to manage the model.
+> + */
+> +static const struct regmap_range max77759_registers[] =3D {
+> +       regmap_reg_range(0x00, 0x4f),
+> +       regmap_reg_range(0xb0, 0xbf),
+> +       regmap_reg_range(0xd0, 0xd0),
+> +       regmap_reg_range(0xdc, 0xdf),
+> +       regmap_reg_range(0xfb, 0xfb),
+> +       regmap_reg_range(0xff, 0xff),
+> +};
+> +
+> +static const struct regmap_range max77759_ro_registers[] =3D {
+> +       regmap_reg_range(0x3d, 0x3d),
+> +       regmap_reg_range(0xfb, 0xfb),
+> +       regmap_reg_range(0xff, 0xff),
+> +};
+> +
+> +static const struct regmap_access_table max77759_write_table =3D {
+> +       .no_ranges =3D max77759_ro_registers,
+> +       .n_no_ranges =3D ARRAY_SIZE(max77759_ro_registers),
+> +};
+> +
+> +static const struct regmap_access_table max77759_rd_table =3D {
+> +       .yes_ranges =3D max77759_registers,
+> +       .n_yes_ranges =3D ARRAY_SIZE(max77759_registers),
+> +};
+> +
+> +static const struct regmap_config max77759_regmap_cfg =3D {
+> +       .reg_bits =3D 8,
+> +       .val_bits =3D 16,
+> +       .max_register =3D 0xff,
+> +       .wr_table =3D &max77759_write_table,
+> +       .rd_table =3D &max77759_rd_table,
+> +       .val_format_endian =3D REGMAP_ENDIAN_LITTLE,
+> +       .cache_type =3D REGCACHE_NONE,
+> +};
+> +
+> +static const enum power_supply_property max77759_battery_props[] =3D {
+> +       POWER_SUPPLY_PROP_PRESENT,
 
-There you said it! I have been reading kernel mapping code for some time and
-the entire point of using the init_mm.mmap_lock has been mutual exclusion,
-completely throwing out of the window what the mmap_lock actually means.
-For example, we take init_mm write lock for ptdump_walk_pgd(), which does
-not sound right to me since the only thing ptdump actually does is walk
-the pagetables, yet we take the most restrictive lock.
+I checked the register values match downstream - this looks correct
 
->>> Can we go vice-versa? :)
->>>
->>> Also obviously walk_page_range_novma() doesn't exist any more :P
->>> walk_kernel_page_table_range() is the preferred solution.
->>>
->>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>>> ---
->>>>    arch/arm64/mm/pageattr.c | 69 +++++++++++++++++++++++++++++++++++++---
->>>>    1 file changed, 64 insertions(+), 5 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->>>> index 39fd1f7ff02a..a5c829c64969 100644
->>>> --- a/arch/arm64/mm/pageattr.c
->>>> +++ b/arch/arm64/mm/pageattr.c
->>>> @@ -8,6 +8,7 @@
->>>>    #include <linux/mem_encrypt.h>
->>>>    #include <linux/sched.h>
->>>>    #include <linux/vmalloc.h>
->>>> +#include <linux/pagewalk.h>
->>>>
->>>>    #include <asm/cacheflush.h>
->>>>    #include <asm/pgtable-prot.h>
->>>> @@ -20,6 +21,67 @@ struct page_change_data {
->>>>    	pgprot_t clear_mask;
->>>>    };
->>>>
->>>> +static pteval_t set_pageattr_masks(unsigned long val, struct mm_walk *walk)
->>>> +{
->>>> +	struct page_change_data *masks = walk->private;
->>>> +	unsigned long new_val = val;
->>>> +
->>>> +	new_val &= ~(pgprot_val(masks->clear_mask));
->>>> +	new_val |= (pgprot_val(masks->set_mask));
->>>> +
->>>> +	return new_val;
->>>> +}
->>>> +
->>>> +static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
->>>> +			      unsigned long next, struct mm_walk *walk)
->>>> +{
->>>> +	pud_t val = pudp_get(pud);
->>>> +
->>>> +	if (pud_leaf(val)) {
->>>> +		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
->>>> +			return -EINVAL;
->>>> +		val = __pud(set_pageattr_masks(pud_val(val), walk));
->>>> +		set_pud(pud, val);
->>>> +		walk->action = ACTION_CONTINUE;
->>>> +	}
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
->>>> +			      unsigned long next, struct mm_walk *walk)
->>>> +{
->>>> +	pmd_t val = pmdp_get(pmd);
->>>> +
->>>> +	if (pmd_leaf(val)) {
->>>> +		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
->>>> +			return -EINVAL;
->>>> +		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
->>>> +		set_pmd(pmd, val);
->>>> +		walk->action = ACTION_CONTINUE;
->>>> +	}
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
->>>> +			      unsigned long next, struct mm_walk *walk)
->>>> +{
->>>> +	pte_t val = ptep_get(pte);
->>>> +
->>>> +	val = __pte(set_pageattr_masks(pte_val(val), walk));
->>>> +	set_pte(pte, val);
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +
->>>> +static const struct mm_walk_ops pageattr_ops = {
->>>> +	.pud_entry	= pageattr_pud_entry,
->>>> +	.pmd_entry	= pageattr_pmd_entry,
->>>> +	.pte_entry	= pageattr_pte_entry,
->>>> +	.walk_lock	= PGWALK_NOLOCK,
->>>> +};
->>>> +
->>>>    bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
->>>>
->>>>    bool can_set_direct_map(void)
->>>> @@ -49,9 +111,6 @@ static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
->>>>    	return 0;
->>>>    }
->>>>
->>>> -/*
->>>> - * This function assumes that the range is mapped with PAGE_SIZE pages.
->>>> - */
->>>>    static int __change_memory_common(unsigned long start, unsigned long size,
->>>>    				pgprot_t set_mask, pgprot_t clear_mask)
->>>>    {
->>>> @@ -61,8 +120,8 @@ static int __change_memory_common(unsigned long start, unsigned long size,
->>>>    	data.set_mask = set_mask;
->>>>    	data.clear_mask = clear_mask;
->>>>
->>>> -	ret = apply_to_page_range(&init_mm, start, size, change_page_range,
->>>> -					&data);
->>>> +	ret = walk_page_range_novma(&init_mm, start, start + size,
->>>> +				    &pageattr_ops, NULL, &data);
->>>>
->>>>    	/*
->>>>    	 * If the memory is being made valid without changing any other bits
->>>> --
->>>> 2.30.2
->>>>
+> +       POWER_SUPPLY_PROP_CAPACITY,
+
+I checked the register offset matchs downstream. The value reported
+varies a bit versus downstream. As mentioned above that is likely due
+to the REPSOC register reporting after mixing with the m5 model which
+is not loaded currently. Also the application specific values and cell
+characterization information used by the model isn't configured
+currently (see link below in _TEMP property below for the initial fuel
+gauge params used by downstream.
+
+> +       POWER_SUPPLY_PROP_VOLTAGE_NOW,
+
+I checked the register offset matchs downstream. Values reported look sensi=
+ble.
+
+> +       POWER_SUPPLY_PROP_CHARGE_FULL,
+
+Downstream has a slightly different implementation than upstream for
+this property. See here
+https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
+73cc8629cc1d121eb6a81ab68c/max1720x_battery.c#2244
+
+> +       POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN,
+
+I checked the register offset value is correct. However this is
+reporting 3000000 and downstream reports 4524000. I checked and it's
+just converting the register reset value of DESIGNCAP which is 0xbb8.
+
+This is listed as a "application specific" value, so it maybe we just
+need to write the correct initial value to DESIGNCAP (see TEMP section
+below)
+
+
+> +       POWER_SUPPLY_PROP_CHARGE_AVG,
+
+This property isn't reported downstream. The value is changing and not
+just the reset value. I noticed REPSOC is an output of the ModelGauge
+algorithm so it is likely not to be completely accurate.
+
+> +       POWER_SUPPLY_PROP_TEMP,
+
+I checked the register offset value is correct. However the
+temperature is always being reported as the register reset value of
+220. This is for obvious reasons quite an important one to report
+correctly.
+
+I started debugging this a bit, and it is caused by an incorrectly
+configured CONFIG (0x1D) register. In particular the TEX[8] bit is 1
+on reset in this register which means temperature measurements are
+written from the host AP. When this bit is set to 0, measurements on
+the AIN pin are converted to a temperature value and stored in the
+Temperature register (I then saw values of 360 and the value
+changing).
+
+See here for the bits in that CONFIG register
+https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
+73cc8629cc1d121eb6a81ab68c/max_m5_reg.h#403
+
+In downstream all these initial register settings are taken from DT
+here  https://android.googlesource.com/kernel/google-modules/raviole-device=
+/+/refs/heads/android14-gs-pixel-6.1/arch/arm64/boot/dts/google/gs101-fake-=
+battery-data.dtsi#27
+
+For temperature when TEX=3D0, TGAIN, TOFF and TCURVE registers should
+also be configured to adjust the temperature measurement.
+
+I think it would likely be worth initialising all the fuel gauge
+registers referenced in maxim,fg-params as that includes some of the
+application specific values for DESIGNCAP, also some of the cell
+characterization information, and hopefully we will get more accurate
+values from the fuel gauge generally.
+
+> +       POWER_SUPPLY_PROP_CURRENT_NOW,
+
+I checked the register offset matches downstream. Values reported look
+reasonable.
+
+> +       POWER_SUPPLY_PROP_CURRENT_AVG,
+
+I checked the register offset matches downstream. Values reported look
+reasonable.
+
+> +       POWER_SUPPLY_PROP_MODEL_NAME,
+
+This property isn't reported downstream.
+
+> +       POWER_SUPPLY_PROP_MANUFACTURER,
+> +};
+> +
+> +
+> +struct chip_data {
+> +       bool has_nvmem;
+> +       const struct regmap_config *regmap_cfg;
+> +       enum chip_id id;
+> +};
+> +
+> +static const struct chip_data max1720x_data  =3D {
+> +       .has_nvmem =3D true,
+> +       .regmap_cfg =3D &max1720x_regmap_cfg,
+> +       .id =3D MAX1720X_ID,
+> +};
+> +
+> +static const struct chip_data max77759_data =3D {
+> +       .has_nvmem =3D false,
+> +       .regmap_cfg =3D &max77759_regmap_cfg,
+> +       .id =3D MAX77759_ID,
+> +};
+> +
+>  /* Convert regs value to power_supply units */
+>
+>  static int max172xx_time_to_ps(unsigned int reg)
+> @@ -288,12 +376,41 @@ static int max172xx_voltage_to_ps(unsigned int reg)
+>         return reg * 1250;      /* in uV */
+>  }
+>
+> +static int max172xx_cell_voltage_to_ps(unsigned int reg)
+> +{
+> +       return reg * 625 / 8;   /* in uV */
+> +}
+> +
+>  static int max172xx_capacity_to_ps(unsigned int reg,
+>                                    struct max1720x_device_info *info)
+>  {
+>         return reg * (500000 / info->rsense);   /* in uAh */
+>  }
+>
+> +static int max77759_capacity_lsb(struct max1720x_device_info *info,
+> +                                unsigned int *lsb)
+> +{
+> +       unsigned int reg_task_period;
+> +       int ret;
+> +
+> +       ret =3D regmap_read(info->regmap, MAX77759_TASKPERIOD, &reg_task_=
+period);
+> +       if (ret < 0)
+> +               return ret;
+> +
+> +       switch (reg_task_period) {
+> +       case MAX77759_TASKPERIOD_175MS:
+> +               *lsb =3D 1;
+> +               break;
+> +       case MAX77759_TASKPERIOD_351MS:
+> +               *lsb =3D 2;
+> +               break;
+> +       default:
+> +               return -ENODEV;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+>  /*
+>   * Current and temperature is signed values, so unsigned regs
+>   * value must be converted to signed type
+> @@ -390,16 +507,36 @@ static int max1720x_battery_get_property(struct pow=
+er_supply *psy,
+>                 val->intval =3D max172xx_percent_to_ps(reg_val);
+>                 break;
+>         case POWER_SUPPLY_PROP_VOLTAGE_NOW:
+> -               ret =3D regmap_read(info->regmap, MAX172XX_BATT, &reg_val=
+);
+> -               val->intval =3D max172xx_voltage_to_ps(reg_val);
+> +               if (info->id =3D=3D MAX1720X_ID) {
+> +                       ret =3D regmap_read(info->regmap, MAX172XX_BATT, =
+&reg_val);
+> +                       val->intval =3D max172xx_voltage_to_ps(reg_val);
+
+I think MAX1720X using MAX172XX_BATT register is likely a bug as the
+downstream driver uses MAX172XX_VCELL for that variant  see here
+https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
+73cc8629cc1d121eb6a81ab68c/max1720x.h#304
+
+Having said that, if we do need to cope with differing register
+offsets for the different fuel gauge variants it would be nicer to
+abstract them in a way similar to the downstream driver. See here
+https://android.googlesource.com/kernel/google-modules/bms/+/1a68c36bef4745=
+73cc8629cc1d121eb6a81ab68c/max_m5.c#1235.
+I think that would be more scalable in supporting multiple variants in
+one driver. Otherwise we will have an explosion of if(id=3D=3Dblah) else
+if (id=3D=3Dblah) in the driver.
+
+kind regards,
+
+Peter
 
