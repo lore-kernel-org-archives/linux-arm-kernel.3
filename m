@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D346C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 07:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19278C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 07:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QKV+4ax/i9KS9PUFjbXXlSMf8xi5c4xdtzVPWafiCz4=; b=3l200NMaTFFMnnfFZoKnTtGRY5
-	94OngCgSgLziIqUIW1iWIowJpxct0zR6Wm9GS5OKQG+U7TG06Y4eyTjG+Q+Fwdp6TQAW6MVylBCt9
-	QQhOH0gzctTOz+oOz3OIPL8R1W8COLQsXlkuCQH2FeD86BMLfmEk7K9+OpemGXGSNLVWHgyRexpYL
-	Q836dM3CxGS0jTmdP5Qu4eNf/kAkHSjgyIm0Ql/f1M/3ILF96NSRrmQLMZ57CoMrDcVHc9u1P64Ci
-	XKX363mP4rVcFGBRRuhWKLGZyzqjKhxP6UC5KoKjOWOpM01OBlij+4WxnKeXT9MrHrhos6HBAbmnm
-	P01ev9UQ==;
+	bh=tRy24lqfKv3gXyTkphs/dHJ5gyZkpcLuoO/gcsCQCXg=; b=LRDHK0W2oKvsXdtuJ5FrqLD8ue
+	wHy4ZB0UJDXMoAknEP34XWyTyAMxw0wGBNNd+LgS4qvph9WCRqHnRiNI/xSXlJoiys326eRkIdwGg
+	uQNNgYDgotVVGRKeXBAT1J+nBi1YLXdBpPBNzybG5AyWINfyhkm6U6NzGsz9UqjheKNW3xvd7Bj5j
+	RzHiNkfEyooc4o+2MscCcNTvtIne4DdTjGDARRMzQuQCXVkqlvQFDDFUnC2dVozTk9o9GzUfP/NBC
+	sbXn7jYOuU0xMtpPLghomePZ9csVq9N0VQ6JncPBFqxhEJMMpW8lb/OWg1w4j8itP/b0Ys8eii7Z6
+	I6DfkNiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNRMh-0000000HIFD-2ESJ;
-	Fri, 06 Jun 2025 07:19:47 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1uNRXM-0000000HJGe-2oeK;
+	Fri, 06 Jun 2025 07:30:48 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNRKW-0000000HI6A-0cop;
-	Fri, 06 Jun 2025 07:17:33 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-231e8553248so18567435ad.1;
-        Fri, 06 Jun 2025 00:17:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749194250; x=1749799050; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QKV+4ax/i9KS9PUFjbXXlSMf8xi5c4xdtzVPWafiCz4=;
-        b=j6E3n++eWVGmj7rkOlRGlP6Q7QdGedvGTXvYDjf5/HMEszqqvcpD/v0WYg6Od2l3po
-         5dmhUhojfyFXhNeEiJM0ERElmhejxDcpHDn1SlNv/xn8/kR2tJTFiQk+r7x3gHj55tiw
-         x9bqINwyShz6rSZxzrVQ2VXrjmUHw/X1XJx8JSU5D+2uQ66V6PDiNBkfl2zDY6CPRWmO
-         X7beIHdB5qwFmYcpAkJWAWKQ0FpPbCEahazq55gGrlqDrFOij5+f8kKVbxHne8PvCxrS
-         5zU22nY3O0O6Y7jyu4ftWDWtHM/tz6Jo/U0oi4PAQufUw0XzCee8YES7HQ1bQjSjV9/3
-         VrZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749194250; x=1749799050;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QKV+4ax/i9KS9PUFjbXXlSMf8xi5c4xdtzVPWafiCz4=;
-        b=A0pvthCvuw4kCbHZ2Y36oeL9rL+/dj1XE+eVf9DaLMT973Q36wXzXMMB//k2cwMJ/P
-         7GgTYAT/dNi7g/Ep6MfaUzubkRoka5n+0D23NIwLqmwtu8Dxvk11jNXnG5aWAXXT/OfR
-         1ZURdLY6Qun2NIPexmKmAG8dXLJ3R/Ghisq6iMoyuBeWRCLLpCJjUbXt7XddPzfI6yaC
-         L6Xg1If6h7r3B+dllMBXrSZQa0r3XhW9fawk1i3Ql3+SBxG9SQvSX5gBfq6EkhTI9RDC
-         RQ/4mPT0H9jZFrUn2EOxedvlP0LpurWjz+uzoRVZnthwJ79hB8MZto71DSLnsQUhZJX9
-         ibwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXCMcIOaUIVJOwFY4moXQW7qkgx1UZ3UukPVh7roIDdJnBGX9ai4/PMPkm0aIU8mjwUrPfjLw70awQMEAxqhvQ=@lists.infradead.org, AJvYcCXv+ZOjSYGuR6hmAHlxkxQMosxUnXiHU+6iP1bcXoiiPg0bRmqppWFmVXfyMdvb987OYdT/lUzcRmvgBt3/1lOf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw+mJXHC93UXJ3d2tsw20XmS23IFuHGEI5jWBoqGy5lgHcAx1F
-	NJP2s/xWNGLP0K5iIENQN//1lDJUKDu3RICLD1YlCZu7c/JDTXQKwHSB
-X-Gm-Gg: ASbGncvdvtC5ERV/hzvmvL8ePIStItzHnOegnLOl50pgZRJOs+0pVZVqpZdA1lTOs2r
-	uUl8/erALnhRVxbCk3jvI8A9Gmyq1PHmliDmhp2XPaqUiiEeAD6zn2ABgef0PybpYi0aVJtlEmy
-	zPejH8PG5TmVMtPxfcJ+KLo2MS4b1oLN+Oxf29o3E7+myXm3MOHj3JdulQ0bbNra7vT9x5mJBRy
-	NHCIfKUQT1QMwioePrt3Ntk2mx2UJEW6splJL9LvMzN6JsVlI/ZBowDyR+i+SaxPfkDL0Mo+X5s
-	YkMkoqY6/io1u7eqDz7Q3S1H3+5oo3JpuEzfX3taFJE1KjRH4KD2/5xyLAVAzV7In1BzgTKt3ul
-	hgUyU
-X-Google-Smtp-Source: AGHT+IGNo3qVc1h80cdtsdbqFE6SC5h8TPFPCwUyuDcI25fbiI6mtb5/kXy0fdjUUtBwCDDEu4pmyA==
-X-Received: by 2002:a17:903:230b:b0:234:ef42:5d48 with SMTP id d9443c01a7336-23601d82cf8mr34434925ad.38.1749194250516;
-        Fri, 06 Jun 2025 00:17:30 -0700 (PDT)
-Received: from tom-QiTianM540-A739.. ([124.127.236.130])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236032ff216sm6482015ad.111.2025.06.06.00.17.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Jun 2025 00:17:30 -0700 (PDT)
-From: Qiu-ji Chen <chenqiuji666@gmail.com>
-To: sean.wang@mediatek.com,
-	vkoul@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: dmaengine@vger.kernel.org,
+	id 1uNRVB-0000000HJ1f-3oQk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Jun 2025 07:28:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749194895; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nM12F+oVjbDuWMsFKHZ4wuPfqaGvmq7/U8QBvi5BKhJA/Nb1u8fKbgOWZ1FrqwHs0M3Uin4HWBXpokSf1DSz7hsUmgtW7+EB5DbAifepx8odD0dbBGizuXBKy9DOTYVeqFEh9gZeGjSYKpZ1Fcl+4Op1XY3RsdUKSQt/1ubXcqY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1749194895; h=Content-Transfer-Encoding:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=tRy24lqfKv3gXyTkphs/dHJ5gyZkpcLuoO/gcsCQCXg=; 
+	b=EpdUcsSPGETB/rsmVUkCK9JUfJmu3V2vvjQvx92FRZYRP2UlP1yDKqdf9sSujOiwp068IG/nSY7WrIj8k7pKN0J/8HwDLRplDpY3r/yo2bTS7cE0Y/gkZAav5+PBYxFJxdwWMziMqvLOpoCYXfo9JzF5K0BBPEkmp45JrXaP8VI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=linux.beauty;
+	spf=pass  smtp.mailfrom=me@linux.beauty;
+	dmarc=pass header.from=<me@linux.beauty>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749194895;
+	s=zmail; d=linux.beauty; i=me@linux.beauty;
+	h=From:From:To:To:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
+	bh=tRy24lqfKv3gXyTkphs/dHJ5gyZkpcLuoO/gcsCQCXg=;
+	b=cvmCZpHk17i/hxDj0tUQgMU4P11hTY2SUJjRFsgCCLKjHL6PNKbeLBP+pUlG1Wkn
+	TRLvc+xRErmccoC3jCA09lrIpATkKwqNR0f8Oyq9275XqM3Nndz0nz/wgf7JdRByQst
+	nv1sENfqMHN6n9sihdcyb5sfwdgwgP9iSc7vzLf4=
+Received: by mx.zohomail.com with SMTPS id 1749194893001866.070129665492;
+	Fri, 6 Jun 2025 00:28:13 -0700 (PDT)
+From: Li Chen <me@linux.beauty>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Liu Wei <liuwei09@cestc.cn>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Li Chen <chenl311@chinatelecom.cn>,
+	Sudeep Holla <sudeep.holla@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	baijiaju1990@gmail.com,
-	Qiu-ji Chen <chenqiuji666@gmail.com>,
-	stable@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] dmaengine: mediatek: Fix a flag reuse error in mtk_cqdma_tx_status()
-Date: Fri,  6 Jun 2025 15:17:09 +0800
-Message-Id: <20250606071709.4738-1-chenqiuji666@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	linux-acpi@vger.kernel.org
+Subject: [PATCH 0/2] ACPI: Improve SPCR handling and messaging on SPCR-less systems
+Date: Fri,  6 Jun 2025 15:27:43 +0800
+Message-ID: <20250606072802.191580-1-me@linux.beauty>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_001732_186492_8DBC9E51 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250606_002834_008924_F16420F5 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +86,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixed a flag reuse bug in the mtk_cqdma_tx_status() function.
+From: Li Chen <chenl311@chinatelecom.cn>
 
-Fixes: 157ae5ffd76a ("dmaengine: mediatek: Fix a possible deadlock error in mtk_cqdma_tx_status()")
-Cc: stable@vger.kernel.org
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202505270641.MStzJUfU-lkp@intel.com/
-Signed-off-by: Qiu-ji Chen <chenqiuji666@gmail.com>
----
- drivers/dma/mediatek/mtk-cqdma.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+This small series improves the kernel behavior and output when the ACPI SPCR
+table is not present or not supported.
 
-diff --git a/drivers/dma/mediatek/mtk-cqdma.c b/drivers/dma/mediatek/mtk-cqdma.c
-index 47c8adfdc155..f7b870d2ca90 100644
---- a/drivers/dma/mediatek/mtk-cqdma.c
-+++ b/drivers/dma/mediatek/mtk-cqdma.c
-@@ -441,18 +441,19 @@ static enum dma_status mtk_cqdma_tx_status(struct dma_chan *c,
- 	struct mtk_cqdma_vdesc *cvd;
- 	struct virt_dma_desc *vd;
- 	enum dma_status ret;
--	unsigned long flags;
-+	unsigned long pc_flags;
-+	unsigned long vc_flags;
- 	size_t bytes = 0;
- 
- 	ret = dma_cookie_status(c, cookie, txstate);
- 	if (ret == DMA_COMPLETE || !txstate)
- 		return ret;
- 
--	spin_lock_irqsave(&cvc->pc->lock, flags);
--	spin_lock_irqsave(&cvc->vc.lock, flags);
-+	spin_lock_irqsave(&cvc->pc->lock, pc_flags);
-+	spin_lock_irqsave(&cvc->vc.lock, vc_flags);
- 	vd = mtk_cqdma_find_active_desc(c, cookie);
--	spin_unlock_irqrestore(&cvc->vc.lock, flags);
--	spin_unlock_irqrestore(&cvc->pc->lock, flags);
-+	spin_unlock_irqrestore(&cvc->vc.lock, vc_flags);
-+	spin_unlock_irqrestore(&cvc->pc->lock, pc_flags);
- 
- 	if (vd) {
- 		cvd = to_cqdma_vdesc(vd);
+Currently, even on systems that completely lack an SPCR table, the kernel prints:
+"Use ACPI SPCR as default console: Yes"
+
+Or if with acpi=nospcr:
+"Use ACPI SPCR as default console: No"
+
+This may mislead users into thinking an SPCR table exists
+when in fact there is no such table at all. This series addresses this in two steps:
+
+Patch 1 ensures that acpi_parse_spcr() returns -ENODEV if CONFIG_ACPI_SPCR_TABLE is disabled.
+
+Patch 2 updates arm64 acpi_boot_table_init() to only print the SPCR console message
+if acpi_parse_spcr() succeeds.
+
+This results in cleaner and more accurate boot logs on ARM64.
+
+Tested on both SPCR-enabled and SPCR-less qemu-system arm64 virt platform. [1]
+
+[1]: https://patchew.org/QEMU/20250528105404.457729-1-me@linux.beauty/
+
+Li Chen (2):
+  ACPI: Return -ENODEV from acpi_parse_spcr() when SPCR support is
+    disabled
+  ACPI: Suppress misleading SPCR console message when SPCR table is
+    absent
+
+ arch/arm64/kernel/acpi.c | 9 ++++++---
+ include/linux/acpi.h     | 2 +-
+ 2 files changed, 7 insertions(+), 4 deletions(-)
+
 -- 
-2.34.1
+2.49.0
 
 
