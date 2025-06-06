@@ -4,89 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16937C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 09:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FA2C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 09:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+iEKTaT2LElUyz6hn/T8Mh2vQ8hFTWoMkAbmwi0/NDg=; b=bDXSEGXsxymIVI0luAYoirTkID
-	GwFl6g8wQaJs2D2E7DhvxLBSR7wu4oAl6HRaYI08LSRi8s1bfaK2yCcqQapmAotHRBlDdeUz9IyD0
-	r9c52O6b95iciMaCVvOmS/BKQuXfeiHYvOqN4P03E4Ddw/SS593sTYAV5u4ICDhqDU0bKt7sJzsq/
-	tEKXwX8ZLwB0Z0WEG2dtBobs9Z9iwUN2dnPqeKN5xV1TyS2Nfw97Qpkk4f0WIoJp9hpXxwuS13qmq
-	2AM1OzuP85p0dksbhpXVHBIyrElyd/hbni22se8ONPU2au0r0XGq7q0f0/C6x3+BRX8PJjjwJtzdO
-	WnxuarLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zY1UJXwwdXuV/sjsPfipNC1p4dsxIugLMJFfrvt+Ih0=; b=KpUCCYEPJi8oFZQdcasXTtOksC
+	3eGGTTaxIvrb9O3MGEgB1zGd0uf+8g9c29VgIQIaqexeTzoQem0X9YoSoGtn1ZhtoBXpE680b4fkO
+	82xMJsRR11bckg+s+XjU7IbUabfOIlLwy6xAS20qRfJw1hUTvxh5SaoW3p8HYa+aFY6JHovt8syT5
+	BUB7eSxaO+Jm88xFo8ulFJxcoikeaBSOv2x2B74Ht5OLa3qhpFFQ2FiOeAdkfgcU+NDRdU6dZf9Gm
+	GpS0Av/zTvOKYyoyM10+u2spEojYzQz9C7+MvBNv2XvQP1TE0wjR2HFBYQtuOqMM9dSX2hUqJAd6S
+	K4Sd5EqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNT49-0000000HULZ-2Ope;
-	Fri, 06 Jun 2025 09:08:45 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1uNT6F-0000000HUZ7-1CzK;
+	Fri, 06 Jun 2025 09:10:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNT21-0000000HTx2-1hQ0;
-	Fri, 06 Jun 2025 09:06:34 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-4a4bb155edeso23825791cf.2;
-        Fri, 06 Jun 2025 02:06:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749200792; x=1749805592; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+iEKTaT2LElUyz6hn/T8Mh2vQ8hFTWoMkAbmwi0/NDg=;
-        b=JV6HUnbGX8+VWibr1X3cwNJDNiVlmOsnjnxJPnfxrMqPIJSAfzHaL/7mlqNaay+Lm7
-         6ruXRgnC0v7dbPGfMhB4c/IAS/nQGnHJt1QCPuVE4A5j9OhScJOfx80fJF/aMskf1cVp
-         A2b590eB428vG4cELmnPAwvrEOUh4HGyi9CIy0zG3y/B8HcB+Kq6NfC6oZtu7a3kzxik
-         wkCjnaGe7x8akSRbPH4WB3/+IAUcrUtr4xFGeZ9La4wv2g6Hc6VefteqFiVGCBqBcp7E
-         RmG/wd6RiT+QbYReOkP8BHM4oZKZ1uAV6uv1xh65ZDceGuH4Gmp4c3qYio5EFi5CgQPG
-         YMaw==
+	id 1uNT3c-0000000HUIE-42hh
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Jun 2025 09:08:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749200890;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=zY1UJXwwdXuV/sjsPfipNC1p4dsxIugLMJFfrvt+Ih0=;
+	b=e6XJqSIHD1siUHi5vyTM+HysXJkvF3BolSVY63rvVC4ENOCeUkqnaWcMcgbOp74X1w43tO
+	qdZwzfYno96B2sCjaVrZHQZoSx6euXuEF+OQMBRk0wjwqBS5Ula65QbcMs9CXbenugWzK/
+	ufPDwpKkoEhrcs9YSmI5xvDYp7eJKe4=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-184-ysLb5-APObSWUlmR6RCSrQ-1; Fri, 06 Jun 2025 05:08:09 -0400
+X-MC-Unique: ysLb5-APObSWUlmR6RCSrQ-1
+X-Mimecast-MFC-AGG-ID: ysLb5-APObSWUlmR6RCSrQ_1749200888
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-451e24dfe1dso15132435e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 02:08:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749200792; x=1749805592;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+iEKTaT2LElUyz6hn/T8Mh2vQ8hFTWoMkAbmwi0/NDg=;
-        b=V1OGxw6FDVJ71fgxI+NU0374boGEuxonyZUKKI/X2/THw/hXxCMDQ0No4ZXz2hrzRA
-         DMLfL7+wsHPgBBDNqpY5C1cxgTLjJfA84G3CL11dbNpDXcs5jPU40uXrAykarwVL1MNu
-         Udb4an2D22nGE07d/EJeF1ZRhV2Kj4hMjDGCYTpaFGOtLsyz1Z1OKbakWkhBjNiOuOOg
-         hfoRvJajj+HDuOYv3gtOWCgFkNNztWepR53s2+H7htGMdnY8jngqsGqQJamVZP8SJoHk
-         wdO0IZbppQp7oOdgrVyD1mgnKvOnwsLCwuV/tppPES8tMn5RyqI9/SlyrsA9nkyDR3wu
-         xfkg==
-X-Forwarded-Encrypted: i=1; AJvYcCU6wzooxLEy0E813TVKAoNW05+VKVH8Z59FBoUNoVOjCGEGIyKUcVZrq50ssBMxj5Ic1xwYafJfb+4o@lists.infradead.org, AJvYcCW0JdY0D9GLdjdoymtzN7Z+oms0z7gITseEifp0dBV3qWmmxQsw6PHtVltij1cAHqUs2C7ogK7L5GQ/AswBo9hw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9sx+wRe9jB5Nmp8CjHyFHP6WRIE6Uqmhg3mTn/hx6LjBF3Crs
-	NWu2vLFS9T+xgmidvG8w7TH1Qf/2AsTASUyJo1K4yxuTaW1oFOoH+ITnDOfNfkuE42k+obthslA
-	Y1Voca5dP3KiBYhRLzZmrDovMMKre3WU=
-X-Gm-Gg: ASbGnct5yubcERJGeK5sDSCgZGx5Y+Z3HLRGWvQPBN0+BOFQY8nwkSXK6f6M6YIgQbK
-	8zvNAz75rOScdwffhwNENzAbWC86dmPwemhu6LOswX7viMzRTpXFn5E6FjEsdRNRVBgfFJsCfo9
-	7rof9cpdJOqLJCgvRxS83mt7cjYu7MScjQSZ7+8xTaisxPtyft7lPxiJYTWtAoMsWRfhE4GgrUy
-	DAY
-X-Google-Smtp-Source: AGHT+IEAnnzIxtW3T+9hMHK+wBH7ZD7AMKC5gNvjX9nEPuofdL7PSuw1v4ThDP1ou2X6MNg+w1DXRb5CyDe5GpT5zFk=
-X-Received: by 2002:a05:622a:90a:b0:491:20d6:75ff with SMTP id
- d75a77b69052e-4a5b9e55b32mr50608161cf.31.1749200791922; Fri, 06 Jun 2025
- 02:06:31 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749200888; x=1749805688;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zY1UJXwwdXuV/sjsPfipNC1p4dsxIugLMJFfrvt+Ih0=;
+        b=H4l9PFHrBOdUeYDYsXJnguJDvs12RkFNpfG9E47RL17Zu/96D1OSvbWkvlYoH18XfN
+         Y8VHtK/F1xjTzh512wOntJwlLu+0RRGgFVf57rDl1nw70fcoLdeNMbo+BFHLWN9zOKoO
+         y4NAB82pbXV5e+tm1mJ0SSCYP8cW6cGhrZL6EE29njYoQgaoyWQq4yk9wqnuROYmTNMB
+         Hyzdy1qYVsIYqjNHfXcF4w3WKmW3tp5jATnMGZUfNo07FaUbUIK8l3ama5k579BI/smU
+         67t2j2oc9KDYy3QYwf7oB9m7yc4ZA+wRWtCzMiHHjWRyEOmeqzbslC+LjHomRQjxRUyf
+         HE4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUezxDMISwcBXYN53oHZFOx03vFsy0VAocsUBwOtQzm8rFUoOnPgzlYUYsO5MISXlAxlaEpVt6oTFgp2fBphXnF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzg4BR5YolxMR1QeMmyi9CvaUeaDdY+zvyNkz1AgV1MQGyZWFiy
+	332TOi/WkfwsqKL/ekcr1FPTF4sOad1LPOiW8bg4x1t/ojTPHaDGvdZvBw6JthqOYzuVn9VCH33
+	itanS+/s5nmrHEAbSotuLrLRhm4qS28PDZmFJIh5fq3c/NWrCGES0fqkTINqAAKb5A4mblQfIei
+	sz
+X-Gm-Gg: ASbGnctIli44Z86hRxnqjgRzf8+IDn6RNOnKuzcnQH2gYVBYYYtsNOrfc3mJlQXoW4X
+	Ko5vUkvGRypipPL4jzWgWW2S+N79+/kXTy6qELeWTL3os7OvoI1VjjypJFXgPxzUsFsCJWuo0+6
+	xjsRvbqk6umiweF6fPGDbJrw7l8C35enKCGvdSIOyLjvvSTk1d/1Pj1KgmIwyqZH8x+zrW6Di8k
+	PLD7NQirzxc4AY4TNLuYZciVmqtmbN7moVHSU2RZRDr6NYPl8V9oVD1TLFlfPC6egqF4soB4iCy
+	akOzspy0fhJ/ahSV+IkSOtb/FzNhbxKrqLfMbpiMbADSw/V+rAfqMDSVIf5UCbE8A5t2
+X-Received: by 2002:a05:600c:b86:b0:450:cd25:e68f with SMTP id 5b1f17b1804b1-452014e9325mr24877545e9.27.1749200887751;
+        Fri, 06 Jun 2025 02:08:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGFgCfJhv5D4WKiJLVPtf7WFxx5mFScPGVIDDWdSB4TB7uCI+iacBtSoT4d2UV7tlwIeLe0gg==
+X-Received: by 2002:a05:600c:b86:b0:450:cd25:e68f with SMTP id 5b1f17b1804b1-452014e9325mr24877175e9.27.1749200887316;
+        Fri, 06 Jun 2025 02:08:07 -0700 (PDT)
+Received: from lbulwahn-thinkpadx1carbongen9.rmtde.csb ([2a02:810d:7e01:ef00:b52:2ad9:f357:f709])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-452137290b9sm17000835e9.34.2025.06.06.02.08.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 06 Jun 2025 02:08:06 -0700 (PDT)
+From: Lukas Bulwahn <lbulwahn@redhat.com>
+X-Google-Original-From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org
+Cc: Javier Martinez Canillas <javierm@redhat.com>,
+	kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: [PATCH] pmdomain: arm: scmi_pm_domain: remove code clutter
+Date: Fri,  6 Jun 2025 11:08:02 +0200
+Message-ID: <20250606090802.597504-1-lukas.bulwahn@redhat.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-References: <20250510-wmt-sflash-v1-0-02a1ac6adf12@gmail.com>
- <20250510-wmt-sflash-v1-1-02a1ac6adf12@gmail.com> <20250514204159.GA2988411-robh@kernel.org>
- <CABjd4Yz3w75PtkRk_edzD5yf6b2xPuf20gopbm8ygddgCBfpkw@mail.gmail.com> <2b520ae5-eb0d-40eb-ba73-cc18759f33b9@kernel.org>
-In-Reply-To: <2b520ae5-eb0d-40eb-ba73-cc18759f33b9@kernel.org>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Fri, 6 Jun 2025 13:06:22 +0400
-X-Gm-Features: AX0GCFtSe5pvb_MWkkzTKnls_WaiQE0eICzI9uRkedvlSrNICRkV_prB9UA_SHY
-Message-ID: <CABjd4YxRMfi3ZFQxhB__6U4Rm3KQ7bm6J=wQLWAkpb++61ddEg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: spi: Add VIA/WonderMedia serial flash controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Pratyush Yadav <pratyush@kernel.org>, 
-	Michael Walle <mwalle@kernel.org>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, linux-spi@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: yvk-QilnLEimbLKrkg6p66IR9BZAVgxvrp6zX7vxfcg_1749200888
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_020633_441406_9E9CBC3B 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20250606_020813_072834_BC5E7632 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,50 +114,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 6, 2025 at 12:29=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 15/05/2025 21:50, Alexey Charkov wrote:
-> >>> +
-> >>> +  "#address-cells":
-> >>> +    const: 1
-> >>> +
-> >>> +  "#size-cells":
-> >>> +    const: 0
-> >>
-> >> This follows the SPI binding, right? Drop these 2 and add a $ref to
-> >> spi-controller.yaml.
-> >
-> > Need some advice here. While this controller speaks SPI protocol to
-> > its connected flash chips, it's a special-purpose thing that doesn't
-> > expose much SPI functionality to the outside world, nor can it drive
-> > any SPI devices other than SPI NOR flash. Does that still qualify as
-> > an SPI controller as far as the bindings are concerned?
-> >
-> > Happy to reference the spi-controller.yaml binding if so.
->
-> SPI NOR flashes are still child devices of an SPI controller. You can
-> look at other examples - aren't they all using spi-controller? Why this
-> would be different? Unless you found some cases that are different, but
-> then which ones?
+From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
 
-No strong opinions here, and no expectation of any special treatment
-:) Just wanted to consult on what's most appropriate.
+There is no need to introduce the boolean power_on to select the constant
+value for state. Simply pass the value for state as argument. Just remove
+this code clutter.
 
-My (subjective and perhaps unfounded) expectation when seeing
-something advertise itself as an SPI controller was that it would be a
-general purpose SPI master, to which one can e.g. connect an SPI
-driven LCD screen and get it to work with generic Linux SPI
-infrastructure - which would not be possible with this single-purpose
-NOR-only flash controller. Given that I don't know how flexible or
-restrictive other examples are in terms of driving arbitrary SPI
-devices, I thought it's better to just ask.
+No functional change.
 
-What I'm getting from this exchange here is that I'd better use the
-spi-controller binding and respective node names regardless of the
-fact that this controller cannot drive arbitrary SPI devices beyond
-NOR flash (which, as I'm getting, is irrelevant after all).
+Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+---
+ drivers/pmdomain/arm/scmi_pm_domain.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-Best regards,
-Alexey
+diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
+index 2a213c218126..8fe1c0a501c9 100644
+--- a/drivers/pmdomain/arm/scmi_pm_domain.c
++++ b/drivers/pmdomain/arm/scmi_pm_domain.c
+@@ -22,27 +22,21 @@ struct scmi_pm_domain {
+ 
+ #define to_scmi_pd(gpd) container_of(gpd, struct scmi_pm_domain, genpd)
+ 
+-static int scmi_pd_power(struct generic_pm_domain *domain, bool power_on)
++static int scmi_pd_power(struct generic_pm_domain *domain, u32 state)
+ {
+-	u32 state;
+ 	struct scmi_pm_domain *pd = to_scmi_pd(domain);
+ 
+-	if (power_on)
+-		state = SCMI_POWER_STATE_GENERIC_ON;
+-	else
+-		state = SCMI_POWER_STATE_GENERIC_OFF;
+-
+ 	return power_ops->state_set(pd->ph, pd->domain, state);
+ }
+ 
+ static int scmi_pd_power_on(struct generic_pm_domain *domain)
+ {
+-	return scmi_pd_power(domain, true);
++	return scmi_pd_power(domain, SCMI_POWER_STATE_GENERIC_ON);
+ }
+ 
+ static int scmi_pd_power_off(struct generic_pm_domain *domain)
+ {
+-	return scmi_pd_power(domain, false);
++	return scmi_pd_power(domain, SCMI_POWER_STATE_GENERIC_OFF);
+ }
+ 
+ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+-- 
+2.49.0
+
 
