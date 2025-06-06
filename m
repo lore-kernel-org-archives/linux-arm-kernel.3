@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E10D5C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 16:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D28C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 17:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HftJddo3FWvmWayu0Jw1+BrgjmbwvjbCIHNgV4/Xs/c=; b=bNX+PH/xGo+rCKTB7DKbAcqVUL
-	I4zF1iK0DOJj6Z163Ml7RLkw7b4A0nC4gLykumPx2Zje474JwqIqYXic0/sss8PTZUvI8D2SwOILL
-	X5M2Q532v9vQksjPfC8peodT9/u0ua8u/mQ2FplL+JmVngb8Q89c0dDWyPNZUFAi9bZ15bpMyjs5Q
-	Hprogw1dPfbnwJOoERD8gUVx6eW3EVYVEO8DksiaxQUHVtHna7+5kHyR1VEzptmzJJk8yt+bZ/BZg
-	ttDss9l7gEJaGdK/wh2zWxuCm4t57tJtG2l+zjoVqJxR0oNoYHS1A1Og71JI5kGlXXbq7J1EFzsCB
-	Rb3/i+Kw==;
+	bh=k95L5dONGc9CGpjQXqAX4pgyDviRC1HRrOs4s2XHP00=; b=fTs2HTzMCKwXigALCS/Bn64VDM
+	RvgG+L4qlJbBfAgNv6s/SdszfOypkZHhgSgkOZm3wGDSyGt8xKRD9z73ciNXfwtDkZvydWPjCQ209
+	qKi7pnT1Nd40sRc55E9MFXSvtMDd2+GwIexnbaaS6q6MdWpOglk0BfPk1eVxaOKNBvQ/U8BuV0KS/
+	8waUmQBWkNdEckNbj5GT1LAZz3tpSezT6WHYoFWstl2O+u1kN/LbH62p/qwzFpiJ2K/UJyRhkpAdH
+	wAbblKWMxN4SX3sw/7Y9D5ZkqEHO7nK3dvl9Qty4P8jHVGus1nxFO3ffLslxg2gOlACFbAdk2oO5j
+	pob4Cbyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNaML-00000000gH7-2ehQ;
-	Fri, 06 Jun 2025 16:56:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uNaQn-00000000gu4-0pxw;
+	Fri, 06 Jun 2025 17:00:37 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNaKE-00000000g8h-17TT
+	id 1uNaOe-00000000gTG-2eLd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 16:53:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 499C744EAC;
-	Fri,  6 Jun 2025 16:53:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3404C4CEEB;
-	Fri,  6 Jun 2025 16:53:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749228829;
-	bh=THcPoC12IS1aNiP83TwV4A0pYFP1HxQtv158X0rPetw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XqZiNuPL2J1wV7m7uAqxjXFSAFfsrDOzIPFasQyZgFA5XXVdkxOwZqRd6Hei5VHUx
-	 aDJnLxclyH4xzOUZzHn5zrY395DoP3a6oEf3GLs/TlNSPBkqge9UydXzB0BqURQ/YO
-	 fk0f1vkcdj3fhB6dkSpL0ueIHnM5LiHR5eJ0NK1oQG5sOeE7d3/e3KSG/qXhFqLaGR
-	 vwbDGsalBTRcGy3X0WPvAvSS8xdisSE5+BOJOE2Vs/d48Dv11U56EKKFNgyPUsWuzV
-	 tWt/SjKMUG4DQVyxD70myUO9W5qxMNJ6B1I9O8252BAz2rvRJBnzTk12Hs4m6cMhSi
-	 cCU04D8sETx3A==
-Date: Fri, 6 Jun 2025 19:53:45 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
-	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
-Subject: Re: [PATCH 2/2] tpm: tpm_crb_ffa: maunally register tpm_crb_ffa
- driver when it's built-in
-Message-ID: <aEMdGXXBSym7cXmK@kernel.org>
-References: <20250606105754.1202649-1-yeoreum.yun@arm.com>
- <20250606105754.1202649-3-yeoreum.yun@arm.com>
+	Fri, 06 Jun 2025 16:58:26 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1749229102;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k95L5dONGc9CGpjQXqAX4pgyDviRC1HRrOs4s2XHP00=;
+	b=35ARZ3cWSCFsiwLfUkdujv+aKxhUsCTUh2IX4MmwT3dO0YvNhz8mxqLjOLSmRedTSFebTq
+	psSABq/JZEzPlaUlHXBoeRc1oUYheu3iQI9vWbhT1AgIwul1wKZhwKSByI/aTYyprU81AP
+	WDs52bDysUvt+72dq1xUeXUJxknI1Zij1y76fKpF69gei+VLeesoQgLgGfI3JlPIW20Cq1
+	yWVwMlT2Kl1M/LZEdGyYhkTBiYx8FuORb+ERVlRo27PChn4RZE5gkqCGWNiTkgqqzzDW7K
+	kgzePptvKAELg7I58UBeLnnPQ9pGPu4PhTNHLy/mdwBh7lGsczKGkYLat+gSUQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1749229102;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k95L5dONGc9CGpjQXqAX4pgyDviRC1HRrOs4s2XHP00=;
+	b=D/ZzWL1WLUKSjbYuu1m6EkVXeRSKEWqtK71hgfzILpbVD+lKbq+WraD7rm7MeCUilnhyBo
+	Z/6FCBLz9/2tTICg==
+To: Petr Mladek <pmladek@suse.com>
+Cc: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>, 'Michael Kelley'
+ <mhklinux@outlook.com>, 'Ryo Takakura' <ryotkkr98@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-serial@vger.kernel.org"
+ <linux-serial@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: Problem with nbcon console and amba-pl011 serial port
+In-Reply-To: <aEL0tZgSEhsR9qbf@pathway.suse.cz>
+References: <OS7PR01MB13775FE1A20762D1EA4A38D0ED76DA@OS7PR01MB13775.jpnprd01.prod.outlook.com>
+ <84y0u95e0j.fsf@jogness.linutronix.de>
+ <84plfl5bf1.fsf@jogness.linutronix.de>
+ <TY4PR01MB13777674C22721FCD8ACF4FCCD76CA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+ <aEApOPTqbVOR35F_@pathway.suse.cz> <84o6v3ohdh.fsf@jogness.linutronix.de>
+ <aEBNLMYVUOGzusuR@pathway.suse.cz>
+ <TY4PR01MB13777CC92C858572B9C19394FD76FA@TY4PR01MB13777.jpnprd01.prod.outlook.com>
+ <aEGeARVcCwqcoHb8@pathway.suse.cz> <84frgdcgug.fsf@jogness.linutronix.de>
+ <aEL0tZgSEhsR9qbf@pathway.suse.cz>
+Date: Fri, 06 Jun 2025 19:04:22 +0206
+Message-ID: <84msakdcy9.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250606105754.1202649-3-yeoreum.yun@arm.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_095350_322571_1D3C33F2 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250606_095824_950347_2A7863B1 
+X-CRM114-Status: GOOD (  28.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +87,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 06, 2025 at 11:57:54AM +0100, Yeoreum Yun wrote:
-> To integrate tpm_event_log with IMA subsystem,
-> tpm_crb and tpm_crb_ffa driver should be built as built-in
-> (CONFIG_TCG_CRB=y && CONFIG_TCG_CRB_FFA=y).
-> 
-> However, this could make failure for ima_init() gets tpm chip when
-> each initcall function deployed like:
-> 
-> 0000000000000888 l       .initcall6.init	0000000000000000 crb_acpi_driver_init
-> 000000000000088c l       .initcall6.init	0000000000000000 tpm_crb_ffa_driver_init
+On 2025-06-06, Petr Mladek <pmladek@suse.com> wrote:
+>> What if during non-panic-CPU shutdown, we allow reacquires to succeed
+>> only for _direct_ acquires? The below diff shows how this could be
+>> implemented. Since it only supports direct acquires, it does not violate
+>> any state rules. And also, since it only involves the reacquire, there
+>> is no ugly battling for console printing between the panic and non-panic
+>> CPUs.
+>
+> Interesting idea. I thought a lot about it, see below.
+>
+>
+>> diff --git a/include/linux/printk.h b/include/linux/printk.h
+>> index 5b462029d03c1..d58ebdc8170b3 100644
+>> --- a/include/linux/printk.h
+>> +++ b/include/linux/printk.h
+>> diff --git a/kernel/panic.c b/kernel/panic.c
+>> index b0b9a8bf4560d..8f572630c9f7e 100644
+>> --- a/kernel/panic.c
+>> +++ b/kernel/panic.c
+>> @@ -304,6 +310,8 @@ static void panic_other_cpus_shutdown(bool crash_kexec)
+>>  		smp_send_stop();
+>>  	else
+>>  		crash_smp_send_stop();
+>> +
+>> +	nbcon_panic_allow_reacquire_set(false);
+>>  }
+>
+> I have two concerns here:
+>
+> 1. I wonder whether this is reliable enough. It seems that
+>    smp_send_stop() waits at least 1 sec until the CPUs
+>    get stopped. But is this enough on virtualized systems?
+>
+> 2. It might increase a risk when CPUs are stopped using NMI.
+>    The change would allow a non-panic CPU to reacquire the ownership
+>    and enter _unsafe_ section right before being stopped by NMI.
+>
+>
+> The 1st problem might be avoided by allowing the reacquire all
+> the time unless an "unsafe" takeover happened.
+>
+> The 2nd problem is worse. But allowing the reacquire all the time
+> might actually help as well.
+>
+> Note that the information about the "unsafe_takeover" is stored
+> in struct console so that we even won't need a new global
+> variable.
 
-The only failure I see is the patch 1/2 which changes init call level,
-and leaves kernel Git to a broken state.
+That is a good idea. We should add unsafe_takeover as a condition as
+well. That can only happen way after the smp_send_stop() anyway. But it
+means that only the atomic printing code would ever need to worry about
+unsafe_takeover (assuming a driver were to implement some sort of
+handling of it).
 
-It breaks the famous "zero regressions policy".
+>>  /**
+>> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
+>> index d60596777d278..d960cb8a05558 100644
+>> --- a/kernel/printk/nbcon.c
+>> +++ b/kernel/printk/nbcon.c
+>> @@ -235,7 +235,8 @@ static void nbcon_seq_try_update(struct nbcon_context *ctxt, u64 new_seq)
+>>   *			the handover acquire method.
+>>   */
+>>  static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
+>> -					    struct nbcon_state *cur)
+>> +					    struct nbcon_state *cur,
+>> +					    bool ignore_other_cpu_in_panic)
+>>  {
+>>  	unsigned int cpu = smp_processor_id();
+>>  	struct console *con = ctxt->console;
+>> @@ -249,7 +250,7 @@ static int nbcon_context_try_acquire_direct(struct nbcon_context *ctxt,
+>>  		 * nbcon_waiter_matches(). In particular, the assumption that
+>>  		 * lower priorities are ignored during panic.
+>>  		 */
+>> -		if (other_cpu_in_panic())
+>> +		if (other_cpu_in_panic() && !ignore_other_cpu_in_panic)
+>
+> If you agree with allowing the reacquire all the time then I would
+> rename the parameter to @is_reacquire and do something like:
+>
+> 	if (other_cpu_in_panic() &&
+> 	   (!is_reacquire || cur->unsafe_takeover))
 
-BR, Jarkko
- 
+Looks fine to me.
+
+>>  			return -EPERM;
+>>  
+>>  		if (ctxt->prio <= cur->prio || ctxt->prio <= cur->req_prio)
+>> @@ -913,7 +920,7 @@ void nbcon_reacquire_nobuf(struct nbcon_write_context *wctxt)
+>>  {
+>>  	struct nbcon_context *ctxt = &ACCESS_PRIVATE(wctxt, ctxt);
+>>  
+>> -	while (!nbcon_context_try_acquire(ctxt))
+>> +	while (!nbcon_context_try_acquire(ctxt, READ_ONCE(nbcon_panic_allow_reacquire)))
+>
+> And here it would be:
+>
+> 	while (!nbcon_context_try_acquire(ctxt, true))
+
+Right.
+
+>>  		cpu_relax();
+>>  
+>>  	nbcon_write_context_set_buf(wctxt, NULL, 0);
+>
+>
+> Summary:
+>
+> I open to give this alternative approach a chance when we allow the
+> reacquire all the time. It might work well. And it won't require
+> any special "panic" handling in all console drivers.
+
+Agreed. Thanks for being open about this approach. I will put together
+an official patch.
+
+John
 
