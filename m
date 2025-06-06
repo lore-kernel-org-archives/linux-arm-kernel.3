@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28812C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 09:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E649DC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 09:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fz822FN5H/+n8My5Ek051DCerU7On02pfaR6UCl949I=; b=1ZWJr7WgZ04OM4yJqhxjEzRi2K
-	lSZR+kGqDQIRXxcKWH73MQHvwVaarR15mb1GfnZU2/O2LBjXR786SqWOVCln9ULVL52svoJQrae78
-	LELtg4LI4lWMw646SBZWJ267Y5hRYopSJ7B4WCiErXNMXzp0IwgolHCOCllfMRr7FN8lMHblk0OwU
-	pvJGJA3tqc6HGfiJYQ8ykpXh0PnkPK26hPoHbtfr977eJ+9h4QtezzVUruC/0rkQtdtcZsh4A7Ybo
-	taQaC3WvV+t+HkUU9o8PCKltL6yLaVuuvgq02txog5SIk6hHhY/PsuPVhEJiBweV/OrKPL8lmh1tj
-	oX6pNKcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sRd4ur1MxwweTZhmC9CjPu38e9ravuus4YivxoH7F70=; b=xK2KbXUA+SdMNXNHfYVpzqI1lr
+	aznBJTsTFYZK7hiGCW9zwLSZqmd7IfljyBqTfUyaRu8/S9rziTUrNixieZv9s7k3+htU+ezB7OFkD
+	yICZlktMOJSN8fE9IBN6BRn0Rb39DVz3OzomGX8UAPr2qO5dab5TPmY0flBZ+H7G9s1VN5SRFcjDH
+	ONvD0BC6QFDyOSJ1Jwx/PlpDYEG1fvDzXgNO8TQbxgDu60O/KDFyFVyf+nU01nMg42Zqg1EfUxv06
+	Wq+nQIIuPHwPEjiKZ5CtoxQvOEQzYsB3ipXxyjs4axCIbtz0WcjhutVbzsfGRJabtY6Ol/VnauYva
+	DyY+BW1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNTBt-0000000HVL5-47Ke;
-	Fri, 06 Jun 2025 09:16:45 +0000
-Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
+	id 1uNTFt-0000000HW0X-1tjw;
+	Fri, 06 Jun 2025 09:20:53 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNT9S-0000000HV0R-2ZZM;
-	Fri, 06 Jun 2025 09:14:15 +0000
-Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-acacb8743a7so326168366b.1;
-        Fri, 06 Jun 2025 02:14:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749201253; x=1749806053; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fz822FN5H/+n8My5Ek051DCerU7On02pfaR6UCl949I=;
-        b=b7rKkkqR4L5+AJofpXE3DcvI6OGvqUlcP99SNyueGDngSuvbd0Jju6KbkEw9xH2a8c
-         d2QIR+5R3ky+kPDFyRbJCfuhavN4lM0qYrBVOtmdDcMpP6Q4W7XEdNh402OBlK/RLexv
-         SsZKwijOC0ImzTvEaTIiV8ejVfxYdcQ0rYBiOsHZsysvTac8RkHd1qr/c2Gmg9EQS5Qq
-         Mt21xPkO3kC5bHbu5mNf7VIEKph0pxvzXrj2d1PRglx2EfWR2ZkNRVtrkeaUL8l4CXXo
-         9biruTo0s85HU0kVo/THydKwmly23vVmUeRm+OmiPMqlSNA6p8QJkfKfpU9FKZFqhyLo
-         l1hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749201253; x=1749806053;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Fz822FN5H/+n8My5Ek051DCerU7On02pfaR6UCl949I=;
-        b=b3aVX6smfYt7abILxD3oKfIqiSr+gaE5dAJWoAIKgajzAz6MM5d/rj2F6g6OlBBx96
-         W0tHEJmY7nsJswh/MHs62Wx+eDZwVUOi9WQjNIBfZIrlESQKUYv+W3uc4WXUpuHXseor
-         UzIZlj6msbUmCtAoCHrHo0hYnpfShPHwY/3frpuTgQfJCt8NtFCSR8V7Yz3Ezra2V0Oq
-         WiPVdYvi8Q45emY9rjSCsk4zvS8lCLSk+ZC1L8cMmKdM4H+VuSWwMoTbBo5j+fs5+sbu
-         dEyG4QjIYoxTswBhBba8cE7RfTRBwtKdr1B8hf4Gbri89GnQ7kAg/JK7Pemqh92C2rM5
-         T9uQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVwlZdaWA+dZeBc4Zhe2iXw48QbXWZtO2xo8I9SA9zNWUZXF4SALZT5n2gT37sEsS7N0+iOxZOC2qy11L650/BO@lists.infradead.org, AJvYcCX5mgB7eBgJ7vodFi8A3HLygUcQi6p1M9pGSo7TjFHgunITGxQVYuFjXKd7SdJ9O2qbcCxfV3LJwB7YxNCWWCg=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3ZL3UDOjTR98/PHLKLON3XpR0mnGuthBvOv9if6LBHXfQT6GA
-	SsoFZ90vuNY2n1CpgKBbbysalLHyoiyJLkUXxZejxQB90RolJO+2hyq2ctgzY5q/gJKMvSB3QPr
-	mdiRiy9dypkTRrHjK9uJmImorH/GvaXc=
-X-Gm-Gg: ASbGnctJB0uxF+swYXo73Q+hA7XEQ7ARx/UgULuniqbS9hyGBPTjHqnvqBI06COsz3m
-	KIyLIb0SsBzixn3wTrBSYVsyBroBf9ioZ1r6sR0e74G/X9/EZXY6UBxq6mnyIFxeNMrhPTlYZzw
-	kNj10BL5LAbiAcQQ4wxu/VNrQflS4wS75rp2Be9HAGlUY=
-X-Google-Smtp-Source: AGHT+IEeX2nFYgTt+0+rebDEi2e2f4O2bF7FhHfmP7KwHgiTlO9eS0XJCmIiwJM3RRdB3UVl7gDAKbNxKQYbrHeSUYg=
-X-Received: by 2002:a17:906:9f8c:b0:ad5:a122:c020 with SMTP id
- a640c23a62f3a-ade07634c33mr697878766b.16.1749201252792; Fri, 06 Jun 2025
- 02:14:12 -0700 (PDT)
+	id 1uNTDj-0000000HVbE-0A1D;
+	Fri, 06 Jun 2025 09:18:41 +0000
+X-UUID: 3707058a42b711f0b29709d653e92f7d-20250606
+X-CTIC-Tags: HR_CC_AS_FROM, HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_DIGIT_LEN
+	HR_FROM_NAME, HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER
+	HR_SJ_NOR_SYM, HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT
+	HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED, DN_TRUSTED
+	SA_TRUSTED, SA_EXISTED, SN_TRUSTED, SN_EXISTED, SPF_NOPASS
+	DKIM_NOPASS, DMARC_NOPASS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.45,REQID:ba957775-8084-4581-8059-f72bac177ada,IP:0,U
+	RL:0,TC:0,Content:0,EDM:25,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-INFO: VERSION:1.1.45,REQID:ba957775-8084-4581-8059-f72bac177ada,IP:0,URL
+	:0,TC:0,Content:0,EDM:25,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:20
+X-CID-META: VersionHash:6493067,CLOUDID:7a7964884435b7d237d8f7b7833b5074,BulkI
+	D:2506061718321CJJ18PR,BulkQuantity:0,Recheck:0,SF:17|19|38|66|78|81|82|10
+	2,TC:nil,Content:0|50,EDM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,B
+	EC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_SNR
+X-UUID: 3707058a42b711f0b29709d653e92f7d-20250606
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 726199745; Fri, 06 Jun 2025 17:18:31 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: nicolas.frattaroli@collabora.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	heiko@sntech.de,
+	linux-rockchip@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Pei Xiao <xiaopei01@kylinos.cn>
+Subject: [PATCH v2 1/2] ASOC: rockchip: fix capture stream handling in rockchip_sai_xfer_stop
+Date: Fri,  6 Jun 2025 17:18:21 +0800
+Message-Id: <c374aae92c177aaf42c0f1371eccdbc7e9615786.1749201126.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1749201126.git.xiaopei01@kylinos.cn>
+References: <cover.1749201126.git.xiaopei01@kylinos.cn>
 MIME-Version: 1.0
-References: <20250606071709.4738-1-chenqiuji666@gmail.com> <ff77f70e-344d-4b8a-a27f-c8287d49339c@linaro.org>
-In-Reply-To: <ff77f70e-344d-4b8a-a27f-c8287d49339c@linaro.org>
-From: Qiu-ji Chen <chenqiuji666@gmail.com>
-Date: Fri, 6 Jun 2025 17:14:00 +0800
-X-Gm-Features: AX0GCFsmeBUhD5E-WjTAKSUhstkUhcRejJPPS78zNv2KUGTIKC47m2fIc770YIw
-Message-ID: <CANgpojXWk1zvu32bMuGgkVGVNvPw+0NWmSUC62Sbc3WcUXAd3A@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: mediatek: Fix a flag reuse error in mtk_cqdma_tx_status()
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: sean.wang@mediatek.com, vkoul@kernel.org, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, dmaengine@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, baijiaju1990@gmail.com, stable@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_021414_649543_689ED5AC 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250606_021839_411938_1EA185AD 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +91,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 6/6/25 10:17, Qiu-ji Chen wrote:
-> > Fixed a flag reuse bug in the mtk_cqdma_tx_status() function.
-> If the first spin_lock_irqsave already saved the irq flags and disabled
-> them, would it be meaningful to actually use a simple spin_lock for the
-> second lock ? Or rather spin_lock_nested since there is a second nested
-> lock taken ?
->
-> Eugen
->
+Correcting the capture stream handling which was incorrectly setting
+playback=true for capture streams.
 
-Hello Eugen,
+The original code mistakenly set playback=true for capture streams,
+causing incorrect behavior.
 
-Thanks for helpful suggestion. The modification has been submitted in
-patch v2 as discussed.
+Fixes: cc78d1eaabad ("ASoC: rockchip: add Serial Audio Interface (SAI) driver")
+Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+---
+ sound/soc/rockchip/rockchip_sai.c | 16 +++-------------
+ 1 file changed, 3 insertions(+), 13 deletions(-)
 
-Best regards,
-Qiu-ji Chen
+diff --git a/sound/soc/rockchip/rockchip_sai.c b/sound/soc/rockchip/rockchip_sai.c
+index 602f1ddfad00..916af63f1c2c 100644
+--- a/sound/soc/rockchip/rockchip_sai.c
++++ b/sound/soc/rockchip/rockchip_sai.c
+@@ -378,19 +378,9 @@ static void rockchip_sai_xfer_start(struct rk_sai_dev *sai, int stream)
+ static void rockchip_sai_xfer_stop(struct rk_sai_dev *sai, int stream)
+ {
+ 	unsigned int msk = 0, val = 0, clr = 0;
+-	bool playback;
+-	bool capture;
+-
+-	if (stream < 0) {
+-		playback = true;
+-		capture = true;
+-	} else if (stream == SNDRV_PCM_STREAM_PLAYBACK) {
+-		playback = true;
+-		capture = false;
+-	} else {
+-		playback = true;
+-		capture = false;
+-	}
++	bool capture = stream == SNDRV_PCM_STREAM_CAPTURE || stream < 0;
++	bool playback = stream == SNDRV_PCM_STREAM_PLAYBACK || stream < 0;
++	/* could be <= 0 but we don't want to depend on enum values */
+ 
+ 	if (playback) {
+ 		msk |= SAI_XFER_TXS_MASK;
+-- 
+2.25.1
+
 
