@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCC9C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 20:39:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CBFC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 21:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fTnbotTKBrDuh9yFMLlTHsKfcYmOYKw+giMri+h4htU=; b=nLxPqT/jz75jX2cbbXYw69iYb3
-	vvCIKU8OWlNAX2qtjALCzV8eiXV0EFuivoyBOObwF/hdQn6X2GjAmvrBTzsrZiC7hgfRuu96HPyQi
-	I40HccvzkXZ7lsTYvPxStkwAZE0QJsGTerRiONQ4rkVq+qAlzLTpixifLqb3bik62hIN5K14IPb4p
-	2k8tlptGtupw4z37eg7xX1rQn0z7ZmdtHKd0HKZNwiaJCYUOGiiQ8ebb9Gf44iVjMz/txpZExzUs5
-	DHn2ez3WQ6ppH6oHkueg8QeQFUjx2cOxIPVSvl+0ooht4kstF/FZBBfbNzleSBnoVcbnTlq+Lp4pa
-	Gis7gLow==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u5BUjHtvSQa2fwgei7fhihebHAmQMvtk7aJVJVyEqtY=; b=kcTKp+5rbVNnuN3A/zlhimm0PC
+	SAFxKtxlyY4nNh4WdKLh5ebgAeloQxF62us+WsjY5fIK+Ck/zDybHRMQt3jqIGjyiOLD/1m9uU3ya
+	88K+L3RgNqB3q8HNDJ5pf+3qs1bjEYwAwWDHJobt0Gg/41bKfX1e5kRXvGPNSAvOH9uuAn4/uG4zd
+	1e7bhQn/dwQTkIydbHgg5XtjVHTxeE004i+XuQxTY2V98oqdrgeOfO+aC3NGpAteoMm+qRTju385u
+	+gPPWIsuj8CdTiB80o7GaO7/rn/BjtxVIIvm7gen5dHKeu0kSueXIrld4R+Evlj4XdmQ3H5HBFbjK
+	Yn7WtqiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNdqx-00000000y7A-1nCF;
-	Fri, 06 Jun 2025 20:39:51 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1uNeGc-00000000zhR-0LPQ;
+	Fri, 06 Jun 2025 21:06:22 +0000
+Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNdop-00000000xzG-24Vb;
-	Fri, 06 Jun 2025 20:37:40 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-60780d74c85so1580476a12.2;
-        Fri, 06 Jun 2025 13:37:38 -0700 (PDT)
+	id 1uNeEU-00000000zSE-2apb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 06 Jun 2025 21:04:11 +0000
+Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e81877c1ed6so2437403276.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 14:04:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1749242257; x=1749847057; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fTnbotTKBrDuh9yFMLlTHsKfcYmOYKw+giMri+h4htU=;
-        b=M23EYND6aKEWjpt0X/uQycB9ltCgIguzresOJeUU3Y3Yf3vpFbZ4aPo6K2vpPgtUb4
-         9+924S6O50CQF4nUnPhfnRpklpsf5N4GqLcUkq/zMgbibi4ogI3Tbat10ZNA4XX7hMgO
-         gSXtxNNx4AJUaedcwr1CUtiV+hJbqoC3EH9rUb0KOSyGrtRh5CkE85S/MyUFJ+oKZjXB
-         llFBwHe3vfbifJfVZvdy9Y36aPhmGNZZEC0z7LCMSt4KgPdJ2+CanneBaD0hfttPnm8p
-         oKf+8lhQ4THgBHTq8LEf3Wt3SJ5rybt4lhBfwIGW30XlYqDOOORZALBu6oC+ZTEKbU50
-         YqIQ==
+        d=gateworks.com; s=google; t=1749243849; x=1749848649; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u5BUjHtvSQa2fwgei7fhihebHAmQMvtk7aJVJVyEqtY=;
+        b=dL0B7ajM89RwDKKDHHIrskM9a1eyaRGS/JDeFHVHW+2XfSoo4Gz7zx5bT+Fa5g5zo5
+         bVOs7D+7D+kmIMnFdsFPp1WcAU2CPiwk5au+ydOLUS2sZtkKMHcCUNegLj3zKxQM53Jz
+         EOv7TkGTgJs3UEyShsN2M75kswopfD0feadHGk690elXUOtcdA87kc/vpFomfyJYJAUY
+         49P3QShvSLUC6wnJBmVRs9z2LyMGlYmJFrwZqoanYyU5YFI5jatXV4MXBEDiDUmzQhSz
+         kPcrjmjSZI9ldUi2HW+c1/juUNq5bhRTVxDyc398KT9eQE/ujdsomTKyHvdfg1qx0jGt
+         5igQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749242257; x=1749847057;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fTnbotTKBrDuh9yFMLlTHsKfcYmOYKw+giMri+h4htU=;
-        b=B9E0StYUsK7yu3V9zZnWWqP8CrwoY+UJB0ypIyw4Ymcfa5GRwMeeWV7DrLWPM2zzbq
-         BmBQTC5i1PZd0ImnRwnkSomeJOzccm37bmVtV5MMpW+FjnXf0qA2poQU5WkdN2xtmVg6
-         eZ/6/7H3O7X0p/tNklWUHuLs6wv79d5F5w5dNaXmqB+nSGUuMsCf94xzIUO4VWIOX7Fn
-         op70KNk6aKOE5QkLNWH6KTZjppwBC/+Be6vY6052pojKM+TeBmLHsbkvXFKs4UDAPnVP
-         hN1aipoE7yIiCUW8UEciY1mNLdwYvGKl0X6LwZJydz+JYd17NUE2S2gaQToRaeIIoUzw
-         1Dng==
-X-Gm-Message-State: AOJu0Yx6+jF8h0iBxK5TeE1vo687XQCzfoJoZM6wGPAgVWolnxRn1S54
-	oh3cSrR8yRQBLrcO3qWdjCbGSkEnTNx6XINsWxuiTx7AIn/vUbIJwoW/yZVzJw==
-X-Gm-Gg: ASbGncsWJN9oS2K79/lRy9v4ypVCeZV6fbGaZRzTfvcBPwblaUUaKgywCpnAJ6O31j4
-	h3UzUAsJ3uKjXZkHPULiCkejRNA+6BVGwcdW3aTDIsMqCKaQmal0J2rdL49gnTT1fAUIR+5afsy
-	mQ88xKzZt6DJfCr6/hUH9jvX3upa0Qi9G+439HO85m9xkQpbLtq1ZQzklVEiQ/3QUypawRJ3NJ3
-	J9+S1HFLXw3rHo3R24v01DmrX1jiPjXNmBMFQ1N/+sbijka53c8aDOXAzGpfEKVmfCLtUUgBEC1
-	7iQT271JV6FjKu82Va8LFHx1lXSyhNa2WKMP88+ZTeR7tcQrlPef06Y3bAEXQzuCZySadrU5hyg
-	VQ3ldXHiZ5iiUdIk+457tYqET4jVkIA48jX/pIO1p/sJrNJosegFQJ+FWocgbZkus/3gyq8Pw2/
-	RCUfUvKXeYDfBMOF+NUK8X7b2CIebpFw==
-X-Google-Smtp-Source: AGHT+IFdovf47zA5w77hCKENzRX0iCD+h8wdbY0d2TkUMANo/kiX7t5oGgF0SPw/Z8mbPgOCYyvO0Q==
-X-Received: by 2002:a17:907:3f95:b0:ad8:9811:c0c2 with SMTP id a640c23a62f3a-ade1ab2b859mr396798066b.61.1749242256967;
-        Fri, 06 Jun 2025 13:37:36 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a016-f000-1e86-0bff-fe2f-57b7.310.pool.telefonica.de. [2a02:3100:a016:f000:1e86:bff:fe2f:57b7])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ade1db55f3dsm172072366b.60.2025.06.06.13.37.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Jun 2025 13:37:35 -0700 (PDT)
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-To: linux-amlogic@lists.infradead.org,
-	dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Subject: [PATCH] drm/meson: fix debug log statement when setting the HDMI clocks
-Date: Fri,  6 Jun 2025 22:37:29 +0200
-Message-ID: <20250606203729.3311592-1-martin.blumenstingl@googlemail.com>
-X-Mailer: git-send-email 2.49.0
+        d=1e100.net; s=20230601; t=1749243849; x=1749848649;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=u5BUjHtvSQa2fwgei7fhihebHAmQMvtk7aJVJVyEqtY=;
+        b=TTnL0LTZD4yMTpIEa+OlujV7/vnA9XBwMUecFJRI3MXkVeNK7yxtiFEjWpiaeZeYnF
+         hkP2kdgxIQx1daYSnMGusrbNudtwdKQUwWblrsU9HfdqQO3d4ptyY8Jec0KkVlE2tdwL
+         R+AP/S9U6hrrU4KzkCONp9X+TaBO4BGEcQv2FwO+0CdUa9o5KyDTZHzI9kRJkimqPpin
+         2CjAYtZDdYGj/zY/GU2vtphCQD2/sVHyWRSRQ1PgkRDK+fLjgAQxpw1uYNuBOjcdgn3d
+         EOdRk/A0h1IGenQZmBLwdvmEUz2UFpbkzUgClS2JeaBvabeJ/FqfW/af6zU89qxUaPR+
+         Y4RA==
+X-Forwarded-Encrypted: i=1; AJvYcCXUKj5sP24mcCtQos5ntvrlkcbVe4Zp6TFNMrK3H5qugPFIh04/JrB+4K/E1Kt0lH9dDE0SWgvLSA4OkADYjLB3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ+vXo9LsrcmkZWQNlavGkcz+w5kj5+5ynCMGT9ow48/kipyLH
+	AONSLRUmIpZGZqdPSbnqeXhIrH5Pic2ektsXtuxNUAoTzVoNYJA8tryg2KDUFClV1MKIsNcryhA
+	4kKzZSX9JZqnoJHRx7PkpHe79onNkjlDEiTPXcd0B+A==
+X-Gm-Gg: ASbGncuZbPzLbzLlJPnlH4D4/ywUaVA6hpZ0YVeGVwuoL/wcOH8JzhWi5owc2g+moqW
+	mTky9JA/vJYCEVF0Q5gTTsuVhyuF422TZMfsdfOCZaDIimXSZOVsHt/EjqdBCIBlNj2Y1tY1F4V
+	ot9+B6FfoS7boKpqLkS5ng62C9SMT87EBn
+X-Google-Smtp-Source: AGHT+IHz5Vh1WV9nsY/ZJiTiB1W8ok9w5HzbkMh2HaPQU1ew8kA+sOX9MHLa7aQ/uKATj0C5Wdv6l/pIEuTUkbDn4co=
+X-Received: by 2002:a05:6902:138e:b0:e81:566c:3085 with SMTP id
+ 3f1490d57ef6-e81c0fc6b57mr402062276.1.1749243849237; Fri, 06 Jun 2025
+ 14:04:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20241126075702.4099164-1-hongxing.zhu@nxp.com> <20241126075702.4099164-6-hongxing.zhu@nxp.com>
+In-Reply-To: <20241126075702.4099164-6-hongxing.zhu@nxp.com>
+From: Tim Harvey <tharvey@gateworks.com>
+Date: Fri, 6 Jun 2025 14:03:57 -0700
+X-Gm-Features: AX0GCFsPTDn7iA-rHigWV1JSUeeni9XBl8RHjYyReEuG_dN3ujPTRzbBW4231V8
+Message-ID: <CAJ+vNU3ohR2YKTwC4xoYrc1z-neDoH2TTZcMHDy+poj9=jSy+w@mail.gmail.com>
+Subject: Re: [PATCH v7 05/10] PCI: imx6: Deassert apps_reset in imx_pcie_deassert_core_reset()
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, bhelgaas@google.com, lpieralisi@kernel.org, 
+	kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, 
+	frank.li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com, 
+	imx@lists.linux.dev, kernel@pengutronix.de, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_133739_533414_190EBDC5 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250606_140410_658429_94B89FB1 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +99,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "phy" and "vclk" frequency labels were swapped, making it more
-difficult to debug driver errors. Swap the label order to make them
-match with the actual frequencies printed to correct this.
+On Tue, Nov 26, 2024 at 12:03=E2=80=AFAM Richard Zhu <hongxing.zhu@nxp.com>=
+ wrote:
+>
+> Since the apps_reset is asserted in imx_pcie_assert_core_reset(), it shou=
+ld
+> be deasserted in imx_pcie_deassert_core_reset().
+>
+> Fixes: 9b3fe6796d7c ("PCI: imx6: Add code to support i.MX7D")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controll=
+er/dwc/pci-imx6.c
+> index 3538440601a7..413db182ce9f 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -776,6 +776,7 @@ static void imx_pcie_assert_core_reset(struct imx_pci=
+e *imx_pcie)
+>  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
+>  {
+>         reset_control_deassert(imx_pcie->pciephy_reset);
+> +       reset_control_deassert(imx_pcie->apps_reset);
+>
+>         if (imx_pcie->drvdata->core_reset)
+>                 imx_pcie->drvdata->core_reset(imx_pcie, false);
+> --
+> 2.37.1
+>
+>
 
-Fixes: e5fab2ec9ca4 ("drm/meson: vclk: add support for YUV420 setup")
-Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
----
- drivers/gpu/drm/meson/meson_encoder_hdmi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi Richard,
 
-diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-index 47136bbbe8c6..ab08d690d882 100644
---- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-+++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-@@ -109,7 +109,7 @@ static void meson_encoder_hdmi_set_vclk(struct meson_encoder_hdmi *encoder_hdmi,
- 		venc_freq /= 2;
- 
- 	dev_dbg(priv->dev,
--		"vclk:%lluHz phy=%lluHz venc=%lluHz hdmi=%lluHz enci=%d\n",
-+		"phy:%lluHz vclk=%lluHz venc=%lluHz hdmi=%lluHz enci=%d\n",
- 		phy_freq, vclk_freq, venc_freq, hdmi_freq,
- 		priv->venc.hdmi_use_enci);
- 
--- 
-2.49.0
+I've found that this patch causes a regression on i.MX8MM and i.MX8MP
+boards with hotplug capable bridges:
+i.MX8MM+PI7C9X2G404EV (this switch does not support hotplug) - no issues
+i.MX8MM+PI7C9X2G608GP (hotplug) - fails to reliably enumerate
+downstream devices about 80% of the time
+^^^ when this occurs PCI_PRIMARY_BUS (0x18) for the root complex
+0000:00:00.0 reads 0x00000000 instead of 0x00ff0100 (PCI_SECONDARY_BUS
+is 0 instead of 1 and PCI_SUBBORDINATE_BUS is 0 instead of 0xff)
+i.MX8MP+PI7C9X2G608GP (hotplug) - hangs at imx_pcie_ltssm_enable
+deassert apps_reset
 
+In both cases here reverting ef61c7d8d032 ("PCI: imx6: Deassert
+apps_reset in imx_pcie_deassert_core_reset()") resolves this.
+
+I notice the sequence of events here is:
+imx_pcie_assert_core_reset asserts apps_reset (disables LTSSM)
+imx_pcie_deassert_core_reset deasserts apps_reset (enables LTSSM)
+imx_pcie_ltssm_enable deasserts apps_reset (enables LTSSM; this is
+where it hangs on imx8mp)
+
+Is there perhaps some issue with de-asserting this (enabling LTSSM)
+when it's already in this state?
+
+In the case where downstream devices do not enumerate some
+investigation points to them not being happy that the link drops so
+perhaps deasserting apps_reset when its already asserted drops the
+link and restarts it?
+
+Best Regards,
+
+Tim
 
