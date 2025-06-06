@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCB2C5B549
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 07:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC772C5B549
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  6 Jun 2025 07:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Px7TUkiGLJQvkjO/71jKrxllILzPLzGA5siX95GH57I=; b=KVrOU2XduR3fZfRHsmr4GgEqgA
-	tqPrBgiA1j9dXwLgZPHYm5vuOwFJm7s3u0lK2Bvi+Et2guV11q2u/z/v5n4bC97l/pywuoWOpdXJM
-	EzDblDWwm36pXJSKKY0V1XiNB8ZTCCiR8GlCDl7jpxT1d2FiLqqmZer3HIaam8hfbtyj8aEKhMlwb
-	bYK4NcGY42FmLZMw6haolrOxKLuNfetkXlQvGi1new7uB18Bn95DuoKBUYIr7KxpV++A8pLxqLB3n
-	u/pgTCdF/v1xptl3rysoHofl0t5cbjK4wADGgMup7y3Mc8mtiW4VzOXsJxspU41Cu2n1HvagHdnWr
-	0dWwEMOg==;
+	bh=2+a4tmR/A6ANRwQiGU6A/fzxxPhMQUHBWtsMGAxzq3M=; b=ObJLohpBuRv6fvThDsoXKliQ3s
+	muU7u2M1/8QqoWrCogfgWC2LPsI3OXFhrvtHZCWIbxRjiv3nsns+SIetd9hTzSfvNvO+gXa/EpOT+
+	BS/69GaaviQ1i3pWX+DUbteIK9BPirYNmY2Us2rEpBkYJTT+wRDh76hrJgKEoEnhU8zUWas7BY6a5
+	W4aunbb4FkgsdBAgJ+qkB3CzQOyYjcM8KOQe6JxibZJJPlyxwosiwyNY0fR4AsO8/pUBQmcU9byCt
+	f6H4my8q4frnKk+fPuGwk2W1d8hiXbNxgdUMz4jzIhGGFF0L33OHXIL4jBn9O8PIbO2PA+35Q6g6S
+	XXcsBvkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNRkh-0000000HKb6-13mw;
-	Fri, 06 Jun 2025 07:44:35 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uNRoO-0000000HL7L-2doI;
+	Fri, 06 Jun 2025 07:48:24 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNRiT-0000000HKPS-3tRm
+	id 1uNRm8-0000000HKqF-3tA5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 07:42:19 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-442f4a3a4d6so10268345e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 00:42:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749195736; x=1749800536; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Px7TUkiGLJQvkjO/71jKrxllILzPLzGA5siX95GH57I=;
-        b=EoIHKf0vgRbwyk8XIIZGRwBBPOH2ouIv4FKsG9EGPRaZnjTrjwtKFNpnO0KlefjxyR
-         xCkgA8QZ/Bqx4pYBF/3LfvAdjXhFq2zDNmGQQQoXbD9fP/cWcpihpACPO2eFzge7LcMi
-         FA3y+GiOI0d20UwKebtL7aZ+UomF84M1/6jqw9dozGwim15EfO+eOsiFTM4h8h1PFCqn
-         DD6EaHEQOyNW3GMoIy82mr1lumfzC6avblPZBOhNmiaNCfnQZJnPFr6/yz0oKTkI4EOr
-         08/7lIL2jCF8KTK5xEHA5odZaV8yLYsqgEgttSzySJBDl7iqj/Ymckmnin6Cg4G1i1yU
-         5Pfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749195736; x=1749800536;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Px7TUkiGLJQvkjO/71jKrxllILzPLzGA5siX95GH57I=;
-        b=AHP+hwcYBPvH7X+LrGK4U7AgS7SNTP5USdcqNNCIqdUSow0uErHv0KvvbXt2L7rAUX
-         1xk6+yzy9mfWOpmKOn2bkPvlt1gSfjtg9sQmNHgohIHPPcdeTLvJMU044PG8SWQFX9k6
-         072od15J+4Tj2EbifU9BOZaw/RiX/SIEaYbWrBR6hyLL+4KiGXWbMWOjyEROvCPw8YpJ
-         QtixoiX/gawKA916QsoOuyq/IcGv0piZrt2CnuQyFgavMB62lqXOjCRhTFVa9FLMejHd
-         Qt+Qy5kJjPZxQse80ZFf8wEI6fLOm+HXlNx7OBnVDD1C5sd/Db0A9ZNOqDrD083jdL85
-         DkEg==
-X-Forwarded-Encrypted: i=1; AJvYcCWCTZyOowhAMwak26HrNcdd1fCj4tD9GMzOvQ2/4tAxR0E2rKvhDEujEED6rhlB9WUVh0otWbPFpGV2o3bzjTsD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhXlYr4JqWKBS6QNzhUWGaZLLWK/9GhoyvK2ZvLVKnRyY46RfK
-	g3AcrSAOrWMf0eyuGqC85GvYF6QWLyT7A3Ojrf1++efMar+MN+JveZpzUakL3CayGXg=
-X-Gm-Gg: ASbGnctvLUl3wKxhOqBL9n1tkCAMUgF9TqRu1Zk3434YIO63LX76EGa30P72w5dZk/i
-	yENr43dlYEVn8++xRBVTGrazY5uU+rotpduvQa5pjUNzOgZtyF6jv8c4WwadeGf2eFpr6hv7qB9
-	/S/c06jDJRKYVgNK/ogA20V/mzXpiEUinQD1mkMezSoUTTTJIYcd3HrPUnTSWXAJYUTOlQY7N5q
-	yVEeUJeyI7BOVijEXaZYG7pYUgMyhaJe4yioFR/l6GdjRPEY1q8KSSfgq/3YcShfYGhUOl2HneB
-	Pb5SyAyygjbEtZVYSc5Lf0Ins5Mm/5QcF0Jr4vb/XgK/I1dDBBnV5h7iF/WkYw7bYws84Vb9G7j
-	Cyc8U
-X-Google-Smtp-Source: AGHT+IEDJ6Qm0Ur3ac3Ih5jAsMWLAgYjL99/0S8sUsnqlAT4/rYCzrAkgc1FBvTgHlungYhO6iFY8w==
-X-Received: by 2002:a05:600c:4f90:b0:44a:b468:87b1 with SMTP id 5b1f17b1804b1-45201506dd3mr20374865e9.4.1749195736011;
-        Fri, 06 Jun 2025 00:42:16 -0700 (PDT)
-Received: from [192.168.1.221] ([5.30.189.74])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4526e056138sm12622585e9.5.2025.06.06.00.42.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Jun 2025 00:42:15 -0700 (PDT)
-Message-ID: <ff77f70e-344d-4b8a-a27f-c8287d49339c@linaro.org>
-Date: Fri, 6 Jun 2025 10:42:11 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: mediatek: Fix a flag reuse error in
- mtk_cqdma_tx_status()
-To: Qiu-ji Chen <chenqiuji666@gmail.com>, sean.wang@mediatek.com,
- vkoul@kernel.org, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
- baijiaju1990@gmail.com, stable@vger.kernel.org,
- kernel test robot <lkp@intel.com>
-References: <20250606071709.4738-1-chenqiuji666@gmail.com>
-Content-Language: en-US
-From: Eugen Hristev <eugen.hristev@linaro.org>
-In-Reply-To: <20250606071709.4738-1-chenqiuji666@gmail.com>
+	Fri, 06 Jun 2025 07:46:09 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3B90F442AE;
+	Fri,  6 Jun 2025 07:45:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749195958;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2+a4tmR/A6ANRwQiGU6A/fzxxPhMQUHBWtsMGAxzq3M=;
+	b=FbcBo+GO49Gf4nun+ACzzLWBd7hkcSEKiitgBAVSvqrZiijkTwKBI0uSbwLisokMQt1oD+
+	qDpcmFva4f3cqTdmgZTVwjY61/BXc4vuqQM3UzFLSJA5BHlVsHBzlkMa9vTg4KcETJp+sN
+	yJ66JPB2utPtj9hgCyWKd57/wxZ5BfRrnZsHixXZxwynbcCfBEycAPgZefFV2OAm0YTuas
+	03uBMg5uX+ZbI/KYG2jwsizN8uEb5UQkZOnTwidlDSIdxRgZlDTKmOukYH8rdpD319jPgf
+	pGQzZuy3BZ0YrMvdehF+RGesgL2H5RIPdqFTxOZoAKNvQrWWKZLxSK8NJxAAGQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Fri, 06 Jun 2025 09:45:51 +0200
+Message-Id: <DAFA7QSTVFQF.3MG5408HBVNT7@bootlin.com>
+Cc: "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Andrii Nakryiko"
+ <andrii.nakryiko@gmail.com>, "Alexei Starovoitov" <ast@kernel.org>, "Daniel
+ Borkmann" <daniel@iogearbox.net>, "John Fastabend"
+ <john.fastabend@gmail.com>, "Andrii Nakryiko" <andrii@kernel.org>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Song Liu" <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>,
+ "KP Singh" <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>,
+ "Hao Luo" <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay
+ Mohan" <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon"
+ <will@kernel.org>, "Mykola Lysenko" <mykolal@fb.com>, "Shuah Khan"
+ <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Florent Revest"
+ <revest@chromium.org>, "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
+ <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "bpf" <bpf@vger.kernel.org>, "LKML"
+ <linux-kernel@vger.kernel.org>, "linux-arm-kernel"
+ <linux-arm-kernel@lists.infradead.org>, "open list:KERNEL SELFTEST
+ FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>, <dwarves@vger.kernel.org>
+Subject: Re: [Question] attributes encoding in BTF
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
+ <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
+ <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
+ <CAEf4BzZHMYyGDZ4c4eNXG7Fm=ecxCCbKhKbQTbCjvWmKtdwvBw@mail.gmail.com>
+ <D9E9IQQ3QKXM.3UJ17G9CBS1FH@bootlin.com>
+ <DADMLIVHMSSO.3AXSI5216WCT6@bootlin.com>
+ <9a2ba0ad-b34d-42f8-89a6-d9a44f007bdc@linux.dev>
+ <DAEFD2WH7HRV.2SOG9Q00QSEXH@bootlin.com>
+ <CAADnVQ+T_s6dAwJ5JKqNqA8tq1P+MdfPvPw0EoY5yOf8PnGT4g@mail.gmail.com>
+In-Reply-To: <CAADnVQ+T_s6dAwJ5JKqNqA8tq1P+MdfPvPw0EoY5yOf8PnGT4g@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdegjeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefuhffvofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeelkeehiefhfeehvefhtdegueelkeehffffffeuvdekkeekuddvueeguefgieeukeenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdduvddruddthedrudehtddrvdehvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvuddvrddutdehrdduhedtrddvhedvpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeefpdhrtghpthhtoheprghlvgigvghirdhsthgrrhhovhhoihhtohhvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepihhhohhrrdhsohhlohgurhgriheslhhinhhugidruggvvhdprhgtphhtthhopegrnhgurhhiihdrnhgrkhhrhihikhhosehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghstheskhgvrhhnvghlrdhorhhgpdhrt
+ ghpthhtohepuggrnhhivghlsehiohhgvggrrhgsohigrdhnvghtpdhrtghpthhtohepjhhohhhnrdhfrghsthgrsggvnhgusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnughrihhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrthhinhdrlhgruheslhhinhhugidruggvvh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_004217_989928_1F335170 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20250606_004605_595546_9D197ADA 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,55 +103,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alexei,
 
+On Thu Jun 5, 2025 at 6:09 PM CEST, Alexei Starovoitov wrote:
+> On Thu, Jun 5, 2025 at 12:35=E2=80=AFAM Alexis Lothor=C3=A9
+> <alexis.lothore@bootlin.com> wrote:
+>>
+>> Hi Ihor,
+>>
+>> On Wed Jun 4, 2025 at 7:31 PM CEST, Ihor Solodrai wrote:
+>> > On 6/4/25 2:02 AM, Alexis Lothor=C3=83=C2=A9 wrote:
 
-On 6/6/25 10:17, Qiu-ji Chen wrote:
-> Fixed a flag reuse bug in the mtk_cqdma_tx_status() function.
-> 
-> Fixes: 157ae5ffd76a ("dmaengine: mediatek: Fix a possible deadlock error in mtk_cqdma_tx_status()")
-> Cc: stable@vger.kernel.org
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202505270641.MStzJUfU-lkp@intel.com/
-> Signed-off-by: Qiu-ji Chen <chenqiuji666@gmail.com>
-> ---
->  drivers/dma/mediatek/mtk-cqdma.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/dma/mediatek/mtk-cqdma.c b/drivers/dma/mediatek/mtk-cqdma.c
-> index 47c8adfdc155..f7b870d2ca90 100644
-> --- a/drivers/dma/mediatek/mtk-cqdma.c
-> +++ b/drivers/dma/mediatek/mtk-cqdma.c
-> @@ -441,18 +441,19 @@ static enum dma_status mtk_cqdma_tx_status(struct dma_chan *c,
->  	struct mtk_cqdma_vdesc *cvd;
->  	struct virt_dma_desc *vd;
->  	enum dma_status ret;
-> -	unsigned long flags;
-> +	unsigned long pc_flags;
-> +	unsigned long vc_flags;
->  	size_t bytes = 0;
->  
->  	ret = dma_cookie_status(c, cookie, txstate);
->  	if (ret == DMA_COMPLETE || !txstate)
->  		return ret;
->  
-> -	spin_lock_irqsave(&cvc->pc->lock, flags);
-> -	spin_lock_irqsave(&cvc->vc.lock, flags);
-> +	spin_lock_irqsave(&cvc->pc->lock, pc_flags);
-> +	spin_lock_irqsave(&cvc->vc.lock, vc_flags);
->  	vd = mtk_cqdma_find_active_desc(c, cookie);
-> -	spin_unlock_irqrestore(&cvc->vc.lock, flags);
-> -	spin_unlock_irqrestore(&cvc->pc->lock, flags);
-> +	spin_unlock_irqrestore(&cvc->vc.lock, vc_flags);
-> +	spin_unlock_irqrestore(&cvc->pc->lock, pc_flags);
->  
->  	if (vd) {
->  		cvd = to_cqdma_vdesc(vd);
+[...]
 
-If the first spin_lock_irqsave already saved the irq flags and disabled
-them, would it be meaningful to actually use a simple spin_lock for the
-second lock ? Or rather spin_lock_nested since there is a second nested
-lock taken ?
+>> Thanks for the details ! I have missed this possibility, as I have been
+>> assuming that DWARF info was exposing the needed info. I'll take a look =
+at
+>> it, but if those attributes can not be represented by DWARF, I'll have t=
+o
+>> find another way of getting those packing/alignment modifications on dat=
+a
+>> type (eg: re-use/share btf__align_of from libbpf, as suggested by Andrii=
+,
+>> but it may not able to cover all cases).
+>
+> Not sure all the trouble is worth it.
+> I feel it's a corner case. Something we don't need to fix.
 
-Eugen
+TBH I don't own any specific use case really needing this handling, so if
+it does not feel worth the trouble, I'm fine with not trying to support
+this. My effort is rather motivated by the goal of aligning the ARM64
+features with other platform, and so of getting rid of
+tools/testing/selftests/bpf/DENYLIST.aarch64.
+
+For the record, this effort also showed that the same kind of issue affects
+other platforms already supporting many args + structs passed by value ([1]=
+)
+- structs alignment with specific alignment constraints are not
+  specifically handled (eg: a struct with an __int128 as a top-level
+  member, leading to a 16 byte alignment requirement)
+- packing and custom alignment is not handled
+
+From there, I could do two different things:
+1. do nothing, keep ARM64 as-is with the current version which has been
+  recently merged: ARM64 then denies attachment to any function trying to
+  pass a struct by value on stack. We keep the tracing_struct tests denied
+  for ARM64. Other platforms still allow to attach such functions, but may
+  be parsing wrongly arguments in those specific cases.
+2. add the constraint applied on ARM64 (refusing attachment when structs ar=
+e
+  passed through stack) to other JIT compilers. Then update the
+  tracing_struct test to ensure this specific case is properly denied on
+  all platforms to avoid risking reading wrongly arguments passed through
+  stack when structs or large types are involved.
+
+I tend to think 2. is better, but let me know if you have a different
+opinion here.
+
+Thanks,
+
+Alexis
+
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
