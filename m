@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BCE2C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 14:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D69C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 14:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K4AOJpiDZwth/4svRgP/2cJFuZGORRyHjzQxI5qtzo0=; b=kaKx6RIvTnL6NzJBSVlwQghY5V
-	uBeX1lfIlQXe+M+SP416It/IUMWiFWCQuQnamXNTBEStBg5gsWb7IqKScRe2VnqAdimyPQRpnxDbM
-	0ONrbawn2TCOKiTtEmPsKREMH2OYJ2XCOheEKcrf4JJlb/unSukpN/HhdVDbQjxDnViMcI+UD38vN
-	DBZ+1RKjPptZTEqscL7E7INmCQ5zvdXExvuUBfEU6/t/Qqfnssd/DTZjGAe2IQVxpgLqQ+DjrQT1w
-	e6E4U/mgmGQZj32NfMpq+M1n8XyRVpXpE+el+EEj1huuUZlNsqtGc/aoKpeD7+J1SEVZQZb+vWXpf
-	CYINdmJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pW4ufJnjhCm2nfmy5TzCJDpC5ocrOYDlcNa8ozTUrAk=; b=4cXFvbQbWA9BqSPlhJc+69bD/e
+	S1tzYSkQIfWc+PpXsXlSiEQOcL7Fzw6uZxGBp/PXU/md+5XDsXaXWx7giLmP1G5ZqpWfGZCuj3EvH
+	JFZXSSfzc61cL/ZnygLikg/GcqMRuzLqCyZn3RqfpWWsWXNBrj5A9YRWaRZfEms9NsNt4iTzmKjwZ
+	RDXF4HTr1KbfYkVHFe3ztXzHG7EMk7Vux7Mti9LUDUsMLfdNvfGW81jY72W73GTh1BR+UiYqiWbik
+	zzWR5XrOYGAcpYfqnjHtxlWKZOE4ILGJ/jYhg/9mEEVoiY3oHJCbUnPUyNbgPbjpaVGmgiAJSRDQ9
+	jV4C+Iiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNu7I-00000001jrS-39nB;
-	Sat, 07 Jun 2025 14:01:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uNuA9-00000001k1b-3t4n;
+	Sat, 07 Jun 2025 14:04:45 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNu2C-00000001jWf-1zfx
+	id 1uNu7x-00000001jv1-2h3O
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Jun 2025 13:56:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF79E43797;
-	Sat,  7 Jun 2025 13:56:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73EFEC4CEE4;
-	Sat,  7 Jun 2025 13:56:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749304591;
-	bh=2gPXD5yjmhI4B3pKH5Tr2d9zGU/Zymv5lSEf8kaV5AE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=PYczttIGX2Dtvj8t5QlBdf+DbvRTjUxRu9FmWiv5kh2Cvyb35IT8fUivey6ieSadg
-	 N0DSZuE6ZLKFCModOp2dBfHTi/kDyM3sGLkEB7O8otZ36IEtkhblHEvsmrKnrfWgRI
-	 wNwJsCrLUl/JKESMqS7morRlwqXII023XU8rh7DpOxQmJMvAG2ACSzRXTqMeyzZ/sL
-	 EC9mgsafFqv5jUYjXBxjjJFmIHsqTNnJ20bgk8Om7b+axNXIckrFwO62s+vkLBAgVs
-	 eBiSRw0q+eYLh6MdGkUhOVepRA/XAdapdrQdPH8bbLpH2UWdstgBi0QMYmhWpTEMzg
-	 i0UZRBeM51mgA==
-Received: by wens.tw (Postfix, from userid 1000)
-	id C656B5FD0C; Sat,  7 Jun 2025 21:56:28 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH] iio: adc: axp20x_adc: Add missing sentinel to AXP717 ADC channel maps
-Date: Sat,  7 Jun 2025 21:56:27 +0800
-Message-Id: <20250607135627.2086850-1-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Sat, 07 Jun 2025 14:02:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=pW4ufJnjhCm2nfmy5TzCJDpC5ocrOYDlcNa8ozTUrAk=; b=NoCcWuO1Iwq/roSORLQBdqkptQ
+	WsL1CM2l/4XgYHuVyRbefbHrsroBxrmcuEKZzJ5pU0vVmCi5UXgBx6psui7k08wLlRYDvRrkwUAsQ
+	dO+dAYqPrAIZofmnXtKVsAHPcm3unj+UiL5wW+ELV2oleH2Smng6kpVnji3rKBzzGArE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uNu7g-00F11P-By; Sat, 07 Jun 2025 16:02:12 +0200
+Date: Sat, 7 Jun 2025 16:02:12 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, Matteo Lisi <matteo.lisi@engicam.com>,
+	linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 02/10] ARM: dts: imx6ul: support Engicam MicroGEA-MX6UL
+ SoM
+Message-ID: <60bc2857-d3d6-4309-a24b-e41cd37c6991@lunn.ch>
+References: <20250607093342.2248695-1-dario.binacchi@amarulasolutions.com>
+ <20250607093342.2248695-3-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250607093342.2248695-3-dario.binacchi@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_065632_537259_46E7977C 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20250607_070229_688028_38AD7E6A 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +78,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+> +&fec1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_enet1>, <&pinctrl_phy_reset>;
+> +	phy-mode = "rmii";
+> +	phy-handle = <&ethphy0>;
+> +	local-mac-address = [00 04 9F 01 1B B9];
 
-The AXP717 ADC channel maps is missing a sentinel entry at the end. This
-causes a KASAN warning.
+00:04:9f is Freescale Semiconductor. Since you are not Freescale, are
+you actually allowed to use this MAC address?
 
-Add the missing sentinel entry.
+If you look around, you find most boards use 00 00 00 00 00 00 as a
+place holder, and the bootloader puts in the real per device MAC
+address.
 
-Fixes: 5ba0cb92584b ("iio: adc: axp20x_adc: add support for AXP717 ADC")
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
----
- drivers/iio/adc/axp20x_adc.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/iio/adc/axp20x_adc.c b/drivers/iio/adc/axp20x_adc.c
-index 71584ffd3632..1b49325ec1ce 100644
---- a/drivers/iio/adc/axp20x_adc.c
-+++ b/drivers/iio/adc/axp20x_adc.c
-@@ -187,6 +187,7 @@ static struct iio_map axp717_maps[] = {
- 		.consumer_channel = "batt_chrg_i",
- 		.adc_channel_label = "batt_chrg_i",
- 	},
-+	{ }
- };
- 
- /*
--- 
-2.39.5
-
+	Andrew
 
