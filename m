@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C1FC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 00:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5214C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 02:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rQsDpgf8u91vw/WrLSGz0iJXQ6JiA2bq0U/tEH5QJI8=; b=TFYR0VZJy/y9EFs7FaxJlVnv0+
-	S7AeZE1ZsloZaHEwJjKj9ZUmei1tPl3C1+vMQP/9soxVk5RonsO34GPawG/7VlJrcLjD6LJPQrrm7
-	8ImTgrJ2l+Qp6WLvWvEop1/4pMKZo7nnckEc2UiaAkjv2kf61Bf5E3Khia/NiJp8sVGiMcASdfCsu
-	vru6wxyivifVAoEHPNPPjwv2r1iBneeisNutYQEQYCEYp3Fn1HPK4m5pQCpzA3IDBoj4lbxJ/mxxB
-	zwJMSdYFRkVtjHfd+eGffCBUThy8ta9pVy9uvo/YMJREzm2Na0XT3c5FeF66M3t8/qLsaU/ZqS0YK
-	cqE+/dhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CefWT92/pn4Htibx0ZcptASfFKnZ0vYyjmoTK16U7Y=; b=IvJQzg1aJuVV3PAdgE3XYaTCZD
+	u/v03bsyH0s3f96kl12HZpp/DoUJUozsYD4CQ6sNXcMrGQRWJH9eV0jj+soyuBFR+rL7QWcGw2Rf4
+	OOHHZQEABYE+mRg9J2BQSIcLjGSVJiWFhRiNxrkh7gnW2cutC7QCq1UWh+HWUNGVlo0Q3vYlwmcd7
+	zrsCie2IKW2t+aNyF+yPVW/h49xXed4SZQubukZjIM1TSsAV/YyqqsHwcBFBoT3+G8+RkNEER9HoD
+	NDPLC4jJkGI37LsJPwXIjyDv087GoqD6izQeCNz2hVmMbnZNKh6AoOoGCqagT+OScLl9ZKBH8PGn5
+	klLRho/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNhSr-00000001BcJ-1NNi;
-	Sat, 07 Jun 2025 00:31:13 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1uNjYF-00000001GCB-3iHg;
+	Sat, 07 Jun 2025 02:44:55 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNgvg-000000019HJ-18Ty
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 06 Jun 2025 23:56:57 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7377139d8b1so2154691b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 06 Jun 2025 16:56:55 -0700 (PDT)
+	id 1uNjW7-00000001FuM-3MbJ;
+	Sat, 07 Jun 2025 02:42:44 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a5096158dcso2303864f8f.1;
+        Fri, 06 Jun 2025 19:42:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749254215; x=1749859015; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rQsDpgf8u91vw/WrLSGz0iJXQ6JiA2bq0U/tEH5QJI8=;
-        b=ivt5yQqMnu+9J4rtjbe60EHvNqqDw0l66yct7JIWcYfkazyJyVnFA6xKDLpquQHvtw
-         OESq/UOVabfFvrUeyFPEDtvFNxFIyoPitf3MvQv3vA/cMBSAP8XUveV/mnggqtTBk72D
-         BH10FgDEvAzfcRypGy6Leg1lV33OXWzI1+CIplHQC9Barxiu1eWM5GGTVrJdChjXzvgp
-         lKVPFR4UmTxGUPhyT27gCHAQTvpNJqwnsXrLoRORNiTdj9pMckxajaiOuNpH8Kds6NuT
-         6CSAgkJItLmLAngoq2uFVw1mE7K37YV0yOghHmi8bMm4YCxQZsRdEuKXSE8kr+vsNKdk
-         DBVA==
+        d=gmail.com; s=20230601; t=1749264161; x=1749868961; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9CefWT92/pn4Htibx0ZcptASfFKnZ0vYyjmoTK16U7Y=;
+        b=e9cXOC/6kAUPdXZ9IMjcx3ttLTpL16V7OlCjLBkZZRuxQtS2yAajqVQjGtDP7GyhZ/
+         xzYA/JAzDq3LLpbARNKjJurshL9r1r+G0jJypGV56UYAxCCqNp9X2uaFFwv5q5L53SYz
+         qTdHHaSAoJjba4cfnhakmbvU1a4kpXyuKCF2frjUMqAOL6NW1o6Zbwxo2bjONPE9dHJu
+         kN9L89VSnFu+x/f58ShF8HxC30SRhbi/ZVG7IbJgmVyt6IUZ25fHHzyyPm5hzoDgwPnI
+         qySz7B57bMIBXWW1WSCgIT+lhkX+xg4rG2dQOe2tHUaNbWxQBb7qxz4oyXAeRvIuRJsv
+         bVeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749254215; x=1749859015;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rQsDpgf8u91vw/WrLSGz0iJXQ6JiA2bq0U/tEH5QJI8=;
-        b=iYKQ2+3WNkaaeWwfeHmH6tnMyTmimCxI16ZfnFpNGc6wbIFdNlh9PN0XIlomJ5Z+7T
-         A77OD0Q4lB4KCuwmVnbhKwEwV2pXXwb1NcrS3N7bmeBOjfcaPX9+RUtmyAm6m4agX641
-         8jjjMiTvW5/8asDDSJMQndfgfpezwHO9g4lFA0SS3msY7AvDWC0mGJwoH9UV8/Vv7t1M
-         oFfPZTynfb+zpOQg3uF519XGnqFFjNbF06t0Vo/cLAc/5+/qm03+4IbiG1C1agT5gZGo
-         GTXP2HPQjyO1czN4weCgwE7067ch8ewXDm+Z3UXb9z6QfZBJUhtgOyJrisT3FNxaoEsw
-         6q9w==
-X-Forwarded-Encrypted: i=1; AJvYcCXXzQV+qR/E+sYTHDFgeYOp8zB5yf43KXZaIXM+OEtnbXykZqqVCZlSi0f3qoORtaNMN2/IsAoZTg9cgVPhK2CN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWzrPXfnPW0N5jnlfGQGZAN/B2a/D2v0YiN1a6JxRLGmJH3XvN
-	Jv6tG+knhu0yWVjj6XKoVzh0N5t3ssLBRApDlzqDNApv9CwGOdqPIMHXu6HsLfhmqiW6i6lAjL7
-	3ACWrkQjp9w==
-X-Google-Smtp-Source: AGHT+IGyp1ZByaQWclr+E1KDubTeknVJBEMfz1Flqb1492oOI1nXyfJVxjejhM42yZAw1MjGchfJyqOnrrck
-X-Received: from pfiu22.prod.google.com ([2002:a05:6a00:1256:b0:747:b608:3d8e])
- (user=vipinsh job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:6009:b0:218:c22:e3e6
- with SMTP id adf61e73a8af0-21ee2555021mr6804011637.12.1749254215203; Fri, 06
- Jun 2025 16:56:55 -0700 (PDT)
-Date: Fri,  6 Jun 2025 16:56:19 -0700
-In-Reply-To: <20250606235619.1841595-1-vipinsh@google.com>
-Mime-Version: 1.0
-References: <20250606235619.1841595-1-vipinsh@google.com>
-X-Mailer: git-send-email 2.50.0.rc0.604.gd4ff7b7c86-goog
-Message-ID: <20250606235619.1841595-16-vipinsh@google.com>
-Subject: [PATCH v2 15/15] KVM: selftests: Add riscv auto generated test files
- for KVM Selftests Runner
-From: Vipin Sharma <vipinsh@google.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Cc: seanjc@google.com, pbonzini@redhat.com, anup@brainfault.org, 
-	borntraeger@linux.ibm.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, 
-	maz@kernel.org, oliver.upton@linux.dev, dmatlack@google.com, 
-	Vipin Sharma <vipinsh@google.com>
+        d=1e100.net; s=20230601; t=1749264161; x=1749868961;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9CefWT92/pn4Htibx0ZcptASfFKnZ0vYyjmoTK16U7Y=;
+        b=dbMTpna4FRKbTGpbWeasmcwYpx1wfu3+JYQaURBZNhx2N/5u7T2bxu/psAnXYFiiEp
+         oUZRMKZPNuez0nQso6RSMcPzXsBhziFRME6358sNzlx1RIYaeQC46sk/LJEo0j5OHPZc
+         gEfo4Ff4PehSg0vZ66uflU38KbN/uPwrE92lWcSLIkXhkEb9VA7+ynGapiNzuux80ZEY
+         YfgHZ1QcNEhjYoYXl0aBvy3eP/r1M1Wd1SoVXikceI2q2dD0YBmtgUPPYSiaNl2jHZYP
+         6W6TpIxveHKF2LZ2CUrF5hkV17YU++OZ9XVay9+IAS+LRPFyLwl6in9LxiJE6HtbPjM2
+         AeNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUSa1T0kxz7NGcHwy5xRNwJcSX1rX35GUvaysp2kUX/M6ZIMUTpc8FDYIYNeTrWdiLlbr0rXFhmmiUXBKwKwBA=@lists.infradead.org, AJvYcCW8x31tCgkJeb8oQpLRDXnx6G0xeADOf2IaU726F6i5qRH42L4CcvKRzEup1ATLw1IJRXfBfUkmQEIHincjVtNy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtLmDvxBa1t2KxM/U4Jwpmu37u/PIXxbXFqD3dQvGEjdgsohIT
+	SXI2oOvgRzAOexzEwBNvWHrYPzP5stkTp9cx25hLRn/4ksuJzeM1UIvhqqQEPRdowYMqiaSX7SO
+	FonCjOy2Sh/JQZssuDuW/U5DcN4ZMop0=
+X-Gm-Gg: ASbGncv6m0qEa3YbSCMUASbVbZR7pPtcOtNt2QqLKyfLXlSAZmKBy+acuaF/cwfwl3k
+	AS2KQTav+oJs7q3G3nrNLTqNDUFgC6TrMeQbnOFMy38syIS+neCyNMJqTEkqBuGqaqugUBhRw/s
+	aR85B2ixJ7JQJ/22fLmFdlEnRSYvuwzh/FPTj4OstCVtCrb/URTMm0Ime1dlwzQBgQXJ9amf2Gp
+	g==
+X-Google-Smtp-Source: AGHT+IGcEKkjQjtCriThcqw8RLc0+PuS0lf/rMkncpVF4bkgmYsjA2mOt2fM8jKZfdbuxZZdA2tkH6bTKQQT9twpEKA=
+X-Received: by 2002:a05:6000:2dc9:b0:3a4:cfbf:519b with SMTP id
+ ffacd0b85a97d-3a531ce09e4mr4689955f8f.44.1749264161453; Fri, 06 Jun 2025
+ 19:42:41 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
+ <20250603-sige5-updates-v1-3-717e8ce4ab77@gmail.com> <CALWfF7JOJSihtfqrFiZtTxnzvoU6FP3WXuWjYOVaAvjPJZWWgg@mail.gmail.com>
+ <CABjd4Yyw5xStJYU5c5snUGpBjEYL8=qoj=bWYLnuzSWzr8shaA@mail.gmail.com> <CABjd4YxfG3WZxRL3ihQLtdVdp_3Hq=TKKrZJktJ_C5i+xCM2Ag@mail.gmail.com>
+In-Reply-To: <CABjd4YxfG3WZxRL3ihQLtdVdp_3Hq=TKKrZJktJ_C5i+xCM2Ag@mail.gmail.com>
+From: Jimmy Hon <honyuenkwun@gmail.com>
+Date: Fri, 6 Jun 2025 21:42:29 -0500
+X-Gm-Features: AX0GCFsASrqjmeogHKGqU5uJIqowBQVTy5uoU6CN1I531lsTS5iFJUyKloDL55Q
+Message-ID: <CALWfF7KS_kGK-RQVfcPMkvo_2PD_w992Z9hka_3=b=Cgnto6Lw@mail.gmail.com>
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: enable wifi on ArmSoM Sige5
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_165656_312179_F0EA203F 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250606_194243_842346_32CBCD89 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +98,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add auto generated test files for s390 platforms.
+On Thu, Jun 5, 2025 at 9:14=E2=80=AFAM Alexey Charkov <alchark@gmail.com> w=
+rote:
+>
+> On Thu, Jun 5, 2025 at 10:32=E2=80=AFAM Alexey Charkov <alchark@gmail.com=
+> wrote:
+> >
+> > On Thu, Jun 5, 2025 at 6:43=E2=80=AFAM Jimmy Hon <honyuenkwun@gmail.com=
+> wrote:
+> > >
+> > > >
+> > > > +&sdio {
+> > > > +       bus-width =3D <4>;
+> > > > +       cap-sdio-irq;
+> > > > +       disable-wp;
+> > > > +       keep-power-in-suspend;
+> > > > +       mmc-pwrseq =3D <&sdio_pwrseq>;
+> > > > +       no-sd;
+> > > > +       no-mmc;
+> > > > +       non-removable;
+> > > > +       sd-uhs-sdr50;
+> > > > +       sd-uhs-sdr104;
+> > > > +       vmmc-supply =3D <&vcc_3v3_s3>;
+> > > > +       vqmmc-supply =3D <&vcc_1v8_s3>;
+> > > > +       wakeup-source;
+> > > > +       status =3D "okay";
+> > > > +};
+> > >
+> > > When you enable the sdio node on your v1.2 board with the broadcom
+> > > chip (using SYN43752), does the btsdio.ko bind to the device and
+> > > create an extra rfkill bluetooth node?
+> >
+> > Good question, I didn't have it enabled in my build:
+> >
+> > # CONFIG_BT_HCIBTSDIO is not set
+> >
+> > Let me add it and report back.
+>
+> So I've rebuilt it with btsdio.ko module enabled. As I boot the
+> system, WiFi (via SDIO) and Bluetooth (via UART) drivers get probed
+> and load their respective firmwares. btsdio.ko doesn't get
+> auto-loaded. If I load it manually after booting, it doesn't bind to
+> anything and doesn't create any extra rfkill nodes.
+>
+> Is there anything else I need to check or look out for?
+>
+> Best regards,
+> Alexey
 
-Signed-off-by: Vipin Sharma <vipinsh@google.com>
----
- tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test | 1 +
- .../testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test  | 1 +
- 2 files changed, 2 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test
- create mode 100644 tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test
-
-diff --git a/tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test b/tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test
-new file mode 100644
-index 000000000000..d34b4b9b77ae
---- /dev/null
-+++ b/tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test
-@@ -0,0 +1 @@
-+riscv/ebreak_test
-diff --git a/tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test b/tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test
-new file mode 100644
-index 000000000000..5abb62c51097
---- /dev/null
-+++ b/tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test
-@@ -0,0 +1 @@
-+riscv/sbi_pmu_test
--- 
-2.50.0.rc0.604.gd4ff7b7c86-goog
-
+That should be all you need to check. I guess they stopped incorrectly
+advertising SDIO_DEVICE_CLASS for bluetooth.
+Jimmy
 
