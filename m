@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B65C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 11:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9679C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 11:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/4ulAaKD9xbXjQ60ZJ9CwtgqdPUp6buVGge0086/J+Q=; b=M5geNrWgkDY4Va7RljElTyrnD0
-	VG4h9pZ/EwFGYOQa17b309y9/fHJqhqLxqmsnSEFdLtqug+XX9ajrUVb5KPYSgs4RZSO+4y6xeH9y
-	5suUJWy5U4hhD0HSgHfUxt/yWSfle5YxaiSpz5PDh47Shu86U7cJLxGLpE7ivTo7JheRKbMNegx3X
-	nPyLMwjwaM69QOQ4g7okQK+Fvo0tib0m3mTNr0/qQI40/ymEMt57DWXBWKi0jPh835OLCzVE7ffJv
-	9CCi/HW34RGPj9N2wlg1E+1SYud2EzS7sPnhZWaLtKmyHrdOqiGS7r+pGpF839C7z3MaFm/9bxQmR
-	/bJ80eBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4uBBexglmDg860eeLxvF6Ft+pxKPH1DbiU+A4sUq4Hk=; b=iLeHINjSGAZghXEXWc7cQzYF6q
+	EBWfSmipK9l2j0sWzRGy8Y6ZfPwCD0+8CtYpDqq+5ZiWuGWyWfKjehNtnmCGP4ajL48EzeKK8dk2W
+	X8B0eEZbnUey1CRijwvD62qJbMxU2e4uy2k2p6BCcm2EzPpnUzoVJCXa+yFE+Bs+C12gmbdxr6pas
+	z8SN4ADvRS0pPv6+GkM9MzCjCwod6Eg20RybbVvSfVpuz+eYfcvjfvPW311d+dHXeUMXVRF3w9F9w
+	50AD6BTWZq87d2VNQEe3il4aG23HR4RglqAMk58rAKPifxqRjHtj6F0vylQYPbsu40J5zjR6gbJHx
+	btQLZdbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNrV5-00000001aZd-0pXP;
-	Sat, 07 Jun 2025 11:14:11 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1uNrXE-00000001ahq-2KH9;
+	Sat, 07 Jun 2025 11:16:24 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNrJ7-00000001ZTX-3B9p
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Jun 2025 11:01:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749294110; x=1780830110;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=oXRpziViexH8/fIeHAWT0i0ImnFtdOkJs/7hpOj+v+k=;
-  b=A4lqOjD4W9J42pe8DxTmtJGkBADglxD5q9tgKfs+2MDJMjbEgn8AU24H
-   PE9rhBYSwjej8jjBlrzw/Kjn+upU+XFap8UEARmFP1OKFCFnlmZWh11j2
-   KOWMOZuoRxMBoUJWn0v+5SLYpksBhOyWX9TfQux0gDXw5YXlVAlJECCQe
-   EnS9yWrs3+iso2UYo0fr+2egUDdcur9Q8p3xvyC9q5jXSToiGiqWfeW/2
-   47tC4id00PyIeriYSX8GORrqAjViCsyqOE+HwSGna0Nq64FrziE8RbAt3
-   w2NbyjX7nfnIVnH04TzGqb+Fl7e4vxwsU0HgbVgeeQ3i7s6O4lMquzrOf
-   w==;
-X-CSE-ConnectionGUID: SjvmGVHjQMOhbeVjIAvi/Q==
-X-CSE-MsgGUID: dKaRHKFSS8CkM3Zo24IOjA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11456"; a="54062167"
-X-IronPort-AV: E=Sophos;i="6.16,218,1744095600"; 
-   d="scan'208";a="54062167"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jun 2025 04:01:45 -0700
-X-CSE-ConnectionGUID: GadTKGbxQgOwAieMHe6U0A==
-X-CSE-MsgGUID: 9PPzAVzYRGWL7j+VBDs/7w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,218,1744095600"; 
-   d="scan'208";a="176950060"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 07 Jun 2025 04:01:42 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uNrIw-0005k1-1j;
-	Sat, 07 Jun 2025 11:01:38 +0000
-Date: Sat, 7 Jun 2025 19:01:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christian Bruel <christian.bruel@foss.st.com>, bhelgaas@google.com,
-	lpieralisi@kernel.org, kwilczynski@kernel.org,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, p.zabel@pengutronix.de,
-	quic_schintav@quicinc.com, shradha.t@samsung.com, cassel@kernel.org,
-	thippeswamy.havalige@amd.com
-Cc: oe-kbuild-all@lists.linux.dev, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1uNrJO-00000001ZX8-1Eb3;
+	Sat, 07 Jun 2025 11:02:07 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7426c44e014so2517081b3a.3;
+        Sat, 07 Jun 2025 04:02:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749294125; x=1749898925; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4uBBexglmDg860eeLxvF6Ft+pxKPH1DbiU+A4sUq4Hk=;
+        b=aHqiYVc1CvBxq0Q3vigmzWdSp2PUSTFX+p/Zm6k7Vq1MOhQYXaI4PYynu7ecxoVDo6
+         kVuNBqiqdz4tk7dsUQfVkxGU6b2+Rc59FptohJyj7edfbvKoekFahA+8VCiyFdtTl4kX
+         jk/E1cfZ+sxFs6u6W5LD3esg6LdTut8R5NwU+gYavsQiXUF32dkS5sXvOLUGkknHB/EX
+         Z7u886pSWP0G1fUqTXdYZ2syP99NAIuEEMmdlKI5eb7K7unxqGz2wvQsct/ZwARsB1qp
+         zrQUYECR7lSGVfqEGm99ZmTEmZw6Z+0gaRgqzbFx0hoYvoXG5bxTA5cfgORE4VCC/jiz
+         Ankg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749294125; x=1749898925;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4uBBexglmDg860eeLxvF6Ft+pxKPH1DbiU+A4sUq4Hk=;
+        b=U6+RIJSw+7X6qtae5ENFFM9T0FuvsTt8tIMiZoAurADZ4VUATPOvEAhfDbwE8m1j6I
+         8Bh1hQRN9q6p2Vzxm2YBVchiV+NydEvcCWWEbGIyyAw8KVdB+bI/PAgyTyuespo7TUAJ
+         sqGHjQ86rquEqKgBI3kMzsnqQduvsssBbC6ANmSS7Mo0jySMdixroVsFtVuU2/hiINc3
+         YIU7ux8AvvVjVdjcyCY9L62IxGWuzC72gCDryTG1K0QoTsPyeSvaPWhR8FZVq1UqDJzR
+         gcExZXwgU98wqx9KciDZ6DUb8J8tvHZNu5pcfJyPTk1TVpzCjidEquob+uPR0qrD2gwa
+         2vnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUTGnincd+4JxBerc7DG2UsOh866bq9hJkLcibkrZV1wKh2j2pTQgK63GTHzoHI22i7Pki7qZYcZZB4ieB3O6tc@lists.infradead.org, AJvYcCVVSdEOActXy65FKZ3ofjWLF9VDxcTiX0fRG1Ku2SN35CTl2pK1W3ztvV3vpciJt1Ln8/mUF9rmI4+t@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXPSk9GEkolu0o53ZB4+f++ai13A4ohruA0AnhYXjL5u+r5mOn
+	rYoGPwF9PIztZ2zNt+gze2NLr3gDRzmdPTPHzsugc0lsudGDZD8daPDENBLXEB6F
+X-Gm-Gg: ASbGncv6dMx4sC98VRQbhPoM7ug04+ZCd2R4psoIvEdy8baEg9AuLCMTV1VSvrEqdlc
+	YaumyDAIWzoWiqgjKJUeOmJL+fAV+7deQnHWhpM2M0votckB8z2ULt7NmtuWov9AxZMA9+THr8I
+	LdZfKf8zjrTxYjIkqGwh7L7GYWQjsBB/md2QX9qK5h3sBciq77EeWrwx7WXl35C4voRdd6lCsyH
+	qwTwHAjtZYLtGvbnA9O407vVklgt51ZKgh0ucTZ/SAVKtvl7FF22ZoHXBRoK/pjbWCRI1cFLyw/
+	uVjVuioveiiG9ohLufNLHwwhi+lFcry9sApUtqQWge9FlAv4ag==
+X-Google-Smtp-Source: AGHT+IFYL9anMnNxKV2ckcM3gDwV1GsmgLUpZL8PFIBko5cIs/9IiYHRWTIxEtw+MUY9myL9CJHr3Q==
+X-Received: by 2002:a05:6a00:2e07:b0:746:2c7f:b271 with SMTP id d2e1a72fcca58-74827e7f485mr8075913b3a.9.1749294125519;
+        Sat, 07 Jun 2025 04:02:05 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:2bc9::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7482b0c6649sm2538048b3a.113.2025.06.07.04.02.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Jun 2025 04:02:05 -0700 (PDT)
+Date: Sat, 7 Jun 2025 08:01:59 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v11 4/9] PCI: stm32: Add PCIe Endpoint support for
- STM32MP25
-Message-ID: <202506071838.C54p5js2-lkp@intel.com>
-References: <20250606120403.2964857-5-christian.bruel@foss.st.com>
+Subject: [RFC PATCH 4/4] phy: rockchip-pcie: adjust read mask and write
+ strobe disable
+Message-ID: <aEQcJ7L5AlxP2Z6w@geday>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250606120403.2964857-5-christian.bruel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_040149_814362_CD67F3C2 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20250607_040206_334931_CB53460F 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,113 +100,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+Section 17.6.10 of the RK3399 TRM "PCIe PIPE PHY registers Description"
+defines asynchronous strobe TEST_WRITE which should be enabled then
+disabled and seems to have been copy-pasted as of current. Adjust it.
+While at it, adjust read mask which should be the same as write mask.
 
-kernel test robot noticed the following build warnings:
+Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+---
+ drivers/phy/rockchip/phy-rockchip-pcie.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-[auto build test WARNING on 911483b25612c8bc32a706ba940738cc43299496]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Bruel/dt-bindings-PCI-Add-STM32MP25-PCIe-Root-Complex-bindings/20250606-201204
-base:   911483b25612c8bc32a706ba940738cc43299496
-patch link:    https://lore.kernel.org/r/20250606120403.2964857-5-christian.bruel%40foss.st.com
-patch subject: [PATCH v11 4/9] PCI: stm32: Add PCIe Endpoint support for STM32MP25
-config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20250607/202506071838.C54p5js2-lkp@intel.com/config)
-compiler: arc-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250607/202506071838.C54p5js2-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506071838.C54p5js2-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/pci/controller/dwc/pcie-stm32-ep.c: In function 'stm32_pcie_probe':
->> drivers/pci/controller/dwc/pcie-stm32-ep.c:339:79: warning: format '%d' expects a matching 'int' argument [-Wformat=]
-     339 |                 return dev_err_probe(dev, ret, "Failed to request PERST IRQ: %d\n");
-         |                                                                              ~^
-         |                                                                               |
-         |                                                                               int
-
-
-vim +339 drivers/pci/controller/dwc/pcie-stm32-ep.c
-
-   275	
-   276	static int stm32_pcie_probe(struct platform_device *pdev)
-   277	{
-   278		struct stm32_pcie *stm32_pcie;
-   279		struct device *dev = &pdev->dev;
-   280		int ret;
-   281	
-   282		stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
-   283		if (!stm32_pcie)
-   284			return -ENOMEM;
-   285	
-   286		stm32_pcie->pci.dev = dev;
-   287		stm32_pcie->pci.ops = &dw_pcie_ops;
-   288	
-   289		stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
-   290		if (IS_ERR(stm32_pcie->regmap))
-   291			return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
-   292					     "No syscfg specified\n");
-   293	
-   294		stm32_pcie->phy = devm_phy_get(dev, NULL);
-   295		if (IS_ERR(stm32_pcie->phy))
-   296			return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
-   297					     "failed to get pcie-phy\n");
-   298	
-   299		stm32_pcie->clk = devm_clk_get(dev, NULL);
-   300		if (IS_ERR(stm32_pcie->clk))
-   301			return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
-   302					     "Failed to get PCIe clock source\n");
-   303	
-   304		stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
-   305		if (IS_ERR(stm32_pcie->rst))
-   306			return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
-   307					     "Failed to get PCIe reset\n");
-   308	
-   309		stm32_pcie->perst_gpio = devm_gpiod_get(dev, "reset", GPIOD_IN);
-   310		if (IS_ERR(stm32_pcie->perst_gpio))
-   311			return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
-   312					     "Failed to get reset GPIO\n");
-   313	
-   314		ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
-   315		if (ret)
-   316			return ret;
-   317	
-   318		platform_set_drvdata(pdev, stm32_pcie);
-   319	
-   320		pm_runtime_get_noresume(dev);
-   321	
-   322		ret = devm_pm_runtime_enable(dev);
-   323		if (ret < 0) {
-   324			pm_runtime_put_noidle(&pdev->dev);
-   325			return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
-   326		}
-   327	
-   328		stm32_pcie->perst_irq = gpiod_to_irq(stm32_pcie->perst_gpio);
-   329	
-   330		/* Will be enabled in start_link when device is initialized. */
-   331		irq_set_status_flags(stm32_pcie->perst_irq, IRQ_NOAUTOEN);
-   332	
-   333		ret = devm_request_threaded_irq(dev, stm32_pcie->perst_irq, NULL,
-   334						stm32_pcie_ep_perst_irq_thread,
-   335						IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
-   336						"perst_irq", stm32_pcie);
-   337		if (ret) {
-   338			pm_runtime_put_noidle(&pdev->dev);
- > 339			return dev_err_probe(dev, ret, "Failed to request PERST IRQ: %d\n");
-   340		}
-   341	
-   342		ret = stm32_add_pcie_ep(stm32_pcie, pdev);
-   343		if (ret)
-   344			pm_runtime_put_noidle(&pdev->dev);
-   345	
-   346		return ret;
-   347	}
-   348	
-
+diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
+index 48bcc7d2b33b..35d2523ee776 100644
+--- a/drivers/phy/rockchip/phy-rockchip-pcie.c
++++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
+@@ -30,9 +30,9 @@
+ #define PHY_CFG_ADDR_SHIFT    1
+ #define PHY_CFG_DATA_MASK     0xf
+ #define PHY_CFG_ADDR_MASK     0x3f
+-#define PHY_CFG_RD_MASK       0x3ff
++#define PHY_CFG_RD_MASK       0x3f
+ #define PHY_CFG_WR_ENABLE     1
+-#define PHY_CFG_WR_DISABLE    1
++#define PHY_CFG_WR_DISABLE    0
+ #define PHY_CFG_WR_SHIFT      0
+ #define PHY_CFG_WR_MASK       1
+ #define PHY_CFG_PLL_LOCK      0x10
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.49.0
+
 
