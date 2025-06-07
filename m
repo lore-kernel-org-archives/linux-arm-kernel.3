@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF0CC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 21:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09619C61DB8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 23:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KkWeWZJ7OaUkC1X3RA6ZmwTpiZVwf7Rem3pqOW9gu1A=; b=e3bNc93oT8Lw5CvZoEiyrwwrt7
-	hkhtKxpb7rZgYdKw4+bLmDzKcvTVLYSEpzlZ7IKr9O9xM0qYFTDRegHZ4Zxyg68KQfXPRIAnedJ/9
-	JuaZUEeMPsXUhynnbTEFVGvgQGpkNYZsttkrPLrPn+SsRx8Zp4Jb5/Xu6CCjtp0zmCUH9t13FTwUQ
-	oMVX4oIymL6DC9YHDa2bI5dOVmIdD6b7t/BGLgajxIx6q0zfz23Q256reRzDzrNl17jTDD9W3bsdl
-	VceOmwpDZH4QpCpRB3gvjSmd3NglROJCprf9m6Xp/I4v17U2smAvO1dgqE+Ku+k8cCO8rIM7AgE60
-	GaG/WTWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9BLd3zVhm1uyr2zWfOpGUqAHdfaRE3TGpoHRN6aaMSk=; b=uoO1fWwSzUKBUV5fSqmRf3z8Ma
+	zC+yBHarsfEhWiByq7IaMMyLfGO3tLGPerdTNy+Jv8uq/w8iigIN253GmHWylVNh6mIPA+IUXrAld
+	OlMW+VKcMr941zA1damcuczQLpYcvblkq9822w0QY5Lv6ldCPK0ImTX0CIFzyF4pKCilAjuoe/54T
+	GPUdysy0NzRigpIOLxajutp27mX3lDPfZR2ktC+xz2uYeuAtL2WXXfn78xkC5BspMzetreBOaTpOy
+	8M3/cEtcimXjxe9F9bJhVa1NZ0saFNxUVqtOzU78ZaQvC2NRU/RwcuEXE5TXylZgtc8iG01eggXb0
+	hW3/nCyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO18J-000000028Vz-3WE8;
-	Sat, 07 Jun 2025 21:31:19 +0000
+	id 1uO3Hz-00000002DO5-36v1;
+	Sat, 07 Jun 2025 23:49:27 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO167-000000028D3-1LBL
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Jun 2025 21:29:04 +0000
+	id 1uO3Fn-00000002DHA-25M3;
+	Sat, 07 Jun 2025 23:47:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96087A4145E;
-	Sat,  7 Jun 2025 21:29:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 540EDC4CEF0;
-	Sat,  7 Jun 2025 21:28:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749331742;
-	bh=XHrP+0GPTa7TRd2JvYw/E9otF7QNFDMpfbQMlQ7dElg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=mY86qNwLX6I8JsCEklNFAVUsALMNhrv3Un7nVJZOgfLG8Vjap7lU4Dh33SKVCpxtT
-	 /s/YxErxfMieOAAzAKULW93ulhJ7UhvK08BaLkSUQ9kW4mWPPLX7a+1rpaUcFKZw5H
-	 SXUbrHbaVghMnhV0JWmCLG2mUckX++JyqQyBL1QkY+rzjR9HGFr7IknJak+oQtfkIf
-	 mfmlSEp3a/AR1em62nYh4xOQrR/CKWt4nCXzh23R8mNmGDt+YPzeJfnc4uSyBiSyDH
-	 Jz+xzEkKXFvccncEX6UV1j4DVRSc/OPiZgC2EX42LbSMsqk0JTKrwS0+vtrG24Gy6h
-	 TMhT68ouW3ueQ==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: soc: fsl,ls1028a-reset: Drop extra "/" in $id
-Date: Sat,  7 Jun 2025 16:28:13 -0500
-Message-ID: <20250607212813.747203-1-robh@kernel.org>
-X-Mailer: git-send-email 2.47.2
+	by nyc.source.kernel.org (Postfix) with ESMTP id 333DAA40311;
+	Sat,  7 Jun 2025 23:47:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE6DC4CEE4;
+	Sat,  7 Jun 2025 23:47:07 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="jsPgU/cc"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1749340025;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9BLd3zVhm1uyr2zWfOpGUqAHdfaRE3TGpoHRN6aaMSk=;
+	b=jsPgU/ccygnXS60vh3VCJ8IeDnGtsomv+dciNUeunJ0SO8LqmCcTqPcJBkB2QFrLru1ll1
+	E9OF1lkNEqMRShrw2za9BAoJsJQKmF9rvzmtd3v/rLI1EduGNSPRtry+Kyl+tncxIkS+aK
+	UrU1VhYkP4pcQtnNoKmPvrZIA/DIb6Q=
+Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 669734c3 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Sat, 7 Jun 2025 23:47:04 +0000 (UTC)
+Date: Sat, 7 Jun 2025 17:47:02 -0600
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is
+ integrated
+Message-ID: <aETPdvg8qXv18MDu@zx2c4.com>
+References: <20250607200454.73587-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250607200454.73587-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_142903_420682_8798BB0C 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250607_164711_835299_F3726C59 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The $id value has a double "//". Drop it.
+On Sat, Jun 07, 2025 at 01:04:42PM -0700, Eric Biggers wrote:
+> Having arch-specific code outside arch/ was somewhat controversial when
+> Zinc proposed it back in 2018.  But I don't think the concerns are
+> warranted.  It's better from a technical perspective, as it enables the
+> improvements mentioned above.  This model is already successfully used
+> in other places in the kernel such as lib/raid6/.  The community of each
+> architecture still remains free to work on the code, even if it's not in
+> arch/.  At the time there was also a desire to put the library code in
+> the same files as the old-school crypto API, but that was a mistake; now
+> that the library is separate, that's no longer a constraint either.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml          | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I can't express how happy I am to see this revived. It's clearly the
+right way forward and makes it a lot simpler for us to dispatch to
+various arch implementations and also is organizationally simpler.
 
-diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml
-index 234089b5954d..b43df10c5ef4 100644
---- a/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml
-+++ b/Documentation/devicetree/bindings/soc/fsl/fsl,ls1028a-reset.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas//soc/fsl/fsl,ls1028a-reset.yaml#
-+$id: http://devicetree.org/schemas/soc/fsl/fsl,ls1028a-reset.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Freescale Layerscape Reset Registers Module
--- 
-2.47.2
-
+Jason
 
