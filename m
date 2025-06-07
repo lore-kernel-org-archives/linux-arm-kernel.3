@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0DB1C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 20:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09937C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 20:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvPDCJlAlkBU1j14qLER2YG530Z5A8spiezP/JewZVo=; b=PxXq6pNEJy6qFYx2EMplwBCLqV
-	6a6UIbaf114I7APhqrn5vxW9gM4WepZypBmz7C9lYqFj8dEjcCHZKD7RymXaKOhzrK4PKRhBQuDP8
-	7O1t5cmYSReYr82f7DxjTbyJVVxjxI//5piQcZiYJa4wpR7FJqpN/nvF2sBaRXQ4adRQlr9dwNziT
-	86UxmEl3oRw5qmv/oYDt+G5iRZ062jwJAuGYGe3cMebNUxHlNKTV30/81hhcTkLhNhVgcdr+AoY2i
-	//psKimXgG4/tZvyDekL5XJT+VUN3WjqccoamOqSZEN+Ed65u4lyMZWfhG9ebZ39nP03CKjCDnA0X
-	B/yUWkoQ==;
+	bh=N6qab2rkCGW7/i4kYTiTTlFBNamksetuO9DX5tyesUI=; b=lRbVnr5+jIoc3KSr8ZXDopLipK
+	yvOgfXNqm7yUXLQYN1JPRoG0K5vaBGWS/MDSHU8OsmAHuRg53GAXHQTXOtAnsAlrZF9v9wk0dlAoi
+	va7NhQA01CabjNHT6yEc92dd4rL4sjvpK7vlHVNvx9lGGA/OWLOf0MV7D4LvKF27jx8k4GWsY2OSG
+	ubzqaquux0jpZfBCxVxIPuxc3pwwo7gf0b7cwUt42uuo665RpIQQNQ6Ufug6q1Rg2Kt55ZncM9bg5
+	PBRn4NKQH7Kb74Q5nLRBoesVhCN+0hv7f304DM9vDAwUApdj/pRMo/Qi/vUG+EzCVB5ecO9szVHdV
+	A8bO86qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO0B2-000000024ZH-2MGt;
-	Sat, 07 Jun 2025 20:30:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uO0DD-000000024o1-3gY3;
+	Sat, 07 Jun 2025 20:32:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNzpF-000000021VO-2ygO;
-	Sat, 07 Jun 2025 20:07:38 +0000
+	id 1uNzpH-000000021YL-0KLm;
+	Sat, 07 Jun 2025 20:07:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A4614ABEE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C28D4AB93;
+	Sat,  7 Jun 2025 20:07:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9269EC4CEF1;
 	Sat,  7 Jun 2025 20:07:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87A05C4AF09;
-	Sat,  7 Jun 2025 20:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749326852;
-	bh=167zq5zi7wdD08Zx3i/mgZI+CHCjTsXkRCx5v5LY1DE=;
+	s=k20201202; t=1749326854;
+	bh=jIlzvyOH3lz8ceAH2y7iElk7+J1Jw8+v3KjhKiaWPsc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cK97FH/u1ZexrL4xPo108kbPSyiyqv5D8XHaqv+mjS2WIeFt3z02kKZQoPSDq/X9G
-	 neVztBJCZmrBoT35lHT7/4k1mw3IU50u8eK2I8rCFsAO3s5eNyH+UgVyYXahnJYGwP
-	 TiPrvKloWZbvdMpC4iYVrFLfzw9UqgZm3B60tJ2p04gkZ1fhmhjAqppFmzZj0+0I9k
-	 fZrdwvK3bggFG+eTMFGHLb/guQtWXCbVKytVYD912FXa4Gfgsp4iP8TdQzvl2cNx9/
-	 p7CAFgRZSOtmmJ1+fxlmzhOAzyN+XY2FyOZvJtvXu7z3ScuzRfpONDpwE/CuTrEy5Y
-	 iwR5ANOjA/+Mw==
+	b=mLj0TS3wOnKV3XdlHRKqAtQfuh56XhiYerch2IoCBZDySahPA9vBdGkFovPasy7BB
+	 ri7jwBaWZ3G3CjFkKNWJ5CjTweFueFDBA0HO5kf47VkD0JsVJzkQ1eoA2jSA6YrdVE
+	 HdVGUu/5vklpc5Pvo6rMK9nTdMtQ0LYgXKCwNmOCw+qci2pUAl9ZLtUYeSP2fgMMn0
+	 NbKuJqU2PgJIMSub5oqyFfbIg6yKXMiTedYAcxHj68USQFujMAxP02FbSWO4Hps5mY
+	 EPUaKyVJbYPOTZfokOSvEdI6dM7valKr/PA4vnSyIGDJ7mosNmRw1MzfhqSninIrPL
+	 FnJPsPRJfImZg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-crypto@vger.kernel.org,
@@ -56,17 +56,17 @@ Cc: linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH v2 09/12] lib/crc/s390: migrate s390-optimized CRC code into lib/crc/
-Date: Sat,  7 Jun 2025 13:04:51 -0700
-Message-ID: <20250607200454.73587-10-ebiggers@kernel.org>
+Subject: [PATCH v2 11/12] lib/crc/x86: migrate x86-optimized CRC code into lib/crc/
+Date: Sat,  7 Jun 2025 13:04:53 -0700
+Message-ID: <20250607200454.73587-12-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250607200454.73587-1-ebiggers@kernel.org>
 References: <20250607200454.73587-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_130733_909553_3823E251 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20250607_130735_249116_4BCBB83F 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,8 +83,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Move the s390-optimized CRC code from arch/s390/lib/crc* into its new
-location in lib/crc/s390/, and wire it up in the new way.  This new way
+Move the x86-optimized CRC code from arch/x86/lib/crc* into its new
+location in lib/crc/x86/, and wire it up in the new way.  This new way
 of organizing the CRC code eliminates the need to artificially split the
 code for each CRC variant into separate arch and generic modules,
 enabling better inlining and dead code elimination.  For more details,
@@ -92,159 +92,386 @@ see "lib/crc: prepare for arch-optimized code in subdirs of lib/crc/".
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/s390/Kconfig                             |  1 -
- arch/s390/lib/Makefile                        |  3 ---
- lib/crc/Kconfig                               |  1 +
- lib/crc/Makefile                              |  1 +
- {arch/s390/lib => lib/crc/s390}/crc32-vx.h    |  0
- arch/s390/lib/crc32.c => lib/crc/s390/crc32.h | 16 +++-------------
- {arch/s390/lib => lib/crc/s390}/crc32be-vx.c  |  0
- {arch/s390/lib => lib/crc/s390}/crc32le-vx.c  |  0
- 8 files changed, 5 insertions(+), 17 deletions(-)
- rename {arch/s390/lib => lib/crc/s390}/crc32-vx.h (100%)
- rename arch/s390/lib/crc32.c => lib/crc/s390/crc32.h (81%)
- rename {arch/s390/lib => lib/crc/s390}/crc32be-vx.c (100%)
- rename {arch/s390/lib => lib/crc/s390}/crc32le-vx.c (100%)
+ arch/x86/Kconfig                              |  3 --
+ arch/x86/lib/Makefile                         | 10 -------
+ lib/crc/Kconfig                               |  3 ++
+ lib/crc/Makefile                              |  4 +++
+ .../lib => lib/crc/x86}/crc-pclmul-consts.h   |  0
+ .../lib => lib/crc/x86}/crc-pclmul-template.S |  0
+ .../lib => lib/crc/x86}/crc-pclmul-template.h |  0
+ .../crc-t10dif.c => lib/crc/x86/crc-t10dif.h  | 18 ++---------
+ .../lib => lib/crc/x86}/crc16-msb-pclmul.S    |  0
+ {arch/x86/lib => lib/crc/x86}/crc32-pclmul.S  |  0
+ arch/x86/lib/crc32.c => lib/crc/x86/crc32.h   | 30 ++++---------------
+ {arch/x86/lib => lib/crc/x86}/crc32c-3way.S   |  0
+ {arch/x86/lib => lib/crc/x86}/crc64-pclmul.S  |  0
+ arch/x86/lib/crc64.c => lib/crc/x86/crc64.h   | 21 +++----------
+ 14 files changed, 20 insertions(+), 69 deletions(-)
+ rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-consts.h (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.S (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.h (100%)
+ rename arch/x86/lib/crc-t10dif.c => lib/crc/x86/crc-t10dif.h (56%)
+ rename {arch/x86/lib => lib/crc/x86}/crc16-msb-pclmul.S (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc32-pclmul.S (100%)
+ rename arch/x86/lib/crc32.c => lib/crc/x86/crc32.h (76%)
+ rename {arch/x86/lib => lib/crc/x86}/crc32c-3way.S (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc64-pclmul.S (100%)
+ rename arch/x86/lib/crc64.c => lib/crc/x86/crc64.h (61%)
 
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index 0c16dc443e2f6..22b90f6aa1a09 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -73,11 +73,10 @@ config S390
- 	select ARCH_CORRECT_STACKTRACE_ON_KRETPROBE
- 	select ARCH_ENABLE_MEMORY_HOTPLUG if SPARSEMEM
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 340e5468980e0..6181f414f87ec 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -77,13 +77,10 @@ config X86
+ 	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
+ 	select ARCH_HAS_CACHE_LINE_SIZE
+ 	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
  	select ARCH_HAS_CPU_FINALIZE_INIT
+ 	select ARCH_HAS_CPU_PASID		if IOMMU_SVA
 -	select ARCH_HAS_CRC32
+-	select ARCH_HAS_CRC64			if X86_64
+-	select ARCH_HAS_CRC_T10DIF
  	select ARCH_HAS_CURRENT_STACK_POINTER
  	select ARCH_HAS_DEBUG_VIRTUAL
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DEBUG_WX
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE	if !X86_PAE
  	select ARCH_HAS_DEVMEM_IS_ALLOWED
-diff --git a/arch/s390/lib/Makefile b/arch/s390/lib/Makefile
-index cd35cdbfa8713..7c8583d46eca1 100644
---- a/arch/s390/lib/Makefile
-+++ b/arch/s390/lib/Makefile
-@@ -23,8 +23,5 @@ obj-$(CONFIG_S390_MODULES_SANITY_TEST) += test_modules.o
- obj-$(CONFIG_S390_MODULES_SANITY_TEST_HELPERS) += test_modules_helpers.o
+ 	select ARCH_HAS_DMA_OPS			if GART_IOMMU || XEN
+diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
+index 4fa5c4e1ba8a0..dc5ee2a6938c4 100644
+--- a/arch/x86/lib/Makefile
++++ b/arch/x86/lib/Makefile
+@@ -38,20 +38,10 @@ lib-$(CONFIG_ARCH_HAS_COPY_MC) += copy_mc.o copy_mc_64.o
+ lib-$(CONFIG_INSTRUCTION_DECODER) += insn.o inat.o insn-eval.o
+ lib-$(CONFIG_RANDOMIZE_BASE) += kaslr.o
+ lib-$(CONFIG_FUNCTION_ERROR_INJECTION)	+= error-inject.o
+ lib-$(CONFIG_MITIGATION_RETPOLINE) += retpoline.o
  
- lib-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
- 
- obj-$(CONFIG_EXPOLINE_EXTERN) += expoline.o
+-obj-$(CONFIG_CRC32_ARCH) += crc32-x86.o
+-crc32-x86-y := crc32.o crc32-pclmul.o
+-crc32-x86-$(CONFIG_64BIT) += crc32c-3way.o
 -
--obj-$(CONFIG_CRC32_ARCH) += crc32-s390.o
--crc32-s390-y := crc32.o crc32le-vx.o crc32be-vx.o
+-obj-$(CONFIG_CRC64_ARCH) += crc64-x86.o
+-crc64-x86-y := crc64.o crc64-pclmul.o
+-
+-obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-x86.o
+-crc-t10dif-x86-y := crc-t10dif.o crc16-msb-pclmul.o
+-
+ obj-y += msr.o msr-reg.o msr-reg-export.o hweight.o
+ obj-y += iomem.o
+ 
+ ifeq ($(CONFIG_X86_32),y)
+         obj-y += atomic64_32.o
 diff --git a/lib/crc/Kconfig b/lib/crc/Kconfig
-index d0c293b1a4182..1b69a8bef4a85 100644
+index af4fa857a81f8..de4b2182ae7ff 100644
 --- a/lib/crc/Kconfig
 +++ b/lib/crc/Kconfig
-@@ -72,10 +72,11 @@ config CRC32_ARCH
- 	default y if ARM64
- 	default y if LOONGARCH
+@@ -52,10 +52,11 @@ config CRC_T10DIF_ARCH
+ 	depends on CRC_T10DIF && CRC_OPTIMIZATIONS
+ 	default y if ARM && KERNEL_MODE_NEON
+ 	default y if ARM64 && KERNEL_MODE_NEON
+ 	default y if PPC64 && ALTIVEC
+ 	default y if RISCV && RISCV_ISA_ZBC
++	default y if X86
+ 
+ config CRC32
+ 	tristate
+ 	select BITREVERSE
+ 	help
+@@ -74,10 +75,11 @@ config CRC32_ARCH
  	default y if MIPS && CPU_MIPSR6
  	default y if PPC64 && ALTIVEC
  	default y if RISCV && RISCV_ISA_ZBC
-+	default y if S390
+ 	default y if S390
+ 	default y if SPARC64
++	default y if X86
  
  config CRC64
  	tristate
  	help
  	  The CRC64 library functions.  Select this if your module uses any of
+@@ -88,10 +90,11 @@ config ARCH_HAS_CRC64
+ 
+ config CRC64_ARCH
+ 	bool
+ 	depends on CRC64 && CRC_OPTIMIZATIONS
+ 	default y if RISCV && RISCV_ISA_ZBC && 64BIT
++	default y if X86_64
+ 
+ config CRC_OPTIMIZATIONS
+ 	bool "Enable optimized CRC implementations" if EXPERT
+ 	default y
+ 	help
 diff --git a/lib/crc/Makefile b/lib/crc/Makefile
-index 190f889adf556..bec58266251f8 100644
+index 81e176db0947c..7543ad295ab6f 100644
 --- a/lib/crc/Makefile
 +++ b/lib/crc/Makefile
-@@ -25,10 +25,11 @@ ifeq ($(CONFIG_CRC32_ARCH),y)
- CFLAGS_crc32-main.o += -I$(src)/$(SRCARCH)
- crc32-$(CONFIG_ARM) += arm/crc32-core.o
+@@ -15,10 +15,11 @@ ifeq ($(CONFIG_CRC_T10DIF_ARCH),y)
+ CFLAGS_crc-t10dif-main.o += -I$(src)/$(SRCARCH)
+ crc-t10dif-$(CONFIG_ARM) += arm/crc-t10dif-core.o
+ crc-t10dif-$(CONFIG_ARM64) += arm64/crc-t10dif-core.o
+ crc-t10dif-$(CONFIG_PPC) += powerpc/crct10dif-vpmsum_asm.o
+ crc-t10dif-$(CONFIG_RISCV) += riscv/crc16_msb.o
++crc-t10dif-$(CONFIG_X86) += x86/crc16-msb-pclmul.o
+ endif
+ 
+ obj-$(CONFIG_CRC32) += crc32.o
+ crc32-y := crc32-main.o
+ ifeq ($(CONFIG_CRC32_ARCH),y)
+@@ -27,17 +28,20 @@ crc32-$(CONFIG_ARM) += arm/crc32-core.o
  crc32-$(CONFIG_ARM64) += arm64/crc32-core.o
  crc32-$(CONFIG_PPC) += powerpc/crc32c-vpmsum_asm.o
  crc32-$(CONFIG_RISCV) += riscv/crc32_lsb.o riscv/crc32_msb.o
-+crc32-$(CONFIG_S390) += s390/crc32le-vx.o s390/crc32be-vx.o
+ crc32-$(CONFIG_S390) += s390/crc32le-vx.o s390/crc32be-vx.o
+ crc32-$(CONFIG_SPARC) += sparc/crc32c_asm.o
++crc32-$(CONFIG_X86) += x86/crc32-pclmul.o
++crc32-$(CONFIG_X86_64) += x86/crc32c-3way.o
  endif
  
  obj-$(CONFIG_CRC64) += crc64.o
  crc64-y := crc64-main.o
  ifeq ($(CONFIG_CRC64_ARCH),y)
-diff --git a/arch/s390/lib/crc32-vx.h b/lib/crc/s390/crc32-vx.h
+ CFLAGS_crc64-main.o += -I$(src)/$(SRCARCH)
+ crc64-$(CONFIG_RISCV) += riscv/crc64_lsb.o riscv/crc64_msb.o
++crc64-$(CONFIG_X86) += x86/crc64-pclmul.o
+ endif
+ 
+ obj-y += tests/
+ 
+ hostprogs := gen_crc32table gen_crc64table
+diff --git a/arch/x86/lib/crc-pclmul-consts.h b/lib/crc/x86/crc-pclmul-consts.h
 similarity index 100%
-rename from arch/s390/lib/crc32-vx.h
-rename to lib/crc/s390/crc32-vx.h
-diff --git a/arch/s390/lib/crc32.c b/lib/crc/s390/crc32.h
-similarity index 81%
-rename from arch/s390/lib/crc32.c
-rename to lib/crc/s390/crc32.h
-index 3c4b344417c11..59c8983d428be 100644
---- a/arch/s390/lib/crc32.c
-+++ b/lib/crc/s390/crc32.h
-@@ -3,16 +3,12 @@
-  * CRC-32 implemented with the z/Architecture Vector Extension Facility.
+rename from arch/x86/lib/crc-pclmul-consts.h
+rename to lib/crc/x86/crc-pclmul-consts.h
+diff --git a/arch/x86/lib/crc-pclmul-template.S b/lib/crc/x86/crc-pclmul-template.S
+similarity index 100%
+rename from arch/x86/lib/crc-pclmul-template.S
+rename to lib/crc/x86/crc-pclmul-template.S
+diff --git a/arch/x86/lib/crc-pclmul-template.h b/lib/crc/x86/crc-pclmul-template.h
+similarity index 100%
+rename from arch/x86/lib/crc-pclmul-template.h
+rename to lib/crc/x86/crc-pclmul-template.h
+diff --git a/arch/x86/lib/crc-t10dif.c b/lib/crc/x86/crc-t10dif.h
+similarity index 56%
+rename from arch/x86/lib/crc-t10dif.c
+rename to lib/crc/x86/crc-t10dif.h
+index db7ce59c31ace..eb1f23db4daa1 100644
+--- a/arch/x86/lib/crc-t10dif.c
++++ b/lib/crc/x86/crc-t10dif.h
+@@ -3,38 +3,26 @@
+  * CRC-T10DIF using [V]PCLMULQDQ instructions
   *
-  * Copyright IBM Corp. 2015
-  * Author(s): Hendrik Brueckner <brueckner@linux.vnet.ibm.com>
+  * Copyright 2024 Google LLC
   */
--#define KMSG_COMPONENT	"crc32-vx"
--#define pr_fmt(fmt)	KMSG_COMPONENT ": " fmt
  
+-#include <linux/crc-t10dif.h>
 -#include <linux/module.h>
- #include <linux/cpufeature.h>
--#include <linux/crc32.h>
- #include <asm/fpu.h>
- #include "crc32-vx.h"
+ #include "crc-pclmul-template.h"
  
- #define VX_MIN_LEN		64
- #define VX_ALIGNMENT		16L
-@@ -25,11 +21,11 @@
-  * on the message buffer, the hardware-accelerated or software implementation
-  * is used.   Note that the message buffer is aligned to improve fetch
-  * operations of VECTOR LOAD MULTIPLE instructions.
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmulqdq);
+ 
+ DECLARE_CRC_PCLMUL_FUNCS(crc16_msb, u16);
+ 
+-u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
++static inline u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
+ {
+ 	CRC_PCLMUL(crc, p, len, crc16_msb, crc16_msb_0x8bb7_consts,
+ 		   have_pclmulqdq);
+ 	return crc_t10dif_generic(crc, p, len);
+ }
+-EXPORT_SYMBOL(crc_t10dif_arch);
+ 
+-static int __init crc_t10dif_x86_init(void)
++#define crc_t10dif_mod_init_arch crc_t10dif_mod_init_arch
++static inline void crc_t10dif_mod_init_arch(void)
+ {
+ 	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ)) {
+ 		static_branch_enable(&have_pclmulqdq);
+ 		INIT_CRC_PCLMUL(crc16_msb);
+ 	}
+-	return 0;
+ }
+-subsys_initcall(crc_t10dif_x86_init);
+-
+-static void __exit crc_t10dif_x86_exit(void)
+-{
+-}
+-module_exit(crc_t10dif_x86_exit);
+-
+-MODULE_DESCRIPTION("CRC-T10DIF using [V]PCLMULQDQ instructions");
+-MODULE_LICENSE("GPL");
+diff --git a/arch/x86/lib/crc16-msb-pclmul.S b/lib/crc/x86/crc16-msb-pclmul.S
+similarity index 100%
+rename from arch/x86/lib/crc16-msb-pclmul.S
+rename to lib/crc/x86/crc16-msb-pclmul.S
+diff --git a/arch/x86/lib/crc32-pclmul.S b/lib/crc/x86/crc32-pclmul.S
+similarity index 100%
+rename from arch/x86/lib/crc32-pclmul.S
+rename to lib/crc/x86/crc32-pclmul.S
+diff --git a/arch/x86/lib/crc32.c b/lib/crc/x86/crc32.h
+similarity index 76%
+rename from arch/x86/lib/crc32.c
+rename to lib/crc/x86/crc32.h
+index d09343e2cea93..28451d5769c3a 100644
+--- a/arch/x86/lib/crc32.c
++++ b/lib/crc/x86/crc32.h
+@@ -5,26 +5,23 @@
+  * Copyright (C) 2008 Intel Corporation
+  * Copyright 2012 Xyratex Technology Limited
+  * Copyright 2024 Google LLC
   */
- #define DEFINE_CRC32_VX(___fname, ___crc32_vx, ___crc32_sw)		    \
--	u32 ___fname(u32 crc, const u8 *data, size_t datalen)		    \
-+	static inline u32 ___fname(u32 crc, const u8 *data, size_t datalen) \
- 	{								    \
- 		unsigned long prealign, aligned, remaining;		    \
- 		DECLARE_KERNEL_FPU_ONSTACK16(vxstate);			    \
- 									    \
- 		if (datalen < VX_MIN_LEN + VX_ALIGN_MASK || !cpu_has_vx())  \
-@@ -52,26 +48,20 @@
- 									    \
- 		if (remaining)						    \
- 			crc = ___crc32_sw(crc, data + aligned, remaining);  \
- 									    \
- 		return crc;						    \
--	}								    \
--	EXPORT_SYMBOL(___fname);
-+	}
  
- DEFINE_CRC32_VX(crc32_le_arch, crc32_le_vgfm_16, crc32_le_base)
- DEFINE_CRC32_VX(crc32_be_arch, crc32_be_vgfm_16, crc32_be_base)
- DEFINE_CRC32_VX(crc32c_arch, crc32c_le_vgfm_16, crc32c_base)
+-#include <linux/crc32.h>
+-#include <linux/module.h>
+ #include "crc-pclmul-template.h"
+ 
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_crc32);
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmulqdq);
+ 
+ DECLARE_CRC_PCLMUL_FUNCS(crc32_lsb, u32);
+ 
+-u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
++static inline u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	CRC_PCLMUL(crc, p, len, crc32_lsb, crc32_lsb_0xedb88320_consts,
+ 		   have_pclmulqdq);
+ 	return crc32_le_base(crc, p, len);
+ }
+-EXPORT_SYMBOL(crc32_le_arch);
+ 
+ #ifdef CONFIG_X86_64
+ #define CRC32_INST "crc32q %1, %q0"
+ #else
+ #define CRC32_INST "crc32l %1, %0"
+@@ -36,11 +33,11 @@ EXPORT_SYMBOL(crc32_le_arch);
+  */
+ #define CRC32C_PCLMUL_BREAKEVEN	512
+ 
+ asmlinkage u32 crc32c_x86_3way(u32 crc, const u8 *buffer, size_t len);
+ 
+-u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
++static inline u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+ {
+ 	size_t num_longs;
+ 
+ 	if (!static_branch_likely(&have_crc32))
+ 		return crc32c_base(crc, p, len);
+@@ -68,44 +65,29 @@ u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+ 	if (len & 1)
+ 		asm("crc32b %1, %0" : "+r" (crc) : ASM_INPUT_RM (*p));
+ 
+ 	return crc;
+ }
+-EXPORT_SYMBOL(crc32c_arch);
+ 
+-u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
+-{
+-	return crc32_be_base(crc, p, len);
+-}
+-EXPORT_SYMBOL(crc32_be_arch);
++#define crc32_be_arch crc32_be_base /* not implemented on this arch */
+ 
+-static int __init crc32_x86_init(void)
++#define crc32_mod_init_arch crc32_mod_init_arch
++static inline void crc32_mod_init_arch(void)
+ {
+ 	if (boot_cpu_has(X86_FEATURE_XMM4_2))
+ 		static_branch_enable(&have_crc32);
+ 	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ)) {
+ 		static_branch_enable(&have_pclmulqdq);
+ 		INIT_CRC_PCLMUL(crc32_lsb);
+ 	}
+-	return 0;
+-}
+-subsys_initcall(crc32_x86_init);
+-
+-static void __exit crc32_x86_exit(void)
+-{
+ }
+-module_exit(crc32_x86_exit);
  
 -u32 crc32_optimizations(void)
 +static inline u32 crc32_optimizations_arch(void)
  {
- 	if (cpu_has_vx()) {
- 		return CRC32_LE_OPTIMIZATION |
- 		       CRC32_BE_OPTIMIZATION |
- 		       CRC32C_OPTIMIZATION;
- 	}
- 	return 0;
+ 	u32 optimizations = 0;
+ 
+ 	if (static_key_enabled(&have_crc32))
+ 		optimizations |= CRC32C_OPTIMIZATION;
+ 	if (static_key_enabled(&have_pclmulqdq))
+ 		optimizations |= CRC32_LE_OPTIMIZATION;
+ 	return optimizations;
  }
 -EXPORT_SYMBOL(crc32_optimizations);
 -
--MODULE_AUTHOR("Hendrik Brueckner <brueckner@linux.vnet.ibm.com>");
--MODULE_DESCRIPTION("CRC-32 algorithms using z/Architecture Vector Extension Facility");
+-MODULE_DESCRIPTION("x86-optimized CRC32 functions");
 -MODULE_LICENSE("GPL");
-diff --git a/arch/s390/lib/crc32be-vx.c b/lib/crc/s390/crc32be-vx.c
+diff --git a/arch/x86/lib/crc32c-3way.S b/lib/crc/x86/crc32c-3way.S
 similarity index 100%
-rename from arch/s390/lib/crc32be-vx.c
-rename to lib/crc/s390/crc32be-vx.c
-diff --git a/arch/s390/lib/crc32le-vx.c b/lib/crc/s390/crc32le-vx.c
+rename from arch/x86/lib/crc32c-3way.S
+rename to lib/crc/x86/crc32c-3way.S
+diff --git a/arch/x86/lib/crc64-pclmul.S b/lib/crc/x86/crc64-pclmul.S
 similarity index 100%
-rename from arch/s390/lib/crc32le-vx.c
-rename to lib/crc/s390/crc32le-vx.c
+rename from arch/x86/lib/crc64-pclmul.S
+rename to lib/crc/x86/crc64-pclmul.S
+diff --git a/arch/x86/lib/crc64.c b/lib/crc/x86/crc64.h
+similarity index 61%
+rename from arch/x86/lib/crc64.c
+rename to lib/crc/x86/crc64.h
+index 351a09f5813e2..54aca3a9475c9 100644
+--- a/arch/x86/lib/crc64.c
++++ b/lib/crc/x86/crc64.h
+@@ -3,48 +3,35 @@
+  * CRC64 using [V]PCLMULQDQ instructions
+  *
+  * Copyright 2025 Google LLC
+  */
+ 
+-#include <linux/crc64.h>
+-#include <linux/module.h>
+ #include "crc-pclmul-template.h"
+ 
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_pclmulqdq);
+ 
+ DECLARE_CRC_PCLMUL_FUNCS(crc64_msb, u64);
+ DECLARE_CRC_PCLMUL_FUNCS(crc64_lsb, u64);
+ 
+-u64 crc64_be_arch(u64 crc, const u8 *p, size_t len)
++static inline u64 crc64_be_arch(u64 crc, const u8 *p, size_t len)
+ {
+ 	CRC_PCLMUL(crc, p, len, crc64_msb, crc64_msb_0x42f0e1eba9ea3693_consts,
+ 		   have_pclmulqdq);
+ 	return crc64_be_generic(crc, p, len);
+ }
+-EXPORT_SYMBOL_GPL(crc64_be_arch);
+ 
+-u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
++static inline u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
+ {
+ 	CRC_PCLMUL(crc, p, len, crc64_lsb, crc64_lsb_0x9a6c9329ac4bc9b5_consts,
+ 		   have_pclmulqdq);
+ 	return crc64_nvme_generic(crc, p, len);
+ }
+-EXPORT_SYMBOL_GPL(crc64_nvme_arch);
+ 
+-static int __init crc64_x86_init(void)
++#define crc64_mod_init_arch crc64_mod_init_arch
++static inline void crc64_mod_init_arch(void)
+ {
+ 	if (boot_cpu_has(X86_FEATURE_PCLMULQDQ)) {
+ 		static_branch_enable(&have_pclmulqdq);
+ 		INIT_CRC_PCLMUL(crc64_msb);
+ 		INIT_CRC_PCLMUL(crc64_lsb);
+ 	}
+-	return 0;
+ }
+-subsys_initcall(crc64_x86_init);
+-
+-static void __exit crc64_x86_exit(void)
+-{
+-}
+-module_exit(crc64_x86_exit);
+-
+-MODULE_DESCRIPTION("CRC64 using [V]PCLMULQDQ instructions");
+-MODULE_LICENSE("GPL");
 -- 
 2.49.0
 
