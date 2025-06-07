@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9272DC61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 12:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F0EC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 12:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPCdCVNPh60CQIkFZngFhiCNDUpIdQrQuGF9ErPiZBI=; b=Y2bSAq8hgICdpYgG3bNWpW0srD
-	nGoCSSIURYL0p3M22GS4gW1Fhls+cqb1z5fjfiF6Qv93kyJKhfPQUA4PdaUb0MoxaMmWUBw7nW3Fc
-	Qda9BRAm1it74UvEvTRIf/gLYuvYhZ4Y7B1vu18+1wFL2wE+NN77/k9sHgLUNEK8x+nQdnMipS4fW
-	iW8iVQbEOHrthWjFo5on3Cz4LQ9uEcxuhBVIjumNQDs1BAWyLnyq8ERq3TVTbEne+LXvhmSwVoJmW
-	lceA4YqdjuGwRJRZd/BEUJDIK6YmDC4DGFELKSDNdU3LHB5ywPWxJdvW9wC2H2/Z/HHbWalno6o3r
-	VhmriyJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oLS1KFEltUOFGxNGj6XeO70K6kHeWgsxYD83o7TwBko=; b=tGwEnLuczBaP0LrBzL4ETq873n
+	Glp+6NgYBPZIJm7s32pUgXx4ekF+9Y1T4wj/Vac1PgBEx1alJLmH6tu3RCltpERVw6M56MFaQ9dy7
+	XTMoYT/1ZJS76JQWimuSlXRUXsPTucy3rBh+t9l9VoK0tqeDbzrRO7KM563/Qc8GZzdHDr0KbhNmT
+	WvOrRZUraHr3wyxeOYzBUJqibp6KuvlNVrCFDfE+NO2Sf8NcZJ8xl7geuCvhDG6UTIx/npMA9U+qW
+	eBTIpsga0YsqVVv4V2iX6VFxwhZ2Vz+kPTWHPruhs/PHQAARFmZQ3jv1KPLMXOI1cihnEIDVdbp5E
+	7MEFg7bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNsDi-00000001e8i-28E9;
-	Sat, 07 Jun 2025 12:00:18 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1uNsdc-00000001fNl-3c2y;
+	Sat, 07 Jun 2025 12:27:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNsBU-00000001dzM-1TsU
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Jun 2025 11:58:01 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-60768e108baso3089467a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Jun 2025 04:58:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1749297479; x=1749902279; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yPCdCVNPh60CQIkFZngFhiCNDUpIdQrQuGF9ErPiZBI=;
-        b=rTWDSFsI0soRQRrjZQ/mZEVxM1lPtiFUqSilBiW3xNaQ/d/MqsTKRh8qVnz0Hxl6+e
-         IiUGFoJh44NxkXIbDmi88UN+2BYXt36qm/A4r5Rw5ifhinXUgCEXegVcE7nOqispcTpc
-         KGdM/TR29y2mEMhiZrwDGUprC80SMevjVoLWwh0AAgsGmiY+GFfBOyH240+5kmEYrFWh
-         22NjHTHaAtUSs8TC/I/8jOU34gF5Ove8GLZUPUgxT0gPY1JRFFo8QWeyCC/1FgFsWPTz
-         vZ5qDlzRqBFi5AbfoFFd+/LLCyfyVoBOE2KsQ44M/04//nGBUSnH7KT5FgxXYZU7zk0x
-         9K2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749297479; x=1749902279;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yPCdCVNPh60CQIkFZngFhiCNDUpIdQrQuGF9ErPiZBI=;
-        b=NbYgBfo0UygnE4HLjyMtpcNq6XKdJbRKlAA0pBHa7pHgxnL/JgEeLGeFa54dug0XnT
-         cgyPmb3uC6GYxFExWq0XWxHYyZK/LlOzoGX/EyMzUM4FyA/ZMpIKcyXXwwzk5Q03GDsE
-         3LuW3exgERUQFBS3eHscvvmO30RtlkqXX/UH1viOdmHqK84iBDumpYzsHiclxdKdYeHR
-         KMZCRtfRGTzJMASfcSMIlpfOH7f3SywlveeXSy8FPP9QJgTnRvCkbpbhuWNza4IRDlI6
-         2mgbEv0Pn7/gHJKcuh4fj82X9vGAqEHT3Fpn0cVS0azKlDvzGp7Itx1bXDhMxEspREPo
-         E3Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCX1RdVaFBNtBrFnTuIJxzj3EPyDLg62yBLYtY5IltY3l+nphPFXkRSblsgY9O8681o7rFXCsj5Yv8XK7Ue2QIJh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDiaggxPvt1zs9MF+VMGeEH4xNvg1B71AOTCfoU+oVDVwRJJ7c
-	vy3mKaL3jEmNVcTRYIa8me2ezmJOKoCnweqbO2R+beHozMcGsIOyixEJDusmtOWEXRs=
-X-Gm-Gg: ASbGnctPmXhHbGNPOcfZzEanGZLSzFOf9MatCBmpuCzUP/fVvFLvSpiVHK1LulVZd/m
-	QTNxCWv9ZTSvlebOWGrAYUiRDM4VHDMoPXK1km6TRYE6ZnOW86uYyRQGSiHq/gCh49wwnxLGOrD
-	kokNYGeiRa7NJTmpTZSGxRrwVljps3HFMGcISuRR5pIU5+xDTYfxknNrdlnXczVIQTGeStGe6ba
-	keM62zL5ACv+JKUE4qd7ykayU+3GIbAfTcZsmerdQ1q74ej2NBqKB5uwyA2Bv7+yBskpPRa6Vt0
-	PrATfnp+z38lDjVNNbijC/y4A4Kv1GWaA8W61wfMzBz/HkcyKPZIL3bS2FGxIwGJUUjEaUg=
-X-Google-Smtp-Source: AGHT+IERrOwE41W6Vc1R8qsjoPAiIrdHWQSf8w1zwFS94QITX4oTtjAckH9gOjzfGmcTrsxtMCJSgw==
-X-Received: by 2002:a05:6402:27d2:b0:602:17a1:c672 with SMTP id 4fb4d7f45d1cf-60773ec86a5mr5416133a12.8.1749297478809;
-        Sat, 07 Jun 2025 04:57:58 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.126])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6077812571dsm2334797a12.0.2025.06.07.04.57.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 07 Jun 2025 04:57:58 -0700 (PDT)
-Message-ID: <dc0c2777-ed5b-4729-8ae3-6563d8996e2e@tuxon.dev>
-Date: Sat, 7 Jun 2025 14:57:57 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] ARM: dts: microchip: sama7d65: Add clock name
- property
-To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com
+	id 1uNsbQ-00000001fH9-0ak9;
+	Sat, 07 Jun 2025 12:24:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=oLS1KFEltUOFGxNGj6XeO70K6kHeWgsxYD83o7TwBko=; b=vt3qx6Qr4XYNUfbW89rhyMhIHK
+	RUsbuFW40hCFrw9qF7mmgY0m7xNo9YwcgAKicthWaEpFY9uhrdV1nQl5UckilstXJ9RkXaaqKVl0c
+	dtsshpIjfiRZ8USENmNvKtqjOsR9M1CbJG/wGi1R+21+bnzuPx789C7DhxRN7nIrXe/ArMbEpysTd
+	IZISLJXQsJwlhumSW8zTdRLDYqGP9PepWKUWFPnz3gbQu1asOKBKZvJPQJKUWq8/VOeQujsGMzfYl
+	zLmm2V1p2WbbZwcTIWHSG5osyYRCJmRl9c8voR2hD1sEg7cN3sIEOnmKotN7APZKxIaFN+Gkt9CEa
+	iOE4OwZQ==;
+Received: from i53875b1f.versanet.de ([83.135.91.31] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uNsas-0001Lo-C8; Sat, 07 Jun 2025 14:24:14 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Oded Gabbay <ogabbay@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Kever Yang <kever.yang@rock-chips.com>, Robin Murphy <robin.murphy@arm.com>,
+ Daniel Stone <daniel@fooishbar.org>, Da Xue <da@libre.computer>,
+ Jeff Hugo <jeff.hugo@oss.qualcomm.com>, Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1748030737.git.Ryan.Wanner@microchip.com>
- <f6ae8a38a005e1a4e025b25ddb29113c5e65dead.1748030737.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <f6ae8a38a005e1a4e025b25ddb29113c5e65dead.1748030737.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Subject: Re: [PATCH v7 10/10] arm64: dts: rockchip: enable NPU on ROCK 5B
+Date: Sat, 07 Jun 2025 14:24:12 +0200
+Message-ID: <10540765.0AQdONaE2F@diego>
+In-Reply-To: <6946302.MhkbZ0Pkbq@workhorse>
+References: <20250606-6-10-rocket-v7-0-dc16cfe6fe4e@tomeuvizoso.net>
+ <20250606-6-10-rocket-v7-10-dc16cfe6fe4e@tomeuvizoso.net>
+ <6946302.MhkbZ0Pkbq@workhorse>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_045800_400885_698C7B0D 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250607_052448_348270_3F904950 
+X-CRM114-Status: GOOD (  31.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +88,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
+Am Freitag, 6. Juni 2025, 11:20:32 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Nicolas Frattaroli:
+> Hi Tomeu,
+>=20
+> On Friday, 6 June 2025 08:28:30 Central European Summer Time Tomeu Vizoso=
+ wrote:
+> > From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> >=20
+> > The NPU on the ROCK5B uses the same regulator for both the sram-supply
+> > and the npu's supply. Add this regulator, and enable all the NPU bits.
+> > Also add the regulator as a domain-supply to the pd_npu power domain.
+> >=20
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+> > ---
+> >  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 56 +++++++++++++++++=
+++++++++
+> >  1 file changed, 56 insertions(+)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm=
+64/boot/dts/rockchip/rk3588-rock-5b.dts
+> > index d22068475c5dc6cb885f878f3f527a66edf1ba70..49500f7cbcb14af4919a6c1=
+997e9e53a01d84973 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+> > @@ -316,6 +316,28 @@ regulator-state-mem {
+> >  	};
+> >  };
+> > =20
+> > +&i2c1 {
+> > +	pinctrl-names =3D "default";
+> > +	pinctrl-0 =3D <&i2c1m2_xfer>;
+> > +	status =3D "okay";
+> > +
+> > +	vdd_npu_s0: regulator@42 {
+> > +		compatible =3D "rockchip,rk8602";
+> > +		reg =3D <0x42>;
+> > +		fcs,suspend-voltage-selector =3D <1>;
+> > +		regulator-name =3D "vdd_npu_s0";
+> > +		regulator-boot-on;
+> > +		regulator-min-microvolt =3D <550000>;
+> > +		regulator-max-microvolt =3D <950000>;
+> > +		regulator-ramp-delay =3D <2300>;
+> > +		vin-supply =3D <&vcc5v0_sys>;
+> > +
+> > +		regulator-state-mem {
+> > +			regulator-off-in-suspend;
+> > +		};
+> > +	};
+> > +};
+> > +
+> >  &i2c6 {
+> >  	status =3D "okay";
+> > =20
+> > @@ -440,6 +462,10 @@ &pd_gpu {
+> >  	domain-supply =3D <&vdd_gpu_s0>;
+> >  };
+> > =20
+> > +&pd_npu {
+> > +	domain-supply =3D <&vdd_npu_s0>;
+> > +};
+> > +
+> >  &pinctrl {
+> >  	hdmirx {
+> >  		hdmirx_hpd: hdmirx-5v-detection {
+> > @@ -500,6 +526,36 @@ &pwm1 {
+> >  	status =3D "okay";
+> >  };
+> > =20
+> > +&rknn_core_top {
+> > +	npu-supply =3D <&vdd_npu_s0>;
+> > +	sram-supply =3D <&vdd_npu_s0>;
+> > +	status =3D "okay";
+> > +};
+> > +
+> > +&rknn_core_1 {
+> > +	npu-supply =3D <&vdd_npu_s0>;
+> > +	sram-supply =3D <&vdd_npu_s0>;
+> > +	status =3D "okay";
+> > +};
+> > +
+> > +&rknn_core_2 {
+> > +	npu-supply =3D <&vdd_npu_s0>;
+> > +	sram-supply =3D <&vdd_npu_s0>;
+> > +	status =3D "okay";
+> > +};
+> > +
+> > +&rknn_mmu_top {
+> > +	status =3D "okay";
+> > +};
+> > +
+> > +&rknn_mmu_1 {
+> > +	status =3D "okay";
+> > +};
+> > +
+> > +&rknn_mmu_2 {
+> > +	status =3D "okay";
+> > +};
+> > +
+> >  &saradc {
+> >  	vref-supply =3D <&avcc_1v8_s0>;
+> >  	status =3D "okay";
+> >=20
+> >=20
+>=20
+> Feel free to replace this patch with the following, if your series is
+> based on linux-next or v6.16. It moves the enablement into the new
+> shared ROCK 5B/5B+ dtsi, and I've added a regulator-enable-ramp-delay
+> while I was at it because I've run into hard-to-reproduce problems
+> relating to it before that Heiko quickly identified and fixed in his
+> recent series[1] for basically all already present regulators. Remains
+> to be seen if the final patch lands in that form but this should make
+> it easier for people to try out as it means a bad luck roll for the
+> day won't make them run into as many weird issues.
+>=20
+> [1]: https://lore.kernel.org/all/20250605185001.377055-1-heiko@sntech.de/
 
-On 23.05.2025 23:24, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
-> 
-> Add clock-output-names to the xtal nodes, so the driver can correctly
-> register the main and slow xtal.
-> 
-> This fixes the issue of the SoC clock driver not being able to find
-> the main xtal and slow xtal correctly causing a bad clock tree.
-> 
-> Fixes: 261dcfad1b59 ("ARM: dts: microchip: add sama7d65 SoC DT")
+Reading that just now reminds me to point to=20
+https://lore.kernel.org/lkml/20250606190418.478633-1-heiko@sntech.de/
 
-Can you please prepare a similar fix for sam9x7. It is also affected by
-this, right?
+As Chen Yu pointed out in the reply to v2, this is more a property of the
+regulator IC itself, so likely should go into the driver.
 
-Thank you,
-Claudiu
+So with a bit of luck after 6.16-rc1 all the fan53555 clones should use
+somewhat hardware-accurate enable-times.
 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+
+> From ff1c370a158f4340aa5dfa4ed5034e815e5371be Mon Sep 17 00:00:00 2001
+> From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Date: Tue, 3 Jun 2025 17:03:10 +0200
+> Subject: [PATCH] arm64: dts: rockchip: enable NPU on ROCK 5B/+
+>=20
+> The NPU on the ROCK5B uses the same regulator for both the sram-supply
+> and the npu's supply. Add this regulator, and enable all the NPU bits.
+> Also add the regulator as a domain-supply to the pd_npu power domain.
+>=20
+> The 5B+'s regulator setup is identical to the 5B in this regard, so it
+> goes in the shared .dtsi.
+>=20
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->  arch/arm/boot/dts/microchip/sama7d65.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> index b6710ccd4c36..7b1dd28a2cfa 100644
-> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> @@ -38,11 +38,13 @@ cpu0: cpu@0 {
->  	clocks {
->  		main_xtal: clock-mainxtal {
->  			compatible = "fixed-clock";
-> +			clock-output-names = "main_xtal";
->  			#clock-cells = <0>;
->  		};
->  
->  		slow_xtal: clock-slowxtal {
->  			compatible = "fixed-clock";
-> +			clock-output-names = "slow_xtal";
->  			#clock-cells = <0>;
->  		};
+>  .../boot/dts/rockchip/rk3588-rock-5b.dtsi     | 57 +++++++++++++++++++
+>  1 file changed, 57 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi b/arch/arm6=
+4/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> index 51e83f0ed809..5a20cc2555fb 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtsi
+> @@ -332,6 +332,29 @@ regulator-state-mem {
 >  	};
+>  };
+> =20
+> +&i2c1 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&i2c1m2_xfer>;
+> +	status =3D "okay";
+> +
+> +	vdd_npu_s0: regulator@42 {
+> +		compatible =3D "rockchip,rk8602";
+> +		reg =3D <0x42>;
+> +		fcs,suspend-voltage-selector =3D <1>;
+> +		regulator-name =3D "vdd_npu_s0";
+> +		regulator-boot-on;
+> +		regulator-enable-ramp-delay =3D <500>;
+> +		regulator-min-microvolt =3D <550000>;
+> +		regulator-max-microvolt =3D <950000>;
+> +		regulator-ramp-delay =3D <2300>;
+> +		vin-supply =3D <&vcc5v0_sys>;
+> +
+> +		regulator-state-mem {
+> +			regulator-off-in-suspend;
+> +		};
+> +	};
+> +};
+> +
+>  &i2c3 {
+
+I think your patch here has some other dependency still?
+Because in the rk3588-rock-5b.dtsi there is no i2c3 yet
+In torvalds' branch from _just now_ ;-) .
+
+
+Heiko
+
+>  	status =3D "okay";
+>  };
+> @@ -521,6 +544,10 @@ &pd_gpu {
+>  	domain-supply =3D <&vdd_gpu_s0>;
+>  };
+> =20
+> +&pd_npu {
+> +	domain-supply =3D <&vdd_npu_s0>;
+> +};
+> +
+>  &pinctrl {
+>  	hdmirx {
+>  		hdmirx_hpd: hdmirx-5v-detection {
+> @@ -585,6 +612,36 @@ &pwm1 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&rknn_core_top {
+> +	npu-supply =3D <&vdd_npu_s0>;
+> +	sram-supply =3D <&vdd_npu_s0>;
+> +	status =3D "okay";
+> +};
+> +
+> +&rknn_core_1 {
+> +	npu-supply =3D <&vdd_npu_s0>;
+> +	sram-supply =3D <&vdd_npu_s0>;
+> +	status =3D "okay";
+> +};
+> +
+> +&rknn_core_2 {
+> +	npu-supply =3D <&vdd_npu_s0>;
+> +	sram-supply =3D <&vdd_npu_s0>;
+> +	status =3D "okay";
+> +};
+> +
+> +&rknn_mmu_top {
+> +	status =3D "okay";
+> +};
+> +
+> +&rknn_mmu_1 {
+> +	status =3D "okay";
+> +};
+> +
+> +&rknn_mmu_2 {
+> +	status =3D "okay";
+> +};
+> +
+>  &saradc {
+>  	vref-supply =3D <&avcc_1v8_s0>;
+>  	status =3D "okay";
+>=20
+
+
+
 
 
