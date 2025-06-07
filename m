@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B41C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 11:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4AACC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 11:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H5GGyL7EzSr6uUL04LjmQHJjuAFms5UHsKE4WRS6HTc=; b=yYHOAOPdFnu0+EI8c6raMecnJR
-	It7ejIncrYLPQsA4DKGesxzHLXw5djefr00W4/Y3q/WGVxg+8KlyU/jg1EWx1MJn4V2ODHkrNDqhl
-	AVGcjq1fIVxm/7bDcIr7pz5yGyoD0+or21fvUgNQxz9MMZdusBmsb5Py3QSd/NyKPlQ1ogyOvjdMe
-	Ym5r8K4oqk95JQBLBgXeW6AOtEurUmI/y+zsZeyZdvghIJ3CmlyOERx/VWINqL6w/DIstULOHPHlz
-	ARpZN6vyPso76tBae+khfGwR5ks5XWR3qPxwlbooMqPiJeBDnAZgJsP/xdIaptfy6D8KmfpBjPOBn
-	8FEjb/Iw==;
+	bh=UymOFrjabx3ry9XfCk+Bu/z/xm63u4bINQR9bUcHuP0=; b=ak+Tu7fiDkecceuafe9rKMelAI
+	tT6XJfKC98p9ETcqNeuSpkOD4EBdJUhmFUBLWGjmX0pmNCF+/ltgtJtcScK9X/dXtoMVMY+dTM2Qk
+	c1GfEznJsOehDXgKqrDqNZgZS1i7ECKVZ00DRtapbGwKe8rBdPt7i5Y+IMkgaigVDJrp+9OJga6U0
+	1mb3mlei+bPmibaB168d/9XkBEBJzTcVpJB0V2bk+APDcGKVBXY79p2iGN3GFBx4si4PYvPf1+7yM
+	pne0Ar8KGJTXr13erQglw3+UQS60nFV/DcQZwX5ErOlodqOWDRXpJzY4Cpy6nkuW6oK6h39h77Pl0
+	/KKrECaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNs5r-00000001dQD-1wJv;
-	Sat, 07 Jun 2025 11:52:11 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1uNs81-00000001deg-23Sg;
+	Sat, 07 Jun 2025 11:54:25 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNrxl-00000001cNe-0rqn
+	id 1uNryF-00000001cUf-1uBd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Jun 2025 11:43:50 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-606fdbd20afso5661777a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Jun 2025 04:43:48 -0700 (PDT)
+	Sat, 07 Jun 2025 11:44:20 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ad883afdf0cso554673866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Jun 2025 04:44:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1749296628; x=1749901428; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1749296658; x=1749901458; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=H5GGyL7EzSr6uUL04LjmQHJjuAFms5UHsKE4WRS6HTc=;
-        b=QKKXHETpeaRUOVg9mggIPDd6eAIMSvX2uvEKYGv9TLKe/avop2c4cZhNHciXFtwrfF
-         g78tvZy0NH3w4SBI2pRGCSzH4RHYzb4PPkhuWrlDkhWhFOuwppD9G5fjH8XBGgTvrAAI
-         uGWyyYt/NHaBGkTO+zEmK4eToCkqfvybDwLQlkEhKlwlH12RBMoPq2xw9PC2zBNPdP/9
-         mGZjZOSAMKiAeUfpol0rHIjhKYgDS6bV34bX2UUKTKK3apGGCo7uDksnwxiDSm8HT2Je
-         oag657eatC25q0C4MmQaIotnoBiij6fziagSB6LJL/eUa66zise09RscsvBMzLG3Ip1H
-         mtzg==
+        bh=UymOFrjabx3ry9XfCk+Bu/z/xm63u4bINQR9bUcHuP0=;
+        b=hhntLi2L2GVhtg4hlv3AzG6rtfzJlSn+FzzB4InyIVLt7Wd32a96oKkdF4x4rSp/t+
+         6nfvma4njpONqztQV0r1s0h0LmVy6akZqmpMJTlZyqXryltRBzCz/bHf1QCziP1Uv1TP
+         ac34yFzqJ0B/3EA8nOJHpN7/+/FcGgPlGLAhLlAWXJqNUNhL5C7TQPkw10exGGzlMnGq
+         lt+HCDlyycAk5R2SHqiCqTvuENA87XEUum2C7huyqq9StXsvgygxstk7gCdu16MUYpf5
+         7FTR+UffYLugZQZg5QG2pbrA7qzC3LpuiCnfKGmxdCXcXRfRK2WYCuWSaEDnDIN291P6
+         DtjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749296628; x=1749901428;
+        d=1e100.net; s=20230601; t=1749296658; x=1749901458;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H5GGyL7EzSr6uUL04LjmQHJjuAFms5UHsKE4WRS6HTc=;
-        b=OJnM0kUdqkno1REIU2lcFxLTe5XFkLiLUFR/H/+Rlt6+4yQSXRYSpxIVCgBFH7xd4n
-         QAnmQigPX9cTg+4m5+FXQPCFMs+qLFQQ2Kujfg8A2X1bMaHyUDqzi9Ta71IeVG54xW3u
-         Fnz//kVKL1MquBG2s/Nq2Xc89DJ/tCHUTcQSVe0ezWsq6uVo/32O24Ar5xLSk9zlIonu
-         6M8LS85sfqsbHhajCUNRT/1KTGY8+mHWVgh6rWwXJqBO+0fX7//pra2BqhNwaEr2Mi5h
-         CFq56BXI7DxAt0jAZbIXlGFqbdxCFCGOW1HjE6cLNCukjY0nAMUL8uFZ1rMSVxHtQHnI
-         Cjjg==
-X-Forwarded-Encrypted: i=1; AJvYcCVwtFBXMzrSthEX12uf0znNh3Q83cBn5gDCp4jmtm1ufAAXBU7Dw1pz4oVYsntgmbuIJzIAtvQsCUlGE2024wHQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy7rGIFRjXrupt356aJGPxvF2mhtUXzTytZhXr5+ugxh0IapTB
-	tuks3ba//df8t9uQaR8IGr3HWDqAx6DtRU9IrXOGCZcnKjmymY5SsQpT45ERaxeTsYE=
-X-Gm-Gg: ASbGnctmuEhTSMUT59rI1K2zO8LBSHtHIBIK0ZCF6QjVgxABavUQntbDjZN4NLCiTkA
-	/bFzd2AoTxXPJZFpcYxDtuTtmnd4znFFxaH3aOqa4qF9xlt7ph1+lrN91TgrLqBtuGGyDmggxiY
-	BexZr/FAq29M4muvrEP2DwPH9S8Uk4eo/hjOY0xBTV+kbG7Q12yu/nba56ebHO6VR3qi3BRXgdy
-	uj37MM6JqD3w9kpBnIpipJtH0L/98QuHSDAwQjKU3xMpF09dGXz3HXSqIm3nyhb7Ks3lwYIhr+Q
-	T5zAmfJ7xIwZAIV3/5dytBSXYOLKavVWrKhYwD7gP30diMfW26PbKCWLbPWRwl9w5+uswKU=
-X-Google-Smtp-Source: AGHT+IG0eKeJpSoGWhm3EaDe2FVgK1ogPyIyd2nQfnfeftyiPLFYH1i76vcoPxnUODVZD6ioAN5T5w==
-X-Received: by 2002:a17:906:7953:b0:ade:8df:5b4e with SMTP id a640c23a62f3a-ade1ab32de0mr529784366b.60.1749296627695;
-        Sat, 07 Jun 2025 04:43:47 -0700 (PDT)
+        bh=UymOFrjabx3ry9XfCk+Bu/z/xm63u4bINQR9bUcHuP0=;
+        b=Ut3lThyjB9hUDWC+5iJd+D5p4GeqeHMMHZbFiWO2bzXl2Bv5ywdInyLBRpaKRCWxYe
+         tPssy7vu0Te4KMksbTnFnooJdA5vTziFxbqcz/Sr3J0cg8yHhc8fZFIpKX7ll8e5PjZG
+         bGJ40CBlZmOBqEnWB8wUnVDLaXVvt5gH8PjX9MY0q98FCBdEjCquKTiXFffJ8STtAQal
+         pWUqXIWQm5lntuNKVEBHyb4WxanXVwBe2ElT/wJyPmwhPzStlebedvuI7kI3PmCRVqFV
+         0AJ0H+DBfB7SvLQ18ZBjCefcLD8bqeovVRB7lks4Y6L2Rg70CoA5Nh3pEnhwUfEwO1Dx
+         cWUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXF/CMQ8QkBhnW4zPpc7zNsYxmCWzRtV/xmiCHIaIpUSqFZU+uAOkCeRZt1XRqiiFbyYOYKMN4kyEGmqH3mpKEK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHVPA7XztPZy7lbvz1E9aN3qqwvJnnkUknj/EVBBsjsf0b6E1r
+	DOSZivn+W1ity17UM93NDZjH9EM4rUaq2kw6DnfEpYe/+UgEJUNm9xW4LMMpzGt2qPU=
+X-Gm-Gg: ASbGncuAPtbxWJ2jOTtX8JsdL5eztr24ehwRNXo1PVG9SaYDIsbDej6GHRWD749OR3S
+	Y3TuzEvjkaSmNPm5VVdAgHafyQfAAsw04318k01q0eIksLU/P6DNFR6JLP0/UJ7AbtC6yg4KrAd
+	yDjzJhPa1M1ci9k4euAxoOx+3uUUVK5QM9gIB0cARlr16N2kQkwGzWisaOHJDoKJBS9gLgkCY7r
+	7RypeDdeDqWJCDwDGNbS9H+18xTUftzs6HWnirhxejWSNPmCaa/RoklNPV41l/uFRTc44z9Jm1t
+	b4Xnr034C+UWBMzBn0fMovLcNME/4AMI5YBYpE8x54/+vE5Znnm7pcsEQ43BLdczCYZIDfM=
+X-Google-Smtp-Source: AGHT+IEA1Rq7VWwYJS4G4kmb+z0nn7gMvEpZQk2GAonFxGlvr7kubnoaKOkM5BseiEpQ88K45+xR8A==
+X-Received: by 2002:a17:907:9713:b0:ad8:93a3:29ba with SMTP id a640c23a62f3a-ade1aa06c53mr606411166b.17.1749296657956;
+        Sat, 07 Jun 2025 04:44:17 -0700 (PDT)
 Received: from [192.168.50.4] ([82.78.167.126])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade44af8215sm68237266b.15.2025.06.07.04.43.46
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1d5f9b37sm264185666b.0.2025.06.07.04.44.16
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 07 Jun 2025 04:43:47 -0700 (PDT)
-Message-ID: <201c7188-eaf7-4492-84a6-66d839062d8d@tuxon.dev>
-Date: Sat, 7 Jun 2025 14:43:45 +0300
+        Sat, 07 Jun 2025 04:44:17 -0700 (PDT)
+Message-ID: <9391cd59-b23a-4df0-9799-e9766adac460@tuxon.dev>
+Date: Sat, 7 Jun 2025 14:44:16 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/9] ARM: dts: microchip: sama7d65: Add CAN bus support
+Subject: Re: [PATCH 9/9] ARM: dts: microchip: sama7d65: Enable CAN bus
 To: Ryan.Wanner@microchip.com, herbert@gondor.apana.org.au,
  davem@davemloft.net, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, nicolas.ferre@microchip.com,
@@ -80,15 +80,15 @@ To: Ryan.Wanner@microchip.com, herbert@gondor.apana.org.au,
 Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <cover.1747077616.git.Ryan.Wanner@microchip.com>
- <445c4c72243f1ba85e3681ba026cfefaf6036890.1747077616.git.Ryan.Wanner@microchip.com>
+ <0e34e0416c43f4de6d2cef5cea46087af4577a50.1747077616.git.Ryan.Wanner@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <445c4c72243f1ba85e3681ba026cfefaf6036890.1747077616.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <0e34e0416c43f4de6d2cef5cea46087af4577a50.1747077616.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_044349_251672_51D204F1 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250607_044419_498176_5F8FE601 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,106 +108,79 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 12.05.2025 22:27, Ryan.Wanner@microchip.com wrote:
 > From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Add support for CAN bus to the SAMA7D65 SoC.
+> Enable CAN bus for SAMA7D65 curiosity board.
 > 
 > Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  .../dts/microchip/at91-sama7d65_curiosity.dts | 35 +++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> index 53a657cf4efb..34935179897e 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> +++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+> @@ -38,7 +38,24 @@ reg_5v: regulator-5v {
+>  		regulator-max-microvolt = <5000000>;
+>  		regulator-always-on;
+>  	};
+> +};
+> +
+
+Please drop the empty line in a different patch.
+
+> +&can1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_can1_default>;
+> +	status = "okay";
+> +};
+>  
+> +&can2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_can2_default>;
+> +	status = "okay";
+> +};
+> +
+> +&can3 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_can3_default>;
+> +	status = "okay";
+>  };
+>  
+>  &dma0 {
+> @@ -278,6 +295,24 @@ &main_xtal {
+>  };
+>  
+>  &pioa {
+> +	pinctrl_can1_default: can1-default {
+> +		pinmux = <PIN_PD10__CANTX1>,
+> +			<PIN_PD11__CANRX1>;
+
+The "<" on on this line would have to be aligned with the one on the
+previous line. Same for the other places in this patch.
+
+I can address all these minor bits while applying, if any.
+
+Other than this:
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-> ---
->  arch/arm/boot/dts/microchip/sama7d65.dtsi | 80 +++++++++++++++++++++++
->  1 file changed, 80 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> index 796909fa2368..a62d2ef9fcab 100644
-> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> @@ -163,6 +163,86 @@ chipid@e0020000 {
->  			reg = <0xe0020000 0x8>;
->  		};
->  
-> +		can0: can@e0828000 {
-> +			compatible = "bosch,m_can";
-> +			reg = <0xe0828000 0x200>, <0x100000 0x7800>;
-> +			reg-names = "m_can", "message_ram";
-> +			interrupts = <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "int0", "int1";
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 58>, <&pmc PMC_TYPE_GCK 58>;
-> +			clock-names = "hclk", "cclk";
-> +			assigned-clocks = <&pmc PMC_TYPE_GCK 58>;
-> +			assigned-clock-rates = <40000000>;
-> +			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_UTMI>;
-> +			bosch,mram-cfg = <0x3400 0 0 64 0 0 32 32>;
-> +			status = "disabled";
-> +		};
+> +		bias-disable;
+> +	};
 > +
-> +		can1: can@e082c000 {
-> +			compatible = "bosch,m_can";
-> +			reg = <0xe082c000 0x200>, <0x100000 0xbc00>;
-> +			reg-names = "m_can", "message_ram";
-> +			interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "int0", "int1";
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 59>, <&pmc PMC_TYPE_GCK 59>;
-> +			clock-names = "hclk", "cclk";
-> +			assigned-clocks = <&pmc PMC_TYPE_GCK 59>;
-> +			assigned-clock-rates = <40000000>;
-> +			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_UTMI>;
-> +			bosch,mram-cfg = <0x7800 0 0 64 0 0 32 32>;
-> +			status = "disabled";
-> +		};
+> +	pinctrl_can2_default: can2-default {
+> +		pinmux = <PIN_PD12__CANTX2>,
+> +			<PIN_PD13__CANRX2>;
+> +		bias-disable;
+> +	};
 > +
-> +		can2: can@e0830000 {
-> +			compatible = "bosch,m_can";
-> +			reg = <0xe0830000 0x200>, <0x100000 0x10000>;
-> +			reg-names = "m_can", "message_ram";
-> +			interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "int0", "int1";
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 60>, <&pmc PMC_TYPE_GCK 60>;
-> +			clock-names = "hclk", "cclk";
-> +			assigned-clocks = <&pmc PMC_TYPE_GCK 60>;
-> +			assigned-clock-rates = <40000000>;
-> +			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_UTMI>;
-> +			bosch,mram-cfg = <0xbc00 0 0 64 0 0 32 32>;
-> +			status = "disabled";
-> +		};
+> +	pinctrl_can3_default: can3-default {
+> +		pinmux = <PIN_PD14__CANTX3>,
+> +			<PIN_PD15__CANRX3>;
+> +		bias-disable;
+> +	};
 > +
-> +		can3: can@e0834000 {
-> +			compatible = "bosch,m_can";
-> +			reg = <0xe0834000 0x200>, <0x110000 0x4400>;
-> +			reg-names = "m_can", "message_ram";
-> +			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "int0", "int1";
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 61>, <&pmc PMC_TYPE_GCK 61>;
-> +			clock-names = "hclk", "cclk";
-> +			assigned-clocks = <&pmc PMC_TYPE_GCK 61>;
-> +			assigned-clock-rates = <40000000>;
-> +			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_UTMI>;
-> +			bosch,mram-cfg = <0x0 0 0 64 0 0 32 32>;
-> +			status = "disabled";
-> +		};
-> +
-> +		can4: can@e0838000 {
-> +			compatible = "bosch,m_can";
-> +			reg = <0xe0838000 0x200>, <0x110000 0x8800>;
-> +			reg-names = "m_can", "message_ram";
-> +			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "int0", "int1";
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 62>, <&pmc PMC_TYPE_GCK 62>;
-> +			clock-names = "hclk", "cclk";
-> +			assigned-clocks = <&pmc PMC_TYPE_GCK 62>;
-> +			assigned-clock-rates = <40000000>;
-> +			assigned-clock-parents = <&pmc PMC_TYPE_CORE PMC_UTMI>;
-> +			bosch,mram-cfg = <0x4400 0 0 64 0 0 32 32>;
-> +			status = "disabled";
-> +		};
-> +
->  		dma2: dma-controller@e1200000 {
->  			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
->  			reg = <0xe1200000 0x1000>;
+>  	pinctrl_gmac0_default: gmac0-default {
+>  		pinmux = <PIN_PA26__G0_TX0>,
+>  			 <PIN_PA27__G0_TX1>,
 
 
