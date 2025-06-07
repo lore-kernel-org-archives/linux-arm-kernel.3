@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690FFC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 20:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91603C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 20:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lT6lykBU1a393ZoI2CBtFWwNSxAoKk1VK4CBFYQSRwM=; b=UJa0XR1dAKrUWQQQllq8/3ooWq
-	GqUeRyUIR03u0K6N+RuXkwmlUmYFU4CvaKu1izN3ZBoNuTJZSKQoOI2Lf/vxDQytT42N6hXBNdGEd
-	9OXuK+TrtjB+cah3ce/1lZ3iREtQ6QPnCgw+GMfWHwqXI8TTSxHSTUTRU31nLB+8aiChhR7FaH7lN
-	Cdu5hZQFZMDSdoyvABEGWmIfIFZY4+YerXfwek7r3ia6M0MtDaKNRvUt+YgCcYMGePeteI0G5A2CP
-	JfD387W61RKE5mBqOoSxNNLaiZY0Ku3vKlOY1WnSuvsJsuDiGtZV2tK4IbtLMugmkd1lj8EFHxg29
-	pOvwP/eQ==;
+	bh=puYKTOQx+60S8FYRlI93DdWC/zyBlmBk2s9q+e05u50=; b=ZmBU00qZ5FJ56xj/PXFzqyI++M
+	WHM3fXI7JoenCh6uUFP6IDWhY4G8hBOMUKUo75kBm6Yxs4kEWgI6OY+aUi/N63jigBceJRpjon9Ch
+	T1Nto6rypZl+xWdeCIpjwsNfAXtL9M2pxJt3tjjV9wyZy9d3mTDIZM4SPdohq5VVN+7FelQwkrPMi
+	M6P1sQOCuKYQWOGItsRqOBGQNiwg88si5Jv66VvWiAv18eY6rWH9JPkSuQbcZMwOhTyLww9wfAoTe
+	niuoHgx5lbpy3KVjdCdRR1t0DW+vJBFclJzhV/i3R/P4eXJsMOHp3/vqGTF5BHioKQNICRQ04v//b
+	NPjNoxNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO0FP-000000024za-0p8i;
-	Sat, 07 Jun 2025 20:34:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uO0Ha-000000025Ah-2XS0;
+	Sat, 07 Jun 2025 20:36:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNzpH-000000021YK-0RJS;
-	Sat, 07 Jun 2025 20:07:39 +0000
+	id 1uNzpU-000000021e2-3Z0O;
+	Sat, 07 Jun 2025 20:07:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=puYKTOQx+60S8FYRlI93DdWC/zyBlmBk2s9q+e05u50=; b=m+7Oejrm5DQO4e8xtaREiitFDV
+	kZ8XwVXVGAruBoMtoPRJ/j42ffQWs/aROJ4AjCPJYNRImjHhfKac4w3QhMz6+Z1cgC5ZUiCszrogx
+	QpwI3IIYvT9gJdd2PTBwnOzu5ZDs+9RG6Kdzo1HsqHQ8v6JHsz/ZUsGn5DnePjqBf4qezcDMtg7Un
+	2FfCIt/dSvriHDNlv8RcKtYcABbd2fYUUHM3JTs+hN12ADPnSLoE2ZUevy+6I4Y7PqF53Xl7Qseq4
+	2W6tX0/dTvuhSp+F9vbBkaBN0vMBYVQ2w/hhW815X01pf6Df1HYH/VY6hIXlsaVbPUT7szsDGvRJu
+	PvCXtXbA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uNzpP-00000001QHB-1d95;
+	Sat, 07 Jun 2025 20:07:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9571E40BCF;
-	Sat,  7 Jun 2025 20:07:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10C30C4CEE4;
-	Sat,  7 Jun 2025 20:07:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1648C5C5AF6;
+	Sat,  7 Jun 2025 20:05:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E744C4CEE4;
+	Sat,  7 Jun 2025 20:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749326853;
-	bh=ml00Eu6L3MCivT8VcjfT2RgfiZJS9znV2CRfUv6dB7E=;
+	s=k20201202; t=1749326854;
+	bh=ZDBXUza5mYKN0G+LEgQAmbkZEIUs7iZW79q0Idl2Apk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Hf6I+GessssiRha4MpA6RFI+58URioJcA8hkf18voXD1e9otmRrh6ut6f37cDXBp+
-	 t02pRBAP/ZlXisnR/Q2kSIylUzzyohdF4xc+dYSaCvPizsqHiblpXpH3M/AcB4DwZm
-	 1gsBgk8eLNYcmlAGFZLxK2WApGsMmbHKpUBzmx0pNNo3RVKGFzhTcZ7ZCx//ZzZdDI
-	 hLEhV+ur56mvrGVIPD3EuNCPvrKW9CQHIaAhExDe1uBKmjOUWdJvccInA7Py7CALlr
-	 ISUzxfUqOE8bsLzp6szFM0WEjwnQYDirYRxe83hqmv+e8gbpJV65fpLADWeNNXS6YC
-	 lNZw0bHLVTzlA==
+	b=ajEhG5/8HVrfaad1n+slUIYvzE1FkTzDHcl7TWi7cGlPQnDlA04WdKniPoxYQOMYE
+	 NFPprqJK5IW0ur0fiG3+y7GcPTyQuszc7j+8AfGYwPfJ+iPIu+ZTxAE0RYDH2G8FKm
+	 BJJAZ7QkJFPdzFyT6dT+BjT8tLQ1siQLlN12X59hwHDp/q3vgGfG3SBu0/JsI+taKk
+	 yOMBHSm3WUeEOXPURUAoEtz4nwBTplDDJdpMj/2dInexP90CK4TPNO12gzd+vmDwg1
+	 x3S8BGN0sPA3MXigsw27iqzjq/8mJ/jiCprDcU9qVKaUU6hKLM3CwKWLsWamrSVvTN
+	 6UALswZ1OpPdQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-crypto@vger.kernel.org,
@@ -56,17 +70,18 @@ Cc: linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH v2 10/12] lib/crc/sparc: migrate sparc-optimized CRC code into lib/crc/
-Date: Sat,  7 Jun 2025 13:04:52 -0700
-Message-ID: <20250607200454.73587-11-ebiggers@kernel.org>
+Subject: [PATCH v2 12/12] lib/crc: remove ARCH_HAS_* kconfig symbols
+Date: Sat,  7 Jun 2025 13:04:54 -0700
+Message-ID: <20250607200454.73587-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250607200454.73587-1-ebiggers@kernel.org>
 References: <20250607200454.73587-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_130735_199298_CFE1960F 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250607_210745_386670_18718018 
+X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,181 +98,59 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Move the sparc-optimized CRC code from arch/sparc/lib/crc* into its new
-location in lib/crc/sparc/, and wire it up in the new way.  This new way
-of organizing the CRC code eliminates the need to artificially split the
-code for each CRC variant into separate arch and generic modules,
-enabling better inlining and dead code elimination.  For more details,
-see "lib/crc: prepare for arch-optimized code in subdirs of lib/crc/".
+These symbols are no longer used, so remove them.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/sparc/Kconfig                            |  1 -
- arch/sparc/lib/Makefile                       |  2 -
- lib/crc/Kconfig                               |  1 +
- lib/crc/Makefile                              |  1 +
- .../lib/crc32.c => lib/crc/sparc/crc32.h      | 42 ++++---------------
- .../sparc/lib => lib/crc/sparc}/crc32c_asm.S  |  0
- 6 files changed, 10 insertions(+), 37 deletions(-)
- rename arch/sparc/lib/crc32.c => lib/crc/sparc/crc32.h (60%)
- rename {arch/sparc/lib => lib/crc/sparc}/crc32c_asm.S (100%)
+ lib/crc/Kconfig | 9 ---------
+ 1 file changed, 9 deletions(-)
 
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index 0f88123925a4f..dcfdb7f1dae97 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -108,11 +108,10 @@ config SPARC64
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select HAVE_SOFTIRQ_ON_OWN_STACK
- 	select HAVE_SETUP_PER_CPU_AREA
- 	select NEED_PER_CPU_EMBED_FIRST_CHUNK
- 	select NEED_PER_CPU_PAGE_FIRST_CHUNK
--	select ARCH_HAS_CRC32
- 
- config ARCH_PROC_KCORE_TEXT
- 	def_bool y
- 
- config CPU_BIG_ENDIAN
-diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
-index 5cf9781d68b40..2d6c3c5352734 100644
---- a/arch/sparc/lib/Makefile
-+++ b/arch/sparc/lib/Makefile
-@@ -52,7 +52,5 @@ lib-$(CONFIG_SPARC64) += copy_in_user.o memmove.o
- lib-$(CONFIG_SPARC64) += mcount.o ipcsum.o xor.o hweight.o ffs.o
- 
- obj-$(CONFIG_SPARC64) += iomap.o
- obj-$(CONFIG_SPARC32) += atomic32.o
- obj-$(CONFIG_SPARC64) += PeeCeeI.o
--obj-$(CONFIG_CRC32_ARCH) += crc32-sparc.o
--crc32-sparc-y := crc32.o crc32c_asm.o
 diff --git a/lib/crc/Kconfig b/lib/crc/Kconfig
-index 1b69a8bef4a85..af4fa857a81f8 100644
+index de4b2182ae7ff..5858b3acc6630 100644
 --- a/lib/crc/Kconfig
 +++ b/lib/crc/Kconfig
-@@ -73,10 +73,11 @@ config CRC32_ARCH
- 	default y if LOONGARCH
- 	default y if MIPS && CPU_MIPSR6
- 	default y if PPC64 && ALTIVEC
- 	default y if RISCV && RISCV_ISA_ZBC
- 	default y if S390
-+	default y if SPARC64
+@@ -42,13 +42,10 @@ config CRC_T10DIF
+ 	tristate
+ 	help
+ 	  The CRC-T10DIF library functions.  Select this if your module uses
+ 	  any of the functions from <linux/crc-t10dif.h>.
  
- config CRC64
+-config ARCH_HAS_CRC_T10DIF
+-	bool
+-
+ config CRC_T10DIF_ARCH
+ 	bool
+ 	depends on CRC_T10DIF && CRC_OPTIMIZATIONS
+ 	default y if ARM && KERNEL_MODE_NEON
+ 	default y if ARM64 && KERNEL_MODE_NEON
+@@ -61,13 +58,10 @@ config CRC32
+ 	select BITREVERSE
+ 	help
+ 	  The CRC32 library functions.  Select this if your module uses any of
+ 	  the functions from <linux/crc32.h> or <linux/crc32c.h>.
+ 
+-config ARCH_HAS_CRC32
+-	bool
+-
+ config CRC32_ARCH
+ 	bool
+ 	depends on CRC32 && CRC_OPTIMIZATIONS
+ 	default y if ARM && KERNEL_MODE_NEON
+ 	default y if ARM64
+@@ -83,13 +77,10 @@ config CRC64
  	tristate
  	help
  	  The CRC64 library functions.  Select this if your module uses any of
-diff --git a/lib/crc/Makefile b/lib/crc/Makefile
-index bec58266251f8..81e176db0947c 100644
---- a/lib/crc/Makefile
-+++ b/lib/crc/Makefile
-@@ -26,10 +26,11 @@ CFLAGS_crc32-main.o += -I$(src)/$(SRCARCH)
- crc32-$(CONFIG_ARM) += arm/crc32-core.o
- crc32-$(CONFIG_ARM64) += arm64/crc32-core.o
- crc32-$(CONFIG_PPC) += powerpc/crc32c-vpmsum_asm.o
- crc32-$(CONFIG_RISCV) += riscv/crc32_lsb.o riscv/crc32_msb.o
- crc32-$(CONFIG_S390) += s390/crc32le-vx.o s390/crc32be-vx.o
-+crc32-$(CONFIG_SPARC) += sparc/crc32c_asm.o
- endif
+ 	  the functions from <linux/crc64.h>.
  
- obj-$(CONFIG_CRC64) += crc64.o
- crc64-y := crc64-main.o
- ifeq ($(CONFIG_CRC64_ARCH),y)
-diff --git a/arch/sparc/lib/crc32.c b/lib/crc/sparc/crc32.h
-similarity index 60%
-rename from arch/sparc/lib/crc32.c
-rename to lib/crc/sparc/crc32.h
-index 40d4720a42a1b..60f2765ac0157 100644
---- a/arch/sparc/lib/crc32.c
-+++ b/lib/crc/sparc/crc32.h
-@@ -6,30 +6,21 @@
-  * Copyright (C) 2008 Intel Corporation
-  * Authors: Austin Zhang <austin_zhang@linux.intel.com>
-  *          Kent Liu <kent.liu@intel.com>
-  */
- 
--#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+-config ARCH_HAS_CRC64
+-	bool
 -
--#include <linux/init.h>
--#include <linux/module.h>
--#include <linux/kernel.h>
--#include <linux/crc32.h>
- #include <asm/pstate.h>
- #include <asm/elf.h>
- 
- static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_crc32c_opcode);
- 
--u32 crc32_le_arch(u32 crc, const u8 *data, size_t len)
--{
--	return crc32_le_base(crc, data, len);
--}
--EXPORT_SYMBOL(crc32_le_arch);
-+#define crc32_le_arch crc32_le_base /* not implemented on this arch */
-+#define crc32_be_arch crc32_be_base /* not implemented on this arch */
- 
- void crc32c_sparc64(u32 *crcp, const u64 *data, size_t len);
- 
--u32 crc32c_arch(u32 crc, const u8 *data, size_t len)
-+static inline u32 crc32c_arch(u32 crc, const u8 *data, size_t len)
- {
- 	size_t n = -(uintptr_t)data & 7;
- 
- 	if (!static_branch_likely(&have_crc32c_opcode))
- 		return crc32c_base(crc, data, len);
-@@ -49,45 +40,28 @@ u32 crc32c_arch(u32 crc, const u8 *data, size_t len)
- 	}
- 	if (len)
- 		crc = crc32c_base(crc, data, len);
- 	return crc;
- }
--EXPORT_SYMBOL(crc32c_arch);
--
--u32 crc32_be_arch(u32 crc, const u8 *data, size_t len)
--{
--	return crc32_be_base(crc, data, len);
--}
--EXPORT_SYMBOL(crc32_be_arch);
- 
--static int __init crc32_sparc_init(void)
-+#define crc32_mod_init_arch crc32_mod_init_arch
-+static inline void crc32_mod_init_arch(void)
- {
- 	unsigned long cfr;
- 
- 	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
--		return 0;
-+		return;
- 
- 	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
- 	if (!(cfr & CFR_CRC32C))
--		return 0;
-+		return;
- 
- 	static_branch_enable(&have_crc32c_opcode);
- 	pr_info("Using sparc64 crc32c opcode optimized CRC32C implementation\n");
--	return 0;
- }
--subsys_initcall(crc32_sparc_init);
- 
--static void __exit crc32_sparc_exit(void)
--{
--}
--module_exit(crc32_sparc_exit);
--
--u32 crc32_optimizations(void)
-+static inline u32 crc32_optimizations_arch(void)
- {
- 	if (static_key_enabled(&have_crc32c_opcode))
- 		return CRC32C_OPTIMIZATION;
- 	return 0;
- }
--EXPORT_SYMBOL(crc32_optimizations);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("CRC32c (Castagnoli), sparc64 crc32c opcode accelerated");
-diff --git a/arch/sparc/lib/crc32c_asm.S b/lib/crc/sparc/crc32c_asm.S
-similarity index 100%
-rename from arch/sparc/lib/crc32c_asm.S
-rename to lib/crc/sparc/crc32c_asm.S
+ config CRC64_ARCH
+ 	bool
+ 	depends on CRC64 && CRC_OPTIMIZATIONS
+ 	default y if RISCV && RISCV_ISA_ZBC && 64BIT
+ 	default y if X86_64
 -- 
 2.49.0
 
