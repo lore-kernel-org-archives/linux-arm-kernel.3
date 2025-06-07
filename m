@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 331BEC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 11:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B31C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 11:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0uN0r+Aza/K95m42q5KAJfh2hepELl55Kp/4kcMWaJo=; b=wt4pEhgn+D6FHqsq/hj9ycLJDL
-	AbmjIQ2qkGhTvdBqTL5J3rVWnJB5JJLRyio1zC9ofNC/BANLLJS3jec7QLVI8qfQrlvqL9rnvw8fP
-	2rSjiSiQfqSucLu6uunuAkyOroHFnu7na6i7X0CpscJWcyfZXHyKSmmt7yOhiGNiudtFyXdKin41H
-	w1uJq/c3G/WKienlE4lVqjKkPRhwbAoLlnrLVW+mbHa/q07CqXkoB2RfmHWmXFgckV5z75DZuz1mT
-	wptuADZ7AjvxitvE12JD3PDeeMye18Wi43TK+1IZB51LYDEox9WA8/x63j2q0QqRwU1WKjgMtWf3b
-	Ata+lwdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4zSu1izb4tWJDTxLhqSImmpcJMMSBIL+shCUHw2Xsjs=; b=PNGynqZ5WIQuW9/Cq7PSlnBYYj
+	T3uOqr3Fl/oF35yDB+IecWvI5eDFG3QG/ZtkgJCWPxt1hWZ1cZm88XokBJ1Blyoa8c+9WWgMuynbS
+	Fky9aD6Jjjch/d/J9LyTL9FVZ97+zwA0BS84ZDz3TI/wRJ9ESQLzkEg37csEVserqJxwyyPR38zAV
+	492Tt7wvyYaBI35dvDA7zp4SKdLGdi6mfzH66z8g2dWtRCKJn55LJTB6kYFunVnYIpvBrfUsa56rk
+	0gYHmKKKZKWsgbnY9w6KceiDeK9WN/bvQnEdtDRtFSl09HukGirXNP3Xyx2njMbmaTGnyo/3xwkPp
+	H0YZbzGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNrQk-00000001aKZ-37uQ;
-	Sat, 07 Jun 2025 11:09:42 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1uNrSv-00000001aSp-1aNG;
+	Sat, 07 Jun 2025 11:11:57 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNrIm-00000001ZPR-3oj5
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Jun 2025 11:01:30 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ad56cbc7b07so412489166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 07 Jun 2025 04:01:27 -0700 (PDT)
+	id 1uNrJ2-00000001ZSo-0CoY;
+	Sat, 07 Jun 2025 11:01:45 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-7399a2dc13fso3321586b3a.2;
+        Sat, 07 Jun 2025 04:01:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1749294087; x=1749898887; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0uN0r+Aza/K95m42q5KAJfh2hepELl55Kp/4kcMWaJo=;
-        b=X0x9Iq+FoHrbvi6t/ApJQCdE0YQ7pCxURtAjheKpBxIJp1YmoxTo4fuuXFXsoTSUQk
-         Ig14mUDdm7xbFllVDCUDDIF75IYdGlG/eyJO/OLSTbs+Noo5qFk2ghvvif2ITfW/SBN/
-         bWyVxDVX9Vl8hfJovmzdUM67C8hF+JElRkjDfBdRak+3m147gTMMiiYWmmC821TCX7K5
-         0dF1HUT8vifPV3wKLy02KvgRM/wfgLYVR46VHT3vaazjxHaw2tLy/j3efJixi6OsbhBe
-         OEC+M/5eFZFWskKAGF0sIJLqdMMKDaQdgsKPXHFIf1SymtOT7aKYaSjoWoDz8G1GDZck
-         xtSg==
+        d=gmail.com; s=20230601; t=1749294103; x=1749898903; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4zSu1izb4tWJDTxLhqSImmpcJMMSBIL+shCUHw2Xsjs=;
+        b=Yc7FUKDe4ke+pLdz+7xvC8XH1Lw1Ew5TyduyY/znWegmM70Yt0QPMA8/1H1yB9bgu/
+         hOd+kyKx53UgUBPk/w9JZjX9KLhx3YDW+H4xX21vU28SRC58rIpyiHXWRMFUSIUz5EdX
+         NL5rtWTRgTLmZBjEs3MntoGo1YUEv0P9RaltUb3mWJrg6QXQFQyDKUDFTR8rO9Pc2doG
+         8HT731SbrHh1O6ck5Bej+RkJbsS/uREpKwjeewzAHxUIgDNnw3HsJdoP9aZCmqCgHxto
+         +bUIII80mZbaHZ4Gxk6kLE4phC0I2qV2dyT6e2Bh0sIlijQageqMDiI9HZcBNALXeVwe
+         vOpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749294087; x=1749898887;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1749294103; x=1749898903;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0uN0r+Aza/K95m42q5KAJfh2hepELl55Kp/4kcMWaJo=;
-        b=u6Fu5tD63f0FZ4CIzYGLa2Ae8zifyzcASi11/nqtGSJXCfmnPkuM0HmbWJyS9BoS2S
-         6DqoXBt6IMWTKLeh7c8YJiruHkrjvMV710JU+ix8+VEt58v8Q90mZJK0qEM7uM8xU/36
-         r/GTVc0BI9OvpyzUHW2T8CDEMwyLqcEP5KUU74giQ5swaUGBWNPRnAvlT3UbBPtiagqa
-         y3ltFmiiC8ZJYJH+3BKnD6vIFJ/I9X6wMh0+mMkqWwLzJK9E3r7GQmm9ww9Jt2vLC0D4
-         qZLRfqCaV2KjhyIifqKCdyeQR0hBypbOghX5DwcIQtWtZvLSGqPzGwuF6VE1n+x798wG
-         0EYw==
-X-Forwarded-Encrypted: i=1; AJvYcCVIy4VrMsebC8WsuXyVO9RnUwZzKtkdtukffrvmVyTzOtrrfpLVLAepN3Dds4XxSiKBDFGC6LeKfz43t5JmL6l9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlJqE4PJV13GkU1VuECF3TLRDJnuzdAGqiT+KnCrrXJPB9Lx1q
-	1+4sHU28HvGla4TcwbV/tYJMAWL11IEI0makJY0wV2dNyDwmTA3VyUTyNbrbAkR8Qi4=
-X-Gm-Gg: ASbGncuQJAzDDG5PS4mol9mLnZ1FunRkpf/s/RDFo6CN9OPUwgq+sc/HPy0XaINmjFp
-	2sM8ROZCU3jd3sYr46UjMDr1jbLlsI6DwBK346BOq0wWEUYZi9KDsHEk39ZVdjYfNaq1lQ3gMOT
-	yhOesj1yPhVj6I90xZn2WXP9i7WshzBMKQnPW0sBBiRwQiDbR1pmnmQ+FChlY45WnAb7h84exUA
-	CvnsgDRXvV11Am8vWetl6VtNX+PAvGMHZDI8kW0LLUsq0/W0MRjvI7us8V0nhkdrgakxKBmT+ar
-	rjjDdQUZhc8YyeK0TNJQo7YIWLxQdQX3beA7ldcZ/Okj4m3nf+gTEfOQB8j2
-X-Google-Smtp-Source: AGHT+IHfOkKx9NcfIAZ9nTpnZxlHwpeFAbEacglR5IGGcoWk8RG7mokCDPs4dSHS/5Gsct64uui31w==
-X-Received: by 2002:a17:907:1c8e:b0:ad8:9466:3354 with SMTP id a640c23a62f3a-ade1a9e9335mr594588566b.54.1749294085887;
-        Sat, 07 Jun 2025 04:01:25 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.126])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1db5572csm257317166b.38.2025.06.07.04.01.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 07 Jun 2025 04:01:25 -0700 (PDT)
-Message-ID: <343d77a8-1d52-40e6-9ae0-ba77a259d377@tuxon.dev>
-Date: Sat, 7 Jun 2025 14:01:23 +0300
+        bh=4zSu1izb4tWJDTxLhqSImmpcJMMSBIL+shCUHw2Xsjs=;
+        b=nJNxL8nG0rdQKR3GApAHvq74XOAA15eSswujCNwUPu2yHkV6NscapwxJcyTMEIamCN
+         1oNLp3ElZQ4dDed7AGRfK2SPVbFsBxueOXEVDrT59NEtuev1Xm+uTnsmIa2OaFMN2UQT
+         2iTLjLGNVpmqSDeZPbMRvOwVbszMwtkIQfohN8g4HmBC3OYPAvDVF9fhUaNOii1L8mUk
+         8t/wPBrDydTkVKG8oxdY4o17FylSZhKceba/2RrtJsdWvsu4CWF+9DCayYg0OLMbTXUW
+         gNWe76mhvlJpLU+rmqrC2SN05tjeaZRhGly98zvGflB9HKzuooNwOtZX3pg3xBZ0RLNg
+         f90w==
+X-Forwarded-Encrypted: i=1; AJvYcCUaEcq+62obuDzz3/KxrbfHgwW1876smJGLQRlc4yJpJxLLaia6WsIy2PANCnLezUY1KkstXtaO48ratP5fVfzN@lists.infradead.org, AJvYcCXQsw7rnoxoDqPMe89S6N6nmixvE++VZgyR2WPvT5VICSta31NO2rpdKwOtlS1WVK0oZB3IbWHxiiQd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDiIcUKwDto4WEhQ3lM9wFoj40lA7zyz5wCrxuhCc0VvOABNHY
+	TSLt6BO7tuCvbIJppgkGuJ6fwNh9bZg29vYh9Suc3gFhMOg8J1FAOosBVfrATQAn
+X-Gm-Gg: ASbGncsxMWwNexA1QIYvkjjWqSuX2q2zKIpqNVCF9sztCmVS2JtDHKctowKL6DixiyF
+	Jz8xwz8ZSIGCXwk3JVuNssOnh18Qi5BBGe9k/TjBAkaBTQPid8EHeOuOLws/oCBSaPqYMueyhg6
+	KZ3beLEJYZVPgY0VjB9OBI1DsBrM/RL+/2Kj6knEHST1A6mBvft+mvzgdicFNg6VaTDTYgQZMh/
+	SefP053B3y+wl3r7iV2JUGlLha3k24c4MYZ6AjzPLzMk5bfWARcd5CO4BTsm4iv2jf/KoJmV8t4
+	AyNSji3rY6ncYffBYccreOlabAX9D9cgQpAdj9d3NHQKKOr57g==
+X-Google-Smtp-Source: AGHT+IG92XPX/rE2LJZk4TUNKBW2ws8nFw7IMuK4bikAYNrgsCpmBPTBH5f+Tfm01lqMfPjIBc4FJg==
+X-Received: by 2002:a05:6a00:4884:b0:748:3385:a4a with SMTP id d2e1a72fcca58-74833850decmr3053128b3a.23.1749294103248;
+        Sat, 07 Jun 2025 04:01:43 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:2bc9::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7482b0847aesm2611189b3a.105.2025.06.07.04.01.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Jun 2025 04:01:42 -0700 (PDT)
+Date: Sat, 7 Jun 2025 08:01:37 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 3/4] phy: rockchip-pcie: enable all four lanes
+Message-ID: <aEQcEbfF05JwZVKs@geday>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] mtd: spi-nor: sfdp: parse SFDP SST vendor map and
- register EUI addresses into NVMEM framework
-To: Manikandan Muralidharan <manikandan.m@microchip.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, tudor.ambarus@linaro.org,
- pratyush@kernel.org, mwalle@kernel.org, miquel.raynal@bootlin.com,
- richard@nod.at, vigneshr@ti.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mtd@lists.infradead.org
-References: <20250521070336.402202-1-manikandan.m@microchip.com>
- <20250521070336.402202-2-manikandan.m@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <20250521070336.402202-2-manikandan.m@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_040128_946645_D76BDBF7 
-X-CRM114-Status: GOOD (  34.41  )
+X-CRM114-CacheID: sfid-20250607_040144_086346_6114785D 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,274 +100,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Manikandan,
+Current code enables only Lane 0 because pwr_cnt will be incremented
+on first access. Use for-loop to enable all 4 lanes through GRF
+register.
 
-On 21.05.2025 10:03, Manikandan Muralidharan wrote:
-> Some SST flash like SST26VF064BEUI serial quad flash memory is programmed
-> at the factory with a globally unique EUI-48 and EUI-64 identifiers stored
-> in the SFDP vendor parameter table and it is permanently write-protected.
-> 
-> Add SST Vendor table SFDP parser to read the EUI-48 and EUI-64
-> Mac Addresses and allocate them using resource-managed devm_kcalloc
-> which will be freed on driver detach.
-> 
-> Regitser the Addresses into NVMEM framework and parse them when
-> requested using the nvmem properties in the DT by the net drivers.
-> In kernel the Ethernet MAC address relied on U-Boot env variables or
-> generated a random address, which posed challenges for boards without
-> on-board EEPROMs or with multiple Ethernet ports.
-> This change ensures consistent and reliable MAC address retrieval
-> from QSPI benefiting boards like the sama5d27-wlsom1-ek, sama5d29 curiosity
-> and sam9x75 curiosity.
-> 
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-> ---
->  drivers/mtd/spi-nor/sfdp.c  | 161 ++++++++++++++++++++++++++++++++++++
->  include/linux/mtd/spi-nor.h |   7 ++
->  2 files changed, 168 insertions(+)
-> 
-> diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
-> index 21727f9a4ac6..920708ae928a 100644
-> --- a/drivers/mtd/spi-nor/sfdp.c
-> +++ b/drivers/mtd/spi-nor/sfdp.c
-> @@ -31,6 +31,7 @@
->  					 * Register Map Offsets for Multi-Chip
->  					 * SPI Memory Devices.
->  					 */
-> +#define SFDP_MCHP_SST_ID	0x01bf
->  
->  #define SFDP_SIGNATURE		0x50444653U
->  
-> @@ -1344,6 +1345,163 @@ static int spi_nor_parse_sccr_mc(struct spi_nor *nor,
->  	return ret;
->  }
->  
-> +#define SFDP_MCHP_PARAM_TABLE_LEN	28
-> +#define SFDP_SST26VF064BEUI_ID		0xFF4326BFU
-> +
-> +#define SFDP_MCHP_EUI48			0x30
-> +#define SFDP_MCHP_EUI48_MASK		GENMASK(7, 0)
-> +#define SFDP_MCHP_EUI48_MAC_LEN		6
-> +
-> +#define SFDP_MCHP_EUI64			0x40
-> +#define SFDP_MCHP_EUI64_MASK		GENMASK(31, 24)
-> +#define SFDP_MCHP_EUI64_MAC_LEN		8
-> +
-> +/**
-> + * spi_nor_mchp_sfdp_read_addr()- read callback to copy the EUI-48 or EUI-68
-> + *				  Addresses for device that request via NVMEM
-> + *
-> + * @priv: User context passed to read callbacks.
-> + * @offset: Offset within the NVMEM device.
-> + * @val: pointer where to fill the ethernet address
-> + * @bytes: Length of the NVMEM cell
-> + *
-> + * Return: 0 on success, -EINVAL  otherwise.
-> + */
-> +static int spi_nor_mchp_sfdp_read_addr(void *priv, unsigned int off,
-> +				       void *val, size_t bytes)
-> +{
-> +	struct spi_nor *nor = priv;
-> +
-> +	if (SFDP_MCHP_PARAM_TABLE_LEN == nor->mchp_eui->vendor_param_length) {
+Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+---
+ drivers/phy/rockchip/phy-rockchip-pcie.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-From checkpatch.pl:
-
-[Checkpatch]      WARNING: Comparisons should place the constant on the
-right side of the test
-#71: FILE: drivers/mtd/spi-nor/sfdp.c:1375:
-+       if (SFDP_MCHP_PARAM_TABLE_LEN == nor->mchp_eui->vendor_param_length) {
-
-Also, to avoid indenting the above block you can reverse the check here,
-and return, e.g.:
-
-if (nor->mchp_eui->vendor_param_length != SFDP_MCHP_PARAM_TABLE_LEN)
-        return 0;
-
-> +		switch (bytes) {
-> +		case SFDP_MCHP_EUI48_MAC_LEN:
-> +			memcpy(val, nor->mchp_eui->ethaddr_eui48, SFDP_MCHP_EUI48_MAC_LEN);
-> +			break;
-> +		case SFDP_MCHP_EUI64_MAC_LEN:
-> +			memcpy(val, nor->mchp_eui->ethaddr_eui64, SFDP_MCHP_EUI64_MAC_LEN);
-> +			break;
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/**
-> + * spi_nor_parse_mchp_sfdp() - Parse the Microchip vendor specific parameter table
-> + *			       Read and store the EUI-48 and EUI-64 address to
-> + *			       struct spi_nor_sst_mchp_eui_info if the addresses are
-> + *			       programmed in the SST26VF064BEUI sst flag
-> + *
-> + * @nor:		pointer to a 'struct spi_nor'
-> + * @sccr_header:	pointer to the 'struct sfdp_parameter_header' describing
-> + *			the Microchip vendor parameter header length and version.
-> + *
-> + * Return: 0 on success of if addresses are not programmed, -errno otherwise.
-> + */
-> +static int spi_nor_parse_mchp_sfdp(struct spi_nor *nor,
-> +				   const struct sfdp_parameter_header *mchp_header)
-> +{
-> +	struct nvmem_device *nvmem;
-> +	struct nvmem_config nvmem_config = { };
-> +	struct spi_nor_sst_mchp_eui_info *mchp_eui;
-> +	u32 *dwords, addr, sst_flash_id;
-> +	size_t len;
-> +	int ret = 0, size = 0;
-> +
-> +	if (SFDP_MCHP_PARAM_TABLE_LEN != mchp_header->length)
-
-From checkpatch.pl:
-
-WARNING: Comparisons should place the constant on the right side of the test
-#109: FILE: drivers/mtd/spi-nor/sfdp.c:1413:
-+       if (SFDP_MCHP_PARAM_TABLE_LEN != mchp_header->length)
-
-> +		return -EINVAL;
-> +
-> +	addr = SFDP_PARAM_HEADER_PTP(mchp_header);
-> +	/* Get the SST SPI NOR FLASH ID */
-> +	ret = spi_nor_read_sfdp_dma_unsafe(nor, addr, sizeof(sst_flash_id),
-> +					   &sst_flash_id);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	/* Check the SPI NOR FLASH ID */
-> +	if (le32_to_cpu(sst_flash_id) != SFDP_SST26VF064BEUI_ID)
-> +		return -EINVAL;
-> +
-> +	len = mchp_header->length * sizeof(*dwords);
-> +	dwords = kmalloc(len, GFP_KERNEL);
-
-I think this can be replaced by:
-
-u32 *dwords __free(kfree) = kmalloc(...);
-
-> +	if (!dwords)
-> +		return -ENOMEM;
-> +
-> +	ret = spi_nor_read_sfdp(nor, addr, len, dwords);
-> +	if (ret)
-> +		goto out;
-> +
-> +	le32_to_cpu_array(dwords, mchp_header->length);
-> +
-> +	mchp_eui = devm_kzalloc(nor->dev, sizeof(*mchp_eui), GFP_KERNEL);
-> +	if (!mchp_eui) {
-> +		ret = -ENOMEM;
-> +		goto out;
-> +	}
-> +
-> +	if (SFDP_MCHP_EUI48 == FIELD_GET(SFDP_MCHP_EUI48_MASK,
-> +					 dwords[SFDP_DWORD(25)])) {
-> +		mchp_eui->ethaddr_eui48 = devm_kcalloc(nor->dev,
-> +						       SFDP_MCHP_EUI48_MAC_LEN,
-> +						       sizeof(u8), GFP_KERNEL);
-> +		if (!mchp_eui->ethaddr_eui48) {
-> +			ret = -ENOMEM;
-> +			devm_kfree(nor->dev, mchp_eui);
-> +			goto out;
-> +		}
-> +		memcpy(mchp_eui->ethaddr_eui48, (u8 *)&dwords[SFDP_DWORD(25)] + 1,
-> +		       SFDP_MCHP_EUI48_MAC_LEN);
-> +		size = SFDP_MCHP_EUI48_MAC_LEN;
-> +	}
-> +
-> +	if (SFDP_MCHP_EUI64 == FIELD_GET(SFDP_MCHP_EUI64_MASK,
-> +					 dwords[SFDP_DWORD(26)])) {
-> +		mchp_eui->ethaddr_eui64 = devm_kcalloc(nor->dev,
-> +						       SFDP_MCHP_EUI64_MAC_LEN,
-> +						       sizeof(u8), GFP_KERNEL);
-> +		if (!mchp_eui->ethaddr_eui64) {
-> +			ret = -ENOMEM;
-> +			devm_kfree(nor->dev, mchp_eui->ethaddr_eui48);
-> +			devm_kfree(nor->dev, mchp_eui);
-> +			goto out;
-> +		}
-> +		memcpy(mchp_eui->ethaddr_eui64, (u8 *)&dwords[SFDP_DWORD(27)],
-> +		       SFDP_MCHP_EUI64_MAC_LEN);
-> +		size += SFDP_MCHP_EUI64_MAC_LEN;
-> +	}
-> +
-> +	/*
-> +	 * Return if SST26VF064BEUI sst flash is not programmed
-> +	 * with EUI-48 or EUI-64 information
-> +	 */
-> +	if (!size) {
-> +		devm_kfree(nor->dev, mchp_eui);
-> +		goto out;
-> +	}
-> +
-> +	mchp_eui->vendor_param_length = mchp_header->length;
-> +	nor->mchp_eui = mchp_eui;
-> +	nvmem_config.word_size = 1;
-> +	nvmem_config.stride = 1;
-> +	nvmem_config.dev = nor->dev;
-> +	nvmem_config.size = size;
-> +	nvmem_config.priv = nor;
-> +	nvmem_config.reg_read = spi_nor_mchp_sfdp_read_addr;
-> +
-> +	nvmem = devm_nvmem_register(nor->dev, &nvmem_config);
-> +	if (IS_ERR(nvmem)) {
-> +		dev_err(nor->dev, "failed to register NVMEM device: %ld\n",
-> +			PTR_ERR(nvmem));
-> +		ret = PTR_ERR(nvmem);
-> +	}
-> +
-> +out:
-> +	kfree(dwords);
-> +	return ret;
-> +}
-> +
->  /**
->   * spi_nor_post_sfdp_fixups() - Updates the flash's parameters and settings
->   * after SFDP has been parsed. Called only for flashes that define JESD216 SFDP
-> @@ -1564,6 +1722,9 @@ int spi_nor_parse_sfdp(struct spi_nor *nor)
->  			err = spi_nor_parse_sccr_mc(nor, param_header);
->  			break;
->  
-> +		case SFDP_MCHP_SST_ID:
-> +			err = spi_nor_parse_mchp_sfdp(nor, param_header);
-> +			break;
->  		default:
->  			break;
->  		}
-> diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-> index cdcfe0fd2e7d..051078d23ea1 100644
-> --- a/include/linux/mtd/spi-nor.h
-> +++ b/include/linux/mtd/spi-nor.h
-> @@ -339,6 +339,12 @@ struct flash_info;
->  struct spi_nor_manufacturer;
->  struct spi_nor_flash_parameter;
->  
-> +struct spi_nor_sst_mchp_eui_info {
-> +	u8 vendor_param_length;
-> +	u8 *ethaddr_eui48;
-> +	u8 *ethaddr_eui64;
-
-you may want to keep pointer first to avoid padding, if any.
-
-Thank you,
-Claudiu
-
-> +};
-> +
->  /**
->   * struct spi_nor - Structure for defining the SPI NOR layer
->   * @mtd:		an mtd_info structure
-> @@ -408,6 +414,7 @@ struct spi_nor {
->  	u32			flags;
->  	enum spi_nor_cmd_ext	cmd_ext_type;
->  	struct sfdp		*sfdp;
-> +	struct spi_nor_sst_mchp_eui_info *mchp_eui;
->  	struct dentry		*debugfs_root;
->  
->  	const struct spi_nor_controller_ops *controller_ops;
+diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
+index bd44af36c67a..48bcc7d2b33b 100644
+--- a/drivers/phy/rockchip/phy-rockchip-pcie.c
++++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
+@@ -176,11 +176,13 @@ static int rockchip_pcie_phy_power_on(struct phy *phy)
+ 				   PHY_CFG_ADDR_MASK,
+ 				   PHY_CFG_ADDR_SHIFT));
+ 
+-	regmap_write(rk_phy->reg_base,
+-		     rk_phy->phy_data->pcie_laneoff,
+-		     HIWORD_UPDATE(!PHY_LANE_IDLE_OFF,
+-				   PHY_LANE_IDLE_MASK,
+-				   PHY_LANE_IDLE_A_SHIFT + inst->index));
++	for (int i=0; i < PHY_MAX_LANE_NUM; i++) {
++		regmap_write(rk_phy->reg_base,
++			     rk_phy->phy_data->pcie_laneoff,
++			     HIWORD_UPDATE(!PHY_LANE_IDLE_OFF,
++					   PHY_LANE_IDLE_MASK,
++					   PHY_LANE_IDLE_A_SHIFT + i));
++	}
+ 
+ 	/*
+ 	 * No documented timeout value for phy operation below,
+-- 
+2.49.0
 
 
