@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F12C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 13:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C057C61DB8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  7 Jun 2025 13:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rb2pt6bSvJ74KoT6+m+vgEPTgOl4YHy8otCzkwq1vRM=; b=ztpvavVydcq1U3YTWyba4XFW7K
-	als0uA/VdaZWfP9g9kgV6NiCwrGEbzf2QM1bzFsRzBMpDkcytD7TnF9l6ShgA6evs5iv2QC2NJXnF
-	q64f3GNY4JnwUQkuHUdDAl87msT9tYhgZ33hiHn6W4NXyakCgpsiJ8YROiNJOwQkAi3KK76ahOHow
-	+NOcVY006jxBVxNulPsBiHzkMHON/2K+KRqI35sBb/IEPaPbukVBSlhtRFsDarKNIyTIG8jEyLZLR
-	81iV3KByz3PnbmdZW5uxCQlyw5ySZPXrZxXo8u2N5uT3kvdebykEKx0Jj4clNYaVo5TTEPRdGpgN+
-	/uEIEEyg==;
+	bh=BAOhFCOmsJ4kUYgNn0gFr0HDX2KAssojLnYs1lQlFqk=; b=FIJySD2nv6M46HwpLDNSxLX6yo
+	LWqGEiDJRqNChiA+3krlItpylSUczCkC3xCgd0+31Xq2SU27KmM/4rmZcKUzlkqK78YLOwo8ie4DA
+	AOE0kvymq2OtLTVNBAufHB7h80cSrJHEe3pjCLfuBlOOEN6hti4Yd03V9h8HoK0+o1iNa1oE7vAzP
+	9IX8z2ZZBZ9Iy42mVWLM67Gzu2YUxPhknbBxfiQ8cgbPl1MXOyjwrwogLmnfsSdw7Mmo4TEJJWpz8
+	+JRfWCFJ7pMZ5PI6YETOD7QyHUD+J3PtIwnG1yKP1s9EKX44O0bgKFHiJTZPQZjoj5hL564xMLgSq
+	8zMO+Pxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNu0o-00000001jO9-057E;
-	Sat, 07 Jun 2025 13:55:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uNu2x-00000001jZn-3EF3;
+	Sat, 07 Jun 2025 13:57:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNtxw-00000001j9c-1t4C
+	id 1uNu0d-00000001jLS-1t47
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 07 Jun 2025 13:52:09 +0000
+	Sat, 07 Jun 2025 13:54:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0EE875C56B5;
-	Sat,  7 Jun 2025 13:49:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 572F7C4CEE4;
-	Sat,  7 Jun 2025 13:52:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3612262A1E;
+	Sat,  7 Jun 2025 13:54:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9133C4CEE4;
+	Sat,  7 Jun 2025 13:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749304327;
-	bh=9zSazWezvyHshE0sEu5aQkyy5OabfF5jzCtXfOLRKO4=;
+	s=k20201202; t=1749304493;
+	bh=cmThDcb02rdfOWIo8z/d3jAmVfEg/kXS4OHfeoZ1jmY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=DeqQ8Dbh8aETNHEVlm1+aC3sbVBlmPuB+tlCEUfzmn7hnbp4lwQ0qlz1Me9kqJKJS
-	 JXVEuHqU20jWN5lyfpmkdFlvlxQl52a6kdxQOMVoJ48y+oiqITNP8m3Tbd9d1JZZrm
-	 sDGltNTz9lqMUZdXi7HmYI8jLwOvuKRLjvU9NmH/MAPJDl7ccTVRqivI4YSrdVs07m
-	 Ab7iWNLWVFn2h8zZmRdcl7qDV9BO/GByjn9GWd+yMtSj9qFqxA+2GljoYF/mIAllTh
-	 eCVvzPBuzoZrM8/D/1SDeGarVd3zNUengRasMOqk54dIkIZgVJSSvc/Iz1S2avpnVs
-	 0+juCQ6rjh36A==
+	b=jsLZhJm2UN37rYwys1H4vv3Yj23hoDiLQqK/rMBMeIC3kckiwvu0LPiSq2Tp8aiAi
+	 mm8uOHNKZYXjQWg6/kshWPM8DdTWRhpj6vHZVZlv/+ci6wXljnpiLxS5JpSI6gmoTk
+	 2XylaOhu0TWKNTOQUbNH2t7EPZlxnd78WLpb7hRcK8PDtC1Atuh0PdkdEfHUGwbW3I
+	 4aDvxG5repQir8/seK2hsTkU8VXQzYByC0/pODw62E/olz/clIp7ktorRSVOfgEaOe
+	 EQ1j1q0RUOztGi1QsJ79XuTTP32TeST37CqbFhMv3rT9LkaGP1puIjM84IBxAOEcPv
+	 Q0CU+w8Uu3pkw==
 Received: by wens.tw (Postfix, from userid 1000)
-	id BA7335FD0C; Sat,  7 Jun 2025 21:52:04 +0800 (CST)
+	id 1153A5FD0C; Sat,  7 Jun 2025 21:54:51 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Samuel Holland <samuel@sholland.org>
 Cc: Chen-Yu Tsai <wens@csie.org>,
-	linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH] pinctrl: sunxi: dt: Consider pin base when calculating bank number from pin
-Date: Sat,  7 Jun 2025 21:52:03 +0800
-Message-Id: <20250607135203.2085226-1-wens@kernel.org>
+Subject: [PATCH resend] pinctrl: sunxi: dt: Consider pin base when calculating bank number from pin
+Date: Sat,  7 Jun 2025 21:54:50 +0800
+Message-Id: <20250607135450.2086806-1-wens@kernel.org>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_065208_535180_A597CB1F 
-X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,6 +87,8 @@ Correct this by taking into account the pin base of the controller.
 Fixes: f5e2cd34b12f ("pinctrl: sunxi: allow reading mux values from DT")
 Signed-off-by: Chen-Yu Tsai <wens@csie.org>
 ---
+Resent to linux-gpio mailing list instead of linux-clk.
+
  drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c | 8 ++++----
  1 file changed, 4 insertions(+), 4 deletions(-)
 
