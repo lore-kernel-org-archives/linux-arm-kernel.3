@@ -4,103 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB42C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 18:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A14C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 20:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4FkQOjW0dEQldWqVQqpMRcOS3E+ncteqKD5m7Do0e/E=; b=wwgTxWdpz5rNOU6TTyXkqRu6bK
-	6fUK/dUzuyyc1NqQw2WtxuH4dViWuL/DctlsrYLoC63OqMuGEkv+B2kHrIj1+nqtvMrPIip6UBGmA
-	CUR42ECdYKnSwybm1pNnU1Iu/QPAbehnGG317GBuC2enbcVYo70WZUaMg9I3q69MzQmB0f8RRtyCa
-	PNEi3CeIEu4WvWswrvgqRciqp827IIEPi6G3aDCfzBYVoANerKCzvN3bmUW93HhOUysI5uEE+IptT
-	PzbZuMFX9n8+0F6fc2gj1fMxlSrsznuOHpJX37h35U3g3QdsQ0lvlhcefTkaj8RWxrRCV+Q5F6S7B
-	vO2+o/mQ==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VMqwClsGucxOnCvIC7ieB8B3Zk2MDDXeIyx8pwhbeik=; b=FOwexvjbCYZTixWJzfz8bwRIAY
+	ub/8lgjWcn2+SqHZ/m0sGc/wengAEkJo/X04ovfByPo5CoUEoXoeAgdKZvlHoXlXj8HSTVpLtZLP5
+	lUDLdNSCMIzhEKK5wGJ1d0VXcnxLLrUN/nTnouos0ybPDt+0EW6JsO2A/09VNPkaNkDnuz1HanWvJ
+	rbhzgwBVjQDgJu/qjAQL7eFJJ6ixyCyOAu82GWNLUgup8YeBWGR+87iGK8V+kpPmTEPuZTGZYX/w4
+	xSVTsifpwbU3Q/dS5wLB/RZgqz/29PbWgmwB9NfTrY8AyxfEjry6M8dmJS8cpzXEd+yTowsDl8ZQK
+	FoeYuTqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOL8m-00000002sMs-3bFE;
-	Sun, 08 Jun 2025 18:53:08 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1uOMO6-00000002wJz-0TxK;
+	Sun, 08 Jun 2025 20:13:02 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOL6f-00000002sDw-0Wl8;
-	Sun, 08 Jun 2025 18:50:58 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-72d3b48d2ffso2772832b3a.2;
-        Sun, 08 Jun 2025 11:50:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749408656; x=1750013456; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4FkQOjW0dEQldWqVQqpMRcOS3E+ncteqKD5m7Do0e/E=;
-        b=ngRSNVkzdhun7ICD7Bn0UHWtxzR0ba+TjQjJa56POQiQp8XjjYsKGkMKLYbdOiUt5+
-         2DwYhIYTiTuR9zJqBragQ6ukPTiEON0UT2VPVBo9ofRw36DkR2azvEyzcOqtvgh28OaT
-         np4oGDCtcMQWjoreKoQawZ2b6aLYWxWBbf19AqsZ9rUbDdtqTRriOWJs4bAZE0gy5Eg/
-         jpht0H73YjJFe1WRclstVPThkGkD6MZyc53R5B2WE1Kyd5YER/I+2irJiAuaqOZn7vy/
-         fOEOd5+35zC0arSlNAL+VL3qCwPeL9SSBbYXBIZzikFjife5Wa+9O2WXf/k1i1n19Uc5
-         +qiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749408656; x=1750013456;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4FkQOjW0dEQldWqVQqpMRcOS3E+ncteqKD5m7Do0e/E=;
-        b=QdfT8qv49oiHlUhwdE+JIYNeK8DUZidlH98WZqoHjQGyC3AxSuX6SzpRTJVfQXznqj
-         ixlxUcpJzPwy8zG5uUXsNj/n1aYrcfiAelp6/p51SIIt7wgfkkDb3lxPJ9PKTeBUNiUU
-         z6+1cVLIdLEQqH2icMJ0okub9x2L6N9ZuggQL04tCBjhN5Wlb1UB4AthqX/jfUdUTWn0
-         aKe+WfT2wyYHpaF6IRFojKofCfoQlUd2hjSGEFmqr4rdGO1f0YTMjBk93pp04Kp0mFs6
-         hpTXs3aMdNBadzXmYfDYLnM8c5xdaVHXN7nuBOyfWhSqCf0D+X6AgVOsq2CJDfOCyQMy
-         QVdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUaMzHAY+lJHFySSfiLc9aRGIgDC7DxJL0/tz6UwF6CGnCM3jhlbo7j2Ft7agcRkVBdP91KjJ87pFyqKUaQQN9k@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7sKQgYJmiadh++AZBvGxJeV2pVIif3FOVfSaTmxdT/Ku4778A
-	ibb5DuhMB2D0eeUNYD3EJlFidPAVfA7SuxYQQONy+8gNljhc4t6d9Abm
-X-Gm-Gg: ASbGncvHDxTZMiP47Ihr3z7Jhy+3V+EMU8hIJ9HSv4/oebMVhAfJIhUuvGs/jZeRN+p
-	Khju8c1fsoOEfGObEQxvU6EG9CakaPxPLBK0vg0B6cb0zkdDv8skQF+27Z5WxuKtU/4wU6yVknH
-	AyLOjbtp36yOyJ7Q9Yn7t0neIU57M53EY9fSxAn2+ka0XHTpO/HY/7hHPD2crnXeY8IwKSq13qZ
-	SstBvBK8mUBI3kdC5n8z88/O5jxwaitl2ei+CEUfr4+odUR3h+vDy3bgReAz96i856+wuoQodpe
-	kGWc+BTrStbTI3WazcJ8vv5I5DXsfqCaSwCH8VPdK0qJF647uDzI30VzdRutp38=
-X-Google-Smtp-Source: AGHT+IFmkmDN5HJMtOVAkQ+D2VV/D9Hx1lj1672INza519ZQEJaZQhN5dtNTS2zy37PO0ZFmNvX1dw==
-X-Received: by 2002:a05:6a00:22c7:b0:748:3485:b99d with SMTP id d2e1a72fcca58-7483485d9d4mr10823644b3a.18.1749408655711;
-        Sun, 08 Jun 2025 11:50:55 -0700 (PDT)
-Received: from celestia.turtle.lan ([2601:1c2:c184:dc00:21ba:8ec7:ee03:e8ae])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7482af3824fsm4493278b3a.19.2025.06.08.11.50.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Jun 2025 11:50:55 -0700 (PDT)
-From: Sam Edwards <cfsworks@gmail.com>
-X-Google-Original-From: Sam Edwards <CFSworks@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Mark Brown <broonie@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Elaine Zhang <zhangqing@rock-chips.com>,
-	=?UTF-8?q?Adri=C3=A1n=20Mart=C3=ADnez=20Larumbe?= <adrian.larumbe@collabora.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Peter Geis <pgwipeout@gmail.com>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Vignesh Raman <vignesh.raman@collabora.com>,
-	=?UTF-8?q?Daniel=20Kukie=C5=82a?= <daniel@kukiela.pl>,
-	Sven Rademakers <sven.rademakers@gmail.com>,
-	Joshua Riek <jjriek@verizon.net>,
-	Sam Edwards <CFSworks@gmail.com>,
-	stable@vger.kernel.org
-Subject: [RESEND PATCH] arm64: dts: rockchip: Remove workaround that prevented Turing RK1 GPU power regulator control
-Date: Sun,  8 Jun 2025 11:48:55 -0700
-Message-ID: <20250608184855.130206-1-CFSworks@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	id 1uOMLy-00000002wAu-1kKM
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 08 Jun 2025 20:10:51 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 558JvfDA013294;
+	Sun, 8 Jun 2025 20:10:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	VMqwClsGucxOnCvIC7ieB8B3Zk2MDDXeIyx8pwhbeik=; b=GJ4Sp6wmMdsUKdSu
+	7XqPo69suRCI2VnCm7g6IliYhqnccb16OjIL4/cDiRS/25F6MOJ4FbOM2m8VjYpK
+	crH+93b0DmUeKWbPssRaBl7g80xquR8lKr4H1UxJHHynbr/8BCsWme20mrrZLC2c
+	iWgIn0QICd/exWbG+Kpf3qmds7szksYVVeZ3APJvnHwB78SjaDtuFpJZWzy6RqmJ
+	2SCdjM7/gEnwxjdkPwJQw6r3OATzMk2YYw1ouw+ldSQHWl43DxJY1ly+xKWQw6vM
+	YlJrvw8xqZhRg9AFpH9yUjFLgS7F9hzODjR6F6WwUI3p0w5H38akCwvjDmK5NJ9L
+	h+bUSg==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474ce9m1rv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 08 Jun 2025 20:10:36 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 558KAY2n004996
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 8 Jun 2025 20:10:34 GMT
+Received: from [10.216.51.238] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 8 Jun 2025
+ 13:10:27 -0700
+Message-ID: <421aadf3-9e2d-4028-bfe2-e29d2ade8432@quicinc.com>
+Date: Mon, 9 Jun 2025 01:40:23 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] drm/msm/adreno: Add Adreno X1-45 support
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Akhil P Oommen
+	<akhilpo@oss.qualcomm.com>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        "Konrad Dybcio" <konradybcio@kernel.org>,
+        Abhinav Kumar
+	<abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie
+	<airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+        Bjorn Andersson
+	<andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>
+References: <20250607-x1p-adreno-v1-0-a8ea80f3b18b@oss.qualcomm.com>
+ <20250607-x1p-adreno-v1-2-a8ea80f3b18b@oss.qualcomm.com>
+ <5xb35clc3wnnwpdnmqfminl4z6ok6nhoxg65hwgyxegxguby5d@fuks7fc2n3pf>
+From: Akhil P Oommen <quic_akhilpo@quicinc.com>
+Content-Language: en-US
+In-Reply-To: <5xb35clc3wnnwpdnmqfminl4z6ok6nhoxg65hwgyxegxguby5d@fuks7fc2n3pf>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: BszDk49latyru2SxwMd1H6DHiNz1f0QD
+X-Authority-Analysis: v=2.4 cv=drjbC0g4 c=1 sm=1 tr=0 ts=6845ee3c cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8
+ a=XhjLoxLiZ051MZkV3CIA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: BszDk49latyru2SxwMd1H6DHiNz1f0QD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA4MDE2MyBTYWx0ZWRfX7gpHMqsCA/Mu
+ SgkW+NQvexJf4ppn59QwKvLVTctgDptCXm1Go0AgfDSQVF90IF7qQZt7UBidbrznfHjyYjNmfea
+ BC5/m9zYvXkr7oqpvn/nvX20CMYZ/AxivdZapB0eu5gdQIY6CsPL3dkXvq+KC2VMSOlradtXddu
+ iEOyfA2gUvZrQyBjQ9CoNm6Y13MabNwtmoHPojmZ2gOkiRrGh7QyOxBVNPhmz0vPvkiBway6Qtg
+ fg5ApBxl+phdBN0AoplyHwBzZIaSXPi8CciPYFHOK39KF4SG0yhEn9pdd9uXb9Hukyt6ECvWvG1
+ x/nm6LGK6cCqi8qt+eAmO1o6d3RMt+rRwhr75e6Gm3UCZkJJc/cN0dPa/jpu8RUPrsHxKgTioOi
+ K1qG/EJmzaQIuBPXDdVvgNb5OL/d+Rtv8OEjSMYN/mujHypnzbx4un5ICQIDHTPVkbycsbQH
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-08_04,2025-06-05_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 lowpriorityscore=0 malwarescore=0 clxscore=1011
+ priorityscore=1501 suspectscore=0 bulkscore=0 mlxlogscore=999 adultscore=0
+ phishscore=0 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506080163
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_115057_168835_24F9AE73 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250608_131050_581127_65B1613C 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,61 +129,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3588 GPU power domain cannot be activated unless the external
-power regulator is already on. When GPU support was added to this DT,
-we had no way to represent this requirement, so `regulator-always-on`
-was added to the `vdd_gpu_s0` regulator in order to ensure stability.
-A later patch series (see "Fixes:" commit) resolved this shortcoming,
-but that commit left the workaround -- and rendered the comment above
-it no longer correct.
+On 6/8/2025 1:44 AM, Dmitry Baryshkov wrote:
+> On Sat, Jun 07, 2025 at 07:45:00PM +0530, Akhil P Oommen wrote:
+>> Add support for Adreno X1-45 GPU present Snapdragon X1P42100
+>> series of compute chipsets. This GPU is a smaller version of
+>> X1-85 GPU with lower core count and smaller internal memories.
+>>
+>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>> ---
+>>  drivers/gpu/drm/msm/adreno/a6xx_catalog.c | 38 +++++++++++++++++++++++++++++++
+>>  1 file changed, 38 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
+>> index 70f7ad806c34076352d84f32d62c2833422b6e5e..2db748ce7df57a9151ed1e7f1b025a537bb5f653 100644
+>> --- a/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
+>> +++ b/drivers/gpu/drm/msm/adreno/a6xx_catalog.c
+>> @@ -1474,6 +1474,44 @@ static const struct adreno_info a7xx_gpus[] = {
+>>  			},
+>>  		},
+>>  		.preempt_record_size = 3572 * SZ_1K,
+>> +	}, {
+>> +		.chip_ids = ADRENO_CHIP_IDS(0x43030c00),
+>> +		.family = ADRENO_7XX_GEN2,
+>> +		.fw = {
+>> +			[ADRENO_FW_SQE] = "gen71500_sqe.fw",
+>> +			[ADRENO_FW_GMU] = "gen71500_gmu.bin",
+> 
+> Any chance of getting these and ZAP into linux-firmware?
 
-Remove the workaround to allow the GPU power regulator to power off, now
-that the DT includes the necessary information to power it back on
-correctly.
+Yeah. Haven't got the legal clearance to publish the firmwares yet. Will
+post it in a few days.
 
-Fixes: f94500eb7328b ("arm64: dts: rockchip: Add GPU power domain regulator dependency for RK3588")
-Signed-off-by: Sam Edwards <CFSworks@gmail.com>
-Cc: <stable@vger.kernel.org>
----
+-Akhil.
 
-Hi friends,
-
-This is a patch from about two weeks ago that I failed to address to all
-relevant recipients, so I'm resending it with the recipients of the "Fixes:"
-commit included, as I should have done originally.
-
-The original thread had no discussion.
-
-Well wishes,
-Sam
-
----
- arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi | 11 -----------
- 1 file changed, 11 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-index 60ad272982ad..6daea8961fdd 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi
-@@ -398,17 +398,6 @@ rk806_dvs3_null: dvs3-null-pins {
- 
- 		regulators {
- 			vdd_gpu_s0: vdd_gpu_mem_s0: dcdc-reg1 {
--				/*
--				 * RK3588's GPU power domain cannot be enabled
--				 * without this regulator active, but it
--				 * doesn't have to be on when the GPU PD is
--				 * disabled.  Because the PD binding does not
--				 * currently allow us to express this
--				 * relationship, we have no choice but to do
--				 * this instead:
--				 */
--				regulator-always-on;
--
- 				regulator-boot-on;
- 				regulator-min-microvolt = <550000>;
- 				regulator-max-microvolt = <950000>;
--- 
-2.48.1
+> 
+> 
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> 
+> 
 
 
