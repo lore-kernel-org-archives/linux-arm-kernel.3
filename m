@@ -4,123 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BB9C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 20:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A231BC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 21:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ebjeNRseKqUDttm9BjoWMCbWg+pOJ3HwUqTpbP41Hfg=; b=j5aTNObCpac2RKPKTLGwDPMS7E
-	Fg5Wz4DCxNS5epCQmUKgoBuY3+TwSLkmFVN9zN6r7XDCC9fRqv9jq06Y488ydiRaw4ongqmxajM4d
-	17Nsdw1QmHAb8kxZ4Ru3MlMICEt4ezddek69ivaAVCAsy288uQ0Liy7noGV9zbqB7Wu+BfDoXjVzf
-	G9no7TCR1kbw0M/whZmg3TQ8QoUjDpOZUtaeEats8SIePtds9CIpLQyMJcvcBkDtjs7lYaAdgjoGg
-	h7d3nG3DfR5YqqcqOFmJU0ONniwXIJkY+Vs0Ok5w2YydiVnPQAdRX8Ft2afQWCT0ENGx+v4FzxyeQ
-	7Tsa696Q==;
+	bh=Brur4C1KRH7ZUhiNhHqibnXMQBZX0rV+SrS3MM3LTAE=; b=rpnBFg6NvLeXRtW2RVaF75sHT4
+	wI4+l+QV1GoOdDgWD8w0jHU5zZ23zKpoCaFS9DVNpU+6/u31Q8oJnyGA5O71DMatlO6wrIcj50tN2
+	Z8Mmbo/MuFQjeHizadEPqy0wBs9TOvWcMs1KHUTPbTBssG9GJd/qAw4nT0XuTnFIhjON1QWijQX/v
+	eORxRIUqjj+aB/y4oofONxXi/IdQpiOG8H1wc1KS2U0idSo3Vsvf4JTF8FHFCROZQAbdIP+0NKnjN
+	5G9V2XTaOe6ubSfZMNFGD5eFD2TU6OnK6075xXJKLsBb5zR5TAczJkM5PrFaL/6uNB5yau1waKOzW
+	iRqKgfvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOMWD-00000002whm-1D9Y;
-	Sun, 08 Jun 2025 20:21:25 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uONOH-00000002yqW-3Wbu;
+	Sun, 08 Jun 2025 21:17:17 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOMU5-00000002wcH-2xFw
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Jun 2025 20:19:14 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5589eTe4001097;
-	Sun, 8 Jun 2025 20:18:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ebjeNRseKqUDttm9BjoWMCbWg+pOJ3HwUqTpbP41Hfg=; b=bS5KRQr1+FUcJVd6
-	2jLkeyN71QdLA56H3/wKqgC4H3NEPZNV4ffSyALggB2aCQEC/fHsFSj2hXeX6ACV
-	Hy6/j1WjSJ0pfsqZ4eOcbnMtVnVSsdeejtF+NvqM9lm26j3m1RqqV1PbxQGFBdLP
-	74NC3H/t/bc/K/5bMk1okQmgJBcIPss+slkzuAyiggjPlb3xzKmME6xW+i8LZ6Gj
-	TBEVKlxW227OMPh3UXTNN72p0EhdcFtw85njZqiPqZOoDyir1vuasT+EEB/B1NS0
-	oniaBg+aC2nuid2rrnVLL28qn7Bpva1/q8r5x0w/bEhGIVtVQaaDrfjrygsCDmnI
-	PyavVg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474ccv3ryx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 08 Jun 2025 20:18:51 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 558KIowt001788
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 8 Jun 2025 20:18:50 GMT
-Received: from [10.216.51.238] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 8 Jun 2025
- 13:18:43 -0700
-Message-ID: <dbbcc6b5-0d7d-440e-97e6-07b430d4f657@quicinc.com>
-Date: Mon, 9 Jun 2025 01:48:40 +0530
+	id 1uONM8-00000002yQr-3Awt;
+	Sun, 08 Jun 2025 21:15:06 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout3.routing.net (Postfix) with ESMTP id 9F1B960131;
+	Sun,  8 Jun 2025 21:15:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1749417300;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Brur4C1KRH7ZUhiNhHqibnXMQBZX0rV+SrS3MM3LTAE=;
+	b=DeAsXqnGnNiR+K6UcO6MlVhSX5geCOb64eEHO2CbkFl/v9XdVnfvtEGo4DMRcYwBTjvoUe
+	aKsVLmrTBi2FR1u3eGvGAP6Q7n736kKaKAR0eyhHVSKhJQRTTVSOz59Rv7FJaoFC3NtkqS
+	xrYyBpK/WoL7Kodeoc5LepRVogpCb3g=
+Received: from frank-u24.. (fttx-pool-80.245.77.166.bambit.de [80.245.77.166])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 436781226D6;
+	Sun,  8 Jun 2025 21:15:00 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Georgi Djakov <djakov@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	Jia-Wei Chang <jia-wei.chang@mediatek.com>,
+	Johnson Wang <johnson.wang@mediatek.com>,
+	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 04/13] dt-bindings: interconnect: add mt7988-cci compatible
+Date: Sun,  8 Jun 2025 23:14:37 +0200
+Message-ID: <20250608211452.72920-5-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250608211452.72920-1-linux@fw-web.de>
+References: <20250608211452.72920-1-linux@fw-web.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: qcom: Add GPU support to X1P42100 SoC
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        <rob.clark@oss.qualcomm.com>
-CC: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Sean Paul
-	<sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abhinav Kumar
-	<abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Bjorn Andersson
-	<andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>
-References: <20250607-x1p-adreno-v1-0-a8ea80f3b18b@oss.qualcomm.com>
- <20250607-x1p-adreno-v1-3-a8ea80f3b18b@oss.qualcomm.com>
- <wayrour74vlli27xrtxi2ff2v7q7ye2yknmk2mjpur5ry5gruv@hhh2mdb6lw2i>
- <CACSVV03X5EyAb5yCPDn1ot8vOFV_dKG7f6+yO5t9srr31AiUKw@mail.gmail.com>
- <rwjc7zkitubi6cdre5a7owmo76nopavkgifvvn6yq2mv2hrth4@bhwbodchd2gx>
- <CACSVV03mNkELWDB_uxdjEa5GeWZUY=42O8QG4qTrg6zquT1Bgw@mail.gmail.com>
- <42a69fa4-48ac-4a2f-a2ff-b4e1fe3a228a@oss.qualcomm.com>
-From: Akhil P Oommen <quic_akhilpo@quicinc.com>
-Content-Language: en-US
-In-Reply-To: <42a69fa4-48ac-4a2f-a2ff-b4e1fe3a228a@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: gIssG8YUeIYlp7vgTBTkhvyilbuiGDki
-X-Authority-Analysis: v=2.4 cv=TsLmhCXh c=1 sm=1 tr=0 ts=6845f02b cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8
- a=jk5spBuy_7rvZDU0t7YA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: gIssG8YUeIYlp7vgTBTkhvyilbuiGDki
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA4MDE2NSBTYWx0ZWRfX8+GaHB3UvpfZ
- pNYvCtSCb/GhPuuKQlUpl8Zn7icxtjEtOnR/W1M/7wSLHpLDBjUapt3avXNkxwAWXqUjP0OE7r5
- s+D/ja+ayUtu+JF+WA7igMK1mdo6XsQRhKem1puBl11qRsklPrDb/LlJIXRck7gHCqWJTFH3NNo
- VqhU3fXoDFfwYSZO6vIKSWhDxWgsyABk2H/j34E8PngxTyskM5Me3jbaEe+gq+IZwc6GapZ7u+r
- f+xmYi/M7wt95Myj4B9yRGzz7wcJgY9aHKn2NL3cPVZNcu/CUcKg9eyDi/ik6tv6Q7uVAEPu3pe
- RcaHHKgRquPBaZXwAU1uolXVEKxFXsHNXe4BRECaHFG0+kG/LhGf/4ndH+CBC9g6I/pdO5u88Q9
- HIKIFqtLs8F7aRnhjaCTBYhJC/jQjWYJQz98OeO/w9woGKDSOYs7w8FjVBJVmWWr1F39h00H
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-08_04,2025-06-05_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 spamscore=0 mlxlogscore=999 impostorscore=0
- priorityscore=1501 bulkscore=0 adultscore=0 clxscore=1015 mlxscore=0
- malwarescore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506080165
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_131913_750591_344CAADB 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250608_141505_013146_3514B957 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,204 +100,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/8/2025 8:52 PM, Dmitry Baryshkov wrote:
-> On 08/06/2025 18:20, Rob Clark wrote:
->> On Sun, Jun 8, 2025 at 8:09 AM Dmitry Baryshkov
->> <dmitry.baryshkov@oss.qualcomm.com> wrote:
->>>
->>> On Sun, Jun 08, 2025 at 07:10:11AM -0700, Rob Clark wrote:
->>>> On Sat, Jun 7, 2025 at 1:17 PM Dmitry Baryshkov
->>>> <dmitry.baryshkov@oss.qualcomm.com> wrote:
->>>>>
->>>>> On Sat, Jun 07, 2025 at 07:45:01PM +0530, Akhil P Oommen wrote:
->>>>>> X1P42100 SoC has a new GPU called Adreno X1-45 which is a smaller
->>>>>> version of Adreno X1-85 GPU. Describe this new GPU and also add
->>>>>> the secure gpu firmware path that should used for X1P42100 CRD.
->>>>>>
->>>>>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->>>>>> ---
->>>>>>   arch/arm64/boot/dts/qcom/x1e80100.dtsi    |   7 ++
->>>>>>   arch/arm64/boot/dts/qcom/x1p42100-crd.dts |   4 +
->>>>>>   arch/arm64/boot/dts/qcom/x1p42100.dtsi    | 121 ++++++++++++++++
->>>>>> +++++++++++++-
->>>>>>   3 files changed, 131 insertions(+), 1 deletion(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/
->>>>>> boot/dts/qcom/x1e80100.dtsi
->>>>>> index
->>>>>> a8eb4c5fe99fe6dd49af200a738b6476d87279b2..558d7d387d7710770244fcc901f461384dd9b0d4 100644
->>>>>> --- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
->>>>>> +++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
->>>>>> @@ -8245,6 +8245,13 @@ sbsa_watchdog: watchdog@1c840000 {
->>>>>>                        interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
->>>>>>                };
->>>>>>
->>>>>> +             qfprom: efuse@221c8000 {
->>>>>> +                     compatible = "qcom,x1e80100-qfprom",
->>>>>> "qcom,qfprom";
->>>>>> +                     reg = <0 0x221c8000 0 0x1000>;
->>>>>> +                     #address-cells = <1>;
->>>>>> +                     #size-cells = <1>;
->>>>>> +             };
->>>>>> +
->>>>>>                pmu@24091000 {
->>>>>>                        compatible = "qcom,x1e80100-llcc-bwmon",
->>>>>> "qcom,sc7280-llcc-bwmon";
->>>>>>                        reg = <0 0x24091000 0 0x1000>;
->>>>>> diff --git a/arch/arm64/boot/dts/qcom/x1p42100-crd.dts b/arch/
->>>>>> arm64/boot/dts/qcom/x1p42100-crd.dts
->>>>>> index
->>>>>> cf07860a63e97c388909fb5721ae7b9729b6c586..cf999c2cf8d4e0af83078253fd39ece3a0c26a49 100644
->>>>>> --- a/arch/arm64/boot/dts/qcom/x1p42100-crd.dts
->>>>>> +++ b/arch/arm64/boot/dts/qcom/x1p42100-crd.dts
->>>>>> @@ -15,3 +15,7 @@ / {
->>>>>>        model = "Qualcomm Technologies, Inc. X1P42100 CRD";
->>>>>>        compatible = "qcom,x1p42100-crd", "qcom,x1p42100";
->>>>>>   };
->>>>>> +
->>>>>> +&gpu_zap_shader {
->>>>>> +     firmware-name = "qcom/x1p42100/gen71500_zap.mbn";
->>>>>> +};
->>>>>> diff --git a/arch/arm64/boot/dts/qcom/x1p42100.dtsi b/arch/arm64/
->>>>>> boot/dts/qcom/x1p42100.dtsi
->>>>>> index
->>>>>> 27f479010bc330eb6445269a1c46bf78ec6f1bd4..5ed461ed5cca271d43647888aa6eacac3de2ac9d 100644
->>>>>> --- a/arch/arm64/boot/dts/qcom/x1p42100.dtsi
->>>>>> +++ b/arch/arm64/boot/dts/qcom/x1p42100.dtsi
->>>>>> @@ -17,15 +17,134 @@
->>>>>>   /delete-node/ &cpu_pd9;
->>>>>>   /delete-node/ &cpu_pd10;
->>>>>>   /delete-node/ &cpu_pd11;
->>>>>> +/delete-node/ &gpu_opp_table;
->>>>>>   /delete-node/ &pcie3_phy;
->>>>>>
->>>>>>   &gcc {
->>>>>>        compatible = "qcom,x1p42100-gcc", "qcom,x1e80100-gcc";
->>>>>>   };
->>>>>>
->>>>>> -/* The GPU is physically different and will be brought up later */
->>>>>> +&gmu {
->>>>>> +     /delete-property/ compatible;
->>>>>> +     compatible = "qcom,adreno-gmu-x145.0", "qcom,adreno-gmu";
->>>>>> +};
->>>>>> +
->>>>>> +&qfprom {
->>>>>> +     gpu_speed_bin: gpu_speed_bin@119 {
->>>>>> +             reg = <0x119 0x2>;
->>>>>> +             bits = <7 9>;
->>>>>> +     };
->>>>>> +};
->>>>>> +
->>>>>>   &gpu {
->>>>>>        /delete-property/ compatible;
->>>>>
->>>>> I think, you can drop this line.
+From: Frank Wunderlich <frank-w@public-files.de>
 
-I wasn't sure about this and I thought it was harmless to delete it.
-Anyway, I will remove the "delete" from both GPU and GMU nodes.
+Add compatible for Mediatek MT7988 SoC with mediatek,mt8183-cci fallback
+which is taken by driver.
 
->>>>>
->>>>>> +
->>>>>> +     compatible = "qcom,adreno-43030c00", "qcom,adreno";
->>>>>> +
->>>>>> +     nvmem-cells = <&gpu_speed_bin>;
->>>>>> +     nvmem-cell-names = "speed_bin";
->>>>>> +
->>>>>> +     gpu_opp_table: opp-table {
->>>>>> +             compatible = "operating-points-v2-adreno",
->>>>>> "operating-points-v2";
->>>>>> +
->>>>>> +             opp-1400000000 {
->>>>>> +                     opp-hz = /bits/ 64 <1400000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_TURBO_L4>;
->>>>>> +                     opp-peak-kBps = <16500000>;
->>>>>> +                     qcom,opp-acd-level = <0xa8295ffd>;
->>>>>> +                     opp-supported-hw = <0x3>;
->>>>>> +             };
->>>>>> +
->>>>>> +             opp-1250000000 {
->>>>>> +                     opp-hz = /bits/ 64 <1250000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_TURBO_L3>;
->>>>>> +                     opp-peak-kBps = <16500000>;
->>>>>> +                     qcom,opp-acd-level = <0x882a5ffd>;
->>>>>> +                     opp-supported-hw = <0x7>;
->>>>>> +             };
->>>>>> +
->>>>>> +             opp-1107000000 {
->>>>>> +                     opp-hz = /bits/ 64 <1107000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_TURBO_L1>;
->>>>>> +                     opp-peak-kBps = <16500000>;
->>>>>> +                     qcom,opp-acd-level = <0x882a5ffd>;
->>>>>> +                     opp-supported-hw = <0xf>;
->>>>>> +             };
->>>>>> +
->>>>>> +             opp-1014000000 {
->>>>>> +                     opp-hz = /bits/ 64 <1014000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_TURBO>;
->>>>>> +                     opp-peak-kBps = <14398438>;
->>>>>> +                     qcom,opp-acd-level = <0xa82a5ffd>;
->>>>>> +                     opp-supported-hw = <0xf>;
->>>>>> +             };
->>>>>> +
->>>>>> +             opp-940000000 {
->>>>>> +                     opp-hz = /bits/ 64 <940000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_NOM_L1>;
->>>>>> +                     opp-peak-kBps = <14398438>;
->>>>>> +                     qcom,opp-acd-level = <0xa82a5ffd>;
->>>>>> +                     opp-supported-hw = <0xf>;
->>>>>> +             };
->>>>>> +
->>>>>> +             opp-825000000 {
->>>>>> +                     opp-hz = /bits/ 64 <825000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_NOM>;
->>>>>> +                     opp-peak-kBps = <12449219>;
->>>>>> +                     qcom,opp-acd-level = <0x882b5ffd>;
->>>>>> +                     opp-supported-hw = <0xf>;
->>>>>> +             };
->>>>>> +
->>>>>> +             opp-720000000 {
->>>>>> +                     opp-hz = /bits/ 64 <720000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_SVS_L2>;
->>>>>> +                     opp-peak-kBps = <10687500>;
->>>>>> +                     qcom,opp-acd-level = <0xa82c5ffd>;
->>>>>> +                     opp-supported-hw = <0xf>;
->>>>>> +             };
->>>>>> +
->>>>>> +             opp-666000000-0 {
->>>>>> +                     opp-hz = /bits/ 64 <666000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
->>>>>> +                     opp-peak-kBps = <8171875>;
->>>>>> +                     qcom,opp-acd-level = <0xa82d5ffd>;
->>>>>> +                     opp-supported-hw = <0xf>;
->>>>>> +             };
->>>>>> +
->>>>>> +             /* Only applicable for SKUs which has 666Mhz as Fmax */
->>>>>> +             opp-666000000-1 {
->>>>>> +                     opp-hz = /bits/ 64 <666000000>;
->>>>>> +                     opp-level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
->>>>>> +                     opp-peak-kBps = <16500000>;
->>>>>
->>>>> This looks odd, why is it so high?
->>>>
->>>> You want max bandwidth on max opp
->>>
->>> Yes, but can it actually sustain / provide this BW?
->>>
->>
->> I'd have to trust Akhil on that one, but I have no reason to believe
->> otherwise.  Just pointing out we've done analogous things elsewhere
->> (for ex, cpu bw for sc7180-lite.dtsi)
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v2:
+- no RFC
+- drop "items" as sugested by conor
+---
+ .../bindings/interconnect/mediatek,cci.yaml           | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-Window's GPU KMD seems to vote Max bandwidth for this SKU, so I think
-this is fine. Our GPUs from last few generations can easily saturate DDR
-with the right usecase.
-
--Akhil
-
-> 
-> Ack. Then I'll wait for v2 with no deleting of compatible lines (a new
-> line here would just replace the existing one).
-> 
-> 
+diff --git a/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml b/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml
+index 58611ba2a0f4..4d72525f407e 100644
+--- a/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml
++++ b/Documentation/devicetree/bindings/interconnect/mediatek,cci.yaml
+@@ -17,9 +17,14 @@ description: |
+ 
+ properties:
+   compatible:
+-    enum:
+-      - mediatek,mt8183-cci
+-      - mediatek,mt8186-cci
++    oneOf:
++      - enum:
++          - mediatek,mt8183-cci
++          - mediatek,mt8186-cci
++      - items:
++          - enum:
++              - mediatek,mt7988-cci
++          - const: mediatek,mt8183-cci
+ 
+   clocks:
+     items:
+-- 
+2.43.0
 
 
