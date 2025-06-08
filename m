@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C620C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 23:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E7AC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 23:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=koeyGqy9geqWWGboYYe/s1BFD6/F+f/laW8jqXjMlgA=; b=WCbRgfogHgkgoqxCijxy+zUB4y
-	6pHO42Ek4iqgdopgoR84FuAbJlezqhEOPw0wCIVPTabF5pHcYbQr0ts2ql/BqxcNHts5zegQ2FfYS
-	dArAmsj35bwA3zJXwmy+VnIR2AHGs5XVNkmctPtDpu3Jz3dpJAQcGVyaaeNTr62F/NVmvz8/rcCgL
-	rsdWnfIGChYbzHzKd6JeGvWk+69/jsIB+YTVO3YKolOxbrwC31Tf6fKu92jdX2CZSQpm/1YZ3fBbF
-	wFXcI4OUMii0eqUU6zScDqmrdSDHp0/M/DHo9vODWkXQywDPW98K6tr/8UarDiv2D8V/oo3qrQ9EV
-	zz0qvHAw==;
+	bh=bfw4JisrcSI7hhJmSGYdFsymCwhoyEU8r4VHLmRjND4=; b=Ai4BnqFGm5k5ofVig4RkL9vXec
+	SJ1hOszWNIZpZT0YSqCHtzK22lF3Ta9wJaKQbbwGnerim7ZgVCZFJCStoevOd4TOeN/MYHptn4iiP
+	z3kdaRQswo4kkwBhh4lQIn8Ap+kt6nS9YFAnYxIyWJXTQeLT93iEZ+Tx1JJCgZYlYQSn53yYqjaAE
+	Sert5UURwlfgWZhJXscS9gOO+u0iAsu+55BnljXoSjk2bUbmn/Ur8zzH1KTk8IX48Zssm2vyMr6QF
+	6Umbwdndg7iYyeodavrdGBRay6CkSHSryZw8YxQWmsBNY1EqqarkZrVjiMbEmj7UICLrarfbvLDIF
+	e9IQbuiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPlR-000000039Ww-0QhJ;
-	Sun, 08 Jun 2025 23:49:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uOPnX-000000039rq-1KwC;
+	Sun, 08 Jun 2025 23:51:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPjJ-000000039I4-0uOV;
-	Sun, 08 Jun 2025 23:47:10 +0000
+	id 1uOPkn-000000039Nm-15kh;
+	Sun, 08 Jun 2025 23:48:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5C5A0A4F6B4;
-	Sun,  8 Jun 2025 23:47:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8491AC4CEEE;
-	Sun,  8 Jun 2025 23:47:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 183605C5486;
+	Sun,  8 Jun 2025 23:46:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ECB5C4CEEE;
+	Sun,  8 Jun 2025 23:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749426428;
-	bh=He/qqF7BxEbAQ+KhVIwOAYIjY3DpawZEJHr+Xte/K6Q=;
+	s=k20201202; t=1749426519;
+	bh=PNJP4F4SM5CKWVi44F6XN3CvXe0mnkBMQtyo2ioWp6k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EPyWCyBVPXpu72efvExgg8gLAw9penLyFzlo1qRsspsqyd4JZoFxW7hHQvlnEtIIa
-	 1BxGaS04c9RuFEve+dtCt1LEb2SSISR2VgjLm0WYXRDHNt8nXsOorMQAj8PjQpmAB0
-	 F5rfSxl/09kNUJny72FkrWqXDDqrWHkySwoyI3r23w9s9UZxhxYgVcxmIH21znQLYr
-	 RAY4VaCbmTRnWUl2bEewz1enz7kzJYX9fFC9W66bUVBifTQ9wgF652vwOiRoE9mHCR
-	 SyixTBnJQbaXXeJQKz8gWyl2YRqW1kNgBMYmIhv1mCruOadbFAPFkGtBFHhXGzcMB6
-	 +EWaHxDKp/9YA==
-Date: Sun, 8 Jun 2025 16:46:46 -0700
+	b=JOEtAeuZjpWvk9z46QbzwFTvSH+ljw/hQKIzEhZJx7YF2EwgrcI3+lI1VVKscms0d
+	 m3qcoPnMMDVh4lKObwmfsWuGFAfWfD9VrvL51JeF8gEdf9j5e89zlEOEgaCwxiok5N
+	 /aXy/hTwK0fEa7Z/G4j2/UPMcbFCWgXgxCUhbLoCrXwDNwOBWfrQbnnk/HZXwh/U2/
+	 WnpIAIMFGu/oqqi+ROzvz89sXkm5O6vGwJ/PQ3JdxSPps11zhBrcyuDg/46eion+ad
+	 2/v4rAxctCfEtqWu0G117hIgv+MXBMm76WuvxTusmww2Scut4P917GLHnfL8cwD0i5
+	 36P1VSkTzVNzw==
+Date: Sun, 8 Jun 2025 16:48:17 -0700
 From: Eric Biggers <ebiggers@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, linux-arch@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH 00/13] lib/crc: improve how arch-optimized code is
+Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is
  integrated
-Message-ID: <20250608234646.GE1259@sol>
-References: <20250601224441.778374-1-ebiggers@kernel.org>
+Message-ID: <20250608234817.GG1259@sol>
+References: <20250607200454.73587-1-ebiggers@kernel.org>
+ <aETPdvg8qXv18MDu@zx2c4.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250601224441.778374-1-ebiggers@kernel.org>
+In-Reply-To: <aETPdvg8qXv18MDu@zx2c4.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_164709_382683_91B00703 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20250608_164841_337240_8ECEB2AB 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,50 +77,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 01, 2025 at 03:44:28PM -0700, Eric Biggers wrote:
-> This series improves how lib/crc supports arch-optimized code.  First,
-> instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
-> will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
-> crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
-> functions (e.g. crc32c_base()) will now be part of a single module for
-> each CRC type, allowing better inlining and dead code elimination.  The
-> second change is made possible by the first.
+On Sat, Jun 07, 2025 at 05:47:02PM -0600, Jason A. Donenfeld wrote:
+> On Sat, Jun 07, 2025 at 01:04:42PM -0700, Eric Biggers wrote:
+> > Having arch-specific code outside arch/ was somewhat controversial when
+> > Zinc proposed it back in 2018.  But I don't think the concerns are
+> > warranted.  It's better from a technical perspective, as it enables the
+> > improvements mentioned above.  This model is already successfully used
+> > in other places in the kernel such as lib/raid6/.  The community of each
+> > architecture still remains free to work on the code, even if it's not in
+> > arch/.  At the time there was also a desire to put the library code in
+> > the same files as the old-school crypto API, but that was a mistake; now
+> > that the library is separate, that's no longer a constraint either.
 > 
-> As an example, consider CONFIG_CRC32=m on x86.  We'll now have just
-> crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
-> were already coupled together and always both got loaded together via
-> direct symbol dependency, so the separation provided no benefit.
+> I can't express how happy I am to see this revived. It's clearly the
+> right way forward and makes it a lot simpler for us to dispatch to
+> various arch implementations and also is organizationally simpler.
 > 
-> Note: later I'd like to apply the same design to lib/crypto/ too, where
-> often the API functions are out-of-line so this will work even better.
-> In those cases, for each algorithm we currently have 3 modules all
-> coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
-> sha256-x86.ko.  We should have just one, inline things properly, and
-> rely on the compiler's dead code elimination to decide the inclusion of
-> the generic code instead of manually setting it via kconfig.
-> 
-> Having arch-specific code outside arch/ was somewhat controversial when
-> Zinc proposed it back in 2018.  But I don't think the concerns are
-> warranted.  It's better from a technical perspective, as it enables the
-> improvements mentioned above.  This model is already successfully used
-> in other places in the kernel such as lib/raid6/.  The community of each
-> architecture still remains free to work on the code, even if it's not in
-> arch/.  At the time there was also a desire to put the library code in
-> the same files as the old-school crypto API, but that was a mistake; now
-> that the library is separate, that's no longer a constraint either.
-> 
-> Patches 1 and 2, which I previously sent out by themselves, are
-> prerequisites because they eliminate the need for the CRC32 library API
-> to expose the generic functions.
-> 
-> Eric Biggers (13):
->   crypto/crc32: register only one shash_alg
->   crypto/crc32c: register only one shash_alg
+> Jason
 
-Applied the first 2 patches to
-https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
-
-The remaining patches have new versions in the v2 series.
+Thanks!  Can I turn that into an Acked-by?
 
 - Eric
 
