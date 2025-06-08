@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D590C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 12:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C9ECC5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 13:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pBP8WFakdR1rYbXm4H/t5YZ56Lqo6sxREZcvs457tB4=; b=MMkSuF1gokr2kpwsyGNxggbwMa
-	uaXt8s2L7zoufL8WC41pYbTkSAkdKZQpgoa5Iy6sSIo8eODqpgeI2u19524xcvv4PPtL7Oa12zTTR
-	thZ2YQiBP5ETiSJGZXAotsDFgq7FXFsMH3p9k4MRrQtFGdVNJE0UFxAxkGUB2SXyrTWSSEIqYZuZb
-	Lrt0EjRKPGMBOgEivSkDhN1YKJoHhb3vTXKHQpwnWrA4+/a3emeWALdygXpJqiKsObwpUJE8+vrVg
-	VWw2TDt51V+XVDZkQSsLQhTpu6T9hFhTav+BLa6WETC/V88UrVtBaFoqXBYK+vPVR031/Ue8wU1xh
-	XPLtZxiA==;
+	bh=vVlWFQGuRyHIgr98aUGtlXPmgCzpXznNOgktVvEtUxk=; b=TS8CVkvW4dDbhus8jC4pnzUD1q
+	TIicrRBu9G4v8Ea4DEemdbEdEbJN7dioSFNAXN2sx8bpAYpsqRS6eiy6x5g7n1d4KVVZDI1wt7iu7
+	x2SCaFqy8IMUWQ3ChinZeHvzW+tBsZxoHSryXhyKw5OaHNYa1nvWCv4Ck3+LR99xV5w70nm6+9ejW
+	RazeNgZ5U07oahmfRhamnRT26bRkDATUrdX1sa2U0YNbcsrsvepucB/+8SbNOhkcX40KEzkXM188+
+	4EOokDw3hZkl45KEp/T5KnGZM+bpAOGfhXNvXURoPecMSbTDF2T99gDz7owqp6BfLqctoDaZu/eoM
+	zQbjusVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOFbK-00000002csU-0o7H;
-	Sun, 08 Jun 2025 12:58:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uOFdP-00000002d12-437X;
+	Sun, 08 Jun 2025 13:00:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOFXv-00000002cJa-2ceW
+	id 1uOFY0-00000002cKn-0E3P
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Jun 2025 12:54:45 +0000
+	Sun, 08 Jun 2025 12:54:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25DBBA50A9B;
-	Sun,  8 Jun 2025 12:54:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61ECAC4CEEF;
-	Sun,  8 Jun 2025 12:54:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 44DE1A50A79;
+	Sun,  8 Jun 2025 12:54:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF002C4CEF5;
+	Sun,  8 Jun 2025 12:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749387281;
-	bh=3WTMkALMyJ2oJGtf/ep9Kw05w9K5sHVgBVQ1POnDzMI=;
+	s=k20201202; t=1749387286;
+	bh=oeA8jCBXTd12+Ce4gb12Cz5AdbP0qIMwY7L5mREjuFg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BxVC3nyjH8sqmJnP6e9nrLj6XdZ0MzYVLk4/ob4MDH9SxCof/mwE39cuBc1wvIK9o
-	 QH28z6JITN76+VNFCgGPqaU72pZGRMN3LYOY8ac3trePJJUXw6O/Q0eZEo87Imn2LI
-	 SFvBByTEg5FtqbV70Bd0hpXx+40yav/gRMt8LeSVOBqGuDhBug2FPvRXTCjbUOsvkB
-	 JkXbtBQhwRSPieHfW2aR7oikNR7A1qir2xjJBUx7Rn0/3Y2aAu9iNiucef4szq3FIS
-	 rTid3zZEN8o0uLdjewnh2qRFZ8gJhA4UcaSSM8VQeHGftOfKg5kgU13FGeYABnIfsi
-	 6ufVtWdqVj/aA==
+	b=BHZSKbmUPhJ4nJQkyR888k+1n375fvtQzrQZxBbLGJhhBc1YlsqhKNgEoZ4cJzud9
+	 RT7WjyJlmswe/Fp1U5Qb73akJDesgw+4HuKUFkjN2D2osWp7BafBp5hVFDw6JsxLdT
+	 Fo2zoiO/w+BtI39xQMCsQOFJDrbRUzGfdGJ7lfbiNo04fGa4cB+k6S5w3Fxy+SWt55
+	 j01P6La3o51/qjcKzJhXKbNTNeEQowxw4Gwy1DkU6fly6e01stmpDX3jI1UiCljlBr
+	 euLk+k+bZGvfPNZP4mj14zuqopftqvGWyYo1DdvtyQKfApdDG1mboVp1MT8leU5qvJ
+	 2Cxt1WCW9ZILg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	Vinod Koul <vkoul@kernel.org>,
+Cc: Richard Zhu <hongxing.zhu@nxp.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
 	Sasha Levin <sashal@kernel.org>,
-	michal.simek@amd.com,
-	u.kleine-koenig@baylibre.com,
-	mani@kernel.org,
-	marex@denx.de,
-	krzysztof.kozlowski@linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.15 07/10] dmaengine: xilinx_dma: Set dma_device directions
-Date: Sun,  8 Jun 2025 08:54:24 -0400
-Message-Id: <20250608125427.933430-7-sashal@kernel.org>
+	l.stach@pengutronix.de,
+	shawnguo@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: [PATCH AUTOSEL 6.15 10/10] PCI: imx6: Add workaround for errata ERR051624
+Date: Sun,  8 Jun 2025 08:54:27 -0400
+Message-Id: <20250608125427.933430-10-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250608125427.933430-1-sashal@kernel.org>
 References: <20250608125427.933430-1-sashal@kernel.org>
@@ -66,10 +64,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.15.1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_055443_807618_4B25E4D2 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20250608_055448_222977_C5C8A403 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,110 +83,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
-[ Upstream commit 7e01511443c30a55a5ae78d3debd46d4d872517e ]
+[ Upstream commit ce0c43e855c7f652b6351110aaaabf9b521debd7 ]
 
-Coalesce the direction bits from the enabled TX and/or RX channels into
-the directions bit mask of dma_device. Without this mask set,
-dma_get_slave_caps() in the DMAEngine fails, which prevents the driver
-from being used with an IIO DMAEngine buffer.
+ERR051624: The Controller Without Vaux Cannot Exit L23 Ready Through Beacon
+or PERST# De-assertion
 
-Signed-off-by: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>
-Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
-Tested-by: Folker Schwesinger <dev@folker-schwesinger.de>
-Link: https://lore.kernel.org/r/20250507182101.909010-1-thomas.gessler@brueckmann-gmbh.de
-Signed-off-by: Vinod Koul <vkoul@kernel.org>
+When the auxiliary power is not available, the controller cannot exit from
+L23 Ready with beacon or PERST# de-assertion when main power is not
+removed. So the workaround is to set SS_RW_REG_1[SYS_AUX_PWR_DET] to 1.
+
+This workaround is required irrespective of whether Vaux is supplied to the
+link partner or not.
+
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+[mani: subject and description rewording]
+Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Link: https://patch.msgid.link/20250416081314.3929794-5-hongxing.zhu@nxp.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 **YES**
 
-## Analysis
+This commit should be backported to stable kernel trees. Here's my
+extensive analysis:
 
-This commit should be backported to stable kernel trees because it fixes
-a critical functionality bug that prevents the Xilinx DMA driver from
-working with important subsystems.
+## **Primary Justification: Hardware Errata Fix**
 
-### The Problem
-The commit addresses a fundamental issue where `dma_get_slave_caps()`
-fails when called on Xilinx DMA channels. The code change shows that the
-driver was not setting the `directions` field in the `dma_device`
-structure:
+**ERR051624** is a documented silicon-level hardware errata affecting
+i.MX95 PCIe controllers. The commit message clearly states this is a
+workaround for a fundamental hardware limitation where "the controller
+cannot exit from L23 Ready with beacon or PERST# de-assertion when main
+power is not removed" when auxiliary power is unavailable.
+
+## **Code Analysis**
+
+The changes are **minimal and targeted**:
 
 ```c
-+       xdev->common.directions |= chan->direction;
++       /*
++        * ERR051624: The Controller Without Vaux Cannot Exit L23 Ready
++        * Through Beacon or PERST# De-assertion
++        *
++        * When the auxiliary power is not available, the controller
++        * cannot exit from L23 Ready with beacon or PERST# de-assertion
++        * when main power is not removed.
++        *
++        * Workaround: Set SS_RW_REG_1[SYS_AUX_PWR_DET] to 1.
++        */
++       regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
++                       IMX95_PCIE_SYS_AUX_PWR_DET);
 ```
 
-This single line fix accumulates the direction capabilities from
-individual channels (either `DMA_MEM_TO_DEV` or `DMA_DEV_TO_MEM`) into
-the device-level `directions` bitmask.
+The fix is:
+- **Self-contained**: Only affects i.MX95 PCIe initialization path
+  (`imx95_pcie_init_phy`)
+- **Low risk**: Simple register bit set with no complex logic
+- **Well-documented**: Includes detailed errata description and official
+  workaround
+- **Hardware-specific**: No impact on other platforms or subsystems
 
-### Why This Qualifies for Backporting
+## **Impact Assessment**
 
-1. **Fixes Important User-Facing Bug**: The commit message explicitly
-   states this prevents the driver from being used with IIO DMAEngine
-   buffers, which is a significant functional regression affecting real
-   users.
+This errata affects **critical system functionality**:
+- **Power Management**: Prevents proper exit from L23 Ready state
+- **System Resume**: Could cause hangs during suspend/resume cycles
+- **Platform Stability**: Affects fundamental PCIe power state
+  transitions
 
-2. **Small and Contained Fix**: The change is minimal - just one line of
-   code that sets a required field during channel probe. This has
-   extremely low risk of introducing regressions.
+## **Historical Precedent**
 
-3. **Critical Subsystem Integration**: Without this fix,
-   `dma_get_slave_caps()` calls fail with `-ENXIO`, breaking integration
-   with any subsystem that queries DMA capabilities (like IIO).
+Examining similar commits shows a **consistent pattern of hardware
+errata backporting**:
 
-4. **Clear Root Cause**: The fix directly addresses the root cause - the
-   missing `directions` field that the DMAEngine core requires to be
-   set.
+1. **Similar Commit #4 (Status: YES)**: "PCI: dwc: Provide deinit
+   callback for i.MX" - Also addresses i.MX PCIe initialization issues
+   and was backported
+2. **ERR005723 workaround**: Recently backported to stable (`Cc:
+   stable@vger.kernel.org`)
+3. **ERR010728 workaround**: Multiple commits addressing this errata,
+   showing active stable maintenance
 
-5. **No Architectural Changes**: This doesn't introduce new features or
-   change driver architecture; it simply provides required capability
-   information that was missing.
+## **Stable Tree Criteria Compliance**
 
-### Comparison to Reference Commits
-This closely matches **Similar Commit #1** (marked YES) which also fixed
-a missing capability flag (`DMA_CYCLIC cap_mask bit`) that prevented
-proper DMA channel allocation. Both commits:
-- Fix missing capability declarations
-- Are small, single-line changes
-- Address integration failures with other subsystems
-- Have minimal regression risk
+✅ **Important bugfix**: Addresses hardware limitation affecting system
+power management
+✅ **Minimal risk**: Single register bit set with no side effects
+✅ **Small and contained**: 13 lines of code, confined to one function
+✅ **No architectural changes**: Simple workaround implementation
+✅ **Critical subsystem**: PCIe power management is fundamental to system
+operation
+✅ **Clear documentation**: Well-documented errata with official
+workaround
 
-The commit also mirrors **Similar Commit #2** (marked YES) which fixed
-incorrect struct usage in the same driver - both address functional
-correctness issues in the Xilinx DMA driver.
+## **Risk Analysis**
 
-### Risk Assessment
-The risk is minimal because:
-- The change only affects the capability reporting mechanism
-- It doesn't modify any data paths or transfer logic
-- The direction values being OR'd together are already correctly set
-  per-channel
-- Failure mode is obvious (capability queries will work instead of
-  failing)
+**Regression Risk: MINIMAL**
+- Only affects i.MX95 platforms specifically
+- Workaround is mandated by hardware vendor (NXP)
+- No conditional logic that could fail
+- Register bit set follows official errata documentation
 
-This is a textbook example of a stable tree candidate: it fixes an
-important bug affecting real users with a minimal, low-risk change that
-doesn't introduce new functionality.
+## **Maintainer Pattern**
 
- drivers/dma/xilinx/xilinx_dma.c | 2 ++
- 1 file changed, 2 insertions(+)
+The i.MX PCIe driver maintainers (Richard Zhu/NXP, Manivannan
+Sadhasivam) have consistently tagged hardware errata fixes for stable
+backporting, demonstrating their commitment to stable kernel support for
+production hardware issues.
 
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 3ad44afd0e74e..8f26b6eff3f3e 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -2909,6 +2909,8 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
- 		return -EINVAL;
- 	}
+## **Conclusion**
+
+This commit represents a **mandatory workaround for broken hardware**
+that affects basic system functionality (power management). It follows
+established patterns of similar errata fixes that have been successfully
+backported, poses minimal regression risk, and addresses a real-world
+issue that would impact users of i.MX95-based systems in production
+environments.
+
+ drivers/pci/controller/dwc/pci-imx6.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 5f267dd261b51..dbcfa43fd5588 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -48,6 +48,8 @@
+ #define IMX95_PCIE_SS_RW_REG_0			0xf0
+ #define IMX95_PCIE_REF_CLKEN			BIT(23)
+ #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
++#define IMX95_PCIE_SS_RW_REG_1			0xf4
++#define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
  
-+	xdev->common.directions |= chan->direction;
+ #define IMX95_PE0_GEN_CTRL_1			0x1050
+ #define IMX95_PCIE_DEVICE_TYPE			GENMASK(3, 0)
+@@ -224,6 +226,19 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
+ 
+ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+ {
++	/*
++	 * ERR051624: The Controller Without Vaux Cannot Exit L23 Ready
++	 * Through Beacon or PERST# De-assertion
++	 *
++	 * When the auxiliary power is not available, the controller
++	 * cannot exit from L23 Ready with beacon or PERST# de-assertion
++	 * when main power is not removed.
++	 *
++	 * Workaround: Set SS_RW_REG_1[SYS_AUX_PWR_DET] to 1.
++	 */
++	regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
++			IMX95_PCIE_SYS_AUX_PWR_DET);
 +
- 	/* Request the interrupt */
- 	chan->irq = of_irq_get(node, chan->tdest);
- 	if (chan->irq < 0)
+ 	regmap_update_bits(imx_pcie->iomuxc_gpr,
+ 			IMX95_PCIE_SS_RW_REG_0,
+ 			IMX95_PCIE_PHY_CR_PARA_SEL,
 -- 
 2.39.5
 
