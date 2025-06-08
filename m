@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE21C5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 00:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73038C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 00:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBTtWXqSEkiFxNr7zo956GfLKMTUOahRm4j/m6rfUaw=; b=xCKnwGS3Fytn1eOEiAWPzjYCoW
-	399v7ARioBUeVyNvwPG0F1enxS5LETrlT0cyTon4E2QqHJ76ysGJySSn6jBPU1eMOw2xWlMGb0tPb
-	tu/57v6FTvqEO5MV5Tvhi0CNskpOWpr9Sw2ejMmSWoIS+eO+Td8Vjtq7VX4hGFnLYOMplolj96rux
-	vFHQoowj/qDK1t6OAhwFkVfD4mphEt8ojq9N1PJZpllwhpDwXmXbTgDbYPDCvMnjDIhvMSgoMFanR
-	5nCkehpi08SnXXxg06Rnx7eMxMkki65ayznk1PiHMurnyMnXLntC9/egwQZ1zOM2ESFfnuOakv6A4
-	xyOqiRyg==;
+	bh=KFmXrj77k9XGFuUHPwOYtDB6t74JLbHmAzOI9fnuM1Q=; b=Jj9YSh5Ps+eB6+8OwaXur5ycaU
+	AoimKd/czcA+VxkluC9QnTehEX7RjLx1QIzHTNayMgUhd/5SoDkdJJCRw9K1QZ2uuVMcqlXm3GJpw
+	ortDHW8YU3WPziVCVRnEfx5YAfKvd5WaIOYVmzSNfUGL0n/fwfG2TsYkBR33sBn0bARJ1VI8uoFIg
+	S98WmujKygs1mkqaDPXp+xdZt3lMN9skvju4zQYmCqT8OHtjEDaKLa7wVVjR/SciFxJY6wQlmO3hA
+	b8fJqtNT8D6Xrf1DgTELIa7aj4rUjouqIjHo+HbSdTtKvg4w0AJEezNLiiLL9h4+4QggLj8Rsp3yV
+	eKaWWruw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOQ11-00000003AT0-2LLH;
-	Mon, 09 Jun 2025 00:05:27 +0000
+	id 1uOQ36-00000003AYd-0t01;
+	Mon, 09 Jun 2025 00:07:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPup-00000003ABO-1g62
+	id 1uOPup-00000003ABP-1jVl
 	for linux-arm-kernel@bombadil.infradead.org;
 	Sun, 08 Jun 2025 23:59:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=kBTtWXqSEkiFxNr7zo956GfLKMTUOahRm4j/m6rfUaw=; b=oS/Mmbbei5zFWlRa0kDGexMLlJ
-	im+UfhZJHD0+RE1HjmKN6etlGDH4Homcvcd+D/jO/M3ANdlvA2lmqLeGPxU5Z2HZH9dGZJM6NSWh7
-	pT+odSXDj7cUZbD27StorSWLVGqpQM9P4GeLQT6Hw7Fxd8VhykqQdPU0KH43IS6TDk6c7JfmP39uv
-	Kzkda16PhQ7CZoJn/EUATUVh2wQiIX8UcuWSnqJEnPAkVWVZD4n9rmH1NfukJInvnui+hw/jxDdo5
-	sAqYWIXkkBJ20ju3WhsTmhyawB2o6xDnF1J0MTL7es0ihvpc7xiZGQTXO3NEf7aN7W0BiJDluZoPx
-	fMQwgLYg==;
+	bh=KFmXrj77k9XGFuUHPwOYtDB6t74JLbHmAzOI9fnuM1Q=; b=ZAq7h/mSpijIk+sv41r/KOYdNS
+	ckiiwNaKepvuh+WzlR011ZRnU94W9VTGPUdN/eo5Wz8GJP3q4qoNY9bAaDMp38+zuRzl6WagAVUAc
+	cXB8AQ6f/fYirGZl+NfCc1Vi+nBklpTUqKlwC8BpzEqkhnBVx6lkJ4Rq/HNv9aqUlDu7tP9n69jWP
+	oEYV4k+Y6/0zVsesfk3cklTD9raNPbHs0SOxloqwKqlprVTN1tRIcBoWACdGCAZpAYwyEdoWe2a3O
+	lQQuhl0pBOcUdbfRKBkGy4qkj6J1ZG+YfB303irbodZkIrgrnGn97cwNtKtwb0Cb4Sn2XxoGxvDXB
+	D2M2wTBQ==;
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPun-00000001YkT-0aa4
+	id 1uOPun-00000001YkV-0NWr
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 08 Jun 2025 23:59:02 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8EDB7122A;
-	Mon,  9 Jun 2025 01:58:49 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 498E91733;
+	Mon,  9 Jun 2025 01:58:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749427129;
-	bh=lGvUIS82JYxssO5IZ7LKynUT3kVxA3Vmqhyhr1r/lW8=;
+	s=mail; t=1749427132;
+	bh=+eXo/wQ3t4d847B87LJaO7CDqdcaA4L1lss+nyuXzWw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jfLvWx1nPCTHxijxgLANtloh4TXrvp+feTnhbCcIeBFMKgPTKdKgMlb9TwF3Gq6+H
-	 GrSl1TxbxxZuDqyjOzQjLML+vhYyxJOeT9rvM2KqtYP+RLTTGkkkCq4dy+UNz+1XwQ
-	 TPvMzBpgbcsAc4Uj1P/FF6uSs4dQpUdFYaiMmPvU=
+	b=X0mgdKu5JhllE45ufOuqVk9O+X5JN7FbHnY4K7PBI8UOpiKr0peZJxgwUlKGDud8V
+	 2TpQ/eB/OgtSxZU4F0K6UcJ/iYol2ijDihKjzR17eqG/qRC/Ho7l2jOduXJxvqijKy
+	 x+ZXOcZKVQoHIb4spArEHFhlGSO9wNzIk8m5//A4=
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: linux-media@vger.kernel.org
 Cc: Isaac Scott <isaac.scott@ideasonboard.com>,
@@ -69,17 +69,17 @@ Cc: Isaac Scott <isaac.scott@ideasonboard.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/8] media: imx-mipi-csis: Fix field alignment in register dump
-Date: Mon,  9 Jun 2025 02:58:34 +0300
-Message-ID: <20250608235840.23871-3-laurent.pinchart@ideasonboard.com>
+Subject: [PATCH 4/8] media: imx-mipi-csis: Only set clock rate when specified in DT
+Date: Mon,  9 Jun 2025 02:58:36 +0300
+Message-ID: <20250608235840.23871-5-laurent.pinchart@ideasonboard.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
 References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_005901_423861_B79D7ABA 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250609_005901_389419_9E847FD9 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,29 +94,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 95a1379004cb ("media: staging: media: imx: imx7-mipi-csis: Dump
-MIPI_CSIS_FRAME_COUNTER_CH0 register") forgot to increase the maximum
-register name length, resulting in misalignment of names printed in the
-kernel log. Fix it.
+The imx-mipi-csis driver sets the rate of the wrap clock to the value
+specified in the device tree's "clock-frequency" property, and defaults
+to 166 MHz otherwise. This is a historical mistake, as clock rate
+selection should have been left to the assigned-clock-rates property.
+
+Honouring the clock-frequency property can't be removed without breaking
+backwards compatibility, and the corresponding code isn't very
+intrusive. The 166 MHz default, on the other hand, prevents
+configuration of the clock rate through assigned-clock-rates, as the
+driver immediately overwrites the rate. This behaviour is confusing and
+has cost debugging time.
+
+There is little value in a 166 MHz default. All mainline device tree
+sources that enable the CSIS specify a clock-frequency explicitly, and
+the default wrap clock configuration on supported platforms is at least
+as high as 166 MHz. Drop the default, and only set the clock rate
+manually when the clock-frequency property is specified.
 
 Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 ---
- drivers/media/platform/nxp/imx-mipi-csis.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/media/platform/nxp/imx-mipi-csis.c | 23 +++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index d59666ef7545..b652d59851c2 100644
+index e27467e6372f..080e40837463 100644
 --- a/drivers/media/platform/nxp/imx-mipi-csis.c
 +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -895,7 +895,7 @@ static int mipi_csis_dump_regs(struct mipi_csis_device *csis)
+@@ -230,8 +230,6 @@
+ #define MIPI_CSIS_PKTDATA_EVEN			0x3000
+ #define MIPI_CSIS_PKTDATA_SIZE			SZ_4K
  
- 	for (i = 0; i < ARRAY_SIZE(registers); i++) {
- 		cfg = mipi_csis_read(csis, registers[i].offset);
--		dev_info(csis->dev, "%14s: 0x%08x\n", registers[i].name, cfg);
-+		dev_info(csis->dev, "%17s: 0x%08x\n", registers[i].name, cfg);
- 	}
+-#define DEFAULT_SCLK_CSIS_FREQ			166000000UL
+-
+ struct mipi_csis_event {
+ 	bool debug;
+ 	u32 mask;
+@@ -710,12 +708,17 @@ static int mipi_csis_clk_get(struct mipi_csis_device *csis)
+ 	if (ret < 0)
+ 		return ret;
  
- 	pm_runtime_put(csis->dev);
+-	/* Set clock rate */
+-	ret = clk_set_rate(csis->clks[MIPI_CSIS_CLK_WRAP].clk,
+-			   csis->clk_frequency);
+-	if (ret < 0)
+-		dev_err(csis->dev, "set rate=%d failed: %d\n",
+-			csis->clk_frequency, ret);
++	if (csis->clk_frequency) {
++		/*
++		 * Set the clock rate. This is deprecated, for backward
++		 * compatibility with old device trees.
++		 */
++		ret = clk_set_rate(csis->clks[MIPI_CSIS_CLK_WRAP].clk,
++				   csis->clk_frequency);
++		if (ret < 0)
++			dev_err(csis->dev, "set rate=%d failed: %d\n",
++				csis->clk_frequency, ret);
++	}
+ 
+ 	return ret;
+ }
+@@ -1419,9 +1422,7 @@ static int mipi_csis_parse_dt(struct mipi_csis_device *csis)
+ {
+ 	struct device_node *node = csis->dev->of_node;
+ 
+-	if (of_property_read_u32(node, "clock-frequency",
+-				 &csis->clk_frequency))
+-		csis->clk_frequency = DEFAULT_SCLK_CSIS_FREQ;
++	of_property_read_u32(node, "clock-frequency", &csis->clk_frequency);
+ 
+ 	return 0;
+ }
 -- 
 Regards,
 
