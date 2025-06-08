@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F28C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 21:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF27C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 21:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E/mQ7BoLcVrO59Xnl3ZQlHndr969rCpRyg45FKaGvoI=; b=wEHqesSE2AQK5ZaeVkmQ9V8Zw7
-	0IUnzHyrfHXr2yDBaDf2Op4iRnQv7vCVl7M000Mx425L3zIv9W32gpyxSuCuaJcrMed1mmyBzbWJB
-	a/bwTa94YoQwVOOZaUBU6wNMkJQwk/dUOThPJENfIFYLPIyma2id8FPr2xzXvJHdeSzQBShFTIbgy
-	WINnXbZ5vhCQlfStYNDjrO7ZRgjVZA8cjVNQgIJnV9PmBayXjzZT65bnBidrtrTC3DONsjuA+56ma
-	Q668fjWYB6+SZRQWr9Jv8swGbZHabbYlLovjmYQVFtYHKN6hjQZkpJlfUpL5/FYp73d6KeeKvVRN4
-	uqhw+5OA==;
+	bh=cNR/B7AqzdKfH857DzdE8tOVpJSvBSdIIAm71LoG8+Q=; b=3LnMm9vQCyHVDhl11MU3MFHvTp
+	iHllyFArhz2yhdNi4Dc+v0a8QLHI0mqvSiLEEarGqP2NHsDC4gHDPMiNkP4qd7AEtyE//a4YWi2mb
+	B/5d3e13Ra/B2D3rRSzgZcvpXVIprTRGbq4JXrToSRBQbIth1AK0jKQOHIGwsDCSrm7fonngyExpM
+	s3Runha0Y/uRqmBYZAETa6lXqCWL/GdICOukQDMWbcK/iW0G2IrLXpG0JeuaXHZsv4kDXsPfliuq6
+	EWpvJhI5m/urpGKZgoamHvu3BFfXFA8qLovxz0BXTSPJWH+YZaxqrhZaQTVXJdJ0gCOM7bnGNrZLF
+	p/yh12kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uONvo-000000032F0-28M3;
-	Sun, 08 Jun 2025 21:51:56 +0000
+	id 1uONxt-000000032Ui-3MMY;
+	Sun, 08 Jun 2025 21:54:05 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uONWF-00000002zqE-35FP;
-	Sun, 08 Jun 2025 21:25:32 +0000
+	id 1uONcW-000000030Ld-2H9c;
+	Sun, 08 Jun 2025 21:32:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=E/mQ7BoLcVrO59Xnl3ZQlHndr969rCpRyg45FKaGvoI=; b=TKVshFrl5DXthqifrs05BGdJyK
-	m8KjuamhBugZEL/wfcv5dN1DjtwKrWBClnWVuqVwuPgQd1VAe48o6HiestzuDpnHgwFmkwUJG7mKM
-	yWD6DPX6+v2jJXY25PcJGwPiROdNZ3cbFLznRaparNONitVTfLHH1/MwmKmBaayYjDlw=;
+	bh=cNR/B7AqzdKfH857DzdE8tOVpJSvBSdIIAm71LoG8+Q=; b=w9VG/uwrH6ldVIbDNCSzexwlcA
+	0IkhUzqmyvjr8S5smyyX/m9une4wVH4uaSieDcpqc0vdEgdI/OJckwaOmoF0++WOuysWVwbdKKNOO
+	DZiNCTs/0sijtcNrgbwvQmednFxrbPPUH+WXRH8ZYxfB17hNyUJj3xP7iMFp8IU13dFI=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1uONVw-00F6gT-IO; Sun, 08 Jun 2025 23:25:12 +0200
-Date: Sun, 8 Jun 2025 23:25:12 +0200
+	id 1uONcB-00F6it-L9; Sun, 08 Jun 2025 23:31:39 +0200
+Date: Sun, 8 Jun 2025 23:31:39 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Frank Wunderlich <linux@fw-web.de>
 Cc: MyungJoo Ham <myungjoo.ham@samsung.com>,
@@ -65,18 +65,18 @@ Cc: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 07/13] arm64: dts: mediatek: mt7988: add switch node
-Message-ID: <1fdfba6b-1bf6-4865-be21-2b4d716fbfc0@lunn.ch>
+Subject: Re: [PATCH v3 12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add sfp
+ cages and link to gmac
+Message-ID: <934b1515-2da1-4479-848e-cd2475ebe98d@lunn.ch>
 References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-8-linux@fw-web.de>
+ <20250608211452.72920-13-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250608211452.72920-8-linux@fw-web.de>
+In-Reply-To: <20250608211452.72920-13-linux@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_142531_768603_80F37C03 
-X-CRM114-Status: UNSURE (   6.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250608_143200_579408_0C9574C1 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,18 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +			mdio {
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +				mediatek,pio = <&pio>;
-> +
-> +				gsw_phy0: ethernet-phy@0 {
-> +					compatible = "ethernet-phy-ieee802.3-c22";
-> +					reg = <0>;
-> +					interrupts = <0>;
-> +					phy-mode = "internal";
+> +&gmac1 {
+> +	phy-mode = "internal";
+> +	phy-connection-type = "internal";
 
-More phys with a phy-mode?
+ethernet-controller.yaml says:
+
+  phy-connection-type:
+    description:
+      Specifies interface type between the Ethernet device and a physical
+      layer (PHY) device.
+    enum:
+      # There is not a standard bus between the MAC and the PHY,
+      # something proprietary is being used to embed the PHY in the
+      # MAC.
+      - internal
+      - mii
+      - gmii
+  ...
+
+  phy-mode:
+    $ref: "#/properties/phy-connection-type"
+
+
+so phy-mode and phy-connection-type are the same thing.
+
+> +	/* SFP2 cage (LAN) */
+> +	sfp2: sfp2 {
+> +		compatible = "sff,sfp";
+> +		i2c-bus = <&i2c_sfp2>;
+> +		los-gpios = <&pio 2 GPIO_ACTIVE_HIGH>;
+> +		mod-def0-gpios = <&pio 83 GPIO_ACTIVE_LOW>;
+> +		tx-disable-gpios = <&pio 0 GPIO_ACTIVE_HIGH>;
+> +		tx-fault-gpios = <&pio 1 GPIO_ACTIVE_HIGH>;
+> +		rate-select0-gpios = <&pio 3 GPIO_ACTIVE_LOW>;
+> +		maximum-power-milliwatt = <3000>;
+
+sff,sfp.yaml says:
+
+  maximum-power-milliwatt:
+    minimum: 1000
+    default: 1000
+    description:
+      Maximum module power consumption Specifies the maximum power consumption
+      allowable by a module in the slot, in milli-Watts. Presently, modules can
+      be up to 1W, 1.5W or 2W.
+
+I've no idea what will happen when the SFP core sees 3000. Is the
+comment out of date?
 
 	Andrew
+
 
