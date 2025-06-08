@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE855C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 13:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD2FC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  8 Jun 2025 13:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXiNw+puknbTjlGVLJlolR4XIGHpjQHJR/o+31xAJiU=; b=r0rt0wNw7VFVL5NJ2Bh6ni8gTW
-	UUoBinoSITupAdyHhfIPoEwjmHMGHcirrMjgBZQVREZxmSEcjGltFO+Et2fDxUFgniu191AlVZZGy
-	Oc9I7kBlCYvOZnuOFJ0PNYWqOPYATjuRoUhOdDm6Aq+uKxywYcKovGIf1rygcA5IHHU4UD4SdhzOB
-	jz9SmosT1vzNSnMVAgz3F9LNjQz8MQ0rMkmksteKGVXDJpLfDDCQGmAVgihSsRlCwvw30MSwPQ1TC
-	Nj0VjRAHwiO3uhn5mB7/Giwy1tuEyCP/falewic+yme5LehRDyWnMKS3f+C031qqVLS23FeXkguWM
-	WqHLt53w==;
+	bh=I1tpFAPKQ7h0l6dmPEexqefRQj651dR5iaK+LKx3Rn4=; b=lQfRUM+Xim690YOlAjAL0BpiVd
+	3T0ScdlKjp0lgO4H/Jvk15pwGN5OLbhQTOjGnQVpWoFztWa45i4T9n2ZgNyYUKCJfr9OztACyN3oe
+	+OfBO4kRi+wrJVhliH/Rx+s5oyx709QJhXV4JdC3sc9th8jSaHT2yFZfqIUMR9xllFuJUaWAR6SPQ
+	IUMgfSDo9PWmE20YtkVNDpaz5dGIo6NFNWTsL0UI7KxwCE4M3SjiJi3kks+S15POoaCgYU5BOc77I
+	MxXoO+hYYS/trzbhh8sFU3Cvvmmak6/SYizDiw+E7SMhU1/SAEef76LtazyOrtB6eYMI2oqixxAeR
+	cKR4idAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOFuD-00000002e9D-3FAe;
-	Sun, 08 Jun 2025 13:17:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uOFwJ-00000002eH5-35Go;
+	Sun, 08 Jun 2025 13:19:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOFZI-00000002cds-2llN
+	id 1uOFZO-00000002cfa-3QEG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 08 Jun 2025 12:56:09 +0000
+	Sun, 08 Jun 2025 12:56:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 35AE543A58;
-	Sun,  8 Jun 2025 12:56:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0FFDC4CEEE;
-	Sun,  8 Jun 2025 12:56:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0207744966;
+	Sun,  8 Jun 2025 12:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC1CC4CEEF;
+	Sun,  8 Jun 2025 12:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749387368;
-	bh=Hy1BPMri1Myd/u3hWjaNErxKaZ77hzFWnuRN18IVFSY=;
+	s=k20201202; t=1749387373;
+	bh=VT/kOv8K7zbcsUNcFKYtAQaOP+wsH2uz9EYAAEUzcFg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Tfp9Jhro/KZMnWE9FSZtK8IdV0zFbH/5UEjQaE7A9N4VVOWcVQd7QbG3i9PL8SMie
-	 CLCpNkZWNyQFqQYy8wI78hGh6Bkd1X88vkyU52jbOiYvYBVxOshy5oBoH5xR/aOR44
-	 sngAuomGQCWCqgbqRglAzgFxJRYDMPU9NNL37+C6Tu9TuD5qxJ5s6gV3+1Ljyg5OEk
-	 aBKE5tEh+4T52AgCQK44RfEcLSDXGpb1menxsMELUdkxYTCEREnIkqcC6NXvx87o55
-	 aPbm//rpR4FzsO/MkmC573t1ZBX+TKc2q3+sGdS3u+x1wfbbJpMtywO/LJ0pO5k6Ir
-	 Cjgmmu5aJbW9w==
+	b=HACRBwf9yIGHgQPqPFx8SQJamc/xPCMZGlION8Mbecqo9fNnQTzUol13AZc5/abwU
+	 ndTTTk81WdR8Z6XdcpFL/CKubi9AvaYGUNHmAYHXJl6Jz4EGADZGkCKDHelPtccsiA
+	 tOHNHmTKh+yb6TrdjO67fX02+BkkeCQM4jxOCqh0WJYGyGSJcfx5CEeK0y1U9ZYQ4x
+	 WDaBr6DCaukB6IouqLSxgVM8PP2TgSHSKhvl3QuKYA3zXXHUoGpD7Fvr6BvnTFqe+c
+	 EWVQLk7YwGh2BfvdH8+xeLEDSQaRRKKgPZK98dTXAF7HUy4ujslxmYXtr9KSJxKKXP
+	 akUw+tV0ZdePw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -51,25 +51,26 @@ Cc: Thomas Gessler <thomas.gessler@brueckmann-gmbh.de>,
 	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
 	michal.simek@amd.com,
+	marex@denx.de,
+	radhey.shyam.pandey@amd.com,
+	jernej.skrabec@gmail.com,
 	u.kleine-koenig@baylibre.com,
 	krzysztof.kozlowski@linaro.org,
-	jernej.skrabec@gmail.com,
-	marex@denx.de,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 2/2] dmaengine: xilinx_dma: Set dma_device directions
-Date: Sun,  8 Jun 2025 08:56:02 -0400
-Message-Id: <20250608125603.934631-2-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 2/2] dmaengine: xilinx_dma: Set dma_device directions
+Date: Sun,  8 Jun 2025 08:56:08 -0400
+Message-Id: <20250608125608.934695-2-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250608125603.934631-1-sashal@kernel.org>
-References: <20250608125603.934631-1-sashal@kernel.org>
+In-Reply-To: <20250608125608.934695-1-sashal@kernel.org>
+References: <20250608125608.934695-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.238
+X-stable-base: Linux 5.4.294
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_055608_762387_F8CEB577 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250608_055614_897865_2BC91171 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,18 +177,18 @@ doesn't introduce new functionality.
  1 file changed, 2 insertions(+)
 
 diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index 12ad4bb3c5f28..3ecf0109af2ba 100644
+index be44c86a1e037..5b5cbea997ff7 100644
 --- a/drivers/dma/xilinx/xilinx_dma.c
 +++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -2844,6 +2844,8 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
+@@ -2490,6 +2490,8 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
  		return -EINVAL;
  	}
  
 +	xdev->common.directions |= chan->direction;
 +
  	/* Request the interrupt */
- 	chan->irq = irq_of_parse_and_map(node, chan->tdest);
- 	err = request_irq(chan->irq, xdev->dma_config->irq_handler,
+ 	chan->irq = irq_of_parse_and_map(node, 0);
+ 	err = request_irq(chan->irq, xilinx_dma_irq_handler, IRQF_SHARED,
 -- 
 2.39.5
 
