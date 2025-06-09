@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FE1C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 16:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D2DEC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 16:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q0h5TtXCbR7pZbVKCneQTrZghH/H8RZNkfWr2OofCu4=; b=V71w91h1MoljATioRYE5ayjW0g
-	QUrzbJdv+FpRBuBSAQYGY70kLJKAV2Oll4/djekNmIEV7HpyLLqzUiVbh/yPkI9O0pA0/ofUwAmx+
-	e1a/7nqT5IIUDEJvoZkruCh8O4yHssXamXpS1skuEPrZ4CA9Ibnt4M8cRMTbNdGkMdafwXukAK952
-	WNNiT63SoMQfzz5/BzM3fO4EAjFCGd7WO+rZd/pZaWCHvhs+QwBKjfmwL808D1aE6htFdcJLwKqHj
-	a1sRSntJyQo81aORMG5QSilXotIN6qK+AmjW8N05Kmh7T8+Qc6MYX7LFt4lEUIwGd34yEA69oBlLp
-	kf7rj51w==;
+	bh=06HUies5V7PRfoIqtd4meQuakxr9viCcxBP1N+2s1sA=; b=HwojPpMIVub0VPuqpEoYLqjAzn
+	4utRWno30cAotKt+E8VIMWhFcHqB9w4C92Nnj3+CrUFW+oiVUX/sJ08D1geC8iQ7wN0qaGT0r3Lam
+	dsCvHLTE053are39g0v32qxohvb84PzgKq5yReaWDAocdKNN4gUUerXu1QhM9unfajqcJ5LPwgBjU
+	hNjA9sdKUcNlqkKIZyiAAHgAzQnz5O4ICplLkTlo9DTRPKjXpIGDabwqlH8xwhcwuV6oB5ixtF9xR
+	THKuIMQflvViKkqP++QTP+wTEyngpE5ebRv44bSMhfq0W/OrKsQb1cx13H5NhbcL1tez2VYyux9VK
+	gTqTxS7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOfMW-00000004fwM-2JRr;
-	Mon, 09 Jun 2025 16:28:40 +0000
+	id 1uOfOe-00000004g9o-1Rmz;
+	Mon, 09 Jun 2025 16:30:52 +0000
 Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOegi-00000004Z3J-47I7
+	id 1uOegj-00000004Z3V-2Nlf
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 09 Jun 2025 15:45:31 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7DD341FCEF;
-	Mon,  9 Jun 2025 15:45:24 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0CF7220594;
+	Mon,  9 Jun 2025 15:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749483925;
+	t=1749483928;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q0h5TtXCbR7pZbVKCneQTrZghH/H8RZNkfWr2OofCu4=;
-	b=ObhGNNdK/VD7+Ua2NKS1rQnIPe+9NT2xUoyNLEsA2FbUikEsVblxmlEffjsvxdu6mszh3b
-	GtKIWYOUeCXfOkRO2ozUlK0rrGlTPcUynZhKatW0tTIJ2R7r6eY/6dgkqg0Z0xigEO2t5M
-	G3zniKlwBWw8fC8rYlPjBAdnuKgdwsLbx4hLmHajpdiarb5cvyZhc4gVjqLs6GLfSuwH4E
-	2YfLY8boid7o2YvOOZ3+pceRcLJMdT1XIdmqBVVQ/qtqRtBfUY0kYEsVZbZszbY9u9VC/m
-	iHjYRPLxkL/a+jH7BwtaCf0o5SpCy05lM4lBUBM6G2IrWP01IV+gImE7ffmXlw==
+	bh=06HUies5V7PRfoIqtd4meQuakxr9viCcxBP1N+2s1sA=;
+	b=UoMb7V90JShTczupXgSLtQVmxGlNn48FWlFY1dFphcg69udmG/2Pq3VxGa5LJLbUeMP4k1
+	nEwHF1/Gjtdqu9HYNTYiHrJiKgbOg/Ab2qH2il7mtRUFWv8mYSIWE3l/WTzt5Qbh5RcFKH
+	j/dLtEuy96ZHsq3k+Gfm45T7Tp75VE+GkD0raQ9Crlerv0yQEFtn+w7E9SBH3iWiTc56eD
+	PDQnsCxh7GdrYA9wv/rBLaq9RkWCnTK1V8Ys7gkf8Hn4N/EqIYmm3ml3vgBGQjeVsb0iQy
+	2UjDO6U9hSOchED4GuxwGEWlSQIe+A9PRsVXguMdaea1Bch6HoVuxH6Msy4/yg==
 From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Mon, 09 Jun 2025 17:43:51 +0200
-Subject: [PATCH v2 1/5] arm: dts: omap: Remove incorrect compatible strings
- from device trees
+Date: Mon, 09 Jun 2025 17:43:53 +0200
+Subject: [PATCH v2 3/5] arm: dts: omap: am335x-bone-common: Rename tps to
+ generic pmic node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250609-bbg-v2-1-5278026b7498@bootlin.com>
+Message-Id: <20250609-bbg-v2-3-5278026b7498@bootlin.com>
 References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
 In-Reply-To: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
 To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
@@ -69,8 +69,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdelgeelucetufdoteggodetrfd
  ehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhg
 X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_084529_171481_B6054E15 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250609_084529_737462_20753401 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several device trees incorrectly included ti,am335x-bone-black or
-ti,am335x-bone in their compatible lists without including the
-corresponding bone-black-common or bone-common device tree files.
-Remove these incompatible strings to fix the inconsistency.
+Rename tps@24 to the generic pmic@24 node name.
 
 Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 ---
 
 Change in v2:
-- New patch
+- New patch.
 ---
- arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts | 2 +-
- arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts          | 2 +-
- arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts     | 2 +-
- arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts       | 2 +-
- arch/arm/boot/dts/ti/omap/am335x-shc.dts                | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts
-index a4f5b5262645..fb88eebb8c5d 100644
---- a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts
-+++ b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts
-@@ -11,7 +11,7 @@
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
+index c400b7b70d0d..ad1e60a9b6fd 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
++++ b/arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi
+@@ -212,7 +212,7 @@ &i2c0 {
+ 	status = "okay";
+ 	clock-frequency = <400000>;
  
- / {
- 	model = "TI AM335x BeagleBone Green Wireless";
--	compatible = "ti,am335x-bone-green-wireless", "ti,am335x-bone-green", "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
-+	compatible = "ti,am335x-bone-green-wireless", "ti,am335x-bone", "ti,am33xx";
+-	tps: tps@24 {
++	tps: pmic@24 {
+ 		reg = <0x24>;
+ 	};
  
- 	wlan_en_reg: fixedregulator@2 {
- 		compatible = "regulator-fixed";
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts b/arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts
-index 18cc0f49e999..022ecc971476 100644
---- a/arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts
-+++ b/arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts
-@@ -10,5 +10,5 @@
- 
- / {
- 	model = "TI AM335x BeagleBone Green";
--	compatible = "ti,am335x-bone-green", "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
-+	compatible = "ti,am335x-bone-green", "ti,am335x-bone", "ti,am33xx";
- };
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts b/arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts
-index d28d39728847..d87ac31a16a9 100644
---- a/arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts
-+++ b/arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts
-@@ -16,7 +16,7 @@
- 
- / {
- 	model = "Octavo Systems OSD3358-SM-RED";
--	compatible = "oct,osd3358-sm-refdesign", "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
-+	compatible = "oct,osd3358-sm-refdesign", "ti,am33xx";
- };
- 
- &ldo3_reg {
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts b/arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts
-index 78ce860e59b3..0c8a120a1811 100644
---- a/arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts
-+++ b/arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts
-@@ -12,7 +12,7 @@
- 
- / {
- 	model = "TI AM335x PocketBeagle";
--	compatible = "ti,am335x-pocketbeagle", "ti,am335x-bone", "ti,am33xx";
-+	compatible = "ti,am335x-pocketbeagle", "ti,am33xx";
- 
- 	chosen {
- 		stdout-path = &uart0;
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-shc.dts b/arch/arm/boot/dts/ti/omap/am335x-shc.dts
-index 597482822608..f2393ff3f4d7 100644
---- a/arch/arm/boot/dts/ti/omap/am335x-shc.dts
-+++ b/arch/arm/boot/dts/ti/omap/am335x-shc.dts
-@@ -12,7 +12,7 @@
- 
- / {
- 	model = "Bosch SHC";
--	compatible = "ti,am335x-shc", "ti,am335x-bone", "ti,am33xx";
-+	compatible = "ti,am335x-shc", "ti,am33xx";
- 
- 	aliases {
- 		mmcblk0 = &mmc1;
 
 -- 
 2.43.0
