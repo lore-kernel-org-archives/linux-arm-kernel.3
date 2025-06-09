@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499EAC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8420C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bNYHfUVgW0j5DR00GYyu8I5eNk46DUSi9eqj7IxksLs=; b=QArVvJ4sS1CFTc/HEYdO02/0Eb
-	Mc0cSTdpjCw4H1B8JEfCDAj4x0k0BpOGpHaJVjv8mf2OYxbGeP5OJf5w0YqareJ4z9G9HaNpyIuy9
-	/N96VHaQUu88cF2F1VeOJ6OW59QuheLpSXLfqa8xRhkF6il47HLKUxuYgQDzv0y++eNmACJBXpq/w
-	8APiL8SKbYWqjTn2Y/guBiUpKzkZsMnzm7Sh+CumImvEzBjBKB+Zm+ylOZLMQtux49kU7naZ0L2jE
-	2iqqdBBqWc+j6ny6tMXSPHFVECcaoGNEQ1Ap8n9PlE4cz7zX+RAtFJnPKk/5lIr052+uRqskltd8x
-	enSt66Iw==;
+	bh=KfT47f4YC4sHbAPf2iUwhK0CCB8qwr74xhJZbfhK/ps=; b=UYwYAbuINL4upftCtkgjVmfCLR
+	MKKN06cVeaG8xvlIj2EwjW6/vU93fifg1DFWYDo1jPcCC2I0cNLb1Bu85A8woGOl5VRwDGSc4Y6f+
+	H0qmVEbsYmP8qN+BYcxZ9nn3rIfLF/R3Lhuawk2jTHdUPyLUVu/bSc2CX7eVs6nnbnfiGWI4kU+q0
+	6FIx4ViqzEJd6FFEReyXlLi7JK97IR4BxV/Dg5735TA1DbZBdElpzGLuONZmAWnfRRCn0UABpw1JB
+	2U+EYcusHmjYDirluUUHLEsf27HFcVMF3+L23++YmxgUfHnD2/mGlSCCruj1VjjgMn81CWGIPmhZk
+	RhllQ3Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uObFI-000000044f2-0JyE;
-	Mon, 09 Jun 2025 12:04:56 +0000
+	id 1uObHR-000000044qj-3Yas;
+	Mon, 09 Jun 2025 12:07:09 +0000
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uObAE-00000004424-16B0
+	id 1uObB5-000000044Cn-3jNu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 11:59:43 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 559BxVsV1980964;
-	Mon, 9 Jun 2025 06:59:31 -0500
+	Mon, 09 Jun 2025 12:00:37 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 559C0WvK1981245;
+	Mon, 9 Jun 2025 07:00:32 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749470371;
-	bh=bNYHfUVgW0j5DR00GYyu8I5eNk46DUSi9eqj7IxksLs=;
+	s=ti-com-17Q1; t=1749470432;
+	bh=KfT47f4YC4sHbAPf2iUwhK0CCB8qwr74xhJZbfhK/ps=;
 	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=ckzCGdWdPEln956o6q0up2acMKeHoUczmeCPh5am/+CkrrkcukIYvppbencGgrIQ0
-	 PW6vHFLux94sx/W+u4HHzHjHOI6TqHOyr657pGUOt0ZkRkRDP9zQImvz2Bnq4DcRAf
-	 Yi1eSNSeyvpuy+/CYUybYwWpYQRrXD2cNVPEn6J8=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 559BxVkx3783095
+	b=GKuIMGu3dJbx5hNpKhFmX5+IK+tGAbVy4vEAxw1Q6yZ98XOmPk3irPVZq6ws9XEBV
+	 EWOhujqkY0c6jLRvCmDfdP4WUcPrZEHmA0J78eB51IbHMaPg6b2X+GWMQ/QkJ+bn8t
+	 8fan9QnqIGpP6ewa5BUn7VKYMaa/hHb3dDIod7Q4=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 559C0W431356753
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 9 Jun 2025 06:59:31 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 9 Jun 2025 07:00:32 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 9
- Jun 2025 06:59:30 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ Jun 2025 07:00:32 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 9 Jun 2025 06:59:30 -0500
+ Frontend Transport; Mon, 9 Jun 2025 07:00:32 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 559BxUGP1219701;
-	Mon, 9 Jun 2025 06:59:30 -0500
-Date: Mon, 9 Jun 2025 06:59:30 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 559C0Wfc1365631;
+	Mon, 9 Jun 2025 07:00:32 -0500
+Date: Mon, 9 Jun 2025 07:00:32 -0500
 From: Nishanth Menon <nm@ti.com>
-To: Hrushikesh Salunke <h-salunke@ti.com>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <s-vadapalli@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <danishanwar@ti.com>, <srk@ti.com>
-Subject: Re: [PATCH] arm64: dts: ti: k3-am642-evm-pcie0-ep: Add boot phase
- tag to "pcie0_ep"
-Message-ID: <20250609115930.w2s6jzg7xii55dlu@speckled>
-References: <20250609085429.2334652-1-h-salunke@ti.com>
+To: "Kumar, Udit" <u-kumar1@ti.com>
+CC: <vigneshr@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-kernel@vger.kernel.org>, <b-padhi@ti.com>
+Subject: Re: [RESEND PATCH] arm64: dts: ti: k3-j784s4-mcu-wakeup: Configure
+ wkup_uart0 with clock settings
+Message-ID: <20250609120032.yxmcyiw7dchv2kmp@wanted>
+References: <20250603042448.783956-1-u-kumar1@ti.com>
+ <20250603160147.47orn74obh2lz3qm@rethink>
+ <51c56999-5f47-45fd-a4b2-4b79ecae0227@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Disposition: inline
-In-Reply-To: <20250609085429.2334652-1-h-salunke@ti.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <51c56999-5f47-45fd-a4b2-4b79ecae0227@ti.com>
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_045942_389373_DFDC13C5 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250609_050036_022147_27BEF7CD 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +88,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14:24-20250609, Hrushikesh Salunke wrote:
-> AM64X SoC has one instance of PCIe PCIe0. To support PCIe boot on
-> AM64X SoC PCIe0 instance needs to be in endpoint mode and it needs to
-> be functional at all stages of PCIe boot process. Thus add the
-> "bootph-all" boot phase tag to "pcie0_ep" device tree node.
+On 12:47-20250608, Kumar, Udit wrote:
+> Hello Nishanth
 > 
-> Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
-> ---
-> This patch is based on commit
-> 475c850a7fdd Add linux-next specific files for 20250606
+> On 6/3/2025 9:31 PM, Nishanth Menon wrote:
+> > On 09:54-20250603, Udit Kumar wrote:
+> > > From: Bhavya Kapoor <b-kapoor@ti.com>
+> > > 
+> > > This commit adds the assigned-clocks and assigned-clock-parents
+> > > properties for wkup_uart0 in J784S4. Specifically, the assigned-clocks
+> > > property is set to reference the clock identified by
+> > > "wkup_usart_mcupll_bypass_out0", ensuring the UART operates with the
+> > > correct clock source.
+> > > 
+> > > The assigned-clock-parents property specifies "wkup_usart_clksel_out0"
+> > > as the parent clock. This configuration is critical for establishing
+> > > the proper clocking hierarchy, enabling the UART device to function
+> > > reliably across different baud rates.
+> > Please fix the commit message - not clear what specifically in the clock
+> > hierarchy does permit the multiple baud rates.
 > 
->  arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso | 1 +
->  1 file changed, 1 insertion(+)
+> need your advise here .
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso b/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
-> index 432751774853..268a3183753e 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
-> +++ b/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
-> @@ -30,6 +30,7 @@ &cbass_main {
->  	interrupt-parent = <&gic500>;
->  
->  	pcie0_ep: pcie-ep@f102000 {
-> +		bootph-all;
+> unlike other UART of main domain.  wkup_uart currently has two parents clock
+> (clock-1 is at 96Mhz and clock-0 is at 19.2 Mhz).
+> 
+> By default, current fw selects clock-1 as parent.
+> 
+> Let me know, if explicitly we need to set parent as clock-1.
+> 
+> If yes then i will roll out v2 with current message , if no then please drop
+> this patch
 
-For new entries being added, please follow
-Documentation/devicetree/bindings/dts-coding-style.rst
-
-for guidance, look at where bootph is being added in more recent patches.
-
->  		compatible = "ti,am64-pcie-ep", "ti,j721e-pcie-ep";
->  		reg = <0x00 0x0f102000 0x00 0x1000>,
->  		      <0x00 0x0f100000 0x00 0x400>,
-> -- 
-> 2.34.1
+I personally do not see a need for the patch, then.
 > 
+> Thanks
+> 
+> Udit
+> 
+> > 
+> > > Signed-off-by: Bhavya Kapoor <b-kapoor@ti.com>
+> > You need to add your SoB.
+> > > ---
+> > > Link to v1: https://lore.kernel.org/all/20241009072056.3511346-1-b-kapoor@ti.com/
+> > [..]
 
 -- 
 Regards,
