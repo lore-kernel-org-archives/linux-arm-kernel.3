@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908ACC71131
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 20:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED73C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 20:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A4gbmGwaMAgvR4qWBsj08Sg44XPjg3xaVLxY2SKwNFM=; b=D3bQniWGe3rxSEoJava1yqznCp
-	auZhNqgp9OTWNPB0Bq8PBwVb6xKMkHiZYz38YYwkN9Sij9lkx1GBbv/PXr0nPRjYOf2CMrSeJ73uC
-	u/M4VJq7lfFDQld7JfUpEBX61tJ6xdZOWl8uw5W2pHQNlWaa8Zw3AvU2dLIoNQLizEbAgzndExWGi
-	7FmWZvat2ft7hYga3J/tCdWMY+5LLHuOVtycKf4OymfkytNhbwBL82EinkiI72JGByfUD2EOgNe3a
-	bnCMaZKZsf6PYlJphTUg/JAV4PQuydygusn5qeZlM9EzTOs8mN7iIaw3zPmCkb6hmccsfa843HDI9
-	Q0ZQ8Msg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SR2d9reP8TqJ3UfMOktGuMwu95S3n7zGli3lgi0UUmg=; b=y+CsBmPI6vOEnyhBu3JYRxs8gg
+	u0IZjFTTHzErx3wsnUmo0d93PO5s3Lzfqnm0yBJOldWEMrXmw2MVDjDuNjNm0ZTYucazTd6E5NaPh
+	tapRrGUhPVjNm+gYMmfrPDaj3W17iahZCTOhRBPycu+xokW5Y9RNAUxfDtn0SiVtiyb0Af3W7RRl3
+	Dp6fCkC5hvoB6NLKgG6uVpKpHeKZxtXzLziWw4wQn+d1PnxCXtKKdTcQ1qATGIn7iPeGKOCyprSkp
+	V0pd2P0MlmBUbR256tpba8eP9JxDZfjiQhcH84cXJOtwibYfWIxOZpVeewgWY+yW0pr1rfiZpMSWJ
+	d1rWb25A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjL0-00000005BKf-1ABX;
-	Mon, 09 Jun 2025 20:43:22 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uOjOs-00000005Cn8-2eHg;
+	Mon, 09 Jun 2025 20:47:22 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjIq-00000005Axk-20dZ;
-	Mon, 09 Jun 2025 20:41:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3F9D25C51AF;
-	Mon,  9 Jun 2025 20:38:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6859C4CEF0;
-	Mon,  9 Jun 2025 20:41:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749501667;
-	bh=ossCfSxOWYUfRDCTjGWqVcgE+BuQ279AatMC3LDtX/U=;
-	h=From:Date:Subject:To:Cc:From;
-	b=rDXejdwSUKoD35Jm6U5j1VtnU+8xgXPQ//1ULv3dFliYrcw9JfmSkCgdJuhiJXnci
-	 Bv3+3iP39vjjGyAStZtgCkNjoafkdDww2yPbfq4fqHBuPSog6sM5gNIyC6iRKKMC2o
-	 EAyccyPQA1weIYYJaDL9IcJa96YTkkGltdhLNZZDUAsWkLyfuahlOpP2zU4+FHSEQ0
-	 sMqW984hFIa9TYpV+bqJSQI6GoGLybbCuXKMvei+ZwiXpudZnazbZdOc4U/ZXWK+U+
-	 TvXUjnoQRvZnAgJl+lQ762PHQe6uGIMBuSOT/hYGYeV/CQkNhuxdXzwmparu2BF9AS
-	 WQSIQnGNzbYlw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 09 Jun 2025 22:40:35 +0200
-Subject: [PATCH net] net: airoha: Enable RX queues 16-31
+	id 1uOjMh-00000005CdZ-3Biw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 20:45:09 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B88CA44400;
+	Mon,  9 Jun 2025 20:45:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749501905;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SR2d9reP8TqJ3UfMOktGuMwu95S3n7zGli3lgi0UUmg=;
+	b=O9dUXnOD9YyA/wh8TMe9VcmiIPn+5MMmKcqUtv7n/HXwVsZBlk8SEbbuTTSsBHNVEpfTtQ
+	xPvkA94UOJJF6p6nYPgYx1gA7Ljdv7dZF1EuGP84P8VWRcQ2HHPpUQovBHzlBxY+NUI7jZ
+	S2+BVfM0x79jDSSnmEiHQJejDJBS2DU7VUBe+wJyYMCJ1lEkhN5xDkSLZwx5bbTHnYHCSi
+	Og85IJQ/z4rlELNony9HQr16gr726jcdlG6Rqat8y+fkfbFVP4ynbMPmQyzRphxRc0jTbh
+	L0wXVdAB0ebiFjq+SI3QQJetH5fkAO7u/A3EfNir102f4FvaUp2RoRDVFxeIKQ==
+Date: Mon, 9 Jun 2025 22:45:02 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas
+ Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, Roger
+ Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, Bajjuri
+ Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+ <broonie@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/5] arm: dts: omap: Add support for BeagleBone Green
+ Eco board
+Message-ID: <20250609224502.1fce742c@kmaincent-XPS-13-7390>
+In-Reply-To: <20250609-helpful-immodest-0f195cdbcbf2@spud>
+References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
+	<20250609-bbg-v2-4-5278026b7498@bootlin.com>
+	<20250609-helpful-immodest-0f195cdbcbf2@spud>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250609-aioha-fix-rx-queue-mask-v1-1-f33706a06fa2@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMJGR2gC/x2M3QpAQBQGX0Xn2qldongVuTjWh5P87UZK3t3mc
- mpmHgrwikB18pDHpUG3NYJNE3KTrCNY+8iUmawwpalYdJuEB73Z33ycOMGLhJlhIS7vXGUNKNa
- 7R5T+c9O+7wfLDh8HaQAAAA==
-X-Change-ID: 20250609-aioha-fix-rx-queue-mask-e1eac3bc910e
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdeljeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudelmeekheekjeemjedutddtmeelhegvvgemrggvugdvmeeitgeksgemudgsfegsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkeehkeejmeejuddttdemleehvggvmegrvgguvdemiegtkegsmedusgefsgdphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtoheptghonhhorheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvl
+ hdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprggrrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtoheprghnughrvggrsheskhgvmhhnrgguvgdrihhnfhhopdhrtghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhm
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_134108_562686_6C66B6BE 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_134507_940213_430B23EF 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix RX_DONE_INT_MASK definition in order to enable RX queues 16-31.
+Le Mon, 9 Jun 2025 18:04:01 +0100,
+Conor Dooley <conor@kernel.org> a =C3=A9crit :
 
-Fixes: f252493e18353 ("net: airoha: Enable multiple IRQ lines support in airoha_eth driver.")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_regs.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> On Mon, Jun 09, 2025 at 05:43:54PM +0200, Kory Maincent wrote:
+> > SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Gr=
+een
+> > (BBG). It has minor differences from the BBG, such as a different PMIC,
+> > a different Ethernet PHY, and a larger eMMC.
+> >=20
+> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> > ---
+> >=20
+> > Changes in v2:
+> > - Used generic pmic node name.
+> > - Add regulator prefix to fixed regulator node name.
+> > - Add the compatible to omap.yaml binding
+> > ---
+> >  Documentation/devicetree/bindings/arm/ti/omap.yaml |   1 +
+> >  arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
+> >  arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 170
+> > +++++++++++++++++++++ 3 files changed, 172 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml
+> > b/Documentation/devicetree/bindings/arm/ti/omap.yaml index
+> > c43fa4f4af81..774c13157caa 100644 ---
+> > a/Documentation/devicetree/bindings/arm/ti/omap.yaml +++
+> > b/Documentation/devicetree/bindings/arm/ti/omap.yaml @@ -145,6 +145,7 @@
+> > properties:
+> >        - description: TI bone green variants based on TI AM335
+> >          items:
+> >            - enum:
+> > +              - ti,am335x-bone-green-eco
+> >                - ti,am335x-bone-green-wireless
+> >            - const: ti,am335x-bone-green
+> >            - const: ti,am335x-bone =20
+>=20
+> Why is this hunk here?
 
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 04187eb40ec674ec5a4ccfc968bb4bd579a53095..150c85995cc1a71d2d7eac58b75f27c19d26e2b5 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -614,8 +614,9 @@
- 	 RX19_DONE_INT_MASK | RX18_DONE_INT_MASK |	\
- 	 RX17_DONE_INT_MASK | RX16_DONE_INT_MASK)
- 
--#define RX_DONE_INT_MASK	(RX_DONE_HIGH_INT_MASK | RX_DONE_LOW_INT_MASK)
- #define RX_DONE_HIGH_OFFSET	fls(RX_DONE_HIGH_INT_MASK)
-+#define RX_DONE_INT_MASK	\
-+	((RX_DONE_HIGH_INT_MASK << RX_DONE_HIGH_OFFSET) | RX_DONE_LOW_INT_MASK)
- 
- #define INT_RX2_MASK(_n)				\
- 	((RX_NO_CPU_DSCP_HIGH_INT_MASK & (_n)) |	\
+Do you mean that the binding change should be in another patch?
 
----
-base-commit: 82cbd06f327f3c2ccdee990bd356c9303ae168f9
-change-id: 20250609-aioha-fix-rx-queue-mask-e1eac3bc910e
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
