@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2002DC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F035C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtWnccZdwmekAeiqyQYk4mGsFpJfFAArYZd8KxoueRo=; b=DJ9bIKh7TYVSU33POpUwz6qasS
-	dcbdNCW7F2XLnYuWxq20oEe2SPNYAj9kAeugojk51VP8FsIcmMgzOS4VxUtFagMPKi3jj4legqDDG
-	0PIuyR7Tm/Jkl6C7a1UWTvnFUmPtUtXfarLcZ37FxdB0m0BdUsSYfUhbBhuhfKT6F6e84YEUtNBFe
-	m5u+A64e88s9ZyuZu5O8fBvuxApfBaYlYp9zqwYi1LPkL+Lkf6+IeG4xRhRO2sQO0+EXlwYmi1FgC
-	ci3h1NAfvg1PqmfSzffrLKdkik877OPA8U6gx/CrTg+Pmip6WfPkfoE+UZ2Leo6U5BY6r/qa5dbMr
-	HK/MZglg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r5mHztYrkrGmqdzQD2l85P8GCoJYxyAbRSWs0LTryIY=; b=L8Fhtu7ZEEsRnQxXwV4q3DOM6x
+	7ghltKKGOY98/ZzmM/EL7sDaHH//gdi+Kzf7y/iK1TZ5896UEJeiepSf+svyQF/d8taVq9ct3Nyaz
+	2ILAMjxbnJ6oGlQlal8gUNZh99Jl04xF1Aqi/HZ/eTGfhizjhRfikLdTebI3yDv/GlW5UpaNm6vyi
+	QIyVq2ZY9LcWBoJgGpcgR3oEqbLmygjO5IldCgPi36vK2mReZ+M6ZTFhlCT8H14SuelTdDwH6SzCQ
+	hnnI/v2LOk8W7SBGONNxuYhWZB8OJ7ayLXLD0Dx5YNNcS5lSI6UBkInNIRk48A5yFioHE264wbKYu
+	RdeZ2rDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZpm-00000003v1x-3ED6;
-	Mon, 09 Jun 2025 10:34:30 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1uOZrv-00000003vJS-2Lrd;
+	Mon, 09 Jun 2025 10:36:43 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZYq-00000003sVt-32wl
+	id 1uOZb1-00000003sz4-3USn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 10:17:02 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ad69e4f2100so681482966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 03:17:00 -0700 (PDT)
+	Mon, 09 Jun 2025 10:19:16 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-451d54214adso34303205e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 03:19:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1749464219; x=1750069019; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xtWnccZdwmekAeiqyQYk4mGsFpJfFAArYZd8KxoueRo=;
-        b=S/S/no6q2L7Bdcg++KjwOfR3+62zDBln/niGEXJq3i0Vrc1mmjE4EnYVw79tIplJoi
-         hQ+AW1hnpo3XaIUafEemTQ+BI4OzbW9e6y5Tv5VpxuW2i5LczY7skkZ/gZDQV7oNQYij
-         Z5VOhLeLESugGabcyAOH0R2b4Zi6Bvz8Ep0IE=
+        d=linaro.org; s=google; t=1749464354; x=1750069154; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=r5mHztYrkrGmqdzQD2l85P8GCoJYxyAbRSWs0LTryIY=;
+        b=MSwAV4zruB8xdpWswYjXGQnKAnryIBdSU7K1tFkz6duexIDpuBjZm3knkmPoeCfrqa
+         bqekHfzme5UoHo8JG4L+Pfw1G6x7WflHIxHCxpxXanvmRv1JFbWouK0X8CeV9NgKHgvW
+         vgA2pfX0HHFkVRJbAYquxeJfM18zwaJ7tYgOebXmCnBCyZ9C94sPQ4s5ULB9gcWvtY6M
+         JOuipJxq11VZPx1kCUY0gBR/CcCwzK9sl/YzpDCCGa+5cDQ0yZg/2Pu9B7ojKZgaGR4A
+         QF6F/Ql06/r5LDDNpLAu1meXAEVpuGPvUvMKx66ONggFcb0NlqHFMpYsaZ2ZT712DCRF
+         +yIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749464219; x=1750069019;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xtWnccZdwmekAeiqyQYk4mGsFpJfFAArYZd8KxoueRo=;
-        b=U8RsfYfcFoFkSM0zirZJqUVYcF2HbmwIa5qaOUXcxGiHUBZPPP21vEA87IzjaGr7Wj
-         D39JCmjvEGQOMOcrA6uC4dvdnVVLZ0oMA56/eHfDHGfO61Mn6x+/iZG0j+9VCpnrbId8
-         hOL+Mz4/DokuJo1y19XtFSmfNsMVB9SturB0sMU7Ik+wjCwAl/HHvfwV8nig58Poj3Ov
-         GAsWOx57yHly+952qgJ/UVV4ODxMyxVPnLno/Z83QW3RHCRnrVKT2yWagMxIOUAhAs42
-         mtg1kHEP8y7ppiyXsZCclQlJSinc18lQVqH4Ep1qoHdDTxPrWM4kX7v4S0xDJ2V2zzpJ
-         dnRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWJZPLgrGFw9gK1e8Eoevr8ctAw4i9KsV8iDXRHeJIH432+sovK51UR85an4XyGNpOD+tvBgP5EHxdMXksS7tzn@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPmGoB2eLcykXHc5yH9XJIKe/6fM/LntrrHxpp4M5iWV6z2Ksf
-	pZ2i1xNV0mAbyXxidvccJZMH0mzwDcHGxIRXZ1tK1rweYcQa+D83HE70nj70+gRVN98=
-X-Gm-Gg: ASbGncurcwlD01Y+GPzGXi0IBnaVvZS7c2rljvxKLWwIbhzK7GRx4xuZXxXu+//Bnsy
-	IruX93baplyKS7cf60aGRcxntzHjmOM0kU+Rx3Qs1tiq/CCavsIH+BP6VQgleIijTdf7CU38eTt
-	NXKA7fLqOo0kyM3LCvMznn9j1E2Lify1RU2GlCWC8QeKp3lboEU4cLQPlvmSSLyOhlfDRZKYGLa
-	S7zTCaYofHY8qAQnQzQLDOOq5nHlVI8Zc5zb3McdJTPzM+08nLwo0cwacMPeP2nM/eL5xTnLefG
-	sGn/IlO8mPlc06m/amX4PI4xuRvuquS1BSrkCwc9b2LlRNWf9fGd4GRMKd26dSsviVP7R29SZSp
-	0/jTpQZR6yOQj+5cTSHMdRRQTpt1CYFcLJCKwVTRynyLBnuXiePQ=
-X-Google-Smtp-Source: AGHT+IH3gsxVUUgw8pn7niv+7bX9R//knvGpYp8ip0Yy0FzSdBl9gPYD+Rs9VowG2jDeFdePscxQDw==
-X-Received: by 2002:a17:907:d02:b0:ad8:9b5d:2c23 with SMTP id a640c23a62f3a-ade1aa5d45emr1170457766b.10.1749464219247;
-        Mon, 09 Jun 2025 03:16:59 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2.196.40.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1db55c7esm529257066b.49.2025.06.09.03.16.57
+        d=1e100.net; s=20230601; t=1749464354; x=1750069154;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=r5mHztYrkrGmqdzQD2l85P8GCoJYxyAbRSWs0LTryIY=;
+        b=Q2c+oCVUGHCXXkHO/vJRYRFWljOtjxFUCSe5GcPtL6QYyIkBHY0NUtYdkCDuQO/5Tl
+         ZfbPXHMpdEm2HJg1Dqs/hlZGmlrarbS8K+EViJfWkiF8Rf2a4H5HDJwFSM3cxSS/OzWv
+         VDYCHTyNrikrJLNCrTThigVtNRPri5qVMJGtt/Gq5sfV28YGjkwfl2lCMhRLpVOfcU25
+         BBeRqRuelSlJY1hdjP3peQXE8pUZJ05JknTyaE/QkLrMfZK9JMuNJt8Eg1Qzg2wlD2nh
+         fCsVfGsJ9UsLE0ODBSOJfY2vbPBU6jW0c4C5UC/Uo/R0L/Ed85aelqMkorsQhMMxXbjr
+         YE8w==
+X-Forwarded-Encrypted: i=1; AJvYcCUQoaAfA+0D0LUgo2w3sGiYsvKEAgECCsg7VmrdmXR6FtgBxp/QWGCTNZTrgcuR/aj3Ig4t2CQk2SP6N4DpfBFA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJYCuh6YVILnkEpgQBcJJhHkQD/tP1nuKaNOK07ZAhnXOv0uWw
+	yFmlMyHxuW8nWv8QU2S5Ym4Fv2gdEW4r/JzZtmO3ggm0/m0Y9a14LfDkjiebZh6PFt0=
+X-Gm-Gg: ASbGnctf5imRmKSFbcBHuXqCWNdFh/0zPmoCmCAv2RQT1gN/d/8XCQwcd14g4lboS2K
+	IXO4I9LZbngYgVUIGhMl+wVPtFvxFinZtmas/sMYLgW0kcSLh50cE+S19Pjc/YL8sNGkkVlIoBx
+	6Wex3U/MCQrMKcesR9IPzRtteAlW7CHqYDsOAQbMGpk3/wa+yvMOuvd3qzQJjYSntRJi8/i1Ere
+	z8xuKYpSoLBg6SK8lL8lFSjprqyUwTSjQuyP1YIT+AukSOcChO3zlwSjx1gs63ay6oxOW7gYrz8
+	2gruhq5xebEKE1gEoHhhSNo3XoNxUeS/hTjNkEZAJQ/U5MtuOuCbO0p2Dn8W/ZrdzOEOrELYRO+
+	YSQlGxg==
+X-Google-Smtp-Source: AGHT+IEt0L7eowj9syhu7VRI/x9xDxOk4NVySIoO/3E1zTrZVuto/UX1U8TTcSHn+qx8a5cyBIqbyw==
+X-Received: by 2002:a05:600c:6212:b0:43d:5ec:b2f4 with SMTP id 5b1f17b1804b1-45201350ea1mr143952555e9.10.1749464353901;
+        Mon, 09 Jun 2025 03:19:13 -0700 (PDT)
+Received: from ho-tower-lan.lan ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45213709686sm107272345e9.23.2025.06.09.03.19.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 03:16:58 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Matteo Lisi <matteo.lisi@engicam.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 10/10] ARM: imx_v6_v7_defconfig: select CONFIG_USB_HSIC_USB3503
-Date: Mon,  9 Jun 2025 12:15:43 +0200
-Message-ID: <20250609101637.2322809-11-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250609101637.2322809-1-dario.binacchi@amarulasolutions.com>
-References: <20250609101637.2322809-1-dario.binacchi@amarulasolutions.com>
+        Mon, 09 Jun 2025 03:19:13 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Mon, 09 Jun 2025 11:19:05 +0100
+Subject: [PATCH] coresight: trbe: Add ISB after TRBLIMITR write
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250609-james-cs-trblimitr-isb-v1-1-3a2aa4ee6770@linaro.org>
+X-B4-Tracking: v=1; b=H4sIABi1RmgC/x3Myw5AQAxA0V+RrjUZ4+1XxAJTVLzSikjEv5tYn
+ sW9DygJk0IVPCB0sfK+eURhAP3UbiMhO2+wxqYmMyXO7UqKveIp3cIrn4KsHaY2HqxxRZ64DHx
+ 8CA18/+O6ed8P4pYsUGgAAAA=
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Marc Zyngier <maz@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_031700_761251_A1917E6B 
-X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-CacheID: sfid-20250609_031915_883990_DEA07F59 
+X-CRM114-Status: UNSURE (   9.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,30 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver is required by the Engicam MicroGEA GTW board.
+DEN0154 states that hardware will be allowed to ignore writes to TRB*
+registers while the trace buffer is enabled. Add an ISB to ensure that
+it's disabled before clearing the other registers.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+This is purely defensive because it's expected that arm_trbe_disable()
+would be called before teardown which has the required ISB.
 
+Fixes: a2b579c41fe9 ("coresight: trbe: Remove redundant disable call")
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-
-(no changes since v1)
-
- arch/arm/configs/imx_v6_v7_defconfig | 1 +
+ drivers/hwtracing/coresight/coresight-trbe.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/configs/imx_v6_v7_defconfig b/arch/arm/configs/imx_v6_v7_defconfig
-index 917bc8a27794..3181775a214d 100644
---- a/arch/arm/configs/imx_v6_v7_defconfig
-+++ b/arch/arm/configs/imx_v6_v7_defconfig
-@@ -335,6 +335,7 @@ CONFIG_USB_SERIAL_FTDI_SIO=m
- CONFIG_USB_SERIAL_OPTION=m
- CONFIG_USB_TEST=m
- CONFIG_USB_EHSET_TEST_FIXTURE=m
-+CONFIG_USB_HSIC_USB3503=y
- CONFIG_USB_ONBOARD_DEV=y
- CONFIG_NOP_USB_XCEIV=y
- CONFIG_USB_MXS_PHY=y
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 8267dd1a2130..10f3fb401edf 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -257,6 +257,7 @@ static void trbe_drain_and_disable_local(struct trbe_cpudata *cpudata)
+ static void trbe_reset_local(struct trbe_cpudata *cpudata)
+ {
+ 	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
++	isb();
+ 	trbe_drain_buffer();
+ 	write_sysreg_s(0, SYS_TRBPTR_EL1);
+ 	write_sysreg_s(0, SYS_TRBBASER_EL1);
+
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250609-james-cs-trblimitr-isb-523f20d874d6
+
+Best regards,
 -- 
-2.43.0
+James Clark <james.clark@linaro.org>
 
 
