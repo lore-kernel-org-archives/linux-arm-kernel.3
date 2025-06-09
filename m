@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A49C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 16:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 115A4C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 16:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLdmF+7rGe4HYdKKcpIvoWZSwaNZfVJ3G2hMjd6o7Mk=; b=x2q+cNH5FuzzFtAuEuS9g8Zpph
-	SmAewaAd956bumqfHEa+hRhYDyCHX2PNXPt+gsLVgeBWiF8HklOHkRqUYWfLwK/NGPK2neBb+nubB
-	6CejJPSCE1W9qQDYd+SGcO6isrxcNx9IjUV2MgK8LZTb5GsG+MRCaIezZH7KOHPl+b5I+TtUxX6Zl
-	wu1wFcJTUOPoq2ggOSNLt20p0/K2ockdrBr3HmuvsxxiROVZ/3ZyzGziWvj4irUj//UQdnJUw4JC3
-	PIXkEhv6Z9iyMgVAHBzT/utELNcgsNL8ygJnTK0gMPu48/aXYmYGnyt1WHfpyuD7pSpu/skOXCdqc
-	SKRNR8UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6fBa/D7ZSdkp1CcirJkKYMOK5Z9MjA4EI8lgY6/+9GI=; b=sEeQmlhAlMbSDdhG3zyMYQG4oB
+	mcuXcfOVSUehF179roX9klTmD8rTFSf0hIF8rm53a/5+MhhQLGBRCeDg+4/sGC5BO8qa8nFygYz7b
+	4ytI1luBy2NYJsZyc5rhe1a4l4WlrhpKPPuJywAwJY6REfW5wHlIgrQXRsqHPCHZVIOX9Wfjbh9C5
+	PxD30M1UXXYH4TnMcqSUUF1g3F1EJbkGqqJqX5QoNQqfBcmtlmKFUK5nJqJd0KY0OoqMEmuCoJqRx
+	g3lAn9NdlLzzm0BhfiX7k99kglEOksZwqL4JC7HPyqaoLJfPGaM3+n8v6tle4U5t0nMTA58DNB3sW
+	/KvutmuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOfQl-00000004gLV-09W0;
-	Mon, 09 Jun 2025 16:33:03 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1uOfTX-00000004h2B-3zqx;
+	Mon, 09 Jun 2025 16:35:55 +0000
+Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOegl-00000004Z4R-2zGP
+	id 1uOevz-00000004bCp-2TXo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 15:45:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 43E161FD7B;
-	Mon,  9 Jun 2025 15:45:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749483929;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pLdmF+7rGe4HYdKKcpIvoWZSwaNZfVJ3G2hMjd6o7Mk=;
-	b=Csflvk9OJ170PPct5LgfqGxE3iCifi9LI5dnqPbXxCM8DJ0CZVscdt4kWZC2K9ibktaweX
-	SSO9JJhVMVO+D98sD6UPSiq5fCl2MumLovbK/Qs215hhN3ynncjtwJpuD/JMDNoSqjPWrP
-	3AR1Ao5OUwvMXLvWAsnrfq1PDimWPJuynO8XwbmzBEJ6k+0RiJbRKBlw8G/DzGN8gUTh7x
-	mj5tu0X7kmXLqDR7sy9Gq5maFC1vPu4SokuCN050E3BjauPagyG/j707083StDstMvEc97
-	cB0Ca2xTBiPTANB+D3hVXtW3cAT9ZmXmvzLYXH/xL5x9T5AxFpeQGwhwdaY8cQ==
-From: Kory Maincent <kory.maincent@bootlin.com>
-Date: Mon, 09 Jun 2025 17:43:54 +0200
-Subject: [PATCH v2 4/5] arm: dts: omap: Add support for BeagleBone Green
- Eco board
+	Mon, 09 Jun 2025 16:01:16 +0000
+Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e817b40d6e7so3795438276.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 09:01:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749484874; x=1750089674; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=6fBa/D7ZSdkp1CcirJkKYMOK5Z9MjA4EI8lgY6/+9GI=;
+        b=IfX8lBfiGfcVJP5Mele9v/CuRebmn05cHrMuUexrotLhf4WZRX4XI6s/iIRFzmk/2s
+         iEgQiLWvC7tUtMvU9abaXTMjGXeB2WYWWMCHiB4gl2smHgORLmVN11W8XS6GX5AENndE
+         TP5s61JQUNyM+x5Qws0TEZjvLcwqJkHLScedvI5298N5RSYATeRV0K0eQWYWmI3zdJN+
+         WLl99p2mOCXXEBe4gecMqDR3e7eDDVgUrOqR0f4lUzuD5wiw+MA99NYJWJc3koGRAmLa
+         58S8Ostc18ZfecnXNzND70vmhsxrh5yR0mLAROxOllVRBq0xpHd2jUqZAfAMrm7QOmKl
+         8xkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749484874; x=1750089674;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6fBa/D7ZSdkp1CcirJkKYMOK5Z9MjA4EI8lgY6/+9GI=;
+        b=CUtOnVXFVnkZKw9hIzayyiS31MGBHpDI9qz6h1b4hFp1VdDqAtIrVKsGGBV9fS47y+
+         E8QbUS7F3K+UNpphXhSZe4lJZlHIKBP5Y/zcBFMEfBoXhQZablcMmdiQnEUA4XKk9PPS
+         vbOaaCYwkbMfWD8v2nHQ6Ujzt+7tgS+NfkMshuh9WB1SBmhNxm4hI0P/hx5ifRuFQgnY
+         6lRJEzpeMMOdztwHdSjCzTCp7Lz1ycoKNuONtZDc42/wjEkwNFVj09p7VPjyfhjE9uvD
+         ugcKyMsrVKnXXrH4djeUu+W8HzzQaNQf1QLlMeUVjbl96IVvlp0ADxqb+rYyvEt+wgzM
+         t0aQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUYfxG0GAu5vS5x/58WKQYk/rs4MT2GdwT0QWX2GPlCcDYcXepYc+Prdb9RN6bAuRS0SR/4520YlY3K/agVGBIq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgY1YmbjrA1C4WIGrKm5hjpl/Q6lYuhWpuhiYO34Cx6ajiY1fU
+	mmB5C54ParjlEuefHVKCq9WezBeUvuKeLSv/SyTO5yVILZRIpoRCwPz+HLpP/l4XQ6WI0FM93yi
+	8VsyPycRFI2bf456dunszpuKO4jsAc0Z1v4N5+tw=
+X-Gm-Gg: ASbGncuzKavd5KVmpN3C1y+E5lmGmmn8tNG1Aq4sCSWenxbtOdb4vtzkytqK+BI5yy/
+	tFTJa63LKQ8IvT4m85/lnDQeG7Vu4zTPiiEmiZOHa8K/2sIi6z821sntBbT4kOUL4zRnJOVHGU6
+	Rx3GM7XnfCDKw8g9KSILzy8QPTp6ooDkJtbX5Rcde9pg==
+X-Google-Smtp-Source: AGHT+IEIB8zpDCWcvtBAEzi9NFpxDUdLEsuaA1XVK7qwbkI8oYOnzL1Es6VPcyxBlIwHUkvGkUTGO5iDPTFdkAt7y3Y=
+X-Received: by 2002:a05:6902:4911:b0:e81:992c:944d with SMTP id
+ 3f1490d57ef6-e81a214a687mr19372674276.29.1749484874113; Mon, 09 Jun 2025
+ 09:01:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250609-bbg-v2-4-5278026b7498@bootlin.com>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
-In-Reply-To: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
-To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
- Roger Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Kory Maincent <kory.maincent@bootlin.com>
-X-Mailer: b4 0.15-dev-8cb71
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdelgeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgfdvgfektefgfefggeekudfggffhtdfffedtueetheejtddvledvvdelhedtveenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedukedprhgtphhtthhopehrohhgvghrqheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehlihhnuhigqdhomhgrphesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrrghrohdrkhhoshhkihhnvghnsehikhhirdhfihdprhgtphhtthhop
- ehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: kory.maincent@bootlin.com
+References: <20250609140643.26270-1-stefano.radaelli21@gmail.com> <aEb5PHawmlhXs0xs@lizhi-Precision-Tower-5810>
+In-Reply-To: <aEb5PHawmlhXs0xs@lizhi-Precision-Tower-5810>
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Date: Mon, 9 Jun 2025 18:00:56 +0200
+X-Gm-Features: AX0GCFvjgcJAA-64XgvWKGj9tzVUxKIm25Rq28d_hMMp4iijhQyDQKRcAqF3GIk
+Message-ID: <CAK+owoidpKXje+vbCSKRbHMZfiWUkp9oO=JDfe7UOoYu=jz+tQ@mail.gmail.com>
+Subject: Re: [PATCH v1] arm64: dts: freescale: imx8mp-var-som: Add EQoS
+ support with MaxLinear PHY
+To: Frank Li <Frank.li@nxp.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, andrew@lunn.ch, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_084531_906898_99C080E3 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250609_090115_631512_CF7120E1 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,225 +96,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
-(BBG). It has minor differences from the BBG, such as a different PMIC,
-a different Ethernet PHY, and a larger eMMC.
+Hi Frank,
 
-Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
----
+> +                     reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
+> +                     reset-assert-us = <10000>;
+> +                     reset-deassert-us = <100000>;
+> +                     vddio-supply = <&reg_phy_vddio>;
+> extra empty line here.
 
-Changes in v2:
-- Used generic pmic node name.
-- Add regulator prefix to fixed regulator node name.
-- Add the compatible to omap.yaml binding
----
- Documentation/devicetree/bindings/arm/ti/omap.yaml |   1 +
- arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
- arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 170 +++++++++++++++++++++
- 3 files changed, 172 insertions(+)
+Ack, will add the empty line before the leds block.
 
-diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml b/Documentation/devicetree/bindings/arm/ti/omap.yaml
-index c43fa4f4af81..774c13157caa 100644
---- a/Documentation/devicetree/bindings/arm/ti/omap.yaml
-+++ b/Documentation/devicetree/bindings/arm/ti/omap.yaml
-@@ -145,6 +145,7 @@ properties:
-       - description: TI bone green variants based on TI AM335
-         items:
-           - enum:
-+              - ti,am335x-bone-green-eco
-               - ti,am335x-bone-green-wireless
-           - const: ti,am335x-bone-green
-           - const: ti,am335x-bone
-diff --git a/arch/arm/boot/dts/ti/omap/Makefile b/arch/arm/boot/dts/ti/omap/Makefile
-index 95c68135dd0c..1aef60eef671 100644
---- a/arch/arm/boot/dts/ti/omap/Makefile
-+++ b/arch/arm/boot/dts/ti/omap/Makefile
-@@ -93,6 +93,7 @@ dtb-$(CONFIG_SOC_AM33XX) += \
- 	am335x-boneblue.dtb \
- 	am335x-bonegreen.dtb \
- 	am335x-bonegreen-wireless.dtb \
-+	am335x-bonegreen-eco.dtb \
- 	am335x-chiliboard.dtb \
- 	am335x-cm-t335.dtb \
- 	am335x-evm.dtb \
-diff --git a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts
-new file mode 100644
-index 000000000000..f2592a3ddbbb
---- /dev/null
-+++ b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts
-@@ -0,0 +1,170 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025 Bootlin
-+ */
-+/dts-v1/;
-+
-+#include "am33xx.dtsi"
-+#include "am335x-bone-common.dtsi"
-+#include "am335x-bonegreen-common.dtsi"
-+#include <dt-bindings/net/ti-dp83867.h>
-+
-+/ {
-+	model = "TI AM335x BeagleBone Green Eco";
-+	compatible = "ti,am335x-bone-green-eco", "ti,am335x-bone-green",
-+		     "ti,am335x-bone", "ti,am33xx";
-+
-+	cpus {
-+		cpu@0 {
-+			cpu0-supply = <&buck1>;
-+		};
-+	};
-+
-+	sys_5v: regulator-sys-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "sys_5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	v3v3: regulator-v3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "v3v3";
-+		regulator-always-on;
-+	};
-+};
-+
-+&usb0 {
-+	interrupts-extended = <&intc 18>;
-+	interrupt-names = "mc";
-+};
-+
-+&baseboard_eeprom {
-+	vcc-supply = <&v3v3>;
-+};
-+
-+&i2c0 {
-+	/delete-node/ pmic@24;
-+
-+	tps65214: pmic@30 {
-+		compatible = "ti,tps65214";
-+		reg = <0x30>;
-+		buck1-supply = <&sys_5v>;
-+		buck2-supply = <&sys_5v>;
-+		buck3-supply = <&sys_5v>;
-+		ldo1-supply = <&sys_5v>;
-+		ldo2-supply = <&sys_5v>;
-+
-+		interrupt-parent = <&intc>;
-+		interrupts = <7>;
-+		pinctrl-0 = <&pmic_irq_pins_default>;
-+
-+		regulators {
-+			buck1: buck1 {
-+				regulator-name = "vdd_mpu";
-+				regulator-min-microvolt = <925000>;
-+				regulator-max-microvolt = <1351500>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck2: buck2 {
-+				regulator-name = "vdd_core";
-+				regulator-min-microvolt = <925000>;
-+				regulator-max-microvolt = <1150000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			buck3: buck3 {
-+				regulator-name = "vdds_ddr";
-+				regulator-min-microvolt = <1350000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+			};
-+
-+			ldo1_reg: ldo1 {
-+				regulator-name = "vdd_1v8_1";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			ldo2_reg: ldo2 {
-+				regulator-name = "vdd_1v8_2";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&cpsw_port1 {
-+	phy-mode = "rgmii-id";
-+	phy-handle = <&dp83867_0>;
-+	ti,dual-emac-pvid = <1>;
-+};
-+
-+&mac_sw {
-+	pinctrl-0 = <&cpsw_b_default>;
-+	pinctrl-1 = <&cpsw_b_sleep>;
-+};
-+
-+&davinci_mdio_sw {
-+	/delete-node/ ethernet-phy@0;
-+
-+	dp83867_0: ethernet-phy@0 {
-+		reg = <0>;
-+		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_50_NS>;
-+		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_50_NS>;
-+		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_8_B_NIB>;
-+		ti,min-output-impedance;
-+		ti,dp83867-rxctrl-strap-quirk;
-+	};
-+};
-+
-+&am33xx_pinmux {
-+	cpsw_b_default: cpsw-b-default-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_EN, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_DV, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_CLK, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_CLK, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD0, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD1, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD2, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD3, PIN_OUTPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD0, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD1, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD2, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD3, PIN_INPUT_PULLDOWN, MUX_MODE2)
-+		>;
-+	};
-+
-+	cpsw_b_sleep: cpsw-b-sleep-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_EN, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_DV, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TX_CLK, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RX_CLK, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD0, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD1, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD2, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_TXD3, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD0, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD1, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD2, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+			AM33XX_PADCONF(AM335X_PIN_MII1_RXD3, PIN_INPUT_PULLDOWN, MUX_MODE7)
-+		>;
-+	};
-+
-+	pmic_irq_pins_default: pmic-irq-default-pins {
-+		pinctrl-single,pins = <
-+			AM33XX_IOPAD(AM335X_PIN_NNMI, PIN_INPUT_PULLUP | MUX_MODE0)
-+		>;
-+	};
-+};
+> +                     at803x,eee-disabled;
+> +                     eee-broken-1000t;
+> are you sure eee broken? recently we found it wrong copy from fec.
 
--- 
-2.43.0
+You're absolutely right. I checked the MXL86110 datasheet and it clearly states
+that EEE is properly supported for both 100BASE-TX and 1000BASE-T operations.
+These properties were indeed copied incorrectly from other configurations.
+I'll remove both at803x,eee-disabled and eee-broken-1000t properties in v2.
 
+Thanks for catching this!
+
+Il giorno lun 9 giu 2025 alle ore 17:10 Frank Li <Frank.li@nxp.com> ha scritto:
+>
+> On Mon, Jun 09, 2025 at 04:06:42PM +0200, Stefano Radaelli wrote:
+> > Enable the EQoS Ethernet controller on the i.MX8MP VAR-SOM with the
+> > integrated Maxlinear MXL86110 PHY. The PHY is connected to the EQOS
+> > MDIO bus at address 4.
+> >
+> > This patch adds:
+> > - EQOS controller configuration with RGMII interface.
+> > - Proper reset timings.
+> > - PHY power supply regulators.
+> > - RGMII pinmux configuration for all data, control and clock signals.
+> > - LED configuration for link status indication via the LED subsystem
+> >   under /sys/class/leds/, leveraging the support implemented in the.
+> >   mxl86110 PHY driver (drivers/net/phy/mxl-86110.c).
+> >   Two LEDs are defined to match the LED configuration on the Variscite
+> >   VAR-SOM Carrier Boards:
+> >     * LED@0: Yellow, netdev trigger.
+> >     * LED@1: Green, netdev trigger.
+> >
+> > The RGMII TX/RX delays are implemented in SOM via PCB passive
+> > delays, so no software delay configuration is required.
+> >
+> > Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+> > ---
+> >  .../boot/dts/freescale/imx8mp-var-som.dtsi    | 87 +++++++++++++++++++
+> >  1 file changed, 87 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+> > index b59da91fdd04..3be59692849f 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+> > @@ -55,6 +55,24 @@ reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
+> >               states = <3300000 0x0 1800000 0x1>;
+> >               vin-supply = <&ldo5>;
+> >       };
+> > +
+> > +     reg_phy_supply: regulator-phy-supply {
+> > +             compatible = "regulator-fixed";
+> > +             regulator-name = "phy-supply";
+> > +             regulator-min-microvolt = <3300000>;
+> > +             regulator-max-microvolt = <3300000>;
+> > +             regulator-enable-ramp-delay = <20000>;
+> > +             gpio = <&gpio2 20 GPIO_ACTIVE_HIGH>;
+> > +             enable-active-high;
+> > +             regulator-always-on;
+> > +     };
+> > +
+> > +     reg_phy_vddio: regulator-phy-vddio {
+> > +             compatible = "regulator-fixed";
+> > +             regulator-name = "vddio-1v8";
+> > +             regulator-min-microvolt = <1800000>;
+> > +             regulator-max-microvolt = <1800000>;
+> > +     };
+> >  };
+> >
+> >  &A53_0 {
+> > @@ -73,6 +91,54 @@ &A53_3 {
+> >       cpu-supply = <&buck2>;
+> >  };
+> >
+> > +&eqos {
+> > +     pinctrl-names = "default";
+> > +     pinctrl-0 = <&pinctrl_eqos>;
+> > +     /*
+> > +      * The required RGMII TX and RX 2ns delays are implemented directly
+> > +      * in hardware via passive delay elements on the SOM PCB.
+> > +      * No delay configuration is needed in software via PHY driver.
+> > +      */
+> > +     phy-mode = "rgmii";
+> > +     phy-handle = <&ethphy0>;
+> > +     status = "okay";
+> > +
+> > +     mdio {
+> > +             compatible = "snps,dwmac-mdio";
+> > +             #address-cells = <1>;
+> > +             #size-cells = <0>;
+> > +
+> > +             ethphy0: ethernet-phy@4 {
+> > +                     compatible = "ethernet-phy-ieee802.3-c22";
+> > +                     reg = <4>;
+> > +                     at803x,eee-disabled;
+> > +                     eee-broken-1000t;
+>
+> are you sure eee broken? recently we found it wrong copy from fec.
+>
+>
+> > +                     reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
+> > +                     reset-assert-us = <10000>;
+> > +                     reset-deassert-us = <100000>;
+> > +                     vddio-supply = <&reg_phy_vddio>;
+>
+> extra empty line here.
+>
+> Frank
+> > +                     leds {
+> > +                             #address-cells = <1>;
+> > +                             #size-cells = <0>;
+> > +
+> > +                             led@0 {
+> > +                                     reg = <0>;
+> > +                                     color = <LED_COLOR_ID_YELLOW>;
+> > +                                     function = LED_FUNCTION_LAN;
+> > +                                     linux,default-trigger = "netdev";
+> > +                             };
+> > +
+> > +                             led@1 {
+> > +                                     reg = <1>;
+> > +                                     color = <LED_COLOR_ID_GREEN>;
+> > +                                     function = LED_FUNCTION_LAN;
+> > +                                     linux,default-trigger = "netdev";
+> > +                             };
+> > +                     };
+> > +             };
+> > +     };
+> > +};
+> > +
+> >  &i2c1 {
+> >       clock-frequency = <400000>;
+> >       pinctrl-names = "default";
+> > @@ -239,6 +305,27 @@ &wdog1 {
+> >
+> >  &iomuxc {
+> >
+> > +     pinctrl_eqos: eqosgrp {
+> > +             fsl,pins = <
+> > +                     MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC                             0x2
+> > +                     MX8MP_IOMUXC_ENET_MDIO__ENET_QOS_MDIO                           0x2
+> > +                     MX8MP_IOMUXC_ENET_RD0__ENET_QOS_RGMII_RD0                       0x90
+> > +                     MX8MP_IOMUXC_ENET_RD1__ENET_QOS_RGMII_RD1                       0x90
+> > +                     MX8MP_IOMUXC_ENET_RD2__ENET_QOS_RGMII_RD2                       0x90
+> > +                     MX8MP_IOMUXC_ENET_RD3__ENET_QOS_RGMII_RD3                       0x90
+> > +                     MX8MP_IOMUXC_ENET_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK       0x90
+> > +                     MX8MP_IOMUXC_ENET_RX_CTL__ENET_QOS_RGMII_RX_CTL                 0x90
+> > +                     MX8MP_IOMUXC_ENET_TD0__ENET_QOS_RGMII_TD0                       0x16
+> > +                     MX8MP_IOMUXC_ENET_TD1__ENET_QOS_RGMII_TD1                       0x16
+> > +                     MX8MP_IOMUXC_ENET_TD2__ENET_QOS_RGMII_TD2                       0x16
+> > +                     MX8MP_IOMUXC_ENET_TD3__ENET_QOS_RGMII_TD3                       0x16
+> > +                     MX8MP_IOMUXC_ENET_TX_CTL__ENET_QOS_RGMII_TX_CTL                 0x16
+> > +                     MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK       0x16
+> > +                     MX8MP_IOMUXC_SD2_WP__GPIO2_IO20                                 0x10
+> > +                     MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10                             0x150
+> > +             >;
+> > +     };
+> > +
+> >       pinctrl_i2c1: i2c1grp {
+> >               fsl,pins = <
+> >                       MX8MP_IOMUXC_SD1_DATA4__I2C1_SCL                                0x400001c2
+> >
+> > base-commit: e271ed52b344ac02d4581286961d0c40acc54c03
+> > prerequisite-patch-id: 2335ebcc90360b008c840e7edf7e34a595880edf
+> > --
+> > 2.43.0
+> >
 
