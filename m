@@ -4,126 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30761C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 18:22:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71999C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 18:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpUhLELyP7p8RhE4vCfB2tyhBHP3IonfUXHeFb/uNaI=; b=wg0mbVReAfhFBq821JdMKAR7Kg
-	I7YPKb22zAPdN0TlBSqMgvpKqjn1YTvnDlclAWtGwuuSjgVfh2L19LavceBOU6irnhZGNZO7NgNlt
-	bWl/ZbTsxBUBc/N3+ebZVktuImjzqRdUKsL2g5SGnXlSZ2fZ4R/nOOs3GVIp1jBgs6hk1uFJ2/+tY
-	JRYyE5TcA+Or8qzhB/Oz6pD/rJjgLNVw4LFLhfYTLwJumnhwOaf8A914A52NmLLbhbZ1X6n3v/Pas
-	r7dT7u3nTXsVJAvw3Gc84D1n5lUoYYh6BVRkyaxEccz4KB/D7xV5X7A7UYmEycgB9f7J8yABkqlan
-	JV0yr4vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fsF8BjcznT+3WKiDC6VLhWngLhtxU4EyCBlexGedYyc=; b=zcUX2hgIodP8npV/P/E/mixU60
+	X2hjc8nG/TpJ3Kjqoe/NMRiFF9Zc8TIMzehtp+vkLdhdtsVxCfjOQF0y1vvvLCACdSljZkmHSN58h
+	raPL6c8sAZtsDA2v5P+CkEFVJ07NKD6NY1SAJLvM4eaVc5JOU7KwwZ9qy4WPimRlP9gGKnewbgbAy
+	UnJoxzf5Aue0gqtqL2Q80bkFaE/Erb4i6fysv/BUGY0VSWenuMD0UOdWZhEok8q4SCkknhXoU8PWI
+	DM28htEcyU/73MRWgZRTlHLsWBOyYOWU4ucoWUgeesp4ZTKMTWIElV0LziAVsuUeTf2wcpLygf+Qc
+	m6MJT49w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOh8x-00000004tET-3HtG;
-	Mon, 09 Jun 2025 18:22:47 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1uOhB4-00000004tRk-3KiL;
+	Mon, 09 Jun 2025 18:24:58 +0000
+Received: from mail-bn7nam10on2061e.outbound.protection.outlook.com ([2a01:111:f403:2009::61e] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOfwT-00000004kxp-4Bqk
+	id 1uOg4T-00000004m5L-2ZSK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 17:05:51 +0000
-Received: by mail-pg1-x544.google.com with SMTP id 41be03b00d2f7-b2c40a7ca6eso4300594a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 10:05:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1749488748; x=1750093548; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=bpUhLELyP7p8RhE4vCfB2tyhBHP3IonfUXHeFb/uNaI=;
-        b=Z+wnBry/T6FyFtxu2s0VC7XLgSrBDNSnEAiWCGQDYU8zUzIj9/p9+As7wGsjpc9xqn
-         nmshudhREPobj+TczZlGSrM3rOzgW+xykXIAbcs+FfOh5IlmROgbm5/YYk7TGBElKnvT
-         0TeMxFFwiPepZemCq3iHggf6mQZ/fb3lzg790=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749488748; x=1750093548;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bpUhLELyP7p8RhE4vCfB2tyhBHP3IonfUXHeFb/uNaI=;
-        b=Nl13WN/cLi3uISg2tLf279sxFUOT1sjQaQsOFqiSwvcuMjrstFsDzys98sWkQ8PaDV
-         w0PCLI7dLe/X85NK/uQ08uT9lEy5c77YgGSwILH/rlKw2/DEG/NHgks++P7Zk1b6BvNA
-         qW9qjjZpyaqbl7dfa3rAyyT0pWPK3ROsY2rdMy7IVYKkIKM5JEBQ/0BabxBehyCjpbQ9
-         1HmqaZlSAIKrEPX4JLQ4g/YUFwNeWfRMJdtsIUIN5jOyd5GtipIH0QbM0rPgbW0d6eHS
-         aZt3z45poTLGX+N9Kenhti2LA5/10QcIRb2c4H2xko3cibXwGRMLvmQwxnbAOprEaB+h
-         mnXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVsUQfuaylsrzPU3omcFQueT6fyAITNFchKYRVD+oe3wMhFtvl4TsR/wddlOUuArRhdxig8/kpMcu35St5R5GXj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVnQlNpkPHD2XNkAVk7P208cn7w8SWwwLBXpSEpB9M2ZWr1MRf
-	i/v6owLfTx0A/u4IGuz2YBpWwx7Is0CEQc1C7DN1DFpEzA/ot1DcCJKUzTj7pMJUSw==
-X-Gm-Gg: ASbGnctw4TB8fCqVBpa08+Z/V8zmnJJjNf6BPuzwqjHkXhWdFD9hOKQpFt4swc2mdwx
-	uAblp/C4aHjBvSIr/08lrSD+jnfOp/eWvz7PO0T+E/rjpvozH8ORtt7p5RAjjpQ6TNT3eaUw3M5
-	ATP7uOv06p5VFv5HaXriJQPTS8JO0KNT6SigImcptIorrthWTWMoVIc6cc692dIy0roE1Oq7eIW
-	mprjf1lp9AdJ6m5TGPvezcVPgVWwOwFghvcywrzmLN92KWqIokylFSkoaUotu2pN+uZ8/fSD4Im
-	OY8rX6phw6VETLdzo3GnprfkRuKIpcB1wDtYfOrWvKuMhShNJ6XtUzvQ56zOYaHG1CpxPLgRkpT
-	FNUB0IHBxtVwgMzQ=
-X-Google-Smtp-Source: AGHT+IFg3mi4AXKwWCaQj9OKbnJUga0CFNcbyFNnTtTiLkcVN0H5XUu3mCUv8IWhktn/JA1FpeC/mg==
-X-Received: by 2002:a05:6a20:d80a:b0:21a:efe4:5c6f with SMTP id adf61e73a8af0-21ee24e7774mr23117445637.2.1749488748570;
-        Mon, 09 Jun 2025 10:05:48 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7482af7af0csm6187704b3a.62.2025.06.09.10.05.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Jun 2025 10:05:47 -0700 (PDT)
-Message-ID: <85e921fb-af2a-4ed6-acd8-ad8c88e1d9a2@broadcom.com>
-Date: Mon, 9 Jun 2025 10:05:46 -0700
+	Mon, 09 Jun 2025 17:14:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bh2r7KBaf+YxuD1RL1e5F6FMT7vMUV2HJ0J3EFON9qreeTT38dRS06UP/VSo0HN6MkEJwruIxkp+9o9X2jMNl7ymqxqHxSDrJ9N+MPisS5ubch4cbIBoxuSQOp9d9+bz06SpISgfEd0h2iov8XRZm7gZ35yY51cwWfljjAzaohKs7IvIUjIr9+88sSvhI/skBAa8p42fZkcgTMwoRjJbfiNXk0+6SCJV9WZDyVZtMj08fP7oh69qIAEbeW9PN8VVhBgjK//WtPyGuluQPKze2DlEorbDozeF9JcVeiYj7IS5LhzM7p6Fax9cdkuYM7cahVrhUIa34muXNegzFAcUtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fsF8BjcznT+3WKiDC6VLhWngLhtxU4EyCBlexGedYyc=;
+ b=OVPN1zLYyCepR6ivBXOA8X++O6Gq4lId+kDjz5NucKUu1s+LBHNMYwQQmLxLcmIBsh43SI5UAhmcecU8SvNWIm4BO8X6rnm3aJnicOupYY4+Xr1e3KTXe+CztXKPyIidi9b4w+YRigRMwYvpzuz7S3Gxq37eLlOtu77+QMQhhKoCjRJb7lAqBqKnW6BoHQpTNWq/K5XmhumFK6H6A0THyzO0piylfhJTcA+MWH/NUDnr2VB7E0T5qCUv2Z3xeY0hgIdYQCbL61/AEYQr+8lW+OnLGCFv7UUiWV74idgWEryA+Xpv88sLGxo9w2HCPtsEC8hrg+Ltvc8bQuJ9y40UKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fsF8BjcznT+3WKiDC6VLhWngLhtxU4EyCBlexGedYyc=;
+ b=a5GZy+q56stqGtAIS523oA1AqaaB/oac3iBHQg0xusaYEl4Q9U4nNeWxUU8shucWe9WsoUJdfGJI4cxOVnLIt8MHJvEGp65rjQdx3e5rK6XES5ErTAuBpw0PsUCcN+jVSe5tUZPoUwMpSyEuPY+5PAsbmbdwb63umjCXdCHnxsp3cq9iXYqFsWEsc5YBQyjF2qNg+LiSCVCNt2eLRdUAtbKsmWQl4meX8W6HTxHZ2oiAEpPnz/nDuHJhBIBGkv1OzViUX4lxWo7LIgAVnqXKnRXBCydxF8IRa0+3r3K3erjA1fUffnhXdWXUeXY3q9lT7atThhJ8xZuNaT5mVvRgJw==
+Received: from MN2PR14CA0022.namprd14.prod.outlook.com (2603:10b6:208:23e::27)
+ by IA1PR12MB8517.namprd12.prod.outlook.com (2603:10b6:208:449::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.35; Mon, 9 Jun
+ 2025 17:13:56 +0000
+Received: from BL02EPF0001A0FA.namprd03.prod.outlook.com
+ (2603:10b6:208:23e:cafe::36) by MN2PR14CA0022.outlook.office365.com
+ (2603:10b6:208:23e::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Mon,
+ 9 Jun 2025 17:13:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BL02EPF0001A0FA.mail.protection.outlook.com (10.167.242.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Mon, 9 Jun 2025 17:13:56 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 9 Jun 2025
+ 10:13:41 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 9 Jun
+ 2025 10:13:41 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Mon, 9 Jun 2025 10:13:39 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <kevin.tian@intel.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <peterz@infradead.org>,
+	<jsnitsel@redhat.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>,
+	<baolu.lu@linux.intel.com>
+Subject: [PATCH v1 01/12] iommufd: Apply obvious cosmetic fixes
+Date: Mon, 9 Jun 2025 10:13:24 -0700
+Message-ID: <911815af406cc2d9fde50920aef61493be839fcb.1749488870.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1749488870.git.nicolinc@nvidia.com>
+References: <cover.1749488870.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: phy: Convert brcm,sr-usb-combo-phy to DT
- schema
-To: "Rob Herring (Arm)" <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Srinath Mannam <srinath.mannam@broadcom.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250607212515.741397-1-robh@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250607212515.741397-1-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FA:EE_|IA1PR12MB8517:EE_
+X-MS-Office365-Filtering-Correlation-Id: 090dec04-f8d8-4014-cf40-08dda779046c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|82310400026|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uqpVUxBGdSHOXjz7eigYV+iWwC3zaqVR0aGsxjqnlX4JF1jl8pSDN8SevrSs?=
+ =?us-ascii?Q?D3JkHzXfDa+SFK7BD7nkyDk0D7MdH8UDtEmIyUsVPRZJpAIUzXn1ruahd42x?=
+ =?us-ascii?Q?1jasU/F951uvo9rDSXzSoZF07uu+Jc3pCIPL8JQuImfeei9tGtrb7k3Fcrfy?=
+ =?us-ascii?Q?ROmn0G8vpvvDTCv+lHJbpBLCnH9RZlQotf+zctJ1YkhPRsGawgVPeWao4o9p?=
+ =?us-ascii?Q?9zikMAolxLVOrJLBx1ka0Ov4+PAAPEOsJZAaKOy+l2dIsVvKqNDBPoIBQ1Ex?=
+ =?us-ascii?Q?UIJaA5JOHOC7cAw5t96R5mb1dpCpI5b6lWZJvToMf6os8StdDmFCDY52nuEj?=
+ =?us-ascii?Q?w8PTKls227FmnWLfIpo+lDRQhaEx6ZnDfdnYjO99QUsG6i4f+Ne+G5ajQD9O?=
+ =?us-ascii?Q?QxRaZZIyNCFsqOe9HyjYNkA2l7QkyCc63X8ZBVvTmnKE4nNKcYF1HB7WZ3++?=
+ =?us-ascii?Q?6bgx+Fm55CD4EVMObFgpnKZ5PlCn9hX/VQSD2VrF0vt8lmSFGTLXGUmkfF/6?=
+ =?us-ascii?Q?O0FlYR8hERw7B8I/6rzlSCpZJmdWAtPp8XAQlpP5RQ6Tm6hUJIpocmD6tiPX?=
+ =?us-ascii?Q?7DDuAnjpir7R1NFKteGodH7uhB11GfRjW8MuDw7MRHjjur7fJgeqv464Ok2a?=
+ =?us-ascii?Q?GGz1Yl7iWoeAMUadY/kY7ZKSEhot2u23qoVsId2tYPoctpF2vgLZJ014KYk/?=
+ =?us-ascii?Q?Nd1eCyLbtFly8SEM2yM6F9nsnC9FJiVy6WUEEyKnOZ3i9Kjs39iqYm624s33?=
+ =?us-ascii?Q?iKf8hd8hZCEdjqaCmTdVwSOi0Ycze/4JLGfEt+4J3LZqU6N10lA2zCIx4Tsq?=
+ =?us-ascii?Q?PoA2xQgjNQLT4hHdKxam924u62hczGoZ5Fre+0fdoQM1/y4xEWItd/SD8rs3?=
+ =?us-ascii?Q?4OCzT7eW/R2kYMVw4sayexrka6OfM4dFzdNHPJueadKLz6DRIJ558JMZfRVZ?=
+ =?us-ascii?Q?6TC04j8te/i6WZQyDphOC6G8GaCtDoSSoZoDDPxcmEuUce79aB+a9GMU7C/+?=
+ =?us-ascii?Q?KsvANLas2dT3l2f1QfhS7ImdhpGRwy0zMBtqLvOLNNGFDfaSL/cUhqsaQBoN?=
+ =?us-ascii?Q?m9o60yPbufjLALM0FEH5nESGyJGXW66isntaBZzCsf0yBucPya23U0WTriaa?=
+ =?us-ascii?Q?Nelnq3rGjCnY+MJJgq76v+MkHrs5FoIiI0007I9yZ67P6OJ2tVUm6zv7COKF?=
+ =?us-ascii?Q?vv94tLL4uATO0cITkaOiXxD//J4+hD3MHEibqIR3KebY+PtaQJ3nRa5SnlPn?=
+ =?us-ascii?Q?zcDFW4QNxcXhZhVLncun8bDma+1B2pEQtNLssdKkwTpU9gadUkQSMZ55MWCj?=
+ =?us-ascii?Q?XrdH8DLpildGFdddDsxRWPk/L7Fpd9kWXEY9Be12ZUgs9csaG0ayRFianrks?=
+ =?us-ascii?Q?NjnGBw2ynFeKrcgg8cv8jCYZTaVQHGfQed6PccGEJYmIVAV2O08+oLsSPN/c?=
+ =?us-ascii?Q?6wCBt2I26urgzypoAaEoO/4ny/ayBImTR7Q5sTFoDBTy2iRQ2hRbk34Ukks/?=
+ =?us-ascii?Q?IBIJL8s6kSFktP151MVg4MtqRP3ViUiFQ+7R?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(82310400026)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 17:13:56.1646
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 090dec04-f8d8-4014-cf40-08dda779046c
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FA.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8517
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_100550_066610_2E4995F8 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250609_101405_731820_C1BC51C8 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,38 +153,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/7/25 14:25, 'Rob Herring (Arm)' via BCM-KERNEL-FEEDBACK-LIST,PDL wrote:
-> Convert the Broadcom Stingray USB PHY binding to DT schema format. It's
-> a straight forward conversion.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->   .../bindings/phy/brcm,sr-usb-combo-phy.yaml   | 64 +++++++++++++++++++
->   .../bindings/phy/brcm,stingray-usb-phy.txt    | 32 ----------
->   2 files changed, 64 insertions(+), 32 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/phy/brcm,sr-usb-combo-phy.yaml
->   delete mode 100644 Documentation/devicetree/bindings/phy/brcm,stingray-usb-phy.txt
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/brcm,sr-usb-combo-phy.yaml b/Documentation/devicetree/bindings/phy/brcm,sr-usb-combo-phy.yaml
-> new file mode 100644
-> index 000000000000..b9aeaab02ef3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/brcm,sr-usb-combo-phy.yaml
-> @@ -0,0 +1,64 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/brcm,sr-usb-combo-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Broadcom Stingray USB PHY
-> +
-> +maintainers:
-> +  - Srinath Mannam <srinath.mannam@broadcom.com>
+Run clang-format but exclude those not so obvious ones, which leaves us:
+ - Align indentations
+ - Add missing spaces
+ - Remove unnecessary spaces
+ - Remove unnecessary line wrappings
 
-Would suggest putting Scott and Ray as maintainers here, Srinath's email 
-is bouncing.
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/iommufd/io_pagetable.h    |  2 +-
+ drivers/iommu/iommufd/iommufd_private.h |  6 ++----
+ include/linux/iommufd.h                 |  5 +++--
+ drivers/iommu/iommufd/device.c          |  3 +--
+ drivers/iommu/iommufd/hw_pagetable.c    |  6 ++----
+ drivers/iommu/iommufd/io_pagetable.c    |  3 +--
+ drivers/iommu/iommufd/iova_bitmap.c     |  1 -
+ drivers/iommu/iommufd/main.c            |  6 ++----
+ drivers/iommu/iommufd/pages.c           |  9 ++++-----
+ drivers/iommu/iommufd/selftest.c        | 24 +++++++++++-------------
+ 10 files changed, 27 insertions(+), 38 deletions(-)
 
+diff --git a/drivers/iommu/iommufd/io_pagetable.h b/drivers/iommu/iommufd/io_pagetable.h
+index 10c928a9a463..c115a51d9384 100644
+--- a/drivers/iommu/iommufd/io_pagetable.h
++++ b/drivers/iommu/iommufd/io_pagetable.h
+@@ -240,7 +240,7 @@ int iopt_area_add_access(struct iopt_area *area, unsigned long start,
+ 			 unsigned long last, struct page **out_pages,
+ 			 unsigned int flags);
+ void iopt_area_remove_access(struct iopt_area *area, unsigned long start,
+-			    unsigned long last);
++			     unsigned long last);
+ int iopt_pages_rw_access(struct iopt_pages *pages, unsigned long start_byte,
+ 			 void *data, unsigned long length, unsigned int flags);
+ 
+diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
+index 9ccc83341f32..190ceb5dada3 100644
+--- a/drivers/iommu/iommufd/iommufd_private.h
++++ b/drivers/iommu/iommufd/iommufd_private.h
+@@ -266,8 +266,7 @@ struct iommufd_ioas {
+ static inline struct iommufd_ioas *iommufd_get_ioas(struct iommufd_ctx *ictx,
+ 						    u32 id)
+ {
+-	return container_of(iommufd_get_object(ictx, id,
+-					       IOMMUFD_OBJ_IOAS),
++	return container_of(iommufd_get_object(ictx, id, IOMMUFD_OBJ_IOAS),
+ 			    struct iommufd_ioas, obj);
+ }
+ 
+@@ -452,8 +451,7 @@ struct iommufd_access {
+ 
+ int iopt_add_access(struct io_pagetable *iopt, struct iommufd_access *access);
+ void iopt_remove_access(struct io_pagetable *iopt,
+-			struct iommufd_access *access,
+-			u32 iopt_access_list_id);
++			struct iommufd_access *access, u32 iopt_access_list_id);
+ void iommufd_access_destroy_object(struct iommufd_object *obj);
+ 
+ struct iommufd_eventq {
+diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
+index 34b6e6ca4bfa..498c9a768506 100644
+--- a/include/linux/iommufd.h
++++ b/include/linux/iommufd.h
+@@ -171,8 +171,9 @@ static inline void iommufd_access_unpin_pages(struct iommufd_access *access,
+ {
+ }
+ 
+-static inline int iommufd_access_rw(struct iommufd_access *access, unsigned long iova,
+-		      void *data, size_t len, unsigned int flags)
++static inline int iommufd_access_rw(struct iommufd_access *access,
++				    unsigned long iova, void *data, size_t len,
++				    unsigned int flags)
+ {
+ 	return -EOPNOTSUPP;
+ }
+diff --git a/drivers/iommu/iommufd/device.c b/drivers/iommu/iommufd/device.c
+index 86244403b532..ed0dc539d490 100644
+--- a/drivers/iommu/iommufd/device.c
++++ b/drivers/iommu/iommufd/device.c
+@@ -485,8 +485,7 @@ iommufd_device_get_attach_handle(struct iommufd_device *idev, ioasid_t pasid)
+ 
+ 	lockdep_assert_held(&idev->igroup->lock);
+ 
+-	handle =
+-		iommu_attach_handle_get(idev->igroup->group, pasid, 0);
++	handle = iommu_attach_handle_get(idev->igroup->group, pasid, 0);
+ 	if (IS_ERR(handle))
+ 		return NULL;
+ 	return to_iommufd_handle(handle);
+diff --git a/drivers/iommu/iommufd/hw_pagetable.c b/drivers/iommu/iommufd/hw_pagetable.c
+index 487779470261..8565a6f596b2 100644
+--- a/drivers/iommu/iommufd/hw_pagetable.c
++++ b/drivers/iommu/iommufd/hw_pagetable.c
+@@ -309,10 +309,8 @@ iommufd_viommu_alloc_hwpt_nested(struct iommufd_viommu *viommu, u32 flags,
+ 	refcount_inc(&viommu->obj.users);
+ 	hwpt_nested->parent = viommu->hwpt;
+ 
+-	hwpt->domain =
+-		viommu->ops->alloc_domain_nested(viommu,
+-				flags & ~IOMMU_HWPT_FAULT_ID_VALID,
+-				user_data);
++	hwpt->domain = viommu->ops->alloc_domain_nested(
++		viommu, flags & ~IOMMU_HWPT_FAULT_ID_VALID, user_data);
+ 	if (IS_ERR(hwpt->domain)) {
+ 		rc = PTR_ERR(hwpt->domain);
+ 		hwpt->domain = NULL;
+diff --git a/drivers/iommu/iommufd/io_pagetable.c b/drivers/iommu/iommufd/io_pagetable.c
+index 8a790e597e12..13d010f19ed1 100644
+--- a/drivers/iommu/iommufd/io_pagetable.c
++++ b/drivers/iommu/iommufd/io_pagetable.c
+@@ -1410,8 +1410,7 @@ int iopt_add_access(struct io_pagetable *iopt, struct iommufd_access *access)
+ }
+ 
+ void iopt_remove_access(struct io_pagetable *iopt,
+-			struct iommufd_access *access,
+-			u32 iopt_access_list_id)
++			struct iommufd_access *access, u32 iopt_access_list_id)
+ {
+ 	down_write(&iopt->domains_rwsem);
+ 	down_write(&iopt->iova_rwsem);
+diff --git a/drivers/iommu/iommufd/iova_bitmap.c b/drivers/iommu/iommufd/iova_bitmap.c
+index 39a86a4a1d3a..4514575818fc 100644
+--- a/drivers/iommu/iommufd/iova_bitmap.c
++++ b/drivers/iommu/iommufd/iova_bitmap.c
+@@ -407,7 +407,6 @@ void iova_bitmap_set(struct iova_bitmap *bitmap,
+ 
+ update_indexes:
+ 	if (unlikely(!iova_bitmap_mapped_range(mapped, iova, length))) {
+-
+ 		/*
+ 		 * The attempt to advance the base index to @iova
+ 		 * may fail if it's out of bounds, or pinning the pages
+diff --git a/drivers/iommu/iommufd/main.c b/drivers/iommu/iommufd/main.c
+index 3df468f64e7d..347c56ef44d8 100644
+--- a/drivers/iommu/iommufd/main.c
++++ b/drivers/iommu/iommufd/main.c
+@@ -102,9 +102,8 @@ static int iommufd_object_dec_wait_shortterm(struct iommufd_ctx *ictx,
+ 		return 0;
+ 
+ 	if (wait_event_timeout(ictx->destroy_wait,
+-				refcount_read(&to_destroy->shortterm_users) ==
+-					0,
+-				msecs_to_jiffies(60000)))
++			       refcount_read(&to_destroy->shortterm_users) == 0,
++			       msecs_to_jiffies(60000)))
+ 		return 0;
+ 
+ 	pr_crit("Time out waiting for iommufd object to become free\n");
+@@ -539,7 +538,6 @@ static struct miscdevice iommu_misc_dev = {
+ 	.mode = 0660,
+ };
+ 
+-
+ static struct miscdevice vfio_misc_dev = {
+ 	.minor = VFIO_MINOR,
+ 	.name = "vfio",
+diff --git a/drivers/iommu/iommufd/pages.c b/drivers/iommu/iommufd/pages.c
+index 3427749bc5ce..cbdde642d2af 100644
+--- a/drivers/iommu/iommufd/pages.c
++++ b/drivers/iommu/iommufd/pages.c
+@@ -1287,8 +1287,7 @@ static int pfn_reader_first(struct pfn_reader *pfns, struct iopt_pages *pages,
+ }
+ 
+ static struct iopt_pages *iopt_alloc_pages(unsigned long start_byte,
+-					   unsigned long length,
+-					   bool writable)
++					   unsigned long length, bool writable)
+ {
+ 	struct iopt_pages *pages;
+ 
+@@ -1328,7 +1327,7 @@ struct iopt_pages *iopt_alloc_user_pages(void __user *uptr,
+ 	struct iopt_pages *pages;
+ 	unsigned long end;
+ 	void __user *uptr_down =
+-		(void __user *) ALIGN_DOWN((uintptr_t)uptr, PAGE_SIZE);
++		(void __user *)ALIGN_DOWN((uintptr_t)uptr, PAGE_SIZE);
+ 
+ 	if (check_add_overflow((unsigned long)uptr, length, &end))
+ 		return ERR_PTR(-EOVERFLOW);
+@@ -2111,8 +2110,8 @@ iopt_pages_get_exact_access(struct iopt_pages *pages, unsigned long index,
+  * This should be undone through a matching call to iopt_area_remove_access()
+  */
+ int iopt_area_add_access(struct iopt_area *area, unsigned long start_index,
+-			  unsigned long last_index, struct page **out_pages,
+-			  unsigned int flags)
++			 unsigned long last_index, struct page **out_pages,
++			 unsigned int flags)
+ {
+ 	struct iopt_pages *pages = area->pages;
+ 	struct iopt_pages_access *access;
+diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
+index 6bd0abf9a641..4d5dca8027b1 100644
+--- a/drivers/iommu/iommufd/selftest.c
++++ b/drivers/iommu/iommufd/selftest.c
+@@ -1216,9 +1216,8 @@ static int iommufd_test_md_check_refs(struct iommufd_ucmd *ucmd,
+ 	return 0;
+ }
+ 
+-static int iommufd_test_md_check_iotlb(struct iommufd_ucmd *ucmd,
+-				       u32 mockpt_id, unsigned int iotlb_id,
+-				       u32 iotlb)
++static int iommufd_test_md_check_iotlb(struct iommufd_ucmd *ucmd, u32 mockpt_id,
++				       unsigned int iotlb_id, u32 iotlb)
+ {
+ 	struct mock_iommu_domain_nested *mock_nested;
+ 	struct iommufd_hw_pagetable *hwpt;
+@@ -1491,7 +1490,7 @@ static int iommufd_test_access_pages(struct iommufd_ucmd *ucmd,
+ 	int rc;
+ 
+ 	/* Prevent syzkaller from triggering a WARN_ON in kvzalloc() */
+-	if (length > 16*1024*1024)
++	if (length > 16 * 1024 * 1024)
+ 		return -ENOMEM;
+ 
+ 	if (flags & ~(MOCK_FLAGS_ACCESS_WRITE | MOCK_FLAGS_ACCESS_SYZ))
+@@ -1508,7 +1507,7 @@ static int iommufd_test_access_pages(struct iommufd_ucmd *ucmd,
+ 
+ 	if (flags & MOCK_FLAGS_ACCESS_SYZ)
+ 		iova = iommufd_test_syz_conv_iova(staccess->access,
+-					&cmd->access_pages.iova);
++						  &cmd->access_pages.iova);
+ 
+ 	npages = (ALIGN(iova + length, PAGE_SIZE) -
+ 		  ALIGN_DOWN(iova, PAGE_SIZE)) /
+@@ -1584,7 +1583,7 @@ static int iommufd_test_access_rw(struct iommufd_ucmd *ucmd,
+ 	int rc;
+ 
+ 	/* Prevent syzkaller from triggering a WARN_ON in kvzalloc() */
+-	if (length > 16*1024*1024)
++	if (length > 16 * 1024 * 1024)
+ 		return -ENOMEM;
+ 
+ 	if (flags & ~(MOCK_ACCESS_RW_WRITE | MOCK_ACCESS_RW_SLOW_PATH |
+@@ -1610,7 +1609,7 @@ static int iommufd_test_access_rw(struct iommufd_ucmd *ucmd,
+ 
+ 	if (flags & MOCK_FLAGS_ACCESS_SYZ)
+ 		iova = iommufd_test_syz_conv_iova(staccess->access,
+-				&cmd->access_rw.iova);
++						  &cmd->access_rw.iova);
+ 
+ 	rc = iommufd_access_rw(staccess->access, iova, tmp, length, flags);
+ 	if (rc)
+@@ -1665,7 +1664,7 @@ static int iommufd_test_dirty(struct iommufd_ucmd *ucmd, unsigned int mockpt_id,
+ 		goto out_put;
+ 	}
+ 
+-	if (copy_from_user(tmp, uptr,DIV_ROUND_UP(max, BITS_PER_BYTE))) {
++	if (copy_from_user(tmp, uptr, DIV_ROUND_UP(max, BITS_PER_BYTE))) {
+ 		rc = -EFAULT;
+ 		goto out_free;
+ 	}
+@@ -1701,7 +1700,7 @@ static int iommufd_test_dirty(struct iommufd_ucmd *ucmd, unsigned int mockpt_id,
+ static int iommufd_test_trigger_iopf(struct iommufd_ucmd *ucmd,
+ 				     struct iommu_test_cmd *cmd)
+ {
+-	struct iopf_fault event = { };
++	struct iopf_fault event = {};
+ 	struct iommufd_device *idev;
+ 
+ 	idev = iommufd_get_device(ucmd, cmd->trigger_iopf.dev_id);
+@@ -1832,8 +1831,7 @@ static int iommufd_test_pasid_attach(struct iommufd_ucmd *ucmd,
+ 
+ 	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
+ 	if (rc)
+-		iommufd_device_detach(sobj->idev.idev,
+-				      cmd->pasid_attach.pasid);
++		iommufd_device_detach(sobj->idev.idev, cmd->pasid_attach.pasid);
+ 
+ out_sobj:
+ 	iommufd_put_object(ucmd->ictx, &sobj->obj);
+@@ -2004,8 +2002,8 @@ int __init iommufd_test_init(void)
+ 		goto err_bus;
+ 
+ 	rc = iommu_device_register_bus(&mock_iommu.iommu_dev, &mock_ops,
+-				  &iommufd_mock_bus_type.bus,
+-				  &iommufd_mock_bus_type.nb);
++				       &iommufd_mock_bus_type.bus,
++				       &iommufd_mock_bus_type.nb);
+ 	if (rc)
+ 		goto err_sysfs;
+ 
 -- 
-Florian
+2.43.0
+
 
