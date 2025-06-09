@@ -4,71 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762F9C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73390C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=D3AW8Z2GaXCnvayX3h6iYYRk4HsizirZYceih+sKzFI=; b=33aya5s76KRDVSUqlnBIK02/k6
-	kD1v/BTmzyesZ5AdGcuRByckbblffLlbzhy1i7K1c3JVEvvz1hw5kulmtPVftqe4TmMtvEPGVIBCy
-	Xk6ZY4+7orNAFV1Sf3ecQWVm+FuS1LSw+/ZPX01ClPUPKto5UhRr7jBmnAUDEIxt/n2clp+D+UM2+
-	a37B9FEEle7uQ5vmM3lCYvAbvN9tRyyQTl7lVnv5EtiW3HM8WIEatUQGqkFiOsdQYO4aXuQAWq3JP
-	j5efuctxO1yb8Md+vjLtPP09I6jc/pFNhQ9HlaPk5A4MSOKE1wr1UnjC9iIDU+BNfNgbOieHFOknt
-	Ez1l3EcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V1bbU3qGyI98A7gJKKmEGDaNGPTt3uDnEyh9s/hAmAU=; b=psJx6G0rb6QIVy7UOHBCNS7omA
+	w2gKwmyCB5Lz/L7pBWprKsLwoM/oRlS9p/yCAzuxj7nygLOfzXUoaQU6c3W5mibP9OmN6kpCdb6bA
+	j/OfkkxXlRzjUcJ+pzDFBLo7MarUaQr99WvY4sMwHY/4XdeiXs/F4Xvu1/inFyCgz6j5mOMumVEYp
+	3wP11p3y5NxtqVUI1QC41DGnBpV4G9uqm91gpFIwauyzBVfLOHYP2yCeDhxdsozFqO41BeWZ5FjUP
+	Lli7lGPZlEAMDF625YYaGqT8sORAiZSXo7AX0RG7YYlQZShFPEnv6KcYhSdo72EyNMu/UD47GKy9C
+	LLMOojLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYPn-00000003j2V-3gk8;
-	Mon, 09 Jun 2025 09:03:35 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uOYRs-00000003jEI-3Kzx;
+	Mon, 09 Jun 2025 09:05:44 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYHI-00000003hzZ-15Gk
+	id 1uOYME-00000003iXz-1sMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 08:54:49 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5598sYhh723398;
-	Mon, 9 Jun 2025 03:54:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749459274;
-	bh=D3AW8Z2GaXCnvayX3h6iYYRk4HsizirZYceih+sKzFI=;
-	h=From:To:CC:Subject:Date;
-	b=eqbp3nyAe/EaVd8yge9lYWCGvjgXz6w1NmkIT4l4/6H+TWfBYeZaWzY64zk588VfI
-	 48PjphRpRxbJgCdvhnJCWR2o5NpaKAs5MGzJy0VQKum0pcDcQ3Z6SaDnIcDkDdSgt4
-	 yUYxTEjS1FjGB9+d/WjU/Wk1TzmbPrdFDgoudG2w=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5598sYuN4149176
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 9 Jun 2025 03:54:34 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 9
- Jun 2025 03:54:34 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 9 Jun 2025 03:54:34 -0500
-Received: from hp-z2-tower.dhcp.ti.com (hp-z2-tower.dhcp.ti.com [172.24.227.4])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5598sTbD1008464;
-	Mon, 9 Jun 2025 03:54:30 -0500
-From: Hrushikesh Salunke <h-salunke@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <s-vadapalli@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <h-salunke@ti.com>, <danishanwar@ti.com>, <srk@ti.com>
-Subject: [PATCH] arm64: dts: ti: k3-am642-evm-pcie0-ep: Add boot phase tag to "pcie0_ep"
-Date: Mon, 9 Jun 2025 14:24:29 +0530
-Message-ID: <20250609085429.2334652-1-h-salunke@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 09 Jun 2025 08:59:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kIwz377wcsdNMHm4b+Saif19kCo43/YqX82mSALr1cgtK5Tm+naDbCT2R1Vw+8E0fbFvJUYKF1LYwzKU2XZZiPdWAwBl+uhUSZOLQaxLWC4ZlbUGdp3F/HXb9RSQF9vPONfAvKSBh1HuEFRAXj0hCU0QA/X/embopOEF/VHxfODopvWvoi0sV39bOpcQYdCnKrZ7J1IloOX5ZKZUeP9xALVqy7RfM4fz1A3nLFcNUuMvJg5TkofbW5fEyaYMHbXEZS86QVUguMzcv926LUSx4BL4sk74n4HKF0W/suw2Ae4l8x2uRBfOii7GnpSmVfLgLBpk3kOvbUYWFLhboocjmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V1bbU3qGyI98A7gJKKmEGDaNGPTt3uDnEyh9s/hAmAU=;
+ b=yl79gYjD9R2r9ODT7hYNu8veL2+h3wcO/aW+uTjMxfluWjdoHWH3Ek7CC2KaTi1qL1P4kVVJJ0t5AX7YjnHT2pQgJxNlAfA1tDonQsfV7lzOp3CJn4xnO0askTZZ1lod2dxa7loUN2ORY3cAB961PHZ68Kc28uVhiS5E+58iK3YqSDCgs0xBmBeG7/p4KM8ULCxUZkL78bidMpX9AJXTJqpgadu6Oqc9X8XyVUBLQnckADTlOCaIXla+wmY/TlsDk7L1ZOUC6KwvEXkJ8i09drANAwmCudLtWP8y8H9+zYem8DNU4WDT1L6KZFsXmwmZwmMSfgvZKLKyFUa9T5ryDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V1bbU3qGyI98A7gJKKmEGDaNGPTt3uDnEyh9s/hAmAU=;
+ b=VzoX4haysaMT6tj2I99dbSSbYSsB2rRkwsMgthZD0TNOPeD8YEgHRuo11bPsTjGgp/LNAK8OCFuHxro17L8F+SEboJxfS1znRsHl/drfQQ9r0V8l1nUSIsMYvzt808IFngMiI55OrANW6hPq4mFU0CDQTLvAZn2uLTr0NFTsQ6zGfBvctknbJr5QagFO/WXerQ4UKJ0M7lDhFeNDBaxGCvw0VnhZ8UkDZjnEcl749iiUC2yh3gcI6t/f6dTTjnelC4rQTuQmIzseD6m854StOBmsvHQkoeZxjpV2IHe0FjDSseq2yh5cR0ymCFaCn0snHrD6CT951aco+LIH+xKqLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS8PR04MB8628.eurprd04.prod.outlook.com (2603:10a6:20b:42b::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.21; Mon, 9 Jun
+ 2025 08:59:46 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8813.024; Mon, 9 Jun 2025
+ 08:59:46 +0000
+Date: Mon, 9 Jun 2025 18:09:53 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/6] arm64: dts: imx93-9x9-qsb: add IMU sensor support
+Message-ID: <20250609100953.GJ13113@nxa18884-linux>
+References: <20250605205853.1334131-1-Frank.Li@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250605205853.1334131-1-Frank.Li@nxp.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR01CA0126.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:40::30) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8628:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f96f0cc-4000-4851-d4c6-08dda733fb76
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aB2dolf57OCjLTb1pHwHqGMTONU884K5W97R8QOEoDaYtDyzf3DKdBOPgha5?=
+ =?us-ascii?Q?4fOCBGi3iXCIeRTfwje4BKF1YTODggfLroHvrmGsZv36BbVrgYwtE8OlDpQ1?=
+ =?us-ascii?Q?P7ZN5mmZKl2GBLlIPTedX+40z+Psnr/DEFo+mfJAm0QV0igOe4AsGncBd3p5?=
+ =?us-ascii?Q?bAPUvKzczCeHEHp1NrdmbhpSl/7Z/gFnRMJENaxA85L69BV3n8GAZemIvhJq?=
+ =?us-ascii?Q?+0jhrj2nMUG9gy0SdRq3V7QBqbU+m0NFj6R8wwHanY15ONew37GccOovoSiu?=
+ =?us-ascii?Q?dx4dDL+7Fh3KVPBgE7yxnnDnTaw7sBPBCdSkXyZgiHSn+u/+Y7/RQBLI0lIs?=
+ =?us-ascii?Q?/22bqxBMsMNf4PKxrneLnzYRWxa8OzqB/zvcFP8vpuQwiQJ6B0f6gefyKG50?=
+ =?us-ascii?Q?fG3bn0DCHltUbB00hQiZGw5cB4YQhuvIZGBtQwCzdxUdaHht5QbxykK6ttqS?=
+ =?us-ascii?Q?P+nb1Ol80L3SSIPIYc3BUl949qSSa2/uv7XNVtRNiEGV4Gr/dMOQ0GuL76gw?=
+ =?us-ascii?Q?mHUd4T9rFJ0kHwrc/Dso+hxoiikrzVqE0sJOpYAfe3RxBMn9Y71v9m8WOQdJ?=
+ =?us-ascii?Q?j5ZQuC7KJwdXoKH1sqWxs0KuiZqsSNrKFmhNGgu4NfWx2rNCuQMPHvH6byQw?=
+ =?us-ascii?Q?IMl0yeARtDxDu40wT+bNT/AxM/1ksmRSDA7VXl4MnnxFaWVe0RsDt7juMaZY?=
+ =?us-ascii?Q?wQ4pEPP0CNECuS+T5vAtsi3nIdNbJdw5HeP2LuanN8/a1E3irJ4/iSZFfnX4?=
+ =?us-ascii?Q?fjPm5P+5Pel2U0QfeRyeDhgJMnfn++y9OxKNzBnLgizTAUreXnmt5RDrqxNU?=
+ =?us-ascii?Q?E2mnfJTh3cFfWofpXm+aCQp6RNME66JnbU+jV0v67u773rlI98hMkXaBWshs?=
+ =?us-ascii?Q?3RO5wIkRGcGnflWBsJxrN5UiCmDAwnOJsu72OUuvckpHbo49d4SRsrNmKn+R?=
+ =?us-ascii?Q?88t7UJOhc1nzAQegc3TXiACyr+Xuo1ecxlHcXFHsLHLFsP+OUwuPZlWvK0Aa?=
+ =?us-ascii?Q?7ucQjYMmiqgi3ZZrNyrtWo5SRO9iC511nlHrbA0hRAVSUZZ56o654GmITpZG?=
+ =?us-ascii?Q?ris9t9Aam+aSPa29PemkNEPnlN6MLh5J2NoRPF8dayiO0IivIZLWfg+wj05i?=
+ =?us-ascii?Q?KszrwCxjIyNXYTIC282CVmAlRTnDARJ+gRwU3NTb+Y6dE/27Q+0PMvsZyLDJ?=
+ =?us-ascii?Q?gsGCYauikw6XnW3Dts+J9ySjb6+MynIM7dRzzVWkdO0ypKH9pVMbGJSb+mFL?=
+ =?us-ascii?Q?1K6Vf4M1LXT+GTcw3cAoEbBHDz38gvlkAURHcXTko2B5XaYWiw3/lxLmK5+u?=
+ =?us-ascii?Q?Gd/cT4wxuHJTIq3Keq+Vkc2tkX7hxtF63+XiYQsv5C/bBhywDH8FFe3lEHQl?=
+ =?us-ascii?Q?Kda08DjxFtGiw3TtPsKPzX9V8T+qQhjRGDY/5tyB3U35o1Hj7m6v+8CY/ecl?=
+ =?us-ascii?Q?NtDXlKcBsUoscVYhV9wsZYDE+s8Vf73cbWUH/k9q7fiyan21nv17Og=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BzMmAUy27H7fhIrqBOxLxNLV8SPS2AqjnWKwA2Bw7y0ky0vimoCAG7Bw5z2j?=
+ =?us-ascii?Q?jJWYOAAOd8rmRcQD5dzjWqYaFNDrSuvorVLoBUu3xGsvtG4OsoNqH6UFG084?=
+ =?us-ascii?Q?c8q8PPR1gbPIRK0yHKWeP1tDp1hto74xwPu8gZFCteDnEiKHpp9w+NqkyyrH?=
+ =?us-ascii?Q?Pp+5W5IIj+zRqPDtnKuqik9VfVGnaIALd8qeT2GXuXUqrvmEEFnzxVEENFno?=
+ =?us-ascii?Q?4xP+oXjAx687tdNYkmPv3nPYHGjnGoR3wedIDkx0TnO2djk+IZztrCBXISPX?=
+ =?us-ascii?Q?RO6WQ/zBL6riiuFxH6vlIORFGpn0+1Jb2510Ex5HLyON3YJ8Ucovts//lZSz?=
+ =?us-ascii?Q?ClLGu73T9/lKpqDI1B1UjOgR9cKYrCFYN0/aZwP58R8coPiqfeOo25e5dU0U?=
+ =?us-ascii?Q?8rRFiNoAVzgGFfdnagla5LnO2Vvp9G1yIXYyOkn6XKjs4sArsDfAnj0TQ9/o?=
+ =?us-ascii?Q?YzWmgpw1J+I+kIE75JE2hp1Rx/m9d4shgBtFE5oGP+T2Mqa5QFprY0Sl5QRc?=
+ =?us-ascii?Q?RqCKB+XOycYz9j8PW1ch8ac42hX3Bt30mDh9U5pal8WYEpziYJAcxWE6amV5?=
+ =?us-ascii?Q?3A9bfunpGAnU/qKIaOQ+v1kW0qouaZgf2RO+LEUiaoG6QfoqjLKLva9VKm8y?=
+ =?us-ascii?Q?cb7FOtc+WOyab0Qio80Bg6WZP0QyBERM1/LE8iIdu4FTxY7HGUeJRB3T0CF3?=
+ =?us-ascii?Q?SAwf8icBb5lMIzZc63Jxnm/fF+igATRnfNfBjU/BZ0c7FXyCuNYMFwPSqCrT?=
+ =?us-ascii?Q?lPovKFlP+l+NnWpKKn0TO7KuJt9TrOTeT7orwNwnS3JYiJ2rzOfpYBWD9goO?=
+ =?us-ascii?Q?tEKjbnrRy2T4KSVxVV0CDNoBCQ35VdCeCEMIxgwc1gDklSCy8YHRLArK1fLs?=
+ =?us-ascii?Q?XgglujLUPH5PkbXvLhMBYb7wdSJ1OEjfMSZHk9EintkB+Y70WpjG0Z2T8psQ?=
+ =?us-ascii?Q?8qZGjwk1Vf3Y9uWubIwmRWbFwroeDXjp9olohqELnLe6+KpuQxgR9+nv4Jw9?=
+ =?us-ascii?Q?FUhLjrVeEmluRUDhx7NPNrWKT48RxwWtFr3IwcM6Oe27R/PpFOF58yRQR/VR?=
+ =?us-ascii?Q?2yXK87WJciEV0SvmrUU6CZmMq1oqB5R2+pJUTuzuXA5IMMxaau4a0wcgndy3?=
+ =?us-ascii?Q?pRBud+WN3s9/EfsbnyabD+neuvrbLUhY4nRGY+0NJK96oIUJtuiihr6dxYle?=
+ =?us-ascii?Q?WwNWkhqCt/eGUlGVhgyZV2CVamiRaLNn96lhMLchfqWIDyjODy1RhZ3J2Qew?=
+ =?us-ascii?Q?pNXVFSLT+rKB9sWLXekA/pyzT8WIJK1HN9iLIW4DcytsDdT04q9dDur9YfXA?=
+ =?us-ascii?Q?5DT32bmdIG33hMJ3X2zO4td3VZpZ8hHJyoyQQQc3R4tTAgDBLh4GoOFG8a2R?=
+ =?us-ascii?Q?NYk5tBtKqL+KdwxUyUAjqQeh8ye5LFhicVsoxq4y+gy6PcaICtPqNgRTrYdu?=
+ =?us-ascii?Q?0jIR06HcuRQP5P/8nWTFE2YrybaXx0nfZREWCzqp7cZfYBY670ZZRQmuU+jF?=
+ =?us-ascii?Q?Dw8Q/nK2/HMmshQZoxPPRtqA7C9pboqceJirJqitvkZYp8KD3kz3cUlrKuc1?=
+ =?us-ascii?Q?MjpuGbz7YRyYvZPdV7EM1HjrqoyiX2MAgVjbThom?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f96f0cc-4000-4851-d4c6-08dda733fb76
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 08:59:46.2002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: USq2MoaW4arj5Oz3jI+zfFtvAUltlw6MacNVOP9cuUUxQ0RxxIfw3v/8janzNfhe5i212A9Oltj5Unlgo3qd7w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8628
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_015448_386982_BFC5533A 
-X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-CacheID: sfid-20250609_015954_489538_C8A3A0A2 
+X-CRM114-Status: UNSURE (   7.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,32 +167,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AM64X SoC has one instance of PCIe PCIe0. To support PCIe boot on
-AM64X SoC PCIe0 instance needs to be in endpoint mode and it needs to
-be functional at all stages of PCIe boot process. Thus add the
-"bootph-all" boot phase tag to "pcie0_ep" device tree node.
+On Thu, Jun 05, 2025 at 04:58:48PM -0400, Frank Li wrote:
+>From: Haibo Chen <haibo.chen@nxp.com>
+>
+>The i.MX93 9x9 qsb has a ST LSM6DSO connected to I2C, which a is 6-axis
+>IMU (inertial measurement unit = accelerometer & gyroscope). So add the
+>missing parts to the DTS file.
+>
+>Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+>Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
----
-This patch is based on commit
-475c850a7fdd Add linux-next specific files for 20250606
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
- arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso b/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
-index 432751774853..268a3183753e 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am642-evm-pcie0-ep.dtso
-@@ -30,6 +30,7 @@ &cbass_main {
- 	interrupt-parent = <&gic500>;
- 
- 	pcie0_ep: pcie-ep@f102000 {
-+		bootph-all;
- 		compatible = "ti,am64-pcie-ep", "ti,j721e-pcie-ep";
- 		reg = <0x00 0x0f102000 0x00 0x1000>,
- 		      <0x00 0x0f100000 0x00 0x400>,
--- 
-2.34.1
-
+It would be better to add a cover-letter for a patchset.
 
