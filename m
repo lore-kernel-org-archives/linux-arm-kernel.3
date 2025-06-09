@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A39BC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 21:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74042C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 21:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZaNoH31uWj832VE6t2dJ2Q3BI3/vqMxOqvAPp1JZoY=; b=ECl0p78eh1JRqdScl3W3OGB2as
-	+Jy+ZDVKRSM1ixjx/XmO3t8EAhdtOyo2b0sjRDQSavCxfKQWSXfLBvvbLGrEIIo5FwqwXY/PvljhA
-	Q9F4/zlrWM23vIZvZLIJgpfkwd3ye/ZjvGnoVSinSAtWKUupZUghQJSS5Pbu7cz+Xfv81obHVKU2y
-	Y4dWbibBWjwqbNFKn8L5vURUp956gkoHooPmr/WI1R42efWBz+FgTgu4pcrdY7lXaol8q0HQI69EV
-	ZGiL57+r4EQ8CyLMYAi5pr06iYR/LgGmqcqi9zXEHDemoINk+QJ6eFLDnWZUhCBH5qGE4misgBYbZ
-	MXKeUAzQ==;
+	bh=MZOonTfrv64GIV5+rDFu+eH6vhEGsf8KKT5JpDnAQ04=; b=D1y2dH+y4VfMYsJkF8lXecsnKB
+	71cbaBoiJ4xgJLhIlsRgY9U7GGpHg81rs3jnNvBPKNpsM8SXn6zcnF+Q3miaNjyONWEpRZkyFRq3/
+	ZCqQc9bsWEz1xVZInJG7Hs8+XWGTZdnxU+d74MhNNQVDml0tr4eZz4D1ZuRR0/4ha4R5zJILMnoVu
+	VB2P/Ha4nwKgPaubtcRRXl0/a7E4zeN8vTA+I8UC9TJPb8s67hNXzBYPfeZAgOUBdpKYzwTzuk0AW
+	I2I54eWkOdgxS5FR5lL8QTCQzM95zHuj+YYkkPP/1bMvP+RwdbpNP5eJ6AT2T156USldW4pK38t+k
+	Q4PK0JsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOkCV-00000005HVo-1cIs;
-	Mon, 09 Jun 2025 21:38:39 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1uOkCf-00000005HXi-1U1i;
+	Mon, 09 Jun 2025 21:38:49 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjyK-00000005G9d-2qf2
+	id 1uOjDI-00000005AAE-0IsQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 21:24:01 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id BF601C0019E2;
-	Mon,  9 Jun 2025 14:23:58 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com BF601C0019E2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1749504238;
-	bh=adVcvFQAO98qXYOyxqASBRwBadBn9tp/mRSFQhpO32M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mPZAI9Fdeb9/EgKBHpCtWjKc3OoLaRsb/rLRLFFLq+cWDqiwsJNUFItSPmPEAfMaR
-	 RSiYnWV+CyPcFLBYzhdTU2InOFo8k31OC3TGgemH927x8hsr9G7VMs2whXU/5CS1WN
-	 ATXUyObwvOeCwlzqOUxW1C6h1HWvJNQKhy+9lwdU=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 747551800051E;
-	Mon,  9 Jun 2025 14:23:58 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: linux-kernel@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE)
-Subject: [PATCH v2 2/2] memory: brcmstb_memc: Simplify compatible matching
-Date: Mon,  9 Jun 2025 14:23:56 -0700
-Message-ID: <20250609212356.2264244-3-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250609212356.2264244-1-florian.fainelli@broadcom.com>
-References: <20250609212356.2264244-1-florian.fainelli@broadcom.com>
+	Mon, 09 Jun 2025 20:35:26 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E9510442C7;
+	Mon,  9 Jun 2025 20:35:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749501320;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MZOonTfrv64GIV5+rDFu+eH6vhEGsf8KKT5JpDnAQ04=;
+	b=YrK78fOZJDmLOg1RDpxGMfVw6vaSzXByQyQaykHVH/1X5NOCYhIm4g1T8qzTHme003x90b
+	VnwtXQG6E3xFyRfYrU7hSlHzRD162lYU64kTsqLgoLLmF6jKimBGtw0wQ91RimxpOgxvsz
+	Fjj6+uSdffdgYJ+k6BDdyyHCA0P9A3+uFbcPcaUY6npbyjb+aGuqFx/8Od5QMD/FKV1MmY
+	DdoYGs4QkA4O7Yg7S87xmuutd6w0GyjsDlaTg8FTDDAAq9u4NSW60dKjHpuatxw/rkIStT
+	O4SWy0Zii9SUoCuFoSZrOkqHZDjkJZBGQOpTz2H74DBpOE4YfnzSVDBIFBy26w==
+Date: Mon, 9 Jun 2025 22:35:16 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Andreas Kemnade <andreas@kemnade.info>
+Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
+ <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/5] arm: dts: omap: Remove incorrect compatible
+ strings from device trees
+Message-ID: <20250609223516.32ec18be@kmaincent-XPS-13-7390>
+In-Reply-To: <20250609220809.3a488972@akair>
+References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
+	<20250609-bbg-v2-1-5278026b7498@bootlin.com>
+	<20250609220809.3a488972@akair>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdeljeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudelmeekheekjeemjedutddtmeelhegvvgemrggvugdvmeeitgeksgemudgsfegsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkeehkeejmeejuddttdemleehvggvmegrvgguvdemiegtkegsmedusgefsgdphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudekpdhrtghpthhtoheprghnughrvggrsheskhgvmhhnrgguvgdrihhnfhhopdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtoheprhhosghhsehkv
+ ghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprggrrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_142400_779642_5144BBA6 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250609_133524_715906_89F31304 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,88 +87,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that a "brcm,brcmstb-memc-ddr-rev-b.2.x" fallback compatible string
-has been defined, we can greatly simplify the matching within the driver
-to only look for that compatible string and nothing else.
+Le Mon, 9 Jun 2025 22:08:09 +0200,
+Andreas Kemnade <andreas@kemnade.info> a =C3=A9crit :
 
-The fallback "brcm,brcmstb-memc-ddr" is also updated to assume the V21
-register layout since that is the most common nowadays.
+> Am Mon, 09 Jun 2025 17:43:51 +0200
+> schrieb Kory Maincent <kory.maincent@bootlin.com>:
+>=20
+> > Several device trees incorrectly included ti,am335x-bone-black or
+> > ti,am335x-bone in their compatible lists without including the
+> > corresponding bone-black-common or bone-common device tree files.
+> > Remove these incompatible strings to fix the inconsistency.
+> >  =20
+> thanks for cleaning up some mess.
+>=20
+> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> > ---
+> >=20
+> > Change in v2:
+> > - New patch
+> > ---
+> >  arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts | 2 +-
+> >  arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts          | 2 +-
+> >  arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts     | 2 +-
+> >  arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts       | 2 +-
+> >  arch/arm/boot/dts/ti/omap/am335x-shc.dts                | 2 +-
+> >  5 files changed, 5 insertions(+), 5 deletions(-)
+> >=20
+> > diff --git a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts
+> > b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts index
+> > a4f5b5262645..fb88eebb8c5d 100644 ---
+> > a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts +++
+> > b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts @@ -11,7 +11,=
+7 @@
+> > =20
+> >  / {
+> >  	model =3D "TI AM335x BeagleBone Green Wireless";
+> > -	compatible =3D "ti,am335x-bone-green-wireless",
+> > "ti,am335x-bone-green", "ti,am335x-bone-black", "ti,am335x-bone",
+> > "ti,am33xx";
+> > +	compatible =3D "ti,am335x-bone-green-wireless", "ti,am335x-bone",
+> > "ti,am33xx";=20
+> this looks like too much cleanup, also according your omap.yaml stuff,
+> ti,am335x-bone-green should still be included.
 
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- drivers/memory/brcmstb_memc.c | 56 ++---------------------------------
- 1 file changed, 2 insertions(+), 54 deletions(-)
+Oh indeed! Thanks.
 
-diff --git a/drivers/memory/brcmstb_memc.c b/drivers/memory/brcmstb_memc.c
-index c87b37e2c1f0..ba73470b1b13 100644
---- a/drivers/memory/brcmstb_memc.c
-+++ b/drivers/memory/brcmstb_memc.c
-@@ -184,62 +184,10 @@ static const struct of_device_id brcmstb_memc_of_match[] = {
- 		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.1",
- 		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
- 	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.2",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.3",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.5",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.6",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.7",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.2.8",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.3.0",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-b.3.1",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-c.1.0",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-c.1.1",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-c.1.2",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-c.1.3",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	{
--		.compatible = "brcm,brcmstb-memc-ddr-rev-c.1.4",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
--	},
--	/* default to the original offset */
-+	/* default to the V21 offset */
- 	{
- 		.compatible = "brcm,brcmstb-memc-ddr",
--		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V1X]
-+		.data = &brcmstb_memc_versions[BRCMSTB_MEMC_V21]
- 	},
- 	{}
- };
--- 
-2.43.0
-
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
