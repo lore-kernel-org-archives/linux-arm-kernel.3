@@ -4,100 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6321AC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 18:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF93C71131
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 18:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v0Qu66z7kDW3js03KQPZ0HZb8QpcE1+x1gXTQ8PQnaU=; b=uvIbvGRCQse2BBteMVqmxmMMg9
-	Su61CZqvY96tn081AuQQPwb9ixqzw4m2WHyGomnFb0NxOCfaLkS5v5wMoSmvtZqFVAkcADiiPHq9F
-	roGeFjUjFHr1FJ5oHqhTlocJ66C+blcctP9waDv0kBA7j+OlOI3xkUcpC2PY/cPZGS76MYAyBb/p3
-	7mXsJs/T8SVuFIqMxgY3ngM1oDQe5AJNg6UCxx5CtWf59amLAZl1G/W1siLgq2FOrgIghxkahqH+b
-	V5TUBq6UMFYgFlu+UsVxK2+UHJ5irjY8/B5dShjtA3SYMSvW6OfqeTVZMkuTX9vatv1l7ovfa5z/U
-	VzT8xQWg==;
+	bh=ZCNoRj8OvkbWY83EWwe7S1ChrayvpWwSG5jIbf3fsDA=; b=qAYsYtfN6vvDwu3bDA0WCPVEqr
+	NDKMnsb2W0ddgX5TqJPSybaFG6MqA9mNfVInIkLAMmjKqo+WW6bZ7bdD6PKz3f4lSeEUZ6dOMtSgJ
+	SRSlK8xMEiy99RreYCPV4FkweQRz5jmWDiNbow4euyO6QVXFJHscZZCq7F9NfTfODi5PE+7VHXRN9
+	AInZwsB3ekJV+oLfZHde4cEveNDLgp60mgeuNTympdwKlkZnBn4lcaldBfZ+3owmv40SihfVUZvgf
+	5sy5Ic4tnUz8TmHkkBkiWQBeR4YrMM7OCHyMaekeHo32T41PwqpJhbgrB5yKAd3VQtEZD0gSsnevi
+	PJ+0K8Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOhXB-00000004wOJ-19HM;
-	Mon, 09 Jun 2025 18:47:49 +0000
-Received: from mail-vk1-xa32.google.com ([2607:f8b0:4864:20::a32])
+	id 1uOhZJ-00000004whH-08kP;
+	Mon, 09 Jun 2025 18:50:01 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOgLE-00000004oHw-3xhZ
+	id 1uOgNu-00000004oaA-01AA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 17:31:26 +0000
-Received: by mail-vk1-xa32.google.com with SMTP id 71dfb90a1353d-530eec21626so722590e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 10:31:24 -0700 (PDT)
+	Mon, 09 Jun 2025 17:34:11 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45305c280a3so5945795e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 10:34:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749490283; x=1750095083; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=v0Qu66z7kDW3js03KQPZ0HZb8QpcE1+x1gXTQ8PQnaU=;
-        b=N5UuceqY+5u1SB9cL18P1KoaiziNCKUJKafWE9d6bVkforOrFI7MRG01TwQFfOIQSx
-         ocnhYMOnobLtvinBbwBX9voM47vJYjOoW/QB/8F2n/MP4TWoa+g6Hm+6zBr9AD9YSbyc
-         +fJYEiSKAgb/+ZIokZPyBIbMqkEWrc99MyexUXIt5lPTB8lgoV6qxp4L3TkDkTy0lCMJ
-         HtkN2jQGdJEzBweQahRLzbMFBuKDIfo+OxwkkpWHlTZdPq0DbN0o8Ya2jXpNcjDZdaoC
-         zJlYiV7JR2yDYMeXWCWUO4vGvtV0V9zALvbhE+8FxyAu+0EYS46mt5Ji2Sx13+FwHyf+
-         Vkaw==
+        d=linaro.org; s=google; t=1749490448; x=1750095248; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZCNoRj8OvkbWY83EWwe7S1ChrayvpWwSG5jIbf3fsDA=;
+        b=H4kojOx6zI914sFWPhYRbfWgRfl6OYmAaQ/WSjeAd0/gmeavyLuxtY8h9z4yA3eTmn
+         ZkEZ+7dt4mZHKLaMjuKYoq37qIZpsXoJfebBLVFHwttyrh5UOQIfRLpoCsdazQFuCyKq
+         RK4BDVZzUybNSnNynHgVU8PvgnVsqaEa5FhYp3n92POWhK4Zdgk0Ex4Q5BAHA63PNd5m
+         feauEfzqOUXFnTZPku+vIY/1FK0U0o6lIQ2+zXMMGHf/ZlO6AQz7RvqK5d2zZMeGdyyk
+         +R9pPxg2SRrFtE7IIGrP/ut6L+OZ8NBrOQoKs3mmU/WjT6Jd/c7BLmv+L8ma3byx9t7a
+         YfhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749490283; x=1750095083;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=v0Qu66z7kDW3js03KQPZ0HZb8QpcE1+x1gXTQ8PQnaU=;
-        b=WsLNOoHjHfbVvAxCW37jKEZyvpURpOZyX+fbCzT/1F3A5BpFISTyj6jfP14nFXMIDs
-         qiJJtCrdJjuC/FZQvmDiLe6rHqY5mX75Y4NlKstjyAmAeadpTg2vyAxWRW2m5ZjjhUGz
-         GGqEH5Nz5+Nsi0gdjCfg99MLeKv13ZLQVsN6/I+Js6+tWWz0sJSG6nqS5pdyFree61Vh
-         jZ58kMmgg0O+GL8JPSk0w7iJ3mbY9pm5ULE3Vhgu2ReXOJCafZgrC0pJePtXxATsOuOU
-         K0CmpmOLY37uVVsBarZGYI8vv+yV8+RT6cYO6MnJGfl5KlCXnIgugGHtMlgEt+EoUtwA
-         9s4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWALYt3lTHeKTIfjbSgnfExJpnh+LVS7BGucmNT7lJ5KCCZ9yGbHBk1izzKZHoe3bc77yGwyFbHZeFJ54zijvub@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw84H2jyRMdzK5Er95PHsBFHG3cnivpCF3noDqjyZv7yHVzKLKN
-	yEzBstg3olbqBV5x1U/DYKfgwwjZycfNVTRmRJ7xt3qyN/yv2T8KVyi0
-X-Gm-Gg: ASbGncuoTlgOJgpbbUOBgUsDJ7Tvhka20QStqDIRVG0IUSq1S6cehqhDcv43IsSWmef
-	jDkeuSpbkW13M0Z+I9AqwcKjguBQ/uSEyzGOdEwkzEwtYUhglEGnQC7/2UrKtsLJx/pYBHhI4Av
-	OKD4O6WkoFO7SOzhLHDDBBMg6QyqGP+xwLRGJGFkXHHDZ9mdsMcFE8PkCw0cD7XMXRYjl1Sx7PU
-	2sNJURFM6VvPPXa8sxDmp48x7ZU/+50gxHAfV0BZfLdvB4MXWiDDqEBW5zZmF6lonQuxncC50Ko
-	lqSx6rCGYmAoC8kTxJM0Fg3oXI65At/uNpqScgIdF+uSEHtgag==
-X-Google-Smtp-Source: AGHT+IGzoebj1QMPet5l8I9qWvt9vrbw2pGLKm4WGcWKCZt5wa18t6jdZYC5Lc1lX0z+RxP/znejvw==
-X-Received: by 2002:a05:6122:8d1:b0:52b:789:2d0 with SMTP id 71dfb90a1353d-530e47ed0a2mr11738050e0c.5.1749490282233;
-        Mon, 09 Jun 2025 10:31:22 -0700 (PDT)
-Received: from hiago-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53113abd74bsm32564e0c.17.2025.06.09.10.31.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 10:31:21 -0700 (PDT)
-Date: Mon, 9 Jun 2025 14:31:15 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	"Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
- pre-booted remote cores
-Message-ID: <20250609173115.qecc2noswkcgr3hm@hiago-nb>
-References: <20250602131906.25751-1-hiagofranco@gmail.com>
- <20250602131906.25751-4-hiagofranco@gmail.com>
- <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+        d=1e100.net; s=20230601; t=1749490448; x=1750095248;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ZCNoRj8OvkbWY83EWwe7S1ChrayvpWwSG5jIbf3fsDA=;
+        b=Q68PSswp1MG7vngSnm1A5jTeI0/l4SfYM1ohsNwHuBCRsqiDQLNhM9UcbifZFuGPf/
+         h7dVE6QqWdsmCm6IWo6/NUUVVgsIWK6L51iWmRBMJ1oBpSLjCFD5dsPRXKKfyeA9RlMf
+         7mi/WY25eNiwZsTEaZertbV9uvv0vye2RqDOs3UX9xW18RgU6QPaEI8unF61AA24h82D
+         85KZB6QZvkQuOQgS6W8KwHenn/qFzWdGK0pEe5TG0kOH2BvB0Oda+LEJONriBh+I0KJt
+         4/t/nO1z/PZfa/SHU+Gv0zNPvW3DZSPFHsqhw2IaAq1bha/xRngm2wkjuUFA5uBWPqan
+         l/uA==
+X-Gm-Message-State: AOJu0YwMLYjFRBZfkbzuxAOO5EiidPIsVO4EvyvRXdM88dHRlwFKTv5c
+	maZiPLS6VTlA8+rQx4fho1APW2nkYqjN75Bw5bQajPvpTZjB4guCOIGUa1YgZjpZzTw=
+X-Gm-Gg: ASbGncvlAWCOfSKPlrEJbbpS7lbGX2dO15KgCo0jobnRhWDMf/Mw+Of2zAHPzbsK8n6
+	vOgo8E7NvdTXXh0JPITk9bEKopDh39HuTF8jkRuZgD2qIys+7SoxDe7WmS1Szfqfl43dLGoKqTC
+	hudwodPclEnZMpTTG6KtlwiujrtbGVmanHk+gghEobVXD4bZ2fJkYcb7PT2JWXWm/TXhXLMrth8
+	laA4+zsEB095SIXUtROEdCgtMHtFV1sJk7EWrqpogfwVAxhM/DmYwF6sgC/HIl4EDH7LyUlfQmM
+	snL/EAhhOY5ln2mLtIwK1B9/rsHVeymwYSMR6EVUJJNohoj4au6XeS0NUzK9UZ6mCMzRXi2YcMy
+	0WEgaVyTPirR0nbv+u/RcDUqhnAqH
+X-Google-Smtp-Source: AGHT+IHjGXyFvXdDAggENskwqk5z1F3qFDATDXWh/Gh5Xbnntn1Cd+D5lXKZIFiINl589SC7CggLdw==
+X-Received: by 2002:a05:600c:8b23:b0:450:d37c:9fc8 with SMTP id 5b1f17b1804b1-452013898d8mr137331575e9.13.1749490447982;
+        Mon, 09 Jun 2025 10:34:07 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:d049:de0c:efef:b94d? ([2a01:e0a:3d9:2080:d049:de0c:efef:b94d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-452730d162asm113789415e9.39.2025.06.09.10.34.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Jun 2025 10:34:07 -0700 (PDT)
+Message-ID: <6400f504-eef7-489d-bf06-4a0a13cd5ee5@linaro.org>
+Date: Mon, 9 Jun 2025 19:34:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH] drm/meson: fix debug log statement when setting the HDMI
+ clocks
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250606203729.3311592-1-martin.blumenstingl@googlemail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250606203729.3311592-1-martin.blumenstingl@googlemail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_103124_984927_A5E75548 
-X-CRM114-Status: GOOD (  43.66  )
+X-CRM114-CacheID: sfid-20250609_103410_036311_80B0A5B7 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,144 +124,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 04, 2025 at 03:19:52AM +0000, Peng Fan wrote:
-> > Subject: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
-> > pre-booted remote cores
-> > 
-> > From: Hiago De Franco <hiago.franco@toradex.com>
-> > 
-> > When the remote core is started before Linux boots (e.g., by the
-> > bootloader), the driver currently is not able to attach because it only
-> > checks for cores running in different partitions. If the core was kicked
-> > by the bootloader, it is in the same partition as Linux and it is already
-> > up and running.
-> > 
-> > This adds power mode verification through dev_pm_genpd_is_on(),
-> > enabling the driver to detect when the remote core is already running
-> > and properly attach to it if all the power domain devices are on.
-> > 
-> > To accomplish this, we need to avoid passing any attach_data or flags
-> > to dev_pm_domain_attach_list(), letting the platform device become a
-> > consumer of the power domain provider. With that the current power
-> > state of the genpds will not change, allowing the detection of the
-> > remote core power state.
-> > 
-> > We enable and sync the device runtime PM during probe to make sure
-> > the power domains are correctly managed when the core is controlled
-> > by the kernel.
-> > 
-> > Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > ---
-> > v4: Changed to use the new dev_pm_genpd_is_on() function instead,
-> > as suggested by Ulf. This will now get the power status of the two
-> > remote cores power domains to decided if imx_rpoc needs to attach or
-> > not. In order to do that, pm_runtime_enable() and
-> > pm_runtime_get_sync() were introduced and pd_data was removed.
-> > v3: Unchanged.
-> > v2: Dropped unecessary include. Removed the imx_rproc_is_on
-> > function, as suggested.
-> > v1:
-> > ---
-> >  drivers/remoteproc/imx_rproc.c | 29 ++++++++++++++++++++++++-----
-> >  1 file changed, 24 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/remoteproc/imx_rproc.c
-> > b/drivers/remoteproc/imx_rproc.c index
-> > 627e57a88db2..6f9680142704 100644
-> > --- a/drivers/remoteproc/imx_rproc.c
-> > +++ b/drivers/remoteproc/imx_rproc.c
-> > @@ -18,6 +18,7 @@
-> >  #include <linux/of_reserved_mem.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/pm_domain.h>
-> > +#include <linux/pm_runtime.h>
-> >  #include <linux/reboot.h>
-> >  #include <linux/regmap.h>
-> >  #include <linux/remoteproc.h>
-> > @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct
-> > notifier_block *nb,  static int imx_rproc_attach_pd(struct imx_rproc
-> > *priv)  {
-> >  	struct device *dev = priv->dev;
-> > -	int ret;
-> > -	struct dev_pm_domain_attach_data pd_data = {
-> > -		.pd_flags = PD_FLAG_DEV_LINK_ON,
-> > -	};
-> > +	int ret, i;
-> > +	bool detached = true;
-> > 
-> >  	/*
-> >  	 * If there is only one power-domain entry, the platform driver
-> > framework @@ -902,7 +901,22 @@ static int
-> > imx_rproc_attach_pd(struct imx_rproc *priv)
-> >  	if (dev->pm_domain)
-> >  		return 0;
-> > 
-> > -	ret = dev_pm_domain_attach_list(dev, &pd_data, &priv-
-> > >pd_list);
-> > +	ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
-> > +	/*
-> > +	 * If all the power domain devices are already turned on, the
-> > remote
-> > +	 * core is already up when the kernel booted (e.g. kicked by
-> > the
-> > +	 * bootloader). In this case attach to it.
-> > +	 */
-> > +	for (i = 0; i < ret; i++) {
-> > +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
-> > +			detached = false;
-> > +			break;
-> > +		}
-> > +	}
-> > +
-> > +	if (detached)
-> > +		priv->rproc->state = RPROC_DETACHED;
-> > +
-> >  	return ret < 0 ? ret : 0;
-> >  }
-> > 
-> > @@ -1146,6 +1160,11 @@ static int imx_rproc_probe(struct
-> > platform_device *pdev)
-> >  		}
-> >  	}
-> > 
-> > +	if (dcfg->method == IMX_RPROC_SCU_API) {
-> > +		pm_runtime_enable(dev);
-> > +		pm_runtime_get_sync(dev);
+On 06/06/2025 22:37, Martin Blumenstingl wrote:
+> The "phy" and "vclk" frequency labels were swapped, making it more
+> difficult to debug driver errors. Swap the label order to make them
+> match with the actual frequencies printed to correct this.
 > 
-> Need put and disable in imx_rproc_remove.
+> Fixes: e5fab2ec9ca4 ("drm/meson: vclk: add support for YUV420 setup")
+> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+> ---
+>   drivers/gpu/drm/meson/meson_encoder_hdmi.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> BTW: Has this patchset tested with M4 in a separate partition,
-> saying M4 image packed in flash.bin?
+> diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> index 47136bbbe8c6..ab08d690d882 100644
+> --- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> +++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> @@ -109,7 +109,7 @@ static void meson_encoder_hdmi_set_vclk(struct meson_encoder_hdmi *encoder_hdmi,
+>   		venc_freq /= 2;
+>   
+>   	dev_dbg(priv->dev,
+> -		"vclk:%lluHz phy=%lluHz venc=%lluHz hdmi=%lluHz enci=%d\n",
+> +		"phy:%lluHz vclk=%lluHz venc=%lluHz hdmi=%lluHz enci=%d\n",
+>   		phy_freq, vclk_freq, venc_freq, hdmi_freq,
+>   		priv->venc.hdmi_use_enci);
+>   
 
-Sorry for the delay.
-
-I tested it now and there must be something missing on my U-Boot:
-
-Disable imx8x-cm4 rsrc 278 not owned
-Disable imx8x-cm4 rsrc 297 not owned
-
-It removes my nodes from the DT before starting the kernel, so I cannot
-attach. Do you know what should I do in this case?
-
-But apart from that, at least the imx-rproc does not crash or anything.
-
-> 
-> Regards,
-> Peng
-> > +	}
-> > +
-> >  	ret = rproc_add(rproc);
-> >  	if (ret) {
-> >  		dev_err(dev, "rproc_add failed\n");
-> > --
-> > 2.39.5
-> > 
-> 
-
-Best Regards,
-Hiago.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
