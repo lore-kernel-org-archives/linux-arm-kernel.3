@@ -4,55 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903B7C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 11:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A36C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 11:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VECWiFAyFOggf7e+Lq/qiQ5l0dpIS0cLahZq9wOssC0=; b=u9U2Dar3uPuVKbptCzHdA0ER3q
-	C9xm+g/EbudBPi2BEqGCKf8rzD47TZrvmJn3LClWaSbx8H4DUWNBLJiisFlK8qCULjK+Y3QuceiJ5
-	9bPrdVR7F9T7lGA4xRWBR0y+z5ZO4n0HPA8VcyeqcQXVLjVUDkDm0M4Hj7Iy7mXp2/+PNODd5V2IL
-	w7XrCqMpvGG8+PoJkwuinr1Z1nKjBf1FODg63eECyuKrRkJlTwh7lgV3sIU5gJHDsWcFZ7hKKvm54
-	68HmDAYoOJtNntjXwtT7aTFjA8wTtsbb/pVg9PFsC2wAk+QwobhAEExzbq3y6Ecp61qKWsvRGRNOR
-	MUQgjE1w==;
+	bh=Uaq+qcvYWlUE8XUYIRED91MXduBw3WkGvbeOZQWHwe8=; b=rBgqmzLTVys/6xwxnDFUqMsyAl
+	79KkB8phUdXzucMjGzE78Sb+F/HrOu1RV6A4E5xx5KBrhAuto+tXCGwTCTEy6iAA7+188U1gJgDgu
+	P/SR2dCTdSipPhEq9YiIGlu3TJnttzAp9mNVvgMvsWOYtKkLIQ8vVNampHWtTC+yG6Wjfo/w2PVnQ
+	PbHpccX70ctQxrfLqjREn9YHpl/c+gdrzQXlYAiRG0aKsVAeiro9aVjbhUDWY1mrNvELd222LbOPX
+	OADri6yBboUz3rhgAGpqYV+C04B0dlsmgcSbOcifijQRLj0sf9Zt7F2xW5iSbGUQcvi6viSu4Tm/U
+	4CsxmwPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOabX-000000041DH-0we5;
-	Mon, 09 Jun 2025 11:23:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOaOp-00000003zNv-3FYB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 11:10:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83909113E;
-	Mon,  9 Jun 2025 04:10:13 -0700 (PDT)
-Received: from [10.1.39.162] (XHFQ2J9959.cambridge.arm.com [10.1.39.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5AB223F59E;
-	Mon,  9 Jun 2025 04:10:31 -0700 (PDT)
-Message-ID: <5f6085d9-0ceb-489c-89a6-3666be994549@arm.com>
-Date: Mon, 9 Jun 2025 12:10:29 +0100
+	id 1uOadh-000000041Q9-2dn9;
+	Mon, 09 Jun 2025 11:26:05 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOaPF-00000003zRt-45Ky;
+	Mon, 09 Jun 2025 11:11:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Uaq+qcvYWlUE8XUYIRED91MXduBw3WkGvbeOZQWHwe8=; b=vWlm0hfFQvAZ4ds/uEeDbjWaat
+	XR5U49qIIRZite3bg3zaaf0uCZZoFqFcwYAMTBM9+Oz0PsW382lkpfkC8EAiP21l++yLJEm/dtrRx
+	nVePX3Why4KYJjymVanLD0iZL2r2qd3E4kIq550f0GknFw/5CsR0i3K9I8q4AhpljwyPHLR9ClxIR
+	tzCCztkq0Yoanoqz3P/y/gRk3aj9Yn/nFv1WBEZ8mi4N7DxRMddGT0/frR+LZqWFOUMwt/v1ENOie
+	GQ6EUmb91u9o78EWJSQlvbVqJV0u6ULGpKGuVxQk11NzN7fOPpZ+upbyUV7K3E2nUTVxxNC8WksLo
+	9SXMvMdg==;
+Received: from i53875b1c.versanet.de ([83.135.91.28] helo=phil.fritz.box)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uOaPC-0006VT-VV; Mon, 09 Jun 2025 13:11:07 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: kever.yang@rock-chips.com,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: convert rk3562 to their dt-binding constants
+Date: Mon,  9 Jun 2025 13:11:02 +0200
+Message-ID: <174946744892.771907.16719729052078630169.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250510161531.2086706-1-heiko@sntech.de>
+References: <20250510161531.2086706-1-heiko@sntech.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/ptdump: Ensure memory hotplug is prevented during
- ptdump_check_wx()
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
- Dev Jain <dev.jain@arm.com>
-References: <20250609041214.285664-1-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250609041214.285664-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_041043_851578_37830E5A 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20250609_041110_010482_7770AF1C 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,72 +75,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2025 05:12, Anshuman Khandual wrote:
-> The arm64 page table dump code can race with concurrent modification of the
-> kernel page tables. When a leaf entries are modified concurrently, the dump
-> code may log stale or inconsistent information for a VA range, but this is
-> otherwise not harmful.
-> 
-> When intermediate levels of table are freed, the dump code will continue to
-> use memory which has been freed and potentially reallocated for another
-> purpose. In such cases, the dump code may dereference bogus addresses,
-> leading to a number of potential problems.
-> 
-> This problem was fixed for ptdump_show() earlier via commit 'bf2b59f60ee1
-> ("arm64/mm: Hold memory hotplug lock while walking for kernel page table
-> dump")' but a same was missed for ptdump_check_wx() which faced the race
-> condition as well. Let's just take the memory hotplug lock while executing
-> ptdump_check_wx().
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Reported-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+On Sat, 10 May 2025 18:15:31 +0200, Heiko Stuebner wrote:
+> Now that the binding head has been merged, convert the power-domain ids
+> back to these constants for easier handling.
+> 
+> 
 
-> ---
-> This patch applies on v6.16-rc1
-> 
-> Dev Jain found this via code inspection.
-> 
->  arch/arm64/mm/ptdump.c | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index 421a5de806c62..551f80d41e8d2 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -328,7 +328,7 @@ static struct ptdump_info kernel_ptdump_info __ro_after_init = {
->  	.mm		= &init_mm,
->  };
->  
-> -bool ptdump_check_wx(void)
-> +static bool __ptdump_check_wx(void)
->  {
->  	struct ptdump_pg_state st = {
->  		.seq = NULL,
-> @@ -367,6 +367,16 @@ bool ptdump_check_wx(void)
->  	}
->  }
->  
-> +bool ptdump_check_wx(void)
-> +{
-> +	bool ret;
-> +
-> +	get_online_mems();
-> +	ret = __ptdump_check_wx();
-> +	put_online_mems();
-> +	return ret;
-> +}
-> +
->  static int __init ptdump_init(void)
->  {
->  	u64 page_offset = _PAGE_OFFSET(vabits_actual);
+Applied, thanks!
 
+[1/1] arm64: dts: rockchip: convert rk3562 to their dt-binding constants
+      commit: 208e7e76fbc77775b760edeeb528318992c60595
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
