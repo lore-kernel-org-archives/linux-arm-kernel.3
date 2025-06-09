@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73383C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EC4C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kp/NTlrvXjRtay9xcRY38fHO9S3vFj89fcXu1mx8a3U=; b=MBg1BPPADaBgCSVMZCkYYiKQ/4
-	mysn9K5ubuT1tJDjDaVO04EYNkWEZNgTd4iFZYzqbhmJ8cJjaGJFmPA0nArtPa8agrJcVnA+vzznA
-	CoxtMHVw7spUjNBtYhry9qUhWmC6oWTRqR2oFvS1BEgxy6wU26eR3MzPKtOAp544Ty6TuyaUe0rqN
-	28ExnfCDH4vwrcLy90waTHXKK39NSgwBYXuSy/Xz8J5j8bqZT32FyxYHpBsI1j/JhXliLWH8cSkVX
-	GMkss0sQ0tC3g86qfZHLZHu/MByUMaFthVSsDWqTSlK1ecB24it8viLZ5sWvNIS9pAddYUEzIXEvS
-	RuHx9UdQ==;
+	bh=JLWa8pfmRBA0MCYaPm56slHNdbjbr5WNg/DtpiVizww=; b=RXrug3d5R4cIuidd9x2T4d6qoC
+	NeCq6VTkqvMs9ip62yWw3xWVyZJpCX7dFlhb5V6mMPUP9IySquPOizBOkJtftbA/yNk5mkmkF1kCs
+	mk5MTMIlrVEs1gl912GfnFWYqfPCIoTyGGgXAlHD6WFpA6afV0gALazaxdsJBAI+0fGK7vNXHPD23
+	1McZ7CXKgKdwJglLM74wiuVBHR7CSrTyinfHGRVidGgB7FVO1Qq5cQuMbUorfvrs+croO7fDMq3FO
+	eOs3q45YfD7gncSkz09I5c2ifLmOFrS9l+leuvMX4dualPxytA3QYqQeNJfdp1U2zO68N0772cYLz
+	oL66jkMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOfqk-00000004kFr-3UzM;
-	Mon, 09 Jun 2025 16:59:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uOfsr-00000004kQC-0mUC;
+	Mon, 09 Jun 2025 17:02:05 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOey2-00000004bdM-38O7;
-	Mon, 09 Jun 2025 16:03:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 592BE4AA08;
-	Mon,  9 Jun 2025 16:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47C84C4CEEB;
-	Mon,  9 Jun 2025 16:03:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749485002;
-	bh=Kp/NTlrvXjRtay9xcRY38fHO9S3vFj89fcXu1mx8a3U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O53xgeT0xMQ7WkdILi0titHR+l9WlKCyu+lfdTwnd93b06Q9r5YOOBxFWlPjZZDsM
-	 D2gpLyq7GReO7h/mm/rnu9TuEvAEyClyaap0phr6bkEX5Pm3dQ3Bv+OX2jSyB7Caps
-	 0Q/Bzoaa3vrlgR3XE6TKwTQrKBTtnD4scSznZGPhXb3tEkRlonx1w3hZtAwBgSnaso
-	 nOmrSnD+tPm4U0gnW4tJxWc40uiervok9vFwrNUF12dth7v5oM6A0tVuobzJIG0Mc6
-	 zBzMl37Xz3shkf4n1pz1E5QwZk4hze+/NHKU7wJxKH1B+6Pm6TAF3UKuNL6itIpkvO
-	 /TAE692nMYoIw==
-Date: Mon, 9 Jun 2025 17:03:16 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Hsun Lai <i@chainsx.cn>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, andrew@lunn.ch, inindev@gmail.com,
-	quentin.schulz@cherry.de, jonas@kwiboo.se, sfr@canb.auug.org.au,
-	nicolas.frattaroli@collabora.com, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	krzysztof.kozlowski@linaro.org, linux-rockchip@lists.infradead.org
-Subject: Re: [RESEND PATCH v5 1/2] dt-bindings: arm: rockchip: Add Firefly
- ROC-RK3588S-PC
-Message-ID: <20250609-undiluted-giggling-65f3751de78e@spud>
-References: <20250609113044.8846-1-i@chainsx.cn>
- <20250609113044.8846-2-i@chainsx.cn>
+	id 1uOey3-00000004bdN-0NhB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 16:03:24 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e81877c1ed6so3850576276.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 09:03:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749485002; x=1750089802; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=JLWa8pfmRBA0MCYaPm56slHNdbjbr5WNg/DtpiVizww=;
+        b=OUEroA6JiKRMo4ZfR4yloJHO4DcZRHSVZDNQ02MMWx9vo+shLAuQ98S81I4aYFpHrs
+         uknhT9vsb4rHqSIlPGmduva6snxc7/i5Hy85lK9/wGLoowqEN9UqkRFstFxW/CNM31UF
+         uV//afomCu0OFZlVoUB+ug2N9cnFiYHbj2IxRjYR0qhjrF3RJnYEawp5ocLn0ZRFxOZ1
+         ZTswsaOrUMzdTXRHO4HQ5SRcfZE06rpV+Ztl73lS1EaH7aWGRIdbVy5ASY5ZE4rEktA7
+         /m5thEajnG2uVweFw+IOEBWsdJy7L5BhrV0LWyDA9mdcZcke0uBjTzcMVp4YK6SG78k+
+         61uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749485002; x=1750089802;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JLWa8pfmRBA0MCYaPm56slHNdbjbr5WNg/DtpiVizww=;
+        b=LzO+lXdxzYyfVBQ00XJRm5z8dj+mlcfdj26CzTAX0nCznp2ZHxScASxFaE+TWDAGxs
+         +AckJkFlZuQ/LwQ5B2pkIZmVdOrLstpI3keYK6tP4a8P9l9GmprQNO3KQaNr9dtIArCf
+         uA0awEwby+JUI9OlpGSmira9+mOK60uCKtf9r/kv0ZeN/S7rposX/jQXM3JmwrX0uig0
+         s80/fD1OolLBEIDhXxN5uAnyfqt20po9mn1b0Oa6WRQWibSrnR2IpXZhFkkzhZByDpwm
+         L4qKY79sbpo51PMLi7b88oqLvXdkzVbxAyv43itQtNVE786/J1AR0HW/2/3WYT9bn+X1
+         Rhfg==
+X-Forwarded-Encrypted: i=1; AJvYcCWWbQoRs5a6gV0fVmKAYPDMBD843ItXhA3gfaNe7BtPlwlNAq1/QW4jlB28hYMlB2V/gO6fzorlRGlcKWZCta2Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVIAcmbmIwXFy2/K7Vt/otYh6BZfXsiQTV56GM+T/2szjd9JGG
+	xSDNsgvG7f5jczJ1ZvlAsdL2HYBfKYZ2jbbJuicm4opr7kDzxxvcq7zi+JKE7kNkapo89DMhKlf
+	XUm88Z/5nwly4xltswchhWkqPUI6dzZ0=
+X-Gm-Gg: ASbGncsg9gQpIs4palxIkDiHXUmM7ZKBVD6kth43jw0jfBOMKXnB1ypm8o70iPZd0PJ
+	j3ig9k5bSX5o1rO1wj12GMcTccEKwJN59XliL2nHdoGvhgbC+EGkwNf8nMthKNqoyj5CqlY20e4
+	PEbgPwQcROVLzQcFGdTNwvyw6dFlXplXE=
+X-Google-Smtp-Source: AGHT+IF8YB2n9mCmYPR48pr+o1aUFiaTFY5AD9mJhNaEKQ1/FqOU/CjUow2q+WRwE9E4U1hY1d1vM5OnXCj2EM4U9jY=
+X-Received: by 2002:a05:6902:1005:b0:e81:d2c6:814e with SMTP id
+ 3f1490d57ef6-e81f077a159mr173187276.8.1749485001629; Mon, 09 Jun 2025
+ 09:03:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="drNe0XH7oe7eadcd"
-Content-Disposition: inline
-In-Reply-To: <20250609113044.8846-2-i@chainsx.cn>
+References: <20250609140643.26270-1-stefano.radaelli21@gmail.com> <ca71a8b8-88b8-4d81-a17d-1b46e10e55a9@lunn.ch>
+In-Reply-To: <ca71a8b8-88b8-4d81-a17d-1b46e10e55a9@lunn.ch>
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Date: Mon, 9 Jun 2025 18:03:04 +0200
+X-Gm-Features: AX0GCFuCh9zaVJsj5GtkuGSyeDwmhGTIAn0kUEeZIZink-bLJ3BuuR0gMcCu7GA
+Message-ID: <CAK+owog8_f=s24NCbasLiNZw_zErqNpozU8uQvKdYbi=FKcVTA@mail.gmail.com>
+Subject: Re: [PATCH v1] arm64: dts: freescale: imx8mp-var-som: Add EQoS
+ support with MaxLinear PHY
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_090322_803889_346A68C4 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_090323_127258_70A206D2 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
---drNe0XH7oe7eadcd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> +                     at803x,eee-disabled;
+> +                     eee-broken-1000t;
+> The commit message says it is a Maxlinear. So at803x vendor properties
+> are not relevant here.
 
-On Mon, Jun 09, 2025 at 07:30:43PM +0800, Hsun Lai wrote:
-> This documents Firefly ROC-RK3588S-PC which is a SBC based on RK3588S SoC.
->=20
-> Link: https://wiki.t-firefly.com/en/Station-M3/index.html
->=20
-> Signed-off-by: Hsun Lai <i@chainsx.cn>
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+You're absolutely correct.
+The at803x,eee-disabled property is specific to other PHYs and has no meaning
+for the Maxlinear MXL86110.
+I mistakenly copied this from another configuration without considering the
+vendor-specific nature of the property.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Thanks for pointing this out!
 
---drNe0XH7oe7eadcd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEcFxAAKCRB4tDGHoIJi
-0ivmAP0SUEPU9XV0AJYQlDwUnQjC0k4TkFd6vo4Osi486h5d4gD6A2RnAPs5+Wo+
-SIkO8Q2TaLDNjTkl83igAeqmWhUsiQU=
-=R2PU
------END PGP SIGNATURE-----
-
---drNe0XH7oe7eadcd--
+Il giorno lun 9 giu 2025 alle ore 17:17 Andrew Lunn <andrew@lunn.ch> ha scritto:
+>
+> On Mon, Jun 09, 2025 at 04:06:42PM +0200, Stefano Radaelli wrote:
+> > Enable the EQoS Ethernet controller on the i.MX8MP VAR-SOM with the
+> > integrated Maxlinear MXL86110 PHY. The PHY is connected to the EQOS
+> > MDIO bus at address 4.
+>
+> > +             ethphy0: ethernet-phy@4 {
+> > +                     compatible = "ethernet-phy-ieee802.3-c22";
+> > +                     reg = <4>;
+> > +                     at803x,eee-disabled;
+> > +                     eee-broken-1000t;
+>
+> The commit message says it is a Maxlinear. So at803x vendor properties
+> are not relevant here.
+>
+>     Andrew
 
