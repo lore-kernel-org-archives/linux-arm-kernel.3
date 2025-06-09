@@ -4,61 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB9CC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 21:04:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31A2C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 21:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snySpK6Vt67bxYB17nEFyoo0j8VvIl6WuVjilo31gjI=; b=RpjT3jDK1ef7yUBd1/ovsv13VF
-	xEOvT7zOaZgkxvN4rr1c8NVYaGfoad6oiCvubAZr78AZdeOnSp8+3Ts1ITdUyutf9ZRIHmUvTCaCF
-	gwHT79r4b5kFCEWL8gBkGsR3aBAFXPW87OFHsnfos2Oe68FejxwkuLZPW4vTU0+YVyBQf5Tfjo+d+
-	B0M0p+70bJVpUJV6mkETihoGyI1Hu67gad8wk6bJ0Ew9n+0un6bhv2qgEOUGCphFwGrXwsBSl7nvQ
-	8BExsHqoxnIh9aSG9svVcXgSNE/9lAm5uSrdTOloRhwbSMoQ5mUmGraKcEFUwtvjWlEf2QAAFnYGC
-	DK1/eysg==;
+	bh=ZY164f9Dpcp2/yS8fUOmsR/fCN+c8WLUoh6OQ0HlD68=; b=qW6E2fDdfJ8sLBp5JVqmelaBpm
+	GT8eOI7XYLRDdFHbiIP27NIZGyRHmVVQMzDXYd/tT5UmfetlXT1Qq1FXBP+zfNuXgHsaksv49Y1po
+	3V2UZh56gdnQ/+oWtjWZa5KhL7fh/EGFWAx1Q2N1CN8U9hEI/Y2ihk9nCeTtfzW9pDz4huZZikqUI
+	5hroH6L5fpM2BDrVmEBFh70bnevq1Faer0HodxvKzd10MabT9bnTwwjWm6WJ/jnu20uDS/oCc6htW
+	Jr8t97VylS5Fg5e05fZYJh1Dn2J70fZS9RS8xJd3ncZdhT/NJqKc2t6Lhi4Y4wNmMW8abpZhZ7xdP
+	9hoPGYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjf5-00000005EaG-0QF4;
-	Mon, 09 Jun 2025 21:04:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uOjhC-00000005ElV-35ya;
+	Mon, 09 Jun 2025 21:06:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjby-00000005E8e-3ArI;
-	Mon, 09 Jun 2025 21:00:55 +0000
+	id 1uOjc1-00000005E9d-1sCz;
+	Mon, 09 Jun 2025 21:00:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ZY164f9Dpcp2/yS8fUOmsR/fCN+c8WLUoh6OQ0HlD68=; b=ixl/Y3DSObgazszKpJIdOfF9yh
+	yMq00G4fQOoV6DIllST6uMKsfhO7l7AEyqR1lvXt6RLX7v9QcnsdkHOLKa91ipXcsBnT3hZ+Xye62
+	bsPKGl+Nu7mc/GsoOnO56im+xe9Lop+NzF3/m7jwdUwwUhDhj2pSoM+OtC1ucSMdyj64t9osCsiAh
+	zCIl5XjLnOgdgYh37MHExziyNNZ/W3YEYMUeP2AWoG2jUSSYT1mVQX3GQJNiB78LJ7W/wymnmkSQE
+	rJUW8kp0WS/q+MAyp0i3iyz+zPc79WDTTDsSJq2j9I5Cr5YVGbit+Ua8/od7Im0FLLUp2h+xfA1oT
+	eb3IXdQw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOjby-00000001fqG-3DDN;
+	Mon, 09 Jun 2025 21:00:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D143440ED;
-	Mon,  9 Jun 2025 21:00:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57120C4CEEB;
-	Mon,  9 Jun 2025 21:00:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7C0105C4C02;
+	Mon,  9 Jun 2025 20:58:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C4ABC4CEEF;
+	Mon,  9 Jun 2025 21:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749502854;
-	bh=onXfm+HG8EeIacsf9JPvIQnWVREodwC8+l7WQ/tZOlY=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=P9QA/gu0FG0+X+fmbsDzXIaBuw+zTT3NYhPaqqYLmhODf2akCMrf/6WCj1wEpc9wV
-	 kNyCbtLCX2Bf+Y+wuFP6JBbsFXX9Teyf0f5p4Wmjq7MsCM1FY8fy4hfPTf/MGfz6tC
-	 RbqA8B8y31xio/hBOi651/cho+rtnqwBhVjx/L8+DL18m3Dzt6Xq89RxqZ6zIvkRTg
-	 SWWVhZ0igQ9q7wZmkYpEYrjVlqAWBaj+Nj0oGQQ3M9BN5Md4ErYGdn5RzRqP4dukvL
-	 ur6XJlxRilSXTMBmKaq4UotpKP5x85iObLlXyGYsnZNVWzdkIsBkmYt/5cMNGHHVFR
-	 c5Tk9MXWLBnPw==
+	s=k20201202; t=1749502851;
+	bh=4kqJW1ciMSPYKms3Y+JdGC7f/q+aGKCLpMKAts86L60=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=pv/uXhpuR9ZUpJOCDfH4EtcgNdI2KVijdLyoVEFoklMIpiFMXuyX2w2RiUjll+Dvc
+	 epnH1q4y5U/p9R7+bGNyVh3F+MQdhXLSQZ+x8o5rRx0qDW4PUatpKOyj3U0dFTYMJT
+	 zqx5VSP9aGlyp5iR9xCEgkHn/GpMkIoyljRmwtR1iAgR3Smy3VySb50Wb92eHG8abT
+	 M6byrRuwZZwueXNpDOnevEJgZrHZGA1ohfpmhNVUsgbIfbl5Sr9ukuT9thIptFp/Fb
+	 mcuG/xJHfU6Rn/kmzdUWD+JvTaKi6qqhiQFtv9v6qVCMXsUJFal50MzDGwuhHcyAL3
+	 ugxLnp5j/933A==
 From: Mark Brown <broonie@kernel.org>
-To: nicolas.frattaroli@collabora.com, lgirdwood@gmail.com, perex@perex.cz, 
- tiwai@suse.com, heiko@sntech.de, linux-rockchip@lists.infradead.org, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Pei Xiao <xiaopei01@kylinos.cn>
-In-Reply-To: <cover.1749201126.git.xiaopei01@kylinos.cn>
-References: <cover.1749201126.git.xiaopei01@kylinos.cn>
-Subject: Re: [PATCH v2 0/2] Cleanup in rockchip_sai.c
-Message-Id: <174950285209.277844.16538402979333131018.b4-ty@kernel.org>
-Date: Mon, 09 Jun 2025 22:00:52 +0100
+To: perex@perex.cz, tiwai@suse.com, kuninori.morimoto.gx@renesas.com, 
+ lgirdwood@gmail.com, jbrunet@baylibre.com, neil.armstrong@linaro.org, 
+ khilman@baylibre.com, martin.blumenstingl@googlemail.com, 
+ shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com, 
+ nicoleotsuka@gmail.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+ kernel@pengutronix.de, Ai Chao <aichao@kylinos.cn>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org
+In-Reply-To: <20250603055109.3154061-1-aichao@kylinos.cn>
+References: <20250603055109.3154061-1-aichao@kylinos.cn>
+Subject: Re: (subset) [PATCH v4 0/4] Use helper function
+ for_each_child_of_node_scoped()
+Message-Id: <174950284791.277844.12094958567890827693.b4-ty@kernel.org>
+Date: Mon, 09 Jun 2025 22:00:47 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-c25d1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_140054_822444_99250586 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_220055_065145_EBEC5D6D 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,10 +92,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 06 Jun 2025 17:18:20 +0800, Pei Xiao wrote:
-> 1.Simplify the condition logic in
-> 2.Use helper function devm_clk_get_enabled()
+On Tue, 03 Jun 2025 13:51:05 +0800, Ai Chao wrote:
+> This patch series introduces wrapper functions for_each_child_of_node_scoped().
 > 
+> The for_each_child_of_node_scoped() helper provides a scope-based clean-up
+> functionality to put the device_node automatically, and as such, there is
+> no need to call of_node_put() directly.
+> 
+> Summary:
+> 
+> [...]
 
 Applied to
 
@@ -84,10 +109,12 @@ Applied to
 
 Thanks!
 
-[1/2] ASOC: rockchip: fix capture stream handling in rockchip_sai_xfer_stop
-      commit: 5dc302d00807b8916992dd25a7a22b78d07dcd03
-[2/2] ASOC: rockchip: Use helper function devm_clk_get_enabled()
-      commit: 03b778d1994827ea5cc971dbdfbb457bbb7bfa5d
+[2/4] ASoC: renesas: Use helper function for_each_child_of_node_scoped()
+      commit: 077caf1d1763e069239101b4a72351fb38d37f13
+[3/4] ASoC: meson: Use helper function for_each_child_of_node_scoped()
+      commit: 618abc785e0cbe9993f7217c9f8ecb1cd2478e4f
+[4/4] ASoC: imx-card: Use helper function for_each_child_of_node_scoped()
+      commit: 111a2c8ab462d77d1519b71b46f13ae1b46920b4
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
