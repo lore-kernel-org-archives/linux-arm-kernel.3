@@ -4,190 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8C9C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 11:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E015C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 11:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyQ1DcKtNYQKpTNU1HzlDro4WxhI2ETTW+dPl8NmpNI=; b=JL6otB4iq2aMUQW2M6LENrO46u
-	zfdfll0Wz/LLWmvm1va3ZaZmEj9PfRn4UK3IbSEdUzY+JhnsagMArEotGJoLmDjhQW22CapjGy/ua
-	gQ561CWQt7pu48Xdve6HQGM8b292zm//X+HtXIJSpi9nEoTsHi97ZaH7JO5jnZUCsn46MysA+4qPF
-	ErHRinoJj2D8QameD74Yb/jt/qSe4fxJXqNgs0NguVIVROquiJK1w2tSr7Qm3Z4pbJFFEks77M3lE
-	iMU69bnLUXiq5X9IDT34QzCmNquY/vXa/nyw+9kHGhJd6H0z4H9H0WH35c0zJeOO+ugcT6pxEvp1f
-	JJR80K4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AoMPGPhanshZGMamuGL4DVdSxWIT3Ea9rLxIl5VFb0c=; b=qA+8pdNbH1VEcycm7qoTxSk0yA
+	Gw4h6x2l8U9L2fo8FncetWJRhXFjeLY4hgYTvTEaoFUMjI1eEB3kIRG7x3+tKqUKmBUlQCKnONYHA
+	pg1coXkx2wYLaMDPVWm4T4Qa+kLrQN8ZVsavCDZIlL7rnZxNs0QV1D1e3xr6bCy+0xxAZ9hIoRsk+
+	a4CYoF9Js+JEOieSjjgUPFfad+0dD5m7JxnxWnO1SiBCedMgul30tRGmET8QkTaIQXQEVPrhNtEQB
+	EExAD7FXOC+/ndaPzw0XGrGdqqcdMWQY5ZGNzJYjAoYuiQ8Ru4GaZxzksXomO2MF6XUHBnZkb/tZ0
+	5Zmu/01A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOaXB-000000040sw-0MJf;
-	Mon, 09 Jun 2025 11:19:21 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOaEu-00000003yCD-27zM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 11:00:29 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5593gBV5011098;
-	Mon, 9 Jun 2025 11:00:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=pyQ1DcKtNYQKpTNU1H
-	zlDro4WxhI2ETTW+dPl8NmpNI=; b=duSAXR/Z4F0drCAOGv12WyJLL+Ai1uwCtm
-	rGGCbAtMe9DFMivAL8yqLQSX+qsPG4WSNDjtnvkUqp21vzdz4Azdf5/cL/a+P6I2
-	FoiNwEaRtDBB3Chz4OpvP1MKU7HDd2WxkPErtWQjMQxwhqBwlURdFcRYVEOWh8U5
-	6lPPDrXRjFDzIF+RjbD0jYQuwl7FzNL8UkCoribd7U2zsF6EsKh8UdcX8YyaUfE2
-	PDT0yJEG7SJtmqOEnQz0bIXXJ+EZjq2st4mISS0tB32wXDNHqggpuhbMlGPBy43U
-	5z+UpCRaU30TTAyfNWn7BJCTxQr/tJoTNkBYzUniNG7/MXrNugXA==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 474cbe9x7c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 09 Jun 2025 11:00:10 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5598o5HW021009;
-	Mon, 9 Jun 2025 11:00:08 GMT
-Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12on2058.outbound.protection.outlook.com [40.107.244.58])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 474bvdj4p3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 09 Jun 2025 11:00:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lOkpN59NLz9q2Zx9X9tVoQLKsMGftUBhn6myqblc57ip0+KIaVSOW1FKnPTlUZrRDHIZ092deEn5fpRw9FSooXOUhzXQig76oM9nd5o3CjACJkHis9J4froPnBQY0Vy1HHKP7fQXAEtR+G/ggHMgO5goEN/BY4t8oz05FHw2fMTR01AM+3VN0sDh2h+dNGB6zKMtbNmEYwL0uuekc1/SdmNIVrZ0mWNQe5Kn+DUPeYgcV9lNKZ2crNhkwjShMpaouPY0Ohi3RyufirByT/YvONEOYQrUYAeglWGKmbWtjAFdBW7XvjPIPZXVynAs4PnnYWazHvJkgks93SBDu1vWwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pyQ1DcKtNYQKpTNU1HzlDro4WxhI2ETTW+dPl8NmpNI=;
- b=t2Z+xJ6EHY2RB1+jnyEVhy5wR5B//eWIf3wV/PgQ+8sRze3ro2nYJ6gT1GUFjY5QcBZoy9XRpN1kWRC6XwvjI0dV0NkGAkLtRb6adGW7YklmdtjXq1TQBs6LNgIlFkK7G1DAorFytpizea8kRadsd+PnJB0I4/z6wduAM20qqZt9nhG4x7321CB0gT+hj12bMWFImSZ8bj+j9LHflqnVFL3YXCiTCVbKfBET/TpT6FrixzcE+/Hr1UPIIQF1J+t4Dvo15ulby9YcJRslCAsvmrVLqmgzu0/0nTsouOICVk2/KhDaRYJSYasz0juiGTCGWuUepo2oSfZVTMTeyFFOZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pyQ1DcKtNYQKpTNU1HzlDro4WxhI2ETTW+dPl8NmpNI=;
- b=zHiKtUVzdNMpAC9cVlPA+xTA0zqJWGOI3CfGch3zBYBYT2Vh7fO+zSwLUKwR2JPqamh/gbWoHKYYlXEQtU8ds1TzszWQA/R6oMqQBRQ2eI4onAaAVPlu7Ok5imoCE3ivcSnh6a+CbquJKsY6zwPC+wZlWjYkhQeXpBLvih113LY=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by SA3PR10MB7022.namprd10.prod.outlook.com (2603:10b6:806:317::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.25; Mon, 9 Jun
- 2025 11:00:05 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%6]) with mapi id 15.20.8813.024; Mon, 9 Jun 2025
- 11:00:04 +0000
-Date: Mon, 9 Jun 2025 12:00:00 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, catalin.marinas@arm.com,
-        will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz,
-        rppt@kernel.org, surenb@google.com, mhocko@suse.com,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        suzuki.poulose@arm.com, steven.price@arm.com, gshan@redhat.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] arm64: pageattr: Use walk_page_range_novma() to
- change memory permissions
-Message-ID: <eb0b075a-e6f8-4561-ba3c-3019710847d7@lucifer.local>
-References: <20250530090407.19237-1-dev.jain@arm.com>
- <20250530090407.19237-3-dev.jain@arm.com>
- <f528506e-b04d-4c80-93c3-93ba4ca385bd@lucifer.local>
- <58d53c0a-1b61-4276-bdd5-9eb2e583f865@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <58d53c0a-1b61-4276-bdd5-9eb2e583f865@arm.com>
-X-ClientProxiedBy: LO4P123CA0039.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:152::8) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+	id 1uOaZL-0000000410D-3sQh;
+	Mon, 09 Jun 2025 11:21:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOaFy-00000003yL0-0q1G;
+	Mon, 09 Jun 2025 11:01:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F02C2150C;
+	Mon,  9 Jun 2025 04:01:13 -0700 (PDT)
+Received: from [10.1.39.162] (XHFQ2J9959.cambridge.arm.com [10.1.39.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C82543F59E;
+	Mon,  9 Jun 2025 04:01:29 -0700 (PDT)
+Message-ID: <b86971db-c326-46df-9553-d89cf5609a75@arm.com>
+Date: Mon, 9 Jun 2025 12:01:28 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|SA3PR10MB7022:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c68c61a-e1a1-4299-fab4-08dda744ca13
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GqSHqMy3J86yVTQNFDnKAccH6FtsfxGGmFLZzvg/5LVOXGTi0Zx2Y7M0JkX0?=
- =?us-ascii?Q?w+XjIYtXxWBW9xed3grFyout7GIr6XaT0EiX98z+eH8uQmxnZ5+SN8aFK5gt?=
- =?us-ascii?Q?DxJx6Fyp6oWho+uVioMbLrDNAJDvKQ/q3Bv6CAh/4URUuf++ZNFgMiSBiE/A?=
- =?us-ascii?Q?AqcztnefMq1z1kb0phGZdeJLP9ihVtSut2A4ylqFLXY3G/VT+11Y0OKnZ6CY?=
- =?us-ascii?Q?6j0UmKjdYkdwed+4YYZ1V5pRB+WCpU8+MyrM1pT58ynfvtQUtlC2h9JODeJU?=
- =?us-ascii?Q?9mt2bSPg7NkrxWHsMjS/XdyLGNi1y+oQbroQ/gTtyUVpMJYPko1kcWIRdEYh?=
- =?us-ascii?Q?BkqnszFnxbih3pFs8Vn/eJoud3ciBgBCDi9ECNM6knbUV1NKZcjC1tfcqPh3?=
- =?us-ascii?Q?eQzpdTlNxDaGNtcfUt2DNCeX8Rh/yFajWz7qdphmAorIzdBRkChAwy0w/Vkr?=
- =?us-ascii?Q?A9OMKpftLp06EdFr18YLStyD3N3uNgwIalg2YYsj9ykxRYK2ryY90nH7sZd0?=
- =?us-ascii?Q?st+W+yPEfMeFLwXEDibfcdEY2CvnpXe/dyYAqIlpQU9/4LR5N40Pcf3jMu2h?=
- =?us-ascii?Q?9NCpSWi2TYLGbLRi42dqNQhe3X2TSHm89jew9IHkhhjwJcvfJU3kJVqQxU8b?=
- =?us-ascii?Q?ttaWKczHV3l56gJyfwV9MUC/37DkGvXOlZRREHKODHsTqZvUt366Q0ZMbMx7?=
- =?us-ascii?Q?f/GW3FneUILIodF8HGS/4iyu3wuZ3ogKlTG9psSIpm7R6lNdfdqNYvapHE9D?=
- =?us-ascii?Q?yrrhEJDlL0l0WF1xlzM7O5R4H9MKQ9Xy7x9p4jjkIHl4hoVrMa0T1x1F4+H6?=
- =?us-ascii?Q?pzVHebfSaVOwVBUB8iHoB9TMmdMYkDS12QNZXwk65cLCaBRsGSbUUg2qCR7H?=
- =?us-ascii?Q?QjpG2MgoIV9NzyhKEZb6rfNBah0HwvTAs+3BcJyNsttJrx2832oh2Pg0Lam1?=
- =?us-ascii?Q?teBp29npQyFO14Bk+9MuanCmScON6Ak9n8Ix1U/DZ9IDQl4xAJVtn87NpGeC?=
- =?us-ascii?Q?9EBjbCaDHLhSp2kQG4qeHWj0XEZR7akpmERLeVep6Vvly7uO2IBr2GCOAu0h?=
- =?us-ascii?Q?lJ+3H9cqCWeEM3BNzU2qIKTJjEv3Dez8l6h5yBHPykbS5REb+/2NVEhI3M4J?=
- =?us-ascii?Q?XhIB2eByhYjToDvaQYkuSHlBfCYYChrC6g3ChWEOUMXPi/6PbrBBrEyvpPcd?=
- =?us-ascii?Q?j5JzirAU3ELcEXNPUrtxyHDHMM2+QHS1jUhwXp375gP5NfsrIzrxmkJfZr8Y?=
- =?us-ascii?Q?ZjLQMjbm2049A6AXBy424Uz4DTck/sXeSypzfaj0r4iBYGpcpw/uDtiDAa1H?=
- =?us-ascii?Q?gYOs8A4j5gr2RfYYpOKECKrrvrR3OZgKQNLVwHuuVHL0FZeBgUtM4V8IF85H?=
- =?us-ascii?Q?2KBmlavC7bABekRrvMNBkDEHsgSbJaQ0sEq+ppZ7u/6+bOGwQugcqd/Opxxg?=
- =?us-ascii?Q?57GYLT0J42M=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bwD3SjQlw9nCHUxSlbvX3XCCbFzKXf0qtfuLDWU7I7aSZ5/OjuOW0ayhvNwz?=
- =?us-ascii?Q?IQrbQKiX0wAGhi0HlexXgBMfbWyzf8XLo8Ctbvn1axqdLmpt39DjQNSlMdkb?=
- =?us-ascii?Q?OSkf/G1Wzbb2lgY+Dgu6CCqb1lcUawfqTYl0gwv+7p1n+v8jxJlHixd0ZF93?=
- =?us-ascii?Q?FR32G6cepppnA+JLFfCplOmcJhCpj3tUtQ0tBAZwiblZTZv6wt+6K/Kb0Sw3?=
- =?us-ascii?Q?pBCtFCPFKxofasSOs4p1kE0aWBDxPINQ9TnIJb++etOmY0gUgZk45hEOHAC8?=
- =?us-ascii?Q?rqMFCDY57WHn5pXcizhcmDGf+t3x8OtT5ru1xurp5QW4ztwZeXudZZAJrH7y?=
- =?us-ascii?Q?SAR2DnjTQmBhya979bTp65v4NDecEnJU7ZXfwHjjqf/n+QXtrfEhtTX07gao?=
- =?us-ascii?Q?pqnBThct06YwhQKXj/mBpflv2sa1v41LYbT4TvyUshIUFLqHmsu5cZ0FEN9z?=
- =?us-ascii?Q?/hGIf613JJupd453HZIrb1yamKoICvAgnSRQoslBM8h4FagygOM41oFSb46B?=
- =?us-ascii?Q?09ipMtp/1PW01Y2F9QAG+CqbbjaoFTDuYw1omp83qkZ4YekUvQ+P3e+itdVE?=
- =?us-ascii?Q?ObOPXY4iNVlyNOrc48q7W5glS9YC/rSJiaY+SAgrWht3SPS5H1dfXZM5h+Yc?=
- =?us-ascii?Q?N5lQYR5HTWnkqujVkH4C7jH1BOOtdmZcS58cZs/pPqhrRgVm5EsKJRiLU1Tv?=
- =?us-ascii?Q?9SbjKzGyHQIo6lCmDBGND+UoNX5yzujlsD82aGiFRtkqdqpj1s059KW4YU/8?=
- =?us-ascii?Q?CbFDpAJvbePbolJQNAlN9KyEWRdAjyK4bXmGKMB6PXeU8MpD+Nl6aoEGAeJe?=
- =?us-ascii?Q?X9di6BmriCbRCHRoASP4zP5l34qhqZWhkNSrcR5fS8/MYoQ3fVyYyJA9NC3X?=
- =?us-ascii?Q?NbUyUSrZ6qtimLe1pkJvIHRlouAB5dPaz7yrUgKvsEWYrqPA9hLxQBsNrM3U?=
- =?us-ascii?Q?oPOKwpOf8DbeUjO+NdSQ/kIPRZJOu2MVRwGtrRL+9JPpOZtb8aO8csFTYM7I?=
- =?us-ascii?Q?CyJOA28UBpRzEZr/uap8pGdGHKK6h5gmprQlOyiqZ62JdpwI3bp5uKCvQVJw?=
- =?us-ascii?Q?1z0FM5tReteUo6bEatFn5vE7cfz83W/4wtK10hPFcuBdCM5JDSqdom4hqBKJ?=
- =?us-ascii?Q?xFAhuoFjMUFtMKBXJdgO9WbBtgYm1jm2R3v74AlQ73eFxFfoh9B20HPZCvbz?=
- =?us-ascii?Q?x7RK/ObZtc19ytdvvgDdfK4rMLARs50dxREDsObw1BmRa8ECQjl73ckfyGlS?=
- =?us-ascii?Q?RnCkTZ/pR2PQiKBaJiJ4ZnYHP/r8rnDMH/oG1zo+Rk4ZUQWbHjx2khxgUgdS?=
- =?us-ascii?Q?86fJLCZKT8dOCi4V2A25J6zJ0FpVOUsevumJ8XyEdZgjY5kOD68QdV0CB4pL?=
- =?us-ascii?Q?dBkFz+DTs6rn1ywk2dYkFkKQkjg88Wzfj4VnR5yOHi1rk6tLdRC5v8A7ioN4?=
- =?us-ascii?Q?qYgmIV1QT0Qx/rE/LbtNDcF31H3HBpQuiyciEWCgqu1bbpoPnNKVsPud7Vr4?=
- =?us-ascii?Q?lUzbEbo3lKeXD5jAwOGzvBh2T+O0sZEIFR3i5S+SF1k4HKiI4w0D/DjOl9pl?=
- =?us-ascii?Q?aO1N6QTiXaJF84/gcPlzjVV1/JzZMsi9vJFLZVEqtf9indbFmvhJWhRcDS8c?=
- =?us-ascii?Q?ZQ=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: XdiTBwkdZIMlwB2ulImCj1fwVg/GG5mbUmmb00F7NmFhNNl4qEEAF6ELvQEO9jhCqPbDi++OdwXCHcmsAZvMvVOQjQSXOZ30pgCj/ELlxyfRKQvlmWyzMu8TuwrAf+3YFLXlfoKYYll/22gz/z80IakJGfk0CSsLkf0NbFVL3WZ0WcroIBTBrV6BlM3uvPCdPIVekalwJ0uF+yBoIgxNYn2qXzkMEb42QWdxv5jCIG0EhfoOdRcUw5kqSg4QNNlcH6rOOz0Fg0BnMYZiiDt/kC8FGEaeo6T/BzttpLCEPhrKe4qKExPErTuwIx1SK/uqdyMfidFFCqJvy7kOe8BM1WH55clnT3m62UedfDRrRnlJYE3KsDhs0aM9gBjC/J5D0cnLIj8sJMAtL+vp14ZjOY/l05WIUrfJYEJTcGP14mVz2Xgtw/dZraxgD4VMzP1C/V8iTBpQ71fMttadKJsL0il8m+FepvAse73YOpNqr9wtZVHp6kE8sHaPbrszKrF4bXTvpu2iYg+5ihdGIRtwdiUw+XVEge074pQbhxr2yskbRvXbK8OmA3Ls5xMbMKtDS5DPy9jSSp1B9FbiYPiwpohuBTfCU3gcaXwP7KSdeHg=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c68c61a-e1a1-4299-fab4-08dda744ca13
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 11:00:04.7879
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ztrS97AC4hOxl+tWNvLFJO+36sIUfNNPQ2lQbL3kGyYbRbwAAJXSj3/t5wjeyRj9xKSx4wKg78AGz+HEKoQfodzhzZWJSFIS2y9qBIZtWrM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR10MB7022
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-09_04,2025-06-05_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 mlxscore=0 mlxlogscore=999
- bulkscore=0 adultscore=0 suspectscore=0 malwarescore=0 phishscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2506090083
-X-Proofpoint-GUID: J-BVAtEQf_C_wQAc5b7lhpS5grG5XLQT
-X-Authority-Analysis: v=2.4 cv=BffY0qt2 c=1 sm=1 tr=0 ts=6846beba b=1 cx=c_pps a=qoll8+KPOyaMroiJ2sR5sw==:117 a=qoll8+KPOyaMroiJ2sR5sw==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=GoEa3M9JfhUA:10 a=ZikaU0_y-LY82XPYkCkA:9 a=CjuIK1q_8ugA:10 cc=ntf awl=host:13207
-X-Proofpoint-ORIG-GUID: J-BVAtEQf_C_wQAc5b7lhpS5grG5XLQT
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjA5MDA4NCBTYWx0ZWRfX3/wFD5rskQQi dbPvonjSafMamPukRQAZr6d7JQoZFTI/tkWI0dmWd/4hwKxuTvng25SJcF/C8YFT510u69BlMXj mtzICXN0FsLw4swiCx/qyJiwLYP5asoCidfoRGCNJThMqpXh5oSf+kMGef8GO+bBH6hbX93o9FG
- j0zZMK6ga40J4qoRhcOXyI9s5NIB888TT9WkTTzBkVJjwVEMJs2odHBZHPag0yzyHgkwKIvhHlr sFBFUHQ3d1x6n1TuU4/hOkr59kkj4jGrFQDuugsrsFVncCBmMm3m5zan/+x8sH5ewZpOwA+dfZW sDO6aUgjO/WJmnb3odV3Gr1V95UcwkdVDXP7QMRfjfzGf5yttL07/UNce7UFqwaqN6YN6Rzu+9V
- Cmguxqdn/2T7vFuB1xffmdyIAcE0PdC94gfXMEE0TfowxBoH0Wcdw7jq3ERTsgggfbp5Rhnu
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] mm: Remove arch_flush_tlb_batched_pending() arch
+ helper
+Content-Language: en-GB
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ David Hildenbrand <david@redhat.com>, Rik van Riel <riel@surriel.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Harry Yoo <harry.yoo@oracle.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-mm@kvack.org
+References: <20250609103132.447370-1-ryan.roberts@arm.com>
+ <48375ad8-7461-446e-9002-8d326fba137b@lucifer.local>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <48375ad8-7461-446e-9002-8d326fba137b@lucifer.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_040028_558346_DC3A9F62 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20250609_040134_339989_BF52AD4E 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,67 +75,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 03:11:59PM +0530, Dev Jain wrote:
->
-> On 06/06/25 3:19 pm, Lorenzo Stoakes wrote:
-> > On Fri, May 30, 2025 at 02:34:06PM +0530, Dev Jain wrote:
-> > > Move away from apply_to_page_range(), which does not honour leaf mappings,
-> > > to walk_page_range_novma(). The callbacks emit a warning and return EINVAL
-> > > if a partial range is detected.
-> > Hm a follow up question here - why not just improve apply_to_page_range() to
-> > honour leaf mappings?
-> >
-> > What does honouring leaf mappings actually mean? You mean handling huge pages?
-> >
-> > Would it be all that difficult to implement?
-> >
-> > It seems like you're pushing a bunch of the 'applying' logic over from there to
-> > a walker that isn't maybe best suited to it and having to introduce an iffy new
-> > form of locking...
-> >
-> > Can we go vice-versa? :)
-> >
-> > Also obviously walk_page_range_novma() doesn't exist any more :P
-> > walk_kernel_page_table_range() is the preferred solution.
->
-> I cannot see this function in mm-unstable. Also, mm-unstable is broken - I get
-> some RCU message in dmesg, and after some 20-30 second delay the kernel boots.
-> So on which branch do I base my work on...
+On 09/06/2025 11:45, Lorenzo Stoakes wrote:
+> On Mon, Jun 09, 2025 at 11:31:30AM +0100, Ryan Roberts wrote:
+>> Since commit 4b634918384c ("arm64/mm: Close theoretical race where stale
+>> TLB entry remains valid"), all arches that use tlbbatch for reclaim
+>> (arm64, riscv, x86) implement arch_flush_tlb_batched_pending() with a
+>> flush_tlb_mm().
+>>
+>> So let's simplify by removing the unnecessary abstraction and doing the
+>> flush_tlb_mm() directly in flush_tlb_batched_pending(). This effectively
+>> reverts commit db6c1f6f236d ("mm/tlbbatch: introduce
+>> arch_flush_tlb_batched_pending()").
+>>
+>> Suggested-by: Will Deacon <will@kernel.org>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> 
+> Thanks, love to see an arch_*() helper go :)
+> 
+> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 
-mm-unstable shouldn't be broken as that's what should be in -next, concerning!
-Worth investigating... But rebase! :)
+Thanks!
 
-Sorry maybe isn't clear as we changed this recently - you should base all
-changes intended for the next release on mm-new.
+> 
+> Couple points below.
+> 
+>> ---
+>>  arch/arm64/include/asm/tlbflush.h | 11 -----------
+>>  arch/riscv/include/asm/tlbflush.h |  1 -
+>>  arch/riscv/mm/tlbflush.c          |  5 -----
+>>  arch/x86/include/asm/tlbflush.h   |  5 -----
+>>  mm/rmap.c                         |  2 +-
+>>  5 files changed, 1 insertion(+), 23 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+>> index aa9efee17277..18a5dc0c9a54 100644
+>> --- a/arch/arm64/include/asm/tlbflush.h
+>> +++ b/arch/arm64/include/asm/tlbflush.h
+>> @@ -322,17 +322,6 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+>>  	return true;
+>>  }
+>>
+>> -/*
+>> - * If mprotect/munmap/etc occurs during TLB batched flushing, we need to ensure
+>> - * all the previously issued TLBIs targeting mm have completed. But since we
+>> - * can be executing on a remote CPU, a DSB cannot guarantee this like it can
+>> - * for arch_tlbbatch_flush(). Our only option is to flush the entire mm.
+>> - */
+> 
+> Hm are we losing information here? I guess it's hard to know whewre to put
+> this though.
 
-As I understand it:
+The generic version of this comment exists above flush_tlb_batched_pending() in
+rmap.c.
 
-- mm-new is the _rawest_ form of the state of mm, Andrew described it as
-  the 'crazy' branch that basiclaly has everything.
+For the arm64-specific description of why we need to flush the whole mm, that's
+captured in Commit 4b634918384c ("arm64/mm: Close theoretical race where stale
+TLB entry remains valid"), although I accept that may not be the first place
+someone looks.
 
-- mm-unstable is when things have been percolating for a while and are
-  considered reasonably stable-ish kinda, but most importantly - ready for
-  -next testing. And is what goes to -next.
+I don't think we should be defining arch_ helpers just to provide a hook for
+some arch-specific comments though.
 
-- mm-stable is gathered shortly before the merge window starts and is all
-  the stuff Andrew will send to Linus.
+> 
+>> -static inline void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+>> -{
+>> -	flush_tlb_mm(mm);
+>> -}
+>> -
+>>  /*
+>>   * To support TLB batched flush for multiple pages unmapping, we only send
+>>   * the TLBI for each page in arch_tlbbatch_add_pending() and wait for the
+>> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+>> index 1a20dd746a49..eed0abc40514 100644
+>> --- a/arch/riscv/include/asm/tlbflush.h
+>> +++ b/arch/riscv/include/asm/tlbflush.h
+>> @@ -63,7 +63,6 @@ void flush_pud_tlb_range(struct vm_area_struct *vma, unsigned long start,
+>>  bool arch_tlbbatch_should_defer(struct mm_struct *mm);
+>>  void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+>>  		struct mm_struct *mm, unsigned long start, unsigned long end);
+>> -void arch_flush_tlb_batched_pending(struct mm_struct *mm);
+>>  void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
+>>
+>>  extern unsigned long tlb_flush_all_threshold;
+>> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+>> index e737ba7949b1..8404530ec00f 100644
+>> --- a/arch/riscv/mm/tlbflush.c
+>> +++ b/arch/riscv/mm/tlbflush.c
+>> @@ -234,11 +234,6 @@ void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
+>>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
+>>  }
+>>
+>> -void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+>> -{
+>> -	flush_tlb_mm(mm);
+>> -}
+>> -
+>>  void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+>>  {
+>>  	__flush_tlb_range(NULL, &batch->cpumask,
+>> diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
+>> index e9b81876ebe4..00daedfefc1b 100644
+>> --- a/arch/x86/include/asm/tlbflush.h
+>> +++ b/arch/x86/include/asm/tlbflush.h
+>> @@ -356,11 +356,6 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+>>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
+>>  }
+>>
+>> -static inline void arch_flush_tlb_batched_pending(struct mm_struct *mm)
+>> -{
+>> -	flush_tlb_mm(mm);
+>> -}
+>> -
+>>  extern void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
+>>
+>>  static inline bool pte_flags_need_flush(unsigned long oldflags,
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index fb63d9256f09..fd160ddaa980 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -746,7 +746,7 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
+>>  	int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
+>>
+>>  	if (pending != flushed) {
+>> -		arch_flush_tlb_batched_pending(mm);
+>> +		flush_tlb_mm(mm);
+> 
+> I see that CONFIG_ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH is only implemented in
+> riscv (if !nommu), x86, arm64, and therefore we are only going to invoke
+> this for those arches which previously did the same anyway, so this is
+> safe.
 
-To pick up on the most recent changes therefore use mm-new. Using anything
-else risks issues like this where your patch will conflict, etc.
+It's also the way it used to be done before arm64 joined the party and thought
+it could optimize by just issuing a DSB. I since discoved that the DSB approach
+is buggy so arm64 has now fallen back to flush_tlb_mm() so the reason for the
+original introduction of arch_flush_tlb_batched_pending() has gone.
 
-Another point to note is, during the merge window, mm-new is where changes
-due for the release after the one being currently merged are kept
-(e.g. over the past 2 weeks of 6.16 merge window, this would be changes for
-6.17).
+Thanks,
+Ryan
 
-Not all subsystems even take patches at all during the merge window, but mm
-does.
+> 
+> Kinda wish we could avoid this ugly #ifdef #else #endif pattern here in
+> mm/rmap.c but probably necessary in this case.
+> 
+>>  		/*
+>>  		 * If the new TLB flushing is pending during flushing, leave
+>>  		 * mm->tlb_flush_batched as is, to avoid losing flushing.
+>> --
+>> 2.43.0
+>>
 
-So especially during merge window it's important to base you changes on
-mm-new.
-
->
-> >
-
-Cheers, Lorenzo
 
