@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F33EC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E21C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wbEni09fYziAsycq+dzulTBCsvBPz7XWXm78uttYLSw=; b=LnzWhZXt6nNfen
-	hN4T+nDmxxTuNcKB6aZmGuq8sr9g13iNczoIO8qwE7+FznBvuPWUGlzmv068ZoN8NDPfjh9CNiDFN
-	1TaktxKOZyTq1eGdoq3e1c6uHHdVILLFyjw3M8yfxgsCbnUSg54CfI2Y9fABejNkpltxUx4p3Em1X
-	3OpUGCHxHqS6rFwTxeAySJW+gB2gZ20c2C8Ytnmr8Q0UkSgB/s+GllZ72bIw5OTecDnPaopty2MSw
-	ERG7hS/CHT2qgEh6CY4+7o//jYWj5Hoob/9tOYqFTwOZSlIffKqx+cXhDDKK+6hM6C0Z6l21UDeec
-	VJaP7Cg9tLBPrarmhLig==;
+	List-Owner; bh=86DU9m5pPkXTRY/r4EpyqKBxuIl8oiW6jaladL6LCD8=; b=WB9vXof7ngPt33
+	9NbhDH3C8+q4oSbxW7pFeHZTNole5ljSZOn/azFO/fPVgEKDEKUne4nVteAe8aveyA/friOa7X89n
+	Uj/tUIKppuPi6AY7sXGp8qRnJwMDLs4b6G/5ObQeGCqqg3LQdYJBrpKds4HrMzfW4nM1MhCdodPBU
+	JKlm19dZFXgEdNalFJV+29gS3wLgSw+AuIEgGpfMMob0ZBwuXy3NJwi6WpAIUNO/095W/QWjumpdq
+	AoX6m0bQPnOS3m6dOExVt8BNzn54+06UlFXnHTNU3v84wFcBeoLuSznKDwi2VGU4qqk2yXWDhXyAf
+	Yxeuu5nj5ypEItL9umcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOho6-00000004yfr-1P9q;
-	Mon, 09 Jun 2025 19:05:18 +0000
+	id 1uOhqD-00000004yo0-0CPX;
+	Mon, 09 Jun 2025 19:07:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOgP2-00000004orU-1o3q
+	id 1uOgP2-00000004otC-3LQj
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 09 Jun 2025 17:35:21 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00CE31515;
-	Mon,  9 Jun 2025 10:34:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52B682573;
+	Mon,  9 Jun 2025 10:35:01 -0700 (PDT)
 Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.32.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AF2263F66E;
-	Mon,  9 Jun 2025 10:35:15 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 17BBD3F66E;
+	Mon,  9 Jun 2025 10:35:18 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 04/13] arm64: debug: call step handlers statically
-Date: Mon,  9 Jun 2025 18:34:04 +0100
-Message-ID: <20250609173413.132168-5-ada.coupriediaz@arm.com>
+Subject: [PATCH v3 06/13] arm64: entry: Add entry and exit functions for debug exceptions
+Date: Mon,  9 Jun 2025 18:34:06 +0100
+Message-ID: <20250609173413.132168-7-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250609173413.132168-1-ada.coupriediaz@arm.com>
 References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_103520_562735_A4A3DD41 
-X-CRM114-Status: GOOD (  21.19  )
+X-CRM114-CacheID: sfid-20250609_103520_922148_16D3DC82 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,192 +61,99 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Software stepping checks for the correct handler by iterating over a list
-of dynamically registered handlers and calling all of them until one
-handles the exception.
+Move the `debug_exception_enter()` and `debug_exception_exit()`
+functions from mm/fault.c, as they are needed to split
+the debug exceptions entry paths from the current unified one.
 
-This is the only generic way to handle software stepping handlers in arm64
-as the exception does not provide an immediate that could be checked,
-contrary to software breakpoints.
-
-However, the registration mechanism is not exported and has only
-two current users : the KGDB stepping handler, and the uprobe single step
-handler.
-Given that one comes from user mode and the other from kernel mode, call
-the appropriate one by checking the source EL of the exception.
-Add a stand-in that returns DBG_HOOK_ERROR when the configuration
-options are not enabled.
-
-Unify the naming of the handler to XXX_singlestep_handler(), making it
-clear they are related.
+Make them externally visible in include/asm/exception.h until
+the caller in mm/fault.c is cleaned up.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 ---
- arch/arm64/include/asm/kgdb.h      |  9 +++++++++
- arch/arm64/include/asm/uprobes.h   |  9 +++++++++
- arch/arm64/kernel/debug-monitors.c | 25 ++++++-------------------
- arch/arm64/kernel/kgdb.c           | 17 +++--------------
- arch/arm64/kernel/probes/uprobes.c |  9 +--------
- 5 files changed, 28 insertions(+), 41 deletions(-)
+ arch/arm64/include/asm/exception.h |  4 ++++
+ arch/arm64/kernel/entry-common.c   | 22 ++++++++++++++++++++++
+ arch/arm64/mm/fault.c              | 22 ----------------------
+ 3 files changed, 26 insertions(+), 22 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
-index 82a76b2102fb..fa0c1edb8a65 100644
---- a/arch/arm64/include/asm/kgdb.h
-+++ b/arch/arm64/include/asm/kgdb.h
-@@ -26,6 +26,15 @@ extern int kgdb_fault_expected;
+diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
+index d48fc16584cd..e54b5466fd2c 100644
+--- a/arch/arm64/include/asm/exception.h
++++ b/arch/arm64/include/asm/exception.h
+@@ -80,4 +80,8 @@ void do_serror(struct pt_regs *regs, unsigned long esr);
+ void do_signal(struct pt_regs *regs);
  
- int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr);
- int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr);
-+#ifdef CONFIG_KGDB
-+int kgdb_singlestep_handler(struct pt_regs *regs, unsigned long esr);
-+#else
-+static inline int kgdb_singlestep_handler(struct pt_regs *regs,
-+	unsigned long esr)
+ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigned long far);
++
++void debug_exception_enter(struct pt_regs *regs);
++void debug_exception_exit(struct pt_regs *regs);
++
+ #endif	/* __ASM_EXCEPTION_H */
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index 7c1970b341b8..3bdfa5abaf7a 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -441,6 +441,28 @@ static __always_inline void fpsimd_syscall_exit(void)
+ 	__this_cpu_write(fpsimd_last_state.to_save, FP_STATE_CURRENT);
+ }
+ 
++/*
++ * In debug exception context, we explicitly disable preemption despite
++ * having interrupts disabled.
++ * This serves two purposes: it makes it much less likely that we would
++ * accidentally schedule in exception context and it will force a warning
++ * if we somehow manage to schedule by accident.
++ */
++void debug_exception_enter(struct pt_regs *regs)
 +{
-+	return DBG_HOOK_ERROR;
++	preempt_disable();
++
++	/* This code is a bit fragile.  Test it. */
++	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
 +}
-+#endif
- 
- #endif /* !__ASSEMBLY__ */
- 
-diff --git a/arch/arm64/include/asm/uprobes.h b/arch/arm64/include/asm/uprobes.h
-index 3659a79a9f32..5858e436a5a7 100644
---- a/arch/arm64/include/asm/uprobes.h
-+++ b/arch/arm64/include/asm/uprobes.h
-@@ -29,5 +29,14 @@ struct arch_uprobe {
- };
- 
- int uprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
-+#ifdef CONFIG_UPROBES
-+int uprobe_singlestep_handler(struct pt_regs *regs, unsigned long esr);
-+#else
-+static inline int uprobe_singlestep_handler(struct pt_regs *regs,
-+	unsigned long esr)
++NOKPROBE_SYMBOL(debug_exception_enter);
++
++void debug_exception_exit(struct pt_regs *regs)
 +{
-+	return DBG_HOOK_ERROR;
++	preempt_enable_no_resched();
 +}
-+#endif
- 
- #endif
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 15d7158a7548..b156bef7f61e 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -200,30 +200,17 @@ void unregister_kernel_step_hook(struct step_hook *hook)
++NOKPROBE_SYMBOL(debug_exception_exit);
++
+ UNHANDLED(el1t, 64, sync)
+ UNHANDLED(el1t, 64, irq)
+ UNHANDLED(el1t, 64, fiq)
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index ec0a337891dd..d451d7d834f1 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -966,28 +966,6 @@ void __init hook_debug_fault_code(int nr,
+ 	debug_fault_info[nr].name	= name;
  }
  
- /*
-- * Call registered single step handlers
-+ * Call single step handlers
-  * There is no Syndrome info to check for determining the handler.
-- * So we call all the registered handlers, until the right handler is
-- * found which returns zero.
-+ * However, there is only one possible handler for user and kernel modes, so
-+ * check and call the appropriate one.
-  */
- static int call_step_hook(struct pt_regs *regs, unsigned long esr)
- {
--	struct step_hook *hook;
--	struct list_head *list;
--	int retval = DBG_HOOK_ERROR;
-+	if (user_mode(regs))
-+		return uprobe_singlestep_handler(regs, esr);
- 
--	list = user_mode(regs) ? &user_step_hook : &kernel_step_hook;
+-/*
+- * In debug exception context, we explicitly disable preemption despite
+- * having interrupts disabled.
+- * This serves two purposes: it makes it much less likely that we would
+- * accidentally schedule in exception context and it will force a warning
+- * if we somehow manage to schedule by accident.
+- */
+-static void debug_exception_enter(struct pt_regs *regs)
+-{
+-	preempt_disable();
 -
--	/*
--	 * Since single-step exception disables interrupt, this function is
--	 * entirely not preemptible, and we can use rcu list safely here.
--	 */
--	list_for_each_entry_rcu(hook, list, node)	{
--		retval = hook->fn(regs, esr);
--		if (retval == DBG_HOOK_HANDLED)
--			break;
--	}
+-	/* This code is a bit fragile.  Test it. */
+-	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
+-}
+-NOKPROBE_SYMBOL(debug_exception_enter);
 -
--	return retval;
-+	return kgdb_singlestep_handler(regs, esr);
- }
- NOKPROBE_SYMBOL(call_step_hook);
- 
-diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
-index b5a3b9c85a65..8f6ce2ea005c 100644
---- a/arch/arm64/kernel/kgdb.c
-+++ b/arch/arm64/kernel/kgdb.c
-@@ -250,7 +250,7 @@ int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr)
- }
- NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
- 
--static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
-+int kgdb_singlestep_handler(struct pt_regs *regs, unsigned long esr)
- {
- 	if (!kgdb_single_step)
- 		return DBG_HOOK_ERROR;
-@@ -258,11 +258,7 @@ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
- 	kgdb_handle_exception(0, SIGTRAP, 0, regs);
- 	return DBG_HOOK_HANDLED;
- }
--NOKPROBE_SYMBOL(kgdb_step_brk_fn);
+-static void debug_exception_exit(struct pt_regs *regs)
+-{
+-	preempt_enable_no_resched();
+-}
+-NOKPROBE_SYMBOL(debug_exception_exit);
 -
--static struct step_hook kgdb_step_hook = {
--	.fn		= kgdb_step_brk_fn
--};
-+NOKPROBE_SYMBOL(kgdb_singlestep_handler);
- 
- static int __kgdb_notify(struct die_args *args, unsigned long cmd)
+ void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
+ 			struct pt_regs *regs)
  {
-@@ -301,13 +297,7 @@ static struct notifier_block kgdb_notifier = {
-  */
- int kgdb_arch_init(void)
- {
--	int ret = register_die_notifier(&kgdb_notifier);
--
--	if (ret != 0)
--		return ret;
--
--	register_kernel_step_hook(&kgdb_step_hook);
--	return 0;
-+	return register_die_notifier(&kgdb_notifier);
- }
- 
- /*
-@@ -317,7 +307,6 @@ int kgdb_arch_init(void)
-  */
- void kgdb_arch_exit(void)
- {
--	unregister_kernel_step_hook(&kgdb_step_hook);
- 	unregister_die_notifier(&kgdb_notifier);
- }
- 
-diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
-index ad68b4a5974d..fefc990860bc 100644
---- a/arch/arm64/kernel/probes/uprobes.c
-+++ b/arch/arm64/kernel/probes/uprobes.c
-@@ -182,7 +182,7 @@ int uprobe_brk_handler(struct pt_regs *regs,
- 	return DBG_HOOK_ERROR;
- }
- 
--static int uprobe_single_step_handler(struct pt_regs *regs,
-+int uprobe_singlestep_handler(struct pt_regs *regs,
- 				      unsigned long esr)
- {
- 	struct uprobe_task *utask = current->utask;
-@@ -194,15 +194,8 @@ static int uprobe_single_step_handler(struct pt_regs *regs,
- 	return DBG_HOOK_ERROR;
- }
- 
--/* uprobe single step handler hook */
--static struct step_hook uprobes_step_hook = {
--	.fn = uprobe_single_step_handler,
--};
--
- static int __init arch_init_uprobes(void)
- {
--	register_user_step_hook(&uprobes_step_hook);
--
- 	return 0;
- }
- 
 -- 
 2.43.0
 
