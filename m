@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C677C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34BB7C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ex2JFBinh8YiWxVMhoLzM47i1TZJvrxnedGrO88QYuw=; b=1dHUpfewiHKF3bt26XhDZvRTsQ
-	T8V+OdUVob165GwHdPt58sof51G4uto7LzexiHikLHkgS8ajdF8q7uwuGmWLmqsxmOIXXU5Yt7mvr
-	3DPjOFE22VRsY6hk/GNrjMqxo7k14HHQq6Or2hqoYfCHBweImtlSn3XSEMJSp2Zs/YOUVZI8W3IQU
-	LKo21jZpqbouwQ3nYTiDG1sKW/jydH5K0dliFhp8mNZARkir3l2N8cg+VHC9w80huJnRLODHpev17
-	dhODr5DD895BFPbbdyO4OmvkeRmz6GriFavuH48cpCJIvh7/wAJUInXcP63PNsOte7tQSDhwkDyFQ
-	ewCjkFOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hfNgM/UwK9Bgs6Z72i34/JIUtkeJLfZjGuO9+tnxnH0=; b=OSQUtyewh2Tvd8s/5evJWhkc+V
+	1UjoJAyt7N4cC8Tv8m97ILxt731Rkz2siOeWCnfPeFBGn7s5Cr4lspactjUouIavIqQsnrTQfcNJF
+	SsDSlcDr9T+zMuxTF1c6QzgowOtL3ZMXsFTL88R/EWitaiBm9CJVxGlPcqCQ4hslOJaoKalf8gkmd
+	MZKrfQWKrknTGgBneqZQzP8sdnTtwvbPznlum4LG4tWKypzjDHYqZSa/3b6vHBCIFmPTPPfOK/Flk
+	I9zzUSm5f9lranhXWIhnbZNalHf0j2dROnIpNb7HpkXUkt5xidCnvMl/cxOui1/nkb4gecf7rPjH3
+	KCHRdHGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uObJb-00000004538-2WBm;
-	Mon, 09 Jun 2025 12:09:23 +0000
-Received: from mx.swemel.ru ([95.143.211.150])
+	id 1uObLm-000000045Ec-1EC4;
+	Mon, 09 Jun 2025 12:11:38 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uObBB-000000044DK-4C2k
+	id 1uObDF-000000044RH-03m8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 12:00:43 +0000
-From: Denis Arefev <arefev@swemel.ru>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=swemel.ru; s=mail;
-	t=1749470438;
+	Mon, 09 Jun 2025 12:02:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A901243280;
+	Mon,  9 Jun 2025 12:02:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749470564;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding;
-	bh=ex2JFBinh8YiWxVMhoLzM47i1TZJvrxnedGrO88QYuw=;
-	b=O3dHBVvWxVuVkPDus4ne+jZDafnHzyyhXuEhkrCCDvWDJSyTO6HOQcZwO6j5bnpbwTg5Mf
-	8dj53My4mXs5xENi2F1oFZdh5dZjZPYhbqEqkoiHeq1T/MR0cCLpLs4hDlPXns0itXESXb
-	VYoM5bxh1eMWPH0VlMZzdLHHCa7EBL8=
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Marc Zyngier <maz@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Julien Thierry <julien.thierry.kdev@gmail.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.cs.columbia.edu,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Quentin Perret <qperret@google.com>
-Subject: [PATCH 5.10] KVM: arm64: Tear down vGIC on failed vCPU creation
-Date: Mon,  9 Jun 2025 15:00:37 +0300
-Message-ID: <20250609120038.41396-1-arefev@swemel.ru>
+	bh=hfNgM/UwK9Bgs6Z72i34/JIUtkeJLfZjGuO9+tnxnH0=;
+	b=ljoFAD+30tSZSx407+2w+YNK1fKSnD3cdTADkIFdznx6Rt/JlyhivF0fVhvp2IPAfRttnx
+	4XMFp8fcOrGTdM/valSvUkptmZH4+/E2gWu6M10YK2vX7bQztIc+WLyMJjhBMe/mMH8FwC
+	BcyNvFdPsVHWLxxArDn+0i5sVArRnHEfsr3Sm23MyzqZoTBme1lzWFHSSQsZd5YY4Owr6a
+	rZ4nlIJ1ye7QGZ4cEonhqEZvyVzZ/OiSCkLu6xJdgzSLwdI3wH1u0KlQbnTC39B/lasPAP
+	CHLZ/MpJy/VFzNgHfqV/3+T1Z4pBc9FBIqErUz5FBSawySGjltulFdGgXedaeQ==
+From: Thomas Richard <thomas.richard@bootlin.com>
+Date: Mon, 09 Jun 2025 14:02:34 +0200
+Subject: [PATCH v3] arm64: dts: imx8qm: add system controller watchdog
+ support
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250609-imx8qm-watchdog-v3-1-5c22618606c8@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAFnNRmgC/2XNQQ6CMBCF4auQrq1ppwXBlfcwLkpbYBKh2pKKI
+ dzdghsNy/8l881MgvVoAzlnM/E2YkA3pBCHjOhODa2laFITYJAzYIJiP5XPnr7UqDvjWlqXohB
+ CQinBknT18LbBaROvt9QdhtH59/Yg8nX9WpKddlbklFFgGnhV87wxcKmdG+84HLXryapF+BG43
+ AuQBCkrKHJVGSXtv7AsywcuBI9e8gAAAA==
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Oliver Graute <oliver.graute@kococonnector.com>, 
+ Frank Li <Frank.Li@nxp.com>, Thomas Richard <thomas.richard@bootlin.com>
+X-Mailer: b4 0.14.1
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdelvdejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomhepvfhhohhmrghsucftihgthhgrrhguuceothhhohhmrghsrdhrihgthhgrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiveefueeiveffvedvfeetvdfhkeeuudefkeeuffefgfekudelheeiffduveeikeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemuggtkedumegrrggutdemfhgutggrmegttgdurgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemuggtkedumegrrggutdemfhgutggrmegttgdurgdphhgvlhhopegluddvjedrtddruddrudgnpdhmrghilhhfrhhomhepthhhohhmrghsrdhrihgthhgrrhgusegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopefhrhgrnhhkrdfnihesnhigphdrtghomhdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnv
+ ghlrdhorhhgpdhrtghpthhtoheplhhinhhugiesrhhovggtkhdquhhsrdhnvghtpdhrtghpthhtohepfihimheslhhinhhugidqfigrthgthhguohhgrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: thomas.richard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_050042_210530_35DEAC39 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250609_050249_192309_2D265913 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Will Deacon <will@kernel.org>
+Add system controller watchdog support for i.MX8QM.
 
-commit 250f25367b58d8c65a1b060a2dda037eea09a672 upstream.
-
-If kvm_arch_vcpu_create() fails to share the vCPU page with the
-hypervisor, we propagate the error back to the ioctl but leave the
-vGIC vCPU data initialised. Note only does this leak the corresponding
-memory when the vCPU is destroyed but it can also lead to use-after-free
-if the redistributor device handling tries to walk into the vCPU.
-
-Add the missing cleanup to kvm_arch_vcpu_create(), ensuring that the
-vGIC vCPU structures are destroyed on error.
-
-Cc: <stable@vger.kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Quentin Perret <qperret@google.com>
-Signed-off-by: Will Deacon <will@kernel.org>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/20250314133409.9123-1-will@kernel.org
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-[Denis: minor fix to resolve merge conflict.]                                           
-Signed-off-by: Denis Arefev <arefev@swemel.ru>                                    
+Acked-by: Oliver Graute <oliver.graute@kococonnector.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
 ---
-Backport fix for CVE-2025-37849
-Link: https://nvd.nist.gov/vuln/detail/cve-2025-37849
+Third version of this series. I just rebased it on v6.16-rc1, dropped the
+binding patch (already applied upstream) and took RB/AB tags for the
+devicetree patch.
 ---
- arch/arm64/kvm/arm.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Changes in v3:
+- all: rebase on v6.16-rc1
+- bindings: remove patch
+- devicetree: take "Acked-by: Oliver Graute <oliver.graute@kococonnector.com>"
+- devicetree: take "Reviewed-by: Frank Li <Frank.Li@nxp.com>"
+- Link to v2: https://lore.kernel.org/r/20250414-imx8qm-watchdog-v2-0-449265a9da4e@bootlin.com
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index afe8be2fef88..3adaa3216baf 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -294,7 +294,12 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	if (err)
- 		return err;
- 
--	return create_hyp_mappings(vcpu, vcpu + 1, PAGE_HYP);
-+	err = kvm_share_hyp(vcpu, vcpu + 1);
-+	if (err)
-+		kvm_vgic_vcpu_destroy(vcpu);
+Changes in v2:
+- bindings: take "Acked-by: Rob Herring (Arm) <robh@kernel.org>"
+- bindings: take "Reviewed-by: Frank Li <Frank.Li@nxp.com>"
+- devicetree: move the watchdog node just after thermal-sensor
+- Link to v1: https://lore.kernel.org/r/20250407-imx8qm-watchdog-v1-0-20c219b15fd2@bootlin.com
+---
+ arch/arm64/boot/dts/freescale/imx8qm.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm.dtsi b/arch/arm64/boot/dts/freescale/imx8qm.dtsi
+index 6fa31bc9ece8..11527050ac8b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qm.dtsi
+@@ -356,6 +356,11 @@ tsens: thermal-sensor {
+ 			compatible = "fsl,imx8qxp-sc-thermal", "fsl,imx-sc-thermal";
+ 			#thermal-sensor-cells = <1>;
+ 		};
 +
-+	return err;
-+
- }
++		watchdog {
++			compatible = "fsl,imx8qm-sc-wdt", "fsl,imx-sc-wdt";
++			timeout-sec = <60>;
++		};
+ 	};
  
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
+ 	thermal-zones {
+
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250203-imx8qm-watchdog-b8363342842e
+
+Best regards,
 -- 
-2.43.0
+Thomas Richard <thomas.richard@bootlin.com>
 
 
