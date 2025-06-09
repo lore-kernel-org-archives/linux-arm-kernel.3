@@ -4,117 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6156C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 13:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5005EC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 13:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Bh+Zp7cUZNAenLGdWusNvBpvA8IMsAYVSOUkU7ta8Y=; b=N+QIh4x1LTfh+b3Kz1i7m3j3SH
-	Qju3KLLcbBflrzTWypG4f60SYPr97TyWplXMUB9zUXXcZMiNhr/PHN6+N5E6anWYlzHYo4m9ULzs0
-	zwmuaS4FmsbivqgN5EPWo78n9YRx8g6C7gIKN2M7aUH/AdBu5nw69gXLlEZnF6oNnlbs290a8M9Aj
-	KdaCOUoNACD0nC9BCXec0hggE8D5gwPxBrzhKCow02Gj3er0MulL6BWH6KJ8btWHioLqnSL7T7pfp
-	R27S0dRBENTbd1yi4UxBfTJbeJsMeGFMrmk+8ajiVzLQeHJrRANsLLk62KewY8WOoEXn1Uoy3nzt9
-	6ofapgog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mAiRbciuoiorHgM5EFNBfKf1XaHXDRt4R+Ad1zIscbE=; b=h6m/VI38CVzmJe3x9Cr2UbbICp
+	jQwqQX2dEgxiIRwQgq0ztNfHkztg88/nAhR7JmHKxycM/ZwuSSqefpleRP7zHFeCSgeQU8afV8x9I
+	UNDevEqTkd6WczW4ATt5s6mngxcz3dRAwnlH2vHfOQW0crBhnobdFpIc4QcaZEy1hIvMhMJSUmib7
+	xAje8KGwBLzTOXKLtmaDi4V26UH+06IpREyFsOvBmYUAxjsCr9jwYbikCPeyfoOVdwKWZMioeGoOH
+	I3xQF8Hmv8fHq/GrIE8kjt+sjvxaA15MnnRU4vJK8g9XqgA1NUsi8q4bVQh9TtEBVuhu2KzKks63G
+	WE8GAVZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOcBF-00000004Chf-36m2;
-	Mon, 09 Jun 2025 13:04:49 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uOcYs-00000004Exx-3gk5;
+	Mon, 09 Jun 2025 13:29:14 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOc8z-00000004CCK-3Eoz
+	id 1uOcWe-00000004EOX-45CO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 13:02:32 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4530921461aso10306325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 06:02:28 -0700 (PDT)
+	Mon, 09 Jun 2025 13:26:58 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e731a56e111so3712289276.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 06:26:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749474147; x=1750078947; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+Bh+Zp7cUZNAenLGdWusNvBpvA8IMsAYVSOUkU7ta8Y=;
-        b=mCaDYx92QwWyTBZqf/BfYcyFfTfBHcwEE/6ToRDzS96uvulVXhHdIbAIqenH00vyqU
-         3CWg3mY8XExX8Uts5au+quasXEjgKzdVfmn0rtE0Pcd8rEwubuTiNe3kV//vMTD8K3EN
-         gILuPEAuBE4YtypOdp25ULxMZ4Zbs2AanPpWRZLb2ygIQv7qCSc5VdZbGUaBPH81nMJa
-         gqyMR3tjzICcGQYFQHLg9i+KbX2Op0YILP5bwU2WTYU6WxuFT8dUYm6zEXpdoXppBqiy
-         KPsBDqm8vmzptY6rAPK9b1kQzsqISclnfC1ZwtIex8M+XecL29wZJOYdb1QtDiUR3mMI
-         ++LQ==
+        d=linaro.org; s=google; t=1749475615; x=1750080415; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=mAiRbciuoiorHgM5EFNBfKf1XaHXDRt4R+Ad1zIscbE=;
+        b=G+lISmyvAdWadDnWcOKK/bD6iIU4XEUaDKdh9DmHLYLNwdAOQrGFelJJxtGVbpslB5
+         cj0vN7tDRnKZmb9e/n42UnJfU3lNX2+/KSJxFiK4VWsqU7vunsiKW0V7TnMkz9TBbPiW
+         MGeIPl+0UKLVDY+DlmRZyz+BD7rdkVYJTzd7TFgAq+vf1uP5IiLVFDEGE7ZOH9IVw5b+
+         FlYxjRRjjuQk390MfLw7cyGfDYWdcAJqtVXatnzDFCw7z9N4BwNOt9ePccTqqaWKetTC
+         gWfL7sTw36Dr4lQt0pxlvZU2eDgTsnKyNV1wHiig7+Fy/Za/qLWhYnsdSQVxOl9G00HD
+         k8vw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749474147; x=1750078947;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+Bh+Zp7cUZNAenLGdWusNvBpvA8IMsAYVSOUkU7ta8Y=;
-        b=SDjTRTY9l5y2rB0HZdUT9RLYaTZ6DTzAreQQUtDN+R32T2+68CepYwPXMK51Opngjs
-         SXhprK2w/e+FoUfCE6FoTRd5ZXuDlkJupfxEUOiAMBHYc2b+k8WG5HzqLMit0k46AFLp
-         92FvjIyM5gj+sAA01BV2dpDSop8pw8/Lp/Ds184kLlaic2sdh8FvY0cPY7VJDwud0XAY
-         C72pZhJw5QRP3ub00E32rRba+GEotjOmlCN0IooVU41k7NVTFHOHszS3dhHVgSZE3mvG
-         ZJlPw0J+Rux0Ufe/x5rwck+GrSweyCD16R7Hxcb/cIJYPVpr161LZeuye46HilpV7Cm7
-         i9dw==
-X-Forwarded-Encrypted: i=1; AJvYcCVn57IHQyuI+ExbIMLp8T+qyZd8UYXNWc2fZ+8n//aYN/OgnUEwj/0Aws4zBNFdIDWpzz6wyN2+L/TiJ6J5ZhF5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHDz8ZgcAfl1Jpw+CMGiTwzk+6D1KuieR6jzatTTiGL+JpeF6j
-	o2RctXTt8hLKNaCbtz1See1RcU7lGpys3N0qXtqAh+AOcx+Uw5wUoq7XqSiECPFcw3I=
-X-Gm-Gg: ASbGnct9rHqeGgPrYANUzcWgkFkemVYUQz1Qls4vUsM1uoOWEjYQsICTQNygnR+/QwT
-	15RPJMjG+OLNRYeK8Y6e8yL6VK7DOBH9C5kBZrOa+auA2aiOyrO3fRNFybM4OG05WBA/Fx+WgN1
-	p50rrlDIRXDcJSfMTsvT30boddjzy+CQ26nakbjWtwhIn66NEfJAY6h8FvYWIIWCRrR1ionWX+a
-	8aBaDjYiZKfpgi2t2efbjkRyUBnz1IN9RHIK+PXJFrC1sBDIgsQi5uQmHfy31kcH8n0wPtQFvHh
-	alvJSwGlVWUAlqzVA63IUKlEEY2LnNAc3VmibWnJnc0UKwJzeYo=
-X-Google-Smtp-Source: AGHT+IEC224y8+mr5qcnD9k9Q2VLvv7fn9ojcXNf/BK82QyxQgrEFMVWAZeFnV10+zDndt5WfXGhRg==
-X-Received: by 2002:a05:600c:34ca:b0:453:1058:f8c1 with SMTP id 5b1f17b1804b1-4531058ffa6mr39477275e9.3.1749474147101;
-        Mon, 09 Jun 2025 06:02:27 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:1008:ff30:c454:e59e])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-452137290b9sm110888675e9.34.2025.06.09.06.02.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 06:02:26 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Doug Anderson <dianders@chromium.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Dave Ertman
- <david.m.ertman@intel.com>,  Ira Weiny <ira.weiny@intel.com>,  "Rafael J.
- Wysocki" <rafael@kernel.org>,  Stephen Boyd <sboyd@kernel.org>,  Arnd
- Bergmann <arnd@arndb.de>,  Danilo Krummrich <dakr@kernel.org>,  Conor
- Dooley <conor.dooley@microchip.com>,  Daire McNamara
- <daire.mcnamara@microchip.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
-  Andrzej Hajda <andrzej.hajda@intel.com>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Robert Foss <rfoss@kernel.org>,  Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
- <jonas@kwiboo.se>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
- Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de
- Goede <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>,  "Bryan O'Donoghue"
- <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
- <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
- <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
- <theo.lebrun@bootlin.com>,
-  Michael Turquette <mturquette@baylibre.com>,  Abel Vesa
- <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
- <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
-  dri-devel@lists.freedesktop.org,  platform-driver-x86@vger.kernel.org,
-  linux-mips@vger.kernel.org,  linux-clk@vger.kernel.org,
-  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
-  linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v4 3/8] drm/bridge: ti-sn65dsi86: use the auxiliary device
-In-Reply-To: <CAD=FV=Vb+Wb6wJ42jUBxVVNp9P87BiqHZgoY+Tw6W3fO==FF6g@mail.gmail.com>
-	(Doug Anderson's message of "Tue, 25 Feb 2025 08:04:57 -0800")
-References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
-	<20250218-aux-device-create-helper-v4-3-c3d7dfdea2e6@baylibre.com>
-	<CAD=FV=Vb+Wb6wJ42jUBxVVNp9P87BiqHZgoY+Tw6W3fO==FF6g@mail.gmail.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Mon, 09 Jun 2025 15:02:24 +0200
-Message-ID: <1jmsahcbkv.fsf@starbuckisacylon.baylibre.com>
+        d=1e100.net; s=20230601; t=1749475615; x=1750080415;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mAiRbciuoiorHgM5EFNBfKf1XaHXDRt4R+Ad1zIscbE=;
+        b=EbiFsxXMpSPOk/MmTLUISCRD4sUM992aCwUI6hKdMLcPEw5gHi73FJJrH+bRRPC/Dj
+         +wRcPUn9hXvoyaAP1ZcY98kRiFoQ0UBojJb+JRUiYqySQKM3l3xpzhrtgawTCqwqisrG
+         Tcl24Vn6fq1w/rNmsXjMzENhKUBWVJ/R5fHKe2yRlmLeNJ8E0BSgKakhqadOAcG18BZ4
+         w1I4T+8ffeT4loR74k6VvFKg0QLlWMP76cVcI9K/CFrk1cMGUkD08Xkx//RBxlo1SazE
+         ae+orkGWElSFRDhlY53vxfs0faJ2zzGyqTS4UaGbN64de3+DS1CsdRslPVdfMVH0Z3fh
+         XoCA==
+X-Forwarded-Encrypted: i=1; AJvYcCUyKkztEDXZJU7w5JOk74tJGi1JiRauwhHQQmFPt7LwOJfJCJ1Lc2FKZTgWRMR4l4V6pOJ4DY9UQmjFNJ+YWyS+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1GO8DyFeGyKaaTURcAumn8k4NSpniogSy9x9Bsd5jyDEJTtaz
+	nt/Ejh87bO9rFdtKrTAciRA31WhMitP8J21nE5X1QSjOe/ajwQfYwxylcfMCR7hczOAfD7cSjfv
+	u0sSz4Ir67ZETAlgET4sKi6MDaQ3M6REK8Z8MhprlNQ==
+X-Gm-Gg: ASbGncs/x/JdbQP9mg/1mRUTg4ossJeW2SOU6IuI/yRygLna5GvbQAnSKFUexgMjg5F
+	Llb1KezvqYOkYX2kykerbeRpEScBVmFMi5h95hyHw6jqFJ63Rcs+clGTNymZMQpKZXkjwuK8uN+
+	UJXi3NTzMuWeuxPt1RKeTuQr9T8H4eXMWvSbKvnmF0HUd0
+X-Google-Smtp-Source: AGHT+IEdp4Uo8DXeT5EnMuQJvMNr8+WtEiGeMqcg+uuVjNdRmH13ttSqp1H/4vx3AbsAuwuDP4cRp1d7FkuP24yL/II=
+X-Received: by 2002:a05:6902:98f:b0:e7d:7b06:c567 with SMTP id
+ 3f1490d57ef6-e81a226a49dmr18772294276.8.1749475615295; Mon, 09 Jun 2025
+ 06:26:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+References: <20250529104853.1987456-1-alvin.paulp@amd.com>
+In-Reply-To: <20250529104853.1987456-1-alvin.paulp@amd.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 9 Jun 2025 15:26:19 +0200
+X-Gm-Features: AX0GCFsV0kgRqKk0VesGIpH7txHIuNQCBKwAYohUvjNa9Wq16CR9xgCE78X7Q9Y
+Message-ID: <CAPDyKFok6Ftr6OAHpy_qL3S17cecHT9f2tKWagCd+KvVFSmAFA@mail.gmail.com>
+Subject: Re: [PATCH v2] mmc: sdhci-of-arasan: Add shutdown callback
+To: Paul Alvin <alvin.paulp@amd.com>
+Cc: michal.simek@amd.com, adrian.hunter@intel.com, git@amd.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mmc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_060229_810200_C8866596 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20250609_062657_020366_C97C5A8D 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,39 +93,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 25 Feb 2025 at 08:04, Doug Anderson <dianders@chromium.org> wrote:
-
-> Hi,
+On Thu, 29 May 2025 at 12:49, Paul Alvin <alvin.paulp@amd.com> wrote:
 >
-> On Tue, Feb 18, 2025 at 11:30=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.=
-com> wrote:
->>
->> The auxiliary device creation of this driver is simple enough to
->> use the available auxiliary device creation helper.
->>
->> Use it and remove some boilerplate code.
->>
->> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->> ---
->>  drivers/gpu/drm/bridge/ti-sn65dsi86.c | 49 +++++-----------------------=
--------
->>  1 file changed, 7 insertions(+), 42 deletions(-)
->
-> Reviewed-by: Douglas Anderson <dianders@chromium.org>
->
-> I'll snooze this for a bunch of weeks and check back to see if this
-> can be landed in drm-misc-next every once in a while. If you notice
-> that drm-misc-next has the necessary patches before I do then feel
-> free to poke me and I'll commit it.
+> Implement shutdown hook to suspend host and disable all mmc clocks to
+> increase power saving during shutdown or reboot.
 
-Hi Doug,
+So how long is the shutdown process for the platform? What do we really gain?
 
-FYI, this is safe to take with v6.16-rc1.
-Please let know in case you prefer a resend.
+In general we don't quite care about power-savings during shutdown, as
+we are going to turn off things anyway, right?
+
+Kind regards
+Uffe
 
 >
-> -Doug
-
---=20
-Jerome
+> Signed-off-by: Paul Alvin <alvin.paulp@amd.com>
+> ---
+>
+> Changes in v2:
+> - Make use of platform suspend instead of driver suspend as driver
+>   suspend will only get defined if PMC_SLEEP is configured which
+>   results in build failure if it is not configured.
+> - Updated commit description.
+>
+>  drivers/mmc/host/sdhci-of-arasan.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/drivers/mmc/host/sdhci-of-arasan.c b/drivers/mmc/host/sdhci-of-arasan.c
+> index 8c29676ab662..4abdad3c4e5b 100644
+> --- a/drivers/mmc/host/sdhci-of-arasan.c
+> +++ b/drivers/mmc/host/sdhci-of-arasan.c
+> @@ -2056,6 +2056,11 @@ static void sdhci_arasan_remove(struct platform_device *pdev)
+>         clk_disable_unprepare(clk_ahb);
+>  }
+>
+> +static void sdhci_arasan_shutdown(struct platform_device *pdev)
+> +{
+> +       sdhci_pltfm_suspend(&pdev->dev);
+> +}
+> +
+>  static struct platform_driver sdhci_arasan_driver = {
+>         .driver = {
+>                 .name = "sdhci-arasan",
+> @@ -2065,6 +2070,7 @@ static struct platform_driver sdhci_arasan_driver = {
+>         },
+>         .probe = sdhci_arasan_probe,
+>         .remove = sdhci_arasan_remove,
+> +       .shutdown = sdhci_arasan_shutdown,
+>  };
+>
+>  module_platform_driver(sdhci_arasan_driver);
+> --
+> 2.44.1
+>
 
