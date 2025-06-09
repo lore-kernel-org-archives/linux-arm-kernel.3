@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C430C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 23:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F0EC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 23:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F2w5rX95eeScpv5mqK21JWv/UhtBCWE6Zq/RxFSbaLM=; b=rlhFmHTzs7Tht8fUMmSpnHzyl+
-	DYr4zj+DSQy5cFYdL/VkY/2JR+oxreLvJoqmTYgvYIEiTkIJ1E9+b1+ZQX1BS9jwB0obyF15mh/Y4
-	jxENYB+Eqbifg8Y3NkcXZxPJmZFw8FOZ+Pj9I8XL9teeI2Do79VRjOp/wQSMgayVw31xiXB9BH/WQ
-	1BpXW2aTOYdSjrY6Q1Z7W8uXX9QQ+Dp79BLHXPfzlQRs5NtBx2r++fJFGBLVnmd3zJFch3YG3kfx2
-	MgVKsY/k+blgQGIqWwWAG+a79k+nX5XaWAjPtFWJXQUPSZ86/9hYOrnumBMYgoPv07fuMVJtudrjD
-	8t08KpzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q7+cVr8dsExjTk3ijrllXSzAu8Gblm5oL77kdyoH2ZE=; b=QVzl/KxVhPNOQlPG9yP62fmxZ4
+	aCJwrhUMNMp6gFdDp1gh8cm6LsDwLy5vpjDBUq/QVtUkpuemi0rNb6YrPpEyevSej6wT/Tzk1sL9A
+	+Q8iCrgBCFuQfupU7vqlTJ463CJp3SzvyohCtUpC4CDetqLT3uNdsu2M/+ZTc2BktUX10YAoN+2oI
+	aiW+3Q35+W40mE+pTyYXIUV8ujqnkzMCJIFyIT1YktWciEufczh+WN4birFJL4BbUXBhnN8YhH+EL
+	0KSkD4obGcI9GCRMRzKvDu3IDGclOxm8yIEUOrnvUI5rEpPY84N5YQNbew9t8cdbMSezNo9AGAm/x
+	YYuGWrXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOlVD-00000005PY8-1j4G;
-	Mon, 09 Jun 2025 23:02:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uOlaH-00000005Q35-0X5Y;
+	Mon, 09 Jun 2025 23:07:17 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOlT3-00000005POT-20nW;
-	Mon, 09 Jun 2025 22:59:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B726D4A946;
-	Mon,  9 Jun 2025 22:59:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21A46C4CEEB;
-	Mon,  9 Jun 2025 22:59:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749509988;
-	bh=U4vhsJXM46e+0Mfc4PBs3bseTa3h9UosBlHtozqeIf8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bZ2q/LWijEpaEq00igAvU15ZFA2btFmPEoPv0oTqawn+MjrxKEc4/OqXy2N38kxpV
-	 AFvy2lrAzn2djDaUY1swfzB9EZ627MitJD6/avaXEMt58zpc+17thB5+o+L/NCFmXx
-	 Bbahqr8beEaE9JLR92svUSP/oo9HcH3K/MV2jUx5drdibhmczFNStuOfZD9lCWMysz
-	 P11+Cs72P7BkkpWfSW0Wc/UiWNcR1xk5ksNxTizKDn6BSr0mEtJF/ezlntceoWJxAz
-	 yys2b1O4D36HQh8H0QW/vQ0doPIIwaleXhHsMUSvkGTKjPZAQluFZIrFMruyPgxt0i
-	 IRxGum7RmzoYw==
-Date: Mon, 9 Jun 2025 15:59:26 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Julian Calaby <julian.calaby@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is
- integrated
-Message-ID: <20250609225926.GE1255@sol>
-References: <20250607200454.73587-1-ebiggers@kernel.org>
- <CAGRGNgV_4X3O-qo3XFGexi9_JqJXK9Mf82=p8CQ4BoD3o-Hypw@mail.gmail.com>
- <20250609194845.GC1255@sol>
- <CAGRGNgXw5LcykjiRS3yteb0K8FmYtb9wp1CJPM+GCKAw7j4ktQ@mail.gmail.com>
+	id 1uOlY6-00000005Ptd-1orC
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 23:05:03 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-70e6bddc30aso38832227b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 16:05:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1749510301; x=1750115101; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q7+cVr8dsExjTk3ijrllXSzAu8Gblm5oL77kdyoH2ZE=;
+        b=N98+dbNSKpm9dFK84m04stwVzd0XRsrJq4mmqOtAd3qIBoXlmJlln3uSIl5ldndPFn
+         yg2Hl/m72MeQlPzHV6QAHrQF8fPYSVTe01KY2IKN5Zn68SYgi99ve8Jj/AU+PQXSXsPp
+         JVnc0bV70cCtughh8e0gkp5lgHWzukuFIG44EeSJggf9OQCsRmMVtfwMze+VyDw/GY1K
+         Cl1HFpL+TeMjCwWtTvb3tLxFTfWiy2RCkRm2tgM1iu1FMRfEiNzkmzKJVmICL9fracmt
+         eGR9wyeu81mFp+EVYn5JnpitJdsS6d/6wVqC1/UqEI90orKj6XIGihH34WBVh0MHkYaC
+         uSVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749510301; x=1750115101;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=q7+cVr8dsExjTk3ijrllXSzAu8Gblm5oL77kdyoH2ZE=;
+        b=BWwjCUYaYUGtcHj0PRt++pWSEqN91doS+umgFI3J7v7y/ZIKooCr3QBMsFr/5WDu9K
+         /zQSDz46cJOWoueU/f4hCDOSTm56mde3ZULRSSc88oIf+ipOG2QyVg3o90SeyOJNVMix
+         ATNiU3oJWsy/Lp/BtOh2QS4XLxk24TC9mfVKo2cN/IhBlIL6feXsMHIbEZOp+0XZFk5F
+         c9A1DTHUjB/z8k4L0sgk+tOjr6f0O/kkaQ/T3tRscqogFsapNxklqgG9deuHcJK7GBEN
+         iVmsJzQn614gODHuE43EbdybDRfv4oVsg/HHbA5BKZncY1RDXb70dXVnMspRZUsaTXe+
+         ZJUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXOtv1ziaria0bFZGbzcgYBHO466v0FTKwiV+0/46LKBIq1ZFfP9tRQana5e1VzGDW84TM8uOCAOtxLKKnmuWcq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqFOsBzJKrXXaHPNdxtJVOtyqvZzVLkcxOpRdG3aEjniXkhp9q
+	TJC5LKZn/DDX0c68J2vQvHisbb2b0uk1cEAtkdIRxqb+oUPt2i0sn6e/RyatCJP7wBOuVrc16tF
+	JW0zMyB9K8j9rRQUxeQhK7mfldJRz4o3t9JD5JOQF
+X-Gm-Gg: ASbGncs/sVQJQrNHtDqA5IicJSUaz3NkcnKk08a8kJKPBKB9wQIbuoY6xoBpZeHJHHB
+	0rHHa9qUD7BgQl713odVeDv05nPAFnfu2Y4u3mQSMz2MTcHjI3OptDROCbM7hwVxLjyrEG3svb/
+	PPrLlihi1iHxJm1ik8JzwhXDGYz9JID70kZ2Bc4szJzrDztCsAaYzhagoIiYFavgZsPpHSwlcwL
+	w==
+X-Google-Smtp-Source: AGHT+IHDN7yYiqZfvU9YYp0Xn0iNVyQLG2U2NkvCT1T2HFwTM8W1uiwWGtxc6CrVQKMfQxc4kQw9Dq00AIFK5/ldCts=
+X-Received: by 2002:a05:690c:360e:b0:70d:f3bb:a731 with SMTP id
+ 00721157ae682-710f76949a7mr201808267b3.9.1749510300215; Mon, 09 Jun 2025
+ 16:05:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGRGNgXw5LcykjiRS3yteb0K8FmYtb9wp1CJPM+GCKAw7j4ktQ@mail.gmail.com>
+References: <aDdILHOu9g-m5hSm@google.com> <20250528201756.36271-1-jthoughton@google.com>
+ <aDebZD1Kmmg15zs7@google.com>
+In-Reply-To: <aDebZD1Kmmg15zs7@google.com>
+From: James Houghton <jthoughton@google.com>
+Date: Mon, 9 Jun 2025 16:04:24 -0700
+X-Gm-Features: AX0GCFsscOLeJsC5afeLhStDd6O3F0bHoTP2OBA-juWmkL4Q85V0QPpPjCgJ_5E
+Message-ID: <CADrL8HWwWN6tgV5ws8HMmeONmmhx_xS5ZSHgV7E6Cg=NDrqCTQ@mail.gmail.com>
+Subject: Re: [PATCH v2 06/13] KVM: arm64: Add support for KVM_MEM_USERFAULT
+To: Sean Christopherson <seanjc@google.com>
+Cc: amoorthy@google.com, corbet@lwn.net, dmatlack@google.com, 
+	kalyazin@amazon.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	pbonzini@redhat.com, peterx@redhat.com, pgonda@google.com, 
+	wei.w.wang@intel.com, yan.y.zhao@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_155949_558387_DE4D53DF 
-X-CRM114-Status: GOOD (  41.43  )
+X-CRM114-CacheID: sfid-20250609_160502_520739_9046612C 
+X-CRM114-Status: GOOD (  31.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,120 +100,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 08:36:39AM +1000, Julian Calaby wrote:
-> Hi Eric,
-> 
-> On Tue, Jun 10, 2025 at 5:49 AM Eric Biggers <ebiggers@kernel.org> wrote:
+On Wed, May 28, 2025 at 4:25=E2=80=AFPM Sean Christopherson <seanjc@google.=
+com> wrote:
+>
+> On Wed, May 28, 2025, James Houghton wrote:
+> > On Wed, May 28, 2025 at 1:30=E2=80=AFPM Sean Christopherson <seanjc@goo=
+gle.com> wrote:
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index c5d21bcfa3ed4..f1db3f7742b28 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -2127,15 +2131,23 @@ void kvm_arch_commit_memory_region(struct kvm *=
+kvm,
+> >                                  const struct kvm_memory_slot *new,
+> >                                  enum kvm_mr_change change)
+> >  {
+> > -     bool log_dirty_pages =3D new && new->flags & KVM_MEM_LOG_DIRTY_PA=
+GES;
+> > +     u32 old_flags =3D old ? old->flags : 0;
+> > +     u32 new_flags =3D new ? new->flags : 0;
+> > +
+> > +     /*
+> > +      * If only changing flags, nothing to do if not toggling
+> > +      * dirty logging.
+> > +      */
+> > +     if (change =3D=3D KVM_MR_FLAGS_ONLY &&
+> > +         !((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES))
+> > +             return;
 > >
-> > On Mon, Jun 09, 2025 at 06:15:24PM +1000, Julian Calaby wrote:
-> > > Hi Eric,
-> > >
-> > > On Sun, Jun 8, 2025 at 6:07 AM Eric Biggers <ebiggers@kernel.org> wrote:
-> > > >
-> > > > This series is also available at:
-> > > >
-> > > >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git lib-crc-arch-v2
-> > > >
-> > > > This series improves how lib/crc supports arch-optimized code.  First,
-> > > > instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
-> > > > will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
-> > > > crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
-> > > > functions (e.g. crc32c_base()) will now be part of a single module for
-> > > > each CRC type, allowing better inlining and dead code elimination.  The
-> > > > second change is made possible by the first.
-> > > >
-> > > > As an example, consider CONFIG_CRC32=m on x86.  We'll now have just
-> > > > crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
-> > > > were already coupled together and always both got loaded together via
-> > > > direct symbol dependency, so the separation provided no benefit.
-> > > >
-> > > > Note: later I'd like to apply the same design to lib/crypto/ too, where
-> > > > often the API functions are out-of-line so this will work even better.
-> > > > In those cases, for each algorithm we currently have 3 modules all
-> > > > coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
-> > > > sha256-x86.ko.  We should have just one, inline things properly, and
-> > > > rely on the compiler's dead code elimination to decide the inclusion of
-> > > > the generic code instead of manually setting it via kconfig.
-> > > >
-> > > > Having arch-specific code outside arch/ was somewhat controversial when
-> > > > Zinc proposed it back in 2018.  But I don't think the concerns are
-> > > > warranted.  It's better from a technical perspective, as it enables the
-> > > > improvements mentioned above.  This model is already successfully used
-> > > > in other places in the kernel such as lib/raid6/.  The community of each
-> > > > architecture still remains free to work on the code, even if it's not in
-> > > > arch/.  At the time there was also a desire to put the library code in
-> > > > the same files as the old-school crypto API, but that was a mistake; now
-> > > > that the library is separate, that's no longer a constraint either.
-> > >
-> > > Quick question, and apologies if this has been covered elsewhere.
-> > >
-> > > Why not just use choice blocks in Kconfig to choose the compiled-in
-> > > crc32 variant instead of this somewhat indirect scheme?
-> > >
-> > > This would keep the dependencies grouped by arch and provide a single place to
-> > > choose whether the generic or arch-specific method is used.
+> >       /*
+> >        * At this point memslot has been committed and there is an
+> >        * allocated dirty_bitmap[], dirty pages will be tracked while th=
+e
+> >        * memory slot is write protected.
+> >        */
+> > -     if (log_dirty_pages) {
+> > -
+> > +     if (new_flags & KVM_MEM_LOG_DIRTY_PAGES) {
+> >               if (change =3D=3D KVM_MR_DELETE)
+> >                       return;
 > >
-> > It's not clear exactly what you're suggesting, but it sounds like you're
-> > complaining about this:
 > >
-> >     config CRC32_ARCH
-> >             bool
-> >             depends on CRC32 && CRC_OPTIMIZATIONS
-> >             default y if ARM && KERNEL_MODE_NEON
-> >             default y if ARM64
-> >             default y if LOONGARCH
-> >             default y if MIPS && CPU_MIPSR6
-> >             default y if PPC64 && ALTIVEC
-> >             default y if RISCV && RISCV_ISA_ZBC
-> >             default y if S390
-> >             default y if SPARC64
-> >             default y if X86
-> 
-> I was suggesting something roughly like:
-> 
-> choice
->     prompt "CRC32 Variant"
->     depends on CRC32 && CRC_OPTIMIZATIONS
-> 
-> config CRC32_ARCH_ARM_NEON
->     bool "ARM NEON"
->     default y
->     depends ARM && KERNEL_MODE_NEON
-> 
-> ...
-> 
-> config CRC32_GENERIC
->     bool "Generic"
-> 
-> endchoice
-> 
-> > This patchset strikes a balance where the vast majority of the arch-specific CRC
-> > code is isolated in lib/crc/$(SRCARCH), and the exceptions are just
-> > lib/crc/Makefile and lib/crc/Kconfig.  I think these exceptions make sense,
-> > given that we're building a single module per CRC variant.  We'd have to go
-> > through some hoops to isolate the arch-specific Kconfig and Makefile snippets
-> > into per-arch files, which don't seem worth it here IMO.
-> 
-> I was only really concerned with the Kconfig structure, I was
-> expecting Kbuild to look roughly like this: (filenames are wrong)
-> 
-> crc32-y += crc32-base.o
-> crc32-$(CRC32_ARCH_ARM_NEON) += arch/arm/crc32-neon.o
-> ...
-> crc32-$(CRC32_GENERIC) += crc32-generic.o
-> 
-> but yeah, your proposal here has grown on me now that I think about it
-> and the only real "benefit" mine has is that architectures can display
-> choices for variants that have Kconfig-visible requirements, which
-> probably isn't that many so it wouldn't be useful in practice.
-> 
-> Thanks for answering my question,
+> > So we need to bail out early if we are enabling KVM_MEM_USERFAULT but
+> > KVM_MEM_LOG_DIRTY_PAGES is already enabled, otherwise we'll be
+> > write-protecting a bunch of PTEs that we don't need or want to WP.
+> >
+> > When *disabling* KVM_MEM_USERFAULT, we definitely don't want to WP
+> > things, as we aren't going to get the unmap afterwards anyway.
+> >
+> > So the check we started with handles this:
+> > > > > > +       u32 old_flags =3D old ? old->flags : 0;
+> > > > > > +       u32 new_flags =3D new ? new->flags : 0;
+> > > > > > +
+> > > > > > +       /* Nothing to do if not toggling dirty logging. */
+> > > > > > +       if (!((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES=
+))
+> > > > > > +               return;
+> >
+> > So why also check for `change =3D=3D KVM_MR_FLAGS_ONLY` as well? Everyt=
+hing I just
+> > said doesn't really apply when the memslot is being created, moved, or
+> > destroyed. Otherwise, consider the case where we never enable dirty log=
+ging:
+> >
+> >  - Memslot deletion would be totally broken; we'll see that
+> >    KVM_MEM_LOG_DIRTY_PAGES is not getting toggled and then bail out, sk=
+ipping
+> >    some freeing.
+>
+> No, because @new and thus new_flags will be 0.  If dirty logging wasn't e=
+nabled,
+> then there's nothing to be done.
+>
+> >  - Memslot creation would be broken in a similar way; we'll skip a bunc=
+h of
+> >    setup work.
+>
+> No, because @old and thus old_flags will be 0.  If dirty logging isn't be=
+ing
+> enabled, then there's nothing to be done.
+>
+> >  - For memslot moving, the only case that we could possibly be leaving
+> >    KVM_MEM_LOG_DIRTY_PAGES set without the change being KVM_MR_FLAGS_ON=
+LY,
+> >    I think we still need to do the split and WP stuff.
+>
+> No, because KVM invokes kvm_arch_flush_shadow_memslot() on the memslot an=
+d marks
+> it invalid prior to installing the new, moved memslot.  See kvm_invalidat=
+e_memslot().
+>
+> So I'm still not seeing what's buggy.
 
-The CRC32 implementation did used to be user-selectable, but that was already
-removed in v6.14 (except for the coarse-grained knob CONFIG_CRC_OPTIMIZATIONS
-that remains and can be disabled only when CONFIG_EXPERT=y) since the vast
-majority of users simply want the optimized CRC32 code enabled.  The fact that
-it wasn't just enabled by default was a longstanding bug.
+Sorry, I didn't see your reply, Sean. :(
 
-- Eric
+You're right, I was confusing the KVM_MEM_USERFAULT and
+KVM_MEM_LOG_DIRTY_PAGES. I'll undo the little change I said I was
+going to make.
+
+Thank you!
 
