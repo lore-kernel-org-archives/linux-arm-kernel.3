@@ -4,66 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA6DC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3305C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8A4kfNqCpnvhSbBzTBjtE+VJ2L30xs4Ao8ewlm8dEvs=; b=HNEApPXSPXXLqtuGSa+uB2OEeu
-	+t3tTxtSGreN6ALa7iTYp1aKYmle9XUJCIucSBnuTfjIBgJ9aqXrQmwl2zpsLu9eOT4y9209GG6TH
-	jw8Umzq4PEg1akPd4hAauTt1UjuJM/Vy2khT63gkhWnet8MnxqRX+uwJvWBWtuFGJ171yGJ1ZWDP4
-	26iR1nsYAztRE8193bxrzbpVJ2rP/FPI3fZtDlMLwCrZYxddDqJT7Ymkp1svCT8eFJDFwrJ16pbW5
-	KN/yLZYq2LEHPdEVDMTpCFTVDiD0dkejF0KNR9ZS6cuKgDWn7WDQyDzZSHX0NymWFklKuDJdLMtES
-	BQNSeNXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZwuBqZ3ScOTc7P/B1EA7rH8yujtM1nFFniCosvlmKkc=; b=ssDi5Y+2/9hFKoEWBPLQ/M7cCR
+	+kETA5hUTuj8vifdOBVR0vI6FGim1GwZmjDW4faJlWwy12AYtMgPEqC08O5aytrC/5GdFzIbd3clt
+	95TWlaCgpO12VvCkjiAgTkGErgPlBA5z2VWanPd4kvUL2pn04CRgmB93rV978xvxzf2+ohkZe7MT7
+	U5GbNzdvQqP75DLZkL/8sHYQO+hjvfsjyH2iqxCTb+e2ACYaqqUcCD3TROTIOCrqY/ZX3sz1ME4Ak
+	wenRjWtVwBnlUiEZRstoI3I49fjkfv/5P5mXpwcoo+xootevX/cCv8WEbelnmOw/fVPz31hLsyIwQ
+	JsB49Dbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOiQH-0000000547t-0VLl;
-	Mon, 09 Jun 2025 19:44:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uOiSR-000000054Z2-2oFw;
+	Mon, 09 Jun 2025 19:46:59 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOheA-00000004xU9-1uMV;
-	Mon, 09 Jun 2025 18:55:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 290694ACCA;
-	Mon,  9 Jun 2025 18:55:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DDEAC4CEEF;
-	Mon,  9 Jun 2025 18:55:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749495302;
-	bh=i03d00nCfUWfOdFAfB3hz6pL/gDpm+GCWlrY8GYnNSU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cOGXtZ0bxE5c/cKVjIahkTcrKCRAsE2Gfxn3UIhlFlFiZLaC+zKdF7VWxfKm8/ETS
-	 6AhGs0umiRMCJ5JgdBhNOOkRxSsFWAtxF3SJIcO4BKZGFJs1ZQtGYfS9ZJ9KjnFtXu
-	 CoUuDzdDeoQNA3IJviIlNiJi7ydg2ehdcQ5OXBzI0xl+XsUGv/gmofveqW1cZVJlxj
-	 7S5NNv/e7xF0C/H29trUyZ+4svuZFkbjIOhn5nXwrlL711gYmP+gm6Ewk+tz2CReoY
-	 NFWzzRmLR5sYfJufJHFK1j4djDnBCF+UiHFg8rnM/mFlrhQ4MNaEJcQxnaEuTEhFf3
-	 PK9kqt1NEZKGw==
-Date: Mon, 9 Jun 2025 11:54:39 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ingo Molnar <mingo@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is
- integrated
-Message-ID: <20250609185439.GB1255@sol>
-References: <20250607200454.73587-1-ebiggers@kernel.org>
- <aEaP-A21IB4ufbZT@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	id 1uOhra-00000004yu5-3vZ6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 19:08:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iz1tX1fj18NpE5OTkdfy4Xi309sW147Sf4UgopVJfaFvgPd8Kam7cuXa43kDz3CTDwOUkSKVvye1IBjlizi9UVnJ3XkidER1yu2MXtgCCaQswlJq1SZphIm/Jx8vNrMaYWitfcjgA54mLhujw9zAz76kn8DR9A0qjY3dJX0mCUKJonq3ZrkJwYyQLVnjXaj0hqopE/yh9Dy71d6IcomujexX83Hhm3oJ45HNtG2wZ5JeYuEXD7WhgsON4zRzWCMIHAKUxvwHLc2QVGj52hSfmhj39WReT+8bA8vJttXo9xLLuLDDJfCxs/gjSiBizNB/R7tJT0hGLIpWtwdSPsTaeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZwuBqZ3ScOTc7P/B1EA7rH8yujtM1nFFniCosvlmKkc=;
+ b=BkOQpqB+65rXCEbSi7RXgk8sS558aK87DTj0/n/y3c4lvoYmEylQfc38roPpS2RUeonjZs486kiMBsayY4fHoZE07bJZLHeEPyRQFUPJUrRJJTvVthYObUTrsFuTB2ApIjQMWR27Tb+PrfUAMkCY4DIkE8JRiKKCliQtsM9jmN0fjsIaxNUTF6hNrhpsEQFN/J3bVpQY5Zn1AKfe704Ad+ZDlD/oAAZ3xSNk0mavOaUBTjI7EtsXqt3nI3OTTcERDIJ6BP7+GxPKuZ1gB8tLA8oO/RcUw7+AWptpXxmGEfl1a2/qYA36fKmlGE7ins5i2By4ByL2g2/ohSy65gnxNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZwuBqZ3ScOTc7P/B1EA7rH8yujtM1nFFniCosvlmKkc=;
+ b=oJ1Zk/JAtEthy+U2/GU2MwQILjIFEMkcfaf9IZNEoVY0OqVm0B5zZEsUfIAyXm9Hb/EwiVIgdEZ7QXXuinxJEnO1h9rUXG/eveG5dXvF0TAFqycadXRojVv4JBBlPLXeZdaMRMQHXx9SEzVmrF2c36K127ly8gNqWZizxmi59JRo/1dIVyUmA9FN0Ul7VfZpCXgrq+M/v1O87U+lCi5pya5XfqNxikUDCdhSR0vuBAfeWvHE0MdM9ztipnYAGhCpMOB9QAB5a7K+tiTPe1W5dRWuvCsazv+fpUyW8wrufMgh47oEIdcRKXEkg9LU/rP/uEKN4q2sFDMNZpfTogTggA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB7714.eurprd04.prod.outlook.com (2603:10a6:20b:2dd::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.27; Mon, 9 Jun
+ 2025 19:08:49 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8813.024; Mon, 9 Jun 2025
+ 19:08:48 +0000
+Date: Mon, 9 Jun 2025 15:08:39 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Adam Ford <aford173@gmail.com>, linux-media@vger.kernel.org,
+	Isaac Scott <isaac.scott@ideasonboard.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 6/8] dt-bindings: media: nxp,imx-mipi-csi2: Add
+ fsl,num-channels property
+Message-ID: <aEcxN7xClLfp0STx@lizhi-Precision-Tower-5810>
+References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
+ <20250608235840.23871-7-laurent.pinchart@ideasonboard.com>
+ <aEb+iTlDh0H/bRMY@lizhi-Precision-Tower-5810>
+ <CAHCN7xJjR1zZXeJAvkXmdNYroP6Jm6TLjHjnPUOF4z7yaL7EFw@mail.gmail.com>
+ <20250609182033.GA11428@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aEaP-A21IB4ufbZT@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250609182033.GA11428@pendragon.ideasonboard.com>
+X-ClientProxiedBy: BY5PR03CA0002.namprd03.prod.outlook.com
+ (2603:10b6:a03:1e0::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB7714:EE_
+X-MS-Office365-Filtering-Correlation-Id: dfc66c45-64dc-4bfa-0c6a-08dda789108f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NVdhYXR3ZjZjTGhqZEVWWkRVRHJHdWlQbHlRaEh5d2VseDF3TzNHcHdaaGd3?=
+ =?utf-8?B?dW8wcExiajlIYVB0bTFxeHF1MC8ydjJ2SlRSQmlXcmd5M0YreGxkQ29YMDZH?=
+ =?utf-8?B?TXlGN0N5N1NkK0ZhOXYyWFNLc2dGMHJVNmFEb3N2dk54K2tqZWhjbHdMTm5i?=
+ =?utf-8?B?S3krcUdFc0tVWSsyak1QVmRQcUVlMHVvYktaSWJES0c0Y0Z6Q3pheXlVTjNK?=
+ =?utf-8?B?d2R1T0VKSVAyZUlZajMyenVXZENSa2xCZnNQL3N0ZHNheDRUaDZDdGVaejhH?=
+ =?utf-8?B?YWVSMkVzVG1SM0ViVGxsU0c5STkrMGg5QXpnREc3UXFPeEc0cm9SR0pUVDQ4?=
+ =?utf-8?B?UU8wak8yUXNCcVJXSVlBZFlmNnNyNFUrN2kvUUp4Z2tReFZlTitFWk43dGpT?=
+ =?utf-8?B?OGNqbTV1Zys0V2dpLzRnSWdaQzBXRS9Oc0Nkby8zdGtvdGtWcmpmc05ueS96?=
+ =?utf-8?B?RFRCWERUWWtKbzRBTnljSVU1ZXhaMVN1TGxKZGZoNmtWZ0J3a3V0WFJtVFdD?=
+ =?utf-8?B?UDFUWi9lQnk2NUxUaVZVNTlNbXhlT1RITDFYa1lwUlhuLzNDM0dDK1QvZ0p6?=
+ =?utf-8?B?NCsrOGlTdWlTc0U4bHRXN1F2T2J3d2dLRW9sa001NWgzVlhET05COEdveEFu?=
+ =?utf-8?B?R1plZW1uam95bWp2KzBFZHFOMEFvVGh3RVd4cWtpRjhpLzlkbGdXbkRqTUpl?=
+ =?utf-8?B?N3l4N0NrQmV0SVZtV2tGQUdxWDl6NHFOcXc3STZZTjRNc3B1dFRVVzdiTHNv?=
+ =?utf-8?B?d3phV1hxaUl2YkFuZDRDczB6YmR3SEZjRjhvdnFHcHRFZi9NNk8zR2U3THlh?=
+ =?utf-8?B?YklBYnY4c3pIK3F0bWt6bFVUVENaQXdjaGpmcVB3dFR4SW1NUnp5RVorai9N?=
+ =?utf-8?B?WWFpVWRLZmVEVFpTeUJLYytYNEF4WU0vMWZxNWg4MmppbmJGTC9IZ2VOaEFE?=
+ =?utf-8?B?VnZjS052V0pId1hVQ212VDA5OWhxTlQ1Zkx6SzFvL3BhZlBTSmk3R0NObXNp?=
+ =?utf-8?B?aTlFc1JUL1dLNkdNWVBnS2VxVmtaamYzVnZLaFNwZ2tjYjNHNDR1K28wMVox?=
+ =?utf-8?B?NVQrYTNSOTlUY0ZBVDZLdm5VaExnRG9rUitKSTRoZ2hJQmMvRzFSZk52bVhn?=
+ =?utf-8?B?MlR5WHZQMlNKbk9WVFRHV1E1cVlPc3pCUmVaQU9MNmtYOEFJRmpabDE0MVc5?=
+ =?utf-8?B?OWVCZERQV0VacTJJZit2VkFWM0QyUGtQb3RVeE5WNFpSU1hiQTV3bVZwNDNz?=
+ =?utf-8?B?cnhaUG45bE1kUjdCZVMwUGNZc2o4TWVtZXgrUmNiWDBka1VpVUxWVVBFeXNk?=
+ =?utf-8?B?U0t1ZnZxaWlCQ0hlNlQxL0JwZmhuOERrVVdRNklTSVlWMWU4UXI5YThIWnNV?=
+ =?utf-8?B?VmFNelhJUGVtM0diYzY2UmZra0U5ZTlhTFltdjdleGEzZmlNSFc0d2ZzVUdr?=
+ =?utf-8?B?aDcxYzlZQ0FYS3lOaHIxSGZZSU9nRU1IbGpOWHRNazJaT3RNREJ0WXBFSlNZ?=
+ =?utf-8?B?MFVqKyszREQxNlBKRU1ma3N1cTRvZHBVTy9YbUY4VS9lT1o0RkpMeVcrd3BW?=
+ =?utf-8?B?TlZHUjhYMGYyNTQ2RVg0aDZPZ3lFalE3MllWVkFaWjlTZi9vRmZQc25QbjRw?=
+ =?utf-8?B?OTJGQTNXZk9OYUZUVHg1ODBIQ1MxV0ptSHBYcDdvcllLdW9NQXBEMEdLUE12?=
+ =?utf-8?B?WG00dmdOaFlTc3FkZXVFSUJrdHF6L242ZHQ3T3lvMUNIbkJPdHNmQk1ZNU00?=
+ =?utf-8?B?aGhMM2FpY01LclNkQ1IwaFVNQkQ3ZU0xNHo0OVRQZ1RzR0RyWjl0RVhnSUkx?=
+ =?utf-8?B?NUtPVzRIV0JUblAybzhIZmpUYkZnaWwzS0lubjZkQnVmWE9LZURSOGNhSnpE?=
+ =?utf-8?B?V2ZuQ1Y5ajZzL2dtWmwwRkNGZENRdG1XYlVEYkxtaG1NTkVWRVlkMlVCeFFw?=
+ =?utf-8?B?d2JUMkY2UmduMjhHV2xMNnRsZUovRG81YU1RQkdrZ0oveGVpSmR5OG53ajZp?=
+ =?utf-8?B?UG0xRCs1RllRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eEZ1NmRlNUlYeENFaUtMZnJZck5vQTJlZ29wVDZrZkk2VTlmNlpCN1dBQTh1?=
+ =?utf-8?B?OWRQNzlZSHZrZ2UxUUttWEZCM0d4Mkd6d0taaFJQVlFmWGYwQVNXQmlFVUxC?=
+ =?utf-8?B?cm1BWEwwTnVxcytaT0ZjOThzWFk1Q3BUUUxBdW1MTFRVaDVicWpQMVNSMjEx?=
+ =?utf-8?B?SkhxdWY3MSs5clBzT3FpSW55R0ZzdS9kTFRDeTV2dk4xN01XWVVYM2NGRlEr?=
+ =?utf-8?B?d29TYlV0VFpLd3ZhZE9lMzVWMjJ6U0U3UE8wNTlyYk5WV0h6eDlWay9QcUNX?=
+ =?utf-8?B?d2FSLyttdmk3elljUVRiM0I4bVEzMTdVM2ZqK0VlczZDK1JrelRyemZSdW9W?=
+ =?utf-8?B?c25rS0s3Qkt2OGhwTTlKY3pIQ2FhNGplOThCRDhKWU90cTVtT2E4NFZlckxz?=
+ =?utf-8?B?R2xNUDk3a3dvaWwweHVUVEVQVENDMWtKNUJvM2JZYW4vOHhub1dJZDNFWFdJ?=
+ =?utf-8?B?U1lOdnBxMlc2cjM2dHR4OXFTWTBMaFhHUnl2OUxYb1d1Z0w4UnJGUGJlQXdv?=
+ =?utf-8?B?Wk5vanRYRitYNEtYSDB6UnZkR1pWYjVQZzBvRDVKb3JqaG8wMFlrWG92ci9P?=
+ =?utf-8?B?YzFFcGdONmdnSVR3NCtSUVUrbE9icUFPRVlEUFpKQWlQMVhZQnQrRk9ZRDFD?=
+ =?utf-8?B?ZVFzdkZuelZ4dzBLTnJnTVJyVldHSmZwZXdvbVVHMlRQZy9Fdy9HRDNpZ0RM?=
+ =?utf-8?B?MUVsT2NWOHRvMzYrdnVyUWQwbW9sSExURndtNXEyOWVVSkhZb0lsaWw0Vzll?=
+ =?utf-8?B?SkNQQUdwbDBqdU50VHhmSGFBL1g1dzUwczN3TmRNUUNGSU4wR3pzYUs3VnBI?=
+ =?utf-8?B?ZVJXUjBOUlNtc2ZkMGtXVmlLS2wwVUE4ZEVhZFdhbDQzK283VkpqVWRFUDhG?=
+ =?utf-8?B?Zzl6Sk16M1hoMXpmaGtLdGNrZ29TUDdQSHpWOHZWdmFvaWJpREpmemxtSExz?=
+ =?utf-8?B?MFRqTXd4UnFQakxoazRPbWswMDBER091d2toeStpTzN5REY2WDJEbEgwVFVX?=
+ =?utf-8?B?QzVsSmxLZ1hoZnVjUEpBMWxQcUw2eW9TWHV0RjlXNURpSlIzbHhqblNZUFRq?=
+ =?utf-8?B?V1QxcEduR1Rkd2NyV3VocjByc2VXUm5UL3lJbmYxdW1nRWEwbTVrSnc0TjlO?=
+ =?utf-8?B?Zk00aEZVQmN1L2NoQ2FCY0UyNC9uLzZqS2ZZUXJKdnhBTDVUa1RYWnBpS0R0?=
+ =?utf-8?B?WGV6M1dWWTlDdElJaHJsQnhZNHlzZnBTdGNuSTZlNkJBTUc0Z1hwUE5kYnZj?=
+ =?utf-8?B?bWNXdllmQTdsOU5rWXVqazlQdHNZSWxlRUVsU09LQnd0QUUxSVFNVk5YUFdX?=
+ =?utf-8?B?TGpVQ09NZTYza0pnNE9kbmtUTVpZMFduWU9NanhlVEo2d0ZYMkQzM3VUekR1?=
+ =?utf-8?B?SWpaUFQ4RHN3eUJ3Vmp0OUZYanQwY3pJaHN2eVZxUXU4QVYyV2NBdFJJU1JH?=
+ =?utf-8?B?VGpwU2hhVUN0eGRkY1I1cWE5UEZ4djRlOGt3cGtLajBVUjhEdkExZzRUMENN?=
+ =?utf-8?B?WkNUZ0hYdlZCTXk0a015TXUwMVJXZnZZODNQS29janhyZjhpMnlIQ2ZxcE8x?=
+ =?utf-8?B?NExUZVRXUzJqUlNsVEJyOWpkY3F1RlIwVzFzNTNKWHdmZjRqWW5PU3FqZ0p2?=
+ =?utf-8?B?RDRFTUZoN0tNMDU1ZkJySnB1aWNCSkl6VmJmNmRQZDR0eTRvRDRWTitsenhW?=
+ =?utf-8?B?Slk2ZzBiSitSWFJqUXNLSyt5SkpOYUd4RndUME12QXFta1pGaVhLTTEvNWtO?=
+ =?utf-8?B?U2kra3VrNzJwT05HbnJJWkpHZ2VadXZRaXcrWDlQc29Wd1pRUjhxeDhDVFNZ?=
+ =?utf-8?B?T3BzYmkyRkJYZS95cCs2Uzh3MGJDSk1YK25KVm5KNTdJdDZ2K05NUTcvcDE2?=
+ =?utf-8?B?cG9uc2xsN1ArdUZ5MDRxMDVYdUUrRmIwdi9UUElDeTdKdHpzWHF5ZWtubjVj?=
+ =?utf-8?B?TWNxb1lUQnRCbERzWngyaVBsc0hqY053RG0xOEtJN3FVajJJSWRQcFJpOWdo?=
+ =?utf-8?B?a3Q2amxQcVVUeXRYTWpocGlpL2IrTVBOSlR6K29RRGh2WjhJNUpYQTVJMDRt?=
+ =?utf-8?B?Qk4zejFjMk9peWRNRWlobzhsT1pQZmFVazRYWk92RkVIOUw3WkJCbVN6akdx?=
+ =?utf-8?Q?eny0=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dfc66c45-64dc-4bfa-0c6a-08dda789108f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 19:08:48.7973
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D2UuY3mSQ4bhOuNuV2bkvJUbnX/NBWzXKz4xTQUAfUPheQtluNSuY9Ie66F/N0+/06fKu7KV24J4E3BxISb/Lg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7714
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_115502_536876_51DEAE07 
-X-CRM114-Status: GOOD (  33.48  )
+X-CRM114-CacheID: sfid-20250609_120854_977755_40ADF4DE 
+X-CRM114-Status: GOOD (  30.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,93 +191,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 09:40:40AM +0200, Ingo Molnar wrote:
-> 
-> * Eric Biggers <ebiggers@kernel.org> wrote:
-> 
-> > This series is also available at:
-> > 
-> >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git lib-crc-arch-v2
-> > 
-> > This series improves how lib/crc supports arch-optimized code.  First,
-> > instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
-> > will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
-> > crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
-> > functions (e.g. crc32c_base()) will now be part of a single module for
-> > each CRC type, allowing better inlining and dead code elimination.  The
-> > second change is made possible by the first.
-> > 
-> > As an example, consider CONFIG_CRC32=m on x86.  We'll now have just
-> > crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
-> > were already coupled together and always both got loaded together via
-> > direct symbol dependency, so the separation provided no benefit.
-> > 
-> > Note: later I'd like to apply the same design to lib/crypto/ too, where
-> > often the API functions are out-of-line so this will work even better.
-> > In those cases, for each algorithm we currently have 3 modules all
-> > coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
-> > sha256-x86.ko.  We should have just one, inline things properly, and
-> > rely on the compiler's dead code elimination to decide the inclusion of
-> > the generic code instead of manually setting it via kconfig.
-> > 
-> > Having arch-specific code outside arch/ was somewhat controversial when
-> > Zinc proposed it back in 2018.  But I don't think the concerns are
-> > warranted.  It's better from a technical perspective, as it enables the
-> > improvements mentioned above.  This model is already successfully used
-> > in other places in the kernel such as lib/raid6/.  The community of each
-> > architecture still remains free to work on the code, even if it's not in
-> > arch/.  At the time there was also a desire to put the library code in
-> > the same files as the old-school crypto API, but that was a mistake; now
-> > that the library is separate, that's no longer a constraint either.
-> > 
-> > Changed in v2:
-> >    - Fixed build warning on architectures without any optimized CRC code
-> >    - Fixed build warning in sparc/crc32.h by removing pr_fmt
-> >    - Moved fallback definitions of crc32*_arch back into arch files
-> >    - Remove ARCH_HAS_CRC* symbols at end of series instead of beginning,
-> >      so that they're not removed until they're no longer being selected
-> >    - Slightly improved some commit messages
-> >    - Rebased onto other pending lib/crc changes
-> > 
-> > Eric Biggers (12):
-> >   lib/crc: move files into lib/crc/
-> >   lib/crc: prepare for arch-optimized code in subdirs of lib/crc/
-> >   lib/crc/arm: migrate arm-optimized CRC code into lib/crc/
-> >   lib/crc/arm64: migrate arm64-optimized CRC code into lib/crc/
-> >   lib/crc/loongarch: migrate loongarch-optimized CRC code into lib/crc/
-> >   lib/crc/mips: migrate mips-optimized CRC code into lib/crc/
-> >   lib/crc/powerpc: migrate powerpc-optimized CRC code into lib/crc/
-> >   lib/crc/riscv: migrate riscv-optimized CRC code into lib/crc/
-> >   lib/crc/s390: migrate s390-optimized CRC code into lib/crc/
-> >   lib/crc/sparc: migrate sparc-optimized CRC code into lib/crc/
-> >   lib/crc/x86: migrate x86-optimized CRC code into lib/crc/
-> >   lib/crc: remove ARCH_HAS_* kconfig symbols
-> 
-> For the movement of the x86 bits:
-> 
->   Acked-by: Ingo Molnar <mingo@kernel.org>
-> 
-> >  rename {arch/s390/lib => lib/crc/s390}/crc32be-vx.c (100%)
-> >  rename {arch/s390/lib => lib/crc/s390}/crc32le-vx.c (100%)
-> >  rename arch/sparc/lib/crc32.c => lib/crc/sparc/crc32.h (60%)
-> >  rename {arch/sparc/lib => lib/crc/sparc}/crc32c_asm.S (100%)
-> >  create mode 100644 lib/crc/tests/Makefile
-> >  rename lib/{ => crc}/tests/crc_kunit.c (100%)
-> >  rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-consts.h (100%)
-> >  rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.S (100%)
-> >  rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.h (100%)
-> >  rename arch/x86/lib/crc-t10dif.c => lib/crc/x86/crc-t10dif.h (56%)
-> >  rename {arch/x86/lib => lib/crc/x86}/crc16-msb-pclmul.S (100%)
-> >  rename {arch/x86/lib => lib/crc/x86}/crc32-pclmul.S (100%)
-> 
-> One small namespace suggestion: wouldn't it be better to move the arch 
-> support code to lib/crc/arch/, instead of lib/crc/? That way any 
-> generic code will stand out better and architecture directories don't 
-> crowd out what is supposed to be generic code.
+On Mon, Jun 09, 2025 at 09:20:33PM +0300, Laurent Pinchart wrote:
+> On Mon, Jun 09, 2025 at 12:53:48PM -0500, Adam Ford wrote:
+> > On Mon, Jun 9, 2025 at 10:32 AM Frank Li wrote:
+> > > On Mon, Jun 09, 2025 at 02:58:38AM +0300, Laurent Pinchart wrote:
+> > > > The CSI-2 receiver can be instantiated with up to four output channels.
+> > > > This is an integration-specific property, specify the number of
+> > > > instantiated channels through a new fsl,num-channels property. The
+> > > > property is optional, and defaults to 1 as only one channel is currently
+> > > > supported by drivers.
+> > > >
+> > > > The only known SoC to have more than one channel is the i.MX8MP. As the
+> > > > binding examples do not cover that SoC, don't update them.
+> > > >
+> > > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > > > ---
+> > > >  .../devicetree/bindings/media/nxp,imx-mipi-csi2.yaml       | 7 +++++++
+> > > >  1 file changed, 7 insertions(+)
+> > > >
+> > > > diff --git a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > > > index db4889bf881e..41ad5b84eaeb 100644
+> > > > --- a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > > > +++ b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> > > > @@ -68,6 +68,13 @@ properties:
+> > > >      default: 166000000
+> > > >      deprecated: true
+> > > >
+> > > > +  fsl,num-channels:
+> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > +    description: Number of output channels
+> > > > +    minimum: 1
+> > > > +    maximum: 4
+> > > > +    default: 1
+> > > > +
+> > >
+> > > Look like it is fixed value for each compabiable string, So it is not
+> > > suitable for adding new property. It should be in driver data of each
+> > > compatible strings.
+> > >
+> > > I met similar case before. DT team generally don't agree on add such
+> > > property, unless there are two instances in the same chip, which have
+> > > difference channel number.
+> >
+> > If the DT changes are rejected, can the number of channels be added to
+> > the data structure inside mipi_csis_of_match?  We have compatibles for
+> > 8mm and imx7.  If we add an imx8mp compatible we could add a reference
+> > to the number of channels.
+>
+> I thought about it, and decided to add a new property because the number
+> of channels is really a synthesis time configuration parameter, and
+> could differ between different CSIS instances in the same SoC.
 
-I don't think that yet another level of directories would provide much value
-here.  The only non-arch subdirectory of lib/crc/ is "tests", so it's not like
-there are a lot of subdirectories that could be confused with arch names.
+Need add such information at binding doc's commit message, ideally provide
+an example for it.
 
-- Eric
+Frank
+>
+> > > >    ports:
+> > > >      $ref: /schemas/graph.yaml#/properties/ports
+> > > >
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
