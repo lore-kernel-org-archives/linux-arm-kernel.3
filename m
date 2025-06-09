@@ -4,60 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86221C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 03:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AFB2C5AD49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 03:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lmdoW92ozb614B0US2yeVMuGdKGqmA8u64UZkV8QgO0=; b=U6zvDEicQDWv1Ko5KL7Is0YVCv
-	PZhd8hWKGzIZJfhzeA/tCNltoXcjE9K/6n4z1TLbiuF71Lgda8DXIsZLQBmx5APbqmcXXUdfnxJa6
-	HA+F0tbeVdsYN+BIucjdP6j8LlLqSDEmC749SPA2d6b350yxC95KnXCvDU/6Rit9+tctRbar3fDsA
-	Vx8i+jvd4bkcc5YuYsh/im4VdtfkWCyPWtiVZ+2Phr/rQ2bJ4Ggqx5rWj046rEo2xC4TjNXoUKdzi
-	AdpEclM+A0D/HyiXhx5DZ3wVhzz7b/aw81qN418oMIUfmnux9NI/WcsUIroSuifK1QF1OZ/Xtg14s
-	kctwHhnQ==;
+	bh=vaiwQNFdGChfGfZt4ATADiwB8lH9qKzjeyr/Osx7Dcs=; b=SvEQb90BxD5P3sAIoI2G6Mmng5
+	tL+KYZdsZpaSfhKm/V/33xervkvX1CUn6hHhL64NetG6Z3eNG89bpofeln3sCehwzsQ2AuZnrZSJu
+	lE4xejM5eZz166m2g3iIFhFn5rzHfFCsT5GSx5FKpLkN/WmackQR2vVhBPFe+k2e0qHfMTi/rsmI8
+	8iGJpNfenmwjLsJvXJ8a06vmwaaVlfs/8QDKQM5ORvJNiC/M8WGXKo00C/4YK9iZcmm+AXsqbSm59
+	yfYKUUUf/it21SIqUdXY1tqZHDOAcliwQgLuwBKrBANHBKhB62tXospiskbWSCh0Q4TYvYhkrtDur
+	rWrLItig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOT0S-00000003KKj-22kF;
-	Mon, 09 Jun 2025 03:17:04 +0000
-Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
+	id 1uOT2Z-00000003Kiu-0gKc;
+	Mon, 09 Jun 2025 03:19:15 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOSyI-00000003K7w-3XCk
+	id 1uOT04-00000003KCs-0enr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 03:14:52 +0000
-Date: Mon, 9 Jun 2025 12:14:36 +0900
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1749438885;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lmdoW92ozb614B0US2yeVMuGdKGqmA8u64UZkV8QgO0=;
-	b=wjAcwwkKVcWrOHIi2Zd49lxWYxwFo3SnglOJzz6JfAtOcYly83irJO2lauQQFNmENpiz/9
-	LFfPgOmdGgBBM48jiWDlEOvZBd4ScN8oeriDbny02luqN7D27nTJOV8yRC1M3YcXNhKVGu
-	V6EG1lawUnRAc88TO/+QQiLXVieN+vQ=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Itaru Kitayama <itaru.kitayama@linux.dev>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, seanjc@google.com,
-	darren@os.amperecomputing.com
-Subject: Re: [RFC PATCH v2 2/9] KVM: arm64: nv: selftests: Add simple test to
- run guest code in vEL2
-Message-ID: <aEZRnBK7pD4rkgdi@vm4>
-References: <20250512105251.577874-1-gankulkarni@os.amperecomputing.com>
- <20250512105251.577874-3-gankulkarni@os.amperecomputing.com>
+	Mon, 09 Jun 2025 03:16:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AR9T+VxJJ8OQpNlZUnvEUbMS6pEsh5IF2TXpEgZks9AMbPfqOxiXpLUAgzjnIqodpW1dWj1J7dQuMmNUIaMWm10Cgtco40N7xwGfUdEdHgnFunOnDwfT/Kl4EB9h8IqqxyuGNsT9zFj92rnVY/06hjGwvIZ1p9G8Q+ukPhraqnBjuIbXbeiNK4T0Th7Dsh9qJuwBHVxqYLWJjkYmGAGWS8w+D168PKnwN8/hh1ub7faOhxe5bqte3z791tMfLj6UdrVNfIHHkbKqe41cTTGLUm2BsfXCheE7ynQgo6YF60N7InzUNecEa+6L4om/XG88IEe4DEw/EDOHHmF0wi1r+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vaiwQNFdGChfGfZt4ATADiwB8lH9qKzjeyr/Osx7Dcs=;
+ b=QG8Z8GWdG7CPiGtcflBMy00K96s5uv5jpbf304h6Q6NBXJbdT93pKHSfzYFrgv0q39Et+LiNH964VXwVNauhG1E5idNEbyvtkqmr8wa+KpisLMoGDanFFlGwkdtiiGTa6/jPlS1egRL+MosV+J7tkF7ybuveMcLPygRE1t9SX4iKANlseszPjhPXpSOPoPfEFgpDDAcADGSeAkhr3pTTHila3o6Montg0UMbSlXalGIY97F+ugKsi9HM0reldwBx9W8zxwpaFOsv0tYBRO/gtnum72Nx3pzLm8iOP2m7AshkYH7qeU4QYYWCze2oZKRRONvjKZvVGTUJAlN+qaF+JA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TYCP286CA0089.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:2b3::16)
+ by PUZPR06MB5956.apcprd06.prod.outlook.com (2603:1096:301:113::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.26; Mon, 9 Jun
+ 2025 03:16:31 +0000
+Received: from OSA0EPF000000C6.apcprd02.prod.outlook.com
+ (2603:1096:400:2b3:cafe::46) by TYCP286CA0089.outlook.office365.com
+ (2603:1096:400:2b3::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Mon,
+ 9 Jun 2025 03:16:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C6.mail.protection.outlook.com (10.167.240.52) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Mon, 9 Jun 2025 03:16:30 +0000
+Received: from localhost.localdomain (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id DEE544160CAA;
+	Mon,  9 Jun 2025 11:16:27 +0800 (CST)
+From: Peter Chen <peter.chen@cixtech.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	arnd@arndb.de,
+	jassisinghbrar@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	maz@kernel.org,
+	sudeep.holla@arm.com,
+	kajetan.puchalski@arm.com,
+	eballetb@redhat.com,
+	Gary Yang <gary.yang@cixtech.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Peter Chen <peter.chen@cixtech.com>
+Subject: [PATCH v9 7/9] dt-bindings: clock: cix: Add CIX sky1 scmi clock id
+Date: Mon,  9 Jun 2025 11:16:25 +0800
+Message-Id: <20250609031627.1605851-8-peter.chen@cixtech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250609031627.1605851-1-peter.chen@cixtech.com>
+References: <20250609031627.1605851-1-peter.chen@cixtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250512105251.577874-3-gankulkarni@os.amperecomputing.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C6:EE_|PUZPR06MB5956:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: bea192da-cc5d-4c47-63ed-08dda704078a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4nrcdTgyldu68PrH39U18wQzvt7y5WDIrv+avCjYTdAxUOq1ezmAFTzSnEsl?=
+ =?us-ascii?Q?oTFKkeUKpR6V8OON+5wbJS8IGAccHodv2eFtrIOl9FMQiXvgTvvBrjq7s9XZ?=
+ =?us-ascii?Q?OA45s8g6OimlE2NHv0Gtp+CAv1G1K6ZT2jZBD4QFtEKVIcJY7xFiv2bM37MD?=
+ =?us-ascii?Q?trWl/fhZ1gHNllMCkBezYn4nmMAH1W26YSD/lOeEPl0YYo9QJTuTp5V6P+yh?=
+ =?us-ascii?Q?BTTftkgpKPNEyJbDV28wVzxk/amU0nW3/REmhP3YEElLkxyA3toe8hGEczkR?=
+ =?us-ascii?Q?PPOKw6KL9gik9F5rkNU4Xrjhxl/8TX3JklAVwsWwIvJY3ofvBj0O5vsuwFo/?=
+ =?us-ascii?Q?GYfbEhWuZ1y5TpF09+DQde3yqTsDhrzm8O+qpfySXYS+1jDHV2dR4ycwexyW?=
+ =?us-ascii?Q?ob87yOJ2Sos1UkoyByU71Akght1a0WEzYk7NUsn+HdD2dEhRYfK7hgBEBxlj?=
+ =?us-ascii?Q?cLSpRqHIiHbK74WPdFhCn3Aw4Mph1Ql+p9F7reC3ZPdhxMhayCsCwVuUJdG4?=
+ =?us-ascii?Q?MtKJBRT8sqfhF8PYsgXgG7K5xW6aJirdBDcqZrlQkwQ8+j3NGoKXyl9DlfEn?=
+ =?us-ascii?Q?3Oqx0n8y++5RUkhTLAafsc1Z8Sqr5LtJhfR3gQYL0d/g8TFk7XwA8NuJ2onj?=
+ =?us-ascii?Q?UxhlFIVdQppAVmElel3gufXM0fO4EMEWLfkD/EcGPYoa9T501BoGbsOR+Mug?=
+ =?us-ascii?Q?7WSdmcHZ4JzfsJIweiE3nkR7eu3Yzu5RAMcwxM9uy4ULQ2i+fAh+GN1msPhf?=
+ =?us-ascii?Q?ftchGWAfw+cBc0JllJX2XgZEMxwFSO+Jog56auEV22EaJOP1ROAvVSitPuvN?=
+ =?us-ascii?Q?ANPencLouJa8KBl4Fd0wyjYkVt8uWa13ztNzNJ6cJDCouqFAteeY8Q9oacaI?=
+ =?us-ascii?Q?t9hh2coSLaKPFK21gj7WFrAtcEOI5IleYLqxP+KA1X4kR3j38ZRP44tNd7tu?=
+ =?us-ascii?Q?8ewf+P3K9NhuVHkhG/wDlROYPrdHuprgc6hYWENvImZeevtgKyVh/uYfyBM1?=
+ =?us-ascii?Q?PaHd/mYWpIRKgMtCNgNqXprYrazzMDlG3AYhi3TEOFYKNUpOrEi+lbucPgyg?=
+ =?us-ascii?Q?ejX3laBuN7L76O3U7KYncSxIJTSCY54OhHhGG44Nqpj87/ggTMDrGdieve3g?=
+ =?us-ascii?Q?LvzlJclFVRNcHVZ1rMdTaVbCNTNk8EcWv/w2fOly9Gn/f37/AnQONg5shuZn?=
+ =?us-ascii?Q?k2ZcsP4j3wds6dO+a0RBvALvUl5pvBtYKDwCZV2/CiT+M4bgncQuaT03ZG69?=
+ =?us-ascii?Q?wnNtelCvQ26KCywlNM2FN14KunyNVcvZ+HHKMQQUj0Vbnf9YhdR+ptpO321R?=
+ =?us-ascii?Q?LR0kRfteuwEXCNvPn/BtD/QrPaMQ1mVutBrU8q8doztIPI+JcSzfnjzAXbNg?=
+ =?us-ascii?Q?Su7W/TyaFav73dtUTpPX7SlhdZi0M/WLse3+lLNJTLWpo1ZRMt8MVnxl1EW0?=
+ =?us-ascii?Q?twfojlt78UVFWuXRP2gZQI9Tdz6p0RlyMI+PMVPYw7MuZLiXQlkrR3iBM3GB?=
+ =?us-ascii?Q?vZ98KBg8tWVQekqoBXx0G2IC+VT9KasLuV4j?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 03:16:30.1537
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bea192da-cc5d-4c47-63ed-08dda704078a
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C6.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5956
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_201451_030463_3F8B5F43 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20250608_201640_327714_DB89EF74 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,97 +150,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 03:52:44AM -0700, Ganapatrao Kulkarni wrote:
-> Add simple test to run guest code with NV enabled. With NV enabled,
-> guest code runs in vEL2 context.
-> 
-> Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-> ---
->  .../selftests/kvm/arm64/nv_guest_hypervisor.c | 68 +++++++++++++++++++
->  1 file changed, 68 insertions(+)
->  create mode 100644 tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c
-> 
-> diff --git a/tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c b/tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c
-> new file mode 100644
-> index 000000000000..7d7b3944e229
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/arm64/nv_guest_hypervisor.c
-> @@ -0,0 +1,68 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2025 Ampere Computing LLC
-> + */
-> +#include <kvm_util.h>
-> +#include <nv_util.h>
-> +#include <processor.h>
-> +
-> +static void guest_code(void)
-> +{
-> +	if (read_sysreg(CurrentEL) == CurrentEL_EL2)
-> +		GUEST_PRINTF("Test PASS\n");
-> +	else
-> +		GUEST_FAIL("Fail to run in vEL2\n");
-> +
-> +	GUEST_DONE();
-> +}
-> +
-> +static void guest_undef_handler(struct ex_regs *regs)
-> +{
-> +	GUEST_FAIL("Unexpected exception far_el1 = 0x%lx", read_sysreg(far_el1));
-> +}
-> +
-> +static void test_run_vcpu(struct kvm_vcpu *vcpu)
-> +{
-> +	struct ucall uc;
-> +
-> +	do {
-> +		vcpu_run(vcpu);
-> +
-> +		switch (get_ucall(vcpu, &uc)) {
-> +		case UCALL_ABORT:
-> +			REPORT_GUEST_ASSERT(uc);
-> +			break;
-> +		case UCALL_PRINTF:
-> +			printf("%s", uc.buffer);
-> +			break;
-> +		case UCALL_DONE:
-> +			break;
-> +		default:
-> +			TEST_FAIL("Unknown ucall %lu", uc.cmd);
-> +		}
-> +	} while (uc.cmd != UCALL_DONE);
-> +}
-> +
-> +static void test_nv_guest_hypervisor(void)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vm *vm;
-> +	int gic_fd = -1;
-> +
-> +	vm = nv_vm_create_with_vcpus_gic(1, &vcpu, &gic_fd, guest_code);
-> +	vm_init_descriptor_tables(vm);
-> +	vcpu_init_descriptor_tables(vcpu);
-> +	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
-> +				ESR_ELx_EC_UNKNOWN, guest_undef_handler);
-> +
-> +	test_run_vcpu(vcpu);
-> +
-> +	vgic_v3_close(gic_fd);
-> +	kvm_vm_free(vm);
-> +}
-> +
-> +int main(int argc, char *argv[])
-> +{
-> +	test_nv_guest_hypervisor();
-> +	return 0;
-> +}
+From: Gary Yang <gary.yang@cixtech.com>
 
-The kernel this v2 series applied is based off of the latest kvmarm-next 
-and tested this on QEMU TCG mode with the kvm-arm.mode=nested option added at boot.
+Add device tree bindings for the scmi clock id on
+Cix sky1 platform.
 
-Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Peter Chen <peter.chen@cixtech.com>
+Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+---
+Changes for v8:
+- Add Krzysztof Kozlowski's Acked-by tag
 
-> -- 
-> 2.48.1
-> 
+Changes for v7:
+- Rename clock binding file from sky1-clk.h to cix,sky1.h
+- Add my Sob
+
+ include/dt-bindings/clock/cix,sky1.h | 279 +++++++++++++++++++++++++++
+ 1 file changed, 279 insertions(+)
+ create mode 100644 include/dt-bindings/clock/cix,sky1.h
+
+diff --git a/include/dt-bindings/clock/cix,sky1.h b/include/dt-bindings/clock/cix,sky1.h
+new file mode 100644
+index 000000000000..9245ebd1e80a
+--- /dev/null
++++ b/include/dt-bindings/clock/cix,sky1.h
+@@ -0,0 +1,279 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright 2024-2025 Cix Technology Group Co., Ltd.
++ */
++
++#ifndef _DT_BINDINGS_CLK_CIX_SKY1_H
++#define _DT_BINDINGS_CLK_CIX_SKY1_H
++
++#define CLK_TREE_CPU_GICxCLK			0
++#define CLK_TREE_CPU_PPUCLK			1
++#define CLK_TREE_CPU_PERIPHCLK			2
++#define CLK_TREE_DSU_CLK			3
++#define CLK_TREE_DSU_PCLK			4
++#define CLK_TREE_CPU_CLK_BC0			5
++#define CLK_TREE_CPU_CLK_BC1			6
++#define CLK_TREE_CPU_CLK_BC2			7
++#define CLK_TREE_CPU_CLK_BC3			8
++#define CLK_TREE_CPU_CLK_MC0			9
++#define CLK_TREE_CPU_CLK_MC1			10
++#define CLK_TREE_CPU_CLK_MC2			11
++#define CLK_TREE_CPU_CLK_MC3			12
++#define CLK_TREE_CPU_CLK_LC0			13
++#define CLK_TREE_CPU_CLK_LC1			14
++#define CLK_TREE_CPU_CLK_LC2			15
++#define CLK_TREE_CPU_CLK_LC3			16
++#define CLK_TREE_CSI_CTRL0_PCLK			17
++#define CLK_TREE_CSI_CTRL1_PCLK			18
++#define CLK_TREE_CSI_CTRL2_PCLK			19
++#define CLK_TREE_CSI_CTRL3_PCLK			20
++#define CLK_TREE_CSI_DMA0_PCLK			21
++#define CLK_TREE_CSI_DMA1_PCLK			22
++#define CLK_TREE_CSI_DMA2_PCLK			23
++#define CLK_TREE_CSI_DMA3_PCLK			24
++#define CLK_TREE_CSI_PHY0_PSM			25
++#define CLK_TREE_CSI_PHY1_PSM			26
++#define CLK_TREE_CSI_PHY0_APBCLK		27
++#define CLK_TREE_CSI_PHY1_APBCLK		28
++#define CLK_TREE_FCH_APB_CLK			29
++#define CLK_TREE_GPU_CLK_400M			30
++#define CLK_TREE_GPU_CLK_CORE			31
++#define CLK_TREE_GPU_CLK_STACKS			32
++#define CLK_TREE_DP0_PIXEL0			33
++#define CLK_TREE_DP0_PIXEL1			34
++#define CLK_TREE_DP1_PIXEL0			35
++#define CLK_TREE_DP1_PIXEL1			36
++#define CLK_TREE_DP2_PIXEL0			37
++#define CLK_TREE_DP2_PIXEL1			38
++#define CLK_TREE_DP3_PIXEL0			39
++#define CLK_TREE_DP3_PIXEL1			40
++#define CLK_TREE_DP4_PIXEL0			41
++#define CLK_TREE_DP4_PIXEL1			42
++#define CLK_TREE_DPU_CLK			43
++#define CLK_TREE_DPU0_ACLK			44
++#define CLK_TREE_DPU1_ACLK			45
++#define CLK_TREE_DPU2_ACLK			46
++#define CLK_TREE_DPU3_ACLK			47
++#define CLK_TREE_DPU4_ACLK			48
++#define CLK_TREE_DPC0_VIDCLK0			49
++#define CLK_TREE_DPC0_VIDCLK1			50
++#define CLK_TREE_DPC1_VIDCLK0			51
++#define CLK_TREE_DPC1_VIDCLK1			52
++#define CLK_TREE_DPC2_VIDCLK0			53
++#define CLK_TREE_DPC2_VIDCLK1			54
++#define CLK_TREE_DPC3_VIDCLK0			55
++#define CLK_TREE_DPC3_VIDCLK1			56
++#define CLK_TREE_DPC4_VIDCLK0			57
++#define CLK_TREE_DPC4_VIDCLK1			58
++#define CLK_TREE_DPC0_APBCLK			59
++#define CLK_TREE_DPC1_APBCLK			60
++#define CLK_TREE_DPC2_APBCLK			61
++#define CLK_TREE_DPC3_APBCLK			62
++#define CLK_TREE_DPC4_APBCLK			63
++#define CLK_TREE_NPU_MEMCLK			64
++#define CLK_TREE_NPU_SYSCLK			65
++#define CLK_TREE_NPU_DBGCLK			66
++#define CLK_TREE_VPU_APBCLK			67
++#define CLK_TREE_ISP_ACLK			68
++#define CLK_TREE_ISP_SCLK			69
++#define CLK_TREE_AUDIO_CLK4			70
++#define CLK_TREE_AUDIO_CLK5			71
++#define CLK_TREE_CAMERA_MCLK0			72
++#define CLK_TREE_CAMERA_MCLK1			73
++#define CLK_TREE_CAMERA_MCLK2			74
++#define CLK_TREE_CAMERA_MCLK3			75
++#define CLK_TREE_AUDIO_CLK0			76
++#define CLK_TREE_AUDIO_CLK1			77
++#define CLK_TREE_AUDIO_CLK2			78
++#define CLK_TREE_AUDIO_CLK3			79
++#define CLK_TREE_MM_NI700_CLK			80
++#define CLK_TREE_SYS_NI700_CLK			81
++#define CLK_TREE_GMAC0_ACLK			82
++#define CLK_TREE_GMAC1_ACLK			83
++#define CLK_TREE_GMAC0_DIV_ACLK			84
++#define CLK_TREE_GMAC0_DIV_TXCLK		85
++#define CLK_TREE_GMAC0_RGMII0_TXCLK		86
++#define CLK_TREE_GMAC1_DIV_ACLK			87
++#define CLK_TREE_GMAC1_DIV_TXCLK		88
++#define CLK_TREE_GMAC1_RGMII0_TXCLK		89
++#define CLK_TREE_GMAC0_PCLK			90
++#define CLK_TREE_GMAC1_PCLK			91
++#define CLK_TREE_USB2_0_AXI_GATE		92
++#define CLK_TREE_USB2_0_APB_GATE		93
++#define CLK_TREE_USB2_1_AXI_GATE		94
++#define CLK_TREE_USB2_1_APB_GATE		95
++#define CLK_TREE_USB2_2_AXI_GATE		96
++#define CLK_TREE_USB2_2_APB_GATE		97
++#define CLK_TREE_USB2_3_AXI_GATE		98
++#define CLK_TREE_USB2_3_APB_GATE		99
++#define CLK_TREE_USB2_0_PHY_GATE		100
++#define CLK_TREE_USB2_1_PHY_GATE		101
++#define CLK_TREE_USB2_2_PHY_GATE		102
++#define CLK_TREE_USB2_3_PHY_GATE		103
++#define CLK_TREE_USB3C_DRD_AXI_GATE		104
++#define CLK_TREE_USB3C_DRD_APB_GATE		105
++#define CLK_TREE_USB3C_DRD_PHY2_GATE		106
++#define CLK_TREE_USB3C_DRD_PHY3_GATE		107
++#define CLK_TREE_USB3C_0_AXI_GATE		108
++#define CLK_TREE_USB3C_0_APB_GATE		109
++#define CLK_TREE_USB3C_0_PHY2_GATE		110
++#define CLK_TREE_USB3C_0_PHY3_GATE		111
++#define CLK_TREE_USB3C_1_AXI_GATE		112
++#define CLK_TREE_USB3C_1_APB_GATE		113
++#define CLK_TREE_USB3C_1_PHY2_GATE		114
++#define CLK_TREE_USB3C_1_PHY3_GATE		115
++#define CLK_TREE_USB3C_2_AXI_GATE		116
++#define CLK_TREE_USB3C_2_APB_GATE		117
++#define CLK_TREE_USB3C_2_PHY2_GATE		118
++#define CLK_TREE_USB3C_2_PHY3_GATE		119
++#define CLK_TREE_USB3A_0_AXI_GATE		120
++#define CLK_TREE_USB3A_0_APB_GATE		121
++#define CLK_TREE_USB3A_0_PHY2_GATE		122
++#define CLK_TREE_USB3A_1_AXI_GATE		123
++#define CLK_TREE_USB3A_1_APB_GATE		124
++#define CLK_TREE_USB3A_1_PHY2_GATE		125
++#define CLK_TREE_USB3A_PHY3_GATE		126
++#define CLK_TREE_USB2_0_CLK_SOF			127
++#define CLK_TREE_USB2_1_CLK_SOF			128
++#define CLK_TREE_USB2_2_CLK_SOF			129
++#define CLK_TREE_USB2_3_CLK_SOF			130
++#define CLK_TREE_USB3C_DRD_CLK_SOF		131
++#define CLK_TREE_USB3C_H0_CLK_SOF		132
++#define CLK_TREE_USB3C_H1_CLK_SOF		133
++#define CLK_TREE_USB3C_H2_CLK_SOF		134
++#define CLK_TREE_USB3A_H0_CLK_SOF		135
++#define CLK_TREE_USB3A_H1_CLK_SOF		136
++#define CLK_TREE_USB2_0_CLK_LPM			137
++#define CLK_TREE_USB2_1_CLK_LPM			138
++#define CLK_TREE_USB2_2_CLK_LPM			139
++#define CLK_TREE_USB2_3_CLK_LPM			140
++#define CLK_TREE_USB3C_DRD_CLK_LPM		141
++#define CLK_TREE_USB3C_H0_CLK_LPM		142
++#define CLK_TREE_USB3C_H1_CLK_LPM		143
++#define CLK_TREE_USB3C_H2_CLK_LPM		144
++#define CLK_TREE_USB3A_H0_CLK_LPM		145
++#define CLK_TREE_USB3A_H1_CLK_LPM		146
++#define CLK_TREE_USB2_0_PHY_REF			147
++#define CLK_TREE_USB2_1_PHY_REF			148
++#define CLK_TREE_USB2_2_PHY_REF			149
++#define CLK_TREE_USB2_3_PHY_REF			150
++#define CLK_TREE_USB3C_DRD_PHY_REF		151
++#define CLK_TREE_USB3C_H0_PHY_REF		152
++#define CLK_TREE_USB3C_H1_PHY_REF		153
++#define CLK_TREE_USB3C_H2_PHY_REF		154
++#define CLK_TREE_USB3A_H0_PHY_REF		155
++#define CLK_TREE_USB3A_H1_PHY_REF		156
++#define CLK_TREE_USB3C_DRD_PHY_x4_REF		157
++#define CLK_TREE_USB3C_H0_PHY_x4_REF		158
++#define CLK_TREE_USB3C_H1_PHY_x4_REF		159
++#define CLK_TREE_USB3C_H2_PHY_x4_REF		160
++#define CLK_TREE_USB3A_PHY_x2_REF		161
++#define CLK_TREE_PCIE_X8CTRL_APB		162
++#define CLK_TREE_PCIE_X4CTRL_APB		163
++#define CLK_TREE_PCIE_X2CTRL_APB		164
++#define CLK_TREE_PCIE_X1_0CTRL_APB		165
++#define CLK_TREE_PCIE_X1_1CTRL_APB		166
++#define CLK_TREE_PCIE_X8_PHY_APB		167
++#define CLK_TREE_PCIE_X4_PHY_APB		168
++#define CLK_TREE_PCIE_X211_PHY_APB		169
++#define CLK_TREE_PCIE_NI700_CLK			170
++#define CLK_TREE_PCIE_CTRL0_CLK			171
++#define CLK_TREE_PCIE_CTRL1_CLK			172
++#define CLK_TREE_PCIE_CTRL2_CLK			173
++#define CLK_TREE_PCIE_CTRL3_CLK			174
++#define CLK_TREE_PCIE_CTRL4_CLK			175
++#define CLK_TREE_CSI_CTRL0_SYSCLK		176
++#define CLK_TREE_CSI_CTRL1_SYSCLK		177
++#define CLK_TREE_CSI_CTRL2_SYSCLK		178
++#define CLK_TREE_CSI_CTRL3_SYSCLK		179
++#define CLK_TREE_CSI_CTRL0_PIXEL0_CLK		180
++#define CLK_TREE_CSI_CTRL0_PIXEL1_CLK		181
++#define CLK_TREE_CSI_CTRL0_PIXEL2_CLK		182
++#define CLK_TREE_CSI_CTRL0_PIXEL3_CLK		183
++#define CLK_TREE_CSI_CTRL1_PIXEL0_CLK		184
++#define CLK_TREE_CSI_CTRL2_PIXEL0_CLK		185
++#define CLK_TREE_CSI_CTRL2_PIXEL1_CLK		186
++#define CLK_TREE_CSI_CTRL2_PIXEL2_CLK		187
++#define CLK_TREE_CSI_CTRL2_PIXEL3_CLK		188
++#define CLK_TREE_CSI_CTRL3_PIXEL0_CLK		189
++#define CLK_TREE_CI700_GCLK0			190
++#define CLK_TREE_DDRC0_ACLK_CLK			191
++#define CLK_TREE_DDRC1_ACLK_CLK			192
++#define CLK_TREE_DDRC2_ACLK_CLK			193
++#define CLK_TREE_DDRC3_ACLK_CLK			194
++#define CLK_TREE_DDRC0_DFICLK_CLK		195
++#define CLK_TREE_DDRC1_DFICLK_CLK		196
++#define CLK_TREE_DDRC2_DFICLK_CLK		197
++#define CLK_TREE_DDRC3_DFICLK_CLK		198
++#define CLK_TREE_PHY0_SYNC_CLK			199
++#define CLK_TREE_PHY1_SYNC_CLK			200
++#define CLK_TREE_PHY2_SYNC_CLK			201
++#define CLK_TREE_PHY3_SYNC_CLK			202
++#define CLK_TREE_PHY0_BYPASS_CLK		203
++#define CLK_TREE_PHY1_BYPASS_CLK		204
++#define CLK_TREE_PHY2_BYPASS_CLK		205
++#define CLK_TREE_PHY3_BYPASS_CLK		206
++#define CLK_TREE_DDRC_0_APB			207
++#define CLK_TREE_DDRC_1_APB			208
++#define CLK_TREE_DDRC_2_APB			209
++#define CLK_TREE_DDRC_3_APB			210
++#define CLK_TREE_TZC400_0_APB			211
++#define CLK_TREE_TZC400_1_APB			212
++#define CLK_TREE_TZC400_2_APB			213
++#define CLK_TREE_TZC400_3_APB			214
++#define CLK_TREE_S5_SENSOR_HUB_25M		215
++#define CLK_TREE_S5_SENSOR_HUB_400M		216
++#define CLK_TREE_S5_CSS600_100M			217
++#define CLK_TREE_S5_DFD_800M			218
++#define CLK_TREE_S5_CSU_SE_800M			219
++#define CLK_TREE_S5_CSU_PM_800M			220
++#define CLK_TREE_PCIE_REF_B0			221
++#define CLK_TREE_PCIE_REF_B1			222
++#define CLK_TREE_PCIE_REF_B2			223
++#define CLK_TREE_PCIE_REF_B3			224
++#define CLK_TREE_PCIE_REF_B4			225
++#define CLK_TREE_PCIE_REF_PHY_X8		226
++#define CLK_TREE_PCIE_REF_PHY_X4		227
++#define CLK_TREE_PCIE_REF_PHY_X211		228
++#define CLK_TREE_GMAC_REC_CLK			229
++#define CLK_TREE_GPUTOP_PLL			230
++#define CLK_TREE_GPUCORE_PLL			231
++#define CLK_TREE_CPU_PLL_LIT			232
++#define CLK_TREE_CPU_PLL0			233
++#define CLK_TREE_CPU_PLL1			234
++#define CLK_TREE_CPU_PLL2			235
++#define CLK_TREE_CPU_PLL3			236
++#define CLK_TREE_FCH_I3C0_FUNC			237
++#define CLK_TREE_FCH_I3C1_FUNC			238
++#define CLK_TREE_FCH_DMA_ACLK			239
++#define CLK_TREE_FCH_XSPI_FUNC			240
++#define CLK_TREE_FCH_XSPI_MACLK			241
++#define CLK_TREE_FCH_TIMER_FUN			242
++#define CLK_TREE_FCH_APB_IO_S0			243
++#define CLK_TREE_FCH_I3C0_APB			244
++#define CLK_TREE_FCH_I3C1_APB			245
++#define CLK_TREE_FCH_UART0_APB			246
++#define CLK_TREE_FCH_UART1_APB			247
++#define CLK_TREE_FCH_UART2_APB			248
++#define CLK_TREE_FCH_UART3_APB			249
++#define CLK_TREE_FCH_SPI0_APB			250
++#define CLK_TREE_FCH_SPI1_APB			251
++#define CLK_TREE_FCH_XSPI_APB			252
++#define CLK_TREE_FCH_I2C0_APB			253
++#define CLK_TREE_FCH_I2C1_APB			254
++#define CLK_TREE_FCH_I2C2_APB			255
++#define CLK_TREE_FCH_I2C3_APB			256
++#define CLK_TREE_FCH_I2C4_APB			257
++#define CLK_TREE_FCH_I2C5_APB			258
++#define CLK_TREE_FCH_I2C6_APB			259
++#define CLK_TREE_FCH_I2C7_APB			260
++#define CLK_TREE_FCH_TIMER_APB			261
++#define CLK_TREE_FCH_GPIO_APB			262
++#define CLK_TREE_FCH_UART0_FUNC			263
++#define CLK_TREE_FCH_UART1_FUNC			264
++#define CLK_TREE_FCH_UART2_FUNC			265
++#define CLK_TREE_FCH_UART3_FUNC			266
++/* 267~271 not used by AP, skip */
++#define CLK_TREE_GPU_CLK_200M			272
++
++#endif
+-- 
+2.25.1
+
 
