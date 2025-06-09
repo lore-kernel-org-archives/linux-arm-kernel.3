@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EA6C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDA4C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XDzTlr3eZMQFfQ3OoSdWqZkvDvf6Cy2WXfC+CBg8D2Y=; b=LG0vlas3Bv3qHRsvr2IKbGeych
-	JvmlKoDU/nVPn7wlVos5O9x6ogXxvryhdfc/npHmXyhJ/aPy+AssQlXpeh/n9eROQ7rTLqoV4ngVt
-	4aFiLTd+l9PXRm5gcOXXPIsW+3tAA6NO/Fm+EC1UPUdjz/sIkZge/JKT6qhEKd/gC/sl4TykAsntV
-	+5etkHVYwD5AJJAtZoJmxqQBtxS33PhopSr+rnfzdiQWdUPVljzHx4v12EdfbGLkLsbuaTyeNFtg+
-	kbO4I5Y8fPuxNp857as8d6j6mkbduJHDD5DwsJYHahkpUhz1v9r3GFAbD0sfYBpMiHECc7MaUOHv7
-	ZhC8xmQw==;
+	bh=8+Q1F/m6OOwsvbv6S8H7xhHidfQ0S01QU2Lw4DC5Uso=; b=GkPToGn9zrypxP4KohUu+NVcyo
+	MNHdBHh1C2g9hLUUL/hlUaQcHO7ibIEmXGh3SeFvhkqZ7oh0lUr2LTtqUPlDFKHdxR1L8yD+ULphA
+	KsB3maxdrXY/X08iNd43wDhg8S19IS3fyIFYW/UNm70iFASMPcTaDv1tvQXVB6lavc3K4DIQ1R0yR
+	DT0w09RedfSBZUx386lZdRq6uoFx7nUQZPgS/IwsgOzhZfXJ92avhOtIvJTM4mIlJlpptFuBI0/kP
+	ArLUWJSKH6MEsq8KM09QnP3OFezGiVdT9doyCo6idkIQmRpi9wVwdyb4fmSof7F8FVjCAAO63S7vA
+	ynQu/63g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOgfR-00000004qbK-0GeC;
-	Mon, 09 Jun 2025 17:52:17 +0000
+	id 1uOghY-00000004qxb-2ZE3;
+	Mon, 09 Jun 2025 17:54:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOfWH-00000004hgN-3U6B
+	id 1uOfal-00000004iT8-17dy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 16:38:46 +0000
+	Mon, 09 Jun 2025 16:43:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3931C14BF;
-	Mon,  9 Jun 2025 09:38:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CAD181515;
+	Mon,  9 Jun 2025 09:43:03 -0700 (PDT)
 Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFBED3F673;
-	Mon,  9 Jun 2025 09:38:44 -0700 (PDT)
-Date: Mon, 9 Jun 2025 17:38:40 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FA973F673;
+	Mon,  9 Jun 2025 09:43:22 -0700 (PDT)
+Date: Mon, 9 Jun 2025 17:43:20 +0100
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>
 Cc: Mike Leach <mike.leach@linaro.org>,
@@ -43,19 +43,18 @@ Cc: Mike Leach <mike.leach@linaro.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/9] coresight: Appropriately disable programming
- clocks
-Message-ID: <20250609163840.GL8020@e132581.arm.com>
+Subject: Re: [PATCH v3 5/9] coresight: Appropriately disable trace bus clocks
+Message-ID: <20250609164320.GM8020@e132581.arm.com>
 References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
- <20250609-arm_cs_fix_clock_v3_public-v3-4-423b3f1f241d@arm.com>
- <e18507cb-bcbf-4cdd-8364-9bce0ea016d5@arm.com>
+ <20250609-arm_cs_fix_clock_v3_public-v3-5-423b3f1f241d@arm.com>
+ <89f9fede-3a0f-4ed6-a42d-43827f7a4fca@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <e18507cb-bcbf-4cdd-8364-9bce0ea016d5@arm.com>
+In-Reply-To: <89f9fede-3a0f-4ed6-a42d-43827f7a4fca@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_093845_910663_88CD0A49 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20250609_094323_347850_46A2F1E1 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,34 +69,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 05:11:21PM +0100, Suzuki Kuruppassery Poulose wrote:
+On Mon, Jun 09, 2025 at 05:14:09PM +0100, Suzuki Kuruppassery Poulose wrote:
 > On 09/06/2025 17:00, Leo Yan wrote:
-> > Some CoreSight components have programming clocks (pclk) and are enabled
-> > using clk_get() and clk_prepare_enable().  However, in many cases, these
-> > clocks are not disabled when modules exit and only released by clk_put().
+> > Some CoreSight components have trace bus clocks 'atclk' and are enabled
+> > using clk_prepare_enable().  These clocks are not disabled when modules
+> > exit.
 > > 
-> > To fix the issue, this commit refactors coresight_get_enable_apb_pclk()
-> > by replacing clk_get() and clk_prepare_enable() with
-> > devm_clk_get_enabled() for enabling APB clock.  Callers are updated
-> > to reuse the returned error value.
+> > As atclk is optional, use devm_clk_get_optional_enabled() to manage it.
+> > The benefit is the driver model layer can automatically disable and
+> > release clocks.
 > > 
-> > With the change, programming clocks are managed as resources in driver
-> > model layer, allowing clock cleanup to be handled automatically.  As a
-> > result, manual cleanup operations are no longer needed and are removed
-> > from the Coresight drivers.
+> > Check the returned value with IS_ERR() to detect errors but leave the
+> > NULL pointer case if the clock is not found.  And remove the error
+> > handling codes which are no longer needed.
 > > 
-> > Fixes: 73d779a03a76 ("coresight: etm4x: Change etm4_platform_driver driver for MMIO devices")
+> > Fixes: d1839e687773 ("coresight: etm: retrieve and handle atclk")
+> > Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
 > 
-> This looks suspicious. This patch covers a lot of components, but the
-> above commit is only affecting ETMv4 ?
+> Can we consolidate the ATCLK handling to the core coresight helper for
+> APB clocks ?  It is an optional clock for all devices anyways ?
 
-Since commit 73d779a03a76 is the earliest patch that introduced the
-issue, it has been selected as the fix tag. We assume this will cover
-any subsequent changes that have the same issue.
+Yes. ATCLK is always optional.
 
-> The patch as such looks good to me.
+Could you check the patch 07? It is exactly a consolidation to put ATCLK
+and APB clocks into a central place.
 
-Thanks for review!
-
-> Suzuki
+Thanks,
+Leo
 
