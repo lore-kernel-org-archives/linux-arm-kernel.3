@@ -4,86 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D491C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 08:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B46FC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 08:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avUZtz3QyLzrtWeLJ2NgcAc7qvPmPgbfgTpeZiYZBXg=; b=ABoiqNin4SQRBsPkwOIuL/pM9e
-	ruSEIIKH7soZeGzBD1RBxq0HWfvUgpk0PexrmPXdBdBDzy226bzxPEY7YRaqwMZK/5TEN9vjKsijv
-	wf17Pyu3sawdgwR4imioMmwol+clnH37hJSNnZrP9LqjGu16eWvXRL75LpEwXXKp6HxKpawqYJBN4
-	DrzoH8r8T/rO6aG7UrNgjj4mSNz8M+lUWkU4E4hapCHdAHYg5RUJzeADrdcd6lqJZcGtLHMh6CyrM
-	RzDamZ02CeD+m6m8Q5xjeXzV5O27CxVKVqdmCKyqCvP926UsLlzeg+ikqHHmm1wbv71oh8+NtQ4qO
-	02JCrHWw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=diVPl0lQKW0yQkA4YVUek0ZBF2jN3vlUnkn9DLqfm9E=; b=e9jf7Rx4l7lN0Zz/CnydkCkwb/
+	c2VM5kbl5aoZsgdjsudu9k6brqM86ozjKZUQffAE28qaWrxgxpuIRmvzZi6OuXRHOcOejmAVL1jYH
+	817CQlBCC0+YePkSDQLKELY6cKFyir2+QLSV+8yttyDSbtmHG9Kq5HrywWAc9i4jLIi/5ZlFl2QQS
+	RRMJ6jVetZPv6qXCa+gnWNwgJSLuIiy9hRj7ug0X1FSXzPxIrP9lXYaGswHS2swW6Bs397hq5sN9X
+	k+tXOD4tMhbC7WHJYlay/MYhkRbZOnmYG+JDZfNv+OHgnGNcul3dP/9R0g2EWDHC3y4LyvDOvVkLS
+	YwmXrRrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOXhW-00000003eOV-46uz;
-	Mon, 09 Jun 2025 08:17:50 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1uOXji-00000003efL-34uz;
+	Mon, 09 Jun 2025 08:20:06 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOXfP-00000003eCc-0kUa;
-	Mon, 09 Jun 2025 08:15:40 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4a44b9b2af8so24062851cf.3;
-        Mon, 09 Jun 2025 01:15:38 -0700 (PDT)
+	id 1uOXhZ-00000003eOw-1MFx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 08:17:55 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-addfe17ec0bso939802566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 01:17:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749456937; x=1750061737; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=avUZtz3QyLzrtWeLJ2NgcAc7qvPmPgbfgTpeZiYZBXg=;
-        b=SMts9hkabMXcQzpHPZrZBCa/dAKmouK8/xf+8QHjuDXCJ7U+a5PG6JfmWwBt/2N3WI
-         tms8nsnlT+FCeY7ThjHn+i3OlLg20JDBymScjoXLSH+d0z3XTh/Fzddjdp21AxHrHbeK
-         NLUxOArRARMNybxmM+aGMe2vGhMKIR6QLMDqJZUD/XiZkgYpnZkn9VSf2452KL31L2SR
-         vcIHxVz7+S2kBsCXkUiSCOqkaYfxnTbNzRUgoTm8kMyFpkvdBnEKswQgR026NqlFRaNO
-         rZxBOqM0Y/w986YFHErq53qgNDeVtDwB9X8QaGmJ3Gl0Ce/q6jlXIsNNMSFxizzxSv0l
-         xs4g==
+        d=linaro.org; s=google; t=1749457072; x=1750061872; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=diVPl0lQKW0yQkA4YVUek0ZBF2jN3vlUnkn9DLqfm9E=;
+        b=hJBk/01NNi9SurpY18jk5GxI4AX/ZDLyAH4TV7sHbTLtQF67b7o0INEup9xurXUX8D
+         XwHzk/B5EgNPJK1d7DDNYNvQGCzoq/HYNC19C88o2A5OM4AOqqIjN8GWYGu00wcT/PNX
+         Ob5tYmM5flqkQs0pSB8zwsD23mkhZDhYsbrNLcrGHz7l9doMpYIUb2y6yQl0rgY1mMrZ
+         TitDRbKlJ5ZjW5KKJWcAchcUzjSD9p4XbB1Tw7dFczlGiX3v4zD7KZTuJAAZ4xTPne6C
+         NZya40S46incexijsal+F7lHDgxU7FIAmp+YGuKLE7xG1v5V0BrhKa6dxdAIHvluiKqg
+         KA3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749456937; x=1750061737;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=avUZtz3QyLzrtWeLJ2NgcAc7qvPmPgbfgTpeZiYZBXg=;
-        b=CRfU+sS+DmjHS1zx4Ui0/Yg4kVn2+uEQUqzM+4UF3m8niMwk1doNTgX82Q9L77BnGh
-         fDeQHOmnRtEGRdDDqlifgeqBk0rK6Fx4qCUenWpmp3ndhK0lJbyt3QicGyIzdlsGeiP7
-         zXTdQwKwAQ0P1xb+G4lJnMRcvbqB3AJn96t3yZoKTnrrvpSigWwr1a0R1Grpv518eyHD
-         Qw2yFfpzeIdeHBytEPZB16iQryTPzS7s08lhiJ7AglZ+luiBKxz9OvfqMjAMxyTIqOgj
-         11TaTMbbzOY/rxdnZfvpYXeFxsI5/vMs6ES9rcGDFyY6zqkLydPc5yMTHREx9+IVeEhX
-         oIeg==
-X-Forwarded-Encrypted: i=1; AJvYcCUdU3hlaLv+8Hlhmf51CXyRYBP1v8xMzW4XIJacYEfuRyXqC/UmLKM6sFNs7cbHdLCnthiyF9lJ1sLid2w=@lists.infradead.org, AJvYcCWnhGZb/Hd+eNwhOw+lxIxlazZXiF3QJpmnW2gy0wpA1sPejWtBPTcRN4Z7QP/NydC3rcEbKkDC9RkxW+x3q5sp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyU8jWvsNS6l0aYoyrQBGkAXcnlfCyzvX5NZwzNkQP3BkbG+f3T
-	WTRoh8GCJDZnV5hhAMU9bksvHhyPOcNYMpzcei49Z3PtNT3Lg24Frr+dlQtuoOVwIA8EZDmTm6d
-	l4HGPbC2gj6A65Hq7IUzr1/bexFh1BBQ=
-X-Gm-Gg: ASbGncvZYNdm4WnWLj+4Vprbykqy4UbkTkwXt+UMSGI/ycGTTzZs6PnsAs+PLCet/sx
-	6aWpxDun/VBpV/JmwxPPk5CXCn6oDw9cK2Yf36/CB5bcb5dJBVfegoLkijamDiDnTDduttfruzT
-	G8bew+0Hcs+jnitMAngdEJ7xSxE3iiGctP
-X-Google-Smtp-Source: AGHT+IH9me4CEdVFtIOCuIg1XAKf5VF3TkyjvnvcV85fkEmF6RBw78F2p/ZOsZjFija3GtR5SXP0ijToaYQxk0VMGhA=
-X-Received: by 2002:ad4:5f09:0:b0:6fa:c81a:6204 with SMTP id
- 6a1803df08f44-6fb08f50942mr228433326d6.10.1749456937558; Mon, 09 Jun 2025
- 01:15:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749457072; x=1750061872;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=diVPl0lQKW0yQkA4YVUek0ZBF2jN3vlUnkn9DLqfm9E=;
+        b=bt1qLb2TEzb/vhO66F/JDSC/xtiwJZLPr1X/ZXT/T0H5tsVgVWK4BChxkETeZkLiRs
+         xNA0dUJPFLJWUTQLdkUnaaUTKWqVXXfzBh+TBqALfZmGf6qylW4XJcSxRyuWiVYWxtYr
+         6H9M7oxdnr1jwXwNoS+0e/mcc3f7rW3c3NkHTKeOHSFAH9t1t2m6IlOvq/I85ft2grqa
+         MsxKRwZ6ZG5Qo8OPKjW8eBX9OFNvaZ1Oum8wH3bnvOdAY4IDL2r6YWcrwz8AWxq1f4PE
+         bm/lZ/Nm5ZBrhYuZNgTvGCDfp7b0YubkwbFUNKzv+gpzCXusJPzqKEAf4QjLs+eC1O3M
+         2wAg==
+X-Forwarded-Encrypted: i=1; AJvYcCVM65LypahsHb0sU4mBzeHGDQtC8XuxjwdYTU8szz+g/SzsLlksSVe4F4apV7DIUb8ITd0F9ZdoEAiaaKwzd1bv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyqb/lJtxQmHwpQYJy3t5Hx5RRuwN4gWjBUUSu0W3DDIwmoMZf9
+	UJ6FabTapweulf7+WqOA5d/tbgr0Zxw+8yziEJ5po8j0MwSbzE8iL2QUd9/RQcPVgW05MMfGp0B
+	UecFZ
+X-Gm-Gg: ASbGncu1BZoi6ygPBC0zYpE9muyeh8zw9CuPqZDsEvIL2JH2qDxQvVqal7bhIpqxRYI
+	8KZHS5SJKnLMW+MDeOUWuAhIEUmiqkepIihF87jDydlhjBUysiGsYFFHojBHliTT/Nvil/pP/gh
+	Cgezg2E84ImJeWeCJv97kM26XEb3He69s33KnRUlddb/bXgUNSGi+MgRP3zOXkl0cOUMUvbOGN/
+	TQ0V8m65wwxAXpBRpkIJLBelr501z+SH+N3sQyCXAfD+MrSlerFp8oeXOkhOX1CWKYlvn4QK523
+	y8vrgKBMeD7OVDHagGaD5hZDp7OgqMC8sPWEQHOEGLBBQvbzdvwGrfR+yl8VgoxjVKk7rZlP
+X-Google-Smtp-Source: AGHT+IHlo5foO57lawT0iBE8NHWy/Wh5VTZ1hRUSX/LNop16FvKZAplu9cVdl/qMvDgzI+koFNCPcw==
+X-Received: by 2002:a17:907:cd0d:b0:add:ee2c:7307 with SMTP id a640c23a62f3a-ade075bedd1mr1646702666b.6.1749457071737;
+        Mon, 09 Jun 2025 01:17:51 -0700 (PDT)
+Received: from [192.168.0.251] ([79.115.63.158])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1dc78f47sm511997066b.153.2025.06.09.01.17.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 09 Jun 2025 01:17:51 -0700 (PDT)
+Message-ID: <a15fd377-1828-4cb5-8c7b-7d26ea2a7733@linaro.org>
+Date: Mon, 9 Jun 2025 09:17:48 +0100
 MIME-Version: 1.0
-References: <20250607200454.73587-1-ebiggers@kernel.org>
-In-Reply-To: <20250607200454.73587-1-ebiggers@kernel.org>
-From: Julian Calaby <julian.calaby@gmail.com>
-Date: Mon, 9 Jun 2025 18:15:24 +1000
-X-Gm-Features: AX0GCFtpUUxU8yEaZey6YSh4XuBhQlOITIBZOiB21tfxDGQbnIThjp-0HFxjxHQ
-Message-ID: <CAGRGNgV_4X3O-qo3XFGexi9_JqJXK9Mf82=p8CQ4BoD3o-Hypw@mail.gmail.com>
-Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is integrated
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	sparclinux@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, 
-	Linus Torvalds <torvalds@linux-foundation.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] ARM: dts: microchip: sama5d27_wlsom1: Add
+ nvmem-layout in QSPI for EUI48 MAC Address
+To: Manikandan Muralidharan <manikandan.m@microchip.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+ pratyush@kernel.org, mwalle@kernel.org, miquel.raynal@bootlin.com,
+ richard@nod.at, vigneshr@ti.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org
+References: <20250521070336.402202-1-manikandan.m@microchip.com>
+ <20250521070336.402202-4-manikandan.m@microchip.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250521070336.402202-4-manikandan.m@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_011539_220370_E62FA96B 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20250609_011753_373719_7A49263C 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,64 +106,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
 
-On Sun, Jun 8, 2025 at 6:07=E2=80=AFAM Eric Biggers <ebiggers@kernel.org> w=
-rote:
->
-> This series is also available at:
->
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/li=
-nux.git lib-crc-arch-v2
->
-> This series improves how lib/crc supports arch-optimized code.  First,
-> instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
-> will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
-> crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
-> functions (e.g. crc32c_base()) will now be part of a single module for
-> each CRC type, allowing better inlining and dead code elimination.  The
-> second change is made possible by the first.
->
-> As an example, consider CONFIG_CRC32=3Dm on x86.  We'll now have just
-> crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
-> were already coupled together and always both got loaded together via
-> direct symbol dependency, so the separation provided no benefit.
->
-> Note: later I'd like to apply the same design to lib/crypto/ too, where
-> often the API functions are out-of-line so this will work even better.
-> In those cases, for each algorithm we currently have 3 modules all
-> coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
-> sha256-x86.ko.  We should have just one, inline things properly, and
-> rely on the compiler's dead code elimination to decide the inclusion of
-> the generic code instead of manually setting it via kconfig.
->
-> Having arch-specific code outside arch/ was somewhat controversial when
-> Zinc proposed it back in 2018.  But I don't think the concerns are
-> warranted.  It's better from a technical perspective, as it enables the
-> improvements mentioned above.  This model is already successfully used
-> in other places in the kernel such as lib/raid6/.  The community of each
-> architecture still remains free to work on the code, even if it's not in
-> arch/.  At the time there was also a desire to put the library code in
-> the same files as the old-school crypto API, but that was a mistake; now
-> that the library is separate, that's no longer a constraint either.
 
-Quick question, and apologies if this has been covered elsewhere.
+On 5/21/25 8:03 AM, Manikandan Muralidharan wrote:
+> Add nvmem-layout in QSPI to read the EUI48 Mac address by the
+> net drivers using the nvmem property.The offset is set to 0x0
+> since the factory programmed address is available in the
+> resource managed space and the size determine if the requested
+> address is of EUI48 (0x6) or EUI-64 (0x8) type.
+> This is useful for cases where U-Boot is skipped and the Ethernet
+> MAC address is needed to be configured by the kernel
+> 
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+>  .../boot/dts/microchip/at91-sama5d27_wlsom1.dtsi    | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> index b34c5072425a..be06df1b7d66 100644
+> --- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> +++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> @@ -210,6 +210,9 @@ &macb0 {
+>  	#size-cells = <0>;
+>  	phy-mode = "rmii";
+>  
+> +	nvmem-cells = <&mac_address_eui48>;
+> +	nvmem-cell-names = "mac-address";
+> +
+>  	ethernet-phy@0 {
+>  		reg = <0x0>;
+>  		interrupt-parent = <&pioA>;
+> @@ -238,6 +241,16 @@ qspi1_flash: flash@0 {
+>  		m25p,fast-read;
+>  		status = "disabled";
+>  
+> +		nvmem-layout {
+> +			compatible = "fixed-layout";
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +
+> +			mac_address_eui48: mac-address@0 {
+> +				reg = <0x0 0x6>;
+> +			};
 
-Why not just use choice blocks in Kconfig to choose the compiled-in
-crc32 variant instead of this somewhat indirect scheme?
+How would this work if in the future the mchp vendor table adds some
+other info that needs to be referenced as nvmem? How do you distinguish
+the info from the table?
+Would it be possible to have some kind of address and size to reference
+the SFDP?
 
-This would keep the dependencies grouped by arch and provide a single
-place to choose whether the generic or arch-specific method is used.
+> +		};
+> +
+>  		partitions {
+>  			compatible = "fixed-partitions";
+>  			#address-cells = <1>;
 
-It would also allow for alternatives if that ever becomes a thing and
-compile testing of the arch-specific variants if that even offers any
-actual value.
-
-Thanks,
-
---=20
-Julian Calaby
-
-Email: julian.calaby@gmail.com
-Profile: http://www.google.com/profiles/julian.calaby/
 
