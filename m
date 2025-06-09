@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E244C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE71C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+nPBQTqcMc46lnxhWLXKrmRGVhdEB7PtOTicIzTr16g=; b=KjXdG/0Zf+zT6og73zGsIVp7kQ
-	4OdHzofrRHSBzsLzkkFUS6Wy5FlQ/vcDQLoPjvD34yoa7EfBHvaWEipZEhlCYCFqOiDSRqDs0/fAf
-	cyS0Lox3bd1N7KeNnZchUb6PSb9QPpujwJIfnYdAuUfcNuqZ4lS8efcfG3x0ALPQQzRsSw8ZEuZCg
-	Gb1TIZ+AcGKts+Tsi9j3Gnq3uDwvP57q8J0z9oUVsfmBH0cW4IQ3nZbLL4/fqdvMNlxx4vfdgjmmu
-	rGjhV0cMhq1Q3UHPvFQg3K4i/qPm8bsA6liLEXRTur5Xh3XntTGj51TNJeP7PIxMMzRqRbe8apw+k
-	xpRae0eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v1PxmnfHMdmrcyvubBDTE9y7CEshlLTBZC8ePZbGBzw=; b=oX3MJRiUH71eq6ZzIWIfneFcfC
+	Bqfazx3WPE3V77hRrGmvnGEAnUH/jjM0XkMQ7BB8cORSG9VxTE3KTgrEks5SGKxYBNL+rIp/ff3qO
+	WGMLCk2COO9KKwmUUnPMyjRuhVhCA/9mYLAPzIkHRaNckjC/Q0TaWKzdH9Ey2SpzD+fuM0eCVO0fR
+	Yje7Tqdpm/mK0CW3aFJtAQGfNvBSxt14pUb9PQifZ+yAE+H5N3V9nO64I6G/+ghxxEaHmFQ6vNAhu
+	2RAKx9LzgG99UzS6CU8+psmKFDEAk9vMlz4yJ8lwBBcj86ySOFB2CKn/sDmikZQFbu9Jt/h2raaQD
+	7B8EEBGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOiav-000000055eu-0iQ2;
-	Mon, 09 Jun 2025 19:55:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uOid2-000000055z1-30wP;
+	Mon, 09 Jun 2025 19:57:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOiFl-000000052h0-0CjA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 19:33:53 +0000
+	id 1uOiUW-000000054hY-18xn;
+	Mon, 09 Jun 2025 19:49:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7D97F629E5;
-	Mon,  9 Jun 2025 19:33:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C951EC4CEF2;
-	Mon,  9 Jun 2025 19:33:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E22E629DF;
+	Mon,  9 Jun 2025 19:49:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5945C4CEEB;
+	Mon,  9 Jun 2025 19:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749497632;
-	bh=TP4hyTs8h8YAb40w69Vr1lWI5iqkgDHn/WQE3QL865I=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=On4WlChjQCtAwoelwqwcdRxT8v1VCfv9hDzz+aUVbE0NAnnPCdMwnRJZrHJAAsA87
-	 9eICV9OPwQfMAKTi4FOITRspcsHnxzgdF/G4ysHnizfG59bTOcRM2to7g9eSP72FpM
-	 0HoZwUL1uSkO4UUO2Nj+yqyp5Lz/irfY/Fyed2DioexiTtcS2R2q/4Lyet4ACuM2hv
-	 C6Hx3fENqlFhOFbTX13N9nn/n3wbfWavsssxaitxiIZ40NRQY6UQG+dTlKUy7piqil
-	 72Mv/sNZS2ylZ2657IXoYVXYrFs+1gduKYkaC7EBnuW1bQK4AnMx62fIg2uBma+8E5
-	 PXUpxiUAgpwfg==
-From: Mark Brown <broonie@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20250609-b4-upstream_ospi_reset_update-v6-1-5b602b567e8a@foss.st.com>
-References: <20250609-b4-upstream_ospi_reset_update-v6-1-5b602b567e8a@foss.st.com>
-Subject: Re: [PATCH v6] spi: stm32-ospi: Make usage of
- reset_control_acquire/release() API
-Message-Id: <174949763058.256775.10348789503749491026.b4-ty@kernel.org>
-Date: Mon, 09 Jun 2025 20:33:50 +0100
+	s=k20201202; t=1749498547;
+	bh=RLgUdqwZ9jil0fkdDSzWjVe6IIMp+UtbacVJeNotnRE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QK55junN0VbW2TGQ60ZqBGWYViH46R3lRyu4gUydEyY+Hh3KaitiLfFEvBnWI1r1X
+	 lRkAy+lEDKGHHODwZuKXmXjD3bma7Uo1p9YeuJDFpOg4S9P5g+Xcg0SSU2vvttcHI9
+	 4lR9wO8MNIVxc41xXD74pTH5t5lC3rxHs3ajYv7zAHTC7u7F8taQisrWv24jWv6eEY
+	 NAMjDv3elM0fob7CfJw9CVKzwDdg4KQs5dEb5YS6zjc++7S4SPPwQj4A+dAgJwJgOn
+	 FVNqVUnGBa5/HSJl7pxNXInlROg8XV9V78mjoJUj00SM7blrPSGCR341rm1XL707q3
+	 l5n84gNAl0U8g==
+Date: Mon, 9 Jun 2025 12:48:45 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Julian Calaby <julian.calaby@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is
+ integrated
+Message-ID: <20250609194845.GC1255@sol>
+References: <20250607200454.73587-1-ebiggers@kernel.org>
+ <CAGRGNgV_4X3O-qo3XFGexi9_JqJXK9Mf82=p8CQ4BoD3o-Hypw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGRGNgV_4X3O-qo3XFGexi9_JqJXK9Mf82=p8CQ4BoD3o-Hypw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +76,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 09 Jun 2025 17:05:04 +0200, Patrice Chotard wrote:
-> As ospi reset is consumed by both OMM and OSPI drivers, use the reset
-> acquire/release mechanism which ensure exclusive reset usage.
+On Mon, Jun 09, 2025 at 06:15:24PM +1000, Julian Calaby wrote:
+> Hi Eric,
 > 
-> This avoid to call reset_control_get/put() in OMM driver each time
-> we need to reset OSPI children and guarantee the reset line stays
-> deasserted.
+> On Sun, Jun 8, 2025 at 6:07 AM Eric Biggers <ebiggers@kernel.org> wrote:
+> >
+> > This series is also available at:
+> >
+> >     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git lib-crc-arch-v2
+> >
+> > This series improves how lib/crc supports arch-optimized code.  First,
+> > instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
+> > will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
+> > crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
+> > functions (e.g. crc32c_base()) will now be part of a single module for
+> > each CRC type, allowing better inlining and dead code elimination.  The
+> > second change is made possible by the first.
+> >
+> > As an example, consider CONFIG_CRC32=m on x86.  We'll now have just
+> > crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
+> > were already coupled together and always both got loaded together via
+> > direct symbol dependency, so the separation provided no benefit.
+> >
+> > Note: later I'd like to apply the same design to lib/crypto/ too, where
+> > often the API functions are out-of-line so this will work even better.
+> > In those cases, for each algorithm we currently have 3 modules all
+> > coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
+> > sha256-x86.ko.  We should have just one, inline things properly, and
+> > rely on the compiler's dead code elimination to decide the inclusion of
+> > the generic code instead of manually setting it via kconfig.
+> >
+> > Having arch-specific code outside arch/ was somewhat controversial when
+> > Zinc proposed it back in 2018.  But I don't think the concerns are
+> > warranted.  It's better from a technical perspective, as it enables the
+> > improvements mentioned above.  This model is already successfully used
+> > in other places in the kernel such as lib/raid6/.  The community of each
+> > architecture still remains free to work on the code, even if it's not in
+> > arch/.  At the time there was also a desire to put the library code in
+> > the same files as the old-school crypto API, but that was a mistake; now
+> > that the library is separate, that's no longer a constraint either.
 > 
-> [...]
+> Quick question, and apologies if this has been covered elsewhere.
+> 
+> Why not just use choice blocks in Kconfig to choose the compiled-in
+> crc32 variant instead of this somewhat indirect scheme?
+>
+> This would keep the dependencies grouped by arch and provide a single place to
+> choose whether the generic or arch-specific method is used.
 
-Applied to
+It's not clear exactly what you're suggesting, but it sounds like you're
+complaining about this:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+    config CRC32_ARCH
+            bool
+            depends on CRC32 && CRC_OPTIMIZATIONS
+            default y if ARM && KERNEL_MODE_NEON
+            default y if ARM64
+            default y if LOONGARCH
+            default y if MIPS && CPU_MIPSR6
+            default y if PPC64 && ALTIVEC
+            default y if RISCV && RISCV_ISA_ZBC
+            default y if S390
+            default y if SPARC64
+            default y if X86
 
-Thanks!
+We could instead make each arch be responsible for selecting this from
+lib/crc/$(SRCARCH)/Kconfig, which lib/crc/Kconfig would then have to include.
+But I don't think the small bit of additional per-arch separation would be worth
+the extra complexity here.  Something similar applies to lib/crc/Makefile too.
 
-[1/1] spi: stm32-ospi: Make usage of reset_control_acquire/release() API
-      commit: cf2c3eceb757e3f28e6f1034f9bc178e1535f5cc
+This patchset strikes a balance where the vast majority of the arch-specific CRC
+code is isolated in lib/crc/$(SRCARCH), and the exceptions are just
+lib/crc/Makefile and lib/crc/Kconfig.  I think these exceptions make sense,
+given that we're building a single module per CRC variant.  We'd have to go
+through some hoops to isolate the arch-specific Kconfig and Makefile snippets
+into per-arch files, which don't seem worth it here IMO.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> It would also allow for alternatives if that ever becomes a thing and
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+If you mean one arch with multiple alternative implementations of a particular
+CRC variant, that already exists for many of the architectures.  They just build
+in as many as can be, and the best one is chosen at boot or module load time.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+But that's existing behavior, unchanged by this patchset.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+> compile testing of the arch-specific variants if that even offers any
+> actual value.
 
-Thanks,
-Mark
+They all use instructions specific to the corresponding arch, so I don't think
+any of them would be compatible with COMPILE_TEST.
 
+- Eric
 
