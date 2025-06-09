@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BEAC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 20:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CFEC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 20:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=excqZAKj1fpIXuOa842Ci3saNJX9RPSkBqQktvDHT+A=; b=IROt7axHOjVJSljd3vX3J6ZO2F
-	AZ7e/uGKDVW4/Ajw8ODctb/Tda4MhnWNc6YGVLYHSbdWxMWxSxGelKODrxRjOmSpN/I3w8OjIk7yo
-	MG84g/8dZZbObQ6okW9DtAd0QYoMbd2zdLvAp1F/f0QgrJ6bdiV19WI3xDb11p+zI6uWgHfTY5SDf
-	Q6DQfDrk38QAKZLK7XudAPLAhDYxyh+HNkIW/xnpqnissiidjxDvLyIByILvphFK4Fja8sHBCdoPS
-	rJPe0xo7AHMVq6dpYd3uc0Rk1pZGFp30jG+hCOSbn0Z7h0entUQ/apPR6HD633uuvx1fzP/POLR1u
-	8l5r/biw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HAUEi/41KnReRsulb+HDrztyfSA7vWns3JFO7b+pFLM=; b=MOfhpZemU1/DLxykn4Q2jDAyg4
+	mEX9qGEculm84+XT81mNA0FViA4U+WHVuP07X42aENnYb0oMoPILxMlZ7D8p3DEowqIELYz2I69O6
+	QHO8V0D9RnkR9Fnm1Vi/tI2HVcR+ECHCTbRLf5ifYzudIjv5a8KDLgM/UsBUlp1xUNQM4qQlhwFVr
+	SdOpIzXtFPrNJtqVDAixI1NtiYQQ9XHKggmlt7nZsqZP41MRD63ZzZPNcNPyKMaZbuWZGRp6gZo6s
+	psxQXwwRczYWwJeZ3CGpP6jy485D1A20RY9DBnie8q+TS0JrPqjWQQzU6Vcj47cVWCMmlLTkcNbsp
+	emxJmKkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjAZ-000000059uw-03Lx;
-	Mon, 09 Jun 2025 20:32:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uOjHZ-00000005AlH-22wb;
+	Mon, 09 Jun 2025 20:39:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOj7D-000000059il-0Zlc;
-	Mon, 09 Jun 2025 20:29:08 +0000
+	id 1uOjFE-00000005AL7-2sh4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 09 Jun 2025 20:37:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=HAUEi/41KnReRsulb+HDrztyfSA7vWns3JFO7b+pFLM=; b=ISKQFieySo2w6yc400HpUFdb8Y
+	tFXzzq4vLNYd/wdKst5vwiN24Eu22kTuP/MavrUGEV5g79QNhuSWyPxPk6aLvRBnBXe4zTpjqperG
+	PVeD9ch8nnAnvQff7ei6FDrTRiylCkir+bHFOcX3cIB15olr9K9uQzVgM4J0l9be9daQLu8odd9Qo
+	aX055i+TqJovssSUT2MsPpBhdcO8eKfzHbSjH9p9kd6RhY0NTvvW50rpT3wv3QPHMdxWT36uIpJN1
+	0TO/bQt+DgYurN8rdJhrOfbBJeRTqOGGQr/IcpKEvIV42NnyxFLGbxSE00QiqKNR+PHVyU/fG50dw
+	59jDiqog==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOjFB-00000001f9q-3FiK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 20:37:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6E73A50B92;
-	Mon,  9 Jun 2025 20:29:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12EB2C4CEEB;
-	Mon,  9 Jun 2025 20:29:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 404AF5C4CFF;
+	Mon,  9 Jun 2025 20:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EDC5C4CEEB;
+	Mon,  9 Jun 2025 20:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749500945;
-	bh=ynv6xDu7Wvta+MTxVq8GsI3jIBgL0uLRSQMAaRThjp0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=pdSMrzR/4NX6Gx6Y5aZXBlfcEd4ruoj6qJzMwxt/W8wN9a7Dc1euf/MsBxGnnwRnZ
-	 R/SsvMqjvvezL/hOcW/jA+iTYw2GAHN+WMuJjqYJECbCZKm06XK/aBNASgx7E3sSVT
-	 Mzy0sLR89if+dRrRvGq4a/vwxrYaMdGhH3MG7PbDA/i5k2bxrdC9tdVZAzJII/gWq6
-	 TzeHs7t3B2NN9r4VKN6P5htJFojtDfk4YJSAf1efv2859RC0+k6XBPrCZgYIUIV2zn
-	 WlqOb9ANGkSpmiCKM4VUXhiEYshkTI3RGiHz9d0AWmRMHPAcuYf1KC7Cw9piI7v99I
-	 InjB2cPKp1AOQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 09 Jun 2025 22:28:40 +0200
-Subject: [PATCH net-next] net: airoha: Add PPPoE offload support
+	s=k20201202; t=1749501436;
+	bh=9xyeqjqPV2Bdmkwjgp/CbUzX3IxOrEVjsENrNl37A1I=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PREvJkjXRrUTD2ohmHgu8GmoV3QmKwPa5SK4tdH9POkEkHmM7VaQBwLZMOwjHl0ml
+	 bPdnHm6VgIWECfqzsxDgcQsCNYio+m6II339JJw2C9NdOuiCwQ2CL5Pt3+xfwhwhQZ
+	 fP7l4Ac/Byl16SRTSFBuwAFu3TCMLxwUWwlpj/LFnglVT3HmVovWF0LbAKSzkVxCaK
+	 eT59MYYLqUG6F1K1NtiYqHeTQWXcQo3xb1fklSfE0nObeqx6nnB3wSl9fnOQ4IBDEf
+	 Jey2HkaNKc/krBTRONo6wA15qaF1Z2h3/booD7FF0Rt2sx3hJuTK8dAw9Je/173nWV
+	 5UKtGuBw7BdbA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: broadcom: northstar2: Drop GIC V2M "interrupt-parent"
+Date: Mon,  9 Jun 2025 15:37:04 -0500
+Message-ID: <20250609203705.2852500-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250609-b4-airoha-flowtable-pppoe-v1-1-1520fa7711b4@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAPdDR2gC/32NQQ6CMBBFr0Jm7Zi2tgZceQ/DouAAEwltpgQ1h
- Ltbce/yveS/v0IiYUpwKVYQWjhxmDLoQwHt4KeekO+ZwSjjlNUnbCx6ljB47MbwnH0zEsYYA6F
- pdVV1TrmKPOR9FOr4tbdvdeaB0xzkvV8t+mt/VWf+VReNCktXWqu0O5ekrg+SicZjkB7qbds+r
- 0nOv8MAAAA=
-X-Change-ID: 20250413-b4-airoha-flowtable-pppoe-2c199f5059ea
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_132907_316323_F921DB61 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250609_213722_243259_1588547A 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,95 +90,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce flowtable hw acceleration for PPPoE traffic.
+The default interrupt parent is a parent node containing
+"#interrupt-cells", so an explicit "interrupt-parent" is not necessary.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Fixes these dtschema warnings:
+
+(arm,gic-400): v2m@70000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+(arm,gic-400): v2m@60000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+(arm,gic-400): v2m@50000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+(arm,gic-400): v2m@40000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+(arm,gic-400): v2m@30000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+(arm,gic-400): v2m@20000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+(arm,gic-400): v2m@10000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+(arm,gic-400): v2m@0: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
+
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_ppe.c | 31 +++++++++++++++++++++++--------
- 1 file changed, 23 insertions(+), 8 deletions(-)
+ arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi | 8 --------
+ 1 file changed, 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 9067d2fc7706ecf489bee9fc9b6425de18acb634..50d816344b1f8c1ed639de357f62e761ede92f05 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -232,6 +232,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 	      FIELD_PREP(AIROHA_FOE_IB1_BIND_UDP, l4proto == IPPROTO_UDP) |
- 	      FIELD_PREP(AIROHA_FOE_IB1_BIND_VLAN_LAYER, data->vlan.num) |
- 	      FIELD_PREP(AIROHA_FOE_IB1_BIND_VPM, data->vlan.num) |
-+	      FIELD_PREP(AIROHA_FOE_IB1_BIND_PPPOE, data->pppoe.num) |
- 	      AIROHA_FOE_IB1_BIND_TTL;
- 	hwe->ib1 = val;
+diff --git a/arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi b/arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi
+index 5a4b81faff20..9888a1fabd5c 100644
+--- a/arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi
++++ b/arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi
+@@ -367,7 +367,6 @@ gic: interrupt-controller@65210000 {
  
-@@ -281,33 +282,42 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 		hwe->ipv6.data = qdata;
- 		hwe->ipv6.ib2 = val;
- 		l2 = &hwe->ipv6.l2;
-+		l2->etype = ETH_P_IPV6;
- 	} else {
- 		hwe->ipv4.data = qdata;
- 		hwe->ipv4.ib2 = val;
- 		l2 = &hwe->ipv4.l2.common;
-+		l2->etype = ETH_P_IP;
- 	}
+ 			v2m0: v2m@0 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x00000 0x1000>;
+ 				arm,msi-base-spi = <72>;
+@@ -376,7 +375,6 @@ v2m0: v2m@0 {
  
- 	l2->dest_mac_hi = get_unaligned_be32(data->eth.h_dest);
- 	l2->dest_mac_lo = get_unaligned_be16(data->eth.h_dest + 4);
- 	if (type <= PPE_PKT_TYPE_IPV4_DSLITE) {
-+		struct airoha_foe_mac_info *mac_info;
-+
- 		l2->src_mac_hi = get_unaligned_be32(data->eth.h_source);
- 		hwe->ipv4.l2.src_mac_lo =
- 			get_unaligned_be16(data->eth.h_source + 4);
-+
-+		mac_info = (struct airoha_foe_mac_info *)l2;
-+		mac_info->pppoe_id = data->pppoe.sid;
- 	} else {
--		l2->src_mac_hi = FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID, smac_id);
-+		l2->src_mac_hi = FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID, smac_id) |
-+				 FIELD_PREP(AIROHA_FOE_MAC_PPPOE_ID,
-+					    data->pppoe.sid);
- 	}
+ 			v2m1: v2m@10000 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x10000 0x1000>;
+ 				arm,msi-base-spi = <88>;
+@@ -385,7 +383,6 @@ v2m1: v2m@10000 {
  
- 	if (data->vlan.num) {
--		l2->etype = dsa_port >= 0 ? BIT(dsa_port) : 0;
- 		l2->vlan1 = data->vlan.hdr[0].id;
- 		if (data->vlan.num == 2)
- 			l2->vlan2 = data->vlan.hdr[1].id;
--	} else if (dsa_port >= 0) {
--		l2->etype = BIT(15) | BIT(dsa_port);
--	} else if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
--		l2->etype = ETH_P_IPV6;
--	} else {
--		l2->etype = ETH_P_IP;
-+	}
-+
-+	if (dsa_port >= 0) {
-+		l2->etype = BIT(dsa_port);
-+		l2->etype |= !data->vlan.num ? BIT(15) : 0;
-+	} else if (data->pppoe.num) {
-+		l2->etype = ETH_P_PPP_SES;
- 	}
+ 			v2m2: v2m@20000 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x20000 0x1000>;
+ 				arm,msi-base-spi = <104>;
+@@ -394,7 +391,6 @@ v2m2: v2m@20000 {
  
- 	return 0;
-@@ -957,6 +967,11 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
- 		case FLOW_ACTION_VLAN_POP:
- 			break;
- 		case FLOW_ACTION_PPPOE_PUSH:
-+			if (data.pppoe.num == 1 || data.vlan.num == 2)
-+				return -EOPNOTSUPP;
-+
-+			data.pppoe.sid = act->pppoe.sid;
-+			data.pppoe.num++;
- 			break;
- 		default:
- 			return -EOPNOTSUPP;
-
----
-base-commit: 2c7e4a2663a1ab5a740c59c31991579b6b865a26
-change-id: 20250413-b4-airoha-flowtable-pppoe-2c199f5059ea
-
-Best regards,
+ 			v2m3: v2m@30000 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x30000 0x1000>;
+ 				arm,msi-base-spi = <120>;
+@@ -403,7 +399,6 @@ v2m3: v2m@30000 {
+ 
+ 			v2m4: v2m@40000 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x40000 0x1000>;
+ 				arm,msi-base-spi = <136>;
+@@ -412,7 +407,6 @@ v2m4: v2m@40000 {
+ 
+ 			v2m5: v2m@50000 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x50000 0x1000>;
+ 				arm,msi-base-spi = <152>;
+@@ -421,7 +415,6 @@ v2m5: v2m@50000 {
+ 
+ 			v2m6: v2m@60000 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x60000 0x1000>;
+ 				arm,msi-base-spi = <168>;
+@@ -430,7 +423,6 @@ v2m6: v2m@60000 {
+ 
+ 			v2m7: v2m@70000 {
+ 				compatible = "arm,gic-v2m-frame";
+-				interrupt-parent = <&gic>;
+ 				msi-controller;
+ 				reg = <0x70000 0x1000>;
+ 				arm,msi-base-spi = <184>;
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.47.2
 
 
