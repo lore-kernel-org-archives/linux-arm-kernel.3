@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D99CC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 22:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9569C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 22:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0LMCevDXMHdSbreINi9ovgK2lLQA7N+OHtW2WG25EAI=; b=I8gC2i4cLUt2S+pmvxO/afHcDK
-	A2UkhZBWZ55EA6nID3RJxFGkgiU9I0H/iZ2ivxWOa5NHJlueXjHPZZAbqo8fXj3zhMEDFAiE4WvRy
-	MzEShPLzV7S34gAj3LJSIuWzOJFQ490vj+CDr7erH4Q0dN9Uzxo6O8TLU+YI10Q7Cf02+UCQY1uXW
-	n2uAouv4UWZ5vYn+6Nt3zwwtRMPZWNZ+ysOTwKztJdXsk+a0UZDmzapE2VINzo5bYPKyui0XM4R06
-	uIT7bGvbAk8SYmzjy4hYd7HvCv5pZPteZUJ+lSPSI4N+8NFs2ESseQXfhi0gT/duRXdExOqOKUGT3
-	K+RqDcnQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vh/JtGXJq1ScSanttjAc4pgnb9sqVVMcQN566gVE5Cg=; b=jKAZ31wZPWXgzTnwHkm5+HsZrW
+	cbaJlxBKS2a0sTQgsE3IIxLXuJoAAvyhxui64KVe2f2d9MK6Ahw9y4qY18Xni2WQMBXdD5AeIQQ+L
+	xUHsqoeucs4UXaZdcl2b+Hqi43uNqzsDYWCNPDuRQINZ7680xJpA7qCB1i7lL3zgHttHqs09bJwpI
+	VS/Zk2jwmIxIkvK9d97Qavq79jHjYibLDcsK9OzEnhkRRo7z1UGEGhF4rzFIl0qnOB2V35bm0L7j/
+	sshH7AtrqFgfPX58FP5NQZBxVL73j3eFGDvOGm+pYoLkAlqwBT72Uy3lRwQ2XLN4i65ipB90R6Mca
+	OK0L5CNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOkq4-00000005L06-26mS;
-	Mon, 09 Jun 2025 22:19:32 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1uOksD-00000005LAB-3BI2;
+	Mon, 09 Jun 2025 22:21:45 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOknu-00000005Kfb-1PrD
+	id 1uOknx-00000005KgZ-11xX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 22:17:19 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-235e1d4cba0so38316115ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 15:17:17 -0700 (PDT)
+	Mon, 09 Jun 2025 22:17:22 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b26f7d2c1f1so4456666a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 15:17:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1749507437; x=1750112237; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=0LMCevDXMHdSbreINi9ovgK2lLQA7N+OHtW2WG25EAI=;
-        b=XUwjI405qzcsgbyeQ3q5cLPHDxIR4YLnSDnt5WQ6/wTr6sxDjPWPvz2s/3xqd4NzPq
-         jgA4WMVZrmVGxPeUICStJqQ0Utdxgzyve1iHaZucJzKQawrv9e84NnQGHSqbcH0R/nvj
-         aEXYwGbWxjW8wHWNOOMA/rCefZL6IYDX7/QZ4=
+        d=broadcom.com; s=google; t=1749507440; x=1750112240; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vh/JtGXJq1ScSanttjAc4pgnb9sqVVMcQN566gVE5Cg=;
+        b=hYdUwBvcCcmXeNQUnJHdODuV9UDo0sXG77X1yqUydJLNmVJ5BJlw3crKtVgeyor6KA
+         ObxksunGaSFf9m1X5zlaW+xt8hMr6PWKEkknpoNuaGJtaWrf5Na1TPf/8T2qFwHuCqOH
+         h4l60hIi4wzjUBTfIxLyuj028fBTPCbCB8ewk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749507437; x=1750112237;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0LMCevDXMHdSbreINi9ovgK2lLQA7N+OHtW2WG25EAI=;
-        b=sNIDtEg2IDEsOe2RC/pSzKHEJoSliExxaVgt09zxbjLVzc2C7ihOYLfJJ1kTcsfAqM
-         prm2g/4zeLYKsN9ocdbVNTZpdYiVRqKs4bNlmbYua6uoDkeXawe0GmFqHZwRRBxZacfg
-         zAa91WUg110gniYCN6jO0PMgPfA51KVvOG2L9e/khkGEH1Ip3NO/yu4jf8juAQdLerpt
-         +BlZ118XJsAllSPrt8mcmJUpbyQohxbROelNRbu8ZKMXgTBLrZC66fzK2OYYeLMvswsG
-         XW1eZAMkU/5fApTDc4DKArriz+aq1tk79FLQY5G3q3mGPE8wWZCIFe+cSQ0twGL0JfuX
-         2M3g==
-X-Forwarded-Encrypted: i=1; AJvYcCVLeTtc1VeLeXKiMSObRuq3aMlsdFrM50kylXUn4CDKuR9n71Z4nqrT9xwqZcOyoQymZ/hZqPbDYoBw91aXUurf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7kU/Xt31Trs2hOSRaTsKY82bQgtdYQAVRwkIo+BHJUy+xUTpk
-	uuCKOpqT5kkc83ZgeXhXmPQ2p86Zd6bdXTG1yW6fnPFSwYpF0y5A229pVahPrNH6tw==
-X-Gm-Gg: ASbGnctrmOwA320cFM225DR1Ibuxf/wFLHtaCt/vzx2/47PneXsz6xcpnx/vxxcR1k/
-	2gcHLm+7jyWljUSvIizc9yJlB9mruqExpJhJkmSkwu/fooNAtbli//GVi+QKevey08HbMfAdcw/
-	KrqDKrb4wZo30I62AMnoBtZPiAhyno6gqNahIbwjvItO4wX/s+ScP+EQQviOQ3GEQ3L6AmX1Edm
-	sdDCiPTba3xcCCTnn/fVpGpxhroebSDx9PFL8iNpXtmLzZsu3+oKFlgKvuSYW9xn3BMsCvNWe4p
-	ABXblRsGUWxBDAGRiBKWZmnQsdAC/458Y5wXaQNA20FZllF2OdW2an1uH8Ax9wlfijelbGkeCRp
-	1rNMCtBcJsp2At6nXPv/D+l/tThcHBxsWGtabXlBv2g==
-X-Google-Smtp-Source: AGHT+IFUjmcbbkIOR7TTH9wu7tiMbf9RN0Y6LSdxDSg6pkLLd4mf/C1TRHZZ8yuUsvW2madDoeJTXg==
-X-Received: by 2002:a17:902:ea0f:b0:234:e0c3:8406 with SMTP id d9443c01a7336-23601cf42b2mr215945945ad.1.1749507437017;
-        Mon, 09 Jun 2025 15:17:17 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749507440; x=1750112240;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vh/JtGXJq1ScSanttjAc4pgnb9sqVVMcQN566gVE5Cg=;
+        b=Jt9jZrRi0DhaQXfUG9rM12L+IRI6Sv0asA6l4e1PxCqgxTAUFAehO62jb/XpkB2bdh
+         KfAr/1qwQT4FPlfnaFTRdL5WXLrJuRdBnVUsNdkNtaDFIcPclMdwFnIEgjjHusy2Igg9
+         cCzTXcMJgFvQ4YcmP+PnDHnnFqcL1Yr6rG4mVav6oRRCLLtQOkhMMuyZoCaVhy+m894d
+         H9pBnEmRzMnk706u+rCZnynu4W2c6iN53IMgV6Sc/s9HtykApYOJyBLK6ZzC7X26eJyW
+         gvB62lPQHmZRR03Pn4itjBNffmrsdZas2hMjSUj/P2rXVx4ChetOZTp7pott2/0anVsc
+         +YTA==
+X-Forwarded-Encrypted: i=1; AJvYcCVzOsVVF3Wm+kx9sJJIbnoPZaBq4gDQdenSmJ83fP4TbwTZL2JQhmftdwkly+4uuTogXBzl4JOp7+3gEbJ/S1Yv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIbEeaP5Ao/iVszlXo0pO0ZCXQiLHxmsjoDX5EI+QBw628dxxg
+	x1aPsGQ4nJ/GJlmmaPT2Hfw2e43U7KscqDm75QpbQHd6z4P96NXk2s7BEZlrVnABoA==
+X-Gm-Gg: ASbGncs+cNR7462es1VV8doZ/trgTElbAZirfK0KcniFl6xVTBlvV87FVU3XAMSZu/H
+	CC1PO0JfiBpSFb3zqxxnDg82WtKzcHzeQKBkCpVdamPMq8hAWtgihROF4tDoYjgCpi8km0s4ztz
+	rM2zRl2kl1Y341PGVBHKT/kDlwiTSqG48UNJ1dD7Yi20qISC5Kh4mJOriInIwktB03ZCPP2I5Q7
+	P1snfpZ3LoI7oCi+rgdzk6nkZpz/YZ3xIm1sNEHgu5oLF3Tj9GsN0x7PTEVwL+FSFozUxff2FH8
+	mCKVofLgaID449J2UzdozZVppu+4Yhy4CoR9D5fcZbWrORsDr865XWwmByuH7VzlDCthw+6i3sZ
+	DH6GUm4+8yy/kqIuzatN25PgDD8r15GrcIxZUqhXdJg==
+X-Google-Smtp-Source: AGHT+IGu+nDuRxQ9N/1g/F5ZQ5bigX27pmvAno5gKj+c/t7BgQSFCAow3ysCS4pqkXEmCzwSGjxbww==
+X-Received: by 2002:a17:90b:3c8b:b0:311:f99e:7f4a with SMTP id 98e67ed59e1d1-313476822a8mr16779583a91.26.1749507440399;
+        Mon, 09 Jun 2025 15:17:20 -0700 (PDT)
 Received: from stbsrv-and-02.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23603078d65sm59290415ad.5.2025.06.09.15.17.14
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23603078d65sm59290415ad.5.2025.06.09.15.17.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 15:17:16 -0700 (PDT)
+        Mon, 09 Jun 2025 15:17:19 -0700 (PDT)
 From: Jim Quinlan <james.quinlan@broadcom.com>
 To: linux-pci@vger.kernel.org,
 	Nicolas Saenz Julienne <nsaenz@kernel.org>,
@@ -73,20 +74,28 @@ To: linux-pci@vger.kernel.org,
 	bcm-kernel-feedback-list@broadcom.com,
 	jim2101024@gmail.com,
 	james.quinlan@broadcom.com
-Cc: Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list),
-	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE)
-Subject: [PATCH 0/3] PCI: brcmstb: Include cable-modem SoCs
-Date: Mon,  9 Jun 2025 18:17:03 -0400
-Message-ID: <20250609221710.10315-1-james.quinlan@broadcom.com>
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH 1/3] dt bindings: PCI: brcmstb: Include cable-modem SoCs
+Date: Mon,  9 Jun 2025 18:17:04 -0400
+Message-ID: <20250609221710.10315-2-james.quinlan@broadcom.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250609221710.10315-1-james.quinlan@broadcom.com>
+References: <20250609221710.10315-1-james.quinlan@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_151718_401068_79FF5DBD 
-X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-CacheID: sfid-20250609_151721_288829_99E934E3 
+X-CRM114-Status: UNSURE (   8.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,21 +111,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At Broadcom, the Cable Modem group and the Settop Box group use the same
-PCIe RC driver for multiple chips.  This series adds the CM SoCs to the
-compatibility list as well as some CM-specific code.
+Add four Broadcom Cable Modem SoCs to the compatibility list.
 
-Jim Quinlan (3):
-  dt bindings: PCI: brcmstb: Include cable-modem SoCs
-  PCI: brcmstb: Refactor indication of SSC status
-  PCI: brcmstb: Enable Broadcom Cable Modem SoCs
+Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+---
+ Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
- .../bindings/pci/brcm,stb-pcie.yaml           |   4 +
- drivers/pci/controller/pcie-brcmstb.c         | 193 ++++++++++++++----
- 2 files changed, 159 insertions(+), 38 deletions(-)
-
-
-base-commit: cfc4ca8986bb1f6182da6cd7bb57f228590b4643
+diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+index c4f9674e8695..5a7b0ed9464d 100644
+--- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+@@ -15,6 +15,9 @@ properties:
+       - enum:
+           - brcm,bcm2711-pcie # The Raspberry Pi 4
+           - brcm,bcm2712-pcie # Raspberry Pi 5
++          - brcm,bcm3162-pcie # Broadcom DOCSIS 4.0 CMTS w/ 64b ARM
++          - brcm,bcm3390-pcie # Broadcom DOCSIS 3.1 CM w/ 32b ARM
++          - brcm,bcm3392-pcie # Broadcom DOCSIS 3.1 CM w/ 64b ARM
+           - brcm,bcm4908-pcie
+           - brcm,bcm7211-pcie # Broadcom STB version of RPi4
+           - brcm,bcm7216-pcie # Broadcom 7216 Arm
+@@ -23,6 +26,7 @@ properties:
+           - brcm,bcm7435-pcie # Broadcom 7435 MIPs
+           - brcm,bcm7445-pcie # Broadcom 7445 Arm
+           - brcm,bcm7712-pcie # Broadcom STB sibling of Rpi 5
++          - brcm,bcm33940-pcie # Broadcom DOCSIS 4.0 CM w/ 64b ARM
+ 
+   reg:
+     maxItems: 1
 -- 
 2.43.0
 
