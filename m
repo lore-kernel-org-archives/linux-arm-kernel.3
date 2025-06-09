@@ -4,88 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B89CFC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 14:08:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0825CC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 14:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5em0HjCiCNml+pK7wkeftBLKShhy+xkQwHSxQRlfmBI=; b=m75dJ/63HTszaqENFCQ7Rsefm7
-	rb1t7//SOps2x8AxD5gxMoaU3Twj620PRQ5P0dwTLNuKZrV+KX1VvcmLzcCgxALoaQk/AKw2AdZGg
-	GYLZwsWQjp72WyMMj94ueQCgmmEnR8au1HjOtzFqzgeFPPP6IB/FBiO3JjtECvbyhMfPsxysSImHx
-	x4gp0bZFRSTMjvoDELcUERjY+QwxOWHY4zTCzPGBCo9v9tEgn1B0OxajmHFKclpAFnmBgRWFPqcQ2
-	k3ruEsBY3/e4hQsI3d53xEwlZUByTWSecFivpQhLAQYx5kS29Y6odEh9n4h0Qvi+vdQisQ+5FAx66
-	TEB7ciog==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wp465GBd29bhYSADM6T0VGSuzx4l+sqGwpURc4OujX4=; b=wjn0kUJDtux4iF/rKk+Eojy3WN
+	EcGDvCkK/L7KwYaiAP2jZvy9CqbjQRiPiyXG/BKBl8KnvEMq1W47AXh0Qoa7HOc2DCBzFZ+uYU60/
+	5NhK/zX5awrI7Y+yRkAaLt5J6S8WGnrwabQufZdICtPq28NZgzsn7LiE3b166fpI+aKr484cj0GgJ
+	RYYloUXxRR+a+VRFOMkqEt32zfNHfy4FGtbK6aDsQThvY93CqeyoGEUhrrECcTFCarr7Axc+yj1Gx
+	2mrmkjkXPOJBTB4wXYT7+zL/25qTeSL/7ivFOBijVizhgkK9AxWqJhf7fVjT1Lzq5FS07JjBrBm2j
+	Banq7IiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOdAQ-00000004Lnd-1rQi;
-	Mon, 09 Jun 2025 14:08:02 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1uOdCc-00000004LzC-21e1;
+	Mon, 09 Jun 2025 14:10:18 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOd8D-00000004LSi-0KJb;
-	Mon, 09 Jun 2025 14:05:46 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4a58c2430edso47644441cf.1;
-        Mon, 09 Jun 2025 07:05:44 -0700 (PDT)
+	id 1uOd9s-00000004Lit-0bwZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 14:07:29 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a50fc819f2so3540917f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 07:07:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749477944; x=1750082744; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5em0HjCiCNml+pK7wkeftBLKShhy+xkQwHSxQRlfmBI=;
-        b=ccPUNQ/IIb90AhlXRpd1amrPl7ruZjmgELr8gnw3xpIqAUWYF4VVHa86WaU2Op7hRC
-         g/jPN6buMCJS/lT9CDeVz1KF6Og+0mXDhN0tsuPPYw3ZL5V0CinOkY7o5dODu8DdQnzq
-         mTQx1J3vNH6+PcRGYek9i+8Md6Fz+XjxiB3JC9H+Ug3beKodmmos0/nleJ/1HmgZ3w91
-         AI4D71KqmN3gofOzzb11AC5cSITkZrYKUibcigxC6tM82lYkbCxqrLGNNo7nZ0WcZNEX
-         JvgAfpawhTTMh+bVIjq/ExK19ccJQxHjlkm1LBItSKa/Hfe4/M9P3DP6buZuLfkEoETS
-         lo0g==
+        d=gmail.com; s=20230601; t=1749478046; x=1750082846; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wp465GBd29bhYSADM6T0VGSuzx4l+sqGwpURc4OujX4=;
+        b=cY+P5USM6kuzTPI4Fj55tYN0t6cJ/b+9BE6h7DjrTNFds0MHJjp/s1rjgCpH/K0/2K
+         hPHVkpCiT06BNrcpMwM/pG0FhaQZPt5OpLdpbyvgKn9oZp1Kpi5LvYN5lsv0AlZnUgPa
+         hdaY6cH6AcxoBkna+Bj7YUBje4MRpTKHymBQlAw8WYSN/jzeNdsast6aq9QRkmcfIuGF
+         0LwQNS3OKTz4xAle2BcQa1kgmkc19gbCPre0AvCuJ5niODnsdoPVH/QdJjv3Kx8dq4Uh
+         I0IPh1Lg97fX91QVT1wZ/bRy2Uk7DZ4DU5nwmUQmurK4tbkyNsudf1l0DLEbZKdXYJwN
+         fwgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749477944; x=1750082744;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5em0HjCiCNml+pK7wkeftBLKShhy+xkQwHSxQRlfmBI=;
-        b=IlVyHvnRnHxC6oxI3oRsIMJnUR7PGT4af+Xd8Hp0I9moI+hhiu/INNt9rIZ/kKg/jq
-         nXrxVMG/dvNyyLub3HaXRwd05++0fQJrEUqj5+shU9kkwuE2l5SdmgHCS9A/9WU8V8Fc
-         mEslRf2IBZzlGGw9O6BqzlArabm1GvmiuFKJ3AuKprXLEdaT2USf8IaiymWg8vcYEYY0
-         MHRau+YffeHlgnu4XWjRFdnBtfB4pQWAx+KYeZRJMjmKiGoGkIaRtkmbyaL7aN+d7InL
-         dvr9Sksklu51NOL0WUQIWZUSXYyYbrdOFoY4HSLyqOiDEHC3Bd7oMWF7u0uZ0F5vI3Oq
-         A34A==
-X-Forwarded-Encrypted: i=1; AJvYcCVUNbPKDqf6oYgPJxpGZ9kJW2/mh/p1aHkpwzmlzh0HWFLXiI37vQuOo/zTd3aRw4TmCDjn858zhwOa1X/agM0O@lists.infradead.org, AJvYcCWTtfFlpFtvUN9s7Ecv4xZ1FXh3YwMQ3Y7+PRh9//XgizXUCCJCrWnWmViFjrL3RkdnwHXnMIWzoMAyRsB9poc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkWJGD1uq8bQ7rP6QZ2aRIpRkw0Pw3w60dKcVgTrcVTN6ugOZ/
-	UMsqX2Ph7wAJlept130Gy+Sty1V5sbfaWJ7RtNRe9jzCzD7HICQkArk9AppvyW+3NGXeiMBfshj
-	eUW/R1SlalPXNWrV9zzFmnujgZwzIMkA=
-X-Gm-Gg: ASbGnct7OZStCqe8otkUMBuoZzPixVQ2ef4KamNElZixxAcAFyHfTkjxDogjC+M/79a
-	Z9OwilkdFMTrNPJDE1OIlz/tNONH8I8KsyA+s4OSp47tMgEjMNOCPM5iGV6ggKHMClo+LZxv8SU
-	w6M3ktZWj2m1qsWrKGX5AJnVh5an0rCYY=
-X-Google-Smtp-Source: AGHT+IElRSJZYvwLgNDSXxeUFeCJ4WGpztDtPuM0pyb0/v8zrLeTq6YP4S0P3QPuP0k+uFuxoBLonx/Q+SmnlY/xFZw=
-X-Received: by 2002:a05:622a:4d08:b0:4a5:99a8:eb21 with SMTP id
- d75a77b69052e-4a6f054f796mr16515991cf.22.1749477943641; Mon, 09 Jun 2025
- 07:05:43 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250603-sige5-updates-v1-0-717e8ce4ab77@gmail.com>
- <20250603-sige5-updates-v1-1-717e8ce4ab77@gmail.com> <6656934.DvuYhMxLoT@workhorse>
- <CABjd4Yx05SCm+03jWbsEP-A5AuhL14wLj=+VdKyQgqMbnxi3xQ@mail.gmail.com>
- <512E950E-E8CB-443B-8E47-79F073D217E8@gmail.com> <CABjd4YxGQP=rH15EX12w36b7+82Dedf+rVH3v5V6gBwNv3V3iw@mail.gmail.com>
- <90218D7B-0CF5-4F5D-969A-909A44E6044F@gmail.com>
-In-Reply-To: <90218D7B-0CF5-4F5D-969A-909A44E6044F@gmail.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 9 Jun 2025 18:05:32 +0400
-X-Gm-Features: AX0GCFuWBU5QiUTtg-6bvXrLknfduxLhtbNHfqrkbx632DneSAm8rotxzSeH1rs
-Message-ID: <CABjd4Yw3FyVS0MBk2WdWKb24vkqrb09Tx3tj6B-xsmG1-Csk7w@mail.gmail.com>
-Subject: Re: [PATCH 1/4] arm64: dts: rockchip: list all CPU supplies on ArmSoM Sige5
-To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+        d=1e100.net; s=20230601; t=1749478046; x=1750082846;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wp465GBd29bhYSADM6T0VGSuzx4l+sqGwpURc4OujX4=;
+        b=AZRuuuq9yqkl/BvxqvjBJev1VKLbQxO0id4eSBgivv6O5olBbuNnALEV7znDYAv7/h
+         eRTjct7YWPbFrmZefFA+GjZOjEa5j8qHVAfEJ8v6o8r4GCMeY6/fOmGkKcIZbaT7Aqjd
+         YttVZ8b3c0giuIWZEtV6dWwB5i6a1O42Ar4+B0FgsoBTSKp0hCswMdCRbLobfPfUHx5G
+         msnxMP2Ev3kzlUe/GMm/Ouz3AHTQMZq3YFkoiuTXSFr1Khtd/8HMsq1DS3zts7dEVnyM
+         bevwp1fJwIMMY/F/vxmP9EeQcTmGDV7V7ZNToP/ZRudHXXt6xSDU7tbal7lgrw9ehpkD
+         H1Qg==
+X-Forwarded-Encrypted: i=1; AJvYcCVJjvmmOVtxLqMoBXBIaFhX9zwxRqfkWOF6PNxIujBOpKTAOcGFc19MTWXyupGmLdfzvLB9XLL/EvZMIpVEdjvY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwazOdHuKu54FUDRnSHvdYssk0xlRyZMDxlmanAjwRli3qV+IYY
+	mb8vUhXP268k9EyB41wuoMx6F4lYqZcA4smltpMcwdQsorUd3sR7yL/VllBXi8tN
+X-Gm-Gg: ASbGnculDawErbv0AvKCfIe7xc0DbSveC6WLSxtw0Vj1xlOsDiixU2C6d4ZcQtqLUx2
+	+ZgwjTnh83inhNh/CSmJspHKjNswfUm3ruoCLyAEgOPH5HjXuD24Ttrqcp/8zMOBVnwoiEAYMLO
+	rzLd0dcpBrizD5cDEnxaS5QwerpKrWnF5J7C9PExrt84iLHAzKi/XHw4WSYTdVkQbAuaTHdlXp7
+	LWH+VAad15SZaTbQDcUDBAyTSocedNARZfks9FgGgisJvTTKQdqKioSNBUfdaaZFla+lkiycpHR
+	Z2Sds5DthsTr53rhCD03fr6atpkvV723m6LNrhybhNYZVOSHYrLEnxfhxZQ2xM5jRK0ApwCbz9m
+	XUlrSld2v7I6uEmPxqBxyRRVVXiA6oNWz/og=
+X-Google-Smtp-Source: AGHT+IG0REgGH1fHd+dkuiR3Fo6WREiMEfAZe6OZVVichjBI/5GBIj0dx+h9EBokmXQjt5fQUEHrXA==
+X-Received: by 2002:a05:6000:401e:b0:3a4:fb33:85ce with SMTP id ffacd0b85a97d-3a531caf7f1mr11598279f8f.46.1749478045626;
+        Mon, 09 Jun 2025 07:07:25 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-70-53-177.cust.vodafonedsl.it. [93.70.53.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53229d9e9sm9803060f8f.13.2025.06.09.07.07.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Jun 2025 07:07:25 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Cc: andrew@lunn.ch,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1] arm64: dts: freescale: imx8mp-var-som: Add EQoS support with MaxLinear PHY
+Date: Mon,  9 Jun 2025 16:06:42 +0200
+Message-ID: <20250609140643.26270-1-stefano.radaelli21@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_070545_117903_D080CE1C 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20250609_070728_184657_0B30E5C9 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,107 +105,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 8, 2025 at 11:24=E2=80=AFAM Piotr Oniszczuk
-<piotr.oniszczuk@gmail.com> wrote:
-> > Wiadomo=C5=9B=C4=87 napisana przez Alexey Charkov <alchark@gmail.com> w=
- dniu 5 cze 2025, o godz. 15:42:
-> >> Alexey,
-> >> I see you are using rk3576 board like me (nanopi-m5)
-> >> Have you on your board correctly working cpu dvfs?
-> >> I mean: [1][desired clocks reported by kernel sysfs are in pair with [=
-2[]cur clocks?
-> >> In my case i see mine cpu lives totally on it=E2=80=99s own with dvfs:
-> >
-> > Hi Piotr,
-> >
-> > I haven't tried to validate actual running frequencies vs. requested
-> > frequencies, but subjective performance and power consumption seem to
-> > be in line with what I expect.
->
-> well - my subjective l&f is that  - currently - my rk3576 seems =E2=80=9E=
-slower" than i.e. 4xA53 h618.
+Enable the EQoS Ethernet controller on the i.MX8MP VAR-SOM with the
+integrated Maxlinear MXL86110 PHY. The PHY is connected to the EQOS
+MDIO bus at address 4.
 
-In my experience, native compilation of GCC 14 using 8 threads on
-RK3576 (mainline with passive cooling and throttling enabled): 2 hours
-6 minutes, on RK3588 (mainline with passive cooling via Radxa Rock 5B
-case and throttling enabled but never kicking in): 1 hour 10 minutes
+This patch adds:
+- EQOS controller configuration with RGMII interface.
+- Proper reset timings.
+- PHY power supply regulators.
+- RGMII pinmux configuration for all data, control and clock signals.
+- LED configuration for link status indication via the LED subsystem
+  under /sys/class/leds/, leveraging the support implemented in the.
+  mxl86110 PHY driver (drivers/net/phy/mxl-86110.c).
+  Two LEDs are defined to match the LED configuration on the Variscite
+  VAR-SOM Carrier Boards:
+    * LED@0: Yellow, netdev trigger.
+    * LED@1: Green, netdev trigger.
 
-> This directed me to investigate this issue.
-> Test run was media player (mythtv) where ui has gl effects and ui gl tran=
-sitions =E2=80=9Espeed=E2=80=9D are quite proportional to cpu speed (and gp=
-u).
-> My overall feeling is: ux is comparable to slow socs 4xA53@1.4GHz/G31. Th=
-is is with mainline atf + collabora uboot [1] and on-demand gov.
-> I done test with replacing uboot from mainline atf + collabora uboot to b=
-in. dump of vendor uboot (2017.09) and with this ux become almost as expect=
-ed (i mean comparable with i.e. rk3399).
->
-> I done test with perf gov. and
->
-> 1.collabora uboot[1] + mainline atf 2.13
-> 2.collabora uboot[1] + rockchip rkbin bl31 blob [2]
-> 3.vendor uboot (bin dump from friendlyelec ubuntu image)
->
-> [a] on vendor uboot:
-> Requested CPU4: 2304 MHz
-> Requested CPU0: 2208 MHz
-> Running CPU4: 1008 MHz
-> Running CPU0: 1008 MHz
-> Measured on HW: 1580.11 MHz
->
-> [b] on collabora uboot + mainline atf:
-> Requested CPU4: 2304 MHz
-> Requested CPU0: 2208 MHz
-> Running CPU4: 816 MHz
-> Running CPU0: 816 MHz
-> Measured on HW: 808.72 MHz
->
-> [c] on collabora uboot + rockchip rkbin bl31 blob:
-> Requested CPU4: 2304 MHz
-> Requested CPU0: 2208 MHz
-> Running CPU4: 816 MHz
-> Running CPU0: 816 MHz
-> Measured on HW: 812.49 MHz
->
-> in all cases all clocks are constant as they should
-> Interesting that on collabora uboot [b][c] measured clock is 808 vs 1580 =
-on vendor uboot [a]...
-> sw video decode conforms this diff: hd h264 gets cpu load: 172%[b][c] vs =
-87%[a]
+The RGMII TX/RX delays are implemented in SOM via PCB passive
+delays, so no software delay configuration is required.
 
-Can't see how u-boot would affect CPU speed in Linux, as long as you
-use comparable ATF images. Do you use the same kernel and dtb in all
-these cases? Also, what's your thermal setup?
+Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+---
+ .../boot/dts/freescale/imx8mp-var-som.dtsi    | 87 +++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
-> So summarising:
->
-> 1. i see kind of issue with clock values (e.g. perf gov gives 800MHz on m=
-ainline atf).
-> imho rot cause seems to be in collabora uboot
->
-> 2. on-demand gov. seems behave much more like powersave.
-> this seems to be 3576 specific:
-> -on 3588 change from perf to on_demand is hardly noticeable in ux
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+index b59da91fdd04..3be59692849f 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+@@ -55,6 +55,24 @@ reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
+ 		states = <3300000 0x0 1800000 0x1>;
+ 		vin-supply = <&ldo5>;
+ 	};
++
++	reg_phy_supply: regulator-phy-supply {
++		compatible = "regulator-fixed";
++		regulator-name = "phy-supply";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-enable-ramp-delay = <20000>;
++		gpio = <&gpio2 20 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-always-on;
++	};
++
++	reg_phy_vddio: regulator-phy-vddio {
++		compatible = "regulator-fixed";
++		regulator-name = "vddio-1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++	};
+ };
+ 
+ &A53_0 {
+@@ -73,6 +91,54 @@ &A53_3 {
+ 	cpu-supply = <&buck2>;
+ };
+ 
++&eqos {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_eqos>;
++	/*
++	 * The required RGMII TX and RX 2ns delays are implemented directly
++	 * in hardware via passive delay elements on the SOM PCB.
++	 * No delay configuration is needed in software via PHY driver.
++	 */
++	phy-mode = "rgmii";
++	phy-handle = <&ethphy0>;
++	status = "okay";
++
++	mdio {
++		compatible = "snps,dwmac-mdio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		ethphy0: ethernet-phy@4 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <4>;
++			at803x,eee-disabled;
++			eee-broken-1000t;
++			reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <100000>;
++			vddio-supply = <&reg_phy_vddio>;
++			leds {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				led@0 {
++					reg = <0>;
++					color = <LED_COLOR_ID_YELLOW>;
++					function = LED_FUNCTION_LAN;
++					linux,default-trigger = "netdev";
++				};
++
++				led@1 {
++					reg = <1>;
++					color = <LED_COLOR_ID_GREEN>;
++					function = LED_FUNCTION_LAN;
++					linux,default-trigger = "netdev";
++				};
++			};
++		};
++	};
++};
++
+ &i2c1 {
+ 	clock-frequency = <400000>;
+ 	pinctrl-names = "default";
+@@ -239,6 +305,27 @@ &wdog1 {
+ 
+ &iomuxc {
+ 
++	pinctrl_eqos: eqosgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC				0x2
++			MX8MP_IOMUXC_ENET_MDIO__ENET_QOS_MDIO				0x2
++			MX8MP_IOMUXC_ENET_RD0__ENET_QOS_RGMII_RD0			0x90
++			MX8MP_IOMUXC_ENET_RD1__ENET_QOS_RGMII_RD1			0x90
++			MX8MP_IOMUXC_ENET_RD2__ENET_QOS_RGMII_RD2			0x90
++			MX8MP_IOMUXC_ENET_RD3__ENET_QOS_RGMII_RD3			0x90
++			MX8MP_IOMUXC_ENET_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK	0x90
++			MX8MP_IOMUXC_ENET_RX_CTL__ENET_QOS_RGMII_RX_CTL			0x90
++			MX8MP_IOMUXC_ENET_TD0__ENET_QOS_RGMII_TD0			0x16
++			MX8MP_IOMUXC_ENET_TD1__ENET_QOS_RGMII_TD1			0x16
++			MX8MP_IOMUXC_ENET_TD2__ENET_QOS_RGMII_TD2			0x16
++			MX8MP_IOMUXC_ENET_TD3__ENET_QOS_RGMII_TD3			0x16
++			MX8MP_IOMUXC_ENET_TX_CTL__ENET_QOS_RGMII_TX_CTL			0x16
++			MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x16
++			MX8MP_IOMUXC_SD2_WP__GPIO2_IO20					0x10
++			MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10				0x150
++		>;
++	};
++
+ 	pinctrl_i2c1: i2c1grp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_SD1_DATA4__I2C1_SCL				0x400001c2
 
-Not sure UX is a particularly good measure of CPU performance, as long
-as you've got a properly accelerated DRM graphics pipeline. More
-likely 2D/3D and memory.
+base-commit: e271ed52b344ac02d4581286961d0c40acc54c03
+prerequisite-patch-id: 2335ebcc90360b008c840e7edf7e34a595880edf
+-- 
+2.43.0
 
-By the way, I'd rather go for the "schedutil" governor, as it is more
-forward-looking than "ondemand", thus should be more responsive to
-load changes. It's also the default in modern distros AFAIR.
-
-> -on 3576 such change makes ux feeling noticeable slow (like 4xA53 soc)
-> i think this is more related to diff between scmi mcu gov algo in 3576 vs=
-. 3588
-> (imho 3576 algo has high latency in clock increases when demand happens +=
- too short delay for  clocks decreases to save power)
-
-There might be some difference in how PVTPLL behaves on RK3576 vs.
-RK3588. But frankly first I would check if you are using comparable
-ATF implementations (e.g. upstream TF-A in both cases), kernels and
-thermal environment :)
-
-Best regards,
-Alexey
 
