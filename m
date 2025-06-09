@@ -4,159 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F17C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336F6C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DjH2OSgESsqnUXB0H7Llg+i/6McMDnu1NDXmqgRHGs8=; b=2dz8HCJLfwuTSaTur31bQat4uK
-	HMlh2nDxuB3CrFRK3tWbEPH3bncdst5zPlcnyD/uexa7uFc+c7tdU1j5nSWcTQkzaF2TDEVoAed4V
-	dVCVZxu7WquPqXgKP40yY1bNNC/BKcd3tPHTP6uTABMMV8fa5S7Te4r4gZVsDyJersTtWdNmfkMEX
-	bXwPLgQWCHjPou2YRZ42bjzUp+QejKNFm9IlZZ2MPYx+seqy2/2xNx3MDj9l70dwZs51RnpI/zy7S
-	rE13jl6L1nRZtBikWS6mV8OGn1Pqki2rlRHHN5GQDgfKPEW3P2jiJ447J9ByPiQqx28M4stUHXTKK
-	XpTK/FXg==;
+	bh=qfDIcqjnduy8meygW/qBXyvij9ZurElf10c3YQHwSDs=; b=nsF15X0R9aH4SeFW8zW5Layitb
+	L/43rSCNUM2yMirGx5ydW9+V4WXFv/f12vbtbVCZ05R5dwaR30WEXKo3eGEXJCa6cdzPFW1+Ym2L7
+	vHsCFrd7R6G11/BVk4vX9jWazfJswPFv3u/33W+TvqdSDDcqEVt2hAoH1KK3d8Q65oyhDbQ7mQ4Nm
+	cXBBtenQQS+zZU/eisvkvZZ/oBdU2T/vcyGCG5K9vCsuG1jsg/9HWWZ11xFbob9p9KPF80sXFI1ZF
+	DRXBEJxoQgOsKsU7DichHO9Yn5ldI95lzHHqLBhsw8EtMmLbgFWdNqmVlm6vOUKOLhPKxKG5yueTP
+	v8+2wODQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOba7-000000047ae-3bdu;
-	Mon, 09 Jun 2025 12:26:27 +0000
-Received: from mail-mw2nam04on2062a.outbound.protection.outlook.com ([2a01:111:f403:240a::62a] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1uObmn-000000049ie-0Dda;
+	Mon, 09 Jun 2025 12:39:33 +0000
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uObXu-000000046wa-1GgH
+	id 1uObkW-000000049Uj-05e0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 12:24:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IEvhf5Fx7zRPhtQvlWd/pBHHx/BvRgN5r6R5ozwJ8qZ7tk4ffAL7jS/0H0krwRDEDRF037Bo7FNxjs5bJmnRgXXMlhwCUz0VbQwsfzfxw6XrjqDf0h2DYa9sXqLgVrDPIAcGE9gzUkJlokFAC+8nmaSWBLxTaRPCM8r6mgTFqvArtjrXpmiR+kOTvY/CuitfzS72YOOp5Gr0QFLGe4QLPk7PrNIiCxp1NQU/o/90JINQfyuVbjJ+TDQNL7x6hyFrNC47/nJ+p2USgK+v/coUXW0Zszc+KbC0P9ZcYwt1cgw43QHiI9P3/MsFjKR/VzAnQDJTdFd0Yc7ork/OI48eTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DjH2OSgESsqnUXB0H7Llg+i/6McMDnu1NDXmqgRHGs8=;
- b=i3jogQZaZGACJ6QaMTG6KnlqtEMQqqOuzguYuENTlmIFQWUmn7lfXE6kNOIGJIcgmxFzdP9eyOd5EY1m5wYMevOa+bmowZihjDr4P+39Tv8K74uTLmJxz6Uuf10Xi4Z4IQH0JbMzAKCc3v3xB6/HxLxa5igQDhF5xv0eECsifYSTz7RBayBWM4d0SSH5o6MuRu1kezeAlC2KdZ0J7NV3C6cUfexxaSeYBTevZKWxPAWDvYA4W2pzWcTLK0XB/rM8OYEDm1Rfahj1qdN4ebarfz4DP0K69fenFsr6lSATEXP9rH3NUE88BIsHIn2+UYZvR8nOvWesa2albfZMRT6avw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DjH2OSgESsqnUXB0H7Llg+i/6McMDnu1NDXmqgRHGs8=;
- b=VjBuTEEV/DAueUWYA0xbHUI3hlmh95+mKd1wvQaug1MBWSLuE9c0rEEcCqOOCldzyj90vcCLukL2w5aqiUpgAGLVroQoIJnhNjx469RVlxSSNroUbQOfPVUGvuckkUas7kSbX44qLEiab7lScKlziMROYMIv1OvLssL2as2RUJKBC4yVtjmr8jLtG7Tj/ThGYKhoTzMjiH4wAS7HyHYThEwCIhgMOBBbOGSuWfcQcc+R+uXRW/AZ+LDxGrywA9vBlC5Np69f1saWmNmQYnU3LZ7qKShjN0VYpuMTCBhqxvNJ0tNCU/MhYJUZmU4adEPXDjSiCrCmz0oOq4wDldYlUg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by BN3PR12MB9593.namprd12.prod.outlook.com (2603:10b6:408:2cb::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Mon, 9 Jun
- 2025 12:24:04 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8792.038; Mon, 9 Jun 2025
- 12:24:04 +0000
-Date: Mon, 9 Jun 2025 09:24:02 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: ankita@nvidia.com, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
-	shahuang@redhat.com, lpieralisi@kernel.org, david@redhat.com,
-	aniketa@nvidia.com, cjia@nvidia.com, kwankhede@nvidia.com,
-	kjaju@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com,
-	acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com,
-	danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com,
-	udhoke@nvidia.com, dnigam@nvidia.com, alex.williamson@redhat.com,
-	sebastianene@google.com, coltonlewis@google.com,
-	kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org,
-	akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org,
-	ddutile@redhat.com, tabba@google.com, qperret@google.com,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, maobibo@loongson.cn
-Subject: Re: [PATCH v6 1/5] KVM: arm64: Block cacheable PFNMAP mapping
-Message-ID: <20250609122402.GM19710@nvidia.com>
-References: <20250524013943.2832-1-ankita@nvidia.com>
- <20250524013943.2832-2-ankita@nvidia.com>
- <aEMvbIu530nCqwhG@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aEMvbIu530nCqwhG@google.com>
-X-ClientProxiedBy: YT3PR01CA0014.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:86::16) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BN3PR12MB9593:EE_
-X-MS-Office365-Filtering-Correlation-Id: 21feaaac-b51d-472a-8ba4-08dda7508589
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dvT3JWCpZfw7lkyYiLISeymiVVDDEqzpsrEGetf8rPoy8ZxKbxOBx6sh8EC2?=
- =?us-ascii?Q?tVjiPGDO4oKJGIzx8N5l0mw9L2VVTazothk7n9zeI8TS3GmDDecl94Csk5gz?=
- =?us-ascii?Q?tmZdvTRgCt1NuN9aeGEndYTRLlBQhkmcp8MULxQe8wvue531u4eEk0JYkMg4?=
- =?us-ascii?Q?ftt1w9GPtZGTlCJjwrn7s2FAIfPio6B3CJiHluLK61PXMlJnbj1ZVVohdBE/?=
- =?us-ascii?Q?jmOem5Qf2e2cIaT0HvVyvmbgTfRNgx/jGD/6CA2ngXUAk+NXnh/ONPrxNAPS?=
- =?us-ascii?Q?tC6Wb+NegjhhGsEnjAS+U9n+hJTv5n6fCY3/63KPIVx3W7rNpJHAmXpEltFI?=
- =?us-ascii?Q?3lhpp1bjYGJ7GuthRz4a0mC2Dcw6eWDk3SjaMzNemH5fZ8kOy8MXscb2u0Kc?=
- =?us-ascii?Q?67ty8NtmxGxE/zJpRLHS7z3Am6h4N52aI4urDwDjOIxHkxzK4wwKYoiVsjuj?=
- =?us-ascii?Q?qkevfvuxUw3+SF4//t4Gatc1nikClA+ZpKshGAzfGeoLqQ+XQHajQmtFc+C+?=
- =?us-ascii?Q?HYk4nDlwAeuLCX0rJEhntEPG0ZMmtNGfpKHTeU5I1yto7FZXTXrquDkehGGz?=
- =?us-ascii?Q?JiWbReUrhn5M7twGSRh1PMM5rBEcc8GlG1VGmzkbV5S181aO/x4VWaUCSfbg?=
- =?us-ascii?Q?aqKJ/vEkCXN3zRapMRZH3ExxOZfHLKJ+dKu39Dtf2TU5gAJPcvDbHdYqw0Yu?=
- =?us-ascii?Q?cAdJrkLwN0ULvcJc0kfEUIwcMhCSGgXTf4j60MXl6nBWEUPph8nE3bJ3wlUG?=
- =?us-ascii?Q?KJkQPCxX16F3jNjZ+Ldg8M0a8zYv15sbG56nsFHzjGrbbLAcoIP/ODdXdfKK?=
- =?us-ascii?Q?PdMEvAgpUR05o2D8U6isjTac9ab22c5Me80PZWeNuT8+wfvh0ROL7O6qiLNC?=
- =?us-ascii?Q?Ufmz1aMrpYCkXdKShLVvE/05udvcNYBJKQuHa5WooVGD/VOe5o7uQPVAXy2+?=
- =?us-ascii?Q?hkucCg2h+E9HPvn+5q1u13MPkoGdPF7x5fGZRLf//Ral7IwqiZTMhgVSVhpf?=
- =?us-ascii?Q?TbirR3muwWGxOi+FwRQrH1ez6T+wmwx+q3AdvDOwCOsYgYxfjomwcee0LtpG?=
- =?us-ascii?Q?ODsAMjlGtRLkz0rCgfLKvYN1T4M/qp/BiQfIL4qoQ1v8EQkRpsP2sji3ISSg?=
- =?us-ascii?Q?vzWnT1j3/eRhDPPlCb39Mqw0JBh50+qKcdhUOYLPdXpt7uU/bGSG2t6bVWvn?=
- =?us-ascii?Q?XC0R08xg4Ryodfe8P95cVLBjEJBwxmdZUocQtF05TMeW10408CbovYszQbP1?=
- =?us-ascii?Q?y0GHXyZLG20w+EvGq8t8FeIyKkTy9rxEWHIxGJ7hjISBYCg97HHjxDJt2hW4?=
- =?us-ascii?Q?4yVNkmqnkJ5mH/PsblFZN5MOpw2zPLQPeVwrViNcW0LCNm+ZxO/MNnkuhouu?=
- =?us-ascii?Q?rB8F0OH44TdFylk1Y14LfIMUaJmVFLs/N1bcXcAHGMgSRFWrGNGEAQQVS1o2?=
- =?us-ascii?Q?HW3mtCgkSi8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8JPHjGhqk/IwZzcQMPdCVywpMv73UQh33R6taZ2nBw94rZ4ZdTAyA3rvWhSb?=
- =?us-ascii?Q?3X5c/nfC3vZ3n0taN/XmvbquIn5E8RdfpK4bLUpCwsiafMms974g00jYQMlF?=
- =?us-ascii?Q?ZhY/iI/mxQyw7Qg0qJnTfeWzoqOgMqlUMG98Je5h2yoqwltoU3Rm9vd+TI/r?=
- =?us-ascii?Q?ARzDQGahjjtQk/Cb1GCI/jNtNxU34GyzNR5pwNjZBMLNUV321K3tE6eFksz7?=
- =?us-ascii?Q?lKQsfuDA0u5tbx5m80TYdb4PuWRBdDTKZGqE1F6y0vrDFZHh8Tp801b//aFb?=
- =?us-ascii?Q?FC+D9p1pP4HVokQap7IyafR1kNb+BFwAiDsGm7JuKV9FAKdVFlP9u5AdXfgz?=
- =?us-ascii?Q?pZO6r9BDdsNS0pEoBaz1umjgX4Hgwj9M+p3FJwh0tEjxFcKkRiRmfAlbmlnn?=
- =?us-ascii?Q?PBaURbaX2nIIuuwyhu4XGPeE4W3TLrD9h8cNNyikr+64p87gYt18ALXnGj/r?=
- =?us-ascii?Q?HicbACUtU6gqpWxGYPAAxxe+0oVaNJWvErPI5+zjrh4YqPcZmD+v2+hrmiCg?=
- =?us-ascii?Q?MqBPP0WYObCw9yC6dAYuKW0ewBv2lxb0f98Ck8knEinZG4T0S9FuoFO+3Z6A?=
- =?us-ascii?Q?FsZYCPeLWNdsX9Myt3IgirCiHgy2uqCRXDNe2LHP5W1dW+i4oa95z6DwB/oy?=
- =?us-ascii?Q?YjxHtin+ofB2PyaiGn2xK/Y8qAz3xF5pdh/LDe+K8AZAVPn3eUv2I9sNrS70?=
- =?us-ascii?Q?rAjeBPeQaOydZkSl0HTUAS0OhhGRZlmH0kSlzyWFFaVUk4xyrNywtICE7pXk?=
- =?us-ascii?Q?zBbMo+P1sqFp3dkjMbj44QSKPgLrQjm1raA/GIoyoSy3sJ1iJmQEJ2Sx9owW?=
- =?us-ascii?Q?jHii8fnWsZ+g+312W3i2cLPnV/O6UL3/fIxFyoO2VewHQLMoKy3aBQlCp6qa?=
- =?us-ascii?Q?mXKa9+ilc/qUg15EM58XxmcCQU90sb149WQF9J6M7FxqokMot9L31aXdrfvv?=
- =?us-ascii?Q?8Tax0Au144XELI4WxYq6gjqdYrO1LNrWxkRvOLEyOyBNadYqsS+QjbErp9Pf?=
- =?us-ascii?Q?HjwjPcdWQyZe2E0o1qBdP8UWART5TsLHUfSaffZoMg2EHh2n1DcHIhlVYsYQ?=
- =?us-ascii?Q?UDCCgCUVvcyVONo59xm6DjZIMNWG34f8ngBCg/krdHoknQuLX7FDyGkz7XyD?=
- =?us-ascii?Q?GWqoCpoDWjCprIfa7mpPjYxBsU+xD6CMygOqESkgS4vyO1Ij0yQM68GjTng/?=
- =?us-ascii?Q?sTqAVEjGXgu5+mFmL9/ETKfpzFB2vtGx/T2re0FWO6mOABPNIp/5MrTUL1b+?=
- =?us-ascii?Q?/TN6/gdcdV54qdwBo5xwpcfB+bx9b1xP+7FiwlXsPx4CdIgOn/QdtvOWnM4h?=
- =?us-ascii?Q?AU2x/I6aq/Sn9qyBli0qQcMNfg71nglwjV4fykVF2rrntX0TVraD7pPj2bmR?=
- =?us-ascii?Q?h9pKL1fw7HEnJ9cAd5+voVZ6LFtIM4WiN+HOGFceympRWmgN0/ucL8E3Xpv3?=
- =?us-ascii?Q?WS13wQEUJrnFKkZK3JgqYln6ul9I6ik9jQrvI6JU8UMSOx0nkm0rGQuPYb3n?=
- =?us-ascii?Q?dwOZ0zxA4GJN3jZK5jCx9Ji/WyYupAGjoUiiSiV51a9pEWKBS1uXPBqwM8/z?=
- =?us-ascii?Q?n6yrxvN7ovFHk0h5IEU=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 21feaaac-b51d-472a-8ba4-08dda7508589
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 12:24:04.0224
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Eemd32IaHMSKg9bRyJtivsj+9tyOhouP8t4HtSD2ZlJEPyQJ0MhpnVvIAxEQtBkG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN3PR12MB9593
+	Mon, 09 Jun 2025 12:37:14 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1749472622;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qfDIcqjnduy8meygW/qBXyvij9ZurElf10c3YQHwSDs=;
+	b=h5H7+XH5IYTLHkUPARiPozDYw/I6cAKb2Bpz+unNhZLPNSYeul/J0YR7OBQCCBYK978xdf
+	jTifNtlO1HTEtTgTBzZ/y3c8bQs+YvYhDcxc3hYWLcJ/geVidv3NIT0K0a8Q89EEuWDOa2
+	tX26Hs2ZrydvZT6uenWAfneq4fTKThQVf3MbqUBrBppWSas0QFp/lAkbfO8g6AJ/IOo+hb
+	JCBfJ3e764P5XUtEwl6FMc8giqiQWJCieiRlklbHakxZNCGrlMezxTiTWgZjpmftwFWkDz
+	1KbzuynkyDDpxioQZARTt596Z2U91i/mPt/JlpqdGZ6d6oEDwUYV1F4psGAPDw==
+Content-Type: multipart/signed;
+ boundary=6b0ed6f6510707f841f4ccb6050918da8f6bd88272d9f966931d54f28164;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 09 Jun 2025 14:36:41 +0200
+Message-Id: <DAI0A1Y753FJ.B0NMT8L5VPEH@cknow.org>
+Cc: "Piotr Zalewski" <pZ010001011111@proton.me>, <hjc@rock-chips.com>,
+ <heiko@sntech.de>, <andy.yan@rock-chips.com>,
+ <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+ <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>, "Dang Huynh"
+ <danct12@riseup.net>, <dri-devel@lists.freedesktop.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH drm-misc-next] rockchip/drm: vop2: don't check
+ color_mgmt_changed in atomic_enable
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Andy Yan" <andyshrk@163.com>
+References: <20241206192013.342692-3-pZ010001011111@proton.me>
+ <DAEVDSTMWI1E.J454VZN0R9MA@cknow.org>
+ <mArHDRo5bhIAjG8sDOR-kM7DsVdbXxxcC8hfuEEPfUWIdMwNnSUy8ZFoLis66DFSuIEq8TrnAxUGkyo5IUTGw3AG4k3vuVVz0fsoI27BAms=@proton.me> <DAH3S8O66J47.3NT18EJCXWKL9@cknow.org> <47773829.1fce.1974f732545.Coremail.andyshrk@163.com> <DAH60H3HYG7M.3NFXBJ7576RH1@cknow.org> <3161fa6a.93d0.19753f8c5e0.Coremail.andyshrk@163.com>
+In-Reply-To: <3161fa6a.93d0.19753f8c5e0.Coremail.andyshrk@163.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_052410_352399_E197911E 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20250609_053713_005786_AE556589 
+X-CRM114-Status: GOOD (  26.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,84 +78,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 06, 2025 at 11:11:56AM -0700, Sean Christopherson wrote:
-> > @@ -1612,6 +1624,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> >  
-> >  	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
-> >  
-> > +	if ((vma->vm_flags & VM_PFNMAP) &&
-> > +	    !mapping_type_noncacheable(vma->vm_page_prot))
-> 
-> I don't think this is correct, and there's a very real chance this will break
-> existing setups.  PFNMAP memory isn't strictly device memory, and IIUC, KVM
-> force DEVICE/NORMAL_NC based on kvm_is_device_pfn(), not based on VM_PFNMAP.
+--6b0ed6f6510707f841f4ccb6050918da8f6bd88272d9f966931d54f28164
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-kvm_is_device_pfn() effecitvely means KVM can't use CMOs on that
-PFN. It doesn't really mean anything more..
+Hi Andy,
 
-PFNMAP says the same thing, or at least from a mm perspective we don't
-want drivers taking PFNMAP memory and then trying to guess if there
-are struct pages/KVAs for it. PFNMAP memory is supposed to be fully
-opaque.
+On Mon Jun 9, 2025 at 11:15 AM CEST, Andy Yan wrote:
+> At 2025-06-08 20:53:37, "Diederik de Haas" <didi.debian@cknow.org> wrote:
+>>On Sun Jun 8, 2025 at 2:10 PM CEST, Andy Yan wrote:
+>>> At 2025-06-08 19:08:50, "Diederik de Haas" <didi.debian@cknow.org> wrot=
+e:
+>>>>On Sat Jun 7, 2025 at 5:32 PM CEST, Piotr Zalewski wrote:
+>>>>> On Thursday, June 5th, 2025 at 10:13 PM, Diederik de Haas <didi.debia=
+n@cknow.org> wrote:
+>>>>>> Since kernel 6.14-rc1 I have the problem that visual output is no lo=
+nger
+>>>>>> shown on my PineTab2 and a `git bisect` pointed to this patch/commit
+>>>>>> as the culprit. What is important to note is that `CONFIG_DRM=3Dm` s=
+eems
+>>>>>> to be required as the problem does not occur with `CONFIG_DRM=3Dy`.
+>>>>>>=20
+>>>>>> Near the end of my bisect session, something interesting occurred.
+>>>>>> I was booted into a 'bad' kernel (ie no visual output) and when I
+>>>>>> started to build my final kernel, I closed the lid of the PineTab2 w=
+hich
+>>>>>> made it go into suspend. When my final kernel was built, I opened th=
+e
+>>>>>> lid again, which made it resume, to transfer my final kernel to it.
+>>>>>> And much to my surprise, I then did have visual output.
+>>>>>> When I read the (below) commit message of the 'offending' commit, it=
+ may
+>>>>>> not be such a surprise after all.
+>>>>>>=20
+>>>>>> I did try it on a Quartz64-B (also rk3566) and it did not have any i=
+ssue
+>>>>>> (output via HDMI).
+>>>>>> I don't know what the cause for this issue is, hopefully you do.
+>>>>>
+>>>>> I tested and confirmed that this happens with drm=3Dm but also in my =
+case=20
+>>>>> it happened when drm=3Dy. After some testing I found out that at boot=
+ modeset
+>>>>
+>>>>Interesting that it also happened with drm=3Dy.
+>>>>As you're more knowledgeable then I am with this, maybe look through
+>>>>https://lists.sr.ht/~diederik/pine64-discuss/<D9AM2OOLREO0.2JMAI42J06TW=
+0@cknow.org>
+>>>>
+>>>>to see if you may spot something relevant?
+>>>>
+>>>>> happened twice and at short interval and since this patch allows for =
+gamma=20
+>>>>> LUT update regardless of color_mgmt_changed state this makes DSP CTRL=
+ GAMMA=20
+>>>>> LUT EN bit to be unset twice too. It seems that VOP does not like it.=
+ I=20
+>>>>
+>>>>Happy to see you found the cause :-)
+>>>>Do you happen to know why it was unset twice? That sounds suboptimal.
+>>>>But (IIUC) setting a bit to a value it already has causing issues,
+>>>>sounds surprising as well.
+>>>
+>>> I have conducted tests on both rk3566-box-demo (with drm set to y) and =
+rk3568-lubancat-2 (with drm set to m),=20
+>>> but I was unable to reproduce this issue. Could you two please share yo=
+ur kernel defconfig and the corresponding kernel startup logs?=20
+>>> Additionally, both of my two boards tested with HDMI output. What kind =
+of display interface does your board use for output?
+>>
+>>I wasn't able to reproduce this issue on my PINE64 Quartz-B (rk3566)=20
+>>with HDMI output either, but the problem is present on a PineTab2 [1]
+>>(also rk3566) which uses a MIPI DSI connection to the display panel.
+>>
+>>Kernel config:
+>>https://paste.sr.ht/~diederik/aa747ed170aa01cc759fbe1ffd9cebe8c887b10b
+>>
+>>dmesg kernel 6.14-rc1:
+>>https://paste.sr.ht/~diederik/733fbf8bb7f6aee8b68cf5a652157d445462c24a
+>>
+>>dmesg kernel 6.14-rc1 with Piotr's patch:
+>>https://paste.sr.ht/~diederik/db1af672cfb611acbfbdf35adb6f170e5c38febc
+>>
+>>Both dmesg outputs contain a suspend-resume cycle.
+>>I'm using a USB Wi-Fi adapter for the wireless connection.
+>>
+>>[1] https://wiki.pine64.org/wiki/PineTab2
+>>
+>>Happy to provide more info and/or do some tests.
+>
+> Can you apply the patch in the attachment, reproduce this issue(without P=
+iotr's patch),=20
+> and then provide me with a copy of the kernel log?
 
-Though that confusion seems to be a separate issue from this patch.
+Same test as above, but added ``dmesg | grep "vop2_"`` at the end as well
 
-> 	if (kvm_is_device_pfn(pfn)) {
-> 		/*
-> 		 * If the page was identified as device early by looking at
-> 		 * the VMA flags, vma_pagesize is already representing the
-> 		 * largest quantity we can map.  If instead it was mapped
-> 		 * via __kvm_faultin_pfn(), vma_pagesize is set to PAGE_SIZE
-> 		 * and must not be upgraded.
-> 		 *
-> 		 * In both cases, we don't let transparent_hugepage_adjust()
-> 		 * change things at the last minute.
-> 		 */
-> 		device = true;
+dmesg kernel 6.14-rc1 with Andy's print_lut_0609_1710 patch:
+https://paste.sr.ht/~diederik/ac356ee8b0f7e772c7310293d99d95644f59a4ee
 
-"device" here is sort of a mis-nomer, it is really just trying to
-setup the S2 so that CMOs are not going go to be done.
+Thanks!
 
-Calling it 'disable_cmo' would sure make this code clearer..
+Diederik
 
-> @@ -1639,6 +1653,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->                 return -EFAULT;
->  
->         if (kvm_is_device_pfn(pfn)) {
-> +               if (is_vma_cacheable)
-> +                       return -EINVAL;
-> +
+>>>>> patched vop2_vp_dsp_lut_disable function so that dsp_ctrl is set only=
+ if=20
+>>>>> GAMMA LUT EN bit is set. I checked that this also does not break the =
+gamma=20
+>>>>> lut functionality with emphasis on out-of/into suspend behavior.
+>>>>>
+>>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/g=
+pu/drm/rockchip/rockchip_drm_vop2.c
+>>>>> index d0f5fea15e21..7ddf311b38c6 100644
+>>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>> @@ -897,6 +897,9 @@ static void vop2_vp_dsp_lut_disable(struct vop2_v=
+ideo_port *vp)
+>>>>>  {
+>>>>>  	u32 dsp_ctrl =3D vop2_vp_read(vp, RK3568_VP_DSP_CTRL);
+>>>>> =20
+>>>>> +	if ((dsp_ctrl & RK3568_VP_DSP_CTRL__DSP_LUT_EN) =3D=3D 0)
+>>>>> +		return;
+>>>>> +
+>>>>>  	dsp_ctrl &=3D ~RK3568_VP_DSP_CTRL__DSP_LUT_EN;
+>>>>>  	vop2_vp_write(vp, RK3568_VP_DSP_CTRL, dsp_ctrl);
+>>>>>  }
+>>>>
+>>>>I built a kernel with 6.14-rc1 + this patch and can confirm the screen
+>>>>has output again :-)
+>>>>
+>>>>> I will wait with sending a patch because maybe Andy has something to =
+add=20
+>>>>> to this.
+>>>>
+>>>>Sounds like a plan. It could be that this issue surfaced an underlaying
+>>>>issue and if so, fixing that would be even better.
 
-eg
 
-if (!kvm_can_use_cmo_pfn(pfn)) {
-               if (is_vma_cacheable)
-                       return -EINVAL;
+--6b0ed6f6510707f841f4ccb6050918da8f6bd88272d9f966931d54f28164
+Content-Type: application/pgp-signature; name="signature.asc"
 
->                  * If the page was identified as device early by looking at
->                  * the VMA flags, vma_pagesize is already representing the
-> @@ -1722,6 +1739,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->                 prot |= KVM_PGTABLE_PROT_X;
->  
->         if (device) {
-> +               if (is_vma_cacheable) {
-> +                       ret = -EINVAL;
-> +                       goto out;
-> +               }
+-----BEGIN PGP SIGNATURE-----
 
-if (disable_cmo) {
-               if (is_vma_cacheable)
-                       return -EINVAL;
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaEbVaAAKCRDXblvOeH7b
+bvKPAP46B//LqOIV8RNbzsTvRucLelpO7pWfbTzd6JQlsqhY2wD9EL03RSqd484F
+IA5nWPMYb5bCwkjIkD/3wVwve+UsLQk=
+=vlU/
+-----END PGP SIGNATURE-----
 
-Makes alot more sense, right? If KVM can't do CMOs then it should not
-attempt to use memory mapped into the VMA as cachable.
-
->                 if (vfio_allow_any_uc)
->                         prot |= KVM_PGTABLE_PROT_NORMAL_NC;
->                 else
-> 
-
-Regardless, this seems good for this patch at least.
-
-Jason
+--6b0ed6f6510707f841f4ccb6050918da8f6bd88272d9f966931d54f28164--
 
