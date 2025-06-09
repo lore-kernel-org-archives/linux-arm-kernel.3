@@ -4,130 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CC1C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0828AC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGSTCvir3yITm8KzBPa1e7r9+ZrZgHkYcRBdCR9WUx8=; b=CVNvLGqj2f+aHq5JiFX1M/pdsQ
-	Gna/D1STWGr/fjynBYCLLoshVjxjyW5UBJDhElwb0ctD5XOMue3bueTupdPluonD/kr7lWFj2nC//
-	B8uflK7Owuftkl23O24Xz9d1Br44EsY7ietB5VjJa3JEN/Zbd5R+yyUBsF94Mmt1o8jpX0N/RCaNF
-	zGVC0iCrQPdOQO9lN7pQBie4NdNYEv4Ya/BO1Wp6I625QdNtP6PKF8uvZRXUHu1VR/ZRiFrUKwJhu
-	cWp3+91yHrGZNaA7hfdu1qMAhSI69TcaAFiCHi5OklDy1jadRPWGX+rjNP4fghYdAnvwx8iSu1p+J
-	Pzy4R0Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DvcsTsouDL2xyct8nJS/5GZ1osdIxIFWhYhic/hWMY=; b=MeSWzVAUezuLTeeIPPgyatiaa7
+	snG5HEUC2wutqHG03JFJL2l9QvXHPDJQ2c2f8V3RS2bmS7XUFQf/GRuvXCvLAMcA2ISlZ3xHTUQ/T
+	c4gw30aIoCWUo/GRTHo3iLW7hFaEtgLYycd3/tePZP1o3Coc5dpkcF3LPlVYFDE1jl+rIiwLsL15a
+	f9J6AJe/uvVepBNuhw0FhfqbUleWLjuNckxXWOUI8kymavztBe8VajvhyqM4zC7ou8IWXZBruS1o9
+	9ckM6FueexGOR0ctwE7naQSZrzhVZQ3HeUWVEalxo4W+M8hGmsLrUTPhd8x2hIucgHKYVWv2j47fD
+	C47KJ73w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZGN-00000003qh4-40R6;
-	Mon, 09 Jun 2025 09:57:56 +0000
-Received: from dane.soverin.net ([185.233.34.11])
+	id 1uOZIU-00000003qwQ-09Pm;
+	Mon, 09 Jun 2025 10:00:06 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZ7y-00000003pXH-35sy;
-	Mon, 09 Jun 2025 09:49:17 +0000
-Received: from smtp.freedom.nl (unknown [10.10.4.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by dane.soverin.net (Postfix) with ESMTPS id 4bG6ZY4mzbz1PxQ;
-	Mon,  9 Jun 2025 09:49:09 +0000 (UTC)
-Received: from smtp.freedom.nl (smtp.freedom.nl [10.10.4.107]) by freedom.nl (Postfix) with ESMTPSA id 4bG6ZX5Qrcz7T;
-	Mon,  9 Jun 2025 09:49:08 +0000 (UTC)
-Authentication-Results: smtp.freedom.nl;
-	dkim=pass (2048-bit key; unprotected) header.d=jjverkuil.nl header.i=@jjverkuil.nl header.a=rsa-sha256 header.s=soverin1 header.b=tK0ZTmIC;
-	dkim-atps=neutral
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jjverkuil.nl;
-	s=soverin1; t=1749462549;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=kGSTCvir3yITm8KzBPa1e7r9+ZrZgHkYcRBdCR9WUx8=;
-	b=tK0ZTmICKWRZTiMu34QFNUBMz7i4O7ubahnxWLj3TmSPrtIXW5DIfh+58OsqLutln0LbUG
-	b0YB4QpKg10mqxadw8nmLZeWaGjHLJ6+qQL4NYQLMimgjk8KfEVc/0vFwpw3hDG1Y/rnQM
-	qgu8jWoPdvRdK2bYh0QR+C3CAAU2V2zuEC1C7RhMB0rwa3UsnfQqNfk8KNdrHGvZewLtwJ
-	Srk19Cp7ebAthYMZ9oGjW1arVXwv8hhAcZxstxQarp9n045Iiiv8mZHDoVPqZU9RHzj11H
-	MFdtxbcF1FlVNB76FkjdxwMMFRssoxWVd13l5P4uAv4Pw9SifNPmUnTQ+GKX+A==
-X-CM-Analysis: v=2.4 cv=I7afRMgg c=1 sm=1 tr=0 ts=6846ae15 a=IkcTkHD0fZMA:10 a=0deYd5exgp-1WSfvuSMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-Message-ID: <2e4ef756-a8cf-415c-99ba-a3d72f3288e1@jjverkuil.nl>
-Date: Mon, 9 Jun 2025 11:49:08 +0200
+	id 1uOZFT-00000003qcs-1niR;
+	Mon, 09 Jun 2025 09:57:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=6DvcsTsouDL2xyct8nJS/5GZ1osdIxIFWhYhic/hWMY=; b=URNFd0PSsk0P7K0Be6K+rbYh5F
+	YFOT1i5tAEzi4qVMmo2RYnmW7JeMvwjeZ+Gjgs++GiDpvyM2EVWHvu9fvuh7UDagqGLDoOPqvHfyq
+	JCtKJFT8b3VbzgFWPXUx0aThsllZ/pbVmG9Rki9yO4LIqbU3De5KlWrsjtKfbDCdXZYQM7XkLvy7k
+	BO60Rh3Ir/Vs9nLxZP7M2vobuXXU+yK/1WEa6x3n74nz3e/QrpMm7hsaCdK8/PVq8mqHyDR4OAnEG
+	y8bVWLJ/Mfsei0haUi6GtY3TxPvKcXGtYnq+Eem393Q1dmTSfsK3awMP8KWzMjEAkEtXStDavTNZ8
+	/IuybvlQ==;
+Received: from i53875b1c.versanet.de ([83.135.91.28] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uOZFP-00062Y-Hr; Mon, 09 Jun 2025 11:56:55 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Quentin Schulz <foss+kernel@0leil.net>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH] arm64: dts: rockchip: support camera module on Haikou Video Demo
+ on PX30 Ringneck
+Date: Mon, 09 Jun 2025 11:56:54 +0200
+Message-ID: <2806486.NG923GbCHz@phil>
+In-Reply-To: <20250516-ringneck-haikou-video-demo-cam-v1-1-fff23160395f@cherry.de>
+References: <20250516-ringneck-haikou-video-demo-cam-v1-1-fff23160395f@cherry.de>
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 1/5] media: mc: add manual request completion
-To: Sakari Ailus <sakari.ailus@linux.intel.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil
- <hverkuil@xs4all.nl>, Tiffany Lin <tiffany.lin@mediatek.com>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com,
- linux-media@vger.kernel.org,
- Sebastian Fricke <sebastian.fricke@collabora.com>
-References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
- <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-1-603db4749d90@collabora.com>
- <aEC05991kEIIifDB@kekkonen.localdomain>
- <1ccaaec7f782afc71bae5c3b0f60a786a907555c.camel@collabora.com>
- <aEE-VFfJDhUbM2nA@kekkonen.localdomain>
- <8b1ed01a-b6e3-4670-a4e0-d8eee7ddc524@jjverkuil.nl>
- <aEFoCvPe4zE48UG7@kekkonen.localdomain>
- <608f95249ff3a39efb063ab9c6a543259a7b0ac9.camel@collabora.com>
- <aEasmfi3VBkuFU3g@kekkonen.localdomain>
-Content-Language: en-US, nl
-From: Hans Verkuil <hans@jjverkuil.nl>
-Autocrypt: addr=hans@jjverkuil.nl; keydata=
- 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
-In-Reply-To: <aEasmfi3VBkuFU3g@kekkonen.localdomain>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spampanel-Class: ham
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_024915_837598_1DF81A71 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250609_025659_485265_B9D5774F 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,34 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2025 11:42, Sakari Ailus wrote:
-> Hi,
-> 
-> On Thu, Jun 05, 2025 at 08:41:45AM -0400, Nicolas Dufresne wrote:
->> Hi Hans, Sakari,
->>
->> Le jeudi 05 juin 2025 à 09:48 +0000, Sakari Ailus a écrit :
->>>> It's not user-triggerable, if this happens, then it is a driver bug.
->>>
->>> If there is a driver bug, it could well be user-triggerable, wouldn't it?
->>> Testing may not uncover all such cases.
->>
->> You are both right, if the driver is not used, the warning will never
->> trigger. I was worried of the hit of a thread safe ONCE implementation,
->> but WARN_ONCE is simply not, it can warn few time before it stops if
->> called from multiple CPUs at the same time. In that specific function,
->> I can move all the checks inside the lock to make it truly once.
->>
->> Now its up to you, I don't have strong preference. These are driver errors,
->> and usually quite critical. They are not bug_on simply because we have a
->> crash free resolution, but its probably not functional anymore.
-> 
-> I'd prefer _ONCE variants, I wonder what Hans thinks.
-> 
+Hi Quentin,
 
-I have no particular preference.
+Am Freitag, 16. Mai 2025, 19:26:10 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Quentin Schulz:
+> +&isp {
+> +	status =3D "okay";
+> +
+> +	ports {
+> +		port@0 {
+> +			mipi_in_cam: endpoint@0 {
+> +				reg =3D <0>;
+> +				data-lanes =3D <1 2>;
+> +				remote-endpoint =3D <&cam_out>;
+> +			};
+> +		};
+> +	};
+>  };
 
-Regards,
+dtc is quite unhappy about this construct ;-) .
 
-	Hans
+with a W=3D1 build option when compiling DTBs we end up with a number
+of complaints about missing and/or unneeded address-cells/size-cells
+or "only one endpoint, @0 not necessary".
+
+I think it would make sense to give the isp port a phandle in the
+px30.dtsi and reference that one here - similar to how the dsi-panel
+works.
+
+
 
