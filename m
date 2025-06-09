@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74042C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 21:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82482C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 21:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZOonTfrv64GIV5+rDFu+eH6vhEGsf8KKT5JpDnAQ04=; b=D1y2dH+y4VfMYsJkF8lXecsnKB
-	71cbaBoiJ4xgJLhIlsRgY9U7GGpHg81rs3jnNvBPKNpsM8SXn6zcnF+Q3miaNjyONWEpRZkyFRq3/
-	ZCqQc9bsWEz1xVZInJG7Hs8+XWGTZdnxU+d74MhNNQVDml0tr4eZz4D1ZuRR0/4ha4R5zJILMnoVu
-	VB2P/Ha4nwKgPaubtcRRXl0/a7E4zeN8vTA+I8UC9TJPb8s67hNXzBYPfeZAgOUBdpKYzwTzuk0AW
-	I2I54eWkOdgxS5FR5lL8QTCQzM95zHuj+YYkkPP/1bMvP+RwdbpNP5eJ6AT2T156USldW4pK38t+k
-	Q4PK0JsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0W32y1X49hPP1q2eHZFiQ6eeTQheSsSajOGIGNQVKe4=; b=qolEc7A+M1QsP9
+	DvniNchbC55e9WjgTzOre/KHU8M1cSeaqiOxyuRkNbqoxOQylQVp/NAlDlkNsnt8TeW8Z93bKa5f3
+	rc5mgNIO5XST6cgtWeQ2T6IphAO5N/2hDm3z3Gr6P0dMx9ORGKzV65Y4T1pO/jhxOqqnwonWXCqmw
+	Z6nw1sFNYxqJzVG/3DOkIucmBeKYH6IFdfCy9wnp3EQTJ778ltC5oYFQiemjsMrEtUGMgYtQcuRNF
+	nnZHDMuYZTUaoPxPQmlmbj1nAmbecKUsbcttKzgIbs7ekFIHq22dtWl2dFNbB38LWp/9Krs1GF7MU
+	MsMz3yCyZF9UlF/hRS2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOkCf-00000005HXi-1U1i;
-	Mon, 09 Jun 2025 21:38:49 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1uOkUb-00000005IvK-3AMl;
+	Mon, 09 Jun 2025 21:57:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjDI-00000005AAE-0IsQ
+	id 1uOkST-00000005IjX-2Qmr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 20:35:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E9510442C7;
-	Mon,  9 Jun 2025 20:35:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749501320;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MZOonTfrv64GIV5+rDFu+eH6vhEGsf8KKT5JpDnAQ04=;
-	b=YrK78fOZJDmLOg1RDpxGMfVw6vaSzXByQyQaykHVH/1X5NOCYhIm4g1T8qzTHme003x90b
-	VnwtXQG6E3xFyRfYrU7hSlHzRD162lYU64kTsqLgoLLmF6jKimBGtw0wQ91RimxpOgxvsz
-	Fjj6+uSdffdgYJ+k6BDdyyHCA0P9A3+uFbcPcaUY6npbyjb+aGuqFx/8Od5QMD/FKV1MmY
-	DdoYGs4QkA4O7Yg7S87xmuutd6w0GyjsDlaTg8FTDDAAq9u4NSW60dKjHpuatxw/rkIStT
-	O4SWy0Zii9SUoCuFoSZrOkqHZDjkJZBGQOpTz2H74DBpOE4YfnzSVDBIFBy26w==
-Date: Mon, 9 Jun 2025 22:35:16 +0200
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Andreas Kemnade <andreas@kemnade.info>
-Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
- <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/5] arm: dts: omap: Remove incorrect compatible
- strings from device trees
-Message-ID: <20250609223516.32ec18be@kmaincent-XPS-13-7390>
-In-Reply-To: <20250609220809.3a488972@akair>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
-	<20250609-bbg-v2-1-5278026b7498@bootlin.com>
-	<20250609220809.3a488972@akair>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Mon, 09 Jun 2025 21:55:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F212629E3;
+	Mon,  9 Jun 2025 21:55:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7A6BC4CEEB;
+	Mon,  9 Jun 2025 21:55:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749506106;
+	bh=tEg6PR5QER8nznaQf7QFJoHg+OzeWOX4wO8uqnYGdc8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=mctYzr1b6Khssu2nuC9T6oTY4Wv9Ij2j01N71eP93PVIafVh24HP4ThErGwYQgmAU
+	 DpCX11HIdFJT/6CNTzyZ3oyE6L0k8vAaIOcXMK4PyPGQv/uODIdrrFEfyazJAZxJEH
+	 Wv5F8T2eTRalwVxuTMw74l1DIq5btwGE8PcbOCoV4fYA5BipxJy9wn99+CC/b2E83F
+	 PXrVb9FYZs1aYIhGRu5xMPGwx7er6YF+D57kDSUtx1GjSnhYrmeP74cgfAS1P4UrOP
+	 bhQc38u9vavH3eAmG6OfKX1wWY/gNYgBzznH2R4AlOhLXVt9sZUY0PeCQnQ++TjdSX
+	 Twx/jrXTLWFxw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH 0/2] arm64: dts: lg: DT cleanups
+Date: Mon, 09 Jun 2025 16:54:55 -0500
+Message-Id: <20250609-dt-lg-fixes-v1-0-e210e797c2d7@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdeljeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudelmeekheekjeemjedutddtmeelhegvvgemrggvugdvmeeitgeksgemudgsfegsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkeehkeejmeejuddttdemleehvggvmegrvgguvdemiegtkegsmedusgefsgdphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudekpdhrtghpthhtoheprghnughrvggrsheskhgvmhhnrgguvgdrihhnfhhopdhrtghpthhtohepthhonhihsegrthhomhhiuggvrdgtohhmpdhrtghpthhtoheprhhosghhsehkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprggrrhhordhkohhskhhinhgvnhesihhkihdrfhhipdhrtghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtoheprhhoghgvrhhqsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: kory.maincent@bootlin.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_133524_715906_89F31304 
-X-CRM114-Status: GOOD (  18.22  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAC9YR2gC/x3LQQqAIBBA0avIrBtQQaGuEi0sRxsIC40IxLsnL
+ R+fX6FQZiowiQqZHi58pg41CNh2lyIh+27QUhtp5Yj+xiNi4JcKOq+CtaRWIw3048r0hz7MS2s
+ f9O1Wml0AAAA=
+X-Change-ID: 20250609-dt-lg-fixes-ad1f66e1b505
+To: soc@kernel.org, Chanho Min <chanho.min@lge.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,53 +73,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Mon, 9 Jun 2025 22:08:09 +0200,
-Andreas Kemnade <andreas@kemnade.info> a =C3=A9crit :
+This short series fixes some arm,pl011 DT schema warnings. I noticed 
+that the lg1312 and lg1313 .dtsi files are almost identical, so I've 
+refactored them to make the fix once instead of twice.
 
-> Am Mon, 09 Jun 2025 17:43:51 +0200
-> schrieb Kory Maincent <kory.maincent@bootlin.com>:
->=20
-> > Several device trees incorrectly included ti,am335x-bone-black or
-> > ti,am335x-bone in their compatible lists without including the
-> > corresponding bone-black-common or bone-common device tree files.
-> > Remove these incompatible strings to fix the inconsistency.
-> >  =20
-> thanks for cleaning up some mess.
->=20
-> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
-> > ---
-> >=20
-> > Change in v2:
-> > - New patch
-> > ---
-> >  arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts | 2 +-
-> >  arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts          | 2 +-
-> >  arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts     | 2 +-
-> >  arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts       | 2 +-
-> >  arch/arm/boot/dts/ti/omap/am335x-shc.dts                | 2 +-
-> >  5 files changed, 5 insertions(+), 5 deletions(-)
-> >=20
-> > diff --git a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts
-> > b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts index
-> > a4f5b5262645..fb88eebb8c5d 100644 ---
-> > a/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts +++
-> > b/arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts @@ -11,7 +11,=
-7 @@
-> > =20
-> >  / {
-> >  	model =3D "TI AM335x BeagleBone Green Wireless";
-> > -	compatible =3D "ti,am335x-bone-green-wireless",
-> > "ti,am335x-bone-green", "ti,am335x-bone-black", "ti,am335x-bone",
-> > "ti,am33xx";
-> > +	compatible =3D "ti,am335x-bone-green-wireless", "ti,am335x-bone",
-> > "ti,am33xx";=20
-> this looks like too much cleanup, also according your omap.yaml stuff,
-> ti,am335x-bone-green should still be included.
+Arnd, You probably need to take this directly if LG maintainers don't 
+respond.
 
-Oh indeed! Thanks.
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Rob Herring (Arm) (2):
+      arm64: dts: lg: Refactor common LG1312 and LG1313 parts
+      arm64: dts: lg: Add missing PL011 "uartclk"
 
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+ arch/arm64/boot/dts/lg/lg1312.dtsi                 | 324 +--------------------
+ arch/arm64/boot/dts/lg/lg1313.dtsi                 | 324 +--------------------
+ .../arm64/boot/dts/lg/{lg1312.dtsi => lg131x.dtsi} |  35 +--
+ 3 files changed, 11 insertions(+), 672 deletions(-)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250609-dt-lg-fixes-ad1f66e1b505
+
+Best regards,
+-- 
+Rob Herring (Arm) <robh@kernel.org>
+
 
