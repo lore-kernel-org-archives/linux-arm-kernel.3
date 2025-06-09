@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 840DEC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:41:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989DEC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mjZzOQzZWRh5mMcDH3uFDboy3B8BcepsHqYvGyZHYfc=; b=hd7auKmYa2iZeHHZFtZyEsVURk
-	UmkLQAQCAQhujPcS2g0A3wfq6zCfFUk/tRnuAU70J4R/EzoxxGmKOosEC+GPyjhP9cL/o0ufJmbRZ
-	2KWVcyzPE3JvGwAxwMe4XiAS6EQXub1EH67zzBFXQ1Nwz4oF/b0ejrtB/qcYk/jo/4Zg3zXj2108q
-	mizxgsVGMsc4e3+soAF/vzdDyG7ZzA+9qLXHM4awCvh02MX13cxl4OWj3d4aOHguL/1Ya0RCEM1ks
-	AFSS5GTlZqrYmwRAOhhVRlKiYDyhRNRJVyQK/ZZPeVO0creURDkRPIgojlyRR2U1ld4+tDQ0tUv0y
-	6SMuqPEQ==;
+	bh=daOC+vKgljGGAi24/WQBuWAe1UD9I//0tA3pjxmN7ro=; b=ECAyeJl01FtaMXsZlabF0EFvYP
+	sX8n6fDV265qb7RZcdMqPVmaz1sZkNoqGxq47AxY4lDU4ER1Rpi94IWEMPppkQEABLB6INAMFbt+1
+	hYPfaeZ4yQ6t1U6eXBL+t3DKZ1i16OV9CrKZQARTd4TIiPgeI/5XvhKkPid2pjmXM+TieE4Zqr+Kr
+	DAOuFPV5y+TM0EuA+XLlORjnYpxmR8M/wStE4qqoRh1GKhZ86knBTQ9O6CMD1WB9vERXVv7fGm0us
+	8AtOfajbCzlnH3GGIAPPfWcYRcp4CkfbLY/27dMhSlCRdnPf98jvjWOUhjkttJGKVtGqn/5yA6hco
+	01wb8JBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZwH-00000003vqj-0tS8;
-	Mon, 09 Jun 2025 10:41:13 +0000
+	id 1uOZyQ-00000003w4I-3nLX;
+	Mon, 09 Jun 2025 10:43:26 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZfI-00000003tWA-17Kk;
-	Mon, 09 Jun 2025 10:23:41 +0000
+	id 1uOZfI-00000003tWE-3a9K;
+	Mon, 09 Jun 2025 10:23:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=mjZzOQzZWRh5mMcDH3uFDboy3B8BcepsHqYvGyZHYfc=; b=L/54NyHg4/S2CZeYLrvPzigM4A
-	AskTWkXdc6S60+ZR2ivHXR4hj4khflxiVRHUcAmrsHswvGE0GOtYMGGYmx15l0DiCQ2OPKa2GP1gr
-	HwHbG9HBfdQWgNlSInLdgVNHstwutdJ8tWB+0OxHiMZ4HcBKspXnsVaiYWsfQhKfZlvM6iTu7aaQz
-	aR8Y6yoP7US++iQgygcdI5jsBlpUKIRnOAflOD6ehtv4msQdOndRTfOffhQITFUeU8eUjhY+9p1Vy
-	4k173vpgvFAJF5ZpFr5CrpahjVV3YpLECaEnV85JVliuZL/bi7sJ6he/iLXfPdWZt2xh1JTsi6WDn
-	0C6agjmg==;
+	bh=daOC+vKgljGGAi24/WQBuWAe1UD9I//0tA3pjxmN7ro=; b=X3aQk6g97/OfFKGH+TrgrKp7+9
+	XphR7NRaWmB8Ir2rLPm9OgPt5xHBAz7e/yweXDZq0rU3NJEzCvMXzq0QUa3N4tTM0gTJutwAm4Hw8
+	ZZyxTLkzjfuFQWVDl/zx7qxMvhIIv7PzL2ChCmmEx80YEaHj8pL+QAIyK71dpHGGdQjEo94vLUJ+v
+	IXjWyW3fsIQSVPwGdBj5Lwzca1kOCT1gtKV7uXr3M93azRn8U97uqWU4qhEdd+UNErDvz+YeoekI8
+	JJkSbAeQhifiOPtGDVjndTyaOwZOiS1L5VIHLkRDXy6GCa9DEUGjKz9w7l+e6M8Mw+lW+jLAtu/dK
+	XUHRhAFg==;
 Received: from i53875b1c.versanet.de ([83.135.91.28] helo=phil.fritz.box)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uOZfE-0006Av-Ai; Mon, 09 Jun 2025 12:23:36 +0200
+	id 1uOZfB-0006Av-AU; Mon, 09 Jun 2025 12:23:33 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	John Clark <inindev@gmail.com>
+To: Chukun Pan <amadeus@jmu.edu.cn>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	nicolas.frattaroli@collabora.com,
-	detlev.casanova@collabora.com,
-	linux-rockchip@lists.infradead.org,
+	Yao Zi <ziyao@disroot.org>,
+	Rob Herring <robh@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: Use standard PHY reset properties for RK3576 ArmSoM Sige5
-Date: Mon,  9 Jun 2025 12:23:02 +0200
-Message-ID: <174946455542.762051.1386623405149622238.b4-ty@sntech.de>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-spi@vger.kernel.org
+Subject: Re: (subset) [PATCH 0/2] arm64: dts: rockchip: Add spi nodes for RK3528
+Date: Mon,  9 Jun 2025 12:22:56 +0200
+Message-ID: <174946455541.762051.5287964403437718499.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250520003332.163124-2-inindev@gmail.com>
-References: <20250520003332.163124-1-inindev@gmail.com> <20250520003332.163124-2-inindev@gmail.com>
+In-Reply-To: <20250520100102.1226725-1-amadeus@jmu.edu.cn>
+References: <20250520100102.1226725-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_032340_303509_19EC5A71 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_032340_891441_B3A0CAED 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,20 +83,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 19 May 2025 20:33:32 -0400, John Clark wrote:
-> Replace deprecated snps,reset-gpio, snps,reset-active-low, and
-> snps,reset-delays-us in gmac0 and gmac1 nodes with standard reset-gpios,
-> reset-assert-us, and reset-deassert-us in rgmii_phy0 and rgmii_phy1 nodes.
-> Add pinctrl properties to PHY nodes and define gmac0_rst and gmac1_rst in
-> pinctrl node. Reorder phy-handle for consistency.
+On Tue, 20 May 2025 18:01:00 +0800, Chukun Pan wrote:
+> There are 2 SPI controllers on the RK3528 SoC, describe it.
+> Tested using st7789v chip with spi-cpha and spi-cpol properties.
 > 
+> [   10.831306] fb_st7789v spi0.0: fbtft_property_value: buswidth = 8
+> [   11.042915] graphics fb0: fb_st7789v frame buffer, 240x320, 150 KiB
+>  video memory, 4 KiB buffer memory, fps=20, spi0.0 at 15 MHz
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Use standard PHY reset properties for RK3576 ArmSoM Sige5
-      commit: 63136c6fecf44b4f2cb458b01cfdbc2cb0ddd29c
+[2/2] arm64: dts: rockchip: Add spi nodes for RK3528
+      commit: 2783335329e5762deb0dc5b6d634225d8613af16
 
 Best regards,
 -- 
