@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD27C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFAFC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NwvXDVinElV0bRbdQOk0BsWXXzDHpMzF/l0aQuRwLgw=; b=w1KJEY0UpjRVIZ/JtYHy4L9iUO
-	NCUsiJhi6/5iswAr9iWmYitgprwa3sdelfqkSTG5e/CYODfHc9k9qCJKFikdCgov51f0rbSMYDQ5i
-	EbTsMZUwY4G0AY/6IwcpaqSdWDwyCEKSDlMP02g0ekZ0t22P0+vgCGszz9v995OnrNSNQZRakw9P+
-	xoWGY7OLfiPzNpSQhufwNTygnIS4iREOjNtNdGEaCBBWKL9QNOTs9hz8bL8VZRg2s/FC1Wxd1OdoZ
-	rIQ+Z0qTcqyZ7AqzO/j3qju8bU+o/FjQKW6YtEROyv9LxM6X7OVCH9Da6TeST/+KhLm5GBj9Y7LrA
-	El3LoDDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KIwbBaYdDZIKV1f/a5gDdIku4Jq/3b7OB8F1zp6fiR4=; b=lJHk7wipQoMtVwICgBQrg8aOnu
+	p3S5QecjNF+umVpVcMZnDz3gaqiNy83aFytYaJ6hEtTowEM8zJR7uHRuRb/ZVDECOZsV5houoQkWc
+	9ZR1WeC559/V5AbnLyGtFZ6MOwAaX3gqGK122vP6aCfYgIgFQrrM9JLYZGJEOvxkq31CkIRm+ra51
+	y/+AVBvxM0NwQhBnef5TbPze7xGA8xQiwh7/pQE4YaDjCnbs+rYsz2dRuyNnfeND97kaIitB5fPDM
+	oXbvvEGPeGZ8+65V0Sjp4ggma/L4FSXLGPCNw8nwTJZis5+fVJ7E/0QviC8Hd99wsfN8PPSNG233q
+	splTR5uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOg5X-00000004mQj-3Kja;
-	Mon, 09 Jun 2025 17:15:11 +0000
-Received: from todd.t-8ch.de ([159.69.126.157])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOemQ-00000004a03-2WcM
+	id 1uOg7e-00000004mto-269b;
+	Mon, 09 Jun 2025 17:17:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOf5q-00000004cur-2Afg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 15:51:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1749484280;
-	bh=b2Wgtom4VQPmWb8cZ96Sldnc/IbgbcGy9qLVL/LndP4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C/FFabkU8OWROYnczjEpCIlLs4zvR4hKgjFas/26QrtqXGDDMX1ty0XcQUaTtWyvI
-	 IcwhfyrwFNzIWey27gft97jEjjwgmTjELbOYbfwg+KPx5pz+uadyrCP06b8Vazt6r/
-	 yAZHd07b7SYaOZeG3tewAkSiPn+1OcgorSlxLjcI=
-Date: Mon, 9 Jun 2025 17:51:19 +0200
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
-To: Mark Brown <broonie@kernel.org>
-Cc: Willy Tarreau <w@1wt.eu>, Christian Brauner <brauner@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 1/2] tools/nolibc: Provide vfork()
-Message-ID: <d4fb291c-e329-4fb6-839f-01cb17afc933@t-8ch.de>
-References: <20250609-arm64-gcs-vfork-exit-v1-0-baad0f085747@kernel.org>
- <20250609-arm64-gcs-vfork-exit-v1-1-baad0f085747@kernel.org>
- <df6f5620-5986-4080-bb00-c7bee856bf66@t-8ch.de>
- <4a4ef323-25e9-4bb5-bde4-9ad740693246@sirena.org.uk>
+	Mon, 09 Jun 2025 16:11:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECB9C14BF;
+	Mon,  9 Jun 2025 09:11:04 -0700 (PDT)
+Received: from [10.57.48.120] (unknown [10.57.48.120])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6D5123F673;
+	Mon,  9 Jun 2025 09:11:22 -0700 (PDT)
+Message-ID: <e18507cb-bcbf-4cdd-8364-9bce0ea016d5@arm.com>
+Date: Mon, 9 Jun 2025 17:11:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4a4ef323-25e9-4bb5-bde4-9ad740693246@sirena.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/9] coresight: Appropriately disable programming
+ clocks
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
+ <20250609-arm_cs_fix_clock_v3_public-v3-4-423b3f1f241d@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250609-arm_cs_fix_clock_v3_public-v3-4-423b3f1f241d@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_085122_781757_DD5D514C 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_091126_659925_AE8E9F48 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,24 +70,340 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-06-09 16:43:55+0100, Mark Brown wrote:
-> On Mon, Jun 09, 2025 at 05:34:33PM +0200, Thomas Weißschuh wrote:
-> > On 2025-06-09 16:08:56+0100, Mark Brown wrote:
-
-<snip>
-
-> > > +static __attribute__((unused))
-> > > +pid_t sys_vfork(void)
-> > > +{
-> > > +#ifdef __NR_vfork
+On 09/06/2025 17:00, Leo Yan wrote:
+> Some CoreSight components have programming clocks (pclk) and are enabled
+> using clk_get() and clk_prepare_enable().  However, in many cases, these
+> clocks are not disabled when modules exit and only released by clk_put().
 > 
-> > For consistency:
-> > #if defined(__NR_vfork)
+> To fix the issue, this commit refactors coresight_get_enable_apb_pclk()
+> by replacing clk_get() and clk_prepare_enable() with
+> devm_clk_get_enabled() for enabling APB clock.  Callers are updated
+> to reuse the returned error value.
 > 
-> Are you sure?  I'm seeing an awful lot of #ifdef __NR_foo instances in
-> sys.h - it looks like the idiom is to use that unless it either needs an
-> additional condition (with || or &&) or is an elif.
+> With the change, programming clocks are managed as resources in driver
+> model layer, allowing clock cleanup to be handled automatically.  As a
+> result, manual cleanup operations are no longer needed and are removed
+> from the Coresight drivers.
+> 
+> Fixes: 73d779a03a76 ("coresight: etm4x: Change etm4_platform_driver driver for MMIO devices")
 
-In sys.h, indeed. These have mostly grown historically, newer ones use
-#if defined() together with #elif defined().
+This looks suspicious. This patch covers a lot of components, but the
+above commit is only affecting ETMv4 ?
+
+The patch as such looks good to me.
+
+Suzuki
+
+
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-catu.c       |  9 ++-------
+>   drivers/hwtracing/coresight/coresight-cpu-debug.c  |  6 +-----
+>   drivers/hwtracing/coresight/coresight-ctcu-core.c  | 10 ++--------
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c |  9 ++-------
+>   drivers/hwtracing/coresight/coresight-funnel.c     |  6 +-----
+>   drivers/hwtracing/coresight/coresight-replicator.c |  6 +-----
+>   drivers/hwtracing/coresight/coresight-stm.c        |  4 +---
+>   drivers/hwtracing/coresight/coresight-tmc-core.c   |  4 +---
+>   drivers/hwtracing/coresight/coresight-tpiu.c       |  4 +---
+>   include/linux/coresight.h                          | 16 +++-------------
+>   10 files changed, 15 insertions(+), 59 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
+> index af2a55f0c907c392d092a50612b23c115a1b0f5f..4c345ff2cff141ea63c2220393e5fdd00c449ca6 100644
+> --- a/drivers/hwtracing/coresight/coresight-catu.c
+> +++ b/drivers/hwtracing/coresight/coresight-catu.c
+> @@ -636,7 +636,7 @@ static int catu_platform_probe(struct platform_device *pdev)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   
+>   	pm_runtime_get_noresume(&pdev->dev);
+>   	pm_runtime_set_active(&pdev->dev);
+> @@ -645,11 +645,8 @@ static int catu_platform_probe(struct platform_device *pdev)
+>   	dev_set_drvdata(&pdev->dev, drvdata);
+>   	ret = __catu_probe(&pdev->dev, res);
+>   	pm_runtime_put(&pdev->dev);
+> -	if (ret) {
+> +	if (ret)
+>   		pm_runtime_disable(&pdev->dev);
+> -		if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -			clk_put(drvdata->pclk);
+> -	}
+>   
+>   	return ret;
+>   }
+> @@ -663,8 +660,6 @@ static void catu_platform_remove(struct platform_device *pdev)
+>   
+>   	__catu_remove(&pdev->dev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   #ifdef CONFIG_PM
+> diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> index a871d997330b09bdb741f35c59108b0b3252cc54..e39dfb886688e111eee95d4294f37fa85baccd14 100644
+> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> @@ -699,7 +699,7 @@ static int debug_platform_probe(struct platform_device *pdev)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   
+>   	dev_set_drvdata(&pdev->dev, drvdata);
+>   	pm_runtime_get_noresume(&pdev->dev);
+> @@ -710,8 +710,6 @@ static int debug_platform_probe(struct platform_device *pdev)
+>   	if (ret) {
+>   		pm_runtime_put_noidle(&pdev->dev);
+>   		pm_runtime_disable(&pdev->dev);
+> -		if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -			clk_put(drvdata->pclk);
+>   	}
+>   	return ret;
+>   }
+> @@ -725,8 +723,6 @@ static void debug_platform_remove(struct platform_device *pdev)
+>   
+>   	__debug_remove(&pdev->dev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   #ifdef CONFIG_ACPI
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> index c6bafc96db963310b5e77a095953c83a172cfc7c..de279efe340581ceabfb9e1cd1e7fe4b5e4f826e 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> @@ -209,7 +209,7 @@ static int ctcu_probe(struct platform_device *pdev)
+>   
+>   	drvdata->apb_clk = coresight_get_enable_apb_pclk(dev);
+>   	if (IS_ERR(drvdata->apb_clk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->apb_clk);
+>   
+>   	cfgs = of_device_get_match_data(dev);
+>   	if (cfgs) {
+> @@ -233,12 +233,8 @@ static int ctcu_probe(struct platform_device *pdev)
+>   	desc.access = CSDEV_ACCESS_IOMEM(base);
+>   
+>   	drvdata->csdev = coresight_register(&desc);
+> -	if (IS_ERR(drvdata->csdev)) {
+> -		if (!IS_ERR_OR_NULL(drvdata->apb_clk))
+> -			clk_put(drvdata->apb_clk);
+> -
+> +	if (IS_ERR(drvdata->csdev))
+>   		return PTR_ERR(drvdata->csdev);
+> -	}
+>   
+>   	return 0;
+>   }
+> @@ -275,8 +271,6 @@ static void ctcu_platform_remove(struct platform_device *pdev)
+>   
+>   	ctcu_remove(pdev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->apb_clk))
+> -		clk_put(drvdata->apb_clk);
+>   }
+>   
+>   #ifdef CONFIG_PM
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 205121c14d72ec2f6a193dccb94b7cfd5c314e26..1915da95b93d953a61778a71b4880c87b91fe17a 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -2303,14 +2303,12 @@ static int etm4_probe_platform_dev(struct platform_device *pdev)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   
+>   	if (res) {
+>   		drvdata->base = devm_ioremap_resource(&pdev->dev, res);
+> -		if (IS_ERR(drvdata->base)) {
+> -			clk_put(drvdata->pclk);
+> +		if (IS_ERR(drvdata->base))
+>   			return PTR_ERR(drvdata->base);
+> -		}
+>   	}
+>   
+>   	dev_set_drvdata(&pdev->dev, drvdata);
+> @@ -2417,9 +2415,6 @@ static void etm4_remove_platform_dev(struct platform_device *pdev)
+>   	if (drvdata)
+>   		etm4_remove_dev(drvdata);
+>   	pm_runtime_disable(&pdev->dev);
+> -
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   static const struct amba_id etm4_ids[] = {
+> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+> index b1922dbe9292b02c91ca5730998e59ecdb08fdc7..36fc4e991458c112521c4261d73f3e58e9a3f995 100644
+> --- a/drivers/hwtracing/coresight/coresight-funnel.c
+> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
+> @@ -240,7 +240,7 @@ static int funnel_probe(struct device *dev, struct resource *res)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   
+>   	/*
+>   	 * Map the device base for dynamic-funnel, which has been
+> @@ -284,8 +284,6 @@ static int funnel_probe(struct device *dev, struct resource *res)
+>   out_disable_clk:
+>   	if (ret && !IS_ERR_OR_NULL(drvdata->atclk))
+>   		clk_disable_unprepare(drvdata->atclk);
+> -	if (ret && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>   	return ret;
+>   }
+>   
+> @@ -355,8 +353,6 @@ static void funnel_platform_remove(struct platform_device *pdev)
+>   
+>   	funnel_remove(&pdev->dev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   static const struct of_device_id funnel_match[] = {
+> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+> index 06efd2b01a0f71620eac71166567d14655b58403..6dd24eb10a94b0eb28f4f27afab845227e22b96c 100644
+> --- a/drivers/hwtracing/coresight/coresight-replicator.c
+> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
+> @@ -247,7 +247,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   
+>   	/*
+>   	 * Map the device base for dynamic-replicator, which has been
+> @@ -296,8 +296,6 @@ static int replicator_probe(struct device *dev, struct resource *res)
+>   out_disable_clk:
+>   	if (ret && !IS_ERR_OR_NULL(drvdata->atclk))
+>   		clk_disable_unprepare(drvdata->atclk);
+> -	if (ret && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>   	return ret;
+>   }
+>   
+> @@ -335,8 +333,6 @@ static void replicator_platform_remove(struct platform_device *pdev)
+>   
+>   	replicator_remove(&pdev->dev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   #ifdef CONFIG_PM
+> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+> index e45c6c7204b4491e0f879bc7d5d445aa1d3118be..88ee453b2815444a550a2b932b28367eb93336b8 100644
+> --- a/drivers/hwtracing/coresight/coresight-stm.c
+> +++ b/drivers/hwtracing/coresight/coresight-stm.c
+> @@ -851,7 +851,7 @@ static int __stm_probe(struct device *dev, struct resource *res)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   	dev_set_drvdata(dev, drvdata);
+>   
+>   	base = devm_ioremap_resource(dev, res);
+> @@ -1033,8 +1033,6 @@ static void stm_platform_remove(struct platform_device *pdev)
+>   
+>   	__stm_remove(&pdev->dev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   #ifdef CONFIG_ACPI
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> index 0b5e7635a084d226619e69189a2ecbaff754ec43..e867198b03e82892da7312c9dc1c69676602c598 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> @@ -991,7 +991,7 @@ static int tmc_platform_probe(struct platform_device *pdev)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   
+>   	dev_set_drvdata(&pdev->dev, drvdata);
+>   	pm_runtime_get_noresume(&pdev->dev);
+> @@ -1015,8 +1015,6 @@ static void tmc_platform_remove(struct platform_device *pdev)
+>   
+>   	__tmc_remove(&pdev->dev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   #ifdef CONFIG_PM
+> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
+> index 3e01592884280819c16398cbb5e09cbaee5d3efb..b2559c6fac6d2f02e0038e583cd324d7165c5aee 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
+> @@ -153,7 +153,7 @@ static int __tpiu_probe(struct device *dev, struct resource *res)
+>   
+>   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
+>   	if (IS_ERR(drvdata->pclk))
+> -		return -ENODEV;
+> +		return PTR_ERR(drvdata->pclk);
+>   	dev_set_drvdata(dev, drvdata);
+>   
+>   	/* Validity for the resource is already checked by the AMBA core */
+> @@ -293,8 +293,6 @@ static void tpiu_platform_remove(struct platform_device *pdev)
+>   
+>   	__tpiu_remove(&pdev->dev);
+>   	pm_runtime_disable(&pdev->dev);
+> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_put(drvdata->pclk);
+>   }
+>   
+>   #ifdef CONFIG_ACPI
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 4ac65c68bbf44b98db22c3dad2d83a224ce5278e..dd2b4cc7a2b70cf060a3207548fe80e3824c489f 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -480,26 +480,16 @@ static inline bool is_coresight_device(void __iomem *base)
+>    * Returns:
+>    *
+>    * clk   - Clock is found and enabled
+> - * NULL  - clock is not found
+>    * ERROR - Clock is found but failed to enable
+>    */
+>   static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
+>   {
+>   	struct clk *pclk;
+> -	int ret;
+>   
+> -	pclk = clk_get(dev, "apb_pclk");
+> -	if (IS_ERR(pclk)) {
+> -		pclk = clk_get(dev, "apb");
+> -		if (IS_ERR(pclk))
+> -			return NULL;
+> -	}
+> +	pclk = devm_clk_get_enabled(dev, "apb_pclk");
+> +	if (IS_ERR(pclk))
+> +		pclk = devm_clk_get_enabled(dev, "apb");
+>   
+> -	ret = clk_prepare_enable(pclk);
+> -	if (ret) {
+> -		clk_put(pclk);
+> -		return ERR_PTR(ret);
+> -	}
+>   	return pclk;
+>   }
+>   
+> 
+
 
