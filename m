@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660E5C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B850C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=joBlEjrgr9muiP0UDjGGGTEJ6Vs1HF+Fy4q2Nr/4iJc=; b=EnujvbYMvrxjKgljDrY9678QQk
-	MyT2PV+bg1zKWHB/9dCHRFLyxSzBHOCN9iK4EikuaVf/L34eg9P7aas3hVXx4xPv9FUqaAmJMefUW
-	rH9pdk05H7iDnkqRxZciDMLxB6gOssyF1AfucIyNF/EZUa5PGSZiNuNnKFj727b2hv2hXlL8RJJmJ
-	FKrR70zwwyN0ib08mpknebYF0MHvIX/bb9ex6jE3RzI/lrGt96XCNl/kKLPeBTQ19tiNFIlxm3TYx
-	a++KwzzS9WuH76oma6zOVhWszc0Y2igzNBrtm/hW9oEBziioT+k2wpxsLfY4Ay3XvL1KzQzkc6DZ7
-	fbO+TIKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=erCWTv1iBu+zhino5X8lqV0NnPCfncKslxTm/LttBO4=; b=fCILl1J+WO/bfYY/tSgGP9tTVw
+	/WpK0mIJQ5b8XHdyX6URVNvRKXg8JbF69SAW95XW8+8zk4nXv05D8cef5yhRArzAak3I99bpeRaWQ
+	/pO4UHun7jvXr82MMYoQdnguJfhqoRNK9aKk8Dsvn/Xo25RhRPR07YDGLfA5m2duNHCBmkDbesrRF
+	BCzkFbyzSggtIIip0BDc174oketdm00ytRxm7sDpyTEVtSwRs32tJaT6u2OgN/7sG6gOWPIpNNaR7
+	qtz18RR3si8FgrAaNm+PwK4WKpf63hkZvuxReqd3V5XCCEfozv4rtN92jbkRgUqqiWgn6wYopvufw
+	R5qeTYYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYeR-00000003kVT-1Ywv;
-	Mon, 09 Jun 2025 09:18:43 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uOYgX-00000003km7-1vpD;
+	Mon, 09 Jun 2025 09:20:53 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYSQ-00000003jKq-3Hnh;
-	Mon, 09 Jun 2025 09:06:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=joBlEjrgr9muiP0UDjGGGTEJ6Vs1HF+Fy4q2Nr/4iJc=; b=d2TvmF6njbZP0r8VPzRz1pdgRw
-	D0cGitUZxFqVoVAdpgEyLxt/bO6IhuzyPF1TWutbiciAOvR1zlTJB5b59Df0npsAiZseMTfbPsG5j
-	f3hBHLG5LFVosHfH9fARI9OzCu93O3Wb7VnQow+eoxZa7MFsP3qwy+FQnzg5NI2faW/ibEjapB3ro
-	6qJsxwqPcvAdy6AKnabOX1lRjHyO8/x+gUoWzT+vp3vz7COQwC2tRYN/dCQTxxwWpORh3+JVWfkls
-	K5V0iUGo1JOOPeX3rP9NnQTrEJ7Lmw9cqSQZ0VCKrsprZzag7Rd+nGhz1GqPwYDZXFTvWrzZkWnqg
-	ZbQJZ44A==;
-Received: from i53875b1c.versanet.de ([83.135.91.28] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uOYSI-0005iM-T1; Mon, 09 Jun 2025 11:06:10 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: i@chainsx.cn, Hsun Lai <i@chainsx.cn>
-Cc: andrew@lunn.ch, conor+dt@kernel.org, devicetree@vger.kernel.org,
- inindev@gmail.com, jonas@kwiboo.se, krzk+dt@kernel.org,
- krzysztof.kozlowski@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- quentin.schulz@cherry.de, robh@kernel.org, sfr@canb.auug.org.au
-Subject: Re: [v5,0/2] Add support for Firefly Station-M3/ROC-RK3588S-PC
-Date: Mon, 09 Jun 2025 11:06:10 +0200
-Message-ID: <2607600.Icojqenx9y@phil>
-In-Reply-To: <20250602153500.1831349-1-i@chainsx.cn>
-References: <20250530031046.166202-1-i@chainsx.cn>
- <20250602153500.1831349-1-i@chainsx.cn>
+	id 1uOYTb-00000003jSp-0DXE;
+	Mon, 09 Jun 2025 09:07:32 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A8E3B4326B;
+	Mon,  9 Jun 2025 09:07:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749460048;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=erCWTv1iBu+zhino5X8lqV0NnPCfncKslxTm/LttBO4=;
+	b=mqb8fdfUAPmh1nGlznkXqcy65DTSqmBNVTK2jEWW+sZy/L4Mwn72e1BDiJ6cNad6U5dhco
+	u2tGJQquy5bw3+kHVVdCbRKfHfSnzViq+cQDLYETVOvMuFONiHdKYsOexHM9Wtq5TlUA27
+	Wq6EQAHizzOUgD/5vnR/JKaEAE9T6g0f+lVPjJLQmVUJ7c33S2FZ74WRNQJywTAYKrGQVk
+	fSKxOTK0HsojuD7X2IAULVVy80JhHB4I6IhrxTD2EO/Jy5eiufVse+maoLpEn6h5EHezDB
+	jnD8xN55kzjPhIwMon0UA42cRqfRK4brNShFTyzymTAVg6aNocx8YOUgeY/CTQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,  Rob Herring <robh@kernel.org>,
+  Mark Brown <broonie@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Tudor Ambarus
+ <tudor.ambarus@linaro.org>,  Pratyush Yadav <pratyush@kernel.org>,
+  Michael Walle <mwalle@kernel.org>,  Richard Weinberger <richard@nod.at>,
+  Vignesh Raghavendra <vigneshr@ti.com>,  linux-spi@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/3] dt-bindings: spi: Add VIA/WonderMedia serial flash
+ controller
+In-Reply-To: <CABjd4YxRMfi3ZFQxhB__6U4Rm3KQ7bm6J=wQLWAkpb++61ddEg@mail.gmail.com>
+	(Alexey Charkov's message of "Fri, 6 Jun 2025 13:06:22 +0400")
+References: <20250510-wmt-sflash-v1-0-02a1ac6adf12@gmail.com>
+	<20250510-wmt-sflash-v1-1-02a1ac6adf12@gmail.com>
+	<20250514204159.GA2988411-robh@kernel.org>
+	<CABjd4Yz3w75PtkRk_edzD5yf6b2xPuf20gopbm8ygddgCBfpkw@mail.gmail.com>
+	<2b520ae5-eb0d-40eb-ba73-cc18759f33b9@kernel.org>
+	<CABjd4YxRMfi3ZFQxhB__6U4Rm3KQ7bm6J=wQLWAkpb++61ddEg@mail.gmail.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Mon, 09 Jun 2025 11:07:27 +0200
+Message-ID: <87y0u1z3jk.fsf@bootlin.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdeltdelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopegrlhgthhgrrhhksehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdpr
+ hgtphhtthhopehtuhguohhrrdgrmhgsrghruhhssehlihhnrghrohdrohhrghdprhgtphhtthhopehprhgrthihuhhshheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_020618_817688_74F0C289 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250609_020731_385539_4B0D492F 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 2. Juni 2025, 17:35:00 Mitteleurop=C3=A4ische Sommerzeit schrieb=
- Hsun Lai:
-> > I tried to replicate on top of master=20
-> > (24de2b9da3e28df323c1e096538ae1e035751adf) but couldn't, so I guess we=
-=20
-> > can simply ignore this warning?
->=20
-> Yes, the same situation occurs here,
-> and it has already been answered by Heiko St=C3=BCbner(#2):
-> https://patchwork.kernel.org/project/linux-rockchip/cover/20250516012402.=
-580468-1-i@chainsx.cn/
+Hi Alexey,
 
-Now with 6.16-rc1 out, this should disappear.
+>> > Happy to reference the spi-controller.yaml binding if so.
+>>
+>> SPI NOR flashes are still child devices of an SPI controller. You can
+>> look at other examples - aren't they all using spi-controller? Why this
+>> would be different? Unless you found some cases that are different, but
+>> then which ones?
+>
+> No strong opinions here, and no expectation of any special treatment
+> :) Just wanted to consult on what's most appropriate.
+>
+> My (subjective and perhaps unfounded) expectation when seeing
+> something advertise itself as an SPI controller was that it would be a
+> general purpose SPI master, to which one can e.g. connect an SPI
+> driven LCD screen and get it to work with generic Linux SPI
+> infrastructure - which would not be possible with this single-purpose
+> NOR-only flash controller. Given that I don't know how flexible or
+> restrictive other examples are in terms of driving arbitrary SPI
+> devices, I thought it's better to just ask.
+>
+> What I'm getting from this exchange here is that I'd better use the
+> spi-controller binding and respective node names regardless of the
+> fact that this controller cannot drive arbitrary SPI devices beyond
+> NOR flash (which, as I'm getting, is irrelevant after all).
 
-But I'd assume that bot check might have moved the binding out of the
-review queue of the dt-maintainers, so I guess you might try resending
-the series on top of that, because we're missing an Review/Ack on the
-binding.
+Just for information, there are several SPI controllers which are
+optimized for flash handling (not only NOR, though) and for that we have
+a spi-mem layer which allows to reference a set of SPI memory "only"
+callbacks. On the description side though, these controllers are like
+all other SPI controllers, so the same controller bindings may apply.
 
-
-Heiko
-
-
+Thanks,
+Miqu=C3=A8l
 
