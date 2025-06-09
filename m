@@ -4,73 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E7DC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2D3C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1OwvzFINvmCOHFJISfJcKfLNmIz3HgkKL8EOq6FONK8=; b=Gp8PRvk+c5Rp2Dttj230iGujUg
-	zCNoifAk6PlXO5nHrE2Eg4+bvL+FKvVubKqDwZRR4oGuHuimTiLmXXbuMpqMZeU/rM00/v9fZ+TKW
-	f4fSSinr47vZwtM6teWeOdstsiHLn3fcu4+zOuiVB1qLJY0M01zC6H9eSPS8K+J2F2l+J2Ch9JVzv
-	uXRw5Q7lIXpU/E2vr5yhebg8IZz+E/zreaxK3DSsNKTl+LMzwzJKtH6c5IIXV4TaP77EcJd9nl1nj
-	daCus1K+xEOCAONTRfUyq5oGB9BlKMnUmIHNvSEUqYWvddPengeRJF0GCuqc1nqgpZKYUdl1z7FzF
-	Ea5wbqcA==;
+	bh=TbJ1tbrVzaq9Eu0evFfvKDOWxuNNrI779QMTpMN0PYI=; b=vix6Or9efbtmWoWPAkVPEyP4p1
+	4dIr0eJfMrTLx7XSVXx33br2Bq0sTTixas2/wlPWImN/RjEjyKvISA3j/81yecauDfBBhF7altvrf
+	Powe/ipXG1crfl3kGDOKbKTH52DLxKtG3LKi/PK0iyIhCmn+Q72O0OaTZ83HCenFoBayf4K3vJPLD
+	cDosj+UuGM3t21MGBRvy+a95syqcwNjBYQcxUt1CUcqRt9YGCGXUsCtstCiYBbAul4CxpUpmO+zZw
+	QG+w+2z9TwdkedQ6kNgMyug+itWRHFmgh6cZQatOc5wwc6PiN+n4OLSPgKPFs62LIB+8PfC7lXh1a
+	O4C4uniw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZXt-00000003sKu-1pr9;
-	Mon, 09 Jun 2025 10:16:01 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1uOZao-00000003svM-100w;
+	Mon, 09 Jun 2025 10:19:02 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZVl-00000003sF9-0hDE
+	id 1uOZYb-00000003sRC-161d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 10:13:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749464029; x=1781000029;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=cHxjFsUS8LL4QHA5PiRliG2F2zhRtTL4xLSY9x7AJmc=;
-  b=GthHHlG+mcHiVl9A+Yp5ZfkEudYO7AkPKQWyeIZJlA9C9GBt/waSdxXK
-   SGF0pscjyvCa9HuJ2fly3tz1tJtJeYszjMh+USTEGPhBKd1wyAB+jLHS9
-   x5Th1rh/PwwQ2EOZ41Txhc906aYAXHJspVEQ3VHD6TJpAu4D5oEA7T0Cx
-   TAcmQKegb3V3P2zG/byRqWGX2pJdXvHkgpEK+iTo+Y1NBraxwFo2xnIAv
-   MtW0AcddxgGmQLx5Jx5yjej4Bqj0OdidhBxtO7zQba3xspcN3Hezhx2Ii
-   bub+4kILUfmYNA6g27IyGGRVAnfITuPJY9G34PDuxnmPhW/Ngxjsv/cJZ
-   g==;
-X-CSE-ConnectionGUID: IHqvrcIUTaG5mY3Fo9tnLA==
-X-CSE-MsgGUID: a2wbqRGGQWatJXZj0hnL9Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11458"; a="51394385"
-X-IronPort-AV: E=Sophos;i="6.16,222,1744095600"; 
-   d="scan'208";a="51394385"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2025 03:13:48 -0700
-X-CSE-ConnectionGUID: vJt+yROBSTiQpMXLTL4bLg==
-X-CSE-MsgGUID: M3k+/SSLRzKXL3bClz57zg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,222,1744095600"; 
-   d="scan'208";a="146993921"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 09 Jun 2025 03:13:46 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uOZVg-0006wT-1V;
-	Mon, 09 Jun 2025 10:13:44 +0000
-Date: Mon, 9 Jun 2025 18:13:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:arm64/binutils-cleanup 1/2]
- arch/arm64/include/asm/alternative-macros.h:228:2: error: expected absolute
- expression
-Message-ID: <202506091850.ZQDMasOg-lkp@intel.com>
+	Mon, 09 Jun 2025 10:16:46 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ad89c32a7b5so663043466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 03:16:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1749464203; x=1750069003; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TbJ1tbrVzaq9Eu0evFfvKDOWxuNNrI779QMTpMN0PYI=;
+        b=O09N3Ut8GHHEpr+nn5TsuX17eIY4fWpxFeQfrzv72HibvHTh6zzDf5ChLSVinLCNQ2
+         tOlGVmrHeI3xoaQ6OE1XKVxSkuRCJEBbmTCe/ehGAx+bSDitCKf9Qat2VKePyvR3vtWq
+         kFHoZg+s1D2S/tdpizvywEcxLUPFJ4Dz7BMm8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749464203; x=1750069003;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TbJ1tbrVzaq9Eu0evFfvKDOWxuNNrI779QMTpMN0PYI=;
+        b=TGmk9sY3tY1a3/cPeeHTPkaCQ896+LfKz6pc+tHfxmvoN+OUNXaonipnJkUUv+PdtQ
+         FZb44e4MiFXs9e85uEXAWlK0KTysaBB8g21j3LYsx6uTofOp+IllnL1ltvCNFZJpBmxT
+         x5+GV4G3CPThDnj6BXhfi51K9wUUudTqAlEfWECQtaqfPd4PtlJyu+AYlyFe98sw2xgs
+         ccYF9yLLIzHuE/VSYzJBDBjZj4mhWscQcuvhFFfcrWQ/qij+/fMVOTVB4tliv4/gZIsq
+         XDwGYpuJqjqw/Tx2l+7mqDfJNg7lsAG76pMYzZC+lknY3H1ZHlFKySm0jdOzfJWmzXEJ
+         pd7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUvzOOX+fILJWsUtnZ+JoCNAPJWSPyb6yRzyiD9UqEmjsh7RzGVPoYBxC+KrOblbAnYOaqe+8ylS3mqtokQVUtY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnqhh4tEEf3FDOrwIp8UjZaQP+zbwe7T9N3/bDtFuAIMfIw7KB
+	gGE2TzMuxVERmpUIgSujs+NNbeDH87WFMUXCWhha8xDzVAFit6+Cne0YHccoccqLjaE=
+X-Gm-Gg: ASbGncvRRYmp/ajW/7pU1uH7s1wepFapWmgrWnolbf+5sl1EvWd/8mZsKG5WwH0JSLs
+	PPJe31OQ7PetyZBwBoZDrt6OngEs2HEg2O7y4pxe/8GOCxJdC5hevEEXdhxJ5nycvI3JQPEklia
+	G8sEWDrXRxmSayDRGPEIFizToWE8KLM+fm1ZAmrV0cHbYETHZmdw/Nn97vTVwSEDvUDtMNh3KOp
+	SQQDE+1VCGZGmaFSIGE6X5sJR0qhWS9lTC1ImRsTNFSfRNUiq7MV9BzvNVnUcnWzn4ZUPGuxOOB
+	8Jf78TqzbJB0aSvqXujTDafq5LbXCgr7CqWdEf6JI4OqE3Vkf98tFQP+NJfzcC7uUVGvz5P4aXD
+	5uw68wWdGGLY8ME6cFAIeAriIjCySmneM10r4oEO+
+X-Google-Smtp-Source: AGHT+IENu+cN1K/Tck/lkp6DHf9W71FZqSXJAShei9q/DyrSApC2JOSHLAClYdMgr/5JU1IPWNRyUg==
+X-Received: by 2002:a17:907:940a:b0:ad1:81c5:5ec9 with SMTP id a640c23a62f3a-ade1a9c9e50mr1280776066b.4.1749464203323;
+        Mon, 09 Jun 2025 03:16:43 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2.196.40.99])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1db55c7esm529257066b.49.2025.06.09.03.16.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Jun 2025 03:16:42 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Matteo Lisi <matteo.lisi@engicam.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Fabio Estevam <festevam@denx.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Rob Herring <robh@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 00/10] Support Engicam MicroGEA boards
+Date: Mon,  9 Jun 2025 12:15:33 +0200
+Message-ID: <20250609101637.2322809-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_031349_243008_0A64E8CD 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250609_031645_314592_F7B469C1 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,183 +122,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git arm64/binutils-cleanup
-head:   61189b46d4cae85952b67f48da9af226155e9dd7
-commit: 08c6df2c373ba216ffc1d0b79c3e028adae5d2c4 [1/2] arm64: Remove .inst workarounds after binutils bump
-config: arm64-randconfig-r053-20250609 (https://download.01.org/0day-ci/archive/20250609/202506091850.ZQDMasOg-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250609/202506091850.ZQDMasOg-lkp@intel.com/reproduce)
+The series adds support for Engicam MicroGEA boards:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506091850.ZQDMasOg-lkp@intel.com/
+- BMM
+- RMM
+- GTW
 
-All errors (new ones prefixed by >>):
+based on MicroGEA-MX6UL SoM.
 
-   In file included from <built-in>:4:
-   In file included from lib/vdso/getrandom.c:8:
-   In file included from include/vdso/datapage.h:197:
-   In file included from arch/arm64/include/asm/vdso/gettimeofday.h:10:
-   In file included from arch/arm64/include/asm/alternative.h:5:
->> arch/arm64/include/asm/alternative-macros.h:228:2: error: expected absolute expression
-     228 |         ALTERNATIVE("b  %l[l_no]", "nop", %[cpucap])
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:214:2: note: expanded from macro 'ALTERNATIVE'
-     214 |         _ALTERNATIVE_CFG(oldinstr, newinstr, __VA_ARGS__, 1)
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:76:2: note: expanded from macro '_ALTERNATIVE_CFG'
-      76 |         __ALTERNATIVE_CFG(oldinstr, newinstr, cpucap, IS_ENABLED(cfg))
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:56:9: note: expanded from macro '__ALTERNATIVE_CFG'
-      56 |         "664:\n\t"                                                      \
-         |                ^
-   <inline asm>:16:6: note: instantiated into assembly here
-      16 |         .if ((664b-663b) != (662b-661b))
-         |             ^
-   In file included from <built-in>:4:
-   In file included from lib/vdso/getrandom.c:8:
-   In file included from include/vdso/datapage.h:197:
-   In file included from arch/arm64/include/asm/vdso/gettimeofday.h:10:
-   In file included from arch/arm64/include/asm/alternative.h:5:
->> arch/arm64/include/asm/alternative-macros.h:228:2: error: Alternatives instruction length mismatch
-     228 |         ALTERNATIVE("b  %l[l_no]", "nop", %[cpucap])
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:214:2: note: expanded from macro 'ALTERNATIVE'
-     214 |         _ALTERNATIVE_CFG(oldinstr, newinstr, __VA_ARGS__, 1)
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:76:2: note: expanded from macro '_ALTERNATIVE_CFG'
-      76 |         __ALTERNATIVE_CFG(oldinstr, newinstr, cpucap, IS_ENABLED(cfg))
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:58:3: note: expanded from macro '__ALTERNATIVE_CFG'
-      58 |         ".error \"Alternatives instruction length mismatch\"\n"         \
-         |          ^
-   <inline asm>:17:1: note: instantiated into assembly here
-      17 | .error "Alternatives instruction length mismatch"
-         | ^
-   2 errors generated.
-   In file included from <built-in>:4:
-   In file included from lib/vdso/gettimeofday.c:5:
-   In file included from include/vdso/datapage.h:197:
-   In file included from arch/arm64/include/asm/vdso/gettimeofday.h:11:
->> arch/arm64/include/asm/arch_timer.h:204:15: error: expected absolute expression
-     204 |         asm volatile(ALTERNATIVE("isb\n mrs %0, cntvct_el0",
-         |                      ^
-   arch/arm64/include/asm/alternative-macros.h:214:2: note: expanded from macro 'ALTERNATIVE'
-     214 |         _ALTERNATIVE_CFG(oldinstr, newinstr, __VA_ARGS__, 1)
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:76:2: note: expanded from macro '_ALTERNATIVE_CFG'
-      76 |         __ALTERNATIVE_CFG(oldinstr, newinstr, cpucap, IS_ENABLED(cfg))
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:56:9: note: expanded from macro '__ALTERNATIVE_CFG'
-      56 |         "664:\n\t"                                                      \
-         |                ^
-   <inline asm>:29:6: note: instantiated into assembly here
-      29 |         .if ((664b-663b) != (662b-661b))
-         |             ^
-   In file included from <built-in>:4:
-   In file included from lib/vdso/gettimeofday.c:5:
-   In file included from include/vdso/datapage.h:197:
-   In file included from arch/arm64/include/asm/vdso/gettimeofday.h:11:
->> arch/arm64/include/asm/arch_timer.h:204:15: error: Alternatives instruction length mismatch
-     204 |         asm volatile(ALTERNATIVE("isb\n mrs %0, cntvct_el0",
-         |                      ^
-   arch/arm64/include/asm/alternative-macros.h:214:2: note: expanded from macro 'ALTERNATIVE'
-     214 |         _ALTERNATIVE_CFG(oldinstr, newinstr, __VA_ARGS__, 1)
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:76:2: note: expanded from macro '_ALTERNATIVE_CFG'
-      76 |         __ALTERNATIVE_CFG(oldinstr, newinstr, cpucap, IS_ENABLED(cfg))
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:58:3: note: expanded from macro '__ALTERNATIVE_CFG'
-      58 |         ".error \"Alternatives instruction length mismatch\"\n"         \
-         |          ^
-   <inline asm>:30:1: note: instantiated into assembly here
-      30 | .error "Alternatives instruction length mismatch"
-         | ^
-   make[3]: *** [scripts/Makefile.build:203: arch/arm64/kernel/vdso/vgetrandom.o] Error 1
-   In file included from <built-in>:4:
-   In file included from lib/vdso/gettimeofday.c:5:
-   In file included from include/vdso/datapage.h:197:
-   In file included from arch/arm64/include/asm/vdso/gettimeofday.h:11:
->> arch/arm64/include/asm/arch_timer.h:204:15: error: expected absolute expression
-     204 |         asm volatile(ALTERNATIVE("isb\n mrs %0, cntvct_el0",
-         |                      ^
-   arch/arm64/include/asm/alternative-macros.h:214:2: note: expanded from macro 'ALTERNATIVE'
-     214 |         _ALTERNATIVE_CFG(oldinstr, newinstr, __VA_ARGS__, 1)
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:76:2: note: expanded from macro '_ALTERNATIVE_CFG'
-      76 |         __ALTERNATIVE_CFG(oldinstr, newinstr, cpucap, IS_ENABLED(cfg))
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:56:9: note: expanded from macro '__ALTERNATIVE_CFG'
-      56 |         "664:\n\t"                                                      \
-         |                ^
-   <inline asm>:29:6: note: instantiated into assembly here
-      29 |         .if ((664b-663b) != (662b-661b))
-         |             ^
-   In file included from <built-in>:4:
-   In file included from lib/vdso/gettimeofday.c:5:
-   In file included from include/vdso/datapage.h:197:
-   In file included from arch/arm64/include/asm/vdso/gettimeofday.h:11:
->> arch/arm64/include/asm/arch_timer.h:204:15: error: Alternatives instruction length mismatch
-     204 |         asm volatile(ALTERNATIVE("isb\n mrs %0, cntvct_el0",
-         |                      ^
-   arch/arm64/include/asm/alternative-macros.h:214:2: note: expanded from macro 'ALTERNATIVE'
-     214 |         _ALTERNATIVE_CFG(oldinstr, newinstr, __VA_ARGS__, 1)
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:76:2: note: expanded from macro '_ALTERNATIVE_CFG'
-      76 |         __ALTERNATIVE_CFG(oldinstr, newinstr, cpucap, IS_ENABLED(cfg))
-         |         ^
-   arch/arm64/include/asm/alternative-macros.h:58:3: note: expanded from macro '__ALTERNATIVE_CFG'
-      58 |         ".error \"Alternatives instruction length mismatch\"\n"         \
-         |          ^
-   <inline asm>:30:1: note: instantiated into assembly here
-      30 | .error "Alternatives instruction length mismatch"
-         | ^
-   4 errors generated.
-   make[3]: *** [scripts/Makefile.build:203: arch/arm64/kernel/vdso/vgettimeofday.o] Error 1
-   make[3]: Target 'include/generated/vdso-offsets.h' not remade because of errors.
-   make[3]: Target 'arch/arm64/kernel/vdso/vdso.so' not remade because of errors.
-   make[2]: *** [arch/arm64/Makefile:203: vdso_prepare] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
+Changes in v2:
+- Change local-mac-address to 00 00 00 00 00 00. The actual value will
+  be set by the bootloader. The previous one was assigned to Freescale
+  Semiconductor.
+- Move iomuxc and iomuxc_snvs nodes to the end of the DTS files.
+- Drop an extra blank line from the DTS file.
 
+Dario Binacchi (10):
+  dt-bindings: arm: fsl: support Engicam MicroGEA BMM board
+  ARM: dts: imx6ul: support Engicam MicroGEA-MX6UL SoM
+  ARM: dts: imx6ul: support Engicam MicroGEA BMM board
+  ARM: imx_v6_v7_defconfig: cleanup mxs_defconfig
+  ARM: imx_v6_v7_defconfig: select CONFIG_INPUT_PWM_BEEPER
+  dt-bindings: arm: fsl: support Engicam MicroGEA RMM board
+  ARM: dts: imx6ul: support Engicam MicroGEA RMM board
+  dt-bindings: arm: fsl: support Engicam MicroGEA GTW board
+  ARM: dts: imx6ul: support Engicam MicroGEA GTW board
+  ARM: imx_v6_v7_defconfig: select CONFIG_USB_HSIC_USB3503
 
-vim +228 arch/arm64/include/asm/alternative-macros.h
-
-21fb26bfb01ffe Mark Rutland   2022-09-12  219  
-21fb26bfb01ffe Mark Rutland   2022-09-12  220  static __always_inline bool
-5235c7e2cfccb5 Mark Rutland   2023-06-07  221  alternative_has_cap_likely(const unsigned long cpucap)
-21fb26bfb01ffe Mark Rutland   2022-09-12  222  {
-de66cb37ab6488 Mark Rutland   2023-10-16  223  	if (!cpucap_is_possible(cpucap))
-de66cb37ab6488 Mark Rutland   2023-10-16  224  		return false;
-21fb26bfb01ffe Mark Rutland   2022-09-12  225  
-4356e9f841f7fb Linus Torvalds 2024-02-09  226  	asm goto(
-2c2ca3416b4090 Mark Rutland   2024-09-03  227  #ifdef BUILD_VDSO
-2c2ca3416b4090 Mark Rutland   2024-09-03 @228  	ALTERNATIVE("b	%l[l_no]", "nop", %[cpucap])
-2c2ca3416b4090 Mark Rutland   2024-09-03  229  #else
-5235c7e2cfccb5 Mark Rutland   2023-06-07  230  	ALTERNATIVE_CB("b	%l[l_no]", %[cpucap], alt_cb_patch_nops)
-2c2ca3416b4090 Mark Rutland   2024-09-03  231  #endif
-21fb26bfb01ffe Mark Rutland   2022-09-12  232  	:
-5235c7e2cfccb5 Mark Rutland   2023-06-07  233  	: [cpucap] "i" (cpucap)
-21fb26bfb01ffe Mark Rutland   2022-09-12  234  	:
-21fb26bfb01ffe Mark Rutland   2022-09-12  235  	: l_no);
-21fb26bfb01ffe Mark Rutland   2022-09-12  236  
-21fb26bfb01ffe Mark Rutland   2022-09-12  237  	return true;
-21fb26bfb01ffe Mark Rutland   2022-09-12  238  l_no:
-21fb26bfb01ffe Mark Rutland   2022-09-12  239  	return false;
-21fb26bfb01ffe Mark Rutland   2022-09-12  240  }
-21fb26bfb01ffe Mark Rutland   2022-09-12  241  
-
-:::::: The code at line 228 was first introduced by commit
-:::::: 2c2ca3416b4090aef8c646adccfc3be4b712db8a arm64: alternative: make alternative_has_cap_likely() VDSO compatible
-
-:::::: TO: Mark Rutland <mark.rutland@arm.com>
-:::::: CC: Jason A. Donenfeld <Jason@zx2c4.com>
+ .../devicetree/bindings/arm/fsl.yaml          |   9 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |   3 +
+ .../nxp/imx/imx6ull-engicam-microgea-bmm.dts  | 305 +++++++++++++++
+ .../nxp/imx/imx6ull-engicam-microgea-gtw.dts  | 163 ++++++++
+ .../nxp/imx/imx6ull-engicam-microgea-rmm.dts  | 362 ++++++++++++++++++
+ .../dts/nxp/imx/imx6ull-engicam-microgea.dtsi |  96 +++++
+ arch/arm/configs/imx_v6_v7_defconfig          |  27 +-
+ 7 files changed, 944 insertions(+), 21 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+branch: imx6ull-engicam-microgea
 
