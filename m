@@ -4,173 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D56C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 08:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DD3C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 08:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QGfvFy0D9IfXPJK/4QyeA3R4uPNen6cy3IzyX7iaMqg=; b=CZdKzrRn3AyEtHjv/TP6IgpI70
-	kGD9nxdORZ6LTwOeeelh6kBqh1Bm9Xsi5OgaFHZJrc0wXV+yv8deHXU5wJ6abOBkC7uhOVw8hpEDx
-	qX5aiy6xGGudcMFTUnzIXepW+LKf+y5ncr/HD7eNDBE2fiekeMO3r85SH9zzTGq4/5EKOHU9u9vlx
-	ZpGjbkIKNz9U+LuKg491jAeyPVZuDZHa91ny1BmdoUiQTmDDtDUIzP1w3YJifTk8Lr5MKwfU14E9O
-	caR+ghdOCFhcVROVdTXgwhs9MEBy/8bBR+pM7pE+HrcJFeY1PiWHHXt2EKYpKXT3LYWe5TCZVpAk9
-	zDfm9J/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M5JZlSM1LhLy0SQ19Tkx1NwHmMyReoGwUgGBqgLGVOM=; b=BHaUEs5EvKXoBecankxxRLb8GX
+	dSPPZvU4xMOMMf7fIFP7dYZdhns70cfSrVobj/yiTCG1d/+agvc2sGXxX3c6qHteBaWcT7B4rXTuS
+	y+QPtPOZvCFxiXIzyRgBRoBiY/gPzsowq8Tx/l1iULbSsuACvJ3f9d/EllV9zSqgmnkV9PrZeZjdB
+	Jjhh8L0kyCbTATfOBMG58MbIMK5prXMikwI7K8AMqO3pVTGZkZhoNf/RDiV0Xj/1+ugMoephms6bw
+	ovF6nKNOEkkpHd1XJ1dFdh3q2MJvLzW4fbjg00KTW+lT6fhpwxqguSYZ6W6vECQFN/DfJtcUqOCzO
+	tVkULrug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOY2i-00000003gV7-1TN1;
-	Mon, 09 Jun 2025 08:39:44 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uOY4o-00000003gcj-0Srd;
+	Mon, 09 Jun 2025 08:41:54 +0000
+Received: from mx.swemel.ru ([95.143.211.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOXyS-00000003ftY-0Yi2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 08:35:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eMX6spDi2NAt4Q9+hu6S7cDe30LlQNBMHCMaNK2Q36QiooLv953PQwLiBejMIBUwQ3Jdc/0MUE0AGK+4JV9a8RjNQbMmhruwmCY6P4TMat/MjZC5yHrsq2nilaug7uWlKKaFGl3xoDPE63LPylW4GdRphzjWjrLgkJQDKwFX07I0kdaMPUMHJMuzU6pkhYape/KT9eGKmq7HaJSjkqztcPylxzlNpbBTj7zSOx/fyKsLFRBzygntED0xfZEdtR5lyz4uxpjrr50DRUCAysUr3j9ngBu1MYTQdWSFWMqNE2pwnz7x3UK48EngvUFMWT9g3uwuVXEk/plxHyBJrCxDEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QGfvFy0D9IfXPJK/4QyeA3R4uPNen6cy3IzyX7iaMqg=;
- b=iQ7n+z97uaKNgVdzUJ4Qb0zA9BPnCjCK79VoPzfodLEeAUXZuIYHKFlu1aI0xs5uNfe+nllAHlKVtGFH8ur7+8wKoRuv1kyHzcbZGtXM2Nu5gD39VJcCQkVb3Bn5a3U3LCU39PHW1zIAjnTlgmOxmannNTEfYlsJOI3Zg/d8DVrhzd/NE0p4UwcSooYbjl7jzH4GAKyfIY0APJ9qyfrrt3WjZyD+KFgVn2yeUNgDsTmiGloBBLdqt6wvMJVtKYbAbAGjROAqYyZ6VMciWWTEmrxJQL3Z8FIsjsildAOM1mXIuJwr7rZAjEzzF+tVMl6xvZtV4U1warU2Q8xd5hkqzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QGfvFy0D9IfXPJK/4QyeA3R4uPNen6cy3IzyX7iaMqg=;
- b=ea1S910ZUKP0zOGRLCz9NUzPqVUIzITHxgUWC2q3dbKbnipGvn0JNDCUR11CwZaeLz3KRqPNIfK5U2n0FeUkaS12ThpWfYSGKwiT/Q9g8yOBnBkt1K+Cy/y4yqRjdedy+UexloxsqYglhTT+Gc8JX5V42qy+QYLbJUWmeeNSkFKI3ceupTyesp4JhWwev6GIWOmqjdIuM0wtbmc/Y/1+gBXpzQ82jcalPERpD1pv27jbR2DU2bmsSLgVrSjw9rMrCO4H4SD57TwLK/0DC1cqo+pLmgDnZGc8EgkJwhYm5fviOdK/8LfjAyiZUqf7qAI3XVx5D/rJW/GlBA/OAnuV0A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM0PR04MB7140.eurprd04.prod.outlook.com (2603:10a6:208:192::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.27; Mon, 9 Jun
- 2025 08:35:16 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8813.024; Mon, 9 Jun 2025
- 08:35:16 +0000
-Date: Mon, 9 Jun 2025 17:45:18 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: linux-kernel@vger.kernel.org, Matteo Lisi <matteo.lisi@engicam.com>,
-	linux-amarula@amarulasolutions.com,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Fabio Estevam <festevam@denx.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Marek Vasut <marex@denx.de>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Max Merchel <Max.Merchel@ew.tq-group.com>,
-	Michael Walle <mwalle@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Primoz Fiser <primoz.fiser@norik.com>,
-	Rob Herring <robh@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	Tim Harvey <tharvey@gateworks.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 00/10] Support Engicam MicroGEA boards
-Message-ID: <20250609094518.GE13113@nxa18884-linux>
-References: <20250607093342.2248695-1-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250607093342.2248695-1-dario.binacchi@amarulasolutions.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR02CA0096.apcprd02.prod.outlook.com
- (2603:1096:4:90::36) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1uOY0K-00000003gGR-2yAS;
+	Mon, 09 Jun 2025 08:37:18 +0000
+From: Denis Arefev <arefev@swemel.ru>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=swemel.ru; s=mail;
+	t=1749458230;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=M5JZlSM1LhLy0SQ19Tkx1NwHmMyReoGwUgGBqgLGVOM=;
+	b=OzSX9d57vkqshQh00a/8Hob5qFWfdi6VQB2wqkIT7hHS4dYf6JE0uQK/WzJ85fEpSAblKx
+	JfBD4cyxgaaUGy6woQHdT+hXlY1aZNScMR5tkZJqQ39RFKtmCVGM56zkvAGbjiyDhO/7Zw
+	RT3TVS1zwoKIXN+RgWPhnkTd/zp/o6k=
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	Qun-Wei Lin <qun-wei.lin@mediatek.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	lvc-project@linuxtesting.org,
+	Andrew Yang <andrew.yang@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Casper Li <casper.li@mediatek.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chinwen Chang <chinwen.chang@mediatek.com>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Shakeel Butt <shakeel.butt@linux.dev>
+Subject: [PATCH 5.10] sched/task_stack: fix object_is_on_stack() for KASAN tagged pointers
+Date: Mon,  9 Jun 2025 11:37:08 +0300
+Message-ID: <20250609083709.27569-1-arefev@swemel.ru>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB7140:EE_
-X-MS-Office365-Filtering-Correlation-Id: 286350f3-77ad-4c1e-829d-08dda7308f55
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5VorisrbZtN2UV0PL9dysGCw9eUd6r390wI9GZUsU8ZNsnyrMyqEF4QtUVVO?=
- =?us-ascii?Q?hEfQwu2LxUTeKuiYnIvuHNGq7y86/i6nAsfX0ys9ua/j6TXQ4UX0UGSoK2U+?=
- =?us-ascii?Q?FRfCUHMHk1zrY907+cpnGIzmWB8cisCbdMmv8RmLhsLqTLZIzPxLfgy1lrSv?=
- =?us-ascii?Q?q2Ct2G8xkJV8foy5vD58hX4zZc+wh3rCzFZZ6orA+UqqooQSZQIt/rqypCe1?=
- =?us-ascii?Q?nsIzZimMcXfkR0mDPIDvZqzXnWyXWuRVIvwDVxUuqeU4YHfnk3KENQuvfFT5?=
- =?us-ascii?Q?km1Yu77p0JKzOmGmig91shg8knIuXFDFmCi9ezDs6K16ZdKNUcoD2XgkwX3/?=
- =?us-ascii?Q?2/KiYqvuwWGzMfjBEKpsGxB24WonZd060Ux5N1zhm9kq7SWhFDMawKOomJn7?=
- =?us-ascii?Q?XOwosMrmUsJVJkU10yYqqD0Q8uUQMJQrGYjCkkbk8ATlVvIWQMCkNbvMZTdO?=
- =?us-ascii?Q?EBFv72ccr6UAch3HAP1LAN3v+eUOBNXofjDHMsTI6LM4EhR/CR+xRTf0zpgJ?=
- =?us-ascii?Q?uFdUghKZZL3FRAPqpy6F/AA+Ec1RCnl/5e+Ovqnmj60FOnAM4wzXdrZXG6+3?=
- =?us-ascii?Q?7JVwsfZt/epmxkVrsb1YD871Nv3awfQlvdeDL8KKP3L9Xb67+GmUDxCCNJ4U?=
- =?us-ascii?Q?QPBuQgvsp0LQLDQzjjAGo8BSfm8IjMwQT7dhhsBEq2FlXdke3JsdGqAO26Hk?=
- =?us-ascii?Q?Jxsewo9si/V6guvjfgFV50XX4O2nHrRFxp3YxTAkyJtVYSlaqu/RazVHN7eV?=
- =?us-ascii?Q?1jUenEac3sA7tQVd9mFCQe+3Z++LFEnf6H5wAVJgri0hC7ZVMtVyzjxiyV51?=
- =?us-ascii?Q?37ie9+acKwXS2xjJQQdKTgOyNwPrCmUV/V3jKq2luidFQA4O3WLFgAxvwxTP?=
- =?us-ascii?Q?gZEjzaLekDHqs0OwmSgcoCbkfnA1ylFVXJEfFlh8cEJek1wlrrPeKqmP1Qys?=
- =?us-ascii?Q?Us98GtP9/Ic3IWTfU0vUzDLrhIPP7kEReLaRZC6Ew/0sWvqY6u3cJcALQJay?=
- =?us-ascii?Q?Gf5MGw4AxvmNpyc4ZKWjhkiSQypru1fULOxO5SZZQ+n3hmLwKYyGePWR1uSL?=
- =?us-ascii?Q?s0fKe/T5gubcRAg0Jtg0IivGNAnAiyBOAsk5iQG6AE755V6xMbeKtYZFijLq?=
- =?us-ascii?Q?UrzOjSQN0yTHV7STxSJ0aoZMU0OwXD0C823wmi3s1k05Wss4s9posHAh6HFZ?=
- =?us-ascii?Q?022EJLlZ2r/L72eJsizrNxMZqzoNAdvTVGe+QF51UkAFk5D6KaQYoykpZZbL?=
- =?us-ascii?Q?ETlZ7wuV5NUF1oEicVy1whNzwkJBRUpWS5TKgB6btf1f/rnmDIPQOw3zVH76?=
- =?us-ascii?Q?eeM7Y6XBva4fsVxmWBfURg5Mtz2+wAtUs+YlEUeJKlgoDm3/j5DtrFsnOqBC?=
- =?us-ascii?Q?8XfWQifRimxZ64Qey5RH+RT5nudGrxPJJtEsWYyI48FQ+o3fJwPDX3voxpMI?=
- =?us-ascii?Q?u3kcoKYhAkkOX7Suk9ICEAJissj9T/Hlez8o5+Aak9zl2nL3VaN1/g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?11OCwhQr2IqcUtxZQDDu1czhXSVN3zgnuPC9nC7gXvM7Uh88YaIyOIWjBg2R?=
- =?us-ascii?Q?qNyzONpWvi0xJCT4bPxmGjr1PIzb3vy7p3cUixczJzSYYkKP2XwKGOW7gIzy?=
- =?us-ascii?Q?aiR9YUUDlICHVvfcQmECU232JWTT65wrlKi6E7/uEi+IM8pB8fLXkvQMEqDP?=
- =?us-ascii?Q?C/qcWyg5wJdscN7WjhGN0Xo+PiAnRAvRNPpxDP8Tr697QXwCuZ3IcpXLaxNv?=
- =?us-ascii?Q?XUq8+AEKDOlOGgBtrKsrTztqAxc9Do25mODYhlj2MHymZjARiudFUPqvUb2s?=
- =?us-ascii?Q?FLqa2VoX0o6pvJcAZkTYCM2oZyiZhrFreHiQR80LmW/DWpzhfmQDJ8oV1v4F?=
- =?us-ascii?Q?vHFRCqb143bIFuzHFbawXdb9JN2mtw1i+v0M3EEMJPUuGzMLpEhlOBKB/0eO?=
- =?us-ascii?Q?3P8LTdybgRB6pzH/VIqN23FU2QVcwckVapiaRXY4QodLCKda8ZW6atlu/wvu?=
- =?us-ascii?Q?3b+yC0TI3C2GC20NxPh2L3pdHso0Pm4LBnsOdZ8k9BjOneF02/an2yblp0tE?=
- =?us-ascii?Q?pc9yCKM0n0Jad3fbyOgOImY+HhAH6olIL4G+gef5LZAwjctQBs/G1F7z2l17?=
- =?us-ascii?Q?cf4gznwmyHekQy9N02FTtg4a+QYg2wEHKYtn5SUOHXjkqALSK8q0cFcznRcT?=
- =?us-ascii?Q?bUO5jiandifWzPxlMUretUTL2Ok3sz7HLK6Xu9I9qXBvVbnjOFs/g3Iwlkxb?=
- =?us-ascii?Q?mGv3ZZPnXZQ0Fb8lAxW+Cr5Ni3eBOPg6pHpb2c5iKh1ETubE+ocufLKiW/2d?=
- =?us-ascii?Q?3fCdPIUI/XXMf+G2RtseFSgPBbZyhtzWP+9ddlkhN7ldVsSPAA5tUCY7Zhk1?=
- =?us-ascii?Q?aEQJwu5PkJzBT2uktAB4lRslosdqBn3NQ6ceywuOIRCTpX+FFIvNlk5ZLRRx?=
- =?us-ascii?Q?/68S54yFftlNtZeQ6Iw+RpT+/zT3Qhn7etei7z1xJi4T0pifqvbPCLJFXCyl?=
- =?us-ascii?Q?IuUexzMMXV+IWOS/j/MxUxWYqEj/R3GXfJqecJWWAFIGXU4J+k3P2yrJ1q+J?=
- =?us-ascii?Q?u4uktKgn4w2nP5WNnPqVcKee1G5iq/vB83GtYEhf5zYAfX7xTerekRUSKfLn?=
- =?us-ascii?Q?sivyHQ+efX0Y3VU9cMF/nNQJnJqH6CrZ84mBK4yvd+k/zy5lEmy1bUdMreGY?=
- =?us-ascii?Q?sYys5H1Z81WAPKeqw5E3Ia+JZ+BaHonxQQ0oISYOIRjyr00CU+f4E5DQuzv1?=
- =?us-ascii?Q?phYDxNYu9UXpY7kNjh798DAbijYhe6Dx4z14VxmW6KfngezHm55BnmL6RUmo?=
- =?us-ascii?Q?+BCTXcO/pG4ifBmmj9LVZfIxRfr0l2NhIr2S0w3XngMLWbBIvOv8SpRuYL6d?=
- =?us-ascii?Q?Y3jsVkBVN4ChSCRuAZ8tviL0q85wRLo9/FEqzEBI74mirj2AWlbZCf8QmHb1?=
- =?us-ascii?Q?Mdqyt86+8wdzejWBBtpn2DOnAk/gvsOw4AIcgv+8XJls0u/2qirpg39MMnrm?=
- =?us-ascii?Q?ZF0xaNb1+b848xISVQ+Ju9ZQSs1YRJtaNQcLsPzeGV5haUQ8qqlYTxOS6JKW?=
- =?us-ascii?Q?NZqhQ75QtRV3LHGnngxpV3l/S3CvXK3V80Hdn3UA95ISLa/8pPOk9GqREKKw?=
- =?us-ascii?Q?FQFPHqIYaj8bV/Cx30rylI/Ngt6WMG+CmVXlNqn7?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 286350f3-77ad-4c1e-829d-08dda7308f55
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 08:35:16.4482
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aLgqwccZfumYb+PoUfDI2S6LFuRzKLqXsXavwPQUL1ir0eyMPKe7ARDBZQFOKIeFLQx2PmFvN5wzbrFU6EWv0g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7140
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_013520_187484_14CF559A 
-X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-CacheID: sfid-20250609_013717_249941_F0A03DD5 
+X-CRM114-Status: UNSURE (   9.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -186,33 +76,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 07, 2025 at 11:33:12AM +0200, Dario Binacchi wrote:
->The series adds support for Engicam MicroGEA boards:
->
->- BMM
->- RMM
->- GTW
->
->based on MicroGEA-MX6UL SoM.
->
->
->Dario Binacchi (10):
->  dt-bindings: arm: fsl: support Engicam MicroGEA BMM board
->  ARM: dts: imx6ul: support Engicam MicroGEA-MX6UL SoM
->  ARM: dts: imx6ul: support Engicam MicroGEA BMM board
->  ARM: imx_v6_v7_defconfig: cleanup mxs_defconfig
->  ARM: imx_v6_v7_defconfig: select CONFIG_INPUT_PWM_BEEPER
->  dt-bindings: arm: fsl: support Engicam MicroGEA RMM board
->  ARM: dts: imx6ul: support Engicam MicroGEA RMM board
->  dt-bindings: arm: fsl: support Engicam MicroGEA GTW board
->  ARM: dts: imx6ul: support Engicam MicroGEA GTW board
->  ARM: imx_v6_v7_defconfig: select CONFIG_USB_HSIC_USB3503
->
+From: Qun-Wei Lin <qun-wei.lin@mediatek.com>
 
-For the dts files, I replied with a few with my R-b, but I just realize that
-need put iomuxc at end of the dts file, so please address those, then
-you could keep my R-b.
+commit fd7b4f9f46d46acbc7af3a439bb0d869efdc5c58 upstream.
 
-Regards,
-Peng
+When CONFIG_KASAN_SW_TAGS and CONFIG_KASAN_STACK are enabled, the
+object_is_on_stack() function may produce incorrect results due to the
+presence of tags in the obj pointer, while the stack pointer does not have
+tags.  This discrepancy can lead to incorrect stack object detection and
+subsequently trigger warnings if CONFIG_DEBUG_OBJECTS is also enabled.
+
+Example of the warning:
+
+ODEBUG: object 3eff800082ea7bb0 is NOT on stack ffff800082ea0000, but annotated.
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 1 at lib/debugobjects.c:557 __debug_object_init+0x330/0x364
+Modules linked in:
+CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.12.0-rc5 #4
+Hardware name: linux,dummy-virt (DT)
+pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : __debug_object_init+0x330/0x364
+lr : __debug_object_init+0x330/0x364
+sp : ffff800082ea7b40
+x29: ffff800082ea7b40 x28: 98ff0000c0164518 x27: 98ff0000c0164534
+x26: ffff800082d93ec8 x25: 0000000000000001 x24: 1cff0000c00172a0
+x23: 0000000000000000 x22: ffff800082d93ed0 x21: ffff800081a24418
+x20: 3eff800082ea7bb0 x19: efff800000000000 x18: 0000000000000000
+x17: 00000000000000ff x16: 0000000000000047 x15: 206b63617473206e
+x14: 0000000000000018 x13: ffff800082ea7780 x12: 0ffff800082ea78e
+x11: 0ffff800082ea790 x10: 0ffff800082ea79d x9 : 34d77febe173e800
+x8 : 34d77febe173e800 x7 : 0000000000000001 x6 : 0000000000000001
+x5 : feff800082ea74b8 x4 : ffff800082870a90 x3 : ffff80008018d3c4
+x2 : 0000000000000001 x1 : ffff800082858810 x0 : 0000000000000050
+Call trace:
+ __debug_object_init+0x330/0x364
+ debug_object_init_on_stack+0x30/0x3c
+ schedule_hrtimeout_range_clock+0xac/0x26c
+ schedule_hrtimeout+0x1c/0x30
+ wait_task_inactive+0x1d4/0x25c
+ kthread_bind_mask+0x28/0x98
+ init_rescuer+0x1e8/0x280
+ workqueue_init+0x1a0/0x3cc
+ kernel_init_freeable+0x118/0x200
+ kernel_init+0x28/0x1f0
+ ret_from_fork+0x10/0x20
+---[ end trace 0000000000000000 ]---
+ODEBUG: object 3eff800082ea7bb0 is NOT on stack ffff800082ea0000, but annotated.
+------------[ cut here ]------------
+
+Link: https://lkml.kernel.org/r/20241113042544.19095-1-qun-wei.lin@mediatek.com
+Signed-off-by: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+Cc: Andrew Yang <andrew.yang@mediatek.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Casper Li <casper.li@mediatek.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Chinwen Chang <chinwen.chang@mediatek.com>
+Cc: Kent Overstreet <kent.overstreet@linux.dev>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Shakeel Butt <shakeel.butt@linux.dev>
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+[Denis: minor fix to resolve merge conflict.]                                           
+Signed-off-by: Denis Arefev <arefev@swemel.ru>                                    
+---
+Backport fix for CVE-2024-53128
+Link: https://nvd.nist.gov/vuln/detail/CVE-2024-53128
+---
+ include/linux/sched/task_stack.h | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/include/linux/sched/task_stack.h b/include/linux/sched/task_stack.h
+index 879a5c8f930b..7aa1235a5bbe 100644
+--- a/include/linux/sched/task_stack.h
++++ b/include/linux/sched/task_stack.h
+@@ -8,6 +8,8 @@
+ 
+ #include <linux/sched.h>
+ #include <linux/magic.h>
++#include <linux/refcount.h>
++#include <linux/kasan.h>
+ 
+ #ifdef CONFIG_THREAD_INFO_IN_TASK
+ 
+@@ -86,6 +88,7 @@ static inline int object_is_on_stack(const void *obj)
+ {
+ 	void *stack = task_stack_page(current);
+ 
++	obj = kasan_reset_tag(obj);
+ 	return (obj >= stack) && (obj < (stack + THREAD_SIZE));
+ }
+ 
+-- 
+2.43.0
+
 
