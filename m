@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 065E6C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 13:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C246DC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 13:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xn22Jt0FQRF3M4+qfcAI37SFlxbWAovLkWN3NfOXXHU=; b=cfeeNnwhcmt9AQOnKQGDw6jcAa
-	E2n7XgGTA+i1Dsug3/+uTrVIDTFL3SAXpHX8Q/7Uc6UztFTynOg2ubbu6SSiZt8yN/L19R3lNG+gg
-	ddjy+9+NyyKMx9vWzORX7Y7pjUzNiruKauk46i7v5oxowkqymq4NwM/iD9tEzuC8EuEEI85SFZ1Fc
-	88uLo0ukxgnEK8c+bgEywre2hRDtKEVPL6W5gbOm3goNb+NpezzUqAhKcBAkC3sP2uOH+iCJHsOT2
-	H1DtC2GpEyxUI/xQXnOHFVqFNvk2ow8a/hwo1ZVdOpBZhEcpansf92IapCscmMss5rye4pDgZy2y4
-	4PA5L6iA==;
+	bh=Hf/LfMBF3rGc7K7s7Su/cYmfXSJ7QxI0jgx9m/Ge8AM=; b=HyYd3zLRT8Yja6QZLZ3hAylfJZ
+	acuSVCRTBJVU/GLbbfmWux3hX9m2hgxrabXZf3qt+gQeFtCOosWkJ+v5nTmpB93b82FOQqHI+A7Ey
+	YsqogsNW0B6XVM/JtHpOrG+WwChc/SuXTnGrVYd64JHRpJ51LtM/0T+I1vmPLwkeV9u6GuLGOQ8mj
+	p4HK9TdL7lz2+ftgGuTeeLg3SE6Gcdlrd8cPM0lCXRSDc25Yh5nxbSi1M4eCko8jul8wAOSzutkmO
+	DDKuaLcjJZN5dp039abliVHtOHSNZgBahqE5PaMayMSobiS9b1yMl8derzApXADgWP8UBi7z8SGfP
+	dL9HXcow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOcyx-00000004JTn-2Xe9;
-	Mon, 09 Jun 2025 13:56:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uOd19-00000004KHH-2iUF;
+	Mon, 09 Jun 2025 13:58:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOcqi-00000004HjN-2IKH
+	id 1uOcr9-00000004HqZ-0efa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 13:47:42 +0000
+	Mon, 09 Jun 2025 13:48:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 197EA5C1B07;
-	Mon,  9 Jun 2025 13:45:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74BD4C4CEF0;
-	Mon,  9 Jun 2025 13:47:38 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 79FD4A50EBE;
+	Mon,  9 Jun 2025 13:48:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 263A7C4CEF5;
+	Mon,  9 Jun 2025 13:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749476859;
-	bh=BcHvuovrOODOblt7sHdLfdMtwXKXWNe/dpjqa7eheqk=;
+	s=k20201202; t=1749476886;
+	bh=6J8HD1iADA5dZrkMetz/7Cfm+D6Y6VBC5THz8fMMYTU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KTXpJdgt33gP4b5TXN9zznvFVAQD0H6eTwQksfl72F7wLIBOH8xzgKX9eLiImAzEZ
-	 USFo0f6XxZTulLGsAPb/UjUhgrSh/YGEhGrQciP7kRsXRKevR69V5V2C4dMrSZ2V8V
-	 8v8hiHT2fLTpnrd6ZWVtYsMVSVejUHKS/A016GZTL/n4EfrhI9m4FNiRWYDFPc4z93
-	 al2ff7KlM0Zt6pbWbjolM6Ayf+M2Ne6Nv98mJYY44EbhYh4KnPWYYJhCmRewSNnXOV
-	 Z0qrnm04rvEKLlrIV5xPk70I+hFEqUgwWnMukKD8w6BQ1S43lfHmNXBWf78TJb4yVi
-	 g6oZRHHFNiZDw==
+	b=HgrsgSrnleksZvObA+iCmfpJK7PGv8s+3dJWRSXx1ewWyI/4LIN5yug+pjMfTY7hr
+	 BwA+wuxj8908TJ85lXIOOQB21DV0X2xxOin4lTE/B6Q8A3RF91hhauDpbRdQI01Itm
+	 ZXfYCpXFXkYf3MlCW1zxrOpbeBiVRx8Sdl8sBbhFBSQuZr3uXszbMJHbJ1tWVmtjMM
+	 9+UoGJLUOARikO6PJDyYGmn5xQqNJqF86hO87gUDFWOzprSV989MbbPWnrLf/7eV/T
+	 44toEqXG6ShL1v6WasKahGBd3GqSx30Lh9HeWY8YbknjExdLDQKdVdQwiHiJ/QqdPi
+	 w4LuKByeuvi2g==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -52,20 +52,20 @@ Cc: James Clark <james.clark@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
 	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 07/16] coresight: Only check bottom two claim bits
-Date: Mon,  9 Jun 2025 09:47:16 -0400
-Message-Id: <20250609134725.1344921-7-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 05/12] coresight: Only check bottom two claim bits
+Date: Mon,  9 Jun 2025 09:47:48 -0400
+Message-Id: <20250609134755.1345286-5-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250609134725.1344921-1-sashal@kernel.org>
-References: <20250609134725.1344921-1-sashal@kernel.org>
+In-Reply-To: <20250609134755.1345286-1-sashal@kernel.org>
+References: <20250609134755.1345286-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.141
+X-stable-base: Linux 5.15.185
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_064740_687335_9E92DD35 
+X-CRM114-CacheID: sfid-20250609_064807_326011_8813C217 
 X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -217,10 +217,10 @@ the ARM PSCI specification and is robust against hardware variations.
  2 files changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 4477b1ab73577..6d836f10b3de6 100644
+index 3ea6900542223..f6989a74fec94 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -189,7 +189,8 @@ static int coresight_find_link_outport(struct coresight_device *csdev,
+@@ -161,7 +161,8 @@ static int coresight_find_link_outport(struct coresight_device *csdev,
  
  static inline u32 coresight_read_claim_tags(struct coresight_device *csdev)
  {
@@ -231,7 +231,7 @@ index 4477b1ab73577..6d836f10b3de6 100644
  
  static inline bool coresight_is_claimed_self_hosted(struct coresight_device *csdev)
 diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 595ce58620567..3c78df0b60893 100644
+index ff1dd2092ac5b..b416edcdf797d 100644
 --- a/drivers/hwtracing/coresight/coresight-priv.h
 +++ b/drivers/hwtracing/coresight/coresight-priv.h
 @@ -32,6 +32,7 @@
