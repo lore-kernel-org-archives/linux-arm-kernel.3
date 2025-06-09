@@ -4,106 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93979C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 23:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9198BC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 00:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qrPhTIZpQpTInVFelKb2k4Az/r9q2Weg3w4rxnkgyCU=; b=hbuSAYm/csYKfHrXwIyVsKeUkq
-	RohhtwVb10IQW22CRQWZuFcVUH2dHpjJu4ZVDUt3q6R7Ymx9wNeSL/XgTDx2lGbVZk9DAR5PsEavX
-	nchHQw1HhqEb2LK9+6YlV2k4oGYQ/YryG+zT6mVubQsWhptZJTqYiavFW3mH+t/2YXStXuMu0jlu0
-	aXdrv1x01PFpMHd9z+mL+ArgjEQSNNpsv/vwVcsAlbcF1iFGSyI5rSQ1sRhzH0Tj1YlMdPfPAuu0z
-	mNDc4u+t4BiiniSgNjTnuOtXJ7l4CRuoU0ftT9j6eezAm7RqpKnH4K8ZL65aGOcwXYD38rDfAnHj/
-	/+MYp3sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M1pM0ueTeYF/X9+4fPTVBqoLksdbZ+Cyw0VfJldze0Q=; b=dXqzTqyPZgdhS1pcyDARS3uVnp
+	upi9L2/kg4Ipev5X3ETmrZy2dSpl+413nV5KVhbRXW1UByhOwonzOAZ/nXegocM2RR7f6d0I8+zwe
+	oOa7QZf26JRQAMjQ1xUA+/IJG5Jm8uRMsvyrUxUa142tvggNwKzUPUwW0423apHwW9mfxZhUElgeX
+	pPw6AAvyQVRINrQcB6eyTi61uEvByFHvoX6KyQHWUshxunpcelJjQH1HxX5XC2jnn3Ir+wSs85ev5
+	sUo67fRIEtlGCNbzYNtlb9BZhsmQfncWybw/c6DXzJ1PQWNpPjMweGpwws4TvHqXZTZgO24q4QK5l
+	tAaey5YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOmMc-00000005TkH-1B7M;
-	Mon, 09 Jun 2025 23:57:14 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uOmXq-00000005UJ9-0Hxf;
+	Tue, 10 Jun 2025 00:08:50 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOm7o-00000005SG4-19Kt;
-	Mon, 09 Jun 2025 23:41:57 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3a510432236so3759806f8f.0;
-        Mon, 09 Jun 2025 16:41:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749512515; x=1750117315; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qrPhTIZpQpTInVFelKb2k4Az/r9q2Weg3w4rxnkgyCU=;
-        b=bl60fvTWuBAFQ/V3gT/RCu440AnwoXhxdfUohLrBhSsT0COwI0472xz5uGDiG6uXPZ
-         yZSNPx3mp5nhBNWOUZ4q9QJfShvXbRtf4n61OFdX8Z46WIevzlpaa01GX6qYNFKUjG55
-         PB2p9x5KMMKZTl27CHpF+ZH5TQNYg9N4FULuKPoBvKQDyT3pleCRb8tFyYY8RaC8bHiF
-         w6hmK3exOiZaFQNnvaa2ru2rONySlXQboqGKV+rsr+gZdEJFVE/eXeQ5rFHy5/eYcYrB
-         iPmRv/RS+X9eEK1zu9iFmp9rn4g86rDWGlv39bQ0MQpTr9swgeLgUx4ud+H+roG7pw4/
-         t8TQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749512515; x=1750117315;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qrPhTIZpQpTInVFelKb2k4Az/r9q2Weg3w4rxnkgyCU=;
-        b=QrDi8E7aJQTs9pe7KXsihFjLfw7TRmBpsPuXRnmdoE8KF7RD0H13D50jZr6L9QFr1q
-         3RgUs3Y6NIxyA5O5cLzFWGWMbkUEumDoPdeWjU1nvGoXKfjwsPY0vNbRvlGf6OzCmFaq
-         567x60ub9sOn7IJMHljeH1MuY5XR7osaQCpLczkMLPFWeom2fOA5qS3A2Aa7KgqSz7u3
-         z3NLvadSowfISYLT7cqjJM7mboIzp3GujItG2evurom12JeILbIhrQbPROqOjJ6kfk8/
-         j0UUiNLqe9nu9kiqLK8BuXS1zR4hBxq9LVHdVow9F6ta8G62PzXzcS36hj+9MCP4mGxr
-         zYXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXEB8jI/mJcWDK7Cdrhuq27twUqJaoOwLK9TRoyyfrSpwu88Dv4NNNrpSKsemYz0KXeqcMvOezd/zXKmK0=@lists.infradead.org, AJvYcCXgbrlfgKtO6QIxrsXq4SDSaHOdv5Qm1FayYw6GgEr4c+hqvRK8vz89W1Kv3+u5fWOedKzPM9kTPtKWLA6hduYg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3NahVK7yYaOo4fA5IL2AFR6BMjZBrxbGW/MLoogcJ+XlTGxX5
-	uQ1E9Jry6WAuzGmGj1dIIqqJ/OBUlFBtnyEnP5ydaDjNUfW2R3cg5qAp
-X-Gm-Gg: ASbGncvhT0B8A/w67qLcTnE8dJqvcEFs58REkksd8XNN36xq2l638AFkIcDhnGx3Icj
-	uR4PeIDjUgNdlve5nvKDeqhCuXtmPipemCiYWbrzwIMxabDTk+7r9ELCQKlR5S0eHG53P87fnl+
-	Y2S22pn8155JoleYOxuybLAnpDAwJaL0qz06zOpZfJqVYX67PlXI8cBKcQQdR/AW5Qy58psNI8t
-	oZoPw4kE+w1YRewBMV7bWwIUnQAi3kojD5wKUxCjCfC+LXNAr8bNWgCeoY/+lKLuj1vqrfjjeMe
-	psQRaJ5QDl7taJirefZn2AIMrqQPZgEhTWnWZkhhPa/Qy5RSQu/RP6e7FxHZJe8FsNqk2iP+yDQ
-	=
-X-Google-Smtp-Source: AGHT+IH8d+d87qasytIhytWan/WEKNQkCJ5MRSNoOqGEJq+vqhXarvhfJpA5UduVPDcP1PlcvnPGqQ==
-X-Received: by 2002:a5d:5f4b:0:b0:3a3:727d:10e8 with SMTP id ffacd0b85a97d-3a531ce7122mr10392078f8f.50.1749512514738;
-        Mon, 09 Jun 2025 16:41:54 -0700 (PDT)
-Received: from giga-mm.. ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244df34sm10849846f8f.71.2025.06.09.16.41.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 16:41:54 -0700 (PDT)
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: sophgo@lists.linux.dev,
-	soc@lists.linux.dev
-Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v6 6/6] arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-Date: Tue, 10 Jun 2025 01:41:17 +0200
-Message-ID: <20250609234125.722923-7-alexander.sverdlin@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250609234125.722923-1-alexander.sverdlin@gmail.com>
-References: <20250609234125.722923-1-alexander.sverdlin@gmail.com>
+	id 1uOlVa-00000005PbC-1zqb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 23:02:27 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9774810397298;
+	Tue, 10 Jun 2025 01:02:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1749510142; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=M1pM0ueTeYF/X9+4fPTVBqoLksdbZ+Cyw0VfJldze0Q=;
+	b=VsQoXdVMiWDNJ9TDQVksppIyT+as0Yv8kWI56ovGxk0wzhwz2mRrO1wXyNJgbURMy+9XLA
+	rthdr+ydytgMKODaaqewotKNqi9OGAHLDGND7m5q6XbRZVdPsSbBGtRV7keLxuwHfPnCVx
+	AarmxHJz+2HfaGPM3tixhVj8/ejakCDSHtx0hg66/viTP0F+hu4YEhlEtcUzYJLZNyHdI2
+	WJK8/YMqScXIC++tGBuh4XXi7G8XqOOoSmq0pPuD4fs0qjAqnXlv9Qnpl/m7N2wSvKOwoY
+	yGac2wLyWvb/ZUaWlrKZZLWZSyqZa/bB6fAFcNm/9lxhoqC+mJkXUTszDrZZxg==
+Date: Tue, 10 Jun 2025 01:02:16 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v12 4/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250610010216.7331ebb5@wsk>
+In-Reply-To: <0df20c3e-bd51-415f-bfdf-f88bbd39f260@redhat.com>
+References: <20250522075455.1723560-1-lukma@denx.de>
+	<20250522075455.1723560-5-lukma@denx.de>
+	<f738d1ed-7ade-4a37-b8fd-25178f7c1dee@redhat.com>
+	<20250528125329.084ab649@wsk>
+	<0df20c3e-bd51-415f-bfdf-f88bbd39f260@redhat.com>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="Sig_/sgnmYD9Yr/9ZQSdJ73NdC6_";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_164156_322620_C6AB001A 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_160226_832955_073FC430 
+X-CRM114-Status: GOOD (  75.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,53 +82,395 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable ARCH_SOPHGO, pinctrl (built-in, required to boot), ADC as module.
-This defconfig is able to boot from SD card on Milk-V Duo Module 01
-evalboard.
+--Sig_/sgnmYD9Yr/9ZQSdJ73NdC6_
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+Hi Paolo,
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 5bb8f09422a2..84c85a222b3b 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -66,6 +66,7 @@ CONFIG_ARCH_RENESAS=y
- CONFIG_ARCH_ROCKCHIP=y
- CONFIG_ARCH_SEATTLE=y
- CONFIG_ARCH_INTEL_SOCFPGA=y
-+CONFIG_ARCH_SOPHGO=y
- CONFIG_ARCH_STM32=y
- CONFIG_ARCH_SYNQUACER=y
- CONFIG_ARCH_TEGRA=y
-@@ -652,6 +653,7 @@ CONFIG_PINCTRL_SM8450_LPASS_LPI=m
- CONFIG_PINCTRL_SC8280XP_LPASS_LPI=m
- CONFIG_PINCTRL_SM8550_LPASS_LPI=m
- CONFIG_PINCTRL_SM8650_LPASS_LPI=m
-+CONFIG_PINCTRL_SOPHGO_SG2000=y
- CONFIG_GPIO_ALTERA=m
- CONFIG_GPIO_DAVINCI=y
- CONFIG_GPIO_DWAPB=y
-@@ -1411,6 +1413,7 @@ CONFIG_QCOM_HFPLL=y
- CONFIG_CLK_GFM_LPASS_SM8250=m
- CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
- CONFIG_CLK_RENESAS_VBATTB=m
-+CONFIG_CLK_SOPHGO_CV1800=y
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_QCOM=y
- CONFIG_TEGRA186_TIMER=y
-@@ -1530,6 +1533,7 @@ CONFIG_QCOM_SPMI_VADC=m
- CONFIG_QCOM_SPMI_ADC5=m
- CONFIG_ROCKCHIP_SARADC=m
- CONFIG_RZG2L_ADC=m
-+CONFIG_SOPHGO_CV1800B_ADC=m
- CONFIG_TI_ADS1015=m
- CONFIG_TI_AM335X_ADC=m
- CONFIG_IIO_CROS_EC_SENSORS_CORE=m
--- 
-2.49.0
+> On 5/28/25 12:53 PM, Lukasz Majewski wrote:
+> >> On 5/22/25 9:54 AM, Lukasz Majewski wrote: =20
+> >>> +/* dynamicms MAC address table learn and migration */
+> >>> +static void mtip_aging_timer(struct timer_list *t)
+> >>> +{
+> >>> +	struct switch_enet_private *fep =3D from_timer(fep, t,
+> >>> timer_aging); +
+> >>> +	fep->curr_time =3D mtip_timeincrement(fep->curr_time);
+> >>> +
+> >>> +	mod_timer(&fep->timer_aging,
+> >>> +		  jiffies +
+> >>> msecs_to_jiffies(LEARNING_AGING_INTERVAL)); +}   =20
+> >>
+> >> It's unclear to me why you need to maintain a timer just to update
+> >> a timestamp?!?
+> >> =20
+> >=20
+> > This timestamp is afterwards used in:
+> > mtip_atable_dynamicms_learn_migration(), which in turn manages the
+> > entries in switch "dynamic" table (it is one of the fields in the
+> > record.
+> >  =20
+> >> (jiffies >> msecs_to_jiffies(LEARNING_AGING_INTERVAL)) & ((1 <<
+> >> AT_DENTRY_TIMESTAMP_WIDTH) - 1)
+> >> =20
+> >=20
+> > If I understood you correctly - I shall remove the timer and then
+> > just use the above line (based on jiffies) when
+> > mtip_atable_dynamicms_learn_migration() is called (and it requires
+> > the timestamp)?
+> >=20
+> > Otherwise the mtip_timeincrement() seems like a nice wrapper on
+> > incrementing the timestamp. =20
+>=20
+> Scheduling a timer to obtain a value you can have for free is not a
+> good resource usage strategy. Note that is a pending question/check
+> above: verify that the suggested expression yield the expected value
+> in all the possible use-case.
 
+This is a bit more tricky than just getting value from jiffies.
+
+The current code provides a monotonic, starting from 0 time "base" for
+learning and managing entries in internal routing tables for MTIP.
+
+To be more specific - the fep->curr_time is a value incremented after
+each ~10ms.
+
+Simple masking of jiffies would not provide such features.
+
+However, I've rewritten relevant portions where GENMASK() could be used
+to simplify and make the code more readable.
+
+>=20
+> >>> +	if (!fep->link[0] && !fep->link[1]) {
+> >>> +		/* Link is down or autonegotiation is in
+> >>> progress. */
+> >>> +		netif_stop_queue(dev);
+> >>> +		spin_unlock_irqrestore(&fep->hw_lock, flags);
+> >>> +		return NETDEV_TX_BUSY;   =20
+> >>
+> >> Intead you should probably stop the queue when such events happen =20
+> >=20
+> > Please correct me if I'm wrong - the netif_stop_queue(dev); is
+> > called before return. Shall something different be also done? =20
+>=20
+> The xmit routine should assume the link is up and the tx ring has
+> enough free slot to enqueue a packet.
+
+In the case of MTIP driver, there is a circular buffer of 16 "sets" of
+descriptors (allocated as coherent) and corresponding buffer
+(dma_map_single at start).
+
+The size of each "buffer" is set to 2048B to accommodate at least single
+packet.
+
+> After enqueueing it should
+> check for enough space availble for the next xmit and stop the queue,
+> likely using the netif_txq_maybe_stop() helper.
+
+The problem with not using the netif_txq_maybe_stop() is that I'm not
+using the "txq" (netdev_queue).
+
+With the current code it looks like netif_stop_queue() is the most
+suitable one from the network API.
+
+>=20
+> Documentation/networking/driver.rst
+>=20
+> >>> +	}
+> >>> +
+> >>> +	/* Clear all of the status flags */
+> >>> +	status &=3D ~BD_ENET_TX_STATS;
+> >>> +
+> >>> +	/* Set buffer length and buffer pointer */
+> >>> +	bufaddr =3D skb->data;
+> >>> +	bdp->cbd_datlen =3D skb->len;
+> >>> +
+> >>> +	/* On some FEC implementations data must be aligned on
+> >>> +	 * 4-byte boundaries. Use bounce buffers to copy data
+> >>> +	 * and get it aligned.
+> >>> +	 */
+> >>> +	if ((unsigned long)bufaddr & MTIP_ALIGNMENT) {
+> >>> +		unsigned int index;
+> >>> +
+> >>> +		index =3D bdp - fep->tx_bd_base;
+> >>> +		memcpy(fep->tx_bounce[index],
+> >>> +		       (void *)skb->data, skb->len);
+> >>> +		bufaddr =3D fep->tx_bounce[index];
+> >>> +	}
+> >>> +
+> >>> +	if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> >>> +		swap_buffer(bufaddr, skb->len);   =20
+> >>
+> >> Ouch, the above will kill performances. =20
+> >=20
+> > This unfortunately must be done in such a way (the same approach is
+> > present on fec_main.c) as the IP block is implemented in such a way
+> > (explicit conversion from big endian to little endian).
+> >  =20
+> >> Also it looks like it will
+> >> access uninitialized memory if skb->len is not 4 bytes aligned.
+> >> =20
+> >=20
+> > There is a few lines above a special code to prevent from such a
+> > situation ((unsigned long)bufaddr & MTIP_ALIGNMENT). =20
+>=20
+> The problem here is not with memory buffer alignment, but with the
+> packet length, that can be not a multiple of 4. In such a case the
+> last swap will do an out-of-bound read touching uninitialized data.
+
+On the init function the size of allocation for each buffer is set to
+be 2048 bytes, so there is no such a thread.
+
+>=20
+> >>> +	bdp->cbd_sc =3D status;
+> >>> +
+> >>> +	netif_trans_update(dev);
+> >>> +	skb_tx_timestamp(skb);
+> >>> +
+> >>> +	/* For port separation - force sending via specified port
+> >>> */
+> >>> +	if (!fep->br_offload && port !=3D 0)
+> >>> +		mtip_forced_forward(fep, port, 1);
+> >>> +
+> >>> +	/* Trigger transmission start */
+> >>> +	writel(MCF_ESW_TDAR_X_DES_ACTIVE, fep->hwp + ESW_TDAR);
+> >>>  =20
+> >>
+> >> Possibly you should check skb->xmit_more to avoid ringing the
+> >> doorbell when not needed. =20
+> >=20
+> > I couldn't find skb->xmit_more in the current sources. Instead,
+> > there is netdev_xmit_more(). =20
+>=20
+> Yeah, I referred to the old code, sorry.
+>=20
+> > However, the TX code just is supposed to setup one frame
+> > transmission and hence there is no risk that we trigger "empty"
+> > transmission. =20
+>=20
+> The point is that doorbell ringing is usually very expensive (slow)
+> for the H/W. And is not needed when netdev_xmit_more() is true,
+> because the another xmit operation will follow. If you care about
+> performances you should leverage such info.
+
+I do have an impression, that this is very important for network
+devices having many queues with separate priorities.
+
+In my case - I do have a single uDMA0 port with a single RX and TX
+circular buffer (16 packets can be "queued").
+
+>=20
+> >  =20
+> >>> +	/* First, grab all of the stats for the incoming packet.
+> >>> +	 * These get messed up if we get called due to a busy
+> >>> condition.
+> >>> +	 */
+> >>> +	bdp =3D fep->cur_rx;
+> >>> +
+> >>> +	while (!((status =3D bdp->cbd_sc) & BD_ENET_RX_EMPTY)) {
+> >>> +		if (pkt_received >=3D budget)
+> >>> +			break;
+> >>> +
+> >>> +		pkt_received++;
+> >>> +		/* Since we have allocated space to hold a
+> >>> complete frame,
+> >>> +		 * the last indicator should be set.
+> >>> +		 */
+> >>> +		if ((status & BD_ENET_RX_LAST) =3D=3D 0)
+> >>> +			dev_warn_ratelimited(&dev->dev,
+> >>> +					     "SWITCH ENET: rcv is
+> >>> not +last\n"); +
+> >>> +		if (!fep->usage_count)
+> >>> +			goto rx_processing_done;
+> >>> +
+> >>> +		/* Check for errors. */
+> >>> +		if (status & (BD_ENET_RX_LG | BD_ENET_RX_SH |
+> >>> BD_ENET_RX_NO |
+> >>> +			      BD_ENET_RX_CR | BD_ENET_RX_OV)) {
+> >>> +			dev->stats.rx_errors++;
+> >>> +			if (status & (BD_ENET_RX_LG |
+> >>> BD_ENET_RX_SH)) {
+> >>> +				/* Frame too long or too short.
+> >>> */
+> >>> +				dev->stats.rx_length_errors++;
+> >>> +			}
+> >>> +			if (status & BD_ENET_RX_NO)	/*
+> >>> Frame alignment */
+> >>> +				dev->stats.rx_frame_errors++;
+> >>> +			if (status & BD_ENET_RX_CR)	/* CRC
+> >>> Error */
+> >>> +				dev->stats.rx_crc_errors++;
+> >>> +			if (status & BD_ENET_RX_OV)	/*
+> >>> FIFO overrun */
+> >>> +				dev->stats.rx_fifo_errors++;
+> >>> +		}
+> >>> +
+> >>> +		/* Report late collisions as a frame error.
+> >>> +		 * On this error, the BD is closed, but we don't
+> >>> know what we
+> >>> +		 * have in the buffer.  So, just drop this frame
+> >>> on the floor.
+> >>> +		 */
+> >>> +		if (status & BD_ENET_RX_CL) {
+> >>> +			dev->stats.rx_errors++;
+> >>> +			dev->stats.rx_frame_errors++;
+> >>> +			goto rx_processing_done;
+> >>> +		}
+> >>> +
+> >>> +		/* Process the incoming frame */
+> >>> +		pkt_len =3D bdp->cbd_datlen;
+> >>> +		data =3D (__u8 *)__va(bdp->cbd_bufaddr);
+> >>> +
+> >>> +		dma_unmap_single(&fep->pdev->dev,
+> >>> bdp->cbd_bufaddr,
+> >>> +				 bdp->cbd_datlen,
+> >>> DMA_FROM_DEVICE);   =20
+> >>
+> >> I have read your explaination WRT unmap/map. Actually you don't
+> >> need to do any mapping here,  =20
+> >=20
+> > There are 16 cbd_t descriptors allocated (as dma_alloc_coherent).
+> > Those descriptors contain pointer to data (being read in this
+> > case). =20
+>=20
+> I'm referring to the actual packet payload, that is the buffer at
+> bdp-cbd_bufaddr with len bdp->cbd_datlen; I'm not discussing the
+> descriptors contents.
+
++1
+
+>=20
+> > Hence the need to perform dma_map_single() for each descriptor,  =20
+>=20
+> You are not unmapping the descriptor, you are unmapping the packet
+> payload.
+
++1
+
+>=20
+> >> since you are unconditionally copying the
+> >> whole buffer (why???) =20
+> >=20
+> > Only the value of=20
+> > pkt_len =3D bdp->cbd_datlen; is copied to SKB (after byte
+> > swap_buffer()). =20
+>=20
+> The relevant line is:
+>=20
+> 		skb_copy_to_linear_data(skb, data, pkt_len);
+>=20
+> AFAICS that copies whole packet contents, which is usually quite
+> sub-optimal from performance PoV.
+>=20
+
+fec_main.c just assigns:
+data=C2=B7=3D=C2=B7skb->data;
+
+so I would prefer to keep the:
+skb_copy_to_linear_data(skb, data, pkt_len);
+
+> >> and re-using it.
+> >>
+> >> Still you need a dma_sync_single() to ensure the CPUs see the
+> >> correct data. =20
+> >=20
+> > The descriptors - i.e. struct cbd_t fields are allocated with
+> > dma_alloc_coherent(), so this is OK. =20
+>=20
+> I'm talking about packets contents, not packet descriptors. Please
+> re-read the above and have a look at other drivers code.
+
+The usage of dma_sync_single_for_cpu() works without issues in the
+mtip_switch_rx().
+
+>=20
+> An additional point that I missed in the previous review is that the
+> rx allocation schema is quite uncorrect. At ring initialization time
+> you allocate full skbs, while what you need and use is just raw
+> buffers for the packet payload. Instead you could/should use the page
+> pool:
+>=20
+> Documentation/networking/page_pool.rst
+>=20
+
+Yes, for RX packets payload the page of 2048 bytes is allocated. By
+using dma page pool - I can state the same maximal size, but the usage
+of memory can be much more flexible.
+
+> That will also help doing the right thing WRT DMA handling.
+>=20
+
+The dma_sync_single_for_cpu() shall work correctly with the current
+approach as well.
+
+> >> This patch is really too big, I'm pretty sure I missed some
+> >> relevant issues. You should split it in multiple ones: i.e.
+> >> initialization and h/w access, rx/tx, others ndos. =20
+> >=20
+> > It is quite hard to "scatter" this patch as:
+> >=20
+> > 1. I've already split it to several files (which correspond to
+> > different "logical" entities - like mtipl2sw_br.c).
+> > 2. The mtipl2sw.c file is the smallest part of the "core" of the
+> > driver.
+> > 3. If I split it, then at some point I would break bisectability for
+> > imx28. =20
+>=20
+> Note that each patch don't need to provide complete functionality.
+> i.e. patch 1 could implement ndo_open()/close and related helper,
+> leaving ndo_start_xmit() and napi_poll empty and avoid allocating the
+> rx buffers. patch 2 could implement the rx patch, patch 3 the tx path.
+>=20
+
+Yes, this seems to be a good idea... I will implement such approach.
+
+> The only constraint is that each patch will build successufully, which
+> is usually easy to achieve.
+
++1
+
+>=20
+> A 2K lines patches will probably lead to many more iterations and
+> unhappy (or no) reviewers.
+
+The problem is that all the patches "around" this driver (like *yaml,
+bindings, defconfig) would get outdated very fast if not pull to
+mainline.
+
+In such a way that already done work would need to be redo...
+
+>=20
+> /P
+>=20
+
+
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/sgnmYD9Yr/9ZQSdJ73NdC6_
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmhHZ/gACgkQAR8vZIA0
+zr35NAf7BsWyM4PkwH9k8LanL+CVfhF1A32/dAugkR1hlODpkay0KHkoIXvmUt2a
++/0jcZiNrVmndySoOy+U6BCQsN6+qh34jg0Pn68gb1++WsLq473e8jldjZcyK35T
+4ke3yvNRDViSgjwIyM9qeoZvIXUrWr7sEWR5wxHPDhRacYRU4vbra4F/ONnrh43A
+e71Np4aSgTadeoPKMe9mkYHft5sE0PRU4Mm0jK6f3ubT4F5Hz086z/LKNmjfSz9F
+YLVkbQXJGUQlB4DJhwdYXc4R1cqCj5cuCBHyLIwbusHDrDaT4TJFinzoOLr3weCq
+q9bXC3suqEgacBcHzqSrZF8cXvjhjQ==
+=FVxJ
+-----END PGP SIGNATURE-----
+
+--Sig_/sgnmYD9Yr/9ZQSdJ73NdC6_--
 
