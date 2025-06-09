@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F0EC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 23:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2B1C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 23:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q7+cVr8dsExjTk3ijrllXSzAu8Gblm5oL77kdyoH2ZE=; b=QVzl/KxVhPNOQlPG9yP62fmxZ4
-	aCJwrhUMNMp6gFdDp1gh8cm6LsDwLy5vpjDBUq/QVtUkpuemi0rNb6YrPpEyevSej6wT/Tzk1sL9A
-	+Q8iCrgBCFuQfupU7vqlTJ463CJp3SzvyohCtUpC4CDetqLT3uNdsu2M/+ZTc2BktUX10YAoN+2oI
-	aiW+3Q35+W40mE+pTyYXIUV8ujqnkzMCJIFyIT1YktWciEufczh+WN4birFJL4BbUXBhnN8YhH+EL
-	0KSkD4obGcI9GCRMRzKvDu3IDGclOxm8yIEUOrnvUI5rEpPY84N5YQNbew9t8cdbMSezNo9AGAm/x
-	YYuGWrXg==;
+	bh=O1IKf9AorUgqBGeWu8urz3AAOvCJWkpQcDggQ0geEY0=; b=dijJSoxEy2hRTX21lplxResEoy
+	XOat5lAOq5nbHdx7WhQuNCfUWnM3PGcViDicaNbEtfL5MMQhd+Mg+m37BW11uvk9jOlZQ8tihZq85
+	Sy0VRRMsvA1O002EaKy7dEHLLQTm0mfG1Z4mS7NfMNsY/yhhWXtFx553JuibAlNBx1C+VH///LHNC
+	PHRmiKrRnChIoHW799YP4AgAkSAoRbmzg69QIReze0kdWFlaqXU6Ajy1xlyGd6NhfebjrD55Tokmh
+	REPFYBL37m6S/GltbLT+ulM9rjU8zbc8TSgyY49yYvH47YLZRAXoRBCEticVxDBRFWR5wPM9xgg9c
+	chYSn0oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOlaH-00000005Q35-0X5Y;
-	Mon, 09 Jun 2025 23:07:17 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1uOm31-00000005S0L-3Q3T;
+	Mon, 09 Jun 2025 23:36:59 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOlY6-00000005Ptd-1orC
+	id 1uOm0s-00000005Rpo-2pYI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 23:05:03 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-70e6bddc30aso38832227b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 16:05:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749510301; x=1750115101; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=q7+cVr8dsExjTk3ijrllXSzAu8Gblm5oL77kdyoH2ZE=;
-        b=N98+dbNSKpm9dFK84m04stwVzd0XRsrJq4mmqOtAd3qIBoXlmJlln3uSIl5ldndPFn
-         yg2Hl/m72MeQlPzHV6QAHrQF8fPYSVTe01KY2IKN5Zn68SYgi99ve8Jj/AU+PQXSXsPp
-         JVnc0bV70cCtughh8e0gkp5lgHWzukuFIG44EeSJggf9OQCsRmMVtfwMze+VyDw/GY1K
-         Cl1HFpL+TeMjCwWtTvb3tLxFTfWiy2RCkRm2tgM1iu1FMRfEiNzkmzKJVmICL9fracmt
-         eGR9wyeu81mFp+EVYn5JnpitJdsS6d/6wVqC1/UqEI90orKj6XIGihH34WBVh0MHkYaC
-         uSVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749510301; x=1750115101;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=q7+cVr8dsExjTk3ijrllXSzAu8Gblm5oL77kdyoH2ZE=;
-        b=BWwjCUYaYUGtcHj0PRt++pWSEqN91doS+umgFI3J7v7y/ZIKooCr3QBMsFr/5WDu9K
-         /zQSDz46cJOWoueU/f4hCDOSTm56mde3ZULRSSc88oIf+ipOG2QyVg3o90SeyOJNVMix
-         ATNiU3oJWsy/Lp/BtOh2QS4XLxk24TC9mfVKo2cN/IhBlIL6feXsMHIbEZOp+0XZFk5F
-         c9A1DTHUjB/z8k4L0sgk+tOjr6f0O/kkaQ/T3tRscqogFsapNxklqgG9deuHcJK7GBEN
-         iVmsJzQn614gODHuE43EbdybDRfv4oVsg/HHbA5BKZncY1RDXb70dXVnMspRZUsaTXe+
-         ZJUw==
-X-Forwarded-Encrypted: i=1; AJvYcCXOtv1ziaria0bFZGbzcgYBHO466v0FTKwiV+0/46LKBIq1ZFfP9tRQana5e1VzGDW84TM8uOCAOtxLKKnmuWcq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqFOsBzJKrXXaHPNdxtJVOtyqvZzVLkcxOpRdG3aEjniXkhp9q
-	TJC5LKZn/DDX0c68J2vQvHisbb2b0uk1cEAtkdIRxqb+oUPt2i0sn6e/RyatCJP7wBOuVrc16tF
-	JW0zMyB9K8j9rRQUxeQhK7mfldJRz4o3t9JD5JOQF
-X-Gm-Gg: ASbGncs/sVQJQrNHtDqA5IicJSUaz3NkcnKk08a8kJKPBKB9wQIbuoY6xoBpZeHJHHB
-	0rHHa9qUD7BgQl713odVeDv05nPAFnfu2Y4u3mQSMz2MTcHjI3OptDROCbM7hwVxLjyrEG3svb/
-	PPrLlihi1iHxJm1ik8JzwhXDGYz9JID70kZ2Bc4szJzrDztCsAaYzhagoIiYFavgZsPpHSwlcwL
-	w==
-X-Google-Smtp-Source: AGHT+IHDN7yYiqZfvU9YYp0Xn0iNVyQLG2U2NkvCT1T2HFwTM8W1uiwWGtxc6CrVQKMfQxc4kQw9Dq00AIFK5/ldCts=
-X-Received: by 2002:a05:690c:360e:b0:70d:f3bb:a731 with SMTP id
- 00721157ae682-710f76949a7mr201808267b3.9.1749510300215; Mon, 09 Jun 2025
- 16:05:00 -0700 (PDT)
+	Mon, 09 Jun 2025 23:34:48 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 559NYCBZ2124875;
+	Mon, 9 Jun 2025 18:34:12 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749512052;
+	bh=O1IKf9AorUgqBGeWu8urz3AAOvCJWkpQcDggQ0geEY0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=fHehs+SxpcW4hK4rG1SoW0DZc31GQ3qdLPqhbFt1sd4K7q1tE0hoYA4XVjS727cgj
+	 dCLZ0Ar7/59QXqPMJ3LHZx2DZfutJPGz0vyT+dKNCgm7XjZUG89UxViuvdOOsfdwBR
+	 miMcVHtR6BiXvz7blC6OTQSvePjrX2G3AvJ6BY1Q=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 559NYCDL4024898
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 9 Jun 2025 18:34:12 -0500
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 9
+ Jun 2025 18:34:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 9 Jun 2025 18:34:11 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 559NYBZA1994249;
+	Mon, 9 Jun 2025 18:34:11 -0500
+Message-ID: <53b48816-37e6-49e8-a5cf-adcca04c57a7@ti.com>
+Date: Mon, 9 Jun 2025 18:34:10 -0500
 MIME-Version: 1.0
-References: <aDdILHOu9g-m5hSm@google.com> <20250528201756.36271-1-jthoughton@google.com>
- <aDebZD1Kmmg15zs7@google.com>
-In-Reply-To: <aDebZD1Kmmg15zs7@google.com>
-From: James Houghton <jthoughton@google.com>
-Date: Mon, 9 Jun 2025 16:04:24 -0700
-X-Gm-Features: AX0GCFsscOLeJsC5afeLhStDd6O3F0bHoTP2OBA-juWmkL4Q85V0QPpPjCgJ_5E
-Message-ID: <CADrL8HWwWN6tgV5ws8HMmeONmmhx_xS5ZSHgV7E6Cg=NDrqCTQ@mail.gmail.com>
-Subject: Re: [PATCH v2 06/13] KVM: arm64: Add support for KVM_MEM_USERFAULT
-To: Sean Christopherson <seanjc@google.com>
-Cc: amoorthy@google.com, corbet@lwn.net, dmatlack@google.com, 
-	kalyazin@amazon.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	pbonzini@redhat.com, peterx@redhat.com, pgonda@google.com, 
-	wei.w.wang@intel.com, yan.y.zhao@intel.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] binding: omap: Add lots of missing omap AM33
+ compatibles
+To: Kory Maincent <kory.maincent@bootlin.com>,
+        Tony Lindgren
+	<tony@atomide.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Aaro Koskinen
+	<aaro.koskinen@iki.fi>,
+        Andreas Kemnade <andreas@kemnade.info>,
+        Kevin Hilman
+	<khilman@baylibre.com>,
+        Roger Quadros <rogerq@kernel.org>,
+        Russell King
+	<linux@armlinux.org.uk>
+CC: Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>,
+        Mark Brown <broonie@kernel.org>,
+        Thomas Petazzoni
+	<thomas.petazzoni@bootlin.com>,
+        <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
+ <20250609-bbg-v2-2-5278026b7498@bootlin.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250609-bbg-v2-2-5278026b7498@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_160502_520739_9046612C 
-X-CRM114-Status: GOOD (  31.84  )
+X-CRM114-CacheID: sfid-20250609_163446_942135_9799EA77 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,103 +103,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 4:25=E2=80=AFPM Sean Christopherson <seanjc@google.=
-com> wrote:
->
-> On Wed, May 28, 2025, James Houghton wrote:
-> > On Wed, May 28, 2025 at 1:30=E2=80=AFPM Sean Christopherson <seanjc@goo=
-gle.com> wrote:
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index c5d21bcfa3ed4..f1db3f7742b28 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -2127,15 +2131,23 @@ void kvm_arch_commit_memory_region(struct kvm *=
-kvm,
-> >                                  const struct kvm_memory_slot *new,
-> >                                  enum kvm_mr_change change)
-> >  {
-> > -     bool log_dirty_pages =3D new && new->flags & KVM_MEM_LOG_DIRTY_PA=
-GES;
-> > +     u32 old_flags =3D old ? old->flags : 0;
-> > +     u32 new_flags =3D new ? new->flags : 0;
-> > +
-> > +     /*
-> > +      * If only changing flags, nothing to do if not toggling
-> > +      * dirty logging.
-> > +      */
-> > +     if (change =3D=3D KVM_MR_FLAGS_ONLY &&
-> > +         !((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES))
-> > +             return;
-> >
-> >       /*
-> >        * At this point memslot has been committed and there is an
-> >        * allocated dirty_bitmap[], dirty pages will be tracked while th=
-e
-> >        * memory slot is write protected.
-> >        */
-> > -     if (log_dirty_pages) {
-> > -
-> > +     if (new_flags & KVM_MEM_LOG_DIRTY_PAGES) {
-> >               if (change =3D=3D KVM_MR_DELETE)
-> >                       return;
-> >
-> >
-> > So we need to bail out early if we are enabling KVM_MEM_USERFAULT but
-> > KVM_MEM_LOG_DIRTY_PAGES is already enabled, otherwise we'll be
-> > write-protecting a bunch of PTEs that we don't need or want to WP.
-> >
-> > When *disabling* KVM_MEM_USERFAULT, we definitely don't want to WP
-> > things, as we aren't going to get the unmap afterwards anyway.
-> >
-> > So the check we started with handles this:
-> > > > > > +       u32 old_flags =3D old ? old->flags : 0;
-> > > > > > +       u32 new_flags =3D new ? new->flags : 0;
-> > > > > > +
-> > > > > > +       /* Nothing to do if not toggling dirty logging. */
-> > > > > > +       if (!((old_flags ^ new_flags) & KVM_MEM_LOG_DIRTY_PAGES=
-))
-> > > > > > +               return;
-> >
-> > So why also check for `change =3D=3D KVM_MR_FLAGS_ONLY` as well? Everyt=
-hing I just
-> > said doesn't really apply when the memslot is being created, moved, or
-> > destroyed. Otherwise, consider the case where we never enable dirty log=
-ging:
-> >
-> >  - Memslot deletion would be totally broken; we'll see that
-> >    KVM_MEM_LOG_DIRTY_PAGES is not getting toggled and then bail out, sk=
-ipping
-> >    some freeing.
->
-> No, because @new and thus new_flags will be 0.  If dirty logging wasn't e=
-nabled,
-> then there's nothing to be done.
->
-> >  - Memslot creation would be broken in a similar way; we'll skip a bunc=
-h of
-> >    setup work.
->
-> No, because @old and thus old_flags will be 0.  If dirty logging isn't be=
-ing
-> enabled, then there's nothing to be done.
->
-> >  - For memslot moving, the only case that we could possibly be leaving
-> >    KVM_MEM_LOG_DIRTY_PAGES set without the change being KVM_MR_FLAGS_ON=
-LY,
-> >    I think we still need to do the split and WP stuff.
->
-> No, because KVM invokes kvm_arch_flush_shadow_memslot() on the memslot an=
-d marks
-> it invalid prior to installing the new, moved memslot.  See kvm_invalidat=
-e_memslot().
->
-> So I'm still not seeing what's buggy.
+On 6/9/25 10:43 AM, Kory Maincent wrote:
+> Add several compatible strings that were missing from the binding
+> documentation. Add description for Bone, BoneBlack and BoneGreen
+> variants.
+> 
+> Add several compatible that were missing from the binding.
+> 
+> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> ---
+> 
+> Change in v2:
+> - New patch
+> ---
+>   Documentation/devicetree/bindings/arm/ti/omap.yaml | 38 ++++++++++++++++++++++
+>   1 file changed, 38 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml b/Documentation/devicetree/bindings/arm/ti/omap.yaml
+> index 3603edd7361d..c43fa4f4af81 100644
+> --- a/Documentation/devicetree/bindings/arm/ti/omap.yaml
+> +++ b/Documentation/devicetree/bindings/arm/ti/omap.yaml
+> @@ -104,12 +104,50 @@ properties:
+>         - description: TI AM33 based platform
+>           items:
+>             - enum:
+> +              - bosch,am335x-guardian
+>                 - compulab,cm-t335
+> +              - grinn,am335x-chilisom
+> +              - gumstix,am335x-pepper
+> +              - moxa,uc-2101
+>                 - moxa,uc-8100-me-t
+> +              - myir,myc-am335x
+> +              - myir,myd-am335x
+>                 - novatech,am335x-lxm
+> +              - oct,osd3358-sm-refdesign
+> +              - tcl,am335x-sl50
+>                 - ti,am335x-bone
+>                 - ti,am335x-evm
+> +              - ti,am335x-evmsk
+> +              - ti,am335x-pocketbeagle
+> +              - ti,am335x-shc
+>                 - ti,am3359-icev2
+> +              - vscom,onrisc
+> +          - const: ti,am33xx
+> +
+> +      - description: TI bone variants based on TI AM335
 
-Sorry, I didn't see your reply, Sean. :(
+Do we really need these "bone variants" split out from the above
+list of TI AM33 based boards? We don't do that for any of the other
+boards, you get a SoC and a Board compatible, every classification
+in-between is just unneeded.
 
-You're right, I was confusing the KVM_MEM_USERFAULT and
-KVM_MEM_LOG_DIRTY_PAGES. I'll undo the little change I said I was
-going to make.
+Andrew
 
-Thank you!
+> +        items:
+> +          - enum:
+> +              - ti,am335x-bone-black
+> +              - ti,am335x-bone-green
+> +              - ti,am335x-pocketbeagle
+> +          - const: ti,am335x-bone
+> +          - const: ti,am33xx
+> +
+> +      - description: TI bone black variants based on TI AM335
+> +        items:
+> +          - enum:
+> +              - sancloud,am335x-boneenhanced
+> +              - ti,am335x-bone-black-wireless
+> +          - const: ti,am335x-bone-black
+> +          - const: ti,am335x-bone
+> +          - const: ti,am33xx
+> +
+> +      - description: TI bone green variants based on TI AM335
+> +        items:
+> +          - enum:
+> +              - ti,am335x-bone-green-wireless
+> +          - const: ti,am335x-bone-green
+> +          - const: ti,am335x-bone
+>             - const: ti,am33xx
+>   
+>         - description: Compulab board variants based on TI AM33
+> 
 
