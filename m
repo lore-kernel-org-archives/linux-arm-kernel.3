@@ -4,76 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B850C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5BFC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=erCWTv1iBu+zhino5X8lqV0NnPCfncKslxTm/LttBO4=; b=fCILl1J+WO/bfYY/tSgGP9tTVw
-	/WpK0mIJQ5b8XHdyX6URVNvRKXg8JbF69SAW95XW8+8zk4nXv05D8cef5yhRArzAak3I99bpeRaWQ
-	/pO4UHun7jvXr82MMYoQdnguJfhqoRNK9aKk8Dsvn/Xo25RhRPR07YDGLfA5m2duNHCBmkDbesrRF
-	BCzkFbyzSggtIIip0BDc174oketdm00ytRxm7sDpyTEVtSwRs32tJaT6u2OgN/7sG6gOWPIpNNaR7
-	qtz18RR3si8FgrAaNm+PwK4WKpf63hkZvuxReqd3V5XCCEfozv4rtN92jbkRgUqqiWgn6wYopvufw
-	R5qeTYYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0yYYzXRAs+WBtxNtVVl3v2V01HepfsNY2V3zxzzUWN4=; b=sGw11eeuA7SOkAFoedOgm0HkJJ
+	bjFqvBrQewgrlcpHXUT5LjP4Mr4GDcBQuXoiryX8l/KrpwZhy8NPY5ysjouifqn+GzZDNvNhQ/WSr
+	3fH380s/sOzWyMLO62U/8MIsnRDkOVooXKxVg7jG0avzyy2o5nJNbUSKvY4EnPINbZKwMChqVp3aa
+	wW/Isr/2RJhk67hToplJENoikI9yZgDLWLJGcRTMKZvbHpLtNIPGf1xg1bZksXkG3RcIQ6+b/MYqZ
+	WOOhuzw2O4lh4M023xHm6S7seDCJq4nbN8VO1MBsAaFZJ6+5NiVzkAZ7DRuPZmJiKcsqUsjXML2/m
+	zbjkXVRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYgX-00000003km7-1vpD;
-	Mon, 09 Jun 2025 09:20:53 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1uOYif-00000003lTx-3HIc;
+	Mon, 09 Jun 2025 09:23:05 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYTb-00000003jSp-0DXE;
-	Mon, 09 Jun 2025 09:07:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A8E3B4326B;
-	Mon,  9 Jun 2025 09:07:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749460048;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=erCWTv1iBu+zhino5X8lqV0NnPCfncKslxTm/LttBO4=;
-	b=mqb8fdfUAPmh1nGlznkXqcy65DTSqmBNVTK2jEWW+sZy/L4Mwn72e1BDiJ6cNad6U5dhco
-	u2tGJQquy5bw3+kHVVdCbRKfHfSnzViq+cQDLYETVOvMuFONiHdKYsOexHM9Wtq5TlUA27
-	Wq6EQAHizzOUgD/5vnR/JKaEAE9T6g0f+lVPjJLQmVUJ7c33S2FZ74WRNQJywTAYKrGQVk
-	fSKxOTK0HsojuD7X2IAULVVy80JhHB4I6IhrxTD2EO/Jy5eiufVse+maoLpEn6h5EHezDB
-	jnD8xN55kzjPhIwMon0UA42cRqfRK4brNShFTyzymTAVg6aNocx8YOUgeY/CTQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,  Rob Herring <robh@kernel.org>,
-  Mark Brown <broonie@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Tudor Ambarus
- <tudor.ambarus@linaro.org>,  Pratyush Yadav <pratyush@kernel.org>,
-  Michael Walle <mwalle@kernel.org>,  Richard Weinberger <richard@nod.at>,
-  Vignesh Raghavendra <vigneshr@ti.com>,  linux-spi@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: spi: Add VIA/WonderMedia serial flash
- controller
-In-Reply-To: <CABjd4YxRMfi3ZFQxhB__6U4Rm3KQ7bm6J=wQLWAkpb++61ddEg@mail.gmail.com>
-	(Alexey Charkov's message of "Fri, 6 Jun 2025 13:06:22 +0400")
-References: <20250510-wmt-sflash-v1-0-02a1ac6adf12@gmail.com>
-	<20250510-wmt-sflash-v1-1-02a1ac6adf12@gmail.com>
-	<20250514204159.GA2988411-robh@kernel.org>
-	<CABjd4Yz3w75PtkRk_edzD5yf6b2xPuf20gopbm8ygddgCBfpkw@mail.gmail.com>
-	<2b520ae5-eb0d-40eb-ba73-cc18759f33b9@kernel.org>
-	<CABjd4YxRMfi3ZFQxhB__6U4Rm3KQ7bm6J=wQLWAkpb++61ddEg@mail.gmail.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Mon, 09 Jun 2025 11:07:27 +0200
-Message-ID: <87y0u1z3jk.fsf@bootlin.com>
+	id 1uOYaW-00000003k8C-1GrZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 09:14:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V0fO7D3dWUZd7PVcI/yckLMBS7XGlUy7xmLoN/72If7EFNmoba68CjhH0I7856faXA21FK0fvwAkLu3zVOrWxjuMO5gYUuWbC0fdw7U4QJwefIaeyBzBN5oZFJn21coNkjCGoUapz7jsjuI00l/Etwr5SyKeMBOtn2J3OOUMZ1C8wVAY5ZRam/4L7s96fa+y6dETtfqw/U0Sm7Z7l8w0OxETufzjK+6HCKMCl510ykDWbjBKCcixFGMv+DbCxhD9Kh0foQbSFQIhm6aQ+08AWn0FGcJTAdBGXSeP7emBq5AOr8lXUEBNrT5AoZgVKrljBIWKH/B+600qfRbS5cow3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0yYYzXRAs+WBtxNtVVl3v2V01HepfsNY2V3zxzzUWN4=;
+ b=LZHr1dy6UuUW9nnv13MSdr41b7jO9+99SgWcBWJLBLltWntdqGRPZIzRPgiaZQOKlxNZhy/f9+rankEAtNChoxN+Xyw+VtVTEOx0D1wU9ThUDjrbZCtgjl0ZcLsnko9xKKVo4yKWh8V3pPjlqAW+J1OCkuXV3XpldbL3h99o/HzC2/TAhS9tdS4kwdiSdkF2Qx9xsJTA4ACQGgI7MIZtZhefT89sbxVR9WZ0OLRqz7Uj/rlD/UAKb+msALjK74PsCZqnlgqQNqbn4zR5Bk5AfLgTIe+BbFAsee29LiDfRT+5HJ/RoRwr7zkwZCAn+GBAVg8jOzq5JPtcbKUo9fC+RA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0yYYzXRAs+WBtxNtVVl3v2V01HepfsNY2V3zxzzUWN4=;
+ b=BeHe+JF8EV4wUy7XRoo3Tc8zikMbweyE8A1I8JRl7E04ty8WRzilOJPAEksY1p5/4ZchHHOrDF+k/RJ6n2KKt9K/q0l0goThFKA09FWnCukFlKbH+yJkOUniVUOMldA2O4fUYGsOzZR7aAYMg6V4VNHEoil5vP6ZMwe71ljDw3QwWLECECijOKywG2PFfWUN4FJKUnyx6aRYMwOaOiB2oXjIwLZqYAP3w3RRN1Wwv+20tUJHDU+O0VukuyT0gJxaWHHzQmLthGoS5Ghw5jgeBrawbbRtJ/ByWwWJyV0zKtkEAvNylz/VxRT0v/gS8KwQJxzvCW3WbT7tcIDpSYvdKQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by DU4PR04MB10984.eurprd04.prod.outlook.com (2603:10a6:10:586::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.28; Mon, 9 Jun
+ 2025 09:14:34 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8813.024; Mon, 9 Jun 2025
+ 09:14:34 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] arm64: dts: imx95: Correct the DMA interrupter number of pcie0_ep
+Date: Mon,  9 Jun 2025 17:11:27 +0800
+Message-Id: <20250609091127.4188159-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0054.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::13) To AS8PR04MB8676.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42b::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdeltdelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopegrlhgthhgrrhhksehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepsghrohhonhhivgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdpr
- hgtphhtthhopehtuhguohhrrdgrmhgsrghruhhssehlihhnrghrohdrohhrghdprhgtphhtthhopehprhgrthihuhhshheskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: miquel.raynal@bootlin.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|DU4PR04MB10984:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e41ff37-0f72-4461-5c5b-08dda7360cfd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qay3qFxtcTDyRqJPjLVeM/+Y17YrWnY1+i3uEad/7ZDKKLJQFrziCSCOWIU7?=
+ =?us-ascii?Q?thRCYz4OVbVa3mqV/8w2sVG8NlGIY6qxF6eYq1uMCZMn1P7jigYqA1wu9ZrG?=
+ =?us-ascii?Q?IYdtG//j3PhEyuoknPS0prOtp7oiOYpD0FJg/n9EFinw9aQ1/4xdB6y53NTz?=
+ =?us-ascii?Q?OTHwzYd/pBFdAXDyN8YbFgXOXLxPbeBMPm2XPnIzyRAxMN6Ech+z2VthTFi7?=
+ =?us-ascii?Q?BIlzDmdFsZJ+wbt1+Tbqk8AcuF/pENmPyGexNP5CsXBEdHt3y+JrF1rNrD+K?=
+ =?us-ascii?Q?T/88w1YEAaIw6frq3SHlX/CkSDPOCDPtI3U4CciQmZMm9B5+VEZ0tVi3ZXtI?=
+ =?us-ascii?Q?6UOJuMPFqfme8GCKM43DhFUuEEwHCTuoiVabKePLCMux3ORHlCE6gCDMzpx9?=
+ =?us-ascii?Q?B4110+6ogii+b4Uqmiv9mofkeKR+ECXbS8LeRtllRfXW44IuY0Xau/VW5jOv?=
+ =?us-ascii?Q?OzwBOS124Juu0rHw3eI5IN3YF736du8zQwT0XDzXMo0BM6h02dhnFPxpB9Ci?=
+ =?us-ascii?Q?x6IB7U0Ia3oM+hDSdzT5bHDm20g3L7LuGh9MYQD5XJwo9nSRL2eXw6/PzhL4?=
+ =?us-ascii?Q?sJzGVCt34vg7UKuVi+E6GTEm9xnGSMKfP2WTjcvEtikf9q88N5NUqNhMLg9z?=
+ =?us-ascii?Q?f3HLBTriaysbKvljY3erSJNAnoIvz6fm9tH8IHM7xUXmIh+GupjbaMrIOEEB?=
+ =?us-ascii?Q?zwYtXIl+0sPW2S+ykshqaOuFiRUc+wtrCi8yYouT05v7Yv9/zibDDTyORr4i?=
+ =?us-ascii?Q?3GRM5eLwrhdTDfjcXErrcowEx7YfaQVb/oCqAcKlPcU/dMmBiFpsgc0gaaDl?=
+ =?us-ascii?Q?EMhOvUbQBYEafWWJMDy9uY0dBzxdj5adMgfQETegMON/LxjhyeWIVilRPUv8?=
+ =?us-ascii?Q?NahHkrEdgFBzeu8D+RtDvqnbiFmo3xrbfsvQgHYPfHJM8xaWBAfWbXm/rsl6?=
+ =?us-ascii?Q?r9uPreBFZVQ+LNM41S89jWd7klsjtR6qMfmhSxIFnHEgy08GB7WidZjYKqec?=
+ =?us-ascii?Q?/r9xdnX4xjrNjPF+eCl/CyWh0jCwWxFJjN8c3kYKXsyPjydX8u5J4GVqk1i2?=
+ =?us-ascii?Q?q5sXP/bD7wH8FNWXn3TouwqxrYAhRqiyaiAH2nA4F5/Q0m9vXeQrHtmyruSV?=
+ =?us-ascii?Q?OI9gbDLGCQdFuDbwoeeeysJubjLoPqznrpSPExVpT4uBFX/cJsOuyX5Yu9GA?=
+ =?us-ascii?Q?0S8kfaIk/P1PXIkeOx0pk/UXzr4qrJ3cSNSZ3CSbJ6oJqZOxUQMUB08UpqiO?=
+ =?us-ascii?Q?TYPgKu+UQyHoUYblwmMQg4rduBmo91iZNbn8f2TjPByZydzwsj4J12h0IT3U?=
+ =?us-ascii?Q?tHzUpY7OoBIIL6YDRGX2ao6q7IS69c8HQ+U5cIB9Il2WOS11Lsg6JNOpqR3H?=
+ =?us-ascii?Q?2WcNHdcEbYYGj5XPjG1AVW1cn5Dw6s0Vv8496j7PNIAZB/yBs3Zx59EBsvXp?=
+ =?us-ascii?Q?9cHHlhVLAcycaK5vF0cOGEmcg6fKwLwncocWfIZa91i/T1w/1vdZLg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bd3opRD9XXJbGt8H/9+QxbVxM0xIUR50+ZvZtXVJc/+UgzYNgIfRWyzZ29Qd?=
+ =?us-ascii?Q?K6Cr0Mj0SoyYzJw7lwLlhAmQhggewvxZF+/Dbxf3zz0O4Gn9MlAy8jFUn9CU?=
+ =?us-ascii?Q?EOB1c9U4PCZcDa4SNsqRJM3dgsLW2IoZK7Lw5xfXTqXhnMDWrwr9Z6SZlMEu?=
+ =?us-ascii?Q?K6xIc63VU04/i8l7/Sei38q1edInqKFxNR/LDJQHSJVTIXFrL4PBs1nbZIyg?=
+ =?us-ascii?Q?q+yDfmKW0oUBNC1L04VrOXP1ouNSPFCk0Rs7TU1Hlo0JNUmdYmxSBZAxi9b5?=
+ =?us-ascii?Q?Ay/UOA+X3GRr0gkBYsiPHItiu+p7vcAcG51ipI6E/QSb1YAkQnsvJWRGa25M?=
+ =?us-ascii?Q?+iimR4lk3j2UWiyiJOvZhfRZOAEbAv9ZMQHGyIxWlSc9xroyV3txnt+M/OZn?=
+ =?us-ascii?Q?u3/aTRdKGPWN99lUBAzde1xxeCIUsvi7Bm90Dm6DVOZJm7eYVlNQuVDv0h/b?=
+ =?us-ascii?Q?1BlJ7TV2aJDARie0lYWzF5FJIpPP4MJszbvmHTMimPUEZK+DI4mtkhjOU4nb?=
+ =?us-ascii?Q?UIvG1+JUcxYquYrJcYCAmBjX0X09Dxlm/wA5QOXB1Tpr6/b1DyJ+GdEfG6ek?=
+ =?us-ascii?Q?oITyGJ+CCXQlBihqEy3oRG2R1Xaq1Nna29lsuczLsFSxtoLGkwVhv74dhqxt?=
+ =?us-ascii?Q?Az9KdmkMEyt4g6hmg2EbWONvLNZ5/2EGDIQg9ahZTwoJObFAamDhLE2MOilQ?=
+ =?us-ascii?Q?OSjMPV6SGNwjAosoIdVQGAVUhp2g6SGVxns/HCxJEpwt1DHFwCnSbR/9fBQ7?=
+ =?us-ascii?Q?/FF0Tg81DaJJmsmRPzoP/cKYWFUdZTGWghnwnq9GARWa09bVV9np37LxYXJE?=
+ =?us-ascii?Q?g918PKOmacIGMa/KO71wewFDi0MhDXpC/aVt6BXmN+CyszegZnDJrnXAM/YI?=
+ =?us-ascii?Q?Isj9B6+NS9ftJAtOEXlvHzfuedryIYC35eZ1vJZHfOPMP/SkFKi/tiEqRKO+?=
+ =?us-ascii?Q?94frZeyZxVNVuGvwyaCLq0E8VxubX8Q/xJX3jV67oHgTammd1uXYg13WLVjd?=
+ =?us-ascii?Q?NlKCBShZHgkXrGfdV91pryAlpOxwMZgmMEnXYl82ceEQEG4D3y9wSG29D4Y5?=
+ =?us-ascii?Q?YiRZiD7YA9yRL9taT+Ga18QVuVbACJ2YhY9LeekN6/jBc0s3AEKFQnW8l2fM?=
+ =?us-ascii?Q?n4v9DnvGU7iiVXNguvaNtTyQW6cWi0M+KzuoMMemWOeLX/WP83fYi5EFPv6D?=
+ =?us-ascii?Q?wnukWVJ98i5ofApRJbIKNlWIL99nAJKCwdaLq6sDpgRqX4A7PD8AK3vfNk6U?=
+ =?us-ascii?Q?fVbrpOE2uVq2p15UueoierRDTS9AlZo9Hs8WKNmwFsEgnZmZXz5/N5CUcNuU?=
+ =?us-ascii?Q?FPUzQdc/xYgEctltgLgKFwUcf03KXzvfT1ljalL/XLN4qY8qNqh9NiHO2cOg?=
+ =?us-ascii?Q?BoMIM7v/y8jC8JpEW7h7wcdkKWjqi45NjpUJTODIYtJPEW5tmQkM6GylhqVL?=
+ =?us-ascii?Q?yMCMC7LlWhHwr9+uoIilPQsTveFjJlWIyuxCbLTRCkzrivzjgyjtj1DhCxMk?=
+ =?us-ascii?Q?NJ+B+V0XNjsdVwc4Xx0ukJevawi8//llNhHNxluf24xZBvjCOohT2Jj7uvZp?=
+ =?us-ascii?Q?t8Os3fUs7BD2ddSkf1Eu8O27XxgwHIt4m0OZeD7t?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e41ff37-0f72-4461-5c5b-08dda7360cfd
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 09:14:34.8095
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P+Bw2vByjA61LSVUbrKtNRvRvX+U4pKbRLxdaqREv/Ki4HLuTi9/y1XogicQ/ktAHq52JrUyky4gLLuSU71QgQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10984
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_020731_385539_4B0D492F 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20250609_021440_357021_3770FD5A 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +164,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Correct the DMA interrupter number of pcie0_ep from 317 to 311.
 
->> > Happy to reference the spi-controller.yaml binding if so.
->>
->> SPI NOR flashes are still child devices of an SPI controller. You can
->> look at other examples - aren't they all using spi-controller? Why this
->> would be different? Unless you found some cases that are different, but
->> then which ones?
->
-> No strong opinions here, and no expectation of any special treatment
-> :) Just wanted to consult on what's most appropriate.
->
-> My (subjective and perhaps unfounded) expectation when seeing
-> something advertise itself as an SPI controller was that it would be a
-> general purpose SPI master, to which one can e.g. connect an SPI
-> driven LCD screen and get it to work with generic Linux SPI
-> infrastructure - which would not be possible with this single-purpose
-> NOR-only flash controller. Given that I don't know how flexible or
-> restrictive other examples are in terms of driving arbitrary SPI
-> devices, I thought it's better to just ask.
->
-> What I'm getting from this exchange here is that I'd better use the
-> spi-controller binding and respective node names regardless of the
-> fact that this controller cannot drive arbitrary SPI devices beyond
-> NOR flash (which, as I'm getting, is irrelevant after all).
+Fixes: 3b1d5deb29ff ("arm64: dts: imx95: add pcie[0,1] and pcie-ep[0,1] support")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Just for information, there are several SPI controllers which are
-optimized for flash handling (not only NOR, though) and for that we have
-a spi-mem layer which allows to reference a set of SPI memory "only"
-callbacks. On the description side though, these controllers are like
-all other SPI controllers, so the same controller bindings may apply.
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 59f057ba6fa7..7ad9adfb2653 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -1678,7 +1678,7 @@ pcie0_ep: pcie-ep@4c300000 {
+ 			      <0x9 0 1 0>;
+ 			reg-names = "dbi","atu", "dbi2", "app", "dma", "addr_space";
+ 			num-lanes = <1>;
+-			interrupts = <GIC_SPI 317 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <GIC_SPI 311 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-names = "dma";
+ 			clocks = <&scmi_clk IMX95_CLK_HSIO>,
+ 				 <&scmi_clk IMX95_CLK_HSIOPLL>,
+-- 
+2.37.1
 
-Thanks,
-Miqu=C3=A8l
 
