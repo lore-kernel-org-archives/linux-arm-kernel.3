@@ -4,90 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7905BC5AD49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 04:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5EEC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 04:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0Ty8uQC2ggf7ArBdnQeDtKQVIMY78+qF9VWC+NFGdo=; b=zlfC7kBDBwSdfUHDfb7awM8O1d
-	Ja6xEUqdCHrrvVaRYjfV6H332MPRoO0wk7L3Pb4mGOat3uK/lUx67Mp9PNopvhShiN7EmhnBDZkZh
-	rKMmQxrMR8gqvLGT1vljI4Ryb5mykQQk6orlwhyplJj1/CExtRhtmA7eQeaped4BPuo+piekuhu2/
-	F0M/cgoPnv3Xl6kti34xDe/dobfhOfK64fOChr+MPBzY4p4EKVDGzNUCfhdv9UG7XtcYKSLNw6e/w
-	2WUYebjJZBPV8ckl3bIY+BGMtZtAHrrwmKujaC2a/lh0Gf/qsmE0HYVdrYaUC4vHw69MXrkIbctjf
-	WFoSSnnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2QNfNckCcuklRkVDPkhZawz8hFnylE76Ut4iIbDtMWE=; b=i7VZmWFHLaJLtIYFlZlpW4Zf0F
+	j/fs55TocGSGK2fHGuZfYBnkEaRHjS7OuzdTXl4EpWwSZWuzfFAco2mqOXr8cbQYqGcURFoNk8fnH
+	i40W8vUTRXIx71X6sLNFZBxQLhO7pW6dDfaEb01ItT/05kuNYXHmyvPZQkwO/luNzAd2JipsuvSWC
+	HkdKl1BK9GQTV3B7CGohv+11kuGs7lUIW2bIlZE/KeRbg2QOKOmsBUTfJOMJXHrq23MDLrZ59KiCC
+	V7dBJKrg5m6vELjHJp/ApEIYfqLDTo0RrG15FCCe86KMrTcimF4EmwbcVgsOcM8YREoM2WyzRb2Gu
+	sd+QyowQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOTnu-00000003NV1-2PYE;
-	Mon, 09 Jun 2025 04:08:10 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOTll-00000003NON-2AnJ
+	id 1uOTuE-00000003Nwa-2YoJ;
+	Mon, 09 Jun 2025 04:14:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOTs6-00000003Nok-2NhE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 04:06:00 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250609040550epoutp02d0a5897844a8d5dd4e36ba0d8804d2cc~HRC9jKV6D2360523605epoutp02p
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  9 Jun 2025 04:05:50 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250609040550epoutp02d0a5897844a8d5dd4e36ba0d8804d2cc~HRC9jKV6D2360523605epoutp02p
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1749441950;
-	bh=W0Ty8uQC2ggf7ArBdnQeDtKQVIMY78+qF9VWC+NFGdo=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=rN3/KtQrvZoO5EJWpXFAE+yCgtvoPe7amkm1tf5cMF7fvZ8T0UTH9fjy4usrOHJAh
-	 NpvEbnOX/rv9zDxq2MAyKUMi3Yaxq6RwNNpFqVXAjg7IFwLMnndpieOCpPNZacU381
-	 079KqPrn/a2xLCYM8AuH05zDe665qLdT1Lp6xaPs=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250609040550epcas5p44ffe74ab72a0659449132c1e2595348c~HRC9FgbNP1796017960epcas5p4L;
-	Mon,  9 Jun 2025 04:05:50 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.175]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4bFyyH4tpDz2SSKY; Mon,  9 Jun
-	2025 04:05:43 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250609040543epcas5p4a339f4920addf5bd274e54778172e78b~HRC2pfZzh2015720157epcas5p4t;
-	Mon,  9 Jun 2025 04:05:43 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250609040540epsmtip23ac06c81db24768155a370ce8cdcaa13~HRC0J7VFH1644916449epsmtip2m;
-	Mon,  9 Jun 2025 04:05:40 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Raghav Sharma'" <raghav.s@samsung.com>, <krzk@kernel.org>,
-	<s.nawrocki@samsung.com>, <cw00.choi@samsung.com>,
-	<mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<conor+dt@kernel.org>, <richardcochran@gmail.com>,
-	<sunyeal.hong@samsung.com>, <shin.son@samsung.com>
-Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<chandan.vn@samsung.com>, <karthik.sun@samsung.com>,
-	<dev.tailor@samsung.com>
-In-Reply-To: <20250529112640.1646740-2-raghav.s@samsung.com>
-Subject: RE: [PATCH v3 1/4] dt-bindings: clock: exynosautov920: sort clock
- definitions
-Date: Mon, 9 Jun 2025 09:35:38 +0530
-Message-ID: <03cd01dbd8f3$c4c18130$4e448390$@samsung.com>
+	Mon, 09 Jun 2025 04:12:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 86AB71515;
+	Sun,  8 Jun 2025 21:12:08 -0700 (PDT)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0CEC33F673;
+	Sun,  8 Jun 2025 21:12:25 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	stable@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	linux-kernel@vger.kernel.org,
+	Dev Jain <dev.jain@arm.com>
+Subject: [PATCH] arm64/ptdump: Ensure memory hotplug is prevented during ptdump_check_wx()
+Date: Mon,  9 Jun 2025 05:12:14 +0100
+Message-Id: <20250609041214.285664-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIRyuXPQglR2pg1tLiplohNF2WAzQJJNEBAALUq35Ozdl5VAA==
-Content-Language: en-us
-X-CMS-MailID: 20250609040543epcas5p4a339f4920addf5bd274e54778172e78b
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250529111708epcas5p232b8bb6b05795b7014d718003daef0cb
-References: <20250529112640.1646740-1-raghav.s@samsung.com>
-	<CGME20250529111708epcas5p232b8bb6b05795b7014d718003daef0cb@epcas5p2.samsung.com>
-	<20250529112640.1646740-2-raghav.s@samsung.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_210558_195476_9FC6142E 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250608_211230_650770_B59C8088 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,27 +65,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raghav
+The arm64 page table dump code can race with concurrent modification of the
+kernel page tables. When a leaf entries are modified concurrently, the dump
+code may log stale or inconsistent information for a VA range, but this is
+otherwise not harmful.
 
-> -----Original Message-----
-> From: Raghav Sharma <raghav.s@samsung.com>
-> Sent: Thursday, May 29, 2025 4:57 PM
-> To: krzk@kernel.org; s.nawrocki@samsung.com; cw00.choi@samsung.com;
-> alim.akhtar@samsung.com; mturquette@baylibre.com; sboyd@kernel.org;
-> robh@kernel.org; conor+dt@kernel.org; richardcochran@gmail.com;
-> sunyeal.hong@samsung.com; shin.son@samsung.com
-> Cc: linux-samsung-soc@vger.kernel.org; linux-clk@vger.kernel.org;
-> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; netdev@vger.kernel.org;
-> chandan.vn@samsung.com; karthik.sun@samsung.com;
-> dev.tailor@samsung.com; Raghav Sharma <raghav.s@samsung.com>
-> Subject: [PATCH v3 1/4] dt-bindings: clock: exynosautov920: sort clock
-> definitions
-> 
-> Sort all the clock compatible strings in alphabetical order
-> 
-> Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
-> ---
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
+When intermediate levels of table are freed, the dump code will continue to
+use memory which has been freed and potentially reallocated for another
+purpose. In such cases, the dump code may dereference bogus addresses,
+leading to a number of potential problems.
+
+This problem was fixed for ptdump_show() earlier via commit 'bf2b59f60ee1
+("arm64/mm: Hold memory hotplug lock while walking for kernel page table
+dump")' but a same was missed for ptdump_check_wx() which faced the race
+condition as well. Let's just take the memory hotplug lock while executing
+ptdump_check_wx().
+
+Cc: stable@vger.kernel.org
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Reported-by: Dev Jain <dev.jain@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+This patch applies on v6.16-rc1
+
+Dev Jain found this via code inspection.
+
+ arch/arm64/mm/ptdump.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index 421a5de806c62..551f80d41e8d2 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -328,7 +328,7 @@ static struct ptdump_info kernel_ptdump_info __ro_after_init = {
+ 	.mm		= &init_mm,
+ };
+ 
+-bool ptdump_check_wx(void)
++static bool __ptdump_check_wx(void)
+ {
+ 	struct ptdump_pg_state st = {
+ 		.seq = NULL,
+@@ -367,6 +367,16 @@ bool ptdump_check_wx(void)
+ 	}
+ }
+ 
++bool ptdump_check_wx(void)
++{
++	bool ret;
++
++	get_online_mems();
++	ret = __ptdump_check_wx();
++	put_online_mems();
++	return ret;
++}
++
+ static int __init ptdump_init(void)
+ {
+ 	u64 page_offset = _PAGE_OFFSET(vabits_actual);
+-- 
+2.30.2
 
 
