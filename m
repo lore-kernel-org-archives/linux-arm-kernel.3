@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E4C6C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8849AC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BknAZNPG5OOg8WO6ZkGop6cFQ0I37SlkyTudL4l2ooM=; b=ydQC4Glq2LlXbqzJ8ebJr6prWj
-	+AGGlMU7wY+bfg9yXwF/gpSuxjK1Ti+8HCztyprw5Fhd+u4XHMIO58JO8Hm6Q4bw1+gldh7FXxky1
-	hdbn4FbRwjAnbea1SLfqT+4tld4S+XI/YnSZ7q2kbWpik/ZEbL0GHJiEmKzNmCOcnDtsIACoiIeO3
-	T2rYRs1tPUlcWJIcXFv26OCkXczC0wmykYLoHJHC6MHUV6djRVTjwDO0phh9wi6b5spbm8Dxxvg0P
-	rwbyEoVDre/tyLc8Z3EuK2UgXW5PHsbpMZjVflkAmXzVUn29hUUd5mXvW97FW2YzX89EMqIdWvl96
-	lYs7cbkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cK2j777cnaxXBti4lkzIOlhE/fKnF3rLuqH45kppVuU=; b=FFFSgpxNUwaM8bkwmPvKkU8wpJ
+	rjFWJV6G4YwybXfgcTS3NrSdvY6WYFS1n2FsnPblGv2Fg4QX/zACTCBEW60UmUTDNV7lYtETezOro
+	7+lHOgpN64KEDSs7Mlx5UrnN6ZSysyKWa+FuSQF8u5PHD7lS0CQVmoNyGOQVotywpVfTyn7JPxdOC
+	VXzYp4lHh/Pw0qdKNYDZhABmflwWldVDR+9jbxS4ko4XghCMr4XOBxEZsX4tlyxFb7zpwX3KkKl3K
+	55Q5UcILbZ8cmsC0zsz4kG7DVGb48iOPLFe3l5M50CWIxeVlr3UY7Cy+HIPEI+9IN3ZTRCN/pjteF
+	IR14ElaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYp1-00000003mfX-06Md;
-	Mon, 09 Jun 2025 09:29:39 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1uOYr8-00000003n3s-1NcB;
+	Mon, 09 Jun 2025 09:31:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYbi-00000003kGm-2ioU;
-	Mon, 09 Jun 2025 09:15:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=BknAZNPG5OOg8WO6ZkGop6cFQ0I37SlkyTudL4l2ooM=; b=H
-	h1A07QdKOCNVkJYv/jj1ElYednpv4Arg0nIqvmvZBBzzZTMwCwjiH9SrvNR8JKKD
-	QrwMLOcAjtN5LRJhYPS2DoxpG9Y2Ap8uxGVh/rRc3T7+P8oQjA6m3gg7WA/j7mxc
-	7uoN7VrM11CEuhWKCm+4+mOA3zeG2Q6ZxCnqAcqNRY=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-123 (Coremail) ; Mon, 9 Jun 2025 17:15:01 +0800 (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Mon, 9 Jun 2025 17:15:01 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Diederik de Haas" <didi.debian@cknow.org>
-Cc: "Piotr Zalewski" <pZ010001011111@proton.me>, hjc@rock-chips.com,
-	heiko@sntech.de, andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	"Dang Huynh" <danct12@riseup.net>, dri-devel@lists.freedesktop.org,
+	id 1uOYn8-00000003m6Z-0vtm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 09 Jun 2025 09:27:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACCF1150C;
+	Mon,  9 Jun 2025 02:27:20 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 490FA3F59E;
+	Mon,  9 Jun 2025 02:27:37 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	David Hildenbrand <david@redhat.com>,
+	Dave Chinner <david@fromorbit.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kalesh Singh <kaleshsingh@google.com>,
+	Zi Yan <ziy@nvidia.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH drm-misc-next] rockchip/drm: vop2: don't check
- color_mgmt_changed in atomic_enable
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <DAH60H3HYG7M.3NFXBJ7576RH1@cknow.org>
-References: <20241206192013.342692-3-pZ010001011111@proton.me>
- <DAEVDSTMWI1E.J454VZN0R9MA@cknow.org>
- <mArHDRo5bhIAjG8sDOR-kM7DsVdbXxxcC8hfuEEPfUWIdMwNnSUy8ZFoLis66DFSuIEq8TrnAxUGkyo5IUTGw3AG4k3vuVVz0fsoI27BAms=@proton.me>
- <DAH3S8O66J47.3NT18EJCXWKL9@cknow.org>
- <47773829.1fce.1974f732545.Coremail.andyshrk@163.com>
- <DAH60H3HYG7M.3NFXBJ7576RH1@cknow.org>
-X-NTES-SC: AL_Qu2fC/idv00r5ymQZekfmkcVgOw9UcO5v/Qk3oZXOJF8jAnp/T0CbXlFHVfO8eidIg6+nh6RWQNCz8Zhe5Z8T5o5TIe2oYpx/P+uuvn5JOwISw==
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_143480_515529883.1749460501983"
+	linux-kernel@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [PATCH v5 0/5] Readahead tweaks for larger folios
+Date: Mon,  9 Jun 2025 10:27:22 +0100
+Message-ID: <20250609092729.274960-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Message-ID: <3161fa6a.93d0.19753f8c5e0.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eygvCgDnT8gWpkZoYFoXAA--.46397W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hFnXmhGpEQy7AACso
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_021555_036582_1D3CF330 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20250609_022742_353421_37F3FE0A 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,122 +73,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-------=_Part_143480_515529883.1749460501983
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+Hi All,
 
-CgpIaSBEaWVkZXJpaywKCkF0IDIwMjUtMDYtMDggMjA6NTM6MzcsICJEaWVkZXJpayBkZSBIYWFz
-IiA8ZGlkaS5kZWJpYW5AY2tub3cub3JnPiB3cm90ZToKPkhpIEFuZHksCj4KPk9uIFN1biBKdW4g
-OCwgMjAyNSBhdCAyOjEwIFBNIENFU1QsIEFuZHkgWWFuIHdyb3RlOgo+PiBBdCAyMDI1LTA2LTA4
-IDE5OjA4OjUwLCAiRGllZGVyaWsgZGUgSGFhcyIgPGRpZGkuZGViaWFuQGNrbm93Lm9yZz4gd3Jv
-dGU6Cj4+Pk9uIFNhdCBKdW4gNywgMjAyNSBhdCA1OjMyIFBNIENFU1QsIFBpb3RyIFphbGV3c2tp
-IHdyb3RlOgo+Pj4+IE9uIFRodXJzZGF5LCBKdW5lIDV0aCwgMjAyNSBhdCAxMDoxMyBQTSwgRGll
-ZGVyaWsgZGUgSGFhcyA8ZGlkaS5kZWJpYW5AY2tub3cub3JnPiB3cm90ZToKPj4+Pj4gU2luY2Ug
-a2VybmVsIDYuMTQtcmMxIEkgaGF2ZSB0aGUgcHJvYmxlbSB0aGF0IHZpc3VhbCBvdXRwdXQgaXMg
-bm8gbG9uZ2VyCj4+Pj4+IHNob3duIG9uIG15IFBpbmVUYWIyIGFuZCBhIGBnaXQgYmlzZWN0YCBw
-b2ludGVkIHRvIHRoaXMgcGF0Y2gvY29tbWl0Cj4+Pj4+IGFzIHRoZSBjdWxwcml0LiBXaGF0IGlz
-IGltcG9ydGFudCB0byBub3RlIGlzIHRoYXQgYENPTkZJR19EUk09bWAgc2VlbXMKPj4+Pj4gdG8g
-YmUgcmVxdWlyZWQgYXMgdGhlIHByb2JsZW0gZG9lcyBub3Qgb2NjdXIgd2l0aCBgQ09ORklHX0RS
-TT15YC4KPj4+Pj4gCj4+Pj4+IE5lYXIgdGhlIGVuZCBvZiBteSBiaXNlY3Qgc2Vzc2lvbiwgc29t
-ZXRoaW5nIGludGVyZXN0aW5nIG9jY3VycmVkLgo+Pj4+PiBJIHdhcyBib290ZWQgaW50byBhICdi
-YWQnIGtlcm5lbCAoaWUgbm8gdmlzdWFsIG91dHB1dCkgYW5kIHdoZW4gSQo+Pj4+PiBzdGFydGVk
-IHRvIGJ1aWxkIG15IGZpbmFsIGtlcm5lbCwgSSBjbG9zZWQgdGhlIGxpZCBvZiB0aGUgUGluZVRh
-YjIgd2hpY2gKPj4+Pj4gbWFkZSBpdCBnbyBpbnRvIHN1c3BlbmQuIFdoZW4gbXkgZmluYWwga2Vy
-bmVsIHdhcyBidWlsdCwgSSBvcGVuZWQgdGhlCj4+Pj4+IGxpZCBhZ2Fpbiwgd2hpY2ggbWFkZSBp
-dCByZXN1bWUsIHRvIHRyYW5zZmVyIG15IGZpbmFsIGtlcm5lbCB0byBpdC4KPj4+Pj4gQW5kIG11
-Y2ggdG8gbXkgc3VycHJpc2UsIEkgdGhlbiBkaWQgaGF2ZSB2aXN1YWwgb3V0cHV0Lgo+Pj4+PiBX
-aGVuIEkgcmVhZCB0aGUgKGJlbG93KSBjb21taXQgbWVzc2FnZSBvZiB0aGUgJ29mZmVuZGluZycg
-Y29tbWl0LCBpdCBtYXkKPj4+Pj4gbm90IGJlIHN1Y2ggYSBzdXJwcmlzZSBhZnRlciBhbGwuCj4+
-Pj4+IAo+Pj4+PiBJIGRpZCB0cnkgaXQgb24gYSBRdWFydHo2NC1CIChhbHNvIHJrMzU2NikgYW5k
-IGl0IGRpZCBub3QgaGF2ZSBhbnkgaXNzdWUKPj4+Pj4gKG91dHB1dCB2aWEgSERNSSkuCj4+Pj4+
-IEkgZG9uJ3Qga25vdyB3aGF0IHRoZSBjYXVzZSBmb3IgdGhpcyBpc3N1ZSBpcywgaG9wZWZ1bGx5
-IHlvdSBkby4KPj4+Pgo+Pj4+IEkgdGVzdGVkIGFuZCBjb25maXJtZWQgdGhhdCB0aGlzIGhhcHBl
-bnMgd2l0aCBkcm09bSBidXQgYWxzbyBpbiBteSBjYXNlIAo+Pj4+IGl0IGhhcHBlbmVkIHdoZW4g
-ZHJtPXkuIEFmdGVyIHNvbWUgdGVzdGluZyBJIGZvdW5kIG91dCB0aGF0IGF0IGJvb3QgbW9kZXNl
-dAo+Pj4KPj4+SW50ZXJlc3RpbmcgdGhhdCBpdCBhbHNvIGhhcHBlbmVkIHdpdGggZHJtPXkuCj4+
-PkFzIHlvdSdyZSBtb3JlIGtub3dsZWRnZWFibGUgdGhlbiBJIGFtIHdpdGggdGhpcywgbWF5YmUg
-bG9vayB0aHJvdWdoCj4+Pmh0dHBzOi8vbGlzdHMuc3IuaHQvfmRpZWRlcmlrL3BpbmU2NC1kaXNj
-dXNzLzxEOUFNMk9PTFJFTzAuMkpNQUk0MkowNlRXMEBja25vdy5vcmc+Cj4+Pgo+Pj50byBzZWUg
-aWYgeW91IG1heSBzcG90IHNvbWV0aGluZyByZWxldmFudD8KPj4+Cj4+Pj4gaGFwcGVuZWQgdHdp
-Y2UgYW5kIGF0IHNob3J0IGludGVydmFsIGFuZCBzaW5jZSB0aGlzIHBhdGNoIGFsbG93cyBmb3Ig
-Z2FtbWEgCj4+Pj4gTFVUIHVwZGF0ZSByZWdhcmRsZXNzIG9mIGNvbG9yX21nbXRfY2hhbmdlZCBz
-dGF0ZSB0aGlzIG1ha2VzIERTUCBDVFJMIEdBTU1BIAo+Pj4+IExVVCBFTiBiaXQgdG8gYmUgdW5z
-ZXQgdHdpY2UgdG9vLiBJdCBzZWVtcyB0aGF0IFZPUCBkb2VzIG5vdCBsaWtlIGl0LiBJIAo+Pj4K
-Pj4+SGFwcHkgdG8gc2VlIHlvdSBmb3VuZCB0aGUgY2F1c2UgOi0pCj4+PkRvIHlvdSBoYXBwZW4g
-dG8ga25vdyB3aHkgaXQgd2FzIHVuc2V0IHR3aWNlPyBUaGF0IHNvdW5kcyBzdWJvcHRpbWFsLgo+
-Pj5CdXQgKElJVUMpIHNldHRpbmcgYSBiaXQgdG8gYSB2YWx1ZSBpdCBhbHJlYWR5IGhhcyBjYXVz
-aW5nIGlzc3VlcywKPj4+c291bmRzIHN1cnByaXNpbmcgYXMgd2VsbC4KPj4KPj4gSSBoYXZlIGNv
-bmR1Y3RlZCB0ZXN0cyBvbiBib3RoIHJrMzU2Ni1ib3gtZGVtbyAod2l0aCBkcm0gc2V0IHRvIHkp
-IGFuZCByazM1NjgtbHViYW5jYXQtMiAod2l0aCBkcm0gc2V0IHRvIG0pLCAKPj4gYnV0IEkgd2Fz
-IHVuYWJsZSB0byByZXByb2R1Y2UgdGhpcyBpc3N1ZS4gQ291bGQgeW91IHR3byBwbGVhc2Ugc2hh
-cmUgeW91ciBrZXJuZWwgZGVmY29uZmlnIGFuZCB0aGUgY29ycmVzcG9uZGluZyBrZXJuZWwgc3Rh
-cnR1cCBsb2dzPyAKPj4gQWRkaXRpb25hbGx5LCBib3RoIG9mIG15IHR3byBib2FyZHMgdGVzdGVk
-IHdpdGggSERNSSBvdXRwdXQuIFdoYXQga2luZCBvZiBkaXNwbGF5IGludGVyZmFjZSBkb2VzIHlv
-dXIgYm9hcmQgdXNlIGZvciBvdXRwdXQ/Cj4KPkkgd2Fzbid0IGFibGUgdG8gcmVwcm9kdWNlIHRo
-aXMgaXNzdWUgb24gbXkgUElORTY0IFF1YXJ0ei1CIChyazM1NjYpIAo+d2l0aCBIRE1JIG91dHB1
-dCBlaXRoZXIsIGJ1dCB0aGUgcHJvYmxlbSBpcyBwcmVzZW50IG9uIGEgUGluZVRhYjIgWzFdCj4o
-YWxzbyByazM1NjYpIHdoaWNoIHVzZXMgYSBNSVBJIERTSSBjb25uZWN0aW9uIHRvIHRoZSBkaXNw
-bGF5IHBhbmVsLgo+Cj5LZXJuZWwgY29uZmlnOgo+aHR0cHM6Ly9wYXN0ZS5zci5odC9+ZGllZGVy
-aWsvYWE3NDdlZDE3MGFhMDFjYzc1OWZiZTFmZmQ5Y2ViZThjODg3YjEwYgo+Cj5kbWVzZyBrZXJu
-ZWwgNi4xNC1yYzE6Cj5odHRwczovL3Bhc3RlLnNyLmh0L35kaWVkZXJpay83MzNmYmY4YmI3ZjZh
-ZWU4YjY4Y2Y1YTY1MjE1N2Q0NDU0NjJjMjRhCj4KPmRtZXNnIGtlcm5lbCA2LjE0LXJjMSB3aXRo
-IFBpb3RyJ3MgcGF0Y2g6Cj5odHRwczovL3Bhc3RlLnNyLmh0L35kaWVkZXJpay9kYjFhZjY3MmNm
-YjYxMWFjYmZiZGYzNWFkYjZmMTcwZTVjMzhmZWJjCj4KPkJvdGggZG1lc2cgb3V0cHV0cyBjb250
-YWluIGEgc3VzcGVuZC1yZXN1bWUgY3ljbGUuCj5JJ20gdXNpbmcgYSBVU0IgV2ktRmkgYWRhcHRl
-ciBmb3IgdGhlIHdpcmVsZXNzIGNvbm5lY3Rpb24uCj4KPlsxXSBodHRwczovL3dpa2kucGluZTY0
-Lm9yZy93aWtpL1BpbmVUYWIyCj4KPkhhcHB5IHRvIHByb3ZpZGUgbW9yZSBpbmZvIGFuZC9vciBk
-byBzb21lIHRlc3RzLgoKQ2FuIHlvdSBhcHBseSB0aGUgcGF0Y2ggaW4gdGhlIGF0dGFjaG1lbnQs
-IHJlcHJvZHVjZSB0aGlzIGlzc3VlKHdpdGhvdXQgUGlvdHIncyBwYXRjaCksIAphbmQgdGhlbiBw
-cm92aWRlIG1lIHdpdGggYSBjb3B5IG9mIHRoZSBrZXJuZWwgbG9nPwoKVGhhbmtzLgoKPgo+Q2hl
-ZXJzLAo+ICBEaWVkZXJpawo+Cj4+Pj4gcGF0Y2hlZCB2b3AyX3ZwX2RzcF9sdXRfZGlzYWJsZSBm
-dW5jdGlvbiBzbyB0aGF0IGRzcF9jdHJsIGlzIHNldCBvbmx5IGlmIAo+Pj4+IEdBTU1BIExVVCBF
-TiBiaXQgaXMgc2V0LiBJIGNoZWNrZWQgdGhhdCB0aGlzIGFsc28gZG9lcyBub3QgYnJlYWsgdGhl
-IGdhbW1hIAo+Pj4+IGx1dCBmdW5jdGlvbmFsaXR5IHdpdGggZW1waGFzaXMgb24gb3V0LW9mL2lu
-dG8gc3VzcGVuZCBiZWhhdmlvci4KPj4+Pgo+Pj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9k
-cm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
-cC9yb2NrY2hpcF9kcm1fdm9wMi5jCj4+Pj4gaW5kZXggZDBmNWZlYTE1ZTIxLi43ZGRmMzExYjM4
-YzYgMTAwNjQ0Cj4+Pj4gLS0tIGEvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2Ry
-bV92b3AyLmMKPj4+PiArKysgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJt
-X3ZvcDIuYwo+Pj4+IEBAIC04OTcsNiArODk3LDkgQEAgc3RhdGljIHZvaWQgdm9wMl92cF9kc3Bf
-bHV0X2Rpc2FibGUoc3RydWN0IHZvcDJfdmlkZW9fcG9ydCAqdnApCj4+Pj4gIHsKPj4+PiAgCXUz
-MiBkc3BfY3RybCA9IHZvcDJfdnBfcmVhZCh2cCwgUkszNTY4X1ZQX0RTUF9DVFJMKTsKPj4+PiAg
-Cj4+Pj4gKwlpZiAoKGRzcF9jdHJsICYgUkszNTY4X1ZQX0RTUF9DVFJMX19EU1BfTFVUX0VOKSA9
-PSAwKQo+Pj4+ICsJCXJldHVybjsKPj4+PiArCj4+Pj4gIAlkc3BfY3RybCAmPSB+UkszNTY4X1ZQ
-X0RTUF9DVFJMX19EU1BfTFVUX0VOOwo+Pj4+ICAJdm9wMl92cF93cml0ZSh2cCwgUkszNTY4X1ZQ
-X0RTUF9DVFJMLCBkc3BfY3RybCk7Cj4+Pj4gIH0KPj4+Cj4+PkkgYnVpbHQgYSBrZXJuZWwgd2l0
-aCA2LjE0LXJjMSArIHRoaXMgcGF0Y2ggYW5kIGNhbiBjb25maXJtIHRoZSBzY3JlZW4KPj4+aGFz
-IG91dHB1dCBhZ2FpbiA6LSkKPj4+Cj4+Pj4gSSB3aWxsIHdhaXQgd2l0aCBzZW5kaW5nIGEgcGF0
-Y2ggYmVjYXVzZSBtYXliZSBBbmR5IGhhcyBzb21ldGhpbmcgdG8gYWRkIAo+Pj4+IHRvIHRoaXMu
-Cj4+Pgo+Pj5Tb3VuZHMgbGlrZSBhIHBsYW4uIEl0IGNvdWxkIGJlIHRoYXQgdGhpcyBpc3N1ZSBz
-dXJmYWNlZCBhbiB1bmRlcmxheWluZwo+Pj5pc3N1ZSBhbmQgaWYgc28sIGZpeGluZyB0aGF0IHdv
-dWxkIGJlIGV2ZW4gYmV0dGVyLgo=
-------=_Part_143480_515529883.1749460501983
-Content-Type: application/octet-stream; name=print_lut_0609_1710.patch
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="print_lut_0609_1710.patch"
+This series adds some tweaks to readahead so that it does a better job of
+ramping up folio sizes as readahead extends further into the file. And it
+additionally special-cases executable mappings to allow the arch to request a
+preferred folio size for text.
 
-ZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5j
-IGIvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKaW5kZXggZDBm
-NWZlYTE1ZTIxLi5kOTBiMzQ1YjViNTMgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2Nr
-Y2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jCisrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9y
-b2NrY2hpcF9kcm1fdm9wMi5jCkBAIC04OTgsNiArODk4LDcgQEAgc3RhdGljIHZvaWQgdm9wMl92
-cF9kc3BfbHV0X2Rpc2FibGUoc3RydWN0IHZvcDJfdmlkZW9fcG9ydCAqdnApCiAJdTMyIGRzcF9j
-dHJsID0gdm9wMl92cF9yZWFkKHZwLCBSSzM1NjhfVlBfRFNQX0NUUkwpOwogCiAJZHNwX2N0cmwg
-Jj0gflJLMzU2OF9WUF9EU1BfQ1RSTF9fRFNQX0xVVF9FTjsKKwlwcmludGsoInZvcDJfdnBfZHNw
-X2x1dF9kaXNhYmxlIGRzcF9jdHJsOiAweCUwOHhcbiIsIGRzcF9jdHJsKTsKIAl2b3AyX3ZwX3dy
-aXRlKHZwLCBSSzM1NjhfVlBfRFNQX0NUUkwsIGRzcF9jdHJsKTsKIH0KIApAQCAtMTUwNiw3ICsx
-NTA3LDcgQEAgc3RhdGljIHZvaWQgdm9wMl9jcnRjX2F0b21pY190cnlfc2V0X2dhbW1hKHN0cnVj
-dCB2b3AyICp2b3AyLAogewogCWlmICghdm9wMi0+bHV0X3JlZ3MpCiAJCXJldHVybjsKLQorCXBy
-aW50aygiJXMgIGdhbW1hX2x1dDogJXB4XG4iLCBfX2Z1bmNfXywgY3J0Y19zdGF0ZS0+Z2FtbWFf
-bHV0KTsKIAlpZiAoIWNydGNfc3RhdGUtPmdhbW1hX2x1dCkgewogCQl2b3AyX3ZwX2RzcF9sdXRf
-ZGlzYWJsZSh2cCk7CiAJCXJldHVybjsKQEAgLTE2NDMsNyArMTY0NCw3IEBAIHN0YXRpYyB2b2lk
-IHZvcDJfY3J0Y19hdG9taWNfZW5hYmxlKHN0cnVjdCBkcm1fY3J0YyAqY3J0YywKIAlpbnQgcmV0
-OwogCXN0cnVjdCBkcm1fZW5jb2RlciAqZW5jb2RlcjsKIAotCWRybV9kYmcodm9wMi0+ZHJtLCAi
-VXBkYXRlIG1vZGUgdG8gJWR4JWQlcyVkLCB0eXBlOiAlZCBmb3IgdnAlZFxuIiwKKwlkcm1faW5m
-byh2b3AyLT5kcm0sICJVcGRhdGUgbW9kZSB0byAlZHglZCVzJWQsIHR5cGU6ICVkIGZvciB2cCVk
-XG4iLAogCQloZGlzcGxheSwgdmRpc3BsYXksIG1vZGUtPmZsYWdzICYgRFJNX01PREVfRkxBR19J
-TlRFUkxBQ0UgPyAiaSIgOiAicCIsCiAJCWRybV9tb2RlX3ZyZWZyZXNoKG1vZGUpLCB2Y3N0YXRl
-LT5vdXRwdXRfdHlwZSwgdnAtPmlkKTsKIAo=
-------=_Part_143480_515529883.1749460501983--
+Originally the series focussed on the latter part only (large folios for text).
+See [3]. But after discussion with Matthew Wilcox, v4 switched to additionally
+fix some of the unintended behaviours in how a folio size is selected in general
+before special-casing for text. As a result patches 1-4 make folio size
+selection behave more sanely, then patch 5 introduces large folios for text.
+Patch 5 depends on patch 1, but does not depend on patches 2-4.
+
+---
+
+I've run a number of benchmarks and observed no regressions. mm selftests also
+shows no regressions vs mm-unstable. Selected benchmark results are presented in
+the commit log for the final patch.
+
+Most patches have R-b/A-b now so would be good to get into linux-next for some
+soak testing when possible.
+
+Applies on top of today's mm-unstable (a32230de8810).
+
+Changes since v4 [4]
+====================
+
+- Added R-b/A-b (thanks all!)
+- Patch 1:
+  - Removed ra->size fallback check in page_cache_ra_order() (Pankaj)
+- Patch 2:
+  - Modify ra end alignment to handle non-power-of-2 optimal ra sizes (Jan)
+- Patch 4:
+  - Only reset order to 0 if fallback is due to not supporting large folios
+    (Jan)
+- Patch 5:
+  - Ignore VM_RAND_READ for VM_EXEC mappings in favour of following the new
+    VM_EXEC code path since code is always random (Will)
+
+Changes since v3 [3]
+====================
+
+ - Added patchs 1-4 to do better job of ramping up folio order
+ - In patch 5:
+   - Confine readahead blocks to vma boundaries (per Kalesh)
+   - Rename arch_exec_folio_order() to exec_folio_order() (per Matthew)
+   - exec_folio_order() now returns unsigned int and defaults to order-0
+     (per Matthew)
+   - readahead size is honoured (including when disabled)
+
+Changes since v2 [2]
+====================
+
+ - Rename arch_wants_exec_folio_order() to arch_exec_folio_order() (per Andrew)
+ - Fixed some typos (per Andrew)
+
+Changes since v1 [1]
+====================
+
+ - Remove "void" from arch_wants_exec_folio_order() macro args list
+
+[1] https://lore.kernel.org/linux-mm/20240111154106.3692206-1-ryan.roberts@arm.com/
+[2] https://lore.kernel.org/all/20240215154059.2863126-1-ryan.roberts@arm.com/
+[3] https://lore.kernel.org/linux-mm/20250327160700.1147155-1-ryan.roberts@arm.com/
+[4] https://lore.kernel.org/linux-mm/20250430145920.3748738-1-ryan.roberts@arm.com/
+
+Thanks,
+Ryan
+
+Ryan Roberts (5):
+  mm/readahead: Honour new_order in page_cache_ra_order()
+  mm/readahead: Terminate async readahead on natural boundary
+  mm/readahead: Make space in struct file_ra_state
+  mm/readahead: Store folio order in struct file_ra_state
+  mm/filemap: Allow arch to request folio size for exec memory
+
+ arch/arm64/include/asm/pgtable.h |  8 +++++
+ include/linux/fs.h               |  4 ++-
+ include/linux/pgtable.h          | 11 ++++++
+ mm/filemap.c                     | 62 ++++++++++++++++++++++++--------
+ mm/internal.h                    |  3 +-
+ mm/readahead.c                   | 36 ++++++++++---------
+ 6 files changed, 89 insertions(+), 35 deletions(-)
+
+--
+2.43.0
 
 
