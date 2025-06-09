@@ -4,69 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C246DC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 13:58:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB07C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 14:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hf/LfMBF3rGc7K7s7Su/cYmfXSJ7QxI0jgx9m/Ge8AM=; b=HyYd3zLRT8Yja6QZLZ3hAylfJZ
-	acuSVCRTBJVU/GLbbfmWux3hX9m2hgxrabXZf3qt+gQeFtCOosWkJ+v5nTmpB93b82FOQqHI+A7Ey
-	YsqogsNW0B6XVM/JtHpOrG+WwChc/SuXTnGrVYd64JHRpJ51LtM/0T+I1vmPLwkeV9u6GuLGOQ8mj
-	p4HK9TdL7lz2+ftgGuTeeLg3SE6Gcdlrd8cPM0lCXRSDc25Yh5nxbSi1M4eCko8jul8wAOSzutkmO
-	DDKuaLcjJZN5dp039abliVHtOHSNZgBahqE5PaMayMSobiS9b1yMl8derzApXADgWP8UBi7z8SGfP
-	dL9HXcow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TJhuQ7RdzX4335yHFkIwjS6KGL5adc0rcojL7oXLCRo=; b=zhYdVxv37pidTpYjzjEq9MIA1a
+	pKsEMgrabL0UKI4laBZu0jzj22ahI7AIOym7To7zRz/0HeFl6jOa7CjeZGbnn8hRYXIUwuY/JhoYT
+	rOPAFLo317/gOWtF7Tf5xP2WU3AS9z2AXubRhvflzVoV/qYBOohlTukv7jmNCtYWDYGIwuH5sUzYJ
+	A4WRGyh4IdCwR+cGPHrsWqtjkgBL4irL7qjlmPElWPHWUG1i7Fz7EfBAFs88RKzkG73BOYy6kI8ML
+	sYKdwhMB2girb6rjhIksza5G/21CkfxN1br497ItUdj0Z9RRvbzV2tjXZlZ/prEPYB+E/Qx3759dk
+	WpYZyxtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOd19-00000004KHH-2iUF;
-	Mon, 09 Jun 2025 13:58:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uOd3L-00000004Kr0-1Cfo;
+	Mon, 09 Jun 2025 14:00:43 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOcr9-00000004HqZ-0efa
+	id 1uOcxe-00000004JDb-0fbp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 13:48:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 79FD4A50EBE;
-	Mon,  9 Jun 2025 13:48:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 263A7C4CEF5;
-	Mon,  9 Jun 2025 13:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749476886;
-	bh=6J8HD1iADA5dZrkMetz/7Cfm+D6Y6VBC5THz8fMMYTU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HgrsgSrnleksZvObA+iCmfpJK7PGv8s+3dJWRSXx1ewWyI/4LIN5yug+pjMfTY7hr
-	 BwA+wuxj8908TJ85lXIOOQB21DV0X2xxOin4lTE/B6Q8A3RF91hhauDpbRdQI01Itm
-	 ZXfYCpXFXkYf3MlCW1zxrOpbeBiVRx8Sdl8sBbhFBSQuZr3uXszbMJHbJ1tWVmtjMM
-	 9+UoGJLUOARikO6PJDyYGmn5xQqNJqF86hO87gUDFWOzprSV989MbbPWnrLf/7eV/T
-	 44toEqXG6ShL1v6WasKahGBd3GqSx30Lh9HeWY8YbknjExdLDQKdVdQwiHiJ/QqdPi
-	 w4LuKByeuvi2g==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sasha Levin <sashal@kernel.org>,
-	coresight@lists.linaro.org,
+	Mon, 09 Jun 2025 13:54:51 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c597760323so460086285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 06:54:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rowland.harvard.edu; s=google; t=1749477287; x=1750082087; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TJhuQ7RdzX4335yHFkIwjS6KGL5adc0rcojL7oXLCRo=;
+        b=DqkQN8RHNUqhdvprlE2g1fnVcUKqe3ZQyay9Iqu/XroWXtWOONvTFEhCtkxFrRBb6K
+         /5A7LsrB6DiYttfyByW1o3cis9kVc7MbGgY+tiQtkWyGScBPbmEemIcBbYttprw/WCQA
+         i+jpQa1TFz/DLIiMhqt9X7jJlQyIBU2hjnLEIAQxpSMRwXv63tLROhMxhz+teVmJlatV
+         G34FsqazA+JUtHx833/Ujh86STXI36jGUgGihfwuXJhyxkv181L/gxO6AIqEB94YtYe0
+         rjhfFkbPeDvDv7svqaSMXCp76+m7yMsDMlDDpwh03OVA5dBLbynNF5wTWOqQtKHJrZv6
+         /xcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749477287; x=1750082087;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TJhuQ7RdzX4335yHFkIwjS6KGL5adc0rcojL7oXLCRo=;
+        b=wM8ZHHQq3eR4KoBrYwpfVUP6v0sHXG6UTxkUVGx2bAPSWD2ICC1l1VhLPG1G7pGVzF
+         7wlvaLDtGgDC671hG3hE9RXF1is8JZmdc1peGwlqI4IcVCAcdd7gWFjK92cEe1/v+yva
+         jTaPT/EcroE9LH2WadWBaqicCOee0dv0leaeTbse4/71tkESMOdL5FjE53sHrM5mN+6G
+         RY2n3muIbwju+L5/OgLv15GiUYeSQuNwDpcGLfzcTRX6K4ZihnoFvMjUuXizoB82Bq6L
+         H/xnCjPIylB+R/P7o0GzwIRdiDGGkhQ5IOqmpULAdayR24/g9ZKSkAkguXgB9zNCsX6r
+         PfUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVaAYqYPFvrPW6QGCgxUTV7pU7Ut8J7CaFabexyXkBE1ROl7FcNIy7Z0x3sQPrhoyF3sbsOFOJe2VGsltbM6SeN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp8Qiphho2GI/Puj9Wu3eJWdVKacVGfzpIuRgKDcy0ssW6O45R
+	sI0/ILYC8LCpwCINaXPc92k23WnEm4ZHJ5j1VvHGHzAFmjLjst1wgrk8lQNybeGUSQ==
+X-Gm-Gg: ASbGncvLKFYyTCbEZUHRHgl74bcJAaXL1aHigMO6o3p/Chw/9vyC0mLZ39Ux8LUkCHc
+	Z5P61tRPEMWgxq6mJe5IVyJhXH/dm88dE6uRpFb+NDx4pOvwa62I9XhCqMmpfZCkjHNI7JBma4/
+	N+M/6wZwkCdXN4dRFqyp6eC1PB65wX7F7CBMIhs641gxqEa6tLoPyclh0SMALssTr/81tYRsqjJ
+	PetfUtqR/kt2l8+6X6XhKXrTkkLvhVsrCxsskQIOgGcGAu1Tjsyzfcvph97e6OSH8WGLfcpnzsh
+	qVuA8amUmu01rS/lXD2Rd3cNGHmrnv8auUsB2SMuMdz+3/K4lsCs24IPaQB7rHuBePnKK5kvgXR
+	fLlvB
+X-Google-Smtp-Source: AGHT+IFmfPwn0la8Bjg0x9fgItMpfqDL+xE2KxSEQfR+WeIFu+KstQKcIkZH8uGDncVhKeEIwi22SA==
+X-Received: by 2002:a05:620a:178c:b0:7c5:962b:e87c with SMTP id af79cd13be357-7d2298ce851mr2069583185a.44.1749477287608;
+        Mon, 09 Jun 2025 06:54:47 -0700 (PDT)
+Received: from rowland.harvard.edu ([140.247.181.15])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7d25a535794sm545282185a.26.2025.06.09.06.54.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Jun 2025 06:54:47 -0700 (PDT)
+Date: Mon, 9 Jun 2025 09:54:45 -0400
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Shawn Guo <shawnguo2@yeah.net>, Peter Chen <peter.chen@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 05/12] coresight: Only check bottom two claim bits
-Date: Mon,  9 Jun 2025 09:47:48 -0400
-Message-Id: <20250609134755.1345286-5-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250609134755.1345286-1-sashal@kernel.org>
-References: <20250609134755.1345286-1-sashal@kernel.org>
+Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
+Message-ID: <c7bfdfec-bc49-4ce5-8dd9-7a69d8e24ceb@rowland.harvard.edu>
+References: <aEZxmlHmjeWcXiF3@dragon>
+ <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.15.185
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_064807_326011_8813C217 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20250609_065450_460899_7D4DEDFE 
+X-CRM114-Status: GOOD (  23.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,168 +100,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Clark <james.clark@linaro.org>
+On Mon, Jun 09, 2025 at 07:53:22PM +0800, Xu Yang wrote:
+> Hi Shawn,
+> 
+> Thanks for your reports!
+> 
+> On Mon, Jun 09, 2025 at 01:31:06PM +0800, Shawn Guo wrote:
+> > Hi Xu, Peter,
+> > 
+> > I'm seeing a kernel hangup on imx8mm-evk board.  It happens when:
+> > 
+> >  - USB gadget is enabled as Ethernet
+> >  - There is data transfer over USB Ethernet
+> >  - Device is going in/out suspend
 
-[ Upstream commit a4e65842e1142aa18ef36113fbd81d614eaefe5a ]
+> During the scp process, the usb host won't put usb device to suspend state.
+> In current design, then the ether driver doesn't know the system has
+> suspended after echo mem. The root cause is that ether driver is still tring
+> to queue usb request after usb controller has suspended where usb clock is off,
+> then the system hang.
+> 
+> With the above changes, I think the ether driver will fail to eth_start_xmit() 
+> at an ealier stage, so the issue can't be triggered.
+> 
+> I think the ether driver needs call gether_suspend() accordingly, to do this,
+> the controller driver need explicitly call suspend() function when it's going
+> to be suspended. Could you check whether below patch fix the issue?
 
-The use of the whole register and == could break the claim mechanism if
-any of the other bits are used in the future. The referenced doc "PSCI -
-ARM DEN 0022D" also says to only read and clear the bottom two bits.
+The situation is more complicated than this.
 
-Use FIELD_GET() to extract only the relevant part.
+In general, a USB gadget cannot allow itself to be suspended while the 
+USB bus it is connected to remains active.  Not unless it can be set to 
+wake up when a USB packet arrives, and even that probably won't work 
+because the wakeup sequence would take too long and the USB transfer 
+would time out on the host.
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Link: https://lore.kernel.org/r/20250325-james-coresight-claim-tags-v4-2-dfbd3822b2e5@linaro.org
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
+The best way to fix this problem is for the gadget to disconnect itself 
+from the USB bus whenever it goes into suspend, and to reconnect when it 
+resumes.
 
-Let me analyze this commit based on the code changes shown in the prompt
-and what I can see in the current code:
-
-## Analysis of Commit: "coresight: Only check bottom two claim bits"
-
-**YES** - This commit should be backported to stable kernel trees.
-
-### Detailed Analysis:
-
-#### **1. Bug Fix Classification**
-This commit fixes a correctness bug in the claim mechanism's register
-reading logic. The original code was reading the entire CLAIMCLR
-register and using `==` comparisons, which could break if any upper bits
-in the register were set by hardware or contained garbage values.
-
-#### **2. Code Changes Analysis**
-
-**Before the commit (inferred from the fix):**
-```c
-static inline u32 coresight_read_claim_tags_unlocked(struct
-coresight_device *csdev)
-{
-    return csdev_access_relaxed_read32(&csdev->access,
-CORESIGHT_CLAIMCLR);
-}
-```
-
-**After the commit:**
-```c
-static inline u32 coresight_read_claim_tags_unlocked(struct
-coresight_device *csdev)
-{
-    return FIELD_GET(CORESIGHT_CLAIM_MASK,
-                     csdev_access_relaxed_read32(&csdev->access,
-CORESIGHT_CLAIMCLR));
-}
-```
-
-**And added:**
-```c
-#define CORESIGHT_CLAIM_MASK    GENMASK(1, 0)
-```
-
-#### **3. Technical Impact**
-
-The fix ensures that only bits [1:0] are examined when checking claim
-status, which is critical because:
-
-1. **Hardware Compliance**: ARM PSCI specification states that only the
-   bottom 2 bits should be read and cleared for the claim mechanism
-2. **Future Compatibility**: Upper bits may be used for other purposes
-   in future hardware revisions
-3. **Robustness**: Prevents false negatives where the claim mechanism
-   would fail due to irrelevant upper bits being set
-
-#### **4. Backport Suitability Assessment**
-
-**✅ Small, Contained Change**: The fix is minimal - just adding
-FIELD_GET() with a proper mask
-
-**✅ Low Regression Risk**: The change makes the code more restrictive
-(only checking relevant bits), which cannot break existing functionality
-
-**✅ Important Correctness Fix**: The claim mechanism is fundamental to
-preventing conflicts between external debuggers and the kernel's trace
-subsystem
-
-**✅ Standards Compliance**: Aligns with ARM PSCI documentation
-requirements
-
-**✅ No Architectural Changes**: Does not modify interfaces or introduce
-new features
-
-#### **5. Reference to Similar Commits**
-
-Looking at the historical examples provided:
-- Similar Commit #2 (Backport Status: YES) fixed a register address bug
-  that caused kernel warnings
-- Similar Commit #5 (Backport Status: NO) was a new feature adding claim
-  protocol support
-
-This commit is more similar to #2 - it's fixing existing functionality
-rather than adding new features.
-
-#### **6. Risk Analysis**
-
-**Minimal Risk**:
-- The change only affects how the register value is interpreted
-- Makes the code more conservative by ignoring potentially problematic
-  upper bits
-- Cannot break systems that are currently working correctly
-- May fix systems that are experiencing intermittent claim mechanism
-  failures
-
-**Security Implications**:
-- Fixes potential bypass of the claim mechanism due to upper bit
-  interference
-- Ensures proper negotiation between kernel and external debug tools
-- Prevents potential trace data corruption or access conflicts
-
-#### **7. Conclusion**
-
-This is a textbook example of a commit that should be backported:
-- Fixes a real bug with clear symptoms
-- Small, safe change with minimal risk
-- Improves hardware compatibility and standards compliance
-- Critical for the reliability of the debug/trace subsystem
-- No new features or architectural changes
-
-The commit addresses a fundamental correctness issue in how the claim
-mechanism reads hardware registers, ensuring it operates according to
-the ARM PSCI specification and is robust against hardware variations.
-
- drivers/hwtracing/coresight/coresight-core.c | 3 ++-
- drivers/hwtracing/coresight/coresight-priv.h | 1 +
- 2 files changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 3ea6900542223..f6989a74fec94 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -161,7 +161,8 @@ static int coresight_find_link_outport(struct coresight_device *csdev,
- 
- static inline u32 coresight_read_claim_tags(struct coresight_device *csdev)
- {
--	return csdev_access_relaxed_read32(&csdev->access, CORESIGHT_CLAIMCLR);
-+	return FIELD_GET(CORESIGHT_CLAIM_MASK,
-+			 csdev_access_relaxed_read32(&csdev->access, CORESIGHT_CLAIMCLR));
- }
- 
- static inline bool coresight_is_claimed_self_hosted(struct coresight_device *csdev)
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index ff1dd2092ac5b..b416edcdf797d 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -32,6 +32,7 @@
-  * Coresight device CLAIM protocol.
-  * See PSCI - ARM DEN 0022D, Section: 6.8.1 Debug and Trace save and restore.
-  */
-+#define CORESIGHT_CLAIM_MASK		GENMASK(1, 0)
- #define CORESIGHT_CLAIM_SELF_HOSTED	BIT(1)
- 
- #define TIMEOUT_US		100
--- 
-2.39.5
-
+Alan Stern
 
