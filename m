@@ -4,87 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122F3C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 11:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E880FC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rB6XsHy8r+i6IAvkX7X085TB7ho/0b/vlulO2Z1TZSA=; b=wjVEIcpNz4RBt21rdXhjwe/+NY
-	rX/Rr11JI7Y6cR1bOyj8hOJzIwZZWc0JWz+xRpO6B19H2emJx9u9PwQa9hAYgOSZmozJq6dDtQxoI
-	gknBKy+0kmNOOYa0ldugc2Ibag2C4ZWmt5bAix5uF5sGnRvmmTU0TwYq7vWkRhAPP4dZBpEUxOIKE
-	h5rKO7lfOo9zi5MZVH04S2hy7C7zKIQnFleDlZsAhwtMkQDKANudFYNUHaaS+JDSzooR4m/5t4p55
-	wc+WqG8JOLDN8mIAyNsuFJAzI0FgdrqjUi8vZitd5s0JT0tng6telhe9P8SWd0x1D1fR0RebraE1L
-	s3/hA/7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bt7aPwqNnbt46+ICpdjUxpXtjsr23ed6oMmaQmNrjmU=; b=b53VUwIOqA8MNGbfT9eRlXkg35
+	XGJIpTNWrgBqExya5BCa0AcqcrtGx03dMUy6/5DSBbaD3J5/Awf1kcx/O4UO4BftRO0xpka1EPy4Q
+	IObi6954lLmZ0cTAQHoo//st15aPqGzRnUZlsdCkSiMyZ5BSRF8OqeYaJBT5tuQWzFdTzFast4N6r
+	NS+BXzpNTjYYTbJmzPJ0y/dn81XPOOO5SfrvXTHhzwC1Gm1xJjFUXkEmsy5LCLIxo/4yRaULL+oA2
+	jo9md0sNUHgCX597y/sqE5d0DqahIj8oYjRQTPCyQSf7pvQGj+odAApaMy4OIlKUB37ugXYLFvVfS
+	NLujxMzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOat2-000000042hi-3aDJ;
-	Mon, 09 Jun 2025 11:41:56 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1uObAx-000000044Bp-2qB7;
+	Mon, 09 Jun 2025 12:00:27 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOala-000000042Br-24BI
+	id 1uOb8k-000000043uN-17k2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 11:34:16 +0000
-X-QQ-mid: zesmtpgz1t1749468653t1fe4a133
-X-QQ-Originating-IP: Uamw/6x5U8w0+kK0fNriFhILhiB88ys8AygX1uwiwqY=
-Received: from chainsx-ubuntu-server.lan ( [182.245.65.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 09 Jun 2025 19:30:51 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5652948970939848094
-EX-QQ-RecipientCnt: 16
-From: Hsun Lai <i@chainsx.cn>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: i@chainsx.cn,
-	heiko@sntech.de,
-	andrew@lunn.ch,
-	inindev@gmail.com,
-	quentin.schulz@cherry.de,
-	jonas@kwiboo.se,
-	sfr@canb.auug.org.au,
-	nicolas.frattaroli@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	krzysztof.kozlowski@linaro.org,
-	linux-rockchip@lists.infradead.org
-Subject: [RESEND PATCH v5 1/2] dt-bindings: arm: rockchip: Add Firefly ROC-RK3588S-PC
-Date: Mon,  9 Jun 2025 19:30:43 +0800
-Message-Id: <20250609113044.8846-2-i@chainsx.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250609113044.8846-1-i@chainsx.cn>
-References: <20250609113044.8846-1-i@chainsx.cn>
+	Mon, 09 Jun 2025 11:58:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sEc80ixdrJ9isltQxcrdn3ecLAvswUjOsT6nX6nB4FI+/ZvBxgahms5WIHW8Htp3/FFplpYRkpugDDMEY7GoeS4uaLaq7nQVYJ9IuWre6EldVV0inK5OdlCrn7eq4HPIiJZehTI1k6o+KdyCvsgCtek3H2Iv10iyCa6dky2nj6WGy2ye2IqqPNUv4kVqXB+8bhtbl3RLnn0FsEXMxVzbEkpiAcJLbYyVuKyFJW0VX97N3NFC2IPVpqCdUzvJKsk1gD4PqYzb1Z88rgvgOIbnQtk86MD1QTkJ+Rz6jEfGAKvaApSOhdBlvUVt4RjQXijUoWSYIZEz42HzEvgFCHsnhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bt7aPwqNnbt46+ICpdjUxpXtjsr23ed6oMmaQmNrjmU=;
+ b=QYwX9vXNRSFWrNA4Cv9xWgXx5dU2Jkp3lU/Rnv6culuFnc2aLSzLO6OB7EL7w29MIljk6CLVIyS8LncPnOQCD9ppQZND9f8MxYKCVV3qlVvo0i9rm4M4M2LjEU72nB89Uuo7RY6iqEeUmPYX3l4apfdlYrkC6x+GEXOdwsMOEwmsuAuOgKDOx6VS5I9wuf6YE94zG7Wh8ddjrkDN/3aNvPJ2E/oVr8LFBlQ+gBBg/WUb+Ve9pJt/H06B6ylnwv2BvkNONO5rsb8vhmzOcpsh9g6USpGM9teKPYEdnnITjHF/uZnFxVEPziSc6sShUV/wxgxg8w7XeI6IP7Fvvvf6Cg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bt7aPwqNnbt46+ICpdjUxpXtjsr23ed6oMmaQmNrjmU=;
+ b=V7NUp+glKb1ut17MlB2MfeLTylkAAsbF/9N5hd1WhViJqn2MiE0e9IYjL6tTNGunkOUeNgW4L8AN21P3UqtQ92jBDsfqw7elAH60ZUMWENLwWaSrq3S2cN2YpqpvdGRID+CDV02jlhFihIjRXgrFTW4IaTiQd0Sd8udNLzuxIU25o6D2DUcClZjMg0dpgASamJxCQm5LrBSd/p3m+FMpm9ouNii5/7tvSa7Wz18KwckXck/krODZkl5/pFOprH0kI/Y6oy4eQOafyUhzUAMoCKYwKtt224XZZYErA53hHGMnG5E7h+r6UiYDc4hL5wu+vJpGuZT/8VOoqbrs/3mHhw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by GV2PR04MB11399.eurprd04.prod.outlook.com (2603:10a6:150:2b2::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.29; Mon, 9 Jun
+ 2025 11:58:00 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%4]) with mapi id 15.20.8813.018; Mon, 9 Jun 2025
+ 11:57:59 +0000
+Date: Mon, 9 Jun 2025 19:53:22 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Shawn Guo <shawnguo2@yeah.net>
+Cc: Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	imx@lists.linux.dev, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
+Message-ID: <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
+References: <aEZxmlHmjeWcXiF3@dragon>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aEZxmlHmjeWcXiF3@dragon>
+X-ClientProxiedBy: AM8P191CA0011.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21a::16) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:chainsx.cn:qybglogicsvrsz:qybglogicsvrsz3a-0
-X-QQ-XMAILINFO: N+ZDtxwW2zb5ikshhfMsrlyHYRW+PjCy6q6qQzE1JxmMpUMQspruBAoU
-	c+C3EYzKmvSbE/lFyV4AcqpPhoKdKSxucQ+/cF6noc0ldmlgZGy40Kd6YJEVUHA2Ju/qoLG
-	P7Hn7z5iDf+6MAYrS7ijTHBTlpynrMPbBJJcyobRXTcAgYY2oennuXdmwAuU8cnO4pkkTFZ
-	+P4YnYc+C6WtWYwFfLhH4XoJtW4bUWFRCvqlhciKTVYDvrgSQYR1uG6v8awz34hTSrfemYo
-	gtBJdKIe8mzKDrg/4t9GeATjj3r/kQjS69yTIOcARlxsCVi6N4NKKcf7lV1eycAbzxolnsU
-	lVSWWyfViX7+sIjCmXstZfaL4FTUbyDGM7j9Ea9oCbQraq+hMYU65DpTZl2r1FTgtPRVwzJ
-	S7tL47OW8O72ycOThPH09cSevcR8SV3HsGjtSDvQzgl7btzYTGP5b333Ww1DdACyagJO426
-	AqxEkxQa23yga+0hiAf2nFifBwG8W9+Rz//qQ8SHZuxvUHmv+wdv9lVUNoFJg8X8lVnNDPm
-	eBM/WMgud98EYcukmnSKKJjIYoJkAg1FzS1fQqByYDeHk6RALBL/iJuurBs9B/Za0uxG71m
-	FIpMVfBE9nAY0zAGklmWFzG65nNqnp51kpcVmWT0Zhi267qtg8L7CIGOc6VhinBCerSbXn3
-	PpnYvX2EriKOa7Jeb2MN0vvkGsM3l6UWCF+NCPUVTmMpeqC3eP11yofkoTyUVkNa9HVA6Ml
-	2Ou78okyBp9va5Oy3DU/C5qWjJAopQ0xruN8DjmtB1wIQkacEKFqbBxBKwP6OzlD7Xh/oKW
-	d9evW0YJ/wKAvHyVcPOs9b7HqbFfeA3X7e5GxdPiOlfwSy/7jcmwVUfPgTB+YjG/6Jh7N+P
-	8WU0LEPs8mmu4eslBB7K94I4fWqO2xupUUKFNHcDihbWV03SiZtQb71E5ZG8Iq/4tNlohDp
-	MyBSAUdmQ0JZRFKpRo0Q7yJ/ujPJkZyQSB45D6Z4/tDIwvPb/AwnnzADB2ezr49USGqVWxw
-	nZxSOf1wgVAGRKDJqYJXI0SWea3XOmYPG+OYxX1g==
-X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
-X-QQ-RECHKSPAM: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV2PR04MB11399:EE_
+X-MS-Office365-Filtering-Correlation-Id: e8d64937-dff6-4125-b107-08dda74ce13d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QGGtHpf21CBjGZnHWEPNLNgji4nYFKEMjvCDhXvDRS5SKve9VPeanTKay+Xl?=
+ =?us-ascii?Q?dIrm0/gYLRX62vm6tEpZK1gh/O5jsBHBWl3GYSLFkv5vQ5/LUcbWGiAgMXaZ?=
+ =?us-ascii?Q?ajSFbFRpoUhYXrOjo79sh+3TBHTZv68ov3jnM+9NgMjOhby0j2NGRi/hjVMe?=
+ =?us-ascii?Q?HkPr7sr4WBLnoXMvwWk7qBJL414f5soEgEswvcD3b9fYXw6MKRT2x7kuIyI/?=
+ =?us-ascii?Q?nWThiP2CoQMCy27VxN8vrD0kGQCRgF5DmZFdGnDxF0zZkarG4zk50iCq/XAE?=
+ =?us-ascii?Q?PJ9Ap+um0hdVfjdIil7XTQb7FzKreOTiptvtiU1wl1OUfvJknxBGkmOKP1bM?=
+ =?us-ascii?Q?vot9EhwykMtk+mxwDGOxYAX5q3reMlg+cra5csrjnp7UQRefM61w38TlvKR2?=
+ =?us-ascii?Q?BokKW1QKjved1OXALehMsTyxBz7R3jGQ2DNCFyQbBvCF/h7dudEXCvY839Iu?=
+ =?us-ascii?Q?04uIUIYeGOyyZs1xdjAdRqF7zVR/bPW6MwEaEnBg1JtpdEie32SDBVK0XNmE?=
+ =?us-ascii?Q?tOOdxJxLjyTSJzOyEOsI3s/nUmA6463W6F0eITl2uC+IUi4kwl6ibBvV/iuc?=
+ =?us-ascii?Q?VLKxPgx6a60A0z8Q0PwOQ3+DkClmbCCrTbt4yeYasTFNcMeLzWexfEJlAAa7?=
+ =?us-ascii?Q?THUYXzEvwr7GeVReMgTw08UWLnOKY3xiQxeWy0Hfyofnswr/WajumB0lzkvP?=
+ =?us-ascii?Q?VBOD+3gQaUYLESecxbQz7VDNsefW0zwiq7ykzegTeCslp+x6bkcEFa9TAsay?=
+ =?us-ascii?Q?AfcomczSZvcB8zEZZBFJOm1gvkOA5EcT0rJJuX7p/YYsnIdp2UPOQsnvI+cg?=
+ =?us-ascii?Q?3yYuKc79Z74emSWe8X6GGxxS3AVlFB8nDHBIZr7yiDwAgvgdRja4Zju4Lhx9?=
+ =?us-ascii?Q?Y8E3Mar/ASqm/vu6LSFa/B2kUzbx61gdLNDA5jBk0aGKZH2eazSobSnjxBVY?=
+ =?us-ascii?Q?iRbb1JZo6MZpzQbf5WgPHxowuns4OcNj5xOJbB3tSIH2/CyQpjqB+WYVnGfO?=
+ =?us-ascii?Q?WQ5F6nxGXWY3P2UmQofFSVdlnguN7d54P1Ov7NoJOjm9ezzJp+0VMAVsjxW/?=
+ =?us-ascii?Q?u/8gGxLvJDOjW6VWmCd+6SEWFjOAhYuSyulLX9cN0LwHheXPKJv8P074n+uk?=
+ =?us-ascii?Q?IvpkNye8XNtuQt9pg5QWoD82fAsI0IlJAh10iQE4MdnoJgXkKpXPtb/siFUC?=
+ =?us-ascii?Q?wX684vCBMUzc5Lss3vvcsPMVkwTy2irE1U9OFy99Q51iLTAibXERyZ9xBWb1?=
+ =?us-ascii?Q?KwruQw93vZKtAfVTJ20EthcsbMLkhW+HWOqR0hRO/5izVu8m1cX/KpWx2z1V?=
+ =?us-ascii?Q?uQanMwQE4+ohPbanniPJ1bnwFggFNcNj6ikGnWxhOoZdn3ammHd9ctyD+2Rh?=
+ =?us-ascii?Q?ioK8ChZt8cKwQaF4NtspYfkwuUy2EQl0Ym7X2NKr1eRX8g3j9zJVUGF86nkz?=
+ =?us-ascii?Q?j+05m9PuxizD5kLnwswtxV10+2zGJ2ul864hCCH41XUiNg53toFDKw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sxFZlnEjbXGRPfjK5wt4XoozgRm9pYweKDwsM7eqVisfCIwTYIGYGoocUudr?=
+ =?us-ascii?Q?0ZcE0zlrZqOxQLNEzkbW3OetRyeJihWyAkz4kXcONaC3QAVVUNhwmf7F3tq5?=
+ =?us-ascii?Q?DbNE1olh8Pkb/lrR5k/U+urarqTuPEGYiYNfUOqew7xrebYlNGG/ZVjQhHox?=
+ =?us-ascii?Q?H32lypp7Er5GSUe5+Zhpuc9ORuVxhrNx1/zQRuwq9yR+J07daYE5DVpU+MB2?=
+ =?us-ascii?Q?pO++ZH9YC96KfnWLRfz24FGe8uuppe7JW37lND4DlZbBCmKVekJdIveudhDE?=
+ =?us-ascii?Q?Tn5ITRW1tN8STK0zvgkBGDlaMwFYSUmtEK1netR3blqP7ibAmlz1/8K1Vr+j?=
+ =?us-ascii?Q?9lTfYX+O5/oFX091HhJx2wHzgU7lNGL9U/022560/xUN7M4PmN12+99aWm6L?=
+ =?us-ascii?Q?hKC+rELSHR9DdVWlZwvegBAeliap3zTdZNrE78/H50/MH2UqM369fGHfc3Pf?=
+ =?us-ascii?Q?P/23Beam8SO8Glwaf9W+D3q1g+amW0Ro0aFpf2Cobfx8q/p1KKCCAPpYAtIQ?=
+ =?us-ascii?Q?N9QuE9sog+glY/oLGzbsxS3TbUkZ7nE9XXMzGiQn3EsejkdhkQEbm735c/wS?=
+ =?us-ascii?Q?lAX2Z70zVhZw/ijMIKsiY2cwdlLiLlkoEq8ghAuxj179NWtc1cx/oLPbapiy?=
+ =?us-ascii?Q?IVSYMXxIcqwqW7heBgxMe/1N5BPZP7rEE+LRFZU3q0I+msDLRd5Fgk6ME9An?=
+ =?us-ascii?Q?umoSW5iTzlCtirSLiLDx0gXWrFQcH6L4X7sChlb/OybpmXnOfCV4ip0nAydG?=
+ =?us-ascii?Q?YsooJpzQEgmXCdJcX/ZA/e3gL6XvzD/PqDT27kIIrBrPpq2rfbCbyeyLfGtH?=
+ =?us-ascii?Q?eBoBB3IxHjI+f+0goaxitFjJ/Rw7SSgrJJT4JmqsWYW92w9hAZ66JCxRd1Mv?=
+ =?us-ascii?Q?sXfKcLSDyTJeiPIMv8wn86rYC6lTNzw41nKNLHmN3FCoFc3nhklHvb+RrT5g?=
+ =?us-ascii?Q?HdSoj4Za9mx3BSqrZNPZA+Nh8NxoxAchryyfMs0mtq6oyzfbvCH6ZyzbHYAY?=
+ =?us-ascii?Q?rJ7r9ow0BWHLVIYJVrZ248eX0PrFLbRj99F66ejifJTnVxsuS3dgiA5O44vn?=
+ =?us-ascii?Q?fB0pPrpswKBgvge95n4fC+JFJFNXCsgyS/nVyjCp2fJEa/ZPBqksJ7fg9FNT?=
+ =?us-ascii?Q?fCm9UdlvpOCAHV4934sfKEsUhjer7QrTYBZ8cjiAbAze8qoTP2sb8q/m4aft?=
+ =?us-ascii?Q?hzpsOrAqCDH9jUSAOZDPYku6EKp9ZbuAOg/LphVme5TqdN6NSNT/1NQ+pxgb?=
+ =?us-ascii?Q?6f9AtAEoLbXBuhqqOb6XeBoLBlWPH1Xnizg49EoHeJ3cESzAeFEHIpkBXCXk?=
+ =?us-ascii?Q?mKJwlDBUeKsek5aZQLYPqf0PaqYCgUTyHbViOvEPoCxQNtxa/by6T+78r7WQ?=
+ =?us-ascii?Q?pwgeDPoRiZSts3HpPoDB7+aTP+zwJXTA5G54LkwL6qshxP6sDMFSl6itpoTs?=
+ =?us-ascii?Q?O0/202IwixhShWrgRif33Nwn4kKBWAz86Iy81ZHobXd3Tcf8dtPindwF/Zxg?=
+ =?us-ascii?Q?s33k4VmiaxBSN4O9XCpEwSQt+KcbiAJSl6QXQa6R4rNtR6E+q+mcUcqWsumg?=
+ =?us-ascii?Q?cLt0/9WJaAaRJDpjk07vBn216GhWitabufLLtkcI?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8d64937-dff6-4125-b107-08dda74ce13d
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 11:57:59.9147
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: N+VH6NMRiG1WK7ylZzRmz0OmB6+g/8ysIoWiO2yQiOeTgbL1/a8wpdCaYLtA1D/6NXbZ6tsn6q7Nypq3g9jv5A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_043414_947697_17A7423F 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_045810_328704_F6E17A96 
+X-CRM114-Status: GOOD (  32.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +156,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documents Firefly ROC-RK3588S-PC which is a SBC based on RK3588S SoC.
+Hi Shawn,
 
-Link: https://wiki.t-firefly.com/en/Station-M3/index.html
+Thanks for your reports!
 
-Signed-off-by: Hsun Lai <i@chainsx.cn>
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
----
+On Mon, Jun 09, 2025 at 01:31:06PM +0800, Shawn Guo wrote:
+> Hi Xu, Peter,
+> 
+> I'm seeing a kernel hangup on imx8mm-evk board.  It happens when:
+> 
+>  - USB gadget is enabled as Ethernet
+>  - There is data transfer over USB Ethernet
+>  - Device is going in/out suspend
+> 
+> A simple way to reproduce the issue could be:
+> 
+>  1. Copy a big file (like 500MB) from host PC to device with scp
+> 
+>  2. While the file copy is ongoing, suspend & resume the device like:
+> 
+>     $ echo +3 > /sys/class/rtc/rtc0/wakealarm; echo mem > /sys/power/state
+> 
+>  3. The device will hang up there
+> 
+> I reproduced on the following kernels:
+> 
+>  - Mainline kernel
+>  - NXP kernel lf-6.6.y
+>  - NXP kernel lf-6.12.y
+> 
+> But NXP kernel lf-6.1.y doesn't have this problem.  I tracked it down to
+> Peter's commit [1] on lf-6.1.y, and found that the gadget disconnect &
+> connect calls got lost from suspend & resume hooks, when the commit were
+> split and pushed upstream.  I confirm that adding the calls back fixes
+> the hangup.
+> 
+> ---8<--------------------
+> 
+> diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+> index 8a9b31fd5c89..72329a7eac4d 100644
+> --- a/drivers/usb/chipidea/udc.c
+> +++ b/drivers/usb/chipidea/udc.c
+> @@ -2374,6 +2374,9 @@ static void udc_suspend(struct ci_hdrc *ci)
+>          */
+>         if (hw_read(ci, OP_ENDPTLISTADDR, ~0) == 0)
+>                 hw_write(ci, OP_ENDPTLISTADDR, ~0, ~0);
+> +
+> +       if (ci->driver && ci->vbus_active && (ci->gadget.state != USB_STATE_SUSPENDED))
+> +               usb_gadget_disconnect(&ci->gadget);
+>  }
+>  
+>  static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+> @@ -2384,6 +2387,9 @@ static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+>                                         OTGSC_BSVIS | OTGSC_BSVIE);
+>                 if (ci->vbus_active)
+>                         usb_gadget_vbus_disconnect(&ci->gadget);
+> +       } else {
+> +               if (ci->driver && ci->vbus_active)
+> +                       usb_gadget_connect(&ci->gadget);
+>         }
+>  
+>         /* Restore value 0 if it was set for power lost check */
+> 
+> ---->8------------------
 
-(no changes since v1)
+During the scp process, the usb host won't put usb device to suspend state.
+In current design, then the ether driver doesn't know the system has
+suspended after echo mem. The root cause is that ether driver is still tring
+to queue usb request after usb controller has suspended where usb clock is off,
+then the system hang.
 
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+With the above changes, I think the ether driver will fail to eth_start_xmit() 
+at an ealier stage, so the issue can't be triggered.
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 115c3ca43..701d68aca 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -258,6 +258,11 @@ properties:
-           - const: firefly,rk3566-roc-pc
-           - const: rockchip,rk3566
- 
-+      - description: Firefly Station M3
-+        items:
-+          - const: firefly,rk3588s-roc-pc
-+          - const: rockchip,rk3588s
+I think the ether driver needs call gether_suspend() accordingly, to do this,
+the controller driver need explicitly call suspend() function when it's going
+to be suspended. Could you check whether below patch fix the issue?
+
+ ---8<--------------------
+
+diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+index 8a9b31fd5c89..27a7674ed62c 100644
+--- a/drivers/usb/chipidea/udc.c
++++ b/drivers/usb/chipidea/udc.c
+@@ -2367,6 +2367,8 @@ static void udc_id_switch_for_host(struct ci_hdrc *ci)
+ #ifdef CONFIG_PM_SLEEP
+ static void udc_suspend(struct ci_hdrc *ci)
+ {
++       ci->driver->suspend(&ci->gadget);
 +
-       - description: Firefly Station P2
-         items:
-           - const: firefly,rk3568-roc-pc
--- 
-2.34.1
+        /*
+         * Set OP_ENDPTLISTADDR to be non-zero for
+         * checking if controller resume from power lost
+@@ -2389,6 +2391,8 @@ static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+        /* Restore value 0 if it was set for power lost check */
+        if (hw_read(ci, OP_ENDPTLISTADDR, ~0) == 0xFFFFFFFF)
+                hw_write(ci, OP_ENDPTLISTADDR, ~0, 0);
++
++       ci->driver->resume(&ci->gadget);
+ }
+ #endif
 
+ ---->8------------------
+
+Thanks,
+Xu Yang
+
+> 
+> But it's unclear to me why the hangup happens and how the change above
+> fix the problem.  Do you guys have any insight here?o
+> 
+> Shawn
+> 
+> [1] https://github.com/reMarkable/linux-imx/commit/0791d25578cb0e46fd93ae7a3c36ff7a424f3547
+> 
 
