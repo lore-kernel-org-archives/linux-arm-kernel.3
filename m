@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A643BC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B786EC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 10:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DZZBoO1L1NubxqwTsP9P0S1RvNFFvaVbeuY8SW7vA0=; b=f6EcpeUffp9cKc+Rq+gyvwSj2h
-	gMmP5sTLtZimq2w60IEvYQ5f3br66sNOe2ovTuo9xrd2XAyj5czsJSnV4jTxjeoYIaTtJ44v2do3P
-	ae1WPVdDRMO7c47DuFJXVhyQclwIB5e1AAvlJwuUAVi84EN0U0T6g8cQBKmzkMeju0s+6cIaAKCup
-	UPvILpuTsi7Z++xX2DkeDXhkHgzYthTo+4PgJqqG6hxPjlVDi/wTiJ/ODn1w5tKf23WoqZjtnDTA/
-	1Gg1bU98yYj2pGkvD6nJFIZdQkZ1Y/Yv5Do3fYj0zMYO+6Wd93mJXBTKA5k16JS+25tFgsoUHOBfe
-	Jg65Rf2Q==;
+	bh=6nx3PTDw7aNdyY1bOCfE7raQ5NlwbfEpTbQqELls0VU=; b=Me2daoGEURTctgnEk3pad3+Feq
+	Zk0Fj6DvavYwTXOJCVNQhUlPxb7/CLboPR88Gc/0j8ndmyMNOvfiGUgzPjLgPhPHHHKbzPy+5acWp
+	u9UjBoFZFJ2hKn+o2u92Shd2jRGyRXycBnYCh9JkdGpfImu8ltMrj1sQ61H0Pjs5+gvVKytqs2YPf
+	ys9pzi3GPLugSsSBtLcbH7/vgcCX7MA2OP5ufxTYebMZfybdnnG459NJaYmElRyCZk6uhqTdpjuLv
+	1vcIqKhXlOVwqlaJ59jql0ZxVGDi5Ad4UbbNqjhstQX70nNcwbYkTcgIaLrLmmhVDMneEQ5+qM1Mb
+	V+GNHgOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOa75-00000003x5X-2X8F;
-	Mon, 09 Jun 2025 10:52:23 +0000
+	id 1uOa9G-00000003xUR-3GIy;
+	Mon, 09 Jun 2025 10:54:38 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZfP-00000003tYk-04Tx;
-	Mon, 09 Jun 2025 10:23:48 +0000
+	id 1uOZfW-00000003tbL-3Yi4;
+	Mon, 09 Jun 2025 10:23:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=9DZZBoO1L1NubxqwTsP9P0S1RvNFFvaVbeuY8SW7vA0=; b=xQTOOOFmh/dtLrEjDsctBH7j/y
-	pD1laDGhi64UEgCCd9fITSym0B9M9yimLcFc1LEoy1qGYhgP7yMkdpwnXJfjFIiE0DjlRszbv4/BP
-	V06HVi1GaisKeh60uyJpgvd7WR1zKyKUfAvxkl2do4AafBOnMX8c+1oLoFsGXChYxhUiw8ymWDHZy
-	Exv1L9b5/96KAjNZisfLiNVMHZ3yE6ks6/3D75ZvGSszuMw+orc1BoycDlV+3+IUC5a9nt34p5Cdi
-	1qYrGRQRQZg8M6A6KxA4E5kvlU8HGrGgayBC2cleBva57EM+vpR5lDuKCbyQ1F29VHY04joEE1zXQ
-	ry9np+Fw==;
+	bh=6nx3PTDw7aNdyY1bOCfE7raQ5NlwbfEpTbQqELls0VU=; b=fj0L94Pz6IA1q1yJ+28NspxjCs
+	ss1vG+22sASQArb7JSFLEnxY/jVr67CtMuOJZRUABz5fvlceMwxW2xPgtz2y+f2kRs6PlAjRdsPz0
+	v5ZONxp1/7KKopnI7TtLcAvKf44ub0Vy0aYwjMyVKXx9T049grUC0HLmdDlYSCZBSCbezy4MzNt4x
+	kxaCSIlNy1D6b6CydVDjoRROmrglRUQZTqSOHPrmJ3PBLqLEPpdZFn0aqIsF1O15Jro41kmr0XRj4
+	UL/Gvje8ypA9twUDbmSHdWtCWz44EBX3dBHQz/muixaqI4UgjB6W+nn3IqsNLydaFMEOt3ZiW8uCD
+	HIE7JkHQ==;
 Received: from i53875b1c.versanet.de ([83.135.91.28] helo=phil.fritz.box)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1uOZfC-0006Av-Qe; Mon, 09 Jun 2025 12:23:34 +0200
+	id 1uOZfD-0006Av-TH; Mon, 09 Jun 2025 12:23:35 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Diederik de Haas <didi.debian@cknow.org>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Hsun Lai <i@chainsx.cn>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Maximilian Weigand <mweigand@mweigand.net>,
-	Marek Kraus <gamiee@pine64.org>,
+	andrew@lunn.ch,
+	inindev@gmail.com,
+	quentin.schulz@cherry.de,
+	jonas@kwiboo.se,
+	sfr@canb.auug.org.au,
+	nicolas.frattaroli@collabora.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	hrdl <git@hrdl.eu>,
-	phantomas <phantomas@phantomas.xyz>
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix cover detection on PineNote
-Date: Mon,  9 Jun 2025 12:22:59 +0200
-Message-ID: <174946455537.762051.11927121098980951801.b4-ty@sntech.de>
+	krzysztof.kozlowski@linaro.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 0/3] Add support for Sakura Pi RK3308B
+Date: Mon,  9 Jun 2025 12:23:01 +0200
+Message-ID: <174946455539.762051.14386974894605199498.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250526161506.139028-1-didi.debian@cknow.org>
-References: <20250526161506.139028-1-didi.debian@cknow.org>
+In-Reply-To: <20250521131108.5710-1-i@chainsx.cn>
+References: <20250521131108.5710-1-i@chainsx.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_032347_051395_3E8F3F19 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250609_032354_883893_E4CB8E2A 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,20 +86,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 26 May 2025 18:14:47 +0200, Diederik de Haas wrote:
-> The SW_MACHINE_COVER switch event was added to input event codes to
-> detect the removal of the back cover of the N900.
-> But on the PineNote its purpose is to detect when the front cover gets
-> closed, just like when a laptop lid is closed. Therefore SW_LID is the
-> appropriate linux code and not SW_MACHINE_COVER.
+On Wed, 21 May 2025 21:11:05 +0800, Hsun Lai wrote:
+> This series add support for Sakura Pi RK3308B.
 > 
+> Info of device can be found at:
+> https://docs.sakurapi.org/article/sakurapi-rk3308b/introduce
+> 
+> Changes in v4:
+> - Fix vendor prefixes error (Krzysztof Kozlowski v2)
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Fix cover detection on PineNote
-      commit: 3f391123e2bc88c570f148cc01e923e4740c5173
+[1/3] dt-bindings: vendor-prefixes: Add SakuraPi prefix
+      commit: 281bf6e619fc637282288a3a087e2b2ed3150cd5
+[2/3] dt-bindings: arm: rockchip: Add Sakura Pi RK3308B
+      commit: bc099a4f5b7d08d97684648abe58d236cb7afa4f
+[3/3] arm64: dts: rockchip: add DTs for Sakura Pi RK3308B
+      commit: 79f2a17024412fd6f62208ab3fd6814e52588a31
 
 Best regards,
 -- 
