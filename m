@@ -4,63 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B313CC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15347C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 09:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLBx4B2LzSd3E1Kl+NGH/263zYo+QFrNZKW4vssekuw=; b=J+Ky8o9CbQAE0ubBFfgyxsuV9m
-	SptE8elB6MiF++jYYlzMI/4E/nOkLqbD7UZyPA5F5mBsO7dG/JjPDQEElzHnTrRPhOKFyw1OHbvJV
-	Ab3aoYpqdXbVcHFCRepshSSdsJCLxbO89GajritskkoFp2KaNzs6j0hX/EvgpfCSdXDLLUq4avysh
-	uXB32IFSIk+PK3siqfIchQ/YooH/xzo/SJ6Jh1TU+jOIjjzawPbNkseKNlYl4iqVrhv2YVjIJhHKt
-	QcCxjJGmKRSHRCGDZ47OS7BQ5YNjqe6V0drd7yiXZkqXQOaT0AhP1Bemt/CodybjppuHyRT7IPjBr
-	BH5G6AtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TdLpB+iTWF8kFTlH0oOz/8lHJ6hWIfl/MTOWrZrQ4kI=; b=lLbFAs7TWvwl85srup3IvHGpSa
+	mA/orK5r8NZhrycKHNf15I8v60fkVPO+TXt0neRK9wBXe0ag+2M8Z9NvbBO2zbegLV8sfTak0povJ
+	gF9GNubaOhfb3kMJVBq+B2FbGCIaY6ZH3AgIxHhdpPbd0cGI2+MLTMUg9wRho0M1dQzuGz6jJrlUP
+	Lsyd21ub2O1+f4cKCGN51nKcSvNNt3IVHTgNOSrXAgh5uCcDoryLXMhHQxmlQAP+7xzSGzrEdbm/4
+	EEAuskKlN7auep76+9DwfY30bFIsOjmqPsGKLLC0CBeEyGcyJYaInvY/2oua86uKmF3wwXhVwHabH
+	q51zY/Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOZ1e-00000003oHK-03Sj;
-	Mon, 09 Jun 2025 09:42:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOYnI-00000003mEm-3eHt
+	id 1uOZ3k-00000003omV-3nAC;
+	Mon, 09 Jun 2025 09:44:52 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOYv4-00000003nUo-0EIY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 09:27:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B56CC1515;
-	Mon,  9 Jun 2025 02:27:33 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5346E3F59E;
-	Mon,  9 Jun 2025 02:27:50 -0700 (PDT)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	David Hildenbrand <david@redhat.com>,
-	Dave Chinner <david@fromorbit.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Kalesh Singh <kaleshsingh@google.com>,
-	Zi Yan <ziy@nvidia.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH v5 5/5] mm/filemap: Allow arch to request folio size for exec memory
-Date: Mon,  9 Jun 2025 10:27:27 +0100
-Message-ID: <20250609092729.274960-6-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250609092729.274960-1-ryan.roberts@arm.com>
-References: <20250609092729.274960-1-ryan.roberts@arm.com>
+	Mon, 09 Jun 2025 09:35:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Hh3x/vlFgGkCJdoaEsOstdRDineBgHWI7Laq4gGGDYIo735aareoiNfXKuXeyjPoxG06xLk57Q3f7fmexJ6CKG428lMRKh4wuP7PnZzP/eJE8jO0EkuAJetg9NZXJPTO0qSGlVANsqLjVElaBuxQ0IJUMZfigNtafBr9DkmfzaNoSK7EOZgN/capXZISbm2wfgMboTImBFCJOiF2ST028B0yuTa8NRBrkYCjE7fNghZzrAhKPBU3EAoqWcgu9aoSvosGmt8S+rhHYjh1xL5VeKeZHv84bbOb3D49bx16Zztzo8Y45RYOeqq7sWflfeaK1dX8nt322mhTXiyhulyMEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TdLpB+iTWF8kFTlH0oOz/8lHJ6hWIfl/MTOWrZrQ4kI=;
+ b=Vq3MCjQZx7ooqmdjZxauHV7o7M2psccpZnrlU5yz2c+Xm+KNknD4ZtH9dPtotpnBY5lw3z0v9PmUQyq3NjHdJVcSGYOaF7AplrujB7MyXc2mblJIrnRRg04J3XtvDpbdn8Ch2i1kNN/dw3czdrPzE5kXSfvB0DxOOhVFSWq2uxXr56/ebrjxL6mtzduqeYF8COc5QqrwDQUb4IE8H0MwFa7jIgJWERlYtKjv2mOlp0Q5dUKzDUDd9lgexiNKjaXEgz7yayd0pcbjNOm53J9ucoZ4bQC9fqfRci40kKuM8iKkhaEPwzis8OJ1E+3l3pFaFHEyPh9YCEfC/J5QE38TeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TdLpB+iTWF8kFTlH0oOz/8lHJ6hWIfl/MTOWrZrQ4kI=;
+ b=Tei0+dPPBhhy9QWQIFWshw8Xt2NlBpYQ9KoLaKBQ/g2PVcGJfih/6TK6GU2wt/xfLb0nUIZivPguw0ZEm0/T7ry0o96VFG6+hSy2KkGvWb5n9cNhDM6KgQCbAa1bjSNMAucC2eha2buPcvJUc/UghgyoQJWUdRdFfScj94OLf2Wj8Tp9INLdJTGTGOVEA9GoDDsWa1FJlfeyTEKCWuHInrFSmaWYNoBkjk/j9N71mz/EON4k1aZWA+gtLZTv4eIzTQ6riNySVaiWe/Yg6qYsLxN6qheE1WxGxec4b7BgVWgX7nCIXPh127VhkoS6KHJ5/Dg0uJV+KV+kW6Kcr234+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8243.eurprd04.prod.outlook.com (2603:10a6:20b:3b4::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.25; Mon, 9 Jun
+ 2025 09:35:50 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8813.024; Mon, 9 Jun 2025
+ 09:35:50 +0000
+Date: Mon, 9 Jun 2025 18:45:54 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: John Ernberg <john.ernberg@actia.se>
+Cc: Horia =?utf-8?Q?Geant=C4=83?= <horia.geanta@nxp.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	Gaurav Jain <gaurav.jain@nxp.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <Frank.li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"stable@kernel.org" <stable@kernel.org>
+Subject: Re: [PATCH v4 1/4] crypto: caam - Prevent crash on suspend with
+ iMX8QM / iMX8ULP
+Message-ID: <20250609104554.GP13113@nxa18884-linux>
+References: <20250605132754.1771368-1-john.ernberg@actia.se>
+ <20250605132754.1771368-2-john.ernberg@actia.se>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250605132754.1771368-2-john.ernberg@actia.se>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR04CA0006.apcprd04.prod.outlook.com
+ (2603:1096:4:197::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8243:EE_
+X-MS-Office365-Filtering-Correlation-Id: 30137589-8080-408b-c638-08dda7390554
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5qJKaEWzrWIfnS+kPGn6YBNxBkgBi9V+Lbt5ff08rNHoUPhuhtdc5sEPyi67?=
+ =?us-ascii?Q?r4sg79p1obb1WT6ytM4BHzwG4TQW/AhdD3CT4BPMyodJDCjD/+935PaLY2QB?=
+ =?us-ascii?Q?45jIVD0qNEbYKiG/0L7RbRVhUZROA3KKH9rhM8rU/YX12F3Z0EfrxvT3bp1T?=
+ =?us-ascii?Q?H4BR2wEFfdUBWTC9cA6zQfQE0uweGXuguNnRDQ3E26u7MBeIYrkAfpK7vvHs?=
+ =?us-ascii?Q?5ybB38cnreR534xOgWvZSRGxi0YQiWrN+SPvx/amNl/8bZidFcpLBGa5bl4n?=
+ =?us-ascii?Q?7G3OyeJ5trNh+z6hAEJY3+JbQ3UW66OrXms8QRk0sjlsu089Hp0oVBypyn6H?=
+ =?us-ascii?Q?xt5m3CJ1jhGDOTJ7Gy+hHIH/XhPSMW0ENxpEqTXT7XBDo6O+wwfXiM6h5ZPM?=
+ =?us-ascii?Q?cICSUTxOz5nJRUwx844OAnduaxqbc3TR7hV3HH0L13lZsxhT5/mYXEfJlmiR?=
+ =?us-ascii?Q?zvXpAqte8eyrU6j85xw6Z1pibv/3MUlyQPJKpNuP84CMnBEpRnmrcYFn0GJx?=
+ =?us-ascii?Q?foM2LW+T6cZt/KO1VQ2sz48u/D6DeM9ZEW4MG4gevg+R4qb4I/sAyV5XaqT5?=
+ =?us-ascii?Q?Ju4UDyylHW8i7U5F7xJFEP5D80xphpzS92i+q5mL7LWEW3h3iADa0wXYi/ov?=
+ =?us-ascii?Q?wgKe2DVqpqAnRwa5dKXmW9YVjvdHzzMA1yfPQvXl1wAbvOjEnOoUiUZpRB99?=
+ =?us-ascii?Q?6t/d64E+ZcMxbLxMNFafpJ6SuhN79/exb4MV55sH1zaiCSBQgiuKEcCmT+e3?=
+ =?us-ascii?Q?mNoHHrc13MKwP4fGK6HZeQ3HebuFMC67+AhfhOaxTvKqT2MHWCNpZVEWi3Gy?=
+ =?us-ascii?Q?P1ONICki9owSes0SDdGTV0Ry+ZCt0gZNGu8vPQP7PQmvrRMLUcMuj15zhN0u?=
+ =?us-ascii?Q?E3xVjxnoGO7op07b4AtclDm8YK2pLJdC5kY3Q03b8dQ+fKe+LsTFo5TrNSRN?=
+ =?us-ascii?Q?XYhK9XkM8DNBhJWC352Tf47TPJ+Spwd/u0K+sue/ruBqldbWh4wo2LjSHRi/?=
+ =?us-ascii?Q?dW0ADogUV9VpIEnAvTRaz6Url9ZLC5LI+ZHHMLXcwhK53uFuokWmaJ/lEgtP?=
+ =?us-ascii?Q?6vo1eh5yixWVxuuZpcoffTnU56uFncjSVRDHrPWUqrPkKSbn5m9v3smMRFOv?=
+ =?us-ascii?Q?ie3CDwOT9Mn3uOettBeb25ureP/MscIskPldbputHIIfVVTqcT/k7lcgHz2U?=
+ =?us-ascii?Q?WLSyEC/j6bW1C8dwLsC+SUypC2Vm2i+63sL4/uu5ggD9iOR5YPWoOnEjqLxR?=
+ =?us-ascii?Q?1G24q4zRXnkNXqQABuA9JiEitgh/Blhzq4XN3vQ26COtGSLP2ddcxrW+AU3I?=
+ =?us-ascii?Q?/JCd2yf+w4ghwOQqJSCHuwZ4N4ovoVEBsa1nnGetekMu6NaaNybOUkUbCQG9?=
+ =?us-ascii?Q?yN1EQIwWz4PTh2WnzVcYaGdW6XBnZ+HDunbVPnJCrmQavu6wzD5gR6hjlxUm?=
+ =?us-ascii?Q?5K9OqIbTGo16ZOQqxisiGZJNLl9pZMstPF0dNtBNnccTag4AKz85Kw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bCqFnm+KslvTcOI7SrnlMwsAoQUodFk9ojlFWqcb99KTxwzrYGf08qssLvB5?=
+ =?us-ascii?Q?2UIanR1yYQm4KQNe/8QjeX3nXHabbuMp+TVPGefCMJql9+3Ql+UhY98Sc0vQ?=
+ =?us-ascii?Q?hTZIKGyLmsuewXcu7g3Z5kJUrf4HYZsf0Z43QcZ7V4fSGWkYF9a0RihBKGRo?=
+ =?us-ascii?Q?5Xvwle04LpWEE/UdkVwVD+Yf+g+C/+ZtLPKLjZN4y0S8tpD/9SQx1jj2H/AU?=
+ =?us-ascii?Q?pWSA56xR4Xz0KHP9js1JWFt2kqkpmfghf6DK3aQ+1WfSKYSyvgZ1SxksYKl7?=
+ =?us-ascii?Q?HXOliEBRCysnAfWjtwMO86NowaWovUpP+8aHbWlksi2eDYtLMR6PGfuYIENG?=
+ =?us-ascii?Q?DYr1ZiMXobQCD+87Qyqur/YrAp4RLSod1/SDACPP2YoiP0whMW8uljs972jL?=
+ =?us-ascii?Q?tkQ8g6jcdkhtU4g07E9BFMnYQLfEKZl5FQWPPzmLrWHShJkurFi0VThciSAS?=
+ =?us-ascii?Q?ZRYNpWn+Xx7SxNpdGO7B5JLEA72DaEAtmkaqLY2JlGhuCcukc/XaYVNaoP+Q?=
+ =?us-ascii?Q?07EXXKcuATxWdc2nTKqGWwmV0wkF0MnwuNCODZ5nuc46eI2YQl7ScqMe4ECo?=
+ =?us-ascii?Q?UfpE6/bgLDD6uIZkXKj0LLx1ioGlyYsfwM6rcURvWJqpnMcArjS0pHYg8YSq?=
+ =?us-ascii?Q?q8ifxeQJ1QV53BSZrSz9sZer9kN6Tne8oOeCH56VmT3uDjznDzgGtY/VgsXs?=
+ =?us-ascii?Q?XdFiLbOBS1XLxNoswEaMeVEePD6YBwEe9cQ0ImbJ/hTgikHO+Hr2AXH57aoj?=
+ =?us-ascii?Q?hZ4Di2lm2Hf2FSa1BVcMhwrqQmOBoDXsi2BlrkQc7G6iC0EPD/rCWwXlGKEp?=
+ =?us-ascii?Q?/WgE4zUoCR7R/leMXYRB3s5+11TOkEfdv/IzQvVVXiBU3yzWFcL1UPPZU/gh?=
+ =?us-ascii?Q?fSUUon0a5jaejFB//gjh4POXyzICQX0LZDaXMnTFzke17FsY0NcALMlPyXmZ?=
+ =?us-ascii?Q?YT0KnP+a/oXbb3WFihpRxXpG1x4A1VQvnz+NKSSRAdGwoyVRI7xcjvUFyC+N?=
+ =?us-ascii?Q?P0fzker+kcU8drdMd/DZHutuRgSr1VEIQurIK/VFbY/Nzl4IeXsSXy+Yllzs?=
+ =?us-ascii?Q?IgDbKkd9f7lRs7kQ9AamdShqttyAlz/fttkOKKujzNrm53QIUzSvrvCJisQI?=
+ =?us-ascii?Q?6k0jzHhoaA0ogsUnduKy/j7kcBXgpnAw56XI8PLwlcW+xRTvckq/hYNoODhL?=
+ =?us-ascii?Q?PbjejOIX71EuzIuMq06Ck2p4UiisHtrBRBP+GqEQqz+nr+KXuqSbSP7lf7lX?=
+ =?us-ascii?Q?ocQMR7XZwIR4oMGT1pxUeaUuZJn2vH8n8X8xkMFxeJCTGWNI/0MtYNKeGXo1?=
+ =?us-ascii?Q?yh5GTaITAOV8vod4OyOH45tylfGbPnfLl2FRjQBVAPVP34AOCqlfa+O5tqGX?=
+ =?us-ascii?Q?F/RKt1Cko9cZaHgWPpGI1LSkAJuB+lBMmH1HBQOLy6zr0I/SU8OsfOTO+gLJ?=
+ =?us-ascii?Q?m2IMwIWuxOZnXASCI08IDOtQo8STQDNTJoBPgUx4m/gzavSUSXDzVrSehJSS?=
+ =?us-ascii?Q?/Hd7deg3Yur2WarQMkNE7MuUngarezzXK6C+Uf32ERrSpycg+TwcNWmctvI3?=
+ =?us-ascii?Q?mPaZghY0ahgaK3w7ubguTAextXwuXFE+/nRnigZe?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30137589-8080-408b-c638-08dda7390554
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 09:35:50.3115
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZiWm+3gvzeoUkkygsBAzcwrHL0UjGyy3YgaUSkcvQ3j9Xyf6UdFpVbST77P1ytn1GJpAz2MKvodtSFfdlw7CiA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8243
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_022753_003565_F983E188 
-X-CRM114-Status: GOOD (  28.87  )
+X-CRM114-CacheID: sfid-20250609_023554_105686_FDEC0A1B 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,235 +176,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change the readahead config so that if it is being requested for an
-executable mapping, do a synchronous read into a set of folios with an
-arch-specified order and in a naturally aligned manner. We no longer
-center the read on the faulting page but simply align it down to the
-previous natural boundary. Additionally, we don't bother with an
-asynchronous part.
+On Thu, Jun 05, 2025 at 01:28:01PM +0000, John Ernberg wrote:
+>Since the CAAM on these SoCs is managed by another ARM core, called the
+>SECO (Security Controller) on iMX8QM and Secure Enclave on iMX8ULP, which
+>also reserves access to register page 0 suspend operations cannot touch
+>this page.
+>
+>This is similar to when running OPTEE, where OPTEE will reserve page 0.
+>
+>Track this situation using a new state variable no_page0, reflecting if
+>page 0 is reserved elsewhere, either by other management cores in SoC or
+>by OPTEE.
+>
+>Replace the optee_en check in suspend/resume with the new check.
+>
+>optee_en cannot go away as it's needed elsewhere to gate OPTEE specific
+>situations.
+>
+>Fixes the following splat at suspend:
+>
+>    Internal error: synchronous external abort: 0000000096000010 [#1] SMP
+>    Hardware name: Freescale i.MX8QXP ACU6C (DT)
+>    pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>    pc : readl+0x0/0x18
+>    lr : rd_reg32+0x18/0x3c
+>    sp : ffffffc08192ba20
+>    x29: ffffffc08192ba20 x28: ffffff8025190000 x27: 0000000000000000
+>    x26: ffffffc0808ae808 x25: ffffffc080922338 x24: ffffff8020e89090
+>    x23: 0000000000000000 x22: ffffffc080922000 x21: ffffff8020e89010
+>    x20: ffffffc080387ef8 x19: ffffff8020e89010 x18: 000000005d8000d5
+>    x17: 0000000030f35963 x16: 000000008f785f3f x15: 000000003b8ef57c
+>    x14: 00000000c418aef8 x13: 00000000f5fea526 x12: 0000000000000001
+>    x11: 0000000000000002 x10: 0000000000000001 x9 : 0000000000000000
+>    x8 : ffffff8025190870 x7 : ffffff8021726880 x6 : 0000000000000002
+>    x5 : ffffff80217268f0 x4 : ffffff8021726880 x3 : ffffffc081200000
+>    x2 : 0000000000000001 x1 : ffffff8020e89010 x0 : ffffffc081200004
+>    Call trace:
+>     readl+0x0/0x18
+>     caam_ctrl_suspend+0x30/0xdc
+>     dpm_run_callback.constprop.0+0x24/0x5c
+>     device_suspend+0x170/0x2e8
+>     dpm_suspend+0xa0/0x104
+>     dpm_suspend_start+0x48/0x50
+>     suspend_devices_and_enter+0x7c/0x45c
+>     pm_suspend+0x148/0x160
+>     state_store+0xb4/0xf8
+>     kobj_attr_store+0x14/0x24
+>     sysfs_kf_write+0x38/0x48
+>     kernfs_fop_write_iter+0xb4/0x178
+>     vfs_write+0x118/0x178
+>     ksys_write+0x6c/0xd0
+>     __arm64_sys_write+0x14/0x1c
+>     invoke_syscall.constprop.0+0x64/0xb0
+>     do_el0_svc+0x90/0xb0
+>     el0_svc+0x18/0x44
+>     el0t_64_sync_handler+0x88/0x124
+>     el0t_64_sync+0x150/0x154
+>    Code: 88dffc21 88dffc21 5ac00800 d65f03c0 (b9400000)
+>
+>Fixes: d2835701d93c ("crypto: caam - i.MX8ULP donot have CAAM page0 access")
+>Cc: stable@kernel.org # v6.10+
+>Signed-off-by: John Ernberg <john.ernberg@actia.se>
+>
 
-On arm64 if memory is physically contiguous and naturally aligned to the
-"contpte" size, we can use contpte mappings, which improves utilization
-of the TLB. When paired with the "multi-size THP" feature, this works
-well to reduce dTLB pressure. However iTLB pressure is still high due to
-executable mappings having a low likelihood of being in the required
-folio size and mapping alignment, even when the filesystem supports
-readahead into large folios (e.g. XFS).
-
-The reason for the low likelihood is that the current readahead
-algorithm starts with an order-0 folio and increases the folio order by
-2 every time the readahead mark is hit. But most executable memory tends
-to be accessed randomly and so the readahead mark is rarely hit and most
-executable folios remain order-0.
-
-So let's special-case the read(ahead) logic for executable mappings. The
-trade-off is performance improvement (due to more efficient storage of
-the translations in iTLB) vs potential for making reclaim more difficult
-(due to the folios being larger so if a part of the folio is hot the
-whole thing is considered hot). But executable memory is a small portion
-of the overall system memory so I doubt this will even register from a
-reclaim perspective.
-
-I've chosen 64K folio size for arm64 which benefits both the 4K and 16K
-base page size configs. Crucially the same amount of data is still read
-(usually 128K) so I'm not expecting any read amplification issues. I
-don't anticipate any write amplification because text is always RO.
-
-Note that the text region of an ELF file could be populated into the
-page cache for other reasons than taking a fault in a mmapped area. The
-most common case is due to the loader read()ing the header which can be
-shared with the beginning of text. So some text will still remain in
-small folios, but this simple, best effort change provides good
-performance improvements as is.
-
-Confine this special-case approach to the bounds of the VMA. This
-prevents wasting memory for any padding that might exist in the file
-between sections. Previously the padding would have been contained in
-order-0 folios and would be easy to reclaim. But now it would be part of
-a larger folio so more difficult to reclaim. Solve this by simply not
-reading it into memory in the first place.
-
-Benchmarking
-============
-
-The below shows pgbench and redis benchmarks on Graviton3 arm64 system.
-
-First, confirmation that this patch causes more text to be contained in
-64K folios:
-
-+----------------------+---------------+---------------+---------------+
-| File-backed folios by|  system boot  |    pgbench    |     redis     |
-| size as percentage of+-------+-------+-------+-------+-------+-------+
-| all mapped text mem  |before | after |before | after |before | after |
-+======================+=======+=======+=======+=======+=======+=======+
-| base-page-4kB        |   78% |   30% |   78% |   11% |   73% |   14% |
-| thp-aligned-8kB      |    1% |    0% |    0% |    0% |    1% |    0% |
-| thp-aligned-16kB     |   17% |    4% |   17% |    3% |   20% |    4% |
-| thp-aligned-32kB     |    1% |    1% |    1% |    2% |    1% |    1% |
-| thp-aligned-64kB     |    3% |   63% |    3% |   81% |    4% |   77% |
-| thp-aligned-128kB    |    0% |    1% |    1% |    1% |    1% |    2% |
-| thp-unaligned-64kB   |    0% |    0% |    0% |    1% |    0% |    1% |
-| thp-unaligned-128kB  |    0% |    1% |    0% |    0% |    0% |    0% |
-| thp-partial          |    0% |    0% |    0% |    1% |    0% |    1% |
-+----------------------+-------+-------+-------+-------+-------+-------+
-| cont-aligned-64kB    |    4% |   65% |    4% |   83% |    6% |   79% |
-+----------------------+-------+-------+-------+-------+-------+-------+
-
-The above shows that for both workloads (each isolated with cgroups) as
-well as the general system state after boot, the amount of text backed
-by 4K and 16K folios reduces and the amount backed by 64K folios
-increases significantly. And the amount of text that is contpte-mapped
-significantly increases (see last row).
-
-And this is reflected in performance improvement. "(I)" indicates a
-statistically significant improvement. Note TPS and Reqs/sec are rates
-so bigger is better, ms is time so smaller is better:
-
-+-------------+-------------------------------------------+------------+
-| Benchmark   | Result Class                              | Improvemnt |
-+=============+===========================================+============+
-| pts/pgbench | Scale: 1 Clients: 1 RO (TPS)              |  (I) 3.47% |
-|             | Scale: 1 Clients: 1 RO - Latency (ms)     |     -2.88% |
-|             | Scale: 1 Clients: 250 RO (TPS)            |  (I) 5.02% |
-|             | Scale: 1 Clients: 250 RO - Latency (ms)   | (I) -4.79% |
-|             | Scale: 1 Clients: 1000 RO (TPS)           |  (I) 6.16% |
-|             | Scale: 1 Clients: 1000 RO - Latency (ms)  | (I) -5.82% |
-|             | Scale: 100 Clients: 1 RO (TPS)            |      2.51% |
-|             | Scale: 100 Clients: 1 RO - Latency (ms)   |     -3.51% |
-|             | Scale: 100 Clients: 250 RO (TPS)          |  (I) 4.75% |
-|             | Scale: 100 Clients: 250 RO - Latency (ms) | (I) -4.44% |
-|             | Scale: 100 Clients: 1000 RO (TPS)         |  (I) 6.34% |
-|             | Scale: 100 Clients: 1000 RO - Latency (ms)| (I) -5.95% |
-+-------------+-------------------------------------------+------------+
-| pts/redis   | Test: GET Connections: 50 (Reqs/sec)      |  (I) 3.20% |
-|             | Test: GET Connections: 1000 (Reqs/sec)    |  (I) 2.55% |
-|             | Test: LPOP Connections: 50 (Reqs/sec)     |  (I) 4.59% |
-|             | Test: LPOP Connections: 1000 (Reqs/sec)   |  (I) 4.81% |
-|             | Test: LPUSH Connections: 50 (Reqs/sec)    |  (I) 5.31% |
-|             | Test: LPUSH Connections: 1000 (Reqs/sec)  |  (I) 4.36% |
-|             | Test: SADD Connections: 50 (Reqs/sec)     |  (I) 2.64% |
-|             | Test: SADD Connections: 1000 (Reqs/sec)   |  (I) 4.15% |
-|             | Test: SET Connections: 50 (Reqs/sec)      |  (I) 3.11% |
-|             | Test: SET Connections: 1000 (Reqs/sec)    |  (I) 3.36% |
-+-------------+-------------------------------------------+------------+
-
-Reviewed-by: Jan Kara <jack@suse.cz>
-Acked-by: Will Deacon <will@kernel.org>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/include/asm/pgtable.h |  8 ++++++
- include/linux/pgtable.h          | 11 ++++++++
- mm/filemap.c                     | 47 ++++++++++++++++++++++++++------
- 3 files changed, 57 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 88db8a0c0b37..7a7dfdce14b8 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1643,6 +1643,14 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
-  */
- #define arch_wants_old_prefaulted_pte	cpu_has_hw_af
- 
-+/*
-+ * Request exec memory is read into pagecache in at least 64K folios. This size
-+ * can be contpte-mapped when 4K base pages are in use (16 pages into 1 iTLB
-+ * entry), and HPA can coalesce it (4 pages into 1 TLB entry) when 16K base
-+ * pages are in use.
-+ */
-+#define exec_folio_order() ilog2(SZ_64K >> PAGE_SHIFT)
-+
- static inline bool pud_sect_supported(void)
- {
- 	return PAGE_SIZE == SZ_4K;
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 0b6e1f781d86..e4a3895c043b 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -456,6 +456,17 @@ static inline bool arch_has_hw_pte_young(void)
- }
- #endif
- 
-+#ifndef exec_folio_order
-+/*
-+ * Returns preferred minimum folio order for executable file-backed memory. Must
-+ * be in range [0, PMD_ORDER). Default to order-0.
-+ */
-+static inline unsigned int exec_folio_order(void)
-+{
-+	return 0;
-+}
-+#endif
-+
- #ifndef arch_check_zapped_pte
- static inline void arch_check_zapped_pte(struct vm_area_struct *vma,
- 					 pte_t pte)
-diff --git a/mm/filemap.c b/mm/filemap.c
-index 4b5c8d69f04c..93fbc2ef232a 100644
---- a/mm/filemap.c
-+++ b/mm/filemap.c
-@@ -3238,8 +3238,11 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
- 	}
- #endif
- 
--	/* If we don't want any read-ahead, don't bother */
--	if (vm_flags & VM_RAND_READ)
-+	/*
-+	 * If we don't want any read-ahead, don't bother. VM_EXEC case below is
-+	 * already intended for random access.
-+	 */
-+	if ((vm_flags & (VM_RAND_READ | VM_EXEC)) == VM_RAND_READ)
- 		return fpin;
- 	if (!ra->ra_pages)
- 		return fpin;
-@@ -3262,14 +3265,40 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
- 	if (mmap_miss > MMAP_LOTSAMISS)
- 		return fpin;
- 
--	/*
--	 * mmap read-around
--	 */
- 	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
--	ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
--	ra->size = ra->ra_pages;
--	ra->async_size = ra->ra_pages / 4;
--	ra->order = 0;
-+	if (vm_flags & VM_EXEC) {
-+		/*
-+		 * Allow arch to request a preferred minimum folio order for
-+		 * executable memory. This can often be beneficial to
-+		 * performance if (e.g.) arm64 can contpte-map the folio.
-+		 * Executable memory rarely benefits from readahead, due to its
-+		 * random access nature, so set async_size to 0.
-+		 *
-+		 * Limit to the boundaries of the VMA to avoid reading in any
-+		 * pad that might exist between sections, which would be a waste
-+		 * of memory.
-+		 */
-+		struct vm_area_struct *vma = vmf->vma;
-+		unsigned long start = vma->vm_pgoff;
-+		unsigned long end = start + ((vma->vm_end - vma->vm_start) >> PAGE_SHIFT);
-+		unsigned long ra_end;
-+
-+		ra->order = exec_folio_order();
-+		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
-+		ra->start = max(ra->start, start);
-+		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
-+		ra_end = min(ra_end, end);
-+		ra->size = ra_end - ra->start;
-+		ra->async_size = 0;
-+	} else {
-+		/*
-+		 * mmap read-around
-+		 */
-+		ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
-+		ra->size = ra->ra_pages;
-+		ra->async_size = ra->ra_pages / 4;
-+		ra->order = 0;
-+	}
- 	ractl._index = ra->start;
- 	page_cache_ra_order(&ractl, ra);
- 	return fpin;
--- 
-2.43.0
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
