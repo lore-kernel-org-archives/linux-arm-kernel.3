@@ -4,70 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B25C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33AAC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 19:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0QhRN3RBOV6OlSlFAD7Gm8pf0TLKsGz/HIXBlFmeT8=; b=Wa3FrSSmXtkNU9yOsfJT6zAjPK
-	mk1Cph7N23qp7i6GP11CBpnacha+9KaTQo5eJWrliYE5FXf7+EmCWjhS+0zs5HSWzHfvJFK9HX+rC
-	ByaKuBBBFzuqKJj2qZXfK4U1XRyKTjrApQusBHHJfz9eBirXpDEle8ZXL80ggYKGGlHutMFZu/Dy7
-	Oqlne/qCGHa4DxTa0k2oAtu6Er1SsAiXd2k8otIr4a0Z2l06Q1LLac6SEkuxr8ceWS5qqjIvAwKJw
-	rMN06eWYtDfKPyFlmbQiVv2Z3C68D4QmI8a8Y2zI50o5FRm82g/iKLTQMdK9llcVHhEDg0LCPH9z7
-	+PPQMEYw==;
+	bh=jDmtOkoBuocf6pbXWlehMbj6TuN/a8lpW5jM+kbPEnc=; b=TTVYIQO7NFg5rc7un+eG3AtcyT
+	lG0c4BRYzraEOEElCge0cc7xHc8ZcdKroZNAurnoA1U9BEEm8LRhHOHr7haM9R4UNCBo7FqG7s5z2
+	kkQS6c6riZNqScG0j6TmbJDiA8z8lqySXLe3a9Z4DaPsTxnpY+yZcYPcWUEQ7cbSeAQFxF8j6Yl4I
+	D+jx1gLXqcik1nBh8cTBpED4DvhjbMPQaUIftwZIhSDYcEfac1gBN+wRbMm1hh2kxY2KOjxRUFLV9
+	ChFP5XHs8pQv1kt8LqtpNxQ6lfpmgsJSrgUeIEhFNvfCHc/W7PSh0YKV+2u4SKyWm4l8Er85oSsga
+	XjtVGWeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOiDY-000000052HP-2lZm;
-	Mon, 09 Jun 2025 19:31:36 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uOiFg-000000052ff-2TTT;
+	Mon, 09 Jun 2025 19:33:48 +0000
+Received: from mail-mw2nam10on20629.outbound.protection.outlook.com ([2a01:111:f403:2412::629] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOh72-00000004t6I-2yuw
+	id 1uOg4d-00000004mCO-3ERP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 18:20:50 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A404E6A8;
-	Mon,  9 Jun 2025 20:20:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749493238;
-	bh=23SoUu3wIQcfvRG1bgJGbpqnaiUwVDecwTappI368C0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C9WA4OSrROhN0R5TIfmGHoiPtT9vdme6Z2hbgLEz18tV4ncCa4I7y9BYs82J6ja37
-	 8z5YgLZi89mrL33SS+dER8idhHO8vWFOrdj1iuCbqTc7sIwLkMC/a21HwDk+IGR8ZL
-	 ROF7vTK9T/QbUwz/WjG59IoJ6wftr0BxZxkDU7kQ=
-Date: Mon, 9 Jun 2025 21:20:33 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Adam Ford <aford173@gmail.com>
-Cc: Frank Li <Frank.li@nxp.com>, linux-media@vger.kernel.org,
-	Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 6/8] dt-bindings: media: nxp,imx-mipi-csi2: Add
- fsl,num-channels property
-Message-ID: <20250609182033.GA11428@pendragon.ideasonboard.com>
-References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
- <20250608235840.23871-7-laurent.pinchart@ideasonboard.com>
- <aEb+iTlDh0H/bRMY@lizhi-Precision-Tower-5810>
- <CAHCN7xJjR1zZXeJAvkXmdNYroP6Jm6TLjHjnPUOF4z7yaL7EFw@mail.gmail.com>
+	Mon, 09 Jun 2025 17:14:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pbhPRpLGGdycJLgz06+YSIWSLbQ7M34ek+d4r1p3gab5WMxTsMuuLEWvqwIKMIrtVDf4AUfXbSvJcISYVr3/l/LMvlzlESJh5/TgECgCfRXyvsJn3hqaXUlDWNpJtnwQoij3AVeDbX+Hwh/27jfhko7+eHut6JE06E7c2zvxJWJx+VW2ExtZVbu4aJCv+Sm4b4gF6yGC6hLn7xfusIEaDQggnndgrLuURZ6T23xxOKq4pb+h0+QyGC5jZa2a9oRuyk/Zw0vzdek/6hhK5789hx1REPgGPmpi1qBDxb0cazuNqSU5ybiKoJ7pFzuUZ2B3RE9B2zzHJZMlh+YIQG3VGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jDmtOkoBuocf6pbXWlehMbj6TuN/a8lpW5jM+kbPEnc=;
+ b=qXMXQluZrjJr6a8hKeeWkHhQoQrByKikmlbKDLrU/dIY6iqkeDa/l7xgUQ93nR6lA/ucgpELC3UtVNKUyGRiXPFyimtUe/w7iSKCcd1RC11gmUiEuYmRoEHRQqnL85SQoaZGdqkkChJKWG5o2rLmIUAfXxTX2/aFlphsl8sSxV+HdZCos0vXJs+1ncl2bOD1NmLLv9TKRG4/cuc+uZYexzVjvZa30bN9nP3km2VHUAZletMIEem3/k+6o84/XRyX5Xnr+rF8nywaiUJQnP9JSKPMmjYlJt79mGuHsa8erhek2w0Geb92mXGH9EN8268gwWapgi4D1iupUPhdqXGqEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jDmtOkoBuocf6pbXWlehMbj6TuN/a8lpW5jM+kbPEnc=;
+ b=tdkxWLPYvy2KpnlPwJp2sk/LaC03XfWZpdbSHIVki/OaUHWzrzwQ1qWB2J7b1wNEa8a7J7qRGVeJhm4hvij1ESmjvgPyegDjNF88iIpgsI/slhRrGAh15z/upvsdwG//mebcJfZGMczwvwesNBUgXAF4pibArVD6KtEHABAacrM2rVhBIF4TQ642rDqyzmmnQdgCr9v3sxz3+u5k6Yzi5Y0okG15+jgl//9OyHYFZRRpJCo8g6BYAaPPjDogA8/J8jL842uEAbsyR0uGKOP6Mu+Zm+Ejvl27KbrXtmx4UvBFtg7KOmJja6KFju88aPigGysI9fY5lPZNX33skdvaUg==
+Received: from MN0P223CA0016.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:52b::29)
+ by CY8PR12MB7099.namprd12.prod.outlook.com (2603:10b6:930:61::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.37; Mon, 9 Jun
+ 2025 17:14:11 +0000
+Received: from MN1PEPF0000F0E5.namprd04.prod.outlook.com
+ (2603:10b6:208:52b:cafe::53) by MN0P223CA0016.outlook.office365.com
+ (2603:10b6:208:52b::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Mon,
+ 9 Jun 2025 17:14:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MN1PEPF0000F0E5.mail.protection.outlook.com (10.167.242.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Mon, 9 Jun 2025 17:14:10 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 9 Jun 2025
+ 10:13:52 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 9 Jun
+ 2025 10:13:51 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Mon, 9 Jun 2025 10:13:50 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <kevin.tian@intel.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <peterz@infradead.org>,
+	<jsnitsel@redhat.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>,
+	<baolu.lu@linux.intel.com>
+Subject: [PATCH v1 08/12] iommufd/viommu: Replace ops->viommu_alloc with ops->viommu_init
+Date: Mon, 9 Jun 2025 10:13:31 -0700
+Message-ID: <5586990446e4c97827b5a195622ec0f8cf9d2d67.1749488870.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1749488870.git.nicolinc@nvidia.com>
+References: <cover.1749488870.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHCN7xJjR1zZXeJAvkXmdNYroP6Jm6TLjHjnPUOF4z7yaL7EFw@mail.gmail.com>
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E5:EE_|CY8PR12MB7099:EE_
+X-MS-Office365-Filtering-Correlation-Id: d2d8b841-ab69-4a57-2cb7-08dda7790d23
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?F0bzzZWIz3UULH2Uz+HknO45nXb6/k/4s8w0sL4H+5QSWUwys6r//+FetD9l?=
+ =?us-ascii?Q?ii588eo8GOA445xPeJQWhzu8JV3L6z5OrQ66oXom4gBX38+MqJYRoQ3PEcNB?=
+ =?us-ascii?Q?MvrO7IA5WdkjRK0mujAqL9Fl7z9S7wnDQbma56SSXs+HRsiDU3R22R5L3/UG?=
+ =?us-ascii?Q?JOf1UYQwdYh62+jRgemhYWlArrps2D1a/ABISqhkUAd8iGbqKJ6pfcFsezC5?=
+ =?us-ascii?Q?yzDnHdwSJIn8Sp7uZW/i/wQnv1sQOk3cJV1sX6uqAil4Rtc1VnFhwYiaW+y3?=
+ =?us-ascii?Q?WFfgallvW586hlnbgrW3hE+Ua8PdyKCKLkGravmR8BcYRKkl3wzBEfn0dEL5?=
+ =?us-ascii?Q?ttfL/8NWTDB3R/s4YqovYNFedhubB2mBc++yVoeAmJH0cu2pss5DQEE2vtTt?=
+ =?us-ascii?Q?t3ZX3zV2mvYp4qi4DmqNXoaI1s2V5qvkIFxTY23Je2fCdKYb1WZDLaaLAYC0?=
+ =?us-ascii?Q?vAHvKh5225K1iEfxGyAdZANWow4KGhm06BM9tVKNcIVs8dNKr9b7EiU5WdhU?=
+ =?us-ascii?Q?j1nbe6TzGI3HB+El9TAivS5+5unMdtteO1INnN9Xwwk9uf0BE8/Ji7WKJpF3?=
+ =?us-ascii?Q?LQhZqTiHUicU2YV6jDRrUVhEB9kvyrO4pn1i5n0pjvt6tBrEx8Dpts4KIelm?=
+ =?us-ascii?Q?l2HJOptcJm2zxBnDQlBakgcfnWDUzotkUDVqzSqQ2QK9rEtsnmh/l2t+INTU?=
+ =?us-ascii?Q?5+BMcQXeGKpaDrWjni4GN0yzlH7dgCRIF2MsTFgk9GKLBVsH7+dYCsklSAI7?=
+ =?us-ascii?Q?c9KY8jeLqIsh22lVKPDjW3lg/k8c8JuUZC4gErll6FHH0lN4IYcYjy9uiGVV?=
+ =?us-ascii?Q?jKSM2BWpaZFBSuCADrHMfZMSzKkx+hyV6XI/RO5kGm8pSTWr67RA+PvIzEkF?=
+ =?us-ascii?Q?hgDeqAluQeqVXMm13iEVZzoisizaDCVK3RDMks2LXfZDoo5iSqUcBHLczfTU?=
+ =?us-ascii?Q?+YCJCv9glWf/epjNOEsGVPG57G4JbyDmyM7H8rr8cKvpxkdcAvpHXCEyUzNP?=
+ =?us-ascii?Q?yFob69ZgistL6dOzkHw2u71s5mIWTnJOdsTlhXidnMBzNC1PjhedZoFiekhV?=
+ =?us-ascii?Q?BfuaCCOpDm2UGQeGSXGUMPLjRv2DVr2+D8kfCPfZu6LnFPEZeC9oc4EoV0Qh?=
+ =?us-ascii?Q?8f6FJ3zKQC7v7io7uejSKhPoFdm6nPhyy82LrhypBMtAAj5TZ8EsS1hCMBb3?=
+ =?us-ascii?Q?bjFullMe4fN6yPbbmSTyqYNHoWDQWPydM5A/fvn81i7ejhwECy2/he2HCfdz?=
+ =?us-ascii?Q?gnzVOXxfumGAy2XkT9Fd6gUKEOULSJlLzuY+EItAk12H6oMWTt3cYJxlTiGl?=
+ =?us-ascii?Q?78GN6MyS9hdBJweE0DoVre+ygwdiuznxcaBZ9/2mHI2hTzDi1C+78E937Iwn?=
+ =?us-ascii?Q?IoBnydauJkrDmhMuD5FBTuIRK+hJG5y4blCTafZrAHgsAZYm6CrqmTZ5yCOc?=
+ =?us-ascii?Q?DqhM/CC3AGiu1X/ga4ehxa+rZ9jRb9LoV2QJMo68pYjRrjIi2T3YuxrFc9EV?=
+ =?us-ascii?Q?YcDiwGtP8wD/bMxao3Nfh3SbO/xMilD4RDLc?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 17:14:10.7775
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2d8b841-ab69-4a57-2cb7-08dda7790d23
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_112049_072021_F276FA2C 
-X-CRM114-Status: GOOD (  25.91  )
+X-CRM114-CacheID: sfid-20250609_101415_812438_947A1492 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +153,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 12:53:48PM -0500, Adam Ford wrote:
-> On Mon, Jun 9, 2025 at 10:32 AM Frank Li wrote:
-> > On Mon, Jun 09, 2025 at 02:58:38AM +0300, Laurent Pinchart wrote:
-> > > The CSI-2 receiver can be instantiated with up to four output channels.
-> > > This is an integration-specific property, specify the number of
-> > > instantiated channels through a new fsl,num-channels property. The
-> > > property is optional, and defaults to 1 as only one channel is currently
-> > > supported by drivers.
-> > >
-> > > The only known SoC to have more than one channel is the i.MX8MP. As the
-> > > binding examples do not cover that SoC, don't update them.
-> > >
-> > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > ---
-> > >  .../devicetree/bindings/media/nxp,imx-mipi-csi2.yaml       | 7 +++++++
-> > >  1 file changed, 7 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> > > index db4889bf881e..41ad5b84eaeb 100644
-> > > --- a/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> > > +++ b/Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
-> > > @@ -68,6 +68,13 @@ properties:
-> > >      default: 166000000
-> > >      deprecated: true
-> > >
-> > > +  fsl,num-channels:
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > +    description: Number of output channels
-> > > +    minimum: 1
-> > > +    maximum: 4
-> > > +    default: 1
-> > > +
-> >
-> > Look like it is fixed value for each compabiable string, So it is not
-> > suitable for adding new property. It should be in driver data of each
-> > compatible strings.
-> >
-> > I met similar case before. DT team generally don't agree on add such
-> > property, unless there are two instances in the same chip, which have
-> > difference channel number.
-> 
-> If the DT changes are rejected, can the number of channels be added to
-> the data structure inside mipi_csis_of_match?  We have compatibles for
-> 8mm and imx7.  If we add an imx8mp compatible we could add a reference
-> to the number of channels.
+To ease the for-driver iommufd APIs, get_viommu_size and viommu_init ops
+are introduced. Now, those existing vIOMMU supported drivers implemented
+these two ops too.
 
-I thought about it, and decided to add a new property because the number
-of channels is really a synthesis time configuration parameter, and
-could differ between different CSIS instances in the same SoC.
+Relace the ops->viommu_alloc call with the two new ones.
 
-> > >    ports:
-> > >      $ref: /schemas/graph.yaml#/properties/ports
-> > >
+Note that this will fail a !viommu->ops case from now on, since a vIOMMU
+is expected to support alloc_domain_nested at least.
 
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/iommufd/viommu.c | 30 +++++++++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
+index 01df2b985f02..63a92fb27ef4 100644
+--- a/drivers/iommu/iommufd/viommu.c
++++ b/drivers/iommu/iommufd/viommu.c
+@@ -21,6 +21,7 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+ 	struct iommufd_viommu *viommu;
+ 	struct iommufd_device *idev;
+ 	const struct iommu_ops *ops;
++	size_t viommu_size;
+ 	int rc;
+ 
+ 	if (cmd->flags || cmd->type == IOMMU_VIOMMU_TYPE_DEFAULT)
+@@ -31,11 +32,24 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+ 		return PTR_ERR(idev);
+ 
+ 	ops = dev_iommu_ops(idev->dev);
+-	if (!ops->viommu_alloc) {
++	if (!ops->get_viommu_size || !ops->viommu_init) {
+ 		rc = -EOPNOTSUPP;
+ 		goto out_put_idev;
+ 	}
+ 
++	rc = ops->get_viommu_size(cmd->type, idev->dev, &viommu_size);
++	if (rc)
++		goto out_put_idev;
++
++	/*
++	 * It is a driver bug for providing a viommu_size smaller than the core
++	 * vIOMMU structure size
++	 */
++	if (WARN_ON_ONCE(viommu_size < sizeof(*viommu))) {
++		rc = -EINVAL;
++		goto out_put_idev;
++	}
++
+ 	hwpt_paging = iommufd_get_hwpt_paging(ucmd, cmd->hwpt_id);
+ 	if (IS_ERR(hwpt_paging)) {
+ 		rc = PTR_ERR(hwpt_paging);
+@@ -47,8 +61,8 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+ 		goto out_put_hwpt;
+ 	}
+ 
+-	viommu = ops->viommu_alloc(idev->dev, hwpt_paging->common.domain,
+-				   ucmd->ictx, cmd->type);
++	viommu = (struct iommufd_viommu *)_iommufd_object_alloc(
++		ucmd->ictx, viommu_size, IOMMUFD_OBJ_VIOMMU);
+ 	if (IS_ERR(viommu)) {
+ 		rc = PTR_ERR(viommu);
+ 		goto out_put_hwpt;
+@@ -68,6 +82,16 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+ 	 */
+ 	viommu->iommu_dev = __iommu_get_iommu_dev(idev->dev);
+ 
++	rc = ops->viommu_init(viommu, hwpt_paging->common.domain);
++	if (rc)
++		goto out_abort;
++
++	/* It is a driver bug that viommu->ops isn't filled */
++	if (WARN_ON_ONCE(!viommu->ops)) {
++		rc = -EINVAL;
++		goto out_abort;
++	}
++
+ 	cmd->out_viommu_id = viommu->obj.id;
+ 	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
+ 	if (rc)
 -- 
-Regards,
+2.43.0
 
-Laurent Pinchart
 
