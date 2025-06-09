@@ -4,89 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21167C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 12:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6156C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 13:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xB2zG2k1G4WQxpgsH4LuYksFLvv8C8C4QIYaKBnq/b4=; b=xDdveA6sFKg7v95Rq49uuwDcSC
-	rpBmSk5z2qar5twwRZKZIfxTr7wpwXNd3YUvncAFhvpJCHf0ioG5sFc+oplTCLB/sdaeiShvADkUu
-	kGKPhWONe+CL8WeCMb7mwRjC9wpOO500beG7XIB1og0BC+zuSHcddFkhNoDChXr9xCgmvCsT4oNmG
-	AD248/U2rYTKhnOLsW1mcCyh2yE0TEnbrMIyXrWYmqg48VrHl+YVEiKu0PUlz2UxTRfo65z1rBmS1
-	xpKsL7ySvHJJ+z/DXHtmg/X2jVXbIPNOgbdLj5p6uZMc1bqOwujB4oXMOLQkPv88pMswUfULdJqFR
-	caRnQIhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Bh+Zp7cUZNAenLGdWusNvBpvA8IMsAYVSOUkU7ta8Y=; b=N+QIh4x1LTfh+b3Kz1i7m3j3SH
+	Qju3KLLcbBflrzTWypG4f60SYPr97TyWplXMUB9zUXXcZMiNhr/PHN6+N5E6anWYlzHYo4m9ULzs0
+	zwmuaS4FmsbivqgN5EPWo78n9YRx8g6C7gIKN2M7aUH/AdBu5nw69gXLlEZnF6oNnlbs290a8M9Aj
+	KdaCOUoNACD0nC9BCXec0hggE8D5gwPxBrzhKCow02Gj3er0MulL6BWH6KJ8btWHioLqnSL7T7pfp
+	R27S0dRBENTbd1yi4UxBfTJbeJsMeGFMrmk+8ajiVzLQeHJrRANsLLk62KewY8WOoEXn1Uoy3nzt9
+	6ofapgog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOc3V-00000004BKe-2hRZ;
-	Mon, 09 Jun 2025 12:56:49 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1uOcBF-00000004Chf-36m2;
+	Mon, 09 Jun 2025 13:04:49 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOc1G-00000004B2V-2avP
+	id 1uOc8z-00000004CCK-3Eoz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 12:54:32 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a375e72473so2080583f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 05:54:30 -0700 (PDT)
+	Mon, 09 Jun 2025 13:02:32 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4530921461aso10306325e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 06:02:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1749473669; x=1750078469; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xB2zG2k1G4WQxpgsH4LuYksFLvv8C8C4QIYaKBnq/b4=;
-        b=b/FwLbth8ep6r5HlHy7qv9xDslPQf8RcZR5LswlIHESokYyXt8Hia9GrIJJBD3Pm0K
-         2/BHgpJiRKkN5Qys5ZkhIPXvqsDB1yQc8C+HvE7gBRRpo/Rnz0UmTSWG6G5Bjdspf5Oe
-         0MY26Q7OhsHXZ48rwhoowJ5PKLXp3UBNkEt3yO4MB6HAF+dC9Szxy+KDly4+2XTzED4u
-         OC4+0ELiCE2tWTTNntzKGVBrXuoGAYl0mq1lB4CDu2eUQjJgdqzN+pvVSXgCnRZwZLDn
-         B6PmW+s0Y1C9WtsNQoS5tmxoLzB+96j0o7ZMU8CW8j/K3YrhZSOmDPi2oL+EzIX7Ll0C
-         PEAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749473669; x=1750078469;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749474147; x=1750078947; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xB2zG2k1G4WQxpgsH4LuYksFLvv8C8C4QIYaKBnq/b4=;
-        b=L2MrWCbmjZHqQvfdpXCIy7W5jkaNaBglhgQQpqLiX/+05xs4QMgas4grkcJXGH6uM6
-         kKK/aNr5SWcghW0L++Ae25x/IkHGX+oG4HbTOqhQxqZg1sc5c+RjOtOZzAFKxsiKRk0V
-         HHvXM15P5tvcWEHTcz3l4jTWOphcSzt/V1k/vU1xNNcLT232TYz5pgP1JWnRWwyYE4jm
-         RX/e6wWSFtLO5TJqueIEyjzkggo8nmN1E3kaK0tcL8Zba2EkRbjLTo5N951sn2qP01aa
-         PGhZyFP+OP8/t1dmnWwDlnbR1sghnRD0d3jx+97Rd78Y44HkI8hQdqt/dSs+6iVI6g9D
-         U4zw==
-X-Forwarded-Encrypted: i=1; AJvYcCXDFaTiou3YP5HO2gzoQhQe4d3vvKs4H1BBGkElSi++yeNRRf/HZ2mAAIeaPD3cd0XFmKfj/2jnE8W+5oBIaXvz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3HLTY4ccXUHYiAo4NF1pw2CVBPMuE1/oDj8Dc8LodgDayjMqX
-	x+tnE1j7qP4TxiBE0zsgXzDY76bCLaOLBb5r3NavNMxKxfGIRWm5GUcWDGZAPLzquiY=
-X-Gm-Gg: ASbGncumuCKmAppPE7/fAk0/r6oJXG8E3oM4SN9xX3TaYLwzc1+SARnzGAt2MORDMz5
-	yXHCbuE3TrPHENqArAQl9T4hIq7AXoAS1Txj341DIGQ/enl+diWeYIRDkivkNQiOViw7hPan6jP
-	JoTRq9FCtyLzufcDoxAvC42rMIiIJycEd9opNMVEKQFFQgfbhXKRIRekK1w8kzG7eP9JdpNwVS1
-	Jsy3JJbNFtfGgSZdXRCKex1ZwxFkw7aktXO1ripey1Tr1xX5Koa8dCKFAj6OEDqhXss0F5yFWXP
-	0DYB6yJsqxaL4xrnBL74qbQDcN/s1QumT+Ivh5vloDFydsZ3uQ==
-X-Google-Smtp-Source: AGHT+IEC/1dBxgIFgGAmnWpdiKwEZouvKkkuBZf9Ps4mzSz9CyCY930v5yHNcYS1Azk34Z4raHel5g==
-X-Received: by 2002:a5d:5f94:0:b0:3a4:eecf:b8cb with SMTP id ffacd0b85a97d-3a5318a7648mr10575693f8f.28.1749473668526;
-        Mon, 09 Jun 2025 05:54:28 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::2f2d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4530748870bsm62109445e9.33.2025.06.09.05.54.27
+        bh=+Bh+Zp7cUZNAenLGdWusNvBpvA8IMsAYVSOUkU7ta8Y=;
+        b=mCaDYx92QwWyTBZqf/BfYcyFfTfBHcwEE/6ToRDzS96uvulVXhHdIbAIqenH00vyqU
+         3CWg3mY8XExX8Uts5au+quasXEjgKzdVfmn0rtE0Pcd8rEwubuTiNe3kV//vMTD8K3EN
+         gILuPEAuBE4YtypOdp25ULxMZ4Zbs2AanPpWRZLb2ygIQv7qCSc5VdZbGUaBPH81nMJa
+         gqyMR3tjzICcGQYFQHLg9i+KbX2Op0YILP5bwU2WTYU6WxuFT8dUYm6zEXpdoXppBqiy
+         KPsBDqm8vmzptY6rAPK9b1kQzsqISclnfC1ZwtIex8M+XecL29wZJOYdb1QtDiUR3mMI
+         ++LQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749474147; x=1750078947;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+Bh+Zp7cUZNAenLGdWusNvBpvA8IMsAYVSOUkU7ta8Y=;
+        b=SDjTRTY9l5y2rB0HZdUT9RLYaTZ6DTzAreQQUtDN+R32T2+68CepYwPXMK51Opngjs
+         SXhprK2w/e+FoUfCE6FoTRd5ZXuDlkJupfxEUOiAMBHYc2b+k8WG5HzqLMit0k46AFLp
+         92FvjIyM5gj+sAA01BV2dpDSop8pw8/Lp/Ds184kLlaic2sdh8FvY0cPY7VJDwud0XAY
+         C72pZhJw5QRP3ub00E32rRba+GEotjOmlCN0IooVU41k7NVTFHOHszS3dhHVgSZE3mvG
+         ZJlPw0J+Rux0Ufe/x5rwck+GrSweyCD16R7Hxcb/cIJYPVpr161LZeuye46HilpV7Cm7
+         i9dw==
+X-Forwarded-Encrypted: i=1; AJvYcCVn57IHQyuI+ExbIMLp8T+qyZd8UYXNWc2fZ+8n//aYN/OgnUEwj/0Aws4zBNFdIDWpzz6wyN2+L/TiJ6J5ZhF5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHDz8ZgcAfl1Jpw+CMGiTwzk+6D1KuieR6jzatTTiGL+JpeF6j
+	o2RctXTt8hLKNaCbtz1See1RcU7lGpys3N0qXtqAh+AOcx+Uw5wUoq7XqSiECPFcw3I=
+X-Gm-Gg: ASbGnct9rHqeGgPrYANUzcWgkFkemVYUQz1Qls4vUsM1uoOWEjYQsICTQNygnR+/QwT
+	15RPJMjG+OLNRYeK8Y6e8yL6VK7DOBH9C5kBZrOa+auA2aiOyrO3fRNFybM4OG05WBA/Fx+WgN1
+	p50rrlDIRXDcJSfMTsvT30boddjzy+CQ26nakbjWtwhIn66NEfJAY6h8FvYWIIWCRrR1ionWX+a
+	8aBaDjYiZKfpgi2t2efbjkRyUBnz1IN9RHIK+PXJFrC1sBDIgsQi5uQmHfy31kcH8n0wPtQFvHh
+	alvJSwGlVWUAlqzVA63IUKlEEY2LnNAc3VmibWnJnc0UKwJzeYo=
+X-Google-Smtp-Source: AGHT+IEC224y8+mr5qcnD9k9Q2VLvv7fn9ojcXNf/BK82QyxQgrEFMVWAZeFnV10+zDndt5WfXGhRg==
+X-Received: by 2002:a05:600c:34ca:b0:453:1058:f8c1 with SMTP id 5b1f17b1804b1-4531058ffa6mr39477275e9.3.1749474147101;
+        Mon, 09 Jun 2025 06:02:27 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:1008:ff30:c454:e59e])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-452137290b9sm110888675e9.34.2025.06.09.06.02.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 05:54:28 -0700 (PDT)
-Date: Mon, 9 Jun 2025 14:54:27 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Vipin Sharma <vipinsh@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, seanjc@google.com, 
-	pbonzini@redhat.com, anup@brainfault.org, borntraeger@linux.ibm.com, 
-	frankja@linux.ibm.com, imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev, 
-	dmatlack@google.com
-Subject: Re: [PATCH v2 15/15] KVM: selftests: Add riscv auto generated test
- files for KVM Selftests Runner
-Message-ID: <20250609-cb3c80fbe1fe702668830b1b@orel>
-References: <20250606235619.1841595-1-vipinsh@google.com>
- <20250606235619.1841595-16-vipinsh@google.com>
+        Mon, 09 Jun 2025 06:02:26 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Dave Ertman
+ <david.m.ertman@intel.com>,  Ira Weiny <ira.weiny@intel.com>,  "Rafael J.
+ Wysocki" <rafael@kernel.org>,  Stephen Boyd <sboyd@kernel.org>,  Arnd
+ Bergmann <arnd@arndb.de>,  Danilo Krummrich <dakr@kernel.org>,  Conor
+ Dooley <conor.dooley@microchip.com>,  Daire McNamara
+ <daire.mcnamara@microchip.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
+  Andrzej Hajda <andrzej.hajda@intel.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Robert Foss <rfoss@kernel.org>,  Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
+ <jonas@kwiboo.se>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
+ Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de
+ Goede <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,  "Bryan O'Donoghue"
+ <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
+ <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
+ <theo.lebrun@bootlin.com>,
+  Michael Turquette <mturquette@baylibre.com>,  Abel Vesa
+ <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
+ <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
+  dri-devel@lists.freedesktop.org,  platform-driver-x86@vger.kernel.org,
+  linux-mips@vger.kernel.org,  linux-clk@vger.kernel.org,
+  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v4 3/8] drm/bridge: ti-sn65dsi86: use the auxiliary device
+In-Reply-To: <CAD=FV=Vb+Wb6wJ42jUBxVVNp9P87BiqHZgoY+Tw6W3fO==FF6g@mail.gmail.com>
+	(Doug Anderson's message of "Tue, 25 Feb 2025 08:04:57 -0800")
+References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+	<20250218-aux-device-create-helper-v4-3-c3d7dfdea2e6@baylibre.com>
+	<CAD=FV=Vb+Wb6wJ42jUBxVVNp9P87BiqHZgoY+Tw6W3fO==FF6g@mail.gmail.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Mon, 09 Jun 2025 15:02:24 +0200
+Message-ID: <1jmsahcbkv.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250606235619.1841595-16-vipinsh@google.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_055430_656205_8F992F5F 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250609_060229_810200_C8866596 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,42 +129,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 06, 2025 at 04:56:19PM -0700, Vipin Sharma wrote:
-> Add auto generated test files for s390 platforms.
-                                    ^ riscv
+On Tue 25 Feb 2025 at 08:04, Doug Anderson <dianders@chromium.org> wrote:
 
-Thanks,
-drew
+> Hi,
+>
+> On Tue, Feb 18, 2025 at 11:30=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.=
+com> wrote:
+>>
+>> The auxiliary device creation of this driver is simple enough to
+>> use the available auxiliary device creation helper.
+>>
+>> Use it and remove some boilerplate code.
+>>
+>> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+>> ---
+>>  drivers/gpu/drm/bridge/ti-sn65dsi86.c | 49 +++++-----------------------=
+-------
+>>  1 file changed, 7 insertions(+), 42 deletions(-)
+>
+> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+>
+> I'll snooze this for a bunch of weeks and check back to see if this
+> can be landed in drm-misc-next every once in a while. If you notice
+> that drm-misc-next has the necessary patches before I do then feel
+> free to poke me and I'll commit it.
 
-> 
-> Signed-off-by: Vipin Sharma <vipinsh@google.com>
-> ---
->  tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test | 1 +
->  .../testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test  | 1 +
->  2 files changed, 2 insertions(+)
->  create mode 100644 tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test
->  create mode 100644 tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test
-> 
-> diff --git a/tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test b/tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test
-> new file mode 100644
-> index 000000000000..d34b4b9b77ae
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/tests/riscv/ebreak_test/default.test
-> @@ -0,0 +1 @@
-> +riscv/ebreak_test
-> diff --git a/tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test b/tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test
-> new file mode 100644
-> index 000000000000..5abb62c51097
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/tests/riscv/sbi_pmu_test/default.test
-> @@ -0,0 +1 @@
-> +riscv/sbi_pmu_test
-> -- 
-> 2.50.0.rc0.604.gd4ff7b7c86-goog
-> 
-> 
-> -- 
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+Hi Doug,
+
+FYI, this is safe to take with v6.16-rc1.
+Please let know in case you prefer a resend.
+
+>
+> -Doug
+
+--=20
+Jerome
 
