@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4B7C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 18:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949AFC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 18:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KhxkHEtP7NM34XFYFLMi4kzcWeyvQLY3GjEFLAXHJr0=; b=GkAtGC+9kBHq4r
-	AV5U1Q6UBBeUNzmvmVuKOfNGjs05yHgZHKk8n8JdlkitfVbWdo0knsfp/XgkpLNFIcKNiHHQJBf+i
-	xn9iL+03AzLyUQzmk+piMIh7ZexJR/yuyD2Ftmb/hbt7KUW/kQSViyC2UAvi07+qmO73fEF3lewDk
-	XLiCgrUdh3p25hJ/yP4Zv7kyqyjcxDba/dFqmlJ2CwCXPIDlLQdbBgezFdxwSoXkLpR3nHmXV4tW9
-	vENBY2uy48uw8Wf4Kaz8613QOgm2JhVJ5D8FOT/3Rbo9VyATyLU8ZeDeFx/iUTt/D4B2y10Aw00Rc
-	i6snAwWWO7B0oE/eKlBg==;
+	List-Owner; bh=TIa5oCO6frSG3OKU7iD+EOMfOCg0SWKAQF+ojVmLS/M=; b=eyPlGjzfOmwiGx
+	3UATlLrFILWCHcHJuFkh2B+A0yV8QdvlnhwyaJHP+lgZ9l0czfvGQ+afFGiSIR+NZCyXnLu1i8hNJ
+	iuC7h0issKIaVj9KDocqMtG5Ck4ByteokI3Sl5DkwZzUALIKDCgXIxjuCpXrFbgl/Ewf6L12kXODT
+	Y6JFpLyjRu35H2746lsf81umigaoWOJWXgUF5sjPCmzQhJvUojMHfEoptmrl4hci3/tLkFt1DMLcq
+	p1wN1u5DceGMLA4CRXHOlhLLwQzqIzDCQU9FXcLTyNc6eV24mAwvv4xBcyQxNI9anR2AGymPTRXnV
+	XRUzp0VWoBp+hrl7mlQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOhfe-00000004xjA-04J3;
-	Mon, 09 Jun 2025 18:56:34 +0000
+	id 1uOhhl-00000004xqT-3A7r;
+	Mon, 09 Jun 2025 18:58:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOgOv-00000004oou-483U
+	id 1uOgOw-00000004opi-05Z2
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 09 Jun 2025 17:35:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B1A061515;
-	Mon,  9 Jun 2025 10:34:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B5AB2573;
+	Mon,  9 Jun 2025 10:34:54 -0700 (PDT)
 Received: from e137867.cambridge.arm.com (e137867.arm.com [10.1.32.173])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4DACE3F66E;
-	Mon,  9 Jun 2025 10:35:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 206EF3F66E;
+	Mon,  9 Jun 2025 10:35:11 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 01/13] arm64: debug: clean up single_step_handler logic
-Date: Mon,  9 Jun 2025 18:34:01 +0100
-Message-ID: <20250609173413.132168-2-ada.coupriediaz@arm.com>
+Subject: [PATCH v3 02/13] arm64: refactor aarch32_break_handler()
+Date: Mon,  9 Jun 2025 18:34:02 +0100
+Message-ID: <20250609173413.132168-3-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250609173413.132168-1-ada.coupriediaz@arm.com>
 References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_103514_064221_9FE07703 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20250609_103514_104667_C8DF2FF5 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,52 +61,91 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.co
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the unnecessary boolean which always checks if the handler was found
-and return early instead.
+`aarch32_break_handler()` is called in `do_el0_undef()` when we
+are trying to handle an exception whose Exception Syndrome is unknown.
+It checks if the instruction hit might be a 32-bit arm break (be it
+A32 or T2), and sends a SIGTRAP to userspace if it is so that it can
+be handled.
+
+However, this is badly represented in the naming of the function, and
+is not consistent with the other functions called with the same logic
+in `do_el0_undef()`.
+
+Rename it `try_handle_aarch32_break()` and change the return value to
+a boolean to align with the logic of the other tentative handlers in
+`do_el0_undef()`, the previous error code being ignored anyway.
 
 Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 ---
- arch/arm64/kernel/debug-monitors.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/debug-monitors.h |  2 +-
+ arch/arm64/kernel/debug-monitors.c      | 10 +++++-----
+ arch/arm64/kernel/traps.c               |  2 +-
+ 3 files changed, 7 insertions(+), 7 deletions(-)
 
+diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
+index 8f6ba31b8658..e1caf6a8380c 100644
+--- a/arch/arm64/include/asm/debug-monitors.h
++++ b/arch/arm64/include/asm/debug-monitors.h
+@@ -116,7 +116,7 @@ static inline int reinstall_suspended_bps(struct pt_regs *regs)
+ }
+ #endif
+ 
+-int aarch32_break_handler(struct pt_regs *regs);
++bool try_handle_aarch32_break(struct pt_regs *regs);
+ 
+ void debug_traps_init(void);
+ 
 diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 58f047de3e1c..676fa0231935 100644
+index 676fa0231935..9e69f2e915e8 100644
 --- a/arch/arm64/kernel/debug-monitors.c
 +++ b/arch/arm64/kernel/debug-monitors.c
-@@ -241,8 +241,6 @@ static void send_user_sigtrap(int si_code)
- static int single_step_handler(unsigned long unused, unsigned long esr,
- 			       struct pt_regs *regs)
+@@ -334,7 +334,7 @@ static int brk_handler(unsigned long unused, unsigned long esr,
+ }
+ NOKPROBE_SYMBOL(brk_handler);
+ 
+-int aarch32_break_handler(struct pt_regs *regs)
++bool try_handle_aarch32_break(struct pt_regs *regs)
  {
--	bool handler_found = false;
--
- 	/*
- 	 * If we are stepping a pending breakpoint, call the hw_breakpoint
- 	 * handler first.
-@@ -250,10 +248,10 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
- 	if (!reinstall_suspended_bps(regs))
- 		return 0;
+ 	u32 arm_instr;
+ 	u16 thumb_instr;
+@@ -342,7 +342,7 @@ int aarch32_break_handler(struct pt_regs *regs)
+ 	void __user *pc = (void __user *)instruction_pointer(regs);
  
--	if (!handler_found && call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
--		handler_found = true;
-+	if (call_step_hook(regs, esr) == DBG_HOOK_HANDLED)
-+		return 0;
+ 	if (!compat_user_mode(regs))
+-		return -EFAULT;
++		return false;
  
--	if (!handler_found && user_mode(regs)) {
-+	if (user_mode(regs)) {
- 		send_user_sigtrap(TRAP_TRACE);
+ 	if (compat_thumb_mode(regs)) {
+ 		/* get 16-bit Thumb instruction */
+@@ -366,12 +366,12 @@ int aarch32_break_handler(struct pt_regs *regs)
+ 	}
  
- 		/*
-@@ -263,7 +261,7 @@ static int single_step_handler(unsigned long unused, unsigned long esr,
- 		 * to the active-not-pending state).
- 		 */
- 		user_rewind_single_step(current);
--	} else if (!handler_found) {
-+	} else {
- 		pr_warn("Unexpected kernel single-step exception at EL1\n");
- 		/*
- 		 * Re-enable stepping since we know that we will be
-
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+ 	if (!bp)
+-		return -EFAULT;
++		return false;
+ 
+ 	send_user_sigtrap(TRAP_BRKPT);
+-	return 0;
++	return true;
+ }
+-NOKPROBE_SYMBOL(aarch32_break_handler);
++NOKPROBE_SYMBOL(try_handle_aarch32_break);
+ 
+ void __init debug_traps_init(void)
+ {
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 9bfa5c944379..685c11b2c553 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -454,7 +454,7 @@ void do_el0_undef(struct pt_regs *regs, unsigned long esr)
+ 	u32 insn;
+ 
+ 	/* check for AArch32 breakpoint instructions */
+-	if (!aarch32_break_handler(regs))
++	if (try_handle_aarch32_break(regs))
+ 		return;
+ 
+ 	if (user_insn_read(regs, &insn))
 -- 
 2.43.0
 
