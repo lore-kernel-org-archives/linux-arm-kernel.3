@@ -4,116 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05200C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:13:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD27C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dJ6X8dIYmppUXPR9jjYjN7eoEUwVzbFBocT4G4uDz9M=; b=qasTB5kDk7cQvMD+v/JvyOMGmA
-	JEJ7Smrwsq/HflQx/Oe7m3PYMQO/ufjTnXbZrrEVnlKNaTnr+H9AmYjYbYXG203sfscO8RUHHxIFG
-	Xy4dSt3FWY/YJO8JvacigU72dU3C1qg9Tk/gKhp1faWY6woj28hO/f0XsBfog6mSOGJsilbhnVgEW
-	Gn9gaWVXtULj2Y2J2Fl8V9tRw6bmw98LnKP+jzLVZSyPCk52Bo0CVd8d3GM3JGExDDGAq5fiFgOUg
-	SlxWm7KmoMN3bgcZSWvErAgm/tziFnNB0Z/QhTz74cGnSyfDwb6Kyd8Yrnl263G2flAfq3npOmHFo
-	e1uuHl1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NwvXDVinElV0bRbdQOk0BsWXXzDHpMzF/l0aQuRwLgw=; b=w1KJEY0UpjRVIZ/JtYHy4L9iUO
+	NCUsiJhi6/5iswAr9iWmYitgprwa3sdelfqkSTG5e/CYODfHc9k9qCJKFikdCgov51f0rbSMYDQ5i
+	EbTsMZUwY4G0AY/6IwcpaqSdWDwyCEKSDlMP02g0ekZ0t22P0+vgCGszz9v995OnrNSNQZRakw9P+
+	xoWGY7OLfiPzNpSQhufwNTygnIS4iREOjNtNdGEaCBBWKL9QNOTs9hz8bL8VZRg2s/FC1Wxd1OdoZ
+	rIQ+Z0qTcqyZ7AqzO/j3qju8bU+o/FjQKW6YtEROyv9LxM6X7OVCH9Da6TeST/+KhLm5GBj9Y7LrA
+	El3LoDDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOg3Q-00000004lyd-00v0;
-	Mon, 09 Jun 2025 17:13:00 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1uOg5X-00000004mQj-3Kja;
+	Mon, 09 Jun 2025 17:15:11 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOem2-00000004Zxn-0OvP
+	id 1uOemQ-00000004a03-2WcM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 15:50:59 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-60402c94319so2779504eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 08:50:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1749484256; x=1750089056; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dJ6X8dIYmppUXPR9jjYjN7eoEUwVzbFBocT4G4uDz9M=;
-        b=NiWyJCR3PzG5mBnZ1baCpRGyDl1cHCPo8oLVFJ50KXa2XT6W8p2AGOG04yt/VdYgYP
-         a7ljBlVZSvCvYqqC2zfd50P70wMR5wBIwCnTrA9aA7E+fTPdb1JH7muKgyEDl2AKXqmc
-         Uy9eBgqqZ6Nf0Woxis2swM2uc/7nKnLl/Jl4Y=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749484256; x=1750089056;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dJ6X8dIYmppUXPR9jjYjN7eoEUwVzbFBocT4G4uDz9M=;
-        b=PdaI0kjU1194AwHW3ErsJo+c/vnBWm8tIkn7j4VmTM+9X8LaizdjtBlrjeBJbq5D0/
-         4oRz9l9j/IzkxvckCw8wzH5XBfktc1fl6AkiyhtUkK/NCfO1diub7+XfwJ36tumJTIbi
-         DwC9I/WsUsyczpnrUtzTvYLDxzRxE0jIwQKu2Mjm+lA/KD4wnA5tG66EL6veqBenQwIm
-         vf2SlQGXyphHjqPu/1SqnWvom1L+5OYIzllttCv0cJ9GTMpvMvNH0n9gDXGc+YErnLsy
-         2AOWluJ+l1V+DZmMQke4oAT5K8BIsy5Me3sd0JhYvj1ve+8N7U9l0xkmEWliOaGJ3f0a
-         8ikg==
-X-Forwarded-Encrypted: i=1; AJvYcCXBTjutZaYiIOXSQnwsL5IOLEP0OFcF5a8pXv68fxOwE5c7uMR0vs40vIuNPsgrKG26BN9IMnZ6Gjm2Rly9oHoG@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywz0vbW9uAHH63dkduFLHJcsaK11GPivwqm1a22Cyy1nFIe7WnZ
-	xK/N3X4GrY8No2yfw0Kb080mHoojca80snMDIx1qdPYW61ozelFGRKmlUvdgeNYQ4TIjjto4LbE
-	hCpA=
-X-Gm-Gg: ASbGncuYQYsHBPSblM3F/1T8lX4xqBsMkRQPRKfazIFbtNDGNw4B848N1OkwChTD1GP
-	r2N3myMUHNWcnQZs5gUmkArbcT9UEUYqFDw16UCE1pQFY0mmtl9z4djxars0nnE9EGeLVSJBrSf
-	OXdbwSAx7k2q5y0SRHmjPkC4rUnEPfX3x/d6aHoNpMm8rP5LzHdo7ImQDSkCmUhk89SVDOVY+Xs
-	g3pDNU4AAPJWHMgLCyGRXF/LnkJLAfpiivsz8hVlirAwlWxX40nZ4CZAHuLlTevbMRlVS8EQ2Fs
-	4SD6o/jVucnjAtrNhevJUpgsDSJy3fBugTpzFBpQX9JGPjY2ZurvGIdFTqqUOYcuS2utljK2SgB
-	8VgosV4OS0nM60EIEvjE=
-X-Google-Smtp-Source: AGHT+IHcew43P6vWrrJEdeumaM/fQiZGg1NSWjGquzTyGrRghXVi6/JAIEwGwXWcgz6+gZ3TGzgmIw==
-X-Received: by 2002:a05:6870:5147:b0:2d5:2955:aa6b with SMTP id 586e51a60fabf-2ea007cdf93mr8674793fac.5.1749484255975;
-        Mon, 09 Jun 2025 08:50:55 -0700 (PDT)
-Received: from mail-oi1-f182.google.com (mail-oi1-f182.google.com. [209.85.167.182])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2ea70259b52sm120997fac.43.2025.06.09.08.50.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Jun 2025 08:50:55 -0700 (PDT)
-Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-4066a0d0256so2937403b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 08:50:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXofTTQozNzwRhjWJ27u/RkTrMYtMUkaXL5KzQqNoSOLtnT+jBLm9WV2FOA4UoeX2suWGUExIE2GlGLy2SsCdq8@lists.infradead.org
-X-Received: by 2002:a17:90b:4c4e:b0:313:27e5:7ff1 with SMTP id
- 98e67ed59e1d1-313472d3204mr17932741a91.1.1749483806734; Mon, 09 Jun 2025
- 08:43:26 -0700 (PDT)
+	Mon, 09 Jun 2025 15:51:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1749484280;
+	bh=b2Wgtom4VQPmWb8cZ96Sldnc/IbgbcGy9qLVL/LndP4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C/FFabkU8OWROYnczjEpCIlLs4zvR4hKgjFas/26QrtqXGDDMX1ty0XcQUaTtWyvI
+	 IcwhfyrwFNzIWey27gft97jEjjwgmTjELbOYbfwg+KPx5pz+uadyrCP06b8Vazt6r/
+	 yAZHd07b7SYaOZeG3tewAkSiPn+1OcgorSlxLjcI=
+Date: Mon, 9 Jun 2025 17:51:19 +0200
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Mark Brown <broonie@kernel.org>
+Cc: Willy Tarreau <w@1wt.eu>, Christian Brauner <brauner@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/2] tools/nolibc: Provide vfork()
+Message-ID: <d4fb291c-e329-4fb6-839f-01cb17afc933@t-8ch.de>
+References: <20250609-arm64-gcs-vfork-exit-v1-0-baad0f085747@kernel.org>
+ <20250609-arm64-gcs-vfork-exit-v1-1-baad0f085747@kernel.org>
+ <df6f5620-5986-4080-bb00-c7bee856bf66@t-8ch.de>
+ <4a4ef323-25e9-4bb5-bde4-9ad740693246@sirena.org.uk>
 MIME-Version: 1.0
-References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
- <20250218-aux-device-create-helper-v4-3-c3d7dfdea2e6@baylibre.com>
- <CAD=FV=Vb+Wb6wJ42jUBxVVNp9P87BiqHZgoY+Tw6W3fO==FF6g@mail.gmail.com> <1jmsahcbkv.fsf@starbuckisacylon.baylibre.com>
-In-Reply-To: <1jmsahcbkv.fsf@starbuckisacylon.baylibre.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 9 Jun 2025 08:43:13 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=WzN9Evge-v30NA64Q=QPJR8hkZAhmLXxDekXXFMFrd9g@mail.gmail.com>
-X-Gm-Features: AX0GCFvkFbIIK7ULGaQhmTqdCQ0r1uM5Yw-QxUNG98qVpJtj4RBGOmfISaSOf8g
-Message-ID: <CAD=FV=WzN9Evge-v30NA64Q=QPJR8hkZAhmLXxDekXXFMFrd9g@mail.gmail.com>
-Subject: Re: [PATCH v4 3/8] drm/bridge: ti-sn65dsi86: use the auxiliary device
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dave Ertman <david.m.ertman@intel.com>, 
-	Ira Weiny <ira.weiny@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Danilo Krummrich <dakr@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Hans de Goede <hdegoede@redhat.com>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, 
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-	Gregory CLEMENT <gregory.clement@bootlin.com>, =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4a4ef323-25e9-4bb5-bde4-9ad740693246@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_085058_127894_D1A74D7B 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20250609_085122_781757_DD5D514C 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,49 +70,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 2025-06-09 16:43:55+0100, Mark Brown wrote:
+> On Mon, Jun 09, 2025 at 05:34:33PM +0200, Thomas Weißschuh wrote:
+> > On 2025-06-09 16:08:56+0100, Mark Brown wrote:
 
-On Mon, Jun 9, 2025 at 6:02=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.com>=
- wrote:
->
-> On Tue 25 Feb 2025 at 08:04, Doug Anderson <dianders@chromium.org> wrote:
->
-> > Hi,
-> >
-> > On Tue, Feb 18, 2025 at 11:30=E2=80=AFAM Jerome Brunet <jbrunet@baylibr=
-e.com> wrote:
-> >>
-> >> The auxiliary device creation of this driver is simple enough to
-> >> use the available auxiliary device creation helper.
-> >>
-> >> Use it and remove some boilerplate code.
-> >>
-> >> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-> >> ---
-> >>  drivers/gpu/drm/bridge/ti-sn65dsi86.c | 49 +++++---------------------=
----------
-> >>  1 file changed, 7 insertions(+), 42 deletions(-)
-> >
-> > Reviewed-by: Douglas Anderson <dianders@chromium.org>
-> >
-> > I'll snooze this for a bunch of weeks and check back to see if this
-> > can be landed in drm-misc-next every once in a while. If you notice
-> > that drm-misc-next has the necessary patches before I do then feel
-> > free to poke me and I'll commit it.
->
-> Hi Doug,
->
-> FYI, this is safe to take with v6.16-rc1.
-> Please let know in case you prefer a resend.
+<snip>
 
-Thanks for the reminder. Unfortunately, I still need to wait. This
-patch will need to land through drm-misc-next and that doesn't have
-v6.16-rc1 yet.
+> > > +static __attribute__((unused))
+> > > +pid_t sys_vfork(void)
+> > > +{
+> > > +#ifdef __NR_vfork
+> 
+> > For consistency:
+> > #if defined(__NR_vfork)
+> 
+> Are you sure?  I'm seeing an awful lot of #ifdef __NR_foo instances in
+> sys.h - it looks like the idiom is to use that unless it either needs an
+> additional condition (with || or &&) or is an elif.
 
-https://cgit.freedesktop.org/drm/drm-misc/
-
-...presumably v6.16-rc1 will get merged in before too much longer.
-I'll try to keep an eye on it.
-
--Doug
+In sys.h, indeed. These have mostly grown historically, newer ones use
+#if defined() together with #elif defined().
 
