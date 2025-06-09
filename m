@@ -4,58 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFAFC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D007C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 17:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIwbBaYdDZIKV1f/a5gDdIku4Jq/3b7OB8F1zp6fiR4=; b=lJHk7wipQoMtVwICgBQrg8aOnu
-	p3S5QecjNF+umVpVcMZnDz3gaqiNy83aFytYaJ6hEtTowEM8zJR7uHRuRb/ZVDECOZsV5houoQkWc
-	9ZR1WeC559/V5AbnLyGtFZ6MOwAaX3gqGK122vP6aCfYgIgFQrrM9JLYZGJEOvxkq31CkIRm+ra51
-	y/+AVBvxM0NwQhBnef5TbPze7xGA8xQiwh7/pQE4YaDjCnbs+rYsz2dRuyNnfeND97kaIitB5fPDM
-	oXbvvEGPeGZ8+65V0Sjp4ggma/L4FSXLGPCNw8nwTJZis5+fVJ7E/0QviC8Hd99wsfN8PPSNG233q
-	splTR5uQ==;
+	bh=XdsCmzlviAN7D8zW7RN1bkzetwH59L+fJQ05vlqmlxk=; b=v8gQGMMrhaYJMw+ffBEsDY7Fed
+	jaTL8c5CDfgmKpYmneiehM7sn3hjt/wwHmhYLXWgYuwTQ9K1v7liYeZ2+3DvJ6DlYKMUt1hDl794r
+	uXF7p9xlKRrx7P/sF0RvDAILGn4DGUuLZnsKtX4oShIb90EzWEDwSO4g8pCsN+NNd3nRFZTwe2/ip
+	bqe7GQASwJWp5PeHt5gonNFz6LVfC2nI09Lu0iYRaFoJ5nJ4mkTVludDweWtV70PtRb1RzPmxWWlb
+	0NaqHu0ni2lQppPQ2shWVaVjuNxAM47samisDTV6HcyTQ6t/l55W8lAFjiIscvaqlaAFakLLiWynh
+	NCHF5B7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOg7e-00000004mto-269b;
-	Mon, 09 Jun 2025 17:17:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOf5q-00000004cur-2Afg
+	id 1uOgG6-00000004nv1-13ev;
+	Mon, 09 Jun 2025 17:26:06 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOfRU-00000004gSL-24iz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 16:11:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECB9C14BF;
-	Mon,  9 Jun 2025 09:11:04 -0700 (PDT)
-Received: from [10.57.48.120] (unknown [10.57.48.120])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6D5123F673;
-	Mon,  9 Jun 2025 09:11:22 -0700 (PDT)
-Message-ID: <e18507cb-bcbf-4cdd-8364-9bce0ea016d5@arm.com>
-Date: Mon, 9 Jun 2025 17:11:21 +0100
+	Mon, 09 Jun 2025 16:33:50 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 559Fxc8D010757;
+	Mon, 9 Jun 2025 18:33:40 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	XdsCmzlviAN7D8zW7RN1bkzetwH59L+fJQ05vlqmlxk=; b=l5x8CTLtU5RADRo6
+	SxU13ZIwSRejlojuW9TaZ6uGJVu49k/9cAUsTCzU6JM1hW+eEUkHZOmqDCmbDvW/
+	Rlgk3Q1Qw0Ec6ZUMpHN3ajvuStAjAiSDldeDTaB80zeSD8ZjKgXncHounqKYRxlq
+	KYsC5TyOe6AsBUlnqsXBz8lAdCYM3qZbLL99yUJrs1vEkXngi73WG39pYvYnWVSC
+	O1sUpZeXV3Q2exKZD7j1bWn2VF37XEfHzvFOqHeo7H0zl8vcv1KHTks1Z7m61pn7
+	pQTUsZLgeyVgnJLFNYeuKhcmQs37PTvi932ECEProqA/gJ1Oc0yytWrPqRNHkIdS
+	61sKNQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cahfx2q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 09 Jun 2025 18:33:40 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 26A7D400CF;
+	Mon,  9 Jun 2025 18:32:19 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 70948BF25F3;
+	Mon,  9 Jun 2025 18:30:09 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 9 Jun
+ 2025 18:30:09 +0200
+Received: from [10.48.86.121] (10.48.86.121) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 9 Jun
+ 2025 18:30:08 +0200
+Message-ID: <7850c6f4-6a6f-4934-895d-9ec0688cda2a@foss.st.com>
+Date: Mon, 9 Jun 2025 18:30:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/9] coresight: Appropriately disable programming
- clocks
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
- <20250609-arm_cs_fix_clock_v3_public-v3-4-423b3f1f241d@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250609-arm_cs_fix_clock_v3_public-v3-4-423b3f1f241d@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [RESEND PATCH v16 0/6] Introduction of a remoteproc tee to load
+ signed firmware
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Jens Wiklander
+	<jens.wiklander@linaro.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>
+References: <20250603100808.1074812-1-arnaud.pouliquen@foss.st.com>
+ <aEb8XbhY5dR__GM-@p14s>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Organization: STMicroelectronics
+In-Reply-To: <aEb8XbhY5dR__GM-@p14s>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-09_06,2025-06-09_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_091126_659925_AE8E9F48 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20250609_093349_027046_6D23F91B 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,340 +107,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/2025 17:00, Leo Yan wrote:
-> Some CoreSight components have programming clocks (pclk) and are enabled
-> using clk_get() and clk_prepare_enable().  However, in many cases, these
-> clocks are not disabled when modules exit and only released by clk_put().
+Hello Mathieu,
+
+On 6/9/25 17:23, Mathieu Poirier wrote:
+> On Tue, Jun 03, 2025 at 12:08:02PM +0200, Arnaud Pouliquen wrote:
+>> Hello Bjorn and Mathieu,
+>>
+>> I am resending this series after waiting for over two months for Bjorn's
+>> feedback, despite a prior reminder.
+>>
+>> Please could you coordinate between yourselves to determine who will continue
+>> reviewing this series? It would be greatly appreciated if the review could
+>> proceed within a more reasonable timeframe.
+>>
+>> Thanks in advance and best regards,
+>> Arnaud
+>>
+>>
+>> Main updates from version V15[1]:
+>> - Removed the rproc_ops:load_fw() operation introduced in the previous version.
+>> - Returned to managing the remoteproc firmware loading in rproc_tee_parse_fw to
+>>   load and authenticate the firmware before getting the resource table.
+>> - Added spinlock and dev_link mechanisms in remoteproc TEE to better manage
+>>   bind/unbind.
+>>
 > 
-> To fix the issue, this commit refactors coresight_get_enable_apb_pclk()
-> by replacing clk_get() and clk_prepare_enable() with
-> devm_clk_get_enabled() for enabling APB clock.  Callers are updated
-> to reuse the returned error value.
-> 
-> With the change, programming clocks are managed as resources in driver
-> model layer, allowing clock cleanup to be handled automatically.  As a
-> result, manual cleanup operations are no longer needed and are removed
-> from the Coresight drivers.
-> 
-> Fixes: 73d779a03a76 ("coresight: etm4x: Change etm4_platform_driver driver for MMIO devices")
+> Have all pending issues been resolved or is there still questions about some
+> aspects of the design?
+>  
 
-This looks suspicious. This patch covers a lot of components, but the
-above commit is only affecting ETMv4 ?
+No pending issues on my side.
 
-The patch as such looks good to me.
+In terms of design, I resend an equivalent of the V13 design incorporating
+Bjorn's comments on V15.
+The pending questions are:
+- is that V13/V16 is aligned with Bjorn's expectations[1].
+- are you also aligned on this design even if you proposed an alternative that
+  implemented in V14 and V15
+Few details on the V13/V16 design:
 
-Suzuki
+The main point of discussion is the rproc_tee_parse_fw() implementation.
+In V13, this function loaded the firmware and then parses the resource table.
+
+You proposed an alternative, to add a new rproc->load ops
+in the remoteproc core instead (implemented in V14 and V15).
+Bjorn expressed concerns about this and proposed a solution that, from my
+understanding, is equivalent to the V13 implementation.
+
+Thanks,
+Arnaud
 
 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-catu.c       |  9 ++-------
->   drivers/hwtracing/coresight/coresight-cpu-debug.c  |  6 +-----
->   drivers/hwtracing/coresight/coresight-ctcu-core.c  | 10 ++--------
->   drivers/hwtracing/coresight/coresight-etm4x-core.c |  9 ++-------
->   drivers/hwtracing/coresight/coresight-funnel.c     |  6 +-----
->   drivers/hwtracing/coresight/coresight-replicator.c |  6 +-----
->   drivers/hwtracing/coresight/coresight-stm.c        |  4 +---
->   drivers/hwtracing/coresight/coresight-tmc-core.c   |  4 +---
->   drivers/hwtracing/coresight/coresight-tpiu.c       |  4 +---
->   include/linux/coresight.h                          | 16 +++-------------
->   10 files changed, 15 insertions(+), 59 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-> index af2a55f0c907c392d092a50612b23c115a1b0f5f..4c345ff2cff141ea63c2220393e5fdd00c449ca6 100644
-> --- a/drivers/hwtracing/coresight/coresight-catu.c
-> +++ b/drivers/hwtracing/coresight/coresight-catu.c
-> @@ -636,7 +636,7 @@ static int catu_platform_probe(struct platform_device *pdev)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   
->   	pm_runtime_get_noresume(&pdev->dev);
->   	pm_runtime_set_active(&pdev->dev);
-> @@ -645,11 +645,8 @@ static int catu_platform_probe(struct platform_device *pdev)
->   	dev_set_drvdata(&pdev->dev, drvdata);
->   	ret = __catu_probe(&pdev->dev, res);
->   	pm_runtime_put(&pdev->dev);
-> -	if (ret) {
-> +	if (ret)
->   		pm_runtime_disable(&pdev->dev);
-> -		if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -			clk_put(drvdata->pclk);
-> -	}
->   
->   	return ret;
->   }
-> @@ -663,8 +660,6 @@ static void catu_platform_remove(struct platform_device *pdev)
->   
->   	__catu_remove(&pdev->dev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   #ifdef CONFIG_PM
-> diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> index a871d997330b09bdb741f35c59108b0b3252cc54..e39dfb886688e111eee95d4294f37fa85baccd14 100644
-> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> @@ -699,7 +699,7 @@ static int debug_platform_probe(struct platform_device *pdev)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   
->   	dev_set_drvdata(&pdev->dev, drvdata);
->   	pm_runtime_get_noresume(&pdev->dev);
-> @@ -710,8 +710,6 @@ static int debug_platform_probe(struct platform_device *pdev)
->   	if (ret) {
->   		pm_runtime_put_noidle(&pdev->dev);
->   		pm_runtime_disable(&pdev->dev);
-> -		if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -			clk_put(drvdata->pclk);
->   	}
->   	return ret;
->   }
-> @@ -725,8 +723,6 @@ static void debug_platform_remove(struct platform_device *pdev)
->   
->   	__debug_remove(&pdev->dev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   #ifdef CONFIG_ACPI
-> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> index c6bafc96db963310b5e77a095953c83a172cfc7c..de279efe340581ceabfb9e1cd1e7fe4b5e4f826e 100644
-> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> @@ -209,7 +209,7 @@ static int ctcu_probe(struct platform_device *pdev)
->   
->   	drvdata->apb_clk = coresight_get_enable_apb_pclk(dev);
->   	if (IS_ERR(drvdata->apb_clk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->apb_clk);
->   
->   	cfgs = of_device_get_match_data(dev);
->   	if (cfgs) {
-> @@ -233,12 +233,8 @@ static int ctcu_probe(struct platform_device *pdev)
->   	desc.access = CSDEV_ACCESS_IOMEM(base);
->   
->   	drvdata->csdev = coresight_register(&desc);
-> -	if (IS_ERR(drvdata->csdev)) {
-> -		if (!IS_ERR_OR_NULL(drvdata->apb_clk))
-> -			clk_put(drvdata->apb_clk);
-> -
-> +	if (IS_ERR(drvdata->csdev))
->   		return PTR_ERR(drvdata->csdev);
-> -	}
->   
->   	return 0;
->   }
-> @@ -275,8 +271,6 @@ static void ctcu_platform_remove(struct platform_device *pdev)
->   
->   	ctcu_remove(pdev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->apb_clk))
-> -		clk_put(drvdata->apb_clk);
->   }
->   
->   #ifdef CONFIG_PM
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 205121c14d72ec2f6a193dccb94b7cfd5c314e26..1915da95b93d953a61778a71b4880c87b91fe17a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -2303,14 +2303,12 @@ static int etm4_probe_platform_dev(struct platform_device *pdev)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   
->   	if (res) {
->   		drvdata->base = devm_ioremap_resource(&pdev->dev, res);
-> -		if (IS_ERR(drvdata->base)) {
-> -			clk_put(drvdata->pclk);
-> +		if (IS_ERR(drvdata->base))
->   			return PTR_ERR(drvdata->base);
-> -		}
->   	}
->   
->   	dev_set_drvdata(&pdev->dev, drvdata);
-> @@ -2417,9 +2415,6 @@ static void etm4_remove_platform_dev(struct platform_device *pdev)
->   	if (drvdata)
->   		etm4_remove_dev(drvdata);
->   	pm_runtime_disable(&pdev->dev);
-> -
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   static const struct amba_id etm4_ids[] = {
-> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-> index b1922dbe9292b02c91ca5730998e59ecdb08fdc7..36fc4e991458c112521c4261d73f3e58e9a3f995 100644
-> --- a/drivers/hwtracing/coresight/coresight-funnel.c
-> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
-> @@ -240,7 +240,7 @@ static int funnel_probe(struct device *dev, struct resource *res)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   
->   	/*
->   	 * Map the device base for dynamic-funnel, which has been
-> @@ -284,8 +284,6 @@ static int funnel_probe(struct device *dev, struct resource *res)
->   out_disable_clk:
->   	if (ret && !IS_ERR_OR_NULL(drvdata->atclk))
->   		clk_disable_unprepare(drvdata->atclk);
-> -	if (ret && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_disable_unprepare(drvdata->pclk);
->   	return ret;
->   }
->   
-> @@ -355,8 +353,6 @@ static void funnel_platform_remove(struct platform_device *pdev)
->   
->   	funnel_remove(&pdev->dev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   static const struct of_device_id funnel_match[] = {
-> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-> index 06efd2b01a0f71620eac71166567d14655b58403..6dd24eb10a94b0eb28f4f27afab845227e22b96c 100644
-> --- a/drivers/hwtracing/coresight/coresight-replicator.c
-> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
-> @@ -247,7 +247,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   
->   	/*
->   	 * Map the device base for dynamic-replicator, which has been
-> @@ -296,8 +296,6 @@ static int replicator_probe(struct device *dev, struct resource *res)
->   out_disable_clk:
->   	if (ret && !IS_ERR_OR_NULL(drvdata->atclk))
->   		clk_disable_unprepare(drvdata->atclk);
-> -	if (ret && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_disable_unprepare(drvdata->pclk);
->   	return ret;
->   }
->   
-> @@ -335,8 +333,6 @@ static void replicator_platform_remove(struct platform_device *pdev)
->   
->   	replicator_remove(&pdev->dev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   #ifdef CONFIG_PM
-> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-> index e45c6c7204b4491e0f879bc7d5d445aa1d3118be..88ee453b2815444a550a2b932b28367eb93336b8 100644
-> --- a/drivers/hwtracing/coresight/coresight-stm.c
-> +++ b/drivers/hwtracing/coresight/coresight-stm.c
-> @@ -851,7 +851,7 @@ static int __stm_probe(struct device *dev, struct resource *res)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   	dev_set_drvdata(dev, drvdata);
->   
->   	base = devm_ioremap_resource(dev, res);
-> @@ -1033,8 +1033,6 @@ static void stm_platform_remove(struct platform_device *pdev)
->   
->   	__stm_remove(&pdev->dev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   #ifdef CONFIG_ACPI
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index 0b5e7635a084d226619e69189a2ecbaff754ec43..e867198b03e82892da7312c9dc1c69676602c598 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -991,7 +991,7 @@ static int tmc_platform_probe(struct platform_device *pdev)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(&pdev->dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   
->   	dev_set_drvdata(&pdev->dev, drvdata);
->   	pm_runtime_get_noresume(&pdev->dev);
-> @@ -1015,8 +1015,6 @@ static void tmc_platform_remove(struct platform_device *pdev)
->   
->   	__tmc_remove(&pdev->dev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   #ifdef CONFIG_PM
-> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-> index 3e01592884280819c16398cbb5e09cbaee5d3efb..b2559c6fac6d2f02e0038e583cd324d7165c5aee 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-> @@ -153,7 +153,7 @@ static int __tpiu_probe(struct device *dev, struct resource *res)
->   
->   	drvdata->pclk = coresight_get_enable_apb_pclk(dev);
->   	if (IS_ERR(drvdata->pclk))
-> -		return -ENODEV;
-> +		return PTR_ERR(drvdata->pclk);
->   	dev_set_drvdata(dev, drvdata);
->   
->   	/* Validity for the resource is already checked by the AMBA core */
-> @@ -293,8 +293,6 @@ static void tpiu_platform_remove(struct platform_device *pdev)
->   
->   	__tpiu_remove(&pdev->dev);
->   	pm_runtime_disable(&pdev->dev);
-> -	if (!IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_put(drvdata->pclk);
->   }
->   
->   #ifdef CONFIG_ACPI
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 4ac65c68bbf44b98db22c3dad2d83a224ce5278e..dd2b4cc7a2b70cf060a3207548fe80e3824c489f 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -480,26 +480,16 @@ static inline bool is_coresight_device(void __iomem *base)
->    * Returns:
->    *
->    * clk   - Clock is found and enabled
-> - * NULL  - clock is not found
->    * ERROR - Clock is found but failed to enable
->    */
->   static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
->   {
->   	struct clk *pclk;
-> -	int ret;
->   
-> -	pclk = clk_get(dev, "apb_pclk");
-> -	if (IS_ERR(pclk)) {
-> -		pclk = clk_get(dev, "apb");
-> -		if (IS_ERR(pclk))
-> -			return NULL;
-> -	}
-> +	pclk = devm_clk_get_enabled(dev, "apb_pclk");
-> +	if (IS_ERR(pclk))
-> +		pclk = devm_clk_get_enabled(dev, "apb");
->   
-> -	ret = clk_prepare_enable(pclk);
-> -	if (ret) {
-> -		clk_put(pclk);
-> -		return ERR_PTR(ret);
-> -	}
->   	return pclk;
->   }
->   
-> 
+[1] https://lkml.org/lkml/2025/3/5/906
 
+>> More details are available in each patch commit message.
+>>
+>> [1] https://lore.kernel.org/linux-remoteproc/20241128084219.2159197-7-arnaud.pouliquen@foss.st.com/T/
+>>
+>> Tested-on: commit 0ff41df1cb26 ("Linux 6.15")
+>>
+>> Description of the feature:
+>> --------------------------
+>> This series proposes the implementation of a remoteproc tee driver to
+>> communicate with a TEE trusted application responsible for authenticating
+>> and loading the remoteproc firmware image in an Arm secure context.
+>>
+>> 1) Principle:
+>>
+>> The remoteproc tee driver provides services to communicate with the OP-TEE
+>> trusted application running on the Trusted Execution Context (TEE).
+>> The trusted application in TEE manages the remote processor lifecycle:
+>>
+>> - authenticating and loading firmware images,
+>> - isolating and securing the remote processor memories,
+>> - supporting multi-firmware (e.g., TF-M + Zephyr on a Cortex-M33),
+>> - managing the start and stop of the firmware by the TEE.
+>>
+>> 2) Format of the signed image:
+>>
+>> Refer to:
+>> https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/src/remoteproc_core.c#L18-L57
+>>
+>> 3) OP-TEE trusted application API:
+>>
+>> Refer to:
+>> https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/include/ta_remoteproc.h
+>>
+>> 4) OP-TEE signature script
+>>
+>> Refer to:
+>> https://github.com/OP-TEE/optee_os/blob/master/scripts/sign_rproc_fw.py
+>>
+>> Example of usage:
+>> sign_rproc_fw.py --in <fw1.elf> --in <fw2.elf> --out <signed_fw.sign> --key ${OP-TEE_PATH}/keys/default.pem
+>>
+>>
+>> 5) Impact on User space Application
+>>
+>> No sysfs impact. The user only needs to provide the signed firmware image
+>> instead of the ELF image.
+>>
+>>
+>> For more information about the implementation, a presentation is available here
+>> (note that the format of the signed image has evolved between the presentation
+>> and the integration in OP-TEE).
+>>
+>> https://resources.linaro.org/en/resource/6c5bGvZwUAjX56fvxthxds
+>>
+>> Arnaud Pouliquen (6):
+>>   remoteproc: core: Introduce rproc_pa_to_va helper
+>>   remoteproc: Add TEE support
+>>   remoteproc: Introduce release_fw optional operation
+>>   dt-bindings: remoteproc: Add compatibility for TEE support
+>>   remoteproc: stm32: Create sub-functions to request shutdown and
+>>     release
+>>   remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
+>>
+>>  .../bindings/remoteproc/st,stm32-rproc.yaml   |  58 +-
+>>  drivers/remoteproc/Kconfig                    |  10 +
+>>  drivers/remoteproc/Makefile                   |   1 +
+>>  drivers/remoteproc/remoteproc_core.c          |  52 ++
+>>  drivers/remoteproc/remoteproc_internal.h      |   6 +
+>>  drivers/remoteproc/remoteproc_tee.c           | 619 ++++++++++++++++++
+>>  drivers/remoteproc/stm32_rproc.c              | 139 +++-
+>>  include/linux/remoteproc.h                    |   4 +
+>>  include/linux/remoteproc_tee.h                |  90 +++
+>>  9 files changed, 935 insertions(+), 44 deletions(-)
+>>  create mode 100644 drivers/remoteproc/remoteproc_tee.c
+>>  create mode 100644 include/linux/remoteproc_tee.h
+>>
+>>
+>> base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
+>> -- 
+>> 2.25.1
+>>
 
