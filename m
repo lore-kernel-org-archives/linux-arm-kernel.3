@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9148AC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 14:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40418C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 14:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qs9yDBCL9OQQ2dpuHj/+WEzZXErX2MF2uYZnoNM7uA4=; b=fcPGcV6gr4m1YtxCKffCuY1BR3
-	BPeW4oiCVVfLEkf9N+EXDXLdywG0GdDUh+tURIzc8I56WkAcSGr+M/R/4du9LIqB/eY78dM8/+SSx
-	t5WhoQQhvAkdtw2CEpJ5sAOPt1da/9KeGm9BXAUH+WNJ4jbvqacWKea8doOaxD0vfyWJjoy9gGksu
-	ZLKCmJWO4K/QYm5trC6nTC0wjZoaccUK3AFJ6Nr1MbthZTOFTomPpICDGPCCIZjMZCAWkDJPy9qTb
-	uHtpvT49y+/m4E5Ime+10awOGFFGm2hF9RDIODa5horu+77iFC339dQLktSbDI7arQCDYybE9WfXB
-	pU4ijAgg==;
+	bh=kmc+XBP73DggJUv8T7xxNG1d8C/BNb5bhPDGJBM+T0c=; b=xictIVK/dFKmAoP8WUs/xBHUHe
+	Cx9YtrZAdYiy8z/VaKN0hdfhI81sOTrxaVoYP70fRyEvcyTuv9WVW9mOAyakQjXDJvBLdPLJ/Uv3E
+	ICmyY8QWzANLdY5EhC7hGhERDQomLtF8K14oAPNnfUJIjml8oswfjixisXBFPpJ5mXYbPVFQFfOqk
+	+7SW6oVKgQBdKTLZNFlI5DsvpxPFyhyUVIlNfbSprO/ATmtF9k3Kbf7BGlyIndhwG8CaY1phQpmIe
+	uIntlqjvOE3avT28BRAUnycpORqMI28d4eGKptTKCkIug8mTdVut7A1EGAUmXBCsirx5UV1ejl6Af
+	rt7y4bzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOdXm-00000004ODE-0b3D;
-	Mon, 09 Jun 2025 14:32:10 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1uOdZy-00000004OXX-1Nkm;
+	Mon, 09 Jun 2025 14:34:26 +0000
+Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOdRO-00000004NVh-0gnU
+	id 1uOdRq-00000004Nc7-2I9h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 14:25:35 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e73e9e18556so4140029276.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 07:25:33 -0700 (PDT)
+	Mon, 09 Jun 2025 14:26:04 +0000
+Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e81cf6103a6so1167542276.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 07:26:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749479133; x=1750083933; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1749479161; x=1750083961; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qs9yDBCL9OQQ2dpuHj/+WEzZXErX2MF2uYZnoNM7uA4=;
-        b=PE01noR3F9aSVA6LedujPtA80YMwoRVgiRxMwN57ybwpPsaFvhoGp76ZmVOCJoOSGW
-         RBbqLriJLB/xC1teOip8fO1lIjIp7B6GwBX2+mRRmGaigxXOTs17A/zaJoGJ9LTMe7Jk
-         KhvnIPtoW2MeizegmbU3DCY4sONZN9v0ROQpo2kdHGkBJFWK80CgUoM01S8k3GjV46fV
-         HCviTVbG9HniPk3Zf5ep75DRtDNycZ9t6L+/cCq5OgP3NzUcTht3JUzy3FZZKZ3yJpgP
-         NIOa7ae0zDEqsOGcg2n13bS5Pm9+rFS4kKWy6VxyVGjmUKAi2HVIBXcR7lK3aQiJ6rWn
-         DztQ==
+        bh=kmc+XBP73DggJUv8T7xxNG1d8C/BNb5bhPDGJBM+T0c=;
+        b=pW+kV8QkMKu6kbk83HQUQBYxogDvYbo4y/Px1Vfp6LEkYtOt28Hoh6zprCPnI9pvhV
+         7XqEjTDbbi/h19C26KrHLOfm1MMTd9nXfPAhf8WwQzEhR8zeQXb/04Frg5mty2FCOBtY
+         q+460YRSjGApcfhY+OyFBE0SRgQGy01CcqZexHTi3xhHOz/jWXiSoFDHewE5uBeGh4pp
+         RBk7oeKv4LkcLffC7mCxCZVRuJg2eZIQf1KB6CRILlvNFDwGrXPbP0pae4m8xREvfqCY
+         GkIdGRMfSIUgQJGmo4+zkrd4SHDq9szOZHlxL5g2hFP7IYqRvrlV8PYaTo9cJP59pYAH
+         Lohw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749479133; x=1750083933;
+        d=1e100.net; s=20230601; t=1749479161; x=1750083961;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Qs9yDBCL9OQQ2dpuHj/+WEzZXErX2MF2uYZnoNM7uA4=;
-        b=PDXGsfZMVkR4U/LvzVVRDVLS+0DqBYBScGShscBOpLc/NofE40C9e5+ieit1As9PVR
-         MG9FZcs5Ue7w6S6UTIwasn12jnU1GQJBjHXnMwDOVhxRKFqtfW/JN8V1VczlHkzmEp/T
-         yTGhkdqUguo2yHxLAQsdMre9b/2w6CpNM1s9g6f4V40JlTA57mDJfO9vuicrYfKTR14z
-         WFaQhe5C7SOeHZ7TbvRAeIERUsg/NqqfSwynQR1ysbnT9OEFa/ub0RYgfl8fSREdotuh
-         Ji+MAwY2EGJvI6nXqdNvrD9SexK/X0FFXmMIw3s1qoxEwthUiGwEKMacTEdlzeeZsg/A
-         Isrw==
-X-Forwarded-Encrypted: i=1; AJvYcCVDvsapyB7J9TOrHID4xq1ugT7gPKmZt/mMExWDUYqGgIFW/UZdMAcHmV/9iPY7KtmAnakmPimpkiIK6yMPhlAL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTIJ2rq4VC5qQyZeUG3lFgqh3xjyUFJ8YsGgoEsmrX6JjRyKFS
-	W/W7r2k6gPTqMy0wp1emeaE5mgIwx+XF/tWIji3sq6UGPMKHIu/1e8mLsTdziD+DorSwdJxI1EK
-	/t3vSe0cXhF+hv3UTNaSVtKfzvKy82JAbr0wtQ+qwjw==
-X-Gm-Gg: ASbGncukpy6mirJOXevuPgT9O7AoRZhKWKOl7dKXinoo1GQhfK7iqS1fag2iS1QMBj+
-	Kic9vPR5ayxdFxY6YIxWLDgJD10ztdYPp/oT0FGqun8F+nUP0dz6oNAxQsm5Fp7YiaeOQ/qdmIC
-	4DxbyLf31bG9FG6KSMecqpSyP7kJ7RMoHtUw==
-X-Google-Smtp-Source: AGHT+IG9S1xNruNzhNFugEoEcohrFQLqoxTMTaqwCUIforBGu07/WXI6ZQ6WYR+jbUueu4Zz7wktb1J3/XAbxy5DAZ0=
-X-Received: by 2002:a05:6902:1005:b0:e7d:a290:9532 with SMTP id
- 3f1490d57ef6-e81efde986amr99713276.6.1749479132960; Mon, 09 Jun 2025 07:25:32
- -0700 (PDT)
+        bh=kmc+XBP73DggJUv8T7xxNG1d8C/BNb5bhPDGJBM+T0c=;
+        b=I42KC3z23//Hqszqn7zUkMrExAm0jMyS0FvAbw4iGu61KN6GRh8zU9+vRX/V4ns6QV
+         g+8mPy+bOdLdAAbtOfJkO8WmfQcgzNZbkS2UiJtT4BXpOZz6BYkm8KLFp79Eyb7zwYEQ
+         ic/FyT1DnE4+SbFLQ3HVBJs6hmJsQf7M4TB/7RWKeqE7g9ug7IRJ2cVSlNcSWvYGclZ1
+         BFDvEFO6zdXOFNOHL0BMNJRb3Ce8NLhS4Ym/atvLARqB95HxO1Aznlwv6ECylXwcbk8d
+         PAK13nJ5qUCf/rFy9h6u6eiIPvqYlHEJMJxk05D/y4m0lFxXXYiU49NXD1C2pa5kjY8D
+         a39A==
+X-Forwarded-Encrypted: i=1; AJvYcCV1qaL3Tfvbkv+y3OMcC5vmfYzcAwnIs+MW0C5oWn8bG9P8ULnzhLM5B3xIUB/QjSiHxK45Qhvg36s2ooUBgPRT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL+JYTyBNIHqN1xWICWmwQ23h56NZqyfAYVxSTCEhCuCVe2CeY
+	ADBnCQED4wxAyZ2AIwJS8noKcycTqnS75Yndwj5xM5ocJtwBHeDgMTLtBkdH3kBVLdLZJWuA20m
+	F6czphJm7LPN11AL+SjhkQ2ccdxspYDOqKpxVZfT0RA==
+X-Gm-Gg: ASbGnctRVTMb4uM1AkTK1fTFHGli+9aUqJEMbsi/SgxQB5ibv0oEM/QF7r4cbaN/4Sr
+	eLBCHtvSJR92c6dLnVnuGJesLNHrSWy3YNd0uGIaojBTQy0z6mmUF50euIrHN42mQuelxupaBOo
+	jmpb+gHneMLHYEIZTlCWkRcWj5M9IEa2OdDES2q2cK4owJ
+X-Google-Smtp-Source: AGHT+IFKLep+oVnJLAdhYlsfnnGURCM0jm5x9XuhkDAOYH3BwxGyY+sHbb4Wkeme1jFAonQLcsi0Q2V0d9n0diMCHJo=
+X-Received: by 2002:a05:6902:f84:b0:e81:9aa9:88cd with SMTP id
+ 3f1490d57ef6-e81a20d40demr18795796276.8.1749479161518; Mon, 09 Jun 2025
+ 07:26:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250521025502.112030-1-ziniu.wang_1@nxp.com> <20250521025502.112030-2-ziniu.wang_1@nxp.com>
-In-Reply-To: <20250521025502.112030-2-ziniu.wang_1@nxp.com>
+References: <174908565814.4056588.769599127120955383.stgit@mhiramat.tok.corp.google.com>
+In-Reply-To: <174908565814.4056588.769599127120955383.stgit@mhiramat.tok.corp.google.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 9 Jun 2025 16:24:57 +0200
-X-Gm-Features: AX0GCFto9k3Gr4YCVyXjpM_DIPE3WFVihsUYF7aq38OAJZNQC3fiKNoXcigrZNg
-Message-ID: <CAPDyKFoHqhgWqy4EeQ2vr0eQgCnUkSf6SLyKEVLzar30Sy7OHQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] mmc: sdhci-esdhc-imx: optimize clock loopback
- selection with dummy pad support
-To: ziniu.wang_1@nxp.com
-Cc: haibo.chen@nxp.com, adrian.hunter@intel.com, linux-mmc@vger.kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, imx@lists.linux.dev, s32@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 9 Jun 2025 16:25:24 +0200
+X-Gm-Features: AX0GCFvF_id35MOPl_pL8yIz8wUA8Ns9lzvlVE2LmtTNl-drJlr2CqeBViKQxTQ
+Message-ID: <CAPDyKFrejbW1d+jSSJE4K8Zb08CeMHiH9pC=Sr=Y51Lyy4Fhow@mail.gmail.com>
+Subject: Re: [PATCH] mtk-sd: Fix a pagefault in dma_unmap_sg() for not
+ prepared data
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Chaotian Jing <chaotian.jing@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, linux-mmc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_072534_205339_E56AAB1F 
-X-CRM114-Status: GOOD (  21.89  )
+X-CRM114-CacheID: sfid-20250609_072602_586857_29D0EFD2 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,99 +96,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 May 2025 at 04:53, <ziniu.wang_1@nxp.com> wrote:
+On Thu, 5 Jun 2025 at 03:07, Masami Hiramatsu (Google)
+<mhiramat@kernel.org> wrote:
 >
-> From: Luke Wang <ziniu.wang_1@nxp.com>
+> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 >
-> For legacy platforms without dummy pad:
-> When clock <= 100MHz: Set ESDHC_MIX_CTRL_FBCLK_SEL to 0 (external clock
-> pad loopback) for better bus clock proximity.
-> When clock > 100MHz: Set ESDHC_MIX_CTRL_FBCLK_SEL to 1 (internal clock
-> loopback) to avoid signal reflection noise at high frequency.
+> mtk-msdc driver causes a kernel crash after swiotlb buffer is full.
 >
-> For i.MX94/95 with dummy pad support:
-> Keep ESDHC_MIX_CTRL_FBCLK_SEL at 0 for all speed mode. Hardware
-> automatically substitutes clock pad loopback with dummy pad loopback
-> when available, eliminating signal reflections while preserving better
-> bus clock proximity.
+> ---
+> mtk-msdc 11240000.mmc: swiotlb buffer is full (sz: 16384 bytes), total 32768 (slots), used 32732 (slots)
+> mtk-msdc 11240000.mmc: msdc_track_cmd_data: cmd=18 arg=0397A6F8; host->error=0x00000004
+> Unable to handle kernel paging request at virtual address ffffffffc0001fc0
+> ---
 >
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+> When swiotlb buffer is full, the dma_map_sg() returns 0 to
+> msdc_prepare_data(), but it does not check it and sets the
+> MSDC_PREPARE_FLAG.
+>
+> swiotlb_tbl_map_single() /* prints "swiotlb buffer is full" */
+>   <-swiotlb_map()
+>     <-dma_direct_map_page()
+>       <-dma_direct_map_sg()
+>         <-__dma_map_sg_attrs()
+>           <-dma_map_sg_attrs()
+>             <-dma_map_sg()  /* returns 0 (pages mapped) */
+>               <-msdc_prepare_data()
+>
+> Then, the msdc_unprepare_data() checks MSDC_PREPARE_FLAG and calls
+> dma_unmap_sg() with unmapped pages. It causes a page fault.
+>
+> To fix this problem, Do not set MSDC_PREPARE_FLAG if dma_map_sg()
+> fails because this is not prepared.
+>
+> Fixes: 208489032bdd ("mmc: mediatek: Add Mediatek MMC driver")
+> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Applied for next, thanks!
+Applied for fixes and by adding a stable-tag, thanks!
+
+Note that it looked like the patch was not entirely correctly
+formatted, but I fixed it up when applying. Please have a look at the
+fixes branch to make sure things look okay to you.
 
 Kind regards
 Uffe
 
 
+
 > ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 25 +++++++++++++++++++++----
->  1 file changed, 21 insertions(+), 4 deletions(-)
+>  drivers/mmc/host/mtk-sd.c |    3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 >
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index c448a53530a5..5f1c45b2bd5d 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -212,6 +212,9 @@
->  /* The IP does not have GPIO CD wake capabilities */
->  #define ESDHC_FLAG_SKIP_CD_WAKE                BIT(18)
->
-> +/* the controller has dummy pad for clock loopback */
-> +#define ESDHC_FLAG_DUMMY_PAD           BIT(19)
-> +
->  #define ESDHC_AUTO_TUNING_WINDOW       3
->
->  enum wp_types {
-> @@ -348,6 +351,15 @@ static struct esdhc_soc_data usdhc_imx8mm_data = {
->         .quirks = SDHCI_QUIRK_NO_LED,
->  };
->
-> +static struct esdhc_soc_data usdhc_imx95_data = {
-> +       .flags = ESDHC_FLAG_USDHC | ESDHC_FLAG_MAN_TUNING
-> +                       | ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200
-> +                       | ESDHC_FLAG_HS400 | ESDHC_FLAG_HS400_ES
-> +                       | ESDHC_FLAG_STATE_LOST_IN_LPMODE
-> +                       | ESDHC_FLAG_DUMMY_PAD,
-> +       .quirks = SDHCI_QUIRK_NO_LED,
-> +};
-> +
->  struct pltfm_imx_data {
->         u32 scratchpad;
->         struct pinctrl *pinctrl;
-> @@ -392,6 +404,8 @@ static const struct of_device_id imx_esdhc_dt_ids[] = {
->         { .compatible = "fsl,imx7ulp-usdhc", .data = &usdhc_imx7ulp_data, },
->         { .compatible = "fsl,imx8qxp-usdhc", .data = &usdhc_imx8qxp_data, },
->         { .compatible = "fsl,imx8mm-usdhc", .data = &usdhc_imx8mm_data, },
-> +       { .compatible = "fsl,imx94-usdhc", .data = &usdhc_imx95_data, },
-> +       { .compatible = "fsl,imx95-usdhc", .data = &usdhc_imx95_data, },
->         { .compatible = "fsl,imxrt1050-usdhc", .data = &usdhc_imxrt1050_data, },
->         { .compatible = "nxp,s32g2-usdhc", .data = &usdhc_s32g2_data, },
->         { /* sentinel */ }
-> @@ -1424,9 +1438,10 @@ static void esdhc_set_uhs_signaling(struct sdhci_host *host, unsigned timing)
->                 break;
+> diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+> index 345ea91629e0..3594010bc229 100644
+> --- a/drivers/mmc/host/mtk-sd.c
+> +++ b/drivers/mmc/host/mtk-sd.c
+> @@ -827,9 +827,10 @@ static inline void msdc_dma_setup(struct msdc_host *host, struct msdc_dma *dma,
+>  static void msdc_prepare_data(struct msdc_host *host, struct mmc_data *data)
+>  {
+>         if (!(data->host_cookie & MSDC_PREPARE_FLAG)) {
+> -               data->host_cookie |= MSDC_PREPARE_FLAG;
+>                 data->sg_count = dma_map_sg(host->dev, data->sg, data->sg_len,
+>                                             mmc_get_dma_dir(data));
+> +               if (data->sg_count)
+> +                       data->host_cookie |= MSDC_PREPARE_FLAG;
 >         }
+>  }
 >
-> -       if (timing == MMC_TIMING_UHS_SDR104 ||
-> -           timing == MMC_TIMING_MMC_HS200 ||
-> -           timing == MMC_TIMING_MMC_HS400)
-> +       if (!(imx_data->socdata->flags & ESDHC_FLAG_DUMMY_PAD) &&
-> +           (timing == MMC_TIMING_UHS_SDR104 ||
-> +            timing == MMC_TIMING_MMC_HS200 ||
-> +            timing == MMC_TIMING_MMC_HS400))
->                 m |= ESDHC_MIX_CTRL_FBCLK_SEL;
->         else
->                 m &= ~ESDHC_MIX_CTRL_FBCLK_SEL;
-> @@ -1678,7 +1693,9 @@ static void sdhc_esdhc_tuning_restore(struct sdhci_host *host)
->                 writel(reg, host->ioaddr + ESDHC_TUNING_CTRL);
->
->                 reg = readl(host->ioaddr + ESDHC_MIX_CTRL);
-> -               reg |= ESDHC_MIX_CTRL_SMPCLK_SEL | ESDHC_MIX_CTRL_FBCLK_SEL;
-> +               reg |= ESDHC_MIX_CTRL_SMPCLK_SEL;
-> +               if (!(imx_data->socdata->flags & ESDHC_FLAG_DUMMY_PAD))
-> +                       reg |= ESDHC_MIX_CTRL_FBCLK_SEL;
->                 writel(reg, host->ioaddr + ESDHC_MIX_CTRL);
->
->                 writel(FIELD_PREP(ESDHC_TUNE_CTRL_STATUS_DLY_CELL_SET_PRE_MASK,
-> --
-> 2.34.1
 >
 
