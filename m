@@ -4,66 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA41C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 16:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9715C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  9 Jun 2025 16:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2g4US5lCKgmSBCmiKFgjXda5JAB+UbMpn/EsWWU+2Kk=; b=N6wsapdlDeR9vcE1eqFfHEPJ4O
-	I1eIqYPN+Y2Ra+e/h7yI6et9s7WlFRTuwihqQ/vxsQIu5rs9ptG9p+b15I+M37fWi1UCczTTHN7La
-	E/ZGURfralnvs4kGEB0gkxFug/Kw0LK4YDjMY+8JJtVyPRiNDaj/PvC3kcSFxumrUW0ndNOzNWN3d
-	KoEp0aWRXj00fqetruQadsuBw+4hDofWOuEUxa9LtMYynASTEtM6zcdkwgU73i8p5snMjiuV6WIpi
-	HMYbFW4TtKlECB5WyozyKzzw2GsUd3cDrKfP5rVKkd9UlF+AvSUVuWgiE6+9hD++PdQ1xB2dQFYgn
-	17TsZS/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/sMFXHUz8KDvmIU3TuGc+vP482++/FCK0k2Er/8oQMU=; b=HU1En4c6RKFI41A+ijX0pxg0PD
+	83/JlxVQMX7nxhq/lIdxMCZ56sN0Z7O9seU+Erzfnt1SLazqXpBypTN9WzFZTiMajo5ootuY1xUgm
+	L4mjV1iHtWQjZAiCpKFpZoXLTnpGUb4WNetTFzJPA1DpyWBazNAk7iD3JPLrtyAQRoEZfjVLe66st
+	75vQUd1x4+He/TbkmOH4nyb3zIse6Zwf9qXv11k/bHvWmhdlhApOa7kPaS7NffbstUvA7vkJUi/n4
+	2zHGstxG0kXxLeQOq6h4fjm7tBgYbk1YX2+PYRYjxv5KX+hNR1AgD8XqosGh7rfVTdl9wxCeWBhf2
+	seji8opA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOfGA-00000004eZC-1r2o;
-	Mon, 09 Jun 2025 16:22:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uOfHn-00000004exd-0wA2;
+	Mon, 09 Jun 2025 16:23:47 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOefJ-00000004Ybg-1IiA
+	id 1uOdxX-00000004RDg-06Yn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 09 Jun 2025 15:44:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5D6A6A4E4F5;
-	Mon,  9 Jun 2025 15:44:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C83AC4CEEB;
-	Mon,  9 Jun 2025 15:43:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749483840;
-	bh=dUr9fbBYnK9U//jQ+GxgQ2ptP0b04ydOP1yvclyTkg0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lk7f97wKxu94/wlyuKasXM1hTREHKY/GkC5ULdl3pQ1Wvrco6Pj2hMrEmZXuJfoGy
-	 txUYIIRp7oWe339UGVzYmv/L8hkzWAo2Z9iKZN9pHaD6hSL7ud6E1PBgQby7DktJz3
-	 /ZT8pRi+rVcuvkoE7kmJr7Yy37fnunMrTkPXKADoKXH2JhI6k/AdtGz99iBMzFqHyz
-	 ss6TqnIK4eqPcnpcVciW8v4C9X1XfI/paZlmqaQzAU9SV0rJhJ0V36KHmZAxA3wHkm
-	 HNGz/oAbjfoh1piQ8LTsWBXw6QNPS1yAMaPHo7D4/A9qcnMmwFsJnu8VyZp3ttT7O5
-	 m9eRW1FEtcQ2A==
-Date: Mon, 9 Jun 2025 16:43:55 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Cc: Willy Tarreau <w@1wt.eu>, Christian Brauner <brauner@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 1/2] tools/nolibc: Provide vfork()
-Message-ID: <4a4ef323-25e9-4bb5-bde4-9ad740693246@sirena.org.uk>
-References: <20250609-arm64-gcs-vfork-exit-v1-0-baad0f085747@kernel.org>
- <20250609-arm64-gcs-vfork-exit-v1-1-baad0f085747@kernel.org>
- <df6f5620-5986-4080-bb00-c7bee856bf66@t-8ch.de>
+	Mon, 09 Jun 2025 14:58:48 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b2c2c762a89so2938090a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 07:58:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749481126; x=1750085926; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/sMFXHUz8KDvmIU3TuGc+vP482++/FCK0k2Er/8oQMU=;
+        b=SaP1GmV4f7GUAYsA9A4tRXvWSteWn/kR1bEybRt2FWniRk4hd+zbMmZv9ZhknIAXHF
+         7FaoIJIRrzt+h/qT8bh55ZnPjhB51xXp+uzGJ++GWJmMTYgzIJS8UTUcic0h1ZPJJsAz
+         2GRWc9VLukXXR1gXcZtf5z/5xknwlgpYM53hHm9teadynRNiaOnDeC+JUNUfcxB8mVhG
+         AQEgfKu87jHG7ozUdbz26vvu8SQUHRraoiutZuHSlIZwCVzhPHQEBlCaQZlNL0kXg5wt
+         y+6EbFkbwVTTbxg0bDOHknzGlRnhysTCy2t3WnQfYYjpjjqHWYhg70plvQBkoM34gwpg
+         NTTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749481126; x=1750085926;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/sMFXHUz8KDvmIU3TuGc+vP482++/FCK0k2Er/8oQMU=;
+        b=TxhWn28Z30jJZ39DBTp7R8ug6sDD3M3S65lED5LTJ8SVEsGjw0ZI+D2Xr2UeKqiNQS
+         aiXTN9hUyxcgOvprnHTyAfeVAgu0HW9Ygkn9/y7jGvEPHDq2rUDV+bwvGyTWCSGWQrDo
+         jNPF9nPBKrN5WkPpS3VJG1UL9BTpoDidRoht78p2M+IfcFe3c2nxeXyKrkoO1k7nMM6o
+         VFu8T0isUy2HkJb8lT0oAE7+g1ePRPmYcsgQ7tcWYpjSfQRJg56/TL8+nWy7SuYX+8NL
+         YzervX3pGkC3NyB3fmUkLWNeYH8dqYSSRw6DKGEVV83drmnVUFs2mjAEISJHxr4Te1PR
+         NF9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU+euGLuv37QNtUvnanayJzRDsixhZ6Tm1HtnVnKT+8fOBtl/c1h6g2leP4kULBHCgQMmzqhlZKHO6qwVuGxr3X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yynj9eG+mLchKvzXHFC6VRtiiYxKjGJnFjCficiUaa5ZYsFOstX
+	c2Qxy+pxLJw0nkbt9OdxWHQyiZYuBCXqudgtpJbnFxerGTQzgFIMe4Wd
+X-Gm-Gg: ASbGncvUEvKN1st1Fhsxy/7PAwmOfcjFRStRknBRzL5g21F9Am+JWz8b/JeSSRR7dVI
+	tsdPeMumTmctGr++mdztldHbjiBKIp7BfWUaJSWc6JIkzKJ2L6WbDJmGMjRwuJZIR76aLgKibyG
+	kdM2SObJq+7YZZsRCjVfH+HbVd/8MGZM5UUqYZh/sT+xedGDoeBnEWjJ7rq8kFULwa7iNRf0wJ7
+	o5YWyKMk06W3TQfJdF3aYMeQHteB5wBy/9A7FwiC5mjK/+4uNLnDaALl95NU48phzUFs/yb+rhr
+	fr4ZfsLX6vZFFgis+l5qqJTHhQfVsBUA3GujsD5rpnUK0Ytl5t/gSA==
+X-Google-Smtp-Source: AGHT+IGBZzq1ANHKFw3JS3Ua5Fpq+25+H6RoUvZn8edzoteQNG34BeH1Bc5nGHzvWdQwdG05P8wYyA==
+X-Received: by 2002:a05:6a20:430c:b0:216:5fa9:55ad with SMTP id adf61e73a8af0-21ee68a46e0mr17972971637.39.1749481126387;
+        Mon, 09 Jun 2025 07:58:46 -0700 (PDT)
+Received: from [127.0.1.1] ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-b2f5ed593ebsm5414182a12.6.2025.06.09.07.58.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Jun 2025 07:58:45 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Date: Mon, 09 Jun 2025 22:56:24 +0800
+Subject: [PATCH 7/8] arm64: dts: apple: t8011: Add I2C nodes
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="W3PoFoJBg17Z0HiP"
-Content-Disposition: inline
-In-Reply-To: <df6f5620-5986-4080-bb00-c7bee856bf66@t-8ch.de>
-X-Cookie: Restaurant package, not for resale.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250609-i2c-no-t2-v1-7-789c4693106f@gmail.com>
+References: <20250609-i2c-no-t2-v1-0-789c4693106f@gmail.com>
+In-Reply-To: <20250609-i2c-no-t2-v1-0-789c4693106f@gmail.com>
+To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Andi Shyti <andi.shyti@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3038; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=v7W7ZvqXSh/jiGyI0EQo6XvMCTg7kLe+e7s4TGkVXGY=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBoRvaNnSFY/hJQsThDJa8Jmnv1srxL12FNpeWqx
+ si5CL1YaxmJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaEb2jQAKCRABygi3psUI
+ JPjED/9Ka+qnK4cK9jYUA+rQbtCh02n7I3z0wriS28SZn962M2wJ1QE1N5EVeHJxmae2hQHvYXO
+ EAjnBJtgSUbYOG52OfOl0VA1hWKga/D3+FetxW2Hbio8oamzt3x2S/fy8oSbqR4C23yyAoRR/wK
+ /vQAIfXD82M3w/6FR6r3uRsvD4Q3LlsWNPOI9d5s7nQnb7J6eUIEeZ5F0nj17pXuW5Rxf0zM5Xj
+ ZacebmCSHC6DWTamr/qgy2XsxKRsVYqZxAiLtLcAZaGqrZHKRCDzOxNWVpJD+/eihAU2xgZsMh7
+ Uuq6oxwA9BRgNfi+xiC4BJG5TOhr31BSy4KmH5Ur/wbRTimWgx1KMn2+BKoTbykU8QyCZ4LnOBC
+ hx+Phbu0vvOJeSYiiK62y+mFlYTrblwl+ixnwAweiU0JNsml2LGujlqp4s9VB3SSSOvytEkL9xo
+ oaeWBKfFHRS4D74gMpkNHI0F+Ui6BkPmSdtr9Vwxgb+jWfbNhzAzMl2aBU8Q0gBqAptUqaUGfua
+ 9poqIUvIC3p13+UFoDpI2+oN2obLuxNDMQj8WRfr6mTu1fKbOe1ePUN9WploUVettQV5oICoMrF
+ gBKDZaI0flfy7b73N+sKOFbOfFOwYbjcTUeXVF7V7LGYXFuDLruBtb13XF513aYSqXIsn7WYhvY
+ V3aaG9IzYXbGUOQ==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_084401_421054_000C522D 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250609_075847_069138_3E2E1220 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +119,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add I2C nodes for Apple A10X SoC.
 
---W3PoFoJBg17Z0HiP
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+---
+ arch/arm64/boot/dts/apple/t8011.dtsi | 76 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
-On Mon, Jun 09, 2025 at 05:34:33PM +0200, Thomas Wei=DFschuh wrote:
-> On 2025-06-09 16:08:56+0100, Mark Brown wrote:
+diff --git a/arch/arm64/boot/dts/apple/t8011.dtsi b/arch/arm64/boot/dts/apple/t8011.dtsi
+index 974f78cc77cfe28d3c26a52a292b643172d8f5bd..039aa4d1e887625e7b6ad789bfd9aa032dc58d01 100644
+--- a/arch/arm64/boot/dts/apple/t8011.dtsi
++++ b/arch/arm64/boot/dts/apple/t8011.dtsi
+@@ -168,6 +168,62 @@ serial0: serial@20a0c0000 {
+ 			status = "disabled";
+ 		};
+ 
++		i2c0: i2c@20a110000 {
++			compatible = "apple,t8010-i2c", "apple,i2c";
++			reg = <0x2 0x0a110000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 230 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c0_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c1: i2c@20a111000 {
++			compatible = "apple,t8010-i2c", "apple,i2c";
++			reg = <0x2 0x0a111000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 231 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c1_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c2: i2c@20a112000 {
++			compatible = "apple,t8010-i2c", "apple,i2c";
++			reg = <0x2 0x0a112000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 232 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c2_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c3: i2c@20a113000 {
++			compatible = "apple,t8010-i2c", "apple,i2c";
++			reg = <0x2 0x0a113000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 233 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c3_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
+ 		pmgr: power-management@20e000000 {
+ 			compatible = "apple,t8010-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+ 			#address-cells = <1>;
+@@ -204,6 +260,26 @@ pinctrl_ap: pinctrl@20f100000 {
+ 				     <AIC_IRQ 46 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <AIC_IRQ 47 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <AIC_IRQ 48 IRQ_TYPE_LEVEL_HIGH>;
++
++			i2c0_pins: i2c0-pins {
++				pinmux = <APPLE_PINMUX(211, 1)>,
++					 <APPLE_PINMUX(210, 1)>;
++			};
++
++			i2c1_pins: i2c1-pins {
++				pinmux = <APPLE_PINMUX(156, 1)>,
++					 <APPLE_PINMUX(155, 1)>;
++			};
++
++			i2c2_pins: i2c2-pins {
++				pinmux = <APPLE_PINMUX(58, 1)>,
++					 <APPLE_PINMUX(57, 1)>;
++			};
++
++			i2c3_pins: i2c3-pins {
++				pinmux = <APPLE_PINMUX(158, 1)>,
++					 <APPLE_PINMUX(157, 1)>;
++			};
+ 		};
+ 
+ 		pinctrl_aop: pinctrl@2100f0000 {
 
-> > +#ifndef sys_vfork
+-- 
+2.49.0
 
-> This ifndef is not necessary here.
-> No architecture has a special version.
-
-Ah, I was adding it defensively in case it was needed in future.
-
-> > +static __attribute__((unused))
-> > +pid_t sys_vfork(void)
-> > +{
-> > +#ifdef __NR_vfork
-
-> For consistency:
-> #if defined(__NR_vfork)
-
-Are you sure?  I'm seeing an awful lot of #ifdef __NR_foo instances in
-sys.h - it looks like the idiom is to use that unless it either needs an
-additional condition (with || or &&) or is an elif.
-
---W3PoFoJBg17Z0HiP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhHAToACgkQJNaLcl1U
-h9Cb1gf/aGZPrO5RgRNjsY5LMdV3U7tfXkLGGF5tbdPIvxxy9J+B+H8Lr/OKF+QA
-juIPb1wUYZ0eojfiI9JfA+jSuNBpnYxdjMBQkWxDeRHj+ilkNbA6jCDUQjCQJqxq
-r+rBnVw0PxbXBqRZYuMISUZo3eiaK3sTeeD+nVe6UmUiOGFHnIqnJP0/iiMUobtw
-exIZ4tQXGAttFhHv0yZhlkZ87miA3dA2amH63gC3ekoJUZXjIFx5bs/30c6oAMJD
-NhicK4OfDsRIZ7d4OxKmw5cn40qXvaWwKcWg2ZvEov7suuLiyl4pwY8hP9kIYs4G
-eSXUXn5w6QbJKzZYdkpmeaM07D5D7A==
-=un9N
------END PGP SIGNATURE-----
-
---W3PoFoJBg17Z0HiP--
 
