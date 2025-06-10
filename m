@@ -4,104 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AD4C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 11:34:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD29C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 11:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ajd2vkw9mHSjGuUX51/d8he+B4JGyAZsnbsSsrWOOjs=; b=Qgt4GBwuJqbU6oEEeg1bgYtzvv
-	blPtgXbgZ15UtyGINrfAv51Fk+bD7G29ydvmXUFoQaiF/ftpci0g759dC9knCqzJQYgQ5MwXkZla0
-	3AkMnVYN/Ho7AJIukUuYlZz0UVaIkXuhtWFQiMWUDhTgQU/6Fys6LCih1Q30njNOINn9+n3pH8eIj
-	f8ecHwxErWGOKH+oFSc/5BsHngUq7FWYfAcL5EcDkfgRf9djipB47325tsZFUpqc5bgC8FZ7pesho
-	Nh+QfmKRLbA6rQXasLMJUcrTgV6651aT+Fr0yGdaGs3qxIzEOnTro3WwwWj3AaTIqbZMPGJsedXAF
-	beij1GHg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ykg0Riu4/3OM4z6bInkXkSRcNKKj+uOzQyH26jMtR3A=; b=CyQ+l6P8fN0tgU82pHl3JY6mqy
+	CMmmoSfMpgI2sdX9nw9GBeQuZnMgFt1UChJSAhl5haivTVtpYw9FrrkZjMsLn7eLJO7IFENbLUsnY
+	kNh/aoMMzehqRwnx7J/VlI0dy5cpx23qQbqMghJYIOvJRcc2wuvhOKX1cDWJNvq5ffUeW8ikAom07
+	uMcyhoFzRJb1Mg/xloREhgm7eP1XKu08mh+lyOs6oLWYiK0GO+/V1emBpX/kBwcETvb7tNa8w2+n2
+	+pWA6SKWuNfZOBpzxaLIvY5qQ+7I3Ge/y4bSS9i5WwogFUrrIxDMo25VifiJTdpOUKESouNoOdfTK
+	Ox048Fzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxFL-00000006ebW-299D;
-	Tue, 10 Jun 2025 11:34:27 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1uOxFP-00000006eda-0RT2;
+	Tue, 10 Jun 2025 11:34:31 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwgd-00000006ZfW-1fQa
+	id 1uOwlK-00000006bWK-3pjh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 10:58:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=ajd2vkw9mHSjGuUX51/d8he+B4JGyAZsnbsSsrWOOjs=; b=TTPRYq3gQf5vAOQJXR/ef99YWv
-	NSJLT2hifWETwi0XvIWFdpTaVh+mx9saksmqAEb9GoqzaN2pZMNUA21TCMCLreQvPxa2vcBMVCVLo
-	8oa06grHWvAfQDmUSkiUb8jghpHu8/EC8k0GG09RSanTpPDDg+SpYAEv4Tkn2oZVZlgjX2+s2Nl3+
-	ysHqHbQ/NKqTMBaUBPE30quYBaUADRJgoPdNg1jmgPLj5sT72CC53otPi40lBXaQqxsUogKYNwv2E
-	Dd0aY6YnJYNun3q3vnL6+RSIvlxI+IyYYdDzmjbCQNaYIM5UCj7ewWSYlTq8jLBeMahYaEPac4Xn6
-	Mwk6oouw==;
-Received: from [122.175.9.182] (port=7158 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uOwfm-0000000ATJF-2IFc;
-	Tue, 10 Jun 2025 06:57:43 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ssantosh@kernel.org,
-	richardcochran@gmail.com,
-	s.hauer@pengutronix.de,
-	m-karicheri2@ti.com,
-	glaroque@baylibre.com,
-	afd@ti.com,
-	saikrishnag@marvell.com,
-	m-malladi@ti.com,
-	jacob.e.keller@intel.com,
-	diogo.ivo@siemens.com,
-	javier.carrasco.cruz@gmail.com,
-	horms@kernel.org,
-	s-anna@ti.com,
-	basharath@couthit.com,
-	parvathi@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v8 00/11] PRU-ICSSM Ethernet Driver
-Date: Tue, 10 Jun 2025 16:27:10 +0530
-Message-Id: <20250610105721.3063503-1-parvathi@couthit.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 10 Jun 2025 11:03:28 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id E99CC210F9;
+	Tue, 10 Jun 2025 11:03:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1749553404; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ykg0Riu4/3OM4z6bInkXkSRcNKKj+uOzQyH26jMtR3A=;
+	b=pKspC765im1EII58ikloveSNT9G5YhCbgrAI7Vt5amo1qmuwvU4hoxsEYGkA0Ej9fPDBIe
+	QqszxF6A5C/rbTwH4MtTWjGIvQaPSNqh2bRSAmEW2Aroe1x5SfJyEvX1tTZRvVesnb2H0K
+	c773FyFYA14w/c1wkA+sGWaLDJhMus0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1749553404;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ykg0Riu4/3OM4z6bInkXkSRcNKKj+uOzQyH26jMtR3A=;
+	b=OJ08/ZU00G0P44obeZd/BipUGMKCqHQZYOVN/uj/086rxb/wJAzf/WzkpKW0T/1ij/u4X8
+	RvGm9hgGhDopGbAQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=zNyIcYuX;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="ea9z7/x4"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1749553403; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ykg0Riu4/3OM4z6bInkXkSRcNKKj+uOzQyH26jMtR3A=;
+	b=zNyIcYuXgd6aLtwY/jRcToXLth2DgLlqZIfBHlm/QF9fKDM6o/GnLExxjYHSEpOzDJJsEX
+	StgYEnCOrfRHOBv2tEDIIMMLU4kFKZZNOtMTFhnCr6CzyQ/OvEamTTWDnzuoNDNGZAzOwx
+	94mLXHd2kY1zvLh+Bod+MWcV0Ryi5as=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1749553403;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ykg0Riu4/3OM4z6bInkXkSRcNKKj+uOzQyH26jMtR3A=;
+	b=ea9z7/x4biFhKnNtWGzo08kb3HyBoC108FUFHtZ9w2j9+puJU3kEhCqUbh1iiDLMcJME/1
+	4AvtZyGUZSxGvLCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 957E513964;
+	Tue, 10 Jun 2025 11:03:23 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id SO4oI/sQSGgOTAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 10 Jun 2025 11:03:23 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: deller@gmx.de,
+	soci@c64.rulez.org,
+	simona@ffwll.ch,
+	jayalk@intworks.biz,
+	linux@armlinux.org.uk,
+	FlorianSchandinat@gmx.de,
+	alchark@gmail.com,
+	krzk@kernel.org
+Cc: linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH 02/14] fbdev: Include <linux/export.h>
+Date: Tue, 10 Jun 2025 12:56:35 +0200
+Message-ID: <20250610105948.384540-3-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250610105948.384540-1-tzimmermann@suse.de>
+References: <20250610105948.384540-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCPT_COUNT_TWELVE(0.00)[13];
+	FREEMAIL_TO(0.00)[gmx.de,c64.rulez.org,ffwll.ch,intworks.biz,armlinux.org.uk,gmail.com,kernel.org];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLwqwbgho3bgbo9wb3ecq1qfng)];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
+	FROM_EQ_ENVFROM(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
+X-Rspamd-Queue-Id: E99CC210F9
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_035835_469460_F896034F 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250610_040327_241401_2C1664C3 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,167 +152,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Fix the compile-time warnings
 
-The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
-is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
-Megabit ICSS (ICSSM).
+  drivers/video/fbdev/core/cfbcopyarea.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/cfbfillrect.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/cfbimgblt.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/fb_ddc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/fb_defio.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/fb_io_fops.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/fb_sys_fops.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/fbcmap.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/fbcon.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/fbmon.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/modedb.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/svgalib.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/syscopyarea.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/sysfillrect.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/core/sysimgblt.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/macmodes.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/sbuslib.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/wmt_ge_rops.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
 
-Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
-fundamental components/drivers such as PRUSS driver, Remoteproc driver,
-PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
-Linux kernel. The current set of patch series builds on top of these components
-and introduces changes to support the Dual-EMAC using ICSSM on the TI AM57xx,
-AM437x and AM335x devices.
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+---
+ drivers/video/fbdev/core/cfbcopyarea.c | 2 ++
+ drivers/video/fbdev/core/cfbfillrect.c | 2 ++
+ drivers/video/fbdev/core/cfbimgblt.c   | 2 ++
+ drivers/video/fbdev/core/fb_ddc.c      | 1 +
+ drivers/video/fbdev/core/fb_defio.c    | 1 +
+ drivers/video/fbdev/core/fb_io_fops.c  | 1 +
+ drivers/video/fbdev/core/fb_sys_fops.c | 2 ++
+ drivers/video/fbdev/core/fbcmap.c      | 1 +
+ drivers/video/fbdev/core/fbcon.c       | 1 +
+ drivers/video/fbdev/core/fbmon.c       | 2 ++
+ drivers/video/fbdev/core/modedb.c      | 1 +
+ drivers/video/fbdev/core/svgalib.c     | 1 +
+ drivers/video/fbdev/core/syscopyarea.c | 2 ++
+ drivers/video/fbdev/core/sysfillrect.c | 2 ++
+ drivers/video/fbdev/core/sysimgblt.c   | 2 ++
+ drivers/video/fbdev/macmodes.c         | 1 +
+ drivers/video/fbdev/sbuslib.c          | 1 +
+ drivers/video/fbdev/wmt_ge_rops.c      | 1 +
+ 18 files changed, 26 insertions(+)
 
-AM335x, AM437x and AM57xx devices may have either one or two PRU-ICSS instances
-with two 32-bit RISC PRU cores. Each PRU core has (a) dedicated Ethernet interface
-(MII, MDIO), timers, capture modules, and serial communication interfaces, and
-(b) dedicated data and instruction RAM as well as shared RAM for inter PRU
-communication within the PRU-ICSS.
-
-These patches add support for the following features:
-- RX and TX over PRU Ethernet ports in Dual-EMAC mode
-- Full duplex with 100 Mbps link speed.
-- VLAN Filtering
-- Multicast Filtering
-- Promiscuous mode
-- Storm prevention
-- Interrupt coalescing
-- Linux PTP (ptp4l) Ordinary clock
-
-Further, note that these are the first set of patches for a single instance of
-PRU-ICSS Ethernet. Switch mode support for AM335x, AM437x and AM57x along with
-support for a second instance of PRU-ICSS on AM57x will be posted subsequently.
-
-The patches presented in this series have gone through the patch verification
-tools and no warnings or errors are reported. Sample test logs obtained from AM33x,
-AM43x and AM57x verifying the functionality on Linux next kernel are available here:
-
-[Interface up Testing](https://gist.github.com/ParvathiPudi/ed13fbd6cdb367075281c0a5e0ed0e41)
-
-[Ping Testing](https://gist.github.com/ParvathiPudi/5f4d535ee0714920f57b7ac591ab2a71)
-
-[Iperf Testing](https://gist.github.com/ParvathiPudi/5d84ad41bb8b6109504248598478e586)
-
-[1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
-[2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
-
-This is the v8 of the patch series [v1]. This version of the patchset
-addresses the comments made on [v7] of the series.
-
-Changes from v7 to v8 :
-
-*) Addressed Paolo Abeni comments on patch 3 and 4 of the series.
-*) Replaced threaded IRQ logic with NAPI logic based on feedback from Paolo Abeni.
-*) Added Reviewed-by: tag from Rob Herring for patch 1.
-*) Rebased the series on latest net-next.
-
-Changes from v6 to v7 :
-
-*) Addressed Rob Herring comments on patch 1 of the series.
-*) Addressed Jakub Kicinski comments on patch 4, 5 and 6 of the series.
-*) Addressed Alok Tiwari comments on Patch 1, 4 and 5 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v5 to v6 :
-
-*) Addressed Simon Horman comments on patch 2, 7 and 11 of the series.
-*) Addressed Andrew Lunn comments on patch 5 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v4 to v5 :
-
-*) Addressed Andrew Lunn and Keller, Jacob E comments on patch 5 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v3 to v4 :
-
-*) Added support for AM33x and AM43x platforms.
-*) Removed SOC patch [2] and its dependencies.
-*) Addressed Jakub Kicinski, MD Danish Anwar and Nishanth Menon comments on cover
-   letter of the series.
-*) Addressed Rob Herring comments on patch 1 of the series.
-*) Addressed Ratheesh Kannoth comments on patch 2 of the series.
-*) Addressed Maxime Chevallier comments on patch 4 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v2 to v3 :
-
-*) Addressed Conor Dooley comments on patch 1 of the series.
-*) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
-*) Addressed Joe Damato comments on patch 4 of the series.
-*) Rebased the series on latest net-next.
-
-Changes from v1 to v2 :
-
-*) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
-*) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
-*) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
-*) Rebased patchset on next-202401xx linux-next.
-
-[v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
-[v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
-[v3] https://lore.kernel.org/all/20250214054702.1073139-1-parvathi@couthit.com/
-[v4] https://lore.kernel.org/all/20250407102528.1048589-1-parvathi@couthit.com/
-[v5] https://lore.kernel.org/all/20250414113458.1913823-1-parvathi@couthit.com/
-[v6] https://lore.kernel.org/all/20250423060707.145166-1-parvathi@couthit.com/
-[v7] https://lore.kernel.org/all/20250503121107.1973888-1-parvathi@couthit.com/
-
-Thanks and Regards,
-Parvathi.
-
-Murali Karicheri (1):
-  net: ti: prueth: Adds support for RX interrupt coalescing/pacing
-
-Parvathi Pudi (1):
-  dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
-    AM57xx, AM43xx and AM33xx SOCs
-
-Roger Quadros (9):
-  net: ti: prueth: Adds ICSSM Ethernet driver
-  net: ti: prueth: Adds PRUETH HW and SW configuration
-  net: ti: prueth: Adds link detection, RX and TX support.
-  net: ti: prueth: Adds ethtool support for ICSSM PRUETH Driver
-  net: ti: prueth: Adds HW timestamping support for PTP using PRU-ICSS
-    IEP module
-  net: ti: prueth: Adds support for network filters for traffic control
-    supported by PRU-ICSS
-  net: ti: prueth: Adds power management support for PRU-ICSS
-  net: ti: prueth: Adds support for PRUETH on AM33x and AM43x SOCs
-  net: ti: prueth: Adds PTP OC Support for AM335x and AM437x
-
- .../devicetree/bindings/net/ti,icss-iep.yaml  |   10 +-
- .../bindings/net/ti,icssm-prueth.yaml         |  233 ++
- .../bindings/net/ti,pruss-ecap.yaml           |   32 +
- .../devicetree/bindings/soc/ti/ti,pruss.yaml  |    9 +
- drivers/net/ethernet/ti/Kconfig               |   24 +
- drivers/net/ethernet/ti/Makefile              |    5 +
- drivers/net/ethernet/ti/icssg/icss_iep.c      |  258 +-
- drivers/net/ethernet/ti/icssg/icss_iep.h      |   12 +
- drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  337 +++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 2503 +++++++++++++++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  464 +++
- .../net/ethernet/ti/icssm/icssm_prueth_dos.c  |  222 ++
- .../net/ethernet/ti/icssm/icssm_prueth_ecap.c |  312 ++
- .../net/ethernet/ti/icssm/icssm_prueth_ecap.h |   47 +
- .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |   85 +
- drivers/net/ethernet/ti/icssm/icssm_switch.h  |  285 ++
- .../ti/icssm/icssm_vlan_mcast_filter_mmap.h   |  120 +
- 17 files changed, 4954 insertions(+), 4 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
- create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_ethtool.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_dos.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switch.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_vlan_mcast_filter_mmap.h
-
+diff --git a/drivers/video/fbdev/core/cfbcopyarea.c b/drivers/video/fbdev/core/cfbcopyarea.c
+index 23fbf3a8df7c..ce2e6807be60 100644
+--- a/drivers/video/fbdev/core/cfbcopyarea.c
++++ b/drivers/video/fbdev/core/cfbcopyarea.c
+@@ -2,6 +2,8 @@
+ /*
+  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
+  */
++
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/bitrev.h>
+diff --git a/drivers/video/fbdev/core/cfbfillrect.c b/drivers/video/fbdev/core/cfbfillrect.c
+index 615de89256d5..bd2fbbda10c6 100644
+--- a/drivers/video/fbdev/core/cfbfillrect.c
++++ b/drivers/video/fbdev/core/cfbfillrect.c
+@@ -2,6 +2,8 @@
+ /*
+  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
+  */
++
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/bitrev.h>
+diff --git a/drivers/video/fbdev/core/cfbimgblt.c b/drivers/video/fbdev/core/cfbimgblt.c
+index bcec4e32c0e7..e116cd1d8a39 100644
+--- a/drivers/video/fbdev/core/cfbimgblt.c
++++ b/drivers/video/fbdev/core/cfbimgblt.c
+@@ -2,6 +2,8 @@
+ /*
+  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
+  */
++
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/bitrev.h>
+diff --git a/drivers/video/fbdev/core/fb_ddc.c b/drivers/video/fbdev/core/fb_ddc.c
+index e25143219862..824796361367 100644
+--- a/drivers/video/fbdev/core/fb_ddc.c
++++ b/drivers/video/fbdev/core/fb_ddc.c
+@@ -10,6 +10,7 @@
+ 
+ #include <linux/delay.h>
+ #include <linux/device.h>
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/i2c-algo-bit.h>
+diff --git a/drivers/video/fbdev/core/fb_defio.c b/drivers/video/fbdev/core/fb_defio.c
+index 4fc93f253e06..8df2e51e3390 100644
+--- a/drivers/video/fbdev/core/fb_defio.c
++++ b/drivers/video/fbdev/core/fb_defio.c
+@@ -11,6 +11,7 @@
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+ #include <linux/errno.h>
++#include <linux/export.h>
+ #include <linux/string.h>
+ #include <linux/mm.h>
+ #include <linux/vmalloc.h>
+diff --git a/drivers/video/fbdev/core/fb_io_fops.c b/drivers/video/fbdev/core/fb_io_fops.c
+index 3408ff1b2b7a..6ab60fcd0050 100644
+--- a/drivers/video/fbdev/core/fb_io_fops.c
++++ b/drivers/video/fbdev/core/fb_io_fops.c
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0
+ 
++#include <linux/export.h>
+ #include <linux/fb.h>
+ #include <linux/module.h>
+ #include <linux/uaccess.h>
+diff --git a/drivers/video/fbdev/core/fb_sys_fops.c b/drivers/video/fbdev/core/fb_sys_fops.c
+index a9aa6519a5b3..be96b3b3942e 100644
+--- a/drivers/video/fbdev/core/fb_sys_fops.c
++++ b/drivers/video/fbdev/core/fb_sys_fops.c
+@@ -9,6 +9,8 @@
+  * for more details.
+  *
+  */
++
++#include <linux/export.h>
+ #include <linux/fb.h>
+ #include <linux/module.h>
+ #include <linux/uaccess.h>
+diff --git a/drivers/video/fbdev/core/fbcmap.c b/drivers/video/fbdev/core/fbcmap.c
+index ff09e57f3c38..9cc3e87da14b 100644
+--- a/drivers/video/fbdev/core/fbcmap.c
++++ b/drivers/video/fbdev/core/fbcmap.c
+@@ -11,6 +11,7 @@
+  *  more details.
+  */
+ 
++#include <linux/export.h>
+ #include <linux/string.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+diff --git a/drivers/video/fbdev/core/fbcon.c b/drivers/video/fbdev/core/fbcon.c
+index 2df48037688d..25684f5d6523 100644
+--- a/drivers/video/fbdev/core/fbcon.c
++++ b/drivers/video/fbdev/core/fbcon.c
+@@ -56,6 +56,7 @@
+  *  more details.
+  */
+ 
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/types.h>
+ #include <linux/fs.h>
+diff --git a/drivers/video/fbdev/core/fbmon.c b/drivers/video/fbdev/core/fbmon.c
+index 0a26399dbc89..023caaea682e 100644
+--- a/drivers/video/fbdev/core/fbmon.c
++++ b/drivers/video/fbdev/core/fbmon.c
+@@ -26,6 +26,8 @@
+  * for more details.
+  *
+  */
++
++#include <linux/export.h>
+ #include <linux/fb.h>
+ #include <linux/module.h>
+ #include <linux/pci.h>
+diff --git a/drivers/video/fbdev/core/modedb.c b/drivers/video/fbdev/core/modedb.c
+index 7196b055f2bd..53a610948c4a 100644
+--- a/drivers/video/fbdev/core/modedb.c
++++ b/drivers/video/fbdev/core/modedb.c
+@@ -11,6 +11,7 @@
+  *  more details.
+  */
+ 
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/fb.h>
+diff --git a/drivers/video/fbdev/core/svgalib.c b/drivers/video/fbdev/core/svgalib.c
+index 821b89a0a645..d6053af749f6 100644
+--- a/drivers/video/fbdev/core/svgalib.c
++++ b/drivers/video/fbdev/core/svgalib.c
+@@ -10,6 +10,7 @@
+  * Some parts are based on David Boucher's viafb (http://davesdomain.org.uk/viafb/)
+  */
+ 
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+ #include <linux/string.h>
+diff --git a/drivers/video/fbdev/core/syscopyarea.c b/drivers/video/fbdev/core/syscopyarea.c
+index b634e2d21208..773569bce67c 100644
+--- a/drivers/video/fbdev/core/syscopyarea.c
++++ b/drivers/video/fbdev/core/syscopyarea.c
+@@ -2,6 +2,8 @@
+ /*
+  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
+  */
++
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/bitrev.h>
+diff --git a/drivers/video/fbdev/core/sysfillrect.c b/drivers/video/fbdev/core/sysfillrect.c
+index 372ca6a324c2..12eea3e424bb 100644
+--- a/drivers/video/fbdev/core/sysfillrect.c
++++ b/drivers/video/fbdev/core/sysfillrect.c
+@@ -2,6 +2,8 @@
+ /*
+  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
+  */
++
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/bitrev.h>
+diff --git a/drivers/video/fbdev/core/sysimgblt.c b/drivers/video/fbdev/core/sysimgblt.c
+index c756cc658b7d..0a5bfd8ad095 100644
+--- a/drivers/video/fbdev/core/sysimgblt.c
++++ b/drivers/video/fbdev/core/sysimgblt.c
+@@ -2,6 +2,8 @@
+ /*
+  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
+  */
++
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/bitrev.h>
+diff --git a/drivers/video/fbdev/macmodes.c b/drivers/video/fbdev/macmodes.c
+index cd689161f561..b16a9d9bef98 100644
+--- a/drivers/video/fbdev/macmodes.c
++++ b/drivers/video/fbdev/macmodes.c
+@@ -16,6 +16,7 @@
+  */
+ 
+ #include <linux/errno.h>
++#include <linux/export.h>
+ #include <linux/fb.h>
+ #include <linux/string.h>
+ #include <linux/module.h>
+diff --git a/drivers/video/fbdev/sbuslib.c b/drivers/video/fbdev/sbuslib.c
+index 4c79654bda30..dd2002d0810f 100644
+--- a/drivers/video/fbdev/sbuslib.c
++++ b/drivers/video/fbdev/sbuslib.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/compat.h>
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/string.h>
+diff --git a/drivers/video/fbdev/wmt_ge_rops.c b/drivers/video/fbdev/wmt_ge_rops.c
+index 92fbb3f3a0d3..2bd26bfb2b46 100644
+--- a/drivers/video/fbdev/wmt_ge_rops.c
++++ b/drivers/video/fbdev/wmt_ge_rops.c
+@@ -7,6 +7,7 @@
+  *  Copyright (C) 2010 Alexey Charkov <alchark@gmail.com>
+  */
+ 
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/fb.h>
+ #include <linux/io.h>
 -- 
-2.34.1
+2.49.0
 
 
