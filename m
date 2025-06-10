@@ -4,123 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B44BC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0953AC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x9isndutnG7FzSCz38wRWR3/GK7vlaPRNBGI74YSN5E=; b=i3EFAV54EWeqV0W4V9yYKs4Y24
-	L1npKhY0vnAvzMsjMlC5gqJGz+ReHNTRDFkwEp81WqLpdrlQ2NJzsRo4s0mb9zrmjpIZ8Z/7u2Gr5
-	aQySFmiyoP3dsi4ZXLrxVK/JiXJ7PnfBRKSQoC2fehKLxXrgDOYWLzC9TkS6Ar2xR4i1KJAVMH0ni
-	8XvlJG9QnZmh79XpOoAm4TrMgiEtMqkHVflfnm0a5Z4gxGvzPJ69iEgjm00fsyeblQ2/+S6zib5GM
-	LWk22T0CMjJYXVI0Coq3Fvqxtm7kM9K389DZvvRCSqXbbVD3WEqDlvP5MDhc4sbBxz1FvyZt4sBs8
-	jxV8NpFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Gv+zahbs8IPSx2cl0TxAt16Mq1IAkTSeydYtH3d3Mf8=; b=TU/JeCvD2Fadyz
+	7fuyq/re6IUIy4Kuv4owv668eIz8lY0OH32JwvZt9Y5pJNQEoAglxww3bQ1yhdz+y8aPEe3tEXRWS
+	CQgvCbEJp/xRwrQoDv985LRbGzvnLQYQtWyqnplgHlj63BIiKFcenc2n4TY3XY3euXhZUl9a6UFh8
+	LSRCIvseYzbSnOinEtJqySiFlFgMXzqjKuy7CIeF6ad300zE4iid1dCShlftIX3Gn+6ix1Jgbd7gt
+	kAY/zt40Un9OJij+jSIeEIDkKr8A6TwhBwuQwzhh6OK7O3nuWfujvQAt0xzGbpP23kCoLe0GaKMfR
+	MLAnGZ4bfhqv3DB5hktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOuzE-00000006HJU-0cj0;
-	Tue, 10 Jun 2025 09:09:40 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1uOv2M-00000006Hw5-13lK;
+	Tue, 10 Jun 2025 09:12:54 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOuuV-00000006Gis-0NJY;
-	Tue, 10 Jun 2025 09:04:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1749546239; x=1750151039; i=frank-w@public-files.de;
-	bh=x9isndutnG7FzSCz38wRWR3/GK7vlaPRNBGI74YSN5E=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:Date:In-Reply-To:References:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=IJ5Ea6W7y6sTzEDB05dbUDocNZCqcni0Hii/uaCZIuM0Zg/7l8U89wwEXWC0u7PI
-	 fYgLeMT7BIOvyx1mbGJVu/s033MIr4CbHo+0uRS8hAsXSFrNEXiblFuJBONebx1i/
-	 kCqAI2G0WQCKQtIfRH6QtbdeRTaMLSRjJM6ss5Ihb/PIQelp+XlC5V9TuSbifXu40
-	 2CGrvxqkxKmgI2MvYE10hzuN3ucSkVkCjwZC6Xal71MdGyY3+CwYaCLf9YLqdOa7M
-	 tSXyPJ1LdBjiVd3iRL6o9wBZtLlYtTM3nOAp9mdaiQ4DjFv+TenKPtDN9pnG7AbJD
-	 PK7vX4n1uYJPspO/fg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [100.70.254.165] ([100.70.254.165]) by
- trinity-msg-rest-gmx-gmx-live-5d9b465786-6phds (via HTTP); Tue, 10 Jun 2025
- 09:03:59 +0000
+	id 1uOv09-00000006HSN-2yks
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 09:10:41 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 10 Jun
+ 2025 17:10:27 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 10 Jun 2025 17:10:27 +0800
+From: Jammy Huang <jammy_huang@aspeedtech.com>
+To: <jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<jammy_huang@aspeedtech.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 0/2] ASPEED: Add mailbox driver for AST2700 series
+Date: Tue, 10 Jun 2025 17:10:24 +0800
+Message-ID: <20250610091026.49724-1-jammy_huang@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-ID: <trinity-b9ab960d-38f8-4524-b645-fc0832ce72ec-1749546239525@trinity-msg-rest-gmx-gmx-live-5d9b465786-6phds>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: andrew@lunn.ch, linux@fw-web.de
-Cc: myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
- cw00.choi@samsung.com, djakov@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, jia-wei.chang@mediatek.com,
- johnson.wang@mediatek.com, arinc.unal@arinc9.com, Landen.Chao@mediatek.com,
- dqfext@gmail.com, sean.wang@mediatek.com, daniel@makrotopia.org,
- lorenzo@kernel.org, nbd@nbd.name, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Aw: Re: [PATCH v3 12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add
- sfp cages and link to gmac
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 10 Jun 2025 09:03:59 +0000
-In-Reply-To: <934b1515-2da1-4479-848e-cd2475ebe98d@lunn.ch>
-References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-13-linux@fw-web.de>
- <934b1515-2da1-4479-848e-cd2475ebe98d@lunn.ch>
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:P+w5LatxuczWjuU5VjC2cu3RusygmzTEcHnWEMF+vMd+V144Nuq0nbegfrwU1/70t+IO5
- ZZCfjP1mt0nBNkGjj7f83sEa1HX3LswwVcLmtn0EkewzcBQy+5sk93/FE8OFJGz2cjArfnRlYVfB
- 3XMrQQsXoPxZtNXsZP8bmZLVhtzLablHfLA6+NXenDy0XEURhrtBRk+vVZ+h17JVyrBl/eHW2FY2
- uaWJKp0HW8d7z76dXGwZ1/AAP+8bL2oTm6hnK6iomw2WSiz0PVS0NPZKi4ROB6MkXRYd1FGSV6CI
- oFPPiTF5PBKHUC5CAEdu/94Ju1rZzvA0FeA3Gu9s0Qj3j8HbE5+i4yztEMvFIiZFnY=
-UI-OutboundReport: notjunk:1;M01:P0:TLvXeFIDP6E=;qZFVm6ncGdxJPw6owUfJx41Igss
- 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
- AmzvamVKyQ==
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_020447_415889_248B61FE 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20250610_021037_741010_DEF3B102 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,80 +65,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew
+Add mailbox controller driver for AST27XX SoCs, which provides
+independent tx/rx mailbox between different processors. There are 4
+channels for each tx/rx mailbox and each channel has an 32-byte FIFO.
 
-> Gesendet: Sonntag, 8. Juni 2025 um 23:31
-> Von: "Andrew Lunn" <andrew@lunn.ch>
-> Betreff: Re: [PATCH v3 12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add =
-sfp cages and link to gmac
->
-> > +&gmac1 {
-> > +	phy-mode =3D "internal";
-> > +	phy-connection-type =3D "internal";
->=20
-> ethernet-controller.yaml says:
->=20
->   phy-connection-type:
->     description:
->       Specifies interface type between the Ethernet device and a physica=
-l
->       layer (PHY) device.
->     enum:
->       # There is not a standard bus between the MAC and the PHY,
->       # something proprietary is being used to embed the PHY in the
->       # MAC.
->       - internal
->       - mii
->       - gmii
->   ...
->=20
->   phy-mode:
->     $ref: "#/properties/phy-connection-type"
->=20
->=20
-> so phy-mode and phy-connection-type are the same thing.
+ v2 changes:
+  - Correct document
+     1. Use 32-bit addressing in dts example property, reg.
+  - Update document
+     1. Correct error in dts example.
+     2. Drop description for mbox-cell per suggestion previously.
 
-phy-connection-type seems not needed, tested without it and 2.5G phy works=
- without this property in the 2g5 dts.
+Jammy Huang (2):
+  dt-bindings: mailbox: Add ASPEED AST2700 series SoC
+  mailbox: aspeed: add mailbox driver for AST27XX series SoC
 
-> > +	/* SFP2 cage (LAN) */
-> > +	sfp2: sfp2 {
-> > +		compatible =3D "sff,sfp";
-> > +		i2c-bus =3D <&i2c_sfp2>;
-> > +		los-gpios =3D <&pio 2 GPIO_ACTIVE_HIGH>;
-> > +		mod-def0-gpios =3D <&pio 83 GPIO_ACTIVE_LOW>;
-> > +		tx-disable-gpios =3D <&pio 0 GPIO_ACTIVE_HIGH>;
-> > +		tx-fault-gpios =3D <&pio 1 GPIO_ACTIVE_HIGH>;
-> > +		rate-select0-gpios =3D <&pio 3 GPIO_ACTIVE_LOW>;
-> > +		maximum-power-milliwatt =3D <3000>;
->=20
-> sff,sfp.yaml says:
->=20
->   maximum-power-milliwatt:
->     minimum: 1000
->     default: 1000
->     description:
->       Maximum module power consumption Specifies the maximum power consu=
-mption
->       allowable by a module in the slot, in milli-Watts. Presently, modu=
-les can
->       be up to 1W, 1.5W or 2W.
->=20
-> I've no idea what will happen when the SFP core sees 3000. Is the
-> comment out of date?
+ .../mailbox/aspeed,ast2700-mailbox.yaml       |  57 +++++
+ drivers/mailbox/Kconfig                       |   8 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/ast2700-mailbox.c             | 226 ++++++++++++++++++
+ 4 files changed, 293 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
+ create mode 100644 drivers/mailbox/ast2700-mailbox.c
 
-at least sfp-core has no issue with the setting
 
-root@bpi-r4-phy-8G:~# dmesg | grep sfp
-[    1.269437] sfp sfp1: Host maximum power 3.0W
-[    1.613749] sfp sfp1: module CISCO-FINISAR    FTLX8571D3BCL-C2 rev A   =
- sn S2209167650      dc 220916 =20
+base-commit: ec7714e4947909190ffb3041a03311a975350fe0
+-- 
+2.25.1
 
-imho some modules require more than 2W (some gpon/xpon and 10G copper ethe=
-rnet).
-
-> 	Andrew
->=20
-
-regards Frank
 
