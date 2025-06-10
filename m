@@ -4,146 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4FCC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC082C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VhA8wACGdCdhLWP+OK+p0LvxWUxdLeUsRGtU+jFHLe0=; b=PDgtRnk+q0EWJoV3MFQzOb8R9U
-	4UhYUcxk4kTuxI/m2aei0+VXbvpsxTmXQm0qjO56CZ7/rY6IZ81EcgcaTTLAJcTjrj/G5y4iWDeYe
-	/XeaHW9496IzzN20wm1j99rtGk9q49m/1UqAuIWWwCTEilJr/2NA1MoaNrXQ1MpUewM4K4IhAD5wk
-	7ySHrB07ab2uoRI4MDE5Q7EkTcpa48X9cb+CXFYQhkK0XLnXtNnfAnhKmsRNyXnkxREhra/Dd/elc
-	V3NZynixFR/7rEr1cgmcj7XgTjSjLBNiFUxGw9YeOwWW3yJwqYvhN3IAU+2h7R7Z/yevNlLcPnqJF
-	UEckbMcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I8olDvmE0hZx0FUF9CvQIQaRnW/qWE7YxGavHyP/rI8=; b=kwxkTeEhUkmwFjn1kciS9D0MVP
+	9DBolfHMJSl8Dlap6wgervOEd/YvxYtcG0SmP03HCp0O/eQoT8dRddKx9oYhZn4dH+qTHjPfB1COP
+	8m9Vd8BXbXA+uVw37FLIrQ52x/4kDAFmV1bpzLU/6ncHFbwrXW9Nf6He1sf1rmi6WqRbvGvXlVnlW
+	qw0sciop7eEeO4HguA7U3tCsQLG3gcEx1oSMiUl71xdvlDCv2DZbMhUWp0d/Sx9lfhK8AV3UxJNpV
+	t+2E4ISPOxe/gHypLJF+oPRGnWcIpoIFniho/8IMKq8DvJ3yG+xA/kX1mkLfJ9HjPdc0aatd2lGYp
+	KxciFbfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxlc-00000006ibt-1F5A;
-	Tue, 10 Jun 2025 12:07:48 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxDE-00000006eM1-2M5a
+	id 1uOxmh-00000006ioP-1MfG;
+	Tue, 10 Jun 2025 12:08:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOvt7-00000006SHo-42Yp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 11:32:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wI8sh92uW+NXyGBRTq4C3Gug18anW4/yBfd8Z53Anb8fm4l3Dd8p0t9W0Irfbzg8qmURYvwMWyAwjw6tV3GW3hSij8CNPN9KRM3QJ/auA4gz/CkqBLBTTBLC7t816kerQMHDInhrAZAqj5ViLnQ0AeDKuOu9pwyDfB+UwbjG80URnKPh3HweSmy9bSdzVB7FFkJDrZYOsmbvasmxQbZWrMAsHWIkChzgOWmssikxGNRodr6C3DlsJPDg+AGQrF9H4Y64pm2tgWboS9o/At4xdIShrPZrw96FOJAV0WwioNPml27gaVrQVNoktflpe2qdPElGKko7zbUZt/U5HOYFtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VhA8wACGdCdhLWP+OK+p0LvxWUxdLeUsRGtU+jFHLe0=;
- b=TmZabdP0ZEUMXJM7+f2KAmOoEp62/KsYbBlVPBKlMmfDsR52Y/Tw7ybcu2HVwtVXNDOblK0v1ZOv+HFKbx9S0x6RfHMu8G7Pr6YfwLLYXYobXeJgAZBhhFmfJSp56S9rj2o9ePrm3ilkShqAwyF7Ci4VwrHoQlwcwXOoJYUN/J3Ek2atWg/TsxwTSdGsjLwfArlM3ndA87ajev527AA5RA2+7ZjZHZ4pLJDMCwDU75TCZuv3soP0xtJM6OVAewVi2XgWxQh20ebeN+VKdbU0N3BiKrsrLJJvfoQsZrF+yLjfJwIVcyLO0v8dh6Ez0ovNDHeH8beWFPn1FWLCZEw4Ww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VhA8wACGdCdhLWP+OK+p0LvxWUxdLeUsRGtU+jFHLe0=;
- b=mYHCSYz+38jURNNar4CTZTsHh9jVgUWR5Wbx6PCq1lvZJ4ivnGL8OsHqK5EpcPzhaSQwwBbdRtpfweKwB4D6fHAvFZjs634bLGEsmcwTmbGPn/GOn+8Ynof9QBflYITs/e3y+4gj+kLZnKdFcYua8UmURSZbf264hnqD0pZciic2xaG+3D8m5WpwNA+CGfm0OXvnSgRdbhc6GIMH9ugEb9P3xnsUcDsUbA7OQ26IcNz+4P7+R+CbRz7FIvlF0KsOJjufpEMREqy1DAfrXhWH+yByX2p9V5T+728QKFpSiWH6S0X0vunen7fASBf3OoeCk5w4sjrvN771tIQikIXBgA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
- by DB9PR04MB9674.eurprd04.prod.outlook.com (2603:10a6:10:306::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.32; Tue, 10 Jun
- 2025 11:32:11 +0000
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad%6]) with mapi id 15.20.8813.021; Tue, 10 Jun 2025
- 11:32:11 +0000
-Date: Tue, 10 Jun 2025 19:27:30 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Alan Stern <stern@rowland.harvard.edu>
-Cc: Shawn Guo <shawnguo2@yeah.net>, Peter Chen <peter.chen@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev, linux-usb@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
-Message-ID: <7d2oyy32oq56sxwetjg7s3dvvuetjqlb6amdjx4edjgwdqmo7v@6ioofc5ksa4z>
-References: <aEZxmlHmjeWcXiF3@dragon>
- <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
- <c7bfdfec-bc49-4ce5-8dd9-7a69d8e24ceb@rowland.harvard.edu>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c7bfdfec-bc49-4ce5-8dd9-7a69d8e24ceb@rowland.harvard.edu>
-X-ClientProxiedBy: SG2PR04CA0162.apcprd04.prod.outlook.com (2603:1096:4::24)
- To PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+	Tue, 10 Jun 2025 10:07:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C0B214BF;
+	Tue, 10 Jun 2025 03:07:05 -0700 (PDT)
+Received: from [10.163.32.103] (unknown [10.163.32.103])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 276383F673;
+	Tue, 10 Jun 2025 03:07:20 -0700 (PDT)
+Message-ID: <dbf2f5b8-49cc-4b66-b32b-a8e149029419@arm.com>
+Date: Tue, 10 Jun 2025 15:37:16 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|DB9PR04MB9674:EE_
-X-MS-Office365-Filtering-Correlation-Id: 50d4c55b-10bc-4ef2-f150-08dda81270d2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5xDeMkDjXljymRLnD7O3v4QEIC3bbW8uxRJ0rgmn+uiKEjgCWHeq2AfQmoNN?=
- =?us-ascii?Q?buD2A4QtBMCuEz6cPdNSpMdpGN7IDrwymSK33O6Lcwfh4nYzhb1EvB+SHTy0?=
- =?us-ascii?Q?VouiCaJlIz/YYG1cdQr6Y5hPzpyzhHY9AeGGHle7qK0UFK6UFwPP8u9qL5B1?=
- =?us-ascii?Q?xy6RUMR+0GreyrorYXhtoJUORzGfHrUVo+jSk8xXKDHlL9biiVsuCb6vSiOB?=
- =?us-ascii?Q?c5SBPlbt1SdfVXweWtUJ/QFnfHtnrPPxjABaNo1104nInPLM3yFpv/xHibeu?=
- =?us-ascii?Q?uyboq0mWfJaPESQsgz/hsPI6VV43TZVSG26JIj9HBpCszKI/svNL84nhh6nk?=
- =?us-ascii?Q?t04H5mBUf32dnsS+hi/T/jDMPnEF6tEzM8wdICmphHvFk8sbR1eRkoUf5ehz?=
- =?us-ascii?Q?Ke0idTdaJQv3aAwwBRcRha4XgDZQTyEQm//xgKBOs76w/GdWkc5MSYDjivx6?=
- =?us-ascii?Q?NLozla/PvUkJMEDIZpCEzG41b7okPsc2Ik+5xiNVfK6GWCywjcSHbgRzP1LH?=
- =?us-ascii?Q?kO2WKAb+UlL3WEnS/DdOq0IZu9prI0Oe+b2qpStrjpkGJlYiPg7VBbvBntqq?=
- =?us-ascii?Q?c9+bWtBrECssiP1Fnb1nOGs9CX1DKKXQfyD215vdPUdWhFMmzqbkpZmKIXI9?=
- =?us-ascii?Q?PSgDjK10KVrPl3sxYmu6gNJzKBK9WapyyhvPW9wUdNL7hVCvTWX+k/4Zsf8D?=
- =?us-ascii?Q?vMbaKcTxoosCEgveRaW+n4cVBHwMaSiGRw1tpGaFDEMpWRUdbfgz3PK3PXqv?=
- =?us-ascii?Q?v+io5joeCdkIocVnw5yyzmqhWqMt0uipn9/qqufVQmrOCe2BNTDqt3Ljp3A0?=
- =?us-ascii?Q?wqFt/lH4AIvOEak0lXd6I0Kr+qzqEfdOt0Yk5Rnd/CF8yeEjECVlSY638tUY?=
- =?us-ascii?Q?bnn/v/BIN07TJd8NR3q5QUEt+F4piZy1LKURtbeWEpOvSLiGN5QQxzbc0z0h?=
- =?us-ascii?Q?rjdfrAY64NOgCTSTMhKBAY7pmRKyuMZqs570L0JGHrQROUZfOnZTWMR/ZCLr?=
- =?us-ascii?Q?EOyPrmx6zpCPKxF7YXayhGyH0pj0VtkZnO1npQi+ein8ZjmnBmWLc5jtt1mS?=
- =?us-ascii?Q?IT0u/R4znii8ZPHiJGOi/mqyYu4vACMJfFQPjlhd7abnw+GwsTsrZeug0Ho2?=
- =?us-ascii?Q?UvUgdQ+NJgi9jEE1PrliGBdluxhZsZGDiTz2oij48xFatWyKIFfvzd+8+vH+?=
- =?us-ascii?Q?aecdKTqTD9Sb9tvUneGWj//wDTuOZ0wjEurgse5TfAHmgC1TWgYHevmhMOtG?=
- =?us-ascii?Q?Ao1ppDzasGXuzslQ2zOOLnwYGPOMXJqL3fBl46NdIJhfn4PmvgkxYY04bUsB?=
- =?us-ascii?Q?q505QA0l4TzZY6Ct39yGOm6bPEey4kDwe+figAeonmXoFPssoACSTsNXgp0q?=
- =?us-ascii?Q?WXut4vPJirBGqb7CUn3MiU0XdEPHK78HYbJweihqwy+Pu6kHNjA70Ll4JSAB?=
- =?us-ascii?Q?BpGM4LgMebwY+T8lQjPEgnWt7nSV/TNLLcWnWvjVE0w5mdHm68Tx5RcBV7dj?=
- =?us-ascii?Q?Sys04r8FK/Ffhm8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XLb8sL0m7kBWOuwKGztYKSHL+pH8aSbfXnWQukUkZCVUenl+k04mZGnmXKZW?=
- =?us-ascii?Q?k1h6PC+6VxgzRoflimo2WeUqXOBdyJqNEPfJNpYonXPy4dRNCaenCKVD5hWQ?=
- =?us-ascii?Q?anBFMEsPMeZOXhNhp/M4Jj927ssxI86kQniB70zo1pi0JvvWpCLPix3xTusG?=
- =?us-ascii?Q?kwSWaAQopxSlfFgD4CdDePC9CMuX5niH6VXcMgGw3QZt40RXtvibg37lNJ2w?=
- =?us-ascii?Q?kWQEVnG3RznASp5+u/KKhix5iZOiZZ50Ye699rSAXfk3IsRSAaGLJ3WZTDbB?=
- =?us-ascii?Q?mKxU0TOzMab/XmsMrPwaLlPuK9nOt60aihgV/jdapVzXyQE/4hF9yFNna1cS?=
- =?us-ascii?Q?EivTFD+SlQ41m+86rMFVDnjuXeuHBQk8qupnx2kruAAYTHbN43raA1/3GuZd?=
- =?us-ascii?Q?ew1supCE2Rva/ZKu4CfIqa3euP6hJNioYCkMmO5gCh7+sXkC5zaTtCpNnPFA?=
- =?us-ascii?Q?RTMqOG5tsM9AiyIAxNDERjUE+uLeQM3Ny1Qd63rQHxPxFf2tiDcYxles3J9C?=
- =?us-ascii?Q?qxj8Bzx1FKHXqKn/RRlZMMyDN9cQh5a6F0BJdwgcjo1Iw1+EFJ+LN6F25IuF?=
- =?us-ascii?Q?f3cgDcLwzkeKlWs77LqKfF7s62T09ONKAJB+/qLw5OwwpCVWLXgMZX0/SukM?=
- =?us-ascii?Q?GJnMwy9o/eZdxZPcUyXe8RDwdQkSbmLMF314WDJviUGW0aZ1oSxz4ZbWnODo?=
- =?us-ascii?Q?GuMEjKdLH45u/ezkk9u6le0mPAuUdBXU5EL4V4oqihEekfXW80ybiBxdXK/R?=
- =?us-ascii?Q?zIYfKxx05TpwlmI3fQ4MN1xTnQkVZwoXeN9T2xK89z/tmAdbHc7DwtADLXbh?=
- =?us-ascii?Q?KfjuwlOA8ZW7DoSC7Fs8f9PiGuYnkANp4H+av4jv54ye4Aau/Wmgziv/VK6J?=
- =?us-ascii?Q?iLgmWKJbCuw3C85XNl73GsroZeGzSRhYqHQNjjfp9z66HzlhT+V1ibk0NnaQ?=
- =?us-ascii?Q?vYZkSZsgUNKASQFICDfEWq+VpESnf7YDsbUqYIvxuZR8CYzwweAac527pGMC?=
- =?us-ascii?Q?D2qpuxvIMJwsn7wv+x+JU4Y65RZhOj12l7qmP1JsHS9lG/qTs8pzzNob3Mgt?=
- =?us-ascii?Q?KlqeoT3Azn08zkfs8JUzwFgUJpLXAjVSYFZM73ceSfHwmGG3GUCewPRxKEo7?=
- =?us-ascii?Q?owb7KJflUQwmJmyUXlkldO4nm/uhAL/csj6Q5O50ZfibelR7i5rgJYAX6qFg?=
- =?us-ascii?Q?WuAPrjNzKOOWbAXv1F3EJ9UyY0Phw2fb8mQMPBsy6IbH6hYPXxcj794/7YQ3?=
- =?us-ascii?Q?AZgZxK8tmr6KiSwqYFz1OwCIeHzmPXmiRLZM4FDYdymgpKu8JKQ6LYVkJjC7?=
- =?us-ascii?Q?2/cyISM19Uj1PGgxLVE6kdo+o+wXacPC46OtP8OWhc03oNGudKzxJITzlnF1?=
- =?us-ascii?Q?GmSSDFma7s+llG271u1hOOVDBGYLPerMmBioQtw72cC8sUt6Bf4GUB6HmR3f?=
- =?us-ascii?Q?wJwe8MBssgWAwH5AwBkvlYVd14y35EFUkkGqp0RReDbelOwUDmlcMukbHATV?=
- =?us-ascii?Q?oaT6nSPMIhWbkD2nWLR22OhnHqIZq3BvU1puhEHy2ElX4hZtUCIepaGvQ2e2?=
- =?us-ascii?Q?r0YlGw3QF8skrZC5hKw0GNFXYDJ4ETFePLn/PukT?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 50d4c55b-10bc-4ef2-f150-08dda81270d2
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 11:32:11.3932
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j5g2l7gRSikV5pktditqztXOpzOoU4c8A+Ylf8FxJZjmDhgqpGByGq8DAypqCl1322iZGhuqUUlLDLVXoOYF2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9674
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 9/9] coresight: Refactor runtime PM
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
+ <20250609-arm_cs_fix_clock_v3_public-v3-9-423b3f1f241d@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250609-arm_cs_fix_clock_v3_public-v3-9-423b3f1f241d@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_043216_619596_4767F4C8 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20250610_030726_103660_35B3F45D 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,59 +68,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alan,
 
-On Mon, Jun 09, 2025 at 09:54:45AM -0400, Alan Stern wrote:
-> On Mon, Jun 09, 2025 at 07:53:22PM +0800, Xu Yang wrote:
-> > Hi Shawn,
-> > 
-> > Thanks for your reports!
-> > 
-> > On Mon, Jun 09, 2025 at 01:31:06PM +0800, Shawn Guo wrote:
-> > > Hi Xu, Peter,
-> > > 
-> > > I'm seeing a kernel hangup on imx8mm-evk board.  It happens when:
-> > > 
-> > >  - USB gadget is enabled as Ethernet
-> > >  - There is data transfer over USB Ethernet
-> > >  - Device is going in/out suspend
-> 
-> > During the scp process, the usb host won't put usb device to suspend state.
-> > In current design, then the ether driver doesn't know the system has
-> > suspended after echo mem. The root cause is that ether driver is still tring
-> > to queue usb request after usb controller has suspended where usb clock is off,
-> > then the system hang.
-> > 
-> > With the above changes, I think the ether driver will fail to eth_start_xmit() 
-> > at an ealier stage, so the issue can't be triggered.
-> > 
-> > I think the ether driver needs call gether_suspend() accordingly, to do this,
-> > the controller driver need explicitly call suspend() function when it's going
-> > to be suspended. Could you check whether below patch fix the issue?
-> 
-> The situation is more complicated than this.
-> 
-> In general, a USB gadget cannot allow itself to be suspended while the 
-> USB bus it is connected to remains active.  Not unless it can be set to 
-> wake up when a USB packet arrives, and even that probably won't work 
-> because the wakeup sequence would take too long and the USB transfer 
-> would time out on the host.
 
-Agree with you. I always see such wakeup issue on some customer usecase.
-Then I need to improve the system wakeup time to satisfy usb requirements.
+On 09/06/25 9:30 PM, Leo Yan wrote:
+> The validation for driver data pointers and clock pointers are redundant
+> in the runtime PM callbacks.  After a driver's probing, its driver data
+> and clocks have been initialized successfully, this ensures it is safe
+> to access driver data and clocks in the runtime PM callbacks.  A corner
+> case is a clock pointer is NULL, in this case, the clock core layer can
+> handle it properly.  So remove these redundant checking.
+> 
+> In runtime resume, respect values returned from clock function and add
+> error handling.
+
+Makes sense.
 
 > 
-> The best way to fix this problem is for the gadget to disconnect itself 
-> from the USB bus whenever it goes into suspend, and to reconnect when it 
-> resumes.
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-Okay, thanks for your suggestion! This should be the best solution. I will
-do this when wakeup is not needed and will also take care of wakeup case
-due to some user indeed need it.
+This looks like a good clean up and streamlining.
 
-Thanks,
-Xu Yang
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
+> ---
+>  drivers/hwtracing/coresight/coresight-cpu-debug.c  |  8 +++-----
+>  drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++------
+>  drivers/hwtracing/coresight/coresight-etb10.c      |  8 ++------
+>  drivers/hwtracing/coresight/coresight-etm3x-core.c |  8 ++------
+>  drivers/hwtracing/coresight/coresight-funnel.c     | 21 +++++++++++----------
+>  drivers/hwtracing/coresight/coresight-replicator.c | 20 +++++++++++---------
+>  drivers/hwtracing/coresight/coresight-stm.c        | 20 +++++++++++---------
+>  drivers/hwtracing/coresight/coresight-tpiu.c       | 20 +++++++++++---------
+>  8 files changed, 53 insertions(+), 60 deletions(-)
 > 
-> Alan Stern
+> diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> index 3edfb5d3d02056afcaab4da575d1101c68aeac80..5f21366406aae03edef9e4fb737e19941afb9ac2 100644
+> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> @@ -731,8 +731,8 @@ static int debug_runtime_suspend(struct device *dev)
+>  {
+>  	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+> +
+>  	return 0;
+>  }
+>  
+> @@ -740,9 +740,7 @@ static int debug_runtime_resume(struct device *dev)
+>  {
+>  	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->pclk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> index 75b5114ef652e4a47c53fbd2b7811c1bab575645..c586495e9a088a63cec481a82fd9f4ec7c645160 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> @@ -278,8 +278,7 @@ static int ctcu_runtime_suspend(struct device *dev)
+>  {
+>  	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
+> -		clk_disable_unprepare(drvdata->apb_clk);
+> +	clk_disable_unprepare(drvdata->apb_clk);
+>  
+>  	return 0;
+>  }
+> @@ -288,10 +287,7 @@ static int ctcu_runtime_resume(struct device *dev)
+>  {
+>  	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
+> -		clk_prepare_enable(drvdata->apb_clk);
+> -
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->apb_clk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+> index 8e81b41eb22264f17606050fa8da277aae05c5cc..35db1b6093d154d67dc567df42f838e2ba3d1d58 100644
+> --- a/drivers/hwtracing/coresight/coresight-etb10.c
+> +++ b/drivers/hwtracing/coresight/coresight-etb10.c
+> @@ -809,8 +809,7 @@ static int etb_runtime_suspend(struct device *dev)
+>  {
+>  	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+>  
+>  	return 0;
+>  }
+> @@ -819,10 +818,7 @@ static int etb_runtime_resume(struct device *dev)
+>  {
+>  	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->atclk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> index baba2245b1dfb31f4bf19080e20c33df3a5b854f..45630a1cd32fbd05ec8b2a6979f0174cacce365e 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> @@ -925,8 +925,7 @@ static int etm_runtime_suspend(struct device *dev)
+>  {
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+>  
+>  	return 0;
+>  }
+> @@ -935,10 +934,7 @@ static int etm_runtime_resume(struct device *dev)
+>  {
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->atclk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+> index 9dcfc5ce8845d9e01bb956dddab0d64de51ec397..3b248e54471a38f501777fe162fea850d1c851b3 100644
+> --- a/drivers/hwtracing/coresight/coresight-funnel.c
+> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
+> @@ -284,11 +284,8 @@ static int funnel_runtime_suspend(struct device *dev)
+>  {
+>  	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> -
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+>  	return 0;
+>  }
+> @@ -296,13 +293,17 @@ static int funnel_runtime_suspend(struct device *dev)
+>  static int funnel_runtime_resume(struct device *dev)
+>  {
+>  	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	return ret;
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+> index e53095603b0c0419bc96a66b23d15bb54e75e634..e6472658235dc479cec91ac18f3737f76f8c74f0 100644
+> --- a/drivers/hwtracing/coresight/coresight-replicator.c
+> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
+> @@ -323,24 +323,26 @@ static int replicator_runtime_suspend(struct device *dev)
+>  {
+>  	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>  	return 0;
+>  }
+>  
+>  static int replicator_runtime_resume(struct device *dev)
+>  {
+>  	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+> +
+> +	return ret;
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+> index ed68d8280b1945f38d1294a5b5f557a614c90c94..28230bbc9df2afec7b426e2fd4d4e4066f51e143 100644
+> --- a/drivers/hwtracing/coresight/coresight-stm.c
+> +++ b/drivers/hwtracing/coresight/coresight-stm.c
+> @@ -957,24 +957,26 @@ static int stm_runtime_suspend(struct device *dev)
+>  {
+>  	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>  	return 0;
+>  }
+>  
+>  static int stm_runtime_resume(struct device *dev)
+>  {
+>  	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+> +
+> +	return ret;
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
+> index 1c5c2a82971490888c45508c68b516ab7dbf3eeb..9463afdbda8ad74eee78c72185fe7603f81b7888 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
+> @@ -206,24 +206,26 @@ static int tpiu_runtime_suspend(struct device *dev)
+>  {
+>  	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>  	return 0;
+>  }
+>  
+>  static int tpiu_runtime_resume(struct device *dev)
+>  {
+>  	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+> +
+> +	return ret;
+>  }
+>  #endif
+>  
+> 
+
 
