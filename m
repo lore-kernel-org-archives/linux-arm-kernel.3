@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D2AC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF300C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RsWVaUzWvEZ4fZMUNRQ9q/wlooicPIF66TOc3eIAYX8=; b=nLgGETD/SIyxV9+dSP2KyDMGKu
-	gAuKTYyQl97K0VsNjLbgOiHBaJ8Syx8lPMnDT2Eh8vhtzU84nd0gbVt84p4oyryITQeNgXaQi9Ob7
-	uKoXKABit5l0ngTmRxepmBrcxrJ1x5m0IGkY0bH8rwtZYc15AUfUP1VlbR0TJln/7IvUF7j0Ewa1m
-	wR4DBeKLvrUJmWNqPOZnOzthya/54/u0A/2xvlLe+xkbAxWoXwk6GpFGXzcVaWUKDzNLorP2nJgye
-	p1MkiGYO9sCuQxNUdq4xob8sKcHskGQFom/fP7HrqvSjm7sgtFoTarjyc08jdc4SK7r+RGmxYTe4t
-	JCMqQhPg==;
+	bh=q6RS+C7zhMB25iOBQZc/9f89PNf4OlYGhPMsZzpqjfM=; b=g69xgpHCABmneqNujHHol5BFy2
+	OC8Z9LyKVnl9UWyZJN6DO0qJxgztfNaD/Rv6j8s1hWeK5RGwg2vpHh3gRQ3/n8qPZpQy4T6DPwCtC
+	/H02Xio6gcrOzUZGcWyQ23BMHs3wnblEeNEYq3lKTsutl8pEABcZomsFKcnBkMviCYFHbvY3yEzF8
+	KKpv6Qop2mrNHuFVlun9p3tTd3n5u2kHft5JwXQojsGlzdLxjH/M0U/t205RRew6eHqTz4LZJFtWD
+	dyFV+eH3eo+k1FLHjS45X91Xh1Dk/4ULP5gOr1qMLJ3EB05HtDCxHphKpTS1+lb/1e4TdiFL6gGjQ
+	1Z2dbhnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP426-00000007qS9-3qwz;
-	Tue, 10 Jun 2025 18:49:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uP44F-00000007qpL-3Ki2;
+	Tue, 10 Jun 2025 18:51:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0ur-00000007JnP-3NtD
+	id 1uP0yD-00000007KKw-2AEB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:29:34 +0000
+	Tue, 10 Jun 2025 15:33:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 156C3A5141C;
-	Tue, 10 Jun 2025 15:29:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 630B3C4CEED;
-	Tue, 10 Jun 2025 15:29:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 92899629F9;
+	Tue, 10 Jun 2025 15:32:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F51DC4CEED;
+	Tue, 10 Jun 2025 15:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749569372;
-	bh=qUnJvb2oUe9IlYbfN0wDYHHg76thgwuul6xFyCTVAzc=;
+	s=k20201202; t=1749569578;
+	bh=q6RS+C7zhMB25iOBQZc/9f89PNf4OlYGhPMsZzpqjfM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JySKFZu7LyDYRY/pSwCbSB+8HoaOzBcXvldD/C+w3dRJGGaX9sPjAnW2ba57VrWGZ
-	 dixiMvE/hIIiuhk8q1MOvZJ4bCFRbyT6QX+DzeRfTyZIv+1/ADuQCnH64b9FqSG4j5
-	 oeqONBT3lhI/VpLxrelx3ajO8jUG4V7/tDwQuR5jc8Ur4mhEXd4pdv4/RkEAOH25J+
-	 tOyfk6Nz59ns7MLiZlT3AXGemRMHD6j1VuoentHGvj2iEliNUpKbwUIZzq2F8W+4E9
-	 VOMaQZpwsAd3AuvDd7ONiJ04sopINazrc5y5KH3QGiTQFJk4Tw16m4UPklkv8Hb0ov
-	 kdwXB8gop02bw==
-Date: Tue, 10 Jun 2025 16:29:26 +0100
+	b=V0Hco7bmWY8LdPkZ4LFbstckfrj0sRITV0hyXuN5O7BQY4TLrMq+JMw2Kuj2oBXgp
+	 iPlfxpnVgHKKz6fqdO7lOBBMjkLR8XIB5nyrT2mscI2c7iQpMwS8qVByuB5RgR0Qpn
+	 fq3qY4T//LWNkv11StE8oq2CZWrtXVbvD9s+XCTkmhzZQiIoi7FophCSbF2nwsNbaD
+	 rGpIfk2DlQ4+HS31zvpqB1JuvY09EdQl4qnp+tp6tZvyHbsh5PF4HF5C0cg0IpDasc
+	 vjhngrsOw6vIsVBGc2yEbScLHPVHlI6bZhEXhapJsFHgBVqWCuuV9NIhqRiG1Sdxwi
+	 6eLaP2uDlKV8A==
+Date: Tue, 10 Jun 2025 16:32:53 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Andreas Kemnade <andreas@kemnade.info>
-Cc: Kory Maincent <kory.maincent@bootlin.com>,
-	Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Bajjuri Praneeth <praneeth@ti.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/5] binding: omap: Add lots of missing omap AM33
- compatibles
-Message-ID: <20250610-during-unstirred-9e5b3de34467@spud>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
- <20250609-bbg-v2-2-5278026b7498@bootlin.com>
- <20250609-hacking-corporate-d53531577680@spud>
- <20250609215044.33ef6b52@akair>
+	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/9] dt-bindings: i2c: apple,i2c: Document Apple
+ A7-A11, T2 compatibles
+Message-ID: <20250610-connector-agility-f2d75a8ab825@spud>
+References: <20250610-i2c-no-t2-v2-0-a5a71080fba9@gmail.com>
+ <20250610-i2c-no-t2-v2-1-a5a71080fba9@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="bq1VQ7xvQiSm4oQx"
+	protocol="application/pgp-signature"; boundary="x4dHHzQr44MfMq5x"
 Content-Disposition: inline
-In-Reply-To: <20250609215044.33ef6b52@akair>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_082933_912926_A5EE5869 
-X-CRM114-Status: GOOD (  14.81  )
+In-Reply-To: <20250610-i2c-no-t2-v2-1-a5a71080fba9@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +78,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---bq1VQ7xvQiSm4oQx
+--x4dHHzQr44MfMq5x
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jun 09, 2025 at 09:50:44PM +0200, Andreas Kemnade wrote:
-> Am Mon, 9 Jun 2025 18:03:05 +0100
-> schrieb Conor Dooley <conor@kernel.org>:
+On Tue, Jun 10, 2025 at 09:45:20PM +0800, Nick Chan wrote:
+> The I2C controllers found on Apple A7-A11, T2 SoCs are compatible with
+> the existing driver so add their per-SoC compatibles.
 >=20
-> > > +      - description: TI bone variants based on TI AM335 =20
-> >=20
-> > "bone variant" sounds like some shortand or nickname. Are the boards not
-> > called "beaglebone green" and "beaglebone black"? Whatever about the
-> > compatible, the description should use the full name I think.
-> >=20
-> we have an enum below it listing all those variants. So "variants"
-> makes sense here, but better "TI Beaglebone variants"
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> ---
 
-Yes, this was a comment on calling it a "bone", when that's not what the
-boards are called in their marketing material etc, not objecting to the
-word variant.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---bq1VQ7xvQiSm4oQx
+--x4dHHzQr44MfMq5x
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEhPVgAKCRB4tDGHoIJi
-0kf0AQCBG5FUfKJFQESxkHdprjsOpc1aEZNx782kfcj1wwZEvQD+PYJgZ7einBw4
-BiQ/5XM+7HXejbeVK1mMvNsoQFAZPAE=
-=agcq
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEhQJQAKCRB4tDGHoIJi
+0iShAP0aNRWibVunJQxPKvAgQLEjADb3xVu5IbW7ACnrlSyizwD/SBjcrfNCx6LI
+j/CfImGYmkxvjKvzuDmkDe88dmljGQU=
+=fLjK
 -----END PGP SIGNATURE-----
 
---bq1VQ7xvQiSm4oQx--
+--x4dHHzQr44MfMq5x--
 
