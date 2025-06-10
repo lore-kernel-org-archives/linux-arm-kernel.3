@@ -4,155 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE66C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 11:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35CD1C678DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 11:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B6G4IDIDNKFIlIZgpoCkC+PXCI41saXphXc1w6SdcOU=; b=ave9/SVFEgYpb+A+Vp8pMPk13X
-	4QTJD8UrAMFi7JEmnBOoTbQzMoPPXd7NvTWb//ie6ZmWeYU6jubs8qzzBzvRjdzvGlO1ktBpEcYFx
-	HhR0Svqe4tbvQY0ZINCMDH3xurDxVnlMxU3RqfZhZxJbP8vwWzlRJJeoi1ws509XsbY+vLw0UrHkS
-	aYYHwbZpyRsA4xYLoDPuo4QPp34gsIKgWawtOwFJZ7O6AWdBkjtcd/fMeNlVFlyGyiq44yxg8tERp
-	3rFtn0U9ORbSY8EVrHpN9QTd2zrWCW43XgFUbg0GpKbR+wJcu5AAof1PNMMb44ov3w+Pf8dR4M6fX
-	xEVy4Lwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DpzD/PxmS/TTLQGkgUz0aLIpp8nnuttkc/75uUPV/Qk=; b=Ogg/+UP9iK+0xpNLYhldCdejFx
+	ybqvtlpio92FQrCkqpKysmqbSyxLHOm3o/eFVIC2jjR79aTx5VcmDrkRSdPg7SRtd/rqUophPYf8S
+	9WxkG1cGnRA8hVSg/jdLfOfACn5JqGu/Z9vrXJADOdNWmBgEymU16pV8KsvVBljIfIgJbiVZ+kLR6
+	9JosTSRW2cgD87PdXwDcEosGs527Z9rU1qq70rowHJ1kG9oJHkIz7DQZ1fevQiVknbvXBbycg3znC
+	5c3HM01dk+rFroXPxj/iwq2ucsIFM2gG/QIzKjFoHzZ8CDELAiFW9uhxON1uLFSFJ8xOFb/MLUr63
+	EjMYELew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxFQ-00000006eeV-1KxO;
-	Tue, 10 Jun 2025 11:34:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uOxFO-00000006ecw-02X7;
+	Tue, 10 Jun 2025 11:34:30 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwlU-00000006bZb-1Y9G
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 11:03:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=B6G4IDIDNKFIlIZgpoCkC+PXCI41saXphXc1w6SdcOU=; b=mAw/+Sn8mSU/tr3uh8Y9wE/zSF
-	8f3lzMLJQB9rlvCd96phJ6h8WVHdo5Fi0I2x4TerhAcV1duabtBvU25nkb1w4kZDKMA4L1aDuRAiA
-	LYTVYRvyEyCz9jAcwerK1EG1qOzDxOMS03uGuh1CnS+UC5ZZHCjk/eFzTfwL1OF2ucK+EfySyyieg
-	pULDLEpkoKIEX5Ax0btsS+OOkMQCCTUH4CRnTRwW0v2Y7qm0vUbxSHhB4Hqik5y7Bpln8+me61ram
-	YCC07c/iMjoO6VvB9MHIXeVbqV0WvUyvDqT9kJPSgjRvuKmP6uH305Wk2jZkwtEmmKpdk9YsoNB5o
-	WKppZfhQ==;
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwlR-00000001ln6-496R
+	id 1uOwkV-00000006bPt-0fra
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 11:03:35 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id AF77B211D1;
-	Tue, 10 Jun 2025 11:03:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749553404; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
+	Tue, 10 Jun 2025 11:02:36 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1749553342;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=B6G4IDIDNKFIlIZgpoCkC+PXCI41saXphXc1w6SdcOU=;
-	b=b6UxFmg38AbXz4g1qm7BgBI0PAL2NgSHJ5LJkAOX1gZH9xgxn/avIQh/8yAAaIMUYeUjwY
-	0x69A7tp1WYJgjd1ORM/lL9K5+90N2ceP3AUOXhMWMD+WBokO/sfyRqMWmVzEbzcYwoYqH
-	TI3IiEXJ6fPpX5TXN2ghhyz4GoD+jkE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749553404;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=B6G4IDIDNKFIlIZgpoCkC+PXCI41saXphXc1w6SdcOU=;
-	b=fu8SklUalOzO6Tu2Zdynp4px4puRTCU94T+CuD3dXNIzX/GdTT9YIyCsZkkHC/FRlpQgsk
-	zNa8VA46w0gKMcDQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=b6UxFmg3;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=fu8SklUa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749553404; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=B6G4IDIDNKFIlIZgpoCkC+PXCI41saXphXc1w6SdcOU=;
-	b=b6UxFmg38AbXz4g1qm7BgBI0PAL2NgSHJ5LJkAOX1gZH9xgxn/avIQh/8yAAaIMUYeUjwY
-	0x69A7tp1WYJgjd1ORM/lL9K5+90N2ceP3AUOXhMWMD+WBokO/sfyRqMWmVzEbzcYwoYqH
-	TI3IiEXJ6fPpX5TXN2ghhyz4GoD+jkE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749553404;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=B6G4IDIDNKFIlIZgpoCkC+PXCI41saXphXc1w6SdcOU=;
-	b=fu8SklUalOzO6Tu2Zdynp4px4puRTCU94T+CuD3dXNIzX/GdTT9YIyCsZkkHC/FRlpQgsk
-	zNa8VA46w0gKMcDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5931213964;
-	Tue, 10 Jun 2025 11:03:24 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id OKicFPwQSGgOTAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 10 Jun 2025 11:03:24 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: deller@gmx.de,
-	soci@c64.rulez.org,
-	simona@ffwll.ch,
-	jayalk@intworks.biz,
-	linux@armlinux.org.uk,
-	FlorianSchandinat@gmx.de,
-	alchark@gmail.com,
-	krzk@kernel.org
-Cc: linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 04/14] fbdev/cyber2000fb: Unexport symbols
-Date: Tue, 10 Jun 2025 12:56:37 +0200
-Message-ID: <20250610105948.384540-5-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250610105948.384540-1-tzimmermann@suse.de>
-References: <20250610105948.384540-1-tzimmermann@suse.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: AF77B211D1
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	FREEMAIL_TO(0.00)[gmx.de,c64.rulez.org,ffwll.ch,intworks.biz,armlinux.org.uk,gmail.com,kernel.org];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLwqwbgho3bgbo9wb3ecq1qfng)];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:dkim,suse.de:email];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
+	bh=DpzD/PxmS/TTLQGkgUz0aLIpp8nnuttkc/75uUPV/Qk=;
+	b=IApPMQAX1J7x/q2VSUj1ayMhPvyZ2BlNwr4o8hs0RIBE8e7/9sKFE4xX3UA/l9iSKOZr67
+	OF+woXeeHpF2VtI2BfZR5X2xHOJzwU2qayGLUvQzmFz+sdsdPYHIubyMJN4gYo69/at43M
+	nypxp5mGH6oyCXMAhhv5rO2jz3pr3vnbzmnp1YBodofoBpPXtaxJ7JJPVS2Mr9YEz+9zjR
+	JW+iuHpN9sOuZLvd9iRolHPOI3bk8rU7CLIqe+T/dwYaEbvAOT8eQIEeZe6x5PEgBfBpcE
+	r+zEMeSFlpi0RuZSR38U668nK4+Ez8/W0MG07rUhh1l4PEC1FuTDOs6rMGeNEA==
+Content-Type: multipart/signed;
+ boundary=a2fd228ad8616b05fb37f016492705069e4812029ccc04877beb3c403ab6;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 10 Jun 2025 13:02:11 +0200
+Message-Id: <DAISW8MXEU0G.3AMRSKNYQUJY8@cknow.org>
+Cc: "Piotr Zalewski" <pZ010001011111@proton.me>, <hjc@rock-chips.com>,
+ <heiko@sntech.de>, <andy.yan@rock-chips.com>,
+ <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+ <tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>, "Dang Huynh"
+ <danct12@riseup.net>, <dri-devel@lists.freedesktop.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH drm-misc-next] rockchip/drm: vop2: don't check
+ color_mgmt_changed in atomic_enable
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Andy Yan" <andyshrk@163.com>
+References: <20241206192013.342692-3-pZ010001011111@proton.me>
+ <DAEVDSTMWI1E.J454VZN0R9MA@cknow.org>
+ <mArHDRo5bhIAjG8sDOR-kM7DsVdbXxxcC8hfuEEPfUWIdMwNnSUy8ZFoLis66DFSuIEq8TrnAxUGkyo5IUTGw3AG4k3vuVVz0fsoI27BAms=@proton.me> <DAH3S8O66J47.3NT18EJCXWKL9@cknow.org> <47773829.1fce.1974f732545.Coremail.andyshrk@163.com> <DAH60H3HYG7M.3NFXBJ7576RH1@cknow.org> <3161fa6a.93d0.19753f8c5e0.Coremail.andyshrk@163.com> <DAI0A1Y753FJ.B0NMT8L5VPEH@cknow.org> <4b380a57.8ab2.197591815a8.Coremail.andyshrk@163.com>
+In-Reply-To: <4b380a57.8ab2.197591815a8.Coremail.andyshrk@163.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_120334_179233_9B451B47 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20250610_040235_350013_4D365806 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,54 +78,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the compile-time warning
+--a2fd228ad8616b05fb37f016492705069e4812029ccc04877beb3c403ab6
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-  drivers/video/fbdev/cyber2000fb.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+Hi Andy,
 
-The affected symbols are not used outside of their module.
+On Tue Jun 10, 2025 at 11:07 AM CEST, Andy Yan wrote:
+> At 2025-06-09 20:36:41, "Diederik de Haas" <didi.debian@cknow.org> wrote:
+>>On Mon Jun 9, 2025 at 11:15 AM CEST, Andy Yan wrote:
+>>> At 2025-06-08 20:53:37, "Diederik de Haas" <didi.debian@cknow.org> wrot=
+e:
+>>>>On Sun Jun 8, 2025 at 2:10 PM CEST, Andy Yan wrote:
+>>>>> At 2025-06-08 19:08:50, "Diederik de Haas" <didi.debian@cknow.org> wr=
+ote:
+>>>>>>On Sat Jun 7, 2025 at 5:32 PM CEST, Piotr Zalewski wrote:
+>>>>>>> On Thursday, June 5th, 2025 at 10:13 PM, Diederik de Haas <didi.deb=
+ian@cknow.org> wrote:
+>>>>>>>> Since kernel 6.14-rc1 I have the problem that visual output is no =
+longer
+>>>>>>>> shown on my PineTab2 and a `git bisect` pointed to this patch/comm=
+it
+>>>>>
+>>>>> I have conducted tests on both rk3566-box-demo (with drm set to y)
+>>>>> and rk3568-lubancat-2 (with drm set to m), but I was unable to
+>>>>> reproduce this issue. Could you two please share your kernel
+>>>>> defconfig and the corresponding kernel startup logs?
+>>>>> Additionally, both of my two boards tested with HDMI output. What
+>>>>> kind of display interface does your board use for output?
+>>>>
+>>>>I wasn't able to reproduce this issue on my PINE64 Quartz-B (rk3566)=20
+>>>>with HDMI output either, but the problem is present on a PineTab2 [1]
+>>>>(also rk3566) which uses a MIPI DSI connection to the display panel.
+>>>>
+>>>>Kernel config:
+>>>>https://paste.sr.ht/~diederik/aa747ed170aa01cc759fbe1ffd9cebe8c887b10b
+>>>>
+>>>>dmesg kernel 6.14-rc1:
+>>>>https://paste.sr.ht/~diederik/733fbf8bb7f6aee8b68cf5a652157d445462c24a
+>>>>
+>>>>dmesg kernel 6.14-rc1 with Piotr's patch:
+>>>>https://paste.sr.ht/~diederik/db1af672cfb611acbfbdf35adb6f170e5c38febc
+>>>>
+>>>>Both dmesg outputs contain a suspend-resume cycle.
+>>>>I'm using a USB Wi-Fi adapter for the wireless connection.
+>>>>
+>>>>[1] https://wiki.pine64.org/wiki/PineTab2
+>>>>
+>>>>Happy to provide more info and/or do some tests.
+>>>
+>>> Can you apply the patch in the attachment, reproduce this issue(without=
+ Piotr's patch),=20
+>>> and then provide me with a copy of the kernel log?
+>>
+>>Same test as above, but added ``dmesg | grep "vop2_"`` at the end as well
+>>
+>>dmesg kernel 6.14-rc1 with Andy's print_lut_0609_1710 patch:
+>>https://paste.sr.ht/~diederik/ac356ee8b0f7e772c7310293d99d95644f59a4ee
+>
+>
+> root@pt2-scmi:~# dmesg | grep "vop2_"
+> [    4.996281] rockchip-drm display-subsystem: bound fe040000.vop (ops vo=
+p2_crtc_atomic_try_set_gamma.part.0 [rockchipdrm])
+> [    5.005207] rockchip-drm display-subsystem: bound fe0a0000.hdmi (ops v=
+op2_crtc_atomic_try_set_gamma.part.0 [rockchipdrm])
+> [    5.006798] rockchip-drm display-subsystem: bound fe060000.dsi (ops vo=
+p2_crtc_atomic_try_set_gamma.part.0 [rockchipdrm])
+> [    5.021204] vop2_crtc_atomic_try_set_gamma  gamma_lut: 000000000000000=
+0
+> [    5.021219] vop2_vp_dsp_lut_disable dsp_ctrl: 0x0000000f
+>
+> It seems that dsp_ctrl: 0x0000000f , this value is not what we expected.
+>
+> The expected is 0x00010000.
+>
+> Could you please do an experiment for me? When there is no display on you=
+r screen,=20
+> execute the following command and see if the screen can resume displaying=
+:
+>
+> ./data/io  -w -4 0xfe040d00 0x10000; io -w -4 0xfe040000 0x28002=20
+>
+> I have placed the io tool in the attachment.
+>
+> You can use command like bellow to read back to confirm if what you write=
+ has taken effect:
+> io -r -4 -l 0x100  0xfe040d00=20
+>
+> you may need to make CONFIG_DEVMEM=3Dy so that you can write the register=
+ by io command.
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- drivers/video/fbdev/cyber2000fb.c | 4 ----
- 1 file changed, 4 deletions(-)
+I renamed it as ``andy-io`` and performed the test:
 
-diff --git a/drivers/video/fbdev/cyber2000fb.c b/drivers/video/fbdev/cyber2000fb.c
-index 986760b90465..fcc565b2d98c 100644
---- a/drivers/video/fbdev/cyber2000fb.c
-+++ b/drivers/video/fbdev/cyber2000fb.c
-@@ -1089,7 +1089,6 @@ void cyber2000fb_enable_extregs(struct cfb_info *cfb)
- 		cyber2000_grphw(EXT_FUNC_CTL, old, cfb);
- 	}
- }
--EXPORT_SYMBOL(cyber2000fb_enable_extregs);
- 
- /*
-  * Disable access to the extended registers
-@@ -1109,7 +1108,6 @@ void cyber2000fb_disable_extregs(struct cfb_info *cfb)
- 	else
- 		cfb->func_use_count -= 1;
- }
--EXPORT_SYMBOL(cyber2000fb_disable_extregs);
- 
- /*
-  * Attach a capture/tv driver to the core CyberX0X0 driver.
-@@ -1135,7 +1133,6 @@ int cyber2000fb_attach(struct cyberpro_info *info, int idx)
- 
- 	return int_cfb_info != NULL;
- }
--EXPORT_SYMBOL(cyber2000fb_attach);
- 
- /*
-  * Detach a capture/tv driver from the core CyberX0X0 driver.
-@@ -1143,7 +1140,6 @@ EXPORT_SYMBOL(cyber2000fb_attach);
- void cyber2000fb_detach(int idx)
- {
- }
--EXPORT_SYMBOL(cyber2000fb_detach);
- 
- #ifdef CONFIG_FB_CYBER2000_DDC
- 
--- 
-2.49.0
+```sh
+root@pt2-scmi:~# echo 'just (re-)booted into my PineTab2; screen is blank'
+just (re-)booted into my PineTab2; screen is blank
+root@pt2-scmi:~# uname -a
+Linux pt2-scmi 6.14.0-rc1-00001-gfbe17d9b77b0 #18 SMP Mon Jun  9 13:17:28 C=
+EST 2025 aarch64 GNU/Linux
+root@pt2-scmi:~# ./andy-io -r -4 -l 0x100 0xfe040d00
+mmap() failed: Operation not permitted
+root@pt2-scmi:~# grep CONFIG_DEVMEM /boot/config-6.14.0-rc1-00001-gfbe17d9b=
+77b0
+CONFIG_DEVMEM=3Dy
+root@pt2-scmi:~# ./andy-io -w -4 0xfe040d00 0x10000
+mmap() failed: Operation not permitted
+root@pt2-scmi:~# ./andy-io -w -4 0xfe040000 0x28002
+mmap() failed: Operation not permitted
+```
 
+I guess this is not what you expected and I don't know why it happens.
+
+Cheers,
+  Diederik
+
+> [   73.750524] vop2_crtc_atomic_try_set_gamma  gamma_lut: 000000000000000=
+0
+> [   73.750542] vop2_vp_dsp_lut_disable dsp_ctrl: 0x00010000
+>>>>>>> patched vop2_vp_dsp_lut_disable function so that dsp_ctrl is set on=
+ly if=20
+>>>>>>> GAMMA LUT EN bit is set. I checked that this also does not break th=
+e gamma=20
+>>>>>>> lut functionality with emphasis on out-of/into suspend behavior.
+>>>>>>>
+>>>>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers=
+/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>>> index d0f5fea15e21..7ddf311b38c6 100644
+>>>>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>>> @@ -897,6 +897,9 @@ static void vop2_vp_dsp_lut_disable(struct vop2=
+_video_port *vp)
+>>>>>>>  {
+>>>>>>>  	u32 dsp_ctrl =3D vop2_vp_read(vp, RK3568_VP_DSP_CTRL);
+>>>>>>> =20
+>>>>>>> +	if ((dsp_ctrl & RK3568_VP_DSP_CTRL__DSP_LUT_EN) =3D=3D 0)
+>>>>>>> +		return;
+>>>>>>> +
+>>>>>>>  	dsp_ctrl &=3D ~RK3568_VP_DSP_CTRL__DSP_LUT_EN;
+>>>>>>>  	vop2_vp_write(vp, RK3568_VP_DSP_CTRL, dsp_ctrl);
+>>>>>>>  }
+>>>>>>
+>>>>>>I built a kernel with 6.14-rc1 + this patch and can confirm the scree=
+n
+>>>>>>has output again :-)
+>>>>>>
+>>>>>>> I will wait with sending a patch because maybe Andy has something t=
+o add=20
+>>>>>>> to this.
+>>>>>>
+>>>>>>Sounds like a plan. It could be that this issue surfaced an underlayi=
+ng
+>>>>>>issue and if so, fixing that would be even better.
+
+
+--a2fd228ad8616b05fb37f016492705069e4812029ccc04877beb3c403ab6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaEgQtgAKCRDXblvOeH7b
+bgCaAQCewNGurxHRr3jS3eEoPIWei9XCwBRy9BEv6a3QzGD+pAEAheo+MJVHidjB
+pJTB5xZ0vFxj8HUWu+5MHzEn5NUnJAE=
+=N8Ux
+-----END PGP SIGNATURE-----
+
+--a2fd228ad8616b05fb37f016492705069e4812029ccc04877beb3c403ab6--
 
