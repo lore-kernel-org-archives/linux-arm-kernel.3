@@ -4,67 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A56C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F26C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2aDOVsXZyzKU8vuWttCueOe5SPtog226gwz3hdC0Fu0=; b=zxwssc8d1MnvaolFhOXawJO3OR
-	5cdwFeuEC2SvDxwezOOoeEpUk8SQTFk9aYWqeSzFwmKcznR2Bgq2aNj2PJUt0aCyUs00oijXImavg
-	RLkpSIW9MMJmes0GEjVgziy+pQF1xrHaZjFdX/KRnno1IRGgVcSWbFIiDHPR4QzTGlHEC2BRxYzdY
-	2Xfy8iFgaJ9rJ8pFEwjoIWOez1JFSZeOI4qzOJ2ItCDG2OjtY9rBMAfR4XEbxsrm6ppX3Dj6I9kkM
-	2bjtSeaNrxERla8HNhAWxwGQknsHF1EmaXz8VG3W8iXj2sQ/lGwsIesrBgxtj4NKnDZQlRMOSmYJJ
-	VAwH/64g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SLhYKXUBlq/76Q8kCP0zJNioPnWqVmep9hlrNQUyLmg=; b=bomoQUAgjdQeQJnEUziSMYMIi9
+	Wr6+n4bfAub88PIJ2tkyaCmmq0a45H0IDFNMv/U/Dt+Z1or0YC3QGbkqSauBRBhOTJsnnGHcBlrhW
+	lLze8TA8V3qZH35bj7ppABLEi1NjNRxMoujglp+EcGWBYPIWKqhm5zV/G4o6KmpIKSHRsP0YmIQ2N
+	igsI2x76mojMuXVrRuusj6XPHuKZV1s+BmccqFSe6FbmcqkUFoaY2GrkDN6PPWjWUbyJ8BtfFR9m5
+	eT6Ugt4LED1+vFAQWD64ropKlTaHh7RUS0xs2G8IpzX6XJlWwq29ziRIXyn6kserazvU8x1St0HsN
+	KE+lg8ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvYL-00000006Nzu-1sle;
-	Tue, 10 Jun 2025 09:45:57 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uOvaT-00000006OY7-0hBE;
+	Tue, 10 Jun 2025 09:48:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOv67-00000006Ija-1evR
+	id 1uOvDB-00000006K7b-00bW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 09:16:48 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 879462EC;
-	Tue, 10 Jun 2025 11:16:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749546997;
-	bh=Q+OZ7g6V3LXKnAvLoFoKYNotBv9+t1H/YpraEjFfDH8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mwaWdgOMzZ3jGsW3vKdoubdUvUz6vxEm26kcAdWngSNwWWCEWCnXdLQhrNpTT6PoY
-	 yaSKMOmokriJadwM+gXm+VaZtOPbnwUYTi6LzSEVCKp6ExzH4JUSGjuRffnEWx5tgR
-	 +KJmCp2UrVKWhFaywTlrFJKoV2LcgHv1ZSWgzIaY=
-Date: Tue, 10 Jun 2025 12:16:32 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/8] media: imx-mipi-csis: Rename register macros to
- match reference manual
-Message-ID: <20250610091632.GM27510@pendragon.ideasonboard.com>
-References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
- <20250608235840.23871-2-laurent.pinchart@ideasonboard.com>
- <3358871.aeNJFYEL58@steina-w>
+	Tue, 10 Jun 2025 09:24:06 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 559MfPp0008107;
+	Tue, 10 Jun 2025 09:23:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SLhYKXUBlq/76Q8kCP0zJNioPnWqVmep9hlrNQUyLmg=; b=QU3NycOYoTGMHmlP
+	oCwadU5LFsF+PLGcbyAJ3NorxQb19M/mq2KefjFhSc4lUkFFVPgHaVqMuu0O18tQ
+	pRvzlH2CicPaDfSXBYSJzk12Bul65cDfut/PH8dqcvtxwQa9RlGSXPogFSj+UXeE
+	QfZhzdzzSFlifdVfZvYaQhKHlYqmgrZrBm9CjVJV5a2kVT01v4Vfo7w9jpuBaSn2
+	PCuuIsRwd4TjuQI7JszahyxmrujEotHcbjmqbTNjkx1QcrAzw9amzRqeSliyKkDB
+	yeoKO2aXRB/YZvbKSfRXg+IgZpvyqOmMBGqCpZKOelbWY8fOZeLf7k68RoVgt5nE
+	Y/voeg==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474d120y0w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Jun 2025 09:23:58 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55A9Nans015791
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Jun 2025 09:23:36 GMT
+Received: from [10.217.217.109] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 10 Jun
+ 2025 02:23:31 -0700
+Message-ID: <814deadc-9b7d-49d6-88c4-cb8837486cdd@quicinc.com>
+Date: Tue, 10 Jun 2025 14:53:28 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <3358871.aeNJFYEL58@steina-w>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera
+ clock controller
+To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        "Stephen
+ Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Konrad Dybcio
+	<konradybcio@kernel.org>
+CC: Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik
+	<quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250424-qcs615-mm-v7-clock-controllers-v8-0-bacad5b3659a@quicinc.com>
+ <20250424-qcs615-mm-v7-clock-controllers-v8-2-bacad5b3659a@quicinc.com>
+ <b80d500b-6203-4d83-8396-3ba579abd980@linaro.org>
+Content-Language: en-US
+From: Taniya Das <quic_tdas@quicinc.com>
+In-Reply-To: <b80d500b-6203-4d83-8396-3ba579abd980@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: paoPOxfTkq3Z8Db8VHkhp7K7FNbxtFRD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEwMDA3MiBTYWx0ZWRfX+xuEUv/2DpC/
+ lIvcAmnFSA7A/gkwUEAVaVfDqxDr8CQ0e/MycgGXp028hOoRfjAdOFavxNPV3yvCZogNthqB83p
+ MFz/iEOoUc1EGKs9jxOPZ9piimDJ23bapwuGDgHD5MH12oD/WuxATOz9EsGIme/TTH3btHeDAKc
+ /kI+eWAfderfLVpIuzhbxkQCfUpN8nI9m6DgukPwxNU59mmb8gbM5sgdHFDrQSZ/KiykvcTYsdv
+ pUtmKB6cZQ9sK2YjCj7XZq3k3uPsvbT4toB6Abo1FeYd3//oAe/BsZTBQ9sMC/wlEmA1Eyo2Pth
+ a7xCUVzSJGu8hUli87+e2SvFeA2HbBSzEKeuV7HxVqZqJH/1Tvj3S6wJmSqJSA0BJyi76cV/19u
+ uqsc7/3CXeuLqfFM7lWytXeH1o8InFMmZ3fU6910M/ZCpWVk3KMxQ0CGM15kp/Nze1VjAhFk
+X-Authority-Analysis: v=2.4 cv=GYkXnRXL c=1 sm=1 tr=0 ts=6847f9ae cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=gEfo2CItAAAA:8
+ a=COk6AnOGAAAA:8 a=WPGCOMWRFNVID3d5GRAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=sptkURWiP4Gy88Gu7hUp:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: paoPOxfTkq3Z8Db8VHkhp7K7FNbxtFRD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-10_03,2025-06-09_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 spamscore=0 mlxlogscore=999 bulkscore=0
+ impostorscore=0 clxscore=1015 malwarescore=0 priorityscore=1501 mlxscore=0
+ adultscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506100072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_021647_574964_A2348D94 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20250610_022405_160164_A38CDA47 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,208 +131,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 11:10:54AM +0200, Alexander Stein wrote:
-> Am Montag, 9. Juni 2025, 01:58:33 CEST schrieb Laurent Pinchart:
-> > The CSIS driver uses register macro names that do not match the
-> > reference manual of the i.MX7[DS] and i.MX8M[MNP] SoCs in which the CSIS
-> > is integrated. Rename them to match the documentation, making the code
-> > easier to read alongside the reference manuals.
-> > 
-> > One of the misnamed register fields is MIPI_CSIS_INT_SRC_ERR_UNKNOWN,
-> > which led to the corresponding event being logged as "Unknown Error".
-> > The correct register field name is MIPI_CSIS_INT_SRC_ERR_ID, documented
-> > as "Unknown ID error". Update the event description accordingly.
-> > 
-> > While at it, also replace a few *_OFFSET macros with parametric macros
-> > for consistency, and add the missing MIPI_CSIS_ISP_RESOL_VRESOL and
-> > MIPI_CSIS_ISP_RESOL_HRESOL register field macros.
-> > 
-> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > ---
-> >  drivers/media/platform/nxp/imx-mipi-csis.c | 69 +++++++++++-----------
-> >  1 file changed, 36 insertions(+), 33 deletions(-)
-> > 
-> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > index 2beb5f43c2c0..d59666ef7545 100644
-> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > @@ -55,13 +55,13 @@
-> >  /* CSIS common control */
-> >  #define MIPI_CSIS_CMN_CTRL			0x04
-> >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
-> > -#define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
-> > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_NONE	(0 << 10)
-> > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT	(1 << 10)
-> > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)	((n) << 8)
-> > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK	(3 << 8)
-> >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
-> > -#define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
-> > -#define MIPI_CSIS_CMN_CTRL_ENABLE		BIT(0)
-> > -
-> > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET	8
-> > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_MASK		(3 << 8)
-> > +#define MIPI_CSIS_CMN_CTRL_SW_RESET		BIT(1)
-> > +#define MIPI_CSIS_CMN_CTRL_CSI_EN		BIT(0)
-> >  
-> >  /* CSIS clock control */
-> >  #define MIPI_CSIS_CLK_CTRL			0x08
-> > @@ -87,7 +87,7 @@
-> >  #define MIPI_CSIS_INT_MSK_ERR_WRONG_CFG		BIT(3)
-> >  #define MIPI_CSIS_INT_MSK_ERR_ECC		BIT(2)
-> >  #define MIPI_CSIS_INT_MSK_ERR_CRC		BIT(1)
-> > -#define MIPI_CSIS_INT_MSK_ERR_UNKNOWN		BIT(0)
-> > +#define MIPI_CSIS_INT_MSK_ERR_ID		BIT(0)
-> >  
-> >  /* CSIS Interrupt source */
-> >  #define MIPI_CSIS_INT_SRC			0x14
-> > @@ -107,7 +107,7 @@
-> >  #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
-> >  #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
-> >  #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
-> > -#define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
-> > +#define MIPI_CSIS_INT_SRC_ERR_ID		BIT(0)
-> >  #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
-> >  
-> >  /* D-PHY status control */
-> > @@ -123,8 +123,8 @@
-> >  #define MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE_MASK	GENMASK(31, 24)
-> >  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(n)	((n) << 22)
-> >  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE_MASK	GENMASK(23, 22)
-> > -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_CLK	BIT(6)
-> > -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_DAT	BIT(5)
-> > +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_CLK	BIT(6)
-> > +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_DAT	BIT(5)
-> >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_DAT	BIT(1)
-> >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_CLK	BIT(0)
-> >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE		(0x1f << 0)
-> > @@ -179,21 +179,23 @@
-> >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_SINGLE	(0 << 12)
-> >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL	(1 << 12)
-> >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_QUAD	(2 << 12)	/* i.MX8M[MNP] only */
-> > -#define MIPI_CSIS_ISPCFG_PIXEL_MASK		(3 << 12)
-> > -#define MIPI_CSIS_ISPCFG_ALIGN_32BIT		BIT(11)
-> > -#define MIPI_CSIS_ISPCFG_FMT(fmt)		((fmt) << 2)
-> > -#define MIPI_CSIS_ISPCFG_FMT_MASK		(0x3f << 2)
-> > +#define MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK	(3 << 12)
-> > +#define MIPI_CSIS_ISPCFG_PARALLEL		BIT(11)
-> > +#define MIPI_CSIS_ISPCFG_DATAFORMAT(fmt)	((fmt) << 2)
-> > +#define MIPI_CSIS_ISPCFG_DATAFORMAT_MASK	(0x3f << 2)
-> >  
-> >  /* ISP Image Resolution register */
-> >  #define MIPI_CSIS_ISP_RESOL_CH(n)		(0x44 + (n) * 0x10)
-> > +#define MIPI_CSIS_ISP_RESOL_VRESOL(n)		((n) << 16)
-> > +#define MIPI_CSIS_ISP_RESOL_HRESOL(n)		((n) << 0)
-> >  #define CSIS_MAX_PIX_WIDTH			0xffff
-> >  #define CSIS_MAX_PIX_HEIGHT			0xffff
-> >  
-> >  /* ISP SYNC register */
-> >  #define MIPI_CSIS_ISP_SYNC_CH(n)		(0x48 + (n) * 0x10)
-> > -#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET	18
-> > -#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET	12
-> > -#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET	0
-> > +#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(n)	((n) << 18)
-> > +#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(n)	((n) << 12)
-> > +#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(n)	((n) << 0)
-> >  
-> >  /* ISP shadow registers */
-> >  #define MIPI_CSIS_SDW_CONFIG_CH(n)		(0x80 + (n) * 0x10)
-> > @@ -246,7 +248,7 @@ static const struct mipi_csis_event mipi_csis_events[] = {
-> >  	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
-> >  	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
-> >  	{ false, MIPI_CSIS_INT_SRC_ERR_CRC,		"CRC Error" },
-> > -	{ false, MIPI_CSIS_INT_SRC_ERR_UNKNOWN,		"Unknown Error" },
-> > +	{ false, MIPI_CSIS_INT_SRC_ERR_ID,		"Unknown ID Error" },
-> >  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
-> >  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,	"Data Type Ignored" },
-> >  	{ true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error" },
-> > @@ -517,7 +519,7 @@ static void mipi_csis_sw_reset(struct mipi_csis_device *csis)
-> >  	u32 val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> >  
-> >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
-> > -			val | MIPI_CSIS_CMN_CTRL_RESET);
-> > +			val | MIPI_CSIS_CMN_CTRL_SW_RESET);
-> >  	usleep_range(10, 20);
-> >  }
-> >  
-> > @@ -527,9 +529,9 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
-> >  
-> >  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> >  	if (on)
-> > -		val |= MIPI_CSIS_CMN_CTRL_ENABLE;
-> > +		val |= MIPI_CSIS_CMN_CTRL_CSI_EN;
-> >  	else
-> > -		val &= ~MIPI_CSIS_CMN_CTRL_ENABLE;
-> > +		val &= ~MIPI_CSIS_CMN_CTRL_CSI_EN;
-> >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
-> >  
-> >  	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
-> > @@ -549,8 +551,8 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
-> >  
-> >  	/* Color format */
-> >  	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(0));
-> > -	val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
-> > -		| MIPI_CSIS_ISPCFG_PIXEL_MASK);
-> > +	val &= ~(MIPI_CSIS_ISPCFG_PARALLEL | MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK |
-> > +		 MIPI_CSIS_ISPCFG_DATAFORMAT_MASK);
-> >  
-> >  	/*
-> >  	 * YUV 4:2:2 can be transferred with 8 or 16 bits per clock sample
-> > @@ -568,12 +570,13 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
-> >  	if (csis_fmt->data_type == MIPI_CSI2_DT_YUV422_8B)
-> >  		val |= MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL;
-> >  
-> > -	val |= MIPI_CSIS_ISPCFG_FMT(csis_fmt->data_type);
-> > +	val |= MIPI_CSIS_ISPCFG_DATAFORMAT(csis_fmt->data_type);
-> >  	mipi_csis_write(csis, MIPI_CSIS_ISP_CONFIG_CH(0), val);
-> >  
-> >  	/* Pixel resolution */
-> > -	val = format->width | (format->height << 16);
-> > -	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0), val);
-> > +	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0),
-> > +			MIPI_CSIS_ISP_RESOL_VRESOL(format->height) |
-> > +			MIPI_CSIS_ISP_RESOL_HRESOL(format->width));
-> >  }
-> >  
-> >  static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
-> > @@ -635,10 +638,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
-> >  	u32 val;
-> >  
-> >  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> > -	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
-> > -	val |= (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
-> > +	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK;
-> > +	val |= MIPI_CSIS_CMN_CTRL_LANE_NUMBER(lanes - 1);
-> >  	if (csis->info->version == MIPI_CSIS_V3_3)
-> > -		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE;
-> > +		val |= MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT;
+
+
+On 4/28/2025 6:38 PM, Vladimir Zapolskiy wrote:
+> Hi Taniya.
 > 
-> Mh, what about i.MX8MP which also has these bitfield defined, but is
-> not a MIPI_CSIS_V3_3 core?
+> On 4/24/25 12:32, Taniya Das wrote:
+>> Add DT bindings for the Camera clock on QCS615 platforms. Add the
+>> relevant DT include definitions as well.
+>>
+>> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+>> ---
+>>   .../bindings/clock/qcom,qcs615-camcc.yaml          |  43 ++++++++
+>>   include/dt-bindings/clock/qcom,qcs615-camcc.h      | 110 +++++++++++
+>> ++++++++++
+>>   2 files changed, 153 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-
+>> camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-
+>> camcc.yaml
+>> new file mode 100644
+>> index
+>> 0000000000000000000000000000000000000000..2b811e66d406c16c70004bb3a9fce294422a5914
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-camcc.yaml
+>> @@ -0,0 +1,43 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/qcom,qcs615-camcc.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Qualcomm Camera Clock & Reset Controller on QCS615
+>> +
+>> +maintainers:
+>> +  - Taniya Das <quic_tdas@quicinc.com>
+>> +
+>> +description: |
+>> +  Qualcomm camera clock control module provides the clocks, resets
+>> and power
+>> +  domains on QCS615.
+>> +
+>> +  See also: include/dt-bindings/clock/qcom,qcs615-camcc.h
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: qcom,qcs615-camcc
+>> +
+>> +  clocks:
+>> +    items:
+>> +      - description: Board XO source
+>> +
+>> +allOf:
+>> +  - $ref: qcom,gcc.yaml#
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/qcom,rpmh.h>
+>> +    clock-controller@ad00000 {
+>> +      compatible = "qcom,qcs615-camcc";
+>> +      reg = <0xad00000 0x10000>;
+>> +      clocks = <&rpmhcc RPMH_CXO_CLK>;
+>> +
+>> +      #clock-cells = <1>;
+>> +      #reset-cells = <1>;
+>> +      #power-domain-cells = <1>;
+>> +    };
+>> +...
+> 
+> Is there anything what prevents to add this clock controller dt bindings
+> description into qcom,sm6350-camcc.yaml ?
+> 
+> Apart of compatible values I barely see any difference between two of them.
+> 
 
-Short answer: no idea yet. Has anyone been able to capture embedded data
-through the ISI on the i.MX8MP ?
+Sure, I can re-use the bindings and push the next patch.
 
-> >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
-> >  
-> >  	__mipi_csis_set_format(csis, format, csis_fmt);
-> > @@ -647,10 +650,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
-> >  			MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE(csis->hs_settle) |
-> >  			MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(csis->clk_settle));
-> >  
-> > -	val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
-> > -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
-> > -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
-> > -	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0), val);
-> > +	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0),
-> > +			MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(0) |
-> > +			MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(0) |
-> > +			MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(0));
-> >  
-> >  	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
-> >  	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
 
--- 
-Regards,
+> -- 
+> Best wishes,
+> Vladimir
 
-Laurent Pinchart
 
