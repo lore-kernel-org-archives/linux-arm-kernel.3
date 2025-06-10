@@ -4,95 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512CFC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:56:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6DFC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3JoIjs0rN0Mef0RCPvvnCGsgeRN+4kOPLLI4ZD9o2Mw=; b=TbOGQnRWLAqW8urPdcqs4WIrwg
-	IcXOBiIBjEWW2gZKh/Wel0ULa7ngcDPEPNJ9FL/cFHxtsFf6UxG4BRHHyXya1z4k5BrkqsBZukzzA
-	APcxx/0v2pfYiXH6CRO+gbCT3BhLa4Gwc+ZrNaVQu2uIjGWt86+Sak/+nzA8uzt28cHXRX8oesBbP
-	gt+25TzUVP6n8Y+F2HZrLkG8RPb1e4dab6CnBys3xblO/A08bIujsw65QK15tya+JuaunS+CKXvbh
-	1DVHKWnU87hJlUn7Sb939ilgC4poxJccronixItdu7+7NAZ6lS0ST8idp+GVUZ8xmlXcnCFCeGWug
-	Q004L4Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=08LO6FbNPkTir1j1egIrJ4dmAI2KtDV+QIbGYiPMbbw=; b=hIOvP6RxT+EZUdhFgIGpCLiTRj
+	+ot8cyzSCTBXDpzT6hAZlEkIItURFwmDdBxmMTUNgcCsVnlCYEb6zTqJiIIk8YAiTQbj6s6aFsYZw
+	WF3CsogEAnbpFPr3wHMAL/2k5Vhwy04XAqcX5IzF2QObKlW8LnxmfALmZPmJlXZExDYYNFoC7oAXP
+	+f33cGLboTsWSEQZhlmQteS0QbgK8ifPJL7OdbaSETvh9iCdcAzctHPDteyi+LAjbvS65+GapN5dC
+	timXQuka+ulZzSpMbT0wSB5fGdXn4jw1fp6hiv8Oy8JevPgPU9fwi+CD7rAqtwSdVbc2Y4B18CUNj
+	dEQ4bLWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyWN-00000006r8m-1FmG;
-	Tue, 10 Jun 2025 12:56:07 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uOyYU-00000006rfz-4A7l;
+	Tue, 10 Jun 2025 12:58:19 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxqW-00000006jo6-3SFE
+	id 1uOxs2-00000006k3O-0kMZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:12:54 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55AC97NU007654;
-	Tue, 10 Jun 2025 14:12:43 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	3JoIjs0rN0Mef0RCPvvnCGsgeRN+4kOPLLI4ZD9o2Mw=; b=IBiW8Pd2ALdNOtHN
-	XRPdHmX5cTFMzfSFGNahSDjWx6E60NVZHz7RlKXUmNwfGV20G7xd9V9G3HiR6ujB
-	s+AZQL0BORu4XoQQw2qgCAB1ogBecjXstW5BDDTJ1IdEXR5HIP5dzWhaDQwR2xTr
-	DN++VSdsEGrCF7mKiFWci9lVp2CO6zMKD0zCB5hhG1erz3Wu/jwuqg/GKdjloTbj
-	tBUQ6/vo43atWvHUG7qXWWX2LRMnpUjlBn8AmANT14iUFewIlwezop9IJIL2CRl5
-	Q6Pbbq/R0mNtnUVfPtNb2+Az+ReLy0hp7cE7LzTFCBZ5rEOk5XssMErKjm6G6nvk
-	K0WZLg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cs2mt3y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 14:12:43 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C66614006E;
-	Tue, 10 Jun 2025 14:11:39 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AB802B39A25;
-	Tue, 10 Jun 2025 14:11:27 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 14:11:26 +0200
-Message-ID: <e4a1bbd0-3886-4a88-bfaf-1e5ce5b27625@foss.st.com>
-Date: Tue, 10 Jun 2025 14:11:26 +0200
+	Tue, 10 Jun 2025 12:14:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DArebuP57KpSClF9v8hcS69sCBqqbqB7iFxrdjHCxPEKN07cpKChDjIZXkM641Mx1MORP82OhcQGN+IkcdFTsXUmRiglH1s54BB/s2/5UHDyHUqgGQAuhlIqXAD6e+RkaMQxm/YYOINTwaUykPHWmG02Wrg4d+cegNxkpHxyqDrmEGC4F0T2GbJqn5lYmYQenWdo8rWwGCxqeebwTpacWFUP+SDPsWxHyN43TPhlLX4DIg2XY83obkKvRrs1T8ldK+03TEH//QAx5+VXZoWFwoFYv5gzW1nMfnbRoL3/L3pVCLHcljXFyu8G2To2OTCgLKgBPg4cNRC1RJl3i6Tstw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=08LO6FbNPkTir1j1egIrJ4dmAI2KtDV+QIbGYiPMbbw=;
+ b=oNm0jTfd6YU1okrvXg0dcX+/l7APu7iC0S9CxkprEqUNZX1cRG7/fgUP0xpzFFT5/F88dQuY4cfZ6i0x1CBEnd7gq6K4H5GduXjz6tYDRf1iPSAs3YaDCn8VTC/yeITRsaMPAnY6BsZwFI1ePz6dRpVBNxG/LiJE9/0yM9HK4kFL3XIhwdNdfxmrfEjR/aIRbNZjk6oPgDLeCNBIAeSlpEq0HMZAknD8DPkZzurBxaeBra/urUMKEwFjnCGBfkJWfEV4xAqjfIiXS5MqVnZ0uU1RmkI5451ZSSM/RPACR3yZm9ngSRC9DE4QtkqIwlUq2UaMM9DaMckslNRcq8PzEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=08LO6FbNPkTir1j1egIrJ4dmAI2KtDV+QIbGYiPMbbw=;
+ b=m9AhKOyuWiVEEDItGLmP0W0I8JSChZdBVgrTokyI0oxAirmT5ApjXIJvrqI40noZ3vk0m7I7hKrUim/NYHLJyM5/N/Exc2Yt5b2wdVAGIW9IyzLDi/EGTH7oxQQYkdWoYsrquH2tjH8SFMSj65jCmlKCJMSX0GWUGbr2zLPAMuL0N5tR+B/nugTVr4/+AfDQCMV4Xg/xj24gAyC6WMD/lwUuJhSNJmnT8I7E5M9TzFnTcBHorvap+71g3Pw2QyQU2IjHkPgkqZ0c6Xym8n3YFtYaV2FnRMZnFPKNo+vEM4yUt+sK+Ve5MbJZP7IQqFdfYOdOvv9DYOSEIcXDL6MOaQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+ by AS8PR04MB7653.eurprd04.prod.outlook.com (2603:10a6:20b:299::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Tue, 10 Jun
+ 2025 11:59:16 +0000
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad%6]) with mapi id 15.20.8813.021; Tue, 10 Jun 2025
+ 11:59:16 +0000
+Date: Tue, 10 Jun 2025 19:54:41 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Shawn Guo <shawnguo2@yeah.net>
+Cc: Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	imx@lists.linux.dev, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
+Message-ID: <emdju6mml2o65hmtiyf5jwlzhudmbpyx433wz5a73lkpinzbyp@2oexfo2ra7xs>
+References: <aEZxmlHmjeWcXiF3@dragon>
+ <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
+ <aEf/2+3MU5ED2sxE@dragon>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aEf/2+3MU5ED2sxE@dragon>
+X-ClientProxiedBy: SG2PR01CA0172.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::28) To PAXPR04MB8829.eurprd04.prod.outlook.com
+ (2603:10a6:102:20c::17)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp13
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
- <20250528-hdp-upstream-v4-5-7e9b3ad2036d@foss.st.com>
- <c0336f46-1fbc-4766-9e0a-a3812d48083e@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <c0336f46-1fbc-4766-9e0a-a3812d48083e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_04,2025-06-10_01,2025-03-28_01
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|AS8PR04MB7653:EE_
+X-MS-Office365-Filtering-Correlation-Id: b68d0263-989b-4d8f-939b-08dda8163978
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AZWo/e8/E9SsW+/ozgLTdKBnpMyL6bPUl/y9N2Ch3AmBMTxK7jrbrFdynA9U?=
+ =?us-ascii?Q?XgqVZMyiEeVLM+D4sXGm+Feu6VAOvMNHRoSygybfA2mf1UQfnL8VyD8TwftG?=
+ =?us-ascii?Q?7oZUtjfELYwEWEM6/QJW0CrDRL+PwfwnFcMLjjT8cIJdUMFBVUX5CGYBa9Eh?=
+ =?us-ascii?Q?HD6nHBUV0eSwuD+H44ETH1avpvkWNaNfCin2erI4Og0lDdwKjuN89In08XvE?=
+ =?us-ascii?Q?R+zf6aDR+qFAWgju7DR8Zt0GGeznireyV358h0E+DzmrQF25ttcxA10zA4Pj?=
+ =?us-ascii?Q?KXk4VbtZDnLzaTpPEpMNcER+HPOCr54dr9wsp2N6uBPalI26ZdKKBJ5otOGv?=
+ =?us-ascii?Q?rfWORdkpSsSrBah75Wup0WpOZ1BgpG4e/xGrTmIaxuXx2yC5xvxkBT/1H33v?=
+ =?us-ascii?Q?9NgsjpdFWp6kkFJvHpbd3vzfHZmofIonfj8g2caYER0Zmho52oC9+WrZn9fB?=
+ =?us-ascii?Q?6hqY4y20AWT1C+Ut8XW9lsGD2OcptpyDGPN1Icoag86++1M9FNc0QC1PKQyQ?=
+ =?us-ascii?Q?oesKiu/yY+dTubAsVYjlRDL6cqaBRP0E0n8VAjcqsNRBiMtlvWI1owlP6NKY?=
+ =?us-ascii?Q?q3I9/HlPQmtd/tsCgKVdH/MdvWLTWkAGqndya6psC7Xg5ad7sP9IwEPzehAs?=
+ =?us-ascii?Q?r+GCMgs3fvpYvEOGQU/cj1wX6GQF172jbqUXgKcI9lp7GHuoA56KCpe/Otie?=
+ =?us-ascii?Q?HeOfyt1gm9t4HrKbK8IxYtEPfs7/gdTWsgAtq3q7pDBrrlz/Mo67VBzKycq4?=
+ =?us-ascii?Q?smISUadetiShUxmqPTlxKx9U1rlc2hrr+Fu0K02Kafr/3rxHsXydQjZkSIf5?=
+ =?us-ascii?Q?c3M2Cp4RmHj12L9vEibS9MRAnoHL+cDpO5IBes3DVGaKmHVOQfZBCdvaJE0f?=
+ =?us-ascii?Q?owkQFYgwtAFMM4n0NZumI94HqbDPnq8sCH3CSs75aUJWEXFBOuZQmikRyGiT?=
+ =?us-ascii?Q?MhVdf9PdAJE6Sun8L55Iq1xW9Et0/j5tU1+lvVfVHe1z7uMqw++uyaAlzOUw?=
+ =?us-ascii?Q?dnPIi9Y5Kckitn71/m8KHJKjjeCe20LQRCh91ON3Zuk0abpUN435s9Z5svfW?=
+ =?us-ascii?Q?gJ4F+JMm+Z5sf2e9BwN9l5h5knsRNkeKIC3gUxU2PMKmkH1uUL6psrhHEaBd?=
+ =?us-ascii?Q?/vyILMw0qrAKsHDjUSOMTjjd5bVx9T6hl+Zl6WvZDH28+oHJxHcctlo1DUSI?=
+ =?us-ascii?Q?Ai8DfgA24N2g9061lQa50xXsYz96GKe9eFj9c///qP00Ggs/o3v6YxKBpT2a?=
+ =?us-ascii?Q?3V+aR1MhWIez76nlrlFMNtc41rJtxkB9uMG5Sz06TdjTvmR2tqT6gXVmKDR5?=
+ =?us-ascii?Q?U0j6KWqLuKhLl8chR/wAVrYinYHIKio3+lh9Yt3XO9BaDOts7ktVHa2Vic9U?=
+ =?us-ascii?Q?gwcYNcFOBkivutF78+BNpl7/V/bX6ixzrMWkQYMRGhdHWldJd8zDxa6sIYB5?=
+ =?us-ascii?Q?y5nyMTDqauIo70wPU8nHzEN1/jYOVJTNsRYpK+p0l1L37GEyQuz7Tw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KthPgUXN3HRP7L3ETkt6gB6ajgAy1lWJQGTEWdMDri5hGuFzGHJesukaHIyg?=
+ =?us-ascii?Q?Ofr1U7nsBD9gJvhL1SQS1yKfvQp8KIPGyIhk3SpII7HuOXA1SunSzoyKmINC?=
+ =?us-ascii?Q?B6iSTfPfzkuQ2dhpYc80oC+D33fWbbvXhdVnDdvDu9zHZisWr4VOj6iODWKe?=
+ =?us-ascii?Q?ZatCdEpf1QtwKscUir3hwuqE+uGqWdhDLd5bOkOlNMWz3ymMLUqfDBrHUOST?=
+ =?us-ascii?Q?J0StV5CXKYPIUL9oOXWATBOs/NfsXeOCy72sRIxQ/I7IkWNn4wERuzSDE7fs?=
+ =?us-ascii?Q?qiPsPsQesxi8coQPF671rpsuqFgyY2vaeNgbS0gMMGwqKFFeDXygrw099n6U?=
+ =?us-ascii?Q?lT0BJCVDBbNC1eMBKnYlQdizJdI6Ngy6XJnecokJuXEeLKxz/171ur3L/7JL?=
+ =?us-ascii?Q?KSchtASzLol8UhnkP2VtQg9uWa1mW/fCh/JDBrD0PVpQLbvtq76UQGept0kO?=
+ =?us-ascii?Q?xxV/VZwZb/zL4tfL1jNihEYbda1pdaLTSrYWaCIo2hKeNXrvZYwm5rou7AuD?=
+ =?us-ascii?Q?HKi5pPS9MMzCiLFMeg7Ay8FdUdHVCN/P6Dd/qZQiYf7dQ0twtwoYoqK1/VMg?=
+ =?us-ascii?Q?hAFSgOoRbzByIl1/2dcQ36nY0ZaQIKSeLgj1MvHr94oh1RiG3ue6v5XFtT8s?=
+ =?us-ascii?Q?lLBCC/wqOJK8ySNbHljS61ordPxwFeams16OZS2ZC9PwJcGYnznSFr4HF3Bo?=
+ =?us-ascii?Q?poD8vCDo19C7C7YNnakrjMb2Yr03oYw1caO3qIbUpDHg37H53UvYF6j2jnVm?=
+ =?us-ascii?Q?hiJd0yx+95BjgNwbUo1Jxn8lxZky6Hlp3c6Pl9XNqvwtwR+SA5LWkBhIj2RN?=
+ =?us-ascii?Q?NAL6shd0/C8bIzLd9UxgKpOXUpTnBCA8AtKw1kIwA9RZYaH+9BzN3saJ2Xr7?=
+ =?us-ascii?Q?d72tEuDLuQFsAXIDpRHAwEQINjlFSjEUGxRRT3tBRDMDNSOzy3wK+cQVEKrf?=
+ =?us-ascii?Q?HDrZHdy7yzcy5aGTGjhdYqZc9D5YdxizlXZpLMKmQkycn8TEmOhFkwHDV42u?=
+ =?us-ascii?Q?bRIWk2/VBJvI0qvWeMLfTyzX3Reb3j75AAdnD9n51BM1iwska88DEeW0Ce8P?=
+ =?us-ascii?Q?82GrqIvLhLfy+91jYbFBKhlGHbfXtVxTEzKVNdO+IBD/MyvC5Zjjj0zyJAal?=
+ =?us-ascii?Q?gvxK7dNdBO6MBMfJax5iw/f/UfUtXD8EinRLDZ/Bg+uHktXEYUt31jDShg0r?=
+ =?us-ascii?Q?jkYsq8ovATxK+7ItTQvz0ok2dNxBeq3WGYrKg1sO1od5+I692x8g5hoAdsyw?=
+ =?us-ascii?Q?AERnqwHTazBDf/2osT7USHCIBk0cqYNwHwOQ3L8prRNOsIhlJ9EhrQnmF+vS?=
+ =?us-ascii?Q?iTvKiGJRRxNurfg2pvZ9uaZtaG+8C1Tnk6QOuOdGvmbXjh3bMg6cQp8Z5c7m?=
+ =?us-ascii?Q?Mpy14IX+ESjY5B7kU0fApqGCsVr7tbU0IBh53OjN3Pwdoy2jWJOvHOcFNn3V?=
+ =?us-ascii?Q?ZTPqVxORFw59LXB/A2Xi2WkKF+PicDz0AXuyDfJb4CygRMiGo+sz+ofKi+ho?=
+ =?us-ascii?Q?SiXRaWbD4ECItsrzJK4d9fiMIo/QcR5tb3GLm9q7z9Xnfd6JLo4caV6KQf+8?=
+ =?us-ascii?Q?hCJLe+MBhAKprnnB6n8Ww1QXf43Da39lx6j6afSi?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b68d0263-989b-4d8f-939b-08dda8163978
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 11:59:16.4814
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AiabCrFCMgUxZy3BxUessLLmXA+PC2Cx+mXdf/Vfq6vi3rW92i65W9sQRxhqsF3F5ZkvG5QQYQLbZSD+0PMnIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7653
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_051253_149933_9ED85CDF 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20250610_051426_221527_C2CD5583 
+X-CRM114-Status: GOOD (  30.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,36 +158,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/25 11:13, Krzysztof Kozlowski wrote:
-> On 28/05/2025 15:30, Clément Le Goffic wrote:
->> Add the hdp devicetree node for stm32mp13 SoC family
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> ---
->>   arch/arm/boot/dts/st/stm32mp131.dtsi | 7 +++++++
->>   1 file changed, 7 insertions(+)
->>
->> diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
->> index 8512a6e46b33..9e3797ee1f7b 100644
->> --- a/arch/arm/boot/dts/st/stm32mp131.dtsi
->> +++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
->> @@ -954,6 +954,13 @@ dts: thermal@50028000 {
->>   			status = "disabled";
->>   		};
->>   
->> +		hdp: pinctrl@5002a000 {
->> +			compatible = "st,stm32mp131-hdp";
->> +			reg = <0x5002a000 0x400>;
->> +			clocks = <&rcc HDP>;
->> +			status = "disabled";
-> Don't send new versions while discussion is going.
-> 
-> My comments are still valid here.
-> 
-> Best regards,
-> Krzysztof
+Hi Shawn,
 
-Ok keep discussing in the V3 so.
+On Tue, Jun 10, 2025 at 05:50:19PM +0800, Shawn Guo wrote:
+> On Mon, Jun 09, 2025 at 07:53:22PM +0800, Xu Yang wrote:
+> 
+> <snip>
+> 
+> > During the scp process, the usb host won't put usb device to suspend state.
+> > In current design, then the ether driver doesn't know the system has
+> > suspended after echo mem. The root cause is that ether driver is still tring
+> > to queue usb request after usb controller has suspended where usb clock is off,
+> > then the system hang.
+> > 
+> > With the above changes, I think the ether driver will fail to eth_start_xmit() 
+> > at an ealier stage, so the issue can't be triggered.
+> > 
+> > I think the ether driver needs call gether_suspend() accordingly, to do this,
+> > the controller driver need explicitly call suspend() function when it's going
+> > to be suspended. Could you check whether below patch fix the issue?
+> 
+> Thanks for the patch, Xu!  It does fix the hangup but seems to be less
+> reliable than my/Peter's change (disconnecting gadget), per my testing
+> on a custom i.MX8MM board.  With your change, host/PC doesn't disconnect
+> gadget when the board suspends.  After a few suspend cycles, Ethernet
+> gadget stops working and the following workqueue lockup is seen.  There
+> seems to some be other bugs?
 
-Clément
+Thanks for your feedback! As suggested by Alan and Peter, disconnect device from
+host should be the best solution. I indeed don't see other usb controller driver
+call suspend/resume() when do system suspend.
+
+> 
+> [  223.047990] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+> [  223.054097] rcu:     1-...0: (7 ticks this GP) idle=bb7c/1/0x4000000000000000 softirq=5368/5370 fqs=2431
+> [  223.063318] rcu:     (detected by 0, t=5252 jiffies, g=4705, q=2400 ncpus=4)
+> [  223.070105] Task dump for CPU 1:
+> [  223.073330] task:systemd-network state:R  running task     stack:0     pid:406   ppid:1      flags:0x00000202
+> [  223.083248] Call trace:
+> [  223.085692]  __switch_to+0xc0/0x124
+> [  246.747996] BUG: workqueue lockup - pool cpus=1 node=0 flags=0x0 nice=0 stuck for 43s!
+> 
+> However, your change seems working fine on i.MX8MM EVK.  It's probably
+> due to the fact that host disconnects gadget for some reason when EVK
+> suspends.  This is a different behavior from the custom board above.
+> We do not really expect this disconnecting, do we?
+
+It's an expected behavior on i.MX8MM EVK. The host will see device disconnected
+after imx8mm do system suspend. It's because the usb phy power will be off after
+system suspend. If you enable wakeup capabiklity for usb phy, the usb phy power
+will keep on and you will not see disconnect event anymore.
+
+# echo enabled > /sys/devices/platform/usbphynop1/power/wakeup
+
+Thanks,
+Xu Yang
+
+> 
+> Shawn
+> 
+> >  ---8<--------------------
+> > 
+> > diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+> > index 8a9b31fd5c89..27a7674ed62c 100644
+> > --- a/drivers/usb/chipidea/udc.c
+> > +++ b/drivers/usb/chipidea/udc.c
+> > @@ -2367,6 +2367,8 @@ static void udc_id_switch_for_host(struct ci_hdrc *ci)
+> >  #ifdef CONFIG_PM_SLEEP
+> >  static void udc_suspend(struct ci_hdrc *ci)
+> >  {
+> > +       ci->driver->suspend(&ci->gadget);
+> > +
+> >         /*
+> >          * Set OP_ENDPTLISTADDR to be non-zero for
+> >          * checking if controller resume from power lost
+> > @@ -2389,6 +2391,8 @@ static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+> >         /* Restore value 0 if it was set for power lost check */
+> >         if (hw_read(ci, OP_ENDPTLISTADDR, ~0) == 0xFFFFFFFF)
+> >                 hw_write(ci, OP_ENDPTLISTADDR, ~0, 0);
+> > +
+> > +       ci->driver->resume(&ci->gadget);
+> >  }
+> >  #endif
+> > 
+> >  ---->8------------------
+> 
 
