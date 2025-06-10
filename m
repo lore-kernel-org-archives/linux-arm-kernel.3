@@ -4,55 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D534C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A663C71133
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:References:In-Reply-To:Subject:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qW7fEA0/+GCy2w4JQMTEby+P0Mr8y+F/kZw1UCiIKt0=; b=yGp2rw4EH8N/bwwa0SY6RBMOiS
-	vPkX/kPF0Gdrmk/0XupsX5sne6VhjisEYTqOQ4OTlkSM3DXdA3+yFRIvvyEOD3G/HUQZamhrK0NGa
-	95zEZ9NZDOQm3xVthOe8JoMNvNnk/VuTOwqrZksZ+B+wk2uu8RpgdadKSgv1zvoxkXjtx5bk8rQMW
-	vtVR3B1Hv24m5P4pAfcCInXRfyT4vnexMaL+16gcaZI2Bde5J597tqWvWJcU2awCDeUyfEbIercip
-	VGRm9xMan8wXn68f12Xes/JoZAhnM8BUmVxhQMfN/GP+tg/PomnZ4NGz44+2i/7BhQgYQWpf4lQdg
-	oN4xJ0bg==;
+	bh=97Ba4p5+Da+pz4mXZxIYLElnOJquFiCGTZedLlNMizY=; b=crczoHf3bMg9ENiXG4hqCwdh5b
+	SJWO3vcseQi8Tcrxs7o8/Zi7xZkoy0jukbduygown4s01suZt/syrOgl4e/TsUijEd88QLVZO5jgh
+	TARVdK5kSY18wHvVqJT3BQZ9BWQxiRtwdPtn43Rv6loDPnwItVCcg+uVT2GSo3vvUZkxde6j1eW26
+	07Nbh05MDXFzXfXAolNH5TMTG1ZS8PJqDW5AgtDNxBUsGAi9t/mzVbAHE/VMmIhyqX/4MrDue5uMx
+	qnWq3VER3gFPzokn9U4sEiaIzV+mhceUq/yXU/hBjn0/RbFwb2Uewoqk+A/UyMI81qdXb+jPolYfU
+	LyPszUGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7lD-00000008EdT-0dnF;
-	Tue, 10 Jun 2025 22:48:03 +0000
+	id 1uP7lB-00000008EcD-1xZN;
+	Tue, 10 Jun 2025 22:48:01 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2Uo-00000007aD3-1F8A
+	id 1uP2M0-00000007Yl3-18CJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 17:10:47 +0000
+	Tue, 10 Jun 2025 17:01:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6F7F1A514F6;
-	Tue, 10 Jun 2025 17:10:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 554CDC4CEED;
-	Tue, 10 Jun 2025 17:10:43 +0000 (UTC)
-Date: Tue, 10 Jun 2025 18:10:40 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Feng Tang <feng.tang@linux.alibaba.com>
-Cc: Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>
-Subject: Re: [PATCH RFC] arm64/mm: Lift the cma address limit when
- CONFIG_DMA_NUMA_CMA=y
-Message-ID: <aEhnELJQLw8S8Bho@arm.com>
-References: <20250521014701.73046-1-feng.tang@linux.alibaba.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250521014701.73046-1-feng.tang@linux.alibaba.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2BD15A514E0;
+	Tue, 10 Jun 2025 17:01:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6B54C4CEED;
+	Tue, 10 Jun 2025 17:01:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749574898;
+	bh=w7A2d0/ZPQU1PcKL9vOuHlBvVkGEXfQTlobUa93FGTM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HTUGdKBSck1rEp0kYQFUjdP88z9Ava2g7ZcwFJBewIGHYzspMPQZThx+s56gFtSq/
+	 wUZK+LZg1YSRAouIphy7nSud0KdzfDxQHTcGFTt7U7Y2HFDiURxaj5D/BI0qBYxhz5
+	 wF66Rfwk4V4jSV8lkJdi6VIONdIZXnGixeHIqM5WdhXPlKjWXYf2qLkOJI4fQyH1av
+	 Tdqb/Z/Qt/qHaSbqYDuB3KilGGY0ytG4zibtLUMLcKAAgCAIpYBkYYct3Cb3LvzpoM
+	 V8G0VuCYdWoA1QmapPcgN+9uheedSYkMWDSr8FTFOajsblcx4Vtg+Kh9oCxZsneG8E
+	 JPgyLVH9TkZSA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uP2Lw-005aZO-Cj;
+	Tue, 10 Jun 2025 18:01:36 +0100
+Date: Tue, 10 Jun 2025 18:01:35 +0100
+Message-ID: <864iwnedjk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH V3 2/2] KVM: selftests: Change MDSCR_EL1 register holding variables as uint64_t
+In-Reply-To: <20250610053128.4118784-3-anshuman.khandual@arm.com>
+References: <20250610053128.4118784-1-anshuman.khandual@arm.com>
+	<20250610053128.4118784-3-anshuman.khandual@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, ada.coupriediaz@arm.com, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_101046_401208_943C1AA7 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20250610_100140_457006_8FDAF953 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,66 +79,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, kvm@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, linux-kselftest@vger.kernel.org, kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 21, 2025 at 09:47:01AM +0800, Feng Tang wrote:
-> When porting an cma related usage from x86_64 server to arm64 server,
-> the "cma=4G" setup failed on arm64, and the reason is arm64 has 4G (32bit)
-> address limit for cma reservation.
+On Tue, 10 Jun 2025 06:31:28 +0100,
+Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 > 
-> The limit is reasonable due to device DMA requirement, but for NUMA
-> servers which have CONFIG_DMA_NUMA_CMA enabled, the limit is not required
-> as that config already allows cma area to be reserved on different NUMA
-> nodes whose memory very likely goes beyond 4G limit.
+> Change MDSCR_EL1 register holding local variables as uint64_t that reflects
+> its true register width as well.
 > 
-> Lift the cma limit for platform with such configuration.
-
-I don't think that's the right fix. Those devices that have a NUMA node
-associated may be ok to address memory beyond 4GB. The default for
-NUMA_NO_NODE devices is still dma_contiguous_default_area. I also don't
-like to make such run-time decisions on the config option.
-
-That said, maybe we should make the under-4G CMA allocation a best
-effort. In the arch code, if that failed, attempt the allocation again
-with a limit of 0 and maybe do a pr_notice() that CMA allocation in the
-DMA zone failed.
-
-Adding Robin in case he has a different view.
-
-> Signed-off-by: Feng Tang <feng.tang@linux.alibaba.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Joey Gouly <joey.gouly@arm.com>
+> Cc: kvm@vger.kernel.org
+> Cc: kvmarm@lists.linux.dev
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-kselftest@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
->  arch/arm64/mm/init.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
+>  tools/testing/selftests/kvm/arm64/debug-exceptions.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index b99bf3980fc6..661758678cc4 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -312,6 +312,7 @@ void __init arm64_memblock_init(void)
->  void __init bootmem_init(void)
+> diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+> index c7fb55c9135b..e34963956fbc 100644
+> --- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+> +++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+> @@ -140,7 +140,7 @@ static void enable_os_lock(void)
+>  
+>  static void enable_monitor_debug_exceptions(void)
 >  {
->  	unsigned long min, max;
-> +	phys_addr_t cma_limit;
+> -	uint32_t mdscr;
+> +	uint64_t mdscr;
 >  
->  	min = PFN_UP(memblock_start_of_DRAM());
->  	max = PFN_DOWN(memblock_end_of_DRAM());
-> @@ -343,8 +344,14 @@ void __init bootmem_init(void)
+>  	asm volatile("msr daifclr, #8");
 >  
->  	/*
->  	 * Reserve the CMA area after arm64_dma_phys_limit was initialised.
-> +	 *
-> +	 * When CONFIG_DMA_NUMA_CMA is enabled, system may have CMA reserved
-> +	 * area in different NUMA nodes, which likely goes beyond the 32bit
-> +	 * limit, thus use (PHYS_MASK+1) as cma limit.
->  	 */
-> -	dma_contiguous_reserve(arm64_dma_phys_limit);
-> +	cma_limit = IS_ENABLED(CONFIG_DMA_NUMA_CMA) ?
-> +			(PHYS_MASK + 1) : arm64_dma_phys_limit;
-> +	dma_contiguous_reserve(cma_limit);
+> @@ -223,7 +223,7 @@ void install_hw_bp_ctx(uint8_t addr_bp, uint8_t ctx_bp, uint64_t addr,
 >  
->  	/*
->  	 * request_standard_resources() depends on crashkernel's memory being
-> -- 
-> 2.39.5 (Apple Git-154)
+>  static void install_ss(void)
+>  {
+> -	uint32_t mdscr;
+> +	uint64_t mdscr;
+>  
+>  	asm volatile("msr daifclr, #8");
+>  
+
+Why change this in the place that matters *the least*?
+
+arch/arm64/kernel/debug-monitors.c is full of 32bit manipulation of
+this register, and that's only one example of it. So if you are going
+to change this, please do it fully, not as a random change in a random
+file.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
