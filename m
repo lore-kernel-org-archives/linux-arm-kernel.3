@@ -4,132 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F87FC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9940BC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:42:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BVZlJK/GxgJY/X9zC0XGrcWqi+GkfHWHyAwskSfnpf8=; b=47hFveszNhGe9DFk2a8m2En+3y
-	OuomEQ0BHTTb0AlPZiDV0BUiw2B2eNZlEhBXbfQtv+n7qAbOJ7Cn8oLkVXo4UVu213qttCYCLuI2W
-	/404jveb1ub7FK+0JjeXQYMSfwiiOyBy/NKonbZb7tTpBkawB/TVLvDMdwOQn9FXSXUddTqf03D7X
-	4m32C1WqaDP+KXFnQpVEdXXOa4o7dfL088qSt+pSDz7g1QdPk2naacFSnNcgat1KeyThuYnvFUBod
-	Z4acO028rWDxOp2MLGy0jO85d7beq9X5slbZqwi3ETi+XjhitBMPQk70LADWvfyMMCXlWtQCbxtPv
-	Zob/abaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BP73ih4Z4WBIsNAff3IkrdUaMhN9zV7bG7hFT2vQHjc=; b=BBw7CITKcEth6r0bIcAB4s95/B
+	yvhLRbutNmsTeGuQ02MCz9Bzf4dZ/V5Pf/s1nuBgx+O3HjVnbQib9x8mObAS1V1AKVipFvBj4kzDH
+	FCcxdMlh3fjzGENv1rvKr0hrbmcRMdrdgFJvYX3nRHyIK03B2pba/CNpKCh7fuwjgzweRACHj5+TX
+	4jmZLcsBpmo0WOaZWxJRCs3Ra9RuH+gEHe1dz2dOjPPgIMNCcIR1fiwHRZRpfe4jQq+VGD/0iIMZV
+	mLdO6O+LECGNXcUsMvOyGcMZtf9Qm2i/ScIPJIpda3H3/1vpLCPL7T3AaOflT+ZMSAljJkQ/oDu31
+	nRQDMCzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2x3-00000007exT-0Xud;
-	Tue, 10 Jun 2025 17:39:57 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uP2z8-00000007fBc-3T83;
+	Tue, 10 Jun 2025 17:42:06 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP05m-000000078wI-3uEq
+	id 1uP085-0000000799M-41zZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 14:36:48 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55A7jqdj011530
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 14:36:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BVZlJK/GxgJY/X9zC0XGrcWqi+GkfHWHyAwskSfnpf8=; b=mn4SUFjE8MRlZ8ke
-	th4z4VSdiSRULhatOTzsxH3y97c1zG7QDfIUZKTm/6V7IOw8NTJXEcce9bnlNkqa
-	dCLMgWGT83cZ+cqcYHmJ1t0AOAJp+mIkzzFgGlxhI847Sosgzv6wmT3F56XbzxDq
-	c2p2JWle1/byMaVeY9OiCTu06028CUH6HFQ+pJdZxVYxs7U4hnb9HtReEdkxIQvJ
-	ENBqgx+f9YrdpNbPDQnELhIYRDkrzTeHi5MwIOiHy9tpTmTXvzOGgWQUSyyS6acy
-	88+43FAPKs6bOFi2QEzWcinAkUqHruexI4hoD8Eo/hdnPfd8c3UxCNHFY/AjFLIe
-	Rf/1+A==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474dgxt1p3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 14:36:44 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7d09b74dc4bso95859485a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 07:36:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749566204; x=1750171004;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BVZlJK/GxgJY/X9zC0XGrcWqi+GkfHWHyAwskSfnpf8=;
-        b=h5Zca/qjE7Rkl3M4grRkZK7mNgMoUm7Pxcy/AlIEbJXgVKTEiBHQ6hGvJ/6JEazhky
-         9ThgoS5/8j07HHaFbaQu/1btumc/xOGlv7NpuA2INrCywYp8AsN/vXvkipE7bfbSQS3t
-         /1SjjC7yUjuJ76vIuNQnSjtHn9P9p5gsHfufRpH2ENWNLIOmRQd4zSlgvcU7sRzuA/xw
-         Nfun3PQoTkCMZxUZL5sMZlhEuZO/MMEVXbfQcFHurH7kWXAX5AOSQPEl3OWVQLY9JtHk
-         rzBmpkrzOmeISGdgUx796z8HliGCwHlCv6lb58hQvcehQpRIV0dQPSFxlK7eghGEgbxy
-         0jsw==
-X-Gm-Message-State: AOJu0YzudQNC/FnEwPyBQT5M/RASMffKthJqoRgEp/PYMBS3rAZ4CByt
-	IqsPqpN2CfXJWy3BxDslHtnL6TTjwluW27kjCCVGvMs1B86bQhE2qYrhReIFc4XKkoCbGBQFSxA
-	G3h913451Rp9TeVO3LDhsYehLE4TwQoCuZdCLLKIFEX1yfZa6KXLSq7o3fhblQW0mCEY0Y2BYmo
-	iicg==
-X-Gm-Gg: ASbGnctngH7K9tB/JI6kJqz1Ca2+kF6zHOuJDOHcOafvfXgpglthCDdeJdGk+uhT6ul
-	qkojp5EBTMfnJqMTz9YxqOO1mqPjhBVaQ1yNqmDiAkFksTdazm42Ql3r4ZVfxShjx8eACv0kEWI
-	/d6NcWshe0Ja6QglRtWlJZBbb4QnDN/H5fgPGGiJoi5pRXNXcTN1U2CQwK2lzCgEhjiH7EdYcH2
-	ThqLLlmEQOJvE1HZKZYR2hdKMYS/zaaVRhtNyYc2TOxSNuL6sTw7j7EPrqgP77PVTLZ3zvIfoUw
-	YI+/Js78UNXqcJaStTOiCHqEyVA5YEy062GDGdpzE7HiGwOnBmfhcYZsgTMM0dYdt8bLg89Bssu
-	x
-X-Received: by 2002:a05:620a:1905:b0:7c0:c024:d5 with SMTP id af79cd13be357-7d33ddf703amr932426785a.8.1749566203888;
-        Tue, 10 Jun 2025 07:36:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGBbQ7SHFJAIcnH7aGz2wAofoXXYsrztV5V109VXWdIgAcLNVnSvMvyMhOqmTXg8HcgDxWrxA==
-X-Received: by 2002:a05:620a:1905:b0:7c0:c024:d5 with SMTP id af79cd13be357-7d33ddf703amr932424885a.8.1749566203410;
-        Tue, 10 Jun 2025 07:36:43 -0700 (PDT)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1d7542c8sm734986766b.21.2025.06.10.07.36.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jun 2025 07:36:42 -0700 (PDT)
-Message-ID: <33fe6caa-6720-4af2-a0d8-44b75b6792da@oss.qualcomm.com>
-Date: Tue, 10 Jun 2025 16:36:40 +0200
+	Tue, 10 Jun 2025 14:39:12 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=hoBY9ok1bugeitDQPLXXKJWfem7C1bqpSwQRN+TYaVMGj3ZjDoRYBzigGYpL+/AxQ1Ydc30mdWui83pfPc2wNWGs/L8bz3QDfTEGHekOKwKJ3EiZlQD+yfKbsavkxItvKsDIEI535/mCVyM6PVwcow94MR1XlkrJlO1SvmcsQKhwmayHAnhbz4Z7t+e8kbQ4v5+YJ4R0iGSF7Zq+sCGOwfz5mQjcWdHGSsIh6pnrFZObUXW6mSFO7rhAoC9wQw+f/OZfCegrV6zlWfCPj8UcjoRDtxQZkAfb9E/V3fsE8VpdQn+EScoDWU7mKM9jXosYOxFwPonCxwz4Waavb1iAdg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BP73ih4Z4WBIsNAff3IkrdUaMhN9zV7bG7hFT2vQHjc=;
+ b=r7TAorsYsnVOFgXLgn5oE7wSlhKK0ob/R++AS5Wqh7Tw+v9YCSgS2yoeWrKgg/0vI4c8YnKrUlcp5My5/yfCEk8te2ybl65WTJhhCyrp7WECv+PIC04HwcuTJZU7GDB3F1eoot9PBgfQVpymAGSXPAn4C4fw5u7sYYdHGNyF0zILksQREE0hrI+bjIXRYPBtj1Ovhr9II6bHbpX4OVawLdEabfdemzz4JmKH0EzUbXuiAKmGu+OUUx8ASUENiB8FBCfoof9kCUWN5J+o/XfjBAzNz0rmj16uVokYIXxE2DMB9l/jWeBcqQdXfzjcqaq8qK3UrEUxTPdsf0XTJ9iAeQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BP73ih4Z4WBIsNAff3IkrdUaMhN9zV7bG7hFT2vQHjc=;
+ b=pf+IU0ty0ylaKISFjF768NZAHxdx9ou6VF7/5J63k9WWZJxgoGyK82xAyJqdn3xl/Xz6m8K300D3mK3lcmqd+BEZ8FALM4fXenTItHZOzsiqa+TouPPfE9LTCgI9H3DukWOfpRG44tAcePgfM94adbByLHCVYPMTcDH28MxMH60=
+Received: from PR1P264CA0091.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:345::10)
+ by AS2PR08MB8904.eurprd08.prod.outlook.com (2603:10a6:20b:5f8::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.27; Tue, 10 Jun
+ 2025 14:39:05 +0000
+Received: from AMS0EPF00000195.eurprd05.prod.outlook.com
+ (2603:10a6:102:345:cafe::a) by PR1P264CA0091.outlook.office365.com
+ (2603:10a6:102:345::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Tue,
+ 10 Jun 2025 14:39:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF00000195.mail.protection.outlook.com (10.167.16.215) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
+ via Frontend Transport; Tue, 10 Jun 2025 14:39:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WZ9/4pGfXcdzS+J/c81GhYuuHaCdqj0zi/96RhNZZGm67pDD0kSp6T2942RIN85FYFyD30ZKA3nsTpCoVF/gn/nw1mef3IDZL86IGltcPflYTtPV1bYHHAXbrS++pOrJOZyqhkds3zG9xXTpjo7bZpJhMAjedbMxdgwvKiR1hjjjpGFiUvg5RlaAMhLap/t3Gesi/8d9XexSH1f9JdrQNJ6Hj/Px49cHGgGqTdAH0wg46l3DhoZAlMqtCrHl55a2c2adt0NRnR+aBrlaXmsVWNkfffEKbW8TyUCSuMxvc0t5GfBt8JL76jiZxk6wLnAfIErt7niZ/fJsiksCs/3fUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BP73ih4Z4WBIsNAff3IkrdUaMhN9zV7bG7hFT2vQHjc=;
+ b=qwUJhD7cWKnLeZsQtTN5wOEuytXnKSeKTe4DDHsbOHohjgBQ3t+p3DSIfbhBBstZEC54J6ZZUeYt0eY3H7HpdcgkFKhECOblYGdIXvDWQ8X/xz78y2JT/JDjle+MKIOKCAty+uTXXf1+vGAHNDq13/ID6vehZxIYM8acZtd/cmUWpJymdESxY/wg84K252va4wntDm84exk2OGVwMxw4LAOeJncuHoUhbWw+MCDPaLiBBCKWJHVc/H64bqaq+Qh+3VjKf4BrwgWW4UHYBVRZ9rJpC1a2cotoZGhg6sX39FYLd2cMRzbU+P+9+kwmJ4VApYCfeWkAhbV4yQPT0E2Scg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BP73ih4Z4WBIsNAff3IkrdUaMhN9zV7bG7hFT2vQHjc=;
+ b=pf+IU0ty0ylaKISFjF768NZAHxdx9ou6VF7/5J63k9WWZJxgoGyK82xAyJqdn3xl/Xz6m8K300D3mK3lcmqd+BEZ8FALM4fXenTItHZOzsiqa+TouPPfE9LTCgI9H3DukWOfpRG44tAcePgfM94adbByLHCVYPMTcDH28MxMH60=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by DBBPR08MB5945.eurprd08.prod.outlook.com
+ (2603:10a6:10:1f7::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.26; Tue, 10 Jun
+ 2025 14:38:33 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8835.018; Tue, 10 Jun 2025
+ 14:38:30 +0000
+Date: Tue, 10 Jun 2025 15:38:27 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
+	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] fix failure of integration IMA with tpm_crb_ffa
+Message-ID: <aEhDY4VlkIPYAjPE@e129823.arm.com>
+References: <20250610060334.2149041-1-yeoreum.yun@arm.com>
+ <aEgmhwu1RP27yBpw@kernel.org>
+ <aEgwpXXftXW6JNRy@e129823.arm.com>
+ <aEg6Bgh8TqzK5nSu@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aEg6Bgh8TqzK5nSu@kernel.org>
+X-ClientProxiedBy: LNXP265CA0082.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:76::22) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] drm/msm/adreno: Add Adreno X1-45 support
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org
-References: <20250607-x1p-adreno-v1-0-a8ea80f3b18b@oss.qualcomm.com>
- <20250607-x1p-adreno-v1-2-a8ea80f3b18b@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250607-x1p-adreno-v1-2-a8ea80f3b18b@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: Pbo-Y0NVJ6X5tx9VIa9iK7R84sePFEnl
-X-Authority-Analysis: v=2.4 cv=HMbDFptv c=1 sm=1 tr=0 ts=684842fc cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8 a=KtEEE0qNWcsMKkko6jcA:9
- a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-ORIG-GUID: Pbo-Y0NVJ6X5tx9VIa9iK7R84sePFEnl
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEwMDExNiBTYWx0ZWRfX+4zpmorInHE1
- E/RQrJUpRXTFrodIQPtZ5P/q9ONiUiC8KWZ6Nns80GI0Q7dhCiK1gLU2IvmQsmqryobxuNG2tHS
- 7jzjCk2mGmR6y1hBI30aHNOk8rK0egPigAHnvhzOe8rAJeClk3MfaDtduxp4W1+ePCpMJwU2I31
- vXZ2zuIK8vfVvc45/Ve5cOlBpa3rPA3TxvXz3hl++q+VSWvcb3enxHaAkLnPFDDwZyOJF3wlLnD
- ruzCrSWn6jKXg74iv52lcPXpGfBVvwuktypOz7V9dQW7RTUPF/W27H9pXCZlgsSbPqxPzwIF5I6
- bnTCCcM0HnNUWdUH77SgkozbSj1KXmRiPZIK5wT3hdLnXhk5DA3jEs6Wi8G9ILxsk5dZknNfxE0
- bKQlrv5lz+gIczP5EHs1ig/h//LYRclMO4Q7C5SVuZtqwili3o64jsZC8Wq+2ZNYlPVUqLvV
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_05,2025-06-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 mlxlogscore=983 priorityscore=1501 impostorscore=0
- suspectscore=0 malwarescore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- adultscore=0 mlxscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506100116
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DBBPR08MB5945:EE_|AMS0EPF00000195:EE_|AS2PR08MB8904:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98652c1c-2f68-4b6c-a8b5-08dda82c8d20
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?LE/Avp94UTHTifP3aLv7pcgGbxtZYXQeY3d00YUtFRVzzRQShEqQWVB00xyg?=
+ =?us-ascii?Q?+IlOLzUF3B7cp0e4I5ZxOATr8PMx5WDIVPbqhwu7TtLFM8Pu1G7d1g0HZt6S?=
+ =?us-ascii?Q?9harD+A68BtT3XmqctNpiCi94Wf5qdTdANMJ9lSM75u52k9ZGUqJj07iifvi?=
+ =?us-ascii?Q?Pl3CLcpe9ALfTE1A3Q1cUh7JC5bIn0TCYv7OJCTS1upKYVtsRA8ARy6WYz+P?=
+ =?us-ascii?Q?ji/t0XvD8AwCJMx9ESz0k0kVHOl9fUM9oTGBJ+ti0MsN8OfO04B/XJPX9eFm?=
+ =?us-ascii?Q?BDwISwiCUibmIqX9Suc8kdoAhS45uAh6mAktLZUQSF4NSQ22ZaAH274rvb4k?=
+ =?us-ascii?Q?TAIXwEDzZNAkXbCoFf9LiuD0k++RSJ24fc9Fs8toSL5uJSGdfvlV5numK/nu?=
+ =?us-ascii?Q?ZbbXH+lVuzqG5SBW73YhrmldxfplXgo3QyC5baNOd2iRW9vxyhgidnYFu1Jh?=
+ =?us-ascii?Q?29pEgYQghwAsfbnpQTDLegZqQDgrraVuoyeF+JXsTq1P9lzj6ZKl/6+V5SBp?=
+ =?us-ascii?Q?Z89Kx7i20uKiWb5ER8L1yy9W+DMkXPSC6ybrSY7ToL/YWhmRblKgKN3Etcp5?=
+ =?us-ascii?Q?D51Yl1BVCX/UBQ+n+XGHYSqHIM4yqAZXfW2g7x4+4GqKRquaN/FVY3CC+4bx?=
+ =?us-ascii?Q?6dcO6oRPq22GtcUqVpCkFj/pde1xxGDO+Aj02nfM7t24FmuAxT5cqDGUJPU9?=
+ =?us-ascii?Q?vXTrpIYo2+oK/v5L9FtZwjCJUIXLpZrYVBJmERdhVhoP5K/gKEVSpt3KJOY7?=
+ =?us-ascii?Q?h2j2WeiQGw/cnEW6AJjG6ocQmCNLmM2ZHs84cJEc4nCiQPGUZ9LNjDnIqA/D?=
+ =?us-ascii?Q?qlvzzhCB4wL/kTO7YlWsyBp35c5GswLRVa5T4NE7V6zjCtZJ6746RbdpD3UE?=
+ =?us-ascii?Q?Nen1QBJhmqD8ky59CtP/miCXqaEo/FU3QyyNwSQrVmonMtQRE+EvYNcLGfhj?=
+ =?us-ascii?Q?nxVnxh2cmeYGJNa5ZC+BAFjnNxaCNNxPED+vqroQ2raRzQxmlY9PHKj+id4W?=
+ =?us-ascii?Q?xXiKI057BIBpOtRsHcCi+/1kRYV5PRjvZLiPeH0g8M+WZjSCVxSm+jLJ9PTi?=
+ =?us-ascii?Q?HcNrCqpp0gX0J7idhPBHpGiUgDODnUMc32IHcQpgrYXrkbGYWzxulLedyrCL?=
+ =?us-ascii?Q?p0/J/GEQFC5azFM/taQWQF2pd7n95k+C5YyOUN3iX+WFcbRn4DXgUakes2xS?=
+ =?us-ascii?Q?S26Qw02LU5DggNY9KwrnB1QzaIa9yHA5ao/SDkjEDUJbGoXU85I+hikM159V?=
+ =?us-ascii?Q?apPjy8KDdZuoJEDXIiNLwBDdW/mZwmEXB8+35uEeoX0ljQ1iX7A37B77i2oN?=
+ =?us-ascii?Q?G/9NiIerRZSdgV32KAqDt3LdVw+GH/4agiM8sbD+xML3Ec7wn5BFh1nS/32a?=
+ =?us-ascii?Q?avWtBBnA6Hmg8QTcumMxVCPREcCyRf4/J++ilYpZmc50uxbsETDWz/EZehg0?=
+ =?us-ascii?Q?C6ZMNkPgGQU=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB5945
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF00000195.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 2eaafe8a-e51c-47d9-e95f-08dda82c780c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|35042699022|1800799024|82310400026|14060799003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Vt6wBaSgrOt58C+rzc1wgvjcVYQO7sVWREF0nhW1MoEAY8S0kjJTBgG1LtDH?=
+ =?us-ascii?Q?s9zIa7NFaf2wIo/vIUtzTNwOd08+nwUTyxQal8YSQVtLzIc5d78fm69dH7dF?=
+ =?us-ascii?Q?l9KwBH6EvCwB7gTVKY9dpdBJ5Ey0526rqY4tRI77Tv7YUtPNcwYqv3ItEpNZ?=
+ =?us-ascii?Q?wrUwXbOVz0pdWuZd8w9M5LoNEz2asy4poYvlnRkDDJGfx70AyZRgR7/WGm9P?=
+ =?us-ascii?Q?E0jOp/30aA2gdfYKPCvx4ITucxtpk69OI0gbIJUMa9cA72Mda5ulClVHF/QW?=
+ =?us-ascii?Q?b32c/JXsKOF8EXuSzkvth0ySClTd344xruIEsT6c4hpaZlF6bZvrRYOP3p40?=
+ =?us-ascii?Q?1IyVelBkJYSZ9W5ttnzVLlzsXX/cc/HRFE69p8dRhiGUgIV1KH3OYc5SMOBU?=
+ =?us-ascii?Q?uw6LVwOlyS/DM6DIRPcNS1Gab9NoVMNMn7UIntRl1eITvONbzYqDREtxXEyT?=
+ =?us-ascii?Q?gfELCxZGkRLPQ4/NIzeOOl8ZiMvA2ohg+ZQTuYjiVRnh2nS45kB/hodE52G0?=
+ =?us-ascii?Q?huIkYc6dkckHSM9OKY7Nkmlpw3sa3soQdepEaInimF6KI379t5A8nCtRspXE?=
+ =?us-ascii?Q?jmCiycS2RHXjWnqhp9jOXhnnqV4vQSlQMvDmjye5vIWXhasRfacehk5F73Fo?=
+ =?us-ascii?Q?JMWv89f8zXJgniLXRMSMN1dLm5q1DELCw47VKiNkDezfxUC81hdKyl+Gc4r2?=
+ =?us-ascii?Q?hxJg1b1D/18XMD/ohapx200nPVcPbIOShv3rZUT/2tTl11dVZVH5nTS9UK+G?=
+ =?us-ascii?Q?9naLmVxWfXnvrYJMdOudzgwSQZ8cqolJV1x/+nAgRSNfwVKQpKpsUEyQKbMV?=
+ =?us-ascii?Q?2W3K5K0SZI/hoAb1CVwdpLrAmvV4iJZ+3SfHU2AuftXh0Xff8ApUtHdFLoSm?=
+ =?us-ascii?Q?sRPobQIOF23ZHkjTVKE0YK5KoO0cEr5n8YCuO31bX/6msUW6maty0i7v0hkO?=
+ =?us-ascii?Q?UhyDSkNmrqOhYkjJKaL8uS/amWuIEhwqdKh6mcAcVnDtas7yn5TTGLNzU7Rd?=
+ =?us-ascii?Q?KQQ5HahoLxrsx1JGcV8kRfmJW1CG8pYFt6fIj8tw/u3b/EC5LfreKf8kGX6P?=
+ =?us-ascii?Q?NQHtkb/DgfslJrV9A3hpiI6EfWZIWFpP4HuT+AL4kxBPh7YBcShI3aT+cYfm?=
+ =?us-ascii?Q?7BY5pyhz7FqiP2BztHoZI99/tvSsSVj361hQgBsWSUiygKcn0mJF9TmWrrPw?=
+ =?us-ascii?Q?EjwK3mLZdElgHdqWyXcSKJCAs6Kirc1SCx5c/gEvRP6BXc2mS1+lVb+4heHs?=
+ =?us-ascii?Q?LJW1gYpEemXBp/MIVuJP7HbSFmaRqvzf4QNk+dqO5U7GP5uBKszzCULDesoS?=
+ =?us-ascii?Q?5gZwGTJ7rUT6WwLkvba8bH81Te1CB/BqJlP/wzAbkQlU00wWxE3jfNWpYbCY?=
+ =?us-ascii?Q?rgMgL/3P1hJ42lBKWdUqNpsltTCjTSvzv2tAXxD5XePV0g9I77BxVVqAcO55?=
+ =?us-ascii?Q?rL7heLJxlkaO/AQ5jDskI83u2pYq0ss0mhP29rMNw7sgKbjIZcSGHwk2Gs8w?=
+ =?us-ascii?Q?8wPn4DZ/0CEEd48+AWQ7ctcxXXnG1zo5LF8F?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(35042699022)(1800799024)(82310400026)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 14:39:05.5335
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98652c1c-2f68-4b6c-a8b5-08dda82c8d20
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000195.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8904
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_073647_093062_ED114BD3 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20250610_073910_145786_86E8B91D 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,18 +201,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/7/25 4:15 PM, Akhil P Oommen wrote:
-> Add support for Adreno X1-45 GPU present Snapdragon X1P42100
-> series of compute chipsets. This GPU is a smaller version of
-> X1-85 GPU with lower core count and smaller internal memories.
-> 
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
+Hi Jarkko,
 
-Matches what I had running, I don't know the source for fuses but
-I trust you
+[...]
+>
+> >
+> > >
+> > > >   0000000000000a9c l  .initcall6.init>  ffa_init
+> > > >
+> > > > In this situation, the IMA subsystem fails to integrate with the TPM device
+> > > > because the TPM was not available at the time ima_init() was called.
+> > > > As a result, you may see the following message in the kernel log:
+> > > >
+> > > >   | ima: No TPM chip found, activating TPM-bypass!
+> > >
+> > > TPM initializes before IMA, so there should not be a problem.
+> >
+> > If you see my commit message it describes the situation why this happen.
+> > when crb_acpi_driver_init() is called but before tpm_crb_ffa_init() is
+> > called, the secure partition doesn't probe. so crb_acpi_driver_init()
+> > would be failed wiith -EPROBE.
+>
+> What is "secure partition" and why it doesn't probe at the time of
+> crb_acpi_driver_init()?
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+secure partition is a secure service provider and among this service,
+there is TPM services using CRB over FF-A.
 
-Konrad
+This service is represented with "ffa_device" generated in
+ffa_init() in arm_ffa driver.
+
+tpm_crb_ffa driver attaches to this device and provide the interface to
+tpm_crb for communicating TPM device via CRB over FF-A.
+
+tpm_crb can communicate this TPM device after this ffa_device is probed.
+Therefore to probe the tpm_crb which uses CRB over FF-A:
+  1. related ffa_device should be registered which is done via ffa_init().
+  2. tpm_crb_driver success to probe above device which is done
+     via tpm_crb_ffa_init().
+  3. tpm_crb which uses CRB over FF-A can be probed above this is
+     probed. -- See crb_acpi_add() and tpm_crb_ffa_init().
+
+Unfortunately, when they're built as built-in,
+ffa_init(), tpm_crb_ffa_init() and crb_acpi_driver_init() are deployed in
+device_initcall. So, If crb_acpi_driver_init() is called,
+If there is no ffa_device or ffa_device isn't probe yet,
+It returns -EPROBE in crb_acpi_driver_init() so it's delayed to probe
+to deferred_probe_initcall.
+
+
+A secure partition is a secure service provider.
+Among the services it offers, one includes TPM services that
+use the CRB interface over FF-A (Firmware Framework for Arm).
+
+This service is represented by an ffa_device, which is created
+during the ffa_init() routine in the arm_ffa driver.
+The tpm_crb_ffa driver attaches to this ffa_device and
+provides an interface to the tpm_crb driver,
+enabling communication with the TPM device via CRB over FF-A.
+
+The tpm_crb driver can only communicate with the TPM device
+once the corresponding ffa_device has been probed.
+
+Therefore, for a tpm_crb driver that uses CRB over FF-A to be probed properly:
+  1. The associated ffa_device must be registered, which happens via ffa_init().
+  2. The tpm_crb_driver must successfully probe this device through tpm_crb_ffa_init().
+  3. Once that is complete, the tpm_crb driver using CRB over FF-A can then be probed.
+     See crb_acpi_add() and tpm_crb_ffa_init() for details.
+
+Unfortunately, when these components are built as built-in drivers,
+the functions ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
+all executed during the device_initcall phase.
+As a result, if crb_acpi_driver_init() is called before the ffa_device exists or
+has been probed, it returns -EPROBE_DEFER,
+causing the probe to be deferred and retried later
+during the deferred_probe_initcall phase.
+
+>
+> >
+> > In this situation, init_ima() which call ima_init() can be called first.
+> > NOTE, init_ima() is deployed in late_initcall and
+> > the "deferred_probe device" is tried again in
+> > deferred_probe late initcall.
+> > However, even the deferred_probe can be call later then init_ima().
+> >
+> > 000000000000012c l       .initcall7.init>-------0000000000000000 init_ima
+> > 000000000000016c l       .initcall7.init>-------0000000000000000 deferred_probe_initcall7
+> >
+> > That's why init_ima() is failed to init with TPM when It is deffered.
+> >
+> > Would you let me know why you said it's not a problem?
+>
+> What has deferred_probe_initcall has to do with this? Not actually
+> asking just pointing out stuff that you should open up.
+
+What I want to point out is that
+If the TPM device is failed to init in its initcall, and defered
+the IMA can be failed to find out the TPM device
+since init_ima() is called first before deferred_probe_initcall.
+
+--
+Sincerely,
+Yeoreum Yun
 
