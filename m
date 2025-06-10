@@ -4,63 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4D8C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DE5C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+qg1+SkJ5kUMIfZgliJNgwmCYY4xioDyWF9SZ86Sdo=; b=nF1HfYs0EJ0E8dDNSK792R58bE
-	Aw8eB3yWOxWNXXgNqfmFT9YXXXg0eblrsQZw7gkY2zoSDi8hbf7do9D3Av9XSSPiAcIkKeiIp/Cb2
-	X0Df5at+Y77EhDP0McQwi9iQ+mryEOo1MNtQtANKpSgPV5m5Jy6P85yAwJz0G0dkGPQuJNGSuVnJx
-	0r5m7Dql35mC5DAAAd/ytD4re8faRQ0HiF7UgEq9QLtuM6kJQI42IKnXB+0ZJ5EEGJS5SgdOe+Xuc
-	1q7w7NU2tPmCZVIqIt0m/eWGoVtvjP2wsikUjYULcSt/MwJiY3uKuo+GkxmDG9QMX0UGfkTuAyN9F
-	0M5fYP5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z8/nAMMkT1vU1loQqRhH4tBCD1KS79CJwFBdEkPVHUM=; b=uX8KjcPgaBL2TopSw7qINfZGLa
+	9GNuvGlsJi3lsTltfRVampw9Ll2btrFBePfxQOegbFzMiNVoClxBaGjj5mQRGecdEb27wShT/Zkz0
+	Vg6N4+Ry7mJOodE4R2Ot1C1xzcBZywUig5F1bvn6J6EhCZ2TO2luivFvJslhMWOVt0iLGGxzR0qXr
+	9m6QGyCVGHmz6BQ9rcdcIV5SJuG6/mdobIAEOmEu+wUBWvO8CQVT/WZNhkNSk4ArPxjNmYtYAGk+8
+	LafKlC66AI7V0pabkQR8De0uSis+KGE+aH7/yCJuwCm7MaR50IPOzg2PTPWRLwuXj9cqIv+9VkKC0
+	1XJnzPmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1j5-00000007RxE-3vaY;
-	Tue, 10 Jun 2025 16:21:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzCW-000000070Wj-42vM;
-	Tue, 10 Jun 2025 13:39:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E8F0A5C0429;
-	Tue, 10 Jun 2025 13:37:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98201C4CEED;
-	Tue, 10 Jun 2025 13:39:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749562779;
-	bh=5avbO0Ao+zxHI6T3ghbReJ8vJ24StY6YPNICgLkqxcg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JMwjgDNqWfSZV7W/JGiCqq0dEE/Ye+1kfAkZ4XV203t6F946jc0EF3npK/Q0wEoBc
-	 HL3ts1Xs+3/PBc9SYwPFCnM2z+MUvlnvqBO1CV6oc8asYfAFiUzYoTylPqc7H7yohn
-	 OzIYm+Tg5rTndx68BhsYHcdrKJ4seqHsBT6KkrgKQK6qpM8Lhv+lVrFkAL3iJu/r10
-	 yqq+/QgT1qixROOTMkGFuHsEN6XhDY3/mIBul+to91IbppkSLTQLOBNFgRGGwEedBA
-	 6RyXf6IeA24zeCsEByscH8ScHnys5UR72nWZesf6nZSo2pGx7we8ieg/YloSN2QFu4
-	 BqHGpXGyuC9jw==
-Date: Tue, 10 Jun 2025 15:39:34 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Eric Dumazet <edumazet@google.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Add TCP LRO support
-Message-ID: <aEg1lvstEFgiZST1@lore-rh-laptop>
-References: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
- <CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
+	id 1uP1lD-00000007SLx-3tOo;
+	Tue, 10 Jun 2025 16:23:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOzDv-000000070lo-2Qsu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 13:41:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE38914BF;
+	Tue, 10 Jun 2025 06:40:44 -0700 (PDT)
+Received: from [10.1.33.221] (XHFQ2J9959.cambridge.arm.com [10.1.33.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CFB73F59E;
+	Tue, 10 Jun 2025 06:41:02 -0700 (PDT)
+Message-ID: <3cad01ea-b704-4156-807e-7a83643917a8@arm.com>
+Date: Tue, 10 Jun 2025 14:41:01 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="I0VjOkFHRgh8EgMY"
-Content-Disposition: inline
-In-Reply-To: <CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64/mm: Ensure lazy_mmu_mode never nests
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250606135654.178300-1-ryan.roberts@arm.com>
+ <aEgeQCCzRt-B8_nW@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aEgeQCCzRt-B8_nW@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_063941_041954_6CB6EEEC 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20250610_064107_721833_61D9A186 
+X-CRM114-Status: GOOD (  39.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,68 +65,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/06/2025 13:00, Catalin Marinas wrote:
+> On Fri, Jun 06, 2025 at 02:56:52PM +0100, Ryan Roberts wrote:
+>> Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
+>> provided a quick fix to ensure that lazy_mmu_mode continues to work when
+>> CONFIG_DEBUG_PAGEALLOC is enabled, which can cause lazy_mmu_mode to
+>> nest.
+>>
+>> The solution in that patch is the make the implementation tolerant to
+> 
+> s/is the make/is to make/
+> 
+>> nesting; when the inner nest exits lazy_mmu_mode, we exit then the outer
+>> exit becomes a nop. But this sacrifices the optimization opportunity for
+>> the remainder of the outer user.
+> [...]
+>> I wonder if you might be willing to take this for v6.16? I think its a neater
+>> solution then my first attempt - Commit 1ef3095b1405 ("arm64/mm: Permit
+>> lazy_mmu_mode to be nested") - which is already in Linus's master.
+>>
+>> To be clear, the current solution is safe, I just think this is much neater.
+> 
+> Maybe better, though I wouldn't say much neater. One concern I have is
+> about whether we'll get other such nesting in the future and we need to
+> fix them in generic code. Here we control __kernel_map_pages() but we
+> may not for other cases.
+> 
+> Is it the fault of the arch code that uses apply_to_page_range() via
+> __kernel_map_pages()? It feels like it shouldn't care about the lazy
+> mode as that's some detail of the apply_to_page_range() implementation.
+> Maybe this API should just allow nesting.
 
---I0VjOkFHRgh8EgMY
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I don't think it is possible to properly support nesting:
 
-On Jun 10, Eric Dumazet wrote:
-> On Tue, Jun 10, 2025 at 2:12=E2=80=AFAM Lorenzo Bianconi <lorenzo@kernel.=
-org> wrote:
-> >
-[...]
-> > @@ -767,7 +887,7 @@ static int airoha_qdma_init_rx_queue(struct airoha_=
-queue *q,
-> >         int qid =3D q - &qdma->q_rx[0], thr;
-> >         dma_addr_t dma_addr;
-> >
-> > -       q->buf_size =3D PAGE_SIZE / 2;
-> > +       q->buf_size =3D pp_params.max_len / (2 * (1 + lro_queue));
->=20
-> Tell us more... It seems small LRO packets will consume a lot of
-> space, incurring a small skb->len/skb->truesize ratio, and bad TCP WAN
-> performance.
+enter_lazy_mmu
+    for_each_pte {
+        read/modify-write pte
 
-I think the main idea is forward to hw LRO queues (queues 24-31 in this
-case) just specific protocols with mostly big packets but I completely
-agree we have an issue for small packets. One possible approach would be
-to define a threshold (e.g. 256B) and allocate a buffer or page from the
-page allocator for small packets (something similar to what mt7601u driver
-is doing[0]).  What do you think?
+        alloc_page
+            enter_lazy_mmu
+                make page valid
+            exit_lazy_mmu
 
->=20
-> And order-5 pages are unlikely to be available in the long run anyway.
+        write_to_page
+    }
+exit_lazy_mmu
 
-I agree. I guess we can reduce the order to ~ 2 (something similar to
-mtk_eth_soc hw LRO implementation [1]).
+This example only works because lazy_mmu doesn't support nesting. The "make page
+valid" operation is completed by the time of the inner exit_lazy_mmu so that the
+page can be accessed in write_to_page. If nesting was supported, the inner
+exit_lazy_mmu would become a nop and write_to_page would explode.
 
->=20
-> LRO support would only make sense if the NIC is able to use multiple
-> order-0 pages to store the payload.
+So the conclusion I eventually came to (after being nudged by Mike Rapoport at
+[1]) is that this _is_ arm64's fault for creating a loop via
+apply_to_page_range(). So I'm trying to fix this by breaking the loop.
 
-The hw supports splitting big packets over multiple order-0 pages if we
-increase the MTU over one page size, but according to my understanding
-hw LRO requires contiguous memory to work.
+[1] https://lore.kernel.org/all/aDqz7H-oBo35FRXe@kernel.org/
 
-Regards,
-Lorenzo
+> 
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index 88db8a0c0b37..9f387337ccc3 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -83,21 +83,11 @@ static inline void queue_pte_barriers(void)
+>>  #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>>  static inline void arch_enter_lazy_mmu_mode(void)
+>>  {
+>> -	/*
+>> -	 * lazy_mmu_mode is not supposed to permit nesting. But in practice this
+>> -	 * does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation
+>> -	 * inside a lazy_mmu_mode section (such as zap_pte_range()) will change
+>> -	 * permissions on the linear map with apply_to_page_range(), which
+>> -	 * re-enters lazy_mmu_mode. So we tolerate nesting in our
+>> -	 * implementation. The first call to arch_leave_lazy_mmu_mode() will
+>> -	 * flush and clear the flag such that the remainder of the work in the
+>> -	 * outer nest behaves as if outside of lazy mmu mode. This is safe and
+>> -	 * keeps tracking simple.
+>> -	 */
+>> -
+>>  	if (in_interrupt())
+>>  		return;
+>>
+>> +	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
+> 
+> This warning is good to have back.
+> 
+>> +
+>>  	set_thread_flag(TIF_LAZY_MMU);
+>>  }
+>>
+>> @@ -119,6 +109,14 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>>  	clear_thread_flag(TIF_LAZY_MMU);
+>>  }
+>>
+>> +static inline bool arch_in_lazy_mmu_mode(void)
+>> +{
+>> +	if (in_interrupt())
+>> +		return false;
+>> +
+>> +	return test_thread_flag(TIF_LAZY_MMU);
+>> +}
+>> +
+>>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+>>
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 04d4a8f676db..4da7a847d5f3 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -293,18 +293,29 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+>>  }
+>>
+>>  #ifdef CONFIG_DEBUG_PAGEALLOC
+>> -/*
+>> - * This is - apart from the return value - doing the same
+>> - * thing as the new set_direct_map_valid_noflush() function.
+>> - *
+>> - * Unify? Explain the conceptual differences?
+>> - */
+>>  void __kernel_map_pages(struct page *page, int numpages, int enable)
+>>  {
+>> +	bool lazy_mmu;
+>> +
+>>  	if (!can_set_direct_map())
+>>  		return;
+>>
+>> +	/*
+>> +	 * This is called during page alloc or free, and maybe called while in
+>> +	 * lazy mmu mode. Since set_memory_valid() may also enter lazy mmu mode,
+>> +	 * this would cause nesting which is not supported; the inner call to
+>> +	 * exit the mode would exit, meaning that the outer lazy mmu mode is no
+>> +	 * longer benefiting from the optimization. So temporarily leave lazy
+>> +	 * mmu mode for the duration of the call.
+>> +	 */
+>> +	lazy_mmu = arch_in_lazy_mmu_mode();
+>> +	if (lazy_mmu)
+>> +		arch_leave_lazy_mmu_mode();
+>> +
+>>  	set_memory_valid((unsigned long)page_address(page), numpages, enable);
+>> +
+>> +	if (lazy_mmu)
+>> +		arch_enter_lazy_mmu_mode();
+>>  }
+>>  #endif /* CONFIG_DEBUG_PAGEALLOC */
+> 
+> So basically you are flattening the enter/leave_lazy_mmu_mode() regions.
+> Ideally this could have been done by the nesting
+> arch_enter_lazy_mmu_mode() automatically but that means this function
+> returning the current mode and arch_leave_lazy_mmu_mode() taking an
+> argument - more like the irq saving/restoring (even better renaming it
+> to arch_restore_lazy_mmu_mode()). I guess this won't go well with the mm
+> folk who don't seem willing to changes in this area.
 
-[0] https://github.com/torvalds/linux/blob/master/drivers/net/wireless/medi=
-atek/mt7601u/dma.c#L146
-[1] https://github.com/torvalds/linux/blob/master/drivers/net/ethernet/medi=
-atek/mtk_eth_soc.c#L2258
+We could alternatively use some per-cpu storage for a nest count, but that gets
+ugly quite quickly I suspect. But regardless, I'm not convinced the semantics of
+a properly nested lazy_mmu are safe.
 
---I0VjOkFHRgh8EgMY
-Content-Type: application/pgp-signature; name=signature.asc
+Thanks,
+Ryan
 
------BEGIN PGP SIGNATURE-----
+> 
+> FWIW, this patch is correct.
+> 
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaEg1kwAKCRA6cBh0uS2t
-rAYMAQD0nBIhigRn4PPAvOPLw/L0LoFZ4JC7kFUvDHjLuDo7PAD+IXfceq+l1hbh
-YjnyMxgeMGT9Hs0OOZbSoMd5kNU/Lwg=
-=z/fk
------END PGP SIGNATURE-----
-
---I0VjOkFHRgh8EgMY--
 
