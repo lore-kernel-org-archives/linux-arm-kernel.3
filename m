@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E2AC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FE7C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IxovBajuiG9VZJ3XmWy0NzjagqDViV1ywWm/ai8Bd1M=; b=eOd9PF9t8yqCskWgn5qdktqba5
-	wya1vV8QM07cD6WVMFQCEMNzOf7+P1XVxnDvfpAGhXIWb5AP9CakrgVhfyBCA5RX4axpCaIQXakLA
-	Sayv78NSUFJNwtpbmmDVlYLoT1Gay9+BaAYsA2vg00iTEKtXhU5QeIvsxnsWU/lwkr4VWm1iPDwIm
-	OT9KYR3wu5r8TQHci1zf3wMYZXOzN8hblwqr/n2nZMJ3PMlfciggIFe5DxmzQcuHNwHU9h/cpVN7T
-	GKntkaEULfIVGbKSt5j/fFiGriyAl/Tpaizwc+PS0kc8XrHqwkohfFyc9J7vaHuXMXoxUg4VXPsUW
-	9F2SbHiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PS/J/Tio82VscoAGIyJ5j4xDBN0G0tkUiw1k/m5qN6Y=; b=aVYiIceU/SG/yytO8axcs10lvC
+	3mq+3z7J+IM3e93dCSPF0wWIjwu6ml6SuDT+mVHTijN/qYO/DcqRw0xteQJ4ftVutodzWEaH1O871
+	OI9D86oXua7Pi9ejW7DooPR4sSid603LUGgHDh5Lzxvtw49QHr2kR1RN+kmnj6Xh+41odhsk2jPE5
+	+rZMWmzL0gODg3kzK2K9IQVDhWG/eLPbRVS8MuUb7ew1Aurp/jVyKcOOfk2qrslQC9A3ePXuSEMG7
+	dhhYXySfKhqJ8MNhTWHlkDFzJxfikO0HhjEQbrde/uS1rvtezBTQj94JxegKTRMyewUEGHsbH13rG
+	w/iwrSsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0UL-00000007DQt-0pIN;
-	Tue, 10 Jun 2025 15:02:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uP0WT-00000007Dtv-17wj;
+	Tue, 10 Jun 2025 15:04:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyN5-00000006p6C-1za1;
-	Tue, 10 Jun 2025 12:46:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=IxovBajuiG9VZJ3XmWy0NzjagqDViV1ywWm/ai8Bd1M=; b=BZnUeqZb2cpmqjba015Ph2ldgR
-	CRKkwzZQR1u2NQeMcBUCelRcMAEBSN8nhYSUbmlsNXkSk3FagH/PQLfGpwnotn6LDzRuqynA8Le+u
-	C4DiwmiHxvq17ibl5CKUDRjD1dPNjSNzG2P++JvOwnpDzSd9pUKikqOF2kgEMxEG/bHwLDMS5D21X
-	UgC3KAOtMX9bXm8bg5Hp8lqZghebCe0H964Y2pX1FwURlSDAVOTEYZFrkumAd6tmo5qgl7e249U5t
-	+M5PBkQ4i3LPGW2zm00xNQzQ45PVpIfTS1uS40cWSF5CWsXMXK3PlV3ol7cviZpAzQwMVmfPizT/E
-	QuJHkVgg==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyN3-00000001pXJ-2RTP;
-	Tue, 10 Jun 2025 12:46:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=IxovBajuiG9VZJ3XmWy0NzjagqDViV1ywWm/ai8Bd1M=; b=hZoQ3j3IzpoxwljSwnB8bccPSM
-	XRrBw7WFNZ8PxtzbiIXdJUnm/tkBx5fm8LE2KeugPzbPkZOxOSYZeqWHG27E/pZqa2VZB9z9EYDNc
-	cwy1nsznvNnVMKnbEY13v7IRURpmJET03jHqxGcIuSW+kSzh3eWH+oyjvx03UBx9A2i8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uOyMc-00FGUL-0t; Tue, 10 Jun 2025 14:46:02 +0200
-Date: Tue, 10 Jun 2025 14:46:02 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH 4/4] net: phy: qca807x: use new GPIO line value setter
- callbacks
-Message-ID: <5c9a127b-8538-4856-bdb3-cbee87993428@lunn.ch>
-References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
- <20250610-gpiochip-set-rv-net-v1-4-35668dd1c76f@linaro.org>
+	id 1uOyNb-00000006pCr-0do2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 12:47:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1749559623; x=1781095623;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=6bHYj/GvFhdNqpNwCN5loAmPMAKh1G83CZSf8OJUjKU=;
+  b=SHcytD9TAY2v1zRgGsN8bbCN4orq23KPvCp+nhhP7Xh9SwrkaYylAWT2
+   OxzevZWzoAXHPrLkp8N2MrY29C3wc7M6N/JWRmj3toZhJNvmrf20DRECR
+   0QJ3cidp1iSnkVtQ+XV59UZYWZlo8UDMVhFUuNpAV8hfMXeDMS63bvgpv
+   6IFI6aab89C86iJF2aDCOF21MqelAolju1sMDKZ69CLwuRc89qYQ2tLIO
+   X/4DvWiLAwu2IKBNAikPtnZI4ez7CyX6zr1lww1is9exET4H072Pr7/T5
+   lhjMXs4mSkHcmOXcekInt0EZSXs5Z/zHTwW3G98NpGcaNhNOXlEkMObTO
+   w==;
+X-CSE-ConnectionGUID: kK3Lf/4PT9yRKmehi04c6g==
+X-CSE-MsgGUID: zqHRItgfQOOuxb1tVn4vxw==
+X-IronPort-AV: E=Sophos;i="6.16,225,1744095600"; 
+   d="scan'208";a="47589575"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jun 2025 05:47:00 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 10 Jun 2025 05:46:58 -0700
+Received: from archlinux.mchp-main.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 10 Jun 2025 05:46:56 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <claudiu.beznea@tuxon.dev>, <sre@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH] power: reset: at91-sama5d2_shdwc: Refactor wake-up source logging to use dev_info
+Date: Tue, 10 Jun 2025 15:45:47 +0300
+Message-ID: <20250610124545.175492-3-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250610-gpiochip-set-rv-net-v1-4-35668dd1c76f@linaro.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_134629_694048_CC2CEEDD 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_054703_411615_26D3C21F 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +84,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
-> +static int qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
->  {
->  	struct qca807x_gpio_priv *priv = gpiochip_get_data(gc);
->  	u16 reg;
-> @@ -390,14 +390,12 @@ static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int valu
->  	val |= QCA807X_GPIO_FORCE_EN;
->  	val |= FIELD_PREP(QCA807X_GPIO_FORCE_MODE_MASK, value);
->  
-> -	phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
-> +	return phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
->  }
+Use dev_info() instead of pr_info() for more consistent
+logging in the driver.
 
-The full function is:
+[root@sam9x75eb ~]$ dmesg | grep power
+[    1.678542] at91-shdwc fffffe10.poweroff: Wake-Up source: WKUP pin
 
-static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
-{
-	struct qca807x_gpio_priv *priv = gpiochip_get_data(gc);
-	u16 reg;
-	int val;
-
-	reg = QCA807X_MMD7_LED_FORCE_CTRL(offset);
-
-	val = phy_read_mmd(priv->phy, MDIO_MMD_AN, reg);
-	val &= ~QCA807X_GPIO_FORCE_MODE_MASK;
-	val |= QCA807X_GPIO_FORCE_EN;
-	val |= FIELD_PREP(QCA807X_GPIO_FORCE_MODE_MASK, value);
-
-	phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
-}
-
-The phy_read_mmd() could also fail and return an error code.
-
-    Andrew
-
+Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
 ---
-pw-bot: cr
+ drivers/power/reset/at91-sama5d2_shdwc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/power/reset/at91-sama5d2_shdwc.c b/drivers/power/reset/at91-sama5d2_shdwc.c
+index e9fe08ee3812..ecf15694f925 100644
+--- a/drivers/power/reset/at91-sama5d2_shdwc.c
++++ b/drivers/power/reset/at91-sama5d2_shdwc.c
+@@ -129,7 +129,7 @@ static void at91_wakeup_status(struct platform_device *pdev)
+ 	else if (SHDW_RTTWK(reg, &rcfg->shdwc))
+ 		reason = "RTT";
+ 
+-	pr_info("AT91: Wake-Up source: %s\n", reason);
++	dev_info(&pdev->dev, "Wake-Up source: %s\n", reason);
+ }
+ 
+ static void at91_poweroff(void)
+
+base-commit: f09079bd04a924c72d555cd97942d5f8d7eca98c
+-- 
+2.49.0
+
 
