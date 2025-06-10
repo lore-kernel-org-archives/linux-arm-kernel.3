@@ -4,54 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030FFC71133
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA82FC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFDo/s61HGI/ipYvEEpeQoPYlsEk7fdY5FiMLmsXslU=; b=ZL5NrklQ7N4SNjt5P6J7no2hb6
-	suYLpaLJP+1ihmPEmXGij8Dh5whcMWViJT4Zozm8VVeiDG6uSb2Tu7s6qa/Gkg+vXKoJ9liKVzIYx
-	emDoGnwZp5kjGypt42nY+Gac/GMDCj580jKyZOyn/BqcMZNRv8ONOB69VVVVu61uSGTKEuDdqzUBZ
-	LIqqCQw2DGK7eKvRFA5PaQxLqeq+3blVXq5EQXKkgYPtTZk9wQwxIafZERBRMgYXFPd5SsgWCF+wC
-	cy4uc8QwiuMfyq77QwGA4C+izXp4z4q7pnjrVXpKNeCExRhd1a0QuYAPbavJ1t10YHO6HY0jCDA6E
-	7FwSJVcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EBMArELZ+b7OqxMIf1SSzcpla2zyCJLD/sNtyqPFkUk=; b=riWyiGXK59IGrkmxDp+KuVwwoa
+	Iu5uDtc3hXtQhICcJ0mhVtycPjpkf7ofZX8MAWG8uotJi5FcS0gyNPlqVaJuIbGCGrM8nCv7cgx0B
+	o2uASltWCyhRxu4BrM9y2Ti1oehiqy9rD27hcw00p8QVpwDAIRJLbw1ACXQ835cZxbohR6Hry6Vug
+	5p/n/JItjDy26e/hzPzGGumd1IeCEuc51OquGDQ8A18x+/33iwAdQ+s4q+6wAdcB1P0SXpzTSHIPG
+	xIK24oCC7l58jZ4Ie4ZFYWpd186NtP+MMXhGLsDzSGtcspgT9N+IqefGLocqLK8q0EmXaD2njeltt
+	SRqGdLFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7lp-00000008Fmw-0wul;
-	Tue, 10 Jun 2025 22:48:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP4DF-00000007s4P-0Fzl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 19:00:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD0421691;
-	Tue, 10 Jun 2025 12:00:24 -0700 (PDT)
-Received: from [10.57.82.150] (unknown [10.57.82.150])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22EAE3F66E;
-	Tue, 10 Jun 2025 12:00:41 -0700 (PDT)
-Message-ID: <e10d0c8f-c86b-4e26-8006-f38734993796@arm.com>
-Date: Tue, 10 Jun 2025 20:00:40 +0100
+	id 1uP7lr-00000008Fs2-3Tu4;
+	Tue, 10 Jun 2025 22:48:43 +0000
+Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uP4Hi-00000007sV6-2QJK;
+	Tue, 10 Jun 2025 19:05:23 +0000
+Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-530807a856fso88907e0c.0;
+        Tue, 10 Jun 2025 12:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749582321; x=1750187121; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EBMArELZ+b7OqxMIf1SSzcpla2zyCJLD/sNtyqPFkUk=;
+        b=KydZZ2QzR1VmPnYodPDAydmJlFIgjA21Y3X7jaHX2htchtSDjLpuB9hu6eQOoUuhYQ
+         y+NNtv9ntAadG5f2Sa8J5ty/RDf3RNiqEaeOyUIKqT//6TwXXs25O2Okg/9wi04M7P7f
+         d2I/vmqXVBmgrjmHu9c3xZJr3iekRq3IrKm95PyR4tP6OAj8qLwYI5GuIt206/MWKsqp
+         4Po/BE6lSke8XCrvs9B7ijDSIjkyrTmdHV+K4Cm7I+C4s0VNj2RRXhMW7W0W31bTmhhL
+         1fqoMkDlyYu6uOwAeQEJ5umIwhTPDPpmP19p+d6JA0tOJJ/zgzlt75lFjwJ/gkcMPVs1
+         xP9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749582321; x=1750187121;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EBMArELZ+b7OqxMIf1SSzcpla2zyCJLD/sNtyqPFkUk=;
+        b=DtGwzfm6mpWwuZtMjaxr9kPMS+hQ08Cvz1sab9Kw2HSZ8T3laXoAS8kWYwd9DspAed
+         6FO6Qfv8H1f0dm7vZHJ6tLs8do7H+/48W/v3o2kWHUudJHqWbIsFQlB8beXFTrC3MmBU
+         WC1fq9FudH5XtbUWiX+zCkqvrBUsF7voXmfiSZ6S0+9mRqsxfM8TtAYFRfcU0h7a6vGw
+         uq09VXE2dFR9N3P3lm30xT73HwO3S+dVqME4yU+Rah54gPxncV046E7SGqFwlcSsDPQA
+         1U9scD+gA3SJAAHy6zss+jnPI512o4AVLHcKslCOn1oVmOB4LfMLqFGpanDJluGHcRfy
+         E1cQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU51tAdyh7sUNP5EfazK5rOzDp/OutBeF+l+Gep4b/pkmW6BIOMUKBg3H+hY7qhMUZgkqUELfhplVuiBpt6seWM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBKLWN0XBY/JB6UIi9jhmo6RnD9CWE4sHugbgfwEDELHyYCYEW
+	CcfTnyCzNNKOPmnF8j/W5k2ig8V+BPPGgP7PYEysWEu8prYfOaFG88EvS1SZqzXZ
+X-Gm-Gg: ASbGncuXiHrkODlzMQvbQubbmhbyjIT17MtbsV6VAkkaUyts5uy8bljwRfkn2Z6jPll
+	AodEtQB5qiQ2lBpfux9vVED0nFNVrDBqnx+rXVh0rIgLCfvglwj7kxgpOl1bSt4MGx7Uf2BXZQS
+	J6zWs0Sl4z5u+3LBUm3jAPtNl9kXA1giQQKISTf2YjFYiC1pGk3EP3X+001M9n8C+RknyuUVMdS
+	rIH21Z2ZJSF+Spbbyj4ytgX1tJsOWL0s3ltv27VgtxIlbZt2TOg7ASerBj8uyTk+dzNrTJoQx71
+	5W0N4IgO15HcEovz/e1jmYU3bbURfPOb+1HT8Sq0jHL013k9y7c99cICjl9S
+X-Google-Smtp-Source: AGHT+IFvkvLxAMuApjj0TaS8+IPnWrq0/20erFO4UhwpQr7lrHSO8t8VmHDaRPRY4P2rvSgSjxJNlw==
+X-Received: by 2002:a05:6122:4f9c:b0:52d:beeb:c6a3 with SMTP id 71dfb90a1353d-53121d50761mr1104020e0c.1.1749582321327;
+        Tue, 10 Jun 2025 12:05:21 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:5a56::dead:c001])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-87eeaf3b7c6sm1735824241.21.2025.06.10.12.05.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 12:05:20 -0700 (PDT)
+Date: Tue, 10 Jun 2025 16:05:10 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Hugh Cole-Baker <sigmaris@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v3 0/3] PCI: rockchip-host: Support quirky devices
+Message-ID: <cover.1749582046.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: Enable vmalloc-huge with ptdump
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- david@redhat.com
-References: <20250610160048.11254-1-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250610160048.11254-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_120045_188394_8E781AD4 
-X-CRM114-Status: GOOD (  28.17  )
+X-CRM114-CacheID: sfid-20250610_120522_617580_BD545153 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,153 +98,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 17:00, Dev Jain wrote:
-> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
-> because an intermediate table may be removed, potentially causing the
-> ptdump code to dereference an invalid address. We want to be able to
-> analyze block vs page mappings for kernel mappings with ptdump, so to
-> enable vmalloc-huge with ptdump, synchronize between page table removal in
-> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
-> use mmap_read_lock and not write lock because we don't need to synchronize
-> between two different vm_structs; two vmalloc objects running this same
-> code path will point to different page tables, hence there is no race.
-> 
-> For pud_free_pmd_page(), we isolate the PMD table to avoid taking the lock
-> 512 times again via pmd_free_pte_page(). Note that there is no need to
-> move __flush_tlb_kernel_pgtable() to immediately after pud_clear(); the
-> only argument against this would be that we immediately require a
-> dsb(ishst) (present in __flush_tlb_kernel_pgtable()) after pud_clear(),
-> but that is not the case, since the transition is from
-> valid -> invalid, not vice-versa.
-> 
-> No issues were observed with mm-selftests. No issues were observed while
-> parallelly running test_vmalloc.sh and dumping the kernel pagetable through
-> sysfs in a loop.
-> 
-> v1->v2:
->  - Take lock only when CONFIG_PTDUMP_DEBUGFS is on
+Hi folks,
 
-I thought we agreed that we would use a static key and some rcu synchronize
-magic? What was the reason for taking this approach?
+while I understand there are lots of already-working PCIe devices
+on RK3399 there are also many quirky devices which fail link
+training and refuse to enumerate. This RFC series is meant to
+alleviate this problem and has been tested on my Rock Pi N10.
 
-I'm guessing CONFIG_PTDUMP_DEBUGFS is very much a debug feature that we wouldn't
-expect to enable in production kernels; if that's the case, then perhaps this
-approach is good enough. But given Will suggested a solution that would make it
-zero overhead when ptdump is not active, why not just take that approach?
+Note that with these patches, link will train for quirky devices
+but with Gen1 only and only one lane (x1). I have separate patches
+for improving to Gen2 and all four lanes (x4). They don't depend on
+this fix however and since I predict the present patches are bound
+to be controversial, I decided to send the quality improvements
+separately.
 
-Thanks,
-Ryan
+---
+V2 -> V3: separated commit for reordering function as per Bjorn's
+suggestion
+V1 -> V2: adjusted commit message to be more clear about change
 
->  - In case of pud_free_pmd_page(), isolate the PMD table to avoid taking
->    the lock 512 times again via pmd_free_pte_page()
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
->  arch/arm64/include/asm/vmalloc.h |  6 ++---
->  arch/arm64/mm/mmu.c              | 43 +++++++++++++++++++++++++++++---
->  2 files changed, 42 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-> index 12f534e8f3ed..e835fd437ae0 100644
-> --- a/arch/arm64/include/asm/vmalloc.h
-> +++ b/arch/arm64/include/asm/vmalloc.h
-> @@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
->  	/*
->  	 * SW table walks can't handle removal of intermediate entries.
->  	 */
-> -	return pud_sect_supported() &&
-> -	       !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
-> +	return pud_sect_supported();
->  }
->  
->  #define arch_vmap_pmd_supported arch_vmap_pmd_supported
->  static inline bool arch_vmap_pmd_supported(pgprot_t prot)
->  {
-> -	/* See arch_vmap_pud_supported() */
-> -	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
-> +	return true;
->  }
->  
->  #define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 8fcf59ba39db..fa98a62e4baf 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1267,7 +1267,25 @@ int pmd_clear_huge(pmd_t *pmdp)
->  	return 1;
->  }
->  
-> -int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-> +#ifdef CONFIG_PTDUMP_DEBUGFS
-> +static inline void ptdump_synchronize_lock(void)
-> +{
-> +	/* Synchronize against ptdump_walk_pgd() */
-> +	mmap_read_lock(&init_mm);
-> +}
-> +
-> +static inline void ptdump_synchronize_unlock(void)
-> +{
-> +	mmap_read_unlock(&init_mm);
-> +}
-> +#else	/* CONFIG_PTDUMP_DEBUGFS */
-> +
-> +static inline void ptdump_synchronize_lock(void)	{}
-> +static inline void ptdump_synchronize_unlock(void)	{}
-> +
-> +#endif	/* CONFIG_PTDUMP_DEBUGFS */
-> +
-> +static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr, bool lock)
->  {
->  	pte_t *table;
->  	pmd_t pmd;
-> @@ -1280,12 +1298,23 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->  	}
->  
->  	table = pte_offset_kernel(pmdp, addr);
-> +
-> +	if (lock)
-> +		ptdump_synchronize_lock();
->  	pmd_clear(pmdp);
-> +	if (lock)
-> +		ptdump_synchronize_unlock();
-> +
->  	__flush_tlb_kernel_pgtable(addr);
->  	pte_free_kernel(NULL, table);
->  	return 1;
->  }
->  
-> +int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-> +{
-> +	return __pmd_free_pte_page(pmdp, addr, true);
-> +}
-> +
->  int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  {
->  	pmd_t *table;
-> @@ -1301,14 +1330,22 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  	}
->  
->  	table = pmd_offset(pudp, addr);
-> +
-> +	/*
-> +	 * Isolate the PMD table; in case of race with ptdump, this helps
-> +	 * us to avoid taking the lock in __pmd_free_pte_page()
-> +	 */
-> +	ptdump_synchronize_lock();
-> +	pud_clear(pudp);
-> +	ptdump_synchronize_unlock();
-> +
->  	pmdp = table;
->  	next = addr;
->  	end = addr + PUD_SIZE;
->  	do {
-> -		pmd_free_pte_page(pmdp, next);
-> +		__pmd_free_pte_page(pmdp, next, false);
->  	} while (pmdp++, next += PMD_SIZE, next != end);
->  
-> -	pud_clear(pudp);
->  	__flush_tlb_kernel_pgtable(addr);
->  	pmd_free(NULL, table);
->  	return 1;
+Geraldo Nascimento (3):
+  PCI: rockchip-host: reorder rockchip_pcie_set_vpcie()
+  PCI: rockchip-host: Retry link training on failure without PERST#
+  arm64: dts: rockchip: drop PCIe 3v3 always-on and boot-on
+
+ .../dts/rockchip/rk3399pro-vmarc-som.dtsi     |   2 -
+ drivers/pci/controller/pcie-rockchip-host.c   | 141 +++++++++++-------
+ 2 files changed, 87 insertions(+), 56 deletions(-)
+
+-- 
+2.49.0
 
 
