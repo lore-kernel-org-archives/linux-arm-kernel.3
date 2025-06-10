@@ -4,121 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF1D6C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53666C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=siXBLzRLss7mh07NwalB4yKgr7YnqKr9rIj6Xo6f3j4=; b=bPN//C8YyPEl6WpdzVab8NQ8lN
-	lt/qtDY/jm1P3ML7NzEs/piL1SPVoinDpj8jAg9xW5PIeSxvI44GtOnzRtMXqYoCjrXD1tceGB9ml
-	ZBs1tKJ19IPWQPyE5LDX+3jq3ZkKQIn1OnBy8DuLI3OBpUu9jKZp6BShtaoGFYL53qftS/G2W9BTR
-	6PnI5DkIEC83s7FDLjariZkBxD9tXhC6SFipt1IFQAk7VeUgEBZthsWdzckxKxMYAvBZdVhZHnQqr
-	qU2c+IAz5WlbKg4OL02RESgs8XWMSKEdvempJ5JYC/bwvSFRaAFdcVoP6hml/gbc8g1513M4kXuhL
-	u9cls2yA==;
+	bh=IuRj0Ug6ZJKS4fqR2KpE5gyA/o+babJBVnYG2DvTa+g=; b=cohqNM4MkkB3zLOTUgKR3/lbX/
+	f5znZCGnsoR0SHwN+Ma1ZSzM88DKvJGQA2u0ZBhHf+GIEA7s8gRvqTIa024nh+efo1KQfPjEMAYXO
+	1wPRAIDVxZuOaXagbh9z4kbKHtCyWE9+CtZewKiHLF29mc0pDBog2Qeq6ku+CopLMYUu73nV+3nMl
+	Dbbv8AvC0LD5azqvYpaocACllskYOBbSeOHqx9bxoihFQvoI4pJzzCrkN5rbCBAwO6v0y2yx15vRl
+	0UXvkdAItg4YR68WurgqEgwXvhqBZ3py2UFtKBTgL1sV3Swd4lz/Yv7IwJb1zLYMso6T3AO943paf
+	tfF1TyuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyo1-00000006v3B-2bEh;
-	Tue, 10 Jun 2025 13:14:21 +0000
+	id 1uOyq9-00000006vXX-1BSq;
+	Tue, 10 Jun 2025 13:16:33 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxuc-00000006kKT-2vZJ
+	id 1uOxun-00000006kMF-3PeO
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 12:17:06 +0000
+	Tue, 10 Jun 2025 12:17:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=siXBLzRLss7mh07NwalB4yKgr7YnqKr9rIj6Xo6f3j4=; b=qltkA1o+9iwGG4letM0giHRmnc
-	rq9aLcA9R0IUG4/KH7mKj5YEraa4f/2TDCx0UHQd2KODZEtOMeX8DaFHUI8LNr+RNFUJO+MWXx9ga
-	/azp8bSlrrXzIrWpZeLaysYxtWZJVQHU7yALnGTcKkC8cCjbVUJ/D6W2giawKibkBirP7OT6uY80E
-	xLnKqUxVsIMUKKEW370aGgW2FxUEaROy6c0LfXzO+RAtg8NQFl2ao/hLXeN/C+e77GCmoepJVdLCj
-	hiE1NE/j9ZZk7NJp2oQjPc0YMW2qdA/rRoSPRSdf+scPb+d3ZpiTr0iCHPjlXDHSPtDHnqNDdMYSb
-	bSBAlEgw==;
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	bh=IuRj0Ug6ZJKS4fqR2KpE5gyA/o+babJBVnYG2DvTa+g=; b=PWrig18QduyT+Seiymmq9yhyUP
+	pGEud3HrNK3HhfANSSMen8AJy5eTwVwDB7pBeNOrYLxFBbcJPNH3C8ZTCvWaSneUwNGqMVwtYNguj
+	5XdVd8giHsQyUZ1da+QEkzlpo0o/y9gBbRvWwMKhLmf20JJY2YCYJkCU53J9vLJWn2ehSE9qLyZWy
+	WVThD+Ay17mqNeqO43Ku1zLIbg7AnB1n76zT5S0i33lJWt11SHBrERhAz28GPN11L03Sdf8uHJvEU
+	AOqhTti6ed3Vg0QT8R92rv4Zllzo1Df4HQv3lgdw0cnRWSa7Itz/hNo/Aciahz/Y5Gq/Lxg36gBk8
+	t/Xmx81w==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxua-00000001nqO-2pHU
+	id 1uOxul-00000001nqm-3LdK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:17:06 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54e98f73850so5750250e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:17:03 -0700 (PDT)
+	Tue, 10 Jun 2025 12:17:17 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4508287895dso39330125e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:17:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749557821; x=1750162621; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1749557833; x=1750162633; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=siXBLzRLss7mh07NwalB4yKgr7YnqKr9rIj6Xo6f3j4=;
-        b=GYQW6IpewUXtN1tx1n8cCgxD2Qpj9wdsvpx4HO6yAZZIX3H25+rpBEM7pMNO+6rmFw
-         bum/KaE1dpvpyajmh/85dN7Fq+kDbMw9g8SmrHnY9CA8tMVSTks7natnKoxznnPThBy1
-         XNJiH+TWOCSfvSpPWtPvfl3KN/9M9XkPzRpo8sMKSA1tOkt03BldOufRp9/tyLZt6dkP
-         cc3QzVOF9xzYMaLpyh/412bqEx9U8wtAivhSFzFe+ztAuaEl1YVSEiyXaxtlvQMZgPSY
-         j0ERoQ1bmCihlnhSSueyBnFCnN2YKrkUVx2RLktYWI+xlsebsczZo1A1qV8a1l3xmCyr
-         yCNg==
+        bh=IuRj0Ug6ZJKS4fqR2KpE5gyA/o+babJBVnYG2DvTa+g=;
+        b=X97siPqpd36CNMSE2ARlDhOHfmrGBMK9uOWjlu34nMPa2A7F7/WGx0LwqdYGP3zyIK
+         nVDVkhPi/UIFZN2XKvmxYy5LC4tJKkkthgLFpLQ7blv64bhCNBShrb3GWf2SDLlPXOQJ
+         fzINNZ7tFp91VYjh5fVPdUz2CgIjacLIhIjP9hHPhTuh8KGIgtpUnGCtD0p/ICHpPvoq
+         BmwmbSDaZeCxuILfyAm6c5HiSi4pN7eqN5mjATmRVGPY3+iq4dGcmdBewPiAUk3oKvpN
+         QbAPQcgOTrOI51fpEceQgNPM+a4MMDEdksRBJeaKjecCpA7KhRCTZ53M6ce/mBiWpPLw
+         q+Yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749557821; x=1750162621;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1749557833; x=1750162633;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=siXBLzRLss7mh07NwalB4yKgr7YnqKr9rIj6Xo6f3j4=;
-        b=BvHE8EuzycFOpW8BZ+S3KGXWWxPYTTw2yGXzK15qkN2ZHWYrE4k8PLUgPa1oZBIFRU
-         5f4xgDsnLzEQ/s78xLhIt3FMzk9pus3Q/2x7SK+eH6QBnKQwGtIOjkQDliK8r3Nluy3w
-         ou1FBTwrn8Q4RYhHHKNiOlXLfznwqoBqn0cFZn/3d9JEe+TbPvd6UIXd1t3b5o75H/y7
-         gRKwrV48MMvUweVd7Fk2mGsP7/I4L8FXI6LXJoEQz9bIU6VPOy4GkcEGnrqmf8JsKOF3
-         79J5nHQuiIRHizuZGuDS499L/y2Q9EVByPQOGxXuB06zmR55Gdd5OoldbEVXVYFkowu0
-         pbhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWlQmOhQaEkonjUGs1bD6sf1/L/AIJ8lOF+2zZmFzttgIWmObTe8U8tYJPgWN789XvTpbwuyjvwr+oAJR91mWSx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi+FRrOU8axWP+iEvUiFaYxYIp6/FkhpdfmAyP5nsXhobxiZrt
-	Czq8USW7HXAEbpsZb8OHBrny6BSuATrvpn9BPVwUiV1EnAYd3Mauq0ykxWJe6y+Of9cxNy+urRe
-	3/3CPAICvilsY436HsnRCD5shk2sCgfDZ9KNv0CH3Fw==
-X-Gm-Gg: ASbGncvBANUeXmLvyh5EeFUx1j3SfjIzuHFNRXQseBx0Jrt+E/FjtxnLcuIi8X/GbPD
-	eEcv1YpT7BClWFE/C7sk0kSEa2PS8vlWp3SK3UAD1DJ4MYQ2QyUt8OGjzPPLCRdAshqopjcoERS
-	x7btrVdG+72A7Yszgl1lOKE8j1E6X6rQAFvt+/OZeYnbDNSzHrN8MTfQ==
-X-Google-Smtp-Source: AGHT+IFQxMti2+Q8Uenwhc0/S6UdaliHxGCkJGgDod8emAA4asQK/90KUnu0JtAhA4sI4nKXBC2mhVRJZkpkWFN1Jcw=
-X-Received: by 2002:a05:651c:2211:b0:32a:8591:66a9 with SMTP id
- 38308e7fff4ca-32adfbb0c50mr43449421fa.6.1749557820819; Tue, 10 Jun 2025
- 05:17:00 -0700 (PDT)
+        bh=IuRj0Ug6ZJKS4fqR2KpE5gyA/o+babJBVnYG2DvTa+g=;
+        b=M2xOuJ3L0AwjX0uIpBRpPHHC6OwW2ElMw/97CFo9VqfgQO9iCvALvz+GF0m2+JgA9g
+         leR1Vtp8BQ/py4XkaapukyxrV/ssXVVi+WoxarPglxc6wzjtSSBXrXWVrjPf+y9Jil11
+         xKM3QrJVdU9pnGuilU21PQDMvo7WvW7uIq+FDNsDsA6FpT5+qP+89QYFajoNXE3ZliKz
+         37YgpXuQPUPYBxH5T3mX8w5ZaVucPl39gRyYwdkL+LpURBpmv6sIb8L21DOF7VdGBM2L
+         O0fF8nv64qin2E7vaN4N8iowcSv8PSpn6/bwKTKxc4VSMFvXL3e9PDy3teSxe0rQKZ/D
+         ukfg==
+X-Gm-Message-State: AOJu0Yy1EfbpplPJPEp3isCmIPkN4WUn6vtAF5TOXdlcifZeRJNmGoQG
+	Y7urRULowQwPrgh7AikbbBPelx+n9Kcy6hIUfWMvz9rxaqoVyXsJR52/BVgiqOPLb+U=
+X-Gm-Gg: ASbGncvNYZMmIYtGDg1ogPM6qCDLyZipn+QSsEze9YiJFtUJV4N0bDAEJBRfDBD6Evt
+	WTHCZMvjg7qlF4viOkkQqk9SBsVGIzvGaSm/z7i7wFRZt0H66marv+EEYiubm8QrqbbhwW81NEN
+	dIe5TqjdmF/BGczmRzimZXLWK6noUUw7d2wmJmG3Rm0+i855+9eSC+3cqsa91AUm3tJI2AIBV2f
+	b04EU6GOZvnqmo5F8TW5XpJzvPOc79TIZp/D/HIu/Z8Q9BrKhkwdvW/ikdepITTfmifOMXhD+0y
+	DCd0qAC5GYAsAfBvq5V4TT9J2A4Jn5kqrnPrYVFBaHaQQ2eQM1GQ34slk/NVP8EU/Xncz0oW9xr
+	0yhFuCuY=
+X-Google-Smtp-Source: AGHT+IGZryHptsIAfWJgutrc/pv6q8jGoH1/bsVGr2feMOgq4/suOW7VZ43KFE9ciIcwtc866C4hEg==
+X-Received: by 2002:a05:600c:5251:b0:440:69f5:f179 with SMTP id 5b1f17b1804b1-4531ce9f6d9mr27818275e9.7.1749557833268;
+        Tue, 10 Jun 2025 05:17:13 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4526e1595d4sm136313625e9.16.2025.06.10.05.17.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 05:17:12 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: linux-amlogic@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250606203729.3311592-1-martin.blumenstingl@googlemail.com>
+References: <20250606203729.3311592-1-martin.blumenstingl@googlemail.com>
+Subject: Re: [PATCH] drm/meson: fix debug log statement when setting the
+ HDMI clocks
+Message-Id: <174955783271.1721274.13898926968868576990.b4-ty@linaro.org>
+Date: Tue, 10 Jun 2025 14:17:12 +0200
 MIME-Version: 1.0
-References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
-In-Reply-To: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 10 Jun 2025 14:16:49 +0200
-X-Gm-Features: AX0GCFuA2Dfvx1J77MshD7Tzhu9rwDlijvkgXfC-wltdCoDdq-4uVh1ABAKFvmw
-Message-ID: <CACRpkdaQLq3YGfOg81gt5=1Wh2ZkoKHeK6H=NWaeW9aLbX4VCA@mail.gmail.com>
-Subject: Re: [PATCH 00/17] pinctrl: Constify pointers to 'pinctrl_desc' and more
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Basavaraj Natikar <Basavaraj.Natikar@amd.com>, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>, 
-	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
-	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
-	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
-	=?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
-	Charles Keepax <ckeepax@opensource.cirrus.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
-	Sean Wang <sean.wang@kernel.org>, Jesper Nilsson <jesper.nilsson@axis.com>, 
-	Lars Persson <lars.persson@axis.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Damien Le Moal <dlemoal@kernel.org>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Michal Simek <michal.simek@amd.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
-	Hal Feng <hal.feng@starfivetech.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-sound@vger.kernel.org, 
-	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@axis.com, linux-riscv@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_131704_843229_1BC71984 
-X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-CacheID: sfid-20250610_131715_904775_BB595470 
+X-CRM114-Status: UNSURE (   8.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,18 +115,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi,
 
-On Wed, May 28, 2025 at 12:41=E2=80=AFPM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+On Fri, 06 Jun 2025 22:37:29 +0200, Martin Blumenstingl wrote:
+> The "phy" and "vclk" frequency labels were swapped, making it more
+> difficult to debug driver errors. Swap the label order to make them
+> match with the actual frequencies printed to correct this.
+> 
+> 
 
-> In several drivers pointers to 'struct pinctrl_desc' is not modified, so
-> since core does not modify it, it can be made as const.
+Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-fixes)
 
-will you rebase this series on v6.16-rc1, fix the snags and send a new vers=
-ion?
-It's all nice cleanups so it'd be great to just merge this.
+[1/1] drm/meson: fix debug log statement when setting the HDMI clocks
+      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/d17e61ab63fb7747b340d6a66bf1408cd5c6562b
 
-Yours,
-Linus Walleij
+-- 
+Neil
+
 
