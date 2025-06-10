@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF129C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF67DC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PV6mynfuvv42D/ePAoYQa09aeqeL9wkOTzavUKrfpmo=; b=WuD6Tf8QBaeAkNme7KasscipEW
-	Kv4yzarFITQS6W3iR6gkTXPKXwctmmQYTffIXXmbU5Ti6A2xWtzL310+Cxe+qILmym8MUg39t9rLx
-	9v8WVCaex7VdgAWaKRaBMcQ4F/TPIPuRhkYk4JxtiTPdDRIVvPXEpuNCqBjxHkkYve097zaGPbCm1
-	gmpSjB2nAK4moLNA5yBWsy+MavyWbL2qPcxYKvWr8j1lvybsQrfuuy50zTvtKYy5MKaXqb+jgTm77
-	jybeV/JXZ0kDWCQpyGmddxlQ1MBFHTGRzEkIXoJ7FFA04EZhz9I5/XqOZHXaJT58KBrdsk9SWs5bh
-	qLaCvppQ==;
+	bh=B+ZXpV4BuIsMc3QUoJ0VAAjnTmM9QAGHI8YQX/Zc9Mc=; b=Li4RO6IibZ37J7e3AQgO3HKqJu
+	F8ySWO5YF+pfWadq6UmDsiWjwOXXR2XDsrfIOYcfa6YNQuL7WPDtY26B2S9cEFkd7teABVhJPXCwZ
+	Ny+pfRHHM75WWoaZkoIGxWa4juZ92fRj1z6/UoXgsLZlSr0YsIdxH66lnjwOOx+/1vLhCZ1ysgCiY
+	LiQnuEa3VqlNvMHmDRi0ZDkMthlVst0djFJkvlvjNPYZ9G6yPyu+ol1vw2fZ2tEhRAYNT98HYzoaH
+	U/go58w3mhJQe2gK2G2MPeuzylC2mYnH+PSCDEzCzZpdIYLke6OdpZgfTUu1ld8w4EqddnJsZ1wx1
+	EsPyDDcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP3nF-00000007oQO-0s2w;
-	Tue, 10 Jun 2025 18:33:53 +0000
+	id 1uP3pa-00000007ogU-117Q;
+	Tue, 10 Jun 2025 18:36:18 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0qI-00000007IsA-3CDX
+	id 1uP0qK-00000007It5-3opY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:24:52 +0000
+	Tue, 10 Jun 2025 15:24:54 +0000
 Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLF7D010719;
-	Tue, 10 Jun 2025 17:24:41 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55AF1VY0031553;
+	Tue, 10 Jun 2025 17:24:45 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	PV6mynfuvv42D/ePAoYQa09aeqeL9wkOTzavUKrfpmo=; b=yxXbp0MwRqkezWKJ
-	ghM1nwfNNx/HR2jk1frQY0dGqtCYxDMUHc9yWPAVyTnMIZYEcjLEyPIO0JSkvslw
-	aX1bFJLXMisqBYo59e3qAhC8Uvbo3XvBGGLp7iuanIOprPfdf9MrnS5tGtllLm1t
-	+Zzvq5SKzdRn92qVaBLqx5PStMIipZ/iW3sAh4yuTlz/weKLo8uQiK13jsN5RUx1
-	SbHSWHFrcuPq9DA4pcccp2z8UvVP5h712Oy/T9JxtFP3MYslpUzycwhIOyBBWaCE
-	f+b+9RzUhe5hcO4yx4e90g7KAKiX4vzh9SpWRC5W/Eh0iwkQcW3SdHK1dhIPN+xd
-	nGFexQ==
+	B+ZXpV4BuIsMc3QUoJ0VAAjnTmM9QAGHI8YQX/Zc9Mc=; b=vOrEkKb/p3NVqL6F
+	6jH1eya55lRO3KyQR+wQ27u5KZTW9PWzO8ifrfzUfnm4n9oaGVol3Jx0YLxxruO3
+	YanbSukWtX8lbpAhn2QnE8y2ovHqDmGyjMqmcTCyVbVNP8ovwXNn8AsTUDd1luO6
+	rU3ue/YiqjpMaxVcwZZKgrJsMi4M3WG/iuuDlBfrrd6Hqk+xZrXxGPEykdvq7smY
+	/+o0xnHn7kD5iHO7yRpl4Vn7nQsznuRcqKKOEnoB+2hdWkoFcXW587fdUucEvBlN
+	0R6rOSKSBffWRIAXd1SOlLWX+imdhX25rE4C2MZ2frbnNHcLyzZlfM4SGz41slAV
+	uSoUUw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474y053dsf-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474y053dsn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 17:24:41 +0200 (MEST)
+	Tue, 10 Jun 2025 17:24:45 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9D6634004B;
-	Tue, 10 Jun 2025 17:23:38 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 28BCC40044;
+	Tue, 10 Jun 2025 17:23:52 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EF1CFB79BAE;
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 6844BB79BB9;
 	Tue, 10 Jun 2025 17:23:13 +0200 (CEST)
 Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
@@ -66,12 +66,10 @@ CC: Antonio Borneo <antonio.borneo@foss.st.com>,
 	<mcoquelin.stm32@gmail.com>,
         Fabien Dessenne <fabien.dessenne@foss.st.com>,
         <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [RESEND PATCH v2 2/5] dt-bindings: pinctrl: stm32: Add RSVD mux function
-Date: Tue, 10 Jun 2025 17:23:06 +0200
-Message-ID: <20250610152309.299438-3-antonio.borneo@foss.st.com>
+        <linux-arm-kernel@lists.infradead.org>
+Subject: [RESEND PATCH v2 1/5] pinctrl: stm32: Handle RSVD pin configuration
+Date: Tue, 10 Jun 2025 17:23:05 +0200
+Message-ID: <20250610152309.299438-2-antonio.borneo@foss.st.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250610152309.299438-1-antonio.borneo@foss.st.com>
 References: <20250610152309.299438-1-antonio.borneo@foss.st.com>
@@ -85,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-10_07,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_082451_094595_61AAFDD6 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250610_082453_284665_3857243C 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,58 +101,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fabien Dessenne <fabien.dessenne@foss.st.com>
 
-Document the RSVD (Reserved) mux function, used to reserve pins
-for a coprocessor not running Linux.
+When a pin is assigned to a coprocessor not running Linux, the pin
+should be flagged in the DT as reserved and not usable by Linux.
+
+Add pin configuration RSVD (Reserved) and instrument the driver to
+not update the mux setting.
 
 Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
 Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml     | 8 ++++++++
- include/dt-bindings/pinctrl/stm32-pinfunc.h               | 1 +
- 2 files changed, 9 insertions(+)
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 9 +++++++++
+ drivers/pinctrl/stm32/pinctrl-stm32.h | 3 ++-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-index a28d77748095a..5d17d6487ae9c 100644
---- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-@@ -160,9 +160,13 @@ patternProperties:
-               * ...
-               * 16 : Alternate Function 15
-               * 17 : Analog
-+              * 18 : Reserved
-               To simplify the usage, macro is available to generate "pinmux" field.
-               This macro is available here:
-                 - include/dt-bindings/pinctrl/stm32-pinfunc.h
-+              Setting the pinmux's function to the Reserved (RSVD) value is used to inform
-+              the driver that it shall not apply the mux setting. This can be used to
-+              reserve some pins, for example to a co-processor not running Linux.
-               Some examples of using macro:
-                /* GPIO A9 set as alternate function 2 */
-                ... {
-@@ -176,6 +180,10 @@ patternProperties:
-                ... {
-                           pinmux = <STM32_PINMUX('A', 9, ANALOG)>;
-                };
-+               /* GPIO A9 reserved for co-processor */
-+               ... {
-+                          pinmux = <STM32_PINMUX('A', 9, RSVD)>;
-+               };
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index ba49d48c3a1d1..e0c85f55557af 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -77,6 +77,7 @@ static const char * const stm32_gpio_functions[] = {
+ 	"af8", "af9", "af10",
+ 	"af11", "af12", "af13",
+ 	"af14", "af15", "analog",
++	"reserved",
+ };
  
-           bias-disable:
-             type: boolean
-diff --git a/include/dt-bindings/pinctrl/stm32-pinfunc.h b/include/dt-bindings/pinctrl/stm32-pinfunc.h
-index 28ad0235086a6..af3fd388329a0 100644
---- a/include/dt-bindings/pinctrl/stm32-pinfunc.h
-+++ b/include/dt-bindings/pinctrl/stm32-pinfunc.h
-@@ -26,6 +26,7 @@
- #define AF14	0xf
- #define AF15	0x10
- #define ANALOG	0x11
-+#define RSVD	0x12
+ struct stm32_pinctrl_group {
+@@ -541,6 +542,9 @@ static bool stm32_pctrl_is_function_valid(struct stm32_pinctrl *pctl,
+ 		if (pin->pin.number != pin_num)
+ 			continue;
  
- /* define Pins number*/
- #define PIN_NO(port, line)	(((port) - 'A') * 0x10 + (line))
++		if (fnum == STM32_PIN_RSVD)
++			return true;
++
+ 		for (k = 0; k < STM32_CONFIG_NUM; k++) {
+ 			if (func->num == fnum)
+ 				return true;
+@@ -841,6 +845,11 @@ static int stm32_pmx_set_mux(struct pinctrl_dev *pctldev,
+ 		return -EINVAL;
+ 	}
+ 
++	if (function == STM32_PIN_RSVD) {
++		dev_dbg(pctl->dev, "Reserved pins, skipping HW update.\n");
++		return 0;
++	}
++
+ 	bank = gpiochip_get_data(range->gc);
+ 	pin = stm32_gpio_pin(g->pin);
+ 
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.h b/drivers/pinctrl/stm32/pinctrl-stm32.h
+index 5e5de92ddd58c..8a1c9570b078f 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.h
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.h
+@@ -17,7 +17,8 @@
+ #define STM32_PIN_GPIO		0
+ #define STM32_PIN_AF(x)		((x) + 1)
+ #define STM32_PIN_ANALOG	(STM32_PIN_AF(15) + 1)
+-#define STM32_CONFIG_NUM	(STM32_PIN_ANALOG + 1)
++#define STM32_PIN_RSVD		(STM32_PIN_ANALOG + 1)
++#define STM32_CONFIG_NUM	(STM32_PIN_RSVD + 1)
+ 
+ /*  package information */
+ #define STM32MP_PKG_AA		BIT(0)
 -- 
 2.34.1
 
