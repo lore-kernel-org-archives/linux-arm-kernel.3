@@ -4,64 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A49C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 02:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB99C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 03:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxT6Nt1Q04hkagtvfdHeoGmiPJWJ7RAPJ/r0KBiCRq0=; b=gMXKgOI8Ez9CwnVGjHYpOHvQuK
-	fyri5WH9aFJGC5oPldrHSzr+wE0wbs2wJMFMYcpsvkzOpTMp0qXGI03LqfQvrf3atlNl+Q10uRCkU
-	RmyyfMOzx6Jlv519ZEtB+zVJyUNtiKrq4XNMGxaUxHYUWUFgXofLn6ZNtgaOepu9doMH39FwcEO5Z
-	d40Q/OTK1Wm3iiw6x7txhtzjnyDEax8CtGRsKgrREH3i2qewip8tSEfma1SpqV9h+/9QAykK7OYDe
-	hjMWtchO8UaHyYOY1KoH0WY3PY0Sy6VFtfFRBGTHtH0cnxGC3AjhcWoeEq+BXnyJLTvIZ3zNf03hk
-	ZbtZDlKQ==;
+	bh=iIEKtN06Lki2LXMwWPqlBYVbjTpO1FFusGuijePViww=; b=1n5BdQKPzEj0G0UaTyIEbA6gQM
+	FzbfidJhLG5VeGEIcySnwh9G7dVNlE7M/Ksib3bTRWd+qtuAme0z9jMWPs83gUSEZassaMH856zq2
+	y0ko/Eb9d2ZdYiUD8w4pLd7m8oHX4RLSuAnOaWrmA4o5Ma7glnXZf3ADAV6SjFu47SXtXvvzgAAPr
+	WRs/vuGceescCmoiw/vLBz0sGySJRDBRpQbaEAlE5qsR2/fPfxYkHq4qLilYMAieh00zT9fnsCfgO
+	x0RAN8wgkcXAbFHK8/FqoJAJ00xCLKKS1APvVlvi8FLtf/rnbrOiBbc0M81SMOtgHHWsawplqhR9t
+	wD3o5Jlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOonY-00000005e9p-1iqg;
-	Tue, 10 Jun 2025 02:33:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uOpIq-00000005fYh-2PLH;
+	Tue, 10 Jun 2025 03:05:32 +0000
+Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOolQ-00000005e22-3KKz
+	id 1uOpGd-00000005fLR-08ok
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 02:31:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A06A6614E0;
-	Tue, 10 Jun 2025 02:30:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14B1BC4CEEB;
-	Tue, 10 Jun 2025 02:30:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749522659;
-	bh=MF9eFED5nRvQBjnkQkaYBoOXrlZbPXE3oEhI6hM3hIM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=QtPCtTdAWiYNrWfnLL1Egie323Tgg630GTtlhtKZVSX9uBqa1Gr88E9RsbxDT91td
-	 g8N2E1mXP6KQ3i2S6j5SfrRj0MaXKnbtvuE83BlJUxGGpTiVbnl2rxiJMDCs4KEyTx
-	 8GoA9PljkQes7HFBNnlOgpA+P9Osn1lcp/7BumzmdOTDsooqKlOoMYKrU0N+NtBleL
-	 XDFNcpnclJnjOq5Ft8al8OYLgep4MJTJBH3B1r74QqveEOOgVHBzBa3R7cBj3KbHtg
-	 aOW4kofCS51lkO8XkZR1GLTWMCjnZ4wICUfyW4BwQFGxs5B6ZFfvE6OYVB/idqhdt2
-	 m/aI3IhosKoyA==
-Date: Mon, 09 Jun 2025 21:30:57 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 10 Jun 2025 03:03:16 +0000
+Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-acae7e7587dso752046666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 20:03:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749524593; x=1750129393; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=iIEKtN06Lki2LXMwWPqlBYVbjTpO1FFusGuijePViww=;
+        b=j1SNNs+7V45cmUSO6PV3hRCIkxspBa1rKZdtd/KJ7S5EHJjIMvk8LxZHXuc0jRN2gT
+         md3qibJZzvRn/KYgLXvY16un3TX53KS0VUK2TYt1plgIm5lpKpjB65N7sjI/zJkkfxBa
+         Y4nFgbPQmgWfOOuUClHurB1rykMiULYB6Jbd9zifXXfEAAS6vkv9rEwVHbl09es6AM7E
+         cQRoZvRwTgnJcXD5rmt8aPxlC+YDgKsVDjazoBfXBC1M5v7ZgZgDzCttt5eL+QEr20d4
+         cTxGFZ/uswkyiCqqiEnEL0FXTaJHtJ+ruFKWV7nnh35DfyY6D/3TRBIOOVfnRuO1CKco
+         46AQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749524593; x=1750129393;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iIEKtN06Lki2LXMwWPqlBYVbjTpO1FFusGuijePViww=;
+        b=cBD/w8zngURVc8UIQ2DwiQ1DM9YJIiGnNzrx+wt0DwZd9yoTuYjUe0YPQEtU4avoYg
+         hiu4wNoqM8TY59zD8Z9d2acTIEOrYWGhDZ7b1B4xcJaNDim2n4ynJumNTqcjiga21xxW
+         6zTwXN5iJJYTK5laA8odBhySQv0c3YhS8WwHocfMnWStNeo7jVAdyXtty4NcG+wGfTwU
+         /FbTYNaXTqRNK89Pkin0kzaiEvp/XE19rHp2P5pdpWiRKHsXnEJOgXCWb313pgAgHxsI
+         xDImCLdHiTyVCUdGzTGaqiqJYZz/obAqx7P3xMrIYgsXY9HEgZ67pe6CuufDt+lCVCta
+         qLPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWr555gn3dgQTfM6u8nmhW/Z4Q+uTsn7NFhNuql/P2SQCl6f0EUtXWRLkh0kz9QS4DPlyYzlt9CYfojbHRLXtBl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4apJGe204CY97fRXhxuy44b3WIsYPKVCGPuXFp6HNgPTUOb/2
+	SSfTV6DQY4+x3CDp2vtHsI3l3hUKSoEuz31RDsULAl129SBeOMp7Z3F557R0AD8BsWbFiF+ReCj
+	R1P8GvTmoaYf28eKqRe2Nx+0gf3GPJH8=
+X-Gm-Gg: ASbGnct6L/JM3dIKZjQQpHBFORfrM0keu2CidfDc7PvT3bGZUTcueFa994fDT9u+3l5
+	npRu+nYm3z2/94HqRaCY58yT5eSv5BrtYwMDfz0aOn2DrIyvfeYqBfp1R2q0MR/s7xQZ2iSOc4g
+	SJpZOTQnhmM3Ukm6onmzay/xdwqfNlmuL4ujxDosC4gPgOTG9gDeQdIXXBzPBNsmBbNmH7vgFMc
+	C+RCRRV0nQaibc1
+X-Google-Smtp-Source: AGHT+IGSVrkhyZq9vvvsVr44VoqUZGF3wcQ/tPIjHH2PKLhYYyk/OK3JkxJPJ6OOCePVO2GT4bNI9XVsW4Z5WF4Rz1o=
+X-Received: by 2002:a17:906:6a0e:b0:ad5:72d4:85f9 with SMTP id
+ a640c23a62f3a-ade1a9c7cd2mr1539157966b.40.1749524592671; Mon, 09 Jun 2025
+ 20:03:12 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: edumazet@google.com, netdev@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org, mturquette@baylibre.com, 
- BMC-SW@aspeedtech.com, linux-kernel@vger.kernel.org, kuba@kernel.org, 
- krzk+dt@kernel.org, p.zabel@pengutronix.de, sboyd@kernel.org, 
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- davem@davemloft.net, conor+dt@kernel.org, joel@jms.id.au, 
- andrew+netdev@lunn.ch, devicetree@vger.kernel.org, pabeni@redhat.com, 
- andrew@codeconstruct.com.au
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-In-Reply-To: <20250610012406.3703769-2-jacky_chou@aspeedtech.com>
-References: <20250610012406.3703769-1-jacky_chou@aspeedtech.com>
- <20250610012406.3703769-2-jacky_chou@aspeedtech.com>
-Message-Id: <174952265793.3644019.286629373000016480.robh@kernel.org>
-Subject: Re: [net-next v2 1/4] dt-bindings: net: ftgmac100: Add resets
- property
+References: <20250603205800.334980-1-luis.gerhorst@fau.de>
+In-Reply-To: <20250603205800.334980-1-luis.gerhorst@fau.de>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Tue, 10 Jun 2025 05:02:36 +0200
+X-Gm-Features: AX0GCFsg0jFdSRfQwjdMDtUT5JBYaZq4q7ARo5V7e_WrDdDiMUVd3IyUlXozaCc
+Message-ID: <CAP01T76BFe57wUaqsQYFu0vk-ST1kSSk1MghDAUhS3n2F892AQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v4 0/9] bpf: Mitigate Spectre v1 using barriers
+To: Luis Gerhorst <luis.gerhorst@fau.de>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
+	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
+	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250609_200315_080765_E4FCEDC9 
+X-CRM114-Status: GOOD (  29.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +108,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 3 Jun 2025 at 23:04, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
+>
+> This improves the expressiveness of unprivileged BPF by inserting
+> speculation barriers instead of rejecting the programs.
+>
+> The approach was previously presented at LPC'24 [1] and RAID'24 [2].
+>
+> To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
+> potentially-dangerous unprivileged BPF programs as of
+> commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicted
+> branches"). In [2], we have analyzed 364 object files from open source
+> projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
+> Examples, Parca, and Prevail) and found that this affects 31% to 54% of
+> programs.
+>
+> To resolve this in the majority of cases this patchset adds a fall-back
+> for mitigating Spectre v1 using speculation barriers. The kernel still
+> optimistically attempts to verify all speculative paths but uses
+> speculation barriers against v1 when unsafe behavior is detected. This
+> allows for more programs to be accepted without disabling the BPF
+> Spectre mitigations (e.g., by setting cpu_mitigations_off()).
+>
+> For this, it relies on the fact that speculation barriers generally
+> prevent all later instructions from executing if the speculation was not
+> correct (not only loads). See patch 7 ("bpf: Fall back to nospec for
+> Spectre v1") for a detailed description and references to the relevant
+> vendor documentation (AMD and Intel x86-64, ARM64, and PowerPC).
+>
+> In [1] we have measured the overhead of this approach relative to having
+> mitigations off and including the upstream Spectre v4 mitigations. For
+> event tracing and stack-sampling profilers, we found that mitigations
+> increase BPF program execution time by 0% to 62%. For the Loxilb network
+> load balancer, we have measured a 14% slowdown in SCTP performance but
+> no significant slowdown for TCP. This overhead only applies to programs
+> that were previously rejected.
+>
+> I reran the expressiveness-evaluation with v6.14 and made sure the main
+> results still match those from [1] and [2] (which used v6.5).
+>
+> Main design decisions are:
+>
+> * Do not use separate bytecode insns for v1 and v4 barriers (inspired by
+>   Daniel Borkmann's question at LPC). This simplifies the verifier
+>   significantly and has the only downside that performance on PowerPC is
+>   not as high as it could be.
+>
+> * Allow archs to still disable v1/v4 mitigations separately by setting
+>   bpf_jit_bypass_spec_v1/v4(). This has the benefit that archs can
+>   benefit from improved BPF expressiveness / performance if they are not
+>   vulnerable (e.g., ARM64 for v4 in the kernel).
+>
+> * Do not remove the empty BPF_NOSPEC implementation for backends for
+>   which it is unknown whether they are vulnerable to Spectre v1.
+>
+> [1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
+>     Spectre-PHT using Speculation Barriers in Linux eBPF")
+> [2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
+>     Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
+>
+> Changes:
+>
+> * v3 -> v4:
+>   - Remove insn parameter from do_check_insn() and extract
+>     process_bpf_exit_full as a function as requested by Eduard
+>   - Investigate apparent sanitize_check_bounds() bug reported by
+>     Kartikeya (does appear to not be a bug but only confusing code),
+>     sent separate patch to document it and add an assert
+>   - Remove already-merged commit 1 ("selftests/bpf: Fix caps for
+>     __xlated/jited_unpriv")
+>   - Drop former commit 10 ("bpf: Allow nospec-protected var-offset stack
+>     access") as it did not include a test and there are other places
+>     where var-off is rejected. Also, none of the tested real-world
+>     programs used var-off in the paper. Therefore keep the old behavior
+>     for now and potentially prepare a patch that converts all cases
+>     later if required.
+>   - Add link to AMD lfence and PowerPC speculation barrier (ori 31,31,0)
+>     documentation
+>   - Move detailed barrier documentation to commit 7 ("bpf: Fall back to
+>     nospec for Spectre v1")
+>   - Link to v3: https://lore.kernel.org/all/20250501073603.1402960-1-luis.gerhorst@fau.de/
+>
 
-On Tue, 10 Jun 2025 09:24:03 +0800, Jacky Chou wrote:
-> Add optional resets property for Aspeed SoCs to reset the MAC and
-> RGMII/RMII.
-> 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
->  .../bindings/net/faraday,ftgmac100.yaml       | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
+LGTM. For the set,
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml:82:1: [error] duplication of key "allOf" in mapping (key-duplicates)
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml: ignoring, error parsing file
-./Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml:82:1: found duplicate key "allOf" with value "[]" (original value: "[]")
-make[2]: *** Deleting file 'Documentation/devicetree/bindings/net/faraday,ftgmac100.example.dts'
-Documentation/devicetree/bindings/net/faraday,ftgmac100.yaml:82:1: found duplicate key "allOf" with value "[]" (original value: "[]")
-make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/net/faraday,ftgmac100.example.dts] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1519: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250610012406.3703769-2-jacky_chou@aspeedtech.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+> [...]
+>
 
