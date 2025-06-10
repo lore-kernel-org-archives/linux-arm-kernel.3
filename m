@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8E5C678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2195FC71133
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7R6BzjbS1Abdvfjd8RJt0NOfGc78Xao1EMMZS/CvEMc=; b=hNuTA9/DmgQH9WFrSftQkOc6wR
-	IkIDCmpmMaDbY4abZ7a3QMp1WxZjfoy+N/XmObG7DPmbnQp0OdJIOyDvJ5SlNB4QAzeNOiTbLxcMs
-	5OolyVolTnteYWJQ5wtTdGItv42PvhLIP4RjuTloPa1dazsAxazYaqbDbZ2+d78643k7pOroiw6Vw
-	/X6i0o7cT8uW/ZK7ZvmFwzdq5lCTMwDcSzv3Yv1WDeZdfCB3LUyWMAMtU7Q1uFeZxgEY5MWuct9cl
-	hgr8W8AxkinoOihybuAXKASokHccVw33YBk16V7gaqSriI8Vgencj98Oz7J87onNXt3uvj4At8b6g
-	NZfvx1sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8U6h7ncY/MwCmSVe+Wtej5xxIXsGESOex37GZfZMrAo=; b=Zur57qfqTWk3bPD6/UOBjy/eE4
+	Df1nBDEROJiVS/34B8XbkMxXyiraKmpFTwI8rfw9rtwor6KQ2xIhgtMO0j/uwJp4TI+n7fi6YgM/T
+	PeOn2DVNuGi/F60rLMzeBc1uHRiGUzJJpLuYIIb4l2yedwpovgrUDSqXF6DcRZK4i3B1wY2wsIXHo
+	6gjzmO6dJFEYjRoaXT4A7A1hTU9w1CznuAGc/yXb1TrN5SOjctcZlswuHB/3wHQX+26nGb/UL4AGp
+	asA3zwoR2y+7U6dOm6gEFby1ImCfswgAB6sdHXcGu9Ox2nQbTUA9tGAwxAUlWe/aZjf/0B1NBmeO6
+	kJt37Gtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7lW-00000008FDz-3T6z;
-	Tue, 10 Jun 2025 22:48:22 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uP7lV-00000008FC2-34Ru;
+	Tue, 10 Jun 2025 22:48:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP3ZM-00000007mZ5-1kaD;
-	Tue, 10 Jun 2025 18:19:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749579569;
-	bh=Sf+/PTs/Lz5YxcSzgeZ6krRCOhaKZUsHSbB6B664SQM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=W1JWv9KpviFteALr6LtWRjuNi/DB62SY7Z7oPEpnHgI/4Lfy85z1VLQ+27tsGhOxY
-	 vRxxj/L5s8IpBFHQuyOPcflvF7qUr87yiWLTk9ezT/TWxhfODcCbJIh34EPjqKGM3h
-	 wrDIld7ZbHxppg0CNIkKJkh2h7ioXurEzICh4rsVOGu8shQgfzrRPxXym+8iqz1Gcc
-	 d6QC7gHCDkaxNsqQggPfMPbkoXAI4w417r4SV+ituO8JQjEynKMllEBoQ9zoLGkfAa
-	 9emBbI3vCLjLtvkCek1B6kkL/ZpMXmcjeoaOoQxGLD1lKy0Wbknxog7jm7VJj9RnSf
-	 g/Y2ednB6sYtw==
-Received: from [172.19.207.65] (unknown [66.205.13.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E891C17E0FAD;
-	Tue, 10 Jun 2025 20:19:09 +0200 (CEST)
-Message-ID: <c666ab1bbc619cbb99fa38b96891a24ca22c9672.camel@collabora.com>
-Subject: Re: [RFC PATCH 00/11] VC8000E H.264 V4L2 Stateless Encoder
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Marco Felsch <m.felsch@pengutronix.de>, benjamin.gaignard@collabora.com,
- 	p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org, Sascha
- Hauer	 <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com,
- 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- paulk@sys-base.io, 	hverkuil@xs4all.nl, laurent.pinchart@ideasonboard.com, 
-	sebastian.fricke@collabora.com, ming.qian@nxp.com
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Date: Tue, 10 Jun 2025 14:19:02 -0400
-In-Reply-To: <20250502150513.4169098-1-m.felsch@pengutronix.de>
-References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
-Organization: Collabora Canada
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
-MIME-Version: 1.0
+	id 1uP3OZ-00000007lCb-1edq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 18:08:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C261B447AF;
+	Tue, 10 Jun 2025 18:08:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4B3EC4CEF0;
+	Tue, 10 Jun 2025 18:08:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749578902;
+	bh=EqLBaFrOMBGQ7zuSKchgyUU5IO7yC/PR2AFrIa0Lguc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=C4X6YtvxjNpCzlR1Bfd/uK4KIHTn08RKsw9h+sQqFVu++ch1HzPm5Sb7a0LUKSFCr
+	 zcGersk+Ab0EW6D/F8A/Fqy6EBrSjCeqoL4aJtCGzalh8XdjGLuiIDbMjU4J/PDxeF
+	 e09b/Z6WmqyICn8P2i4nTOMONatoAGYiehJmX8VqkuJsA0LUuVoMgHez5j1RrBDleM
+	 ikKLTWU1MTN6SZjSZBSWCSFqmgHyu+fwaTO/R53MExZCiP7gsejtuvFTHiTb0gmNhd
+	 gp4Xqno3mkhXX9cA1CfLRRrCEbg1gW3vmV2u0QgbuMkVhNGHoS+MXEANOfRRphhd7G
+	 ymwpq6B1xElpA==
+Date: Tue, 10 Jun 2025 13:08:18 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Marco Felsch <m.felsch@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, Shawn Guo <shawnguo@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250610160152.1113930-2-laurentiumihalcea111@gmail.com>
+References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
+ <20250610160152.1113930-2-laurentiumihalcea111@gmail.com>
+Message-Id: <174957889856.2397515.16063954809229071708.robh@kernel.org>
+Subject: Re: [PATCH v7 1/6] dt-bindings: bus: document the IMX AIPSTZ
+ bridge
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_111932_616223_E9477443 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250610_110823_450628_CE091070 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +81,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marco,
 
-
-Le vendredi 02 mai 2025 à 17:05 +0200, Marco Felsch a écrit
+On Tue, 10 Jun 2025 12:01:47 -0400, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 > 
-> [1] https://github.com/bootlin/linux/tree/hantro/h264-encoding-v5.11
-> [2] https://gitlab.freedesktop.org/dude/gstreamer/-/tree/h264-stateless-encoder
+> Add documentation for IMX AIPSTZ bridge.
+> 
+> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 104 ++++++++++++++++++
+>  1 file changed, 104 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+> 
 
-Can you rebase against the upstream work:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/5676
+yamllint warnings/errors:
 
-A lot of changes Michael made in your branch are already in the upstream MR
-branch. An example, in the upstream version, the src pad (CAPTURE) is already
-being set before the sink pad (OUTPUT).
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml: oneOf: Missing additionalProperties/unevaluatedProperties constraint
 
-I'd like to open the discussion about sizes, as I'm writing things down.
-In your modification, you affirm that the encoder must ignore the size
-set on the CAPTURE. At the moment I tend to disagree with this
-interpretation and would like some feedback.
+doc reference errors (make refcheckdocs):
 
-There is couple of different sizes we'll have to support:
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250610160152.1113930-2-laurentiumihalcea111@gmail.com
 
-1. Allocation sizes
-2. coded size
-3. display size
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-My believe is that we want to split the size in 1 and 2 since the padding
-added to the allocated size should not affect the amount of bits that will
-be compressed. We should be able to further pad frames without increasing
-the compressed size.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-For this, I wanted to mimic the stateless decoders, and define the coded
-size, the one that occupy space in the bitstream and found in the sequence
-headers to match the CATPURE size.
+pip3 install dtschema --upgrade
 
-3. does not exists in stateless decoders, since it has no implication
-in the decoding process. This one I'll leave open for now, since its
-only needed if we have to generate some headers in the kernel. We have
-had a lot of discussion toward that, and if so, I will pull in the
-use of S_SELECTION.
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-regards,
-Nicolas
-
- 
 
