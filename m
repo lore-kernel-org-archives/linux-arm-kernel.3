@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0E0C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 00:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00AB8C71134
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 00:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=; b=KZPCFvjsamG2F5pYSTyghAdBT3
-	TTT2NzA/FZlrV+gn4EhzoFkqdqvmrsUWJwPmBF5NiBEb2ryoQ6NE0N1/Gbzpd/QyVWOYxxx9PirgR
-	Jr7+8tQd5SoQ+3OrDOHUtj9PUCl+exnaUkgdmquuQLLJF+P03qNGCbBQQWBWz3APB0Fwn2cyLtqje
-	igK5l1pBobSVPB6EprGuS49l2FblyBtP9VW6/OjR5Qvfgelur8/bJAKU0BnR2QN1ahKNUDwxa0XbC
-	iVF7QvYB/ozigF3X8lFJSb9GM/NrIqCiOo2Ok45tp4WEydnM+ZFhxWPVc08qCoIcW9oNOdqHHo4zE
-	LgbzdVfg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Awpi5GpyOLDB1Nt8+DeBTohsa+vKyjBC3GHy2DGNNYE=; b=zupTTr+a/B0XNUx5tEdd/VXXN3
+	yaoA90l+ICk0MFsfqJNp72Fhy8f3f587vF9SK9irqrw//Kx/LWMaMa1twgCd0JHcqsVEjP1hX8XWK
+	ZtQ20ZmijgpKJGnLM45KAuQeRUz9S67rn/JiBuqBtnpEsq/AmDyiIghtjwcyo28Z0pNAIpn48XPPu
+	Vehf8TP3RKDKHYQIbvboDnJkieNs2nQlz5/zmP6MFGMrFtw6QcvWwlSlVkpfRptQICZyenipO0qgF
+	tZUyW4fGvB8NMDIYRk28/Gt8yp6WvSgCLW7AC4PaHjAnS6nWJXl5SZN3lTOHHVIXfF7SSzkKEu1YI
+	NrZ8H00Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP9jA-00000008VcL-14E2;
-	Wed, 11 Jun 2025 00:54:04 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1uP9j8-00000008Vam-2H4b;
+	Wed, 11 Jun 2025 00:54:02 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP77F-00000008BHj-2grZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 22:06:47 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-55351af2fc6so7162641e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 15:06:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749593204; x=1750198004; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=;
-        b=aPz/QhUiFkpv9RnOsHIKthTQAFt7JEQzmRzeMmZ8RqwxopBY1lXqDlluyCsvU2hsBI
-         jp4/5z0pzRTsNfu2yx+Sqpx5YZbi10hJokRA3gdxEwgBc/QjLA1SWDJRb0Xv7kFJ2i0R
-         mOZPmytGq66SML3OmsuJRae3/lGWqJtUQDyrPtr8xms5fLwjfgj/MrCgozxmDisZIp9S
-         c8/Y1FI1ZGSeFFr/n+pcaAauT5uiqVhOKEaSdNNy7LJ7vCJyZV0fBlq0cVKHaqMjHErD
-         /Upad4Eqrs/8gPXTHkWYtTi0VHIYc4dM37ZmEtAVG4LX6MD2ecYhGFmZI8dE4WsItuRA
-         dSrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749593204; x=1750198004;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=;
-        b=R5IAYKZP0g9Fe85DtbnEGt10YMtJhWiyZSttxPtKlasTzywfhlJfxY2h0o++mx7zqM
-         ZPVeQCadP7T+YOxYQHpvAyuA7K4E966eA0cB0gvbYW37OSdaYHfZVjqwzN7PJfl7Gcpe
-         5WF03eFWk9k+9g1CaJFlJr+uYaKfI0BWYhvsTFSHfIJPn0v8+HRaeYm0r7is6QNMm4SY
-         JdyvQMGG0oVmywpV5TMa1X39ifSfM2EpetWENDfbzMiyYqYYEbCThD20g7Up5ZtVza/9
-         XBqn2jWf/R06U1Yp7RSeywTJ/74jf0she4XLDc7FjJ2jaoXiAsDQ4DulMIJcr85r2B0p
-         nVDg==
-X-Forwarded-Encrypted: i=1; AJvYcCVLuIuCG28ZqeQrE7ZG3vpEU7Kdwi3oNgAeJoyZB8Scj7Tz9xZj0hl40HVTcaxXnmIGZ0L0mqr7S+Ry2M5A20zs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYcHGC5BJ81zAk6MKCV9/YcwyI9NIz3WB1GR2aea7mWf1RY4gq
-	D++PZoa6taiD7qWNlixrclP8UsbVuhN/zEpbJ2GJhkTXGV98ohDRagkMzfRzC5bbIms3CezOklt
-	ctd3Iy6t9UYLhztT5CDGEGmjD4FJtUD+tOnzwcixLSw==
-X-Gm-Gg: ASbGncs5d8louJ+HtxeyPIcwdMoUp3MiKTKtrH4zQO/AEArIBqglccJmEXQKxD2Iwr/
-	xPjNPOyimYMDVRLMaEoStCeXWxBIhpjwTialdPkC2DlxHgus++NzYLAHb1zsxXMItDkzK0kvCLX
-	fAViWK77pmngf2S081tHr47ioTJupGGf9u8YAvWIo8TZg=
-X-Google-Smtp-Source: AGHT+IGlqZqOxo94Fq1AxRXbuSE8IQ4NwQa1mjzmaOgaM7Du8n0a08UJH2Mj9vvFcKeYpn253k3S/NXDYuSRYxggVL8=
-X-Received: by 2002:ac2:4c4f:0:b0:553:659c:53fa with SMTP id
- 2adb3069b0e04-5539d4be3f5mr111095e87.5.1749593203962; Tue, 10 Jun 2025
- 15:06:43 -0700 (PDT)
+	id 1uP6WG-00000008726-1zjc;
+	Tue, 10 Jun 2025 21:28:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=Awpi5GpyOLDB1Nt8+DeBTohsa+vKyjBC3GHy2DGNNYE=; b=tkGM+2MYM6zqsua3VbEBs0B9wM
+	5yEPvrg8fK5rC8+Iu7nwoxeeeZXMCK6l1FbkO37Xkgb1ZUeBNjb4rnkFzmCz021lQpjvix1P/9pe+
+	M7p4rE4S1XcPRjEXvFyOXNRULT44QYOKgNVJLjHWDJ6jNOJV4Ky99iKlbpf5QpZve0YpjbCVUOrAl
+	d6Pm3FpKFvDTZtgEENTvVIMjNxi5EmnaPxaQGKDP6tcqmjvlInTAZYDy64TCYrEqS5B0sLxP/BLQG
+	m8yjYN6YgibOTHMyxrlbaobIXinZSkMeyV78F5h6yvFTOrT6G1tMb91NkkEkGQ1mnEAOkjT309lBL
+	LhanHnDw==;
+Received: from i53875b1c.versanet.de ([83.135.91.28] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uP6Vs-0007Jb-My; Tue, 10 Jun 2025 23:28:08 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com
+Cc: maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] drm/rockchip: vop2: fail cleanly if missing a primary plane for a video-port
+Date: Tue, 10 Jun 2025 23:27:48 +0200
+Message-ID: <20250610212748.1062375-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org> <20250610-gpiochip-set-rv-gpio-v1-8-3a9a3c1472ff@linaro.org>
-In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-8-3a9a3c1472ff@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 11 Jun 2025 00:06:32 +0200
-X-Gm-Features: AX0GCFsQuNMrR1lnqoFxpoWnn4BCOjfc6g0nU8IoyS3i9wf_s_1MzLLDkyq5jQE
-Message-ID: <CACRpkdb8GBwtOGQYrVkxiv8ZCjEE6pkQ_kSEutY2jYG0bUbFVg@mail.gmail.com>
-Subject: Re: [PATCH 08/12] gpio: nomadik: use new GPIO line value setter callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
-	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
-	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
-	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
-	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-omap@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_150645_676591_7915259C 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_142832_540540_065F9EFE 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,19 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 2:33=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
+Each window of a vop2 is usable by a specific set of video ports, so while
+binding the vop2, we look through the list of available windows trying to
+find one designated as primary-plane and usable by that specific port.
 
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+The code later wants to use drm_crtc_init_with_planes with that found
+primary plane, but nothing has checked so far if a primary plane was
+actually found.
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+For whatever reason, the rk3576 vp2 does not have a usable primary window
+(if vp0 is also in use) which brought the issue to light and ended in a
+null-pointer dereference further down.
 
-Yours,
-Linus Walleij
+As we expect a primary-plane to exist for a video-port, add a check at
+the end of the window-iteration and fail probing if none was found.
+
+Fixes: 604be85547ce ("drm/rockchip: Add VOP2 driver")
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 7ddf311b38c6..a8dc2e55812a 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -2425,6 +2425,10 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 				break;
+ 			}
+ 		}
++
++		if (!vp->primary_plane)
++			return dev_err_probe(drm->dev, -ENOENT,
++					     "no primary plane for vp %d\n", i);
+ 	}
+ 
+ 	/* Register all unused window as overlay plane */
+-- 
+2.47.2
+
 
