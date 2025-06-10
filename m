@@ -4,57 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98CAC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739FBC71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lcWNGFQrSdbjWYicgdaTEuNbia5pHVN7lro2vhtUOHE=; b=MP+rBKG+T0Co/KXVefNo/sULyG
-	/BQnWj9hZoFyshNhOfd50Y/DDE2pQmxMwBRt773MCYXprElmMYOm/GTRfzccFp3m1z2oHLzYRUHeZ
-	A5Q7HRr/cMXAkMtLw2ZEmDnq8H0Jl510BI66IUFoMWtMVd4tvdP7JiiQTUi8TLixostYgiaDli74l
-	4BUvhCUx/D8Dg8DX4N8bnjjs+jEbs4v7o9ELLW495oW3uslWWDgnJuVsVx3XgvwAid9sjPNKdb7ka
-	OaoST7hTJxxa7yONCN1OEacnuRKkLc222Gq6eATxVY472gpci3WXLGDZiuQzSNyLPjLlzJ+L4g2iO
-	POllLpxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yE6IzPfXHMNhFc7FmQD93cM50XDdvhBiuKkLkDIaWfk=; b=pGLVgmjAmTPsctJ5kaT2mE2KMO
+	i6qbzCAS2txgubO8ldPVNuHrwfUjo5mzXZi38+U/o0grovQRZ74vjTOknViT+IwwyoxVcyCuUVblX
+	f0qxp9cr5PnhXuofcenUfix3aDO5bNy+dGrj1zIKKlcX6yU2sAAtJWlHsFbB+SBVtdn9hVdW6vGke
+	7gngFKyAr6Gcpf7BoMSWAyIygonCGgpXc9zja+NwVioMsoAvq5eYfB8q1c5PWRMa8hHAdluYQ/j/r
+	HLAz50NEuhA5jVkiQlTtxBpuBYL/D73nnUzUEPdmnFyzhQPlmI6hj3Ls+rY1noEI5YQmbrIOO9SU4
+	LkU3x+Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2Cu-00000007XAo-1v3P;
-	Tue, 10 Jun 2025 16:52:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzMd-000000072dU-0Fb1
+	id 1uP2EX-00000007XKG-0o2J;
+	Tue, 10 Jun 2025 16:53:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOyEw-00000006nLJ-0ZH2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 12:38:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=yE6IzPfXHMNhFc7FmQD93cM50XDdvhBiuKkLkDIaWfk=; b=pDByJlIKrwlwm463vEVVwYQXX3
+	lxFDzDBjT4KgNQhtHttZJ61GvkOfH0pGoMFmmDqb/D9oNB58UDl7TjwE3RbG5YkjUUorVzimpq9fH
+	JRCsFzMPy3VQRQn+fbBtlfPfEqCD8loUk5HvrF3et0QhGVnznag5XKOCu6grfHjby1kaYnd5vTCaL
+	Xr6eTfQ3J90371K5KayvnflLP7D3EPBrRlB31RarwDDHvkZ/vRe1DpoL+Ay7FqwQYxT1QB7XzVcgb
+	N+ek1HyxI3efFcmiibzjScDOAEXvmTrwuBgvkKXF9V7wnq/QSaxkKn9XeMnFhymsNGxNMUnKVjG/y
+	jZzoyVTg==;
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOyEt-00000001otp-2de1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 13:50:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38B5114BF;
-	Tue, 10 Jun 2025 06:49:45 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A27E13F59E;
-	Tue, 10 Jun 2025 06:50:02 -0700 (PDT)
-Date: Tue, 10 Jun 2025 14:49:59 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Dhruva Gole <d-gole@ti.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>, <arm-scmi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <vigneshr@ti.com>,
-	<khilman@baylibre.com>
-Subject: Re: [RFC PATCH] pmdomain: arm: scmi_pm_domain: Do lazy init as part
- of probe
-Message-ID: <20250610-quixotic-successful-alligator-eeaa18@sudeepholla>
-References: <20250530103527.2244951-1-d-gole@ti.com>
- <20250530-honest-chital-of-growth-db31e1@sudeepholla>
- <20250610114314.dpfedrbok2pmfgxu@lcpd911>
+	Tue, 10 Jun 2025 12:38:05 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-452f9735424so13172895e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:38:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749559081; x=1750163881; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yE6IzPfXHMNhFc7FmQD93cM50XDdvhBiuKkLkDIaWfk=;
+        b=0kXGZVrbUzyf9pG6aMQJi/Qohq1zhFfPmw8h8ilLUUqFx10SgVSuO56Jm5Q91siHkY
+         w0zx9ZzgaJocZ9LNHPClfucRNJXHr5Isb25M0+9Ko9VRS3WUuaIcYcZ+Rk4bRFMmuWYa
+         9kylDMECXiXVkjlGFNMKnjtBvOd9zyeAmwkW2cv7oTghYIJ8pEkqn67sUW3hS742NnvE
+         C0JranDPf7eMWfD+GrkaRwawi9ZLiAwV8HKNreIB5SwRdwiu7dJvEElpCNPAkzfNTDZ1
+         XQPY4FlaqV0YLrF867xnSqr6D1TNC9W49z6YlYkzK4LrYGoaqYkj/Ju+Cky7QU9encFR
+         nlCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749559081; x=1750163881;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yE6IzPfXHMNhFc7FmQD93cM50XDdvhBiuKkLkDIaWfk=;
+        b=pNo742kcdjMHOE3pBxfSytjKrfw04eq+8scnvv2meTAZ/zbdJ46culuFnaIH7gHOoE
+         j0ZEnQhzhd3ckWIDEfmtAdTTcqm3p/zpLzHWl1/CHXyPKw9PaYaWk7S5B2hrQvpDbtLa
+         MWPr2w9zDlCASwonAMxYUuFWDkZyZShISPHdI+pieARWl1KARuV/9zuJ9DbePsVkqCPn
+         5c7bSHxS0vFb74lstPiFjhLULsa92kGiFVVcyUdUQvYjDBA7Nw9OEBDkcy7HFFTakor+
+         9A4ymc0z15HQdPauvHEp8qU3F0iLH7/MxG2cpJsrbYo664yozcjVarfTuiU6V/HBi4cj
+         B7DA==
+X-Forwarded-Encrypted: i=1; AJvYcCXhWx4EiIWM9T/773drngJ/Pb/hVtUg3adjEK16aKDlVsrFfCxCSdRRk86mFYZ/Kihm2D9HTOyclMZsytn36Itt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyeg1KMZnvB9WwIYAJq4bVQrji91xpK1jTCAX4G1WAfQZvSsow1
+	zE/tHRo/RtRhJIJ+BYlBBc3J7cvdnccvvddI46xWyqYO/nujJSy+PTlLG5sUd2CqMNw=
+X-Gm-Gg: ASbGncuJMOfSu6ZwYc0yCnGQ2hLUYKy07V3f0IXr553piBSaQDJXXCWlEXKGwjUwTcT
+	LMN5uzvXCJm5lyWA3u4dTMDaASRHWejUppRuk4zaRpKMe6lRGm39UQ7DLgfBCiCh5oyB8DC/ITA
+	Rgtg4ciIQL8eg2nPFQYw23IuyTJVujeBWEQ/5m6T816sWGuTbth/Mku5IOTyAxqvT628RgXsZaZ
+	wbuDBT9HB6jW6pBuqyIEh61NOK0a+pKhlmIOd1Cy7KGK6cnwtnYpqXsqiiuRCqaIEClcyCakFOp
+	ZMQify3jxrS8eZBl/cXZ0i2hLUA3tCZAPkpOv++VMGO3SPl/Im+ZSg==
+X-Google-Smtp-Source: AGHT+IFIluBj/Xfh9+bgn/r8g+NKbyNkI+i+wm2/n6F+sHhauNTA3wsDUZNyQAG+f+/XcQqd3EiXTw==
+X-Received: by 2002:a05:600c:3f12:b0:43c:fbba:41ba with SMTP id 5b1f17b1804b1-452014d4870mr138049945e9.28.1749559081442;
+        Tue, 10 Jun 2025 05:38:01 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4d:e52b:812d:eb7c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45213759fb2sm142476805e9.38.2025.06.10.05.38.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 05:38:01 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 10 Jun 2025 14:37:57 +0200
+Subject: [PATCH 1/4] net: dsa: vsc73xx: use new GPIO line value setter
+ callbacks
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250610114314.dpfedrbok2pmfgxu@lcpd911>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250610-gpiochip-set-rv-net-v1-1-35668dd1c76f@linaro.org>
+References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
+In-Reply-To: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
+To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1733;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=ooSfZcGlJ0aY63V/ZbHM5psbxtwwGfSHGbKlKX+V14k=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoSCcmB+78fH6tpB5mkVhqkKE708zE39erGR575
+ rvI5cGQOxSJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaEgnJgAKCRARpy6gFHHX
+ cn1LEADTJc5hTtmM3Acb673ULtyQ/PL+2cob9ouCpVtKyvLjzgdo8oxkHxkhIIRGcVBUGzrn+2p
+ XB2CjbT5YAD5jfBwJifMSAicQoGEV7jTT3z6iqGCTeIdJFgDqJ4tb5OdsTuwfjP3/D8L/C576yM
+ CYBNpiv80Foim+N/CCGAdXF4yKHiLCAFN/ddfhyiOT5AoKjgKGbJrmUi2G0OfcnOWycYMaKBlok
+ uXYKqTOlNEQGzr4z84+wCQH4h56p4FSrC9NNgCHgArspVfHPzAmrnx1H2KyYb1xMhEBRGOfiDWf
+ n/lMMRMzGK1ntxAYffXZBuTOHIkoR7v3JlW+KmmP6L0CrTxRGJPcloGEm+SImKMinydtBMGDrw3
+ oXGh4zLcTLTFQXzt+DIVG4NDiqzyOYny+23XxbeQRM+e6uGdp2n4V9alflS+uGkPn9cY/dJtYtW
+ J5EcuCUG2+nl52eVPbyTcmq4c7XeHAWFBUrDj6B2QtULkBlyvUTdrrP45DNiVN+7yJWuSyadjew
+ Oqxpobdmfi4s0uB97Sik3b1m73zPNnXvlwZB/K4SslYy7IDs74RsE5ZyzIlyKMcYONI/nyjVy1W
+ lBtCAAzPe5c91Ga+/Zy13VRvYjKe2LPPZWEMyBJ3gn3Kmi0Uv2zvDbhMqU7uNWCcaClJkWhM8Hp
+ k4oJ9c5tEqEYlyQ==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_065007_189916_639A6BEB 
-X-CRM114-Status: GOOD (  52.78  )
+X-CRM114-CacheID: sfid-20250610_133803_807365_B64CD3AF 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,141 +147,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 05:13:14PM +0530, Dhruva Gole wrote:
-> Hi,
-> 
-> On May 30, 2025 at 17:31:08 +0100, Sudeep Holla wrote:
-> > On Fri, May 30, 2025 at 04:05:27PM +0530, Dhruva Gole wrote:
-> > > Optimize the SCMI power domain driver to only initialize domains that are
-> > > actually referenced in the device tree. Previously, the driver would
-> > > initialize all possible domains up to the maximum ID, which could lead to
-> > > unnecessary firmware calls and longer probe times.
-> > > 
-> > > Key changes:
-> > > - Scan device tree to identify which power domains are actually referenced
-> > 
-> > How do this work with runtime DT overlays ?
-> 
-> Thanks for bringing this up, I hadn't considered runtime DT overlays for
-> this particular patch.
-> Off the top of my mind, we can initialize all at probe, but only query state
-> for referenced ones.
->
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Good to know.
+struct gpio_chip now has callbacks for setting line values that return
+an integer, allowing to indicate failures. Convert the driver to using
+them.
 
-> > 
-> > > - Use bitmap to track needed domains instead of initializing all
-> > > - Only perform state queries and initialization for referenced domains
-> > > - Maintain proper array sizing for power domain framework compatibility
-> > > - Keep full provider structure to support late binding
-> > > 
-> > > This optimization reduces probe time and unnecessary firmware interactions
-> > > by only initializing power domains that are actually used in the system.
-> > 
-> > Why is this very specific to power domains only ? This must apply for other
-> > domains like perf or clock or reset ?
-> 
-> Yes, it should. Starting out with just power domains for now though. I
-> haven't looked at other places like perf and clock yet.
-> 
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ drivers/net/dsa/vitesse-vsc73xx-core.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-Good that we are aligned in terms of understanding the general depth of
-the issue.
-
-> > 
-> > > For example, in a system with 100 possible domains but only 3 referenced
-> > > in the device tree, we now only initialize those 3 domains instead of
-> > > all 100.
-> > > 
-> > 
-> > Well, how much of these PD will get used in the final products ? I can
-> > understand the need to use just 3 in devel platforms. Just trying to see
-> > how realistic is the scenario ? Is there any other optimisation possible
-> > from the firmware ? Does getting the state of a PD takes so much time
-> > on the platform in question ?
-> 
-> Well, it's not only about how much time it takes on any particular platform
-> to query the state of a PD. Even if say it takes 10us to query it, it will
-> add a whole 1ms to the probe time. This mean 1ms more of boot time, and
-> perhaps boot time experts can chime in here but every optimisation
-> possible matters!
-> ARM systems are usually very strict on boot time requirements.
-> 
-
-Understood, but where we consider this as micro optimisation or not is
-another topic all together IMO.
-
-> Even if we somehow optimise the firmware, to me it seems like kernel is
-> wasting time querrying for something that it doesn't need at that moment.
-> 
-
-Well agreed, but for overlays this may not be trivial. More fundamental
-questions below.
-
-> Just replying here to your next reply on the thread:
-> > And I missed another point. Someone will soon complain Linux no longer
-> > turns off unused power domains. So I am inclined against this optimisation.
-> > We need to consider all the above point before .
-> 
-> I agree on some points like the runtime overlay. However I am not sure
-> why Linux should be the one to turn OFF power domains that it's
-> _unaware_ of. "unused" would probably be a wrong assumption to make.
-
-I have to disagree here. If the firmware is making the kernel aware of
-N power domains, then just not using it in DT and labeling the kernel
-is unaware of those PDs is simply and completely wrong. Why did the firmware
-make this(Linux) agent aware of those PDs then ?
-
-IMO, it is just *unused*.
-
-> There maybe other entities that would be using power domains that
-> are not in the device tree. (For eg. an RTOS running on the same system
-> accessing a PD that is controlled by the SCP firmware but not mentioned in the
-> device tree.)
-> 
-
-Well I assume those RTOS or entities are different agents in terms of
-SCP/SCMI and they can have their own view of PDs
-
-> While one may argue that's why firmware should be the one to keep ref
-> counts to avoid resource conflicts, one could also argue that firmwares
-> could be the one to turn off unused power domains.
-> 
-
-Yes firmware has the final say, but it can't track what resources Linux is
-using and what needs to stay on or off especially if no request from OS
-has come. There was an issue that if bootloaders turn on PD and Linux avoids
-making explicitly request to the firmware as it finds it ON, then firmware
-will leave it on even if Linux is not using it. So, yes it is Linux
-responsibility to turn of any unused PDs. We are not going to debate on
-that as there are platforms that are already relying on this feature.
-
-> Why should the kernel touch something that it hasn't been told about
-> explicitly in the DT? Isn't the whole point of DT to be the literal
-> hardware descriptor for the kernel?
-
-Well, I understand and kind of agree. But why does the firmware inform
-Linux about PDs that are never used by the Linux and always used by
-some other agent like RTOS. That is the main point here and nothing
-related to DT. We rely or trust the information from the firmware to
-be more dynamic compared to DT. So DT is second class citizen in this
-context. It only provides info that firmware can't provide not the other
-way around. That's the whole point of moving towards this firmware
-interfaces that are more dynamic and runtime aware than the DT which are
-static.
-
-> So if something doesn't exist in the DT, kernel shouldn't have other
-> places telling it does - in this context power domains.
-> 
-
-Firmware is discoverable, we only add information that are hard to discover
-like domain IDs assigned to the device and so on in the DT. But information
-from the firmware must be always more accurate than DT. So if the firmware
-says there are 100 PDs for Linux agent but 50 of them are exclusively used
-for some other agent, then something wrong with the firmware here.
+diff --git a/drivers/net/dsa/vitesse-vsc73xx-core.c b/drivers/net/dsa/vitesse-vsc73xx-core.c
+index f18aa321053d75f34544267528d68ade37264e89..4f9687ab3b2bc1cc61946eef33b7d08f779db8c6 100644
+--- a/drivers/net/dsa/vitesse-vsc73xx-core.c
++++ b/drivers/net/dsa/vitesse-vsc73xx-core.c
+@@ -2258,14 +2258,14 @@ static int vsc73xx_gpio_get(struct gpio_chip *chip, unsigned int offset)
+ 	return !!(val & BIT(offset));
+ }
+ 
+-static void vsc73xx_gpio_set(struct gpio_chip *chip, unsigned int offset,
+-			     int val)
++static int vsc73xx_gpio_set(struct gpio_chip *chip, unsigned int offset,
++			    int val)
+ {
+ 	struct vsc73xx *vsc = gpiochip_get_data(chip);
+ 	u32 tmp = val ? BIT(offset) : 0;
+ 
+-	vsc73xx_update_bits(vsc, VSC73XX_BLOCK_SYSTEM, 0,
+-			    VSC73XX_GPIO, BIT(offset), tmp);
++	return vsc73xx_update_bits(vsc, VSC73XX_BLOCK_SYSTEM, 0,
++				   VSC73XX_GPIO, BIT(offset), tmp);
+ }
+ 
+ static int vsc73xx_gpio_direction_output(struct gpio_chip *chip,
+@@ -2317,7 +2317,7 @@ static int vsc73xx_gpio_probe(struct vsc73xx *vsc)
+ 	vsc->gc.parent = vsc->dev;
+ 	vsc->gc.base = -1;
+ 	vsc->gc.get = vsc73xx_gpio_get;
+-	vsc->gc.set = vsc73xx_gpio_set;
++	vsc->gc.set_rv = vsc73xx_gpio_set;
+ 	vsc->gc.direction_input = vsc73xx_gpio_direction_input;
+ 	vsc->gc.direction_output = vsc73xx_gpio_direction_output;
+ 	vsc->gc.get_direction = vsc73xx_gpio_get_direction;
 
 -- 
-Regards,
-Sudeep
+2.48.1
+
 
