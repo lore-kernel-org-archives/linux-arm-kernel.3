@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89001C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8260CC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KzzLaojZq6S39goZRBGJmPMmLZK8oRVTymDDUaNmjK8=; b=um6ziukaXR4PM5409LBhdiCHv5
-	v57t1Ht+VWT076vn0FphQwQUki14w630vTwPwwdxMawTCYycuRImNEkm1GMIaPOh+oK+A2bd9RLnX
-	LdvUY3hv08U/0MDaEQqhGqIeWObfCNHkOB/ui5utjMkuoMNGHitGw8SVDNlpxqm3GIT4k2W7dddtB
-	TVqG3YuLlNq95qvK9c9CkacQWICiLD2G1QZtT8WOS50VaSTXSnd6RAaWJtecQsks9aJZkDpC5bIgE
-	SY9ROleB7smVkQocqRairFZ5fQ+M5mRSVe2iMveDBY8nVD6hLbHNfw2rhgZFV0hp1DGSsF3zTIcG3
-	/j+11A2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TgKyCq0suARse86RWO6v52OcwDaIabQUncCNwXGdf7k=; b=d31nfOzPxJ2bnz22P6wvx8GLhg
+	0ZBZsHGvBDjxX+n/nlMZMJ0ddjF2Tdh1xWLyhbYd3RPFJnLaJspemOE4dYcUCXoDjrvQYnlGZP4IZ
+	QRBhYYAVmhNo27tXSmwsjWJQ19sRO+dFHBU0fB9JLcZU55MX/RRNrDCHbME2IG8yzh9QqKU+ArdOK
+	HOiG/BqNkWBh8ve3ShhROsfrfX8u30xmTTSKVD7JBCrZyvzLESAG9hdAfU0Y/DQeein6jrk6HHWnN
+	bAwYIaLff5SjNZtEsC7s+PvY4ZQI2FujCTd38QFuoLdsGoTjcOp7rKRcMqGklGmWtDfybgXs84jlV
+	Vz1CtINw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwfP-00000006YlR-387a;
-	Tue, 10 Jun 2025 10:57:19 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1uOwfp-00000006ZRR-1pvY;
+	Tue, 10 Jun 2025 10:57:45 +0000
+Received: from mail-m16.yeah.net ([220.197.32.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvnt-00000006R62-2vPR
+	id 1uOvuR-00000006SXK-4A7x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 10:02:02 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-606ddbda275so9708240a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 03:02:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1749549720; x=1750154520; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KzzLaojZq6S39goZRBGJmPMmLZK8oRVTymDDUaNmjK8=;
-        b=KXBlzhIAUp7U58VjCw8z0y5006h3FA7sxCY6jlF8cfvvyNRt+R/Ztj4UpvrvQPxFZN
-         Y8cG/B5xgR/SBY7p2u/37Dlx4QqldZkQeVYICAP//1QpQ8i0c5uoEbJ+UiD9w2CfZX+B
-         SyfKa3T9/LjvBLB6xnNl6TOBqjV+btZUJadDc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749549720; x=1750154520;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KzzLaojZq6S39goZRBGJmPMmLZK8oRVTymDDUaNmjK8=;
-        b=kET9rRifiJ8sZxIRVS1SEYlRzP+qWdhU+Lff/4+9DNmJOnUlhChAekiUlvVS01Imbr
-         sgEe6VBEGeP6BoeLC0nxY8qvkEvsi1Lyzarmc26sEmd1OJ+CiiQIJMjAyR4je2aBIG86
-         Ct/aTTX9N3UYXOO8OAAgBDkbP1Dpr/+h7YSP2tRQP3nWxtYF4rRU+t60g+ZPhnp/4J3C
-         z0ah1ybbwUGAlq3EpW9SV6OxpG49p+L7KF5EQukBKjniTpb1IJ730tHpxWJ1SB/YdfwU
-         JyRgouzMHgN/K1lWuljORRLVFnayXlUigky1G/pCAvi3xtfmVCPSiyGSTHZ0eDHHJQL1
-         VTmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqqq+A4ApGsDrzzeJhVgCUVR9CXUNCuwiltFvMpNiKNL70csBskOBoIYI8GQJBsWGeaOahohr36rRa3UUBeE2/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeCAtjiqsYAEkfvQYSrXZbCJeywRZFln4ggVdj3MpYlISqrV4W
-	cqRpu2PidHVRinG0cfHtWjz7ySzHwFHFCKHujJ9jz28lWlo+ShdiZgjJor8ZkynCYqw=
-X-Gm-Gg: ASbGnct2o+YxkOvI86AHKFCzJ7kfb1D0LZjKSExn/n9vW3o0i1UYHr+0HfmWQM4Koz2
-	5a11suGFZyBIiiRwrP2Ou8fsoj3orq9cSGZisuA02Hwgc9c+7ESw54d/v+PxxXZtdIe25591L7m
-	1tpbVkQbRIo5zoIPJkLSiy/7C+NBCy7N2t1R3ulx5HQ5C/8pubXuDaBDNm9/EDwGu+MRYtGUJvn
-	iLUmckosm42t0OkAlvwUz3EMSp6mle23SR5L1o809PQVXVm2EsCpmHI/s3Vdm86dqf5hP4fGEWM
-	LmQqzegomHSfTT6O+155EdthSUeOj1mnEvfcX++s83y3mgCj8QQOcJoIN/coPHUui+aWJUGxBFU
-	NM1B9VZgknH0X3h3qybjuY59OQvE=
-X-Google-Smtp-Source: AGHT+IH2dLOiWE95kMS36GEMfR3+nsxWqc34N4l1VIXOOEfkgDPGuvDfAP3EITz6N3UYOwZQN8jeag==
-X-Received: by 2002:a05:6402:350e:b0:5e6:17e6:9510 with SMTP id 4fb4d7f45d1cf-6077341892cmr13964073a12.6.1749549720073;
-        Tue, 10 Jun 2025 03:02:00 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.40.179])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6077837ed0bsm5953438a12.36.2025.06.10.03.01.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 03:01:59 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Matteo Lisi <matteo.lisi@engicam.com>,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Tue, 10 Jun 2025 10:08:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=TgKyCq0suARse86RWO6v52OcwDaIabQUncCNwXGdf7k=;
+	b=orhA1OCR69h5nCVM63EeQylwCHOfbCK+3JKxQmRztw+SZQkhiSKHB/EsB1w1sw
+	CDrdgCAlQI+ONYUQ73RYGJMXSmZPGPN7DXXR41Cc3p1pxaa/DdI3/FpEGkO/kw4U
+	Nz11icyvNrVeXoYoD+egEO9QY0R1FNp8EQBaahR4vDZus=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgCXfxcXBEhol69VAA--.35126S3;
+	Tue, 10 Jun 2025 18:08:25 +0800 (CST)
+Date: Tue, 10 Jun 2025 18:08:23 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Alan Stern <stern@rowland.harvard.edu>
+Cc: Xu Yang <xu.yang_2@nxp.com>, Peter Chen <peter.chen@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev,
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 09/10] ARM: dts: imx6ul: support Engicam MicroGEA GTW board
-Date: Tue, 10 Jun 2025 12:00:22 +0200
-Message-ID: <20250610100139.2476555-10-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250610100139.2476555-1-dario.binacchi@amarulasolutions.com>
-References: <20250610100139.2476555-1-dario.binacchi@amarulasolutions.com>
+Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
+Message-ID: <aEgEF6YKYccequVw@dragon>
+References: <aEZxmlHmjeWcXiF3@dragon>
+ <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
+ <c7bfdfec-bc49-4ce5-8dd9-7a69d8e24ceb@rowland.harvard.edu>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c7bfdfec-bc49-4ce5-8dd9-7a69d8e24ceb@rowland.harvard.edu>
+X-CM-TRANSID: M88vCgCXfxcXBEhol69VAA--.35126S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZrWkZryrXFWkZr4fKr15Jwb_yoW8Crykpa
+	y3KF47Kan8XFWfurnFkr18JFWqy39YkrZrCryDXr47Cay3uw1fGF43KrW5KFyqkrn3Gwna
+	vFy2q34kKF1DZ3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UQ2-5UUUUU=
+X-Originating-IP: [117.82.86.8]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEhRoZWhH6wl3OQAAsI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_030201_738556_F9B52B14 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250610_030848_394832_DB1EC6A2 
+X-CRM114-Status: GOOD (  26.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,213 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support Engicam MicroGEA GTW board with:
+Hi Alan,
 
-- 256 Mbytes NAND Flash
-- 512 Mbytes DRAM DDR2
-- Buttons
-- LEDs
-- Micro SD card connector
-- USB 2.0 high-speed/full-speed
-- Ethernet MAC
+On Mon, Jun 09, 2025 at 09:54:45AM -0400, Alan Stern wrote:
+> On Mon, Jun 09, 2025 at 07:53:22PM +0800, Xu Yang wrote:
+> > Hi Shawn,
+> > 
+> > Thanks for your reports!
+> > 
+> > On Mon, Jun 09, 2025 at 01:31:06PM +0800, Shawn Guo wrote:
+> > > Hi Xu, Peter,
+> > > 
+> > > I'm seeing a kernel hangup on imx8mm-evk board.  It happens when:
+> > > 
+> > >  - USB gadget is enabled as Ethernet
+> > >  - There is data transfer over USB Ethernet
+> > >  - Device is going in/out suspend
+> 
+> > During the scp process, the usb host won't put usb device to suspend state.
+> > In current design, then the ether driver doesn't know the system has
+> > suspended after echo mem. The root cause is that ether driver is still tring
+> > to queue usb request after usb controller has suspended where usb clock is off,
+> > then the system hang.
+> > 
+> > With the above changes, I think the ether driver will fail to eth_start_xmit() 
+> > at an ealier stage, so the issue can't be triggered.
+> > 
+> > I think the ether driver needs call gether_suspend() accordingly, to do this,
+> > the controller driver need explicitly call suspend() function when it's going
+> > to be suspended. Could you check whether below patch fix the issue?
+> 
+> The situation is more complicated than this.
+> 
+> In general, a USB gadget cannot allow itself to be suspended while the 
+> USB bus it is connected to remains active.  Not unless it can be set to 
+> wake up when a USB packet arrives, and even that probably won't work 
+> because the wakeup sequence would take too long and the USB transfer 
+> would time out on the host.
+> 
+> The best way to fix this problem is for the gadget to disconnect itself 
+> from the USB bus whenever it goes into suspend, and to reconnect when it 
+> resumes.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Thank you so much for the insight!  It matches my testing pretty well.
+The disconnect/reconnect gadget in udc suspend/resume is more reliable
+than suspend/resume gadget.
 
----
-
-Changes in v3:
-- Drop an extra blank line from the iomuxc node.
-
-Changes in v2:
-- Drop an extra blank line
-- Move iomuxc and iomuxc_snvs nodes to the end of the DTS file.
-
- arch/arm/boot/dts/nxp/imx/Makefile            |   1 +
- .../nxp/imx/imx6ull-engicam-microgea-gtw.dts  | 162 ++++++++++++++++++
- 2 files changed, 163 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
-
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 32dfd69b8d8b..de4142e8f3ce 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -357,6 +357,7 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
- 	imx6ull-dhcom-picoitx.dtb \
- 	imx6ull-dhcor-maveo-box.dtb \
- 	imx6ull-engicam-microgea-bmm.dtb \
-+	imx6ull-engicam-microgea-gtw.dtb \
- 	imx6ull-engicam-microgea-rmm.dtb \
- 	imx6ull-jozacp.dtb \
- 	imx6ull-kontron-bl.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
-new file mode 100644
-index 000000000000..d500f8839102
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
-@@ -0,0 +1,162 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+ * Copyright (C) 2025 Engicam srl
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx6ull-engicam-microgea.dtsi"
-+
-+/ {
-+	compatible = "engicam,microgea-imx6ull-gtw",
-+		     "engicam,microgea-imx6ull", "fsl,imx6ull";
-+	model = "Engicam MicroGEA i.MX6ULL GTW Board";
-+
-+	reg_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_gpio_keys>;
-+
-+		user-button {
-+			label = "User button";
-+			gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
-+			linux,code = <BTN_MISC>;
-+			wakeup-source;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_leds>, <&pinctrl_pwrled>;
-+
-+		led-0 {
-+			gpios = <&gpio5 7 GPIO_ACTIVE_HIGH>;
-+			default-state = "on";
-+		};
-+
-+		led-1 {
-+			gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-2 {
-+			gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-3 {
-+			gpios = <&gpio1 12 GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
-+	usb_hub: usb-hub {
-+		compatible = "smsc,usb3503a";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_usb_hub>;
-+		reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	status = "okay";
-+};
-+
-+&usbotg1 {
-+	dr_mode = "otg";
-+	status = "okay";
-+};
-+
-+&usbotg2 {
-+	dr_mode = "host";
-+	disable-over-current;
-+	status = "okay";
-+};
-+
-+/* MicroSD */
-+&usdhc1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	vmmc-supply = <&reg_3v3>;
-+	bus-width = <4>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_gpio_keys: gpio_keysgrp {
-+		fsl,pins = <
-+			MX6UL_PAD_JTAG_TDI__GPIO1_IO13		0x0b0b0
-+		>;
-+	};
-+
-+	pinctrl_leds: ledsgrp {
-+		fsl,pins = <
-+			MX6UL_PAD_JTAG_TCK__GPIO1_IO14		0x130b0
-+			MX6UL_PAD_JTAG_TRST_B__GPIO1_IO15	0x130b0
-+			MX6UL_PAD_JTAG_TDO__GPIO1_IO12		0x130b0
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			MX6UL_PAD_UART1_TX_DATA__UART1_DCE_TX	0x1b0b1
-+			MX6UL_PAD_UART1_RX_DATA__UART1_DCE_RX	0x1b0b1
-+		>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX6UL_PAD_UART2_TX_DATA__UART2_DCE_TX	0x1b0b1
-+			MX6UL_PAD_UART2_RX_DATA__UART2_DCE_RX	0x1b0b1
-+			MX6UL_PAD_UART2_RTS_B__UART2_DCE_RTS	0x1b0b1
-+			MX6UL_PAD_UART2_CTS_B__UART2_DCE_CTS	0x1b0b1
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			MX6UL_PAD_SD1_CMD__USDHC1_CMD		0x17059
-+			MX6UL_PAD_SD1_CLK__USDHC1_CLK		0x10059
-+			MX6UL_PAD_SD1_DATA0__USDHC1_DATA0	0x17059
-+			MX6UL_PAD_SD1_DATA1__USDHC1_DATA1	0x17059
-+			MX6UL_PAD_SD1_DATA2__USDHC1_DATA2	0x17059
-+			MX6UL_PAD_SD1_DATA3__USDHC1_DATA3	0x17059
-+		>;
-+	};
-+};
-+
-+&iomuxc_snvs {
-+	pinctrl_pwrled: ledsgrp {
-+		fsl,pins = <
-+			MX6ULL_PAD_SNVS_TAMPER7__GPIO5_IO07	0x130b0
-+		>;
-+	};
-+
-+	pinctrl_usb_hub: usb_hubgrp {
-+		fsl,pins = <
-+			MX6ULL_PAD_SNVS_TAMPER6__GPIO5_IO06	0x17059
-+		>;
-+	};
-+};
--- 
-2.43.0
+Shawn
 
 
