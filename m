@@ -4,73 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AB3C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D392C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8VQasU47Fo9+menKFJwxiTlb3u0Ug7mzOiL+ShPS+BE=; b=GXY5sPx0oQrd5dy6uVnsP1bLEH
-	pUUPIA2UmRvLBk7hjMpYEcolioYmoCvYxNLZHrpu+CmalH8/Cde0r1ESIgCd0RHkBCUWQE+NJ4onM
-	2OdmxiIfGeEAz+SAluvXMYsApYDI589l3cO3Zd660IBLVMMN11cG2Dme1kWYu81ZnNVNjpidJtONK
-	0Y/bTEsp6tBa3S8f3RSPXXkX1jxh8/oSODywLW+5+MNpd/ShJkjoB+x9v93gL+ENMpTP8oE4kze7J
-	tExleJ1vVlzCjR+kucC8LXeXwI3ncfIJUxydzrvrh9HPT0apQwKkZa1B/p1NWNGJPvcts/5E6qjCX
-	fdqwfggw==;
+	bh=i5Fpnp1ancK4uqQ+bke1E/v9FRGhMDHd1t3dbc6Ndw4=; b=qJmG2jqp0DlwRoHmDQuPb1naYJ
+	r0jz7FA1itvAGicRLXxU/WyXuHki8PfUaZovXjxU4dIJK8sltuR6EBxOsgd3a6VZoG1JpgPtEJ0y+
+	f8/ZUZI2JiB8FJI2ecw3GijQ9CerRJBy1QQMwe8JysVyWx/e4lYLvbdKKMxtpwKCCJW1EPr0UvsX+
+	VzQms/nq9KVZ0TX6ysdZf2CY70v1NCDBunmp7AVG87LQaEk6+UkcjphOfHg42+n3/TGh3kG504UWw
+	2M1nOrcDxgw6ZK5GixNdRCyq/xXQwoemhNh503UqYt3WbCTywUlMzsmeO0neAHzW79iJpeIyXnUvj
+	VPDnuDxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2eB-00000007bgr-0HJe;
-	Tue, 10 Jun 2025 17:20:27 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uP2hZ-00000007c9H-2VIJ;
+	Tue, 10 Jun 2025 17:23:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOze5-000000075Sh-1Sqh;
-	Tue, 10 Jun 2025 14:08:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749564473; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JX3mWogYehTYtVJdVmY+UzzvF446RpE/P+y4RIe/MhfEwXWKyknYvJsugJZTds547PQB/hPlS9ho3ejufts25aFKqztcqjN3VI9tq+/9D4wKYR4eZ2KI7+OzEyaLhN1+AbxfbWLcfWlhs5tI35kqDxqUkks3y+wQWWaGoxnhVAA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749564473; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8VQasU47Fo9+menKFJwxiTlb3u0Ug7mzOiL+ShPS+BE=; 
-	b=Qx9AHUJ41xRYeOm4zNqJAqc/diELcfIlLKRY5AyrrXI5GbEZ/f6hiAXmy7qmab0++inHvfYR07EqEC9raBb6VK/UuFYaicF6iYQ0qmcIVinf3NN4T00alSJBa2QUIdiJoSWbUWWCjKkFGNnve9qMZ4lQlBxpZVlaP++WrNQ/YsQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749564473;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=8VQasU47Fo9+menKFJwxiTlb3u0Ug7mzOiL+ShPS+BE=;
-	b=DUWCLDCONptNaHpFe+ARreVDDr5GUnk+ewKYZbQqZjzqEfSBZw1folva4DCJqK0t
-	Nb/yZ1iiOu3wkHuVDxcUS9iZALpz3+tFcZr8YMNqQGawwjHi27aQVODzSj0k8V0fJuH
-	lT/Wdl/VaN1z308+X16EKJK2lJ2lldC1GFeyEuz0=
-Received: by mx.zohomail.com with SMTPS id 1749564471829701.9243237338251;
-	Tue, 10 Jun 2025 07:07:51 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 10 Jun 2025 16:07:12 +0200
-Subject: [PATCH v4 4/4] arm64: dts: rockchip: enable USB on Sige5
+	id 1uOz59-00000006ymC-0uOi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 13:32:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749562322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=i5Fpnp1ancK4uqQ+bke1E/v9FRGhMDHd1t3dbc6Ndw4=;
+	b=NlTupnIJRL20UTe/aRGL9tyosMPdvdJR1kNGVqmq8cCNsdEtjQHOOmG4Ds3yT3f1c0I7OY
+	cDLm403i0DrzkyBqh947mHhyyndHVEhTwBlbgmHVm0r0BMo+43YqJu4MZtlLLy5f63kmOx
+	oQ0msSlJ9jWHo2xv/OkRbdl7ql9F92M=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-30-afskXbQiM8K4DtC-Mci-LQ-1; Tue, 10 Jun 2025 09:32:00 -0400
+X-MC-Unique: afskXbQiM8K4DtC-Mci-LQ-1
+X-Mimecast-MFC-AGG-ID: afskXbQiM8K4DtC-Mci-LQ_1749562319
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a50816ccc6so3468164f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 06:31:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749562318; x=1750167118;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=i5Fpnp1ancK4uqQ+bke1E/v9FRGhMDHd1t3dbc6Ndw4=;
+        b=faCb8Plx02F+iirZtrVpLRN/6aQ+5z43WoJ3dpJwgwKwUhODPJ56VScBt6mvQGSP8R
+         K3Z1vlIXeYtQrNfqs2MBQe4+Cu2hnWv1UkfIxYgt1/p7Kkb8uT62qZwvZRYLwqG/p2q8
+         CLTJb7rYinbartDyn1/AvfpAX91S1izXkOHnl1OBitU9onp3og3Wd80lb4DcMrd2XOOV
+         gEn+G6aalMFULkEArFjxG06zbTDeHZL9heG9e6cNA+QqFCTLx866XqB2Ssi/OykPu72p
+         RCC31ETSYHGTkO5fYAQRITk7GAoM7xTY1CNRArU47vD6W2oX4TyvNZX727vgSC+9q3mU
+         bwBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXsE4hwtdHv3eqylqdA38jLA31wpW2/ul54SocuOi87H26KjM39SiCG3UO72IeqQlFadx6PVlbPqjTfP7yvVy6z@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywe8G6JX73i5jVOui2mPjg6HOpIHss95SlewvjrnDVLm96tWzLZ
+	/yRkikF27MO1Bs5OTTQ/vFkUB8kNzqps52EsvY4Kkb3x4xWKnX1Ij3qS9JlSz5MTIP7xi861vCf
+	Jynm0FEaxZcFQA/Ayqn3/q9pTrHkZRG/KjrQqEx6aB7Fp2b+ak2LIJlzEJ6307akwoJzrnMto2d
+	HY
+X-Gm-Gg: ASbGncsXVZInuJ819xVhlhM5KVZKAt9APVTtsuXoy/baD0z+9qk3gVcFQmI3KSzoOaD
+	c6eK3b9YNNaJd2AkS59T0+ivVF08L0flfcaVUCUYgfGab1/ambrvuBap6kUKpJYedvNa1s+3dNx
+	dCnz/VIw1al+W1MNFf13J0CRXh74s0IiNRUvt0p/RZV5GMVojpXW56NQhc6K2U3wSDA8tCaqtPd
+	/NwX09iWSm0pk7kyrav6sdPs6OafE+hCIcrNWFGZSNsQWex0BHrRTx1M313fXkBdMxOPvEBkTYt
+	pqIlUAByLgGGg9qbh3GehvvEGAlM+v0/qkq/4iW8LSwERzKuyImHUYA=
+X-Received: by 2002:a05:6000:2088:b0:3a4:d64a:3df6 with SMTP id ffacd0b85a97d-3a5319b1ab1mr12545695f8f.3.1749562318566;
+        Tue, 10 Jun 2025 06:31:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEBz2MCHP4FDmWbrNWVVCs+qMkHLQsIUdhZuONWhAyKldgeOr1oERa3231LF39yoOLWzudsWQ==
+X-Received: by 2002:a05:6000:2088:b0:3a4:d64a:3df6 with SMTP id ffacd0b85a97d-3a5319b1ab1mr12545656f8f.3.1749562318125;
+        Tue, 10 Jun 2025 06:31:58 -0700 (PDT)
+Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53243661csm12420074f8f.53.2025.06.10.06.31.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Jun 2025 06:31:57 -0700 (PDT)
+Message-ID: <bea0969f-5a6c-4486-aeba-964fa79bd714@redhat.com>
+Date: Tue, 10 Jun 2025 15:31:56 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] mm: Allow lockless kernel pagetable walking
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+ steven.price@arm.com, gshan@redhat.com,
+ linux-arm-kernel@lists.infradead.org, yang@os.amperecomputing.com,
+ ryan.roberts@arm.com, anshuman.khandual@arm.com
+References: <20250610114401.7097-1-dev.jain@arm.com>
+ <20250610114401.7097-2-dev.jain@arm.com>
+ <db04bd02-0090-4aff-bb2e-0d1e023757a5@lucifer.local>
+ <970e1b84-7f47-4a51-ad99-4df9026b8f7d@redhat.com>
+ <359668fb-df61-4135-89ee-2675a06a5c1b@lucifer.local>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
+ ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZgEEwEIAEICGwMGCwkIBwMCBhUIAgkKCwQW
+ AgMBAh4BAheAAhkBFiEEG9nKrXNcTDpGDfzKTd4Q9wD/g1oFAl8Ox4kFCRKpKXgACgkQTd4Q
+ 9wD/g1oHcA//a6Tj7SBNjFNM1iNhWUo1lxAja0lpSodSnB2g4FCZ4R61SBR4l/psBL73xktp
+ rDHrx4aSpwkRP6Epu6mLvhlfjmkRG4OynJ5HG1gfv7RJJfnUdUM1z5kdS8JBrOhMJS2c/gPf
+ wv1TGRq2XdMPnfY2o0CxRqpcLkx4vBODvJGl2mQyJF/gPepdDfcT8/PY9BJ7FL6Hrq1gnAo4
+ 3Iv9qV0JiT2wmZciNyYQhmA1V6dyTRiQ4YAc31zOo2IM+xisPzeSHgw3ONY/XhYvfZ9r7W1l
+ pNQdc2G+o4Di9NPFHQQhDw3YTRR1opJaTlRDzxYxzU6ZnUUBghxt9cwUWTpfCktkMZiPSDGd
+ KgQBjnweV2jw9UOTxjb4LXqDjmSNkjDdQUOU69jGMUXgihvo4zhYcMX8F5gWdRtMR7DzW/YE
+ BgVcyxNkMIXoY1aYj6npHYiNQesQlqjU6azjbH70/SXKM5tNRplgW8TNprMDuntdvV9wNkFs
+ 9TyM02V5aWxFfI42+aivc4KEw69SE9KXwC7FSf5wXzuTot97N9Phj/Z3+jx443jo2NR34XgF
+ 89cct7wJMjOF7bBefo0fPPZQuIma0Zym71cP61OP/i11ahNye6HGKfxGCOcs5wW9kRQEk8P9
+ M/k2wt3mt/fCQnuP/mWutNPt95w9wSsUyATLmtNrwccz63XOwU0EVcufkQEQAOfX3n0g0fZz
+ Bgm/S2zF/kxQKCEKP8ID+Vz8sy2GpDvveBq4H2Y34XWsT1zLJdvqPI4af4ZSMxuerWjXbVWb
+ T6d4odQIG0fKx4F8NccDqbgHeZRNajXeeJ3R7gAzvWvQNLz4piHrO/B4tf8svmRBL0ZB5P5A
+ 2uhdwLU3NZuK22zpNn4is87BPWF8HhY0L5fafgDMOqnf4guJVJPYNPhUFzXUbPqOKOkL8ojk
+ CXxkOFHAbjstSK5Ca3fKquY3rdX3DNo+EL7FvAiw1mUtS+5GeYE+RMnDCsVFm/C7kY8c2d0G
+ NWkB9pJM5+mnIoFNxy7YBcldYATVeOHoY4LyaUWNnAvFYWp08dHWfZo9WCiJMuTfgtH9tc75
+ 7QanMVdPt6fDK8UUXIBLQ2TWr/sQKE9xtFuEmoQGlE1l6bGaDnnMLcYu+Asp3kDT0w4zYGsx
+ 5r6XQVRH4+5N6eHZiaeYtFOujp5n+pjBaQK7wUUjDilPQ5QMzIuCL4YjVoylWiBNknvQWBXS
+ lQCWmavOT9sttGQXdPCC5ynI+1ymZC1ORZKANLnRAb0NH/UCzcsstw2TAkFnMEbo9Zu9w7Kv
+ AxBQXWeXhJI9XQssfrf4Gusdqx8nPEpfOqCtbbwJMATbHyqLt7/oz/5deGuwxgb65pWIzufa
+ N7eop7uh+6bezi+rugUI+w6DABEBAAHCwXwEGAEIACYCGwwWIQQb2cqtc1xMOkYN/MpN3hD3
+ AP+DWgUCXw7HsgUJEqkpoQAKCRBN3hD3AP+DWrrpD/4qS3dyVRxDcDHIlmguXjC1Q5tZTwNB
+ boaBTPHSy/Nksu0eY7x6HfQJ3xajVH32Ms6t1trDQmPx2iP5+7iDsb7OKAb5eOS8h+BEBDeq
+ 3ecsQDv0fFJOA9ag5O3LLNk+3x3q7e0uo06XMaY7UHS341ozXUUI7wC7iKfoUTv03iO9El5f
+ XpNMx/YrIMduZ2+nd9Di7o5+KIwlb2mAB9sTNHdMrXesX8eBL6T9b+MZJk+mZuPxKNVfEQMQ
+ a5SxUEADIPQTPNvBewdeI80yeOCrN+Zzwy/Mrx9EPeu59Y5vSJOx/z6OUImD/GhX7Xvkt3kq
+ Er5KTrJz3++B6SH9pum9PuoE/k+nntJkNMmQpR4MCBaV/J9gIOPGodDKnjdng+mXliF3Ptu6
+ 3oxc2RCyGzTlxyMwuc2U5Q7KtUNTdDe8T0uE+9b8BLMVQDDfJjqY0VVqSUwImzTDLX9S4g/8
+ kC4HRcclk8hpyhY2jKGluZO0awwTIMgVEzmTyBphDg/Gx7dZU1Xf8HFuE+UZ5UDHDTnwgv7E
+ th6RC9+WrhDNspZ9fJjKWRbveQgUFCpe1sa77LAw+XFrKmBHXp9ZVIe90RMe2tRL06BGiRZr
+ jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <359668fb-df61-4135-89ee-2675a06a5c1b@lucifer.local>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Ok8JrhbHy3BdOlN5gl1BxVKdrIYQ9jXunuzFEIM23d0_1749562319
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-rk3576-sige5-usb-v4-4-7e7f779619c1@collabora.com>
-References: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
-In-Reply-To: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Frank Wang <frank.wang@rock-chips.com>
-Cc: Alexey Charkov <alchark@gmail.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_070809_453072_A9ACA914 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20250610_063203_333546_381B8EB1 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,220 +165,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ArmSoM Sige5 has several USB ports: a Type-A USB 3 port (USB2 lines
-going through a hub), a Type-A USB 2.0 port (also going through a hub),
-a Type-C DC input port that has absolutely no USB data connection and a
-Type-C port with USB3.2 Gen1x1 that's also the maskrom programming port.
+On 10.06.25 15:27, Lorenzo Stoakes wrote:
+> On Tue, Jun 10, 2025 at 03:24:16PM +0200, David Hildenbrand wrote:
+>> On 10.06.25 14:07, Lorenzo Stoakes wrote:
+>>> OK so I think the best solution here is to just update check_ops_valid(), which
+>>> was kind of sucky anyway (we check everywhere but walk_page_range_mm() to
+>>> enforce the install pte thing).
+>>>
+>>> Let's do something like:
+>>>
+>>> #define OPS_MAY_INSTALL_PTE	(1<<0)
+>>> #define OPS_MAY_AVOID_LOCK	(1<<1)
+>>>
+>>> and update check_ops_valid() to take a flags or maybe 'capabilities' field.
+>>>
+>>> Then check based on this e.g.:
+>>>
+>>> if (ops->install_pte && !(capabilities & OPS_MAY_INSTALL_PTE))
+>>> 	return false;
+>>>
+>>> if (ops->walk_lock == PGWALK_NOLOCK && !(capabilities & OPS_MAY_AVOID_LOCK))
+>>> 	return false;
+>>>
+>>
+>> Hm. I mean, we really only want to allow this lockless check for
+>> walk_kernel_page_table_range(), right?
+>>
+>> Having a walk_kernel_page_table_range_lockeless() might (or might not) be
+>> better, to really only special-case this specific path.
+> 
+> Agree completely, Dev - let's definitely do this.
+> 
+>>
+>> So, I am wondering if we should further start splitting the
+>> kernel-page-table walker up from the mm walker, at least on the "entry"
+>> function for now.
+> 
+> How do you mean?
 
-Enable these ports, and set the device role to be host for the host
-ports.
+In particular, "struct mm_walk_ops"
 
-The data capable Type-C USB port uses a fusb302 for data role switching.
+does not quite make sense when not actually walking a "real" mm .
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 160 +++++++++++++++++++++
- 1 file changed, 160 insertions(+)
+So maybe we should start having a separate structure where *vma, 
+install_pte, walk_lock, hugetlb* does not even exist.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-index b09e789c75c47fec7cf7e9810ab0dcca32d9404a..a2b6cdf0e0b949a9df946606efedfbc747f99975 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-@@ -205,6 +205,33 @@ vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
- 		regulator-max-microvolt = <3300000>;
- 		vin-supply = <&vcc_5v0_sys>;
- 	};
-+
-+	vcc_5v0_typec0: regulator-vcc-5v0-typec0 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_otg0_pwren>;
-+		regulator-name = "vcc_5v0_typec0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc_5v0_device>;
-+	};
-+	vcc_5v0_usbhost: regulator-vcc-5v0-usbhost {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usb_host_pwren>;
-+		regulator-name = "vcc_5v0_usbhost";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc_5v0_device>;
-+	};
-+};
-+
-+&combphy1_psu {
-+	status = "okay";
- };
- 
- &combphy0_ps {
-@@ -643,6 +670,58 @@ regulator-state-mem {
- &i2c2 {
- 	status = "okay";
- 
-+	usbc0: typec-portc@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA5 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_interrupt>;
-+		vbus-supply = <&vcc_5v0_typec0>;
-+
-+		connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			data-role = "dual";
-+			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
-+			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
-+			power-role = "source";
-+			source-pdos = <PDO_FIXED(5000, 2000,
-+						 PDO_FIXED_USB_COMM | PDO_FIXED_DATA_SWAP)>;
-+
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0xffffffff>;
-+				};
-+			};
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					usbc0_hs_ep: endpoint {
-+						remote-endpoint = <&usb_drd0_hs_ep>;
-+					};
-+				};
-+				port@1 {
-+					reg = <1>;
-+					usbc0_ss_ep: endpoint {
-+						remote-endpoint = <&usb_drd0_ss_ep>;
-+					};
-+				};
-+				port@2 {
-+					reg = <2>;
-+					usbc0_dp_ep: endpoint {
-+						remote-endpoint = <&usbdp_phy_ep>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+
- 	hym8563: rtc@51 {
- 		compatible = "haoyu,hym8563";
- 		reg = <0x51>;
-@@ -729,6 +808,24 @@ pcie_reset: pcie-reset {
- 			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
- 		};
- 	};
-+
-+	usb {
-+		usb_host_pwren: usb-host-pwren {
-+			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		usb_otg0_pwren: usb-otg0-pwren {
-+			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		usbc0_interrupt: usbc0-interrupt {
-+			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+		usbc0_sbu1: usbc0-sbu1 {
-+			rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+		usbc0_sbu2: usbc0-sbu2 {
-+			rockchip,pins = <2 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
- };
- 
- &sai1 {
-@@ -770,11 +867,74 @@ &sdmmc {
- 	status = "okay";
- };
- 
-+&u2phy0 {
-+	status = "okay";
-+};
-+
-+&u2phy0_otg {
-+	status = "okay";
-+};
-+
-+&u2phy1 {
-+	status = "okay";
-+};
-+
-+&u2phy1_otg {
-+	phy-supply = <&vcc_5v0_usbhost>;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-0 = <&uart0m0_xfer>;
- 	status = "okay";
- };
- 
-+&usb_drd0_dwc3 {
-+	usb-role-switch;
-+	dr_mode = "otg";
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			usb_drd0_hs_ep: endpoint {
-+				remote-endpoint = <&usbc0_hs_ep>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			usb_drd0_ss_ep: endpoint {
-+				remote-endpoint = <&usbc0_ss_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&usb_drd1_dwc3 {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usbdp_phy {
-+	mode-switch;
-+	orientation-switch;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usbc0_sbu1 &usbc0_sbu2>;
-+	sbu1-dc-gpios = <&gpio2 RK_PA6 GPIO_ACTIVE_HIGH>;
-+	sbu2-dc-gpios = <&gpio2 RK_PA7 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+
-+	port {
-+		usbdp_phy_ep: endpoint {
-+			remote-endpoint = <&usbc0_dp_ep>;
-+		};
-+	};
-+};
-+
- &vop {
- 	status = "okay";
- };
+It might be a bit of churn, though ... not sure if there could be an 
+easy translation layer for now.
 
 -- 
-2.49.0
+Cheers,
+
+David / dhildenb
 
 
