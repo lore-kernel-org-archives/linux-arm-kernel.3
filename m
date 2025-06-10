@@ -4,71 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52643C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB85FC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qR+2qB+I+pBxrxBrQKLMvxcIS5poCYVL2NCuq3ScqwM=; b=RzTlI5lmv+WJwQDHT8EAdkvkTb
-	Pc3uN5Pq1bqxFDvcjktl3HMhhbZNkNZCU63HwSLwn9xunuydW4dRXnFe3aHlb17l4WzV8zc2oaOMZ
-	fFLtfFH7zHo22jp/Sf2DbizKMqBrb22BrQdiItn8TkkQXu3eeHJNFldZoyorukYekWqM9TJl55z+3
-	5i9AqxCH2LrvnMFi9Iqy7eHL8fPjlGo0teHe/iFM6DkDXghL7ks2ADsfP/SDXiJMGCq6GvkiUDofu
-	0Q4Wd3vGCT1zlW99hV4NQImLTNUN35Hvje/Xm/qnNqHpVLXepI69iMAJxH0QwH31LulXete/TmmQp
-	jM2oyr1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yrR2QAmfRh3lFTirpBx1xNHf2MpWAAAtCEb1yKcL70c=; b=jASGdC0mxmUOrXiAAHThV2xMVr
+	a04UxiZJT/X0oUJ4dKVEnZi3L2hbRtuvWz78HKqzO/7+DoezO/VfnzcJPHwhlN32zmzCRHRpjLALW
+	tQzOSIMNSGf4fiPtKg0zzupHngFVPV95SXYeuaNQJ8ckbD/cV++Hyo64Bxt2G2ePCi6tnDb++02X7
+	LDXaZaO8GF4hfAZwlqKUZr8BRd3+2UX98AaAvnOAvEL28rkYIaM5i72ffsVyjcP4mwYTruMgSf8Nn
+	/+YsccPpOySUEnBMa39jhjnJUROCo3ZrjTILA57xDqUIA3QBQpj20yGQVGr1mxjuPMVd3nIyguSBG
+	r5GOXF3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP201-00000007V0x-3QZH;
-	Tue, 10 Jun 2025 16:38:57 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uP208-00000007V50-35xj;
+	Tue, 10 Jun 2025 16:39:04 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOybx-00000006sYV-2E6n;
-	Tue, 10 Jun 2025 13:01:55 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55AD1csU2294498;
-	Tue, 10 Jun 2025 08:01:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749560498;
-	bh=qR+2qB+I+pBxrxBrQKLMvxcIS5poCYVL2NCuq3ScqwM=;
-	h=From:To:CC:Subject:Date;
-	b=d91Mj03YtZ9h4hdQMhBdrWass1lsKI9owxf6c6wHCuYIR+qDIpp8RagaAqMtpM6dX
-	 UmDK0Eon5KeLC+Lz1g7wcDEqrc2rH/jjzhiu16WiGp1FpIFtddBzEXMGsqBlPO0fdf
-	 iYzvs84mGcWi4MKd6VbnM3rX5YwCXRL7Nr8v6BYI=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55AD1ch42128236
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 10 Jun 2025 08:01:38 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 10
- Jun 2025 08:01:38 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 10 Jun 2025 08:01:38 -0500
-Received: from uda0492258.dhcp.ti.com (dhcp-172-24-227-169.dhcp.ti.com [172.24.227.169])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55AD1Yq13086009;
-	Tue, 10 Jun 2025 08:01:35 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <vkoul@kernel.org>, <kishon@kernel.org>, <christophe.jaillet@wanadoo.fr>,
-        <sjakhade@cadence.com>, <bwawrzyn@cisco.com>,
-        <u.kleine-koenig@baylibre.com>, <krzysztof.kozlowski@linaro.org>
-CC: <linux-phy@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH] phy: cadence: Sierra: Add PCIe + USB PHY multilink configuration
-Date: Tue, 10 Jun 2025 18:31:33 +0530
-Message-ID: <20250610130133.2102196-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uOzIs-000000071im-0B0o
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 13:46:15 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b2f1032e1c4so5046224a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 06:46:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749563173; x=1750167973; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yrR2QAmfRh3lFTirpBx1xNHf2MpWAAAtCEb1yKcL70c=;
+        b=iMaARX5hTZNPq2IJT3Ws7ZG8Er7g7eMrV/DFfqrxTOL9JhPjQsVryrdJ67GW0WBIqq
+         BhN9O6WW8nz1VltN5SPqwwSlRg+30LgpOXaJNCZ0SwpviyZMhZ/4s1yqVrsReEvDqt5Z
+         yt2gp7+VcyhPnRYqiaaScM8kvCEeX9lcw+sVU6rDeMjhbUvMJ1ZVm+kCm0wCT9vTEVpa
+         hzsvQgbugl9F+grKL30NuGAYVNnjnATfurVMUMLMYBNlEbAO+LiFAX1qhZS6ML/2hExv
+         y9X1MnOxw8U3Xu2zpZTiR57n/i4B1RYavSbhcKd4cmqO8pHZ3yjqhzHGQ3njnTKYTWPg
+         jGWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749563173; x=1750167973;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yrR2QAmfRh3lFTirpBx1xNHf2MpWAAAtCEb1yKcL70c=;
+        b=wmXnr8th/VlwaNPpp5iljdMEGcf1MX3onELgkSxJl0GcStoJ6tFuYzE/oxtwNmiDsN
+         154OC6ymumBEqHXMOGC8XuAryTlr79FAC8qen9KfjFKfKIZ2fLk8qLbajYUFlGk2FtpJ
+         SdGg1YYX5/Yu6R/JY69iB50pMBsk3gKxzYWBhLQ+jyFJvNffBTdCLTJqvnJVgM8Cff8v
+         t5BZ1PmOYytkRTiGLkBfzsmJhVstXa0RKBEbtfm3Tl2/FQkxiEF2NZo7JHUfcnV24DOH
+         l80k8RSinV/CV7IXfIKsw7HlIc8lDbyhUTrYMjNZ/G89vimtPNKx9PHMdaa1hVp9KUn5
+         tUrA==
+X-Forwarded-Encrypted: i=1; AJvYcCUGZTNY4muGM81nPnN7ADAgEuPVLd/kmI3GGDHPPUxYHkUjerEOAwhtX8NcV+lN1cptsefj940gSrv1hOjCylZx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5SSrkEW3sBcmzAACCQzrb7Zl36J8UuVjEucudwPo2JgPuxJBg
+	VotEV3/Dft0GCqYLKZCP1ENFxsbEPWBcQLEels1UoL+RATavbTqBTcF5
+X-Gm-Gg: ASbGnctg2n2ohNyKGetCffKiwimsYKyMkjY8AA1v5+/GTqCfyXXpE/CaxOE3wajX5kr
+	W1lggL517/vFWQyFyngt97q9h62indj9NyidGzj3QGqserPe4jN9L2pjWboOj5Y4s8BvXdczbD3
+	XZxSN2VIth917gMxfriSvJrfq6JZy1ASMFvpllFmy7YmHKakqGRZW2tBo9bs6dxiG31QOyL+8c8
+	/4VwINrp8hMwEz+QMEqDAE29L3TGbVwodQNPI6QmHHvQukRfYb0GSIi/sbPJPbHP/PKnhCpkhhF
+	wC2Ncu30agbyce6/jKyt4JEofCh2G00U4CVHpe2L1I2vmBXC81D83I9yNC2boUc5
+X-Google-Smtp-Source: AGHT+IGWLnHsznkJ/Da/EQnD3kporOvoVzQzAShfY9FI0ZIFQMZIr+5VR8cBdQf/AsoVqaF8p64zzQ==
+X-Received: by 2002:a17:90b:1646:b0:311:f05b:869a with SMTP id 98e67ed59e1d1-313472eb280mr24147530a91.8.1749563173273;
+        Tue, 10 Jun 2025 06:46:13 -0700 (PDT)
+Received: from [127.0.1.1] ([59.188.211.160])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-31349f32df7sm7288522a91.15.2025.06.10.06.46.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 06:46:12 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Date: Tue, 10 Jun 2025 21:45:25 +0800
+Subject: [PATCH v2 6/9] arm64: dts: apple: s8001: Add I2C nodes
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250610-i2c-no-t2-v2-6-a5a71080fba9@gmail.com>
+References: <20250610-i2c-no-t2-v2-0-a5a71080fba9@gmail.com>
+In-Reply-To: <20250610-i2c-no-t2-v2-0-a5a71080fba9@gmail.com>
+To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Neal Gompa <neal@gompa.dev>, Andi Shyti <andi.shyti@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Nick Chan <towinchenmi@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3038; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=9566gmKhrX9N7D4Gci4+NELLJwjkHJyrdvGevl4Fe5k=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBoSDcMUl2/apVzAT/V/KkKkeb6CQjlyBAid7HYa
+ M99AEPEte+JAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaEg3DAAKCRABygi3psUI
+ JGMrEACVFL6WIOESUBESHHupcLhxC37GYnackPUmK1c3JVn74JsDd4FZOTvqH9l/z/I15UWLS2G
+ DXc6QT0Zhlh5Q127sMKncN3SgyYxoYEhtuBzr8DZNdTgUOu06rggIC/s/rrT7vBOLpFbf4WNN7G
+ f61RjdR7OU2lYvyIp1h8NpoxmqMYhe9BCbIf7044KRaHWnGY/fJe5yNxbLi0UUbVPzi6AJmszcM
+ 0KCYyJkFWR5p2z/CJHMWJTYOc39SOk/I4zqLCYPjDU1y5beBohG4fbZqAKUq81SToOlqvbW082y
+ iG13lNqMyRnLZLMukmZB8Ko8uvWKL/xzwxRQTyN54aPx03+qOQ6ccV2UHKj8SxNoNlhbHRelkJk
+ Fb2N+g/Atl/U9wY4pC2bmD3jQtbrRY4Aed8Fr2Lq2BbGD23ZwHvpIKEiAMvKYd4YIyazQH4d1Ep
+ RRC0CZOGCFGCt32VG3i+Jx8MCWNS6OzU9GRVRE+GbUcNxYwVX+/wWQVfJen1IWGijaFigdozcUc
+ cGEiycJ742rkbUen+z3iQZrMcjMujFqDh95NK/Hq2kII4rBz45TowZDzIYZ1oMr+8hIJKvRWJB/
+ J65N/tZq5Gd2Hnf0yymVCjwBwFPM+usFe+9r/kLSBTFjlz6WPh1B5iKemTEDR/1uJUygrtA63bZ
+ zbMai8ah9rXRDJA==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_060153_666126_3028A28F 
-X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-CacheID: sfid-20250610_064614_079239_66BCDF9B 
+X-CRM114-Status: UNSURE (   9.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,288 +119,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Swapnil Jakhade <sjakhade@cadence.com>
+Add I2C nodes for Apple A9 SoC.
 
-Add register sequences for PCIe + USB multilink configuration for
-Sierra PHY.
-
-Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
+ arch/arm64/boot/dts/apple/s8001.dtsi | 76 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
 
-Hello,
-
-This patch is based on linux-next tagged next-20250610.
-
-Regards,
-Siddharth.
-
- drivers/phy/cadence/phy-cadence-sierra.c | 180 +++++++++++++++++++++++
- 1 file changed, 180 insertions(+)
-
-diff --git a/drivers/phy/cadence/phy-cadence-sierra.c b/drivers/phy/cadence/phy-cadence-sierra.c
-index 45a5c00843bf..74613382ccb0 100644
---- a/drivers/phy/cadence/phy-cadence-sierra.c
-+++ b/drivers/phy/cadence/phy-cadence-sierra.c
-@@ -58,8 +58,11 @@
- #define SIERRA_CMN_PLLLC1_GEN_PREG			0xC2
- #define SIERRA_CMN_PLLLC1_FBDIV_INT_PREG		0xC3
- #define SIERRA_CMN_PLLLC1_DCOCAL_CTRL_PREG		0xC5
-+#define SIERRA_CMN_PLLLC1_MODE_PREG			0xC8
-+#define SIERRA_CMN_PLLLC1_LF_COEFF_MODE1_PREG		0xC9
- #define SIERRA_CMN_PLLLC1_LF_COEFF_MODE0_PREG		0xCA
- #define SIERRA_CMN_PLLLC1_CLK0_PREG			0xCE
-+#define SIERRA_CMN_PLLLC1_BWCAL_MODE1_PREG		0xCF
- #define SIERRA_CMN_PLLLC1_BWCAL_MODE0_PREG		0xD0
- #define SIERRA_CMN_PLLLC1_SS_TIME_STEPSIZE_MODE_PREG	0xE2
+diff --git a/arch/arm64/boot/dts/apple/s8001.dtsi b/arch/arm64/boot/dts/apple/s8001.dtsi
+index fee3507658948a9b4db6a185665fdff9f5acc446..b5b00dca6ffa4caa1d504860693da001a8ced80e 100644
+--- a/arch/arm64/boot/dts/apple/s8001.dtsi
++++ b/arch/arm64/boot/dts/apple/s8001.dtsi
+@@ -137,6 +137,62 @@ serial0: serial@20a0c0000 {
+ 			status = "disabled";
+ 		};
  
-@@ -1541,6 +1544,137 @@ static void cdns_sierra_phy_remove(struct platform_device *pdev)
- 	cdns_sierra_clk_unregister(phy);
- }
++		i2c0: i2c@20a110000 {
++			compatible = "apple,s8000-i2c", "apple,i2c";
++			reg = <0x2 0x0a110000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 232 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c0_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c1: i2c@20a111000 {
++			compatible = "apple,s8000-i2c", "apple,i2c";
++			reg = <0x2 0x0a111000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 233 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c1_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c1>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c2: i2c@20a112000 {
++			compatible = "apple,s8000-i2c", "apple,i2c";
++			reg = <0x2 0x0a112000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 234 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c2_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c2>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
++		i2c3: i2c@20a113000 {
++			compatible = "apple,s8000-i2c", "apple,i2c";
++			reg = <0x2 0x0a113000 0x0 0x1000>;
++			clocks = <&clkref>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 235 IRQ_TYPE_LEVEL_HIGH>;
++			pinctrl-0 = <&i2c3_pins>;
++			pinctrl-names = "default";
++			power-domains = <&ps_i2c3>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			status = "disabled";
++		};
++
+ 		pmgr: power-management@20e000000 {
+ 			compatible = "apple,s8000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+ 			#address-cells = <1>;
+@@ -173,6 +229,26 @@ pinctrl_ap: pinctrl@20f100000 {
+ 				     <AIC_IRQ 46 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <AIC_IRQ 47 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <AIC_IRQ 48 IRQ_TYPE_LEVEL_HIGH>;
++
++			i2c0_pins: i2c0-pins {
++				pinmux = <APPLE_PINMUX(165, 1)>,
++					 <APPLE_PINMUX(164, 1)>;
++			};
++
++			i2c1_pins: i2c1-pins {
++				pinmux = <APPLE_PINMUX(178, 1)>,
++					 <APPLE_PINMUX(177, 1)>;
++			};
++
++			i2c2_pins: i2c2-pins {
++				pinmux = <APPLE_PINMUX(132, 1)>,
++					 <APPLE_PINMUX(131, 1)>;
++			};
++
++			i2c3_pins: i2c3-pins {
++				pinmux = <APPLE_PINMUX(115, 1)>,
++					 <APPLE_PINMUX(114, 1)>;
++			};
+ 		};
  
-+/* USB refclk 100MHz, 20b, SuperSpeed opt2, ext ssc, PLL LC1, multilink */
-+static const struct cdns_reg_pairs usb_100_ext_ssc_plllc1_cmn_regs[] = {
-+	{0x002D, SIERRA_CMN_PLLLC1_FBDIV_INT_PREG},
-+	{0x2086, SIERRA_CMN_PLLLC1_LF_COEFF_MODE1_PREG},
-+	{0x2086, SIERRA_CMN_PLLLC1_LF_COEFF_MODE0_PREG},
-+	{0x1005, SIERRA_CMN_PLLLC1_CLK0_PREG},
-+	{0x0000, SIERRA_CMN_PLLLC1_BWCAL_MODE1_PREG},
-+	{0x0000, SIERRA_CMN_PLLLC1_BWCAL_MODE0_PREG},
-+	{0x0000, SIERRA_CMN_PLLLC1_SS_TIME_STEPSIZE_MODE_PREG}
-+};
-+
-+/* USB refclk 100MHz, 20b, SuperSpeed opt2, int ssc, PLL LC1, multilink */
-+static const struct cdns_reg_pairs usb_100_int_ssc_plllc1_cmn_regs[] = {
-+	{0x002D, SIERRA_CMN_PLLLC1_FBDIV_INT_PREG},
-+	{0x000E, SIERRA_CMN_PLLLC1_MODE_PREG},
-+	{0x1005, SIERRA_CMN_PLLLC1_CLK0_PREG}
-+};
-+
-+static const struct cdns_reg_pairs usb_100_ml_ln_regs[] = {
-+	{0xFE0A, SIERRA_DET_STANDEC_A_PREG},
-+	{0x000F, SIERRA_DET_STANDEC_B_PREG},
-+	{0x55A5, SIERRA_DET_STANDEC_C_PREG},
-+	{0x69AD, SIERRA_DET_STANDEC_D_PREG},
-+	{0x0241, SIERRA_DET_STANDEC_E_PREG},
-+	{0x0010, SIERRA_PSM_LANECAL_DLY_A1_RESETS_PREG},
-+	{0x0014, SIERRA_PSM_A0IN_TMR_PREG},
-+	{0x001D, SIERRA_PSM_A3IN_TMR_PREG},
-+	{0x0004, SIERRA_PSC_LN_A3_PREG},
-+	{0x0004, SIERRA_PSC_LN_IDLE_PREG},
-+	{0x001F, SIERRA_PSC_TX_A0_PREG},
-+	{0x0007, SIERRA_PSC_TX_A1_PREG},
-+	{0x0003, SIERRA_PSC_TX_A2_PREG},
-+	{0x0003, SIERRA_PSC_TX_A3_PREG},
-+	{0x0FFF, SIERRA_PSC_RX_A0_PREG},
-+	{0x0619, SIERRA_PSC_RX_A1_PREG},
-+	{0x0003, SIERRA_PSC_RX_A2_PREG},
-+	{0x0001, SIERRA_PSC_RX_A3_PREG},
-+	{0x0606, SIERRA_PLLCTRL_FBDIV_MODE01_PREG},
-+	{0x0001, SIERRA_PLLCTRL_SUBRATE_PREG},
-+	{0x0003, SIERRA_PLLCTRL_GEN_A_PREG},
-+	{0x0406, SIERRA_PLLCTRL_GEN_D_PREG},
-+	{0x5211, SIERRA_PLLCTRL_CPGAIN_MODE_PREG},
-+	{0x00CA, SIERRA_CLKPATH_BIASTRIM_PREG},
-+	{0x2512, SIERRA_DFE_BIASTRIM_PREG},
-+	{0x0000, SIERRA_DRVCTRL_ATTEN_PREG},
-+	{0x823E, SIERRA_CLKPATHCTRL_TMR_PREG},
-+	{0x078F, SIERRA_RX_CREQ_FLTR_A_MODE1_PREG},
-+	{0x078F, SIERRA_RX_CREQ_FLTR_A_MODE0_PREG},
-+	{0x7B3C, SIERRA_CREQ_CCLKDET_MODE01_PREG},
-+	{0x023F, SIERRA_RX_CTLE_MAINTENANCE_PREG},
-+	{0x3232, SIERRA_CREQ_FSMCLK_SEL_PREG},
-+	{0x0000, SIERRA_CREQ_EQ_CTRL_PREG},
-+	{0xCC44, SIERRA_CREQ_EQ_OPEN_EYE_THRESH_PREG},
-+	{0x8452, SIERRA_CTLELUT_CTRL_PREG},
-+	{0x4121, SIERRA_DFE_ECMP_RATESEL_PREG},
-+	{0x4121, SIERRA_DFE_SMP_RATESEL_PREG},
-+	{0x0002, SIERRA_DEQ_PHALIGN_CTRL},
-+	{0x3200, SIERRA_DEQ_CONCUR_CTRL1_PREG},
-+	{0x5064, SIERRA_DEQ_CONCUR_CTRL2_PREG},
-+	{0x0030, SIERRA_DEQ_EPIPWR_CTRL2_PREG},
-+	{0x5A5A, SIERRA_DEQ_ERRCMP_CTRL_PREG},
-+	{0x02F5, SIERRA_DEQ_OFFSET_CTRL_PREG},
-+	{0x02F5, SIERRA_DEQ_GAIN_CTRL_PREG},
-+	{0xA9A9, SIERRA_DEQ_VGATUNE_CTRL_PREG},
-+	{0x0014, SIERRA_DEQ_GLUT0},
-+	{0x0014, SIERRA_DEQ_GLUT1},
-+	{0x0014, SIERRA_DEQ_GLUT2},
-+	{0x0014, SIERRA_DEQ_GLUT3},
-+	{0x0014, SIERRA_DEQ_GLUT4},
-+	{0x0014, SIERRA_DEQ_GLUT5},
-+	{0x0014, SIERRA_DEQ_GLUT6},
-+	{0x0014, SIERRA_DEQ_GLUT7},
-+	{0x0014, SIERRA_DEQ_GLUT8},
-+	{0x0014, SIERRA_DEQ_GLUT9},
-+	{0x0014, SIERRA_DEQ_GLUT10},
-+	{0x0014, SIERRA_DEQ_GLUT11},
-+	{0x0014, SIERRA_DEQ_GLUT12},
-+	{0x0014, SIERRA_DEQ_GLUT13},
-+	{0x0014, SIERRA_DEQ_GLUT14},
-+	{0x0014, SIERRA_DEQ_GLUT15},
-+	{0x0014, SIERRA_DEQ_GLUT16},
-+	{0x0BAE, SIERRA_DEQ_ALUT0},
-+	{0x0AEB, SIERRA_DEQ_ALUT1},
-+	{0x0A28, SIERRA_DEQ_ALUT2},
-+	{0x0965, SIERRA_DEQ_ALUT3},
-+	{0x08A2, SIERRA_DEQ_ALUT4},
-+	{0x07DF, SIERRA_DEQ_ALUT5},
-+	{0x071C, SIERRA_DEQ_ALUT6},
-+	{0x0659, SIERRA_DEQ_ALUT7},
-+	{0x0596, SIERRA_DEQ_ALUT8},
-+	{0x0514, SIERRA_DEQ_ALUT9},
-+	{0x0492, SIERRA_DEQ_ALUT10},
-+	{0x0410, SIERRA_DEQ_ALUT11},
-+	{0x038E, SIERRA_DEQ_ALUT12},
-+	{0x030C, SIERRA_DEQ_ALUT13},
-+	{0x03F4, SIERRA_DEQ_DFETAP_CTRL_PREG},
-+	{0x0001, SIERRA_DFE_EN_1010_IGNORE_PREG},
-+	{0x3C01, SIERRA_DEQ_TAU_CTRL1_FAST_MAINT_PREG},
-+	{0x3C40, SIERRA_DEQ_TAU_CTRL1_SLOW_MAINT_PREG},
-+	{0x1C08, SIERRA_DEQ_TAU_CTRL2_PREG},
-+	{0x0033, SIERRA_DEQ_PICTRL_PREG},
-+	{0x0330, SIERRA_CPICAL_TMRVAL_MODE0_PREG},
-+	{0x01FF, SIERRA_CPICAL_PICNT_MODE1_PREG},
-+	{0x0009, SIERRA_CPI_OUTBUF_RATESEL_PREG},
-+	{0x3232, SIERRA_CPICAL_RES_STARTCODE_MODE23_PREG},
-+	{0x0005, SIERRA_LFPSDET_SUPPORT_PREG},
-+	{0x000F, SIERRA_LFPSFILT_NS_PREG},
-+	{0x0009, SIERRA_LFPSFILT_RD_PREG},
-+	{0x0001, SIERRA_LFPSFILT_MP_PREG},
-+	{0x8013, SIERRA_SDFILT_H2L_A_PREG},
-+	{0x8009, SIERRA_SDFILT_L2H_PREG},
-+	{0x0024, SIERRA_RXBUFFER_CTLECTRL_PREG},
-+	{0x0020, SIERRA_RXBUFFER_RCDFECTRL_PREG},
-+	{0x4243, SIERRA_RXBUFFER_DFECTRL_PREG}
-+};
-+
-+static const struct cdns_sierra_vals usb_100_ext_ssc_plllc1_cmn_vals = {
-+	.reg_pairs = usb_100_ext_ssc_plllc1_cmn_regs,
-+	.num_regs = ARRAY_SIZE(usb_100_ext_ssc_plllc1_cmn_regs),
-+};
-+
-+static const struct cdns_sierra_vals usb_100_int_ssc_plllc1_cmn_vals = {
-+	.reg_pairs = usb_100_int_ssc_plllc1_cmn_regs,
-+	.num_regs = ARRAY_SIZE(usb_100_int_ssc_plllc1_cmn_regs),
-+};
-+
-+static const struct cdns_sierra_vals usb_100_ml_ln_vals = {
-+	.reg_pairs = usb_100_ml_ln_regs,
-+	.num_regs = ARRAY_SIZE(usb_100_ml_ln_regs),
-+};
-+
- /* SGMII PHY PMA lane configuration */
- static const struct cdns_reg_pairs sgmii_phy_pma_ln_regs[] = {
- 	{0x9010, SIERRA_PHY_PMA_XCVR_CTRL}
-@@ -2513,6 +2647,11 @@ static const struct cdns_sierra_data cdns_map_sierra = {
- 				[EXTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
- 				[INTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
- 			},
-+			[TYPE_USB] = {
-+				[NO_SSC] = &pcie_phy_pcs_cmn_vals,
-+				[EXTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
-+				[INTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
-+			},
- 		},
- 	},
- 	.pma_cmn_vals = {
-@@ -2532,11 +2671,20 @@ static const struct cdns_sierra_data cdns_map_sierra = {
- 				[EXTERNAL_SSC] = &pcie_100_ext_ssc_plllc_cmn_vals,
- 				[INTERNAL_SSC] = &pcie_100_int_ssc_plllc_cmn_vals,
- 			},
-+			[TYPE_USB] = {
-+				[NO_SSC] = &pcie_100_no_ssc_plllc_cmn_vals,
-+				[EXTERNAL_SSC] = &pcie_100_ext_ssc_plllc_cmn_vals,
-+				[INTERNAL_SSC] = &pcie_100_int_ssc_plllc_cmn_vals,
-+			},
- 		},
- 		[TYPE_USB] = {
- 			[TYPE_NONE] = {
- 				[EXTERNAL_SSC] = &usb_100_ext_ssc_cmn_vals,
- 			},
-+			[TYPE_PCIE] = {
-+				[EXTERNAL_SSC] = &usb_100_ext_ssc_plllc1_cmn_vals,
-+				[INTERNAL_SSC] = &usb_100_int_ssc_plllc1_cmn_vals,
-+			},
- 		},
- 		[TYPE_SGMII] = {
- 			[TYPE_NONE] = {
-@@ -2573,11 +2721,20 @@ static const struct cdns_sierra_data cdns_map_sierra = {
- 				[EXTERNAL_SSC] = &ml_pcie_100_ext_ssc_ln_vals,
- 				[INTERNAL_SSC] = &ml_pcie_100_int_ssc_ln_vals,
- 			},
-+			[TYPE_USB] = {
-+				[NO_SSC] = &ml_pcie_100_no_ssc_ln_vals,
-+				[EXTERNAL_SSC] = &ml_pcie_100_ext_ssc_ln_vals,
-+				[INTERNAL_SSC] = &ml_pcie_100_int_ssc_ln_vals,
-+			},
- 		},
- 		[TYPE_USB] = {
- 			[TYPE_NONE] = {
- 				[EXTERNAL_SSC] = &usb_100_ext_ssc_ln_vals,
- 			},
-+			[TYPE_PCIE] = {
-+				[EXTERNAL_SSC] = &usb_100_ml_ln_vals,
-+				[INTERNAL_SSC] = &usb_100_ml_ln_vals,
-+			},
- 		},
- 		[TYPE_SGMII] = {
- 			[TYPE_NONE] = {
-@@ -2620,6 +2777,11 @@ static const struct cdns_sierra_data cdns_ti_map_sierra = {
- 				[EXTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
- 				[INTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
- 			},
-+			[TYPE_USB] = {
-+				[NO_SSC] = &pcie_phy_pcs_cmn_vals,
-+				[EXTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
-+				[INTERNAL_SSC] = &pcie_phy_pcs_cmn_vals,
-+			},
- 		},
- 	},
- 	.phy_pma_ln_vals = {
-@@ -2655,11 +2817,20 @@ static const struct cdns_sierra_data cdns_ti_map_sierra = {
- 				[EXTERNAL_SSC] = &pcie_100_ext_ssc_plllc_cmn_vals,
- 				[INTERNAL_SSC] = &pcie_100_int_ssc_plllc_cmn_vals,
- 			},
-+			[TYPE_USB] = {
-+				[NO_SSC] = &pcie_100_no_ssc_plllc_cmn_vals,
-+				[EXTERNAL_SSC] = &pcie_100_ext_ssc_plllc_cmn_vals,
-+				[INTERNAL_SSC] = &pcie_100_int_ssc_plllc_cmn_vals,
-+			},
- 		},
- 		[TYPE_USB] = {
- 			[TYPE_NONE] = {
- 				[EXTERNAL_SSC] = &usb_100_ext_ssc_cmn_vals,
- 			},
-+			[TYPE_PCIE] = {
-+				[EXTERNAL_SSC] = &usb_100_ext_ssc_plllc1_cmn_vals,
-+				[INTERNAL_SSC] = &usb_100_int_ssc_plllc1_cmn_vals,
-+			},
- 		},
- 		[TYPE_SGMII] = {
- 			[TYPE_PCIE] = {
-@@ -2693,11 +2864,20 @@ static const struct cdns_sierra_data cdns_ti_map_sierra = {
- 				[EXTERNAL_SSC] = &ti_ml_pcie_100_ext_ssc_ln_vals,
- 				[INTERNAL_SSC] = &ti_ml_pcie_100_int_ssc_ln_vals,
- 			},
-+			[TYPE_USB] = {
-+				[NO_SSC] = &ti_ml_pcie_100_no_ssc_ln_vals,
-+				[EXTERNAL_SSC] = &ti_ml_pcie_100_ext_ssc_ln_vals,
-+				[INTERNAL_SSC] = &ti_ml_pcie_100_int_ssc_ln_vals,
-+			},
- 		},
- 		[TYPE_USB] = {
- 			[TYPE_NONE] = {
- 				[EXTERNAL_SSC] = &usb_100_ext_ssc_ln_vals,
- 			},
-+			[TYPE_PCIE] = {
-+				[EXTERNAL_SSC] = &usb_100_ml_ln_vals,
-+				[INTERNAL_SSC] = &usb_100_ml_ln_vals,
-+			},
- 		},
- 		[TYPE_SGMII] = {
- 			[TYPE_PCIE] = {
+ 		pinctrl_aop: pinctrl@2100f0000 {
+
 -- 
-2.34.1
+2.49.0
 
 
