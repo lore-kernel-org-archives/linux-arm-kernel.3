@@ -4,88 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195FFC71132
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416E7C71131
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1IEUo4OXi/6u8Jsr6TBxYCa+QoyT/MABPEkrypIa5tU=; b=tnfkkhFXAA0/DMsAbH1NJmhIBT
-	SeXXynJ2G/FqEzeG1U5RVC/rBmDRshU1HWjTCxgK3lvgbHAQVoJubGFBFN05gkQtRSlnB7EHBXLgu
-	J+ROYzfpeX7U8s9vmD3GdiZH+0L9FqrOhnZ+Te7GzD5mHAeaE4CpM6bFEWmAb+5SwK7mo3Z0Bjl3A
-	lshmJN2DU5U8k1Qk+tIazxrFqTm5h9N1hIQiRtaKkjbkyMRt0YwNOfhCnWl4eMNtKhEHgzMH9BMFF
-	6hJtMeU3EVmIIkmYdixR8F20g8AxqQ4xL2/0+iO/4H5EdkfWv+/6fCnXctblhbZVXlo/YUxhbVo7G
-	2qPqt0tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q4/7YcHOJk8pcgCRAPXwjfzMSoGswYVFHcG8wx1J9Ps=; b=xK6Y3JY3ovxrsYjjr+BTwLGgnc
+	y7hdccOFpchgHoMF4rwprtb8Tmk6NCNYkHIZSScu3mTSr/okDJcJ6v9foxSEHdiGhv2A103KtbUIC
+	7yw/IWRb270d797qg7vFSK0FVxWYDRpbMBSXIccYY7SRRcOTtYOVhhKDLeVe8sMy6Elw4s5d6EXWx
+	d1OUAtfH9D5IWrt9PlmAGzEL9ZKJFtEMmOBgnpXnyS5fOFfBFDgIwAYvsbvilSyThja0dk/m422U/
+	Fumvp7tmo0/brBxqKcmbDGpLnXidaskwinEFsoYNT//vqBw1psI2d7TzPDtfjWW7rvJtzfqFUlMn8
+	Swb/Cp9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyxK-00000006wv9-48h2;
-	Tue, 10 Jun 2025 13:23:58 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1uOyxL-00000006wwC-2wbF;
+	Tue, 10 Jun 2025 13:23:59 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxHu-00000006fUr-0WVr
+	id 1uOxIo-00000006fdL-1W87
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 11:37:07 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-48d4e47eec8so10084431cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 04:37:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749555425; x=1750160225; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1IEUo4OXi/6u8Jsr6TBxYCa+QoyT/MABPEkrypIa5tU=;
-        b=Yrk8meyRkGJuPf6xAAEPOc//S9t3zMh7XQsAz1JBKkAbMNZSlv/xz+tpjZPmmiLmuA
-         p9xMkTGX0mKEGshMYgQXf9I5dLrblmrYdYP0awnv+tBBQ53Fyb2R2f5xJM0UqggA2L5I
-         lksO6mxNOyGaq+FUdkOjJ1Jkn3/SLp5MgpAuZf1rmZsB9TjsfrqZzGJWE9dhbg9Jz5om
-         DSNijIr62ZZ69UnWlQ7cVwTOcuLNjdl0zwCQEHCuQyIuhVtsS/A3Tm5d0aU56OtN8roL
-         lZhbQ1G2ZyIequWrFvyi+t7Q2CRBrZuHkDh2yncM4ylljoB6+wNVbBzV9I/E7Wg6gUNa
-         AdNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749555425; x=1750160225;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1IEUo4OXi/6u8Jsr6TBxYCa+QoyT/MABPEkrypIa5tU=;
-        b=XYcXG7ss8PrypandCUU1l8ycC2lgkqCuoYDx/XbOURvtSc+A7VvrVDq4xMCFMGJvGu
-         rdW0k66T9wfXcvaAtGeyE4HZODgg3bJoLMljALf1TLzB9whoyoZkYQQvSmEKYDWVdYR/
-         j0lIYg1fJ4baR0wKMTUH7dGMwFp8SGz8+227O17c2WjAWd2Y8CTRRXjswS96gsHvY4wx
-         pQQHr/+3lbllYiWiEL7x2IEEorbfggrhDIa6uJwwQySFz/d9l7+QzitR4Uu40zLml3rr
-         tSL/OTD6ARJAD6G9Tn9Z6Gj8AplzX4VEY1TFHWFB/r1A37VVAMJVWstDEXytt/LdWVy5
-         68jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUrI4VTRWWyW5rqMfsI6lmyy06XdcHbIJVVJVFoyMhdILtS8XSqKENGfYTjl/0MT0ZH96+pxKuYLbI/bOgZjzfz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL7BwdSt58mlEMETHRvcopdVHJIaf08j3WD1HkyeeHKB+6h5F9
-	+h0n791SSmuzu8GpjFxV3+9VHG0XGFYguhbTZAKljV1rHcdwhm9ot1Qw67+tb0rYtZsRuE/R2+0
-	PUrIEIF5C/zUCYqN6stzCj6BmEwmVxbltBt/aobcE2g==
-X-Gm-Gg: ASbGnctuOzYyW2p061OXOPNPEJ0c94kaeavjzPqIGvxzktYrruuoUKRItU0/gbohIDZ
-	ukqv3w0xuUQrHN3kW/lDkhOKBiKFqS15sl9a1UJO/1wZATBXs96sS58GZ+FlBreCYgm0NGxdkjH
-	4vCQ05uWkEjWotb+Dwa4UVN/Ap02sQucMH5Dgiy7kimQ==
-X-Google-Smtp-Source: AGHT+IHvHKo08me5RcB6HhT8MUj1njWXYeU3P86l+7s/He8833skTN9xQoNPfcqRdrNFzqssiZdslfW5Rg84q+3rI0M=
-X-Received: by 2002:ad4:5d44:0:b0:6fa:c5be:dabd with SMTP id
- 6a1803df08f44-6fb09f8a766mr87178436d6.11.1749555424663; Tue, 10 Jun 2025
- 04:37:04 -0700 (PDT)
+	Tue, 10 Jun 2025 11:38:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XIphlYdraIbEeiFl3bz5Xf7Gng1dBbuJjhT+BY9M43OJ8t885zPBJT4W1YXz1+qH7aZ/FMCZ9z+Gf3wC8VHhf+IoMN+LzKkLmeNOKPSJ95NRnzrPqmlZoaYVMaTXNfV0/iKlxH75dY1WSV4U4c2tYMqQ2FFT6yZPp/FQ9ujpksR+fzIphCoTrFHTqp/6+bYbyxDYcXJRUpM0PcwrnlzuFx0sJtNYkyzgJAywMUgonfAIoNDI0t5J1w8Wl1zfUGb/4XAhfWJZ/xmIZEoE6NnpUORrhyDFu86iXQ5Gltaij66H7V7qdR7UlEGh99qtkPq3rOmBmxufrKsd5aJ/48auXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q4/7YcHOJk8pcgCRAPXwjfzMSoGswYVFHcG8wx1J9Ps=;
+ b=UlcAkOtZSASrAhl1j3qcIPVT/ir6UNLeBKLptToLnkG4qVAtFwdcvs2ApBMQ+NN7tIXtcCqWbpKscd4MD9QC5FRyQ48ugNkBqOF+mRJAnFEYXXro2BY3honBJ56GW5To5NgrSqtArwnX0FnOfEMwkW7xTDlWDj5nFZEY6P6arKn8XuvEHpGsZmk5pL/vnBvZ8naGWn5PcvvJF/SHoE3st5OmQvsrpsDi7u+qqTOlrvpYAZdLQC3kYc4r9pKfKAUdmF5RBlwVMvWR3eEoFySLYKc/RjLJoBfhfTKovdbp5DyfoLz3lTUwglcBq21riNp8qb44WgOiGnZmhOQWHNz9gA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q4/7YcHOJk8pcgCRAPXwjfzMSoGswYVFHcG8wx1J9Ps=;
+ b=Fvvp3iYf7cG1UhEJzn1eGjIMXOKz8tVtiZ1G2AYE70UohmQjOuPyHr3P5K+2tCfKZ0h9LHCNEr66nD2nZVoOc4Z8IdZohBGwal3IvrCBBmcVWXZpMf2zw4XdqD2jMyr8GF4Fi5Zjcga0+jOAk3ykzqUXk7lxAIsMKoYFcGTLx3e3QD7O+WQSB3X1XEWoV8+RzkAO+DX/2k1+UM2WkF68YXJWR3kZTFDurLoFIR5ByFn4zUm8oTyVj2UEWz26rkZiwQPQ9BwdfvhKroXFSjVjDDfzySGAYPVia/N3iwD2vVyLuBw3SPrBuE/lo3LND7dRnvbMJWAHr1FC9xR5g0lr/w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
+ by PAXPR04MB8476.eurprd04.prod.outlook.com (2603:10a6:102:1df::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Tue, 10 Jun
+ 2025 11:37:59 +0000
+Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
+ ([fe80::cdc5:713a:9592:f7ad%6]) with mapi id 15.20.8813.021; Tue, 10 Jun 2025
+ 11:37:58 +0000
+Date: Tue, 10 Jun 2025 19:33:19 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: "Peter Chen (CIX)" <peter.chen@kernel.org>
+Cc: John Ernberg <john.ernberg@actia.se>, Shawn Guo <shawnguo2@yeah.net>, 
+	Shawn Guo <shawnguo@kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
+Message-ID: <l6bupsg2vk7uvajhd4gkrqbh5eomlgldnljcy3r6acddfxdmkm@56bseizyfkqr>
+References: <aEZxmlHmjeWcXiF3@dragon>
+ <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
+ <aEbstxkQmji4tfjf@w447anl.localdomain>
+ <20250610021243.GA1610560@nchen-desktop>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610021243.GA1610560@nchen-desktop>
+X-ClientProxiedBy: MA0PR01CA0121.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:11d::11) To PAXPR04MB8829.eurprd04.prod.outlook.com
+ (2603:10a6:102:20c::17)
 MIME-Version: 1.0
-References: <CA+G9fYuppX5LeRjOAZWsYRCs76PVbnv-TN_RrszhDsk=KregyA@mail.gmail.com>
- <15979303.uLZWGnKmhe@diego>
-In-Reply-To: <15979303.uLZWGnKmhe@diego>
-From: Anders Roxell <anders.roxell@linaro.org>
-Date: Tue, 10 Jun 2025 13:36:53 +0200
-X-Gm-Features: AX0GCFt6fIa22bGlOZEBQVbwxbv765S6LyHqHyQH8BFAYJiOCtlXCLCPP7EEZaI
-Message-ID: <CADYN=9L+Gao0w_CThNd96-yYbZDMZnwY7RvagCOdzUC4rKc-Ug@mail.gmail.com>
-Subject: Re: next-20250610: arm64 No rule to make target rockchip rk3399-rockpro64-screen.dtso
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Regressions <regressions@lists.linux.dev>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, Naresh Kamboju <naresh.kamboju@linaro.org>, 
-	Peter Robinson <pbrobinson@gmail.com>, krzk+dt@kernel.org, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|PAXPR04MB8476:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89796644-2225-409c-243c-08dda8133f6b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MlS1/yZmUUi6N7IjNrX7D4gV6AUGqPS29/mZYxNAguVOeQEYAdLHswnhgg+j?=
+ =?us-ascii?Q?1GkkarkqROb+yoMVVIsceKF6lY8oQsw+GK3jWheTKtPnen6D++3GVc5fh6NK?=
+ =?us-ascii?Q?xwG3ybRNGGLQM2NXCSqWgledMjlZZW/QkalxDuDc01tNxwRr1Q0AVinhAg79?=
+ =?us-ascii?Q?LmpEALhQB4nbiqSYYPCtNXMj13lYykVUjZyzoxJpUY/2LFTmsfiyIUbVWvAm?=
+ =?us-ascii?Q?OufqOcVkWLoR6rCV8NzDWqN+6WfatBBhpiZWH3g5zvJLRmpvvJCRN+Ozyoh2?=
+ =?us-ascii?Q?AZiKTN+hERBOJC8lZhsxQAeUrP/+eQbd+s1fxwHv4YRZsPw0dzyNabayWdy1?=
+ =?us-ascii?Q?XrnUncFQV226MYLMo1+JoFrlbVROvTYqdHzsURTh27WQgI76qWMy8HiKtQQ2?=
+ =?us-ascii?Q?aCzfNptftWGOtcuLQhl//JWMsBTryweerLFxA/VGlLP+0axKLbPOjNErmnpa?=
+ =?us-ascii?Q?SHfk1l9eY1UFAqp/vQKZzfyHCB+w7nntS3IEUyZjCaFRPyiQtkTbWjEreEjH?=
+ =?us-ascii?Q?vzJ3kL4LZH3Eto7iWecNzE/E0dA5iLZFXghiNFvyFUHdV0tlYWaR92b1CG3n?=
+ =?us-ascii?Q?ed7FqeOxrO0rlG1IEn0RP1NMVcyQhfa6wzXnVuxSkVt8gs9ogq+DMOk9eoxf?=
+ =?us-ascii?Q?cTLJqgBma/jMe1n/JIxeOnVTpMgKKYsbAQq5PbB3/Se2sRNPVRGPAyzGhJTY?=
+ =?us-ascii?Q?HeD5RmC4EY32CLp7hy/Ro82p/2RVFI695zUR0VpN85qX5hYHV+X/C6mgtE5E?=
+ =?us-ascii?Q?88L87RTBWi8lvW/iN+WY6FhhA2xC3sEq46eiZLJN8jWxzXENlaJqt6wne5w6?=
+ =?us-ascii?Q?Y8aeqK0aZpAWPtnvEPRucgBDj7a3+Aoar2axf0l4km7hR7wSJlZqWp+YwP0m?=
+ =?us-ascii?Q?7uDnkKzL1anRNqpboy8qAtLgRP+GoTQEEDwjwWNKzJagRyLZgO/7LJFT5+zX?=
+ =?us-ascii?Q?omrBWih6l9ONATr6SKDpfnYX8vGzuN8x9TdgEgfMEHoiD3zcYSHXV4pHR1pf?=
+ =?us-ascii?Q?92OhBUWVwU2w+kBhojqjFmvOc98xtprqADIbfCvcogn4uV8ks6+vt703Glrp?=
+ =?us-ascii?Q?/Chy4jxM/uSGpqURUQ3+KRmclJDIp02SicIDn6D6XFJe61jAa3lBMg4cel+v?=
+ =?us-ascii?Q?e1UwzpZU6aqbT8xgkWYpuKq77FUYQIDkk13D+JrOfbM0gehdjcdJwWdT+reE?=
+ =?us-ascii?Q?cHGPmYAcg+uwbhU6k1iMRnYLR0YSa9nMVYjhtgVGJec9kB5x/p19glo60U6/?=
+ =?us-ascii?Q?4ob2kQQLnLlqcRmJBY/q2xEZSvEWhds3KGC3IMaB20btjsO7DBXcqY4nPggy?=
+ =?us-ascii?Q?YHzEhfIOlw+B1HhXFmF6uSi3gJQb5u60AHpTWqMshjmFGFHEl0JXKELtXcIV?=
+ =?us-ascii?Q?XplrmnVarA18d30M4b3zgNGeXRWNKZ64GhmcDrwDqD65CoTWzrhNdLyRXXGK?=
+ =?us-ascii?Q?OybZcAP54T9xVc2dKzYV4HMLUq6tmRwu99TwLblFfN/Eq/kJ1Oe0n2lX7qrK?=
+ =?us-ascii?Q?YDfD+/Nv4PeTbAs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kJ2cuP6C0xkokzYYaEXA7Ivz6jxBYHIuevCyuSAxNhfXM+MWwqgxBfUEAESv?=
+ =?us-ascii?Q?0B4h1RrgZweCtjDpyc/8FjslG5R0gq+8f1CeIJeJtnDtoF93d7mAnw3Rwp1K?=
+ =?us-ascii?Q?ElTjAG+MuKVlW2o3pySr56VNVA393WuvLC0O9K04+XoF232k8pmVYMpYlN9Z?=
+ =?us-ascii?Q?tGZHe5MUd2pLctMWodKleYOvbuOyKdkiUEHSQR5LaMUFqi/Om+YUaDb/ahnz?=
+ =?us-ascii?Q?HHp39UH4BPJTdS8vQswHE9TQj4RtEK3U3Yjr8dB7bAkiewC59pWjWmGe49TM?=
+ =?us-ascii?Q?2d+HLz980nqerRcv588WD3RglQ7Ewwe/W2SGUU1LqvjKhININEW8MPN8t07/?=
+ =?us-ascii?Q?kX2wo4GWiVlW3zNClSIQh47+DZUuDn++HNrbPmX978LggOpbcYg5rHsK+c5r?=
+ =?us-ascii?Q?2XVRVjGcAgUDKGH0ACVt+OKbIk3UjP/sdRdyjKTqFO4LKaVAXVqOoy0HnTW+?=
+ =?us-ascii?Q?7wvQZDSqoOKDTKinTb9M39CDMaW9aLd3xN544eHjchPv60AY4JGjehWi+DCc?=
+ =?us-ascii?Q?H72bLXvIW/Swcns4iS15+t/INgS1QL71IMSHH4bOsrI99Vn/st4oJ4bsNpX/?=
+ =?us-ascii?Q?emuMXOx2vgIDuo3TULrI1TCogwyQZRQOk13DjJrSsJbxzdyjgk94rU3e8aBQ?=
+ =?us-ascii?Q?iTaNO885veLtGEu2nf2w2LZHv3j5MAp1Qc7ycEInPt3cI8Afi5HZ8RTZrKIr?=
+ =?us-ascii?Q?Bcc09edkng8xucV5aWbcc68mi7Y+3znVW+H5t9meWpR9w7DHjctmMEmSDXVY?=
+ =?us-ascii?Q?MosNFnpN36FbyGXpHzlmsvDTAH+Lz6+yvp8r2zGaht+HQWIheO9QwgSZrQBm?=
+ =?us-ascii?Q?pjzB12lerF65a/nRr4Bw+JR73bajTZuP7Pa6JD3MQaq2rOy5rqf/TwQnTdEJ?=
+ =?us-ascii?Q?nCy5HEGjyZ43HTixcI3YsNW4fbC4BQqtcqFRyzIdGPlLQTWZp1PTtCO+1zNc?=
+ =?us-ascii?Q?rmyhtKHjEWXr3eU1IbPPHlk2Hvix7DRPB4S4Uhyolfl5cL8n2gUcPjeDpB6L?=
+ =?us-ascii?Q?mpbfBB4uWF+myyoJ39CXgbQeCpsqAUCKW+f79vkvDoq6uTlVAV/+kc6mgwZj?=
+ =?us-ascii?Q?YqX/6R4pZyT3yTwXnMa1WxyAKnWnUSur0n3MUPrC/QKe5ecBJMQstaMTcvKO?=
+ =?us-ascii?Q?dQPCLDXUzQNoK8TAtjb1zOklqB+A9JVuhi+Yb8C7Nf83CtmtkJQADcLabdls?=
+ =?us-ascii?Q?wC10oBrwpSAc8ME4fkQVAwdI0yrzIGOqB8I4FD1H8VT4HOt7KvVTgSpQvoZS?=
+ =?us-ascii?Q?AvEQkbkY1B/1CxNNfpLxYYwVn9dh+SSOZgIA17f4Iexn1p92/b+zqiKTHk6a?=
+ =?us-ascii?Q?+Xzr7E5UuQwBTdJ0ge8rAakhJDDdXoVGThRz9ahJDhXYB9lvEi9gmOJ9cGIo?=
+ =?us-ascii?Q?/5kUFK0Sx+hhAWhhX/kV8GvOz0k+OKl9+PJne///DDIVEfSJRLsKR6ptjYEO?=
+ =?us-ascii?Q?pMznfbhh87zUfwWqoafWxws/SIx7A+YYcsplBeJq7/3dVaTY9AM494BWpHi7?=
+ =?us-ascii?Q?09M+03aO0WO1eIosaVRgWYG+wQrH4duGAkjCCHX4eBNlUm+W6HvGf169/7Xq?=
+ =?us-ascii?Q?Y0S1i1LA0lKKtxyTvcn01JH/3RG7HJECYQed926H?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89796644-2225-409c-243c-08dda8133f6b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 11:37:58.8931
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: b0iRc27y9cw4WvL2cxaLlio3yXwdvrQNli0jzRGZWjaF6CY/XqcdIw76cNVHMZvaiCHd8/GhdBQU+7ADMMKJmw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8476
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_043706_173837_3B12D08B 
-X-CRM114-Status: GOOD (  15.29  )
+X-CRM114-CacheID: sfid-20250610_043802_565055_2E48D8A0 
+X-CRM114-Status: GOOD (  52.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,72 +161,580 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Jun 2025 at 13:22, Heiko St=C3=BCbner <heiko@sntech.de> wrote:
->
-> Hi Naresh,
+On Tue, Jun 10, 2025 at 10:12:43AM +0800, Peter Chen (CIX) wrote:
+> On 25-06-09 14:17:30, John Ernberg wrote:
+> > Hi Shawn, Xu,
+> > 
+> > On Mon, Jun 09, 2025 at 07:53:22PM +0800, Xu Yang wrote:
+> > > Hi Shawn,
+> > > 
+> > > Thanks for your reports!
+> > > 
+> > > On Mon, Jun 09, 2025 at 01:31:06PM +0800, Shawn Guo wrote:
+> > > > Hi Xu, Peter,
+> > > > 
+> > > > I'm seeing a kernel hangup on imx8mm-evk board.  It happens when:
+> > > > 
+> > > >  - USB gadget is enabled as Ethernet
+> > > >  - There is data transfer over USB Ethernet
+> > > >  - Device is going in/out suspend
+> > > > 
+> > > > A simple way to reproduce the issue could be:
+> > > > 
+> > > >  1. Copy a big file (like 500MB) from host PC to device with scp
+> > > > 
+> > > >  2. While the file copy is ongoing, suspend & resume the device like:
+> > > > 
+> > > >     $ echo +3 > /sys/class/rtc/rtc0/wakealarm; echo mem > /sys/power/state
+> > > > 
+> > > >  3. The device will hang up there
+> > > > 
+> > > > I reproduced on the following kernels:
+> > > > 
+> > > >  - Mainline kernel
+> > > >  - NXP kernel lf-6.6.y
+> > > >  - NXP kernel lf-6.12.y
+> > > > 
+> > > > But NXP kernel lf-6.1.y doesn't have this problem.  I tracked it down to
+> > > > Peter's commit [1] on lf-6.1.y, and found that the gadget disconnect &
+> > > > connect calls got lost from suspend & resume hooks, when the commit were
+> > > > split and pushed upstream.  I confirm that adding the calls back fixes
+> > > > the hangup.
+> > 
+> > We probably ran into the same problem trying to bring onboard 6.12, going
+> > from 6.1, on iMX8QXP. I managed to trace the hang to EP priming through a
+> > combination of debug tracing and BUG_ON experiments. See if it starts
+> > splatin with the below change.
+> 
+> Hi John and Shawn,
+> 
+> Like Alan and Xu's suggestion, there are probably two problems here:
+> - When the system enters the suspend, the USB bus may neither at suspend
+> nor disconnect state if USB controller/phy's power is not off and VBUS
+> is there. So, the host still considers the device is active, it could
+> trigger transfer any time. If the transfer occurs during system resume,
+> the USB controller triggers interrupt to CPU, and USB's interrupt handler
+> is triggered. If the USB's hardware is still at low power mode (or clock
+> is gated off), it may cause system hang (CPU gets error response from USB)
+> after access register.
+> 
+> With Shawn's change, it pulls D+ down during the suspend, and the host
+> is notified of disconnection, so the host will not trigger transfer
+> until D+ is pulled up by calling usb_gadget_connect. The USB leaves
+> low power mode (and turn clock on) before that, the access register
+> will not cause system hang.
+> 
+> - The current chipidea driver doesn't notify gadget driver when it
+> enters system suspend routine. In fact, during system suspend/resume,
+> the controller driver may not respond middle layer's (network) request 
+> well due to it enters low power mode, so calling usb_gadget_driver->
+> disconnect (composite_disconnect) is needed during controller's suspend
+> routine, it calls function->disable for USB function driver and
+> ends/stop middle layer process.
 
-Hi Heiko,
+Thank you Peter! I'll improve this part later.
 
->
-> Am Dienstag, 10. Juni 2025, 12:25:31 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Naresh Kamboju:
-> > Regression while building arm64 with the Linux next-20250610
+Best Regards,
+Xu Yang
 
-[...]
-
-> > https://storage.tuxsuite.com/public/linaro/lkft/builds/2yJ4IOQa1XxMqDgm=
-zjEl7VszYE9/build.log
-> > * Build link:  https://storage.tuxsuite.com/public/linaro/lkft/builds/2=
-yJ4IOQa1XxMqDgmzjEl7VszYE9/
-> > * Kernel config:
-> > https://storage.tuxsuite.com/public/linaro/lkft/builds/2yJ4IOQa1XxMqDgm=
-zjEl7VszYE9/config
->
-> thanks a lot for this notification.
->
-> I'm surprised that overlay build at all when I built it yesterday.
-> But yeah, the dtbs_install target really broke with that change.
->
-> I've amended the commit now [0]
-
-Thank you for the quick fix.
-I applied your patch and built it, it worked fine for me.
-
-I built it like this:
-tuxmake --runtime podman --target-arch arm64 --toolchain gcc-13
---kconfig defconfig dtbs
-
-Tested-by: Anders Roxell <anders.roxell@linaro.org>
-
-
-Cheers,
-Anders
-
->, to change dtso to dtbo and ran the
-> dtbs_install target sucessfully with that change.
->
-> So on the next linux-next creation, this should hopefully be gone.
->
->
-> Heiko
->
-> [0] https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.=
-git/commit/?h=3Dv6.17-armsoc/dts64&id=3De14491aaa6ff598bbe9d462e44c01ac6575=
-4f445
->
->
->
-> >
-> > ## Steps to reproduce
-> >  - tuxmake --runtime podman --target-arch arm64 --toolchain gcc-13
-> > --kconfig defconfig
-> >
-> > --
-> > Linaro LKFT
-> > https://lkft.linaro.org
-> >
->
->
->
->
+> 
+> Peter
+> 
+> > 
+> > ----------------->8------------------
+> > 
+> > From 092599ab6f9e20412a7ca1eb118dd2be80cd18ff Mon Sep 17 00:00:00 2001
+> > From: John Ernberg <john.ernberg@actia.se>
+> > Date: Mon, 5 May 2025 09:09:01 +0200
+> > Subject: [PATCH] USB: ci: gadget: Panic if priming when gadget off
+> > 
+> > ---
+> >  drivers/usb/chipidea/udc.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+> > index 2fea263a5e30..544aa4fa2d1d 100644
+> > --- a/drivers/usb/chipidea/udc.c
+> > +++ b/drivers/usb/chipidea/udc.c
+> > @@ -203,8 +203,10 @@ static int hw_ep_prime(struct ci_hdrc *ci, int num, int dir, int is_ctrl)
+> >  
+> >     hw_write(ci, OP_ENDPTPRIME, ~0, BIT(n));
+> >  
+> > -   while (hw_read(ci, OP_ENDPTPRIME, BIT(n)))
+> > +   while (hw_read(ci, OP_ENDPTPRIME, BIT(n))) {
+> >         cpu_relax();
+> > +       BUG_ON(dir == TX && !hw_read(ci, OP_ENDPTCTRL + num, ENDPTCTRL_TXE));
+> > +   }
+> >     if (is_ctrl && dir == RX && hw_read(ci, OP_ENDPTSETUPSTAT, BIT(num)))
+> >         return -EAGAIN;
+> >  
+> > ----------------->8------------------
+> > 
+> > On the iMX8QXP you may additionally run into asychronous aborts and SError
+> > due to resource being disabled.
+> > 
+> > > > 
+> > > > ---8<--------------------
+> > > > 
+> > > > diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+> > > > index 8a9b31fd5c89..72329a7eac4d 100644
+> > > > --- a/drivers/usb/chipidea/udc.c
+> > > > +++ b/drivers/usb/chipidea/udc.c
+> > > > @@ -2374,6 +2374,9 @@ static void udc_suspend(struct ci_hdrc *ci)
+> > > >          */
+> > > >         if (hw_read(ci, OP_ENDPTLISTADDR, ~0) == 0)
+> > > >                 hw_write(ci, OP_ENDPTLISTADDR, ~0, ~0);
+> > > > +
+> > > > +       if (ci->driver && ci->vbus_active && (ci->gadget.state != USB_STATE_SUSPENDED))
+> > > > +               usb_gadget_disconnect(&ci->gadget);
+> > > >  }
+> > > >  
+> > > >  static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+> > > > @@ -2384,6 +2387,9 @@ static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+> > > >                                         OTGSC_BSVIS | OTGSC_BSVIE);
+> > > >                 if (ci->vbus_active)
+> > > >                         usb_gadget_vbus_disconnect(&ci->gadget);
+> > > > +       } else {
+> > > > +               if (ci->driver && ci->vbus_active)
+> > > > +                       usb_gadget_connect(&ci->gadget);
+> > > >         }
+> > > >  
+> > > >         /* Restore value 0 if it was set for power lost check */
+> > > > 
+> > > > ---->8------------------
+> > > 
+> > > During the scp process, the usb host won't put usb device to suspend state.
+> > > In current design, then the ether driver doesn't know the system has
+> > > suspended after echo mem. The root cause is that ether driver is still tring
+> > > to queue usb request after usb controller has suspended where usb clock is off,
+> > > then the system hang.
+> > > 
+> > > With the above changes, I think the ether driver will fail to eth_start_xmit() 
+> > > at an ealier stage, so the issue can't be triggered.
+> > > 
+> > > I think the ether driver needs call gether_suspend() accordingly, to do this,
+> > > the controller driver need explicitly call suspend() function when it's going
+> > > to be suspended. Could you check whether below patch fix the issue?
+> > > 
+> > >  ---8<--------------------
+> > > 
+> > > diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+> > > index 8a9b31fd5c89..27a7674ed62c 100644
+> > > --- a/drivers/usb/chipidea/udc.c
+> > > +++ b/drivers/usb/chipidea/udc.c
+> > > @@ -2367,6 +2367,8 @@ static void udc_id_switch_for_host(struct ci_hdrc *ci)
+> > >  #ifdef CONFIG_PM_SLEEP
+> > >  static void udc_suspend(struct ci_hdrc *ci)
+> > >  {
+> > > +       ci->driver->suspend(&ci->gadget);
+> > > +
+> > >         /*
+> > >          * Set OP_ENDPTLISTADDR to be non-zero for
+> > >          * checking if controller resume from power lost
+> > > @@ -2389,6 +2391,8 @@ static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+> > >         /* Restore value 0 if it was set for power lost check */
+> > >         if (hw_read(ci, OP_ENDPTLISTADDR, ~0) == 0xFFFFFFFF)
+> > >                 hw_write(ci, OP_ENDPTLISTADDR, ~0, 0);
+> > > +
+> > > +       ci->driver->resume(&ci->gadget);
+> > >  }
+> > >  #endif
+> > > 
+> > >  ---->8------------------
+> > 
+> > I tested this during my debugging and it doesn't work because suspend/resume
+> > callbacks on the gadgets are designed for USB triggered suspend/resume and
+> > not system triggered suspend/resume. Meaning that the link will just be
+> > woken up again by the next USB transfer.
+> > 
+> > > 
+> > > Thanks,
+> > > Xu Yang
+> > > 
+> > > > 
+> > > > But it's unclear to me why the hangup happens and how the change above
+> > > > fix the problem.  Do you guys have any insight here?o
+> > > > 
+> > > > Shawn
+> > > > 
+> > > > [1] https://github.com/reMarkable/linux-imx/commit/0791d25578cb0e46fd93ae7a3c36ff7a424f3547
+> > > > 
+> > 
+> > I didn't find the missing lines of code that Shawn found and instead ended
+> > up looking at why the UDC core isn't suspending the gadgets when the system
+> > is going to suspend. Because to me it feels like a job of UDC core.
+> > 
+> > I ended up with the monstrosity below that I have been intended to send as
+> > an RFC when I'm done thinking about it. It currently applies on 6.12.20.
+> > 
+> > But since Shawn also ran into the problem I'm including it for the sake of
+> > discussion about what the correct path of solving it is.
+> > 
+> > Best regards // John Ernberg
+> > 
+> > ----------------->8------------------
+> > 
+> > From 3c1d167f1eff0bd010b797530e3d03f6939db322 Mon Sep 17 00:00:00 2001
+> > From: John Ernberg <john.ernberg@actia.se>
+> > Date: Mon, 5 May 2025 09:09:50 +0200
+> > Subject: [PATCH] WIP: Suspend getherlink on system suspend
+> > 
+> > ---
+> >  drivers/usb/gadget/composite.c        | 68 +++++++++++++++++++++++++++
+> >  drivers/usb/gadget/configfs.c         | 53 +++++++++++++++++++++
+> >  drivers/usb/gadget/function/f_ecm.c   | 22 +++++++++
+> >  drivers/usb/gadget/function/u_ether.c | 34 ++++++++++++++
+> >  drivers/usb/gadget/function/u_ether.h |  2 +
+> >  drivers/usb/gadget/udc/core.c         | 29 ++++++++++++
+> >  include/linux/usb/composite.h         |  4 ++
+> >  include/linux/usb/gadget.h            |  2 +
+> >  8 files changed, 214 insertions(+)
+> > 
+> > diff --git a/drivers/usb/gadget/composite.c b/drivers/usb/gadget/composite.c
+> > index 8402a86176f4..f1ed1db1e1d0 100644
+> > --- a/drivers/usb/gadget/composite.c
+> > +++ b/drivers/usb/gadget/composite.c
+> > @@ -2669,6 +2669,72 @@ void composite_resume(struct usb_gadget *gadget)
+> >  	cdev->suspended = 0;
+> >  }
+> >  
+> > +int composite_system_suspend(struct usb_gadget *gadget)
+> > +{
+> > +	struct usb_composite_dev	*cdev = get_gadget_data(gadget);
+> > +	struct usb_function		*f;
+> > +	int				ret;
+> > +
+> > +	DBG(cdev, "system suspend\n");
+> > +	if (cdev->config) {
+> > +		list_for_each_entry(f, &cdev->config->functions, list) {
+> > +			if (f->system_suspend) {
+> > +				ret = f->system_suspend(f);
+> > +				if (ret)
+> > +					return ret;
+> > +			}
+> > +		}
+> > +	}
+> > +
+> > +	if (cdev->config &&
+> > +	    cdev->config->bmAttributes & USB_CONFIG_ATT_SELFPOWER)
+> > +		usb_gadget_set_selfpowered(gadget);
+> > +
+> > +	usb_gadget_vbus_draw(gadget, 2);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +int composite_system_resume(struct usb_gadget *gadget)
+> > +{
+> > +	struct usb_composite_dev	*cdev = get_gadget_data(gadget);
+> > +	struct usb_function		*f;
+> > +	unsigned			maxpower;
+> > +	int				ret;
+> > +
+> > +	DBG(cdev, "system resume\n");
+> > +	if (cdev->config) {
+> > +		list_for_each_entry(f, &cdev->config->functions, list) {
+> > +			if (f->system_resume) {
+> > +				ret = f->system_resume(f);
+> > +				if (ret)
+> > +					return ret;
+> > +			}
+> > +		}
+> > +
+> > +		maxpower = cdev->config->MaxPower ?
+> > +			cdev->config->MaxPower : CONFIG_USB_GADGET_VBUS_DRAW;
+> > +		if (gadget->speed < USB_SPEED_SUPER)
+> > +			maxpower = min(maxpower, 500U);
+> > +		else
+> > +			maxpower = min(maxpower, 900U);
+> > +
+> > +		if (maxpower > USB_SELF_POWER_VBUS_MAX_DRAW ||
+> > +		    !(cdev->config->bmAttributes & USB_CONFIG_ATT_SELFPOWER))
+> > +			usb_gadget_clear_selfpowered(gadget);
+> > +		else
+> > +			usb_gadget_set_selfpowered(gadget);
+> > +
+> > +		usb_gadget_vbus_draw(gadget, maxpower);
+> > +	} else {
+> > +		maxpower = CONFIG_USB_GADGET_VBUS_DRAW;
+> > +		maxpower = min(maxpower, 100U);
+> > +		usb_gadget_vbus_draw(gadget, maxpower);
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  /*-------------------------------------------------------------------------*/
+> >  
+> >  static const struct usb_gadget_driver composite_driver_template = {
+> > @@ -2681,6 +2747,8 @@ static const struct usb_gadget_driver composite_driver_template = {
+> >  
+> >  	.suspend	= composite_suspend,
+> >  	.resume		= composite_resume,
+> > +	.system_suspend	= composite_system_suspend,
+> > +	.system_resume	= composite_system_resume,
+> >  
+> >  	.driver	= {
+> >  		.owner		= THIS_MODULE,
+> > diff --git a/drivers/usb/gadget/configfs.c b/drivers/usb/gadget/configfs.c
+> > index 29390d573e23..e0d2f0998e86 100644
+> > --- a/drivers/usb/gadget/configfs.c
+> > +++ b/drivers/usb/gadget/configfs.c
+> > @@ -1962,6 +1962,57 @@ static void configfs_composite_resume(struct usb_gadget *gadget)
+> >  	spin_unlock_irqrestore(&gi->spinlock, flags);
+> >  }
+> >  
+> > +static int configfs_composite_system_suspend(struct usb_gadget *gadget)
+> > +{
+> > +	struct usb_composite_dev *cdev;
+> > +	struct gadget_info *gi;
+> > +	unsigned long flags;
+> > +	int ret;
+> > +
+> > +	cdev = get_gadget_data(gadget);
+> > +	if (!cdev)
+> > +		return 0;
+> > +
+> > +	gi = container_of(cdev, struct gadget_info, cdev);
+> > +	spin_lock_irqsave(&gi->spinlock, flags);
+> > +	cdev = get_gadget_data(gadget);
+> > +	if (!cdev || gi->unbind) {
+> > +		spin_unlock_irqrestore(&gi->spinlock, flags);
+> > +		return 0;
+> > +	}
+> > +
+> > +	ret = composite_system_suspend(gadget);
+> > +	spin_unlock_irqrestore(&gi->spinlock, flags);
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +static int configfs_composite_system_resume(struct usb_gadget *gadget)
+> > +{
+> > +	struct usb_composite_dev *cdev;
+> > +	struct gadget_info *gi;
+> > +	unsigned long flags;
+> > +	int ret;
+> > +
+> > +	cdev = get_gadget_data(gadget);
+> > +	if (!cdev)
+> > +		return 0;
+> > +
+> > +	gi = container_of(cdev, struct gadget_info, cdev);
+> > +	spin_lock_irqsave(&gi->spinlock, flags);
+> > +	cdev = get_gadget_data(gadget);
+> > +	if (!cdev || gi->unbind) {
+> > +		spin_unlock_irqrestore(&gi->spinlock, flags);
+> > +		return 0;
+> > +	}
+> > +
+> > +	ret = composite_system_resume(gadget);
+> > +	spin_unlock_irqrestore(&gi->spinlock, flags);
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +
+> >  static const struct usb_gadget_driver configfs_driver_template = {
+> >  	.bind           = configfs_composite_bind,
+> >  	.unbind         = configfs_composite_unbind,
+> > @@ -1972,6 +2023,8 @@ static const struct usb_gadget_driver configfs_driver_template = {
+> >  
+> >  	.suspend	= configfs_composite_suspend,
+> >  	.resume		= configfs_composite_resume,
+> > +	.system_suspend	= configfs_composite_system_suspend,
+> > +	.system_resume	= configfs_composite_system_resume,
+> >  
+> >  	.max_speed	= USB_SPEED_SUPER_PLUS,
+> >  	.driver = {
+> > diff --git a/drivers/usb/gadget/function/f_ecm.c b/drivers/usb/gadget/function/f_ecm.c
+> > index 6cb7771e8a69..4df67d5ee0fa 100644
+> > --- a/drivers/usb/gadget/function/f_ecm.c
+> > +++ b/drivers/usb/gadget/function/f_ecm.c
+> > @@ -892,6 +892,26 @@ static void ecm_resume(struct usb_function *f)
+> >  	gether_resume(&ecm->port);
+> >  }
+> >  
+> > +static int ecm_system_suspend(struct usb_function *f)
+> > +{
+> > +	struct f_ecm *ecm = func_to_ecm(f);
+> > +	struct usb_composite_dev *cdev = ecm->port.func.config->cdev;
+> > +
+> > +	DBG(cdev, "ECM System Suspend\n");
+> > +
+> > +	return gether_system_suspend(&ecm->port);
+> > +}
+> > +
+> > +static int ecm_system_resume(struct usb_function *f)
+> > +{
+> > +	struct f_ecm *ecm = func_to_ecm(f);
+> > +	struct usb_composite_dev *cdev = ecm->port.func.config->cdev;
+> > +
+> > +	DBG(cdev, "ECM System Resume\n");
+> > +
+> > +	return gether_system_resume(&ecm->port);
+> > +}
+> > +
+> >  static void ecm_free(struct usb_function *f)
+> >  {
+> >  	struct f_ecm *ecm;
+> > @@ -961,6 +981,8 @@ static struct usb_function *ecm_alloc(struct usb_function_instance *fi)
+> >  	ecm->port.func.free_func = ecm_free;
+> >  	ecm->port.func.suspend = ecm_suspend;
+> >  	ecm->port.func.resume = ecm_resume;
+> > +	ecm->port.func.system_suspend = ecm_system_suspend;
+> > +	ecm->port.func.system_resume = ecm_system_resume;
+> >  
+> >  	return &ecm->port.func;
+> >  }
+> > diff --git a/drivers/usb/gadget/function/u_ether.c b/drivers/usb/gadget/function/u_ether.c
+> > index f58590bf5e02..d4f0e28ffd4d 100644
+> > --- a/drivers/usb/gadget/function/u_ether.c
+> > +++ b/drivers/usb/gadget/function/u_ether.c
+> > @@ -1078,6 +1078,40 @@ void gether_resume(struct gether *link)
+> >  }
+> >  EXPORT_SYMBOL_GPL(gether_resume);
+> >  
+> > +int gether_system_suspend(struct gether *link)
+> > +{
+> > +	struct eth_dev *dev = link->ioport;
+> > +	struct net_device *ndev = dev->net;
+> > +
+> > +	rtnl_lock();
+> > +	if (netif_running(ndev)) {
+> > +		netif_tx_lock_bh(ndev);
+> > +		netif_device_detach(ndev);
+> > +		netif_tx_unlock_bh(ndev);
+> > +	}
+> > +	rtnl_unlock();
+> > +
+> > +	return 0;
+> > +}
+> > +EXPORT_SYMBOL_GPL(gether_system_suspend);
+> > +
+> > +int gether_system_resume(struct gether *link)
+> > +{
+> > +	struct eth_dev *dev = link->ioport;
+> > +	struct net_device *ndev = dev->net;
+> > +
+> > +	rtnl_lock();
+> > +	if (netif_running(ndev)) {
+> > +		netif_tx_lock_bh(ndev);
+> > +		netif_device_attach(ndev);
+> > +		netif_tx_unlock_bh(ndev);
+> > +	}
+> > +	rtnl_unlock();
+> > +
+> > +	return 0;
+> > +}
+> > +EXPORT_SYMBOL_GPL(gether_system_resume);
+> > +
+> >  /*
+> >   * gether_cleanup - remove Ethernet-over-USB device
+> >   * Context: may sleep
+> > diff --git a/drivers/usb/gadget/function/u_ether.h b/drivers/usb/gadget/function/u_ether.h
+> > index 34be220cef77..ffd023b7be7b 100644
+> > --- a/drivers/usb/gadget/function/u_ether.h
+> > +++ b/drivers/usb/gadget/function/u_ether.h
+> > @@ -261,6 +261,8 @@ void gether_cleanup(struct eth_dev *dev);
+> >  
+> >  void gether_suspend(struct gether *link);
+> >  void gether_resume(struct gether *link);
+> > +int gether_system_suspend(struct gether *link);
+> > +int gether_system_resume(struct gether *link);
+> >  
+> >  /* connect/disconnect is handled by individual functions */
+> >  struct net_device *gether_connect(struct gether *);
+> > diff --git a/drivers/usb/gadget/udc/core.c b/drivers/usb/gadget/udc/core.c
+> > index 4b3d5075621a..1e4ee5ffcfbf 100644
+> > --- a/drivers/usb/gadget/udc/core.c
+> > +++ b/drivers/usb/gadget/udc/core.c
+> > @@ -1683,6 +1683,30 @@ static void gadget_unbind_driver(struct device *dev)
+> >  	kobject_uevent(&udc->dev.kobj, KOBJ_CHANGE);
+> >  }
+> >  
+> > +static int gadget_suspend_driver(struct device *dev)
+> > +{
+> > +	struct usb_gadget *gadget = dev_to_usb_gadget(dev);
+> > +	struct usb_udc *udc = gadget->udc;
+> > +	struct usb_gadget_driver *driver = udc->driver;
+> > +
+> > +	if (driver->system_suspend)
+> > +		return driver->system_suspend(gadget);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int gadget_resume_driver(struct device *dev)
+> > +{
+> > +	struct usb_gadget *gadget = dev_to_usb_gadget(dev);
+> > +	struct usb_udc *udc = gadget->udc;
+> > +	struct usb_gadget_driver *driver = udc->driver;
+> > +
+> > +	if (driver->system_resume)
+> > +		return driver->system_resume(gadget);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  /* ------------------------------------------------------------------------- */
+> >  
+> >  int usb_gadget_register_driver_owner(struct usb_gadget_driver *driver,
+> > @@ -1896,11 +1920,16 @@ static const struct class udc_class = {
+> >  	.dev_uevent	= usb_udc_uevent,
+> >  };
+> >  
+> > +static const struct dev_pm_ops gadget_bus_pm_ops = {
+> > +	SET_SYSTEM_SLEEP_PM_OPS(gadget_suspend_driver, gadget_resume_driver)
+> > +};
+> > +
+> >  static const struct bus_type gadget_bus_type = {
+> >  	.name = "gadget",
+> >  	.probe = gadget_bind_driver,
+> >  	.remove = gadget_unbind_driver,
+> >  	.match = gadget_match_driver,
+> > +	.pm = &gadget_bus_pm_ops,
+> >  };
+> >  
+> >  static int __init usb_udc_init(void)
+> > diff --git a/include/linux/usb/composite.h b/include/linux/usb/composite.h
+> > index 6e38fb9d2117..f42ba1cfd181 100644
+> > --- a/include/linux/usb/composite.h
+> > +++ b/include/linux/usb/composite.h
+> > @@ -226,6 +226,8 @@ struct usb_function {
+> >  					bool config0);
+> >  	void			(*suspend)(struct usb_function *);
+> >  	void			(*resume)(struct usb_function *);
+> > +	int			(*system_suspend)(struct usb_function *);
+> > +	int			(*system_resume)(struct usb_function *);
+> >  
+> >  	/* USB 3.0 additions */
+> >  	int			(*get_status)(struct usb_function *);
+> > @@ -522,6 +524,8 @@ extern int composite_setup(struct usb_gadget *gadget,
+> >  		const struct usb_ctrlrequest *ctrl);
+> >  extern void composite_suspend(struct usb_gadget *gadget);
+> >  extern void composite_resume(struct usb_gadget *gadget);
+> > +extern int composite_system_suspend(struct usb_gadget *gadget);
+> > +extern int composite_system_resume(struct usb_gadget *gadget);
+> >  
+> >  /*
+> >   * Some systems will need runtime overrides for the  product identifiers
+> > diff --git a/include/linux/usb/gadget.h b/include/linux/usb/gadget.h
+> > index df33333650a0..8cdfdece1561 100644
+> > --- a/include/linux/usb/gadget.h
+> > +++ b/include/linux/usb/gadget.h
+> > @@ -744,6 +744,8 @@ struct usb_gadget_driver {
+> >  	void			(*disconnect)(struct usb_gadget *);
+> >  	void			(*suspend)(struct usb_gadget *);
+> >  	void			(*resume)(struct usb_gadget *);
+> > +	int			(*system_suspend)(struct usb_gadget *);
+> > +	int			(*system_resume)(struct usb_gadget *);
+> >  	void			(*reset)(struct usb_gadget *);
+> >  
+> >  	/* FIXME support safe rmmod */
+> 
+> -- 
+> 
+> Best regards,
+> Peter
 
