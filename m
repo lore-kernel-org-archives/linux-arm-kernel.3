@@ -4,93 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA9BC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 00:26:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4098C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 00:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4p6WWlOvtLKrokUmhKFbxMIWiiDCNI86TAtn3rEDUQM=; b=SKVbGs3qh15Kbhsy69rTJALzBh
-	YD2BbCLmCNU4gDBbV3HAsVJZjj4CW8cAZxBxjbd6jbI3l0eBw2c3Jxe0RLrHdQk+Ns7aPIGrbrNdU
-	UzaqNJXmFgNfBY6B7YcazeRWg+vBjnxDb77EuD7WDeCN9yrZXKjoEH1tgh85WvS0tn6QNP3wMN6yK
-	CBbxcF6KRcplUwvcB2H40ajyfbgP1n10TzdDU0ix0NR4848oqpv/G6Bu/FVQDOaRCLNbZsHokEAkg
-	dv64MG8qP4kJrzweAOZLjh6KFhUQlaM8wDpOCK/TR0W5bubRbf9/3lI8hABIq5z6/hcnF/f2YtrXn
-	JdDJ9vBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kl+B0Ys0CUwz+4MwgppJgXq4kzQDfMcci89PwHeZjtg=; b=ps+1Oj9ITmuwfJFhUvxlyMRJW/
+	SfcttvaVbTls43larLAWUNPYSahxqGM3APGtbT1t7MIyvso+0ukwWwPqhmV4kzsRmOxNJVEagJFR/
+	8AjlGUgeQP5iNlGVinYtd8vq0Rik/NAPpeiPHgHvVucFxDnw+mLFOrr6b9/65otSGy8jdCKXo5l+I
+	tjCFvtLB6KeTLiajsVyjR4S47Wm5WDOG3FGKFUG5eG4xjwgYbJI98Ak211Lra5TuJ8ChypFr1/k/g
+	aBLV2nZzv23X6GXdZtsRQ26OdEkeklLhk35cVsZjB9ok5JA1HepZ3yu+7SVhKBcdfRoLJt+3HSga1
+	jhbXrePA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOmox-00000005V4C-1jgv;
-	Tue, 10 Jun 2025 00:26:31 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1uOn0v-00000005VgF-3r3J;
+	Tue, 10 Jun 2025 00:38:53 +0000
+Received: from lgeamrelo12.lge.com ([156.147.23.52] helo=lgeamrelo11.lge.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOmmn-00000005UtJ-0JWb
+	id 1uOmym-00000005VZ9-0Y7E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 00:24:18 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-70f94fe1e40so59376807b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 17:24:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gateworks.com; s=google; t=1749515055; x=1750119855; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4p6WWlOvtLKrokUmhKFbxMIWiiDCNI86TAtn3rEDUQM=;
-        b=BYg77Srubj+9pOesXKOaSE0yVmz/ZCQg+x3QfmY28RACP4AAstRKkk5ZAp8LVgx9H3
-         i42J7xjYz5Zk2ocoOkVWKQCx4jzj7fLGz5bx+0T6egT99pUetirBCINrKxFJKNIItZka
-         CeOe7gIYHfPnNNVOQzYI9iauw0mQcPX6QPTA9IldrH0YoribAll7sHMFea8ziZ8ETa6H
-         33SCQHDOLEBytloXtVKza5iRX57vmD8KDxwlZub+UUcad1gkLtFt+jK/TJplV8A2SYJ5
-         PwUrMYcaMrEeArdVoSeeF+Zr4eKmpd3dW38NtvWxfbaqEcQS2I84y7HxyrMULj4mrpup
-         tXQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749515055; x=1750119855;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4p6WWlOvtLKrokUmhKFbxMIWiiDCNI86TAtn3rEDUQM=;
-        b=EvWvn3UBWfe7XqBAxmoQGAekA7TPfco4xmtSqtKxWrskQ7/8OKodwl8NlbB/Uduyv+
-         BAbzFgXrXi3+F4NtdcGp8IaMPqR17XFqaWlb+KxH2yIAQlxCzg0C2cACy4feW0yhc8ez
-         f8/Q+viGHalo3bGAbtr95qb1zimFptBjqkGoK19x3fqCtUiJdFuflE7JqLVZZt+t0zgg
-         1WPHP1GU1VBdAEKcHBP8YAXc9vZGCnu6tUNiaRBiYI55Q2Xu1ofFLf97w994tbDZn92s
-         z/uaqGFhLqI172IpzWRXn6KGzu1zumQL47BGLQ9SlM9MKELCbdNugLBpov58bLA1OuDg
-         EB1w==
-X-Forwarded-Encrypted: i=1; AJvYcCUr3pUa76/W3dsPdcxKZHBs3mIa9xCEq4saV4BVLTFrrUaWYbjvbaBy6AreaZSBsf9mavoQe72y8JfIdJJ/PY7k@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGs+hNMF7S5OsOt4cXWaRXn55hpFOdQ5jnMMLRndxpNsChoI5g
-	m5mh+Q/v47gNnT+TTSALgAoUGRYKgmWVJw8ePrQIV5JsplKf0EmJoIYrjiSTUfogWMkMP3shnpm
-	IKgfELyLAM5z7lDspUdQVJAzqzWL2dW6asoYIp/g4Ag==
-X-Gm-Gg: ASbGncsrrdpG+R9fW+ZqEiFGSbJ5XbFdK3BBxaPlxfcopCQ03/V/bCh9II76JmaJPOF
-	le2RPr+SuZIdJYItJTAw/TuJAd7/GayxFA1ESq0ZlmVzeDOFhoJy3u9fqiytDJPUQOxGYoI79Bp
-	RkkqO8vMAGKgFPKX+/Pft24RLiwQ158dbK51HrcBjeQNaHpNOmQBkvVQ==
-X-Google-Smtp-Source: AGHT+IEIwckNC6Mk3FUMcw8lzb7oJYprV7CNZkimjX4sCr2WuaRjl9EYST/x4A5RYQYDa8DuCIr4jskjKGm1oKna1b0=
-X-Received: by 2002:a05:690c:7204:b0:70e:76eb:8fb0 with SMTP id
- 00721157ae682-71133929d3dmr23571387b3.13.1749515055615; Mon, 09 Jun 2025
- 17:24:15 -0700 (PDT)
+	Tue, 10 Jun 2025 00:36:42 +0000
+Received: from unknown (HELO lgemrelse7q.lge.com) (156.147.1.151)
+	by 156.147.23.52 with ESMTP; 10 Jun 2025 09:36:30 +0900
+X-Original-SENDERIP: 156.147.1.151
+X-Original-MAILFROM: chanho.min@lge.com
+Received: from unknown (HELO sniperexo3.lge.com) (165.244.66.183)
+	by 156.147.1.151 with ESMTP; 10 Jun 2025 09:36:30 +0900
+X-Original-SENDERIP: 165.244.66.183
+X-Original-MAILFROM: chanho.min@lge.com
+Received: from unknown (HELO SE2P216CU007.outbound.protection.outlook.com) (40.93.138.29)
+	by 165.244.66.183 with ESMTP; 10 Jun 2025 09:39:38 +0900
+X-Original-SENDERIP: 40.93.138.29
+X-Original-SENDERCOUNTRY: unknown
+X-Original-MAILFROM: chanho.min@lge.com
+X-Original-RCPTTO: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	robh@kernel.org,
+	soc@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xegq5YnqVC2/CDVTM/Etzor7Cw+ppmOHPwSV15xodQmHjVWJxzBIgVJL8V0X7YivI1V3fA+VmjbSoDwyrW1WoLscUD+URmn6kRsvwyUcEDanY+j4Ogh4JMiOIvtIdePlAyoCCg7gOXAoRN9lU4G6uCYJER0nDaFxdz/kZJr/EzKw2psSCvqxnYNiwVbz78ugK1ppCQ2qSRGxwUGy0BZ1E+kwe7vko7Y96gK4Ate9C3dmbI014IJqkNhikoGiBmqOzzQHM3MVwDeHSHsGylSNGygSEB0CFnPQscBw6lKpT7nEtYaBxKjgojdmKTZ3jQDKgf2fMdUPLC1ICdCaWEKnjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kl+B0Ys0CUwz+4MwgppJgXq4kzQDfMcci89PwHeZjtg=;
+ b=vI35U+jdjorifglb7dWzxkrtyfn8QgCfQvNlMfHXLLG7FGRkHsDFAlvZk5hgI37eXN3UlbRRdXDcvNz6ek2eCBDMDNeO2NZBocQs/lJmVkiM3/XjfUHIy5JznSzdZr050GTTosYbnMxOV/AAMsRhpOZ0F89Ex7MZhG/lO4QtKb7LLKYy3ULXXQ0SzEBaz3jWaEY1Fbmv+ff1Y9bRr+CCuNnQ+mjM3pKESkbuVBRpW+NiyGHu5JkXRZmimxHZL2rtE8MyXNFwYESDstR9D75KNpvlc3MpZnjnV1MGLx2DgPkUsADit6sRWKKdz0O+spUh0n4q586I5LKTrUVri4Lk6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=lge.com; dmarc=pass action=none header.from=lge.com; dkim=pass
+ header.d=lge.com; arc=none
+Received: from PUWP216MB2640.KORP216.PROD.OUTLOOK.COM (2603:1096:301:13b::13)
+ by PU4P216MB1933.KORP216.PROD.OUTLOOK.COM (2603:1096:301:10b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.31; Tue, 10 Jun
+ 2025 00:36:29 +0000
+Received: from PUWP216MB2640.KORP216.PROD.OUTLOOK.COM
+ ([fe80::cebe:6aad:6fa4:dbf9]) by PUWP216MB2640.KORP216.PROD.OUTLOOK.COM
+ ([fe80::cebe:6aad:6fa4:dbf9%3]) with mapi id 15.20.8813.024; Tue, 10 Jun 2025
+ 00:36:29 +0000
+From: =?ks_c_5601-1987?B?uc7C+cijL8OlwNO/rLG4v/gvU1cgUGxhdGZvcm0ov6wpQWR2YW5j?=
+ =?ks_c_5601-1987?Q?ed_OS_TP?= <chanho.min@lge.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>, "soc@kernel.org" <soc@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+	=?ks_c_5601-1987?B?wMywx8ijL1RQIExlYWRlci9TVyBQbGF0Zm9ybSi/rClBZHZhbmNl?=
+ =?ks_c_5601-1987?Q?d_OS_TP?= <gunho.lee@lge.com>
+Subject: Re: [PATCH 0/2] arm64: dts: lg: DT cleanups
+Thread-Topic: [PATCH 0/2] arm64: dts: lg: DT cleanups
+Thread-Index: AQHb2YkuOxbca0O3J0e9Ys9P/v4zlrP7f/tF
+Date: Tue, 10 Jun 2025 00:36:29 +0000
+Message-ID: <PUWP216MB26405E1AB53BD624610247FF9C6BA@PUWP216MB2640.KORP216.PROD.OUTLOOK.COM>
+References: <20250609-dt-lg-fixes-v1-0-e210e797c2d7@kernel.org>
+In-Reply-To: <20250609-dt-lg-fixes-v1-0-e210e797c2d7@kernel.org>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=lge.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PUWP216MB2640:EE_|PU4P216MB1933:EE_
+x-ms-office365-filtering-correlation-id: fbbe31af-c090-4aef-0006-08dda7b6d735
+x-ld-processed: 5069cde4-642a-45c0-8094-d0c2dec10be3,ExtFwd
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7053199007|38070700018;
+x-microsoft-antispam-message-info: =?ks_c_5601-1987?B?UUVvd29KNGRtU0Y5NEZ0VjV1U1BqSWlmSlBOZFhGbU1nS3hSNFBz?=
+ =?ks_c_5601-1987?B?bTR6d2NlUU15V3FQMGVFcGExM0lJa0l6VG10ZmMveWtuOXpsL1J0?=
+ =?ks_c_5601-1987?B?aCs4OHNlV1o0R2hiUUtMZ2hzSzZzVEV6N1ZRUDg4RnJocGRHRk9J?=
+ =?ks_c_5601-1987?B?ejhPWUphS3lhVTZrWlcwWFhPMzYvZm5GZEpzdndsQjdDRko4MTZE?=
+ =?ks_c_5601-1987?B?VDF6c2NTb20rOWF3K3FNZWp2WitKZDZZYVJtTmNYMVRVajFqd0F3?=
+ =?ks_c_5601-1987?B?ekRWSmlxaUNDS1hNUUtTNzl4ekxRRmZkbGxRdU5LYzhsUkxCV1Ax?=
+ =?ks_c_5601-1987?B?bEpwaisrSnA4c1pzVmZzZXp3YlRFM0JpV1lydGtXVGwxRDlPQ0xY?=
+ =?ks_c_5601-1987?B?V3NzR1d0MEN0eFRnaHdxNnhZdW9DQ1Q3b2FXTS82MElIczlqWmJi?=
+ =?ks_c_5601-1987?B?cC9aZXVKUDVsMW5QT09OTGthZ1ZVWnNXa2pDVTYvMWlxMXdYa1VG?=
+ =?ks_c_5601-1987?B?dWEyM3BFU1pkcXl4NEhuOEJ4MFRoSFk1ZG41OFhNN1hJMHFwUjln?=
+ =?ks_c_5601-1987?B?ckY3SXBtNXROdzRZNlpNMmpQVmowL1FWUS9taDZOWkJCUURYRVNL?=
+ =?ks_c_5601-1987?B?T0ZVSEk1WldxUXVwTW1McGdyL0hEM1NtanAvTTA4bWxqUGVSbWRN?=
+ =?ks_c_5601-1987?B?YjlhcEppSUpKUnR5ZTNacmkxTzZPRnpQY2pxelV4TzhkTnVZWHJL?=
+ =?ks_c_5601-1987?B?c2dUanpIYm02L2hrWlNFd25BMVNvUDdOcDRmZnIzL1BXejd5czJ2?=
+ =?ks_c_5601-1987?B?RkY0aktDNk1Dc2VqeEovdTJ6RGc4eE9NckhQVW1uZUJMVEpMWEZ2?=
+ =?ks_c_5601-1987?B?andZRVV4V0F4Qmc4Vko5VENuWFh3WVJsSU1QZ2ExMUcwaFVGWlVl?=
+ =?ks_c_5601-1987?B?dldNT2RzSVNISjVUd3dUaTRMQk9mMjQxVVk2WVFRbno2YVpYbENW?=
+ =?ks_c_5601-1987?B?VlpEczR6UndONTVqSkNCbVFjakc3c08wclM1OVNxRkIvUnBHZ1Vi?=
+ =?ks_c_5601-1987?B?akpBUEY0cURWR24xd1pudlUzMmZhbG1sNjBGZjVlNjFVNVgxcW0x?=
+ =?ks_c_5601-1987?B?MDN2SWozellwU0ppM0NwNHlQemFaU0xTczVvZHBOTzhpdDM3SDNr?=
+ =?ks_c_5601-1987?B?WHJPRUpxamlTd1RsVENsSzhYWjJ2UjZ4MGdxQlp5S3Z6eHhXL0Rz?=
+ =?ks_c_5601-1987?B?NVc3dEpLMlZ5K01ES0RXM0k1OFZ0QkRSekk4ZlMwZHB4QVZJcko0?=
+ =?ks_c_5601-1987?B?VUNWaWgyZnFoVUVGVWFJQUVQN1V2Z1BabEN0STV5bzdSc0dYQW1v?=
+ =?ks_c_5601-1987?B?QjJ2ZGxuY3FzeXVqQ1Z2MzFnWVE0Zkt1dUIwdVQxTXhMWlNFVnlq?=
+ =?ks_c_5601-1987?B?bnRCdUhxL2ZTRWw5d0ZUVThUTkJidnhTbitrd0V4ZUhaS05qcWhY?=
+ =?ks_c_5601-1987?B?QmNqQTNUZUlxNUJkemYvTkFCQlhOZmxvNi9zdEUwQ0xaZGZneUpL?=
+ =?ks_c_5601-1987?B?dXMyQ0JuczlENnJzWHRlZG9YSDhVc2xva01TVHlsQ3ZoSmpMZnhO?=
+ =?ks_c_5601-1987?B?Y1JkeXpoSCtKWWxzVERSWTlCazEwTDVnVTBkaSt0Wlo5dFliT2dB?=
+ =?ks_c_5601-1987?B?bCtPdERBNDhaTHU3VFpLRXMyYk56eDhTQ0hTdHZncU5panNHTnNJ?=
+ =?ks_c_5601-1987?B?Rm5EcU1GY1hXK2YzNDJJRXd0cjF4QlQvRysrRERmR0lHOU5jRGdj?=
+ =?ks_c_5601-1987?B?MnlDZ0UyQkhPTGtwZ0xhOE9Ubkp3d3ludDBuZDZzMUN1UGNpbitZ?=
+ =?ks_c_5601-1987?B?b2VPZUJQVkJyZXBOeVVFcSsrT0cyS0x4VjZQWHBkU0FPMFBLNlB5?=
+ =?ks_c_5601-1987?B?V0JDOEdMV3B1MFU0WEgvWkVkRFhlUGoyYUVKWjZicVRCODRuL3Vo?=
+ =?ks_c_5601-1987?B?TkJxY05ob05IR0VFREJNV3hKUWNkRG93QVVLcUkwV3dxekFKVjM2?=
+ =?ks_c_5601-1987?B?b1BaVnl6UUgya3NjajRBR3ZkbHpRYW5SQjlaUnpTQ25TMlM5THk0?=
+ =?ks_c_5601-1987?B?c3U1NXE4ZDJCTXBpUFcyZTBIblYwSHBkSDlUOFFSek1kdStVdStJ?=
+ =?ks_c_5601-1987?B?Tk1qOTh1c3lmT09hbVdsNGhHOVlHbit1U0JFWWlxZzhGQ2RBajUx?=
+ =?ks_c_5601-1987?B?YXBFdnFXcnB5cnF3ZWl5dXVtZG9zYUtzbXZObTNtR2JkM3NoNDlX?=
+ =?ks_c_5601-1987?B?RU0xVmluM3c5V2x3PT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ko;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUWP216MB2640.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7053199007)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?ks_c_5601-1987?B?dWFoK2VoaEZ2TXkxWHBTY0dFQUdYaG85Z3IvdVZxRGlGRVdlbGxY?=
+ =?ks_c_5601-1987?B?RXpkWTNLeUlxSXZwVHJxYXdGOEI0Q3FxWU9BL1R4bnBIUWFQRWJU?=
+ =?ks_c_5601-1987?B?LzU1UHgwelI2eUZTMWl4Q1FZT0tiUEVGdFFjZmt6dldTdXFYOE1O?=
+ =?ks_c_5601-1987?B?WjZhQ2x5RVpXc09PUGhGMitZWmd6bjRJVnNMVnY3QmI0UDA5czlQ?=
+ =?ks_c_5601-1987?B?Wmg4ejFmWGluclpVTzJCVDd1bkdyVGE2aHVtdXROcmFLVnhUb0l4?=
+ =?ks_c_5601-1987?B?Qk5LWGUvUVdodWU3QjVKKzVydklmS2o0MFAzMnAwb1NEVk82b1FT?=
+ =?ks_c_5601-1987?B?S1dZS0QyT0lRWGJ6UFF0S1FGcTQ1amxYejlJNldNbVVQK1VNUW5o?=
+ =?ks_c_5601-1987?B?aGY4WHVuaWNBM1hYR0dTbHZmOG40WDZZazJRcm5FbElCNFcrZHZN?=
+ =?ks_c_5601-1987?B?cmpmRndyRTN3NWRlbzdRU3pvNXFmN1J6T1NZU2NrOE5PMHY2UFp6?=
+ =?ks_c_5601-1987?B?d3BXaDgrQldRN2U2WWxvSHA1NVVxTGo3enMzNlJ3MnFjcWVOQmhk?=
+ =?ks_c_5601-1987?B?TmlUTVl1ODAzOHdBWHhGRS83V1ZtM3R0Zk1mQ1JTbXFvUDF0UXZI?=
+ =?ks_c_5601-1987?B?V0laUUxLTTdQUDhMY2RXaU5MUlkwbW9OdDIrd0RhdGdkVFFxQXBU?=
+ =?ks_c_5601-1987?B?Qk1wZDF1L21oWlhJcFprTkhuNC9KSmNPOHArbkxVeEh4bkt0V2lW?=
+ =?ks_c_5601-1987?B?K3luSFJmNWc3VWFwOWhsNTJuenNubXZWTkp3QnQvanphc3kvRFFi?=
+ =?ks_c_5601-1987?B?RTFibVJHdVJINmZTSnhHMjBmeVZOdXFwRy9lUkc4dWFQN01MVlJq?=
+ =?ks_c_5601-1987?B?UXowZnFjUjVzT1k2OC9CZEI5M1JmcmUrV082UnVjR3JzaHVBbGNm?=
+ =?ks_c_5601-1987?B?M3JwWHl5UW5ZanQyMUFoY1YvSjhSS3lnY2k5ZkRIdDNEZE53TEtY?=
+ =?ks_c_5601-1987?B?V3U0NW93amdSRzcxQkxtaytJYUZYeUk2b1AvOU5xSUVqOEd2L1dB?=
+ =?ks_c_5601-1987?B?bWp3QWtscCtDdVZaNUIxUFlUajl6dllkU1VlNUw1Tks3S3Z5YUIw?=
+ =?ks_c_5601-1987?B?U2Zya29pWkdDRGJlMVVON1hYbG9rb0JGUmZTc01LeE84cExGSGVt?=
+ =?ks_c_5601-1987?B?NDhFSW56elVXdkVYQkhZUkdPUTdBaXdzenBZSTdKa05Ib2hpcjJB?=
+ =?ks_c_5601-1987?B?bVBGNXQ0QmM2UjZ6V1JLM1BOazY1Ni81OE5rUi9heDRlN2FYRURK?=
+ =?ks_c_5601-1987?B?NTdKTyt6UmRqZ3I3OFREOFp0TFJyd21uU3Rpb1JGOUp6ZFd6WGlh?=
+ =?ks_c_5601-1987?B?SktDWEZUTFNEM3laZlBOSldIRThrMnp5NVFGVjZreDFTTFRLQ3lN?=
+ =?ks_c_5601-1987?B?OU96UFRwSGtzdkZWMDl0c0t1R09ROWtYSEdUeGUxY2tNNXFvMFR3?=
+ =?ks_c_5601-1987?B?RHdFd0E3bjVJWVRjei9vS0xSaEx0c05NbE1WVURMSDVGek5saWw4?=
+ =?ks_c_5601-1987?B?c05mZjRJQXZIbENNaGlvZzdKdlk1STRoOEV2NjE2ekRoblR2MjNH?=
+ =?ks_c_5601-1987?B?V0REZVpZQ1IzU0xkSkVuYUkzTEhQRzZzVUNUbng0VHQvRHE0ZVFm?=
+ =?ks_c_5601-1987?B?c3Q4UGtzeXc4YWx0b2lidmxHVzRPZ3A0b2YxOFN0MHBIZFY4MXZX?=
+ =?ks_c_5601-1987?B?NUxEeDRPdXE1aGFqTE15RWp5bENxV3Z6aTQxZU5SYnVOOTdrRUMw?=
+ =?ks_c_5601-1987?B?ZjR2dEU4RjhOOENQdGp2dG9aYjBzeTZZQ1hGbVJJTGJaZG1SUGVu?=
+ =?ks_c_5601-1987?B?am5YdnVrRlhEdE5LNENVYTdVZnNvV1owWU1aSVVUcmFLa2c4UXpS?=
+ =?ks_c_5601-1987?B?TytsK0tjaTRnTytkVzRDWDF1RFNoUDlsZGZNamlCTjlWQlpjU0ZD?=
+ =?ks_c_5601-1987?B?U1VHL0R1bVFIeXlDSE1ZUVN2M2taUnZjN3gvWkdaRENxOFZNNGJP?=
+ =?ks_c_5601-1987?B?dEtsSHZwK1I0eHlsaGNMOHMwTEMyRjh6SXgzWWxpZURrOXlJLzlM?=
+ =?ks_c_5601-1987?B?cWpvOS8veCtVWmRsd3EwMGRrLzNrZEloK1B2ZjhnZmFuenhPc2xL?=
+ =?ks_c_5601-1987?B?NEFxN3lhRDRsaGZ5Rm9CN1dKLzBiVXJTbVRQTG1uY2VoTjV6V2ZX?=
+ =?ks_c_5601-1987?B?Q25FVGp5d080TGJWWU1hdFFoTjlmZE8wQm1LN3NUTUNnMXpmQ3M5?=
+ =?ks_c_5601-1987?B?dC9DbndQL2hjb1hvTUZrRjRYaEJnMXhwbXAvcVBSeC9ERnpGc0tZ?=
+ =?ks_c_5601-1987?B?TkRDS0plOXZqdW0yblZ4ckFWU2lKS2dqQmFUbytLU01tU3ZEalJ3?=
+ =?ks_c_5601-1987?Q?JddYcPdlH4FwSdkcU5z7KGJviB7BL7tpFFanobeM?=
+Content-Type: text/plain; charset="ks_c_5601-1987"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20241126075702.4099164-1-hongxing.zhu@nxp.com>
- <20241126075702.4099164-6-hongxing.zhu@nxp.com> <CAJ+vNU3ohR2YKTwC4xoYrc1z-neDoH2TTZcMHDy+poj9=jSy+w@mail.gmail.com>
- <AS8PR04MB8676C1206066A3215DB5F3B78C6BA@AS8PR04MB8676.eurprd04.prod.outlook.com>
-In-Reply-To: <AS8PR04MB8676C1206066A3215DB5F3B78C6BA@AS8PR04MB8676.eurprd04.prod.outlook.com>
-From: Tim Harvey <tharvey@gateworks.com>
-Date: Mon, 9 Jun 2025 17:24:04 -0700
-X-Gm-Features: AX0GCFvJVHqxJw3QT2Hj1OmwNvuRPr_efH3vouQUS0tjvRGC0_axQFmE3cNvLZA
-Message-ID: <CAJ+vNU0rO0tJyon6HGYTZHu5oii5vH-dPpnSH7RQj43+nE1KDQ@mail.gmail.com>
-Subject: Re: [PATCH v7 05/10] PCI: imx6: Deassert apps_reset in imx_pcie_deassert_core_reset()
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: "l.stach@pengutronix.de" <l.stach@pengutronix.de>, "bhelgaas@google.com" <bhelgaas@google.com>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kw@linux.com" <kw@linux.com>, 
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, Frank Li <frank.li@nxp.com>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: lge.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PUWP216MB2640.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: fbbe31af-c090-4aef-0006-08dda7b6d735
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jun 2025 00:36:29.2168
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 5069cde4-642a-45c0-8094-d0c2dec10be3
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ME+CEMAnZidRSMZT/bdOXMCUwKuWlj2u030J6noXsBwWoGnwRSA4yFTCy6n1Ke7fVwe/4MfbKptkGWOQmxMTYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PU4P216MB1933
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_172417_163997_514B3F35 
-X-CRM114-Status: GOOD (  46.42  )
+X-CRM114-CacheID: sfid-20250609_173640_666753_EA7780DB 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,172 +210,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 9, 2025 at 1:03=E2=80=AFAM Hongxing Zhu <hongxing.zhu@nxp.com> =
-wrote:
->
-> > -----Original Message-----
-> > From: Tim Harvey <tharvey@gateworks.com>
-> > Sent: 2025=E5=B9=B46=E6=9C=887=E6=97=A5 5:04
-> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > Cc: l.stach@pengutronix.de; bhelgaas@google.com; lpieralisi@kernel.org;
-> > kw@linux.com; manivannan.sadhasivam@linaro.org; robh@kernel.org;
-> > krzk+dt@kernel.org; conor+dt@kernel.org; shawnguo@kernel.org; Frank Li
-> > <frank.li@nxp.com>; s.hauer@pengutronix.de; festevam@gmail.com;
-> > imx@lists.linux.dev; kernel@pengutronix.de; linux-pci@vger.kernel.org;
-> > linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org;
-> > linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH v7 05/10] PCI: imx6: Deassert apps_reset in
-> > imx_pcie_deassert_core_reset()
-> >
-> > On Tue, Nov 26, 2024 at 12:03=E2=80=AFAM Richard Zhu <hongxing.zhu@nxp.=
-com>
-> > wrote:
-> > >
-> > > Since the apps_reset is asserted in imx_pcie_assert_core_reset(), it
-> > > should be deasserted in imx_pcie_deassert_core_reset().
-> > >
-> > > Fixes: 9b3fe6796d7c ("PCI: imx6: Add code to support i.MX7D")
-> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > Reviewed-by: Manivannan Sadhasivam
-> > <manivannan.sadhasivam@linaro.org>
-> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > > ---
-> > >  drivers/pci/controller/dwc/pci-imx6.c | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >
-> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > index 3538440601a7..413db182ce9f 100644
-> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > @@ -776,6 +776,7 @@ static void imx_pcie_assert_core_reset(struct
-> > > imx_pcie *imx_pcie)  static int imx_pcie_deassert_core_reset(struct
-> > > imx_pcie *imx_pcie)  {
-> > >         reset_control_deassert(imx_pcie->pciephy_reset);
-> > > +       reset_control_deassert(imx_pcie->apps_reset);
-> > >
-> > >         if (imx_pcie->drvdata->core_reset)
-> > >                 imx_pcie->drvdata->core_reset(imx_pcie, false);
-> > > --
-> > > 2.37.1
-> > >
-> > >
-> >
-> > Hi Richard,
-> >
-> > I've found that this patch causes a regression on i.MX8MM and i.MX8MP
-> > boards with hotplug capable bridges:
-> > i.MX8MM+PI7C9X2G404EV (this switch does not support hotplug) - no issue=
-s
-> > i.MX8MM+PI7C9X2G608GP (hotplug) - fails to reliably enumerate
-> > downstream devices about 80% of the time ^^^ when this occurs
-> > PCI_PRIMARY_BUS (0x18) for the root complex
-> > 0000:00:00.0 reads 0x00000000 instead of 0x00ff0100
-> > (PCI_SECONDARY_BUS is 0 instead of 1 and PCI_SUBBORDINATE_BUS is 0
-> > instead of 0xff) i.MX8MP+PI7C9X2G608GP (hotplug) - hangs at
-> > imx_pcie_ltssm_enable deassert apps_reset
-> >
-> > In both cases here reverting ef61c7d8d032 ("PCI: imx6: Deassert apps_re=
-set
-> > in imx_pcie_deassert_core_reset()") resolves this.
-> >
-> [Richard Zhu] I'm afraid that the ltssm_en bit assert to 1b'1 in
->  imx_pcie_deassert_core_reset() is not correct in your use case.
->
-
-Hi Richard,
-
-Thanks for your quick response. Do you mean not correct for newer IP
-core in i.MX8MM/i.MX8MP or in the case of a bridge?
-
-> Actually, the apps_reset isn't a real reset. It's the ltssm_en bit.
-> From this perspective view, It's inappropriate to toggle the ltssm_en bit=
- in
->  imx_pcie_assert/deassert_core_reset() functions.
-> I consider to move the apps_reset out of _reset_ functions.
-> Can you help to test the following changes in you use-case?
->
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -776,7 +776,6 @@ static int imx7d_pcie_core_reset(struct imx_pcie *imx=
-_pcie, bool assert)
->  static void imx_pcie_assert_core_reset(struct imx_pcie *imx_pcie)
->  {
->         reset_control_assert(imx_pcie->pciephy_reset);
-> -       reset_control_assert(imx_pcie->apps_reset);
->
->         if (imx_pcie->drvdata->core_reset)
->                 imx_pcie->drvdata->core_reset(imx_pcie, true);
-> @@ -788,7 +787,6 @@ static void imx_pcie_assert_core_reset(struct imx_pci=
-e *imx_pcie)
->  static int imx_pcie_deassert_core_reset(struct imx_pcie *imx_pcie)
->  {
->         reset_control_deassert(imx_pcie->pciephy_reset);
-> -       reset_control_deassert(imx_pcie->apps_reset);
->
->         if (imx_pcie->drvdata->core_reset)
->                 imx_pcie->drvdata->core_reset(imx_pcie, false);
-> @@ -1176,6 +1174,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp=
-)
->                 }
->         }
->
-> +       /* Make sure that PCIe LTSSM is cleared */
-> +       imx_pcie_ltssm_disable(dev);
-> +
->         ret =3D imx_pcie_deassert_core_reset(imx_pcie);
->         if (ret < 0) {
->                 dev_err(dev, "pcie deassert core reset failed: %d\n", ret=
-);
->
-
-Yes this resolves the regression of failing to reliably enumerate
-downstream devices. I think that should be submitted with a fixes tag.
-
-The i.MX8MP+PI7C9X2G608GP switch hanging issue was hardware related...
-i was sadly testing on an old board with a defect. I did previously
-have a hang issue there discussed previously here [1] but it was
-resolved with commit 9c03e30e3ade ("PCI: imx6: Skip link up workaround
-for newer platforms").
-
-How much testing is done with i.MX8M{M,P} board with a switch? I feel
-like I'm the only one with these SoC's and a switch and I need to get
-better at monitoring patches to the IMX6 PCI controller driver and
-testing these scenarios.
-
-Best Regards,
-
-Tim
-[1] https://www.spinics.net/lists/linux-pci/msg142764.html
-
-
-
-
-> > I notice the sequence of events here is:
-> > imx_pcie_assert_core_reset asserts apps_reset (disables LTSSM)
-> > imx_pcie_deassert_core_reset deasserts apps_reset (enables LTSSM)
-> > imx_pcie_ltssm_enable deasserts apps_reset (enables LTSSM; this is wher=
-e it
-> > hangs on imx8mp)
-> >
-> > Is there perhaps some issue with de-asserting this (enabling LTSSM) whe=
-n it's
-> > already in this state?
-> [Richard Zhu]The apps_reset is updated by src driver by regmap_update_bit=
-s().
-> I can't find the exceptions to update one bit, already has the according =
-value.
->
-> Best Regards
-> Richard Zhu
-> >
-> > In the case where downstream devices do not enumerate some investigatio=
-n
-> > points to them not being happy that the link drops so perhaps deasserti=
-ng
-> > apps_reset when its already asserted drops the link and restarts it?
-> >
-> > Best Regards,
-> >
-> > Tim
+PiBUaGlzIHNob3J0IHNlcmllcyBmaXhlcyBzb21lIGFybSxwbDAxMSBEVCBzY2hlbWEgd2Fybmlu
+Z3MuIEkgbm90aWNlZA0KPiB0aGF0IHRoZSBsZzEzMTIgYW5kIGxnMTMxMyAuZHRzaSBmaWxlcyBh
+cmUgYWxtb3N0IGlkZW50aWNhbCwgc28gSSd2ZQ0KPiByZWZhY3RvcmVkIHRoZW0gdG8gbWFrZSB0
+aGUgZml4IG9uY2UgaW5zdGVhZCBvZiB0d2ljZS4NCg0KPiBBcm5kLCBZb3UgcHJvYmFibHkgbmVl
+ZCB0byB0YWtlIHRoaXMgZGlyZWN0bHkgaWYgTEcgbWFpbnRhaW5lcnMgZG9uJ3QNCj4gcmVzcG9u
+ZC4NCg0KQWNrZWQtYnk6IENoYW5obyBNaW4gPGNoYW5oby5taW5AbGdlLmNvbT4NCg0KVGhhbmtz
+LA0KQ2hhbmhvDQoNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18NCrq4
+s70gu+e29zogUm9iIEhlcnJpbmcgKEFybSkgPHJvYmhAa2VybmVsLm9yZz4NCrq4s70gs6/CpTog
+MjAyNbPiIDa/+SAxMMDPIMitv+TAzyAwNjo1NA0Kud60wiC757b3OiBzb2NAa2VybmVsLm9yZzsg
+uc7C+cijL8OlwNO/rLG4v/gvU1cgUGxhdGZvcm0ov6wpQWR2YW5jZWQgT1MgVFA7IEtyenlzenRv
+ZiBLb3psb3dza2k7IENvbm9yIERvb2xleQ0KwvzBtjogbGludXgtYXJtLWtlcm5lbEBsaXN0cy5p
+bmZyYWRlYWQub3JnOyBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZzsgbGludXgta2VybmVsQHZn
+ZXIua2VybmVsLm9yZw0Kwaa48TogW1BBVENIIDAvMl0gYXJtNjQ6IGR0czogbGc6IERUIGNsZWFu
+dXBzDQoNClRoaXMgc2hvcnQgc2VyaWVzIGZpeGVzIHNvbWUgYXJtLHBsMDExIERUIHNjaGVtYSB3
+YXJuaW5ncy4gSSBub3RpY2VkDQp0aGF0IHRoZSBsZzEzMTIgYW5kIGxnMTMxMyAuZHRzaSBmaWxl
+cyBhcmUgYWxtb3N0IGlkZW50aWNhbCwgc28gSSd2ZQ0KcmVmYWN0b3JlZCB0aGVtIHRvIG1ha2Ug
+dGhlIGZpeCBvbmNlIGluc3RlYWQgb2YgdHdpY2UuDQoNCkFybmQsIFlvdSBwcm9iYWJseSBuZWVk
+IHRvIHRha2UgdGhpcyBkaXJlY3RseSBpZiBMRyBtYWludGFpbmVycyBkb24ndA0KcmVzcG9uZC4N
+Cg0KU2lnbmVkLW9mZi1ieTogUm9iIEhlcnJpbmcgKEFybSkgPHJvYmhAa2VybmVsLm9yZz4NCi0t
+LQ0KUm9iIEhlcnJpbmcgKEFybSkgKDIpOg0KICAgICAgYXJtNjQ6IGR0czogbGc6IFJlZmFjdG9y
+IGNvbW1vbiBMRzEzMTIgYW5kIExHMTMxMyBwYXJ0cw0KICAgICAgYXJtNjQ6IGR0czogbGc6IEFk
+ZCBtaXNzaW5nIFBMMDExICJ1YXJ0Y2xrIg0KDQogYXJjaC9hcm02NC9ib290L2R0cy9sZy9sZzEz
+MTIuZHRzaSAgICAgICAgICAgICAgICAgfCAzMjQgKy0tLS0tLS0tLS0tLS0tLS0tLS0tDQogYXJj
+aC9hcm02NC9ib290L2R0cy9sZy9sZzEzMTMuZHRzaSAgICAgICAgICAgICAgICAgfCAzMjQgKy0t
+LS0tLS0tLS0tLS0tLS0tLS0tDQogLi4uL2FybTY0L2Jvb3QvZHRzL2xnL3tsZzEzMTIuZHRzaSA9
+PiBsZzEzMXguZHRzaX0gfCAgMzUgKy0tDQogMyBmaWxlcyBjaGFuZ2VkLCAxMSBpbnNlcnRpb25z
+KCspLCA2NzIgZGVsZXRpb25zKC0pDQotLS0NCmJhc2UtY29tbWl0OiAxOTI3MmIzN2FhNGY4M2Nh
+NTJiZGY5YzE2ZDVkODFiZGQxMzU0NDk0DQpjaGFuZ2UtaWQ6IDIwMjUwNjA5LWR0LWxnLWZpeGVz
+LWFkMWY2NmUxYjUwNQ0KDQpCZXN0IHJlZ2FyZHMsDQotLQ0KUm9iIEhlcnJpbmcgKEFybSkgPHJv
+YmhAa2VybmVsLm9yZz4NCg0K
 
