@@ -4,108 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B944C678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB339C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3SioW6EEIMMIg8ofgGmaMvt2VspiCaPK7xuZmTJgWLk=; b=ysPuCxNrpsmdrRwzFq9A5D60Uy
-	z34onBq70hHD0rByoGd3P7mk55LZX5gULevXw9P7bdI4R8TbGmXbOFT5n6zM7GEv/Upw1aB81mnq+
-	wi7sHHi1viuKwkxdhYP+VvvSiA1oWVVIahepKCzxe6Q8g6hHQ4LKj9cw1buthOqAwc+Fgo6Uek2Tj
-	ly4CSDOERGqZqnE7S0pqC1NCS6mVL/6SiI6FV2jHHreTkgjgEQlcpHSq9GdAUIDCRmRm5IeoCATrP
-	OfkaTNKJ5YS67Fh16SrkbQ0IS+B8iyirwrz4DmZNR4c1xjfusf6iPoS67oWaAOr1TNwNesYs5eotF
-	u/i4TOXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bj/8ZlhYi+PUXtlyuznaF1lt7ECGXw2FzjbqurTjZWA=; b=IGJGjTkRAUmuTP4pzbdVx3Pgil
+	P2iURbYK5ajsCs3rtHc1nbhm8JqCwh3W+UVmcPwn2i6zWmmEV4wPzLlFBqsZqRBHqUR/ySWTnSb6h
+	ToOFDRCZyzqWru/oqBj6BSMLzIrXC4gdnVKJ1esXxnS797xFTuYoTFc80XfLRAxt/gXnprlrFzA3X
+	r1jQzabz4QhSlg3r2h7Rq3MlLOVrropprMNN4bhL+mRFCwHc1llW8mESIgjBh7UHasMlHG/s6HAnu
+	RszdeiEEqfzWYEFrjitltIVL7sJkrmvdXBmmTTibNMvvHRIqJtFulc1rkwvUDsFjDhTU48uB/vPvF
+	qnO0ioPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOztN-000000077XU-01iX;
-	Tue, 10 Jun 2025 14:23:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uOztL-000000077X2-30X7;
+	Tue, 10 Jun 2025 14:23:55 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOy9b-00000006mCW-1vez;
-	Tue, 10 Jun 2025 12:32:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C085614B4;
-	Tue, 10 Jun 2025 12:32:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57B08C4CEF2;
-	Tue, 10 Jun 2025 12:32:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749558754;
-	bh=fPHJqiUka78v/jjWTLX+dfN2eEsXYIz99TXFmh1jN3o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YhN6ohOm4EdhfLpZCAffAhF21+YKaoev8gtAk710Q0tBb6bKoCNopI8ImhZXEEzY4
-	 2RnNsufO0aOysINIy3zoB+MAyRw0qRbvTLfL3D0oR8ohQqUVQ9EoSf4qcbgeH8nCQT
-	 ry1QjRKZQSPGWPu1Q0rNEPE2BK4WV0ady0s43yfRFBiEWwXq2+Ww6GcGClqJVbeQUn
-	 wS+Ud5kZxxqXp/1A4XDwg1lPjtNnIBudRzSd3/fuK5Fv/yvnwUz2Is83V6r1tdG43H
-	 Pz1iavSNcKygB6NQ1PASrFaLygFXMfZpDQQkS1vMhdf+gcWmEuKl4mkdOB5/yD6GkG
-	 BdgfXJE/yegpA==
-Message-ID: <6b9d5edf-7186-4d7b-814c-5c3f306c68db@kernel.org>
-Date: Tue, 10 Jun 2025 14:32:27 +0200
+	id 1uOx3I-00000006dkY-1ePJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 11:22:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=bj/8ZlhYi+PUXtlyuznaF1lt7ECGXw2FzjbqurTjZWA=; b=CvnoKiZ3nraCZlyqWpMIcSDXGd
+	zDzkj6GV/yiCfjfwIwbYdSsjp/+ha7T6H28erflnAiTV5R9MO0/hVaUyW5x8JpEOJ8M+DkIa/fRIO
+	uumexB2u0CCrv9Udo48bza3OuDrT5HU6WoxJrnwJALtqD+i75uXoyxxNVZSgpkdf19p2IaZF1RkKP
+	OSUh7Lj6DJ/xLdPYeH3grvrF6QXtpdMwDaCC1CjGGlmAvhk/W/aS5+Lwg2Zc+6wTwXmub+s5NpwFm
+	POlb06b3zFZ2iAyXG8JkiW7t/eHWiVZKVBsQsFpK98ixIZ8DvOwyvl5/NRcvT9aTbvw23UBbhpHLJ
+	erTJoyIw==;
+Received: from i53875b1c.versanet.de ([83.135.91.28] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uOx3F-0000kG-UP; Tue, 10 Jun 2025 13:21:57 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Linux Regressions <regressions@lists.linux.dev>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: Peter Robinson <pbrobinson@gmail.com>, krzk+dt@kernel.org,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
+ Rob Herring <robh@kernel.org>
+Subject: Re: next-20250610: arm64 No rule to make target rockchip
+ rk3399-rockpro64-screen.dtso
+Date: Tue, 10 Jun 2025 13:21:57 +0200
+Message-ID: <15979303.uLZWGnKmhe@diego>
+In-Reply-To: <CA+G9fYuppX5LeRjOAZWsYRCs76PVbnv-TN_RrszhDsk=KregyA@mail.gmail.com>
+References: <CA+G9fYuppX5LeRjOAZWsYRCs76PVbnv-TN_RrszhDsk=KregyA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] pmdomain: Use str_enable_disable-like helpers
-To: shao.mingyin@zte.com.cn, ulf.hansson@linaro.org,
- changhuang.liang@starfivetech.com
-Cc: geert+renesas@glider.be, magnus.damm@gmail.com, heiko@sntech.de,
- alim.akhtar@samsung.com, walker.chen@starfivetech.com,
- sebastian.reichel@collabora.com, detlev.casanova@collabora.com,
- finley.xiao@rock-chips.com, shawn.lin@rock-chips.com, pgwipeout@gmail.com,
- qiu.yutan@zte.com.cn, linux-pm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, yang.yang29@zte.com.cn,
- xu.xin16@zte.com.cn, yang.tao172@zte.com.cn, ye.xingchen@zte.com.cn
-References: <20250610193403161UQCV5cVGXCRVDheTb7jvi@zte.com.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250610193403161UQCV5cVGXCRVDheTb7jvi@zte.com.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_042200_432641_2746E1F0 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,28 +79,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 13:34, shao.mingyin@zte.com.cn wrote:
-> From: Shao Mingyin <shao.mingyin@zte.com.cn>
-> 
-> Replace ternary (condition ? "enable" : "disable") syntax and ternary
-> (condition ? "on" : "off") syntax with helpers from
-> string_choices.h because:
-> 1. Simple function call with one argument is easier to read.  Ternary
->    operator has three arguments and with wrapping might lead to quite
->    long code.
-> 2. Is slightly shorter thus also easier to read.
-> 3. It brings uniformity in the text - same string.
-> 4. Allows deduping by the linker, which results in a smaller binary
->    file.
+Hi Naresh,
 
-So you just taken everything from the same my patch - even entire commit
-subject and commit description - and sent it as yours?
+Am Dienstag, 10. Juni 2025, 12:25:31 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Naresh Kamboju:
+> Regression while building arm64 with the Linux next-20250610
+> the following dtb build errors noticed.
+>=20
+> Regressions found on arm64 builds
+> - dtb build error
+>=20
+> Regression Analysis:
+> - New regression? Yes
+> - Reproducibility? Yes
+>=20
+> First seen on the next-20250610
+> Good: next-20250606
+> Bad:  next-20250610
+>=20
+> Anders bisected this to,
+> # first bad commit:
+>   [49760b9f60528393cca3ea35c4d0719f84215a48]
+>   arm64: dts: rockchip: add overlay for RockPro64 screen
+>=20
+> Build regression: arm64 No rule to make target rockchip
+> rk3399-rockpro64-screen.dtso
+>=20
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+>=20
+> ## Build error
+> *** No rule to make target
+> 'arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.dtso', needed by
+> '__dtbs_install'.
+>=20
+> ## Source
+> * Kernel version: 6.16.0-rc1
+> * Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next=
+/linux-next.git
+> * Git sha:  b27cc623e01be9de1580eaa913508b237a7a9673
+> * git describe: next-20250610
+> * Toolchains: gcc-8, gcc-13, clang-20
+> * Config: defconfig
+> * Architecture: arm64
+>=20
+> ## Build details
+> * Build warning:
+> https://storage.tuxsuite.com/public/linaro/lkft/builds/2yJ4IOQa1XxMqDgmzj=
+El7VszYE9/build.log
+> * Build link:  https://storage.tuxsuite.com/public/linaro/lkft/builds/2yJ=
+4IOQa1XxMqDgmzjEl7VszYE9/
+> * Kernel config:
+> https://storage.tuxsuite.com/public/linaro/lkft/builds/2yJ4IOQa1XxMqDgmzj=
+El7VszYE9/config
 
-https://lore.kernel.org/all/20250114203547.1013010-1-krzysztof.kozlowski@linaro.org/
+thanks a lot for this notification.
 
-oh my, if doing EXACTLY the same keep original authorship - the From and
-Sob fields.
+I'm surprised that overlay build at all when I built it yesterday.
+But yeah, the dtbs_install target really broke with that change.
 
-Best regards,
-Krzysztof
+I've amended the commit now [0], to change dtso to dtbo and ran the
+dtbs_install target sucessfully with that change.
+
+So on the next linux-next creation, this should hopefully be gone.
+
+
+Heiko
+
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.gi=
+t/commit/?h=3Dv6.17-armsoc/dts64&id=3De14491aaa6ff598bbe9d462e44c01ac65754f=
+445
+
+
+
+>=20
+> ## Steps to reproduce
+>  - tuxmake --runtime podman --target-arch arm64 --toolchain gcc-13
+> --kconfig defconfig
+>=20
+> --
+> Linaro LKFT
+> https://lkft.linaro.org
+>=20
+
+
+
+
 
