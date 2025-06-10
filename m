@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B512DC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF129C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gN0/bd6Sn1EIvPdiEhBeq7f490IM4mcVZo4ID9nNfo=; b=IwIh07aOKnz9CyiA12LDFYTgY3
-	UaoZJ9rMwvXzdWC8imPItvmhiIerlAK/d4yF0bO6mqHxgFyeok2BT+xG4EMi7SYtBySm5gkr8oZdR
-	d3xMP7kT0Zspe/uwI2NhyxUK0FxrqhLQhP0FzM4uX9ctuC9qejl9dC576CE7w/DV4JCF8kzAwsuf7
-	Oe7+E1d/GN3Qw0jyuEfoXwjxQW8Q8sfC8EAGGRbLaqI3bQqDltGhzCzaqZrKGueiz02wnDIDoeXjD
-	t7R3hLFG6PoKAmC2hkqixEjPfoVOD/X2Y68G0T6MnhY2VKpQ5L907RGNBDSxCbROit53NfJ3N3+Yw
-	m6K+7z0g==;
+	bh=PV6mynfuvv42D/ePAoYQa09aeqeL9wkOTzavUKrfpmo=; b=WuD6Tf8QBaeAkNme7KasscipEW
+	Kv4yzarFITQS6W3iR6gkTXPKXwctmmQYTffIXXmbU5Ti6A2xWtzL310+Cxe+qILmym8MUg39t9rLx
+	9v8WVCaex7VdgAWaKRaBMcQ4F/TPIPuRhkYk4JxtiTPdDRIVvPXEpuNCqBjxHkkYve097zaGPbCm1
+	gmpSjB2nAK4moLNA5yBWsy+MavyWbL2qPcxYKvWr8j1lvybsQrfuuy50zTvtKYy5MKaXqb+jgTm77
+	jybeV/JXZ0kDWCQpyGmddxlQ1MBFHTGRzEkIXoJ7FFA04EZhz9I5/XqOZHXaJT58KBrdsk9SWs5bh
+	qLaCvppQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP3lA-00000007oEN-2dZS;
-	Tue, 10 Jun 2025 18:31:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uP3nF-00000007oQO-0s2w;
+	Tue, 10 Jun 2025 18:33:53 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0p7-00000007IEm-474z;
-	Tue, 10 Jun 2025 15:23:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4AE4C629FC;
-	Tue, 10 Jun 2025 15:23:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBF9C4CEED;
-	Tue, 10 Jun 2025 15:23:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749569017;
-	bh=GdC3hbu2lBWJrq1c5FNhywQS8uf44LJI+yaHMwNtUZY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YTpMfumv//WkKeU1pjfa4/ARYTp4er7sYZcbWH7Qgd06JSTvoaaIHYhvfyV+OsRxe
-	 KlD8ovmvs9jUneKVjEbQDT47TlVjrD+OWWBAXgl/QLAhgxu8jpyrQgIYSNb/AYIfVo
-	 j9kLNX5UZ4TTUVtAn9cBmjIK4UTTWyT6FbUjk7eodk0Hmks8lKuGonOfGsOotLGu9J
-	 4Ch1Rc44Zy/t9sG0UhEZ5Sjqoc9R33EQ5+n9c0p6RuhlUZ+jylbx/+TgiM5Xv33iPO
-	 WhT/r9Ntl0xzsZVZUR2PCoYdHhCLAdkUAFJZlAflyHLada9PrrTsc7zQNzdTumIozf
-	 1fPqbyu51psrQ==
-Date: Tue, 10 Jun 2025 16:23:31 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/3] dt bindings: PCI: brcmstb: Include cable-modem SoCs
-Message-ID: <20250610-satin-wages-2ae29a2a3520@spud>
-References: <20250609221710.10315-1-james.quinlan@broadcom.com>
- <20250609221710.10315-2-james.quinlan@broadcom.com>
+	id 1uP0qI-00000007IsA-3CDX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 15:24:52 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLF7D010719;
+	Tue, 10 Jun 2025 17:24:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	PV6mynfuvv42D/ePAoYQa09aeqeL9wkOTzavUKrfpmo=; b=yxXbp0MwRqkezWKJ
+	ghM1nwfNNx/HR2jk1frQY0dGqtCYxDMUHc9yWPAVyTnMIZYEcjLEyPIO0JSkvslw
+	aX1bFJLXMisqBYo59e3qAhC8Uvbo3XvBGGLp7iuanIOprPfdf9MrnS5tGtllLm1t
+	+Zzvq5SKzdRn92qVaBLqx5PStMIipZ/iW3sAh4yuTlz/weKLo8uQiK13jsN5RUx1
+	SbHSWHFrcuPq9DA4pcccp2z8UvVP5h712Oy/T9JxtFP3MYslpUzycwhIOyBBWaCE
+	f+b+9RzUhe5hcO4yx4e90g7KAKiX4vzh9SpWRC5W/Eh0iwkQcW3SdHK1dhIPN+xd
+	nGFexQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474y053dsf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Jun 2025 17:24:41 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9D6634004B;
+	Tue, 10 Jun 2025 17:23:38 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EF1CFB79BAE;
+	Tue, 10 Jun 2025 17:23:13 +0200 (CEST)
+Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
+ 2025 17:23:13 +0200
+From: Antonio Borneo <antonio.borneo@foss.st.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+CC: Antonio Borneo <antonio.borneo@foss.st.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Fabien Dessenne <fabien.dessenne@foss.st.com>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+Subject: [RESEND PATCH v2 2/5] dt-bindings: pinctrl: stm32: Add RSVD mux function
+Date: Tue, 10 Jun 2025 17:23:06 +0200
+Message-ID: <20250610152309.299438-3-antonio.borneo@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250610152309.299438-1-antonio.borneo@foss.st.com>
+References: <20250610152309.299438-1-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ZDyAQUps/4oIxyh6"
-Content-Disposition: inline
-In-Reply-To: <20250609221710.10315-2-james.quinlan@broadcom.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.132]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-10_07,2025-06-10_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_082451_094595_61AAFDD6 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +101,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Fabien Dessenne <fabien.dessenne@foss.st.com>
 
---ZDyAQUps/4oIxyh6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Document the RSVD (Reserved) mux function, used to reserve pins
+for a coprocessor not running Linux.
 
-On Mon, Jun 09, 2025 at 06:17:04PM -0400, Jim Quinlan wrote:
-> Add four Broadcom Cable Modem SoCs to the compatibility list.
+Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml     | 8 ++++++++
+ include/dt-bindings/pinctrl/stm32-pinfunc.h               | 1 +
+ 2 files changed, 9 insertions(+)
 
-In your commit messages, you should mention why these devices are not
-capable of using fallbacks.
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+index a28d77748095a..5d17d6487ae9c 100644
+--- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+@@ -160,9 +160,13 @@ patternProperties:
+               * ...
+               * 16 : Alternate Function 15
+               * 17 : Analog
++              * 18 : Reserved
+               To simplify the usage, macro is available to generate "pinmux" field.
+               This macro is available here:
+                 - include/dt-bindings/pinctrl/stm32-pinfunc.h
++              Setting the pinmux's function to the Reserved (RSVD) value is used to inform
++              the driver that it shall not apply the mux setting. This can be used to
++              reserve some pins, for example to a co-processor not running Linux.
+               Some examples of using macro:
+                /* GPIO A9 set as alternate function 2 */
+                ... {
+@@ -176,6 +180,10 @@ patternProperties:
+                ... {
+                           pinmux = <STM32_PINMUX('A', 9, ANALOG)>;
+                };
++               /* GPIO A9 reserved for co-processor */
++               ... {
++                          pinmux = <STM32_PINMUX('A', 9, RSVD)>;
++               };
+ 
+           bias-disable:
+             type: boolean
+diff --git a/include/dt-bindings/pinctrl/stm32-pinfunc.h b/include/dt-bindings/pinctrl/stm32-pinfunc.h
+index 28ad0235086a6..af3fd388329a0 100644
+--- a/include/dt-bindings/pinctrl/stm32-pinfunc.h
++++ b/include/dt-bindings/pinctrl/stm32-pinfunc.h
+@@ -26,6 +26,7 @@
+ #define AF14	0xf
+ #define AF15	0x10
+ #define ANALOG	0x11
++#define RSVD	0x12
+ 
+ /* define Pins number*/
+ #define PIN_NO(port, line)	(((port) - 'A') * 0x10 + (line))
+-- 
+2.34.1
 
->=20
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> ---
->  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/D=
-ocumentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> index c4f9674e8695..5a7b0ed9464d 100644
-> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> @@ -15,6 +15,9 @@ properties:
->        - enum:
->            - brcm,bcm2711-pcie # The Raspberry Pi 4
->            - brcm,bcm2712-pcie # Raspberry Pi 5
-> +          - brcm,bcm3162-pcie # Broadcom DOCSIS 4.0 CMTS w/ 64b ARM
-> +          - brcm,bcm3390-pcie # Broadcom DOCSIS 3.1 CM w/ 32b ARM
-> +          - brcm,bcm3392-pcie # Broadcom DOCSIS 3.1 CM w/ 64b ARM
->            - brcm,bcm4908-pcie
->            - brcm,bcm7211-pcie # Broadcom STB version of RPi4
->            - brcm,bcm7216-pcie # Broadcom 7216 Arm
-> @@ -23,6 +26,7 @@ properties:
->            - brcm,bcm7435-pcie # Broadcom 7435 MIPs
->            - brcm,bcm7445-pcie # Broadcom 7445 Arm
->            - brcm,bcm7712-pcie # Broadcom STB sibling of Rpi 5
-> +          - brcm,bcm33940-pcie # Broadcom DOCSIS 4.0 CM w/ 64b ARM
-> =20
->    reg:
->      maxItems: 1
-> --=20
-> 2.43.0
->=20
-
---ZDyAQUps/4oIxyh6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEhN8wAKCRB4tDGHoIJi
-0tmAAQDHXwi683jRmX1Bx3NVDFjzYk9W0gkH+7s8QG2OnV8LrAEA133Af6pObKAg
-bs044xuxHkN8aohFLG72Xi6Q3IdYyQ0=
-=Bkpe
------END PGP SIGNATURE-----
-
---ZDyAQUps/4oIxyh6--
 
