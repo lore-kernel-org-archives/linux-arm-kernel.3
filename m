@@ -4,119 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F26C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:48:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60D5C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SLhYKXUBlq/76Q8kCP0zJNioPnWqVmep9hlrNQUyLmg=; b=bomoQUAgjdQeQJnEUziSMYMIi9
-	Wr6+n4bfAub88PIJ2tkyaCmmq0a45H0IDFNMv/U/Dt+Z1or0YC3QGbkqSauBRBhOTJsnnGHcBlrhW
-	lLze8TA8V3qZH35bj7ppABLEi1NjNRxMoujglp+EcGWBYPIWKqhm5zV/G4o6KmpIKSHRsP0YmIQ2N
-	igsI2x76mojMuXVrRuusj6XPHuKZV1s+BmccqFSe6FbmcqkUFoaY2GrkDN6PPWjWUbyJ8BtfFR9m5
-	eT6Ugt4LED1+vFAQWD64ropKlTaHh7RUS0xs2G8IpzX6XJlWwq29ziRIXyn6kserazvU8x1St0HsN
-	KE+lg8ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KtSFHDqCsIkf1iQ7Dhwq+Rgln9mAb3UEoYp2yGhElrI=; b=lr2usqxShRBjwysa8JaQcbCs1f
+	e+tMWbxRDjMy8Hv7wQ+crOo54YVjZlDFbR4AMhaCwmM2PMoFaxIXeFAS5MP3mXPQV0QDvlKUnpy+w
+	o32GkBL4ZTze2vfFbmqkmGXG5GwUfJECmvdaPYrR6lBd6Nr2LkT5iLznwcQt5R46bVDBRnc56ey4w
+	8ODJn6hcL0aIL68P5hvZadbQNMK+9sOUH7v5tvaYYjo8DtKP0f7xaDCrapTKijoCOEQ4sf6mrhChf
+	Yc501CugYMauQmtNmpXsR3JNllfUm4oDDP2IlCWjTRzLHAgwxn2Xy0HkscQp6eX+yzgCUU+hB22yi
+	haOB4ZXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvaT-00000006OY7-0hBE;
-	Tue, 10 Jun 2025 09:48:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uOvcZ-00000006Ort-3ZGO;
+	Tue, 10 Jun 2025 09:50:19 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvDB-00000006K7b-00bW
+	id 1uOvEO-00000006KMs-1EBV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 09:24:06 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 559MfPp0008107;
-	Tue, 10 Jun 2025 09:23:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SLhYKXUBlq/76Q8kCP0zJNioPnWqVmep9hlrNQUyLmg=; b=QU3NycOYoTGMHmlP
-	oCwadU5LFsF+PLGcbyAJ3NorxQb19M/mq2KefjFhSc4lUkFFVPgHaVqMuu0O18tQ
-	pRvzlH2CicPaDfSXBYSJzk12Bul65cDfut/PH8dqcvtxwQa9RlGSXPogFSj+UXeE
-	QfZhzdzzSFlifdVfZvYaQhKHlYqmgrZrBm9CjVJV5a2kVT01v4Vfo7w9jpuBaSn2
-	PCuuIsRwd4TjuQI7JszahyxmrujEotHcbjmqbTNjkx1QcrAzw9amzRqeSliyKkDB
-	yeoKO2aXRB/YZvbKSfRXg+IgZpvyqOmMBGqCpZKOelbWY8fOZeLf7k68RoVgt5nE
-	Y/voeg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474d120y0w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 09:23:58 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55A9Nans015791
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 09:23:36 GMT
-Received: from [10.217.217.109] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 10 Jun
- 2025 02:23:31 -0700
-Message-ID: <814deadc-9b7d-49d6-88c4-cb8837486cdd@quicinc.com>
-Date: Tue, 10 Jun 2025 14:53:28 +0530
+	Tue, 10 Jun 2025 09:25:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZrbO4a3vFel4C0M2l4qSr7W+1pUwOv5shnPsQ6B4wWlPInSeboNGa6h6pdGZz2iMlI7SKQSiIxpr82IwlronN9GaV8+Zng4mxm1vplT0PpwFnIGeh85Jg/Uf/2UHl99/OH4HVhQPi3pQuimY8T6/mNuGHhP4KEc3mXn8+o4PheZE86X5R2wpT7XD6dssKG5TeRbI2TCZCtkbLheTBLxIEMFEzL+zoBPTwx4IjhNAHB0wPmPvpWelGK2oPc+BSwSNnsobdY8PpSsrRXBwtgtYrsfVyZD8vYgG2vH+l42/rvslww07vMx6d0YpU7Vu2CkSGNK6IGIoM0nNKFxWThiD7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KtSFHDqCsIkf1iQ7Dhwq+Rgln9mAb3UEoYp2yGhElrI=;
+ b=ls9XeNZIRYxmtM2cdpAK0atQ829greeg3v25Pq4lwO3Tox7Ocry0Z/DZCPkTU8pQVHoZMKB3zHiJRZDzUs3N5UBzEL8xh5BNO/48UnfPTkxeC8lQ/r2ZwuDeYctJRhVXlDFpN8WgrMDT9epUNjZesg/QRmhUYarbvWPO5RuCHgcPRBkNouX2oW7C4Zfvp33uWTXD8A6Ta+NZA4EhhcikLGzMEQVc9cYo0Iwcnx5tHOUcteEPzfDNMqlKv8PhxGnjkw4Im2R+9dVej9S1tyBr94/r0DmfZXeFV36xCSyItiVxMXuXnbkqUyXkJ7JxE+yMs+thwWSv4cNS6j0k3z0IFw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KtSFHDqCsIkf1iQ7Dhwq+Rgln9mAb3UEoYp2yGhElrI=;
+ b=i7cx6frKXYpB7rAXkKLK/aXYxjXFptBrZboDPIn5rkIuPZfm83UXZq3FpPiGpZkDl0k3HoRRzojjarOjLMSNqRiBCzBy4iy8kd3x+hOFuNxDryt0lEE5OgGEz2jjz0BF79T7YTFCoNJbbB5fnfin1fzUYGe7Min+kBkdvrTgV9YTpcl52+ILLgYHXJ8eFLHGqrIliW5MYEjI9xXEVtE8psOX33B7siotyJuYbEHBAu2MG1sc8a0Y7jvFhLP1r/mB24DiaV4zlYVP/CiY9wQJFj52IT5iiYY9Z54zKPL7EqhipME30kO5mQ+X2ihpRI2LiF5L5hs+osoQFoqx8+XbbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by DB9PR04MB8251.eurprd04.prod.outlook.com (2603:10a6:10:24f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.25; Tue, 10 Jun
+ 2025 09:25:14 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%3]) with mapi id 15.20.8813.024; Tue, 10 Jun 2025
+ 09:25:14 +0000
+Date: Tue, 10 Jun 2025 12:25:11 +0300
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: Meghana Malladi <m-malladi@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Simon Horman <horms@kernel.org>,
+	Guillaume La Roque <glaroque@baylibre.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Roger Quadros <rogerq@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, srk@ti.com,
+	Roger Quadros <rogerq@ti.com>
+Subject: Re: [PATCH net-next v10] net: ti: icssg-prueth: add TAPRIO offload
+ support
+Message-ID: <20250610092511.ggf2kqpdokzvn352@skbuf>
+References: <20250502104235.492896-1-danishanwar@ti.com>
+ <20250506154631.gvzt75gl2saqdpqj@skbuf>
+ <5e928ff0-e75b-4618-b84c-609138598801@ti.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5e928ff0-e75b-4618-b84c-609138598801@ti.com>
+X-ClientProxiedBy: VI1PR0102CA0093.eurprd01.prod.exchangelabs.com
+ (2603:10a6:803:15::34) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera
- clock controller
-To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        "Stephen
- Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Konrad Dybcio
-	<konradybcio@kernel.org>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250424-qcs615-mm-v7-clock-controllers-v8-0-bacad5b3659a@quicinc.com>
- <20250424-qcs615-mm-v7-clock-controllers-v8-2-bacad5b3659a@quicinc.com>
- <b80d500b-6203-4d83-8396-3ba579abd980@linaro.org>
-Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <b80d500b-6203-4d83-8396-3ba579abd980@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: paoPOxfTkq3Z8Db8VHkhp7K7FNbxtFRD
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEwMDA3MiBTYWx0ZWRfX+xuEUv/2DpC/
- lIvcAmnFSA7A/gkwUEAVaVfDqxDr8CQ0e/MycgGXp028hOoRfjAdOFavxNPV3yvCZogNthqB83p
- MFz/iEOoUc1EGKs9jxOPZ9piimDJ23bapwuGDgHD5MH12oD/WuxATOz9EsGIme/TTH3btHeDAKc
- /kI+eWAfderfLVpIuzhbxkQCfUpN8nI9m6DgukPwxNU59mmb8gbM5sgdHFDrQSZ/KiykvcTYsdv
- pUtmKB6cZQ9sK2YjCj7XZq3k3uPsvbT4toB6Abo1FeYd3//oAe/BsZTBQ9sMC/wlEmA1Eyo2Pth
- a7xCUVzSJGu8hUli87+e2SvFeA2HbBSzEKeuV7HxVqZqJH/1Tvj3S6wJmSqJSA0BJyi76cV/19u
- uqsc7/3CXeuLqfFM7lWytXeH1o8InFMmZ3fU6910M/ZCpWVk3KMxQ0CGM15kp/Nze1VjAhFk
-X-Authority-Analysis: v=2.4 cv=GYkXnRXL c=1 sm=1 tr=0 ts=6847f9ae cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=gEfo2CItAAAA:8
- a=COk6AnOGAAAA:8 a=WPGCOMWRFNVID3d5GRAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=sptkURWiP4Gy88Gu7hUp:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: paoPOxfTkq3Z8Db8VHkhp7K7FNbxtFRD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_03,2025-06-09_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 spamscore=0 mlxlogscore=999 bulkscore=0
- impostorscore=0 clxscore=1015 malwarescore=0 priorityscore=1501 mlxscore=0
- adultscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506100072
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|DB9PR04MB8251:EE_
+X-MS-Office365-Filtering-Correlation-Id: 714293a7-8042-4525-e97d-08dda800b4aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QjCuaEdW6Sag3CX7goWZ01RJanzjl71j+Nk6vkyeCrR08qqO4bFL5zbFPYeX?=
+ =?us-ascii?Q?8A6uLLISX4otvGjATzoYu4piMT0Uz1wXAPrho++z4hk6D+IDy+x1/o2WRca8?=
+ =?us-ascii?Q?E7MBGFCfHdGmLS/JMQdNo6rx+T+h/uw23RHDf6hvswiore1TI1nRPaPyDkvX?=
+ =?us-ascii?Q?5wTmciKZeQNGPq5fvoti6SwNOA1p/8I1Bd2q3dOov/xA0dNPIlsQoruE4tq6?=
+ =?us-ascii?Q?I1Dp4ypefxfyOXwQJUIqGFl/jniBFWERZRTYJTgo1z3d+FCyDj1jX3MrAJyR?=
+ =?us-ascii?Q?hdj0ZXxXHvBpZyKOt73olFQ65Zvh0jERAgzu3iqt2zxyAQfXBrloI6a++GUj?=
+ =?us-ascii?Q?CeOE4Nma2FO/fBdL/y5JG1RXo72es9NPvKJlOyd08yHA39lAzFVIiazXnhYT?=
+ =?us-ascii?Q?xAlnj3R8YbCCJ1926mzI+9WQRLZgZRFoyfomdYA16sNCvkRMyWaJFhEEJtmu?=
+ =?us-ascii?Q?7un0GPrOAkrWgZGiD/n/IG+Adwgc+1BX07lh+OyyztQUx2xO+MCySSiMmifK?=
+ =?us-ascii?Q?9UXkXWXM169l+zncOJ44WySNJWEVYxEoCj05IN4nCnwYnF3ODht4VG/4fVHI?=
+ =?us-ascii?Q?k6xcMjYR0QIPQNNqx5wTMGE8+M7GOjkh56HC3TzVMVWzrOeh3LYv2Et3jkgF?=
+ =?us-ascii?Q?0XkLr4b4s/tO20Q++PBiQlgdFvPi7rhpSp4oamazcnhm1flZ1cH8JUa9M98s?=
+ =?us-ascii?Q?JokQQeZJrG2OBG7+3FXgr6MEPqCTUXiwg9PdtrdC3z33CnepBXI1mtAEohPg?=
+ =?us-ascii?Q?0DdW6QLEpPRt6FLfFr7QP/+adPcUbZ/an2o4qqUvuSUjdDEbBdx+nHdUx80Z?=
+ =?us-ascii?Q?KhPWOu42rC3UfitYx2hv2uAwr8+ikt86I8vDi0VwO1hXnjFs487+oK/r4vLz?=
+ =?us-ascii?Q?GTn9jdo2ils3nW5AsTgiszOGHIo8ooM8ApI38+U0pFuKL3TMz7uHyTLrmXoo?=
+ =?us-ascii?Q?eO+7BPMhilqCdpCyLIOekvz6lV1wK7VFsIQR/ASCDgEfiHz2B0bTmt/Tt9ec?=
+ =?us-ascii?Q?iA+gkMEj4CMSGr0XjRint7FWcqMmA9gLApwo84BIcr2Mmv+xonoey+t9uBnm?=
+ =?us-ascii?Q?k9ovUc/qHvOBZJZeJDRqhfLXXQRprgQX8Lo0Af6shFrLnv93SJMrg3DTKvXm?=
+ =?us-ascii?Q?KbEFN4ivZgieo8o4I/gv8j7d896e9sLMxOIZTtvUDV2z50KfkIl7owpRTavj?=
+ =?us-ascii?Q?OKmBTb2dlwN0nu0jeK12nGaIkXgZ2U2vFfC/XEMn/Cq8AYJYOi7QBnkWMLKF?=
+ =?us-ascii?Q?LQoK78D8zfpbII0tMGKJs1rNKvdHQvpnkEY8e6szKNMIDJjuVrxlqSfhOTHy?=
+ =?us-ascii?Q?ZpexpMoFTcWVkvNNMavPZqBoK/bqFjxZr3XDo+2Q26Djhu65mpJmQdb6F7sr?=
+ =?us-ascii?Q?L62ttbW1jL15TNQKUCbarntb6h/XSEfs/QscvIf0wfWPWG5HDlQPB+EKELOf?=
+ =?us-ascii?Q?6AsOcSgImN4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MuVRWKr6JvI68xD9l62t0R372QXJCK1RyS8jLXh85op+TkRs2uUYqc9lAmOI?=
+ =?us-ascii?Q?DC4CnhHQZ8nJ1ntZWDPeGA7UTDImUcK1ksLDrSr2rHrH0NbPmbiPG/6Ea2WZ?=
+ =?us-ascii?Q?by8FVSx9qygRphoGKxn2z91TZRohgz6yVRkwH9orjVGl6g4xuTl1d90Ua696?=
+ =?us-ascii?Q?owi0NyBto+S2dM4XYimmshP0sBk0M39fbPglm1shPYrGSZSqDkl1fhVTOpzp?=
+ =?us-ascii?Q?QspeunFnI/Zx+EaIwevZocx9c8ekc3YF/XyRxRxNspK18HcMfZ4ntQzsm27d?=
+ =?us-ascii?Q?6ErhpIhjOmM+Zp7QyPL9u4yp3PwcgKVRCIWrA0NxMEt1rC43DaGcdH6ZEKFy?=
+ =?us-ascii?Q?ouN1JBAHl58Yo0M0Ks9siyG1hV47evdwr/ND0rklZwzvtAcXx8heSivTTTqI?=
+ =?us-ascii?Q?MucRVr9o9rpXw8eU+WfxT1wyl9hiDvl87qFmDaPXiEyE+xdDftti9LvB8deD?=
+ =?us-ascii?Q?yzHg8vn5Wl07ZrFy9ENJGgbxY4auEhNQl7Le2TKi6TVexDzMPx2gYtYJXo5q?=
+ =?us-ascii?Q?LGl3ndH9wZ0Xd/UqLYU0qX/xs97Ss8FgLaB0SmWsWphbVDJF6pLTJIzSOeAQ?=
+ =?us-ascii?Q?xoSI/Ug4gzXWpfns5cRv8U2ti7hdpaqkbDtd7h3loGFnkrtEo+G8MTnxBEN9?=
+ =?us-ascii?Q?uMbWCtM0W9B0yKYD+z7WWrohNpKaaflPhsdV0OKb6C/INYzVvLkq4HgGKQT5?=
+ =?us-ascii?Q?dvFkBrfainTqpuN+4Y+TYiVbUfFQ3IQfM1/fkhl7dU60jYXBQV2STqhs4XUe?=
+ =?us-ascii?Q?B3JcNB6y+mvvqyd37tfXbgI0ElmdZjxBZ4ZU/+s7kOwdLzKdVH+b5y3R/IEg?=
+ =?us-ascii?Q?dRfrlBVOmIDrX1kgApOVl+E7f/M3yEfVQ/CjKQZ7d74OVzrCTfsngp0cYGol?=
+ =?us-ascii?Q?hoNcfJmXVLDv8p8aYxMBysoIaY9XK9w6DeD5Uoy6TQ5MpzdvYHXGuSmD2WP3?=
+ =?us-ascii?Q?3N1n6uCuvBv6lSsytrFwLJVCeg6yLLRUKRhaVtWAVuEtqctVFz1rnOo3CxEa?=
+ =?us-ascii?Q?OvgNF3/0y+bEe7f4ra5waODclWzqylP8q9v9IxZPZClpXNfQdSczbmQYn9Bw?=
+ =?us-ascii?Q?ddaHpYCmwuj1iVt9Skys+YuBX1w9FNxd6q/SdrmMYRRR41IMKXooswFK8OxY?=
+ =?us-ascii?Q?uD2TAtjKGL8qXuqGG30nSCM6SqOGTxVHW436HZ54SBC4ZCoXHjfpYL8t0mqZ?=
+ =?us-ascii?Q?mKl4Wsgvc1reuB2vqEhO12+rGB5i2i+L/1yXx8mH+mq4O2wNh+jL2dHR5GAv?=
+ =?us-ascii?Q?rI14t7+szd+DOF52iMmv3oHL9E9ddU6gA49hkvzG9fBZ2K/syT+LLuvESyAU?=
+ =?us-ascii?Q?szvkuiWOhMwbyRIUYyMsCrMwkEi9Wc6s5XKDuBzoalKEDgCWs8/DeR0YZhzp?=
+ =?us-ascii?Q?lA18k+K1Yab0Q1hQB1iGOIsatddJLdGMcmaCcCHtlmhiVa3ZZeoyDBWoHTFM?=
+ =?us-ascii?Q?RIoVyBCysvYhrGnXjMgjlWMjmiKx3X/iS18WM7AosKzeo4QAvIRygG2y3+Ou?=
+ =?us-ascii?Q?2MBYWTeSHTpassePbXGrlbDrrDcK91F+b+O+bQSe3EGW5KlAZjxjUAzbjV1l?=
+ =?us-ascii?Q?MztKp0IUa7K79B1SXqhS7nuNYqbE6qAaM/kiRLJ6QXO4hU4xM7FSUzK7ky/U?=
+ =?us-ascii?Q?Ww=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 714293a7-8042-4525-e97d-08dda800b4aa
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 09:25:14.2709
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ccNRQx70YN8X92+7SIMD0ON+vin5leyKmwIz6ZpYc+Ckg4o692kMRSF4zAianGy4uqTyXKtUaVSGLhEC2yEEzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8251
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_022405_160164_A38CDA47 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250610_022520_332373_CA562C72 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,87 +170,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/28/2025 6:38 PM, Vladimir Zapolskiy wrote:
-> Hi Taniya.
+On Thu, May 15, 2025 at 04:24:50PM +0530, MD Danish Anwar wrote:
+> To compensate this, whatever extension firmware applies need to be added
+> during current time calculation. Below is the code for that.
 > 
-> On 4/24/25 12:32, Taniya Das wrote:
->> Add DT bindings for the Camera clock on QCS615 platforms. Add the
->> relevant DT include definitions as well.
->>
->> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
->> ---
->>   .../bindings/clock/qcom,qcs615-camcc.yaml          |  43 ++++++++
->>   include/dt-bindings/clock/qcom,qcs615-camcc.h      | 110 +++++++++++
->> ++++++++++
->>   2 files changed, 153 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-
->> camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-
->> camcc.yaml
->> new file mode 100644
->> index
->> 0000000000000000000000000000000000000000..2b811e66d406c16c70004bb3a9fce294422a5914
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-camcc.yaml
->> @@ -0,0 +1,43 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/qcom,qcs615-camcc.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Qualcomm Camera Clock & Reset Controller on QCS615
->> +
->> +maintainers:
->> +  - Taniya Das <quic_tdas@quicinc.com>
->> +
->> +description: |
->> +  Qualcomm camera clock control module provides the clocks, resets
->> and power
->> +  domains on QCS615.
->> +
->> +  See also: include/dt-bindings/clock/qcom,qcs615-camcc.h
->> +
->> +properties:
->> +  compatible:
->> +    const: qcom,qcs615-camcc
->> +
->> +  clocks:
->> +    items:
->> +      - description: Board XO source
->> +
->> +allOf:
->> +  - $ref: qcom,gcc.yaml#
->> +
->> +unevaluatedProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/qcom,rpmh.h>
->> +    clock-controller@ad00000 {
->> +      compatible = "qcom,qcs615-camcc";
->> +      reg = <0xad00000 0x10000>;
->> +      clocks = <&rpmhcc RPMH_CXO_CLK>;
->> +
->> +      #clock-cells = <1>;
->> +      #reset-cells = <1>;
->> +      #power-domain-cells = <1>;
->> +    };
->> +...
+>       ts += readl(prueth->shram.va + TIMESYNC_CYCLE_EXTN_TIME);
 > 
-> Is there anything what prevents to add this clock controller dt bindings
-> description into qcom,sm6350-camcc.yaml ?
-> 
-> Apart of compatible values I barely see any difference between two of them.
-> 
+> Now the current time becomes,
+> 	counter0* 1ms + counter1 + EXTEND
 
-Sure, I can re-use the bindings and push the next patch.
-
-
-> -- 
-> Best wishes,
-> Vladimir
-
+What will the TIMESYNC_CYCLE_EXTN_TIME register read (and what is its
+exact meaning)? Is its value derived from TAS_CONFIG_CYCLE_EXTEND? I'm
+asking because the driver only writes TIMESYNC_CYCLE_EXTN_TIME to zero
+(for a reason that isn't clear to me either).
 
