@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4764C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767CEC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UniAvZESTfn+wymekpIinnCdI455GXxoi6+/rhJB6I=; b=W+b2dMgtfirqqISAL16VBV1oNC
-	y9wlF71JcV2kU3zM1XIZdKu+MdVUsdhReSA36q1gqq8+salHRobJJZXmsqKH30tZc7wEw6mVETPXV
-	S4P17h7AspZTOETLRzYbHd4fnxh+xCQmvYpxBGEL0adynhy9aT4NPxsCbFRcnIW7e9UDenH8W4t40
-	UgyAyCElqR5BgSubpT14FpgcUJSHwV1Tp2hbmaYYcvtG+4tGX2MZcBYyeAr8IhY7iJG6O8sBVPM+j
-	y97RqxPNfhLCcTi0vhsLrTY4PzVUHuDZE8MFeahaANTJQwrj/apiXGDKrkPZtZY64R8HL7+WNxZBI
-	yKsN9psg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SkHumX+B+y86i8MSC5SJDKQ6nFwDO3pplzjQCYTDa/A=; b=AIqTebqCh4ngI9mzKS0FYS0X1g
+	nuBC9vzQVO9JeejK7xfAySZTJq0UdXALG1VP64nZABqkPj0z8VocBb3tghQxtrsoUkWo7iDdf0aSe
+	dITwJjQHuJYW3MMlFWbwFpatH3z39XaDUEmXNqpOf3S+5MI1eunD9nwpzg34KjPqz1twZ/H/65bYx
+	SHPpllLLbC0ZqOLn9Ng5fLnwgZNSYvQfW4Ls7PmT9gkmDwr7tD33es6Pbl9lsg0c2RhMky3iLjjle
+	SEuXae2KZnkNvQzfC+e7WG4yKNORCHe0c2HZR1o2QmgCAmjY3cw6HJbBLz18PPai3ED7XCImPQm0y
+	5zeNQ83w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtGn-000000060bx-2QCp;
-	Tue, 10 Jun 2025 07:19:41 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uOtIy-000000060wS-1Tv2;
+	Tue, 10 Jun 2025 07:21:56 +0000
+Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtEd-000000060Qi-3G8d
+	id 1uOtFf-000000060Va-3uJP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 07:17:29 +0000
+	Tue, 10 Jun 2025 07:18:33 +0000
+Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-4e58a9bb8fcso1703210137.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 00:18:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1749539847; x=1781075847;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=5UniAvZESTfn+wymekpIinnCdI455GXxoi6+/rhJB6I=;
-  b=K7x817UNCJ6WP36FkNyyUNbCjsuDUqSWjIUeLWxQfL+YQfeAg2p0tMtR
-   BWd/C7GNfz2yc4sYhHXuHRo43IvQrmnx8rgCM9Wt0lFtm3MHPyicf/et4
-   0dEqea9Jtop/JnZ4HxYps3Z5vwUfanpWeJ0+pyzMtpv3RyGdjBtLmkHqi
-   tEubuT0TeGZyTZX4WztgdNtsqEIFde8i21R7TS5gITc3/6pssSW/qGZT5
-   ragRjtj35dhdfXTN1GfwJHH0o1OWYGWpxnWhcxu4UdYCBhFA8jSVCoLdf
-   dimw+HmAcVHRqLxnZI7jv+K/WGbyYXlC0p8N36VLKOln2VV3EFXKbwPmN
-   g==;
-X-CSE-ConnectionGUID: 72KKQk/iQpGdmGt2S3iHxQ==
-X-CSE-MsgGUID: kcsNPqIcT7i6fBLfqngXGw==
-X-IronPort-AV: E=Sophos;i="6.16,224,1744063200"; 
-   d="scan'208";a="44535224"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 10 Jun 2025 09:17:25 +0200
-X-CheckPoint: {6847DC05-1E-569BE4A0-ECC5EE08}
-X-MAIL-CPID: 6C1A0426CFBAA0EE75CFBB7B038D90B1_3
-X-Control-Analysis: str=0001.0A006372.6847DC2D.0002,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 827F4164205;
-	Tue, 10 Jun 2025 09:17:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1749539841;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5UniAvZESTfn+wymekpIinnCdI455GXxoi6+/rhJB6I=;
-	b=R6H7mn5wx8Yy1iyCyKn5ow/XqlgymnT62kYF+4BvsSfoR27tqm8c7A4pnUvpGXztHfePgM
-	xADbNnPcy2kdOyMtcA3gSUFmyUM+0QR87TGSKmPrEJbdXMCrmnu1LdmiDr/9EEbtckPQcb
-	0GjHa1XG1YjD4gVASESHYz9Ju4mi9jJkcN/Dwo8C2s4/axza7JtmEn1ksAk0h6no3reGOV
-	eQqSLia3zNlF76r87KWnrg+u9LxiEP9qp/Mkr3uqxt/OAk9x/dECdVyGs0lrlFVX9n2hRr
-	/bHuKKxJ+jb5h1GzAQKpI0IQ8c9aZ3tzILA5aJxWAf1QG2P6JJ0CiSm8N0ZwOA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: linux-media@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Isaac Scott <isaac.scott@ideasonboard.com>,
- Rui Miguel Silva <rmfrfs@gmail.com>, Martin Kepplinger <martink@posteo.de>,
- Purism Kernel Team <kernel@puri.sm>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/8] media: imx-mipi-csis: Log per-lane start of transmission
- errors
-Date: Tue, 10 Jun 2025 09:17:20 +0200
-Message-ID: <5020258.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250608235840.23871-4-laurent.pinchart@ideasonboard.com>
-References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
- <20250608235840.23871-4-laurent.pinchart@ideasonboard.com>
+        d=linaro.org; s=google; t=1749539910; x=1750144710; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=SkHumX+B+y86i8MSC5SJDKQ6nFwDO3pplzjQCYTDa/A=;
+        b=zKvPzM4XJSSM7eOlgTsW3+To8TKG4rSl9qbav3xWo8QkU5xNKdwP/OUtGQUFLytQnZ
+         TdXADzwbka4wTuEQkouaYxw/suArmtxzybL6p+uTbHao/LJGbwDnkcEnBqDEOHPRhFtc
+         AYt82YMYFtrpUC/jgQv3JuaA27LNG4cSJkyJNjMVrKdaKdL2jVLwQxv1xVp1AhWiSzOL
+         j4j5bjAkWylFjJZ6oVVrSJuAAE9xctvKt6ve/WRRosD9egtzl1RhbNYSaobtWM6Nfn9K
+         6zbf8h+GvFC2uR78fKxQqhSvXAputXF90F70cQXXYa4pwqm4JugxDuJwnr6JBjryesZr
+         ThZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749539910; x=1750144710;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SkHumX+B+y86i8MSC5SJDKQ6nFwDO3pplzjQCYTDa/A=;
+        b=VcaGHGpHHFGYPxtYSIgTornPwj49V5LZ+PI1VeaYKs0I2YZ64+hWRS/YquUpD4P8NB
+         IBb9rd2fNdW3T3d536Dbly3I8MExo1ZNazeTkj41Vl5bKjsJPV+4/E2fKH2maRrTUKwT
+         fYR3WSi1iAYojet0iDqf1jWGRHwa4//o3Qk+2gBqqqMDdYTIxTCrTWK16qcld9MCv/8M
+         J9ixPcoJsDzRfMSxBY/oSzdvwP7Ly7ren+34FYGdOQA9uyaBVksJm5ifgggcjsSc6HfI
+         deS2vG3wV/wfxWczDiaupsYnsgVIR1SjlRuZZpQuPH4+CIzXOBZsu96PAl8vzYt+zdC1
+         uIMQ==
+X-Gm-Message-State: AOJu0YxukRTdavJKNlnFiQ9onJWlatrrh1NuqZRcpQRKF/yokCsA5nzG
+	0+eKvbi56GPTVJPPL1LxxjGpBU6lP/sX/tlJ1I51EliLjHTbss8+ISAn3lkgrICbhLvT6sq6rxQ
+	3bvjohm2zIwgWCYvLL6+wgJezSAPVMJPOjqxAnwo/fN4CH2CwIt2D+uJ41Q==
+X-Gm-Gg: ASbGnctbGpQpTyqBOgFeR4wMnhvJGnzBbSk9KFzEw1Z03EOEVH4SKppnlFlHBWfjN8b
+	vQaUwiSKqnX0bUlSPky6EcR697MsCjhI/KYIo2pKdDX/qYMDBNLHQLMBJr0mgnrGiPw3TL66Rhe
+	Gu4HL7O0zdL/PH3vvstMG/90vPoRD0+ujwQI2Ml401gFidHiNaFHab5CETwFWzB7ASOgmsCFbI4
+	ezS
+X-Google-Smtp-Source: AGHT+IEWeK8X5+m8ElJSK5z3+ETpZn+gitvlG/z+JagvODDs6mTjgbOyPmSCoIASAzlc/+Rww7q/dUQ/dbl/qwPi6yI=
+X-Received: by 2002:a05:6102:4403:b0:4e2:a5b9:df1d with SMTP id
+ ada2fe7eead31-4e7729acf70mr12705549137.8.1749539910181; Tue, 10 Jun 2025
+ 00:18:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Tue, 10 Jun 2025 12:48:18 +0530
+X-Gm-Features: AX0GCFs5HGZPW_5vlnOtlFErN9wZOl5LWlGniaDfW8i9KS2B_HI6AE7jX17fEGo
+Message-ID: <CA+G9fYsYVuEpL5KnYdq4ciRmpnUMQqkNQHmy7y5XvUm48kjxyA@mail.gmail.com>
+Subject: Juno-r2 WARNING kernel time clockevents.c cev_delta2ns clockevents_config.part
+To: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
+	lkft-triage@lists.linaro.org, Linux Regressions <regressions@lists.linux.dev>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+	Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_001728_120932_927A9417 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250610_001831_968741_897C886E 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +94,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+Regression while booting Juno-r2 with the Linux next-20250606
+the following kernel warnings found.
 
-thanks for the patch.
+This boot warning was reproduced with juno-r2.dtb and juno-r2-scmi.dtb.
 
-Am Montag, 9. Juni 2025, 01:58:35 CEST schrieb Laurent Pinchart:
-> The CSIS has per-line start of transmission error interrupts. Log them
-> all, instead of only the first data lane.
->=20
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Regressions found on Juno-r2
+- boot warning
 
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Regression Analysis:
+- New regression? Yes
+- Reproducibility? Yes
 
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/p=
-latform/nxp/imx-mipi-csis.c
-> index b652d59851c2..e27467e6372f 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -100,7 +100,7 @@
->  #define MIPI_CSIS_INT_SRC_NON_IMAGE_DATA	(0xf << 28)
->  #define MIPI_CSIS_INT_SRC_FRAME_START		BIT(24)
->  #define MIPI_CSIS_INT_SRC_FRAME_END		BIT(20)
-> -#define MIPI_CSIS_INT_SRC_ERR_SOT_HS		BIT(16)
-> +#define MIPI_CSIS_INT_SRC_ERR_SOT_HS(n)		BIT((n) + 16)
->  #define MIPI_CSIS_INT_SRC_ERR_LOST_FS		BIT(12)
->  #define MIPI_CSIS_INT_SRC_ERR_LOST_FE		BIT(8)
->  #define MIPI_CSIS_INT_SRC_ERR_OVER		BIT(4)
-> @@ -241,7 +241,10 @@ struct mipi_csis_event {
-> =20
->  static const struct mipi_csis_event mipi_csis_events[] =3D {
->  	/* Errors */
-> -	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS,		"SOT Error" },
-> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(0),	"SOT 0 Error" },
-> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(1),	"SOT 1 Error" },
-> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(2),	"SOT 2 Error" },
-> +	{ false, MIPI_CSIS_INT_SRC_ERR_SOT_HS(3),	"SOT 3 Error" },
->  	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FS,		"Lost Frame Start Error" },
->  	{ false, MIPI_CSIS_INT_SRC_ERR_LOST_FE,		"Lost Frame End Error" },
->  	{ false, MIPI_CSIS_INT_SRC_ERR_OVER,		"FIFO Overflow Error" },
->=20
+First seen on the next-20250606
+Good: next-20250512
+Bad:  next-20250606
 
+The suspected patch that found between tags is,
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+# git show next-20250512..next-20250513 --
+arch/arm64/boot/dts/arm/juno-base.dtsi
+commit 1fa3ed04ac55134063e3cd465b41aeb26715e52a
+Author: Sudeep Holla <sudeep.holla@arm.com>
+Date:   Mon May 12 11:11:32 2025 +0100
+
+    arm64: dts: arm: Drop the clock-frequency property from timer nodes
+
+    Drop the clock-frequency property from the timer nodes, since it must be
+    configured by the boot/secure firmware.
+
+    Cc: Liviu Dudau <liviu.dudau@arm.com>
+    Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+    Cc: Mark Rutland <mark.rutland@arm.com>
+    Message-Id: <20250512101132.1743920-1-sudeep.holla@arm.com>
+    Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+
+diff --git a/arch/arm64/boot/dts/arm/juno-base.dtsi
+b/arch/arm64/boot/dts/arm/juno-base.dtsi
+index 055764d0b9e5..9ccb80821bdb 100644
+--- a/arch/arm64/boot/dts/arm/juno-base.dtsi
++++ b/arch/arm64/boot/dts/arm/juno-base.dtsi
+@@ -10,7 +10,6 @@ / {
+        memtimer: timer@2a810000 {
+                compatible = "arm,armv7-timer-mem";
+                reg = <0x0 0x2a810000 0x0 0x10000>;
+-               clock-frequency = <50000000>;
+                #address-cells = <1>;
+                #size-cells = <1>;
+                ranges = <0 0x0 0x2a820000 0x20000>;
 
 
+Boot regression: Juno-r2 WARNING kernel time clockevents.c
+cev_delta2ns clockevents_config.part
+
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+
+## Boot warning
+[    0.000000] timer_sp804: timer clock not found: -517
+[    0.000000] timer_sp804: arm,sp804 clock not found: -2
+[    0.000000] Failed to initialize
+'/bus@8000000/motherboard-bus@8000000/iofpga-bus@300000000/timer@110000':
+-22
+[    0.000000] timer_sp804: timer clock not found: -517
+[    0.000000] timer_sp804: arm,sp804 clock not found: -2
+[    0.000000] Failed to initialize
+'/bus@8000000/motherboard-bus@8000000/iofpga-bus@300000000/timer@120000':
+-22
+[    0.000000] arch_timer: frequency not available
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] WARNING: CPU: 0 PID: 0 at kernel/time/clockevents.c:38
+cev_delta2ns (kernel/time/clockevents.c:38 (discriminator 1))
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
+6.15.0-next-20250605 #1 PREEMPT
+[    0.000000] Hardware name: ARM Juno development board (r2) (DT)
+[    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    0.000000] pc : cev_delta2ns (kernel/time/clockevents.c:38
+(discriminator 1))
+[    0.000000] lr : clockevents_config.part.0 (kernel/time/clockevents.c:499)
+[    0.000000] sp : ffff800082923cd0
+[    0.000000] x29: ffff800082923cd0 x28: 0000000000000400 x27: ffff800081650000
+[    0.000000] x26: ffff80008292fcc0 x25: ffff800082425888 x24: ffff8000829343c0
+[    0.000000] x23: ffff800083210000 x22: 000000000000000b x21: ffff8000823cf178
+[    0.000000] x20: ffff800082433880 x19: ffff00080021e240 x18: 0000000000000000
+[    0.000000] x17: ffff00080021a400 x16: ffff00080021a200 x15: 0000000000000100
+[    0.000000] x14: fffffdffe0008a00 x13: ffff800080000000 x12: 0000000000000000
+[    0.000000] x11: 0000000000000068 x10: 0000000000000100 x9 : ffff8000801b50f8
+[    0.000000] x8 : 000000001dcd6500 x7 : 000000003b9aca00 x6 : 0000000000000020
+[    0.000000] x5 : 0000000000000020 x4 : 0000000000000000 x3 : 0000000f00000000
+[    0.000000] x2 : 0000000000000000 x1 : ffff00080021e240 x0 : 000000000000000f
+[    0.000000] Call trace:
+[    0.000000] cev_delta2ns (kernel/time/clockevents.c:38 (discriminator 1)) (P)
+[    0.000000] clockevents_config_and_register (kernel/time/clockevents.c:519)
+[    0.000000] arch_timer_mem_frame_register
+(drivers/clocksource/arm_arch_timer.c:1319
+drivers/clocksource/arm_arch_timer.c:1580)
+[    0.000000] arch_timer_mem_of_init
+(drivers/clocksource/arm_arch_timer.c:1653)
+[    0.000000] timer_probe (drivers/clocksource/timer-probe.c:31)
+[    0.000000] time_init (arch/arm64/kernel/time.c:62)
+[    0.000000] start_kernel (init/main.c:1014)
+[    0.000000] __primary_switched (arch/arm64/kernel/head.S:247)
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] arch_timer: cp15 and mmio timer(s) running at 50.00MHz
+(phys/phys).
+
+## Source
+* Kernel version: 6.15.0-next-20250513 to 6.15.0-next-20250606
+* Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
+* Git sha: 4f27f06ec12190c7c62c722e99ab6243dea81a94
+* Toolchain: gcc-13
+
+## Boot details
+* Boot lava log: https://lkft.validation.linaro.org/scheduler/job/8309469#L622
+* Boot log: https://qa-reports.linaro.org/api/testruns/28679128/log_file/
+* Boot warning:
+https://regressions.linaro.org/lkft/linux-next-master/next-20250605/log-parser-boot/exception-warning-cpu-pid-at-kerneltimeclockevents-cev_delta2ns/
+* Build link:  https://storage.tuxsuite.com/public/linaro/lkft/builds/2y4wgEvmeoVH3Vr528M4YN2OBXY/
+* Kernel config:
+https://storage.tuxsuite.com/public/linaro/lkft/builds/2y4wgEvmeoVH3Vr528M4YN2OBXY/config
+
+--
+Linaro LKFT
+https://lkft.linaro.org
 
