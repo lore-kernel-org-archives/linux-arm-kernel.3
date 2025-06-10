@@ -4,111 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C688EC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA0EC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UED2MPPB6ErGPf9SzqxWrhbWnlHVANSe4cIFIu1q+Q4=; b=M1n36e01ANKbkamLCeVvmdxVCL
-	cMj2so8ihV/9dMpvyN2+Yc4VvMnSKf4uCUwGFke8wL15Sxqzpwcrlmz+D5jbO7QV3ItgxtvGKi/FE
-	ZCL8t01IjMl+ThdBCZpRxkPp5CbftU98VHyRrI8WriWF2jWoSV8+lv+3HFAAIn1GW/cBegShJi8VT
-	A7JGbBHBrQW2O4a6rVxP4CPUjKJds1NBw6/QzNUfu6za6DZtPeyHVE3m25bx2nSCoEs8yxqkTB6R8
-	GCiov8lMifb0cMygUL6U3LSoGa3i/u9veug24VclHxu9wnlJwTMzFsiBWr+LXRPGcBtLsm20htgo5
-	fonDYtwA==;
+	bh=Z7wRmsPzeTeYuppKvxs19mJ1EbKK5sVoRm+za+/C/ME=; b=l5LQHNTeSzkNrHdfAISoI1F+kn
+	RMBB61bI1tnp9kgt7DUIctvY3Mpw+24XwYUey7sZSnXCIGwrGy5BoHCObyAPoY4QhU6pYLPUVsjsE
+	D/M+Nhh+PvDojYYL+89wLx81d3pfZacN3eZJ3uOchIF0Yh+B4661nHCIwKLj7SGEi83VUBqD7EA1N
+	jiwHlU+quiIhYBUPBiw7gYTfvG7hBpgmISOsguOEIT6tQhBjGUZhkGQDzfUEsHyRMku40W7Tv/EE9
+	S8ytdMXMA1It6OmHpzLcSKetZFDAE6Y/AVAdqocHk0pnbJ+9J8VlDl371+qrrUZqoStXvfGTpwudf
+	72VlPo3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP090-000000079Nc-3Hql;
-	Tue, 10 Jun 2025 14:40:06 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uP0DE-00000007A26-3IFO;
+	Tue, 10 Jun 2025 14:44:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyFi-00000006nXD-4AgW
+	id 1uOyFr-00000006nb2-2o0X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:38:56 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a536ecbf6fso2259382f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:38:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749559133; x=1750163933; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UED2MPPB6ErGPf9SzqxWrhbWnlHVANSe4cIFIu1q+Q4=;
-        b=ODuBNCFlpUWr6GpYBfRfNh7DcdRNtWgMoekahMwIg/sSkF8b9S/P6QACIveNDwZhfj
-         ILTzhgwT3Hj1ndMX0JGCG3esKQ4xPU0gr3tXR6LIGs6bSGZe1FIkQnxjdTvtdzzEhVnD
-         F7AcIyGsYSjyyjAKRbsO8e8Y/O5ppbtspBGAYcX+FbXdU8a4ATGq08Ed83YeqJVAKn0a
-         EMCnuuHO+0QLGLT2iQTwQ2AKeB63GdgUzrU9Dd+CKJcUdSkBRDL/fXXmfJq46pvGDfw8
-         ON+Tgxv5/fXzntHTAVi8xRTWhDfYeRqUrt0dJ8AkP1k4hRt5h8+OT1NSAQpMbgp9q403
-         xpDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749559133; x=1750163933;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UED2MPPB6ErGPf9SzqxWrhbWnlHVANSe4cIFIu1q+Q4=;
-        b=nx0MsjNp7nKnZHEI1XS6HMAO0hmsrl/lFklCnH5POY/v3CVPBUoSdgBOgX3jCBw6bg
-         BkCZ8AliKc9Q3ituY6+8bTGCYsjdG7qKSiMT8ZD0ZwuwCxjtPd/pjpKR5Q8ckbLsGgk3
-         Vv3+7Yc5bsU8NqWaha3op0LqABzKwfRkMWBNnGQHbW2JpRXizGiouRmgdkkLa60rzYZb
-         jwcW7AFEGgc4YghD7aXIvikhOcHwoPlnCqDmzz859kzU6sLIO9QkIvASURe1Tik7eocE
-         7t+DGhMR6EtUa8GXkt/YHcJzfdmluE2v5NmdMuQYlaelGsNj3Glylh8F3AIwO7FTDSiw
-         0S1A==
-X-Forwarded-Encrypted: i=1; AJvYcCUYbk7+I58U1fT8kOaPwA4qFfO1GeJTl2PRkb+lJBxDKWBJNoE9ekWy7bUxhqsN3hB813KJpZPY8Ccmouvxlc7t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyxv59hjlB0V1vcPUhCkHn5jWdHg97kYu65Bm9vDVBUOyVK2jtz
-	dlSytPXF9iK2vgPdSEjZ8DkuWBwDFX/053nIjFpuTQDFuVhYgbA1DsPn3flWF2H2SQkq0a5+RqC
-	YRSxT
-X-Gm-Gg: ASbGncvuForDHMiwVsAsyyL985i/tT2bQ4Zrpx2odLGRzlZdSOrgfld4zDfz6ncazj6
-	DmThqqYpx8dWDN4ckSsApxQJK7WV0CdopQ38YBGMkPEQWEMl/rUdwoiCCKC8fRdogfmweBaqKHN
-	ZLLZiFupMsaIMUQHJDZJamaxIdZqvmDCp9jD6cX/SSuubHvh5fQzcuQONMkx5aSNBhL8eKDQedJ
-	TxF6GliiKJcw3R8ogdweTPrVuc9fsNwSdAyHmUoCIIJCfQXH4jIrU5VoyOG+WXwpLGfWQeYAxj/
-	x56jkNiqnZUNTAm/ok3oyJ1ngTPMuSkpqKoHvykyQ43mf0Lkvn4Q
-X-Google-Smtp-Source: AGHT+IHJRkQOc9mKKTqisqkycJt9sb/TgcpVTi9hUVKLOOQP54qkbtSmSLteeeLcL9Fl+UGpgwdsKw==
-X-Received: by 2002:a05:6000:2203:b0:3a3:7593:818b with SMTP id ffacd0b85a97d-3a552272cccmr2256652f8f.21.1749559133197;
-        Tue, 10 Jun 2025 05:38:53 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4d:e52b:812d:eb7c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53229de7csm12374676f8f.14.2025.06.10.05.38.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 05:38:52 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 10 Jun 2025 14:38:50 +0200
-Subject: [PATCH 1/2] soc: fsl: qe: use new GPIO line value setter callbacks
+	Tue, 10 Jun 2025 12:39:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 01BDEA510A8;
+	Tue, 10 Jun 2025 12:39:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4359C4CEED;
+	Tue, 10 Jun 2025 12:38:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749559142;
+	bh=fWHTM0XLFokZBXTTjppSI7itXW3nmi75qDHSGly0j1k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nG6WjNtGrTe9PTc88OsPzK4SaVzs+PEPzODSC2F0yc6UrXCYTi6UcxiDCbengYWp4
+	 qbPO1up3qkZlyp7NB2bNr961qNV4aIPpprpS6TRsVBtxNFpLyr/+EN05OGcACt8JhP
+	 mBfXiACtHhH1hVFm9uwYKix0Y0DLy4vYdTDNzns+TjRP4JrSk8MJDqnQrxdueTLPtD
+	 /9QTLmS8/ZFOHpKfzHYBBSujMk1ScfiU5cs7eBAJ1rEFIgEV7QWbVDY4eq7npxcKjE
+	 9A9Zz4h+zJwJxNpNtqxwmC2+SDqi+nPFQ3dynGqkkBMv/p5lfh3zoJNuw5YQbWdw9R
+	 wjzN5FzJFB/9w==
+Message-ID: <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
+Date: Tue, 10 Jun 2025 14:38:57 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp13
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
+ <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
+ <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
+ <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
+ <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
+ <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-gpiochip-set-rv-soc-v1-1-1a0c36c9deed@linaro.org>
-References: <20250610-gpiochip-set-rv-soc-v1-0-1a0c36c9deed@linaro.org>
-In-Reply-To: <20250610-gpiochip-set-rv-soc-v1-0-1a0c36c9deed@linaro.org>
-To: Qiang Zhao <qiang.zhao@nxp.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1578;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=4MWRLVrsy5tNHMi8wmFGL8LdEv5y9p4ltDubDqUCng8=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoSCdbgSaqAglGw/fi7XTf6vhd7I5rjcyoaZ7sg
- u/b0JAesI+JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaEgnWwAKCRARpy6gFHHX
- cphAEADbU+UhlxQiORUaofwF5dUuYRA9iVQv3yEvZ+lXlQEGEXL4mX5gYjUS9d/xWjS8CHSJ7Cq
- +UUe2xk0NLgsm1fE9SV5Hp9SGQqqcFdilBX5lGIJE6tLOzFdGjtU7fYNlmPPebz7glzebbg04jE
- ETaOEIJoVn9KS+yaFocnqrbFTt3PqOHhjVGrwcZSxuni3nf4iy9Yn6Gg9RjT4sZD7LbZpvPIu+q
- VSJ+OiSJrKaKNK5BWfpVcUBV9ozDfUURkd8lrj1eN9zVE1/NTQJtKzVkfS2kpgOOq+DQajEzPiL
- 9oez1XcOjWsvIfe9qQQSofbZtZz3kG94oqWNrr/VOpx6LGzqwgol7ozx4fGlykaa5QiTn5sjxcV
- zrNQpp0DoIf1xjwAovdNq8vE/SKPAPYAwQNlpG4Xjp7WZEkJxxmN6fbikV2Ob9wkRDAgy3Xo1gG
- yYH2FlibMDX7OGlZ0/QrG0cjBY4OyPJN3UUJUimhaU7SG+orUxraxwl9IA6V2WwLq4NliXgLm5u
- 8SwuKGtvYzhiFoyiBDDCnKRrkWFC+s4ZLD+GnjEobklVaxgM2/ctCUotBi/brbm13+YbqYOUiUd
- clq8mYqQHWeM1/nbk74TqSGNVNjSm6iFxQ3CZjMr4FgR0E12kdYKX8d1UgJ6kye0WkNWDRCGsSN
- 4YqcJKc35stS1uA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_053855_037646_496FA59A 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250610_053903_842849_0BFE772D 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,50 +128,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 10/06/2025 14:02, Clement LE GOFFIC wrote:
+> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
+>> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
+>>>>
+>>>>> +		};
+>>>>> +
+>>>>> +		hdp: pinctrl@5002a000 {
+>>>>> +			compatible = "st,stm32mp131-hdp";
+>>>>> +			reg = <0x5002a000 0x400>;
+>>>>> +			clocks = <&rcc HDP>;
+>>>>>    			status = "disabled";
+>>>>
+>>>> Why are you disabling it? What is missing?
+>>>
+>>> Nothing is missing just disabled by default.
+>>> The node is then enabled when needed in board's dts file.
+>> Nodes should not be disabled by default if they are complete. That's why
+>> I asked what is missing. Drop.
+> 
+> Hi Krzysztof, OK I better understand now.
+> So yes the 'pinctrl-*' properties which are board dependent are lacking.
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+These are not properties of this node.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/soc/fsl/qe/gpio.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> In the last patch of my serie I add them (only for stm32mp157f-dk2) but 
+> keep it disabled because the pin is on an external connector (the 
+> Arduino connector of the board).
+> This prevent any issue with a possible connected module.
 
-diff --git a/drivers/soc/fsl/qe/gpio.c b/drivers/soc/fsl/qe/gpio.c
-index 3ef24ba0245b75471ffa10f579bb744c0c3b7e43..5391cce4e6efe6d120db7fdf7509dc5eb840f344 100644
---- a/drivers/soc/fsl/qe/gpio.c
-+++ b/drivers/soc/fsl/qe/gpio.c
-@@ -57,7 +57,7 @@ static int qe_gpio_get(struct gpio_chip *gc, unsigned int gpio)
- 	return !!(ioread32be(&regs->cpdata) & pin_mask);
- }
- 
--static void qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
-+static int qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- {
- 	struct of_mm_gpio_chip *mm_gc = to_of_mm_gpio_chip(gc);
- 	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
-@@ -75,6 +75,8 @@ static void qe_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- 	iowrite32be(qe_gc->cpdata, &regs->cpdata);
- 
- 	spin_unlock_irqrestore(&qe_gc->lock, flags);
-+
-+	return 0;
- }
- 
- static void qe_gpio_set_multiple(struct gpio_chip *gc,
-@@ -317,7 +319,7 @@ static int __init qe_add_gpiochips(void)
- 		gc->direction_input = qe_gpio_dir_in;
- 		gc->direction_output = qe_gpio_dir_out;
- 		gc->get = qe_gpio_get;
--		gc->set = qe_gpio_set;
-+		gc->set_rv = qe_gpio_set;
- 		gc->set_multiple = qe_gpio_set_multiple;
- 
- 		ret = of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
+Not relevant. Pin control for connector are board specific, but pinctrl
+SoC part is SoC.
 
--- 
-2.48.1
-
+Best regards,
+Krzysztof
 
