@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C985FC677C4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF3EC61DB2
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Wme2rWr9kGPdB2QIlhOE7SoLI/g+93mMfEI/ASWP9iQ=; b=UqXoxopJST05phBItPZwpgF8Tt
-	37Q2Z1Qa9ovpvM+I7ysCE7LVqfshTp4EIRqM3c2FJlzVWOKooSLpSQlFg49CbwKH6ZpH0rzz5LO4n
-	g8cc/0LUH+ZpoPtoP3Aplb7nIaZ2cnLr6l7fvh0z2fASRl0wZvrHY2KNsXw2JMUYSRuZDBHjPlY/Z
-	/1N0HfRPKNBUTBLNt49VPzQs26FbSMu+JlNZ0sikpbIiwJ4f6jfwCiv6awH7XIERGGxNMsBL5aDlN
-	mvzyKflTHDVbXLEcD50BUWkORi6D6GqUeB1+UlhWLaS5PEWLcmm1OJj69SjXM0yU85+nQV3VYMYgp
-	PIr/wLgQ==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=juVrDSxpmMtgoJh5pc1VP5Zj0Ly8Ck76E+2hldG+2FE=; b=WIQr/pJSBiKSkYVkOmAx0MJVjT
+	PdHraovhbbPTRT6nWqXdJezsQxepMcO/NPiTd8pc87HCrw83WrDaeH8E2QGTF92Ki3RcJS9blnWr/
+	TWsmKl+wsZIO5XX2hgCJjqKl/wwBH5Xw7oyAhgsEUn6+Tyn4UPXB8x1rlCbYYip39RjPQGSho1Ti3
+	z7rvG1K0j3Mt/MmAdxqeLxhDvQLb4POP+5Pfy92N/WHTd298nZU6/1F0yL55XczAR1B0h5b53dIIW
+	GiTEVV7WQXWtoHF79W5Ezf1F13pFFqCxaHgtGfxbekZLGfTE1XybY3kWW0zVms2DjmrXxP6KNOcwu
+	NR8sl/qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOubJ-00000006DIf-2pij;
-	Tue, 10 Jun 2025 08:44:57 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1uOubK-00000006DJA-3Rgm;
+	Tue, 10 Jun 2025 08:44:58 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOuG4-000000069px-2gZ9
+	id 1uOuGQ-000000069vN-1k3z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 08:23:02 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 0F87DA03AE;
-	Tue, 10 Jun 2025 10:22:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=Wme2rWr9kGPdB2QIlhOE7SoLI/g+93mMfEI/ASWP9iQ=; b=
-	diF6WzQXv+ERBGklPIxdDxvvo9OHMxfIKtDE2E/FyLcyGs0qHofj0Ci5QOA4s5h1
-	dtGhBRA3oFHtyDcVkr9DB7FQXU6wOdZw4E/Hwe20IvlJApQFNE1w60DVbei8KqeH
-	qp3ToMzKCzy/GGkZpI8/TVA2PkGnJaEdMkOOIPdudYJQyiryMP23vU6X+oybq2Iq
-	274vFzHPuJ2v4D4/geEjgbz3MVexdgJqu2Emwg7LLTmZm1otOEuVWemhEkMQKcfl
-	XNaUzrIqciDRGO8ELa3kHLCKwC+pQPsx23EebJrs7ybDckTW3cI4U58WhM7afje9
-	vPVOOVfuycOJSIyvbLxMocZ2hr+LY9zCNjPI8hVGHy53oxd90Wg+ts+JmTYyDjTP
-	Fo1DsPmrUGD039EHZe34wuhdBL3zCjRCLlKZLpEJzldvsn0oSnYxUX3koLe2G+xw
-	USfaOFTMw5g27kg0P4b97sQ7qks/i+EnoTnYHKMibmrB7E9wEYG6yfp2gqKoc2UT
-	1JWDaMh94g91awP7OC99iYRf5akxSIbjITrmocUFxRHZKkaNb/5RmubnlBe+6H01
-	20V3ACrev1Spaa3kbLVH+erBTl+QPFNUJfD0qMARSd8XtWVm+euexGmrrUccKboc
-	57XUyyB5cYDJ9llAdPkm72Q6AFQv3MiUgOvx2uIx7M8=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <dmaengine@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Vinod Koul
-	<vkoul@kernel.org>, Mark Brown <broonie@kernel.org>, Nicolas Ferre
-	<nicolas.ferre@microchip.com>, Alexandre Belloni
-	<alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	"Rafael J. Wysocki" <rafael@kernel.org>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>
-Subject: [PATCH v7 0/2] Add `devm_dma_request_chan()` to simplify probe path in atmel-quadspi.c
-Date: Tue, 10 Jun 2025 10:22:52 +0200
-Message-ID: <20250610082256.400492-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.43.0
+	Tue, 10 Jun 2025 08:23:23 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4531898b208so671635e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 01:23:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749543800; x=1750148600; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=juVrDSxpmMtgoJh5pc1VP5Zj0Ly8Ck76E+2hldG+2FE=;
+        b=lnCjIDNNIVstO3kUzVsfOnyIsB6qv2RYdjfa7T7BGfYmg+bvL7a5j44n/V/k8SLZ+O
+         Q1jq1ZPfEpi/FueqZDTllGHDOGauOWoOspOpX+WBB5728JPMGVp2OVGneh+09ST5FKOZ
+         ZVpIdWWLmYFCMCLL0/yeoWOVrNhsBbaviTbyRjmaiOKKG86d0I+5BFLmTMbcwtGTE/GV
+         VKJUeKmCasyikd+mAvIkeisBN+s3p2qvcEHXovOmMfDi9yKtMpnbaGd2rzsWoj6Eogyt
+         4FNmgf0rHN3H8B0Irq/R9UYPRG/m5nfGh/uh5l6TMItb/4zqIrt3osz0OANCapMUOaoD
+         J2qQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749543800; x=1750148600;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=juVrDSxpmMtgoJh5pc1VP5Zj0Ly8Ck76E+2hldG+2FE=;
+        b=uUYd15GBonP5iLQ6nPT0rkZAYkKRMX/G4W+GGqBVWpwE728vkmuZnyUHhJUgMGrvcI
+         60hfB/mn1lx7WXnJvNrPcrfFRWuv3QQbA606VdWszqKkEGWPm32nV2sxvrTickI/7UKM
+         JawnCccwtd1T3295NNh6KrqfEP1HGnOE4u/8pqjIsqAm8BgAVFCiGTDnYvwJ1CXTqY8m
+         BKpC6IrZC04K9A3HxbgiYaPdVhtD6n4YmmEl+1GyL6AMGAsalmnnoLoRytVS61YBp0q8
+         oP/1KOYCQt/DilLIT8f65InSqtjJNjxUxxou0cE+WyaeavlIBf5AfXnMHc9aq7qP069E
+         pLfA==
+X-Forwarded-Encrypted: i=1; AJvYcCWxZ0/csO2+3hrDQ2qVp2GD6ymU1v7eggq7YviJTrSx0hVl/oBUJq4sHNWS/lA1h9L0I3zoPmv/axnUt6rwjzEn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFdzB9IkAcxAQVUxPEeYGHC7YrJZzQChm2YisrF7mzJGXQWRcM
+	U1g7jRm6ay8GThH7MYQJsvNMnrArmPY7v/W8rkO8RxwYKbmuxE5gE3QOvtaPXri9hoc=
+X-Gm-Gg: ASbGncvbo75qe96uXw4pxqZpdFLVQl3XdesM9/QZfAhZwOolqvB2ht8vBnAv8SCvJYu
+	UqfM06swFV4+059KcxvLY5AXxuIbnw/JB7ntYCOWjDYzd8Sszsu93avi4LoO4YX4DlysgxHqaOZ
+	r57RXv9OEWVEFg4AQsl7qm8yYMvNmH7rLG4gDbAesORVkBEqMSJvb/aCVBJTIPGOv3vSr+Jgy96
+	5E68BhlHLCrQqOth9pyCYxS1VNKcnLq7Gj4/J04QBG+/hkVK7Pnyl46D83jtc8CvmLZO4ovmKPE
+	bXovYtzl+VJy8iVp1D50TUvoKVywkD3nc6poH/N0v8guvwhTFqap2H12rkwX1QMIAEaNZl1sgnG
+	SHceYTQ==
+X-Google-Smtp-Source: AGHT+IHmkbNCG4AE+Jw0uIEU/GxFnvKzXvXYiz5T9eY+25yhF+FTVYqqY/1/ANURHD1E3O5PMpRiXg==
+X-Received: by 2002:a05:6000:4313:b0:3a4:eb9c:7cbc with SMTP id ffacd0b85a97d-3a5331ae097mr4937643f8f.15.1749543800578;
+        Tue, 10 Jun 2025 01:23:20 -0700 (PDT)
+Received: from [192.168.1.28] ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53229de01sm11895403f8f.11.2025.06.10.01.23.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 01:23:19 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
+References: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH] dt-bindings: soc: samsung: exynos-pmu: Constrain
+ google,pmu-intr-gen-syscon
+Message-Id: <174954379928.117699.14584808679236287569.b4-ty@linaro.org>
+Date: Tue, 10 Jun 2025 10:23:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1749543778;VERSION=7993;MC=3947185238;ID=452478;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A296767155D62776A
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_012300_831837_591FA98E 
-X-CRM114-Status: UNSURE (   6.50  )
+X-CRM114-CacheID: sfid-20250610_012322_463462_ED8C2EE9 
+X-CRM114-Status: UNSURE (   6.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,54 +103,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The probe function of the atmel-quadspi driver got quite convoluted,
-especially since the addition of SAMA7G5 support, that was forward-ported
-from an older vendor kernel. To alleivate this - and similar problems in
-the future - an effort was made to migrate as many functions as possible,
-to their devm_ managed counterparts. Patch 1/2 adds the new
-`devm_dma_request_chan()` function. Patch 2/2 then uses this APIs to
-simplify the probe() function.
 
-Change in v4:
-* split PM imbalance fix (now merged) and DMA cleanup (this series)
-Change in v6:
-* rebase to spi/for-next
-Change in v7:
-* rebase to dma/next
+On Sun, 25 May 2025 21:06:31 +0200, Krzysztof Kozlowski wrote:
+> PMU interrupt generation block is not present in older Samsung Exynos
+> SoCs, so restrict the property to Google GS101 only.
+> 
+> 
 
-[1]
-commit 3c018bf5a0ee ("dmaengine: idxd: Remove unused pointer and macro")
+Applied, thanks!
 
-Links to previous versions:
-pre-series:
-https://lore.kernel.org/linux-kernel/20241222141427.819222-1-csokas.bence@prolan.hu/
-https://lore.kernel.org/linux-kernel/20250114222851.1023194-1-csokas.bence@prolan.hu/
-v1:
-https://lore.kernel.org/linux-kernel/20250115160244.1102881-1-csokas.bence@prolan.hu/
-v2:
-https://lore.kernel.org/linux-kernel/20250124085221.766303-8-csokas.bence@prolan.hu/
-v3:
-https://lore.kernel.org/linux-kernel/20250207124802.165408-1-csokas.bence@prolan.hu/
-v4:
-https://lore.kernel.org/lkml/20250317135340.382532-1-csokas.bence@prolan.hu/
-v5:
-https://lore.kernel.org/lkml/20250505184936.312274-1-csokas.bence@prolan.hu
-v6:
-https://lore.kernel.org/lkml/20250515083132.255410-1-csokas.bence@prolan.hu
+[1/1] dt-bindings: soc: samsung: exynos-pmu: Constrain google,pmu-intr-gen-syscon
+      https://git.kernel.org/krzk/linux/c/952a81b137473cf679c229e7e7e175dce715cd2f
 
-Bence Csókás (2):
-  dma: Add devm_dma_request_chan()
-  spi: atmel-quadspi: Use `devm_dma_request_chan()`
-
- drivers/dma/dmaengine.c     | 30 +++++++++++++++++++++++
- drivers/spi/atmel-quadspi.c | 48 ++++++++++---------------------------
- include/linux/dmaengine.h   |  7 ++++++
- 3 files changed, 50 insertions(+), 35 deletions(-)
-
-
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+Best regards,
 -- 
-2.43.0
-
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
