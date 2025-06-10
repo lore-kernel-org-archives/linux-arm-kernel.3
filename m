@@ -4,92 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD657C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B44BC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rnLI7TEbgPq4uvBO5xH2GP7XBad6KtOS6WYu+5UVOJ0=; b=hsUwwTBFQDUqWE96376b+UC89X
-	yXQNEflPCnBETTZ57J338MYU6YjirqoPP1dwC+vgkONyqXrIccYGwLzJu9QQk+j4DuIj8/ZWzRM3h
-	0pGaT0wyxkZAc6qFu6uY1ao4N6X0Qm9uxfqOQT60eOjqfkMMj4hQ7vzUcvdvFmozmr1kQiqyF73Q4
-	dQUzUuz9wfyOth25OWah4kNAWSNfygZ97NA1CtHE8EGSLiAs8U7gbGq4NGT7GP8SCpxgJ3qmYnczQ
-	mpdpmnDWhvr7CrWgD1cT4QGI0kTPS+dWrte8omUO5Z8Qz9f0buIWJXpHA6KYPS4DBq7c5+nEDMORv
-	SXUAj9Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x9isndutnG7FzSCz38wRWR3/GK7vlaPRNBGI74YSN5E=; b=i3EFAV54EWeqV0W4V9yYKs4Y24
+	L1npKhY0vnAvzMsjMlC5gqJGz+ReHNTRDFkwEp81WqLpdrlQ2NJzsRo4s0mb9zrmjpIZ8Z/7u2Gr5
+	aQySFmiyoP3dsi4ZXLrxVK/JiXJ7PnfBRKSQoC2fehKLxXrgDOYWLzC9TkS6Ar2xR4i1KJAVMH0ni
+	8XvlJG9QnZmh79XpOoAm4TrMgiEtMqkHVflfnm0a5Z4gxGvzPJ69iEgjm00fsyeblQ2/+S6zib5GM
+	LWk22T0CMjJYXVI0Coq3Fvqxtm7kM9K389DZvvRCSqXbbVD3WEqDlvP5MDhc4sbBxz1FvyZt4sBs8
+	jxV8NpFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOux7-00000006H8m-1dYu;
-	Tue, 10 Jun 2025 09:07:29 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uOuzE-00000006HJU-0cj0;
+	Tue, 10 Jun 2025 09:09:40 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOurJ-00000006GHc-1EQO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 09:01:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1749546089; x=1781082089;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=rnLI7TEbgPq4uvBO5xH2GP7XBad6KtOS6WYu+5UVOJ0=;
-  b=g09+G9Ye6hezL/buG/GiPt2ev78Zr81zuLFb5ZwiXJQ/ehZzpKhUea31
-   09pXmHtg6kyEgkxc4bLoWt1h4UUNpWXCyacKijJMOCLnIGu8YQnZBn7Bp
-   9/4oDEpveTLcwquO2TOIuu1g3UI1yc+kQ4rhXcf2nFA5wa2t3j4axJcR1
-   qBuodcAer+7fdcf/tDZAk9+2qZgR8b9M2jjUxrflE9sM28cIreWVehugj
-   hY8XgIDHQ2KOfbQiN4cKyROHk/e5H3JosllAULqvpG5bboDygNUkExkST
-   dPsiCf61Y3kvlQtgGTxnHIKpjBPZmdrO331pKOaWAwG6hyVJrNIQi7wdd
-   w==;
-X-CSE-ConnectionGUID: qsLaku8rQHWS/0zt8iU8WA==
-X-CSE-MsgGUID: 9oC+BWqpTBmF+rrgHY2/jw==
-X-IronPort-AV: E=Sophos;i="6.16,224,1744063200"; 
-   d="scan'208";a="44539639"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 10 Jun 2025 11:01:26 +0200
-X-CheckPoint: {6847F466-48-28ACC837-DD1065DB}
-X-MAIL-CPID: D24F495A4208874E3BDE2DAAB3DC2DE9_2
-X-Control-Analysis: str=0001.0A006377.6847F46F.0022,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 997BF166475;
-	Tue, 10 Jun 2025 11:01:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1749546082;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rnLI7TEbgPq4uvBO5xH2GP7XBad6KtOS6WYu+5UVOJ0=;
-	b=EVMgaWV79PJusbQbTNgGwIDCOI7bvZmFxG8Zaj5vg7cxW1O0j00284tOZCJ8AtR7LXT0Po
-	yLdoBz5u3ahQOX+O5GiaXtIRidZdVh5kTRJ9yJJlVrIjHTdDjVXMCXGpcCDIoCpOIiNYd0
-	mP9SfHZPYIxZXPZSLMKt2cHb6w9xDbFH/G9QHaZYSSLFvk9oJgIWs+f6cIjv9PmSAbWWtT
-	qSwlw3HGCMjvWo+TJeTVRFmsxvUgGFuran1BJQGE/fOFAAgd4TAJ3XDp/zSYzcS5qkZquG
-	rdYmpbTZp/BqXaUC7eCWydnNUrhzTuIzRPamdJA7EMUdt7nhxx4rX0M9Q96Ybg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: linux-media@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Isaac Scott <isaac.scott@ideasonboard.com>,
- Rui Miguel Silva <rmfrfs@gmail.com>, Martin Kepplinger <martink@posteo.de>,
- Purism Kernel Team <kernel@puri.sm>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 8/8] media: imx-mipi-csis: Initial support for multiple output
- channels
-Date: Tue, 10 Jun 2025 11:01:20 +0200
-Message-ID: <2230307.irdbgypaU6@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250608235840.23871-9-laurent.pinchart@ideasonboard.com>
-References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
- <20250608235840.23871-9-laurent.pinchart@ideasonboard.com>
+	id 1uOuuV-00000006Gis-0NJY;
+	Tue, 10 Jun 2025 09:04:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1749546239; x=1750151039; i=frank-w@public-files.de;
+	bh=x9isndutnG7FzSCz38wRWR3/GK7vlaPRNBGI74YSN5E=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:In-Reply-To:References:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=IJ5Ea6W7y6sTzEDB05dbUDocNZCqcni0Hii/uaCZIuM0Zg/7l8U89wwEXWC0u7PI
+	 fYgLeMT7BIOvyx1mbGJVu/s033MIr4CbHo+0uRS8hAsXSFrNEXiblFuJBONebx1i/
+	 kCqAI2G0WQCKQtIfRH6QtbdeRTaMLSRjJM6ss5Ihb/PIQelp+XlC5V9TuSbifXu40
+	 2CGrvxqkxKmgI2MvYE10hzuN3ucSkVkCjwZC6Xal71MdGyY3+CwYaCLf9YLqdOa7M
+	 tSXyPJ1LdBjiVd3iRL6o9wBZtLlYtTM3nOAp9mdaiQ4DjFv+TenKPtDN9pnG7AbJD
+	 PK7vX4n1uYJPspO/fg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [100.70.254.165] ([100.70.254.165]) by
+ trinity-msg-rest-gmx-gmx-live-5d9b465786-6phds (via HTTP); Tue, 10 Jun 2025
+ 09:03:59 +0000
 MIME-Version: 1.0
+Message-ID: <trinity-b9ab960d-38f8-4524-b645-fc0832ce72ec-1749546239525@trinity-msg-rest-gmx-gmx-live-5d9b465786-6phds>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: andrew@lunn.ch, linux@fw-web.de
+Cc: myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
+ cw00.choi@samsung.com, djakov@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, jia-wei.chang@mediatek.com,
+ johnson.wang@mediatek.com, arinc.unal@arinc9.com, Landen.Chao@mediatek.com,
+ dqfext@gmail.com, sean.wang@mediatek.com, daniel@makrotopia.org,
+ lorenzo@kernel.org, nbd@nbd.name, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Aw: Re: [PATCH v3 12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add
+ sfp cages and link to gmac
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 10 Jun 2025 09:03:59 +0000
+In-Reply-To: <934b1515-2da1-4479-848e-cd2475ebe98d@lunn.ch>
+References: <20250608211452.72920-1-linux@fw-web.de>
+ <20250608211452.72920-13-linux@fw-web.de>
+ <934b1515-2da1-4479-848e-cd2475ebe98d@lunn.ch>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:P+w5LatxuczWjuU5VjC2cu3RusygmzTEcHnWEMF+vMd+V144Nuq0nbegfrwU1/70t+IO5
+ ZZCfjP1mt0nBNkGjj7f83sEa1HX3LswwVcLmtn0EkewzcBQy+5sk93/FE8OFJGz2cjArfnRlYVfB
+ 3XMrQQsXoPxZtNXsZP8bmZLVhtzLablHfLA6+NXenDy0XEURhrtBRk+vVZ+h17JVyrBl/eHW2FY2
+ uaWJKp0HW8d7z76dXGwZ1/AAP+8bL2oTm6hnK6iomw2WSiz0PVS0NPZKi4ROB6MkXRYd1FGSV6CI
+ oFPPiTF5PBKHUC5CAEdu/94Ju1rZzvA0FeA3Gu9s0Qj3j8HbE5+i4yztEMvFIiZFnY=
+UI-OutboundReport: notjunk:1;M01:P0:TLvXeFIDP6E=;qZFVm6ncGdxJPw6owUfJx41Igss
+ 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
+ AmzvamVKyQ==
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_020129_833413_D3D61088 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20250610_020447_415889_248B61FE 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,101 +135,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+Hi Andrew
 
-thanks for the patch.
-
-Am Montag, 9. Juni 2025, 01:58:40 CEST schrieb Laurent Pinchart:
-> Some CSIS instances feature more than one output channel. Parse the
-> number of channels from the device tree, and update register dumps and
-> event counters accordingly. Support for routing virtual channels and
-> data types to output channels through the subdev internal routing API
-> will come later.
+> Gesendet: Sonntag, 8. Juni 2025 um 23:31
+> Von: "Andrew Lunn" <andrew@lunn.ch>
+> Betreff: Re: [PATCH v3 12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add =
+sfp cages and link to gmac
+>
+> > +&gmac1 {
+> > +	phy-mode =3D "internal";
+> > +	phy-connection-type =3D "internal";
 >=20
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
->  drivers/media/platform/nxp/imx-mipi-csis.c | 224 ++++++++++++++-------
->  1 file changed, 146 insertions(+), 78 deletions(-)
+> ethernet-controller.yaml says:
 >=20
-> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/p=
-latform/nxp/imx-mipi-csis.c
-> index 080e40837463..4cc358d93187 100644
-> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> @@ -98,12 +98,12 @@
->  #define MIPI_CSIS_INT_SRC_ODD_AFTER		BIT(28)
->  #define MIPI_CSIS_INT_SRC_ODD			(0x3 << 28)
->  #define MIPI_CSIS_INT_SRC_NON_IMAGE_DATA	(0xf << 28)
+>   phy-connection-type:
+>     description:
+>       Specifies interface type between the Ethernet device and a physica=
+l
+>       layer (PHY) device.
+>     enum:
+>       # There is not a standard bus between the MAC and the PHY,
+>       # something proprietary is being used to embed the PHY in the
+>       # MAC.
+>       - internal
+>       - mii
+>       - gmii
+>   ...
+>=20
+>   phy-mode:
+>     $ref: "#/properties/phy-connection-type"
+>=20
+>=20
+> so phy-mode and phy-connection-type are the same thing.
 
-As a side note: I just noticed Bits 28-31 are only defined on i.MX7. They
-are reserved on i.MX8M (Mini, Nano, Plus).
+phy-connection-type seems not needed, tested without it and 2.5G phy works=
+ without this property in the 2g5 dts.
 
-> -#define MIPI_CSIS_INT_SRC_FRAME_START		BIT(24)
-> -#define MIPI_CSIS_INT_SRC_FRAME_END		BIT(20)
-> +#define MIPI_CSIS_INT_SRC_FRAME_START(n)	BIT((n) + 24)
-> +#define MIPI_CSIS_INT_SRC_FRAME_END(n)		BIT((n) + 20)
->  #define MIPI_CSIS_INT_SRC_ERR_SOT_HS(n)		BIT((n) + 16)
-> -#define MIPI_CSIS_INT_SRC_ERR_LOST_FS		BIT(12)
-> -#define MIPI_CSIS_INT_SRC_ERR_LOST_FE		BIT(8)
-> -#define MIPI_CSIS_INT_SRC_ERR_OVER		BIT(4)
-> +#define MIPI_CSIS_INT_SRC_ERR_LOST_FS(n)	BIT((n) + 12)
-> +#define MIPI_CSIS_INT_SRC_ERR_LOST_FE(n)	BIT((n) + 8)
-> +#define MIPI_CSIS_INT_SRC_ERR_OVER(n)		BIT((n) + 4)
+> > +	/* SFP2 cage (LAN) */
+> > +	sfp2: sfp2 {
+> > +		compatible =3D "sff,sfp";
+> > +		i2c-bus =3D <&i2c_sfp2>;
+> > +		los-gpios =3D <&pio 2 GPIO_ACTIVE_HIGH>;
+> > +		mod-def0-gpios =3D <&pio 83 GPIO_ACTIVE_LOW>;
+> > +		tx-disable-gpios =3D <&pio 0 GPIO_ACTIVE_HIGH>;
+> > +		tx-fault-gpios =3D <&pio 1 GPIO_ACTIVE_HIGH>;
+> > +		rate-select0-gpios =3D <&pio 3 GPIO_ACTIVE_LOW>;
+> > +		maximum-power-milliwatt =3D <3000>;
+>=20
+> sff,sfp.yaml says:
+>=20
+>   maximum-power-milliwatt:
+>     minimum: 1000
+>     default: 1000
+>     description:
+>       Maximum module power consumption Specifies the maximum power consu=
+mption
+>       allowable by a module in the slot, in milli-Watts. Presently, modu=
+les can
+>       be up to 1W, 1.5W or 2W.
+>=20
+> I've no idea what will happen when the SFP core sees 3000. Is the
+> comment out of date?
 
-Similar here. Only i.MX7 has the bits for CH1, CH2 and CH3 defined.
+at least sfp-core has no issue with the setting
 
->  #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
->  #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
->  #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
-> @@ -205,23 +205,23 @@
->  /* Debug control register */
->  #define MIPI_CSIS_DBG_CTRL			0xc0
->  #define MIPI_CSIS_DBG_INTR_MSK			0xc4
-> -#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT	BIT(25)
-> -#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE	BIT(24)
-> -#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE	BIT(20)
-> -#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME	BIT(16)
-> -#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE		BIT(12)
-> -#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS		BIT(8)
-> -#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL	BIT(4)
-> -#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE	BIT(0)
-> +#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT		BIT(25)
-> +#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE		BIT(24)
-> +#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE(n)	BIT((n) + 20)
-> +#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME(n)	BIT((n) + 16)
-> +#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE(n)		BIT((n) + 12)
-> +#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS(n)		BIT((n) + 8)
-> +#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL(n)	BIT((n) + 4)
-> +#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE(n)	BIT((n) + 0)
->  #define MIPI_CSIS_DBG_INTR_SRC			0xc8
-> -#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT	BIT(25)
-> -#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE	BIT(24)
-> -#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE	BIT(20)
-> -#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME	BIT(16)
-> -#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE		BIT(12)
-> -#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS		BIT(8)
-> -#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL	BIT(4)
-> -#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE	BIT(0)
-> +#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT		BIT(25)
-> +#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE		BIT(24)
-> +#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(n)	BIT((n) + 20)
-> +#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(n)	BIT((n) + 16)
-> +#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(n)		BIT((n) + 12)
-> +#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(n)		BIT((n) + 8)
-> +#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(n)	BIT((n) + 4)
-> +#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(n)	BIT((n) + 0)
+root@bpi-r4-phy-8G:~# dmesg | grep sfp
+[    1.269437] sfp sfp1: Host maximum power 3.0W
+[    1.613749] sfp sfp1: module CISCO-FINISAR    FTLX8571D3BCL-C2 rev A   =
+ sn S2209167650      dc 220916 =20
 
-Out of curiosity: Where do these bits come from? I can't find them in RM.
+imho some modules require more than 2W (some gpon/xpon and 10G copper ethe=
+rnet).
 
-Best regards,
-Alexander
+> 	Andrew
+>=20
 
-> [snip]
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+regards Frank
 
