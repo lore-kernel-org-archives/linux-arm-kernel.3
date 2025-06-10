@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE6BC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E3FC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1Ux1q9BuJRxHbxPNIMoGJD4ASvq+/3OwQs7EDpLUOk=; b=bqPC8STjJF9sNB7UfhXPdNv329
-	nxK5xgqZs5ZrD891L1AV2KZMP49842Zk3n9usgaVWwppe0FaMdZ774UQTIWm6E1Sf4DBMQ3UVPZ07
-	mcR1YDLt2UWEvxQloe2/TB8MryoZ+kdaJdjUxYwc6bcj5EhLut+FI+p4uM8BR7pHz40NKKrbJgHHM
-	xxKGau0pfkJXrLZ26kRK8V61FIT1Sgc7V2z28AiBEMHToqmhbJDMmPcYECPcQ7lRBSZLZcghMLb5c
-	O/Z+b4QSnAP2GdDaDsEeppVEWG8hYB/uNsBba2E6q6tIKBPzkzO1VlUh2mR8oWh+XTn3hNM93uIl5
-	4CrFaJvA==;
+	bh=/85cBozlC2xgCBTAbhplu80kMsNDggD57qUAZNnBQxI=; b=DtPAhdsrBw37L4+xjlFmnMODeA
+	oeEZGpDSk6cA/YgecsxNz4NkWhRplQaLtdEOiiLwjPMWbbayumG+vG1lJUMmESy0VObtl6I2loiHN
+	BHw05B/f1Mbk+lRy884hCgDx4MQLx60wOM3d0pYxofYi+BANnwz7l9GBAG4vhcqFy4W+gsx3isFDI
+	OzXUt5JGwXZomrTxFHL4qeyQJfMJKVbU7fRhS+UBSuxUDSFwqE0xR0TcVPB+U3aRS98xbrpdAZwbt
+	duF5iRGG4vc1X2Hfh+SBF2/ZTdh+T7hj5ghLiMyqEHQa6JUQmLIP8NcJjr63/uh5MyvasUeORnkzD
+	TkdsUO6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0lP-00000007Glm-3xc9;
-	Tue, 10 Jun 2025 15:19:47 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uP0pQ-00000007IHG-40Og;
+	Tue, 10 Jun 2025 15:23:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyS5-00000006qH0-3Y6y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:51:43 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLCR1012912;
-	Tue, 10 Jun 2025 14:50:43 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	d1Ux1q9BuJRxHbxPNIMoGJD4ASvq+/3OwQs7EDpLUOk=; b=PWCk4AM/11RuiVA3
-	n0i6g7xw14GSwJH/cJmerxWQus02kSKMsa3AC0QQFg5KNobzcP6jvdhwlbjpbOav
-	JbOH7NKpR8vHUr33edfJvrja+FNL+DweLR+1uaBmrpRnrhuSYsESj730plkQF1w9
-	WUacgfdA5M4atIFScYuk+cqg8shqyx3OgG3l1V2HZk52oIX68O3J5KhswnDaCHmI
-	x58hMmo1U5PN1gD84RSO+ux+nzsnK3tvLKOA2dhVbaGyoECmtb2sbH4TYFRg0mSE
-	DUJcAzFiTu4VSAlIuIXI+ieLHWEHgfBO+iXTuAShpV4454rwc8R83mNBdRohiNv7
-	9LpHCQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aumd9u4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 14:50:43 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8202C4004C;
-	Tue, 10 Jun 2025 14:49:43 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BD7E4B4BF90;
-	Tue, 10 Jun 2025 14:49:01 +0200 (CEST)
-Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 14:49:01 +0200
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Andy Shevchenko
-	<andy@kernel.org>,
-        David Lechner <dlechner@baylibre.com>,
-        Fabrice Gasnier
-	<fabrice.gasnier@foss.st.com>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Jonathan Cameron <jic23@kernel.org>, Lee
- Jones <lee@kernel.org>,
-        <linux-iio@vger.kernel.org>,
-        =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-        Olivier Moysan
-	<olivier.moysan@foss.st.com>
-CC: Antonio Borneo <antonio.borneo@foss.st.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>
-Subject: [PATCH 4/5] iio: trigger: stm32-lptimer: Fix build warnings about export.h
-Date: Tue, 10 Jun 2025 14:48:54 +0200
-Message-ID: <20250610124855.269158-5-antonio.borneo@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250610124855.269158-1-antonio.borneo@foss.st.com>
-References: <20250610124855.269158-1-antonio.borneo@foss.st.com>
+	id 1uOwwt-00000006dBL-1dj5;
+	Tue, 10 Jun 2025 11:15:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=/85cBozlC2xgCBTAbhplu80kMsNDggD57qUAZNnBQxI=; b=tsBVOirOAvOm71dK34kUlVeUNi
+	ouTxpOtMJtNNtzjjiUEZWob1gPEsFEEPEOqcSoM3KdScCZBo/7t+WyOcGCd2XMRbdY1ROI9/wzWBN
+	IrOADU6laOx8+wUXbBcCZD80AN35RejZHuXm2s/ozUkfql+al0+JYH7sPfNgaSxItrTm9KzOOKEm4
+	cxB7A8agEwhqAIL5dAPt3k6iOEIV0pRtKFkGYxnS+cZ2yFOIFZ8MA2LMf9wjET5/DDQMl7o4h0dFz
+	hIkIEhaE7GXDXV6L4a/19zTHLwBBvfxmudLReOsyXQEYiMdIrYadRoijTI4tS1XIDp+pgYdMNw/xf
+	6pdcmNtA==;
+Received: from i53875b1c.versanet.de ([83.135.91.28] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uOwwq-0000iK-Fz; Tue, 10 Jun 2025 13:15:20 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Peter Robinson <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Peter Geis <pgwipeout@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add overlay for RockPro64 screen
+Date: Tue, 10 Jun 2025 13:15:19 +0200
+Message-ID: <7187768.GXAFRqVoOG@diego>
+In-Reply-To: <78773d27-d815-4fac-a131-275bde51788d@kernel.org>
+References: <20250518215944.178582-1-pbrobinson@gmail.com>
+ <62276efe-13ca-448c-ad1d-ec0a8657737f@kernel.org>
+ <78773d27-d815-4fac-a131-275bde51788d@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.132]
-X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_05,2025-06-10_01,2025-03-28_01
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_055142_169121_FC992ADD 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_041523_454661_94A53D55 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +75,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit a934a57a42f6 ("scripts/misc-check: check missing #include
-<linux/export.h> when W=1") and commit 7d95680d64ac ("scripts/misc-check:
-check unnecessary #include <linux/export.h> when W=1") we get the build
-warning with W=1:
+Am Dienstag, 10. Juni 2025, 12:48:50 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Krzysztof Kozlowski:
+> On 10/06/2025 12:44, Krzysztof Kozlowski wrote:
+> > On 18/05/2025 23:59, Peter Robinson wrote:
+> >> The Pine64 touch panel is a panel consisting of the Feiyang fy07024di2=
+6a30d
+> >> panel with a Goodix gt911 touch screen. Add a device tree overlay to
+> >> allow the display to be easily used on the device.
+> >>
+> >> This was previously included in the main device tree but left disabled
+> >> by default which still required rebuilding the DT to use the device, n=
+ow
+> >> overlays can go upstream the overlay is the best way to handle the
+> >> add on devices.
+> >>
+> >> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+> >> ---
+> >>  arch/arm64/boot/dts/rockchip/Makefile         |  9 ++
+> >>  .../dts/rockchip/rk3399-rockpro64-screen.dtso | 89 +++++++++++++++++++
+> >>  2 files changed, 98 insertions(+)
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-rockpro64-scre=
+en.dtso
+> >>
+> >> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/d=
+ts/rockchip/Makefile
+> >> index 3e8771ef69ba1..c7b13bff3ac20 100644
+> >> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> >> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> >> @@ -77,6 +77,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock-pi-4c.d=
+tb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock960.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-v2.dtb
+> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64.dtb
+> >> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtso
+> >=20
+> >=20
+> > This was absolutely never built as reported by Naresh. You should never
+> > sent patches which are at least built tested... although they should be
+> > actually tested as well, but if code does not build actual testing is
+> > impossible.
+>=20
+> Huh, I was wrong - this actually builds, just cannot execute install targ=
+et.
 
-drivers/iio/trigger/stm32-lptimer-trigger.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+I did build it as well after applying - but still managed to overlook the d=
+tso vs. dtbo
+But I'm surprised that still built yesterday
 
-Fix it.
+I'll amend the commit for the dtso -> dtbo change.
 
-Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
----
- drivers/iio/trigger/stm32-lptimer-trigger.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/iio/trigger/stm32-lptimer-trigger.c b/drivers/iio/trigger/stm32-lptimer-trigger.c
-index 2505ace440b46..c7bab18221c70 100644
---- a/drivers/iio/trigger/stm32-lptimer-trigger.c
-+++ b/drivers/iio/trigger/stm32-lptimer-trigger.c
-@@ -9,6 +9,7 @@
-  * Inspired by Benjamin Gaignard's stm32-timer-trigger driver
-  */
- 
-+#include <linux/export.h>
- #include <linux/iio/timer/stm32-lptim-trigger.h>
- #include <linux/mfd/stm32-lptimer.h>
- #include <linux/mod_devicetable.h>
--- 
-2.34.1
+Heiko
+
 
 
