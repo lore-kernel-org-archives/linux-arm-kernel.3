@@ -4,65 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65FCC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0607C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=WspmaVcDEbydWz49mRe41C62W1tN79O5epvi7B4LyM8=; b=smWuD4uSswyk/a
-	fn4vndLELrVPKMKNg6pzrkoRYpFLxK5Unji2MbNeue201V+iES5JrjNtKoXJVX2mPYrunUTMT5ahE
-	3SVJzO8e5J7qtkrlsgDCabRiF0/UzJFGK1GRthNdCcDzpG83cl+yu4BkOj1kljAgCzmZPfaECSkIj
-	VpNtPI5o9iHGeL8LoaBA6rHtTzehHEaxYKNOzJBBmun2ZUCONwb77+lCN4PW6eaKdCe8j2EiC+No/
-	q4DN4jpus25Xa9Tcu9MOtVBZf5IvYWELXi09+WQOH2tH3EcgbjQF7PcZewNp/CErJqOBlfOmJmab2
-	seNVww+sVFTvUJScXtVA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hj4eIt+VHqO2LftBpI1JFvYK+i8DFAwq/017OGu24Bs=; b=BsK5fqk3nCeS5lRM9/65XGaBfd
+	C57BTmZ3nnvYbcVlWgaWnht9xcEPnlOFUGvHyvuajgXlGM4cHB5h6vPlA8sZBksOTUL/5rRQt0NBG
+	M0CdJPgTxhdKaT4YNUHSVZYVpmld6difhBfEYNrAoD11BvN61w6H4znIxQqFyiWqiSR9edA0SV3gK
+	/BgaKMRi9mxAfTyyWWUztXwBJo1AylRXpcyiYnIcQxRc43PZsw3m8BRSCv3A1CB1dEYGc/UOx7amZ
+	OctIImJpkqRzdG/KMo9+rHPSyuJANBgc+h5qC91lnj1ERnRXHy7ZqdTnwJxLDfhYadUR0Bhg1ZCuN
+	W8e/mbNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7ld-00000008FRK-3CGa;
-	Tue, 10 Jun 2025 22:48:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uP7lb-00000008FMf-1etV;
+	Tue, 10 Jun 2025 22:48:27 +0000
+Received: from mail-bn8nam04on20603.outbound.protection.outlook.com ([2a01:111:f403:2408::603] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP3xt-00000007prG-06Lh;
-	Tue, 10 Jun 2025 18:44:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A7E6DA5157A;
-	Tue, 10 Jun 2025 18:44:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F070C4CEED;
-	Tue, 10 Jun 2025 18:44:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749581091;
-	bh=joj/ZjLFg+NBtbJ9iqvbjqCoxWFWArbEFXoFWaKYYBc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=IR8Z198Ks7LgP8Zr1K0TzyqrbxOmz1AnrckCdFX1UFZxj6XqJYw+H3SkpnglH7fw1
-	 7di9Jnz3jA85BbcW4Y+Hh7gLq/hmo7tI8OgRmTAGh2+kSFIj/0GJPAqxdomg5vc9Jg
-	 XmT3ONIwah7+lDvloqeVaqh4HTczwqvFFEpbUkd8fdzBAdGWj1x/sGcmQglv82A2LW
-	 5CU8FiMK//EImFO6sNfsiapjvKjfme0I7u2cxN0TuxFP3R7TegAJK96DOR0hNV0gy8
-	 ATJdQ2Pc6vJ+faC71tgFx+zgvksU3SnUjT8FgXHiBr6PWEkCx8oFREuwT19ThQrtrk
-	 v7zvhIC4+GGHw==
-Date: Tue, 10 Jun 2025 13:44:49 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
-Cc: linux-rockchip@lists.infradead.org,
-	Hugh Cole-Baker <sigmaris@gmail.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 1/2] PCI: rockchip-host: Retry link training on
- failure without PERST#
-Message-ID: <20250610184449.GA819185@bhelgaas>
+	id 1uP3mF-00000007oKQ-45tO
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 18:32:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZspFmFldlHaV2dBXODbLjKiDE7zNBqF1MgU2BS+ZZn8KZ7zYONEhBVZ9Ldf7OLIP3gVwBLtJZhBGN18Fu9SdDMamL4NcoSPfDYzm3GxIy5TELhVQQ1O/Q17pjJ3fYJFpWA0c8RIp966CI3tZtJzAXwHDZVsyA++uLvRcbzRbWmyDHhGRvl9FXF4dibs/HxK0mYmsG9X6W3Juwft8YX0X/WIrhcK8azsXgVnjwCZTNrFWZGCiWHCB9oxDIiaZUFqqXzd7UVeKlDrD4CK0zUN68ETvwya3TrCLJRh1G3rbIQI/2dGiHhK2orjC/4weRJ/2YqvpIro8DfZDrzbrSwkY2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hj4eIt+VHqO2LftBpI1JFvYK+i8DFAwq/017OGu24Bs=;
+ b=boV4lghEu3j3K8yqOrqNqltFIC/PtKYbc5bsuFlsnKgPIqZw2BXZsFqEFxydKVHmI5c5wr27phT54MSNDH1eBMBgEQ19zxuWcKznd+9G+0BbNWvlzmFMrgBgjvLcKZG0iCye1nT/31AmCfFfUWugm0is9dWCcQAGKhM/zd4Aisem14gEeamdLlu2gyzH2of99l6OP5FGRZU6qvI2I3OUByS0OPyo3pJIs3RB9hWhsUGTNIDFFhhjkFwXkBy6qBbFLey58Y1/5cc5Ddo+prJc02uZJ18Wv+9QnT+IwsXdnPwGJQ6ie8u6AggYR7L9aEyZzn0TI1pAXmmIIq1BOBiLwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hj4eIt+VHqO2LftBpI1JFvYK+i8DFAwq/017OGu24Bs=;
+ b=DGH9/8DVlm9k5Qt7xSmBSh49ed+YbOU0sw0qxMc13+cvq8PplPz4PlGdNNgY0Z9qZg90vSQVPeq+fu426YwTp3rGDgiRgqI9s994SQzpg48NwgbACWuuNQDSQThihk9kFEYlzvx6Bfgy5bLLA2UWbi7T1zZtlWUDm04XzVZqFSxLGM2cJl27k7HSowzjJZ3+UDyyxnlmRlBl/2/Mowu1xipkV2IzNCNr9HUEh0tMONd02KKwHWOh0eJHNRmNQ5hM7D8ckyGXdYcu8ldo7oKrfe53886Bivyf9e+ZmvdPPRK1jwrO0GXJZ0fn8b+axhpDfOnOK7F/FsLBcnIrUTYFaA==
+Received: from CH5P221CA0005.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1f2::29)
+ by DS2PR12MB9592.namprd12.prod.outlook.com (2603:10b6:8:27c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Tue, 10 Jun
+ 2025 18:32:40 +0000
+Received: from CH3PEPF0000000E.namprd04.prod.outlook.com
+ (2603:10b6:610:1f2:cafe::50) by CH5P221CA0005.outlook.office365.com
+ (2603:10b6:610:1f2::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Tue,
+ 10 Jun 2025 18:32:39 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH3PEPF0000000E.mail.protection.outlook.com (10.167.244.42) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Tue, 10 Jun 2025 18:32:39 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 10 Jun
+ 2025 11:32:22 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 10 Jun
+ 2025 11:32:22 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 10 Jun 2025 11:32:19 -0700
+Date: Tue, 10 Jun 2025 11:32:17 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <kevin.tian@intel.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <peterz@infradead.org>,
+	<jsnitsel@redhat.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>,
+	<baolu.lu@linux.intel.com>
+Subject: Re: [PATCH v1 00/12] iommufd: Repare for IOMMUFD_OBJ_HW_QUEUE
+Message-ID: <aEh6Ma6hLrs78VMA@nvidia.com>
+References: <cover.1749488870.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <810f533e9e8f6844df2f9f2eda28fdbeb11db05e.1749572238.git.geraldogabriel@gmail.com>
+In-Reply-To: <cover.1749488870.git.nicolinc@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000E:EE_|DS2PR12MB9592:EE_
+X-MS-Office365-Filtering-Correlation-Id: d465d5ae-fd34-4da5-f61d-08dda84d2e56
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?u1iM7jmzI8EA7TJ1R5S0eLezyRD9SrrRPWghAUBLtwoGqnQxZpCvsuD/iOBe?=
+ =?us-ascii?Q?sMgSpVB8fxPd1+Dmluxm+0rmngLA6snR2ou1XQOPxGKW5UsQDBMkEBdjwXUK?=
+ =?us-ascii?Q?y3XMe+ugsT/xOqMjcnMrOH3a2cS7OskgIyd1GJZ4TyWk7ZriyGfjGZ/DQWRQ?=
+ =?us-ascii?Q?tGlAThfPpgkeChBgkxNhK3yKrDokbX6FYsg9rae40M9A3BerV1Djb4xCCQi6?=
+ =?us-ascii?Q?6z7AAvt2ejKYKghhzt+t3ZlSaauPb7fLYiunUl0bOwt2qngzBhy9zY/EUPMB?=
+ =?us-ascii?Q?HUGTt6kciWtu6DNTvhiqGQYZi+NX3tvi+2DcnQO+ATepy/ivuX1wd244pw18?=
+ =?us-ascii?Q?8sKvOwRf3/VOQJSZzHB7uayAvUAPOw8m9SpggSMznabaJ+V0oTkN2Hu+vUKF?=
+ =?us-ascii?Q?+8urdkVfTmvuJG198Q7U0G2jokqFfQR3+VjyutAZnbAOi9q35qNY90U0V0Ix?=
+ =?us-ascii?Q?KdKlSzYlPvR8smFIxbgVIbbhnFYza5cajFNtgwxitnUQNnoOGIsWP79wxNpd?=
+ =?us-ascii?Q?l8QOoEPfJ8qZV92rENHemh73BTCS4WBA/1DM83GO3DvzBQGwNvR+ak21R5ic?=
+ =?us-ascii?Q?F+xBYeUZnwzPgxTN6LoiFojjnSx7u8olB43intEWMxVIU4XHtZ8B38GTHEw9?=
+ =?us-ascii?Q?dlNS8RD4yVOc7MStx8Gn9ld15PHSM2kvirevah8a49iwvRLEQj16Wlbx4oDg?=
+ =?us-ascii?Q?Hn52pKiXnbQGTjwmZm5DeO1v0WuL1vkFC7aRBUekhddMKYFWdf/rBkYpGcpi?=
+ =?us-ascii?Q?LYVVhbFHk6/gPTBs8W7IGaZKSXiHA8g/reCWRiO+L8TYrYTKXFMJd/ySLT+0?=
+ =?us-ascii?Q?VlnVeoY+cv2wIWJuigKgCl8/48fbf9tRcLhOa3yq3Bt9mIUvjpX8nGgw8y56?=
+ =?us-ascii?Q?K/1cUihUGaqVqHzAmXeG6T3VOeSL2fjE8c1ncuOISCTPtDK1Tf/P7sx7VKgR?=
+ =?us-ascii?Q?BBv1MZ03hoB5ocbh2s91VcGmQQZ4fe93Hvd8tSF810SXVUDe33LgT9NDhuaY?=
+ =?us-ascii?Q?vEDmy1V37lPoj6sV8yWipq8A525PXOxtRJCauugyID47ADWtlzAqNIhNYUfS?=
+ =?us-ascii?Q?GRULlY2zwAcYaO7IhUbjYL1oIR44tA+vt5pN3guI6oCeVy/TWG6CIG8kn1tz?=
+ =?us-ascii?Q?cR3rTrM/8jJ5fzvWMhY+3a4TVgJ7jT5FeEDg7wxZzO6laE9e37nqTlBs+cGV?=
+ =?us-ascii?Q?jVagGNIdalOqjDQhy9vq1daTgGtvYIClIwKwVJrhkk3TQ1UFtPAnYJOBcZPb?=
+ =?us-ascii?Q?KNsgtri5YhVCxjZCM6Rn12StaaZJpbCjhkTNz6GesDXwUJOnAX4p1Gf+gV2o?=
+ =?us-ascii?Q?gh4dwlIzYLxBQDAwpiXJwBjt9bDEx4LB6jTyTCpPwrFysXJ8QW3syfIkW4UX?=
+ =?us-ascii?Q?bB7C29uD5c45UJa6Pbzi2nUDEAs7+dydR6P9eyns6j6itMtFNdB0hvECwvG4?=
+ =?us-ascii?Q?SdWL0VBOJ+NGT2XeADWJZswNvTbxsA30uzgwy0C0tMBjetcnZTI81gptJ4Ao?=
+ =?us-ascii?Q?Cxowq9qaeFvGjYAXHVXR4uW1UVduDI555nCV?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 18:32:39.8518
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d465d5ae-fd34-4da5-f61d-08dda84d2e56
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000E.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9592
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_114453_126680_2A487264 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250610_113252_014881_A3734642 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +153,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 01:37:12PM -0300, Geraldo Nascimento wrote:
-> After almost 30 days of battling with RK3399 buggy PCIe on my Rock Pi
-> N10 through trial-and-error debugging, I finally got positive results
-> with enumeration on the PCI bus for both a Realtek 8111E NIC and a
-> Samsung PM981a SSD.
+On Mon, Jun 09, 2025 at 10:13:23AM -0700, Nicolin Chen wrote:
+> The new HW Queue object will require more interactions with IOMMU drivers,
+> with a few more for-driver APIs. This will complicate the driver-allocated
+> structure design like the viommu_alloc op: since the core structure is not
+> initialized during the driver allocation stage, a new for-driver API can't
+> reference any member in the core vIOMMU structure.
+> 
+> Make a preparatory series doing:
 
-> +static int rockchip_pcie_set_vpcie(struct rockchip_pcie *rockchip)
-> +{
-> +	struct device *dev = rockchip->dev;
-> +	int err;
-> +
-> +	if (!IS_ERR(rockchip->vpcie12v)) {
-> +		err = regulator_enable(rockchip->vpcie12v);
-> +		if (err) {
-> +			dev_err(dev, "fail to enable vpcie12v regulator\n");
-> +			goto err_out;
-> +		}
-> +	}
-> +
-> +	if (!IS_ERR(rockchip->vpcie3v3)) {
-> +		err = regulator_enable(rockchip->vpcie3v3);
-> +		if (err) {
-> +			dev_err(dev, "fail to enable vpcie3v3 regulator\n");
-> +			goto err_disable_12v;
-> +		}
-> +	}
-> +
-> +	err = regulator_enable(rockchip->vpcie1v8);
-> +	if (err) {
-> +		dev_err(dev, "fail to enable vpcie1v8 regulator\n");
-> +		goto err_disable_3v3;
-> +	}
-> +
-> +	err = regulator_enable(rockchip->vpcie0v9);
-> +	if (err) {
-> +		dev_err(dev, "fail to enable vpcie0v9 regulator\n");
-> +		goto err_disable_1v8;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_disable_1v8:
-> +	regulator_disable(rockchip->vpcie1v8);
-> +err_disable_3v3:
-> +	if (!IS_ERR(rockchip->vpcie3v3))
-> +		regulator_disable(rockchip->vpcie3v3);
-> +err_disable_12v:
-> +	if (!IS_ERR(rockchip->vpcie12v))
-> +		regulator_disable(rockchip->vpcie12v);
-> +err_out:
-> +	return err;
-> +}
+So, Don pointed out that "Repare" is a typo here. All this series
+doing is to "Prepare", as IOMMUFD_OBJ_HW_QUEUE hasn't been merged
+yet.
 
-This *looks* like it could be strictly a move of
-rockchip_pcie_set_vpcie(), without changing it at all.
+Also the main goal of this series is to replace viommu_alloc with
+get_viommu_size + viommu_init. The patch that introduces the two
+new ops has the full details (though I should have some narrative
+clearly show the idea in the cover letter too):
 
-If that's the case, please make the move a separate patch so it's more
-obvious what the interesting changes that actually make a difference
-are.
+--------------------------------------------------------------------------
+So far, a vIOMMU object has been allocated by IOMMU driver and initialized
+with the driver-level structure, before it returns to the iommufd core for
+core-level structure initialization. It has been requiring iommufd core to
+expose some core structure/helpers in its driver.c file, which result in a
+size increase of this driver module.
+
+Meanwhile, IOMMU drivers are now requiring more vIOMMU-base structures for
+some advanced feature, such as the existing vDEVICE and a future HW_QUEUE.
+Initializing a core-structure later than driver-structure gives for-driver
+helpers some trouble, when they are used by IOMMU driver assuming that the
+new structure (including core) are fully initialized, for example:
+    // my_viommu is successfully allocated
+    my_viommu = iommufd_viommu_alloc(...);
+    // This may crash if it reads viommu->ictx
+    new = iommufd_new_viommu_helper(my_viommu->core ...);
+
+To ease such a condition, allow the IOMMU driver to report the size of its
+vIOMMU structure, let the core allocate a vIOMMU object and initialize the
+core-level structure first, and then hand it over the driver to initialize
+its driver-level structure.
+
+Thus, this requires two new iommu ops, get_viommu_size and viommu_init, so
+iommufd core can communicate with drivers to replace the viommu_alloc op.
+
+This also adds a VIOMMU_STRUCT_SIZE macro, for drivers to use, which would
+statically sanitize the driver structure.
+--------------------------------------------------------------------------
+
+Thanks.
 
