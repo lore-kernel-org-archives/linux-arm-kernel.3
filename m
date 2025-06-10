@@ -4,99 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739BBC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC4EC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jIdIqfPxfB9RaiJq5FixOtoy9prE4pZuS5ykL++HHGk=; b=JHBPqmaS/WZEiICd0qt1SF15RM
-	m3uttWpbsNvlLh7oAPpyJyYIBTqBv0oB9IIo8yhcMYwXnrsorPn1SfzZlYjoSyJ4hNfszNQrz/ezJ
-	bTk32YvGspOWnyLnUCsKc6utGYn4e8s5GbKJnCEdGSiJs+etwVHmjmnmq/KHE2Lsds2vp9KRHgUOe
-	Tum0Jmwg8rqk+l8gc3yUES33fJwoQKMefxhc3+yZYi8eKKxWJHpvc/XDBmg4QMedQjoBzePWhmWIV
-	rtPsUx7ftB/Q0QA9DNqlqJutDHNthccggqHZfSoMgYiJXjo17Qlok9p5QT/IKCYMYojaB0BsFRGSW
-	iih7GnbQ==;
+	bh=RXEz39qlPkRLfjKRravFg/i6u+sNIbt6DEgrjazchnc=; b=KxqjBlO62p65Aew6XCRvD6R5WJ
+	apJSMCaaVSa5yAx/ENGvdzIhF1f8bRiNEpOJsAr4pdjgKbURZwWLCbDfMyzmV+UeYZ6AUZl2K/NVr
+	ZHDnJkpCf+iEP2/2bFnkOcxwg0NiexteiWW+WbrXJfMugZjwQPCYAGO0In9S+0x3tFBXaFEWb+cDo
+	UH5H6x57hCjS9P9rxiDaoMM01M5LzHHPpXj0OX4pEugfqVp56JXigAsAL5ZY4QqC2psnpLp4AD5DY
+	rhBSe0NAsiJxBYau/HG5On/+zqCk/zaD+qDn+uqLJp3nMu3gvCkaZwEBFKwA9yeunQcGvSsl5+ID6
+	sALL4Ehg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtvG-0000000667T-2wTD;
-	Tue, 10 Jun 2025 08:01:30 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uOtxN-000000066Zt-3GDF;
+	Tue, 10 Jun 2025 08:03:41 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtoK-000000065BZ-0j3F
+	id 1uOtrF-000000065cx-3hkY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 07:54:21 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55A1CDxh012194;
-	Tue, 10 Jun 2025 07:54:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=jIdIqfPxfB9RaiJq5
-	FixOtoy9prE4pZuS5ykL++HHGk=; b=JBFSX/eEHpLGknbEIpzwVhcjCwYoY80sx
-	a5QPvk5IglUaWcIc6/nKB+G29Nc/1NLYqiSe+Vu/kS/SezvYWwP0evAQJFIaFxS+
-	/EbxKBZVc1x+xwNagt6EWDZeDwCQCixhvKY3Wf865Bf1aJBiw+BwWf1S890+bosT
-	UBKQr9IWWVmnBPOVWCTuqZOWromXBxiT3xRYjY6C877YP3/DqmR0FuWDVgLQWN3m
-	sgEUZobPZZ3b0H48js83vGHTKjg5GrESMCeYkREzVEgRG1tVxrUNUQglb9LhJykJ
-	ULR028kClbJlkbo+aj2ZGMngF6P/iatiaRuKikD96oQR/EVTL1ekQ==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 474hguc1wb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 07:54:01 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55A70uDs019602;
-	Tue, 10 Jun 2025 07:54:01 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4752f29290-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 07:54:01 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55A7rvK749152344
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 10 Jun 2025 07:53:57 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2C5EE2004B;
-	Tue, 10 Jun 2025 07:53:57 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E2D6B20049;
-	Tue, 10 Jun 2025 07:53:53 +0000 (GMT)
-Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.27.113])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 10 Jun 2025 07:53:53 +0000 (GMT)
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-To: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com,
-        vincent.guittot@linaro.org, maddy@linux.ibm.com
-Cc: sshegde@linux.ibm.com, tglx@linutronix.de, bigeasy@linutronix.de,
-        vschneid@redhat.com, dietmar.eggemann@arm.com, rostedt@goodmis.org,
-        linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
-        linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com
-Subject: [PATCH 1/1] sched: preempt: Move dynamic keys into kernel/sched
-Date: Tue, 10 Jun 2025 13:23:44 +0530
-Message-ID: <20250610075344.1379597-2-sshegde@linux.ibm.com>
-X-Mailer: git-send-email 2.43.5
-In-Reply-To: <20250610075344.1379597-1-sshegde@linux.ibm.com>
-References: <20250610075344.1379597-1-sshegde@linux.ibm.com>
+	Tue, 10 Jun 2025 07:57:23 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ad56cbc7b07so745566666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 00:57:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749542240; x=1750147040; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RXEz39qlPkRLfjKRravFg/i6u+sNIbt6DEgrjazchnc=;
+        b=X+ktyNAavICKnCV4AxE9AqPcXr5ZMwcyVh1LwQ1FljrPaVNWDa0Rg8OPiSWTgmWK9p
+         2CpkEs8KxC1VR10ft0CDEIutafe9/IH7Rf0YiTmCvk+tn4FvNgnna8j3sNcjQsqe4tdw
+         yyvf2dto5jq4Oq11ETmSZAjjG97j3FmRkqiw8L/1FODH5Mb1ef3lboZYXdj5lBV2G5AW
+         7U8WohqaPyUZokNLrMdRAiTMVzrWoG3/HVi2k0C1gZL+/e6yf12DJzGkkHTDwBl19TEC
+         xLa2/Ms4HOxEjJe4MW4LHNQYRXh2DvopIVzw+bljhfRy+hZhiaYACfYv4N8PX4PQ5D6Z
+         qvKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749542240; x=1750147040;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RXEz39qlPkRLfjKRravFg/i6u+sNIbt6DEgrjazchnc=;
+        b=M52+qD9lwzbnUhzPelqHVNlhOVfCXwcGbchYU+6oV3bW1JCZ9P29Ge6+vfkImnZj6R
+         X5VIzSw22SXkBu28uWHonQSSAcRJ9ef22blQ9ZU4+rP5bx0Zzu7JQLvf/nKTpkRn7Baa
+         nXCEtcugUymzb6AwcnmNHCsjT85EDVf+uzd99zLV4nz/3+0RqqNs7FxeDq8R+BjXttEN
+         18TPpN/RkGr0477C6ZonhWI743AN/iaSEw0vOMdcQiBVA6Q2yAie1GpFvCihd8fUIaSE
+         92LGDH3ToNm1/KS7QEG7GWfvbk2Ra0+Q6LU87XpL4iaDKyL0MVBf1O8z772xmBkN2jQs
+         Q9Nw==
+X-Forwarded-Encrypted: i=1; AJvYcCU9bwpRaZeWrj9r0JVZeGwBO8W7DUhEe/HyL4CASBPqtGoNp/n3k0vQaxN0x93FyhhTeyXV1taxGHI0323tkVbO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVCaGQf3Q5oCS7zCGf2epzHxmIbvqnqXpmH2FRKTcluUWf6Qn0
+	lRFcwaMHIXxOt9faRahWR6g22RidvKm9qK0/511TvG/FDkF4w7Rxx7I9
+X-Gm-Gg: ASbGncsu4G2TNFYQRpKTxCuFhR+zoXxSXmbJJM6xCC8Giz6imnIUlDNLYgMZ64TdrLE
+	zwa/ZCDkAo/UXslmNmY8EoJur9Jk/CKaeDliI7izKyPYLU1fPCV84x704BYjjST44hbDPX9pdt6
+	yEEjWzTewkPafVxIUhvR0Z4D9XkEHR5DzOY2o6t5b0MwzO4y/+rBiiRNRgZ4XiDnA7Wnm3cZm2a
+	pJMeMeqnKSgn1d5FL9Ipz9QYo/JLUas2+BsqFKRI30tGZvrI0shkPgQEswwOg/MaZ35K2FlYJWK
+	9nSOCo0toxsveougCS3bwfN1LfN4eYT2kixPQYzSM9yhxqIJiUUDsm8EM4UN2qdkadVbYDnBfQp
+	MJnIN95cAYUrxRkRxJMbOofFNgCfM
+X-Google-Smtp-Source: AGHT+IEsS/+RD/EAfhTF5UnI34QY3JxgQh7bcmSonLyX0ddXKzEGSeq1u6Th3PsLJT9K9zv5PEC9TA==
+X-Received: by 2002:a17:906:5acf:b0:ade:4448:9a0a with SMTP id a640c23a62f3a-ade44489d2cmr748729766b.19.1749542239459;
+        Tue, 10 Jun 2025 00:57:19 -0700 (PDT)
+Received: from [192.168.1.130] (11-127.static.abakusbp.net. [46.17.127.11])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1dc37ae2sm673339666b.112.2025.06.10.00.57.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Jun 2025 00:57:19 -0700 (PDT)
+Message-ID: <bf2eb64b-ac33-4c2b-8ad6-6a21d5d6bcb7@gmail.com>
+Date: Tue, 10 Jun 2025 09:57:17 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: imx8mp: Add initial support for
+ Ultratronik imx8mp-ultra-mach-sbc board
+To: Frank Li <Frank.li@nxp.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?B?QsO2cmdlIFN0csO8bXBmZWw=?=
+ <boerge.struempfel@gmail.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250605142728.2891465-1-goran.radni@gmail.com>
+ <20250605142728.2891465-4-goran.radni@gmail.com>
+ <aEH4R5euW19fO/0f@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Goran Radenovic <goran.radni@gmail.com>
+In-Reply-To: <aEH4R5euW19fO/0f@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=Pfr/hjhd c=1 sm=1 tr=0 ts=6847e499 cx=c_pps a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17 a=6IFa9wvqVegA:10 a=VnNF1IyMAAAA:8 a=7d-BAE35GrDzMBwietEA:9
-X-Proofpoint-GUID: IveRM9t9mxxaNk6Gm2klbID7YdkgzzAK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEwMDA1OCBTYWx0ZWRfX/QMpB2fnmmSR p9wT5/oMz1zqRKMcVIUUKcSEyPDAlMJINlQpk48teSaHh5ql741av8gQI4VSlu0o7qu/Yjou399 RK+DzAxKu1IooaR0a67wTVcME4W8PAMGi9bd7nM56OcxRuDS5XaR/UtJeqX1JArPwRygxvaE07f
- I8U6gUroVCkttzQrWawN6yEb6My53JfnLnyqwSFzlousxv8qKBnvOryFaVPe0haxDWnH9OKSI38 3WdibMBY2DuWFMwEDAKNOuwexIAkEAWaUSIjUdXYe5t7BsWXD2rZEA+8tMdz5HL//aE083qGEjj RPLcsMFT0rGbL151GUXLUpu1K2RybzZ3h7Ox7M7SuLfz5leZ2swJCJ2R4/zg1s7Yh3BM9h2/Hzs
- iuf1ZMR/vMpBvkZSmdoLt9paWyD7yB7CW6pJi1yNdjdugcWU75feNWd2SUtRhR172QElp0HC
-X-Proofpoint-ORIG-GUID: IveRM9t9mxxaNk6Gm2klbID7YdkgzzAK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_02,2025-06-09_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0
- priorityscore=1501 impostorscore=0 suspectscore=0 adultscore=0
- clxscore=1015 phishscore=0 bulkscore=0 malwarescore=0 mlxlogscore=999
- mlxscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506100058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_005420_325376_88ECC839 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20250610_005721_938443_88B9B8DE 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,161 +109,989 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dynamic preemption can be static key or static call based.
-Static key is used to check kernel preemption depending on
-the current preemption model. i.e enable for lazy, full. 
+Hi Frank,
 
-Code is spread currently across entry/common.c, arm64 and latest being
-powerpc. There is little arch specific to it. For example, arm64,
-powerpc does the same thing. It is better to move it into kernel/sched 
-since preemption is more closely associated with scheduler.  
+thank You for the review. I'll fix it in v2.
 
-Plus, Any new arch that wants dynamic preemption enabled need to have 
-only HAVE_PREEMPT_DYNAMIC_KEY. 
+Best regards
+Goran
 
-This is more of code movement. No functional change. 
-
-Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
----
- arch/arm64/include/asm/preempt.h   |  1 -
- arch/arm64/kernel/entry-common.c   |  8 --------
- arch/powerpc/include/asm/preempt.h | 16 ----------------
- arch/powerpc/kernel/interrupt.c    |  4 ----
- include/linux/entry-common.h       |  1 -
- include/linux/sched.h              |  8 ++++++++
- kernel/entry/common.c              |  1 -
- kernel/sched/core.c                |  4 ++++
- 8 files changed, 12 insertions(+), 31 deletions(-)
- delete mode 100644 arch/powerpc/include/asm/preempt.h
-
-diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-index 0159b625cc7f..a9348e65d75e 100644
---- a/arch/arm64/include/asm/preempt.h
-+++ b/arch/arm64/include/asm/preempt.h
-@@ -87,7 +87,6 @@ void preempt_schedule_notrace(void);
- 
- #ifdef CONFIG_PREEMPT_DYNAMIC
- 
--DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
- void dynamic_preempt_schedule(void);
- #define __preempt_schedule()		dynamic_preempt_schedule()
- void dynamic_preempt_schedule_notrace(void);
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index b260ddc4d3e9..b1c854fb4884 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -259,14 +259,6 @@ static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs)
- 		lockdep_hardirqs_on(CALLER_ADDR0);
- }
- 
--#ifdef CONFIG_PREEMPT_DYNAMIC
--DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
--#define need_irq_preemption() \
--	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
--#else
--#define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
--#endif
--
- static void __sched arm64_preempt_schedule_irq(void)
- {
- 	if (!need_irq_preemption())
-diff --git a/arch/powerpc/include/asm/preempt.h b/arch/powerpc/include/asm/preempt.h
-deleted file mode 100644
-index 000e2b9681f3..000000000000
---- a/arch/powerpc/include/asm/preempt.h
-+++ /dev/null
-@@ -1,16 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef __ASM_POWERPC_PREEMPT_H
--#define __ASM_POWERPC_PREEMPT_H
--
--#include <asm-generic/preempt.h>
--
--#if defined(CONFIG_PREEMPT_DYNAMIC)
--#include <linux/jump_label.h>
--DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
--#define need_irq_preemption() \
--	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
--#else
--#define need_irq_preemption()   (IS_ENABLED(CONFIG_PREEMPTION))
--#endif
--
--#endif /* __ASM_POWERPC_PREEMPT_H */
-diff --git a/arch/powerpc/kernel/interrupt.c b/arch/powerpc/kernel/interrupt.c
-index e0c681d0b076..4d62d785ad26 100644
---- a/arch/powerpc/kernel/interrupt.c
-+++ b/arch/powerpc/kernel/interrupt.c
-@@ -25,10 +25,6 @@
- unsigned long global_dbcr0[NR_CPUS];
- #endif
- 
--#if defined(CONFIG_PREEMPT_DYNAMIC)
--DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
--#endif
--
- #ifdef CONFIG_PPC_BOOK3S_64
- DEFINE_STATIC_KEY_FALSE(interrupt_exit_not_reentrant);
- static inline bool exit_must_hard_disable(void)
-diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
-index f94f3fdf15fc..8624faa1f8b9 100644
---- a/include/linux/entry-common.h
-+++ b/include/linux/entry-common.h
-@@ -549,7 +549,6 @@ void raw_irqentry_exit_cond_resched(void);
- DECLARE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
- #define irqentry_exit_cond_resched()	static_call(irqentry_exit_cond_resched)()
- #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
--DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
- void dynamic_irqentry_exit_cond_resched(void);
- #define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
- #endif
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 45e5953b8f32..ebd230382027 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -2115,6 +2115,14 @@ static inline int _cond_resched(void)
- 
- #endif /* !CONFIG_PREEMPTION || CONFIG_PREEMPT_DYNAMIC */
- 
-+#if defined(CONFIG_PREEMPT_DYNAMIC) && defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
-+DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-+#define need_irq_preemption() \
-+	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-+#else
-+#define need_irq_preemption()   (IS_ENABLED(CONFIG_PREEMPTION))
-+#endif
-+
- #define cond_resched() ({			\
- 	__might_resched(__FILE__, __LINE__, 0);	\
- 	_cond_resched();			\
-diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-index a8dd1f27417c..b8ffd7127338 100644
---- a/kernel/entry/common.c
-+++ b/kernel/entry/common.c
-@@ -268,7 +268,6 @@ void raw_irqentry_exit_cond_resched(void)
- #if defined(CONFIG_HAVE_PREEMPT_DYNAMIC_CALL)
- DEFINE_STATIC_CALL(irqentry_exit_cond_resched, raw_irqentry_exit_cond_resched);
- #elif defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
--DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
- void dynamic_irqentry_exit_cond_resched(void)
- {
- 	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 62b3416f5e43..6af2bab187cb 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -7083,6 +7083,10 @@ EXPORT_SYMBOL(dynamic_preempt_schedule_notrace);
- 
- #endif /* CONFIG_PREEMPTION */
- 
-+#if defined(CONFIG_PREEMPT_DYNAMIC) && defined(CONFIG_HAVE_PREEMPT_DYNAMIC_KEY)
-+DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-+#endif
-+
- /*
-  * This is the entry point to schedule() from kernel preemption
-  * off of IRQ context.
--- 
-2.43.0
+Frank Li wrote:
+> On Thu, Jun 05, 2025 at 04:27:26PM +0200, Goran Rađenović wrote:
+>> Add initial device tree support for the Ultratronik Ultra-MACH SBC
+>> based on the NXP i.MX8M Plus SoC with 2GB LPDDR4.
+>>
+>> The board features:
+>> - 1 x USB 2.0 Host
+>> - 1 x USB 2.0 via USB-C
+>> - Debug UART + 1 x UART + 1 x USART
+>> - SD card and eMMC support
+>> - 2 x Ethernet (RJ45)
+>> - HDMI
+>>
+>> This initial DTS enables basic board support for booting via
+>> SD card or eMMC.
+>>
+>> Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
+>> ---
+>>   arch/arm64/boot/dts/freescale/Makefile        |   1 +
+>>   .../dts/freescale/imx8mp-ultra-mach-sbc.dts   | 907 ++++++++++++++++++
+>>   2 files changed, 908 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-ultra-mach-sbc.dts
+>>
+>> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+>> index 0b473a23d120..e2f2500238fe 100644
+>> --- a/arch/arm64/boot/dts/freescale/Makefile
+>> +++ b/arch/arm64/boot/dts/freescale/Makefile
+>> @@ -229,6 +229,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
+>> +dtb-$(CONFIG_ARCH_MXC) += imx8mp-ultra-mach-sbc.dtb
+> 
+> new file, suggest run https://github.com/lznuaa/dt-format to maintain nice
+> node order.
+> 
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony.dtb
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw71xx-2x.dtb
+>>   dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw72xx-2x.dtb
+>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-ultra-mach-sbc.dts b/arch/arm64/boot/dts/freescale/imx8mp-ultra-mach-sbc.dts
+>> new file mode 100644
+>> index 000000000000..7a599250e697
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/freescale/imx8mp-ultra-mach-sbc.dts
+>> @@ -0,0 +1,907 @@
+>> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> +/*
+>> + * Copyright (C) 2023 Ultratronik
+> 
+> 2025
+> 
+>> + */
+>> +
+>> +/dts-v1/;
+>> +
+>> +#include <dt-bindings/usb/pd.h>
+>> +#include "imx8mp.dtsi"
+>> +
+>> +/ {
+>> +	model = "NXP i.MX8MPlus Ultratronik MMI_A53 board";
+>> +	compatible = "ultratronik,imx8mp-ultra-mach-sbc", "fsl,imx8mp";
+>> +
+>> +	aliases {
+>> +		ethernet0 = &fec;
+>> +		ethernet1 = &eqos;
+>> +		rtc0 = &hwrtc;
+>> +		rtc1 = &snvs_rtc;
+>> +	};
+>> +
+>> +	chosen {
+>> +		stdout-path = &uart2;
+>> +	};
+>> +
+>> +	gpio-sbu-mux {
+>> +		compatible = "nxp,cbdtu02043", "gpio-sbu-mux";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&pinctrl_sbu_mux>;
+>> +		select-gpios = <&gpio4 20 GPIO_ACTIVE_HIGH>;
+>> +		enable-gpios = <&gpio2 20 GPIO_ACTIVE_HIGH>;
+>> +		orientation-switch;
+>> +
+>> +		port {
+>> +			usb3_data_ss: endpoint {
+>> +				remote-endpoint = <&typec_con_ss>;
+>> +			};
+>> +		};
+>> +	};
+>> +
+>> +	gpio-keys {
+>> +		compatible = "gpio-keys";
+>> +
+>> +		button-0 {
+>> +			gpios = <&gpio4 27 GPIO_ACTIVE_LOW>; /* Wakeup */
+>> +			label = "Wakeup";
+>> +			linux,code = <KEY_WAKEUP>;
+>> +			pinctrl-0 = <&pinctrl_gpio_key_wakeup>;
+>> +			pinctrl-names = "default";
+>> +			wakeup-source;
+>> +		};
+>> +	};
+>> +
+>> +	leds {
+>> +		compatible = "gpio-leds";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&pinctrl_gpio_leds>;
+>> +
+>> +		led1 {
+>> +			label = "red";
+>> +			gpios = <&gpio4 24 GPIO_ACTIVE_HIGH>;
+>> +			default-state = "off";
+>> +		};
+>> +
+>> +		led2 {
+>> +			label = "green";
+>> +			gpios = <&gpio4 25 GPIO_ACTIVE_HIGH>;
+>> +			default-state = "off";
+>> +		};
+>> +
+>> +		led3 {
+>> +			label = "yellow";
+>> +			gpios = <&gpio4 26 GPIO_ACTIVE_HIGH>;
+>> +			default-state = "off";
+>> +		};
+>> +	};
+>> +
+>> +	reg_usba_vbus: regulator-usba-vbus {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "usb-A-vbus";
+>> +		regulator-min-microvolt = <5000000>;
+>> +		regulator-max-microvolt = <5000000>;
+>> +		gpio = <&gpio1 12 GPIO_ACTIVE_HIGH>;
+>> +		enable-active-high;
+>> +
+>> +		pinctrl-names="default";
+>> +		pinctrl-0 = <&pinctrl_usb1>;
+>> +	};
+>> +
+>> +	reg_usdhc2_vmmc: regulator-usdhc2 {
+>> +		compatible = "regulator-fixed";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
+>> +		regulator-name = "VSD_3V3";
+>> +		regulator-min-microvolt = <3300000>;
+>> +		regulator-max-microvolt = <3300000>;
+>> +		gpio = <&gpio2 19 GPIO_ACTIVE_HIGH>;
+>> +		enable-active-high;
+>> +	};
+>> +};
+>> +
+>> +&A53_0 {
+>> +	cpu-supply = <&buck2>;
+>> +};
+>> +
+>> +&A53_1 {
+>> +	cpu-supply = <&buck2>;
+>> +};
+>> +
+>> +&A53_2 {
+>> +	cpu-supply = <&buck2>;
+>> +};
+>> +
+>> +&A53_3 {
+>> +	cpu-supply = <&buck2>;
+>> +};
+>> +
+>> +&ecspi1 {
+>> +	#address-cells = <1>;
+>> +	#size-cells = <0>;
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_ecspi1 &pinctrl_ecspi1_cs>;
+>> +	cs-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
+>> +	status = "okay";
+>> +
+>> +	slb9670: tpm@0 {
+>> +		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
+>> +		reg = <0>;
+>> +		spi-max-frequency = <32000000>;
+>> +		status = "okay";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&pinctrl_slb9670>;
+>> +		interrupt-parent = <&gpio1>;
+>> +		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+>> +	};
+>> +};
+>> +
+>> +&ecspi2 {
+>> +	#address-cells = <1>;
+>> +	#size-cells = <0>;
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
+>> +	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>,
+>> +				<&gpio1 8 GPIO_ACTIVE_LOW>,
+>> +				<&gpio1 9 GPIO_ACTIVE_LOW>;
+>> +	status = "okay";
+>> +
+>> +	nfc: st95hf@1 {
+> 
+> use common node: maybe nfc-transceiver
+> 
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&pinctrl_nfc>;
+>> +		reg = <1>;
+>> +		compatible = "st,st95hf";
+>> +		spi-max-frequency = <100000>;
+>> +		interrupt-parent = <&gpio1>;
+>> +		interrupts = <7 IRQ_TYPE_EDGE_FALLING>;
+>> +		enable-gpio = <&gpio1 6 GPIO_ACTIVE_HIGH>;
+>> +		status = "okay";
+>> +	};
+>> +};
+>> +
+>> +&eqos {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_eqos>;
+>> +	phy-mode = "rgmii-id";
+>> +	phy-handle = <&ethphy0>;
+>> +	status = "okay";
+>> +
+>> +	mdio {
+>> +		compatible = "snps,dwmac-mdio";
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +
+>> +		ethphy0: ethernet-phy@1 {
+>> +			compatible = "ethernet-phy-ieee802.3-c22";
+>> +			reg = <0x1>;
+>> +			interrupt-parent = <&gpio4>;
+>> +			interrupts = <18 IRQ_TYPE_LEVEL_LOW>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&fec {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_fec>;
+>> +	phy-mode = "rgmii-id";
+>> +	phy-handle = <&ethphy1>;
+>> +	fsl,magic-packet;
+>> +	status = "okay";
+>> +
+>> +	mdio {
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +
+>> +		ethphy1: ethernet-phy@2 {
+>> +			compatible = "ethernet-phy-ieee802.3-c22";
+>> +			reg = <0x2>;
+>> +			interrupt-parent = <&gpio4>;
+>> +			interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&flexcan1 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_flexcan1>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&gpio1 {
+>> +	gpio-line-names =
+>> +		"#TPM_IRQ", "GPIO1", "", "#PMIC_INT",
+>> +		"SD2_VSEL", "#TOUCH_IRQ", "#NFC_INT_I", "#NFC_INT",
+>> +		"#SPI2_CS2", "#SPI2_CS3", "#RTS4", "",
+>> +		"USB_PWR", "GPIO2", "GPIO3", "";
+>> +};
+>> +
+>> +&gpio2 {
+>> +	gpio-line-names =
+>> +		"", "", "", "", "", "", "", "",
+>> +		"", "", "", "", "#SD2_CD", "", "", "",
+>> +		"", "", "", "", "#USB-C_EN", "", "", "",
+>> +		"", "", "", "", "", "", "", "";
+>> +};
+>> +
+>> +&gpio3 {
+>> +	gpio-line-names =
+>> +		"", "", "", "", "", "", "", "",
+>> +		"", "", "", "", "", "", "", "",
+>> +		"", "", "", "", "", "", "DISP_POW", "GPIO4",
+>> +		"#", "", "", "", "", "", "", "";
+>> +};
+>> +
+>> +&gpio4 {
+>> +	gpio-line-names =
+>> +		"BKL_POW", "#ETH1_INT", "#TPM_RES", "#PCAP_RES",
+>> +		"", "", "", "",
+>> +		"", "", "", "", "", "", "", "",
+>> +		"", "", "#ETH0_INT", "#USB-C_ALERT",
+>> +		"#USB-C_SEL", "", "", "",
+>> +		"LED_RED", "LED_GREEN", "LED_YELLOW", "#WAKEUP",
+>> +		"", "", "", "";
+>> +};
+>> +
+>> +&gpio5 {
+>> +	gpio-line-names =
+>> +		"", "", "", "", "", "", "", "",
+>> +		"", "#SPI1_CS", "", "", "", "#SPI2_CS1", "", "",
+>> +		"", "", "", "", "ENA_KAM", "ENA_LED", "", "",
+>> +		"", "", "", "", "", "", "", "";
+>> +};
+>> +
+>> +&hdmi_pvi {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&hdmi_tx {
+>> +	ddc-i2c-bus = <&i2c5>;
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_hdmi>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&hdmi_tx_phy {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&i2c1 {
+>> +	clock-frequency = <100000>;
+>> +	pinctrl-names = "default", "gpio";
+>> +	pinctrl-0 = <&pinctrl_i2c1>;
+>> +	pinctrl-1 = <&pinctrl_i2c1_gpio>;
+>> +	scl-gpios = <&gpio5 14 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	sda-gpios = <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	status = "okay";
+>> +
+>> +	pmic: pca9450@25 {
+> 
+> pmic@25
+> 
+>> +		reg = <0x25>;
+>> +		compatible = "nxp,pca9450c";
+>> +		/* PMIC PCA9450 PMIC_nINT GPIO1_IO3 */
+>> +		pinctrl-0 = <&pinctrl_pmic>;
+>> +		interrupt-parent = <&gpio1>;
+>> +		interrupts = <3 GPIO_ACTIVE_LOW>;
+>> +
+>> +		/*
+>> +		 * i.MX 8M Plus Data Sheet for Consumer Products
+>> +		 * 3.1.4 Operating ranges
+>> +		 * MIMX8ML8DVNLZAB
+>> +		 */
+>> +		regulators {
+>> +			buck1: BUCK1 {	/* VDD_SOC (dual-phase with BUCK3) */
+>> +				regulator-min-microvolt = <850000>;
+>> +				regulator-max-microvolt = <1050000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +				regulator-ramp-delay = <3125>;
+>> +			};
+>> +
+>> +			buck2: BUCK2 {	/* VDD_ARM */
+>> +				regulator-min-microvolt = <850000>;
+>> +				regulator-max-microvolt = <1000000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +				regulator-ramp-delay = <3125>;
+>> +				nxp,dvs-run-voltage = <950000>;
+>> +				nxp,dvs-standby-voltage = <850000>;
+>> +			};
+>> +
+>> +			buck4: BUCK4 {	/* +3V3 */
+>> +				regulator-min-microvolt = <3300000>;
+>> +				regulator-max-microvolt = <3300000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +			};
+>> +
+>> +			buck5: BUCK5 {	/* +1V8 */
+>> +				regulator-min-microvolt = <1800000>;
+>> +				regulator-max-microvolt = <1800000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +			};
+>> +
+>> +			buck6: BUCK6 {	/* DRAM_1V1 */
+>> +				regulator-min-microvolt = <1100000>;
+>> +				regulator-max-microvolt = <1100000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +			};
+>> +
+>> +			ldo1: LDO1 {	/* NVCC_SNVS_1V8 */
+>> +				regulator-min-microvolt = <1800000>;
+>> +				regulator-max-microvolt = <1800000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +			};
+>> +
+>> +			ldo3: LDO3 {	/* VDDA_1P8 */
+>> +				regulator-min-microvolt = <1800000>;
+>> +				regulator-max-microvolt = <1800000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +			};
+>> +
+>> +			ldo4: LDO4 {	/* ENET_2V5 */
+>> +				regulator-min-microvolt = <2500000>;
+>> +				regulator-max-microvolt = <2500000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +			};
+>> +
+>> +			ldo5: LDO5 {	/* NVCC_SD2 */
+>> +				regulator-min-microvolt = <1800000>;
+>> +				regulator-max-microvolt = <3300000>;
+>> +				regulator-always-on;
+>> +				regulator-boot-on;
+>> +			};
+>> +		};
+>> +	};
+>> +
+>> +	atecc508a@35 {
+> 
+> crypto@35
+> 
+>> +		compatible = "atmel,atecc508a";
+>> +		reg = <0x35>;
+>> +	};
+>> +
+>> +	eeprom@50 {
+>> +		compatible = "atmel,24c16";
+>> +		reg = <0x50>;
+>> +		pagesize = <16>;
+>> +	};
+>> +};
+>> +
+>> +&i2c2 {
+>> +	clock-frequency = <100000>;
+>> +	pinctrl-names = "default", "gpio";
+>> +	pinctrl-0 = <&pinctrl_i2c2>;
+>> +	pinctrl-1 = <&pinctrl_i2c2_gpio>;
+>> +	scl-gpios = <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	sda-gpios = <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	status = "okay";
+>> +
+>> +	hwrtc: rtc@32 {
+>> +		compatible = "epson,rx8900";
+>> +		reg = <0x32>;
+>> +		epson,vdet-disable;
+>> +		trickle-diode-disable;
+>> +	};
+>> +
+>> +	ptn5110: ptn5110@52 {
+> 
+> tcpc@52
+> 
+>> +		compatible = "nxp,ptn5110", "tcpci";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&pinctrl_ptn5110>;
+>> +		reg = <0x52>;
+>> +		interrupt-parent = <&gpio4>;
+>> +		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
+>> +
+>> +		usb_con: connector {
+>> +			compatible = "usb-c-connector";
+>> +			label = "USB-C";
+>> +			power-role = "dual";
+>> +			data-role = "dual";
+>> +			try-power-role = "sink";
+>> +			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+>> +			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)
+>> +				     PDO_VAR(5000, 5000, 3000)>;
+>> +			op-sink-microwatt = <15000000>;
+>> +			self-powered;
+>> +
+>> +			ports {
+>> +				#address-cells = <1>;
+>> +				#size-cells = <0>;
+> 
+> extra empty line here
+>> +				port@0 {
+>> +					reg = <0>;
+>> +					typec_dr_sw: endpoint {
+>> +						remote-endpoint = <&usb3_drd_sw>;
+>> +					};
+>> +				};
+> 
+> extra empty line here
+> 
+> Frank
+> 
+>> +				port@1 {
+>> +					reg = <1>;
+>> +					typec_con_ss: endpoint {
+>> +						remote-endpoint = <&usb3_data_ss>;
+>> +					};
+>> +				};
+>> +			};
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&i2c3 {
+>> +	clock-frequency = <100000>;
+>> +	pinctrl-names = "default", "gpio";
+>> +	pinctrl-0 = <&pinctrl_i2c3>;
+>> +	pinctrl-1 = <&pinctrl_i2c3_gpio>;
+>> +	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&i2c5 {	/* HDMI EDID bus */
+>> +	clock-frequency = <100000>;
+>> +	pinctrl-names = "default", "gpio";
+>> +	pinctrl-0 = <&pinctrl_i2c5>;
+>> +	pinctrl-1 = <&pinctrl_i2c5_gpio>;
+>> +	scl-gpios = <&gpio3 26 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	sda-gpios = <&gpio3 27 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&lcdif3 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&pwm1 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_pwm1>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&pwm2 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_pwm2>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&snvs_pwrkey {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&uart2 {
+>> +	/* system console */
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_uart2>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&uart3 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_uart3>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&uart4 {
+>> +	/* expansion port serial connection */
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_uart4>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb3_phy0 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb3_0 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb_dwc3_0 {
+>> +	dr_mode = "otg";
+>> +	hnp-disable;
+>> +	srp-disable;
+>> +	adp-disable;
+>> +	usb-role-switch;
+>> +	status = "okay";
+>> +
+>> +	port {
+>> +		usb3_drd_sw: endpoint {
+>> +			remote-endpoint = <&typec_dr_sw>;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +&usb3_phy1 {
+>> +	vbus-supply = <&reg_usba_vbus>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb3_1 {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usb_dwc3_1 {
+>> +	dr_mode = "host";
+>> +	status = "okay";
+>> +	snps,hsphy_interface = "utmi";
+>> +};
+>> +
+>> +&usdhc2 {
+>> +	assigned-clocks = <&clk IMX8MP_CLK_USDHC2>;
+>> +	assigned-clock-rates = <400000000>;
+>> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+>> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+>> +	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+>> +	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+>> +	cd-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
+>> +	bus-width = <4>;
+>> +	vmmc-supply = <&reg_usdhc2_vmmc>;
+>> +	vqmmc-supply = <&ldo5>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&usdhc3 {
+>> +	assigned-clocks = <&clk IMX8MP_CLK_USDHC3>;
+>> +	assigned-clock-rates = <400000000>;
+>> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+>> +	pinctrl-0 = <&pinctrl_usdhc3>;
+>> +	pinctrl-1 = <&pinctrl_usdhc3_100mhz>;
+>> +	pinctrl-2 = <&pinctrl_usdhc3_200mhz>;
+>> +	vmmc-supply = <&buck4>;
+>> +	vqmmc-supply = <&buck5>;
+>> +	bus-width = <8>;
+>> +	no-sd;
+>> +	no-sdio;
+>> +	non-removable;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&wdog1 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_wdog>;
+>> +	fsl,ext-reset-output;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&iomuxc {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&pinctrl_hog>;
+>> +
+>> +	pinctrl_ecspi1_cs: ecspi1-cs-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_ECSPI1_SS0__GPIO5_IO09		0x40	/* #SPI1_CS */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_ecspi1: ecspi1-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_ECSPI1_SCLK__ECSPI1_SCLK		0x82
+>> +			MX8MP_IOMUXC_ECSPI1_MOSI__ECSPI1_MOSI		0x82
+>> +			MX8MP_IOMUXC_ECSPI1_MISO__ECSPI1_MISO		0x82
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_ecspi2_cs: ecspi2-cs-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_ECSPI2_SS0__GPIO5_IO13		0x40	/* #SPI2_CS */
+>> +			MX8MP_IOMUXC_GPIO1_IO08__GPIO1_IO08		0x40	/* #SPI2_CS2 */
+>> +			MX8MP_IOMUXC_GPIO1_IO09__GPIO1_IO09		0x40	/* #SPI2_CS3 */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_ecspi2: ecspi2-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_ECSPI2_SCLK__ECSPI2_SCLK		0x82
+>> +			MX8MP_IOMUXC_ECSPI2_MOSI__ECSPI2_MOSI		0x82
+>> +			MX8MP_IOMUXC_ECSPI2_MISO__ECSPI2_MISO		0x82
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_eqos: eqos-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC		0x0
+>> +			MX8MP_IOMUXC_ENET_MDIO__ENET_QOS_MDIO		0x0
+>> +			MX8MP_IOMUXC_ENET_RD0__ENET_QOS_RGMII_RD0	0x90
+>> +			MX8MP_IOMUXC_ENET_RD1__ENET_QOS_RGMII_RD1	0x90
+>> +			MX8MP_IOMUXC_ENET_RD2__ENET_QOS_RGMII_RD2	0x90
+>> +			MX8MP_IOMUXC_ENET_RD3__ENET_QOS_RGMII_RD3	0x90
+>> +			MX8MP_IOMUXC_ENET_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK	0x90
+>> +			MX8MP_IOMUXC_ENET_RX_CTL__ENET_QOS_RGMII_RX_CTL	0x90
+>> +			MX8MP_IOMUXC_ENET_TD0__ENET_QOS_RGMII_TD0	0x16
+>> +			MX8MP_IOMUXC_ENET_TD1__ENET_QOS_RGMII_TD1	0x16
+>> +			MX8MP_IOMUXC_ENET_TD2__ENET_QOS_RGMII_TD2	0x16
+>> +			MX8MP_IOMUXC_ENET_TD3__ENET_QOS_RGMII_TD3	0x16
+>> +			MX8MP_IOMUXC_ENET_TX_CTL__ENET_QOS_RGMII_TX_CTL	0x16
+>> +			MX8MP_IOMUXC_ENET_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x16
+>> +			MX8MP_IOMUXC_SAI1_TXD6__GPIO4_IO18		0x10	/* #ETH0_INT */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_fec: fec-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SAI1_RXD2__ENET1_MDC               0x0
+>> +			MX8MP_IOMUXC_SAI1_RXD3__ENET1_MDIO              0x0
+>> +			MX8MP_IOMUXC_SAI1_RXD4__ENET1_RGMII_RD0         0x90
+>> +			MX8MP_IOMUXC_SAI1_RXD5__ENET1_RGMII_RD1         0x90
+>> +			MX8MP_IOMUXC_SAI1_RXD6__ENET1_RGMII_RD2         0x90
+>> +			MX8MP_IOMUXC_SAI1_RXD7__ENET1_RGMII_RD3         0x90
+>> +			MX8MP_IOMUXC_SAI1_TXC__ENET1_RGMII_RXC          0x90
+>> +			MX8MP_IOMUXC_SAI1_TXFS__ENET1_RGMII_RX_CTL      0x90
+>> +			MX8MP_IOMUXC_SAI1_TXD0__ENET1_RGMII_TD0         0x16
+>> +			MX8MP_IOMUXC_SAI1_TXD1__ENET1_RGMII_TD1         0x16
+>> +			MX8MP_IOMUXC_SAI1_TXD2__ENET1_RGMII_TD2         0x16
+>> +			MX8MP_IOMUXC_SAI1_TXD3__ENET1_RGMII_TD3         0x16
+>> +			MX8MP_IOMUXC_SAI1_TXD4__ENET1_RGMII_TX_CTL      0x16
+>> +			MX8MP_IOMUXC_SAI1_TXD5__ENET1_RGMII_TXC         0x16
+>> +			MX8MP_IOMUXC_SAI1_RXC__GPIO4_IO01               0x10	/* #ETH1_INT */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_flexcan1: flexcan1-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SPDIF_RX__CAN1_RX			0x154
+>> +			MX8MP_IOMUXC_SPDIF_TX__CAN1_TX			0x154
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_gpio_key_wakeup: gpio-key-wakeup-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SAI2_MCLK__GPIO4_IO27		0x40	/* #WAKEUP */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_gpio_leds: gpio-leds-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SAI2_TXFS__GPIO4_IO24		0x40	/* LED_RED */
+>> +			MX8MP_IOMUXC_SAI2_TXC__GPIO4_IO25		0x40	/* LED_GREEN */
+>> +			MX8MP_IOMUXC_SAI2_TXD0__GPIO4_IO26		0x40	/* LED_YELLOW */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_hdmi: hdmi-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC		0x154
+>> +			MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD		0x154
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_hog: hog-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_GPIO1_IO01__GPIO1_IO01	0x40	/* GPIO1 */
+>> +			MX8MP_IOMUXC_GPIO1_IO13__GPIO1_IO13	0x40	/* GPIO2 */
+>> +			MX8MP_IOMUXC_GPIO1_IO14__GPIO1_IO14	0x40	/* GPIO3 */
+>> +			MX8MP_IOMUXC_SAI5_RXD2__GPIO3_IO23	0x40	/* GPIO4 */
+>> +			MX8MP_IOMUXC_I2C4_SCL__GPIO5_IO20	0x40	/* ENA_KAM */
+>> +			MX8MP_IOMUXC_I2C4_SDA__GPIO5_IO21	0x40	/* ENA_LED */
+>> +			MX8MP_IOMUXC_SAI1_RXD1__GPIO4_IO03	0x40	/* #PCAP_RES */
+>> +			MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10	0x40	/* #RTS4 */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c1: i2c1-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL			0x400001c0
+>> +			MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA			0x400001c0
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c1_gpio: i2c1-gpio-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_I2C1_SCL__GPIO5_IO14		0xc0
+>> +			MX8MP_IOMUXC_I2C1_SDA__GPIO5_IO15		0xc0
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c2: i2c2-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL			0x400001c0
+>> +			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA			0x400001c0
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c2_gpio: i2c2-gpio-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_I2C2_SCL__GPIO5_IO16		0xc0
+>> +			MX8MP_IOMUXC_I2C2_SDA__GPIO5_IO17		0xc0
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c3: i2c3-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL			0x400001c2
+>> +			MX8MP_IOMUXC_I2C3_SDA__I2C3_SDA			0x400001c2
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c3_gpio: i2c3-gpio-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_I2C3_SCL__GPIO5_IO18		0xc2
+>> +			MX8MP_IOMUXC_I2C3_SDA__GPIO5_IO19		0xc2
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c5: i2c5-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_HDMI_DDC_SCL__I2C5_SCL		0x400000c4
+>> +			MX8MP_IOMUXC_HDMI_DDC_SDA__I2C5_SDA		0x400000c4
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_i2c5_gpio: i2c5-gpio-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_HDMI_DDC_SCL__GPIO3_IO26		0xc4
+>> +			MX8MP_IOMUXC_HDMI_DDC_SDA__GPIO3_IO27		0xc4
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_nfc: nfc-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06		0x40	/* NFC_INT_I */
+>> +			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07		0x40	/* NFC_INT */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_pmic: pmic-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_GPIO1_IO03__GPIO1_IO03		0x40	/* #PMIC_INT */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_ptn5110: ptn5110-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SAI1_TXD7__GPIO4_IO19		0x1c4	/* #USB-C_ALERT */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_pwm1: pwm1-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SPDIF_EXT_CLK__PWM1_OUT		0x116
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_pwm2: pwm2-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SAI5_RXD0__PWM2_OUT		0x116	/* EXT_PWM */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_reg_usdhc2_vmmc: reg-usdhc2-vmmc-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SD2_RESET_B__GPIO2_IO19	0x40
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_sbu_mux: sbu-mux-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SAI1_MCLK__GPIO4_IO20		0x16	/* #USB-C_SEL */
+>> +			MX8MP_IOMUXC_SD2_WP__GPIO2_IO20			0x16	/* #USB-C_EN */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_slb9670: slb9670-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_GPIO1_IO00__GPIO1_IO00		0x40	/* #TPM_IRQ */
+>> +			MX8MP_IOMUXC_SAI1_RXD0__GPIO4_IO02		0x40	/* #TPM_RES */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_uart2: uart2-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_UART2_RXD__UART2_DCE_RX		0x40
+>> +			MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX		0x40
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_uart3: uart3-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_UART3_RXD__UART3_DCE_RX		0x40
+>> +			MX8MP_IOMUXC_UART3_TXD__UART3_DCE_TX		0x40
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_uart4: uart4-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX		0x40
+>> +			MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX		0x40
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usb1: usb1-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_GPIO1_IO12__GPIO1_IO12		0x40	/* USB_PWR */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usdhc2: usdhc2-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK		0x190
+>> +			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD		0x1d0
+>> +			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d0
+>> +			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d0
+>> +			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d0
+>> +			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d0
+>> +			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0xc0	/* SD2_VSEL */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usdhc2_100mhz: usdhc2-100mhz-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK		0x194
+>> +			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD		0x1d4
+>> +			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d4
+>> +			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d4
+>> +			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d4
+>> +			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d4
+>> +			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0xc0	/* SD2_VSEL */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usdhc2_200mhz: usdhc2-200mhz-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK		0x196
+>> +			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD		0x1d6
+>> +			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0		0x1d6
+>> +			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1		0x1d6
+>> +			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2		0x1d6
+>> +			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3		0x1d6
+>> +			MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT		0xc0	/* SD2_VSEL */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usdhc2_gpio: usdhc2-gpio-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_SD2_CD_B__GPIO2_IO12		0x1c4
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usdhc3: usdhc3-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK		0x190
+>> +			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD		0x1d0
+>> +			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0		0x1d0
+>> +			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1		0x1d0
+>> +			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2		0x1d0
+>> +			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3		0x1d0
+>> +			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4		0x1d0
+>> +			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5		0x1d0
+>> +			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6		0x1d0
+>> +			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7		0x1d0
+>> +			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE		0x190
+>> +			MX8MP_IOMUXC_NAND_READY_B__USDHC3_RESET_B	0x40	/* #SD3_RESET */
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usdhc3_100mhz: usdhc3-100mhz-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK		0x194
+>> +			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD		0x1d4
+>> +			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0		0x1d4
+>> +			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1		0x1d4
+>> +			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2		0x1d4
+>> +			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3		0x1d4
+>> +			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4		0x1d4
+>> +			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5		0x1d4
+>> +			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6		0x1d4
+>> +			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7		0x1d4
+>> +			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE		0x194
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_usdhc3_200mhz: usdhc3-200mhz-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK		0x192
+>> +			MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD		0x1d2
+>> +			MX8MP_IOMUXC_NAND_DATA04__USDHC3_DATA0		0x1d2
+>> +			MX8MP_IOMUXC_NAND_DATA05__USDHC3_DATA1		0x1d2
+>> +			MX8MP_IOMUXC_NAND_DATA06__USDHC3_DATA2		0x1d2
+>> +			MX8MP_IOMUXC_NAND_DATA07__USDHC3_DATA3		0x1d2
+>> +			MX8MP_IOMUXC_NAND_RE_B__USDHC3_DATA4		0x1d2
+>> +			MX8MP_IOMUXC_NAND_CE2_B__USDHC3_DATA5		0x1d2
+>> +			MX8MP_IOMUXC_NAND_CE3_B__USDHC3_DATA6		0x1d2
+>> +			MX8MP_IOMUXC_NAND_CLE__USDHC3_DATA7		0x1d2
+>> +			MX8MP_IOMUXC_NAND_CE1_B__USDHC3_STROBE		0x192
+>> +		>;
+>> +	};
+>> +
+>> +	pinctrl_wdog: wdog-grp {
+>> +		fsl,pins = <
+>> +			MX8MP_IOMUXC_GPIO1_IO02__WDOG1_WDOG_B		0xc6	/* #WDOG */
+>> +		>;
+>> +	};
+>> +};
+>> --
+>> 2.43.0
+>>
 
 
