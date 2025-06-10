@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AD8C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B42AC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fn+l9xBCy5WR8GoNtLczRCzjBhn3HX+EkjyiiCOwVno=; b=RjS2qz7HG1/X4qIMuUW9+I0OKd
-	LO9ZBxs+zxwnsmQzPcrZdcx3R+V0CAhETRTSNKkgQTTH8UW89AC02z3+Kh0dEcGjbSqZLxIp+9bou
-	Y6g75e+NQAMTEuzJ7EZFy3YKx1HRV9inJdH7cVyd7NjD+XMK7mKLipQPLA1vkK91I7hWzMPYkGPp9
-	mA3iCrOu/zEh3rrSY1On0wGWJG09dJ5Jq0W3ILfWI8lKA4qP3JKo9gE5UOl3TPEmbBNk8cpNJs2eP
-	QT6fxreyKz8o5Cv1Op1dbVZQM4HXWWCiSUhEa1SiuAlH8zZA/ZlnNkHwT5jBFEf06XUIe2dtZuHg/
-	ObUQD2AQ==;
+	bh=j1pxA+bc+vNKzjIaRT1KaTq/RuyMnrlK34dQ5cfd5BU=; b=1eIUHOjfYmDHiWLjH1OR8jQMRw
+	M9kmgdIwTZzLKIf0SmiLHKpfP6DfzXbE6s4grHdqX83pCPJThENktgLSHwNBZjvywQj5XpyjOdUYx
+	uiHWAX/UyK0FaLEANWpMZXGGT4lJSfm0aEroIGEn8oBLhLFzvyNg+a+93owqHF3qJP/MkozQwbI/r
+	D/8cmwua5XFZ39czDdHnjJZtPY/huX+GkUWHg0Qos306Gk3Nsj3jC3wbsTt1LUZjDLAwe0+N3U7Ky
+	zBXydVHRWIg2Pi204UoTr/PTNx/xFt6QBybNN7R5pV9ybxIO4aVT3DW6UeU2D6dWvktMH1vNmlpNp
+	q1WZtDJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2Xt-00000007aW3-2NUq;
-	Tue, 10 Jun 2025 17:13:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzdz-000000075Qk-2ENv;
-	Tue, 10 Jun 2025 14:08:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Fn+l9xBCy5WR8GoNtLczRCzjBhn3HX+EkjyiiCOwVno=; b=DfpwADQCkcbwEBoIqh3PeKUIar
-	GXV9vVS21Hn0gnwQ8hgpiLJUv3jICY2DymcMRXXP01OmrxJpPt2nF+eOTebJp46Nfuzzj3uYCtjBF
-	UmdhBBUaGKld6dAoG7ASd8eKiPv91x5TvAfxNYJmuaDLxAMWX5A8VVw6AfAgiECq1oXwWXPo7RAeA
-	GxKMPQs33+7gRf9gbWoflXA7T+yAWxKD3y6xy72k7WHbglMVZOGT4eQ1p7+DIW8XPiL6lESXJPvDH
-	y3s2l3lL0tb+Krkb1MHmOu5T5hpBmWUIU+kQQpE9bf64f6dPZVoOZ7peiw0JsR6dbNzBSIYO73+8J
-	7pNzRgRQ==;
+	id 1uP2Zz-00000007axO-0VYY;
+	Tue, 10 Jun 2025 17:16:07 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzdx-00000001rLi-1JUK;
-	Tue, 10 Jun 2025 14:08:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749564459; cv=none; 
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOzdy-000000075QU-3Htr;
+	Tue, 10 Jun 2025 14:08:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749564463; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=oCrMh5MLOVv1OO4SCjZ7DXW7dz+AIeOPdJUfRdH0EDs1btM7rTCkdpkKuH6WTfjlybfP0nFGNRAg2HS1jlrI1IOzfrv4UsjEYWVr4L6UhhbFY4b0BCx5VP+DZl6xljLUljIbiNFuD8BjwdiH8ctt47QmhzujDqid7ER+g+bmMrE=
+	b=gWfx0BGM1hQo1k0tw3zygoJYbLU4qklsHcATVLoyJ9bbYxZk3xOg3+rO9AbI7//aMEjsfXUDoKqoLwOae4WA9f5T3ljW9G0wlRTHk+hBoOI8Gi2t5O4njYKipvcRN9Q3rsWLppoRIW0uoIWtQ9phVKxKynCuQklTFAOVh2Vydag=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749564459; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Fn+l9xBCy5WR8GoNtLczRCzjBhn3HX+EkjyiiCOwVno=; 
-	b=BVp0kGq+5dLEVZeIPsMb+ScQkr5Sm6Oxnsi+t55krxsIjvVh+eY9nYolw5wAHT123OdsZI8ExWfxJZzAwRcrx4Fx7KbyHdudF+rND7JGPxs85sMWkw/cOV9BR6D+ACt4l6979NenQuO29m/a81YJ4v4Dbq8BWacIKUiURnkFi6M=
+	t=1749564463; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=j1pxA+bc+vNKzjIaRT1KaTq/RuyMnrlK34dQ5cfd5BU=; 
+	b=KPyOhN1dxwAvPM5hsYyC2YZ0ZYNYYkKDCjZvNsezpA4E5O/y/TygIiKOEOsqgOi5JII5drLekhVB6YocNre3Sw2u0jqgeZRmxhAJ4UuwDI9xdAs05C2PtICbSCfzZVme8R0R4EeaeFFobQF89K2WvwGn9UnykF/iJ3Jhmql83ZU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749564459;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749564463;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=Fn+l9xBCy5WR8GoNtLczRCzjBhn3HX+EkjyiiCOwVno=;
-	b=JY2RX8zixUovH9a5MuXtsBTSSPD3UsUaiAHXKBN22EUjRiOx1B4OktLsUNBXUi8Q
-	Xo9ySQRASfEk9xQZktoqX1qM4Qaby90qsG8zd2d1Yq8g0CCGlyxHjRnlgYNp3YuNfm+
-	fRHP7NqTauFDJ7Dj3EVvXqSigeq1TxyvtcU6WlcI=
-Received: by mx.zohomail.com with SMTPS id 174956445793867.38873063460528;
-	Tue, 10 Jun 2025 07:07:37 -0700 (PDT)
+	bh=j1pxA+bc+vNKzjIaRT1KaTq/RuyMnrlK34dQ5cfd5BU=;
+	b=EbVqAWGAKd9Dx/Gn/M8eNOQC+b0+M2vHmTef1gBtdx3H/JYZTU+cVF/Z6ZKtBGgY
+	1XgC/EG/Z3VmKzFGqLlnWXX7sdhp+NLtRGDc+XnwASyaAk2MGyzBL+IcBXqBdfh1yc+
+	3VivezSgvfLVCH2XylMmT40L53aAfq0GFtb+Bncc=
+Received: by mx.zohomail.com with SMTPS id 1749564462150218.33676348396068;
+	Tue, 10 Jun 2025 07:07:42 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 10 Jun 2025 16:07:09 +0200
-Subject: [PATCH v4 1/4] phy: rockchip: inno-usb2: add soft vbusvalid
- control
+Date: Tue, 10 Jun 2025 16:07:10 +0200
+Subject: [PATCH v4 2/4] phy: rockchip: usbdp: move orientation handling
+ further down
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-rk3576-sige5-usb-v4-1-7e7f779619c1@collabora.com>
+Message-Id: <20250610-rk3576-sige5-usb-v4-2-7e7f779619c1@collabora.com>
 References: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
 In-Reply-To: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -84,8 +70,8 @@ Cc: Alexey Charkov <alchark@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_150801_783411_6A3B4BC9 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20250610_070802_883963_F793B590 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,233 +86,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With USB type C connectors, the vbus detect pin of the OTG controller
-attached to it is pulled high by a USB Type C controller chip such as
-the fusb302. This means USB enumeration on Type-C ports never works, as
-the vbus is always seen as high.
+The orientation handling code isn't referenced until very far down the
+driver code.
 
-Rockchip added some GRF register flags to deal with this situation. The
-RK3576 TRM calls these "soft_vbusvalid_bvalid" (con0 bit index 15) and
-"soft_vbusvalid_bvalid_sel" (con0 bit index 14).
-
-Downstream introduces a new vendor property which tells the USB 2 PHY
-that it's connected to a type C port, but we can do better. Since in
-such an arrangement, we'll have an OF graph connection from the USB
-controller to the USB connector anyway, we can walk said OF graph and
-check the connector's compatible to determine this without adding any
-further vendor properties.
-
-Do keep in mind that the usbdp PHY driver seemingly fiddles with these
-register fields as well, but what it does doesn't appear to be enough
-for us to get working USB enumeration, presumably because the whole
-vbus_attach logic needs to be adjusted as well either way.
+Move it down some ways so it can later reference other driver functions
+without needing forward declarations.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 113 +++++++++++++++++++++++++-
- 1 file changed, 109 insertions(+), 4 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 100 +++++++++++++++---------------
+ 1 file changed, 50 insertions(+), 50 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index b0f23690ec3002202c0f33a6988f5509622fa10e..4f89bd6568cd3a7a1d2c10e9cddda9f3bd997ed0 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -17,6 +17,7 @@
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/of.h>
-+#include <linux/of_graph.h>
- #include <linux/of_irq.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
-@@ -114,6 +115,8 @@ struct rockchip_chg_det_reg {
- /**
-  * struct rockchip_usb2phy_port_cfg - usb-phy port configuration.
-  * @phy_sus: phy suspend register.
-+ * @svbus_en: soft vbus bvalid enable register.
-+ * @svbus_sel: soft vbus bvalid selection register.
-  * @bvalid_det_en: vbus valid rise detection enable register.
-  * @bvalid_det_st: vbus valid rise detection status register.
-  * @bvalid_det_clr: vbus valid rise detection clear register.
-@@ -140,6 +143,8 @@ struct rockchip_chg_det_reg {
-  */
- struct rockchip_usb2phy_port_cfg {
- 	struct usb2phy_reg	phy_sus;
-+	struct usb2phy_reg	svbus_en;
-+	struct usb2phy_reg	svbus_sel;
- 	struct usb2phy_reg	bvalid_det_en;
- 	struct usb2phy_reg	bvalid_det_st;
- 	struct usb2phy_reg	bvalid_det_clr;
-@@ -203,6 +208,7 @@ struct rockchip_usb2phy_cfg {
-  * @event_nb: hold event notification callback.
-  * @state: define OTG enumeration states before device reset.
-  * @mode: the dr_mode of the controller.
-+ * @typec_vbus_det: whether to apply Type C logic to OTG vbus detection.
-  */
- struct rockchip_usb2phy_port {
- 	struct phy	*phy;
-@@ -222,6 +228,7 @@ struct rockchip_usb2phy_port {
- 	struct notifier_block	event_nb;
- 	enum usb_otg_state	state;
- 	enum usb_dr_mode	mode;
-+	bool typec_vbus_det;
- };
- 
- /**
-@@ -495,6 +502,13 @@ static int rockchip_usb2phy_init(struct phy *phy)
- 	mutex_lock(&rport->mutex);
- 
- 	if (rport->port_id == USB2PHY_PORT_OTG) {
-+		if (rport->typec_vbus_det) {
-+			if (rport->port_cfg->svbus_en.enable &&
-+					rport->port_cfg->svbus_sel.enable) {
-+				property_enable(rphy->grf, &rport->port_cfg->svbus_en, true);
-+				property_enable(rphy->grf, &rport->port_cfg->svbus_sel, true);
-+			}
-+		}
- 		if (rport->mode != USB_DR_MODE_HOST &&
- 		    rport->mode != USB_DR_MODE_UNKNOWN) {
- 			/* clear bvalid status and enable bvalid detect irq */
-@@ -535,8 +549,7 @@ static int rockchip_usb2phy_init(struct phy *phy)
- 			if (ret)
- 				goto out;
- 
--			schedule_delayed_work(&rport->otg_sm_work,
--					      OTG_SCHEDULE_DELAY * 3);
-+			schedule_delayed_work(&rport->otg_sm_work, 0);
- 		} else {
- 			/* If OTG works in host only mode, do nothing. */
- 			dev_dbg(&rport->phy->dev, "mode %d\n", rport->mode);
-@@ -666,8 +679,17 @@ static void rockchip_usb2phy_otg_sm_work(struct work_struct *work)
- 	unsigned long delay;
- 	bool vbus_attach, sch_work, notify_charger;
- 
--	vbus_attach = property_enabled(rphy->grf,
--				       &rport->port_cfg->utmi_bvalid);
-+	if (rport->port_cfg->svbus_en.enable && rport->typec_vbus_det) {
-+		if (property_enabled(rphy->grf, &rport->port_cfg->svbus_en) &&
-+		    property_enabled(rphy->grf, &rport->port_cfg->svbus_sel)) {
-+			vbus_attach = true;
-+		} else {
-+			vbus_attach = false;
-+		}
-+	} else {
-+		vbus_attach = property_enabled(rphy->grf,
-+					       &rport->port_cfg->utmi_bvalid);
-+	}
- 
- 	sch_work = false;
- 	notify_charger = false;
-@@ -1276,6 +1298,83 @@ static int rockchip_otg_event(struct notifier_block *nb,
- 	return NOTIFY_DONE;
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index c066cc0a7b4f10fc3cd8779323c369360893520d..fff54900feea601c8fe6bf4c7123dfebc5661a15 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -651,56 +651,6 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+ 	udphy->mode = UDPHY_MODE_DP_USB;
  }
  
-+static const char *const rockchip_usb2phy_typec_cons[] = {
-+	"usb-c-connector",
-+	NULL,
-+};
-+
-+static struct device_node *rockchip_usb2phy_to_controller(struct rockchip_usb2phy *rphy)
+-static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+-				 enum typec_orientation orien)
+-{
+-	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
+-
+-	mutex_lock(&udphy->mutex);
+-
+-	if (orien == TYPEC_ORIENTATION_NONE) {
+-		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+-		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+-		/* unattached */
+-		rk_udphy_usb_bvalid_enable(udphy, false);
+-		goto unlock_ret;
+-	}
+-
+-	udphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
+-	rk_udphy_set_typec_default_mapping(udphy);
+-	rk_udphy_usb_bvalid_enable(udphy, true);
+-
+-unlock_ret:
+-	mutex_unlock(&udphy->mutex);
+-	return 0;
+-}
+-
+-static void rk_udphy_orien_switch_unregister(void *data)
+-{
+-	struct rk_udphy *udphy = data;
+-
+-	typec_switch_unregister(udphy->sw);
+-}
+-
+-static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
+-{
+-	struct typec_switch_desc sw_desc = { };
+-
+-	sw_desc.drvdata = udphy;
+-	sw_desc.fwnode = dev_fwnode(udphy->dev);
+-	sw_desc.set = rk_udphy_orien_sw_set;
+-
+-	udphy->sw = typec_switch_register(udphy->dev, &sw_desc);
+-	if (IS_ERR(udphy->sw)) {
+-		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
+-			PTR_ERR(udphy->sw));
+-		return PTR_ERR(udphy->sw);
+-	}
+-
+-	return devm_add_action_or_reset(udphy->dev,
+-					rk_udphy_orien_switch_unregister, udphy);
+-}
+-
+ static int rk_udphy_refclk_set(struct rk_udphy *udphy)
+ {
+ 	unsigned long rate;
+@@ -1451,6 +1401,56 @@ static struct phy *rk_udphy_phy_xlate(struct device *dev, const struct of_phandl
+ 	return ERR_PTR(-EINVAL);
+ }
+ 
++static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
++				 enum typec_orientation orien)
 +{
-+	struct device_node *np;
-+	struct device_node *parent;
++	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
 +
-+	for_each_node_with_property(np, "phys") {
-+		struct of_phandle_iterator it;
-+		int ret;
++	mutex_lock(&udphy->mutex);
 +
-+		of_for_each_phandle(&it, ret, np, "phys", NULL, 0) {
-+			parent = of_get_parent(it.node);
-+			if (it.node != rphy->dev->of_node && rphy->dev->of_node != parent) {
-+				if (parent)
-+					of_node_put(parent);
-+				continue;
-+			}
-+
-+			/*
-+			 * Either the PHY phandle we're iterating or its parent
-+			 * matched, we don't care about which out of the two in
-+			 * particular as we just need to know it's the right
-+			 * USB controller for this PHY.
-+			 */
-+			of_node_put(it.node);
-+			of_node_put(parent);
-+			return np;
-+		}
++	if (orien == TYPEC_ORIENTATION_NONE) {
++		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
++		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
++		/* unattached */
++		rk_udphy_usb_bvalid_enable(udphy, false);
++		goto unlock_ret;
 +	}
 +
-+	return NULL;
++	udphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
++	rk_udphy_set_typec_default_mapping(udphy);
++	rk_udphy_usb_bvalid_enable(udphy, true);
++
++unlock_ret:
++	mutex_unlock(&udphy->mutex);
++	return 0;
 +}
 +
-+static bool rockchip_usb2phy_otg_is_type_c(struct rockchip_usb2phy *rphy)
++static void rk_udphy_orien_switch_unregister(void *data)
 +{
-+	struct device_node *controller = rockchip_usb2phy_to_controller(rphy);
-+	struct device_node *ports;
-+	struct device_node *ep = NULL;
-+	struct device_node *parent;
++	struct rk_udphy *udphy = data;
 +
-+	if (!controller)
-+		return false;
-+
-+	ports = of_get_child_by_name(controller, "ports");
-+	if (ports) {
-+		of_node_put(controller);
-+		controller = ports;
-+	}
-+
-+	for_each_of_graph_port(controller, port) {
-+		ep = of_get_child_by_name(port, "endpoint");
-+		if (!ep)
-+			continue;
-+
-+		parent = of_graph_get_remote_port_parent(ep);
-+		of_node_put(ep);
-+		if (!parent)
-+			continue;
-+
-+		if (of_device_compatible_match(parent, rockchip_usb2phy_typec_cons)) {
-+			of_node_put(parent);
-+			of_node_put(controller);
-+			return true;
-+		}
-+
-+		of_node_put(parent);
-+	}
-+
-+	of_node_put(controller);
-+
-+	return false;
++	typec_switch_unregister(udphy->sw);
 +}
 +
- static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
- 					  struct rockchip_usb2phy_port *rport,
- 					  struct device_node *child_np)
-@@ -1297,6 +1396,8 @@ static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
- 
- 	mutex_init(&rport->mutex);
- 
-+	rport->typec_vbus_det = rockchip_usb2phy_otg_is_type_c(rphy);
++static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
++{
++	struct typec_switch_desc sw_desc = { };
 +
- 	rport->mode = of_usb_get_dr_mode_by_phy(child_np, -1);
- 	if (rport->mode == USB_DR_MODE_HOST ||
- 	    rport->mode == USB_DR_MODE_UNKNOWN) {
-@@ -2050,6 +2151,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
- 		.port_cfgs	= {
- 			[USB2PHY_PORT_OTG] = {
- 				.phy_sus	= { 0x0000, 8, 0, 0, 0x1d1 },
-+				.svbus_en	= { 0x0000, 15, 15, 0, 1 },
-+				.svbus_sel	= { 0x0000, 14, 14, 0, 1 },
- 				.bvalid_det_en	= { 0x00c0, 1, 1, 0, 1 },
- 				.bvalid_det_st	= { 0x00c4, 1, 1, 0, 1 },
- 				.bvalid_det_clr = { 0x00c8, 1, 1, 0, 1 },
-@@ -2087,6 +2190,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
- 		.port_cfgs	= {
- 			[USB2PHY_PORT_OTG] = {
- 				.phy_sus	= { 0x2000, 8, 0, 0, 0x1d1 },
-+				.svbus_en	= { 0x2000, 15, 15, 0, 1 },
-+				.svbus_sel	= { 0x2000, 14, 14, 0, 1 },
- 				.bvalid_det_en	= { 0x20c0, 1, 1, 0, 1 },
- 				.bvalid_det_st	= { 0x20c4, 1, 1, 0, 1 },
- 				.bvalid_det_clr = { 0x20c8, 1, 1, 0, 1 },
++	sw_desc.drvdata = udphy;
++	sw_desc.fwnode = dev_fwnode(udphy->dev);
++	sw_desc.set = rk_udphy_orien_sw_set;
++
++	udphy->sw = typec_switch_register(udphy->dev, &sw_desc);
++	if (IS_ERR(udphy->sw)) {
++		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
++			PTR_ERR(udphy->sw));
++		return PTR_ERR(udphy->sw);
++	}
++
++	return devm_add_action_or_reset(udphy->dev,
++					rk_udphy_orien_switch_unregister, udphy);
++}
++
+ static int rk_udphy_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
 
 -- 
 2.49.0
