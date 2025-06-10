@@ -4,92 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B8FC678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D02FC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 23:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmTWmU9NEikrwp3F1QNeTNdfTomvenelOaCl9Z9m7F8=; b=p2pBhOmHnLOqx2wZ4WvGeonqPs
-	wJxdUVUzmgCChWkc4G5J0Bowz2ytAfr/9Eq/46tfpytmFd4PJncGSrnEdQJH7cfdWnygsYt785gfY
-	fUnKe3RLE0psYITkRcC7qwV0aX345C67rOMqy9mpJJOOSEP5jW/Ew+4qOmJh/rt8aYlpmr0BSnPUj
-	GWsUoXwppokj+pzUkVfTGSi6I4ja9ir7Vm3grvRe8WunfgeebD0UsPYiludvIUMEW6thTE+eCwhJr
-	ThQSQSY/9GvRo/BNVcK1+Kwr4rK5f31XBnuxsCqu2X3Mt1/B3CY8EgjlNSQYYFA72ZXwtWR5nZWcp
-	81kI+Z9Q==;
+	bh=muDFxLfY0+qeyLI3mE8/sqT0z3/gvu2RClGHImS1nX0=; b=gnxKLnzNKQ64qaWKybMwxEkOoQ
+	wlEn8ErMHxtos2HLlhA1vxJm7TKFbHOyBy/7/VqrhYG4ejS9H2ciS4Ifv4/LVsyo2CY+eYVpFe/jG
+	OhNzW5QUq0vuewiqQcAgIwptnExRY+SPiStpMn33I/78pa3cGzKBz5xNzXvon4RepTBDQmm9+DrVl
+	xfbwqLZOm7ecOh31a2QtdfTCebSI8shquIsGQn1UdbOolbbE3eJECwvJ3MkDZYuDdBVd5gne3qhKH
+	5wRp9dddFxd6ReasX03wef3ifWGkTBl9rokcAJnTnk9y1xUcCNW/5yoShoZZ9Xjz1LEYmezr8fF/o
+	OCRCT0LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7oB-00000008Jtu-3lag;
-	Tue, 10 Jun 2025 22:51:07 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1uP83h-00000008Mob-4BQT;
+	Tue, 10 Jun 2025 23:07:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP76J-00000008B4W-3V8Z;
-	Tue, 10 Jun 2025 22:05:49 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4a52d82adcaso88633781cf.0;
-        Tue, 10 Jun 2025 15:05:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749593144; x=1750197944; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DmTWmU9NEikrwp3F1QNeTNdfTomvenelOaCl9Z9m7F8=;
-        b=iAR04mJ3uJdOhpnz/2WLB+fvbOmb0X+tipY1ClKfl8U7N4tQ7cNceILUMjtFU46xYI
-         3CRwiX6h82ZDys5Ot4jPegrRxuJFPcWTEcpmxki5EfpqhlxWD/K6LnnUth0U7o8dXpUF
-         x9Xed7tgV7wCn7d2tYrAzKFb9T08JoJ4Sf5Kt9FS/VDje01VphdHnH5Xc7W1BFAYVf5R
-         IQOuD4cD0d3oUBsgt6Z94C3h1Pb7eJ2KYLQE5gKv5G5m1cO4fm4XlTcufvW4Suj6FHko
-         B9CNEanKhzFxj0i9TgRVHc0LQ+duNIjZ33IK75PB3qrCwRaAfAc040eASl+3UoV7d3eo
-         ToFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749593144; x=1750197944;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DmTWmU9NEikrwp3F1QNeTNdfTomvenelOaCl9Z9m7F8=;
-        b=jLw6qrEy+sjmm9W/01QAeqxE49AReqRR6vH6mbw1X13oWVjQ/TkqtBcFzNRRcnMKiI
-         l9OVdG9FJHlFQhUzZTfd0UBdFbIKdF0CBWySPH98SsBuisWif4xkNFbVnhghBFGt5yjq
-         1PxswXGs1IDCsMnMmVK8vy02qBv0XGLFwQoOOfPA+R5gUnhEyJUe3jUivTWZExuVl63q
-         nCzo4mNJUelrjBMJVJ7PFxHQDBUE9vY0oizpYrXROiuL13SOs2ZlFWPQslsai+vmxSq9
-         CCzW67oQIEfhNLjUn9HHf+6RpU0IcDhQG4XLb/yeLKnPqZqzp0Uun8HeX7pY9aFhLPqx
-         dX1A==
-X-Forwarded-Encrypted: i=1; AJvYcCUDxHBKGYjoLOE+0oXN3VRftJcOf7I1vxJUBDTbL5tqXXP28mZGEnBj/5rtv9x1vu5Q84m/yW66t2gAa/o=@lists.infradead.org, AJvYcCV1z04PElQAkdDjKshAOoG7TeQ6wzLdwu1U/OoyEyTYRrST8uP0ulzwvccCcehaiA5ymkxMfozb/hAuRZuF4m+1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi/LlYV0hNqUGwv6PyoANal7ZWExZhLhaftzlV5qUW+Guswecv
-	PuhhObs0PNQtjtPBzgyB7Jtd1OigqmTLIKI2vjMmit/3cbkpENKQks6P
-X-Gm-Gg: ASbGncs1ok9hByT2MTU6BFwjm8j2dUH9AExbvIIP5SWQFyuXeshwtX7ZhD7KQ/Uquzl
-	fgJ7g1jDhlhMU7WAfnJMve0/kX9HjIjwR/jq/hZ6qpIaCxqqfOAWaE40toWlBBxLSmU5h0OOGui
-	0OIWTqYy9+XMVFRWaLQxVjhjfO0eJl836t78HOgru7NTHwmtghSwwDqZvw6WIVQjgW6lIrdvEPY
-	CguV6QCpZtlV7ygEk9RfG9r04vvTKrSMNOKXjNnEFssk1XfgR6pxiASEDXw6N8a71O7xt30KnTW
-	fSrN/o2foCfoPfYbKS9RfHKQYhLQP7/XSNFt5fzmESJjxUtx
-X-Google-Smtp-Source: AGHT+IEDJpOYkGfTUyYs1FXlXzDYqJOyu0jNJBu7zkL7VpiJWuUnOT+hGZ2ALGAVCMSkNmIUlRsQhQ==
-X-Received: by 2002:a05:622a:558e:b0:476:8f75:b885 with SMTP id d75a77b69052e-4a713c45603mr18755041cf.44.1749593144531;
-        Tue, 10 Jun 2025 15:05:44 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4a619853048sm79911851cf.47.2025.06.10.15.05.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 15:05:44 -0700 (PDT)
-Date: Wed, 11 Jun 2025 06:04:37 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	sophgo@lists.linux.dev, soc@lists.linux.dev
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
-	Chao Wei <chao.wei@sophgo.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 3/6] arm64: dts: sophgo: Add Duo Module 01
-Message-ID: <h3vnwdlmzdjdm2nfpg3rvbck22pgvpweqphuwy67a5ny2wkhen@d2vmojc23pli>
-References: <20250610201241.730983-1-alexander.sverdlin@gmail.com>
- <20250610201241.730983-4-alexander.sverdlin@gmail.com>
+	id 1uP81b-00000008MSL-0q9j
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 23:04:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=muDFxLfY0+qeyLI3mE8/sqT0z3/gvu2RClGHImS1nX0=; b=GGtDMmxz0SfP+/sFOYPjDxrp2s
+	XPsynahifm0OqUrT+0jXCTfA593M16V8WnCp2EqAcwEMRUfpAgofW+XWNA9n3fFZdPaUaHigLJ80C
+	4OOtrODVgUdt7jC/iZGLyYLf1qUwqvB+pQACSuT9rP/waQ4l/6pDhdP2c+JM8Y0tJ58JEbVdq0/ZM
+	3ZlZ4XBe6C4czk/Z/E8/CDQPtNuEXpEH7fuK7L1lG7nekGB5b6Nk0PhKV1G8IeKQvWYcvF286PuT/
+	whPP2W6oGancpz4Cn2RCmzQGq/tE1X7cw3mu6QB6uvcetD9BCM2G7f5/uZJUFWg81mBKrAILakiM7
+	NfkU5F5w==;
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uP81X-000000020ro-2eje
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 23:04:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=202503; t=1749596685;
+	bh=muDFxLfY0+qeyLI3mE8/sqT0z3/gvu2RClGHImS1nX0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZMD1pj8siDTBORviatsIe4lYZrJR4nlhYEN3vJ27H+r3K3pQ3Ep7ajkhs0pl0NnY9
+	 SVgdmap932TmWkhVuRnF51VAvXZCWtx/XL2W+4KpyXUugp3v6M0yQGZ002erMFpRKH
+	 rmHb3HAFLwZcXcma9w0rp65GsUEazukpVUzqMXxUyzEA1STYRNJP8BGsVId4os1cMg
+	 tZxqmcXbUzi3AJjhk3w1y3Gw7pxZG7eIp2znCY/yq0KgXhXi0EPgUCId1dol3legH9
+	 xFmRwYeBQB4wvnR+tM6RTMQxW36+efH/o7skmmoxA76qiQDnSa9YcHLO5LMDIQJOjz
+	 kGcRl+Al1GztA==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4bH4B45D4zz4w2Q;
+	Wed, 11 Jun 2025 09:04:44 +1000 (AEST)
+Date: Wed, 11 Jun 2025 09:04:44 +1000
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Alexandre Torgue <alexandre.torgue@st.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, ARM
+ <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: Re: linux-next: duplicate patches in the stm32 tree
+Message-ID: <20250611090444.237c9562@canb.auug.org.au>
+In-Reply-To: <20250522113816.16953357@canb.auug.org.au>
+References: <20250522113816.16953357@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250610201241.730983-4-alexander.sverdlin@gmail.com>
+Content-Type: multipart/signed; boundary="Sig_/b=7_cKKdRrcq./9hKW8B1SC";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_150547_871766_D7BF856F 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20250611_000456_360043_A5353EA2 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,95 +89,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 10:12:16PM +0200, Alexander Sverdlin wrote:
-> The Duo Module 01 is a compact module with integrated SG2000,
-> WI-FI6/BTDM5.4, and eMMC.
-> Add only support for UART and SDHCI.
-> 
-> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> ---
->  .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 85 +++++++++++++++++++
->  1 file changed, 85 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
-> new file mode 100644
-> index 000000000000..bb52cdad990a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
-> @@ -0,0 +1,85 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +
-> +#include <dt-bindings/pinctrl/pinctrl-sg2000.h>
-> +#include "sg2000.dtsi"
-> +
-> +/ {
-> +	model = "Milk-V Duo Module 01";
-> +	compatible = "milkv,duo-module-01", "sophgo,sg2000";
-> +
-> +	aliases {
-> +		serial0 = &uart0;
-> +		serial1 = &uart1;
-> +		serial2 = &uart2;
-> +		serial3 = &uart3;
-> +		serial4 = &uart4;
-> +	};
-> +};
-> +
-> +&osc {
-> +	clock-frequency = <25000000>;
-> +};
-> +
+--Sig_/b=7_cKKdRrcq./9hKW8B1SC
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-> +&pinctrl {
-> +	sdhci0_cfg: sdhci0-cfg {
-> +		sdhci0-cd-pins {
-> +			pinmux = <PINMUX(PIN_SD0_CD, 0)>;
-> +			bias-pull-up;
-> +			drive-strength-microamp = <10800>;
-> +			power-source = <3300>;
-> +		};
-> +
-> +		sdhci0-clk-pins {
-> +			pinmux = <PINMUX(PIN_SD0_CLK, 0)>;
-> +			bias-pull-up;
-> +			drive-strength-microamp = <16100>;
-> +			power-source = <3300>;
-> +		};
-> +
-> +		sdhci0-cmd-pins {
-> +			pinmux = <PINMUX(PIN_SD0_CMD, 0)>;
-> +			bias-pull-up;
-> +			drive-strength-microamp = <10800>;
-> +			power-source = <3300>;
-> +		};
-> +
-> +		sdhci0-data-pins {
-> +			pinmux = <PINMUX(PIN_SD0_D0, 0)>,
-> +				 <PINMUX(PIN_SD0_D1, 0)>,
-> +				 <PINMUX(PIN_SD0_D2, 0)>,
-> +				 <PINMUX(PIN_SD0_D3, 0)>;
-> +			bias-pull-up;
-> +			drive-strength-microamp = <10800>;
-> +			power-source = <3300>;
-> +		};
-> +	};
-> +
-> +	uart0_cfg: uart0-cfg {
-> +		uart0-pins {
-> +			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-> +				 <PINMUX(PIN_UART0_RX, 0)>;
-> +			bias-pull-up;
-> +			drive-strength-microamp = <10800>;
-> +			power-source = <3300>;
-> +		};
-> +	};
-> +};
+Hi all,
 
-Please move this slice to the board dts, only configuration related to
-the module itself can be left in this dtsi file.
+On Thu, 22 May 2025 11:38:16 +1000 Stephen Rothwell <sfr@canb.auug.org.au> =
+wrote:
+>
+> The following commits are also in the arm-soc tree as different commits
+> (but the same patches):
+>=20
+>   0a0e8571837d ("ARM: dts: stm32: add vrefint calibration on stm32mp13")
+>   2a47c4033e09 ("ARM: dts: stm32: add an extra pin map for USART1 on stm3=
+2h743"
+>   3acfa4becfda ("arm64: dts: st: Add SPI NOR flash support on stm32mp257f=
+-ev1 board")
+>   3bd31eb4f6ee ("ARM: dts: stm32: add vrefint support to adc on stm32mp13=
+")
+>   3f70ddb86143 ("ARM: dts: stm32: add initial support for stm32mp157-ultr=
+a-fly-sbc board")
+>   46e2ad9fd187 ("ARM: dts: stm32: add low power timer on STM32F746")
+>   532c5a818d2e ("arm64: defconfig: enable STM32 LP timer clockevent drive=
+r")
+>   7b6bbef62485 ("ARM: dts: stm32: support STM32h747i-disco board")
+>   7b7b6bb0f98d ("dt-bindings: clock: stm32h7: rename USART{7,8}_CK to UAR=
+T{7,8}_CK")
+>   826e6fb26193 ("dt-bindings: vendor-prefixes: Add Ultratronik")
+>   878dec8597d4 ("arm64: dts: st: Add OMM node on stm32mp251")
+>   8b773be67b10 ("MAINTAINERS: Add entry for ULTRATRONIK BOARD SUPPORT")
+>   8c18889c702d ("arm64: dts: st: use lptimer3 as tick broadcast source on=
+ stm32mp257f-ev1")
+>   a4d2108a4b3f ("ARM: stm32: add a new SoC - STM32H747")
+>   a09cdc01ad4a ("ARM: dts: stm32: add pin map for UART8 controller on stm=
+32h743")
+>   bf98eb91ac66 ("ARM: dts: stm32h7-pinctrl: add _a suffix to u[s]art_pins=
+ phandles")
+>   caeec8e2b846 ("dt-bindings: arm: stm32: add compatible for stm32h747i-d=
+isco board")
+>   dd9bfe13b47e ("ARM: dts: st: stm32: Align wifi node name with bindings")
+>   df863325b92c ("arm64: dts: st: add low-power timer nodes on stm32mp251")
+>   f069852c9b33 ("dt-bindings: arm: stm32: Document Ultratronik's Fly boar=
+d DT binding")
+>   f80958d949c3 ("arm64: dts: st: Add ospi port1 pinctrl entries in stm32m=
+p25-pinctrl.dtsi")
+>   fe8690b58efb ("ARM: dts: stm32: add uart8 node for stm32h743 MCU")
 
-Regards,
-Inochi
+Can the stm32 tree please be clean up?
+--=20
+Cheers,
+Stephen Rothwell
+
+--Sig_/b=7_cKKdRrcq./9hKW8B1SC
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmhIugwACgkQAVBC80lX
+0Gy2yQgAkAGaQZt4GSiuHRyOcqcwXyNSNRa0g4NUcNGWrIaM/LKfrx7mqTXuIFDs
+Y80fon+MqVpxmAWsCGfb9r4s9DAAugr/7TZhCd66AC09aVyCeIJaUWe1a4mWBEY5
+vm0uDKvZRg79C+jj3ePHn8gLyjK8uuUryae2YqctXUcb0FxdDiD7e6/HpTrngt1E
+b+FM0EywOiRU1oZP1svCd2YBF5/dEpp+PFZEnPYjqmTqbs5sZDhCtzA5HRBKaZiS
+kHW6xfWRYFN2mtD9h4SvEFXPhBriUFqC/CN8f1tnIAdPgHI0E/mR7EW5dMZxUy4O
+fbYTxNVQtpDYZUEoKqvtrxqwfPEDmg==
+=hXim
+-----END PGP SIGNATURE-----
+
+--Sig_/b=7_cKKdRrcq./9hKW8B1SC--
 
