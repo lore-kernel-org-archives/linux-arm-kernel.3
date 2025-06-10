@@ -4,135 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DAF6C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E6AC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XTr0inICqzQ40JhWVH9IpfJkMwVhTdLoWQ78V1Jjb84=; b=XGXIuAihiOUQEmQxIvwu8FsvZD
-	TqfnwwTia6/FJlOwMChGAdX5vXClBdGT4RQHGXwuK+eZ3ca5vKr8BaaATffFlc9/zX9/ptQOJuUQj
-	XvAItu5FOSLzhfGIRMNr7JxrhjsMTYvr40i2lpPCBxjUpuJRnxCrj0llXxuTfq8YcOp1AATYYVUv8
-	0ex4Pjj66+UFKowLHvkRiupqznTDQee+nDxW8kz1oGDn1x1T/m/CQ9F0RrBAcFk2OiDIvhsTpXhum
-	0KZEGAT6ua3QUw60+v4N5k8o/RpfQ7Q4KbSvlwaMvk2tW0+HW1HomvvXkxUayIGpHdv0gVkW4bp0J
-	FdN5/qrA==;
+	bh=QqVZpS1mMaiLHStCX0I5k62rBcrBowKTfedoAC9Jqi8=; b=nqy0yIWaR5QRJxavhEuyHSo4ev
+	BxXk7ZtyE2X9uers+ru0GeKvhpEHOLE7mh8XWCRWj8+UEQDS5sb6x5ChKSVBZ9y8PuFYQ13lpTs8U
+	c1+Xwb20xi/0P19Qq3wB9gHVnxPNnXaSNdHiZ8ybzgAfG6tuEiM20fQHezl4JWBqGPX7+Rn+WIgYP
+	Q8mPnZrpkWu/gp4tOz4GV6x5SpMITu4bkPXRzoJ5SIa8I8lv4T074opzqBA7/iyQffv98jS3Jdggx
+	xDUg/6vy9f0cAZBMSdBu2vqD3V4LiSpilPQXxOJ9pS33Lm/hy6OHXmG0VHwbNFm+DntPN1/UJduMG
+	gzmE/kJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP04l-000000078qy-19jn;
-	Tue, 10 Jun 2025 14:35:43 +0000
+	id 1uP07s-0000000794o-0ifi;
+	Tue, 10 Jun 2025 14:38:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyEz-00000006nMI-3534
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 12:38:09 +0000
+	id 1uOyAM-00000006mJO-3kQc;
+	Tue, 10 Jun 2025 12:33:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=XTr0inICqzQ40JhWVH9IpfJkMwVhTdLoWQ78V1Jjb84=; b=WXerQnRLXdjXZHBExoxF0dPXGq
-	4wJ257yWJZRG+DprXgClpxxbDiujMg6BNbQjPjvaITF65DDNpssX7WA7/0sUsW7r75gSmk38MCd0v
-	l01DJC2GK0t2TLjlqfkgjKUftrRH7xG6nUMsa4DmbmygazSacteFR7o1HMvI92zhPXfr8kvuoo0UV
-	K0Gb5n0lN2XYvJjh8BNya2/jyxUWjlbARj2afqTYCKjK5Col8ml+bWwK/C4e+1m0kA4oTmglKIUsD
-	CVAnGE9vGUcVdZ5d+curnEbsujLNP26ZDN4DLYjX3NVIpAX4BWANdOdcGDLSc8RcxgZBcPkg723iv
-	pPd0agTg==;
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	bh=QqVZpS1mMaiLHStCX0I5k62rBcrBowKTfedoAC9Jqi8=; b=k30k4PvcydRtInz2n4TsQ+3LA8
+	3mT8IYjrFwJK9qO0FBc8td9KSkifM1blRfPwmZDdAu5I9/Slma418BD3C3Ex97NTYSldYrhOWU5sV
+	g/6qUS4QC75ND4njqOgE487RODhg+bcMNZ2//vz5Xg6eIb1TGVvjMJiA1JbKPuQlZ0mXN35JGXgqd
+	O84R7n1kMYHB8s5s6l7KdEcIwxbpmJYfyDvfrHXAySJenCAuOYumJKsIOL1aBi5lVK2tbkLW79b/4
+	XOcj6RSrrIKNzEYQCSPAJEQdp/8BuAgo33eqJfHQYaXS9uDBBgs5+oAO8LPWILHnqkYNLr9vry+CW
+	8YNbXoJA==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyEx-00000001ow2-39pI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:38:09 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-442f4a3a4d6so29173125e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:38:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749559085; x=1750163885; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XTr0inICqzQ40JhWVH9IpfJkMwVhTdLoWQ78V1Jjb84=;
-        b=gQMvu/cbUzxn+1MffofmS+6fbOaau4Uh/F2g36kMTo7pZwtnJdktZPgSzLu+f/naCS
-         XMIAguTI3VwxmEmbGKeq3luB6KfnXsIaBKWCAGaisRrO6fRXap6n/S6Ainl5F1ZQ1fOr
-         tqAp1sHgld2l9P5vjs5dRX0gRhOa0fYNtHi4cOQCw41LzxKQjfl+2eHb03RJAGrUHksx
-         G0OC9TaVdH9tzqqyAMtbLrAJ2ETe0NvsDbF9vzPHdIP9d2NWQTo5V+O4/iGoDGV/kQ9i
-         JjJJgOcexhAs9+vNp64pxxtGItsF/dA804suE7dYvofwRDZ99yGiilJNM/ycz+piDCyG
-         06zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749559085; x=1750163885;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XTr0inICqzQ40JhWVH9IpfJkMwVhTdLoWQ78V1Jjb84=;
-        b=VmFcP6s3q10MiAI96wwdaYEhkpIi8hZJBfArYgSaRWGEcmx3vMOKX8+a7v7fJxJGeT
-         t/9eXUhJLLRD+KhHQjWweJePqZjAMU7aaCgxC31+T/Abh0j1NUZ/tW09cm2fUyVV/vUi
-         PK1fNAkIz4B10MzKlFhTr9g7f67rt0y+gx4YzwzuOhxPcWeGtDHHR77nbvBAaU4W7yPc
-         faRZ/Cqca0F/IjUv95Wge4bQFt1+Ar/X/xgHjCZCEsAp74fkkIsSYet5l7mssXaPOYfJ
-         1F3P8DmQYEwM4ljx7GFn/WNliAMWr1QUM61kAEFNxK5w3CmsLGnqnGUC1YdI8LUMomJA
-         WVFg==
-X-Forwarded-Encrypted: i=1; AJvYcCU+RR7qlxd6DfZvwJ168A8Np12HdimPDwuTQyXv9ZiT5UrCHtCFhhVOBMFnrGrc4ZezBfp+Om0awwdyCxF8BWW+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDpQwrKK4K7sWR2/RP500EHUGzdOhttZQFQGz/Ac0LVxSCtd2f
-	3uIQjIkTBHlhNG+ZdTJ/EQtTyZLMQfPub5ZSX13VsuhiUkABp2Rs+Ti2MGqO1liyrSw=
-X-Gm-Gg: ASbGncuPrKXSJcAb2ut/2nYcz/aavSQbmg3AVZQ+rKBRgidliIMlEmyK6MyAPHSsybX
-	8wY/HGeGeO5YMAdZ7+PGhcoUmEqQ9YEvbmHYA+X63Ud+0R/pu9gzDv/GpxWyU//jUbmtZC03Gho
-	jpTZ6ej9ve6I9ySbp7CYvx0YE1y4mPAMeaO9OEDY8wYvs0lIkP2VSLBzEmTCt9Gi9V1hze6W/95
-	vdJ8L+JSZ4Bbo9ALnezL3wYUg/94pH6wVMEwqg0NLvH+i50naS1h63o2WJHrG7/b5ETYNNBz8DD
-	b4AR6FaNw0vAmFVAho/oQ2Wad14Ev/q+9rxu9JkGBuOoO5H9ktJhfP61IEWdZbWy
-X-Google-Smtp-Source: AGHT+IHzFp5JvTZ7l1OpOejBOEwCS7yH077Wpi4SDtJY3ulJlf0B+102s2G4CnPyWgM17PCQBMBlxQ==
-X-Received: by 2002:a05:600c:3ba6:b0:43d:fa5f:7d30 with SMTP id 5b1f17b1804b1-4531d00c453mr31747955e9.16.1749559084818;
-        Tue, 10 Jun 2025 05:38:04 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4d:e52b:812d:eb7c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45213759fb2sm142476805e9.38.2025.06.10.05.38.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 05:38:04 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 10 Jun 2025 14:38:00 +0200
-Subject: [PATCH 4/4] net: phy: qca807x: use new GPIO line value setter
- callbacks
+	id 1uOyAK-00000001oSb-36O2;
+	Tue, 10 Jun 2025 12:33:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749558781; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=HrjOY+W4cCFSA4awnGSsWMRbUlfFTRDGjy2p1mQPrSds9KrrZhN5lY+6MlSiapWb2lXKaOS7RPTKNlEgUYpU2hkHCModV1LgaYLhH/zBrTgJZCpAphfKlIESGl8hGuYVafeXMaEvFmfpzgpyGdkiwON4W9CRJy3FxTyUOgsEzPs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1749558781; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QqVZpS1mMaiLHStCX0I5k62rBcrBowKTfedoAC9Jqi8=; 
+	b=mEpGxBwjKuM6BaAYvobE29OzAZb+xj/0U0w5ItRcdWmSUAJBo5Hlf2T9wcEiAl5LhV2qQIsWL7IXBP/Z8GR7wMFyxE2GQaDQTFr6Lsf5GayNwVM2dRKr1ZSAmqlWiWroztWLoyhu3i3wwiLbCnkt8fHC17wV58GCIAx6KvLHOkc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749558781;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=QqVZpS1mMaiLHStCX0I5k62rBcrBowKTfedoAC9Jqi8=;
+	b=Slr9JpiJJaDvMY65kIqzX3axOhy2mgQHbHNCluirvJ24edjS/dPyDLWPkmCvKLGj
+	1ECvuvmxgkrRC5Mx+uTi3Hy1Jzn96iRSFvmt2zcO06GSzIVADoly9XCp4BzvvDLFA79
+	Ckz1j6ETrYFWlo5NobiLVesCejouTuoAt84dEkO0=
+Received: by mx.zohomail.com with SMTPS id 1749558779319784.571732238441;
+	Tue, 10 Jun 2025 05:32:59 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 10 Jun 2025 14:32:39 +0200
+Subject: [PATCH v6 3/7] thermal: rockchip: Support RK3576 SoC in the
+ thermal driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-gpiochip-set-rv-net-v1-4-35668dd1c76f@linaro.org>
-References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
-In-Reply-To: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
-To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, 
- "Chester A. Unal" <chester.a.unal@arinc9.com>, 
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Marc Kleine-Budde <mkl@pengutronix.de>, 
- Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Message-Id: <20250610-rk3576-tsadc-upstream-v6-3-b6e9efbf1015@collabora.com>
+References: <20250610-rk3576-tsadc-upstream-v6-0-b6e9efbf1015@collabora.com>
+In-Reply-To: <20250610-rk3576-tsadc-upstream-v6-0-b6e9efbf1015@collabora.com>
+To: Alexey Charkov <alchark@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ kernel@collabora.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Ye Zhang <ye.zhang@rock-chips.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1888;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=MAnjKHaMoYF5O3f5BcIOHcEhF8AXjM+PNGzo8Pp9cg8=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoSCcnC1sEIoktf6UHY2MqMzPGNw9DXFVujb7Kq
- dZR+XEf6QGJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaEgnJwAKCRARpy6gFHHX
- csmrD/99f0lIH+W3DfmoJQoGq0LOeqm5buMf8Ch/sw2VizC+NzZBIJnfGPUt6/dMjtzjqFKZdUb
- PqOQGMYAyle/pWuVoS4rqbX6Y6Ct8op5TOVgYw9OJ+Vm2+tpdkJ9O0RGKgPLqidx7WxmDle7eCD
- Ce0FNDGVTnCvEjLlAbUVrnLvH5xp4/5cyi3oDa8DofuWMhbtpowOpcSUHjjAYgn8/lqKl0yz7NK
- g4+uyOJHPYWep1Kr/L1SrDH9reI0B4lnK0N4qyTTJJ1df0JoWw8ZludlKXfa08juZk3BWprkwLT
- Gsri56yEFWJrig1ad/dfL2ME7p4cayZQ2InlJ2uWZbiGhGJwe5XoNfi2bCo45uqO+1F7Nnp8KAA
- 3Zjr61t3T6+FauqS5RAzKMjnBDsccpotbDB0oBQjUG1EdBgC8TvAxyy56FujRh8nkIBU1WpJLrz
- TfBdZ+mmrfbnvrNsiz/KAq7yaVOLRltW1nefhvGjP09tnqCEe0vQCK1ENpBKhTb8QoFG7b0x+xt
- AyD2DICy5a6mUUWRrlXQAVlnS2BJ+f8s8pHm+EWr5f52gyithh1/FwFo3LJfiDJtEbzo6+XAer7
- wnx7GBla5W1pPXIf9AI9UPcP0lHc6ECfA8NLILvEcgdNI1UdotkBPEEyG5PhsMMgZa+INZbIV7j
- Sm+SNOSFlvaCYpA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_133807_876425_F8812E2E 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20250610_133321_172608_9A391157 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,58 +101,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+From: Ye Zhang <ye.zhang@rock-chips.com>
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+The RK3576 SoC has six TS-ADC channels: TOP, BIG_CORE, LITTLE_CORE,
+DDR, NPU and GPU.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+[ported to mainline, reworded commit message]
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/net/phy/qcom/qca807x.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ drivers/thermal/rockchip_thermal.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/drivers/net/phy/qcom/qca807x.c b/drivers/net/phy/qcom/qca807x.c
-index 1af6b5ead74bf615ad155e396b0ecc6fe5636e8c..bc480710c2bd27d621dad3b5595f0a292a4c72c1 100644
---- a/drivers/net/phy/qcom/qca807x.c
-+++ b/drivers/net/phy/qcom/qca807x.c
-@@ -377,7 +377,7 @@ static int qca807x_gpio_get(struct gpio_chip *gc, unsigned int offset)
- 	return FIELD_GET(QCA807X_GPIO_FORCE_MODE_MASK, val);
- }
+diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
+index 40c7d234c3ef99f69dd8db4d8c47f9d493c0583d..89e3180667e2a8f0ef5542b0db4d9e19a21a24d3 100644
+--- a/drivers/thermal/rockchip_thermal.c
++++ b/drivers/thermal/rockchip_thermal.c
+@@ -1284,6 +1284,28 @@ static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
+ 	},
+ };
  
--static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
-+static int qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
- {
- 	struct qca807x_gpio_priv *priv = gpiochip_get_data(gc);
- 	u16 reg;
-@@ -390,14 +390,12 @@ static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int valu
- 	val |= QCA807X_GPIO_FORCE_EN;
- 	val |= FIELD_PREP(QCA807X_GPIO_FORCE_MODE_MASK, value);
- 
--	phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
-+	return phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
- }
- 
- static int qca807x_gpio_dir_out(struct gpio_chip *gc, unsigned int offset, int value)
- {
--	qca807x_gpio_set(gc, offset, value);
--
--	return 0;
-+	return qca807x_gpio_set(gc, offset, value);
- }
- 
- static int qca807x_gpio(struct phy_device *phydev)
-@@ -425,7 +423,7 @@ static int qca807x_gpio(struct phy_device *phydev)
- 	gc->get_direction = qca807x_gpio_get_direction;
- 	gc->direction_output = qca807x_gpio_dir_out;
- 	gc->get = qca807x_gpio_get;
--	gc->set = qca807x_gpio_set;
-+	gc->set_rv = qca807x_gpio_set;
- 
- 	return devm_gpiochip_add_data(dev, gc, priv);
- }
++static const struct rockchip_tsadc_chip rk3576_tsadc_data = {
++	/* top, big_core, little_core, ddr, npu, gpu */
++	.chn_offset = 0,
++	.chn_num = 6, /* six channels for tsadc */
++	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
++	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
++	.tshut_temp = 95000,
++	.initialize = rk_tsadcv8_initialize,
++	.irq_ack = rk_tsadcv4_irq_ack,
++	.control = rk_tsadcv4_control,
++	.get_temp = rk_tsadcv4_get_temp,
++	.set_alarm_temp = rk_tsadcv3_alarm_temp,
++	.set_tshut_temp = rk_tsadcv3_tshut_temp,
++	.set_tshut_mode = rk_tsadcv4_tshut_mode,
++	.table = {
++		.id = rk3588_code_table,
++		.length = ARRAY_SIZE(rk3588_code_table),
++		.data_mask = TSADCV4_DATA_MASK,
++		.mode = ADC_INCREMENT,
++	},
++};
++
+ static const struct rockchip_tsadc_chip rk3588_tsadc_data = {
+ 	/* top, big_core0, big_core1, little_core, center, gpu, npu */
+ 	.chn_offset = 0,
+@@ -1342,6 +1364,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
+ 		.compatible = "rockchip,rk3568-tsadc",
+ 		.data = (void *)&rk3568_tsadc_data,
+ 	},
++	{
++		.compatible = "rockchip,rk3576-tsadc",
++		.data = (void *)&rk3576_tsadc_data,
++	},
+ 	{
+ 		.compatible = "rockchip,rk3588-tsadc",
+ 		.data = (void *)&rk3588_tsadc_data,
 
 -- 
-2.48.1
+2.49.0
 
 
