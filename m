@@ -4,82 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767CEC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FD1C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SkHumX+B+y86i8MSC5SJDKQ6nFwDO3pplzjQCYTDa/A=; b=AIqTebqCh4ngI9mzKS0FYS0X1g
-	nuBC9vzQVO9JeejK7xfAySZTJq0UdXALG1VP64nZABqkPj0z8VocBb3tghQxtrsoUkWo7iDdf0aSe
-	dITwJjQHuJYW3MMlFWbwFpatH3z39XaDUEmXNqpOf3S+5MI1eunD9nwpzg34KjPqz1twZ/H/65bYx
-	SHPpllLLbC0ZqOLn9Ng5fLnwgZNSYvQfW4Ls7PmT9gkmDwr7tD33es6Pbl9lsg0c2RhMky3iLjjle
-	SEuXae2KZnkNvQzfC+e7WG4yKNORCHe0c2HZR1o2QmgCAmjY3cw6HJbBLz18PPai3ED7XCImPQm0y
-	5zeNQ83w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yAcPWhJOD2uC+8nD7DYGGpOcWzqUQnKUKJG27J3Ym1M=; b=viq0A+6zCiPgHHadTyWrKtvgYV
+	TYXiVepU6e40+yOFt74/JX4hZ7h03ijCmPP7mqw7A9m+ESQzZEs3TMMuW0Z7Ceawb3co0TB0FN9Ce
+	Ly1y5/c1Pb1l9A2PVaFAkKlEvzEqMsKoq/UgxyPn47XxuGURUipq5Pj19g62vAnYb4tXJaFk3Ml4P
+	Ur9bcPy8F2vYDlBHzeAsKA8ex3qNMzpytNTkgqW4976hGiUulJ6RYulGFXVSnb/OhiF24mHaUoBGE
+	P5bF/8FON5TYgsBoVvT+4MSWaJ6TaApWtmECbQNMxYycm2V9OrqeTJbcSy95Bjzpsri3Zh06UjUKU
+	syfr94jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtIy-000000060wS-1Tv2;
-	Tue, 10 Jun 2025 07:21:56 +0000
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
+	id 1uOtXm-000000062kL-3ybW;
+	Tue, 10 Jun 2025 07:37:14 +0000
+Received: from mail-bn8nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:2418::61c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtFf-000000060Va-3uJP
+	id 1uOtVb-000000062Kp-2Gki
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 07:18:33 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-4e58a9bb8fcso1703210137.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 00:18:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749539910; x=1750144710; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=SkHumX+B+y86i8MSC5SJDKQ6nFwDO3pplzjQCYTDa/A=;
-        b=zKvPzM4XJSSM7eOlgTsW3+To8TKG4rSl9qbav3xWo8QkU5xNKdwP/OUtGQUFLytQnZ
-         TdXADzwbka4wTuEQkouaYxw/suArmtxzybL6p+uTbHao/LJGbwDnkcEnBqDEOHPRhFtc
-         AYt82YMYFtrpUC/jgQv3JuaA27LNG4cSJkyJNjMVrKdaKdL2jVLwQxv1xVp1AhWiSzOL
-         j4j5bjAkWylFjJZ6oVVrSJuAAE9xctvKt6ve/WRRosD9egtzl1RhbNYSaobtWM6Nfn9K
-         6zbf8h+GvFC2uR78fKxQqhSvXAputXF90F70cQXXYa4pwqm4JugxDuJwnr6JBjryesZr
-         ThZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749539910; x=1750144710;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SkHumX+B+y86i8MSC5SJDKQ6nFwDO3pplzjQCYTDa/A=;
-        b=VcaGHGpHHFGYPxtYSIgTornPwj49V5LZ+PI1VeaYKs0I2YZ64+hWRS/YquUpD4P8NB
-         IBb9rd2fNdW3T3d536Dbly3I8MExo1ZNazeTkj41Vl5bKjsJPV+4/E2fKH2maRrTUKwT
-         fYR3WSi1iAYojet0iDqf1jWGRHwa4//o3Qk+2gBqqqMDdYTIxTCrTWK16qcld9MCv/8M
-         J9ixPcoJsDzRfMSxBY/oSzdvwP7Ly7ren+34FYGdOQA9uyaBVksJm5ifgggcjsSc6HfI
-         deS2vG3wV/wfxWczDiaupsYnsgVIR1SjlRuZZpQuPH4+CIzXOBZsu96PAl8vzYt+zdC1
-         uIMQ==
-X-Gm-Message-State: AOJu0YxukRTdavJKNlnFiQ9onJWlatrrh1NuqZRcpQRKF/yokCsA5nzG
-	0+eKvbi56GPTVJPPL1LxxjGpBU6lP/sX/tlJ1I51EliLjHTbss8+ISAn3lkgrICbhLvT6sq6rxQ
-	3bvjohm2zIwgWCYvLL6+wgJezSAPVMJPOjqxAnwo/fN4CH2CwIt2D+uJ41Q==
-X-Gm-Gg: ASbGnctbGpQpTyqBOgFeR4wMnhvJGnzBbSk9KFzEw1Z03EOEVH4SKppnlFlHBWfjN8b
-	vQaUwiSKqnX0bUlSPky6EcR697MsCjhI/KYIo2pKdDX/qYMDBNLHQLMBJr0mgnrGiPw3TL66Rhe
-	Gu4HL7O0zdL/PH3vvstMG/90vPoRD0+ujwQI2Ml401gFidHiNaFHab5CETwFWzB7ASOgmsCFbI4
-	ezS
-X-Google-Smtp-Source: AGHT+IEWeK8X5+m8ElJSK5z3+ETpZn+gitvlG/z+JagvODDs6mTjgbOyPmSCoIASAzlc/+Rww7q/dUQ/dbl/qwPi6yI=
-X-Received: by 2002:a05:6102:4403:b0:4e2:a5b9:df1d with SMTP id
- ada2fe7eead31-4e7729acf70mr12705549137.8.1749539910181; Tue, 10 Jun 2025
- 00:18:30 -0700 (PDT)
+	Tue, 10 Jun 2025 07:35:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bInQnWDIz1V72hWPYrR5MFm6AsA4ObHdABOtP6lGIZ8PvjKg8diTZff+fCZNQYDxN54UBeV5YsEEQNBGYXs/NateI4agnqiRpiPdF5NSIeGOKY8b7wn243HTtnaxctwou/pdoE1Kzl3Ke7N0T54ROOCHHXzN+khk120qfDOxvRdu91o2x++0+qPvmS80BUFgZMToCmO5Ufu7Kcr7F7Qdne8DmtUgyn0v2+6igaI99T3TbVubCTp8ItrMnjHZ8nxkWSBk0Fkcu1OmBhmpZUCrg/I/cPDx50zKAN3HIXhY9uMw8BDaSFb6/5t6RONqLtqKcYshTMTxRYxjkE4jwjbbUg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yAcPWhJOD2uC+8nD7DYGGpOcWzqUQnKUKJG27J3Ym1M=;
+ b=xIXQ9jkh4ia39OsWb+RUYY5DFBIFc3SETMD4jeGXTcAGobzU17z8h7khWrnnPNuH41pUqNA+9DNBjfdtuhzphcVxkGFI5ErkLvaWL3OJPLrC16/z3euow9Tk/KqqbePzmbbvGMiWB48vDEewdBmiWKK9ib5ksVDSrLy2FpURNtW9Qw9vn2/RD4sKxf9C6KTJKGh4i5/Hh85vwR+/HmMUIoQBEieyxMYpFmVGR8FFKECEN7ql4Ha7CcJ/fof17N3ErZOUz/ztUTWSMggNE2fvdcT5cx0cuXp+lnpljolC5K1PgvjCY0IdiX9+laEazfY8V0w6FeVhcizhBAu5zkNIQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yAcPWhJOD2uC+8nD7DYGGpOcWzqUQnKUKJG27J3Ym1M=;
+ b=iFAOY6SxyieqLQbrW08ehJaX0t2doNWQ35t9lTx8ZuMhz9K4aalSLptGErRZsK38e/fUfWvAUQzX/YubBIVp0sg5crRGgYRQveb6XfJ8qBmOG5ikJVgQ0gqInZeOenz9XmO4JTifjab4E7OEvR0hFXmGf7wGOX7688lk6wWQV7U=
+Received: from MW4PR02CA0003.namprd02.prod.outlook.com (2603:10b6:303:16d::30)
+ by MW5PR12MB5623.namprd12.prod.outlook.com (2603:10b6:303:199::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Tue, 10 Jun
+ 2025 07:34:40 +0000
+Received: from SJ1PEPF000023CB.namprd02.prod.outlook.com
+ (2603:10b6:303:16d:cafe::39) by MW4PR02CA0003.outlook.office365.com
+ (2603:10b6:303:16d::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.19 via Frontend Transport; Tue,
+ 10 Jun 2025 07:34:40 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SJ1PEPF000023CB.mail.protection.outlook.com (10.167.244.5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8835.15 via Frontend Transport; Tue, 10 Jun 2025 07:34:40 +0000
+Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
+ 2025 02:34:38 -0500
+Received: from localhost (10.180.168.240) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39 via Frontend
+ Transport; Tue, 10 Jun 2025 02:34:37 -0500
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@xilinx.com>, <git@xilinx.com>
+CC: Bartosz Golaszewski <brgl@bgdev.pl>, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, Shubhrajyoti Datta
+	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, "open
+ list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+	<devicetree@vger.kernel.org>, "moderated list:ARM/ZYNQ ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, "open list:GPIO SUBSYSTEM"
+	<linux-gpio@vger.kernel.org>
+Subject: [PATCH] dt-bindings: gpio: gpio-xilinx: Mark clocks as required property
+Date: Tue, 10 Jun 2025 09:34:31 +0200
+Message-ID: <dba4f2c39a25b54010c292c36e349cb289d6cd98.1749540869.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Tue, 10 Jun 2025 12:48:18 +0530
-X-Gm-Features: AX0GCFs5HGZPW_5vlnOtlFErN9wZOl5LWlGniaDfW8i9KS2B_HI6AE7jX17fEGo
-Message-ID: <CA+G9fYsYVuEpL5KnYdq4ciRmpnUMQqkNQHmy7y5XvUm48kjxyA@mail.gmail.com>
-Subject: Juno-r2 WARNING kernel time clockevents.c cev_delta2ns clockevents_config.part
-To: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, linux-clk <linux-clk@vger.kernel.org>, 
-	lkft-triage@lists.linaro.org, Linux Regressions <regressions@lists.linux.dev>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Anna-Maria Behnsen <anna-maria@linutronix.de>, 
-	Frederic Weisbecker <frederic@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Anders Roxell <anders.roxell@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1470; i=michal.simek@amd.com; h=from:subject:message-id; bh=MMcDQ01bLSUATUGDhbUHh+QSfPLgHb5EhVRX3EgyVYA=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWS4P+AwnqeqblsZ57Sx0EH026v7X6ZPSZw8xSCGiWMW9 3rxXF6FjlIWBjEOBlkxRZbpTDoOa75dWyq2PDIfZg4rE8gQBi5OAZjI5b8M/zQiYlk7PML35CWd ZnjdIdHiPTv2N/uT+IcOU3PWlVydZMnwT3PrgYWz1imsDvLNSylRuiy6R3/Z+ZtvGVRvLM/6xWI uzQYA
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: michal.simek@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CB:EE_|MW5PR12MB5623:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef8ca43e-fbb2-4634-d517-08dda7f1429b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|36860700013|376014|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?37YNhr7wbfCCRWORyYjxQQJWGUlLGMTiPnqw7/jwj1vx1G/yN1hTffu+fdgZ?=
+ =?us-ascii?Q?ZOJYACb8lM4dv80TEPdM14SnI1NdTa4LbwUZC2WAqwbdg7v/PVXMfmmylhBI?=
+ =?us-ascii?Q?ap5iVUOqe9/19YN5dINxo1RccT1b6D4rbOrMsl3Cgb0XnhlrwvhZGt9y/Uup?=
+ =?us-ascii?Q?9yhiqetQN5B+2+FzT1phrQ1hYrRV7FTtjrA+RWuUz4mHwrBOfnXGj0/UVlvE?=
+ =?us-ascii?Q?Tj3f6gyNpZcqm0YfT4RNg4FxT3KaKBsYJ1YmcSLoIVLLFJCkvfTxuowSnU0m?=
+ =?us-ascii?Q?3ioVnXpPavdJeAinJjdGnZEf7gkaYCg0GD/PLJu5aqF/lbGG9I5NEkbzk/aO?=
+ =?us-ascii?Q?JQSz2AL8IvCafZ6RzLpcsqeinEX93z6lwKTO324gPboq9tb5wkYbj+Yt67mY?=
+ =?us-ascii?Q?1Ln5g+IAayVqbJXrRSZyJb6/WHYU+mDWU7iSNmg10/Gy7UJTMk7ZFtaeKX/W?=
+ =?us-ascii?Q?1DVjAf4fO8UNTnQDrwM2mLOb/StwcAHDB9/J3d+CbHwu7/tWJQsPrE33FEP1?=
+ =?us-ascii?Q?E84Na6BB+0kVdKGYUfjbuGkNUhwSxpIOHuhl7DetkZIbqY4ii4QI4ZpYIkcV?=
+ =?us-ascii?Q?6DqaS9X8i9FCCeU+HzEQ7jaja/fT1clQo915LCynpsbZlgPxyQy0PLdIo420?=
+ =?us-ascii?Q?KYP5YI4OWTtE07dcS+XaEZ7+HSFGb5uGsA4UsWYPtX7fqzcb/ZZT8hLFpa0Q?=
+ =?us-ascii?Q?K+K4OVyuSKjy0tWlTItmZ0zJa5Z/BmTkhzZzXFDg4TIEygly5aL3x64pLMXm?=
+ =?us-ascii?Q?634FZo0ol4P4u3SAccYFZjOghZzNQj3vLJHmB+aSp107QkhDyc84TzbM5eFZ?=
+ =?us-ascii?Q?ENJjrsg/2L64HTC9xXv+rQJuyIscoSUzZr9LtUgHd+oqQEp+FTmDpxyYktBK?=
+ =?us-ascii?Q?v1q8tFxfNX6cMHTSTLmjYwwNg3tVPjpLB2Qcg0eLwrFCoH6JGfhPwK9wnbym?=
+ =?us-ascii?Q?R8qjioFRb6k1jUSwuI8rFsScqk5dfwYqMAwJnNdcv/BjRiZXhDyD0bn0pq23?=
+ =?us-ascii?Q?1wxgIsc6NWElEFWNnraKd6JtWXo9OVk2bH7KosWovOAnbDdt/Peri9Aw2i+8?=
+ =?us-ascii?Q?ZgdDKHHWPJ5uJ+2W3rqcy5UvMS3seSq1oNkMsjI4FHA+rChjw+A7rpW5dWZR?=
+ =?us-ascii?Q?Ixn50M0FHiqkE4L0OM8hvXVt0iUtby5gX+a9ziZfaBgPU2d4eXNAWi/AOlSX?=
+ =?us-ascii?Q?vT68o2Yt0SHomEgZ7cAbEeZueERIpcV9SMBWDp7c5qx3TvBJDgrpS/xBT7Io?=
+ =?us-ascii?Q?1J9scigGVJeCRrN0mk8fu3VweI5CAA/IGdkE15CrsvxOq8Q8yYVjaeTM0V/B?=
+ =?us-ascii?Q?LaVkjeiBgRxO2+XBpIooCKaWfOcvmnusNZJohkkeyJekp7l5RbS6ZuijP3ku?=
+ =?us-ascii?Q?+l4NuKl1TO2RNVPYyPpSTo9NWl5Td9x1teMvRJJfXn+YplsGZCkoUf1T2b5w?=
+ =?us-ascii?Q?Vta6AUjN8cZ4/+xDvHhokK2pVzqiqm+Sgtyu2JZGGuM24RLGjXcSIA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(36860700013)(376014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 07:34:40.1607
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef8ca43e-fbb2-4634-d517-08dda7f1429b
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CB.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR12MB5623
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_001831_968741_897C886E 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250610_003459_574277_9984FA74 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,127 +152,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Regression while booting Juno-r2 with the Linux next-20250606
-the following kernel warnings found.
+On Microblaze platforms there is no need to handle clocks because the
+system is starting with clocks enabled (can be described via fixed clock
+node or clock-frequency property or not described at all).
+With using soft IPs with SOC platforms there is mandatory to handle clocks
+as is explained in commit 60dbdc6e08d6 ("dt-bindings: net: emaclite: Add
+clock support").
+That's why make clock as required in dt binding because it is present in
+both configurations and should be described even there is no way how to
+handle it on Microblaze systems.
 
-This boot warning was reproduced with juno-r2.dtb and juno-r2-scmi.dtb.
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+---
 
-Regressions found on Juno-r2
-- boot warning
+Based on discussion at
+https://lore.kernel.org/lkml/20241002-revivable-crummy-f780adec538c@spud/
 
-Regression Analysis:
-- New regression? Yes
-- Reproducibility? Yes
+Actually this shouldn't be only targetting GPIO but also for example
+xlnx,xps-timebase-wdt-1.00.a but I would like to check it first on gpio
+before starting to check other bindings.
 
-First seen on the next-20250606
-Good: next-20250512
-Bad:  next-20250606
+---
+ Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-The suspected patch that found between tags is,
+diff --git a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
+index 8fbf12ca067e..7af4eb2d1858 100644
+--- a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
++++ b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
+@@ -117,6 +117,7 @@ properties:
+ required:
+   - reg
+   - compatible
++  - clocks
+   - gpio-controller
+   - "#gpio-cells"
+ 
+-- 
+2.43.0
 
-# git show next-20250512..next-20250513 --
-arch/arm64/boot/dts/arm/juno-base.dtsi
-commit 1fa3ed04ac55134063e3cd465b41aeb26715e52a
-Author: Sudeep Holla <sudeep.holla@arm.com>
-Date:   Mon May 12 11:11:32 2025 +0100
-
-    arm64: dts: arm: Drop the clock-frequency property from timer nodes
-
-    Drop the clock-frequency property from the timer nodes, since it must be
-    configured by the boot/secure firmware.
-
-    Cc: Liviu Dudau <liviu.dudau@arm.com>
-    Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-    Cc: Mark Rutland <mark.rutland@arm.com>
-    Message-Id: <20250512101132.1743920-1-sudeep.holla@arm.com>
-    Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-
-diff --git a/arch/arm64/boot/dts/arm/juno-base.dtsi
-b/arch/arm64/boot/dts/arm/juno-base.dtsi
-index 055764d0b9e5..9ccb80821bdb 100644
---- a/arch/arm64/boot/dts/arm/juno-base.dtsi
-+++ b/arch/arm64/boot/dts/arm/juno-base.dtsi
-@@ -10,7 +10,6 @@ / {
-        memtimer: timer@2a810000 {
-                compatible = "arm,armv7-timer-mem";
-                reg = <0x0 0x2a810000 0x0 0x10000>;
--               clock-frequency = <50000000>;
-                #address-cells = <1>;
-                #size-cells = <1>;
-                ranges = <0 0x0 0x2a820000 0x20000>;
-
-
-Boot regression: Juno-r2 WARNING kernel time clockevents.c
-cev_delta2ns clockevents_config.part
-
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-## Boot warning
-[    0.000000] timer_sp804: timer clock not found: -517
-[    0.000000] timer_sp804: arm,sp804 clock not found: -2
-[    0.000000] Failed to initialize
-'/bus@8000000/motherboard-bus@8000000/iofpga-bus@300000000/timer@110000':
--22
-[    0.000000] timer_sp804: timer clock not found: -517
-[    0.000000] timer_sp804: arm,sp804 clock not found: -2
-[    0.000000] Failed to initialize
-'/bus@8000000/motherboard-bus@8000000/iofpga-bus@300000000/timer@120000':
--22
-[    0.000000] arch_timer: frequency not available
-[    0.000000] ------------[ cut here ]------------
-[    0.000000] WARNING: CPU: 0 PID: 0 at kernel/time/clockevents.c:38
-cev_delta2ns (kernel/time/clockevents.c:38 (discriminator 1))
-[    0.000000] Modules linked in:
-[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted
-6.15.0-next-20250605 #1 PREEMPT
-[    0.000000] Hardware name: ARM Juno development board (r2) (DT)
-[    0.000000] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    0.000000] pc : cev_delta2ns (kernel/time/clockevents.c:38
-(discriminator 1))
-[    0.000000] lr : clockevents_config.part.0 (kernel/time/clockevents.c:499)
-[    0.000000] sp : ffff800082923cd0
-[    0.000000] x29: ffff800082923cd0 x28: 0000000000000400 x27: ffff800081650000
-[    0.000000] x26: ffff80008292fcc0 x25: ffff800082425888 x24: ffff8000829343c0
-[    0.000000] x23: ffff800083210000 x22: 000000000000000b x21: ffff8000823cf178
-[    0.000000] x20: ffff800082433880 x19: ffff00080021e240 x18: 0000000000000000
-[    0.000000] x17: ffff00080021a400 x16: ffff00080021a200 x15: 0000000000000100
-[    0.000000] x14: fffffdffe0008a00 x13: ffff800080000000 x12: 0000000000000000
-[    0.000000] x11: 0000000000000068 x10: 0000000000000100 x9 : ffff8000801b50f8
-[    0.000000] x8 : 000000001dcd6500 x7 : 000000003b9aca00 x6 : 0000000000000020
-[    0.000000] x5 : 0000000000000020 x4 : 0000000000000000 x3 : 0000000f00000000
-[    0.000000] x2 : 0000000000000000 x1 : ffff00080021e240 x0 : 000000000000000f
-[    0.000000] Call trace:
-[    0.000000] cev_delta2ns (kernel/time/clockevents.c:38 (discriminator 1)) (P)
-[    0.000000] clockevents_config_and_register (kernel/time/clockevents.c:519)
-[    0.000000] arch_timer_mem_frame_register
-(drivers/clocksource/arm_arch_timer.c:1319
-drivers/clocksource/arm_arch_timer.c:1580)
-[    0.000000] arch_timer_mem_of_init
-(drivers/clocksource/arm_arch_timer.c:1653)
-[    0.000000] timer_probe (drivers/clocksource/timer-probe.c:31)
-[    0.000000] time_init (arch/arm64/kernel/time.c:62)
-[    0.000000] start_kernel (init/main.c:1014)
-[    0.000000] __primary_switched (arch/arm64/kernel/head.S:247)
-[    0.000000] ---[ end trace 0000000000000000 ]---
-[    0.000000] arch_timer: cp15 and mmio timer(s) running at 50.00MHz
-(phys/phys).
-
-## Source
-* Kernel version: 6.15.0-next-20250513 to 6.15.0-next-20250606
-* Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
-* Git sha: 4f27f06ec12190c7c62c722e99ab6243dea81a94
-* Toolchain: gcc-13
-
-## Boot details
-* Boot lava log: https://lkft.validation.linaro.org/scheduler/job/8309469#L622
-* Boot log: https://qa-reports.linaro.org/api/testruns/28679128/log_file/
-* Boot warning:
-https://regressions.linaro.org/lkft/linux-next-master/next-20250605/log-parser-boot/exception-warning-cpu-pid-at-kerneltimeclockevents-cev_delta2ns/
-* Build link:  https://storage.tuxsuite.com/public/linaro/lkft/builds/2y4wgEvmeoVH3Vr528M4YN2OBXY/
-* Kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2y4wgEvmeoVH3Vr528M4YN2OBXY/config
-
---
-Linaro LKFT
-https://lkft.linaro.org
 
