@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC5FC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55393C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gXPNgQ8R4em34zlLDlZZ+0eTK9mlCISpwFo17g9ndzA=; b=teu43Ua7lomwJZmg+GAvgULGXU
-	YWOX2WeAFlsLhK4hpSVexJycDj0V7DPFIBaeZdO1gqH6yibjn2Q2dckUrzkz+cB6o3oUvK61vaD53
-	H4mflAoUMLZ6KKyfjtcyZA/TqS0hXGa/LRCBVOA/yvQWacxs1WgKbYp7b/1+H17P7QqZuXXDFOazO
-	s28tvoC/V3Lu3Pl4vSoGwn2w6ATiA1B9k56UTC1xVM47OIaY8IlscRBLwmR1Iw3jB6dmo55C6H7nF
-	MklCFwySwgSbBRooUVjMOA/tJsaRmzJDF+GRDNwm60KRy8YS+W0JcBky3qK9la3zAVDPkOKQaoXCA
-	7cUW+/Lg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tcGjV4BEwydwsHiHpYYqEFPkb3gZ2VyAD/ba+IDloBw=; b=gx6zNZCFNBGVYUuHlCr+2kEbim
+	HCMGBrRjo2e+kFpIn1zcOYk6SB0moYaf3eZU5wFG7h4MfE/vaPt3BxpGQoX/ObcBKIfbGGTpSije6
+	2ZcKiiIHuOcNReYEP8fu+ojW6ZDyDIDLHmh88ZG4ZLhfuLWZ+vgEy9Ls1/BxPUCUkH3C2kzG0YIba
+	9OOCcMwLIYMmgbCJ5tqsyPb3bseGq0pT0mPoJuw+VIUoNcGYssU3NIoC/SaFQhCkMjBFIcAn53LfI
+	4i9aALBKY4aIXpKvrJp1VDphPsl5g0MP05p2ABZzuo+RU91b2vxyKG9sC0xmrCc2lPw+RIxsPLq0F
+	i1KcPE5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvCx-00000006K4J-3eLp;
-	Tue, 10 Jun 2025 09:23:51 +0000
+	id 1uOvF5-00000006KT7-2dIR;
+	Tue, 10 Jun 2025 09:26:03 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOv0U-00000006HXV-3azV
+	id 1uOv0V-00000006HXb-2lBF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 09:11:00 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55A8Bhap030186;
+	Tue, 10 Jun 2025 09:11:01 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55A7bF0v000778;
 	Tue, 10 Jun 2025 11:10:39 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=gXPNgQ8R4em34zlLDlZZ+0
-	eTK9mlCISpwFo17g9ndzA=; b=bFql7YiFA77Z/Em78XCZZihmsqEvC4dIueNQDK
-	ZBfGObSJfxjWOhY6RnK6aCkSitigJ4TMjohCGAG3k9jyCCCaa4rSymi5pZsBmOBQ
-	bRv8amW+We7g4kaLUeZITVaFkfAx8wc5kkCBlqPUlrZ2j37HBTa7zO/UlYO5qO4L
-	9az7PuIJ/tSdYBbIxpNcHTs9f4WMcKMX3/o8iMp9KznVEJFDX5d9U2E+VAlGKyTj
-	zdUhUfyWTHdHOuQP8Qde+9kF2W6qTH22yWilG8ZAaNoxnlRtyPjzSjPYBnoc4zVP
-	bDfi9AhJZTZ5gSFBpOuR9G51ljQavG50EvcyttnJNGLFK+qg==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	tcGjV4BEwydwsHiHpYYqEFPkb3gZ2VyAD/ba+IDloBw=; b=DQKw2tA4hxv8n4Cb
+	D6oLLm6x14PzpRLsI2WwkG0yRhvhrdLCuGahMutFrsqwnGlCiAFI5JUaXAg3FH+C
+	zfiwD/oZrIAsK09UqgnzHq3x+LlRJ0TyziECrMafameolwFzYsWRvryfzqlroy87
+	qbnz6Rai7W8G1SGDdTRLcz1BHzIm8Nr0bu8vdpO12HyNaCilXHnUj48uwlyXD0Xe
+	l5SFKE9HZcs87SNJEN4G/nIV1fi0m2rUYWHWwu7ki3RD/uVf82N1qa5KgwWFRdKk
+	sDN4TGHT3pyZdQOxd7XntrlsEMrYYgmRlX6ybRCENQ5vPU+Z7EtgdPTVU9nEO8l9
+	nEKA8A==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cs2kx41-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aumc8f4-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 10 Jun 2025 11:10:39 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 535D740050;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 53EDD40051;
 	Tue, 10 Jun 2025 11:09:31 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7C0A4210227;
-	Tue, 10 Jun 2025 11:07:36 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C1A8F21023E;
+	Tue, 10 Jun 2025 11:07:37 +0200 (CEST)
 Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 11:07:36 +0200
+ 2025 11:07:37 +0200
 From: Christian Bruel <christian.bruel@foss.st.com>
 To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>,
         <kwilczynski@kernel.org>, <mani@kernel.org>, <robh@kernel.org>,
@@ -64,10 +65,12 @@ To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>,
 CC: <linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v12 0/9] Add STM32MP25 PCIe drivers
-Date: Tue, 10 Jun 2025 11:07:05 +0200
-Message-ID: <20250610090714.3321129-1-christian.bruel@foss.st.com>
+Subject: [PATCH v12 2/9] PCI: stm32: Add PCIe host support for STM32MP25
+Date: Tue, 10 Jun 2025 11:07:07 +0200
+Message-ID: <20250610090714.3321129-3-christian.bruel@foss.st.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250610090714.3321129-1-christian.bruel@foss.st.com>
+References: <20250610090714.3321129-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -78,8 +81,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-10_03,2025-06-09_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_021059_185186_C52B191D 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20250610_021059_978357_1E225F3E 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,116 +97,453 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v12;
-   Fix warning reported by kernel test robot <lkp@intel.com>
+Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
+controller based on the DesignWare PCIe core.
 
-Changes in v11;
-   Address comments from Manivanna:
-   - RC driver: Do not call pm_runtime_get_noresume in probe
-                More uses of dev_err_probe
-   - EP driver: Use level triggered PERST# irq
+Supports MSI via GICv2m, Single Virtual Channel, Single Function
 
-Changes in v10;
-   - Update pcie_ep bindings with dbi2 and atu regs,
-     thus remove Reviewed-by and Acked-by.
-   
-Changes in v9:
-   - Describe atu and dbi2 shadowed registers in pcie_ep node
-   Address RC and EP drivers comments from Manivanna:
-   - Use dev_error_probe() for pm_runtime_enable() calls
-   - Reword Kconfig help message
-   - Move pm_runtime_get_noresume() before devm_pm_runtime_enable()
+Supports WAKE# GPIO.
 
-Changes in v8:
-   - Whitespace in comment
-   
-Changes in v7:
-   - Use device_init_wakeup to enable wakeup
-   - Fix comments (Bjorn)
-
-Changes in v6:
-   - Call device_wakeup_enable() to fix WAKE# wakeup.
-   Address comments from Manivanna:
-   - Fix/Add Comments
-   - Fix DT indents
-   - Remove dw_pcie_ep_linkup() in EP start link
-   - Add PCIE_T_PVPERL_MS delay in RC PERST# deassert
-   
-Changes in v5:
-   Address driver comments from Manivanna:
-   - Use dw_pcie_{suspend/resume}_noirq instead of private ones.
-   - Move dw_pcie_host_init() to probe
-   - Add stm32_remove_pcie_port cleanup function
-   - Use of_node_put in stm32_pcie_parse_port
-   - Remove wakeup-source property
-   - Use generic dev_pm_set_dedicated_wake_irq to support wake# irq
-   
-Changes in v4:
-   Address bindings comments Rob Herring
-   - Remove phy property form common yaml
-   - Remove phy-name property
-   - Move wake_gpio and reset_gpio to the host root port
-   
-Changes in v3:
-   Address comments from Manivanna, Rob and Bjorn:
-   - Move host wakeup helper to dwc core (Mani)
-   - Drop num-lanes=<1> from bindings (Rob)
-   - Fix PCI address of I/O region (Mani)
-   - Moved PHY to a RC rootport subsection (Bjorn, Mani)
-   - Replaced dma-limit quirk by dma-ranges property (Bjorn)
-   - Moved out perst assert/deassert from start/stop link (Mani)
-   - Drop link_up test optim (Mani)
-   - DT and comments rephrasing (Bjorn)
-   - Add dts entries now that the combophy entries has landed
-   - Drop delaying Configuration Requests
-
-Changes in v2:
-   - Fix st,stm32-pcie-common.yaml dt_binding_check	
-
-Changes in v1:
-   Address comments from Rob Herring and Bjorn Helgaas:
-   - Drop st,limit-mrrs and st,max-payload-size from this patchset
-   - Remove single reset and clocks binding names and misc yaml cleanups
-   - Split RC/EP common bindings to a separate schema file
-   - Use correct PCIE_T_PERST_CLK_US and PCIE_T_RRS_READY_MS defines
-   - Use .remove instead of .remove_new
-   - Fix bar reset sequence in EP driver
-   - Use cleanup blocks for error handling
-   - Cosmetic fixes
-
-Christian Bruel (9):
-  dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
-  PCI: stm32: Add PCIe host support for STM32MP25
-  dt-bindings: PCI: Add STM32MP25 PCIe Endpoint bindings
-  PCI: stm32: Add PCIe Endpoint support for STM32MP25
-  MAINTAINERS: add entry for ST STM32MP25 PCIe drivers
-  arm64: dts: st: add PCIe pinctrl entries in stm32mp25-pinctrl.dtsi
-  arm64: dts: st: Add PCIe Root Complex mode on stm32mp251
-  arm64: dts: st: Add PCIe Endpoint mode on stm32mp251
-  arm64: dts: st: Enable PCIe on the stm32mp257f-ev1 board
-
- .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++
- .../bindings/pci/st,stm32-pcie-ep.yaml        |  73 ++++
- .../bindings/pci/st,stm32-pcie-host.yaml      | 112 +++++
- MAINTAINERS                                   |   7 +
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |  20 +
- arch/arm64/boot/dts/st/stm32mp251.dtsi        |  59 +++
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |  21 +
- drivers/pci/controller/dwc/Kconfig            |  24 ++
- drivers/pci/controller/dwc/Makefile           |   2 +
- drivers/pci/controller/dwc/pcie-stm32-ep.c    | 384 ++++++++++++++++++
- drivers/pci/controller/dwc/pcie-stm32.c       | 368 +++++++++++++++++
- drivers/pci/controller/dwc/pcie-stm32.h       |  16 +
- 12 files changed, 1119 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-ep.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
- create mode 100644 drivers/pci/controller/dwc/pcie-stm32-ep.c
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+ drivers/pci/controller/dwc/Kconfig      |  12 +
+ drivers/pci/controller/dwc/Makefile     |   1 +
+ drivers/pci/controller/dwc/pcie-stm32.c | 368 ++++++++++++++++++++++++
+ drivers/pci/controller/dwc/pcie-stm32.h |  15 +
+ 4 files changed, 396 insertions(+)
  create mode 100644 drivers/pci/controller/dwc/pcie-stm32.c
  create mode 100644 drivers/pci/controller/dwc/pcie-stm32.h
 
-
-base-commit: b27cc623e01be9de1580eaa913508b237a7a9673
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index d9f0386396ed..387151f25f5f 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -410,6 +410,18 @@ config PCIE_SPEAR13XX
+ 	help
+ 	  Say Y here if you want PCIe support on SPEAr13XX SoCs.
+ 
++config PCIE_STM32_HOST
++	tristate "STMicroelectronics STM32MP25 PCIe Controller (host mode)"
++	depends on ARCH_STM32 || COMPILE_TEST
++	depends on PCI_MSI
++	select PCIE_DW_HOST
++	help
++	  Enables Root Complex (RC) support for the DesignWare core based PCIe
++	  controller found in STM32MP25 SoC.
++
++	  This driver can also be built as a module. If so, the module
++	  will be called pcie-stm32.
++
+ config PCI_DRA7XX
+ 	tristate
+ 
+diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+index 908cb7f345db..9d3b43504725 100644
+--- a/drivers/pci/controller/dwc/Makefile
++++ b/drivers/pci/controller/dwc/Makefile
+@@ -30,6 +30,7 @@ obj-$(CONFIG_PCIE_UNIPHIER) += pcie-uniphier.o
+ obj-$(CONFIG_PCIE_UNIPHIER_EP) += pcie-uniphier-ep.o
+ obj-$(CONFIG_PCIE_VISCONTI_HOST) += pcie-visconti.o
+ obj-$(CONFIG_PCIE_RCAR_GEN4) += pcie-rcar-gen4.o
++obj-$(CONFIG_PCIE_STM32_HOST) += pcie-stm32.o
+ 
+ # The following drivers are for devices that use the generic ACPI
+ # pci_root.c driver but don't support standard ECAM config access.
+diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
+new file mode 100644
+index 000000000000..6bf1b63f88c6
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-stm32.c
+@@ -0,0 +1,368 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * STMicroelectronics STM32MP25 PCIe root complex driver.
++ *
++ * Copyright (C) 2025 STMicroelectronics
++ * Author: Christian Bruel <christian.bruel@foss.st.com>
++ */
++
++#include <linux/clk.h>
++#include <linux/mfd/syscon.h>
++#include <linux/of_platform.h>
++#include <linux/phy/phy.h>
++#include <linux/pinctrl/devinfo.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/pm_wakeirq.h>
++#include <linux/regmap.h>
++#include <linux/reset.h>
++#include "pcie-designware.h"
++#include "pcie-stm32.h"
++#include "../../pci.h"
++
++struct stm32_pcie {
++	struct dw_pcie pci;
++	struct regmap *regmap;
++	struct reset_control *rst;
++	struct phy *phy;
++	struct clk *clk;
++	struct gpio_desc *perst_gpio;
++	struct gpio_desc *wake_gpio;
++};
++
++static void stm32_pcie_deassert_perst(struct stm32_pcie *stm32_pcie)
++{
++	/* Delay PERST# de-assertion until the power stabilizes */
++	msleep(PCIE_T_PVPERL_MS);
++
++	gpiod_set_value(stm32_pcie->perst_gpio, 0);
++
++	/* Wait for the REFCLK to stabilize */
++	if (stm32_pcie->perst_gpio)
++		msleep(PCIE_T_RRS_READY_MS);
++}
++
++static void stm32_pcie_assert_perst(struct stm32_pcie *stm32_pcie)
++{
++	gpiod_set_value(stm32_pcie->perst_gpio, 1);
++}
++
++static int stm32_pcie_start_link(struct dw_pcie *pci)
++{
++	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
++
++	return regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
++				  STM32MP25_PCIECR_LTSSM_EN,
++				  STM32MP25_PCIECR_LTSSM_EN);
++}
++
++static void stm32_pcie_stop_link(struct dw_pcie *pci)
++{
++	struct stm32_pcie *stm32_pcie = to_stm32_pcie(pci);
++
++	regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
++			   STM32MP25_PCIECR_LTSSM_EN, 0);
++}
++
++static int stm32_pcie_suspend_noirq(struct device *dev)
++{
++	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
++	int ret;
++
++	ret = dw_pcie_suspend_noirq(&stm32_pcie->pci);
++	if (ret)
++		return ret;
++
++	stm32_pcie_assert_perst(stm32_pcie);
++
++	clk_disable_unprepare(stm32_pcie->clk);
++
++	if (!device_wakeup_path(dev))
++		phy_exit(stm32_pcie->phy);
++
++	return pinctrl_pm_select_sleep_state(dev);
++}
++
++static int stm32_pcie_resume_noirq(struct device *dev)
++{
++	struct stm32_pcie *stm32_pcie = dev_get_drvdata(dev);
++	int ret;
++
++	/*
++	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
++	 * thus if no device is present, must force it low with an init pinmux
++	 * to be able to access the DBI registers.
++	 */
++	if (!IS_ERR(dev->pins->init_state))
++		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
++	else
++		ret = pinctrl_pm_select_default_state(dev);
++
++	if (ret) {
++		dev_err(dev, "Failed to activate pinctrl pm state: %d\n", ret);
++		return ret;
++	}
++
++	if (!device_wakeup_path(dev)) {
++		ret = phy_init(stm32_pcie->phy);
++		if (ret) {
++			pinctrl_pm_select_default_state(dev);
++			return ret;
++		}
++	}
++
++	ret = clk_prepare_enable(stm32_pcie->clk);
++	if (ret)
++		goto err_phy_exit;
++
++	stm32_pcie_deassert_perst(stm32_pcie);
++
++	ret = dw_pcie_resume_noirq(&stm32_pcie->pci);
++	if (ret)
++		goto err_disable_clk;
++
++	pinctrl_pm_select_default_state(dev);
++
++	return 0;
++
++err_disable_clk:
++	stm32_pcie_assert_perst(stm32_pcie);
++	clk_disable_unprepare(stm32_pcie->clk);
++
++err_phy_exit:
++	phy_exit(stm32_pcie->phy);
++	pinctrl_pm_select_default_state(dev);
++
++	return ret;
++}
++
++static const struct dev_pm_ops stm32_pcie_pm_ops = {
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(stm32_pcie_suspend_noirq,
++				  stm32_pcie_resume_noirq)
++};
++
++static const struct dw_pcie_host_ops stm32_pcie_host_ops = {
++};
++
++static const struct dw_pcie_ops dw_pcie_ops = {
++	.start_link = stm32_pcie_start_link,
++	.stop_link = stm32_pcie_stop_link
++};
++
++static int stm32_add_pcie_port(struct stm32_pcie *stm32_pcie)
++{
++	struct device *dev = stm32_pcie->pci.dev;
++	unsigned int wake_irq;
++	int ret;
++
++	/* Start to enable resources with PERST# asserted */
++
++	ret = phy_set_mode(stm32_pcie->phy, PHY_MODE_PCIE);
++	if (ret)
++		return ret;
++
++	ret = phy_init(stm32_pcie->phy);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(stm32_pcie->regmap, SYSCFG_PCIECR,
++				 STM32MP25_PCIECR_TYPE_MASK,
++				 STM32MP25_PCIECR_RC);
++	if (ret)
++		goto err_phy_exit;
++
++	stm32_pcie_deassert_perst(stm32_pcie);
++
++	if (stm32_pcie->wake_gpio) {
++		wake_irq = gpiod_to_irq(stm32_pcie->wake_gpio);
++		ret = dev_pm_set_dedicated_wake_irq(dev, wake_irq);
++		if (ret) {
++			dev_err(dev, "Failed to enable wakeup irq %d\n", ret);
++			goto err_assert_perst;
++		}
++		irq_set_irq_type(wake_irq, IRQ_TYPE_EDGE_FALLING);
++	}
++
++	return 0;
++
++err_assert_perst:
++	stm32_pcie_assert_perst(stm32_pcie);
++
++err_phy_exit:
++	phy_exit(stm32_pcie->phy);
++
++	return ret;
++}
++
++static void stm32_remove_pcie_port(struct stm32_pcie *stm32_pcie)
++{
++	dev_pm_clear_wake_irq(stm32_pcie->pci.dev);
++
++	stm32_pcie_assert_perst(stm32_pcie);
++
++	phy_exit(stm32_pcie->phy);
++}
++
++static int stm32_pcie_parse_port(struct stm32_pcie *stm32_pcie)
++{
++	struct device *dev = stm32_pcie->pci.dev;
++	struct device_node *root_port;
++
++	root_port = of_get_next_available_child(dev->of_node, NULL);
++
++	stm32_pcie->phy = devm_of_phy_get(dev, root_port, NULL);
++	if (IS_ERR(stm32_pcie->phy)) {
++		of_node_put(root_port);
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->phy),
++				     "Failed to get pcie-phy\n");
++	}
++
++	stm32_pcie->perst_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
++						       "reset", GPIOD_OUT_HIGH, NULL);
++	if (IS_ERR(stm32_pcie->perst_gpio)) {
++		if (PTR_ERR(stm32_pcie->perst_gpio) != -ENOENT) {
++			of_node_put(root_port);
++			return dev_err_probe(dev, PTR_ERR(stm32_pcie->perst_gpio),
++					     "Failed to get reset GPIO\n");
++		}
++		stm32_pcie->perst_gpio = NULL;
++	}
++
++	stm32_pcie->wake_gpio = devm_fwnode_gpiod_get(dev, of_fwnode_handle(root_port),
++						      "wake", GPIOD_IN, NULL);
++
++	if (IS_ERR(stm32_pcie->wake_gpio)) {
++		if (PTR_ERR(stm32_pcie->wake_gpio) != -ENOENT) {
++			of_node_put(root_port);
++			return dev_err_probe(dev, PTR_ERR(stm32_pcie->wake_gpio),
++					     "Failed to get wake GPIO\n");
++		}
++		stm32_pcie->wake_gpio = NULL;
++	}
++
++	of_node_put(root_port);
++
++	return 0;
++}
++
++static int stm32_pcie_probe(struct platform_device *pdev)
++{
++	struct stm32_pcie *stm32_pcie;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	stm32_pcie = devm_kzalloc(dev, sizeof(*stm32_pcie), GFP_KERNEL);
++	if (!stm32_pcie)
++		return -ENOMEM;
++
++	stm32_pcie->pci.dev = dev;
++	stm32_pcie->pci.ops = &dw_pcie_ops;
++	stm32_pcie->pci.pp.ops = &stm32_pcie_host_ops;
++
++	stm32_pcie->regmap = syscon_regmap_lookup_by_compatible("st,stm32mp25-syscfg");
++	if (IS_ERR(stm32_pcie->regmap))
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->regmap),
++				     "No syscfg specified\n");
++
++	stm32_pcie->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(stm32_pcie->clk))
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->clk),
++				     "Failed to get PCIe clock source\n");
++
++	stm32_pcie->rst = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(stm32_pcie->rst))
++		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
++				     "Failed to get PCIe reset\n");
++
++	ret = stm32_pcie_parse_port(stm32_pcie);
++	if (ret)
++		return ret;
++
++	platform_set_drvdata(pdev, stm32_pcie);
++
++	ret = stm32_add_pcie_port(stm32_pcie);
++	if (ret)
++		return ret;
++
++	reset_control_assert(stm32_pcie->rst);
++	reset_control_deassert(stm32_pcie->rst);
++
++	ret = clk_prepare_enable(stm32_pcie->clk);
++	if (ret) {
++		dev_err(dev, "Core clock enable failed %d\n", ret);
++		goto err_remove_port;
++	}
++
++	ret = pm_runtime_set_active(dev);
++	if (ret < 0) {
++		clk_disable_unprepare(stm32_pcie->clk);
++		stm32_remove_pcie_port(stm32_pcie);
++		return dev_err_probe(dev, ret, "Failed to activate runtime PM\n");
++	}
++
++	pm_runtime_no_callbacks(dev);
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret < 0) {
++		clk_disable_unprepare(stm32_pcie->clk);
++		stm32_remove_pcie_port(stm32_pcie);
++		return dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
++	}
++
++	ret = dw_pcie_host_init(&stm32_pcie->pci.pp);
++	if (ret)
++		goto err_disable_clk;
++
++	if (stm32_pcie->wake_gpio)
++		device_init_wakeup(dev, true);
++
++	return 0;
++
++err_disable_clk:
++	clk_disable_unprepare(stm32_pcie->clk);
++
++err_remove_port:
++	stm32_remove_pcie_port(stm32_pcie);
++
++	return ret;
++}
++
++static void stm32_pcie_remove(struct platform_device *pdev)
++{
++	struct stm32_pcie *stm32_pcie = platform_get_drvdata(pdev);
++	struct dw_pcie_rp *pp = &stm32_pcie->pci.pp;
++
++	if (stm32_pcie->wake_gpio)
++		device_init_wakeup(&pdev->dev, false);
++
++	dw_pcie_host_deinit(pp);
++
++	clk_disable_unprepare(stm32_pcie->clk);
++
++	stm32_remove_pcie_port(stm32_pcie);
++
++	pm_runtime_put_noidle(&pdev->dev);
++}
++
++static const struct of_device_id stm32_pcie_of_match[] = {
++	{ .compatible = "st,stm32mp25-pcie-rc" },
++	{},
++};
++
++static struct platform_driver stm32_pcie_driver = {
++	.probe = stm32_pcie_probe,
++	.remove = stm32_pcie_remove,
++	.driver = {
++		.name = "stm32-pcie",
++		.of_match_table = stm32_pcie_of_match,
++		.pm = &stm32_pcie_pm_ops,
++		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
++	},
++};
++
++module_platform_driver(stm32_pcie_driver);
++
++MODULE_AUTHOR("Christian Bruel <christian.bruel@foss.st.com>");
++MODULE_DESCRIPTION("STM32MP25 PCIe Controller driver");
++MODULE_LICENSE("GPL");
++MODULE_DEVICE_TABLE(of, stm32_pcie_of_match);
+diff --git a/drivers/pci/controller/dwc/pcie-stm32.h b/drivers/pci/controller/dwc/pcie-stm32.h
+new file mode 100644
+index 000000000000..387112c4e42c
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-stm32.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * ST PCIe driver definitions for STM32-MP25 SoC
++ *
++ * Copyright (C) 2025 STMicroelectronics - All Rights Reserved
++ * Author: Christian Bruel <christian.bruel@foss.st.com>
++ */
++
++#define to_stm32_pcie(x)	dev_get_drvdata((x)->dev)
++
++#define STM32MP25_PCIECR_TYPE_MASK	GENMASK(11, 8)
++#define STM32MP25_PCIECR_LTSSM_EN	BIT(2)
++#define STM32MP25_PCIECR_RC		BIT(10)
++
++#define SYSCFG_PCIECR			0x6000
 -- 
 2.34.1
 
