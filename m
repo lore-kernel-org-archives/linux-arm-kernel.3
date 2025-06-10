@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE326C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 05:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E37EC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 05:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ubVv6Vi59J/Kq5R4zgkakD6l3jcATZeCXAQgr62ypkg=; b=0FFBCeHpOqYLtkhW2b6FMrc2Vm
-	XUe61my42DRkda3IpbAP9Rk5QAKhlT6z/xyzQARCMiXWEH0D8ErqphgojupsAhPtTbPz6ZDmlrfNj
-	zGc3VBpLgHv8FPtOM13Yrnkj7OCWyPBiliTSaSDcg+tYmmHb5EohYKR8IBuEeSweoOb0MSHrkB+3/
-	nBmZ46QpXh22b0hna99A+BeWPGVXg5w0Fhz2q+/kGN5THuWaHBDgPf0f9z2Q6BtKsCHLfDNMDZmJL
-	7qr+PsiqXld+3h1VL75ly88tcoI/Tu3poksi5Z1Iro8ENE2FY+Y/aIC+NYPsLBMIcIZXLyzVB15Ey
-	rXYgei2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MvTNYoYv/628Jc3bkdfKEJm6A34cEdSBtwrhLPTsztQ=; b=HKTh4hRfe6AZHXbCcXIDeqNXrB
+	dLhARSQ076l3azWdWaRjHpgO5EUpMkHmt0LSprLKangGkdffms6NDvyzeya21oi0PTMwcFnBeOyqv
+	F9QAnYuXzewUBXQBx1cqyNCLA7D95dcjFODuRHwdpe6t/5J65Le/bdArKdjjGnxI7pDP4B0jRh1M9
+	TC5OlMzwzK6HwA/lzgJGus7KBKKuiICSmWAiJmAU8SDPmakC+pMiOwcvWdm6q8Sgh2jqATjB3gfrp
+	U8P6kNsJLpIty0A3iC1Kg5n2NJjPCT0Ckwh7EsK4onQTc7s8aFyreJBK3AT1y5ll1T5yokIWpXpE7
+	rja6Q83A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOrvl-00000005sIP-3vpc;
-	Tue, 10 Jun 2025 05:53:53 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uOs02-00000005sfr-3Ziz;
+	Tue, 10 Jun 2025 05:58:18 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOrtE-00000005s6L-3ZMD
+	id 1uOrxu-00000005sVW-0M1S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 05:51:18 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55A5p5PG990140;
-	Tue, 10 Jun 2025 00:51:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749534665;
-	bh=ubVv6Vi59J/Kq5R4zgkakD6l3jcATZeCXAQgr62ypkg=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=uF0srVgCv6ggp9b0C3x1VOobnO00RD68u0yRg5Abo668OpX5uvAfJ8veVlz4g6JEe
-	 kNBzZjvmzL8uobW7nAjH047J54JyXWC42gDRlkRgKEFBKFb2btsOQxOwEgl/NjS0ow
-	 Axtd3/gx00w8KS1NcyPv41eqDSy0J/0KWDssv/3s=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55A5p5551902086
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 10 Jun 2025 00:51:05 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 10
- Jun 2025 00:51:05 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 10 Jun 2025 00:51:05 -0500
-Received: from localhost ([172.24.227.169])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55A5p4ic2424215;
-	Tue, 10 Jun 2025 00:51:04 -0500
-Date: Tue, 10 Jun 2025 11:21:03 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Hrushikesh Salunke <h-salunke@ti.com>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <s-vadapalli@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <danishanwar@ti.com>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-am642-evm-pcie0-ep: Add boot phase
- tag to "pcie0_ep"
-Message-ID: <88554900-b280-425f-b79d-d065b10290a5@ti.com>
-References: <20250610054920.2395509-1-h-salunke@ti.com>
+	Tue, 10 Jun 2025 05:56:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749534966; x=1781070966;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=G4e/2eOK6ny5QB/E7KrW01XPlfzZ3rtlWZTAQU/NK50=;
+  b=iMOeNgNx8E8W5+H3Y3jwEzFcStzJJ2y6adRXi+OZGr6rvizCuITKpWOM
+   CS8dMW+jBohYflwIAJRW7ETFYVFQTWCWweBKVUEbs86NIRq5vRWzvkz1H
+   ubTx/TMveQ+e3ad1DN3X4BBl59EuM/D8/ylKdfD5edakp+w1uchNBuIFg
+   /GUZfwD1DC28Frp/wNl0qK+rMSfHijYc9CUQ0fqqfQlyBfIytv/vV4Y8A
+   ZLXW1IRW1N8zBHxhVeWZW0emKoYsMPhT1gcQXYcHaNifTOp+O4Y/qMxOI
+   VMdzF0mOtKofPsxmX8ASU3WNQgxce8fNdT0kMcYQeHrz7jE4kEwYPvwjf
+   g==;
+X-CSE-ConnectionGUID: yMLR8KymSD21m5gOrOha5Q==
+X-CSE-MsgGUID: 2LMJA3SLRvKFi1CoZx0wmg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11459"; a="51619309"
+X-IronPort-AV: E=Sophos;i="6.16,224,1744095600"; 
+   d="scan'208";a="51619309"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2025 22:56:00 -0700
+X-CSE-ConnectionGUID: iwtgq3SFR1qHMUrMNb3N1Q==
+X-CSE-MsgGUID: +iV+ck/8TO6QZ8hxjHdHGQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,224,1744095600"; 
+   d="scan'208";a="147692069"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2025 22:55:56 -0700
+Message-ID: <663c7eee-5a3a-48e5-8bed-8abad62f3484@linux.intel.com>
+Date: Tue, 10 Jun 2025 13:55:05 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250610054920.2395509-1-h-salunke@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 08/12] iommufd/viommu: Replace ops->viommu_alloc with
+ ops->viommu_init
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+ ddutile@redhat.com, yi.l.liu@intel.com, peterz@infradead.org,
+ jsnitsel@redhat.com, praan@google.com, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org, patches@lists.linux.dev
+References: <cover.1749488870.git.nicolinc@nvidia.com>
+ <5586990446e4c97827b5a195622ec0f8cf9d2d67.1749488870.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <5586990446e4c97827b5a195622ec0f8cf9d2d67.1749488870.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_225116_977029_3525C10D 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250609_225606_228563_4D34E2AE 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,16 +89,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 11:19:20AM +0530, Hrushikesh Salunke wrote:
-> AM64X SoC has one instance of PCIe which is PCIe0. To support PCIe boot
-> on AM64X SoC, PCIe0 needs to be in endpoint mode and it needs to be
-> functional at all stages of PCIe boot process. Thus add the
-> "bootph-all" boot phase tag to "pcie0_ep" device tree node.
+On 6/10/25 01:13, Nicolin Chen wrote:
+> To ease the for-driver iommufd APIs, get_viommu_size and viommu_init ops
+> are introduced. Now, those existing vIOMMU supported drivers implemented
+> these two ops too.
 > 
-> Signed-off-by: Hrushikesh Salunke <h-salunke@ti.com>
+> Relace the ops->viommu_alloc call with the two new ones.
+> 
+> Note that this will fail a !viommu->ops case from now on, since a vIOMMU
+> is expected to support alloc_domain_nested at least.
 
-Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Does this mean that the viommu implementation in the iommu driver is
+required to implement alloc_domain_nested? I suppose viommu should soon
+be extended to support TEE/IO.
 
-Regards,
-Siddharth.
+> 
+> Suggested-by: Jason Gunthorpe<jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/iommufd/viommu.c | 30 +++++++++++++++++++++++++++---
+>   1 file changed, 27 insertions(+), 3 deletions(-)
+> 
+
+<...>
+
+> @@ -68,6 +82,16 @@ int iommufd_viommu_alloc_ioctl(struct iommufd_ucmd *ucmd)
+>   	 */
+>   	viommu->iommu_dev = __iommu_get_iommu_dev(idev->dev);
+>   
+> +	rc = ops->viommu_init(viommu, hwpt_paging->common.domain);
+> +	if (rc)
+> +		goto out_abort;
+> +
+> +	/* It is a driver bug that viommu->ops isn't filled */
+> +	if (WARN_ON_ONCE(!viommu->ops)) {
+> +		rc = -EINVAL;
+> +		goto out_abort;
+> +	}
+> +
+>   	cmd->out_viommu_id = viommu->obj.id;
+>   	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
+>   	if (rc)
+
+Thanks,
+baolu
 
