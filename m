@@ -4,103 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61357C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 00:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B96C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 00:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+Mj+r8r7UAjF4+0LNUZhsvI8NJHwfinPsCt24LIifo=; b=w+taD6EeqH5fi3iD2l1M0ykr0I
-	rYHRffg1QhpIn1oimOaexnfZ+S6H2R+Bg7EfwusS5oB5ACl2tjU+T/sEFygOgoDfcaCrYCcPRagyp
-	CMCaGUREu5n/C6fkg3pKNkZb8QCwQh+lov6g/fN9+sYctBDdbFEATTz6hfYL9OK1/hEQ/VrngZoM4
-	549v+zbWInLB1dMTs+4YcywFDyWGYNGy49JzD5bVqOa7mvjJ0lEaKXIEZNw0PGarUqCSQjhYlVnpl
-	VNgrSypjl5M89Tu8/ZkfXSB53JavgoKkeeFbE5nQhWmB1/1VC5Xsb7bbacnzob1znXMQmCnY+ahV0
-	SohlzTaw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yoolCrktKrQ0DqzoLMe7SabSkDhHjeFchBm7FftX1xY=; b=SxWexTPF9t4Ebn7E0fnfloI5Nh
+	gK7bTtiucfo2bVUuhWm+4vNy0vDiMqUsKuxW4V5NFueTLaM++X3GOXe1VfZFwWofX1Tn7JmagUM/G
+	0bfzJ0RtlKIe0ClUAqjYexFfRf/dPmWw1GwKDp5aVIgloxxfm2dWnYxNDv/SqLaFaH+rW9Bt6ks1d
+	4kaMKI45qHmpv4NhnzdsOXJsb+qJu5XO5OzBP6sMxxxDeL8Dsqns0tsm9OwVjJGUuVZO76rkzsCdY
+	kicOz09RNnC8fYux7wp+W5Zrzn9JyAJmYx/D1WO2BFVinJXaXK/Ks87blV1XHmDK13iz7uQMzpOtc
+	tkvbmASw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP9MV-00000008UPb-2cT1;
-	Wed, 11 Jun 2025 00:30:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uP9Ua-00000008Uhs-3Flt;
+	Wed, 11 Jun 2025 00:39:00 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP93Z-00000008SFo-1msN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 00:11:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=t+Mj+r8r7UAjF4+0LNUZhsvI8NJHwfinPsCt24LIifo=; b=HnMazRVk1jCWTt5l39Bvkc8+aq
-	uYsLfKraF7kT4VrwuFOnjcMHPbE8zV7Gc4fvA2KaeqwRQ3reWM3ZMWLr1Og8rUU7aUeZOT1t3rdJ0
-	sNUoObEtnh+NI9LH2Im+tm/UdbbPhajFV6M4fP015wJ/zX5y34JhY31x6wKNHN2xpDM33OtH6IgX7
-	bkUwoTEH0p8DHbclRZnlUcoByMUpLBFgU1qb6d85uXBZBuhAQzq3wSxF/00ZgdM5s9ovmdxGTrOoj
-	nRZj3y7aRu1Ow54nkqt1u6YONYBMdqAsMI7J9t5vK1WOWvGYN7yT55OQ3YFDL81DxXyjivBbu9JU1
-	bc/JVbyg==;
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP93X-000000022Ui-06zW
+	id 1uP8Rg-00000008OOf-35Hq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 00:11:04 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-748475d2a79so2410161b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 17:11:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749600659; x=1750205459; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=t+Mj+r8r7UAjF4+0LNUZhsvI8NJHwfinPsCt24LIifo=;
-        b=oAYpn/luT59nFlYSjGzpktDwLlRXQTfsjcsmFitCxyb9WCwlW/CbvTeDWSM1WDKElh
-         EZmzjyKLEPA6QgSDOg7UigrzEP56K7eI0HK9Dy0Ce9luvI8TPfF7aaCZ8u+Dl+6nIEtu
-         VrhztOu9kVUSyfje40ks1tz2r9KwmjyW3eV/dSee8Cn6ayUvZgDWQSJgYAdMwP4WdDny
-         D44S7KSiEk8sJEtbbYyUeQRLW2mnzWrLfUfrqMK5+PA5DM3lMjY/4U79cM1I6ejrIv5y
-         RGz376rBDodo0MlWpiVJO2et9vigL+jkZ4i+AG3PEcF0whqN0RSQePuLHuCSuKvj611V
-         IdIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749600659; x=1750205459;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t+Mj+r8r7UAjF4+0LNUZhsvI8NJHwfinPsCt24LIifo=;
-        b=qWKzSJ0vofMi3E0h+uR39hB7cfjl+/rwYG5dkH0b0WeBzUddTs6U46WDwScnGE0R8/
-         g7XxGR1X9itda8EZZBS34Lmzlt3Oma0vAoaffIpZ/CCL3DlZWNQY2v6n3h8lRGZxCHvs
-         96rgGZkwPFPXid8p8o4FPScuEXhFm/rGJuC5ZEIsqIcaKWJ0OFQLcZc5VYtEKw5KOH+A
-         yrj9yxLp49AIDQ3tG6cxQN1pc4jJDjL2a91DN9fr0vLYc9EHCwyH/fb4tdola9P5AMHu
-         nZNbA2t3xs0jF06Xs8fiDNbMXmhNMw6Yriz/d8DJJsgSbZy9eya4bzDFuW69D8JoNz5G
-         eVIw==
-X-Gm-Message-State: AOJu0Yx2Y7pBpT/mRHAu7+bJaYzPxB5cVCTF7QDaNcz42geQ2CNL2pWJ
-	rrWi4uR/SPT8UELjTRXMC9wETydWxFLbrTlQgxOo7sFNsWgAFpYH9zBRZxZATLQ0n8QPP1/eF9A
-	tpb214A==
-X-Google-Smtp-Source: AGHT+IHdKstC+XlYUus8Wdm0HR7HPxHMBlUy5ahB8xm3L+Y1hmecIZTBPJ5vhN4Gi0qdwz1eVbXtQ9xfH68=
-X-Received: from pgam16.prod.google.com ([2002:a05:6a02:2b50:b0:b2f:6348:f715])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:9012:b0:1f5:8f7f:8f19
- with SMTP id adf61e73a8af0-21f8663f76dmr1960513637.10.1749600659002; Tue, 10
- Jun 2025 17:10:59 -0700 (PDT)
-Date: Tue, 10 Jun 2025 17:10:42 -0700
-In-Reply-To: <20250611001042.170501-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250611001042.170501-1-seanjc@google.com>
-X-Mailer: git-send-email 2.50.0.rc0.642.g800a2b2222-goog
-Message-ID: <20250611001042.170501-9-seanjc@google.com>
-Subject: [PATCH 8/8] KVM: Standardize include paths across all architectures
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Anish Ghulati <aghulati@google.com>, Colton Lewis <coltonlewis@google.com>, 
-	Thomas Huth <thuth@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 10 Jun 2025 23:31:58 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1749598302;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yoolCrktKrQ0DqzoLMe7SabSkDhHjeFchBm7FftX1xY=;
+	b=Lya1RBkMqPAplov5/wq9KnKWKpPNxT78Xgh7Frue1nyDqCNCS1y7c1Wq//j8whdODOTAv6
+	dZPLiApe9kgLw7J5RNfVuLVnN6ke8tImnQqXNZQeBy1jxYG8PNxMIBQ9cLNt/JK3bvgh//
+	G06LFbN5rXVss5iole/8asmRl1ZKwtQ=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Simon Horman <horms@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lei Wei <quic_leiwei@quicinc.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@microchip.com>,
+	Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Robert Hancock <robert.hancock@calian.com>,
+	Saravana Kannan <saravanak@google.com>,
+	UNGLinuxDriver@microchip.com,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [net-next PATCH v6 00/10] Add PCS core support
+Date: Tue, 10 Jun 2025 19:31:24 -0400
+Message-Id: <20250610233134.3588011-1-sean.anderson@linux.dev>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_011103_156258_904A124A 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250610_163156_907690_0547DBE4 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,130 +95,151 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Standardize KVM's include paths across all architectures by declaring
-the KVM-specific includes in the common Makefile.kvm.  Having common KVM
-"own" the included paths reduces the temptation to unnecessarily add
-virt/kvm to arch include paths, and conversely if allowing arch code to
-grab headers from virt/kvm becomes desirable, virt/kvm can be added to
-all architecture's include path with a single line update.
+This series adds support for creating PCSs as devices on a bus with a
+driver (patch 3). As initial users,
 
-Having the common KVM makefile append to ccflags also provides a
-convenient location to append other things, e.g. KVM-specific #defines.
+- The Lynx PCS (and all of its users) is converted to this system
+  (patches 4-5)
+- The Xilinx PCS is broken out from the AXI Ethernet driver (patches 6-7)
+- The Cadence MACB driver is converted to support external PCSs (namely
+  the Xilinx PCS) (patches 8-9).
 
-Note, this changes the behavior of s390 and PPC, as s390 and PPC
-previously overwrote ccflags-y instead of adding on.  There is no evidence
-that overwriting ccflags-y was necessary or even deliberate, as both s390
-and PPC switched to the overwrite behavior without so much as a passing
-mention when EXTRA_CFLAGS was replaced with ccflags-y (commit c73028a02887
-("s390: change to new flag variable") and commit 4108d9ba9091
-("powerpc/Makefiles: Change to new flag variables")).
+Care has been taken to ensure backwards-compatibility. The main source
+of this is that many PCS devices lack compatibles and get detected as
+PHYs. To address this, pcs_get_by_fwnode_compat allows drivers to edit
+the devicetree to add appropriate compatibles.
 
-Acked-by: Anup Patel <anup@brainfault.org>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/arm64/kvm/Makefile   | 2 --
- arch/mips/kvm/Makefile    | 2 --
- arch/powerpc/kvm/Makefile | 2 --
- arch/riscv/kvm/Makefile   | 2 --
- arch/s390/kvm/Makefile    | 2 --
- arch/x86/kvm/Makefile     | 1 -
- virt/kvm/Makefile.kvm     | 2 ++
- 7 files changed, 2 insertions(+), 11 deletions(-)
+There is another series [1] with the same goal by Christian Marangi. In
+comparison, I believe this series
 
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 7c329e01c557..86035b311269 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -3,8 +3,6 @@
- # Makefile for Kernel-based Virtual Machine module
- #
- 
--ccflags-y += -I $(src)
--
- include $(srctree)/virt/kvm/Makefile.kvm
- 
- obj-$(CONFIG_KVM) += kvm.o
-diff --git a/arch/mips/kvm/Makefile b/arch/mips/kvm/Makefile
-index 96a7cd21b140..d198e1addea7 100644
---- a/arch/mips/kvm/Makefile
-+++ b/arch/mips/kvm/Makefile
-@@ -4,8 +4,6 @@
- 
- include $(srctree)/virt/kvm/Makefile.kvm
- 
--ccflags-y += -Iarch/mips/kvm
--
- kvm-$(CONFIG_CPU_HAS_MSA) += msa.o
- 
- kvm-y +=    mips.o emulate.o entry.o \
-diff --git a/arch/powerpc/kvm/Makefile b/arch/powerpc/kvm/Makefile
-index 1a575db2666e..6f12edd465df 100644
---- a/arch/powerpc/kvm/Makefile
-+++ b/arch/powerpc/kvm/Makefile
-@@ -3,8 +3,6 @@
- # Makefile for Kernel-based Virtual Machine module
- #
- 
--ccflags-y := -Iarch/powerpc/kvm
--
- include $(srctree)/virt/kvm/Makefile.kvm
- 
- common-objs-y += powerpc.o emulate_loadstore.o
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index 4e0bba91d284..dbe61a398cc8 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -3,8 +3,6 @@
- # Makefile for RISC-V KVM support
- #
- 
--ccflags-y += -I $(src)
--
- include $(srctree)/virt/kvm/Makefile.kvm
- 
- obj-$(CONFIG_KVM) += kvm.o
-diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
-index b742e08c036b..5cbcaa7f241a 100644
---- a/arch/s390/kvm/Makefile
-+++ b/arch/s390/kvm/Makefile
-@@ -5,8 +5,6 @@
- 
- include $(srctree)/virt/kvm/Makefile.kvm
- 
--ccflags-y := -Iarch/s390/kvm
--
- kvm-y += kvm-s390.o intercept.o interrupt.o priv.o sigp.o
- kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o gmap-vsie.o
- 
-diff --git a/arch/x86/kvm/Makefile b/arch/x86/kvm/Makefile
-index a5d362c7b504..f78f11b582d2 100644
---- a/arch/x86/kvm/Makefile
-+++ b/arch/x86/kvm/Makefile
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--ccflags-y += -I $(srctree)/arch/x86/kvm
- ccflags-$(CONFIG_KVM_WERROR) += -Werror
- 
- include $(srctree)/virt/kvm/Makefile.kvm
-diff --git a/virt/kvm/Makefile.kvm b/virt/kvm/Makefile.kvm
-index 724c89af78af..0e7ba49026fc 100644
---- a/virt/kvm/Makefile.kvm
-+++ b/virt/kvm/Makefile.kvm
-@@ -3,6 +3,8 @@
- # Makefile for Kernel-based Virtual Machine module
- #
- 
-+ccflags-y += -I$(src)
-+
- KVM ?= ../../../virt/kvm
- 
- kvm-y := $(KVM)/kvm_main.o $(KVM)/eventfd.o $(KVM)/binary_stats.o
+- Implements a simpler and more-robust method of PCS access.
+- Provides a more-direct upgrade path for existing MAC and PCS drivers.
+
+[1] https://lore.kernel.org/netdev/20250511201250.3789083-1-ansuelsmth@gmail.com/
+
+Changes in v6:
+- Define lynx_pcs_of_match only when OF_MATCH is enabled
+- Fix use of spin_lock instead of spin_unlock
+- Introduce config for compatibility helpers
+- Move axienet_pcs_fixup to AXI Ethernet commit
+- Reduce line lengths to under 80 characters
+- Remove duplicate include of phylink.h
+- Remove unneccessary Kconfig selects
+- Use an empty statement for next label
+- Use guard(srcu)
+
+Changes in v5:
+- Export get_phy_c22_id when it is used
+- Expose bind attributes, since there is no issue in doing so
+- Rebase onto net-next
+- Use MDIO_BUS instead of MDIO_DEVICE
+
+Changes in v4:
+- Add a note about the license
+- Adjust variable ordering in pcs_find_fwnode
+- Annotate pcs_wrapper.wrapped with __rcu
+- Fix PCS lookup functions missing ERR_PTR casts
+- Fix documentation for devm_pcs_register_full
+- Fix incorrect condition in pcs_post_config
+- Fix linking when PCS && !OF_DYNAMIC
+- Fix linking when PCS && OF_DYNAMIC && PHYLIB=m
+- Re-add documentation for axienet_xilinx_pcs_get that was accidentally
+  removed
+- Reduce line lengths to under 80 characters
+- Remove unused dev parameter to pcs_put
+- Use a spinlock instead of a mutex to protect pcs_wrappers
+
+Changes in v3:
+- Add '>' modifier for paragraph to description
+- Adjust axienet_xilinx_pcs_get for changes to pcs_find_fwnode API
+- Drop patches destined for other trees, as they have either already
+  been applied or are no longer necessary.
+- Edit description to reference clocks instead of resets
+- Remove support for #pcs-cells. Upon further investigation, the
+  requested functionality can be accomplished by specifying the PCS's
+  fwnode manually.
+- Select PCS_XILINX unconditionally
+
+Changes in v2:
+- Add fallbacks for pcs_get* and pcs_put
+- Add support for #pcs-cells
+- Change base compatible to just xlnx,pcs
+- Change compatible to just xlnx,pcs
+- Defer devicetree updates for another series
+- Drop #clock-cells description
+- Drop PCS_ALTERA_TSE which was accidentally added while rebasing
+- Move #clock-cells after compatible
+- Move update to macb_pcs_get_state to previous patch
+- Remove outdated comment
+- Remove second example
+- Remove unused variable
+- Remove unused variable lynx_properties
+- Rename pcs-modes to xlnx,pcs-modes
+- Reorder pcs_handle to come before suffix props
+- Reword commit message
+- Rework xilinx_pcs_validate to just clear out half-duplex modes instead
+  of constraining modes based on the interface.
+
+Sean Anderson (9):
+  dt-bindings: net: Add Xilinx PCS
+  net: phylink: Support setting PCS link change callbacks
+  net: pcs: Add subsystem
+  net: pcs: lynx: Convert to an MDIO driver
+  net: pcs: Add Xilinx PCS driver
+  net: axienet: Convert to use PCS subsystem
+  net: macb: Move most of mac_config to mac_prepare
+  net: macb: Support external PCSs
+  of: property: Add device link support for PCS
+
+Vladimir Oltean (1):
+  net: dsa: ocelot: suppress PHY device scanning on the internal MDIO
+    bus
+
+ .../devicetree/bindings/net/xilinx,pcs.yaml   | 114 ++++
+ Documentation/networking/index.rst            |   1 +
+ Documentation/networking/kapi.rst             |   4 +
+ Documentation/networking/pcs.rst              | 102 +++
+ MAINTAINERS                                   |   8 +
+ drivers/net/dsa/ocelot/felix_vsc9959.c        |  15 +-
+ drivers/net/dsa/ocelot/seville_vsc9953.c      |  16 +-
+ drivers/net/ethernet/altera/altera_tse_main.c |   7 +-
+ drivers/net/ethernet/cadence/macb.h           |   1 +
+ drivers/net/ethernet/cadence/macb_main.c      | 229 ++++---
+ drivers/net/ethernet/freescale/dpaa2/Kconfig  |   1 +
+ .../net/ethernet/freescale/dpaa2/dpaa2-mac.c  |  11 +-
+ .../net/ethernet/freescale/enetc/enetc_pf.c   |   8 +-
+ .../net/ethernet/freescale/enetc/enetc_pf.h   |   1 -
+ .../freescale/enetc/enetc_pf_common.c         |   4 +-
+ drivers/net/ethernet/freescale/fman/Kconfig   |   2 +-
+ .../net/ethernet/freescale/fman/fman_memac.c  |  25 +-
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |   6 +-
+ drivers/net/ethernet/xilinx/Kconfig           |  13 +
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |   4 +-
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 160 +++--
+ drivers/net/pcs/Kconfig                       |  47 +-
+ drivers/net/pcs/Makefile                      |   4 +
+ drivers/net/pcs/core.c                        | 628 ++++++++++++++++++
+ drivers/net/pcs/pcs-lynx.c                    | 113 ++--
+ drivers/net/pcs/pcs-xilinx.c                  | 427 ++++++++++++
+ drivers/net/phy/phy_device.c                  |   3 +-
+ drivers/net/phy/phylink.c                     |  24 +-
+ drivers/of/property.c                         |   2 +
+ include/linux/pcs-lynx.h                      |  13 +-
+ include/linux/pcs.h                           | 205 ++++++
+ include/linux/phy.h                           |   1 +
+ include/linux/phylink.h                       |  27 +-
+ 34 files changed, 1931 insertions(+), 296 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/xilinx,pcs.yaml
+ create mode 100644 Documentation/networking/pcs.rst
+ create mode 100644 drivers/net/pcs/core.c
+ create mode 100644 drivers/net/pcs/pcs-xilinx.c
+ create mode 100644 include/linux/pcs.h
+
 -- 
-2.50.0.rc0.642.g800a2b2222-goog
+2.35.1.1320.gc452695387.dirty
 
 
