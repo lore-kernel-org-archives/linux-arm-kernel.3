@@ -4,53 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DE5C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CFEC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8/nAMMkT1vU1loQqRhH4tBCD1KS79CJwFBdEkPVHUM=; b=uX8KjcPgaBL2TopSw7qINfZGLa
-	9GNuvGlsJi3lsTltfRVampw9Ll2btrFBePfxQOegbFzMiNVoClxBaGjj5mQRGecdEb27wShT/Zkz0
-	Vg6N4+Ry7mJOodE4R2Ot1C1xzcBZywUig5F1bvn6J6EhCZ2TO2luivFvJslhMWOVt0iLGGxzR0qXr
-	9m6QGyCVGHmz6BQ9rcdcIV5SJuG6/mdobIAEOmEu+wUBWvO8CQVT/WZNhkNSk4ArPxjNmYtYAGk+8
-	LafKlC66AI7V0pabkQR8De0uSis+KGE+aH7/yCJuwCm7MaR50IPOzg2PTPWRLwuXj9cqIv+9VkKC0
-	1XJnzPmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oUcADHRW/CG5RbFLRdu854s7Rq7hg+3h+CuKTVAO9D0=; b=PYI+ERFxsEarhwR9p6fiLCq7yE
+	+dxyVoR6OFjGy7yk3TfXv9Vv8c9xwCxiXT+wCYCVvB69VEbPZH3ys2IA1gnigR0q3SDPQseyPr3gw
+	ZBKTSxb7wIJqf+EeaKxjB0HKB+T//nKNs7Fis7V+3M6G12Rja1VnHUSpwDyA9v6R0N5JeRUn1RsaB
+	vQ6TuNcpMj2FvzzmA0e3SGOjrNBOXUxmt3apSVPnNtf0SSGyI7bBK9gvOMYn27nLqRPwRAabciIPe
+	fSMIJGBQvTtRU90lAa6v7aQwErT5XsmEwsEfyXaFntSa85flwj1eO5h/2Jru1t4zSq4ItFmOt7TwU
+	q3tmue1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1lD-00000007SLx-3tOo;
-	Tue, 10 Jun 2025 16:23:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzDv-000000070lo-2Qsu
+	id 1uP1lV-00000007SRG-1RvX;
+	Tue, 10 Jun 2025 16:23:57 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOyWF-00000006r4k-0fmf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 13:41:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE38914BF;
-	Tue, 10 Jun 2025 06:40:44 -0700 (PDT)
-Received: from [10.1.33.221] (XHFQ2J9959.cambridge.arm.com [10.1.33.221])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1CFB73F59E;
-	Tue, 10 Jun 2025 06:41:02 -0700 (PDT)
-Message-ID: <3cad01ea-b704-4156-807e-7a83643917a8@arm.com>
-Date: Tue, 10 Jun 2025 14:41:01 +0100
+	Tue, 10 Jun 2025 12:56:00 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLEi6010655;
+	Tue, 10 Jun 2025 14:50:43 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	oUcADHRW/CG5RbFLRdu854s7Rq7hg+3h+CuKTVAO9D0=; b=DNWTm1pgax86feqh
+	VyQ9dkmv0nUbLOq5uDjbAxuM8ulylwzQ12xk+fUxjbJVzMTCEKRzp1NqbS5kQQ8Z
+	Kw7Hoh3GAfa2VjSwCKQ/OHIbrlHEVlDzCAYPgZyxiJcBsrgELSm1heXWGf7bF5ci
+	p6RdusyQaF0d0x1b52UJCFYqHVMnKAsbUm1gXQ5LRco+WEnHW6CEHTTe5S1J6/cL
+	qzoR3/eS5tv0CINKBRxOsflTw6x64V4uwYdsaMwsLwE2Yufti2X1JOq2DJseQC9Q
+	A8zAlxrg2K1ASNnLXLt0VMVQYsFJDtbIcpKRlOpZxCFKzVB8PzldBJSfobnObLMX
+	0tjHVA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474y052j0v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Jun 2025 14:50:43 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 64AC24004B;
+	Tue, 10 Jun 2025 14:49:43 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A4C03B34ED0;
+	Tue, 10 Jun 2025 14:49:00 +0200 (CEST)
+Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
+ 2025 14:49:00 +0200
+From: Antonio Borneo <antonio.borneo@foss.st.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Andy Shevchenko
+	<andy@kernel.org>,
+        David Lechner <dlechner@baylibre.com>,
+        Fabrice Gasnier
+	<fabrice.gasnier@foss.st.com>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Jonathan Cameron <jic23@kernel.org>, Lee
+ Jones <lee@kernel.org>,
+        <linux-iio@vger.kernel.org>,
+        =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+        Olivier Moysan
+	<olivier.moysan@foss.st.com>
+CC: Antonio Borneo <antonio.borneo@foss.st.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>
+Subject: [PATCH 2/5] iio: adc: stm32-dfsdm: Fix build warnings about export.h
+Date: Tue, 10 Jun 2025 14:48:52 +0200
+Message-ID: <20250610124855.269158-3-antonio.borneo@foss.st.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250610124855.269158-1-antonio.borneo@foss.st.com>
+References: <20250610124855.269158-1-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64/mm: Ensure lazy_mmu_mode never nests
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250606135654.178300-1-ryan.roberts@arm.com>
- <aEgeQCCzRt-B8_nW@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aEgeQCCzRt-B8_nW@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.132]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-10_05,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_064107_721833_61D9A186 
-X-CRM114-Status: GOOD (  39.34  )
+X-CRM114-CacheID: sfid-20250610_055559_483997_52E1ED4E 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,167 +107,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 13:00, Catalin Marinas wrote:
-> On Fri, Jun 06, 2025 at 02:56:52PM +0100, Ryan Roberts wrote:
->> Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
->> provided a quick fix to ensure that lazy_mmu_mode continues to work when
->> CONFIG_DEBUG_PAGEALLOC is enabled, which can cause lazy_mmu_mode to
->> nest.
->>
->> The solution in that patch is the make the implementation tolerant to
-> 
-> s/is the make/is to make/
-> 
->> nesting; when the inner nest exits lazy_mmu_mode, we exit then the outer
->> exit becomes a nop. But this sacrifices the optimization opportunity for
->> the remainder of the outer user.
-> [...]
->> I wonder if you might be willing to take this for v6.16? I think its a neater
->> solution then my first attempt - Commit 1ef3095b1405 ("arm64/mm: Permit
->> lazy_mmu_mode to be nested") - which is already in Linus's master.
->>
->> To be clear, the current solution is safe, I just think this is much neater.
-> 
-> Maybe better, though I wouldn't say much neater. One concern I have is
-> about whether we'll get other such nesting in the future and we need to
-> fix them in generic code. Here we control __kernel_map_pages() but we
-> may not for other cases.
-> 
-> Is it the fault of the arch code that uses apply_to_page_range() via
-> __kernel_map_pages()? It feels like it shouldn't care about the lazy
-> mode as that's some detail of the apply_to_page_range() implementation.
-> Maybe this API should just allow nesting.
+After commit a934a57a42f6 ("scripts/misc-check: check missing #include
+<linux/export.h> when W=1") and commit 7d95680d64ac ("scripts/misc-check:
+check unnecessary #include <linux/export.h> when W=1") we get the build
+warnings with W=1:
 
-I don't think it is possible to properly support nesting:
+drivers/iio/adc/stm32-dfsdm-adc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+drivers/iio/adc/stm32-dfsdm-core.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
 
-enter_lazy_mmu
-    for_each_pte {
-        read/modify-write pte
+Fix them.
 
-        alloc_page
-            enter_lazy_mmu
-                make page valid
-            exit_lazy_mmu
+Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+---
+ drivers/iio/adc/stm32-dfsdm-adc.c  | 1 +
+ drivers/iio/adc/stm32-dfsdm-core.c | 1 +
+ 2 files changed, 2 insertions(+)
 
-        write_to_page
-    }
-exit_lazy_mmu
-
-This example only works because lazy_mmu doesn't support nesting. The "make page
-valid" operation is completed by the time of the inner exit_lazy_mmu so that the
-page can be accessed in write_to_page. If nesting was supported, the inner
-exit_lazy_mmu would become a nop and write_to_page would explode.
-
-So the conclusion I eventually came to (after being nudged by Mike Rapoport at
-[1]) is that this _is_ arm64's fault for creating a loop via
-apply_to_page_range(). So I'm trying to fix this by breaking the loop.
-
-[1] https://lore.kernel.org/all/aDqz7H-oBo35FRXe@kernel.org/
-
-> 
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 88db8a0c0b37..9f387337ccc3 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -83,21 +83,11 @@ static inline void queue_pte_barriers(void)
->>  #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
->>  static inline void arch_enter_lazy_mmu_mode(void)
->>  {
->> -	/*
->> -	 * lazy_mmu_mode is not supposed to permit nesting. But in practice this
->> -	 * does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation
->> -	 * inside a lazy_mmu_mode section (such as zap_pte_range()) will change
->> -	 * permissions on the linear map with apply_to_page_range(), which
->> -	 * re-enters lazy_mmu_mode. So we tolerate nesting in our
->> -	 * implementation. The first call to arch_leave_lazy_mmu_mode() will
->> -	 * flush and clear the flag such that the remainder of the work in the
->> -	 * outer nest behaves as if outside of lazy mmu mode. This is safe and
->> -	 * keeps tracking simple.
->> -	 */
->> -
->>  	if (in_interrupt())
->>  		return;
->>
->> +	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
-> 
-> This warning is good to have back.
-> 
->> +
->>  	set_thread_flag(TIF_LAZY_MMU);
->>  }
->>
->> @@ -119,6 +109,14 @@ static inline void arch_leave_lazy_mmu_mode(void)
->>  	clear_thread_flag(TIF_LAZY_MMU);
->>  }
->>
->> +static inline bool arch_in_lazy_mmu_mode(void)
->> +{
->> +	if (in_interrupt())
->> +		return false;
->> +
->> +	return test_thread_flag(TIF_LAZY_MMU);
->> +}
->> +
->>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
->>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index 04d4a8f676db..4da7a847d5f3 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -293,18 +293,29 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->>  }
->>
->>  #ifdef CONFIG_DEBUG_PAGEALLOC
->> -/*
->> - * This is - apart from the return value - doing the same
->> - * thing as the new set_direct_map_valid_noflush() function.
->> - *
->> - * Unify? Explain the conceptual differences?
->> - */
->>  void __kernel_map_pages(struct page *page, int numpages, int enable)
->>  {
->> +	bool lazy_mmu;
->> +
->>  	if (!can_set_direct_map())
->>  		return;
->>
->> +	/*
->> +	 * This is called during page alloc or free, and maybe called while in
->> +	 * lazy mmu mode. Since set_memory_valid() may also enter lazy mmu mode,
->> +	 * this would cause nesting which is not supported; the inner call to
->> +	 * exit the mode would exit, meaning that the outer lazy mmu mode is no
->> +	 * longer benefiting from the optimization. So temporarily leave lazy
->> +	 * mmu mode for the duration of the call.
->> +	 */
->> +	lazy_mmu = arch_in_lazy_mmu_mode();
->> +	if (lazy_mmu)
->> +		arch_leave_lazy_mmu_mode();
->> +
->>  	set_memory_valid((unsigned long)page_address(page), numpages, enable);
->> +
->> +	if (lazy_mmu)
->> +		arch_enter_lazy_mmu_mode();
->>  }
->>  #endif /* CONFIG_DEBUG_PAGEALLOC */
-> 
-> So basically you are flattening the enter/leave_lazy_mmu_mode() regions.
-> Ideally this could have been done by the nesting
-> arch_enter_lazy_mmu_mode() automatically but that means this function
-> returning the current mode and arch_leave_lazy_mmu_mode() taking an
-> argument - more like the irq saving/restoring (even better renaming it
-> to arch_restore_lazy_mmu_mode()). I guess this won't go well with the mm
-> folk who don't seem willing to changes in this area.
-
-We could alternatively use some per-cpu storage for a nest count, but that gets
-ugly quite quickly I suspect. But regardless, I'm not convinced the semantics of
-a properly nested lazy_mmu are safe.
-
-Thanks,
-Ryan
-
-> 
-> FWIW, this patch is correct.
-> 
+diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-dfsdm-adc.c
+index f583924eb16bb..c2d21eecafe79 100644
+--- a/drivers/iio/adc/stm32-dfsdm-adc.c
++++ b/drivers/iio/adc/stm32-dfsdm-adc.c
+@@ -8,6 +8,7 @@
+ 
+ #include <linux/dmaengine.h>
+ #include <linux/dma-mapping.h>
++#include <linux/export.h>
+ #include <linux/iio/adc/stm32-dfsdm-adc.h>
+ #include <linux/iio/backend.h>
+ #include <linux/iio/buffer.h>
+diff --git a/drivers/iio/adc/stm32-dfsdm-core.c b/drivers/iio/adc/stm32-dfsdm-core.c
+index 041dc9ebc0482..47e2d1338e9e6 100644
+--- a/drivers/iio/adc/stm32-dfsdm-core.c
++++ b/drivers/iio/adc/stm32-dfsdm-core.c
+@@ -8,6 +8,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/clk.h>
++#include <linux/export.h>
+ #include <linux/iio/iio.h>
+ #include <linux/iio/sysfs.h>
+ #include <linux/interrupt.h>
+-- 
+2.34.1
 
 
