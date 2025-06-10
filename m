@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C53CC678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01C6C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VVrPc5VfUc4kUlnn3a4kFgKuoqeB40HZmusQIafJ0Jw=; b=10tKl34Kt3UlvGJERQb6JQjl7S
-	rD5wm3BEzjXsUHR5DjIoyO0kqZMswGUU8fwqeHXXlQggMHz7hrxwFUF4Ypnn4x0wWQYFlB5r5kW6S
-	GQU/x4V8NJZAIdFEu1Q3WemC/siZfqTmw/QHIIChQuzz48sr3vuKrLRKElg8MVscf6AwNzn06Qw9L
-	tnvNHpyFv7xpe966pcPEncNb/NAU60MzkT00Rr4N6jA+xwKMBXw6uBYhli3A3lsNurL12oe/UAPY9
-	NlUcorIKO3n5LUXouDItvic7bhXFFAmqMXlxdAC9JXwq1UFp1La9yjsKYwN9djd9u+4pjHw2ELDz5
-	MH/0Kkrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nUVTmfdkyIz2sCibo8CQYdH/ADMQuNhoQmpTEzyRL5M=; b=U4bd4dS0ul2XUeUYfiSbrvxmKJ
+	PlLBvrB+7obPoDoLDSnQUZVKnTsuGb5nIZSxRsHFk4eS+xH0GaYp/dhR+2hfUg2nwX3LQx+7Uw+eI
+	ckkIonMRjyr9a0YfaKmg0HsCpFHoM/iE5648RspJ6/FjmvTLqOXFORBQ0Viw6OCCApHX+A/JEVnt1
+	ulcmLtLj5uMBUQDFDFPgVmSZ40t3Cr3yI4f6mOszkBUvW7TJzzlGRjjeWmLtRIjD+UKA8xzi1z6MF
+	QTlEhmA/4j5t4wB00Q9hIlXT+FdHPPAPszgLw5HfHeQtjcKb0A0ZNNdXuBiMpa+51cH5/Jy783Bxl
+	OlFO0MwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwem-00000006Xvk-1MTO;
-	Tue, 10 Jun 2025 10:56:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uOwet-00000006Y1G-2yT4;
+	Tue, 10 Jun 2025 10:56:47 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvLp-00000006LnJ-37Cd
+	id 1uOvct-00000006OxN-3QI8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 09:33:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1915960007;
-	Tue, 10 Jun 2025 09:33:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0275C4CEF2;
-	Tue, 10 Jun 2025 09:32:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749547980;
-	bh=fQ3YU3S3K3ivEsEdGjJAl8Hbmyr8jXeJ3oVd0bc1t4c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OOQ4t51xOrl2MR9zgyKltjt8xczIDYR5Nszf6WA7xXdzs4uRcv6qQcpMD3+Hd/6Mq
-	 mToGH3k8Pscs8UM74vbCjPK38LWLhlOBYPyvHrKv2ZRsfx0QAD8VH3IitkoKXOUCCW
-	 909llaiuo5FQB35n1ZXLYra6ufiBoQfdWTktXSDRheltD4B0M3TeqYi7T4v3C6I1gA
-	 F88+rq7jNcEVgaVcfG1oK9rs55ZuN7OCSdxo4YuRRphGINTSojY8H8LaROGxvbtB8x
-	 wmK3WdJeHhYEKWl1iKMmvkeIwWuGGNDuzPmXg5kXoAEzRX36Qk9gJXKxbkPtYy+FwO
-	 ndLtwxuJf7riQ==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Ard Biesheuvel <ardb@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Eric Biggers <ebiggers@google.com>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: crypto: work around gcc-15 warning
-Date: Tue, 10 Jun 2025 11:32:52 +0200
-Message-Id: <20250610093256.2645686-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Tue, 10 Jun 2025 09:50:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=nUVTmfdkyIz2sCibo8CQYdH/ADMQuNhoQmpTEzyRL5M=;
+	b=qNGD5sEGGVHWy8tTwX792dVz/FOchRHUWGIobOMMn684dG2AfKdMafxMgMN6yL
+	oNo1c1YramDqSCyFpDJxlToxQXLxDGO+L2i8mV0ZmdjtY7CK+tZzBpsGerCLqGyR
+	q/PPFm6yl4jVK8fL/eoZl7Kw4TyqKglkseO32kQd4YnY8=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgD3xx3b_0doxXNVAA--.50837S3;
+	Tue, 10 Jun 2025 17:50:21 +0800 (CST)
+Date: Tue, 10 Jun 2025 17:50:19 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	imx@lists.linux.dev, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
+Message-ID: <aEf/2+3MU5ED2sxE@dragon>
+References: <aEZxmlHmjeWcXiF3@dragon>
+ <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
+X-CM-TRANSID: M88vCgD3xx3b_0doxXNVAA--.50837S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAFykZw4DZF1kKFWUtw1xGrg_yoW5WF17pa
+	1ayFWIka1kGa4rGr47Kw17KFyUXa9YkrWqkryxGw4xXFy3ur95GF17K34Fvr90kryfJanF
+	yF4qgw1DAFyvga7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UC1v3UUUUU=
+X-Originating-IP: [117.82.86.8]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCwVoZWhH4ayQ7wAAse
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_025040_246774_1FA639A2 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +74,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, Jun 09, 2025 at 07:53:22PM +0800, Xu Yang wrote:
 
-I get a very rare -Wstringop-overread warning with gcc-15 for one function
-in aesbs_ctr_encrypt():
+<snip>
 
-arch/arm/crypto/aes-neonbs-glue.c: In function 'ctr_encrypt':
-arch/arm/crypto/aes-neonbs-glue.c:212:1446: error: '__builtin_memcpy' offset [17, 2147483647] is out of the bounds [0, 16] of object 'buf' with type 'u8[16]' {aka 'unsigned char[16]'} [-Werror=array-bounds=]
-  212 |                         src = dst = memcpy(buf + sizeof(buf) - bytes,
-arch/arm/crypto/aes-neonbs-glue.c: In function 'ctr_encrypt':
-arch/arm/crypto/aes-neonbs-glue.c:218:17: error: 'aesbs_ctr_encrypt' reading 1 byte from a region of size 0 [-Werror=stringop-overread]
-  218 |                 aesbs_ctr_encrypt(dst, src, ctx->rk, ctx->rounds, bytes, walk.iv);
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-arch/arm/crypto/aes-neonbs-glue.c:218:17: note: referencing argument 2 of type 'const u8[0]' {aka 'const unsigned char[]'}
-arch/arm/crypto/aes-neonbs-glue.c:218:17: note: referencing argument 3 of type 'const u8[0]' {aka 'const unsigned char[]'}
-arch/arm/crypto/aes-neonbs-glue.c:218:17: note: referencing argument 6 of type 'u8[0]' {aka 'unsigned char[]'}
-arch/arm/crypto/aes-neonbs-glue.c:36:17: note: in a call to function 'aesbs_ctr_encrypt'
-   36 | asmlinkage void aesbs_ctr_encrypt(u8 out[], u8 const in[], u8 const rk[],
+> During the scp process, the usb host won't put usb device to suspend state.
+> In current design, then the ether driver doesn't know the system has
+> suspended after echo mem. The root cause is that ether driver is still tring
+> to queue usb request after usb controller has suspended where usb clock is off,
+> then the system hang.
+> 
+> With the above changes, I think the ether driver will fail to eth_start_xmit() 
+> at an ealier stage, so the issue can't be triggered.
+> 
+> I think the ether driver needs call gether_suspend() accordingly, to do this,
+> the controller driver need explicitly call suspend() function when it's going
+> to be suspended. Could you check whether below patch fix the issue?
 
-This could happen in theory if walk.nbytes is larger than INT_MAX and gets
-converted to a negative local variable.
+Thanks for the patch, Xu!  It does fix the hangup but seems to be less
+reliable than my/Peter's change (disconnecting gadget), per my testing
+on a custom i.MX8MM board.  With your change, host/PC doesn't disconnect
+gadget when the board suspends.  After a few suspend cycles, Ethernet
+gadget stops working and the following workqueue lockup is seen.  There
+seems to some be other bugs?
 
-Keep the type unsigned like the orignal nbytes to be sure there is no
-integer overflow.
+[  223.047990] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+[  223.054097] rcu:     1-...0: (7 ticks this GP) idle=bb7c/1/0x4000000000000000 softirq=5368/5370 fqs=2431
+[  223.063318] rcu:     (detected by 0, t=5252 jiffies, g=4705, q=2400 ncpus=4)
+[  223.070105] Task dump for CPU 1:
+[  223.073330] task:systemd-network state:R  running task     stack:0     pid:406   ppid:1      flags:0x00000202
+[  223.083248] Call trace:
+[  223.085692]  __switch_to+0xc0/0x124
+[  246.747996] BUG: workqueue lockup - pool cpus=1 node=0 flags=0x0 nice=0 stuck for 43s!
 
-Fixes: c8bf850e991a ("crypto: arm/aes-neonbs-ctr - deal with non-multiples of AES block size")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm/crypto/aes-neonbs-glue.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+However, your change seems working fine on i.MX8MM EVK.  It's probably
+due to the fact that host disconnects gadget for some reason when EVK
+suspends.  This is a different behavior from the custom board above.
+We do not really expect this disconnecting, do we?
 
-diff --git a/arch/arm/crypto/aes-neonbs-glue.c b/arch/arm/crypto/aes-neonbs-glue.c
-index c60104dc1585..df5afe601e4a 100644
---- a/arch/arm/crypto/aes-neonbs-glue.c
-+++ b/arch/arm/crypto/aes-neonbs-glue.c
-@@ -206,7 +206,7 @@ static int ctr_encrypt(struct skcipher_request *req)
- 	while (walk.nbytes > 0) {
- 		const u8 *src = walk.src.virt.addr;
- 		u8 *dst = walk.dst.virt.addr;
--		int bytes = walk.nbytes;
-+		unsigned int bytes = walk.nbytes;
- 
- 		if (unlikely(bytes < AES_BLOCK_SIZE))
- 			src = dst = memcpy(buf + sizeof(buf) - bytes,
--- 
-2.39.5
+Shawn
+
+>  ---8<--------------------
+> 
+> diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+> index 8a9b31fd5c89..27a7674ed62c 100644
+> --- a/drivers/usb/chipidea/udc.c
+> +++ b/drivers/usb/chipidea/udc.c
+> @@ -2367,6 +2367,8 @@ static void udc_id_switch_for_host(struct ci_hdrc *ci)
+>  #ifdef CONFIG_PM_SLEEP
+>  static void udc_suspend(struct ci_hdrc *ci)
+>  {
+> +       ci->driver->suspend(&ci->gadget);
+> +
+>         /*
+>          * Set OP_ENDPTLISTADDR to be non-zero for
+>          * checking if controller resume from power lost
+> @@ -2389,6 +2391,8 @@ static void udc_resume(struct ci_hdrc *ci, bool power_lost)
+>         /* Restore value 0 if it was set for power lost check */
+>         if (hw_read(ci, OP_ENDPTLISTADDR, ~0) == 0xFFFFFFFF)
+>                 hw_write(ci, OP_ENDPTLISTADDR, ~0, 0);
+> +
+> +       ci->driver->resume(&ci->gadget);
+>  }
+>  #endif
+> 
+>  ---->8------------------
 
 
