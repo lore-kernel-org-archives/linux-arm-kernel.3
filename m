@@ -4,191 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A28C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B512DC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDhuLYT97ydcWWGMasR+UeJezhNO5aS5WpOLn99oxzs=; b=MGQ1S1jkblwkj1yFJfXEH02hrQ
-	OuzEpDazlSe6UKGRAniyuqH16ULiQWsQ+0yuG6NetTZcuo7Wetr2DJNc67zI4fg5d9bTyM+4/KBXR
-	rgJnW7VEcmqcbqJe6z1/AoNF8k0xl43myBsNuWGcLogHBx39UWVWYzP5jcG/1qkMYPqO8ujNwRP8E
-	dfaha79Ry0BMp3L6A2tac8q5w9UIod/1+FtOoxAYYtiMq4OGNw1WHkDowLSI9e1iqfOffkc9nR6iR
-	FB6iViO2Pb/6DnqiF5r0Os8hCGELHvJXvJSFzSmrFqiIQYB/MK/Qwsm0hNU352LTsBz25IBnfZAbG
-	1CxVv2Tw==;
+	bh=6gN0/bd6Sn1EIvPdiEhBeq7f490IM4mcVZo4ID9nNfo=; b=IwIh07aOKnz9CyiA12LDFYTgY3
+	UaoZJ9rMwvXzdWC8imPItvmhiIerlAK/d4yF0bO6mqHxgFyeok2BT+xG4EMi7SYtBySm5gkr8oZdR
+	d3xMP7kT0Zspe/uwI2NhyxUK0FxrqhLQhP0FzM4uX9ctuC9qejl9dC576CE7w/DV4JCF8kzAwsuf7
+	Oe7+E1d/GN3Qw0jyuEfoXwjxQW8Q8sfC8EAGGRbLaqI3bQqDltGhzCzaqZrKGueiz02wnDIDoeXjD
+	t7R3hLFG6PoKAmC2hkqixEjPfoVOD/X2Y68G0T6MnhY2VKpQ5L907RGNBDSxCbROit53NfJ3N3+Yw
+	m6K+7z0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP3j5-00000007o5A-3mEo;
-	Tue, 10 Jun 2025 18:29:35 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uP3lA-00000007oEN-2dZS;
+	Tue, 10 Jun 2025 18:31:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0oI-00000007I4A-3K9U
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:22:47 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=SS4eF/v8MlTOohSeTajX1ZwK4Jp+1XcQ6IPzjeblf9shFiysXCBKQ5saknJKlI0dMDovBAITRM0tguQyBXa4tu66hlLB+9t1P0DNeYQMWgThc0tZqjGVSG4pWA7mQjqXH3umS2xfSnJsTg4begzu5n3cjijUbI36G6dVEqDX83RWWi142VFpIQg8LzvCnbEuB2GnzJEY9krPrw6CJlDd+VQN1Lo5NQO0/2VsZfZZbIAwdnjjlh5rmmhi6WF9pNNYlIBVfnyDhkJfTKtat/oANr81UMWv1GPmySwRxv4mwidtZQ6O7f0MMdf98s7iIuapgpY3s4NFwPW7BTyP+44A1g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZDhuLYT97ydcWWGMasR+UeJezhNO5aS5WpOLn99oxzs=;
- b=M57khv+tewbHw2Xbdj3UMIhSzA/scKuomlKrjttGfJH232ptyoDedQr0Z6yKNSeRJMthWI8JWQPshzLw31W9oIBYfRT9ZpjgLragCas8E52QniYuUbK2mX8mMwDB4YUEMvdaLlM6NU9xvRXnYQfdbW32jVmGR8ihhOscoC6eWdPGgq+Y5p+oybtw/Wj5pradjBTttoa5CxapAgS7FypDNK0Rg5t0PEgn6FKZVvcwo2Uu4aHkNIiRDGv/eE7/aQr+4Emrw6YYFzAjMyjbbSPO90HuILtC3X4+Hy4J/4IZr7fBmqrzKwo2+z3kJp9emyHPDKXJrTizix3LL98UDwdaCg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZDhuLYT97ydcWWGMasR+UeJezhNO5aS5WpOLn99oxzs=;
- b=dz1vt3PykMgbmYzQISZCvcsE6OaINBaCFxaL/Xu/f3ojQyu8pzaPr0iqSL6DkRoQ+6SGu9mtMpWVi4et5GqWCrjNe6UHXHrORtfhRLC0RwmJy7VoKi+mfv92q+MpdA8Rwkna1iQHfKwcsGIr3Z4YugZCe1pmyRCej1zYuTDDvGw=
-Received: from DB7PR05CA0013.eurprd05.prod.outlook.com (2603:10a6:10:36::26)
- by PR3PR08MB5850.eurprd08.prod.outlook.com (2603:10a6:102:92::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Tue, 10 Jun
- 2025 15:22:41 +0000
-Received: from DB5PEPF00014B89.eurprd02.prod.outlook.com
- (2603:10a6:10:36:cafe::70) by DB7PR05CA0013.outlook.office365.com
- (2603:10a6:10:36::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Tue,
- 10 Jun 2025 15:22:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B89.mail.protection.outlook.com (10.167.8.197) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
- via Frontend Transport; Tue, 10 Jun 2025 15:22:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H4MGZo/BZQ7YAHzRIf+/T7WLpzw/SIAcvJd6J6LZZI17/yaKxrBLGB0D0CGi/XKzJoEwqhv+xO2s62j0xrH7nItZWU3ofOaM82M1bkVjubnoi+9V8OhgFNAQo8/rnyPUWhHvIVy0yanUHqVjU+vcdt3usb1+0Br5aKsm1yD+Ti99aNxKQUEazktGoySwhP/VEY2lxrRG+NndU/kJzbhSu3/qySrEil//zGQRxa9xOnbD1bMBgTSD0901JvFgZzZgpTYziwwYTPBJLPx++RRopDGKO+5iU8xhft9uLy8MuyAPK9Fcti+wgo3/QxvWPkIxVQymPJ/LFUHCVeW2EHzPtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZDhuLYT97ydcWWGMasR+UeJezhNO5aS5WpOLn99oxzs=;
- b=OoitVkgjoSC1JFAIM5F7K/MeDeWa0Rw4Z/7+5KI7F+y69tjzihjjDfrDSt3LiftL21JhAWQ7cx6Ycb9W0kzF4sYPJ5OMwwRRX9q9s1DeZSNKgHHD35d8/1TU1vA2SKnH0Z87g0xB7PHnTrt8YHJfRWh25ggAgJZnRqqBNhPQ6y0yoe7Kc1gqPT0tumXhSlD/tFg5gvEi5cIlw4hJNjzCVFYjyKVeNuzRamFTNXZuqFakw6421z2BB20eO2T0gGJRzcUHHEIoMAn7mbbriH2XXwZVpI89exf1teeXGugAf5amhmp5ti7lu8Bfildz+GTJjrCRi8hs25bvPhqtDiqHNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZDhuLYT97ydcWWGMasR+UeJezhNO5aS5WpOLn99oxzs=;
- b=dz1vt3PykMgbmYzQISZCvcsE6OaINBaCFxaL/Xu/f3ojQyu8pzaPr0iqSL6DkRoQ+6SGu9mtMpWVi4et5GqWCrjNe6UHXHrORtfhRLC0RwmJy7VoKi+mfv92q+MpdA8Rwkna1iQHfKwcsGIr3Z4YugZCe1pmyRCej1zYuTDDvGw=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by GV1PR08MB8154.eurprd08.prod.outlook.com
- (2603:10a6:150:92::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Tue, 10 Jun
- 2025 15:22:08 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8835.018; Tue, 10 Jun 2025
- 15:22:08 +0000
-Date: Tue, 10 Jun 2025 16:22:04 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
-	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] fix failure of integration IMA with tpm_crb_ffa
-Message-ID: <aEhNnAxlToRMteA2@e129823.arm.com>
-References: <20250610060334.2149041-1-yeoreum.yun@arm.com>
- <aEgmhwu1RP27yBpw@kernel.org>
- <aEgwpXXftXW6JNRy@e129823.arm.com>
- <aEg6Bgh8TqzK5nSu@kernel.org>
- <aEhDY4VlkIPYAjPE@e129823.arm.com>
- <aEhIPC95FisptBO5@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aEhIPC95FisptBO5@kernel.org>
-X-ClientProxiedBy: LO4P265CA0132.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c6::13) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	id 1uP0p7-00000007IEm-474z;
+	Tue, 10 Jun 2025 15:23:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AE4C629FC;
+	Tue, 10 Jun 2025 15:23:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBF9C4CEED;
+	Tue, 10 Jun 2025 15:23:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749569017;
+	bh=GdC3hbu2lBWJrq1c5FNhywQS8uf44LJI+yaHMwNtUZY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YTpMfumv//WkKeU1pjfa4/ARYTp4er7sYZcbWH7Qgd06JSTvoaaIHYhvfyV+OsRxe
+	 KlD8ovmvs9jUneKVjEbQDT47TlVjrD+OWWBAXgl/QLAhgxu8jpyrQgIYSNb/AYIfVo
+	 j9kLNX5UZ4TTUVtAn9cBmjIK4UTTWyT6FbUjk7eodk0Hmks8lKuGonOfGsOotLGu9J
+	 4Ch1Rc44Zy/t9sG0UhEZ5Sjqoc9R33EQ5+n9c0p6RuhlUZ+jylbx/+TgiM5Xv33iPO
+	 WhT/r9Ntl0xzsZVZUR2PCoYdHhCLAdkUAFJZlAflyHLada9PrrTsc7zQNzdTumIozf
+	 1fPqbyu51psrQ==
+Date: Tue, 10 Jun 2025 16:23:31 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/3] dt bindings: PCI: brcmstb: Include cable-modem SoCs
+Message-ID: <20250610-satin-wages-2ae29a2a3520@spud>
+References: <20250609221710.10315-1-james.quinlan@broadcom.com>
+ <20250609221710.10315-2-james.quinlan@broadcom.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV1PR08MB8154:EE_|DB5PEPF00014B89:EE_|PR3PR08MB5850:EE_
-X-MS-Office365-Filtering-Correlation-Id: bfb35f21-4676-45b5-01de-08dda832a42f
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?LkOxlpRIgOpPn3Z648OqnUlXXxv+9N7ZEvj67EyuSDNmlsXYtqApAnnCCoiQ?=
- =?us-ascii?Q?mtsC+WU0atC0UM3nqj+CsZSmJtmPe5ua6+45ZOxTljGJA61xq9ySoJBvN8LW?=
- =?us-ascii?Q?0rbE5XmxQL6Ox/jcM1vM9UgNRvcOkTTNAexOgX1hGTGPr3qzFMC4rdZlCPJn?=
- =?us-ascii?Q?TqeVEalyxsIgV/OGOGTNjB0e63PFnJceyMtUh9348zkdADGY4qasJZ/BULi2?=
- =?us-ascii?Q?JVXBmtA0U6PYD0/s6WyFA6zEDmEKsrETX5KCIIDwf0jfik2Mchp+4XCWVD4P?=
- =?us-ascii?Q?/z9ZXzfGImuTkklWLslNqufLX5+xWGwFw6eo5mv0YBF8Ow/1XyIzl6Hu6wQr?=
- =?us-ascii?Q?FVg6dxRVGQFApfkio/s63R4d68MMJmjNF+kUZBNWkoTIQ6i7JZRrfgW3iNO5?=
- =?us-ascii?Q?XIIihAusC1bNDayuh3KgcowyAnZ8BshrhiRrrYPycK9AVFkrH6oDlQpQwnGn?=
- =?us-ascii?Q?yFDBm4sj8Wuhmp/inl0Q2iIcde6IguqfcAyi6pnYyEWkMEonakqwXrWBZJJz?=
- =?us-ascii?Q?Z1NDhUH+XVnb08QZgQ7+AkNdto+bPDPKzsR1K62T+yl/vWS9uFIZP44F08Uh?=
- =?us-ascii?Q?8eMa80ilpSWffigENP0F6fWz5geDguwjLdO3b0Rg9S41z0OtHUB3/gFEBAF9?=
- =?us-ascii?Q?jX7T5G6B/QvdOcENwd371uDU864TsxT1gN9OEOccosGfeAvVGPndudJsSU+O?=
- =?us-ascii?Q?xAhe71sW+57cAeScmplx9RsmlH03iLLZMw5fCaMNgOKDjJBkK+0A9q9ceLZZ?=
- =?us-ascii?Q?w1Xr7DPmXQecx/D3DuD7cKRXtXZIKpQu4mJPVKQGc3fMFQTONfPVdBaZf/RV?=
- =?us-ascii?Q?pvyi9QXorhASqXywKXkhqovlcnqfSIAJpqByWKjpoyipuHB3FCogoPZZeDHe?=
- =?us-ascii?Q?fNFL4x76QflAcNuKW7K4KXFg+W5wDyed6mBRN0Oud8IxbRxwiV5me0WPyp3a?=
- =?us-ascii?Q?NAgaadhhAEZG5RpJTe4hBFJBkOcOgxnJeE4lm+uW/U4DSfNpOsNN1lDugkmr?=
- =?us-ascii?Q?WXoIUFiEyVG2+uGrZpE1Tcd1Iii75uE+PheiFskRwzMNGZD4QUT4R5h7srTx?=
- =?us-ascii?Q?A0e/1pGJL+M2h6y3wdnnBWTXwaXWyq6WS8uOur8VFvhdLKs6IFv5NT9BayEa?=
- =?us-ascii?Q?IlCJJEfZADhhJxY00Y+ZmdaJ95DGkfiGKQ2M0hs02/H1RNSVFMJT2uxvj5HD?=
- =?us-ascii?Q?cgij/Tr6H5onSCieZL0Je1d4PrQH1MqC4vCCvg8jsHy8rvFXNu8AJXD6AS7W?=
- =?us-ascii?Q?mnoQgGlSGngGOjTOnz095tWbac5dV00pvF5baZLfBcVI946cwJ8tQB5bD4DU?=
- =?us-ascii?Q?pbxU9zUTdjMDCOYtSIPLYaBgcXOVpEgKQKwkVHKSq11r8lFc0onyMD3OCoWA?=
- =?us-ascii?Q?uwV4vmgVMW64svkbRFBYZ9RJcE7fMyJCzkc/jiXv0/UBaNdNT9T9aFRFkD+d?=
- =?us-ascii?Q?Rg5oDjzXTnY=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8154
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B89.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e6279e4c-dd02-42f6-a0e9-08dda8329076
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|35042699022|82310400026|14060799003|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5lBh2KiuuOX1T4aPXApVioT/Of+N+NClhlIX3ixgIQRK+sAMB+bQHfiusOw2?=
- =?us-ascii?Q?6+Xx83zsTyWCshkv0VdOUHRcJQ8drD+O3CQ/XCSkD4Pi4V90RP4WqIRp+EDW?=
- =?us-ascii?Q?n1+c3xaz/PvT+UuC+7HfA/NCy0iBg/T++OJ6E8DZOJDI50vhpNf2sm1wQVjo?=
- =?us-ascii?Q?UtYcnqT3dw+x0V1MCEiaSx7SOtwTxtK1JLuZyz/pODd92Hnf9lVmr5VSKHZu?=
- =?us-ascii?Q?ociMI6yumRHxPvWKDNg2Fhm4s/ZSIpwHuUq9fVM82Cv38V1buv0LCkn4Ln+l?=
- =?us-ascii?Q?uwUi/z92op4vZa63ZyMMzXBw6LnD5+oiBVWaxlyPlwt0qEq+8K6T4wMlRGRe?=
- =?us-ascii?Q?Hs2zTlgIBv4LZK0vT8u/jYBzdY3EuipfrKb4buX730HksV8pKlTgLm6J4170?=
- =?us-ascii?Q?E/hClZu4RCMVxLB1kGx90W6vaiUFhTFYNvZ1SNXMp7LRkTZT8w1PeZQpzEmR?=
- =?us-ascii?Q?YROaMk1sgEdXCqWVEdIgWJcdK3rASS6tRucKd/OHiznLedm6BSP8MUeV/w7G?=
- =?us-ascii?Q?JezuH8gnbjlbzxvKiUNrypXBQ9i+35mckGlGtW8iKfbkZ+VrIbWd69guK55B?=
- =?us-ascii?Q?VpxTT43H9aVj7CEbD0mHhOqFAJFOQHVng+Z6VcWOjHTkBf+nRTFHSVbA+/Wm?=
- =?us-ascii?Q?rfJNjNWYcsl1g6/WmytYNMPnIm//UyuCsci/Hq4R9fE1D9u7fUhdHRxncxWC?=
- =?us-ascii?Q?DTxHwVDYeoIjNy0J5migV/WfCz+OYJ5O6sKNxs434r5OrFKkr+GoKBvniG6M?=
- =?us-ascii?Q?JXEo07Ga8v+b/Rump3d1tgEA34AS18Jc0OpVtiCFZz7HhXB4Wp4z92wHQ2jK?=
- =?us-ascii?Q?rwiuFTC0FDodPsY/xC+ZVD8Qaj498FPJGEO+9uJf899JnAn4JMvEGtiy7BlD?=
- =?us-ascii?Q?omrgZiccUN6CnxnYUF7QEunMkoO73h5uvQ0M3CgFRmNnS7bboxZZqxazMkzl?=
- =?us-ascii?Q?8kp23uw7DGEdKsaWhWqD2yqqNeVVuIaipn4XboCA/z4MDeT9opEhGr0hlZhV?=
- =?us-ascii?Q?9YdEalgYgWmdzXRGGV5ET6hgBsVsdsX+GQQVn2WHObXkH5LKRQ0kkj5+vJ/J?=
- =?us-ascii?Q?G8f3/6H76U9wRM8DVUx1Cu/HHAwmFO2v6bzqulMlRzZZ9M6jP9C5eO6jemfp?=
- =?us-ascii?Q?Bd5FhZy75DTuYsUBVLSXlIBuLUqnj3TgR6MbrUUSUQVRVb56jUaYYh0OLlyl?=
- =?us-ascii?Q?7hprNH95xCHqEU7P+mZ+jWgm4VmT1QVBi5irsaeEO5eFAi1p20+2UyIeh3Vz?=
- =?us-ascii?Q?OhFwDpbE6HTwaQG2MukxNA3rTh5Eu8i61R+OR5jxwXdBuN/TGLOkuXhxGYgM?=
- =?us-ascii?Q?LoM7AGRZGZbKPtURwIgSDNRvVIof4Js9aY9GGPa1BsjQlkQ5z0RlLxXGQPHP?=
- =?us-ascii?Q?tUdd7Ewl+wom8iSICtn8RJ+0IZSkw0A0TTx3gknG0N8yxXMNduaF+w5oWZ+1?=
- =?us-ascii?Q?n8dqNV7yPqxfosBvqO8lNfW5qwRxSC1ecj7PPPZmwFp5FgTPqLBxP9bkyQVC?=
- =?us-ascii?Q?KQVtvEnHVN0bu3rlDBtbQP5WuCUAIdJOsGH2?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(35042699022)(82310400026)(14060799003)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 15:22:41.0445
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bfb35f21-4676-45b5-01de-08dda832a42f
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B89.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR08MB5850
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_082246_831076_40DD9D61 
-X-CRM114-Status: GOOD (  15.02  )
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ZDyAQUps/4oIxyh6"
+Content-Disposition: inline
+In-Reply-To: <20250609221710.10315-2-james.quinlan@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,44 +82,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jarkko,
 
-> > Unfortunately, when these components are built as built-in drivers,
-> > the functions ffa_init(), tpm_crb_ffa_init(), and crb_acpi_driver_init() are
-> > all executed during the device_initcall phase.
-> > As a result, if crb_acpi_driver_init() is called before the ffa_device exists or
-> > has been probed, it returns -EPROBE_DEFER,
->
-> Please mention exactly this in the commit explicitly and then it should
-> be in detail enough.
+--ZDyAQUps/4oIxyh6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Okay. I'll add this in the next round in cover letter.
+On Mon, Jun 09, 2025 at 06:17:04PM -0400, Jim Quinlan wrote:
+> Add four Broadcom Cable Modem SoCs to the compatibility list.
 
->
-> > causing the probe to be deferred and retried later
-> > during the deferred_probe_initcall phase.
->
-> OK, if ffa_init() is leveled up in the initcall hierarchy, shouldn't
-> that be enough as long as ko's can be found from initramfs?
+In your commit messages, you should mention why these devices are not
+capable of using fallbacks.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-As you mentioned, this is handled in Patch #1.
-However, although ffa_init() is called first,
-unless tpm_crb_ffa_init() is also invoked,
-crb_acpi_driver_init() will fail with -EPROBE_DEFER.
+>=20
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> ---
+>  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/D=
+ocumentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> index c4f9674e8695..5a7b0ed9464d 100644
+> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> @@ -15,6 +15,9 @@ properties:
+>        - enum:
+>            - brcm,bcm2711-pcie # The Raspberry Pi 4
+>            - brcm,bcm2712-pcie # Raspberry Pi 5
+> +          - brcm,bcm3162-pcie # Broadcom DOCSIS 4.0 CMTS w/ 64b ARM
+> +          - brcm,bcm3390-pcie # Broadcom DOCSIS 3.1 CM w/ 32b ARM
+> +          - brcm,bcm3392-pcie # Broadcom DOCSIS 3.1 CM w/ 64b ARM
+>            - brcm,bcm4908-pcie
+>            - brcm,bcm7211-pcie # Broadcom STB version of RPi4
+>            - brcm,bcm7216-pcie # Broadcom 7216 Arm
+> @@ -23,6 +26,7 @@ properties:
+>            - brcm,bcm7435-pcie # Broadcom 7435 MIPs
+>            - brcm,bcm7445-pcie # Broadcom 7445 Arm
+>            - brcm,bcm7712-pcie # Broadcom STB sibling of Rpi 5
+> +          - brcm,bcm33940-pcie # Broadcom DOCSIS 4.0 CM w/ 64b ARM
+> =20
+>    reg:
+>      maxItems: 1
+> --=20
+> 2.43.0
+>=20
 
-Please note that IMA is always built-in and cannot be built as a module.
-To generate boot_aggregate with TPM PCR values from 0 to 7,
-the TPM-related modules must also be built-in and
-properly initialized before init_ima(), which internally calls ima_init().
+--ZDyAQUps/4oIxyh6
+Content-Type: application/pgp-signature; name="signature.asc"
 
-To ensure this, Patch #2 adds a routine to probe
-the ffa_device() in tpm_crb_ffa_init().
-This allows crb_acpi_driver_init() to successfully complete even if
-it is called first, because tpm_crb_ffa_init() triggers
-probing of the ffa_device via ffa_register() beforehand.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks.
---
-Sincerely,
-Yeoreum Yun
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEhN8wAKCRB4tDGHoIJi
+0tmAAQDHXwi683jRmX1Bx3NVDFjzYk9W0gkH+7s8QG2OnV8LrAEA133Af6pObKAg
+bs044xuxHkN8aohFLG72Xi6Q3IdYyQ0=
+=Bkpe
+-----END PGP SIGNATURE-----
+
+--ZDyAQUps/4oIxyh6--
 
