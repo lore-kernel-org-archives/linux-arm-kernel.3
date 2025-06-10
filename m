@@ -4,97 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB94C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30197C678DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gqdWLmhlmvRAVAbQEmyb3OnvKFUT4lR61wher7OOzk8=; b=fX60GltuY382xLphSGlYV1XCA3
-	r7+4yUdSW1LbPZDQhZVT2Rocja5ffWZFRuB51+2/vF6RZMNSLaXoothUhmCfV1KIJAz+Ij3DWk3qI
-	tsDOUkzThDYPxedsOQvVvNjcam4iJo6wB+u1mpJrl4QJWpiqcR2cJxyIjJCvftOYyTY7ddiOSbc8K
-	4vchiJbHzwtOjtrRgn7UDCxRQrNzXpCQbjSuHky+26O9B7b27Iu7ubt2fpuYUhC8j+OLk0ArnNE+Y
-	NASeYZVLXI/099mQA2ASBbNzCttQgjN3LvE/l9pj4IRov3rjbuL0d5pKS3cj7wKE4QwEJLk3gT997
-	cK7tLSpQ==;
+	bh=upEgacp7mnJpqnEV2jZLm7bdZrVLCTZ4Uj3awIoWIUE=; b=k2JVJI+1YgwmfGL+go3+EY1X5u
+	0um9eid1O0rFHzByWyWZxIwyoMJPA52XyG+3YEJTY/y+v3iqncqFwbxVtq8VvXXVC9VA0KmrZONtf
+	tbO3itCXBtf2NKKWbdJwvFTRvfyMIIWS04snJd40uyTXdS1g6hFkD1O1ZuvFetC8a65JwNXmT2vux
+	mWHsc91J+in4HyAIOdZa0H+pUUXNGEdpf8DEQC0dbGD0r4xyUijg/Uak+u9azCh4+wKbGyaTVdBrZ
+	LIdPTdMZ1lt4c2Y8YXKlSRLBwC0cvBoIA932tpdsr4P/DIah8uNCJZl1ERu50hFLzA7LFN9kPTikD
+	cdFQ0LEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyHU-00000006nxY-1o4o;
-	Tue, 10 Jun 2025 12:40:44 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uOyJc-00000006oMx-0dbX;
+	Tue, 10 Jun 2025 12:42:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxia-00000006iCs-1wPd
+	id 1uOxky-00000006iWe-0Tb0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 12:07:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=upEgacp7mnJpqnEV2jZLm7bdZrVLCTZ4Uj3awIoWIUE=; b=BjtHr57T9hgRpty+m/Nuob9Olh
+	0Y5y0h5b3LHXfk9FU46+IH4PxY9wlRZQx84SV268c4a57EXuHt8ruEpKQRlj/Hqv+E0rADswA7EZy
+	I0lParNCslGjuxtoDgkFO8KMtvpA/0EZ54ddMUegvYWubCEOOAUbOPRx9e3se2CMs8mg7WiWj1x2d
+	n4ZjML5yLwgqPGW2H63b9pkW/4Moe++wYPYueUiCFw4a9IdB2zIHkAqHdelWpqe/LvCJ9ZRIxKFdN
+	pRnIeTS+aMgG+jOdQCBhJJqLYgMkYzMRc8ylaKiJU6faCp8GWElr0B6QHFdeQciSidvPqH7LNeBRJ
+	jYuB95pw==;
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOxkw-00000001nR5-0E50
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:04:42 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55A9ILvm010710;
-	Tue, 10 Jun 2025 14:04:27 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	gqdWLmhlmvRAVAbQEmyb3OnvKFUT4lR61wher7OOzk8=; b=uxkwqydqfyLrmp7t
-	TJl3Ulbxd6zF2T+xkvCBu74SD8g9pfxIaq+Wx4f+3NsfoFn/aLhc/wEQ0W22K7qt
-	OzKjtrs7t++64ir1Z3zVov1dj3kFY6yVlBy30euB8rO+sUZUIgYwV9TaGGN+8C/n
-	p2HDupMKjgC5tITajvL/4tB0UMAGeKUUc6w6Nm36KVBrdKZaVDh+U2uErYt+qinW
-	eH/QibaZAAeyFICgO7TUz3Ycfp/1ZN1lhXoHugTDYpt6U7vxSSv3nvhU7UasK/WF
-	ib3EjRS/7SELBKfeh1X/Fw8ig3urGWYz4Nu2sV/taSA77PCIpdFb7hU46/a7ZClb
-	vfPkQg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474y052bdd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 14:04:27 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2495040044;
-	Tue, 10 Jun 2025 14:03:25 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D6EAAB35036;
-	Tue, 10 Jun 2025 14:02:35 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 14:02:35 +0200
-Message-ID: <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
-Date: Tue, 10 Jun 2025 14:02:34 +0200
+	Tue, 10 Jun 2025 12:07:07 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-551ed563740so6644247e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:07:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749557222; x=1750162022; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=upEgacp7mnJpqnEV2jZLm7bdZrVLCTZ4Uj3awIoWIUE=;
+        b=hDZvqsQ8E94qsSIXnXTv+hRlwEgnNAS9ETdYze6rHvCosG/oKp5tGHQyochHWLKyzM
+         z+cgrZ2EVwUdARe5JcnfsLWH5PQtWn6VHar7kbk4V715jisYZGsR7ckTBc07LIXnro4x
+         rjrXdyaTuNxrAr0o16blvUktegGTdbNpvbmEZnqWIQQx+s2TyuE4MMvWyIwFTQwUaqQR
+         u4MZOx3Q0uQ4fPNUMn7ywH1IEgv/Jx/hSS99T7OYHxw3fcH3sQwc/iIzR3Zp0dYHsR+P
+         xE8usEPEND0gBLVL9lCGhjJ58gOdbc10AvvIoSkjI8JA/jM/GGURirtdPJtfvDV9NPyW
+         gVzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749557222; x=1750162022;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=upEgacp7mnJpqnEV2jZLm7bdZrVLCTZ4Uj3awIoWIUE=;
+        b=YO9rYtiM63/Q5H/jJJzCJy2nMyx9lkBJFINd0FKLYNkcGEBtduQYdGdyQq3RuG9/D0
+         kvOWicw9tmjwTMw1c1iILmh22Lj/WCsP3NkEniomUgJiVSL0zjfejyfGGNG7WzOz6UjF
+         6MJLaj+5hHN5ttRhbsGh6UVcuNwoV17WcyhTXrhX3JFvmnBjWNP0b0RT/VQuI1Dt9KdN
+         zZ4WO5u43FHexMhlRuGZI4db3QFtrMgGl5pf1z8/ss8wJX/27Ole9dCX75sG7U45/gFZ
+         hJBz+GMbHK4ufmYvSkWtV8bjtLlsWIjHOPqHwx3S0L5+bbFUiIGMF750o/mehs9HdgLc
+         tx7A==
+X-Forwarded-Encrypted: i=1; AJvYcCXNaZmV5O8EsFHTG4z/vS0+ynLNNAcE0cDq8pdTElHDrRkg8NrMAjqMuLfTN29NIGzkQfHCeCmSRYp5uj1UKyZ+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXW68dgs8/WUuECB9dsL7YDkEFRkVu8pVdXs+yRIjA3lO8u/w/
+	OKCwtjFO8sfj8Gwd2kMeN94IWGHaq+XDJDRELPPtPjDl+O30sGp/wqN2BE0WK6hin+HSGMpHFCm
+	bw0uF3KgaoH1BlzzMYW4k24w1CPZJqFhyqkYplIQdXQ==
+X-Gm-Gg: ASbGnct4qI9iJuQOqea67zdtClzC7OHXjxrq/0HOy4WLraMAViwM5q47ML01BHYrDaD
+	s1pcP2hFCPu9Gxy80SjzwrOD178IdLo1wUwCqgrrMpMTcUxjvrglgrf6Kq+q3I/Zw8tIfZXuPDa
+	awtiP5C8o1JeEUoZc150VVIP58UqvhP0zKFwLTEEEuOwLdMEMScCFt8w==
+X-Google-Smtp-Source: AGHT+IEqz0WMqtI0x3GGlKwfWemlBSbd12UaQPMKKY+qV7hhxbjKafYK8sYr8Wg2JEL7ScFpC5Ui0NiE4JM2Acs5Gg8=
+X-Received: by 2002:a05:651c:220d:b0:32a:ee4e:56ad with SMTP id
+ 38308e7fff4ca-32b1533b1aemr8972041fa.33.1749557222298; Tue, 10 Jun 2025
+ 05:07:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp13
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
- <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
- <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
- <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_04,2025-06-10_01,2025-03-28_01
+References: <20250523094319.10377-1-ot_cathy.xu@mediatek.com>
+In-Reply-To: <20250523094319.10377-1-ot_cathy.xu@mediatek.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 10 Jun 2025 14:06:50 +0200
+X-Gm-Features: AX0GCFuHU7ZhdHSe32gs089Kj2im6LDUCERAjIX60g6Meb5i30AmFDVd_Qjjj2o
+Message-ID: <CACRpkdaGMiNwBAa60hFzsboV3JCj=sWVz-NKah=eNk+vVnUHVw@mail.gmail.com>
+Subject: Re: [PATCH 0/3] pinctrl: mediatek: Add pinctrl driver on mt8189
+To: Cathy Xu <ot_cathy.xu@mediatek.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
+	Lei Xue <lei.xue@mediatek.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Yong Mao <yong.mao@mediatek.com>, Wenbin Mei <Wenbin.Mei@mediatek.com>, 
+	Axe Yang <Axe.Yang@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_050441_038076_61AC6EFD 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250610_130706_198389_702D510B 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,33 +115,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/25 11:01, Krzysztof Kozlowski wrote:
-> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
->>>
->>>> +		};
->>>> +
->>>> +		hdp: pinctrl@5002a000 {
->>>> +			compatible = "st,stm32mp131-hdp";
->>>> +			reg = <0x5002a000 0x400>;
->>>> +			clocks = <&rcc HDP>;
->>>>    			status = "disabled";
->>>
->>> Why are you disabling it? What is missing?
->>
->> Nothing is missing just disabled by default.
->> The node is then enabled when needed in board's dts file.
-> Nodes should not be disabled by default if they are complete. That's why
-> I asked what is missing. Drop.
+On Fri, May 23, 2025 at 11:43=E2=80=AFAM Cathy Xu <ot_cathy.xu@mediatek.com=
+> wrote:
 
-Hi Krzysztof, OK I better understand now.
-So yes the 'pinctrl-*' properties which are board dependent are lacking.
+> This patch series introduces support for the MT8189 pinctrl driver, inclu=
+de
+> the driver implementation, new binding document and pinctrl header file.
 
-In the last patch of my serie I add them (only for stm32mp157f-dk2) but 
-keep it disabled because the pin is on an external connector (the 
-Arduino connector of the board).
-This prevent any issue with a possible connected module.
+Cathy will you rebase & resend this patch set based on v6.16-rc1?
 
-> Best regards,
-> Krzysztof
+I think the code is ready as long as the device tree bindings get finalized=
+.
 
+Yours,
+Linus Walleij
 
