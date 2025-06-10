@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2129C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD06C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Csptn+YSvZyVyPKglDRSK8LH6m/SYWpLJI7rxu7Zw2Y=; b=fMLPZb2sZhuwJbjumGVSZyOG4/
-	bMdGdWwV6R4s4Y5O8du+hv4Vt/gSNpAF5B+J8OxRzPId+O6dclZNikVcsAzxtF+UJIRps85TSmm0o
-	W+6CFVaCeUruQlchJW6x+3iDII06PUm9uk5ljnxJfGnoxwVmp1+QxSiDDXcw/1lwIWD5PJdBxnBj/
-	5XXltMNn1LLYBKVclEcU8RZTigZRG9NBzgrVNZ0tthzTQY5wHI8OElGItovkVl/N9iSLO1qfsPWsA
-	LAYEq9qPiIygGxYkRlPbe4XLnd2VNGNMbTjbt9+G/OBUrHYuDWEPH0R+SPCXYH+OfGzGPKPRBJq2c
-	9u9eTQ/w==;
+	bh=Elwh+r/uXUWKr+0hd6wb4ktQPxzEt12ZisVDE25VjDg=; b=TbGzEtmlauJ7+93ejSqUJ7SDcU
+	tS122BgLOCPrIQLLXbVhC9mUVhuIT6Ro9qeVjr3qNfXSrSthL2Ef+XwzaNo/P52zxY6CriglR3Fo1
+	sAIOQwchuasrKjG9DwO8YoG1MAeM/GkoTaOd2K1e06JZaEz9ueFU9oQWY5KnCDzTUEQLptp114kFB
+	KvsxbjrN46N4JSOLaiLjVfxbrpbKd47+LDXNaPyxb98kcOCkUvVtzGiXG3/snCwvMmWEFOx+qrG0u
+	MCNe/W1vaw9T3Xwz67s4ALQS9l2vQKJmVC1DGicM92ctHdxoEacvoPmJdz5+Sqlvj0JiS2GL6ekYO
+	zeAkwKzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvvi-00000006SiX-28nD;
-	Tue, 10 Jun 2025 10:10:06 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1uOvxq-00000006Sym-1zAc;
+	Tue, 10 Jun 2025 10:12:18 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvIO-00000006L7S-0DpO;
-	Tue, 10 Jun 2025 09:29:29 +0000
-X-UUID: 65814dca45dd11f09f706fa2197c6ceb-20250610
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Csptn+YSvZyVyPKglDRSK8LH6m/SYWpLJI7rxu7Zw2Y=;
-	b=JHnyPdPegRoBBXDgRHCGHLWfkM2Eu87YlZ5o+GJK2K2x1k+pz6OpiKpGPfa98MO+R/31NVrlULRCAjJ50KZpEQlDVrZehWVp6ifbOKBIxF+uim2NdcCTcTmrIaWSOzTyIYPu58YPs0YLYrpdX/Z5dj8rq+XPqvlbpPZ9N9tmpYk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.3,REQID:c69776a7-e7ed-4976-98b8-601fe8cb3f90,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:09905cf,CLOUDID:2235d781-ef30-4982-a001-67a9a83f2fda,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|97|99|83|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 65814dca45dd11f09f706fa2197c6ceb-20250610
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
-	(envelope-from <darren.ye@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 987583211; Tue, 10 Jun 2025 02:29:24 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 10 Jun 2025 17:29:21 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 10 Jun 2025 17:29:20 +0800
-From: Darren.Ye <darren.ye@mediatek.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
- Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
-	<darren.ye@mediatek.com>
-Subject: [PATCH v4 10/10] ASoC: dt-bindings: mediatek,mt8196-nau8825: add mt8196-nau8825 document
-Date: Tue, 10 Jun 2025 17:27:27 +0800
-Message-ID: <20250610092852.21986-11-darren.ye@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250610092852.21986-1-darren.ye@mediatek.com>
-References: <20250610092852.21986-1-darren.ye@mediatek.com>
+	id 1uOvK0-00000006LOT-2H3z
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 09:31:09 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D56DD2EC;
+	Tue, 10 Jun 2025 11:30:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1749547860;
+	bh=RJnqcxMbNIxlr5WHFTB3DtfDPYl9c+Ani7yndG3QX+I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=unCEQU8PyvSu0fK2raePwS5YJoY3Ob2A/0SliXK2qoRY8mSjX6XNLukOVwdfarZOf
+	 IdbuEhFp6bms0SqvLkOxz2cooHIGTC5JGEku5p1hNZw6awHYnDVZwwyDmlH4UDIjbo
+	 KAN2uTRLL7tmm+BN0ieAzWovP5Qr6PirfR155trk=
+Date: Tue, 10 Jun 2025 12:30:54 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 8/8] media: imx-mipi-csis: Initial support for multiple
+ output channels
+Message-ID: <20250610093054.GN27510@pendragon.ideasonboard.com>
+References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
+ <20250608235840.23871-9-laurent.pinchart@ideasonboard.com>
+ <2230307.irdbgypaU6@steina-w>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <2230307.irdbgypaU6@steina-w>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_022928_093571_0D07113C 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250610_023108_725616_2E1A5E39 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,125 +79,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Darren Ye <darren.ye@mediatek.com>
+On Tue, Jun 10, 2025 at 11:01:20AM +0200, Alexander Stein wrote:
+> Am Montag, 9. Juni 2025, 01:58:40 CEST schrieb Laurent Pinchart:
+> > Some CSIS instances feature more than one output channel. Parse the
+> > number of channels from the device tree, and update register dumps and
+> > event counters accordingly. Support for routing virtual channels and
+> > data types to output channels through the subdev internal routing API
+> > will come later.
+> > 
+> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c | 224 ++++++++++++++-------
+> >  1 file changed, 146 insertions(+), 78 deletions(-)
+> > 
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > index 080e40837463..4cc358d93187 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -98,12 +98,12 @@
+> >  #define MIPI_CSIS_INT_SRC_ODD_AFTER		BIT(28)
+> >  #define MIPI_CSIS_INT_SRC_ODD			(0x3 << 28)
+> >  #define MIPI_CSIS_INT_SRC_NON_IMAGE_DATA	(0xf << 28)
+> 
+> As a side note: I just noticed Bits 28-31 are only defined on i.MX7. They
+> are reserved on i.MX8M (Mini, Nano, Plus).
 
-Add document for mt8196 board with nau8825.
+They are many bit marked as reserved that are actually implemented. The
+CSIS is a big pain point :-(
 
-Signed-off-by: Darren Ye <darren.ye@mediatek.com>
----
- .../sound/mediatek,mt8196-nau8825.yaml        | 102 ++++++++++++++++++
- 1 file changed, 102 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
+> > -#define MIPI_CSIS_INT_SRC_FRAME_START		BIT(24)
+> > -#define MIPI_CSIS_INT_SRC_FRAME_END		BIT(20)
+> > +#define MIPI_CSIS_INT_SRC_FRAME_START(n)	BIT((n) + 24)
+> > +#define MIPI_CSIS_INT_SRC_FRAME_END(n)		BIT((n) + 20)
+> >  #define MIPI_CSIS_INT_SRC_ERR_SOT_HS(n)		BIT((n) + 16)
+> > -#define MIPI_CSIS_INT_SRC_ERR_LOST_FS		BIT(12)
+> > -#define MIPI_CSIS_INT_SRC_ERR_LOST_FE		BIT(8)
+> > -#define MIPI_CSIS_INT_SRC_ERR_OVER		BIT(4)
+> > +#define MIPI_CSIS_INT_SRC_ERR_LOST_FS(n)	BIT((n) + 12)
+> > +#define MIPI_CSIS_INT_SRC_ERR_LOST_FE(n)	BIT((n) + 8)
+> > +#define MIPI_CSIS_INT_SRC_ERR_OVER(n)		BIT((n) + 4)
+> 
+> Similar here. Only i.MX7 has the bits for CH1, CH2 and CH3 defined.
+> 
+> >  #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
+> >  #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
+> >  #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
+> > @@ -205,23 +205,23 @@
+> >  /* Debug control register */
+> >  #define MIPI_CSIS_DBG_CTRL			0xc0
+> >  #define MIPI_CSIS_DBG_INTR_MSK			0xc4
+> > -#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT	BIT(25)
+> > -#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE	BIT(24)
+> > -#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE	BIT(20)
+> > -#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME	BIT(16)
+> > -#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE		BIT(12)
+> > -#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS		BIT(8)
+> > -#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL	BIT(4)
+> > -#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE	BIT(0)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_DT_NOT_SUPPORT		BIT(25)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_DT_IGNORE		BIT(24)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_ERR_FRAME_SIZE(n)	BIT((n) + 20)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_TRUNCATED_FRAME(n)	BIT((n) + 16)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FE(n)		BIT((n) + 12)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_EARLY_FS(n)		BIT((n) + 8)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_FALL(n)	BIT((n) + 4)
+> > +#define MIPI_CSIS_DBG_INTR_MSK_CAM_VSYNC_RISE(n)	BIT((n) + 0)
+> >  #define MIPI_CSIS_DBG_INTR_SRC			0xc8
+> > -#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT	BIT(25)
+> > -#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE	BIT(24)
+> > -#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE	BIT(20)
+> > -#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME	BIT(16)
+> > -#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE		BIT(12)
+> > -#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS		BIT(8)
+> > -#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL	BIT(4)
+> > -#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE	BIT(0)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT		BIT(25)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE		BIT(24)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE(n)	BIT((n) + 20)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_TRUNCATED_FRAME(n)	BIT((n) + 16)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FE(n)		BIT((n) + 12)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_EARLY_FS(n)		BIT((n) + 8)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_FALL(n)	BIT((n) + 4)
+> > +#define MIPI_CSIS_DBG_INTR_SRC_CAM_VSYNC_RISE(n)	BIT((n) + 0)
+> 
+> Out of curiosity: Where do these bits come from? I can't find them in RM.
 
-diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
-new file mode 100644
-index 000000000000..5c4162e64004
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
-@@ -0,0 +1,102 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/mediatek,mt8196-nau8825.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT8196 ASoC sound card
-+
-+maintainers:
-+  - Darren Ye <darren.ye@mediatek.com>
-+
-+allOf:
-+  - $ref: sound-card-common.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt8196-nau8825-sound
-+      - mediatek,mt8196-rt5682s-sound
-+      - mediatek,mt8196-rt5650-sound
-+
-+  mediatek,platform:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: The phandle of MT8188 ASoC platform.
-+
-+patternProperties:
-+  "^dai-link-[0-9]+$":
-+    type: object
-+    description:
-+      Container for dai-link level properties and CODEC sub-nodes.
-+
-+    properties:
-+      link-name:
-+        description:
-+          This property corresponds to the name of the BE dai-link to which
-+          we are going to update parameters in this node.
-+        items:
-+          enum:
-+            - TDM_DPTX_BE
-+            - I2SOUT6_BE
-+            - I2SIN6_BE
-+            - I2SOUT4_BE
-+            - I2SOUT3_BE
-+
-+      codec:
-+        description: Holds subnode which indicates codec dai.
-+        type: object
-+        additionalProperties: false
-+        properties:
-+          sound-dai:
-+            minItems: 1
-+            maxItems: 2
-+        required:
-+          - sound-dai
-+
-+      dai-format:
-+        description: audio format.
-+        items:
-+          enum:
-+            - i2s
-+            - right_j
-+            - left_j
-+            - dsp_a
-+            - dsp_b
-+
-+      mediatek,clk-provider:
-+        $ref: /schemas/types.yaml#/definitions/string
-+        description: Indicates dai-link clock master.
-+        enum:
-+          - cpu
-+          - codec
-+
-+    additionalProperties: false
-+
-+    required:
-+      - link-name
-+
-+required:
-+  - compatible
-+  - mediatek,platform
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    sound {
-+        compatible = "mediatek,mt8196-nau8825-sound";
-+        model = "mt8196-nau8825";
-+        mediatek,platform = <&afe>;
-+        pinctrl-names = "default";
-+        pinctrl-0 = <&aud_pins_default>;
-+        dai-link-0 {
-+            link-name = "I2SOUT6_BE";
-+            dai-format = "i2s";
-+            mediatek,clk-provider = "cpu";
-+            codec {
-+                sound-dai = <&nau8825>;
-+            };
-+        };
-+    };
-+
-+...
+They are documented in the i.MX7D RM, and they appear to be implemented
+on the i.MX8MP as the interrupts fire in the expected way.
+
+> > [snip]
+
 -- 
-2.45.2
+Regards,
 
+Laurent Pinchart
 
