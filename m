@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C13DBC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 11:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD445C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 11:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j940PINsvf8aqFjDQMA64fidO94Z+Dsnzl47FpNAEaY=; b=L7hR0JazvKqjAO6IOgAZWKN0z4
-	8gdfUbwdn+YvuCehaceHlVGV3X4RWNXRNCacHrFFIq0o2SFumOEzSsXVkhLZ94hddsqags4iJ8S+1
-	7QuvE+oGCtIoeglH/GE+Sv31a9Vdq4YJiY/eZ+kix6iXdznuGdA1VJsbLDVFSm4d/fFVDt0RPdo1A
-	Y2b0LKDZhaGzB4VDo2Tw4UAv0K2MY+p8i/f7drbXHsrbc9t2nk07eLAGIxvhChICJkVK6KSYjBgHC
-	dNEb0W/3KCHmxmHm0Ke47gn4efToJCw3+eMdRBbq1kPYOO1kPaV/LE4e5UMeBA5ix+g/pl7tHuVh7
-	Da8mH4hA==;
+	bh=RJJLStwv8ji0UKm0Ycz6TVP9E3mx4uyR7lDZzwUIdpY=; b=Ox4q6HLSTw6d9K4IbioDOVQaqw
+	uuN9QbPP7HZot1/nL9upaMVvn1Ht0w91DRnmVd+GwZxiwRNr4XOdoHMPcWXBnlLmUR/7a2qkbAFYr
+	kNBqM+z9HUOvsAdGOvy+Qedx79xd+TuPWNhykDF1tuKSLVNOMrTYHtu0w1idIu0yZ+zJneNpXFjGU
+	XtlYWBppC7ox9sz9dfeNqqXFh9ufVoyj6Pm1J/ZOAgpub7Cp/QVXrAGg+HFGCDQFNQVDrzCa92NcV
+	+FW66cq6KVpqrv3s1rnM/6MXt0oY7iYa/fP9EIZJktiCTok83pqTdzsAqKHycjdRukUgN7ZfbRvlV
+	P2Sos+Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxJu-00000006fkQ-2THJ;
-	Tue, 10 Jun 2025 11:39:10 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1uOxM1-00000006ftI-1XIp;
+	Tue, 10 Jun 2025 11:41:21 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwld-00000006bbh-0GqS
+	id 1uOwlg-00000006bcV-2uQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 11:03:46 +0000
+	Tue, 10 Jun 2025 11:03:49 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id CD3E621985;
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 692311F84E;
 	Tue, 10 Jun 2025 11:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1749553405; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=j940PINsvf8aqFjDQMA64fidO94Z+Dsnzl47FpNAEaY=;
-	b=B3KSYvNd80gaFlQhuS94RTgAr0deXmINN4hs24Uiwhf/SGToZaN06RNi/BGY+Y9kGZBBqn
-	s7ARBvyl51tALZSeM5ChU0R03rBoIKXob9yV7P4pdQh6j8+ISCJmo6eK+fJPbIfXNo6o1B
-	Ltdaf1UQg8QizNggZEIux9cBwLfWIBw=
+	bh=RJJLStwv8ji0UKm0Ycz6TVP9E3mx4uyR7lDZzwUIdpY=;
+	b=ogUjPPzezETnF5Oa1e+3NoH2OG5+D3niEXEQ74dcF4hBetqd0iuWJFb2OzIYOifom9QiQ/
+	DTGK9wMhnHbXE7WKeEhj0EL1pKW7+A84NbOnzYDyySkGm/XDAe/Kthhq1zXSTl9uKXANKT
+	AHM7Q4a8o1EfUfY3xg5As1WcFDGnp3I=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1749553405;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=j940PINsvf8aqFjDQMA64fidO94Z+Dsnzl47FpNAEaY=;
-	b=BUJ5llprMJglqELmD8rb8X0utIAdbUPsALFkb6I+1/3/3dHDCr6qv40fgK/V5P1rebg5p8
-	d7xdsUBdaxbPTCAg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=B3KSYvNd;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=BUJ5llpr
+	bh=RJJLStwv8ji0UKm0Ycz6TVP9E3mx4uyR7lDZzwUIdpY=;
+	b=HPJpGtzvYslAF4xn5c2qlj0lru6+/tSKVrc75LQlhK1ka1TRTCDUMGexuzgkVprifUsoi3
+	1E4kHN0dF/KrsXCA==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ogUjPPze;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=HPJpGtzv
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
 	t=1749553405; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=j940PINsvf8aqFjDQMA64fidO94Z+Dsnzl47FpNAEaY=;
-	b=B3KSYvNd80gaFlQhuS94RTgAr0deXmINN4hs24Uiwhf/SGToZaN06RNi/BGY+Y9kGZBBqn
-	s7ARBvyl51tALZSeM5ChU0R03rBoIKXob9yV7P4pdQh6j8+ISCJmo6eK+fJPbIfXNo6o1B
-	Ltdaf1UQg8QizNggZEIux9cBwLfWIBw=
+	bh=RJJLStwv8ji0UKm0Ycz6TVP9E3mx4uyR7lDZzwUIdpY=;
+	b=ogUjPPzezETnF5Oa1e+3NoH2OG5+D3niEXEQ74dcF4hBetqd0iuWJFb2OzIYOifom9QiQ/
+	DTGK9wMhnHbXE7WKeEhj0EL1pKW7+A84NbOnzYDyySkGm/XDAe/Kthhq1zXSTl9uKXANKT
+	AHM7Q4a8o1EfUfY3xg5As1WcFDGnp3I=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
 	s=susede2_ed25519; t=1749553405;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=j940PINsvf8aqFjDQMA64fidO94Z+Dsnzl47FpNAEaY=;
-	b=BUJ5llprMJglqELmD8rb8X0utIAdbUPsALFkb6I+1/3/3dHDCr6qv40fgK/V5P1rebg5p8
-	d7xdsUBdaxbPTCAg==
+	bh=RJJLStwv8ji0UKm0Ycz6TVP9E3mx4uyR7lDZzwUIdpY=;
+	b=HPJpGtzvYslAF4xn5c2qlj0lru6+/tSKVrc75LQlhK1ka1TRTCDUMGexuzgkVprifUsoi3
+	1E4kHN0dF/KrsXCA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 6F0BD13A17;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 17ADF13964;
 	Tue, 10 Jun 2025 11:03:25 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id aGfGGf0QSGgOTAAAD6G6ig
+	id mHqEBP0QSGgOTAAAD6G6ig
 	(envelope-from <tzimmermann@suse.de>); Tue, 10 Jun 2025 11:03:25 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: deller@gmx.de,
@@ -96,14 +96,17 @@ Cc: linux-fbdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-omap@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 07/14] fbdev/omap: Include <linux/export.h>
-Date: Tue, 10 Jun 2025 12:56:40 +0200
-Message-ID: <20250610105948.384540-8-tzimmermann@suse.de>
+Subject: [PATCH 06/14] fbdev/matroxfb: Include <linux/export.h>
+Date: Tue, 10 Jun 2025 12:56:39 +0200
+Message-ID: <20250610105948.384540-7-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250610105948.384540-1-tzimmermann@suse.de>
 References: <20250610105948.384540-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Queue-Id: 692311F84E
+X-Rspamd-Action: no action
 X-Spamd-Result: default: False [-3.01 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
 	MID_CONTAINS_FROM(1.00)[];
@@ -125,19 +128,16 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	R_RATELIMIT(0.00)[to_ip_from(RLwqwbgho3bgbo9wb3ecq1qfng)];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:dkim,suse.de:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
 	FROM_EQ_ENVFROM(0.00)[];
 	DKIM_TRACE(0.00)[suse.de:+];
 	FROM_HAS_DN(0.00)[];
 	RCVD_TLS_ALL(0.00)[];
 	TO_DN_SOME(0.00)[];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
-X-Rspamd-Queue-Id: CD3E621985
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_040345_242308_B0EFD3B8 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20250610_040348_871562_1A91B13B 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,57 +154,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Fix the compile-time warnings
 
-  drivers/video/fbdev/omap/lcd_dma.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/omap/lcdc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/omap/omapfb_main.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/g450_pll.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_DAC1064.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_Ti3026.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_accel.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_base.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_g450.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_misc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 ---
- drivers/video/fbdev/omap/lcd_dma.c     | 1 +
- drivers/video/fbdev/omap/lcdc.c        | 2 ++
- drivers/video/fbdev/omap/omapfb_main.c | 2 ++
- 3 files changed, 5 insertions(+)
+ drivers/video/fbdev/matrox/g450_pll.c         | 2 ++
+ drivers/video/fbdev/matrox/matroxfb_DAC1064.c | 1 +
+ drivers/video/fbdev/matrox/matroxfb_Ti3026.c  | 1 +
+ drivers/video/fbdev/matrox/matroxfb_accel.c   | 2 ++
+ drivers/video/fbdev/matrox/matroxfb_base.c    | 1 +
+ drivers/video/fbdev/matrox/matroxfb_g450.c    | 2 ++
+ drivers/video/fbdev/matrox/matroxfb_misc.c    | 1 +
+ 7 files changed, 10 insertions(+)
 
-diff --git a/drivers/video/fbdev/omap/lcd_dma.c b/drivers/video/fbdev/omap/lcd_dma.c
-index 0da23c57e475..56300be71c57 100644
---- a/drivers/video/fbdev/omap/lcd_dma.c
-+++ b/drivers/video/fbdev/omap/lcd_dma.c
-@@ -18,6 +18,7 @@
-  * Support functions for the OMAP internal DMA channels.
+diff --git a/drivers/video/fbdev/matrox/g450_pll.c b/drivers/video/fbdev/matrox/g450_pll.c
+index 96996efc9288..e2c1478aa47f 100644
+--- a/drivers/video/fbdev/matrox/g450_pll.c
++++ b/drivers/video/fbdev/matrox/g450_pll.c
+@@ -14,6 +14,8 @@
+  *
   */
  
 +#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/spinlock.h>
- #include <linux/interrupt.h>
-diff --git a/drivers/video/fbdev/omap/lcdc.c b/drivers/video/fbdev/omap/lcdc.c
-index abb8b11464e8..53ca58ec5eed 100644
---- a/drivers/video/fbdev/omap/lcdc.c
-+++ b/drivers/video/fbdev/omap/lcdc.c
-@@ -5,8 +5,10 @@
-  * Copyright (C) 2004 Nokia Corporation
-  * Author: Imre Deak <imre.deak@nokia.com>
-  */
 +
- #include <linux/module.h>
- #include <linux/device.h>
-+#include <linux/export.h>
- #include <linux/interrupt.h>
- #include <linux/spinlock.h>
- #include <linux/err.h>
-diff --git a/drivers/video/fbdev/omap/omapfb_main.c b/drivers/video/fbdev/omap/omapfb_main.c
-index 2682b20d184a..106d21e74738 100644
---- a/drivers/video/fbdev/omap/omapfb_main.c
-+++ b/drivers/video/fbdev/omap/omapfb_main.c
-@@ -11,6 +11,8 @@
-  *   Dirk Behme <dirk.behme@de.bosch.com>  - changes for 2.6 kernel API
-  *   Texas Instruments                     - H3 support
+ #include "g450_pll.h"
+ #include "matroxfb_DAC1064.h"
+ 
+diff --git a/drivers/video/fbdev/matrox/matroxfb_DAC1064.c b/drivers/video/fbdev/matrox/matroxfb_DAC1064.c
+index 99bdcb52ef4b..9a893b70ab19 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_DAC1064.c
++++ b/drivers/video/fbdev/matrox/matroxfb_DAC1064.c
+@@ -13,6 +13,7 @@
+  *
   */
-+
+ 
 +#include <linux/export.h>
- #include <linux/platform_device.h>
- #include <linux/mm.h>
- #include <linux/slab.h>
+ 
+ #include "matroxfb_DAC1064.h"
+ #include "matroxfb_misc.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_Ti3026.c b/drivers/video/fbdev/matrox/matroxfb_Ti3026.c
+index f53b8066e8a5..4eb636cd1f89 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_Ti3026.c
++++ b/drivers/video/fbdev/matrox/matroxfb_Ti3026.c
+@@ -79,6 +79,7 @@
+  *
+  */
+ 
++#include <linux/export.h>
+ 
+ #include "matroxfb_Ti3026.h"
+ #include "matroxfb_misc.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_accel.c b/drivers/video/fbdev/matrox/matroxfb_accel.c
+index 52e15dc6f45b..2670db392da2 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_accel.c
++++ b/drivers/video/fbdev/matrox/matroxfb_accel.c
+@@ -77,6 +77,8 @@
+  *
+  */
+ 
++#include <linux/export.h>
++
+ #include "matroxfb_accel.h"
+ #include "matroxfb_DAC1064.h"
+ #include "matroxfb_Ti3026.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_base.c b/drivers/video/fbdev/matrox/matroxfb_base.c
+index 81603ce05a22..5be0cdcd7c71 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_base.c
++++ b/drivers/video/fbdev/matrox/matroxfb_base.c
+@@ -101,6 +101,7 @@
+  */
+ 
+ #include <linux/aperture.h>
++#include <linux/export.h>
+ #include <linux/version.h>
+ 
+ #include "matroxfb_base.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_g450.c b/drivers/video/fbdev/matrox/matroxfb_g450.c
+index 86fe757d7761..800c05b70ee3 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_g450.c
++++ b/drivers/video/fbdev/matrox/matroxfb_g450.c
+@@ -13,6 +13,8 @@
+  *
+  */
+ 
++#include <linux/export.h>
++
+ #include "matroxfb_base.h"
+ #include "matroxfb_misc.h"
+ #include "matroxfb_DAC1064.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_misc.c b/drivers/video/fbdev/matrox/matroxfb_misc.c
+index 3fe99214c116..2c5f0099532b 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_misc.c
++++ b/drivers/video/fbdev/matrox/matroxfb_misc.c
+@@ -85,6 +85,7 @@
+  *
+  */
+ 
++#include <linux/export.h>
+ 
+ #include "matroxfb_misc.h"
+ #include <linux/interrupt.h>
 -- 
 2.49.0
 
