@@ -4,87 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BED2C678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84DFC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5xa9cG2pr9xcsVqJ5+MJgpfTILGDJuMoCniM2gaETPk=; b=UmJ5/cu8IrJm49t0SQfWzHMg5H
-	ZYK4iaoctohH8fxMjuTMhM4/h4WivY31xakHPvZOecpSToveXIecnVIj3m43s1I/Q7jnvWJBD+AtE
-	fASKKXic9x6lwxtHy6AGPHjw9VXs5MH7AxQBMPzODaMaGaqDNMjU1BaMR64ImaQ2a42VNEvncwMCw
-	+Cp8crOTamvJSkbsdy8aZfSMFutDtss5qcfk+g+ScYZRhpbfGGNJJ3EuwB335+YKzggDk8XoTjNah
-	3T0aUv57HLqYzC36D72m/E85AQimWkNG8UlycZ5aPUehDMSnVclcfIzwxLPD7P1w/v+ALfB7gNYq7
-	7UfTbXGg==;
+	bh=nEf5Gc8OIB6seM5Xwo8qWzla3rwazzwe65/yd6IeVS0=; b=4zmQ4LhDdyFeyQTDxX0sLY6/XY
+	AClFJsMrdZExxtWBJdbNtiF4ifdhVWlSc/KTQmZ+wCCXoXvrb2Q9SzOqseF6RHLjihHgm8GzlNL4u
+	TZUNAW6FHJlS6AvDZm/dOs22faSdKqdnYkr7ZkoVXeCDD8fiYrsNsWNHr4SiPbsqVno+hVufBIV1v
+	8TBNfJOEIhLGu/BPvBILSUeL+2f6z4XFeLcTvEfc22sBNwDJoPPwJw+GhrqOUMnxSdy4vj59cwhJD
+	wk/+bMwvgy2YKSxhSk2NfK6iLm8u86HQVoIY2XB11EeLo0RHoQpG6FtxOaIjCt3StdRpHD6GtZ6GQ
+	2y2wLstw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzM5-000000072TD-1sma;
-	Tue, 10 Jun 2025 13:49:33 +0000
+	id 1uOzOD-000000072w9-2iWd;
+	Tue, 10 Jun 2025 13:51:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyAW-00000006mN1-2CXH;
-	Tue, 10 Jun 2025 12:33:32 +0000
+	id 1uOyAW-00000006mNC-3wMp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 12:33:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5xa9cG2pr9xcsVqJ5+MJgpfTILGDJuMoCniM2gaETPk=; b=M0gF9GYYxypTYCJlOPxVhajD1a
-	s0Qf7FkUb80yfYlwRrLC6pOwjGoT4y8xbBjIDCMCx6peiwgY2c3/KCyawxvdvz20HbzQrC89v2S33
-	I8l/6w/BDdQEZAFICKxNq4yAc190J+AbB9FnPrjhbFcad0bW485mryiPnFHoeaBoWwFedVqJWRoxO
-	iljI8GWsVvs2Zy1+j2Gnl/gd0bfhh3lIHWamKU8Y5NJ4GAuOCYcDEYcAKrDfxkjKGpFJWsgMlaGoo
-	zktlv3BrJOqnBBGCjcloWir9pUq/yKGnTvgTmDUlUhUSUsFvnQPCfk6n5p4CfvmKcYdrFUejpZpMb
-	zuECbq9Q==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	bh=nEf5Gc8OIB6seM5Xwo8qWzla3rwazzwe65/yd6IeVS0=; b=JhB08e7BTm+D5iZ66lIoRMxIyr
+	NX2+t+S+Lfjltol4y94j+48R2RE70EKlxrMLl5E3ll+PxLXENrRiRipZJnCaju+j/GwO6XXJkVJbD
+	FlT4uwmn+jaXn1v9s/P8zo/w+7ClPbM/Vgc5360IOk3lpxEhAuxS0FyUPPmmbIrttQCrNwf1yZ8lK
+	8Dghjq2ULzWWZ9mNY6NkRv+gGJi8Xg/4MThaRGB3GYKiu7LIR26YWZOfre9U31xnlnl3B+r8l48/1
+	+SIgq/+xgQM30TPFlqBDx7Mc/o9rI50UYZsO0HU8LHLstBjLjT40zjWe0q9B2jzQqU/KSsIGe/iBy
+	YnMCarOQ==;
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyAT-00000001oVB-3tFe;
+	id 1uOyAU-00000001oVt-26j3
+	for linux-arm-kernel@lists.infradead.org;
 	Tue, 10 Jun 2025 12:33:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749558793; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Al2y6Xk/2fIyGUGuVUgtNCS4FuvbnrttTaj0Ju4xEjHxeWdySFeRLBMijt9dmBceT/dA/sUj3yNBxQo4VeEkPJuFklmghsxOktpv2mF0UdNuJYOXaRTXW7Tg/amVPeWZfR/F+wmVMRhlLhpmiwkdLA9Q2yYXY+qvgO62S9UgowY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749558793; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=5xa9cG2pr9xcsVqJ5+MJgpfTILGDJuMoCniM2gaETPk=; 
-	b=Lg28iP/R8Vq/lCM/6TQCfUq/0H/WfwuO9XDvB91XK2+geaBdZSBpr/zUEtmWKc9GOmfSFThX4bILrkt3oLV5QLm0V0S0yXrNdaMlAMuxFfcEAgPrFsETC6YHEeUA+bHz07XNFTvR4zvxxlsFHDivajCnOky8UWKis7aVhQJ7XIE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749558793;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=5xa9cG2pr9xcsVqJ5+MJgpfTILGDJuMoCniM2gaETPk=;
-	b=QWqZ9N+YfRkbqawl2keGrpie2ot7FK+6NkViICPeurJwFaV0v4cOuJhmQ61hQU9a
-	wgZbu6XJ1NbQi/tBq1G8pmkLbKtrXylHg/8/1Ux1Q9nnCjl1PjeeSzRozAsvpNkWl40
-	nQ+1qG8rOr+e2sTccFcdWSvyEE/Fpw1xXuOL3thk=
-Received: by mx.zohomail.com with SMTPS id 1749558793003641.3987740980031;
-	Tue, 10 Jun 2025 05:33:13 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 10 Jun 2025 14:32:42 +0200
-Subject: [PATCH v6 6/7] arm64: dts: rockchip: Add thermal nodes to RK3576
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-450cfb790f7so37772795e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:33:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749558808; x=1750163608; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nEf5Gc8OIB6seM5Xwo8qWzla3rwazzwe65/yd6IeVS0=;
+        b=fIVUUlU1G6xdg5hcXhs7WEJ23Gqh4eIWIrSisOdt/L1vmryHcNynYrtVV8XT5mOd/V
+         FYirXTKbRGQUjDVTi9ecgqZAB2QGu5H2VNbOfo3Q0414kolphrIT4mMA4dHHiPHpzt77
+         x2w0Q67WhWdW6FtabgZgcvwoosQLQXCuzw6ag5lyr40uFdqngaZ6fidnHmhhJfx5TeGA
+         XuaJUT1N0Avv2NqB0pPzChL1bABWNpJ2E9rSuHRk4rlgbSQC4Gvm6jRZmu7eIrWOQRn1
+         OTGXvADmwFQnqi9p7WEmS9FUWZeS9t9VtAdCwJhJKJIJmYq4l7eVlZoL14SAq+E8onq8
+         YcbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749558808; x=1750163608;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nEf5Gc8OIB6seM5Xwo8qWzla3rwazzwe65/yd6IeVS0=;
+        b=drm0ja3+ULB1kHQ/E3C1Zs29vlyojrFM04eaIfn+XamDE7fbyb3HWEOLIbz6IlwSwy
+         eulBwZy5wvmyGmA/vxoalEy1uvquLyVOex06lemf/zVhuzj8/mexDK2U0i7ZbzAFpkFm
+         LH+sJWiLvLJYUcEYM+yTsngrCsdTUpb2nE/6rOjJ02jBs31lhAFooTNNCL5LMxJNj0Nr
+         aghF69GZRSKbrcHrPH0rFOd3U8Pex8GQytkjjfM/Li/BFEwLmfuJq+L2bF6fc1pids6l
+         FBRX9pyo9U/GOPKMES1dxcA3+pXOHFhIrU/ytEWpcSdJJkroM9BPshTy64l8AU0Eahbj
+         lnUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWe9mqKzHPcgELksLXIoANTAb2l9cF6yN1mI4FkmhcI1KqgttoqsRnftRZIvx6RgIyjaANQOfU3mlCjh1BGyK4M@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1FSj+HQpdrVoKdbx4L+jScfCst60CSgU22QSXPqu0jAPaoei3
+	50jbKURXof3BdB36WAhsehGSYI6xyf3QN02oRq0/7898MuMRhqH0+IJT2Hx4AttUcy0=
+X-Gm-Gg: ASbGnct9M4arJyw7eCSlnBToMVbQRRpFprWIG7AJjC1nnHp18fuXjYlwLMk4yR6xbqS
+	fHYmOaqNEZaFq6bx2TPLz7ch66wXkhcQrziVzp/RImmKSCwTEWV9IcOfNPvBi4SLAR4iQsmfMtN
+	Vl2SxSWrY+76Jt/K0dr0WGeR98GPbQvdOFdGYgrUNKPjHplHxujvbB17NP8DFlW33k/+f8zETMe
+	9PhJYU0oorc4SEkdJ/QFBkwCgm6kJdyxmFAJZErmz1iElQsbTw+O7CrPGLu8KBUFabhoiG8VL+p
+	H8Hh+GB8aIBMfP5ZsoEgj0B3vvxFzMY+gBy4SzcELnsRICqgppW3xw==
+X-Google-Smtp-Source: AGHT+IETHAD7DnXMxmzo7SdLmc5/WglgRFKEzRxI0iE9dDNUlCk/3LFXQSCUEAkPp5r5aRCIVtcMtw==
+X-Received: by 2002:a05:6000:438a:b0:3a4:f7af:db9c with SMTP id ffacd0b85a97d-3a5522e58c0mr2096741f8f.59.1749558808061;
+        Tue, 10 Jun 2025 05:33:28 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4d:e52b:812d:eb7c])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53243661csm12290668f8f.53.2025.06.10.05.33.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 05:33:27 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 10 Jun 2025 14:33:15 +0200
+Subject: [PATCH 05/12] gpio: mpfs: use new GPIO line value setter callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-rk3576-tsadc-upstream-v6-6-b6e9efbf1015@collabora.com>
-References: <20250610-rk3576-tsadc-upstream-v6-0-b6e9efbf1015@collabora.com>
-In-Reply-To: <20250610-rk3576-tsadc-upstream-v6-0-b6e9efbf1015@collabora.com>
-To: Alexey Charkov <alchark@gmail.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Jonas Karlman <jonas@kwiboo.se>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
- kernel@collabora.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Message-Id: <20250610-gpiochip-set-rv-gpio-v1-5-3a9a3c1472ff@linaro.org>
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ =?utf-8?q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Grygorii Strashko <grygorii.strashko@ti.com>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1809;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=LJhyLcUOS+h5b7rEBajAPZSVOUjvkwn05DngH8alAwc=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoSCYPZEloPYVfxzVAviTn9YklxaSXEOfJeOwsL
+ R7IvzJurSaJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaEgmDwAKCRARpy6gFHHX
+ csXgD/9eTtN8ZefGVcyBA5Sqi0yLe+7DSboB4eiFeuPn1Qp2CZK7sZczomtfCljg4IDGEXmyp67
+ tQyoMRkwYZ+BniUdTs89iZTV15o7YlLkxkkfWLJb6s6ida4C2LK7ci6BOTlpZPvg/+ruCWG+q0c
+ vgaodzo4cHgZ0x/5gtXR3LNkiFX8xUCuoBDakmGGtUdc7V1vpDNR87G5AYtMAKfv5YAHZLmVtgX
+ FYUczRur90WLzpocuHTLl17SXcAiDO7pNKlDy6wtdx0YDcivwE+jgNSSZqWBgjZEtLD5UoN6UiQ
+ dAV6nc3d6i+AH8WVEBfuQpq6wAVz2xL5YwR1PZ2O33tpPXIZnii4pKhpY8wfB1i78dvSvztHDMo
+ w7WWsv5B3IR6QDHHV97atmPnmKDED8QMXf6/Upb0uRLixEDhx2Cx/n4/kbXbkHtNsPJm2x4C1KN
+ 3kWUQef3cQ2FywZtTnDGj9PSnyXozlf0erTFQVv0V+J8psfu5icbuey2A+twL9kkFUnNeZmBSXo
+ DYVkosbRnq5IKLzdn+KgvkJrevZDRL6FNqyQS60w3Bytlf7mpPTDAzjet68U8nXsETXBvyRHgyQ
+ CEfZhGnIObe+eUzf2Np6b96R7syeqYaTChuKpOhp72wOm4IkIkTlzyEKfwnTHXs7gOkxrFiDMT4
+ dp+YIWOY5u+7n3A==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_133330_329989_6B998309 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20250610_133330_558708_EE4582FD 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,272 +142,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the TSADC node to the RK3576. Additionally, add everything the TSADC
-needs to function, i.e. thermal zones, their trip points and maps, as
-well as adjust the CPU cooling-cells property.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-The polling-delay properties are set to 0 as we do have interrupts for
-this TSADC on this particular SoC, though the polling-delay-passive
-properties are set to 100 for the thermal zones that have a passive
-cooling device, as otherwise the thermal throttling behaviour never
-unthrottles.
+struct gpio_chip now has callbacks for setting line values that return
+an integer, allowing to indicate failures. Convert the driver to using
+them.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 164 ++++++++++++++++++++++++++++++-
- 1 file changed, 162 insertions(+), 2 deletions(-)
+ drivers/gpio/gpio-mpfs.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 1086482f04792325dc4c22fb8ceeb27eef59afe4..dbc527ec60cfac0bbdb881a27d3ff765366be99e 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -11,6 +11,7 @@
- #include <dt-bindings/power/rockchip,rk3576-power.h>
- #include <dt-bindings/reset/rockchip,rk3576-cru.h>
- #include <dt-bindings/soc/rockchip,boot-mode.h>
-+#include <dt-bindings/thermal/thermal.h>
+diff --git a/drivers/gpio/gpio-mpfs.c b/drivers/gpio/gpio-mpfs.c
+index 561a961c97a69f64c21d31c0d924f930c985f131..3415cb7ebb0f1dbe291bfa41b02ae41c18488ff6 100644
+--- a/drivers/gpio/gpio-mpfs.c
++++ b/drivers/gpio/gpio-mpfs.c
+@@ -99,16 +99,19 @@ static int mpfs_gpio_get(struct gpio_chip *gc, unsigned int gpio_index)
+ 		return regmap_test_bits(mpfs_gpio->regs, mpfs_gpio->offsets->inp, BIT(gpio_index));
+ }
  
- / {
- 	compatible = "rockchip,rk3576";
-@@ -113,9 +114,9 @@ cpu_l0: cpu@0 {
- 			capacity-dmips-mhz = <485>;
- 			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
--			#cooling-cells = <2>;
- 			dynamic-power-coefficient = <120>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
+-static void mpfs_gpio_set(struct gpio_chip *gc, unsigned int gpio_index, int value)
++static int mpfs_gpio_set(struct gpio_chip *gc, unsigned int gpio_index, int value)
+ {
+ 	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
++	int ret;
  
- 		cpu_l1: cpu@1 {
-@@ -127,6 +128,7 @@ cpu_l1: cpu@1 {
- 			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
+ 	mpfs_gpio_get(gc, gpio_index);
  
- 		cpu_l2: cpu@2 {
-@@ -138,6 +140,7 @@ cpu_l2: cpu@2 {
- 			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
+-	regmap_update_bits(mpfs_gpio->regs, mpfs_gpio->offsets->outp, BIT(gpio_index),
+-			   value << gpio_index);
++	ret = regmap_update_bits(mpfs_gpio->regs, mpfs_gpio->offsets->outp,
++				 BIT(gpio_index), value << gpio_index);
  
- 		cpu_l3: cpu@3 {
-@@ -149,6 +152,7 @@ cpu_l3: cpu@3 {
- 			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
+ 	mpfs_gpio_get(gc, gpio_index);
++
++	return ret;
+ }
  
- 		cpu_b0: cpu@100 {
-@@ -159,9 +163,9 @@ cpu_b0: cpu@100 {
- 			capacity-dmips-mhz = <1024>;
- 			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
--			#cooling-cells = <2>;
- 			dynamic-power-coefficient = <320>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu_b1: cpu@101 {
-@@ -173,6 +177,7 @@ cpu_b1: cpu@101 {
- 			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu_b2: cpu@102 {
-@@ -184,6 +189,7 @@ cpu_b2: cpu@102 {
- 			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		cpu_b3: cpu@103 {
-@@ -195,6 +201,7 @@ cpu_b3: cpu@103 {
- 			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
-+			#cooling-cells = <2>;
- 		};
- 
- 		idle-states {
-@@ -520,6 +527,143 @@ psci {
- 		method = "smc";
- 	};
- 
-+	thermal_zones: thermal-zones {
-+		/* sensor near the center of the SoC */
-+		package_thermal: package-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tsadc 0>;
-+
-+			trips {
-+				package_crit: package-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		/* sensor for cluster1 (big Cortex-A72 cores) */
-+		bigcore_thermal: bigcore-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tsadc 1>;
-+
-+			trips {
-+				bigcore_alert: bigcore-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				bigcore_crit: bigcore-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&bigcore_alert>;
-+					cooling-device =
-+						<&cpu_b0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu_b1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu_b2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu_b3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+
-+		/* sensor for cluster0 (little Cortex-A53 cores) */
-+		littlecore_thermal: littlecore-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tsadc 2>;
-+
-+			trips {
-+				littlecore_alert: littlecore-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				littlecore_crit: littlecore-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&littlecore_alert>;
-+					cooling-device =
-+						<&cpu_l0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu_l1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu_l2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&cpu_l3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+
-+		gpu_thermal: gpu-thermal {
-+			polling-delay-passive = <100>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tsadc 3>;
-+
-+			trips {
-+				gpu_alert: gpu-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				gpu_crit: gpu-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&gpu_alert>;
-+					cooling-device =
-+						<&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+
-+		npu_thermal: npu-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tsadc 4>;
-+
-+			trips {
-+				npu_crit: npu-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+
-+		ddr_thermal: ddr-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tsadc 5>;
-+
-+			trips {
-+				ddr_crit: ddr-crit {
-+					temperature = <115000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+	};
-+
- 	timer {
- 		compatible = "arm,armv8-timer";
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-@@ -2285,6 +2429,22 @@ saradc: adc@2ae00000 {
- 			status = "disabled";
- 		};
- 
-+		tsadc: tsadc@2ae70000 {
-+			compatible = "rockchip,rk3576-tsadc";
-+			reg = <0x0 0x2ae70000 0x0 0x400>;
-+			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru CLK_TSADC>, <&cru PCLK_TSADC>;
-+			clock-names = "tsadc", "apb_pclk";
-+			assigned-clocks = <&cru CLK_TSADC>;
-+			assigned-clock-rates = <2000000>;
-+			resets = <&cru SRST_P_TSADC>, <&cru SRST_TSADC>;
-+			reset-names = "tsadc-apb", "tsadc";
-+			#thermal-sensor-cells = <1>;
-+			rockchip,hw-tshut-temp = <120000>;
-+			rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
-+			rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
-+		};
-+
- 		i2c9: i2c@2ae80000 {
- 			compatible = "rockchip,rk3576-i2c", "rockchip,rk3399-i2c";
- 			reg = <0x0 0x2ae80000 0x0 0x1000>;
+ static int mpfs_gpio_probe(struct platform_device *pdev)
+@@ -147,7 +150,7 @@ static int mpfs_gpio_probe(struct platform_device *pdev)
+ 	mpfs_gpio->gc.direction_output = mpfs_gpio_direction_output;
+ 	mpfs_gpio->gc.get_direction = mpfs_gpio_get_direction;
+ 	mpfs_gpio->gc.get = mpfs_gpio_get;
+-	mpfs_gpio->gc.set = mpfs_gpio_set;
++	mpfs_gpio->gc.set_rv = mpfs_gpio_set;
+ 	mpfs_gpio->gc.base = -1;
+ 	mpfs_gpio->gc.ngpio = ngpios;
+ 	mpfs_gpio->gc.label = dev_name(dev);
 
 -- 
-2.49.0
+2.48.1
 
 
