@@ -4,87 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E32C71134
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE971C71136
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=piu/ELttB5B4rcmITuyiu30097U8d6hZCvvS1wtQJFY=; b=cRc9oQwPdORt/z
-	2yxpJfQDHjDLF08q4zYB7Ntm7R3NYpW/11nEEHPp2JxaH8XB+sXVRrvad8zxiM2kTScLIEqtIh23K
-	AtgRX0BGVM8wUfV1c6nSiJSfjHsmPWKyitLtiD7rlvIPSEpm5C66nFHkxWbPA/KdaYcJ9Xb3OKBGj
-	gjloV2aDX7OpPEHmP8UCuEI3iacrD3dWGA+AG+2NtwxB6na2EMtu7ocnA4F8+B0EtPUR6EnRze2Vr
-	0Jzbzfvskn8yuFyHxq9eo5dlBUWm+/m/FH+99hvmKL3z53+zWLJxxdNeeJN/MhIbmcv3IiXVddGCB
-	MT5+XqcAzVyU2XlfSS5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=67VEu7Em6E5HQaJhzv+j8FH2Rkd50dtS2qYsocCeLKg=; b=fCeR8lXsvQnt2grpm2s0fLnQen
+	GdWvuixuY8wSue+9yTwWsJBNuDgYc/ygONJ/JuE+ceMQX1nrQ80wQF7pxrspLTUD5DPaLm1hbGZI0
+	TQlfGHh/7CQyd/2gLWC0Fc2Wi2XpKdJqove+DdlRAhIjqPWCKnaiomKIXbdc6DQ0VijGs3MxvxVBX
+	j3ZGBUce7GA6xdzQTiQx9zLeNN2z8CVUa2FrH6b2ksdoIa/ALxLVjmxsbiacfxU9Annj+ZKiEx0Iy
+	UUvk/jRvsHQqSVHbTIY9gI2Yq4WTTkoSAE+oAS+/A35rutPPVu2QcpgKE3wFmO6T4k+M8x8DUcVSh
+	aL2k0RZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7l6-00000008EYU-0gXf;
-	Tue, 10 Jun 2025 22:47:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uP7l2-00000008EVi-0WlG;
+	Tue, 10 Jun 2025 22:47:52 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1Ye-00000007QmW-3Izd
+	id 1uP1Qi-00000007P2g-0eY1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 16:10:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E68825C41C8;
-	Tue, 10 Jun 2025 16:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3F741C4CEED;
-	Tue, 10 Jun 2025 16:10:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749571839;
-	bh=G6G21+hjtH2bOLL4/jVWPD0fGJK8bLCuFpdREfk6nLY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=O5/9TmYSjJU98jFm0Hr5jzKvMsR34UKTRzurHNRgQBuLfAf7E2dJkedoW3KLLvV6x
-	 TpCZQQ5twrq6JCGod5u1/OPwRkwRFoC6rw52t+wg9Xki0A+Xplhf4FEDuJwE4/7APF
-	 ab2tiW34uoU9MqmHd3eJbtUnUa8vpfODrvPQK6mSSAg5IhiPpIaYhvQVubPS4wrCXu
-	 citu/41eVkSbDgfjSreKjNDWPH75EieKNObFTZ8VSkBUfMOjbx4CXbUCR4tQewUv6B
-	 LCxDDThyeMEmB0QS6aK3QB5KERDwLgm/fCs20gZM+jflXsfkHfeg9DLtz9HELBTDVF
-	 jL6P0kvs+rg/g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 353DBC5B543;
-	Tue, 10 Jun 2025 16:10:39 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Subject: [PATCH v7 00/10] Apple Mac System Management Controller
-Date: Tue, 10 Jun 2025 15:29:41 +0000
-Message-Id: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
+	Tue, 10 Jun 2025 16:02:29 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3a51d552de4so3062190f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 09:02:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749571347; x=1750176147; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=67VEu7Em6E5HQaJhzv+j8FH2Rkd50dtS2qYsocCeLKg=;
+        b=NpaQ0Wl3aVC5h1c8ez/hcHuubotoINb8GM4k9Rr66g9ip56+hJTNshJ5hcia0yhWBE
+         2/gmOcO3L1PHAp+cjUBfwkYYr3z8EoHQf8AWfUSCIbTRBMOHpbNkunmJ2/JZzOcelcY2
+         9pzcZ3JBNhd7A4y2smtT2VJsibu17tONyxtXVr9q2ufBKyxjTWPfpis48VKlpgUijrBv
+         J2+VVymu/OsKi3jJl/t1ROfh8xLjD3pcQf6f/+RAqkd7hO5f2JkhBShPln7eCIB/PtMt
+         rPOpAtn8/hi49AZTFjs6BeMkoZ0ahmQK7XcSi1ZXtV+wqfUsJ5CXTcDS/H+tjr7IrH5b
+         Sv4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749571347; x=1750176147;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=67VEu7Em6E5HQaJhzv+j8FH2Rkd50dtS2qYsocCeLKg=;
+        b=Hb8PXml3kGhT1peYewuUx+iQF240zvBDKbaq3PNaDQHSSg6QhzOE/AX7Z/g+hVU3sJ
+         RThngmFWxZ7BaUcuSPXHLlVWICIsHHQ6Zvssv3E5dc3ceoN/2rrRiiGN7JRkWNPoimya
+         wfjUlH0FobxSwYJQwfKmtXceftN67dHVcAs2x4Dbby9j54reesm8NVqrPCOULYRmVB2W
+         m4SC5mRzMWpFncPaSMypbnSNJE70WGzZFnOjWtHXehTfuUZwD4vZp9KdrcF/sj5B9rWk
+         1SBo/eH4DewlnJ4LEuJL4CGxpoglniP4HASFrjBkq5n38cXiEs4QUe+d+0qhnNw8fvB7
+         O/fw==
+X-Forwarded-Encrypted: i=1; AJvYcCVec2kUeTuMtm2aZLsXAOuNukcNuK2esO7EQK+moLzKI2OH8s5R6f/WAxGaO3PBBzE10nRwlbrVmOOimKXY1Yhq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP1+x6wU2QlVZo5KskarnNq2AqwjzIs2o8TFB8dS3dQtT8Bz73
+	Nz3i6CwnkPtNFTccyfU8zpp3G6GbulK1KjwfM6mx5vSU1dovJ+c3WXS/
+X-Gm-Gg: ASbGnctDI1c79BZLNeufXsKV9dSNyZXnBFf/4BerlxpOTIQzqyoTO9Y9n28Pfv/O+D9
+	0GnAhre7/S5hgLxZAlIoYygUyTiAfbiVnbq5HRatBFignXtQsWXjbFRW6tCRRKcj0U1XNHt55tO
+	O1rdCIorzkKaQb9sNuKyhaQRK5hhaw89LAaUGEnq+8QtK+iSnCtb5RoYFmwpWocxFRcv9CrzTeU
+	zUYgfg6PKsBCipF/Rt28hp1R9+nRXO18arPcXt4X3z+1DhpCOuktr5fQlpZypFz7EsSpSyPnZHk
+	FZOftpheMWWjwN244eZZuZmHXftdEiFteZdVEE3sFaQxrK6WcTFev4ZGcM4nEZl0SIFckXBByod
+	0aUOksYmmudXXWjpMHOcj9ns=
+X-Google-Smtp-Source: AGHT+IGHhW/p8zADhnFLJnKLHKJ98yUEXlzsMVwwzjxsFGqrs0N2We4X8hpm2okE6IPM60AODO77rw==
+X-Received: by 2002:a05:6000:26d3:b0:3a5:2cb5:6429 with SMTP id ffacd0b85a97d-3a5319b5c98mr14820076f8f.43.1749571346552;
+        Tue, 10 Jun 2025 09:02:26 -0700 (PDT)
+Received: from playground.localdomain ([82.79.237.69])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53229e009sm13017806f8f.16.2025.06.10.09.02.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 09:02:26 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 3/6] bus: add driver for IMX AIPSTZ bridge
+Date: Tue, 10 Jun 2025 12:01:49 -0400
+Message-Id: <20250610160152.1113930-4-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
+References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGVPSGgC/23MQQ6CMBCF4auYrq2ZQqeAK+9hXNB2Kl0IpCWNh
- nB3Cy4kxuWbzPfPLFLwFNn5MLNAyUc/9HlUxwMzXdvfiXubNyugQChB8vgwXHGB3AFZJRoqhZU
- sv4+BnH9uqest787HaQivrZzkev1EcuYbSZIDRwDdaIVSOXOJifqRJgonS4mtoYQ7LMQOY8YOm
- xq01aLW9h9We4w7rDI2stKCnNTQ0i9eluUNRgkYQh4BAAA=
-X-Change-ID: 20250304-smc-6-15-f0ed619e31d4
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>, 
- Lee Jones <lee@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6948; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=G6G21+hjtH2bOLL4/jVWPD0fGJK8bLCuFpdREfk6nLY=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4aHf0FJdtfeqBvX28XU5QL+651omvHsbNX/I3P/xFZaM
- 780PFfSUcrCIMbBICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZjIxUsM/0yKbl/d8an3p3rL
- 5CcJLXWqNj+XL4pw+xfbf3yDpueqeWsYGTpexL9982FZLH/6F3Emp4MtUwrbNd8U3jbKnKD357t
- yKhMA
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_091040_923579_51C1BBC1 
-X-CRM114-Status: GOOD (  23.69  )
+X-CRM114-CacheID: sfid-20250610_090228_197512_11737B7A 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,146 +112,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-This series adds support for the System Management Controller found in
-Apple Silicon devices which we model as a mfd. It also includes support
-for the GPIO block and the power/reset block as sub-devices.
+The secure AHB to IP Slave (AIPSTZ) bus bridge provides access control
+configurations meant to restrict access to certain peripherals.
+Some of the configurations include:
 
-Changes between v6 and v7:
-  - Rebased on 6.16-rc1
-  - Dropped mfd- prefix from the macsmc driver name
-  - Removed the check if the MBSE key exists in the reboot driver since
-    we can rely on the device tree now
-  - Changed my mail address to kernel.org
+	1) Marking masters as trusted for R/W. Based on this
+	(and the configuration of the accessed peripheral), the bridge
+	may choose to abort the R/W transactions issued by certain
+	masters.
 
-Changes between v5 and v6:
-  - Actually reorder struct members this time, start comments with an
-    uppercase letter, and use devm_ for mfd_register_devices instead of
-    dropping those fixup commits by accident
-  - Stefan's comment: Renamed ret to bfr in the reboot driver
-  - Sebastian's comments on the reboot driver:
-    - Moved Kconfig dependencies to MFD device and made reboot only
-      depend on that one
-    - Removed sysfs file to configure "reboot after power loss" for now
-      since this probably belongs in a userspace tool that directly
-      writes to nvmem instead
-    - Dropped setting pdev->dev.of_node since that's already done
-      automatically and adjusted #include to linux/mod_devicetable.h
-    - Dropped MODULE_ALIAS which was probably a leftover from a previous
-      version that did not use of_match_table
-  - Rob's comments to the dt-bindings
-    - Removed examples from sub-devices and added them to the main smc
-      binding
-    - Removed a spurious |
+	2) Allowing/disallowing write accesses to peripherals.
 
-Changes between v4 and v5:
-  - Alyssa's comments:
-    - Made the WARN_ON in the reboot driver more obvious
-    - Added missing brackets around a for loop in the reboot driver
-    - Used min instead of open-coded variant inside the gpio driver
-    - Reoder struct memebers to prevent padding inside the mfd driver
-  - Lee's comments:
-    - All comments now start with an uppercase letter
-    - Removed apple_smc_read_ioft_scaled and apple_smc_read_f32_scaled
-      since these are not yet used and likely don't belong into
-      drivers/mfd
-    - Relaced if (ret != 0) with if (ret) when possible
-    - Used devm_platform_get_and_ioremap_resource to get and map the
-      SRAM resource
-    - Used reverse Christmas-tree formating when declaring variables
-    - Dropped _platform left-overs from probe and remove functions
-    - Removed dev_dbg prints which are no long required after
-      development
-    - Reworked is_alive/is_initialized so that it's obvious how errors
-      during boot are propagated from the callback to the probe function
-    - Used dev_warn instead of dev_err in a few places
-    - Removed no-op apple_smc_rtkit_shmem_destroy; this required an
-      additional change in rtkit.c because we had a check there that's a
-      bit too strict
-    - Removed struct resource in apple_smc_rtkit_shmem_setup and
-      open-coded resource_contains instead
-    - Unwrapped lines with less than 100 chars
-    - Made sure to compile with W=1 and ran scripts/kernel-doc -v
-      on macsmc.h once and fixed any fallout
-  - Removed first_key/last_key from struct smc and moved
-    apple_smc_find_first_key_index to the gpio driver since it's only
-    used there anyway to find the index of the first GPIO key (gP00)
-  - Return -EIO when a command fails instead of whatever SMC returns
-    which does not map to Linux errnos on errors
+Add driver for this IP. Since there's currently no framework for
+access controllers (and since there's currently no need for having
+flexibility w.r.t the configurations) all this driver does is it
+applies a relaxed, "default" configuration, in which all masters
+are trusted for R/W.
 
-Changes between v3 and v4:
-  - Added documentation for all functions and structs
-  - Fixed dt-bindings and re-ordered commits so that the mfd one comes
-    last and can include the gpio subdevice
-  - Added the reset driver and corresponding bindings
-  - Reworked the atomic mode inside SMC since the previous implementation
-    called mutex_lock from atomic context
-  - Removed the backend split for now which lead to a quite intense discussion
-    for the previous versions which hadn't been solved as far as I could tell
-    from the old threads.
-    It's also been 2+ years and I haven't heard of any backend implementation
-    for T2 or even older macs. It's also unclear to me which sub-devices
-    are actually useful there because at least GPIO and shutdown/reboot
-    from this series will not work as-is there.
-    I'd rather have this initial version which only supports M1+ macs upstream
-    and then iterate there if any other backend is developed.
-    I'll gladly help to re-introduce backend support if it's ever required.
+Note that some instances of this IP (e.g: AIPSTZ5 on i.MX8MP) may be tied
+to a power domain and may lose their configuration when the domain is
+powered off. This is why the configuration has to be restored when the
+domain is powered on.
 
-v6: https://lore.kernel.org/asahi/20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev/
-v5: https://lore.kernel.org/asahi/20250511-smc-6-15-v5-0-f5980bdb18bd@svenpeter.dev/
-v4: https://lore.kernel.org/asahi/20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev/
-v3: https://lore.kernel.org/asahi/Y2qEpgIdpRTzTQbN@shell.armlinux.org.uk/
-v2: https://lore.kernel.org/asahi/YxdInl2qzQWM+3bs@shell.armlinux.org.uk/
-v1: https://lore.kernel.org/asahi/YxC5eZjGgd8xguDr@shell.armlinux.org.uk/
-
-Best,
-
-Sven
-
+Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
-Hector Martin (5):
-      gpio: Add new gpio-macsmc driver for Apple Macs
-      power: reset: macsmc-reboot: Add driver for rebooting via Apple SMC
-      arm64: dts: apple: t8103: Add SMC node
-      arm64: dts: apple: t8112: Add SMC node
-      arm64: dts: apple: t600x: Add SMC node
+ drivers/bus/Kconfig      |  6 +++
+ drivers/bus/Makefile     |  1 +
+ drivers/bus/imx-aipstz.c | 96 ++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 103 insertions(+)
+ create mode 100644 drivers/bus/imx-aipstz.c
 
-Russell King (Oracle) (2):
-      dt-bindings: gpio: Add Apple Mac SMC GPIO block
-      dt-bindings: mfd: Add Apple Mac System Management Controller
-
-Sven Peter (3):
-      dt-bindings: power: reboot: Add Apple Mac SMC Reboot Controller
-      soc: apple: rtkit: Make shmem_destroy optional
-      mfd: Add Apple Silicon System Management Controller
-
- .../devicetree/bindings/gpio/apple,smc-gpio.yaml   |  29 ++
- .../devicetree/bindings/mfd/apple,smc.yaml         |  79 ++++
- .../bindings/power/reset/apple,smc-reboot.yaml     |  40 ++
- MAINTAINERS                                        |   7 +
- arch/arm64/boot/dts/apple/t600x-die0.dtsi          |  35 ++
- arch/arm64/boot/dts/apple/t8103.dtsi               |  35 ++
- arch/arm64/boot/dts/apple/t8112.dtsi               |  35 ++
- drivers/gpio/Kconfig                               |  10 +
- drivers/gpio/Makefile                              |   1 +
- drivers/gpio/gpio-macsmc.c                         | 292 ++++++++++++
- drivers/mfd/Kconfig                                |  18 +
- drivers/mfd/Makefile                               |   1 +
- drivers/mfd/macsmc.c                               | 498 +++++++++++++++++++++
- drivers/power/reset/Kconfig                        |   9 +
- drivers/power/reset/Makefile                       |   1 +
- drivers/power/reset/macsmc-reboot.c                | 290 ++++++++++++
- drivers/soc/apple/rtkit.c                          |   3 +-
- include/linux/mfd/macsmc.h                         | 279 ++++++++++++
- 18 files changed, 1660 insertions(+), 2 deletions(-)
----
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-change-id: 20250304-smc-6-15-f0ed619e31d4
-
-Best regards,
+diff --git a/drivers/bus/Kconfig b/drivers/bus/Kconfig
+index ff669a8ccad9..fe7600283e70 100644
+--- a/drivers/bus/Kconfig
++++ b/drivers/bus/Kconfig
+@@ -87,6 +87,12 @@ config HISILICON_LPC
+ 	  Driver to enable I/O access to devices attached to the Low Pin
+ 	  Count bus on the HiSilicon Hip06/7 SoC.
+ 
++config IMX_AIPSTZ
++	tristate "Support for IMX Secure AHB to IP Slave bus (AIPSTZ) bridge"
++	depends on ARCH_MXC
++	help
++	  Enable support for IMX AIPSTZ bridge.
++
+ config IMX_WEIM
+ 	bool "Freescale EIM DRIVER"
+ 	depends on ARCH_MXC || COMPILE_TEST
+diff --git a/drivers/bus/Makefile b/drivers/bus/Makefile
+index cddd4984d6af..8e693fe8a03a 100644
+--- a/drivers/bus/Makefile
++++ b/drivers/bus/Makefile
+@@ -15,6 +15,7 @@ obj-$(CONFIG_FSL_MC_BUS)	+= fsl-mc/
+ 
+ obj-$(CONFIG_BT1_APB)		+= bt1-apb.o
+ obj-$(CONFIG_BT1_AXI)		+= bt1-axi.o
++obj-$(CONFIG_IMX_AIPSTZ)	+= imx-aipstz.o
+ obj-$(CONFIG_IMX_WEIM)		+= imx-weim.o
+ obj-$(CONFIG_INTEL_IXP4XX_EB)	+= intel-ixp4xx-eb.o
+ obj-$(CONFIG_MIPS_CDMM)		+= mips_cdmm.o
+diff --git a/drivers/bus/imx-aipstz.c b/drivers/bus/imx-aipstz.c
+new file mode 100644
+index 000000000000..6610251f41c7
+--- /dev/null
++++ b/drivers/bus/imx-aipstz.c
+@@ -0,0 +1,96 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright 2025 NXP
++ */
++
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/regmap.h>
++
++#define IMX_AIPSTZ_MPR0 0x0
++
++struct imx_aipstz_config {
++	u32 mpr0;
++};
++
++struct imx_aipstz_data {
++	void __iomem *base;
++	const struct imx_aipstz_config *default_cfg;
++};
++
++static void imx_aipstz_apply_default(struct imx_aipstz_data *data)
++{
++	writel(data->default_cfg->mpr0, data->base + IMX_AIPSTZ_MPR0);
++}
++
++static int imx_aipstz_probe(struct platform_device *pdev)
++{
++	struct imx_aipstz_data *data;
++
++	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return dev_err_probe(&pdev->dev, -ENOMEM,
++				     "failed to allocate data memory\n");
++
++	data->base = devm_platform_get_and_ioremap_resource(pdev, 0, NULL);
++	if (IS_ERR(data->base))
++		return dev_err_probe(&pdev->dev, -ENOMEM,
++				     "failed to get/ioremap AC memory\n");
++
++	data->default_cfg = of_device_get_match_data(&pdev->dev);
++
++	imx_aipstz_apply_default(data);
++
++	dev_set_drvdata(&pdev->dev, data);
++
++	pm_runtime_set_active(&pdev->dev);
++	devm_pm_runtime_enable(&pdev->dev);
++
++	return devm_of_platform_populate(&pdev->dev);
++}
++
++static int imx_aipstz_runtime_resume(struct device *dev)
++{
++	struct imx_aipstz_data *data = dev_get_drvdata(dev);
++
++	/* restore potentially lost configuration during domain power-off */
++	imx_aipstz_apply_default(data);
++
++	return 0;
++}
++
++static const struct dev_pm_ops imx_aipstz_pm_ops = {
++	RUNTIME_PM_OPS(NULL, imx_aipstz_runtime_resume, NULL)
++	SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
++};
++
++/*
++ * following configuration is equivalent to:
++ *	masters 0-7 => trusted for R/W + use AHB's HPROT[1] to det. privilege
++ */
++static const struct imx_aipstz_config imx8mp_aipstz_default_cfg = {
++	.mpr0 = 0x77777777,
++};
++
++static const struct of_device_id imx_aipstz_of_ids[] = {
++	{ .compatible = "fsl,imx8mp-aipstz", .data = &imx8mp_aipstz_default_cfg },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, imx_aipstz_of_ids);
++
++static struct platform_driver imx_aipstz_of_driver = {
++	.probe = imx_aipstz_probe,
++	.driver = {
++		.name = "imx-aipstz",
++		.of_match_table = imx_aipstz_of_ids,
++		.pm = pm_ptr(&imx_aipstz_pm_ops),
++	},
++};
++module_platform_driver(imx_aipstz_of_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("IMX secure AHB to IP Slave bus (AIPSTZ) bridge driver");
++MODULE_AUTHOR("Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>");
 -- 
-Sven Peter <sven@kernel.org>
-
+2.34.1
 
 
