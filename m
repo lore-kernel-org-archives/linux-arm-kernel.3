@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AE0C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FE0C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O56+Bk5TTeN4jh9BZRlx3XR/3UjST+pbt1ppyD+2/rA=; b=1axcpowdN8ioH9GpFnyJ9B2Kae
-	vang/0GP5oWyfJ6ak2FXvgHvUNg9kl2VgUrCv1lEpvfIfsztlCN1wvRYMTL/r5CeP7bIwB57vNC4r
-	4v9sJikBGJx79u7Rq04Si6AZdZjnM+UOFeG4NOgANRvDsYAcfwHLHaIJX0BPOvv6J70xv66EayY/P
-	KtQOk3crfvMcfB4qmWmTvaDJyxbA5i9MnNt7rqXfHt/eElwc7u8SAdQbja36ojAz7KMqbJkkQdx6f
-	P9nAmjo7Cus2ZNpG6f5PDd7vDOl3PVCXxnKRPjz8AJm9wrNEVIeztFPMfknsbNe1Ic+PJlocgLFO9
-	HauD34ug==;
+	bh=UOUtyIivh13PUqsEgCb8n92bCG7VplbjadncEisJiSE=; b=vkyg/EFnGeuMTJ98QNG2gILY3O
+	gv7O9b6d8urADlLaZKCtdu0plMABlA0zCOc/0Iy2E7JHUnwhfi6L8HROD80/UQzM034tEkQKoCo6h
+	YQtbEFb/MfCIVlp55iG6R7b7mSrXkZjT8AUe4Y4PM7ySeby2UEL6eqJutlFbZSOhg7ERDrLu9sPoe
+	WV9aA9yfYeR3jy4ndDHT/QBfYCIuhKhj6LfPnTHS9VkeQzXMk9G4Y4tpLb53yn9zSwGWao1rVifz9
+	W5fLahh/9zQAOFGG/9pTdESjSWiFfzS6xqOZIt8f0VZP4hsGxqPNKLmPmRiRiAn1bitRxA4sbHJ+y
+	QKmKcDxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1UD-00000007Q0i-1s4z;
-	Tue, 10 Jun 2025 16:06:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uP1WL-00000007QLG-0mzM;
+	Tue, 10 Jun 2025 16:08:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyxj-00000006xBU-2fmE
+	id 1uOyzK-00000006xbz-2xdh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 13:24:24 +0000
+	Tue, 10 Jun 2025 13:26:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749561862;
+	s=mimecast20190719; t=1749561961;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=O56+Bk5TTeN4jh9BZRlx3XR/3UjST+pbt1ppyD+2/rA=;
-	b=ajDYflRNpc7VY4e3I3Ie/dtFkvWnMTPALSG2rLZIDzvjKbDKVw5k/1QpLW2O6hHvqCbjJv
-	ZHvyGFjJYuD6IHisJtoignRWsb6FUZFZDKQRpaDTadypst2ooburA4ZXCjRc7yDv/D6ryp
-	FQHIDkqYGUX8ULXV2qORBIiQmqy0XzI=
+	bh=UOUtyIivh13PUqsEgCb8n92bCG7VplbjadncEisJiSE=;
+	b=PtEVJ1Ko9yM4OrUHVi7fvhvKMAO1/WgwMcItOpxzEg3oM7FKBO4gDf7vrZvBvSbzOkmJjD
+	chwLQoJL4azkrzNRCmn21ELPvEzHJPOeJyEFFpo9j80F83iu1b6Tv8wmzoIs9ug2FLbMqY
+	knTeP4uoqh67a9oBu8jlUh4j+WxSc+s=
 Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
  [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-465-dm9DSyfEOO6Mtr8OeihoQQ-1; Tue, 10 Jun 2025 09:24:19 -0400
-X-MC-Unique: dm9DSyfEOO6Mtr8OeihoQQ-1
-X-Mimecast-MFC-AGG-ID: dm9DSyfEOO6Mtr8OeihoQQ_1749561858
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-451deff247cso29774395e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 06:24:19 -0700 (PDT)
+ us-mta-632-RTGBwK6SO2WvbJZSnSjxLQ-1; Tue, 10 Jun 2025 09:25:58 -0400
+X-MC-Unique: RTGBwK6SO2WvbJZSnSjxLQ-1
+X-Mimecast-MFC-AGG-ID: RTGBwK6SO2WvbJZSnSjxLQ_1749561957
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-453080e4741so21755265e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 06:25:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749561858; x=1750166658;
+        d=1e100.net; s=20230601; t=1749561957; x=1750166757;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
+         :content-language:references:cc:to:from:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=O56+Bk5TTeN4jh9BZRlx3XR/3UjST+pbt1ppyD+2/rA=;
-        b=WxiyD3z6ya4fam7pJCub8qRhukVslN03GL06DerfYruuHpoxwhJul12WfN4wUJerCr
-         aK3GCvcHQRBwk6nWqsx1uds9233BydsyJDylTtuN4ISiiASOa5qIY3TWSDrAacTUJwmg
-         cXJTu1t6gntb3LLBwK41syh7BaHcN5p+Kaiix9aNkPVj/+0i/ISVRxYa66zl5asgLiXH
-         axLLXhglXvTMskoXMHbhYw017pGapANpfrQ4LezESYGDEus5Xtqv+RjIED0qTNFTIHEq
-         nVFXqkQVcA/EHU/9hE5Ods/SiEpqvpU05+9irx+ZhyBUbVlU5HTbUQc46t+GSUim/e+H
-         21WA==
-X-Forwarded-Encrypted: i=1; AJvYcCVJyJvaq6lCobelDs8wB/cGQulL4h0eZvCWQZNJEDZrqyMHXEj9h0NGVKEqt0PO7GW7pRbkXW+UeLMoMuophNdb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaLOFpFv68vXFAqD1JN1aTlF1P1gA9P3UX8O0UJO2iByCVNlAB
-	hecdQMP3OYQAJPSleOJDq6cRL5Hq/KwZBBZKJmAAFYFPYZAWNBjrWb+PTY5HQUi9eWh3jdH8+EF
-	TUvX4YQhpSlQHTwPy30HVca0Zc0D6C2M2uT4puF6L7FNSz82TqyffmHS4ICOUprO1WAMljmwH6E
-	SB
-X-Gm-Gg: ASbGncsGWj0bXbDgSkHeIvTZVeoplhrnrgVKM2E7/W0mELQr6E29jJFWj1NdKlQ+ovt
-	u3MNgaAvizBgCCjl1HaFfVRWYmhQ8x7WaSBazF2zYhl1kAcfbl5/PDZZCBx1GaNOacEeSOZ0haL
-	HNcKmN8wXtm+BKdFZNyKVbK5Eht35nCJrBjUTr0Id1xFcG0xRnkSIeRQ6pTS9oY3KosyRhWRafk
-	GK+s02GR/unObg1EC+3GFzPmCAybnwnkT8CrNbWbt3h/YQBNAxfneZIZrXFlS9j4b9fp7Gtnz+B
-	5r5PZsUzNDWDsq4YS3tC5zNlGL3NWaUIGBYOV/+zmb/pJIbE1cBQe+k=
-X-Received: by 2002:a05:6000:26c9:b0:3a4:d038:cb9b with SMTP id ffacd0b85a97d-3a5513ed8d4mr3093469f8f.7.1749561858182;
-        Tue, 10 Jun 2025 06:24:18 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFIjG8T8Ag3R7QOLa5ItFg/2QHHk64OEOfrvBwlSgh1cnBAwjRxZQ7gmQotkGG7aevOtcg6rQ==
-X-Received: by 2002:a05:6000:26c9:b0:3a4:d038:cb9b with SMTP id ffacd0b85a97d-3a5513ed8d4mr3093434f8f.7.1749561857709;
-        Tue, 10 Jun 2025 06:24:17 -0700 (PDT)
+        bh=UOUtyIivh13PUqsEgCb8n92bCG7VplbjadncEisJiSE=;
+        b=klqVYkbE2qkWXaSm9vvvPqwxgoi9cF934JKIqxL+tJ2mjAXXxePt6f2tZ8Q1FElfRI
+         kQpAUyyJg6jUyKtukLaPy+8iU8T+XLyRrFVqJzsR8pqvxo/2C7Ws8NFO6fyz4hulRyQR
+         lOW/NTh0rvAcv0sJ7LRlfdUuBJmn87+z5WOOPqLdrqc6tG34ho3toP0YBaNZysB4994j
+         aYL8K5X0YcEHMX6W2v0WEpWu307SU/Xuz1KWms11K256Z7rOq2Ss7dvGLiSCYv9cjubS
+         vbyzm5l3nd/7MO1pVnjaCGIYGaFC4bamaVttASZ8m1jeXBSXUbhOxC54UaBNHJ1PVrAC
+         xDew==
+X-Forwarded-Encrypted: i=1; AJvYcCVWsfoKjXUcGjr1/IsyPNbrsHxz07l6AzHgWxXUpVYSP8byYLghyRti4lq71TKqDegqaqbhu+VA6TtixuzYJ4sF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEI0cUSXaZdlQhGb7EkttpjTaFVL8R5d5KxSgrghWwgQsMAoPy
+	1XIFzubUSyiurqJ552+PhyYzndgHx6E/sl1rZG7nfPySxwufEc9WRxQ+ONg/IF8DzUZukpH/WOG
+	YD6K4CCCEq8ZNKDeWvcmcfYZAo2Y4gHyXo+XSFbWUP4LaXy4VRzeVWxGx0FtW4mrckDrmmHoLEO
+	xj
+X-Gm-Gg: ASbGncuLs6bO/koSqxOc0uRILP66mJjiFuPIC0ecGZCo2LU8FaXTYMhe498CHnqrb+N
+	yQcyk/3Sb5OotwoUQAELpVyn3aIdkOQSuwiQmsQC/osJ2cD4U/ZFOJEZkIyP2exjplaJdb8h1eU
+	fY0hz/L5YXub/njS31G61H4p7Wq8MEObcJm/2aKJxhcaBSAnf9GJwOg81Bm60VmfqCEKPF5jhUk
+	fC0mbQgeoNqs0up+qIa9l+DukqUyR73c5sBhIuZc4/r10RZY++WNM7f+j7hgcH0mxSRW1/q98Am
+	6iiTTf4YRl//vCXCDw2wF3vC6a4KdczEUGVy+E7AZa9+hKAPxJBccTs=
+X-Received: by 2002:a05:6000:288c:b0:3a4:db49:94aa with SMTP id ffacd0b85a97d-3a531ab5272mr15309114f8f.21.1749561957106;
+        Tue, 10 Jun 2025 06:25:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF/7kPqZZ/+Y3az8v7akKRzwFHXYkHgzSWQ8MYzhrEcJkdseIufvqvlRRJq+UmTakgX+RwCpQ==
+X-Received: by 2002:a05:6000:288c:b0:3a4:db49:94aa with SMTP id ffacd0b85a97d-3a531ab5272mr15309070f8f.21.1749561956651;
+        Tue, 10 Jun 2025 06:25:56 -0700 (PDT)
 Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244f516sm12244725f8f.74.2025.06.10.06.24.16
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a5323bee86sm12051355f8f.43.2025.06.10.06.25.55
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jun 2025 06:24:17 -0700 (PDT)
-Message-ID: <970e1b84-7f47-4a51-ad99-4df9026b8f7d@redhat.com>
-Date: Tue, 10 Jun 2025 15:24:16 +0200
+        Tue, 10 Jun 2025 06:25:56 -0700 (PDT)
+Message-ID: <f889be0a-b96e-482d-be0b-57c9d81b824d@redhat.com>
+Date: Tue, 10 Jun 2025 15:25:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/2] mm: Allow lockless kernel pagetable walking
+From: David Hildenbrand <david@redhat.com>
 To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Dev Jain <dev.jain@arm.com>
 Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
  Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
@@ -92,7 +93,7 @@ Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
 References: <20250610114401.7097-1-dev.jain@arm.com>
  <20250610114401.7097-2-dev.jain@arm.com>
  <db04bd02-0090-4aff-bb2e-0d1e023757a5@lucifer.local>
-From: David Hildenbrand <david@redhat.com>
+ <970e1b84-7f47-4a51-ad99-4df9026b8f7d@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
  dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
@@ -138,16 +139,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <db04bd02-0090-4aff-bb2e-0d1e023757a5@lucifer.local>
+In-Reply-To: <970e1b84-7f47-4a51-ad99-4df9026b8f7d@redhat.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: IN4JdjldqXTwnwTS8xzy-Wmj6HuJdRZtku4h4jPPntE_1749561858
+X-Mimecast-MFC-PROC-ID: R49vSM1TISNCBU-wNvCQlFcKnxe5lCwlXVNG8J95Qe4_1749561957
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_062423_753729_78ADBE10 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250610_062602_817423_B125D821 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,36 +163,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10.06.25 14:07, Lorenzo Stoakes wrote:
-> OK so I think the best solution here is to just update check_ops_valid(), which
-> was kind of sucky anyway (we check everywhere but walk_page_range_mm() to
-> enforce the install pte thing).
+On 10.06.25 15:24, David Hildenbrand wrote:
+> On 10.06.25 14:07, Lorenzo Stoakes wrote:
+>> OK so I think the best solution here is to just update check_ops_valid(), which
+>> was kind of sucky anyway (we check everywhere but walk_page_range_mm() to
+>> enforce the install pte thing).
+>>
+>> Let's do something like:
+>>
+>> #define OPS_MAY_INSTALL_PTE	(1<<0)
+>> #define OPS_MAY_AVOID_LOCK	(1<<1)
+>>
+>> and update check_ops_valid() to take a flags or maybe 'capabilities' field.
+>>
+>> Then check based on this e.g.:
+>>
+>> if (ops->install_pte && !(capabilities & OPS_MAY_INSTALL_PTE))
+>> 	return false;
+>>
+>> if (ops->walk_lock == PGWALK_NOLOCK && !(capabilities & OPS_MAY_AVOID_LOCK))
+>> 	return false;
+>>
 > 
-> Let's do something like:
+> Hm. I mean, we really only want to allow this lockless check for
+> walk_kernel_page_table_range(), right?
 > 
-> #define OPS_MAY_INSTALL_PTE	(1<<0)
-> #define OPS_MAY_AVOID_LOCK	(1<<1)
-> 
-> and update check_ops_valid() to take a flags or maybe 'capabilities' field.
-> 
-> Then check based on this e.g.:
-> 
-> if (ops->install_pte && !(capabilities & OPS_MAY_INSTALL_PTE))
-> 	return false;
-> 
-> if (ops->walk_lock == PGWALK_NOLOCK && !(capabilities & OPS_MAY_AVOID_LOCK))
-> 	return false;
-> 
+> Having a walk_kernel_page_table_range_lockeless() might (or might not)
+> be better, to really only special-case this specific path.
 
-Hm. I mean, we really only want to allow this lockless check for 
-walk_kernel_page_table_range(), right?
-
-Having a walk_kernel_page_table_range_lockeless() might (or might not) 
-be better, to really only special-case this specific path.
-
-So, I am wondering if we should further start splitting the 
-kernel-page-table walker up from the mm walker, at least on the "entry" 
-function for now.
+Note that I am also not quite happy bout that function name, but I think 
+we should add a proper interface that documents clearly when it is even 
+okay to call that function ...
 
 -- 
 Cheers,
