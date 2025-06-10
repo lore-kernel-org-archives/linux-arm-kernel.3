@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5BDC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE6BC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLJ9LxbOFNFpHNwnOXxVYdxakdHOYZLyPAqMo4pWI3Y=; b=FXKler2a2IGxATKtelZ2KFfMqm
-	uDgShXy2q86PVbU6bvzDklu0jRvhroPtgTSrPuRu6RdXLZOIdhrBfrmOJ9Z3h8/AW8YvVOFz/2OV4
-	Fk3RnqTvtLXEXfIIUjUZaDwLI2bTWKUMwo3Ln1XDpaG/FR6aVr3kdHihqydZWqfid163v/0ghMgDj
-	fN5Ii7SRkxQrrACXJZLiYXYAZyie+pzRyV+iwCHzihswNn3xH+1txCMfygYeY5jrx6X1A4mekQXPC
-	pyaNO2SmYhOfAnnWSB6qBrUF6ljkVXfgHp4IhmJ9jf3yuieIxGkbge2VmsZyp9Hzw7eVz5JDn84cg
-	gAFIhcGA==;
+	bh=d1Ux1q9BuJRxHbxPNIMoGJD4ASvq+/3OwQs7EDpLUOk=; b=bqPC8STjJF9sNB7UfhXPdNv329
+	nxK5xgqZs5ZrD891L1AV2KZMP49842Zk3n9usgaVWwppe0FaMdZ774UQTIWm6E1Sf4DBMQ3UVPZ07
+	mcR1YDLt2UWEvxQloe2/TB8MryoZ+kdaJdjUxYwc6bcj5EhLut+FI+p4uM8BR7pHz40NKKrbJgHHM
+	xxKGau0pfkJXrLZ26kRK8V61FIT1Sgc7V2z28AiBEMHToqmhbJDMmPcYECPcQ7lRBSZLZcghMLb5c
+	O/Z+b4QSnAP2GdDaDsEeppVEWG8hYB/uNsBba2E6q6tIKBPzkzO1VlUh2mR8oWh+XTn3hNM93uIl5
+	4CrFaJvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0jI-00000007GIQ-1x4X;
-	Tue, 10 Jun 2025 15:17:36 +0000
+	id 1uP0lP-00000007Glm-3xc9;
+	Tue, 10 Jun 2025 15:19:47 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyRf-00000006qC4-21Cx
+	id 1uOyS5-00000006qH0-3Y6y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:51:16 +0000
+	Tue, 10 Jun 2025 12:51:43 +0000
 Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLFwE012963;
-	Tue, 10 Jun 2025 14:51:01 +0200
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLCR1012912;
+	Tue, 10 Jun 2025 14:50:43 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	aLJ9LxbOFNFpHNwnOXxVYdxakdHOYZLyPAqMo4pWI3Y=; b=AJwzvAMZHOoDOb3f
-	h+UYg/UnKUU026b7i+w4lS8ydP5eUcGZLBRk483V4I4NbJl4CfNONqFYNrUeFWO/
-	wTNWjbZXJTZtBisdd4sspeAn6hJue9X//wrUUfSwcdv8DPN2stP7wXshFN7jH/sV
-	bUnjLu0kAFPxCAaOnIXpJ2cKU3FoYMz/YQsqflRSwSbH+rSSlwaZOx+H5dw6a3Md
-	q6XfomI23x0+W1OzWQ9Iskt6gZ4O40OQ35kqlZ1M5ECiSPtd5/cmRyr4e6BbAzn2
-	1ktnMpfbhr4bsU8UXSKmcs1pVgwaExElXTSLnX+PtMSYLxRBjIljXsFIEmC3js9c
-	7QXhcg==
+	d1Ux1q9BuJRxHbxPNIMoGJD4ASvq+/3OwQs7EDpLUOk=; b=PWCk4AM/11RuiVA3
+	n0i6g7xw14GSwJH/cJmerxWQus02kSKMsa3AC0QQFg5KNobzcP6jvdhwlbjpbOav
+	JbOH7NKpR8vHUr33edfJvrja+FNL+DweLR+1uaBmrpRnrhuSYsESj730plkQF1w9
+	WUacgfdA5M4atIFScYuk+cqg8shqyx3OgG3l1V2HZk52oIX68O3J5KhswnDaCHmI
+	x58hMmo1U5PN1gD84RSO+ux+nzsnK3tvLKOA2dhVbaGyoECmtb2sbH4TYFRg0mSE
+	DUJcAzFiTu4VSAlIuIXI+ieLHWEHgfBO+iXTuAShpV4454rwc8R83mNBdRohiNv7
+	9LpHCQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aumd9vn-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aumd9u4-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 14:51:01 +0200 (MEST)
+	Tue, 10 Jun 2025 14:50:43 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 152CB4004A;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8202C4004C;
 	Tue, 10 Jun 2025 14:49:43 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 54840B4BF9A;
-	Tue, 10 Jun 2025 14:49:02 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BD7E4B4BF90;
+	Tue, 10 Jun 2025 14:49:01 +0200 (CEST)
 Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 14:49:02 +0200
+ 2025 14:49:01 +0200
 From: Antonio Borneo <antonio.borneo@foss.st.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
         Andy Shevchenko
@@ -74,9 +74,9 @@ CC: Antonio Borneo <antonio.borneo@foss.st.com>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>
-Subject: [PATCH 5/5] mfd: stm32-timers: Fix build warnings about export.h
-Date: Tue, 10 Jun 2025 14:48:55 +0200
-Message-ID: <20250610124855.269158-6-antonio.borneo@foss.st.com>
+Subject: [PATCH 4/5] iio: trigger: stm32-lptimer: Fix build warnings about export.h
+Date: Tue, 10 Jun 2025 14:48:54 +0200
+Message-ID: <20250610124855.269158-5-antonio.borneo@foss.st.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250610124855.269158-1-antonio.borneo@foss.st.com>
 References: <20250610124855.269158-1-antonio.borneo@foss.st.com>
@@ -90,8 +90,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-10_05,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_055115_801705_0AC7FCD6 
-X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-CacheID: sfid-20250610_055142_169121_FC992ADD 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,27 +112,27 @@ After commit a934a57a42f6 ("scripts/misc-check: check missing #include
 check unnecessary #include <linux/export.h> when W=1") we get the build
 warning with W=1:
 
-drivers/mfd/stm32-timers.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+drivers/iio/trigger/stm32-lptimer-trigger.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
 
 Fix it.
 
 Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
 ---
- drivers/mfd/stm32-timers.c | 1 +
+ drivers/iio/trigger/stm32-lptimer-trigger.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/mfd/stm32-timers.c b/drivers/mfd/stm32-timers.c
-index e3c116ee4034a..b3dbc02aaf798 100644
---- a/drivers/mfd/stm32-timers.c
-+++ b/drivers/mfd/stm32-timers.c
-@@ -5,6 +5,7 @@
+diff --git a/drivers/iio/trigger/stm32-lptimer-trigger.c b/drivers/iio/trigger/stm32-lptimer-trigger.c
+index 2505ace440b46..c7bab18221c70 100644
+--- a/drivers/iio/trigger/stm32-lptimer-trigger.c
++++ b/drivers/iio/trigger/stm32-lptimer-trigger.c
+@@ -9,6 +9,7 @@
+  * Inspired by Benjamin Gaignard's stm32-timer-trigger driver
   */
  
- #include <linux/bitfield.h>
 +#include <linux/export.h>
- #include <linux/mfd/stm32-timers.h>
- #include <linux/module.h>
- #include <linux/of_platform.h>
+ #include <linux/iio/timer/stm32-lptim-trigger.h>
+ #include <linux/mfd/stm32-lptimer.h>
+ #include <linux/mod_devicetable.h>
 -- 
 2.34.1
 
