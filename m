@@ -4,140 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FD1C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6D9C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yAcPWhJOD2uC+8nD7DYGGpOcWzqUQnKUKJG27J3Ym1M=; b=viq0A+6zCiPgHHadTyWrKtvgYV
-	TYXiVepU6e40+yOFt74/JX4hZ7h03ijCmPP7mqw7A9m+ESQzZEs3TMMuW0Z7Ceawb3co0TB0FN9Ce
-	Ly1y5/c1Pb1l9A2PVaFAkKlEvzEqMsKoq/UgxyPn47XxuGURUipq5Pj19g62vAnYb4tXJaFk3Ml4P
-	Ur9bcPy8F2vYDlBHzeAsKA8ex3qNMzpytNTkgqW4976hGiUulJ6RYulGFXVSnb/OhiF24mHaUoBGE
-	P5bF/8FON5TYgsBoVvT+4MSWaJ6TaApWtmECbQNMxYycm2V9OrqeTJbcSy95Bjzpsri3Zh06UjUKU
-	syfr94jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NBtkM+lPh1Z7DchYgyJTUQnMUxRoJyrWM38PYO91ysA=; b=jPAhOp9uM/GR9TAhjMOOO73ZMp
+	86giLtztQdPytGh7nR9z4b95MoSMHBkk4MSaRyA8J6n5tUQ8reF2Z5WrA7tj6F0G1MtQMimJ3dO7f
+	fa4tWx9xw+0Vasj0DDnqhO8zCDHLQR5XizTv4YEENWsUjH+vNWCst53KQyHTjtWtulyRVORooPfjS
+	Jp2LkJid9Mz28toTRQXT6ytEbv/1gFkS+RxjUDNvVPna5YF0NBvTEMXf2r2uCdqbj3YSmObjcoy+V
+	PNlpTOFZxlkWxDBEvmx3WPdj/4RV1YhdAhJc8OTRM4E7WjReCW2wRTIFxfCM2PeaaYJfF2cGAGO+I
+	cs0xWnsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtXm-000000062kL-3ybW;
-	Tue, 10 Jun 2025 07:37:14 +0000
-Received: from mail-bn8nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:2418::61c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtVb-000000062Kp-2Gki
+	id 1uOtd1-000000063Eq-06WY;
+	Tue, 10 Jun 2025 07:42:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOtas-0000000633l-1MHP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 07:35:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bInQnWDIz1V72hWPYrR5MFm6AsA4ObHdABOtP6lGIZ8PvjKg8diTZff+fCZNQYDxN54UBeV5YsEEQNBGYXs/NateI4agnqiRpiPdF5NSIeGOKY8b7wn243HTtnaxctwou/pdoE1Kzl3Ke7N0T54ROOCHHXzN+khk120qfDOxvRdu91o2x++0+qPvmS80BUFgZMToCmO5Ufu7Kcr7F7Qdne8DmtUgyn0v2+6igaI99T3TbVubCTp8ItrMnjHZ8nxkWSBk0Fkcu1OmBhmpZUCrg/I/cPDx50zKAN3HIXhY9uMw8BDaSFb6/5t6RONqLtqKcYshTMTxRYxjkE4jwjbbUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yAcPWhJOD2uC+8nD7DYGGpOcWzqUQnKUKJG27J3Ym1M=;
- b=xIXQ9jkh4ia39OsWb+RUYY5DFBIFc3SETMD4jeGXTcAGobzU17z8h7khWrnnPNuH41pUqNA+9DNBjfdtuhzphcVxkGFI5ErkLvaWL3OJPLrC16/z3euow9Tk/KqqbePzmbbvGMiWB48vDEewdBmiWKK9ib5ksVDSrLy2FpURNtW9Qw9vn2/RD4sKxf9C6KTJKGh4i5/Hh85vwR+/HmMUIoQBEieyxMYpFmVGR8FFKECEN7ql4Ha7CcJ/fof17N3ErZOUz/ztUTWSMggNE2fvdcT5cx0cuXp+lnpljolC5K1PgvjCY0IdiX9+laEazfY8V0w6FeVhcizhBAu5zkNIQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yAcPWhJOD2uC+8nD7DYGGpOcWzqUQnKUKJG27J3Ym1M=;
- b=iFAOY6SxyieqLQbrW08ehJaX0t2doNWQ35t9lTx8ZuMhz9K4aalSLptGErRZsK38e/fUfWvAUQzX/YubBIVp0sg5crRGgYRQveb6XfJ8qBmOG5ikJVgQ0gqInZeOenz9XmO4JTifjab4E7OEvR0hFXmGf7wGOX7688lk6wWQV7U=
-Received: from MW4PR02CA0003.namprd02.prod.outlook.com (2603:10b6:303:16d::30)
- by MW5PR12MB5623.namprd12.prod.outlook.com (2603:10b6:303:199::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Tue, 10 Jun
- 2025 07:34:40 +0000
-Received: from SJ1PEPF000023CB.namprd02.prod.outlook.com
- (2603:10b6:303:16d:cafe::39) by MW4PR02CA0003.outlook.office365.com
- (2603:10b6:303:16d::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.19 via Frontend Transport; Tue,
- 10 Jun 2025 07:34:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- SJ1PEPF000023CB.mail.protection.outlook.com (10.167.244.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8835.15 via Frontend Transport; Tue, 10 Jun 2025 07:34:40 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 02:34:38 -0500
-Received: from localhost (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39 via Frontend
- Transport; Tue, 10 Jun 2025 02:34:37 -0500
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@xilinx.com>, <git@xilinx.com>
-CC: Bartosz Golaszewski <brgl@bgdev.pl>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij
-	<linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, Shubhrajyoti Datta
-	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, "open
- list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
-	<devicetree@vger.kernel.org>, "moderated list:ARM/ZYNQ ARCHITECTURE"
-	<linux-arm-kernel@lists.infradead.org>, "open list:GPIO SUBSYSTEM"
-	<linux-gpio@vger.kernel.org>
-Subject: [PATCH] dt-bindings: gpio: gpio-xilinx: Mark clocks as required property
-Date: Tue, 10 Jun 2025 09:34:31 +0200
-Message-ID: <dba4f2c39a25b54010c292c36e349cb289d6cd98.1749540869.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 10 Jun 2025 07:40:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3966F14BF;
+	Tue, 10 Jun 2025 00:40:06 -0700 (PDT)
+Received: from [10.163.32.103] (unknown [10.163.32.103])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F37133F59E;
+	Tue, 10 Jun 2025 00:40:23 -0700 (PDT)
+Message-ID: <ede82589-3a77-4a05-ab4e-4249c9e751f4@arm.com>
+Date: Tue, 10 Jun 2025 13:10:20 +0530
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1470; i=michal.simek@amd.com; h=from:subject:message-id; bh=MMcDQ01bLSUATUGDhbUHh+QSfPLgHb5EhVRX3EgyVYA=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWS4P+AwnqeqblsZ57Sx0EH026v7X6ZPSZw8xSCGiWMW9 3rxXF6FjlIWBjEOBlkxRZbpTDoOa75dWyq2PDIfZg4rE8gQBi5OAZjI5b8M/zQiYlk7PML35CWd ZnjdIdHiPTv2N/uT+IcOU3PWlVydZMnwT3PrgYWz1imsDvLNSylRuiy6R3/Z+ZtvGVRvLM/6xWI uzQYA
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB04.amd.com: michal.simek@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CB:EE_|MW5PR12MB5623:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef8ca43e-fbb2-4634-d517-08dda7f1429b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|36860700013|376014|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?37YNhr7wbfCCRWORyYjxQQJWGUlLGMTiPnqw7/jwj1vx1G/yN1hTffu+fdgZ?=
- =?us-ascii?Q?ZOJYACb8lM4dv80TEPdM14SnI1NdTa4LbwUZC2WAqwbdg7v/PVXMfmmylhBI?=
- =?us-ascii?Q?ap5iVUOqe9/19YN5dINxo1RccT1b6D4rbOrMsl3Cgb0XnhlrwvhZGt9y/Uup?=
- =?us-ascii?Q?9yhiqetQN5B+2+FzT1phrQ1hYrRV7FTtjrA+RWuUz4mHwrBOfnXGj0/UVlvE?=
- =?us-ascii?Q?Tj3f6gyNpZcqm0YfT4RNg4FxT3KaKBsYJ1YmcSLoIVLLFJCkvfTxuowSnU0m?=
- =?us-ascii?Q?3ioVnXpPavdJeAinJjdGnZEf7gkaYCg0GD/PLJu5aqF/lbGG9I5NEkbzk/aO?=
- =?us-ascii?Q?JQSz2AL8IvCafZ6RzLpcsqeinEX93z6lwKTO324gPboq9tb5wkYbj+Yt67mY?=
- =?us-ascii?Q?1Ln5g+IAayVqbJXrRSZyJb6/WHYU+mDWU7iSNmg10/Gy7UJTMk7ZFtaeKX/W?=
- =?us-ascii?Q?1DVjAf4fO8UNTnQDrwM2mLOb/StwcAHDB9/J3d+CbHwu7/tWJQsPrE33FEP1?=
- =?us-ascii?Q?E84Na6BB+0kVdKGYUfjbuGkNUhwSxpIOHuhl7DetkZIbqY4ii4QI4ZpYIkcV?=
- =?us-ascii?Q?6DqaS9X8i9FCCeU+HzEQ7jaja/fT1clQo915LCynpsbZlgPxyQy0PLdIo420?=
- =?us-ascii?Q?KYP5YI4OWTtE07dcS+XaEZ7+HSFGb5uGsA4UsWYPtX7fqzcb/ZZT8hLFpa0Q?=
- =?us-ascii?Q?K+K4OVyuSKjy0tWlTItmZ0zJa5Z/BmTkhzZzXFDg4TIEygly5aL3x64pLMXm?=
- =?us-ascii?Q?634FZo0ol4P4u3SAccYFZjOghZzNQj3vLJHmB+aSp107QkhDyc84TzbM5eFZ?=
- =?us-ascii?Q?ENJjrsg/2L64HTC9xXv+rQJuyIscoSUzZr9LtUgHd+oqQEp+FTmDpxyYktBK?=
- =?us-ascii?Q?v1q8tFxfNX6cMHTSTLmjYwwNg3tVPjpLB2Qcg0eLwrFCoH6JGfhPwK9wnbym?=
- =?us-ascii?Q?R8qjioFRb6k1jUSwuI8rFsScqk5dfwYqMAwJnNdcv/BjRiZXhDyD0bn0pq23?=
- =?us-ascii?Q?1wxgIsc6NWElEFWNnraKd6JtWXo9OVk2bH7KosWovOAnbDdt/Peri9Aw2i+8?=
- =?us-ascii?Q?ZgdDKHHWPJ5uJ+2W3rqcy5UvMS3seSq1oNkMsjI4FHA+rChjw+A7rpW5dWZR?=
- =?us-ascii?Q?Ixn50M0FHiqkE4L0OM8hvXVt0iUtby5gX+a9ziZfaBgPU2d4eXNAWi/AOlSX?=
- =?us-ascii?Q?vT68o2Yt0SHomEgZ7cAbEeZueERIpcV9SMBWDp7c5qx3TvBJDgrpS/xBT7Io?=
- =?us-ascii?Q?1J9scigGVJeCRrN0mk8fu3VweI5CAA/IGdkE15CrsvxOq8Q8yYVjaeTM0V/B?=
- =?us-ascii?Q?LaVkjeiBgRxO2+XBpIooCKaWfOcvmnusNZJohkkeyJekp7l5RbS6ZuijP3ku?=
- =?us-ascii?Q?+l4NuKl1TO2RNVPYyPpSTo9NWl5Td9x1teMvRJJfXn+YplsGZCkoUf1T2b5w?=
- =?us-ascii?Q?Vta6AUjN8cZ4/+xDvHhokK2pVzqiqm+Sgtyu2JZGGuM24RLGjXcSIA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(36860700013)(376014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 07:34:40.1607
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef8ca43e-fbb2-4634-d517-08dda7f1429b
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CB.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR12MB5623
+User-Agent: Mozilla Thunderbird
+Subject: Re: [boot-wrapper PATCH V2] aarch64: Enable access into FEAT_SPE_FDS
+ register from EL2 and below
+To: Mark Rutland <mark.rutland@arm.com>, James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org
+References: <20250606052602.3387225-1-anshuman.khandual@arm.com>
+ <c7c97edf-8e2b-4196-9660-a15b86061c96@linaro.org>
+ <aEbjcQLBKG7TepPg@J2N7QTR9R3>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <aEbjcQLBKG7TepPg@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_003459_574277_9984FA74 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20250610_004026_412730_E6EF15A2 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,43 +66,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Microblaze platforms there is no need to handle clocks because the
-system is starting with clocks enabled (can be described via fixed clock
-node or clock-frequency property or not described at all).
-With using soft IPs with SOC platforms there is mandatory to handle clocks
-as is explained in commit 60dbdc6e08d6 ("dt-bindings: net: emaclite: Add
-clock support").
-That's why make clock as required in dt binding because it is present in
-both configurations and should be described even there is no way how to
-handle it on Microblaze systems.
 
-Signed-off-by: Michal Simek <michal.simek@amd.com>
----
 
-Based on discussion at
-https://lore.kernel.org/lkml/20241002-revivable-crummy-f780adec538c@spud/
+On 09/06/25 7:06 PM, Mark Rutland wrote:
+> On Fri, Jun 06, 2025 at 09:49:07AM +0100, James Clark wrote:
+>> On 06/06/2025 6:26 am, Anshuman Khandual wrote:
+>>> FEAT_SPE_FDS adds system register PMSDSFR_EL1. But accessing that system
+>>> register from EL2 and below exception levels, will trap into EL3 unless
+>>> MDCR_EL3.EnPMS3 is set.
+>>>
+>>> Enable access to FEAT_SPE_FDS registers when they are implemented.
+>>>
+>>> Cc: James Clark <james.clark@linaro.org>
+>>> Cc: Mark Rutland <mark.rutland@arm.com>
+>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> 
+>>> +	/*
+>>> +	 * PMSIDR_EL1 register is present, only when FEAT_SPE
+>>> +	 * feature is implemeneted. Otherwise direct accesses
+>>> +	 * to PMSIDR_EL1 are UNDEFINED.
+>>> +	 */
+>>> +	if ((mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 1) &&
+>>> +	    (mrs_field(PMSIDR_EL1, FDS)))
+>>
+>> Minor nit, but the extra brackets on the second condition are unnecessary.
+>> Probably not worth a second version for though.
+> 
+> I don't think they're necessary for either condition, so when I apply
+> this I'll simplify this to:
+> 
+> 	if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 1 && 
+> 	    mrs_field(PMSIDR_EL1, FDS))
+> 
+> ... and drop the comment.
 
-Actually this shouldn't be only targetting GPIO but also for example
-xlnx,xps-timebase-wdt-1.00.a but I would like to check it first on gpio
-before starting to check other bindings.
-
----
- Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
-index 8fbf12ca067e..7af4eb2d1858 100644
---- a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
-+++ b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
-@@ -117,6 +117,7 @@ properties:
- required:
-   - reg
-   - compatible
-+  - clocks
-   - gpio-controller
-   - "#gpio-cells"
- 
--- 
-2.43.0
-
+Sure, thanks Mark.
 
