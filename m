@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66181C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A56C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QoH+GEIuZjL3nUgiDo1Re1DMfoVpW82MZQkjEbRhUVY=; b=dZiotD9OXiLDTzPMhOFQrZ/RRF
-	M2QciuqXHb0vKwiMBcDtBJ3ut3J8FMoDtcjymC4lwfMd819MFp/qApMi0Hyn67yhcJ3GZfkeA3xRi
-	NliD/8mfdl8Q68OPo2qDlDrTvunppe4uvMuYUWz3aDLwbxqYmcjJf3L6njqbBrTkEguEenhHIX0ax
-	qT2i6I75kYRTi+2Nuq+BE8UxZj1t9JXNF0NBFIpdf8peDA6DU3ZTu2Kq2nydzymOjwNP2twWWphh3
-	cWMWnRLxK2rCHWAl4wHHtbjxCUwRZQYCd87cR4pSZxCc7GfKQpvHpz1Ki7b5fRn9Aus/xnfOoaMdo
-	xQMTE9VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2aDOVsXZyzKU8vuWttCueOe5SPtog226gwz3hdC0Fu0=; b=zxwssc8d1MnvaolFhOXawJO3OR
+	5cdwFeuEC2SvDxwezOOoeEpUk8SQTFk9aYWqeSzFwmKcznR2Bgq2aNj2PJUt0aCyUs00oijXImavg
+	RLkpSIW9MMJmes0GEjVgziy+pQF1xrHaZjFdX/KRnno1IRGgVcSWbFIiDHPR4QzTGlHEC2BRxYzdY
+	2Xfy8iFgaJ9rJ8pFEwjoIWOez1JFSZeOI4qzOJ2ItCDG2OjtY9rBMAfR4XEbxsrm6ppX3Dj6I9kkM
+	2bjtSeaNrxERla8HNhAWxwGQknsHF1EmaXz8VG3W8iXj2sQ/lGwsIesrBgxtj4NKnDZQlRMOSmYJJ
+	VAwH/64g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvWD-00000006NZd-1alk;
-	Tue, 10 Jun 2025 09:43:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uOvYL-00000006Nzu-1sle;
+	Tue, 10 Jun 2025 09:45:57 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOv2L-00000006Hvw-3rs7;
-	Tue, 10 Jun 2025 09:12:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ECEF460007;
-	Tue, 10 Jun 2025 09:12:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F308C4CEED;
-	Tue, 10 Jun 2025 09:12:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749546772;
-	bh=rOVaLrzxaPc+YcRuOpalOUGc+5Zt4qH2nIIaNuqz3ss=;
-	h=From:Date:Subject:To:Cc:From;
-	b=f5g3nY1owQe49u4S8vOgeOSpgb+sO53P0vkQLdhjjdpG5loWczo0n5VMzXxQPz7e3
-	 jeLP4fbs2xrivhN7UX/UUrDDoNzMYN376RG9bNdEoxbGKV2WzFDD1AmXb0t8el5ydf
-	 okkK3litmzGBpmKCuSctEswU0UEszQBu5pk9KXrwGON1rI2kRAkfVQsOLxIXrpzQlb
-	 H4Rdj3EUrkhm6ENAAv2Nlflf3REjHh3aW2EuKaSEAkopd2nyeQ0FIIg+Y5t6kJcGAO
-	 a7B82App0aico4HSFj8Cmkzs0OSZuo7QvD/0JTI7AiqdGgT2CRmiSxt5VbzXv7uDw1
-	 ZLvoq9Vrf3Fcg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 10 Jun 2025 11:12:36 +0200
-Subject: [PATCH net-next] net: airoha: Add TCP LRO support
+	id 1uOv67-00000006Ija-1evR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 09:16:48 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 879462EC;
+	Tue, 10 Jun 2025 11:16:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1749546997;
+	bh=Q+OZ7g6V3LXKnAvLoFoKYNotBv9+t1H/YpraEjFfDH8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mwaWdgOMzZ3jGsW3vKdoubdUvUz6vxEm26kcAdWngSNwWWCEWCnXdLQhrNpTT6PoY
+	 yaSKMOmokriJadwM+gXm+VaZtOPbnwUYTi6LzSEVCKp6ExzH4JUSGjuRffnEWx5tgR
+	 +KJmCp2UrVKWhFaywTlrFJKoV2LcgHv1ZSWgzIaY=
+Date: Tue, 10 Jun 2025 12:16:32 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/8] media: imx-mipi-csis: Rename register macros to
+ match reference manual
+Message-ID: <20250610091632.GM27510@pendragon.ideasonboard.com>
+References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
+ <20250608235840.23871-2-laurent.pinchart@ideasonboard.com>
+ <3358871.aeNJFYEL58@steina-w>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAP3R2gC/x2MQQqAIBAAvyJ7bkGFgvpKdBDdciE01ohA/HvSZ
- WAOMxUKCVOBRVUQerhwTl3MoMBHlw5CDt3BajvqyWh0LDk6pDviKRlp3H0wHX420KNLaOf3H65
- bax/9kFaOYAAAAA==
-X-Change-ID: 20250610-airoha-eth-lro-e5fcd15fcc91
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <3358871.aeNJFYEL58@steina-w>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_021647_574964_A2348D94 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,378 +79,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-EN7581 SoC supports TCP hw Large Receive Offload (LRO) for 8 hw queues.
-Introduce TCP LRO support to airoha_eth driver for RX queues 24-31.
-In order to support hw TCP LRO, increase page_pool order to 5 for RX
-queues 24-31.
+On Tue, Jun 10, 2025 at 11:10:54AM +0200, Alexander Stein wrote:
+> Am Montag, 9. Juni 2025, 01:58:33 CEST schrieb Laurent Pinchart:
+> > The CSIS driver uses register macro names that do not match the
+> > reference manual of the i.MX7[DS] and i.MX8M[MNP] SoCs in which the CSIS
+> > is integrated. Rename them to match the documentation, making the code
+> > easier to read alongside the reference manuals.
+> > 
+> > One of the misnamed register fields is MIPI_CSIS_INT_SRC_ERR_UNKNOWN,
+> > which led to the corresponding event being logged as "Unknown Error".
+> > The correct register field name is MIPI_CSIS_INT_SRC_ERR_ID, documented
+> > as "Unknown ID error". Update the event description accordingly.
+> > 
+> > While at it, also replace a few *_OFFSET macros with parametric macros
+> > for consistency, and add the missing MIPI_CSIS_ISP_RESOL_VRESOL and
+> > MIPI_CSIS_ISP_RESOL_HRESOL register field macros.
+> > 
+> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c | 69 +++++++++++-----------
+> >  1 file changed, 36 insertions(+), 33 deletions(-)
+> > 
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > index 2beb5f43c2c0..d59666ef7545 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -55,13 +55,13 @@
+> >  /* CSIS common control */
+> >  #define MIPI_CSIS_CMN_CTRL			0x04
+> >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
+> > -#define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
+> > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_NONE	(0 << 10)
+> > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT	(1 << 10)
+> > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)	((n) << 8)
+> > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK	(3 << 8)
+> >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
+> > -#define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
+> > -#define MIPI_CSIS_CMN_CTRL_ENABLE		BIT(0)
+> > -
+> > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET	8
+> > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_MASK		(3 << 8)
+> > +#define MIPI_CSIS_CMN_CTRL_SW_RESET		BIT(1)
+> > +#define MIPI_CSIS_CMN_CTRL_CSI_EN		BIT(0)
+> >  
+> >  /* CSIS clock control */
+> >  #define MIPI_CSIS_CLK_CTRL			0x08
+> > @@ -87,7 +87,7 @@
+> >  #define MIPI_CSIS_INT_MSK_ERR_WRONG_CFG		BIT(3)
+> >  #define MIPI_CSIS_INT_MSK_ERR_ECC		BIT(2)
+> >  #define MIPI_CSIS_INT_MSK_ERR_CRC		BIT(1)
+> > -#define MIPI_CSIS_INT_MSK_ERR_UNKNOWN		BIT(0)
+> > +#define MIPI_CSIS_INT_MSK_ERR_ID		BIT(0)
+> >  
+> >  /* CSIS Interrupt source */
+> >  #define MIPI_CSIS_INT_SRC			0x14
+> > @@ -107,7 +107,7 @@
+> >  #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
+> >  #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
+> >  #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
+> > -#define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
+> > +#define MIPI_CSIS_INT_SRC_ERR_ID		BIT(0)
+> >  #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
+> >  
+> >  /* D-PHY status control */
+> > @@ -123,8 +123,8 @@
+> >  #define MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE_MASK	GENMASK(31, 24)
+> >  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(n)	((n) << 22)
+> >  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE_MASK	GENMASK(23, 22)
+> > -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_CLK	BIT(6)
+> > -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_DAT	BIT(5)
+> > +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_CLK	BIT(6)
+> > +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_DAT	BIT(5)
+> >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_DAT	BIT(1)
+> >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_CLK	BIT(0)
+> >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE		(0x1f << 0)
+> > @@ -179,21 +179,23 @@
+> >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_SINGLE	(0 << 12)
+> >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL	(1 << 12)
+> >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_QUAD	(2 << 12)	/* i.MX8M[MNP] only */
+> > -#define MIPI_CSIS_ISPCFG_PIXEL_MASK		(3 << 12)
+> > -#define MIPI_CSIS_ISPCFG_ALIGN_32BIT		BIT(11)
+> > -#define MIPI_CSIS_ISPCFG_FMT(fmt)		((fmt) << 2)
+> > -#define MIPI_CSIS_ISPCFG_FMT_MASK		(0x3f << 2)
+> > +#define MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK	(3 << 12)
+> > +#define MIPI_CSIS_ISPCFG_PARALLEL		BIT(11)
+> > +#define MIPI_CSIS_ISPCFG_DATAFORMAT(fmt)	((fmt) << 2)
+> > +#define MIPI_CSIS_ISPCFG_DATAFORMAT_MASK	(0x3f << 2)
+> >  
+> >  /* ISP Image Resolution register */
+> >  #define MIPI_CSIS_ISP_RESOL_CH(n)		(0x44 + (n) * 0x10)
+> > +#define MIPI_CSIS_ISP_RESOL_VRESOL(n)		((n) << 16)
+> > +#define MIPI_CSIS_ISP_RESOL_HRESOL(n)		((n) << 0)
+> >  #define CSIS_MAX_PIX_WIDTH			0xffff
+> >  #define CSIS_MAX_PIX_HEIGHT			0xffff
+> >  
+> >  /* ISP SYNC register */
+> >  #define MIPI_CSIS_ISP_SYNC_CH(n)		(0x48 + (n) * 0x10)
+> > -#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET	18
+> > -#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET	12
+> > -#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET	0
+> > +#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(n)	((n) << 18)
+> > +#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(n)	((n) << 12)
+> > +#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(n)	((n) << 0)
+> >  
+> >  /* ISP shadow registers */
+> >  #define MIPI_CSIS_SDW_CONFIG_CH(n)		(0x80 + (n) * 0x10)
+> > @@ -246,7 +248,7 @@ static const struct mipi_csis_event mipi_csis_events[] = {
+> >  	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
+> >  	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
+> >  	{ false, MIPI_CSIS_INT_SRC_ERR_CRC,		"CRC Error" },
+> > -	{ false, MIPI_CSIS_INT_SRC_ERR_UNKNOWN,		"Unknown Error" },
+> > +	{ false, MIPI_CSIS_INT_SRC_ERR_ID,		"Unknown ID Error" },
+> >  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
+> >  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,	"Data Type Ignored" },
+> >  	{ true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error" },
+> > @@ -517,7 +519,7 @@ static void mipi_csis_sw_reset(struct mipi_csis_device *csis)
+> >  	u32 val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+> >  
+> >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
+> > -			val | MIPI_CSIS_CMN_CTRL_RESET);
+> > +			val | MIPI_CSIS_CMN_CTRL_SW_RESET);
+> >  	usleep_range(10, 20);
+> >  }
+> >  
+> > @@ -527,9 +529,9 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
+> >  
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+> >  	if (on)
+> > -		val |= MIPI_CSIS_CMN_CTRL_ENABLE;
+> > +		val |= MIPI_CSIS_CMN_CTRL_CSI_EN;
+> >  	else
+> > -		val &= ~MIPI_CSIS_CMN_CTRL_ENABLE;
+> > +		val &= ~MIPI_CSIS_CMN_CTRL_CSI_EN;
+> >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
+> >  
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
+> > @@ -549,8 +551,8 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
+> >  
+> >  	/* Color format */
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(0));
+> > -	val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
+> > -		| MIPI_CSIS_ISPCFG_PIXEL_MASK);
+> > +	val &= ~(MIPI_CSIS_ISPCFG_PARALLEL | MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK |
+> > +		 MIPI_CSIS_ISPCFG_DATAFORMAT_MASK);
+> >  
+> >  	/*
+> >  	 * YUV 4:2:2 can be transferred with 8 or 16 bits per clock sample
+> > @@ -568,12 +570,13 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
+> >  	if (csis_fmt->data_type == MIPI_CSI2_DT_YUV422_8B)
+> >  		val |= MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL;
+> >  
+> > -	val |= MIPI_CSIS_ISPCFG_FMT(csis_fmt->data_type);
+> > +	val |= MIPI_CSIS_ISPCFG_DATAFORMAT(csis_fmt->data_type);
+> >  	mipi_csis_write(csis, MIPI_CSIS_ISP_CONFIG_CH(0), val);
+> >  
+> >  	/* Pixel resolution */
+> > -	val = format->width | (format->height << 16);
+> > -	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0), val);
+> > +	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0),
+> > +			MIPI_CSIS_ISP_RESOL_VRESOL(format->height) |
+> > +			MIPI_CSIS_ISP_RESOL_HRESOL(format->width));
+> >  }
+> >  
+> >  static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
+> > @@ -635,10 +638,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+> >  	u32 val;
+> >  
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+> > -	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
+> > -	val |= (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
+> > +	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK;
+> > +	val |= MIPI_CSIS_CMN_CTRL_LANE_NUMBER(lanes - 1);
+> >  	if (csis->info->version == MIPI_CSIS_V3_3)
+> > -		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE;
+> > +		val |= MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT;
+> 
+> Mh, what about i.MX8MP which also has these bitfield defined, but is
+> not a MIPI_CSIS_V3_3 core?
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c  | 191 +++++++++++++++++++++++++++---
- drivers/net/ethernet/airoha/airoha_eth.h  |  10 ++
- drivers/net/ethernet/airoha/airoha_regs.h |  25 +++-
- 3 files changed, 210 insertions(+), 16 deletions(-)
+Short answer: no idea yet. Has anyone been able to capture embedded data
+through the ISI on the i.MX8MP ?
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index a7ec609d64dee9c8e901c7eb650bb3fe144ee00a..9378ca384fe2025a40cc528714859dd59300fbcd 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -12,6 +12,7 @@
- #include <net/dst_metadata.h>
- #include <net/page_pool/helpers.h>
- #include <net/pkt_cls.h>
-+#include <net/tcp.h>
- #include <uapi/linux/ppp_defs.h>
- 
- #include "airoha_regs.h"
-@@ -439,6 +440,40 @@ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
- 				 CDM_CRSN_QSEL_Q1));
- }
- 
-+static void airoha_fe_lro_init_rx_queue(struct airoha_eth *eth, int qdma_id,
-+					int lro_queue_index, int qid,
-+					int nbuf, int buf_size)
-+{
-+	airoha_fe_rmw(eth, REG_CDM_LRO_LIMIT(qdma_id),
-+		      CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK,
-+		      FIELD_PREP(CDM_LRO_AGG_NUM_MASK, nbuf) |
-+		      FIELD_PREP(CDM_LRO_AGG_SIZE_MASK, buf_size));
-+	airoha_fe_rmw(eth, REG_CDM_LRO_AGE_TIME(qdma_id),
-+		      CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK,
-+		      FIELD_PREP(CDM_LRO_AGE_TIME_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGE_TIME) |
-+		      FIELD_PREP(CDM_LRO_AGG_TIME_MASK,
-+				 AIROHA_RXQ_LRO_MAX_AGG_TIME));
-+	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(qdma_id, lro_queue_index),
-+		      LRO_RXQ_MASK(lro_queue_index),
-+		      qid << __ffs(LRO_RXQ_MASK(lro_queue_index)));
-+	airoha_fe_set(eth, REG_CDM_LRO_EN(qdma_id), BIT(lro_queue_index));
-+}
-+
-+static void airoha_fe_lro_disable(struct airoha_eth *eth, int qdma_id)
-+{
-+	int i;
-+
-+	airoha_fe_clear(eth, REG_CDM_LRO_LIMIT(qdma_id),
-+			CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK);
-+	airoha_fe_clear(eth, REG_CDM_LRO_AGE_TIME(qdma_id),
-+			CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK);
-+	airoha_fe_clear(eth, REG_CDM_LRO_EN(qdma_id), LRO_RXQ_EN_MASK);
-+	for (i = 0; i < AIROHA_MAX_NUM_LRO_QUEUES; i++)
-+		airoha_fe_clear(eth, REG_CDM_LRO_RXQ(qdma_id, i),
-+				LRO_RXQ_MASK(i));
-+}
-+
- static int airoha_fe_init(struct airoha_eth *eth)
- {
- 	airoha_fe_maccr_init(eth);
-@@ -618,9 +653,87 @@ static int airoha_qdma_get_gdm_port(struct airoha_eth *eth,
- 	return port >= ARRAY_SIZE(eth->ports) ? -EINVAL : port;
- }
- 
-+static bool airoha_qdma_is_lro_rx_queue(struct airoha_queue *q,
-+					struct airoha_qdma *qdma)
-+{
-+	int qid = q - &qdma->q_rx[0];
-+
-+	/* EN7581 SoC supports at most 8 LRO rx queues */
-+	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
-+		     AIROHA_MAX_NUM_LRO_QUEUES);
-+
-+	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
-+}
-+
-+static int airoha_qdma_lro_rx_process(struct airoha_queue *q,
-+				      struct airoha_qdma_desc *desc)
-+{
-+	u32 msg1 = le32_to_cpu(desc->msg1), msg2 = le32_to_cpu(desc->msg2);
-+	u32 th_off, tcp_ack_seq, msg3 = le32_to_cpu(desc->msg3);
-+	bool ipv4 = FIELD_GET(QDMA_ETH_RXMSG_IP4_MASK, msg1);
-+	bool ipv6 = FIELD_GET(QDMA_ETH_RXMSG_IP6_MASK, msg1);
-+	struct sk_buff *skb = q->skb;
-+	u16 tcp_win, l2_len;
-+	struct tcphdr *th;
-+
-+	if (FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) <= 1)
-+		return 0;
-+
-+	if (!ipv4 && !ipv6)
-+		return -EOPNOTSUPP;
-+
-+	l2_len = FIELD_GET(QDMA_ETH_RXMSG_L2_LEN_MASK, msg2);
-+	if (ipv4) {
-+		u16 agg_len = FIELD_GET(QDMA_ETH_RXMSG_AGG_LEN_MASK, msg3);
-+		struct iphdr *iph = (struct iphdr *)(skb->data + l2_len);
-+
-+		if (iph->protocol != IPPROTO_TCP)
-+			return -EOPNOTSUPP;
-+
-+		iph->tot_len = cpu_to_be16(agg_len);
-+		iph->check = 0;
-+		iph->check = ip_fast_csum((void *)iph, iph->ihl);
-+		th_off = l2_len + (iph->ihl << 2);
-+	} else {
-+		struct ipv6hdr *ip6h = (struct ipv6hdr *)(skb->data + l2_len);
-+		u32 len, desc_ctrl = le32_to_cpu(desc->ctrl);
-+
-+		if (ip6h->nexthdr != NEXTHDR_TCP)
-+			return -EOPNOTSUPP;
-+
-+		len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
-+		ip6h->payload_len = cpu_to_be16(len - l2_len - sizeof(*ip6h));
-+		th_off = l2_len + sizeof(*ip6h);
-+	}
-+
-+	tcp_win = FIELD_GET(QDMA_ETH_RXMSG_TCP_WIN_MASK, msg3);
-+	tcp_ack_seq = le32_to_cpu(desc->data);
-+
-+	th = (struct tcphdr *)(skb->data + th_off);
-+	th->ack_seq = cpu_to_be32(tcp_ack_seq);
-+	th->window = cpu_to_be16(tcp_win);
-+
-+	/* check tcp timestamp option */
-+	if (th->doff == sizeof(*th) + TCPOLEN_TSTAMP_ALIGNED) {
-+		__be32 *topt = (__be32 *)(th + 1);
-+
-+		if (*topt == cpu_to_be32((TCPOPT_NOP << 24) |
-+					 (TCPOPT_NOP << 16) |
-+					 (TCPOPT_TIMESTAMP << 8) |
-+					 TCPOLEN_TIMESTAMP)) {
-+			u32 tcp_ts_reply = le32_to_cpu(desc->tcp_ts_reply);
-+
-+			put_unaligned_be32(tcp_ts_reply, topt + 2);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- {
- 	enum dma_data_direction dir = page_pool_get_dma_dir(q->page_pool);
-+	bool lro_queue = airoha_qdma_is_lro_rx_queue(q, q->qdma);
- 	struct airoha_qdma *qdma = q->qdma;
- 	struct airoha_eth *eth = qdma->eth;
- 	int qid = q - &qdma->q_rx[0];
-@@ -663,9 +776,14 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 			__skb_put(q->skb, len);
- 			skb_mark_for_recycle(q->skb);
- 			q->skb->dev = port->dev;
--			q->skb->protocol = eth_type_trans(q->skb, port->dev);
- 			q->skb->ip_summed = CHECKSUM_UNNECESSARY;
- 			skb_record_rx_queue(q->skb, qid);
-+
-+			if (lro_queue && (port->dev->features & NETIF_F_LRO) &&
-+			    airoha_qdma_lro_rx_process(q, desc) < 0)
-+				goto free_frag;
-+
-+			q->skb->protocol = eth_type_trans(q->skb, port->dev);
- 		} else { /* scattered frame */
- 			struct skb_shared_info *shinfo = skb_shinfo(q->skb);
- 			int nr_frags = shinfo->nr_frags;
-@@ -751,14 +869,16 @@ static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
- }
- 
- static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
--				     struct airoha_qdma *qdma, int ndesc)
-+				     struct airoha_qdma *qdma,
-+				     int ndesc, bool lro_queue)
- {
-+	int pp_order = lro_queue ? 5 : 0;
- 	const struct page_pool_params pp_params = {
--		.order = 0,
--		.pool_size = 256,
-+		.order = pp_order,
-+		.pool_size = 256 >> pp_order,
- 		.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV,
- 		.dma_dir = DMA_FROM_DEVICE,
--		.max_len = PAGE_SIZE,
-+		.max_len = PAGE_SIZE << pp_order,
- 		.nid = NUMA_NO_NODE,
- 		.dev = qdma->eth->dev,
- 		.napi = &q->napi,
-@@ -767,7 +887,7 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
- 	int qid = q - &qdma->q_rx[0], thr;
- 	dma_addr_t dma_addr;
- 
--	q->buf_size = PAGE_SIZE / 2;
-+	q->buf_size = pp_params.max_len / (2 * (1 + lro_queue));
- 	q->ndesc = ndesc;
- 	q->qdma = qdma;
- 
-@@ -829,15 +949,18 @@ static int airoha_qdma_init_rx(struct airoha_qdma *qdma)
- 	int i;
- 
- 	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
--		int err;
-+		struct airoha_queue *q = &qdma->q_rx[i];
-+		bool lro_queue;
-+		int err, ndesc;
- 
- 		if (!(RX_DONE_INT_MASK & BIT(i))) {
- 			/* rx-queue not binded to irq */
- 			continue;
- 		}
- 
--		err = airoha_qdma_init_rx_queue(&qdma->q_rx[i], qdma,
--						RX_DSCP_NUM(i));
-+		lro_queue = airoha_qdma_is_lro_rx_queue(q, qdma);
-+		ndesc = lro_queue ? RX_DSCP_NUM(1) : RX_DSCP_NUM(i);
-+		err = airoha_qdma_init_rx_queue(q, qdma, ndesc, lro_queue);
- 		if (err)
- 			return err;
- 	}
-@@ -1870,6 +1993,46 @@ static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
- #endif
- }
- 
-+static int airoha_dev_set_features(struct net_device *dev,
-+				   netdev_features_t features)
-+{
-+	netdev_features_t diff = dev->features ^ features;
-+	struct airoha_gdm_port *port = netdev_priv(dev);
-+	struct airoha_qdma *qdma = port->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+	int qdma_id = qdma - &eth->qdma[0];
-+
-+	if (!(diff & NETIF_F_LRO))
-+		return 0;
-+
-+	/* reset LRO configuration */
-+	if (features & NETIF_F_LRO) {
-+		int i, lro_queue_index = 0;
-+
-+		for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
-+			struct airoha_queue *q = &qdma->q_rx[i];
-+			bool lro_queue;
-+
-+			if (!q->ndesc)
-+				continue;
-+
-+			lro_queue = airoha_qdma_is_lro_rx_queue(q, qdma);
-+			if (!lro_queue)
-+				continue;
-+
-+			airoha_fe_lro_init_rx_queue(eth, qdma_id,
-+						    lro_queue_index, i,
-+						    q->page_pool->p.pool_size,
-+						    q->buf_size);
-+			lro_queue_index++;
-+		}
-+	} else {
-+		airoha_fe_lro_disable(eth, qdma_id);
-+	}
-+
-+	return 0;
-+}
-+
- static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 				   struct net_device *dev)
- {
-@@ -2751,6 +2914,7 @@ static const struct net_device_ops airoha_netdev_ops = {
- 	.ndo_stop		= airoha_dev_stop,
- 	.ndo_change_mtu		= airoha_dev_change_mtu,
- 	.ndo_select_queue	= airoha_dev_select_queue,
-+	.ndo_set_features	= airoha_dev_set_features,
- 	.ndo_start_xmit		= airoha_dev_xmit,
- 	.ndo_get_stats64        = airoha_dev_get_stats64,
- 	.ndo_set_mac_address	= airoha_dev_set_macaddr,
-@@ -2848,12 +3012,9 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 	dev->ethtool_ops = &airoha_ethtool_ops;
- 	dev->max_mtu = AIROHA_MAX_MTU;
- 	dev->watchdog_timeo = 5 * HZ;
--	dev->hw_features = NETIF_F_IP_CSUM | NETIF_F_RXCSUM |
--			   NETIF_F_TSO6 | NETIF_F_IPV6_CSUM |
--			   NETIF_F_SG | NETIF_F_TSO |
--			   NETIF_F_HW_TC;
--	dev->features |= dev->hw_features;
--	dev->vlan_features = dev->hw_features;
-+	dev->hw_features = AIROHA_HW_FEATURES | NETIF_F_LRO;
-+	dev->features |= AIROHA_HW_FEATURES;
-+	dev->vlan_features = AIROHA_HW_FEATURES;
- 	dev->dev.of_node = np;
- 	dev->irq = qdma->irq_banks[0].irq;
- 	SET_NETDEV_DEV(dev, eth->dev);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index a970b789cf232c316e5ea27b0146493bf91c3767..bea56597af3ba0e8da3cc17e4a74b91d4f681137 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -41,6 +41,16 @@
- 	 (_n) == 15 ? 128 :		\
- 	 (_n) ==  0 ? 1024 : 16)
- 
-+#define AIROHA_MAX_NUM_LRO_QUEUES	8
-+#define AIROHA_RXQ_LRO_EN_MASK		0xff000000
-+#define AIROHA_RXQ_LRO_MAX_AGG_TIME	100
-+#define AIROHA_RXQ_LRO_MAX_AGE_TIME	2000 /* 1ms */
-+
-+#define AIROHA_HW_FEATURES			\
-+	(NETIF_F_IP_CSUM | NETIF_F_RXCSUM |	\
-+	 NETIF_F_TSO6 | NETIF_F_IPV6_CSUM |	\
-+	 NETIF_F_SG | NETIF_F_TSO | NETIF_F_HW_TC)
-+
- #define PSE_RSV_PAGES			128
- #define PSE_QUEUE_RSV_PAGES		64
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 04187eb40ec674ec5a4ccfc968bb4bd579a53095..86d320a6793b7d4ec77f823f61fa77a4c76a61a5 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -23,6 +23,9 @@
- #define GDM3_BASE			0x1100
- #define GDM4_BASE			0x2500
- 
-+#define CDM_BASE(_n)			\
-+	((_n) == 1 ? CDM2_BASE : CDM1_BASE)
-+
- #define GDM_BASE(_n)			\
- 	((_n) == 4 ? GDM4_BASE :	\
- 	 (_n) == 3 ? GDM3_BASE :	\
-@@ -127,6 +130,20 @@
- #define CDM2_CRSN_QSEL_REASON_MASK(_n)	\
- 	GENMASK(4 + (((_n) % 4) << 3),	(((_n) % 4) << 3))
- 
-+#define REG_CDM_LRO_RXQ(_n, _m)		(CDM_BASE(_n) + 0x78 + ((_m) & 0x4))
-+#define LRO_RXQ_MASK(_n)		GENMASK(4 + (((_n) & 0x3) << 3), ((_n) & 0x3) << 3)
-+
-+#define REG_CDM_LRO_EN(_n)		(CDM_BASE(_n) + 0x80)
-+#define LRO_RXQ_EN_MASK			GENMASK(7, 0)
-+
-+#define REG_CDM_LRO_LIMIT(_n)		(CDM_BASE(_n) + 0x84)
-+#define CDM_LRO_AGG_NUM_MASK		GENMASK(23, 16)
-+#define CDM_LRO_AGG_SIZE_MASK		GENMASK(15, 0)
-+
-+#define REG_CDM_LRO_AGE_TIME(_n)	(CDM_BASE(_n) + 0x88)
-+#define CDM_LRO_AGE_TIME_MASK		GENMASK(31, 16)
-+#define CDM_LRO_AGG_TIME_MASK		GENMASK(15, 0)
-+
- #define REG_GDM_FWD_CFG(_n)		GDM_BASE(_n)
- #define GDM_DROP_CRC_ERR		BIT(23)
- #define GDM_IP4_CKSUM			BIT(22)
-@@ -896,9 +913,15 @@
- #define QDMA_ETH_RXMSG_SPORT_MASK	GENMASK(25, 21)
- #define QDMA_ETH_RXMSG_CRSN_MASK	GENMASK(20, 16)
- #define QDMA_ETH_RXMSG_PPE_ENTRY_MASK	GENMASK(15, 0)
-+/* RX MSG2 */
-+#define QDMA_ETH_RXMSG_AGG_COUNT_MASK	GENMASK(31, 24)
-+#define QDMA_ETH_RXMSG_L2_LEN_MASK	GENMASK(6, 0)
-+/* RX MSG3 */
-+#define QDMA_ETH_RXMSG_AGG_LEN_MASK	GENMASK(31, 16)
-+#define QDMA_ETH_RXMSG_TCP_WIN_MASK	GENMASK(15, 0)
- 
- struct airoha_qdma_desc {
--	__le32 rsv;
-+	__le32 tcp_ts_reply;
- 	__le32 ctrl;
- 	__le32 addr;
- 	__le32 data;
+> >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
+> >  
+> >  	__mipi_csis_set_format(csis, format, csis_fmt);
+> > @@ -647,10 +650,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
+> >  			MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE(csis->hs_settle) |
+> >  			MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(csis->clk_settle));
+> >  
+> > -	val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
+> > -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
+> > -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
+> > -	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0), val);
+> > +	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0),
+> > +			MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(0) |
+> > +			MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(0) |
+> > +			MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(0));
+> >  
+> >  	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
+> >  	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
 
----
-base-commit: 2c7e4a2663a1ab5a740c59c31991579b6b865a26
-change-id: 20250610-airoha-eth-lro-e5fcd15fcc91
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+Regards,
 
+Laurent Pinchart
 
