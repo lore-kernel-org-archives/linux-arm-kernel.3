@@ -4,146 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6DFC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8466BC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=08LO6FbNPkTir1j1egIrJ4dmAI2KtDV+QIbGYiPMbbw=; b=hIOvP6RxT+EZUdhFgIGpCLiTRj
-	+ot8cyzSCTBXDpzT6hAZlEkIItURFwmDdBxmMTUNgcCsVnlCYEb6zTqJiIIk8YAiTQbj6s6aFsYZw
-	WF3CsogEAnbpFPr3wHMAL/2k5Vhwy04XAqcX5IzF2QObKlW8LnxmfALmZPmJlXZExDYYNFoC7oAXP
-	+f33cGLboTsWSEQZhlmQteS0QbgK8ifPJL7OdbaSETvh9iCdcAzctHPDteyi+LAjbvS65+GapN5dC
-	timXQuka+ulZzSpMbT0wSB5fGdXn4jw1fp6hiv8Oy8JevPgPU9fwi+CD7rAqtwSdVbc2Y4B18CUNj
-	dEQ4bLWA==;
+	bh=/DPVdSZMDklf6mtDF12nzBZep9SyWTS1DC6wAFg2MeE=; b=mPByn4QaHfPBWdq5uoDGxxeH18
+	2P/cuyDD/itshLQe3ITAqZkUWNp8U7A1SpdgvA/q0ebpj/vOwQHKWCICnlrNSKV6HhseTLJBE5JMV
+	RFIg5BuydutPgMb6xbXunFMHTWiiVf0cusi/B4rnQ/mj7lfCqVHq8lPlBth/y9TY14OIUGJzR7jSJ
+	2kqF/R4WuTVmHdzMpY3roLEce1iIN4yCrouW6wjxWLvr21cU/gfbQGzzTy/gGvt9ZGYpO2MHPp1Z6
+	Pwm2kR/Ew34xXNUQon9PMzgvyLjYUJhASBX5dTNubgAiYiYCTBz/BGC9L3WaqV1WghBpYHxTRmrm6
+	rbZdfGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyYU-00000006rfz-4A7l;
-	Tue, 10 Jun 2025 12:58:19 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uOyac-00000006s91-0eUl;
+	Tue, 10 Jun 2025 13:00:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxs2-00000006k3O-0kMZ
+	id 1uOxs9-00000006k6U-1TBT
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 12:14:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:References:Cc:To:Subject:Reply-To:From:MIME-Version:Date:
+	Message-ID:Sender:Content-ID:Content-Description;
+	bh=/DPVdSZMDklf6mtDF12nzBZep9SyWTS1DC6wAFg2MeE=; b=FcxsAY3hw1Y1cyzfnX0dtIv6r/
+	XAlV2hedcfo3g3QY20d5EkkZHVz7QQlXz6o+MpYj0f2/IQ40gvmEmWKkrZUIJ8UnQ7FaUmOtfnKTK
+	Nl6qxPckL3hRMipNiR6POSMuEN1QOto1JSRDIygUsemQJrpYABTYIiTYmOTNs4KaOoeAm9MAfq9t5
+	4NcfuveGw5t0ueMvUCP8UnT1d/ONxqQmxTi/2yO/KgvRsrTFq6TUsmio6kfGbZL0O6IRNc2cNpc9+
+	a3anZcfJjwwRNKc77xQ2jf1Z0k3q/64N+59QZgUXWxBEA4Q3zuPiwVvRIXJgW6tYrLos+5Pa4EXt2
+	eVYc+adQ==;
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOxs6-00000001nnK-3ePR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:14:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DArebuP57KpSClF9v8hcS69sCBqqbqB7iFxrdjHCxPEKN07cpKChDjIZXkM641Mx1MORP82OhcQGN+IkcdFTsXUmRiglH1s54BB/s2/5UHDyHUqgGQAuhlIqXAD6e+RkaMQxm/YYOINTwaUykPHWmG02Wrg4d+cegNxkpHxyqDrmEGC4F0T2GbJqn5lYmYQenWdo8rWwGCxqeebwTpacWFUP+SDPsWxHyN43TPhlLX4DIg2XY83obkKvRrs1T8ldK+03TEH//QAx5+VXZoWFwoFYv5gzW1nMfnbRoL3/L3pVCLHcljXFyu8G2To2OTCgLKgBPg4cNRC1RJl3i6Tstw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=08LO6FbNPkTir1j1egIrJ4dmAI2KtDV+QIbGYiPMbbw=;
- b=oNm0jTfd6YU1okrvXg0dcX+/l7APu7iC0S9CxkprEqUNZX1cRG7/fgUP0xpzFFT5/F88dQuY4cfZ6i0x1CBEnd7gq6K4H5GduXjz6tYDRf1iPSAs3YaDCn8VTC/yeITRsaMPAnY6BsZwFI1ePz6dRpVBNxG/LiJE9/0yM9HK4kFL3XIhwdNdfxmrfEjR/aIRbNZjk6oPgDLeCNBIAeSlpEq0HMZAknD8DPkZzurBxaeBra/urUMKEwFjnCGBfkJWfEV4xAqjfIiXS5MqVnZ0uU1RmkI5451ZSSM/RPACR3yZm9ngSRC9DE4QtkqIwlUq2UaMM9DaMckslNRcq8PzEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=08LO6FbNPkTir1j1egIrJ4dmAI2KtDV+QIbGYiPMbbw=;
- b=m9AhKOyuWiVEEDItGLmP0W0I8JSChZdBVgrTokyI0oxAirmT5ApjXIJvrqI40noZ3vk0m7I7hKrUim/NYHLJyM5/N/Exc2Yt5b2wdVAGIW9IyzLDi/EGTH7oxQQYkdWoYsrquH2tjH8SFMSj65jCmlKCJMSX0GWUGbr2zLPAMuL0N5tR+B/nugTVr4/+AfDQCMV4Xg/xj24gAyC6WMD/lwUuJhSNJmnT8I7E5M9TzFnTcBHorvap+71g3Pw2QyQU2IjHkPgkqZ0c6Xym8n3YFtYaV2FnRMZnFPKNo+vEM4yUt+sK+Ve5MbJZP7IQqFdfYOdOvv9DYOSEIcXDL6MOaQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
- by AS8PR04MB7653.eurprd04.prod.outlook.com (2603:10a6:20b:299::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Tue, 10 Jun
- 2025 11:59:16 +0000
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad%6]) with mapi id 15.20.8813.021; Tue, 10 Jun 2025
- 11:59:16 +0000
-Date: Tue, 10 Jun 2025 19:54:41 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Shawn Guo <shawnguo2@yeah.net>
-Cc: Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	imx@lists.linux.dev, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: i.MX kernel hangup caused by chipidea USB gadget driver
-Message-ID: <emdju6mml2o65hmtiyf5jwlzhudmbpyx433wz5a73lkpinzbyp@2oexfo2ra7xs>
-References: <aEZxmlHmjeWcXiF3@dragon>
- <c56pgxmfscg6tpqxjayu4mvxc2g5kgmfitpvp36lxulpq4jxmg@ces5l7ofab6s>
- <aEf/2+3MU5ED2sxE@dragon>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aEf/2+3MU5ED2sxE@dragon>
-X-ClientProxiedBy: SG2PR01CA0172.apcprd01.prod.exchangelabs.com
- (2603:1096:4:28::28) To PAXPR04MB8829.eurprd04.prod.outlook.com
- (2603:10a6:102:20c::17)
+	Tue, 10 Jun 2025 12:14:32 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-442fda876a6so47993695e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:14:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749557668; x=1750162468; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/DPVdSZMDklf6mtDF12nzBZep9SyWTS1DC6wAFg2MeE=;
+        b=Zwp2L9Peuxfz0ONzwE1j96P/HXG1eZZfMVexIQZmIpPYY7pZR5jHuRsUtmZHJ4ZHMl
+         7HDSshRbTyym2lk+OpVkrcYzaQGI8ceGjLLQSZiEvrFOfPXytsAuBNXSeaYyQXSqBRKk
+         jLVHDVk7VvRjXAOiX13PDzLwF2qnDfsExk9uSGzor4PrYz6ZfMZbPgphgGLtP5zEFldX
+         xcvwG+Yd+UPYeuvGOeBa8ktfskf9ruInyhcHayCm5klvFbMFsrwKkCPtxhrHlCcYlqBP
+         E4EPLoacUU0DGQfm7g85o3nF5CAyiAijMnowMcswEPzRj0cC+bZWx3t7fWzragw1kjDO
+         DvKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749557668; x=1750162468;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/DPVdSZMDklf6mtDF12nzBZep9SyWTS1DC6wAFg2MeE=;
+        b=PASUvB4jw3U3ufX3ewOb5HyGkfTpX3FtbidQso8ez+jIruVO7aXn3QvxkYfAkT+OID
+         ylfJm1mKAVpEEX7JJMsHEa2fxaJLI6dkw7kYqst7Oq/nl23jXS7+eb0kENmI0K0Ssaz+
+         IJiBc5375Cn8EERoKTPe0rRcUu5IcaX0lHmKkVLD3hHKHfwvto+fiTP8XoTLTFkzGqex
+         eMUwGhVqmbFEhQwwd5yUIHgmBiYI1ods3t53WmLV/UKkFKqNddf0+a6mit4bXSJH02z6
+         JG5rqNvW36J4VyQeB0eT6MDRYZWdqIIeAdRuMy3z8+gGGzTNHT5FbQAmIBYBELrh6JDk
+         g0Yg==
+X-Gm-Message-State: AOJu0Yy4qWDcwf7CNfec81O4YrQbAVAdkbqxUbgj88WNUDz4oZkXy+QT
+	YGeOqtIgVJtR6rQRg2R+omE6avWev3govadTzbpFus48rUyM4tAgGsNUmLYyQCtnrk8=
+X-Gm-Gg: ASbGnculmLUXEoNAeYHiXTyaHKahzoCjijXpXHcPGXYIHydgP5xB5hWxLPgb8te+C8M
+	NeaLBsfzFxpbzh3mJCNHc8DpH6fgbMTVSN/eEadY/yZnODJI5FSSuxQP+YtlrBcVTCdHVmFiRLL
+	tk5fNglG7SvAAm9DsA2V4rD5L6QG4gyXFSSnnOUlBRG0VA32I+pXKE3sMyGwfKai5CKHKbjKL2u
+	c8RR88My5cZWSSWBKgjwtk+CuN68OLqWccPgdH7m+xedbHZYjCyycSr2phW5VQD9PU6jfz5pIrr
+	RSJViawX24Jn5WoQ7TznbnuAHdqqdCTQQsEb3ALRFHqQX5SNTbay6vAIVx1D3Ay8wg9DYtY2Gzf
+	KyJ+YdYGx8Y3d5hw7chgpxqU3p1x5+Lfhhg/AYjSb5ywpAPs=
+X-Google-Smtp-Source: AGHT+IFrXuEadreb3Ra0ecFZUmb9l900iFMIt+FWoBtiuGQI7QU2cCtR641w8MO4Bqrq58Be6Fu0vw==
+X-Received: by 2002:a05:600c:3848:b0:43c:eeee:b713 with SMTP id 5b1f17b1804b1-452013d7cc8mr141430515e9.20.1749557667674;
+        Tue, 10 Jun 2025 05:14:27 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:f0b:a9b6:d508:9d14? ([2a01:e0a:3d9:2080:f0b:a9b6:d508:9d14])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-452669ada25sm141140855e9.0.2025.06.10.05.14.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Jun 2025 05:14:27 -0700 (PDT)
+Message-ID: <ec36d5e5-5aef-4d0f-8596-96ef3e674ad7@linaro.org>
+Date: Tue, 10 Jun 2025 14:14:26 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|AS8PR04MB7653:EE_
-X-MS-Office365-Filtering-Correlation-Id: b68d0263-989b-4d8f-939b-08dda8163978
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AZWo/e8/E9SsW+/ozgLTdKBnpMyL6bPUl/y9N2Ch3AmBMTxK7jrbrFdynA9U?=
- =?us-ascii?Q?XgqVZMyiEeVLM+D4sXGm+Feu6VAOvMNHRoSygybfA2mf1UQfnL8VyD8TwftG?=
- =?us-ascii?Q?7oZUtjfELYwEWEM6/QJW0CrDRL+PwfwnFcMLjjT8cIJdUMFBVUX5CGYBa9Eh?=
- =?us-ascii?Q?HD6nHBUV0eSwuD+H44ETH1avpvkWNaNfCin2erI4Og0lDdwKjuN89In08XvE?=
- =?us-ascii?Q?R+zf6aDR+qFAWgju7DR8Zt0GGeznireyV358h0E+DzmrQF25ttcxA10zA4Pj?=
- =?us-ascii?Q?KXk4VbtZDnLzaTpPEpMNcER+HPOCr54dr9wsp2N6uBPalI26ZdKKBJ5otOGv?=
- =?us-ascii?Q?rfWORdkpSsSrBah75Wup0WpOZ1BgpG4e/xGrTmIaxuXx2yC5xvxkBT/1H33v?=
- =?us-ascii?Q?9NgsjpdFWp6kkFJvHpbd3vzfHZmofIonfj8g2caYER0Zmho52oC9+WrZn9fB?=
- =?us-ascii?Q?6hqY4y20AWT1C+Ut8XW9lsGD2OcptpyDGPN1Icoag86++1M9FNc0QC1PKQyQ?=
- =?us-ascii?Q?oesKiu/yY+dTubAsVYjlRDL6cqaBRP0E0n8VAjcqsNRBiMtlvWI1owlP6NKY?=
- =?us-ascii?Q?q3I9/HlPQmtd/tsCgKVdH/MdvWLTWkAGqndya6psC7Xg5ad7sP9IwEPzehAs?=
- =?us-ascii?Q?r+GCMgs3fvpYvEOGQU/cj1wX6GQF172jbqUXgKcI9lp7GHuoA56KCpe/Otie?=
- =?us-ascii?Q?HeOfyt1gm9t4HrKbK8IxYtEPfs7/gdTWsgAtq3q7pDBrrlz/Mo67VBzKycq4?=
- =?us-ascii?Q?smISUadetiShUxmqPTlxKx9U1rlc2hrr+Fu0K02Kafr/3rxHsXydQjZkSIf5?=
- =?us-ascii?Q?c3M2Cp4RmHj12L9vEibS9MRAnoHL+cDpO5IBes3DVGaKmHVOQfZBCdvaJE0f?=
- =?us-ascii?Q?owkQFYgwtAFMM4n0NZumI94HqbDPnq8sCH3CSs75aUJWEXFBOuZQmikRyGiT?=
- =?us-ascii?Q?MhVdf9PdAJE6Sun8L55Iq1xW9Et0/j5tU1+lvVfVHe1z7uMqw++uyaAlzOUw?=
- =?us-ascii?Q?dnPIi9Y5Kckitn71/m8KHJKjjeCe20LQRCh91ON3Zuk0abpUN435s9Z5svfW?=
- =?us-ascii?Q?gJ4F+JMm+Z5sf2e9BwN9l5h5knsRNkeKIC3gUxU2PMKmkH1uUL6psrhHEaBd?=
- =?us-ascii?Q?/vyILMw0qrAKsHDjUSOMTjjd5bVx9T6hl+Zl6WvZDH28+oHJxHcctlo1DUSI?=
- =?us-ascii?Q?Ai8DfgA24N2g9061lQa50xXsYz96GKe9eFj9c///qP00Ggs/o3v6YxKBpT2a?=
- =?us-ascii?Q?3V+aR1MhWIez76nlrlFMNtc41rJtxkB9uMG5Sz06TdjTvmR2tqT6gXVmKDR5?=
- =?us-ascii?Q?U0j6KWqLuKhLl8chR/wAVrYinYHIKio3+lh9Yt3XO9BaDOts7ktVHa2Vic9U?=
- =?us-ascii?Q?gwcYNcFOBkivutF78+BNpl7/V/bX6ixzrMWkQYMRGhdHWldJd8zDxa6sIYB5?=
- =?us-ascii?Q?y5nyMTDqauIo70wPU8nHzEN1/jYOVJTNsRYpK+p0l1L37GEyQuz7Tw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KthPgUXN3HRP7L3ETkt6gB6ajgAy1lWJQGTEWdMDri5hGuFzGHJesukaHIyg?=
- =?us-ascii?Q?Ofr1U7nsBD9gJvhL1SQS1yKfvQp8KIPGyIhk3SpII7HuOXA1SunSzoyKmINC?=
- =?us-ascii?Q?B6iSTfPfzkuQ2dhpYc80oC+D33fWbbvXhdVnDdvDu9zHZisWr4VOj6iODWKe?=
- =?us-ascii?Q?ZatCdEpf1QtwKscUir3hwuqE+uGqWdhDLd5bOkOlNMWz3ymMLUqfDBrHUOST?=
- =?us-ascii?Q?J0StV5CXKYPIUL9oOXWATBOs/NfsXeOCy72sRIxQ/I7IkWNn4wERuzSDE7fs?=
- =?us-ascii?Q?qiPsPsQesxi8coQPF671rpsuqFgyY2vaeNgbS0gMMGwqKFFeDXygrw099n6U?=
- =?us-ascii?Q?lT0BJCVDBbNC1eMBKnYlQdizJdI6Ngy6XJnecokJuXEeLKxz/171ur3L/7JL?=
- =?us-ascii?Q?KSchtASzLol8UhnkP2VtQg9uWa1mW/fCh/JDBrD0PVpQLbvtq76UQGept0kO?=
- =?us-ascii?Q?xxV/VZwZb/zL4tfL1jNihEYbda1pdaLTSrYWaCIo2hKeNXrvZYwm5rou7AuD?=
- =?us-ascii?Q?HKi5pPS9MMzCiLFMeg7Ay8FdUdHVCN/P6Dd/qZQiYf7dQ0twtwoYoqK1/VMg?=
- =?us-ascii?Q?hAFSgOoRbzByIl1/2dcQ36nY0ZaQIKSeLgj1MvHr94oh1RiG3ue6v5XFtT8s?=
- =?us-ascii?Q?lLBCC/wqOJK8ySNbHljS61ordPxwFeams16OZS2ZC9PwJcGYnznSFr4HF3Bo?=
- =?us-ascii?Q?poD8vCDo19C7C7YNnakrjMb2Yr03oYw1caO3qIbUpDHg37H53UvYF6j2jnVm?=
- =?us-ascii?Q?hiJd0yx+95BjgNwbUo1Jxn8lxZky6Hlp3c6Pl9XNqvwtwR+SA5LWkBhIj2RN?=
- =?us-ascii?Q?NAL6shd0/C8bIzLd9UxgKpOXUpTnBCA8AtKw1kIwA9RZYaH+9BzN3saJ2Xr7?=
- =?us-ascii?Q?d72tEuDLuQFsAXIDpRHAwEQINjlFSjEUGxRRT3tBRDMDNSOzy3wK+cQVEKrf?=
- =?us-ascii?Q?HDrZHdy7yzcy5aGTGjhdYqZc9D5YdxizlXZpLMKmQkycn8TEmOhFkwHDV42u?=
- =?us-ascii?Q?bRIWk2/VBJvI0qvWeMLfTyzX3Reb3j75AAdnD9n51BM1iwska88DEeW0Ce8P?=
- =?us-ascii?Q?82GrqIvLhLfy+91jYbFBKhlGHbfXtVxTEzKVNdO+IBD/MyvC5Zjjj0zyJAal?=
- =?us-ascii?Q?gvxK7dNdBO6MBMfJax5iw/f/UfUtXD8EinRLDZ/Bg+uHktXEYUt31jDShg0r?=
- =?us-ascii?Q?jkYsq8ovATxK+7ItTQvz0ok2dNxBeq3WGYrKg1sO1od5+I692x8g5hoAdsyw?=
- =?us-ascii?Q?AERnqwHTazBDf/2osT7USHCIBk0cqYNwHwOQ3L8prRNOsIhlJ9EhrQnmF+vS?=
- =?us-ascii?Q?iTvKiGJRRxNurfg2pvZ9uaZtaG+8C1Tnk6QOuOdGvmbXjh3bMg6cQp8Z5c7m?=
- =?us-ascii?Q?Mpy14IX+ESjY5B7kU0fApqGCsVr7tbU0IBh53OjN3Pwdoy2jWJOvHOcFNn3V?=
- =?us-ascii?Q?ZTPqVxORFw59LXB/A2Xi2WkKF+PicDz0AXuyDfJb4CygRMiGo+sz+ofKi+ho?=
- =?us-ascii?Q?SiXRaWbD4ECItsrzJK4d9fiMIo/QcR5tb3GLm9q7z9Xnfd6JLo4caV6KQf+8?=
- =?us-ascii?Q?hCJLe+MBhAKprnnB6n8Ww1QXf43Da39lx6j6afSi?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b68d0263-989b-4d8f-939b-08dda8163978
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 11:59:16.4814
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AiabCrFCMgUxZy3BxUessLLmXA+PC2Cx+mXdf/Vfq6vi3rW92i65W9sQRxhqsF3F5ZkvG5QQYQLbZSD+0PMnIw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7653
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v1] drm/meson: fix more rounding issues with 59.94Hz modes
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Christian Hewitt <christianshewitt@gmail.com>
+References: <20250609202751.962208-1-martin.blumenstingl@googlemail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250609202751.962208-1-martin.blumenstingl@googlemail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_051426_221527_C2CD5583 
-X-CRM114-Status: GOOD (  30.10  )
+X-CRM114-CacheID: sfid-20250610_131431_063381_7ED00EEF 
+X-CRM114-Status: GOOD (  30.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,92 +139,139 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shawn,
+On 09/06/2025 22:27, Martin Blumenstingl wrote:
+> Commit 1017560164b6 ("drm/meson: use unsigned long long / Hz for
+> frequency types") attempts to resolve video playback using 59.94Hz.
+>   using YUV420 by changing the clock calculation to use
+> Hz instead of kHz (thus yielding more precision).
+> 
+> The basic calculation itself is correct, however the comparisions in
+> meson_vclk_vic_supported_freq() and meson_vclk_setup() don't work
+> anymore for 59.94Hz modes (using the freq * 1000 / 1001 logic). For
+> example, drm/edid specifies a 593407kHz clock for 3840x2160@59.94Hz.
+> With the mentioend commit we convert this to Hz. Then meson_vclk
+> tries to find a matchig "params" entry (as the clock setup code
+> currently only supports specific frequencies) by taking the venc_freq
+> from the params and calculating the "alt frequency" (used for the
+> 59.94Hz modes) from it, which is:
+>    (594000000Hz * 1000) / 1001 = 593406593Hz
+> 
+> Similar calculation is applied to the phy_freq (TMDS clock), which is 10
+> times the pixel clock.
+> 
+> Implement a new meson_vclk_freqs_are_matching_param() function whose
+> purpose is to compare if the requested and calculated frequencies. They
+> may not match exactly (for the reasons mentioned above). Allow the
+> clocks to deviate slightly to make the 59.94Hz modes again.
+> 
+> Fixes: 1017560164b6 ("drm/meson: use unsigned long long / Hz for frequency types")
+> Reported-by: Christian Hewitt <christianshewitt@gmail.com>
+> Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+> ---
+> Special thanks to Christian for testing (off-list) and managing so I
+> can do better testing myself in the future!
+> 
+> This is meant to be applied on top of "drm/meson: use vclk_freq instead
+> of pixel_freq in debug print" from [0]
+> 
+> 
+> [0] https://lore.kernel.org/dri-devel/20250606221031.3419353-1-martin.blumenstingl@googlemail.com/
+> 
+> 
+>   drivers/gpu/drm/meson/meson_vclk.c | 55 ++++++++++++++++++------------
+>   1 file changed, 34 insertions(+), 21 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/meson/meson_vclk.c b/drivers/gpu/drm/meson/meson_vclk.c
+> index c4123bb958e4..dfe0c28a0f05 100644
+> --- a/drivers/gpu/drm/meson/meson_vclk.c
+> +++ b/drivers/gpu/drm/meson/meson_vclk.c
+> @@ -110,10 +110,7 @@
+>   #define HDMI_PLL_LOCK		BIT(31)
+>   #define HDMI_PLL_LOCK_G12A	(3 << 30)
+>   
+> -#define PIXEL_FREQ_1000_1001(_freq)	\
+> -	DIV_ROUND_CLOSEST_ULL((_freq) * 1000ULL, 1001ULL)
+> -#define PHY_FREQ_1000_1001(_freq)	\
+> -	(PIXEL_FREQ_1000_1001(DIV_ROUND_DOWN_ULL(_freq, 10ULL)) * 10)
+> +#define FREQ_1000_1001(_freq)	DIV_ROUND_CLOSEST_ULL((_freq) * 1000ULL, 1001ULL)
+>   
+>   /* VID PLL Dividers */
+>   enum {
+> @@ -772,6 +769,36 @@ static void meson_hdmi_pll_generic_set(struct meson_drm *priv,
+>   		  pll_freq);
+>   }
+>   
+> +static bool meson_vclk_freqs_are_matching_param(unsigned int idx,
+> +						unsigned long long phy_freq,
+> +						unsigned long long vclk_freq)
+> +{
+> +	DRM_DEBUG_DRIVER("i = %d vclk_freq = %lluHz alt = %lluHz\n",
+> +			 idx, params[idx].vclk_freq,
+> +			 FREQ_1000_1001(params[idx].vclk_freq));
+> +	DRM_DEBUG_DRIVER("i = %d phy_freq = %lluHz alt = %lluHz\n",
+> +			 idx, params[idx].phy_freq,
+> +			 FREQ_1000_1001(params[idx].phy_freq));
+> +
+> +	/* Match strict frequency */
+> +	if (phy_freq == params[idx].phy_freq &&
+> +	    vclk_freq == params[idx].vclk_freq)
+> +		return true;
+> +
+> +	/* Match 1000/1001 variant: vclk deviation has to be less than 1kHz
+> +	 * (drm EDID is defined in 1kHz steps, so everything smaller must be
+> +	 * rounding error) and the PHY freq deviation has to be less than
+> +	 * 10kHz (as the TMDS clock is 10 times the pixel clock, so anything
+> +	 * smaller must be rounding error as well).
+> +	 */
+> +	if (abs(vclk_freq - FREQ_1000_1001(params[idx].vclk_freq)) < 1000 &&
+> +	    abs(phy_freq - FREQ_1000_1001(params[idx].phy_freq)) < 10000)
+> +		return true;
+> +
+> +	/* no match */
+> +	return false;
+> +}
+> +
+>   enum drm_mode_status
+>   meson_vclk_vic_supported_freq(struct meson_drm *priv,
+>   			      unsigned long long phy_freq,
+> @@ -790,19 +817,7 @@ meson_vclk_vic_supported_freq(struct meson_drm *priv,
+>   	}
+>   
+>   	for (i = 0 ; params[i].pixel_freq ; ++i) {
+> -		DRM_DEBUG_DRIVER("i = %d vclk_freq = %lluHz alt = %lluHz\n",
+> -				 i, params[i].vclk_freq,
+> -				 PIXEL_FREQ_1000_1001(params[i].vclk_freq));
+> -		DRM_DEBUG_DRIVER("i = %d phy_freq = %lluHz alt = %lluHz\n",
+> -				 i, params[i].phy_freq,
+> -				 PHY_FREQ_1000_1001(params[i].phy_freq));
+> -		/* Match strict frequency */
+> -		if (phy_freq == params[i].phy_freq &&
+> -		    vclk_freq == params[i].vclk_freq)
+> -			return MODE_OK;
+> -		/* Match 1000/1001 variant */
+> -		if (phy_freq == PHY_FREQ_1000_1001(params[i].phy_freq) &&
+> -		    vclk_freq == PIXEL_FREQ_1000_1001(params[i].vclk_freq))
+> +		if (meson_vclk_freqs_are_matching_param(i, phy_freq, vclk_freq))
+>   			return MODE_OK;
+>   	}
+>   
+> @@ -1075,10 +1090,8 @@ void meson_vclk_setup(struct meson_drm *priv, unsigned int target,
+>   	}
+>   
+>   	for (freq = 0 ; params[freq].pixel_freq ; ++freq) {
+> -		if ((phy_freq == params[freq].phy_freq ||
+> -		     phy_freq == PHY_FREQ_1000_1001(params[freq].phy_freq)) &&
+> -		    (vclk_freq == params[freq].vclk_freq ||
+> -		     vclk_freq == PIXEL_FREQ_1000_1001(params[freq].vclk_freq))) {
+> +		if (meson_vclk_freqs_are_matching_param(freq, phy_freq,
+> +							vclk_freq)) {
+>   			if (vclk_freq != params[freq].vclk_freq)
+>   				vic_alternate_clock = true;
+>   			else
 
-On Tue, Jun 10, 2025 at 05:50:19PM +0800, Shawn Guo wrote:
-> On Mon, Jun 09, 2025 at 07:53:22PM +0800, Xu Yang wrote:
-> 
-> <snip>
-> 
-> > During the scp process, the usb host won't put usb device to suspend state.
-> > In current design, then the ether driver doesn't know the system has
-> > suspended after echo mem. The root cause is that ether driver is still tring
-> > to queue usb request after usb controller has suspended where usb clock is off,
-> > then the system hang.
-> > 
-> > With the above changes, I think the ether driver will fail to eth_start_xmit() 
-> > at an ealier stage, so the issue can't be triggered.
-> > 
-> > I think the ether driver needs call gether_suspend() accordingly, to do this,
-> > the controller driver need explicitly call suspend() function when it's going
-> > to be suspended. Could you check whether below patch fix the issue?
-> 
-> Thanks for the patch, Xu!  It does fix the hangup but seems to be less
-> reliable than my/Peter's change (disconnecting gadget), per my testing
-> on a custom i.MX8MM board.  With your change, host/PC doesn't disconnect
-> gadget when the board suspends.  After a few suspend cycles, Ethernet
-> gadget stops working and the following workqueue lockup is seen.  There
-> seems to some be other bugs?
-
-Thanks for your feedback! As suggested by Alan and Peter, disconnect device from
-host should be the best solution. I indeed don't see other usb controller driver
-call suspend/resume() when do system suspend.
-
-> 
-> [  223.047990] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-> [  223.054097] rcu:     1-...0: (7 ticks this GP) idle=bb7c/1/0x4000000000000000 softirq=5368/5370 fqs=2431
-> [  223.063318] rcu:     (detected by 0, t=5252 jiffies, g=4705, q=2400 ncpus=4)
-> [  223.070105] Task dump for CPU 1:
-> [  223.073330] task:systemd-network state:R  running task     stack:0     pid:406   ppid:1      flags:0x00000202
-> [  223.083248] Call trace:
-> [  223.085692]  __switch_to+0xc0/0x124
-> [  246.747996] BUG: workqueue lockup - pool cpus=1 node=0 flags=0x0 nice=0 stuck for 43s!
-> 
-> However, your change seems working fine on i.MX8MM EVK.  It's probably
-> due to the fact that host disconnects gadget for some reason when EVK
-> suspends.  This is a different behavior from the custom board above.
-> We do not really expect this disconnecting, do we?
-
-It's an expected behavior on i.MX8MM EVK. The host will see device disconnected
-after imx8mm do system suspend. It's because the usb phy power will be off after
-system suspend. If you enable wakeup capabiklity for usb phy, the usb phy power
-will keep on and you will not see disconnect event anymore.
-
-# echo enabled > /sys/devices/platform/usbphynop1/power/wakeup
-
-Thanks,
-Xu Yang
-
-> 
-> Shawn
-> 
-> >  ---8<--------------------
-> > 
-> > diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
-> > index 8a9b31fd5c89..27a7674ed62c 100644
-> > --- a/drivers/usb/chipidea/udc.c
-> > +++ b/drivers/usb/chipidea/udc.c
-> > @@ -2367,6 +2367,8 @@ static void udc_id_switch_for_host(struct ci_hdrc *ci)
-> >  #ifdef CONFIG_PM_SLEEP
-> >  static void udc_suspend(struct ci_hdrc *ci)
-> >  {
-> > +       ci->driver->suspend(&ci->gadget);
-> > +
-> >         /*
-> >          * Set OP_ENDPTLISTADDR to be non-zero for
-> >          * checking if controller resume from power lost
-> > @@ -2389,6 +2391,8 @@ static void udc_resume(struct ci_hdrc *ci, bool power_lost)
-> >         /* Restore value 0 if it was set for power lost check */
-> >         if (hw_read(ci, OP_ENDPTLISTADDR, ~0) == 0xFFFFFFFF)
-> >                 hw_write(ci, OP_ENDPTLISTADDR, ~0, 0);
-> > +
-> > +       ci->driver->resume(&ci->gadget);
-> >  }
-> >  #endif
-> > 
-> >  ---->8------------------
-> 
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
