@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95566C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B990DC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B+ZXpV4BuIsMc3QUoJ0VAAjnTmM9QAGHI8YQX/Zc9Mc=; b=P8QyigeUL8gCSjuhsOXNeLzxQU
-	SneGt12+db/0chuTrJp61HWM9yoNWZTpGT3prhzK0gmYWf2mMbT8G55Z0zUmE3+llihfgKfq+5vWb
-	pIgOjVg2JTv6AUH14CEiulaILzeQpubwbr/+PebGIsoR6vSdFL0Uw6fwf4IZUVsHF80EoyxEc05bl
-	UCZiTYO07+AOoX7xBf60cItpI3XzxLns6xtyo7FqriX8jAgrpjUuMTISxXPVnxuY2D4bnG77AXvA5
-	JkiPBLAmsA3rvPkTvQmNn8kKK8Km2MhkXJgumTnTtqqynUBm3fJ0ANkTtsuPATf+A8EpWEGO8kwTM
-	H6tXAScw==;
+	bh=6jFgEWw4ARwHHobxDSziy501YUd5MUew54ky5yZYuxs=; b=gRtouWlNaAjm1za+so+8d6AIRm
+	8QobW3eV+Mn8ygdoNqfN5lRmzuV+6gRfoUzt85BXCCfPCLjcgTYVd8Hw3lY7Oupf4VyXqsJKgzGR/
+	G1CPTLiNyfohAlWqkmcUJ7uT98IEMAVUX5d4HEK4oqtSQl0v2w9+nE6ZFmz5W/BIO4zTzok1bh+go
+	A1XimfPDP+PFkk4zvGWzuozuF6oJQUs0fqgmwb9O6tR4MnefCQVg6FXevXMzhFRIC6dXdCqeYWoWF
+	knfFstGAI+FSWrNdyr5oCDkCl79VMVZKbaZrV/+66+ZTRaYm3l7FK/qhMTc4Y+VN5Wt1nZPKsF5iU
+	l1qQYo9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP4P6-00000007tf5-3cHD;
-	Tue, 10 Jun 2025 19:13:00 +0000
+	id 1uP4RB-00000007tq6-2ZXf;
+	Tue, 10 Jun 2025 19:15:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0m9-00000007HO0-151x
+	id 1uP0mH-00000007HTU-0X3w
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 15:20:33 +0000
+	Tue, 10 Jun 2025 15:20:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=B+ZXpV4BuIsMc3QUoJ0VAAjnTmM9QAGHI8YQX/Zc9Mc=; b=Yhu+mI/bR2tv+dVHMB1JAxXz2R
-	avtXSF12qU9i5PqjOrjjFBtoPzg2nHHkABlZ+ZdysXnAfECRhyhEIGg2zm4OMJVWtQh2MESFcUiQK
-	A9CBMkHGu2rcnal69xYcTbTslaRB2lUQyi6JUFYDhDhSek3OaDx6tNPaVFHMJrVce1+d1wL/Ivfqx
-	5tehDHWKHPB+UDPmtL/3RWdturWjiMlwpgUpi2STpoJeJ6ZR480X30l/iacaxRCVaUE85mDkk0Tgk
-	4He2eWRQkjMVv06vvN5dakoKxWXZBHK+45APzll3yKQhdouLdUAkofqem2hRqVC/uqN3h0UQJwF1D
-	EGSBPKqw==;
+	bh=6jFgEWw4ARwHHobxDSziy501YUd5MUew54ky5yZYuxs=; b=W2XNLf3C2oG3RGjpoxKpXJc+YF
+	slq6ml9IbQ1GnezfNKdqJDCinR8XVzAP4qxjZMcLI0Oh4k8aPQGCXKwK2Q+u+RfOOBecLf0KHxegs
+	XluLBwMhvs+VnGDHth31NKbDwbdbn8SVfWtHigMioddp+W/ZWhY2w2NryNs7FriKJpisYKtL/mJXQ
+	JlwwaT0TIn2Op+wTH/gu//b6MwnMB1kfbnk4S3aFIR3zCJRCgl5ylMbUyTrd85Re55P1LBBpNjfSY
+	Uq2A3ZZVNoM7kcy8q//fJaEUZGnHFMAiLNHuDqffbrp2w0cJ6M42X76UIttfbE5mlaVokWtmejyb2
+	WgpHcaMA==;
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0m7-00000001tQl-1M8l
+	id 1uP0mE-00000001tRt-47K3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:20:33 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLErF010654;
-	Tue, 10 Jun 2025 17:20:20 +0200
+	Tue, 10 Jun 2025 15:20:40 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLFR2012963;
+	Tue, 10 Jun 2025 17:20:31 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	B+ZXpV4BuIsMc3QUoJ0VAAjnTmM9QAGHI8YQX/Zc9Mc=; b=3GdcLlHwqjDn8/nX
-	UsUWkaCwbz+423zxg2m1fpeHdEeuPN9mxQ/H1VbRRyPDGypTJLYQdl/l5RAzbE4c
-	HI6G7eY6J7kwNo8RPCMCVxbJ3KZdq+lMJUHIsvgMlisDc4Kq3GmDtwhveyDWg+vw
-	Qx7X3F1XAgnj+M+2BMUyluoFviexxrbh9Pqo9RHuiP9WFd6BdLeZELgqwPOiMusX
-	sABfFxhrrk6tD6Qd1Di6AKFcspxaCkQMNYerbA32fOv9h3RcSPwjnsrmmSoBPdbI
-	1uy0Z82kVL/M/vebkMgWWvZdHPECwbAYaXbk1f8yhfyYk0L85m7ELM2xS5qBFs5F
-	wVSyJQ==
+	6jFgEWw4ARwHHobxDSziy501YUd5MUew54ky5yZYuxs=; b=jMYwmn77htE4V8UU
+	nGcXIOFkhTV+h1/yqiL4oZLxA77cuFLysjb22jU/rNnlO/RkibPrzctkoycqG1bp
+	IUqtBMskQasxkXL5DHdx1lcdCbysClRitthSf7DpsYGEFTfqmkSyqisBysQDcAML
+	0A6Xv/8L2GDXZloRzQZzfDKSlko3+jcLENKDwRRON8TW6bsH7Jw568diqVcE3TZL
+	6yAu5t63wA689VY2dnHSZvMxQrHryXhA03qjabdfZcj8I1dsOT798doV7ySDL5SZ
+	C3mB1ZKJQgIpj5cQAPRONseR3KhR95cmXFMg7jVmIyUYJMOp2S0D1JySbZh/G56B
+	7EACpg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474y053d6w-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aume532-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 17:20:20 +0200 (MEST)
+	Tue, 10 Jun 2025 17:20:30 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4472040045;
-	Tue, 10 Jun 2025 17:19:22 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E8F8B4004D;
+	Tue, 10 Jun 2025 17:19:25 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 86830AEC934;
-	Tue, 10 Jun 2025 17:18:42 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3F39EB74DC0;
+	Tue, 10 Jun 2025 17:18:44 +0200 (CEST)
 Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 17:18:42 +0200
+ 2025 17:18:43 +0200
 From: Antonio Borneo <antonio.borneo@foss.st.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,9 +82,9 @@ CC: Antonio Borneo <antonio.borneo@foss.st.com>,
         Fabien Dessenne <fabien.dessenne@foss.st.com>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 1/5] pinctrl: stm32: Handle RSVD pin configuration
-Date: Tue, 10 Jun 2025 17:18:33 +0200
-Message-ID: <20250610151837.299244-2-antonio.borneo@foss.st.com>
+Subject: [PATCH v2 4/5] ARM: dts: stm32: Add leds for CM4 on stm32mp15xx-ed1 and stm32mp15xx-dkx
+Date: Tue, 10 Jun 2025 17:18:36 +0200
+Message-ID: <20250610151837.299244-5-antonio.borneo@foss.st.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250610151837.299244-1-antonio.borneo@foss.st.com>
 References: <20250610151837.299244-1-antonio.borneo@foss.st.com>
@@ -98,8 +98,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-10_07,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_162031_534552_CF8FBC9D 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20250610_162039_369939_C1226C39 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,69 +114,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabien Dessenne <fabien.dessenne@foss.st.com>
+Add to the node m4_rproc the pinctrl property corresponding to the
+orange LED.
+The GPIO is reserved for the coprocessor Cortex-M4 and will be
+ignored by Linux.
 
-When a pin is assigned to a coprocessor not running Linux, the pin
-should be flagged in the DT as reserved and not usable by Linux.
-
-Add pin configuration RSVD (Reserved) and instrument the driver to
-not update the mux setting.
-
-Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
 Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
 ---
- drivers/pinctrl/stm32/pinctrl-stm32.c | 9 +++++++++
- drivers/pinctrl/stm32/pinctrl-stm32.h | 3 ++-
- 2 files changed, 11 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/st/stm32mp157c-ed1.dts  | 2 ++
+ arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi | 2 ++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index ba49d48c3a1d1..e0c85f55557af 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -77,6 +77,7 @@ static const char * const stm32_gpio_functions[] = {
- 	"af8", "af9", "af10",
- 	"af11", "af12", "af13",
- 	"af14", "af15", "analog",
-+	"reserved",
- };
- 
- struct stm32_pinctrl_group {
-@@ -541,6 +542,9 @@ static bool stm32_pctrl_is_function_valid(struct stm32_pinctrl *pctl,
- 		if (pin->pin.number != pin_num)
- 			continue;
- 
-+		if (fnum == STM32_PIN_RSVD)
-+			return true;
-+
- 		for (k = 0; k < STM32_CONFIG_NUM; k++) {
- 			if (func->num == fnum)
- 				return true;
-@@ -841,6 +845,11 @@ static int stm32_pmx_set_mux(struct pinctrl_dev *pctldev,
- 		return -EINVAL;
- 	}
- 
-+	if (function == STM32_PIN_RSVD) {
-+		dev_dbg(pctl->dev, "Reserved pins, skipping HW update.\n");
-+		return 0;
-+	}
-+
- 	bank = gpiochip_get_data(range->gc);
- 	pin = stm32_gpio_pin(g->pin);
- 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.h b/drivers/pinctrl/stm32/pinctrl-stm32.h
-index 5e5de92ddd58c..8a1c9570b078f 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.h
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.h
-@@ -17,7 +17,8 @@
- #define STM32_PIN_GPIO		0
- #define STM32_PIN_AF(x)		((x) + 1)
- #define STM32_PIN_ANALOG	(STM32_PIN_AF(15) + 1)
--#define STM32_CONFIG_NUM	(STM32_PIN_ANALOG + 1)
-+#define STM32_PIN_RSVD		(STM32_PIN_ANALOG + 1)
-+#define STM32_CONFIG_NUM	(STM32_PIN_RSVD + 1)
- 
- /*  package information */
- #define STM32MP_PKG_AA		BIT(0)
+diff --git a/arch/arm/boot/dts/st/stm32mp157c-ed1.dts b/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
+index 9cf5ed111b52e..f6c478dbd0418 100644
+--- a/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
++++ b/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
+@@ -328,6 +328,8 @@ &m4_rproc {
+ 			<&vdev0vring1>, <&vdev0buffer>;
+ 	mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>, <&ipcc 3>;
+ 	mbox-names = "vq0", "vq1", "shutdown", "detach";
++	pinctrl-names = "default";
++	pinctrl-0 = <&m4_leds_orange_pins_b>;
+ 	interrupt-parent = <&exti>;
+ 	interrupts = <68 1>;
+ 	status = "okay";
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
+index a5511b1f0ce30..26f36a232d42d 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
+@@ -479,6 +479,8 @@ &m4_rproc {
+ 			<&vdev0vring1>, <&vdev0buffer>;
+ 	mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>, <&ipcc 3>;
+ 	mbox-names = "vq0", "vq1", "shutdown", "detach";
++	pinctrl-names = "default";
++	pinctrl-0 = <&m4_leds_orange_pins_a>;
+ 	interrupt-parent = <&exti>;
+ 	interrupts = <68 1>;
+ 	status = "okay";
 -- 
 2.34.1
 
