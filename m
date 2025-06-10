@@ -4,69 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AA5C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91A9C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Subject:Cc:To:
-	From:Mime-Version:Message-ID:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z+fkirNX5weKYAtG6EfewdkYnJnllk2ja+oE3+oTPI4=; b=XcBDHD2IUnAowBV7EJ6YiFSk6g
-	OltVJrYw4xxUzXFXKednvf8+jSPF9DrviTBP//dNflhu2JrgHRkjXtmKa/TCvcxqbTaXyXS+7glTH
-	5bw/v/lVKB45PMBoQO5YENbmgI0oFPdOI/TtJ/VGxVYUMNee/HLecE9cFiGaLEDNlfuyqvTCbx+tZ
-	skANVczrw/0KvU743KETwPHAEcVZp+fY3uwVAFFBbJifrHGfZrMas/f0tBj7hRBsW/REYnMXDWwqs
-	hvsmne2wYW16elRBxwzV2jJxmH2OIGh/nmumty7x2F42Aw0tkIg98cFTf3YWICQME2D9kdDYgpaVp
-	0ECV6zsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CbFRS50PxBtzhNgDQ/26OkD0E53SIgINiCNYBdMhaMs=; b=NZTvxaJORpbyGHGNkFZ7OekuRR
+	U6K8U7umyi+YHIklFEeEvY1nz/RumkPoIn1tICXY+xJ2BRLY9/MmEB67UC/G95244KW39WQ+Uz8Nf
+	z+gK4fiYk+KlTlWcdecg0iALTNVALvvKIkJlpQXMkPZ119W9fmKOj6MhxeAlTeajyZB1cA+UtwWLp
+	nbYJkus9MSdD2bgSMdF2C2O8Q51W8BkQnsEacbRfk++YLoSvHNrdjD0TZo8CJ5p8jmLvurb2RQQTu
+	QfsXkxBCa+yfCuMSnBTRCosS5nwHbMOQfmhOfptTtr0VuBVjINYaiIhZ+s6Ib0nJVacUmMTMNHiy1
+	xt+uoB+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOubP-00000006DNn-3YlQ;
-	Tue, 10 Jun 2025 08:45:03 +0000
-Received: from mxhk.zte.com.cn ([160.30.148.34])
+	id 1uOubL-00000006DJR-1bdK;
+	Tue, 10 Jun 2025 08:44:59 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOuRI-00000006C1U-337x;
-	Tue, 10 Jun 2025 08:34:39 +0000
-Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4bGhsy0jvvz5DXWl;
-	Tue, 10 Jun 2025 16:34:30 +0800 (CST)
-Received: from xaxapp05.zte.com.cn ([10.99.98.109])
-	by mse-fl2.zte.com.cn with SMTP id 55A8YG0C000519;
-	Tue, 10 Jun 2025 16:34:16 +0800 (+08)
-	(envelope-from shao.mingyin@zte.com.cn)
-Received: from mapi (xaxapp04[null])
-	by mapi (Zmail) with MAPI id mid32;
-	Tue, 10 Jun 2025 16:34:19 +0800 (CST)
-Date: Tue, 10 Jun 2025 16:34:19 +0800 (CST)
-X-Zmail-TransId: 2afb6847ee0bffffffff9f2-c7679
-X-Mailer: Zmail v1.0
-Message-ID: <202506101634190538mcMSzfKfxQTy4LgbSpOy@zte.com.cn>
-Mime-Version: 1.0
-From: <shao.mingyin@zte.com.cn>
-To: <ulf.hansson@linaro.org>
-Cc: <geert+renesas@glider.be>, <magnus.damm@gmail.com>, <heiko@sntech.de>,
-        <krzk@kernel.org>, <alim.akhtar@samsung.com>,
-        <walker.chen@starfivetech.com>, <changhuang.liang@starfivetech.com>,
-        <sebastian.reichel@collabora.com>, <detlev.casanova@collabora.com>,
-        <finley.xiao@rock-chips.com>, <shawn.lin@rock-chips.com>,
-        <pgwipeout@gmail.com>, <qiu.yutan@zte.com.cn>,
-        <shao.mingyin@zte.com.cn>, <linux-pm@vger.kernel.org>,
-        <linux-renesas-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-rockchip@lists.infradead.org>,
-        <linux-samsung-soc@vger.kernel.org>, <yang.yang29@zte.com.cn>,
-        <xu.xin16@zte.com.cn>, <yang.tao172@zte.com.cn>,
-        <ye.xingchen@zte.com.cn>
-Subject: =?UTF-8?B?cG1kb21haW46IFVzZSBzdHJfZW5hYmxlX2Rpc2FibGUtbGlrZSBoZWxwZXJz?=
-Content-Type: text/plain;
-	charset="UTF-8"
-X-MAIL: mse-fl2.zte.com.cn 55A8YG0C000519
-X-Fangmail-Anti-Spam-Filtered: true
-X-Fangmail-MID-QID: 6847EE16.000/4bGhsy0jvvz5DXWl
+	id 1uOuGa-000000069wu-2DgW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 08:23:33 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-450828af36aso2335675e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 01:23:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749543810; x=1750148610; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CbFRS50PxBtzhNgDQ/26OkD0E53SIgINiCNYBdMhaMs=;
+        b=evef0E5PCYsDta2Q8k7bIW4YJRNom9+0k0eh2v6EqEYY61SwakMUCrJhHh/vi93xrr
+         IpAl7w5AhfffomA48wyKdGCT+ETc9bhZqr0z+zNcE4nAK9JEjDjpTcSH8J/0zwCHd+08
+         P2ifSRcigmcmBH6kg2aJI0K4FfwqqESnvoZExXA/j2jhdOQSt9e93j07PW7afKNAuFr3
+         NgCkcUnjs2oPSPRIOaCQj1Cv3FUlMGAX73xAUQdd4GA7NGhDCXVSFE4gBGhLCy98n5Ct
+         iL27+XlvrqRiR3O8PoCaQOXdVlrj6BWtbwR6XIeUong4CnDuP8ESA2Dv/lPn/MmuQfTo
+         K7kA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749543810; x=1750148610;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CbFRS50PxBtzhNgDQ/26OkD0E53SIgINiCNYBdMhaMs=;
+        b=f8m8bnO7Y7Z/LRd0sUUk1jmpUCe0BA7B0SIxj+fzZC1GoqSXNa5wyRjhkpDAMXwTzx
+         fMIYEUwThfla0C3wNJdecAafKskdEIrUQSTjKQ5XlZyYZzkKCroQVT4CFa8fFKTx9Zb2
+         bfKdntJ/AGWiOeKmwpwS/LPhE3lRGR5e/t/4sgz0S0gWB0Pb94d4BAik71dg6Damo2cn
+         1f+FIz9zzqtH2gAk2fb5gA7ha8BvZF7cVDHe8unaSTLO4bwDvufc6wiW30DZ71GUAjgt
+         sJynIOhkt7xx1ZjHKNX3zgX+iI0rE2DtAuvjtH4Dy6Ukcp3XsCaZBc8SUNeCw0+Ku1qQ
+         EB8g==
+X-Forwarded-Encrypted: i=1; AJvYcCXzEgbcVAVfRXJ+9/SxRwBcP+LtKYxr2JMBxQhPJiNIWeTArxhYWErtlUrp39jhCxLqhDA+Cjv+9UijpAZYn8ij@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQs/Mkk1HKjeXU5ydDueL+qlgHiuGXp2WtkmpsG/7g/RshEfAh
+	68RhU/+bHPIyy6twtQzfwRfHyMnCzG+kypyIdIn+88AWaUEKFM0cBZYfLL3e8k8zrd5a7TC56X3
+	+P58zCUg=
+X-Gm-Gg: ASbGncupF1WRhyNMRPHWe0jk0gEz0qnrP+M4PqwkFdYt+/VWwpEKU+6C/Tii9AP+Nxp
+	odUrktlAkLSqAoNrYpK1w3nDU0R7y8t9LsxZys5JIp6L35z41JHs29rLz2vtZJTcX+5ln7XmRuW
+	BaXcVnBJRAfUN+489RTpqFymUDqOAGR2XkNF94u6tNJLtpn5y5zCaAbpv9S+iDLyVqberPyMpiv
+	zaAzp9sQDxN0XqAW8mimcMrje7agNRrpS9mjjFI4VBL/r85+GNKPD73oRkA4xZ07CNIx0JlgL4r
+	oWDc4dWyPX2jebSIut6rpwLf56/fs4m4HLOYqolwqQyOv3AQfzoejPz2HjHxIRwfYqhlWvXOx2h
+	hSv6xyQ==
+X-Google-Smtp-Source: AGHT+IGuYXZh60MnbA75lkN4+EYNXF7PNeMVfx0sLkMy+S89GOUa8ZzBhu0Y6PM8zBmmRjjQtSKupg==
+X-Received: by 2002:a05:600c:c491:b0:439:8c80:6aee with SMTP id 5b1f17b1804b1-452014b3fdfmr47660345e9.4.1749543810522;
+        Tue, 10 Jun 2025 01:23:30 -0700 (PDT)
+Received: from [192.168.1.28] ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4526e155ce7sm131726125e9.10.2025.06.10.01.23.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 01:23:30 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250525191300.50873-2-krzysztof.kozlowski@linaro.org>
+References: <20250525191300.50873-2-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH] memory: stm32_omm: Use
+ syscon_regmap_lookup_by_phandle_args
+Message-Id: <174954380836.117761.16870623685676642048.b4-ty@linaro.org>
+Date: Tue, 10 Jun 2025 10:23:28 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_013437_096101_775CBA76 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20250610_012332_570572_111151B4 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,152 +106,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shao Mingyin <shao.mingyin@zte.com.cn>
 
-Replace ternary (condition ? "enable" : "disable") syntax and ternary
-(condition ? "on" : "off") syntax with helpers from
-string_choices.h because:
-1. Simple function call with one argument is easier to read.  Ternary
-   operator has three arguments and with wrapping might lead to quite
-   long code.
-2. Is slightly shorter thus also easier to read.
-3. It brings uniformity in the text - same string.
-4. Allows deduping by the linker, which results in a smaller binary
-   file.
+On Sun, 25 May 2025 21:13:00 +0200, Krzysztof Kozlowski wrote:
+> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
+> syscon_regmap_lookup_by_phandle() combined with getting the syscon
+> argument.  Except simpler code this annotates within one line that given
+> phandle has arguments, so grepping for code would be easier.
+> 
+> 
 
-Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
----
- drivers/pmdomain/renesas/rcar-gen4-sysc.c    | 3 ++-
- drivers/pmdomain/renesas/rcar-sysc.c         | 3 ++-
- drivers/pmdomain/rockchip/pm-domains.c       | 3 ++-
- drivers/pmdomain/samsung/exynos-pm-domains.c | 6 +++---
- drivers/pmdomain/starfive/jh71xx-pmu.c       | 5 +++--
- 5 files changed, 12 insertions(+), 8 deletions(-)
+Applied, thanks!
 
-diff --git a/drivers/pmdomain/renesas/rcar-gen4-sysc.c b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-index e001b5c25bed..c8aa7538e95f 100644
---- a/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-+++ b/drivers/pmdomain/renesas/rcar-gen4-sysc.c
-@@ -18,6 +18,7 @@
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/types.h>
-+#include <linux/string_choices.h>
+[1/1] memory: stm32_omm: Use syscon_regmap_lookup_by_phandle_args
+      https://git.kernel.org/krzk/linux-mem-ctrl/c/6d8b18ae647bb456d2a2dac9771d007f243537cf
 
- #include "rcar-gen4-sysc.h"
-
-@@ -171,7 +172,7 @@ static int rcar_gen4_sysc_power(u8 pdr, bool on)
-  out:
-        spin_unlock_irqrestore(&rcar_gen4_sysc_lock, flags);
-
--       pr_debug("sysc power %s domain %d: %08x -> %d\n", on ? "on" : "off",
-+       pr_debug("sysc power %s domain %d: %08x -> %d\n", str_on_off(on),
-                 pdr, ioread32(rcar_gen4_sysc_base + SYSCISCR(reg_idx)), ret);
-        return ret;
- }
-diff --git a/drivers/pmdomain/renesas/rcar-sysc.c b/drivers/pmdomain/renesas/rcar-sysc.c
-index 047495f54e8a..dae01ca0ef6a 100644
---- a/drivers/pmdomain/renesas/rcar-sysc.c
-+++ b/drivers/pmdomain/renesas/rcar-sysc.c
-@@ -17,6 +17,7 @@
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/soc/renesas/rcar-sysc.h>
-+#include <linux/string_choices.h>
-
- #include "rcar-sysc.h"
-
-@@ -162,7 +163,7 @@ static int rcar_sysc_power(const struct rcar_sysc_pd *pd, bool on)
-
-        spin_unlock_irqrestore(&rcar_sysc_lock, flags);
-
--       pr_debug("sysc power %s domain %d: %08x -> %d\n", on ? "on" : "off",
-+       pr_debug("sysc power %s domain %d: %08x -> %d\n", str_on_off(on),
-                 pd->isr_bit, ioread32(rcar_sysc_base + SYSCISR), ret);
-        return ret;
- }
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index 4cce407bb1eb..0681c763f843 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -21,6 +21,7 @@
- #include <linux/regmap.h>
- #include <linux/regulator/consumer.h>
- #include <linux/mfd/syscon.h>
-+#include <linux/string_choices.h>
- #include <soc/rockchip/pm_domains.h>
- #include <soc/rockchip/rockchip_sip.h>
- #include <dt-bindings/power/px30-power.h>
-@@ -595,7 +596,7 @@ static int rockchip_do_pmu_set_power_domain(struct rockchip_pm_domain *pd,
-                                        is_on == on, 0, 10000);
-        if (ret) {
-                dev_err(pmu->dev, "failed to set domain '%s' %s, val=%d\n",
--                       genpd->name, on ? "on" : "off", is_on);
-+                       genpd->name, str_on_off(on), is_on);
-                return ret;
-        }
-
-diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
-index 9b502e8751d1..1a892c611dad 100644
---- a/drivers/pmdomain/samsung/exynos-pm-domains.c
-+++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-@@ -13,6 +13,7 @@
- #include <linux/err.h>
- #include <linux/platform_device.h>
- #include <linux/slab.h>
-+#include <linux/string_choices.h>
- #include <linux/pm_domain.h>
- #include <linux/delay.h>
- #include <linux/of.h>
-@@ -38,7 +39,6 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
-        struct exynos_pm_domain *pd;
-        void __iomem *base;
-        u32 timeout, pwr;
--       char *op;
-
-        pd = container_of(domain, struct exynos_pm_domain, pd);
-        base = pd->base;
-@@ -51,8 +51,8 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
-
-        while ((readl_relaxed(base + 0x4) & pd->local_pwr_cfg) != pwr) {
-                if (!timeout) {
--                       op = (power_on) ? "enable" : "disable";
--                       pr_err("Power domain %s %s failed\n", domain->name, op);
-+                       pr_err("Power domain %s %s failed\n", domain->name,
-+                              str_enable_disable(power_on));
-                        return -ETIMEDOUT;
-                }
-                timeout--;
-diff --git a/drivers/pmdomain/starfive/jh71xx-pmu.c b/drivers/pmdomain/starfive/jh71xx-pmu.c
-index 74720c09a6e3..0e8fca4e2de9 100644
---- a/drivers/pmdomain/starfive/jh71xx-pmu.c
-+++ b/drivers/pmdomain/starfive/jh71xx-pmu.c
-@@ -12,6 +12,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/pm_domain.h>
-+#include <linux/string_choices.h>
- #include <dt-bindings/power/starfive,jh7110-pmu.h>
-
- /* register offset */
-@@ -155,7 +156,7 @@ static int jh7110_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
-
-        if (ret) {
-                dev_err(pmu->dev, "%s: failed to power %s\n",
--                       pmd->genpd.name, on ? "on" : "off");
-+                       pmd->genpd.name, str_on_off(on));
-                return -ETIMEDOUT;
-        }
-
-@@ -198,7 +199,7 @@ static int jh71xx_pmu_set_state(struct jh71xx_pmu_dev *pmd, u32 mask, bool on)
-
-        if (is_on == on) {
-                dev_dbg(pmu->dev, "pm domain [%s] is already %sable status.\n",
--                       pmd->genpd.name, on ? "en" : "dis");
-+                       pmd->genpd.name, str_enable_disable(on));
-                return 0;
-        }
-
+Best regards,
 -- 
-2.25.1
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
