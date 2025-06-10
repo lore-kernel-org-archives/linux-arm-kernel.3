@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F38BC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EDE4C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6JavA+SudHa63uARftGOTwCX3dkJwSR33px6sS9RD24=; b=mQSnUWffgYI8AMHHUjQcpjWJjh
-	Yy1CotZMhZraotVaSn3rvtymSn2cC+Tnb4tU79nJIgkJv55w+b2rpy8JxVr8UIsAv5IiRw1YmFFSz
-	9IgXkWHcC3Rmky9No+WgPeMonUIEIJ4FN4DEWZrkGNTF/NvxW2/fQJhXuCu03IiI21IMu5Z7Hs+ps
-	SDCAdC6OrvtnH8/Z+aKBbH8pifarNuRa4unVOCU4bNMWnA4zhMnxfTsf58FH9AvbqEgyR9DMz2SbV
-	cj6tEKZ1P4RDCY9kJhh4Yp+ZoMaoPy2SpRW3IMkM9y/7kmG2ZOR7q2d/fb7xZ8iJLvBSk/W6F6HLE
-	p5Vgs+Ug==;
+	bh=8gK2SwvVpB0iJPc79lktbOi60vhhEtYSC0FV683UEdM=; b=TTsTRI+2FjtrSX9SA3umoM4clC
+	vcHp3q72prDzWZqB+ziKWRaS7y0L5ecWUbNIPfYX0ZemfTE+QC/DGPn0DA9FTOass42ZqoPHcgwR4
+	kcy9/qnaR5EpPu1PWklF7KLjboEvhO9Db9vrAxf1FbZ2I5+uPF06xeQENQ7HIiLatmq78WUHv0yP7
+	GYAX+QEfR9Q1UXPu/Iwtfpd0ESm4Y87RR4I2nCc0GE+RtHjiKmWusvitCulFgfE4HolrLtJfpwm7F
+	+zphtEVedro2VEXBOvcmNOpbe81E1zZDZJQHVNdEDTHYByaPkw8Tt4ZCyPRb0fgP6y7DLmuYliuGX
+	w4MKRbCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyfW-00000006tEs-0w6Y;
-	Tue, 10 Jun 2025 13:05:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uOyhe-00000006ttH-0ywd;
+	Tue, 10 Jun 2025 13:07:46 +0000
+Received: from out-181.mta1.migadu.com ([2001:41d0:203:375::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxuu-00000006kOL-0kTi
+	id 1uOxyE-00000006kpp-0erp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:17:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 82FF2A51121;
-	Tue, 10 Jun 2025 12:17:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF266C4CEF2;
-	Tue, 10 Jun 2025 12:17:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749557843;
-	bh=7jJB4h0R3QNPQ8a6Ja40SBAdt7xUL9onTatms1ozg1o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QYbxBWcRSJJKoAk1/lqabLgIJCJDRVy0bg03y0iND/vOQx5+GOeaG2SPoKq1r4GOh
-	 eE5jdGfVsTsE9dmB/rJN0vB+zqRSOmIy/TgSD9zOgvImUuU+rv3s1gRtBuLrrRminV
-	 IZWJjQY3b3Dp4EXnMRfvXzlYpMGKltcpiR5Wbr4E0U86sHw7NwF8Y6EGEcivoU49Jf
-	 m9Fuj8F/EPWTqbHBWRMXz7iQgeBTsoDsGojvPT7Wg0OsVTh/rz0XaV6EGOEzMEf0jj
-	 D2mvs16UV0kEOS7gnlKhHFhRXtzA+TEo3JWex/t/Z2LQIJ6Ax507rTsT0UjD+vwumD
-	 LTyoVgUrcRI7Q==
-Date: Tue, 10 Jun 2025 15:17:19 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
-	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
-Subject: Re: [PATCH 2/2] tpm: tpm_crb_ffa: maunally register tpm_crb_ffa
- driver when it's built-in
-Message-ID: <aEgiT8Pco-Cs8Kpa@kernel.org>
-References: <20250606105754.1202649-1-yeoreum.yun@arm.com>
- <20250606105754.1202649-3-yeoreum.yun@arm.com>
- <aEMdGXXBSym7cXmK@kernel.org>
- <aEMvm2MW9bBXf2gM@e129823.arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aEMvm2MW9bBXf2gM@e129823.arm.com>
+	Tue, 10 Jun 2025 12:20:51 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1749558038;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8gK2SwvVpB0iJPc79lktbOi60vhhEtYSC0FV683UEdM=;
+	b=MEQgziFX2kglVeu7ANROwKONEqK31HGcNB4WqQ1yJavHnCWNzadDg6T9lt3JrK4q7HnlLV
+	OTY2zEh1JoaLjJt2yeuTyPXSQFREz0OBiVPGvClJHqfKZ/HuSZWalW1yYqRvHiEINDQhi+
+	aDsvLMtS8J4VwlPDmKPYD7nhbpq2az3RFC/NlX1Ky+Pec+X87Hek/jH33YwTphKP8ztIqq
+	n4mqaI45JbJUTOLaggoxvBZgH8TJT48VITX0V97exxBCctpaNp7rp3/vY/iQgr4JPdcrSl
+	kEOPbTiMOlHWMham3KM+YZ8RtpyhH2Gk8CRDxjc03IiZjIog6ZHHd9h/EFNotQ==
+Content-Type: multipart/signed;
+ boundary=25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 10 Jun 2025 14:20:00 +0200
+Message-Id: <DAIUJTK7T4P4.29G3ADVPS0NWG@cknow.org>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add overlay for RockPro64
+ screen
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Diederik de Haas" <didi.debian@cknow.org>, "Peter Robinson"
+ <pbrobinson@gmail.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Heiko Stuebner" <heiko@sntech.de>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, "Peter Geis" <pgwipeout@gmail.com>
+References: <20250518215944.178582-1-pbrobinson@gmail.com>
+ <20250518215944.178582-2-pbrobinson@gmail.com>
+ <DAITK5IPG0QA.2EMB23KS83SBE@cknow.org>
+In-Reply-To: <DAITK5IPG0QA.2EMB23KS83SBE@cknow.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_051724_279073_71F45870 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20250610_052050_331488_2DDE0CC5 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +76,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 06, 2025 at 07:12:43PM +0100, Yeoreum Yun wrote:
-> Hi Jarkko,
-> 
-> > > To integrate tpm_event_log with IMA subsystem,
-> > > tpm_crb and tpm_crb_ffa driver should be built as built-in
-> > > (CONFIG_TCG_CRB=y && CONFIG_TCG_CRB_FFA=y).
-> > >
-> > > However, this could make failure for ima_init() gets tpm chip when
-> > > each initcall function deployed like:
-> > >
-> > > 0000000000000888 l       .initcall6.init	0000000000000000 crb_acpi_driver_init
-> > > 000000000000088c l       .initcall6.init	0000000000000000 tpm_crb_ffa_driver_init
-> >
-> > The only failure I see is the patch 1/2 which changes init call level,
-> > and leaves kernel Git to a broken state.
-> >
-> > It breaks the famous "zero regressions policy".
-> >
-> > BR, Jarkko
-> 
-> Sorry, would you let me know what is broken more detail?
-> IMHO, by changing the init call level for ffa_init()
-> it's called early than before device_initcall() and it seems not to
-> break anything.
-> 
-> What breaks do you mean?
+--25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Let's start from very beginning. Why this change is needed and not just
-1/2?
+On Tue Jun 10, 2025 at 1:33 PM CEST, Diederik de Haas wrote:
+> On Sun May 18, 2025 at 11:59 PM CEST, Peter Robinson wrote:
+>> The Pine64 touch panel is a panel consisting of the Feiyang fy07024di26a=
+30d
+>> panel with a Goodix gt911 touch screen. Add a device tree overlay to
+>> allow the display to be easily used on the device.
+>> ...
+>> ---
+>>  arch/arm64/boot/dts/rockchip/Makefile         |  9 ++
+>>  .../dts/rockchip/rk3399-rockpro64-screen.dtso | 89 +++++++++++++++++++
+>>  2 files changed, 98 insertions(+)
+>>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen=
+.dtso
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts=
+/rockchip/Makefile
+>> index 3e8771ef69ba1..c7b13bff3ac20 100644
+>> --- a/arch/arm64/boot/dts/rockchip/Makefile
+>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+>> @@ -77,6 +77,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock-pi-4c.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock960.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-v2.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64.dtb
+>> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtso
+>
+> ``s/rk3399-rockpro64-screen.dtso/rk3399-rockpro64-screen.dtbo``
 
-IMA intializes as a late initcall, which after TPM has initialized.
+nvm, it was already correctly applied by Heiko.
 
-> 
-> Thanks.
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
+> Cheers,
+>   Diederik
+>
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-sapphire.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-sapphire-excavator.dtb
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399pro-rock-pi-n10.dtb
+>> @@ -209,6 +210,14 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-puma-haikou=
+-haikou-video-demo.dtb
+>>  rk3399-puma-haikou-haikou-video-demo-dtbs :=3D rk3399-puma-haikou.dtb \
+>>  	rk3399-puma-haikou-video-demo.dtbo
+>> =20
+>> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtb
+>> +rk3399-rockpro64-screen-dtbs :=3D rk3399-rockpro64.dtb \
+>> +	rk3399-rockpro64-screen.dtbo
+>> +
+>> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtb
+>> +rk3399-rockpro64-v2-screen-dtbs :=3D rk3399-rockpro64-v2.dtb \
+>> +	rk3399-rockpro64-screen.dtbo
+>> +
+>>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf5-vz-2-uhd.dtb
+>>  rk3568-wolfvision-pf5-vz-2-uhd-dtbs :=3D rk3568-wolfvision-pf5.dtb \
+>>  	rk3568-wolfvision-pf5-display-vz.dtbo \
+>> <snip>
 
-BR, Jarkko
+
+--25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaEgjDAAKCRDXblvOeH7b
+bsRUAP9XR9PtWm858vBGa90HrSmYJ/WeviycqMnzM+r8WvPOpQEAzd4rmOMsaI/O
+/ufPoni2PgpXh+vcJekght8agtKniQ8=
+=fLEb
+-----END PGP SIGNATURE-----
+
+--25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52--
 
