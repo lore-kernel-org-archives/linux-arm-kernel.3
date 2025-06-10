@@ -4,51 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507FBC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 20:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EDECC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 20:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCr4k7LTM/lWUQNG6XBe/ewwkWdL9wvfa4+S1KNroTE=; b=ZYuTIaCXSESPS4EgyzBfnM2h3j
-	R5B8To8IAn/BOfWDhP2Bc7PvnVE8LSm7Y4nWha5a8rz17aOnQvGq//KNJ0ZMRfic4bwGjN6YK8RsK
-	n1hO5NnV8tQdMTqemQpA969NAr/HHMyKG0tzwujclgc7EbUypw6E11LEFYtzqMSsg5Qs1IGS/uc3S
-	MpQQlcNAlwgmQ1tghO0hjaK/kqfsOefL3ifv/964D+ejFT8jgoUEATnG0vUczVzLYpWiN8iBAII3w
-	QF+wjuhs5o2SLuo0M5IPiM7AUwSXYbM4wtNllwroxiOIB3cFrZRH58iHsFUyWVGDoSW3OhUvFVRxH
-	jba8vZZA==;
+	bh=k+cTrFvTZmZa1sNXWsVMilcdJxSARaG+9sQN4X5vosE=; b=Yk4cfyseqVZu7A/fbZiI6yhVxs
+	bVp/p1BipnPP03gro9pFsqBAW/MaXpLBcWHCt2bwGvnQroL3280N/VydX7E5vpvli40N4I2L9KT9x
+	emNwLhJw7D1q6EGV+0jTTzfqF4j+ihYtXOD3+u6KhADYKhvgAxZU2AVJHWb8LFDk2MvrlpKJWfqO0
+	AnS5V1iabR6O0FMKcMTnBd7Z39QF1FsrbhIGfmpVDPxM8P1HuAcuKnLqJeDEAQZVYfQWlW+pMCT8W
+	EjI5ts7h4irWf6ujRPomobaTTUr17x88dOK+Sdq7v5qYZOzg70zO7ncriiq8AuBWycEGRuD+2wMjU
+	3bGPFxjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP5Jr-000000080cT-1ozm;
-	Tue, 10 Jun 2025 20:11:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uP5Ly-000000080wm-0My1;
+	Tue, 10 Jun 2025 20:13:50 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP23C-00000007VZy-0xGw
+	id 1uP23F-00000007Va1-2Km5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 16:42:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5FFCEA514A3;
-	Tue, 10 Jun 2025 16:42:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1315C4CEF0;
-	Tue, 10 Jun 2025 16:42:11 +0000 (UTC)
-Date: Tue, 10 Jun 2025 17:42:09 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org, Dev Jain <dev.jain@arm.com>
-Subject: Re: [PATCH] arm64/ptdump: Ensure memory hotplug is prevented during
- ptdump_check_wx()
-Message-ID: <aEhgYQiMv-0fYHoh@arm.com>
-References: <20250609041214.285664-1-anshuman.khandual@arm.com>
+	Tue, 10 Jun 2025 16:42:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1749573733;
+	bh=hS9bew/V9dOguSA0Tn0RisCGc1oHuJaDh8mlmT55Dlw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CfCoWXmP9M9d2PUtc3aKPyBuRWWT8BMhuiSPV2cuX1PYHPHiO/K5CSh9KXk007Jfz
+	 XXmnmnncq/sEDQDzP52wwGhIe4CzhCS10deNuG0GpSwyakhXpx2PPS8YKNuQKMWuOy
+	 akbGSb17qyCAzrv5C/6OyAz3FljQe5nMRaei+JLA=
+Date: Tue, 10 Jun 2025 18:42:13 +0200
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Mark Brown <broonie@kernel.org>
+Cc: Willy Tarreau <w@1wt.eu>, Christian Brauner <brauner@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] tools/nolibc: Provide vfork()
+Message-ID: <5ce6fcb4-be3d-461b-9b17-495eff6ea2d5@t-8ch.de>
+References: <20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org>
+ <20250610-arm64-gcs-vfork-exit-v2-2-929443dfcf82@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250609041214.285664-1-anshuman.khandual@arm.com>
+In-Reply-To: <20250610-arm64-gcs-vfork-exit-v2-2-929443dfcf82@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_094214_343035_D9A50DAC 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250610_094217_789448_83F9CCCB 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,32 +66,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 05:12:14AM +0100, Anshuman Khandual wrote:
-> The arm64 page table dump code can race with concurrent modification of the
-> kernel page tables. When a leaf entries are modified concurrently, the dump
-> code may log stale or inconsistent information for a VA range, but this is
-> otherwise not harmful.
+On 2025-06-10 13:29:45+0100, Mark Brown wrote:
+> To allow testing of vfork() support in the arm64 basic-gcs test provide an
+> implementation for nolibc, using the vfork() syscall if one is available
+> and otherwise clone3(). We implement in terms of clone3() since the order
+> of the arguments for clone() varies between architectures.
 > 
-> When intermediate levels of table are freed, the dump code will continue to
-> use memory which has been freed and potentially reallocated for another
-> purpose. In such cases, the dump code may dereference bogus addresses,
-> leading to a number of potential problems.
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  tools/include/nolibc/sys.h | 27 +++++++++++++++++++++++++++
+>  1 file changed, 27 insertions(+)
 > 
-> This problem was fixed for ptdump_show() earlier via commit 'bf2b59f60ee1
-> ("arm64/mm: Hold memory hotplug lock while walking for kernel page table
-> dump")' but a same was missed for ptdump_check_wx() which faced the race
-> condition as well. Let's just take the memory hotplug lock while executing
-> ptdump_check_wx().
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Reported-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> diff --git a/tools/include/nolibc/sys.h b/tools/include/nolibc/sys.h
+> index aabac97a7fb0..5932ae8828a1 100644
+> --- a/tools/include/nolibc/sys.h
+> +++ b/tools/include/nolibc/sys.h
+> @@ -22,6 +22,7 @@
+>  #include <linux/time.h>
+>  #include <linux/auxvec.h>
+>  #include <linux/fcntl.h> /* for O_* and AT_* */
+> +#include <linux/sched.h> /* for clone_args */
+>  #include <linux/stat.h>  /* for statx() */
+>  
+>  #include "errno.h"
+> @@ -340,6 +341,32 @@ pid_t fork(void)
+>  	return __sysret(sys_fork());
+>  }
+>  
+> +static __attribute__((unused))
+> +pid_t sys_vfork(void)
+> +{
+> +#if defined(__NR_vfork)
+> +	return my_syscall0(__NR_vfork);
+> +#elif defined(__NR_clone3)
+> +	/*
+> +	 * clone() could be used but has different argument orders per
+> +	 * architecture.
+> +	 */
+> +	struct clone_args args = {
+> +		.flags		= CLONE_VM | CLONE_VFORK,
+> +		.exit_signal	= SIGCHLD,
+> +	};
+> +
+> +	return my_syscall2(__NR_clone3, &args, sizeof(args));
+> +#else
+> +	return __nolibc_enosys(__func__);
+> +#endif
+> +}
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+It seems that on SPARC __NR_vfork has the same non-standard return value
+as __NR_fork. It therefore needs the same special handling in arch-sparc.h.
+Maybe with a helper to avoid the duplication.
+
+If you want I can fix this up when applying.
+Otherwise the series looks good.
+
+> +
+> +static __attribute__((unused))
+> +pid_t vfork(void)
+> +{
+> +	return __sysret(sys_vfork());
+> +}
+>  
+>  /*
+>   * int fsync(int fd);
+> 
+> -- 
+> 2.39.5
+> 
 
