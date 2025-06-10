@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D459FC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 06:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39957C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 06:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HglzH6nltUgcBqzzWRIaC4iA25lZjbDpZVuSs0uwEq4=; b=uNLWsye4nCGhhsNeZtUxEGUCVv
-	5woIZwT4ajjpXA1tPypijmZsj+2Xf6efc6Cmxz2y4yXsc3mEXMmobTvML4IjY6Ixf5bhIaCQtDZrd
-	RXZA/3KvfGngwKJiKESgMH7yzn7EY5qeQR8kzPsWkANPsGEsnblTVDkdnvap/l7KJCkLCIZukF60R
-	d4/JrZ+1FcM/SoXD2F6do9ccq5alpBJ8nWB8a8sRe2/cEXsYIsOBG647Ct/RWSIL5GTx9qJsYM1wN
-	MprrXShGNmOysjERLbu/v0izUxEVp13Ne3XDCji+QPedjjbQXFwjWl+IIGt5haDVDsgzopdZVSN7S
-	tIqRtMpQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6O0xC6SOcOSthm+nVuFP6/iA1o0YzWpNBPJwRk/wNao=; b=gaoJhwThhqa6JamH5w1lDky+3G
+	LlLhyQT2x/O9Z1DUGTWpAcd356q+J+EXTs+hnxB87TrTd+u2SLc9QoOYVPmz+YEZHr3Wml+Tbt8eO
+	jjQtGFgAO1jemiPb2yXYaR3TRegjSXBgWHr/9vNqb4TyI4l4+fy+g/SbetsybXjkQKXf6tAL5K7Om
+	rFAZRiIqhp2OqJFnT50Sjqeysxu4CnIt8FTF0dp5KNoe5vu5wTJh5SBZH8URzYmxwSYvTsRZKVZ1P
+	296u7tP/Hx6KMmAznUK2+nzA7hJHktiuRaPYwUdU4jYDnepdYgGN2fW9ZpPhHZ71DPWRuNFleyRXL
+	9mengmrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOsPi-00000005vR5-2rcn;
-	Tue, 10 Jun 2025 06:24:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOsNT-00000005v4h-2acu;
-	Tue, 10 Jun 2025 06:22:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE37414BF;
-	Mon,  9 Jun 2025 23:22:11 -0700 (PDT)
-Received: from [10.163.32.103] (unknown [10.163.32.103])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F0793F673;
-	Mon,  9 Jun 2025 23:22:23 -0700 (PDT)
-Message-ID: <d54e8129-b2dd-480e-b665-91a7f6a20cab@arm.com>
-Date: Tue, 10 Jun 2025 11:52:20 +0530
+	id 1uOsbP-00000005whx-369s;
+	Tue, 10 Jun 2025 06:36:55 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOsZG-00000005wMf-18dJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 06:34:43 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2363497cc4dso7558595ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 09 Jun 2025 23:34:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1749537281; x=1750142081; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6O0xC6SOcOSthm+nVuFP6/iA1o0YzWpNBPJwRk/wNao=;
+        b=AfpzYHLPxv8IWRx0wY+a8dWRqWe8XohwfVVsYXe/21MKRvkVqS1E9SZQbcJysPZH1Q
+         vPXdP+QT+Cg9W24mgKlCq6wnhaZ0SMiuxlEDKKLhx411HjwHKSt5+zAs0GkuoVlo6LGt
+         oNbmB+urU5WOfHIUu0MXT8Gp0NdQ2JRy0ePIk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749537281; x=1750142081;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6O0xC6SOcOSthm+nVuFP6/iA1o0YzWpNBPJwRk/wNao=;
+        b=PCdxPa8pvnfaSj0H10LDRJbR3VWtcdL8Y73oHqDkILlmC96lxoMdVJdpdvjGt2F4qT
+         PyR+9DOxxSuDjPesJVY6jhxpdbnMJQELadzz4lwaAbwhMEhFNeVORmiNpMgheOkl1Spy
+         cUQeYFOhJNkuCiDisfaUGAEJtlD6gzS0qHoGlVqFx9z3POMoBkVoG8xbCDdvdzSQZJGr
+         6BUQP+08Dv79KAIBVmaJoxk2R+KxJdFpEftmaQw0LkFaykBt17UI8V5ciLjsCgoPCpdK
+         ECQ+VfCq+Gi7TEIN0w0PBxB3oqEx4rVKLxdEYvYKP/dFgJ0CdbaQ3UvV2ImG2ArCJ9kH
+         JEpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUTgYWDhDcViqU1lyfw1YIDSAv169Ws4QEuqlfQYt9jBt2wGt63bRdB2v5tiqbxM+x1NH0/pHuI1XPyqiQpBVQ1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8F8KynPbyB+pVUktjJJojoWtn5KZGuEnRKt7xPYLARGtrm1KX
+	xJKRFAH0sE6OUAVoxbpajGV/1BSIyCRUOZw6NMRsKiYFx9hxEb4pR6q7jHEl+zPRDQ==
+X-Gm-Gg: ASbGncvoinLNBrFz22M0CA1YWlsbXgfRV4qvbHnNWL0PLKGCKZDPAzz/JXN4iDKhtcE
+	EdFbFeSWOKuYoC2b9MMiK2srOD0qUuCs+KMEjcpOL5GPBNOgD5EXV7fS7bergJMjMSAI5yHGh1C
+	olbODnAugGh61dKm0495h+Da6xX8yR/D2yor9Rcq1DzmbRtmjTHZ/Ozo83eL0VaWWWUBpxO+s3z
+	c1qlMa/nYQF026f7HGPmk2+fSXU0KuNWw9+j301L39cslekh12ueqqyC2qZSVm4HUkIfLtaUM7t
+	bPB4aDjZ3EeS/vbzBjz4lymdkL5jAss5IlBslbHLwYV0TOzCbn7GJbNwEI1w9flCyJm8rkSmdRR
+	kA1x2
+X-Google-Smtp-Source: AGHT+IFMVjJL9gd/t2t1Cdy7S0Az0MbbHnKQkvJXrj2EcXFz4rjITbDsj/BO0L7kopXXEwjxKA52Ew==
+X-Received: by 2002:a17:903:244e:b0:235:f3e6:4680 with SMTP id d9443c01a7336-23601cfddb7mr217198085ad.21.1749537281092;
+        Mon, 09 Jun 2025 23:34:41 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:2826:ada4:efac:14e8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23603092ee2sm64596765ad.82.2025.06.09.23.34.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Jun 2025 23:34:40 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Srinivas Kandagatla <srini@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Lala Lin <lala.lin@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] arm64: mediatek: Enable efuse GPU speed bin post-processing
+Date: Tue, 10 Jun 2025 14:34:28 +0800
+Message-ID: <20250610063431.2955757-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.50.0.rc0.604.gd4ff7b7c86-goog
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] mm: Remove arch_flush_tlb_batched_pending() arch
- helper
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Rik van Riel
- <riel@surriel.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Harry Yoo <harry.yoo@oracle.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-mm@kvack.org
-References: <20250609103132.447370-1-ryan.roberts@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250609103132.447370-1-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_232231_748323_7C54CE9E 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20250609_233442_302356_FBF095C4 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,118 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi everyone,
+
+This is v2 of the MT8188 efuse GPU speed bin post-processing enablement
+patches. In v1 [1] the change was made to the driver. Angelo, the platform
+maintainer believes the change should be made to the DT binding instead
+[2]. v2 adopts Angelo's argument.
+
+Patch 1 updates the efuse DT binding so that MT8186 is a base compatible
+with no fallback, and MT8188 falls back to MT8186.
+
+Patch 2 updates the MT8188 DT to follow the new binding.
+
+If possible I would like to see both patches merged through the soc
+tree once the DT binding maintainers give an ack. This avoids prolonged
+waiting for the binding changes to land and uncertainty about whether
+things have fully landed or not.
 
 
-On 09/06/25 4:01 PM, Ryan Roberts wrote:
-> Since commit 4b634918384c ("arm64/mm: Close theoretical race where stale
-> TLB entry remains valid"), all arches that use tlbbatch for reclaim
-> (arm64, riscv, x86) implement arch_flush_tlb_batched_pending() with a
-> flush_tlb_mm().
-> 
-> So let's simplify by removing the unnecessary abstraction and doing the
-> flush_tlb_mm() directly in flush_tlb_batched_pending(). This effectively
-> reverts commit db6c1f6f236d ("mm/tlbbatch: introduce
-> arch_flush_tlb_batched_pending()").
-> 
-> Suggested-by: Will Deacon <will@kernel.org>
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Thanks
+ChenYu
 
-Makes sense to replace arch callbacks with common generic functions
-applicable for all platforms.
+[1] https://lore.kernel.org/all/20241223100648.2166754-1-wenst@chromium.org/
+[2] https://lore.kernel.org/all/11028242-afe4-474a-9d76-cd1bd9208987@collabora.com/
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Chen-Yu Tsai (2):
+  dt-bindings: nvmem: mediatek: efuse: split MT8186/MT8188 from base
+    version
+  arm64: dts: mediatek: mt8188: Change efuse fallback compatible to
+    mt8186
 
+ .../bindings/nvmem/mediatek,efuse.yaml          | 17 +++++++++++++++--
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi        |  2 +-
+ 2 files changed, 16 insertions(+), 3 deletions(-)
 
-> ---
->  arch/arm64/include/asm/tlbflush.h | 11 -----------
->  arch/riscv/include/asm/tlbflush.h |  1 -
->  arch/riscv/mm/tlbflush.c          |  5 -----
->  arch/x86/include/asm/tlbflush.h   |  5 -----
->  mm/rmap.c                         |  2 +-
->  5 files changed, 1 insertion(+), 23 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index aa9efee17277..18a5dc0c9a54 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -322,17 +322,6 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->  	return true;
->  }
-> 
-> -/*
-> - * If mprotect/munmap/etc occurs during TLB batched flushing, we need to ensure
-> - * all the previously issued TLBIs targeting mm have completed. But since we
-> - * can be executing on a remote CPU, a DSB cannot guarantee this like it can
-> - * for arch_tlbbatch_flush(). Our only option is to flush the entire mm.
-> - */
-> -static inline void arch_flush_tlb_batched_pending(struct mm_struct *mm)
-> -{
-> -	flush_tlb_mm(mm);
-> -}
-> -
->  /*
->   * To support TLB batched flush for multiple pages unmapping, we only send
->   * the TLBI for each page in arch_tlbbatch_add_pending() and wait for the
-> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-> index 1a20dd746a49..eed0abc40514 100644
-> --- a/arch/riscv/include/asm/tlbflush.h
-> +++ b/arch/riscv/include/asm/tlbflush.h
-> @@ -63,7 +63,6 @@ void flush_pud_tlb_range(struct vm_area_struct *vma, unsigned long start,
->  bool arch_tlbbatch_should_defer(struct mm_struct *mm);
->  void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
->  		struct mm_struct *mm, unsigned long start, unsigned long end);
-> -void arch_flush_tlb_batched_pending(struct mm_struct *mm);
->  void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
-> 
->  extern unsigned long tlb_flush_all_threshold;
-> diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-> index e737ba7949b1..8404530ec00f 100644
-> --- a/arch/riscv/mm/tlbflush.c
-> +++ b/arch/riscv/mm/tlbflush.c
-> @@ -234,11 +234,6 @@ void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
->  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
->  }
-> 
-> -void arch_flush_tlb_batched_pending(struct mm_struct *mm)
-> -{
-> -	flush_tlb_mm(mm);
-> -}
-> -
->  void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
->  {
->  	__flush_tlb_range(NULL, &batch->cpumask,
-> diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-> index e9b81876ebe4..00daedfefc1b 100644
-> --- a/arch/x86/include/asm/tlbflush.h
-> +++ b/arch/x86/include/asm/tlbflush.h
-> @@ -356,11 +356,6 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
->  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
->  }
-> 
-> -static inline void arch_flush_tlb_batched_pending(struct mm_struct *mm)
-> -{
-> -	flush_tlb_mm(mm);
-> -}
-> -
->  extern void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch);
-> 
->  static inline bool pte_flags_need_flush(unsigned long oldflags,
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index fb63d9256f09..fd160ddaa980 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -746,7 +746,7 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
->  	int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
-> 
->  	if (pending != flushed) {
-> -		arch_flush_tlb_batched_pending(mm);
-> +		flush_tlb_mm(mm);
->  		/*
->  		 * If the new TLB flushing is pending during flushing, leave
->  		 * mm->tlb_flush_batched as is, to avoid losing flushing.
-> --
-> 2.43.0
-> 
-> 
+-- 
+2.50.0.rc0.604.gd4ff7b7c86-goog
 
 
