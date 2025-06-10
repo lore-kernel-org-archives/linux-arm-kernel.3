@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE84C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512CFC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MXR00VLxmhsH+jMRE5s/YJIThaFKie022RUlAGpjRqQ=; b=Gx7QB13aPd95WXeYaxq2H4Gs+p
-	f+AjeBVHciOoBrOSaoK9pUlYKNx431R7SiL6tk45zHrXSXmb6nkX7QDsNk6LOQgVdVfAQP0SZUNmC
-	dQCeDHaawSzMLaBi3JkwxEeceYpIAvDc3gpbK5+DHj+nNHEtoonbUVhmelcrxJFxqTBZXXMDXkH9G
-	ikCqyJxKFjvp9w1KfcKLqke0mLzdy6JOZX9fJJlNW/3NrgtipLGVzROBhNGr3rdQwAeYB7nxn/G9z
-	zaRiLRyw2ee8kwXLw7NZ1XM5s7tghRCHPbxxP9THYxFgL3Ys3gtYHLRa/i/galhwp8i86hc7MElGv
-	YuFiK1dQ==;
+	bh=3JoIjs0rN0Mef0RCPvvnCGsgeRN+4kOPLLI4ZD9o2Mw=; b=TbOGQnRWLAqW8urPdcqs4WIrwg
+	IcXOBiIBjEWW2gZKh/Wel0ULa7ngcDPEPNJ9FL/cFHxtsFf6UxG4BRHHyXya1z4k5BrkqsBZukzzA
+	APcxx/0v2pfYiXH6CRO+gbCT3BhLa4Gwc+ZrNaVQu2uIjGWt86+Sak/+nzA8uzt28cHXRX8oesBbP
+	gt+25TzUVP6n8Y+F2HZrLkG8RPb1e4dab6CnBys3xblO/A08bIujsw65QK15tya+JuaunS+CKXvbh
+	1DVHKWnU87hJlUn7Sb939ilgC4poxJccronixItdu7+7NAZ6lS0ST8idp+GVUZ8xmlXcnCFCeGWug
+	Q004L4Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyUF-00000006qf7-28kC;
-	Tue, 10 Jun 2025 12:53:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxpu-00000006jkz-1Ry7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 12:12:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=MXR00VLxmhsH+jMRE5s/YJIThaFKie022RUlAGpjRqQ=; b=UF7txX5KLIaptoNDgd4+blLIIE
-	HcutkLhHiJlMJ6p67oNUGIHhkcHfZF5mrvPFc1derSfJlwFFgt0pXPqtWys4KhjUiv5xP5DCuQ/2Z
-	yiDjJstixdf0knVBxVen6gOtjdD6Q3zNMqilODiYsOzevhR8hXqp8pn3qkTVpbG2id8MGukJlfMC1
-	7RuQzovVHgKlfmQ1um2GolYGkgP73SNqPw08Vq8DW7TF18TIhz7Y3kAE907Oz5ggCzXyXgy/mw6IW
-	k7xEJdikWslvW1Re9ezikbTwK11fP2JlifXs26ocBBBhrFD9GzRIAXIiOAfkAZ4HlDun9E8cuGbJ7
-	AKiYm+tg==;
+	id 1uOyWN-00000006r8m-1FmG;
+	Tue, 10 Jun 2025 12:56:07 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxpr-00000001nfp-3puu
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOxqW-00000006jo6-3SFE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:12:13 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55AC90Ov024216;
-	Tue, 10 Jun 2025 14:12:00 +0200
+	Tue, 10 Jun 2025 12:12:54 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55AC97NU007654;
+	Tue, 10 Jun 2025 14:12:43 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	MXR00VLxmhsH+jMRE5s/YJIThaFKie022RUlAGpjRqQ=; b=t6dw14ZVsezx0sZs
-	dftYh8TOHkwZtHKigra6IELajwcohq2X2U/EEzOrgg0UgqcCvyxyY95HhWWoKgi2
-	l4ZJJjbTa8HLWqKfQm2wmIhV23PM+pZlQmpP8ZqXmB7w5Uf/sVmqzPJA0LWQ3kzx
-	ZGDc3AczGGayRcDDLvlGgg5SfZ13prHfUyt+Ywh3/Jr8eSaFyEFcCezGJD7sBfT4
-	yo67Out2oEAp5y//3gcZ3GC3tcrKPk8c+QbnrmIiPOzCjQ5TIcxZ2wQ28JCT4cF6
-	dPSGGljjkPcfzRdCSTvtcIyJm+uXEV+vGImsJ/DQAgwWFd7J3L8SD+EZ/j+BJKwG
-	ZYYf5g==
+	3JoIjs0rN0Mef0RCPvvnCGsgeRN+4kOPLLI4ZD9o2Mw=; b=IBiW8Pd2ALdNOtHN
+	XRPdHmX5cTFMzfSFGNahSDjWx6E60NVZHz7RlKXUmNwfGV20G7xd9V9G3HiR6ujB
+	s+AZQL0BORu4XoQQw2qgCAB1ogBecjXstW5BDDTJ1IdEXR5HIP5dzWhaDQwR2xTr
+	DN++VSdsEGrCF7mKiFWci9lVp2CO6zMKD0zCB5hhG1erz3Wu/jwuqg/GKdjloTbj
+	tBUQ6/vo43atWvHUG7qXWWX2LRMnpUjlBn8AmANT14iUFewIlwezop9IJIL2CRl5
+	Q6Pbbq/R0mNtnUVfPtNb2+Az+ReLy0hp7cE7LzTFCBZ5rEOk5XssMErKjm6G6nvk
+	K0WZLg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aumd4ej-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cs2mt3y-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 14:12:00 +0200 (MEST)
+	Tue, 10 Jun 2025 14:12:43 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F28EA40054;
-	Tue, 10 Jun 2025 14:10:46 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C66614006E;
+	Tue, 10 Jun 2025 14:11:39 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 42B8AB3A752;
-	Tue, 10 Jun 2025 14:10:07 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AB802B39A25;
+	Tue, 10 Jun 2025 14:11:27 +0200 (CEST)
 Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
  (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 14:10:06 +0200
-Message-ID: <60423d3e-20b2-47c7-a889-f5cbffb83734@foss.st.com>
-Date: Tue, 10 Jun 2025 14:10:05 +0200
+ 2025 14:11:26 +0200
+Message-ID: <e4a1bbd0-3886-4a88-bfaf-1e5ce5b27625@foss.st.com>
+Date: Tue, 10 Jun 2025 14:11:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
+Subject: Re: [PATCH v4 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp13
 To: Krzysztof Kozlowski <krzk@kernel.org>,
         Linus Walleij
 	<linus.walleij@linaro.org>,
@@ -89,15 +75,13 @@ To: Krzysztof Kozlowski <krzk@kernel.org>,
 CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
         <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
+        <linux-arm-kernel@lists.infradead.org>
 References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
- <20250528-hdp-upstream-v4-2-7e9b3ad2036d@foss.st.com>
- <57667ad9-d98f-4f8b-9b70-428960765ddb@kernel.org>
+ <20250528-hdp-upstream-v4-5-7e9b3ad2036d@foss.st.com>
+ <c0336f46-1fbc-4766-9e0a-a3812d48083e@kernel.org>
 Content-Language: en-US
 From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <57667ad9-d98f-4f8b-9b70-428960765ddb@kernel.org>
+In-Reply-To: <c0336f46-1fbc-4766-9e0a-a3812d48083e@kernel.org>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.48.86.185]
@@ -107,9 +91,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-10_04,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_131212_104199_2E96AE35 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_051253_149933_9ED85CDF 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,27 +107,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/29/25 11:14, Krzysztof Kozlowski wrote:
+On 5/29/25 11:13, Krzysztof Kozlowski wrote:
 > On 28/05/2025 15:30, Clément Le Goffic wrote:
->> 'HDP' stands for Hardware Debug Port, it is an hardware block in
->> STMicrolectronics' MPUs that let the user decide which internal SoC's
->> signal to observe.
->> It provides 8 ports and for each port there is up to 16 different
->> signals that can be output.
->> Signals are different for each MPU.
+>> Add the hdp devicetree node for stm32mp13 SoC family
 >>
 >> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> ---
+>>   arch/arm/boot/dts/st/stm32mp131.dtsi | 7 +++++++
+>>   1 file changed, 7 insertions(+)
+>>
+>> diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
+>> index 8512a6e46b33..9e3797ee1f7b 100644
+>> --- a/arch/arm/boot/dts/st/stm32mp131.dtsi
+>> +++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
+>> @@ -954,6 +954,13 @@ dts: thermal@50028000 {
+>>   			status = "disabled";
+>>   		};
+>>   
+>> +		hdp: pinctrl@5002a000 {
+>> +			compatible = "st,stm32mp131-hdp";
+>> +			reg = <0x5002a000 0x400>;
+>> +			clocks = <&rcc HDP>;
+>> +			status = "disabled";
+> Don't send new versions while discussion is going.
 > 
-> Drop reviewed tag. It was given under assumption that you will test your
-> code before sending.
-
-Hi, yes sure, sorry for that..
-
-> 
+> My comments are still valid here.
 > 
 > Best regards,
 > Krzysztof
+
+Ok keep discussing in the V3 so.
 
 Clément
 
