@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B313EC678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54E32C71134
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+nqEkPlu56izKVRCcBxWQQRBgYviwPk2wR3cGWZ9+hA=; b=0Bcjv6zZ1kqj+JZKhCreQjmh2x
-	AM3kwtH1tE7m0EsNNgeN8JGvjv8hMl9Gn30AWQ7G01mSSUUnJDDP3OTM+eR9HshC3XR0JoGwPzDYU
-	G8GANvvp5HG47LeWClYFqM6jmYIdyZ46ppLG8Uv5o/5PbBNUiEc2Eocx8BOtwuF2ZuhW3ayZ4gzdC
-	fUsl2z1f+yZP0p52dNTWv8P39DAjbC2mMla5BnrkvjufcqtGaY6Jb45BF9KSvzfFGiJY9JKW55PHH
-	Ai+BEWhqxAEDF01OWdC+CPn544fUNNpgxxlTJ1Wn92JpiPdI7FNLqx4BPbDmOe5XWp5Dz0yrA66cI
-	uGRyp22g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=piu/ELttB5B4rcmITuyiu30097U8d6hZCvvS1wtQJFY=; b=cRc9oQwPdORt/z
+	2yxpJfQDHjDLF08q4zYB7Ntm7R3NYpW/11nEEHPp2JxaH8XB+sXVRrvad8zxiM2kTScLIEqtIh23K
+	AtgRX0BGVM8wUfV1c6nSiJSfjHsmPWKyitLtiD7rlvIPSEpm5C66nFHkxWbPA/KdaYcJ9Xb3OKBGj
+	gjloV2aDX7OpPEHmP8UCuEI3iacrD3dWGA+AG+2NtwxB6na2EMtu7ocnA4F8+B0EtPUR6EnRze2Vr
+	0Jzbzfvskn8yuFyHxq9eo5dlBUWm+/m/FH+99hvmKL3z53+zWLJxxdNeeJN/MhIbmcv3IiXVddGCB
+	MT5+XqcAzVyU2XlfSS5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7lA-00000008EbZ-23FL;
-	Tue, 10 Jun 2025 22:48:00 +0000
-Received: from mail-vs1-xe2b.google.com ([2607:f8b0:4864:20::e2b])
+	id 1uP7l6-00000008EYU-0gXf;
+	Tue, 10 Jun 2025 22:47:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1yD-00000007UcB-3emz;
-	Tue, 10 Jun 2025 16:37:06 +0000
-Received: by mail-vs1-xe2b.google.com with SMTP id ada2fe7eead31-4e5aa697e7eso4351137.1;
-        Tue, 10 Jun 2025 09:37:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749573423; x=1750178223; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+nqEkPlu56izKVRCcBxWQQRBgYviwPk2wR3cGWZ9+hA=;
-        b=Hv9CZEx51+4Lao4WiFFUOcGWxgEN3oXPiLWW0rGhywDY/RXjqCQT7goYDS8EjxMSn9
-         DK/TxlqU8Rkh+rJPVj/ZtkJK0EyU9w9S5cvKkFAvf6JkUmyM8H8jKOT8cGCj2cuZX7jL
-         5rWr+TwCqfj5dPWSk/Lzb0nglm8L6JmO3uLeFZIcqVmigeIO2xms8PDfOYemCud7vUBq
-         Y8NsyUy2LRf5XLiLj2+KVIu0eR0P20h4PbHKYDdLwAasyZ6nTTfajuTbRB/pymxE/kdC
-         SQH5te5Kj2a9dpjo/Y5Lq1mxrwOdggd3DV084tBTaZk7cNdr8zOy5wLdZZCZG6VpHERL
-         l0Hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749573423; x=1750178223;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+nqEkPlu56izKVRCcBxWQQRBgYviwPk2wR3cGWZ9+hA=;
-        b=R1NFszrEOZDKN6OzQ1D2oIPuDXmvxqv5ZcSToUt/GywgctL106vYctXf9eQHPU8OrV
-         ArB69x3XvhrfstIhLzJnRCyKx4fi2DSCDfJ13gLjI5oJJNTerOWimeeQltYJimh3TQAP
-         orPu5IOPn9p+iFY6pK5bp3OxbOidr6Bc5TeCpbDacsjGw4qd3mXEgoCuxfxnahcarZU7
-         W7qyLDQV05oQuh0yuSXZrhQzzIsoiM+FpV/yE+mdxz9KxqkiWXyN3c0r8UIapEOPiN7S
-         oE348t1ED2JqQfATi735dnhIzkYnqisMA3fPOe12u8oX7h31XkIow/Am3ZpaCYpOclyo
-         yJDw==
-X-Forwarded-Encrypted: i=1; AJvYcCXzlqFzWuywgr9UjjSP44sHZKjmqOLbK+JJNtsmD+9AFT/Q1ioaIjrwDVdVj8hwsFqAxhUZ3MNLe+nL0WXx7or1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnUF+ZTxS3WkvTzLAVBUBUj9d+OPWKumLn/YIOrSiXC3Qk/J3T
-	UwuZAWdlDf/DbwvkmNywwUBaQUZuoO8APbx509D8PCqKfdSqa841xOSsMAYuaRQ1
-X-Gm-Gg: ASbGnctashymkVtu0MyENPKiG9h8tcifpzCMam+dI8HJWhCbx2Ot5sp0HZJFzrpccKK
-	9prvEJfH3u/YWlD4eU0It1jpTS1cH9hiW1lmbCw/2wYVg2UDc35nT7utz0+zNQAs1GZmzlgPd3i
-	kP+NdO+awwzjx+lIy2ScSP+aLKDOfK+P5hb7VOojHr0hvaUCjs05GY109iBRSlx3Wd8dx35siDn
-	+SJZ8ou+JeLgJjfOmFg4PNI2aU2C/Uk13A0QBnU9+CXW8CTt9CdPgMyWm2KDhve3ZtqaxbGo6An
-	kToCZI9WfZqaMqa+Py4M1wtboa3SQ5xyXMpfE81xNa7HfnltG/Tom3XHY6uj
-X-Google-Smtp-Source: AGHT+IGEWQ9kp7g1IHALe6XyZa16xeumaOw/ktccGJAoVzbIN5nr7Lb+92+/jcCF/Cfok6IL1EUV+Q==
-X-Received: by 2002:a05:6102:f9f:b0:4c5:2c3e:3841 with SMTP id ada2fe7eead31-4e7ba629798mr145476137.5.1749573423174;
-        Tue, 10 Jun 2025 09:37:03 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:5a56::dead:c001])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4e7b5c7421esm801753137.13.2025.06.10.09.36.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 09:37:02 -0700 (PDT)
-Date: Tue, 10 Jun 2025 13:36:52 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Hugh Cole-Baker <sigmaris@gmail.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 0/2] PCI: rockchip-host: Support quirky devices
-Message-ID: <cover.1749572238.git.geraldogabriel@gmail.com>
+	id 1uP1Ye-00000007QmW-3Izd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 16:10:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E68825C41C8;
+	Tue, 10 Jun 2025 16:08:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3F741C4CEED;
+	Tue, 10 Jun 2025 16:10:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749571839;
+	bh=G6G21+hjtH2bOLL4/jVWPD0fGJK8bLCuFpdREfk6nLY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=O5/9TmYSjJU98jFm0Hr5jzKvMsR34UKTRzurHNRgQBuLfAf7E2dJkedoW3KLLvV6x
+	 TpCZQQ5twrq6JCGod5u1/OPwRkwRFoC6rw52t+wg9Xki0A+Xplhf4FEDuJwE4/7APF
+	 ab2tiW34uoU9MqmHd3eJbtUnUa8vpfODrvPQK6mSSAg5IhiPpIaYhvQVubPS4wrCXu
+	 citu/41eVkSbDgfjSreKjNDWPH75EieKNObFTZ8VSkBUfMOjbx4CXbUCR4tQewUv6B
+	 LCxDDThyeMEmB0QS6aK3QB5KERDwLgm/fCs20gZM+jflXsfkHfeg9DLtz9HELBTDVF
+	 jL6P0kvs+rg/g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 353DBC5B543;
+	Tue, 10 Jun 2025 16:10:39 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Subject: [PATCH v7 00/10] Apple Mac System Management Controller
+Date: Tue, 10 Jun 2025 15:29:41 +0000
+Message-Id: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGVPSGgC/23MQQ6CMBCF4auYrq2ZQqeAK+9hXNB2Kl0IpCWNh
+ nB3Cy4kxuWbzPfPLFLwFNn5MLNAyUc/9HlUxwMzXdvfiXubNyugQChB8vgwXHGB3AFZJRoqhZU
+ sv4+BnH9uqest787HaQivrZzkev1EcuYbSZIDRwDdaIVSOXOJifqRJgonS4mtoYQ7LMQOY8YOm
+ xq01aLW9h9We4w7rDI2stKCnNTQ0i9eluUNRgkYQh4BAAA=
+X-Change-ID: 20250304-smc-6-15-f0ed619e31d4
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>, 
+ Lee Jones <lee@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6948; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=G6G21+hjtH2bOLL4/jVWPD0fGJK8bLCuFpdREfk6nLY=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ4aHf0FJdtfeqBvX28XU5QL+651omvHsbNX/I3P/xFZaM
+ 780PFfSUcrCIMbBICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZjIxUsM/0yKbl/d8an3p3rL
+ 5CcJLXWqNj+XL4pw+xfbf3yDpueqeWsYGTpexL9982FZLH/6F3Emp4MtUwrbNd8U3jbKnKD357t
+ yKhMA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_093705_907983_907A3553 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20250610_091040_923579_51C1BBC1 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,31 +99,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+Hi,
 
-while I understand there are lots of already-working PCIe devices
-on RK3399 there are also many quirky devices which fail link
-training and refuse to enumerate. This RFC series is meant to
-alleviate this problem and has been tested on my Rock Pi N10.
+This series adds support for the System Management Controller found in
+Apple Silicon devices which we model as a mfd. It also includes support
+for the GPIO block and the power/reset block as sub-devices.
 
-Note that with these patches, link will train for quirky devices
-but with Gen1 only and only one lane (x1). I have separate patches
-for improving to Gen2 and all four lanes (x4). They don't depend on
-this fix however and since I predict the present patches are bound
-to be controversial, I decided to send the quality improvements
-separately.
+Changes between v6 and v7:
+  - Rebased on 6.16-rc1
+  - Dropped mfd- prefix from the macsmc driver name
+  - Removed the check if the MBSE key exists in the reboot driver since
+    we can rely on the device tree now
+  - Changed my mail address to kernel.org
 
-Hopefully this time the series will be threaded. Thanks Heiko!
+Changes between v5 and v6:
+  - Actually reorder struct members this time, start comments with an
+    uppercase letter, and use devm_ for mfd_register_devices instead of
+    dropping those fixup commits by accident
+  - Stefan's comment: Renamed ret to bfr in the reboot driver
+  - Sebastian's comments on the reboot driver:
+    - Moved Kconfig dependencies to MFD device and made reboot only
+      depend on that one
+    - Removed sysfs file to configure "reboot after power loss" for now
+      since this probably belongs in a userspace tool that directly
+      writes to nvmem instead
+    - Dropped setting pdev->dev.of_node since that's already done
+      automatically and adjusted #include to linux/mod_devicetable.h
+    - Dropped MODULE_ALIAS which was probably a leftover from a previous
+      version that did not use of_match_table
+  - Rob's comments to the dt-bindings
+    - Removed examples from sub-devices and added them to the main smc
+      binding
+    - Removed a spurious |
 
-Geraldo Nascimento (2):
-  PCI: rockchip-host: Retry link training on failure without PERST#
-  arm64: dts: rockchip: drop PCIe 3v3 always-on and boot-on
+Changes between v4 and v5:
+  - Alyssa's comments:
+    - Made the WARN_ON in the reboot driver more obvious
+    - Added missing brackets around a for loop in the reboot driver
+    - Used min instead of open-coded variant inside the gpio driver
+    - Reoder struct memebers to prevent padding inside the mfd driver
+  - Lee's comments:
+    - All comments now start with an uppercase letter
+    - Removed apple_smc_read_ioft_scaled and apple_smc_read_f32_scaled
+      since these are not yet used and likely don't belong into
+      drivers/mfd
+    - Relaced if (ret != 0) with if (ret) when possible
+    - Used devm_platform_get_and_ioremap_resource to get and map the
+      SRAM resource
+    - Used reverse Christmas-tree formating when declaring variables
+    - Dropped _platform left-overs from probe and remove functions
+    - Removed dev_dbg prints which are no long required after
+      development
+    - Reworked is_alive/is_initialized so that it's obvious how errors
+      during boot are propagated from the callback to the probe function
+    - Used dev_warn instead of dev_err in a few places
+    - Removed no-op apple_smc_rtkit_shmem_destroy; this required an
+      additional change in rtkit.c because we had a check there that's a
+      bit too strict
+    - Removed struct resource in apple_smc_rtkit_shmem_setup and
+      open-coded resource_contains instead
+    - Unwrapped lines with less than 100 chars
+    - Made sure to compile with W=1 and ran scripts/kernel-doc -v
+      on macsmc.h once and fixed any fallout
+  - Removed first_key/last_key from struct smc and moved
+    apple_smc_find_first_key_index to the gpio driver since it's only
+    used there anyway to find the index of the first GPIO key (gP00)
+  - Return -EIO when a command fails instead of whatever SMC returns
+    which does not map to Linux errnos on errors
 
- .../dts/rockchip/rk3399pro-vmarc-som.dtsi     |   2 -
- drivers/pci/controller/pcie-rockchip-host.c   | 141 +++++++++++-------
- 2 files changed, 87 insertions(+), 56 deletions(-)
+Changes between v3 and v4:
+  - Added documentation for all functions and structs
+  - Fixed dt-bindings and re-ordered commits so that the mfd one comes
+    last and can include the gpio subdevice
+  - Added the reset driver and corresponding bindings
+  - Reworked the atomic mode inside SMC since the previous implementation
+    called mutex_lock from atomic context
+  - Removed the backend split for now which lead to a quite intense discussion
+    for the previous versions which hadn't been solved as far as I could tell
+    from the old threads.
+    It's also been 2+ years and I haven't heard of any backend implementation
+    for T2 or even older macs. It's also unclear to me which sub-devices
+    are actually useful there because at least GPIO and shutdown/reboot
+    from this series will not work as-is there.
+    I'd rather have this initial version which only supports M1+ macs upstream
+    and then iterate there if any other backend is developed.
+    I'll gladly help to re-introduce backend support if it's ever required.
 
+v6: https://lore.kernel.org/asahi/20250515-smc-6-15-v6-0-c47b1ef4b0ae@svenpeter.dev/
+v5: https://lore.kernel.org/asahi/20250511-smc-6-15-v5-0-f5980bdb18bd@svenpeter.dev/
+v4: https://lore.kernel.org/asahi/20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev/
+v3: https://lore.kernel.org/asahi/Y2qEpgIdpRTzTQbN@shell.armlinux.org.uk/
+v2: https://lore.kernel.org/asahi/YxdInl2qzQWM+3bs@shell.armlinux.org.uk/
+v1: https://lore.kernel.org/asahi/YxC5eZjGgd8xguDr@shell.armlinux.org.uk/
+
+Best,
+
+Sven
+
+---
+Hector Martin (5):
+      gpio: Add new gpio-macsmc driver for Apple Macs
+      power: reset: macsmc-reboot: Add driver for rebooting via Apple SMC
+      arm64: dts: apple: t8103: Add SMC node
+      arm64: dts: apple: t8112: Add SMC node
+      arm64: dts: apple: t600x: Add SMC node
+
+Russell King (Oracle) (2):
+      dt-bindings: gpio: Add Apple Mac SMC GPIO block
+      dt-bindings: mfd: Add Apple Mac System Management Controller
+
+Sven Peter (3):
+      dt-bindings: power: reboot: Add Apple Mac SMC Reboot Controller
+      soc: apple: rtkit: Make shmem_destroy optional
+      mfd: Add Apple Silicon System Management Controller
+
+ .../devicetree/bindings/gpio/apple,smc-gpio.yaml   |  29 ++
+ .../devicetree/bindings/mfd/apple,smc.yaml         |  79 ++++
+ .../bindings/power/reset/apple,smc-reboot.yaml     |  40 ++
+ MAINTAINERS                                        |   7 +
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi          |  35 ++
+ arch/arm64/boot/dts/apple/t8103.dtsi               |  35 ++
+ arch/arm64/boot/dts/apple/t8112.dtsi               |  35 ++
+ drivers/gpio/Kconfig                               |  10 +
+ drivers/gpio/Makefile                              |   1 +
+ drivers/gpio/gpio-macsmc.c                         | 292 ++++++++++++
+ drivers/mfd/Kconfig                                |  18 +
+ drivers/mfd/Makefile                               |   1 +
+ drivers/mfd/macsmc.c                               | 498 +++++++++++++++++++++
+ drivers/power/reset/Kconfig                        |   9 +
+ drivers/power/reset/Makefile                       |   1 +
+ drivers/power/reset/macsmc-reboot.c                | 290 ++++++++++++
+ drivers/soc/apple/rtkit.c                          |   3 +-
+ include/linux/mfd/macsmc.h                         | 279 ++++++++++++
+ 18 files changed, 1660 insertions(+), 2 deletions(-)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250304-smc-6-15-f0ed619e31d4
+
+Best regards,
 -- 
-2.49.0
+Sven Peter <sven@kernel.org>
+
 
 
