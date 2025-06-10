@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 970B8C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B47B6C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=An5BHMSguICzNlyBknbxbkf1RrY6Okbh2wp4lov0GxY=; b=ZWogK5LXEF/fwWOS8EjVHLALXW
-	PTV2yy5vJ5Az65O2BdRGO3jWemU/Gxg5NAH5FWshHo5sYNblb1jc8RzGHvqYEzBOPvfnmsMM4PYNM
-	nznBn3qwoZltJ6JmDuZzOajhPv5F60JCq3mEOXMo/Y74vQabfs9Wk0D8zMa34gB53Yz5k/TVPsHnL
-	AHcw1Q/a8DlBz9lC/y920FsJJo2pmt1b9vLM63aQujkjJ3kdfd+ekptEjAtXo3beXDgD5gnglKGXD
-	XBb0FRbt8C19n31X2ePA0kOYGoBArWbEe80THc/nEU+8aSf00DuHmgMbR6iL3HRUDlY17AGI69soA
-	J+axTD+w==;
+	bh=nXVFlNAu7TNMAT//O6y0hQEyMgUscesBjEFDmPn96Ts=; b=Ocv4yEi9XL2wd6hNYyGe3gFSHg
+	ZHSBt+aMs5o1VIsRH6H1cd5tpRipziqBD4EUiIpaS4GalZvQjtXAREDxgdlNUBP8LChzG6+zZxAOO
+	86K/wPiD1+LyrdL6emQord0tAl1CkUmEAFo3YSGFdb2J7Mu/rX3R7R78Xhu62FyJSHV4MUp6pAK1q
+	96ktKb3MKzNAM8KU36dPTUR8dzqc39LNh+LmNgKepazfBTOnTVT+SiWW5MtnptAgTTmpQ5aDICTfp
+	kiJBElDnhrytw8DTeG8ZiqWRqtdAX+1tLhcXQQk1KcIHKbTJ8HbEWSdVNaskeeD9Vzs+s35mQhwri
+	1DS8kAfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2NS-00000007Z12-0Xyd;
-	Tue, 10 Jun 2025 17:03:10 +0000
+	id 1uP2PX-00000007ZQt-3WPG;
+	Tue, 10 Jun 2025 17:05:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzVp-000000073xs-2bzJ
+	id 1uOzWC-0000000740r-2ri4
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 13:59:37 +0000
+	Tue, 10 Jun 2025 14:00:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=An5BHMSguICzNlyBknbxbkf1RrY6Okbh2wp4lov0GxY=; b=dnCiCfOMYy7FawM73Ke52d86AB
-	p2YUmpD+4B2gqIkDlApuOf/Dvn61OsKLoGghh2IiRQpEWd47PoIrC1+Ec0BgPz6/zLZreDOospLZU
-	4+uoq5UqZyInZdet/WDGcWtjZdpGQMDtm/LHpWY5ckuoKd95NAkYHDSLaaL/Apo//goRjMCO2390+
-	gS/rMhqZCLz1rEwQ5oTbOvcCzQQLChyE2KGz8uuBIQYzXWlpLHsk3zrJJFhWIUMeqNqCiE5K4qaqx
-	PbfqLHMZcobmO4SGxYvNEkD0N3mYaTkf+zeG+or+prKaV78IDiyYBo2gMD8GfT3encCJrowJftD7Q
-	bPn60IHQ==;
+	bh=nXVFlNAu7TNMAT//O6y0hQEyMgUscesBjEFDmPn96Ts=; b=VwYOd0D3iiJzgBT6qoHhWittBR
+	tB3t1iX4HVrlUDCm1wZn4GejC8un6qGXDtL3rDuw2Jc84WIyarkjXd4fwurznKP26PBaNYEVBR6iC
+	HQXjypVVEELx/7ySU/wDjlPumP1sTfPYhaKLcWYYJghSkl6z/s3rv8+oxNp4EzIiUcSCUo+rZQVMo
+	jBJE1K6F+3IRtRIvVlw++WGE6RwGSoX9eeIyWeWaoihfwNNKaFQ7W46qEYUP3LptFgnfmY8VcqeXM
+	dpWUiNO1pZ5vN4xSXQQWOTYxyQPNlMiH0+dV8lK9mDjZF49SXDXB2f2aub3yeaXmEmc7KGQkdj3Cy
+	moa8IoMQ==;
 Received: from server.couthit.com ([162.240.164.96])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzVn-00000001qyR-0ppq
+	id 1uOzWA-00000001r02-2Mv7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 13:59:37 +0000
+	Tue, 10 Jun 2025 14:00:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
 	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=An5BHMSguICzNlyBknbxbkf1RrY6Okbh2wp4lov0GxY=; b=gTSD3TifbQvUl7OSUftE5wrETy
-	nw/mq6k8kygEPIYHLjTjIx3Fa2/QfEahJWqJw6egq9dBlZ3neqCDYdyjSkb0f2ClF7reoUjmqOG19
-	S0LqFC3FQUyEYwI5HuUEvIeIsZrtn9M7PSSnizNfZcYyN4/oKB0AZYKvwUX8L4vd9OFOyyBZ2QXE+
-	4dqKX1ruNa/jtxNHeCJY7uGTIJiS46Yn7wsTAHpaSNFpY+XBgMH8ycU0eWRkPBSL+05Is8RPadN71
-	W42DUy85pOFB2wV4pcC3LvuB7ZvMvpthY6UpOnpBi9uKdky3TS6B63xHZC7Pbdeb42FYsc8Y/dLZT
-	pJpqDzCA==;
+	bh=nXVFlNAu7TNMAT//O6y0hQEyMgUscesBjEFDmPn96Ts=; b=WZFuKSBcTypsnxz4+Hq0ABDHXm
+	gyq2wunk7ZwsDbTF/xfI8rHs5lMYe+y0dd4kxv5NO7fWwq66zb1uZ35EIGr0U0GTU7eVREXQksqKV
+	kEVz3nrigdBRvfmZZSMNRtFHzE+LHgSdGwAtIg7+ktiTG/C4FsNiV6OtrsRkYm0avWwMXAl+yEhfk
+	un2B6XfQCl4aGEtKJqrxkDXwjMcQDkfnEmY7oC3D7DYSLixm+tXXQeCbv6R+PGObHcky1VpDPKEM5
+	keIHgylfjGEcl0caQrM9eNhCkhyIlBMRWesuQcaQxoRDkXj0Rs/d2hqsiicHCZHeQ/5S4UHWlJH46
+	X4uRLJkw==;
 Received: from [122.175.9.182] (port=48210 helo=cypher.couthit.local)
 	by server.couthit.com with esmtpa (Exim 4.98.1)
 	(envelope-from <parvathi@couthit.com>)
-	id 1uOzVg-0000000AXuj-1x5n;
-	Tue, 10 Jun 2025 09:59:28 -0400
+	id 1uOzW4-0000000AXuj-29B4;
+	Tue, 10 Jun 2025 09:59:53 -0400
 From: Parvathi Pudi <parvathi@couthit.com>
 To: danishanwar@ti.com,
 	rogerq@kernel.org,
@@ -98,9 +98,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	krishna@couthit.com,
 	pmohan@couthit.com,
 	mohan@couthit.com
-Subject: [PATCH net-next v8 09/11] net: ti: prueth: Adds power management support for PRU-ICSS
-Date: Tue, 10 Jun 2025 19:28:23 +0530
-Message-Id: <20250610135825.3369156-10-parvathi@couthit.com>
+Subject: [PATCH net-next v8 10/11] net: ti: prueth: Adds support for PRUETH on AM33x and AM43x SOCs
+Date: Tue, 10 Jun 2025 19:28:24 +0530
+Message-Id: <20250610135825.3369156-11-parvathi@couthit.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250610105721.3063503-1-parvathi@couthit.com>
 References: <20250610105721.3063503-1-parvathi@couthit.com>
@@ -117,8 +117,9 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_145935_480087_F9DCB139 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250610_145958_939926_B3CF3B52 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,95 +136,157 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Roger Quadros <rogerq@ti.com>
 
-Changes for supporting the sleep/resume feature for PRU-ICSS.
+Adds support for AM335x and AM437x datasets. Dual-EMAC and Switch mode
+firmware elf file to switch between protocols at run time.
 
-PRU-ICSS will be kept in IDLE mode for optimal power consumption by Linux
-power management subsystem and will be resumed when it is required.
+Added API hooks for IEP module (legacy 32-bit model) to support
+timestamping requests from application.
 
 Signed-off-by: Roger Quadros <rogerq@ti.com>
 Signed-off-by: Andrew F. Davis <afd@ti.com>
 Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
 Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
 ---
- drivers/net/ethernet/ti/icssm/icssm_prueth.c | 58 ++++++++++++++++++++
- 1 file changed, 58 insertions(+)
+ drivers/net/ethernet/ti/icssg/icss_iep.c     | 61 ++++++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c | 32 ++++++++++
+ 2 files changed, 93 insertions(+)
 
+diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
+index 031a6be6a4e3..d0850722814e 100644
+--- a/drivers/net/ethernet/ti/icssg/icss_iep.c
++++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
+@@ -1006,6 +1006,59 @@ static const struct icss_iep_plat_data am57xx_icss_iep_plat_data = {
+ 	.config = &am654_icss_iep_regmap_config,
+ };
+ 
++static bool am335x_icss_iep_valid_reg(struct device *dev, unsigned int reg)
++{
++	switch (reg) {
++	case ICSS_IEP_GLOBAL_CFG_REG ... ICSS_IEP_CAPTURE_STAT_REG:
++	case ICSS_IEP_CAP6_RISE_REG0:
++	case ICSS_IEP_CMP_CFG_REG ... ICSS_IEP_CMP0_REG0:
++	case ICSS_IEP_CMP8_REG0 ... ICSS_IEP_SYNC_START_REG:
++		return true;
++	default:
++		return false;
++	}
++
++	return false;
++}
++
++static const struct regmap_config am335x_icss_iep_regmap_config = {
++	.name = "icss iep",
++	.reg_stride = 1,
++	.reg_write = icss_iep_regmap_write,
++	.reg_read = icss_iep_regmap_read,
++	.writeable_reg = am335x_icss_iep_valid_reg,
++	.readable_reg = am335x_icss_iep_valid_reg,
++};
++
++static const struct icss_iep_plat_data am335x_icss_iep_plat_data = {
++	.flags = 0,
++	.reg_offs = {
++		[ICSS_IEP_GLOBAL_CFG_REG] = 0x00,
++		[ICSS_IEP_COMPEN_REG] = 0x08,
++		[ICSS_IEP_COUNT_REG0] = 0x0C,
++		[ICSS_IEP_CAPTURE_CFG_REG] = 0x10,
++		[ICSS_IEP_CAPTURE_STAT_REG] = 0x14,
++
++		[ICSS_IEP_CAP6_RISE_REG0] = 0x30,
++
++		[ICSS_IEP_CAP7_RISE_REG0] = 0x38,
++
++		[ICSS_IEP_CMP_CFG_REG] = 0x40,
++		[ICSS_IEP_CMP_STAT_REG] = 0x44,
++		[ICSS_IEP_CMP0_REG0] = 0x48,
++
++		[ICSS_IEP_CMP8_REG0] = 0x88,
++		[ICSS_IEP_SYNC_CTRL_REG] = 0x100,
++		[ICSS_IEP_SYNC0_STAT_REG] = 0x108,
++		[ICSS_IEP_SYNC1_STAT_REG] = 0x10C,
++		[ICSS_IEP_SYNC_PWIDTH_REG] = 0x110,
++		[ICSS_IEP_SYNC0_PERIOD_REG] = 0x114,
++		[ICSS_IEP_SYNC1_DELAY_REG] = 0x118,
++		[ICSS_IEP_SYNC_START_REG] = 0x11C,
++	},
++	.config = &am335x_icss_iep_regmap_config,
++};
++
+ static const struct of_device_id icss_iep_of_match[] = {
+ 	{
+ 		.compatible = "ti,am654-icss-iep",
+@@ -1015,6 +1068,14 @@ static const struct of_device_id icss_iep_of_match[] = {
+ 		.compatible = "ti,am5728-icss-iep",
+ 		.data = &am57xx_icss_iep_plat_data,
+ 	},
++	{
++		.compatible = "ti,am3356-icss-iep",
++		.data = &am335x_icss_iep_plat_data,
++	},
++	{
++		.compatible = "ti,am4376-icss-iep",
++		.data = &am335x_icss_iep_plat_data,
++	},
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, icss_iep_of_match);
 diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 03a0e18ad613..0df8631add83 100644
+index 0df8631add83..8ec0a09a4fce 100644
 --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
 +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -2328,6 +2328,63 @@ static void icssm_prueth_remove(struct platform_device *pdev)
- 		pru_rproc_put(prueth->pru1);
- }
+@@ -2142,6 +2142,10 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 	}
  
-+#ifdef CONFIG_PM_SLEEP
-+static int icssm_prueth_suspend(struct device *dev)
-+{
-+	struct prueth *prueth = dev_get_drvdata(dev);
-+	struct net_device *ndev;
-+	int i, ret;
+ 	prueth->ocmc_ram_size = OCMC_RAM_SIZE;
++	/* Decreased by 8KB to address the reserved region for AM33x */
++	if (prueth->fw_data->driver_data == PRUSS_AM33XX)
++		prueth->ocmc_ram_size = (SZ_64K - SZ_8K);
 +
-+	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-+		ndev = prueth->registered_netdevs[i];
+ 	prueth->mem[PRUETH_MEM_OCMC].va =
+ 			(void __iomem *)gen_pool_alloc(prueth->sram_pool,
+ 						       prueth->ocmc_ram_size);
+@@ -2385,6 +2389,32 @@ static const struct dev_pm_ops prueth_dev_pm_ops = {
+ 	SET_SYSTEM_SLEEP_PM_OPS(icssm_prueth_suspend, icssm_prueth_resume)
+ };
+ 
++/* AM335x SoC-specific firmware data */
++static struct prueth_private_data am335x_prueth_pdata = {
++	.driver_data = PRUSS_AM33XX,
++	.fw_pru[PRUSS_PRU0] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am335x-pru0-prueth-fw.elf",
++	},
++	.fw_pru[PRUSS_PRU1] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am335x-pru1-prueth-fw.elf",
++	},
++};
 +
-+		if (!ndev)
-+			continue;
-+
-+		if (netif_running(ndev)) {
-+			netif_device_detach(ndev);
-+			ret = icssm_emac_ndo_stop(ndev);
-+			if (ret < 0) {
-+				netdev_err(ndev, "failed to stop: %d", ret);
-+				return ret;
-+			}
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int icssm_prueth_resume(struct device *dev)
-+{
-+	struct prueth *prueth = dev_get_drvdata(dev);
-+	struct net_device *ndev;
-+	int i, ret;
-+
-+	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-+		ndev = prueth->registered_netdevs[i];
-+
-+		if (!ndev)
-+			continue;
-+
-+		if (netif_running(ndev)) {
-+			ret = icssm_emac_ndo_open(ndev);
-+			if (ret < 0) {
-+				netdev_err(ndev, "failed to start: %d", ret);
-+				return ret;
-+			}
-+			netif_device_attach(ndev);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+#endif /* CONFIG_PM_SLEEP */
-+
-+static const struct dev_pm_ops prueth_dev_pm_ops = {
-+	SET_SYSTEM_SLEEP_PM_OPS(icssm_prueth_suspend, icssm_prueth_resume)
++/* AM437x SoC-specific firmware data */
++static struct prueth_private_data am437x_prueth_pdata = {
++	.driver_data = PRUSS_AM43XX,
++	.fw_pru[PRUSS_PRU0] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am437x-pru0-prueth-fw.elf",
++	},
++	.fw_pru[PRUSS_PRU1] = {
++		.fw_name[PRUSS_ETHTYPE_EMAC] =
++			"ti-pruss/am437x-pru1-prueth-fw.elf",
++	},
 +};
 +
  /* AM57xx SoC-specific firmware data */
  static struct prueth_private_data am57xx_prueth_pdata = {
  	.driver_data = PRUSS_AM57XX,
-@@ -2353,6 +2410,7 @@ static struct platform_driver prueth_driver = {
- 	.driver = {
- 		.name = "prueth",
- 		.of_match_table = prueth_dt_match,
-+		.pm = &prueth_dev_pm_ops,
- 	},
+@@ -2400,6 +2430,8 @@ static struct prueth_private_data am57xx_prueth_pdata = {
+ 
+ static const struct of_device_id prueth_dt_match[] = {
+ 	{ .compatible = "ti,am57-prueth", .data = &am57xx_prueth_pdata, },
++	{ .compatible = "ti,am4376-prueth", .data = &am437x_prueth_pdata, },
++	{ .compatible = "ti,am3359-prueth", .data = &am335x_prueth_pdata, },
+ 	{ /* sentinel */ }
  };
- module_platform_driver(prueth_driver);
+ MODULE_DEVICE_TABLE(of, prueth_dt_match);
 -- 
 2.34.1
 
