@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116B4C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8E5C678DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lXimT891c1SD4e/coc/t6TXoaM99Pwhsz+eumaac4E=; b=iv55D2OiUpbHPPvVt+T/y/DnBg
-	hTedSpN7qCK/cddcCbo7VR2zbXi2xHRlDVPloajBas7NquMuyY8NrvtRF1k/By/Thsry26Nf2zsgU
-	6uRih+7JO173OGEGBBWlG1/2ySbBgQE3DdNxS91CF6M+MhvLR0IGpKmxBrcBq3zfbk2lxnJI8AWXA
-	7/LZdampS1RJhkaMO161ji/FckOKyshX70/WTh9iQDuMZHDvDGE88Hccx7xfilc+V4xOqR/S+wF4S
-	29ZEVNNnrqtgiHlII3aNqaSCv1XH1drqrgCP8Bb0BIpunsGtqGrjN94UBdnzsbd7jPnQjmlRwrA1D
-	F4CeKhDA==;
+	bh=7R6BzjbS1Abdvfjd8RJt0NOfGc78Xao1EMMZS/CvEMc=; b=hNuTA9/DmgQH9WFrSftQkOc6wR
+	IkIDCmpmMaDbY4abZ7a3QMp1WxZjfoy+N/XmObG7DPmbnQp0OdJIOyDvJ5SlNB4QAzeNOiTbLxcMs
+	5OolyVolTnteYWJQ5wtTdGItv42PvhLIP4RjuTloPa1dazsAxazYaqbDbZ2+d78643k7pOroiw6Vw
+	/X6i0o7cT8uW/ZK7ZvmFwzdq5lCTMwDcSzv3Yv1WDeZdfCB3LUyWMAMtU7Q1uFeZxgEY5MWuct9cl
+	hgr8W8AxkinoOihybuAXKASokHccVw33YBk16V7gaqSriI8Vgencj98Oz7J87onNXt3uvj4At8b6g
+	NZfvx1sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7lU-00000008F9b-13be;
-	Tue, 10 Jun 2025 22:48:20 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
+	id 1uP7lW-00000008FDz-3T6z;
+	Tue, 10 Jun 2025 22:48:22 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP36m-00000007hO6-2lvR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 17:50:02 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 92749C0000D0;
-	Tue, 10 Jun 2025 10:49:58 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 92749C0000D0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1749577798;
-	bh=pU2TVlS9NicsYGkGcp7LE0teQgsE61GXl4hYMMJ+Hso=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AkXZAxeSTF7vkZR2y2qGfiH1/j1xhYv3XH6G6PCpaiOwgXhtvDdLNNarmnqkvPYcP
-	 5R4IvqyCX/R0/DS/36bP4NMWzORddlzJQxxSWVeQDyGXkF5wfh818a09O1OkI75v/6
-	 kBXBqw7waXQTwL5EPZyrN+BHjYldOFEOsPatHggw=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	id 1uP3ZM-00000007mZ5-1kaD;
+	Tue, 10 Jun 2025 18:19:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1749579569;
+	bh=Sf+/PTs/Lz5YxcSzgeZ6krRCOhaKZUsHSbB6B664SQM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=W1JWv9KpviFteALr6LtWRjuNi/DB62SY7Z7oPEpnHgI/4Lfy85z1VLQ+27tsGhOxY
+	 vRxxj/L5s8IpBFHQuyOPcflvF7qUr87yiWLTk9ezT/TWxhfODcCbJIh34EPjqKGM3h
+	 wrDIld7ZbHxppg0CNIkKJkh2h7ioXurEzICh4rsVOGu8shQgfzrRPxXym+8iqz1Gcc
+	 d6QC7gHCDkaxNsqQggPfMPbkoXAI4w417r4SV+ituO8JQjEynKMllEBoQ9zoLGkfAa
+	 9emBbI3vCLjLtvkCek1B6kkL/ZpMXmcjeoaOoQxGLD1lKy0Wbknxog7jm7VJj9RnSf
+	 g/Y2ednB6sYtw==
+Received: from [172.19.207.65] (unknown [66.205.13.70])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 6DA2018000A5F;
-	Tue, 10 Jun 2025 10:49:58 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: broadcom: northstar2: Drop GIC V2M "interrupt-parent"
-Date: Tue, 10 Jun 2025 10:49:57 -0700
-Message-ID: <20250610174958.3482215-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250609203705.2852500-1-robh@kernel.org>
-References: <20250609203705.2852500-1-robh@kernel.org>
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E891C17E0FAD;
+	Tue, 10 Jun 2025 20:19:09 +0200 (CEST)
+Message-ID: <c666ab1bbc619cbb99fa38b96891a24ca22c9672.camel@collabora.com>
+Subject: Re: [RFC PATCH 00/11] VC8000E H.264 V4L2 Stateless Encoder
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Marco Felsch <m.felsch@pengutronix.de>, benjamin.gaignard@collabora.com,
+ 	p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org, Sascha
+ Hauer	 <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com,
+ 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ paulk@sys-base.io, 	hverkuil@xs4all.nl, laurent.pinchart@ideasonboard.com, 
+	sebastian.fricke@collabora.com, ming.qian@nxp.com
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Date: Tue, 10 Jun 2025 14:19:02 -0400
+In-Reply-To: <20250502150513.4169098-1-m.felsch@pengutronix.de>
+References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
+Organization: Collabora Canada
+Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_105000_726266_1BE336D5 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_111932_616223_E9477443 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+Hi Marco,
 
-On Mon,  9 Jun 2025 15:37:04 -0500, "Rob Herring (Arm)" <robh@kernel.org> wrote:
-> The default interrupt parent is a parent node containing
-> "#interrupt-cells", so an explicit "interrupt-parent" is not necessary.
-> 
-> Fixes these dtschema warnings:
-> 
-> (arm,gic-400): v2m@70000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> (arm,gic-400): v2m@60000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> (arm,gic-400): v2m@50000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> (arm,gic-400): v2m@40000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> (arm,gic-400): v2m@30000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> (arm,gic-400): v2m@20000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> (arm,gic-400): v2m@10000: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> (arm,gic-400): v2m@0: 'interrupt-parent' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
---
-Florian
+Le vendredi 02 mai 2025 à 17:05 +0200, Marco Felsch a écrit
+> 
+> [1] https://github.com/bootlin/linux/tree/hantro/h264-encoding-v5.11
+> [2] https://gitlab.freedesktop.org/dude/gstreamer/-/tree/h264-stateless-encoder
+
+Can you rebase against the upstream work:
+
+https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/5676
+
+A lot of changes Michael made in your branch are already in the upstream MR
+branch. An example, in the upstream version, the src pad (CAPTURE) is already
+being set before the sink pad (OUTPUT).
+
+I'd like to open the discussion about sizes, as I'm writing things down.
+In your modification, you affirm that the encoder must ignore the size
+set on the CAPTURE. At the moment I tend to disagree with this
+interpretation and would like some feedback.
+
+There is couple of different sizes we'll have to support:
+
+1. Allocation sizes
+2. coded size
+3. display size
+
+My believe is that we want to split the size in 1 and 2 since the padding
+added to the allocated size should not affect the amount of bits that will
+be compressed. We should be able to further pad frames without increasing
+the compressed size.
+
+For this, I wanted to mimic the stateless decoders, and define the coded
+size, the one that occupy space in the bitstream and found in the sequence
+headers to match the CATPURE size.
+
+3. does not exists in stateless decoders, since it has no implication
+in the decoding process. This one I'll leave open for now, since its
+only needed if we have to generate some headers in the kernel. We have
+had a lot of discussion toward that, and if so, I will pull in the
+use of S_SELECTION.
+
+regards,
+Nicolas
+
+ 
 
