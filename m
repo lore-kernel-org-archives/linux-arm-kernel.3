@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA7AC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E0BBC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRwS5y+6+ListVV+cfmEY7D708flMTRs7UfPH9JgUtw=; b=RpTDuz/r5hier3kTE7/hz4Z4/G
-	I0zlpBvM/HzVqiy5DrxiWwqlsMPWHJRbLZXfXjRj8GKaw9cgi9RlCzltHLedgz0C28m6CI5NbiQDw
-	EtZXfB9wTrW4N5nDNR48fkamFXp6uosT8w8UAbnv5IWGydfiM6dsfY5kzS2Pq18zYPi4ApEEFiumG
-	etifduBIxMOaDYSYTdmTaKlDU12iXWTv8ylyt6TnpkfcBUk6nWKuw0RFxqaJ41dqKohwU857EO2kf
-	b4H/mJP3DWzrdHzGGVdqzIoqk6HorJvQ1upv3n9dN0WID/Vok9FeoYnyRy9qNkbOQ0LqczKRSyspV
-	UWUspn8A==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Mmod6GyCvN+xKlhUHyHmJv0MBU3r0IJh4g+WMqECjq0=; b=DLK4zb+0L1hXNbJcr0Ay/uXmBu
+	AHV39axcwUr20JjKDvTt1LM4xGQ/2dW+LfT7cdgCQroiElD34gbBLc9Cfb50uX5yTv63+Z9YH69Dj
+	nRLC8LSqPcYFgN7D9FGtpcNmUw4yJXhjx1793HluHKlspZ5NK8gFmSzxrc7IF3AshG/1PacZzJv7W
+	CMv764u5sAxHOjtAeg6hKpasRHskMT/vXi6kuDZVvu6LaNKj93vGUCgoo015yQYiMkui4bXArhNqq
+	qOFUSEJYeTCDznsCNQ6qELs+Dsn2W7uwZXxFyV1uh09p5gAp9Vgsi6jYDAO/BlpmKt9AiFl4GDkoi
+	gOYPPJ9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP3tk-00000007pEn-2dUD;
-	Tue, 10 Jun 2025 18:40:36 +0000
+	id 1uP3vq-00000007pPK-1Yaj;
+	Tue, 10 Jun 2025 18:42:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0qO-00000007IvZ-02rM
+	id 1uP0qP-00000007IwB-2zPb
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 15:24:56 +0000
+	Tue, 10 Jun 2025 15:24:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=iRwS5y+6+ListVV+cfmEY7D708flMTRs7UfPH9JgUtw=; b=I4GM/wNtvFHRzzDuqR8osPlaj4
-	h2Xp2/0HhwrOg3bHdal1AI92P3gEkM69phAIjS9cZ5fqB4/D8uetbztUnEtcX+vd3eqq7vUO+SZdz
-	bg97l5S4L5oxS/UDQh5CfAnmLzxbmFN3N8gUDDgMNCqNpOagWZvidBDbgfxB7FJCJExyJiHp8beMX
-	Ri3wNWTb9fY2Pd0H84LFi3OQauuOnL13im7M+QzmknPLw3bqW2XFE1ItMDm+mp7pO3BFX+v0ukUWS
-	vr7KIHg3INWnE/2Tj+0HanuxDrbGAi+3jRv3I2x6RVCQ33vVU52d8QthJg4+OvEyqtNujt+4Cux9N
-	dc/+Otug==;
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Mmod6GyCvN+xKlhUHyHmJv0MBU3r0IJh4g+WMqECjq0=; b=A7ktVSppS6sIigGvcErojmzdn9
+	StIQmqloN3FxC0zms3ZfuRWYc9I5EuCcgIKdksJjzWw2slXXJFDw2kZ1Gji9TfkEeJW1FpgQjjZ1A
+	3kIeN/vzEa5KqObEtPSoeeWch3sTP63bwamzVS542z7tsEUxfQ5Lv/zcrP7Vzjt7Qz3dzPHmVeE7W
+	sXYYfF9e9GebQjbrYLB1aRFVYui7K1TmMSEX4eVAnFU2yWk/6PIj0SvIcTxwOhd/ZCIp4zChLWuD8
+	eT62QgCrkarocraT1v6qqWkfkNiD/WcIpYAX5qRMppUpqTXEWxSND/wRuVTHqVh4YDuKeSydBrtvO
+	ncL4000A==;
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0qM-00000001tlR-0NZ8
+	id 1uP0qM-00000001tlS-0NQU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:24:55 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55AF2ajh008882;
+	Tue, 10 Jun 2025 15:24:57 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55AEYo1Q005348;
 	Tue, 10 Jun 2025 17:24:45 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	iRwS5y+6+ListVV+cfmEY7D708flMTRs7UfPH9JgUtw=; b=z//Pr8FTUgK5fhQS
-	LDClSELw6xrfVI8qqFOjd5vg1DI0uZJ46O+CNCYz3tnpr6kwqJzm0k6FAFIiGOwc
-	zBxFkYeku5SvKibqNo+KsTUvNwxun9u57aqxYvxnqQp14qRWBQw/16qrjZtxvbfN
-	evlgIOa6602atbj+SgcxV8+zcM5LViVbp23mpAjLmk1KElUyon/HxhBsV/znhXwB
-	M8xvc9aQCun1EYBdqOa2QNjMABmmBT61qOA0M0o8fosClZER4nlqYsjhElXPDIOB
-	vlePucM04lnuuEhAajr8SVFqUR6RO2wXkkw5B6j/cCfbRaVUR78CNQuE5LRBdQWi
-	RMhs5w==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=Mmod6GyCvN+xKlhUHyHmJv
+	0MBU3r0IJh4g+WMqECjq0=; b=TpN4N10TD7/Ta96HeLV3PHeOLQVvVjlxnjEF4Z
+	sUyPyu98fN+cdvqhcpjiUX2r0yiMIrvY08OU6f8qEKcFvWDRWnHzz/c0Z7kCYw7q
+	rxilDs7VK+yG9zU0UVYvKBcqAt+2P6tWbeuR5YyMQPeKIKvNcJfrjn19zmAoAK08
+	O1Jm8q3CgGYZvxwh0FrFIuUyVmtOwTHEmKqrdFMRteYnCd5sE2sZA9b82Luwq/J9
+	js3ZeEjewG43OJ7BQJXYiLPUtFV+6gUSDlgSMm/uw200CTSYqOsayj9CxreZ4p2I
+	eAh4+LZ2fAYt7D7Nuj6WPq96ZvTtWe5A86GWG6FALPnQX5Fg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aume5ng-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cs2nuej-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 10 Jun 2025 17:24:45 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 6114040053;
-	Tue, 10 Jun 2025 17:23:55 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8AA5B4002D;
+	Tue, 10 Jun 2025 17:23:51 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AA782B79BB8;
-	Tue, 10 Jun 2025 17:23:15 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D0B50B79BB7;
+	Tue, 10 Jun 2025 17:23:12 +0200 (CEST)
 Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 17:23:15 +0200
+ 2025 17:23:12 +0200
 From: Antonio Borneo <antonio.borneo@foss.st.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,12 +81,10 @@ CC: Antonio Borneo <antonio.borneo@foss.st.com>,
         Fabien Dessenne <fabien.dessenne@foss.st.com>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>
-Subject: [RESEND PATCH v2 5/5] dt-bindings: pinctrl: stm32: Add missing blank lines
-Date: Tue, 10 Jun 2025 17:23:09 +0200
-Message-ID: <20250610152309.299438-6-antonio.borneo@foss.st.com>
+Subject: [RESEND PATCH v2 0/5] STM32 pinctrl: Add mux function RSVD
+Date: Tue, 10 Jun 2025 17:23:04 +0200
+Message-ID: <20250610152309.299438-1-antonio.borneo@foss.st.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250610152309.299438-1-antonio.borneo@foss.st.com>
-References: <20250610152309.299438-1-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -98,9 +95,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-10_07,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_162454_267251_3CF1B6BC 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_162454_293276_2FF8E3B3 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,90 +111,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Separate the properties through a blank line.
+This v2 is a subset of the v1, split-out to simplify the review.
 
-Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
----
- .../bindings/pinctrl/st,stm32-pinctrl.yaml      | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+This subset:
+- introduces the pinctrl mux function RSVD,
+- adds two use cases requiring RSVD,
+- minor re-format of the dt-bindings.
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-index 5d17d6487ae9c..961161c2ab62b 100644
---- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-@@ -32,13 +32,16 @@ properties:
- 
-   '#address-cells':
-     const: 1
-+
-   '#size-cells':
-     const: 1
- 
-   ranges: true
-+
-   pins-are-numbered:
-     $ref: /schemas/types.yaml#/definitions/flag
-     deprecated: true
-+
-   hwlocks: true
- 
-   interrupts:
-@@ -67,22 +70,29 @@ patternProperties:
-     additionalProperties: false
-     properties:
-       gpio-controller: true
-+
-       '#gpio-cells':
-         const: 2
-+
-       interrupt-controller: true
-       '#interrupt-cells':
-         const: 2
- 
-       reg:
-         maxItems: 1
-+
-       clocks:
-         maxItems: 1
-+
-       resets:
-         maxItems: 1
-+
-       gpio-line-names: true
-+
-       gpio-ranges:
-         minItems: 1
-         maxItems: 16
-+
-       ngpios:
-         description:
-           Number of available gpios in a bank.
-@@ -187,18 +197,25 @@ patternProperties:
- 
-           bias-disable:
-             type: boolean
-+
-           bias-pull-down:
-             type: boolean
-+
-           bias-pull-up:
-             type: boolean
-+
-           drive-push-pull:
-             type: boolean
-+
-           drive-open-drain:
-             type: boolean
-+
-           output-low:
-             type: boolean
-+
-           output-high:
-             type: boolean
-+
-           slew-rate:
-             description: |
-               0: Low speed
+Changes v1 -> v2 subset:
+- rebased on v6.16-rc1,
+- added use cases of the new mux function RSVD,
+- added Reviewed-by: on 2/5 (former 04/14 in v1),
+- added commit to re-format the dt-bindings,
+- Link to v1: https://lore.kernel.org/lkml/20241022155658.1647350-1-antonio.borneo@foss.st.com/
+
+
+Antonio Borneo (3):
+  ARM: dts: stm32: Add pinmux for CM4 leds pins
+  ARM: dts: stm32: Add leds for CM4 on stm32mp15xx-ed1 and
+    stm32mp15xx-dkx
+  dt-bindings: pinctrl: stm32: Add missing blank lines
+
+Fabien Dessenne (2):
+  pinctrl: stm32: Handle RSVD pin configuration
+  dt-bindings: pinctrl: stm32: Add RSVD mux function
+
+ .../bindings/pinctrl/st,stm32-pinctrl.yaml    | 25 +++++++++++++++++++
+ arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi   | 14 +++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-ed1.dts      |  2 ++
+ arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi     |  2 ++
+ drivers/pinctrl/stm32/pinctrl-stm32.c         |  9 +++++++
+ drivers/pinctrl/stm32/pinctrl-stm32.h         |  3 ++-
+ include/dt-bindings/pinctrl/stm32-pinfunc.h   |  1 +
+ 7 files changed, 55 insertions(+), 1 deletion(-)
+
+
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
 -- 
 2.34.1
 
