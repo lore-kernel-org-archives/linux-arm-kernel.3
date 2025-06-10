@@ -4,75 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41500C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2691BC5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbFv7luxCC5IISk2uJse1688WeTghFStrZlFWtawY5I=; b=pQBeS7R/iNBtB7AYZ9aedwisYX
-	tTU+TMjeOUdbMpJgb7gD+Q3noGJn4ovUb8X+64XUkZGxG5/sR6uXmFDqCtjTc60E4j9YKYynowTje
-	eYahzEwnSqJstHeoh7zPMHGSB41C1UQrZCh1lmbtY5z4hb+RXb8gtUu5g1dQa+lWRfD81+DHCaL8X
-	T9jtf5Y6ZNMxjt0uisqWM8qMcFrW3hxN4Lguo1TTWtaU70J71rjJHgSf5LWY5OOZBBPfp6XuyK+UV
-	45PMpQAsdGQskFFq3MyTqkRFgbEBfMqHniatsGXBevq7CwhY60FKSARCGqY2rpRb9sRh2Ee8fz5xx
-	GAcjvLUw==;
+	bh=jjgQIJ76dKbmwwjeGXopIMo/gsZHO8kBrQYsSavUt0k=; b=OeJCMoIQ6bMbjene9tnBXvi0I3
+	TCOQ+vLD646Rv0qoyBvfNcNBdeYioxpXh+cRO5TSMZl5VYcRpY0p9wnZg101E1mkqT84vlY4uJ0+R
+	h8x7ElqJn8B+M/caw9nlBHjEmzglw8v8ld6+ZUTodsrWayfPzmOH95QMIjClxki6XYQxf27qPXNSn
+	whijCjfGPSO/lxPs5ijwOgrTvx6Q5LsJrI3mNxOgabxlr9UWDgY427L+jpNgcb4BiD0vvNIRftRJU
+	w+i4ZTbnAwg4iZ1DGhyCfAC65LCyaCf7UkReUngdcOxeYwvmGj5bs5r370LhG5EBj1v68QnmpR2b+
+	YEWkFabQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOu1e-000000067Ib-0jlr;
-	Tue, 10 Jun 2025 08:08:06 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1uOu7h-0000000689X-0CRd;
+	Tue, 10 Jun 2025 08:14:21 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtzS-000000066wv-0rLw
+	id 1uOu5V-000000067mk-2hkp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 08:05:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3485B43B18;
-	Tue, 10 Jun 2025 08:05:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749542747;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tbFv7luxCC5IISk2uJse1688WeTghFStrZlFWtawY5I=;
-	b=AMYHv+YB2V7GGqx349LfS0wy7zrqWUk+OUwn0m+foMWfBSDDu5wpy+lDYu019KHki8B4YE
-	BQBxd6TlDpxQWsejIBbs9J7RWu+BCJRDcHfjvRbRLm68MKlhzst1Nq7pyacfC2PpiF4Ei5
-	NsQwQzU/SxuxZ8pKvZJBdVYU4H8/S7MLDs1R7stTtZAJUAExVtevtUrZ1sTAfTpLcvPMKZ
-	wly9lvCjL7kqqmPRMUjTCYWpbpwIqZDEZAXCWlZf1EBndFl7S4yKOvtBImE4kpmJUPDno6
-	bcXXcjnnNaW/x66rz/2j0xZCVbaY5Ps8BS4gADOgWkEwBPuEHvEtBuoKsXUMKw==
-Date: Tue, 10 Jun 2025 10:05:44 +0200
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Andrew Davis <afd@ti.com>
-Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas
- Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, Roger
- Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, Bajjuri
- Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
- <broonie@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 2/5] binding: omap: Add lots of missing omap AM33
- compatibles
-Message-ID: <20250610100544.4beb07e2@kmaincent-XPS-13-7390>
-In-Reply-To: <53b48816-37e6-49e8-a5cf-adcca04c57a7@ti.com>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
-	<20250609-bbg-v2-2-5278026b7498@bootlin.com>
-	<53b48816-37e6-49e8-a5cf-adcca04c57a7@ti.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Tue, 10 Jun 2025 08:12:07 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-450ccda1a6eso47989945e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 01:12:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749543124; x=1750147924; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jjgQIJ76dKbmwwjeGXopIMo/gsZHO8kBrQYsSavUt0k=;
+        b=CplHFIP6XsBthjGPvS9QdSFktCvEAAAVr8SrYC9VftkdWSGjJxpb3bEvzqOOpvq8kh
+         KPC0yRut0llBqbq+wxmoXooQ7XANtuHpKky0kGcE71Q0aKKNKTT1yBhn86jj8SrLUHus
+         l75a1DXuV6I9tfe28D12lsV71LCkEK9sOvZGV2XM6KGY7dJJIAy1UCBiw98wHxWgyvh4
+         Q4UeaRg//0MnXudLBOdOQeEC88dCTsNqwUBq5wfOUzlT8LtC/3odx5M4YbvxC7iKlJLM
+         sVp/X0fIehscJK12pqkvMUP77WU2/tXxWZLSm75SREPiVxngGt8rmb3lvgF1etnUPfKQ
+         g/8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749543124; x=1750147924;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jjgQIJ76dKbmwwjeGXopIMo/gsZHO8kBrQYsSavUt0k=;
+        b=wVc7duD57TTU6+CQRuUJY45UJyxvrFqe6kD85iSGH6i6z+P13OoJ1T/XyRHvSnO0gC
+         1cX+wjhfc+fbjh5es4zT3hWENrDHu8H7dxdmzMGr5CUHIKl//wwbfWKusSFu8Z25lh4i
+         FJLZYvMG76bRhAIXQjY9oozrdB5zmIxmtTk3+MHLYyudL6iKvR4iYlDTeJ2IeCNmEIYs
+         h2lxfjoaSfy76gppYZzbQYPzdd4pf7gamxjn+UATYknqGdJ7kYKRz2ZRP0LZEf68b0Qc
+         z4Bw2Dr1S0BKP12P8+DiPCgQ3DkxhSNhxmAjsEkpvNta69BfW05hqZ5ekNlNcLoPv6KD
+         u32Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVxrA+vRHyQEpT+kIRPu7Bby8rVSkZFrJSym16xb3d/FSO1+FOoHX+g9Y1j/wEEDhlWUid98/tLxrPplvQEUaAR@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywewt5bOMEFF3QgJRetJfrIoYvyPP4df7tPMHBdQgGyCXm7eRbW
+	7AwRlMmf/JZM3+M22RSvxXJz1uW/ykbvuseendEfqGObr3+M8vpVlEv3OypOa4GWtjY=
+X-Gm-Gg: ASbGnct7Bn4sVnJkkeOy54GsrQzo3HOIDAYJFElKcbW2jm+i4XdcKejO4mIugl6TRce
+	PH2citx8blR1mqqhAnY8237v/4YoDktap8q+q1au6uyESn3HCatxC+XX4eRC0GY0k7NVWkVr/sX
+	09zQfqXrTbw+oNpz68JafybyqQkDzWuPJU0kKhwk0Co8yW/Cw23NIZPB7AoeXCSD3lEPjodtSCO
+	XdGtnrgI3WKxDsJBhNrY5mRmhi1bu/KEI3CJRINSPHk/W8/80UlylfF/EvK7xvPq16yKE96Tm29
+	OKnA4lpPGOvjc2EKK+hSOKzgotEPNT5Xic5CwK20/QvmMX0yhB038FoHVvKS
+X-Google-Smtp-Source: AGHT+IHw7/V7r+W55JJPgOoMHWnb03kXm/kQE97NwVLeZNevpDtk4rbU8g1Mkp4wQwowMYR4Dz0aYg==
+X-Received: by 2002:a05:600c:528a:b0:453:dbe:7574 with SMTP id 5b1f17b1804b1-4530efe68f4mr70110725e9.12.1749543123640;
+        Tue, 10 Jun 2025 01:12:03 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:4d:e52b:812d:eb7c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-452730b9b3esm130838565e9.25.2025.06.10.01.12.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 01:12:03 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH v1 0/2] gpiolib: get rid of devm_gpio_request()
+Date: Tue, 10 Jun 2025 10:11:51 +0200
+Message-ID: <174954311123.28634.1499230964159731709.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250531212331.3635269-1-andriy.shevchenko@linux.intel.com>
+References: <20250531212331.3635269-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddutdegjecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefguddtfeevtddugeevgfevtdfgvdfhtdeuleetffefffffhffgteekvdefudeiieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopegrfhgusehtihdrtghomhdprhgtphhtthhopehtohhnhiesrghtohhmihguvgdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrg
- hdprhgtphhtthhopegrrghrohdrkhhoshhkihhnvghnsehikhhirdhfihdprhgtphhtthhopegrnhgurhgvrghssehkvghmnhgruggvrdhinhhfohdprhgtphhtthhopehkhhhilhhmrghnsegsrgihlhhisghrvgdrtghomh
-X-GND-Sasl: kory.maincent@bootlin.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_010551_020647_8E1EBEC4 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20250610_011205_792744_D964D310 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +109,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Mon, 9 Jun 2025 18:34:10 -0500,
-Andrew Davis <afd@ti.com> a =C3=A9crit :
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-> On 6/9/25 10:43 AM, Kory Maincent wrote:
-> > Add several compatible strings that were missing from the binding
-> > documentation. Add description for Bone, BoneBlack and BoneGreen
-> > variants.
-> >=20
-> > Add several compatible that were missing from the binding.
-> >=20
-> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
-> > ---
-> >=20
-> > Change in v2:
-> > - New patch
-> > ---
-> >   Documentation/devicetree/bindings/arm/ti/omap.yaml | 38
-> > ++++++++++++++++++++++ 1 file changed, 38 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml
-> > b/Documentation/devicetree/bindings/arm/ti/omap.yaml index
-> > 3603edd7361d..c43fa4f4af81 100644 ---
-> > a/Documentation/devicetree/bindings/arm/ti/omap.yaml +++
-> > b/Documentation/devicetree/bindings/arm/ti/omap.yaml @@ -104,12 +104,50=
- @@
-> > properties:
-> >         - description: TI AM33 based platform
-> >           items:
-> >             - enum:
-> > +              - bosch,am335x-guardian
-> >                 - compulab,cm-t335
-> > +              - grinn,am335x-chilisom
-> > +              - gumstix,am335x-pepper
-> > +              - moxa,uc-2101
-> >                 - moxa,uc-8100-me-t
-> > +              - myir,myc-am335x
-> > +              - myir,myd-am335x
-> >                 - novatech,am335x-lxm
-> > +              - oct,osd3358-sm-refdesign
-> > +              - tcl,am335x-sl50
-> >                 - ti,am335x-bone
-> >                 - ti,am335x-evm
-> > +              - ti,am335x-evmsk
-> > +              - ti,am335x-pocketbeagle
-> > +              - ti,am335x-shc
-> >                 - ti,am3359-icev2
-> > +              - vscom,onrisc
-> > +          - const: ti,am33xx
-> > +
-> > +      - description: TI bone variants based on TI AM335 =20
->=20
-> Do we really need these "bone variants" split out from the above
-> list of TI AM33 based boards? We don't do that for any of the other
-> boards, you get a SoC and a Board compatible, every classification
-> in-between is just unneeded.
 
-As omap maintainers prefer. I did that to have the least amount of change in
-the devicetree. We could have U-boot using these compatible but after a qui=
-ck
-check it seems not.
+On Sun, 01 Jun 2025 00:21:37 +0300, Andy Shevchenko wrote:
+> devm_gpio_request() is used by a single driver. Replace it there and
+> kill the legacy API. Assumed to be routed via GPIO tree.
+> 
+> Andy Shevchenko (2):
+>   usb: gadget: pxa25x_udc: Switch to use devm_gpio_request_one()
+>   gpiolib: Remove unused devm_gpio_request()
+> 
+> [...]
 
-Regards,
---
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+Applied, thanks!
+
+[1/2] usb: gadget: pxa25x_udc: Switch to use devm_gpio_request_one()
+      https://git.kernel.org/brgl/linux/c/32f6d31dc0401e6af7c48e5e2381997b6d957d85
+[2/2] gpiolib: Remove unused devm_gpio_request()
+      https://git.kernel.org/brgl/linux/c/a5589313383074c48a1b3751d592a6e084ae0573
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
