@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A724C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC28C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrQDm3bTvACPTHvwuCsxVo9qXhMwwWP/nQ+7LQcdKe0=; b=gzEzk92u9Oz5Qzb4EXw2omotyz
-	bt9OFEr3RSav/+mp/RRkwYQ6VgHe0ii8KMhomXcpA2nk6sIMTpASpGhAgGaXdME5XzWdQ5jLFAyYy
-	SHBRmcSiAuZE1KwmVyDh8Wr4DZJfm3kShXz0XUpsf4HpY4xGX/s7Wbo+gEajcELoFsAekQoPRikZL
-	tr5YwCpIJG0D4Ro1ywnTUSHumNm8zuKUd+cgY8Ut6F3S6KkBAVRovUCZsjemvbx7DTVzta1IiObHw
-	UeruizA2Am7fECIX9sYtJk+owIDkPtipD3Cpd7hQS8KCqUe3Xq+9ko/e0k6sYtKivGDFRymts/ssK
-	hB5v0RkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hLNYfBAm8Db4RivC9m4UtJY5EbKQApeN/nL5cCj0Ugs=; b=y6TgwGot16b8fsCEW2XCvu/3xD
+	eUo1zLCVCHSRRKSKhCxq2P/8gSWMK+YX8RXlVbwexq0dXztvknJuAJDX2SEpcgJAfY5YCy4SjcijK
+	H9R0NfelWAzjUcbfdlYfDatYDVYaFyz8yGXJUEqpKacPhAsLbkqzCF5z3njxFf5hYgykmWESd4lgz
+	EdSgwRjt5oOdTsI3ixwggjE/rcQBMZv+BOpZ1HPEn/sHttsnY3RxQZg25wlPWX+HL6JSh8vYjfCu4
+	LezHTmpi5tXGA8BSvzqG/V2JcVIbj4UxSGGOoYVFPNRAXummGyQpVVn0Y4ayPAW43fSa9dXp5L6xW
+	aQT6wjWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP4bb-00000007uu6-3fB9;
-	Tue, 10 Jun 2025 19:25:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uP4dh-00000007v4z-0plx;
+	Tue, 10 Jun 2025 19:28:05 +0000
+Received: from out-71.smtpout.orange.fr ([193.252.22.71] helo=out.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP16x-00000007M8B-1j0T
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:42:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71B53629F9;
-	Tue, 10 Jun 2025 15:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98718C4CEF0;
-	Tue, 10 Jun 2025 15:42:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749570122;
-	bh=OCX+PMXOnofivFIKf5B4TrKIDiVPaorIpAV/YEeu6NA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qpKPn/hXTpMKHurpAOYuvdyFWF2RKykP22wfL62XAqvyfVhTvhhhMjdqLh86MKBzM
-	 JtDc746E9N3lbyUvO5In6rn6/5TGFozVl7pVSYHRPsJwz43uiPjAF3JUndZjDUveFS
-	 z8hqpNCY9qB2XTPAjvralMFelri/ZJ8VgM/WYYhXSxmSPMUVYRetzMTsT7s74pcmYt
-	 Eq/3qMMYZCHJw6AZtA0XRU4yPu0mItmnCjO8oM4aAwKcRnOH2xitVfbWl+khIC03wH
-	 WQvj/oWSLTyBY3dOQmsnDZNAdVDUQAGcSSzjtWkOsAicYMlI82HyyDlE3nioLc068R
-	 W4Flwz4eYubFw==
-Date: Tue, 10 Jun 2025 17:41:59 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Anusha Srivatsa <asrivats@redhat.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
-	Jessica Zhang <quic_jesszhan@quicinc.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH 2/4] drm/panel/samsung-dsicm: Keep up with refcounting
-Message-ID: <20250610-wildcat-of-marvelous-modernism-e4ce27@houat>
-References: <20250604-of_drm_find_panel_part1-v1-0-c632e12e131d@redhat.com>
- <20250604-of_drm_find_panel_part1-v1-2-c632e12e131d@redhat.com>
- <20250606-radical-rigorous-buzzard-ca09cd@houat>
- <CAN9Xe3Si6XwsGOesNKOx9M8PjBkMG2paWXV5gvAnujWih6sqtA@mail.gmail.com>
+	id 1uP1DA-00000007NL7-0ZC7;
+	Tue, 10 Jun 2025 15:48:30 +0000
+Received: from [172.16.82.72] ([124.33.176.97])
+	by smtp.orange.fr with ESMTPA
+	id P1CsuQaoBVbicP1Cuu8707; Tue, 10 Jun 2025 17:48:25 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1749570505;
+	bh=hLNYfBAm8Db4RivC9m4UtJY5EbKQApeN/nL5cCj0Ugs=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=EC83WCWq0Suc7xo7F75oL6tuLJhZcGgcA6T6SjE5M2HznAFXg+53/ja2YV2L9jlm4
+	 67XAJYZjzNIulLfpR9HbVmuA69kx2uRbqwRC7P4itIvQxYL7jWvnqZIqoFwUBoyCaG
+	 H3MPbtXKHrbdoEz3hjUlSsEwc2yUrPfZcdlFT5dWCWJJ/0qWSWULoXHqI8jwgTD9wt
+	 +88473ymjTW0O1lA5aOjECvA7xFkyKjOqMpuNk4fIXCc5bKmdofVWaX8JRwPiGBEKr
+	 AfmH/5enwlcQEMJBSCx3HPKFHMg8JhbUC/Q3N0I4p387Fb8+i1cIfr4CTBAhSvUx1/
+	 QTmOlFNpa0KAw==
+X-ME-Helo: [172.16.82.72]
+X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
+X-ME-Date: Tue, 10 Jun 2025 17:48:25 +0200
+X-ME-IP: 124.33.176.97
+Message-ID: <b9ea7e0e-7dd1-460b-950a-083620dd52e9@wanadoo.fr>
+Date: Wed, 11 Jun 2025 00:48:09 +0900
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="zwi57rvdrnu4faa3"
-Content-Disposition: inline
-In-Reply-To: <CAN9Xe3Si6XwsGOesNKOx9M8PjBkMG2paWXV5gvAnujWih6sqtA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] net: can: mcp251x: use new GPIO line value setter
+ callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Marc Kleine-Budde <mkl@pengutronix.de>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>
+References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
+ <20250610-gpiochip-set-rv-net-v1-3-35668dd1c76f@linaro.org>
+ <b2f87cff-3a81-482b-bfdd-389950b7ec8e@wanadoo.fr>
+ <CAMRc=MfCwz3BV15aATr_5er7wU=AmKV=Z=sHJyrjEvLwx2cMjQ@mail.gmail.com>
+Content-Language: en-US
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Autocrypt: addr=mailhol.vincent@wanadoo.fr; keydata=
+ xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
+ LFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+wrIEExYKAFoC
+ GwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQTtj3AFdOZ/IOV06OKrX+uI
+ bbuZwgUCZx41XhgYaGtwczovL2tleXMub3BlbnBncC5vcmcACgkQq1/riG27mcIYiwEAkgKK
+ BJ+ANKwhTAAvL1XeApQ+2NNNEwFWzipVAGvTRigA+wUeyB3UQwZrwb7jsQuBXxhk3lL45HF5
+ 8+y4bQCUCqYGzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrbYZzu0JG5w8gxE6EtQe6LmxKMqP6E
+ yR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDldOjiq1/riG27mcIFAmceMvMCGwwF
+ CQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8VzsZwr/S44HCzcz5+jkxnVVQ5LZ4B
+ ANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
+In-Reply-To: <CAMRc=MfCwz3BV15aATr_5er7wU=AmKV=Z=sHJyrjEvLwx2cMjQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_084829_375568_03A08E86 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +102,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/06/2025 at 23:05, Bartosz Golaszewski wrote:
+> On Tue, Jun 10, 2025 at 3:55 PM Vincent Mailhol
+> <mailhol.vincent@wanadoo.fr> wrote:
+>>
+>> On 10/06/2025 at 21:37, Bartosz Golaszewski wrote:
+>>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>>>
+>>> struct gpio_chip now has callbacks for setting line values that return
+>>> an integer, allowing to indicate failures. Convert the driver to using
+>>> them.
+>>>
+>>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>>                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>
+>> This does not match the address with which you sent the patch: brgl@bgdev.pl
+>>
+>>> ---
+>>>  drivers/net/can/spi/mcp251x.c | 16 ++++++++++------
+>>>  1 file changed, 10 insertions(+), 6 deletions(-)
+>>>
+>>> diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
+>>> index ec5c64006a16f703bc816983765584c5f3ac76e8..7545497d14b46c6388f3976c2bf7b9a99e959c1e 100644
+>>> --- a/drivers/net/can/spi/mcp251x.c
+>>> +++ b/drivers/net/can/spi/mcp251x.c
+>>> @@ -530,8 +530,8 @@ static int mcp251x_gpio_get_multiple(struct gpio_chip *chip,
+>>>       return 0;
+>>>  }
+>>>
+>>> -static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+>>> -                          int value)
+>>> +static int mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+>>> +                         int value)
+>>>  {
+>>>       struct mcp251x_priv *priv = gpiochip_get_data(chip);
+>>>       u8 mask, val;
+>>> @@ -545,9 +545,11 @@ static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+>>>
+>>>       priv->reg_bfpctrl &= ~mask;
+>>>       priv->reg_bfpctrl |= val;
+>>> +
+>>> +     return 0;
+>>
+>> mcp251x_gpio_set() calls mcp251x_write_bits() which calls mcp251x_spi_write()
+>> which can fail.
+>>
+>> For this change to really make sense, the return value of mcp251x_spi_write()
+>> should be propagated all the way around.
+>>
+> 
+> I don't know this code so I followed the example of the rest of the
+> codebase where the result of this function is never checked - even in
+> functions that do return values. I didn't know the reason for this and
+> so didn't want to break anything as I have no means of testing it.
 
---zwi57rvdrnu4faa3
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/4] drm/panel/samsung-dsicm: Keep up with refcounting
-MIME-Version: 1.0
+The return value of mcp251x_spi_write() is used in mcp251x_hw_reset(). In other
+locations, mcp251x_spi_write() is only used in functions which return void, so
+obviously, the return value is not checked.
 
-On Mon, Jun 09, 2025 at 10:45:35AM -0500, Anusha Srivatsa wrote:
-> On Fri, Jun 6, 2025 at 7:03=E2=80=AFAM Maxime Ripard <mripard@kernel.org>=
- wrote:
->=20
-> > On Wed, Jun 04, 2025 at 10:45:11PM -0500, Anusha Srivatsa wrote:
-> > > Put the panel reference back when driver is no
-> > > longer using it.
-> > >
-> > > Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
-> > > ---
-> > >  drivers/gpu/drm/bridge/samsung-dsim.c | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >
-> > > diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c
-> > b/drivers/gpu/drm/bridge/samsung-dsim.c
-> > > index
-> > 0014c497e3fe7d8349a119dbdda30d65d816cccf..3667855ff0d6d1b608c579573de65=
-7af7fd14388
-> > 100644
-> > > --- a/drivers/gpu/drm/bridge/samsung-dsim.c
-> > > +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-> > > @@ -1748,6 +1748,7 @@ static int samsung_dsim_host_attach(struct
-> > mipi_dsi_host *host,
-> > >                       dsi->out_bridge =3D ERR_PTR(-EINVAL);
-> > >       }
-> > >
-> > > +     drm_panel_put(panel);
-> > >       of_node_put(remote);
-> > >
-> > >       if (IS_ERR(dsi->out_bridge)) {
-> >
-> > Explaining in your commit log why you think it's a good idea to put it
-> > there would be really nice. In particular, it looks super odd to me that
-> > you would put the panel reference in attach.
-> >
-> > Also, your patch doesn't work, and you have a reference inbalance. You
-> > have one taken by the panel driver, put in remove. You have one in
-> > drm_panel_add, put in drm_panel_remove. Which reference do you put here?
-> >
-> > This applies to your other patches too.
->
-> Yes, I should get the ref in of_drm_find_panel() to put it here. With
-> that said, all callers of of_drm_find_panel() should be converted
-> instead of the small batch that this series addresses.
+> Can you confirm that you really want the result to be checked here?
 
-Then do the of_drm_find_panel() conversion before, because here you will
-free up the structure despite some callers still having a reference on
-it.
+That's the point of those new gpio setters, isn't it? If we do not check the
+result, I do not understand the purpose of the migration.
 
-Maxime
 
---zwi57rvdrnu4faa3
-Content-Type: application/pgp-signature; name="signature.asc"
+Yours sincerely,
+Vincent Mailhol
 
------BEGIN PGP SIGNATURE-----
-
-iJQEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaEhSRwAKCRAnX84Zoj2+
-dhb2AXd6k/XL3u9/OK5zj97VWmDQziONGHEsb3bDL6hJZj6l6EtMtZ9IDIPocg8T
-0UuXCwGA01sHkSg3AqDJPDYt8mzstpL8wcd8zKh9oy1niBidaedsQ6I+2mKYzaTS
-VdThoLbe
-=nzew
------END PGP SIGNATURE-----
-
---zwi57rvdrnu4faa3--
 
