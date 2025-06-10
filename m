@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C377C678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E2AC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0h1PukO+UHeQFLXtNBQr0NfD52qecvWe2RZsBueRTTE=; b=pWkztJnVqWSkE1qYDAIg4P44go
-	VrW0NG386oIdttzlH0wCeNmlme4hk6qNOJcI8pBMibkfoJhli+g9effH8WnQPPEQ5p8pW7pTNOqfi
-	NI+e/q/rUMZ+5NdfZBU8wqsl6cX5jRO6y2GXYpEZnDi0XwP/Ko8HWMZSHo+z2tykJa1I8mqj44+zQ
-	bmRdS7iCfMaJBFtxBCYRT/1CkTuHlbRNhXms2NDDTj8O1FOeMovZKREUDqYacrwC/bHwdnl2sDFFC
-	cZ7Ah0omeBN2cEPLfh43i7DF/VjW+2NWR09Bsf+vuvdDyiVvQu32uman0HzymrcCSIyLxKHjkltvP
-	5MN5Tnbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IxovBajuiG9VZJ3XmWy0NzjagqDViV1ywWm/ai8Bd1M=; b=eOd9PF9t8yqCskWgn5qdktqba5
+	wya1vV8QM07cD6WVMFQCEMNzOf7+P1XVxnDvfpAGhXIWb5AP9CakrgVhfyBCA5RX4axpCaIQXakLA
+	Sayv78NSUFJNwtpbmmDVlYLoT1Gay9+BaAYsA2vg00iTEKtXhU5QeIvsxnsWU/lwkr4VWm1iPDwIm
+	OT9KYR3wu5r8TQHci1zf3wMYZXOzN8hblwqr/n2nZMJ3PMlfciggIFe5DxmzQcuHNwHU9h/cpVN7T
+	GKntkaEULfIVGbKSt5j/fFiGriyAl/Tpaizwc+PS0kc8XrHqwkohfFyc9J7vaHuXMXoxUg4VXPsUW
+	9F2SbHiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0SA-00000007Chb-3VsL;
-	Tue, 10 Jun 2025 14:59:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uP0UL-00000007DQt-0pIN;
+	Tue, 10 Jun 2025 15:02:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyJL-00000006oLA-1uN6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:42:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36B534A68C;
-	Tue, 10 Jun 2025 12:42:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41A25C4CEED;
-	Tue, 10 Jun 2025 12:42:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749559359;
-	bh=k95pgC8uYho6a+kXi0z4LRYhCqPs5d/JUrw8wGO3J2U=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fsiOLuLeWL0Xc10yYKUqloJZrMK1OEjyoEhpFU4o9QzSidpZAra4hPBB5dBZHhTiD
-	 818/zMhWNXIzcABdmDfAocm2GV76ezuqm30eFM7DmhXckY6byX65N+1evCEqymg+sW
-	 lu64hmcgqbkzIE7rhtT7qZTWyjAwtjLRchWyEogktA94XotyEb/R6YAmBGf0oK1qxC
-	 ggKRces2B3P1Fe7CTZhEIYRWZJUB2IqqtcUQ3DNcis/3t1tYzAeGSeH0wmlTvCmp3H
-	 ETpHkoqFe1JHz+R8IbIQwYSyRGaTeA4EkNLGDYRwJOwuZ+lPfqUgtAB+VRg9oVSicx
-	 r/N3xxxb68ZnQ==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 10 Jun 2025 13:29:47 +0100
-Subject: [PATCH v2 4/4] selftests/nolibc: Add coverage of vfork()
+	id 1uOyN5-00000006p6C-1za1;
+	Tue, 10 Jun 2025 12:46:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=IxovBajuiG9VZJ3XmWy0NzjagqDViV1ywWm/ai8Bd1M=; b=BZnUeqZb2cpmqjba015Ph2ldgR
+	CRKkwzZQR1u2NQeMcBUCelRcMAEBSN8nhYSUbmlsNXkSk3FagH/PQLfGpwnotn6LDzRuqynA8Le+u
+	C4DiwmiHxvq17ibl5CKUDRjD1dPNjSNzG2P++JvOwnpDzSd9pUKikqOF2kgEMxEG/bHwLDMS5D21X
+	UgC3KAOtMX9bXm8bg5Hp8lqZghebCe0H964Y2pX1FwURlSDAVOTEYZFrkumAd6tmo5qgl7e249U5t
+	+M5PBkQ4i3LPGW2zm00xNQzQ45PVpIfTS1uS40cWSF5CWsXMXK3PlV3ol7cviZpAzQwMVmfPizT/E
+	QuJHkVgg==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOyN3-00000001pXJ-2RTP;
+	Tue, 10 Jun 2025 12:46:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=IxovBajuiG9VZJ3XmWy0NzjagqDViV1ywWm/ai8Bd1M=; b=hZoQ3j3IzpoxwljSwnB8bccPSM
+	XRrBw7WFNZ8PxtzbiIXdJUnm/tkBx5fm8LE2KeugPzbPkZOxOSYZeqWHG27E/pZqa2VZB9z9EYDNc
+	cwy1nsznvNnVMKnbEY13v7IRURpmJET03jHqxGcIuSW+kSzh3eWH+oyjvx03UBx9A2i8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uOyMc-00FGUL-0t; Tue, 10 Jun 2025 14:46:02 +0200
+Date: Tue, 10 Jun 2025 14:46:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 4/4] net: phy: qca807x: use new GPIO line value setter
+ callbacks
+Message-ID: <5c9a127b-8538-4856-bdb3-cbee87993428@lunn.ch>
+References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
+ <20250610-gpiochip-set-rv-net-v1-4-35668dd1c76f@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-arm64-gcs-vfork-exit-v2-4-929443dfcf82@kernel.org>
-References: <20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org>
-In-Reply-To: <20250610-arm64-gcs-vfork-exit-v2-0-929443dfcf82@kernel.org>
-To: Willy Tarreau <w@1wt.eu>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
- Christian Brauner <brauner@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kselftest@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2649; i=broonie@kernel.org;
- h=from:subject:message-id; bh=k95pgC8uYho6a+kXi0z4LRYhCqPs5d/JUrw8wGO3J2U=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBoSCgxDdwtoQD5Ra5mGt8UN9d0cGbAAOvD/dkn3A8W
- VjR+qxGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaEgoMQAKCRAk1otyXVSH0KAyB/
- wNxl/FZnzIgWNyszdC7wdp+VFWDFsz2+WxB5+A7fijMn1rBBYPdS9gFZ7FyJq76U9gJMF/OX53Dv+n
- 0w5hk73UhIcowtY/r4Am4WrncCAQFz5TPbLI9JJBN/+O9AiSaY38wRZYEii2mKgpkOK9QQctIGh/ck
- KPDJsyo0hWQlC9gEx1qSWwa+sRGQNFPJFIUJm3mSxPdN1/ba/yacvFEa/2iHekpWMmE28bsA+eqcfz
- tvacCJX3aLeHlKjchkXnsBgVlr2chtd1Mtu67XWWLIBGhtJIfoK1eTpRPt3dFHovRdUufo6bAc+J88
- 9nG2A0178MlZI1YF5zXGIYbnGlfd8b
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610-gpiochip-set-rv-net-v1-4-35668dd1c76f@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_054239_535976_20B123E7 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250610_134629_694048_CC2CEEDD 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,77 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Generalise the existing fork() test to also cover the newly added vfork()
-implementation.
+> -static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
+> +static int qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
+>  {
+>  	struct qca807x_gpio_priv *priv = gpiochip_get_data(gc);
+>  	u16 reg;
+> @@ -390,14 +390,12 @@ static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int valu
+>  	val |= QCA807X_GPIO_FORCE_EN;
+>  	val |= FIELD_PREP(QCA807X_GPIO_FORCE_MODE_MASK, value);
+>  
+> -	phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
+> +	return phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
+>  }
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
+The full function is:
+
+static void qca807x_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
+{
+	struct qca807x_gpio_priv *priv = gpiochip_get_data(gc);
+	u16 reg;
+	int val;
+
+	reg = QCA807X_MMD7_LED_FORCE_CTRL(offset);
+
+	val = phy_read_mmd(priv->phy, MDIO_MMD_AN, reg);
+	val &= ~QCA807X_GPIO_FORCE_MODE_MASK;
+	val |= QCA807X_GPIO_FORCE_EN;
+	val |= FIELD_PREP(QCA807X_GPIO_FORCE_MODE_MASK, value);
+
+	phy_write_mmd(priv->phy, MDIO_MMD_AN, reg, val);
+}
+
+The phy_read_mmd() could also fail and return an error code.
+
+    Andrew
+
 ---
- tools/testing/selftests/nolibc/nolibc-test.c | 23 +++++++++++++++++++----
- 1 file changed, 19 insertions(+), 4 deletions(-)
-
-diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-index dbe13000fb1a..d682434c6442 100644
---- a/tools/testing/selftests/nolibc/nolibc-test.c
-+++ b/tools/testing/selftests/nolibc/nolibc-test.c
-@@ -877,7 +877,12 @@ int test_file_stream(void)
- 	return 0;
- }
- 
--int test_fork(void)
-+enum fork_type {
-+	FORK_STANDARD,
-+	FORK_VFORK,
-+};
-+
-+int test_fork(enum fork_type type)
- {
- 	int status;
- 	pid_t pid;
-@@ -886,14 +891,23 @@ int test_fork(void)
- 	fflush(stdout);
- 	fflush(stderr);
- 
--	pid = fork();
-+	switch (type) {
-+	case FORK_STANDARD:
-+		pid = fork();
-+		break;
-+	case FORK_VFORK:
-+		pid = vfork();
-+		break;
-+	default:
-+		return 1;
-+	}
- 
- 	switch (pid) {
- 	case -1:
- 		return 1;
- 
- 	case 0:
--		exit(123);
-+		_exit(123);
- 
- 	default:
- 		pid = waitpid(pid, &status, 0);
-@@ -1330,7 +1344,7 @@ int run_syscall(int min, int max)
- 		CASE_TEST(dup3_m1);           tmp = dup3(-1, 100, 0); EXPECT_SYSER(1, tmp, -1, EBADF); if (tmp != -1) close(tmp); break;
- 		CASE_TEST(execve_root);       EXPECT_SYSER(1, execve("/", (char*[]){ [0] = "/", [1] = NULL }, NULL), -1, EACCES); break;
- 		CASE_TEST(file_stream);       EXPECT_SYSZR(1, test_file_stream()); break;
--		CASE_TEST(fork);              EXPECT_SYSZR(1, test_fork()); break;
-+		CASE_TEST(fork);              EXPECT_SYSZR(1, test_fork(FORK_STANDARD)); break;
- 		CASE_TEST(getdents64_root);   EXPECT_SYSNE(1, test_getdents64("/"), -1); break;
- 		CASE_TEST(getdents64_null);   EXPECT_SYSER(1, test_getdents64("/dev/null"), -1, ENOTDIR); break;
- 		CASE_TEST(directories);       EXPECT_SYSZR(proc, test_dirent()); break;
-@@ -1374,6 +1388,7 @@ int run_syscall(int min, int max)
- 		CASE_TEST(uname_fault);       EXPECT_SYSER(1, uname(NULL), -1, EFAULT); break;
- 		CASE_TEST(unlink_root);       EXPECT_SYSER(1, unlink("/"), -1, EISDIR); break;
- 		CASE_TEST(unlink_blah);       EXPECT_SYSER(1, unlink("/proc/self/blah"), -1, ENOENT); break;
-+		CASE_TEST(vfork);             EXPECT_SYSZR(1, test_fork(FORK_VFORK)); break;
- 		CASE_TEST(wait_child);        EXPECT_SYSER(1, wait(&tmp), -1, ECHILD); break;
- 		CASE_TEST(waitpid_min);       EXPECT_SYSER(1, waitpid(INT_MIN, &tmp, WNOHANG), -1, ESRCH); break;
- 		CASE_TEST(waitpid_child);     EXPECT_SYSER(1, waitpid(getpid(), &tmp, WNOHANG), -1, ECHILD); break;
-
--- 
-2.39.5
-
+pw-bot: cr
 
