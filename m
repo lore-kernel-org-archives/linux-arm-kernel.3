@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 659C3C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AB3C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTB3v+x8w/FUL8jly8m0hmcJty/2pFiwNyr1NhvSBfc=; b=gyZndBLW+NIh265tINubePLMvH
-	PHW6mk2UDMaQbGVDxvkNdFTC6UL/sC28+RFkwJOOfwkcLvJS/gHJfggaTrf08wK6I3fCEgLQvuK/L
-	R0o37NeH0PxlgSLAW7sIX8kktSzwrFpApg5tdbEb1+lSpbFIlLPzSwb/LJ225Ht5e4TcMgxk+A1Tf
-	mF0KzOclbFQZA0v7Huej7Pm/NlF5CsBDVCqklm6LBSwzNSZQxQl20hiaB5xJh2RO3A0Qes2Sq1Xlq
-	fq2s0QJi9+My46DIGpLwrAF9pVSKqUC9+ACqmDkQniHL0180a3O+AJEcjKrNKgVFetgB+hL/Pv8Ig
-	kHOcy6Wg==;
+	bh=8VQasU47Fo9+menKFJwxiTlb3u0Ug7mzOiL+ShPS+BE=; b=GXY5sPx0oQrd5dy6uVnsP1bLEH
+	pUUPIA2UmRvLBk7hjMpYEcolioYmoCvYxNLZHrpu+CmalH8/Cde0r1ESIgCd0RHkBCUWQE+NJ4onM
+	2OdmxiIfGeEAz+SAluvXMYsApYDI589l3cO3Zd660IBLVMMN11cG2Dme1kWYu81ZnNVNjpidJtONK
+	0Y/bTEsp6tBa3S8f3RSPXXkX1jxh8/oSODywLW+5+MNpd/ShJkjoB+x9v93gL+ENMpTP8oE4kze7J
+	tExleJ1vVlzCjR+kucC8LXeXwI3ncfIJUxydzrvrh9HPT0apQwKkZa1B/p1NWNGJPvcts/5E6qjCX
+	fdqwfggw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2c5-00000007bRo-1wyS;
-	Tue, 10 Jun 2025 17:18:17 +0000
+	id 1uP2eB-00000007bgr-0HJe;
+	Tue, 10 Jun 2025 17:20:27 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOze2-000000075Rz-2b3v;
-	Tue, 10 Jun 2025 14:08:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749564471; cv=none; 
+	id 1uOze5-000000075Sh-1Sqh;
+	Tue, 10 Jun 2025 14:08:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749564473; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=fBnjVMDQt44p8C+tE35Yu09oC7f9LXRXyrw+1t6v0gHJXIOYZcL3Jc0KdsuucETLle3JI0gDCz8HOcavUkEp0XlO51hm/E3MJumtD1x+4ABBqZvk+6CCP4J0rhFdNSfEBLszl88OVqSLEsh1JJY2uyavmQcxufAPJNgX7dh881Y=
+	b=JX3mWogYehTYtVJdVmY+UzzvF446RpE/P+y4RIe/MhfEwXWKyknYvJsugJZTds547PQB/hPlS9ho3ejufts25aFKqztcqjN3VI9tq+/9D4wKYR4eZ2KI7+OzEyaLhN1+AbxfbWLcfWlhs5tI35kqDxqUkks3y+wQWWaGoxnhVAA=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749564471; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=JTB3v+x8w/FUL8jly8m0hmcJty/2pFiwNyr1NhvSBfc=; 
-	b=B3NaZBfaZw/YxzHmQWOzLR95oYD6th7PNGcwC7Zp6IFCRtTqLt4tBiRoTUGYsZdWkTc6Kb/YEe2R/Ugd/sfPHb8fvCyUhLR8SRQSqgaIkq8c/7/jA/m08kt6JnNgKyUmZBJphSyelJN/ZH1nLRgnym0SUyI6d4iRmI7ZhF1RpuY=
+	t=1749564473; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8VQasU47Fo9+menKFJwxiTlb3u0Ug7mzOiL+ShPS+BE=; 
+	b=Qx9AHUJ41xRYeOm4zNqJAqc/diELcfIlLKRY5AyrrXI5GbEZ/f6hiAXmy7qmab0++inHvfYR07EqEC9raBb6VK/UuFYaicF6iYQ0qmcIVinf3NN4T00alSJBa2QUIdiJoSWbUWWCjKkFGNnve9qMZ4lQlBxpZVlaP++WrNQ/YsQ=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749564471;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749564473;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=JTB3v+x8w/FUL8jly8m0hmcJty/2pFiwNyr1NhvSBfc=;
-	b=THGV+tJQeIAsiuSsKUE1/1ebIo1qVkPveu/vGRHpZJvSdo3y9Dx53n7DrBAtuqxa
-	5rXmbh8o6GqlvV3IexKBfarCsDZPHmlYY1qeUeUuBbQr+H2lXDzNTTT47P3qKLBK/lB
-	wlV1fskVXQ/NKJdypmFY+fWXAvOdmRYgMOSpRWeM=
-Received: by mx.zohomail.com with SMTPS id 1749564466462766.9030974949748;
-	Tue, 10 Jun 2025 07:07:46 -0700 (PDT)
+	bh=8VQasU47Fo9+menKFJwxiTlb3u0Ug7mzOiL+ShPS+BE=;
+	b=DUWCLDCONptNaHpFe+ARreVDDr5GUnk+ewKYZbQqZjzqEfSBZw1folva4DCJqK0t
+	Nb/yZ1iiOu3wkHuVDxcUS9iZALpz3+tFcZr8YMNqQGawwjHi27aQVODzSj0k8V0fJuH
+	lT/Wdl/VaN1z308+X16EKJK2lJ2lldC1GFeyEuz0=
+Received: by mx.zohomail.com with SMTPS id 1749564471829701.9243237338251;
+	Tue, 10 Jun 2025 07:07:51 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 10 Jun 2025 16:07:11 +0200
-Subject: [PATCH v4 3/4] phy: rockchip: usbdp: reset USB3 and reinit on
- orientation switch
+Date: Tue, 10 Jun 2025 16:07:12 +0200
+Subject: [PATCH v4 4/4] arm64: dts: rockchip: enable USB on Sige5
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-rk3576-sige5-usb-v4-3-7e7f779619c1@collabora.com>
+Message-Id: <20250610-rk3576-sige5-usb-v4-4-7e7f779619c1@collabora.com>
 References: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
 In-Reply-To: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -70,8 +69,8 @@ Cc: Alexey Charkov <alchark@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_070806_722653_93A9DF8E 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20250610_070809_453072_A9ACA914 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,156 +85,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Until now, super speed on Type-C only worked in one orientation. This is
-because on an orientation switch, the UDPHY was never reinitialised.
+The ArmSoM Sige5 has several USB ports: a Type-A USB 3 port (USB2 lines
+going through a hub), a Type-A USB 2.0 port (also going through a hub),
+a Type-C DC input port that has absolutely no USB data connection and a
+Type-C port with USB3.2 Gen1x1 that's also the maskrom programming port.
 
-Heiko presented a patch to do this[1], but there were concerns over the
-correctness of it[2]. Experimentally using Heiko's patch on RK3576 did
-make me run into issues, though they seemed to be related to the
-orientation switch actually happening while a clock driving a GRF
-register was disabled.
+Enable these ports, and set the device role to be host for the host
+ports.
 
-The key issue is that the hardware wants the USB 3 controller to be held
-in reset while the PHY is being reconfigured, otherwise we may run into
-hard-to-catch race conditions.
+The data capable Type-C USB port uses a fusb302 for data role switching.
 
-Either way, this patch implements the required ordering in a somewhat
-unpleasant way: we get the USB 3 controller from the DT, and use runtime
-power management to forcibly suspend it while the UDPHY is being
-reconfigured, and then forcibly resume it later. As an added pain in the
-rear, the suspend/resume of the USB 3 controller also tries fiddling
-with the USB 3 PHY part of the UDPHY, which means we introduce an atomic
-flag to skip suspending/resuming the UDPHY if we're resetting the USB 3
-controller. We may just need to skip trying to acquire the mutex again,
-but both ways work for me in practice.
-
-This solution may in fact be complete rubbish, but it works to get USB 3
-Super Speed working in both cable orientations on my board.
-
-Link: https://lore.kernel.org/all/20250226103810.3746018-3-heiko@sntech.de/ [1]
-Link: https://lore.kernel.org/linux-rockchip/h57ok2hw6os7bcafqkrqknfvm7hnu25m2oe54qmrsuzdwqlos3@m4och2fcdm7s/ [2]
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 54 +++++++++++++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      | 160 +++++++++++++++++++++
+ 1 file changed, 160 insertions(+)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fff54900feea601c8fe6bf4c7123dfebc5661a15..5cd6bbc367f69bca15c2a94a07e72f850b381ae3 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -200,6 +200,10 @@ struct rk_udphy {
- 	/* PHY devices */
- 	struct phy *phy_dp;
- 	struct phy *phy_u3;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index b09e789c75c47fec7cf7e9810ab0dcca32d9404a..a2b6cdf0e0b949a9df946606efedfbc747f99975 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -205,6 +205,33 @@ vcc_3v3_ufs_s0: regulator-vcc-ufs-s0 {
+ 		regulator-max-microvolt = <3300000>;
+ 		vin-supply = <&vcc_5v0_sys>;
+ 	};
 +
-+	/* USB 3 controller device */
-+	struct device *ctrl_u3;
-+	atomic_t ctrl_resetting;
++	vcc_5v0_typec0: regulator-vcc-5v0-typec0 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio4 RK_PA6 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb_otg0_pwren>;
++		regulator-name = "vcc_5v0_typec0";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc_5v0_device>;
++	};
++	vcc_5v0_usbhost: regulator-vcc-5v0-usbhost {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb_host_pwren>;
++		regulator-name = "vcc_5v0_usbhost";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc_5v0_device>;
++	};
++};
++
++&combphy1_psu {
++	status = "okay";
  };
  
- static const struct rk_udphy_dp_tx_drv_ctrl rk3588_dp_tx_drv_ctrl_rbr_hbr[4][4] = {
-@@ -1255,6 +1259,9 @@ static int rk_udphy_usb3_phy_init(struct phy *phy)
- 	struct rk_udphy *udphy = phy_get_drvdata(phy);
- 	int ret = 0;
+ &combphy0_ps {
+@@ -643,6 +670,58 @@ regulator-state-mem {
+ &i2c2 {
+ 	status = "okay";
  
-+	if (atomic_read(&udphy->ctrl_resetting))
-+		return 0;
++	usbc0: typec-portc@22 {
++		compatible = "fcs,fusb302";
++		reg = <0x22>;
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PA5 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&usbc0_interrupt>;
++		vbus-supply = <&vcc_5v0_typec0>;
 +
- 	mutex_lock(&udphy->mutex);
- 	/* DP only or high-speed, disable U3 port */
- 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
-@@ -1273,6 +1280,9 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
- {
- 	struct rk_udphy *udphy = phy_get_drvdata(phy);
++		connector {
++			compatible = "usb-c-connector";
++			label = "USB-C";
++			data-role = "dual";
++			/* fusb302 supports PD Rev 2.0 Ver 1.2 */
++			pd-revision = /bits/ 8 <0x2 0x0 0x1 0x2>;
++			power-role = "source";
++			source-pdos = <PDO_FIXED(5000, 2000,
++						 PDO_FIXED_USB_COMM | PDO_FIXED_DATA_SWAP)>;
++
++			altmodes {
++				displayport {
++					svid = /bits/ 16 <0xff01>;
++					vdo = <0xffffffff>;
++				};
++			};
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++					usbc0_hs_ep: endpoint {
++						remote-endpoint = <&usb_drd0_hs_ep>;
++					};
++				};
++				port@1 {
++					reg = <1>;
++					usbc0_ss_ep: endpoint {
++						remote-endpoint = <&usb_drd0_ss_ep>;
++					};
++				};
++				port@2 {
++					reg = <2>;
++					usbc0_dp_ep: endpoint {
++						remote-endpoint = <&usbdp_phy_ep>;
++					};
++				};
++			};
++		};
++	};
++
+ 	hym8563: rtc@51 {
+ 		compatible = "haoyu,hym8563";
+ 		reg = <0x51>;
+@@ -729,6 +808,24 @@ pcie_reset: pcie-reset {
+ 			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
+ 	};
++
++	usb {
++		usb_host_pwren: usb-host-pwren {
++			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++		usb_otg0_pwren: usb-otg0-pwren {
++			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++		usbc0_interrupt: usbc0-interrupt {
++			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++		usbc0_sbu1: usbc0-sbu1 {
++			rockchip,pins = <2 RK_PA6 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++		usbc0_sbu2: usbc0-sbu2 {
++			rockchip,pins = <2 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
++	};
+ };
  
-+	if (atomic_read(&udphy->ctrl_resetting))
-+		return 0;
-+
- 	mutex_lock(&udphy->mutex);
- 	/* DP only or high-speed */
- 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs)
-@@ -1401,10 +1411,31 @@ static struct phy *rk_udphy_phy_xlate(struct device *dev, const struct of_phandl
- 	return ERR_PTR(-EINVAL);
- }
+ &sai1 {
+@@ -770,11 +867,74 @@ &sdmmc {
+ 	status = "okay";
+ };
  
-+static struct device_node *rk_udphy_to_controller(struct rk_udphy *udphy)
-+{
-+	struct device_node *np;
++&u2phy0 {
++	status = "okay";
++};
 +
-+	for_each_node_with_property(np, "phys") {
-+		struct of_phandle_iterator it;
-+		int ret;
++&u2phy0_otg {
++	status = "okay";
++};
 +
-+		of_for_each_phandle(&it, ret, np, "phys", NULL, 0) {
-+			if (it.node != udphy->dev->of_node)
-+				continue;
++&u2phy1 {
++	status = "okay";
++};
 +
-+			of_node_put(it.node);
-+			return np;
-+		}
-+	}
++&u2phy1_otg {
++	phy-supply = <&vcc_5v0_usbhost>;
++	status = "okay";
++};
 +
-+	return NULL;
-+}
-+
- static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 				 enum typec_orientation orien)
- {
- 	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
-+	int ret;
+ &uart0 {
+ 	pinctrl-0 = <&uart0m0_xfer>;
+ 	status = "okay";
+ };
  
- 	mutex_lock(&udphy->mutex);
- 
-@@ -1420,6 +1451,18 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 	rk_udphy_set_typec_default_mapping(udphy);
- 	rk_udphy_usb_bvalid_enable(udphy, true);
- 
-+	if (udphy->status != UDPHY_MODE_NONE && udphy->ctrl_u3) {
-+		atomic_set(&udphy->ctrl_resetting, 1);
-+		pm_runtime_force_suspend(udphy->ctrl_u3);
++&usb_drd0_dwc3 {
++	usb-role-switch;
++	dr_mode = "otg";
++	status = "okay";
 +
-+		ret = rk_udphy_setup(udphy);
-+		if (!ret)
-+			clk_bulk_disable_unprepare(udphy->num_clks, udphy->clks);
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
-+		pm_runtime_force_resume(udphy->ctrl_u3);
-+		atomic_set(&udphy->ctrl_resetting, 0);
-+	}
++		port@0 {
++			reg = <0>;
++			usb_drd0_hs_ep: endpoint {
++				remote-endpoint = <&usbc0_hs_ep>;
++			};
++		};
 +
- unlock_ret:
- 	mutex_unlock(&udphy->mutex);
- 	return 0;
-@@ -1430,12 +1473,22 @@ static void rk_udphy_orien_switch_unregister(void *data)
- 	struct rk_udphy *udphy = data;
- 
- 	typec_switch_unregister(udphy->sw);
-+	put_device(udphy->ctrl_u3);
- }
- 
- static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
- {
-+	struct device_node *ctrl = rk_udphy_to_controller(udphy);
- 	struct typec_switch_desc sw_desc = { };
- 
-+	if (ctrl) {
-+		udphy->ctrl_u3 = bus_find_device_by_of_node(udphy->dev->bus, ctrl);
-+		of_node_put(ctrl);
-+	}
++		port@1 {
++			reg = <1>;
++			usb_drd0_ss_ep: endpoint {
++				remote-endpoint = <&usbc0_ss_ep>;
++			};
++		};
++	};
++};
 +
-+	if (!udphy->ctrl_u3)
-+		dev_info(udphy->dev, "couldn't find this PHY's USB3 controller\n");
++&usb_drd1_dwc3 {
++	dr_mode = "host";
++	status = "okay";
++};
 +
- 	sw_desc.drvdata = udphy;
- 	sw_desc.fwnode = dev_fwnode(udphy->dev);
- 	sw_desc.set = rk_udphy_orien_sw_set;
-@@ -1499,6 +1552,7 @@ static int rk_udphy_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	mutex_init(&udphy->mutex);
-+	atomic_set(&udphy->ctrl_resetting, 0);
- 	platform_set_drvdata(pdev, udphy);
- 
- 	if (device_property_present(dev, "orientation-switch")) {
++&usbdp_phy {
++	mode-switch;
++	orientation-switch;
++	pinctrl-names = "default";
++	pinctrl-0 = <&usbc0_sbu1 &usbc0_sbu2>;
++	sbu1-dc-gpios = <&gpio2 RK_PA6 GPIO_ACTIVE_HIGH>;
++	sbu2-dc-gpios = <&gpio2 RK_PA7 GPIO_ACTIVE_HIGH>;
++	status = "okay";
++
++	port {
++		usbdp_phy_ep: endpoint {
++			remote-endpoint = <&usbc0_dp_ep>;
++		};
++	};
++};
++
+ &vop {
+ 	status = "okay";
+ };
 
 -- 
 2.49.0
