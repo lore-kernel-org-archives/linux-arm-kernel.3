@@ -4,101 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA52C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECE1C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJqiqUuKDfLyn4xBaXlEtsThAwLIgSsxyIFy+RU8IDE=; b=Cx/qklWXYpT6ZWkz2/WLIZCgP9
-	AES0Uo0FyVZc2ii+KMbyUOK7ucKxXAUliB41+yWVUuICRF8v3wax7B00sXoIXGWHhIhxcIwN6VvQ4
-	8OC1a3HGsChZQJmmrmBbr7YqzwepHcfieTPkgUwyG64DqHk5cKBIiTSzYkJaNis/HB/OpcUKSpxB2
-	vKglpyNB4Kq8+XUl6xiueFaGct/MM85nTiM0QRQoebiqWdzd6oNidB2St5HLQN4zEdGG0FjczXQt2
-	feuKyx9BNTYS7ibWp8bMI5pc2jghY2Y2r1jwcgTKZSRYFO42QRiKN71a/SIzW4xkkGP5z2Hrth0fr
-	UEaAw1uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wos0TNL78fyhGvrTFiYrEZxgYaMHol2UDLlgx/6hyNA=; b=b5HfmYbQrC67LEJPpeotsUa66U
+	o4ENGgLQwiYhMkXQ4dSU7kdhYCoPPDrPiQjQLK/73GTFdZ/H0wl4sW3e1cLkZaYMtwDtbTjmavrbV
+	YCgK5D+E3GtUoz9hq8mY7YdKIQbq3liov6jRbpNmJ7fenxK3rghoon6MUettC8QxxgDHQFcdbp1mF
+	UBF6vco0XeM1DBHQvKjKJ/KU0eEvrDsSZtpq38JyqeJ5+DpCJiHfeP0X9ErkZDQu7htSeWmS9pf0M
+	YJCjsyfIEHJS+HzrwHJTgCzElrBTqNy5m7MJChbp+xQ8k95TseC9SpJPGyyDBK1aepujFRXoN0JAH
+	w1xPcjTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2F1-00000007XYB-2sLr;
-	Tue, 10 Jun 2025 16:54:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uP2H9-00000007Y2e-1QMy;
+	Tue, 10 Jun 2025 16:56:39 +0000
+Received: from out-72.smtpout.orange.fr ([193.252.22.72] helo=out.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzNT-000000072ni-1O5q
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 13:51:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749563458;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HJqiqUuKDfLyn4xBaXlEtsThAwLIgSsxyIFy+RU8IDE=;
-	b=gtPfrQO1gwpy7ky3nMvHJcgUnwEVB3quJ/H2/CXZMJqhY6ZhilWnoxguBTBlWLqvKp0v+1
-	ZTdeJixfgy0Ghl89Jomz1bk1vCF2tHMT6eSlNB5suB7CiSjtxxtdqIdS9LPHxvgmYDvp+z
-	O1Sn6G5VDni+gnQBAdgJoXgCBxT6NQI=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-617-ArEJ2fEuPBCR_0-kUh_Q2A-1; Tue, 10 Jun 2025 09:50:56 -0400
-X-MC-Unique: ArEJ2fEuPBCR_0-kUh_Q2A-1
-X-Mimecast-MFC-AGG-ID: ArEJ2fEuPBCR_0-kUh_Q2A_1749563456
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-450787c8626so31548175e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 06:50:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749563455; x=1750168255;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8AZiv2BWFM4GhtysbZzbwwVGm/Lo1Gm6qrn3+2ylp4E=;
-        b=stUxJrSq+B+dSLBRHo8Fki2iwSfbgUnTtB1jJIyBZys1Ica3N5biuI5S2ItAtTGKe/
-         Qr9yS2WtwadQDAEq99L5PFZHKvcHEYxSgIXmvLejGGpEpqEg31y/9voTbxQXnIpZsB5p
-         beu+o3aSxI8jTNb+4lY1tAmlroMfF6c7bc7UC6RZbXRLx4I2l00u8Zyq4giqvpGk93Lo
-         G1uV/PyTVvbkjReYrOMrGjaBgmb0juK6g/eXX90me5roAeev5VDqcnaaW2HpLa6vLre5
-         IsxnqFe2j7mFwf7N6ntLuQkTpEKA66DhaQmNhQoKfkNuZIaEn5XSqCo/N5S0OuIirE9g
-         fZ3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWNJ+7AjnxNO+54TfL+CElnRpeOszsdH/Hyf8CiuCMepY/5q+zavaNjPl+30vXeuvKkgoK18G5yflrZVhr0Bby6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgnMgS5NTz9Ua4U+8Y6PDPRqwFLOrZZFrEp1jGFrkJq5R2jnMy
-	F4WHnoWE0mzJ5f0d1KuaZxv8cyCfrR3vPJOGMmRTJYAL5EqnUqKb9kdx7W29JtQKETlpRp4VUtx
-	ixo8V9E4KGId8K8xudUnw4moRy2RWMbQayLJ1nGxOgqzvd5A6NsVSwIgB+Pf1YXeyEmvHP4UXbD
-	0PULipE7OF
-X-Gm-Gg: ASbGnctW8rMiJxLO6ihjsmvOynNDQeB2aLiauPIdbqEDXJwlXJYuvkQk1u5g5Zg+FHB
-	jRcDpSroj9vt6raeAUr01Qc81jcSB6Rlu9G/5wsYuVtV0gTCIEIUDvnFCUPOWS5m0QVFaWJgikp
-	Yajxt9tw8upql8mBSdMX3TAUg5mXHeGZS1DXdTZyUCMjII/H/Zs2jlMx4ThnWA4fDCxD01ekgPI
-	UfyfeKBMYOk97S2Go8HJr8Hux0hzFqBUtwsflB7iFJ2kffccmqmApEyncsuNGxSW4yG8676DsJk
-	POuUbPcW04vFN3B9i2VBijF4hl7irwVlfiwAe+WsmrtqeoTj35zriYtKARKlJ8zByCe+ZU4=
-X-Received: by 2002:a05:6000:2389:b0:3a4:f786:4fa1 with SMTP id ffacd0b85a97d-3a5316841c4mr14614320f8f.2.1749563455526;
-        Tue, 10 Jun 2025 06:50:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHJKrB4JYjJGiymCLMDjzBOek1jTekdNGl4zWkT4PdFepViV8CQdeLU5rPmaZjMcFcjiosmIg==
-X-Received: by 2002:a05:6000:2389:b0:3a4:f786:4fa1 with SMTP id ffacd0b85a97d-3a5316841c4mr14614288f8f.2.1749563455083;
-        Tue, 10 Jun 2025 06:50:55 -0700 (PDT)
-Received: from rh (p200300f6af1bce00e6fe5f11c0a7f4a1.dip0.t-ipconnect.de. [2003:f6:af1b:ce00:e6fe:5f11:c0a7:f4a1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-452fba4621csm131448645e9.13.2025.06.10.06.50.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 06:50:54 -0700 (PDT)
-Date: Tue, 10 Jun 2025 15:50:53 +0200 (CEST)
-From: Sebastian Ott <sebott@redhat.com>
-To: Miguel Luis <miguel.luis@oracle.com>
-cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-    Colton Lewis <coltonlewis@google.com>, 
-    Ricardo Koller <ricarkol@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-    Suzuki K Poulose <suzuki.poulose@arm.com>, 
-    Zenghui Yu <yuzenghui@huawei.com>, Shuah Khan <shuah@kernel.org>, 
-    "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-    "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-    "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v3 0/4] KVM: arm64: selftests: arch_timer_edge_cases
- fixes
-In-Reply-To: <B77F70F2-EECA-4E10-9F00-972F6AE27831@oracle.com>
-Message-ID: <8f15a5d6-0f73-194a-8fa2-b7ba8cc8c5b2@redhat.com>
-References: <20250605103613.14544-1-sebott@redhat.com> <B77F70F2-EECA-4E10-9F00-972F6AE27831@oracle.com>
+	id 1uOzRp-000000073TE-1O7I;
+	Tue, 10 Jun 2025 13:55:32 +0000
+Received: from [172.16.82.72] ([124.33.176.97])
+	by smtp.orange.fr with ESMTPA
+	id OzRPua8DmtcjXOzRWucHgO; Tue, 10 Jun 2025 15:55:22 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1749563722;
+	bh=Wos0TNL78fyhGvrTFiYrEZxgYaMHol2UDLlgx/6hyNA=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=P1KTZe1XOW4D9HHqh6ZcZ6lv4WTcn/C7pVhRAa1+zaEydyluMc6OJtiq4BSuGvwo4
+	 zZ6F8wPPNkIkgGWGp/7Kyz2SVyDorWCGgcbNdx52rvy4HTnz+/LXR4Ge5+jVFOYWcL
+	 ToqLT+TnHFeMaIpGMdK2C0vGayPFMxyqHv/UlevhhFAUGG+IEbv6uZRYU6vt3W+X6b
+	 jNkofwCMDpTA15G3gbYju8BKiSvLoIgQj3Oo393CFWP4cRNRLyvTi0il1sTGjZ0QHr
+	 7JBMs8s9gzJV3uKUgQama8YgXie5Mjte3Jg4AaIMGKQwPs5boHg6UVLzq1JoWP7jOQ
+	 VG2tBogHDMxng==
+X-ME-Helo: [172.16.82.72]
+X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
+X-ME-Date: Tue, 10 Jun 2025 15:55:22 +0200
+X-ME-IP: 124.33.176.97
+Message-ID: <b2f87cff-3a81-482b-bfdd-389950b7ec8e@wanadoo.fr>
+Date: Tue, 10 Jun 2025 22:55:02 +0900
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: x05FXfpBLJgQrgVv6aXzVNG8EvKUI-JozrIzlIpmme0_1749563456
-X-Mimecast-Originator: redhat.com
-Content-Type: multipart/mixed; boundary="-1463806286-426200590-1749563454=:18875"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] net: can: mcp251x: use new GPIO line value setter
+ callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Marc Kleine-Budde <mkl@pengutronix.de>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>
+References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
+ <20250610-gpiochip-set-rv-net-v1-3-35668dd1c76f@linaro.org>
+Content-Language: en-US
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Autocrypt: addr=mailhol.vincent@wanadoo.fr; keydata=
+ xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
+ LFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+wrIEExYKAFoC
+ GwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQTtj3AFdOZ/IOV06OKrX+uI
+ bbuZwgUCZx41XhgYaGtwczovL2tleXMub3BlbnBncC5vcmcACgkQq1/riG27mcIYiwEAkgKK
+ BJ+ANKwhTAAvL1XeApQ+2NNNEwFWzipVAGvTRigA+wUeyB3UQwZrwb7jsQuBXxhk3lL45HF5
+ 8+y4bQCUCqYGzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrbYZzu0JG5w8gxE6EtQe6LmxKMqP6E
+ yR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDldOjiq1/riG27mcIFAmceMvMCGwwF
+ CQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8VzsZwr/S44HCzcz5+jkxnVVQ5LZ4B
+ ANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
+In-Reply-To: <20250610-gpiochip-set-rv-net-v1-3-35668dd1c76f@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_065059_500548_E09FD770 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250610_065529_780011_106D02F2 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +100,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
----1463806286-426200590-1749563454=:18875
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8BIT
+On 10/06/2025 at 21:37, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Hej Miguel,
+This does not match the address with which you sent the patch: brgl@bgdev.pl
 
-On Mon, 9 Jun 2025, Miguel Luis wrote:
->> On 5 Jun 2025, at 10:36, Sebastian Ott <sebott@redhat.com> wrote:
->>
->> Some small fixes for arch_timer_edge_cases that I stumbled upon
->> while debugging failures for this selftest on ampere-one.
->>
->
-> I’ve tested this test under three circumstances:
->
-> 1) Original (!HAS_EL2 && !HAS_EL2_E2H0)
->
-> 2) HAS_EL2 && HAS_EL2_E2H0
->
-> 3) HAS_EL2 && !HAS_EL2_E2H0
->
-> Tests 1) and 2) returned in approx. the same amount of real time (about 12s) although 3) doesn’t
-> seem to return at all.
+> ---
+>  drivers/net/can/spi/mcp251x.c | 16 ++++++++++------
+>  1 file changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
+> index ec5c64006a16f703bc816983765584c5f3ac76e8..7545497d14b46c6388f3976c2bf7b9a99e959c1e 100644
+> --- a/drivers/net/can/spi/mcp251x.c
+> +++ b/drivers/net/can/spi/mcp251x.c
+> @@ -530,8 +530,8 @@ static int mcp251x_gpio_get_multiple(struct gpio_chip *chip,
+>  	return 0;
+>  }
+>  
+> -static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+> -			     int value)
+> +static int mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+> +			    int value)
+>  {
+>  	struct mcp251x_priv *priv = gpiochip_get_data(chip);
+>  	u8 mask, val;
+> @@ -545,9 +545,11 @@ static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+>  
+>  	priv->reg_bfpctrl &= ~mask;
+>  	priv->reg_bfpctrl |= val;
+> +
+> +	return 0;
 
-I've never really looked at nested stuff, I'll try to set smth up and see
-if I can reproduce that..
+mcp251x_gpio_set() calls mcp251x_write_bits() which calls mcp251x_spi_write()
+which can fail.
 
-Thanks,
-Sebastian
----1463806286-426200590-1749563454=:18875--
+For this change to really make sense, the return value of mcp251x_spi_write()
+should be propagated all the way around.
+
+>  }
+>  
+> -static void
+> +static int
+>  mcp251x_gpio_set_multiple(struct gpio_chip *chip,
+>  			  unsigned long *maskp, unsigned long *bitsp)
+>  {
+> @@ -561,7 +563,7 @@ mcp251x_gpio_set_multiple(struct gpio_chip *chip,
+>  	val = FIELD_PREP(BFPCTRL_BFS_MASK, val);
+>  
+>  	if (!mask)
+> -		return;
+> +		return 0;
+>  
+>  	mutex_lock(&priv->mcp_lock);
+>  	mcp251x_write_bits(priv->spi, BFPCTRL, mask, val);
+> @@ -569,6 +571,8 @@ mcp251x_gpio_set_multiple(struct gpio_chip *chip,
+>  
+>  	priv->reg_bfpctrl &= ~mask;
+>  	priv->reg_bfpctrl |= val;
+> +
+> +	return 0;
+
+Same as above.
+
+>  }
+>  
+>  static void mcp251x_gpio_restore(struct spi_device *spi)
+> @@ -594,8 +598,8 @@ static int mcp251x_gpio_setup(struct mcp251x_priv *priv)
+>  	gpio->get_direction = mcp251x_gpio_get_direction;
+>  	gpio->get = mcp251x_gpio_get;
+>  	gpio->get_multiple = mcp251x_gpio_get_multiple;
+> -	gpio->set = mcp251x_gpio_set;
+> -	gpio->set_multiple = mcp251x_gpio_set_multiple;
+> +	gpio->set_rv = mcp251x_gpio_set;
+> +	gpio->set_multiple_rv = mcp251x_gpio_set_multiple;
+>  	gpio->base = -1;
+>  	gpio->ngpio = ARRAY_SIZE(mcp251x_gpio_names);
+>  	gpio->names = mcp251x_gpio_names;
+> 
+
+Yours sincerely,
+Vincent Mailhol
 
 
