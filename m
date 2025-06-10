@@ -4,178 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C142C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B8FC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:53:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o7jRXDbWKLTMjD8eyA53xKAHo8f9L1JvfJtEiOHkor8=; b=w9E3nzaP8irHqQ56k3cHiiry3V
-	0qvD5oIBGXNPqm0bZ46MLzpS6ppFmeTRmUamcnAJK3txnazkzAOhjA8w/rhgr5hhe0Yn7RCQNSPqU
-	IOzdB/1DpHBjYORg2E1POJAarml/f++KvUMi1LmIxs7e51e7UoDu+RZfnM3wcXvhHKVzQvWwp06SV
-	H5IiM8TVax+3BshXh7PwKVjLnPTlt4NTObfJNpEiRD3JVtAzYpQVsKKOQYwN1neMOvI7apoZkbXxk
-	AGkuIezzNZIszj6x3P50/f5qbzl0Pz/VCeGnEVab9ZX54Ul4XyVrLBoF7kiPfEGL9i+3mwrAjubGq
-	Mc8Ix39A==;
+	bh=nPniQ2udpiXlbbs8EqiWH5fUkmH6STCxoGqL3SAxtwo=; b=qazC7aLdd/vQ2ixCV2X08izoxp
+	LXizPcCUEiPA6tnhtK40+GQ6L4XqyU2fo6IlicoYUVYslxLkS+Dbv/OQp4WPgZuelHk/O2HuN5xEU
+	MToAD0bwZQADFfBGiPr9bRlMN7x+5DjTiir/eX1UIG5tX4i9ntZzXIwb/cKmXSfWix5tsAcCjzMly
+	8+9V6GTRfk+pMf3XFIcNtC0k2MyqNRIp7vnHbbhmqVQlSp+DJi4Zw3b/9yorEKTwL930zhMbQ4uxO
+	fCNCo5I8beXlPGeKv+TORFzseTL2T8te2E8q0HlwspQXtCu3tjwSF3T+d2cOih43SHnVU63DRPpdc
+	vRby0FbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP37b-00000007hVP-0Xfd;
-	Tue, 10 Jun 2025 17:50:51 +0000
-Received: from mail-francesouthazon11021130.outbound.protection.outlook.com ([40.107.130.130] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uP39g-00000007heI-3k6h;
+	Tue, 10 Jun 2025 17:53:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP08Y-000000079Gh-495v
+	id 1uP0Ac-000000079e1-0mrb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 14:41:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=nPniQ2udpiXlbbs8EqiWH5fUkmH6STCxoGqL3SAxtwo=; b=YmJcPEQbXKQNL9Bhpzmtv+GlA3
+	1wfng+cVumkyYcATjyCy/oNLsrU7JnASmLH+caS+OIIdamn4508OBPGVyeSySteXLy3d4aW31aOvQ
+	nrHmZbXancFPKdYAWUwaUbfs/HVcLFeVh3wfQtkfPgfuykcOf1jtyEVJ8kQIHoLxuXZ0UG5vBCDZ+
+	NHJRCG6dSyf+ip3xEbo45qgsKSScmhcraPXv2V95St937mjAabOz2lQia+i8cZgbs1m4TQrxby0nX
+	/hMR18CLGamZ2/bUbHvxrbv9GwUbqJ3/eGyWNmdpQJ1s2RRjxkfjWwdHwSPQ5y5hUIxtuJzta0crp
+	E/cCRsFQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uP0AZ-00000001stW-1XJH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 14:39:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=atXs4Hmq7UhxBnyTe7rehkONzl3gygUAIxBjn1oTVwp6ibrMi/0oWOzMaBg6+qp2//HREaSM+u0BiXQIP0w9o9S/cNKKk2jTm8wCngkWZpDG+6yy+pL59vXpf8tkyLajIReQTGvsQA4p5OygzwS7UE5Mudyyg0Iww+nd8zLV1q/nMTW+mwLgEef7BRwf7Db1k3EZPR4MJezdIqq+GyCAk30L4nqFAM2amHWc2RqLaVsmQ4Z+elqTFLG7Z9Nx5R4vsu8Orl3JyzDKuz6iEwC9nqKW8m46qtvi28BLsojmaQ0RneBRyqGGg7jHDEshEIZPlEuKIwgVqF6i4vj6c2WL8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o7jRXDbWKLTMjD8eyA53xKAHo8f9L1JvfJtEiOHkor8=;
- b=hjYhxXtpqmL3Icr672/HKNH8GHlCuMCqdyh0chKtpQF2s/3DPxnvbRIsfutu0ibaZREY8Xiofev+0fbMVnkUxC3avifsQPBdm+nn+7VbYn1TtVA1Bpem/jvHpJu0YRVfIL6i05Ovx5Lrmk6qWI83bo7ywdI5saFADStEQIkQlY+2eddSQH3ihRW8IZA5dAtZLYIoEzym5sL01H/0tBFYipDSqeuxDoXpPvKR+whRmtPpK6v4mhVW6HMy9DKoflE4WPnTxUKwI2Ja2nZGxDtvO7OJjeE4NBo5ECUJsKtF3lHuj2gOGRSprcGrczmRUBFcfdqBEb2nIth5wRYROiPhYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 13.93.42.39) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=topic.nl;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=topic.nl; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o7jRXDbWKLTMjD8eyA53xKAHo8f9L1JvfJtEiOHkor8=;
- b=p0qgoouRmXfrdLn4zE3n+x/v8b2V9N3t+Hw3j24q/y12b1vf4Io3xJ7HFk8ajngDaojW80r2Hd4FXaba7t07n/wW9jvcNnOl7oPVQ8XRzKm7udgR/l4h7e5ImdDre/+RpN8lJcaPygqE+qftIzGmlFnEdGnsAxgqcj7XPnFLj/ktPSKLC1tNWyYrHVIM5qbu7NV8cORuUUZOrtDUYB88yHa5rY+Ntmhfv8wsnkgRovUtdiVDPUHlOvzdQXdDy378aUVvKTPzcw0uejb93pwlv4Pio641YTUOk3bdeDFrOjveQTLtgflwAvlMeatiNVkvEBkHtBN76iBqleHgiz3hCQ==
-Received: from AM0PR04CA0078.eurprd04.prod.outlook.com (2603:10a6:208:be::19)
- by PA1PR04MB11383.eurprd04.prod.outlook.com (2603:10a6:102:4f7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.27; Tue, 10 Jun
- 2025 14:39:31 +0000
-Received: from AM1PEPF000252DB.eurprd07.prod.outlook.com
- (2603:10a6:208:be:cafe::81) by AM0PR04CA0078.outlook.office365.com
- (2603:10a6:208:be::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Tue,
- 10 Jun 2025 14:39:31 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
- smtp.mailfrom=topic.nl; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=topic.nl;
-Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
- 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
- client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
-Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
- AM1PEPF000252DB.mail.protection.outlook.com (10.167.16.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8835.15 via Frontend Transport; Tue, 10 Jun 2025 14:39:31 +0000
-Received: from DU2PR03CU002.outbound.protection.outlook.com (40.93.64.31) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Tue, 10 Jun 2025 14:39:30 +0000
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=topic.nl;
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
- by VI1PR04MB9907.eurprd04.prod.outlook.com (2603:10a6:800:1d4::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Tue, 10 Jun
- 2025 14:39:26 +0000
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a%4]) with mapi id 15.20.8813.024; Tue, 10 Jun 2025
- 14:39:26 +0000
-From: Mike Looijmans <mike.looijmans@topic.nl>
-To: linux-pci@vger.kernel.org
-CC: Mike Looijmans <mike.looijmans@topic.nl>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Rob Herring <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 2/2] PCI: xilinx: Support reset GPIO for PERST#
-Date: Tue, 10 Jun 2025 16:39:04 +0200
-Message-ID: <20250610143919.393168-2-mike.looijmans@topic.nl>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250610143919.393168-1-mike.looijmans@topic.nl>
-References: <20250610143919.393168-1-mike.looijmans@topic.nl>
- <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.b77534c3-fdad-41b2-aedc-9cfdab99101e@emailsignatures365.codetwo.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain
-X-ClientProxiedBy: AM0PR01CA0176.eurprd01.prod.exchangelabs.com
- (2603:10a6:208:aa::45) To AS8PR04MB8644.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::12)
+	Tue, 10 Jun 2025 14:41:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B41CD14BF;
+	Tue, 10 Jun 2025 07:41:20 -0700 (PDT)
+Received: from [10.1.33.221] (XHFQ2J9959.cambridge.arm.com [10.1.33.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 729763F673;
+	Tue, 10 Jun 2025 07:41:36 -0700 (PDT)
+Message-ID: <dc2ead47-3f8c-498b-bc64-1abe3d3ba56b@arm.com>
+Date: Tue, 10 Jun 2025 15:41:34 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|VI1PR04MB9907:EE_|AM1PEPF000252DB:EE_|PA1PR04MB11383:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a497a5f-6ed2-4d9a-dad0-08dda82c9c5a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?+H3Vs4c3JvJTkokHkJ9UgFbhAr4+SBliS80qrbpGYOx83G6mFwTTr/ZiPaNB?=
- =?us-ascii?Q?zH790BgfufiST2bBMd0KDwiml6oWe/cW4YP4L99ocNQXUEhXswnKluq4hZIw?=
- =?us-ascii?Q?YZDK3a0i53oEyr+4Hyas3aEe+aZ4BogcsTsYymVSzm3yTg5Rt9cxtyM54DDu?=
- =?us-ascii?Q?BZ2ZwJF4xk8OvCDzsijXIqhKECIewLBp59eJ5QHRVX5QvPGL749nxnugzBPl?=
- =?us-ascii?Q?N/L5nSBFTje4q3na3Rds4hiwhS52R26mfAi4httZSRKxNuhJG4NQGTF7H/l8?=
- =?us-ascii?Q?guTWpUQrDnUAqxhNHvNMAPDSbZjo+sLnFxr5kKg8aMLLJqhpD3SCizXXdf/h?=
- =?us-ascii?Q?4d8HfLoxWevewGnpOasOIJYInmBrGWWniVnsLQRfWxpDG+KJBA6P//Wp4yYG?=
- =?us-ascii?Q?CJdTnFqxjZG/2j59vByflhUgekYXNnritKB/xUW5uFN23vs6WuVGeius7ELz?=
- =?us-ascii?Q?gL4m8/jQCDWRqCXJB+aolphNOv4oEYIWzcGagjvsYGF8kHDnwxg35DBwwD8t?=
- =?us-ascii?Q?vXGhV0zzUSSJNReKVsvTwVGlooMfrp2ZbMkESfJu7NrVYLjlRQJwF0tiOAW+?=
- =?us-ascii?Q?H11eIsf+bHskKg7kpcMclcndJpiMqjFTHqHoviD5TnDb1GgSnhK0zSjW0I0O?=
- =?us-ascii?Q?ppgQEt7oSWptVeJj1FeEdV0zSj4Wuq+qB+lBWUoHLXLhaJNxpnmepFck7ngU?=
- =?us-ascii?Q?LO6D7C9erhcQ29jwwo2dKr+4OwfJJJErdNvaTkYHfAAAq/rHoywVlw+9KQ3K?=
- =?us-ascii?Q?H36GRCS3yVbQ85JvSsZdkkreSmCp6z0L13DY5r6J3hSMxvw14SDG3/uiwqRi?=
- =?us-ascii?Q?9/spzeCZ7McUM4xXuBv0hiu2u31RZtRuBGIsZYHPas851U5zPTSlf2dmBYhY?=
- =?us-ascii?Q?JRb6gC74RS/6NGb7yWoUFK+SLWFX/IJYcbdM8JbvgXdKzr+Og+y9Y4DhsE/1?=
- =?us-ascii?Q?cSiF3Ei5ifC2hRdyr+VIa5+P9MXrk0baEMIfogdyX5P+1vojr0773HYBnSDE?=
- =?us-ascii?Q?BdQddg0apmltEpu6seY9PZ2jtw31ZH2mgGWr4K8usicRE9H4oBHwbxp6j87n?=
- =?us-ascii?Q?LKz0AqyBAymRbAeQJ6cJHPK+Y2g+3GsSP0almMrmfeEWvMvbtmF9N3nXpu+U?=
- =?us-ascii?Q?HMpzh8siHqLw37IuAi7gKLjtTF2lf4g0HRcYwGUJ9v+Yd/FUvA1ZpHyxtfnW?=
- =?us-ascii?Q?Ts/2XlMzrqprckJwHQxXB3B9x0oDTKFkJjUov3ra5raYPm1X4MkkbmUKKDyR?=
- =?us-ascii?Q?U5qIlFwJNKnfyyuCpyuROE7lkalQZR++5TR26SWjVG3MBg1NB0CeqlRmBikD?=
- =?us-ascii?Q?wMhm8o/we/PdcoVjALm7w/mHXQvfANYbSu98czQGGagPton4Ju355sqfKpIK?=
- =?us-ascii?Q?JI1kl9V9FOXJspTXDo3LAyWDkydGfm27JJr4ycOq0HV4kLdymKSZG1jzy79v?=
- =?us-ascii?Q?fLfRJ28jCfFK96uTFvg16BqyJlB5u1++vrZlpIZIYZRcvKnMFXMCZQ=3D=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9907
-X-CodeTwo-MessageID: b834f37f-ca03-4f57-b3fd-ec60d87abb30.20250610143930@westeu12-emailsignatures-cloud.codetwo.com
-X-CodeTwoProcessed: true
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM1PEPF000252DB.eurprd07.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: ea98b229-7b7d-45ee-eaaa-08dda82c991e
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|35042699022|14060799003|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6MHSL9adQvziQmbI1EswGI0iJORSu1j18hxrIiSyKXIaxnClxo8alzteuZyr?=
- =?us-ascii?Q?LO2W2Ji3L+OfEARm7RRkqKrH+Ezw1H6LkFLi/KT8uVxfu0DOGp2NLTG1qWAO?=
- =?us-ascii?Q?QBZEpoDmpNgh1ZfZRs1skY+dgbQS6An7Yq5Er/frUqXbBJeo5dBP5768/B51?=
- =?us-ascii?Q?clvYC2th8OwgE7j7PJzG/O4FPsbNu8Grp6Y5s0vW23YOK5TJwng3vLthOc5X?=
- =?us-ascii?Q?PVQTd+nJuAY7k4FSMZwbOEWL+XCZq0fa0oI17KAVOWKTsKhPIP18WpLvi+gA?=
- =?us-ascii?Q?VUWisd4h6quH+ZDvvhAhM/lhKXhHvEYsHMscGOoI3mNyXOodpIpO637Qs2Fa?=
- =?us-ascii?Q?DlmJAgOfS6IIPd1CpSWiATGXuqu9Y3Wlbcg2lW8gCAdtpPDZyotXtcQ/5U8Y?=
- =?us-ascii?Q?jHzoA63WXqJsYPAouTNGHWAut4H7v3jJB5kz/EwDpRJaLH7JRXU626TM4rge?=
- =?us-ascii?Q?zWbhHesKl95CEwjFmXrv+sfSj9hUQSpEA5EAgC5wYgeaVQ+eoV6NRdRcz5Rp?=
- =?us-ascii?Q?3kSKFyRA0QcQ/j5MuqEosPDDm1G4NZLtMmVmrP7HYLIrQQWBahEZ4Ab1fESo?=
- =?us-ascii?Q?3dddh8j6OtTsaKaFGyCzxGrjbVIXQMKaw2aTkY3SG16pCzqk6P1ayaM7lpwk?=
- =?us-ascii?Q?pmNONs9URJuuNwSqs837lN6AQ10N42rGM3NFhmBMIq0fnr4hRBtyClI7jao9?=
- =?us-ascii?Q?A0bkahzJAFYMIUtEjArGHjC96Ov4K3bKtYVtexCRbyCSaZKdGJVBCXkqkAXS?=
- =?us-ascii?Q?9bj357vvO4PLe0KDFMFRUvplR4kGIViQZXlTfoTuCjZXiz0/m5buBwbUV2KI?=
- =?us-ascii?Q?l/VhgDLKBQC2Gd4dGM+hz0yr+pko6A28Arq7aI1W9gS05zqm8NU69czD+pFC?=
- =?us-ascii?Q?TT6ZWO7RJfhD6fOYcQKoQRlHQKyFvcZKLz1qtKxB0Qi463wEIpwij6pOYing?=
- =?us-ascii?Q?anLxxWRq94acFptfH9hA0NxqdbPCiyxDuQbEYF27oxfqYPAXgIC7786kMTQ1?=
- =?us-ascii?Q?/iYbX4PclYT491FJ6Tu90w0w9ULhZCrn6G/3mZXXUrZIBZi7/10vBYxFe7Sz?=
- =?us-ascii?Q?f1ZBr5EZ2JBjP8R9eEoMRk7FwzcTvaGkltzEkA9IooY3r8hJViAX2CrSijBB?=
- =?us-ascii?Q?zZj8JcxGipDsU95OFxAZgyRKAGlEr0aQiyHB0Qy0QzPX+m3L09YbYd1/wh8/?=
- =?us-ascii?Q?k+AuEXWwuEnfcx02jp1FpeP4TX0zc7CGRytdMKtyG3pcVzQX6S1zVaYFTURT?=
- =?us-ascii?Q?H8cfZ/BuWaSa4yF98txM4RfQEj3xD270hQWlLS9ypm72ch6GSJzruhhiz6FS?=
- =?us-ascii?Q?Fzrgm57NnHlZwrv7FCTXvuYDBwEfzh0yzKUl5ghgHokfFGB4Lk3q5yGILSR7?=
- =?us-ascii?Q?7llcH49WP56473Lihv+5JCiH0GiiuI9zCA1jSysPcmD7tbQj1/2Bb5pJcveo?=
- =?us-ascii?Q?mKXYCs0bIozzYOnNYA25+NOqG69682T4qKpRmuwXTOZTOvGXeQR0fQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(35042699022)(14060799003)(376014)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: topic.nl
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 14:39:31.1400
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a497a5f-6ed2-4d9a-dad0-08dda82c9c5a
-X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DB.eurprd07.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11383
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: pageattr: Use walk_page_range_novma() to
+ change memory permissions
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, steven.price@arm.com,
+ gshan@redhat.com, linux-arm-kernel@lists.infradead.org,
+ yang@os.amperecomputing.com, anshuman.khandual@arm.com
+References: <20250610114401.7097-1-dev.jain@arm.com>
+ <20250610114401.7097-3-dev.jain@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250610114401.7097-3-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_073939_337688_98F051EF 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250610_154143_754700_10F5E4AA 
+X-CRM114-Status: GOOD (  39.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,95 +85,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support providing the PERST# reset signal through a devicetree binding.
-Thus the system no longer relies on external components to perform the
-bus reset.
+On 10/06/2025 12:44, Dev Jain wrote:
+> Since apply_to_page_range does not support operations on block mappings,
+> use the generic pagewalk API to enable changing permissions for kernel
+> block mappings. This paves the path for enabling huge mappings by default
+> on kernel space mappings, thus leading to more efficient TLB usage.
+> 
+> We only require that the start and end of a given range lie on leaf mapping
+> boundaries. Return EINVAL in case a partial block mapping is detected; add
 
-Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
----
+nit: return -EINVAL
 
-Changes in v4:
-Adapt patch description to "PCI: xilinx:" format
+> a corresponding comment in ___change_memory_common() to warn that
+> eliminating such a condition is the responsibility of the caller.
+> 
+> apply_to_page_range ultimately uses the lazy MMU hooks at the pte level
+> function (apply_to_pte_range) - we want to use this functionality after
+> this patch too. Ryan says:
+> "The only reason we traditionally confine the lazy mmu mode to a single
+> page table is because we want to enclose it within the PTL. But that
+> requirement doesn't stand for kernel mappings. As long as the walker can
+> guarantee that it doesn't allocate any memory (because with certain debug
+> settings that can cause lazy mmu nesting) or try to sleep then I think we
+> can just bracket the entire call."
 
-Changes in v3:
-Include linux/gpio/consumer.h
-Message "Failed to request reset GPIO"
-Use PCIE_T_PVPERL_MS and PCIE_T_RRS_READY_MS
-Dropped dt-bindings patch, not needed
+It would be better to state the facts here rather than repeat what I previously
+wrote on another thread :)
 
-Changes in v2:
-Split into "reset GPIO" and "wait for link" patches
-Handle GPIO defer and/or errors
+How about something like:
 
- drivers/pci/controller/pcie-xilinx.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+"""
+apply_to_page_range() performs all pte level callbacks while in lazy mmu mode.
+Since arm64 can optimize performance by batching barriers when modifying kernel
+pgtables in lazy mmu mode, we would like to continue to benefit from this
+optimisation. Unfortunately walk_kernel_page_table_range() does not use lazy mmu
+mode. However, since the pagewalk framework is not allocating any memory, we can
+safely bracket the whole operation inside lazy mmu mode ourselves.
+"""
 
-diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/=
-pcie-xilinx.c
-index e8a07535539e..92aa4f3528aa 100644
---- a/drivers/pci/controller/pcie-xilinx.c
-+++ b/drivers/pci/controller/pcie-xilinx.c
-@@ -10,6 +10,7 @@
-  * ARM PCI Host generic driver.
-  */
-=20
-+#include <linux/gpio/consumer.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
- #include <linux/irqdomain.h>
-@@ -576,11 +577,17 @@ static int xilinx_pcie_probe(struct platform_device *=
-pdev)
- 	struct device *dev =3D &pdev->dev;
- 	struct xilinx_pcie *pcie;
- 	struct pci_host_bridge *bridge;
-+	struct gpio_desc *perst_gpio;
- 	int err;
-=20
- 	if (!dev->of_node)
- 		return -ENODEV;
-=20
-+	perst_gpio =3D devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-+	if (IS_ERR(perst_gpio))
-+		return dev_err_probe(dev, PTR_ERR(perst_gpio),
-+				     "Failed to request reset GPIO\n");
-+
- 	bridge =3D devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
- 	if (!bridge)
- 		return -ENODEV;
-@@ -595,6 +602,13 @@ static int xilinx_pcie_probe(struct platform_device *p=
-dev)
- 		return err;
- 	}
-=20
-+	if (perst_gpio) {
-+		msleep(PCIE_T_PVPERL_MS); /* Minimum assertion time */
-+		gpiod_set_value_cansleep(perst_gpio, 0);
-+		/* Initial delay to provide endpoint time to initialize */
-+		msleep(PCIE_T_RRS_READY_MS);
-+	}
-+
- 	xilinx_pcie_init_port(pcie);
-=20
- 	err =3D xilinx_pcie_init_irq_domain(pcie);
---=20
-2.43.0
+> Therefore, wrap the call to walk_kernel_page_table_range() with the
+> lazy MMU helpers.
+> 
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  arch/arm64/mm/pageattr.c | 158 +++++++++++++++++++++++++++++++--------
+>  1 file changed, 126 insertions(+), 32 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 04d4a8f676db..2c118c0922ef 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/mem_encrypt.h>
+>  #include <linux/sched.h>
+>  #include <linux/vmalloc.h>
+> +#include <linux/pagewalk.h>
+>  
+>  #include <asm/cacheflush.h>
+>  #include <asm/pgtable-prot.h>
+> @@ -20,6 +21,100 @@ struct page_change_data {
+>  	pgprot_t clear_mask;
+>  };
+>  
+> +static pteval_t set_pageattr_masks(ptdesc_t val, struct mm_walk *walk)
 
-base-commit: f09079bd04a924c72d555cd97942d5f8d7eca98c
-branch: linux-master-pci-reset
+val is ptdesc_t on entry and pteval_t on return. Let's use ptdesc_t throughout
+since it's intended to represent a "pgtable descriptor at any level".
 
-Met vriendelijke groet / kind regards,=0A=
-=0A=
-Mike Looijmans=0A=
-System Expert=0A=
-=0A=
-=0A=
-TOPIC Embedded Products B.V.=0A=
-Materiaalweg 4, 5681 RJ Best=0A=
-The Netherlands=0A=
-=0A=
-T: +31 (0) 499 33 69 69=0A=
-E: mike.looijmans@topic.nl=0A=
-W: www.topic.nl=0A=
-=0A=
-Please consider the environment before printing this e-mail=0A=
+> +{
+> +	struct page_change_data *masks = walk->private;
+> +
+> +	val &= ~(pgprot_val(masks->clear_mask));
+> +	val |= (pgprot_val(masks->set_mask));
+> +
+> +	return val;
+> +}
+> +
+> +static int pageattr_pgd_entry(pgd_t *pgd, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	pgd_t val = pgdp_get(pgd);
+> +
+> +	if (pgd_leaf(val)) {
+> +		if (WARN_ON_ONCE((next - addr) != PGDIR_SIZE))
+> +			return -EINVAL;
+> +		val = __pgd(set_pageattr_masks(pgd_val(val), walk));
+> +		set_pgd(pgd, val);
+> +		walk->action = ACTION_CONTINUE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int pageattr_p4d_entry(p4d_t *p4d, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	p4d_t val = p4dp_get(p4d);
+> +
+> +	if (p4d_leaf(val)) {
+> +		if (WARN_ON_ONCE((next - addr) != P4D_SIZE))
+> +			return -EINVAL;
+> +		val = __p4d(set_pageattr_masks(p4d_val(val), walk));
+> +		set_p4d(p4d, val);
+> +		walk->action = ACTION_CONTINUE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	pud_t val = pudp_get(pud);
+> +
+> +	if (pud_leaf(val)) {
+> +		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
+> +			return -EINVAL;
+> +		val = __pud(set_pageattr_masks(pud_val(val), walk));
+> +		set_pud(pud, val);
+> +		walk->action = ACTION_CONTINUE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	pmd_t val = pmdp_get(pmd);
+> +
+> +	if (pmd_leaf(val)) {
+> +		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
+> +			return -EINVAL;
+> +		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
+> +		set_pmd(pmd, val);
+> +		walk->action = ACTION_CONTINUE;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
+> +			      unsigned long next, struct mm_walk *walk)
+> +{
+> +	pte_t val = __ptep_get(pte);
+> +
+> +	val = __pte(set_pageattr_masks(pte_val(val), walk));
+> +	__set_pte(pte, val);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct mm_walk_ops pageattr_ops = {
+> +	.pgd_entry	= pageattr_pgd_entry,
+> +	.p4d_entry	= pageattr_p4d_entry,
+
+I may have been wrong when I told you that we would need to support pgd and p4d
+for certain configs. Looking again at the code, I'm not sure.
+
+Let's say we have 64K page size with 42 bit VA. That gives 2 levels of lookup.
+We would normally think of that as a PGD table and a PTE table. But I think for
+the purposes of this, pte_entry and pmd_entry will be called? I'm not really
+sure - I don't have a great grasp on how pgtable folding works.
+
+Trouble is, if pte_entry and pgd_entry get called (as I originally thought),
+pgd_leaf() is always false on arm64, which would clearly be a bug...
+
+I'm hoping someone else can pipe up to clarify. Or perhaps you can build the
+config and do a test?
+
+If it turns out that the "lower" callbacks will always be called, we should
+probably remove pgd_entry and p4d_entry in the name of performance.
+
+> +	.pud_entry	= pageattr_pud_entry,
+> +	.pmd_entry	= pageattr_pmd_entry,
+> +	.pte_entry	= pageattr_pte_entry,
+> +	.walk_lock	= PGWALK_NOLOCK,
+> +};
+> +
+>  bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED);
+>  
+>  bool can_set_direct_map(void)
+> @@ -37,22 +132,7 @@ bool can_set_direct_map(void)
+>  		arm64_kfence_can_set_direct_map() || is_realm_world();
+>  }
+>  
+> -static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
+> -{
+> -	struct page_change_data *cdata = data;
+> -	pte_t pte = __ptep_get(ptep);
+> -
+> -	pte = clear_pte_bit(pte, cdata->clear_mask);
+> -	pte = set_pte_bit(pte, cdata->set_mask);
+> -
+> -	__set_pte(ptep, pte);
+> -	return 0;
+> -}
+> -
+> -/*
+> - * This function assumes that the range is mapped with PAGE_SIZE pages.
+> - */
+> -static int __change_memory_common(unsigned long start, unsigned long size,
+> +static int ___change_memory_common(unsigned long start, unsigned long size,
+>  				pgprot_t set_mask, pgprot_t clear_mask)
+>  {
+>  	struct page_change_data data;
+> @@ -61,9 +141,28 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+>  	data.set_mask = set_mask;
+>  	data.clear_mask = clear_mask;
+>  
+> -	ret = apply_to_page_range(&init_mm, start, size, change_page_range,
+> -					&data);
+> +	arch_enter_lazy_mmu_mode();
+> +
+> +	/*
+> +	 * The caller must ensure that the range we are operating on does not
+> +	 * partially overlap a block mapping. Any such case should either not
+> +	 * exist, or must be eliminated by splitting the mapping - which for
+> +	 * kernel mappings can be done only on BBML2 systems.
+> +	 *
+> +	 */
+> +	ret = walk_kernel_page_table_range(start, start + size, &pageattr_ops,
+> +					   NULL, &data);
+> +	arch_leave_lazy_mmu_mode();
+> +
+> +	return ret;
+> +}
+>  
+> +static int __change_memory_common(unsigned long start, unsigned long size,
+> +				  pgprot_t set_mask, pgprot_t clear_mask)
+> +{
+> +	int ret;
+> +
+> +	ret = ___change_memory_common(start, size, set_mask, clear_mask);
+>  	/*
+>  	 * If the memory is being made valid without changing any other bits
+>  	 * then a TLBI isn't required as a non-valid entry cannot be cached in
+> @@ -71,6 +170,7 @@ static int __change_memory_common(unsigned long start, unsigned long size,
+>  	 */
+>  	if (pgprot_val(set_mask) != PTE_VALID || pgprot_val(clear_mask))
+>  		flush_tlb_kernel_range(start, start + size);
+> +
+>  	return ret;
+>  }
+>  
+> @@ -174,32 +274,26 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
+>  
+>  int set_direct_map_invalid_noflush(struct page *page)
+>  {
+> -	struct page_change_data data = {
+> -		.set_mask = __pgprot(0),
+> -		.clear_mask = __pgprot(PTE_VALID),
+> -	};
+> +	pgprot_t clear_mask = __pgprot(PTE_VALID);
+> +	pgprot_t set_mask = __pgprot(0);
+>  
+>  	if (!can_set_direct_map())
+>  		return 0;
+>  
+> -	return apply_to_page_range(&init_mm,
+> -				   (unsigned long)page_address(page),
+> -				   PAGE_SIZE, change_page_range, &data);
+> +	return ___change_memory_common((unsigned long)page_address(page), PAGE_SIZE,
+> +					set_mask, clear_mask);
+>  }
+>  
+>  int set_direct_map_default_noflush(struct page *page)
+>  {
+> -	struct page_change_data data = {
+> -		.set_mask = __pgprot(PTE_VALID | PTE_WRITE),
+> -		.clear_mask = __pgprot(PTE_RDONLY),
+> -	};
+> +	pgprot_t set_mask = __pgprot(PTE_VALID | PTE_WRITE);
+> +	pgprot_t clear_mask = __pgprot(PTE_RDONLY);
+>  
+>  	if (!can_set_direct_map())
+>  		return 0;
+>  
+> -	return apply_to_page_range(&init_mm,
+> -				   (unsigned long)page_address(page),
+> -				   PAGE_SIZE, change_page_range, &data);
+> +	return ___change_memory_common((unsigned long)page_address(page), PAGE_SIZE,
+
+nit: you're at 85 chars here. Given you are breaking anyway, why not put
+PAGE_SIZE on the next line? Same for set_direct_map_invalid_noflush().
+
+> +					set_mask, clear_mask);
+>  }
+>  
+>  static int __set_memory_enc_dec(unsigned long addr,
+
+
+This is looking good to me overall - nearly there!
+
+Thanks,
+Ryan
+
+
 
