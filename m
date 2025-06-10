@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8474C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB80C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:To:Message-Id:Date:Content-Type:Mime-Version:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOaDoz9H3gJVjVkXf5SppnF68Xo6KIKjXhIxBWkW7q8=; b=rB9Ua1IxgqwWQguTapPOR3+NZM
-	0ncPKyIaw5uOqN2DJ6iCVA8c5ssnf2HD3MhEuUl62i67jqNARdDQxaYrcVmKNLTPs/duz8rGZLR1w
-	0hWpUhmolMHfBkaDg54PxZZ7HVrPnPIIdtvGBZqkyg+GspoJXbcvsvfwW3hJt1OhDf6POFrfEKLOL
-	6ODF0VrWzqz9QLYVixTTITWDXo+17+WWRTOF+DE2RsP/eF5tLQOYNNs5iZ9iQe2SX6rad7kUgIvlh
-	0PtudbqnBHHUTh8tlLJ9NUxqad28bdRWABBaAg1JgRWUPbbVYHbSC9mD9zwWOwSrXAecej1Xe9SJn
-	MVIP4oQw==;
+	bh=3BbKiigODEicaiDNzx9aoa4j4mF/NM/KKv41e3U3xBE=; b=Mx5T/Zm6PZJ5Ym4OjKTzZhk0nm
+	/ob6/Mw00WCZAz0SEwYX08VEpqduie5R/D4v91Mawic7TEzETpScvwhcP3YVf8QT4lBEFZoJoHBR3
+	fhzb2Fo7pTV/GpNzbWm4or97sm78VCG9X0YeO+GU60i281vqT0YESgHDCwbu7FAKTlYOT8Xt7r8JZ
+	sdER4st36Rpvyh/d1Shjh8CNL9yl4pGNUMA0KVzjrYPVhDCPpxYVos2jvuHek89HLkIUXg/MEmfwO
+	14Ie5k3YeqFoPZYJiUtva5Oo00rrBh7FtfMPL4NCSMhGNs2DuUyPyi75K/4sKaSJC+DkfFSpuwRBP
+	/JbyN2kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxmp-00000006ivf-0zRL;
-	Tue, 10 Jun 2025 12:09:03 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uOxnl-00000006jTW-0ger;
+	Tue, 10 Jun 2025 12:10:01 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwRt-00000006WEn-1BXX;
-	Tue, 10 Jun 2025 10:43:22 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-451d54214adso43315265e9.3;
-        Tue, 10 Jun 2025 03:43:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749552200; x=1750157000; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kOaDoz9H3gJVjVkXf5SppnF68Xo6KIKjXhIxBWkW7q8=;
-        b=GMSuH235ya7lYh1/3nG8wvU6HK2nlXaleMwX9KP3SBvMnr5f40wcWMWAfZltLl0ZH9
-         qKovBczjHBvzm3v41AHjWycxEfgdAXTxCBIhqwGMMxiNq+vmyxxi/OeY6xZuNJGAlNWe
-         3aSSqMchvjdj6nopCZNMz1+QYtgWW17qh3/z6945ep0iCnXFvHlquIxpP3TdmEyu+c9p
-         avr5IqaeZ26jFWy9v8s3zfYXSU3elfeRaPMkCqbUJArAfeBSD4qmfWNMLArwmMkJLM29
-         dfRG+Jrer5uTMz+px39pbnSAcGG8G+uh/ye54EsU5PXenGUstn85mnyZrzFiJgq7xh2P
-         ziyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749552200; x=1750157000;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kOaDoz9H3gJVjVkXf5SppnF68Xo6KIKjXhIxBWkW7q8=;
-        b=Z9Ftx3pvEpEV+lgzu7tlzUw30EivQlBLvJwxymC/3KflsFbdRrswtMo1cD9i0PDxEW
-         sDyDRiq529ASXyOlXCE8jFG/YF6lkKGLf51EoSr7dMm/Tf9hqskIz22WwmMrAI8mFFVO
-         Mksk3QA4DAVOv5n6jyVS7a/LkdA2HKXgunLpya1C/D3eosryNMlVf8/3Ar5Q/++nIuiy
-         zz0HUgpnifZ9l4UULZA2955muotAYU4T9jpLSGwBzwNwZts+rBc5a1Kb/4PxY9zHOuzi
-         c9z3ofiKr5muXStkxU2oS+cxF+gOmQnGA8LV6+JIr7JqfOj2c0rcv7mqoTKAniit1cQ9
-         tf7w==
-X-Forwarded-Encrypted: i=1; AJvYcCU/dcIE9/4gQYGYAlfUdX6E1gBnazcAcWdZ8/8AHmFiavK/dvH/SctiF++kx3JeIqrUl4rVkfXiPzvt4nPSAmkLKA==@lists.infradead.org, AJvYcCXoJMSO8o89TePQzwcMgOUfLSMNNMWkc7rdEW/26SxbwHBhi/+S0+26gcUnMhUkfPvK6iOo2c7VLnjfF2GC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+TeYVxbeM0b2GZ16BLDIfjsh0YXPRbk7SXtBtZUlq7H8ZXFri
-	YuFHtDXrfE9119VPpz23ijrwrUsVoKsahx10UqH9tNkL/g2hMSPnb6jf
-X-Gm-Gg: ASbGncuTseK3lMLwc+T05CY+m3vzRw9AtZe2snTUt47xDuE2Hz/EqY1+DA6xNbB/eNb
-	HpIjV9q6pm/Tgyl7msFqAKRYNuDPmVF976lECsoV7jTsow93WDujLTlkNEaYQ+qdoo4M226Efdg
-	XKSi62DqzzyyQ37cAcwEwsTRsI+kthfwRHyKIZcws70M9KixGZUyjhj//tQ7GYoDYwQbazEb6LB
-	y75pp1q4m3rcAsIq19oYIMWJA8af5FmFsq02gkPWbujW1PmaZarYlZHzoxE0jOU9QdnbhnklGKa
-	UzZxhoF3ov/JOsu5G/2Kca2atluUm+y87ZlmuvPiZMtc5e9wNol5roz3sf4YF07rHBENjgOMuCG
-	FV8FmSPMdHsHZtkC36EJSrL0NbhAHfGUFUTynykolwoXPIKNTJ3oTIKpczhk=
-X-Google-Smtp-Source: AGHT+IHQ/+H0xmT4/n8SzqPJO5wYfpUJEhNk4WbIofE8jpTP1D8Vxb32j//I2sl0mRwL2FnnAavasQ==
-X-Received: by 2002:a05:600c:8218:b0:43d:5ec:b2f4 with SMTP id 5b1f17b1804b1-4531de00602mr28517275e9.10.1749552199291;
-        Tue, 10 Jun 2025 03:43:19 -0700 (PDT)
-Received: from orome (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4521370961csm137172115e9.22.2025.06.10.03.43.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 03:43:17 -0700 (PDT)
-Date: Tue, 10 Jun 2025 12:43:15 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 4/5] dt-bindings: mailbox: nvidia,tegra186-hsp: Use
- generic node name
-Message-ID: <hcw6q4iwiout2htnq7wdd3bijozjoqbfdk3tdt42ynr4cx53uy@rxd4io4oua3a>
-References: <20250603-dt-bindings-mailbox-cleanup-v1-0-724407563997@linaro.org>
- <20250603-dt-bindings-mailbox-cleanup-v1-4-724407563997@linaro.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="abxrtw4wmi4tc3x3"
-Content-Disposition: inline
-In-Reply-To: <20250603-dt-bindings-mailbox-cleanup-v1-4-724407563997@linaro.org>
+	id 1uOxEb-00000006eYH-3YWk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 11:33:43 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1749555209;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3BbKiigODEicaiDNzx9aoa4j4mF/NM/KKv41e3U3xBE=;
+	b=wd5lub2M4ly/Y+UM69qrQaNtuHzWYZUNWzPhgJ5L+BRHBdHOKaSc0U7f9jrgezU99Ly57K
+	Se/7+7htSTy3pxzR/F3XNjBC+6KlQzFyvaS2Hsq2Dwv69glNGtzNs0xgcmv7M5ysEPuLFb
+	ReTuWft92EiA/X+iLCNyqfsuxsp6rI3axXtAqaibrzwvUJgSxgd4bvhwdrScGSIH/cvTMW
+	Qd7g8i3pL8ln/exU+Cpvrs2+UUwRkmSchAOnhQf/2mAeBea66iafoPzARbtdZBf8He/iUn
+	9tGmOJkuffUEr8OBmtrUjJk1ulfkeLlmgRdl5VZ0JyeA9qbGq+JYYwra2YKfqQ==
+Content-Type: multipart/signed;
+ boundary=784e285f5dea8c9600fc349e98833e3e9f44c336efd28cb84210aa5d2a54;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 10 Jun 2025 13:33:25 +0200
+Message-Id: <DAITK5IPG0QA.2EMB23KS83SBE@cknow.org>
+To: "Peter Robinson" <pbrobinson@gmail.com>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, "Peter Geis" <pgwipeout@gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add overlay for RockPro64
+ screen
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+References: <20250518215944.178582-1-pbrobinson@gmail.com>
+ <20250518215944.178582-2-pbrobinson@gmail.com>
+In-Reply-To: <20250518215944.178582-2-pbrobinson@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_034321_322226_B3EF4A19 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250610_043342_023115_6319C1A0 
+X-CRM114-Status: GOOD (  15.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,50 +71,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nishanth Menon <nm@ti.com>, Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Jerome Brunet <jbrunet@baylibre.com>, Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>, Jassi Brar <jassisinghbrar@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, Chen-Yu Tsai <wens@csie.org>, linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@svenpeter.dev>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Hector Martin <marcan@marcan.st>, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, Neal Gompa <neal@gompa.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---abxrtw4wmi4tc3x3
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
+--784e285f5dea8c9600fc349e98833e3e9f44c336efd28cb84210aa5d2a54
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 4/5] dt-bindings: mailbox: nvidia,tegra186-hsp: Use
- generic node name
-MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 
-On Tue, Jun 03, 2025 at 01:57:11PM +0200, Krzysztof Kozlowski wrote:
-> According to Devicetree specifications, device node names should be
-> generic, thus Mailbox provider should be called "mailbox", not "hsp".
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Hi,
+
+On Sun May 18, 2025 at 11:59 PM CEST, Peter Robinson wrote:
+> The Pine64 touch panel is a panel consisting of the Feiyang fy07024di26a3=
+0d
+> panel with a Goodix gt911 touch screen. Add a device tree overlay to
+> allow the display to be easily used on the device.
+>
+> This was previously included in the main device tree but left disabled
+> by default which still required rebuilding the DT to use the device, now
+> overlays can go upstream the overlay is the best way to handle the
+> add on devices.
+>
+> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
 > ---
->  Documentation/devicetree/bindings/mailbox/nvidia,tegra186-hsp.yaml | 5 +=
-----
->  1 file changed, 1 insertion(+), 4 deletions(-)
+>  arch/arm64/boot/dts/rockchip/Makefile         |  9 ++
+>  .../dts/rockchip/rk3399-rockpro64-screen.dtso | 89 +++++++++++++++++++
+>  2 files changed, 98 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen.=
+dtso
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/=
+rockchip/Makefile
+> index 3e8771ef69ba1..c7b13bff3ac20 100644
+> --- a/arch/arm64/boot/dts/rockchip/Makefile
+> +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> @@ -77,6 +77,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock-pi-4c.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock960.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-v2.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64.dtb
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtso
 
-Acked-by: Thierry Reding <treding@nvidia.com>
+``s/rk3399-rockpro64-screen.dtso/rk3399-rockpro64-screen.dtbo``
 
---abxrtw4wmi4tc3x3
+Cheers,
+  Diederik
+
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-sapphire.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-sapphire-excavator.dtb
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399pro-rock-pi-n10.dtb
+> @@ -209,6 +210,14 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-puma-haikou-=
+haikou-video-demo.dtb
+>  rk3399-puma-haikou-haikou-video-demo-dtbs :=3D rk3399-puma-haikou.dtb \
+>  	rk3399-puma-haikou-video-demo.dtbo
+> =20
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtb
+> +rk3399-rockpro64-screen-dtbs :=3D rk3399-rockpro64.dtb \
+> +	rk3399-rockpro64-screen.dtbo
+> +
+> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtb
+> +rk3399-rockpro64-v2-screen-dtbs :=3D rk3399-rockpro64-v2.dtb \
+> +	rk3399-rockpro64-screen.dtbo
+> +
+>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf5-vz-2-uhd.dtb
+>  rk3568-wolfvision-pf5-vz-2-uhd-dtbs :=3D rk3568-wolfvision-pf5.dtb \
+>  	rk3568-wolfvision-pf5-display-vz.dtbo \
+> <snip>
+
+--784e285f5dea8c9600fc349e98833e3e9f44c336efd28cb84210aa5d2a54
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmhIDEAACgkQ3SOs138+
-s6FLeA/8C28wIE1XdUrfWbZVBn7aovpLS99DRcLoPyMvhw8fjByqxokguQTPyVMb
-uUYMChlSTxFTyYulzP+K2kv12E04Yeu6n4nhk6gOx90ItrPuiqCqPsBrp8WU6Ktu
-/Xr/DpwTy6DdlN+Xb5RZ6FtcncU0CMdf7bpB0ZxYIciQfRnimdpG6e8JTxE5ShIa
-uLTNQjPYdtJb7RSE4jaQ3KZFLP5tUsb43sh/Yr+8356lE0ehI+L994IO+H8J5OKn
-0A8ZKhCRzXwMdMb3N9bYfP0BpMRlgnk5BhGMEu5BTGVt1QjNTlSSstt3kaees5pd
-3D+2vN4NLXtkSoSUjyxIwUK+nJhZudE7DjySBZpIf1TiJ3Js64i6wMwWEqs4v+0/
-7jPjZp9JXKzFvBoBUtmEpGt3YM9B4kALq9gqooFzH8IkowTK6FUlamTqSlBytDrd
-0ZjwrGllN7fYZZaxZ4L/5CIeLyo/XLG/AgVm45QeuGIpT3uBRVdox3X1oPgHKz57
-dCnGomNKN7WyMEqXCE2TSJQkIh3qdhtpHg0p/Wf3gvKg+ak8kJYE099TTtOYS6VN
-DyHrxbecTi/ktRX9d7TmReGlCkFwrmLrl5FECpWWUEO0ZnrFXuQj5cNues8Y5wSQ
-V3Ey7khUayaf0c9EiafF4zDHDgx4YBeHw7Rn3bRM6PzdboL3EcQ=
-=rTWv
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaEgYCQAKCRDXblvOeH7b
+bpDlAP42dz1RokCahWYcKFjBZeZ82YRBLCv2WWK9segBBQ42mAD9GwubVa32FumV
+yuonJTRt3xHaFfm2Dhc1UTppyeq1Wgo=
+=HBM1
 -----END PGP SIGNATURE-----
 
---abxrtw4wmi4tc3x3--
+--784e285f5dea8c9600fc349e98833e3e9f44c336efd28cb84210aa5d2a54--
 
