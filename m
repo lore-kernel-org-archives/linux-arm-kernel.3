@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F830C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A83C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6jFgEWw4ARwHHobxDSziy501YUd5MUew54ky5yZYuxs=; b=oENZUueXri4oao0oTNVn3yiFtx
-	rOb3SHv4Qfn6hmdwSKvRa8O1a0VSuqsjJSIQiZ7Yu1cqkDYI+S3D0DlpgblBcn+FPLzaXkImfHZdC
-	wQhdmKQokmLxkJtcAPaKnyildBj+jNszCxy4eP3Z3ykvVlZ/Ky8w8NOih+Wdp84t/cVhljM7w1NWL
-	cvxKCMByJJqh6UNsz5/B67r5NyPXtKnAQ/NvTht/IWtzvXHIro+Y6QJ+raYrVb9+0RpR8D+Fbhs8B
-	yHm6EYm1AI/s4yw6Pis9zQGBnwdvJTzN4B3jvfW+sZkE55bbmcmYWX6EYNM12I0wi+34YFjSgbA+y
-	4pCJ7bzA==;
+	bh=b/0vOKGnYhqRXSzWEfu7o/Jh/rwIFPqRA3jAoO8+n0g=; b=tTiZIRhbRkkg1gIy9r0UpXx4EI
+	TilKk5Q2W9DHR+S5njsQOXYYua5P4U1s1DHXRnhplFCjCjvVYIagVFkicitNAab0q5KFT4o9rB6tS
+	VLJkORuhJCVy1AZSKAeswl2V1KDV2Cx33u4VhFEhjuzS85ZHE0bodaz2Iwrqx8rhQZckZ9n4mW0eB
+	1dxdUxuHkfbPoNwVR8MEml4yF7VOD4nT369kHJaBsuMmrVBAb23SbVZX91z7Y8HRxu2FgggLS93PT
+	l9d9WDLjSnhp5kABV+aXeJ1eqSnxmKsYAfvCYF22Lyn8a9y8rB5/QAYBUh2sooeF8MuRiq8zsC2Bn
+	TLOVQUVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP4VL-00000007uHX-46EL;
-	Tue, 10 Jun 2025 19:19:27 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uP4XR-00000007uX3-1Lky;
+	Tue, 10 Jun 2025 19:21:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0qK-00000007Isy-30Xl
+	id 1uP13W-00000007LLJ-481M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:24:54 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLFRk012963;
-	Tue, 10 Jun 2025 17:24:45 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	6jFgEWw4ARwHHobxDSziy501YUd5MUew54ky5yZYuxs=; b=fRIBy1BxcpFxUqXZ
-	zFzb+4hJFSEaZOpDRM+1lBrH+cRSNV1X52Jit1DkbvovitiXs6S4q5NAgdcI+nNI
-	/dv13hLMhWOkVSUUQxAvyAQtzZ13rbxKZyzudUcD/rJVzbGbVBxAlnsx/2BJtLl0
-	kEISu9Ow4LKrqXAS7xN2MBZ01GsDt9iOF+KNhmu8D+WxB/4wiYF1rHpuIpyrRNGA
-	AZ29Zl5vVTthSC1xV5sevT4ObOStkC9HQtrI//yzLL4wa4fuvL+bB69YMIVJJj2L
-	MMiVA3vT4nSvphcQn84rUh/bSA8r9+Nq4Y7cvnjcf0NDsfg+RLnRwkqbQNqK9a2Y
-	DGR3cw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aume5nh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 17:24:45 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C9E4A40055;
-	Tue, 10 Jun 2025 17:23:55 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1ED6DB79BAB;
-	Tue, 10 Jun 2025 17:23:15 +0200 (CEST)
-Received: from localhost (10.48.86.132) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 17:23:14 +0200
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-CC: Antonio Borneo <antonio.borneo@foss.st.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Fabien Dessenne <fabien.dessenne@foss.st.com>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: [RESEND PATCH v2 4/5] ARM: dts: stm32: Add leds for CM4 on stm32mp15xx-ed1 and stm32mp15xx-dkx
-Date: Tue, 10 Jun 2025 17:23:08 +0200
-Message-ID: <20250610152309.299438-5-antonio.borneo@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250610152309.299438-1-antonio.borneo@foss.st.com>
-References: <20250610152309.299438-1-antonio.borneo@foss.st.com>
+	Tue, 10 Jun 2025 15:38:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B2C7A44ED7;
+	Tue, 10 Jun 2025 15:38:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2697C4CEED;
+	Tue, 10 Jun 2025 15:38:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749569910;
+	bh=YN2abfYTzSNS/+hpyJFcfBAwNk3QerwbhJuKXfXBLZw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ttO/2+H5eQRLnu1nZSrsbB8yax6s0pOvJr05qK8/af+y3dKzaa4XYMCuCFsGrdlhP
+	 sbsuvkkpksTCEEbRuvfDK54h/wJRXhQfvn7s9wCC+c9BWzjMn9vf/f+SZPPsGunpCT
+	 16jI+eYsZNvVfNQueTYmvOjWFrgrUDRb0tal9dEAC/F9wZcwg+kG2XF89gxeE7ZleN
+	 vRxFpczLdfS+QGdnX8S0VubCl0DEEvjxpCaZ4rmDA0Pt6x8i2WiDi2QYQG48QA4oXE
+	 5Pva/rXpVnrB1g0VeHQLwEtSgqnV5TnikGVGZ+RJIxuSHYveDhV/laQ0+z95u+YZeV
+	 WHYG/SyHCsewQ==
+Date: Tue, 10 Jun 2025 16:38:25 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
+	anshuman.khandual@arm.com, joey.gouly@arm.com,
+	yury.khrustalev@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+	frederic@kernel.org, shmeerali.kolothum.thodi@huawei.com,
+	akpm@linux-foundation.org, surenb@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v5 5/6] kselftest/arm64/mte: refactor check_mmap_option
+ test
+Message-ID: <69778d2c-3ace-4fbe-a55f-297e280f8761@sirena.org.uk>
+References: <20250610150144.2523945-1-yeoreum.yun@arm.com>
+ <20250610150144.2523945-6-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.132]
-X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_07,2025-06-10_01,2025-03-28_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wiurY4jNrpHPUgNi"
+Content-Disposition: inline
+In-Reply-To: <20250610150144.2523945-6-yeoreum.yun@arm.com>
+X-Cookie: When in doubt, follow your heart.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_082453_042287_85567D5A 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250610_083831_060603_AB4E8636 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add to the node m4_rproc the pinctrl property corresponding to the
-orange LED.
-The GPIO is reserved for the coprocessor Cortex-M4 and will be
-ignored by Linux.
 
-Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
----
- arch/arm/boot/dts/st/stm32mp157c-ed1.dts  | 2 ++
- arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi | 2 ++
- 2 files changed, 4 insertions(+)
+--wiurY4jNrpHPUgNi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-ed1.dts b/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
-index 9cf5ed111b52e..f6c478dbd0418 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-ed1.dts
-@@ -328,6 +328,8 @@ &m4_rproc {
- 			<&vdev0vring1>, <&vdev0buffer>;
- 	mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>, <&ipcc 3>;
- 	mbox-names = "vq0", "vq1", "shutdown", "detach";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&m4_leds_orange_pins_b>;
- 	interrupt-parent = <&exti>;
- 	interrupts = <68 1>;
- 	status = "okay";
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-index a5511b1f0ce30..26f36a232d42d 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi
-@@ -479,6 +479,8 @@ &m4_rproc {
- 			<&vdev0vring1>, <&vdev0buffer>;
- 	mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>, <&ipcc 3>;
- 	mbox-names = "vq0", "vq1", "shutdown", "detach";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&m4_leds_orange_pins_a>;
- 	interrupt-parent = <&exti>;
- 	interrupts = <68 1>;
- 	status = "okay";
--- 
-2.34.1
+On Tue, Jun 10, 2025 at 04:01:43PM +0100, Yeoreum Yun wrote:
 
+> Before add mtefar testcase on check_mmap_option.c,
+> refactor check_mmap_option.
+
+Please describe the intended refactoring here.
+
+> +#define CHECK_ANON_MEM		0
+> +#define CHECK_FILE_MEM		1
+> +#define CHECK_CLEAR_PROT_MTE	2
+> +
+
+Perhaps use enums for this sort of thing?
+
+> +{
+> +	static char test_name[TEST_NAME_MAX];
+> +	const char* check_type_str;
+
+Coding style would usually be
+
+	const char *check_type_str;
+
+> +	snprintf(test_name, TEST_NAME_MAX,
+> +	         "Check %s with %s mapping, %s mode, %s memory and %s\n",
+> +	         check_type_str, mapping_str, sync_str, mem_type_str, tag_check_str);
+
+sizeof(test_name).
+
+>  	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
+> -	"Check anonymous memory with private mapping, sync error mode, mmap memory and tag check off\n");
+> +		      format_test_name(CHECK_ANON_MEM, USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF));
+
+Looking at this I can't help but think that the more common pattern for
+test programs where we have an array of test parameters that we loop
+through might make sense:
+
+	for (i = 0; i < ARRAY_SIZE(test_cases); i++) {
+		format_test_name(test_cases[i]);
+
+		switch (test_cases[i].test_type) {
+		case CHECK_ANON_MEM:
+			check_anonymous_memory_mapping(USE_MMAP, ...);
+
+That seems a bit more legible and maintainable.
+
+>  	mte_disable_pstate_tco();
+
+The management of this could be added as a parameter in the test struct.
+
+--wiurY4jNrpHPUgNi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhIUXAACgkQJNaLcl1U
+h9Boxwf/dZbDq7YqYcbr08R6zhlOta4jGhZDU+Ik+NUZ6h0zOrm/eN4p2q1GyOQQ
+UBaVFS6XoIDDwj9dq0EepDjWFCzfvSMUTQlmTpsiZRz7WUtT1Arf5Hyj70NlSM6G
+Jwp45Bd0RGSnp2Oqto5PulRstpLEAcFPOfy0yxi5RUQ0fb/PKZ3HVa640wxxs+s1
+9LLLkdqf/DAkWNveuKTbLlpjuQa2GqHRPOGxvft392o36Vj2B2xOyyX1BTtU1m64
+0e35ZUud9tpixP0m05mkemT53/HXnziTuZHY/B4FIfOf93oDOd0OMEfAtSsE/qgs
+2i5Pz9GXvPgJCKag2F9ZrKirf315Og==
+=2tuw
+-----END PGP SIGNATURE-----
+
+--wiurY4jNrpHPUgNi--
 
