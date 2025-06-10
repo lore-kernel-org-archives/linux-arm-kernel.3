@@ -4,88 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECE1C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90DCBC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:58:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wos0TNL78fyhGvrTFiYrEZxgYaMHol2UDLlgx/6hyNA=; b=b5HfmYbQrC67LEJPpeotsUa66U
-	o4ENGgLQwiYhMkXQ4dSU7kdhYCoPPDrPiQjQLK/73GTFdZ/H0wl4sW3e1cLkZaYMtwDtbTjmavrbV
-	YCgK5D+E3GtUoz9hq8mY7YdKIQbq3liov6jRbpNmJ7fenxK3rghoon6MUettC8QxxgDHQFcdbp1mF
-	UBF6vco0XeM1DBHQvKjKJ/KU0eEvrDsSZtpq38JyqeJ5+DpCJiHfeP0X9ErkZDQu7htSeWmS9pf0M
-	YJCjsyfIEHJS+HzrwHJTgCzElrBTqNy5m7MJChbp+xQ8k95TseC9SpJPGyyDBK1aepujFRXoN0JAH
-	w1xPcjTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K40ZyQM9+usg8Y0FdFcajeZUMCknmbywY/glNwoMErQ=; b=C+6VkxXXb6uuhX6MiZgjbs/YwE
+	VZL1a1EGuAXqV7rYmD8oQ1hmhLzQrWAO0LFXEQfvE0xu+8v8PGGTIp0GFHELo2DpWg4ediCOkJfF7
+	nuBxPUmVrK9ccpEreGxbHJEIJtQwPzEcFDiCthnb76hxGJhitrsF+K1R303hMoD1MZQr39West/Ph
+	xA2DSGvswX0LG9jXY/xRugvEizIYCUS6Hv/epHLTXE3XnCk542ZXPULwQObuVlwjiv/mMir4ca4kQ
+	l+tSz+JuF7aGXKSubKL49nWS3m1e3YyrWzKeBQNssfbdhlUKnCJOF5/0r1IfZlsShmXKPcEwBgOqe
+	RNdT8WwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2H9-00000007Y2e-1QMy;
-	Tue, 10 Jun 2025 16:56:39 +0000
-Received: from out-72.smtpout.orange.fr ([193.252.22.72] helo=out.smtpout.orange.fr)
+	id 1uP2JF-00000007YGc-2PhU;
+	Tue, 10 Jun 2025 16:58:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOzRp-000000073TE-1O7I;
-	Tue, 10 Jun 2025 13:55:32 +0000
-Received: from [172.16.82.72] ([124.33.176.97])
-	by smtp.orange.fr with ESMTPA
-	id OzRPua8DmtcjXOzRWucHgO; Tue, 10 Jun 2025 15:55:22 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1749563722;
-	bh=Wos0TNL78fyhGvrTFiYrEZxgYaMHol2UDLlgx/6hyNA=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=P1KTZe1XOW4D9HHqh6ZcZ6lv4WTcn/C7pVhRAa1+zaEydyluMc6OJtiq4BSuGvwo4
-	 zZ6F8wPPNkIkgGWGp/7Kyz2SVyDorWCGgcbNdx52rvy4HTnz+/LXR4Ge5+jVFOYWcL
-	 ToqLT+TnHFeMaIpGMdK2C0vGayPFMxyqHv/UlevhhFAUGG+IEbv6uZRYU6vt3W+X6b
-	 jNkofwCMDpTA15G3gbYju8BKiSvLoIgQj3Oo393CFWP4cRNRLyvTi0il1sTGjZ0QHr
-	 7JBMs8s9gzJV3uKUgQama8YgXie5Mjte3Jg4AaIMGKQwPs5boHg6UVLzq1JoWP7jOQ
-	 VG2tBogHDMxng==
-X-ME-Helo: [172.16.82.72]
-X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
-X-ME-Date: Tue, 10 Jun 2025 15:55:22 +0200
-X-ME-IP: 124.33.176.97
-Message-ID: <b2f87cff-3a81-482b-bfdd-389950b7ec8e@wanadoo.fr>
-Date: Tue, 10 Jun 2025 22:55:02 +0900
+	id 1uOzUo-000000073ky-3Sfq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 13:58:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 39EAF4A7E8;
+	Tue, 10 Jun 2025 13:58:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA625C4CEED;
+	Tue, 10 Jun 2025 13:58:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749563914;
+	bh=DcjHkaAwZrvC9iqm3h/N+EYehYOf07x5o+lB32uAnwE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rL4KmZZvWURDpVuaJDuWrMYU7W0dL4ezE5NK6t6+XoRJvPhXKvlkkmuwfMn8AxVmG
+	 N66sduGzBqDsDBEsZptl603MIFdS/2uK3tFa+orLcmZM5sEtnF5NTwsvG3ZcEo4n7V
+	 RPJu2kIodXLsf04s8mBYFUj4JAETnxVHueckrkzZxEZsyaRvLLOqKUJf5xEtT/F4yP
+	 SqOLfIai9IKYWzr3RMTAZEYwmAV1eXgHUGF3xunvyuNavwRM3L7Y2cxaDUvUMhw1aY
+	 8hQN8lzQwW8Gqc/B0tSjL6AEZby8DW+5yV2TE3sgdj5HPk1F0/QoM++UeHMqLpZoBM
+	 pYL8NrGuf+whg==
+Date: Tue, 10 Jun 2025 16:58:30 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
+	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] fix failure of integration IMA with tpm_crb_ffa
+Message-ID: <aEg6Bgh8TqzK5nSu@kernel.org>
+References: <20250610060334.2149041-1-yeoreum.yun@arm.com>
+ <aEgmhwu1RP27yBpw@kernel.org>
+ <aEgwpXXftXW6JNRy@e129823.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] net: can: mcp251x: use new GPIO line value setter
- callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Marc Kleine-Budde <mkl@pengutronix.de>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>
-References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
- <20250610-gpiochip-set-rv-net-v1-3-35668dd1c76f@linaro.org>
-Content-Language: en-US
-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Autocrypt: addr=mailhol.vincent@wanadoo.fr; keydata=
- xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
- LFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+wrIEExYKAFoC
- GwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQTtj3AFdOZ/IOV06OKrX+uI
- bbuZwgUCZx41XhgYaGtwczovL2tleXMub3BlbnBncC5vcmcACgkQq1/riG27mcIYiwEAkgKK
- BJ+ANKwhTAAvL1XeApQ+2NNNEwFWzipVAGvTRigA+wUeyB3UQwZrwb7jsQuBXxhk3lL45HF5
- 8+y4bQCUCqYGzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrbYZzu0JG5w8gxE6EtQe6LmxKMqP6E
- yR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDldOjiq1/riG27mcIFAmceMvMCGwwF
- CQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8VzsZwr/S44HCzcz5+jkxnVVQ5LZ4B
- ANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
-In-Reply-To: <20250610-gpiochip-set-rv-net-v1-3-35668dd1c76f@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aEgwpXXftXW6JNRy@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_065529_780011_106D02F2 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20250610_065834_889733_F00528AC 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,92 +74,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 at 21:37, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Tue, Jun 10, 2025 at 02:18:29PM +0100, Yeoreum Yun wrote:
+>   module_ffa_driver(tpm_crb_ffa_driver);
+
+Oops, I missed this statement. Sorry, my bad.
+
 > 
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
+> >
+> > >   0000000000000a9c l  .initcall6.init>  ffa_init
+> > >
+> > > In this situation, the IMA subsystem fails to integrate with the TPM device
+> > > because the TPM was not available at the time ima_init() was called.
+> > > As a result, you may see the following message in the kernel log:
+> > >
+> > >   | ima: No TPM chip found, activating TPM-bypass!
+> >
+> > TPM initializes before IMA, so there should not be a problem.
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> If you see my commit message it describes the situation why this happen.
+> when crb_acpi_driver_init() is called but before tpm_crb_ffa_init() is
+> called, the secure partition doesn't probe. so crb_acpi_driver_init()
+> would be failed wiith -EPROBE.
 
-This does not match the address with which you sent the patch: brgl@bgdev.pl
+What is "secure partition" and why it doesn't probe at the time of
+crb_acpi_driver_init()?
 
-> ---
->  drivers/net/can/spi/mcp251x.c | 16 ++++++++++------
->  1 file changed, 10 insertions(+), 6 deletions(-)
 > 
-> diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
-> index ec5c64006a16f703bc816983765584c5f3ac76e8..7545497d14b46c6388f3976c2bf7b9a99e959c1e 100644
-> --- a/drivers/net/can/spi/mcp251x.c
-> +++ b/drivers/net/can/spi/mcp251x.c
-> @@ -530,8 +530,8 @@ static int mcp251x_gpio_get_multiple(struct gpio_chip *chip,
->  	return 0;
->  }
->  
-> -static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
-> -			     int value)
-> +static int mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
-> +			    int value)
->  {
->  	struct mcp251x_priv *priv = gpiochip_get_data(chip);
->  	u8 mask, val;
-> @@ -545,9 +545,11 @@ static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
->  
->  	priv->reg_bfpctrl &= ~mask;
->  	priv->reg_bfpctrl |= val;
-> +
-> +	return 0;
-
-mcp251x_gpio_set() calls mcp251x_write_bits() which calls mcp251x_spi_write()
-which can fail.
-
-For this change to really make sense, the return value of mcp251x_spi_write()
-should be propagated all the way around.
-
->  }
->  
-> -static void
-> +static int
->  mcp251x_gpio_set_multiple(struct gpio_chip *chip,
->  			  unsigned long *maskp, unsigned long *bitsp)
->  {
-> @@ -561,7 +563,7 @@ mcp251x_gpio_set_multiple(struct gpio_chip *chip,
->  	val = FIELD_PREP(BFPCTRL_BFS_MASK, val);
->  
->  	if (!mask)
-> -		return;
-> +		return 0;
->  
->  	mutex_lock(&priv->mcp_lock);
->  	mcp251x_write_bits(priv->spi, BFPCTRL, mask, val);
-> @@ -569,6 +571,8 @@ mcp251x_gpio_set_multiple(struct gpio_chip *chip,
->  
->  	priv->reg_bfpctrl &= ~mask;
->  	priv->reg_bfpctrl |= val;
-> +
-> +	return 0;
-
-Same as above.
-
->  }
->  
->  static void mcp251x_gpio_restore(struct spi_device *spi)
-> @@ -594,8 +598,8 @@ static int mcp251x_gpio_setup(struct mcp251x_priv *priv)
->  	gpio->get_direction = mcp251x_gpio_get_direction;
->  	gpio->get = mcp251x_gpio_get;
->  	gpio->get_multiple = mcp251x_gpio_get_multiple;
-> -	gpio->set = mcp251x_gpio_set;
-> -	gpio->set_multiple = mcp251x_gpio_set_multiple;
-> +	gpio->set_rv = mcp251x_gpio_set;
-> +	gpio->set_multiple_rv = mcp251x_gpio_set_multiple;
->  	gpio->base = -1;
->  	gpio->ngpio = ARRAY_SIZE(mcp251x_gpio_names);
->  	gpio->names = mcp251x_gpio_names;
+> In this situation, init_ima() which call ima_init() can be called first.
+> NOTE, init_ima() is deployed in late_initcall and
+> the "deferred_probe device" is tried again in
+> deferred_probe late initcall.
+> However, even the deferred_probe can be call later then init_ima().
 > 
+> 000000000000012c l       .initcall7.init>-------0000000000000000 init_ima
+> 000000000000016c l       .initcall7.init>-------0000000000000000 deferred_probe_initcall7
+> 
+> That's why init_ima() is failed to init with TPM when It is deffered.
+> 
+> Would you let me know why you said it's not a problem?
 
-Yours sincerely,
-Vincent Mailhol
+What has deferred_probe_initcall has to do with this? Not actually
+asking just pointing out stuff that you should open up.
 
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
+
+BR, Jarkko
 
