@@ -4,79 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3D0C677C4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8850CC61DB2
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=94AMSNZekvUuyuwr8Kuyjlw1VxKXNwksnk9YRfSczyU=; b=iSs46Lx50N9t5m
-	OTG/nmH5H36bjSrFn0URoJhUbpPnUzZjKNcB2E0q70ulLj2VfvTknfW4b6Vcff6KAztKSKQ09qyGr
-	7Uf8FvM4e4bRbTVBJrk+JF6NyPDsDmuQyUU+j+GV6boo0TZhdyMRdyLRsOr7zc0kwIebe8w0Eut2K
-	Q6a4yl/GsOX9t9Kr+qLIsU7z5DTylKxvBOhT5W94/hf8+1XVKRpOZGxFNV9wabs9xwp+Y3djP7DgG
-	geQcRMjLEiq6sEsFEK99P7qezhVXsyddDBSSIg4H+wHDxNawG4qALl6a0OC3Mwq8p7mKTd83XOKv0
-	1PQHOR7RPcEGZ285kqOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FBy9QjZf0+4gjDOghZ/ztTm0V0wUCXKsc4ePrWpOXtE=; b=iXrwKW/AFM/Fa8yE6eMClEUiMh
+	l9yhTefbSvrXBwiaD9E9tVH2ACS7fwfG1o1chuZ577dDZG4DVYVwUtsXJcKqdoq6mbh+wnTUdjY1H
+	g40za7etUwEOuHP7KyvTOyysqxMOrOyqR+RRkdzpZvY0uzH3NKOHZwAT3hYAqwP9ydz902d/HOX/x
+	IQ3EJAnZAd+lXpxRjx4gN1z4+SuHO31unkZChaE5gOsoPS851sJCKcRPQnjlPzSOt0R0jrM0WCpzA
+	CMj8XdulA1y4Q2MUak80siDgTv4c+1fHxrjNTPB14qil/TLoymDlsO/+xW8z/RZIKwwQALo36NS3v
+	nNWbkJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7lG-00000008EjJ-2lTy;
-	Tue, 10 Jun 2025 22:48:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uP7l3-00000008EWQ-38ib;
+	Tue, 10 Jun 2025 22:47:53 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2bW-00000007bKv-2z5C
+	id 1uP1Qo-00000007P50-0LJT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 17:17:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6C85629FA;
-	Tue, 10 Jun 2025 17:17:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 65E24C4AF0C;
-	Tue, 10 Jun 2025 17:17:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749575861;
-	bh=fPg8S/rzUTKuex98/cz90LlEdInNu16JQUmeSFP4WQQ=;
-	h=From:Subject:Date:To:Cc:From;
-	b=HF8VdgdsRREyh6x7u8wIIm9S4csdwObyTpVrnS4h31UNuK2xXExpUVGvr8hnI5cyZ
-	 CFV9VdVLJXt3CtZyzRDx4t31uZuG5mJDIUWA2ligbablPoJOIHkNImi8Rc4zUXmP6t
-	 5RQqUHer6RR2oAag9Dh0Y54h3zGmJ7MUquK2sGsbBt1KFmZCzLqPy51TOy8PgWX2aE
-	 ClEQQQRe2+mtFguqRs80CLkEO6m1qXX7bzaI37p07TwVb14Lyu4Xpl01ckd/DI5hdN
-	 rrfF73squxIC78JvbzYjx9GCbJcFsabOxjpkaUcL9jUbtloX4mAJJXi3/3wvTmP5CX
-	 mmw7HSVOLZBwA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E3ACC5B552;
-	Tue, 10 Jun 2025 17:17:40 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Subject: [PATCH 0/2] Extend nvmem patternProperties and then fix W=1
- warnings in Apple dts
-Date: Tue, 10 Jun 2025 17:17:33 +0000
-Message-Id: <20250610-nvmem-bit-pattern-v1-0-55ed5c1b369c@kernel.org>
+	Tue, 10 Jun 2025 16:02:35 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a5096158dcso4814286f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 09:02:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749571352; x=1750176152; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FBy9QjZf0+4gjDOghZ/ztTm0V0wUCXKsc4ePrWpOXtE=;
+        b=IRinRLYIkm6lv3lrn5tQBBvikk8B1GuxW1emR+/SF470rWfVg9Tc4RzVLAqF8E8aBL
+         0HJjIqiBz9jwiYyZEDbLJ1NGfaQWs3dXV2A4vOBjDgY1QTYfSUhGzkqtrIXSzS29aC+t
+         g+naPKT5Lzb4NmRjdSYdtY4wx/H3sLBcrERFMR5nwBTqHcdD7gVoGV1QElo3ZEo9N0yL
+         jjb7SLhWsvjSzI1PThrzhaFC/XKQD7Grh2vykd48le7UCIcBe+ioOp8Bs1TvPv44AgFm
+         ImzkyGWmCWGa4GIXzRep4Rqzyq8mAG+4qNuDADC662Go6U8Ia2DlVUj5QUc8MiV98QIs
+         3Bvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749571352; x=1750176152;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FBy9QjZf0+4gjDOghZ/ztTm0V0wUCXKsc4ePrWpOXtE=;
+        b=Rit6nHiO48BaSuO1nEHizSm9wyjc80ZABOV/62egV3KwbcTD9971gm4pf0mdOXBdOO
+         oa2QFVIzm1QEE7VUUgGaCutcYC3e8OsDU4mfT053Os45XpzfoR+LBBrFc/3ZJD6/S+In
+         OqSPWjtj+a8uQ1A6KX+IXOTVKcnnfmU5T+A+ozsiSHpHVOrND1iusFbKwEUfuyocmuF3
+         rLCj0gDUOMXJSS975duQzF5aCmXXORfh0AcvtBi5ldQYpIjLX47N5MKZfRpMyvI+QyP9
+         bzOx73cl2SIYR2dKWqF90GpYf4pKJrZrZJSOKPdDmW9susWiQe/MQL/Feqs5BwbH4enG
+         +Jbw==
+X-Forwarded-Encrypted: i=1; AJvYcCUbqQlTS12IvUvp2mtSuv8x/j5vPwnWPJvSTVpSHvlhnVb1vaqGnwt3x1JRCYW5TKY8nGxJeyKpIJTE74ZFNLw4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHctBJe03xaZ3zRsSl8m4z0sQ5ThfLTxhVvFugkRPg49As3aXh
+	xz4ABkrvCaSl9N5uzMjdK6JAQGSp9O50AC4Glz7FjXNjKP+Mfe0ZtSId
+X-Gm-Gg: ASbGncuEx3IMnj4SHlQPZqBhAH8J2b7+H2wJLq6ETeC+xwdWZXRqnnS77vVF+aRqJUa
+	ecKcJOAnAlS5oN9EDq2pt3SOa5KrIGovk2GT7k8uzcMYvvH7PKzkD2kSDWEy032rb2KFqXMogYT
+	qfgtV8n3QyU7h+5N35Oxq0aSErUVzibvua0NPR4NwdoAcVb+kaCV1/RHx3nNu7fXERLqUopklSO
+	yHp3ME3j7h929OJjhA2zHEDZhm2qdTvObUK3563RHzt8mndb4wAh0Z9bibYIbot2M0doxGAUDNZ
+	2jFEr/qNx2ZF360AHEwah9LuryViv9TaFfqRJHYXVf3euHTTnkhfLusWl46lJf23gIhx1eI8mSu
+	myOXhgm7CKGjGtBZmq37AUFQ=
+X-Google-Smtp-Source: AGHT+IFlLzTJeUuewdTAL2iHVlMGazp305kQFv+kHaCRhgmhrh9tVXxRlRAZrnMhHVuL1e982fCHqA==
+X-Received: by 2002:a05:6000:2289:b0:3a5:2fad:17af with SMTP id ffacd0b85a97d-3a531cf30abmr13544526f8f.57.1749571352279;
+        Tue, 10 Jun 2025 09:02:32 -0700 (PDT)
+Received: from playground.localdomain ([82.79.237.69])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53229e009sm13017806f8f.16.2025.06.10.09.02.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 09:02:31 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 6/6] arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
+Date: Tue, 10 Jun 2025 12:01:52 -0400
+Message-Id: <20250610160152.1113930-7-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
+References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAK1oSGgC/x3MTQqAIBBA4avErBtQ+6G6SrTInGoWWqhEIN49a
- fkt3ksQyDMFmKoEnh4OfLkCWVewnas7CNkUgxKqE51q0D2WLGqOeK8xkncojd6acae2HySU7va
- 08/s/5yXnD5+geepjAAAA
-X-Change-ID: 20250523-nvmem-bit-pattern-1dbc39fe4681
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Hector Martin <marcan@marcan.st>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1262; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=fPg8S/rzUTKuex98/cz90LlEdInNu16JQUmeSFP4WQQ=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4ZHxnqnyK9d9eznZB4WMUlWvjKfn3RvUdCspLZfzxXYO
- JKbHl7pKGVhEONgkBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAExEpoeR4UDJjhVa69UPLAk5
- cG3+3Sfacd89/6b+2FCf82FtJe8GRzVGhnmsV2o27b4eGjr/dsKeGo53czUe3Hrbs071pNNmC17
- 9O+wA
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_090234_119581_5B88F94E 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,38 +112,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-This brief series fixes a W=1 warning recently introduced with the Apple
-Silicon PMIC NVMEM nodes. We have cells that are the same bytes but a
-different bit offset and these currently result in the same node name.
-The legcy layout already allows to specify the bit offset in the name as
-a suffix but this isn't possible in the new fixed-layout.
-Thus first adjust the fixed-layout cell patternProperties to the same pattern
-as the legacy one and then fix the node names in our device tree files.
+The DSP needs to access peripherals on AIPSTZ5 (to communicate with
+the AP using AUDIOMIX MU, for instance). To do so, the security-related
+registers of the bridge have to be configured before the DSP is started.
+Enforce a dependency on AIPSTZ5 by adding the 'access-controllers'
+property to the 'dsp' node.
 
-Best,
-
-Sven
-
-Signed-off-by: Sven Peter <sven@kernel.org>
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
-Sven Peter (2):
-      dt-bindings: nvmem: fixed-layout: Allow optional bit positions
-      arm64: dts: apple: Add bit offset to PMIC NVMEM node names
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- Documentation/devicetree/bindings/nvmem/layouts/fixed-layout.yaml | 2 +-
- arch/arm64/boot/dts/apple/t600x-die0.dtsi                         | 6 +++---
- arch/arm64/boot/dts/apple/t8103.dtsi                              | 6 +++---
- arch/arm64/boot/dts/apple/t8112.dtsi                              | 6 +++---
- 4 files changed, 10 insertions(+), 10 deletions(-)
----
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-change-id: 20250523-nvmem-bit-pattern-1dbc39fe4681
-
-Best regards,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index 9b550f225856..26efea15f6b0 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -2435,6 +2435,11 @@ dsp: dsp@3b6e8000 {
+ 			firmware-name = "imx/dsp/hifi4.bin";
+ 			resets = <&audio_blk_ctrl IMX8MP_AUDIOMIX_DSP_RUNSTALL>;
+ 			reset-names = "runstall";
++			access-controllers = <&aips5
++				IMX8MP_AIPSTZ_HIFI4
++				IMX8MP_AIPSTZ_MASTER
++				(IMX8MP_AIPSTZ_MPL | IMX8MP_AIPSTZ_MTW | IMX8MP_AIPSTZ_MTR)
++			>;
+ 			status = "disabled";
+ 		};
+ 	};
 -- 
-Sven Peter <sven@kernel.org>
-
+2.34.1
 
 
