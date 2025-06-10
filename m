@@ -4,81 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED437C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F87FC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 17:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f/uq1I+B9LLI06wSlnUmvAFUkcW1tFqKrymABT6FCYk=; b=AI2ALgqJhxTezgu2lKj6NRVz/i
-	WQZNEhbekx3waKc0N3JNqI2EjDvqVXmOA4+sYRrDtCs7q+gLxItWuRfLe+XiJAp/45sjQZE4oAslU
-	G4E8cY+bdrMfu9LbgIoQIwUi392mrG9J8/I8TixtXO8AU45hIgFaNTTVrtp3Ceediv8t18JbGLsOB
-	FsEFxr77rvPQUUQMk+Ure/DG/RSmQUNzmxnV+CfilwV39H6YW3vuH42fh+42yvg8EMu7HD5mqwI4y
-	716qQZNQHbSFxqLHPOLeS0uo+7U5HiK99BsI2DFRG991DI2XYAwZDQfXVncLoqyNNqNFa44I3fMXj
-	IV1k7vqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BVZlJK/GxgJY/X9zC0XGrcWqi+GkfHWHyAwskSfnpf8=; b=47hFveszNhGe9DFk2a8m2En+3y
+	OuomEQ0BHTTb0AlPZiDV0BUiw2B2eNZlEhBXbfQtv+n7qAbOJ7Cn8oLkVXo4UVu213qttCYCLuI2W
+	/404jveb1ub7FK+0JjeXQYMSfwiiOyBy/NKonbZb7tTpBkawB/TVLvDMdwOQn9FXSXUddTqf03D7X
+	4m32C1WqaDP+KXFnQpVEdXXOa4o7dfL088qSt+pSDz7g1QdPk2naacFSnNcgat1KeyThuYnvFUBod
+	Z4acO028rWDxOp2MLGy0jO85d7beq9X5slbZqwi3ETi+XjhitBMPQk70LADWvfyMMCXlWtQCbxtPv
+	Zob/abaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2uw-00000007ecy-3zM3;
-	Tue, 10 Jun 2025 17:37:47 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uP2x3-00000007exT-0Xud;
+	Tue, 10 Jun 2025 17:39:57 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP03p-000000078lC-07Ev
+	id 1uP05m-000000078wI-3uEq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 14:34:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1749566085; x=1781102085;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=f/uq1I+B9LLI06wSlnUmvAFUkcW1tFqKrymABT6FCYk=;
-  b=ji0+9G84yE2l4i0Kdp9pOrTFk/gWYc6wah15ycpVVNrgEhqTPukz4qjy
-   xkmJr25ARXZkGhF8/+0/C9G7//265YiJ2haoMwh2o/HLdaRtOZFajRzxU
-   5Ddd9Y2oRqF7QEe5fjqq9qBulqvnGeTdTG7FXnsO1cbp36qeR/iRJulYy
-   4HBu760OmAf85R3VTEBWa9JQziT5+ltTNqDFRCqbj9aT9cyKx5rX5QIlK
-   d5WTPw/btvjr+QatiWVq1Quf7ygHNuochTAVc+ndNdTKF81IW0EZa8lFx
-   oq60FrhnP74QxSHmcai1KAYh4zUiyrju1R5ccM1Jkse5YRHhGrwOGtWL3
-   Q==;
-X-CSE-ConnectionGUID: kYgfLlyHSVC6h4XfKHFkxA==
-X-CSE-MsgGUID: anVKDUSkTFuCimA0q5i7LA==
-X-IronPort-AV: E=Sophos;i="6.16,225,1744063200"; 
-   d="scan'208";a="44549795"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 10 Jun 2025 16:34:42 +0200
-X-CheckPoint: {68484282-17-28ACC837-DD1065DB}
-X-MAIL-CPID: CAD6A884CD6B476837959D4E89B9D99C_2
-X-Control-Analysis: str=0001.0A006370.684842A2.0045,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 36E39161097;
-	Tue, 10 Jun 2025 16:34:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1749566078;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=f/uq1I+B9LLI06wSlnUmvAFUkcW1tFqKrymABT6FCYk=;
-	b=V3ZL1UlcxBDSCM+zF2qoWQqbdc7RMwjd6ZLNPbs45h5DmD2iDslDGOil58Z/u4JMA4fVv6
-	P1p1OyuzK9scqQrbSXoOR0OyytqR26xiAWrh3R5HVvcm0m9/6lU0qQM3K+Ws2TUX5Fsx7u
-	zOwoWTaE+2tq293w5C/r86oxC47XtV2qIOfaFJl+gx4+B7L+v1iSKGm963NMMoAgJ6ctzi
-	zMJOFK5zjXODej9uSfA9zJMEAoQ+m5XY0zx3hiStG8O+wCfa+FpyOdKIWnYDoshChvVvvn
-	W3XXXjGDpboPd2aYD10MiTTaINxS3NeuqH2cUlT1ub3fTad89Hoaj6mJHu0Ibw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: netdev@vger.kernel.org
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- linux-arm-kernel@lists.infradead.org
-Subject: UBSAN: shift-out-of-bounds in include/soc/fsl/qman.h:70:9
-Date: Tue, 10 Jun 2025 16:34:36 +0200
-Message-ID: <7817812.EvYhyI6sBW@steina-w>
-Organization: TQ-Systems GmbH
+	Tue, 10 Jun 2025 14:36:48 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55A7jqdj011530
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 14:36:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	BVZlJK/GxgJY/X9zC0XGrcWqi+GkfHWHyAwskSfnpf8=; b=mn4SUFjE8MRlZ8ke
+	th4z4VSdiSRULhatOTzsxH3y97c1zG7QDfIUZKTm/6V7IOw8NTJXEcce9bnlNkqa
+	dCLMgWGT83cZ+cqcYHmJ1t0AOAJp+mIkzzFgGlxhI847Sosgzv6wmT3F56XbzxDq
+	c2p2JWle1/byMaVeY9OiCTu06028CUH6HFQ+pJdZxVYxs7U4hnb9HtReEdkxIQvJ
+	ENBqgx+f9YrdpNbPDQnELhIYRDkrzTeHi5MwIOiHy9tpTmTXvzOGgWQUSyyS6acy
+	88+43FAPKs6bOFi2QEzWcinAkUqHruexI4hoD8Eo/hdnPfd8c3UxCNHFY/AjFLIe
+	Rf/1+A==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474dgxt1p3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 14:36:44 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7d09b74dc4bso95859485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 07:36:44 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749566204; x=1750171004;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BVZlJK/GxgJY/X9zC0XGrcWqi+GkfHWHyAwskSfnpf8=;
+        b=h5Zca/qjE7Rkl3M4grRkZK7mNgMoUm7Pxcy/AlIEbJXgVKTEiBHQ6hGvJ/6JEazhky
+         9ThgoS5/8j07HHaFbaQu/1btumc/xOGlv7NpuA2INrCywYp8AsN/vXvkipE7bfbSQS3t
+         /1SjjC7yUjuJ76vIuNQnSjtHn9P9p5gsHfufRpH2ENWNLIOmRQd4zSlgvcU7sRzuA/xw
+         Nfun3PQoTkCMZxUZL5sMZlhEuZO/MMEVXbfQcFHurH7kWXAX5AOSQPEl3OWVQLY9JtHk
+         rzBmpkrzOmeISGdgUx796z8HliGCwHlCv6lb58hQvcehQpRIV0dQPSFxlK7eghGEgbxy
+         0jsw==
+X-Gm-Message-State: AOJu0YzudQNC/FnEwPyBQT5M/RASMffKthJqoRgEp/PYMBS3rAZ4CByt
+	IqsPqpN2CfXJWy3BxDslHtnL6TTjwluW27kjCCVGvMs1B86bQhE2qYrhReIFc4XKkoCbGBQFSxA
+	G3h913451Rp9TeVO3LDhsYehLE4TwQoCuZdCLLKIFEX1yfZa6KXLSq7o3fhblQW0mCEY0Y2BYmo
+	iicg==
+X-Gm-Gg: ASbGnctngH7K9tB/JI6kJqz1Ca2+kF6zHOuJDOHcOafvfXgpglthCDdeJdGk+uhT6ul
+	qkojp5EBTMfnJqMTz9YxqOO1mqPjhBVaQ1yNqmDiAkFksTdazm42Ql3r4ZVfxShjx8eACv0kEWI
+	/d6NcWshe0Ja6QglRtWlJZBbb4QnDN/H5fgPGGiJoi5pRXNXcTN1U2CQwK2lzCgEhjiH7EdYcH2
+	ThqLLlmEQOJvE1HZKZYR2hdKMYS/zaaVRhtNyYc2TOxSNuL6sTw7j7EPrqgP77PVTLZ3zvIfoUw
+	YI+/Js78UNXqcJaStTOiCHqEyVA5YEy062GDGdpzE7HiGwOnBmfhcYZsgTMM0dYdt8bLg89Bssu
+	x
+X-Received: by 2002:a05:620a:1905:b0:7c0:c024:d5 with SMTP id af79cd13be357-7d33ddf703amr932426785a.8.1749566203888;
+        Tue, 10 Jun 2025 07:36:43 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGBbQ7SHFJAIcnH7aGz2wAofoXXYsrztV5V109VXWdIgAcLNVnSvMvyMhOqmTXg8HcgDxWrxA==
+X-Received: by 2002:a05:620a:1905:b0:7c0:c024:d5 with SMTP id af79cd13be357-7d33ddf703amr932424885a.8.1749566203410;
+        Tue, 10 Jun 2025 07:36:43 -0700 (PDT)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ade1d7542c8sm734986766b.21.2025.06.10.07.36.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Jun 2025 07:36:42 -0700 (PDT)
+Message-ID: <33fe6caa-6720-4af2-a0d8-44b75b6792da@oss.qualcomm.com>
+Date: Tue, 10 Jun 2025 16:36:40 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] drm/msm/adreno: Add Adreno X1-45 support
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org
+References: <20250607-x1p-adreno-v1-0-a8ea80f3b18b@oss.qualcomm.com>
+ <20250607-x1p-adreno-v1-2-a8ea80f3b18b@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250607-x1p-adreno-v1-2-a8ea80f3b18b@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: Pbo-Y0NVJ6X5tx9VIa9iK7R84sePFEnl
+X-Authority-Analysis: v=2.4 cv=HMbDFptv c=1 sm=1 tr=0 ts=684842fc cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8 a=KtEEE0qNWcsMKkko6jcA:9
+ a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-ORIG-GUID: Pbo-Y0NVJ6X5tx9VIa9iK7R84sePFEnl
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEwMDExNiBTYWx0ZWRfX+4zpmorInHE1
+ E/RQrJUpRXTFrodIQPtZ5P/q9ONiUiC8KWZ6Nns80GI0Q7dhCiK1gLU2IvmQsmqryobxuNG2tHS
+ 7jzjCk2mGmR6y1hBI30aHNOk8rK0egPigAHnvhzOe8rAJeClk3MfaDtduxp4W1+ePCpMJwU2I31
+ vXZ2zuIK8vfVvc45/Ve5cOlBpa3rPA3TxvXz3hl++q+VSWvcb3enxHaAkLnPFDDwZyOJF3wlLnD
+ ruzCrSWn6jKXg74iv52lcPXpGfBVvwuktypOz7V9dQW7RTUPF/W27H9pXCZlgsSbPqxPzwIF5I6
+ bnTCCcM0HnNUWdUH77SgkozbSj1KXmRiPZIK5wT3hdLnXhk5DA3jEs6Wi8G9ILxsk5dZknNfxE0
+ bKQlrv5lz+gIczP5EHs1ig/h//LYRclMO4Q7C5SVuZtqwili3o64jsZC8Wq+2ZNYlPVUqLvV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-10_05,2025-06-10_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 mlxlogscore=983 priorityscore=1501 impostorscore=0
+ suspectscore=0 malwarescore=0 phishscore=0 spamscore=0 lowpriorityscore=0
+ adultscore=0 mlxscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506100116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_073445_548753_CD2E87B7 
-X-CRM114-Status: UNSURE (   6.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_073647_093062_ED114BD3 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,54 +144,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 6/7/25 4:15 PM, Akhil P Oommen wrote:
+> Add support for Adreno X1-45 GPU present Snapdragon X1P42100
+> series of compute chipsets. This GPU is a smaller version of
+> X1-85 GPU with lower core count and smaller internal memories.
+> 
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
 
-I'm running a Freescale LS1043A based platform and with enabled UBSAN the
-QMAN driver raises the following trace:
-> UBSAN: shift-out-of-bounds in include/soc/fsl/qman.h:70:9
-> shift exponent -1024 is negative
-> CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.16.0-rc1-next-20250610+
-> #3065 PREEMPT  79669a76f0881c2711711352971d97872fae206d Hardware name:
-> TQ-Systems GmbH LS1043A TQMLS1043A SoM on MBLS10xxA board (DT)>=20
-> Call trace:
->  show_stack+0x28/0x78 (C)
->  dump_stack_lvl+0x68/0x8c
->  dump_stack+0x14/0x1c
->  ubsan_epilogue+0xc/0x3c
->  __ubsan_handle_shift_out_of_bounds+0xa0/0x1a0
->  qman_resource_init+0x178/0x1a0
->  fsl_qman_probe+0x260/0x480
->  platform_probe+0x64/0x100
->  really_probe+0xc8/0x3b8
->  __driver_probe_device+0x84/0x16c
->  driver_probe_device+0x40/0x160
->  __driver_attach+0xd0/0x240
->  bus_for_each_dev+0x7c/0xd8
->  driver_attach+0x28/0x40
->  bus_add_driver+0x108/0x244
->  driver_register+0x64/0x120
->  __platform_driver_register+0x28/0x38
->  fsl_qman_driver_init+0x18/0x20
->  do_one_initcall+0x6c/0x39c
->  kernel_init_freeable+0x32c/0x394
->  kernel_init+0x30/0x160
->  ret_from_fork+0x10/0x20
+Matches what I had running, I don't know the source for fuses but
+I trust you
 
-AFAICT this happens in qman_resource_init() when QM_SDQCR_CHANNELS_POOL_CON=
-V()
-is used for channel 0-256. HW IP is revision 3.2, so qm_channel_pool1 is
-set to 0x401.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-I don't know why this works or this never raised an issue before.
-Any ideas or suggestions?
-
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Konrad
 
