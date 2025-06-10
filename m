@@ -4,103 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A928C678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 470E4C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=; b=fj46pNpZl/XKobfkDarEsUXEpv
-	Pvc8V6hWAHHwO+h93+YvqJLZikCJKM0JM1hC/Pn+/UMmQsL4s5rzohIstAA4lTBDMBTKXB0+RkYP6
-	XMCgcPMT9xAGuYwGJJ3L44+JTrnWDH/2ocKVWXRvjch74Yx/RQJcCt1kHM4V10uUh46AAj+0H76WV
-	6diIK9NOqNs74wS2L0hC58FBSpU8079vikku8efZD8q5pCC3YI+eP5pvrgL3vd9yKxTTLbfvx1NlP
-	jol6H70BSmwYbPj25msqu26qlbvDsMnUxeXOFndpdds6yxoG8+gkjiaARaE3JFYau3j054KFXWYiq
-	gCyh1/fw==;
+	bh=gWwWjRL2sG1kaP1KpOhM8tb9lVTY5ImgVviMKu9J/kw=; b=BxR2CFocDAE75Ivz7/i6Uf7nT3
+	wUusMo3b0QzVJ/BzKd/twTLdBSphWgmP5ZfxAFjArl8EDrgxAFylSBC205Df0o/R/b7SBZ86/WPn/
+	ErFz+Vt0tPh4PD68Xqs31YsZx9SnujnrUhtW6zzvdIaucoR47fEtEX5RqaY5S/wHUQE2eAhN5OsZ7
+	jZ+0siE/JrbskcKQjEmtFer/Wz+SKFtK+ylTcxXrpqY+VdvrIq3aaSLxzggMDXundiFXhXVli7Ovt
+	dd1+MHt8X3BXcoxrr1lpm6HVl9GVaTP7+6MPHmec5gcOsx5a9nJzfaIf45kc9lY0cr8mKe+rSrdTE
+	wZL9CrEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0pU-00000007IJk-1cUP;
-	Tue, 10 Jun 2025 15:24:00 +0000
+	id 1uP0pV-00000007IKq-0Fu2;
+	Tue, 10 Jun 2025 15:24:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxuq-00000006kMq-0ruc
+	id 1uOyAd-00000006mPL-0Sxm
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 12:17:20 +0000
+	Tue, 10 Jun 2025 12:33:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=; b=od2Wn9gT0YWUR12UdzJt+iEKgM
-	WDUQ25PALmtz92CkHzwfvb1XyCV2bnXTxjDI5DE68Cc3/HaCQ6gbgdtq7EwoPGmTBHqakjPZTp4kk
-	514QNoUSrVDs8nC8SWySw5zo1M8t73dSwdJijUSgZjTn8CTOS1xXG8yH4KuXf3ecMmuk6RhE69Gdh
-	FqGQE345Y0FOnAD9QxeTD1CygNB2WI2VJnZGgrP65JXz4+tG8ls+rOE2M17KCYNDLPubIZ8sRe6WE
-	Af3u6qcDVWzc0y/5YL8Pe48fbvW2K/dMCemEoHq0oUhZQyAA06W3gDBjusTQiHU8fFoCbEqmxb5sN
-	xuw2rUag==;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=gWwWjRL2sG1kaP1KpOhM8tb9lVTY5ImgVviMKu9J/kw=; b=qAELk+JutNMNuUYDr5t/AE82gM
+	3bIURAA6Ob+F8Wf+MNKNhAeWyoG1keNft4fOs+wdipbcuh+LZDcAfgVqbKh0dqDkAgKVM41roxU2U
+	YDjAyaWhf6TIVpxPgKHruDBcAJ70Wf7/ktRD1mEix939nIzKHHjNrTxL1QFnwduA4klUGOTDkiUeI
+	3iXWnU0/X8lKi40oApnhYXg1VFzR84aurx77icAdyuxdDkOCfSAoA188hfgZUNaYgvp17wt9FP02i
+	sIp/FXAKvZHBP7mlRk+rZXE17QjdLKKPv565jt2INP74QqySt/npsnDpY2bAVb7PrrGn5G2wecsry
+	M503lFDQ==;
 Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxun-00000001nr1-2Ugj
+	id 1uOyAb-00000001obP-0TPb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:17:19 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45310223677so18435455e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:17:15 -0700 (PDT)
+	Tue, 10 Jun 2025 12:33:38 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-451dbe494d6so65779665e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:33:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749557834; x=1750162634; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=;
-        b=PhbfShR5Xcezp+7SCZAmWtlnNGb8t+rAMfXan6vWvXtMS+2E7CkctFT0NRVym1g3AX
-         Q5rScapE+HtqzBXLhH3O9jrp6MyMubmtltru6YbOOzQheWSgUNK8zPGkMkkiVrp8Gb53
-         380YcE/QUGgDCPutBMy0tGjhkb4UOSJHvVs4admvq7MjHM4eZhbv0VMluwMS2sOgsW3l
-         eB4XaaSB9udSQfTcQTB/q12OaKzrj9xxzcDl78H4LAiKwrIfl2N2np+EkY34WSmwGRWg
-         mR6AdWy4/ghjFrS5NUHf/rtl7V5AOPrZ6CjI5ZTrL/OeMijWJLTHWybarmL+4cpEDV0M
-         Xlsw==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749558815; x=1750163615; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gWwWjRL2sG1kaP1KpOhM8tb9lVTY5ImgVviMKu9J/kw=;
+        b=MnAfGf7PDasWIfhfg5R7LWcA9izeBAU74SfA/5urJT3G0ytyy5wggF8hf+7+FBux1W
+         cR6XGV8H1KzD2NqWL8EpqLfuIlD/Ze1UUWSVvqeORZKzfJRYNmzhdVqrGdmji7cZ3ajT
+         L/9Tg4U0uxlwvC0kYuHAF6r0UVOqSoDkBHPIIA+f8LjLHP02F269vyHsL2Fohrzm/XLm
+         ojyTCKiYk+mwUuaG/5FuJtxltsZu2PThpTOE1XoKXAjC75B0CUJRsDdXUR9ocwuSjZwv
+         geDfqzDzn8bAwuIutDrugCVo9aOVIr/c13clh8IThyEAubh5iJqWcgkB7SKSGrusrnTX
+         fT6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749557834; x=1750162634;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1749558815; x=1750163615;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=;
-        b=Zr/uVkRiDJ5T6I3mhm//EbhJwieKC3ba428ZV30nUGKGI0ahiDmozcoEzauolKxhGn
-         KW4W6Z2YJ0DnyG7vYL7VUNIc9O3fTSO1kxzVvcqDVrXA3C1r/o9Q+/LIJixA1yZFsS9J
-         vigWx96lbJbSfXZAYY6T9Xi1bRfLHV9dkoyp/iqgojsRkW6pQQfPWncuD3Ige62U4IPI
-         LeclQ/alsrx/K7OIcJhvZc92MTgabB7i4bv7IXEgWV0JJ61C2a1tsK9AtcmSjqgVXejY
-         wObt0gFzWRypcGlUuJK/xyiq90O7iLc0gNoo+RJmix52Fdl+hauGJFEIc/wVGLATX45M
-         90PA==
-X-Gm-Message-State: AOJu0Yyw2uQMgNygBvGxLqEFoY/fwQzijqjSHfYYH6OvbRKqy23yeZ87
-	OwxT/+M+OXbPaphPtouJS/R7q48RdWxUKWTf1nIUctkhnOf19kgtwg7k3xPPgpR9sLc=
-X-Gm-Gg: ASbGncsxolZiUSWhHo90ZaUzle9ODr6Q82YEV0+a0NdH2smnhl6aMR/MtOrFwksDuQp
-	1x+LyrvzYABnrgLc02PI9Nbbm4Q05h1NBE7xT4PAN3EWc635sIEps7MuCax6nbt1jXS1b0Qf6bb
-	NAwLJ+gIlUU3d+KMGcYwPMQzDO3i/PHfm4WqW+KnMXSPdY1yVIjFhZWohb11rCS4BwjdS6ys4Dq
-	7ZpeYA5txwIIuwUyol6bzRTC86VLvkFFNyr1Atcl4ikvUBPA7FZ4DPaMjJyODoxn3Vj05oVFBvv
-	l78zkbldsso6lDvV7Q9Xf94G3EK3zcCTFgxiw6fc2HcPtzS1x1YbOFzOQVCC+5J5Gf5Y8xNdmkO
-	YA4XVzyxmW0zBfAnJew==
-X-Google-Smtp-Source: AGHT+IHeRxL7AIpQs/dULM8FxMsmTh1TJE0pgJiXuKAcZExlRGsP8IQNBSgadCI7/pKMwjfUXDxtaQ==
-X-Received: by 2002:a05:600c:1e09:b0:439:643a:c8d5 with SMTP id 5b1f17b1804b1-452012ace18mr187168685e9.0.1749557834455;
-        Tue, 10 Jun 2025 05:17:14 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4526e1595d4sm136313625e9.16.2025.06.10.05.17.13
+        bh=gWwWjRL2sG1kaP1KpOhM8tb9lVTY5ImgVviMKu9J/kw=;
+        b=U5BQ06SPdVHFpsh/U3/GjwR3HZSyLE8W7u24dlrx4490GZsjr/tbe3kW5tAvlla4mN
+         S9AiXp1LH4+6DkBCjkZ76QRtMLUhE7ShT/CTN7saokO81/hyD27GD4lkV4fqb3RWWC+b
+         WikBb+u4W79tzhtnJ96iukMnppcqkKUcVHNhzpwUzo0QagKjmd4IFyWv/nTutUP5tOv/
+         ZaXu4mpNKmf4E2HYVcx/g9CiSgmWI/ZkpLi2NWDKYmhWe+MVGSt6LaoyICAhxRyVMgFt
+         p1/u2Gurkkox0u6ZZU9haWuORKYUsZgkcvC8jnmE2cS6azLBIu2HKiqjYNxJjLbC3aM2
+         Dbeg==
+X-Forwarded-Encrypted: i=1; AJvYcCWxZLK6VuQbghW4bwbxK08IskGNEsxrrCjUGa6Mowto2VnpFzyqvKceWG17IX2VwKHYTG5aUll8KcISdaeE6DRD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFcdMUID7jhazbi3BgmDQMB3LpiFzn/6PuEB8/+7Gx7CdeNhF9
+	adHW60C27KqSvptbQeemI9gdLstuQvPU4XsXnQjLeg2sFNskD0cUbsf88PvnYoUjqRo=
+X-Gm-Gg: ASbGnctW3QOMEt4VpT2AZsUhbp00BGALDcp7IjVXN6PG4piujmsT1TNekmRlGArFUZ5
+	Mt/GxjhhniHJWDeEADl7eteGdMzYjE1J50bljlJTFTZ6j3HbuHb0hmIQlcb0UcZzE8JeSBWyTJ6
+	nrO+HaPsLs1XBCYc2HNNNr4cZx2ybovPp39Ptp2rLHKiGvRMhYttPWTwYCAcEi5csi/PWlL7utc
+	FgpvDAkvlrexDGdnPqAwaGpnQseJ6jf4X+XdyVD5wK254VQCdNyArCgxyW2YV2rqtbds68cmokW
+	NeEDkbe3R4O0WQzB22S5aK3owK6JwGOfADrSMcTuCvXHRPOaq8gQCw==
+X-Google-Smtp-Source: AGHT+IG1enS1XXO5MOMxHtGmC2A0TWdm1D38HYK+u7jLnOQJgSRjc8Tt9JvPkZ2QOIrOTK0nknN0Zg==
+X-Received: by 2002:a05:6000:2389:b0:3a5:215a:39d7 with SMTP id ffacd0b85a97d-3a531ab525dmr12050338f8f.22.1749558814690;
+        Tue, 10 Jun 2025 05:33:34 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4d:e52b:812d:eb7c])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53243661csm12290668f8f.53.2025.06.10.05.33.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 05:17:14 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: linux-amlogic@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Christian Hewitt <christianshewitt@gmail.com>
-In-Reply-To: <20250609202751.962208-1-martin.blumenstingl@googlemail.com>
-References: <20250609202751.962208-1-martin.blumenstingl@googlemail.com>
-Subject: Re: [PATCH v1] drm/meson: fix more rounding issues with 59.94Hz
- modes
-Message-Id: <174955783398.1721274.13530320235871545331.b4-ty@linaro.org>
-Date: Tue, 10 Jun 2025 14:17:13 +0200
+        Tue, 10 Jun 2025 05:33:34 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 10 Jun 2025 14:33:21 +0200
+Subject: [PATCH 11/12] gpio: omap: use new GPIO line value setter callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250610-gpiochip-set-rv-gpio-v1-11-3a9a3c1472ff@linaro.org>
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ =?utf-8?q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Grygorii Strashko <grygorii.strashko@ti.com>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2332;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=yxpS9O8VyBwfb+1xhv8Bj1RrUY/8b3PCfbF1mQmw8vo=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoSCYQMAyZ2DFFK2uTaeqWWkqsZrltQtYiNFD+/
+ MelCJUiekWJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaEgmEAAKCRARpy6gFHHX
+ cvAID/0SZN2Wd89qaQKgmmxwQk154LwwnFEUma6TiDSVFl0DYCIyoSmt+4ywy6/N7uybzS3xzR8
+ wryJoLAuEDE8ndyVqjxweeVzP7/rSL0157QD86uNoS9RgjehI6GFWJY7jqIc6nzQRqQfjd4fA3y
+ X51hb1N2boKXviFHtrMXrT7QsCH1/kB48RoFDmsxczMlCRDLNmLHEIBMoB8uexb7RkNv+ez4VgT
+ 4NqTADOXTj5kyXLTw5qABxy+OwvryoTQ0Phb90w9APCydzyQczAe+9qHW3XRuLHAXxMBVbPU3Hx
+ czk2B4JWmnEmFMRSA0SthrZJk6pkl2RKeEPPxYXLvKA66IX1VmySqrHMqjEIlkje8vMYXi6HKdc
+ OJx9I2c1uADeWrv/LWfubC5dlHXIe/Yz1MXY7PhBRom/bSOw114vQPADo4f1w6P0VhrS+IJGhgF
+ lP1JWjYKSlGAJOlR4Bdan7uk5QXtcrn3bltIR9x1vJCMlmuZYZrNQzl27offS1w06rUuUK9uvwx
+ IZRnZ6UAUfXoIAB0gbyqa+sORMJ4MXo5x5NShZmGLERhonmyI39orc4HEcm7a9p/qtiuD17AJTf
+ U4MrqzutczKRKwe3qRSf3UFrc5gGSxR4yPGEGthaKAg1WdSyA7jHkMNgTpemGF7psGH7iDZk02R
+ AGAbHK/H1WBZtCg==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_131717_687896_83309C8D 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20250610_133337_273176_9F383BB1 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,33 +142,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-On Mon, 09 Jun 2025 22:27:51 +0200, Martin Blumenstingl wrote:
-> Commit 1017560164b6 ("drm/meson: use unsigned long long / Hz for
-> frequency types") attempts to resolve video playback using 59.94Hz.
->  using YUV420 by changing the clock calculation to use
-> Hz instead of kHz (thus yielding more precision).
-> 
-> The basic calculation itself is correct, however the comparisions in
-> meson_vclk_vic_supported_freq() and meson_vclk_setup() don't work
-> anymore for 59.94Hz modes (using the freq * 1000 / 1001 logic). For
-> example, drm/edid specifies a 593407kHz clock for 3840x2160@59.94Hz.
-> With the mentioend commit we convert this to Hz. Then meson_vclk
-> tries to find a matchig "params" entry (as the clock setup code
-> currently only supports specific frequencies) by taking the venc_freq
-> from the params and calculating the "alt frequency" (used for the
-> 59.94Hz modes) from it, which is:
->   (594000000Hz * 1000) / 1001 = 593406593Hz
-> 
-> [...]
+struct gpio_chip now has callbacks for setting line values that return
+an integer, allowing to indicate failures. Convert the driver to using
+them.
 
-Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-fixes)
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ drivers/gpio/gpio-omap.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
-[1/1] drm/meson: fix more rounding issues with 59.94Hz modes
-      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cee6c4d3518b2e757aedae78771f17149f57653
+diff --git a/drivers/gpio/gpio-omap.c b/drivers/gpio/gpio-omap.c
+index 54c4bfdccf56812b5f79435a97b6eb90904ca59c..ed5c88a5c5207063e1269763e6239441a42e0c3d 100644
+--- a/drivers/gpio/gpio-omap.c
++++ b/drivers/gpio/gpio-omap.c
+@@ -953,7 +953,7 @@ static int omap_gpio_set_config(struct gpio_chip *chip, unsigned offset,
+ 	return ret;
+ }
+ 
+-static void omap_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
++static int omap_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+ {
+ 	struct gpio_bank *bank;
+ 	unsigned long flags;
+@@ -962,10 +962,12 @@ static void omap_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
+ 	raw_spin_lock_irqsave(&bank->lock, flags);
+ 	bank->set_dataout(bank, offset, value);
+ 	raw_spin_unlock_irqrestore(&bank->lock, flags);
++
++	return 0;
+ }
+ 
+-static void omap_gpio_set_multiple(struct gpio_chip *chip, unsigned long *mask,
+-				   unsigned long *bits)
++static int omap_gpio_set_multiple(struct gpio_chip *chip, unsigned long *mask,
++				  unsigned long *bits)
+ {
+ 	struct gpio_bank *bank = gpiochip_get_data(chip);
+ 	void __iomem *reg = bank->base + bank->regs->dataout;
+@@ -977,6 +979,8 @@ static void omap_gpio_set_multiple(struct gpio_chip *chip, unsigned long *mask,
+ 	writel_relaxed(l, reg);
+ 	bank->context.dataout = l;
+ 	raw_spin_unlock_irqrestore(&bank->lock, flags);
++
++	return 0;
+ }
+ 
+ /*---------------------------------------------------------------------*/
+@@ -1042,8 +1046,8 @@ static int omap_gpio_chip_init(struct gpio_bank *bank, struct device *pm_dev)
+ 	bank->chip.get_multiple = omap_gpio_get_multiple;
+ 	bank->chip.direction_output = omap_gpio_output;
+ 	bank->chip.set_config = omap_gpio_set_config;
+-	bank->chip.set = omap_gpio_set;
+-	bank->chip.set_multiple = omap_gpio_set_multiple;
++	bank->chip.set_rv = omap_gpio_set;
++	bank->chip.set_multiple_rv = omap_gpio_set_multiple;
+ 	if (bank->is_mpuio) {
+ 		bank->chip.label = "mpuio";
+ 		if (bank->regs->wkup_en)
 
 -- 
-Neil
+2.48.1
 
 
