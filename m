@@ -4,54 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6D9C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F471C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 07:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NBtkM+lPh1Z7DchYgyJTUQnMUxRoJyrWM38PYO91ysA=; b=jPAhOp9uM/GR9TAhjMOOO73ZMp
-	86giLtztQdPytGh7nR9z4b95MoSMHBkk4MSaRyA8J6n5tUQ8reF2Z5WrA7tj6F0G1MtQMimJ3dO7f
-	fa4tWx9xw+0Vasj0DDnqhO8zCDHLQR5XizTv4YEENWsUjH+vNWCst53KQyHTjtWtulyRVORooPfjS
-	Jp2LkJid9Mz28toTRQXT6ytEbv/1gFkS+RxjUDNvVPna5YF0NBvTEMXf2r2uCdqbj3YSmObjcoy+V
-	PNlpTOFZxlkWxDBEvmx3WPdj/4RV1YhdAhJc8OTRM4E7WjReCW2wRTIFxfCM2PeaaYJfF2cGAGO+I
-	cs0xWnsw==;
+	bh=/PBz8UPegQOn0D3yRInXOsNjObgy56E8YRqME4+wtDk=; b=NfChY6lp1v6W2ntpGLAZACsWEW
+	LfwPH5IScW6G70fIW1vcb+2VHSTr/TCkAYN4QTXl2CAQh1szhTijjGrdRs/Oh6OiDinTToxL3tleM
+	2CMUyqfHskapVTvdZgV4oBY2aBQ7oRfdsVa9dFE39utsWdUztTTDQSr/hR6+vLALXiEIGYwTiI5Si
+	DJn5ehhXNdjWvrDBrDNw2unuiG1Eidj5cXvVMssDQ/RXq4YhRbkVLKszk4qBFVkXajux7eNJVIgAG
+	r+xYbtapsEXtg4AyU9pVcL++/zv2sXAuIWI8vs9shKQx8giNq7JaxrD5/L7u/iuC/SSJbHU+iTQcB
+	IXTW8KTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtd1-000000063Eq-06WY;
-	Tue, 10 Jun 2025 07:42:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOtas-0000000633l-1MHP
+	id 1uOtgN-000000063nh-1kqj;
+	Tue, 10 Jun 2025 07:46:07 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOteD-000000063Ui-0clz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 07:40:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3966F14BF;
-	Tue, 10 Jun 2025 00:40:06 -0700 (PDT)
-Received: from [10.163.32.103] (unknown [10.163.32.103])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F37133F59E;
-	Tue, 10 Jun 2025 00:40:23 -0700 (PDT)
-Message-ID: <ede82589-3a77-4a05-ab4e-4249c9e751f4@arm.com>
-Date: Tue, 10 Jun 2025 13:10:20 +0530
+	Tue, 10 Jun 2025 07:43:54 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55A7hk4Y2222666;
+	Tue, 10 Jun 2025 02:43:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749541426;
+	bh=/PBz8UPegQOn0D3yRInXOsNjObgy56E8YRqME4+wtDk=;
+	h=Date:Subject:From:To:CC:References:In-Reply-To;
+	b=lOIHRSDgxhpOUqtBAZ0USZStUQKX+SfLIvtsb7s12396AutRTpbxYXW1rixIu34d9
+	 O357Cxikurhh9Fuap+iTSFbMyEokilGzgiLgAQblNm9OiIVK4XIBoF2WHM7a4F+OoY
+	 lqGQg1EHXk0cz8PnpXNa+wSDMV7ph8nJMhp9gQtk=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55A7hjnU093402
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 10 Jun 2025 02:43:46 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 10
+ Jun 2025 02:43:45 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 10 Jun 2025 02:43:45 -0500
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55A7hdsS2713905;
+	Tue, 10 Jun 2025 02:43:39 -0500
+Message-ID: <b05cc264-44f1-42e9-ba38-d2ef587763f5@ti.com>
+Date: Tue, 10 Jun 2025 13:13:38 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [boot-wrapper PATCH V2] aarch64: Enable access into FEAT_SPE_FDS
- register from EL2 and below
-To: Mark Rutland <mark.rutland@arm.com>, James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org
-References: <20250606052602.3387225-1-anshuman.khandual@arm.com>
- <c7c97edf-8e2b-4196-9660-a15b86061c96@linaro.org>
- <aEbjcQLBKG7TepPg@J2N7QTR9R3>
+Subject: Re: [PATCH net-next v10] net: ti: icssg-prueth: add TAPRIO offload
+ support
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+CC: Meghana Malladi <m-malladi@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Simon Horman <horms@kernel.org>,
+        Guillaume La Roque <glaroque@baylibre.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Roger Quadros <rogerq@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        Jakub Kicinski <kuba@kernel.org>, Eric
+ Dumazet <edumazet@google.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
+        Roger
+ Quadros <rogerq@ti.com>
+References: <20250502104235.492896-1-danishanwar@ti.com>
+ <20250506154631.gvzt75gl2saqdpqj@skbuf>
+ <5e928ff0-e75b-4618-b84c-609138598801@ti.com>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <aEbjcQLBKG7TepPg@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <5e928ff0-e75b-4618-b84c-609138598801@ti.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_004026_412730_E6EF15A2 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20250610_004353_291706_2A735487 
+X-CRM114-Status: GOOD (  69.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,39 +98,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Vladimir,
 
-
-On 09/06/25 7:06 PM, Mark Rutland wrote:
-> On Fri, Jun 06, 2025 at 09:49:07AM +0100, James Clark wrote:
->> On 06/06/2025 6:26 am, Anshuman Khandual wrote:
->>> FEAT_SPE_FDS adds system register PMSDSFR_EL1. But accessing that system
->>> register from EL2 and below exception levels, will trap into EL3 unless
->>> MDCR_EL3.EnPMS3 is set.
->>>
->>> Enable access to FEAT_SPE_FDS registers when they are implemented.
->>>
->>> Cc: James Clark <james.clark@linaro.org>
->>> Cc: Mark Rutland <mark.rutland@arm.com>
->>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+On 15/05/25 4:24 pm, MD Danish Anwar wrote:
+> Hi Vladimir,
 > 
->>> +	/*
->>> +	 * PMSIDR_EL1 register is present, only when FEAT_SPE
->>> +	 * feature is implemeneted. Otherwise direct accesses
->>> +	 * to PMSIDR_EL1 are UNDEFINED.
->>> +	 */
->>> +	if ((mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 1) &&
->>> +	    (mrs_field(PMSIDR_EL1, FDS)))
+> On 06/05/25 9:16 pm, Vladimir Oltean wrote:
+>> It has been a long time since the last posting, everything has been
+>> swapped out from my memory. Sorry if some comments are repeated.
 >>
->> Minor nit, but the extra brackets on the second condition are unnecessary.
->> Probably not worth a second version for though.
 > 
-> I don't think they're necessary for either condition, so when I apply
-> this I'll simplify this to:
+> Yes. It has been almost a year since my last revision.
 > 
-> 	if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 1 && 
-> 	    mrs_field(PMSIDR_EL1, FDS))
+>> On Fri, May 02, 2025 at 04:12:35PM +0530, MD Danish Anwar wrote:
+>>> From: Roger Quadros <rogerq@ti.com>
+>>>
+>>> The Time-Aware Shaper (TAS) is a key feature of the Enhanced Scheduled
+>>> Traffic (EST) mechanism defined in IEEE 802.1Q-2018. This patch adds TAS
+>>> support for the ICSSG driver by interacting with the ICSSG firmware to
+>>> manage gate control lists, cycle times, and other TAS parameters.
+>>>
+>>> The firmware maintains active and shadow lists. The driver updates the
+>>> operating list using API `tas_update_oper_list()` which,
+>>> - Updates firmware list pointers via `tas_update_fw_list_pointers`.
+>>> - Writes gate masks, window end times, and clears unused entries in the
+>>>   shadow list.
+>>> - Updates gate close times and Max SDU values for each queue.
+>>> - Triggers list changes using `tas_set_trigger_list_change`, which
+>>>   - Computes cycle count (base-time % cycle-time) and extend (base-time %
+>>>     cycle-time)
+>>
+>> Please define the "cycle count" concept (local invention, not IEEE
 > 
-> ... and drop the comment.
+> cycle count here means number of cycles in the base-time.
+> If base-time is 1747291156846086012 and cycle-time is 1000000 (1ms) then
+> the cycle count is 1747291156846 where as extend will be 86012
+> 
+>> standard). Also, cross-checking with the code, base-time % cycle-time is
+>> incorrect here, that's not how you calculate it.
+> 
+> That's actually a typo. It should be
+> 
+>  - Computes cycle count (base-time / cycle-time) and extend (base-time %
+>    cycle-time)
+> 
+>>
+>> I'm afraid you also need to define the "extend" concept. It is not at
+>> all clear what it does and how it does it. Does it have any relationship
+>> with the CycleTimeExtension variables as documented by IEEE 802.1Q annex
+>> Q.5 definitions?
+>>
+>> A very compressed summary of the standard variable is this:
+>> the CycleTimeExtension applies when:
+>> - an Open schedule exists
+>> - an Admin schedule is pending
+>> - the AdminBaseTime is not an integer multiple of OperBaseTime + (N *
+>>   OperCycleTime) - i.o.w. the admin schedule does not "line up" with the
+>>   end of the oper schedule
+>>
+>> The misalignment of the oper vs admin schedules might cause the very
+>> last oper cycle to be truncated to an undesirably short value. The
+>> OperCycleTimeExtension variable exists to prevent this, as such:
+>>
+>> - If the length of the last oper cycle is < OperCycleTimeExtension,
+>>   then this cycle does not execute at all. The gate states from the end
+>>   of the next-to-last oper cycle remain in place (that cycle is extended)
+>>   until the activation of the admin schedule at AdminBaseTime.
+>>
+>> - If the length of the last oper cycle is >= OperCycleTimeExtension,
+>>   this last cycle is left to execute until AdminBaseTime, and is
+>>   potentially truncated during the switchover event (unless it perfectly
+>>   lines up). Extension of the next-to-last oper cycle does not take
+>>   place.
+>>
+>> Is this the same functionality as the "extend" feature of the PRU
+>> firmware - should I be reading the code and the commit message in this
+>> key, in order to understand what it achieves?
+> 
+> 
+> "extend" here is not same as `CycleTimeExtension`. The current firmware
+> implementation always extends the next-to-last cycle so that it aligns
+> with the new base-time.
+> 
+> Eg,
+> existing schedule, base-time 125ms cycle-time 1ms
+> New schedule, base-time 239.4ms cycle-time 1ms
+> 
+> Here the second-to-last cycle starts at 238ms and lasts for 1ms. The
+> Last cycle starts at 239ms and is only lasting for 0.4ms.
+> 
+> In this case, the existing schedule will continue till 238ms. After that
+> the next cycle will last for 1.4 ms instead of 1ms. And the new schedule
+> will happen at 239.4 ms.
+> 
+> The extend variable can be anything between 0 to 1ms in this case and
+> the second last cycle will be extended and the last cycle won't be
+> executed at all.
+> 
+>>
+>>>   - Writes cycle time, cycle count, and extend values to firmware memory.
+>>>   - base-time being in past or base-time not being a multiple of
+>>>     cycle-time is taken care by the firmware. Driver just writes these
+>>>     variable for firmware and firmware takes care of the scheduling.
+>>
+>> "base-time not being a multiple of cycle-time is taken care by the firmware":
+>> To what extent is this true? You don't actually pass the base-time to
+>> the firmware, so how would it know that it's not a multiple of cycle-time?
+>>
+> 
+> We pass cycle-count and extend. If extend is zero, it implies base-time
+> is multiple of cycle-time. This way firmware knows whether base-time is
+> multiple of cycle-time or not.
+> 
+>>>   - If base-time is not a multiple of cycle-time, the value of extend
+>>>     (base-time % cycle-time) is used by the firmware to extend the last
+>>>     cycle.
+>>
+>> I'm surprised to read this. Why does the firmware expect the base time
+>> to be a multiple of the cycle time?
+>>
+> 
+> Earlier the limitation was that firmware can only start schedules at
+> multiple of cycle-times. If a base-time is not multiple of cycle-time
+> then the schedule is started at next nearest multiple of cycle-time from
+> the base-time. But now we have fix that, and schedule can be started at
+> any time. No need for base-time to be multiple of cycle-time.
+> 
+>> Also, I don't understand what the workaround achieves. If the "extend"
+>> feature is similar to CycleTimeExtension, then it applies at the _end_
+>> of the cycle. I.o.w. if you never change the cycle, it never applies.
+>> How does that help address a problem which exists since the very first
+>> cycle of the schedule (that it may be shifted relative to integer
+>> multiples of the cycle time)?
+>>
+>> And even assuming that a schedule change will take place - what's the
+>> math that would suggest the "extend" feature does anything at all to
+>> address the request to apply a phase-shifted schedule? The last cycle of
+>> the oper schedule passes, the admin schedule becomes the new oper, and
+>> then what? It still runs phase-aligned with its own cycle-time, but
+>> misaligned with the user-provided base time, no?
+>>
+>> The expectation is for all cycles to be shifted relative to N *
+>> base-time, not just the first or last one. It doesn't "sound" like you
+>> can achieve that using CycleTimeExtension (assuming that's what this
+> 
+> Yes I understand that. All the cycles will be shifted not just the first
+> or the last one. Let me explain with example.
+> 
+> Let's assume the existing schedule is as below,
+> base-time 500ms cycle-time 1ms
+> 
+> The schedule will start at 500ms and keep going on. The cycles will
+> start at 500ms, 501ms, 502ms ...
+> 
+> Now let's say new requested schedule is having base-time as 1000.821 ms
+> and cycle-time as 1ms.
+> 
+> In this case the earlier schedule's second-to-last cycle will start at
+> 999ms and end at 1000.821ms. The cycle gets extended by 0.821ms
+> 
+> It will look like this, 500ms, 501ms, 502ms ... 997ms, 998ms, 999ms,
+> 1000.821ms.
+> 
+> Now our new schedule will start at 1000.821ms and continue with 1ms
+> cycle-time.
+> 
+> The cycles will go on as 1000.821ms, 1001.821ms, 1002.821ms ......
+> 
+> Now in future some other schedule comes up with base-time as 1525.486ms
+> then again the second last cycle of current schedule will extend.
+> 
+> So the cycles will be like 1000.821ms, 1001.821ms, 1002.821ms ...
+> 1521.821ms, 1522.821ms, 1523.821ms, 1525.486ms. Here the second-to-last
+> cycle will last for 1.665ms (extended by 0.665ms) where as all other
+> cycles will be 1ms as requested by user.
+> 
+> Here all cycles are aligned with base-time (shifter by N*base-time).
+> Only the last cycle is extended depending upon the base-time of new
+> schedule.
+> 
+>> is), so better refuse those schedules which don't have the base-time you
+>> need.
+>>
+> 
+> That's what our first approach was. If it's okay with you I can drop all
+> these changes and add below check in driver
+> 
+> if (taprio->base_time % taprio->cycle_time) {
+> 	NL_SET_ERR_MSG_MOD(taprio->extack, "Base-time should be multiple of
+> cycle-time");
+> 	return -EOPNOTSUPP;
+> }
+> 
+>>>   - Sets `config_change` and `config_pending` flags to notify firmware of
+>>>     the new shadow list and its readiness for activation.
+>>>   - Sends the `ICSSG_EMAC_PORT_TAS_TRIGGER` r30 command to ask firmware to
+>>>     swap active and shadow lists.
+>>> - Waits for the firmware to clear the `config_change` flag before
+>>>   completing the update and returning successfully.
+>>>
+>>> This implementation ensures seamless TAS functionality by offloading
+>>> scheduling complexities to the firmware.
+>>>
+>>> Signed-off-by: Roger Quadros <rogerq@ti.com>
+>>> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+>>> Reviewed-by: Simon Horman <horms@kernel.org>
+>>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>>> ---
+>>> Cc: Vladimir Oltean <vladimir.oltean@nxp.com>
+>>> v9 - v10:
+>>> There has been significant changes since v9. I have tried to address all
+>>> the comments given by Vladimir Oltean <vladimir.oltean@nxp.com> on v9
+>>> *) Made the driver depend on NET_SCH_TAPRIO || NET_SCH_TAPRIO=n for TAS
+>>> *) Used MACRO for max sdu size instead of magic number
+>>> *) Kept `tas->state = state` outside of the switch case in `tas_set_state`
+>>> *) Implemented TC_QUERY_CAPS case in `icssg_qos_ndo_setup_tc`
+>>> *) Calling `tas_update_fw_list_pointers` only once in
+>>>    `tas_update_oper_list` as the second call as unnecessary.
+>>> *) Moved the check for TAS_MAX_CYCLE_TIME to beginning of
+>>>    `emac_taprio_replace`
+>>> *) Added `__packed` to structures in `icssg_qos.h`
+>>> *) Modified implementation of `tas_set_trigger_list_change` to handle
+>>>    cases where base-time isn't a multiple of cycle-time. For this a new
+>>>    variable extend has to be calculated as base-time % cycle-time. This
+>>>    variable is used by firmware to extend the last cycle.
+>>> *) The API prueth_iep_gettime() and prueth_iep_settime() also needs to be
+>>>    adjusted according to the cycle time extension. These changes are also
+>>>    taken care in this patch.
+>>
+>> Why? Given the explanation of CycleTimeExtension above, it makes no
+>> sense to me why you would alter the gettime() and settime() values.
+>>
+> 
+> The Firmware has two counters
+> 
+> counter0 counts the number of miliseconds in current time
+> counter1 counts the number of nanoseconds in the current ms.
+> 
+> Let's say the current time is 1747305807237749032 ns.
+> counter0 will read 1747305807237 counter1 will read 749032.
+> 
+> The current time = counter0* 1ms + counter1
+> 
+> For taprio scheduling also counter0 is used. Now let's say below is are
+> the cycles of a schedule
+> 
+> cycles   = 500ms 501ms 502ms ... 997ms, 998ms, 999ms, 1000.821ms
+> counter0 = 500   501   502   ... 997    998    999    1000
+> curr_time= 500*1, 501*1, 502*2...997*1, 998*1, 999*1, 1000*1
+> 
+> Here you see after the last cycle the time is 1000.821 however our above
+> formula will give us 1000 as the time since last cycle was extended.
+> 
+> To compensate this, whatever extension firmware applies need to be added
+> during current time calculation. Below is the code for that.
+> 
+>       ts += readl(prueth->shram.va + TIMESYNC_CYCLE_EXTN_TIME);
+> 
+> Now the current time becomes,
+> 	counter0* 1ms + counter1 + EXTEND
+> 
+> This is why change to set/get_time() APIs are needed. This will not be
+> needed if we drop this extends implementation.
+> 
+> Let me know if above explanation makes sense and if I should continue
+> with this approach or drop the extend feature at all and just refuse the
+> schedules?
+> 
 
-Sure, thanks Mark.
+I am not sure if you got the change to review my replies to your initial
+comments. Let me know if I should continue with this approach or just
+refuse the schedules that don't have the base time that we need.
+
+> Thanks for the feedback.
+> 
+
+
+-- 
+Thanks and Regards,
+Danish
 
