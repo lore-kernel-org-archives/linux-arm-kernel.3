@@ -4,70 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D886BC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32E5C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zIFWs5Mlh+bXQoz3OCLIjHjnN+GxzIfPlXP7QsSniyA=; b=f5WsITl/3jr+98R5FW/pI+VyrU
-	3urpdf5SIECq/WO0APpLL4mwLB+tbBj5TY2/O6zJ9HeyusYB+XYY9fjjw4OWBJceOtkNsvgOZxcSe
-	WxAu/Swh4t5pfx6I4AcSOQl7LkbxAyCz/cf0RxeFliAUq4ALl7FaqAqAeLXlVJ59EzIBxqf0APx7C
-	K3JcDxApXjOv/yX+AYf5/U8lZcbMGY0MrfgTnX/XZxLQRDcT9e4X0pRkm/WBt9KjPDDjbmwwCyrdk
-	ZMigqreqZT/puspVbGErbyoLQch0o8xKq1ZbzZPl4d357hV/a7u943M+ZuTfMKwoPbzRANkMKZEpy
-	b7BMxy5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V8h3oqbg6NoP/SjTKtGT31BP/tzrrozOvMV8TV+y5V4=; b=dVuo67MdoPmyEGqoEdPLPMawQv
+	JTHzgYs/9pSb8ZkbYY0dUTqTMInK3JKTL38kEWWI5QeSS/3zRI4tCGuPhiNS6nyv8AeW/wsIMgQpV
+	vnq+5B+mUhQ3M+7yc16OjFoT5YCczDSoIzwW5ZgnLrnmWUu27HbOPdb0QyO6EF2ffYTL8LdgYkFdy
+	WwOAFasTbh+8qKdgZ7XJaoaQhpz+VqPd433/ycGPUjUEcxWAnpQv/4V7A3D+V6ms3d4K9slCbI0zz
+	K5Zv5kihWdXdIGhk+Pp+kIx0bJjsM9jbGHUbTC+yIo6xWs3lerjqkyatBJo1f/kPs9CJcOzxRnIIL
+	pSQOBBcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyB6-00000006mUj-34HO;
-	Tue, 10 Jun 2025 12:34:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uOyDE-00000006n3T-1Yml;
+	Tue, 10 Jun 2025 12:36:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxYr-00000006hEg-3sDv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 11:54:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=zIFWs5Mlh+bXQoz3OCLIjHjnN+GxzIfPlXP7QsSniyA=; b=oEsd/Dfnh2OxOYUG/x7pNOHtjK
-	zstUG9frE+h7Sb/BP9aGwV+KgebBVtz6PMLD02fbv/AULn0fuTRH7BVPD+GxGBYwFsYZXQcPd6tFR
-	P/F91OQn43Njyf9UNYtAnOkOSqAEpptllhQL96KWvXTUvwVMkpZVZzvzoLy29Td8vw5Ukunv5EF/7
-	r9pgIegMHWvDcpbbvfKZp+TLiYBDdxheTlgiAxnE3Zeqk8gxZ6tRS3/xXIMhbuCGHt3oJ2Canx7yp
-	vA8kO+cTkCojbFnQBXdEzKWLbk2VoA1oICap9KfIDE4WzAz5lcefc9DAnOHu/PzeQvNam9NYxYyTL
-	hzv/2FWA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxYp-00000001n66-2WZz
+	id 1uOxe8-00000006hb9-39NB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 11:54:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B418514BF;
-	Tue, 10 Jun 2025 04:54:13 -0700 (PDT)
-Received: from [10.163.32.103] (unknown [10.163.32.103])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D46FF3F673;
-	Tue, 10 Jun 2025 04:54:30 -0700 (PDT)
-Message-ID: <66466825-dce2-4a88-993e-3185b1021cfa@arm.com>
-Date: Tue, 10 Jun 2025 17:24:27 +0530
+	Tue, 10 Jun 2025 12:00:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 033B05C5493;
+	Tue, 10 Jun 2025 11:57:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82832C4CEEF;
+	Tue, 10 Jun 2025 12:00:02 +0000 (UTC)
+Date: Tue, 10 Jun 2025 13:00:00 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] arm64/mm: Ensure lazy_mmu_mode never nests
+Message-ID: <aEgeQCCzRt-B8_nW@arm.com>
+References: <20250606135654.178300-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/13] arm64: refactor aarch32_break_handler()
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
- <20250609173413.132168-3-ada.coupriediaz@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250609173413.132168-3-ada.coupriediaz@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250606135654.178300-1-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_125435_948737_800C1056 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20250610_050004_876017_A5A7AFDA 
+X-CRM114-Status: GOOD (  36.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +61,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 09/06/25 11:04 PM, Ada Couprie Diaz wrote:
-> `aarch32_break_handler()` is called in `do_el0_undef()` when we
-> are trying to handle an exception whose Exception Syndrome is unknown.
-> It checks if the instruction hit might be a 32-bit arm break (be it
-> A32 or T2), and sends a SIGTRAP to userspace if it is so that it can
-> be handled.
+On Fri, Jun 06, 2025 at 02:56:52PM +0100, Ryan Roberts wrote:
+> Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
+> provided a quick fix to ensure that lazy_mmu_mode continues to work when
+> CONFIG_DEBUG_PAGEALLOC is enabled, which can cause lazy_mmu_mode to
+> nest.
 > 
-> However, this is badly represented in the naming of the function, and
-> is not consistent with the other functions called with the same logic
-> in `do_el0_undef()`.
+> The solution in that patch is the make the implementation tolerant to
 
-Agreed.
+s/is the make/is to make/
 
+> nesting; when the inner nest exits lazy_mmu_mode, we exit then the outer
+> exit becomes a nop. But this sacrifices the optimization opportunity for
+> the remainder of the outer user.
+[...]
+> I wonder if you might be willing to take this for v6.16? I think its a neater
+> solution then my first attempt - Commit 1ef3095b1405 ("arm64/mm: Permit
+> lazy_mmu_mode to be nested") - which is already in Linus's master.
 > 
-> Rename it `try_handle_aarch32_break()` and change the return value to
-> a boolean to align with the logic of the other tentative handlers in
-> `do_el0_undef()`, the previous error code being ignored anyway.
+> To be clear, the current solution is safe, I just think this is much neater.
 
-Makes sense.
+Maybe better, though I wouldn't say much neater. One concern I have is
+about whether we'll get other such nesting in the future and we need to
+fix them in generic code. Here we control __kernel_map_pages() but we
+may not for other cases.
 
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Is it the fault of the arch code that uses apply_to_page_range() via
+__kernel_map_pages()? It feels like it shouldn't care about the lazy
+mode as that's some detail of the apply_to_page_range() implementation.
+Maybe this API should just allow nesting.
 
-LGTM.
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-
-> ---
->  arch/arm64/include/asm/debug-monitors.h |  2 +-
->  arch/arm64/kernel/debug-monitors.c      | 10 +++++-----
->  arch/arm64/kernel/traps.c               |  2 +-
->  3 files changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-> index 8f6ba31b8658..e1caf6a8380c 100644
-> --- a/arch/arm64/include/asm/debug-monitors.h
-> +++ b/arch/arm64/include/asm/debug-monitors.h
-> @@ -116,7 +116,7 @@ static inline int reinstall_suspended_bps(struct pt_regs *regs)
->  }
->  #endif
->  
-> -int aarch32_break_handler(struct pt_regs *regs);
-> +bool try_handle_aarch32_break(struct pt_regs *regs);
->  
->  void debug_traps_init(void);
->  
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 676fa0231935..9e69f2e915e8 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -334,7 +334,7 @@ static int brk_handler(unsigned long unused, unsigned long esr,
->  }
->  NOKPROBE_SYMBOL(brk_handler);
->  
-> -int aarch32_break_handler(struct pt_regs *regs)
-> +bool try_handle_aarch32_break(struct pt_regs *regs)
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 88db8a0c0b37..9f387337ccc3 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -83,21 +83,11 @@ static inline void queue_pte_barriers(void)
+>  #define  __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>  static inline void arch_enter_lazy_mmu_mode(void)
 >  {
->  	u32 arm_instr;
->  	u16 thumb_instr;
-> @@ -342,7 +342,7 @@ int aarch32_break_handler(struct pt_regs *regs)
->  	void __user *pc = (void __user *)instruction_pointer(regs);
->  
->  	if (!compat_user_mode(regs))
-> -		return -EFAULT;
-> +		return false;
->  
->  	if (compat_thumb_mode(regs)) {
->  		/* get 16-bit Thumb instruction */
-> @@ -366,12 +366,12 @@ int aarch32_break_handler(struct pt_regs *regs)
->  	}
->  
->  	if (!bp)
-> -		return -EFAULT;
-> +		return false;
->  
->  	send_user_sigtrap(TRAP_BRKPT);
-> -	return 0;
-> +	return true;
->  }
-> -NOKPROBE_SYMBOL(aarch32_break_handler);
-> +NOKPROBE_SYMBOL(try_handle_aarch32_break);
->  
->  void __init debug_traps_init(void)
->  {
-> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> index 9bfa5c944379..685c11b2c553 100644
-> --- a/arch/arm64/kernel/traps.c
-> +++ b/arch/arm64/kernel/traps.c
-> @@ -454,7 +454,7 @@ void do_el0_undef(struct pt_regs *regs, unsigned long esr)
->  	u32 insn;
->  
->  	/* check for AArch32 breakpoint instructions */
-> -	if (!aarch32_break_handler(regs))
-> +	if (try_handle_aarch32_break(regs))
+> -	/*
+> -	 * lazy_mmu_mode is not supposed to permit nesting. But in practice this
+> -	 * does happen with CONFIG_DEBUG_PAGEALLOC, where a page allocation
+> -	 * inside a lazy_mmu_mode section (such as zap_pte_range()) will change
+> -	 * permissions on the linear map with apply_to_page_range(), which
+> -	 * re-enters lazy_mmu_mode. So we tolerate nesting in our
+> -	 * implementation. The first call to arch_leave_lazy_mmu_mode() will
+> -	 * flush and clear the flag such that the remainder of the work in the
+> -	 * outer nest behaves as if outside of lazy mmu mode. This is safe and
+> -	 * keeps tracking simple.
+> -	 */
+> -
+>  	if (in_interrupt())
 >  		return;
->  
->  	if (user_insn_read(regs, &insn))
+> 
+> +	VM_WARN_ON(test_thread_flag(TIF_LAZY_MMU));
 
+This warning is good to have back.
+
+> +
+>  	set_thread_flag(TIF_LAZY_MMU);
+>  }
+> 
+> @@ -119,6 +109,14 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>  	clear_thread_flag(TIF_LAZY_MMU);
+>  }
+> 
+> +static inline bool arch_in_lazy_mmu_mode(void)
+> +{
+> +	if (in_interrupt())
+> +		return false;
+> +
+> +	return test_thread_flag(TIF_LAZY_MMU);
+> +}
+> +
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+> 
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 04d4a8f676db..4da7a847d5f3 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -293,18 +293,29 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+>  }
+> 
+>  #ifdef CONFIG_DEBUG_PAGEALLOC
+> -/*
+> - * This is - apart from the return value - doing the same
+> - * thing as the new set_direct_map_valid_noflush() function.
+> - *
+> - * Unify? Explain the conceptual differences?
+> - */
+>  void __kernel_map_pages(struct page *page, int numpages, int enable)
+>  {
+> +	bool lazy_mmu;
+> +
+>  	if (!can_set_direct_map())
+>  		return;
+> 
+> +	/*
+> +	 * This is called during page alloc or free, and maybe called while in
+> +	 * lazy mmu mode. Since set_memory_valid() may also enter lazy mmu mode,
+> +	 * this would cause nesting which is not supported; the inner call to
+> +	 * exit the mode would exit, meaning that the outer lazy mmu mode is no
+> +	 * longer benefiting from the optimization. So temporarily leave lazy
+> +	 * mmu mode for the duration of the call.
+> +	 */
+> +	lazy_mmu = arch_in_lazy_mmu_mode();
+> +	if (lazy_mmu)
+> +		arch_leave_lazy_mmu_mode();
+> +
+>  	set_memory_valid((unsigned long)page_address(page), numpages, enable);
+> +
+> +	if (lazy_mmu)
+> +		arch_enter_lazy_mmu_mode();
+>  }
+>  #endif /* CONFIG_DEBUG_PAGEALLOC */
+
+So basically you are flattening the enter/leave_lazy_mmu_mode() regions.
+Ideally this could have been done by the nesting
+arch_enter_lazy_mmu_mode() automatically but that means this function
+returning the current mode and arch_leave_lazy_mmu_mode() taking an
+argument - more like the irq saving/restoring (even better renaming it
+to arch_restore_lazy_mmu_mode()). I guess this won't go well with the mm
+folk who don't seem willing to changes in this area.
+
+FWIW, this patch is correct.
+
+-- 
+Catalin
 
