@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EDE4C5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA324C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 13:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8gK2SwvVpB0iJPc79lktbOi60vhhEtYSC0FV683UEdM=; b=TTsTRI+2FjtrSX9SA3umoM4clC
-	vcHp3q72prDzWZqB+ziKWRaS7y0L5ecWUbNIPfYX0ZemfTE+QC/DGPn0DA9FTOass42ZqoPHcgwR4
-	kcy9/qnaR5EpPu1PWklF7KLjboEvhO9Db9vrAxf1FbZ2I5+uPF06xeQENQ7HIiLatmq78WUHv0yP7
-	GYAX+QEfR9Q1UXPu/Iwtfpd0ESm4Y87RR4I2nCc0GE+RtHjiKmWusvitCulFgfE4HolrLtJfpwm7F
-	+zphtEVedro2VEXBOvcmNOpbe81E1zZDZJQHVNdEDTHYByaPkw8Tt4ZCyPRb0fgP6y7DLmuYliuGX
-	w4MKRbCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vtivjLTREzj3xhUyN5Ni31CViS5Q+PvnvLeG0iZlrcE=; b=glxbNUNQJOpw6czqNLcR9yXvzu
+	OhyiLJey5WwAt6TLSTFAZGLHu06c816ctt8P5AW25QIJsNoYOprpR9rcmcC1DrnPas1y0hWfY3fjx
+	7PsVZbGDLzNwbpoPkdfTjrO/xAQiT15Otf3yGm5mVajV2nUTVEVWWjn6NfrpeE8Qt1GV7YLY22Ayu
+	LsO+1hF7hgofpOTVsXqba06NxMp3Uo7rYHvTnJZavNNipI97h6cqbeWX4cO8UoJXUOXZy23dqU3kj
+	5y6DYEXxmKGsxLVbI7jLhwso732J/0WEDROLnYz59hBD1efaziHfCEgHcMV53ZbQjpBn4qt7exBOw
+	VIoo/tJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyhe-00000006ttH-0ywd;
-	Tue, 10 Jun 2025 13:07:46 +0000
-Received: from out-181.mta1.migadu.com ([2001:41d0:203:375::b5])
+	id 1uOyjl-00000006uEw-33M6;
+	Tue, 10 Jun 2025 13:09:57 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxyE-00000006kpp-0erp
+	id 1uOy0M-00000006l93-2d1E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:20:51 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1749558038;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8gK2SwvVpB0iJPc79lktbOi60vhhEtYSC0FV683UEdM=;
-	b=MEQgziFX2kglVeu7ANROwKONEqK31HGcNB4WqQ1yJavHnCWNzadDg6T9lt3JrK4q7HnlLV
-	OTY2zEh1JoaLjJt2yeuTyPXSQFREz0OBiVPGvClJHqfKZ/HuSZWalW1yYqRvHiEINDQhi+
-	aDsvLMtS8J4VwlPDmKPYD7nhbpq2az3RFC/NlX1Ky+Pec+X87Hek/jH33YwTphKP8ztIqq
-	n4mqaI45JbJUTOLaggoxvBZgH8TJT48VITX0V97exxBCctpaNp7rp3/vY/iQgr4JPdcrSl
-	kEOPbTiMOlHWMham3KM+YZ8RtpyhH2Gk8CRDxjc03IiZjIog6ZHHd9h/EFNotQ==
-Content-Type: multipart/signed;
- boundary=25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Tue, 10 Jun 2025 14:20:00 +0200
-Message-Id: <DAIUJTK7T4P4.29G3ADVPS0NWG@cknow.org>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add overlay for RockPro64
- screen
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Diederik de Haas" <didi.debian@cknow.org>, "Peter Robinson"
- <pbrobinson@gmail.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Heiko Stuebner" <heiko@sntech.de>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, "Peter Geis" <pgwipeout@gmail.com>
-References: <20250518215944.178582-1-pbrobinson@gmail.com>
- <20250518215944.178582-2-pbrobinson@gmail.com>
- <DAITK5IPG0QA.2EMB23KS83SBE@cknow.org>
-In-Reply-To: <DAITK5IPG0QA.2EMB23KS83SBE@cknow.org>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 10 Jun 2025 12:23:03 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLEIT013926;
+	Tue, 10 Jun 2025 14:22:55 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	vtivjLTREzj3xhUyN5Ni31CViS5Q+PvnvLeG0iZlrcE=; b=sB2y45r3vLSNQ2D3
+	Uvp21XuXqL78esQhQKZfXzybGiUPlzMD5WzROhXNXMhz5I2Qf6sA+3XtzhPR6yhA
+	z8goGGaGkQfFtjmXGXrITS0+041glQb3O3RAHkD58LC4eqNMq4bPjj/V9bRwFoH0
+	Oew+fMowKFeQ0HrorR+qQvpTuDI2ZqoHx3uNe14eopQ7fy/o5JjlOEA3njYbw8Du
+	HQTCZLXPseBl7Upk4UihrQCFvMqq4vL+M/eTnYzp4d/sxCysSXNVI6GfdpjxMVwc
+	VvtKTNsQVCO3Lo/tedoEj5C6QHjUPdt5wRzxrBEFflTbQF98Zr9vHHmVkQLz5bfH
+	jqVooQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cahm2yt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 10 Jun 2025 14:22:55 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3F73440066;
+	Tue, 10 Jun 2025 14:21:42 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id DD68CB2149E;
+	Tue, 10 Jun 2025 14:20:28 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
+ 2025 14:20:28 +0200
+Message-ID: <3a9e5a1b-41fd-4ddf-938a-bed98551a024@foss.st.com>
+Date: Tue, 10 Jun 2025 14:20:27 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/9] Introduce HDP support for STM32MP platforms
+To: Linus Walleij <linus.walleij@linaro.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+References: <20250528-hdp-upstream-v4-0-7e9b3ad2036d@foss.st.com>
+ <CACRpkdZ2NUfcn7O7tKSFDyAr8Hni3pvpTN6QpOz7N3J+EsFdLg@mail.gmail.com>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <CACRpkdZ2NUfcn7O7tKSFDyAr8Hni3pvpTN6QpOz7N3J+EsFdLg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-10_04,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_052050_331488_2DDE0CC5 
+X-CRM114-CacheID: sfid-20250610_052302_937603_125A2768 
 X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,74 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 6/5/25 15:03, Linus Walleij wrote:
+> On Wed, May 28, 2025 at 3:33 PM Clément Le Goffic
+> <clement.legoffic@foss.st.com> wrote:
+> 
+>> Clément Le Goffic (9):
+>>        gpio: mmio: add BGPIOF_NO_INPUT flag for GPO gpiochip
+>>        dt-bindings: pinctrl: stm32: Introduce HDP
+>>        pinctrl: stm32: Introduce HDP driver
+>>        MAINTAINERS: add Clément Le Goffic as STM32 HDP maintainer
+> 
+> Can I apply the driver and bindings patches 1-4 separately
+> from the rest of the series?
 
-On Tue Jun 10, 2025 at 1:33 PM CEST, Diederik de Haas wrote:
-> On Sun May 18, 2025 at 11:59 PM CEST, Peter Robinson wrote:
->> The Pine64 touch panel is a panel consisting of the Feiyang fy07024di26a=
-30d
->> panel with a Goodix gt911 touch screen. Add a device tree overlay to
->> allow the display to be easily used on the device.
->> ...
->> ---
->>  arch/arm64/boot/dts/rockchip/Makefile         |  9 ++
->>  .../dts/rockchip/rk3399-rockpro64-screen.dtso | 89 +++++++++++++++++++
->>  2 files changed, 98 insertions(+)
->>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-rockpro64-screen=
-.dtso
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts=
-/rockchip/Makefile
->> index 3e8771ef69ba1..c7b13bff3ac20 100644
->> --- a/arch/arm64/boot/dts/rockchip/Makefile
->> +++ b/arch/arm64/boot/dts/rockchip/Makefile
->> @@ -77,6 +77,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock-pi-4c.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock960.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-v2.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64.dtb
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtso
->
-> ``s/rk3399-rockpro64-screen.dtso/rk3399-rockpro64-screen.dtbo``
+The MAINTAINERS file will need a fix in the future revision.
+I'll wait Krzysztof answers before submitting a V5 with the fix.
 
-nvm, it was already correctly applied by Heiko.
+Otherwise patch 1-3 can be merged, but I think you may need the 
+MAINTAINERS file to merge the driver + bindings.
 
-> Cheers,
->   Diederik
->
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-sapphire.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-sapphire-excavator.dtb
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399pro-rock-pi-n10.dtb
->> @@ -209,6 +210,14 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-puma-haikou=
--haikou-video-demo.dtb
->>  rk3399-puma-haikou-haikou-video-demo-dtbs :=3D rk3399-puma-haikou.dtb \
->>  	rk3399-puma-haikou-video-demo.dtbo
->> =20
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtb
->> +rk3399-rockpro64-screen-dtbs :=3D rk3399-rockpro64.dtb \
->> +	rk3399-rockpro64-screen.dtbo
->> +
->> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtb
->> +rk3399-rockpro64-v2-screen-dtbs :=3D rk3399-rockpro64-v2.dtb \
->> +	rk3399-rockpro64-screen.dtbo
->> +
->>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3568-wolfvision-pf5-vz-2-uhd.dtb
->>  rk3568-wolfvision-pf5-vz-2-uhd-dtbs :=3D rk3568-wolfvision-pf5.dtb \
->>  	rk3568-wolfvision-pf5-display-vz.dtbo \
->> <snip>
+Clément
 
+> 
+>>        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp13
+>>        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp15
+>>        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp25
+>>        ARM: dts: stm32: add alternate pinmux for HDP pin and add HDP pinctrl node
+>>        ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp157c-dk2 board
+> 
+> Or does it need to be merged along with these?
+> 
+> Yours,
+> Linus Walleij
 
---25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaEgjDAAKCRDXblvOeH7b
-bsRUAP9XR9PtWm858vBGa90HrSmYJ/WeviycqMnzM+r8WvPOpQEAzd4rmOMsaI/O
-/ufPoni2PgpXh+vcJekght8agtKniQ8=
-=fLEb
------END PGP SIGNATURE-----
-
---25c824350af353d1b2d73749738e31465e8af16df69736d7a0df7feb6d52--
 
