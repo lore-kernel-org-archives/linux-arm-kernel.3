@@ -4,105 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDB8C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F209C678DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m0Nsk7L1UKeSgGVwlEzlmQB/17oGC9kEiuXWeGaDs0s=; b=MpM5iicF/EbDDHrOKE7hBJz5IK
-	AX9Tgud+HsOgGiqkCJOduxv/HzXy/2tHRgA4JZTqMv6sC0q4fNHdbMyH/n10Qx9lbMpdceeRlz2qc
-	v6SkWTHrLDkEEAWFw/5Ammm52RBwAHkPU2pLMtda1qTJBhkdCwtkoBaL8EeejDrJJzfMgge4uWDa+
-	aRs+37qck5+aaLu6WBuiChjzP2NI9Y3yHn6QU41kDjvYV+tWUQrcqJq3CJ/1YTgM7d16mAayRx4GP
-	cvmMtAKZTbz2A2L/IuXp/5u23VKVPjIVR9BtVAK13BcpeQz7MUkYw6xbbonFHFsgjQuSHZL/HYzPO
-	99tad/lw==;
+	bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=; b=D73zQZSxLgk09JVT9KuexMLChh
+	X1Owjc7J2fglnHkWrISptIA1OSWL6LSDwtjq6AxNNRSRoCx2xv5nwfZrRUG9eoGHFFBcqTFvCAWPa
+	ptR6Bf3ApbBxKD1GsQAyYc+VubqEWQBrMFf2OxUk6PN600w7jFbxETgAcqy0DVw4wa1h8lgu7W8ue
+	wCjn2uWYMDcUDckFmovksVMTIhap7en2n/GlsIE/uUbVyhrxHAGjxpay2IeVdD56jCBwlGV9cl+TU
+	ZBC23qxrh0ZGYigsgJPT6z84qjVO55JNtr4oK4r36DM0uyF5Bwl3PaIexQ5bZt4qWPEZ0bxXq+tUr
+	uf1yH3bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7nJ-00000008INA-1aWu;
-	Tue, 10 Jun 2025 22:50:13 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uP7ni-00000008J03-0gAQ;
+	Tue, 10 Jun 2025 22:50:38 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP5L2-000000080lW-1Zgn;
-	Tue, 10 Jun 2025 20:12:53 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-450dd065828so40735435e9.2;
-        Tue, 10 Jun 2025 13:12:52 -0700 (PDT)
+	id 1uP6Ki-000000085sZ-2uye
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 21:16:55 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-32a7256ba04so26853211fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 14:16:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749586371; x=1750191171; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1749590195; x=1750194995; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=m0Nsk7L1UKeSgGVwlEzlmQB/17oGC9kEiuXWeGaDs0s=;
-        b=RLVT2dJg0SJufuDwUkCA1axmHH0xk+nHXrh1fpe+5PW7VW7U1+2C3ogRncR8NUpbiY
-         hOF5JL7hna7z0omcktv4DPkC9k5NIOEyC+nM/iC+pi2gNiPxvlYI2jI2VDgBwQ6bkHU6
-         AbCSObg0nBXWOeRt2ukuU5Qe2JsZx95tgmeUKCjZGCwghDMFVUlDx1BMZWE+zt9n6CkW
-         UF1CgPPT3i4NilRDSZ1Et+mmsdxTNesdqRDtENUmMZMYXT+C398pwujslNVL3Q9ewE29
-         BPHszq2WTtIfquSw8er/BiMK/6Ht3fFqzzHvjYw0JU4ELhyWQIAumLHokptpKXhrwZow
-         WZlg==
+        bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=;
+        b=eTm4qJu+M8u9TpwMBjgiz0tGV2Vt2ciX9LPQJRZSCLzxvKckQBCd7IWBwHKMwGrhf5
+         ajKBera2bUThTzpJh23EhH+i2cINaQEFRPWR7U1vymQXshAhN7OsDxlFekp9bw8n8LK3
+         Es5fv1gMezfc+IrFNn1FVK2+vpoTX+rmXUxHn4TEr6ot1GEe/f6muKyJq8TczWcjeZ7K
+         WU7qJOU72DbNJRgYGlAZXYz7bMNLoAl6fvyiIYL3H+xvNr13YZ84TLS4GqoPw2XyiWFs
+         96YNYiIl3tfg9YdJw/0nC38vBr7SiZ/EZJsQpoKn4hSrsD60agveS/ULN8LQBGUFn4Fy
+         ORcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749586371; x=1750191171;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1749590195; x=1750194995;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=m0Nsk7L1UKeSgGVwlEzlmQB/17oGC9kEiuXWeGaDs0s=;
-        b=kCqCm2RpEwJK2RJtTHUyCqdjphf6/Sqifi0589Gsh0zjsULDkGvzMVJQ0z3KQ+pdeS
-         Nu8TrGgFe5MEhC8ACX3+9Q/4DJgJqOrAdZPK8fF1d+BFoYKqVyCtXYULRvLhxp+IuLp0
-         RJ/OZUkAQbZkQyd9yoaxE9kiPqZ/dtyvnQw6evZJpxxS+2A8BfsyTbApL200LZL7HXYt
-         E9/tcGPBE6npseZUizUWA+2m6OSCQetU9LPWBsl4IsiC0zL/44YRfW4cCOndAHT3ez8F
-         /bThZoYXcfnH/1hrr4r8agS60i5Gma3vCN6cKUwByA0wxW6Zwb1CSOHW9tR/ke7OEoWT
-         Hv4A==
-X-Forwarded-Encrypted: i=1; AJvYcCVaIgsqD6pYUbMPJvnUFFLaNf/EbnweYIkN/u6j0Bul1a4hDJMaK8Lq1om7CWmRQRy2XKFD8yBfMOfnIq/LDlZo@lists.infradead.org, AJvYcCW1o5GYMKuPOp9Hxrjb5R6qToHlLG75eQ5SjDTNi5lN/jadGbPqw1N+5OiCebDswKv6rdLhm9B2smNkCb0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWRsWX8n9aDHVsDz0QZP704EaNOmSVwtMBVKu7ZsH2n8bCglAP
-	EileCvNDtO3QUFSgH9IXn7EBQ/JGi5rUI5GPdO7hwY49GVN2uhTaJIwg
-X-Gm-Gg: ASbGncu10k7yhGXMZ2YS6X4N4ooz/Gl15cwFwKUdDdj75p7vgGUReBeGTDoqr3Jcjbm
-	DQiM5Qvlhih8i3j24kwqjPtHhkvioKMzWmdDo7z+ONP0HFHsN7AcNFL1kTgRXZN5oSJdVlRiCf6
-	BPtU+84cB3lwKcW8BTFF9QRGTsH6VEMDNuG6S+d2T0JgiAmVltF66p2sldBcj1OeyqvTLmSnpGV
-	M8T4pg4RrernSmAYp5sconcbqZ6hiabLlsPtewgSKXkphzPHgeus+z880zj5grfPnYaRjb+bTjy
-	HaK72EGJ+YdUpGKLFVCBA4MD5dUnwdivf5ta/BkKmV5F8hM9RrGcrvR7tB/1GFQjV8Y9fWLOcOg
-	=
-X-Google-Smtp-Source: AGHT+IHAfus2as8xEX4iDfu63duVTXHrbs5exQRrMVtiCIQNQ6/TZbKnWxqRaxxHybEddLqJocBNng==
-X-Received: by 2002:a05:600c:1395:b0:43c:f513:958a with SMTP id 5b1f17b1804b1-45324ec37d2mr1288935e9.13.1749586370869;
-        Tue, 10 Jun 2025 13:12:50 -0700 (PDT)
-Received: from giga-mm.. ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a532462d93sm13434970f8f.91.2025.06.10.13.12.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 13:12:50 -0700 (PDT)
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: sophgo@lists.linux.dev,
-	soc@lists.linux.dev
-Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 6/6] arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-Date: Tue, 10 Jun 2025 22:12:19 +0200
-Message-ID: <20250610201241.730983-7-alexander.sverdlin@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250610201241.730983-1-alexander.sverdlin@gmail.com>
-References: <20250610201241.730983-1-alexander.sverdlin@gmail.com>
+        bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=;
+        b=NG5575gw5KeShtZ7I1NOUViY+xr3Gam7HlTEMo4S9md7HgA3Q8zQUkhNrKZ6gJcmZx
+         imsWyN/zsnI9GDMekrgRiaybAYEZ1rT4zR4VXUBjsJpU4+oEiTsic93GEKCTrVchypRs
+         Gp7Cn7AGJBl2QKDtH4V5pJo07bbqLx2W2Xw9RDEMQcD8WFyJTdlen9pF9E5v5zTyMfRa
+         Lbq2c69GEZI/uXQscach2K5rJwAcoJbVqMSx00AWFacbOWLIhnsAjkHmdyZfpnU8OCZa
+         QJaYg3PhEq7zEGUE7Fd6HNeGsYvgDLxSkeP0uPDrC39p3otK2RnA50P7NrmtXgypMm59
+         tLww==
+X-Forwarded-Encrypted: i=1; AJvYcCVqmPxlHQ4WqXUKd1f3WoQpCbOOBUX0M+2eM/i6IyoNx6XKuqLnd6pHznYM1C4eh5nI4fTqnMQ4GkwRKvJVaoiL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLIsWFeuNH5NEKpXyHjY2ndieEn+2Il5jc/nI0VrjK+oEr8/rJ
+	0zCMvT5BGNenfkjnewFaH173sxNmbgfZWuRnvwggYjUgqncXtzgsUp4iUOgD7u+2I19hyv0AX5I
+	HvZA9omPlYAc7OswKQrgGyN4y1phKs2nQf7cs6d+ALA==
+X-Gm-Gg: ASbGncvcMWHfU7K+iwQpQGqcv2tCrzy1/CuELmoKnILs0FPFOo5IlVBhCQdSJ3Ffny4
+	tNZ5TrY7pZQC5NwR2pV0V5bxoKZvh6eeGRd+M/Agz5rjowFFdUuKnpMGYYNMqj5H+EQnkvSuqVK
+	c+tzEGzMnh4+dWd3iwNmV1SPEp8pyixnhrBz+n11K2TOQ=
+X-Google-Smtp-Source: AGHT+IFjB38ga64es1q/x9Xln0eJ4c1gLnvGRBRN0i0PTR13a813fBLuiycDGURGtRbChXkECB+ZBVHqj34ThqQMqbk=
+X-Received: by 2002:a05:651c:1a0a:b0:32a:6aa0:217c with SMTP id
+ 38308e7fff4ca-32b21e99d3bmr1744231fa.34.1749590194721; Tue, 10 Jun 2025
+ 14:16:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org> <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-1-3a9a3c1472ff@linaro.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 10 Jun 2025 23:16:23 +0200
+X-Gm-Features: AX0GCFuXsSEbKJPPrZYl0t_vGXohg5ZS4zY2cQAKwzq1fVBy4N3FSGLwpMM1OkY
+Message-ID: <CACRpkdYrnmi2a8iL0tA7zNDfhMRN3F-NEfTntxXgC54t-LZA4w@mail.gmail.com>
+Subject: Re: [PATCH 01/12] gpio: mmio: use new GPIO line value setter callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
+	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
+	Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
+	linux-omap@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_131252_412716_D90899FF 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20250610_141636_736634_3FB17B3E 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,54 +105,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable ARCH_SOPHGO, pinctrl (built-in, required to boot), ADC as module.
-This defconfig is able to boot from SD card on Milk-V Duo Module 01
-evalboard.
+On Tue, Jun 10, 2025 at 2:33=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 897fc686e6a9..b43f9502acce 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -66,6 +66,7 @@ CONFIG_ARCH_RENESAS=y
- CONFIG_ARCH_ROCKCHIP=y
- CONFIG_ARCH_SEATTLE=y
- CONFIG_ARCH_INTEL_SOCFPGA=y
-+CONFIG_ARCH_SOPHGO=y
- CONFIG_ARCH_STM32=y
- CONFIG_ARCH_SYNQUACER=y
- CONFIG_ARCH_TEGRA=y
-@@ -654,6 +655,7 @@ CONFIG_PINCTRL_SM8450_LPASS_LPI=m
- CONFIG_PINCTRL_SC8280XP_LPASS_LPI=m
- CONFIG_PINCTRL_SM8550_LPASS_LPI=m
- CONFIG_PINCTRL_SM8650_LPASS_LPI=m
-+CONFIG_PINCTRL_SOPHGO_SG2000=y
- CONFIG_GPIO_ALTERA=m
- CONFIG_GPIO_DAVINCI=y
- CONFIG_GPIO_DWAPB=y
-@@ -1430,6 +1432,7 @@ CONFIG_QCOM_HFPLL=y
- CONFIG_CLK_GFM_LPASS_SM8250=m
- CONFIG_CLK_RCAR_USB2_CLOCK_SEL=y
- CONFIG_CLK_RENESAS_VBATTB=m
-+CONFIG_CLK_SOPHGO_CV1800=y
- CONFIG_HWSPINLOCK=y
- CONFIG_HWSPINLOCK_OMAP=m
- CONFIG_HWSPINLOCK_QCOM=y
-@@ -1530,6 +1533,7 @@ CONFIG_QCOM_SPMI_VADC=m
- CONFIG_QCOM_SPMI_ADC5=m
- CONFIG_ROCKCHIP_SARADC=m
- CONFIG_RZG2L_ADC=m
-+CONFIG_SOPHGO_CV1800B_ADC=m
- CONFIG_TI_ADS1015=m
- CONFIG_TI_AM335X_ADC=m
- CONFIG_IIO_CROS_EC_SENSORS_CORE=m
--- 
-2.49.0
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
+Yours,
+Linus Walleij
 
