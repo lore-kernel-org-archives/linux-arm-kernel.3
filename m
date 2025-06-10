@@ -4,75 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4087DC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245BEC5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 12:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JpDlecI+FUquIWOKVi5ub4W4d9DHal5PDcmOLDMRDsY=; b=xLIXZcLrtoFf1Cem0HePoEszWR
-	GhTxmoe+26wCXqMyz5hAe7PgIXcvkRGInws5Cgx1It6d47zjicwQf9+5M7fISpF8LprmYJglPL2n6
-	TJHeNiGNhj+Km11JkaTpgaAoFl9hXn25L7+H80VflDICOMf/d4fgRVbWh+/lSlWJKzEq71ZQRBiBH
-	P6A4zq+7PBOTbhVbv1tPs+T25kb5lJ0WhhmACPzWbTP/wGyLBClxGYT9YFl+/jH2RkKmLi6Ba2dnz
-	Bnn2KwvxLz1a+i76N7pnqOjyepzAZ6tK/r9ZEUpSaBpIG3qfWIRtoqP1KfC2J3BiS3NH5931U/YsX
-	vWLWNs/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K1Jj3eY0WmQc7qvx6vdw2IPsmgQPX/Ti18eweGsKxXc=; b=CJIzNJU7m56ahiTh/zdOUMKtbV
+	nXjuUwvaGVTVLP2eE9+rC9qbvsJCn57ZGVYNsiO7YC1Tjw4dNxO3Z7BbAsNoNSHm7kdEejMINv8cK
+	W0wUmRsQ9+baaWKQnPBFikN7Je1XVTxYJyB2OCfXfOD6tR68SayMkO2KQ7r7ERjirEc0riG36AjIj
+	rA6+OhSETjyI4iTpmqaskcqJIdzGuWw9/vfE+nNxy1DfEtBK1wSOX9s1cacTcVhnPj9/ujKCItTzJ
+	sND8EIXiYTqEEVa3AodV06A25S9JkNs3Blnt5u6swaKNZmzxH0lSYy8vhgswzTEYfBo28e2hl4jNE
+	4cgQVWLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyFM-00000006nQG-0KXt;
-	Tue, 10 Jun 2025 12:38:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uOyFj-00000006nY7-2jXQ;
+	Tue, 10 Jun 2025 12:38:55 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxhz-00000006i7I-20rF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 10 Jun 2025 12:04:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=JpDlecI+FUquIWOKVi5ub4W4d9DHal5PDcmOLDMRDsY=; b=Q9N5pgKwIzHowM0YkN1j7f8dBV
-	2SpF/Y7SM5MFJ8f/kZgNKp8IaRi5w8i/n6ykzJLddVFOAwG33X22fl6wHWSy2pn1TAaOPbnmTOWYy
-	J/DbeMl2k3faQ6Spzf1DmCbHi464RlwH0Hig8SYrRQLOMJeqqYVUH/pS/6JumBVVVFCBUBnP2AQLC
-	yNMTaIdmNlBcNrxY4P7T83KJ6CrPNxUD+gZflgCk2mEkwhZ6v8fMJWN6+necjLZTVTy1CdHMaZzcV
-	NaKnLWPNGJDTlUvvRG58PeaIxH//SFPN+A5jvzgIV6qxeCrwRQA2AEWUeZPTzpYr1HDJJTc6bbs0r
-	yvoFCc9w==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxhw-00000001nL3-2fDz
+	id 1uOwla-00000006bb8-3xjc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:04:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92B3014BF;
-	Tue, 10 Jun 2025 05:03:37 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D1B13F673;
-	Tue, 10 Jun 2025 05:03:56 -0700 (PDT)
-Date: Tue, 10 Jun 2025 13:03:51 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 6/9] coresight: Avoid enable programming clock
- duplicately
-Message-ID: <20250610120351.GQ8020@e132581.arm.com>
-References: <20250609-arm_cs_fix_clock_v3_public-v3-0-423b3f1f241d@arm.com>
- <20250609-arm_cs_fix_clock_v3_public-v3-6-423b3f1f241d@arm.com>
- <b30fc361-a04f-4a48-b8e2-f7c2da213e6c@arm.com>
- <20250609171413.GO8020@e132581.arm.com>
- <b20a6309-ae31-496d-a1ad-61ea358ad7a9@arm.com>
+	Tue, 10 Jun 2025 11:03:44 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 2068D1F850;
+	Tue, 10 Jun 2025 11:03:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1749553406; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K1Jj3eY0WmQc7qvx6vdw2IPsmgQPX/Ti18eweGsKxXc=;
+	b=rkqXLz9VHAoyxwFzPTu/37yMFoBW3nwNOkS1Lj4P1euzdqcaxjynIuiXp2NdB+0qjkXY6s
+	3VAhXba1lzcA7o0j6/FJnR9Q0nb0jEAjrzW2CJ70OU3b0mri8048a+zj/rJIYnKtapm64D
+	EmoSS68hVEBo2Gs5xLmv5uxPiBgJZT4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1749553406;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K1Jj3eY0WmQc7qvx6vdw2IPsmgQPX/Ti18eweGsKxXc=;
+	b=uTYF42+GSXMx0YzoNk7FRPApu+UJIVMLFmppyXbLOUPKWBOfr95QzwWfgv6R0IbFihBkoZ
+	F2eR6PbMOzxHt1AA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1749553406; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K1Jj3eY0WmQc7qvx6vdw2IPsmgQPX/Ti18eweGsKxXc=;
+	b=rkqXLz9VHAoyxwFzPTu/37yMFoBW3nwNOkS1Lj4P1euzdqcaxjynIuiXp2NdB+0qjkXY6s
+	3VAhXba1lzcA7o0j6/FJnR9Q0nb0jEAjrzW2CJ70OU3b0mri8048a+zj/rJIYnKtapm64D
+	EmoSS68hVEBo2Gs5xLmv5uxPiBgJZT4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1749553406;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K1Jj3eY0WmQc7qvx6vdw2IPsmgQPX/Ti18eweGsKxXc=;
+	b=uTYF42+GSXMx0YzoNk7FRPApu+UJIVMLFmppyXbLOUPKWBOfr95QzwWfgv6R0IbFihBkoZ
+	F2eR6PbMOzxHt1AA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C417513A69;
+	Tue, 10 Jun 2025 11:03:25 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id EDW0Lv0QSGgOTAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 10 Jun 2025 11:03:25 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: deller@gmx.de,
+	soci@c64.rulez.org,
+	simona@ffwll.ch,
+	jayalk@intworks.biz,
+	linux@armlinux.org.uk,
+	FlorianSchandinat@gmx.de,
+	alchark@gmail.com,
+	krzk@kernel.org
+Cc: linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH 08/14] fbdev/omap2: Include <linux/export.h>
+Date: Tue, 10 Jun 2025 12:56:41 +0200
+Message-ID: <20250610105948.384540-9-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250610105948.384540-1-tzimmermann@suse.de>
+References: <20250610105948.384540-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b20a6309-ae31-496d-a1ad-61ea358ad7a9@arm.com>
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[13];
+	MIME_TRACE(0.00)[0:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email,ti.com:email];
+	FREEMAIL_TO(0.00)[gmx.de,c64.rulez.org,ffwll.ch,intworks.biz,armlinux.org.uk,gmail.com,kernel.org];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	TO_DN_SOME(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_130400_830353_BEA1ED9B 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20250610_040343_125548_86E16442 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,54 +142,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 04:09:32PM +0530, Anshuman Khandual wrote:
-> 
-> 
-> On 09/06/25 10:44 PM, Leo Yan wrote:
-> > On Mon, Jun 09, 2025 at 05:58:34PM +0100, Suzuki Kuruppassery Poulose wrote:
-> > 
-> > [...]
-> > 
-> >>>   static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
-> >>>   {
-> >>> -	struct clk *pclk;
-> >>> +	struct clk *pclk = NULL;
-> >>> -	pclk = devm_clk_get_enabled(dev, "apb_pclk");
-> >>> -	if (IS_ERR(pclk))
-> >>> -		pclk = devm_clk_get_enabled(dev, "apb");
-> >>> +	if (!dev_is_amba(dev)) {
-> >>> +		pclk = devm_clk_get_enabled(dev, "apb_pclk");
-> >>> +		if (IS_ERR(pclk))
-> >>> +			pclk = devm_clk_get_enabled(dev, "apb");
-> >>
-> >> AMBA driver doesn't handle "apb" clock ? So we may need to retain that here
-> >> ?
-> > 
-> > Here checks the condition "if (!dev_is_amba(dev))", it means the device
-> > is not an AMBA device (e.g., a platform device), the APB clock is
-> > enabled at here.
-> 
-> Just exit early for AMBA devices when 'pclk' clock is still NULL ?
-> 
-> 	if (dev_is_amba(dev))
-> 		return pclk;
+Fix the compile-time warnings
 
-If it is an AMBA device, we should return a NULL pointer, as this
-indicates that the APB clock is not managed by the CoreSight driver.
+  drivers/video/fbdev/omap2/omapfb/dss/apply.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/core.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/dispc-compat.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/display.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/dss-of.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/dss_features.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/manager.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/output.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/overlay.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/dss/venc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/omap2/omapfb/vrfb.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
 
-In this patch, I did not perform any refactoring and simply made a
-straightforward changed.  The refactoring is done in the patch 07, as
-you suggested, where the function is refined as:
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+---
+ drivers/video/fbdev/omap2/omapfb/dss/apply.c        | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/core.c         | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/dispc-compat.c | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/display.c      | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/dss-of.c       | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/dss_features.c | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/manager.c      | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/output.c       | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/overlay.c      | 1 +
+ drivers/video/fbdev/omap2/omapfb/dss/venc.c         | 1 +
+ drivers/video/fbdev/omap2/omapfb/vrfb.c             | 1 +
+ 11 files changed, 11 insertions(+)
 
-    if (dev_is_amba(dev)) {
-        return NULL;
-    } else {
-        pclk = devm_clk_get_enabled(dev, "apb_pclk");
-        ...
-    }
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/apply.c b/drivers/video/fbdev/omap2/omapfb/dss/apply.c
+index acca991c7540..39947e569a54 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/apply.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/apply.c
+@@ -6,6 +6,7 @@
+ 
+ #define DSS_SUBSYS_NAME "APPLY"
+ 
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/slab.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/core.c b/drivers/video/fbdev/omap2/omapfb/dss/core.c
+index 55b640f2f245..02ea41f6c8f4 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/core.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/core.c
+@@ -15,6 +15,7 @@
+ #include <linux/module.h>
+ #include <linux/clk.h>
+ #include <linux/err.h>
++#include <linux/export.h>
+ #include <linux/platform_device.h>
+ #include <linux/seq_file.h>
+ #include <linux/debugfs.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/dispc-compat.c b/drivers/video/fbdev/omap2/omapfb/dss/dispc-compat.c
+index cc2ad787d493..7831c6a2eedb 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/dispc-compat.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/dispc-compat.c
+@@ -6,6 +6,7 @@
+ 
+ #define DSS_SUBSYS_NAME "APPLY"
+ 
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/slab.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/display.c b/drivers/video/fbdev/omap2/omapfb/dss/display.c
+index f91db94c9905..16543425bd84 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/display.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/display.c
+@@ -11,6 +11,7 @@
+ 
+ #define DSS_SUBSYS_NAME "DISPLAY"
+ 
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/jiffies.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/dss-of.c b/drivers/video/fbdev/omap2/omapfb/dss/dss-of.c
+index 7c636db79882..f90a8eff7259 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/dss-of.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/dss-of.c
+@@ -6,6 +6,7 @@
+ 
+ #include <linux/device.h>
+ #include <linux/err.h>
++#include <linux/export.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/of_graph.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/dss_features.c b/drivers/video/fbdev/omap2/omapfb/dss/dss_features.c
+index 62c2d48d9e09..38be57ba8c28 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/dss_features.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/dss_features.c
+@@ -6,6 +6,7 @@
+  * Author: Archit Taneja <archit@ti.com>
+  */
+ 
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/types.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/manager.c b/drivers/video/fbdev/omap2/omapfb/dss/manager.c
+index 2c2da35345d0..c59e5689d6cc 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/manager.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/manager.c
+@@ -11,6 +11,7 @@
+ 
+ #define DSS_SUBSYS_NAME "MANAGER"
+ 
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/slab.h>
+ #include <linux/module.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/output.c b/drivers/video/fbdev/omap2/omapfb/dss/output.c
+index 4e2992a0ce50..48cbfb75443f 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/output.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/output.c
+@@ -4,6 +4,7 @@
+  * Author: Archit Taneja <archit@ti.com>
+  */
+ 
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/overlay.c b/drivers/video/fbdev/omap2/omapfb/dss/overlay.c
+index 8c8e627da13d..bbbdc233ee61 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/overlay.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/overlay.c
+@@ -14,6 +14,7 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/err.h>
++#include <linux/export.h>
+ #include <linux/sysfs.h>
+ #include <linux/platform_device.h>
+ #include <linux/delay.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/dss/venc.c b/drivers/video/fbdev/omap2/omapfb/dss/venc.c
+index f99dda9e55a5..ed283029ad95 100644
+--- a/drivers/video/fbdev/omap2/omapfb/dss/venc.c
++++ b/drivers/video/fbdev/omap2/omapfb/dss/venc.c
+@@ -14,6 +14,7 @@
+ #include <linux/module.h>
+ #include <linux/clk.h>
+ #include <linux/err.h>
++#include <linux/export.h>
+ #include <linux/io.h>
+ #include <linux/mutex.h>
+ #include <linux/completion.h>
+diff --git a/drivers/video/fbdev/omap2/omapfb/vrfb.c b/drivers/video/fbdev/omap2/omapfb/vrfb.c
+index 568e6e1eca62..675482cde519 100644
+--- a/drivers/video/fbdev/omap2/omapfb/vrfb.c
++++ b/drivers/video/fbdev/omap2/omapfb/vrfb.c
+@@ -9,6 +9,7 @@
+ /*#define DEBUG*/
+ 
+ #include <linux/err.h>
++#include <linux/export.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/ioport.h>
+-- 
+2.49.0
 
-Would it be acceptable to keep this patch as it is?
-
-Thanks,
-Leo
 
