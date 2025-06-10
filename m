@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33250C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B8FC678DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=; b=rK1t1Aixo0x+8XcP8KPkOemRxT
-	NHzYKg+UIv0X3B6TWZOI2rQMFV+nTWeZCsdr8Ad2NKxGzaPXdjzNmaAODwoUwdd/Rm1UkSSnbHtc6
-	ILRyPz9t44wLmXaFE3fU5V9BET29oHTH8fhVqrXtDoWTmPIQqhpyLQE/FQ70fq3ZrneJDKDRJJkm2
-	w2uBvxxMBQHhxCdVzyVojVTXGFXmNdfIchde264BDCtyQpsnLatRpF8iShe/Ov6p9VSRul0QXFsnz
-	2pYpAForXyjNZfffes2CQJaLTi8AvTTk8kJz/fJA0UHSBjGVZL26g7CYE9TvSH6upajn7DsJgJVc3
-	cOXxx2TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DmTWmU9NEikrwp3F1QNeTNdfTomvenelOaCl9Z9m7F8=; b=p2pBhOmHnLOqx2wZ4WvGeonqPs
+	wJxdUVUzmgCChWkc4G5J0Bowz2ytAfr/9Eq/46tfpytmFd4PJncGSrnEdQJH7cfdWnygsYt785gfY
+	fUnKe3RLE0psYITkRcC7qwV0aX345C67rOMqy9mpJJOOSEP5jW/Ew+4qOmJh/rt8aYlpmr0BSnPUj
+	GWsUoXwppokj+pzUkVfTGSi6I4ja9ir7Vm3grvRe8WunfgeebD0UsPYiludvIUMEW6thTE+eCwhJr
+	ThQSQSY/9GvRo/BNVcK1+Kwr4rK5f31XBnuxsCqu2X3Mt1/B3CY8EgjlNSQYYFA72ZXwtWR5nZWcp
+	81kI+Z9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7o8-00000008JnP-2tpC;
-	Tue, 10 Jun 2025 22:51:04 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1uP7oB-00000008Jtu-3lag;
+	Tue, 10 Jun 2025 22:51:07 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP72f-00000008ALm-30gA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 22:02:03 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-55324587a53so296715e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 15:02:01 -0700 (PDT)
+	id 1uP76J-00000008B4W-3V8Z;
+	Tue, 10 Jun 2025 22:05:49 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4a52d82adcaso88633781cf.0;
+        Tue, 10 Jun 2025 15:05:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749592920; x=1750197720; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=;
-        b=fivpXqDnEwMYYCaDwwn3qaiLgkoEsadMB9SX2YN0Wy/jMw4Q0mDKIAQRRk3mHiNV8f
-         ea+tLXxxojx8ZCcec05SXdQEsq0EgqPwjLAHQqwuA1UUYDu8HBtvdOyQO+65Y43YS8W0
-         xKI5aTqgcJaC6/oc1UZ5w5wEC6oLVfjFhi6fgPAMCMJGuUTg3HiLEDh4C0VtGlORyNGb
-         X7ykJj6JAyTeUB+Xjgw9SmZEqPfn+ymfJ08R3GkjSa/IidSa4tchqb2O1tSZUchIkdhu
-         kxpL5ujgU8TP6zHIP6ryxST3W0NLPBZfBdmh3V1zbc1qYxB5PTHH05rT0GCE4UHLbSkK
-         FvNQ==
+        d=gmail.com; s=20230601; t=1749593144; x=1750197944; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DmTWmU9NEikrwp3F1QNeTNdfTomvenelOaCl9Z9m7F8=;
+        b=iAR04mJ3uJdOhpnz/2WLB+fvbOmb0X+tipY1ClKfl8U7N4tQ7cNceILUMjtFU46xYI
+         3CRwiX6h82ZDys5Ot4jPegrRxuJFPcWTEcpmxki5EfpqhlxWD/K6LnnUth0U7o8dXpUF
+         x9Xed7tgV7wCn7d2tYrAzKFb9T08JoJ4Sf5Kt9FS/VDje01VphdHnH5Xc7W1BFAYVf5R
+         IQOuD4cD0d3oUBsgt6Z94C3h1Pb7eJ2KYLQE5gKv5G5m1cO4fm4XlTcufvW4Suj6FHko
+         B9CNEanKhzFxj0i9TgRVHc0LQ+duNIjZ33IK75PB3qrCwRaAfAc040eASl+3UoV7d3eo
+         ToFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749592920; x=1750197720;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WEjoFKJq1fwhLjJL/1LIboVF8pYHP56Xq9jI3aQ+dvM=;
-        b=w6XxEFMx8DkkCBM0RyN6xD4sHnSsOqGhA3+X07Nlcl5DQMN+sKE+L9SdRZ4K8xhGHv
-         vWtHcUBIIeh92XgqVzLD09HC1pPFEH8knwEN+6N2cg9mm6xuKiOH8bEOvYaF3LJhG038
-         LwUdC4N0Un3W7Fo2ID5vRSgq+r9WcN/MsPeSJ23rvDAPT6SxDsHYKkX10bQ+8Gtj+4lo
-         xUqD9LtBNhaVYaOWUUXJ3r1Sf0KTNfaDzJxxhlFKjq71ltJeXViYwqf23QYTH600aAWP
-         ALrfFU67Lbv2Lzt5xLJHplMPglKftzNP7XwnDQtvyo5n2yKLWBT3YTLG4uS7+pfd9gn4
-         UG4g==
-X-Forwarded-Encrypted: i=1; AJvYcCUklEcTBg+RGq6dDeAGYT6v/OwHAnO9bHYqqmjscvMAdWZO2HC5EnBtDnHr4zpTlhtfTHwkenLObtxKGQ/XL9Vk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFdP0FDbQ0YuqN6tNp9Llgfc9lKkuWAqNSWP6kNcVeFMTvBKZu
-	6xsvXCuDGFP5ezxd8meojD+HvSLw5w5RDuMP1znEZV/EEwl9BlAFCDEhRM3R/taZJnV570A8enK
-	CA9aLpXeW5fwYw/dB+mgJuweukqf18ZO1/hIW1gveVw==
-X-Gm-Gg: ASbGncv+qwMYS2l7oQQT4qSE4IBIDWWRsT3ad18xxEBL3jkhKuDQ0VeKV8hIwBPqumL
-	6hev7ykhU3MRAewF8slYauakHzWtMKWxYk7mciMNSKHFCFqC7paPRhJxE2d4wfRfyObJ8ngisw3
-	G8OwFpjOvZ8hPViCJwC1Pek14NLp3k3RmWZ6HTbS/Pe5Q=
-X-Google-Smtp-Source: AGHT+IHHOhOUj30OWDDSx+2F42g2fLc3I9bcRSXhW2UcQzuablZdDsnZ46Wc3GihsOmkn7ZczCyHo2K03K0tk80OU04=
-X-Received: by 2002:a05:6512:1504:10b0:551:f166:bbb with SMTP id
- 2adb3069b0e04-5539c5ff09amr174150e87.13.1749592919907; Tue, 10 Jun 2025
- 15:01:59 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749593144; x=1750197944;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DmTWmU9NEikrwp3F1QNeTNdfTomvenelOaCl9Z9m7F8=;
+        b=jLw6qrEy+sjmm9W/01QAeqxE49AReqRR6vH6mbw1X13oWVjQ/TkqtBcFzNRRcnMKiI
+         l9OVdG9FJHlFQhUzZTfd0UBdFbIKdF0CBWySPH98SsBuisWif4xkNFbVnhghBFGt5yjq
+         1PxswXGs1IDCsMnMmVK8vy02qBv0XGLFwQoOOfPA+R5gUnhEyJUe3jUivTWZExuVl63q
+         nCzo4mNJUelrjBMJVJ7PFxHQDBUE9vY0oizpYrXROiuL13SOs2ZlFWPQslsai+vmxSq9
+         CCzW67oQIEfhNLjUn9HHf+6RpU0IcDhQG4XLb/yeLKnPqZqzp0Uun8HeX7pY9aFhLPqx
+         dX1A==
+X-Forwarded-Encrypted: i=1; AJvYcCUDxHBKGYjoLOE+0oXN3VRftJcOf7I1vxJUBDTbL5tqXXP28mZGEnBj/5rtv9x1vu5Q84m/yW66t2gAa/o=@lists.infradead.org, AJvYcCV1z04PElQAkdDjKshAOoG7TeQ6wzLdwu1U/OoyEyTYRrST8uP0ulzwvccCcehaiA5ymkxMfozb/hAuRZuF4m+1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzi/LlYV0hNqUGwv6PyoANal7ZWExZhLhaftzlV5qUW+Guswecv
+	PuhhObs0PNQtjtPBzgyB7Jtd1OigqmTLIKI2vjMmit/3cbkpENKQks6P
+X-Gm-Gg: ASbGncs1ok9hByT2MTU6BFwjm8j2dUH9AExbvIIP5SWQFyuXeshwtX7ZhD7KQ/Uquzl
+	fgJ7g1jDhlhMU7WAfnJMve0/kX9HjIjwR/jq/hZ6qpIaCxqqfOAWaE40toWlBBxLSmU5h0OOGui
+	0OIWTqYy9+XMVFRWaLQxVjhjfO0eJl836t78HOgru7NTHwmtghSwwDqZvw6WIVQjgW6lIrdvEPY
+	CguV6QCpZtlV7ygEk9RfG9r04vvTKrSMNOKXjNnEFssk1XfgR6pxiASEDXw6N8a71O7xt30KnTW
+	fSrN/o2foCfoPfYbKS9RfHKQYhLQP7/XSNFt5fzmESJjxUtx
+X-Google-Smtp-Source: AGHT+IEDJpOYkGfTUyYs1FXlXzDYqJOyu0jNJBu7zkL7VpiJWuUnOT+hGZ2ALGAVCMSkNmIUlRsQhQ==
+X-Received: by 2002:a05:622a:558e:b0:476:8f75:b885 with SMTP id d75a77b69052e-4a713c45603mr18755041cf.44.1749593144531;
+        Tue, 10 Jun 2025 15:05:44 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4a619853048sm79911851cf.47.2025.06.10.15.05.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 15:05:44 -0700 (PDT)
+Date: Wed, 11 Jun 2025 06:04:37 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	sophgo@lists.linux.dev, soc@lists.linux.dev
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Jisheng Zhang <jszhang@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
+	Chao Wei <chao.wei@sophgo.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 3/6] arm64: dts: sophgo: Add Duo Module 01
+Message-ID: <h3vnwdlmzdjdm2nfpg3rvbck22pgvpweqphuwy67a5ny2wkhen@d2vmojc23pli>
+References: <20250610201241.730983-1-alexander.sverdlin@gmail.com>
+ <20250610201241.730983-4-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
-References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org> <20250610-gpiochip-set-rv-gpio-v1-2-3a9a3c1472ff@linaro.org>
-In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-2-3a9a3c1472ff@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 11 Jun 2025 00:01:49 +0200
-X-Gm-Features: AX0GCFufuH4LiWDSgWF_9h-zk6BcvJ0Do0hqFlGAZPq_9bZnp7tz4BcqtgZHIfw
-Message-ID: <CACRpkdaK=Ua0=Jgnff4xXxVx9W=LcLg7RykR7CozhqtAb+8XQw@mail.gmail.com>
-Subject: Re: [PATCH 02/12] gpio: mm-lantiq: use new GPIO line value setter callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
-	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
-	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
-	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
-	Grygorii Strashko <grygorii.strashko@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
-	Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-omap@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610201241.730983-4-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_150201_773080_965012EF 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_150547_871766_D7BF856F 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,19 +104,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 2:33=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
+On Tue, Jun 10, 2025 at 10:12:16PM +0200, Alexander Sverdlin wrote:
+> The Duo Module 01 is a compact module with integrated SG2000,
+> WI-FI6/BTDM5.4, and eMMC.
+> Add only support for UART and SDHCI.
+> 
+> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> ---
+>  .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 85 +++++++++++++++++++
+>  1 file changed, 85 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
+> new file mode 100644
+> index 000000000000..bb52cdad990a
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
+> @@ -0,0 +1,85 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +#include <dt-bindings/pinctrl/pinctrl-sg2000.h>
+> +#include "sg2000.dtsi"
+> +
+> +/ {
+> +	model = "Milk-V Duo Module 01";
+> +	compatible = "milkv,duo-module-01", "sophgo,sg2000";
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+> +		serial1 = &uart1;
+> +		serial2 = &uart2;
+> +		serial3 = &uart3;
+> +		serial4 = &uart4;
+> +	};
+> +};
+> +
+> +&osc {
+> +	clock-frequency = <25000000>;
+> +};
+> +
 
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> +&pinctrl {
+> +	sdhci0_cfg: sdhci0-cfg {
+> +		sdhci0-cd-pins {
+> +			pinmux = <PINMUX(PIN_SD0_CD, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +
+> +		sdhci0-clk-pins {
+> +			pinmux = <PINMUX(PIN_SD0_CLK, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <16100>;
+> +			power-source = <3300>;
+> +		};
+> +
+> +		sdhci0-cmd-pins {
+> +			pinmux = <PINMUX(PIN_SD0_CMD, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +
+> +		sdhci0-data-pins {
+> +			pinmux = <PINMUX(PIN_SD0_D0, 0)>,
+> +				 <PINMUX(PIN_SD0_D1, 0)>,
+> +				 <PINMUX(PIN_SD0_D2, 0)>,
+> +				 <PINMUX(PIN_SD0_D3, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +	};
+> +
+> +	uart0_cfg: uart0-cfg {
+> +		uart0-pins {
+> +			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
+> +				 <PINMUX(PIN_UART0_RX, 0)>;
+> +			bias-pull-up;
+> +			drive-strength-microamp = <10800>;
+> +			power-source = <3300>;
+> +		};
+> +	};
+> +};
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Please move this slice to the board dts, only configuration related to
+the module itself can be left in this dtsi file.
 
-Yours,
-Linus Walleij
+Regards,
+Inochi
 
