@@ -4,48 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED365C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF803C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 18:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k23bRCy5ODOVKdBZNsm3TcbtzWdAHnh5DKm06mTznP0=; b=y+hInoz+tbx4cTeUwX5vnElo3m
-	B/fvkjDs/Zcgjzhh2J+CppTm4wZPv9D/VPRcu+Vt1E99CU3Ock7Q2j8IxP9kHmgiX9Cn1zOgQEWUB
-	eaYDgSMKB8erPw3sOFxSVncssn1oVK6uGvzqRb0xYKukkZ2R1girbsJ0IctkXMafr0y1xdsVYWmo2
-	pQqXEo4SrRPnDFAEtX8o4F1vgDS7nucriCvUI4CVGqBWt11KHQjWoQw1c9Z7inqlIe32SzHTJVB5R
-	hxH0/c8j+ub1goY1NgefHA2gijRo/tAkUJl3Rw0Uy94Ly2ydLNdcP2R4IRL+WS4nF1EgGTbY6DJOz
-	NDsDIMuA==;
+	bh=skT5YMr8DKXHCRPrUrith0vrOMaXGsU2Jb48m2reU1o=; b=IiNG7kdZhk+/gJYgl2xQEmRh4U
+	e/Sh/xwtJwkUDUHoLDHszZIC4Rx9FbcW4xu+jxZFZQ+ZC1XJeXN8UyW8nqvSe4pxGRjzqRTd7BKQV
+	MCtOXpPWqm4GJhsp1pj4Ewpw4jguZat582hU3jz6ebI2F1h2cBdlVlsrehs4s9vsQZwQOwfoP2MjE
+	nMBd+WRKunLJMWNjnz8iTM2hdF8fks/JPZzorC1YW9WhYw0HkRN8rwgS5XeES9Gia32KpNmJzUtEK
+	9ssymiNIFH7nTIWxlsJu0p1modbwtuSICBMATdo6ezwqrzOt1Z3ez1S6DxXBEdJX/L0I253o22ZNF
+	yh/FtleQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP3Yo-00000007mNe-28St;
-	Tue, 10 Jun 2025 18:18:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uP3cp-00000007nSJ-2CRu;
+	Tue, 10 Jun 2025 18:23:07 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0a0-00000007EYQ-1ZoU
+	id 1uP0mk-00000007HhG-2RWE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 15:08:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A67C629C8;
-	Tue, 10 Jun 2025 15:07:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01BB4C4CEED;
-	Tue, 10 Jun 2025 15:07:56 +0000 (UTC)
-Date: Tue, 10 Jun 2025 16:07:54 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64/mm: Ensure lazy_mmu_mode never nests
-Message-ID: <aEhKSq0zVaUJkomX@arm.com>
-References: <20250606135654.178300-1-ryan.roberts@arm.com>
- <aEgeQCCzRt-B8_nW@arm.com>
- <3cad01ea-b704-4156-807e-7a83643917a8@arm.com>
-MIME-Version: 1.0
+	Tue, 10 Jun 2025 15:21:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o/bbYHioN9oxxeO6lCU/X7PXv94jFyDgCrh2+X17RmH6SWcp88nTV8vb5dORPseAhyQoHDgJ1uLTf8bsWGAbmmMa++PtmUMxmIErke5NSx/PupjN6NqnhuQ2A/CrFB9jem1ymgFqke3dfiKK0d96Jj6VE9/pq028ONJXxBvgbkXrlJAhy2w+S4sDeReVNgY6+81iXOSQqa0B8/QnTwpBlwI8Z1LikBhCmlKt1ogrzjDe6kDS6Wpupz6YPXK2cmGElJKJnEo8Q0cD3F5w4zYXGaggmU+838zi3ErwqnkUT24UD3QKNKYMQlewhC7DlydA8lbjTIDYF9d4NawssW0Ctw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=skT5YMr8DKXHCRPrUrith0vrOMaXGsU2Jb48m2reU1o=;
+ b=orh+rPNEBrCJhcR0sXc+OeVHbORYS6vrcuh/vgv7fdF7bIWAxnRwiBx6wJYQe6Wx0n8JDBEyZNOv/GOyeyZ5Trir5gcd3H4SZqQjKREndRXPghpaTu/CcXkiKklKQDcOUgTz0n/EAqiVgW40o3xKUk5+visVltB1me2DUsLchk44978dETGvLRjAhR5bQyUXrib/GbU+OZ0KPnf2BU1xxyZvRQZb486JX+FKu29sAnifXFuohxwoJb3HjEUTXCHnDkquHPLt0amQT2DcHl/9NuhZpMXuxjXZio/uwNgtqr5WSvmGdQJ3VDV8d8MjVOU4Hvjq/8KzX2lWe3Zh7PVgMg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=skT5YMr8DKXHCRPrUrith0vrOMaXGsU2Jb48m2reU1o=;
+ b=e4oa/JaE6Gkj4kGa3K2JR1p30mMP3HWI9cZgGb9zG+ldq+fqzf7QqSsthkygfR1cBWS+7jHVqytdzOn/mScVjXWcXhMWpHkUOyeDV8fvpOK5aufTTc1gLe48HYJnfTIFDrsKlPMT8iaMKbI53sB3eXwguVLaiOGyx8D8LdheSvXFDrIUD3pX7dcpXeB7sENyEsAdjsrLMO+MY7VCQAV4LHZpO9Lye1Ib58XTwciATAo1nH2/F7XChQ+blBx6rjwXcjnfye5DlHj4Df7LzUlvZtftE0tAGYKtHorIRAmvkQzhtfz5VU0lkdJa6/HVPKUf3c0iW45CKLRLZonMxfgkfQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB8895.eurprd04.prod.outlook.com (2603:10a6:102:20e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Tue, 10 Jun
+ 2025 15:21:07 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8813.024; Tue, 10 Jun 2025
+ 15:21:07 +0000
+Date: Tue, 10 Jun 2025 11:20:57 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Cc: linux-kernel@vger.kernel.org, Matteo Lisi <matteo.lisi@engicam.com>,
+	linux-amarula@amarulasolutions.com,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 09/10] ARM: dts: imx6ul: support Engicam MicroGEA GTW
+ board
+Message-ID: <aEhNWWRfXZ1r284H@lizhi-Precision-Tower-5810>
+References: <20250610100139.2476555-1-dario.binacchi@amarulasolutions.com>
+ <20250610100139.2476555-10-dario.binacchi@amarulasolutions.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3cad01ea-b704-4156-807e-7a83643917a8@arm.com>
+In-Reply-To: <20250610100139.2476555-10-dario.binacchi@amarulasolutions.com>
+X-ClientProxiedBy: SJ0PR13CA0027.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c0::32) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8895:EE_
+X-MS-Office365-Filtering-Correlation-Id: d2b1f941-04aa-4679-e263-08dda8326c18
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zgCi6QAdPczLK1N25mukT5/2VGb1BBgcqokjYqv6m3PVPqYoQ2Ou5yz4hat6?=
+ =?us-ascii?Q?SA59KiNM1K/bI+x14kNWnuFVMc5aeSPhS7BpwBlKLfIWDrfS6dBjEN3yqHwk?=
+ =?us-ascii?Q?Hewc5suDFyws+cRTOKto8sY8G8nLz8Hv6XFqOudqDEuCIkEy10p6huMBfkqW?=
+ =?us-ascii?Q?WpIZGkrDpwaJEUEleCNg/8yb0RIjwSPhHOhRQQ/jFTTiUYMsfUgIYwrXXOBy?=
+ =?us-ascii?Q?dzdzPPx9wtfs5qUGopomM3G178eaV8PNVIwKSSeR4UoSaQRDfrL5GsKmWgBC?=
+ =?us-ascii?Q?oSUNpsqrHe5Wv6Dj4EHm/w4zqz6DPW34cpw0Omqnp46q4Kq5+pzQCKeoIOYV?=
+ =?us-ascii?Q?9wLbzb1+24caKlXniKui9GbjJJuruYiuyzE5uP9nucP977jbBimceDytbi9c?=
+ =?us-ascii?Q?TqK3glJoXOI6uFoDqPXj6Nk8D5yNCYKc82jpdxWJirOgEIjfoc3bugEFnZED?=
+ =?us-ascii?Q?x6yvXyKyt4nzO3redczj/DaukRk6SXTP2eEwuryTcsHsjPsml1F0AbT6EwFI?=
+ =?us-ascii?Q?mlqEvowR3gjFbQQWDX/QW/AyUR7+8/wuYYdyGA+eX2ncwUc3BJyKIG9YFJFB?=
+ =?us-ascii?Q?I0h2QHszd0c/6wWkySarO/aZH1BqwIAFuY7iF6UNXU3tSYe17EmD71SvO1+P?=
+ =?us-ascii?Q?4c2sg6a2YsizfjtBdA/Btk+ngOzyKdj60hmASa9KwIVGyO+uO6j640HY6FOB?=
+ =?us-ascii?Q?rxpqpXZbF/riVxGr1ZxsMAfoBlptQAJstnj81n0LDkBO7OhMooKeusHt+9bZ?=
+ =?us-ascii?Q?yek5iTEdjF8BnfjCn4c+U6F2FvTJmEiY3W15uKJBhU+5iQdoMHUZs7OmluRb?=
+ =?us-ascii?Q?ztY/uIkkrX8Bs/w4lASSTNzpoUJc5C/8SFGaFp0JPN5AjdajWuL/90i6xEkm?=
+ =?us-ascii?Q?1Sake3IrYqzJ+b8B3A65b65dw+SywbDzPouFie0e31HxskrON5DHHWLEspjV?=
+ =?us-ascii?Q?ibJTgOSW66RY/LoP5Tp0OQjy6jGuFoEi2zoRE1NbHEyhGbpdQGwoAzXZel44?=
+ =?us-ascii?Q?w1RnAat6tSivZHJiYP2XoAzkMeb3OnYSdc7ZBftAq7+Yia+cFBubpa/BRC/P?=
+ =?us-ascii?Q?87jzLcgmoYzEnUsCw9Fp7kT+q3vwC4ad8RUUOeQuiAwuJKJfQxX2AMOJY8Dv?=
+ =?us-ascii?Q?Qp3bVbKcCzs2phc5ycQpm1LnuAvlOK+m9i4q3pj7btI6apeZE3/HIHwpPqCb?=
+ =?us-ascii?Q?8mFebJ8WDo0CWBpV124/sF+oOvn/FP54KgUtl4IWbx5k+4uYIGLXDDjmiPEk?=
+ =?us-ascii?Q?O/9xEkMrU5E4CHp1uDWpqRIgwFhAt3TpJ8y80ximzsbV0eCS6pQnm2rG1UKd?=
+ =?us-ascii?Q?RwSGW/KuXU6Uo32xNubsl6f5Qxj4/aGD/ZV16wnNGA/RhTSYI10S4KVwxovS?=
+ =?us-ascii?Q?to0A010ipaYPNEyOUIsyjZm/MUQuoAI37wTe/+is6WgfygI8dSQ8YmeZ/PSb?=
+ =?us-ascii?Q?4ig+Hq3oTzi0atTM2/d6W8IELKtmLZL8imsH5YF8IfClvpomJpzqbA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1hyW8UMGG25jLtZ0ONYsEkC5XhM8YnazzwoL5LBEDVvCaKtqc/7o2bF3j9oL?=
+ =?us-ascii?Q?Z9VHXHElxJb4/hAvfru9BdVAUrgFswWoiJGeLdRy3IVuIElUUZCsikMVbaPx?=
+ =?us-ascii?Q?Qm0+VpT7fun562v2q8eM045sHb06YB+NZEWXMeUJz1DtLgxBiEYeSE6fkQiZ?=
+ =?us-ascii?Q?z7Y3v57IvxdlsfpGH/OnmHYAYodUGq6SExIdV/HRWOamkHvuf+gKVUmmyDSi?=
+ =?us-ascii?Q?1St3Bz2ppuag9SwIphtpwBjPJL7eRFRgJe9uBbX8+V9xQXoUYCD7gG6wwdVy?=
+ =?us-ascii?Q?xcBQjvQif3PNPrIbN9PCuScgdeAq8qay9YL3B7DPfI0+UqQl2Y7kPqCeDrir?=
+ =?us-ascii?Q?ZM2XO2PGtbccy43obdcMuwyvjwP3Yr88V7eLpDEc6fi2rzpa4s17vCUSw9tT?=
+ =?us-ascii?Q?DGS65VoJ25ZSHn8DL5Okkio+PNkW3e1OiJCt3UgRfo9n6EXFDCYLW4XHa5OQ?=
+ =?us-ascii?Q?myZr9wiLf7T4RnwVNRDVxAyRtZrKCyQDlvAqHcGeHyKxDmqHBkIno5+TouS8?=
+ =?us-ascii?Q?PTpKJ656RD9nHTZEXQ4T30liq6nygJ6HTpaH/asOySG8lxcIWWSQRBRwQnmu?=
+ =?us-ascii?Q?jQ99tLkAvvj5Js1OW5x4yd5T+eT5odWx0h5HNsJFp5WxVIYeA7a6vDRDcbcd?=
+ =?us-ascii?Q?Lufyheg7stPmwM+bTfdSVUl84wzISrr4t2wS3NhcHNfp1J1YhoWnbG9mHXzk?=
+ =?us-ascii?Q?CfSqnGeqaPx4WaqaMQUQTWdp/OfX1UrJib9nQ9k8BAfMFPzg5h1AmS4f0nAf?=
+ =?us-ascii?Q?u0aCO8HUnAeC0sVbg8jAkkofxUFJAX1uyCuiVwUyxGffJ50TDBehPELcqXVg?=
+ =?us-ascii?Q?rMKerI85xyoV03tywxvpHJP7b5qoJYoUHrCVPpx+nAmX/E4NcQssEdxKnmfC?=
+ =?us-ascii?Q?2aA8/NoIxoTRXjR+tZ6pxzx872KRIh0DRHtYSKa3MZ6YtFNzlFCgPczgRL/G?=
+ =?us-ascii?Q?Rb5sve5eb5GrBjGc9hivOFTeBR5BsAzlc2F0gQ7wA8RXvvjFhTdQsLnVh2Hn?=
+ =?us-ascii?Q?XE+6j2vxYt5t4gNXkHzLa3z/LgacUr5FQ2xa70Q7I3inScJDP3WPVCiiEu9l?=
+ =?us-ascii?Q?bmjjKgcS7h0khouEe/vRf91pOjYu8cff0IbBTsa2n464YwZbSeUp4LTu+PJE?=
+ =?us-ascii?Q?wiDJoYxYdzp+mJJs5s9wvw5x/yO16VOiTWw+O9ddmvmr3DxAnpO/Quac5P9J?=
+ =?us-ascii?Q?mgLjd1ORE1CdJGbbOiGPw1OvwyHhhilx0VUBDwObZkdimWOjSd6XTK7pLgJR?=
+ =?us-ascii?Q?VWYrRcaabDUmYpPX54NWV5x3f+7aKUO5n29whw6Eo7Zz0B4lK5LlnVsYAthd?=
+ =?us-ascii?Q?4Us5KHcA8vWFLSO+wwGHtDNgwuHG0DLjXT0tPAsvYsPX6Rq12N0ujqLTucNt?=
+ =?us-ascii?Q?hVhv7TxRlaoeuPVle0tf9T2uhaxrINOr/0657xI4A6wepyZXJw5LQejjVn+m?=
+ =?us-ascii?Q?JA1NpP6e4ux1P6q3c5UHLtE2l0Fy+Qgc3etMJXutCcOFdvW29jokshQW/rXe?=
+ =?us-ascii?Q?1biIDrW+syVPXmMZoEo2Oips+X2WII9K4haXsN2idMNqD1HW0eQfhIITvx4u?=
+ =?us-ascii?Q?mC0EiM06psljNMzKOacRC9N613KAgB14uJz+qf7Q?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d2b1f941-04aa-4679-e263-08dda8326c18
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 15:21:07.3455
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8cviZuF6ewXY593NXavLMp0St+7LgJ/UzE4xalDQyOSAuq+Ii2iOEf/3SndSTwLyG/dnv2WG95RHNELswofpxg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8895
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_082110_768515_27CE81EB 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,88 +166,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 02:41:01PM +0100, Ryan Roberts wrote:
-> On 10/06/2025 13:00, Catalin Marinas wrote:
-> > On Fri, Jun 06, 2025 at 02:56:52PM +0100, Ryan Roberts wrote:
-> >> Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
-> >> provided a quick fix to ensure that lazy_mmu_mode continues to work when
-> >> CONFIG_DEBUG_PAGEALLOC is enabled, which can cause lazy_mmu_mode to
-> >> nest.
-> >>
-> >> The solution in that patch is the make the implementation tolerant to
-> > 
-> > s/is the make/is to make/
-> > 
-> >> nesting; when the inner nest exits lazy_mmu_mode, we exit then the outer
-> >> exit becomes a nop. But this sacrifices the optimization opportunity for
-> >> the remainder of the outer user.
-> > [...]
-> >> I wonder if you might be willing to take this for v6.16? I think its a neater
-> >> solution then my first attempt - Commit 1ef3095b1405 ("arm64/mm: Permit
-> >> lazy_mmu_mode to be nested") - which is already in Linus's master.
-> >>
-> >> To be clear, the current solution is safe, I just think this is much neater.
-> > 
-> > Maybe better, though I wouldn't say much neater. One concern I have is
-> > about whether we'll get other such nesting in the future and we need to
-> > fix them in generic code. Here we control __kernel_map_pages() but we
-> > may not for other cases.
-> > 
-> > Is it the fault of the arch code that uses apply_to_page_range() via
-> > __kernel_map_pages()? It feels like it shouldn't care about the lazy
-> > mode as that's some detail of the apply_to_page_range() implementation.
-> > Maybe this API should just allow nesting.
-> 
-> I don't think it is possible to properly support nesting:
-> 
-> enter_lazy_mmu
->     for_each_pte {
->         read/modify-write pte
-> 
->         alloc_page
->             enter_lazy_mmu
->                 make page valid
->             exit_lazy_mmu
-> 
->         write_to_page
->     }
-> exit_lazy_mmu
-> 
-> This example only works because lazy_mmu doesn't support nesting. The "make page
-> valid" operation is completed by the time of the inner exit_lazy_mmu so that the
-> page can be accessed in write_to_page. If nesting was supported, the inner
-> exit_lazy_mmu would become a nop and write_to_page would explode.
+On Tue, Jun 10, 2025 at 12:00:22PM +0200, Dario Binacchi wrote:
+> Support Engicam MicroGEA GTW board with:
+>
+> - 256 Mbytes NAND Flash
+> - 512 Mbytes DRAM DDR2
+> - Buttons
+> - LEDs
+> - Micro SD card connector
+> - USB 2.0 high-speed/full-speed
+> - Ethernet MAC
+>
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-What I meant is for enter/exit_lazy_mmu to handle a kind of de-nesting
-themselves: enter_lazy_mmu would emit the barriers if already in lazy
-mode, clear pending (well, it doesn't need to do this but it may be
-easier to reason about in terms of flattening). exit_lazy_mmu also needs
-to emit the barriers but leave the lazy mode on if already on when last
-entered. This does need some API modifications to return the old mode on
-enter and get an argument for exit. But the correctness wouldn't be
-affected since exit_lazy_mmu still emits the barriers irrespective of
-the nesting level.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> So the conclusion I eventually came to (after being nudged by Mike Rapoport at
-> [1]) is that this _is_ arm64's fault for creating a loop via
-> apply_to_page_range(). So I'm trying to fix this by breaking the loop.
-> 
-> [1] https://lore.kernel.org/all/aDqz7H-oBo35FRXe@kernel.org/
-
-If the only such loop is the arm64 code, fine by me to fix it this way.
-Your series above had 6 patches and I thought there's more to fix.
-
-> We could alternatively use some per-cpu storage for a nest count, but that gets
-> ugly quite quickly I suspect.
-
-Yeah, the thread flag is much nicer.
-
-> But regardless, I'm not convinced the semantics of a properly nested
-> lazy_mmu are safe.
-
-I think we can make them safe but there would be opposition from the mm
-people and it may not be trivial on x86. So, I'm fine with this arm64
-specific change:
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>
+> ---
+>
+> Changes in v3:
+> - Drop an extra blank line from the iomuxc node.
+>
+> Changes in v2:
+> - Drop an extra blank line
+> - Move iomuxc and iomuxc_snvs nodes to the end of the DTS file.
+>
+>  arch/arm/boot/dts/nxp/imx/Makefile            |   1 +
+>  .../nxp/imx/imx6ull-engicam-microgea-gtw.dts  | 162 ++++++++++++++++++
+>  2 files changed, 163 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
+>
+> diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
+> index 32dfd69b8d8b..de4142e8f3ce 100644
+> --- a/arch/arm/boot/dts/nxp/imx/Makefile
+> +++ b/arch/arm/boot/dts/nxp/imx/Makefile
+> @@ -357,6 +357,7 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
+>  	imx6ull-dhcom-picoitx.dtb \
+>  	imx6ull-dhcor-maveo-box.dtb \
+>  	imx6ull-engicam-microgea-bmm.dtb \
+> +	imx6ull-engicam-microgea-gtw.dtb \
+>  	imx6ull-engicam-microgea-rmm.dtb \
+>  	imx6ull-jozacp.dtb \
+>  	imx6ull-kontron-bl.dtb \
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
+> new file mode 100644
+> index 000000000000..d500f8839102
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
+> @@ -0,0 +1,162 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> + * Copyright (C) 2025 Engicam srl
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "imx6ull-engicam-microgea.dtsi"
+> +
+> +/ {
+> +	compatible = "engicam,microgea-imx6ull-gtw",
+> +		     "engicam,microgea-imx6ull", "fsl,imx6ull";
+> +	model = "Engicam MicroGEA i.MX6ULL GTW Board";
+> +
+> +	reg_1v8: regulator-1v8 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1v8";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +	};
+> +
+> +	reg_3v3: regulator-3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "3v3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +	};
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_gpio_keys>;
+> +
+> +		user-button {
+> +			label = "User button";
+> +			gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
+> +			linux,code = <BTN_MISC>;
+> +			wakeup-source;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_leds>, <&pinctrl_pwrled>;
+> +
+> +		led-0 {
+> +			gpios = <&gpio5 7 GPIO_ACTIVE_HIGH>;
+> +			default-state = "on";
+> +		};
+> +
+> +		led-1 {
+> +			gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
+> +		};
+> +
+> +		led-2 {
+> +			gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;
+> +		};
+> +
+> +		led-3 {
+> +			gpios = <&gpio1 12 GPIO_ACTIVE_HIGH>;
+> +		};
+> +	};
+> +
+> +	usb_hub: usb-hub {
+> +		compatible = "smsc,usb3503a";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pinctrl_usb_hub>;
+> +		reset-gpios = <&gpio5 6 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&uart1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart1>;
+> +	status = "okay";
+> +};
+> +
+> +&uart2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart2>;
+> +	status = "okay";
+> +};
+> +
+> +&usbotg1 {
+> +	dr_mode = "otg";
+> +	status = "okay";
+> +};
+> +
+> +&usbotg2 {
+> +	dr_mode = "host";
+> +	disable-over-current;
+> +	status = "okay";
+> +};
+> +
+> +/* MicroSD */
+> +&usdhc1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_usdhc1>;
+> +	vmmc-supply = <&reg_3v3>;
+> +	bus-width = <4>;
+> +	non-removable;
+> +	status = "okay";
+> +};
+> +
+> +&iomuxc {
+> +	pinctrl_gpio_keys: gpio_keysgrp {
+> +		fsl,pins = <
+> +			MX6UL_PAD_JTAG_TDI__GPIO1_IO13		0x0b0b0
+> +		>;
+> +	};
+> +
+> +	pinctrl_leds: ledsgrp {
+> +		fsl,pins = <
+> +			MX6UL_PAD_JTAG_TCK__GPIO1_IO14		0x130b0
+> +			MX6UL_PAD_JTAG_TRST_B__GPIO1_IO15	0x130b0
+> +			MX6UL_PAD_JTAG_TDO__GPIO1_IO12		0x130b0
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart1: uart1grp {
+> +		fsl,pins = <
+> +			MX6UL_PAD_UART1_TX_DATA__UART1_DCE_TX	0x1b0b1
+> +			MX6UL_PAD_UART1_RX_DATA__UART1_DCE_RX	0x1b0b1
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart2: uart2grp {
+> +		fsl,pins = <
+> +			MX6UL_PAD_UART2_TX_DATA__UART2_DCE_TX	0x1b0b1
+> +			MX6UL_PAD_UART2_RX_DATA__UART2_DCE_RX	0x1b0b1
+> +			MX6UL_PAD_UART2_RTS_B__UART2_DCE_RTS	0x1b0b1
+> +			MX6UL_PAD_UART2_CTS_B__UART2_DCE_CTS	0x1b0b1
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc1: usdhc1grp {
+> +		fsl,pins = <
+> +			MX6UL_PAD_SD1_CMD__USDHC1_CMD		0x17059
+> +			MX6UL_PAD_SD1_CLK__USDHC1_CLK		0x10059
+> +			MX6UL_PAD_SD1_DATA0__USDHC1_DATA0	0x17059
+> +			MX6UL_PAD_SD1_DATA1__USDHC1_DATA1	0x17059
+> +			MX6UL_PAD_SD1_DATA2__USDHC1_DATA2	0x17059
+> +			MX6UL_PAD_SD1_DATA3__USDHC1_DATA3	0x17059
+> +		>;
+> +	};
+> +};
+> +
+> +&iomuxc_snvs {
+> +	pinctrl_pwrled: ledsgrp {
+> +		fsl,pins = <
+> +			MX6ULL_PAD_SNVS_TAMPER7__GPIO5_IO07	0x130b0
+> +		>;
+> +	};
+> +
+> +	pinctrl_usb_hub: usb_hubgrp {
+> +		fsl,pins = <
+> +			MX6ULL_PAD_SNVS_TAMPER6__GPIO5_IO06	0x17059
+> +		>;
+> +	};
+> +};
+> --
+> 2.43.0
+>
 
