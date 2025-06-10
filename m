@@ -4,53 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23C9C678DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D534C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 22:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p02POhk1qgcjXqN8CWPa09qIjiWuPqoUdJQt80qLrGc=; b=kcEo53kB+pDZLm91SSdFC+o1EH
-	uuQDVDjdKNhBaNjRUrvrbBioFVTEGr4PBliTf2XNkNvZ5nCRVCRR+epZxq1ETIgwjtJ5Q0MA5sO73
-	rwEVnBTTPFvpF9O2oHRBjPnsKGs2IJM2+6acrqepwbsaZ+dWVafHF9f1dUz+JtdyrbJXDOWwNfOvf
-	y/OjJJ+m1Tdm2Zafs+nLIU3U+u+X44zovDdDe1qHgGn63BilAX6GghTE8Dj1G2kX0MxsOCrf2mNfn
-	kwYpa0iaj3h9kwQ7Ky92imefS+ZCDtw6jRPh/9uaWAglor84Fi6OuVor2yp3wqD+BLbjIHkKymgSH
-	DypGj52g==;
+	bh=qW7fEA0/+GCy2w4JQMTEby+P0Mr8y+F/kZw1UCiIKt0=; b=yGp2rw4EH8N/bwwa0SY6RBMOiS
+	vPkX/kPF0Gdrmk/0XupsX5sne6VhjisEYTqOQ4OTlkSM3DXdA3+yFRIvvyEOD3G/HUQZamhrK0NGa
+	95zEZ9NZDOQm3xVthOe8JoMNvNnk/VuTOwqrZksZ+B+wk2uu8RpgdadKSgv1zvoxkXjtx5bk8rQMW
+	vtVR3B1Hv24m5P4pAfcCInXRfyT4vnexMaL+16gcaZI2Bde5J597tqWvWJcU2awCDeUyfEbIercip
+	VGRm9xMan8wXn68f12Xes/JoZAhnM8BUmVxhQMfN/GP+tg/PomnZ4NGz44+2i/7BhQgYQWpf4lQdg
+	oN4xJ0bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7lF-00000008EhL-1GsS;
-	Tue, 10 Jun 2025 22:48:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP2bJ-00000007bJD-2lQV
+	id 1uP7lD-00000008EdT-0dnF;
+	Tue, 10 Jun 2025 22:48:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uP2Uo-00000007aD3-1F8A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 17:17:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FBE314BF;
-	Tue, 10 Jun 2025 10:17:07 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 349073F66E;
-	Tue, 10 Jun 2025 10:17:26 -0700 (PDT)
-Date: Tue, 10 Jun 2025 18:17:24 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [boot-wrapper PATCH V2] aarch64: Enable access into FEAT_SPE_FDS
- register from EL2 and below
-Message-ID: <aEhopO3sODMWooZC@J2N7QTR9R3>
-References: <20250606052602.3387225-1-anshuman.khandual@arm.com>
- <c7c97edf-8e2b-4196-9660-a15b86061c96@linaro.org>
- <aEbjcQLBKG7TepPg@J2N7QTR9R3>
+	Tue, 10 Jun 2025 17:10:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6F7F1A514F6;
+	Tue, 10 Jun 2025 17:10:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 554CDC4CEED;
+	Tue, 10 Jun 2025 17:10:43 +0000 (UTC)
+Date: Tue, 10 Jun 2025 18:10:40 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Feng Tang <feng.tang@linux.alibaba.com>
+Cc: Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Baruch Siach <baruch@tkos.co.il>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>
+Subject: Re: [PATCH RFC] arm64/mm: Lift the cma address limit when
+ CONFIG_DMA_NUMA_CMA=y
+Message-ID: <aEhnELJQLw8S8Bho@arm.com>
+References: <20250521014701.73046-1-feng.tang@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aEbjcQLBKG7TepPg@J2N7QTR9R3>
+In-Reply-To: <20250521014701.73046-1-feng.tang@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_101729_734578_08F76474 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20250610_101046_401208_943C1AA7 
+X-CRM114-Status: GOOD (  25.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,30 +67,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 02:36:53PM +0100, Mark Rutland wrote:
-> On Fri, Jun 06, 2025 at 09:49:07AM +0100, James Clark wrote:
-> > On 06/06/2025 6:26 am, Anshuman Khandual wrote:
- 
-> > > +	/*
-> > > +	 * PMSIDR_EL1 register is present, only when FEAT_SPE
-> > > +	 * feature is implemeneted. Otherwise direct accesses
-> > > +	 * to PMSIDR_EL1 are UNDEFINED.
-> > > +	 */
-> > > +	if ((mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 1) &&
-> > > +	    (mrs_field(PMSIDR_EL1, FDS)))
-> > 
-> > Minor nit, but the extra brackets on the second condition are unnecessary.
-> > Probably not worth a second version for though.
+On Wed, May 21, 2025 at 09:47:01AM +0800, Feng Tang wrote:
+> When porting an cma related usage from x86_64 server to arm64 server,
+> the "cma=4G" setup failed on arm64, and the reason is arm64 has 4G (32bit)
+> address limit for cma reservation.
 > 
-> I don't think they're necessary for either condition, so when I apply
-> this I'll simplify this to:
+> The limit is reasonable due to device DMA requirement, but for NUMA
+> servers which have CONFIG_DMA_NUMA_CMA enabled, the limit is not required
+> as that config already allows cma area to be reserved on different NUMA
+> nodes whose memory very likely goes beyond 4G limit.
 > 
-> 	if (mrs_field(ID_AA64DFR0_EL1, PMSVER) >= 1 && 
-> 	    mrs_field(PMSIDR_EL1, FDS))
-> 
-> ... and drop the comment.
+> Lift the cma limit for platform with such configuration.
 
-Applied (with the changes above), and pushed out now.
+I don't think that's the right fix. Those devices that have a NUMA node
+associated may be ok to address memory beyond 4GB. The default for
+NUMA_NO_NODE devices is still dma_contiguous_default_area. I also don't
+like to make such run-time decisions on the config option.
 
-Mark.
+That said, maybe we should make the under-4G CMA allocation a best
+effort. In the arch code, if that failed, attempt the allocation again
+with a limit of 0 and maybe do a pr_notice() that CMA allocation in the
+DMA zone failed.
+
+Adding Robin in case he has a different view.
+
+> Signed-off-by: Feng Tang <feng.tang@linux.alibaba.com>
+> ---
+>  arch/arm64/mm/init.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index b99bf3980fc6..661758678cc4 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -312,6 +312,7 @@ void __init arm64_memblock_init(void)
+>  void __init bootmem_init(void)
+>  {
+>  	unsigned long min, max;
+> +	phys_addr_t cma_limit;
+>  
+>  	min = PFN_UP(memblock_start_of_DRAM());
+>  	max = PFN_DOWN(memblock_end_of_DRAM());
+> @@ -343,8 +344,14 @@ void __init bootmem_init(void)
+>  
+>  	/*
+>  	 * Reserve the CMA area after arm64_dma_phys_limit was initialised.
+> +	 *
+> +	 * When CONFIG_DMA_NUMA_CMA is enabled, system may have CMA reserved
+> +	 * area in different NUMA nodes, which likely goes beyond the 32bit
+> +	 * limit, thus use (PHYS_MASK+1) as cma limit.
+>  	 */
+> -	dma_contiguous_reserve(arm64_dma_phys_limit);
+> +	cma_limit = IS_ENABLED(CONFIG_DMA_NUMA_CMA) ?
+> +			(PHYS_MASK + 1) : arm64_dma_phys_limit;
+> +	dma_contiguous_reserve(cma_limit);
+>  
+>  	/*
+>  	 * request_standard_resources() depends on crashkernel's memory being
+> -- 
+> 2.39.5 (Apple Git-154)
 
