@@ -4,99 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FF1C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4D8C5B543
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 16:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=42qeGfPPG3Jy7TK8jhUurPhAnYCLeXZebkDWKVesGp8=; b=nJ+aYm7obzH50M21tkaks2ue/e
-	mOPEZqaIVOqGSyj2Kfpdo/0uuujIuzc6mETOjJRRqvEelGAH/EA5Ifc/IkoArzuyC/SRcJFNsrHsl
-	Hj71SNca0CJGMr12ADO5fPnRbIu4TDnel+KsAHPocjVpUXJXNvbUEinz8K2Hw5n2V9MH2MManT7e+
-	aFD2+GZxbPQtLCoSHPFi7O4fVC3TnNmMkcxWLZY9X6ElzJn4uHCve5KR7temyKzs7fBIoUFLQgPWQ
-	SxrQ1tsFspBJ4Y34uSC2WxACS6u4MdVKQOO4t3ZL3UCqGVJ+VpzhqipRSxo+LukLFYJ9DjeYKzDAt
-	qWj6k+dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J+qg1+SkJ5kUMIfZgliJNgwmCYY4xioDyWF9SZ86Sdo=; b=nF1HfYs0EJ0E8dDNSK792R58bE
+	Aw8eB3yWOxWNXXgNqfmFT9YXXXg0eblrsQZw7gkY2zoSDi8hbf7do9D3Av9XSSPiAcIkKeiIp/Cb2
+	X0Df5at+Y77EhDP0McQwi9iQ+mryEOo1MNtQtANKpSgPV5m5Jy6P85yAwJz0G0dkGPQuJNGSuVnJx
+	0r5m7Dql35mC5DAAAd/ytD4re8faRQ0HiF7UgEq9QLtuM6kJQI42IKnXB+0ZJ5EEGJS5SgdOe+Xuc
+	1q7w7NU2tPmCZVIqIt0m/eWGoVtvjP2wsikUjYULcSt/MwJiY3uKuo+GkxmDG9QMX0UGfkTuAyN9F
+	0M5fYP5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1gy-00000007Rp2-0n9S;
-	Tue, 10 Jun 2025 16:19:16 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1uP1j5-00000007RxE-3vaY;
+	Tue, 10 Jun 2025 16:21:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOz8z-00000006zgD-3RNz
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 13:36:03 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55ACLF7Y032713;
-	Tue, 10 Jun 2025 15:35:51 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	42qeGfPPG3Jy7TK8jhUurPhAnYCLeXZebkDWKVesGp8=; b=6WUHSa73SzuDwV+S
-	TnHceYDj6QtlhgnwIjJFSqEPVZV/NELe5/hM+nEMjhe205l0mg3+ZHgnKeiRPcWb
-	Q8GqAQNLUvn2jf5pmrSGbz6K61eM5T2Rn1cyoIo4kuEn8WdsUugpp2W3OcbKmfL1
-	XD8zE9KrTm2b1mdoErCSlrhGeNDxNhkcc2NRnlHYW/b3a9cU8BgBRzBjeik9Ta1g
-	o5Z/NRI2lP0GZpt0v8t1mUzeehlGQ28N28ZQtUToVPIxdVDc+JfI5FRU813vvj4x
-	xxxmbP2+hoMbFzbrUDx61zVjD9VglNArYLkrmHUt8lbnr1o04MbQVJwePkiQUcwU
-	4zl3JA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4750cnt341-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 10 Jun 2025 15:35:51 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5A9E140045;
-	Tue, 10 Jun 2025 15:34:42 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7F44EB5F91C;
-	Tue, 10 Jun 2025 15:33:54 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 10 Jun
- 2025 15:33:53 +0200
-Message-ID: <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
-Date: Tue, 10 Jun 2025 15:33:52 +0200
+	id 1uOzCW-000000070Wj-42vM;
+	Tue, 10 Jun 2025 13:39:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E8F0A5C0429;
+	Tue, 10 Jun 2025 13:37:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98201C4CEED;
+	Tue, 10 Jun 2025 13:39:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749562779;
+	bh=5avbO0Ao+zxHI6T3ghbReJ8vJ24StY6YPNICgLkqxcg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JMwjgDNqWfSZV7W/JGiCqq0dEE/Ye+1kfAkZ4XV203t6F946jc0EF3npK/Q0wEoBc
+	 HL3ts1Xs+3/PBc9SYwPFCnM2z+MUvlnvqBO1CV6oc8asYfAFiUzYoTylPqc7H7yohn
+	 OzIYm+Tg5rTndx68BhsYHcdrKJ4seqHsBT6KkrgKQK6qpM8Lhv+lVrFkAL3iJu/r10
+	 yqq+/QgT1qixROOTMkGFuHsEN6XhDY3/mIBul+to91IbppkSLTQLOBNFgRGGwEedBA
+	 6RyXf6IeA24zeCsEByscH8ScHnys5UR72nWZesf6nZSo2pGx7we8ieg/YloSN2QFu4
+	 BqHGpXGyuC9jw==
+Date: Tue, 10 Jun 2025 15:39:34 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Eric Dumazet <edumazet@google.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Add TCP LRO support
+Message-ID: <aEg1lvstEFgiZST1@lore-rh-laptop>
+References: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
+ <CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp13
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
- <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
- <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
- <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
- <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
- <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-10_05,2025-06-10_01,2025-03-28_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="I0VjOkFHRgh8EgMY"
+Content-Disposition: inline
+In-Reply-To: <CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_063602_131673_2BF8A1EC 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250610_063941_041954_6CB6EEEC 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +75,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/10/25 14:38, Krzysztof Kozlowski wrote:
-> On 10/06/2025 14:02, Clement LE GOFFIC wrote:
->> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
->>> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
->>>>>
->>>>>> +		};
->>>>>> +
->>>>>> +		hdp: pinctrl@5002a000 {
->>>>>> +			compatible = "st,stm32mp131-hdp";
->>>>>> +			reg = <0x5002a000 0x400>;
->>>>>> +			clocks = <&rcc HDP>;
->>>>>>     			status = "disabled";
->>>>>
->>>>> Why are you disabling it? What is missing?
->>>>
->>>> Nothing is missing just disabled by default.
->>>> The node is then enabled when needed in board's dts file.
->>> Nodes should not be disabled by default if they are complete. That's why
->>> I asked what is missing. Drop.
->>
->> Hi Krzysztof, OK I better understand now.
->> So yes the 'pinctrl-*' properties which are board dependent are lacking.
-> 
-> These are not properties of this node.
 
-Does this mean I should add 'pinctrl-*' properties in bindings yaml file ?
-I don't get it..
+--I0VjOkFHRgh8EgMY
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->>
->> In the last patch of my serie I add them (only for stm32mp157f-dk2) but
->> keep it disabled because the pin is on an external connector (the
->> Arduino connector of the board).
->> This prevent any issue with a possible connected module.
-> 
-> Not relevant. Pin control for connector are board specific, but pinctrl
-> SoC part is SoC.
+On Jun 10, Eric Dumazet wrote:
+> On Tue, Jun 10, 2025 at 2:12=E2=80=AFAM Lorenzo Bianconi <lorenzo@kernel.=
+org> wrote:
+> >
+[...]
+> > @@ -767,7 +887,7 @@ static int airoha_qdma_init_rx_queue(struct airoha_=
+queue *q,
+> >         int qid =3D q - &qdma->q_rx[0], thr;
+> >         dma_addr_t dma_addr;
+> >
+> > -       q->buf_size =3D PAGE_SIZE / 2;
+> > +       q->buf_size =3D pp_params.max_len / (2 * (1 + lro_queue));
+>=20
+> Tell us more... It seems small LRO packets will consume a lot of
+> space, incurring a small skb->len/skb->truesize ratio, and bad TCP WAN
+> performance.
 
-I think we don't understand each other here too. I don't understand the 
-end of your sentence "pinctrl SoC part is SoC".
+I think the main idea is forward to hw LRO queues (queues 24-31 in this
+case) just specific protocols with mostly big packets but I completely
+agree we have an issue for small packets. One possible approach would be
+to define a threshold (e.g. 256B) and allocate a buffer or page from the
+page allocator for small packets (something similar to what mt7601u driver
+is doing[0]).  What do you think?
 
-Maybe some informations that could help:
-The 'pinctrl-*' properties are used in the HDP case to select the 
-internal signal to output AND the alternate function on the pin to 
-output the HDP function.
+>=20
+> And order-5 pages are unlikely to be available in the long run anyway.
 
-> Best regards,
-> Krzysztof
+I agree. I guess we can reduce the order to ~ 2 (something similar to
+mtk_eth_soc hw LRO implementation [1]).
 
+>=20
+> LRO support would only make sense if the NIC is able to use multiple
+> order-0 pages to store the payload.
+
+The hw supports splitting big packets over multiple order-0 pages if we
+increase the MTU over one page size, but according to my understanding
+hw LRO requires contiguous memory to work.
+
+Regards,
+Lorenzo
+
+[0] https://github.com/torvalds/linux/blob/master/drivers/net/wireless/medi=
+atek/mt7601u/dma.c#L146
+[1] https://github.com/torvalds/linux/blob/master/drivers/net/ethernet/medi=
+atek/mtk_eth_soc.c#L2258
+
+--I0VjOkFHRgh8EgMY
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaEg1kwAKCRA6cBh0uS2t
+rAYMAQD0nBIhigRn4PPAvOPLw/L0LoFZ4JC7kFUvDHjLuDo7PAD+IXfceq+l1hbh
+YjnyMxgeMGT9Hs0OOZbSoMd5kNU/Lwg=
+=z/fk
+-----END PGP SIGNATURE-----
+
+--I0VjOkFHRgh8EgMY--
 
