@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF3EC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F151C71132
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 08:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juVrDSxpmMtgoJh5pc1VP5Zj0Ly8Ck76E+2hldG+2FE=; b=WIQr/pJSBiKSkYVkOmAx0MJVjT
-	PdHraovhbbPTRT6nWqXdJezsQxepMcO/NPiTd8pc87HCrw83WrDaeH8E2QGTF92Ki3RcJS9blnWr/
-	TWsmKl+wsZIO5XX2hgCJjqKl/wwBH5Xw7oyAhgsEUn6+Tyn4UPXB8x1rlCbYYip39RjPQGSho1Ti3
-	z7rvG1K0j3Mt/MmAdxqeLxhDvQLb4POP+5Pfy92N/WHTd298nZU6/1F0yL55XczAR1B0h5b53dIIW
-	GiTEVV7WQXWtoHF79W5Ezf1F13pFFqCxaHgtGfxbekZLGfTE1XybY3kWW0zVms2DjmrXxP6KNOcwu
-	NR8sl/qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7UGC6obfJEdHLrDw7HVfrKqfiFrLveko3d0SKHEz6Ig=; b=m1WN2c2F99zJhYgOo8oCx0w7ul
+	se3FPsf/x73jbrjToaTPYfIXuk9k/f6Cqar9lrfaDjztdCgNNziXkSneIaUlX4vabt0jspgrckBqq
+	OgOkcHNts4CW7r8HCL/xdLMz/jKg2b7Mq15D0QTtS/yYMZc6Ixup0VSgWdkSnhI1+mpR/BSbyJ+Sb
+	fcZ4JgNFDd6yONhsTIhX5lhUTU4tLuZ2z7Cz/MMNk0NAw+Z6himEA+obCrTUhyHo/8I0VWC/n94zH
+	CXE4FoShfGjj3RHxRk/gJrlFN6NYorlE7aDJ7nupi/TUAeNnyaM8fGrHaQ4CVMH5spZ9ufe6vcrFS
+	TS/BqRFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOubK-00000006DJA-3Rgm;
-	Tue, 10 Jun 2025 08:44:58 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1uOubP-00000006DNH-0nXd;
+	Tue, 10 Jun 2025 08:45:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOuGQ-000000069vN-1k3z
+	id 1uOuPh-00000006BsG-2sQy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 08:23:23 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4531898b208so671635e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 01:23:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749543800; x=1750148600; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=juVrDSxpmMtgoJh5pc1VP5Zj0Ly8Ck76E+2hldG+2FE=;
-        b=lnCjIDNNIVstO3kUzVsfOnyIsB6qv2RYdjfa7T7BGfYmg+bvL7a5j44n/V/k8SLZ+O
-         Q1jq1ZPfEpi/FueqZDTllGHDOGauOWoOspOpX+WBB5728JPMGVp2OVGneh+09ST5FKOZ
-         ZVpIdWWLmYFCMCLL0/yeoWOVrNhsBbaviTbyRjmaiOKKG86d0I+5BFLmTMbcwtGTE/GV
-         VKJUeKmCasyikd+mAvIkeisBN+s3p2qvcEHXovOmMfDi9yKtMpnbaGd2rzsWoj6Eogyt
-         4FNmgf0rHN3H8B0Irq/R9UYPRG/m5nfGh/uh5l6TMItb/4zqIrt3osz0OANCapMUOaoD
-         J2qQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749543800; x=1750148600;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=juVrDSxpmMtgoJh5pc1VP5Zj0Ly8Ck76E+2hldG+2FE=;
-        b=uUYd15GBonP5iLQ6nPT0rkZAYkKRMX/G4W+GGqBVWpwE728vkmuZnyUHhJUgMGrvcI
-         60hfB/mn1lx7WXnJvNrPcrfFRWuv3QQbA606VdWszqKkEGWPm32nV2sxvrTickI/7UKM
-         JawnCccwtd1T3295NNh6KrqfEP1HGnOE4u/8pqjIsqAm8BgAVFCiGTDnYvwJ1CXTqY8m
-         BKpC6IrZC04K9A3HxbgiYaPdVhtD6n4YmmEl+1GyL6AMGAsalmnnoLoRytVS61YBp0q8
-         oP/1KOYCQt/DilLIT8f65InSqtjJNjxUxxou0cE+WyaeavlIBf5AfXnMHc9aq7qP069E
-         pLfA==
-X-Forwarded-Encrypted: i=1; AJvYcCWxZ0/csO2+3hrDQ2qVp2GD6ymU1v7eggq7YviJTrSx0hVl/oBUJq4sHNWS/lA1h9L0I3zoPmv/axnUt6rwjzEn@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFdzB9IkAcxAQVUxPEeYGHC7YrJZzQChm2YisrF7mzJGXQWRcM
-	U1g7jRm6ay8GThH7MYQJsvNMnrArmPY7v/W8rkO8RxwYKbmuxE5gE3QOvtaPXri9hoc=
-X-Gm-Gg: ASbGncvbo75qe96uXw4pxqZpdFLVQl3XdesM9/QZfAhZwOolqvB2ht8vBnAv8SCvJYu
-	UqfM06swFV4+059KcxvLY5AXxuIbnw/JB7ntYCOWjDYzd8Sszsu93avi4LoO4YX4DlysgxHqaOZ
-	r57RXv9OEWVEFg4AQsl7qm8yYMvNmH7rLG4gDbAesORVkBEqMSJvb/aCVBJTIPGOv3vSr+Jgy96
-	5E68BhlHLCrQqOth9pyCYxS1VNKcnLq7Gj4/J04QBG+/hkVK7Pnyl46D83jtc8CvmLZO4ovmKPE
-	bXovYtzl+VJy8iVp1D50TUvoKVywkD3nc6poH/N0v8guvwhTFqap2H12rkwX1QMIAEaNZl1sgnG
-	SHceYTQ==
-X-Google-Smtp-Source: AGHT+IHmkbNCG4AE+Jw0uIEU/GxFnvKzXvXYiz5T9eY+25yhF+FTVYqqY/1/ANURHD1E3O5PMpRiXg==
-X-Received: by 2002:a05:6000:4313:b0:3a4:eb9c:7cbc with SMTP id ffacd0b85a97d-3a5331ae097mr4937643f8f.15.1749543800578;
-        Tue, 10 Jun 2025 01:23:20 -0700 (PDT)
-Received: from [192.168.1.28] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53229de01sm11895403f8f.11.2025.06.10.01.23.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 01:23:19 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
-References: <20250525190630.41858-2-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH] dt-bindings: soc: samsung: exynos-pmu: Constrain
- google,pmu-intr-gen-syscon
-Message-Id: <174954379928.117699.14584808679236287569.b4-ty@linaro.org>
-Date: Tue, 10 Jun 2025 10:23:19 +0200
-MIME-Version: 1.0
+	Tue, 10 Jun 2025 08:32:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B9D561129;
+	Tue, 10 Jun 2025 08:32:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0218C4CEF0;
+	Tue, 10 Jun 2025 08:32:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749544376;
+	bh=SeM2fX3V7rJHEICuoUesxqz8Z/Gb6XXlCMnMM8yJjo4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=oNUnm/0d0NSyV1KpxCElUMuB7NV/RWA1VylR1xJD38v2VZ4vXD3fAj7l+Purr3T+G
+	 /w/H19u1gmrtKw+9nu9ac/G594YLZ75qXNFE+b+9H7NQ8M5tX3xVKDyBXDZFw7Q3Lu
+	 S9j+gsEf1XeyyIHIGHQ8A2SIsJS+/tNlxu2XN6KS2GwnkIEYEMId6Vacjj8ONvLmxi
+	 oqAVfxRELEdUbuR9ifYUEhSNJooDSuS75RT2mDhOsV6yQ+d5wYsHDZlKjKjshtNQgi
+	 OOHBu58tOtWzhqK7ce88/rmpeD+7hiMN2A1s6BUpimb+E2FhHARmuVa9gP9VgRmosL
+	 WZverJznxiS6w==
+Date: Tue, 10 Jun 2025 03:32:55 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_012322_463462_ED8C2EE9 
-X-CRM114-Status: UNSURE (   6.77  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, michal.simek@xilinx.com, 
+ monstr@monstr.eu, 
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ "moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+ linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Conor Dooley <conor+dt@kernel.org>, Srinivas Neeli <srinivas.neeli@amd.com>, 
+ git@xilinx.com
+To: Michal Simek <michal.simek@amd.com>
+In-Reply-To: <dba4f2c39a25b54010c292c36e349cb289d6cd98.1749540869.git.michal.simek@amd.com>
+References: <dba4f2c39a25b54010c292c36e349cb289d6cd98.1749540869.git.michal.simek@amd.com>
+Message-Id: <174954437576.4177094.15371626866789542129.robh@kernel.org>
+Subject: Re: [PATCH] dt-bindings: gpio: gpio-xilinx: Mark clocks as
+ required property
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,19 +78,55 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 25 May 2025 21:06:31 +0200, Krzysztof Kozlowski wrote:
-> PMU interrupt generation block is not present in older Samsung Exynos
-> SoCs, so restrict the property to Google GS101 only.
+On Tue, 10 Jun 2025 09:34:31 +0200, Michal Simek wrote:
+> On Microblaze platforms there is no need to handle clocks because the
+> system is starting with clocks enabled (can be described via fixed clock
+> node or clock-frequency property or not described at all).
+> With using soft IPs with SOC platforms there is mandatory to handle clocks
+> as is explained in commit 60dbdc6e08d6 ("dt-bindings: net: emaclite: Add
+> clock support").
+> That's why make clock as required in dt binding because it is present in
+> both configurations and should be described even there is no way how to
+> handle it on Microblaze systems.
 > 
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
+> ---
+> 
+> Based on discussion at
+> https://lore.kernel.org/lkml/20241002-revivable-crummy-f780adec538c@spud/
+> 
+> Actually this shouldn't be only targetting GPIO but also for example
+> xlnx,xps-timebase-wdt-1.00.a but I would like to check it first on gpio
+> before starting to check other bindings.
+> 
+> ---
+>  Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-Applied, thanks!
+My bot found errors running 'make dt_binding_check' on your patch:
 
-[1/1] dt-bindings: soc: samsung: exynos-pmu: Constrain google,pmu-intr-gen-syscon
-      https://git.kernel.org/krzk/linux/c/952a81b137473cf679c229e7e7e175dce715cd2f
+yamllint warnings/errors:
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/fpga/fpga-region.example.dtb: gpio@40000000 (xlnx,xps-gpio-1.00.a): 'clocks' is a required property
+	from schema $id: http://devicetree.org/schemas/gpio/xlnx,gpio-xilinx.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/dba4f2c39a25b54010c292c36e349cb289d6cd98.1749540869.git.michal.simek@amd.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
