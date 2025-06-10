@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3BC7C71132
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C53CC678DA
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UdWagi9BC/IaPFKFJsoyl8mflRquqguGZo8vpgDAe70=; b=S/OFW22/AfCN8e2D1ksN9aDFlm
-	HQnMUDJmLYIpu7i7YGwmwrpefhmZvqjmZudv3X603MgcrzGifeleR7JHBImQLQJIZ/7nxmPwO+Cvm
-	WOzY+s3kwA+ea2tZ0GpHnb2hyavDQd0yqN4XJqkjpQDsMZgfehyC+Af0Pl9RjM7uhJsYxui9APoYm
-	RzpjX+gxrfdK3BI/iiQEE3XRFv6npYdzgSiIqPG7IH53AEABA9iAR2cHSA69VuRICToV7J1F8Pd4x
-	4INUw58R34c1qSH45+LO6cuKRMzdC6bvLS78HFMX2dYzp1JWCCGGAI8/xa66HH00XqHyRydZUaVD1
-	TtxuXFNg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VVrPc5VfUc4kUlnn3a4kFgKuoqeB40HZmusQIafJ0Jw=; b=10tKl34Kt3UlvGJERQb6JQjl7S
+	rD5wm3BEzjXsUHR5DjIoyO0kqZMswGUU8fwqeHXXlQggMHz7hrxwFUF4Ypnn4x0wWQYFlB5r5kW6S
+	GQU/x4V8NJZAIdFEu1Q3WemC/siZfqTmw/QHIIChQuzz48sr3vuKrLRKElg8MVscf6AwNzn06Qw9L
+	tnvNHpyFv7xpe966pcPEncNb/NAU60MzkT00Rr4N6jA+xwKMBXw6uBYhli3A3lsNurL12oe/UAPY9
+	NlUcorIKO3n5LUXouDItvic7bhXFFAmqMXlxdAC9JXwq1UFp1La9yjsKYwN9djd9u+4pjHw2ELDz5
+	MH/0Kkrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwen-00000006Xvz-2qae;
-	Tue, 10 Jun 2025 10:56:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvTI-00000006N1N-2tKx
+	id 1uOwem-00000006Xvk-1MTO;
+	Tue, 10 Jun 2025 10:56:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOvLp-00000006LnJ-37Cd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 09:40:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 901BE1424;
-	Tue, 10 Jun 2025 02:40:24 -0700 (PDT)
-Received: from [10.163.32.103] (unknown [10.163.32.103])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D0973F59E;
-	Tue, 10 Jun 2025 02:40:40 -0700 (PDT)
-Message-ID: <85830220-8144-4df2-9e02-d34b48782c34@arm.com>
-Date: Tue, 10 Jun 2025 15:10:37 +0530
+	Tue, 10 Jun 2025 09:33:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1915960007;
+	Tue, 10 Jun 2025 09:33:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0275C4CEF2;
+	Tue, 10 Jun 2025 09:32:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749547980;
+	bh=fQ3YU3S3K3ivEsEdGjJAl8Hbmyr8jXeJ3oVd0bc1t4c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OOQ4t51xOrl2MR9zgyKltjt8xczIDYR5Nszf6WA7xXdzs4uRcv6qQcpMD3+Hd/6Mq
+	 mToGH3k8Pscs8UM74vbCjPK38LWLhlOBYPyvHrKv2ZRsfx0QAD8VH3IitkoKXOUCCW
+	 909llaiuo5FQB35n1ZXLYra6ufiBoQfdWTktXSDRheltD4B0M3TeqYi7T4v3C6I1gA
+	 F88+rq7jNcEVgaVcfG1oK9rs55ZuN7OCSdxo4YuRRphGINTSojY8H8LaROGxvbtB8x
+	 wmK3WdJeHhYEKWl1iKMmvkeIwWuGGNDuzPmXg5kXoAEzRX36Qk9gJXKxbkPtYy+FwO
+	 ndLtwxuJf7riQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Ard Biesheuvel <ardb@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Eric Biggers <ebiggers@google.com>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: crypto: work around gcc-15 warning
+Date: Tue, 10 Jun 2025 11:32:52 +0200
+Message-Id: <20250610093256.2645686-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: trbe: Add ISB after TRBLIMITR write
-To: James Clark <james.clark@linaro.org>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Marc Zyngier <maz@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250609-james-cs-trblimitr-isb-v1-1-3a2aa4ee6770@linaro.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250609-james-cs-trblimitr-isb-v1-1-3a2aa4ee6770@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_024044_773176_F58336C4 
-X-CRM114-Status: GOOD (  14.34  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,49 +73,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
+I get a very rare -Wstringop-overread warning with gcc-15 for one function
+in aesbs_ctr_encrypt():
 
-On 09/06/25 3:49 PM, James Clark wrote:
-> DEN0154 states that hardware will be allowed to ignore writes to TRB*
-> registers while the trace buffer is enabled. Add an ISB to ensure that
-> it's disabled before clearing the other registers.
-> 
-> This is purely defensive because it's expected that arm_trbe_disable()
-> would be called before teardown which has the required ISB.
-> 
-> Fixes: a2b579c41fe9 ("coresight: trbe: Remove redundant disable call")
-> Signed-off-by: James Clark <james.clark@linaro.org>
+arch/arm/crypto/aes-neonbs-glue.c: In function 'ctr_encrypt':
+arch/arm/crypto/aes-neonbs-glue.c:212:1446: error: '__builtin_memcpy' offset [17, 2147483647] is out of the bounds [0, 16] of object 'buf' with type 'u8[16]' {aka 'unsigned char[16]'} [-Werror=array-bounds=]
+  212 |                         src = dst = memcpy(buf + sizeof(buf) - bytes,
+arch/arm/crypto/aes-neonbs-glue.c: In function 'ctr_encrypt':
+arch/arm/crypto/aes-neonbs-glue.c:218:17: error: 'aesbs_ctr_encrypt' reading 1 byte from a region of size 0 [-Werror=stringop-overread]
+  218 |                 aesbs_ctr_encrypt(dst, src, ctx->rk, ctx->rounds, bytes, walk.iv);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arch/arm/crypto/aes-neonbs-glue.c:218:17: note: referencing argument 2 of type 'const u8[0]' {aka 'const unsigned char[]'}
+arch/arm/crypto/aes-neonbs-glue.c:218:17: note: referencing argument 3 of type 'const u8[0]' {aka 'const unsigned char[]'}
+arch/arm/crypto/aes-neonbs-glue.c:218:17: note: referencing argument 6 of type 'u8[0]' {aka 'unsigned char[]'}
+arch/arm/crypto/aes-neonbs-glue.c:36:17: note: in a call to function 'aesbs_ctr_encrypt'
+   36 | asmlinkage void aesbs_ctr_encrypt(u8 out[], u8 const in[], u8 const rk[],
 
-Agreed. An isb() barrier is required to ensure that the TRBE is disabled
-even after clearing TRBLIMITR_EL1 and before writing/clearing other TRBE
-registers. Besides trbe_reset_local() seems to be the only function where
-such a scenario exists.
+This could happen in theory if walk.nbytes is larger than INT_MAX and gets
+converted to a negative local variable.
 
-LGTM.
+Keep the type unsigned like the orignal nbytes to be sure there is no
+integer overflow.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Fixes: c8bf850e991a ("crypto: arm/aes-neonbs-ctr - deal with non-multiples of AES block size")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm/crypto/aes-neonbs-glue.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> ---
->  drivers/hwtracing/coresight/coresight-trbe.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index 8267dd1a2130..10f3fb401edf 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -257,6 +257,7 @@ static void trbe_drain_and_disable_local(struct trbe_cpudata *cpudata)
->  static void trbe_reset_local(struct trbe_cpudata *cpudata)
->  {
->  	write_sysreg_s(0, SYS_TRBLIMITR_EL1);
-> +	isb();
->  	trbe_drain_buffer();
->  	write_sysreg_s(0, SYS_TRBPTR_EL1);
->  	write_sysreg_s(0, SYS_TRBBASER_EL1);
-> 
-> ---
-> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-> change-id: 20250609-james-cs-trblimitr-isb-523f20d874d6
-> 
-> Best regards,
+diff --git a/arch/arm/crypto/aes-neonbs-glue.c b/arch/arm/crypto/aes-neonbs-glue.c
+index c60104dc1585..df5afe601e4a 100644
+--- a/arch/arm/crypto/aes-neonbs-glue.c
++++ b/arch/arm/crypto/aes-neonbs-glue.c
+@@ -206,7 +206,7 @@ static int ctr_encrypt(struct skcipher_request *req)
+ 	while (walk.nbytes > 0) {
+ 		const u8 *src = walk.src.virt.addr;
+ 		u8 *dst = walk.dst.virt.addr;
+-		int bytes = walk.nbytes;
++		unsigned int bytes = walk.nbytes;
+ 
+ 		if (unlikely(bytes < AES_BLOCK_SIZE))
+ 			src = dst = memcpy(buf + sizeof(buf) - bytes,
+-- 
+2.39.5
 
 
