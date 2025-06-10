@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8E8C71137
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66FB4C71132
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 10:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtRy5nDmui9IhCUvni82JzzyhBwjg7VAcVMPMSibp+o=; b=wHz6cHjValZEvdC9Sa5oWsx12g
-	k9luJIrZHn5I0I8y75Esw8vebwOTTCFpvumJhP0RM3ot+TF+HrXnGNTNstCeaxuK21cEh7QupOeHy
-	0Z9LGLWrMpyzonVYNeXq4s7vg7E8RVpfhFrhN8Qrx1ETRcVIIwqnloNtsHO/UvXb4TzPvNOamqKfT
-	t78PbxVXdD4agYnx8E9ZHVpjKeTX0YRQ5cPRLYWDYyEZ3piFbxbj1J7YalgELydOP2InHmeWZ7gpC
-	H9PNhBr8GYkIs36Q+4OksxIq9Nwibhj+XfY4p/God+NeNy898HQnBJPX5sWoJLYogzAHQUjJHHuhC
-	i63PlRFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d9dEIw1urmXPXSyEjfiptdSoKUNx7ybVNTHvf2bqei8=; b=UH/AB1/0PS5sWezW4YFzmbv2Wm
+	vmgUUxC/J6GJdp5ULwtICkWfpP4BzeXE0yKEGW10yZ0EVdI5RUD4crGuVxHa5mQmajMx/V53U/h8K
+	On/NyuoYG4kfvkvt+2jdnhwm3HZXQtAETOUbQcebvROPVEdTBgJLtIcqPxDf53LOZgNJx1tOTKS2X
+	c3bU0wJ3P1kI/haTMvDesGCykWuvZteJMlZ8xTzepl7oIJF13BuKgt761Kj6J3WbzolhOcljT4ksE
+	iq711V2x/z1CFG3drWTVJ7aJ3Zvm3OhWijWog+OjezNmpCfXY3jWhepu+W93LuHJ4Wyvl8gcdr5EH
+	RFk71gng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOweu-00000006Y28-1PqK;
-	Tue, 10 Jun 2025 10:56:48 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uOwey-00000006Y6D-0CP2;
+	Tue, 10 Jun 2025 10:56:52 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvf1-00000006PU2-3vft;
-	Tue, 10 Jun 2025 09:52:53 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 214AF169;
-	Tue, 10 Jun 2025 11:52:43 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749549163;
-	bh=Im5GYUCb1sxEGckIaOnAeshf/338KvZJ59zmYw//6eA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VYcfkAMMn6K+mvIMMfKStHcleEwEsMpB7hzK4Uas/m9rLyIes7YU38x0/mJedVKBb
-	 caB2NaQvYMsZEPK6xmrYorLMaXFrM06ojzRyDabW+HtlAOOCyaWl7YOSDgbGyGGDRW
-	 JUC8Rlqi98psv8LRKo/fJIvtHFGGNjRIl9u7t2jY=
-Date: Tue, 10 Jun 2025 12:52:38 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
-	Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: bcm2835-unicam: Remove RGB24 support
-Message-ID: <20250610095238.GA28428@pendragon.ideasonboard.com>
-References: <20250606-rpi-unicam-rgb-bgr-fix-v1-1-9930b963f3eb@kernel.org>
- <20250609003751.GD14545@pendragon.ideasonboard.com>
- <CAPY8ntCnz6nkJSredd-sgMr87=0vuZ0OtfiMoPOfCZisKkzTHg@mail.gmail.com>
+	id 1uOvjh-00000006QJ1-3Z9x
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 09:57:43 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e7d925ff60bso4225555276.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 02:57:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1749549461; x=1750154261; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d9dEIw1urmXPXSyEjfiptdSoKUNx7ybVNTHvf2bqei8=;
+        b=IrJSbKNXmL4ubYsxuYhSyzsc7pC0CsqJ1Es0T775EWAPwVpxXLTYlrPuP7IJyX5Z7u
+         zTQY1OrZ4AOwdAtLBGHX/2FMomKGbPMfbQNsiE7GV5eKdbPsma+d7GXJ2nsYJXM/noUc
+         SRoixhiT/3I9le6WnE1VqpNlHUKD/Km7W/L2c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749549461; x=1750154261;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=d9dEIw1urmXPXSyEjfiptdSoKUNx7ybVNTHvf2bqei8=;
+        b=G5mUUrQBmElSG2de6wReIAVArgm1RV2oDtH+hEhSb0Hrpyb0G0CZl1FVuyuIryycoI
+         7MsFAzKCRq7hQAzTo6mMUQ+PwbeWss3lln52uFygBcwKUbEhCq65l2vTbL9wjHaSuIkc
+         zeQhProULQlaUAX+LbfBaZuhYyoMXWoA7omGrDa1Q9ha6HBmSn2ayZsfsEfFabkwhxyr
+         Y6ZOfW8RKLPUyI5Nnpghdya8FV6hwMrTXPDTSaKtdxTt4xm1244rEuEkBQt4Z6L+DILp
+         Bb0fE9rkhQDOVQlnKtDpmviZplc/igqQNLFmmwqOWAc0mFCWHc+9MllQ2jCo2N3fOoQ2
+         qEiw==
+X-Forwarded-Encrypted: i=1; AJvYcCXrKSLx158ACxcO6kDyZd4q0H2WSLLKV4yEP8k2D4EOLnv6YYywf5Ai6twPLSRAvPxDYqTNm/ZnuJspQ4ASCqW+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHOEcY6sa3d41WB2xUyfKzegNH5e1Xr4juANGFXjIwQS60fvWm
+	yDN4g69v20yIfhT7lzcnYoEzUv4E0n38unjLg7QepYumGAGNAO/3sJtj5y9dCHrO1+mDZaJoIQc
+	w8qrzkoZw5QeEsdHwAGHI9+s2MfJomgR4gqKT6Jghyw==
+X-Gm-Gg: ASbGncuWDDSfPKHEXf0j+jG5GbXJxGogpepHhhd9/SvbPshkuApjMCVaRiYp89exGeX
+	gbfpf1BFLxeFOZPpU6BEou4TcEkL4lkfvw5rq3rl0zQUAyP/GaDEUwqb2uG1DgE0QWzYtFpokm2
+	VQPiIuJYG6eC2+Up9P2RVvUdgk9oPPVgilKkMG5s/6oA==
+X-Google-Smtp-Source: AGHT+IFodtS1VYnVo9bbt5qXymWY3lsJGCo0KtXDocUtEfb/F89rGPTFtUZIHa5j2tOsbpXapJCL6XzrNaw6xaDkRr0=
+X-Received: by 2002:a05:6902:2841:b0:e81:45da:4aed with SMTP id
+ 3f1490d57ef6-e81a215345amr21634275276.26.1749549460846; Tue, 10 Jun 2025
+ 02:57:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAPY8ntCnz6nkJSredd-sgMr87=0vuZ0OtfiMoPOfCZisKkzTHg@mail.gmail.com>
+References: <20250609101637.2322809-1-dario.binacchi@amarulasolutions.com>
+ <20250609101637.2322809-3-dario.binacchi@amarulasolutions.com> <aEb6uQNDHYRKpiI6@lizhi-Precision-Tower-5810>
+In-Reply-To: <aEb6uQNDHYRKpiI6@lizhi-Precision-Tower-5810>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Tue, 10 Jun 2025 11:57:29 +0200
+X-Gm-Features: AX0GCFvXGARRqo4WtdQpGt4geFTzn6cBu8i4y7nYSpclBk1GV6MofVQXo2ClbwU
+Message-ID: <CABGWkvp4aEb-QusmJPat=khJk9cAaqq6CVxcC8ma8Wzqecbvfg@mail.gmail.com>
+Subject: Re: [PATCH v2 02/10] ARM: dts: imx6ul: support Engicam MicroGEA-MX6UL SoM
+To: Frank Li <Frank.li@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Matteo Lisi <matteo.lisi@engicam.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_025252_114130_CCCF2FC9 
-X-CRM114-Status: GOOD (  37.38  )
+X-CRM114-CacheID: sfid-20250610_025741_905158_8092E102 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,96 +96,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 03:33:29PM +0100, Dave Stevenson wrote:
-> On Mon, 9 Jun 2025 at 01:38, Laurent Pinchart wrote:
-> > On Fri, Jun 06, 2025 at 04:53:03PM +0200, Maxime Ripard wrote:
-> > > The RGB24 V4L2 format is defined as a pixel format with 8 bits per
-> > > components, with the components being in the red, green, and blue order
-> > > from left to right.
-> > >
-> > > The RGB MIPI-CSI2 is defined in the specification (Section 11.3.1,
-> > > RGB888) with blue coming first, then green, then red. So the opposite of
-> > > what V4L2 means by RGB.
-> > >
-> > > Since the hardware cannot reorder the components, this means that when
-> > > selecting the RGB24 format, you get inverted red and blue components
-> > > compared to what you'd expect.
-> > >
-> > > The driver already supports BGR24, so we can simply remove the RGB24
-> > > format from the driver.
+Hi Frank,
+
+On Mon, Jun 9, 2025 at 5:16=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
+>
+> On Mon, Jun 09, 2025 at 12:15:35PM +0200, Dario Binacchi wrote:
+> > Support Engicam MicroGEA-MX6UL SoM with:
 > >
-> > The only reason I could think of to explain why the driver exposes
-> > V4L2_PIX_FMT_RGB24 is to support CSI-2 sources that transfer RGB888 data
-> > with a non-standard order. I don't know what hardware would do that.
-> > Dave, Naush, do you recall why this pixel format is supported by the
-> > unicam driver ?
-> 
-> I've lost track of exactly what gets validated along the pipeline.
-> unicam_video_link_validate [1] looks to ensure that the V4L2 pixel
-> format and media bus codes match as listed in the table.
-> 
-> tc358743, adv7604, adv7511, and adv748x are all saying they produce
-> MEDIA_BUS_FMT_RGB888_1X24
-> ov5640 says it produces MEDIA_BUS_FMT_BGR888_1X24.
-> 
-> Is that an error in the ov5640 driver? If not, then both entries have
-> to be in the table to support all those drivers.
+> >  - 256 Mbytes NAND Flash
+> >  - 512 Mbytes DRAM DDR2
+> >  - Ethernet MAC
+> >
+> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> >
+> > ---
+> >
+> > Changes in v2:
+> > - Change local-mac-address to 00 00 00 00 00 00. The actual value will
+> >   be set by the bootloader. The previous one was assigned to Freescale
+> >   Semiconductor.
+> >
+> >  .../dts/nxp/imx/imx6ull-engicam-microgea.dtsi | 96 +++++++++++++++++++
+> >  1 file changed, 96 insertions(+)
+> >  create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.=
+dtsi
+> >
+> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi b/=
+arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
+> > new file mode 100644
+> > index 000000000000..38971f6512a2
+> > --- /dev/null
+> > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
+> > @@ -0,0 +1,96 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2025 Amarula Solutions, Dario Binacchi <dario.binacch=
+i@amarulasolutions.com>
+> > + * Copyright (C) 2025 Engicam srl
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > + #include "imx6ull.dtsi"
+> > +
+> > +/ {
+> > +     compatible =3D "engicam,microgea-imx6ull", "fsl,imx6ull";
+> > +
+> > +     memory@80000000 {
+> > +             device_type =3D "memory";
+> > +             reg =3D <0x80000000 0x20000000>;
+> > +     };
+> > +};
+> > +
+> > +&fec1 {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&pinctrl_enet1>, <&pinctrl_phy_reset>;
+> > +     phy-mode =3D "rmii";
+> > +     phy-handle =3D <&ethphy0>;
+> > +     local-mac-address =3D [00 00 00 00 00 00];
+> > +     status =3D "okay";
+> > +
+> > +     mdio {
+> > +             #address-cells =3D <1>;
+> > +             #size-cells =3D <0>;
+> > +
+> > +             ethphy0: ethernet-phy@0 {
+> > +                     compatible =3D "ethernet-phy-ieee802.3-c22";
+> > +                     reg =3D <0>;
+> > +                     reset-gpios =3D <&gpio5 9 GPIO_ACTIVE_LOW>;
+> > +                     reset-assert-us =3D <4000>;
+> > +                     reset-deassert-us =3D <4000>;
+> > +             };
+> > +     };
+> > +};
+> > +
+> > +/* NAND */
+> > +&gpmi {
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&pinctrl_gpmi_nand>;
+> > +     nand-ecc-mode =3D "hw";
+> > +     nand-ecc-strength =3D <0>;
+> > +     nand-ecc-step-size =3D <0>;
+> > +     nand-on-flash-bbt;
+>
+> Not related this patch, latest device tree binding for nand-controler sho=
+uld
+> look like
+>
+>         nand@0 {
+>                 reg =3D <0>;
+>                 nand-ecc-mode =3D "hw";
+>                 ...
+>         }
+>
+> I am not sure if above dts work at your ul board.
 
-We haven't standardized which media bus code to use for 24-bit RGB on
-CSI-2, so I'm not surprised drivers didn't get it right :-( The adv7604
-and adv7511 shouldn't be relevant here though, as they're not CSI-2
-devices. tc358743 and adv748x are relevant.
+I tested the change you suggested, but it's not working on my board.
 
-Sakari, which media bus code would you expect ?
+I also did a search through various DTS files on the i.MX6ULL SOM, and inde=
+ed,
+the scheme I adopted is used by other boards that have already been merged.
 
-> Looking at alvium-csi2.c and st-mipid02.c, both mappings are included
-> there (and RBG888 in the case of alvium).
-> Unicam's hardware doesn't care about the ordering as it just writes
-> the incoming data to memory, so having all the sensible mappings
-> between MEDIA_BUS_FMT_* and V4L2_PIX_FMT_* values makes sense.
-> 
-> My initial reaction though is that simply removing the entry won't
-> solve the problem anyway. You won't get a match between the
-> MEDIA_BUS_FMT_RGB888_1X24 requested by tc358743 and a supported V4L2
-> pixel format, so the link_validate will fail.
-> Swapping either fourcc or code between the two entries would be the
-> fix I was expecting.
-> 
-> [1] https://github.com/torvalds/linux/blob/master/drivers/media/platform/broadcom/bcm2835-unicam.c#L2151-L2169
-> 
-> > > Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-> > > Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> > > ---
-> > >  drivers/media/platform/broadcom/bcm2835-unicam.c | 5 -----
-> > >  1 file changed, 5 deletions(-)
-> > >
-> > > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > index f10064107d543caf867249d0566a0f42d6d8c4c6..1f549019efd53c9aae83193e74f1a3601ebf274d 100644
-> > > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > > @@ -338,15 +338,10 @@ static const struct unicam_format_info unicam_image_formats[] = {
-> > >       /* RGB Formats */
-> > >               .fourcc         = V4L2_PIX_FMT_RGB565, /* gggbbbbb rrrrrggg */
-> > >               .code           = MEDIA_BUS_FMT_RGB565_1X16,
-> > >               .depth          = 16,
-> > >               .csi_dt         = MIPI_CSI2_DT_RGB565,
-> > > -     }, {
-> > > -             .fourcc         = V4L2_PIX_FMT_RGB24, /* rgb */
-> > > -             .code           = MEDIA_BUS_FMT_RGB888_1X24,
-> > > -             .depth          = 24,
-> > > -             .csi_dt         = MIPI_CSI2_DT_RGB888,
-> > >       }, {
-> > >               .fourcc         = V4L2_PIX_FMT_BGR24, /* bgr */
-> > >               .code           = MEDIA_BUS_FMT_BGR888_1X24,
-> > >               .depth          = 24,
-> > >               .csi_dt         = MIPI_CSI2_DT_RGB888,
-> > >
-> > > ---
-> > > base-commit: 0ff41df1cb268fc69e703a08a57ee14ae967d0ca
-> > > change-id: 20250606-rpi-unicam-rgb-bgr-fix-d1b6f46a75ad
+Thanks and regards,
+Dario
 
--- 
-Regards,
+>
+> Frank
+>
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&iomuxc {
+> > +
+> > +     pinctrl_enet1: enet1grp {
+> > +             fsl,pins =3D <
+> > +                     MX6UL_PAD_ENET1_RX_EN__ENET1_RX_EN      0x1b0b0
+> > +                     MX6UL_PAD_ENET1_RX_DATA0__ENET1_RDATA00 0x1b0b0
+> > +                     MX6UL_PAD_ENET1_RX_DATA1__ENET1_RDATA01 0x1b0b0
+> > +                     MX6UL_PAD_ENET1_TX_EN__ENET1_TX_EN      0x1b0b0
+> > +                     MX6UL_PAD_ENET1_TX_DATA0__ENET1_TDATA00 0x1b0b0
+> > +                     MX6UL_PAD_ENET1_TX_DATA1__ENET1_TDATA01 0x1b0b0
+> > +                     MX6UL_PAD_ENET1_TX_CLK__ENET1_REF_CLK1  0x4001b00=
+9
+> > +                     MX6UL_PAD_GPIO1_IO07__ENET1_MDC         0x1b0b0
+> > +                     MX6UL_PAD_GPIO1_IO06__ENET1_MDIO        0x1b0b0
+> > +             >;
+> > +     };
+> > +
+> > +     pinctrl_gpmi_nand: gpminandgrp {
+> > +             fsl,pins =3D <
+> > +                     MX6UL_PAD_NAND_CLE__RAWNAND_CLE         0xb0b1
+> > +                     MX6UL_PAD_NAND_ALE__RAWNAND_ALE         0xb0b1
+> > +                     MX6UL_PAD_NAND_WP_B__RAWNAND_WP_B       0xb0b1
+> > +                     MX6UL_PAD_NAND_READY_B__RAWNAND_READY_B 0xb000
+> > +                     MX6UL_PAD_NAND_CE0_B__RAWNAND_CE0_B     0xb0b1
+> > +                     MX6UL_PAD_NAND_RE_B__RAWNAND_RE_B       0xb0b1
+> > +                     MX6UL_PAD_NAND_WE_B__RAWNAND_WE_B       0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA00__RAWNAND_DATA00   0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA01__RAWNAND_DATA01   0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA02__RAWNAND_DATA02   0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA03__RAWNAND_DATA03   0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA04__RAWNAND_DATA04   0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA05__RAWNAND_DATA05   0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA06__RAWNAND_DATA06   0xb0b1
+> > +                     MX6UL_PAD_NAND_DATA07__RAWNAND_DATA07   0xb0b1
+> > +             >;
+> > +     };
+> > +};
+> > +
+> > +&iomuxc_snvs {
+> > +     pinctrl_phy_reset: phy-resetgrp {
+> > +             fsl,pins =3D <
+> > +                     MX6ULL_PAD_SNVS_TAMPER9__GPIO5_IO09     0x1b0b0
+> > +             >;
+> > +     };
+> > +};
+> > --
+> > 2.43.0
+> >
 
-Laurent Pinchart
+
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
