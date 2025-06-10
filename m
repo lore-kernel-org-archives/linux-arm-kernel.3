@@ -4,63 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E3FC5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A928C678DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 15:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/85cBozlC2xgCBTAbhplu80kMsNDggD57qUAZNnBQxI=; b=DtPAhdsrBw37L4+xjlFmnMODeA
-	oeEZGpDSk6cA/YgecsxNz4NkWhRplQaLtdEOiiLwjPMWbbayumG+vG1lJUMmESy0VObtl6I2loiHN
-	BHw05B/f1Mbk+lRy884hCgDx4MQLx60wOM3d0pYxofYi+BANnwz7l9GBAG4vhcqFy4W+gsx3isFDI
-	OzXUt5JGwXZomrTxFHL4qeyQJfMJKVbU7fRhS+UBSuxUDSFwqE0xR0TcVPB+U3aRS98xbrpdAZwbt
-	duF5iRGG4vc1X2Hfh+SBF2/ZTdh+T7hj5ghLiMyqEHQa6JUQmLIP8NcJjr63/uh5MyvasUeORnkzD
-	TkdsUO6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=; b=fj46pNpZl/XKobfkDarEsUXEpv
+	Pvc8V6hWAHHwO+h93+YvqJLZikCJKM0JM1hC/Pn+/UMmQsL4s5rzohIstAA4lTBDMBTKXB0+RkYP6
+	XMCgcPMT9xAGuYwGJJ3L44+JTrnWDH/2ocKVWXRvjch74Yx/RQJcCt1kHM4V10uUh46AAj+0H76WV
+	6diIK9NOqNs74wS2L0hC58FBSpU8079vikku8efZD8q5pCC3YI+eP5pvrgL3vd9yKxTTLbfvx1NlP
+	jol6H70BSmwYbPj25msqu26qlbvDsMnUxeXOFndpdds6yxoG8+gkjiaARaE3JFYau3j054KFXWYiq
+	gCyh1/fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0pQ-00000007IHG-40Og;
-	Tue, 10 Jun 2025 15:23:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uP0pU-00000007IJk-1cUP;
+	Tue, 10 Jun 2025 15:24:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwwt-00000006dBL-1dj5;
-	Tue, 10 Jun 2025 11:15:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=/85cBozlC2xgCBTAbhplu80kMsNDggD57qUAZNnBQxI=; b=tsBVOirOAvOm71dK34kUlVeUNi
-	ouTxpOtMJtNNtzjjiUEZWob1gPEsFEEPEOqcSoM3KdScCZBo/7t+WyOcGCd2XMRbdY1ROI9/wzWBN
-	IrOADU6laOx8+wUXbBcCZD80AN35RejZHuXm2s/ozUkfql+al0+JYH7sPfNgaSxItrTm9KzOOKEm4
-	cxB7A8agEwhqAIL5dAPt3k6iOEIV0pRtKFkGYxnS+cZ2yFOIFZ8MA2LMf9wjET5/DDQMl7o4h0dFz
-	hIkIEhaE7GXDXV6L4a/19zTHLwBBvfxmudLReOsyXQEYiMdIrYadRoijTI4tS1XIDp+pgYdMNw/xf
-	6pdcmNtA==;
-Received: from i53875b1c.versanet.de ([83.135.91.28] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uOwwq-0000iK-Fz; Tue, 10 Jun 2025 13:15:20 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Peter Robinson <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, Peter Geis <pgwipeout@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: add overlay for RockPro64 screen
-Date: Tue, 10 Jun 2025 13:15:19 +0200
-Message-ID: <7187768.GXAFRqVoOG@diego>
-In-Reply-To: <78773d27-d815-4fac-a131-275bde51788d@kernel.org>
-References: <20250518215944.178582-1-pbrobinson@gmail.com>
- <62276efe-13ca-448c-ad1d-ec0a8657737f@kernel.org>
- <78773d27-d815-4fac-a131-275bde51788d@kernel.org>
+	id 1uOxuq-00000006kMq-0ruc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 12:17:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=; b=od2Wn9gT0YWUR12UdzJt+iEKgM
+	WDUQ25PALmtz92CkHzwfvb1XyCV2bnXTxjDI5DE68Cc3/HaCQ6gbgdtq7EwoPGmTBHqakjPZTp4kk
+	514QNoUSrVDs8nC8SWySw5zo1M8t73dSwdJijUSgZjTn8CTOS1xXG8yH4KuXf3ecMmuk6RhE69Gdh
+	FqGQE345Y0FOnAD9QxeTD1CygNB2WI2VJnZGgrP65JXz4+tG8ls+rOE2M17KCYNDLPubIZ8sRe6WE
+	Af3u6qcDVWzc0y/5YL8Pe48fbvW2K/dMCemEoHq0oUhZQyAA06W3gDBjusTQiHU8fFoCbEqmxb5sN
+	xuw2rUag==;
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOxun-00000001nr1-2Ugj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 12:17:19 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-45310223677so18435455e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:17:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749557834; x=1750162634; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=;
+        b=PhbfShR5Xcezp+7SCZAmWtlnNGb8t+rAMfXan6vWvXtMS+2E7CkctFT0NRVym1g3AX
+         Q5rScapE+HtqzBXLhH3O9jrp6MyMubmtltru6YbOOzQheWSgUNK8zPGkMkkiVrp8Gb53
+         380YcE/QUGgDCPutBMy0tGjhkb4UOSJHvVs4admvq7MjHM4eZhbv0VMluwMS2sOgsW3l
+         eB4XaaSB9udSQfTcQTB/q12OaKzrj9xxzcDl78H4LAiKwrIfl2N2np+EkY34WSmwGRWg
+         mR6AdWy4/ghjFrS5NUHf/rtl7V5AOPrZ6CjI5ZTrL/OeMijWJLTHWybarmL+4cpEDV0M
+         Xlsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749557834; x=1750162634;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yJibE8vzk8gYYAz656wGhXQdfbfshNUam9Sx/5ZqBBA=;
+        b=Zr/uVkRiDJ5T6I3mhm//EbhJwieKC3ba428ZV30nUGKGI0ahiDmozcoEzauolKxhGn
+         KW4W6Z2YJ0DnyG7vYL7VUNIc9O3fTSO1kxzVvcqDVrXA3C1r/o9Q+/LIJixA1yZFsS9J
+         vigWx96lbJbSfXZAYY6T9Xi1bRfLHV9dkoyp/iqgojsRkW6pQQfPWncuD3Ige62U4IPI
+         LeclQ/alsrx/K7OIcJhvZc92MTgabB7i4bv7IXEgWV0JJ61C2a1tsK9AtcmSjqgVXejY
+         wObt0gFzWRypcGlUuJK/xyiq90O7iLc0gNoo+RJmix52Fdl+hauGJFEIc/wVGLATX45M
+         90PA==
+X-Gm-Message-State: AOJu0Yyw2uQMgNygBvGxLqEFoY/fwQzijqjSHfYYH6OvbRKqy23yeZ87
+	OwxT/+M+OXbPaphPtouJS/R7q48RdWxUKWTf1nIUctkhnOf19kgtwg7k3xPPgpR9sLc=
+X-Gm-Gg: ASbGncsxolZiUSWhHo90ZaUzle9ODr6Q82YEV0+a0NdH2smnhl6aMR/MtOrFwksDuQp
+	1x+LyrvzYABnrgLc02PI9Nbbm4Q05h1NBE7xT4PAN3EWc635sIEps7MuCax6nbt1jXS1b0Qf6bb
+	NAwLJ+gIlUU3d+KMGcYwPMQzDO3i/PHfm4WqW+KnMXSPdY1yVIjFhZWohb11rCS4BwjdS6ys4Dq
+	7ZpeYA5txwIIuwUyol6bzRTC86VLvkFFNyr1Atcl4ikvUBPA7FZ4DPaMjJyODoxn3Vj05oVFBvv
+	l78zkbldsso6lDvV7Q9Xf94G3EK3zcCTFgxiw6fc2HcPtzS1x1YbOFzOQVCC+5J5Gf5Y8xNdmkO
+	YA4XVzyxmW0zBfAnJew==
+X-Google-Smtp-Source: AGHT+IHeRxL7AIpQs/dULM8FxMsmTh1TJE0pgJiXuKAcZExlRGsP8IQNBSgadCI7/pKMwjfUXDxtaQ==
+X-Received: by 2002:a05:600c:1e09:b0:439:643a:c8d5 with SMTP id 5b1f17b1804b1-452012ace18mr187168685e9.0.1749557834455;
+        Tue, 10 Jun 2025 05:17:14 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4526e1595d4sm136313625e9.16.2025.06.10.05.17.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 05:17:14 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: linux-amlogic@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <20250609202751.962208-1-martin.blumenstingl@googlemail.com>
+References: <20250609202751.962208-1-martin.blumenstingl@googlemail.com>
+Subject: Re: [PATCH v1] drm/meson: fix more rounding issues with 59.94Hz
+ modes
+Message-Id: <174955783398.1721274.13530320235871545331.b4-ty@linaro.org>
+Date: Tue, 10 Jun 2025 14:17:13 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_041523_454661_94A53D55 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20250610_131717_687896_83309C8D 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,58 +115,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 10. Juni 2025, 12:48:50 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Krzysztof Kozlowski:
-> On 10/06/2025 12:44, Krzysztof Kozlowski wrote:
-> > On 18/05/2025 23:59, Peter Robinson wrote:
-> >> The Pine64 touch panel is a panel consisting of the Feiyang fy07024di2=
-6a30d
-> >> panel with a Goodix gt911 touch screen. Add a device tree overlay to
-> >> allow the display to be easily used on the device.
-> >>
-> >> This was previously included in the main device tree but left disabled
-> >> by default which still required rebuilding the DT to use the device, n=
-ow
-> >> overlays can go upstream the overlay is the best way to handle the
-> >> add on devices.
-> >>
-> >> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
-> >> ---
-> >>  arch/arm64/boot/dts/rockchip/Makefile         |  9 ++
-> >>  .../dts/rockchip/rk3399-rockpro64-screen.dtso | 89 +++++++++++++++++++
-> >>  2 files changed, 98 insertions(+)
-> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-rockpro64-scre=
-en.dtso
-> >>
-> >> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/d=
-ts/rockchip/Makefile
-> >> index 3e8771ef69ba1..c7b13bff3ac20 100644
-> >> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> >> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> >> @@ -77,6 +77,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock-pi-4c.d=
-tb
-> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rock960.dtb
-> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-v2.dtb
-> >>  dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64.dtb
-> >> +dtb-$(CONFIG_ARCH_ROCKCHIP) +=3D rk3399-rockpro64-screen.dtso
-> >=20
-> >=20
-> > This was absolutely never built as reported by Naresh. You should never
-> > sent patches which are at least built tested... although they should be
-> > actually tested as well, but if code does not build actual testing is
-> > impossible.
->=20
-> Huh, I was wrong - this actually builds, just cannot execute install targ=
-et.
+Hi,
 
-I did build it as well after applying - but still managed to overlook the d=
-tso vs. dtbo
-But I'm surprised that still built yesterday
+On Mon, 09 Jun 2025 22:27:51 +0200, Martin Blumenstingl wrote:
+> Commit 1017560164b6 ("drm/meson: use unsigned long long / Hz for
+> frequency types") attempts to resolve video playback using 59.94Hz.
+>  using YUV420 by changing the clock calculation to use
+> Hz instead of kHz (thus yielding more precision).
+> 
+> The basic calculation itself is correct, however the comparisions in
+> meson_vclk_vic_supported_freq() and meson_vclk_setup() don't work
+> anymore for 59.94Hz modes (using the freq * 1000 / 1001 logic). For
+> example, drm/edid specifies a 593407kHz clock for 3840x2160@59.94Hz.
+> With the mentioend commit we convert this to Hz. Then meson_vclk
+> tries to find a matchig "params" entry (as the clock setup code
+> currently only supports specific frequencies) by taking the venc_freq
+> from the params and calculating the "alt frequency" (used for the
+> 59.94Hz modes) from it, which is:
+>   (594000000Hz * 1000) / 1001 = 593406593Hz
+> 
+> [...]
 
-I'll amend the commit for the dtso -> dtbo change.
+Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-fixes)
 
+[1/1] drm/meson: fix more rounding issues with 59.94Hz modes
+      https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cee6c4d3518b2e757aedae78771f17149f57653
 
-Heiko
-
+-- 
+Neil
 
 
