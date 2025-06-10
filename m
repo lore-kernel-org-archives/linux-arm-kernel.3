@@ -4,158 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60D5C5B543
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E304C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 09:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KtSFHDqCsIkf1iQ7Dhwq+Rgln9mAb3UEoYp2yGhElrI=; b=lr2usqxShRBjwysa8JaQcbCs1f
-	e+tMWbxRDjMy8Hv7wQ+crOo54YVjZlDFbR4AMhaCwmM2PMoFaxIXeFAS5MP3mXPQV0QDvlKUnpy+w
-	o32GkBL4ZTze2vfFbmqkmGXG5GwUfJECmvdaPYrR6lBd6Nr2LkT5iLznwcQt5R46bVDBRnc56ey4w
-	8ODJn6hcL0aIL68P5hvZadbQNMK+9sOUH7v5tvaYYjo8DtKP0f7xaDCrapTKijoCOEQ4sf6mrhChf
-	Yc501CugYMauQmtNmpXsR3JNllfUm4oDDP2IlCWjTRzLHAgwxn2Xy0HkscQp6eX+yzgCUU+hB22yi
-	haOB4ZXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HYD5PVmudBJk+mszv7UWM/fKJWhEJVZ2kOsb27Mivno=; b=ipkjl9rBPDj6ujVHYKffPdfohr
+	mjmi0kKWkAH7RfKlS+HJtTJ8RPMsCNsqbAJ+azJl+mXp3MiL3xTYtISZZCtDrJfaRGK/aPdilmeoq
+	svvagBaZUmIFAYMCgcZer3zTECnYU1d71WhB+mrX/ZJnlj78k2aqcQdGuOtnB2zKC4Ac3yAg+8ge/
+	XvXHnZ11GTbpFaP9XPntmfGt1qvuP/ZIhJL7osKTujNGtbkOyU1Xm+a5fkiqyZ+ucQOXyN15qr9QI
+	d2NTP46h/2gwwcOuQ5vIA9cffpp6gtlLqWISeybbCy2BV1PIyy/2kXM96NdAmHnASzr2BDVlAgZF0
+	/ReFgl5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvcZ-00000006Ort-3ZGO;
-	Tue, 10 Jun 2025 09:50:19 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uOvei-00000006POb-07al;
+	Tue, 10 Jun 2025 09:52:32 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvEO-00000006KMs-1EBV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 09:25:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZrbO4a3vFel4C0M2l4qSr7W+1pUwOv5shnPsQ6B4wWlPInSeboNGa6h6pdGZz2iMlI7SKQSiIxpr82IwlronN9GaV8+Zng4mxm1vplT0PpwFnIGeh85Jg/Uf/2UHl99/OH4HVhQPi3pQuimY8T6/mNuGHhP4KEc3mXn8+o4PheZE86X5R2wpT7XD6dssKG5TeRbI2TCZCtkbLheTBLxIEMFEzL+zoBPTwx4IjhNAHB0wPmPvpWelGK2oPc+BSwSNnsobdY8PpSsrRXBwtgtYrsfVyZD8vYgG2vH+l42/rvslww07vMx6d0YpU7Vu2CkSGNK6IGIoM0nNKFxWThiD7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KtSFHDqCsIkf1iQ7Dhwq+Rgln9mAb3UEoYp2yGhElrI=;
- b=ls9XeNZIRYxmtM2cdpAK0atQ829greeg3v25Pq4lwO3Tox7Ocry0Z/DZCPkTU8pQVHoZMKB3zHiJRZDzUs3N5UBzEL8xh5BNO/48UnfPTkxeC8lQ/r2ZwuDeYctJRhVXlDFpN8WgrMDT9epUNjZesg/QRmhUYarbvWPO5RuCHgcPRBkNouX2oW7C4Zfvp33uWTXD8A6Ta+NZA4EhhcikLGzMEQVc9cYo0Iwcnx5tHOUcteEPzfDNMqlKv8PhxGnjkw4Im2R+9dVej9S1tyBr94/r0DmfZXeFV36xCSyItiVxMXuXnbkqUyXkJ7JxE+yMs+thwWSv4cNS6j0k3z0IFw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KtSFHDqCsIkf1iQ7Dhwq+Rgln9mAb3UEoYp2yGhElrI=;
- b=i7cx6frKXYpB7rAXkKLK/aXYxjXFptBrZboDPIn5rkIuPZfm83UXZq3FpPiGpZkDl0k3HoRRzojjarOjLMSNqRiBCzBy4iy8kd3x+hOFuNxDryt0lEE5OgGEz2jjz0BF79T7YTFCoNJbbB5fnfin1fzUYGe7Min+kBkdvrTgV9YTpcl52+ILLgYHXJ8eFLHGqrIliW5MYEjI9xXEVtE8psOX33B7siotyJuYbEHBAu2MG1sc8a0Y7jvFhLP1r/mB24DiaV4zlYVP/CiY9wQJFj52IT5iiYY9Z54zKPL7EqhipME30kO5mQ+X2ihpRI2LiF5L5hs+osoQFoqx8+XbbQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by DB9PR04MB8251.eurprd04.prod.outlook.com (2603:10a6:10:24f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.25; Tue, 10 Jun
- 2025 09:25:14 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%3]) with mapi id 15.20.8813.024; Tue, 10 Jun 2025
- 09:25:14 +0000
-Date: Tue, 10 Jun 2025 12:25:11 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: Meghana Malladi <m-malladi@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Simon Horman <horms@kernel.org>,
-	Guillaume La Roque <glaroque@baylibre.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Roger Quadros <rogerq@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, srk@ti.com,
-	Roger Quadros <rogerq@ti.com>
-Subject: Re: [PATCH net-next v10] net: ti: icssg-prueth: add TAPRIO offload
- support
-Message-ID: <20250610092511.ggf2kqpdokzvn352@skbuf>
-References: <20250502104235.492896-1-danishanwar@ti.com>
- <20250506154631.gvzt75gl2saqdpqj@skbuf>
- <5e928ff0-e75b-4618-b84c-609138598801@ti.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5e928ff0-e75b-4618-b84c-609138598801@ti.com>
-X-ClientProxiedBy: VI1PR0102CA0093.eurprd01.prod.exchangelabs.com
- (2603:10a6:803:15::34) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	id 1uOvI0-00000006L1D-1Peh;
+	Tue, 10 Jun 2025 09:29:05 +0000
+X-UUID: 565c7b0845dd11f09f706fa2197c6ceb-20250610
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=HYD5PVmudBJk+mszv7UWM/fKJWhEJVZ2kOsb27Mivno=;
+	b=S+L5lUUgQlyJwaeJPPgb9tmpj4Q/97eMaMPFU5CPvefo8EffK7REg8x5U4/rmcIFhYefPS9gy5XX7Wa6PLmP0isjUE6kfQhyp8knKXcz5lB12KIC9txGTCtj4Ow06dqgRH0J16qC0HQWbNnrn7X0eqIbyFo8oJLM4TVIyUpjPZc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.3,REQID:06cca2b9-4fc1-4b9e-a166-5f9c14a09330,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:09905cf,CLOUDID:cf33d781-ef30-4982-a001-67a9a83f2fda,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|102,TC:nil,Content:0|50,EDM:-3,IP
+	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 565c7b0845dd11f09f706fa2197c6ceb-20250610
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <darren.ye@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 221588007; Tue, 10 Jun 2025 02:28:58 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Tue, 10 Jun 2025 17:28:55 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Tue, 10 Jun 2025 17:28:55 +0800
+From: Darren.Ye <darren.ye@mediatek.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
+ Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
+	<darren.ye@mediatek.com>
+Subject: [PATCH v4 00/10] ASoC: mediatek: Add support for MT8196 SoC
+Date: Tue, 10 Jun 2025 17:27:17 +0800
+Message-ID: <20250610092852.21986-1-darren.ye@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|DB9PR04MB8251:EE_
-X-MS-Office365-Filtering-Correlation-Id: 714293a7-8042-4525-e97d-08dda800b4aa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QjCuaEdW6Sag3CX7goWZ01RJanzjl71j+Nk6vkyeCrR08qqO4bFL5zbFPYeX?=
- =?us-ascii?Q?8A6uLLISX4otvGjATzoYu4piMT0Uz1wXAPrho++z4hk6D+IDy+x1/o2WRca8?=
- =?us-ascii?Q?E7MBGFCfHdGmLS/JMQdNo6rx+T+h/uw23RHDf6hvswiore1TI1nRPaPyDkvX?=
- =?us-ascii?Q?5wTmciKZeQNGPq5fvoti6SwNOA1p/8I1Bd2q3dOov/xA0dNPIlsQoruE4tq6?=
- =?us-ascii?Q?I1Dp4ypefxfyOXwQJUIqGFl/jniBFWERZRTYJTgo1z3d+FCyDj1jX3MrAJyR?=
- =?us-ascii?Q?hdj0ZXxXHvBpZyKOt73olFQ65Zvh0jERAgzu3iqt2zxyAQfXBrloI6a++GUj?=
- =?us-ascii?Q?CeOE4Nma2FO/fBdL/y5JG1RXo72es9NPvKJlOyd08yHA39lAzFVIiazXnhYT?=
- =?us-ascii?Q?xAlnj3R8YbCCJ1926mzI+9WQRLZgZRFoyfomdYA16sNCvkRMyWaJFhEEJtmu?=
- =?us-ascii?Q?7un0GPrOAkrWgZGiD/n/IG+Adwgc+1BX07lh+OyyztQUx2xO+MCySSiMmifK?=
- =?us-ascii?Q?9UXkXWXM169l+zncOJ44WySNJWEVYxEoCj05IN4nCnwYnF3ODht4VG/4fVHI?=
- =?us-ascii?Q?k6xcMjYR0QIPQNNqx5wTMGE8+M7GOjkh56HC3TzVMVWzrOeh3LYv2Et3jkgF?=
- =?us-ascii?Q?0XkLr4b4s/tO20Q++PBiQlgdFvPi7rhpSp4oamazcnhm1flZ1cH8JUa9M98s?=
- =?us-ascii?Q?JokQQeZJrG2OBG7+3FXgr6MEPqCTUXiwg9PdtrdC3z33CnepBXI1mtAEohPg?=
- =?us-ascii?Q?0DdW6QLEpPRt6FLfFr7QP/+adPcUbZ/an2o4qqUvuSUjdDEbBdx+nHdUx80Z?=
- =?us-ascii?Q?KhPWOu42rC3UfitYx2hv2uAwr8+ikt86I8vDi0VwO1hXnjFs487+oK/r4vLz?=
- =?us-ascii?Q?GTn9jdo2ils3nW5AsTgiszOGHIo8ooM8ApI38+U0pFuKL3TMz7uHyTLrmXoo?=
- =?us-ascii?Q?eO+7BPMhilqCdpCyLIOekvz6lV1wK7VFsIQR/ASCDgEfiHz2B0bTmt/Tt9ec?=
- =?us-ascii?Q?iA+gkMEj4CMSGr0XjRint7FWcqMmA9gLApwo84BIcr2Mmv+xonoey+t9uBnm?=
- =?us-ascii?Q?k9ovUc/qHvOBZJZeJDRqhfLXXQRprgQX8Lo0Af6shFrLnv93SJMrg3DTKvXm?=
- =?us-ascii?Q?KbEFN4ivZgieo8o4I/gv8j7d896e9sLMxOIZTtvUDV2z50KfkIl7owpRTavj?=
- =?us-ascii?Q?OKmBTb2dlwN0nu0jeK12nGaIkXgZ2U2vFfC/XEMn/Cq8AYJYOi7QBnkWMLKF?=
- =?us-ascii?Q?LQoK78D8zfpbII0tMGKJs1rNKvdHQvpnkEY8e6szKNMIDJjuVrxlqSfhOTHy?=
- =?us-ascii?Q?ZpexpMoFTcWVkvNNMavPZqBoK/bqFjxZr3XDo+2Q26Djhu65mpJmQdb6F7sr?=
- =?us-ascii?Q?L62ttbW1jL15TNQKUCbarntb6h/XSEfs/QscvIf0wfWPWG5HDlQPB+EKELOf?=
- =?us-ascii?Q?6AsOcSgImN4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MuVRWKr6JvI68xD9l62t0R372QXJCK1RyS8jLXh85op+TkRs2uUYqc9lAmOI?=
- =?us-ascii?Q?DC4CnhHQZ8nJ1ntZWDPeGA7UTDImUcK1ksLDrSr2rHrH0NbPmbiPG/6Ea2WZ?=
- =?us-ascii?Q?by8FVSx9qygRphoGKxn2z91TZRohgz6yVRkwH9orjVGl6g4xuTl1d90Ua696?=
- =?us-ascii?Q?owi0NyBto+S2dM4XYimmshP0sBk0M39fbPglm1shPYrGSZSqDkl1fhVTOpzp?=
- =?us-ascii?Q?QspeunFnI/Zx+EaIwevZocx9c8ekc3YF/XyRxRxNspK18HcMfZ4ntQzsm27d?=
- =?us-ascii?Q?6ErhpIhjOmM+Zp7QyPL9u4yp3PwcgKVRCIWrA0NxMEt1rC43DaGcdH6ZEKFy?=
- =?us-ascii?Q?ouN1JBAHl58Yo0M0Ks9siyG1hV47evdwr/ND0rklZwzvtAcXx8heSivTTTqI?=
- =?us-ascii?Q?MucRVr9o9rpXw8eU+WfxT1wyl9hiDvl87qFmDaPXiEyE+xdDftti9LvB8deD?=
- =?us-ascii?Q?yzHg8vn5Wl07ZrFy9ENJGgbxY4auEhNQl7Le2TKi6TVexDzMPx2gYtYJXo5q?=
- =?us-ascii?Q?LGl3ndH9wZ0Xd/UqLYU0qX/xs97Ss8FgLaB0SmWsWphbVDJF6pLTJIzSOeAQ?=
- =?us-ascii?Q?xoSI/Ug4gzXWpfns5cRv8U2ti7hdpaqkbDtd7h3loGFnkrtEo+G8MTnxBEN9?=
- =?us-ascii?Q?uMbWCtM0W9B0yKYD+z7WWrohNpKaaflPhsdV0OKb6C/INYzVvLkq4HgGKQT5?=
- =?us-ascii?Q?dvFkBrfainTqpuN+4Y+TYiVbUfFQ3IQfM1/fkhl7dU60jYXBQV2STqhs4XUe?=
- =?us-ascii?Q?B3JcNB6y+mvvqyd37tfXbgI0ElmdZjxBZ4ZU/+s7kOwdLzKdVH+b5y3R/IEg?=
- =?us-ascii?Q?dRfrlBVOmIDrX1kgApOVl+E7f/M3yEfVQ/CjKQZ7d74OVzrCTfsngp0cYGol?=
- =?us-ascii?Q?hoNcfJmXVLDv8p8aYxMBysoIaY9XK9w6DeD5Uoy6TQ5MpzdvYHXGuSmD2WP3?=
- =?us-ascii?Q?3N1n6uCuvBv6lSsytrFwLJVCeg6yLLRUKRhaVtWAVuEtqctVFz1rnOo3CxEa?=
- =?us-ascii?Q?OvgNF3/0y+bEe7f4ra5waODclWzqylP8q9v9IxZPZClpXNfQdSczbmQYn9Bw?=
- =?us-ascii?Q?ddaHpYCmwuj1iVt9Skys+YuBX1w9FNxd6q/SdrmMYRRR41IMKXooswFK8OxY?=
- =?us-ascii?Q?uD2TAtjKGL8qXuqGG30nSCM6SqOGTxVHW436HZ54SBC4ZCoXHjfpYL8t0mqZ?=
- =?us-ascii?Q?mKl4Wsgvc1reuB2vqEhO12+rGB5i2i+L/1yXx8mH+mq4O2wNh+jL2dHR5GAv?=
- =?us-ascii?Q?rI14t7+szd+DOF52iMmv3oHL9E9ddU6gA49hkvzG9fBZ2K/syT+LLuvESyAU?=
- =?us-ascii?Q?szvkuiWOhMwbyRIUYyMsCrMwkEi9Wc6s5XKDuBzoalKEDgCWs8/DeR0YZhzp?=
- =?us-ascii?Q?lA18k+K1Yab0Q1hQB1iGOIsatddJLdGMcmaCcCHtlmhiVa3ZZeoyDBWoHTFM?=
- =?us-ascii?Q?RIoVyBCysvYhrGnXjMgjlWMjmiKx3X/iS18WM7AosKzeo4QAvIRygG2y3+Ou?=
- =?us-ascii?Q?2MBYWTeSHTpassePbXGrlbDrrDcK91F+b+O+bQSe3EGW5KlAZjxjUAzbjV1l?=
- =?us-ascii?Q?MztKp0IUa7K79B1SXqhS7nuNYqbE6qAaM/kiRLJ6QXO4hU4xM7FSUzK7ky/U?=
- =?us-ascii?Q?Ww=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 714293a7-8042-4525-e97d-08dda800b4aa
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2025 09:25:14.2709
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ccNRQx70YN8X92+7SIMD0ON+vin5leyKmwIz6ZpYc+Ckg4o692kMRSF4zAianGy4uqTyXKtUaVSGLhEC2yEEzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8251
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_022520_332373_CA562C72 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250610_022904_386683_B70F59DE 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,17 +90,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 15, 2025 at 04:24:50PM +0530, MD Danish Anwar wrote:
-> To compensate this, whatever extension firmware applies need to be added
-> during current time calculation. Below is the code for that.
-> 
->       ts += readl(prueth->shram.va + TIMESYNC_CYCLE_EXTN_TIME);
-> 
-> Now the current time becomes,
-> 	counter0* 1ms + counter1 + EXTEND
+From: Darren Ye <darren.ye@mediatek.com>
 
-What will the TIMESYNC_CYCLE_EXTN_TIME register read (and what is its
-exact meaning)? Is its value derived from TAS_CONFIG_CYCLE_EXTEND? I'm
-asking because the driver only writes TIMESYNC_CYCLE_EXTN_TIME to zero
-(for a reason that isn't clear to me either).
+This series of patches adds support for Mediatek AFE of MT8196 SoC.
+Patches are based on broonie tree "for-next" branch.
+
+Changes since v3:
+ - the AFE TOP CG index is added to the common header.
+ - remove the audsys clk register and directly read and write to the regmap of afe cg clk.
+ - modify the clk logic according to the suggestions.
+ - remove the macro definition of MTKAIF4.
+ - remove the tdm cg event and directly read and write the tdm cg reg form the widget.
+ - remove the i2s and cm cg event and directly read and write cg reg.
+ - afe hopping and f26m clk cg are placed in remap_register_patch and enable.
+ - the yaml file is modified according to the suggestions.
+ - replace SND_SOC_DAIFMT_CBS_CFS with SND_SOC_DAIFMT_CBC_CFC.
+
+Changes since v2:
+  - remove the mtk_memif_set_channel interface modify.
+  - remove duplicate definitions from the header file.
+  - move the afe gate clk to the audio driver for management and registration
+    and manage the afe clk gate in each dai driver.
+  - delete the useless clk source.
+  - the i2s driver adds i2s clk gate management, removes the additional dts
+    configuration of i2s4.
+  - the afe and i2s dai driver,memif and irq data structs are encapsulated using
+    macros to reduce the amount of code.
+  - the volatile reg is modified as suggested.
+  - mt6681 codec is not supported, the mt6681 keyword is removed.
+  - the name of the machine driver is changed from mt8196-mt6681.c to mt8196-nau8825.c
+  - remove the i2s4 configuration from mt8196-afe.yaml and make the modifications as suggested.
+  - change the mt8196-mt6681.yaml to mt8196-nau8825.yaml and make the modifications as suggested.
+
+Changes since v1:
+  - modify mtk_memif_set_channel and mtk_afe_pcm_pointer interfaces
+    are improved to support mt8196.
+  - remove duplicate definitions in the mt8196 common header file.
+  - cm logic is merge into the afe platform driver.
+  - modify afe clk to return judgment logic and remove useless clk sources.
+  - refactor the mt8196 adda dai driver.
+  - remove the gpio module and use SND_SOC_DAPM_PINCTRL to manage it.
+  - removes CONNSYS_I2S related functions that are not supported in i2s dai driver.
+  - fixed mt8196-afe.yaml and mt8196-mt6681.yaml syntax issues.
+  - modify log printing in all modules.
+  - optimize the header file included for machine driver.
+
+Darren Ye (10):
+  ASoC: mediatek: common: modify mtk afe platform driver for mt8196
+  ASoC: mediatek: mt8196: add common header
+  ASoC: mediatek: mt8196: support audio clock control
+  ASoC: mediatek: mt8196: support ADDA in platform driver
+  ASoC: mediatek: mt8196: support I2S in platform driver
+  ASoC: mediatek: mt8196: support TDM in platform driver
+  ASoC: mediatek: mt8196: add platform driver
+  ASoC: dt-bindings: mediatek,mt8196-afe: add audio AFE document
+  ASoC: mediatek: mt8196: add machine driver with nau8825
+  ASoC: dt-bindings: mediatek,mt8196-nau8825: add mt8196-nau8825
+    document
+
+ .../bindings/sound/mediatek,mt8196-afe.yaml   |   155 +
+ .../sound/mediatek,mt8196-nau8825.yaml        |   102 +
+ sound/soc/mediatek/Kconfig                    |    30 +
+ sound/soc/mediatek/Makefile                   |     1 +
+ .../mediatek/common/mtk-afe-platform-driver.c |    47 +-
+ .../mediatek/common/mtk-afe-platform-driver.h |     2 +
+ sound/soc/mediatek/mt8196/Makefile            |    17 +
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.c    |   728 +
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.h    |    80 +
+ sound/soc/mediatek/mt8196/mt8196-afe-common.h |   213 +
+ sound/soc/mediatek/mt8196/mt8196-afe-pcm.c    |  2665 ++++
+ sound/soc/mediatek/mt8196/mt8196-dai-adda.c   |   888 ++
+ sound/soc/mediatek/mt8196/mt8196-dai-i2s.c    |  3970 +++++
+ sound/soc/mediatek/mt8196/mt8196-dai-tdm.c    |   836 ++
+ .../mediatek/mt8196/mt8196-interconnection.h  |   121 +
+ sound/soc/mediatek/mt8196/mt8196-nau8825.c    |   869 ++
+ sound/soc/mediatek/mt8196/mt8196-reg.h        | 12068 ++++++++++++++++
+ 17 files changed, 22776 insertions(+), 16 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-nau8825.yaml
+ create mode 100644 sound/soc/mediatek/mt8196/Makefile
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-common.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-adda.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-i2s.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-tdm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-interconnection.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-nau8825.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-reg.h
+
+-- 
+2.45.2
+
 
