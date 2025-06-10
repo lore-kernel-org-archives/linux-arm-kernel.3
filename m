@@ -4,54 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36526C71133
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7A0C71130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Xa0q8z6Nlabn5VSzOfD+ouJeFgB8kBuoS3yqSJh6dg=; b=jEUjLqr3egWOdISoe1TlbxYCRe
-	jHHxiX0LrfA5vwm2wT6DCIT9naYwj4tKKWnyVkrXnsWQeqUfcY21dZMJ7WZB9f0hW7414oHZiSH9p
-	req/xdsWp3VtXtAU9ZG3lxB+UklfvQbx5a8bYeR87lkfCShrz3FxGi74WLDzw7PiFJm3KjzX7mZWJ
-	N4335Yc+IpHwxFiQzhqRY0igjU2paPHQZJ8r4b/p7JMOesrM6YMoIXWbxaimRL6xX8JQK3dCgoylu
-	mVlH5ehyhITyYJovx22pH1SX0ZzmG4BtDc+WpD1M+GVO+U4l0zBbtonVnnER/CmmaFmndrCRbnQv7
-	JBuYJ18Q==;
+	bh=HNuTZyesZtH5NbjQ1MCo6aiQolT+F0OIq6NlizxKguk=; b=TzFfr8PeliJ/4Dwcft86mFrON8
+	UmGz5+7nA8M1CufGXELFBWffTa3eLWy+kPX1FXLr/sWAej87ONu9ZFZ/s5lJOxGR5hPEZMrOaLjs+
+	q38bnFNZGz7Pr1Q2R07CXsdpxABajqIG1k6A4McNlB26yahhDpAnViMkpqEnC6ZSkmgljp6qwRKqb
+	B4wgBD6JwzQfknhMojLKzTQoMT0phuwEBvSq+YFvS2eBLxhh69R3rI4jHpSrqiKoWFGovTnu2rO7U
+	RFa9//3QclGbeWYOfOna9VlFl0E/5DQt2UGSrBrmmvpX5ObY0JVEzCVKreQ2vir6BVLDyvrErtZBg
+	OptQ0WTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP55C-00000007ygI-0Y4L;
-	Tue, 10 Jun 2025 19:56:30 +0000
-Received: from smtp-bc08.mail.infomaniak.ch ([2001:1600:4:17::bc08])
+	id 1uP57H-00000007z0n-0Njp;
+	Tue, 10 Jun 2025 19:58:39 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1kB-00000007S56-0VlG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 16:22:38 +0000
-Received: from smtp-3-0001.mail.infomaniak.ch (smtp-3-0001.mail.infomaniak.ch [10.4.36.108])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4bGvFz3nwxzflV;
-	Tue, 10 Jun 2025 18:22:31 +0200 (CEST)
-Received: from unknown by smtp-3-0001.mail.infomaniak.ch (Postfix) with ESMTPA id 4bGvFy5CTWz14h;
-	Tue, 10 Jun 2025 18:22:30 +0200 (CEST)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Tue, 10 Jun 2025 18:22:17 +0200
-Subject: [PATCH v2 2/3] arm64: dts: rockchip: px30: add label to first port
- of ISP
-MIME-Version: 1.0
+	id 1uP1pQ-00000007T2x-20Gc;
+	Tue, 10 Jun 2025 16:28:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9FD36A51461;
+	Tue, 10 Jun 2025 16:27:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E8CC4CEED;
+	Tue, 10 Jun 2025 16:27:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749572879;
+	bh=M7AR7P2Hp2v576w27gcBYA1QJAA51vBNSHPVxtZiM1s=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=KFMK9QrgISSTDvxGudz6a85hexiOz9fN02iUkdTutBUXfp7ygyrWlMCX3ccpZPK2W
+	 KyPJaujZxGXU/fxxfBo/GpgldljWm/oRCN+O6S47EHw+r0x70PqoUq9KAHaNbp2vgH
+	 QQoBfMnMCwXLwDBYn3M1n3up7KpBSFu/QvhRU5FRX/3xQbnu3H7cvecri1C+npthOt
+	 Su3nbFFwtWfwq+nxld3jUukygNRn8ezdtekIXeYAIcMcqDdHn8gI8LwuRS0QLfghMo
+	 5vSD15iZiyo1+4z9QrEtDAAgTvZ8fD8H+kyKRr0AKuKh+U5M+miqArQa7nYKoSpz6g
+	 +BSqSPYz8Jykg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADC139D6540;
+	Tue, 10 Jun 2025 16:28:30 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250610-ringneck-haikou-video-demo-cam-v2-2-de1bf87e0732@cherry.de>
-References: <20250610-ringneck-haikou-video-demo-cam-v2-0-de1bf87e0732@cherry.de>
-In-Reply-To: <20250610-ringneck-haikou-video-demo-cam-v2-0-de1bf87e0732@cherry.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v5 0/6] KVM: lockdep improvements
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <174957290974.2454024.11071746229021073521.git-patchwork-notify@kernel.org>
+Date: Tue, 10 Jun 2025 16:28:29 +0000
+References: <20250512180407.659015-1-mlevitsk@redhat.com>
+In-Reply-To: <20250512180407.659015-1-mlevitsk@redhat.com>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ suzuki.poulose@arm.com, jingzhangos@google.com, hpa@zytor.com,
+ sebott@redhat.com, lishusen2@huawei.com, longman@redhat.com,
+ tglx@linutronix.de, linux-arm-kernel@lists.infradead.org,
+ bhelgaas@google.com, bp@alien8.de, anup@brainfault.org, will@kernel.org,
+ palmer@dabbelt.com, glider@google.com, kvmarm@lists.linux.dev,
+ keisuke.nishimura@inria.fr, yuzenghui@huawei.com, peterz@infradead.org,
+ atishp@atishpatra.org, joey.gouly@arm.com, x86@kernel.org, maz@kernel.org,
+ seanjc@google.com, andre.przywara@arm.com, jiangkunkun@huawei.com,
+ rdunlap@infradead.org, pbonzini@redhat.com, boqun.feng@gmail.com,
+ catalin.marinas@arm.com, alex@ghiti.fr, linux-kernel@vger.kernel.org,
+ dave.hansen@linux.intel.com, oliver.upton@linux.dev,
+ kvm-riscv@lists.infradead.org, mingo@redhat.com, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_092235_303354_7885ACCB 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20250610_092800_583084_5C64514A 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,33 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+Hello:
 
-This will make it slightly easier for Device Trees (and Overlays) to
-link the ISP controller to a video input such as a CSI camera while also
-bringing it closer to what's been done already for the DSI controller.
+This series was applied to riscv/linux.git (fixes)
+by Paolo Bonzini <pbonzini@redhat.com>:
 
-Suggested-by: Heiko Stuebner <heiko@sntech.de>
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- arch/arm64/boot/dts/rockchip/px30.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, 12 May 2025 14:04:01 -0400 you wrote:
+> This is	a continuation of my 'extract lock_all_vcpus/unlock_all_vcpus'
+> patch series.
+> 
+> Implement the suggestion of using lockdep's "nest_lock" feature
+> when locking all KVM vCPUs by adding mutex_trylock_nest_lock() and
+> mutex_lock_killable_nest_lock() and use these functions	in the
+> implementation of the
+> kvm_trylock_all_vcpus()/kvm_lock_all_vcpus()/kvm_unlock_all_vcpus().
+> 
+> [...]
 
-diff --git a/arch/arm64/boot/dts/rockchip/px30.dtsi b/arch/arm64/boot/dts/rockchip/px30.dtsi
-index 8220c875415f52bb2098af5c0647cae8fe5c9aed..0cad83c5d5fe64dc8539e0fd0640e02058e1955c 100644
---- a/arch/arm64/boot/dts/rockchip/px30.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/px30.dtsi
-@@ -1269,7 +1269,7 @@ ports {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 
--			port@0 {
-+			isp_in: port@0 {
- 				reg = <0>;
- 			};
- 		};
+Here is the summary with links:
+  - [v5,1/6] locking/mutex: implement mutex_trylock_nested
+    https://git.kernel.org/riscv/c/c5b6ababd21a
+  - [v5,2/6] locking/mutex: implement mutex_lock_killable_nest_lock
+    https://git.kernel.org/riscv/c/fb49f07ba1d9
+  - [v5,3/6] KVM: add kvm_lock_all_vcpus and kvm_trylock_all_vcpus
+    https://git.kernel.org/riscv/c/e4a454ced74c
+  - [v5,4/6] x86: KVM: SVM: use kvm_lock_all_vcpus instead of a custom implementation
+    https://git.kernel.org/riscv/c/c560bc9286e6
+  - [v5,5/6] KVM: arm64: use kvm_trylock_all_vcpus when locking all vCPUs
+    https://git.kernel.org/riscv/c/b586c5d21954
+  - [v5,6/6] RISC-V: KVM: use kvm_trylock_all_vcpus when locking all vCPUs
+    https://git.kernel.org/riscv/c/8f56770d114b
 
+You are awesome, thank you!
 -- 
-2.49.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
