@@ -4,116 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA0EC5B552
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05768C5B552
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 14:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z7wRmsPzeTeYuppKvxs19mJ1EbKK5sVoRm+za+/C/ME=; b=l5LQHNTeSzkNrHdfAISoI1F+kn
-	RMBB61bI1tnp9kgt7DUIctvY3Mpw+24XwYUey7sZSnXCIGwrGy5BoHCObyAPoY4QhU6pYLPUVsjsE
-	D/M+Nhh+PvDojYYL+89wLx81d3pfZacN3eZJ3uOchIF0Yh+B4661nHCIwKLj7SGEi83VUBqD7EA1N
-	jiwHlU+quiIhYBUPBiw7gYTfvG7hBpgmISOsguOEIT6tQhBjGUZhkGQDzfUEsHyRMku40W7Tv/EE9
-	S8ytdMXMA1It6OmHpzLcSKetZFDAE6Y/AVAdqocHk0pnbJ+9J8VlDl371+qrrUZqoStXvfGTpwudf
-	72VlPo3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lcJJ1EAlVxXW8fg3TkpT3IG2yzH1IUN5iBry2fQN7Ik=; b=q8UmZK837PTo0WX0u2LLjsDR+a
+	5aja7WLUjRDQR4VuSIIMJjnvLDPyDFs6YN48ETP798BfbFz9duIjeVO65b5/3KhRxWvASr/gX5bUX
+	E889BTQI7oso1Ib6IwmDrILqHgXt2CQiZ23xCw3id9T3mqWkEGPpxk2L/ZsKhFgqopVWxpS3SMrvA
+	Pgayfzgk3VTfev1DaMPuS7jAOw92k0cQxIamFSEhiWc+t29p3RP4a1GF3OzMDFGclup+ODb4PZ9jY
+	qvL0zOtFSfIe+j6YYjE7mq9mnp1A6IlDhW3th6w5rE8Q4XO2gCln4Q8ISSCE+LM9aWSTJGOGfHq9l
+	0dntsxOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0DE-00000007A26-3IFO;
-	Tue, 10 Jun 2025 14:44:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uP0FN-00000007ASj-1v6j;
+	Tue, 10 Jun 2025 14:46:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyFr-00000006nb2-2o0X
+	id 1uOyFv-00000006ncU-0KsQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 10 Jun 2025 12:39:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 01BDEA510A8;
-	Tue, 10 Jun 2025 12:39:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4359C4CEED;
-	Tue, 10 Jun 2025 12:38:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749559142;
-	bh=fWHTM0XLFokZBXTTjppSI7itXW3nmi75qDHSGly0j1k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nG6WjNtGrTe9PTc88OsPzK4SaVzs+PEPzODSC2F0yc6UrXCYTi6UcxiDCbengYWp4
-	 qbPO1up3qkZlyp7NB2bNr961qNV4aIPpprpS6TRsVBtxNFpLyr/+EN05OGcACt8JhP
-	 mBfXiACtHhH1hVFm9uwYKix0Y0DLy4vYdTDNzns+TjRP4JrSk8MJDqnQrxdueTLPtD
-	 /9QTLmS8/ZFOHpKfzHYBBSujMk1ScfiU5cs7eBAJ1rEFIgEV7QWbVDY4eq7npxcKjE
-	 9A9Zz4h+zJwJxNpNtqxwmC2+SDqi+nPFQ3dynGqkkBMv/p5lfh3zoJNuw5YQbWdw9R
-	 wjzN5FzJFB/9w==
-Message-ID: <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
-Date: Tue, 10 Jun 2025 14:38:57 +0200
+	Tue, 10 Jun 2025 12:39:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749559145;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lcJJ1EAlVxXW8fg3TkpT3IG2yzH1IUN5iBry2fQN7Ik=;
+	b=SA6MrzVuxL0xfwbfiCKeh0LlOo6ahyMBOWQjsMnIi44/WREpr31Gr/LOOEKvjL4QGFhMga
+	eh/FISEu/7b6LULvL0qhaNvdQihWRSB/BE1/bkBH4EKUxeiuibGH+2eji6Zl16Osjrz1/f
+	6M4qgbUGvfOdX39MBOGFWSYvg7/ZIvg=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-682-QQXc_t39ML-R3nSssJy15A-1; Tue, 10 Jun 2025 08:39:01 -0400
+X-MC-Unique: QQXc_t39ML-R3nSssJy15A-1
+X-Mimecast-MFC-AGG-ID: QQXc_t39ML-R3nSssJy15A_1749559141
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-451d2037f1eso33319645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 05:39:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749559140; x=1750163940;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lcJJ1EAlVxXW8fg3TkpT3IG2yzH1IUN5iBry2fQN7Ik=;
+        b=D64uUfrtTPg+Z9HVBTxX7LKlzuuLZe2/Q4cgtaakTsXa1nDVK/d5Yq5vVdjRJqki7s
+         deU9eLMQvXGUUS+jbvnL1hcI8UFPEMAtmBloYePhq4MVT/NYAIkaOuIDpFsKvhruC+yN
+         NTKAjf9x5cbJOSk1CAwcJVdfzv0fRLxu7MUEeSmMDsWQ9DhkwCkkvfdmAmpchIrjWdM1
+         CNPWCj6/kGnfduWmsGq7HMy1fkR13g30R2Gsxp2aTVUdvU7MYoLl6xbU8q3bMa2PErg8
+         J0Nie/GhpHwj7CSZ1ZVHjHjMrE8TWM6vJQb4vleQ/qGsFTXuOyVTpCUsSwm/8SoXxL/Q
+         /RJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXK7HwiUqVnhrcKyFebWvWi1g5hPRR1PDCwBz/TypiQ3BxTUBrsonytSTvCbCKk9CYift4npbCY7MdMvg0Q/KyW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIhRugA7UWXF7bG6H3w7jZlZJEVz74qL8bPFXpnP1jrbuLXxbI
+	mvQesnhqG0wJ/RdVwBvgEF75kMgjRNhLJIHiC6oU40MmR4NozQsaSrBGNDCRvahxC2VnSJfSuwp
+	+T/raKKEhHbGqI+/W2PHAbKU8rO+XdDe+Zgvw/nw4y6SnOtJfAtRZDAbCKz54746hTMBGyMWMAc
+	tj
+X-Gm-Gg: ASbGncvfn0OZYFxHib72uoKrtPapCgsG7dSCnB5UPFT8/X+eKWNsWB8d6TcALXQaFq7
+	gaKCmZq2jk66BL1+nTuf3NbpgronCwb6aiOvtXigcpe+HxPNG63wCHPTIA7tmx03+vT4uNAFZUS
+	lK54CEgfyl9w0Z2yxtv1VZujVacDgem7mI1WCFWUaxrHYwJ6paEl8QSXEjrRl1kridQoccowV9N
+	tkWQ9zGQTrKPNUjXHinLh5q8EPP8zm+oBMjHXXYqkWemwua270IGnSj9jKYYqzcfR/G/+Hw1uEU
+	x6CT09LIuxCucqzSOROuVFghq3KuYXYjyeZL/Res4f7WcyvbhSZCu/OOscmGc93trEtyP3c=
+X-Received: by 2002:a05:6000:2389:b0:3a4:f786:4fa1 with SMTP id ffacd0b85a97d-3a5316841c4mr14337995f8f.2.1749559140660;
+        Tue, 10 Jun 2025 05:39:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG5FTEhqSFRlt1y1mpTyIqYcFsrFo2o2s+xhYDq5+1xXUONT5D6azW2BeFCdTM+2Ty2asNG3w==
+X-Received: by 2002:a05:6000:2389:b0:3a4:f786:4fa1 with SMTP id ffacd0b85a97d-3a5316841c4mr14337967f8f.2.1749559140165;
+        Tue, 10 Jun 2025 05:39:00 -0700 (PDT)
+Received: from rh (p200300f6af1bce00e6fe5f11c0a7f4a1.dip0.t-ipconnect.de. [2003:f6:af1b:ce00:e6fe:5f11:c0a7:f4a1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4531fe85260sm10232795e9.0.2025.06.10.05.38.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 05:38:59 -0700 (PDT)
+Date: Tue, 10 Jun 2025 14:38:58 +0200 (CEST)
+From: Sebastian Ott <sebott@redhat.com>
+To: Zenghui Yu <yuzenghui@huawei.com>
+cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+    maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+    suzuki.poulose@arm.com, wanghaibin.wang@huawei.com
+Subject: Re: [PATCH] KVM: arm64: selftests: Close the GIC FD in
+ arch_timer_edge_cases
+In-Reply-To: <20250608095402.1131-1-yuzenghui@huawei.com>
+Message-ID: <e13b52c9-359e-ae64-ff15-c13acd6111ef@redhat.com>
+References: <20250608095402.1131-1-yuzenghui@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp13
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
- <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
- <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
- <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
- <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: yoRLXxkpojgHv8NHErqs0j1JEPJ5nYBpuIXBPjK93sA_1749559141
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_053903_842849_0BFE772D 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250610_053907_187109_C974B620 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,39 +108,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 14:02, Clement LE GOFFIC wrote:
-> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
->> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
->>>>
->>>>> +		};
->>>>> +
->>>>> +		hdp: pinctrl@5002a000 {
->>>>> +			compatible = "st,stm32mp131-hdp";
->>>>> +			reg = <0x5002a000 0x400>;
->>>>> +			clocks = <&rcc HDP>;
->>>>>    			status = "disabled";
->>>>
->>>> Why are you disabling it? What is missing?
->>>
->>> Nothing is missing just disabled by default.
->>> The node is then enabled when needed in board's dts file.
->> Nodes should not be disabled by default if they are complete. That's why
->> I asked what is missing. Drop.
-> 
-> Hi Krzysztof, OK I better understand now.
-> So yes the 'pinctrl-*' properties which are board dependent are lacking.
+On Sun, 8 Jun 2025, Zenghui Yu wrote:
 
-These are not properties of this node.
+> Close the GIC FD to free the reference it holds to the VM so that we can
+> correctly clean up the VM. This also gets rid of the
+>
+> 	"KVM: debugfs: duplicate directory 395722-4"
+>
+> warning when running arch_timer_edge_cases.
+>
+> Signed-off-by: Zenghui Yu <yuzenghui@huawei.com>
 
-> 
-> In the last patch of my serie I add them (only for stm32mp157f-dk2) but 
-> keep it disabled because the pin is on an external connector (the 
-> Arduino connector of the board).
-> This prevent any issue with a possible connected module.
+Reviewed-by: Sebastian Ott <sebott@redhat.com>
 
-Not relevant. Pin control for connector are board specific, but pinctrl
-SoC part is SoC.
-
-Best regards,
-Krzysztof
 
