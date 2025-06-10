@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC28C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D04C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 10 Jun 2025 19:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLNYfBAm8Db4RivC9m4UtJY5EbKQApeN/nL5cCj0Ugs=; b=y6TgwGot16b8fsCEW2XCvu/3xD
-	eUo1zLCVCHSRRKSKhCxq2P/8gSWMK+YX8RXlVbwexq0dXztvknJuAJDX2SEpcgJAfY5YCy4SjcijK
-	H9R0NfelWAzjUcbfdlYfDatYDVYaFyz8yGXJUEqpKacPhAsLbkqzCF5z3njxFf5hYgykmWESd4lgz
-	EdSgwRjt5oOdTsI3ixwggjE/rcQBMZv+BOpZ1HPEn/sHttsnY3RxQZg25wlPWX+HL6JSh8vYjfCu4
-	LezHTmpi5tXGA8BSvzqG/V2JcVIbj4UxSGGOoYVFPNRAXummGyQpVVn0Y4ayPAW43fSa9dXp5L6xW
-	aQT6wjWA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xQ3eXxzKXjOqzvRPuyBp5OS45IZk77dxOG3URGussUQ=; b=T2zgG9rqxCwtLwC+iT6P3q1LUA
+	Gpq9RqUnr9G6o3ABJX+cyIAh7mLfJ+owTQaFQKTJ+udPZSzqYMzkqKHaLSskaMUlo6rB7vp8ZTPV4
+	/fwKs4bNXCgbqzfrqGVGCiEFX9J5kTfAuH+8ExeUmNP6Fifw/6AAuEzS9NigP1YthwqQ7y4aNuOgV
+	UkcwDediM2GU1sG2D8hSFT2P6JQl7/CIcJAPWQofd6W4cbPwgtioQ5hZXrAyRoKAoiA0RNyviPZk6
+	8N2rUMsHiAAUX1qxx5K/cFxACG6f91hP21CcQBs3SeyFZ3RGeJdFT8QHcV/yXuZMBvqDB+Ov8ejIj
+	DF8hFybA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP4dh-00000007v4z-0plx;
-	Tue, 10 Jun 2025 19:28:05 +0000
-Received: from out-71.smtpout.orange.fr ([193.252.22.71] helo=out.smtpout.orange.fr)
+	id 1uP4fn-00000007vM9-1uEz;
+	Tue, 10 Jun 2025 19:30:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1DA-00000007NL7-0ZC7;
-	Tue, 10 Jun 2025 15:48:30 +0000
-Received: from [172.16.82.72] ([124.33.176.97])
-	by smtp.orange.fr with ESMTPA
-	id P1CsuQaoBVbicP1Cuu8707; Tue, 10 Jun 2025 17:48:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1749570505;
-	bh=hLNYfBAm8Db4RivC9m4UtJY5EbKQApeN/nL5cCj0Ugs=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=EC83WCWq0Suc7xo7F75oL6tuLJhZcGgcA6T6SjE5M2HznAFXg+53/ja2YV2L9jlm4
-	 67XAJYZjzNIulLfpR9HbVmuA69kx2uRbqwRC7P4itIvQxYL7jWvnqZIqoFwUBoyCaG
-	 H3MPbtXKHrbdoEz3hjUlSsEwc2yUrPfZcdlFT5dWCWJJ/0qWSWULoXHqI8jwgTD9wt
-	 +88473ymjTW0O1lA5aOjECvA7xFkyKjOqMpuNk4fIXCc5bKmdofVWaX8JRwPiGBEKr
-	 AfmH/5enwlcQEMJBSCx3HPKFHMg8JhbUC/Q3N0I4p387Fb8+i1cIfr4CTBAhSvUx1/
-	 QTmOlFNpa0KAw==
-X-ME-Helo: [172.16.82.72]
-X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
-X-ME-Date: Tue, 10 Jun 2025 17:48:25 +0200
-X-ME-IP: 124.33.176.97
-Message-ID: <b9ea7e0e-7dd1-460b-950a-083620dd52e9@wanadoo.fr>
-Date: Wed, 11 Jun 2025 00:48:09 +0900
+	id 1uP1PN-00000007OqU-2jdH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 10 Jun 2025 16:01:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=xQ3eXxzKXjOqzvRPuyBp5OS45IZk77dxOG3URGussUQ=; b=NEB5wPmoBXtqHmaNej2ZeC0pRC
+	8XJQzDo551XA/mGeRQnnkBCZsc47SctuDM9CBFLXujN5L8V0OJDUe3slfi9UOYTQkAjWZckw5Jxtd
+	12Y+E1yVVTvVgP8clqumR3IaQGl24DF25pv/8YoWJMKCyrPZ/CPXfMiXhExdI4zAg+b8AQmcVia8O
+	sYlJJHbRmJiKorJUz5IfQXXk+yzoJLpykxgZIhds3e++Y3qzN1zV3oNOJwG+qFnYhY7ageoNuzP/G
+	XwoVVI/eGHZBOQgy8WtGl0A4JXhCeLpyip+PUTeeszblU3UaGBmhYal3NvprKuTrP5E5DqVF4HszN
+	KfssOdVg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uP1PK-00000001vEs-1SFm
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 10 Jun 2025 16:01:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDED814BF;
+	Tue, 10 Jun 2025 09:00:39 -0700 (PDT)
+Received: from localhost.localdomain (unknown [10.163.87.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8F1F13F673;
+	Tue, 10 Jun 2025 09:00:54 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: anshuman.khandual@arm.com,
+	quic_zhenhuah@quicinc.com,
+	ryan.roberts@arm.com,
+	kevin.brodsky@arm.com,
+	yangyicong@hisilicon.com,
+	joey.gouly@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	david@redhat.com,
+	Dev Jain <dev.jain@arm.com>
+Subject: [PATCH v2] arm64: Enable vmalloc-huge with ptdump
+Date: Tue, 10 Jun 2025 21:30:48 +0530
+Message-Id: <20250610160048.11254-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] net: can: mcp251x: use new GPIO line value setter
- callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Marc Kleine-Budde <mkl@pengutronix.de>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>
-References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
- <20250610-gpiochip-set-rv-net-v1-3-35668dd1c76f@linaro.org>
- <b2f87cff-3a81-482b-bfdd-389950b7ec8e@wanadoo.fr>
- <CAMRc=MfCwz3BV15aATr_5er7wU=AmKV=Z=sHJyrjEvLwx2cMjQ@mail.gmail.com>
-Content-Language: en-US
-From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Autocrypt: addr=mailhol.vincent@wanadoo.fr; keydata=
- xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
- LFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+wrIEExYKAFoC
- GwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQTtj3AFdOZ/IOV06OKrX+uI
- bbuZwgUCZx41XhgYaGtwczovL2tleXMub3BlbnBncC5vcmcACgkQq1/riG27mcIYiwEAkgKK
- BJ+ANKwhTAAvL1XeApQ+2NNNEwFWzipVAGvTRigA+wUeyB3UQwZrwb7jsQuBXxhk3lL45HF5
- 8+y4bQCUCqYGzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrbYZzu0JG5w8gxE6EtQe6LmxKMqP6E
- yR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDldOjiq1/riG27mcIFAmceMvMCGwwF
- CQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8VzsZwr/S44HCzcz5+jkxnVVQ5LZ4B
- ANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
-In-Reply-To: <CAMRc=MfCwz3BV15aATr_5er7wU=AmKV=Z=sHJyrjEvLwx2cMjQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_084829_375568_03A08E86 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20250610_170102_790779_3964AC9E 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,71 +84,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 at 23:05, Bartosz Golaszewski wrote:
-> On Tue, Jun 10, 2025 at 3:55 PM Vincent Mailhol
-> <mailhol.vincent@wanadoo.fr> wrote:
->>
->> On 10/06/2025 at 21:37, Bartosz Golaszewski wrote:
->>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->>>
->>> struct gpio_chip now has callbacks for setting line values that return
->>> an integer, allowing to indicate failures. Convert the driver to using
->>> them.
->>>
->>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->>                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->>
->> This does not match the address with which you sent the patch: brgl@bgdev.pl
->>
->>> ---
->>>  drivers/net/can/spi/mcp251x.c | 16 ++++++++++------
->>>  1 file changed, 10 insertions(+), 6 deletions(-)
->>>
->>> diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
->>> index ec5c64006a16f703bc816983765584c5f3ac76e8..7545497d14b46c6388f3976c2bf7b9a99e959c1e 100644
->>> --- a/drivers/net/can/spi/mcp251x.c
->>> +++ b/drivers/net/can/spi/mcp251x.c
->>> @@ -530,8 +530,8 @@ static int mcp251x_gpio_get_multiple(struct gpio_chip *chip,
->>>       return 0;
->>>  }
->>>
->>> -static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
->>> -                          int value)
->>> +static int mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
->>> +                         int value)
->>>  {
->>>       struct mcp251x_priv *priv = gpiochip_get_data(chip);
->>>       u8 mask, val;
->>> @@ -545,9 +545,11 @@ static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
->>>
->>>       priv->reg_bfpctrl &= ~mask;
->>>       priv->reg_bfpctrl |= val;
->>> +
->>> +     return 0;
->>
->> mcp251x_gpio_set() calls mcp251x_write_bits() which calls mcp251x_spi_write()
->> which can fail.
->>
->> For this change to really make sense, the return value of mcp251x_spi_write()
->> should be propagated all the way around.
->>
-> 
-> I don't know this code so I followed the example of the rest of the
-> codebase where the result of this function is never checked - even in
-> functions that do return values. I didn't know the reason for this and
-> so didn't want to break anything as I have no means of testing it.
+arm64 disables vmalloc-huge when kernel page table dumping is enabled,
+because an intermediate table may be removed, potentially causing the
+ptdump code to dereference an invalid address. We want to be able to
+analyze block vs page mappings for kernel mappings with ptdump, so to
+enable vmalloc-huge with ptdump, synchronize between page table removal in
+pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
+use mmap_read_lock and not write lock because we don't need to synchronize
+between two different vm_structs; two vmalloc objects running this same
+code path will point to different page tables, hence there is no race.
 
-The return value of mcp251x_spi_write() is used in mcp251x_hw_reset(). In other
-locations, mcp251x_spi_write() is only used in functions which return void, so
-obviously, the return value is not checked.
+For pud_free_pmd_page(), we isolate the PMD table to avoid taking the lock
+512 times again via pmd_free_pte_page(). Note that there is no need to
+move __flush_tlb_kernel_pgtable() to immediately after pud_clear(); the
+only argument against this would be that we immediately require a
+dsb(ishst) (present in __flush_tlb_kernel_pgtable()) after pud_clear(),
+but that is not the case, since the transition is from
+valid -> invalid, not vice-versa.
 
-> Can you confirm that you really want the result to be checked here?
+No issues were observed with mm-selftests. No issues were observed while
+parallelly running test_vmalloc.sh and dumping the kernel pagetable through
+sysfs in a loop.
 
-That's the point of those new gpio setters, isn't it? If we do not check the
-result, I do not understand the purpose of the migration.
+v1->v2:
+ - Take lock only when CONFIG_PTDUMP_DEBUGFS is on
+ - In case of pud_free_pmd_page(), isolate the PMD table to avoid taking
+   the lock 512 times again via pmd_free_pte_page()
 
+Signed-off-by: Dev Jain <dev.jain@arm.com>
+---
+ arch/arm64/include/asm/vmalloc.h |  6 ++---
+ arch/arm64/mm/mmu.c              | 43 +++++++++++++++++++++++++++++---
+ 2 files changed, 42 insertions(+), 7 deletions(-)
 
-Yours sincerely,
-Vincent Mailhol
+diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+index 12f534e8f3ed..e835fd437ae0 100644
+--- a/arch/arm64/include/asm/vmalloc.h
++++ b/arch/arm64/include/asm/vmalloc.h
+@@ -12,15 +12,13 @@ static inline bool arch_vmap_pud_supported(pgprot_t prot)
+ 	/*
+ 	 * SW table walks can't handle removal of intermediate entries.
+ 	 */
+-	return pud_sect_supported() &&
+-	       !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
++	return pud_sect_supported();
+ }
+ 
+ #define arch_vmap_pmd_supported arch_vmap_pmd_supported
+ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
+ {
+-	/* See arch_vmap_pud_supported() */
+-	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
++	return true;
+ }
+ 
+ #define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 8fcf59ba39db..fa98a62e4baf 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1267,7 +1267,25 @@ int pmd_clear_huge(pmd_t *pmdp)
+ 	return 1;
+ }
+ 
+-int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
++#ifdef CONFIG_PTDUMP_DEBUGFS
++static inline void ptdump_synchronize_lock(void)
++{
++	/* Synchronize against ptdump_walk_pgd() */
++	mmap_read_lock(&init_mm);
++}
++
++static inline void ptdump_synchronize_unlock(void)
++{
++	mmap_read_unlock(&init_mm);
++}
++#else	/* CONFIG_PTDUMP_DEBUGFS */
++
++static inline void ptdump_synchronize_lock(void)	{}
++static inline void ptdump_synchronize_unlock(void)	{}
++
++#endif	/* CONFIG_PTDUMP_DEBUGFS */
++
++static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr, bool lock)
+ {
+ 	pte_t *table;
+ 	pmd_t pmd;
+@@ -1280,12 +1298,23 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+ 	}
+ 
+ 	table = pte_offset_kernel(pmdp, addr);
++
++	if (lock)
++		ptdump_synchronize_lock();
+ 	pmd_clear(pmdp);
++	if (lock)
++		ptdump_synchronize_unlock();
++
+ 	__flush_tlb_kernel_pgtable(addr);
+ 	pte_free_kernel(NULL, table);
+ 	return 1;
+ }
+ 
++int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
++{
++	return __pmd_free_pte_page(pmdp, addr, true);
++}
++
+ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+ {
+ 	pmd_t *table;
+@@ -1301,14 +1330,22 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+ 	}
+ 
+ 	table = pmd_offset(pudp, addr);
++
++	/*
++	 * Isolate the PMD table; in case of race with ptdump, this helps
++	 * us to avoid taking the lock in __pmd_free_pte_page()
++	 */
++	ptdump_synchronize_lock();
++	pud_clear(pudp);
++	ptdump_synchronize_unlock();
++
+ 	pmdp = table;
+ 	next = addr;
+ 	end = addr + PUD_SIZE;
+ 	do {
+-		pmd_free_pte_page(pmdp, next);
++		__pmd_free_pte_page(pmdp, next, false);
+ 	} while (pmdp++, next += PMD_SIZE, next != end);
+ 
+-	pud_clear(pudp);
+ 	__flush_tlb_kernel_pgtable(addr);
+ 	pmd_free(NULL, table);
+ 	return 1;
+-- 
+2.30.2
 
 
