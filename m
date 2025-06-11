@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E56C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250DAC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sTjd5Qy+00SjdWLvbfKmxlu0FvSa2USAHx82BZfDawk=; b=Tpi1ROYutctfd152YrkSMLr6+q
-	I2/bj90HP3kYlR6cNVGsc9NJZ09u4StLFGCT7TQMqUOWbpT1S3UCS2a1iUbgF7y6do1gmKFo/BNB5
-	IZvkWPSMNs2iumXRV6yM6j33SB/g2adTcmJC+aBEmyC26LfyW0R94VKkFJu71DoVXIIUJIaLevkVW
-	dSqobeBEkEFBJH+OAjRZ9DpFCBquYT/Xcpi01Ub9IwpbXjY0Cp8D/Ws434kSDppYS9sEnSumUqYIo
-	PGRA9Dd9F0rkfKzDZAirFv0YE9VV23YQYE3lQT3RLCdT8kGttP3ELwcPyr858ED0zlhfp4k1ckmB3
-	LDwgfcBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kKGabxrJKTT1jT+MsIDRbUN9gODQJ7nJyG6Bdv8dG7M=; b=S5E2YZSYUFudSNApC0d2cXskgP
+	hjb6h/Q1L9AY/GmbNu0dXqH7VLPMz6/kJFeC9x/vlafeSmgzZt7jyELnCixWCIig1iT/NLShJyUX1
+	wrvkP2DKH3ym98eM+XIaSWqDp0+RWmMyoaZMvUfSlmM0P1S3GXRAxP+ZtCHitPO3/AqqGe9UUiW3A
+	vcfOYY4+hGTsP5OjnUteikz1Hdu6AHa4eOQ618cMFvDPIKs5RNgkZb8xnxsIbGz6tOyE16QzQLZJD
+	boLDHkJkRX53ycclMrgKhRoGXbe+6R/9PD6C0nIOBY3+MEGcyaW5eNZczbwfJ2Mxxdj/+d1oFEcJy
+	mxD9eUjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPI4W-00000009WzT-3OGM;
-	Wed, 11 Jun 2025 09:48:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPI6f-00000009XPX-2Ped;
+	Wed, 11 Jun 2025 09:50:53 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHqA-00000009UA9-09GC
-	for linux-arm-kernel@bombadil.infradead.org;
+	id 1uPHq9-00000009U9q-09qM;
 	Wed, 11 Jun 2025 09:33:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=sTjd5Qy+00SjdWLvbfKmxlu0FvSa2USAHx82BZfDawk=; b=j0JVUDRwo1ndMYf2ZpLh03t2PE
-	5ZT9nS6sLI1f4OBWCgzG0/M4Y+aAVPDf6vmeMg1Wq7idSDM5Vaq5wxZbYYMAPMxH+1HIsblfxyosT
-	OsYyZUCyglu/Wdbie9fQzuSPRv6opt9+SxBcE3yjC8f9XdZKCkjhtoSO6RBCVyCIL5eqlKm7k6UMK
-	erQIoEE6nd7Ujk+a7NtjRr9fXPMtf28JP7rslxFGt0vXbzO3Vi4jTeKLRWslVe26ZjMIdNs8GhKNY
-	Sfi/q1HUEtUaWbhfDqHBQbUY0bQoJG4Hn6ptfRU0eVYr67sHkHazRMdAxRDQdPWe6O81FsvM+XPo5
-	sh/3DXCQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHq7-00000002EYZ-3WNp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 09:33:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B50164A5F5;
-	Wed, 11 Jun 2025 09:33:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A122CC4CEF1;
-	Wed, 11 Jun 2025 09:33:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749634423;
-	bh=dCxYhXgXkoUEmgozhBC3G0zLWKAepHqQDL8jsvt0uPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MjP8eK0u553Rmcc4iup0emJYRA+W3FmA9kUZBpIAUv8hyBKhUMASw9CiNn4j5CvZw
-	 C4/Yc3KKIBvZnQ5+PugChPTPH6fDy4EeboidarhmIQuEZMUNXtrtimx4pZsKpTf7J/
-	 LJKJpC4jcAk84Xw4CFH0QRaNnH4tAhxxzIUxfjcDE1EyOnINKpnRh0qpoh4oKpXu+/
-	 wIjNFZ6lvdko5oJ4ULeZ/oDsmVvb7Xq7CvSrOIyuYusFpKeyyenPO5FnOlOIE1iXh0
-	 xclN8LqtjskAP/7DfVBKFXzZioC2AdfdlPd9hU7mR0fusgKWyOJ+ycB2ZROesYA+RK
-	 hfF3cOsNEqzWQ==
-Date: Wed, 11 Jun 2025 10:33:38 +0100
-From: Will Deacon <will@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
-	anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
-	kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	david@redhat.com
-Subject: Re: [PATCH] arm64: Enable vmalloc-huge with ptdump
-Message-ID: <20250611093337.GB10885@willie-the-truck>
-References: <20250530082021.18182-1-dev.jain@arm.com>
- <d2b63b97-232e-4d2e-816b-71fd5b0ffcfa@arm.com>
- <832e84a9-4303-4e21-a88b-94395898fa3e@arm.com>
- <4202a03d-dacd-429c-91e6-81a5d05726a4@arm.com>
- <20250530123527.GA30463@willie-the-truck>
- <b223245d-c43c-4d3e-86d4-9fbfd90cfacf@arm.com>
- <20250530133625.GA30622@willie-the-truck>
- <6cd41ae9-303d-4eda-8d64-f7dba19eb106@arm.com>
- <33dd9ce3-f6ab-4054-9245-7338f06afbfd@arm.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1749634427;
+	bh=2Bx5pk/4PGvxDMaVO9PDV3VXGwo3Kr1fdGR9qhTJyQ4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jSSIRrP0dym3SIK5fuDSfb41jRmXzwWKM+lizNdp7xWoOSy1Xpawhx6nISRH9wXnO
+	 0lqGn+oK03kY93KRWG3t7cE8mqF5UjpyGlxzGagxF4/neBnPqbs2QBdD9DwVIieBFs
+	 J/ftFm1FhzP/WqmI60Zf8Cxapq4PFD9/msJmdaeyU9bShmQu+661uU5UFv7VrsX4/t
+	 ZljcFtRk3qtl/TRhpl5SXj7Ac0GU9/oWcDLtOEQeMOw9kc/Ml4dKZTuzkqfIrkckFS
+	 zw6PSJ6FfyIwOJKNVoh1feH8eycsUGUwGUiNH6dHWOTYPP8gJdqZbpE9Yb0yJoPOdc
+	 kmiH9ucGZbDwA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B55F17E36B3;
+	Wed, 11 Jun 2025 11:33:46 +0200 (CEST)
+Message-ID: <10d6fe88-75ff-4c02-8fdd-e1101aaa565c@collabora.com>
+Date: Wed, 11 Jun 2025 11:33:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <33dd9ce3-f6ab-4054-9245-7338f06afbfd@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/13] arm64: dts: mediatek: mt7988: add basic
+ ethernet-nodes
+To: Frank Wunderlich <linux@fw-web.de>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+ Jia-Wei Chang <jia-wei.chang@mediatek.com>,
+ Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
+ <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Felix Fietkau <nbd@nbd.name>, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250608211452.72920-1-linux@fw-web.de>
+ <20250608211452.72920-7-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250608211452.72920-7-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_103348_257785_5218CFA6 
-X-CRM114-Status: GOOD (  26.55  )
+X-CRM114-CacheID: sfid-20250611_023349_227858_C4648F8C 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +93,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 01:46:01PM +0530, Dev Jain wrote:
-> On 05/06/25 10:18 am, Dev Jain wrote:
-> > On 30/05/25 7:06 pm, Will Deacon wrote:
-> > > On Fri, May 30, 2025 at 02:11:36PM +0100, Ryan Roberts wrote:
-> > > > On 30/05/2025 13:35, Will Deacon wrote:
-> > > > > I really don't think we should be adding unconditional
-> > > > > locking overhead
-> > > > > to core mm routines purely to facilitate a rarely used debug option.
-> > > > > 
-> > > > > Instead, can we either adopt something like the RCU-like walk used by
-> > > > > fast GUP or stick the locking behind a static key that's only enabled
-> > > > > when a ptdump walk is in progress (a bit like how
-> > > > > hugetlb_vmemmap_optimize_folio() manipulates
-> > > > > hugetlb_optimize_vmemmap_key)?
-> > > > My sense is that the static key will be less effort and can be
-> > > > contained fully
-> > > > in arm64. I think we would need to enable the key around the call to
-> > > > ptdump_walk_pgd() in both ptdump_walk() and ptdump_check_wx().
-> > > > Then where Dev is
-> > > > currently taking the read lock, that would be contingent on the
-> > > > key being
-> > > > enabled and the unlock would be contingent on having taken the lock.
-> > > > 
-> > > > Does that sound like an acceptable approach?
-> > > Yup, and I think you'll probably need something like a synchronize_rcu()
-> > > when flipping the key to deal with any pre-existing page-table freers.
-> > 
-> > IIUC, you mean to say that we need to ensure any existing readers having
-> > a reference to the isolated table in pmd_free_pte_page and friend, have
-> > exited.
-> > But the problem is that we take an mmap_write_lock() around
-> > ptdump_walk_pgd() so
-> > this is a sleepable code path.
+Il 08/06/25 23:14, Frank Wunderlich ha scritto:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> The mmap_write_lock around ptdump_walk_pgd() is definitely restrictive. I
-> think that
+> Add basic ethernet related nodes.
 > 
-> was put because ptdump is rarely used, I think we could have done
-> RCU-freeing of pagetables to
+> Mac1+2 needs pcs (sgmii+usxgmii) to work correctly which will be linked
+> later when driver is merged.
 > 
-> synchronize between ptdump and vmalloc pagetable lazy freeing/ hotunplug
-> pagetable freeing.
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> ---
+>   arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 124 +++++++++++++++++++++-
+>   1 file changed, 121 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+> index 560ec86dbec0..ee1e01d720fe 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
+> @@ -680,7 +680,28 @@ xphyu3port0: usb-phy@11e13000 {
+>   			};
+>   		};
+>   
+> -		clock-controller@11f40000 {
+> +		xfi_tphy0: phy@11f20000 {
+> +			compatible = "mediatek,mt7988-xfi-tphy";
+> +			reg = <0 0x11f20000 0 0x10000>;
+> +			resets = <&watchdog 14>;
+> +			clocks = <&xfi_pll CLK_XFIPLL_PLL_EN>,
+> +				 <&topckgen CLK_TOP_XFI_PHY_0_XTAL_SEL>;
+> +			clock-names = "xfipll", "topxtal";
 
-The other idea was to use a static key like the HVO code does, which
-shouldn't place any RCU requirements on the debug walk.
+resets here please, not after reg.
 
-Will
+> +			mediatek,usxgmii-performance-errata;
+> +			#phy-cells = <0>;
+> +		};
+> +
+> +		xfi_tphy1: phy@11f30000 {
+> +			compatible = "mediatek,mt7988-xfi-tphy";
+> +			reg = <0 0x11f30000 0 0x10000>;
+> +			resets = <&watchdog 15>;
+> +			clocks = <&xfi_pll CLK_XFIPLL_PLL_EN>,
+> +				 <&topckgen CLK_TOP_XFI_PHY_1_XTAL_SEL>;
+> +			clock-names = "xfipll", "topxtal";
+
+ditto
+
+> +			#phy-cells = <0>;
+> +		};
+> +
+> +		xfi_pll: clock-controller@11f40000 {
+>   			compatible = "mediatek,mt7988-xfi-pll";
+>   			reg = <0 0x11f40000 0 0x1000>;
+>   			resets = <&watchdog 16>;
+> @@ -714,19 +735,116 @@ phy_calibration_p3: calib@97c {
+>   			};
+>   		};
+>   
+> -		clock-controller@15000000 {
+> +		ethsys: clock-controller@15000000 {
+>   			compatible = "mediatek,mt7988-ethsys", "syscon";
+>   			reg = <0 0x15000000 0 0x1000>;
+>   			#clock-cells = <1>;
+>   			#reset-cells = <1>;
+>   		};
+>   
+> -		clock-controller@15031000 {
+> +		ethwarp: clock-controller@15031000 {
+>   			compatible = "mediatek,mt7988-ethwarp";
+>   			reg = <0 0x15031000 0 0x1000>;
+>   			#clock-cells = <1>;
+>   			#reset-cells = <1>;
+>   		};
+> +
+> +		eth: ethernet@15100000 {
+> +			compatible = "mediatek,mt7988-eth";
+> +			reg = <0 0x15100000 0 0x80000>,
+> +			      <0 0x15400000 0 0x200000>;
+
+reg = <0 0x15100000 0 0x80000>, <0 0x15400000 0 0x200000>;
+
+it's 83 columns - it's fine.
+
+> +			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ethsys CLK_ETHDMA_CRYPT0_EN>,
+> +				 <&ethsys CLK_ETHDMA_FE_EN>,
+> +				 <&ethsys CLK_ETHDMA_GP2_EN>,
+> +				 <&ethsys CLK_ETHDMA_GP1_EN>,
+> +				 <&ethsys CLK_ETHDMA_GP3_EN>,
+> +				 <&ethwarp CLK_ETHWARP_WOCPU2_EN>,
+> +				 <&ethwarp CLK_ETHWARP_WOCPU1_EN>,
+> +				 <&ethwarp CLK_ETHWARP_WOCPU0_EN>,
+> +				 <&ethsys CLK_ETHDMA_ESW_EN>,
+> +				 <&topckgen CLK_TOP_ETH_GMII_SEL>,
+> +				 <&topckgen CLK_TOP_ETH_REFCK_50M_SEL>,
+> +				 <&topckgen CLK_TOP_ETH_SYS_200M_SEL>,
+> +				 <&topckgen CLK_TOP_ETH_SYS_SEL>,
+> +				 <&topckgen CLK_TOP_ETH_XGMII_SEL>,
+> +				 <&topckgen CLK_TOP_ETH_MII_SEL>,
+> +				 <&topckgen CLK_TOP_NETSYS_SEL>,
+> +				 <&topckgen CLK_TOP_NETSYS_500M_SEL>,
+> +				 <&topckgen CLK_TOP_NETSYS_PAO_2X_SEL>,
+> +				 <&topckgen CLK_TOP_NETSYS_SYNC_250M_SEL>,
+> +				 <&topckgen CLK_TOP_NETSYS_PPEFB_250M_SEL>,
+> +				 <&topckgen CLK_TOP_NETSYS_WARP_SEL>,
+> +				 <&ethsys CLK_ETHDMA_XGP1_EN>,
+> +				 <&ethsys CLK_ETHDMA_XGP2_EN>,
+> +				 <&ethsys CLK_ETHDMA_XGP3_EN>;
+> +			clock-names = "crypto", "fe", "gp2", "gp1",
+> +				      "gp3",
+
+clock-names = "crypto", "fe", "gp2", "gp1", "gp3",
+
+:-)
+
+> +				      "ethwarp_wocpu2", "ethwarp_wocpu1",
+> +				      "ethwarp_wocpu0", "esw", "top_eth_gmii_sel",
+> +				      "top_eth_refck_50m_sel", "top_eth_sys_200m_sel",
+> +				      "top_eth_sys_sel", "top_eth_xgmii_sel",
+> +				      "top_eth_mii_sel", "top_netsys_sel",
+> +				      "top_netsys_500m_sel", "top_netsys_pao_2x_sel",
+> +				      "top_netsys_sync_250m_sel",
+> +				      "top_netsys_ppefb_250m_sel",
+> +				      "top_netsys_warp_sel","xgp1", "xgp2", "xgp3";
+> +			assigned-clocks = <&topckgen CLK_TOP_NETSYS_2X_SEL>,
+> +					  <&topckgen CLK_TOP_NETSYS_GSW_SEL>,
+> +					  <&topckgen CLK_TOP_USXGMII_SBUS_0_SEL>,
+> +					  <&topckgen CLK_TOP_USXGMII_SBUS_1_SEL>,
+> +					  <&topckgen CLK_TOP_SGM_0_SEL>,
+> +					  <&topckgen CLK_TOP_SGM_1_SEL>;
+> +			assigned-clock-parents = <&apmixedsys CLK_APMIXED_NET2PLL>,
+> +						 <&topckgen CLK_TOP_NET1PLL_D4>,
+> +						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
+> +						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
+> +						 <&apmixedsys CLK_APMIXED_SGMPLL>,
+> +						 <&apmixedsys CLK_APMIXED_SGMPLL>;
+
+Address and size cells must go *before* vendor-specific properties
+
+> +			mediatek,ethsys = <&ethsys>;
+> +			mediatek,infracfg = <&topmisc>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+
+Cheers!
+Angelo
 
