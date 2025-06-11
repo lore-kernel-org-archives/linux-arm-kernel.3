@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A042C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 00:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B525DC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 00:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tDZohEtmrHKYD6EovcSC8/ZzfIWWO2Pel/+WswkGVp8=; b=Rfgz9Vd9LP1IRJ6vO57RrLAe39
-	GAmu4jzIzNIUI5TOTsBN6dFOeqSLJVzG1xilRmCdrc20EO4EqqtekkNwC0aPLnfXUsGkzHg5yc/Ec
-	Ny4BzsqfxkvKzJeelGZR3xhVdaEmQ6UHLbzAYICvyLezscGA4luRk/10ukO1Tx/7JwqiTfx8QDpgk
-	S0G6nWc9wz2VM6YnkTDdsLF+9sSlpgvS2s8TKnsML0icyMqi9+wWI1W1H0d3XUsbV1oieYvOVGUyD
-	T2MLU30yBi8CE+b4x99BJkF2ZktAQAbp0fr9urf+pl4EgXEBvUcHl25ckKp/fecIrcqTnqDR3ixbC
-	SdS2/c4g==;
+	bh=bQMxbahOoMV/Ka2zZMRG3HjDjex4nqWH9a70Z5WrrOc=; b=Ezg4NUXHvDNKUJy0bkjyC/iDtH
+	65Kczywg/b1Gkibimr4TJd9QEgSqTfQTRo83F/CaLIWoRPNrR+LirNHBs0/GtpAuaP4uG3OYhYlBu
+	B69DOqBIEqHBXgKw3alw4O88WjEXNiRFi+qFVpIWm0c/rm34DgMXB3oC1YyLQfucAHk54TVIBIlqk
+	QLVsiqIokc96hkPgEicTOPdxfLbrldmCcISnAJVjp+7Z2wUs303Ckxw0W3NMNbZ/R555J3GdA4/hj
+	4fO3EhaMyoTkVPIzCs3iBiuVc0pHz/L3bbsYwE5MbVsIDBw60LG4NxNh23VtZ4T+FzkKuRk23vb5e
+	Ve88HX6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPVjv-0000000BmUf-3QA5;
-	Thu, 12 Jun 2025 00:24:19 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1uPVm2-0000000BmiL-2P9e;
+	Thu, 12 Jun 2025 00:26:30 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUDt-0000000BX10-1C2z
+	id 1uPUDv-0000000BX2E-1D7K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 22:47:10 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-747d394f45fso254315b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:08 -0700 (PDT)
+	Wed, 11 Jun 2025 22:47:12 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7462aff55bfso240793b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749682028; x=1750286828; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749682030; x=1750286830; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=tDZohEtmrHKYD6EovcSC8/ZzfIWWO2Pel/+WswkGVp8=;
-        b=wlKLvfXt764I6qmRAV6/Xltx5t5AKkNhC2JCpLb8Uxi1V1uuf0kOAhHIefod9GPLg9
-         pBtY5M2DSUBpX5ufuF8jvRWGvr7DvLQ0CiTTQmbSez2uk5uIXxLZ4CrCumQbZN/UhsRU
-         WatVH5ZDaCtpzdvAkAnOl6ENY99aEeXILuU6fGB3Jy7NfOS3reOIdkZ4HSHUoZLzLAGV
-         jIQh1ffHJCo0axo0kWjBKp3O/UXag1j/eIK12wXaf6B2oZjKKuymLpPHaXIJAHnorZb9
-         fy2pHd04xWKLztJzxFbNdc+zsFE2eDSwqdo+1JtaLMMUFgAEJUD9xw+LIjLvStGBCCUy
-         jtBw==
+        bh=bQMxbahOoMV/Ka2zZMRG3HjDjex4nqWH9a70Z5WrrOc=;
+        b=hR1FPRrIQYXqjAchHeerX8rN5XXiCo7YL1tvUxBhho5ZBl5Dacr3dwyyiMsUNfTeZx
+         +TNNpNWo8CzE3S7TDMp8J9imFVSswRlqtqxmTjaB5HIhY9kxRiaTwUUV0471RIjRYpWr
+         bDwzXQTSZpz2vo1fwVAfb4vAOdsquH8Rv5+29WalQ3GXl1m3x1FmIJfyKV3x4d92q/mo
+         vVdYNo4Psv3YJAGdqXhQDs1eN5n1QswR1XO7T1O5A2ayR+5MCjtXR1tmnfFqunpaWzUn
+         EORBUPYydO0OFubC+ly0Xpcnm9jem/j7cuI832VVsNsbZUphodsH0YMymRbfpICK3Zxx
+         6LpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749682028; x=1750286828;
+        d=1e100.net; s=20230601; t=1749682030; x=1750286830;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tDZohEtmrHKYD6EovcSC8/ZzfIWWO2Pel/+WswkGVp8=;
-        b=qF7HEkJFa6WmsaInaeMlaanqjJtcnfuXQUARuSKRU7tkv20yJ6i9cq/FbR6s1ReRTb
-         U2O6vY3s2LTa4USpIs3KLsPFJ9ZI8yw1Vs50Z1YNo/NZI5USX9SLArJ8w75+gOB8Fu68
-         x2eWuqqx3+o0sC2i2nrmV39TaR/eOWWOgRrUFsF8pFNVPQ2sFMljwW+EMxhi1p0wWRXp
-         tqohdaFQDK4isgwItoypJRvlGCkQy/7oi8A8881WPp4ZWLVfe2uQJ9dnZy34vVOflJsi
-         1j26W6pX6lxfQVS5uTsSqjyYg7Yk4Xhhx8CsZiKL1oBOf2Q+3AhTJ9GgFqrbrzr5x0jJ
-         BLBQ==
-X-Gm-Message-State: AOJu0YyVkNYw6mRvR0oDpN5RvMAXgJqlNF+BQq0FjiWQdrk241Ks0DND
-	6gVK0F0mv9yQFZiEkoLK0NcMKRb7e15VNyqGJs7lsnqgJCY7YyQ8/zLqgSY1siK3ZmcAUlue1Ye
-	16M5n2g==
-X-Google-Smtp-Source: AGHT+IHgXSfJU2sxyG9OW4VojMH2BSFfhS8bYIS64Jcg4Y6OGr2dvtrGuU93NG67KzexoKMXwohALrIyyio=
-X-Received: from pfic6.prod.google.com ([2002:a62:e806:0:b0:746:2117:6f55])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:2294:b0:742:a111:ee6f
- with SMTP id d2e1a72fcca58-7487c21ba8bmr1432295b3a.10.1749682028151; Wed, 11
- Jun 2025 15:47:08 -0700 (PDT)
-Date: Wed, 11 Jun 2025 15:45:10 -0700
+        bh=bQMxbahOoMV/Ka2zZMRG3HjDjex4nqWH9a70Z5WrrOc=;
+        b=NBPx6L1jr7rYrbQXlfG4LAON23EICZ2RnQEY/RaRfB5Wp6LFusL6JoAx5jCxU8NGSV
+         QhgjeBHFchMBdXU4tTxWqhTgiTnARLoGZcRxqd1Ynnn3miKfHvkrttaYnbyL1F8qqoPD
+         gNxL9pE0qDlGA8/L8klW/Zyn93ZTsefHMfCOdry2oK3EviWP3h1UO0rAxliGMyCnNMdh
+         MpdE+7wFZgICjBgYey3ddz91kDWrcaXzRSmFZww1Cqg3GkMn0KyClBqcGHKttLHinRUR
+         lnHRfFD33zCbQRTLeSClVIr86PS3K5mff5afMmv+l6UbeR4A9fibXTq73mW45Divzn0R
+         aOMw==
+X-Gm-Message-State: AOJu0YyXet50avrTVkB0BvGLjkreiSNlVwtJbHnHnlxXJpqsLhYZE8Ee
+	DJcQkktXbLW9+a5Ni40K2EVTjeU6siUtenOyhRAo0v080w6Q0pQqC5JVCMnp7soI0TxUgkCHtzn
+	m3pMRsQ==
+X-Google-Smtp-Source: AGHT+IHU4UK6dAUOCbwJWWrdH0PtCWdxR/jj188N0b0b6EvIJsVmByJnhGgC9nFYnYfLkqG3Y4MI9nywi44=
+X-Received: from pgar4.prod.google.com ([2002:a05:6a02:2e84:b0:b2c:4ef2:ca0e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7d9a:b0:21c:faa4:9ab9
+ with SMTP id adf61e73a8af0-21f866f2d2cmr7405522637.22.1749682030084; Wed, 11
+ Jun 2025 15:47:10 -0700 (PDT)
+Date: Wed, 11 Jun 2025 15:45:11 -0700
 In-Reply-To: <20250611224604.313496-2-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250611224604.313496-2-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-Message-ID: <20250611224604.313496-9-seanjc@google.com>
-Subject: [PATCH v3 07/62] KVM: SVM: Delete IRTE link from previous vCPU
- irrespective of new routing
+Message-ID: <20250611224604.313496-10-seanjc@google.com>
+Subject: [PATCH v3 08/62] KVM: SVM: Drop pointless masking of default APIC
+ base when setting V_APIC_BAR
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +79,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_154709_322477_F078569C 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250611_154711_323553_0B185EEC 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +96,46 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Delete the IRTE link from the previous vCPU irrespective of the new
-routing state, i.e. even if the IRTE won't be configured to post IRQs to a
-vCPU.  Whether or not the new route is postable as no bearing on the *old*
-route.  Failure to delete the link can result in KVM incorrectly updating
-the IRTE, e.g. if the "old" vCPU is scheduled in/out.
+Drop VMCB_AVIC_APIC_BAR_MASK, it's just a regurgitation of the maximum
+theoretical 4KiB-aligned physical address, i.e. is not novel in any way,
+and its only usage is to mask the default APIC base, which is 4KiB aligned
+and (obviously) a legal physical address.
 
-Fixes: 411b44ba80ab ("svm: Implements update_pi_irte hook to setup posted interrupt")
+No functional change intended.
+
 Tested-by: Sairaj Kodilkar <sarunkod@amd.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/svm/avic.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/x86/include/asm/svm.h | 2 --
+ arch/x86/kvm/svm/avic.c    | 2 +-
+ 2 files changed, 1 insertion(+), 3 deletions(-)
 
+diff --git a/arch/x86/include/asm/svm.h b/arch/x86/include/asm/svm.h
+index ad954a1a6656..89a666952b01 100644
+--- a/arch/x86/include/asm/svm.h
++++ b/arch/x86/include/asm/svm.h
+@@ -260,8 +260,6 @@ struct __attribute__ ((__packed__)) vmcb_control_area {
+ 
+ #define AVIC_DOORBELL_PHYSICAL_ID_MASK			GENMASK_ULL(11, 0)
+ 
+-#define VMCB_AVIC_APIC_BAR_MASK				0xFFFFFFFFFF000ULL
+-
+ #define AVIC_UNACCEL_ACCESS_WRITE_MASK		1
+ #define AVIC_UNACCEL_ACCESS_OFFSET_MASK		0xFF0
+ #define AVIC_UNACCEL_ACCESS_VECTOR_MASK		0xFFFFFFFF
 diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-index 4e8380d2f017..c981ce764b45 100644
+index c981ce764b45..5344ae76c590 100644
 --- a/arch/x86/kvm/svm/avic.c
 +++ b/arch/x86/kvm/svm/avic.c
-@@ -861,6 +861,12 @@ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
- 	if (!kvm_arch_has_assigned_device(kvm) || !kvm_arch_has_irq_bypass())
- 		return 0;
+@@ -244,7 +244,7 @@ void avic_init_vmcb(struct vcpu_svm *svm, struct vmcb *vmcb)
+ 	vmcb->control.avic_backing_page = bpa & AVIC_HPA_MASK;
+ 	vmcb->control.avic_logical_id = lpa & AVIC_HPA_MASK;
+ 	vmcb->control.avic_physical_id = ppa & AVIC_HPA_MASK;
+-	vmcb->control.avic_vapic_bar = APIC_DEFAULT_PHYS_BASE & VMCB_AVIC_APIC_BAR_MASK;
++	vmcb->control.avic_vapic_bar = APIC_DEFAULT_PHYS_BASE;
  
-+	/*
-+	 * If the IRQ was affined to a different vCPU, remove the IRTE metadata
-+	 * from the *previous* vCPU's list.
-+	 */
-+	svm_ir_list_del(irqfd);
-+
- 	pr_debug("SVM: %s: host_irq=%#x, guest_irq=%#x, set=%#x\n",
- 		 __func__, host_irq, guest_irq, set);
- 
-@@ -883,8 +889,6 @@ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
- 
- 		WARN_ON_ONCE(new && memcmp(e, new, sizeof(*new)));
- 
--		svm_ir_list_del(irqfd);
--
- 		/**
- 		 * Here, we setup with legacy mode in the following cases:
- 		 * 1. When cannot target interrupt to a specific vcpu.
+ 	if (kvm_apicv_activated(svm->vcpu.kvm))
+ 		avic_activate_vmcb(svm);
 -- 
 2.50.0.rc1.591.g9c95f17f64-goog
 
