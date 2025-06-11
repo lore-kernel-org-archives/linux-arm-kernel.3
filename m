@@ -4,77 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1322EC61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2471BC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yMbhtrxd+lfucvgFGWo6yq3uWZnN00zrQisBYzRC/t4=; b=4kBRlE/r2nnvu/S0li906U8hzo
-	bqDOPOPdHhy8SFgDOBqhRzG2UR6+yLS+lAVadVffFgmK7AXk/x8E4YFrhXcaVXNB5ZpEPDLQ7g6P7
-	a/209LrV+zEb+fkdG3wb23rkQXN5GfdyP5r2hIpQPiOg/xIkmUYtOzMBwoJQsrt0DI4gtAS1OcaPi
-	I0hKAqNBxB+OxeJC3eQ+hC92yBOBUd4e6ffM/D7mbHqPA0daTnj2cP+hhId0g/3qxFWb2T7Q3CotD
-	+LRNSIvttPrTwgXTmA4OvsiyUz1j0OFTwPVqNn9CX/z/sMfFpqwtaWKZjGqUDNrbwiHg9t2YSk8sJ
-	oRE1avKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nRhNmTmhoxtdmDvyd8LrRatUmgj8eny+E90agNFLQ/4=; b=dMKR1S4576/cdN
+	JS38qbrOBIzT0/eVdEY+/duAMjs09QcDCnUGHRlbRbJU6rTCQgDgbXZrKKTRCIwaePmYJUm6pGFbb
+	Y28Qx4LSMc99wro/OmQVYGSRi6ArlVsv7iRTIF56d19XhS8e2n4RSKnolTIcW+gqrWMrhwx6jR/uT
+	6uOBReYyZncDdpz3yusenynV4L20ttS7HJyVuJo55RgVXSN4lpjM1dLWKW8Wrjagf/TOCltBw/TNF
+	LQwDq4tYDEVhwFp8LzcjOv4qQtxSZMLY+4XkVye+XhWYNjJ8c3uvtkESFaPYfpA8hUD89Xwrr4arF
+	WGssy9bvnQyjQaFmftew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPCSj-00000008lxB-2f3N;
-	Wed, 11 Jun 2025 03:49:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPCOB-00000008kxi-2Tpk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 03:44:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	Date:Sender:Reply-To:Content-ID:Content-Description;
-	bh=yMbhtrxd+lfucvgFGWo6yq3uWZnN00zrQisBYzRC/t4=; b=ekW5rVTLhOrs1Kp9o9/yBh1MQl
-	/7sZnhrqu5pym5r5G0FKtPmhCQJJONg5iQDyCZ28L7dq+Neqjrd9yrKQr+rgkeWLmXzLemsSJxJDE
-	jNR+84AnGEoj55OAioQoLadIJdwCj9ZGxsEs0YaZefsr32FEPpFuCuV4gXgRlwP3gN06xho4eK+QS
-	hXwkbdO8cNXQ9FESbgohNbgKuq999zjkm8S59yY1r57ew+ZX6UmQ2PZdaPzXXoVs3FBQV9RpWEEUe
-	WKYwksPutHPm7NoPid7S0FVgBrzvXhsd0yCv9S7GGDgFRgkQfxQBIZN5nFbQrnnu/L+hGEfbttN0R
-	aGsjSn/Q==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPCO8-000000025y7-3qGh
+	id 1uPCUr-00000008mFl-1Guz;
+	Wed, 11 Jun 2025 03:51:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPCOx-00000008lIm-1NYM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 03:44:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DFF055C58FC;
-	Wed, 11 Jun 2025 03:42:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291EDC4AF0C;
-	Wed, 11 Jun 2025 03:44:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749613467;
-	bh=5ARTyfd+J/ANy0FRcXsCzGza7YVCTUrLuXUD1PZwF38=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=d2CowW0j1dHDkYJE12gpXiTg1KVtWyL0Ehl/lBriVhAk/iMnnl7KbhzpBp5HKCEMA
-	 rQxvG+DQaZup6HQuSFnZF02/U6L/VKc4kuolS+/ANutM10tdmxTFWaNZHxOfpXnsRx
-	 +p6UfTpxjw1oFO+NBPE7oX3fqRj4CAFBGxO4UWMi86hAzlgFTostggjepRiAcgU/XG
-	 qu2YQzl7Igy+TfwUI40t1MFtxtqbcobuJTur79vFIrnCYyjVQjhnFLaa5kKYcfXfFG
-	 Yj5imWphxWv9C+XXdZwmW2W7KK721TZJlW1+9Xypr9iQBnXNYaQo/CBVrsEW3TEZi6
-	 3/U7hPBL7htJQ==
-Date: Tue, 10 Jun 2025 22:44:26 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 11 Jun 2025 03:45:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59E1B168F;
+	Tue, 10 Jun 2025 20:44:58 -0700 (PDT)
+Received: from [10.164.146.17] (J09HK2D2RT.blr.arm.com [10.164.146.17])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC1563F66E;
+	Tue, 10 Jun 2025 20:45:13 -0700 (PDT)
+Message-ID: <9b378582-44eb-4fbb-a03a-40eb317daebd@arm.com>
+Date: Wed, 11 Jun 2025 09:15:10 +0530
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- etanous@nvidia.com, krzk+dt@kernel.org, andrew@codeconstruct.com.au, 
- devicetree@vger.kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
- linux-arm-kernel@lists.infradead.org
-To: Donald Shannon <donalds@nvidia.com>
-In-Reply-To: <20250611013025.2898412-1-donalds@nvidia.com>
-References: <20250611013025.2898412-1-donalds@nvidia.com>
-Message-Id: <174961323770.3426174.10462978172910890705.robh@kernel.org>
-Subject: Re: [PATCH v4 1/1] ARM: dts: aspeed: Add device tree for Nvidia's
- GB200 UT3.0b platform BMC
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3 2/2] KVM: selftests: Change MDSCR_EL1 register holding
+ variables as uint64_t
+To: Marc Zyngier <maz@kernel.org>
+References: <20250610053128.4118784-1-anshuman.khandual@arm.com>
+ <20250610053128.4118784-3-anshuman.khandual@arm.com>
+ <864iwnedjk.wl-maz@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <864iwnedjk.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_044433_360464_C27595D8 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20250610_204523_404284_59441779 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,128 +62,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, kvm@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, linux-kselftest@vger.kernel.org, kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 10 Jun 2025 18:30:24 -0700, Donald Shannon wrote:
-> The GB200NVL UT3.0b BMC is an Aspeed Ast2600 based BMC
-> for Nvidia Blackwell GB200NVL platform.
-> Reference to Ast2600 SOC [1].
-> Reference to Blackwell GB200NVL Platform [2].
+
+On 10/06/25 10:31 PM, Marc Zyngier wrote:
+> On Tue, 10 Jun 2025 06:31:28 +0100,
+> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+>>
+>> Change MDSCR_EL1 register holding local variables as uint64_t that reflects
+>> its true register width as well.
+>>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Oliver Upton <oliver.upton@linux.dev>
+>> Cc: Joey Gouly <joey.gouly@arm.com>
+>> Cc: kvm@vger.kernel.org
+>> Cc: kvmarm@lists.linux.dev
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: linux-kselftest@vger.kernel.org
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  tools/testing/selftests/kvm/arm64/debug-exceptions.c | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+>> index c7fb55c9135b..e34963956fbc 100644
+>> --- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+>> +++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
+>> @@ -140,7 +140,7 @@ static void enable_os_lock(void)
+>>  
+>>  static void enable_monitor_debug_exceptions(void)
+>>  {
+>> -	uint32_t mdscr;
+>> +	uint64_t mdscr;
+>>  
+>>  	asm volatile("msr daifclr, #8");
+>>  
+>> @@ -223,7 +223,7 @@ void install_hw_bp_ctx(uint8_t addr_bp, uint8_t ctx_bp, uint64_t addr,
+>>  
+>>  static void install_ss(void)
+>>  {
+>> -	uint32_t mdscr;
+>> +	uint64_t mdscr;
+>>  
+>>  	asm volatile("msr daifclr, #8");
+>>  
 > 
-> Link: https://www.aspeedtech.com/server_ast2600/ [1]
-> Link: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
+> Why change this in the place that matters *the least*?
 > 
-> Signed-off-by: Donald Shannon <donalds@nvidia.com>
-> ---
-> Changes v1 -> v2:
->   - Changed phy-mode to rgmii-id [Lunn]
->   - Removed redundant max-speed for mac0 [Lunn]
->   - Fixed typo from gb200nvl to gb200 in Makefile
-> Changes v2 -> v3:
->   - Fixed whitespace issues [Krzysztof]
->   - Fixed schema validation issues from my end ( there are still issues with the aspeed dtsi file that are not related to this new dts) [Herring]
->   - Reordered to follow style guide [Krzysztof]
->   - Removed redundant status okays
->   - Changed vcc to vdd for the power gating on the gpio expanders
-> Changes v3 -> v4:
->   - Added changelog [Krzysztof]
->   - Added nvidia,gb200-ut30b board binding [Krzysztof]
->   - Removed unused imports
->   - Reordered a couple other style guide violations
->   - Added back in a couple needed "status okay"s
-> ---
+> arch/arm64/kernel/debug-monitors.c is full of 32bit manipulation of
+> this register, and that's only one example of it. So if you are going
+> to change this, please do it fully, not as a random change in a random
+> file.
+
+The first patch in this series changes mdscr system register to 64 bit
+in the mentioned file (i.e arch/arm64/kernel/debug-monitors.c). 
+
 > 
-> Donald Shannon (1):
->   ARM: dts: aspeed: Add device tree for Nvidia's GB200 UT3.0b platform
->     BMC
+> Thanks,
 > 
->  .../bindings/arm/aspeed/aspeed.yaml           |    1 +
->  arch/arm/boot/dts/aspeed/Makefile             |    1 +
->  .../aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts  | 1154 +++++++++++++++++
->  3 files changed, 1156 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts
+> 	M.
 > 
-> 
-> base-commit: 460178e842c7a1e48a06df684c66eb5fd630bcf7
-> --
-> 2.43.0
-> 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 460178e842c7a1e48a06df684c66eb5fd630bcf7
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250611013025.2898412-1-donalds@nvidia.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200-ut30b.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-
-
-
-
 
 
