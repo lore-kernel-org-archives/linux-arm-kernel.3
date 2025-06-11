@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE82C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E060C71133
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V+fu5LjKY2GaOireDdqVwxq5aGz3BxBf7XtXLA5APms=; b=NZb7Aa1L7kpzDDIMXuoP3wubFl
-	JFUjZAfBz321p/J1449YrHkaGphPqkSlYLKIGQzSu0J9sLQmCl9FcZ+ZaymmzCF7ZsUwCWB/mFXHF
-	d5ftOsHjzmQIwFBNRK48zGkMOiBSf+IDqiwUfadHuXJtOMCUvYR9nKvRIlYZeFMsE7cWZR+S9Z/Rj
-	EkenCn65EZSLA3ITg0l1cROD5je1n0cz5U78iE8jZLly4yKvXFzdMPvuFCnVC0Zs9Vy+ofKApyC4Q
-	bYAarCsrKYtP3rQe2VAP7v5SMqMSSryXt/h+aEO8ZsQodw2hTP1MenaEyT90uE3AP/jK0OZ/xwJoc
-	F2knznOA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v5qXDIyCABFhOF+Eefpw/XZ56KaBK7MmBqHZIAP9LI0=; b=Tsap5pELJgPctN/OIb4XjtXPqk
+	/lQR/1tNjgK+GDnK0XRYtcorB3PFTE+pt7m3xyg0ibfxlwOtynTeMqdlksoBtz5RpPfgJJwKrqDbi
+	E56LJ0eXHq5+BI9vi+xMvne6U+d4wVufCrM7DNr3tLv18Ra1ufBtMvzYiRHAx5Np9cmg09hr6c5re
+	9vf1MBcPvJSEezsAgpA3D4PtjcHO3yOMWsawccYBh+cUqKt5NlxUyH0yrb9Xohpko3VuejUJ9L9Lv
+	rXX3QKVB2YAd5HmwiPQJWFswrHqb6KcOrcFKLyGm/CasEdFyp4EBalP7SZQ7Ngjniuat5q6PgDYA9
+	9yNid2/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNmj-0000000AU4L-0Iv6;
-	Wed, 11 Jun 2025 15:54:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJ3V-00000009fiH-42wu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:51:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CAC92BC4;
-	Wed, 11 Jun 2025 03:51:22 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.67.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D63C3F59E;
-	Wed, 11 Jun 2025 03:51:37 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	id 1uPNml-0000000AU9s-11Sw;
+	Wed, 11 Jun 2025 15:54:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPJ3h-00000009fjw-0H3j;
+	Wed, 11 Jun 2025 10:51:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 63BD5629C0;
+	Wed, 11 Jun 2025 10:51:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D312BC4CEEE;
+	Wed, 11 Jun 2025 10:51:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749639112;
+	bh=z0f/Wl+RIL7QWDaLPnNb/sYLDEt+cxVqTNutC/oQKZ8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rNmCopHTHN4je/LVKOBaApYhwDFxkotPQAy76zchHZCEZ2c/Prph0G1CfR7hCkpoZ
+	 lvnXKfkUZfarXm2zOY6F3DXBge++Ih5a4uHUr6pYySjdmDMYE0VXBOIQbKutFgbK+5
+	 t4LemLolrVwRPQR+Ery6bhgFDjbz/RMBua/9JpQBIyLQw1gsuJR2cGlYHLJ9gXWocl
+	 TDKFmDTmXtsmSS5PyxkwrRP2Ok9LC+gE8znzFMVFRvTDxBfIiYuzjUe37T9gBnRBla
+	 d4u/+RGOqe9TfxmGy2HrXO2QPWQ5szxGbGuWFO466TPp6IteWh/ffnWXrIAszz85RB
+	 DSR5602ZZsKYw==
+From: Niklas Cassel <cassel@kernel.org>
+To: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Niklas Cassel <cassel@kernel.org>,
+	Krishna chaitanya chundru <quic_krichai@quicinc.com>
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Laszlo Fiat <laszlo.fiat@proton.me>,
+	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>
-Subject: [PATCH v9 42/43] KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
-Date: Wed, 11 Jun 2025 11:48:39 +0100
-Message-ID: <20250611104844.245235-43-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250611104844.245235-1-steven.price@arm.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
+	linux-rockchip@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org
+Subject: [PATCH 0/4] PCI: dwc: Do not enumerate bus before endpoint devices are ready
+Date: Wed, 11 Jun 2025 12:51:41 +0200
+Message-ID: <20250611105140.1639031-6-cassel@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1032; i=cassel@kernel.org; h=from:subject; bh=z0f/Wl+RIL7QWDaLPnNb/sYLDEt+cxVqTNutC/oQKZ8=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDI84/d8v9pfETT/yp57mUp7fxjsW6J4bssB9hdKjzTWR 9jxGLdP6ChlYRDjYpAVU2Tx/eGyv7jbfcpxxTs2MHNYmUCGMHBxCsBEhOUYGabv4/c+wnz8l8L/ HbM1DvyP52Sv0Lvwz/e0fP//hxNYNNkZGW5ulbV69i1ps5B1cLWNSOK+P3ySC1hFZ3xncDWIe3/ WmhkA
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_035142_049279_4B1836C1 
-X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Increment KVM_VCPU_MAX_FEATURES to expose the new capability to user
-space.
+Hello all,
 
-Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
----
-Changes since v8:
- * Since NV is now merged and enabled, this no longer conflicts with it.
----
- arch/arm64/include/asm/kvm_host.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The DWC PCIe controller driver currently does not follow the PCIe
+specification with regards to the delays after link training, before
+sending out configuration requests. This series fixes this.
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 9903b0e8ef3f..d16483f9d358 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -40,7 +40,7 @@
- 
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
- 
--#define KVM_VCPU_MAX_FEATURES 9
-+#define KVM_VCPU_MAX_FEATURES 10
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
- 
- #define KVM_REQ_SLEEP \
+At the same time, PATCH 1/4 addresses a regression where a Plextor
+NVMe drive fails to be configured correctly. With this series, the
+Plextor NVMe drive works once again.
+
+
+Kind regards,
+Niklas
+
+
+Niklas Cassel (4):
+  PCI: dw-rockchip: Do not enumerate bus before endpoint devices are
+    ready
+  PCI: qcom: Do not enumerate bus before endpoint devices are ready
+  PCI: dwc: Ensure that dw_pcie_wait_for_link() waits 100 ms after link
+    up
+  PCI: dwc: Reduce LINK_WAIT_SLEEP_MS
+
+ drivers/pci/controller/dwc/pcie-designware.c  | 13 ++++++++++++-
+ drivers/pci/controller/dwc/pcie-designware.h  | 11 ++++++++---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c |  7 +++++++
+ drivers/pci/controller/dwc/pcie-qcom.c        |  7 +++++++
+ 4 files changed, 34 insertions(+), 4 deletions(-)
+
 -- 
-2.43.0
+2.49.0
 
 
