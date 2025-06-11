@@ -4,113 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F62C71137
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDD9C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jnYVnCCIQqRVwZ0YnEAaW4qHmdsbA59VsqVppYJCjhs=; b=qv+2fuDWI4mu37wlv85C0H7sQl
-	8vtJFDj4mt3XhcOcjuSw6zkrl54oeT4BZFTTtSfjTP6Vrx95nTMhSpA4K8/jEL1fMs3h2fF6N4Fu0
-	DtKW2Dmhyi4d7YlWYOBV/bkzL2h45vrVIvQqc0wzuD+ZZPN/nLootnqG0kx0WMZ5C/q9w+Zhrn2qU
-	GYHDkevoK+qNBj6ZeAkXBMqBMfDOChzB/ZH32Ol7OfBZ+JJcT6A/p+GMXwqPRXgcFKOR9twtv62hx
-	zyPuJTCzWte1lAfFWqmX8/8XEYSpqzgof11PBhjmytnaleg6op6dgE/Ih8M95jJ8mNEP4g/7/ytNB
-	VGtyQCHA==;
+	bh=/hgBliRsn98yjnn6LGa7ilNtDhe/Zx9FTu8ZrMqhDGE=; b=vs6pnLPv4LznSMmv+566U+lSAf
+	WAllDx6fBUcy0oLh5QNz18L+CsrNmFK5yH1Gc3uoFGIPWWqdhOrWvGPhiJzIjO4I0+juDfRLHMEO0
+	WdWkMJPjiDw2l3N3DRwlAU3g4qD7nyPYnp8ghIJpb5xfzeyy6jL+KFJk/PYXLBn+onQce72Mfdc1U
+	BAVGkVPkCx6o09W4FCPAbKe5IDNOLTUz9BREEEvxP0Ps4v1F+FrLwQmXnd2zA2qQ4RB6qrOs1v73l
+	uGzRSdLq6uY5x28XRyeKxa2orxkYe3IJUMxw07/KmtwKRRCHu/gPusWs1bJr8DlSNpaKwVkeWP6Q8
+	wAtaWmNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNmK-0000000ATMU-3dVb;
-	Wed, 11 Jun 2025 15:54:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIw8-00000009e1K-2Eav
+	id 1uPNmU-0000000ATdr-1eTt;
+	Wed, 11 Jun 2025 15:54:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPJ27-00000009fRX-2fZV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:44:06 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55B9DEcl009041;
-	Wed, 11 Jun 2025 10:43:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jnYVnCCIQqRVwZ0YnEAaW4qHmdsbA59VsqVppYJCjhs=; b=VT8Cz+sW6Y7G2nEf
-	2TjbuilfmbxyxsdNQwIkgy5SwQ0o1Ys/aXHu0vjGBMY+0vpytXqR9jD6aubo/SC5
-	bz6BFZd2Vq+IMnZN7jDJwR1b19AZY4XZDZ34UWfODiprKtEowsfFod6S/byGWaEc
-	a+TzsyZeWcD04ZsEK8dmZJOLQZlCdzvZx6PeN9c5NUCri9EneaVoThpiHiykyvrZ
-	KWEDpjZ9Y+YilPi0E9/EAW44wNhqMBM1v7JSW/Dyc0ahly2MFNkk+5CQqT7t9iEA
-	k2/W8zgEkHE2H3RoONJ7ZjPfQ981JiFA4VxpigAkPRR4QgVDcyahhcoJEQpfdAZE
-	cgl0Ag==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47753brknj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Jun 2025 10:43:56 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55BAhtSA030790
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 11 Jun 2025 10:43:55 GMT
-Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 11 Jun
- 2025 03:43:52 -0700
-Message-ID: <bd9a0216-ea87-4eeb-ac7f-14fcf3202bc8@quicinc.com>
-Date: Wed, 11 Jun 2025 18:43:50 +0800
+	Wed, 11 Jun 2025 10:50:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB53215A1;
+	Wed, 11 Jun 2025 03:49:55 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.67.107])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 111003F673;
+	Wed, 11 Jun 2025 03:50:11 -0700 (PDT)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>
+Subject: [PATCH v9 20/43] arm64: RME: Runtime faulting of memory
+Date: Wed, 11 Jun 2025 11:48:17 +0100
+Message-ID: <20250611104844.245235-21-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250611104844.245235-1-steven.price@arm.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/2] coresight: add coresight Trace Network On Chip
- driver
-To: Leo Yan <leo.yan@arm.com>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>,
-        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20250611-trace-noc-v9-0-4322d4cf8f4b@quicinc.com>
- <20250611-trace-noc-v9-2-4322d4cf8f4b@quicinc.com>
- <20250611100911.GT8020@e132581.arm.com>
-Content-Language: en-US
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-In-Reply-To: <20250611100911.GT8020@e132581.arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjExMDA5MiBTYWx0ZWRfX/aHZEud6azW3
- J5d1vgRVbBhVXURcxgs2SUzAUS+Kaczjlia00EcI0On2CZiwrNdC8GqT9iOxMTDngK/uAbBy4/a
- 3L118Z0C/uKv0k7kiePSwxsYVj58W/QfcBgASAUUXAwjXPR6mjszJTPYun8l+PVX9mr1CCA40Xr
- H48Eh/eTvQTilFUgWuz1Cm9ZbniR+rOtmmq7000GkbLbQxRy8Yf+FFruQ+d5itwpIWBGb9+Ao7D
- 0QF7X8EIahpu9mhwBn2nkmgdPTAumT3CLoJbc73UbrkZBo0UyD+1fuJ70FVBd522OmC4bwDfshL
- U4+hrKIUp473Wo3cvBHlW6xrrKQIAwtHJPCYbRXZCzjruJnlkVVJ6+6yW68lDhf1v/g4uS6Szsk
- weA+a2X6SnxbVYpwRl2wdyZCQjX6v8ZCEobmejInuOVq1HtrGq54wdPY+uDPbW/btJ0Rm2ST
-X-Proofpoint-GUID: Yuq0Gr20l7s92BO6MccC_SNRsmzTNsJr
-X-Proofpoint-ORIG-GUID: Yuq0Gr20l7s92BO6MccC_SNRsmzTNsJr
-X-Authority-Analysis: v=2.4 cv=SqOQ6OO0 c=1 sm=1 tr=0 ts=68495dec cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8
- a=COk6AnOGAAAA:8 a=7CQSdrXTAAAA:8 a=WxWR6bt4cCgWsqPF1WIA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-11_04,2025-06-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 mlxscore=0 mlxlogscore=999 bulkscore=0 impostorscore=0
- spamscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0 suspectscore=0
- clxscore=1015 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506110092
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_034404_703475_B56D2AB0 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250611_035015_762834_6BF1ED2B 
+X-CRM114-Status: GOOD (  34.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,68 +82,491 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+At runtime if the realm guest accesses memory which hasn't yet been
+mapped then KVM needs to either populate the region or fault the guest.
 
+For memory in the lower (protected) region of IPA a fresh page is
+provided to the RMM which will zero the contents. For memory in the
+upper (shared) region of IPA, the memory from the memslot is mapped
+into the realm VM non secure.
 
-On 6/11/2025 6:09 PM, Leo Yan wrote:
-> On Wed, Jun 11, 2025 at 04:59:47PM +0800, Yuanfang Zhang wrote:
->> Add a driver to support Coresight device Trace Network On Chip (TNOC),
->> which is an integration hierarchy integrating functionalities of TPDA
->> and funnels. It aggregates the trace and transports to coresight trace
->> bus.
->>
->> Compared to current configuration, it has the following advantages:
->> 1. Reduce wires between subsystems.
->> 2. Continue cleaning the infrastructure.
->> 3. Reduce Data overhead by transporting raw data from source to target.
->>
->>   +------------------------+                +-------------------------+
->>   | Video Subsystem        |                |Video Subsystem          |
->>   |       +-------------+  |                |       +------------+    |
->>   |       | Video TPDM  |  |                |       | Video TPDM |    |
->>   |       +-------------+  |                |       +------------+    |
->>   |            |           |                |              |          |
->>   |            v           |                |              v          |
->>   |   +---------------+    |                |        +-----------+    |
->>   |   | Video funnel  |    |                |        |Video TNOC |    |
->>   |   +---------------+    |                |        +-----------+    |
->>   +------------|-----------+                +------------|------------+
->>                |                                         |
->>                v-----+                                   |
->> +--------------------|---------+                         |
->> |  Multimedia        v         |                         |
->> |  Subsystem   +--------+      |                         |
->> |              |  TPDA  |      |                         v
->> |              +----|---+      |              +---------------------+
->> |                   |          |              |   Aggregator  TNOC  |
->> |                   |          |              +----------|----------+
->> |                   +--        |                         |
->> |                     |        |                         |
->> |                     |        |                         |
->> |              +------v-----+  |                         |
->> |              |  Funnel    |  |                         |
->> |              +------------+  |                         |
->> +----------------|-------------+                         |
->>                  |                                       |
->>                  v                                       v
->>       +--------------------+                    +------------------+
->>       |   Coresight Sink   |                    |  Coresight Sink  |
->>       +--------------------+                    +------------------+
->>
->>        Current Configuration                            TNOC
->>
->> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> 
-> I observed a merging conflict. I would suggest you sticking to the
-> coresight next branch for CoreSight related upstreaming. Please
-> rebase this patch on it.
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git
-> branch: next
-> 
-> I also verified this patch with static checker smatch. With rebasing:
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+Changes since v8:
+ * Propagate the may_block flag.
+ * Minor comments and coding style changes.
+Changes since v7:
+ * Remove redundant WARN_ONs for realm_create_rtt_levels() - it will
+   internally WARN when necessary.
+Changes since v6:
+ * Handle PAGE_SIZE being larger than RMM granule size.
+ * Some minor renaming following review comments.
+Changes since v5:
+ * Reduce use of struct page in preparation for supporting the RMM
+   having a different page size to the host.
+ * Handle a race when delegating a page where another CPU has faulted on
+   a the same page (and already delegated the physical page) but not yet
+   mapped it. In this case simply return to the guest to either use the
+   mapping from the other CPU (or refault if the race is lost).
+ * The changes to populate_par_region() are moved into the previous
+   patch where they belong.
+Changes since v4:
+ * Code cleanup following review feedback.
+ * Drop the PTE_SHARED bit when creating unprotected page table entries.
+   This is now set by the RMM and the host has no control of it and the
+   spec requires the bit to be set to zero.
+Changes since v2:
+ * Avoid leaking memory if failing to map it in the realm.
+ * Correctly mask RTT based on LPA2 flag (see rtt_get_phys()).
+ * Adapt to changes in previous patches.
+---
+ arch/arm64/include/asm/kvm_emulate.h |  10 ++
+ arch/arm64/include/asm/kvm_rme.h     |  10 ++
+ arch/arm64/kvm/mmu.c                 | 133 ++++++++++++++++++++-
+ arch/arm64/kvm/rme.c                 | 165 +++++++++++++++++++++++++++
+ 4 files changed, 312 insertions(+), 6 deletions(-)
 
-Done in next patch.
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 302a691b3723..126c98cded90 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -709,6 +709,16 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
+ 	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
+ }
+ 
++static inline gpa_t kvm_gpa_from_fault(struct kvm *kvm, phys_addr_t ipa)
++{
++	if (kvm_is_realm(kvm)) {
++		struct realm *realm = &kvm->arch.realm;
++
++		return ipa & ~BIT(realm->ia_bits - 1);
++	}
++	return ipa;
++}
++
+ static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+ {
+ 	if (static_branch_unlikely(&kvm_rme_is_available))
+diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+index 321970779669..df88ae51b7c9 100644
+--- a/arch/arm64/include/asm/kvm_rme.h
++++ b/arch/arm64/include/asm/kvm_rme.h
+@@ -110,6 +110,16 @@ void kvm_realm_unmap_range(struct kvm *kvm,
+ 			   unsigned long size,
+ 			   bool unmap_private,
+ 			   bool may_block);
++int realm_map_protected(struct realm *realm,
++			unsigned long base_ipa,
++			kvm_pfn_t pfn,
++			unsigned long size,
++			struct kvm_mmu_memory_cache *memcache);
++int realm_map_non_secure(struct realm *realm,
++			 unsigned long ipa,
++			 kvm_pfn_t pfn,
++			 unsigned long size,
++			 struct kvm_mmu_memory_cache *memcache);
+ 
+ static inline bool kvm_realm_is_private_address(struct realm *realm,
+ 						unsigned long addr)
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 37403eaa5699..1dc644ea26ce 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -338,8 +338,14 @@ static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64
+ 
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 	WARN_ON(size & ~PAGE_MASK);
+-	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
+-				   may_block));
++
++	if (kvm_is_realm(kvm))
++		kvm_realm_unmap_range(kvm, start, size, !only_shared,
++				      may_block);
++	else
++		WARN_ON(stage2_apply_range(mmu, start, end,
++					   KVM_PGT_FN(kvm_pgtable_stage2_unmap),
++					   may_block));
+ }
+ 
+ void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
+@@ -359,7 +365,10 @@ static void stage2_flush_memslot(struct kvm *kvm,
+ 	phys_addr_t addr = memslot->base_gfn << PAGE_SHIFT;
+ 	phys_addr_t end = addr + PAGE_SIZE * memslot->npages;
+ 
+-	kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
++	if (kvm_is_realm(kvm))
++		kvm_realm_unmap_range(kvm, addr, end - addr, false, true);
++	else
++		kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
+ }
+ 
+ /**
+@@ -1053,6 +1062,10 @@ void stage2_unmap_vm(struct kvm *kvm)
+ 	struct kvm_memory_slot *memslot;
+ 	int idx, bkt;
+ 
++	/* For realms this is handled by the RMM so nothing to do here */
++	if (kvm_is_realm(kvm))
++		return;
++
+ 	idx = srcu_read_lock(&kvm->srcu);
+ 	mmap_read_lock(current->mm);
+ 	write_lock(&kvm->mmu_lock);
+@@ -1078,6 +1091,9 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+ 	if (kvm_is_realm(kvm) &&
+ 	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
+ 	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
++		struct realm *realm = &kvm->arch.realm;
++
++		kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), false);
+ 		write_unlock(&kvm->mmu_lock);
+ 		kvm_realm_destroy_rtts(kvm, pgt->ia_bits);
+ 
+@@ -1486,6 +1502,85 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
+ 	return vma->vm_flags & VM_MTE_ALLOWED;
+ }
+ 
++static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
++			 kvm_pfn_t pfn, unsigned long map_size,
++			 enum kvm_pgtable_prot prot,
++			 struct kvm_mmu_memory_cache *memcache)
++{
++	struct realm *realm = &kvm->arch.realm;
++
++	/*
++	 * Write permission is required for now even though it's possible to
++	 * map unprotected pages (granules) as read-only. It's impossible to
++	 * map protected pages (granules) as read-only.
++	 */
++	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
++		return -EFAULT;
++
++	ipa = ALIGN_DOWN(ipa, PAGE_SIZE);
++
++	if (!kvm_realm_is_private_address(realm, ipa))
++		return realm_map_non_secure(realm, ipa, pfn, map_size,
++					    memcache);
++
++	return realm_map_protected(realm, ipa, pfn, map_size, memcache);
++}
++
++static int private_memslot_fault(struct kvm_vcpu *vcpu,
++				 phys_addr_t fault_ipa,
++				 struct kvm_memory_slot *memslot)
++{
++	struct kvm *kvm = vcpu->kvm;
++	gpa_t gpa = kvm_gpa_from_fault(kvm, fault_ipa);
++	gfn_t gfn = gpa >> PAGE_SHIFT;
++	bool is_priv_gfn = kvm_mem_is_private(kvm, gfn);
++	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
++	struct page *page;
++	kvm_pfn_t pfn;
++	int ret;
++	/*
++	 * For Realms, the shared address is an alias of the private GPA with
++	 * the top bit set. Thus is the fault address matches the GPA then it
++	 * is the private alias.
++	 */
++	bool is_priv_fault = (gpa == fault_ipa);
++
++	if (is_priv_gfn != is_priv_fault) {
++		kvm_prepare_memory_fault_exit(vcpu, gpa, PAGE_SIZE,
++					      kvm_is_write_fault(vcpu), false,
++					      is_priv_fault);
++
++		/*
++		 * KVM_EXIT_MEMORY_FAULT requires an return code of -EFAULT,
++		 * see the API documentation
++		 */
++		return -EFAULT;
++	}
++
++	if (!is_priv_fault) {
++		/* Not a private mapping, handling normally */
++		return -EINVAL;
++	}
++
++	ret = kvm_mmu_topup_memory_cache(memcache,
++					 kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
++	if (ret)
++		return ret;
++
++	ret = kvm_gmem_get_pfn(kvm, memslot, gfn, &pfn, &page, NULL);
++	if (ret)
++		return ret;
++
++	/* FIXME: Should be able to use bigger than PAGE_SIZE mappings */
++	ret = realm_map_ipa(kvm, fault_ipa, pfn, PAGE_SIZE, KVM_PGTABLE_PROT_W,
++			    memcache);
++	if (!ret)
++		return 1; /* Handled */
++
++	put_page(page);
++	return ret;
++}
++
+ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 			  struct kvm_s2_trans *nested,
+ 			  struct kvm_memory_slot *memslot, unsigned long hva,
+@@ -1513,6 +1608,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	if (fault_is_perm)
+ 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
+ 	write_fault = kvm_is_write_fault(vcpu);
++
++	/*
++	 * Realms cannot map protected pages read-only
++	 * FIXME: It should be possible to map unprotected pages read-only
++	 */
++	if (vcpu_is_rec(vcpu))
++		write_fault = true;
++
+ 	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
+ 	VM_BUG_ON(write_fault && exec_fault);
+ 
+@@ -1630,7 +1733,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		ipa &= ~(vma_pagesize - 1);
+ 	}
+ 
+-	gfn = ipa >> PAGE_SHIFT;
++	gfn = kvm_gpa_from_fault(kvm, ipa) >> PAGE_SHIFT;
+ 	mte_allowed = kvm_vma_mte_allowed(vma);
+ 
+ 	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
+@@ -1763,6 +1866,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		 */
+ 		prot &= ~KVM_NV_GUEST_MAP_SZ;
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault_ipa, prot, flags);
++	} else if (kvm_is_realm(kvm)) {
++		ret = realm_map_ipa(kvm, fault_ipa, pfn, vma_pagesize,
++				    prot, memcache);
+ 	} else {
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
+ 					     __pfn_to_phys(pfn), prot,
+@@ -1911,8 +2017,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		nested = &nested_trans;
+ 	}
+ 
+-	gfn = ipa >> PAGE_SHIFT;
++	gfn = kvm_gpa_from_fault(vcpu->kvm, ipa) >> PAGE_SHIFT;
+ 	memslot = gfn_to_memslot(vcpu->kvm, gfn);
++
++	if (kvm_slot_can_be_private(memslot)) {
++		ret = private_memslot_fault(vcpu, ipa, memslot);
++		if (ret != -EINVAL)
++			goto out;
++	}
++
+ 	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
+ 	write_fault = kvm_is_write_fault(vcpu);
+ 	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
+@@ -1956,7 +2069,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 		 * of the page size.
+ 		 */
+ 		ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
+-		ret = io_mem_abort(vcpu, ipa);
++		ret = io_mem_abort(vcpu, kvm_gpa_from_fault(vcpu->kvm, ipa));
+ 		goto out_unlock;
+ 	}
+ 
+@@ -2004,6 +2117,10 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	if (!kvm->arch.mmu.pgt)
+ 		return false;
+ 
++	/* We don't support aging for Realms */
++	if (kvm_is_realm(kvm))
++		return true;
++
+ 	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
+ 						   range->start << PAGE_SHIFT,
+ 						   size, true);
+@@ -2020,6 +2137,10 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
+ 	if (!kvm->arch.mmu.pgt)
+ 		return false;
+ 
++	/* We don't support aging for Realms */
++	if (kvm_is_realm(kvm))
++		return true;
++
+ 	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
+ 						   range->start << PAGE_SHIFT,
+ 						   size, false);
+diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+index d7bb11583506..0fe55e369782 100644
+--- a/arch/arm64/kvm/rme.c
++++ b/arch/arm64/kvm/rme.c
+@@ -750,6 +750,171 @@ static int realm_create_protected_data_page(struct realm *realm,
+ 	return -ENXIO;
+ }
+ 
++static int fold_rtt(struct realm *realm, unsigned long addr, int level)
++{
++	phys_addr_t rtt_addr;
++	int ret;
++
++	ret = realm_rtt_fold(realm, addr, level, &rtt_addr);
++	if (ret)
++		return ret;
++
++	free_rtt(rtt_addr);
++
++	return 0;
++}
++
++int realm_map_protected(struct realm *realm,
++			unsigned long ipa,
++			kvm_pfn_t pfn,
++			unsigned long map_size,
++			struct kvm_mmu_memory_cache *memcache)
++{
++	phys_addr_t phys = __pfn_to_phys(pfn);
++	phys_addr_t rd = virt_to_phys(realm->rd);
++	unsigned long base_ipa = ipa;
++	unsigned long size;
++	int map_level = IS_ALIGNED(map_size, RMM_L2_BLOCK_SIZE) ?
++			RMM_RTT_BLOCK_LEVEL : RMM_RTT_MAX_LEVEL;
++	int ret = 0;
++
++	if (WARN_ON(!IS_ALIGNED(map_size, RMM_PAGE_SIZE) ||
++		    !IS_ALIGNED(ipa, map_size)))
++		return -EINVAL;
++
++	if (map_level < RMM_RTT_MAX_LEVEL) {
++		/*
++		 * A temporary RTT is needed during the map, precreate it,
++		 * however if there is an error (e.g. missing parent tables)
++		 * this will be handled below.
++		 */
++		realm_create_rtt_levels(realm, ipa, map_level,
++					RMM_RTT_MAX_LEVEL, memcache);
++	}
++
++	for (size = 0; size < map_size; size += RMM_PAGE_SIZE) {
++		if (rmi_granule_delegate(phys)) {
++			/*
++			 * It's likely we raced with another VCPU on the same
++			 * fault. Assume the other VCPU has handled the fault
++			 * and return to the guest.
++			 */
++			return 0;
++		}
++
++		ret = rmi_data_create_unknown(rd, phys, ipa);
++
++		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
++			/* Create missing RTTs and retry */
++			int level = RMI_RETURN_INDEX(ret);
++
++			WARN_ON(level == RMM_RTT_MAX_LEVEL);
++
++			ret = realm_create_rtt_levels(realm, ipa, level,
++						      RMM_RTT_MAX_LEVEL,
++						      memcache);
++			if (ret)
++				goto err_undelegate;
++
++			ret = rmi_data_create_unknown(rd, phys, ipa);
++		}
++
++		if (WARN_ON(ret))
++			goto err_undelegate;
++
++		phys += RMM_PAGE_SIZE;
++		ipa += RMM_PAGE_SIZE;
++	}
++
++	if (map_size == RMM_L2_BLOCK_SIZE) {
++		ret = fold_rtt(realm, base_ipa, map_level + 1);
++		if (WARN_ON(ret))
++			goto err;
++	}
++
++	return 0;
++
++err_undelegate:
++	if (WARN_ON(rmi_granule_undelegate(phys))) {
++		/* Page can't be returned to NS world so is lost */
++		get_page(phys_to_page(phys));
++	}
++err:
++	while (size > 0) {
++		unsigned long data, top;
++
++		phys -= RMM_PAGE_SIZE;
++		size -= RMM_PAGE_SIZE;
++		ipa -= RMM_PAGE_SIZE;
++
++		WARN_ON(rmi_data_destroy(rd, ipa, &data, &top));
++
++		if (WARN_ON(rmi_granule_undelegate(phys))) {
++			/* Page can't be returned to NS world so is lost */
++			get_page(phys_to_page(phys));
++		}
++	}
++	return -ENXIO;
++}
++
++int realm_map_non_secure(struct realm *realm,
++			 unsigned long ipa,
++			 kvm_pfn_t pfn,
++			 unsigned long size,
++			 struct kvm_mmu_memory_cache *memcache)
++{
++	phys_addr_t rd = virt_to_phys(realm->rd);
++	phys_addr_t phys = __pfn_to_phys(pfn);
++	unsigned long offset;
++	/* TODO: Support block mappings */
++	int map_level = RMM_RTT_MAX_LEVEL;
++	int map_size = rme_rtt_level_mapsize(map_level);
++	int ret = 0;
++
++	if (WARN_ON(!IS_ALIGNED(size, RMM_PAGE_SIZE) ||
++		    !IS_ALIGNED(ipa, size)))
++		return -EINVAL;
++
++	for (offset = 0; offset < size; offset += map_size) {
++		/*
++		 * realm_map_ipa() enforces that the memory is writable,
++		 * so for now we permit both read and write.
++		 */
++		unsigned long desc = phys |
++				     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL) |
++				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R |
++				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++		ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
++
++		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
++			/* Create missing RTTs and retry */
++			int level = RMI_RETURN_INDEX(ret);
++
++			ret = realm_create_rtt_levels(realm, ipa, level,
++						      map_level, memcache);
++			if (ret)
++				return -ENXIO;
++
++			ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
++		}
++		/*
++		 * RMI_ERROR_RTT can be reported for two reasons: either the
++		 * RTT tables are not there, or there is an RTTE already
++		 * present for the address.  The above call to create RTTs
++		 * handles the first case, and in the second case this
++		 * indicates that another thread has already populated the RTTE
++		 * for us, so we can ignore the error and continue.
++		 */
++		if (ret && RMI_RETURN_STATUS(ret) != RMI_ERROR_RTT)
++			return -ENXIO;
++
++		ipa += map_size;
++		phys += map_size;
++	}
++
++	return 0;
++}
++
+ static int populate_region(struct kvm *kvm,
+ 			   phys_addr_t ipa_base,
+ 			   phys_addr_t ipa_end,
+-- 
+2.43.0
 
 
