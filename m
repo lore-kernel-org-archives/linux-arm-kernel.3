@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0866AC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 21:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8251FC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 21:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DrlvccNSoTa1N2CEqty6SXPXaqMw8CS9faA9z8SPqGA=; b=UfkRTk/fQ3rUg5w6bxnOoYP5Jc
-	QyzMWVPP7YKjeM+l/fQfaAOXdc/V2cbJrYh/630miRXEMxls8H5TbxKjnjODhg+i8LNKF9ivLjgvK
-	B5ZEA5GyLa9Zhhq2FRU7bmpvM+MxlNPFJFyZrNumSYHSu/g57YAN05zIaScrcQOMOR212N25uolTF
-	vrBfZFf9dG5Rs00WjET8HbhGgs0AgKuxFcvl0jH/aMdgbHsKy16BpP6B2nMvalggyooe1ElDrx7DD
-	vh9CctuEl0pjMK4LYd7uvaQiykMYGWABHOwz/xTiXhh6DSOgVYvqX6Ry0PCNuVJvZa7VaEe9H0OoL
-	8qhI9Jdg==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HXpbEsO5eb5xjNNymWPtJ0HALCMGPPW/YTk+Y1AzXl8=; b=q2o07p7gTFiO2JPW0JPjdhWXS9
+	DOc4BjFN6I8IOMDfqAKcDwic7Uj7Z/Z/3wi+9aZ0j3UTMKtiY/NBOr1msPSbnt6s5B2c5h7bvqOEa
+	bhBDMcpNm91v/60oX/5qQKgccye1nLnazvincjZJqv5WmPxO+r+TBt3PQvdH29jVAbVNg1MwKiQhZ
+	pue+9FUbThUG8tmBnz/zUutPWf27+5py0BPd4L6gynwmWGsVTBOorlo2on3rHOsbEnbCktPeKDndv
+	xv/wdVNzaE5MzWXLi+Pd+8OUz2r2X5rTlwGc8dLY77na9wcWSWy4OCqUsHCdoa30x3XxS5jJ9DAbV
+	CJIO1AVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPTNv-0000000BPgX-26Ro;
-	Wed, 11 Jun 2025 21:53:27 +0000
+	id 1uPTQ0-0000000BPpy-12N5;
+	Wed, 11 Jun 2025 21:55:36 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRR1-0000000Az51-1zKH
+	id 1uPRR3-0000000Az51-0MaR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 19:48:32 +0000
+	Wed, 11 Jun 2025 19:48:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1749671311; x=1781207311;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=OLfd68qnuzctm3Q3lmoS0Sml2GYxSnlcolATqmbMYcs=;
-  b=nWl40bXJJFpD8ppKVVpyd+mdAbry4HoaPoFNWvhx7bCpnlMSordbSnFG
-   IhXcW8/4mEXtDeK8qNrIYxzwvuOyAoPBODeIbvUxrtUuFd2zqma6Qiv5K
-   m4NCCQiKQ3Tk25PnSjF2FgIWsKmoiFKXqZ5v+hk2yZPPBDXmX3AZ9ptaT
-   sX8pfhqe5NaSuU+GyCJGubgpxyCI/o2/TveU37l0PqPaLWL/iUjvZYBbx
-   IUNvR4IJBR7eImMoabR6ax2jLIci5AboPbx3eGNKLq9qRYrO7HuZ0X2dt
-   Ez1nqjxols2kgDmWgoOYehzvdeScbgxJQi2XJZZL5/HO8wZuSaqmyNjCO
-   A==;
+  t=1749671312; x=1781207312;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=0IogV/WYEoJgdGYIarAuHouch0dnxthSZymoHBE3dXo=;
+  b=B0llwAF+z+ixYXQjuGTa5W2jC6tN5Cd1PXNCwZeXYTCCWRgu2LFnFnms
+   mgo5ZPn5+UBHc3I9sPM62VEkJ+3CJ2lSQRInkUqAEAxckRDKScDAGQz/r
+   Sxyey+fQ3g0zl5YWmV05OwRb+vwdaqXSOiKcSgbtwv5hOYahpSOsyOTkl
+   UHAMYcZc7Egm3SAlupl09R8mW13eqv440V5axoTWUm/h8dJw1h8cX76B+
+   46TQnV1JFlYdiLbOtHOGtqrTLzSBjJlrz04wFAgKAtHva1vaaC56FBgzu
+   fznUQlZxEcOto1HvXFdAtMxPHzF3b87wD96QNLp5/0uigWz2HAu1mcoW4
+   g==;
 X-CSE-ConnectionGUID: VqjTqfGTSymHXSpb+r0c0A==
-X-CSE-MsgGUID: Gwb8uRMNTNmg1Pwhb40oAw==
+X-CSE-MsgGUID: AHBRzxCASWuSQB5jtvbCVg==
 X-IronPort-AV: E=Sophos;i="6.16,228,1744095600"; 
-   d="scan'208";a="42226221"
+   d="scan'208";a="42226222"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Jun 2025 12:48:25 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Jun 2025 12:48:26 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -62,16 +62,19 @@ To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>, <robh@kernel.org>,
 CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
  Wanner" <Ryan.Wanner@microchip.com>
-Subject: [PATCH v2 00/10] SAMA7D65 Add support for Crypto, CAN and PWM
-Date: Wed, 11 Jun 2025 12:47:24 -0700
-Message-ID: <cover.1749666053.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 01/10] dt-bindings: crypto: add sama7d65 in Atmel AES
+Date: Wed, 11 Jun 2025 12:47:25 -0700
+Message-ID: <7aa1862f790ea19bf7bb55e07ec4b9295c5f7a44.1749666053.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1749666053.git.Ryan.Wanner@microchip.com>
+References: <cover.1749666053.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_124831_699639_C246F901 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250611_124833_186738_081DC6E9 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +91,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-This set adds support for the SAMA7D65 SoC crypto subsystem and enabling
-them in the device tree. This set also adds PWM to the device tree, and
-adds and enables the CAN bus system for the SAMA7D65 SoC.
+Add DT bindings for SAMA7D65 SoC in atmel AES.
 
-Changes v1 -> v2:
-- Clean up formatting issues in the device tree and DT bindings.
-- Add a description of the capabilities for the cyrpto IPs for this SoC.
+The SAMA7D65 similar to the SAM9x75 SoC supports HMAC, dual buffer, and
+GCM. And similar all 3 it supports CBC, CFB, CTR, ECB, and XTS.
 
-Ryan Wanner (10):
-  dt-bindings: crypto: add sama7d65 in Atmel AES
-  dt-bindings: crypto: add sama7d65 in Atmel SHA
-  dt-bindings: crypto: add sama7d65 in Atmel TDES
-  dt-bindings: rng: atmel,at91-trng: add sama7d65 TRNG
-  crypto: atmel - add support for AES and SHA IPs available on sama7d65
-    SoC
-  ARM: dts: microchip: sama7d65: Add crypto support
-  ARM: dts: microchip: sama7d65: Add PWM support
-  ARM: dts: microchip: sama7d65: Add CAN bus support
-  ARM: dts: microchip: sama7d65: Clean up extra space
-  ARM: dts: microchip: sama7d65: Enable CAN bus
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ .../devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml     | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
- .../crypto/atmel,at91sam9g46-aes.yaml         |   4 +-
- .../crypto/atmel,at91sam9g46-sha.yaml         |   4 +-
- .../crypto/atmel,at91sam9g46-tdes.yaml        |   4 +-
- .../bindings/rng/atmel,at91-trng.yaml         |   1 +
- .../dts/microchip/at91-sama7d65_curiosity.dts |  35 +++++
- arch/arm/boot/dts/microchip/sama7d65.dtsi     | 128 ++++++++++++++++++
- drivers/crypto/atmel-aes.c                    |   1 +
- drivers/crypto/atmel-sha.c                    |   1 +
- 8 files changed, 175 insertions(+), 3 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml b/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml
+index 7dc0748444fd..19010f90198a 100644
+--- a/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml
++++ b/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-aes.yaml
+@@ -15,7 +15,9 @@ properties:
+     oneOf:
+       - const: atmel,at91sam9g46-aes
+       - items:
+-          - const: microchip,sam9x7-aes
++          - enum:
++              - microchip,sam9x7-aes
++              - microchip,sama7d65-aes
+           - const: atmel,at91sam9g46-aes
+ 
+   reg:
 -- 
 2.43.0
 
