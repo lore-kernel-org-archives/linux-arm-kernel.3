@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E291FC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:55:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC86C71134
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8wENgIyz321IaLPGJJBJsCrpwVOpegVPIbotUoBSowg=; b=daBxE4uhcEh8BNmELX4O+w4YLt
-	g5EnGjjeTA+/XoJPZCaKYLiVwf/SP7XfckfabdU0sA+MRx46bIChS3l/+hgyEsTH49YnsBIn4K2PG
-	LdqzLOb0IjWmBb2UNowtmqcys1UD8gJ7449viX+jhL7PvXDVr0/Fk4BP1Yy6wbXJiF5DqIxaOi+x/
-	SJRLy00a5oOAVJDTRDxxgod7aDPh46iACNJNRWCVcoJjYdbAE9Z/7F//G9YF5Jw/GhW1gI9nGFvhI
-	KDf8M2VjY5iTdMVojjYVFCSwLcifr2/c+xp4cP5pwIzP3m0iERXWAO4DqPFsyjtE5GRFCHAzqQCNN
-	uXjlKprg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=doqV80or5FFXZrFJ4XVxJqCcisBBjET6FQ2n9ahub0A=; b=1kUPI/vai0rnrt4emiHCvhyYN7
+	CJyfs2mZ2TH6KheNQW6WctQET8kRa2ohJFcRHseMFn1GAJJEblYd9BTcMLy/0N9CM1tU286D6ghid
+	j25iJ1eXb97CZBCet066tX+G4/g8M8H1Jz3ooorm8EyfruZvFTLM1nej1ZTg16X/ubyAVxa6lEnxh
+	uxdYwmAY+IFoDPXuNAlPTYjp+eH/uHOUh6X50L+jP7PRc7pxjXZwWTvfnZiBgyy0zIfhRIpisWxhv
+	pXgO/TpGm+cfJRUPKWspGUwTDfxSTSZAYBvsBz251STDGvEg4YYbH70n38uNuP+Eu4A6UUqyh+UWG
+	wwvZsSYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRXD-0000000B2QW-1wga;
-	Wed, 11 Jun 2025 19:54:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uPRXT-0000000B2kU-1NLw;
+	Wed, 11 Jun 2025 19:55:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNEB-0000000AMYs-29HY
+	id 1uPNFd-0000000AMvQ-3Q2U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 15:18:59 +0000
+	Wed, 11 Jun 2025 15:20:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A1BBA6000A;
-	Wed, 11 Jun 2025 15:18:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4AD74C4CEE3;
-	Wed, 11 Jun 2025 15:18:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 44FDF44D91;
+	Wed, 11 Jun 2025 15:20:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34AAAC4CEEA;
+	Wed, 11 Jun 2025 15:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749655138;
-	bh=wB4gN/vQqwxjlQjrCtsB7lnBgH7W5zGItspRFqPIMtc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=g/Hp5tRh1K0/DPlhRjvDbH+NuOiHRZwFtGnWYYH6v89SsCBBbCNvqXZ9/tw3ObEDC
-	 RIE2oUjGookLDjWKpZxDD8t+bNE53aEhml5fjxE+bUjd3ap36IUz4cykrmSC4mnz05
-	 dT+hK3uu2E+fvy5/mexeeeenmzEHHnU7xX/26KW9PBoAE0puuijBNhgjQWNZyZYi7R
-	 QVVgymUDwXixaFVYT0h3SAfNwDalGSsIhppWKVw4Q7qcEgO1k3QaBFg8lWhNP7vIii
-	 UDjFHZJpJSuTzC8lM9Tp3wbtqTEJTB04pqGbUUtkLJbes9Oa11bhFMApEk3TafVrac
-	 4JTfvUICxw+PQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 31953C71133;
-	Wed, 11 Jun 2025 15:18:58 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Date: Wed, 11 Jun 2025 15:18:53 +0000
-Subject: [PATCH] arm64: dts: apple: Move touchbar mipi {address,size}-cells
- from dtsi to dts
+	s=k20201202; t=1749655229;
+	bh=doqV80or5FFXZrFJ4XVxJqCcisBBjET6FQ2n9ahub0A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HBfaOG2dCW9MelJdcsJ7M7PJxO9mfCeNhStKdABckr06yt5avy4OZ9JbI9B+2JOFq
+	 oZKZx/6SQCU4g8bgG10/PyAOsU8wnCnvL6gu88omNVcfvFl/p0R5jQP5Ygfl2b3GLn
+	 vxhV0CI60qhadkL3doN/eC3pOjMuLJ34qJuA7wTVxVBP42KrwhccjUffIa2NzUbl5F
+	 eVDa3XsBm++zsKzJOen29QAwvzsiVW4McAbE/T6q/FjdEd7zKEug+aKb7f+J41Lesr
+	 +sPFvEOXwHchTcJ5IGHazcEt3P/dNDGtrpn7uPfe0gQggTdnUypApryeEu45PFztys
+	 k1QutgF3XktBA==
+Date: Wed, 11 Jun 2025 16:20:23 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
+	anshuman.khandual@arm.com, joey.gouly@arm.com,
+	yury.khrustalev@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+	frederic@kernel.org, akpm@linux-foundation.org, surenb@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v7 5/9] kselftest/arm64/mte: check MTE_FAR feature is
+ supported
+Message-ID: <319315bf-48f3-4482-99f0-e8cb03ce049b@sirena.org.uk>
+References: <20250611135818.31070-1-yeoreum.yun@arm.com>
+ <20250611135818.31070-6-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250611-display-pipe-mipi-warning-v1-1-bd80ba2c0eea@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAFyeSWgC/x3MQQqDMBBG4avIrB1ILEnRq4iLoKP+UOOQgG0R7
- 25w+S3eOylLgmTqqpOSHMjYY4GtKxrXEBdhTMXUmMYZby1PyPoJf1ao8AYFf0OKiAt7b1pnX0H
- c+KbSa5IZv+fdD9d1A4feWKhrAAAA
-X-Change-ID: 20250611-display-pipe-mipi-warning-6609513ae5c7
-To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Neal Gompa <neal@gompa.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Nick Chan <towinchenmi@gmail.com>, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3299; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=wB4gN/vQqwxjlQjrCtsB7lnBgH7W5zGItspRFqPIMtc=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4bnvHjGqnmsFYtcpfM3uQiaifDP/CVvzX/vUirjh5e1L
- UVTP/R0lLIwiHEwyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACZywJKRYW3m9ZkZebyHPeMX
- BE6M03PdX7svdr3TLqOjuR4/T3Sk1zD8Mz4VtmI+z/eIP3X7vOt8prbqaVSFcPxylD7B6tTSsCK
- MAQA=
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LLcsBgYhYhSy6VHW"
+Content-Disposition: inline
+In-Reply-To: <20250611135818.31070-6-yeoreum.yun@arm.com>
+X-Cookie: No skis take rocks like rental skis!
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_082029_879242_5F7C5542 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,82 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the {address,size}-cells property from the (disabled) touchbar screen
-mipi node inside the dtsi file to the model-specific dts file where it's
-enabled to fix the following W=1 warnings:
 
-t8103.dtsi:404.34-433.5: Warning (avoid_unnecessary_addr_size): /soc/dsi@228600000: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
-t8112.dtsi:419.34-448.5: Warning (avoid_unnecessary_addr_size): /soc/dsi@228600000: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
+--LLcsBgYhYhSy6VHW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Fixes: 7275e795e520 ("arm64: dts: apple: Add touchbar screen nodes")
-Signed-off-by: Sven Peter <sven@kernel.org>
----
- arch/arm64/boot/dts/apple/t8103-j293.dts | 2 ++
- arch/arm64/boot/dts/apple/t8103.dtsi     | 2 --
- arch/arm64/boot/dts/apple/t8112-j493.dts | 2 ++
- arch/arm64/boot/dts/apple/t8112.dtsi     | 2 --
- 4 files changed, 4 insertions(+), 4 deletions(-)
+On Wed, Jun 11, 2025 at 02:58:14PM +0100, Yeoreum Yun wrote:
+> To run the MTE_FAR test when cpu supports MTE_FAR feature,
+> check the MTE_FAR feature is supported in mte test.
 
-diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
-index e2d9439397f71a93c28b75a7eea589f4bcb3e374..5b3c42e9f0e6776241bf746d3458766e44e3639a 100644
---- a/arch/arm64/boot/dts/apple/t8103-j293.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
-@@ -100,6 +100,8 @@ dfr_mipi_out_panel: endpoint@0 {
- 
- &displaydfr_mipi {
- 	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
- 
- 	dfr_panel: panel@0 {
- 		compatible = "apple,j293-summit", "apple,summit";
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 20faf0c0d80927b2e18dd966a61b5507b322c72f..3a204845b85befb093dd470b4280e778c2894b09 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -405,8 +405,6 @@ displaydfr_mipi: dsi@228600000 {
- 			compatible = "apple,t8103-display-pipe-mipi", "apple,h7-display-pipe-mipi";
- 			reg = <0x2 0x28600000 0x0 0x100000>;
- 			power-domains = <&ps_mipi_dsi>;
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			status = "disabled";
- 
- 			ports {
-diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
-index be86d34c6696cb47d31696541266e504cee8ce10..fb8ad7d4c65a8fe7966f5541f24f03a379143cfb 100644
---- a/arch/arm64/boot/dts/apple/t8112-j493.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
-@@ -63,6 +63,8 @@ dfr_mipi_out_panel: endpoint@0 {
- 
- &displaydfr_mipi {
- 	status = "okay";
-+	#address-cells = <1>;
-+	#size-cells = <0>;
- 
- 	dfr_panel: panel@0 {
- 		compatible = "apple,j493-summit", "apple,summit";
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index e95711d8337f6cea898e88a3d564caf2c4f94404..f68354194355807dae9b5922bb8aff74da3c29e6 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -420,8 +420,6 @@ displaydfr_mipi: dsi@228600000 {
- 			compatible = "apple,t8112-display-pipe-mipi", "apple,h7-display-pipe-mipi";
- 			reg = <0x2 0x28600000 0x0 0x100000>;
- 			power-domains = <&ps_mipi_dsi>;
--			#address-cells = <1>;
--			#size-cells = <0>;
- 			status = "disabled";
- 
- 			ports {
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
----
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-change-id: 20250611-display-pipe-mipi-warning-6609513ae5c7
+--LLcsBgYhYhSy6VHW
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Best regards,
--- 
-Sven Peter <sven@kernel.org>
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJnrYACgkQJNaLcl1U
+h9DTogf/XEk8iMJBi79waQjbN4WVhdwRu16ZFgYl5bfzdpd2P2Wax05Rwfiy+Heb
+jCCSLf3+Z2KtUWm20Qavvb86/tnscSg72xIrc8piejxltT5yJeJwJzCv8tcRyJdf
++s0LMSfwoNVePKIQkldVgUQ2Dxukz+0xVE/tN/62dgxRU+/fCKDuiU/K3zZphNfo
+Da8ps0g1pqHwm7ee45Q2AW62x83TYU2+Wfj0keaAj7rJ+EgAezJ8WybmtSQpA2XL
+SUhttLWjlqG0eHt4ljxpz+8raoXbClNu48CwJEVYCHQS1hUlBGOseUOOE6KNYNxN
+Z1bNUQVdjn7hzOSL1zCJ/iLOtOrDmQ==
+=jV/l
+-----END PGP SIGNATURE-----
 
+--LLcsBgYhYhSy6VHW--
 
