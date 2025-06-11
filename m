@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2523DC71134
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6997C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gUZR/39vopw/woL6HiKhpJ8H5BiBMcCwO+TEzoPGWpA=; b=JZNhFqCpW/vwFZXjA/TryRAGg9
-	Pmjqyo//Y0PZdh9GPyphZBxNdVePNV7OyX/mJOlBNyxGhEMeczqtRC4islBnNb3Kg/SAOtdWOMTQT
-	V+6ylZghAoytJVmbhFTJXQ31TO98yUIv7k0ttEetCS1pCgsdGVV+vYfjIvvC/6VDdJ2tjCn6oTQ9y
-	VxS6/Pu+v5jRil9tMTIN6rwMoRBAyIU4AtecqKiJwrrw1blGLkrZOCdtBGsa6hXNrAUYuRM8aKpdR
-	5itE4isw2FS+6vgk3vVc7bGJQ685dWyJKCcQUoXzy+wgJFRtE2sRgo0v7ly2PFxPhbWPr12UrZObc
-	mITQrT5w==;
+	bh=pKsYBtZSzJFBNl3Ug9YmBQ3IUiKtUuYSnIdF26bHabc=; b=PiM5g+sLVxca7FBFWEsLMQvkaL
+	ZkCPa7hXhkqJsoyndeRvVOKW7kwc0J8uBZomfoMSoFeN9TyxFYIyAkdmqOSucWe7YU/ZqIQjY51NN
+	yGAaAsovtVq5l95Ajwk7TZnj9laGfJQFl7OMP0FVcZ4AVU6D8meyxq7n8+sYLKGWB8a7AmlnqcUu7
+	jNTKQ4IOYs9BQm8SiWLoG4+x6rczINuza3OC21Tl3dFFP6TFsHhUoE3EHX2GviaM0luV/yL/q4NoB
+	xV5cvsVWDLurEycNjuapMiKv6TFr319K0DDv7wuVkdmmgn6v8uaAOonRb6NPy0mrxlZitriDIu01/
+	BtLh7rpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRYy-0000000B55t-0W5U;
-	Wed, 11 Jun 2025 19:56:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPRZ0-0000000B59q-2obP;
+	Wed, 11 Jun 2025 19:56:46 +0000
+Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPOUn-0000000AdgM-1iA9
+	id 1uPOVA-0000000Adhv-2FHJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 16:40:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3CB0349F6F;
-	Wed, 11 Jun 2025 16:40:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B67C6C4CEE3;
-	Wed, 11 Jun 2025 16:40:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749660012;
-	bh=TqlQzmTCsnQRMQq+SYvGGb4qf8vY2W39tOrtj8jKeCg=;
+	Wed, 11 Jun 2025 16:40:39 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id CBBC140E0184;
+	Wed, 11 Jun 2025 16:40:21 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id HV_N0c_jC9Zt; Wed, 11 Jun 2025 16:40:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1749660018; bh=pKsYBtZSzJFBNl3Ug9YmBQ3IUiKtUuYSnIdF26bHabc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g0yes6/mOGsZwNR36De45p0AXo8bgF/d3Lsy5MV3CpXXXkJqD25wWAJVbCF4oR9ey
-	 Wqlv10yXvQT1ZBw+Pf3wDLAX0WpjrLCZW71WWxcrDQFjpNhXwff1Wzy7ec2FbtlltJ
-	 qi0+1NJd2uU+I09mugwMdLJhBPkU4CbpN7biYR0ObjMlW4kjPYFti+z2xKHDMay18W
-	 sSxr2ClV9TMGztKGtC4HuF9oTrlNVSsXd8lf8rdtUCRUDUebbDwdeUqFRnNGCBBVMh
-	 jW0yIexgIad1U6HHbtHYGioPfOo/zD1vsqBFOsSmXlXUjiXdu0M5fX5mKDP0R2Oj13
-	 n75pghFXrgmqg==
-Date: Wed, 11 Jun 2025 19:40:08 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
-	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] fix failure of integration IMA with tpm_crb_ffa
-Message-ID: <aEmxaJQNfYJwSCd0@kernel.org>
-References: <20250610060334.2149041-1-yeoreum.yun@arm.com>
- <aEgmhwu1RP27yBpw@kernel.org>
- <aEgwpXXftXW6JNRy@e129823.arm.com>
- <aEg6Bgh8TqzK5nSu@kernel.org>
- <aEhDY4VlkIPYAjPE@e129823.arm.com>
- <aEhIPC95FisptBO5@kernel.org>
- <aEhNnAxlToRMteA2@e129823.arm.com>
+	b=irpbFja7+nN5gvyS2dBJNnfdQwL4IoXZgjiKGGLCkJcpE9TxYIL5z0b7+08iJ7eyj
+	 U/RY7VNhGdx5pEbgv83Wezoniq6njA4/lg0ZSoOHGDjSc7MdQrhO3WeyfKZ95X5ccn
+	 ay2GHcf1IybVIuITZX35HLf8vBgYP9x5QkM9B/qTc7P9w9lq5d+UdzSDDsaRd6qkWR
+	 Dmsl/UeBkNbK7TEO1moiiINyst5slk/xHu795Qimo36MVG9yhyJ1heQ74GKT5zv05a
+	 Bl7GlviUC46ps3U+hTIJY+MUExTzg/3W1w3OGeSaqUc4ydckQNyfBgEE9DfXGLSSYM
+	 LNRks5cZ8S0mO8zFqGvWvTB7X/tfcX1/qDPCgidj1tauZ9IYYsfyYZepMJ6E1YzjNp
+	 E7d4iHuJSct9d7X91541CGB3xc74edzbKBcNRj/i3m8pDUSdcQ8u85MtPuxjB9cv/3
+	 g6ve3DI33PAcKME41rVwxCexyfANfY/yJD/J2E8zEDXxieV9l+Y5zpTSujPNpuX1kb
+	 NpY0IKffg3WvUdjAW9fasuRfN3gKsb5/Eh+F4nXnS8tO1H1aXCs9V4G4+K+WHRtIJs
+	 p2yCgzzZVc/CGT+yGLqmD8KEJTdzF6nShFXACuFIMRtvE9Ar34D7f1fLhl7o7UUvBK
+	 vwnNgKv3igW3O2XQ2M1XQrNo=
+Received: by mail.alien8.de (SuperMail on ZX Spectrum 128k, from userid 1005)
+	id ADED340E019C; Wed, 11 Jun 2025 16:40:18 +0000 (UTC)
+Date: Wed, 11 Jun 2025 16:40:18 +0000
+From: Borislav Petkov <bp@alien8.de>
+To: "Datta, Shubhrajyoti" <shubhrajyoti.datta@amd.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"git (AMD-Xilinx)" <git@amd.com>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	Tony Luck <tony.luck@intel.com>, James Morse <james.morse@arm.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Robert Richter <rric@kernel.org>
+Subject: Re: [PATCH] EDAC/synopsys: Clear the ecc counters at init
+Message-ID: <20250611164018.GAaEmxctC+ESUCvBNT@fat_crate.local>
+References: <20250528065650.27646-1-shubhrajyoti.datta@amd.com>
+ <20250603090536.GCaD664IbJB5IoR06g@fat_crate.local>
+ <SA1PR12MB894764756C6538EE985BDE24816CA@SA1PR12MB8947.namprd12.prod.outlook.com>
+ <20250604093735.GAaEAT39KGW1KJDrjD@fat_crate.local>
+ <SA1PR12MB89471067967E0A5F46CEE1DF8175A@SA1PR12MB8947.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aEhNnAxlToRMteA2@e129823.arm.com>
+In-Reply-To: <SA1PR12MB89471067967E0A5F46CEE1DF8175A@SA1PR12MB8947.namprd12.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_094013_465092_C0FDF977 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20250611_094037_982221_2372D2C7 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +92,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 04:22:04PM +0100, Yeoreum Yun wrote:
-> > OK, if ffa_init() is leveled up in the initcall hierarchy, shouldn't
-> > that be enough as long as ko's can be found from initramfs?
-> 
-> As you mentioned, this is handled in Patch #1.
-> However, although ffa_init() is called first,
-> unless tpm_crb_ffa_init() is also invoked,
-> crb_acpi_driver_init() will fail with -EPROBE_DEFER.
-> 
-> Please note that IMA is always built-in and cannot be built as a module.
+On Wed, Jun 11, 2025 at 11:42:33AM +0000, Datta, Shubhrajyoti wrote:
+> However the registers for Zynqmp and Zynq is different to differentiate
+> Should the usage of quirk be fine code snippet below
 
-Sure but if one needs IMA, then tpm_crb_ffa can be compiled as built-in
-with zero code changes.
+Right, please send a proper diff - it doesn't have to be tested yet and I'll
+finish massaging it.
 
-BR, Jarkko
+Thx.
 
