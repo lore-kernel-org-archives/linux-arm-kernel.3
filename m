@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD61C7113E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD05FC71136
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vcUu2og/B4QRzSP2lTxWYKDGYzwbhRi6LoroY73z+E8=; b=PseSe1od6mvLq4KcAQpLy+aKlo
-	ZJUceXX0KLWEql+7/t/99eyvnzNJ4g+VavGwtBZCIfGJbdZSjkHmwfNRVdp4vERzOuxWWEUNZwaJ/
-	Mork6DY8ISM3MNovm1m9I52rjcWp5G3WrCR3PACINwP7ftQbo61XyzAzN96B43NmKfY+oZNunwguV
-	UsNejnvKwLadypRvFt8tTZHyjCiXjNvIS9hoZ8o+CRTd9XkMYQCn7d67ov/FEsZ4DDAnjqK7JFjCG
-	ZJGOI3+N8zOOFbfFDEJY/HvUeYkiNuYaLInQEEvx8F42AMcjBMCqh3b6Do7zUolcNZsTGCAL+Gqrb
-	t62KP4Yw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/RL6t2pswmXRvFAwQU6KD9gvOr6w6BlsU4yQiXrKFL0=; b=j5w2jqL+6IkhvnB90V1KtkmHBH
+	4om9DN044k5Gl/+m6ZCvZuskR/vYd5IiwGvyvNorGI6c3sOKk7vja68Cke0yEB/aQh/SeWykK6b6/
+	qt5awHpfi9ujiQZ44a3Hj7302934n/vibg/2rHGctxuZE4FSHDpX2rMQogwAa7V861EKEpluvW5pY
+	5uzSUL0/ZgrmhZaQrJFr/qAQ9SVRI1UFjO63aR8b9jkGL7tj2oInibp4+Itaxv5DyO15kkXWBI7B5
+	2t3HcvUbOrYSOboXwDsH3YIPFuAkNnujp+X+Mw0tcqdIbT9FvBipwi4xSgWpwLdBET0fAx80dsnnY
+	FqAKth9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRWc-0000000B1X8-3ZLp;
-	Wed, 11 Jun 2025 19:54:18 +0000
+	id 1uPRWe-0000000B1Yu-1A2C;
+	Wed, 11 Jun 2025 19:54:20 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPN7T-0000000ALIG-1oFx
+	id 1uPN7V-0000000ALIZ-1V96
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 15:12:04 +0000
+	Wed, 11 Jun 2025 15:12:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D4B415A1;
-	Wed, 11 Jun 2025 08:11:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5234115A1;
+	Wed, 11 Jun 2025 08:11:45 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E7D643F59E;
-	Wed, 11 Jun 2025 08:12:00 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1C8183F59E;
+	Wed, 11 Jun 2025 08:12:02 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -47,15 +47,17 @@ To: catalin.marinas@arm.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v2 0/6] support FEAT_LSUI and apply it on futex atomic ops
-Date: Wed, 11 Jun 2025 16:11:48 +0100
-Message-Id: <20250611151154.46362-1-yeoreum.yun@arm.com>
+Subject: [PATCH v2 1/6] arm64: cpufeature: add FEAT_LSUI
+Date: Wed, 11 Jun 2025 16:11:49 +0100
+Message-Id: <20250611151154.46362-2-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611151154.46362-1-yeoreum.yun@arm.com>
+References: <20250611151154.46362-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_081203_513654_BAE1E001 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20250611_081205_437754_D160E237 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,60 +73,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-previleged level to access to access user memory without clearing
-PSTATE.PAN bit.
+Since Armv9.6, FEAT_LSUI supplies load/store instructions
+for privileged level to access user memory without clearing PSTATE.PAN bit.
 
-This patchset support FEAT_LUSI and applies in futex atomic operation
-where can replace from ldxr/stlxr pair implmentation with clearing
-PSTATE.PAN bit to correspondant load/store unprevileged atomic operation
-without clearing PSTATE.PAN bit.
+Add LSUI feature so that the unprevilieged load/store instrcutions
+could be used when kernel accesses user memory without clearing PSTATE.PAN bit.
 
-Patch Sequences
-================
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/kernel/cpufeature.c | 8 ++++++++
+ arch/arm64/tools/cpucaps       | 1 +
+ 2 files changed, 9 insertions(+)
 
-Patch #1 adds cpufeature for FEAT_LUSI
-
-Patch #2 adds Kconfig for FEAT_LUSI
-
-Patch #3 separtes former futex atomic-op implmentation from futex.h
-to futex_ll_sc_u.h
-
-Patch #4 implments futex atomic operation using lsui instruction.
-
-Patch #5 introduces lsui.h to apply runtime patch to use former
-implmentation when FEAT_LUSI doesn't support.
-
-Patch #6 applies lsui.h into arch_futext_atomic_op().
-
-Patch History
-==============
-from v1 to v2:
-  - remove empty v9.6 menu entry
-  - locate HAS_LUSI in cpucaps in order
-  - https://lore.kernel.org/all/20250611104916.10636-1-yeoreum.yun@arm.com/
-
-Yeoreum Yun (6):
-  arm64: cpufeature: add FEAT_LSUI
-  arm64/Kconfig: add LSUI Kconfig
-  arm64/futex: move futex atomic logic with clearing PAN bit
-  arm64/futex: add futex atomic operation with FEAT_LSUI
-  arm64/asm: introduce lsui.h
-  arm64/futex: support futex with FEAT_LSUI
-
- arch/arm64/Kconfig                     |   3 +
- arch/arm64/include/asm/futex.h         |  99 ++++++-------------
- arch/arm64/include/asm/futex_ll_sc_u.h | 115 +++++++++++++++++++++
- arch/arm64/include/asm/futex_lsui.h    | 132 +++++++++++++++++++++++++
- arch/arm64/include/asm/lsui.h          |  37 +++++++
- arch/arm64/kernel/cpufeature.c         |   8 ++
- arch/arm64/tools/cpucaps               |   1 +
- 7 files changed, 327 insertions(+), 68 deletions(-)
- create mode 100644 arch/arm64/include/asm/futex_ll_sc_u.h
- create mode 100644 arch/arm64/include/asm/futex_lsui.h
- create mode 100644 arch/arm64/include/asm/lsui.h
-
---
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index b34044e20128..d914982c7cee 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -278,6 +278,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar2[] = {
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FPRCVT_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_LSUI_SHIFT, 4, ID_AA64ISAR3_EL1_LSUI_NI),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64ISAR3_EL1_FAMINMAX_SHIFT, 4, 0),
+ 	ARM64_FTR_END,
+ };
+@@ -3061,6 +3062,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_pmuv3,
+ 	},
+ #endif
++	{
++		.desc = "Unprivileged Load Store Instructions (LSUI)",
++		.capability = ARM64_HAS_LSUI,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64ISAR3_EL1, LSUI, IMP)
++	},
+ 	{},
+ };
+ 
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 10effd4cff6b..31f2cd655666 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -43,6 +43,7 @@ HAS_HCX
+ HAS_LDAPR
+ HAS_LPA2
+ HAS_LSE_ATOMICS
++HAS_LSUI
+ HAS_MOPS
+ HAS_NESTED_VIRT
+ HAS_PAN
+-- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
