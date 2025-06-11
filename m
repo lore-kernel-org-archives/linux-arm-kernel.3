@@ -4,121 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4831EC71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6393FC71131
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RqGam8k5HWYlvCSTlG3d6FDrTknckzRMelJd6omZhQA=; b=ABUkWYEmI8ZOZAcXul3mqCyFGK
-	G791XhtjaS/wnchEUVIelzzt1u4HfgGEvdSQ3Hs9aV5qBibub2+HUqjx0c7u7z5IErBVhrIHHWzW9
-	4xOpl82infUGPWqO5iV+jIlNvDTVRzM+x/3S0y22YUgdns5EaQqbuNCUTZ1w7ddL9pBkG5kCbP7Gx
-	odmVDBW/V/CYcbzqj0cPtRm/nyuh1Rwz5DX124pFPOsnc1CdQo1UemPow8m86PkMIzsyMIsUBcEwW
-	vmkifTjqbCCCCtGo1SImo5zogp/OkVfegq/Zse6zs+TWalpS/9NSUgy9q+PTSXdKU5oUdbfgYJF5t
-	A6gHRVYg==;
+	bh=DV9t5sYiI13RU+dfHyim24Ym/TfwiK76Thbl9i9KKag=; b=GMHkl8TbgDc28VRJ/3abJXjVvT
+	J//tezCyJnDGtjL8GKNLEoVhyDUcIkwoVvLjkmb3Agqjqn3VG9HQzR3w9lUGy+tOj7NOOg/rPTwke
+	SsyWpoi5AT5DyOaRVXfE6G8DuVNxgMk6ef1m9FV36kEB1AmBTERxUo3Onu5VqZ1e2aLNOFtNTRCyc
+	ApyPOh2VzGtxrsFuZytz2fUiv1TPz+an94625QQArlS+vfL5aHxIJPE+FyZ9QSZkmDkWyFhw2WLC2
+	r6ZIcarWxqW+XNS1PYQmprnDmRmGZlVnejOzXkAZbC6wyBLp6lEvA69fgGRf50DUQbehiIeTcrQGh
+	lmQjsF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMkj-0000000A9Pz-1OHX;
-	Wed, 11 Jun 2025 14:48:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uPMkd-0000000A9L9-3BCW;
+	Wed, 11 Jun 2025 14:48:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHjZ-00000009TLl-2TJi;
-	Wed, 11 Jun 2025 09:27:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A58C7A515D6;
-	Wed, 11 Jun 2025 09:27:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A28DC4CEEE;
-	Wed, 11 Jun 2025 09:26:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749634020;
-	bh=kubvO9a5J9TCMTW9jmX1mZZl7Tpjh1wDB67JD4ZFKvY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AnwGGS1ZBEfJhqAb/K5CbTN/+/F54cJYJWtE6Np8/DqerNZ5MHZxz9e6E3Cd/pBoK
-	 9OHJfP1IXv/NQmY9fzPAzgVCGR22vnM5GxZIF5R7F56P9e8tHpJ0i/VUEtQ/s1gbjl
-	 T0vfrKvt3VMdjZ0KCAEYJwYlgdZZ7GkSAz8nMqwxiw7/CXdSfsnKq2iTMg5JhHhA+H
-	 P0z9XsGBTwsOqRMa9YthsmNeZ2tra6ct2X+SDvA3yM0dnYJkf3Wg6prI5xcSDs9+TN
-	 Zjy4BmrAY24fRGvKqBF2h7SJlBtc3aaMwBJo0jOw4sH4q328qjqWqr2ETaBfkbz5wX
-	 9DWL7N/ek5gTg==
-Message-ID: <7e197546-4bae-441c-a69f-9ae2566e8600@kernel.org>
-Date: Wed, 11 Jun 2025 11:26:54 +0200
+	id 1uPHGv-00000009Odi-10uL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Jun 2025 08:57:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=DV9t5sYiI13RU+dfHyim24Ym/TfwiK76Thbl9i9KKag=; b=ldLW7GlL4pvBwH2vI9jHtPkej9
+	rzgEDhpGFfyaolbj9Pib39WL6RpgEhQxoPNm40GOjskIQ0uy9sKkvW5+0wYc2L27daDLyq8TizcSu
+	LVGnMuMQAoFnHzeNErQ3mkE0gS0x8FTyrSxmu6hGv1xCyPTlwi/9rdBt7i0nherf7no36rCueZpYb
+	EQidx41Ft27Bn0SgBiVRk/i2YergiOffXS/qWHthD1zD4y3kvGH5WimkCZp3aZ8eUg/aonZaWa5Ji
+	E1YKTT0P/Im73YW+SpfasuOog7A2aQfZHNiqSXzQydyZwcLqolV+dQyknj2tofC7Dlt7eUCFFWbKw
+	bCmrTQXQ==;
+Received: from mail-vs1-xe34.google.com ([2607:f8b0:4864:20::e34])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPHGs-00000002DFD-1g9b
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Jun 2025 08:57:24 +0000
+Received: by mail-vs1-xe34.google.com with SMTP id ada2fe7eead31-4e7ade16082so507219137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 01:57:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749632238; x=1750237038; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DV9t5sYiI13RU+dfHyim24Ym/TfwiK76Thbl9i9KKag=;
+        b=QJ6wHPKF07ZDVj6a6+5QQgbIs0oLIOEEkRDPLnl6KCGJzHq7f5MWUdY3WcqV9x0q9c
+         pi9Se6eaIdiweYllr4TPYpvVwHX7IAGMMV4gIXFahPRs9JSu20s67skp6WNIabk6D8Pj
+         FxIA/970O5tMAp/4u0+xcujKXXrGRiKuj2KOR1B5mPFbIVxAzMv8HWQyCYjQ5CKOGz2n
+         GWQqPJTzrpNVJ6U1V2T9soBBqpGFGMd0w6+NHbAka8pRxHpeza6+UfHMJIIsEkN8sGyC
+         HUjpJp057959TI58i0GDeoUYsJejqV5HoTKTi+mZj7TDOVkKu1lclUaxQK8kMlzkQ8tM
+         KJFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749632238; x=1750237038;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DV9t5sYiI13RU+dfHyim24Ym/TfwiK76Thbl9i9KKag=;
+        b=amWgeXaZaBpxyVgp0G5yYwmM+K+eFRdtWg2PPl2Trw/+oQymLknBQeTDgGTFF551qY
+         LwooLE6YPB+VMmVWzo98XGYK6JLTq/dp7DarhMsvdXYJe/MQNKCIH8+7WZt1dln2ryoH
+         2s7dZGZQS3LXo0l/6+hbeIbVbin++VTZi7nXerCBGaHjDECG7vLZ9hALR9xAMeNw2Mtr
+         mB7ABxE6WvTIKDgvsID0BtCie99VuzV1xnykWBijrU6x8aJFUGH9uTikY6GlS9L76Dzb
+         vyr3eqcNJNbkHZuGVfBQ3elXffuednb2UmPS7jkZMAAagUYOwynO+V7Gjs0Mv8XUcxc+
+         tuVA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2St19742m61MD6ipAszeynM2m/wOKZBcrDZ7N2/cbWQFIbCpQ69Q+HTj4bG0JMCauzLo25MoAmKcmSGGK9iym@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDGqE6pK4jUD/N9+qZMi/l3N4qQIuDvMyYuGZN2tfeNh9nSiy/
+	l2x/lgtWuUurRtprptxSzSMSV6RsDibPil9vDgWf7NPIfpgS+Chk+jG636kGunYg2DWCw4O9d1Z
+	AtPvkfQ0bgMoVlgKAa98tYBLR2eg/c9qSuGr6e22daw==
+X-Gm-Gg: ASbGnctVIqkrk5h8J+01b1lBg8ix54UMj7x0Fp9TMqA8d9rn+buXzXx1pUhuALJIQdQ
+	KzntgKSkokV+nkWO5ymHxg/HHQDgOBHKzfYkEQUvRCMLVHZy8/KLq/QCLczzi6OibrfJaQS350B
+	rFCWRKFSWxH+ZpLZNPuRA9LYDzXkNNnUP5g/ixWcBLomdgjnW4UJwzAnEh5JY3Jjzwn/IuhdhzA
+	gNW
+X-Google-Smtp-Source: AGHT+IFQXF+sKGFKqYzvIWVQbzE1S3LEQpj/qr+Mjs6PmUNCe9qyp66456X1HYoQ3EeWcUwMf1iYDwClQBMee+auP2M=
+X-Received: by 2002:a05:6102:2b8b:b0:4e5:a2bf:4fd6 with SMTP id
+ ada2fe7eead31-4e7bba95fc7mr1734093137.8.1749632238461; Wed, 11 Jun 2025
+ 01:57:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] ASoC: dt-bindings: mediatek,mt8196-afe: add
- audio AFE document
-To: =?UTF-8?B?RGFycmVuIFllICjlj7bpo54p?= <Darren.Ye@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- "linux-sound@vger.kernel.org" <linux-sound@vger.kernel.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "broonie@kernel.org" <broonie@kernel.org>, "brgl@bgdev.pl" <brgl@bgdev.pl>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>, "tiwai@suse.com"
- <tiwai@suse.com>, "robh@kernel.org" <robh@kernel.org>,
- "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "perex@perex.cz"
- <perex@perex.cz>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-References: <20250610092852.21986-1-darren.ye@mediatek.com>
- <20250610092852.21986-9-darren.ye@mediatek.com>
- <20250611-private-magnificent-asp-63ef5d@kuoka>
- <bed13d4bba5923e0d71a5e32e61163c2e7958d68.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <bed13d4bba5923e0d71a5e32e61163c2e7958d68.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <CA+G9fYuppX5LeRjOAZWsYRCs76PVbnv-TN_RrszhDsk=KregyA@mail.gmail.com>
+ <15979303.uLZWGnKmhe@diego> <CADYN=9L+Gao0w_CThNd96-yYbZDMZnwY7RvagCOdzUC4rKc-Ug@mail.gmail.com>
+In-Reply-To: <CADYN=9L+Gao0w_CThNd96-yYbZDMZnwY7RvagCOdzUC4rKc-Ug@mail.gmail.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Wed, 11 Jun 2025 14:27:06 +0530
+X-Gm-Features: AX0GCFuVYEyn4auVNPUyj-VnDVcIp7H9e0QdsmhpYhaxmLWCVhksJEW8y_9TvVE
+Message-ID: <CA+G9fYvk7kBqDqPSxndxG2CxxVxhNrf4Easp-aYrR=UeTS1=eQ@mail.gmail.com>
+Subject: Re: next-20250610: arm64 No rule to make target rockchip rk3399-rockpro64-screen.dtso
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Regressions <regressions@lists.linux.dev>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, Peter Robinson <pbrobinson@gmail.com>, krzk+dt@kernel.org, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
+	Anders Roxell <anders.roxell@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_022701_766018_2DB61F90 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250611_095722_575910_D9967AB2 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,45 +116,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2025 11:09, Darren Ye (叶飞) wrote:
-> On Wed, 2025-06-11 at 10:27 +0200, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On Tue, Jun 10, 2025 at 05:27:25PM GMT, Darren.Ye wrote:
->>> From: Darren Ye <darren.ye@mediatek.com>
->>>
->>> Add mt8196 audio AFE document.
->>>
->>> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
->>> ---
->>
->>
->> I gave you detailed instruction last time. Did you read it or you
->> decided to just ignore my review?
->>
->> Best regards,
->> Krzysztof
->>
-> 
-> Hi Krzysztof,
-> 
-> I would never ignore your suggestions, on the contrary, I really
-> appreciate them. I may have missed your advice, and I'm very sorry for
-> causing any confusion. However, I haven't noticed it so far. Could you
-> please point it out or directly paste what needs to be revised? Thank
-> you.
-You ignored all comments, so how can I point what was missing? Everything.
+On Tue, 10 Jun 2025 at 17:07, Anders Roxell <anders.roxell@linaro.org> wrot=
+e:
+>
+> On Tue, 10 Jun 2025 at 13:22, Heiko St=C3=BCbner <heiko@sntech.de> wrote:
+> >
+> > Hi Naresh,
+>
+> Hi Heiko,
+>
+> >
+> > Am Dienstag, 10. Juni 2025, 12:25:31 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb Naresh Kamboju:
+> > > Regression while building arm64 with the Linux next-20250610
+>
+> [...]
+>
+> > > https://storage.tuxsuite.com/public/linaro/lkft/builds/2yJ4IOQa1XxMqD=
+gmzjEl7VszYE9/build.log
+> > > * Build link:  https://storage.tuxsuite.com/public/linaro/lkft/builds=
+/2yJ4IOQa1XxMqDgmzjEl7VszYE9/
+> > > * Kernel config:
+> > > https://storage.tuxsuite.com/public/linaro/lkft/builds/2yJ4IOQa1XxMqD=
+gmzjEl7VszYE9/config
+> >
+> > thanks a lot for this notification.
+> >
+> > I'm surprised that overlay build at all when I built it yesterday.
+> > But yeah, the dtbs_install target really broke with that change.
+> >
+> > I've amended the commit now [0]
+>
+> Thank you for the quick fix.
+> I applied your patch and built it, it worked fine for me.
+>
+> I built it like this:
+> tuxmake --runtime podman --target-arch arm64 --toolchain gcc-13
+> --kconfig defconfig dtbs
+>
+> Tested-by: Anders Roxell <anders.roxell@linaro.org>
 
-If this helps you to understand the comments, then go to previous email,
-read each comment and respond to each how did you implement it. If you
-cannot come with the answer how you implement it, then you did not
-implement it...
+Thank you for providing the fix patch.
+I confirm that the reported build regression is no longer present in
+today=E2=80=99s Linux next-20250611 tag.
 
-I don't know how to be helpful? I even wrote long detailed instruction,
-with references, explaining you what to do.
+- Naresh
 
-Best regards,
-Krzysztof
+>
+>
+> Cheers,
+> Anders
+>
+> >, to change dtso to dtbo and ran the
+> > dtbs_install target sucessfully with that change.
+> >
+> > So on the next linux-next creation, this should hopefully be gone.
+> >
+> >
+> > Heiko
+> >
+> > [0] https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchi=
+p.git/commit/?h=3Dv6.17-armsoc/dts64&id=3De14491aaa6ff598bbe9d462e44c01ac65=
+754f445
+> >
+> >
+> >
+> > >
+> > > ## Steps to reproduce
+> > >  - tuxmake --runtime podman --target-arch arm64 --toolchain gcc-13
+> > > --kconfig defconfig
+> > >
+> > > --
+> > > Linaro LKFT
+> > > https://lkft.linaro.org
+> > >
+> >
+> >
+> >
+> >
 
