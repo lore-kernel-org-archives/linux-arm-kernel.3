@@ -4,80 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89BC3C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC13EC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ClRqmZ9X6+Ifb38OvA0WPWP1qVtOoa/p+i2/eF0TAJM=; b=qifIxtl8lYOpwT6W4nXQASu5dy
-	5KoWSAR9jzeywDpi/EISFCNw7HsJJUPM8MwYcQ7P9yZJhQ81mKX7TvBMFsJf7qWkLsF+gcDZPXJn2
-	QhPSZiwhZZhvaK11crmGZdGYlqlDpeO3kz54PK6OAAa2k0HF6XRpDWF7+MEr8WG+4JKILwreI+ted
-	3dMjC8Sfiqsp4mrSt2ZX844GlfP4zr8qMgxkd0xkPmCfpDvBMbTuSQZgSAbiK7F+DxEQgMQeqWKIl
-	yi0jBQJCgicH9zZo5M4DEYwXA17eaXO3FFbAbvp35ia03MECqjyloipzB3utxsFSDrxw4b+NvNRPM
-	/v28cuig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rg2tjw16mCCTcrpO92M+BgLFDyQbF8JC1z2OQxCbfIM=; b=DPwmcwdVDwARNNOl3N2kB9n1Vu
+	VYSjXwZE4M1FbBdbYFxXpsSLxqtKe9y9t9vQ7/53j6uZ+Ay6HbBbpFCszoL7Ikp89MLIzrf+8pOjm
+	GmfTC8IMeZgXBdI6yKkZFupUxp5etepvgpjmT0581Uxbo9/39cwOnE4sbRo8+IUUxdA7I3bY9Xgfy
+	wueshh7wqjUvrSOr2Q4YR7AO6ZlMAeMSMJ7zQsJm0rWb2lJQVlSMD/wMrjVyM8ENiQ8pc4V1ugS8u
+	WhXcCFE15xnWldkAU1lPC/DM6m7414eKEbRfCA2i2qcJdzXM6mUbPLFV+OTPAIM1BhaYlzDDz4gCS
+	6ngCtKpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPCXM-00000008mVz-2Qjc;
-	Wed, 11 Jun 2025 03:54:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPCZ8-00000008n68-0iDi;
+	Wed, 11 Jun 2025 03:55:54 +0000
+Received: from mail-vs1-xe34.google.com ([2607:f8b0:4864:20::e34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPAxd-00000008cUP-1Xnl;
-	Wed, 11 Jun 2025 02:13:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ClRqmZ9X6+Ifb38OvA0WPWP1qVtOoa/p+i2/eF0TAJM=; b=NjFfNXn/kLSRPY38uiBhL0ZsCC
-	Q6ojOD07Q/47DlNS/UFBKj9Kw8VN1zDZf0IVjqLNxr1ZuZ+iZPgSamFPqQjZnoLm1T8ZGv461f2XS
-	jbUxbmUWmlM9Kb95yjQH6261Y9bTH57XA+nbHk4z9V+Ey256caL3bDelPFDg0Kk45NXAZsJ/umMCP
-	rIUoHKXCrmTrq9uh5HpdI1iXQnJYlQnRWWg6GeiyW6ST3Iy0qXH+xH3fz6s6HQktnxIMeNjmFgXLB
-	oLZewbvwSY/pXE6DCmPPdwRh4nBNuzSQJnbhiGhFT7CT/1ChiS/BWIgPmWmfBJRtpmjqootPK46e/
-	JzHy+fLw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPAxa-000000024Ri-4114;
-	Wed, 11 Jun 2025 02:13:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE11949F9D;
-	Wed, 11 Jun 2025 02:12:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 757C9C4CEF4;
-	Wed, 11 Jun 2025 02:12:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749607979;
-	bh=CfGkdjItRjUxPxMuzjk2hmHTtGTMsfQDaBtxQ0B43iQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SRBS7SW8VmFEJ0509uOL86wnk9Tx1wrf6gYUew2s1ujJ6OdYPHuwrCvUEfCLoSjX8
-	 WwoHxf1HurvQAjWwoKYOETmw6DM1g7C5xr39n/gjn4Gbmegy1hA7S+jSz40kW9Kx2v
-	 WC0PvLKZGpvQgqRruPy3sGcGnwNvIi4pPSUeFv6Va1/udN6ifk+e5oNF51Z7KHPcem
-	 6xI1n/YfA6eHNzWoUsO3+3i9jU1vkIfCsx54Rge0mBlQKq/XD01CtZPgdTOnS2o69P
-	 G0LG9Cu+ajcQADMD1qLeKwR+WfjVK3TAj47rvQqhv/QHxu0zE/AObXnmC2iEWjW+4s
-	 R/fA3gadiYkqg==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 16/16] crypto: sha512 - remove sha512_base.h
-Date: Tue, 10 Jun 2025 19:09:23 -0700
-Message-ID: <20250611020923.1482701-17-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250611020923.1482701-1-ebiggers@kernel.org>
-References: <20250611020923.1482701-1-ebiggers@kernel.org>
+	id 1uPCPj-00000008lXj-0tT4;
+	Wed, 11 Jun 2025 03:46:12 +0000
+Received: by mail-vs1-xe34.google.com with SMTP id ada2fe7eead31-4e7b397cc2aso398522137.2;
+        Tue, 10 Jun 2025 20:46:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749613570; x=1750218370; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rg2tjw16mCCTcrpO92M+BgLFDyQbF8JC1z2OQxCbfIM=;
+        b=kgtBx8uz3xi2/p0AlM1vXEWvnRgvSQjKRaionPUEQnM8w7WLuasv+p0IosiZ4eyyRV
+         LQKcyfmv02ndcjF5z560HruMqx/DFVZznZVLZOQ5NAm4MFRltNE+06CixwXUk51ISpae
+         zeIlUQ7bMDwxCNs8b1qXwLZfgn+Z1Hz5gbxrR5dgEuUKBRQmljI0/NWixrCDjQaf7Jg6
+         L2esfMidRzZnYN84Pa6ghnWDKC1qHmz6wSIwC/pOqYe4WbSdLTymtVfZiEZyf0wkMmPm
+         c+fypGpCJpk3ZnV8nHWPimT3aqG3FMc4asVYvMqiumW5TPu4A9DbIiqiK3Yqk3/WxXxS
+         fXFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749613570; x=1750218370;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Rg2tjw16mCCTcrpO92M+BgLFDyQbF8JC1z2OQxCbfIM=;
+        b=oJ33KZ4i6B4K0yCkP4FxToqI1Sa2qUkp/wRG00/AxRnrnvifDM03u2IlBmbxs2fAjt
+         CEQVTzWmtqWbOcDePh22+QDj0LF7IsdECPVbKKTD+0ozlbSz87XSKFnLZ5iVzqE1K8+1
+         2Fm2OsyQR71y3PwCaKQvmB3J+AWEeC9zEY8ZI/914nvtPE/BDHw2r1FXil13pUcr6ULn
+         Z5uS3FieDX5ueHF39IG/Pfd99w/AxqVEe42sTGor3d1rZDqUPfvB65s9W+ZW478TSZfX
+         pgmUKvmEndzSOV2pDZayxJRk1KC0mejRF+skzz70CXXPtDyw/83LKRcd+x1zFONcW9qL
+         JI0A==
+X-Forwarded-Encrypted: i=1; AJvYcCVFI67jRp6WpRQmNKIR4u04xLyzsAV5MCXBmlnSt6iPNYoRUwaOwX14Zgfog2qlckCLGWANnj2+xJZj@lists.infradead.org, AJvYcCWvRyH8wXEAWLtRj/x2PMMCBBmJKTWf4CkVcmXLqf525pnnh+U3ji5kDQjW7dZ2bvLLZGPkIsG5r+oIWaoNzdwQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrH4s1kRY2IXpO5QLeU5mLFOBbhYtpJ87e44d83NXOnYBpR9YC
+	xRhKmvFQd49HfjdRsTZiymKRqgfEG1rQaQbdWU/4+F5mo7pDxIsHWpeJ
+X-Gm-Gg: ASbGnct/Ol+bVyxLzmzsVhEsxSbP9Fr89VcXO+6VsSXUu6VowRx4rWasPElkLZo2FSj
+	6JYXKX60/duzSF5q+sRvyRuq78mVQcCx+Lgmhw9BYdS52y92hZ2qGpH6Lp5px+2Mf3XNbFIQyJM
+	cWWDWipXEF4q6aryD+Up3EUDmNM42MzlIk8Qe05F3SUTvVvEkru/D0E1sfVttWNE6nUrw51kMaU
+	pZL9IZKzRaGso5gcqRSiSttfDD7ibIIEcWbpGYFjiNuoopBh8V0eaxndmoE4x1A9pDJGlxx3MSa
+	/oXxsUS6EjXZwgcca+SKQfEVIUNQbK/B75kjVoa0Nj02T0ZEmg==
+X-Google-Smtp-Source: AGHT+IEjJ0BsROh1VIAfqNoWerdFkJh/8W2zLPk0S0XAU/Gcu0vW6QlsW9Odcrm98+pKp5HWoPp/zw==
+X-Received: by 2002:a05:6102:f95:b0:4e7:3efd:ac76 with SMTP id ada2fe7eead31-4e7bba13384mr1443026137.8.1749613570087;
+        Tue, 10 Jun 2025 20:46:10 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:5ecc::dead:c001])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-87eeae8551dsm2251922241.14.2025.06.10.20.46.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 20:46:09 -0700 (PDT)
+Date: Wed, 11 Jun 2025 00:46:03 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-rockchip@lists.infradead.org,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 1/4] PCI: pcie-rockchip: add bits for Target Link
+ Speed in LCS_2
+Message-ID: <aEj7-6fMGKSXQb3J@geday>
+References: <aEQb5kEOCJNQJMin@geday>
+ <20250610200744.GA820589@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610200744.GA820589@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_031303_614849_0803E16B 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250610_204611_251985_A0073E4B 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,140 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+On Tue, Jun 10, 2025 at 03:07:44PM -0500, Bjorn Helgaas wrote:
+> On Sat, Jun 07, 2025 at 08:00:54AM -0300, Geraldo Nascimento wrote:
+> This stuff:
+> 
+>   #define PCIE_RC_CONFIG_DCR              (PCIE_RC_CONFIG_BASE + 0xc4)
+>   #define PCIE_RC_CONFIG_DCSR             (PCIE_RC_CONFIG_BASE + 0xc8)
+>   #define PCIE_RC_CONFIG_LINK_CAP         (PCIE_RC_CONFIG_BASE + 0xcc)
+>   #define PCIE_RC_CONFIG_LCS              (PCIE_RC_CONFIG_BASE + 0xd0)
+>   #define PCIE_RC_CONFIG_LCS_2            (PCIE_RC_CONFIG_BASE + 0xf0)
+> 
+> *Looks* like it might be duplicates of:
+> 
+>   #define PCI_EXP_DEVCAP          0x04    /* Device capabilities */
+>   #define PCI_EXP_DEVCTL          0x08    /* Device Control */
+>   #define PCI_EXP_LNKCAP          0x0c    /* Link Capabilities */
 
-sha512_base.h is no longer used, so remove it.
+Hi again Bjorn,
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- include/crypto/sha512_base.h | 117 -----------------------------------
- 1 file changed, 117 deletions(-)
- delete mode 100644 include/crypto/sha512_base.h
+Your message reminded me of something that may be important.
 
-diff --git a/include/crypto/sha512_base.h b/include/crypto/sha512_base.h
-deleted file mode 100644
-index d1361b3eb70b0..0000000000000
---- a/include/crypto/sha512_base.h
-+++ /dev/null
-@@ -1,117 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- * sha512_base.h - core logic for SHA-512 implementations
-- *
-- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
-- */
--
--#ifndef _CRYPTO_SHA512_BASE_H
--#define _CRYPTO_SHA512_BASE_H
--
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <linux/compiler.h>
--#include <linux/math.h>
--#include <linux/string.h>
--#include <linux/types.h>
--#include <linux/unaligned.h>
--
--typedef void (sha512_block_fn)(struct sha512_state *sst, u8 const *src,
--			       int blocks);
--
--static inline int sha384_base_init(struct shash_desc *desc)
--{
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA384_H0;
--	sctx->state[1] = SHA384_H1;
--	sctx->state[2] = SHA384_H2;
--	sctx->state[3] = SHA384_H3;
--	sctx->state[4] = SHA384_H4;
--	sctx->state[5] = SHA384_H5;
--	sctx->state[6] = SHA384_H6;
--	sctx->state[7] = SHA384_H7;
--	sctx->count[0] = sctx->count[1] = 0;
--
--	return 0;
--}
--
--static inline int sha512_base_init(struct shash_desc *desc)
--{
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA512_H0;
--	sctx->state[1] = SHA512_H1;
--	sctx->state[2] = SHA512_H2;
--	sctx->state[3] = SHA512_H3;
--	sctx->state[4] = SHA512_H4;
--	sctx->state[5] = SHA512_H5;
--	sctx->state[6] = SHA512_H6;
--	sctx->state[7] = SHA512_H7;
--	sctx->count[0] = sctx->count[1] = 0;
--
--	return 0;
--}
--
--static inline int sha512_base_do_update_blocks(struct shash_desc *desc,
--					       const u8 *data,
--					       unsigned int len,
--					       sha512_block_fn *block_fn)
--{
--	unsigned int remain = len - round_down(len, SHA512_BLOCK_SIZE);
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--
--	len -= remain;
--	sctx->count[0] += len;
--	if (sctx->count[0] < len)
--		sctx->count[1]++;
--	block_fn(sctx, data, len / SHA512_BLOCK_SIZE);
--	return remain;
--}
--
--static inline int sha512_base_do_finup(struct shash_desc *desc, const u8 *src,
--				       unsigned int len,
--				       sha512_block_fn *block_fn)
--{
--	unsigned int bit_offset = SHA512_BLOCK_SIZE / 8 - 2;
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--	union {
--		__be64 b64[SHA512_BLOCK_SIZE / 4];
--		u8 u8[SHA512_BLOCK_SIZE * 2];
--	} block = {};
--
--	if (len >= SHA512_BLOCK_SIZE) {
--		int remain;
--
--		remain = sha512_base_do_update_blocks(desc, src, len, block_fn);
--		src += len - remain;
--		len = remain;
--	}
--
--	if (len >= bit_offset * 8)
--		bit_offset += SHA512_BLOCK_SIZE / 8;
--	memcpy(&block, src, len);
--	block.u8[len] = 0x80;
--	sctx->count[0] += len;
--	block.b64[bit_offset] = cpu_to_be64(sctx->count[1] << 3 |
--					    sctx->count[0] >> 61);
--	block.b64[bit_offset + 1] = cpu_to_be64(sctx->count[0] << 3);
--	block_fn(sctx, block.u8, (bit_offset + 2) * 8 / SHA512_BLOCK_SIZE);
--	memzero_explicit(&block, sizeof(block));
--
--	return 0;
--}
--
--static inline int sha512_base_finish(struct shash_desc *desc, u8 *out)
--{
--	unsigned int digest_size = crypto_shash_digestsize(desc->tfm);
--	struct sha512_state *sctx = shash_desc_ctx(desc);
--	__be64 *digest = (__be64 *)out;
--	int i;
--
--	for (i = 0; digest_size > 0; i++, digest_size -= sizeof(__be64))
--		put_unaligned_be64(sctx->state[i], digest++);
--	return 0;
--}
--
--#endif /* _CRYPTO_SHA512_BASE_H */
--- 
-2.49.0
+During my debugging I had the mild impression L0s capability is not
+being cleared from Link Capabilities Register in the presence of
+"aspm-no-l0s" DT property.
 
+I can't confirm it right now but I might revisit this later on. From
+what I've seen it can only be cleared from inside the port init
+in pcie-rockchip.c and does nothing in present form.
+
+Not a clear, confirmable report but something to watch out for...
+
+Regards,
+Geraldo Nascimento
 
