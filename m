@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683A7C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 07:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3C7C71134
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 07:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Message-Id:Date:Content-Type:Reply-To:Cc:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9gAgT4kC0GYBwtzLuf7sZJH0zS0IMuLviOh3Mfk7rg=; b=weLvbgROaRGadZzx/YeMNZsFVz
-	EZgj3YQ99sohh8uHJnFuRWZD3Yu9vwtt7kSWf3QqyJ6xOSXACXUK43EXAQZQ2zxz8RdVfxV462wby
-	/R5eMk6SicpoXPDgmeRuaeG0+9T4CkHaw8jXImuDIkJ7svWhGNIBPAXSre4Jj1kVG/YvFYecpSXMJ
-	34+kn2I2PEwEJQrUYpccaC65B2zsuTV6z+wcSgTciQK3c8eHZkyA+FVjU6Z2PzeT6Pxe6Vh2rAC2w
-	G3hn830RvDyRdy3FHIX38K0+VnbnYOoXq7S+TlhqQvxzOCMHSeoqaj6cKLr/PMTuhvGA9nZ1zZTn2
-	323QRWNg==;
+	bh=Gshb9N0/yW+rIR4k9gq9rBh7BKb50fd4+Rzb2fAOR5U=; b=4tRUdCdI2YQRdWOAE8s4jhcYWg
+	amoev+9Kyac3l1spIFGGuH4SKC0tl3sWYHz7k7ut8mA7XIuDtd82d1hpOX53h36IcV+3JXU4S74EO
+	sdss3LG4H/EKdjsGOlKu0DZon/0zO1EL5XHnLbAuPxyO4LVduARaTz+cWasW7R5nssQoYSP1TpQ+d
+	skxYa3tVdP/tag4MIeC1huBytgYUumkrMFiJp4Vs8lSqh2HVmxOlt0HWsQ6Y4QbKtxnZ8Jp94OSvo
+	HrDReVesvQA7FFwCrdIQAL0r0uYuvgsK4pT0mC9J9VdaZGblx35+N3h8svpwzRm5ZXjXowgoxn0qH
+	76EyXp+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPG2S-000000097iP-44T2;
-	Wed, 11 Jun 2025 07:38:24 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1uPG6s-000000098wx-2rIh;
+	Wed, 11 Jun 2025 07:42:58 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPFw6-000000096uP-1nrR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 07:31:51 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 11 Jun
- 2025 15:31:40 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 11 Jun 2025 15:31:40 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	<linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Mo Elbadry <elbadrym@google.com>, "Rom
- Lemarchand" <romlem@google.com>, William Kennington <wak@google.com>, "Yuxiao
- Zhang" <yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
-	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
-Subject: [PATCH v10 2/3] reset: aspeed: register AST2700 reset auxiliary bus device
-Date: Wed, 11 Jun 2025 15:31:38 +0800
-Message-ID: <20250611073139.636724-3-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250611073139.636724-1-ryan_chen@aspeedtech.com>
-References: <20250611073139.636724-1-ryan_chen@aspeedtech.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+	id 1uPFwL-000000096zj-2JNg;
+	Wed, 11 Jun 2025 07:32:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39761A5140E;
+	Wed, 11 Jun 2025 07:32:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 604FBC4CEEE;
+	Wed, 11 Jun 2025 07:32:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749627123;
+	bh=mcs2Gho/gf2h14rpJHCrwPe28KQkUL6hXKPCa0ALDxQ=;
+	h=Date:From:To:Subject:References:In-Reply-To:From;
+	b=nBWyQW8h29cFfSv/z/4jGHtlbhBwY9wMDtAQQtUGNi8WzQkGAP7OXXDN99JSIBBnS
+	 D3j7k9mwG74jeuALaoYhwle01X9Y0595EQ4l7iXIZxzxtGCVWWfaHVf7//XjjQqi4M
+	 5bPKamPPjt/gN2CFQbaC9v92pBpKPDwJ//qSM5HGFof9te2Qfi7P6iu+U4wUxxHsAD
+	 rmZVYIxvDQPnajlf2aRosJlIjO0/qFL9e8NRqdDoRy1u4WFIhwNuhK6ZavFSlHYXAO
+	 +JQ85kA0lCbLAbEFCmBy9OfmgOYQgqTbLUPSxS+Rjyj72ZwjJC3vjFtVksFgdOcFs1
+	 vN2iBFsTf9wsQ==
+Content-Type: multipart/signed;
+ boundary=8a3e323f28b4897e5ad249081ea4429b39cc85565426c3d93fcfc253e353;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Wed, 11 Jun 2025 09:31:59 +0200
+Message-Id: <DAJJ1UHCLV0M.2GGHO5PDRWMYH@kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: <Manikandan.M@microchip.com>, <tudor.ambarus@linaro.org>,
+ <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <Nicolas.Ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+ <claudiu.beznea@tuxon.dev>, <pratyush@kernel.org>,
+ <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-mtd@lists.infradead.org>
+Subject: Re: [PATCH v3 3/3] ARM: dts: microchip: sama5d27_wlsom1: Add
+ nvmem-layout in QSPI for EUI48 MAC Address
+X-Mailer: aerc 0.16.0
+References: <20250521070336.402202-1-manikandan.m@microchip.com>
+ <20250521070336.402202-4-manikandan.m@microchip.com>
+ <a15fd377-1828-4cb5-8c7b-7d26ea2a7733@linaro.org>
+ <759e4a1e-6af4-4bf9-9a95-01a7f6faaf46@microchip.com>
+In-Reply-To: <759e4a1e-6af4-4bf9-9a95-01a7f6faaf46@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_003150_478061_03308092 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20250611_003205_716579_E0918F12 
+X-CRM114-Status: GOOD (  29.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,308 +79,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2700 reset driver is registered as an auxiliary device
-due to reset and clock controller share the same register region.
+--8a3e323f28b4897e5ad249081ea4429b39cc85565426c3d93fcfc253e353
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
----
- drivers/reset/Kconfig        |   7 +
- drivers/reset/Makefile       |   1 +
- drivers/reset/reset-aspeed.c | 253 +++++++++++++++++++++++++++++++++++
- 3 files changed, 261 insertions(+)
- create mode 100644 drivers/reset/reset-aspeed.c
+Hi,
 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index d85be5899da6..76918f714eff 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -22,6 +22,13 @@ config RESET_A10SR
- 	  This option enables support for the external reset functions for
- 	  peripheral PHYs on the Altera Arria10 System Resource Chip.
- 
-+config RESET_ASPEED
-+	tristate "ASPEED Reset Driver"
-+	depends on ARCH_ASPEED || COMPILE_TEST
-+	select AUXILIARY_BUS
-+	help
-+	  This enables the reset controller driver for AST2700.
-+
- config RESET_ATH79
- 	bool "AR71xx Reset Driver" if COMPILE_TEST
- 	default ATH79
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 91e6348e3351..3c40a4e44f6b 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -6,6 +6,7 @@ obj-y += starfive/
- obj-y += sti/
- obj-y += tegra/
- obj-$(CONFIG_RESET_A10SR) += reset-a10sr.o
-+obj-$(CONFIG_RESET_ASPEED) += reset-aspeed.o
- obj-$(CONFIG_RESET_ATH79) += reset-ath79.o
- obj-$(CONFIG_RESET_AXS10X) += reset-axs10x.o
- obj-$(CONFIG_RESET_BCM6345) += reset-bcm6345.o
-diff --git a/drivers/reset/reset-aspeed.c b/drivers/reset/reset-aspeed.c
-new file mode 100644
-index 000000000000..dd2f860a69d7
---- /dev/null
-+++ b/drivers/reset/reset-aspeed.c
-@@ -0,0 +1,253 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (c) 2024 ASPEED Technology Inc.
-+ */
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/cleanup.h>
-+#include <linux/device.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/reset-controller.h>
-+#include <linux/slab.h>
-+
-+#include <dt-bindings/reset/aspeed,ast2700-scu.h>
-+
-+#define SCU0_RESET_CTRL1 0x200
-+#define SCU0_RESET_CTRL2 0x220
-+#define SCU1_RESET_CTRL1 0x200
-+#define SCU1_RESET_CTRL2 0x220
-+#define SCU1_PCIE3_CTRL 0x908
-+
-+struct ast2700_reset_signal {
-+	bool dedicated_clr; /* dedicated reset clr offset */
-+	u32 offset, bit;
-+};
-+
-+struct aspeed_reset_info {
-+	unsigned int nr_resets;
-+	const struct ast2700_reset_signal *signal;
-+};
-+
-+struct aspeed_reset {
-+	struct reset_controller_dev rcdev;
-+	struct aspeed_reset_info *info;
-+	spinlock_t lock; /* Protect read-modify-write cycle */
-+	void __iomem *base;
-+};
-+
-+static const struct ast2700_reset_signal ast2700_reset0_signals[] = {
-+	[SCU0_RESET_SDRAM] = { true, SCU0_RESET_CTRL1, BIT(0) },
-+	[SCU0_RESET_DDRPHY] = { true, SCU0_RESET_CTRL1, BIT(1) },
-+	[SCU0_RESET_RSA] = { true, SCU0_RESET_CTRL1, BIT(2) },
-+	[SCU0_RESET_SHA3] = { true, SCU0_RESET_CTRL1, BIT(3) },
-+	[SCU0_RESET_HACE] = { true, SCU0_RESET_CTRL1, BIT(4) },
-+	[SCU0_RESET_SOC] = { true, SCU0_RESET_CTRL1, BIT(5) },
-+	[SCU0_RESET_VIDEO] = { true, SCU0_RESET_CTRL1, BIT(6) },
-+	[SCU0_RESET_2D] = { true, SCU0_RESET_CTRL1, BIT(7) },
-+	[SCU0_RESET_PCIS] = { true, SCU0_RESET_CTRL1, BIT(8) },
-+	[SCU0_RESET_RVAS0] = { true, SCU0_RESET_CTRL1, BIT(9) },
-+	[SCU0_RESET_RVAS1] = { true, SCU0_RESET_CTRL1, BIT(10) },
-+	[SCU0_RESET_SM3] = { true, SCU0_RESET_CTRL1, BIT(11) },
-+	[SCU0_RESET_SM4] = { true, SCU0_RESET_CTRL1, BIT(12) },
-+	[SCU0_RESET_CRT0] = { true, SCU0_RESET_CTRL1, BIT(13) },
-+	[SCU0_RESET_ECC] = { true, SCU0_RESET_CTRL1, BIT(14) },
-+	[SCU0_RESET_DP_PCI] = { true, SCU0_RESET_CTRL1, BIT(15) },
-+	[SCU0_RESET_UFS] = { true, SCU0_RESET_CTRL1, BIT(16) },
-+	[SCU0_RESET_EMMC] = { true, SCU0_RESET_CTRL1, BIT(17) },
-+	[SCU0_RESET_PCIE1RST] = { true, SCU0_RESET_CTRL1, BIT(18) },
-+	[SCU0_RESET_PCIE1RSTOE] = { true, SCU0_RESET_CTRL1, BIT(19) },
-+	[SCU0_RESET_PCIE0RST] = { true, SCU0_RESET_CTRL1, BIT(20) },
-+	[SCU0_RESET_PCIE0RSTOE] = { true, SCU0_RESET_CTRL1, BIT(21) },
-+	[SCU0_RESET_JTAG] = { true, SCU0_RESET_CTRL1, BIT(22) },
-+	[SCU0_RESET_MCTP0] = { true, SCU0_RESET_CTRL1, BIT(23) },
-+	[SCU0_RESET_MCTP1] = { true, SCU0_RESET_CTRL1, BIT(24) },
-+	[SCU0_RESET_XDMA0] = { true, SCU0_RESET_CTRL1, BIT(25) },
-+	[SCU0_RESET_XDMA1] = { true, SCU0_RESET_CTRL1, BIT(26) },
-+	[SCU0_RESET_H2X1] = { true, SCU0_RESET_CTRL1, BIT(27) },
-+	[SCU0_RESET_DP] = { true, SCU0_RESET_CTRL1, BIT(28) },
-+	[SCU0_RESET_DP_MCU] = { true, SCU0_RESET_CTRL1, BIT(29) },
-+	[SCU0_RESET_SSP] = { true, SCU0_RESET_CTRL1, BIT(30) },
-+	[SCU0_RESET_H2X0] = { true, SCU0_RESET_CTRL1, BIT(31) },
-+	[SCU0_RESET_PORTA_VHUB] = { true, SCU0_RESET_CTRL2, BIT(0) },
-+	[SCU0_RESET_PORTA_PHY3] = { true, SCU0_RESET_CTRL2, BIT(1) },
-+	[SCU0_RESET_PORTA_XHCI] = { true, SCU0_RESET_CTRL2, BIT(2) },
-+	[SCU0_RESET_PORTB_VHUB] = { true, SCU0_RESET_CTRL2, BIT(3) },
-+	[SCU0_RESET_PORTB_PHY3] = { true, SCU0_RESET_CTRL2, BIT(4) },
-+	[SCU0_RESET_PORTB_XHCI] = { true, SCU0_RESET_CTRL2, BIT(5) },
-+	[SCU0_RESET_PORTA_VHUB_EHCI] = { true, SCU0_RESET_CTRL2, BIT(6) },
-+	[SCU0_RESET_PORTB_VHUB_EHCI] = { true, SCU0_RESET_CTRL2, BIT(7) },
-+	[SCU0_RESET_UHCI] = { true, SCU0_RESET_CTRL2, BIT(8) },
-+	[SCU0_RESET_TSP] = { true, SCU0_RESET_CTRL2, BIT(9) },
-+	[SCU0_RESET_E2M0] = { true, SCU0_RESET_CTRL2, BIT(10) },
-+	[SCU0_RESET_E2M1] = { true, SCU0_RESET_CTRL2, BIT(11) },
-+	[SCU0_RESET_VLINK] = { true, SCU0_RESET_CTRL2, BIT(12) },
-+};
-+
-+static const struct ast2700_reset_signal ast2700_reset1_signals[] = {
-+	[SCU1_RESET_LPC0] = { true, SCU1_RESET_CTRL1, BIT(0) },
-+	[SCU1_RESET_LPC1] = { true, SCU1_RESET_CTRL1, BIT(1) },
-+	[SCU1_RESET_MII] = { true, SCU1_RESET_CTRL1, BIT(2) },
-+	[SCU1_RESET_PECI] = { true, SCU1_RESET_CTRL1, BIT(3) },
-+	[SCU1_RESET_PWM] = { true, SCU1_RESET_CTRL1, BIT(4) },
-+	[SCU1_RESET_MAC0] = { true, SCU1_RESET_CTRL1, BIT(5) },
-+	[SCU1_RESET_MAC1] = { true, SCU1_RESET_CTRL1, BIT(6) },
-+	[SCU1_RESET_MAC2] = { true, SCU1_RESET_CTRL1, BIT(7) },
-+	[SCU1_RESET_ADC] = { true, SCU1_RESET_CTRL1, BIT(8) },
-+	[SCU1_RESET_SD] = { true, SCU1_RESET_CTRL1, BIT(9) },
-+	[SCU1_RESET_ESPI0] = { true, SCU1_RESET_CTRL1, BIT(10) },
-+	[SCU1_RESET_ESPI1] = { true, SCU1_RESET_CTRL1, BIT(11) },
-+	[SCU1_RESET_JTAG1] = { true, SCU1_RESET_CTRL1, BIT(12) },
-+	[SCU1_RESET_SPI0] = { true, SCU1_RESET_CTRL1, BIT(13) },
-+	[SCU1_RESET_SPI1] = { true, SCU1_RESET_CTRL1, BIT(14) },
-+	[SCU1_RESET_SPI2] = { true, SCU1_RESET_CTRL1, BIT(15) },
-+	[SCU1_RESET_I3C0] = { true, SCU1_RESET_CTRL1, BIT(16) },
-+	[SCU1_RESET_I3C1] = { true, SCU1_RESET_CTRL1, BIT(17) },
-+	[SCU1_RESET_I3C2] = { true, SCU1_RESET_CTRL1, BIT(18) },
-+	[SCU1_RESET_I3C3] = { true, SCU1_RESET_CTRL1, BIT(19) },
-+	[SCU1_RESET_I3C4] = { true, SCU1_RESET_CTRL1, BIT(20) },
-+	[SCU1_RESET_I3C5] = { true, SCU1_RESET_CTRL1, BIT(21) },
-+	[SCU1_RESET_I3C6] = { true, SCU1_RESET_CTRL1, BIT(22) },
-+	[SCU1_RESET_I3C7] = { true, SCU1_RESET_CTRL1, BIT(23) },
-+	[SCU1_RESET_I3C8] = { true, SCU1_RESET_CTRL1, BIT(24) },
-+	[SCU1_RESET_I3C9] = { true, SCU1_RESET_CTRL1, BIT(25) },
-+	[SCU1_RESET_I3C10] = { true, SCU1_RESET_CTRL1, BIT(26) },
-+	[SCU1_RESET_I3C11] = { true, SCU1_RESET_CTRL1, BIT(27) },
-+	[SCU1_RESET_I3C12] = { true, SCU1_RESET_CTRL1, BIT(28) },
-+	[SCU1_RESET_I3C13] = { true, SCU1_RESET_CTRL1, BIT(29) },
-+	[SCU1_RESET_I3C14] = { true, SCU1_RESET_CTRL1, BIT(30) },
-+	[SCU1_RESET_I3C15] = { true, SCU1_RESET_CTRL1, BIT(31) },
-+	[SCU1_RESET_MCU0] = { true, SCU1_RESET_CTRL2, BIT(0) },
-+	[SCU1_RESET_MCU1] = { true, SCU1_RESET_CTRL2, BIT(1) },
-+	[SCU1_RESET_H2A_SPI1] = { true, SCU1_RESET_CTRL2, BIT(2) },
-+	[SCU1_RESET_H2A_SPI2] = { true, SCU1_RESET_CTRL2, BIT(3) },
-+	[SCU1_RESET_UART0] = { true, SCU1_RESET_CTRL2, BIT(4) },
-+	[SCU1_RESET_UART1] = { true, SCU1_RESET_CTRL2, BIT(5) },
-+	[SCU1_RESET_UART2] = { true, SCU1_RESET_CTRL2, BIT(6) },
-+	[SCU1_RESET_UART3] = { true, SCU1_RESET_CTRL2, BIT(7) },
-+	[SCU1_RESET_I2C_FILTER] = { true, SCU1_RESET_CTRL2, BIT(8) },
-+	[SCU1_RESET_CALIPTRA] = { true, SCU1_RESET_CTRL2, BIT(9) },
-+	[SCU1_RESET_XDMA] = { true, SCU1_RESET_CTRL2, BIT(10) },
-+	[SCU1_RESET_FSI] = { true, SCU1_RESET_CTRL2, BIT(12) },
-+	[SCU1_RESET_CAN] = { true, SCU1_RESET_CTRL2, BIT(13) },
-+	[SCU1_RESET_MCTP] = { true, SCU1_RESET_CTRL2, BIT(14) },
-+	[SCU1_RESET_I2C] = { true, SCU1_RESET_CTRL2, BIT(15) },
-+	[SCU1_RESET_UART6] = { true, SCU1_RESET_CTRL2, BIT(16) },
-+	[SCU1_RESET_UART7] = { true, SCU1_RESET_CTRL2, BIT(17) },
-+	[SCU1_RESET_UART8] = { true, SCU1_RESET_CTRL2, BIT(18) },
-+	[SCU1_RESET_UART9] = { true, SCU1_RESET_CTRL2, BIT(19) },
-+	[SCU1_RESET_LTPI0] = { true, SCU1_RESET_CTRL2, BIT(20) },
-+	[SCU1_RESET_VGAL] = { true, SCU1_RESET_CTRL2, BIT(21) },
-+	[SCU1_RESET_LTPI1] = { true, SCU1_RESET_CTRL2, BIT(22) },
-+	[SCU1_RESET_ACE] = { true, SCU1_RESET_CTRL2, BIT(23) },
-+	[SCU1_RESET_E2M] = { true, SCU1_RESET_CTRL2, BIT(24) },
-+	[SCU1_RESET_UHCI] = { true, SCU1_RESET_CTRL2, BIT(25) },
-+	[SCU1_RESET_PORTC_USB2UART] = { true, SCU1_RESET_CTRL2, BIT(26) },
-+	[SCU1_RESET_PORTC_VHUB_EHCI] = { true, SCU1_RESET_CTRL2, BIT(27) },
-+	[SCU1_RESET_PORTD_USB2UART] = { true, SCU1_RESET_CTRL2, BIT(28) },
-+	[SCU1_RESET_PORTD_VHUB_EHCI] = { true, SCU1_RESET_CTRL2, BIT(29) },
-+	[SCU1_RESET_H2X] = { true, SCU1_RESET_CTRL2, BIT(30) },
-+	[SCU1_RESET_I3CDMA] = { true, SCU1_RESET_CTRL2, BIT(31) },
-+	[SCU1_RESET_PCIE2RST] = { false, SCU1_PCIE3_CTRL, BIT(0) },
-+};
-+
-+static inline struct aspeed_reset *to_aspeed_reset(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct aspeed_reset, rcdev);
-+}
-+
-+static int aspeed_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	struct aspeed_reset *rc = to_aspeed_reset(rcdev);
-+	void __iomem *reg_offset = rc->base + rc->info->signal[id].offset;
-+
-+	if (rc->info->signal[id].dedicated_clr) {
-+		writel(rc->info->signal[id].bit, reg_offset);
-+	} else {
-+		guard(spinlock_irqsave)(&rc->lock);
-+		writel(readl(reg_offset) & ~rc->info->signal[id].bit, reg_offset);
-+	}
-+
-+	return 0;
-+}
-+
-+static int aspeed_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	struct aspeed_reset *rc = to_aspeed_reset(rcdev);
-+	void __iomem *reg_offset = rc->base + rc->info->signal[id].offset;
-+
-+	if (rc->info->signal[id].dedicated_clr) {
-+		writel(rc->info->signal[id].bit, reg_offset + 0x04);
-+	} else {
-+		guard(spinlock_irqsave)(&rc->lock);
-+		writel(readl(reg_offset) | rc->info->signal[id].bit, reg_offset);
-+	}
-+
-+	return 0;
-+}
-+
-+static int aspeed_reset_status(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	struct aspeed_reset *rc = to_aspeed_reset(rcdev);
-+	void __iomem *reg_offset = rc->base + rc->info->signal[id].offset;
-+
-+	return (readl(reg_offset) & rc->info->signal[id].bit) ? 1 : 0;
-+}
-+
-+static const struct reset_control_ops aspeed_reset_ops = {
-+	.assert = aspeed_reset_assert,
-+	.deassert = aspeed_reset_deassert,
-+	.status = aspeed_reset_status,
-+};
-+
-+static int aspeed_reset_probe(struct auxiliary_device *adev,
-+			      const struct auxiliary_device_id *id)
-+{
-+	struct aspeed_reset *reset;
-+	struct device *dev = &adev->dev;
-+
-+	reset = devm_kzalloc(dev, sizeof(*reset), GFP_KERNEL);
-+	if (!reset)
-+		return -ENOMEM;
-+
-+	spin_lock_init(&reset->lock);
-+
-+	reset->info = (struct aspeed_reset_info *)id->driver_data;
-+	reset->rcdev.owner = THIS_MODULE;
-+	reset->rcdev.nr_resets = reset->info->nr_resets;
-+	reset->rcdev.ops = &aspeed_reset_ops;
-+	reset->rcdev.of_node = dev->parent->of_node;
-+	reset->rcdev.dev = dev;
-+	reset->rcdev.of_reset_n_cells = 1;
-+	reset->base = (void __iomem *)adev->dev.platform_data;
-+
-+	return devm_reset_controller_register(dev, &reset->rcdev);
-+}
-+
-+static const struct aspeed_reset_info ast2700_reset0_info = {
-+	.nr_resets = ARRAY_SIZE(ast2700_reset0_signals),
-+	.signal = ast2700_reset0_signals,
-+};
-+
-+static const struct aspeed_reset_info ast2700_reset1_info = {
-+	.nr_resets = ARRAY_SIZE(ast2700_reset1_signals),
-+	.signal = ast2700_reset1_signals,
-+};
-+
-+static const struct auxiliary_device_id aspeed_reset_ids[] = {
-+	{ .name = "clk_ast2700.reset0", .driver_data = (kernel_ulong_t)&ast2700_reset0_info },
-+	{ .name = "clk_ast2700.reset1", .driver_data = (kernel_ulong_t)&ast2700_reset1_info },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, aspeed_reset_ids);
-+
-+static struct auxiliary_driver aspeed_reset_driver = {
-+	.probe		= aspeed_reset_probe,
-+	.id_table	= aspeed_reset_ids,
-+};
-+
-+module_auxiliary_driver(aspeed_reset_driver);
-+
-+MODULE_AUTHOR("Ryan Chen <ryan_chen@aspeedtech.com>");
-+MODULE_DESCRIPTION("ASPEED SoC Reset Controller Driver");
-+MODULE_LICENSE("GPL");
--- 
-2.34.1
+On Mon Jun 9, 2025 at 11:27 AM CEST, Manikandan.M wrote:
+> >> Add nvmem-layout in QSPI to read the EUI48 Mac address by the
+> >> net drivers using the nvmem property.The offset is set to 0x0
+> >> since the factory programmed address is available in the
+> >> resource managed space and the size determine if the requested
+> >> address is of EUI48 (0x6) or EUI-64 (0x8) type.
+> >> This is useful for cases where U-Boot is skipped and the Ethernet
+> >> MAC address is needed to be configured by the kernel
+> >>
+> >> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> >> ---
+> >>   .../boot/dts/microchip/at91-sama5d27_wlsom1.dtsi    | 13 +++++++++++=
+++
+> >>   1 file changed, 13 insertions(+)
+> >>
+> >> diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/a=
+rch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> >> index b34c5072425a..be06df1b7d66 100644
+> >> --- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> >> +++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+> >> @@ -210,6 +210,9 @@ &macb0 {
+> >>        #size-cells =3D <0>;
+> >>        phy-mode =3D "rmii";
+> >>
+> >> +     nvmem-cells =3D <&mac_address_eui48>;
+> >> +     nvmem-cell-names =3D "mac-address";
+> >> +
+> >>        ethernet-phy@0 {
+> >>                reg =3D <0x0>;
+> >>                interrupt-parent =3D <&pioA>;
+> >> @@ -238,6 +241,16 @@ qspi1_flash: flash@0 {
+> >>                m25p,fast-read;
+> >>                status =3D "disabled";
+> >>
+> >> +             nvmem-layout {
 
+IMHO this should be "sfdp {".
+
+> >> +                     compatible =3D "fixed-layout";
+
+Please read my feedback on the first version again..
+
+For the DT maintainers. The SFDP is a small table based content that
+provide basic information about the flash. There are standard tables
+which are specified by the JEDEC standard and there are vendor
+tables, most of the time without proper documentation (or none at
+all).
+
+Somehow we need to specify at what table we want to look at. I'd
+like to see a binding which can potentially expose anything inside
+the SFDP.
+
+So I've suggested to use "compatible =3D jedec,sfdp-vendor-table-NNNN"
+where NNNN is the table parameter id. Additionally, the standard ids
+could have names like "jedec,sfdp-bfpt" (basic flash parameter table).
+
+So in your case that would be:
+
+flash {
+	sfdp {
+		mac_address: table-1 {
+			compatible =3D "jedec,sfdp-idNNNN";
+		};
+	};
+};
+
+I don't know what NNNN is. Could you please provide a dump of the
+sfdp of your flash.
+
+-michael
+
+> >> +                     #address-cells =3D <1>;
+> >> +                     #size-cells =3D <1>;
+> >> +
+> >> +                     mac_address_eui48: mac-address@0 {
+> >> +                             reg =3D <0x0 0x6>;
+> >> +                     };
+> >=20
+> > How would this work if in the future the mchp vendor table adds some
+> > other info that needs to be referenced as nvmem? How do you distinguish
+> > the info from the table?
+> > Would it be possible to have some kind of address and size to reference
+> > the SFDP?
+>
+> I was previously advised not to hardcode the offset in the Device Tree=20
+> [1]. In the current implementation (patch 1/3), the read callback for=20
+> the MCHP vendor table distinguishes between EUI-48 and EUI-64 MAC=20
+> addresses based on the nvmem size, which corresponds to the size of the=
+=20
+> respective MAC address.
+>
+> [1] --> https://lore.kernel.org/lkml/D889HZF97H8U.1UUX54BAVLAC3@kernel.or=
+g/
+>
+> >=20
+> >> +             };
+> >> +
+> >>                partitions {
+> >>                        compatible =3D "fixed-partitions";
+> >>                        #address-cells =3D <1>;
+> >=20
+
+
+--8a3e323f28b4897e5ad249081ea4429b39cc85565426c3d93fcfc253e353
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaEkw7xIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/iI/AF7BJfA+KSiLsV4fBajupPz4g9JyqM/HMiU
+1Rmr20pIB/NGVrLU83A6cm2FAmW2fG05AYDdp52UY6901PGPiSuBwRsDzWnehg6M
+2zDhEhT7U7QBOD0n2PXk/uiGr5PakohwicQ=
+=N4uq
+-----END PGP SIGNATURE-----
+
+--8a3e323f28b4897e5ad249081ea4429b39cc85565426c3d93fcfc253e353--
 
