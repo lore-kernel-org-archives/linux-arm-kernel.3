@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F3BC7113E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 20:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ACA3C7113E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 20:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WFFvtVI1yH92oJoeVKVTz/W9dqwjbAG61li77P5YC5I=; b=ZWYa/Vesvzn7oJ
-	DgQ2q9TCMOPpSKqmjdLoGdbeUv6VNRLZFhpbC45k5GjNhdRT4brifrPk24TUXLCEEHw0LZ2hzWseo
-	KWu4Elu5QMOBC285Whecav4qNKkkGuQNzcyHEIQIUqPYRCMXDRdqtMCohtaOQIpLcPhOey+Zb2aFf
-	+Rs3kNKrSIrWydx3BEZPO5IisikOwha+sVbSGLcRe9rbG+BMUx7i6HpqRXdaydlK8e5Huu/A4aL+a
-	cwfOzLI7n3Nopb7jGgHOAQcu8KbYQLZnv+40KT3f6PeW79eJL+ASp51QcRT66fhZkr/rbPQew/HY8
-	uv37EuadZ/oo0kjsIMdw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ceFTOEztuAxrjP5mswImjFkUb9u6au1qEPUc/1a5Lv4=; b=G1xZkm08UmDtmTEdXHaRYjMZtm
+	H01xD7NF7Zuekl6b7/Gtajr/rcGaS3O44aSsgWWLLQ21xiVDP6stihn0ZY+5ht8SENJ+kX3n3bHMd
+	yfeLl0h3BLUR0WPJpvFOJmp4LpE3yAFDaTJ1i4U1Ke1Ia7skomKw/YByXl10KMjU7Nu+qd1/bHaNF
+	IBfZwlapNYKs+h6jBVEBgUqU1B4Uh8EGO1WclzF5eOe53tTLV1hvJMc17/S9YrVU52Yl785a4gGTg
+	kMl7iKpu1tWm0KGQPYSu1N0kdfVerMlY6rOiL31ovaEfbdOflXHQr+1yy8/xfhXCJYf4Wr9eeqCuN
+	7+9FeHNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPSMt-0000000BCtk-2Uay;
-	Wed, 11 Jun 2025 20:48:19 +0000
+	id 1uPSOz-0000000BDQ1-1E13;
+	Wed, 11 Jun 2025 20:50:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPlU-0000000AorZ-0ifJ
+	id 1uPPlW-0000000Aoug-0Xpr
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 18:01:32 +0000
+	Wed, 11 Jun 2025 18:01:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=WFFvtVI1yH92oJoeVKVTz/W9dqwjbAG61li77P5YC5I=; b=jPPVuyqIO1BLZw9AMQfLOcx/Od
-	eaTi+ktDYKaHeTS4yPyX/weEE947rHIupTltEYJxL95pQLhuZUhLX8o5IvP0qR8Q0YXkZO3807Bh3
-	lL1jGhoZgY4YOoF5UO2XIEmPFfKcam9cZjdnpHN9Uh13ONgQsKAaiMiI0rcE86VmZ1eLOaVKe4SEp
-	xvDscqnnmJW+hLBStIlUJ7+p4009R2hlbtr+p3RD4CL2xmHoaiWo+ddRDqQIOy+Y/Ck7qZ3VuBnUw
-	67eleHcGHcbVrPfaQF1VNFg1yQaJtCoGrt6kGDQ7pgkvv0c03tvtirjLV57wriK0Zpv1nZ6lCIlfv
-	mjaB3etQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=ceFTOEztuAxrjP5mswImjFkUb9u6au1qEPUc/1a5Lv4=; b=kBn0PVdAa3LuvvEtAwHoRcFl9m
+	P1OTgOrG8sUT/Jp2vywEck79WL6os6W10LdnwY5hh3BMn2+6bHWOsCRMVxN8P90RFkEVtqxsIVy6S
+	EW8CmTU9CWtxuBerBXH19AKiDVU7NKsSBAr12EuH9X2uR97+E81hLvA5bavvaGb4pEY2ejIgLQN0I
+	fN8CxAJYnULHLlCNLpcS92vl1dgvL5B/zbMn0PTmZRlh11sdPkGvMJlSjafDKNtV08Jy10tFqrf3X
+	L5Ecs+wdBWpKLGtyezzs6id/ZTl2okNIc6Ou8+/gmGH2htIdog8m2VOSMEpREQG+iEUwQ5serL8QV
+	Tff4/qQw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPlR-00000002T4r-2wt8
+	id 1uPPlT-00000002T5K-2URk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 18:01:31 +0000
+	Wed, 11 Jun 2025 18:01:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83E814A982;
-	Wed, 11 Jun 2025 18:01:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D83BC4CEEA;
-	Wed, 11 Jun 2025 18:01:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 089AA4A9AA;
+	Wed, 11 Jun 2025 18:01:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF4E7C4CEF3;
+	Wed, 11 Jun 2025 18:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749664886;
-	bh=1ueyvC8/mCJFw9JuGdrNLssNoMYyC/92vpBFO+JeLC0=;
-	h=From:Subject:Date:To:Cc:From;
-	b=BPFcmaGFRTtopyRxTH7ClVtgpG9UO5hMbqtKHdZ43Lkqf49KdenbiYvigOSdVKxfk
-	 gsxkF5MaZ1in1Jbgk7SxoCK+3k460w/bZe4qKU0jQ5Md8QEjBnnS6HZXwsW/9fYTl5
-	 NFXpIHyEAssjZT48SJ0XTyfgSbxY1Hj1S44F0h5BPYd19fzI9XCJ2Ymw2BK+yo+O9S
-	 cKOawkuPvA5O5K3OhP19AWXYHzr+wawzwvoCS/0u6Dp/F2Jp5U2Bx7y8FhmV2rPGnS
-	 Jm3HyDZHC/hjjchmnTDHiWLXln8rGFuQXuHYI+CCd6Oo+bsBXcCpuMO2rhjFcHGWeH
-	 85FmMBTLzP+Qg==
+	s=k20201202; t=1749664888;
+	bh=4BgC4nqiNTSQ1Rqa7oed7RZlP9iYHjMo12gOL0KOkLA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=XpwKKL+nOVCj3+yFvzGYlKMcr7+L0WFXQjyaMrmGzbgvcmym2qjj2kVaLhk+tsAS3
+	 fM+9sCcI0FauIsPMDYIFkzduFJQbfMPz3TRccC/I3iIaMcpGhdhJioLNOeLHjThtdv
+	 FujeBYSdrSs6r/SnfpCTz2P1ku/yHsiRzvzXgAS4x1o42+88ezkQV/118Y84l3joVu
+	 a9OO//LF1OIoSJGo0OX2+KO21bAKP1cW+Eh5d1qMIlMwdcMoQ/BpupNf0rRnXXD8eR
+	 am0U08oedP0X/RSp536p7g4gjTRbbYLxNkN0K8rxQ/Seg23behNzjZFfhj3Zd/nawb
+	 hidZ7ODQPW/vQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Subject: [PATCH v23 0/4] arm64/perf: Enable branch stack sampling
-Date: Wed, 11 Jun 2025 13:01:10 -0500
-Message-Id: <20250611-arm-brbe-v19-v23-0-e7775563036e@kernel.org>
+Date: Wed, 11 Jun 2025 13:01:12 -0500
+Subject: [PATCH v23 2/4] arm64: Handle BRBE booting requirements
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGbESWgC/2XNwW7CMAyA4VdBOS/Idpo24cR7oB0gcSDa1qIUV
- Uyo7z6XHUrLIZFs5fvzUD2XzL3abR6q8JD73LUykPnYqHA5tmfWOcpCEZAFJK+P5Uefyon1gF5
- TFW30bLkmo4RcC6d8f/YOnzJfcn/ryu8zL++n9X9JrmVpOqAxoAFwQMbZ/ReXlr+3XTmrqTUQv
- Hh0K08gvmLviVIgdvzucfYVNGuP4lNC16RUB0/u3dPsrXy38iQ+YIyRjeMmLf04jn/gFR5/bAE
- AAA==
-X-Change-ID: 20250129-arm-brbe-v19-24d5d9e5e623
+Message-Id: <20250611-arm-brbe-v19-v23-2-e7775563036e@kernel.org>
+References: <20250611-arm-brbe-v19-v23-0-e7775563036e@kernel.org>
+In-Reply-To: <20250611-arm-brbe-v19-v23-0-e7775563036e@kernel.org>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -78,11 +74,11 @@ To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
  Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, Mark Brown <broonie@kernel.org>
+ kvmarm@lists.linux.dev
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_190130_087291_830FA068 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20250611_190132_089388_FA1E8607 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,119 +93,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series enables perf branch stack sampling support on arm64 via a 
-v9.2 arch feature called Branch Record Buffer Extension (BRBE). Details 
-on BRBE can be found in the Arm ARM[1] chapter D18.
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-I've picked up this series from Anshuman. v19 and later versions have 
-been reworked quite a bit by Mark and myself. The bulk of those changes 
-are in patch 5.
+To use the Branch Record Buffer Extension (BRBE), some configuration is
+necessary at EL3 and EL2. This patch documents the requirements and adds
+the initial EL2 setup code, which largely consists of configuring the
+fine-grained traps and initializing a couple of BRBE control registers.
 
-A git branch is here[2].
+Before this patch, __init_el2_fgt() would initialize HDFGRTR_EL2 and
+HDFGWTR_EL2 with the same value, relying on the read/write trap controls
+for a register occupying the same bit position in either register. The
+'nBRBIDR' trap control only exists in bit 59 of HDFGRTR_EL2, while bit
+59 of HDFGWTR_EL2 is RES0, and so this assumption no longer holds.
 
-[1] https://developer.arm.com/documentation/ddi0487/latest/
-[2] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git arm/brbe-v23
+To handle HDFGRTR_EL2 and HDFGWTR_EL2 having (slightly) different bit
+layouts, __init_el2_fgt() is changed to accumulate the HDFGRTR_EL2 and
+HDFGWTR_EL2 control bits separately. While making this change the
+open-coded value (1 << 62) is replaced with
+HDFG{R,W}TR_EL2_nPMSNEVFR_EL1_MASK.
 
-v23:
- - Rebase on v6.16-rc1 dropping already applied el2_setup.h clean-ups
- - Drop the SYSCALL fixup and convert all BRBE CALL events to SYSCALL
+The BRBCR_EL1 and BRBCR_EL2 registers are unusual and require special
+initialisation: even though they are subject to E2H renaming, both have
+an effect regardless of HCR_EL2.TGE, even when running at EL2. So we
+must initialize BRBCR_EL2 in case we run in nVHE mode. This is handled
+in __init_el2_brbe() with a comment to explain the situation.
 
-v22:
- - https://lore.kernel.org/all/20250520-arm-brbe-v19-v22-0-c1ddde38e7f8@kernel.org/
- - New patch reworking the labels in el2_setup.h
- - Move branch stack disabling after armpmu_stop() in armpmu_del()
- - Fix branch_records_alloc() to work on heterogeneous systems
- - Make setting .sched_task function ptr conditional on BRBE support
- - Reword booting.rst section name (s/feature/the/) and move next to
-   other PMU related features instead of in the middle of SME features.
- - Drop setting SYS_BRBCR_EL1
- - Drop CONFIG_ARM64_BRBE ifdef
- - Rework initialization of HFGITR_EL2
-
-v21:
- - https://lore.kernel.org/r/20250407-arm-brbe-v19-v21-0-ff187ff6c928@kernel.org
- - Drop clean-up patches 1-7 already applied
- - Rebase on v6.15-rc1
-
-v20:
- - https://lore.kernel.org/r/20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org
- - Added back some of the arm64 specific exception types. The x86 IRQ 
-   branches also include other exceptions like page faults. On arm64, we 
-   can distinguish the exception types, so we do. Also, to better 
-   align with x86, we convert 'call' branches which are user to kernel 
-   to 'syscall'.
- - Only enable exceptions and exception returns if recording kernel
-   branches (matching x86)
- - Drop requiring event and branch privileges to match
- - Add "branches" caps sysfs attribute like x86
- - Reword comment about FZP and MDCR_EL2.HPMN interaction
- - Rework BRBE invalidation to avoid invalidating in interrupt handler
-   when no handled events capture the branch stack (i.e. when there are 
-   multiple users).
- - Also clear BRBCR_ELx bits in brbe_disable(). This is for KVM nVHE 
-   checks if BRBE is enabled.
- - Document that MDCR_EL3.SBRBE can be 0b01 also
-
-v19:
- - https://lore.kernel.org/all/20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org/
- - Drop saving of branch records when task scheduled out (Mark). Make 
-   sched_task() callback actually get called. Enabling requires a call 
-   to perf_sched_cb_inc(). So the saving of branch records never 
-   happened.
- - Got rid of added armpmu ops. All BRBE support is contained within 
-   pmuv3 code.
- - Fix freeze on overflow for VHE
- - The cycle counter doesn't freeze BRBE on overflow, so avoid assigning
-   it when BRBE is enabled.
- - Drop all the Arm specific exception branches. Not a clear need for
-   them.
- - Fix handling of branch 'cycles' reading. CC field is
-   mantissa/exponent, not an integer.
- - Rework s/w filtering to better match h/w filtering
- - Reject events with disjoint event filter and branch filter or with 
-   exclude_host set
- - Dropped perf test patch which has been applied for 6.14
- - Dropped patch "KVM: arm64: Explicitly handle BRBE traps as UNDEFINED"
-   which has been applied for 6.14
-
-v18:
- - https://lore.kernel.org/all/20240613061731.3109448-1-anshuman.khandual@arm.com/
-
-For v1-v17, see the above link. Not going to duplicate it all here...
-
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Tested-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+[Mark: rewrite commit message, fix typo in comment]
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Co-developed-by: "Rob Herring (Arm)" <robh@kernel.org>
 Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
 ---
+v22:
+- Reword booting.rst section name (s/feature/the/) and move next to
+  other PMU related features instead of in the middle of SME features.
+- Drop setting SYS_BRBCR_EL1
+- Drop CONFIG_ARM64_BRBE ifdef
+- Rework initialization of HFGITR_EL2
+
+v20:
+ - Document that MDCR_EL3.SBRBE can be 0b01 also
+ - Fix "HDFGWTR_EL2 is RES0" in commit msg
 ---
-Anshuman Khandual (3):
-      arm64/sysreg: Add BRBE registers and fields
-      arm64: Handle BRBE booting requirements
-      KVM: arm64: nvhe: Disable branch generation in nVHE guests
+ Documentation/arch/arm64/booting.rst | 21 +++++++++++
+ arch/arm64/include/asm/el2_setup.h   | 71 ++++++++++++++++++++++++++++++++++--
+ 2 files changed, 89 insertions(+), 3 deletions(-)
 
-Rob Herring (Arm) (1):
-      perf: arm_pmuv3: Add support for the Branch Record Buffer Extension (BRBE)
+diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+index dee7b6de864f..fbdc4b071755 100644
+--- a/Documentation/arch/arm64/booting.rst
++++ b/Documentation/arch/arm64/booting.rst
+@@ -388,6 +388,27 @@ Before jumping into the kernel, the following conditions must be met:
+ 
+     - SMCR_EL2.EZT0 (bit 30) must be initialised to 0b1.
+ 
++  For CPUs with the Branch Record Buffer Extension (FEAT_BRBE):
++
++  - If EL3 is present:
++
++    - MDCR_EL3.SBRBE (bits 33:32) must be initialised to 0b01 or 0b11.
++
++  - If the kernel is entered at EL1 and EL2 is present:
++
++    - BRBCR_EL2.CC (bit 3) must be initialised to 0b1.
++    - BRBCR_EL2.MPRED (bit 4) must be initialised to 0b1.
++
++    - HDFGRTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
++    - HDFGRTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
++    - HDFGRTR_EL2.nBRBIDR  (bit 59) must be initialised to 0b1.
++
++    - HDFGWTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
++    - HDFGWTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
++
++    - HFGITR_EL2.nBRBIALL (bit 56) must be initialised to 0b1.
++    - HFGITR_EL2.nBRBINJ  (bit 55) must be initialised to 0b1.
++
+   For CPUs with the Performance Monitors Extension (FEAT_PMUv3p9):
+ 
+  - If EL3 is present:
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index ba5df0df02a4..de8a57f728c5 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -189,6 +189,28 @@
+ .Lskip_set_cptr_\@:
+ .endm
+ 
++/*
++ * Configure BRBE to permit recording cycle counts and branch mispredicts.
++ *
++ * At any EL, to record cycle counts BRBE requires that both BRBCR_EL2.CC=1 and
++ * BRBCR_EL1.CC=1.
++ *
++ * At any EL, to record branch mispredicts BRBE requires that both
++ * BRBCR_EL2.MPRED=1 and BRBCR_EL1.MPRED=1.
++ *
++ * Set {CC,MPRED} in BRBCR_EL2 in case nVHE mode is used and we are
++ * executing in EL1.
++ */
++.macro __init_el2_brbe
++	mrs	x1, id_aa64dfr0_el1
++	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
++	cbz	x1, .Lskip_brbe_\@
++
++	mov_q	x0, BRBCR_ELx_CC | BRBCR_ELx_MPRED
++	msr_s	SYS_BRBCR_EL2, x0
++.Lskip_brbe_\@:
++.endm
++
+ /* Disable any fine grained traps */
+ .macro __init_el2_fgt
+ 	mrs	x1, id_aa64mmfr0_el1
+@@ -196,20 +218,62 @@
+ 	cbz	x1, .Lskip_fgt_\@
+ 
+ 	mov	x0, xzr
++	mov	x2, xzr
+ 	mrs	x1, id_aa64dfr0_el1
+ 	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+ 	cmp	x1, #3
+ 	b.lt	.Lskip_spe_fgt_\@
+ 	/* Disable PMSNEVFR_EL1 read and write traps */
+-	orr	x0, x0, #(1 << 62)
++	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
++	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
+ 
+ .Lskip_spe_fgt_\@:
++	mrs	x1, id_aa64dfr0_el1
++	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
++	cbz	x1, .Lskip_brbe_fgt_\@
++
++	/*
++	 * Disable read traps for the following registers
++	 *
++	 * [BRBSRC|BRBTGT|RBINF]_EL1
++	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
++	 */
++	orr	x0, x0, #HDFGRTR_EL2_nBRBDATA_MASK
++
++	/*
++	 * Disable write traps for the following registers
++	 *
++	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
++	 */
++	orr	x2, x2, #HDFGWTR_EL2_nBRBDATA_MASK
++
++	/* Disable read and write traps for [BRBCR|BRBFCR]_EL1 */
++	orr	x0, x0, #HDFGRTR_EL2_nBRBCTL_MASK
++	orr	x2, x2, #HDFGWTR_EL2_nBRBCTL_MASK
++
++	/* Disable read traps for BRBIDR_EL1 */
++	orr	x0, x0, #HDFGRTR_EL2_nBRBIDR_MASK
++
++.Lskip_brbe_fgt_\@:
+ 
+ .Lset_debug_fgt_\@:
+ 	msr_s	SYS_HDFGRTR_EL2, x0
+-	msr_s	SYS_HDFGWTR_EL2, x0
++	msr_s	SYS_HDFGWTR_EL2, x2
+ 
+ 	mov	x0, xzr
++	mov	x2, xzr
++
++	mrs	x1, id_aa64dfr0_el1
++	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
++	cbz	x1, .Lskip_brbe_insn_fgt_\@
++
++	/* Disable traps for BRBIALL instruction */
++	orr	x2, x2, #HFGITR_EL2_nBRBIALL_MASK
++
++	/* Disable traps for BRBINJ instruction */
++	orr	x2, x2, #HFGITR_EL2_nBRBINJ_MASK
++
++.Lskip_brbe_insn_fgt_\@:
+ 	mrs	x1, id_aa64pfr1_el1
+ 	ubfx	x1, x1, #ID_AA64PFR1_EL1_SME_SHIFT, #4
+ 	cbz	x1, .Lskip_sme_fgt_\@
+@@ -250,7 +314,7 @@
+ .Lset_fgt_\@:
+ 	msr_s	SYS_HFGRTR_EL2, x0
+ 	msr_s	SYS_HFGWTR_EL2, x0
+-	msr_s	SYS_HFGITR_EL2, xzr
++	msr_s	SYS_HFGITR_EL2, x2
+ 
+ 	mrs	x1, id_aa64pfr0_el1		// AMU traps UNDEF without AMU
+ 	ubfx	x1, x1, #ID_AA64PFR0_EL1_AMU_SHIFT, #4
+@@ -311,6 +375,7 @@
+ 	__init_el2_hcrx
+ 	__init_el2_timers
+ 	__init_el2_debug
++	__init_el2_brbe
+ 	__init_el2_lor
+ 	__init_el2_stage2
+ 	__init_el2_gicv3
 
- Documentation/arch/arm64/booting.rst |  21 +
- arch/arm64/include/asm/el2_setup.h   |  71 +++-
- arch/arm64/include/asm/kvm_host.h    |   2 +
- arch/arm64/include/asm/sysreg.h      |  16 +-
- arch/arm64/kvm/debug.c               |   4 +
- arch/arm64/kvm/hyp/nvhe/debug-sr.c   |  32 ++
- arch/arm64/kvm/hyp/nvhe/switch.c     |   2 +-
- arch/arm64/tools/sysreg              | 132 ++++++
- drivers/perf/Kconfig                 |  11 +
- drivers/perf/Makefile                |   1 +
- drivers/perf/arm_brbe.c              | 798 +++++++++++++++++++++++++++++++++++
- drivers/perf/arm_brbe.h              |  47 +++
- drivers/perf/arm_pmu.c               |  16 +-
- drivers/perf/arm_pmuv3.c             | 125 +++++-
- include/linux/perf/arm_pmu.h         |   8 +
- 15 files changed, 1265 insertions(+), 21 deletions(-)
----
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-change-id: 20250129-arm-brbe-v19-24d5d9e5e623
-
-Best regards,
 -- 
-Rob Herring (Arm) <robh@kernel.org>
+2.47.2
 
 
