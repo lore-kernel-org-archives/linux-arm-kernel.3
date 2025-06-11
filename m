@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECC7C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4153EC678DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ccxNtrvIzEpdDUUgcBs30bPJOyasf9xZHHkJqeojH7c=; b=IVx+F1wkvFRIDm/mHs7D5Z0O7l
-	sDWora+iB+OekzGt8X7sB9M9Fq/K+224ojD1y6XKpXum1wI/7mKH3nyT0FX54ueCtaYh4aDKf09ND
-	5l4BPgn6EnJknSJpI6K4579e5wnU0SZpaQwLq+ROgsimgnu7+PRLLnnkGXHcRx6GSTiRiSjFWuu7U
-	XqB0gLX/crX54wv6O1NwzKdqeTVjx9kBdbgtTBBtB7j6Lz0LEiv2QwkO73YJ01pp/go3r5+hs2Jlo
-	HYL2T4hlNf27VjZZrNAP6pjuOwFSmn51Zc6iZI96J59mtQn5gfI8JyPvZX01lc/VMr9OMSqE/CwWL
-	q4U/n3MQ==;
+	bh=145n8WIzUPF9JeXH/ofUgDfxC781KpeLkdBQPlloAZA=; b=lzUSfFfiS30oiEHU0NLC1fdKzQ
+	Ii7yBXntgq8EgWKURvvSCURz7LBuNLDoJEYOgkdHNG1T9PQZTFUT0e8NmjQoADmFUWtBp9IAvSlLt
+	iDPNHT0g0aGeJe7gPC1Lv9v8141uAWa2F636+u33bt2lQwehzfYJka2JLaI72bvPEsf9EtKbejEiA
+	85AURaB1rM4zkn6iIV8JOoS1lzIhn0QjKy8F/W0qe4dloULFg5wMw875fZAaH5UFOk+tXfV8xXkY4
+	lDnS3/P17hrsiRefDN8soCJK1WVp1Q3flNwXKoghYfOh9U5ZySoUYkRtd078ll+2F03rJPCbXXSbv
+	vkSXZI/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPI8n-00000009XoG-2gqg;
-	Wed, 11 Jun 2025 09:53:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHqD-00000009UAh-1lLH;
-	Wed, 11 Jun 2025 09:33:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ccxNtrvIzEpdDUUgcBs30bPJOyasf9xZHHkJqeojH7c=; b=IewU4Mdv9xt2TeqgLWnwiVbs+q
-	6XSA6haNQP9RFdTvtL7jGfk6/sNqusLIjnVkHeLi6yuN2xK91m+0cr19Mt0BwCMgAoB29FV16C1L6
-	e0GztY8iW1OLy5QrnaUjsTzeJmKHRZ//qw9Tu7LO+rBTdGy5BWFy7FuY5GgKJFRdkZQsyQOQzbGt0
-	X8KxvscrdX046YKP4NkRK2sGXLj8a6TkgsFOA0XY7+R6LKaNR16irFsCu5VRuZZzvBqyDrFTiwr8A
-	ARxXcetp1rN1dDj/pAeLDWbt43j/9SIurNgmdajhKUKWpN/u5l9a5MoY0lETzlni8SdXeVjkiquzu
-	e4h/3ppQ==;
+	id 1uPMkc-0000000A9KU-1JmB;
+	Wed, 11 Jun 2025 14:48:26 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHqB-00000002EZd-2Yx9;
-	Wed, 11 Jun 2025 09:33:53 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPGts-00000009HMd-2JbB;
+	Wed, 11 Jun 2025 08:33:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749634429;
-	bh=zCCyZx0OYW+yvOTE8Ci6a80riXGgIIfyVSbsjo4X6m4=;
+	s=mail; t=1749630814;
+	bh=BUbdxVLJuS4fYAYAMWAmKlXzifES1ZREElljdWotK8I=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nqfkRAAy682u+Zdra5IbBIOtKVicuau8Bqv51dmGLvltbOZuF+adcBmAxNZHMdaZ7
-	 cDqFqnCtkA/DEmAf9ZeNNs4ujX40m3PTRkQiRBIwbl7xUe2CkjvYRXCtUbgS4Il8I8
-	 mlI3LAjxCFVcsGJXMb9dzb+DcE+0yJSOkUJBpLAQj5PX573l4WLm2ViIEgwfd1WGOm
-	 OscA08n9U/Y1x9pI4pxDXTQObOa0E/+rV49oGsXO/+9+AW37l1SOoLknadhHR7JFAA
-	 gkK4ODNoPpUY6SilMyccCyoLVFfUnyQW1HJjXUfmAkF2Vpp4pLx0F7ivfXCOLIRzcS
-	 dnqG/J2HWTWOg==
+	b=MLHxkMMm3Hua6frP7w6apjFbxOH+2rWBBkuLeRsn4k+NHtk1y+ngba1mdk+aq3N9J
+	 g/uYluVcm8JwfuatvfvZbAKql1NHFo5TmcnVNir6KBVG5iPq2F2bw5syV1z5DHYL2C
+	 v5A0jXbjazNOFx3fpGK5hpsTYuAK6dsEVtX9ARcbfByyf8upTEqYuAU7nDp+c7pqch
+	 HtPvfn2EUysuDah6+xy31icKlZosKLis9eKWy9y3xnW8zMJlBWByM4zLkmkcahK4cy
+	 lMY6UwoImu3hdQhmytu/NWU64U9GHofr4hLCDqq3vHsC8XRtjJDqCsjtNoCyVNnrfd
+	 HSDLqLaoeIvYQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ECFE817E36D4;
-	Wed, 11 Jun 2025 11:33:47 +0200 (CEST)
-Message-ID: <d9811928-5236-43d7-8343-2cd26cf873f2@collabora.com>
-Date: Wed, 11 Jun 2025 11:33:40 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 592C217E02B0;
+	Wed, 11 Jun 2025 10:33:33 +0200 (CEST)
+Message-ID: <e492fb4d-2899-4b63-b69d-1e922c3807d2@collabora.com>
+Date: Wed, 11 Jun 2025 10:33:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/13] arm64: dts: mediatek: mt7988a-bpi-r4: drop
- unused pins
-To: Frank Wunderlich <linux@fw-web.de>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+Subject: Re: [PATCH v3 4/5] media: vcodec: Implement manual request completion
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil
+ <hverkuil@xs4all.nl>, Tiffany Lin <tiffany.lin@mediatek.com>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>,
  Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
- Jia-Wei Chang <jia-wei.chang@mediatek.com>,
- Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
- <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
- DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
- Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Felix Fietkau <nbd@nbd.name>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-10-linux@fw-web.de>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, kernel@collabora.com,
+ linux-media@vger.kernel.org,
+ Sebastian Fricke <sebastian.fricke@collabora.com>
+References: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-0-603db4749d90@collabora.com>
+ <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-4-603db4749d90@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250608211452.72920-10-linux@fw-web.de>
+In-Reply-To: <20250604-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v3-4-603db4749d90@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_103351_751440_94C62FF3 
-X-CRM114-Status: UNSURE (   6.45  )
+X-CRM114-CacheID: sfid-20250611_013336_745386_40FE111C 
+X-CRM114-Status: UNSURE (   9.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,13 +85,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 08/06/25 23:14, Frank Wunderlich ha scritto:
-> From: Frank Wunderlich <frank-w@public-files.de>
+Il 04/06/25 22:09, Nicolas Dufresne ha scritto:
+> From: Sebastian Fricke <sebastian.fricke@collabora.com>
 > 
-> Pins were moved from SoC dtsi to Board level dtsi without cleaning up
-> to needed ones. Drop the unused pins now.
+> Rework how requests are completed in the MediaTek VCodec driver, by
+> implementing the new manual request completion feature, which allows to
+> keep a request open while allowing to add new bitstream data.
+> This is useful in this case, because the hardware has a LAT and a core
+> decode work, after the LAT decode the bitstream isn't required anymore
+> so the source buffer can be set done and the request stays open until
+> the core decode work finishes.
 > 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
+> Co-developed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
