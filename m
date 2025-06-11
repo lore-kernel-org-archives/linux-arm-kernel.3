@@ -4,206 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E2CC71133
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD1AC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OIS1e0JrSIfOlq6RI/O+U4zf0G9IqTGIqzgBC5UO/bI=; b=diWjZSXs8D+FwU4YugGc3zxDTQ
-	FneE/9hCrj1cFrHt/WScrgvUaNzsFixzr8nZsqWkGIZFS3m5Aa3GQ1taCCuBdcnnD328nrNYH0Z62
-	RtSec2SeqfiPDJI58Gc3vldTec89UInv6MaadJwDKaWqeTcRGJTl59zZNmlbwOnKEKSJzYU6D3E3K
-	JAtYPQYnu4CXCd3ug0FT6kLppNBJtNzju/eRk9GKFIFINzyw+f49Y5OISAedF/kLGBfP5S0/tyzHh
-	6aeqxPZheHR0FTTOb604I32XC3gbLgtGk86MXPWot827ZJXKivYfCdN//omgFenkgdlEJOT1KxAgw
-	j75BHkiw==;
+	bh=JArH6qpyQZkPXVoBck3vUWj2nlSzDc6KvjLLRsWL0GU=; b=Dtpw3IheNCwoG30eRzqhGnDqdD
+	X7a2rqekGGzgWwhtt7ZXfWaGq7grHLXZovKcy9r4YJJjedvPlm4sm6yKxdPUundJu+hLX86V5bW+0
+	H25hLnQsP6akbm5ja4BPnXkZzB6Xli8NsOTfnhed5Qr8G07kzbW94ZXViV8W4E9T1GDfi0B1GGaSL
+	7SV6M3KAlZHL3EvxP5/Yd2Gz3NoxuK/FYuzEqcj/137IrV4B/LtglCGKEq1Pa4L3A6OOnNkWj3pn2
+	1UOeHz+0SXk6OtESPtNKUqE08NL9WzD/GPVp4fm8qEB1dKf8gyD1ttlN05dYMBBIv8SVsO2Olt5DR
+	wOvRSZlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNcF-0000000ARIc-2TWV;
-	Wed, 11 Jun 2025 15:43:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPNeL-0000000ARiQ-3SRu;
+	Wed, 11 Jun 2025 15:46:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPKXK-00000009qO1-2kAU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 12:26:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OIS1e0JrSIfOlq6RI/O+U4zf0G9IqTGIqzgBC5UO/bI=; b=Vl/3k16lboY+MPnr1lg7v+87w6
-	eT1KXqdnuqPfB08ZwHdRBrJRSNPS+/06VsN34eRiZXP18+gyQfDCp7MaMHAbydvrGzTPjFigZebse
-	+itacRQWnZR3g8zUQVof1EfkpWmYNnIaIeSZYWEdu9xHJuEaoZITJuVomsm06Q3H12IUSLKy8v8ty
-	LoD56Mtgq5+PcgAHEtobxLS+/gl+J8iyZqLdjuDiaIIY1mR4ovJE3e6n4iG1dWYKupK6FjFk4SF1b
-	QQt5xRBZNS+QTzf+Zpu8/ZKTRrdYjdAtMdwycZ0yN4fQN2cSrzQ/sTyMKGK/P9jL0vBewEs1kjK5W
-	Uaxx6BqA==;
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPKXI-00000002ODD-0l5J
+	id 1uPKYG-00000009qTC-3DdV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 12:26:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OIS1e0JrSIfOlq6RI/O+U4zf0G9IqTGIqzgBC5UO/bI=;
- b=K15bwDpOP9VUwl6UDcCp7IhRV7y+PHfpoO9wht31n1MZ/ueSRp28w0EevSRhmtnQDJAn58q7QVZiTXPajNztCua/zZurUK1ALOBuxW2e0FsR/+k/mIrzSK/38hjzfjogeEhauHEEt65Z5NnqOUMZi03MUkj0JT6QAV9DrTjFfgM=
-Received: from DUZPR01CA0082.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::10) by AS8PR08MB5896.eurprd08.prod.outlook.com
- (2603:10a6:20b:294::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.27; Wed, 11 Jun
- 2025 12:26:24 +0000
-Received: from DB1PEPF000509F8.eurprd02.prod.outlook.com
- (2603:10a6:10:46a:cafe::58) by DUZPR01CA0082.outlook.office365.com
- (2603:10a6:10:46a::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.19 via Frontend Transport; Wed,
- 11 Jun 2025 12:26:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509F8.mail.protection.outlook.com (10.167.242.154) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
- via Frontend Transport; Wed, 11 Jun 2025 12:26:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XCdySKLBO2N4ycmKfJsujmHLCEFfXksczdOozmaFlWXmELOdT/bYfLLJNzQ+yYMEThYkPdto0K/m+hqEY40S9+uj4tiruia4MPM3NMVEqLgQbvI5GLKUqB/Yh2dTU8W772lhKtbzT3AL0lvt+xN2iKQH0E1TIIlT+lBLCLn1OThUuzm2P0PUApxj8l+ak3FcJ3i0H0QgIY9q1eW1OzCA9Ea7dGoLZJYQPRfKaTC5f4SvLRkgscrC3wme6SLilN3BFKcsuwK9vx1LjRLTOTn3dCPrqzwlCRyaUNPT+zvRkEB8S7dQYjBfgqxVA7s5k7mkvbcy4hI/T+dfkawqUiVWeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OIS1e0JrSIfOlq6RI/O+U4zf0G9IqTGIqzgBC5UO/bI=;
- b=BZtjspIibOSfJxx0WocIyHHvT77antaLxkZ5o8143J8aLwRwzxSFJHUhX/U77b8B5j3RTz+ktjdjSKPOmn0lKf0l8ns5YzUx7bauMrgjl+ciD+8SgUukb9YOVq1ThtFJG/cAJ2Pk2rXFeIzZaHRYggjTqnWTjbFm74Bj50zpw0IW2hOA1k2TXZaLtjy6qkdBjGiGwXQb0yaGnd+LWgY5EvPbNVqxacddRtycsSWfFHHHr7Cp+eSOLAJD7flLtUNUoD1NRKWCYnLpxrfXT389iZxW0Xo9/pbAdzxwoH46I39G4Y6buOSpsqRV3UoNbQPvgM5WqjeNwyxiNoJpypu7YA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OIS1e0JrSIfOlq6RI/O+U4zf0G9IqTGIqzgBC5UO/bI=;
- b=K15bwDpOP9VUwl6UDcCp7IhRV7y+PHfpoO9wht31n1MZ/ueSRp28w0EevSRhmtnQDJAn58q7QVZiTXPajNztCua/zZurUK1ALOBuxW2e0FsR/+k/mIrzSK/38hjzfjogeEhauHEEt65Z5NnqOUMZi03MUkj0JT6QAV9DrTjFfgM=
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by PAWPR08MB10120.eurprd08.prod.outlook.com
- (2603:10a6:102:365::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Wed, 11 Jun
- 2025 12:25:50 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8835.018; Wed, 11 Jun 2025
- 12:25:50 +0000
-From: Yeo Reum Yun <YeoReum.Yun@arm.com>
-To: Mark Brown <broonie@kernel.org>
-CC: Catalin Marinas <Catalin.Marinas@arm.com>, "pcc@google.com"
-	<pcc@google.com>, "will@kernel.org" <will@kernel.org>, Anshuman Khandual
-	<Anshuman.Khandual@arm.com>, Joey Gouly <Joey.Gouly@arm.com>, Yury Khrustalev
-	<Yury.Khrustalev@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "frederic@kernel.org"
-	<frederic@kernel.org>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "surenb@google.com" <surenb@google.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v6 6/9] kselftest/arm64/mte: add address tag related macro
- and function
-Thread-Topic: [PATCH v6 6/9] kselftest/arm64/mte: add address tag related
- macro and function
-Thread-Index: AQHb2rUEKKhxuysAAkajlrJ4QUN14rP92sIAgAAHJJM=
-Date: Wed, 11 Jun 2025 12:25:50 +0000
-Message-ID: <GV1PR08MB10521E68C886E8E6155AEE49EFB75A@GV1PR08MB10521.eurprd08.prod.outlook.com>
+	Wed, 11 Jun 2025 12:27:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 01D686154E;
+	Wed, 11 Jun 2025 12:27:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBFEBC4CEEE;
+	Wed, 11 Jun 2025 12:27:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749644851;
+	bh=VarOxXQv873WZeOePrBSFiWHWwREU4KYRKEOJZm2ft8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rnzEgD9wYy94tuU52DTucvNNzWEatNaRBB7xmDtwPxMnxZgwU22zmzRcih/2WPBKq
+	 Dgy43YBwmQHBRVokY5DFBkZeG0DvaPu1VBJ8IwkBFRoLurDkiEsHX8qI8pi1KaXpZp
+	 1lV9SgR0+N9dcE2BOpxYQ1soef4YG8JJX/7DCPll86aSBMvLhdI/SCKvnXal9egw+f
+	 Qf288vg86BnTQNHzWQ2KCPhKEENu3+YrDXnU1SwshaxcU+PyPDl9SW3e2GjwiZr48M
+	 0j+z9pN7+u1BARMhReH+EMUgTzryPbdGXRf0UZOIySClxZIjAQAISOhW1jyNQn1klS
+	 XctqA9VFIarEw==
+Date: Wed, 11 Jun 2025 13:27:26 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
+	anshuman.khandual@arm.com, joey.gouly@arm.com,
+	yury.khrustalev@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+	frederic@kernel.org, akpm@linux-foundation.org, surenb@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v6 8/9] kselftest/arm64/mte: refactor check_mmap_option
+ test
+Message-ID: <0eda8416-b8b8-41e2-8d08-6dab1c1c3561@sirena.org.uk>
 References: <20250611094107.928457-1-yeoreum.yun@arm.com>
- <20250611094107.928457-7-yeoreum.yun@arm.com>
- <5e937cf0-3b71-4c17-838e-8b38595c153c@sirena.org.uk>
-In-Reply-To: <5e937cf0-3b71-4c17-838e-8b38595c153c@sirena.org.uk>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: GV1PR08MB10521:EE_|PAWPR08MB10120:EE_|DB1PEPF000509F8:EE_|AS8PR08MB5896:EE_
-X-MS-Office365-Filtering-Correlation-Id: 373dba8a-74a6-4f0b-0993-08dda8e32dee
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|1800799024|366016|10070799003|376014|38070700018;
-X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?eH6BUL81ZSKQrF6qo+6C3bKYR5Qzhkupn+rfmhEy2WIRkqDo9w1lAObDpT?=
- =?iso-8859-1?Q?vyQ9uHbDVQIBSIVRYmZ3DC0MP3Ou6rapr2dnki8wq1MEK48Uhddi/1F0b1?=
- =?iso-8859-1?Q?jjSR2ePLIPMHeQazbfb4RHM0SMvqfKrFCpP2VCOn9p9+bAcKSI0ce+ARke?=
- =?iso-8859-1?Q?KS1HPSkTXJJT1EchSWPoVNCDreNRdCquPqCCHMU9JuTWLUIQgX+lTspstD?=
- =?iso-8859-1?Q?oMbY8h96cmQU7JEzX5qK6lNmM/MjN77OBWuLr/bbhoXXcK77xLU8BqbFP/?=
- =?iso-8859-1?Q?izaNbBuXJUm2HhWjot3Qhseg+vYS8pN6zSUwXOZ8X2/+q8jNf0qq1lC4Tp?=
- =?iso-8859-1?Q?m5kvVQxXk340TF+pcgxiiU2nMHf35PitOeR/jMPQLvfqmFA2LSiTse/YqH?=
- =?iso-8859-1?Q?pHLqH6o/9RAQXqTPL4BlgiY8qKjJI0STn9/d3OY0DletmAJ5XmY5q7SQwH?=
- =?iso-8859-1?Q?dvvGkADDImVoySOuk8gB+lvxvoaMUZDYni/Hl8ulpjXNbELINl1OJl+5/n?=
- =?iso-8859-1?Q?DCPv93tp6ThydiofS9pHklt258eUrEpEvXWWqVrzIn3wMfqHwn0Yj9dg7q?=
- =?iso-8859-1?Q?e9T7qysQOffL2n8gOJUOBLPU6T2mweBxe+rKvuZVS16l2bf3Q/p9GDlHOe?=
- =?iso-8859-1?Q?0n5vGzIz4yzRqPECiWHq8SKVEoOLIslmMOoTeMnq74/Fyz6MzFD6t9RJrj?=
- =?iso-8859-1?Q?PsaTf9m+FsC972z4eMnDwmJzJy0QEPO50J0UYTMWoccnDC45Ue3TpeoldN?=
- =?iso-8859-1?Q?lgQKPmBSGHezOSLWv0678KwCyYlK+Eda0P5VX8CgL+Sn6CSUBgXtpU3nAl?=
- =?iso-8859-1?Q?gaN6GwwbLhwoHabXjpWqGj3hTWkNr1Glyp4FGR/nbM5OPtQOs4doHeMYJs?=
- =?iso-8859-1?Q?z/IPQ6mPi9+ALPChTg7PexwzQdl1DO23UW2+Ykbn7dG0tzaCR+mqAZVHv3?=
- =?iso-8859-1?Q?FVHH108y4jodX11DIEDGs8zfRYv5qX+hg94rG10SA8yBXJ9cCkTgB99wCA?=
- =?iso-8859-1?Q?EzUwVLZ4eG9kuCDObdTZ65muMtaVltSeymRgROh5gBFQtBcq2oPoUePu0m?=
- =?iso-8859-1?Q?yv+oLQR03ezZANeYHf/PKF+vp8rkMbHOKYvBlsqlVL8y0AzH1YLxg8CpuR?=
- =?iso-8859-1?Q?+z9CjW1hhvvc6Asqmvrs2bQ8OrRNAQeroq83e3aTQvQGcqPGyBLLId/Gsv?=
- =?iso-8859-1?Q?2dIVBtRld9WccFHXtO/TFwV++zvsW1+3urORYUjLiKv2he5Qdh1hgQt19a?=
- =?iso-8859-1?Q?Ctm+gAclH6g5aaaZdsOeJkedurZ/tstiZA6tgXSjcCVhPHs1AwD2kz/4pO?=
- =?iso-8859-1?Q?Bhv2lbaF7zH3PO8IZl1l43+hLZtmAthN0M2Rl7dkEW7NIDhVRyp6CUwI1y?=
- =?iso-8859-1?Q?usyRNed+ORurqEl/AKjffXCDWvagQLBmOnIevLGFHGkYRxiIfu0rqDww6h?=
- =?iso-8859-1?Q?IpDbpobHN6deDyfTNh1Wosuqlhh9CiFQqpejQkiaPnPMtGhfOYTNvLeDVL?=
- =?iso-8859-1?Q?2HP0isdsDBC82R5bqo1Lw2qzWaiNbmwTHSk8m/FlUcZQ=3D=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(10070799003)(376014)(38070700018);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+ <20250611094107.928457-9-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10120
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F8.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 3386fe78-2c04-4136-f163-08dda8e319d4
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|14060799003|1800799024|82310400026|35042699022;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?42FJVj6RxwbBHah21dBotyxV2Ev0f0TIgFk5O+VYaNFNq7ZJKMKxc68dX6?=
- =?iso-8859-1?Q?n9HOogLZIx4KQ279RrixE2PdQczpdzG08eEbcd7G4XzZCuIgLFKUGvkrfM?=
- =?iso-8859-1?Q?jqTkWrzgxCvFDaBT8bWEkkb3k1acER8yaQj7P2wlhilOftoZKwvKgpDO9M?=
- =?iso-8859-1?Q?MOQy50efMbJPsFykseb3kM36yG6CKs1xkrSZuvrQPvbKGg0JjGnpPor/np?=
- =?iso-8859-1?Q?1ety4zMFspHDUEldzfK9o5bGi3dqRh4VTfJgndhCuCf58vvuvgHIUJiJ1B?=
- =?iso-8859-1?Q?xDa06onnyXZV8HZJyrbqJXSi3HUGcm//XT9WVRHNmaBGoXXpCpIpvqIoXF?=
- =?iso-8859-1?Q?0ft+qWfrrIGPgkTGaKii+CQSQyG4w9Am3eicHzTioWLYndfdc68g1SkVR3?=
- =?iso-8859-1?Q?8P3WfquDgbfWNMR4Lbc3YnIWfJCgMrqhHU4r9fO3L2/zwzIkSzCBodbL31?=
- =?iso-8859-1?Q?RifuhHxsDDl6d18f2/RxuX0Oxk9gVJjvI+eC5T4JoZw3ZbRRUWOHr9Nx8U?=
- =?iso-8859-1?Q?7gR0OdUYlEXeLI+zn3JyO6eBL7cgp1/FeUhGqyOfYfzvQvoksHQwo/6Bjj?=
- =?iso-8859-1?Q?SyUw2QinkLYs++6vDhPapcTBrJNNLhQoAZc+/jLjiYQc80fKZ/q7Jv8yzO?=
- =?iso-8859-1?Q?YEkWC+ZyYWwic+Yk6P0Zb+EtDNEvPy+TvShYH+nacdnPXgiYUYnIHfJsCM?=
- =?iso-8859-1?Q?xPkx421WVIneo64K3xq94FB8QGTrzDd1Bx1WhfhmTAsIVeukXMf2YlrPwd?=
- =?iso-8859-1?Q?ib8iP9dJ1nSGbltmOA0XL9R2m3aPqNJ1vTemOIoU82+A3QiyqBIiwy9EdY?=
- =?iso-8859-1?Q?/TRr0PxTJ6rqCNY0rMK5n4zjOr23b5Vi/C6oh33eFopYT6xU3w2xDhnGFt?=
- =?iso-8859-1?Q?RG3LwtBYB5IaDOlMM8HN9JgsYL76rXYh+HWDAEEabe0i80wFQMjhzpNNLj?=
- =?iso-8859-1?Q?J5+INRatH28FPN7/Wo7OAmNE9QUsFHLNxzzW7ZkgOJKFR3e8FGApcBw6zu?=
- =?iso-8859-1?Q?To1+LBLWNmsMviWftlSBTou60BONR30gUaWDH0YHHUeGjT4egV02ZOPZdL?=
- =?iso-8859-1?Q?dVm4oKmvMZdAmQWgl4orAUAuKcCKIpHp6ci7Ej4x5NIE2Vuv7+vUzqtubG?=
- =?iso-8859-1?Q?oOqXNUobgE6Euv91+YbqpuKwXqLmm5+l7SbPoX8mzTjiLcB3N9wcqsgzMr?=
- =?iso-8859-1?Q?BC6EGaLOwd5uOq7SNsfI9dcOS7QOz0gcXknTnDXhsOI/kh5weKG2Dtnvls?=
- =?iso-8859-1?Q?1s9+LwBHdAfDx4zkZruxUFs8OTPywaLza8/MduHTzOqIhtVYoSvSKPtyLc?=
- =?iso-8859-1?Q?3yvN2zBXCbKqy1MzQz9zzbpQU8IB1pB+uah0F4z/nK4PJBczaUgbnHsyZB?=
- =?iso-8859-1?Q?rWxrebstlLt8FLEOfzZdwE7kDfleaPP0CaJSF8MwmGbzHNEzvrIpZOT4fR?=
- =?iso-8859-1?Q?fPdxxsXdjiQQaVVqXdZMkWMxfEGQGAkpb4QDXm/ud8k7RF5YkpPko1WZLH?=
- =?iso-8859-1?Q?TfwcILZJ9mW9yvUtj2ihkbCzaCoY4sAdboCAnD5nUMvzbLma5X89p9KJPq?=
- =?iso-8859-1?Q?1M101iqWws/stxtksx9Fr3+mHHgJ?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(14060799003)(1800799024)(82310400026)(35042699022);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 12:26:23.6941
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 373dba8a-74a6-4f0b-0993-08dda8e32dee
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F8.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB5896
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_132632_348367_F1D14B81 
-X-CRM114-Status: GOOD (  13.51  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xoS+YBzfcBx+g2dq"
+Content-Disposition: inline
+In-Reply-To: <20250611094107.928457-9-yeoreum.yun@arm.com>
+X-Cookie: No skis take rocks like rental skis!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,81 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,=0A=
-=0A=
-> Ah, this is where the time.h inclusion came from - it just got split=0A=
-> into the wrong patch.=A0 I would move that srandom() into the main()=0A=
-> function, we don't need to reset the RNG every time we generate a tag=0A=
->  and since time() has a resolution of a second depending on how fast the=
-=0A=
-> machine is we might manage to end up setting exactly the same value for=
-=0A=
-> every tag insertion the program does which would seem to defeat the=0A=
-> point of using a RNG here.=0A=
-=0A=
-You're right. but what I calling the every main() with srandom()=0A=
-seems weird for me.=0A=
-=0A=
-I think it would be better to call srandom() in mte_default_setup()=0A=
-which is called only one time in testcase...=0A=
-=0A=
---=A0=A0=0A=
-Sincerely,=0A=
-Yeoreum Yun=0A=
-=0A=
-=0A=
-=0A=
-=0A=
-________________________________________=0A=
-From:=A0Mark Brown=0A=
-Sent:=A0Wednesday, June 11, 2025 12:58=0A=
-To:=A0Yeo Reum Yun=0A=
-Cc:=A0Catalin Marinas; pcc@google.com; will@kernel.org; Anshuman Khandual; =
-Joey Gouly; Yury Khrustalev; maz@kernel.org; oliver.upton@linux.dev; freder=
-ic@kernel.org; akpm@linux-foundation.org; surenb@google.com; linux-arm-kern=
-el@lists.infradead.org; linux-kernel@vger.kernel.org; linux-doc@vger.kernel=
-.org=0A=
-Subject:=A0Re: [PATCH v6 6/9] kselftest/arm64/mte: add address tag related =
-macro and function=0A=
-=0A=
-=0A=
-On Wed, Jun 11, 2025 at 10:41:04AM +0100, Yeoreum Yun wrote:=0A=
-=0A=
-> Add address tag related macro and function to test MTE_FAR feature.=0A=
-=0A=
-=0A=
-=0A=
-> +void *mte_insert_atag(void *ptr)=0A=
-=0A=
-> +{=0A=
-=0A=
-> +=A0=A0=A0=A0 unsigned char atag;=0A=
-=0A=
-> +=0A=
-=0A=
-> +=A0=A0=A0=A0 srandom(time(NULL));=0A=
-=0A=
-> +=A0=A0=A0=A0 atag =3D=A0 mtefar_support ? (random() % MT_ATAG_MASK) + 1 =
-: 0;=0A=
-=0A=
-> +=A0=A0=A0=A0 return (void *)MT_SET_ATAG((unsigned long)ptr, atag);=0A=
-=0A=
-> +}=0A=
-=0A=
-=0A=
-=0A=
-Ah, this is where the time.h inclusion came from - it just got split=0A=
-=0A=
-into the wrong patch.=A0 I would move that srandom() into the main()=0A=
-=0A=
-function, we don't need to reset the RNG every time we generate a tag=0A=
-=0A=
-and since time() has a resolution of a second depending on how fast the=0A=
-=0A=
-machine is we might manage to end up setting exactly the same value for=0A=
-=0A=
-every tag insertion the program does which would seem to defeat the=0A=
-=0A=
-point of using a RNG here.=0A=
-=0A=
+
+--xoS+YBzfcBx+g2dq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Jun 11, 2025 at 10:41:06AM +0100, Yeoreum Yun wrote:
+> Before add mtefar testcase on check_mmap_option.c,
+> refactor check_mmap_option:
+>   - make testcase suite array with test options (mem_type, mte_sync type =
+and etc)
+>     to use general testcase pattern
+>=20
+>   - generate each test case name acoording to test options.
+
+I didn't specifically check that all the tests are the same but assuming
+they are:
+
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--xoS+YBzfcBx+g2dq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJdi0ACgkQJNaLcl1U
+h9DPxAf8CnBE6O1+B8YUArr53BhKE6sjRiy4cbtq4RUmuffXxC2JZbKPOEl/e6lV
+sbcz2vavI6MsUS9bULJ8Gk4SNQJhsuqhzdYaVdjpfCtoOcUQ94B2xXkPmrKyBoEM
+UIqbVr0b+oD9dCQirR2L7U6KbE4xwG2+7+1jNxGkzhtykBNqkvH3o25ZqeTwXgci
+nbDhB6NT13EVnlJHsYsyv2fNtdLpnBfjw3eD3lGBGN6q5BCcQiKtxKGeGDw0J/aC
+ILqkJgNo33mvMo7U+6wF0oAWV/HZpcOL7OPrtEQATkoPgu92FvPL1LhT39gE3XQW
+wLjATcW7vwncih6h6oxbuW28Pu0BCw==
+=SK6+
+-----END PGP SIGNATURE-----
+
+--xoS+YBzfcBx+g2dq--
 
