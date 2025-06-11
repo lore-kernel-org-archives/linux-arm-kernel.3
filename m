@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908ADC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 21:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620B6C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 21:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQyBRdF4U8KvA9FfD180zM+pSC9JH7H1Med75G/ftOQ=; b=p3xGaNhxYeaq3ZZdYqj9mZWVL4
-	d44ImPoxy1vyw3vCjingUZ35v9khMhIEYauTwcNB6DXohcvHmB79j9sXcqcFgXzvr7xLwPa/7/JXy
-	+RcozTqQoKV0fCsxOpKfcCg5ze1tNyYzxXv/qTI6YGERrsUezAHO70gu6FK37KnCUVa7tJAVJaGiX
-	WClt0RyWdbVdZiXBSiV/huK1P4NLn9x4CM7cvSUEa3FRPMEdUSKV8TbMmx7EHPIZU4+IUam0zJJKm
-	LSFuJSasQuI8NqJ9cIyU9gB6iHZjbU5aIoNYaSngvw6mda4tUL/vY9u690Uu178f/A9zVBuYcJNzP
-	JjTWKOsw==;
+	bh=OOOIslp7Z9nXASpzhAXfaGcmmRlsRSek7f7fvNs7EhY=; b=muPZhfFTX8cyhM4KjB1Y2PGdVf
+	97zJt4xZP5hib3wqQ+ESUJ/yI9xdhgwohnBfNIntaE8xIIqy1ERfnviqdEicqEnmDvf6aqZuLA60N
+	rr2LBMLgcJlps0Lqq1fLtt0nrlyqeNBZlWjMZZVXve/lMpJLkPkcURDY4dkwbta9hRaQq8nHPhyUw
+	lUDEKYC9gyrPomvVA44lfW58M7QKv6pwSYoOK0g3vy95J1sZc5hKcLCgjtzuDnI4H/WpRSQqlt+lv
+	smPQhcReYPDvFuI2xXvbr99n3OV8tjmzn2p5muFWK9u5ksH+hBYoONUANRJkkdjy73NRqZ5beW9Qs
+	MTtJCXOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPSok-0000000BHFL-1n7B;
-	Wed, 11 Jun 2025 21:17:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPSqI-0000000BI4Z-0z8n;
+	Wed, 11 Jun 2025 21:18:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPro-0000000Aq87-25Yh
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 18:08:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=AQyBRdF4U8KvA9FfD180zM+pSC9JH7H1Med75G/ftOQ=; b=EPpD7qNjnxEtIk4ssoJmNlh+DI
-	Y/4AworDut5zTtzV3Ms49KaZcPPwkvajM9ZtlG+8VZZ/AqrVV8rQ8JUvGOWG7UaNJHBUyYnr33bw5
-	ghv87O5yIAIyubx+3SYXYcoAFkih05+xmiDdOPhH4MJHiOeU0EewFg1hF3Ntad7GrbtjbjqQ4oARv
-	kO4CWo3I537kwBg1GebwcXwvbFJaB+XZENcz7ukkv4gHINXbvp+B0CX+PMxd7MgjwIT9VOEZ6dHgJ
-	59ht8euPJxf1tyUfjGkBRUFko2ESlq+LxjPZ4uG3fNTMznECDKqdMTOzSG47gShI2BssZrHpyIODn
-	hfohhgpA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPrm-00000002TQl-1mYC
+	id 1uPQ95-0000000ArdW-3aCd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 18:08:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 350CD1688;
-	Wed, 11 Jun 2025 11:07:41 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A1D553F673;
-	Wed, 11 Jun 2025 11:07:58 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	pcc@google.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	anshuman.khandual@arm.com,
-	joey.gouly@arm.com,
-	yury.khrustalev@arm.com,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	frederic@kernel.org,
-	akpm@linux-foundation.org,
-	surenb@google.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 8/9] kselftest/arm64/mte: refactor check_mmap_option test
-Date: Wed, 11 Jun 2025 19:07:33 +0100
-Message-Id: <20250611180734.63657-9-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250611180734.63657-1-yeoreum.yun@arm.com>
-References: <20250611180734.63657-1-yeoreum.yun@arm.com>
+	Wed, 11 Jun 2025 18:25:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749666353;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OOOIslp7Z9nXASpzhAXfaGcmmRlsRSek7f7fvNs7EhY=;
+	b=UF0MESCoPDgfhTVUbdJ/fcISkxwsOON9DEyHIecMNYepoEDsI/oI1xLgn4qYfPIRY38RqD
+	dVHK5+bwDQCyofd2/T8nXhnNx0zBJmJa9dfGDBurcOTLL3xLxYT8OxgmHdzRYU7IR0WVOa
+	jCBjsPAJ35+Mpe1bNlH6O/mpAgGfgNw=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-688-m_rcqyDpMrO1WT-mzUlHiw-1; Wed, 11 Jun 2025 14:25:51 -0400
+X-MC-Unique: m_rcqyDpMrO1WT-mzUlHiw-1
+X-Mimecast-MFC-AGG-ID: m_rcqyDpMrO1WT-mzUlHiw_1749666350
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3a4fabcafecso104528f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 11:25:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749666350; x=1750271150;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OOOIslp7Z9nXASpzhAXfaGcmmRlsRSek7f7fvNs7EhY=;
+        b=PJ5LqCaBUARgTGR+vBGPB6VaBlOqsLmTQ49fH0n4U6MIu1TX1w7cCDoYWojlc7Z16h
+         UnqsI8wtnmo34jHRFwMLJHix1Ql/O89YRbM3pb3tmosE7FOFFOXsJ4TdxRk3MJFh1Pxg
+         IntjNSWejus+YYmsHHq/0bTdl56o/GhD7CNdD35me4gN/FoDd7fXHAzQzc/THprb/r3O
+         US8B+ylr24bKXgyYvY44Iwe7J7U3XucpjIpFaduwOYnJJZHM0Ap8IeZsWtCyvzcLpwNe
+         xrrItuNusb7CEBr8ftk9d1UhwL95Wo41E7ZvYnYtI3TxWTed+9iZRSPTQ6ePlUN36+M6
+         p/Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlLlBWapGRNJb10Lb08oX3P6ou/Bd+MvaiWbbAt9x0SXPn+JS6FYRVcKg3IC0jbId5vCrT/KRWDGIhZoTbWZKn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyywApg0ZBouJGsKC77DPOYRJvgQdpuTxVA708T91uJ6dCuEViA
+	+WFpyizNUrcBIJVbZm++KFmPnoZMp0beIPEv711nyCA77FKJqLVWurfzmVQ/b2WbxnUVbGRW4ba
+	UcthaZVvjAbanj9/P6hwI3ivPol2ohhxUcikr+lc7QoRaPkmi0uHaiyxKWVqw5KTrnMYmFVwtkF
+	LFTZ7GZ2dVlFVFG1Zx1EP0mpnxq9sBfPqc3HBcA8LIShdimsyvuRM=
+X-Gm-Gg: ASbGncu2r+Oy0W899jXmlrEcavtqvMn1cCfqEoew/GEP7kkMrIFM4aLTNWps8VPMHOs
+	CKu0H7RTTLnO3C1N/NrZxLct2JBS/cljNpomWa7yN2N5TKvTlkQJcmObALAp2jF8AG7OR05zHah
+	o/4g==
+X-Received: by 2002:a05:6000:420f:b0:3a5:2f23:3783 with SMTP id ffacd0b85a97d-3a55869b8e1mr3427926f8f.24.1749666350205;
+        Wed, 11 Jun 2025 11:25:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFw1W0p/OeOmX200drwAxajGEghfRNt/CGI93zVm1UqIQ+I2s8lkCVrViNK/rTG856Z88dFFfkE8v1yeaf2mxA=
+X-Received: by 2002:a05:6000:420f:b0:3a5:2f23:3783 with SMTP id
+ ffacd0b85a97d-3a55869b8e1mr3427915f8f.24.1749666349830; Wed, 11 Jun 2025
+ 11:25:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250606094350.1318309-1-maz@kernel.org>
+In-Reply-To: <20250606094350.1318309-1-maz@kernel.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Wed, 11 Jun 2025 20:25:37 +0200
+X-Gm-Features: AX0GCFsgTrXBmCEi1cZ9vmBCByY8mT5dVXknZ_pqZHoWTAQJcrp5JqwyhfcBkUo
+Message-ID: <CABgObfbd=Jx4UdXKXyCb+8bQotLk-rc8P_BD-Aafx_rttgHMYA@mail.gmail.com>
+Subject: Re: [GIT PULL] KVM/arm64 fixes for 6.16, take #2
+To: Marc Zyngier <maz@kernel.org>
+Cc: Miguel Luis <miguel.luis@oracle.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Sebastian Ott <sebott@redhat.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: NArXBE04s4-hf2QQkZJuSi6HQH-UhO8EU0QPjqTjQU4_1749666350
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_190802_830249_BC88E094 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20250611_112555_962710_4E173EA6 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,422 +106,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Before add mtefar testcase on check_mmap_option.c,
-refactor check_mmap_option:
-  - make testcase suite array with test options (mem_type, mte_sync type and etc)
-    to use general testcase pattern
+On Fri, Jun 6, 2025 at 11:44=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
+:
+>
+> Paolo,
+>
+> Here the second batch of fixes for 6.16. We have a significant rework
+> of our system register accessors so that the RES0/RES1 sanitisation
+> gets applied at the right time, and a bunch of fixes for a single
+> selftest that really *never* worked.
+>
+> Please pull,
 
-  - generate each test case name acoording to test options.
+Pulled, thanks.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
----
- .../selftests/arm64/mte/check_mmap_options.c  | 367 +++++++++++++++---
- 1 file changed, 313 insertions(+), 54 deletions(-)
+Paolo
 
-diff --git a/tools/testing/selftests/arm64/mte/check_mmap_options.c b/tools/testing/selftests/arm64/mte/check_mmap_options.c
-index b37bf481c9f9..0df7ce532465 100644
---- a/tools/testing/selftests/arm64/mte/check_mmap_options.c
-+++ b/tools/testing/selftests/arm64/mte/check_mmap_options.c
-@@ -3,6 +3,7 @@
- 
- #define _GNU_SOURCE
- 
-+#include <assert.h>
- #include <errno.h>
- #include <fcntl.h>
- #include <signal.h>
-@@ -24,6 +25,23 @@
- #define TAG_CHECK_ON		0
- #define TAG_CHECK_OFF		1
- 
-+#define TEST_NAME_MAX		256
-+
-+enum mte_mem_check_type {
-+	CHECK_ANON_MEM = 0,
-+	CHECK_FILE_MEM = 1,
-+	CHECK_CLEAR_PROT_MTE = 2,
-+};
-+
-+struct check_mmap_testcase {
-+	int check_type;
-+	int mem_type;
-+	int mte_sync;
-+	int mapping;
-+	int tag_check;
-+	bool enable_tco;
-+};
-+
- static size_t page_size;
- static int sizes[] = {
- 	1, 537, 989, 1269, MT_GRANULE_SIZE - 1, MT_GRANULE_SIZE,
-@@ -183,10 +201,271 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
- 	return KSFT_PASS;
- }
- 
-+const char *format_test_name(struct check_mmap_testcase *tc)
-+{
-+	static char test_name[TEST_NAME_MAX];
-+	const char *check_type_str;
-+	const char *mem_type_str;
-+	const char *sync_str;
-+	const char *mapping_str;
-+	const char *tag_check_str;
-+
-+	switch (tc->check_type) {
-+	case CHECK_ANON_MEM:
-+		check_type_str = "anonymous memory";
-+		break;
-+	case CHECK_FILE_MEM:
-+		check_type_str = "file memory";
-+		break;
-+	case CHECK_CLEAR_PROT_MTE:
-+		check_type_str = "clear PROT_MTE flags";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (tc->mem_type) {
-+	case USE_MMAP:
-+		mem_type_str = "mmap";
-+		break;
-+	case USE_MPROTECT:
-+		mem_type_str = "mmap/mprotect";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (tc->mte_sync) {
-+	case MTE_NONE_ERR:
-+		sync_str = "no error";
-+		break;
-+	case MTE_SYNC_ERR:
-+		sync_str = "sync error";
-+		break;
-+	case MTE_ASYNC_ERR:
-+		sync_str = "async error";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (tc->mapping) {
-+	case MAP_SHARED:
-+		mapping_str = "shared";
-+		break;
-+	case MAP_PRIVATE:
-+		mapping_str = "private";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	switch (tc->tag_check) {
-+	case TAG_CHECK_ON:
-+		tag_check_str = "tag check on";
-+		break;
-+	case TAG_CHECK_OFF:
-+		tag_check_str = "tag check off";
-+		break;
-+	default:
-+		assert(0);
-+		break;
-+	}
-+
-+	snprintf(test_name, sizeof(test_name),
-+	         "Check %s with %s mapping, %s mode, %s memory and %s\n",
-+	         check_type_str, mapping_str, sync_str, mem_type_str,
-+	         tag_check_str);
-+
-+	return test_name;
-+}
-+
- int main(int argc, char *argv[])
- {
--	int err;
-+	int err, i;
- 	int item = ARRAY_SIZE(sizes);
-+	struct check_mmap_testcase test_cases[]= {
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_OFF,
-+			.enable_tco = true,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_OFF,
-+			.enable_tco = true,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_NONE_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_OFF,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_NONE_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_OFF,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_ANON_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_FILE_MEM,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_ASYNC_ERR,
-+			.mapping = MAP_SHARED,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_CLEAR_PROT_MTE,
-+			.mem_type = USE_MMAP,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+		{
-+			.check_type = CHECK_CLEAR_PROT_MTE,
-+			.mem_type = USE_MPROTECT,
-+			.mte_sync = MTE_SYNC_ERR,
-+			.mapping = MAP_PRIVATE,
-+			.tag_check = TAG_CHECK_ON,
-+			.enable_tco = false,
-+		},
-+	};
- 
- 	err = mte_default_setup();
- 	if (err)
-@@ -205,59 +484,39 @@ int main(int argc, char *argv[])
- 	mte_register_signal(SIGSEGV, mte_default_handler, false);
- 
- 	/* Set test plan */
--	ksft_set_plan(22);
+>         M.
+>
+> The following changes since commit 4d62121ce9b58ea23c8d62207cbc604e98ecdc=
+0a:
+>
+>   KVM: arm64: vgic-debug: Avoid dereferencing NULL ITE pointer (2025-05-3=
+0 10:24:49 +0100)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
+marm-fixes-6.16-2
+>
+> for you to fetch changes up to fad4cf944839da7f5c3376243aa353295c88f588:
+>
+>   KVM: arm64: selftests: Determine effective counter width in arch_timer_=
+edge_cases (2025-06-05 14:28:44 +0100)
+>
+> ----------------------------------------------------------------
+> KVM/arm64 fixes for 6.16, take #2
+>
+> - Rework of system register accessors for system registers that are
+>   directly writen to memory, so that sanitisation of the in-memory
+>   value happens at the correct time (after the read, or before the
+>   write). For convenience, RMW-style accessors are also provided.
+>
+> - Multiple fixes for the so-called "arch-timer-edge-cases' selftest,
+>   which was always broken.
+>
+> ----------------------------------------------------------------
+> Marc Zyngier (4):
+>       KVM: arm64: Add assignment-specific sysreg accessor
+>       KVM: arm64: Add RMW specific sysreg accessor
+>       KVM: arm64: Don't use __vcpu_sys_reg() to get the address of a sysr=
+eg
+>       KVM: arm64: Make __vcpu_sys_reg() a pure rvalue operand
+>
+> Sebastian Ott (4):
+>       KVM: arm64: selftests: Fix help text for arch_timer_edge_cases
+>       KVM: arm64: selftests: Fix thread migration in arch_timer_edge_case=
+s
+>       KVM: arm64: selftests: Fix xVAL init in arch_timer_edge_cases
+>       KVM: arm64: selftests: Determine effective counter width in arch_ti=
+mer_edge_cases
+>
+>  arch/arm64/include/asm/kvm_host.h                  | 32 ++++++++++--
+>  arch/arm64/kvm/arch_timer.c                        | 18 +++----
+>  arch/arm64/kvm/debug.c                             |  4 +-
+>  arch/arm64/kvm/fpsimd.c                            |  4 +-
+>  arch/arm64/kvm/hyp/exception.c                     |  4 +-
+>  arch/arm64/kvm/hyp/include/hyp/switch.h            |  4 +-
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |  6 +--
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c                 |  4 +-
+>  arch/arm64/kvm/hyp/vhe/switch.c                    |  4 +-
+>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c                 | 48 ++++++++--------=
 -
--	mte_enable_pstate_tco();
--
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check anonymous memory with private mapping, sync error mode, mmap memory and tag check off\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check file memory with private mapping, sync error mode, mmap/mprotect memory and tag check off\n");
--
--	mte_disable_pstate_tco();
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check anonymous memory with private mapping, no error mode, mmap memory and tag check off\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_NONE_ERR, MAP_PRIVATE, TAG_CHECK_OFF),
--	"Check file memory with private mapping, no error mode, mmap/mprotect memory and tag check off\n");
--
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check anonymous memory with private mapping, async error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_anonymous_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check anonymous memory with shared mapping, async error mode, mmap/mprotect memory and tag check on\n");
--
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, sync error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_SYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, sync error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_PRIVATE, TAG_CHECK_ON),
--	"Check file memory with private mapping, async error mode, mmap/mprotect memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MMAP, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, async error mode, mmap memory and tag check on\n");
--	evaluate_test(check_file_memory_mapping(USE_MPROTECT, MTE_ASYNC_ERR, MAP_SHARED, TAG_CHECK_ON),
--	"Check file memory with shared mapping, async error mode, mmap/mprotect memory and tag check on\n");
--
--	evaluate_test(check_clear_prot_mte_flag(USE_MMAP, MTE_SYNC_ERR, MAP_PRIVATE),
--	"Check clear PROT_MTE flags with private mapping, sync error mode and mmap memory\n");
--	evaluate_test(check_clear_prot_mte_flag(USE_MPROTECT, MTE_SYNC_ERR, MAP_PRIVATE),
--	"Check clear PROT_MTE flags with private mapping and sync error mode and mmap/mprotect memory\n");
-+	ksft_set_plan(ARRAY_SIZE(test_cases));
-+
-+	for (i = 0 ; i < ARRAY_SIZE(test_cases); i++) {
-+		if (test_cases[i].enable_tco)
-+			mte_enable_pstate_tco();
-+		else
-+			mte_disable_pstate_tco();
-+
-+		switch (test_cases[i].check_type) {
-+		case CHECK_ANON_MEM:
-+			evaluate_test(check_anonymous_memory_mapping(test_cases[i].mem_type,
-+								     test_cases[i].mte_sync,
-+								     test_cases[i].mapping,
-+								     test_cases[i].tag_check),
-+				      format_test_name(&test_cases[i]));
-+			break;
-+		case CHECK_FILE_MEM:
-+			evaluate_test(check_file_memory_mapping(test_cases[i].mem_type,
-+							        test_cases[i].mte_sync,
-+							        test_cases[i].mapping,
-+							        test_cases[i].tag_check),
-+				      format_test_name(&test_cases[i]));
-+			break;
-+		case CHECK_CLEAR_PROT_MTE:
-+			evaluate_test(check_clear_prot_mte_flag(test_cases[i].mem_type,
-+							        test_cases[i].mte_sync,
-+							        test_cases[i].mapping),
-+				      format_test_name(&test_cases[i]));
-+			break;
-+		default:
-+			exit(KSFT_FAIL);
-+		}
-+	}
- 
- 	mte_restore_setup();
- 	ksft_print_cnts();
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+>  arch/arm64/kvm/nested.c                            |  2 +-
+>  arch/arm64/kvm/pmu-emul.c                          | 24 ++++-----
+>  arch/arm64/kvm/sys_regs.c                          | 60 +++++++++++-----=
+------
+>  arch/arm64/kvm/sys_regs.h                          |  4 +-
+>  arch/arm64/kvm/vgic/vgic-v3-nested.c               | 10 ++--
+>  .../selftests/kvm/arm64/arch_timer_edge_cases.c    | 39 +++++++++-----
+>  16 files changed, 151 insertions(+), 116 deletions(-)
+>
 
 
