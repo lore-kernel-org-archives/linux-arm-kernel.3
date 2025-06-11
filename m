@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C04C71149
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC26AC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g6Fn+kp7fvTDEcQzfPUIh29WWA7eijU70xG51Rxm75g=; b=fsMMg1urGbEwrKs8vBlUf7XDl7
-	qyeYymjaV4n+6Z2ll5MBLoC8pJN+YZoIp8roU2rNROyK4JlSGaFokB0V7YEKNpJHgzQR1bP2ww7G1
-	Zr80PdsRpI4Li81M5vwcbjH0plFhS0ZC/twlnaIiSod+PY831qqHEop7Z2VpxrpJU7Ka4mdTEehDK
-	7s2nSOAJlQI63UMteVo9e1s9bfcJqKtSl58OZ6z4Bu0hisRfvn93MBXfJFXz1yDn9I/AYEO6D99/K
-	0SrZGH7iAxQDtZ82lpXSBSoSviwMXzhwstKHTmNVkemnkzUGRLxBVGnfwK5eGjcf3SOIDGsI6z5wW
-	k5IwHcdg==;
+	bh=LBV0EGiFtGDMaPFXFQOX0/jkemxvL+lQT5qGTKkbKj4=; b=41kg4QhuW6jhbcdwJnKAloAHXS
+	K69El4HDGV34q6Oh/QPBWP5eN/Y13QjqEZOh0p1QvXtUIrhkbLzIb3a0UN4FLS6sQ6HP0QlDxiqiL
+	38gWrNR+32NTkjPVXK3UEQMhtOqm4HikGTqsI6TCzm3udRRtF0h82w+6rrlXxT3+NJlKdQgQGVulE
+	Bvx+lhi2gREQQCLtIzG3UJJMLSbxO7PThPajStabBJQxoESdSc9ecpLcQcSRufMwbL3D4zGFldl/I
+	RZVcBmVvAUPdKleQ9aPWowZRjrzli7xin/6KQvsIBqrj1Lq7Ch93A7SZlhKPE1oL0BSCBWFLYQQcQ
+	AVVoptFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRW9-0000000B0pT-2tnQ;
-	Wed, 11 Jun 2025 19:53:49 +0000
+	id 1uPRWB-0000000B0rq-0tAO;
+	Wed, 11 Jun 2025 19:53:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMgb-0000000A90H-24tb
+	id 1uPN06-0000000AK5Z-2A3i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 14:44:18 +0000
+	Wed, 11 Jun 2025 15:04:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18C491688;
-	Wed, 11 Jun 2025 07:43:55 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D8F733F673;
-	Wed, 11 Jun 2025 07:44:13 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 11 Jun 2025 15:44:01 +0100
-Subject: [PATCH 1/2] coresight: stm: Remove redundant NULL checks
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EDBD1688;
+	Wed, 11 Jun 2025 08:04:06 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7970A3F59E;
+	Wed, 11 Jun 2025 08:04:22 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	pcc@google.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	anshuman.khandual@arm.com,
+	joey.gouly@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	frederic@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io,
+	samuel.holland@sifive.com,
+	palmer@rivosinc.com,
+	charlie@rivosinc.com,
+	thiago.bauermann@linaro.org,
+	bgray@linux.ibm.com,
+	tglx@linutronix.de,
+	puranjay@kernel.org,
+	david@redhat.com,
+	yang@os.amperecomputing.com,
+	mbenes@suse.cz,
+	joel.granados@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v6 1/7] arm64/cpufeature: add MTE_STORE_ONLY feature
+Date: Wed, 11 Jun 2025 16:04:11 +0100
+Message-Id: <20250611150417.44850-2-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611150417.44850-1-yeoreum.yun@arm.com>
+References: <20250611150417.44850-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250611-arm_cs_fix_smatch_warning_v1-v1-1-02a66c69b604@arm.com>
-References: <20250611-arm_cs_fix_smatch_warning_v1-v1-0-02a66c69b604@arm.com>
-In-Reply-To: <20250611-arm_cs_fix_smatch_warning_v1-v1-0-02a66c69b604@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749653052; l=2230;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=OgBXyvyv43WQ4LOQXf/Pdt/q4AS4MZt4qoVjRtLaIQE=;
- b=iF7SpojHKd68nxfA1zamliN8BhxNtiVnOs8KI0vUu/ymSTlFu3Uv3otd5MDiXdRDN5DGal8zz
- TYpbzzmKCyUAaN3gRkiWdcH3+r0QUS/WceSioFB6qjuRUpBkwURNJ0K
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_074417_582920_23CB6157 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250611_080426_592525_38CC9BD8 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,63 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-container_of() cannot return NULL, so the checks for NULL pointers are
-unnecessary and can be safely removed.
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
 
-As a result, this commit silences the following smatch warnings:
+add MTE_STORE_ONLY feature.
 
-  coresight-stm.c:345 stm_generic_link() warn: can 'drvdata' even be NULL?
-  coresight-stm.c:356 stm_generic_unlink() warn: can 'drvdata' even be NULL?
-  coresight-stm.c:387 stm_generic_set_options() warn: can 'drvdata' even be NULL?
-  coresight-stm.c:422 stm_generic_packet() warn: can 'drvdata' even be NULL?
-
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- drivers/hwtracing/coresight/coresight-stm.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/kernel/cpufeature.c | 8 ++++++++
+ arch/arm64/tools/cpucaps       | 1 +
+ 2 files changed, 9 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index e45c6c7204b4491e0f879bc7d5d445aa1d3118be..464b0c85c3f7d3519169d62a51e9f8c6281b5358 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -342,7 +342,7 @@ static int stm_generic_link(struct stm_data *stm_data,
- {
- 	struct stm_drvdata *drvdata = container_of(stm_data,
- 						   struct stm_drvdata, stm);
--	if (!drvdata || !drvdata->csdev)
-+	if (!drvdata->csdev)
- 		return -EINVAL;
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 8a5284c733b7..fdc48aa1f0e2 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -321,6 +321,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
+ static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEFAR_SHIFT, 4, ID_AA64PFR2_EL1_MTEFAR_NI),
++	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTESTOREONLY_SHIFT, 4, ID_AA64PFR2_EL1_MTESTOREONLY_NI),
+ 	ARM64_FTR_END,
+ };
  
- 	return coresight_enable_sysfs(drvdata->csdev);
-@@ -353,7 +353,7 @@ static void stm_generic_unlink(struct stm_data *stm_data,
- {
- 	struct stm_drvdata *drvdata = container_of(stm_data,
- 						   struct stm_drvdata, stm);
--	if (!drvdata || !drvdata->csdev)
-+	if (!drvdata->csdev)
- 		return;
- 
- 	coresight_disable_sysfs(drvdata->csdev);
-@@ -384,7 +384,7 @@ static long stm_generic_set_options(struct stm_data *stm_data,
- {
- 	struct stm_drvdata *drvdata = container_of(stm_data,
- 						   struct stm_drvdata, stm);
--	if (!(drvdata && coresight_get_mode(drvdata->csdev)))
-+	if (!coresight_get_mode(drvdata->csdev))
- 		return -EINVAL;
- 
- 	if (channel >= drvdata->numsp)
-@@ -419,7 +419,7 @@ static ssize_t notrace stm_generic_packet(struct stm_data *stm_data,
- 						   struct stm_drvdata, stm);
- 	unsigned int stm_flags;
- 
--	if (!(drvdata && coresight_get_mode(drvdata->csdev)))
-+	if (!coresight_get_mode(drvdata->csdev))
- 		return -EACCES;
- 
- 	if (channel >= drvdata->numsp)
-
+@@ -2882,6 +2883,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTEFAR, IMP)
+ 	},
++	{
++		.desc = "Store Only MTE Tag Check",
++		.capability = ARM64_MTE_STORE_ONLY,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTESTOREONLY, IMP)
++	},
+ #endif /* CONFIG_ARM64_MTE */
+ 	{
+ 		.desc = "RCpc load-acquire (LDAPR)",
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index fe8f4f8ce95c..b96cb6d6bcaa 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -69,6 +69,7 @@ MPAM_HCR
+ MTE
+ MTE_ASYMM
+ MTE_FAR
++MTE_STORE_ONLY
+ SME
+ SME_FA64
+ SME2
 -- 
-2.34.1
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
