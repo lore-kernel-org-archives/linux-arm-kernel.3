@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDB5C71134
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76494C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dt8Ksd3h2FYmayz03UsrnSwEDKb105FJ+JFrE2T+WrU=; b=A59oBdK+xa/CFW2Ua5Tv7SF8SM
-	thjWyHvpbcyTYtjnLiSP0Mt35geNqm4PsaMPLVQRYCCZw6wQ4gfDZrkaJ+kcvKmQVPVOPoIMkp/bY
-	7nmmsxGUY+6uXvKqbbpfLm0FE8Xti8G8kaz/zA3WXOL3fm1JtD2ruHn52fOUF8AXD/5UskydEiNC5
-	D898UokGZB5WtPY2o125WbdkGXg8dBllZM8TWHJ9pCl59nnIjvdgXh6qF+EliukthoLDgdF5UgcIa
-	EHJPMP4XCWzjMv4hGssK5iFw3179J0XI++dkDJisuIbJOJQf+elpAkDZ/c6sSpYJ88/25NSYg2EsK
-	M3me9bTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pn/rhA/IYEX24VjX/Og1WVaxaSwymWZIsjxakcricag=; b=ypxbdwDd7c4KEVSNcKqZRMzAbd
+	Ra2VB2vD7yyX1yddoc9IzrTCyBYrEAfe5eYjxKEHAcZTm1KNmaX0tkshgI7nzssU+t2aV7sqX+Ube
+	7rO9DK0fOAxwIGMpijP5OPvmK0Q5386cAiyGcLepL+2kCNcQHnU3W8S6nmYhBYWViJcXpjuR6V6zO
+	wEdPKc6PqLvIqjtTNQoL6De7DNd7ngDwxoJ5QwaeAM8GiOZGBpO1KCAPKd7g0Vrg8Dpp2KRGbChQE
+	6HgYUez1VoqmRMiA96nSe99dZlCaOLzSugjZYfXBQQeJPiSQhCSaptsWHj65EvIvNcsDdk6DqnxYW
+	60i3Bi1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRWl-0000000B1jq-3ctQ;
-	Wed, 11 Jun 2025 19:54:27 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1uPRWq-0000000B1rV-2kYl;
+	Wed, 11 Jun 2025 19:54:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPN7g-0000000ALL6-430x
+	id 1uPN7j-0000000ALLz-2naK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Jun 2025 15:12:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=pn/rhA/IYEX24VjX/Og1WVaxaSwymWZIsjxakcricag=; b=WTI2HH5JH47sZrXzssH8iG+HNJ
+	obZEuOFriJr6ttvjzAii30Pz7RnlI1KQrnfPRqtsVtWnHIdzJeVg8VgmVzeO6xZj9DVfG+BvCV17S
+	kEa79nDiBnNcrEIA/egAFpF9QBnkFHvi1lJwfTnwuAzfa9ZkvMstxbTqrukiLCHL8aQf/E9dH0PeR
+	B8RsyZ51p0SVtpC1HH3IP91sbhXZBStkE2WIttxdHaKTwAGyH03lu6qrKp3PfvEOuCPDUN3A6zevv
+	n0gNlf8N7cKLBG1vJQjyD/l7xxL38pXFyo+q9sPCNjfTKl0wZKJsnCYG2gy3gfZnX53gPPQ04OX/z
+	tDyLNhaQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPN7d-00000002Q2i-3wBh
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 11 Jun 2025 15:12:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749654738; x=1781190738;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=w50J13DoDa3ztdz0aJJJjIaFHSClneyL/iYpIIag/qs=;
-  b=atsW6y3uLL7aaZCmvA+uPogMEimWE8GVPt4gdinmLHwfdn/P7MQwdqZg
-   adQ2U5gNDVpeRwY+w9WJqECj2H4tRsrkTHhnZDsdtQ9phZ5AqjZhHvTpj
-   Qaavvt+Oqq0fwOOxilsAvkwaPX5CWulopf/FyvYp73SB9Ff5DYADosLHS
-   XwlIltQBKCrjL9dAOwiY/chtPkoSZp5jyHx2N8HrXX0LYNFhlDGn7OP4H
-   MRMCBC2AFwoFWeH0Bubg5tbxYh/2/qyizdqXtpiRxdgQog5vFyJ/qq4rH
-   CGVJDONpQSD+EGJcSpvrWE6FVBXQWg0jNQtOo5pzKNIaAzgiFyuqqc8mS
-   g==;
-X-CSE-ConnectionGUID: nJnq79jfQ2KBW9F/epya+g==
-X-CSE-MsgGUID: LRjxs2nzQAuAN5jf3hJUlw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11461"; a="62083553"
-X-IronPort-AV: E=Sophos;i="6.16,228,1744095600"; 
-   d="scan'208";a="62083553"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2025 08:12:16 -0700
-X-CSE-ConnectionGUID: y29W/3r0RkKpTtbZaK2+RQ==
-X-CSE-MsgGUID: h+7CkrccS1exPpWmkCy9FA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,228,1744095600"; 
-   d="scan'208";a="184427637"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2025 08:12:12 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uPN7X-00000005gGG-2dL9;
-	Wed, 11 Jun 2025 18:12:07 +0300
-Date: Wed, 11 Jun 2025 18:12:07 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-Cc: gregkh@linuxfoundation.org, linux-serial@vger.kernel.org,
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D36BA1688;
+	Wed, 11 Jun 2025 08:11:51 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9D4853F59E;
+	Wed, 11 Jun 2025 08:12:09 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	ardb@kernel.org,
+	frederic@kernel.org,
+	james.morse@arm.com,
+	joey.gouly@arm.com,
+	scott@os.amperecomputing.com
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 08/33] serial: 8250: sanitize
- uart_port::serial_{in,out}() types
-Message-ID: <aEmcxySiXun--YZs@smile.fi.intel.com>
-References: <20250611100319.186924-1-jirislaby@kernel.org>
- <20250611100319.186924-9-jirislaby@kernel.org>
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v2 4/6] arm64/futex: add futex atomic operation with FEAT_LSUI
+Date: Wed, 11 Jun 2025 16:11:52 +0100
+Message-Id: <20250611151154.46362-5-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611151154.46362-1-yeoreum.yun@arm.com>
+References: <20250611151154.46362-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250611100319.186924-9-jirislaby@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_081217_038722_070FB2E2 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250611_161214_326395_CBDB7334 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,50 +87,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 12:02:54PM +0200, Jiri Slaby (SUSE) wrote:
-> uart_port::{serial_in,serial_out} (and plat_serial8250_port::* likewise)
-> historically use:
-> * 'unsigned int' for 32-bit register values in reads and writes, and
-> * 'int' for offsets.
-> 
-> Make them sane such that:
-> * 'u32' is used for register values, and
-> * 'unsigned int' is used for offsets.
-> 
-> While at it, name hooks' parameters, so it is clear what is what.
+Current futex atomic operations are implemented with ll/sc instructions and
+clearing PSTATE.PAN.
 
-At a glance this looks just mechanical change. Have you used coccinelle for
-that?
+Since Armv9.6, FEAT_LSUI supplies not only load/store instructions but
+also atomic operation for user memory access in kernel it doesn't need
+to clear PSTATE.PAN bit anymore.
 
-As for the whole idea, I like it,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+With theses instructions some of futex atomic operations don't need to
+be implmented with ldxr/stlxr pair instead can be implmented with
+one atomic operation supplied by FEAT_LSUI.
 
-> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+However, some of futex atomic operations still need to use ll/sc way
+via ldtxr/stltxr supplied by FEAT_LSUI since there is no correspondant
+atomic instruction or doesn't support word size operation
+(i.e) eor, cas{mb}t But It's good to work without clearing PSTATE.PAN bit.
 
-...
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/include/asm/futex_lsui.h | 132 ++++++++++++++++++++++++++++
+ 1 file changed, 132 insertions(+)
+ create mode 100644 arch/arm64/include/asm/futex_lsui.h
 
-> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Nicholas Piggin <npiggin@gmail.com>
-> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Cc: "Ilpo Järvinen" <ilpo.jarvinen@linux.intel.com>
-> Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Cc: Paul Cercueil <paul@crapouillou.net>
-> Cc: Vladimir Zapolskiy <vz@mleia.com>
-> Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-> Cc: Masami Hiramatsu <mhiramat@kernel.org>
-
-These also can be moved under '---' :-)
-
-> ---
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-mips@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
-
+diff --git a/arch/arm64/include/asm/futex_lsui.h b/arch/arm64/include/asm/futex_lsui.h
+new file mode 100644
+index 000000000000..0dc7dca91cdb
+--- /dev/null
++++ b/arch/arm64/include/asm/futex_lsui.h
+@@ -0,0 +1,132 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2025 Arm Ltd.
++ */
++
++#ifndef __ASM_FUTEX_LSUI_H
++#define __ASM_FUTEX_LSUI_H
++
++#include <linux/uaccess.h>
++#include <linux/stringify.h>
++
++#define FUTEX_ATOMIC_OP(op, asm_op, mb)					\
++static __always_inline int						\
++__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
++{									\
++	int ret = 0;							\
++	int val;							\
++									\
++	mte_enable_tco();						\
++	uaccess_ttbr0_enable();						\
++									\
++	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
++	__LSUI_PREAMBLE							\
++	"1:	" #asm_op #mb "	%w3, %w2, %1\n"				\
++	"2:\n"								\
++	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
++	: "+r" (ret), "+Q" (*uaddr), "=r" (val)				\
++	: "r" (oparg)							\
++	: "memory");							\
++									\
++	mte_disable_tco();						\
++	uaccess_ttbr0_disable();					\
++									\
++	if (!ret)							\
++		*oval = val;						\
++									\
++	return ret;							\
++}
++
++FUTEX_ATOMIC_OP(add, ldtadd, al)
++FUTEX_ATOMIC_OP(or, ldtset, al)
++FUTEX_ATOMIC_OP(andnot, ldtclr, al)
++FUTEX_ATOMIC_OP(set, swpt, al)
++
++#undef FUTEX_ATOMIC_OP
++
++static __always_inline int
++__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
++{
++	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
++}
++
++static __always_inline int
++__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
++{
++	unsigned int loops = LL_SC_MAX_LOOPS;
++	int ret, val, tmp;
++
++	mte_enable_tco();
++	uaccess_ttbr0_enable();
++
++	asm volatile("// __lsui_futex_atomic_eor\n"
++	__LSUI_PREAMBLE
++	"	prfm	pstl1strm, %2\n"
++	"1:	ldtxr	%w1, %2\n"
++	"	eor	%w3, %w1, %w5\n"
++	"2:	stltxr	%w0, %w3, %2\n"
++	"	cbz	%w0, 3f\n"
++	"	sub	%w4, %w4, %w0\n"
++	"	cbnz	%w4, 1b\n"
++	"	mov	%w0, %w6\n"
++	"3:\n"
++	"	dmb	ish\n"
++	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)
++	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)
++	: "=&r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp),
++	  "+r" (loops)
++	: "r" (oparg), "Ir" (-EAGAIN)
++	: "memory");
++
++	mte_disable_tco();
++	uaccess_ttbr0_disable();
++
++	if (!ret)
++		*oval = val;
++
++	return ret;
++}
++
++static __always_inline int
++__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
++{
++	int ret = 0;
++	unsigned int loops = LL_SC_MAX_LOOPS;
++	u32 val, tmp;
++
++	mte_enable_tco();
++	uaccess_ttbr0_enable();
++
++	/*
++	 * cas{al}t doesn't support word size...
++	 */
++	asm volatile("//__lsui_futex_cmpxchg\n"
++	__LSUI_PREAMBLE
++	"	prfm	pstl1strm, %2\n"
++	"1:	ldtxr	%w1, %2\n"
++	"	eor	%w3, %w1, %w5\n"
++	"	cbnz	%w3, 4f\n"
++	"2:	stltxr	%w3, %w6, %2\n"
++	"	cbz	%w3, 3f\n"
++	"	sub	%w4, %w4, %w3\n"
++	"	cbnz	%w4, 1b\n"
++	"	mov	%w0, %w7\n"
++	"3:\n"
++	"	dmb	ish\n"
++	"4:\n"
++	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
++	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
++	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
++	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
++	: "memory");
++
++	mte_disable_tco();
++	uaccess_ttbr0_disable();
++
++	if (!ret)
++		*oval = oldval;
++
++	return ret;
++}
++
++#endif /* __ASM_FUTEX_LSUI_H */
 -- 
-With Best Regards,
-Andy Shevchenko
-
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
