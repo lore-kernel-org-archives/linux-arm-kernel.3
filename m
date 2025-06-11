@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3478CC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 23:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83DDC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 23:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRRA0MfVY8AFYJyq1Qj9bYvFE1r14M9MLeXFY5NXtWQ=; b=HHNuYjK1bowqwcQnx9mUImDnFM
-	Sy5bwtKV9vxjnBqaYchYHjL06c0HWT1Udbu0e6Ozw6GI3iXRCpPX3erpXroypmx8dVR7bZUOvWlu0
-	IarEL7v60sG1EXxDLfPEmp7ADaO4aoqScSu1DTI7mV/rKRISuZXYEdVCH13TVAWfvt6EmTbgA7QVD
-	g20dKruo/p3LFGh+9JKDA5eQIanh7tX2UNdJtnz4/Xvru+YcCi7c/z5fOETnxK67n1Ty+QEp7lcby
-	AygP3UnsQtfQycqQafZdgkf4l95bEqmPazDuaR5CScBCi6OsWFdvd/tPm5hbgSgSoxis8g8FBFq1z
-	aQRJXg6A==;
+	bh=HjjFJphyDo0IqYeVnTfxfqpMK0gp/71Sj/vB3a+5qNU=; b=apB5tmWAGUUFHB1PgQK6AbKeyU
+	6OvsHIRYkLiCuYioKfRrJ6Q6vU1D/5SayGhouVIxwfSgreWgORfKHrm8hRjfOFNKOTwe06X8T3Gn1
+	chQnBxPd774h0x14v9Q0d0ESBnVuDh6HvXtCZ6b9ouB24S5NX6XhBqw+7ZynPvP0ua3aiNC7qVegY
+	DtEWQeAbn9sd/nlGJ0vyg0Vgzyjv+Vl50ErZi9L5vxLalmx7oV0Hor6JIyHIbWw6q2rce2kdc80pk
+	y3Eofp6eAJ+ZmPiRi9T9vCfxA9DXnLcShX2ExJ5QX/A3qfaUOW4IQ4KixtXVLsISQ30ORxBDVzXGr
+	qAQcdr1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUQl-0000000BbJS-0lrV;
-	Wed, 11 Jun 2025 23:00:27 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uPUSs-0000000Bbtt-1pL0;
+	Wed, 11 Jun 2025 23:02:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPTJ7-0000000BOMf-0iOF;
-	Wed, 11 Jun 2025 21:48:30 +0000
+	id 1uPTJG-0000000BOOM-004h;
+	Wed, 11 Jun 2025 21:48:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749678507;
-	bh=1DZZD4FZcsjJllv0se6Cxs7D753+HnCfVphExKcrBrM=;
+	s=mail; t=1749678516;
+	bh=LH3RSD841MZ/Wiu+j6uCJ53sshntEVWDrCUzXD6Diq0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RpV9QkIZM07oSWPYP+3CivXV6O8AORZD+eNgWccoVp6DoJYxvOzJK2VGpbfyHIaPP
-	 NpXFEzNRidq5PYV2zfuhyiLOZsZHqcgIw34LVpolcsYeyNQMc20Jq/Pfl69XE1Bev+
-	 NAzS26bbewJS99qunCqOyHoX7PLKPre4qPcxtDdDvXXXPAg2Z4mM5wzbzn/O0qsL9o
-	 c5WPkt1WzMLF3P/uDD5ERyModWtqH8XL2V81zMsp1qT08G3YDrgMwBRSl/k9wEm4pr
-	 gCUz+aams06njY+b8+tknv0q63P/Y9uiTT8oZptNNUNiy884kdLFiaS+nGHCKZ30Z9
-	 amPMd+wZLjclQ==
+	b=X1KUaJ2vZwipKPBKokVHgxzdwtYRuJjl1kPJJnlJRoEZsVaLlH7zvZbqAru5khxja
+	 UdazX8hjDh3qWdJEMpTTnHKE/JHAbKmNX7yijDy+DUt+ZoZKani5n7TidH3PNS0HE/
+	 zbf7rbjoEjvcYwcmcoSRN2TJgU7Z07KOJWHGwvDorHqzWRZ7bmkpmXUth+Owb1LVrl
+	 b0L3vcnwziQl3r2jtx6klopCEyKTEcVFMt904uKxIjHJ3hupWP7AAnBXjSL1MRDDr3
+	 rAFBRexrxeLCGq+3mvUhbpeELFkLTycraMSG1Mhm/7p2lK//T4MHCNCaV20CC9pUCz
+	 cjjSSx+t5wXUA==
 Received: from localhost (unknown [212.93.144.165])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 427C817E14DE;
-	Wed, 11 Jun 2025 23:48:27 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 182F617E1560;
+	Wed, 11 Jun 2025 23:48:36 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 12 Jun 2025 00:47:47 +0300
-Subject: [PATCH 1/3] dt-bindings: display: vop2: Add optional PLL clock
- property for rk3576
+Date: Thu, 12 Jun 2025 00:47:48 +0300
+Subject: [PATCH 2/3] arm64: dts: rockchip: Enable HDMI PHY clk provider on
+ rk3576
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250612-rk3576-hdmitx-fix-v1-1-4b11007d8675@collabora.com>
+Message-Id: <20250612-rk3576-hdmitx-fix-v1-2-4b11007d8675@collabora.com>
 References: <20250612-rk3576-hdmitx-fix-v1-0-4b11007d8675@collabora.com>
 In-Reply-To: <20250612-rk3576-hdmitx-fix-v1-0-4b11007d8675@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -68,9 +68,8 @@ Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>,
  linux-kernel@vger.kernel.org, stable@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_144829_403482_CE28E48D 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_144838_184670_1EC50D12 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,115 +84,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As with the RK3588 SoC, RK3576 also allows the use of HDMI PHY PLL as an
-alternative and more accurate pixel clock source for VOP2.
+As with the RK3588 SoC, the HDMI PHY PLL on RK3576 can be used as a more
+accurate pixel clock source for VOP2, which is actually mandatory to
+ensure proper support for display modes handling.
 
-Document the optional PLL clock property.
+Add the missing #clock-cells property to allow using the clock provider
+functionality of HDMI PHY.
 
-Moreover, given that this is part of a series intended to address some
-recent display problems, provide the appropriate tags to facilitate
-backporting.
-
-Fixes: c3b7c5a4d7c1 ("dt-bindings: display: vop2: Add rk3576 support")
+Fixes: ad0ea230ab2a ("arm64: dts: rockchip: Add hdmi for rk3576")
 Cc: stable@vger.kernel.org
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- .../bindings/display/rockchip/rockchip-vop2.yaml   | 56 +++++++++++++++++-----
- 1 file changed, 44 insertions(+), 12 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-index f546d481b7e5f496e1684f95edaa2fb97b840503..93da1fb9adc47b20dafc5fb03ee72f458a0f6228 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
-@@ -64,10 +64,10 @@ properties:
-       - description: Pixel clock for video port 0.
-       - description: Pixel clock for video port 1.
-       - description: Pixel clock for video port 2.
--      - description: Pixel clock for video port 3.
--      - description: Peripheral(vop grf/dsi) clock.
--      - description: Alternative pixel clock provided by HDMI0 PHY PLL.
--      - description: Alternative pixel clock provided by HDMI1 PHY PLL.
-+      - {}
-+      - {}
-+      - {}
-+      - {}
- 
-   clock-names:
-     minItems: 5
-@@ -77,10 +77,10 @@ properties:
-       - const: dclk_vp0
-       - const: dclk_vp1
-       - const: dclk_vp2
--      - const: dclk_vp3
--      - const: pclk_vop
--      - const: pll_hdmiphy0
--      - const: pll_hdmiphy1
-+      - {}
-+      - {}
-+      - {}
-+      - {}
- 
-   rockchip,grf:
-     $ref: /schemas/types.yaml#/definitions/phandle
-@@ -175,10 +175,24 @@ allOf:
-     then:
-       properties:
-         clocks:
--          maxItems: 5
-+          minItems: 5
-+          items:
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - description: Alternative pixel clock provided by HDMI PHY PLL.
- 
-         clock-names:
--          maxItems: 5
-+          minItems: 5
-+          items:
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - const: pll_hdmiphy0
- 
-         interrupts:
-           minItems: 4
-@@ -208,11 +222,29 @@ allOf:
-       properties:
-         clocks:
-           minItems: 7
--          maxItems: 9
-+          items:
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - description: Pixel clock for video port 3.
-+            - description: Peripheral(vop grf/dsi) clock.
-+            - description: Alternative pixel clock provided by HDMI0 PHY PLL.
-+            - description: Alternative pixel clock provided by HDMI1 PHY PLL.
- 
-         clock-names:
-           minItems: 7
--          maxItems: 9
-+          items:
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - {}
-+            - const: dclk_vp3
-+            - const: pclk_vop
-+            - const: pll_hdmiphy0
-+            - const: pll_hdmiphy1
- 
-         interrupts:
-           maxItems: 1
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 1086482f04792325dc4c22fb8ceeb27eef59afe4..6a13fe0c3513fb2ff7cd535aa70e3386c37696e4 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -2391,6 +2391,7 @@ hdptxphy: hdmiphy@2b000000 {
+ 			reg = <0x0 0x2b000000 0x0 0x2000>;
+ 			clocks = <&cru CLK_PHY_REF_SRC>, <&cru PCLK_HDPTX_APB>;
+ 			clock-names = "ref", "apb";
++			#clock-cells = <0>;
+ 			resets = <&cru SRST_P_HDPTX_APB>, <&cru SRST_HDPTX_INIT>,
+ 				 <&cru SRST_HDPTX_CMN>, <&cru SRST_HDPTX_LANE>;
+ 			reset-names = "apb", "init", "cmn", "lane";
 
 -- 
 2.49.0
