@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD98C7113E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8007C71141
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iE0MsktbDEMe3NLkiMxHJ519do5Gp8up7Y9Iq9kO5V0=; b=TQZakfAdMGq2SXNDEgAu/Ph2lk
-	t1UHs5dcHvNHHeFsmZ5eSb4buimnl6PZZ9Bzj6mHeXqLxPqCzhPyxsLR7wzN0Qoy5OOuz6/FVQsck
-	11QBre8xbAP34i0rXt0eF1vyKex2oieJKWAAfvuKr64jrTbHGGQZ0/lHLr1YSpn1ygrZLUDReE2VM
-	PvDCLzbuxvTeadWjegV0VuH93K7QNFBZg4w+7P0fFeq0hQki9tPCGkY6i3HIJ7SsFzg/ggO7aSHYT
-	8dl7vm5qQSWXFgji2sJB/+ksA+naA1XswYLYqmu3N+9fNtcn0PMo4F32Vc6ALGHmCq20gOHSJxI2f
-	qqSZgDpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hEdiVj/ouDxjtTL64A28GwxWv7LWsH935w5UighpXbg=; b=OpAT5LXo+0KFWfZgc2MAbhWi5M
+	fyaJF3k/Njjs9PasQF4x5KzOOi5GkTzwQIBwrjVRsZtzvnpEJaCjTbIaGBuLGFCu+7t9pQFxjbRrY
+	cMI3h2NkEepy4xhxv8clhfAl9yr4nQiqCM/l35Hz5yKszcJNB/ys1DtWFTba5tTpMTz9w3FWOcw9y
+	HLqihmywSi+gJr+SrosSIjXrciMM2F6e1K2/p/e25KbEVLZBDzYuF0ZKm1Z57weEV2d4AUNs9HuiG
+	/NwaNndhQUOBYCwA7peYmHYVn6YqtvF6jsbSuLlVj13NhRAHRyibZjrfVHBMlbPX/wV2zfS1bfSCl
+	UrwWf1tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRXz-0000000B3cT-3F6T;
-	Wed, 11 Jun 2025 19:55:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uPRY1-0000000B3ex-0oUb;
+	Wed, 11 Jun 2025 19:55:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNVO-0000000AQRI-3Jtj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 15:36:47 +0000
+	id 1uPNbt-0000000AREV-2qsT;
+	Wed, 11 Jun 2025 15:43:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8025B5C075E;
-	Wed, 11 Jun 2025 15:34:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8156CC4CEEA;
-	Wed, 11 Jun 2025 15:36:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CBC3261F1D;
+	Wed, 11 Jun 2025 15:43:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D9BDC4CEEA;
+	Wed, 11 Jun 2025 15:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749656205;
-	bh=iE0MsktbDEMe3NLkiMxHJ519do5Gp8up7Y9Iq9kO5V0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UXQjSNxCJTeqeegmbFdkSEgGydMfw1q2EzY7nfu6TP79lu6Y1w/QZ4alluV9H/1rB
-	 LY4OpXs/tAy3LXTiRgQyzMByUxajWO62YlX7Y6dyPcUSxII/za5Ll5j144M3v5VCXj
-	 6ymDsMBUlNvy+c2o7QvA760lkfYcETuIjYFKi3NrKyq4+L1Ln94PWSh6g68h46LOYD
-	 wnLWBq6GKD/rv060wPTqVnGpL6ZwlIxcAhsNX0+WarpP1TePGzqd7S9DPF7IwX4XbX
-	 JndHjGb/UCOO7/v5wU8YxtJ9dm+8kXTbbiboKj3e4yv1qqGfGSvF+69NU5oU6FOOQE
-	 St1Fji7ZadEUg==
-Date: Wed, 11 Jun 2025 16:36:38 +0100
+	s=k20201202; t=1749656608;
+	bh=nYOyxTm0Jn2vrAgeyWkPSPKnq9L/YExq6J4YfvCyaPg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=AxqzvwU8TebnHervLM08aFajfTNx3pw4mNUc1mA+AgAwPRaz797sASz8gqr5gCAzJ
+	 Ioivlu7Vy4mpJ9f/AOkue7jvoTpVAUMivyb9gOhp2P65I9owP5MWByFS7COutemSkz
+	 5lKUFa4xAQQHEDJEr1MSujWaID/75iKSWEaUW40NvqXmmoshoSRdBadmRTxtoL6oDK
+	 WfDxFmp1qHoj+YMa8QAxiYdIPeIcUI90bBjxKbYSbcwgN9zbRGmioGDDjL4YNEhF9s
+	 O7HmYzjV/NMmuKs+p6J1GYxCuEuGkJpd5K++Zx0gK1f+imCYYNVVkoNYEYNq41WdJU
+	 jAGFLqhKIMXYA==
 From: Mark Brown <broonie@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
-	anshuman.khandual@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, frederic@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, samuel.holland@sifive.com,
-	palmer@rivosinc.com, charlie@rivosinc.com,
-	thiago.bauermann@linaro.org, bgray@linux.ibm.com,
-	tglx@linutronix.de, puranjay@kernel.org, david@redhat.com,
-	yang@os.amperecomputing.com, mbenes@suse.cz,
-	joel.granados@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 2/7] prctl: introduce PR_MTE_STORE_ONLY
-Message-ID: <ec2c5126-86da-45a2-b9fb-06433583f13c@sirena.org.uk>
-References: <20250611150417.44850-1-yeoreum.yun@arm.com>
- <20250611150417.44850-3-yeoreum.yun@arm.com>
+To: linux-arm-kernel@lists.infradead.org, 
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: kernel test robot <lkp@intel.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, linux-renesas-soc@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org
+In-Reply-To: <20250609223012.87764-1-marek.vasut+renesas@mailbox.org>
+References: <20250609223012.87764-1-marek.vasut+renesas@mailbox.org>
+Subject: Re: [PATCH] regulator: rpi-panel-v2: Fix missing OF dependency
+Message-Id: <174965660685.52384.1301110608042859548.b4-ty@kernel.org>
+Date: Wed, 11 Jun 2025 16:43:26 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z1q5nUGgyyOUCQhx"
-Content-Disposition: inline
-In-Reply-To: <20250611150417.44850-3-yeoreum.yun@arm.com>
-X-Cookie: No skis take rocks like rental skis!
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_083646_872827_F0D2B1E4 
-X-CRM114-Status: GOOD (  10.08  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c25d1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 10 Jun 2025 00:30:00 +0200, Marek Vasut wrote:
+> Add missing OF dependency and drop of_match_ptr() use.
+> This fixes the following LKP report:
+> 
+> "
+> >> drivers/regulator/rpi-panel-v2-regulator.c:95:34: warning: 'rpi_panel_v2_dt_ids' defined but not used [-Wunused-const-variable=]
+>     static const struct of_device_id rpi_panel_v2_dt_ids[] = {
+>                                      ^~~~~~~~~~~~~~~~~~~
+> "
+> 
+> [...]
 
---z1q5nUGgyyOUCQhx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Applied to
 
-On Wed, Jun 11, 2025 at 04:04:12PM +0100, Yeoreum Yun wrote:
-> PR_MTE_STORE_ONLY is used to restrict the MTE tag check for store
-> opeartion only.
->=20
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Tested-by: Mark Brown <broonie@kernel.org>
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
 
-Sorry, that should've been
+Thanks!
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+[1/1] regulator: rpi-panel-v2: Fix missing OF dependency
+      commit: a4eb71ff98c4792f441f108910bd829da7a04092
 
---z1q5nUGgyyOUCQhx
-Content-Type: application/pgp-signature; name="signature.asc"
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
------BEGIN PGP SIGNATURE-----
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJooYACgkQJNaLcl1U
-h9Dzbgf/YGEQLbpkxxNiUEd6pltNKikXu/3VHVIRPWWzDDb5wtSuHFhoIqeN3nYe
-WmJpaGNEUQyoVK6kkUh7TTirgED4cKJMG89RKFq6XXFVfd4yZbeKsLUhJwOk+zy4
-NYu5zdnoM004pbgzdgaaw2tR2sbKTXu3j3O2dIxfMGUXYbREbsLDFHr4EbGXrUaj
-R6ZtqSqrnr+F+Gs+Tu9T3lnbQgBBHUHIb8epsLCBr3rMpJQjmIiX5KfFq8nJ3dqk
-gv2Gps01wkUk7KNglhjKuxWYr1kttGldT4Osdcj37Jj5fVK9wVQwbPGrUKARot5h
-FVeg9ImfpHiVkxJ2Tyb2E5ts3b8Jig==
-=Xip3
------END PGP SIGNATURE-----
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
---z1q5nUGgyyOUCQhx--
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
