@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1551CC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 01:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640FBC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 01:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D1Ge4V/cjACONoBs0qgFEJo1LJMRo9yRFlMmYU8swmk=; b=j2zszep9qpFyeIoUgD/ynmHnqj
-	/Gv9bl/V/h1aXm1CmXluRV8HNdT2fbdy4EoWGLQhiKTUGIY2HKign6mze3cksUbx/TgRFvh2o1TOh
-	0LfpcEeu7r/j1I7NKgrZfMnJHISuC0AIg5BJPelkXddzPN/lbmiYPYRlLcNp67oGUk/jVPA2HDIuR
-	bnDWyc93BhGQcf/hETJht1xXOPfNsSUD75ruXl29l8MYKR5rPFPWakpFaacfn/9v4DXaC/Yrg7N6y
-	2gujrnMbhP3xsGQna3qj+Ld5cWRb4b4MrFe0oFYbF2zWpPH0DN/QaTJxLOwAT494pY4CWFiggtvRu
-	t7zJrEKA==;
+	bh=aRbYdbPjfnXABceLxP6T4VwYA6vT74WXjV6qwqEpIRA=; b=wkNkxqCcAjy28SR2JMMfzAsIOR
+	/W7eChk5kOpReOraOKQxB7L/9e2IvwhfduGYl4GbPw4FT8ydbUx7EsA+9d2KC5aVGDeFZdJ0br12Q
+	CTGWptl6Ad4rkHRXAjc3+NVDqDP2hp9xYO4q+tAhjgQjyaFb/VtXPGni4sohAWdJqVoZbJrg9RhMN
+	L8fdgkbXLWQExTvLB3mQpClsvzEuQtRhGw4Rghl4dztcpf8p7hFvT/zCNqqHt5c1q6H8gRVDRY9/a
+	PR8DPgyuGNlLOmZHJcbyl/XStVGVp4Vveb9BXptaVdqlnxWFo6pJcGVRdRbsrRDTZjv+6HTy+TEiy
+	0m34ZkGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPWgi-0000000BsMO-0dOl;
-	Thu, 12 Jun 2025 01:25:04 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uPWin-0000000BsSB-3Ob2;
+	Thu, 12 Jun 2025 01:27:13 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUEe-0000000BXXH-45H8
+	id 1uPUEg-0000000BXY8-34ko
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 22:47:58 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3132e7266d3so340176a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:56 -0700 (PDT)
+	Wed, 11 Jun 2025 22:47:59 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-31215090074so514698a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749682076; x=1750286876; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749682078; x=1750286878; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=D1Ge4V/cjACONoBs0qgFEJo1LJMRo9yRFlMmYU8swmk=;
-        b=3IDNWrTNOtW3KTFuiWQnTuFcJUXV9y8tdOPZJ5jsp0c8L2GaPERU9ZwlkQ6NQnuE4z
-         lVBQNxe/ysforUhw08W35i9hCWsq4KEjKDDxn83phRYAaLos4a00wUlmP43HQmR9sEOU
-         4XrjQm02oTUMqGLaG/2NERrU58lLCZIYcqs8dOqU3jb+6m5ZkbRtenPtmhJTspcWnG4z
-         +tYDXvW7true+Ko2aAn8Vu6jwK3Y0KCjo/LZUDWDjM8RvQn+vBSoXSJzoYcEGqVwTY/H
-         /pUtriSYGg84j8R2jAm8hAJUr7xjFdYsIsuKMbnhfl3hd4L2XEex90JwxFc2WHtyhWFV
-         r79A==
+        bh=aRbYdbPjfnXABceLxP6T4VwYA6vT74WXjV6qwqEpIRA=;
+        b=GLE6yWZp+zWpaGBTF/+DinRLu+m6OVnRWtOFz2SgUIsdjlWrYRx3ctKBS1mIrUiptf
+         AZe/U48J/Vio4pgWTNj6SudCHzDw1/BYx9FCdVS8LIC3pf5R3ALPgbxRyZ3To1f3jrkk
+         6ZNQK31taJaUC4Ozcjq+CT9Ri315mo6a3Qer0wDiU4+cvY5q9Y74R46nKWWg5Z4j32vF
+         3oem2tZ54NtmhAkFWqjvH2XcHCh/3jVVxDcD3SSGiK7tIUrCBOd/9Z/iox1WLekJ7naf
+         d/mxXYA+r8YkTnuwbw1qvfna64evO7bQu+//bup1Kwrw4tRcobFqVD4lOq1M/cL8eShg
+         xbdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749682076; x=1750286876;
+        d=1e100.net; s=20230601; t=1749682078; x=1750286878;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=D1Ge4V/cjACONoBs0qgFEJo1LJMRo9yRFlMmYU8swmk=;
-        b=kknvGpC7oJNJqTqzxcVc1Sxm7jA9AYgWvjGdyEsVFXncNEZZfxZ/zSQFxBA92c3cJi
-         +8HSpVYJR84EAZcP5PN00YQNMCcRdR3Va5F0m+R4IjsIR/SDQcL7skNd8MXM2UdLshSl
-         srMf1ZmJDNrQ5sS/BcZlVdcU6lGTUcOXEeyFZ7l1G1tMaf84GLAz69yQBQAoxSqpbQwF
-         2Neu4AvaikbIKKQJcD90xnWDb1+at1ayM90eH169SNSOEyg5xz2S9U2QUSDK6Mu95Uoi
-         +jI/7oB1u0DFFfv+fS8HdTzsFUIHz1fGali4JrvzBT3EeCig0YYkYJ47y2ElXsK4uecR
-         +Xqw==
-X-Gm-Message-State: AOJu0YxHG88V1jXj+7jFTPVnoolOqOMVpVq8M63XGLUix98Pgl8d4D/P
-	ps4jN73/WbSS30gd8fmRr5WuOp+88dWVu0FTQ8kudew1zZS9w/lyw/lLKoWJbcs2ijjP9vLaN+B
-	wxHoCEQ==
-X-Google-Smtp-Source: AGHT+IFqa2w2kmXbZWMF8yccOdDvEvpmv9cb25OglMZKL4EfpfzN4NVZljxUxuB5ee0yWW1el6qOh8n1yDU=
-X-Received: from pjbsk13.prod.google.com ([2002:a17:90b:2dcd:b0:312:187d:382d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3dc7:b0:311:d670:a10d
- with SMTP id 98e67ed59e1d1-313c08d2876mr905787a91.26.1749682076024; Wed, 11
- Jun 2025 15:47:56 -0700 (PDT)
-Date: Wed, 11 Jun 2025 15:45:38 -0700
+        bh=aRbYdbPjfnXABceLxP6T4VwYA6vT74WXjV6qwqEpIRA=;
+        b=t4xF5dQYvYta1jpciPHoW0tdG4A1Rpgz8AfnMO6jDcR8QAXXIjR5E6EP4tTMw0+tJ6
+         rnVXnSvSL4UlBsA6n9AiNNxQ1X60UJw+eFuTWKBvJOYSUMjGnfpAlVg6GEFRFwbauRGy
+         kxI49QjXf+X4YHm8wmlPcGUnFFdp2kuaElrTFNE/HsRXbaBmjJodLcVPDMgkqzzRmSYm
+         ej3WwEVpzRlCT2mSSDWGVBFnKoiLVFq+CyCYYi7rdJT3mhpS6GboOgNrmUBTNB75IGXU
+         gvdM/duLsWB3NJmDtZ0cvtJ6ehimXYRnCxDtbNoGGcJblOVaJDa6ZTvAGdj3glnd1isE
+         on/Q==
+X-Gm-Message-State: AOJu0Yyzc+EwuThjfbQx+mS4U5I4utdlToAmQpUP5h0Kzq871y/orzi6
+	Pmp6lGQnmTbt+3KiGRQkEKGBEba+lhqCPTS7cKJlMUGECnDBzIaV4qlZ1w8lq3VupTEw8w4wIAG
+	mWVfk1g==
+X-Google-Smtp-Source: AGHT+IHb+Zv/4CcMgQT32iC66PSsxBVu4fJyVtFcuECRvVY6yAdTVQgUPpLO4I1bFnUpFw9nkCh9cXpZUsg=
+X-Received: from pjbkl3.prod.google.com ([2002:a17:90b:4983:b0:311:c197:70a4])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2ec8:b0:311:a314:c2ca
+ with SMTP id 98e67ed59e1d1-313c0667dbemr976034a91.6.1749682077795; Wed, 11
+ Jun 2025 15:47:57 -0700 (PDT)
+Date: Wed, 11 Jun 2025 15:45:39 -0700
 In-Reply-To: <20250611224604.313496-2-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250611224604.313496-2-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-Message-ID: <20250611224604.313496-37-seanjc@google.com>
-Subject: [PATCH v3 35/62] KVM: x86: Skip IOMMU IRTE updates if there's no old
- or new vCPU being targeted
+Message-ID: <20250611224604.313496-38-seanjc@google.com>
+Subject: [PATCH v3 36/62] KVM: x86: Don't update IRTE entries when old and new
+ routes were !MSI
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +79,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_154757_016127_DD1536F6 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250611_154758_781042_21DB6007 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +96,31 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don't "reconfigure" an IRTE into host controlled mode when it's already in
-the state, i.e. if KVM's GSI routing changes but the IRQ wasn't and still
-isn't being posted to a vCPU.
+Skip the entirety of IRTE updates on a GSI routing change if neither the
+old nor the new routing is for an MSI, i.e. if the neither routing setup
+allows for posting to a vCPU.  If the IRTE isn't already host controlled,
+KVM has bigger problems.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/irq.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/x86/kvm/irq.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/x86/kvm/irq.c b/arch/x86/kvm/irq.c
-index 6447ea518d01..43e85ebc0d5b 100644
+index 43e85ebc0d5b..4119c1e880e7 100644
 --- a/arch/x86/kvm/irq.c
 +++ b/arch/x86/kvm/irq.c
-@@ -542,6 +542,9 @@ static int kvm_pi_update_irte(struct kvm_kernel_irqfd *irqfd,
- 			vcpu = NULL;
- 	}
- 
-+	if (!irqfd->irq_bypass_vcpu && !vcpu)
-+		return 0;
+@@ -618,6 +618,10 @@ void kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
+ 				   struct kvm_kernel_irq_routing_entry *old,
+ 				   struct kvm_kernel_irq_routing_entry *new)
+ {
++	if (new->type != KVM_IRQ_ROUTING_MSI &&
++	    old->type != KVM_IRQ_ROUTING_MSI)
++		return;
 +
- 	r = kvm_x86_call(pi_update_irte)(irqfd, irqfd->kvm, host_irq, irqfd->gsi,
- 					 vcpu, irq.vector);
- 	if (r) {
+ 	if (old->type == KVM_IRQ_ROUTING_MSI &&
+ 	    new->type == KVM_IRQ_ROUTING_MSI &&
+ 	    !memcmp(&old->msi, &new->msi, sizeof(new->msi)))
 -- 
 2.50.0.rc1.591.g9c95f17f64-goog
 
