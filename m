@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62570C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5AB4C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k78uAyRpyrnNCcWPwivN1XUjba44ZawPnKOwQPdGBYc=; b=BPyleS+Am/oZja
-	Xs2JLq2A1IoHR/QGQQGXpzbM52QYphZSOY1Cy7pMBCe0VKRi3ZlqrDrkswL8JwMHoZzQnbI4Pt1a5
-	mJ/UcRcOZK/ds3njhLu/Nv+O61Oq6BitjKO8ubL/yu2aM7cj2+Qa5yTkSJ0j1322WQimzahawBDMj
-	LWOqN/MhNxDiuyvYthQ8NieestX4lxgiK40j4Z4oZ/zlcXqYW8bMB2WZr9B6oc++daq4fhtcDSlP4
-	8ZPfwbMH5WsotLQlN/TsBc/OJpRC73LnqhjEySNSsu/NOXSTmXCTJYLYhnlRYBw4T8xt9q4+J1v0s
-	cW1+jPXw3TqvrWRiOarQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=id7GRWD8vfNBwx1dRBT13zBpoC0G7MyQ35NGW3O+ncM=; b=11prrSvUG/SNDc2+3PW/Yu6oc1
+	y28bylcDTEFDM34Xly/1yz73HnFmtOSlr1GQZBRCDGvD2K90oidxfOWFXatvJqkKYHkkx535U4l5p
+	Wt1dhpzv0c6JGzVjVHuLaqVn4Le5k+DjgSJzFQyFqr5oSid8ZbdOvDVkgcBAj3TyxEv1hUglWv2q3
+	wE4Uuxrks4cmhs4Bv2LHCDjygY8n7FhUYOsY/DhT1+o/YTVtSJQJuVyf+Ww1KLKfbDrNgn6vMQviD
+	UGjZJWB2Ilc82mow2yrv3QuwRlFSRUdvldscPt9fBbcQmQjJMZ2+O/7pBk68swaxJwYF2gA02yB2l
+	+N524DGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNmG-0000000ATG5-0bmk;
-	Wed, 11 Jun 2025 15:54:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPNmL-0000000ATNS-2Mf0;
+	Wed, 11 Jun 2025 15:54:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIkM-00000009cgX-3C1D
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 10:31:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=k78uAyRpyrnNCcWPwivN1XUjba44ZawPnKOwQPdGBYc=; b=eeUjmqQ0SuXZVUBqfu89nDLsyA
-	9vdEa69vERZAsnO27OOfwWOzeTgSIOn5vk46vXxtztbC7d3Gp5OJG7cVb9P/rU7x/eySzq+bPd8Hc
-	C8UZuKosacLxoJBaQ7WFPuiSs3/iphmHYpdh3LBbRFF/DTwdEs3B/qTrO6Z6j7Hrh/IMnAnxb9m1+
-	ZK+Ox6lt2t0WRDoi8Mj8B+Qum61FYFbU3RRqZ/y+KB3c4mGtaPdQLNGsn/DsPyxV8GgHKlo8W5TYL
-	5hjhEBe4SIlsqgKkw6UNaHJRPyXD7oo6MQS67qz2TV9o+6BeNWPqOnsvPnRddco1L7/S9UiFKWWsS
-	ZSFNjQbg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIkK-00000002HFB-3AK4
+	id 1uPIwL-00000009e30-2omS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:31:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68EBF1BC0;
-	Wed, 11 Jun 2025 03:31:30 -0700 (PDT)
-Received: from [10.164.146.17] (J09HK2D2RT.blr.arm.com [10.164.146.17])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBD423F673;
-	Wed, 11 Jun 2025 03:31:47 -0700 (PDT)
-Message-ID: <aa2fa283-528c-4658-9bd3-7092eac7a442@arm.com>
-Date: Wed, 11 Jun 2025 16:01:44 +0530
+	Wed, 11 Jun 2025 10:44:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 43B815C56EA;
+	Wed, 11 Jun 2025 10:42:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA93C4CEEE;
+	Wed, 11 Jun 2025 10:44:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749638656;
+	bh=Val6gvNLmwc93YXiRLAyyfulj6tIKO76zAealvKQvYg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SZ+t+3NEBw9nCqlnTSklRNo11YQsU6g3oJrKcf7NaVbF0/9Bvb7+qZ8TQtvsnRiRg
+	 UAv7HO4pMGsP9DnsXyP9OUG0SAb6azvHEd24CqEUMWwNKSnXgmQavGbPC3aDYuHMfw
+	 mIO4QCWHiQZuEyJa6xupGtK2xWAEz3qr2PP9gH5z9G9CRGI40FYahHibI0zfc9iYFU
+	 VcwM/rjfmW8cfbebKCU2VAo3SqAk+ybbHw9xPH8E1czaTvZ9X7XIKtWGFsStzl4rjk
+	 BrFLwQYcJBQ+F5Tai1Js9B4CAKMTy57T6m00qamMSXJ/KoOw9c9MStEGR8xPkspTNt
+	 w0MKlaVmGbNNw==
+From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: tglx@linutronix.de,
+	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH] irqchip: Use dev_fwnode()
+Date: Wed, 11 Jun 2025 12:43:38 +0200
+Message-ID: <20250611104348.192092-10-jirislaby@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250611104348.192092-1-jirislaby@kernel.org>
+References: <20250611104348.192092-1-jirislaby@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3 1/2] arm64/debug: Drop redundant DBG_MDSCR_* macros
-To: Mark Rutland <mark.rutland@arm.com>
-References: <20250610053128.4118784-1-anshuman.khandual@arm.com>
- <20250610053128.4118784-2-anshuman.khandual@arm.com>
- <aEhnzsXHfilVhJ1s@J2N7QTR9R3> <68d762d4-a755-4ede-976b-0616bf3aab28@arm.com>
- <aElRi0Usn8dH6O4m@J2N7QTR9R3>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <aElRi0Usn8dH6O4m@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_113152_975693_F9F83005 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20250611_034417_795722_06E52AA2 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,68 +83,250 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/25 3:25 PM, Mark Rutland wrote:
-> On Wed, Jun 11, 2025 at 09:10:45AM +0530, Anshuman Khandual wrote:
->>
->>
->> On 10/06/25 10:43 PM, Mark Rutland wrote:
->>> On Tue, Jun 10, 2025 at 11:01:27AM +0530, Anshuman Khandual wrote:
->>>> MDSCR_EL1 has already been defined in tools sysreg format and hence can be
->>>> used in all debug monitor related call paths. Subsequently all DBG_MDSCR_*
->>>> macros become redundant and hence can be dropped off completely. While here
->>>> convert all variables handling MDSCR_EL1 register as u64 which reflects its
->>>> true width as well.
->>>
->>> I think that for now it'd be best to *only* change over to the
->>> generated MDSCR_EL1_* defintions, and leave the register sizes as-is.
->>
->> I had tried doing that originally but without changing mdscr register size,
->> there is a build warning because MDSCR_EL1_MDE is defined as GENMASK(15, 15)
->> which is represented as 'long unsigned int'.
->>
->> #define __GENMASK(h, l) (((~_UL(0)) << (l)) & (~_UL(0) >> (BITS_PER_LONG - 1 - (h))))
->>
->> arch/arm64/kernel/debug-monitors.c: In function ‘disable_debug_monitors’:
->> arch/arm64/kernel/debug-monitors.c:108:13: warning: conversion from ‘long unsigned int’ to ‘u32’ {aka ‘unsigned int’} changes value from ‘18446744073709518847’ to ‘4294934527’ [-Woverflow]
->>   108 |   disable = ~MDSCR_EL1_MDE;
->>       |             ^
-> 
-> Please mention that in the commit message. As-is, the commit message has
-> no rationale for changing to u64.
+irq_domain_create_simple() takes fwnode as the first argument. It can be
+extracted from the struct device using dev_fwnode() helper instead of
+using of_node with of_fwnode_handle().
 
-Sure, agreed. I had missed that, it was my bad.> 
-> More generally, if you need to make a change to avoid a compiler
-> warning, please describe that as part of the rationale.
-Makes sense, will do.
+So use the dev_fwnode() helper.
 
-> 
->> MDSCR_EL1 is a 64 bit system register as per ARM DDI 0487 L.A (D24.3.20).
->> Representing it as u32 does not seem right irrespective of whether the
->> extended break point support is enabled or not. Besides even arm64 kvm
->> uses u64 for mdscr register.
-> 
-> Sure, but that wasn't my complaint.
-> 
-> My complaint was that it was a logically unrelated change, because you
-> had provided no rationale as for why it was necessary to change to u64
-> as a conseqeunce of changing to the generated MDSCR_EL1_* definitions.
-> 
-> Please also note that *almost all* system registers have the
-> "${REGISTER} is a 64-bit register wording", including things like DAIF,
-> SPSel, etc. It's necessary to consider the context of use.
+Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
 
-Understood.
+---
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>
+Cc: Gregory Clement <gregory.clement@bootlin.com>
+Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Nishanth Menon <nm@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>
+Cc: Santosh Shilimkar <ssantosh@kernel.org>
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+---
+ drivers/irqchip/irq-imgpdc.c              | 2 +-
+ drivers/irqchip/irq-imx-irqsteer.c        | 2 +-
+ drivers/irqchip/irq-keystone.c            | 4 ++--
+ drivers/irqchip/irq-mvebu-pic.c           | 2 +-
+ drivers/irqchip/irq-pruss-intc.c          | 2 +-
+ drivers/irqchip/irq-renesas-intc-irqpin.c | 6 ++----
+ drivers/irqchip/irq-renesas-irqc.c        | 2 +-
+ drivers/irqchip/irq-renesas-rza1.c        | 5 ++---
+ drivers/irqchip/irq-renesas-rzg2l.c       | 5 ++---
+ drivers/irqchip/irq-renesas-rzv2h.c       | 2 +-
+ drivers/irqchip/irq-stm32mp-exti.c        | 4 +---
+ drivers/irqchip/irq-ti-sci-inta.c         | 3 +--
+ drivers/irqchip/irq-ti-sci-intr.c         | 3 +--
+ drivers/irqchip/irq-ts4800.c              | 2 +-
+ 14 files changed, 18 insertions(+), 26 deletions(-)
 
-I will add a rationale in the commit message for the u64 changes along
-with changes related to the generated MDSCR_EL1_* definitions and then
-re-spin the series. Thanks for your review.
-
-> 
-> Mark.
-
+diff --git a/drivers/irqchip/irq-imgpdc.c b/drivers/irqchip/irq-imgpdc.c
+index f0410d5d7315..484a089e7f6d 100644
+--- a/drivers/irqchip/irq-imgpdc.c
++++ b/drivers/irqchip/irq-imgpdc.c
+@@ -372,7 +372,7 @@ static int pdc_intc_probe(struct platform_device *pdev)
+ 	priv->syswake_irq = irq;
+ 
+ 	/* Set up an IRQ domain */
+-	priv->domain = irq_domain_create_linear(of_fwnode_handle(node), 16, &irq_generic_chip_ops,
++	priv->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), 16, &irq_generic_chip_ops,
+ 					     priv);
+ 	if (unlikely(!priv->domain)) {
+ 		dev_err(&pdev->dev, "cannot add IRQ domain\n");
+diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
+index 6dc9ac48fee5..bb2b09f528fd 100644
+--- a/drivers/irqchip/irq-imx-irqsteer.c
++++ b/drivers/irqchip/irq-imx-irqsteer.c
+@@ -212,7 +212,7 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
+ 	/* steer all IRQs into configured channel */
+ 	writel_relaxed(BIT(data->channel), data->regs + CHANCTRL);
+ 
+-	data->domain = irq_domain_create_linear(of_fwnode_handle(np), data->reg_num * 32,
++	data->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), data->reg_num * 32,
+ 					     &imx_irqsteer_domain_ops, data);
+ 	if (!data->domain) {
+ 		dev_err(&pdev->dev, "failed to create IRQ domain\n");
+diff --git a/drivers/irqchip/irq-keystone.c b/drivers/irqchip/irq-keystone.c
+index c9e902b7bf48..922fff09354f 100644
+--- a/drivers/irqchip/irq-keystone.c
++++ b/drivers/irqchip/irq-keystone.c
+@@ -157,8 +157,8 @@ static int keystone_irq_probe(struct platform_device *pdev)
+ 	kirq->chip.irq_mask	= keystone_irq_setmask;
+ 	kirq->chip.irq_unmask	= keystone_irq_unmask;
+ 
+-	kirq->irqd = irq_domain_create_linear(of_fwnode_handle(np), KEYSTONE_N_IRQ,
+-					      &keystone_irq_ops, kirq);
++	kirq->irqd = irq_domain_create_linear(dev_fwnode(dev), KEYSTONE_N_IRQ, &keystone_irq_ops,
++					      kirq);
+ 	if (!kirq->irqd) {
+ 		dev_err(dev, "IRQ domain registration failed\n");
+ 		return -ENODEV;
+diff --git a/drivers/irqchip/irq-mvebu-pic.c b/drivers/irqchip/irq-mvebu-pic.c
+index 8db638aa21d2..cd8b73482b9f 100644
+--- a/drivers/irqchip/irq-mvebu-pic.c
++++ b/drivers/irqchip/irq-mvebu-pic.c
+@@ -150,7 +150,7 @@ static int mvebu_pic_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 	}
+ 
+-	pic->domain = irq_domain_create_linear(of_fwnode_handle(node), PIC_MAX_IRQS,
++	pic->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), PIC_MAX_IRQS,
+ 					       &mvebu_pic_domain_ops, pic);
+ 	if (!pic->domain) {
+ 		dev_err(&pdev->dev, "Failed to allocate irq domain\n");
+diff --git a/drivers/irqchip/irq-pruss-intc.c b/drivers/irqchip/irq-pruss-intc.c
+index 87a5813fd835..81078d56f38d 100644
+--- a/drivers/irqchip/irq-pruss-intc.c
++++ b/drivers/irqchip/irq-pruss-intc.c
+@@ -555,7 +555,7 @@ static int pruss_intc_probe(struct platform_device *pdev)
+ 
+ 	mutex_init(&intc->lock);
+ 
+-	intc->domain = irq_domain_create_linear(of_fwnode_handle(dev->of_node), max_system_events,
++	intc->domain = irq_domain_create_linear(dev_fwnode(dev), max_system_events,
+ 						&pruss_intc_irq_domain_ops, intc);
+ 	if (!intc->domain)
+ 		return -ENOMEM;
+diff --git a/drivers/irqchip/irq-renesas-intc-irqpin.c b/drivers/irqchip/irq-renesas-intc-irqpin.c
+index 0959ed43b1a9..117b74b635ea 100644
+--- a/drivers/irqchip/irq-renesas-intc-irqpin.c
++++ b/drivers/irqchip/irq-renesas-intc-irqpin.c
+@@ -513,10 +513,8 @@ static int intc_irqpin_probe(struct platform_device *pdev)
+ 	irq_chip->irq_set_wake = intc_irqpin_irq_set_wake;
+ 	irq_chip->flags	= IRQCHIP_MASK_ON_SUSPEND;
+ 
+-	p->irq_domain = irq_domain_create_simple(of_fwnode_handle(dev->of_node),
+-						 nirqs, 0,
+-						 &intc_irqpin_irq_domain_ops,
+-						 p);
++	p->irq_domain = irq_domain_create_simple(dev_fwnode(dev), nirqs, 0,
++						 &intc_irqpin_irq_domain_ops, p);
+ 	if (!p->irq_domain) {
+ 		ret = -ENXIO;
+ 		dev_err(dev, "cannot initialize irq domain\n");
+diff --git a/drivers/irqchip/irq-renesas-irqc.c b/drivers/irqchip/irq-renesas-irqc.c
+index 5c3196e5a437..b46bbb66c264 100644
+--- a/drivers/irqchip/irq-renesas-irqc.c
++++ b/drivers/irqchip/irq-renesas-irqc.c
+@@ -168,7 +168,7 @@ static int irqc_probe(struct platform_device *pdev)
+ 
+ 	p->cpu_int_base = p->iomem + IRQC_INT_CPU_BASE(0); /* SYS-SPI */
+ 
+-	p->irq_domain = irq_domain_create_linear(of_fwnode_handle(dev->of_node), p->number_of_irqs,
++	p->irq_domain = irq_domain_create_linear(dev_fwnode(dev), p->number_of_irqs,
+ 						 &irq_generic_chip_ops, p);
+ 	if (!p->irq_domain) {
+ 		ret = -ENXIO;
+diff --git a/drivers/irqchip/irq-renesas-rza1.c b/drivers/irqchip/irq-renesas-rza1.c
+index 0a9640ba0adb..a697eb55ac90 100644
+--- a/drivers/irqchip/irq-renesas-rza1.c
++++ b/drivers/irqchip/irq-renesas-rza1.c
+@@ -231,9 +231,8 @@ static int rza1_irqc_probe(struct platform_device *pdev)
+ 	priv->chip.irq_set_type = rza1_irqc_set_type;
+ 	priv->chip.flags = IRQCHIP_MASK_ON_SUSPEND | IRQCHIP_SKIP_SET_WAKE;
+ 
+-	priv->irq_domain = irq_domain_create_hierarchy(parent, 0, IRQC_NUM_IRQ,
+-						       of_fwnode_handle(np), &rza1_irqc_domain_ops,
+-						       priv);
++	priv->irq_domain = irq_domain_create_hierarchy(parent, 0, IRQC_NUM_IRQ, dev_fwnode(dev),
++						       &rza1_irqc_domain_ops, priv);
+ 	if (!priv->irq_domain) {
+ 		dev_err(dev, "cannot initialize irq domain\n");
+ 		ret = -ENOMEM;
+diff --git a/drivers/irqchip/irq-renesas-rzg2l.c b/drivers/irqchip/irq-renesas-rzg2l.c
+index 1e861bd64f97..360d88687e4f 100644
+--- a/drivers/irqchip/irq-renesas-rzg2l.c
++++ b/drivers/irqchip/irq-renesas-rzg2l.c
+@@ -574,9 +574,8 @@ static int rzg2l_irqc_common_init(struct device_node *node, struct device_node *
+ 
+ 	raw_spin_lock_init(&rzg2l_irqc_data->lock);
+ 
+-	irq_domain = irq_domain_create_hierarchy(parent_domain, 0, IRQC_NUM_IRQ,
+-						 of_fwnode_handle(node), &rzg2l_irqc_domain_ops,
+-						 rzg2l_irqc_data);
++	irq_domain = irq_domain_create_hierarchy(parent_domain, 0, IRQC_NUM_IRQ, dev_fwnode(dev),
++						 &rzg2l_irqc_domain_ops, rzg2l_irqc_data);
+ 	if (!irq_domain) {
+ 		pm_runtime_put(dev);
+ 		return dev_err_probe(dev, -ENOMEM, "failed to add irq domain\n");
+diff --git a/drivers/irqchip/irq-renesas-rzv2h.c b/drivers/irqchip/irq-renesas-rzv2h.c
+index 69b32c19e8ff..57c5a3c008c9 100644
+--- a/drivers/irqchip/irq-renesas-rzv2h.c
++++ b/drivers/irqchip/irq-renesas-rzv2h.c
+@@ -558,7 +558,7 @@ static int rzv2h_icu_init_common(struct device_node *node, struct device_node *p
+ 	raw_spin_lock_init(&rzv2h_icu_data->lock);
+ 
+ 	irq_domain = irq_domain_create_hierarchy(parent_domain, 0, ICU_NUM_IRQ,
+-						 of_fwnode_handle(node), &rzv2h_icu_domain_ops,
++						 dev_fwnode(&pdev->dev), &rzv2h_icu_domain_ops,
+ 						 rzv2h_icu_data);
+ 	if (!irq_domain) {
+ 		dev_err(&pdev->dev, "failed to add irq domain\n");
+diff --git a/drivers/irqchip/irq-stm32mp-exti.c b/drivers/irqchip/irq-stm32mp-exti.c
+index c6b4407d05f9..a24f4f1a4f8f 100644
+--- a/drivers/irqchip/irq-stm32mp-exti.c
++++ b/drivers/irqchip/irq-stm32mp-exti.c
+@@ -683,9 +683,7 @@ static int stm32mp_exti_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	domain = irq_domain_create_hierarchy(parent_domain, 0, drv_data->bank_nr * IRQS_PER_BANK,
+-					     of_fwnode_handle(np), &stm32mp_exti_domain_ops,
+-					     host_data);
+-
++					     dev_fwnode(dev), &stm32mp_exti_domain_ops, host_data);
+ 	if (!domain) {
+ 		dev_err(dev, "Could not register exti domain\n");
+ 		return -ENOMEM;
+diff --git a/drivers/irqchip/irq-ti-sci-inta.c b/drivers/irqchip/irq-ti-sci-inta.c
+index 7de59238e6b0..01963d36cfaf 100644
+--- a/drivers/irqchip/irq-ti-sci-inta.c
++++ b/drivers/irqchip/irq-ti-sci-inta.c
+@@ -701,8 +701,7 @@ static int ti_sci_inta_irq_domain_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	domain = irq_domain_create_linear(of_fwnode_handle(dev_of_node(dev)),
+-					  ti_sci_get_num_resources(inta->vint),
++	domain = irq_domain_create_linear(dev_fwnode(dev), ti_sci_get_num_resources(inta->vint),
+ 					  &ti_sci_inta_irq_domain_ops, inta);
+ 	if (!domain) {
+ 		dev_err(dev, "Failed to allocate IRQ domain\n");
+diff --git a/drivers/irqchip/irq-ti-sci-intr.c b/drivers/irqchip/irq-ti-sci-intr.c
+index 07fff5ae5ce0..354613e74ad0 100644
+--- a/drivers/irqchip/irq-ti-sci-intr.c
++++ b/drivers/irqchip/irq-ti-sci-intr.c
+@@ -274,8 +274,7 @@ static int ti_sci_intr_irq_domain_probe(struct platform_device *pdev)
+ 		return PTR_ERR(intr->out_irqs);
+ 	}
+ 
+-	domain = irq_domain_create_hierarchy(parent_domain, 0, 0,
+-					     of_fwnode_handle(dev_of_node(dev)),
++	domain = irq_domain_create_hierarchy(parent_domain, 0, 0, dev_fwnode(dev),
+ 					     &ti_sci_intr_irq_domain_ops, intr);
+ 	if (!domain) {
+ 		dev_err(dev, "Failed to allocate IRQ domain\n");
+diff --git a/drivers/irqchip/irq-ts4800.c b/drivers/irqchip/irq-ts4800.c
+index e625f4fb2bb8..1e236d5b7516 100644
+--- a/drivers/irqchip/irq-ts4800.c
++++ b/drivers/irqchip/irq-ts4800.c
+@@ -125,7 +125,7 @@ static int ts4800_ic_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 	}
+ 
+-	data->domain = irq_domain_create_linear(of_fwnode_handle(node), 8, &ts4800_ic_ops, data);
++	data->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), 8, &ts4800_ic_ops, data);
+ 	if (!data->domain) {
+ 		dev_err(&pdev->dev, "cannot add IRQ domain\n");
+ 		return -ENOMEM;
+-- 
+2.49.0
 
 
