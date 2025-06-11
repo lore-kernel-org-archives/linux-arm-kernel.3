@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E060C71133
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730C9C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v5qXDIyCABFhOF+Eefpw/XZ56KaBK7MmBqHZIAP9LI0=; b=Tsap5pELJgPctN/OIb4XjtXPqk
-	/lQR/1tNjgK+GDnK0XRYtcorB3PFTE+pt7m3xyg0ibfxlwOtynTeMqdlksoBtz5RpPfgJJwKrqDbi
-	E56LJ0eXHq5+BI9vi+xMvne6U+d4wVufCrM7DNr3tLv18Ra1ufBtMvzYiRHAx5Np9cmg09hr6c5re
-	9vf1MBcPvJSEezsAgpA3D4PtjcHO3yOMWsawccYBh+cUqKt5NlxUyH0yrb9Xohpko3VuejUJ9L9Lv
-	rXX3QKVB2YAd5HmwiPQJWFswrHqb6KcOrcFKLyGm/CasEdFyp4EBalP7SZQ7Ngjniuat5q6PgDYA9
-	9yNid2/Q==;
+	bh=Mm1e3mlVKmqYB4FiIftgNM3eL7zfuFRTCkznk04ZkH4=; b=YF/h2lcwVRfxKE78Fz0Ak/F/Qh
+	XvCAAs7qVJd4YBZ7ljsrHpoOxF1oj/h00zkxP+j8Dmjx+N03ZNO7Bm+2pdsw0++YJNkqrKJhRMA0K
+	euXWeVw+mX+V1Bm1L8Qjj8kKrtbN0Y6RC/HPuIzmlxLAewl8jmb4ubDfPc8ytjsVgxkmnaiY9WgiT
+	nCZIMT8wqUZvaW/A3FWlHB9TRM9rMBS8j5ye/KFa+jrht3Dy8KXekbvjIOZCx6CaPw/3M2VGiJPOs
+	QF19VttPgOqswswqf2CWibNbp6HlLRdz0tznEJlZvl50dD3F7N+WmqrUBFgEwObgRzOB1wkxCljgb
+	m3LEpRVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNml-0000000AU9s-11Sw;
-	Wed, 11 Jun 2025 15:54:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uPNmt-0000000AUQN-2cLE;
+	Wed, 11 Jun 2025 15:54:51 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJ3h-00000009fjw-0H3j;
-	Wed, 11 Jun 2025 10:51:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63BD5629C0;
-	Wed, 11 Jun 2025 10:51:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D312BC4CEEE;
-	Wed, 11 Jun 2025 10:51:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749639112;
-	bh=z0f/Wl+RIL7QWDaLPnNb/sYLDEt+cxVqTNutC/oQKZ8=;
+	id 1uPJJI-00000009i5a-1NAY;
+	Wed, 11 Jun 2025 11:08:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1749640078;
+	bh=kyPztV/dUohnVXnMILrNtW2ZYQ3QNi1+1ODBhm3jYCc=;
 	h=From:To:Cc:Subject:Date:From;
-	b=rNmCopHTHN4je/LVKOBaApYhwDFxkotPQAy76zchHZCEZ2c/Prph0G1CfR7hCkpoZ
-	 lvnXKfkUZfarXm2zOY6F3DXBge++Ih5a4uHUr6pYySjdmDMYE0VXBOIQbKutFgbK+5
-	 t4LemLolrVwRPQR+Ery6bhgFDjbz/RMBua/9JpQBIyLQw1gsuJR2cGlYHLJ9gXWocl
-	 TDKFmDTmXtsmSS5PyxkwrRP2Ok9LC+gE8znzFMVFRvTDxBfIiYuzjUe37T9gBnRBla
-	 d4u/+RGOqe9TfxmGy2HrXO2QPWQ5szxGbGuWFO466TPp6IteWh/ffnWXrIAszz85RB
-	 DSR5602ZZsKYw==
-From: Niklas Cassel <cassel@kernel.org>
-To: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Niklas Cassel <cassel@kernel.org>,
-	Krishna chaitanya chundru <quic_krichai@quicinc.com>
-Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	linux-pci@vger.kernel.org,
+	b=EfKn4yvZ2xiYkcfRUyca9I+haRGZ0RPkmqlmXhkv0WIBtQvnjakPbgRq0y0Dqao3S
+	 Ve5TQEt0PtOlNxDoJi4q2CuL7BvuWhC+23Co+G56ml1hgu/hnKtPbjKQhzhWFQjs4a
+	 kkDjY2Tb0hBnJBdPbO6fDtBGHxy3hCeGOofOx1o0QMp4LrRdfLSiEf4lhCorxtKnQ/
+	 4/919hziMF7nF5KyzwCy6njFsbHI09Azk4ciOhNtifuf+8ddTknGE1YxnCEU9gF983
+	 E2YpxqvuTN0IMdfiPw43znf5tI/zZ8AdtsMOaG7pOjJq8xAZpF4HblxuJQ7P1SXE3h
+	 s9EECyYHmLOMQ==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6F92917E0536;
+	Wed, 11 Jun 2025 13:07:57 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: broonie@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	leilk.liu@mediatek.com,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org
-Subject: [PATCH 0/4] PCI: dwc: Do not enumerate bus before endpoint devices are ready
-Date: Wed, 11 Jun 2025 12:51:41 +0200
-Message-ID: <20250611105140.1639031-6-cassel@kernel.org>
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH 1/2] spi: dt-bindings: mediatek,spi-mt65xx: Add support for MT6991/MT8196 SPI
+Date: Wed, 11 Jun 2025 13:07:46 +0200
+Message-ID: <20250611110747.458090-1-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1032; i=cassel@kernel.org; h=from:subject; bh=z0f/Wl+RIL7QWDaLPnNb/sYLDEt+cxVqTNutC/oQKZ8=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDI84/d8v9pfETT/yp57mUp7fxjsW6J4bssB9hdKjzTWR 9jxGLdP6ChlYRDjYpAVU2Tx/eGyv7jbfcpxxTs2MHNYmUCGMHBxCsBEhOUYGabv4/c+wnz8l8L/ HbM1DvyP52Sv0Lvwz/e0fP//hxNYNNkZGW5ulbV69i1ps5B1cLWNSOK+P3ySC1hFZ3xncDWIe3/ WmhkA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_040800_519937_6291593A 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+Add support for the SPI IPM controller found on MediaTek's MT6991
+(Dimensity) and MT8196 (Kompanio) SoCs, with both having the same
+controller IP, hence being fully compatible with each other.
 
-The DWC PCIe controller driver currently does not follow the PCIe
-specification with regards to the delays after link training, before
-sending out configuration requests. This series fixes this.
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../devicetree/bindings/spi/mediatek,spi-mt65xx.yaml         | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-At the same time, PATCH 1/4 addresses a regression where a Plextor
-NVMe drive fails to be configured correctly. With this series, the
-Plextor NVMe drive works once again.
-
-
-Kind regards,
-Niklas
-
-
-Niklas Cassel (4):
-  PCI: dw-rockchip: Do not enumerate bus before endpoint devices are
-    ready
-  PCI: qcom: Do not enumerate bus before endpoint devices are ready
-  PCI: dwc: Ensure that dw_pcie_wait_for_link() waits 100 ms after link
-    up
-  PCI: dwc: Reduce LINK_WAIT_SLEEP_MS
-
- drivers/pci/controller/dwc/pcie-designware.c  | 13 ++++++++++++-
- drivers/pci/controller/dwc/pcie-designware.h  | 11 ++++++++---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c |  7 +++++++
- drivers/pci/controller/dwc/pcie-qcom.c        |  7 +++++++
- 4 files changed, 34 insertions(+), 4 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+index ed17815263a8..3bf3eb1f8728 100644
+--- a/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
++++ b/Documentation/devicetree/bindings/spi/mediatek,spi-mt65xx.yaml
+@@ -39,6 +39,10 @@ properties:
+               - mediatek,mt7988-spi-single
+               - mediatek,mt8188-spi-ipm
+           - const: mediatek,spi-ipm
++      - items:
++          - enum:
++              - mediatek,mt8196-spi
++          - const: mediatek,mt6991-spi
+       - items:
+           - enum:
+               - mediatek,mt2701-spi
+@@ -46,6 +50,7 @@ properties:
+               - mediatek,mt6589-spi
+               - mediatek,mt6765-spi
+               - mediatek,mt6893-spi
++              - mediatek,mt6991-spi
+               - mediatek,mt7622-spi
+               - mediatek,mt8135-spi
+               - mediatek,mt8173-spi
 -- 
 2.49.0
 
