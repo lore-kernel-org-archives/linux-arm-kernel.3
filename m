@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C89CC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1F6C71134
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6q8LDsD67C7j2tfCuAZ94OAzo31pjjron/FGZuncAc=; b=tL9LhXFA020A7hu2Yi2Vzio9oJ
-	bsqFklKVwBjOcLZ0yZSDR064f7s+luwxEVcyAfrfGXm+EI362ww2IVFoHDJN6efPrGJM7Ehg21H/A
-	hDbTjxaQBuX8xne86SNvhPvjGYmx7c5qlakWT8A+eLhvOUQTh8OZUlWEUfMC6pxc0wumupDVv33dj
-	7+S+ZE9G6cTbvN7LZ6oSUv5YNWmbgscdxp0FmFZc6k5XiOUojxC04WXNt6hkl21Zuen0k8ZmTsoHS
-	5FHRVZfTqf8W3Q3vJrQYfKCANgsGUOlqHET8nrEqqVPj02xOeXQsWrH7YaqS0CDoKsOls/5pJUzAh
-	k1Z5Ey+Q==;
+	bh=hyt+ylQ3TVildsnev1JmzmMFN4Sxz47Y4YCkmeQXSm0=; b=gtLSRZjdVUuXRjo+bPO6I91f5e
+	CYZWJ9PKyRjltyQ68waXz1HyMp5V/Gfal+gLhy49VPpQPyeoqVlICHNul0SrsyKNvuIBLe7PLhknw
+	5a0A4x+nTCt9uKzSCBGT1RuQwoDVLo3LvbdjOMJa58qONMkd7NUg4aFTEexuxvM2VBxn+7me0MB3Q
+	qoO02u37VyxMtzRqHU1CIWKM0fYoXLa/FvfTytIE7lHEEMKBFnmbHc+K+19GQE0hnKTDdzsHq0lep
+	VWzGBKQ3Pz67u9SLoWCKF0JOeLs8B3dCK5bxAVA0yH73a9heH3Ja58tQd9far795JL1qhzi0HoKXt
+	drXf3hEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRWE-0000000B0x2-0pYk;
-	Wed, 11 Jun 2025 19:53:54 +0000
+	id 1uPRWG-0000000B11P-3cK8;
+	Wed, 11 Jun 2025 19:53:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPN09-0000000AK5t-2ql4
+	id 1uPN0J-0000000AK8j-3KAa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 15:04:30 +0000
+	Wed, 11 Jun 2025 15:04:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEF7815A1;
-	Wed, 11 Jun 2025 08:04:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDAA815A1;
+	Wed, 11 Jun 2025 08:04:16 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0F1613F59E;
-	Wed, 11 Jun 2025 08:04:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 35BC83F59E;
+	Wed, 11 Jun 2025 08:04:33 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	pcc@google.com,
@@ -58,18 +58,17 @@ To: catalin.marinas@arm.com,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v6 2/7] prctl: introduce PR_MTE_STORE_ONLY
-Date: Wed, 11 Jun 2025 16:04:12 +0100
-Message-Id: <20250611150417.44850-3-yeoreum.yun@arm.com>
+Subject: [PATCH v6 4/7] arm64/hwcaps: add MTE_STORE_ONLY hwcaps
+Date: Wed, 11 Jun 2025 16:04:14 +0100
+Message-Id: <20250611150417.44850-5-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250611150417.44850-1-yeoreum.yun@arm.com>
 References: <20250611150417.44850-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_080429_757935_D7769FB3 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_080439_952732_F51183DB 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +83,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PR_MTE_STORE_ONLY is used to restrict the MTE tag check for store
-opeartion only.
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
+
+add MTE_STORE_ONLY hwcaps so that user can use this feature.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Tested-by: Mark Brown <broonie@kernel.org>
 ---
- include/uapi/linux/prctl.h | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/arch/arm64/elf_hwcaps.rst | 3 +++
+ arch/arm64/include/asm/hwcap.h          | 1 +
+ arch/arm64/include/uapi/asm/hwcap.h     | 1 +
+ arch/arm64/kernel/cpufeature.c          | 1 +
+ arch/arm64/kernel/cpuinfo.c             | 1 +
+ 5 files changed, 7 insertions(+)
 
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index 43dec6eed559..f6fb137c407f 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -244,6 +244,8 @@ struct prctl_mm_map {
- # define PR_MTE_TAG_MASK		(0xffffUL << PR_MTE_TAG_SHIFT)
- /* Unused; kept only for source compatibility */
- # define PR_MTE_TCF_SHIFT		1
-+/* MTE tag check store only */
-+# define PR_MTE_STORE_ONLY		(1UL << 19)
- /* RISC-V pointer masking tag length */
- # define PR_PMLEN_SHIFT			24
- # define PR_PMLEN_MASK			(0x7fUL << PR_PMLEN_SHIFT)
+diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+index 358f5af035ff..f58ada4d6cb2 100644
+--- a/Documentation/arch/arm64/elf_hwcaps.rst
++++ b/Documentation/arch/arm64/elf_hwcaps.rst
+@@ -438,6 +438,9 @@ HWCAP2_POE
+ HWCAP3_MTE_FAR
+     Functionality implied by ID_AA64PFR2_EL1.MTEFAR == 0b0001.
+ 
++HWCAP3_MTE_STORE_ONLY
++    Functionality implied by ID_AA64PFR2_EL1.MTESTOREONLY == 0b0001.
++
+ 4. Unused AT_HWCAP bits
+ -----------------------
+ 
+diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
+index 28dd1ac29ecc..13f94c8ddfc0 100644
+--- a/arch/arm64/include/asm/hwcap.h
++++ b/arch/arm64/include/asm/hwcap.h
+@@ -177,6 +177,7 @@
+ 
+ #define __khwcap3_feature(x)		(const_ilog2(HWCAP3_ ## x) + 128)
+ #define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
++#define KERNEL_HWCAP_MTE_STORE_ONLY	__khwcap3_feature(MTE_STORE_ONLY)
+ 
+ /*
+  * This yields a mask that user programs can use to figure out what
+diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
+index 7d22527a7975..72c78468b806 100644
+--- a/arch/arm64/include/uapi/asm/hwcap.h
++++ b/arch/arm64/include/uapi/asm/hwcap.h
+@@ -144,5 +144,6 @@
+  * HWCAP3 flags - for AT_HWCAP3
+  */
+ #define HWCAP3_MTE_FAR		(1UL << 0)
++#define HWCAP3_MTE_STORE_ONLY		(1UL << 1)
+ 
+ #endif /* _UAPI__ASM_HWCAP_H */
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index fdc48aa1f0e2..b4204fa743f0 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -3228,6 +3228,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, MTE, MTE2, CAP_HWCAP, KERNEL_HWCAP_MTE),
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, MTE, MTE3, CAP_HWCAP, KERNEL_HWCAP_MTE3),
+ 	HWCAP_CAP(ID_AA64PFR2_EL1, MTEFAR, IMP, CAP_HWCAP, KERNEL_HWCAP_MTE_FAR),
++	HWCAP_CAP(ID_AA64PFR2_EL1, MTESTOREONLY, IMP, CAP_HWCAP , KERNEL_HWCAP_MTE_STORE_ONLY),
+ #endif /* CONFIG_ARM64_MTE */
+ 	HWCAP_CAP(ID_AA64MMFR0_EL1, ECV, IMP, CAP_HWCAP, KERNEL_HWCAP_ECV),
+ 	HWCAP_CAP(ID_AA64MMFR1_EL1, AFP, IMP, CAP_HWCAP, KERNEL_HWCAP_AFP),
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index e552cb305641..ba834909a28b 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -161,6 +161,7 @@ static const char *const hwcap_str[] = {
+ 	[KERNEL_HWCAP_SME_STMOP]	= "smestmop",
+ 	[KERNEL_HWCAP_SME_SMOP4]	= "smesmop4",
+ 	[KERNEL_HWCAP_MTE_FAR]		= "mtefar",
++	[KERNEL_HWCAP_MTE_STORE_ONLY]	= "mtestoreonly",
+ };
+ 
+ #ifdef CONFIG_COMPAT
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
