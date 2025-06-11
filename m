@@ -4,162 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0904BC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 16:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D221C71137
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 16:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+IUBYy2YfpxDgtci0XNauvXmiSDiYYwOMbpBWictcAc=; b=Yaoo8SlG9WFGFt
-	nKwInMgocq3g8xxv55/oc0hz9OBBEXoG7bGuC5OVwCU23ZXKWAIMoTB+sD4pCsL6IXj6jhPGh6d5E
-	2zAZknxIKam8XNhxdgnQp9WHtftDySWmv0O339n+88e/R6EHtjBV+xGsNrZBMC1pF6KOSsAUSYAib
-	tnlJ5DFLZozSKM+wro0hOtyay1ZftLxjANd6H/lawftkpp2eSQ29Nd2N6xip0V1xLjqZ64Yxhfo2s
-	H0xCynekanyRl8ZYAEUQznXRCSrDO1ik47XhjsylvZQQZ4cwPTYKh//DrMIf+Gk/Qscx8pxK1C1mn
-	ddvgsx21j+oJLb3r0wPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5P1928OJ/hfBXkHA8GPkkj34f9sTZpGnS8JHTo3Dnsw=; b=RIlVMjPX3cjfiiSEuNLIfUo5Xt
+	Oj2jMY01PrWT1wsqwXGb6Xxp9Bk7Z2JceahCxgPe4Uqarke+KItPBhcZkjXguPeeZNQ9kLpP8P2I0
+	KSZrdOd8lyDpoi7xWn3whKrXf7K084F2gQdQd6k7Wui6GJJ/r5SH0JzH/bsn0FYHEuwPB/t9o5p2u
+	VN909vZDq+hS8IDKk2RKEynMyV72N+vZ7F7Qe05s6EFgI8km+UFf1qHdSikNtkMsrrnsm3Bthan6e
+	kqn2m31tJ4vL/O3qoq/xhGgRCCadIsdc6wOSaPjrixagNNZc3lKXU3NDXrUPemsAb1na7pYZkxLuI
+	8UCOScLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPOEg-0000000AbLN-0FE8;
-	Wed, 11 Jun 2025 16:23:34 +0000
-Received: from mail-vi1eur05on20727.outbound.protection.outlook.com ([2a01:111:f403:2613::727] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1uPOFF-0000000AbP3-2oPc;
+	Wed, 11 Jun 2025 16:24:09 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPL9h-00000009uxy-1cmX
+	id 1uPJs9-00000009lvc-1g1L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 13:06:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MXyH+E2dO0CtO4inGcvyf4GI5KZN8/5qOa4xF3kFyIF7OJi8THBW9j+Lb8VEcBy9J8Ptz2R7XF4OUYySX8NUX2q7o4eSUsSZHvyq4pdHkpG7iJEtV71y1igDURNNiwghd+rlA+8XYfGgJ8dhuz+IRM6tBknZ+WxPWVD+zYRE4j3qJAkDplJ9/WUj4cwykCRJOrXIj8n+8cklsT4+QYpo+DFt3DLrjI5PDeyksRFqk7MHino4Hxj/baEVD4rQgHvSXWqUcCsGJ0xpzgEGeDcVAqZlXF5wfEuSwyog1BKw+2/eBWGYi6/ICoeHkV54dsWTt8Ti6HpI/1FSE13Z94EKlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+IUBYy2YfpxDgtci0XNauvXmiSDiYYwOMbpBWictcAc=;
- b=k7XGS21Z1CqcDe/1jZOt6s2nKh1pLzRy8HHe6bFqAXBjDzT+C0myoTlfk9KP+MKAast5xxJ/OH3oeW0tS2v6lSODWcIL15ijOESe7osk25PzAiUetckgm4svPw/FxrZ1ByOAQm+Z7q8m70E7uDMbdnYTiY+hLAow/lHgS/3BD5Cag/g+qM1Ol6/6TGaBlX0TFooOr7gPe8yU0zLQx/SZnQgU2vy50LPUQBimCxjq2N1oxIAQ9XACWZ9RViLiUUd3xvWkiHVzGD1uRgWRudU37eysxVtm0ehCY9pl34i1eGH3Mq0u1u2VKXX6OMbiVPbyc5zOWn5xXacxZQuFz6ujBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=arm.com smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+IUBYy2YfpxDgtci0XNauvXmiSDiYYwOMbpBWictcAc=;
- b=E/SqZSL3d5EbQsElTOeaM493vjU5UGyhIxhJyfzHr3oFSLtwyrJu7MV+4TPRolzjfLs5SwBA476Ko0AAJ/dAOsGiGTTJas+WgcNJwWKlV/iYinDzLyd5hUqQBmfCORAdY2fL1le7WixQNsoBgWTsINrGvGeXAfB1zv1yrLPmrAqDA2UDjzTd0F6r+vUF7TuYQNsTuDqL4F9ZSu/UxVXGLEpGxWXvQsqG0t8F2nLkbbjNF1KWw6C0R5Msp3ZDMimStd5xO3sixP8yymOxXWlkJIe6VJWjaJhzVhqrJMsg+aF9g0CdrmtB6FJDfKVifxm9DY3U5bMohpDqFDrJsc+/hw==
-Received: from DB3PR08CA0027.eurprd08.prod.outlook.com (2603:10a6:8::40) by
- PAXP195MB1134.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:19a::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8835.18; Wed, 11 Jun 2025 13:06:02 +0000
-Received: from DU2PEPF00028D0A.eurprd03.prod.outlook.com
- (2603:10a6:8:0:cafe::ee) by DB3PR08CA0027.outlook.office365.com
- (2603:10a6:8::40) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.19 via Frontend Transport; Wed,
- 11 Jun 2025 13:06:02 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DU2PEPF00028D0A.mail.protection.outlook.com (10.167.242.170) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8835.15 via Frontend Transport; Wed, 11 Jun 2025 13:06:02 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 11 Jun
- 2025 15:06:01 +0200
-Received: from llp-moog.phytec.de (172.25.32.81) by Florix.phytec.de
- (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 11 Jun
- 2025 15:06:01 +0200
-From: Yannic Moog <y.moog@phytec.de>
-Subject: [PATCH v3 0/2] Add new imx imx95-libra-rdk-fpsc SBC
-Date: Wed, 11 Jun 2025 15:05:29 +0200
-Message-ID: <20250611-wip-y-moog-phytec-de-imx95-libra-v3-0-c8d09f1bdbf0@phytec.de>
+	Wed, 11 Jun 2025 11:44:02 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55BBhwGm2576491;
+	Wed, 11 Jun 2025 06:43:58 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749642238;
+	bh=5P1928OJ/hfBXkHA8GPkkj34f9sTZpGnS8JHTo3Dnsw=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=qqQXeRV7qyagLO4+6hagfTzEOqzHspM3vxWqCs46EWJsfazYKnJCfmRXyGfI/E8BF
+	 pMWJsDsyN3f7q3Alg8RUXu09L4HtBtG00mTUU2igIql2lNg5nmMnGluZdSU6rT2XWT
+	 nzNH0hKkSQbbeyEqIMweQtQG6x+Jiv6cNLciWAbs=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55BBhwYv1109018
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 11 Jun 2025 06:43:58 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 11
+ Jun 2025 06:43:57 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 11 Jun 2025 06:43:57 -0500
+Received: from uda0492258.dhcp.ti.com (dhcp-172-24-227-169.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55BBhavI270460;
+	Wed, 11 Jun 2025 06:43:54 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v2 5/5] arm64: dts: ti: k3-j721s2: disable "mcu_cpsw" in SoC file and enable in board files
+Date: Wed, 11 Jun 2025 17:13:36 +0530
+Message-ID: <20250611114336.2392320-6-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611114336.2392320-1-s-vadapalli@ti.com>
+References: <20250611114336.2392320-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABl/SWgC/43NQQ6DIBQE0KsY1v0NIMTSVe/RdCHwVZIqBg3VG
- O9e1I27djmTyZuFDBgcDuSeLSRgdIPzXQr5JSOmKbsawdmUCadcUsEkfFwPM7Te19A384gGbNq
- 0k5LwdjqUwAujDEoptWIkMX3Ayk37xfOVcuOG0Yd5f4xsaw9c0uI3HhlQELrIbyIvrTD2ceyuF
- smGR34G1R8gBw6aC1YqJiuu8Qyu6/oFr+p1/yEBAAA=
-X-Change-ID: 20250415-wip-y-moog-phytec-de-imx95-libra-27c9ce555b91
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-CC: <upstream@lists.phytec.de>, Benjamin Hahn <b.hahn@phytec.de>, "Teresa
- Remmet" <t.remmet@phytec.de>, Yashwanth Varakala <y.varakala@phytec.de>, "Jan
- Remmet" <j.remmet@phytec.de>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Yannic Moog <y.moog@phytec.de>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749647161; l=1247;
- i=y.moog@phytec.de; s=20250509; h=from:subject:message-id;
- bh=4k06rxndBzTzfGNNrWYAiJYf4KovcU479vrS9GJ0AKI=;
- b=oWJWByku1vfgZIiCmJ7TT0LMKQE1YbQs4mJribW1QYQN47L3mQGWxoVcYaM1sfqD5a0SfxHwF
- NWr79ahuK//Dzc2QqOoLC5nB51VFn2QRLeuYfJzgNPxi8pswj1mvUbY
-X-Developer-Key: i=y.moog@phytec.de; a=ed25519;
- pk=rpKoEJ4E7nD9qsrU/rfKVwMTWNWYaTBylZuJUXUiFr8=
-X-Originating-IP: [172.25.32.81]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D0A:EE_|PAXP195MB1134:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6de72ff6-a3f8-4ad1-2101-08dda8e8b7ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bWNsWWRJczZOMkNaZXdzSHpucVliRzBjTTVsMFdHVnlOMDR4elczZWZjQ3hB?=
- =?utf-8?B?Z2RUbHRHc0ZveE81OTI0TkJYSXNNaEZrRHp2ai8yZm5OYVMxVFRVd2NhWUFv?=
- =?utf-8?B?cHVjaE9TdW5TNmhwLysrK0RQNW9HN1NYRkdnYXVvYWZyekR1UFh6ZTdsekc0?=
- =?utf-8?B?RGNWeEo3dk1BTWdtc1RDV2VrTkZIOGVHZjFqZWRibHdTMnBqTjhjVWVkWFUw?=
- =?utf-8?B?WTFrL2E1L0V0c3VRZ0lzZ3ZDY08rNnptcWZvN2U1WDRLUVpyaDlxdXltSVIr?=
- =?utf-8?B?ZDd1endYR0I3dE1ORzZvU1hYNWsrK1JRSWhwYkMrVHBuSksvOXIreE1YM29n?=
- =?utf-8?B?TEFrMlF4cU91d05nZ0RUNkNpUE9xZk1GUENaUlB0MzhYcEdiaWk2VlhoUzVj?=
- =?utf-8?B?YkdVVmsvTi8xYnIyaVk0QWpLdmZ2VHErQTdaOHVtT3hsbzUxcjlFMlY0SXlI?=
- =?utf-8?B?VkNIa3dCSitGZU40bWhFeEtmbzdBK1pTN3EyYUpNdFhvWURyaXprWk5BbVEr?=
- =?utf-8?B?ZHpzejdGOTdzZHhIY2VBNm9ZdEdXdHpVWHV4cm9IemZUdGhLa09qam5iQlRO?=
- =?utf-8?B?ZWpXWHhVdWRjMGszbDc2TkZydUFFVzZwNjAraFV2US81d1F1cC9ZWmVVTW5t?=
- =?utf-8?B?T04rdTlNei9ZVGl5czhacERIanFVOXFaRXRVN3VMMEphbFF1TlNvT3VHZUJD?=
- =?utf-8?B?RXdlRVkvSDVVV2hsQnpxeThJYkgrcHZORkVyUnhzeXY4c0ozZXUyWlNoNk9F?=
- =?utf-8?B?MkFxZ0FGemlvMmRmcDdsNTR2ak1KRzlSM1FNdVVKdTdSNEpyV3U5amFOTkc3?=
- =?utf-8?B?T28xT252RTh6SGI3eTJzQ0ttMFp5ZmFlVGJOQklhOTZyb3BhNTRkWWJ1K2ZZ?=
- =?utf-8?B?bXBFZTNkNmpCUjNXajU3cDUyQk1qdW1yZlNOTXEvZkxINHg5TjBvdnJWKzN1?=
- =?utf-8?B?ZFlycGRQMmxwYXhlbzE5bnBSbytYREF3TFdTWUpaNGFIYkNpQXhrSHQ5eDd4?=
- =?utf-8?B?WndIa1Z1R3NmeFZWWlRmWlY5SHFRQkppWnVUeGZCcHhNNkdQRS80djA4MnFt?=
- =?utf-8?B?bjRSb0w2cElhOHpJRHBYSy9jcHlnYVplMzVYckZPRGE2NVlndjc0S2dJeDFI?=
- =?utf-8?B?bHRhOFJYV1U5VFo0VFlPK3M0V25YaUFQWTNBczJIeG5hMUJqM1B5MVlEbmFH?=
- =?utf-8?B?dXNyWjFZc05oV1lJSjYwTFNqaWlyS1FqRFcwYlBJOHlDTHVBaDEveThjd0tP?=
- =?utf-8?B?YWkwTU5JYkUyRVN4T0d2NzE0QkJuRTIrZ1JPUERyN1YwS2g1T1ZIdkhLczRW?=
- =?utf-8?B?ZXFhTUEyalFwRC9nek1WS1JKZkw5N1FQcjJhMGpYQnRiQWhNMXJyWmpKdHdE?=
- =?utf-8?B?WDNVNWtHWGwzOU5YZkxEbmxUenhBTk9TbmErM1BPOEJWcUJtVTNTU1FlR002?=
- =?utf-8?B?NFhCRkdQektKMWhPU3VuZllNMzRyTnhlT1hzcDhIRWdXWU0xdVh6UGxsd2U0?=
- =?utf-8?B?Z056aDU3L24raWtIa2lDK2xSblpTVDF1VzZISVlvWXYzWmloYk1FdlhZNmRt?=
- =?utf-8?B?K0QyeWxJTXZ0YUVrUEphWXhubk9IR3oyTlBtS2FWRmpWWEpKRVE4bi9hNmNv?=
- =?utf-8?B?QzVDcHZ4U0VQTy9hS08xZHpUSitVcTU4K1NTOFlHS29LaFhtSTFtMjl6ay93?=
- =?utf-8?B?REFuWTRLSWdKOGtJZEJHV1ZVQWhMMUZUNTViQXlsS0NhWGlKalJweWdCd1pH?=
- =?utf-8?B?YTFYTFc4V01oVStmQmw1RjlGUk9aVDQyR0dhRGUza05aVUZtQXh6SFRNa2J5?=
- =?utf-8?B?QWtIV2x1Y1FiUTJiUlpUNFgrTXdLa1pqMWpRM3AwMFNxNFlueWk4TGcyUUNL?=
- =?utf-8?B?OUZxOWxlVUxzME9LYWdtMUNHWnFPU3JQaHdKcjlySTdBNklMcHQra0JHbGlJ?=
- =?utf-8?B?OUNzTTFjQzkxRTNZN0R3dTZYQ1VORU05NXp3U3IvSVhsdEVKV2c5WFF1ZXEw?=
- =?utf-8?B?VFZHS1VvQzUxRGYycnhST3JJblIxVXFxTGNwUzJmZkpJbzRHS0Jhcm9TY2RO?=
- =?utf-8?B?L0VmbmlrV21Tb3NONStUUzcvZU9aZmZ2MDcxdz09?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(376014)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 13:06:02.3076
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6de72ff6-a3f8-4ad1-2101-08dda8e8b7ab
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D0A.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXP195MB1134
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_060613_727395_9B4FF6CA 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_044401_530670_4985C6AB 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,38 +85,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Libra i.MX 95 is a SBC that consists of the Libra base board
-and the phyCORE i.MX 95 FPSC SoM.
-This series adds its binding and device trees.
+Following the existing convention of disabling nodes in the SoC file and
+enabling only the required ones in the board file, disable "mcu_cpsw" node
+in the SoC file "k3-j721s2-mcu-wakeup.dtsi" and enable it in the board
+files:
+a) k3-am68-sk-base-board.dts
+b) k3-j721s2-common-proc-board.dts
 
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 ---
-Changes in v3:
-- fix more style issues
-- remove the rs232/485 gpio hog -> switch on the board is used instead
-- remove erroneously added build artefacts
-- Link to v2: https://lore.kernel.org/r/20250509-wip-y-moog-phytec-de-imx95-libra-v2-2-b241a915f2be@phytec.de
 
-Changes in v2:
-- fix indentation error in bindings
-- align alias naming with FPSC enumeration
-- Link to v1: https://lore.kernel.org/r/20250507-wip-y-moog-phytec-de-imx95-libra-v1-0-4b73843ad4cd@phytec.de
+v1 of this patch was 2 different patches which have currently been
+squashed:
+ https://lore.kernel.org/r/20250529133443.1252293-13-s-vadapalli@ti.com/
+ https://lore.kernel.org/r/20250529133443.1252293-14-s-vadapalli@ti.com/
 
----
-Yannic Moog (2):
-      dt-bindings: add imx95-libra-rdk-fpsc
-      arm64: dts: add imx95-libra-rdk-fpsc board
+In addition to squashing the patches and updating the commit message,
+"mcu_cpsw" has been enabled in "k3-am68-sk-base-board.dts" as well,
+since it uses the SoC file of J721S2.
 
- Documentation/devicetree/bindings/arm/fsl.yaml     |   7 +
- arch/arm64/boot/dts/freescale/Makefile             |   1 +
- .../boot/dts/freescale/imx95-libra-rdk-fpsc.dts    | 318 ++++++++++
- .../boot/dts/freescale/imx95-phycore-fpsc.dtsi     | 656 +++++++++++++++++++++
- 4 files changed, 982 insertions(+)
----
-base-commit: 68087d05675e3ac0ed632bc7b175abf06617c584
-change-id: 20250415-wip-y-moog-phytec-de-imx95-libra-27c9ce555b91
+Regards,
+Siddharth.
 
-Best regards,
+ arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts       | 1 +
+ arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts | 1 +
+ arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi       | 2 ++
+ 3 files changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+index 5fa70a874d7b..893b730911e8 100644
+--- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
+@@ -619,6 +619,7 @@ &main_sdhci1 {
+ };
+ 
+ &mcu_cpsw {
++	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mcu_cpsw_pins_default>, <&mcu_mdio_pins_default>;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+index e2fc1288ed07..a482b3ad5095 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts
+@@ -409,6 +409,7 @@ &main_sdhci1 {
+ };
+ 
+ &mcu_cpsw {
++	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mcu_cpsw_pins_default>, <&mcu_mdio_pins_default>;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
+index bc31266126d0..b5fd012d9564 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
+@@ -552,6 +552,8 @@ mcu_cpsw: ethernet@46000000 {
+ 			    "tx4", "tx5", "tx6", "tx7",
+ 			    "rx";
+ 
++		status = "disabled";
++
+ 		ethernet-ports {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
 -- 
-Yannic Moog <y.moog@phytec.de>
+2.34.1
 
 
