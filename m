@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DE4C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 204DCC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCT755K9xN/Fz8hbXO6V87/EjEpffXLz29IzAJRtkkw=; b=QBBriPeoigyoeouSeO2wcndS4O
-	Ms/IFx/dfLpNRgt9WGNuFpVpyQ+nNov2E24V4NtwScy62+bUBebVLsKsP9qvLpksyq+kTlKLIn8J9
-	wLsKVe7yI3B0K23/QFWnFenL2dc1kX689DWqhI06WMNaw3Cf5CA7Nmb4d+Yk2w07202Zw+g1TDegj
-	IQBvPL3P4/AFWJJRca6pndjfGT7qXLYVeuml1/T3r0o7aBz3IyYAfrVFa0AEe07+9Y1D9Tr+c5yES
-	2BSkSvTn+WPgZlfJICUhZA7iXQ4ws3dNIN1m632KplR+LBQ/SiuiKtKd9ymgv7Krt0NBKIHQwted7
-	eeom+KRg==;
+	bh=fvetl0Ou9+iobH4LepduWYGCPZZgw/HU7GbcSKF346w=; b=jrWSlyVLybJzQnHs3bvCF+u3vz
+	H/Bk76F2xtc4JnDPLoMO3+4U0V1K9Tq17A51QEfw8rzsrJj2MPCzvT77tHUHHXSBKPpal52YYAhhE
+	ZX03j3qaDJbNnHfIbcgqJnkBZ3PwFtEt+XiEX5NbP7koNFLCzFkObeTCtvKYMJOcGqNSQtcRZ534f
+	onU+i27+iL6FifBnLbKhB2N5o2Pc5uykl3IljCgKJlDUn+1gOtet/SSnNXTCHdXkODyslEMkwvP68
+	k4suopLuBJfdHS1ok2BrvYxAc/kp29N+6Mm8i6y6ej4UDsRM+cdaQ5o84jxssDJ1gLvj5vAkUKTuU
+	e6zxDzJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPCXJ-00000008mU3-1hVU;
+	id 1uPCXJ-00000008mUK-43A4;
 	Wed, 11 Jun 2025 03:54:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPAxa-00000008cSs-1Bxo;
+	id 1uPAxa-00000008cSt-1CA3;
 	Wed, 11 Jun 2025 02:13:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=qCT755K9xN/Fz8hbXO6V87/EjEpffXLz29IzAJRtkkw=; b=EyJqWF5FfNKo7XA/4FOyVcyXmM
-	LVG3t5bbyutf2vKfydjA66F/G0ECKaynsTd9bkJ9CFewCQCq681cZYqpZe4QxFCoY4nioc2gjpZEn
-	sGgc4Fb/jmgOuz0wLUWu0kK4LRnD09lcbUdlLSzVkPlmW6dgs37HSGuyG1R+basu5zBn3MHxxbjuf
-	Fk6PrZ9uLr9VSMsEtY0goNsZhkTWFgJqZdixhPqtcwN0QinuCP4nXJLgyPnSUC3SLiMbNSle4wdi6
-	UxoTtayKx+/Q3BsW70XCZWXmb+DDlV3MurcQpx8UYlsgqRsr59dV3MkAzF9McpfFph+WYY/D4Zn0V
-	g7rqO2uA==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=fvetl0Ou9+iobH4LepduWYGCPZZgw/HU7GbcSKF346w=; b=G9pWHuYzoGBlreKe+CzcjZNOQt
+	Nx+w5FjIzW2Zzno79+/aseAaype4+Yyd4XLZGocORMI+2yi+0WiY0OiaK8kATaqIxmlxMTUdAF7gE
+	nqj+9+USxIEa36HPnc5OGlD4sLv93kpUmHj9/veFLhkY5+FHykFDkFlXbc52ckLTbVqL8bx8B9Cav
+	X4r1VZNDTnWzeWJtlMGsOSpEVXx8GdaR/WoVrMAjeFu5ejDHMaxrIpx0/EypAy7+xmLksK3sSKsE1
+	ZTWG7y5qC/JH/XdJH//Zgs1BFXhKacKQ1Cww0UekGWpcJ1PREgOvsNugbOQx+WG0WTFM2b8FtbUUV
+	2lgmOe+Q==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPAxW-000000024Oj-1f5E;
+	id 1uPAxW-000000024Oe-1Mqo;
 	Wed, 11 Jun 2025 02:13:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2FFFCA51279;
-	Wed, 11 Jun 2025 02:12:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A54EFC4CEF7;
-	Wed, 11 Jun 2025 02:12:55 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BED1CA5128F;
+	Wed, 11 Jun 2025 02:12:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E7E0C4CEF7;
+	Wed, 11 Jun 2025 02:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749607976;
-	bh=6+kbm73zE6tAcXQGb7C8c8diT3Co3HmNcJy1QJKMO9Y=;
+	s=k20201202; t=1749607974;
+	bh=geB00x7cPzB5mhMsx2UhVSYr+Sc2B73bgsTwu6l3qVs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DcJsO//4X/t8dZG1V7huwnUYCeIQdMdbiX05zGEkTihOmVazQYBo+USUTpUdsAOpy
-	 p2JHfjVhBmi7itENOlptKzLBAk9dfZFILBZWvjPlncGTkgr+qxi7wr47JtiwFAdoHx
-	 Z9nvNxEWEuxR39/4Zjb55xaqK213o5uro+EkGdb/D/qX9xeY0ShX9jjMWGfDVXLX/Q
-	 Q0fn24GqEQ4uMlfiUClli9eZdxLp37f/HbJKNhxEKza6sN0VH3DXy2O5utnkCH9pni
-	 D/mvYm6l3bwYvyn9yXA0D1oIY5ZGWgj7Rh28Cau9ivzP5sKJYrSqETyLXSpPUUzcrM
-	 V8uTm9RngR/DA==
+	b=mb0e944ebmzICcXAI52oeuSV0xwE9COb/tVVayLc1JtfjakXXfuMgYIpQ8SEAXjbO
+	 cviqRN2/ayVCH4EJxEDAxsiLrITDDTdEnMmooyJGdSh9LsHrrKz2T+YPxCUlaPwFF4
+	 VjgaqlR25/DpgsBcBsXHNEv5tB02WlCMV0bdriAMxxluSaQcCF01R18GCH06gOFneA
+	 7B0cSLhhh/x4sph2hAunvwXUOCWFlrtcF3OdnY6Qhx51ipJ8UiyKrgIVm5moAnOJuJ
+	 YxSW41j5L+wTfI+z8TJV295XGrEqOn5phtMxf7bESoTU8g1yHa/pT/jdjV9CGjPt8W
+	 fDzTLaTe7/RNg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -67,17 +67,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 08/16] lib/crypto/sha512: migrate arm-optimized SHA-512 code to library
-Date: Tue, 10 Jun 2025 19:09:15 -0700
-Message-ID: <20250611020923.1482701-9-ebiggers@kernel.org>
+Subject: [PATCH 05/16] lib/crypto/sha256: add KUnit tests for SHA-224 and SHA-256
+Date: Tue, 10 Jun 2025 19:09:12 -0700
+Message-ID: <20250611020923.1482701-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250611020923.1482701-1-ebiggers@kernel.org>
 References: <20250611020923.1482701-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_031258_817361_9F21005D 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20250611_031258_728992_2DC698DE 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,507 +94,623 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Instead of exposing the arm-optimized SHA-512 code via arm-specific
-crypto_shash algorithms, instead just implement the sha512_blocks()
-library function.  This is much simpler, it makes the SHA-512 (and
-SHA-384) library functions be arm-optimized, and it fixes the
-longstanding issue where the arm-optimized SHA-512 code was disabled by
-default.  SHA-512 still remains available through crypto_shash, but
-individual architectures no longer need to handle it.
-
-To match sha512_blocks(), change the type of the nblocks parameter of
-the assembly functions from int to size_t.  The assembly functions
-actually already treated it as size_t.
+Add KUnit tests for the SHA-224 and SHA-256 library functions, using the
+test template that was added by the previous commit.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/arm/configs/exynos_defconfig             |   1 -
- arch/arm/configs/milbeaut_m10v_defconfig      |   1 -
- arch/arm/configs/multi_v7_defconfig           |   1 -
- arch/arm/configs/omap2plus_defconfig          |   1 -
- arch/arm/configs/pxa_defconfig                |   1 -
- arch/arm/crypto/Kconfig                       |  10 --
- arch/arm/crypto/Makefile                      |  15 ---
- arch/arm/crypto/sha512-glue.c                 | 110 ------------------
- arch/arm/crypto/sha512-neon-glue.c            |  75 ------------
- arch/arm/crypto/sha512.h                      |   3 -
- lib/crypto/Kconfig                            |   1 +
- lib/crypto/Makefile                           |  14 +++
- lib/crypto/arm/.gitignore                     |   2 +
- .../crypto => lib/crypto/arm}/sha512-armv4.pl |   0
- lib/crypto/arm/sha512.h                       |  38 ++++++
- 15 files changed, 55 insertions(+), 218 deletions(-)
- delete mode 100644 arch/arm/crypto/sha512-glue.c
- delete mode 100644 arch/arm/crypto/sha512-neon-glue.c
- delete mode 100644 arch/arm/crypto/sha512.h
- create mode 100644 lib/crypto/arm/.gitignore
- rename {arch/arm/crypto => lib/crypto/arm}/sha512-armv4.pl (100%)
- create mode 100644 lib/crypto/arm/sha512.h
+ lib/crypto/tests/Kconfig           |  10 +-
+ lib/crypto/tests/Makefile          |   2 +
+ lib/crypto/tests/sha224-testvecs.h | 223 +++++++++++++++++++++++++++++
+ lib/crypto/tests/sha224_kunit.c    |  50 +++++++
+ lib/crypto/tests/sha256-testvecs.h | 223 +++++++++++++++++++++++++++++
+ lib/crypto/tests/sha256_kunit.c    |  39 +++++
+ 6 files changed, 546 insertions(+), 1 deletion(-)
+ create mode 100644 lib/crypto/tests/sha224-testvecs.h
+ create mode 100644 lib/crypto/tests/sha224_kunit.c
+ create mode 100644 lib/crypto/tests/sha256-testvecs.h
+ create mode 100644 lib/crypto/tests/sha256_kunit.c
 
-diff --git a/arch/arm/configs/exynos_defconfig b/arch/arm/configs/exynos_defconfig
-index f71af368674cf..d58e300693045 100644
---- a/arch/arm/configs/exynos_defconfig
-+++ b/arch/arm/configs/exynos_defconfig
-@@ -362,11 +362,10 @@ CONFIG_CRYPTO_LZ4=m
- CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_DEV_EXYNOS_RNG=y
- CONFIG_CRYPTO_DEV_S5P=y
- CONFIG_DMA_CMA=y
-diff --git a/arch/arm/configs/milbeaut_m10v_defconfig b/arch/arm/configs/milbeaut_m10v_defconfig
-index 242e7d5a3f682..8ebf8bd872fe8 100644
---- a/arch/arm/configs/milbeaut_m10v_defconfig
-+++ b/arch/arm/configs/milbeaut_m10v_defconfig
-@@ -98,11 +98,10 @@ CONFIG_CRYPTO_SELFTESTS=y
- CONFIG_CRYPTO_AES=y
- CONFIG_CRYPTO_SEQIV=m
- CONFIG_CRYPTO_GHASH_ARM_CE=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
- CONFIG_CRYPTO_SHA1_ARM_CE=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_AES_ARM_CE=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- # CONFIG_CRYPTO_HW is not set
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 50c170b4619f7..3fd07e864ca85 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -1280,11 +1280,10 @@ CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_GHASH_ARM_CE=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
- CONFIG_CRYPTO_SHA1_ARM_CE=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_AES_ARM_CE=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_DEV_SUN4I_SS=m
-diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
-index 9f9780c8e62aa..530dfb8338c98 100644
---- a/arch/arm/configs/omap2plus_defconfig
-+++ b/arch/arm/configs/omap2plus_defconfig
-@@ -703,11 +703,10 @@ CONFIG_NLS_CODEPAGE_437=y
- CONFIG_NLS_ISO8859_1=y
- CONFIG_SECURITY=y
- CONFIG_CRYPTO_MICHAEL_MIC=y
- CONFIG_CRYPTO_GHASH_ARM_CE=m
- CONFIG_CRYPTO_SHA1_ARM_NEON=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_CRYPTO_AES_ARM_BS=m
- CONFIG_CRYPTO_CHACHA20_NEON=m
- CONFIG_CRYPTO_DEV_OMAP=m
- CONFIG_CRYPTO_DEV_OMAP_SHAM=m
-diff --git a/arch/arm/configs/pxa_defconfig b/arch/arm/configs/pxa_defconfig
-index ff29c5b0e9c93..eaa44574d4a64 100644
---- a/arch/arm/configs/pxa_defconfig
-+++ b/arch/arm/configs/pxa_defconfig
-@@ -657,11 +657,10 @@ CONFIG_CRYPTO_WP512=m
- CONFIG_CRYPTO_ANUBIS=m
- CONFIG_CRYPTO_XCBC=m
- CONFIG_CRYPTO_DEFLATE=y
- CONFIG_CRYPTO_LZO=y
- CONFIG_CRYPTO_SHA1_ARM=m
--CONFIG_CRYPTO_SHA512_ARM=m
- CONFIG_CRYPTO_AES_ARM=m
- CONFIG_FONTS=y
- CONFIG_FONT_8x8=y
- CONFIG_FONT_8x16=y
- CONFIG_FONT_6x11=y
-diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
-index 7efb9a8596e4e..a18f97f1597cb 100644
---- a/arch/arm/crypto/Kconfig
-+++ b/arch/arm/crypto/Kconfig
-@@ -91,20 +91,10 @@ config CRYPTO_SHA1_ARM_CE
+diff --git a/lib/crypto/tests/Kconfig b/lib/crypto/tests/Kconfig
+index 90be320c25bd2..c056238423221 100644
+--- a/lib/crypto/tests/Kconfig
++++ b/lib/crypto/tests/Kconfig
+@@ -1,7 +1,15 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
++config CRYPTO_LIB_SHA256_KUNIT_TEST
++	tristate "KUnit tests for SHA-224 and SHA-256" if !KUNIT_ALL_TESTS
++	depends on KUNIT
++	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
++	select CRYPTO_LIB_SHA256
++	help
++	  KUnit tests for the SHA-224 and SHA-256 cryptographic hash functions.
++
+ config CRYPTO_LIB_SHA512_KUNIT_TEST
+ 	tristate "KUnit tests for SHA-384 and SHA-512" if !KUNIT_ALL_TESTS
+ 	depends on KUNIT
+ 	default KUNIT_ALL_TESTS || CRYPTO_SELFTESTS
+ 	select CRYPTO_LIB_SHA512
+@@ -9,8 +17,8 @@ config CRYPTO_LIB_SHA512_KUNIT_TEST
+ 	  KUnit tests for the SHA-384 and SHA-512 cryptographic hash functions
+ 	  and their corresponding HMACs.
+ 
+ config CRYPTO_LIB_BENCHMARK
+ 	bool "Include benchmarks in KUnit tests for cryptographic functions"
+-	depends on CRYPTO_LIB_SHA512_KUNIT_TEST
++	depends on CRYPTO_LIB_SHA256_KUNIT_TEST || CRYPTO_LIB_SHA512_KUNIT_TEST
  	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
+ 	  Include benchmarks in the KUnit tests for cryptographic functions.
+diff --git a/lib/crypto/tests/Makefile b/lib/crypto/tests/Makefile
+index 3925dcb6513d8..95bb919aff6b4 100644
+--- a/lib/crypto/tests/Makefile
++++ b/lib/crypto/tests/Makefile
+@@ -1,4 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
  
- 	  Architecture: arm using ARMv8 Crypto Extensions
- 
--config CRYPTO_SHA512_ARM
--	tristate "Hash functions: SHA-384 and SHA-512 (NEON)"
--	select CRYPTO_HASH
--	depends on !CPU_V7M
--	help
--	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
--
--	  Architecture: arm using
--	  - NEON (Advanced SIMD) extensions
--
- config CRYPTO_AES_ARM
- 	tristate "Ciphers: AES"
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_AES
- 	help
-diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
-index 8479137c6e800..78a4042d8761c 100644
---- a/arch/arm/crypto/Makefile
-+++ b/arch/arm/crypto/Makefile
-@@ -5,11 +5,10 @@
- 
- obj-$(CONFIG_CRYPTO_AES_ARM) += aes-arm.o
- obj-$(CONFIG_CRYPTO_AES_ARM_BS) += aes-arm-bs.o
- obj-$(CONFIG_CRYPTO_SHA1_ARM) += sha1-arm.o
- obj-$(CONFIG_CRYPTO_SHA1_ARM_NEON) += sha1-arm-neon.o
--obj-$(CONFIG_CRYPTO_SHA512_ARM) += sha512-arm.o
- obj-$(CONFIG_CRYPTO_BLAKE2B_NEON) += blake2b-neon.o
- obj-$(CONFIG_CRYPTO_NHPOLY1305_NEON) += nhpoly1305-neon.o
- obj-$(CONFIG_CRYPTO_CURVE25519_NEON) += curve25519-neon.o
- 
- obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
-@@ -18,25 +17,11 @@ obj-$(CONFIG_CRYPTO_GHASH_ARM_CE) += ghash-arm-ce.o
- 
- aes-arm-y	:= aes-cipher-core.o aes-cipher-glue.o
- aes-arm-bs-y	:= aes-neonbs-core.o aes-neonbs-glue.o
- sha1-arm-y	:= sha1-armv4-large.o sha1_glue.o
- sha1-arm-neon-y	:= sha1-armv7-neon.o sha1_neon_glue.o
--sha512-arm-neon-$(CONFIG_KERNEL_MODE_NEON) := sha512-neon-glue.o
--sha512-arm-y	:= sha512-core.o sha512-glue.o $(sha512-arm-neon-y)
- blake2b-neon-y  := blake2b-neon-core.o blake2b-neon-glue.o
- sha1-arm-ce-y	:= sha1-ce-core.o sha1-ce-glue.o
- aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
- ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
- nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
- curve25519-neon-y := curve25519-core.o curve25519-glue.o
--
--quiet_cmd_perl = PERL    $@
--      cmd_perl = $(PERL) $(<) > $(@)
--
--$(obj)/%-core.S: $(src)/%-armv4.pl
--	$(call cmd,perl)
--
--clean-files += sha512-core.S
--
--aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
--
--AFLAGS_sha512-core.o += $(aflags-thumb2-y)
-diff --git a/arch/arm/crypto/sha512-glue.c b/arch/arm/crypto/sha512-glue.c
-deleted file mode 100644
-index f8a6480889b1b..0000000000000
---- a/arch/arm/crypto/sha512-glue.c
-+++ /dev/null
-@@ -1,110 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * sha512-glue.c - accelerated SHA-384/512 for ARM
-- *
-- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
-- */
--
--#include <asm/hwcap.h>
--#include <asm/neon.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha512_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--#include "sha512.h"
--
--MODULE_DESCRIPTION("Accelerated SHA-384/SHA-512 secure hash for ARM");
--MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
--MODULE_LICENSE("GPL v2");
--
--MODULE_ALIAS_CRYPTO("sha384");
--MODULE_ALIAS_CRYPTO("sha512");
--MODULE_ALIAS_CRYPTO("sha384-arm");
--MODULE_ALIAS_CRYPTO("sha512-arm");
--
--asmlinkage void sha512_block_data_order(struct sha512_state *state,
--					u8 const *src, int blocks);
--
--static int sha512_arm_update(struct shash_desc *desc, const u8 *data,
--			     unsigned int len)
--{
--	return sha512_base_do_update_blocks(desc, data, len,
--					    sha512_block_data_order);
--}
--
--static int sha512_arm_finup(struct shash_desc *desc, const u8 *data,
--			    unsigned int len, u8 *out)
--{
--	sha512_base_do_finup(desc, data, len, sha512_block_data_order);
--	return sha512_base_finish(desc, out);
--}
--
--static struct shash_alg sha512_arm_algs[] = { {
--	.init			= sha384_base_init,
--	.update			= sha512_arm_update,
--	.finup			= sha512_arm_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA384_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha384",
--		.cra_driver_name	= "sha384-arm",
--		.cra_priority		= 250,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA512_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--	}
--},  {
--	.init			= sha512_base_init,
--	.update			= sha512_arm_update,
--	.finup			= sha512_arm_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA512_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha512",
--		.cra_driver_name	= "sha512-arm",
--		.cra_priority		= 250,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA512_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--	}
--} };
--
--static int __init sha512_arm_mod_init(void)
--{
--	int err;
--
--	err = crypto_register_shashes(sha512_arm_algs,
--				      ARRAY_SIZE(sha512_arm_algs));
--	if (err)
--		return err;
--
--	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && cpu_has_neon()) {
--		err = crypto_register_shashes(sha512_neon_algs,
--					      ARRAY_SIZE(sha512_neon_algs));
--		if (err)
--			goto err_unregister;
--	}
--	return 0;
--
--err_unregister:
--	crypto_unregister_shashes(sha512_arm_algs,
--				  ARRAY_SIZE(sha512_arm_algs));
--
--	return err;
--}
--
--static void __exit sha512_arm_mod_fini(void)
--{
--	crypto_unregister_shashes(sha512_arm_algs,
--				  ARRAY_SIZE(sha512_arm_algs));
--	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && cpu_has_neon())
--		crypto_unregister_shashes(sha512_neon_algs,
--					  ARRAY_SIZE(sha512_neon_algs));
--}
--
--module_init(sha512_arm_mod_init);
--module_exit(sha512_arm_mod_fini);
-diff --git a/arch/arm/crypto/sha512-neon-glue.c b/arch/arm/crypto/sha512-neon-glue.c
-deleted file mode 100644
-index bd528077fefbf..0000000000000
---- a/arch/arm/crypto/sha512-neon-glue.c
-+++ /dev/null
-@@ -1,75 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/*
-- * sha512-neon-glue.c - accelerated SHA-384/512 for ARM NEON
-- *
-- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
-- */
--
--#include <asm/neon.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha512_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--#include "sha512.h"
--
--MODULE_ALIAS_CRYPTO("sha384-neon");
--MODULE_ALIAS_CRYPTO("sha512-neon");
--
--asmlinkage void sha512_block_data_order_neon(struct sha512_state *state,
--					     const u8 *src, int blocks);
--
--static int sha512_neon_update(struct shash_desc *desc, const u8 *data,
--			      unsigned int len)
--{
--	int remain;
--
--	kernel_neon_begin();
--	remain = sha512_base_do_update_blocks(desc, data, len,
--					      sha512_block_data_order_neon);
--	kernel_neon_end();
--	return remain;
--}
--
--static int sha512_neon_finup(struct shash_desc *desc, const u8 *data,
--			     unsigned int len, u8 *out)
--{
--	kernel_neon_begin();
--	sha512_base_do_finup(desc, data, len, sha512_block_data_order_neon);
--	kernel_neon_end();
--	return sha512_base_finish(desc, out);
--}
--
--struct shash_alg sha512_neon_algs[] = { {
--	.init			= sha384_base_init,
--	.update			= sha512_neon_update,
--	.finup			= sha512_neon_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA384_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha384",
--		.cra_driver_name	= "sha384-neon",
--		.cra_priority		= 300,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA384_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--
--	}
--},  {
--	.init			= sha512_base_init,
--	.update			= sha512_neon_update,
--	.finup			= sha512_neon_finup,
--	.descsize		= SHA512_STATE_SIZE,
--	.digestsize		= SHA512_DIGEST_SIZE,
--	.base			= {
--		.cra_name		= "sha512",
--		.cra_driver_name	= "sha512-neon",
--		.cra_priority		= 300,
--		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					  CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize		= SHA512_BLOCK_SIZE,
--		.cra_module		= THIS_MODULE,
--	}
--} };
-diff --git a/arch/arm/crypto/sha512.h b/arch/arm/crypto/sha512.h
-deleted file mode 100644
-index eeaee52cda69b..0000000000000
---- a/arch/arm/crypto/sha512.h
-+++ /dev/null
-@@ -1,3 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--
--extern struct shash_alg sha512_neon_algs[2];
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 34b249ca3db23..83054a496f9cd 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -177,10 +177,11 @@ config CRYPTO_LIB_SHA512
- 	  <crypto/sha2.h>.
- 
- config CRYPTO_LIB_SHA512_ARCH
- 	bool
- 	depends on CRYPTO_LIB_SHA512
-+	default y if ARM && !CPU_V7M
- 
- config CRYPTO_LIB_SM3
- 	tristate
- 
- if !KMSAN # avoid false positives from assembly
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 7df76ab5fe692..41513bc29a5e6 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -1,9 +1,14 @@
- # SPDX-License-Identifier: GPL-2.0
- 
- obj-y += tests/
- 
-+aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
-+
-+quiet_cmd_perlasm = PERLASM $@
-+      cmd_perlasm = $(PERL) $(<) > $(@)
-+
- obj-$(CONFIG_CRYPTO_LIB_UTILS)			+= libcryptoutils.o
- libcryptoutils-y				:= memneq.o utils.o
- 
- # chacha is used by the /dev/random driver which is always builtin
- obj-y						+= chacha.o
-@@ -64,10 +69,19 @@ libsha256-generic-y				:= sha256-generic.o
- 
- obj-$(CONFIG_CRYPTO_LIB_SHA512) += libsha512.o
- libsha512-y := sha512.o
- ifeq ($(CONFIG_CRYPTO_LIB_SHA512_ARCH),y)
- CFLAGS_sha512.o += -I$(src)/$(SRCARCH)
-+
-+ifeq ($(CONFIG_ARM),y)
-+libsha512-y += arm/sha512-core.o
-+$(obj)/arm/sha512-core.S: $(src)/arm/sha512-armv4.pl
-+	$(call cmd,perlasm)
-+clean-files += arm/sha512-core.S
-+AFLAGS_arm/sha512-core.o += $(aflags-thumb2-y)
-+endif
-+
- endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
- 
- obj-$(CONFIG_MPILIB) += mpi/
- 
- obj-$(CONFIG_CRYPTO_SELFTESTS)			+= simd.o
-diff --git a/lib/crypto/arm/.gitignore b/lib/crypto/arm/.gitignore
++obj-$(CONFIG_CRYPTO_LIB_SHA256_KUNIT_TEST) += sha224_kunit.o
++obj-$(CONFIG_CRYPTO_LIB_SHA256_KUNIT_TEST) += sha256_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_SHA512_KUNIT_TEST) += sha384_kunit.o
+ obj-$(CONFIG_CRYPTO_LIB_SHA512_KUNIT_TEST) += sha512_kunit.o
+diff --git a/lib/crypto/tests/sha224-testvecs.h b/lib/crypto/tests/sha224-testvecs.h
 new file mode 100644
-index 0000000000000..670a4d97b5684
+index 0000000000000..bbab439490682
 --- /dev/null
-+++ b/lib/crypto/arm/.gitignore
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+sha512-core.S
-diff --git a/arch/arm/crypto/sha512-armv4.pl b/lib/crypto/arm/sha512-armv4.pl
-similarity index 100%
-rename from arch/arm/crypto/sha512-armv4.pl
-rename to lib/crypto/arm/sha512-armv4.pl
-diff --git a/lib/crypto/arm/sha512.h b/lib/crypto/arm/sha512.h
++++ b/lib/crypto/tests/sha224-testvecs.h
+@@ -0,0 +1,223 @@
++/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py sha224 */
++
++static const struct {
++	size_t data_len;
++	u8 digest[SHA224_DIGEST_SIZE];
++} sha224_testvecs[] = {
++	{
++		.data_len = 0,
++		.digest = {
++			0xd1, 0x4a, 0x02, 0x8c, 0x2a, 0x3a, 0x2b, 0xc9,
++			0x47, 0x61, 0x02, 0xbb, 0x28, 0x82, 0x34, 0xc4,
++			0x15, 0xa2, 0xb0, 0x1f, 0x82, 0x8e, 0xa6, 0x2a,
++			0xc5, 0xb3, 0xe4, 0x2f,
++		},
++	},
++	{
++		.data_len = 1,
++		.digest = {
++			0xe3, 0x4d, 0x79, 0x17, 0x75, 0x35, 0xdc, 0xd2,
++			0x27, 0xc9, 0x9d, 0x0b, 0x90, 0x0f, 0x21, 0x5d,
++			0x95, 0xfb, 0x9c, 0x6d, 0xa8, 0xec, 0x19, 0x15,
++			0x12, 0xef, 0xf5, 0x0f,
++		},
++	},
++	{
++		.data_len = 2,
++		.digest = {
++			0x81, 0xc7, 0x60, 0x0d, 0x6d, 0x13, 0x75, 0x70,
++			0x4b, 0xc0, 0xab, 0xea, 0x04, 0xe3, 0x78, 0x7e,
++			0x73, 0xb9, 0x0f, 0xb6, 0xae, 0x90, 0xf3, 0x94,
++			0xb2, 0x56, 0xda, 0xc8,
++		},
++	},
++	{
++		.data_len = 3,
++		.digest = {
++			0x24, 0xf0, 0x8c, 0x6e, 0x9d, 0xd6, 0x06, 0x80,
++			0x0a, 0x03, 0xee, 0x9b, 0x33, 0xec, 0x83, 0x42,
++			0x2c, 0x8b, 0xe7, 0xc7, 0xc6, 0x04, 0xfb, 0xc6,
++			0xa3, 0x3a, 0x4d, 0xc9,
++		},
++	},
++	{
++		.data_len = 16,
++		.digest = {
++			0x1c, 0x08, 0xa8, 0x55, 0x8f, 0xc6, 0x0a, 0xea,
++			0x2f, 0x1b, 0x54, 0xff, 0x8d, 0xd2, 0xa3, 0xc7,
++			0x42, 0xc2, 0x93, 0x3d, 0x73, 0x18, 0x84, 0xba,
++			0x75, 0x49, 0x34, 0xfd,
++		},
++	},
++	{
++		.data_len = 32,
++		.digest = {
++			0x45, 0xdd, 0xb5, 0xf0, 0x3c, 0xda, 0xe6, 0xd4,
++			0x6c, 0x86, 0x91, 0x29, 0x11, 0x2f, 0x88, 0x7d,
++			0xd8, 0x3c, 0xa3, 0xd6, 0xdd, 0x1e, 0xac, 0x98,
++			0xff, 0xf0, 0x14, 0x69,
++		},
++	},
++	{
++		.data_len = 48,
++		.digest = {
++			0x0b, 0xfb, 0x71, 0x4c, 0x06, 0x7a, 0xd5, 0x89,
++			0x76, 0x0a, 0x43, 0x8b, 0x2b, 0x47, 0x12, 0x56,
++			0xa7, 0x64, 0x33, 0x1d, 0xd3, 0x44, 0x17, 0x95,
++			0x23, 0xe7, 0x53, 0x01,
++		},
++	},
++	{
++		.data_len = 49,
++		.digest = {
++			0xc4, 0xae, 0x9c, 0x33, 0xd5, 0x1d, 0xf4, 0xa7,
++			0xfd, 0xb7, 0xd4, 0x6b, 0xc3, 0xeb, 0xa8, 0xbf,
++			0xfb, 0x07, 0x89, 0x4b, 0x07, 0x15, 0x22, 0xec,
++			0xe1, 0x45, 0x84, 0xba,
++		},
++	},
++	{
++		.data_len = 63,
++		.digest = {
++			0xad, 0x01, 0x34, 0x2a, 0xe2, 0x3b, 0x58, 0x06,
++			0x9f, 0x20, 0xc8, 0xfb, 0xf3, 0x20, 0x82, 0xa6,
++			0x9f, 0xee, 0x7a, 0xbe, 0xdf, 0xf3, 0x5d, 0x57,
++			0x9b, 0xce, 0x79, 0x96,
++		},
++	},
++	{
++		.data_len = 64,
++		.digest = {
++			0xa7, 0xa6, 0x47, 0xf7, 0xed, 0x2a, 0xe5, 0xe3,
++			0xc0, 0x1e, 0x7b, 0x40, 0xe4, 0xf7, 0x40, 0x65,
++			0x42, 0xc1, 0x6f, 0x7d, 0x8d, 0x0d, 0x17, 0x4f,
++			0xd3, 0xbc, 0x0d, 0x85,
++		},
++	},
++	{
++		.data_len = 65,
++		.digest = {
++			0xc4, 0x9c, 0xb5, 0x6a, 0x01, 0x2d, 0x10, 0xa9,
++			0x5f, 0xa4, 0x5a, 0xe1, 0xba, 0x40, 0x12, 0x09,
++			0x7b, 0xea, 0xdb, 0xa6, 0x7b, 0xcb, 0x56, 0xf0,
++			0xfd, 0x5b, 0xe2, 0xe7,
++		},
++	},
++	{
++		.data_len = 127,
++		.digest = {
++			0x14, 0xda, 0x0e, 0x01, 0xca, 0x78, 0x7d, 0x2d,
++			0x85, 0xa3, 0xca, 0x0e, 0x80, 0xf9, 0x95, 0x10,
++			0xa1, 0x7b, 0xa5, 0xaa, 0xfc, 0x95, 0x05, 0x08,
++			0x53, 0xda, 0x52, 0xee,
++		},
++	},
++	{
++		.data_len = 128,
++		.digest = {
++			0xa5, 0x24, 0xc4, 0x54, 0xe1, 0x50, 0xab, 0xee,
++			0x22, 0xc1, 0xa7, 0x27, 0x15, 0x2c, 0x6f, 0xf7,
++			0x4c, 0x31, 0xe5, 0x15, 0x25, 0x4e, 0x71, 0xc6,
++			0x7e, 0xa0, 0x11, 0x5d,
++		},
++	},
++	{
++		.data_len = 129,
++		.digest = {
++			0x73, 0xd0, 0x8c, 0xce, 0xed, 0xed, 0x9f, 0xaa,
++			0x21, 0xaf, 0xa2, 0x08, 0x80, 0x16, 0x15, 0x59,
++			0x3f, 0x1d, 0x7f, 0x0a, 0x79, 0x3d, 0x7b, 0x58,
++			0xf8, 0xc8, 0x5c, 0x27,
++		},
++	},
++	{
++		.data_len = 256,
++		.digest = {
++			0x31, 0xa7, 0xa1, 0xca, 0x49, 0x72, 0x75, 0xcc,
++			0x6e, 0x02, 0x9e, 0xad, 0xea, 0x86, 0x5c, 0x91,
++			0x02, 0xe4, 0xc9, 0xf9, 0xd3, 0x9e, 0x74, 0x50,
++			0xd8, 0x43, 0x6b, 0x85,
++		},
++	},
++	{
++		.data_len = 511,
++		.digest = {
++			0x40, 0x60, 0x8b, 0xb0, 0x03, 0xa9, 0x75, 0xab,
++			0x2d, 0x5b, 0x20, 0x9a, 0x05, 0x72, 0xb7, 0xa8,
++			0xce, 0xf2, 0x4f, 0x66, 0x62, 0xe3, 0x7e, 0x24,
++			0xd6, 0xe2, 0xea, 0xfa,
++		},
++	},
++	{
++		.data_len = 513,
++		.digest = {
++			0x4f, 0x5f, 0x9f, 0x1e, 0xb3, 0x66, 0x81, 0xdb,
++			0x41, 0x5d, 0x65, 0x97, 0x00, 0x8d, 0xdc, 0x62,
++			0x03, 0xb0, 0x4d, 0x6b, 0x5c, 0x7f, 0x1e, 0xa0,
++			0xfe, 0xfc, 0x0e, 0xb8,
++		},
++	},
++	{
++		.data_len = 1000,
++		.digest = {
++			0x08, 0xa8, 0xa1, 0xc0, 0xd8, 0xf9, 0xb4, 0xaa,
++			0x53, 0x22, 0xa1, 0x73, 0x0b, 0x45, 0xa0, 0x20,
++			0x72, 0xf3, 0xa9, 0xbc, 0x51, 0xd0, 0x20, 0x79,
++			0x69, 0x97, 0xf7, 0xe3,
++		},
++	},
++	{
++		.data_len = 3333,
++		.digest = {
++			0xe8, 0x60, 0x5f, 0xb9, 0x12, 0xe1, 0x6b, 0x24,
++			0xc5, 0xe8, 0x43, 0xa9, 0x5c, 0x3f, 0x65, 0xed,
++			0xbe, 0xfd, 0x77, 0xf5, 0x47, 0xf2, 0x75, 0x21,
++			0xc2, 0x8f, 0x54, 0x8f,
++		},
++	},
++	{
++		.data_len = 4096,
++		.digest = {
++			0xc7, 0xdf, 0x50, 0x16, 0x10, 0x01, 0xb7, 0xdf,
++			0x34, 0x1d, 0x18, 0xa2, 0xd5, 0xad, 0x1f, 0x50,
++			0xf7, 0xa8, 0x9a, 0x72, 0xfb, 0xfd, 0xd9, 0x1c,
++			0x57, 0xac, 0x08, 0x97,
++		},
++	},
++	{
++		.data_len = 4128,
++		.digest = {
++			0xdf, 0x16, 0x76, 0x7f, 0xc0, 0x16, 0x84, 0x63,
++			0xac, 0xcf, 0xd0, 0x78, 0x1e, 0x96, 0x67, 0xc5,
++			0x3c, 0x06, 0xe9, 0xdb, 0x6e, 0x7d, 0xd0, 0x07,
++			0xaa, 0xb1, 0x56, 0xc9,
++		},
++	},
++	{
++		.data_len = 4160,
++		.digest = {
++			0x49, 0xec, 0x5c, 0x18, 0xd7, 0x5b, 0xda, 0xed,
++			0x5b, 0x59, 0xde, 0x09, 0x34, 0xb2, 0x49, 0x43,
++			0x62, 0x6a, 0x0a, 0x63, 0x6a, 0x51, 0x08, 0x37,
++			0x8c, 0xb6, 0x29, 0x84,
++		},
++	},
++	{
++		.data_len = 4224,
++		.digest = {
++			0x3d, 0xc2, 0xc8, 0x43, 0xcf, 0xb7, 0x33, 0x14,
++			0x04, 0x93, 0xed, 0xe2, 0xcd, 0x8a, 0x69, 0x5c,
++			0x5a, 0xd5, 0x9b, 0x52, 0xdf, 0x48, 0xa7, 0xaa,
++			0x28, 0x2b, 0x5d, 0x27,
++		},
++	},
++	{
++		.data_len = 16384,
++		.digest = {
++			0xa7, 0xaf, 0xda, 0x92, 0xe2, 0xe7, 0x61, 0xdc,
++			0xa1, 0x32, 0x53, 0x2a, 0x3f, 0x41, 0x5c, 0x7e,
++			0xc9, 0x89, 0xda, 0x1c, 0xf7, 0x8d, 0x00, 0xbd,
++			0x21, 0x73, 0xb1, 0x69,
++		},
++	},
++};
+diff --git a/lib/crypto/tests/sha224_kunit.c b/lib/crypto/tests/sha224_kunit.c
 new file mode 100644
-index 0000000000000..f147b6490d6cd
+index 0000000000000..5015861a55112
 --- /dev/null
-+++ b/lib/crypto/arm/sha512.h
-@@ -0,0 +1,38 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
++++ b/lib/crypto/tests/sha224_kunit.c
+@@ -0,0 +1,50 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * arm32-optimized SHA-512 block function
-+ *
 + * Copyright 2025 Google LLC
 + */
++#include <crypto/sha2.h>
++#include "sha224-testvecs.h"
 +
-+#include <asm/neon.h>
-+#include <crypto/internal/simd.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
-+
-+asmlinkage void sha512_block_data_order(struct sha512_block_state *state,
-+					const u8 *data, size_t nblocks);
-+asmlinkage void sha512_block_data_order_neon(struct sha512_block_state *state,
-+					     const u8 *data, size_t nblocks);
-+
-+static void sha512_blocks(struct sha512_block_state *state,
-+			  const u8 *data, size_t nblocks)
++/* TODO: add sha224() to the library itself */
++static inline void sha224(const u8 *data, size_t len,
++			  u8 out[SHA224_DIGEST_SIZE])
 +{
-+	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
-+	    static_branch_likely(&have_neon) && likely(crypto_simd_usable())) {
-+		kernel_neon_begin();
-+		sha512_block_data_order_neon(state, data, nblocks);
-+		kernel_neon_end();
-+	} else {
-+		sha512_block_data_order(state, data, nblocks);
-+	}
++	struct sha256_state state;
++
++	sha224_init(&state);
++	sha256_update(&state, data, len);
++	sha224_final(&state, out);
 +}
 +
-+#ifdef CONFIG_KERNEL_MODE_NEON
-+#define sha512_mod_init_arch sha512_mod_init_arch
-+static inline void sha512_mod_init_arch(void)
-+{
-+	if (cpu_has_neon())
-+		static_branch_enable(&have_neon);
-+}
-+#endif /* CONFIG_KERNEL_MODE_NEON */
++#define HASH sha224
++#define HASH_CTX sha256_state
++#define HASH_SIZE SHA224_DIGEST_SIZE
++#define HASH_INIT sha224_init
++#define HASH_UPDATE sha256_update
++#define HASH_FINAL sha224_final
++#define HASH_TESTVECS sha224_testvecs
++/* TODO: add HMAC-SHA224 support to the library, then enable the tests for it */
++#include "hash-test-template.h"
++
++static struct kunit_case hash_test_cases[] = {
++	KUNIT_CASE(test_hash_test_vectors),
++	KUNIT_CASE(test_hash_incremental_updates),
++	KUNIT_CASE(test_hash_buffer_overruns),
++	KUNIT_CASE(test_hash_overlaps),
++	KUNIT_CASE(test_hash_alignment_consistency),
++	KUNIT_CASE(test_hash_interrupt_context),
++	KUNIT_CASE(test_hash_ctx_zeroization),
++	KUNIT_CASE(benchmark_hash),
++	{},
++};
++
++static struct kunit_suite hash_test_suite = {
++	.name = "sha224",
++	.test_cases = hash_test_cases,
++	.suite_init = hash_suite_init,
++	.suite_exit = hash_suite_exit,
++};
++kunit_test_suite(hash_test_suite);
++
++MODULE_DESCRIPTION("KUnit tests and benchmark for SHA-224");
++MODULE_LICENSE("GPL");
+diff --git a/lib/crypto/tests/sha256-testvecs.h b/lib/crypto/tests/sha256-testvecs.h
+new file mode 100644
+index 0000000000000..2b0912a101833
+--- /dev/null
++++ b/lib/crypto/tests/sha256-testvecs.h
+@@ -0,0 +1,223 @@
++/* This file was generated by: ./scripts/crypto/gen-hash-testvecs.py sha256 */
++
++static const struct {
++	size_t data_len;
++	u8 digest[SHA256_DIGEST_SIZE];
++} sha256_testvecs[] = {
++	{
++		.data_len = 0,
++		.digest = {
++			0xe3, 0xb0, 0xc4, 0x42, 0x98, 0xfc, 0x1c, 0x14,
++			0x9a, 0xfb, 0xf4, 0xc8, 0x99, 0x6f, 0xb9, 0x24,
++			0x27, 0xae, 0x41, 0xe4, 0x64, 0x9b, 0x93, 0x4c,
++			0xa4, 0x95, 0x99, 0x1b, 0x78, 0x52, 0xb8, 0x55,
++		},
++	},
++	{
++		.data_len = 1,
++		.digest = {
++			0x45, 0xf8, 0x3d, 0x17, 0xe1, 0x0b, 0x34, 0xfc,
++			0xa0, 0x1e, 0xb8, 0xf4, 0x45, 0x4d, 0xac, 0x34,
++			0xa7, 0x77, 0xd9, 0x40, 0x4a, 0x46, 0x4e, 0x73,
++			0x2c, 0xf4, 0xab, 0xf2, 0xc0, 0xda, 0x94, 0xc4,
++		},
++	},
++	{
++		.data_len = 2,
++		.digest = {
++			0xf9, 0xd3, 0x52, 0x2f, 0xd5, 0xe0, 0x99, 0x15,
++			0x1c, 0xd6, 0xa9, 0x24, 0x4f, 0x40, 0xba, 0x25,
++			0x33, 0x43, 0x3e, 0xe1, 0x78, 0x6a, 0xfe, 0x7d,
++			0x07, 0xe2, 0x29, 0x7b, 0x6d, 0xc5, 0x73, 0xf5,
++		},
++	},
++	{
++		.data_len = 3,
++		.digest = {
++			0x71, 0xf7, 0xa1, 0xef, 0x69, 0x86, 0x0e, 0xe4,
++			0x87, 0x25, 0x58, 0x4c, 0x07, 0x2c, 0xfc, 0x60,
++			0xc5, 0xf6, 0xe2, 0x44, 0xaa, 0xfb, 0x41, 0xc7,
++			0x2b, 0xc5, 0x01, 0x8c, 0x39, 0x98, 0x30, 0x37,
++		},
++	},
++	{
++		.data_len = 16,
++		.digest = {
++			0x09, 0x95, 0x9a, 0xfa, 0x25, 0x18, 0x86, 0x06,
++			0xfe, 0x65, 0xc9, 0x2f, 0x91, 0x15, 0x74, 0x06,
++			0x6c, 0xbf, 0xef, 0x7b, 0x0b, 0xc7, 0x2c, 0x05,
++			0xdd, 0x17, 0x5d, 0x6f, 0x8a, 0xa5, 0xde, 0x3c,
++		},
++	},
++	{
++		.data_len = 32,
++		.digest = {
++			0xe5, 0x52, 0x3c, 0x85, 0xea, 0x1b, 0xe1, 0x6c,
++			0xe0, 0xdb, 0xc3, 0xef, 0xf0, 0xca, 0xc2, 0xe1,
++			0xb9, 0x36, 0xa1, 0x28, 0xb6, 0x9e, 0xf5, 0x6e,
++			0x70, 0xf7, 0xf9, 0xa7, 0x1c, 0xd3, 0x22, 0xd0,
++		},
++	},
++	{
++		.data_len = 48,
++		.digest = {
++			0x5f, 0x84, 0xd4, 0xd7, 0x2e, 0x80, 0x09, 0xef,
++			0x1c, 0x77, 0x7c, 0x25, 0x59, 0x63, 0x88, 0x64,
++			0xfd, 0x56, 0xea, 0x23, 0xf4, 0x4f, 0x2e, 0x49,
++			0xcd, 0xb4, 0xaa, 0xc7, 0x5c, 0x8b, 0x75, 0x84,
++		},
++	},
++	{
++		.data_len = 49,
++		.digest = {
++			0x22, 0x6e, 0xca, 0xda, 0x00, 0x2d, 0x90, 0x96,
++			0x24, 0xf8, 0x55, 0x17, 0x11, 0xda, 0x42, 0x1c,
++			0x78, 0x4e, 0xbf, 0xd9, 0xc5, 0xcf, 0xf3, 0xe3,
++			0xaf, 0xd3, 0x60, 0xcd, 0xaa, 0xe2, 0xc7, 0x22,
++		},
++	},
++	{
++		.data_len = 63,
++		.digest = {
++			0x97, 0xe2, 0x74, 0xdc, 0x6b, 0xa4, 0xaf, 0x32,
++			0x3b, 0x50, 0x6d, 0x80, 0xb5, 0xd3, 0x0c, 0x36,
++			0xea, 0x3f, 0x5d, 0x36, 0xa7, 0x49, 0x51, 0xf3,
++			0xbd, 0x69, 0x68, 0x60, 0x9b, 0xde, 0x73, 0xf5,
++		},
++	},
++	{
++		.data_len = 64,
++		.digest = {
++			0x13, 0x74, 0xb1, 0x72, 0xd6, 0x53, 0x48, 0x28,
++			0x42, 0xd8, 0xba, 0x64, 0x20, 0x60, 0xb6, 0x4c,
++			0xc3, 0xac, 0x5d, 0x93, 0x8c, 0xb9, 0xd4, 0xcc,
++			0xb4, 0x9f, 0x31, 0x1f, 0xeb, 0x68, 0x35, 0x58,
++		},
++	},
++	{
++		.data_len = 65,
++		.digest = {
++			0xda, 0xbe, 0xd7, 0xbc, 0x6e, 0xe6, 0x5a, 0x57,
++			0xeb, 0x9a, 0x93, 0xaa, 0x66, 0xd0, 0xe0, 0xc4,
++			0x29, 0x7f, 0xe9, 0x3b, 0x8e, 0xdf, 0x81, 0x82,
++			0x8d, 0x15, 0x11, 0x59, 0x4e, 0x13, 0xa5, 0x58,
++		},
++	},
++	{
++		.data_len = 127,
++		.digest = {
++			0x8c, 0x1a, 0xba, 0x40, 0x66, 0x94, 0x19, 0xf4,
++			0x2e, 0xa2, 0xae, 0x94, 0x53, 0x18, 0xb6, 0xfd,
++			0xa0, 0x12, 0xc5, 0xef, 0xd5, 0xd6, 0x1b, 0xa1,
++			0x37, 0xea, 0x19, 0x44, 0x35, 0x54, 0x85, 0x74,
++		},
++	},
++	{
++		.data_len = 128,
++		.digest = {
++			0xfd, 0x07, 0xd8, 0x77, 0x7d, 0x8b, 0x4f, 0xee,
++			0x60, 0x60, 0x26, 0xef, 0x2a, 0x86, 0xfb, 0x67,
++			0xeb, 0x31, 0x27, 0x03, 0x99, 0x3c, 0xde, 0xe5,
++			0x84, 0x72, 0x71, 0x4c, 0x33, 0x7b, 0x87, 0x13,
++		},
++	},
++	{
++		.data_len = 129,
++		.digest = {
++			0x97, 0xc5, 0x58, 0x38, 0x20, 0xc7, 0xde, 0xfa,
++			0xdd, 0x9b, 0x10, 0xc6, 0xc2, 0x2f, 0x94, 0xb5,
++			0xc0, 0x33, 0xc0, 0x20, 0x1c, 0x2f, 0xb4, 0x28,
++			0x5e, 0x36, 0xfa, 0x8c, 0x24, 0x1c, 0x18, 0x27,
++		},
++	},
++	{
++		.data_len = 256,
++		.digest = {
++			0x62, 0x17, 0x84, 0x26, 0x98, 0x30, 0x57, 0xca,
++			0x4f, 0x32, 0xd9, 0x09, 0x09, 0x34, 0xe2, 0xcb,
++			0x92, 0x45, 0xd5, 0xeb, 0x8b, 0x9b, 0x3c, 0xd8,
++			0xaa, 0xc7, 0xd2, 0x2b, 0x04, 0xab, 0xb3, 0x35,
++		},
++	},
++	{
++		.data_len = 511,
++		.digest = {
++			0x7f, 0xe1, 0x09, 0x78, 0x5d, 0x61, 0xfa, 0x5e,
++			0x9b, 0x8c, 0xb1, 0xa9, 0x09, 0x69, 0xb4, 0x24,
++			0x54, 0xf2, 0x1c, 0xc9, 0x5f, 0xfb, 0x59, 0x9d,
++			0x36, 0x1b, 0x37, 0x44, 0xfc, 0x64, 0x79, 0xb6,
++		},
++	},
++	{
++		.data_len = 513,
++		.digest = {
++			0xd2, 0x3b, 0x3a, 0xe7, 0x13, 0x4f, 0xbd, 0x29,
++			0x6b, 0xd2, 0x79, 0x26, 0x6c, 0xd2, 0x22, 0x43,
++			0x25, 0x34, 0x9b, 0x9b, 0x22, 0xb0, 0x9f, 0x61,
++			0x1d, 0xf4, 0xe2, 0x65, 0x68, 0x95, 0x02, 0x6c,
++		},
++	},
++	{
++		.data_len = 1000,
++		.digest = {
++			0x0c, 0x34, 0x53, 0x3f, 0x0f, 0x8a, 0x39, 0x8d,
++			0x63, 0xe4, 0x83, 0x6e, 0x11, 0x7d, 0x14, 0x8e,
++			0x5b, 0xf0, 0x4d, 0xca, 0x23, 0x24, 0xb5, 0xd2,
++			0x13, 0x3f, 0xd9, 0xde, 0x84, 0x74, 0x26, 0x59,
++		},
++	},
++	{
++		.data_len = 3333,
++		.digest = {
++			0xa8, 0xb8, 0x83, 0x01, 0x1b, 0x38, 0x7a, 0xca,
++			0x59, 0xe9, 0x5b, 0x37, 0x6a, 0xab, 0xb4, 0x85,
++			0x94, 0x73, 0x26, 0x04, 0xef, 0xed, 0xf4, 0x0d,
++			0xd6, 0x09, 0x21, 0x09, 0x96, 0x78, 0xe3, 0xcf,
++		},
++	},
++	{
++		.data_len = 4096,
++		.digest = {
++			0x0b, 0x12, 0x66, 0x96, 0x78, 0x4f, 0x2c, 0x35,
++			0xa4, 0xed, 0xbc, 0xb8, 0x30, 0xa6, 0x37, 0x9b,
++			0x94, 0x13, 0xae, 0x86, 0xf0, 0x20, 0xfb, 0x49,
++			0x8f, 0x5d, 0x20, 0x70, 0x60, 0x2b, 0x02, 0x70,
++		},
++	},
++	{
++		.data_len = 4128,
++		.digest = {
++			0xe4, 0xbd, 0xe4, 0x3b, 0x85, 0xf4, 0x6f, 0x11,
++			0xad, 0xc4, 0x79, 0xcc, 0x8e, 0x6d, 0x8b, 0x15,
++			0xbb, 0xf9, 0xd3, 0x65, 0xe1, 0xf8, 0x8d, 0x22,
++			0x65, 0x66, 0x66, 0xb3, 0xf5, 0xd0, 0x9c, 0xaf,
++		},
++	},
++	{
++		.data_len = 4160,
++		.digest = {
++			0x90, 0x5f, 0xe0, 0xfc, 0xb1, 0xdc, 0x38, 0x1b,
++			0xe5, 0x37, 0x3f, 0xd2, 0xcc, 0x48, 0xc4, 0xbc,
++			0xb4, 0xfd, 0xf7, 0x71, 0x5f, 0x6b, 0xf4, 0xc4,
++			0xa6, 0x08, 0x7e, 0xfc, 0x4e, 0x96, 0xf7, 0xc2,
++		},
++	},
++	{
++		.data_len = 4224,
++		.digest = {
++			0x1f, 0x34, 0x0a, 0x3b, 0xdb, 0xf7, 0x7a, 0xdb,
++			0x3d, 0x89, 0x85, 0x0c, 0xd2, 0xf0, 0x0c, 0xbd,
++			0x25, 0x39, 0x14, 0x06, 0x28, 0x0f, 0x6b, 0x5f,
++			0xe3, 0x1f, 0x2a, 0xb6, 0xca, 0x56, 0x41, 0xa1,
++		},
++	},
++	{
++		.data_len = 16384,
++		.digest = {
++			0x7b, 0x01, 0x2d, 0x84, 0x70, 0xee, 0xe0, 0x77,
++			0x3c, 0x17, 0x63, 0xfe, 0x40, 0xd7, 0xfd, 0xa1,
++			0x75, 0x90, 0xb8, 0x3e, 0x50, 0xcd, 0x06, 0xb7,
++			0xb9, 0xb9, 0x2b, 0x91, 0x4f, 0xba, 0xe4, 0x4c,
++		},
++	},
++};
+diff --git a/lib/crypto/tests/sha256_kunit.c b/lib/crypto/tests/sha256_kunit.c
+new file mode 100644
+index 0000000000000..4002acfbe66b0
+--- /dev/null
++++ b/lib/crypto/tests/sha256_kunit.c
+@@ -0,0 +1,39 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright 2025 Google LLC
++ */
++#include <crypto/sha2.h>
++#include "sha256-testvecs.h"
++
++#define HASH sha256
++#define HASH_CTX sha256_state
++#define HASH_SIZE SHA256_DIGEST_SIZE
++#define HASH_INIT sha256_init
++#define HASH_UPDATE sha256_update
++#define HASH_FINAL sha256_final
++#define HASH_TESTVECS sha256_testvecs
++/* TODO: add HMAC-SHA256 support to the library, then enable the tests for it */
++#include "hash-test-template.h"
++
++static struct kunit_case hash_test_cases[] = {
++	KUNIT_CASE(test_hash_test_vectors),
++	KUNIT_CASE(test_hash_incremental_updates),
++	KUNIT_CASE(test_hash_buffer_overruns),
++	KUNIT_CASE(test_hash_overlaps),
++	KUNIT_CASE(test_hash_alignment_consistency),
++	KUNIT_CASE(test_hash_interrupt_context),
++	KUNIT_CASE(test_hash_ctx_zeroization),
++	KUNIT_CASE(benchmark_hash),
++	{},
++};
++
++static struct kunit_suite hash_test_suite = {
++	.name = "sha256",
++	.test_cases = hash_test_cases,
++	.suite_init = hash_suite_init,
++	.suite_exit = hash_suite_exit,
++};
++kunit_test_suite(hash_test_suite);
++
++MODULE_DESCRIPTION("KUnit tests and benchmark for SHA-256");
++MODULE_LICENSE("GPL");
 -- 
 2.49.0
 
