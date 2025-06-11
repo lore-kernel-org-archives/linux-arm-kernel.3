@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501A0C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 01:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B4BC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 01:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IVORzZ3WtABPA4nL5djBdFQBg9zHlAGlDI6miaVMwbQ=; b=i/uIIMtGPrWDPmMCE6kjQhMT5p
-	w0Wo5K+B16xFOeQFcaZFuk51bbYXzyYu4hmsWBRaltYRXR7df8cp5Z76+mULjrO1ZdjFeOtrT0JVq
-	1wNnMsMu4nF2NRpIB4n6ZadzN5ReOyqfxWE9xc99NOZA6aHpIX9CLRaDtf/CJC6i1OXJR1kSWraFf
-	ALzPpbR88jc7iUZXPUcPXtuGraGSJtW0fYSU1Orde7ZtmRoFh+Wv4Z2Hx7cja7RVgdg5wRrO6+/b4
-	IBBV597jhQ+SUZsu9APdTz3cXL+kOUf1rcX37/6t25ma1td2YO5IsoHv4rB8/yYzZ+H4ygUbfD09R
-	llPvjYRA==;
+	bh=eWPqxy/EcaIBVD9x6tvhc+E9e7T+tuW/T8x9vMu/aCc=; b=e5OVDiiAdjl7MvbmYxEjvDp2i3
+	xQpmoxNhxMwmLBEAMvVDmCtciY3xzTTTFLtNXdFJ2xIH80zlki8ktEx2cIoSFezfl/QbWuxo2qzRv
+	IvZbyGXgRZ10OwNbwZ8UhhBGt5s52h35aF/jeMLuAXM/Y99WD6nBjYTxCetDd68nju6FcqX7K7jPC
+	vO2c0xYuZl/WOBUMYZz02CsxuuQ9DWFmhG08tbu9OceBzlwgTwClRX/jrtsQvecfrOWJi+sPiaNO5
+	FHNhG/N9KxDdhi1rLSc+RZjXCCzrQGUWsUn+4jSeEPwXS7vcDsvEvj4wpWp2iD4H+WFMS71IpptFV
+	M9UVLLMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPWaQ-0000000Bs2F-04Rj;
-	Thu, 12 Jun 2025 01:18:34 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uPWcV-0000000Bs8C-2wAP;
+	Thu, 12 Jun 2025 01:20:43 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUEZ-0000000BXUb-44Xc
+	id 1uPUEb-0000000BXVV-3dXi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 22:47:53 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-30a59538b17so291516a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:51 -0700 (PDT)
+	Wed, 11 Jun 2025 22:47:54 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747d143117eso252750b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749682071; x=1750286871; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749682072; x=1750286872; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=IVORzZ3WtABPA4nL5djBdFQBg9zHlAGlDI6miaVMwbQ=;
-        b=4WM4D/dL0DwFOR8Ie4rCDlY/d0UKBPrfW45ZjfI2NRe3lBE56S4B0niBT9BUHrR6gk
-         V4ajtXKm2DlemA5/5hrViPHssL3szZri+u9GFCZ/DD1oQnCszd0u2l9r2cXNHYYvc/0c
-         vVyoE+FgDebQNG5YFIgumvQnUDg3wzmrcVx3s7azamU8Gk99hCQuR/XbKjRXM4YycLGG
-         m6SK2g0z0WwNSW3/q4k7h5aIiZH3kQLmSLxPjYofDC1z1c1rYm6DlyUouRg6U2Ezduk9
-         Gc0ee+HkY+rBN07/ydAHdeVALtjLxiEBve7ncBENX/CMJd2tkKd0SvHalwI9DjVOwsWr
-         WvNw==
+        bh=eWPqxy/EcaIBVD9x6tvhc+E9e7T+tuW/T8x9vMu/aCc=;
+        b=lo57kKKkB8F2YRqNIT6WHZsKWVJpuly3+Mqyb8irJAvUS/sqPPc1o8r6oJNLq9BihN
+         pVzk4SQygUzhLIrsclpQGXPiskK0oaqvp4XUG2d19DL67t+BCDF+gqZ1DItyczBhdOoO
+         OWcYLEHIv458QB8i+yx9tqe8dsrRwjPC6FZVZmN8NDfyEepo5wWlKQgI7XXisDWZhdfa
+         1jEGmLtPJj5YtlGVFbg14603ctQliw0eGdsM05b+HYpTSa3+KyjL8hpYoqoqNeIdWmuU
+         pxOF5DeZNArNgtYqeF26YusiFXvFu9e0Wdp12aVYwQ1TzHu1flvFaGhQIbr37Z++PkzQ
+         sLuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749682071; x=1750286871;
+        d=1e100.net; s=20230601; t=1749682072; x=1750286872;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IVORzZ3WtABPA4nL5djBdFQBg9zHlAGlDI6miaVMwbQ=;
-        b=f7tjAVwUqYYSNSfKuWwUbp2w+C2ZMAAVFuUYTBQDdfajve6UCv9P19TTjXOgGxjoYV
-         r6B5RTQODcdLYw4vfR2ZeEIqiNAV+Pqprb/Xxh6hgBEb6eoMWWNt2vQ0wIXl+OXeBLuA
-         CbZYL3+6Flv1bfXn3QgGGdaXqwHsYfnLlEQ1XKS40gBp6RSDWaXJqENmkp16cl4KRurd
-         58lIjJZ3nEYyA6dcr7VB3BDfIcr5ODgLXYfuHX53Nzpwz4S282qOnm0JqQjAoHXYXvQy
-         dLM8I+yb7/NpGI8bDqfy94BW7V65Zk4CL6nikSqLeI4Z2wtviKwRulD8LrIeJX8NX6Ew
-         NyWg==
-X-Gm-Message-State: AOJu0YwditzHPTvn+zoL2EmMeK2iZM902pixWfikK5xZSh+oh98lteaS
-	rfOCZMohFJg/UpJbh0fGAH18/VJk505x3wEDr3jI4JHGWE2aqDFZky3yBG4eKOhpjtpWaydxKZO
-	y3wm7Zg==
-X-Google-Smtp-Source: AGHT+IHL9/OcJTEGPKZiKOBxCN3k4QlrTLAqBQPtsp7OZWVMLJS3qoHaHW8s60G6klv+4Oa8JxHOL5bk6d0=
-X-Received: from pjbpq18.prod.google.com ([2002:a17:90b:3d92:b0:2e0:915d:d594])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3952:b0:30e:9349:2da2
- with SMTP id 98e67ed59e1d1-313af0fd336mr6600558a91.4.1749682070803; Wed, 11
- Jun 2025 15:47:50 -0700 (PDT)
-Date: Wed, 11 Jun 2025 15:45:35 -0700
+        bh=eWPqxy/EcaIBVD9x6tvhc+E9e7T+tuW/T8x9vMu/aCc=;
+        b=a/iaEYfhlFewbz0tow6fQmSfsygEjJOzm9IWO1U0+HK4Y19mf/0MYUHM4yKf5bBlA9
+         G29x/CnSmiiM1SWAiLAg5znJiXlnl1FROqPuf7NmUQTyh9qcRlAfay2mGWuNxdUWzWgN
+         ZMxzG0cdkNPB9nO+AMbspJ+daEmfgK+/BRTiq8xWxDe2JeYJ9EUxpD0AqaZ44Q2aFQ9s
+         IhRJQH53WQcHnEplURXNMEXnHCsZT4nNgvV05WNRdnowJjdIbUdO2IyMOL5J/Ap5TcBh
+         38kbdhCzAukrxTttVLvM6EAbt0aRXwRsmbwGxPL3KwsihKdNPe3t/suuJkuWeP00jcrv
+         NGvQ==
+X-Gm-Message-State: AOJu0YzCnEnXsWN+q4m5TMRS/7nFV6vXxK8p2OUbhpwgkdt3jxIZ2VPX
+	q5d2LmXf5k3JTW/H1vLSL92bJfxkPRCzznJIyBcz+KnkzOkO3p0o7WKZnsKR7I1hL1zdti+8liM
+	4i+DUJQ==
+X-Google-Smtp-Source: AGHT+IGEG5h+XdvBZsfOP4WIVoU6EIbIQoZeJBB+YTLPLiy+efdbc+9aZGANnnVVnd62MBQByP1coVKnSpY=
+X-Received: from pfbhj8.prod.google.com ([2002:a05:6a00:8708:b0:746:2747:e782])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:22cf:b0:748:2ebf:7418
+ with SMTP id d2e1a72fcca58-7487e2dc74dmr987606b3a.24.1749682072521; Wed, 11
+ Jun 2025 15:47:52 -0700 (PDT)
+Date: Wed, 11 Jun 2025 15:45:36 -0700
 In-Reply-To: <20250611224604.313496-2-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250611224604.313496-2-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-Message-ID: <20250611224604.313496-34-seanjc@google.com>
-Subject: [PATCH v3 32/62] KVM: Don't WARN if updating IRQ bypass route fails
+Message-ID: <20250611224604.313496-35-seanjc@google.com>
+Subject: [PATCH v3 33/62] KVM: Fold kvm_arch_irqfd_route_changed() into kvm_arch_update_irqfd_routing()
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
@@ -78,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_154752_017709_08A82D73 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250611_154753_907021_DBA152C6 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,163 +95,117 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don't bother WARNing if updating an IRTE route fails now that vendor code
-provides much more precise WARNs.  The generic WARN doesn't provide enough
-information to actually debug the problem, and has obviously done nothing
-to surface the myriad bugs in KVM x86's implementation.
-
-Drop all of the associated return code plumbing that existed just so that
-common KVM could WARN.
+Fold kvm_arch_irqfd_route_changed() into kvm_arch_update_irqfd_routing().
+Calling arch code to know whether or not to call arch code is absurd.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/arm64/kvm/arm.c          |  6 +++---
- arch/arm64/kvm/vgic/vgic-v4.c | 11 ++++-------
- arch/x86/kvm/irq.c            |  8 ++++----
- include/kvm/arm_vgic.h        |  2 +-
- include/linux/kvm_host.h      |  6 +++---
- virt/kvm/eventfd.c            | 15 ++++++---------
- 6 files changed, 21 insertions(+), 27 deletions(-)
+ arch/arm64/kvm/arm.c     | 15 +++++----------
+ arch/x86/kvm/irq.c       | 15 +++++----------
+ include/linux/kvm_host.h |  2 --
+ virt/kvm/eventfd.c       | 10 +---------
+ 4 files changed, 11 insertions(+), 31 deletions(-)
 
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index a9a39e0375f7..94fb2f096a20 100644
+index 94fb2f096a20..04f2116927b1 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -2771,9 +2771,9 @@ bool kvm_arch_irqfd_route_changed(struct kvm_kernel_irq_routing_entry *old,
- 	return memcmp(&old->msi, &new->msi, sizeof(new->msi));
+@@ -2761,20 +2761,15 @@ void kvm_arch_irq_bypass_del_producer(struct irq_bypass_consumer *cons,
+ 	kvm_vgic_v4_unset_forwarding(irqfd->kvm, prod->irq);
  }
  
--int kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
--				  struct kvm_kernel_irq_routing_entry *old,
+-bool kvm_arch_irqfd_route_changed(struct kvm_kernel_irq_routing_entry *old,
 -				  struct kvm_kernel_irq_routing_entry *new)
-+void kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
-+				   struct kvm_kernel_irq_routing_entry *old,
-+				   struct kvm_kernel_irq_routing_entry *new)
+-{
+-	if (old->type != KVM_IRQ_ROUTING_MSI ||
+-	    new->type != KVM_IRQ_ROUTING_MSI)
+-		return true;
+-
+-	return memcmp(&old->msi, &new->msi, sizeof(new->msi));
+-}
+-
+ void kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
+ 				   struct kvm_kernel_irq_routing_entry *old,
+ 				   struct kvm_kernel_irq_routing_entry *new)
  {
++	if (old->type == KVM_IRQ_ROUTING_MSI &&
++	    new->type == KVM_IRQ_ROUTING_MSI &&
++	    !memcmp(&old->msi, &new->msi, sizeof(new->msi)))
++		return;
++
  	/*
  	 * Remapping the vLPI requires taking the its_lock mutex to resolve
-diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
-index 86e54cefc237..5e59a3f5d4c9 100644
---- a/arch/arm64/kvm/vgic/vgic-v4.c
-+++ b/arch/arm64/kvm/vgic/vgic-v4.c
-@@ -527,29 +527,26 @@ static struct vgic_irq *__vgic_host_irq_get_vlpi(struct kvm *kvm, int host_irq)
- 	return NULL;
- }
- 
--int kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq)
-+void kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq)
- {
- 	struct vgic_irq *irq;
- 	unsigned long flags;
--	int ret = 0;
- 
- 	if (!vgic_supports_direct_msis(kvm))
--		return 0;
-+		return;
- 
- 	irq = __vgic_host_irq_get_vlpi(kvm, host_irq);
- 	if (!irq)
--		return 0;
-+		return;
- 
- 	raw_spin_lock_irqsave(&irq->irq_lock, flags);
- 	WARN_ON(irq->hw && irq->host_irq != host_irq);
- 	if (irq->hw) {
- 		atomic_dec(&irq->target_vcpu->arch.vgic_cpu.vgic_v3.its_vpe.vlpi_count);
- 		irq->hw = false;
--		ret = its_unmap_vlpi(host_irq);
--		WARN_ON_ONCE(ret);
-+		WARN_ON_ONCE(its_unmap_vlpi(host_irq));
- 	}
- 
- 	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
- 	vgic_put_irq(kvm, irq);
--	return ret;
- }
+ 	 * the new translation. We're in spinlock land at this point, so no
 diff --git a/arch/x86/kvm/irq.c b/arch/x86/kvm/irq.c
-index ec13d1d7706d..adc250ca1171 100644
+index adc250ca1171..48134aebb541 100644
 --- a/arch/x86/kvm/irq.c
 +++ b/arch/x86/kvm/irq.c
-@@ -606,11 +606,11 @@ void kvm_arch_irq_bypass_del_producer(struct irq_bypass_consumer *cons,
- 	kvm_arch_end_assignment(irqfd->kvm);
- }
- 
--int kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
--				  struct kvm_kernel_irq_routing_entry *old,
--				  struct kvm_kernel_irq_routing_entry *new)
-+void kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
-+				   struct kvm_kernel_irq_routing_entry *old,
-+				   struct kvm_kernel_irq_routing_entry *new)
+@@ -610,19 +610,14 @@ void kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
+ 				   struct kvm_kernel_irq_routing_entry *old,
+ 				   struct kvm_kernel_irq_routing_entry *new)
  {
--	return kvm_pi_update_irte(irqfd, new);
-+	kvm_pi_update_irte(irqfd, new);
++	if (old->type == KVM_IRQ_ROUTING_MSI &&
++	    new->type == KVM_IRQ_ROUTING_MSI &&
++	    !memcmp(&old->msi, &new->msi, sizeof(new->msi)))
++		return;
++
+ 	kvm_pi_update_irte(irqfd, new);
  }
  
- bool kvm_arch_irqfd_route_changed(struct kvm_kernel_irq_routing_entry *old,
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 4a34f7f0a864..b2a04481de1a 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -434,7 +434,7 @@ struct kvm_kernel_irq_routing_entry;
- int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int irq,
- 			       struct kvm_kernel_irq_routing_entry *irq_entry);
- 
--int kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq);
-+void kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq);
- 
- int vgic_v4_load(struct kvm_vcpu *vcpu);
- void vgic_v4_commit(struct kvm_vcpu *vcpu);
+-bool kvm_arch_irqfd_route_changed(struct kvm_kernel_irq_routing_entry *old,
+-				  struct kvm_kernel_irq_routing_entry *new)
+-{
+-	if (old->type != KVM_IRQ_ROUTING_MSI ||
+-	    new->type != KVM_IRQ_ROUTING_MSI)
+-		return true;
+-
+-	return !!memcmp(&old->msi, &new->msi, sizeof(new->msi));
+-}
+-
+ #ifdef CONFIG_KVM_IOAPIC
+ #define IOAPIC_ROUTING_ENTRY(irq) \
+ 	{ .gsi = irq, .type = KVM_IRQ_ROUTING_IRQCHIP,	\
 diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index a4160c1c0c6b..8e74ac0f90b1 100644
+index 8e74ac0f90b1..fb9ec06aa807 100644
 --- a/include/linux/kvm_host.h
 +++ b/include/linux/kvm_host.h
-@@ -2410,9 +2410,9 @@ void kvm_arch_irq_bypass_del_producer(struct irq_bypass_consumer *,
- 			   struct irq_bypass_producer *);
- void kvm_arch_irq_bypass_stop(struct irq_bypass_consumer *);
- void kvm_arch_irq_bypass_start(struct irq_bypass_consumer *);
--int kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
--				  struct kvm_kernel_irq_routing_entry *old,
--				  struct kvm_kernel_irq_routing_entry *new);
-+void kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
-+				   struct kvm_kernel_irq_routing_entry *old,
-+				   struct kvm_kernel_irq_routing_entry *new);
- bool kvm_arch_irqfd_route_changed(struct kvm_kernel_irq_routing_entry *,
- 				  struct kvm_kernel_irq_routing_entry *);
+@@ -2413,8 +2413,6 @@ void kvm_arch_irq_bypass_start(struct irq_bypass_consumer *);
+ void kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
+ 				   struct kvm_kernel_irq_routing_entry *old,
+ 				   struct kvm_kernel_irq_routing_entry *new);
+-bool kvm_arch_irqfd_route_changed(struct kvm_kernel_irq_routing_entry *,
+-				  struct kvm_kernel_irq_routing_entry *);
  #endif /* CONFIG_HAVE_KVM_IRQ_BYPASS */
+ 
+ #ifdef CONFIG_HAVE_KVM_INVALID_WAKEUPS
 diff --git a/virt/kvm/eventfd.c b/virt/kvm/eventfd.c
-index 85581550dc8d..a4f80fe8a5f3 100644
+index a4f80fe8a5f3..defc2c04d241 100644
 --- a/virt/kvm/eventfd.c
 +++ b/virt/kvm/eventfd.c
-@@ -285,11 +285,11 @@ void __attribute__((weak)) kvm_arch_irq_bypass_start(
+@@ -291,13 +291,6 @@ void __weak kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
  {
- }
  
--int __weak kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
--					 struct kvm_kernel_irq_routing_entry *old,
--					 struct kvm_kernel_irq_routing_entry *new)
-+void __weak kvm_arch_update_irqfd_routing(struct kvm_kernel_irqfd *irqfd,
-+					  struct kvm_kernel_irq_routing_entry *old,
-+					  struct kvm_kernel_irq_routing_entry *new)
- {
--	return 0;
-+
  }
+-
+-bool __attribute__((weak)) kvm_arch_irqfd_route_changed(
+-				struct kvm_kernel_irq_routing_entry *old,
+-				struct kvm_kernel_irq_routing_entry *new)
+-{
+-	return true;
+-}
+ #endif
  
- bool __attribute__((weak)) kvm_arch_irqfd_route_changed(
-@@ -618,11 +618,8 @@ void kvm_irq_routing_update(struct kvm *kvm)
+ static int
+@@ -617,8 +610,7 @@ void kvm_irq_routing_update(struct kvm *kvm)
+ 		irqfd_update(kvm, irqfd);
  
  #if IS_ENABLED(CONFIG_HAVE_KVM_IRQ_BYPASS)
- 		if (irqfd->producer &&
--		    kvm_arch_irqfd_route_changed(&old, &irqfd->irq_entry)) {
--			int ret = kvm_arch_update_irqfd_routing(irqfd, &old, &irqfd->irq_entry);
--
--			WARN_ON(ret);
--		}
-+		    kvm_arch_irqfd_route_changed(&old, &irqfd->irq_entry))
-+			kvm_arch_update_irqfd_routing(irqfd, &old, &irqfd->irq_entry);
+-		if (irqfd->producer &&
+-		    kvm_arch_irqfd_route_changed(&old, &irqfd->irq_entry))
++		if (irqfd->producer)
+ 			kvm_arch_update_irqfd_routing(irqfd, &old, &irqfd->irq_entry);
  #endif
  	}
- 
 -- 
 2.50.0.rc1.591.g9c95f17f64-goog
 
