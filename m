@@ -4,87 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F9CC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923A7C71133
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TDp48bHsNLwefkivp6ahRNAatvlYx+YYOHXw2V7efvw=; b=CFge1JAHM7p8k8fc7sBtFi2QjR
-	xvhs9hbOX1+Q7/pJTu6RuFTVyHryLHnd52sME2YlMA5gnmedlvS1WiaLZZmZ+19WRZ8qcKbIWpbJj
-	u4kPDJ/HDLGu2kd9xyTzSl1q1mbEJ1KV/CYQA3jxMUSbEuzRS6emecuWegJhzSoQJTSI1gmVuZ+o9
-	6CQG55QuZBxGHIa7JAhlLPPyvntVoPo8H3f+wrRmNx1H49PlzD0Dl6F581LircmgFOYd4ujPjHN9W
-	Wch23+5dsSKbFJGYus8aGvx+Sj4/LeeNdqD1CIbUzvUZMhXqBqOMX3izux2h64yPXERZMigX5OmY3
-	dM4I3I6w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1fZ+iceq3RPjXWpAsNdBQALGaGO5Tot/BSmkCc/YjWM=; b=bS+6DtNME2HsyiOHVLlaEkQN8+
+	kI8yEvV8vh31BHYTBi57GxO1vyeegbyIe0EHzkIcc4Q62dwJK5qcufNEr1Qt64/mnkVemDGb1buDm
+	5Me721w7hJ7E2pqgdhxtSV72VBBPXAfSEuX/7QZBDmOktOtma6arq3rXowy/MkpM35MWPXorUdxeZ
+	vJtX6jLcAzNl+4AahCsw2gs3SNyE71AwWBUBtlDcEJSmYCGs0UcnkRuztcsO0jE+3mMG2WKv8Ndfs
+	3cfaj0C3+A1pq4tgDUG4xqtgL6rIkhcvqhmUsNZRE+iC4CwD3nzNfnMUx+svhwM41AVRHfQCh0rWw
+	kHI35f2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNn1-0000000AUfp-163O;
-	Wed, 11 Jun 2025 15:54:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPNn6-0000000AUnc-23GD;
+	Wed, 11 Jun 2025 15:55:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJJP-00000009i70-3ofu;
-	Wed, 11 Jun 2025 11:08:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=TDp48bHsNLwefkivp6ahRNAatvlYx+YYOHXw2V7efvw=; b=nNWzNDZUli1TAaSj7QXb00FssX
-	xqc584IW9SfZNSieKZ7STukyDv5AS4B4pFoXFjS2dv56d9n7gJS3CKKfQ2iUnq0kP2B4sEHe5Zwc8
-	jup23IVRJlGQM9OzxgJOSfYofcvcV2YtlSq2bJ9jGejVP8k9VmpxbNnFfrZ5qqs0BF+bvBwBKvZgX
-	JmZ+/xOROu2ig91ZifJE8ypdssO0gkgLD2KUhwch8UAx5AUGSjGt4HeP4LqSa9mIZFHMQMozFIRnV
-	XPmkxA//H+zM741plAOqle2DR6A2gmZKzIcThYo0vCt+ptEYAdM3ORDYah8emkrlulhxQi6ZU2qAZ
-	tqjvOkSA==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJJO-00000002K95-0ZXk;
-	Wed, 11 Jun 2025 11:08:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749640083;
-	bh=/xBjPL/xGn4SpJ0kMI0oUuAtTggcop7AzvAQx8nzDEE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=DVRxKKgjCYzZW5IGdrBD3dFdWi2lJr1Do5BFXYmFzY8FENT6+SiswcLtaSfgrWUpm
-	 ij66oinROpTyHf+x0xkFwwFPEjFCvNB6Y9M9nCgNjWUupd062WkkrrSp/LTfHE211f
-	 DtTtUNHh4lz1QGkpioI/b4R0icccl5Ocir0JmJhic6vbbadtF5fvvPClkn196aMa8t
-	 G3ESDfJWDnJdf5SB4NRc74oohyLDm0Tvln+wwmXIdhKAcTmd12kVhkpvUPWpEl0rI5
-	 JKegGO/uQCwEX7o+SpALAjZeEA6Ccd72ob+LC3pWiNkBXblHtZ32WNeseNE6I1Er3F
-	 ebKGRyNJJhAYQ==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AF64717E0536;
-	Wed, 11 Jun 2025 13:08:02 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: devicetree@vger.kernel.org
-Cc: qii.wang@mediatek.com,
-	andi.shyti@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	daniel.lezcano@linaro.org,
-	tglx@linutronix.de,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	kernel@collabora.com
-Subject: [PATCH 0/3] Add MT8196 compatibles to bindings
-Date: Wed, 11 Jun 2025 13:07:57 +0200
-Message-ID: <20250611110800.458164-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.49.0
+	id 1uPJaZ-00000009k2t-19QT
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Jun 2025 11:25:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 79D80A50A6A;
+	Wed, 11 Jun 2025 11:25:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B14BFC4CEEE;
+	Wed, 11 Jun 2025 11:25:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749641150;
+	bh=1fZ+iceq3RPjXWpAsNdBQALGaGO5Tot/BSmkCc/YjWM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RQzubqUj7ApoX0vizvn2DXbNxCOpNjDNCC3JNSjLHPGxM9KYccS7o/lKlZmNy4/B6
+	 DTEgGXTvAkRJ3uPAaB0C1WYOdLtqFyDDbB+XABhfvEu4nW6x7RkWVC7c7bH3f6LiOi
+	 zJZnEmM1YiWo0V4xjrk7NsMDIiBn8o1J2nIT1UaG/ONtW7x4L1VRBeCwlVu7Kvxvid
+	 WmN9vWQQNoRXqQJZDhrb8knyPprdNvCeayD7I4iGGDyx+Uh0G0KPAV7DAYMvE7InnZ
+	 JvUVTOpJn0AtAHWo1OLttS3hdlRVGElw38m228Ze3Clfl9u7kJaVLFl3n5vImMhtD2
+	 pF+INMBkrmVOA==
+Message-ID: <810f7614-ed73-471e-bc5b-3305816737da@kernel.org>
+Date: Wed, 11 Jun 2025 13:25:42 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] arm64: defconfig: Enable X1P42100_GPUCC driver
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+ Konrad Dybcio <konradybcio@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
+ Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-pm@vger.kernel.org
+References: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
+ <20250611-x1p-adreno-v2-2-5074907bebbd@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250611-x1p-adreno-v2-2-5074907bebbd@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_120806_298629_11F7E0F0 
-X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-CacheID: sfid-20250611_042551_451378_DB9539D4 
+X-CRM114-Status: UNSURE (   6.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,20 +131,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds compatibles for MT8196 (Chromebooks) and MT6991
-(Smartphones) for HW that is fully compatible with older SoCs.
+On 11/06/2025 13:15, Akhil P Oommen wrote:
+> In order to enable GPU support in Snapdragon X1P42100
+> (8 CPU core version found on Asus Zenbook A14 and other
 
-AngeloGioacchino Del Regno (3):
-  dt-bindings: timer: mediatek,timer: Add MediaTek MT8196 compatible
-  dt-bindings: serial: mediatek,uart: Add compatible for MT8196
-  dt-bindings: i2c: i2c-mt65xx: Add MediaTek MT8196/6991 compatibles
+There is no A14 upstream board DTS in next. Your commit msg should
+provide rationale for this, e.g. which upstream boards use this driver.
 
- Documentation/devicetree/bindings/i2c/i2c-mt65xx.yaml       | 5 +++++
- Documentation/devicetree/bindings/serial/mediatek,uart.yaml | 1 +
- Documentation/devicetree/bindings/timer/mediatek,timer.yaml | 1 +
- 3 files changed, 7 insertions(+)
-
--- 
-2.49.0
-
+Best regards,
+Krzysztof
 
