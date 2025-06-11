@@ -4,196 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801F3C71141
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4ACC7113E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HXi7aLsPj8QWxCTj5iv65ovO2CSRHFxsVUyDqQFFYE4=; b=VpPo+Fi3+U0zos6k/IA9+d9YLU
-	DhpdQ7t3wRm6qfxQ9kJN7Rt41WaCAPWAh0kP6RceHLJgpluMrWqOHENI9BK+wvnqLXxZG1Dr94K1T
-	2eE4dMxvFM8WJ7+doys7pxJpB20RvewddIsCjpOO7pJyol/u+q1XbaBaOkOOO1GnmUexjUl1degKG
-	nfkLYEMa+nE2gmr8MqomZANqcHw+fHjEUF88oMDoLJzpoORjTgDII1SB7fJ60S/J/b7kZBgykKrx+
-	NMxjuY2QXqS2eIy9Tk3aHSIjDI34yLtaODVyM+WRglmTbdeV29pLLhgzF0eajn6Xdkv/2ab/8dXah
-	3UUjkqfA==;
+	bh=Wr3U/7KIrYRZEMPcxW4wcvOz6XyjW9xFQnlNqIsvj/E=; b=q02lfqkwsY0DNctP2pJjt594yj
+	+ylYXsgmbwipYvOhsV38SqLtfBWv29+rZeDPPP/t7Aa+0sdEOgsexsjrPZNewA7KfG7DGc6pnJhbH
+	nTKvcsLa1G5Wbz1DAQ4bbdnx5HKnjNjq8FwXIOEg4eiT+n3jRiYnu0hJ/xmJBgF3T9zm0t9TF+Nz8
+	kmEIhs9PGLheHB8Nd5qsFrKthcatYUrkQ3tiQ30aftTEk+MrSAvp7WfptPXNPgN7uDfyrM5MPVSzM
+	heOhBkAVvonRBPBHRs1QjBrnyWd67LJ2EzqLTMO0NUuoxcC/5ZAmYPTsiEJgxsnOyZIjV7fxXipiG
+	ThsGaN4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRW4-0000000B0iN-27zT;
-	Wed, 11 Jun 2025 19:53:44 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uPRW7-0000000B0mP-22ny;
+	Wed, 11 Jun 2025 19:53:47 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPM9a-0000000A3Sk-35Bw
+	id 1uPMEI-0000000A4Q2-34NB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 14:10:11 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=qRrwIrvfkj9DcaRHP+WkqjNukEKUqn9bdk9n9ACc3sLBDE+poWzu93IUshS1YWn8UQsLmWdczvggQls/rDJynqw9KyA8wQ0e3/AQNFFdDtOqDkq7ZhAWiQTvFTOVwu/kJ8Qw+h9CuQYUeij9asMFJlBxAJ5aO7YZYjVptJT5rApN8c06DyHDERkjDWTtqZaW+mfjMWjK9rHpxAFPs8wBiYkhfWTGya5tZgfgOWKDsvWQ0F/bJJE7lO820wHl/iWgvHQXCCXyg5zHCahVhgvPfxIi3JVS/1MT/iGtzqPKsdzPmmBN3sk6IBsFTBriEtNwMb4+07MN9+PacuSe9eJ9Rg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HXi7aLsPj8QWxCTj5iv65ovO2CSRHFxsVUyDqQFFYE4=;
- b=ZPgy3iv4nT75wnQnFMe8LWY/Ysu23gD+GZRIxF56JlnItpmjebV7GpcQUSrMgyKL+hFPyUoV7Y6VVMzE/HEnirc1QZRgSVj0ZPVMd0M6Tl4wVV3AiXibitlQkzrjkwFaE5pXPVP+53/Z6lDGycTdItjNQfUZ8i17YkqgcDLCQA8xDjf6gvEOw4faai+cqwUlXahVyJ0JBKLYbgUR8UBI8iyBSTEhxGDQmfEOOwJKB0lA7su0HB9KvxlOmIyHmjmNgVjxrgtBNTxFtSq9RswicYayaaps1RTESoWILdn3bRMWqNPI/EDr5FnP8cX8Y+qlUIWyjDPSUAxMY4VN2PMfCg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HXi7aLsPj8QWxCTj5iv65ovO2CSRHFxsVUyDqQFFYE4=;
- b=KIBEf3av7M4vkp1pTf3tFawNq3T1r1DqsYqCQP8RS+WNNe6pQD8zDoftzwMJq5VJT3VsXkOcQbL7+IUvAixRrOFWFLEY6IGAZ/4OZWKGX/Vyx2XOmuPOKI/wkcI+QP529nDpc1smTdCFuvANms9ddC6FI98KNZvBXgb2X7HUX7Q=
-Received: from AM6PR0502CA0044.eurprd05.prod.outlook.com
- (2603:10a6:20b:56::21) by DB3PR08MB8820.eurprd08.prod.outlook.com
- (2603:10a6:10:438::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Wed, 11 Jun
- 2025 14:10:01 +0000
-Received: from AM3PEPF0000A79A.eurprd04.prod.outlook.com
- (2603:10a6:20b:56:cafe::5a) by AM6PR0502CA0044.outlook.office365.com
- (2603:10a6:20b:56::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Wed,
- 11 Jun 2025 14:10:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF0000A79A.mail.protection.outlook.com (10.167.16.105) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
- via Frontend Transport; Wed, 11 Jun 2025 14:09:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ma8j/mvmPO8biSDgaiaCJwA5Hcjj/Yx6wG6vbDFPevycbFIBHxoDibpJgRDogH9Kq2qyuxQPSQq/7EJZnidAEuNaL8SeeI+p9Eh5LkbdK7bqnUfi+DtxFNjQyBqaGnYjMfjbAf9gsrzKtw53n3hWQB3EE+84UUQty7ZLlEFd/+tpres02L9/i92VHuXGfnoxhTezHCDiydgIAbOCSTtp6Xgzo5htvN9rpvvOGMr/QBNh6tJ+eSPSPaWCtk1+CVhjMR3MoloQnG1eMa2PvPjfv2p2xOPSW3ZKD9nqvO5APzRTN3F0dGmb8JevHfYqUR/NW9V+wj3Q7fn4axTo286V/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HXi7aLsPj8QWxCTj5iv65ovO2CSRHFxsVUyDqQFFYE4=;
- b=rRytvor5ZBtloMr3Qda1xb4qnpHfku7cSkVT7bU2pLAKYjYNzzFbadzS71n/8Kv9u7J1QY9cybNfA3g5MsNQv+yhShR11owdGEdfFUtBUjTVB/AAdMCzCS38bu2Fp+01/uXTMKE/PcA1v0A5gcX1WuRwmfmF9M4sNwzjyqZBRHu0kRIijnleaYTwh0yzkOtVsBMPDT3Y38Qcd7Rt+8REijfvmkOtKV9f4iLthDfGUXMbtKGe7vhAGyDpDsn5+G3vqkaF3RAsIqSknIthgu+UCpfNCN9lBAplwEDZ9FINyJjHvxDgDtKiB+sWKMgcUjQMgXKTJuZbr2H+ai6b/AIHMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HXi7aLsPj8QWxCTj5iv65ovO2CSRHFxsVUyDqQFFYE4=;
- b=KIBEf3av7M4vkp1pTf3tFawNq3T1r1DqsYqCQP8RS+WNNe6pQD8zDoftzwMJq5VJT3VsXkOcQbL7+IUvAixRrOFWFLEY6IGAZ/4OZWKGX/Vyx2XOmuPOKI/wkcI+QP529nDpc1smTdCFuvANms9ddC6FI98KNZvBXgb2X7HUX7Q=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DB5PR08MB10163.eurprd08.prod.outlook.com
- (2603:10a6:10:4a2::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.27; Wed, 11 Jun
- 2025 14:09:27 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8835.018; Wed, 11 Jun 2025
- 14:09:27 +0000
-Date: Wed, 11 Jun 2025 15:09:23 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
-	anshuman.khandual@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, frederic@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, samuel.holland@sifive.com,
-	palmer@rivosinc.com, charlie@rivosinc.com,
-	thiago.bauermann@linaro.org, bgray@linux.ibm.com,
-	tglx@linutronix.de, puranjay@kernel.org, david@redhat.com,
-	yang@os.amperecomputing.com, mbenes@suse.cz,
-	joel.granados@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 5/7] tools/kselftest: add MTE_STORE_ONLY feature hwcap
- test
-Message-ID: <aEmOE4b6CvhPX8Kl@e129823.arm.com>
-References: <20250611094802.929332-1-yeoreum.yun@arm.com>
- <20250611094802.929332-6-yeoreum.yun@arm.com>
- <ea71432c-edbf-419a-bb5a-37da5b09caa0@sirena.org.uk>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ea71432c-edbf-419a-bb5a-37da5b09caa0@sirena.org.uk>
-X-ClientProxiedBy: LO4P265CA0040.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2ac::9) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Wed, 11 Jun 2025 14:15:03 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 53EAC526;
+	Wed, 11 Jun 2025 16:14:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1749651293;
+	bh=gPozdbI3xpmxAv+kXn407bfUh6hLjnr47SUlGsJ5RY0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UOt6HpUk9flKVzBrV8edTT7seyKAKmte8Yfx+4gNSJ9azP9NzWTKbG/MmcfOLgDMX
+	 1rdkMDvcCLkiMrNuyccUiei49CSOPbo3TzWOuCHYOfESslReCu16XrFQBBpa6DcliV
+	 Wz/VZY3TuNfK79OPX5bo1LospmsQOFtdHjLUcmR8=
+Date: Wed, 11 Jun 2025 17:14:49 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Frank Li <Frank.li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Robert Chiras <robert.chiras@nxp.com>,
+	"Guoniu.zhou" <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v4 04/13] media: nxp: imx8-isi: Use
+ devm_clk_bulk_get_all() to fetch clocks
+Message-ID: <20250611141449.GA24607@pendragon.ideasonboard.com>
+References: <20250408-8qxp_camera-v4-0-ef695f1b47c4@nxp.com>
+ <20250408-8qxp_camera-v4-4-ef695f1b47c4@nxp.com>
+ <20250421211438.GN17813@pendragon.ideasonboard.com>
+ <aBQZjFsExJh2uRfK@lizhi-Precision-Tower-5810>
+ <20250502155747.GB20093@pendragon.ideasonboard.com>
+ <aBylKcZyFInlKQAR@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DB5PR08MB10163:EE_|AM3PEPF0000A79A:EE_|DB3PR08MB8820:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78a4ede8-1393-4ec4-f560-08dda8f1a6fb
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?Bp4xBQ0k1s987ptwup4MhTFJcEpRMPEk7Cc/YV6omrmTHTdnGMOGH7eVH+tW?=
- =?us-ascii?Q?oc7U2pcMRF+toR5TN7172w+2mlYilRfq5HPYf1e6Kp0ZHe3JYWsEML/RkvDK?=
- =?us-ascii?Q?cAXCoVZ4jaiJ6t1+O4WQz+t9srbBYH3gQHlI7xbrZr/rSwXrAKyUr0b9RUSs?=
- =?us-ascii?Q?C1pbk15mlngqIVxj6Il+OkEB6VmeKY6EfqOFlSlyosCj429vJeKYSG6i+Nor?=
- =?us-ascii?Q?qxzqk9zeBoWsSpIaIiTWDpPJui0H2lrhQnyEQc1jmVS+nQohq6tMsnXwKh32?=
- =?us-ascii?Q?kf8XlRFUkETEdqlk60nbhY+Ai9h9mt9ligeHPq2IJqWn7otVlxSpi7S9G9dM?=
- =?us-ascii?Q?bGtn7ROY62J0ONpAOweK+W3KzYW0205LfxE5WdxMoFSPmOwhSuKtlTYPgmVa?=
- =?us-ascii?Q?ei4KC3sQX524qItcL1V93b0Pei+je3Q7PFaYiVPk9WzrbVSHe4oNHM9MJp7a?=
- =?us-ascii?Q?uBzCAIviiGIqp+DYceK4/ERrE8pk835ByUEi110GxCNP3ptYV3lKn54lcFqL?=
- =?us-ascii?Q?ZFNgN7IFiRtDkFVesq5Kv5hTWkdmQ/f8hC7wVEjrJ1ubBZmnrqAN5SIcHcdE?=
- =?us-ascii?Q?LK7ghL6EW05C+PQcMncIGp1mjSCV9jX0QL4HSQIQJOg4W4xrmH74HfRqiTLq?=
- =?us-ascii?Q?vMtf9KWZWhpcEOPwKy2h3gO9SfdeqXiryqk2EZfVcTlZtIlGX/u9sYCitBZN?=
- =?us-ascii?Q?jYosDFEKG2IznRb7YE+jbhfko1lyOcAXnbNBdK/tu/PwhPreKtwQIaRduuJR?=
- =?us-ascii?Q?MLhX6/JHrsc76MdD1Od20TW6Lk0ZxSs2LQ48jHeaievTXQLMZYNKa5cmlkjd?=
- =?us-ascii?Q?LKlADXx5Szc5c4Ak14C0elEe1X7LMRzHxpeloUQKYAZlz1PTIh4athGESDxU?=
- =?us-ascii?Q?mtRKZemeNgrHV+4sMotAEgHvP/hzBtxR1y2rJ61oeGsqdwLkW31Y6HNZcvki?=
- =?us-ascii?Q?2w9spaRj+b9jD4/aV+k/I1kuils6bg/j+J8cydziNyi+OjSl3bEYicCzQLb5?=
- =?us-ascii?Q?WEPg6lYzOy0DwXJz4etqEpufttEhD5WO+Yl0sd6UdU4xaTDlMnNEsI4wCBaq?=
- =?us-ascii?Q?hlLitN5wKNpQDcFCI4VH8ZZHUm6KaBCrdU5WUZmPm+cl9grqrxj3eMP0qm8f?=
- =?us-ascii?Q?XJQRAhjpmaIw65Ma+86E0T6rfttDoTiCf04f/RIVE9i5GkxdRd7XYeEC4weY?=
- =?us-ascii?Q?uM6qi8SF8yxGpn3kUzGDsZWaBPrIa3k1HZ7+kz5yYM/fwafCWT6chYvQpNvF?=
- =?us-ascii?Q?ljTKGtu2JGbfqvR9OXzhyGzuAKQnr7txAB5gFbVLTOtlmojnWdmcotx+gfIR?=
- =?us-ascii?Q?xcWahYWXBvd2bHbEN3mMYdmkajUIGizwP3HdcT5U1/kR1gzcKBmT8N9ya7jR?=
- =?us-ascii?Q?1Qr80dht0okyMELVs5wwcSLhmB8abYlAiL1cavp5TtOZenZmWg=3D=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR08MB10163
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A79A.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: f7c7a8b0-1b78-4a33-a1ad-08dda8f19378
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|14060799003|82310400026|1800799024|35042699022|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5w5pVq6Z+4sot88y9XJRXB8Y15TCh+g01OcM/frIPCChmDLMx6p5EwsNaaam?=
- =?us-ascii?Q?lyQRL9NeziWaJJ5IRpz7LaIx2YdoE0+s+XIdFhbA7oQiqJEoMJmlFH7zhMDv?=
- =?us-ascii?Q?eHTN25GFlgsRBK1HE0E0hmm24k4njv3Hib9+OhGYtuT/1z8L1ydDiB5C3l6h?=
- =?us-ascii?Q?1eTVChTN2sk23jrDS4ZoOxVhQc5FeZ4Z3UqVL5WFR7FbEBBndzlUmk3BZpSC?=
- =?us-ascii?Q?Ws1Zb0wN1DF7JX2I1YM1SqDo4YU7S4nt/qY1DKDftbA1iXFS4QYv+jcrPMDB?=
- =?us-ascii?Q?hYEL8EKjswr4dBEApd+RE80cfMXr+PiTHYThZ6+9oiUvG25kE6nXMKavueNa?=
- =?us-ascii?Q?68IVOG0JnrsYQb6bSlxiY8Ju1zkzBLnEXoks9fURnlYxyritSGo3vrqfe0wc?=
- =?us-ascii?Q?UWDLUrTYWWQJ7+37sRRxBxTy5RpEitTkxFtNZgfZ3p4X2KwKUkcd7b/9iNro?=
- =?us-ascii?Q?bLE1YQZIsaqJc5uOMikoUKCwiDGLX0mmt0lVrQEXnc79LBsPOrzr9njBIXhq?=
- =?us-ascii?Q?SLSZ7A2UlRj1I95qIm3SmnVAs/0Oju97Wk/Ujn7WGHEU+LATyxaPcw7o6+zT?=
- =?us-ascii?Q?bRSPXOpC2kSEiOvLSTd5zqm3PmC2i6fOhPoeKLtksYZoTz/QI5CEU9T7dp04?=
- =?us-ascii?Q?VEQn1bXFEKFpVtTXA3UCAO6q/LrjqpVI6A2pex8V8hMFOwMWbIMx7W8Muu32?=
- =?us-ascii?Q?vPVMF/p/Ov/naLvghODSmaUABYWYacYAx2e+w3zG7OI7bk8dm7hsYB/7lvIG?=
- =?us-ascii?Q?3SuCd/A/Cw3aj+Zaxlm4Zg2tneBeiisI/R30vqBKgqrY99oh+RhkTm/GSXmS?=
- =?us-ascii?Q?gxsEoxuM2yxgoAqihO7pK/z8gxX/sOmj2o6Kit9va512CDpi/IFrPgVxFzbk?=
- =?us-ascii?Q?qXzfH4T64KQmOejRWSeEXrUp7bGptBijO981tVfd5dt3nOuqO63M83V2Wofx?=
- =?us-ascii?Q?xUbMbREok6cZUaOLFNTB+DXi9GAWJekQaUiayv5PrOzzMbtNrMTyIz9/HpDB?=
- =?us-ascii?Q?wmS9Yxt4C51ZI9p79VtzbtqxjEHmYHueMHHDYNcKsUOQeVaml7FUQ4Ou+Hcr?=
- =?us-ascii?Q?MST0riHKWrY+ZGKIMAQYicvNaYJZmXupXWIoQS0H5f0yyUpv5QlUAIfbQ3sC?=
- =?us-ascii?Q?cs0o7Lm2tgKgaiwgy5UbRr86hGPu65qOBbL1pAfxZa+r+WMU7bCM/J5/ZGgg?=
- =?us-ascii?Q?CLNg47vxB5qD/4463lXc07N1aS/UvSplUg6dcTq9cP8hA8VoPqvZbhE2R5Co?=
- =?us-ascii?Q?kObgQxmT/U8G5RfurlSHMh+92kbzeDhsrp0Ex2CHfXj2W2lF0G4bOYC354Bi?=
- =?us-ascii?Q?cWfOK/81lEwEDYWHl2B/C6HP865g2Ea/A460gWNyx7ExbB+H5gzhGgXGKmu8?=
- =?us-ascii?Q?O5R2x5zt3pqLPUVXxL7R4912pjUkBgs3fJRrn1Hi6L6f/VeEpvOuNYHnBHlM?=
- =?us-ascii?Q?9KmR7UGqIxp+U1R+YT7rxCtHndFXdICGDGfU0FT08UUc75Ffwt6N4k5+pzxS?=
- =?us-ascii?Q?IyQoPqhx4Zz+1u153TMWrXdirdn9gJbFJxGo?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(14060799003)(82310400026)(1800799024)(35042699022)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 14:09:59.7706
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78a4ede8-1393-4ec4-f560-08dda8f1a6fb
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A79A.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB8820
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aBylKcZyFInlKQAR@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_071010_777695_3D999AB8 
-X-CRM114-Status: UNSURE (   5.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_071502_919230_FB15D7E0 
+X-CRM114-Status: GOOD (  35.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,15 +83,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
->
-> Subject line doesn't match the usual style, otherwise
-> Reviewed-by: Mark Brown <broonie@kernel.org>
+Hi Rob,
 
-Thank. I'll change the subject format.
+On Thu, May 08, 2025 at 08:35:53AM -0400, Frank Li wrote:
+> On Fri, May 02, 2025 at 06:57:47PM +0300, Laurent Pinchart wrote:
+> > On Thu, May 01, 2025 at 09:02:04PM -0400, Frank Li wrote:
+> > > On Tue, Apr 22, 2025 at 12:14:38AM +0300, Laurent Pinchart wrote:
+> > > > On Tue, Apr 08, 2025 at 05:53:02PM -0400, Frank Li wrote:
+> > > > > Use devm_clk_bulk_get_all() helper to simplify clock handle code.
+> > > > >
+> > > > > No functional changes intended.
+> > > > >
+> > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > > ---
+> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 46 +++-------------------
+> > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  3 +-
+> > > > >  2 files changed, 6 insertions(+), 43 deletions(-)
+> > > > >
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > index ecfc95882f903..015350c6f2784 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > > > @@ -275,11 +275,6 @@ static const struct mxc_isi_set_thd mxc_imx8_isi_thd_v1 = {
+> > > > >  	.panic_set_thd_v = { .mask = 0xf0000, .offset = 16, .threshold = 0x7 },
+> > > > >  };
+> > > > >
+> > > > > -static const struct clk_bulk_data mxc_imx8mn_clks[] = {
+> > > > > -	{ .id = "axi" },
+> > > > > -	{ .id = "apb" },
+> > > > > -};
+> > > > > -
+> > > > >  static const struct mxc_isi_plat_data mxc_imx8mn_data = {
+> > > > >  	.model			= MXC_ISI_IMX8MN,
+> > > > >  	.num_ports		= 1,
+> > > > > @@ -287,8 +282,6 @@ static const struct mxc_isi_plat_data mxc_imx8mn_data = {
+> > > > >  	.reg_offset		= 0,
+> > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v1,
+> > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> > > > > -	.clks			= mxc_imx8mn_clks,
+> > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
+> > > > >  	.buf_active_reverse	= false,
+> > > > >  	.gasket_ops		= &mxc_imx8_gasket_ops,
+> > > > >  	.has_36bit_dma		= false,
+> > > > > @@ -301,8 +294,6 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
+> > > > >  	.reg_offset		= 0x2000,
+> > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
+> > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> > > > > -	.clks			= mxc_imx8mn_clks,
+> > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
+> > > > >  	.buf_active_reverse	= true,
+> > > > >  	.gasket_ops		= &mxc_imx8_gasket_ops,
+> > > > >  	.has_36bit_dma		= true,
+> > > > > @@ -315,8 +306,6 @@ static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
+> > > > >  	.reg_offset		= 0x0,
+> > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
+> > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> > > > > -	.clks			= mxc_imx8mn_clks,
+> > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
+> > > > >  	.buf_active_reverse	= true,
+> > > > >  	.has_36bit_dma		= false,
+> > > > >  };
+> > > > > @@ -328,8 +317,6 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
+> > > > >  	.reg_offset		= 0,
+> > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
+> > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> > > > > -	.clks			= mxc_imx8mn_clks,
+> > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
+> > > > >  	.buf_active_reverse	= true,
+> > > > >  	.gasket_ops		= &mxc_imx93_gasket_ops,
+> > > > >  	.has_36bit_dma		= false,
+> > > > > @@ -386,7 +373,7 @@ static int mxc_isi_runtime_suspend(struct device *dev)
+> > > > >  {
+> > > > >  	struct mxc_isi_dev *isi = dev_get_drvdata(dev);
+> > > > >
+> > > > > -	clk_bulk_disable_unprepare(isi->pdata->num_clks, isi->clks);
+> > > > > +	clk_bulk_disable_unprepare(isi->num_clks, isi->clks);
+> > > > >
+> > > > >  	return 0;
+> > > > >  }
+> > > > > @@ -396,7 +383,7 @@ static int mxc_isi_runtime_resume(struct device *dev)
+> > > > >  	struct mxc_isi_dev *isi = dev_get_drvdata(dev);
+> > > > >  	int ret;
+> > > > >
+> > > > > -	ret = clk_bulk_prepare_enable(isi->pdata->num_clks, isi->clks);
+> > > > > +	ret = clk_bulk_prepare_enable(isi->num_clks, isi->clks);
+> > > > >  	if (ret) {
+> > > > >  		dev_err(dev, "Failed to enable clocks (%d)\n", ret);
+> > > > >  		return ret;
+> > > > > @@ -414,27 +401,6 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
+> > > > >   * Probe, remove & driver
+> > > > >   */
+> > > > >
+> > > > > -static int mxc_isi_clk_get(struct mxc_isi_dev *isi)
+> > > > > -{
+> > > > > -	unsigned int size = isi->pdata->num_clks
+> > > > > -			  * sizeof(*isi->clks);
+> > > > > -	int ret;
+> > > > > -
+> > > > > -	isi->clks = devm_kmemdup(isi->dev, isi->pdata->clks, size, GFP_KERNEL);
+> > > > > -	if (!isi->clks)
+> > > > > -		return -ENOMEM;
+> > > > > -
+> > > > > -	ret = devm_clk_bulk_get(isi->dev, isi->pdata->num_clks,
+> > > > > -				isi->clks);
+> > > > > -	if (ret < 0) {
+> > > > > -		dev_err(isi->dev, "Failed to acquire clocks: %d\n",
+> > > > > -			ret);
+> > > > > -		return ret;
+> > > > > -	}
+> > > > > -
+> > > > > -	return 0;
+> > > > > -}
+> > > > > -
+> > > > >  static int mxc_isi_probe(struct platform_device *pdev)
+> > > > >  {
+> > > > >  	struct device *dev = &pdev->dev;
+> > > > > @@ -457,11 +423,9 @@ static int mxc_isi_probe(struct platform_device *pdev)
+> > > > >  	if (!isi->pipes)
+> > > > >  		return -ENOMEM;
+> > > > >
+> > > > > -	ret = mxc_isi_clk_get(isi);
+> > > > > -	if (ret < 0) {
+> > > > > -		dev_err(dev, "Failed to get clocks\n");
+> > > > > -		return ret;
+> > > > > -	}
+> > > > > +	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
+> > > >
+> > > > This prevents validating that the DT contains the expected clocks, which
+> > > > could cause hard to debug issues. Isn't it a problem ?
+> > >
+> > > It is checked by dt-binding. Now no warning by DTB_CHECK under arm64 freecale.
+> > > CHECK_DTB should be enough to find expected clocks.
+> >
+> > Yes, the DTB check will catch issues at build time, but the driver will
+> > not enforce that. I'm not sure if there's a clear policy here, and if
+> > ensuring at runtime in drivers that the expected clocks are present is
+> > considered as a good practice by the DT maintainers. Rob, Krzysztof,
+> > Conor, do you have an opinion ?
+> 
+> Rob:
+> 	can you comment this?
 
+Rob, any comment on this ?
 
---
-Sincerely,
-Yeoreum Yun
+> Laurent:
+> 	Many driver already switch to devm_clk_bulk_get_all() such as qcom/imx6
+> pci drivers recently.
+> 
+> > > > > +	if (isi->num_clks < 0)
+> > > > > +		return dev_err_probe(dev, isi->num_clks, "Failed to get clocks\n");
+> > > > >
+> > > > >  	isi->regs = devm_platform_ioremap_resource(pdev, 0);
+> > > > >  	if (IS_ERR(isi->regs)) {
+> > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > index e7534a80af7b4..bd3cfe5fbe063 100644
+> > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > > > @@ -169,8 +169,6 @@ struct mxc_isi_plat_data {
+> > > > >  	const struct mxc_isi_ier_reg  *ier_reg;
+> > > > >  	const struct mxc_isi_set_thd *set_thd;
+> > > > >  	const struct mxc_gasket_ops *gasket_ops;
+> > > > > -	const struct clk_bulk_data *clks;
+> > > > > -	unsigned int num_clks;
+> > > > >  	bool buf_active_reverse;
+> > > > >  	bool has_36bit_dma;
+> > > > >  };
+> > > > > @@ -282,6 +280,7 @@ struct mxc_isi_dev {
+> > > > >
+> > > > >  	void __iomem			*regs;
+> > > > >  	struct clk_bulk_data		*clks;
+> > > > > +	int				num_clks;
+> > > > >  	struct regmap			*gasket;
+> > > > >
+> > > > >  	struct mxc_isi_crossbar		crossbar;
+
+-- 
+Regards,
+
+Laurent Pinchart
 
