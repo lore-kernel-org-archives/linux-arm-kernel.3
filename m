@@ -4,140 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508C9C71131
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1717BC677C4
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6bcwvX4gEpvYIjcBEapn8gGSYzu5mivrPS7uygKQxHA=; b=hCvIjd6Rqp5vKi
-	sxQoFApaMpSjjmx6zTAdTav0Ja7q4h50KcZRgFndc1M8RWR+fA7LKtprLhYmbKyw0Wkl6fqdIhNPQ
-	3jZBXw/yiLnsKq/VJK09APObOaaO2mHLEmqOz/S+T3SsCv+23GoPv5T0BhjyjC8wn/Ye+4T1eTQk5
-	WyNkYlfDC7wXVOkZjlQsWn5EJyDAJNkCV/MxKa9HHdPu3AZHxlaztYJzIExx5/mQfocJXDsCATbwo
-	tcJjOjpdT167jHF33ff8oUKqmtFAQOzsZu7CNVh9vWdrRG3hnYJNr5Ov8TvuU/EMUSfgpGOxULBbg
-	7271liAj2HLH0PfrfG7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PsqFPhhwmaCsa4vXg/mFB286PrcXGx5Y8aFvc9FKgqo=; b=3AVMo8ogqoIj3BTrAfOU9CbT1S
+	Ty83TS5u9XJ10EFALlSW6Uwnm6ppq29wfXKpXIkEeL/vsm0dpC3MAvHGP1Hx0LOvQ097vtpzRRAZM
+	RJVl7AmR+FRQyu6YiCiHGQ+y1UmAB1OSALxnjfk8PSFWoMTRD5EjhKmYXtyJmM6TON4RXJGMLGr2E
+	0FBDC7Zn/hFoQyDvOcSW7dTKr8Btk5QZpKRRgvWXXXoyndefX+sdfSo+juEkeUPUajN8xXya+n3ye
+	WpmkldbhNmpxNsmCHddDGz9GYVuSwmYOmB6SpsOpBr/2PuwVj6cL4cGRpJyby65Mqv3zAv8KzSl8Y
+	x971BZtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMpP-0000000AHCe-10fA;
-	Wed, 11 Jun 2025 14:53:23 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uPMpN-0000000AH98-2My3;
+	Wed, 11 Jun 2025 14:53:21 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJR0-00000009jDX-0bv5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 11:15:59 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55B9DGlo009100
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 11:15:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=6bcwvX4gEpvYIjcBEapn8g
-	GSYzu5mivrPS7uygKQxHA=; b=HxXrh9DoaapoHyvbZTEERKhkYjwPTYRb1wFUpV
-	Qw0ee7jPdhV5kF5iykjlS+oAAwRVI1bAZ1TZxmCmrYXsx4lA+s8QkzcgU1MIoltC
-	v5PXVqgWDGVxOpeEQsvSrU2FE9rU17ilM47eC1pDZzv4YAIlAmZncOP0fXCL6v7w
-	iPCHYaTaf7vu7jTnVG8PCU5roiw7EzUAS7CA5Eo/9ObNOKCwrm3MGg4KUf4dvhjg
-	4JFlmA5x0tOAlQhUni8ctyHXANZTuMIDsxvyBsGMD/5VJ3KEiF/YTqKUC/rCasu6
-	htulFI8VimDqlmGpe3jE1iBjbXC3+ZYWJ/17g0xN9dfjhHyA==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47753brpgv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 11:15:56 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-74847a38e5eso2278230b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 04:15:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749640555; x=1750245355;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6bcwvX4gEpvYIjcBEapn8gGSYzu5mivrPS7uygKQxHA=;
-        b=a775ZGUxqhR6/3LHawkjgYeRdVUi3zfDPhCF1ndknouT/xu6dIIWghFzjpal+2Jotk
-         rim0/B70f7hfKMi+6kqU3dZmmsGpxCOdbpf8fq577GI0Yb+gnkxcgKRt5pdqHJK+Xo0r
-         1C5uArklAyQOExeZxVW6omP+NRqKTlVtZkr2W3A3XGUCgNBV5MkxFY1QkbMelvsBrCLR
-         83VYikMtHSDVt1EXgXE8f6gxHCBti4UVvbgwBGrwOkMmcUZoML14L7Q6hUxB5VFgl7+0
-         +SVxXcTdspI3uJ1iEeKhUfoDTsQYmSU6//lL7BS4A5jnujlyj6CclCyND0/ZpSQBiy7A
-         aoxw==
-X-Gm-Message-State: AOJu0YzrZzAgvubMw7bxyldnsCUs9SkLi1fzhM4/v5rZuFKaNVRAfvaY
-	b1/ERuxaKj64GTwYsGZ8hz2m28sunqEcxZs866d+kT7WzullXw6K2dEC5Fs8yHKcB6X+Yg/7iun
-	aFqnp1devJCw/CJXZAxyYTkjT3pqD/J7rv3DyuRFjXjqj/bRZ5ClHujktQL737f9wodYUc5gaLI
-	7Zqw==
-X-Gm-Gg: ASbGncu3+YkjRVlJWKwhzf6gfUdQKlLdMuxjENvCeLacpPxA+AgtdGxn582y5MibD0n
-	bGFIo35jeZI9yGrCLsRaronknESTueCbd/YgsWHZ2BfkLGmFUzPymw+19tYNo8SQAcdpFsNEXPA
-	1kd/+7lfTBV1THB/jy888WZXglybT0/0/dJOvqhdgAOwea1gDjXPcsiCCIvxKrRWXpXgNz6H2+A
-	9XeySPMks1bt+kEA3ZNVXHkXX2KPQs1yzgQ/doc4RvNgBh/MQ6VylvqloiGw1P5nEebVc6ZV7Pc
-	ann0zQFkwpxJmRzM9AZJ4vosnIKWa6/y
-X-Received: by 2002:a05:6a20:1443:b0:21f:4ecc:11a9 with SMTP id adf61e73a8af0-21f8674384bmr5182078637.32.1749640555075;
-        Wed, 11 Jun 2025 04:15:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHCzs/EwozS2+jM3nfZzo8sHxEcKNC8JH6C8JAdHxa5QTI2A6Hb8d3Gp3f9wRZbV5iIW6Heew==
-X-Received: by 2002:a05:6a20:1443:b0:21f:4ecc:11a9 with SMTP id adf61e73a8af0-21f8674384bmr5182020637.32.1749640554632;
-        Wed, 11 Jun 2025 04:15:54 -0700 (PDT)
-Received: from [10.213.111.143] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7482b0e9d57sm8820772b3a.160.2025.06.11.04.15.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 04:15:54 -0700 (PDT)
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Subject: [PATCH v2 0/4] Support for Adreno X1-45 GPU
-Date: Wed, 11 Jun 2025 16:45:30 +0530
-Message-Id: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
+	id 1uPJQ1-00000009j2T-1BHZ;
+	Wed, 11 Jun 2025 11:14:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1749640495;
+	bh=xoTzQij77wJqxKu/8WOJivHo5xvIanP8StGNmp1ewxg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UW/oVHTA/HuPIQy39vzAQ7DA1PBC85oXq9visjD+/znO4tH1rAuNncJk7GIpCza8Z
+	 NkJYneqv/byx/sB3AzA9mHYHsVnvMDH39Qzg+cJxGpZYLqMw35tG4YtCW/UlBljvgt
+	 SSHevCKLFTzbtMwSM7OG5tJMAs7FxDqJNOYYId38nYUePx/y8g65jhRAeKj6T129bb
+	 tYyvyPRuaamYqgV+zK5zS9OaGByXCmkMrUX/QYs8wz03ouNmTyfU1W0IeiGKep1pYI
+	 RKF0sX21fDaXM0/WJANlVHC8WLQq2/DeV+6iLHMj49MhbCbChRJJFCSei0rjNEDSZl
+	 mUWhfOw23cFNQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8EA3D17E10F8;
+	Wed, 11 Jun 2025 13:14:54 +0200 (CEST)
+Message-ID: <5cf01f45-ea0b-421e-81a7-163c069aeaf0@collabora.com>
+Date: Wed, 11 Jun 2025 13:14:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/10] ASoC: mediatek: common: modify mtk afe platform
+ driver for mt8196
+To: "Darren.Ye" <darren.ye@mediatek.com>, Liam Girdwood
+ <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
+References: <20250610092852.21986-1-darren.ye@mediatek.com>
+ <20250610092852.21986-2-darren.ye@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250610092852.21986-2-darren.ye@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFJlSWgC/02OMQ6DMAxFr4I8NygJlFKm3qNiMMSUSIVAEhAV4
- u4NlKGLpWfrP/8VHFlNDopoBUuzdtr0AeQlgrrF/kVMq8AgubzyjCdsEQNDZak3TIq7QtmotMY
- UQmCw1OjlkD3LH1sap+D0vyVU6IjVpuu0L6KeFs9ObwZ7oNXOG/s5ysziSJz32//fWTDOMCfMe
- ZNUIq8exrl4nPC9q+MwoNy27Qs9+9qt3AAAAA==
-X-Change-ID: 20250603-x1p-adreno-219da2fd4ca4
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
-        Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-pm@vger.kernel.org, Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749640547; l=1468;
- i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
- bh=tir53TSjkw3/xfxcfRmGyJDlmk+DY/g391WffwmPdjI=;
- b=boSdoAmoFVFkKeAEz/t/ojFWCig1NztCZfwP8qlXEYtkZ0rhoNdUnxkTTjyrf8ntYT+9A+S68
- e8DQZ/kjg/kCF4HThVdDLAPhzajXNLrZGgxYS+L45XpzVh0R/cEUiN9
-X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
- pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjExMDA5NiBTYWx0ZWRfXynmXCJ4O5914
- EBPkVfb630J/SBvrvxJY8rUbRnDXJkYkN2kNSg5RETZABgKs1dIxRCtBtj+VbdtPrJC/g0fgHUe
- 8yYy1/xZ7ClwGLQnGJ2Fbl1T1cFiZtONpi2eICkzF2x1Cgpez2VzeCnrShuMoc8NerAWvKNk28U
- vT4UD4+cy/eRpcxe5Wats6dDGf06Cgp/YWIqA4irA7qELtwxNewjDayrGfn51jWbDIcbgAvuT6Y
- af/4cFV9Sq70Ew7enGDpNmNkwmy77eHzli0B8nK0Hdr9fXs1JDhZUfGlckk1EPpV7D9Vg1YWGc+
- AYOlcoKymUcWaRV/q/XCIwH6wqNe7Ls2Y6PZWfALKKT7dx7gKAtVcx6LT2Unch7Mk7/hPehJJAd
- C7Kr3MaXAyws0R4jDnQybz40V0NFs2CFxXl71AzgmvkNIzQ6X4hPtomx6WLlrDyAFSz5x4QU
-X-Proofpoint-GUID: lHp2_tNYwme39kgazfYM0iJ_bdIYCwB0
-X-Proofpoint-ORIG-GUID: lHp2_tNYwme39kgazfYM0iJ_bdIYCwB0
-X-Authority-Analysis: v=2.4 cv=SqOQ6OO0 c=1 sm=1 tr=0 ts=6849656c cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=vb8sKYNj6oKrwasmUUsA:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-11_04,2025-06-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 mlxscore=0 mlxlogscore=966 bulkscore=0 impostorscore=0
- spamscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0 suspectscore=0
- clxscore=1015 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506110096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_041558_304112_631593F8 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20250611_041457_493285_6F216BCA 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,41 +83,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
-version). X1-45 is a smaller version of X1-85 with lower core count and
-smaller memories. From UMD perspective, this is similar to "FD735"
-present in Mesa.
+Il 10/06/25 11:27, Darren.Ye ha scritto:
+> From: Darren Ye <darren.ye@mediatek.com>
+> 
+> Mofify the pcm pointer interface to support 64-bit address access.
+> 
+> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+> ---
+>   .../mediatek/common/mtk-afe-platform-driver.c | 47 ++++++++++++-------
+>   .../mediatek/common/mtk-afe-platform-driver.h |  2 +
+>   2 files changed, 33 insertions(+), 16 deletions(-)
+> 
+> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> index 6b6330583941..a86594dca2b7 100644
+> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
+> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
 
-Tested Glmark & Vkmark on Debian Gnome desktop.
+..snip..
 
-Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
----
-Changes in v2:
-- Skip 'delete-property' wherever it is unnecessary (Dmitry)
-- Reorder dt nodes alphabetically (Konrad)
-- A new patch#1 to fix the dtbs_check error
-- Link to v1: https://lore.kernel.org/r/20250607-x1p-adreno-v1-0-a8ea80f3b18b@oss.qualcomm.com
+> diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.h b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+> index fcc923b88f12..9809e60db511 100644
+> --- a/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+> +++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.h
+> @@ -12,6 +12,8 @@
+>   #define AFE_PCM_NAME "mtk-afe-pcm"
+>   extern const struct snd_soc_component_driver mtk_afe_pcm_platform;
+>   
+> +#define MTK_WORD_SIZE_ALIGN(x) ((x) & (0xfffffffff0))
 
----
-Akhil P Oommen (4):
-      dt-bindings: opp: adreno: Update regex of OPP entry
-      arm64: defconfig: Enable X1P42100_GPUCC driver
-      drm/msm/adreno: Add Adreno X1-45 support
-      arm64: dts: qcom: Add GPU support to X1P42100 SoC
+This doesn't really look like alignment to me, so perhaps change the macro name.
+Also, please use the GENMASK macro.
 
- .../bindings/opp/opp-v2-qcom-adreno.yaml           |   2 +-
- arch/arm64/boot/dts/qcom/x1e80100.dtsi             |   7 ++
- arch/arm64/boot/dts/qcom/x1p42100-crd.dts          |   4 +
- arch/arm64/boot/dts/qcom/x1p42100.dtsi             | 120 ++++++++++++++++++++-
- arch/arm64/configs/defconfig                       |   1 +
- drivers/gpu/drm/msm/adreno/a6xx_catalog.c          |  38 +++++++
- 6 files changed, 169 insertions(+), 3 deletions(-)
----
-base-commit: b3bded85d838336326ce78e394e7818445e11f20
-change-id: 20250603-x1p-adreno-219da2fd4ca4
+0xfffffffff0 -> GENMASK(39, 4)
 
-Best regards,
--- 
-Akhil P Oommen <akhilpo@oss.qualcomm.com>
+after which:
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+> +
+>   struct mtk_base_afe;
+>   struct snd_pcm;
+>   struct snd_soc_component;
+
 
 
