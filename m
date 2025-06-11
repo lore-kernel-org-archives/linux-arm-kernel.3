@@ -4,67 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE1F2C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF722C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIJLAgJph7+Hc21ND3wEXb+OuB9nJ7aWml5DG0bpva8=; b=4k/Qx7V08FWvgt4rky6aNdeOK2
-	ert+uq3eopsHWdrM3el4B4o+cEFTu1kAluU4VJZyRoF62jCSXisW0EfYxxDvpffAJ7uEf8tlTIPIR
-	Y+318uQ6w5U8ZNIQtTlX/vq97AD78ArBDb5yr0EldwiU2fJH3t3AAHHJVUHiFOka6MpWqdvFNewJD
-	eI4G0u3uTfPLLcm7jSESxsu0L1YjIwZwgs0LMqEJWf7su7phI2ZWVq2uCgRd5l6ATIijYR/kA1xcD
-	42ENMGoGuL8t0yDMAN4ta+1V0a6rOt4Dqbm1jOCw2I38ZbF+rZjhMuirB7MDdEKlsiQKKOzxv+muT
-	YtIwY2CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c6dng+NmjwGmVNZ97SvTt6nnPTfoc7CDndqawYoKecA=; b=5ECN9ROKWYRbs78P4evYaMw0ZP
+	v3YHgh3d7/PM51cK0dd9zEwGavq/8x7kvx050/A4JtS378Zh5Ae0cWqr4kXBeg03px6XneqS6JBnm
+	lx5mGzjJ2ey8Y5jOKATEDPMI6BrFbbnxg2TNsLFo+UVMcJhkC+KKngkDgebHyIQ8sLJQPEwrDk7+r
+	H/cO+KB8g/bLCZ/38/bjDu+ctbY9m8zSCHgYBgLYvNjbIDlI0oLis4h+FaBJoPDOdxxhpiJpPZVUR
+	NdA/byZpqUT8TKRYUlmwAI7scTIVaxk6/fgGufX/dfYzCQW8HK5EYDqp7OnfWdgv9H7thmT68U8xQ
+	3HrtD4tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNY4-0000000AQkd-0egS;
-	Wed, 11 Jun 2025 15:39:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPNa9-0000000AR0t-3gL2;
+	Wed, 11 Jun 2025 15:41:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPKWI-00000009qGi-1yWe
+	id 1uPKWl-00000009qMG-0muk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 12:25:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 776B95C58ED;
-	Wed, 11 Jun 2025 12:23:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3A59C4CEEE;
-	Wed, 11 Jun 2025 12:25:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749644728;
-	bh=ya87dO4a/HiSj6eipOEqSoaBIE/2f6SuK5LxdImo3jc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cXboh0x1SuHRoR6mxmMtneC+3hObxIcavh8WW9PHLDCq/s5tnf0i7VSp4sZ9j/mE7
-	 dicI6iGqpPOZDYitJxifSE2GxxZWOs3XB7E+kdQiInXFW+dfvEwlXEds7jJEd4YcpS
-	 6etZhw9baEpBID3euUjcKhfIBaiPv10chFZiJfyeP3FvMh4EQ7OvjA4pqvtCqzREjy
-	 pxJvt5cZwOB4k/4pKyS6Rchm8HnIY/NPWKYBQnkh/wzc2p8nOh+4erSi17g185e/SG
-	 JhJVX0KtnsCI7DP4Wf/lX5yhCwX9vebm+ywwhzZ2jhBlHJ5avqPd1bYN/PBG/hujqd
-	 xAca3Yjrzw/uw==
-Date: Wed, 11 Jun 2025 13:25:23 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
-	anshuman.khandual@arm.com, joey.gouly@arm.com,
-	yury.khrustalev@arm.com, maz@kernel.org, oliver.upton@linux.dev,
-	frederic@kernel.org, akpm@linux-foundation.org, surenb@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 9/9] kselftest/arm64/mte: add mtefar tests on
- check_mmap_options
-Message-ID: <9a81979b-2b9d-4bf6-88a0-5803483f802c@sirena.org.uk>
-References: <20250611094107.928457-1-yeoreum.yun@arm.com>
- <20250611094107.928457-10-yeoreum.yun@arm.com>
+	Wed, 11 Jun 2025 12:26:00 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55B9DENR027189;
+	Wed, 11 Jun 2025 12:25:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	c6dng+NmjwGmVNZ97SvTt6nnPTfoc7CDndqawYoKecA=; b=CQj851vItCeJ03gE
+	a+LrhLjw8M44GfdyTI08L7ooHeA3i1o8mMejPbmKqh7bNtbgFCHph4xuHNjrT8yY
+	9//tXwnTuzDn+rO15eKB+60jm9Xrw94ZnxDfvBcv3Zm0NWQTh6hVwMzowGEbaseJ
+	ijG7yoGbu5eEtUwAk6eqqWuybWy4wlCcnooIe8wurJ1JOn0ZNHSZaodDNPLOdv0G
+	9ySLaR99hgeZURErgkDfpt5DVlZacxsDHPs2kPwQ+dTNmtsMuqGr8tLlvro6t7jT
+	dq2/ratIa/jh+yYVDxXXO2W30bQROVDALYpi9qKp9Rcd2T5Av+IsNYBgNB8NnWwO
+	Vg8ZWg==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474ccvcuk8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 12:25:43 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55BCPglG005497
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 12:25:42 GMT
+Received: from [10.216.28.79] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 11 Jun
+ 2025 05:25:33 -0700
+Message-ID: <c1008a6c-6aa6-4e42-8d76-9aeaa708d41a@quicinc.com>
+Date: Wed, 11 Jun 2025 17:55:30 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZxWWX4yq1T0f5i2U"
-Content-Disposition: inline
-In-Reply-To: <20250611094107.928457-10-yeoreum.yun@arm.com>
-X-Cookie: No skis take rocks like rental skis!
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] arm64: dts: qcom: Add GPU support to X1P42100 SoC
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Akhil P Oommen
+	<akhilpo@oss.qualcomm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "Will
+ Deacon" <will@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean
+ Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry
+ Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>,
+        Bjorn Andersson <andersson@kernel.org>, Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+        Nishanth
+ Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>
+References: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
+ <20250611-x1p-adreno-v2-4-5074907bebbd@oss.qualcomm.com>
+ <1ee554e4-d813-47cd-a1ab-9eaa4634cdb1@kernel.org>
+From: Akhil P Oommen <quic_akhilpo@quicinc.com>
+Content-Language: en-US
+In-Reply-To: <1ee554e4-d813-47cd-a1ab-9eaa4634cdb1@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: LJFgD0crCd2XFLk2fVs6HasaeizgOAS6
+X-Authority-Analysis: v=2.4 cv=TsLmhCXh c=1 sm=1 tr=0 ts=684975c7 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10
+ a=tElcPi6GYvQhG-JPmBIA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: LJFgD0crCd2XFLk2fVs6HasaeizgOAS6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjExMDEwNiBTYWx0ZWRfX8c8v5ENXGd05
+ UTomTWW1atRegb5wiad2v98e5LBy4Wht46THwUBBrcQqWsRfCcq/z1wzPLpIvlhT2FfEOe/x6ix
+ qBOBVtZmYNPlKIJRBQSffKhlviQBRoegsF8ljM4Dij2DYukxJuxOM2gofQiiRxPMetD1C+7Llkn
+ GIib4wF5G6QOpAYXGhMFaJEJJ1DptOahLaopR0Y2uaPFL2A5bDLOz0D6aZ90CqQv9LiV9Hx/xUO
+ gX4hCzz1ZRcH1zggEVd7sbS6cwXCNupW4XboWeW2aw44S/ZntGKYXCNz/fRQC+KrPy5casNToPr
+ PzC2shXdzflleQX5aeCsqtt4xyWZAuiITaJxVC/BAVF2EnuuX5zgjq9kLYn1zHKAKre7W2v/cpj
+ OlYWmt3J05HiAgPm+ZU/vykHRjPI39DmA27GWmZrpPSMyUoTZA549Mw9TyuEzIHOuiD5vChh
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-11_05,2025-06-10_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 spamscore=0 mlxlogscore=999 impostorscore=0
+ priorityscore=1501 bulkscore=0 adultscore=0 clxscore=1015 mlxscore=0
+ malwarescore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506110106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_052530_549269_61FC7755 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250611_052559_234371_A942144A 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,64 +137,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 6/11/2025 4:52 PM, Krzysztof Kozlowski wrote:
+> On 11/06/2025 13:15, Akhil P Oommen wrote:
+>> +		opp-280000000 {
+>> +			opp-hz = /bits/ 64 <280000000>;
+>> +			opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+>> +			opp-peak-kBps = <2136719>;
+>> +			qcom,opp-acd-level = <0xc82f5ffd>;
+>> +			opp-supported-hw = <0x1f>;
+>> +		};
+>> +	};
+>> +
+>>  };
+>>  
+>>  &gpucc {
+>> @@ -41,6 +150,13 @@ &pcie6a_phy {
+>>  	compatible = "qcom,x1p42100-qmp-gen4x4-pcie-phy";
+>>  };
+>>  
+>> +&qfprom {
+>> +	gpu_speed_bin: gpu_speed_bin@119 {
+> 
+> No underscores. You need to align downstream code to upstream. See
+> coding style.
 
---ZxWWX4yq1T0f5i2U
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Ack.
 
-On Wed, Jun 11, 2025 at 10:41:07AM +0100, Yeoreum Yun wrote:
+-Akhil
 
-> +static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_check)
->  {
->  	char *ptr, *map_ptr;
->  	int run, result, map_size;
-> @@ -97,16 +106,16 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
->  			munmap((void *)map_ptr, map_size);
->  			return KSFT_FAIL;
->  		}
-> -		result = check_mte_memory(ptr, sizes[run], mode, tag_check);
-> +		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_check);
->  		mte_clear_tags((void *)ptr, sizes[run]);
->  		mte_free_memory((void *)map_ptr, map_size, mem_type, false);
-> -		if (result == KSFT_FAIL)
-> -			return KSFT_FAIL;
-> +		if (result != KSFT_SKIP)
-> +			return result;
->  	}
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
 
-This changes the logic to exit the loop immediately if the check passes
-which doesn't seem like what we want, should we instead change the test
-to be:
-
-	if (result != KSFT_PASS)
-
-which I think is more the intent?
-
-> +		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_check);
->  		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
->  		if (result != KSFT_PASS)
->  			return KSFT_FAIL;
-> @@ -192,7 +201,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
->  			close(fd);
->  			return KSFT_FAIL;
->  		}
-
-Won't this upgrade any skips to fails?
-
---ZxWWX4yq1T0f5i2U
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJdbIACgkQJNaLcl1U
-h9AceQf9ESTpI03oYV79ZBWSYTYktYpJpJCThnBIOdQEB+mQwDdhuDOrLIbso7bJ
-GdlaFJ1NDJOYIVLa9jdfiG0kO2WSzq/yClIuGu/HubaKRiVwS0xcfbjfLO5KtrF5
-kY1KJc7ZKqUIBA+Tbe/ntokLUqDnLuPgdINUBeSTuemBK9rbAQicUms0/ishICNs
-976HinKbqFluPCrgcnVIsOoap5L/1A6ZTT8nAsnJLaK+BYTn/PGgNGgIX1NNbL7r
-tX7//JsJpth6lfvUBklfvgM15FZWh+OSH6Zsm4uvML8qFgyf2Vy7CCntJ0XNIPdS
-hrE2xe9NlVva3ernymzkyYMwmufd4Q==
-=pXyY
------END PGP SIGNATURE-----
-
---ZxWWX4yq1T0f5i2U--
 
