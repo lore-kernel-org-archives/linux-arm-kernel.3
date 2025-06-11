@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8939DC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 00:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9758AC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 00:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IkktWH+V9h3bcYXFzddTxBsHDsmGjlRn4knyOKrNzLg=; b=ne1XQK/mgUHf3Fm7pxSXFbGBJD
-	1EVzN5Hh0wKGjYiEbWU/THveTibTfcyz+25YaHcW5Er8EIc3dt//wvWW3EdxGAgxKXS2Y+U+vmUF/
-	Zy2GC6xE2+WrkEwICE/4+TEFmYFuW13uzfIwbPJ7oxYfNZErPXzQed03AGGMn0bDwJDgjOpGhKg9b
-	Y+95OGvlFvmJ7DZmbTMmolpU5cLSrUEKh7+aXOFd7BGhRfF76vMbq4C/J+EkH+O7xksaEbACDsbZn
-	DO/VIEhZQuKs0ehX9nzQaVMn3XinWP6xE+gIXfbd2PIDrFtAj8psI7ixBdHX4tIIU/8icliekRFhz
-	nlj2U1hA==;
+	bh=c8wf3RrDwwapSfuoerOV8MPC7AS9NZOZvn4WILk0Yi4=; b=a0wbWKvD0JlS7aGjPad9mRjNo/
+	XoLRjbCcidwkAR+gTwpjanTVecErE8V2usDn/ftainxmO6ns9B+CVjBrs8lW1nfRpSVCzzMoh/gO5
+	OkG8ayLRaBmd5nptUea3o8y+RTk2eONObWKcnJNm8F7FNTBPxhlz7S1wGMdceTlq6BPpk8KgsSxU1
+	Jt0LuKh+vhE/56CdVORP1SCanp9kPIGpQcyU55ssTzNxkxEssvTJYaGAYYGwl/Nty+KQ085HfZJot
+	tkWGjbE8dAlFvf8lR723slmE6XVZdUUiSuxEtrCtvcy0ZzRdcdC085zP4wwvBwTD5Req/JpwfchuJ
+	EhP/VuXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPW98-0000000Bpqb-28T5;
-	Thu, 12 Jun 2025 00:50:22 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uPWBE-0000000Bq2a-1RoI;
+	Thu, 12 Jun 2025 00:52:32 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUED-0000000BXEs-2sUR
+	id 1uPUEF-0000000BXGA-2pJe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 22:47:30 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7395d07a3dcso234988b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:28 -0700 (PDT)
+	Wed, 11 Jun 2025 22:47:33 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-235196dfc50so2389845ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749682048; x=1750286848; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749682050; x=1750286850; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=IkktWH+V9h3bcYXFzddTxBsHDsmGjlRn4knyOKrNzLg=;
-        b=QqLMzAMu97XwXNFxh9j2leahtaIp1nYXRCMT4M7P56qPCChQl8ehPa4GcUJLGK4XtH
-         sy86MKw9Nfuf7fUAoSIEC+O7RaipsZ0WGgnGao5IyD+NZj+T7UurbCU8dQvUKP/JXHMQ
-         654mZL0JlKgtAcKoeyJF3Ozvl7itog40C4wfpRRB85unfKfidbCzRd/pmudzm26ncxxi
-         lxMai9IApdvoAxE8k9mEynLKBnVInXOELke9SBk54hOv7AitTloF0TmWDctHaKUNXJ7J
-         ZuzfWgNsg4I4nPC9EQkqJk9kXYO9W5x5JGLYnxTmWFCsw7prOppy2GTWnCdFu4XPqABj
-         zxkg==
+        bh=c8wf3RrDwwapSfuoerOV8MPC7AS9NZOZvn4WILk0Yi4=;
+        b=s/VVLBEwoX2nXxgqGeEQZZs01SxxPGthflHBwOiyxfloEIginYkt69tMjzw5ZJytQl
+         WoIEtRimzJxpFqVa9RSepwGfjyXVjFyrs50yNXYztqbfJuVz8AacWXz2P7kFtD08YIAB
+         DZ2JI/UGog0EudADnJyhtwU4XLPf1OOtdLPYbpRD6l8h/GQ8sm/cKt2IEOqpcFXit/dA
+         v3zwJSa84K0SDmzE+WQpHJ0KwVC6dOkTxkC/kcN648FQNsFa19Mfe3XW2VHo/F0xwx2S
+         M2O4skII8Qr8Ug+8+ZwtsHOC2mouk4ih1P3NWPd/4CvJcVz6aE9XmUhIXRC4n5o5sS7u
+         RvGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749682048; x=1750286848;
+        d=1e100.net; s=20230601; t=1749682050; x=1750286850;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IkktWH+V9h3bcYXFzddTxBsHDsmGjlRn4knyOKrNzLg=;
-        b=rU5B8wJ621yjFxScVyur2pldWJl/lRubVThe2oZwHnNKbW69soujJbaLEG8XJ03wQY
-         s7xOBiSmDKJZVhV4iqdHfD85kVY8VXidrzflPio8q6B5eD0BwtSM05/T6WaHbOdHF+Zf
-         ehvlTH+lYlOFbGUaJ9bJwWcGdLn5bFXxs0QAYNRpYCGK9PaOEeXs8vcHpnIc7NYJn5RB
-         5wCZeqz8ATgJ1xa4QfwjZAJQDsTn3KGzaTZkP0bnEHIe9kw9UTiR0kAtS6DHYOcjF6eA
-         Ba+kxdvzdR+ho0Y3Ip7uG3XwpQzfbmxjDEvCKf3OKQY968Q6D7PbRRCuZ8aBv7V3G8g0
-         wZQg==
-X-Gm-Message-State: AOJu0YzRptJiIyPZwznzcwHDYiUBDkdjfis2po7bk5LjbKS8JVctPoTK
-	zeOcUCq+hj0LRXmjax+0gsot1kdaSI+tOLoFaClOUlrKg99pO5eHKag698PAwzbOn2DeIslDniI
-	DlpWsTQ==
-X-Google-Smtp-Source: AGHT+IFju6WrqvBHypqRYrHHoWezRKFOOmxRqymOxF1hxx8+vosFxM+8IRo96ENVv8Z0pfdBM/f4N8kJm6A=
-X-Received: from pflc8.prod.google.com ([2002:a05:6a00:ac8:b0:746:1e60:660e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:3925:b0:736:d297:164
- with SMTP id d2e1a72fcca58-7487e0b1b93mr961505b3a.1.1749682048530; Wed, 11
- Jun 2025 15:47:28 -0700 (PDT)
-Date: Wed, 11 Jun 2025 15:45:22 -0700
+        bh=c8wf3RrDwwapSfuoerOV8MPC7AS9NZOZvn4WILk0Yi4=;
+        b=PRp/VVKrbVFAyyZm8LzvysQXBO0TGOxcNch0pOhJS78sKj2m6mtZoU+Yju8jSQgQ/u
+         EhuhIilR996SKiMvttBv/soluwsIoXY27SSBC7DDotxK9sJKwO+MMCRpt26AYJMzvHcs
+         AVP4EwIFK54BkTbLZZq0adslVo08KSC7b29T6+aD0TUfH38IP3IqpcxQ2XRCjRmxjNnM
+         C9eiEp1yfjNfmaXt4gMy3yK95spONMWFTdQHrPSJSDiAe+PNng+uefk85lxuonaQoRSk
+         7L+yrNwbnRCXikiyjG46RRXwCKBOa/NS0wSpIim/Xr5ASLq/CmShPAyGJQrhp8tqFHpm
+         eqgg==
+X-Gm-Message-State: AOJu0Yyl8PU+rjwNdTngw4l169DrHE4Messw030dXRvpB3XKBU0EQ6vm
+	WNCGCy8lHGL7z3+BmO4cq9mTS8n4bQvFeX9nRqhrZ5Ag+7QP2f4vKhbaWdti6Q3ceBlo2cUTQW1
+	GaNj+Cw==
+X-Google-Smtp-Source: AGHT+IGJNCuXT10P6Ldic0CILM5/98q+VXrxvc0wPM5pd5dn7xv2Zsl8s09cXT8aND58IoPHTgLj9jyuzCc=
+X-Received: from plk17.prod.google.com ([2002:a17:902:e9d1:b0:220:d81a:8975])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d54d:b0:236:10b1:50cb
+ with SMTP id d9443c01a7336-2364cf689c9mr14160455ad.26.1749682050046; Wed, 11
+ Jun 2025 15:47:30 -0700 (PDT)
+Date: Wed, 11 Jun 2025 15:45:23 -0700
 In-Reply-To: <20250611224604.313496-2-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250611224604.313496-2-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-Message-ID: <20250611224604.313496-21-seanjc@google.com>
-Subject: [PATCH v3 19/62] KVM: VMX: Suppress PI notifications whenever the
- vCPU is put
+Message-ID: <20250611224604.313496-22-seanjc@google.com>
+Subject: [PATCH v3 20/62] KVM: SVM: Add a comment to explain why
+ avic_vcpu_blocking() ignores IRQ blocking
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +79,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_154729_730561_E858E455 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20250611_154731_738327_8C15E355 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,96 +96,58 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Suppress posted interrupt notifications (set PID.SN=1) whenever the vCPU
-is put, i.e. unloaded, not just when the vCPU is preempted, as KVM doesn't
-do anything in response to a notification IRQ that arrives in the host,
-nor does KVM rely on the Outstanding Notification (PID.ON) flag when the
-vCPU is unloaded.  And, the cost of scanning the PIR to manually set PID.ON
-when loading the vCPU is quite small, especially relative to the cost of
-loading (and unloading) a vCPU.
+Add a comment to explain why KVM clears IsRunning when putting a vCPU,
+even though leaving IsRunning=1 would be ok from a functional perspective.
+Per Maxim's experiments, a misbehaving VM could spam the AVIC doorbell so
+fast as to induce a 50%+ loss in performance.
 
-On the flip side, leaving SN clear means a notification for the vCPU will
-result in a spurious IRQ for the pCPU, even if vCPU task is scheduled out,
-running in userspace, etc.  Even worse, if the pCPU is running a different
-vCPU, the spurious IRQ could trigger posted interrupt processing for the
-wrong vCPU, which is technically a violation of the architecture, as
-setting bits in PIR aren't supposed to be propagated to the vIRR until a
-notification IRQ is received.
-
-The saving grace of the current behavior is that hardware sends
-notification interrupts if and only if PID.ON=0, i.e. only the first
-posted interrupt for a vCPU will trigger a spurious IRQ (for each window
-where the vCPU is unloaded).
-
-Ideally, KVM would suppress notifications before enabling IRQs in the
-VM-Exit, but KVM relies on PID.ON as an indicator that there is a posted
-interrupt pending in PIR, e.g. in vmx_sync_pir_to_irr(), and sadly there
-is no way to ask hardware to set PID.ON, but not generate an interrupt.
-That could be solved by using pi_has_pending_interrupt() instead of
-checking only PID.ON, but it's not at all clear that would be a performance
-win, as KVM would end up scanning the entire PIR whenever an interrupt
-isn't pending.
-
-And long term, the spurious IRQ window, i.e. where a vCPU is loaded with
-IRQs enabled, can effectively be made smaller for hot paths by moving
-performance critical VM-Exit handlers into the fastpath, i.e. by never
-enabling IRQs for hot path VM-Exits.
-
+Link: https://lore.kernel.org/all/8d7e0d0391df4efc7cb28557297eb2ec9904f1e5.camel@redhat.com
+Cc: Maxim Levitsky <mlevitsk@redhat.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/posted_intr.c | 29 ++++++++++++++++-------------
- 1 file changed, 16 insertions(+), 13 deletions(-)
+ arch/x86/kvm/svm/avic.c | 31 ++++++++++++++++++-------------
+ 1 file changed, 18 insertions(+), 13 deletions(-)
 
-diff --git a/arch/x86/kvm/vmx/posted_intr.c b/arch/x86/kvm/vmx/posted_intr.c
-index 110fb19848ab..d4826a6b674f 100644
---- a/arch/x86/kvm/vmx/posted_intr.c
-+++ b/arch/x86/kvm/vmx/posted_intr.c
-@@ -73,13 +73,10 @@ void vmx_vcpu_pi_load(struct kvm_vcpu *vcpu, int cpu)
- 	/*
- 	 * If the vCPU wasn't on the wakeup list and wasn't migrated, then the
- 	 * full update can be skipped as neither the vector nor the destination
--	 * needs to be changed.
-+	 * needs to be changed.  Clear SN even if there is no assigned device,
-+	 * again for simplicity.
- 	 */
- 	if (pi_desc->nv != POSTED_INTR_WAKEUP_VECTOR && vcpu->cpu == cpu) {
--		/*
--		 * Clear SN if it was set due to being preempted.  Again, do
--		 * this even if there is no assigned device for simplicity.
--		 */
- 		if (pi_test_and_clear_sn(pi_desc))
- 			goto after_clear_sn;
- 		return;
-@@ -225,17 +222,23 @@ void vmx_vcpu_pi_put(struct kvm_vcpu *vcpu)
- 	if (!vmx_needs_pi_wakeup(vcpu))
+diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
+index bf8b59556373..3cf929ac117f 100644
+--- a/arch/x86/kvm/svm/avic.c
++++ b/arch/x86/kvm/svm/avic.c
+@@ -1121,19 +1121,24 @@ void avic_vcpu_blocking(struct kvm_vcpu *vcpu)
+ 	if (!kvm_vcpu_apicv_active(vcpu))
  		return;
  
--	if (kvm_vcpu_is_blocking(vcpu) &&
+-       /*
+-        * Unload the AVIC when the vCPU is about to block, _before_
+-        * the vCPU actually blocks.
+-        *
+-        * Any IRQs that arrive before IsRunning=0 will not cause an
+-        * incomplete IPI vmexit on the source, therefore vIRR will also
+-        * be checked by kvm_vcpu_check_block() before blocking.  The
+-        * memory barrier implicit in set_current_state orders writing
+-        * IsRunning=0 before reading the vIRR.  The processor needs a
+-        * matching memory barrier on interrupt delivery between writing
+-        * IRR and reading IsRunning; the lack of this barrier might be
+-        * the cause of errata #1235).
+-        */
 +	/*
-+	 * If the vCPU is blocking with IRQs enabled and ISN'T being preempted,
-+	 * enable the wakeup handler so that notification IRQ wakes the vCPU as
-+	 * expected.  There is no need to enable the wakeup handler if the vCPU
-+	 * is preempted between setting its wait state and manually scheduling
-+	 * out, as the task is still runnable, i.e. doesn't need a wake event
-+	 * from KVM to be scheduled in.
++	 * Unload the AVIC when the vCPU is about to block, _before_ the vCPU
++	 * actually blocks.
 +	 *
-+	 * If the wakeup handler isn't being enabled, Suppress Notifications as
-+	 * the cost of propagating PIR.IRR to PID.ON is negligible compared to
-+	 * the cost of a spurious IRQ, and vCPU put/load is a slow path.
++	 * Note, any IRQs that arrive before IsRunning=0 will not cause an
++	 * incomplete IPI vmexit on the source; kvm_vcpu_check_block() handles
++	 * this by checking vIRR one last time before blocking.  The memory
++	 * barrier implicit in set_current_state orders writing IsRunning=0
++	 * before reading the vIRR.  The processor needs a matching memory
++	 * barrier on interrupt delivery between writing IRR and reading
++	 * IsRunning; the lack of this barrier might be the cause of errata #1235).
++	 *
++	 * Clear IsRunning=0 even if guest IRQs are disabled, i.e. even if KVM
++	 * doesn't need to detect events for scheduling purposes.  The doorbell
++	 * used to signal running vCPUs cannot be blocked, i.e. will perturb the
++	 * CPU and cause noisy neighbor problems if the VM is sending interrupts
++	 * to the vCPU while it's scheduled out.
 +	 */
-+	if (!vcpu->preempted && kvm_vcpu_is_blocking(vcpu) &&
- 	    ((is_td_vcpu(vcpu) && tdx_interrupt_allowed(vcpu)) ||
- 	     (!is_td_vcpu(vcpu) && !vmx_interrupt_blocked(vcpu))))
- 		pi_enable_wakeup_handler(vcpu);
--
--	/*
--	 * Set SN when the vCPU is preempted.  Note, the vCPU can both be seen
--	 * as blocking and preempted, e.g. if it's preempted between setting
--	 * its wait state and manually scheduling out.
--	 */
--	if (vcpu->preempted)
-+	else
- 		pi_set_sn(pi_desc);
+ 	avic_vcpu_put(vcpu);
  }
  
 -- 
