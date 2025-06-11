@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA32CC71141
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 18:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5738C71143
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 18:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iUKvkzfv+geUv0cQ30mYJKVnZsLcw0txgfq8vTRImpI=; b=Vf22NTCQzwDXUuG4lZgsyKqmHK
-	SOSPbh8C+odGIPF5CSWiNOXZ9pN5YdWlzHTtku7HTku6ry7dYjIElvpy+xP04e+t00lAUYWMGknWp
-	ee8pQq8igNhac4YlfiEYVnXLHAdz1m3NfeQvLPawy41S0WZDlASyM7Q0OlP+9Xr2WNcs4dg8ixhWf
-	R5Wx14hZWUgOM2TAurzGPSWbZ6vnZjcqyYjZkOOCGPoF4EZ1wNP6Mwu7p6M/3vobDzWLey8xTVW9s
-	jDo1XUN0c82rbQ2ZmnZZV1UHOmZoInIgC3eR/bOGjPPW0SsUYaVOpKrK10KggReUpdfkyyAuUjBeG
-	xLsoWflA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C2GjeC0lRCwxbV569oo1cYPDKEGHoyOYkBxMY5oyEXo=; b=nXvEdQ9aEVHpJmmcJSRMoR1COL
+	TrvoyjsDTeRuogWLibxKueWPbSJ/xPGrf1KiyVr/5AwLGko1TK7EAsNEZP9jVZmtCdY6jlamXTq3I
+	h3jszPBEfKenxyD1r8vPvt4yfeLgm6FXD7+fs2GKpfbQcVtb3cCTYw3A/PW/DW6vMlA/K6slmd/AX
+	WG/7zxOFyfy735SdD1cn7Ur/nZrdFflUZr4twBmXAP+xeguxjeIEo6wwGT6UUoE1tIUCzK6vgFHQZ
+	yq7LE/D9Tpoar7aWs2WJv0xFwVXAm1/kSrKjLLWwD5etrH7OsPzRPY/jXDZs9bcFbGqR52b//6AGe
+	edManWpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPkT-0000000AnDC-2V9Z;
-	Wed, 11 Jun 2025 18:00:30 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPLzX-0000000A1me-1zqP
+	id 1uPPkS-0000000AnB6-2bdd;
+	Wed, 11 Jun 2025 18:00:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPLya-0000000A1eJ-42FZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 13:59:48 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D622D352;
-	Wed, 11 Jun 2025 15:59:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749650372;
-	bh=0i5yliSpywnP7qeW8wwyDtkfQFrmoBglkXRj5RDbSho=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h3pda/EfxTVllFr2WgzCnGF705yjaAOn/j2rx8QlzkyDcbmJaMDB6UTfqguQ9aHUS
-	 sJJ//nes8o44Q97HRiNbv+/UkLmjUmsdGi3fI10yoZBArSBi7iD4TzfUsXY7KZaT+O
-	 ThodcWKMLjf2qHzVGMEDhOZSHFVdHUKkM4Q1U5RI=
-Date: Wed, 11 Jun 2025 16:59:27 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: linux-media@vger.kernel.org, Isaac Scott <isaac.scott@ideasonboard.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/8] media: imx-mipi-csis: Rename register macros to
- match reference manual
-Message-ID: <20250611135927.GA20418@pendragon.ideasonboard.com>
-References: <20250608235840.23871-1-laurent.pinchart@ideasonboard.com>
- <20250608235840.23871-2-laurent.pinchart@ideasonboard.com>
- <3358871.aeNJFYEL58@steina-w>
- <20250610091632.GM27510@pendragon.ideasonboard.com>
+	Wed, 11 Jun 2025 13:58:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD1A115A1;
+	Wed, 11 Jun 2025 06:58:27 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 14CA33F673;
+	Wed, 11 Jun 2025 06:58:44 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	pcc@google.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	anshuman.khandual@arm.com,
+	joey.gouly@arm.com,
+	yury.khrustalev@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	frederic@kernel.org,
+	akpm@linux-foundation.org,
+	surenb@google.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v7 9/9] kselftest/arm64/mte: add mtefar tests on check_mmap_options
+Date: Wed, 11 Jun 2025 14:58:18 +0100
+Message-Id: <20250611135818.31070-10-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611135818.31070-1-yeoreum.yun@arm.com>
+References: <20250611135818.31070-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250610091632.GM27510@pendragon.ideasonboard.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_065947_841687_C506305C 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20250611_065849_163350_4F4FD87E 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,213 +75,487 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 12:16:34PM +0300, Laurent Pinchart wrote:
-> On Tue, Jun 10, 2025 at 11:10:54AM +0200, Alexander Stein wrote:
-> > Am Montag, 9. Juni 2025, 01:58:33 CEST schrieb Laurent Pinchart:
-> > > The CSIS driver uses register macro names that do not match the
-> > > reference manual of the i.MX7[DS] and i.MX8M[MNP] SoCs in which the CSIS
-> > > is integrated. Rename them to match the documentation, making the code
-> > > easier to read alongside the reference manuals.
-> > > 
-> > > One of the misnamed register fields is MIPI_CSIS_INT_SRC_ERR_UNKNOWN,
-> > > which led to the corresponding event being logged as "Unknown Error".
-> > > The correct register field name is MIPI_CSIS_INT_SRC_ERR_ID, documented
-> > > as "Unknown ID error". Update the event description accordingly.
-> > > 
-> > > While at it, also replace a few *_OFFSET macros with parametric macros
-> > > for consistency, and add the missing MIPI_CSIS_ISP_RESOL_VRESOL and
-> > > MIPI_CSIS_ISP_RESOL_HRESOL register field macros.
-> > > 
-> > > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > ---
-> > >  drivers/media/platform/nxp/imx-mipi-csis.c | 69 +++++++++++-----------
-> > >  1 file changed, 36 insertions(+), 33 deletions(-)
-> > > 
-> > > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > > index 2beb5f43c2c0..d59666ef7545 100644
-> > > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> > > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > > @@ -55,13 +55,13 @@
-> > >  /* CSIS common control */
-> > >  #define MIPI_CSIS_CMN_CTRL			0x04
-> > >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW	BIT(16)
-> > > -#define MIPI_CSIS_CMN_CTRL_INTER_MODE		BIT(10)
-> > > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_NONE	(0 << 10)
-> > > +#define MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT	(1 << 10)
-> > > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER(n)	((n) << 8)
-> > > +#define MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK	(3 << 8)
-> > >  #define MIPI_CSIS_CMN_CTRL_UPDATE_SHADOW_CTRL	BIT(2)
-> > > -#define MIPI_CSIS_CMN_CTRL_RESET		BIT(1)
-> > > -#define MIPI_CSIS_CMN_CTRL_ENABLE		BIT(0)
-> > > -
-> > > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET	8
-> > > -#define MIPI_CSIS_CMN_CTRL_LANE_NR_MASK		(3 << 8)
-> > > +#define MIPI_CSIS_CMN_CTRL_SW_RESET		BIT(1)
-> > > +#define MIPI_CSIS_CMN_CTRL_CSI_EN		BIT(0)
-> > >  
-> > >  /* CSIS clock control */
-> > >  #define MIPI_CSIS_CLK_CTRL			0x08
-> > > @@ -87,7 +87,7 @@
-> > >  #define MIPI_CSIS_INT_MSK_ERR_WRONG_CFG		BIT(3)
-> > >  #define MIPI_CSIS_INT_MSK_ERR_ECC		BIT(2)
-> > >  #define MIPI_CSIS_INT_MSK_ERR_CRC		BIT(1)
-> > > -#define MIPI_CSIS_INT_MSK_ERR_UNKNOWN		BIT(0)
-> > > +#define MIPI_CSIS_INT_MSK_ERR_ID		BIT(0)
-> > >  
-> > >  /* CSIS Interrupt source */
-> > >  #define MIPI_CSIS_INT_SRC			0x14
-> > > @@ -107,7 +107,7 @@
-> > >  #define MIPI_CSIS_INT_SRC_ERR_WRONG_CFG		BIT(3)
-> > >  #define MIPI_CSIS_INT_SRC_ERR_ECC		BIT(2)
-> > >  #define MIPI_CSIS_INT_SRC_ERR_CRC		BIT(1)
-> > > -#define MIPI_CSIS_INT_SRC_ERR_UNKNOWN		BIT(0)
-> > > +#define MIPI_CSIS_INT_SRC_ERR_ID		BIT(0)
-> > >  #define MIPI_CSIS_INT_SRC_ERRORS		0xfffff
-> > >  
-> > >  /* D-PHY status control */
-> > > @@ -123,8 +123,8 @@
-> > >  #define MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE_MASK	GENMASK(31, 24)
-> > >  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(n)	((n) << 22)
-> > >  #define MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE_MASK	GENMASK(23, 22)
-> > > -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_CLK	BIT(6)
-> > > -#define MIPI_CSIS_DPHY_CMN_CTRL_DPDN_SWAP_DAT	BIT(5)
-> > > +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_CLK	BIT(6)
-> > > +#define MIPI_CSIS_DPHY_CMN_CTRL_S_DPDN_SWAP_DAT	BIT(5)
-> > >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_DAT	BIT(1)
-> > >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE_CLK	BIT(0)
-> > >  #define MIPI_CSIS_DPHY_CMN_CTRL_ENABLE		(0x1f << 0)
-> > > @@ -179,21 +179,23 @@
-> > >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_SINGLE	(0 << 12)
-> > >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL	(1 << 12)
-> > >  #define MIPI_CSIS_ISPCFG_PIXEL_MODE_QUAD	(2 << 12)	/* i.MX8M[MNP] only */
-> > > -#define MIPI_CSIS_ISPCFG_PIXEL_MASK		(3 << 12)
-> > > -#define MIPI_CSIS_ISPCFG_ALIGN_32BIT		BIT(11)
-> > > -#define MIPI_CSIS_ISPCFG_FMT(fmt)		((fmt) << 2)
-> > > -#define MIPI_CSIS_ISPCFG_FMT_MASK		(0x3f << 2)
-> > > +#define MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK	(3 << 12)
-> > > +#define MIPI_CSIS_ISPCFG_PARALLEL		BIT(11)
-> > > +#define MIPI_CSIS_ISPCFG_DATAFORMAT(fmt)	((fmt) << 2)
-> > > +#define MIPI_CSIS_ISPCFG_DATAFORMAT_MASK	(0x3f << 2)
-> > >  
-> > >  /* ISP Image Resolution register */
-> > >  #define MIPI_CSIS_ISP_RESOL_CH(n)		(0x44 + (n) * 0x10)
-> > > +#define MIPI_CSIS_ISP_RESOL_VRESOL(n)		((n) << 16)
-> > > +#define MIPI_CSIS_ISP_RESOL_HRESOL(n)		((n) << 0)
-> > >  #define CSIS_MAX_PIX_WIDTH			0xffff
-> > >  #define CSIS_MAX_PIX_HEIGHT			0xffff
-> > >  
-> > >  /* ISP SYNC register */
-> > >  #define MIPI_CSIS_ISP_SYNC_CH(n)		(0x48 + (n) * 0x10)
-> > > -#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET	18
-> > > -#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET	12
-> > > -#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET	0
-> > > +#define MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(n)	((n) << 18)
-> > > +#define MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(n)	((n) << 12)
-> > > +#define MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(n)	((n) << 0)
-> > >  
-> > >  /* ISP shadow registers */
-> > >  #define MIPI_CSIS_SDW_CONFIG_CH(n)		(0x80 + (n) * 0x10)
-> > > @@ -246,7 +248,7 @@ static const struct mipi_csis_event mipi_csis_events[] = {
-> > >  	{ false, MIPI_CSIS_INT_SRC_ERR_WRONG_CFG,	"Wrong Configuration Error" },
-> > >  	{ false, MIPI_CSIS_INT_SRC_ERR_ECC,		"ECC Error" },
-> > >  	{ false, MIPI_CSIS_INT_SRC_ERR_CRC,		"CRC Error" },
-> > > -	{ false, MIPI_CSIS_INT_SRC_ERR_UNKNOWN,		"Unknown Error" },
-> > > +	{ false, MIPI_CSIS_INT_SRC_ERR_ID,		"Unknown ID Error" },
-> > >  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_NOT_SUPPORT,	"Data Type Not Supported" },
-> > >  	{ true, MIPI_CSIS_DBG_INTR_SRC_DT_IGNORE,	"Data Type Ignored" },
-> > >  	{ true, MIPI_CSIS_DBG_INTR_SRC_ERR_FRAME_SIZE,	"Frame Size Error" },
-> > > @@ -517,7 +519,7 @@ static void mipi_csis_sw_reset(struct mipi_csis_device *csis)
-> > >  	u32 val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> > >  
-> > >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL,
-> > > -			val | MIPI_CSIS_CMN_CTRL_RESET);
-> > > +			val | MIPI_CSIS_CMN_CTRL_SW_RESET);
-> > >  	usleep_range(10, 20);
-> > >  }
-> > >  
-> > > @@ -527,9 +529,9 @@ static void mipi_csis_system_enable(struct mipi_csis_device *csis, int on)
-> > >  
-> > >  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> > >  	if (on)
-> > > -		val |= MIPI_CSIS_CMN_CTRL_ENABLE;
-> > > +		val |= MIPI_CSIS_CMN_CTRL_CSI_EN;
-> > >  	else
-> > > -		val &= ~MIPI_CSIS_CMN_CTRL_ENABLE;
-> > > +		val &= ~MIPI_CSIS_CMN_CTRL_CSI_EN;
-> > >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
-> > >  
-> > >  	val = mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
-> > > @@ -549,8 +551,8 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
-> > >  
-> > >  	/* Color format */
-> > >  	val = mipi_csis_read(csis, MIPI_CSIS_ISP_CONFIG_CH(0));
-> > > -	val &= ~(MIPI_CSIS_ISPCFG_ALIGN_32BIT | MIPI_CSIS_ISPCFG_FMT_MASK
-> > > -		| MIPI_CSIS_ISPCFG_PIXEL_MASK);
-> > > +	val &= ~(MIPI_CSIS_ISPCFG_PARALLEL | MIPI_CSIS_ISPCFG_PIXEL_MODE_MASK |
-> > > +		 MIPI_CSIS_ISPCFG_DATAFORMAT_MASK);
-> > >  
-> > >  	/*
-> > >  	 * YUV 4:2:2 can be transferred with 8 or 16 bits per clock sample
-> > > @@ -568,12 +570,13 @@ static void __mipi_csis_set_format(struct mipi_csis_device *csis,
-> > >  	if (csis_fmt->data_type == MIPI_CSI2_DT_YUV422_8B)
-> > >  		val |= MIPI_CSIS_ISPCFG_PIXEL_MODE_DUAL;
-> > >  
-> > > -	val |= MIPI_CSIS_ISPCFG_FMT(csis_fmt->data_type);
-> > > +	val |= MIPI_CSIS_ISPCFG_DATAFORMAT(csis_fmt->data_type);
-> > >  	mipi_csis_write(csis, MIPI_CSIS_ISP_CONFIG_CH(0), val);
-> > >  
-> > >  	/* Pixel resolution */
-> > > -	val = format->width | (format->height << 16);
-> > > -	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0), val);
-> > > +	mipi_csis_write(csis, MIPI_CSIS_ISP_RESOL_CH(0),
-> > > +			MIPI_CSIS_ISP_RESOL_VRESOL(format->height) |
-> > > +			MIPI_CSIS_ISP_RESOL_HRESOL(format->width));
-> > >  }
-> > >  
-> > >  static int mipi_csis_calculate_params(struct mipi_csis_device *csis,
-> > > @@ -635,10 +638,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
-> > >  	u32 val;
-> > >  
-> > >  	val = mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> > > -	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NR_MASK;
-> > > -	val |= (lanes - 1) << MIPI_CSIS_CMN_CTRL_LANE_NR_OFFSET;
-> > > +	val &= ~MIPI_CSIS_CMN_CTRL_LANE_NUMBER_MASK;
-> > > +	val |= MIPI_CSIS_CMN_CTRL_LANE_NUMBER(lanes - 1);
-> > >  	if (csis->info->version == MIPI_CSIS_V3_3)
-> > > -		val |= MIPI_CSIS_CMN_CTRL_INTER_MODE;
-> > > +		val |= MIPI_CSIS_CMN_CTRL_INTERLEAVE_MODE_DT;
-> > 
-> > Mh, what about i.MX8MP which also has these bitfield defined, but is
-> > not a MIPI_CSIS_V3_3 core?
-> 
-> Short answer: no idea yet. Has anyone been able to capture embedded data
-> through the ISI on the i.MX8MP ?
+If FEAT_MTE_TAGGED_FAR (Armv8.9) is supported, bits 63:60 of the fault address
+are preserved in response to synchronous tag check faults (SEGV_MTESERR).
 
-My current understanding is that the i.MX8MP hardware integration
-doesn't allow capturing DT=EMBEDDED_8B when sent through the same VC as
-image data. I would love to be proven wrong.
+This patch adds new test cases using address tags (bits 63:60),
+corresponding to each existing test in check_mmap_option.
 
-> > >  	mipi_csis_write(csis, MIPI_CSIS_CMN_CTRL, val);
-> > >  
-> > >  	__mipi_csis_set_format(csis, format, csis_fmt);
-> > > @@ -647,10 +650,10 @@ static void mipi_csis_set_params(struct mipi_csis_device *csis,
-> > >  			MIPI_CSIS_DPHY_CMN_CTRL_HSSETTLE(csis->hs_settle) |
-> > >  			MIPI_CSIS_DPHY_CMN_CTRL_CLKSETTLE(csis->clk_settle));
-> > >  
-> > > -	val = (0 << MIPI_CSIS_ISP_SYNC_HSYNC_LINTV_OFFSET)
-> > > -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_SINTV_OFFSET)
-> > > -	    | (0 << MIPI_CSIS_ISP_SYNC_VSYNC_EINTV_OFFSET);
-> > > -	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0), val);
-> > > +	mipi_csis_write(csis, MIPI_CSIS_ISP_SYNC_CH(0),
-> > > +			MIPI_CSIS_ISP_SYNC_HSYNC_LINTV(0) |
-> > > +			MIPI_CSIS_ISP_SYNC_VSYNC_SINTV(0) |
-> > > +			MIPI_CSIS_ISP_SYNC_VSYNC_EINTV(0));
-> > >  
-> > >  	val = mipi_csis_read(csis, MIPI_CSIS_CLK_CTRL);
-> > >  	val |= MIPI_CSIS_CLK_CTRL_WCLK_SRC;
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ .../selftests/arm64/mte/check_mmap_options.c  | 194 +++++++++++++++---
+ 1 file changed, 171 insertions(+), 23 deletions(-)
 
+diff --git a/tools/testing/selftests/arm64/mte/check_mmap_options.c b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+index 0df7ce532465..91a81b4a9bfa 100644
+--- a/tools/testing/selftests/arm64/mte/check_mmap_options.c
++++ b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+@@ -24,6 +24,8 @@
+ #define OVERFLOW		MT_GRANULE_SIZE
+ #define TAG_CHECK_ON		0
+ #define TAG_CHECK_OFF		1
++#define ATAG_CHECK_ON		1
++#define ATAG_CHECK_OFF		0
+ 
+ #define TEST_NAME_MAX		256
+ 
+@@ -39,6 +41,7 @@ struct check_mmap_testcase {
+ 	int mte_sync;
+ 	int mapping;
+ 	int tag_check;
++	int atag_check;
+ 	bool enable_tco;
+ };
+ 
+@@ -48,8 +51,14 @@ static int sizes[] = {
+ 	/* page size - 1*/ 0, /* page_size */ 0, /* page size + 1 */ 0
+ };
+ 
+-static int check_mte_memory(char *ptr, int size, int mode, int tag_check)
++static int check_mte_memory(char *ptr, int size, int mode, int tag_check, int atag_check)
+ {
++	if (!mtefar_support && atag_check == ATAG_CHECK_ON)
++		return KSFT_SKIP;
++
++	if (atag_check == ATAG_CHECK_ON)
++		ptr = mte_insert_atag(ptr);
++
+ 	mte_initialize_current_context(mode, (uintptr_t)ptr, size);
+ 	memset(ptr, '1', size);
+ 	mte_wait_after_trig();
+@@ -75,7 +84,7 @@ static int check_mte_memory(char *ptr, int size, int mode, int tag_check)
+ 	return KSFT_PASS;
+ }
+ 
+-static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, int tag_check)
++static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_check)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, result, map_size;
+@@ -97,16 +106,16 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
+ 			munmap((void *)map_ptr, map_size);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_check);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		mte_free_memory((void *)map_ptr, map_size, mem_type, false);
+-		if (result == KSFT_FAIL)
+-			return KSFT_FAIL;
++		if (result != KSFT_PASS)
++			return result;
+ 	}
+ 	return KSFT_PASS;
+ }
+ 
+-static int check_file_memory_mapping(int mem_type, int mode, int mapping, int tag_check)
++static int check_file_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_check)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, fd, map_size;
+@@ -135,17 +144,17 @@ static int check_file_memory_mapping(int mem_type, int mode, int mapping, int ta
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_check);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		munmap((void *)map_ptr, map_size);
+ 		close(fd);
+-		if (result == KSFT_FAIL)
+-			break;
++		if (result != KSFT_PASS)
++			return result;
+ 	}
+-	return result;
++	return KSFT_PASS;
+ }
+ 
+-static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
++static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int atag_check)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, prot_flag, result, fd, map_size;
+@@ -168,7 +177,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
+ 			ksft_print_msg("FAIL: mprotect not ignoring clear PROT_MTE property\n");
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_check);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		if (result != KSFT_PASS)
+ 			return KSFT_FAIL;
+@@ -192,11 +201,11 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping)
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_check);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		close(fd);
+ 		if (result != KSFT_PASS)
+-			return KSFT_FAIL;
++			return result;
+ 	}
+ 	return KSFT_PASS;
+ }
+@@ -209,6 +218,7 @@ const char *format_test_name(struct check_mmap_testcase *tc)
+ 	const char *sync_str;
+ 	const char *mapping_str;
+ 	const char *tag_check_str;
++	const char *atag_check_str;
+ 
+ 	switch (tc->check_type) {
+ 	case CHECK_ANON_MEM:
+@@ -276,10 +286,22 @@ const char *format_test_name(struct check_mmap_testcase *tc)
+ 		break;
+ 	}
+ 
++	switch (tc->atag_check) {
++	case ATAG_CHECK_ON:
++		atag_check_str = "with address tag [63:60]";
++		break;
++	case ATAG_CHECK_OFF:
++		atag_check_str = "without address tag [63:60]";
++		break;
++	default:
++		assert(0);
++		break;
++	}
++
+ 	snprintf(test_name, sizeof(test_name),
+-	         "Check %s with %s mapping, %s mode, %s memory and %s\n",
++	         "Check %s with %s mapping, %s mode, %s memory and %s (%s)\n",
+ 	         check_type_str, mapping_str, sync_str, mem_type_str,
+-	         tag_check_str);
++	         tag_check_str, atag_check_str);
+ 
+ 	return test_name;
+ }
+@@ -295,6 +317,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = true,
+ 		},
+ 		{
+@@ -303,6 +326,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = true,
+ 		},
+ 		{
+@@ -311,6 +335,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_NONE_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -319,6 +344,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_NONE_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -327,6 +353,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -335,6 +362,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -343,6 +371,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -351,6 +380,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -359,6 +389,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -367,6 +398,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -375,6 +407,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -383,6 +416,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -391,6 +425,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -399,6 +434,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -407,6 +443,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -415,6 +452,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -423,6 +461,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -431,6 +470,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -439,6 +479,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -447,6 +488,106 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_ASYNC_ERR,
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_CLEAR_PROT_MTE,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_CLEAR_PROT_MTE,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -455,6 +596,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -463,6 +605,7 @@ int main(int argc, char *argv[])
+ 			.mte_sync = MTE_SYNC_ERR,
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
+ 			.enable_tco = false,
+ 		},
+ 	};
+@@ -479,14 +622,16 @@ int main(int argc, char *argv[])
+ 	sizes[item - 2] = page_size;
+ 	sizes[item - 1] = page_size + 1;
+ 
+-	/* Register signal handlers */
+-	mte_register_signal(SIGBUS, mte_default_handler, false);
+-	mte_register_signal(SIGSEGV, mte_default_handler, false);
+-
+ 	/* Set test plan */
+ 	ksft_set_plan(ARRAY_SIZE(test_cases));
+ 
+ 	for (i = 0 ; i < ARRAY_SIZE(test_cases); i++) {
++		/* Register signal handlers */
++		mte_register_signal(SIGBUS, mte_default_handler,
++				    test_cases[i].atag_check == ATAG_CHECK_ON);
++		mte_register_signal(SIGSEGV, mte_default_handler,
++				    test_cases[i].atag_check == ATAG_CHECK_ON);
++
+ 		if (test_cases[i].enable_tco)
+ 			mte_enable_pstate_tco();
+ 		else
+@@ -497,20 +642,23 @@ int main(int argc, char *argv[])
+ 			evaluate_test(check_anonymous_memory_mapping(test_cases[i].mem_type,
+ 								     test_cases[i].mte_sync,
+ 								     test_cases[i].mapping,
+-								     test_cases[i].tag_check),
++								     test_cases[i].tag_check,
++								     test_cases[i].atag_check),
+ 				      format_test_name(&test_cases[i]));
+ 			break;
+ 		case CHECK_FILE_MEM:
+ 			evaluate_test(check_file_memory_mapping(test_cases[i].mem_type,
+ 							        test_cases[i].mte_sync,
+ 							        test_cases[i].mapping,
+-							        test_cases[i].tag_check),
++							        test_cases[i].tag_check,
++							        test_cases[i].atag_check),
+ 				      format_test_name(&test_cases[i]));
+ 			break;
+ 		case CHECK_CLEAR_PROT_MTE:
+ 			evaluate_test(check_clear_prot_mte_flag(test_cases[i].mem_type,
+ 							        test_cases[i].mte_sync,
+-							        test_cases[i].mapping),
++							        test_cases[i].mapping,
++							        test_cases[i].atag_check),
+ 				      format_test_name(&test_cases[i]));
+ 			break;
+ 		default:
 -- 
-Regards,
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-Laurent Pinchart
 
