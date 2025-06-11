@@ -4,74 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5AB4C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579BFC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=id7GRWD8vfNBwx1dRBT13zBpoC0G7MyQ35NGW3O+ncM=; b=11prrSvUG/SNDc2+3PW/Yu6oc1
-	y28bylcDTEFDM34Xly/1yz73HnFmtOSlr1GQZBRCDGvD2K90oidxfOWFXatvJqkKYHkkx535U4l5p
-	Wt1dhpzv0c6JGzVjVHuLaqVn4Le5k+DjgSJzFQyFqr5oSid8ZbdOvDVkgcBAj3TyxEv1hUglWv2q3
-	wE4Uuxrks4cmhs4Bv2LHCDjygY8n7FhUYOsY/DhT1+o/YTVtSJQJuVyf+Ww1KLKfbDrNgn6vMQviD
-	UGjZJWB2Ilc82mow2yrv3QuwRlFSRUdvldscPt9fBbcQmQjJMZ2+O/7pBk68swaxJwYF2gA02yB2l
-	+N524DGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=p97Ev2RuE3rrH3D62Y1GwRSKc2IQC0Xeb8OQTZxtX3U=; b=Yv6D+D/tr9YN1P
+	1R2rSLX52+4YVucoVzrXJMQ8RyO1bPKIISJpcrpE3TWUjvYZ3fAFj3r5c8aFo6VC48bC9PkTlqW4y
+	4qCHqBoCOGX5gg26i1QM8MuOEl3VHmNryISqATR1D8kxyS01g6PAhBykYMK31TvKKc/fHQirs4aLY
+	VJOAJBaa1tv6qbGNVuA4TzwRsURWHBh6MlkChmzKe3kNBYqhS8vZcUTDf72t+Psaof2oN8Mh6aoKi
+	Co1uKTLNWoEhhPk0Pi6NDX4hEIYXJl8KT1LBOluRHc9UDzzaPolpVg9hY35WU2UKHnBqBCbSLXvdq
+	pI3Zp8X9yGS5/YfzZq9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNmL-0000000ATNS-2Mf0;
-	Wed, 11 Jun 2025 15:54:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPNmI-0000000ATJH-2L9s;
+	Wed, 11 Jun 2025 15:54:14 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIwL-00000009e30-2omS
+	id 1uPIvE-00000009dul-0D3E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:44:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 43B815C56EA;
-	Wed, 11 Jun 2025 10:42:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA93C4CEEE;
-	Wed, 11 Jun 2025 10:44:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749638656;
-	bh=Val6gvNLmwc93YXiRLAyyfulj6tIKO76zAealvKQvYg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SZ+t+3NEBw9nCqlnTSklRNo11YQsU6g3oJrKcf7NaVbF0/9Bvb7+qZ8TQtvsnRiRg
-	 UAv7HO4pMGsP9DnsXyP9OUG0SAb6azvHEd24CqEUMWwNKSnXgmQavGbPC3aDYuHMfw
-	 mIO4QCWHiQZuEyJa6xupGtK2xWAEz3qr2PP9gH5z9G9CRGI40FYahHibI0zfc9iYFU
-	 VcwM/rjfmW8cfbebKCU2VAo3SqAk+ybbHw9xPH8E1czaTvZ9X7XIKtWGFsStzl4rjk
-	 BrFLwQYcJBQ+F5Tai1Js9B4CAKMTy57T6m00qamMSXJ/KoOw9c9MStEGR8xPkspTNt
-	 w0MKlaVmGbNNw==
-From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: tglx@linutronix.de,
-	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Nishanth Menon <nm@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] irqchip: Use dev_fwnode()
-Date: Wed, 11 Jun 2025 12:43:38 +0200
-Message-ID: <20250611104348.192092-10-jirislaby@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250611104348.192092-1-jirislaby@kernel.org>
-References: <20250611104348.192092-1-jirislaby@kernel.org>
+	Wed, 11 Jun 2025 10:43:09 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55B9DFqo010996;
+	Wed, 11 Jun 2025 10:43:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=p97Ev2RuE3rrH3D62Y1GwR
+	SKc2IQC0Xeb8OQTZxtX3U=; b=kU4clNMtesU1mUmqm05Iqb6JRy9hKe0Iaijz+Q
+	66v9oBxM7kk3TjFXydIfjF28K9XB+efNFvYQxCHZsERM8/QCaz8plHav1L0FnG9L
+	m9jABMRhSHEsJiJ1l/F/l9PkuU6cN94WRfCd/ky9CMKzhUTRGwgwi8I4bfHcIX8Q
+	nZa3zswFkD2zQEA0vWi1O+x2kPpCPn5RNwIdtOE77R6qebaHMKVwtsFkD+O58iAQ
+	JUn1tl2nCqHHgqM6WQHaj6DKTdvWzAqC4uyuy3Yjp7/d5dOkvdHjI1wVAGI9GsW7
+	M+LITMZYJlLbodXGsIRDnQzLLC9juopZIE6RtRqJ6/MXIGog==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474ekpvaqg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 10:43:00 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55BAgxP8019392
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 10:42:59 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 11 Jun 2025 03:42:55 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Subject: [PATCH v10 0/2] coresight: Add Coresight Trace Network On Chip
+ driver
+Date: Wed, 11 Jun 2025 18:42:20 +0800
+Message-ID: <20250611-trace-noc-v10-0-a83b5c63da34@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIxdSWgC/3WSy07DMBBFf6XyGiO/7WHFfyAWfsxQL0ggKRGo6
+ r/jVqCmSbqckc+c0fge2YhDxZE97Y5swKmOte9aIcXDjuV97N6Q19IaTAllhRGaH4aYkXd95hR
+ UcEm3bkDW3n8MSPX7MuzltdX7Oh764ecye5LnLjPOGS0C8BRC4QZK5gmF5T6RSElJCsY/f37VX
+ Lv8mPt3dp4z6Qv7t4GfbTBpLrg1CaioWCLBDfvwv7WUS0aShFLIO4C09pm7PtNYCM5Eytr4FO7
+ 47IrxADoQFiph7bN3fbax2pPXMpPBhJs+K9WSIYUkvEgR0a59bu4Lc9ad76lcdjIq4clt+5RaM
+ mQjpBwRBOLa568+q+YJmnxji7NYUkwKYOPvw5V1ws3Z0NigNYHxUmW7wcKMvc0ANNZopYrJFMg
+ sMnA6nX4Bn06nLhkDAAA=
+X-Change-ID: 20250403-trace-noc-f8286b30408e
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang
+	<quic_yuanfang@quicinc.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749638575; l=3146;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=+Lh2WA+mCURa50Xk69lFYbFMRgESdfHw3F5dmtdL/mM=;
+ b=PacmEHCiEXb333LVmuEvEBgl6fsP09DG/Sh4Sxl2tIuwwT6VZJTf1GFZvuDPuWK44EMLIxZ4A
+ NAlPIpA/2p1Cp2+snVIQJrLUSyu4YQjCqFmIgHg2k5A916DHBFxNOQ9
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=JcO8rVKV c=1 sm=1 tr=0 ts=68495db4 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8
+ a=COk6AnOGAAAA:8 a=9Mfdxx16wSnRITkP5VIA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjExMDA5MCBTYWx0ZWRfX+93Mt520xwtU
+ xF1LZrkjsgzTRV0dn8sHHtL+ocekN7K7hKCt0K0GyMP1PHioYggJTNpubijZaHqmL+7aWGAk54j
+ MwlBnki8QeCq2/Ax+QmePF8SL+yx4blNKo+yjG1yqxfLroMTihDnGtlG31iRU6MASQLFywT+osw
+ h0maj4DxX6QqPvuQ8+2rbvJz9rbp73oXdsW7eIp4ylzDzcASbDBqSBUPHhYMJrH7hgPCep18YAh
+ vgxG9ojEAhoTWeBAcax6f7OJRnWsswfqC2JQwUw34h6bqUPYiIO6SD1wYJWWDPLtK5eIomHvpUv
+ nUv3R5AEPdWv4ETuoq0CWx+dg2KWXLjgD2EkZ4D4B7G1s1FVdOkH2YhMfEvBB1BRKTTcuzEgKov
+ aMXpHAwdguVyf+M4q4yjaqcjInz6IPounO5SofLlpuCehbkYWCpoAYh92oYg/2kyeBQ/oq8W
+X-Proofpoint-GUID: JFkXi9ndG10OiwhqPKx34ka1hLfP_xCR
+X-Proofpoint-ORIG-GUID: JFkXi9ndG10OiwhqPKx34ka1hLfP_xCR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-11_04,2025-06-10_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxlogscore=999 bulkscore=0 spamscore=0 impostorscore=0 phishscore=0
+ priorityscore=1501 mlxscore=0 adultscore=0 clxscore=1015 malwarescore=0
+ suspectscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506110090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_034417_795722_06E52AA2 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250611_034308_147951_ED169F8A 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,247 +138,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-irq_domain_create_simple() takes fwnode as the first argument. It can be
-extracted from the struct device using dev_fwnode() helper instead of
-using of_node with of_fwnode_handle().
+The Trace Network On Chip (TNOC) is an integration hierarchy which is a
+hardware component that integrates the functionalities of TPDA and
+funnels. It collects trace from subsystems and transfers it to coresight
+sink.
 
-So use the dev_fwnode() helper.
+In addition to the generic TNOC mentioned above, there is also a special type
+of TNOC called Interconnect TNOC. Unlike the generic TNOC, the Interconnect
+TNOC doesn't need ATID. Its primary function is to connect the source of
+subsystems to the Aggregator TNOC. Its driver is different from this patch and
+will describe it and upstream its driver separately.
 
-Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+Changes in v10:
+- Rebase to coresight/next branch.
+- Link to v9: https://lore.kernel.org/r/20250611-trace-noc-v9-0-4322d4cf8f4b@quicinc.com
+
+Changes in v9:
+- Mention the binding is only for Aggregator TNOC.
+- Link to v8: https://lore.kernel.org/r/20250606-trace-noc-v8-0-833f94712c57@quicinc.com
+
+Changes in v8:
+- Add sysfs node to expose atid.
+- Link to v7: https://lore.kernel.org/r/20250523-trace-noc-v7-0-d65edbab2997@quicinc.com
+
+Changes in v7:
+- Move the content in header file into coresight-tnoc.c.
+- Use scoped_guard() to replace spin_lock().
+- Invoke coresight_trace_id_put_system_id() for registration failure.
+- Link to v6: https://lore.kernel.org/r/20250522-trace-noc-v6-0-f5a9bcae90ee@quicinc.com
+
+Changes in v6:
+- Add a newline after return statements.
+- Use 'x &= foo' to replace 'x = x & foo'.
+- Use 'x |= foo' to replace 'x = x | foo'.
+- Link to v5: https://lore.kernel.org/r/20250512-trace-noc-v5-0-f2ef070baee5@quicinc.com
+
+Changes in v5:
+- update cover-letter to describe the Interconnect TNOC.
+- Link to v4: https://lore.kernel.org/r/20250415-trace-noc-v4-0-979938fedfd8@quicinc.com
+
+Changes in v4:
+- Fix dt_binding warning.
+- update mask of trace_noc amba_id.
+- Modify driver comments.
+- rename TRACE_NOC_SYN_VAL to TRACE_NOC_SYNC_INTERVAL.
+- Link to v3: https://lore.kernel.org/r/20250411-trace-noc-v3-0-1f19ddf7699b@quicinc.com
+
+Changes in v3:
+- Remove unnecessary sysfs nodes.
+- update commit messages.
+- Use 'writel' instead of 'write_relaxed' when writing to the register for the last time.
+- Add trace_id ops.
+- Link to v2: https://lore.kernel.org/r/20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com
+
+Changes in v2:
+- Modified the format of DT binging file.
+- Fix compile warnings.
+- Link to v1: https://lore.kernel.org/r/46643089-b88d-49dc-be05-7bf0bb21f847@quicinc.com
 
 ---
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>
-Cc: Gregory Clement <gregory.clement@bootlin.com>
-Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Nishanth Menon <nm@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>
-Cc: Santosh Shilimkar <ssantosh@kernel.org>
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
----
- drivers/irqchip/irq-imgpdc.c              | 2 +-
- drivers/irqchip/irq-imx-irqsteer.c        | 2 +-
- drivers/irqchip/irq-keystone.c            | 4 ++--
- drivers/irqchip/irq-mvebu-pic.c           | 2 +-
- drivers/irqchip/irq-pruss-intc.c          | 2 +-
- drivers/irqchip/irq-renesas-intc-irqpin.c | 6 ++----
- drivers/irqchip/irq-renesas-irqc.c        | 2 +-
- drivers/irqchip/irq-renesas-rza1.c        | 5 ++---
- drivers/irqchip/irq-renesas-rzg2l.c       | 5 ++---
- drivers/irqchip/irq-renesas-rzv2h.c       | 2 +-
- drivers/irqchip/irq-stm32mp-exti.c        | 4 +---
- drivers/irqchip/irq-ti-sci-inta.c         | 3 +--
- drivers/irqchip/irq-ti-sci-intr.c         | 3 +--
- drivers/irqchip/irq-ts4800.c              | 2 +-
- 14 files changed, 18 insertions(+), 26 deletions(-)
+Yuanfang Zhang (2):
+      dt-bindings: arm: Add device Trace Network On Chip definition
+      coresight: add coresight Trace Network On Chip driver
 
-diff --git a/drivers/irqchip/irq-imgpdc.c b/drivers/irqchip/irq-imgpdc.c
-index f0410d5d7315..484a089e7f6d 100644
---- a/drivers/irqchip/irq-imgpdc.c
-+++ b/drivers/irqchip/irq-imgpdc.c
-@@ -372,7 +372,7 @@ static int pdc_intc_probe(struct platform_device *pdev)
- 	priv->syswake_irq = irq;
- 
- 	/* Set up an IRQ domain */
--	priv->domain = irq_domain_create_linear(of_fwnode_handle(node), 16, &irq_generic_chip_ops,
-+	priv->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), 16, &irq_generic_chip_ops,
- 					     priv);
- 	if (unlikely(!priv->domain)) {
- 		dev_err(&pdev->dev, "cannot add IRQ domain\n");
-diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
-index 6dc9ac48fee5..bb2b09f528fd 100644
---- a/drivers/irqchip/irq-imx-irqsteer.c
-+++ b/drivers/irqchip/irq-imx-irqsteer.c
-@@ -212,7 +212,7 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
- 	/* steer all IRQs into configured channel */
- 	writel_relaxed(BIT(data->channel), data->regs + CHANCTRL);
- 
--	data->domain = irq_domain_create_linear(of_fwnode_handle(np), data->reg_num * 32,
-+	data->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), data->reg_num * 32,
- 					     &imx_irqsteer_domain_ops, data);
- 	if (!data->domain) {
- 		dev_err(&pdev->dev, "failed to create IRQ domain\n");
-diff --git a/drivers/irqchip/irq-keystone.c b/drivers/irqchip/irq-keystone.c
-index c9e902b7bf48..922fff09354f 100644
---- a/drivers/irqchip/irq-keystone.c
-+++ b/drivers/irqchip/irq-keystone.c
-@@ -157,8 +157,8 @@ static int keystone_irq_probe(struct platform_device *pdev)
- 	kirq->chip.irq_mask	= keystone_irq_setmask;
- 	kirq->chip.irq_unmask	= keystone_irq_unmask;
- 
--	kirq->irqd = irq_domain_create_linear(of_fwnode_handle(np), KEYSTONE_N_IRQ,
--					      &keystone_irq_ops, kirq);
-+	kirq->irqd = irq_domain_create_linear(dev_fwnode(dev), KEYSTONE_N_IRQ, &keystone_irq_ops,
-+					      kirq);
- 	if (!kirq->irqd) {
- 		dev_err(dev, "IRQ domain registration failed\n");
- 		return -ENODEV;
-diff --git a/drivers/irqchip/irq-mvebu-pic.c b/drivers/irqchip/irq-mvebu-pic.c
-index 8db638aa21d2..cd8b73482b9f 100644
---- a/drivers/irqchip/irq-mvebu-pic.c
-+++ b/drivers/irqchip/irq-mvebu-pic.c
-@@ -150,7 +150,7 @@ static int mvebu_pic_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 
--	pic->domain = irq_domain_create_linear(of_fwnode_handle(node), PIC_MAX_IRQS,
-+	pic->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), PIC_MAX_IRQS,
- 					       &mvebu_pic_domain_ops, pic);
- 	if (!pic->domain) {
- 		dev_err(&pdev->dev, "Failed to allocate irq domain\n");
-diff --git a/drivers/irqchip/irq-pruss-intc.c b/drivers/irqchip/irq-pruss-intc.c
-index 87a5813fd835..81078d56f38d 100644
---- a/drivers/irqchip/irq-pruss-intc.c
-+++ b/drivers/irqchip/irq-pruss-intc.c
-@@ -555,7 +555,7 @@ static int pruss_intc_probe(struct platform_device *pdev)
- 
- 	mutex_init(&intc->lock);
- 
--	intc->domain = irq_domain_create_linear(of_fwnode_handle(dev->of_node), max_system_events,
-+	intc->domain = irq_domain_create_linear(dev_fwnode(dev), max_system_events,
- 						&pruss_intc_irq_domain_ops, intc);
- 	if (!intc->domain)
- 		return -ENOMEM;
-diff --git a/drivers/irqchip/irq-renesas-intc-irqpin.c b/drivers/irqchip/irq-renesas-intc-irqpin.c
-index 0959ed43b1a9..117b74b635ea 100644
---- a/drivers/irqchip/irq-renesas-intc-irqpin.c
-+++ b/drivers/irqchip/irq-renesas-intc-irqpin.c
-@@ -513,10 +513,8 @@ static int intc_irqpin_probe(struct platform_device *pdev)
- 	irq_chip->irq_set_wake = intc_irqpin_irq_set_wake;
- 	irq_chip->flags	= IRQCHIP_MASK_ON_SUSPEND;
- 
--	p->irq_domain = irq_domain_create_simple(of_fwnode_handle(dev->of_node),
--						 nirqs, 0,
--						 &intc_irqpin_irq_domain_ops,
--						 p);
-+	p->irq_domain = irq_domain_create_simple(dev_fwnode(dev), nirqs, 0,
-+						 &intc_irqpin_irq_domain_ops, p);
- 	if (!p->irq_domain) {
- 		ret = -ENXIO;
- 		dev_err(dev, "cannot initialize irq domain\n");
-diff --git a/drivers/irqchip/irq-renesas-irqc.c b/drivers/irqchip/irq-renesas-irqc.c
-index 5c3196e5a437..b46bbb66c264 100644
---- a/drivers/irqchip/irq-renesas-irqc.c
-+++ b/drivers/irqchip/irq-renesas-irqc.c
-@@ -168,7 +168,7 @@ static int irqc_probe(struct platform_device *pdev)
- 
- 	p->cpu_int_base = p->iomem + IRQC_INT_CPU_BASE(0); /* SYS-SPI */
- 
--	p->irq_domain = irq_domain_create_linear(of_fwnode_handle(dev->of_node), p->number_of_irqs,
-+	p->irq_domain = irq_domain_create_linear(dev_fwnode(dev), p->number_of_irqs,
- 						 &irq_generic_chip_ops, p);
- 	if (!p->irq_domain) {
- 		ret = -ENXIO;
-diff --git a/drivers/irqchip/irq-renesas-rza1.c b/drivers/irqchip/irq-renesas-rza1.c
-index 0a9640ba0adb..a697eb55ac90 100644
---- a/drivers/irqchip/irq-renesas-rza1.c
-+++ b/drivers/irqchip/irq-renesas-rza1.c
-@@ -231,9 +231,8 @@ static int rza1_irqc_probe(struct platform_device *pdev)
- 	priv->chip.irq_set_type = rza1_irqc_set_type;
- 	priv->chip.flags = IRQCHIP_MASK_ON_SUSPEND | IRQCHIP_SKIP_SET_WAKE;
- 
--	priv->irq_domain = irq_domain_create_hierarchy(parent, 0, IRQC_NUM_IRQ,
--						       of_fwnode_handle(np), &rza1_irqc_domain_ops,
--						       priv);
-+	priv->irq_domain = irq_domain_create_hierarchy(parent, 0, IRQC_NUM_IRQ, dev_fwnode(dev),
-+						       &rza1_irqc_domain_ops, priv);
- 	if (!priv->irq_domain) {
- 		dev_err(dev, "cannot initialize irq domain\n");
- 		ret = -ENOMEM;
-diff --git a/drivers/irqchip/irq-renesas-rzg2l.c b/drivers/irqchip/irq-renesas-rzg2l.c
-index 1e861bd64f97..360d88687e4f 100644
---- a/drivers/irqchip/irq-renesas-rzg2l.c
-+++ b/drivers/irqchip/irq-renesas-rzg2l.c
-@@ -574,9 +574,8 @@ static int rzg2l_irqc_common_init(struct device_node *node, struct device_node *
- 
- 	raw_spin_lock_init(&rzg2l_irqc_data->lock);
- 
--	irq_domain = irq_domain_create_hierarchy(parent_domain, 0, IRQC_NUM_IRQ,
--						 of_fwnode_handle(node), &rzg2l_irqc_domain_ops,
--						 rzg2l_irqc_data);
-+	irq_domain = irq_domain_create_hierarchy(parent_domain, 0, IRQC_NUM_IRQ, dev_fwnode(dev),
-+						 &rzg2l_irqc_domain_ops, rzg2l_irqc_data);
- 	if (!irq_domain) {
- 		pm_runtime_put(dev);
- 		return dev_err_probe(dev, -ENOMEM, "failed to add irq domain\n");
-diff --git a/drivers/irqchip/irq-renesas-rzv2h.c b/drivers/irqchip/irq-renesas-rzv2h.c
-index 69b32c19e8ff..57c5a3c008c9 100644
---- a/drivers/irqchip/irq-renesas-rzv2h.c
-+++ b/drivers/irqchip/irq-renesas-rzv2h.c
-@@ -558,7 +558,7 @@ static int rzv2h_icu_init_common(struct device_node *node, struct device_node *p
- 	raw_spin_lock_init(&rzv2h_icu_data->lock);
- 
- 	irq_domain = irq_domain_create_hierarchy(parent_domain, 0, ICU_NUM_IRQ,
--						 of_fwnode_handle(node), &rzv2h_icu_domain_ops,
-+						 dev_fwnode(&pdev->dev), &rzv2h_icu_domain_ops,
- 						 rzv2h_icu_data);
- 	if (!irq_domain) {
- 		dev_err(&pdev->dev, "failed to add irq domain\n");
-diff --git a/drivers/irqchip/irq-stm32mp-exti.c b/drivers/irqchip/irq-stm32mp-exti.c
-index c6b4407d05f9..a24f4f1a4f8f 100644
---- a/drivers/irqchip/irq-stm32mp-exti.c
-+++ b/drivers/irqchip/irq-stm32mp-exti.c
-@@ -683,9 +683,7 @@ static int stm32mp_exti_probe(struct platform_device *pdev)
- 	}
- 
- 	domain = irq_domain_create_hierarchy(parent_domain, 0, drv_data->bank_nr * IRQS_PER_BANK,
--					     of_fwnode_handle(np), &stm32mp_exti_domain_ops,
--					     host_data);
--
-+					     dev_fwnode(dev), &stm32mp_exti_domain_ops, host_data);
- 	if (!domain) {
- 		dev_err(dev, "Could not register exti domain\n");
- 		return -ENOMEM;
-diff --git a/drivers/irqchip/irq-ti-sci-inta.c b/drivers/irqchip/irq-ti-sci-inta.c
-index 7de59238e6b0..01963d36cfaf 100644
---- a/drivers/irqchip/irq-ti-sci-inta.c
-+++ b/drivers/irqchip/irq-ti-sci-inta.c
-@@ -701,8 +701,7 @@ static int ti_sci_inta_irq_domain_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	domain = irq_domain_create_linear(of_fwnode_handle(dev_of_node(dev)),
--					  ti_sci_get_num_resources(inta->vint),
-+	domain = irq_domain_create_linear(dev_fwnode(dev), ti_sci_get_num_resources(inta->vint),
- 					  &ti_sci_inta_irq_domain_ops, inta);
- 	if (!domain) {
- 		dev_err(dev, "Failed to allocate IRQ domain\n");
-diff --git a/drivers/irqchip/irq-ti-sci-intr.c b/drivers/irqchip/irq-ti-sci-intr.c
-index 07fff5ae5ce0..354613e74ad0 100644
---- a/drivers/irqchip/irq-ti-sci-intr.c
-+++ b/drivers/irqchip/irq-ti-sci-intr.c
-@@ -274,8 +274,7 @@ static int ti_sci_intr_irq_domain_probe(struct platform_device *pdev)
- 		return PTR_ERR(intr->out_irqs);
- 	}
- 
--	domain = irq_domain_create_hierarchy(parent_domain, 0, 0,
--					     of_fwnode_handle(dev_of_node(dev)),
-+	domain = irq_domain_create_hierarchy(parent_domain, 0, 0, dev_fwnode(dev),
- 					     &ti_sci_intr_irq_domain_ops, intr);
- 	if (!domain) {
- 		dev_err(dev, "Failed to allocate IRQ domain\n");
-diff --git a/drivers/irqchip/irq-ts4800.c b/drivers/irqchip/irq-ts4800.c
-index e625f4fb2bb8..1e236d5b7516 100644
---- a/drivers/irqchip/irq-ts4800.c
-+++ b/drivers/irqchip/irq-ts4800.c
-@@ -125,7 +125,7 @@ static int ts4800_ic_probe(struct platform_device *pdev)
- 		return -EINVAL;
- 	}
- 
--	data->domain = irq_domain_create_linear(of_fwnode_handle(node), 8, &ts4800_ic_ops, data);
-+	data->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev), 8, &ts4800_ic_ops, data);
- 	if (!data->domain) {
- 		dev_err(&pdev->dev, "cannot add IRQ domain\n");
- 		return -ENOMEM;
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 113 ++++++++++
+ drivers/hwtracing/coresight/Kconfig                |  12 +
+ drivers/hwtracing/coresight/Makefile               |   1 +
+ drivers/hwtracing/coresight/coresight-tnoc.c       | 242 +++++++++++++++++++++
+ 4 files changed, 368 insertions(+)
+---
+base-commit: 408c97c4a5e0b634dcd15bf8b8808b382e888164
+change-id: 20250403-trace-noc-f8286b30408e
+
+Best regards,
 -- 
-2.49.0
+Yuanfang Zhang <quic_yuanfang@quicinc.com>
 
 
