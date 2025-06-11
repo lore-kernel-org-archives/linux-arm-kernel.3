@@ -4,70 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CDD9C677C4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF1AC71133
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/hgBliRsn98yjnn6LGa7ilNtDhe/Zx9FTu8ZrMqhDGE=; b=vs6pnLPv4LznSMmv+566U+lSAf
-	WAllDx6fBUcy0oLh5QNz18L+CsrNmFK5yH1Gc3uoFGIPWWqdhOrWvGPhiJzIjO4I0+juDfRLHMEO0
-	WdWkMJPjiDw2l3N3DRwlAU3g4qD7nyPYnp8ghIJpb5xfzeyy6jL+KFJk/PYXLBn+onQce72Mfdc1U
-	BAVGkVPkCx6o09W4FCPAbKe5IDNOLTUz9BREEEvxP0Ps4v1F+FrLwQmXnd2zA2qQ4RB6qrOs1v73l
-	uGzRSdLq6uY5x28XRyeKxa2orxkYe3IJUMxw07/KmtwKRRCHu/gPusWs1bJr8DlSNpaKwVkeWP6Q8
-	wAtaWmNw==;
+	bh=76kTfNbzTWTwTeo8IcvvYU6TMJiBE6QVDAJnFuxK3jE=; b=VKmVC/4vnQsueWUBMbDLizXDv6
+	v5JQXElB7xpzstl5zg8Dz9bSfBxKTrn1nBlUUj2oL7EhFGOYdEXcvDhRSgsYH6H9zr2EAanNJ4HTt
+	XcUuu64vqJYNmeXt+hecK0jyRK96jSWwwJVbEjAkFYfbsxphNzWfrd+CjEcFv2MXS514RvKoygCc4
+	ude/1betFEBmiHSQRc+s5yGNgJuWQk4w5v25UxARp/qYAjc2P7y8QdlZ2tECtBPQTEumfU2mgE2nN
+	Q+wrPazxX4jpHGom+2H36v/ux9N4tals27fkxdgRiIFtfCzPdaOLXk6GmuKg+SteuLIQWC+nMagVS
+	kLaa8d2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNmU-0000000ATdr-1eTt;
-	Wed, 11 Jun 2025 15:54:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJ27-00000009fRX-2fZV
+	id 1uPNmK-0000000ATLN-0SSa;
+	Wed, 11 Jun 2025 15:54:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPIvL-00000009dvj-1jsU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:50:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB53215A1;
-	Wed, 11 Jun 2025 03:49:55 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.67.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 111003F673;
-	Wed, 11 Jun 2025 03:50:11 -0700 (PDT)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>
-Subject: [PATCH v9 20/43] arm64: RME: Runtime faulting of memory
-Date: Wed, 11 Jun 2025 11:48:17 +0100
-Message-ID: <20250611104844.245235-21-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250611104844.245235-1-steven.price@arm.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
+	Wed, 11 Jun 2025 10:43:17 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55B9DD0t029236;
+	Wed, 11 Jun 2025 10:43:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	76kTfNbzTWTwTeo8IcvvYU6TMJiBE6QVDAJnFuxK3jE=; b=bT661YHZk/iTImsW
+	kl9RHv6Hz8faCciuxluYUdwryftMbkHiT65PhVWAMKRmxuJuBUFJm3Zi5av45/nW
+	0H3medRShiyEOjq8EV2oDa82AO64wiW9AqC12dN4QGj3OyZQTC3DdcaBphSiXFtu
+	bfFVLda7RImqwpn3CvzkZzxknjrtGX7rLWJ33wYhIbVnrOnERQ4mk5Te4LhOiuek
+	kFBjDAg94MY0q/rHO9/MuKbnKP6qjZvcHbWgDRgWNSldr/jLpYIZMhv3vBM+fygG
+	pZQzhanpgvNRgsSJ//JueYv0ZI77wser9p4Y1oVPEE09U4U9EgD/g9LEZ47H1poU
+	bsTo0g==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474dn6cktj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 10:43:07 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55BAh6kB019718
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 10:43:06 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 11 Jun 2025 03:43:03 -0700
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Date: Wed, 11 Jun 2025 18:42:22 +0800
+Subject: [PATCH v10 2/2] coresight: add coresight Trace Network On Chip
+ driver
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250611-trace-noc-v10-2-a83b5c63da34@quicinc.com>
+References: <20250611-trace-noc-v10-0-a83b5c63da34@quicinc.com>
+In-Reply-To: <20250611-trace-noc-v10-0-a83b5c63da34@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>
+CC: <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Yuanfang Zhang
+	<quic_yuanfang@quicinc.com>, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749638575; l=11620;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=0YjYh4pQ7DGNWTssTa6kMCXvLHpaTE+ZXVD0b7RTqTE=;
+ b=RlWmO9seXnQKe3nXmuEXyusV7a0ivcbJ4WTWJzVw/ReRSV9QoHtGlOLWzcTXXKbCOoGDxBbu3
+ cGab0t/XT2jADGKwkudKxZW/zbBllpXU/wrY/MMUBKcqV+rsTjIfo+U
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjExMDA5MSBTYWx0ZWRfXy3OqIkOVPKBb
+ 6ywa4Ohqs3uDfVQE+/q+X4fJRhXE4Xz1wA3ctKPrs1MYfr1P3R0tKL3oDhsmvq3A1+3Dwc6TV8K
+ lleJhYtdgoDfbm+T9LWU5v+qCHZ7lP67pgEXvSnS/p/KwLpf+uwkDSLfWfDgu1NMW5HUDYH+CFj
+ zDVjGhKqfhUivZxHAPvSlVMdlxutz87r0dLJ88x6moSjZVbBPFRaY4jURftiRCoGYmVAUwZwjum
+ ff6skhfZPKu5uTEH0azNGpyVvp7sf9kNIJSWk7toHWFMOeW0z1tZLigCFULSOahNSpqq9judpay
+ rs1gvHyYGvIef8IxD+Fv9kbMNp0fWzl24ZkJdgoR18spvW6eJyObNzRm4s5R+e9H7prVz30Lvd5
+ 1fVAwpps/V6eerFbLYZT/XUIOwUM2ytHQj1bnIorW39UHlMDpH7wTy3eN2c8COvsMD0Ps0aH
+X-Proofpoint-GUID: Hvk2pt-sb4vv1j8Y9cluBSjQT-Rc_a0d
+X-Authority-Analysis: v=2.4 cv=FaQ3xI+6 c=1 sm=1 tr=0 ts=68495dbb cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=7CQSdrXTAAAA:8
+ a=COk6AnOGAAAA:8 a=kfjrt-ETKUMyBX4eaP0A:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: Hvk2pt-sb4vv1j8Y9cluBSjQT-Rc_a0d
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-11_04,2025-06-10_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 adultscore=0
+ mlxlogscore=999 mlxscore=0 spamscore=0 suspectscore=0 malwarescore=0
+ priorityscore=1501 clxscore=1015 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506110091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_035015_762834_6BF1ED2B 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20250611_034315_522106_B36D41ED 
+X-CRM114-Status: GOOD (  24.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,491 +130,342 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At runtime if the realm guest accesses memory which hasn't yet been
-mapped then KVM needs to either populate the region or fault the guest.
+Add a driver to support Coresight device Trace Network On Chip (TNOC),
+which is an integration hierarchy integrating functionalities of TPDA
+and funnels. It aggregates the trace and transports to coresight trace
+bus.
 
-For memory in the lower (protected) region of IPA a fresh page is
-provided to the RMM which will zero the contents. For memory in the
-upper (shared) region of IPA, the memory from the memslot is mapped
-into the realm VM non secure.
+Compared to current configuration, it has the following advantages:
+1. Reduce wires between subsystems.
+2. Continue cleaning the infrastructure.
+3. Reduce Data overhead by transporting raw data from source to target.
 
-Signed-off-by: Steven Price <steven.price@arm.com>
+  +------------------------+                +-------------------------+
+  | Video Subsystem        |                |Video Subsystem          |
+  |       +-------------+  |                |       +------------+    |
+  |       | Video TPDM  |  |                |       | Video TPDM |    |
+  |       +-------------+  |                |       +------------+    |
+  |            |           |                |              |          |
+  |            v           |                |              v          |
+  |   +---------------+    |                |        +-----------+    |
+  |   | Video funnel  |    |                |        |Video TNOC |    |
+  |   +---------------+    |                |        +-----------+    |
+  +------------|-----------+                +------------|------------+
+               |                                         |
+               v-----+                                   |
++--------------------|---------+                         |
+|  Multimedia        v         |                         |
+|  Subsystem   +--------+      |                         |
+|              |  TPDA  |      |                         v
+|              +----|---+      |              +---------------------+
+|                   |          |              |   Aggregator  TNOC  |
+|                   |          |              +----------|----------+
+|                   +--        |                         |
+|                     |        |                         |
+|                     |        |                         |
+|              +------v-----+  |                         |
+|              |  Funnel    |  |                         |
+|              +------------+  |                         |
++----------------|-------------+                         |
+                 |                                       |
+                 v                                       v
+      +--------------------+                    +------------------+
+      |   Coresight Sink   |                    |  Coresight Sink  |
+      +--------------------+                    +------------------+
+
+       Current Configuration                            TNOC
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 ---
-Changes since v8:
- * Propagate the may_block flag.
- * Minor comments and coding style changes.
-Changes since v7:
- * Remove redundant WARN_ONs for realm_create_rtt_levels() - it will
-   internally WARN when necessary.
-Changes since v6:
- * Handle PAGE_SIZE being larger than RMM granule size.
- * Some minor renaming following review comments.
-Changes since v5:
- * Reduce use of struct page in preparation for supporting the RMM
-   having a different page size to the host.
- * Handle a race when delegating a page where another CPU has faulted on
-   a the same page (and already delegated the physical page) but not yet
-   mapped it. In this case simply return to the guest to either use the
-   mapping from the other CPU (or refault if the race is lost).
- * The changes to populate_par_region() are moved into the previous
-   patch where they belong.
-Changes since v4:
- * Code cleanup following review feedback.
- * Drop the PTE_SHARED bit when creating unprotected page table entries.
-   This is now set by the RMM and the host has no control of it and the
-   spec requires the bit to be set to zero.
-Changes since v2:
- * Avoid leaking memory if failing to map it in the realm.
- * Correctly mask RTT based on LPA2 flag (see rtt_get_phys()).
- * Adapt to changes in previous patches.
----
- arch/arm64/include/asm/kvm_emulate.h |  10 ++
- arch/arm64/include/asm/kvm_rme.h     |  10 ++
- arch/arm64/kvm/mmu.c                 | 133 ++++++++++++++++++++-
- arch/arm64/kvm/rme.c                 | 165 +++++++++++++++++++++++++++
- 4 files changed, 312 insertions(+), 6 deletions(-)
+ drivers/hwtracing/coresight/Kconfig          |  12 ++
+ drivers/hwtracing/coresight/Makefile         |   1 +
+ drivers/hwtracing/coresight/coresight-tnoc.c | 242 +++++++++++++++++++++++++++
+ 3 files changed, 255 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 302a691b3723..126c98cded90 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -709,6 +709,16 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
- 	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
- }
+diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+index f064e3d172b3d630515bb3a11450e883a6b5b4bf..6a4239ebb582e95f0ebe8e9c8738a726f27f60a1 100644
+--- a/drivers/hwtracing/coresight/Kconfig
++++ b/drivers/hwtracing/coresight/Kconfig
+@@ -268,4 +268,16 @@ config CORESIGHT_KUNIT_TESTS
+ 	    Enable Coresight unit tests. Only useful for development and not
+ 	    intended for production.
  
-+static inline gpa_t kvm_gpa_from_fault(struct kvm *kvm, phys_addr_t ipa)
-+{
-+	if (kvm_is_realm(kvm)) {
-+		struct realm *realm = &kvm->arch.realm;
++config CORESIGHT_TNOC
++	tristate "Coresight Trace Network On Chip driver"
++	help
++	  This driver provides support for Trace Network On Chip (TNOC) component.
++	  TNOC is an interconnect used to collect traces from various subsystems
++	  and transport to a coresight trace sink. It sits in the different
++	  tiles of SOC and aggregates the trace local to the tile and transports
++	  it another tile or to coresight trace sink eventually.
 +
-+		return ipa & ~BIT(realm->ia_bits - 1);
-+	}
-+	return ipa;
++	  To compile this driver as a module, choose M here: the module will be
++	  called coresight-tnoc.
++
+ endif
+diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+index 4e7cc3c5bf994d4066adc3b6c203edd19e88a823..ab16d06783a572ea1308dfb3a30c96df9e5ffdb7 100644
+--- a/drivers/hwtracing/coresight/Makefile
++++ b/drivers/hwtracing/coresight/Makefile
+@@ -36,6 +36,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+ obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+ obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+ 					   coresight-replicator.o
++obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+ obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+ coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+ 		     coresight-etm3x-sysfs.o
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..ac0b165f8742aaa8b6f6ed81d75eb75a81a85e39
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+@@ -0,0 +1,242 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ */
++
++ #include <linux/amba/bus.h>
++ #include <linux/coresight.h>
++ #include <linux/device.h>
++ #include <linux/io.h>
++ #include <linux/kernel.h>
++ #include <linux/module.h>
++ #include <linux/of.h>
++ #include <linux/platform_device.h>
++
++#include "coresight-priv.h"
++#include "coresight-trace-id.h"
++
++#define TRACE_NOC_CTRL      0x008
++#define TRACE_NOC_XLD       0x010
++#define TRACE_NOC_FREQVAL   0x018
++#define TRACE_NOC_SYNCR     0x020
++
++/* Enable generation of output ATB traffic.*/
++#define TRACE_NOC_CTRL_PORTEN   BIT(0)
++/* Sets the type of issued ATB FLAG packets.*/
++#define TRACE_NOC_CTRL_FLAGTYPE BIT(7)
++/* Sets the type of issued ATB FREQ packet*/
++#define TRACE_NOC_CTRL_FREQTYPE BIT(8)
++
++#define TRACE_NOC_SYNC_INTERVAL	0xFFFF
++
++/*
++ * struct trace_noc_drvdata - specifics associated to a trace noc component
++ * @base:      memory mapped base address for this component.
++ * @dev:       device node for trace_noc_drvdata.
++ * @csdev:     component vitals needed by the framework.
++ * @spinlock:  serialize enable/disable operation.
++ * @atid:      id for the trace packet.
++ */
++struct trace_noc_drvdata {
++	void __iomem		*base;
++	struct device		*dev;
++	struct coresight_device	*csdev;
++	spinlock_t		spinlock;
++	u32			atid;
++};
++
++DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
++
++static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
++{
++	u32 val;
++
++	/* Set ATID */
++	writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
++
++	/* Set the data word count between 'SYNC' packets */
++	writel_relaxed(TRACE_NOC_SYNC_INTERVAL, drvdata->base + TRACE_NOC_SYNCR);
++
++	/* Set the Control register:
++	 * - Set the FLAG packets to 'FLAG' packets
++	 * - Set the FREQ packets to 'FREQ_TS' packets
++	 * - Enable generation of output ATB traffic
++	 */
++
++	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
++
++	val &= ~TRACE_NOC_CTRL_FLAGTYPE;
++	val |= TRACE_NOC_CTRL_FREQTYPE;
++	val |= TRACE_NOC_CTRL_PORTEN;
++
++	writel(val, drvdata->base + TRACE_NOC_CTRL);
 +}
 +
- static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
- {
- 	if (static_branch_unlikely(&kvm_rme_is_available))
-diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-index 321970779669..df88ae51b7c9 100644
---- a/arch/arm64/include/asm/kvm_rme.h
-+++ b/arch/arm64/include/asm/kvm_rme.h
-@@ -110,6 +110,16 @@ void kvm_realm_unmap_range(struct kvm *kvm,
- 			   unsigned long size,
- 			   bool unmap_private,
- 			   bool may_block);
-+int realm_map_protected(struct realm *realm,
-+			unsigned long base_ipa,
-+			kvm_pfn_t pfn,
-+			unsigned long size,
-+			struct kvm_mmu_memory_cache *memcache);
-+int realm_map_non_secure(struct realm *realm,
-+			 unsigned long ipa,
-+			 kvm_pfn_t pfn,
-+			 unsigned long size,
-+			 struct kvm_mmu_memory_cache *memcache);
- 
- static inline bool kvm_realm_is_private_address(struct realm *realm,
- 						unsigned long addr)
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 37403eaa5699..1dc644ea26ce 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -338,8 +338,14 @@ static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64
- 
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 	WARN_ON(size & ~PAGE_MASK);
--	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
--				   may_block));
-+
-+	if (kvm_is_realm(kvm))
-+		kvm_realm_unmap_range(kvm, start, size, !only_shared,
-+				      may_block);
-+	else
-+		WARN_ON(stage2_apply_range(mmu, start, end,
-+					   KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-+					   may_block));
- }
- 
- void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
-@@ -359,7 +365,10 @@ static void stage2_flush_memslot(struct kvm *kvm,
- 	phys_addr_t addr = memslot->base_gfn << PAGE_SHIFT;
- 	phys_addr_t end = addr + PAGE_SIZE * memslot->npages;
- 
--	kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
-+	if (kvm_is_realm(kvm))
-+		kvm_realm_unmap_range(kvm, addr, end - addr, false, true);
-+	else
-+		kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
- }
- 
- /**
-@@ -1053,6 +1062,10 @@ void stage2_unmap_vm(struct kvm *kvm)
- 	struct kvm_memory_slot *memslot;
- 	int idx, bkt;
- 
-+	/* For realms this is handled by the RMM so nothing to do here */
-+	if (kvm_is_realm(kvm))
-+		return;
-+
- 	idx = srcu_read_lock(&kvm->srcu);
- 	mmap_read_lock(current->mm);
- 	write_lock(&kvm->mmu_lock);
-@@ -1078,6 +1091,9 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
- 	if (kvm_is_realm(kvm) &&
- 	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
- 	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
-+		struct realm *realm = &kvm->arch.realm;
-+
-+		kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), false);
- 		write_unlock(&kvm->mmu_lock);
- 		kvm_realm_destroy_rtts(kvm, pgt->ia_bits);
- 
-@@ -1486,6 +1502,85 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
- 	return vma->vm_flags & VM_MTE_ALLOWED;
- }
- 
-+static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
-+			 kvm_pfn_t pfn, unsigned long map_size,
-+			 enum kvm_pgtable_prot prot,
-+			 struct kvm_mmu_memory_cache *memcache)
++static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
++			    struct coresight_connection *outport)
 +{
-+	struct realm *realm = &kvm->arch.realm;
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
 +
-+	/*
-+	 * Write permission is required for now even though it's possible to
-+	 * map unprotected pages (granules) as read-only. It's impossible to
-+	 * map protected pages (granules) as read-only.
-+	 */
-+	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
-+		return -EFAULT;
++	scoped_guard(spinlock, &drvdata->spinlock) {
++		if (csdev->refcnt == 0)
++			trace_noc_enable_hw(drvdata);
 +
-+	ipa = ALIGN_DOWN(ipa, PAGE_SIZE);
++		csdev->refcnt++;
++	}
 +
-+	if (!kvm_realm_is_private_address(realm, ipa))
-+		return realm_map_non_secure(realm, ipa, pfn, map_size,
-+					    memcache);
-+
-+	return realm_map_protected(realm, ipa, pfn, map_size, memcache);
++	dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
++	return 0;
 +}
 +
-+static int private_memslot_fault(struct kvm_vcpu *vcpu,
-+				 phys_addr_t fault_ipa,
-+				 struct kvm_memory_slot *memslot)
++static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
++			      struct coresight_connection *outport)
 +{
-+	struct kvm *kvm = vcpu->kvm;
-+	gpa_t gpa = kvm_gpa_from_fault(kvm, fault_ipa);
-+	gfn_t gfn = gpa >> PAGE_SHIFT;
-+	bool is_priv_gfn = kvm_mem_is_private(kvm, gfn);
-+	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
-+	struct page *page;
-+	kvm_pfn_t pfn;
-+	int ret;
-+	/*
-+	 * For Realms, the shared address is an alias of the private GPA with
-+	 * the top bit set. Thus is the fault address matches the GPA then it
-+	 * is the private alias.
-+	 */
-+	bool is_priv_fault = (gpa == fault_ipa);
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
 +
-+	if (is_priv_gfn != is_priv_fault) {
-+		kvm_prepare_memory_fault_exit(vcpu, gpa, PAGE_SIZE,
-+					      kvm_is_write_fault(vcpu), false,
-+					      is_priv_fault);
-+
-+		/*
-+		 * KVM_EXIT_MEMORY_FAULT requires an return code of -EFAULT,
-+		 * see the API documentation
-+		 */
-+		return -EFAULT;
++	scoped_guard(spinlock, &drvdata->spinlock) {
++		if (--csdev->refcnt == 0)
++			writel(0x0, drvdata->base + TRACE_NOC_CTRL);
 +	}
-+
-+	if (!is_priv_fault) {
-+		/* Not a private mapping, handling normally */
-+		return -EINVAL;
-+	}
-+
-+	ret = kvm_mmu_topup_memory_cache(memcache,
-+					 kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
-+	if (ret)
-+		return ret;
-+
-+	ret = kvm_gmem_get_pfn(kvm, memslot, gfn, &pfn, &page, NULL);
-+	if (ret)
-+		return ret;
-+
-+	/* FIXME: Should be able to use bigger than PAGE_SIZE mappings */
-+	ret = realm_map_ipa(kvm, fault_ipa, pfn, PAGE_SIZE, KVM_PGTABLE_PROT_W,
-+			    memcache);
-+	if (!ret)
-+		return 1; /* Handled */
-+
-+	put_page(page);
-+	return ret;
++	dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
 +}
 +
- static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 			  struct kvm_s2_trans *nested,
- 			  struct kvm_memory_slot *memslot, unsigned long hva,
-@@ -1513,6 +1608,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	if (fault_is_perm)
- 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
- 	write_fault = kvm_is_write_fault(vcpu);
-+
-+	/*
-+	 * Realms cannot map protected pages read-only
-+	 * FIXME: It should be possible to map unprotected pages read-only
-+	 */
-+	if (vcpu_is_rec(vcpu))
-+		write_fault = true;
-+
- 	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
- 	VM_BUG_ON(write_fault && exec_fault);
- 
-@@ -1630,7 +1733,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		ipa &= ~(vma_pagesize - 1);
- 	}
- 
--	gfn = ipa >> PAGE_SHIFT;
-+	gfn = kvm_gpa_from_fault(kvm, ipa) >> PAGE_SHIFT;
- 	mte_allowed = kvm_vma_mte_allowed(vma);
- 
- 	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
-@@ -1763,6 +1866,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		 */
- 		prot &= ~KVM_NV_GUEST_MAP_SZ;
- 		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault_ipa, prot, flags);
-+	} else if (kvm_is_realm(kvm)) {
-+		ret = realm_map_ipa(kvm, fault_ipa, pfn, vma_pagesize,
-+				    prot, memcache);
- 	} else {
- 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
- 					     __pfn_to_phys(pfn), prot,
-@@ -1911,8 +2017,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 		nested = &nested_trans;
- 	}
- 
--	gfn = ipa >> PAGE_SHIFT;
-+	gfn = kvm_gpa_from_fault(vcpu->kvm, ipa) >> PAGE_SHIFT;
- 	memslot = gfn_to_memslot(vcpu->kvm, gfn);
-+
-+	if (kvm_slot_can_be_private(memslot)) {
-+		ret = private_memslot_fault(vcpu, ipa, memslot);
-+		if (ret != -EINVAL)
-+			goto out;
-+	}
-+
- 	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
- 	write_fault = kvm_is_write_fault(vcpu);
- 	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
-@@ -1956,7 +2069,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 		 * of the page size.
- 		 */
- 		ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
--		ret = io_mem_abort(vcpu, ipa);
-+		ret = io_mem_abort(vcpu, kvm_gpa_from_fault(vcpu->kvm, ipa));
- 		goto out_unlock;
- 	}
- 
-@@ -2004,6 +2117,10 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	if (!kvm->arch.mmu.pgt)
- 		return false;
- 
-+	/* We don't support aging for Realms */
-+	if (kvm_is_realm(kvm))
-+		return true;
-+
- 	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
- 						   range->start << PAGE_SHIFT,
- 						   size, true);
-@@ -2020,6 +2137,10 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
- 	if (!kvm->arch.mmu.pgt)
- 		return false;
- 
-+	/* We don't support aging for Realms */
-+	if (kvm_is_realm(kvm))
-+		return true;
-+
- 	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
- 						   range->start << PAGE_SHIFT,
- 						   size, false);
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index d7bb11583506..0fe55e369782 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -750,6 +750,171 @@ static int realm_create_protected_data_page(struct realm *realm,
- 	return -ENXIO;
- }
- 
-+static int fold_rtt(struct realm *realm, unsigned long addr, int level)
++static int trace_noc_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
++			__maybe_unused struct coresight_device *sink)
 +{
-+	phys_addr_t rtt_addr;
++	struct trace_noc_drvdata *drvdata;
++
++	drvdata = dev_get_drvdata(csdev->dev.parent);
++
++	return drvdata->atid;
++}
++
++static const struct coresight_ops_link trace_noc_link_ops = {
++	.enable		= trace_noc_enable,
++	.disable	= trace_noc_disable,
++};
++
++static const struct coresight_ops trace_noc_cs_ops = {
++	.trace_id	= trace_noc_id,
++	.link_ops	= &trace_noc_link_ops,
++};
++
++static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
++{
++	int atid;
++
++	atid = coresight_trace_id_get_system_id();
++	if (atid < 0)
++		return atid;
++
++	drvdata->atid = atid;
++
++	return 0;
++}
++
++static ssize_t traceid_show(struct device *dev,
++			    struct device_attribute *attr, char *buf)
++{
++	unsigned long val;
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	val = drvdata->atid;
++	return sprintf(buf, "%#lx\n", val);
++}
++static DEVICE_ATTR_RO(traceid);
++
++static struct attribute *coresight_tnoc_attrs[] = {
++	&dev_attr_traceid.attr,
++	NULL,
++};
++
++static const struct attribute_group coresight_tnoc_group = {
++	.attrs = coresight_tnoc_attrs,
++};
++
++static const struct attribute_group *coresight_tnoc_groups[] = {
++	&coresight_tnoc_group,
++	NULL,
++};
++
++static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
++{
++	struct device *dev = &adev->dev;
++	struct coresight_platform_data *pdata;
++	struct trace_noc_drvdata *drvdata;
++	struct coresight_desc desc = { 0 };
 +	int ret;
 +
-+	ret = realm_rtt_fold(realm, addr, level, &rtt_addr);
++	desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
++	if (!desc.name)
++		return -ENOMEM;
++
++	pdata = coresight_get_platform_data(dev);
++	if (IS_ERR(pdata))
++		return PTR_ERR(pdata);
++	adev->dev.platform_data = pdata;
++
++	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
++	if (!drvdata)
++		return -ENOMEM;
++
++	drvdata->dev = &adev->dev;
++	dev_set_drvdata(dev, drvdata);
++
++	drvdata->base = devm_ioremap_resource(dev, &adev->res);
++	if (!drvdata->base)
++		return -ENOMEM;
++
++	spin_lock_init(&drvdata->spinlock);
++
++	ret = trace_noc_init_default_data(drvdata);
 +	if (ret)
 +		return ret;
 +
-+	free_rtt(rtt_addr);
++	desc.ops = &trace_noc_cs_ops;
++	desc.type = CORESIGHT_DEV_TYPE_LINK;
++	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
++	desc.pdata = adev->dev.platform_data;
++	desc.dev = &adev->dev;
++	desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
++	desc.groups = coresight_tnoc_groups;
++	drvdata->csdev = coresight_register(&desc);
++	if (IS_ERR(drvdata->csdev)) {
++		coresight_trace_id_put_system_id(drvdata->atid);
++		return PTR_ERR(drvdata->csdev);
++	}
++	pm_runtime_put(&adev->dev);
 +
 +	return 0;
 +}
 +
-+int realm_map_protected(struct realm *realm,
-+			unsigned long ipa,
-+			kvm_pfn_t pfn,
-+			unsigned long map_size,
-+			struct kvm_mmu_memory_cache *memcache)
++static void trace_noc_remove(struct amba_device *adev)
 +{
-+	phys_addr_t phys = __pfn_to_phys(pfn);
-+	phys_addr_t rd = virt_to_phys(realm->rd);
-+	unsigned long base_ipa = ipa;
-+	unsigned long size;
-+	int map_level = IS_ALIGNED(map_size, RMM_L2_BLOCK_SIZE) ?
-+			RMM_RTT_BLOCK_LEVEL : RMM_RTT_MAX_LEVEL;
-+	int ret = 0;
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
 +
-+	if (WARN_ON(!IS_ALIGNED(map_size, RMM_PAGE_SIZE) ||
-+		    !IS_ALIGNED(ipa, map_size)))
-+		return -EINVAL;
-+
-+	if (map_level < RMM_RTT_MAX_LEVEL) {
-+		/*
-+		 * A temporary RTT is needed during the map, precreate it,
-+		 * however if there is an error (e.g. missing parent tables)
-+		 * this will be handled below.
-+		 */
-+		realm_create_rtt_levels(realm, ipa, map_level,
-+					RMM_RTT_MAX_LEVEL, memcache);
-+	}
-+
-+	for (size = 0; size < map_size; size += RMM_PAGE_SIZE) {
-+		if (rmi_granule_delegate(phys)) {
-+			/*
-+			 * It's likely we raced with another VCPU on the same
-+			 * fault. Assume the other VCPU has handled the fault
-+			 * and return to the guest.
-+			 */
-+			return 0;
-+		}
-+
-+		ret = rmi_data_create_unknown(rd, phys, ipa);
-+
-+		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-+			/* Create missing RTTs and retry */
-+			int level = RMI_RETURN_INDEX(ret);
-+
-+			WARN_ON(level == RMM_RTT_MAX_LEVEL);
-+
-+			ret = realm_create_rtt_levels(realm, ipa, level,
-+						      RMM_RTT_MAX_LEVEL,
-+						      memcache);
-+			if (ret)
-+				goto err_undelegate;
-+
-+			ret = rmi_data_create_unknown(rd, phys, ipa);
-+		}
-+
-+		if (WARN_ON(ret))
-+			goto err_undelegate;
-+
-+		phys += RMM_PAGE_SIZE;
-+		ipa += RMM_PAGE_SIZE;
-+	}
-+
-+	if (map_size == RMM_L2_BLOCK_SIZE) {
-+		ret = fold_rtt(realm, base_ipa, map_level + 1);
-+		if (WARN_ON(ret))
-+			goto err;
-+	}
-+
-+	return 0;
-+
-+err_undelegate:
-+	if (WARN_ON(rmi_granule_undelegate(phys))) {
-+		/* Page can't be returned to NS world so is lost */
-+		get_page(phys_to_page(phys));
-+	}
-+err:
-+	while (size > 0) {
-+		unsigned long data, top;
-+
-+		phys -= RMM_PAGE_SIZE;
-+		size -= RMM_PAGE_SIZE;
-+		ipa -= RMM_PAGE_SIZE;
-+
-+		WARN_ON(rmi_data_destroy(rd, ipa, &data, &top));
-+
-+		if (WARN_ON(rmi_granule_undelegate(phys))) {
-+			/* Page can't be returned to NS world so is lost */
-+			get_page(phys_to_page(phys));
-+		}
-+	}
-+	return -ENXIO;
++	coresight_trace_id_put_system_id(drvdata->atid);
++	coresight_unregister(drvdata->csdev);
 +}
 +
-+int realm_map_non_secure(struct realm *realm,
-+			 unsigned long ipa,
-+			 kvm_pfn_t pfn,
-+			 unsigned long size,
-+			 struct kvm_mmu_memory_cache *memcache)
-+{
-+	phys_addr_t rd = virt_to_phys(realm->rd);
-+	phys_addr_t phys = __pfn_to_phys(pfn);
-+	unsigned long offset;
-+	/* TODO: Support block mappings */
-+	int map_level = RMM_RTT_MAX_LEVEL;
-+	int map_size = rme_rtt_level_mapsize(map_level);
-+	int ret = 0;
++static struct amba_id trace_noc_ids[] = {
++	{
++		.id     = 0x000f0c00,
++		.mask   = 0x00ffff00,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(amba, trace_noc_ids);
 +
-+	if (WARN_ON(!IS_ALIGNED(size, RMM_PAGE_SIZE) ||
-+		    !IS_ALIGNED(ipa, size)))
-+		return -EINVAL;
++static struct amba_driver trace_noc_driver = {
++	.drv = {
++		.name   = "coresight-trace-noc",
++		.suppress_bind_attrs = true,
++	},
++	.probe          = trace_noc_probe,
++	.remove		= trace_noc_remove,
++	.id_table	= trace_noc_ids,
++};
 +
-+	for (offset = 0; offset < size; offset += map_size) {
-+		/*
-+		 * realm_map_ipa() enforces that the memory is writable,
-+		 * so for now we permit both read and write.
-+		 */
-+		unsigned long desc = phys |
-+				     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL) |
-+				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R |
-+				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-+		ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
++module_amba_driver(trace_noc_driver);
 +
-+		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-+			/* Create missing RTTs and retry */
-+			int level = RMI_RETURN_INDEX(ret);
-+
-+			ret = realm_create_rtt_levels(realm, ipa, level,
-+						      map_level, memcache);
-+			if (ret)
-+				return -ENXIO;
-+
-+			ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
-+		}
-+		/*
-+		 * RMI_ERROR_RTT can be reported for two reasons: either the
-+		 * RTT tables are not there, or there is an RTTE already
-+		 * present for the address.  The above call to create RTTs
-+		 * handles the first case, and in the second case this
-+		 * indicates that another thread has already populated the RTTE
-+		 * for us, so we can ignore the error and continue.
-+		 */
-+		if (ret && RMI_RETURN_STATUS(ret) != RMI_ERROR_RTT)
-+			return -ENXIO;
-+
-+		ipa += map_size;
-+		phys += map_size;
-+	}
-+
-+	return 0;
-+}
-+
- static int populate_region(struct kvm *kvm,
- 			   phys_addr_t ipa_base,
- 			   phys_addr_t ipa_end,
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("Trace NOC driver");
+
 -- 
-2.43.0
+2.34.1
 
 
