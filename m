@@ -4,149 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DF3C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 02:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2009C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 02:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+hSlwPv+nMXubnDV3WeC8rb5i4ZitEMQi484XkxoBs=; b=brRTSiAHr0bNTEkpwCMl/PMT+c
-	0Y90xmtV3HyMX3Sh+/DYeezX3PXNqnD+WmK7On8ibzI+jSPwGHV56ova0aXC+3GzQpXSsUdGlCumQ
-	sq93kHPMcC9RnsAwwOSTXXExeiyw1z4519UPr4qVPk/0LwH+vPKxKcRt1PkfLtJi7UtEViN7HvsGU
-	g8vfck4gjKLgLcJSuwm7vinGGskepseCfOMQZ1uSmVdkV/HuAoJm99hBZUXogxF27jEEFgjgck+ll
-	gpgT4W8onxfqDcof3O7/Z5JdvZIHGGI2IF2wUpmEHAvkjECOlwmEF5Rtd00EFHCa5cF+mq5ZiI5v+
-	Gj0EHfQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=grWWpqkFx3VZeZHS3cu1IgF+mji/0suRYvkUNQaAo2M=; b=AIbB2v12kAqEn1ZGqg/Q9iLaiz
+	92PiyCDFP1ZgYwaQ1gdygPzujr5xFeB9s2Is5NHdGtVG9Pb6MJGqEr00RmK5ylAyQ25ii5OgoN+Pd
+	Of8IhgpvjEqZf5EbjuE+F2IXPDPu7oXnazOKaazfCLeiD61fOMify+AhC/pmWaUBQwQ8hdCJsTFp8
+	L3HO3LtqHnWHZWz7biwJ4CKVJCB1lg/Cn3mBU4IO8pvmM1uxdP9hoSsqlGBgxz1OVLuWT7rm/Ypd9
+	eLUuduEJ86kHFthWI8m8NSmXJiLUPuLxSI0QhXnEPqFsnBj9eoYlfTQ3JytjMO02O0lnWNEBD/E/7
+	eutN/rvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPXjl-0000000BygG-1Zn0;
-	Thu, 12 Jun 2025 02:32:17 +0000
-Received: from mail-eastus2azolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d10b::] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1uPXlu-0000000Bypu-0PCi;
+	Thu, 12 Jun 2025 02:34:30 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUXp-0000000BdIP-25Te
+	id 1uPU9b-0000000BVXp-2ThU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 23:07:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nCAggcBKLyfYOuNeesWzxepky9BMmp6v9le6dGrB+H8mcRvYAdn2JmoOI5z4wOSbQEDnfmZleNJqiCn9T3UvMqH967vOhp623JnvRS6apImrp0JSpY7Lk5PjmFmg8j+9fucbGak7djG+kFyeJXI4s6zvwT1GGgqrdIqu+9Ae6pe8lk8T5y9kzNjTXqbXEk1bQ+aENlwFgr127gAZrQlCJ04La57PpfMIuUZ72yT+PXXMcGGJ8GiS6hMB4WEW6gKGURBbW9/l1TS9CBqCWpUqpIgYA9nnOVxHBDNlm3jjGY/8Aul8jPZBUAN6hJPi6jVg+JrQzxymz2zleUxcSDB5lw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e+hSlwPv+nMXubnDV3WeC8rb5i4ZitEMQi484XkxoBs=;
- b=GVfZj67oUYprduqDZ3c6Q65DMMQkOi+fDK1CCyqkoiQ3sC83gjWjq3mAjmCPPz/Ln4IjMYEloDHAlNaGWW37+fMYxeR6y1PIVhAFuXg3qnlWZvy5YXGxafVrOh3r8kpvH45zUxm5iaty9haF1pj3SOA7P8iHKYoUgcoitbMcNC9U9TIGWMB3+IfVvgDfPlREG6HyFMYzrmf+cbTwMQPx0nHh8evvVX7RPAsjhZmGwvpQnuBvOUgKQkZ+sj8T6zzxdCXit7z0/RqzeLlY8lvul4Y5doIr4TDMOxLzG/nk5svQ68TpNT9PwdJZxEH/vtmRyvbqC3l6Fp/SevtsHWEjWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e+hSlwPv+nMXubnDV3WeC8rb5i4ZitEMQi484XkxoBs=;
- b=eNjhHKqVsJ1zuz/Y6Lq2OkSbhQtfbgqiC2TAg+aHWnSE+2LD4O7eCP49iJ8PNWelHIVOSTWhk3Iayz9HVm56r7lajDsMLOoTw/15b+CyCdN3rymfTcUpEOj+RTc7pgZSm2oL4DrPC9HX1/QH7o8AYigEvhrGGcgLF3iI+l5IECxuNoOj2WauUTAtY6Ass5kIlqGoNENXus5uPgy3W4+ReWzTFtsDfPhJrJYuT86FKsvx8tv/8tJzNVMCyu5gLNFr+3Ga8zAEN8qPfEeMP6w4y0C22gWgxql8r+7e69fFQ62i5ACj87NPep7EjlkQu2PfEyHU9QcyI9Ze7aikBlM6Bw==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by PH0PR02MB8488.namprd02.prod.outlook.com (2603:10b6:510:105::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Wed, 11 Jun
- 2025 23:07:40 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8835.018; Wed, 11 Jun 2025
- 23:07:40 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kw@linux.com" <kw@linux.com>, "robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "jinankjain@linux.microsoft.com"
-	<jinankjain@linux.microsoft.com>, "skinsburskii@linux.microsoft.com"
-	<skinsburskii@linux.microsoft.com>, "mrathor@linux.microsoft.com"
-	<mrathor@linux.microsoft.com>, "x86@kernel.org" <x86@kernel.org>
-Subject: RE: [PATCH 4/4] PCI: hv: Use the correct hypercall for unmasking
- interrupts on nested
-Thread-Topic: [PATCH 4/4] PCI: hv: Use the correct hypercall for unmasking
- interrupts on nested
-Thread-Index: AQHb2mKviDH/rIOH3Uy8jPuHbgJWT7P+khsA
-Date: Wed, 11 Jun 2025 23:07:40 +0000
-Message-ID: <SN6PR02MB4157BAE54D3BBD4CD8065722D475A@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1749599526-19963-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1749599526-19963-5-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1749599526-19963-5-git-send-email-nunodasneves@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|PH0PR02MB8488:EE_
-x-ms-office365-filtering-correlation-id: 52f0c832-c252-449d-e584-08dda93cc3cd
-x-microsoft-antispam: BCL:0;ARA:14566002|19110799006|461199028|8060799009|15080799009|8062599006|3412199025|440099028|102099032;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ubYfJ/BVU9MvDpghAHcmVO6+EJpgAa7ZMtO3v2OohfRbUKKUtst8nBJsXr3z?=
- =?us-ascii?Q?bUsD0TozcBube5s8ePsNzcw0FanHW0pvl4ZmY5MpBaU4VG0g1VcwQgedO2hQ?=
- =?us-ascii?Q?jE6zMTAd2+h08C+xjkTV6ErA6zBoSgTA6haszA9A69wmbmKyGYsfY2IXstlL?=
- =?us-ascii?Q?aaXs6iAx0Ojm5OSliKgJ/ujCln1PGvq8+PQE5IKDjI4mTb01ec5lqpjIHpo3?=
- =?us-ascii?Q?6Inl1Nr/LTfWFb2UxQDjNWicG5ybsLI0HH9InSoAbKMHQg/4RdRVE41Cyilf?=
- =?us-ascii?Q?6eT+f31iWI7BPHpV62ZJZ3NvsZdzShROCLe5Y0lkAk9p6OWJYthJnz2buFvZ?=
- =?us-ascii?Q?MKIQEpPX0ri8bp+hlc67kLWB2wgomy4AnL7UCHdXjPhsgYlqFLtICRYTUVeJ?=
- =?us-ascii?Q?7/SYu69eqhHuPTU7Qcaw+GphBqVIpinzHgpVJFN5mCy6yX8sctc0NMHmUVwJ?=
- =?us-ascii?Q?eRg+GDFG6vxcM+epvFnYV6lQBlQnDUcFFb7xEtV4BBdljlulc7+HqoR1cZXD?=
- =?us-ascii?Q?xQ35NKaUVV6UsbM0T01nM+W2ci6vbnV8ezjaM/vfNX8WZVrgzqMLI08PupOA?=
- =?us-ascii?Q?xEjNSaoNJ1DnIReDIiqiasfTPsuulgNeahaUkK9hM9Yak2oA2q+qpIhtYSn7?=
- =?us-ascii?Q?9FBu2CQO1T58W1iNU/GZaVuOCR09NpVenqcnilCLscFqkZxeRaLwEjeTVvrt?=
- =?us-ascii?Q?4Z+vBHKzQvTfWDLOd9j2JKe/yPhPxiIU7OgnrLxUmYuv8YVpkO3OAiLBgAOf?=
- =?us-ascii?Q?9r7Yme8UzhYxdmS0ZC9XpjIrwIJoKo1PiKvdgiAbEMVqZhYV5d/w0bhlV3Y2?=
- =?us-ascii?Q?GAxjZlWayXEd7O3riKpbAUj9NLJj12HdOSJoZuS84SgeIWKtoQWtzp2+s+C4?=
- =?us-ascii?Q?Pvt26Fb+hM4xBUMwAY3xJ6HuMR+EOupc2WlX5biAeBe7k/881HCtoL0ekS+C?=
- =?us-ascii?Q?k7p6NCbfiZt/6Jgp7vZcfbkRgf6JquukrvGnym+N8n6hwDpeGgzXtwr2zQob?=
- =?us-ascii?Q?Nz/qAfX2rIvVt45o1X9KqFQSEpV2vddV57sc/rvGkvDQUB+iNWlDoG+ruFx4?=
- =?us-ascii?Q?nCEmc9bASYLANVhEdN47S7xwGAELtw=3D=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?4TScLCB7kC1/3Xi8rQ2aA3zIe7e5ottFfPzr3Subr6PBXL9FjwrRV/UpLaJh?=
- =?us-ascii?Q?/JQS6TxWgWtQA0zkOKWAHppEiscaPaZ7PgYe8TzAI3H0e0FsvndXKFU/zEQk?=
- =?us-ascii?Q?8AtSLm7QfFcv6P16pPq2wrdNHWMXHZ675QSNGoYRVAkjLVwfypbLAQGMAgw7?=
- =?us-ascii?Q?hcyKrT385cAM8KFj5jJ56DgAkFgZYw+65qaB7USR/OMSJG/nrhRh0Qp6jyUE?=
- =?us-ascii?Q?7ZRpBZv99pujp/brjSqcJCGU4Gy1EJC1dhpsOD3gR3Sh9xWVoPdKn5U0M8I4?=
- =?us-ascii?Q?AytjujNgxg9f0ZGPAzeMshgtsbKUJen07p5DKOlOFyJqboroPNAIjvJ3TgZb?=
- =?us-ascii?Q?mT6UcWhyOtbpGtK/kU2K9sJxeiQEBJt8WwlAK3ftr0dEAAbjNW3ueG+Ec1Tp?=
- =?us-ascii?Q?sa3+z1XVURIS2QYglPvkjj9aJy9OX2ExX0NEUQy/vhjH3SBdIi9cT7IxHHHi?=
- =?us-ascii?Q?NWXKBsQZlzQ7CAtnzdHvukk9D1nCskyqbeIYqu34pL3d1gIlYguilyGMfBxf?=
- =?us-ascii?Q?lq5RFv2FeeDdct+QDOfoMB2Zkjyiz/zaE9eh0CK3D4I4500mEexJFsqopODz?=
- =?us-ascii?Q?etNL/eQuFF0YvU6G9VnlLueyCE2Cdi289cOvjVXHjf+bz0rWdTHDZkt/pQwY?=
- =?us-ascii?Q?NhkT71x6HinBi3v09MWWcY91eQq5dAxtXmlpy38RYBegvQfkpFaA60xskghp?=
- =?us-ascii?Q?vSDfSh6Dy9jExnwCuJhNeZBs/ou1rvTlA6X+eiyoiZ3YaJCXCpxtuWuOz+4+?=
- =?us-ascii?Q?K2yd7JgScfo+LrsvWzzZAQRVyeEtYfCGUiqMJ8r4P3yptJrNJK0jQFqTSD7k?=
- =?us-ascii?Q?hbjlgrPcvZ7NKochFjduxNPtz839hISyaPa31oaOMdZGTKf858Z1IIpemqlr?=
- =?us-ascii?Q?MG0OKzvxp5a83qwCE0VoZkVuuzwjWLouA6Neo/G5iDyuAdpkHMKRyQawCuhm?=
- =?us-ascii?Q?ZCKopRYnww2lPFEdO+8PvmytQbHpVkZdG9yHdANFXysbkMBaILeTwBqZXvy4?=
- =?us-ascii?Q?gRn267jfOzYfKpDwC7assfv40B5HhjKX8WL/zRqGczERb/3Egi5YPokdTF8p?=
- =?us-ascii?Q?wdcaufRyao/gXSVha5IMJn1abU/WJUEYu1AlRV9BSYPHWJw7nFDkDLYVgTTY?=
- =?us-ascii?Q?+7F7UcjeBbYdxGO0GyEtRUn67RZ8RfsidwrVE/KkvFVUUFq+UY1WSqH+aVug?=
- =?us-ascii?Q?ZD4wa0lxaJ8y6ltqmxh8LhAKwfhK212V830O1ifP+gX2mpJMm4I0O3ccg2A?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 11 Jun 2025 22:42:45 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-406e31162c6so124084b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:42:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749681763; x=1750286563; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=grWWpqkFx3VZeZHS3cu1IgF+mji/0suRYvkUNQaAo2M=;
+        b=uwIg2ZbU3qmNUOeT3ODu1KgyRAEDd66GQb4yOjylC1u3TjY16U/8e8Q0ZoGHrhSsKf
+         1kBYdoLKBHkLNOgSc9PmP7KNM4wHL0FrRlojUGgm1Dm4HwqR870SEOJObC96O9nP1jH5
+         bzs5VVBCDiBW2IHbFnYgvG6RzG1+MssqWsiPGm6MbpxildvLt5rUaNKvgO/hFj+to2xJ
+         4qKFUHDJ3IMq4zGebMZqaVqBa4Ae8dL76kp2Q3RAcR5r8KMRZ2VYkioCPMDcp4X6rvRM
+         YqH4Upyy6drWMlFNKhGJRxG2n/qKE21Ioi0pipXQ+u5zQOLqnZoOWLZ/FLTfwaIT3tg0
+         9t5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749681763; x=1750286563;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=grWWpqkFx3VZeZHS3cu1IgF+mji/0suRYvkUNQaAo2M=;
+        b=q7jnQFpRgnhilLnnkIU6Zu6EAI0knThtIQbfNeidlJvOy531Yp0KBMLiwFToWiJ0Kb
+         nBvxzwAUB6mmTMdaaawCf/lWMfpumcGtVeddJykr4rOGQ8GJJeo+086sWOobngAof/jQ
+         ivbDzt1LQR++Pad8JfRcs+8kjwB7YduhZ+FgLF7sUPceBdRDV9z1vG8nHUz2yUma+pMK
+         aBOh5ovX09XYtrtPXJqlQuFkn9jJF+WolyN6L7Dyw202yTJ+ZlDi9Tca+yWzODbsZTvj
+         Azpp40kWKhRh8mZ4uuIS5eV6bHeaMbhONn36iSCgrmBLO+DK5qGSd9xZrQv2FMFVDSkl
+         tgsw==
+X-Forwarded-Encrypted: i=1; AJvYcCUfPfQoqQMt2j7ziVzYEhr7RlaE1v3j/PPXxwSlHt9CxILsc9kLKZO/2y8e14C4JrLRRGShhE/5YD/6BcG3+FE9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9/KZvNLDdll0AkLG06KArAS5Jarf/VaAzMNkDbm0fQV9GwxV2
+	jp0SXDz2v9Omd3iiuOLW1ApkedWQTMTpAGu4iC1Hc8ooKRzBUhp5yeHYW/ieO3SBypo=
+X-Gm-Gg: ASbGncvhAxWvItbc2nebyni8CxuqGQGl2tKmqwDWxgTndkhARSF2pgna8xXHccVC0lh
+	Zz97TLDC6XtWqf78CmuwfgYqKrQ2jW4Wz2GLxzvQAVbs+C3A2nEeyWsTSYg+fB0didCYiYnaEaD
+	7WVytT3OnSqkvRr7K//NdbMEZvYMzFHwTFMPK8CeqI5K1GCoWrcjSdCxMUFLoqPL3Hvl5yvwMh6
+	XgR28BElcikOgkPOg20RDVgK/D+EmIa4Hoz+CmnHjZ2DVyOi8VqlQ37PH+urE3DD4lvbiyaDQM/
+	xhqgB1YobE2bD3s5XkqWkiLwpuprgsGzmXACYlXREYH4BE74UItuL14FjWbZrdKAnMy90NZpU9M
+	s364=
+X-Google-Smtp-Source: AGHT+IEcwqu4j736p3LcoP9RK7c1t3h3vtLigrmQmQXvolB9PCLNg9UOQOYCbdmCSMZJHTC5173d2A==
+X-Received: by 2002:a05:6808:178d:b0:409:f8e:72a4 with SMTP id 5614622812f47-40a5d05e776mr3722453b6e.2.1749681762900;
+        Wed, 11 Jun 2025 15:42:42 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:4753:719f:673f:547c])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-40a682fbf05sm24684b6e.32.2025.06.11.15.42.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Jun 2025 15:42:42 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Date: Wed, 11 Jun 2025 17:39:05 -0500
+Subject: [PATCH 13/28] iio: chemical: scd30: use = { } instead of memset()
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52f0c832-c252-449d-e584-08dda93cc3cd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Jun 2025 23:07:40.4511
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR02MB8488
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-13-ebb2d0a24302@baylibre.com>
+References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
+In-Reply-To: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
+To: Michael Hennerich <michael.hennerich@analog.com>, 
+ Lars-Peter Clausen <lars@metafoo.de>, Jonathan Cameron <jic23@kernel.org>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Francesco Dolcini <francesco@dolcini.it>, 
+ =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>, 
+ =?utf-8?q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>, 
+ kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>, 
+ Roan van Dijk <roan@protonic.nl>, 
+ Tomasz Duszynski <tomasz.duszynski@octakon.com>, 
+ Jacopo Mondi <jacopo@jmondi.org>, 
+ Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
+ Mudit Sharma <muditsharma.info@gmail.com>, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>, 
+ =?utf-8?q?Ond=C5=99ej_Jirman?= <megi@xff.cz>, 
+ Andreas Klinger <ak@it-klinger.de>, 
+ Petre Rodan <petre.rodan@subdimension.ro>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ David Lechner <dlechner@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1024; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=5XDESMLoIhQpWzCEq2C2tgUyVZF/Bo3//3/twALhLps=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoSgXZRwKjwWR/y52G6u0y4MdHz3+z3OU7EB2di
+ 1dhrLGz2YmJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaEoF2QAKCRDCzCAB/wGP
+ wMtsCACJ/xWk2LPxNgDVgxzxAyBLwPF0PwZ+uQ2OnVZ/GKv4J2FuZDLTEK8T1XbSMOtLfNe3Emp
+ g1WSmomvx01TlhG5cJCNgELnTbtZDAKvzuZ3aJ0YaAlab0axLhbvOxxqK5KcfI7G1vuzwrVwjRD
+ txipOkAWnZ1mGS1U0hXSv4oYKB16S5Z56mkqqgOjtzjZEb1+YGybjl73FD3eN1K5SYYrp2Z6aqV
+ glfuOs3MYd4xbj9SpdPMC+zKvBKyjga031caed8DL3D7MvrboWa/CoWmmIAJfMRFoeO2+yr84yT
+ zqstaruPKxBUMHnLEBtRUeoXXFrx6mJM3kA7FDJl/xC7bJkC
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_160745_540849_F09ECDD5 
-X-CRM114-Status: GOOD (  23.39  )
+X-CRM114-CacheID: sfid-20250611_154243_678125_6BBED3A0 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,83 +134,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Tuesday, June=
- 10, 2025 4:52 PM
->=20
-> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
->=20
-> Running as nested root on MSHV imposes a different requirement
-> for the pci-hyperv controller.
->=20
-> In this setup, the interrupt will first come to the L1 (nested) hyperviso=
-r,
-> which will deliver it to the appropriate root CPU. Instead of issuing the
-> RETARGET hypercall, we should issue the MAP_DEVICE_INTERRUPT
-> hypercall to L1 to complete the setup.
->=20
-> Rename hv_arch_irq_unmask() to hv_irq_retarget_interrupt().
->=20
-> Co-developed-by: Jinank Jain <jinankjain@linux.microsoft.com>
-> Signed-off-by: Jinank Jain <jinankjain@linux.microsoft.com>
-> Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> ---
->  drivers/pci/controller/pci-hyperv.c | 18 ++++++++++++++++--
->  1 file changed, 16 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller=
-/pci-hyperv.c
-> index 4d25754dfe2f..0f491c802fb9 100644
-> --- a/drivers/pci/controller/pci-hyperv.c
-> +++ b/drivers/pci/controller/pci-hyperv.c
-> @@ -600,7 +600,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_=
-data *data)
->  #define hv_msi_prepare		pci_msi_prepare
->=20
->  /**
-> - * hv_arch_irq_unmask() - "Unmask" the IRQ by setting its current
-> + * hv_irq_retarget_interrupt() - "Unmask" the IRQ by setting its current
->   * affinity.
->   * @data:	Describes the IRQ
->   *
-> @@ -609,7 +609,7 @@ static unsigned int hv_msi_get_int_vector(struct irq_=
-data *data)
->   * is built out of this PCI bus's instance GUID and the function
->   * number of the device.
->   */
-> -static void hv_arch_irq_unmask(struct irq_data *data)
-> +static void hv_irq_retarget_interrupt(struct irq_data *data)
->  {
->  	struct msi_desc *msi_desc =3D irq_data_get_msi_desc(data);
->  	struct hv_retarget_device_interrupt *params;
-> @@ -714,6 +714,20 @@ static void hv_arch_irq_unmask(struct irq_data *data=
-)
->  		dev_err(&hbus->hdev->device,
->  			"%s() failed: %#llx", __func__, res);
->  }
-> +
-> +static void hv_arch_irq_unmask(struct irq_data *data)
-> +{
-> +	if (hv_nested && hv_root_partition())
+Use { } instead of memset() to zero-initialize stack memory to simplify
+the code.
 
-Based on Patch 1 of this series, this driver is not loaded for the root
-partition in the non-nested case. So testing hv_nested is redundant.
+Signed-off-by: David Lechner <dlechner@baylibre.com>
+---
+ drivers/iio/chemical/scd30_core.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-> +		/*
-> +		 * In case of the nested root partition, the nested hypervisor
-> +		 * is taking care of interrupt remapping and thus the
-> +		 * MAP_DEVICE_INTERRUPT hypercall is required instead of
-> +		 * RETARGET_INTERRUPT.
-> +		 */
-> +		(void)hv_map_msi_interrupt(data, NULL);
-> +	else
-> +		hv_irq_retarget_interrupt(data);
-> +}
->  #elif defined(CONFIG_ARM64)
->  /*
->   * SPI vectors to use for vPCI; arch SPIs range is [32, 1019], but leavi=
-ng a bit
-> --
-> 2.34.1
+diff --git a/drivers/iio/chemical/scd30_core.c b/drivers/iio/chemical/scd30_core.c
+index 8316720b1fa32b9746b4aeefe7aedc77b3ba57e6..5df1926cd5d985a60c7095f692a63093d522d434 100644
+--- a/drivers/iio/chemical/scd30_core.c
++++ b/drivers/iio/chemical/scd30_core.c
+@@ -587,7 +587,7 @@ static irqreturn_t scd30_trigger_handler(int irq, void *p)
+ 	struct {
+ 		int data[SCD30_MEAS_COUNT];
+ 		aligned_s64 ts;
+-	} scan;
++	} scan = { };
+ 	int ret;
+ 
+ 	mutex_lock(&state->lock);
+@@ -595,7 +595,6 @@ static irqreturn_t scd30_trigger_handler(int irq, void *p)
+ 		ret = scd30_read_poll(state);
+ 	else
+ 		ret = scd30_read_meas(state);
+-	memset(&scan, 0, sizeof(scan));
+ 	memcpy(scan.data, state->meas, sizeof(state->meas));
+ 	mutex_unlock(&state->lock);
+ 	if (ret)
+
+-- 
+2.43.0
 
 
