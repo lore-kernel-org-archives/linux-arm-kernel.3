@@ -4,204 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116D2C71133
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94847C71133
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+3fUVQcrli87utk+ftRBb49CJjFxqbu6I40QgAun1Xw=; b=F25qCJ6NvNDKPBE7BCB5kUfRSH
-	0tDOwTriEsBhfHXOHbhKNjiMuT3KK4fsqoV+ZIdaRkrMAXKraWRfQbjWaFjOoeMEtkrMNT+n8lc3K
-	BLRkT14W7i59/tsnqlWKXz4nitoVFGljFmB82a6seNGlQRwWVPyXXwU+e+4VglL1T1lut6D6Kyvlp
-	iao5eghhFQ2MJ9/NLmNAdIOfyvvyppnifRnfiRSbAtaEHDtvHB0Y8eGIYkiYHFIg3xLsNt86xs4yX
-	FspLy04ruN4aGUp67FyeItRsdsEW7Ne/B6MoFRjTnPWsqkYVfMimSgj5oqDMpzOO+7OuNN6DwByO3
-	Y27661MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pGAuQJnCZRenSUKeUSJste/qOhgDi8yuC9MgXtEQqHA=; b=bYgsXtwXQ4vE1ZTAu0aq3FQS+8
+	qjH3huv+e7RcaDbhB3R88hzZTzgaPgApSx2SwBk7xmoee9o2DmZLx5ohCrMpvzxDm4RjHto9SJ/sS
+	M9JSc8ar+B80MCitoiMrkeKARbUQ0T/IlArzfJyLnFj1BcM9tV53RzIaM39EQdxORMi3mE0p3jRGa
+	E46BTvjAfm6ULfwf99oJC1Qyenys1g0DSS0H1cZKh4ZmV5qZ22uCcd5asw2rUTFtZ/iDlTBy1HW36
+	ggRoBsc/f+hxAvizyXhnus+OVtEhgbGwqnhZLFy+6QdCsDVJwbyQhCg06d8PnOji1dumnsOs+Dib5
+	3LF3O+rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNTs-0000000AQ9R-2iZw;
-	Wed, 11 Jun 2025 15:35:12 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1uPNVy-0000000AQVF-1gVz;
+	Wed, 11 Jun 2025 15:37:22 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPKV1-00000009q5f-0eGD
+	id 1uPKVy-00000009qFI-2RWK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 12:24:12 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=SJvtT8jzdkTI+Km5xljfBIsgDTSkuGkzTeKX4/B6isEgu0NnEfAVRvBPIahkwDn4Uxws/UWjxgg3jU8CFrPEO184p1VaaVy8WgINnozsFSX3vvCndeNxH6l5OtA4wLyyQZ13T6ZqGRROPKlxBNqbTcSn0efNTBPE0pdHYB7Ky1C7ElH1OJt3qcOkfp4O3HJZISkY72xgQl44wIoJzGFy58Ce7LUzWMYPTeXOrYGUgN4KFukal8Yy4BK77pZuZRIPyGacwuaFGS4GRAOQgtmO1bYUjkbALSuvavHXLX097HjFIyLFWspz7crkGAw5U+9j7OXVDHV0ynANIj3k7EEA8g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+3fUVQcrli87utk+ftRBb49CJjFxqbu6I40QgAun1Xw=;
- b=p21msfmNEuz36SuPGasm6LZgsOgdd/SrXKNVi1kjXPv8RUvL0wKbWr4e1tosN4LxvqWjRbtcc7zWj4+FEYWdp0l2R8EMFscYLsAXAG3kGUrIx9Y2rA7Xnw+cVIu7ojUHX+b06g6LlFCBipe+VQ8SzQgChDDGVIGsGhS7BJwMRS3ixeuJxs5PvrahszwxfmKeF8LSyXkpJdy95Rl0Muy4DrqNbF6RxbYdjcekj4rTVn1lOjnKfdeqzsJRHHitFk/sQ+rIiPFUCsybesu6NkWsptva0acXMS/g4N+7aKFElg5whW+D+5uL5r4a59snPTG+c1MNbLY88tgDZE+AUNeoXA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+3fUVQcrli87utk+ftRBb49CJjFxqbu6I40QgAun1Xw=;
- b=gnoWfSVT9PG4PybRuEe9Ca9pA9H4EcENMWVyR3R0BkSKEIWXaM1db5xOryLUYtXXUq/trfLEIBN0doMCX17jGLso9gut0w8whJGLKJmx/Dg/CE8YrKkd+bCYIzpjRnNBuwiXG6GO7lhsOyvbHhQBLw4Ak7U9VOjgGlaeOnhACXM=
-Received: from AS9PR05CA0227.eurprd05.prod.outlook.com (2603:10a6:20b:494::12)
- by AS8PR08MB8274.eurprd08.prod.outlook.com (2603:10a6:20b:536::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Wed, 11 Jun
- 2025 12:24:02 +0000
-Received: from AM3PEPF00009B9E.eurprd04.prod.outlook.com
- (2603:10a6:20b:494:cafe::f1) by AS9PR05CA0227.outlook.office365.com
- (2603:10a6:20b:494::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Wed,
- 11 Jun 2025 12:24:02 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF00009B9E.mail.protection.outlook.com (10.167.16.23) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
- via Frontend Transport; Wed, 11 Jun 2025 12:24:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g3iI8LUYZcOGCylI1a7CagzsYLTeyTXmZG4Etdud4ZnyRuZunKQuud+yj85Jf94SMJMsr1Jf6A4ye5Wwu6ueR/LuUgZsoyehEWDloH3n+v3eFGaoLwFUIoqaC52dci8nzzk367mnXIc6ks26FZ8FquVRRf2C/CUFCycyITDFtsG2ogU2WG3UI8xfosecRbtOa4wu19RO+P5wFHF6Rmw1mNdiYkbSh+EXbnDB3WXn73ioSrg/+dvI2DjfyAGEivVRx7qIADjhRvx9G469xGYNJoKC3tgdNhe9RoXCHrfDfXHZ/utCeRE4/aIUsnX68Ox2erfscvyTyDPOExqkMHjVmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+3fUVQcrli87utk+ftRBb49CJjFxqbu6I40QgAun1Xw=;
- b=NSv7L7fMeJhctXuwGH4xWXVEKIGobZ+08rXEZihFybe0oME1Glnk68lvxw9zn0kQgXYgDGH98W5BhSYzw/YyALqE9sTx4W7WI3pxgQod1L7lihzzDQc97XsQPDQQlG5JFmPWIPgKe+sC2dXbKUqkJab0s47A4L4VUFnGNY2jE594rkfSKpAOV/5fooBTn46rfW/izFQVU4k0+4wOtzcsv8k+bYF7NKMw7s9z79QYC4G3Ot+CyYc52CBHQLX5o/j54KwRJFpvlk+4XvC9Mw5aYQQb3S2p5Gz3KGi9W6PcU77n92KQzuRbaWrKTMqBidFUytgePEV5kPvcdnVxCU89WQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+3fUVQcrli87utk+ftRBb49CJjFxqbu6I40QgAun1Xw=;
- b=gnoWfSVT9PG4PybRuEe9Ca9pA9H4EcENMWVyR3R0BkSKEIWXaM1db5xOryLUYtXXUq/trfLEIBN0doMCX17jGLso9gut0w8whJGLKJmx/Dg/CE8YrKkd+bCYIzpjRnNBuwiXG6GO7lhsOyvbHhQBLw4Ak7U9VOjgGlaeOnhACXM=
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by PAVPR08MB9505.eurprd08.prod.outlook.com
- (2603:10a6:102:315::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Wed, 11 Jun
- 2025 12:23:27 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8835.018; Wed, 11 Jun 2025
- 12:23:27 +0000
-From: Yeo Reum Yun <YeoReum.Yun@arm.com>
-To: Mark Brown <broonie@kernel.org>
-CC: Catalin Marinas <Catalin.Marinas@arm.com>, "pcc@google.com"
-	<pcc@google.com>, "will@kernel.org" <will@kernel.org>, Anshuman Khandual
-	<Anshuman.Khandual@arm.com>, Joey Gouly <Joey.Gouly@arm.com>, Yury Khrustalev
-	<Yury.Khrustalev@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "frederic@kernel.org"
-	<frederic@kernel.org>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "surenb@google.com" <surenb@google.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v6 5/9] kselftest/arm64/mte: check MTE_FAR feature is
- supported
-Thread-Topic: [PATCH v6 5/9] kselftest/arm64/mte: check MTE_FAR feature is
- supported
-Thread-Index: AQHb2rUCQmpbZ5zoHUCP1g1iMqncarP92RUAgAAH6OA=
-Date: Wed, 11 Jun 2025 12:23:26 +0000
-Message-ID: <GV1PR08MB105215BEA5D230BFB36D86FDAFB75A@GV1PR08MB10521.eurprd08.prod.outlook.com>
-References: <20250611094107.928457-1-yeoreum.yun@arm.com>
- <20250611094107.928457-6-yeoreum.yun@arm.com>
- <916e2064-efa9-4b69-b561-51b0378158c0@sirena.org.uk>
-In-Reply-To: <916e2064-efa9-4b69-b561-51b0378158c0@sirena.org.uk>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: GV1PR08MB10521:EE_|PAVPR08MB9505:EE_|AM3PEPF00009B9E:EE_|AS8PR08MB8274:EE_
-X-MS-Office365-Filtering-Correlation-Id: a0321570-e34f-4abc-885c-08dda8e2d883
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|10070799003|1800799024|366016|376014|7416014|38070700018;
-X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?dshROWQ2uXbiGfz/miKaHPNscd8/Vdj5w18eunKP7o8GbRUyEFbdjYZ5TU?=
- =?iso-8859-1?Q?xX33ZhXwM9rnil4wI7Snw+Vxtjg7BKUTPNnVdFzAASn8EKWK5+RNIXB/0Z?=
- =?iso-8859-1?Q?klTUasxTzK+sQLhnGG33KU2F6/xOVRhAhiDbtxzsLXOpdzTx0M6prgDoPX?=
- =?iso-8859-1?Q?VuAwHwB3qQe8DzxMFHfJFSUGECVrcVNefyFg3xKyKONL4Ykf63vpjq/GuR?=
- =?iso-8859-1?Q?ak0nr/bzmGDZlbE1xod5fiV50TTRmxPoqq2Q4ejdbvtQEZt3iHlchbKyCy?=
- =?iso-8859-1?Q?ZUcbTrTEYFFqSGMhnYJ3KrYHRl9oVaqsqOXQV9sWYoWd9yw1RgquW4j/PI?=
- =?iso-8859-1?Q?YKCs+5hbpWaISAjuKkNL4WolZypHaAGgQ5UDeT9b9yq6X5iAfYw2tpTgS+?=
- =?iso-8859-1?Q?gfXKtz5e5JipgsM5wGY6wA/MxXqqbQFTabTppzTmneWTPUnZtu0Bdu61n8?=
- =?iso-8859-1?Q?zc7NjrIzI3iXFKMgLIEQEnMTH5NQS+blx9xiObT6+e4hmBG8F+YRjPrc/2?=
- =?iso-8859-1?Q?H4MYpRZAm5iAE7G1VK0xqLYG/fyenJhX3rvmtNfC11Ncu7jrdwgvExYO84?=
- =?iso-8859-1?Q?FB4FGHShOsEgYTdDWuDYCkHIPPHKK1szHF9HNK1gQXwRgLO35cGolE5rek?=
- =?iso-8859-1?Q?qsE37EYVBcw3N25oi9GRif8cZjxFTVhLBF0xTkja1snGNHzvkbQ58tY3rS?=
- =?iso-8859-1?Q?RTK/gP5KOPZ2smGBXKjFYa0Y+Wd0hNMfDO+IVHLtuNJAHpWqSKtLnytm9J?=
- =?iso-8859-1?Q?UYa69p2DnWBKxc18Xjx8ZHUF8pJ72dDEZtP9wZWVLDrXkcZodIRcscf5Zm?=
- =?iso-8859-1?Q?20Bt4V/JRhRrtDcv/+etVZxws8DJxa9yDyUVZBWdzLtni1gF71m0xCKVbE?=
- =?iso-8859-1?Q?aK1nTdZOzkBCCpuxVgHFJhYdNjOOQ4g8vj5yUqTVuiwxdFh9vj/9fXaoLq?=
- =?iso-8859-1?Q?cyX13NxwsRS4FoVON7rI0NlIo2uBVgBtCxg+ToBtFpSE9I074GUznHKFF5?=
- =?iso-8859-1?Q?5+wkguNpoFfWUzSYQ+p2FaoCSW3w9p8/jZDWWCs0Bd9UWOaIloFNxmwPu1?=
- =?iso-8859-1?Q?yL2Bn78sPM4/Zr0mCqfhuFdNt/dXkzLQ3ZLNJ0YKgZswPPGBtzNHAYV8NU?=
- =?iso-8859-1?Q?q8CjGPsMZp9hiOdbPyN7h4qIdrR/cSkXj23/8F5C4IxOjCRZnK9OWrvDUO?=
- =?iso-8859-1?Q?23JFiXQrSo5+sgY+pNYgqF6l5BT6uHAAfPgrmxkG0IYlg/cQXTrVnrj4tz?=
- =?iso-8859-1?Q?F0FxtxYHL0n0bJK2wuD3fvxbQeuZDHJq18LiKQXu20wEnll5JXlhhrNz+U?=
- =?iso-8859-1?Q?h100QUpOeUzOydxtZdj9RxDGJ1qAqVhr+IuHRwX5k4iTLenDwmBTn0Sw+C?=
- =?iso-8859-1?Q?YXgKSpBciiknDnBDLQtSKtY7Z+LOA6k4dTouTKn7fcvSqEIhjwcUGP3d12?=
- =?iso-8859-1?Q?fd9aP88BQqGkIywgCiw/uzyRfOt/kRTEClW9NwTEQjsaCXJBIMPaPOzTxI?=
- =?iso-8859-1?Q?m0E0zCA62LF/N0Ya17krEKPWhUbkU4idu1lIRRNSwyPw=3D=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 11 Jun 2025 12:25:12 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55B9DDrF023918;
+	Wed, 11 Jun 2025 12:24:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pGAuQJnCZRenSUKeUSJste/qOhgDi8yuC9MgXtEQqHA=; b=gYDy+ZM8lCRyvKb8
+	Y927Tqu4+0a16Mf2gDCVxhZfsUWS5YCE0iwHFZy79ojO1v5ENqTp3uLJv/Gb8cHK
+	dX+rqJioT+ndWZCbQBq2xZA2324/Uce0Z4PNyFMX29jyvhLAT/I1HMEXodVLEN3x
+	c45z59T9GTrijJd3hoWvOLkgnL+gJFkYhozjust+Ql9CRbCYCh2I9jcQEWZ6VXv8
+	5c9n+wNGZ+qt0pQ5/QtgvYTR5utTiAlUW1QXEUlJpzM0Ck0zxXDtvCStQDwjduha
+	arMy/gPTPJUJOxqkiFXoytpRBain2Z70mRSRHT6/N10L8uzVBYKGUQ27KDnaDYuH
+	ALHz4A==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 475v2tfhvs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 12:24:57 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55BCOuWd012122
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 12:24:56 GMT
+Received: from [10.216.28.79] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 11 Jun
+ 2025 05:24:48 -0700
+Message-ID: <d482653e-5c0e-4b03-98d6-2c898b445917@quicinc.com>
+Date: Wed, 11 Jun 2025 17:54:44 +0530
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9505
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009B9E.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 1475629e-c27d-414f-7d03-08dda8e2c48b
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026|14060799003|35042699022;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?aoI3hOEod6MYM2nuADs+6JHlCgI8C2uqCod2phr8iJx6pgKfQD2JVPFT7z?=
- =?iso-8859-1?Q?m9NSt2Tv+O9bI6YayiujO4Yv4SbJdtxNJ9HlAqNonnjOYUoDh2xcRRdR6i?=
- =?iso-8859-1?Q?iXp/a6bVeyaovaxGHQdkctqD6/hmkZGSkgK2Nfb+v3ZeYvSOFjMZHj2REr?=
- =?iso-8859-1?Q?T2JGqHYpRrChsjPTASijYGX7UpzUovokbmhq+21DIRTwiBdS/CAr3YABPw?=
- =?iso-8859-1?Q?NAIs2uLMN8lSDVGg2TYrlozc3/W0ereZzQbd6qFGkpZaHJ30iNlD7D73k4?=
- =?iso-8859-1?Q?xfBCBiXbnXr8Lj3SuDcSi/L3b3vZbaWO29vvtii6BB/hOeK5ApzEkJkf/7?=
- =?iso-8859-1?Q?7/lNp6gOVAC2P7WyZllgcAluN4prvRugQLxJznZx7F5Tri0WJBQW3SjQBo?=
- =?iso-8859-1?Q?f7nN2Q7aoqr9fSqCYNq+6uNL+IZbDLkKUtE0zjhvlslRcbo0wyE9NVQvzY?=
- =?iso-8859-1?Q?gZbQhKwEdQDan1b7mfg8FbQbyS8GmwdL3bwFH9PwywNXa5zbsFahDyokth?=
- =?iso-8859-1?Q?3zRyJIneWSCj2sj+ZjjdqWdiiiYVSISZ/3zRB88vyEE9yxW6CnLfqH0YS2?=
- =?iso-8859-1?Q?wwYlAyoyI/9r30tuHIYPtU6LBZd8ecO/cKkURwstxjTxjzla4QaN8bvEN6?=
- =?iso-8859-1?Q?xqSK3ZVlPhsAKyaFyOrMhuhzLr2Lrtc6a+1GkGZmRurU+xm6pLPc1ybU3t?=
- =?iso-8859-1?Q?8DsfSZRhjeFFsinGU8I4T2eOZYtcRmcCDar3BL3odB8Bgggty1UoNY4Ikk?=
- =?iso-8859-1?Q?wZLGcuVxfk7RH7Bc8hUoE8Jp2s++ACYe/NKLzosbKbogSDfL9DErIz+Rwd?=
- =?iso-8859-1?Q?uzQ+jrvzCSkikdTuPD8foYY9LkDIHEMptGAkTXjal4TsHxFJ7GtKBjFcWf?=
- =?iso-8859-1?Q?BI9rEhKz70rUxVq55zKTKMONwKTJKvLWQllZrv04DyqJK50NYL6B+s/yri?=
- =?iso-8859-1?Q?Zp872zBmGk4WyMzKHRwL0x+CHkXW6TXRjQHeePrcmD0t4sZh3iPhjyWD0W?=
- =?iso-8859-1?Q?5WLJAyzxJC3I4kWGDUHYjQpEpi7l7l1HOVx52YYQLoqbN12NhHWy5gCL4Z?=
- =?iso-8859-1?Q?nUTUrMfuuFSfQzzQ9DTqCfDjg+kG7aeprqVwcrVneHxW00G7PeKD3wRL7a?=
- =?iso-8859-1?Q?Oser/xmXVsCznSk0VtpGGPhuYvDh1J7KA4wyMsTVqew5xxVrHW7vYsaxhs?=
- =?iso-8859-1?Q?XyGHhqqHfy3bPiKMaDZrkto95HjvVnwarJ9o0MBT2QkPonLTKcuF91PLD9?=
- =?iso-8859-1?Q?askHP26Pj8AMhKZDlpmWL5XjFu8ffVwCUQoHVUBK44FqyZwTdnG8mMdUIP?=
- =?iso-8859-1?Q?82bEBOP6bNiNK2L9CI3WHR0tDg8HPSmGp8q5jZ0mhBMo9sFTzMa1Vpjx1v?=
- =?iso-8859-1?Q?aFQvsWig79cOg2LFkHGqrKhSmkWl7k5+7Yrg+Uzyfoyk+50LWI1RpZ+7UL?=
- =?iso-8859-1?Q?ilJwbepF+2ABQmUJMHpaAi3gZNrAQ7Xt3nO5HQxdV7+ty7lSZtisXCyo14?=
- =?iso-8859-1?Q?ONVvIEQz06hWphLoma4unews3xHygPtEE4hhoNRYRJRREfKqJ/e7KYIymg?=
- =?iso-8859-1?Q?Pjfh+B7PtZnmxubn2rluKy/173Oc?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026)(14060799003)(35042699022);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 12:24:00.4193
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a0321570-e34f-4abc-885c-08dda8e2d883
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9E.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8274
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: opp: adreno: Update regex of OPP
+ entry
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Akhil P Oommen
+	<akhilpo@oss.qualcomm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "Will
+ Deacon" <will@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean
+ Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry
+ Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>,
+        Bjorn Andersson <andersson@kernel.org>, Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+        Nishanth
+ Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-pm@vger.kernel.org>
+References: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
+ <20250611-x1p-adreno-v2-1-5074907bebbd@oss.qualcomm.com>
+ <492417fe-c086-4980-b108-0487bad08155@kernel.org>
+From: Akhil P Oommen <quic_akhilpo@quicinc.com>
+Content-Language: en-US
+In-Reply-To: <492417fe-c086-4980-b108-0487bad08155@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 19Wy04pcgBOYQabLMROi2WkoaX8g-IgR
+X-Authority-Analysis: v=2.4 cv=GoxC+l1C c=1 sm=1 tr=0 ts=68497599 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8
+ a=snIp_u72ujy8X2fHCcYA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: 19Wy04pcgBOYQabLMROi2WkoaX8g-IgR
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjExMDEwNiBTYWx0ZWRfX8/VpQ35K3txV
+ 0LE/3vFvyiqLM1KGZhDyw53Hlk7CMoEbHrqhh0/DhZeXDc2YvHYAhicvpnujZyStWiy35n5K4rN
+ wX+m80mCGjHNIvl0Ry5I0BXYGwz2LJkpBnyDmGlIYSi7/tbFY8dMtk83X/vB6RgHmK5fw+8c0EZ
+ 1tBW63P14pVPPyK4NJNNqZllRWwtW5xPwNXQmYHRSX51BdA4l+o+AJAbmK+dYX6PkXgilZMY1YD
+ 97BZ15yjVYz+ddZTvlddufqXy/JvHXCV4meWLqWU0hFePNdgnlmBm6zvH61JLpWiSjEKeuSuerb
+ YAp5p1kVZMVHOG5K/h5A8NQ3RXIfacvN3HXqnu0oAnM2Cz9bgn65fbnu+MQSk5laoYL/BJ7jXq1
+ iJwZdswf/j6MgVIP9xJSsJ/e2KTjOb7Yy2aXssLnpEXAsVAq6Jf5HNnu93XhdMqpcd+ZfrTZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-11_05,2025-06-10_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxlogscore=999 adultscore=0 impostorscore=0 malwarescore=0 mlxscore=0
+ suspectscore=0 phishscore=0 priorityscore=1501 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506110106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_052411_355633_D9CF1638 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250611_052510_744892_D8313DBF 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -216,155 +138,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,=0A=
-=0A=
-> >=A0 #include <unistd.h>=0A=
->=0A=
-> Not sure why we'd be including time.h here?=0A=
-=0A=
-As you mention, This is my bad for wrong plcae .. Sorry=0A=
-=0A=
-> > +bool mtefar_support;=0A=
->=0A=
-> This is a non-static variable so won't have a defined default value...=0A=
-=0A=
-Right, at the first write, I declare this with static.=0A=
-But forgetting when changing more....=0A=
-=0A=
-> > +=0A=
-> >=A0=A0=A0=A0=A0=A0=A0 if (mode =3D=3D MTE_SYNC_ERR)=0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 cur_mte_cxt.trig_si_code =
-=3D SEGV_MTESERR;=0A=
->=A0>=A0=A0=A0=A0=A0 else if (mode =3D=3D MTE_ASYNC_ERR)=0A=
->=0A=
-> Unrelated whitespace change.=0A=
-=0A=
-Thanks.=0A=
-=0A=
-> ...this will only set mtefar_support if the hwcap is present, leaving it=
-=0A=
-> =0A=
-> undefined if not.=A0 If you just make this=0A=
-> =0A=
-> =A0=A0=A0=A0 mtefar_support =3D hwcap3 & HWCAP3_MTE_FAR=0A=
-> that should avoid the issue.=0A=
-=0A=
-Thanks for catching this.=0A=
-I'll change.=0A=
-=0A=
---=A0=A0=0A=
-Sincerely,=0A=
-Yeoreum Yun=0A=
-=0A=
-=0A=
-=0A=
-=0A=
-________________________________________=0A=
-From:=A0Mark Brown=0A=
-Sent:=A0Wednesday, June 11, 2025 12:52=0A=
-To:=A0Yeo Reum Yun=0A=
-Cc:=A0Catalin Marinas; pcc@google.com; will@kernel.org; Anshuman Khandual; =
-Joey Gouly; Yury Khrustalev; maz@kernel.org; oliver.upton@linux.dev; freder=
-ic@kernel.org; akpm@linux-foundation.org; surenb@google.com; linux-arm-kern=
-el@lists.infradead.org; linux-kernel@vger.kernel.org; linux-doc@vger.kernel=
-.org=0A=
-Subject:=A0Re: [PATCH v6 5/9] kselftest/arm64/mte: check MTE_FAR feature is=
- supported=0A=
-=0A=
-=0A=
-On Wed, Jun 11, 2025 at 10:41:03AM +0100, Yeoreum Yun wrote:=0A=
-=0A=
-> --- a/tools/testing/selftests/arm64/mte/mte_common_util.c=0A=
-=0A=
-> +++ b/tools/testing/selftests/arm64/mte/mte_common_util.c=0A=
-=0A=
-> @@ -6,6 +6,7 @@=0A=
-=0A=
->=A0 #include <signal.h>=0A=
-=0A=
->=A0 #include <stdio.h>=0A=
-=0A=
->=A0 #include <stdlib.h>=0A=
-=0A=
-> +#include <time.h>=0A=
-=0A=
->=A0 #include <unistd.h>=0A=
-=0A=
-=0A=
-=0A=
-Not sure why we'd be including time.h here?=0A=
-=0A=
-=0A=
-=0A=
->=A0=0A=
-=0A=
->=A0 #include <linux/auxvec.h>=0A=
-=0A=
-> @@ -26,6 +27,7 @@=0A=
-=0A=
->=A0 #define INIT_BUFFER_SIZE=A0=A0=A0=A0=A0=A0 256=0A=
-=0A=
->=A0=0A=
-=0A=
->=A0 struct mte_fault_cxt cur_mte_cxt;=0A=
-=0A=
-> +bool mtefar_support;=0A=
-=0A=
-=0A=
-=0A=
-This is a non-static variable so won't have a defined default value...=0A=
-=0A=
-=0A=
-=0A=
-> @@ -273,6 +275,7 @@ void mte_initialize_current_context(int mode, uintptr=
-_t ptr, ssize_t range)=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0 cur_mte_cxt.fault_valid =3D false;=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0 cur_mte_cxt.trig_addr =3D ptr;=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0 cur_mte_cxt.trig_range =3D range;=0A=
-=0A=
-> +=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0 if (mode =3D=3D MTE_SYNC_ERR)=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 cur_mte_cxt.trig_si_code =3D=
- SEGV_MTESERR;=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0 else if (mode =3D=3D MTE_ASYNC_ERR)=0A=
-=0A=
-=0A=
-=0A=
-Unrelated whitespace change.=0A=
-=0A=
-=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0 if (!(hwcaps2 & HWCAP2_MTE))=0A=
-=0A=
->=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 ksft_exit_skip("MTE features=
- unavailable\n");=0A=
-=0A=
->=A0=0A=
-=0A=
-> +=A0=A0=A0=A0 if (hwcaps3 & HWCAP3_MTE_FAR)=0A=
-=0A=
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 mtefar_support =3D true;=0A=
-=0A=
-> +=0A=
-=0A=
-=0A=
-=0A=
-...this will only set mtefar_support if the hwcap is present, leaving it=0A=
-=0A=
-undefined if not.=A0 If you just make this=0A=
-=0A=
-=0A=
-=0A=
-=A0=A0=A0=A0=A0=A0=A0 mtefar_support =3D hwcap3 & HWCAP3_MTE_FAR=0A=
-=0A=
-=0A=
-=0A=
-that should avoid the issue.=0A=
-=0A=
+On 6/11/2025 4:50 PM, Krzysztof Kozlowski wrote:
+> On 11/06/2025 13:15, Akhil P Oommen wrote:
+>> Update regex to allow multi-worded OPP entry names.
+> 
+> Why would we want multi-worded? This needs to be explained here.
+
+I took the new regex from "opp-v2-base.yaml" file, so I thought it was
+obvious enough. The requirement is that sometimes Adreno GPU may require
+variants of OPP entries with same frequency. As an example, we may want
+to vote different peak bandwidths in different SKUs for the same GPU
+frequency. So to denote this minor variation, we can add an integer
+suffix to the OPP entry name separated by '-'. An example from another
+patch in this series:
+
+ opp-666000000-0 {
+         opp-hz = /bits/ 64 <666000000>;
+         opp-level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
+         opp-peak-kBps = <8171875>;
+         qcom,opp-acd-level = <0xa82d5ffd>;
+         opp-supported-hw = <0xf>;
+ };
+
+ /* Only applicable for SKUs which has 666Mhz as Fmax */
+ opp-666000000-1 {
+         opp-hz = /bits/ 64 <666000000>;
+         opp-level = <RPMH_REGULATOR_LEVEL_SVS_L1>;
+         opp-peak-kBps = <16500000>;
+         qcom,opp-acd-level = <0xa82d5ffd>;
+         opp-supported-hw = <0x10>;
+ };
+
+I will add this explanation in the commit text in the next revision.
+
+> 
+> 
+>>
+>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>> ---
+>>  Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml b/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
+>> index a27ba7b663d456f964628a91a661b51a684de1be..bba95799919eb52d12afa42354ed909d0ef3c627 100644
+>> --- a/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
+>> +++ b/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
+>> @@ -23,7 +23,7 @@ properties:
+>>        const: operating-points-v2-adreno
+>>  
+>>  patternProperties:
+>> -  '^opp-[0-9]+$':
+>> +  '^opp(-?[0-9]+)*$':
+> 
+> Not correct regex. You allow "opp", "opp1" and all other unusual
+> variants. Commit does not explain what problem you are solving, so I
+> have no clue what you want here, but for sure opp1 is wrong.
+
+Just to confirm, would this be fine for the requirement I mentioned above?
+
+"'^opp(-[0-9]+)*$'"
+
+-Akhil.
+
+> 
+> 
+> Best regards,
+> Krzysztof
+
 
