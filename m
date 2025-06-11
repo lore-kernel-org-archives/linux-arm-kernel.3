@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B668C71134
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BD98C7113E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lhFWt9zk7azecthiA82QHnZd98qw/ught3FPcagMY3Q=; b=UGoDUp1vc430LXqUEO8x52OhMM
-	wcvRorJ8WNflHDeA4lzyfyCx2pYHqkr45Xp3jETj3WFyzZg0af7vLWaY39A138XAlBlRA6Q6H+nBL
-	KboWufUd9H8Xw7qXpBdXXI9a2A2l8vrYUYzfa8PwZI3b7s72wJHZ+hmWcRMkbQrYWtSYpq3+qIEwW
-	hDs42XrX1e3XoYSmCJwMPAC9RKr9ssvRrAE9Uiy9NxZOi7JqkfcSJcltvVCZkwR4EvhvibgvPQxcf
-	88MIxylzMLz1vEH78eV1Et906WakZ2fYcORTA1Wlk+ee2PJnexj/CByCzVyiXCkyTJBhltWAxBd7O
-	wZZyH+pA==;
+	bh=iE0MsktbDEMe3NLkiMxHJ519do5Gp8up7Y9Iq9kO5V0=; b=TQZakfAdMGq2SXNDEgAu/Ph2lk
+	t1UHs5dcHvNHHeFsmZ5eSb4buimnl6PZZ9Bzj6mHeXqLxPqCzhPyxsLR7wzN0Qoy5OOuz6/FVQsck
+	11QBre8xbAP34i0rXt0eF1vyKex2oieJKWAAfvuKr64jrTbHGGQZ0/lHLr1YSpn1ygrZLUDReE2VM
+	PvDCLzbuxvTeadWjegV0VuH93K7QNFBZg4w+7P0fFeq0hQki9tPCGkY6i3HIJ7SsFzg/ggO7aSHYT
+	8dl7vm5qQSWXFgji2sJB/+ksA+naA1XswYLYqmu3N+9fNtcn0PMo4F32Vc6ALGHmCq20gOHSJxI2f
+	qqSZgDpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRXf-0000000B36g-0Fel;
-	Wed, 11 Jun 2025 19:55:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uPRXz-0000000B3cT-3F6T;
+	Wed, 11 Jun 2025 19:55:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNRI-0000000APXE-13g2
+	id 1uPNVO-0000000AQRI-3Jtj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 15:32:32 +0000
+	Wed, 11 Jun 2025 15:36:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 458B16154E;
-	Wed, 11 Jun 2025 15:32:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEFB5C4CEE3;
-	Wed, 11 Jun 2025 15:32:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8025B5C075E;
+	Wed, 11 Jun 2025 15:34:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8156CC4CEEA;
+	Wed, 11 Jun 2025 15:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749655951;
-	bh=wyORKykEhxu3HxEky3H3KWL4Pst5ul6jgrJKEYkWToc=;
+	s=k20201202; t=1749656205;
+	bh=iE0MsktbDEMe3NLkiMxHJ519do5Gp8up7Y9Iq9kO5V0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g5LbLylMgDrTABeXSsL1rJM23sHGOq3I5MDpYQxZ8jHqLpLEQUzoa3U3krtosfpZ5
-	 ilyC7zaB/DhuLToP6mlcsk0vmnNSEfzpT0FkSIEoVfO9ZZ8RlO7D8ZYT4xdR6Hqt+t
-	 I0x6yE4ErgCP07WLT4QGNb+43VHHa5WpAzfdXnuJBpI8GP9U1GMVsEhRFQkl9N1zPA
-	 mPxV9bNr7nzIwksW3B4MqkxE/Bm3UH1m/uLc8HyvuSNPztqvv1mmbWZpzzgsATBXI7
-	 ql8NGyvTiLFbFzZQowVVh3PwwcPBSg5mdVv718wVMY5XjijAbBgMH2fAkfVAYH7T+p
-	 J4I0RF1GYqX+A==
-Date: Wed, 11 Jun 2025 10:32:28 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Hiago De Franco <hiagofranco@gmail.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Hiago De Franco <hiago.franco@toradex.com>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@oss.nxp.com>, daniel.baluta@nxp.com, 
-	iuliana.prodan@oss.nxp.com, "Rafael J . Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH v4 1/3] pmdomain: core: introduce dev_pm_genpd_is_on
-Message-ID: <iuotfsnaft3623lchzop6sbu5ox56scdr57uia56qm6ummcvzt@yisczcdzbc3b>
-References: <20250602131906.25751-1-hiagofranco@gmail.com>
- <20250602131906.25751-2-hiagofranco@gmail.com>
+	b=UXQjSNxCJTeqeegmbFdkSEgGydMfw1q2EzY7nfu6TP79lu6Y1w/QZ4alluV9H/1rB
+	 LY4OpXs/tAy3LXTiRgQyzMByUxajWO62YlX7Y6dyPcUSxII/za5Ll5j144M3v5VCXj
+	 6ymDsMBUlNvy+c2o7QvA760lkfYcETuIjYFKi3NrKyq4+L1Ln94PWSh6g68h46LOYD
+	 wnLWBq6GKD/rv060wPTqVnGpL6ZwlIxcAhsNX0+WarpP1TePGzqd7S9DPF7IwX4XbX
+	 JndHjGb/UCOO7/v5wU8YxtJ9dm+8kXTbbiboKj3e4yv1qqGfGSvF+69NU5oU6FOOQE
+	 St1Fji7ZadEUg==
+Date: Wed, 11 Jun 2025 16:36:38 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
+	anshuman.khandual@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, frederic@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io, samuel.holland@sifive.com,
+	palmer@rivosinc.com, charlie@rivosinc.com,
+	thiago.bauermann@linaro.org, bgray@linux.ibm.com,
+	tglx@linutronix.de, puranjay@kernel.org, david@redhat.com,
+	yang@os.amperecomputing.com, mbenes@suse.cz,
+	joel.granados@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 2/7] prctl: introduce PR_MTE_STORE_ONLY
+Message-ID: <ec2c5126-86da-45a2-b9fb-06433583f13c@sirena.org.uk>
+References: <20250611150417.44850-1-yeoreum.yun@arm.com>
+ <20250611150417.44850-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="z1q5nUGgyyOUCQhx"
 Content-Disposition: inline
-In-Reply-To: <20250602131906.25751-2-hiagofranco@gmail.com>
+In-Reply-To: <20250611150417.44850-3-yeoreum.yun@arm.com>
+X-Cookie: No skis take rocks like rental skis!
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_083646_872827_F0D2B1E4 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,108 +82,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 02, 2025 at 10:19:03AM -0300, Hiago De Franco wrote:
-> From: Hiago De Franco <hiago.franco@toradex.com>
-> 
-> This helper function returns the current power status of a given generic
-> power domain.
-> 
 
-Please correct me if I'm wrong, but this returns the momentary status of
-the device's associated genpd, and as genpds can be shared among devices
-wouldn't there be a risk that you think the genpd is on but then that
-other device powers it off?
+--z1q5nUGgyyOUCQhx
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> As example, remoteproc/imx_rproc.c can now use this function to check
-> the power status of the remote core to properly set "attached" or
-> "offline" modes.
+On Wed, Jun 11, 2025 at 04:04:12PM +0100, Yeoreum Yun wrote:
+> PR_MTE_STORE_ONLY is used to restrict the MTE tag check for store
+> opeartion only.
+>=20
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Tested-by: Mark Brown <broonie@kernel.org>
 
-I presume this example works because there is a dedicated, single usage,
-genpd for the remoteproc instance?
+Sorry, that should've been
 
-> 
-> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> ---
-> v4: New patch.
-> ---
->  drivers/pmdomain/core.c   | 27 +++++++++++++++++++++++++++
->  include/linux/pm_domain.h |  6 ++++++
->  2 files changed, 33 insertions(+)
-> 
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index ff5c7f2b69ce..bcb74d10960c 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -758,6 +758,33 @@ int dev_pm_genpd_rpm_always_on(struct device *dev, bool on)
->  }
->  EXPORT_SYMBOL_GPL(dev_pm_genpd_rpm_always_on);
->  
-> +/**
-> + * dev_pm_genpd_is_on - Get device's power status
+Reviewed-by: Mark Brown <broonie@kernel.org>
 
-Functions in kernel-doc should have () prefix
+--z1q5nUGgyyOUCQhx
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> + *
-> + * @dev: Device to get the current power status
-> + *
-> + * This function checks whether the generic power domain is on or not by
-> + * verifying if genpd_status_on equals GENPD_STATE_ON.
-> + *
+-----BEGIN PGP SIGNATURE-----
 
-If my understanding is correct, I'd like a warning here saying that this
-is dangerous if the underlying genpd is shared.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJooYACgkQJNaLcl1U
+h9Dzbgf/YGEQLbpkxxNiUEd6pltNKikXu/3VHVIRPWWzDDb5wtSuHFhoIqeN3nYe
+WmJpaGNEUQyoVK6kkUh7TTirgED4cKJMG89RKFq6XXFVfd4yZbeKsLUhJwOk+zy4
+NYu5zdnoM004pbgzdgaaw2tR2sbKTXu3j3O2dIxfMGUXYbREbsLDFHr4EbGXrUaj
+R6ZtqSqrnr+F+Gs+Tu9T3lnbQgBBHUHIb8epsLCBr3rMpJQjmIiX5KfFq8nJ3dqk
+gv2Gps01wkUk7KNglhjKuxWYr1kttGldT4Osdcj37Jj5fVK9wVQwbPGrUKARot5h
+FVeg9ImfpHiVkxJ2Tyb2E5ts3b8Jig==
+=Xip3
+-----END PGP SIGNATURE-----
 
-Regards,
-Bjorn
-
-> + * Return: 'true' if the device's power domain is on, 'false' otherwise.
-> + */
-> +bool dev_pm_genpd_is_on(struct device *dev)
-> +{
-> +	struct generic_pm_domain *genpd;
-> +	bool is_on;
-> +
-> +	genpd = dev_to_genpd_safe(dev);
-> +	if (!genpd)
-> +		return false;
-> +
-> +	genpd_lock(genpd);
-> +	is_on = genpd_status_on(genpd);
-> +	genpd_unlock(genpd);
-> +
-> +	return is_on;
-> +}
-> +EXPORT_SYMBOL_GPL(dev_pm_genpd_is_on);
-> +
->  /**
->   * pm_genpd_inc_rejected() - Adjust the rejected/usage counts for an idle-state.
->   *
-> diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-> index 0b18160901a2..c12580b6579b 100644
-> --- a/include/linux/pm_domain.h
-> +++ b/include/linux/pm_domain.h
-> @@ -301,6 +301,7 @@ void dev_pm_genpd_synced_poweroff(struct device *dev);
->  int dev_pm_genpd_set_hwmode(struct device *dev, bool enable);
->  bool dev_pm_genpd_get_hwmode(struct device *dev);
->  int dev_pm_genpd_rpm_always_on(struct device *dev, bool on);
-> +bool dev_pm_genpd_is_on(struct device *dev);
->  
->  extern struct dev_power_governor simple_qos_governor;
->  extern struct dev_power_governor pm_domain_always_on_gov;
-> @@ -393,6 +394,11 @@ static inline int dev_pm_genpd_rpm_always_on(struct device *dev, bool on)
->  	return -EOPNOTSUPP;
->  }
->  
-> +static inline bool dev_pm_genpd_is_on(struct device *dev)
-> +{
-> +	return false;
-> +}
-> +
->  #define simple_qos_governor		(*(struct dev_power_governor *)(NULL))
->  #define pm_domain_always_on_gov		(*(struct dev_power_governor *)(NULL))
->  #endif
-> -- 
-> 2.39.5
-> 
+--z1q5nUGgyyOUCQhx--
 
