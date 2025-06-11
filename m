@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5B3C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:42:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D907C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBtgMGvbT5+A2Zrno825asKsp/MTUf+mDV3vojIadYo=; b=brYBo8a64AbS9XYcLYNvy9XHnJ
-	KgRXxmTcMg2aNMObAoKzDz2QPjIZ7Doxrai8s8P4keOZ0WBHxJOKEzKJSfJzrrLQRUPjiUnpP0o6N
-	WsoK2GQqQt4JQ8eLHp9c6V+gWjULxtUrbNLXUja6KJSHZSga+Fzs6uoX47zM8LGS3YyiUqpMYYkWp
-	Js+86RfJd4os01MBrKiMWX8yWLmbJknd9dUc+QmL1QczrBdBLwDgME74QYYBYD5LZvpliWbhLPv6a
-	4vAR5j/0t142OzuSi+9iZSMGvbEyy4ZCE4D+RJEWTYjerIu86gU+Rnpp6WfOmeWoXe/HqhQO/4Ge7
-	Qm0tcGBg==;
+	bh=YrM5gDypfjWh3FMraCL0UyjhbG3mPmdKK05aefBmOH8=; b=AdUw8x+uEAWg50PT9ao9nVrUU2
+	egzYLWkVQRUKJk+1IcEgKV8T91SoTP93XMX8F0hNmZNxRBvdbIzKYPBNtmy9gVvaUQUFYQq3362iN
+	Ni/gsVzNF3Yqb3fDGgUrDUvst4uY4s8mod6PjVW+ZnzN8kqiDB4h0yHHyZoCFZphzQJtJZAyxNyFR
+	s71Ucke2hx8npE76NIBm0tHrvy99EEnv6w5N243Ps9aKe1xUPgVxMf0MZaRZRiucsk5Cxbs5cn2g8
+	oFDlaoNmk83YAL73mF4+nr5aqKPvfwtsX+QW4W+dvQ+U27Ev6IPq/33U+y1MoBUBSJ/TtbZLuB4HQ
+	ifcQJ/kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHy5-00000009Vgh-3b0U;
-	Wed, 11 Jun 2025 09:42:02 +0000
+	id 1uPI0E-00000009W7b-2jZF;
+	Wed, 11 Jun 2025 09:44:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHq4-00000009U92-0TK3;
-	Wed, 11 Jun 2025 09:33:44 +0000
+	id 1uPHq7-00000009U9U-09Jm;
+	Wed, 11 Jun 2025 09:33:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=aBtgMGvbT5+A2Zrno825asKsp/MTUf+mDV3vojIadYo=; b=Lfa/ZiyaFewLbzBvBbQmEFGe1f
-	syjWUfhLmPSoNeLbN5s7W5x+su24kQVDRyL2EFRs/FwSescOFnDnhVnCK+772LgxUd2M8zvPLhhxx
-	cfL1oSD5gLaN6euuJQUFcE54FESKx3NxjYPCEPQNru21sgmWT3TDJ1WeIOtgueKMcmo+dUmubxwBC
-	GsX4BdbaH2CBXiBlhmmMfgRxc/FxZ/ULLj/HCVIMF0MnwFJNwslS1SBB9/Tk4wn2GkXYuk2dfzplg
-	7qvCJTLI8C7MXDYajaF8Ti/A5h+JV6AQ/1K4OkL7LAYsVRFuAIY9duMobf7+0MDk6Lz7veSXHzD33
-	InmM0Irw==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	bh=YrM5gDypfjWh3FMraCL0UyjhbG3mPmdKK05aefBmOH8=; b=Z4HHS7o151oUAb5XgzqnubbDPQ
+	uv0vHxdzSGXdj4qU60Bk7gK5I6N2wy0CTFh9zA4QDJzS0xgZlOaTAo4o0Rq+6OyIcsrZXq6Kdvj8h
+	a+JfnfkU5lyg0hEcS/Lfl/A8BI31GamkVqZGIV224LPBr7qfLUK5txkIAirZbHtNopkDUApJ6rpsn
+	RV7k2i9F/Q1F4wk7LRjhyaLqTjXDeo7J4rgQlYRNjlIwXLEYoD9lDUCuj8cx5aHrOy1IbotrBGcc9
+	AwQ651ACCr4KCzFe18/GQBLboHCwmD8+6VGUugLfQQbltTfHaTv45VlLskDQZhsoztCBNaPx2bPe1
+	13YcqV6Q==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHq2-00000002EXh-0xCA;
-	Wed, 11 Jun 2025 09:33:43 +0000
+	id 1uPHq4-00000002EY9-1qEk;
+	Wed, 11 Jun 2025 09:33:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749634420;
-	bh=iZRMsUTO/sHIde2R5o95I83Ls9f+Je5NTObQ20FW4lg=;
+	s=mail; t=1749634422;
+	bh=34m+rAyPyibqJfcT7OFlHLh8GE8mK4kGKtxYmJ2ytc4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YQtxycrvDTsiKzL6sOJuBJftKXuuNSx7cBuTXaWybtsB+6/efYFAxBpfiLnfKoB5u
-	 Yk4l59hj8HierCGRy9+ZGpL7x8y3PQfJul+YKaKWI2M9JVsqQLXj4/iPa9bx5fxfYf
-	 zltbemEGEGA3shlWIa2Il34qSakPX2wAKqjwfY2f1FeoBaiCWJvUYWuLaYCLf/I/zQ
-	 8mwljBUil21GgLqzES7Gx/gsWTK+KY7SjTvIbZYYDKeoRjfmIXvOP8YBUs45gRw4ty
-	 gK1qYTvhI+n6i6/gO58rbXYFAeakLTXta3upJ0T7gpdesiLhHiZn4/Dhk6oo4frFbh
-	 tggdFCeKYgDUA==
+	b=OR7Ccm7c3ax4tuKRbAp81y0hcQ+3ZxXFk5XZj+eBT4QchyCoZO86EcMYfp994k2V1
+	 gje+tgrGZkFOInv7MQCFimbMgf26iAfWcvODLUzqtHLiy2fY306uGzH4P6SfCCrF6q
+	 RaviSGrsFldE1v20sn6YPF0mBGD375tUyIptIGnhr/WrDzGiXhPmb5UVfZAXY2EMZB
+	 rTLgCXPGc75Fle7udyYeiiBmjccGlcqX4mc5ehRavfCct1uvHIYOVLLL0GMJ7s6ZCY
+	 +omlL2cH3iVrHMzPvn/22aUY7VXOFMhIXDC62J8B2ACULR8Peri/E3X7Phm4DaGlYF
+	 nyPk+ak70EecQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6FDE417E101A;
-	Wed, 11 Jun 2025 11:33:38 +0200 (CEST)
-Message-ID: <37c7ac6c-a5ea-45cc-8ded-9d9bb22d092e@collabora.com>
-Date: Wed, 11 Jun 2025 11:33:37 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 65F8E17E1045;
+	Wed, 11 Jun 2025 11:33:40 +0200 (CEST)
+Message-ID: <85fc43ec-5d2a-4976-8343-ab348835145c@collabora.com>
+Date: Wed, 11 Jun 2025 11:33:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/13] arm64: dts: mediatek: mt7988a-bpi-r4: add sfp
- cages and link to gmac
+Subject: Re: [PATCH v3 11/13] arm64: dts: mediatek: mt7988a-bpi-r4: add aliase
+ for ethernet
 To: Frank Wunderlich <linux@fw-web.de>,
  MyungJoo Ham <myungjoo.ham@samsung.com>,
  Kyungmin Park <kyungmin.park@samsung.com>,
@@ -84,15 +84,16 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
  netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org
 References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-13-linux@fw-web.de>
+ <20250608211452.72920-12-linux@fw-web.de>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250608211452.72920-13-linux@fw-web.de>
+In-Reply-To: <20250608211452.72920-12-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_103342_438179_C2950AAE 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20250611_103344_688163_69A300F4 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,135 +111,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Il 08/06/25 23:14, Frank Wunderlich ha scritto:
 > From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Add SFP cages to Bananapi-R4 board. The 2.5g phy variant only contains the
-> wan-SFP, so add this to common dtsi and the lan-sfp only to the dual-SFP
-> variant.
+> Add aliase for gmacs to allow bootloader setting mac-adresses.
 > 
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
-> v3:
-> - enable mac with 2.5g phy on r4 phy variant because driver is now mainline
-> ---
->   .../mediatek/mt7988a-bananapi-bpi-r4-2g5.dts   | 12 ++++++++++++
->   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dts   | 18 ++++++++++++++++++
->   .../dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi  | 18 ++++++++++++++++++
->   3 files changed, 48 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> index 53de9c113f60..e63e17ae35a0 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4-2g5.dts
-> @@ -9,3 +9,15 @@ / {
->   	model = "Banana Pi BPI-R4 (1x SFP+, 1x 2.5GbE)";
->   	chassis-type = "embedded";
->   };
-> +
-> +&gmac1 {
 
-phy = ...
-phy-c..onnection-type
-phy-m...ode
+s/aliase/aliases/g
 
-> +	phy-mode = "internal";
-> +	phy-connection-type = "internal";
-> +	phy = <&int_2p5g_phy>;
-> +	status = "okay";
-> +};
-> +
-> +&int_2p5g_phy {
-> +	pinctrl-names = "i2p5gbe-led";
-> +	pinctrl-0 = <&i2p5gbe_led0_pins>;
+after which
 
-pinctrl-names
-pinctrl-0
-
-> +};
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-> index 36bd1ef2efab..3136dc4ba4cc 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dts
-> @@ -8,6 +8,24 @@ / {
->   	compatible = "bananapi,bpi-r4", "mediatek,mt7988a";
->   	model = "Banana Pi BPI-R4 (2x SFP+)";
->   	chassis-type = "embedded";
-> +
-> +	/* SFP2 cage (LAN) */
-> +	sfp2: sfp2 {
-> +		compatible = "sff,sfp";
-> +		i2c-bus = <&i2c_sfp2>;
-
-maximum-power-milliwatt here
-(blank line)
-...then gpios
-
-> +		los-gpios = <&pio 2 GPIO_ACTIVE_HIGH>;
-> +		mod-def0-gpios = <&pio 83 GPIO_ACTIVE_LOW>;
-
-(r)ate-select0-gpios before (t)x-disable....
-
-> +		tx-disable-gpios = <&pio 0 GPIO_ACTIVE_HIGH>;
-> +		tx-fault-gpios = <&pio 1 GPIO_ACTIVE_HIGH>;
-> +		rate-select0-gpios = <&pio 3 GPIO_ACTIVE_LOW>;
-> +		maximum-power-milliwatt = <3000>;
-> +	};
-> +};
-> +
-> +&gmac1 {
-managed
-phy-mode
-sfp
-
-> +	sfp = <&sfp2>;
-> +	managed = "in-band-status";
-> +	phy-mode = "usxgmii";
->   };
->   
->   &pca9545 {
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-> index 20073eb4d1bd..d8b9cd794ee3 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a-bananapi-bpi-r4.dtsi
-> @@ -63,6 +63,18 @@ reg_3p3v: regulator-3p3v {
->   		regulator-boot-on;
->   		regulator-always-on;
->   	};
-> +
-> +	/* SFP1 cage (WAN) */
-> +	sfp1: sfp1 {
-> +		compatible = "sff,sfp";
-> +		i2c-bus = <&i2c_sfp1>;
-
-(same comments from sfp2)
-
-> +		los-gpios = <&pio 54 GPIO_ACTIVE_HIGH>;
-> +		mod-def0-gpios = <&pio 82 GPIO_ACTIVE_LOW>;
-> +		tx-disable-gpios = <&pio 70 GPIO_ACTIVE_HIGH>;
-> +		tx-fault-gpios = <&pio 69 GPIO_ACTIVE_HIGH>;
-> +		rate-select0-gpios = <&pio 21 GPIO_ACTIVE_LOW>;
-> +		maximum-power-milliwatt = <3000>;
-> +	};
->   };
->   
->   &cci {
-> @@ -133,6 +145,12 @@ map-cpu-active-low {
->   	};
->   };
->   
-> +&gmac2 {
-
-(same comments from gmac1)
-
-> +	sfp = <&sfp1>;
-> +	managed = "in-band-status";
-> +	phy-mode = "usxgmii";
-> +};
-> +
->   &i2c0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&i2c0_pins>;
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
-Cheers,
-Angelo
 
