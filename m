@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC96C7114C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 17:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06E6C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 17:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ed7MlbiGu+UDzw9kWvUY9+a12WTuwVJ83cDV0yr9t2g=; b=mrUiyaECwwkOlYggv9NoSmFCoN
-	EI4cKFnY3uJ4vqZF31EkgMG20POeCAqoz1IMsWhgmaupnWQb6owQtSueL6SOztY1lGUsli+Uy17J5
-	etZsmP7VvG/Zz7GG/SqDCclePuk4epXs7niKo0UZjntLf29gyddWGHBwpTwh+0lrIRZBE5fcDC+/z
-	pc3OQpCCPhbQrLbkR7WNma+Ja7twSzP+5WppIT891CKJ4ZCWCwLjQVZTGcx9tnh7Hvx1QQmMnZm5a
-	kfp5Ab1PTq2Uut7OvbdXKb0+55Y1YKRy+tbRdITqFd1Rmtx969qLbEMqMvLq41PMLx5YpIkqAGZm2
-	PiJVg50g==;
+	bh=pCKtKeucBEVl2ipaOqVZxfLeUsR/aYpF2ueCl9GWmNE=; b=09Vj21+owy/oJrbJtyN9irWLCp
+	UID18onSexC0v8H5w3jRMb0Aja8vUp/O6m/EY1rzzRDDgihfNB2Z+jJ5927nIOHL61jj4nRmRdwXq
+	r+Kk2mRPwOiAx8DI1z9leaBoPyMvNZfWfIvBDk49D5NmHxozcRccpHtZRJT6wdFvjpx8rBlVxMZhh
+	bfu/ty/bar1EwhqG0f4iZTJtj7nrpLMwmqRNZ7sPO+XGeH6w1Tek2Zyp2ULy7EuPlbmJAAu8cfBEb
+	Ebubat36cJbCuFVDdbL4VwNizDHp77yGbCOXaE1eRvxCHUOAQGmicAxgEn537Fk4aSBWEfnDDvOoH
+	xP6QlQ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPjd-0000000Alir-1YPI;
-	Wed, 11 Jun 2025 17:59:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uPPjY-0000000Alfr-0ijB;
+	Wed, 11 Jun 2025 17:59:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPL6J-00000009uTA-1adS
+	id 1uPJmc-00000009lKe-1YnI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Jun 2025 11:38:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pCKtKeucBEVl2ipaOqVZxfLeUsR/aYpF2ueCl9GWmNE=; b=PQ+1I8UYIBRvszy/PZwzX5TlPU
+	6yKSidV2uZyAEHFL0NL85kWpAoqqMUI/2FP40SKUPEty3a3Flx6GUWs389ldFgk5qfI74ifBJuXwH
+	WDydw60tL268m+8unddT1YekooWn9F3xPA2wsEEdiZDg6M5/hb6dcZ7Lnr2hruZhLazidMJlnQTup
+	DR1yuHJVsrapngvcTh0oq32J2PBwjfUl1HO/Ue5xv6e73948nnGBgP5+xGUAstU7HUGj+PCFBHbpl
+	Luysaqa8jVDwQZTvWBvxLeKOok12GC+xt6q5ALOJOEvWFCm61m2hh7NtU9KL7g8oef5lp6qXpxImm
+	yChHu03A==;
+Received: from mail.actia.se ([212.181.117.226])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPJmZ-00000002MHa-3yA5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 13:02:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 09A6F5C558D;
-	Wed, 11 Jun 2025 13:00:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF9AC4CEEE;
-	Wed, 11 Jun 2025 13:02:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749646962;
-	bh=mPSaLB0O4YFKypvEUw2xr1HF7HiKMj7ghM8XCkascqA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bTum4QFi0Ja6rGHlIiaXajUns7aQUJyHvQcI8Go2nEAkykZsm3LJmhYfB2H6XLTYm
-	 QIEgUDiGFKw+Zrw25JNZ/eZIKgho+dXxOSjrFDFhxbdF1bPgiVv2NT0uKie2QukNlD
-	 xCvMAUKtNWj9fxRqHZL4EXSw6pecBC8XyWsEWX/rzIlcA8j+OGJHoIArqN4+0FAG9+
-	 yPzj9gU/GF52S/eFesEUkeeAsJhUsjrp+PzbE6OwvKLxJX3J7E5gZsyNqjF6Oqb1vr
-	 y0aXh1Kng6N/PNiohKoNK7aTaHROoY4IEfjAv1Tt799bzRGf58B3f5yc7u2w8L0iqL
-	 /cx9xVHVZZ8AQ==
-Date: Wed, 11 Jun 2025 14:02:35 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
-	anshuman.khandual@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, frederic@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, samuel.holland@sifive.com,
-	palmer@rivosinc.com, charlie@rivosinc.com,
-	thiago.bauermann@linaro.org, bgray@linux.ibm.com,
-	tglx@linutronix.de, puranjay@kernel.org, david@redhat.com,
-	yang@os.amperecomputing.com, mbenes@suse.cz,
-	joel.granados@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 7/7] kselftest/arm64/mte: add MTE_STORE_ONLY testcases
-Message-ID: <c613b941-063e-450f-a38f-c16248e95e81@sirena.org.uk>
-References: <20250611094802.929332-1-yeoreum.yun@arm.com>
- <20250611094802.929332-8-yeoreum.yun@arm.com>
+	Wed, 11 Jun 2025 11:38:17 +0000
+Received: from S036ANL.actianordic.se (10.12.31.117) by S036ANL.actianordic.se
+ (10.12.31.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 11 Jun
+ 2025 13:38:09 +0200
+Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
+ S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
+ 15.01.2507.039; Wed, 11 Jun 2025 13:38:09 +0200
+From: John Ernberg <john.ernberg@actia.se>
+To: =?iso-8859-2?Q?Horia_Geant=E3?= <horia.geanta@nxp.com>, Pankaj Gupta
+	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>
+CC: Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, John Ernberg <john.ernberg@actia.se>,
+	"stable@kernel.org" <stable@kernel.org>
+Subject: [PATCH v6 1/4] crypto: caam - Prevent crash on suspend with iMX8QM /
+ iMX8ULP
+Thread-Topic: [PATCH v6 1/4] crypto: caam - Prevent crash on suspend with
+ iMX8QM / iMX8ULP
+Thread-Index: AQHb2sVNhN9KvpWz3Uqh/bHCl3Z2WQ==
+Date: Wed, 11 Jun 2025 11:38:08 +0000
+Message-ID: <20250611113748.2986988-2-john.ernberg@actia.se>
+References: <20250611113748.2986988-1-john.ernberg@actia.se>
+In-Reply-To: <20250611113748.2986988-1-john.ernberg@actia.se>
+Accept-Language: en-US, sv-SE
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.49.0
+x-originating-ip: [10.12.12.63]
+x-esetresult: clean, is OK
+x-esetid: 37303A2955B14453627160
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kfXM4mrCaBVYOJD6"
-Content-Disposition: inline
-In-Reply-To: <20250611094802.929332-8-yeoreum.yun@arm.com>
-X-Cookie: No skis take rocks like rental skis!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_060243_456967_D75B9EBB 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250611_123816_065450_19CDAEB6 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +102,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since the CAAM on these SoCs is managed by another ARM core, called the
+SECO (Security Controller) on iMX8QM and Secure Enclave on iMX8ULP, which
+also reserves access to register page 0 suspend operations cannot touch
+this page.
 
---kfXM4mrCaBVYOJD6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This is similar to when running OPTEE, where OPTEE will reserve page 0.
 
-On Wed, Jun 11, 2025 at 10:48:02AM +0100, Yeoreum Yun wrote:
+Track this situation using a new state variable no_page0, reflecting if
+page 0 is reserved elsewhere, either by other management cores in SoC or
+by OPTEE.
 
-> @@ -144,7 +178,7 @@ static int check_file_memory_mapping(int mem_type, in=
-t mode, int mapping, int ta
->  			close(fd);
->  			return KSFT_FAIL;
->  		}
-> -		result =3D check_mte_memory(ptr, sizes[run], mode, tag_check, atag_che=
-ck);
-> +		result =3D check_mte_memory(ptr, sizes[run], mode, tag_check, atag_che=
-ck, tag_op);
->  		mte_clear_tags((void *)ptr, sizes[run]);
->  		munmap((void *)map_ptr, map_size);
->  		close(fd);
+Replace the optee_en check in suspend/resume with the new check.
 
-check_file_memory_mapping() looks like it also has the issue from the
-other series with skips being upgraded to fails, looks like there's more
-instances.
+optee_en cannot go away as it's needed elsewhere to gate OPTEE specific
+situations.
 
-> @@ -106,11 +115,11 @@ int main(void)
->  	int i;
-> =20
->  	ksft_print_header();
-> -	ksft_set_plan(5);
-> +	ksft_set_plan(8);
-> =20
+Fixes the following splat at suspend:
 
-This should probably have been ARRAY_SIZE() to start off with, sorry.
+    Internal error: synchronous external abort: 0000000096000010 [#1] SMP
+    Hardware name: Freescale i.MX8QXP ACU6C (DT)
+    pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=3D--)
+    pc : readl+0x0/0x18
+    lr : rd_reg32+0x18/0x3c
+    sp : ffffffc08192ba20
+    x29: ffffffc08192ba20 x28: ffffff8025190000 x27: 0000000000000000
+    x26: ffffffc0808ae808 x25: ffffffc080922338 x24: ffffff8020e89090
+    x23: 0000000000000000 x22: ffffffc080922000 x21: ffffff8020e89010
+    x20: ffffffc080387ef8 x19: ffffff8020e89010 x18: 000000005d8000d5
+    x17: 0000000030f35963 x16: 000000008f785f3f x15: 000000003b8ef57c
+    x14: 00000000c418aef8 x13: 00000000f5fea526 x12: 0000000000000001
+    x11: 0000000000000002 x10: 0000000000000001 x9 : 0000000000000000
+    x8 : ffffff8025190870 x7 : ffffff8021726880 x6 : 0000000000000002
+    x5 : ffffff80217268f0 x4 : ffffff8021726880 x3 : ffffffc081200000
+    x2 : 0000000000000001 x1 : ffffff8020e89010 x0 : ffffffc081200004
+    Call trace:
+     readl+0x0/0x18
+     caam_ctrl_suspend+0x30/0xdc
+     dpm_run_callback.constprop.0+0x24/0x5c
+     device_suspend+0x170/0x2e8
+     dpm_suspend+0xa0/0x104
+     dpm_suspend_start+0x48/0x50
+     suspend_devices_and_enter+0x7c/0x45c
+     pm_suspend+0x148/0x160
+     state_store+0xb4/0xf8
+     kobj_attr_store+0x14/0x24
+     sysfs_kf_write+0x38/0x48
+     kernfs_fop_write_iter+0xb4/0x178
+     vfs_write+0x118/0x178
+     ksys_write+0x6c/0xd0
+     __arm64_sys_write+0x14/0x1c
+     invoke_syscall.constprop.0+0x64/0xb0
+     do_el0_svc+0x90/0xb0
+     el0_svc+0x18/0x44
+     el0t_64_sync_handler+0x88/0x124
+     el0t_64_sync+0x150/0x154
+    Code: 88dffc21 88dffc21 5ac00800 d65f03c0 (b9400000)
 
---kfXM4mrCaBVYOJD6
-Content-Type: application/pgp-signature; name="signature.asc"
+Fixes: d2835701d93c ("crypto: caam - i.MX8ULP donot have CAAM page0 access"=
+)
+Cc: stable@kernel.org # v6.10+
+Signed-off-by: John Ernberg <john.ernberg@actia.se>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
------BEGIN PGP SIGNATURE-----
+---
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJfmoACgkQJNaLcl1U
-h9BhCAf9HHfyEm6lx/QcH1cq7zU7HaQjxqIgIbv0jy3orlOnCpSDeHnMV+ugDfPJ
-eaewrydpOczLgRj7uAhpcPcd7EvP5pIMJwuBBnK/q8ojxmWzcBKMLKcE0Sq6l6eR
-w+RGsn0RmgBteHcOAM72MT/GyJ+94VIhlC0Yw/SzBsebOM6tdpI1GQ7QrG2XbkC0
-7Y3wsD38xajqLRak2GD2jrxMPG86G1WJyx7NIhE+cnfWcaWCNMTcYjSc98pozrlo
-t0CjVPxZ/m+EwrXjwFKbQra/1YgpezOtQassGUkiDvEAdPr6mQIRAHNCvB2A/AiW
-BC6NnmkMJnziA4pt7FJwRqCLePA0PQ==
-=s4ow
------END PGP SIGNATURE-----
+I noticed this when enabling the iMX8QXP support (next patch), hence the
+iMX8QXP backtrace, but the iMX8QM CAAM integration works exactly the same
+and according to the NXP tree [1] the iMX8ULP suffers the same issue.
 
---kfXM4mrCaBVYOJD6--
+[1]: https://github.com/nxp-imx/linux-imx/commit/653712ffe52dd59f407af1b781=
+ce318f3d9e17bb
+
+---
+
+v6:
+ - Collect tags
+
+v5:
+ - Collect tags
+
+v4:
+ - Drop 2nd Fixes tag (Frank Li)
+
+v3:
+ - no changes
+
+v2:
+ - Adjust commit message to make it clearer what is happening around no_pag=
+e0 (Frank Li)
+---
+ drivers/crypto/caam/ctrl.c   | 5 +++--
+ drivers/crypto/caam/intern.h | 1 +
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/crypto/caam/ctrl.c b/drivers/crypto/caam/ctrl.c
+index 38ff931059b4..766c447c9cfb 100644
+--- a/drivers/crypto/caam/ctrl.c
++++ b/drivers/crypto/caam/ctrl.c
+@@ -831,7 +831,7 @@ static int caam_ctrl_suspend(struct device *dev)
+ {
+ 	const struct caam_drv_private *ctrlpriv =3D dev_get_drvdata(dev);
+=20
+-	if (ctrlpriv->caam_off_during_pm && !ctrlpriv->optee_en)
++	if (ctrlpriv->caam_off_during_pm && !ctrlpriv->no_page0)
+ 		caam_state_save(dev);
+=20
+ 	return 0;
+@@ -842,7 +842,7 @@ static int caam_ctrl_resume(struct device *dev)
+ 	struct caam_drv_private *ctrlpriv =3D dev_get_drvdata(dev);
+ 	int ret =3D 0;
+=20
+-	if (ctrlpriv->caam_off_during_pm && !ctrlpriv->optee_en) {
++	if (ctrlpriv->caam_off_during_pm && !ctrlpriv->no_page0) {
+ 		caam_state_restore(dev);
+=20
+ 		/* HW and rng will be reset so deinstantiation can be removed */
+@@ -908,6 +908,7 @@ static int caam_probe(struct platform_device *pdev)
+=20
+ 		imx_soc_data =3D imx_soc_match->data;
+ 		reg_access =3D reg_access && imx_soc_data->page0_access;
++		ctrlpriv->no_page0 =3D !reg_access;
+ 		/*
+ 		 * CAAM clocks cannot be controlled from kernel.
+ 		 */
+diff --git a/drivers/crypto/caam/intern.h b/drivers/crypto/caam/intern.h
+index e51320150872..51c90d17a40d 100644
+--- a/drivers/crypto/caam/intern.h
++++ b/drivers/crypto/caam/intern.h
+@@ -115,6 +115,7 @@ struct caam_drv_private {
+ 	u8 blob_present;	/* Nonzero if BLOB support present in device */
+ 	u8 mc_en;		/* Nonzero if MC f/w is active */
+ 	u8 optee_en;		/* Nonzero if OP-TEE f/w is active */
++	u8 no_page0;		/* Nonzero if register page 0 is not controlled by Linux */
+ 	bool pr_support;        /* RNG prediction resistance available */
+ 	int secvio_irq;		/* Security violation interrupt number */
+ 	int virt_en;		/* Virtualization enabled in CAAM */
+--=20
+2.49.0
 
