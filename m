@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F1DC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297BCC71131
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZdDB4epNnwjwBocpD8jyApOPCpjjgNawEaD84TYK21M=; b=iQmtbIhbplUjqeLTa5JyPafEir
-	/ma/zBiLJNXacQs+IFH9xNIeh8GeMZdwD4AwhbysgtPVgI7DzAmJG79520lOm3prTvnDZgFZWUPqT
-	fc84788d7n5SxoIbz8RvCSqyYwrXmNPWIR6AoqG/rOYCOGZY3lD0KHKHf4mttG/dlDtcdOxyzXr3Y
-	bpFeg7tkGFpEnSAjjx356kU69b9Jhww8kIsSuwhOdTFAIX4+X+rWcDphFzF1h4F9agzruemFUMydK
-	Q1f1VwQmRUxcZb6EiJBdfteA/yQZ7+pfXdTD/t1V0EEzjr0DzpI2tVoAAjLnGVbzBc+IB5rLdMPaW
-	QT9ZpUyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0ceWooTgy2+jDupNZxgq24JTXHuRIrYX5iX2NIhNutw=; b=lbImLdrkeoIoFi7R68hUtY9svp
+	9f8X4ieQuMXU9q2kCUNGKgq6BxC2m6BNixVhp1JcfmzsCtk4yhqTbhaFPVuI04ha4b4OoR8wwJybU
+	vrfnkyHlBUPJvdbtNZUEivY61qf1KXjEK0SXSMf9J2rmvE56PIOgW3p/QthZQngsRcQ4M4Xfb+oHR
+	C1chV4+O7Wx+nCbxJ8aL+7CV9d31/g7DsIKzgdbzaza/0YSzFrINQlZxwXokPaF/gKxAmGW2Zre7C
+	YloR8G4ngBSkVS805ZpegsS38Z2xOzGZ573EqoqOPMIJeU6ucTpGramRcd9w4TuwNdJccc6mz212o
+	MT/igi1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMmx-0000000ACz0-3qtQ;
-	Wed, 11 Jun 2025 14:50:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIOT-00000009Zm8-2pIQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:09:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 280E61596;
-	Wed, 11 Jun 2025 03:08:57 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 578FD3F673;
-	Wed, 11 Jun 2025 03:09:16 -0700 (PDT)
-Date: Wed, 11 Jun 2025 11:09:11 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 2/2] coresight: add coresight Trace Network On Chip
- driver
-Message-ID: <20250611100911.GT8020@e132581.arm.com>
-References: <20250611-trace-noc-v9-0-4322d4cf8f4b@quicinc.com>
- <20250611-trace-noc-v9-2-4322d4cf8f4b@quicinc.com>
+	id 1uPMn9-0000000ADG6-0mLn;
+	Wed, 11 Jun 2025 14:51:03 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPIb6-00000009bNZ-1MqE;
+	Wed, 11 Jun 2025 10:22:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1749637338;
+	bh=4b8PduoACBUaCTjAzlGQ9Kuyj+rMJBqCfxKWwFHLieI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hLGriKWWoCwGqWdh1GbD0GObWrxIh27iLleEURTa0gamLYw1slQuzfcKHMThAZbbD
+	 u/vWvaGQDSIvec+qPx4kRkcu84Q3dsS2iEAn0TZgTlHYxEkQaKVXUOdN1CWlPz2Pfw
+	 78Vi4zza2iDTen1lja1G3CwBtqnyHtgtd1ULn/QU4QIJQEH75hjpltDGZoaYdZrf/F
+	 e8odADGznQabfvc23h6j2ZZ1CzL4S4POiylYfoRNYYiYnT89tSXS2ARYxerv4vP+/0
+	 aA2Fyqq9t/mCPGrtj+2cjexHHTob+S3WGIb0LDbfY67LCGPZu3Ce1zxacePla06KqF
+	 FR20WHeTAJipQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A640317E0C99;
+	Wed, 11 Jun 2025 12:22:17 +0200 (CEST)
+Message-ID: <89e2699a-94cc-4d1d-9788-2c5bce1c361c@collabora.com>
+Date: Wed, 11 Jun 2025 12:22:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250611-trace-noc-v9-2-4322d4cf8f4b@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/13] ASoC: mediatek: use reserved memory or enable
+ buffer pre-allocation
+To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Jiaxin Yu <jiaxin.yu@mediatek.com>,
+ linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250424102509.1083185-1-wenst@chromium.org>
+ <aCRaTY76dnaavsrd@finisterre.sirena.org.uk>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <aCRaTY76dnaavsrd@finisterre.sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_030917_797333_63E98544 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250611_032220_516109_22AA1D07 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,62 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 04:59:47PM +0800, Yuanfang Zhang wrote:
-> Add a driver to support Coresight device Trace Network On Chip (TNOC),
-> which is an integration hierarchy integrating functionalities of TPDA
-> and funnels. It aggregates the trace and transports to coresight trace
-> bus.
+Il 14/05/25 10:54, Mark Brown ha scritto:
+> On Thu, Apr 24, 2025 at 06:24:54PM +0800, Chen-Yu Tsai wrote:
 > 
-> Compared to current configuration, it has the following advantages:
-> 1. Reduce wires between subsystems.
-> 2. Continue cleaning the infrastructure.
-> 3. Reduce Data overhead by transporting raw data from source to target.
+>> This is v2 of what was just a single patch "ASoC: mediatek: re-enable
+>> buffer pre-allocation on some platforms". Link to v1:
+>>
+>>      https://lore.kernel.org/all/20250401085659.1222008-1-wenst@chromium.org/
+>>
+>> Angelo requested that these platforms use reserved memory regions if
+>> possible, and fall back to pre-allocated buffers only if that fails,
+>> to align with other MediaTek SoCs / platforms that already use reserved
+>> memory. The series covers MediaTek's MT8173, MT8183, MT8186, and MT8192
+>> SoCs.
 > 
->   +------------------------+                +-------------------------+
->   | Video Subsystem        |                |Video Subsystem          |
->   |       +-------------+  |                |       +------------+    |
->   |       | Video TPDM  |  |                |       | Video TPDM |    |
->   |       +-------------+  |                |       +------------+    |
->   |            |           |                |              |          |
->   |            v           |                |              v          |
->   |   +---------------+    |                |        +-----------+    |
->   |   | Video funnel  |    |                |        |Video TNOC |    |
->   |   +---------------+    |                |        +-----------+    |
->   +------------|-----------+                +------------|------------+
->                |                                         |
->                v-----+                                   |
-> +--------------------|---------+                         |
-> |  Multimedia        v         |                         |
-> |  Subsystem   +--------+      |                         |
-> |              |  TPDA  |      |                         v
-> |              +----|---+      |              +---------------------+
-> |                   |          |              |   Aggregator  TNOC  |
-> |                   |          |              +----------|----------+
-> |                   +--        |                         |
-> |                     |        |                         |
-> |                     |        |                         |
-> |              +------v-----+  |                         |
-> |              |  Funnel    |  |                         |
-> |              +------------+  |                         |
-> +----------------|-------------+                         |
->                  |                                       |
->                  v                                       v
->       +--------------------+                    +------------------+
->       |   Coresight Sink   |                    |  Coresight Sink  |
->       +--------------------+                    +------------------+
-> 
->        Current Configuration                            TNOC
-> 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> AngeloGioacchino?
 
-I observed a merging conflict. I would suggest you sticking to the
-coresight next branch for CoreSight related upstreaming. Please
-rebase this patch on it.
+Truly sorry for this slipping through the cracks - and thank you for the pings.
+Also, thank you for all this code, love it.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git
-branch: next
+Whole series is:
 
-I also verified this patch with static checker smatch. With rebasing:
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Sorry again for all the wait.
+
+Cheers!
+Angelo
 
