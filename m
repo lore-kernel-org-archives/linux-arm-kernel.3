@@ -4,96 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C405C71141
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4502AC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PurUogPz4UY7qDnTVjFb+to1h8SXtAe0afH2UVF/ugI=; b=ZtlDqhdHhf9B2UbXE/7Z9TaB+9
-	VefE1WA4aIyfxH0h2+G9ymqr1BsZoA3rlQ22GrIA4hkML2ChSsxbICNjSKQyMJzbZDQK6/qgi1M48
-	7XoKP81fu5bzP+mw/FyQhcDS9aT5EA0M/Tqq8xPh7HZBFMis1vHZIGo+a9dB+0SnusoAuEBjIL4Iz
-	YcA9luboOxWc6QRtNz9gDhiNP2LU4O/ldPV6tQA/02gg3hAuRqq8J5qZHU5RpeR9woyo+yUJKVXYM
-	IgOcrzYwf+AP5YHU4I68Npups93t6DTy8CYX0dWcE4d8s/G5SABevf2F/7qkO58+h9c0l/SaLhsv/
-	JyGrA4Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P+Ei0nVTdPkuikDxd53VFZwYxoc432vn+t6Xh2VDjE0=; b=0zf9zoBE8OMuVbFbDVrgrJhCcG
+	lgZ+eQricXcxHzZrXUth71MG0fcuRUp7f/9NetEhfldRh+KJLkE+uAYfsLtmQq5fig9zz0A/DNzQ5
+	wfOqkMNc0LesDt5X+WFiaIaLKWt3fViDmD9ePo5Oswn9Ulq8UMt+b5Vc+5UGgaZ/I/C33RPWgKjLN
+	apt99mPhOjDM36iIthp3MGYkhV5DLmKYevhbZhbmmmDLJHwCNv7oJgn0esuFrR0ISJOzEoZwbl2Jt
+	ObD9P2FZ9q7kaNlnrkY8mbGWAphDFozlb+9agwkZaAm9QO3ffInt2lot96xJiGV9YModgOPPG+ODH
+	XRPCN2nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPTzC-0000000BTsb-3gKG;
-	Wed, 11 Jun 2025 22:31:58 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1uPU1K-0000000BUK3-3BEl;
+	Wed, 11 Jun 2025 22:34:10 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPSVv-0000000BEJj-2xd6
+	id 1uPSlZ-0000000BG4B-2mEe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 20:57:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749675459; x=1781211459;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=dWBcdnJcsF1wZyPPcP5u/i5J0eHQX2+KLoffvskyitU=;
-  b=F59lHlMMV/A+y7olCRBcQILSBn9OH3xcCABpimxcKrIuXKQG/+ReAMcP
-   kXLUCGN6u6i8yb1+Q5xbYI0mTBSXmEaf6orN/5qVhCbziB9WU0uJ/hw1m
-   fJL50vy+cXAlPomcIrfvLGrG3YynU5CK0aDX2grN/7b6Z5kUEYFcMiyIc
-   M4NKu8ivrnKLpOWansAtBObackRXLYGkaiG2MQc6w2HUXqjqVS04hTDvk
-   c9PFErAQ8EtuwLSBAk7Vv1t/dHLsuH8LdQMnq8fytQMTgJo22R5OYt8ji
-   0wVmER8hhtueTSxDxOkYFpR9LQDhdlNB9EuRBmLw/PGMruH344FDfr+/2
-   w==;
-X-CSE-ConnectionGUID: fcC34RRZT02tFQKU8qdEFw==
-X-CSE-MsgGUID: rmkzVx+kSlOHBJDbxEdvew==
-X-IronPort-AV: E=McAfee;i="6800,10657,11461"; a="51931398"
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="51931398"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2025 13:57:38 -0700
-X-CSE-ConnectionGUID: wueuEkXlQKapcrFcczwfJA==
-X-CSE-MsgGUID: s3VAqUaqSlmh/sgJgx5fHQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="147178731"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 11 Jun 2025 13:57:33 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uPSVm-000ArO-27;
-	Wed, 11 Jun 2025 20:57:30 +0000
-Date: Thu, 12 Jun 2025 04:56:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sean Anderson <sean.anderson@linux.dev>, netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev,
-	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Simon Horman <horms@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Lei Wei <quic_leiwei@quicinc.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Michal Simek <monstr@monstr.eu>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Robert Hancock <robert.hancock@calian.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [net-next PATCH v6 07/10] net: axienet: Convert to use PCS
- subsystem
-Message-ID: <202506120442.emFFyhZj-lkp@intel.com>
-References: <20250610233134.3588011-8-sean.anderson@linux.dev>
+	Wed, 11 Jun 2025 21:13:51 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55BLD7hs1489819;
+	Wed, 11 Jun 2025 16:13:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749676387;
+	bh=P+Ei0nVTdPkuikDxd53VFZwYxoc432vn+t6Xh2VDjE0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=dE0mmlgJbKsvhfBls2pR1EbemC7uEJZuES1EahQoc8L6WSOnP8d1R9evWoC6GzdP3
+	 oeZpSbqnZmO5dq24iQEK0m9FEziQiySjMvgU0x0naAIIDm3umuYzmD6IUgybyolKJc
+	 hG6C/5SmGkOAHrNVcr2M3+Jm9jQXsDOCg+Hx05JM=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55BLD7Iq1414936
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 11 Jun 2025 16:13:07 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 11
+ Jun 2025 16:13:06 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 11 Jun 2025 16:13:06 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55BLD55v923069;
+	Wed, 11 Jun 2025 16:13:06 -0500
+Message-ID: <1d87fa3b-c3b9-44fd-9e61-7f1ffadcfb0c@ti.com>
+Date: Wed, 11 Jun 2025 16:13:05 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250610233134.3588011-8-sean.anderson@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/5] arm: omap2plus_defconfig: Enable TPS65219
+ regulator
+To: Kory Maincent <kory.maincent@bootlin.com>,
+        Tony Lindgren
+	<tony@atomide.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Aaro Koskinen
+	<aaro.koskinen@iki.fi>,
+        Andreas Kemnade <andreas@kemnade.info>,
+        Kevin Hilman
+	<khilman@baylibre.com>,
+        Roger Quadros <rogerq@kernel.org>,
+        Russell King
+	<linux@armlinux.org.uk>
+CC: Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>,
+        Mark Brown <broonie@kernel.org>,
+        Thomas Petazzoni
+	<thomas.petazzoni@bootlin.com>,
+        <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
+ <20250609-bbg-v2-5-5278026b7498@bootlin.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250609-bbg-v2-5-5278026b7498@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_135739_752183_A0B0E733 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_141349_865049_51E05C45 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,32 +103,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+On 6/9/25 10:43 AM, Kory Maincent wrote:
+> Enable the TPS65219 regulator in the defconfig, as the TPS65214
+> variant is used by the newly introduced BeagleBoard Green Eco board.
+> 
+> Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> ---
+>   arch/arm/configs/omap2plus_defconfig | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
+> index 9f9780c8e62a..2ad669f7b202 100644
+> --- a/arch/arm/configs/omap2plus_defconfig
+> +++ b/arch/arm/configs/omap2plus_defconfig
 
-kernel test robot noticed the following build warnings:
+Why omap2plus_defconfig? OMAP3 and newer are all ARMv7 and
+boards with those can/should use multi_v7_defconfig.
 
-[auto build test WARNING on net-next/main]
+OMAP1 and OMAP2 are the only devices that cannot use multi_v7_defconfig
+as they are not ARMv7. So I'd almost recommend we rename
+omap2plus_defconfig to just omap2_defconfig to avoid more confusion.
+Then we would have:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sean-Anderson/dt-bindings-net-Add-Xilinx-PCS/20250611-143544
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250610233134.3588011-8-sean.anderson%40linux.dev
-patch subject: [net-next PATCH v6 07/10] net: axienet: Convert to use PCS subsystem
-config: alpha-kismet-CONFIG_OF_DYNAMIC-CONFIG_XILINX_AXI_EMAC-0-0 (https://download.01.org/0day-ci/archive/20250612/202506120442.emFFyhZj-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250612/202506120442.emFFyhZj-lkp@intel.com/reproduce)
+OMAP1:  ARMv4/5: omap1_defconfig
+OMAP2:  ARMv6:   omap2_defconfig
+OMAP3+: ARMv7:   multi_v7_defconfig
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506120442.emFFyhZj-lkp@intel.com/
+Any issue with that I'm missing?
 
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for OF_DYNAMIC when selected by XILINX_AXI_EMAC
-   WARNING: unmet direct dependencies detected for OF_DYNAMIC
-     Depends on [n]: OF [=n]
-     Selected by [y]:
-     - XILINX_AXI_EMAC [=y] && NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_XILINX [=y] && HAS_IOMEM [=y] && XILINX_DMA [=y]
+Andrew
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> @@ -385,6 +385,7 @@ CONFIG_TOUCHSCREEN_TSC2007=m
+>   CONFIG_INPUT_MISC=y
+>   CONFIG_INPUT_CPCAP_PWRBUTTON=m
+>   CONFIG_INPUT_TPS65218_PWRBUTTON=m
+> +CONFIG_INPUT_TPS65219_PWRBUTTON=m
+>   CONFIG_INPUT_TWL4030_PWRBUTTON=m
+>   CONFIG_INPUT_UINPUT=m
+>   CONFIG_INPUT_PALMAS_PWRBUTTON=m
+> @@ -454,6 +455,7 @@ CONFIG_MFD_TPS65217=y
+>   CONFIG_MFD_TI_LP873X=y
+>   CONFIG_MFD_TI_LP87565=y
+>   CONFIG_MFD_TPS65218=y
+> +CONFIG_MFD_TPS65219=y
+>   CONFIG_MFD_TPS65910=y
+>   CONFIG_TWL6040_CORE=y
+>   CONFIG_REGULATOR_CPCAP=y
+> @@ -470,6 +472,7 @@ CONFIG_REGULATOR_TPS65023=y
+>   CONFIG_REGULATOR_TPS6507X=y
+>   CONFIG_REGULATOR_TPS65217=y
+>   CONFIG_REGULATOR_TPS65218=y
+> +CONFIG_REGULATOR_TPS65219=y
+>   CONFIG_REGULATOR_TPS65910=y
+>   CONFIG_REGULATOR_TWL4030=y
+>   CONFIG_RC_CORE=m
+> 
 
