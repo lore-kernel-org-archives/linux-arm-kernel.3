@@ -4,62 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C3CC71131
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D614C71136
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wj1Sf7jZXzFpezv3SWCxLBwifYa4niBMpkYPMR5O4Iw=; b=Ih0bH5OjFuZo/OHgvCHZOsm5lG
-	Zy49I7mT3Dy8CdWuvRQQ6DnRvlrMXfhVx91owvHPZj+NvcPwgayI8AmHWr3EXxJqRTBbrlbp+VlDa
-	4X/Hv0TvmM4iDcDpcVWT2tyfc7kYJug2q8iLV1RF/pxehVRpBXYxXX6ofcw3tUCTsGKEGEc4T9hCQ
-	MqGUQPvWleUualVxSZxbMmrl/F8AGXBgon7l6U7LpRlCFNjc2EXNXan7Q0wmUU7C6S5osC1LOYDqT
-	rmkhvVcwRn0aUEqXb/YgdtXjDpDFBZfKxbrLZJfyOyhOFkqawbuiMfQOzkhhrLhl87QC8VJCLkOKu
-	/J/deCxQ==;
+	bh=Sc2FKXjBsJEN0BvD+XeLw9kEFxThE7bzw7/gg5VY9YU=; b=1o2RzdyQP/joNEHdZDvSzfxZTI
+	7IOimu7fRTHEujEWmasEuUrjIkSyrYUz9pXpuIfN8RhUCD3uDgHlNmmVhNXVvHyVAqNsW4aYsM93t
+	+sYcggaMHSHj5fFfAJjyZHYeQ3hRyXCJuJaB6ps3j5B74unY6txkq/jVlKaOeI9UtxEMZ57RVBQ+O
+	7a5zhMzzVA6JGds+waBvsK1pa1THCMyVI06YBYdF5AMxxytmgxhutbyXiBJjkgNCU/x+J9pVZ2mf+
+	ATrwOlM7zNWMa0lSFV91n9XxQ2QKSF4iQ61vjjYGw8s/zN5xyDKfMzN/ZU5smoMwPW+nJjLPetLed
+	ANpgJ95A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMme-0000000ACSp-3Az8;
-	Wed, 11 Jun 2025 14:50:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIDD-00000009YdO-1TA2
+	id 1uPMmd-0000000ACQy-376V;
+	Wed, 11 Jun 2025 14:50:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPIBR-00000009YVJ-2dwJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 09:57:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 90AFC629DC;
-	Wed, 11 Jun 2025 09:57:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0735C4CEEE;
-	Wed, 11 Jun 2025 09:57:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749635858;
-	bh=e6TS5O+g2JwrZ8I2ZOF2aYAJsjX+AZS4VpHURqwjnLI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n/6FMBTwIaQN2SRyM9vkcaCmosGcBtQJ+c5KUx2YCVnXFjDAKwf0hWKHhrni5xlbj
-	 dmklTuh3gfNT6cdQk/B4ISt7Gbtt+cfFSaFqiAGDp8HyX7WCSNCVQ+9ugGxnP8eCJU
-	 RB84oU9HHmsM/BCT0riqULfcimJiV4k55VpfsMyzIQtBTBIOQ6r0rATDg9sItv3kME
-	 lDhSusRlWoJCNI0V5+jLYHEcUpRwdl1seRedsQuzgP2OjF5L/g3RUkb1koXcnxHbbn
-	 J0HWHLacUxMOiUEiwjenshSVoafxRufNA8zPFF5Zme7COtU9+zqoGv9W/ABUjyGtGV
-	 21Y3/bjAhoqwg==
-Date: Wed, 11 Jun 2025 11:57:32 +0200
-From: Christian Brauner <brauner@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Jan Kara <jack@suse.cz>, David Hildenbrand <david@redhat.com>, 
-	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [PATCH v5 3/5] mm/readahead: Make space in struct file_ra_state
-Message-ID: <20250611-mitleid-ablief-1e7f1f03394d@brauner>
-References: <20250609092729.274960-1-ryan.roberts@arm.com>
- <20250609092729.274960-4-ryan.roberts@arm.com>
+	Wed, 11 Jun 2025 09:55:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B8841596;
+	Wed, 11 Jun 2025 02:55:29 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E54C3F673;
+	Wed, 11 Jun 2025 02:55:47 -0700 (PDT)
+Date: Wed, 11 Jun 2025 10:55:41 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH V3 1/2] arm64/debug: Drop redundant DBG_MDSCR_* macros
+Message-ID: <aElRi0Usn8dH6O4m@J2N7QTR9R3>
+References: <20250610053128.4118784-1-anshuman.khandual@arm.com>
+ <20250610053128.4118784-2-anshuman.khandual@arm.com>
+ <aEhnzsXHfilVhJ1s@J2N7QTR9R3>
+ <68d762d4-a755-4ede-976b-0616bf3aab28@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250609092729.274960-4-ryan.roberts@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <68d762d4-a755-4ede-976b-0616bf3aab28@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_025549_709945_F949E43F 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,39 +61,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 10:27:25AM +0100, Ryan Roberts wrote:
-> We need to be able to store the preferred folio order associated with a
-> readahead request in the struct file_ra_state so that we can more
-> accurately increase the order across subsequent readahead requests. But
-> struct file_ra_state is per-struct file, so we don't really want to
-> increase it's size.
+On Wed, Jun 11, 2025 at 09:10:45AM +0530, Anshuman Khandual wrote:
 > 
-> mmap_miss is currently 32 bits but it is only counted up to 10 *
-> MMAP_LOTSAMISS, which is currently defined as 1000. So 16 bits should be
-> plenty. Redefine it to unsigned short, making room for order as unsigned
-> short in follow up commit.
 > 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Reviewed-by: Jan Kara <jack@suse.cz>
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  include/linux/fs.h |  2 +-
->  mm/filemap.c       | 11 ++++++-----
->  2 files changed, 7 insertions(+), 6 deletions(-)
+> On 10/06/25 10:43 PM, Mark Rutland wrote:
+> > On Tue, Jun 10, 2025 at 11:01:27AM +0530, Anshuman Khandual wrote:
+> >> MDSCR_EL1 has already been defined in tools sysreg format and hence can be
+> >> used in all debug monitor related call paths. Subsequently all DBG_MDSCR_*
+> >> macros become redundant and hence can be dropped off completely. While here
+> >> convert all variables handling MDSCR_EL1 register as u64 which reflects its
+> >> true width as well.
+> > 
+> > I think that for now it'd be best to *only* change over to the
+> > generated MDSCR_EL1_* defintions, and leave the register sizes as-is.
 > 
-> diff --git a/include/linux/fs.h b/include/linux/fs.h
-> index 05abdabe9db7..87e7d5790e43 100644
-> --- a/include/linux/fs.h
-> +++ b/include/linux/fs.h
-> @@ -1052,7 +1052,7 @@ struct file_ra_state {
->  	unsigned int size;
->  	unsigned int async_size;
->  	unsigned int ra_pages;
-> -	unsigned int mmap_miss;
-> +	unsigned short mmap_miss;
+> I had tried doing that originally but without changing mdscr register size,
+> there is a build warning because MDSCR_EL1_MDE is defined as GENMASK(15, 15)
+> which is represented as 'long unsigned int'.
+> 
+> #define __GENMASK(h, l) (((~_UL(0)) << (l)) & (~_UL(0) >> (BITS_PER_LONG - 1 - (h))))
+> 
+> arch/arm64/kernel/debug-monitors.c: In function ‘disable_debug_monitors’:
+> arch/arm64/kernel/debug-monitors.c:108:13: warning: conversion from ‘long unsigned int’ to ‘u32’ {aka ‘unsigned int’} changes value from ‘18446744073709518847’ to ‘4294934527’ [-Woverflow]
+>   108 |   disable = ~MDSCR_EL1_MDE;
+>       |             ^
 
-Thanks for not making struct file grow!
+Please mention that in the commit message. As-is, the commit message has
+no rationale for changing to u64.
+
+More generally, if you need to make a change to avoid a compiler
+warning, please describe that as part of the rationale.
+
+> MDSCR_EL1 is a 64 bit system register as per ARM DDI 0487 L.A (D24.3.20).
+> Representing it as u32 does not seem right irrespective of whether the
+> extended break point support is enabled or not. Besides even arm64 kvm
+> uses u64 for mdscr register.
+
+Sure, but that wasn't my complaint.
+
+My complaint was that it was a logically unrelated change, because you
+had provided no rationale as for why it was necessary to change to u64
+as a conseqeunce of changing to the generated MDSCR_EL1_* definitions.
+
+Please also note that *almost all* system registers have the
+"${REGISTER} is a 64-bit register wording", including things like DAIF,
+SPSel, etc. It's necessary to consider the context of use.
+
+Mark.
 
