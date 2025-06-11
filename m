@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8493C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 02:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99DFFC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 02:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FezZVwAIX27yOhkNPTycKKVEi5uWL2iUiKq6QlVZHOU=; b=b+cu6nwmYqgo09A59puYxgemNO
-	N0S4HMpXB+8PQA/5Z2UPY3ftljeP1fajr0BP9TkS2sxm8f+0FI6nyxqQ6rkmM52ZqdHwqSMWbKwq2
-	s7SOOgPFVCCp8fuapGDHdP6Hx1Xoxnz5NzUYVqd1dPKAuMKm3GUT3k9ZIhB7pwgRDHQ1Wke40nzO3
-	5qQLqjd1MZlOi2VgDC4B9YI7hL0EzcUNch4kNcZVkTmyQ/Cq90DGcoGedKpm1c9LKMviEOVsMWwbB
-	/bKzNH+xLgVRtfASnAvnAUfqjAK1SnBd8n8o1L1YGld+jz3slun6VU5ucvDEQ7mctkUoab9lO4IVy
-	XCR+/qxg==;
+	bh=ZbXp9fY7meDnEME0LsYBGX1Fint2Pz95NNyIdmrjoGE=; b=SU4i4OYbsTs05pwDcgze64OtjS
+	VuKQLdvQXhlQ9gT9T7MpLBsTkg/9NOj6L0Bimzwpv+7Q+/kjL3JGwy1jl24Iysg5zO+U7EhV+ixur
+	+ZaIstrbIUBOK+z+RwDzKi/Q/Hr3oSUQAhx5dlHfB5hVxUSyJCGMW9q5QVG1LdxOGrPZKyo3ktQjE
+	1UMf03aTBOT2WYN2Y9tib46p9RVyM/FrN4W4UeZy9BBPVvt39G4hIVvv3AFLYeJZaSzGTz/8zxSE8
+	LHYLqGUcBeiL/PsR8wOlnHFC5z+RYm+nvss67NfC5nj1mFac4CVpih7nfax9H+VvR6lDAyUCPux6X
+	z467hcWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPXSy-0000000BwWv-1OHQ;
-	Thu, 12 Jun 2025 02:14:56 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1uPXV4-0000000Bwfc-0Sib;
+	Thu, 12 Jun 2025 02:17:06 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUFJ-0000000BY0L-2j0k
+	id 1uPUFL-0000000BY2B-1IfY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 22:48:38 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2350804a43eso4300295ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:48:37 -0700 (PDT)
+	Wed, 11 Jun 2025 22:48:40 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-73bfc657aefso225260b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:48:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749682116; x=1750286916; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749682118; x=1750286918; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=FezZVwAIX27yOhkNPTycKKVEi5uWL2iUiKq6QlVZHOU=;
-        b=XWHP6CIxgUHH1CKWr9++6PEJAPwQskZ6IiIC2kHA8ffrw68xPcoP06yJABzJgB1IZS
-         6Pf5np3WlpZ6W7H+NTXtK98n7xU7oDCmvAVad+lh1iorki1CPd8J84aZ0MjmMw92HoV9
-         qrvBEnrbqurl0+qbO+o9ZoP6/22mh219IkyItz+cF38xU8cbCgnAhG7fA5fYnOIpR8NG
-         NqsUcY6JMfQA9qe0d1hzXxP18dhq3LIdlq12JOnqfGkd3rjr7WEjnPPwYrE+qTKPLinm
-         cZUEPl0RtjUSJ99dhw47jKNeXgLTX85jX1S/lav1nCBaHzS7E1He+FenUxtfqXbLeFbG
-         HjVg==
+        bh=ZbXp9fY7meDnEME0LsYBGX1Fint2Pz95NNyIdmrjoGE=;
+        b=Y7lqDOYrFINbUgsd3QiMMYQTG6O5GabUjeMWZR6D+H+ubY1/AiHrwMsyzqo/lrCt6z
+         lE7SxYc+Fs+gfM7mf0U0UL7xZ1u/so0Wx9/ZPrtGScy0o14yz1RFhrsp1zXeUHp4lsO4
+         bllscvltrt1WY+ZL3ZFzry5DIFVSMr1EyDE3xJQOq82UHSnGrfJiZ6lFXsCrZIWtHUyf
+         e0Aoljy6Y7kVg7IjuBDjMtP1urfBaMh+O7l/QcPmD9Wo0Qt3EQ/lsBhWuwAlt0Dmu7AF
+         8dnMOCeMTUw3Or8zTrk4uP1mFUqpmKLVPbPJft2PYUbqTCCF7tqlq2RplFORdGRkrPwl
+         YpDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749682116; x=1750286916;
+        d=1e100.net; s=20230601; t=1749682118; x=1750286918;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FezZVwAIX27yOhkNPTycKKVEi5uWL2iUiKq6QlVZHOU=;
-        b=RuGMhVqS/BsV1xUGH98IEtjrhRbwp2hwj1FBfBbBQl0TN6GwthluFAz0fbcP3aZ387
-         GHhHPzfK20YxF+TFfNTycNewu9brQp0yc2c/fjoqk32A5qcK3sfyXZ+bo2UW+aEeFHAR
-         M/Ma254rUhmEjbQfQBiTZqvXJzg+eXFjSYX+bxvoFafFXw5CKiwN1JiTO+MFnvQercgu
-         fSfssBP6V808ZOt5kE4F4E8Ui5Q/0gjpHPVB54Dqt1Mez3gXzEuR7OPfCD9ealSJShBp
-         OJ6FycIpU0I+7AGxRnW6pq0LsWetcgjCUBgA6jxKg5IS1Egk8Zl20dj76Y47e0Hc0Do5
-         r+CA==
-X-Gm-Message-State: AOJu0YxZdKLAN0mmEHc/Tb5WPOSaVYCK/GbInSLXtPmRhEVPY/tYPXMU
-	aRgRK4+qGnX6zB8t7tHO/OXj9swdP3SC7W+47dlkiLdYO7pu4e0rjDpy42MFC2sXNzsVbp+UOCW
-	QJwSWyg==
-X-Google-Smtp-Source: AGHT+IE0mnhzPmaGDjcFYBs1HKY/3aqg20RLoeGBLv7o8irQVmRVOs75AEwPqXs1TaFQwm4uFyelNA0uq7s=
-X-Received: from pjbsg18.prod.google.com ([2002:a17:90b:5212:b0:311:ff32:a85d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4acb:b0:313:28f1:fc33
- with SMTP id 98e67ed59e1d1-313c06872aemr1120199a91.10.1749682116501; Wed, 11
- Jun 2025 15:48:36 -0700 (PDT)
-Date: Wed, 11 Jun 2025 15:46:01 -0700
+        bh=ZbXp9fY7meDnEME0LsYBGX1Fint2Pz95NNyIdmrjoGE=;
+        b=V6j6H/Zx/mUGX4Q20sLFFFZ+POOW4dM5H7TIEnUYcGwH8DKDAbDHuFr6Rnd77WN2hI
+         4R0ZT6YROC01F/XuUKgkxzwqTKTS8W+jw7UKxKVGncSTex9luycgIoUoWBpzQBo/9g27
+         +yeO570CS6SoW/gh/cbQ8tfgUHtVUNgFg4kD4r+DV0f9kh8MDrUHmslomJAJPLj/Outs
+         J6flIBLWbPjkp+NUHIJZRrMrVaYQ+yfZ0HnO/xhDP4MeTvBC5kJr4Rh0MK5x22NRe2g5
+         JF7wmgGcmCZI61TA31pkGftN1Zw85px2aRK0bcvbMCuxCY9fIxbOWMgbmJpatz+1W1jw
+         p0ZA==
+X-Gm-Message-State: AOJu0YxKHLGC40gmgKjXdu6btZMEWq+u3o+IWm1/1Of50fiiQyO5xiNp
+	ik0QGgm0LtPHlHl4f5PS2Ej+Q17KaeZgEcMsbx1jqEpnFT8JOOkABE+vANLQLlzmWtmUpyayBze
+	P//zXrQ==
+X-Google-Smtp-Source: AGHT+IHvf3odZF8McDLukwtR+c5Ts/RiD+Gr/igRa+Gy+FZyAPIiyl4mAfkupeFQ3doXLOpmODAbezE5sRM=
+X-Received: from pfblu14.prod.google.com ([2002:a05:6a00:748e:b0:747:aac7:7c2])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:748c:b0:21d:375a:ee33
+ with SMTP id adf61e73a8af0-21f9b6a21bbmr686227637.9.1749682117969; Wed, 11
+ Jun 2025 15:48:37 -0700 (PDT)
+Date: Wed, 11 Jun 2025 15:46:02 -0700
 In-Reply-To: <20250611224604.313496-2-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250611224604.313496-2-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-Message-ID: <20250611224604.313496-60-seanjc@google.com>
-Subject: [PATCH v3 58/62] KVM: SVM: Don't check vCPU's blocking status when
- toggling AVIC on/off
+Message-ID: <20250611224604.313496-61-seanjc@google.com>
+Subject: [PATCH v3 59/62] KVM: SVM: Consolidate IRTE update when toggling AVIC on/off
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_154837_691470_BD73A4BE 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20250611_154839_348988_19C363B4 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,140 +95,171 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don't query a vCPU's blocking status when toggling AVIC on/off; barring
-KVM bugs, the vCPU can't be blocking when refreshing AVIC controls.  And
-if there are KVM bugs, ensuring the vCPU and its associated IRTEs are in
-the correct state is desirable, i.e. well worth any overhead in a buggy
-scenario.
+Fold the IRTE modification logic in avic_refresh_apicv_exec_ctrl() into
+__avic_vcpu_{load,put}(), and add a param to the helpers to communicate
+whether or not AVIC is being toggled, i.e. if IRTE needs a "full" update,
+or just a quick update to set the CPU and IsRun.
 
-Isolating the "real" load/put flows will allow moving the IOMMU IRTE
-(de)activation logic from avic_refresh_apicv_exec_ctrl() to
-avic_update_iommu_vcpu_affinity(), i.e. will allow updating the vCPU's
-physical ID entry and its IRTEs in a common path, under a single critical
-section of ir_list_lock.
-
-Tested-by: Sairaj Kodilkar <sarunkod@amd.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/svm/avic.c | 65 +++++++++++++++++++++++------------------
- 1 file changed, 37 insertions(+), 28 deletions(-)
+ arch/x86/kvm/svm/avic.c | 85 ++++++++++++++++++++++-------------------
+ 1 file changed, 46 insertions(+), 39 deletions(-)
 
 diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-index 9ddec6f3ad41..1e6e5d1f6b4e 100644
+index 1e6e5d1f6b4e..2e47559a4134 100644
 --- a/arch/x86/kvm/svm/avic.c
 +++ b/arch/x86/kvm/svm/avic.c
-@@ -828,7 +828,7 @@ static void avic_update_iommu_vcpu_affinity(struct kvm_vcpu *vcpu, int cpu)
- 		WARN_ON_ONCE(amd_iommu_update_ga(cpu, irqfd->irq_bypass_data));
+@@ -810,7 +810,28 @@ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
+ 	return irq_set_vcpu_affinity(host_irq, NULL);
  }
  
--void avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-+static void __avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+-static void avic_update_iommu_vcpu_affinity(struct kvm_vcpu *vcpu, int cpu)
++enum avic_vcpu_action {
++	/*
++	 * There is no need to differentiate between activate and deactivate,
++	 * as KVM only refreshes AVIC state when the vCPU is scheduled in and
++	 * isn't blocking, i.e. the pCPU must always be (in)valid when AVIC is
++	 * being (de)activated.
++	 */
++	AVIC_TOGGLE_ON_OFF	= BIT(0),
++	AVIC_ACTIVATE		= AVIC_TOGGLE_ON_OFF,
++	AVIC_DEACTIVATE		= AVIC_TOGGLE_ON_OFF,
++
++	/*
++	 * No unique action is required to deal with a vCPU that stops/starts
++	 * running, as IRTEs are configured to generate GALog interrupts at all
++	 * times.
++	 */
++	AVIC_START_RUNNING	= 0,
++	AVIC_STOP_RUNNING	= 0,
++};
++
++static void avic_update_iommu_vcpu_affinity(struct kvm_vcpu *vcpu, int cpu,
++					    enum avic_vcpu_action action)
+ {
+ 	struct vcpu_svm *svm = to_svm(vcpu);
+ 	struct kvm_kernel_irqfd *irqfd;
+@@ -824,11 +845,20 @@ static void avic_update_iommu_vcpu_affinity(struct kvm_vcpu *vcpu, int cpu)
+ 	if (list_empty(&svm->ir_list))
+ 		return;
+ 
+-	list_for_each_entry(irqfd, &svm->ir_list, vcpu_list)
+-		WARN_ON_ONCE(amd_iommu_update_ga(cpu, irqfd->irq_bypass_data));
++	list_for_each_entry(irqfd, &svm->ir_list, vcpu_list) {
++		void *data = irqfd->irq_bypass_data;
++
++		if (!(action & AVIC_TOGGLE_ON_OFF))
++			WARN_ON_ONCE(amd_iommu_update_ga(cpu, data));
++		else if (cpu >= 0)
++			WARN_ON_ONCE(amd_iommu_activate_guest_mode(data, cpu));
++		else
++			WARN_ON_ONCE(amd_iommu_deactivate_guest_mode(data));
++	}
+ }
+ 
+-static void __avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
++static void __avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu,
++			     enum avic_vcpu_action action)
  {
  	struct kvm_svm *kvm_svm = to_kvm_svm(vcpu->kvm);
  	int h_physical_id = kvm_cpu_get_apicid(cpu);
-@@ -844,16 +844,6 @@ void avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	if (WARN_ON_ONCE(vcpu->vcpu_id * sizeof(entry) >= PAGE_SIZE))
- 		return;
+@@ -873,7 +903,7 @@ static void __avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
  
--	/*
--	 * No need to update anything if the vCPU is blocking, i.e. if the vCPU
--	 * is being scheduled in after being preempted.  The CPU entries in the
--	 * Physical APIC table and IRTE are consumed iff IsRun{ning} is '1'.
--	 * If the vCPU was migrated, its new CPU value will be stuffed when the
--	 * vCPU unblocks.
--	 */
--	if (kvm_vcpu_is_blocking(vcpu))
--		return;
--
- 	/*
- 	 * Grab the per-vCPU interrupt remapping lock even if the VM doesn't
- 	 * _currently_ have assigned devices, as that can change.  Holding
-@@ -888,31 +878,33 @@ void avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	WRITE_ONCE(kvm_svm->avic_physical_id_table[vcpu->vcpu_id], entry);
+ 
+-	avic_update_iommu_vcpu_affinity(vcpu, h_physical_id);
++	avic_update_iommu_vcpu_affinity(vcpu, h_physical_id, action);
+ 
  	spin_unlock_irqrestore(&svm->ir_list_lock, flags);
  }
+@@ -890,10 +920,10 @@ void avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	if (kvm_vcpu_is_blocking(vcpu))
+ 		return;
  
--void avic_vcpu_put(struct kvm_vcpu *vcpu)
-+void avic_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
-+{
-+	/*
-+	 * No need to update anything if the vCPU is blocking, i.e. if the vCPU
-+	 * is being scheduled in after being preempted.  The CPU entries in the
-+	 * Physical APIC table and IRTE are consumed iff IsRun{ning} is '1'.
-+	 * If the vCPU was migrated, its new CPU value will be stuffed when the
-+	 * vCPU unblocks.
-+	 */
-+	if (kvm_vcpu_is_blocking(vcpu))
-+		return;
-+
-+	__avic_vcpu_load(vcpu, cpu);
-+}
-+
-+static void __avic_vcpu_put(struct kvm_vcpu *vcpu)
+-	__avic_vcpu_load(vcpu, cpu);
++	__avic_vcpu_load(vcpu, cpu, AVIC_START_RUNNING);
+ }
+ 
+-static void __avic_vcpu_put(struct kvm_vcpu *vcpu)
++static void __avic_vcpu_put(struct kvm_vcpu *vcpu, enum avic_vcpu_action action)
  {
  	struct kvm_svm *kvm_svm = to_kvm_svm(vcpu->kvm);
  	struct vcpu_svm *svm = to_svm(vcpu);
- 	unsigned long flags;
--	u64 entry;
-+	u64 entry = svm->avic_physical_id_entry;
+@@ -915,7 +945,7 @@ static void __avic_vcpu_put(struct kvm_vcpu *vcpu)
+ 	 */
+ 	spin_lock_irqsave(&svm->ir_list_lock, flags);
  
- 	lockdep_assert_preemption_disabled();
+-	avic_update_iommu_vcpu_affinity(vcpu, -1);
++	avic_update_iommu_vcpu_affinity(vcpu, -1, action);
  
- 	if (WARN_ON_ONCE(vcpu->vcpu_id * sizeof(entry) >= PAGE_SIZE))
+ 	entry &= ~AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK;
+ 	svm->avic_physical_id_entry = entry;
+@@ -941,7 +971,7 @@ void avic_vcpu_put(struct kvm_vcpu *vcpu)
+ 	if (!(entry & AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK))
  		return;
  
--	/*
--	 * Note, reading the Physical ID entry outside of ir_list_lock is safe
--	 * as only the pCPU that has loaded (or is loading) the vCPU is allowed
--	 * to modify the entry, and preemption is disabled.  I.e. the vCPU
--	 * can't be scheduled out and thus avic_vcpu_{put,load}() can't run
--	 * recursively.
--	 */
--	entry = svm->avic_physical_id_entry;
--
--	/* Nothing to do if IsRunning == '0' due to vCPU blocking. */
--	if (!(entry & AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK))
--		return;
--
- 	/*
- 	 * Take and hold the per-vCPU interrupt remapping lock while updating
- 	 * the Physical ID entry even though the lock doesn't protect against
-@@ -932,7 +924,24 @@ void avic_vcpu_put(struct kvm_vcpu *vcpu)
- 		WRITE_ONCE(kvm_svm->avic_physical_id_table[vcpu->vcpu_id], entry);
- 
- 	spin_unlock_irqrestore(&svm->ir_list_lock, flags);
-+}
- 
-+void avic_vcpu_put(struct kvm_vcpu *vcpu)
-+{
-+	/*
-+	 * Note, reading the Physical ID entry outside of ir_list_lock is safe
-+	 * as only the pCPU that has loaded (or is loading) the vCPU is allowed
-+	 * to modify the entry, and preemption is disabled.  I.e. the vCPU
-+	 * can't be scheduled out and thus avic_vcpu_{put,load}() can't run
-+	 * recursively.
-+	 */
-+	u64 entry = to_svm(vcpu)->avic_physical_id_entry;
-+
-+	/* Nothing to do if IsRunning == '0' due to vCPU blocking. */
-+	if (!(entry & AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK))
-+		return;
-+
-+	__avic_vcpu_put(vcpu);
+-	__avic_vcpu_put(vcpu);
++	__avic_vcpu_put(vcpu, AVIC_STOP_RUNNING);
  }
  
  void avic_refresh_virtual_apic_mode(struct kvm_vcpu *vcpu)
-@@ -973,9 +982,9 @@ void avic_refresh_apicv_exec_ctrl(struct kvm_vcpu *vcpu)
+@@ -970,41 +1000,18 @@ void avic_refresh_virtual_apic_mode(struct kvm_vcpu *vcpu)
+ 
+ void avic_refresh_apicv_exec_ctrl(struct kvm_vcpu *vcpu)
+ {
+-	bool activated = kvm_vcpu_apicv_active(vcpu);
+-	int apic_id = kvm_cpu_get_apicid(vcpu->cpu);
+-	struct vcpu_svm *svm = to_svm(vcpu);
+-	struct kvm_kernel_irqfd *irqfd;
+-	unsigned long flags;
+-
+ 	if (!enable_apicv)
+ 		return;
+ 
++	/* APICv should only be toggled on/off while the vCPU is running. */
++	WARN_ON_ONCE(kvm_vcpu_is_blocking(vcpu));
++
  	avic_refresh_virtual_apic_mode(vcpu);
  
- 	if (activated)
--		avic_vcpu_load(vcpu, vcpu->cpu);
-+		__avic_vcpu_load(vcpu, vcpu->cpu);
+-	if (activated)
+-		__avic_vcpu_load(vcpu, vcpu->cpu);
++	if (kvm_vcpu_apicv_active(vcpu))
++		__avic_vcpu_load(vcpu, vcpu->cpu, AVIC_ACTIVATE);
  	else
--		avic_vcpu_put(vcpu);
-+		__avic_vcpu_put(vcpu);
+-		__avic_vcpu_put(vcpu);
+-
+-	/*
+-	 * Here, we go through the per-vcpu ir_list to update all existing
+-	 * interrupt remapping table entry targeting this vcpu.
+-	 */
+-	spin_lock_irqsave(&svm->ir_list_lock, flags);
+-
+-	if (list_empty(&svm->ir_list))
+-		goto out;
+-
+-	list_for_each_entry(irqfd, &svm->ir_list, vcpu_list) {
+-		void *data = irqfd->irq_bypass_data;
+-
+-		if (activated)
+-			WARN_ON_ONCE(amd_iommu_activate_guest_mode(data, apic_id));
+-		else
+-			WARN_ON_ONCE(amd_iommu_deactivate_guest_mode(data));
+-	}
+-out:
+-	spin_unlock_irqrestore(&svm->ir_list_lock, flags);
++		__avic_vcpu_put(vcpu, AVIC_DEACTIVATE);
+ }
  
- 	/*
- 	 * Here, we go through the per-vcpu ir_list to update all existing
+ void avic_vcpu_blocking(struct kvm_vcpu *vcpu)
+@@ -1030,7 +1037,7 @@ void avic_vcpu_blocking(struct kvm_vcpu *vcpu)
+ 	 * CPU and cause noisy neighbor problems if the VM is sending interrupts
+ 	 * to the vCPU while it's scheduled out.
+ 	 */
+-	avic_vcpu_put(vcpu);
++	__avic_vcpu_put(vcpu, AVIC_STOP_RUNNING);
+ }
+ 
+ void avic_vcpu_unblocking(struct kvm_vcpu *vcpu)
 -- 
 2.50.0.rc1.591.g9c95f17f64-goog
 
