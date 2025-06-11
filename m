@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D171C71144
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 17:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7CAC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 17:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mLT6Szq/xGEa3XXcxtJnhZSsdic8SU0ZR7G+WQsu4dI=; b=tYeNitKYujaF2AcqDpE151qyX5
-	4Ilu1E5m5l27dZc6Y6mg6Uw7lROAhJCaNz3Uwg2fWYuC/6kaouy3/Znu8NEwglYGeOj9IGhTzXvn0
-	Y3MkxZlpF7AlH2zIxbGxXfkSxGAK5E3Mw6C4utJjT1JXm3H0M5JxAIDTwD0b2kEvHNsWRBzqGtAuB
-	+/Tyqs8VtHYHKtbPVD2V8Z0vgtMYGTDno1AUwLH1rHOW1R9o88oGv1JM3zIOQ775kkuFSxOXv1vTK
-	Le84j9Wf8pcJEab9UYnoFYqf/LYHlrJm2gwh8dMHnXD/lFsbyL3td/El1Dkj8yS1Yt5+MT92Ufo2Y
-	xoFYfVeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Of9BSL6Um1w9fb6I/aEuBtBUlJHILmr+goGt+k/YVGg=; b=1QQF7qJdupnU1q1LvdKpYGIz3v
+	GDiMqGjSSu0TFJ9hlSzHXKDR5/DuuivvQpZLZktoGqXKMl14MfzQandRVvg7nO+tbp5J2+sQIhr9P
+	i9bO+MdXzVyVdQuj2vY+IShv748N/jjMRaI3bAO/1NeIUkTzYFH2hsE6WetSssUzD5DEFUK2q9Gxu
+	4ZaXqdhB287NC9R0AMBqpBw/OGBJWc5hvmySg+KqVNt1O/x+Ac/7vOxHXxe75szCV+kmLJLbZXPKT
+	t3G+v57zPlg1fwayNC3v0cciNQdqAYIV/SfLOgG7f1KqyIXDNAVS7Ft0zXbaPpnrOSZgv+0uA4p4q
+	M5+e+BaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPjX-0000000Alfm-2gJf;
-	Wed, 11 Jun 2025 17:59:31 +0000
+	id 1uPPja-0000000AlgV-2ISy;
+	Wed, 11 Jun 2025 17:59:34 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJmc-00000009lKh-2993
+	id 1uPJs4-00000009lur-1Xr1
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 11:38:18 +0000
+	Wed, 11 Jun 2025 11:43:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-ID:Content-Type:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:
-	Content-Description:In-Reply-To:References;
-	bh=mLT6Szq/xGEa3XXcxtJnhZSsdic8SU0ZR7G+WQsu4dI=; b=Bh9ybvFLRxM8e/DVsN4TY3ZVzg
-	54t1znRuW+mg+mTlgrL0MtmOq5E6uLbeMX0ZCvmowIPMnx5gS4VNoj48CczyZaeEg1CTZKhaBaDqe
-	zUjn+m4/aJ7xHG/1HBQ71gNMTqA+ZFSmaJuzYRSBz4Y/qnaxM9q05pf67RQlHl1dE+a4Wx98I82nO
-	J9fLsrE+5pJAZRNH4wlaIioQQD0ZtU8enlZGQ+PU3uYKbcWWG11Kj+6wIK/duz/vFSu7bDSOAjRo3
-	Zxlh73RGwYtviGM2+kZ17h0IzzIYLX1RJcWb3iHPP2cwx/7/kZcuvqNR9XZWfq/mgQLvf5ksfAg6I
-	djBvIttA==;
-Received: from mail.actia.se ([212.181.117.226])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Of9BSL6Um1w9fb6I/aEuBtBUlJHILmr+goGt+k/YVGg=; b=GK6IzFuo9CjTA/zfNHAg8LVPb5
+	I1TKkLL84TpRJfsZim/m0rieAPJcs8jQtSCcIRumDgD1oWZ0Sc22n43ZRqOEo7F1AaX6fvMl5LLHI
+	z6k+I+V8eQsJi+wsrlPLr6mhUmxhtBGCDtKMhRBtgC61NpypJC78wjITXMZyIpmBRujsSj4BWnDIK
+	xZltsOM+Z3w7jyZTxYWOuTy/LMne637j/EtvOAMu0+A64Wh5qdt4HGp8g7UFXTsq0HzdGs/f51SdS
+	8RSccHkzEJLJUM5hOl+56tJ84F8u+pUvzZrc0HKqVn37MPHMbr/7nm+DXhWU4YKF/CR+aNpsUQP++
+	KCoNlQtg==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJmZ-00000002MHZ-43Gp
+	id 1uPJs1-00000002MeC-2zL2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 11:38:18 +0000
-Received: from S036ANL.actianordic.se (10.12.31.117) by S035ANL.actianordic.se
- (10.12.31.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 11 Jun
- 2025 13:38:08 +0200
-Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
- S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
- 15.01.2507.039; Wed, 11 Jun 2025 13:38:08 +0200
-From: John Ernberg <john.ernberg@actia.se>
-To: =?utf-8?B?SG9yaWEgR2VhbnTEgw==?= <horia.geanta@nxp.com>, Pankaj Gupta
-	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
- Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>
-CC: Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, John Ernberg <john.ernberg@actia.se>
-Subject: [PATCH v6 0/4] crypto: caam - iMX8QXP support (and related fixes)
-Thread-Topic: [PATCH v6 0/4] crypto: caam - iMX8QXP support (and related
- fixes)
-Thread-Index: AQHb2sVNVczInQ6djkqz+g3DSp7mBg==
-Date: Wed, 11 Jun 2025 11:38:08 +0000
-Message-ID: <20250611113748.2986988-1-john.ernberg@actia.se>
-Accept-Language: en-US, sv-SE
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.49.0
-x-originating-ip: [10.12.12.63]
-x-esetresult: clean, is OK
-x-esetid: 37303A2956B14453627160
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <9FD4A6CEBDB8CF48B68EA0CA7731A73B@actia.se>
-Content-Transfer-Encoding: base64
+	Wed, 11 Jun 2025 11:43:56 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55BBhlJa2576483;
+	Wed, 11 Jun 2025 06:43:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749642227;
+	bh=Of9BSL6Um1w9fb6I/aEuBtBUlJHILmr+goGt+k/YVGg=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=wubjjphTHqZiOKf/+ResQAvzgqRzIUdlbybP3dBTRxnNxTzVBJEqwDAQu3VVcyKUS
+	 yRDJnHxfZ8WAfJe+rsZxpo9D/YRKXJhowKWbz8veVTJHqq+XgEx/t3KurZv6nsMmtW
+	 +Q9GqGGLbKJpDPiTbE2Y2blM8zxmnFGr7tCKt4fU=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55BBhlYg2833102
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 11 Jun 2025 06:43:47 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 11
+ Jun 2025 06:43:47 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 11 Jun 2025 06:43:47 -0500
+Received: from uda0492258.dhcp.ti.com (dhcp-172-24-227-169.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55BBhavF270460;
+	Wed, 11 Jun 2025 06:43:44 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v2 2/5] arm64: dts: ti: k3-am65: disable "mcu_cpsw" in SoC file and enable in board file
+Date: Wed, 11 Jun 2025 17:13:33 +0530
+Message-ID: <20250611114336.2392320-3-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611114336.2392320-1-s-vadapalli@ti.com>
+References: <20250611114336.2392320-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_123816_075662_536B8357 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250611_124354_109780_897BD210 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +100,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VGhpcyBzZXJpZXMgZW5hYmxlcyB0aGUgdXNlIG9mIHRoZSBDQUFNIChDcnlwdG9ncmFwaGljIEFj
-Y2VsZXJhdGlvbiBhbmQNCkFzc3VyYW5jZSBNb2R1bGUpIG9uIHRoZSBpTVg4UVhQIChhbmQgaXRz
-IHZhcmlhbnRzKS4NCg0KdjY6IChkZXRhaWxlZCBjaGFuZ2Vsb2cgaW4gZWFjaCBwYXRjaCkNCiAt
-IEZpeCBwcm9wZXJ0eSBvcmRlciBpbiBiaW5kaW5ncyAoRnJhbmsgTGkpDQogLSBDb2xsZWN0IHRh
-Z3MNCg0KdjU6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWNyeXB0by8yMDI1MDYxMDA4
-NTExMC4yMjk1MzkyLTEtam9obi5lcm5iZXJnQGFjdGlhLnNlL1QNCiAtIEZpeCBpbmRlbnRhdGlv
-biBpc3N1ZXMgaW4gYmluZGluZ3MgKFJvYiBIZXJyaW5nJ3MgYm90KQ0KIC0gQ29sbGVjdCB0YWdz
-DQoNCnY0OiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1jcnlwdG8vMjAyNTA2MDUxMzI3
-NTQuMTc3MTM2OC0xLWpvaG4uZXJuYmVyZ0BhY3RpYS5zZS9UDQogLSBEZWNsYXJlIG1vcmUgY29t
-cGF0aWJsZXMgaW4gYmluZGluZ3MgKEZyYW5rIExpKQ0KIC0gTW92ZSBqb2ItcmluZyBjb21wYXQg
-Y2hlY2sgdW5kZXIgdGhlIGpvYi1yaW5nIHN1YnNjaGVtYSAoUm9iIEhlcnJpbmcpDQoNCnYzOiBo
-dHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1jcnlwdG8vMjAyNTA1MjgxNDQyNTkuMjYwMzkx
-NC0xLWpvaG4uZXJuYmVyZ0BhY3RpYS5zZS9UDQogLSBGaXggZGV2aWNldHJlZSBDSSBkZXRlY3Rl
-ZCBlcnJvcnMgKFJvYiBIZXJyaW5nJ3MgYm90KQ0KIC0gRGVjbGFyZSB0aGUgY29tcGF0aWJsZXMg
-Y29ycmVjdGx5IGluIGJpbmRpbmdzIChLcnp5c3p0b2YgS296bG93c2tpKQ0KDQp2MjogaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtY3J5cHRvLzIwMjUwNTI3MDcxNTUyLjE0MjQ5OTctMS1q
-b2huLmVybmJlcmdAYWN0aWEuc2UvVA0KIC0gQ2xhcmlmeSBpbiB0aGUgY29tbWl0IG1lc3NhZ2Ug
-aG93IHRoZSBjcmFzaCBmaXggd29ya3MgKEZyYW5rIExpKQ0KIC0gUmVzdHJpY3QgcG93ZXItZG9t
-YWlucyBvbmx5IGZvciBpTVg4USogU29DcyBpbiBiaW5kaW5ncyAoRnJhbmsgTGkpDQogLSBDb2xs
-ZWN0IHRhZ3MNCg0KdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWNyeXB0by8yMDI1
-MDUyMzEzMTgxNC4xMDQ3NjYyLTEtam9obi5lcm5iZXJnQGFjdGlhLnNlL1QNCg0KSG9yaWEgR2Vh
-bnTEgyAoMSk6DQogIGFybTY0OiBkdHM6IGZyZWVzY2FsZTogaW14OHF4cC9pbXg4cW06IEFkZCBD
-QUFNIHN1cHBvcnQNCg0KSm9obiBFcm5iZXJnICgzKToNCiAgY3J5cHRvOiBjYWFtIC0gUHJldmVu
-dCBjcmFzaCBvbiBzdXNwZW5kIHdpdGggaU1YOFFNIC8gaU1YOFVMUA0KICBjcnlwdG86IGNhYW0g
-LSBTdXBwb3J0IGlNWDhRWFAgYW5kIHZhcmlhbnRzIHRoZXJlb2YNCiAgZHQtYmluZGluZ3M6IGNy
-eXB0bzogZnNsLHNlYy12NC4wOiBBZGQgcG93ZXIgZG9tYWlucyBmb3IgaU1YOFFNIGFuZA0KICAg
-IGlNWDhRWFANCg0KIC4uLi9iaW5kaW5ncy9jcnlwdG8vZnNsLHNlYy12NC4wLnlhbWwgICAgICAg
-ICB8IDQxICsrKysrKysrKysrKysrKysrKy0NCiAuLi4vYm9vdC9kdHMvZnJlZXNjYWxlL2lteDgt
-c3Mtc2VjdXJpdHkuZHRzaSAgfCAzOCArKysrKysrKysrKysrKysrKw0KIGFyY2gvYXJtNjQvYm9v
-dC9kdHMvZnJlZXNjYWxlL2lteDhxbS5kdHNpICAgICB8ICAxICsNCiAuLi4vZHRzL2ZyZWVzY2Fs
-ZS9pbXg4cXhwLXNzLXNlY3VyaXR5LmR0c2kgICAgfCAxNiArKysrKysrKw0KIGFyY2gvYXJtNjQv
-Ym9vdC9kdHMvZnJlZXNjYWxlL2lteDhxeHAuZHRzaSAgICB8ICAyICsNCiBkcml2ZXJzL2NyeXB0
-by9jYWFtL2N0cmwuYyAgICAgICAgICAgICAgICAgICAgfCAgNyArKy0tDQogZHJpdmVycy9jcnlw
-dG8vY2FhbS9pbnRlcm4uaCAgICAgICAgICAgICAgICAgIHwgIDEgKw0KIDcgZmlsZXMgY2hhbmdl
-ZCwgMTAyIGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pDQogY3JlYXRlIG1vZGUgMTAwNjQ0
-IGFyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDgtc3Mtc2VjdXJpdHkuZHRzaQ0KIGNy
-ZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4cXhwLXNz
-LXNlY3VyaXR5LmR0c2kNCg0KLS0gDQoyLjQ5LjANCg==
+Following the existing convention of disabling nodes in the SoC file and
+enabling only the required ones in the board file, disable "mcu_cpsw" node
+in the SoC file "k3-am65-mcu.dtsi" and enable it in the board file
+"k3-am654-base-board.dts". Also, now that "mcu_cpsw" is disabled in the
+SoC file, disabling it in "k3-am65-iot2050-common.dtsi" is no longer
+required. Hence, remove the section corresponding to this change.
+
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
+
+v1 of this patch was 3 different patches which have currently been
+squashed:
+ https://lore.kernel.org/r/20250529133443.1252293-6-s-vadapalli@ti.com/
+ https://lore.kernel.org/r/20250529133443.1252293-7-s-vadapalli@ti.com/
+ https://lore.kernel.org/r/20250529133443.1252293-8-s-vadapalli@ti.com/
+
+Squashing the patches is the only change since the v1 series, in
+addition to updating the commit message accordingly.
+
+Regards,
+Siddharth.
+
+ arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi | 4 ----
+ arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi            | 2 ++
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts     | 1 +
+ 3 files changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
+index e5136ed94765..48e740eb0088 100644
+--- a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
+@@ -475,10 +475,6 @@ &main_i2c3 {
+ 	#size-cells = <0>;
+ };
+ 
+-&mcu_cpsw {
+-	status = "disabled";
+-};
+-
+ &sdhci1 {
+ 	status = "okay";
+ 	pinctrl-names = "default";
+diff --git a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
+index 7cf1f646500a..cd0b796c5f8f 100644
+--- a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
+@@ -354,6 +354,8 @@ mcu_cpsw: ethernet@46000000 {
+ 			    "tx4", "tx5", "tx6", "tx7",
+ 			    "rx";
+ 
++		status = "disabled";
++
+ 		ethernet-ports {
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+index c30425960398..d2632d1f8eb7 100644
+--- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
++++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
+@@ -606,6 +606,7 @@ partition@3fe0000 {
+ };
+ 
+ &mcu_cpsw {
++	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mcu_cpsw_pins_default>;
+ };
+-- 
+2.34.1
+
 
