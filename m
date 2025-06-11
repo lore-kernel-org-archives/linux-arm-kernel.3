@@ -4,110 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D450C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61EADC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZbDOY3A42gRinlRSx+qPEKp7iblwIBfqRBdkTzwifI=; b=XiIH4Mi6ctbiAo9RlNWFFbrczW
-	RCZeY8v6LPm4V7O2qh11QKfm19SAE7JEI/uBcK9cdPIwnI8xiozlLor05mS6+HealcDmCJAhFySeT
-	D/elIpd3m22hEXksWLZxH1AHTB6g1W6Yfb6BkatQ/JypJvLkKytrAPFI1cxsnbiHZsbygLE7z5OyM
-	1p9f4cWcfEGTwnu9OUUxkx6Rk2BAQCSkrp7zKDocCBTg1rZEuScr53wmLE+Jpk5f8qsO+5mDVoQRX
-	c1f+QXb8azNHtAHSVM7JDrbDQOxtQkcJR4cruljUUIdcvr2NCBrGvXsnCzXy5tnZfJ4w0d+U1hFVq
-	SlTFiD1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nTNTlZNHWyRFYDg5bngNoKX8zKHnMqcB37IegXuxL+g=; b=Gc0dask2o2MA45
+	rzXpCAKs0LNnNkmXJfQhzCQquY7nq/0wIr6Nohe5GnXX+8LOkYQhE4bbsPjo4ulsx4fidz/AnKRIj
+	8TwRZOrEqartvSvmUGieOnTOhi/HVQoyl+2IpfPyqw6Ov2IYvErm9awkAzHO0Uv0D3517H3dWWrU/
+	gPXhELjc6gvTI+MrtEjVELkZjV70qzvG6FBazdkrqpLQfu6/xOW3Tn2RpWGqJuJXS3m0VTkLGpPgv
+	ClSqUR88HYsAJ4OcTmQrwii+zbxGJnftifhku/XiGwNA+SlNxM7tb+sNG9XDc9pPUYSMgMPfo13bF
+	YYGPG86H27FjJ4p4zX4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUBt-0000000BWFD-2Ceq;
-	Wed, 11 Jun 2025 22:45:05 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1uPUE0-0000000BX63-0sNi;
+	Wed, 11 Jun 2025 22:47:16 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRm5-0000000B8ST-2Rf7
+	id 1uPRuG-0000000B9CY-34Dv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 20:10:18 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id C58F31140089;
-	Wed, 11 Jun 2025 16:10:16 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Wed, 11 Jun 2025 16:10:16 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1749672616; x=1749759016; bh=dZbDOY3A42
-	gRinlRSx+qPEKp7iblwIBfqRBdkTzwifI=; b=XF1bDW3vBccJwENTlZpWn/Lwc1
-	fcc1+HVDNfHWNtEU5AF+O0mFnfUum57I2XE9kmVBe2RslEeuzRcIa/n9rmkFN6uV
-	LBoVOfZG1LzHLNC/fH1qc91c5OrCTmXdhl9abmFM0XBtPfEaDMdO/vVmo92V4ddM
-	laEowTRF2iviDDRywKnIAvTWYuFttTo8SNlqrT/anRbfQfHmhZsRp5mB4S2M8Cgw
-	Q6TA7tDtrq72PzNbQELD89ZoDbFfpbLXMlf+iIC/wHTRYzCjo9drSue+bdPgjB0G
-	//8zBPudgFUqZQW56OLaBPu3FpQng15ONuY6zjCJ6jWisxYW7MDRO26LXUCw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1749672616; x=1749759016; bh=dZbDOY3A42gRinlRSx+qPEKp7iblwIBfqRB
-	dkTzwifI=; b=IGtPwG73LEGW34r3sXxoaXHkLmo+jPEsatiQ3tQ15PvLRpBNaUd
-	4vZLB6YDWMPssFyHiszcSdJLyW7vT9CaNBHqC12l/I9XhI+QQK5zUxSU3liMTsmi
-	yKK7MFOEHBpJ7q2GudDrmchBhZxDVqv0q4GXeDpcrjCm0RHwPPH5LYX+wENUdKMv
-	cD5faTcsS4C7LjOJfqEUOXcjy84fGwKpGR1pDeRZRFYVmuXWiBLBw6ZzSafxLwO3
-	YcOIMLpcjlIXFQF48BeTMMD/XPhQUbjEH5x6dzeIuVKMB8k1wUGSUvdKFQXJZu3d
-	vyLtb2n/39Jfh/+5xGlvEDMtklPG7MEFovw==
-X-ME-Sender: <xms:p-JJaJSHBFa6LHZEi1rcFs3gtyWgaRgAmMxHaDQAgirkE-qAZkqm6A>
-    <xme:p-JJaCzOIk4p5aZEHLHvH-UgmDjZ3iXzV4Ay3IyO2VU9fdDQVzh66C4NIF0RWNsoF
-    h2NYk1LqDhK1FumQ0U>
-X-ME-Received: <xmr:p-JJaO2o_bmgmEgna3wDwUDSt2W_CIzRn_cKo5q4NRr6gC5UGoFcu4nf7pKyRvQAgUIg7KQd83SeodQmzNYBZkp-_d2EAmrBqk0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddufeduudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttdej
-    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
-    cuggftrfgrthhtvghrnhepgfdvffevleegudejfeefheehkeehleehfefgjefffeetudeg
-    tefhuedufeehfeetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
-    hfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopedujedpmhhouggv
-    pehsmhhtphhouhhtpdhrtghpthhtohepshhvvghnsehkvghrnhgvlhdrohhrghdprhgtph
-    htthhopehfnhhklhdrkhgvrhhnvghlsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghs
-    rghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehmrggrrhhtvghnrd
-    hlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepnhgv
-    rghlsehgohhmphgrrdguvghvpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvg
-    highdrihhopdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhs
-    rdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnh
-    gvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:p-JJaBBHJZw8M-agVQcr6OtDmJ55REB0eYxX4b7jzXljlGGpgRcBLQ>
-    <xmx:p-JJaChmu5id2-1eOgfO2ahMSjeHDal-3fD_v8jl7_Gi7QKnWI3k2w>
-    <xmx:p-JJaFoLWcMt0J8oDem2IIvXpLLzqtmSSpHDEYugKFseQH3BHmgNxg>
-    <xmx:p-JJaNhCsiLG_DVpcPcXRRO0MEB8oEyx__CO1WYXxKC6Aj3IQ1qi0A>
-    <xmx:qOJJaPaLGYxINreGkLUMRQaJAG8r0hOlaMW303golrWJybwnlh1Gegcc>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 11 Jun 2025 16:10:14 -0400 (EDT)
-Date: Wed, 11 Jun 2025 22:10:13 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: fnkl.kernel@gmail.com, asahi@lists.linux.dev,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Neal Gompa <neal@gompa.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>, dri-devel@lists.freedesktop.org,
-	Simona Vetter <simona@ffwll.ch>, David Airlie <airlied@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH 2/2] arm64: dts: Add Apple SoC GPU
-Message-ID: <20250611201013.GB3141695@robin.jannau.net>
-References: <20250611-sgx-dt-v1-0-7a11f3885c60@gmail.com>
- <20250611-sgx-dt-v1-2-7a11f3885c60@gmail.com>
- <47bcce06-9c08-40ee-a22a-bc168952b74a@kernel.org>
+	Wed, 11 Jun 2025 20:18:46 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-40a4de1753fso133590b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 13:18:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749673124; x=1750277924; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nTNTlZNHWyRFYDg5bngNoKX8zKHnMqcB37IegXuxL+g=;
+        b=KuAOCMYVK+b8NyPoC4UMJVaDXu6ZcSlyZ4XunrxiGRCLltjgsCe+iX1kIMdT7lH0tb
+         g/ClKeRyXAZCDyPHyjAzXqAqiLD3jzLkHBpP20WfqFazSRv0y7mTF/VxB2U+V9kL5cO+
+         3Ux2bRVTWEefHFsmU1QpJx+qojwo1K9sPktKCv1zFBY8IO9GTlcs5T9q0G2QNfVWjg1U
+         cfdWSD+6weziTyl51NDpu9VpZ6VCalwvYXkuh5J36RyurZRHaw13wFzk17X5zEjHqfpA
+         fEBr2fthQayz3I+4FIMxx2brFqPpYiGJlDpmFqqHAsBp/ghhWQT7GqjPmazlXL6LeAwo
+         djyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749673124; x=1750277924;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nTNTlZNHWyRFYDg5bngNoKX8zKHnMqcB37IegXuxL+g=;
+        b=ip6MqK+c+ERHgx9/6ZZ31VpUlZiUflFQKbNCBZfyzr2mZ3OzZ+pNk1wABaJhf39Dep
+         b14w7/VPJS7/LfSnYumUp+UN45uNWKYr0G6+ypRBNxUqjUddttstzEL9cMiSEcRR3/9C
+         7gAXfJrnjGCYK4y9duz9hlmvIewtHEx8Ry35prR4iayduzg83rpVa93PiFbBHTeul8RY
+         KIPiN/yncI41uK66+aAURBg43CmRLi78sSdCdhLNVZiJEBgXdMWmggtAMlADU7QDokHV
+         yxBzXkeOsiisDZRABGUld/x6orrHLEpa/s7hYEA4EpMjDn3Fb06mDATv/a6j/v+jgUVw
+         pmdg==
+X-Forwarded-Encrypted: i=1; AJvYcCX0AGdUSB5KR6H7jxV9kmaFaKqquKDVK8EAmcmnZdd+IMME8Bh384jygA8U24hFUmmDvYttMGzigd3UnTm1Ff33@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpuB0fH5xq/YuhUSWIbA1c0vnSPohv5cGQS6T4KfVHoCj/xC7T
+	/6VF8RYvHLoZHN/9gjxuGmnmKngPQBDVdyZCwq4gxMJzIHYfiQV/oiYuYl29jfiuLYU=
+X-Gm-Gg: ASbGncvVSN3ZGedi4rC9252YK1JnO2Q+1IdoAnnPpNqVlXqJ2bC+8EC045BznhzRypN
+	Bbjg8s6Z4aMoNx2nawn/9A777WNn9GE+8rqY6P14UA+ymXnLwbL/JY4+6zXqMdIhgqN93dOH8H9
+	3kwzMQ35Yg79OksxIvdfJyRymTr7jw8sDmiRs1mmHH/dzw+IciknMJpXrpX+6T3jXG+qLjBVps6
+	S7OXqhzgNvWckQ/kethcZiJ9F9S3HFIVPg8pNE2Yh26LXrckWIekblIM0qz3QFKL6Xw45hO9Geu
+	ehHr6pYt3jyr+pzdWKend/t2/V9OKNR++Pmqy+VLbFY5XwJ+o7ACalHzwusICuepNvlx
+X-Google-Smtp-Source: AGHT+IExhWtGNKPwRnOwsmDXgg/RlKoph4199SUPBrA/vgunndUh/aKsrqhRu/XH/oSztR8tBsQK8g==
+X-Received: by 2002:a05:6808:181e:b0:408:fef8:9c91 with SMTP id 5614622812f47-40a65fee5edmr732537b6e.5.1749673123808;
+        Wed, 11 Jun 2025 13:18:43 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:4753:719f:673f:547c])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-40a5d80d967sm467732b6e.4.2025.06.11.13.18.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Jun 2025 13:18:42 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH v4 0/3] bus: ts-nbus: use gpiod_multi_set_value_cansleep
+Date: Wed, 11 Jun 2025 15:18:08 -0500
+Message-Id: <20250611-gpio-set-array-helper-v4-0-fb86a9b499ab@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <47bcce06-9c08-40ee-a22a-bc168952b74a@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIDkSWgC/4XNTQqDMBCG4atI1k3Jn1G76j1KFzEZNWCNJBIq4
+ t0b3bSUSpfvB/PMggJ4CwFdsgV5iDZYN6QQpwzpTg0tYGtSI0ZYTiinuB2twwEmrLxXM+6gH8H
+ j2gjFWckLYjhKt6OHxj5393ZP3dkwOT/vbyLd1n9ipJjgqqK61LoWRsK1VnNvaw9n7R5oQyN7Q
+ 4zII4gliOq8IaJsikrzHxD/gCg5gniCjFSy4LIQRpVf0LquLwm4GHhPAQAA
+X-Change-ID: 20250131-gpio-set-array-helper-bd4a328370d3
+To: Sebastien Bourdelin <sebastien.bourdelin@savoirfairelinux.com>, 
+ Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>, 
+ Andy Shevchenko <andy.shevchenko@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1744; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=fl1skejRdYPAXQJachyawZhX+X0nZDq7tf0kNuLhVqk=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoSeSDnP2x2LEK+fLj5yc2iRew7RstZzKtuFXLX
+ p3MJHtaiP6JATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaEnkgwAKCRDCzCAB/wGP
+ wOfdB/4ipvtAe+CwmELCP2yQlVhCMr6n4zq/Aligv6zjBb+DKG9GHsQ2+Uk1KbbKa1W/r7mBBEB
+ E1ql6DHjcLnZgvEdKXQObOLA7++2Wb7ALNErFObpEEAe0DBvtoXZov+AcwBxzgfyVrYaVtXQXUb
+ +rZB2jwuWZwU6AqfOJy88IqHXmXfxRVz7uVuQ4FnNW5Y60tIjadU5MShX/pBXi/8vMyR0OMNHG9
+ b1fOZhZtmAeMiI044Uih3mclXT8ttjd+MVvSbosF4Vz4OpvkUPGiaa4v4830mmiflgbPdYSnFsz
+ q+zEBFudRiIlgN0yOWNpNb7q6mOe87q1WCX/aknWMqSwobjH
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_131017_692735_F80D9D2D 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20250611_131844_869322_BFAC1F7B 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,84 +114,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 09:12:35PM +0200, Sven Peter wrote:
-> Hi,
-> 
-> On 11.06.25 19:32, Sasha Finkelstein via B4 Relay wrote:
-> > From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> > 
-> > Add device tree entries for GPUs in M-series SoCs
-> > 
-> > Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> > ---
-> >   arch/arm64/boot/dts/apple/t6000.dtsi        |  4 ++++
-> >   arch/arm64/boot/dts/apple/t6001.dtsi        |  4 ++++
-> >   arch/arm64/boot/dts/apple/t6002.dtsi        |  4 ++++
-> >   arch/arm64/boot/dts/apple/t600x-common.dtsi | 34 ++++++++++++++++++++++++++++++++++
-> >   arch/arm64/boot/dts/apple/t600x-die0.dtsi   | 28 ++++++++++++++++++++++++++++
-> >   arch/arm64/boot/dts/apple/t8103.dtsi        | 62 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-> >   arch/arm64/boot/dts/apple/t8112.dtsi        | 62 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-> >   7 files changed, 198 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/apple/t6000.dtsi b/arch/arm64/boot/dts/apple/t6000.dtsi
-> > index 89c3b211b116e96ee0a5ea0c923c3ab824008307..3b60842045d4c3277e9530a13ef2811774209697 100644
-> > --- a/arch/arm64/boot/dts/apple/t6000.dtsi
-> > +++ b/arch/arm64/boot/dts/apple/t6000.dtsi
-> > @@ -16,3 +16,7 @@ / {
-> >   };
-> >   
-> 
-> [....]
-> 
-> >   	};
-> > +
-> > +	reserved-memory {
-> > +		#address-cells = <2>;
-> > +		#size-cells = <2>;
-> > +		ranges;
-> > +
-> > +		gpu_globals: globals {
-> > +			reg = <0x0 0 0 0>;
-> > +		};
-> > +
-> > +		gpu_hw_cal_a: hw-cal-a {
-> > +			reg = <0x0 0 0 0>;
-> > +		};
-> > +
-> > +		gpu_hw_cal_b: hw-cal-b {
-> > +			reg = <0x0 0 0 0>;
-> > +		};
-> > +
-> > +		uat_handoff: uat-handoff {
-> > +			reg = <0x0 0 0 0>;
-> > +		};
-> > +
-> > +		uat_pagetables: uat-pagetables {
-> > +			reg = <0x0 0 0 0>;
-> > +		};
-> > +
-> > +		uat_ttbs: uat-ttbs {
-> > +			reg = <0x0 0 0 0>;
-> > +		};
-> 
-> With W=1 this results in a bunch of new warnings like
-> 
-> arch/arm64/boot/dts/apple/t600x-common.dtsi:391.24-394.5: Warning
-> (unit_address_vs_reg): /reserved-memory/globals: node has a reg or
-> ranges property, but no unit name
-> 
-> but I'm not sure it's possible to fix that without making up fake
-> addresses that then get overwritten here. Would be nice to fix this some
-> other way but I'm not sure how and so far we don't enforce "no
-> additional W=1 warnings", so:
+This is what remains from "gpiolib: add gpiod_multi_set_value_cansleep"
+that didn't get applied yet for the bus subsystem. So I have changed
+the subject line accordingly.
 
-warnings go away if the "uninitialized" reg property is removed. Since
-it will be filled by the bootloader fills those anyway we could use:
+Arnd,
 
-|	gpu_globals: globals {
-|		/* bootloader static allocation */
-|		status = "disabled";
-|	}
+There was no maintainer listed in MAINTAINERS for the ts-nbus driver
+and it looks like you have picked up patches for it in the past. Could
+you please pick up these as well?
 
-Janne
+---
+Changes in v4:
+- Dropped all non-ts-nbus patches.
+- Fixed a reported issue with uninitialized variables.
+- Link to v3: https://lore.kernel.org/r/20250210-gpio-set-array-helper-v3-0-d6a673674da8@baylibre.com
+
+Changes in v3:
+- Added IS_ERR_OR_NULL() check to gpiod_multi_set_value_cansleep()
+- Added new patches to clean up accessing bitmap directly (ts-nbus, ad2s1210).
+- Added function prefix for max3191x.
+- Removed unnecessary braces in ad7606 patch.
+- Picked up additional trailers.
+- Link to v2: https://lore.kernel.org/r/20250206-gpio-set-array-helper-v2-0-1c5f048f79c3@baylibre.com
+
+Changes in v2:
+- Renamed new function from gpiods_multi_set_value_cansleep() to
+  gpiod_multi_set_value_cansleep()
+- Fixed typo in name of replaced function in all commit messages.
+- Picked up trailers.
+- Link to v1: https://lore.kernel.org/r/20250131-gpio-set-array-helper-v1-0-991c8ccb4d6e@baylibre.com
+
+---
+David Lechner (3):
+      bus: ts-nbus: validate ts,data-gpios array size
+      bus: ts-nbus: use gpiod_multi_set_value_cansleep
+      bus: ts-nbus: use bitmap_set_value8()
+
+ drivers/bus/ts-nbus.c | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
+---
+base-commit: 19a60293b9925080d97f22f122aca3fc46dadaf9
+change-id: 20250131-gpio-set-array-helper-bd4a328370d3
+
+Best regards,
+-- 
+David Lechner <dlechner@baylibre.com>
+
 
