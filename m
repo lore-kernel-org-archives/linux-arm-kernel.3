@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0548BC71134
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:56:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1EDC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ChSNUVxFtx+wYinAqz6EG6K36rN3iauMcmFkc5ToAHQ=; b=YbBT4/wFuRV1ycM2hQL/CPICCs
-	f4Qlto/sv1YGVm5nzeaDKIPB2tI+HPBY20kMTJ4XfV3rFKCtTmDo7bdViG6+7vV8i44YnoScKPKCY
-	zVXBpLS9Irn7iABcgXQYhD8Sa/LHf+mERgJ/xNR6zwTjRIqflITpyIZkgQYozbw3qfZLi1fE7xRBP
-	3ZljoLfQwOCCkdXt4BOOdYM6tA8yN/B7xNm0l5B3KH/5DZ2E3/+srK+9WmqHrDYZvLp00Mt0NDUfr
-	T8jaq4BMrLRiX5eZ6l1pmLZ2JBn5fmZMWyx2VrMpvmf6QXlxdeVD5KaGma1y632W48EZKlXI9Gf8f
-	+E9hTRxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GIIb/krqR6M0BW13m2zNVKe8LITY6PCEJsI+d/OiRLA=; b=L6QWwBKr9/KfkUi9dOpb91UL3a
+	p70zXXrjDancFwROWZ/7Uou33RGs/OBEHjCCxgYrhS9ypi5jGE9GaaU99DDaBao0KrShD8j8bu7OA
+	OjpLeiJ9L1QKnswhHymk/ENLbEWK7DkcNSvPVUmPtzy13mlunWbH3C5eK6dxowylnV7gDAw9NQ/pP
+	jciQMMWLA4zYg2IujpjhnKYrCaeezCczbG4Wi9PRiOB1mP2NeIq6GjcoadXN7IcRonLGnJGuqVshf
+	sFVbq6YdwLh+whKyD0KaZyWrgyiiq84youL7eJP8PEL8Z+HFlqpPTv+2vNakpcGEPvzlEPDvNHF5S
+	2coFrr6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRY8-0000000B3ps-3YSY;
-	Wed, 11 Jun 2025 19:55:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPRYk-0000000B4n6-43UL;
+	Wed, 11 Jun 2025 19:56:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNjN-0000000ASgi-28dI
+	id 1uPOPT-0000000Acs1-3ePO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 15:51:14 +0000
+	Wed, 11 Jun 2025 16:34:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1D2035C4756;
-	Wed, 11 Jun 2025 15:48:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A9CBC4CEE3;
-	Wed, 11 Jun 2025 15:51:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F3ED46154F;
+	Wed, 11 Jun 2025 16:34:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C8C1C4CEEA;
+	Wed, 11 Jun 2025 16:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749657072;
-	bh=ChSNUVxFtx+wYinAqz6EG6K36rN3iauMcmFkc5ToAHQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R3bJdu6AdPM4A7YDrlYN5JyWQIMAhVg7y5ZO28UKkatL2fukCeREnf12+AgIr0jHQ
-	 RX5SLdxuy2Z1xjnOjUEKREayHeXTp87hVneG2MunraowOH5wjHFmbOu0gGnadi++OO
-	 rYRkwgQeX/OXfIDetDT6GZyB/IzN/HTlLCJGuWKc0+m3d1SSxf/YE4dHLssAm4+fcT
-	 mnXYt5NcUtCGnDWS+vdwoQcRigOa2mz9lt3hSiWKXSkUoHtBTNB/6VSz88jy2ZL46Q
-	 sRF0VgyaGsyi/ALe9RG7hORY0/G788mBJqy5mzSdPyE98LpAuPo9bfqIi4XW0c4HPa
-	 GEwM2R50ki0wQ==
-Date: Wed, 11 Jun 2025 16:51:04 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
-	anshuman.khandual@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, frederic@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, samuel.holland@sifive.com,
-	palmer@rivosinc.com, charlie@rivosinc.com,
-	thiago.bauermann@linaro.org, bgray@linux.ibm.com,
-	tglx@linutronix.de, puranjay@kernel.org, david@redhat.com,
-	yang@os.amperecomputing.com, mbenes@suse.cz,
-	joel.granados@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 7/7] kselftest/arm64/mte: add MTE_STORE_ONLY testcases
-Message-ID: <49b4a106-2ddb-469d-b556-f8f63577a167@sirena.org.uk>
-References: <20250611150417.44850-1-yeoreum.yun@arm.com>
- <20250611150417.44850-8-yeoreum.yun@arm.com>
+	s=k20201202; t=1749659682;
+	bh=WBdEf0/HZqkhDmCcxbwgGvvd9cOJk0qwHZjEEgt/ZCg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=R9CJ9dpp9w5VDPPesK/5/rpC4lTAgov0Lz0m5tWPIwOM1a8pucz2AQJ+RuXpVd+8e
+	 eZ6LuqHLGtrCoDUyNmTpcDWZ5ccxi8xLL2VyhxtUaQaxz9ZL95NpwedI9bbEVyBaH3
+	 lI/i8QKLVE+L9hwXgUMLBUC589xACUwMBSGRO+c5vZdvnHOg2Pa/GijMw2RgcTYDy+
+	 0p8ZFhYrPxPQ6E9FaFC2nnBS5/+Y0G/qGfWs4MmauaK5rrGxb6tSaknwNxLXdUmb1o
+	 +xgBPkQci1eGdMYHTMdfX3VQce/ZOi5dvkf2zOu44OuvtgHnnGpw+2Axs5DpJFhsKS
+	 eqxai+HX0/7Qg==
+Date: Wed, 11 Jun 2025 17:34:33 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: Antonio Borneo <antonio.borneo@foss.st.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Andy Shevchenko <andy@kernel.org>, "David
+ Lechner" <dlechner@baylibre.com>, Gatien Chevallier
+ <gatien.chevallier@foss.st.com>, "Lee Jones" <lee@kernel.org>,
+ <linux-iio@vger.kernel.org>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+ Olivier Moysan <olivier.moysan@foss.st.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>
+Subject: Re: [PATCH 2/5] iio: adc: stm32-dfsdm: Fix build warnings about
+ export.h
+Message-ID: <20250611173433.430c8eb4@jic23-huawei>
+In-Reply-To: <7600b151-0487-4cb9-ab6e-3cc9c6012bdf@foss.st.com>
+References: <20250610124855.269158-1-antonio.borneo@foss.st.com>
+	<20250610124855.269158-3-antonio.borneo@foss.st.com>
+	<7600b151-0487-4cb9-ab6e-3cc9c6012bdf@foss.st.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3aAzPfVUTizjUcAZ"
-Content-Disposition: inline
-In-Reply-To: <20250611150417.44850-8-yeoreum.yun@arm.com>
-X-Cookie: No skis take rocks like rental skis!
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_085113_586015_1461F997 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,31 +79,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 10 Jun 2025 15:05:16 +0200
+Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
 
---3aAzPfVUTizjUcAZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> On 6/10/25 14:48, Antonio Borneo wrote:
+> > After commit a934a57a42f6 ("scripts/misc-check: check missing #include
+> > <linux/export.h> when W=1") and commit 7d95680d64ac ("scripts/misc-check:
+> > check unnecessary #include <linux/export.h> when W=1") we get the build
+> > warnings with W=1:
+> > 
+> > drivers/iio/adc/stm32-dfsdm-adc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+> > drivers/iio/adc/stm32-dfsdm-core.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+> > 
+> > Fix them.
+> > 
+> > Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>  
+> 
+> Hi Antonio,
+> 
+> You can add my:
+> Acked-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Applied to the togreg branch of iio.git.
 
-On Wed, Jun 11, 2025 at 04:04:17PM +0100, Yeoreum Yun wrote:
-> Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
-> check fault on store operation only.
+Ta.
 
-Reviewed-by: Mark Brown <broonie@kernel.org>
+> 
+> Thanks,
+> Fabrice
+> > ---
+> >  drivers/iio/adc/stm32-dfsdm-adc.c  | 1 +
+> >  drivers/iio/adc/stm32-dfsdm-core.c | 1 +
+> >  2 files changed, 2 insertions(+)
+> > 
+> > diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-dfsdm-adc.c
+> > index f583924eb16bb..c2d21eecafe79 100644
+> > --- a/drivers/iio/adc/stm32-dfsdm-adc.c
+> > +++ b/drivers/iio/adc/stm32-dfsdm-adc.c
+> > @@ -8,6 +8,7 @@
+> >  
+> >  #include <linux/dmaengine.h>
+> >  #include <linux/dma-mapping.h>
+> > +#include <linux/export.h>
+> >  #include <linux/iio/adc/stm32-dfsdm-adc.h>
+> >  #include <linux/iio/backend.h>
+> >  #include <linux/iio/buffer.h>
+> > diff --git a/drivers/iio/adc/stm32-dfsdm-core.c b/drivers/iio/adc/stm32-dfsdm-core.c
+> > index 041dc9ebc0482..47e2d1338e9e6 100644
+> > --- a/drivers/iio/adc/stm32-dfsdm-core.c
+> > +++ b/drivers/iio/adc/stm32-dfsdm-core.c
+> > @@ -8,6 +8,7 @@
+> >  
+> >  #include <linux/bitfield.h>
+> >  #include <linux/clk.h>
+> > +#include <linux/export.h>
+> >  #include <linux/iio/iio.h>
+> >  #include <linux/iio/sysfs.h>
+> >  #include <linux/interrupt.h>  
 
---3aAzPfVUTizjUcAZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJpecACgkQJNaLcl1U
-h9B2QQf/d+mWZ97O/areQImQSq75oC0pir5NqGhE3ks+INAvV4Fij8ENpSl0kxDy
-rag8fm1VD6d1qzB5GjVwTWwEe1CWNC5TD/KUuGsGXwQkb8sBwJEy47CrfpS1Wedw
-9WTqAQ7LOxzRcndgAo4vhETFB30Mw3Utq0MxC4TuQ4sxvy9RLI/nsXjAg9Y7q6ra
-GH1KHDCW09fkKT91PbNZHzcWNDeIuMp0o05iEw5+RsO1Mc9muJDmwSEGHjL4M+IK
-N55Z5doe8q8I3JoVt3bEhiPTgi5UUDlv+pwkwGxZxhLfg01Gqb1tJJGgg69yNeqt
-PauxFqN+E5yeoR0WnatVADkwG7Coqw==
-=y/aH
------END PGP SIGNATURE-----
-
---3aAzPfVUTizjUcAZ--
 
