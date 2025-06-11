@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB96C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 06:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EBABC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 06:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HmUqWl4YKmRdomjtvWrtYrKlFRC3/s1crAkFjlgd9L4=; b=mQ4qSUKqZe2WQLwap82j6uxM+D
-	kVDMBQaIT/6oi3DLrn3Dcbd4h+1KfPWSvwowF1UCex79YE8C7fpnSmLrU5+1pjbkLV59YMkJ+ebH1
-	jHd9kyk/jzir/sVjfl8fBZ2WYJKJp3wNnTVb5ePHb/Gq75GKBEEeKMW1F+Y+hOu8aAbAHD9VKfpoB
-	7OGcDZWTt2Cm0A++1/nkROt0cFkGxD9hZvo0PObem0JDw7acb953V8PnrJhHz3AkWxTDL8K7ddiwO
-	HLNJhzb9f+TpIX/YlR8a+DgYm4A4mkyIKu8Zl5MezdAZ9tDE9ZFxTtt7vcx+2I6AfkoevyqFFM6f0
-	s1GdnizA==;
+	bh=pMSxAGjcFx9J5kTkieO7cjVTH2Ny/Cx+Gy1XXqi/+s4=; b=L5fGUkHOaSZy9PknVOu6BDH1Ig
+	VqvIRZ3yNwlRBN42+xcloXc3mC/Rd+ZND1GmBFkDUQ85UiR/1iK2mHTZ5ksXuN5YdynecNKO1aLs8
+	luZZFe45zJec2qE20CEyF8tOujWT56C375SvHMELP5g5XITIK3BCmnRla/cAPCQD9/DX9GcZifVHv
+	om1pyU9XKPsdJEMNQ3cNBeY6M0N8t+G+2WBFmGUniCkMlKPNw0kT2bjAQsYXyXXXy7XPMetyxrDlO
+	cnoegHtKW0Wwgj63PlC5GiDivSJH1yRD+zXw57TM69RUzor9UBksJ34ofHicIKBMr6Dw489cGchFK
+	NjCqwNnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPF5f-000000091H9-3Msg;
-	Wed, 11 Jun 2025 06:37:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uPF7o-000000091bD-03cM;
+	Wed, 11 Jun 2025 06:39:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPF3U-0000000916Z-3q3g
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 06:35:26 +0000
+	id 1uPF5Q-000000091Eo-2ahD;
+	Wed, 11 Jun 2025 06:37:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 339414A16F;
-	Wed, 11 Jun 2025 06:35:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 111FFC4CEEE;
-	Wed, 11 Jun 2025 06:35:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 350475C5732;
+	Wed, 11 Jun 2025 06:35:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48236C4CEEE;
+	Wed, 11 Jun 2025 06:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749623724;
-	bh=ELB3hJiU1T7xtJltoyGn8FsVokJlMe8K24HTgDOgpWE=;
+	s=k20201202; t=1749623843;
+	bh=U7VDunRvN8u8DkVZV6Ke1Eo1fqlAPBr5nu0BkTBzL6U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lFHm5ll299wjWXF5XOP4i0kYFF9keEvryTuaaUjWbmYkj3djGLqkFczJlmvu0h+rJ
-	 /1oGNE/VjC63Djq8s4JfQYe1oks96ILDO+uTMctBrtpEo7kQ7RDqLHSd0u9OHZgR9B
-	 I2gqJ05+gmN4xrqF9dOWvheUuZgweSp9ZRpR4+vL9AKqjZZ99EL7WcUKgJS/1alr2n
-	 fI/1kcr9y+z99/DdffbEjzlYDHHAJp+ou3UDA8DC070k0dicUMn8OoFZ+aNSYhShJu
-	 DScHxfTzGZoG3n2/3xl0PjQA0sa9LP5+RhczYhLaK9r1wbQ1rj0ElaglspSTEaJvhd
-	 DZFapxLD3CNew==
-Message-ID: <42a0b7ab-d85d-4d52-a263-4a4648c7ff05@kernel.org>
-Date: Wed, 11 Jun 2025 08:35:19 +0200
+	b=tMnm/M/ofWvG+gj1RXzMIXoKZooRqMD1QiOM9V05tTiLItocHaLEd91kfr5CuT75p
+	 UGIX5Ay64buKfThuLveRzlTFEemtYM3LDDRawZlwyYHl7wEBjpeaY6d9kcQRwvxQ5a
+	 jRSnxyVITOIzfmMI5Zl+8+GS0KxrCflCzAPzWUI915UuFvw8n+cKmIk29ncQrc/DP3
+	 ceyc6zqgYSsdXAAg50h6XJTfYXM4g8sw1+uJQCMTy+XMAwSMt0prenNtyiAfHmeJd1
+	 U0hvsTK/Znl81YAizAxFKa+UN5V4EZskJIuAVzSmiftyrWlTnANE/Zi1jPvvWOxepF
+	 N0eQiRRX+5KVQ==
+Message-ID: <ad367080-5863-4131-b395-b39e2d357fb9@kernel.org>
+Date: Wed, 11 Jun 2025 08:37:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp13
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
- <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
- <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
- <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
- <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
- <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
- <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
+Subject: Re: [PATCH v2] pmdomain: Use str_enable_disable-like helpers
+To: shao.mingyin@zte.com.cn
+Cc: ulf.hansson@linaro.org, changhuang.liang@starfivetech.com,
+ geert+renesas@glider.be, magnus.damm@gmail.com, heiko@sntech.de,
+ alim.akhtar@samsung.com, walker.chen@starfivetech.com,
+ sebastian.reichel@collabora.com, detlev.casanova@collabora.com,
+ finley.xiao@rock-chips.com, shawn.lin@rock-chips.com, pgwipeout@gmail.com,
+ qiu.yutan@zte.com.cn, linux-pm@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, yang.yang29@zte.com.cn,
+ xu.xin16@zte.com.cn, yang.tao172@zte.com.cn, ye.xingchen@zte.com.cn
+References: <202506111010521118VJaiO_pb0rD7b3daxqox@zte.com.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
+In-Reply-To: <202506111010521118VJaiO_pb0rD7b3daxqox@zte.com.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_233525_006092_C4318CD3 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20250610_233724_747025_13E66ED7 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,76 +123,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 15:33, Clement LE GOFFIC wrote:
-> On 6/10/25 14:38, Krzysztof Kozlowski wrote:
->> On 10/06/2025 14:02, Clement LE GOFFIC wrote:
->>> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
->>>> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
->>>>>>
->>>>>>> +		};
->>>>>>> +
->>>>>>> +		hdp: pinctrl@5002a000 {
->>>>>>> +			compatible = "st,stm32mp131-hdp";
->>>>>>> +			reg = <0x5002a000 0x400>;
->>>>>>> +			clocks = <&rcc HDP>;
->>>>>>>     			status = "disabled";
->>>>>>
->>>>>> Why are you disabling it? What is missing?
->>>>>
->>>>> Nothing is missing just disabled by default.
->>>>> The node is then enabled when needed in board's dts file.
->>>> Nodes should not be disabled by default if they are complete. That's why
->>>> I asked what is missing. Drop.
+On 11/06/2025 04:10, shao.mingyin@zte.com.cn wrote:
+>>> From: Shao Mingyin <shao.mingyin@zte.com.cn>
 >>>
->>> Hi Krzysztof, OK I better understand now.
->>> So yes the 'pinctrl-*' properties which are board dependent are lacking.
+>>> Replace ternary (condition ? "enable" : "disable") syntax and ternary
+>>> (condition ? "on" : "off") syntax with helpers from
+>>> string_choices.h because:
+>>> 1. Simple function call with one argument is easier to read.  Ternary
+>>>    operator has three arguments and with wrapping might lead to quite
+>>>    long code.
+>>> 2. Is slightly shorter thus also easier to read.
+>>> 3. It brings uniformity in the text - same string.
+>>> 4. Allows deduping by the linker, which results in a smaller binary
+>>>    file.
 >>
->> These are not properties of this node.
-> 
-> Does this mean I should add 'pinctrl-*' properties in bindings yaml file ?
-> I don't get it..
-
-These properties have no meaning here, so the hardware description is
-complete. You claim that you miss them thus device is incomplete is just
-not correct: these properties do not belong here! They belong to the
-board but even there they are totally optional. Why would they be a
-required resource?
-
-To remind: we talk here ONLY about required resources.
-
-> 
->>>
->>> In the last patch of my serie I add them (only for stm32mp157f-dk2) but
->>> keep it disabled because the pin is on an external connector (the
->>> Arduino connector of the board).
->>> This prevent any issue with a possible connected module.
+>> So you just taken everything from the same my patch - even entire commit
+>> subject and commit description - and sent it as yours?
 >>
->> Not relevant. Pin control for connector are board specific, but pinctrl
->> SoC part is SoC.
-> 
-> I think we don't understand each other here too. I don't understand the 
-> end of your sentence "pinctrl SoC part is SoC".
-
-Please read first how DTS is organized.
-
-The pin controller device is part of SoC not part of a board.
-
-Pins configuration for devices on the board are not part of the SoC.
-What is not clear here? We talk here in terms how DTS is supposed to be
-organized.
-
-> 
-> Maybe some informations that could help:
-> The 'pinctrl-*' properties are used in the HDP case to select the 
-> internal signal to output AND the alternate function on the pin to 
-> output the HDP function.
-
-We all know this.
-
-> 
+>> https://lore.kernel.org/all/20250114203547.1013010-1-krzysztof.kozlowski@linaro.org/
+>>
+>> oh my, if doing EXACTLY the same keep original authorship - the From and
+>> Sob fields.
+>>
 >> Best regards,
 >> Krzysztof
+> Dear Krzysztof,
+> Thank you for your suggestions. I have carefully read your advice and
+> made adjustments to the patches accordingly. I used your patch as a
+> reference standard, not just taking everything from the same your patch.
 > 
+> Based on your suggestion, I have consolidated the series of patches for
+
+I did not suggest to take everything from my patch, add one missing
+change and use as yours.
+
 
 
 Best regards,
