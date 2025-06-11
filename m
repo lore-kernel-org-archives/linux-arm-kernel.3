@@ -4,88 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7CAC71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFE4C71143
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 17:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Of9BSL6Um1w9fb6I/aEuBtBUlJHILmr+goGt+k/YVGg=; b=1QQF7qJdupnU1q1LvdKpYGIz3v
-	GDiMqGjSSu0TFJ9hlSzHXKDR5/DuuivvQpZLZktoGqXKMl14MfzQandRVvg7nO+tbp5J2+sQIhr9P
-	i9bO+MdXzVyVdQuj2vY+IShv748N/jjMRaI3bAO/1NeIUkTzYFH2hsE6WetSssUzD5DEFUK2q9Gxu
-	4ZaXqdhB287NC9R0AMBqpBw/OGBJWc5hvmySg+KqVNt1O/x+Ac/7vOxHXxe75szCV+kmLJLbZXPKT
-	t3G+v57zPlg1fwayNC3v0cciNQdqAYIV/SfLOgG7f1KqyIXDNAVS7Ft0zXbaPpnrOSZgv+0uA4p4q
-	M5+e+BaA==;
+	bh=c96O//SDqamm/fQkqIHjSpr4fJPGGhqavYmjSXabBNY=; b=r4iVEygpWJZJAnjpwxJY6JncaF
+	r6myhaBuDDXORWmGmov3EKcmxohij3g5+1GVpZ5UcOBARpizRDwkvkKf3YXe94DO9K2JjJSa6tY6o
+	Z61fFSJGeLp5p5eTHefBDurWsJiQFYlUlUdtXEza1SHTZDOyYlmfZVgs6URcT6xCwqiLvPmREsbrj
+	Ah8I0iP/blqEHpXks1Z49cSbv9nVB2EIByBFtAsAHQC0NWwXmujUve2TUjymJ67pUMqs3YGy0L4lM
+	8XpT2363NfTn0I/Pzs4qEdF+QRjy9Fb3BoMXpw/iDwE51OSAvkj4wcuAurvt3rxoOn6k4WK6Y+tWU
+	A2UwwRVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPja-0000000AlgV-2ISy;
-	Wed, 11 Jun 2025 17:59:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPPjZ-0000000AlgI-1686;
+	Wed, 11 Jun 2025 17:59:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJs4-00000009lur-1Xr1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 11 Jun 2025 11:43:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Of9BSL6Um1w9fb6I/aEuBtBUlJHILmr+goGt+k/YVGg=; b=GK6IzFuo9CjTA/zfNHAg8LVPb5
-	I1TKkLL84TpRJfsZim/m0rieAPJcs8jQtSCcIRumDgD1oWZ0Sc22n43ZRqOEo7F1AaX6fvMl5LLHI
-	z6k+I+V8eQsJi+wsrlPLr6mhUmxhtBGCDtKMhRBtgC61NpypJC78wjITXMZyIpmBRujsSj4BWnDIK
-	xZltsOM+Z3w7jyZTxYWOuTy/LMne637j/EtvOAMu0+A64Wh5qdt4HGp8g7UFXTsq0HzdGs/f51SdS
-	8RSccHkzEJLJUM5hOl+56tJ84F8u+pUvzZrc0HKqVn37MPHMbr/7nm+DXhWU4YKF/CR+aNpsUQP++
-	KCoNlQtg==;
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJs1-00000002MeC-2zL2
+	id 1uPJrY-00000009lqK-3VFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 11:43:56 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55BBhlJa2576483;
-	Wed, 11 Jun 2025 06:43:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749642227;
-	bh=Of9BSL6Um1w9fb6I/aEuBtBUlJHILmr+goGt+k/YVGg=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=wubjjphTHqZiOKf/+ResQAvzgqRzIUdlbybP3dBTRxnNxTzVBJEqwDAQu3VVcyKUS
-	 yRDJnHxfZ8WAfJe+rsZxpo9D/YRKXJhowKWbz8veVTJHqq+XgEx/t3KurZv6nsMmtW
-	 +Q9GqGGLbKJpDPiTbE2Y2blM8zxmnFGr7tCKt4fU=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55BBhlYg2833102
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 11 Jun 2025 06:43:47 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 11
- Jun 2025 06:43:47 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Wed, 11 Jun 2025 06:43:47 -0500
-Received: from uda0492258.dhcp.ti.com (dhcp-172-24-227-169.dhcp.ti.com [172.24.227.169])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55BBhavF270460;
-	Wed, 11 Jun 2025 06:43:44 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH v2 2/5] arm64: dts: ti: k3-am65: disable "mcu_cpsw" in SoC file and enable in board file
-Date: Wed, 11 Jun 2025 17:13:33 +0530
-Message-ID: <20250611114336.2392320-3-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250611114336.2392320-1-s-vadapalli@ti.com>
-References: <20250611114336.2392320-1-s-vadapalli@ti.com>
+	Wed, 11 Jun 2025 11:43:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A46F944B84;
+	Wed, 11 Jun 2025 11:43:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3479C4CEEE;
+	Wed, 11 Jun 2025 11:43:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749642203;
+	bh=VtORa9gULIIxSrmzYE2nKZ6lSqCXmbEADc6P99tw9QA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VBlo25BvgjCTtX2YzIkubtVomP3UFvIlPOni6KAT2iaqyw0+rNOOgM/ZPl/fuHBvJ
+	 6RUhLoAuNInQr/FBMX+RWik7oyFJ4KwkDbIMdqFWDfaPGcfFNs6vqlMdc5geOp1Ujl
+	 FCrHNQtUTTvUg8occ3jpxoAIVnGwsjmbIPHHEIjSsMh6tsNYLL33XyJWgH9mPukgYK
+	 hCYm0bezRR5bM1XDKENk3gDVdcM6xmivdsOEg/XJ+wiMB/PkzCPytMmHvseo0dSsne
+	 uuGrlx1zIJ69ZAdr98knudftyVAnbpHr+F3oPh7UTtxBz4kbE8usaFABwhqFj1mliq
+	 fumB5us0LDq2g==
+Date: Wed, 11 Jun 2025 12:43:18 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, pcc@google.com, will@kernel.org,
+	anshuman.khandual@arm.com, joey.gouly@arm.com,
+	yury.khrustalev@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+	frederic@kernel.org, akpm@linux-foundation.org, surenb@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v6 2/9] arm64: report address tag when
+ FEAT_MTE_TAGGED_FAR is supported
+Message-ID: <c0b4dc8a-b37c-4e8e-be2e-bc8906615702@sirena.org.uk>
+References: <20250611094107.928457-1-yeoreum.yun@arm.com>
+ <20250611094107.928457-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Gb6T1JetxHXIds4r"
+Content-Disposition: inline
+In-Reply-To: <20250611094107.928457-3-yeoreum.yun@arm.com>
+X-Cookie: No skis take rocks like rental skis!
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_124354_109780_897BD210 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250611_044324_892279_5A0AC823 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,74 +79,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following the existing convention of disabling nodes in the SoC file and
-enabling only the required ones in the board file, disable "mcu_cpsw" node
-in the SoC file "k3-am65-mcu.dtsi" and enable it in the board file
-"k3-am654-base-board.dts". Also, now that "mcu_cpsw" is disabled in the
-SoC file, disabling it in "k3-am65-iot2050-common.dtsi" is no longer
-required. Hence, remove the section corresponding to this change.
 
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
+--Gb6T1JetxHXIds4r
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-v1 of this patch was 3 different patches which have currently been
-squashed:
- https://lore.kernel.org/r/20250529133443.1252293-6-s-vadapalli@ti.com/
- https://lore.kernel.org/r/20250529133443.1252293-7-s-vadapalli@ti.com/
- https://lore.kernel.org/r/20250529133443.1252293-8-s-vadapalli@ti.com/
+On Wed, Jun 11, 2025 at 10:41:00AM +0100, Yeoreum Yun wrote:
 
-Squashing the patches is the only change since the v1 series, in
-addition to updating the commit message accordingly.
+> +HWCAP3_MTE_FAR
+> +    Functionality implied by ID_AA64PFR2_EL1.MTEFAR == 0b0001.
 
-Regards,
-Siddharth.
+> +Applications should interpret the values of these bits based on
+> +the support for the 'mte_far' hwcap. If the support is not present,
+> +the values of these bits should be considered as undefined otherwise valid.
 
- arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi | 4 ----
- arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi            | 2 ++
- arch/arm64/boot/dts/ti/k3-am654-base-board.dts     | 1 +
- 3 files changed, 3 insertions(+), 4 deletions(-)
+The constant is HWCAP3_MTE_FAR and the cpuinfo is mtefar:
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-index e5136ed94765..48e740eb0088 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-@@ -475,10 +475,6 @@ &main_i2c3 {
- 	#size-cells = <0>;
- };
- 
--&mcu_cpsw {
--	status = "disabled";
--};
--
- &sdhci1 {
- 	status = "okay";
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
-index 7cf1f646500a..cd0b796c5f8f 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi
-@@ -354,6 +354,8 @@ mcu_cpsw: ethernet@46000000 {
- 			    "tx4", "tx5", "tx6", "tx7",
- 			    "rx";
- 
-+		status = "disabled";
-+
- 		ethernet-ports {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-index c30425960398..d2632d1f8eb7 100644
---- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-@@ -606,6 +606,7 @@ partition@3fe0000 {
- };
- 
- &mcu_cpsw {
-+	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mcu_cpsw_pins_default>;
- };
--- 
-2.34.1
+> +	[KERNEL_HWCAP_MTE_FAR]		= "mtefar",
 
+The reference to the hwcap should probably be one of these, I'd go for
+HWCAP3_MTE_FAR since it says hwcap.
+
+>  	/*
+>  	 * The architecture specifies that bits 63:60 of FAR_EL1 are UNKNOWN
+>  	 * for tag check faults. Set them to corresponding bits in the untagged
+> -	 * address.
+> +	 * address if ARM64_MTE_FAR isn't supported.
+> +	 * Otherwise, bits 63:60 of FAR_EL1 are KNOWN.
+
+Should this say UNKNOWN?
+
+--Gb6T1JetxHXIds4r
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhJa9UACgkQJNaLcl1U
+h9CZqQf8C9c9a1CQGL/nyb8MDCIEwm3jBTstFRtDJlSPcoMRL/KcLTbk01sP2PWr
+A/qdmt5qMlQKPwtnIUrzSIqmn96TTzCbJZWsn4C7fzrLh7jT+eD8GjXKCjF/Mkq0
+uXfzVKY5Mcyn0H73gtKrRdOC9ng/Xn0xFolNvXYDZplN0VUHBn+Fj51XYzR1lMKL
+9zNZry8Dc9mpHUgORCFt5gxud4Wph4lPnWPsCDI9zyXHw91xzzZAxqByLZ8d8vsH
+Z5Rpe5jD6kMkoS2umJr5ZyENjqaPagxWY1IZa+C5/7xx7l8czKLWXy+jj7OG9lAr
+G+4u3UauAv/tfBdOWi2iq6ptu58suQ==
+=dyyt
+-----END PGP SIGNATURE-----
+
+--Gb6T1JetxHXIds4r--
 
