@@ -4,111 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7620CC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6335BC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGzsUKOfV2agJpJYzQdLRyRetgWdJTrvlnjtr6DjfNs=; b=Qdds7ALZUvpUg9UCl2UJdhX23e
-	uu2WLiYh2ARgopjzt6i/jLlF5ZWKstWRwGu427+cQR239745f5CAx6kVRA4uEGvAK2/itnN5oiUF1
-	9pRMycn4bqbdifu8ntAVJgjp0i9mRpP0DUKOYQ5RLSMXgkR8jY2QHRfZIg80q+X7PzHMo8hm4+5mm
-	lsiQANaN+VOlYCy34iIAoRRylBLshYSfR0CB0wABeF8MAHyOhSt9goNl4Nh44szDXd9oEIzn/yXKU
-	9EJ0qlbJqTVWWDXyuFVDWukVs8Oj1ncVkjJ7nAaWRU0OfKPdfgdmPBHIhOs4O/zeNeYc0eXx+ZtSm
-	xg27t7pA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FWkuXz5NwABTMeU3ADdfJzf4Y8ldBUEs3PBNn/Qph+c=; b=o2a3IylrJ/+lSN8v2UG+klMlW2
+	mTN3eEYkOIYRBmOya4T2AVY959wu/4NotXLU7ZwQGSWU2UECHUUvrt32qXiiQx9kVJgsuFoyWXXcd
+	v4XDrexIzm4Suf3/Wov64zrWcKJXJIiPxaTrFTNvZGuMysyp0AvlAoGq/0TeN7cbiejHI3ADfIEtT
+	ZhRjCwx2aJ3zKmlcFKr6JQQcfTVB1/iQ8zOvH36bxoXIrppW2A3FeCCSy6YShPtBJ9GdbliFAgSWP
+	J/1i/fXT0hDSaINzzN+AQGAjCcR0EC5K0KfCBCJqFRNcbUzBnuCq7sDLOyXh8z/+23basJdJGPc8F
+	ZKI56hFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHrg-00000009ULd-0zZd;
-	Wed, 11 Jun 2025 09:35:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHpS-00000009U5M-3BwE;
-	Wed, 11 Jun 2025 09:33:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D80AD629DC;
-	Wed, 11 Jun 2025 09:33:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3144C4CEEE;
-	Wed, 11 Jun 2025 09:33:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749634385;
-	bh=xFb7df67RXQJJM6OYnc61HwRVo7NOSQCzNOagtm0TFc=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=XuJ4VI4DlbRxAFJ/x1UXS1DGayFL2lguLqGNSC/cRa7KdtkkGEVtvdQ5yRRV1dnWs
-	 cVTsghconbTtqgCL1o2OCQHRiIdSjio57OiYCMhKcWRGUxdgfZ6oXW9Am2bS+eMiC7
-	 uvPY/WDT0PjDUL14e3u2FwQn4ecKroLs0HewZDgeqzIcwxN1XL1cTK9FpdQljEiq52
-	 /aFjsVcxFhKltJr0y/YgpU6MiOjVd6kT7yeb+kHu9RcHWJDKnyk2UNkhFhHdOjlDsu
-	 Ikj5gzPnc91zOJnxTU9fHG0mg9HPkl4sPg5uA1Udo2qSN6DxlRrallVB2th8jObvna
-	 RMioGv2e4CKZA==
-Message-ID: <d08cb08c-4bdd-4715-8273-9feb7de7474b@kernel.org>
-Date: Wed, 11 Jun 2025 11:32:59 +0200
+	id 1uPHtp-00000009Uif-10n9;
+	Wed, 11 Jun 2025 09:37:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPHpc-00000009U6O-0ssK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Jun 2025 09:33:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8321B1596;
+	Wed, 11 Jun 2025 02:32:52 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8C89E3F59E;
+	Wed, 11 Jun 2025 02:33:10 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	leo.yan@arm.com
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] coresight: fix indentation error in cscfg_remove_owned_csdev_configs()
+Date: Wed, 11 Jun 2025 10:33:08 +0100
+Message-Id: <20250611093308.926875-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/10] ASoC: dt-bindings: mediatek,mt8196-afe: add
- audio AFE document
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: "Darren.Ye" <darren.ye@mediatek.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: Rob Herring <robh@kernel.org>, linux-sound@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>, devicetree@vger.kernel.org,
- Mark Brown <broonie@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-gpio@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>
-References: <20250514081125.24475-1-darren.ye@mediatek.com>
- <20250514081125.24475-9-darren.ye@mediatek.com>
- <e74d82b3-ed4a-433b-9305-a80b68130a6f@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <e74d82b3-ed4a-433b-9305-a80b68130a6f@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_023316_292581_D3E753B8 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,74 +68,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/05/2025 12:54, Krzysztof Kozlowski wrote:
-> On 14/05/2025 10:11, Darren.Ye wrote:
->> From: Darren Ye <darren.ye@mediatek.com>
->>
->> Add mt8196 audio AFE document.
-> 
-> A nit, subject: drop second/last, redundant "document".
-> See also:
-> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+Fix wrong indentation in cscfg_remove_owned_csdev_configs()
 
-Since you asked what did you miss from previous review (and I replied
-that EVERYTHING) then maybe this will help:
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202506102238.XQfScl5x-lkp@intel.com/
+Fixes: 53b9e2659719 ("coresight: holding cscfg_csdev_lock while removing cscfg from csdev ")
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-syscfg.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-How did you implement this?
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+index 83dad24e0116..6836b05986e8 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -395,7 +395,7 @@ static void cscfg_remove_owned_csdev_configs(struct coresight_device *csdev, voi
+ 	if (list_empty(&csdev->config_csdev_list))
+ 		return;
 
-> 
->>
->> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
-> 
-> 
-> ...
-> 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - mediatek,vlpcksys
->> +  - power-domains
->> +  - memory-region
->> +  - clocks
->> +  - clock-names
-> 
-> 
-> Keep the same order as in properties:.
+-  guard(raw_spinlock_irqsave)(&csdev->cscfg_csdev_lock);
++	guard(raw_spinlock_irqsave)(&csdev->cscfg_csdev_lock);
 
-How did you implement this?
+ 	list_for_each_entry_safe(config_csdev, tmp, &csdev->config_csdev_list, node) {
+ 		if (config_csdev->config_desc->load_owner == load_owner)
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-
-> 
-> 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-How did you implement this?
-
-
-> 
-> <form letter>
-> This is an automated instruction, just in case, because many review tags
-> are being ignored. If you know the process, you can skip it (please do
-> not feel offended by me posting it here - no bad intentions intended).
-> If you do not know the process, here is a short explanation:
-> 
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-> of patchset, under or above your Signed-off-by tag, unless patch changed
-> significantly (e.g. new properties added to the DT bindings). Tag is
-> "received", when provided in a message replied to you on the mailing
-> list. Tools like b4 can help here. However, there's no need to repost
-> patches *only* to add the tags. The upstream maintainer will do that for
-> tags received on the version they apply.
-> 
-> Full context and explanation:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-
-How did you implement this?
-
-Does such questions help you to find what was missing?
-
-Best regards,
-Krzysztof
 
