@@ -4,118 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BAD3C71134
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 06:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB96C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 06:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UlTHW3VYWOtyjHi00FtQe2a8OVg/B2yyKP2g45rTIyM=; b=dJAJ2avPERC8bgOMRD3dWTUZpv
-	FVUZRstFz/PxAWWnKUkIigeV3Eh6vosJLDPUta92drf0DVkOSTiqUxnjjM9d9z2I4tSsFUzFk7eeu
-	edaQN6ph5NHbpOFMIfrZ/DTve7UkwOb1c2CXrR8+aH2cp6fRNGUM6jQsmiiQyqOI+PXdqw45Yu96J
-	zfd/Vr6vOPioVWvRZn4je3z0JMbmxyAgKE8r65cCNRpHULZdPhV5qnMKkcWwprMOhdlTYyvvjs4gJ
-	6VWFvrvFjLYEevZIkwKhoBgCwMZVFvRh9SzRiI/XBJEox7xEvdAVXl5u2gPN7OJWPAc+uNvN7vTik
-	kbrzMd5g==;
+	bh=HmUqWl4YKmRdomjtvWrtYrKlFRC3/s1crAkFjlgd9L4=; b=mQ4qSUKqZe2WQLwap82j6uxM+D
+	kVDMBQaIT/6oi3DLrn3Dcbd4h+1KfPWSvwowF1UCex79YE8C7fpnSmLrU5+1pjbkLV59YMkJ+ebH1
+	jHd9kyk/jzir/sVjfl8fBZ2WYJKJp3wNnTVb5ePHb/Gq75GKBEEeKMW1F+Y+hOu8aAbAHD9VKfpoB
+	7OGcDZWTt2Cm0A++1/nkROt0cFkGxD9hZvo0PObem0JDw7acb953V8PnrJhHz3AkWxTDL8K7ddiwO
+	HLNJhzb9f+TpIX/YlR8a+DgYm4A4mkyIKu8Zl5MezdAZ9tDE9ZFxTtt7vcx+2I6AfkoevyqFFM6f0
+	s1GdnizA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEhI-00000008w4S-2FYj;
-	Wed, 11 Jun 2025 06:12:28 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uPF5f-000000091H9-3Msg;
+	Wed, 11 Jun 2025 06:37:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEf6-00000008vap-2crt
+	id 1uPF3U-0000000916Z-3q3g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 06:10:14 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a4e749d7b2so32255f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 10 Jun 2025 23:10:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749622211; x=1750227011; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=UlTHW3VYWOtyjHi00FtQe2a8OVg/B2yyKP2g45rTIyM=;
-        b=OcRTP/b5neUtrxQ5PFivf7LeyCiPl++GsPcT+zFRT996815qkLJnlog/tQD+g9MCPJ
-         qL9UNY0y1xroaNX7qMkhCXZLbOPo5Ic0O4FMtt/NxGgXc/fJF3iZXsVKq5/mWnicSPpE
-         f3PtTu7BJqVTjCckHAwA4Fj/G3FxAz0RKsOeEF3y5IPrqKWAyLrFHRTj6LWIXJw/M7B6
-         xJKF3oWECbcCqJeW/YthUALCpJrJW732AzaLFbRY1hJ+uXX5A8foKWfRd8B60CPR1MaD
-         1hy/u3fdFf6Z8WpKPAgZPHmvtK0cwnuxpUMiy4h00PZRqEWVJH/4dmsXrhR35UeQ8RpZ
-         w0cQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749622211; x=1750227011;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UlTHW3VYWOtyjHi00FtQe2a8OVg/B2yyKP2g45rTIyM=;
-        b=f7arJzlcbhGJLPtV7FtdZdf4FwReDBw53dyQwXn7D7XN7dyLBi+IRJnFvwhGWtU4bR
-         G6ut5dA7bt7hQuTdawQmT4jd4QfhdgziYebcxwmltDzRjz/zEEbhMlV0Cg6qMRaMX8tW
-         ChPZGAMPR8Se7voPkrH57z78bXH00p7WAA3F3wSv6V0TLCSIyDNVCQKcNkO3Oftp3heR
-         zOLXPo35G/d93IBhm4/SQT+JyasY33v4v2nMDhZfVOVl418ZYLErX2ZxJTZgQtoohIwo
-         EQgw3/+3zug/atlNE0/1oy8zJhU7z0Aberkk8iPHpPg9W2JaXpNcFv8T3wUPwgXSq9mZ
-         AQXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVraHjWZi3ZmMhnxlPiOITk+2L7Ol9q7wxHMNE4GAS9CwRasxnVyr5mVBXAs3pjzzGWWPVu4un4hpawFKI9e/hR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7QznSu/oPFzZxwtOuVagJUMMBHVWlQzI0eMWVulCqOSN/8Cu2
-	xDGbfSFLj5/oae7kVH8zVURfRmZdvy1C1jge1d1hA+ARTEhqnQX9nAnQj60EVrtPwOQ=
-X-Gm-Gg: ASbGncvlU2f7Vt2fL+5XqEcOVZk+WeJ2ht7fIPLKFS8/4mwNmomIw/ococZYuSeXJMM
-	6x4ZOv5MxfB26ElVViraTqqMWXLLYmBe3tDfiVmYbChXXpccpFY13U64hzmPdyLxkFXcGPZfpWW
-	TZWcBtugBL3aihielu/r9puzf8490jRphkCsR90cfS40Ab0L7GVlfKCnpeo2ny+yLXPGGBO+v7d
-	RSyi5Rg4bS2Ei7aa2T+S+rbtK4EOT/XGzCN88YLjjroNF2gWUaVtcEV3ZeR/jyHeRGsG27/kVF2
-	G0iAv3gtuD+DK6ib5TeyYOEtxW+Uo54TFw0+fio7qCFTfQIj8PPo3JY2daF0uKdscQg+MDPcKgP
-	w6AWdxZ8=
-X-Google-Smtp-Source: AGHT+IHM9dS5dp8fJvcn9zUW8nWaKatdo2FvAJHnG1+WYyvJKPi7a7lMHzobSq5cawskiwEzsR/Acg==
-X-Received: by 2002:a05:6000:2303:b0:3a4:d6ed:8e28 with SMTP id ffacd0b85a97d-3a5586cba86mr497584f8f.8.1749622210982;
-        Tue, 10 Jun 2025 23:10:10 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a532452d7esm14103802f8f.85.2025.06.10.23.10.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Jun 2025 23:10:10 -0700 (PDT)
-Message-ID: <1b5b6477-b974-4cc7-87ab-a2e8d1e2498c@linaro.org>
-Date: Wed, 11 Jun 2025 08:10:06 +0200
+	Wed, 11 Jun 2025 06:35:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 339414A16F;
+	Wed, 11 Jun 2025 06:35:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 111FFC4CEEE;
+	Wed, 11 Jun 2025 06:35:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749623724;
+	bh=ELB3hJiU1T7xtJltoyGn8FsVokJlMe8K24HTgDOgpWE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lFHm5ll299wjWXF5XOP4i0kYFF9keEvryTuaaUjWbmYkj3djGLqkFczJlmvu0h+rJ
+	 /1oGNE/VjC63Djq8s4JfQYe1oks96ILDO+uTMctBrtpEo7kQ7RDqLHSd0u9OHZgR9B
+	 I2gqJ05+gmN4xrqF9dOWvheUuZgweSp9ZRpR4+vL9AKqjZZ99EL7WcUKgJS/1alr2n
+	 fI/1kcr9y+z99/DdffbEjzlYDHHAJp+ou3UDA8DC070k0dicUMn8OoFZ+aNSYhShJu
+	 DScHxfTzGZoG3n2/3xl0PjQA0sa9LP5+RhczYhLaK9r1wbQ1rj0ElaglspSTEaJvhd
+	 DZFapxLD3CNew==
+Message-ID: <42a0b7ab-d85d-4d52-a263-4a4648c7ff05@kernel.org>
+Date: Wed, 11 Jun 2025 08:35:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/17] pinctrl: Constify pointers to 'pinctrl_desc' and
- more
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
- Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
- =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
- =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- David Rhodes <david.rhodes@cirrus.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Lars Persson <lars.persson@axis.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Damien Le Moal <dlemoal@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>,
- Michal Simek <michal.simek@amd.com>, Emil Renner Berthing <kernel@esmil.dk>,
- Jianlong Huang <jianlong.huang@starfivetech.com>,
- Hal Feng <hal.feng@starfivetech.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
- openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-sound@vger.kernel.org,
- patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@axis.com, linux-riscv@lists.infradead.org,
- linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
- <CACRpkdaQLq3YGfOg81gt5=1Wh2ZkoKHeK6H=NWaeW9aLbX4VCA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp13
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
+ <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
+ <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
+ <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
+ <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
+ <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
+ <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
+ <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
  JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
@@ -125,46 +77,45 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  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
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <CACRpkdaQLq3YGfOg81gt5=1Wh2ZkoKHeK6H=NWaeW9aLbX4VCA@mail.gmail.com>
+ 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 a/A=
+In-Reply-To: <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_231012_682188_5F4CBF3E 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250610_233525_006092_C4318CD3 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,19 +130,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 14:16, Linus Walleij wrote:
-> Hi Krzysztof,
+On 10/06/2025 15:33, Clement LE GOFFIC wrote:
+> On 6/10/25 14:38, Krzysztof Kozlowski wrote:
+>> On 10/06/2025 14:02, Clement LE GOFFIC wrote:
+>>> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
+>>>> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
+>>>>>>
+>>>>>>> +		};
+>>>>>>> +
+>>>>>>> +		hdp: pinctrl@5002a000 {
+>>>>>>> +			compatible = "st,stm32mp131-hdp";
+>>>>>>> +			reg = <0x5002a000 0x400>;
+>>>>>>> +			clocks = <&rcc HDP>;
+>>>>>>>     			status = "disabled";
+>>>>>>
+>>>>>> Why are you disabling it? What is missing?
+>>>>>
+>>>>> Nothing is missing just disabled by default.
+>>>>> The node is then enabled when needed in board's dts file.
+>>>> Nodes should not be disabled by default if they are complete. That's why
+>>>> I asked what is missing. Drop.
+>>>
+>>> Hi Krzysztof, OK I better understand now.
+>>> So yes the 'pinctrl-*' properties which are board dependent are lacking.
+>>
+>> These are not properties of this node.
 > 
-> On Wed, May 28, 2025 at 12:41 PM Krzysztof Kozlowski
-> <krzysztof.kozlowski@linaro.org> wrote:
-> 
->> In several drivers pointers to 'struct pinctrl_desc' is not modified, so
->> since core does not modify it, it can be made as const.
-> 
-> will you rebase this series on v6.16-rc1, fix the snags and send a new version?
-> It's all nice cleanups so it'd be great to just merge this.
+> Does this mean I should add 'pinctrl-*' properties in bindings yaml file ?
+> I don't get it..
 
-Sure, coming soon.
+These properties have no meaning here, so the hardware description is
+complete. You claim that you miss them thus device is incomplete is just
+not correct: these properties do not belong here! They belong to the
+board but even there they are totally optional. Why would they be a
+required resource?
+
+To remind: we talk here ONLY about required resources.
+
+> 
+>>>
+>>> In the last patch of my serie I add them (only for stm32mp157f-dk2) but
+>>> keep it disabled because the pin is on an external connector (the
+>>> Arduino connector of the board).
+>>> This prevent any issue with a possible connected module.
+>>
+>> Not relevant. Pin control for connector are board specific, but pinctrl
+>> SoC part is SoC.
+> 
+> I think we don't understand each other here too. I don't understand the 
+> end of your sentence "pinctrl SoC part is SoC".
+
+Please read first how DTS is organized.
+
+The pin controller device is part of SoC not part of a board.
+
+Pins configuration for devices on the board are not part of the SoC.
+What is not clear here? We talk here in terms how DTS is supposed to be
+organized.
+
+> 
+> Maybe some informations that could help:
+> The 'pinctrl-*' properties are used in the HDP case to select the 
+> internal signal to output AND the alternate function on the pin to 
+> output the HDP function.
+
+We all know this.
+
+> 
+>> Best regards,
+>> Krzysztof
+> 
+
 
 Best regards,
 Krzysztof
