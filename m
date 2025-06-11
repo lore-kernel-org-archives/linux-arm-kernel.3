@@ -4,61 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FA2C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 04:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17EBC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 04:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=es38YOVu5vYbvKWbHCodQvRPZdZLg3ThA+Wr0Te0wSQ=; b=Knrycntd5P8p8RXmOnXnfKPnR9
-	O/3/JxThYgdHqpgIOLIAlFJVArf/isRgFG+AoixvYjEgB/wgJVehod5eM/r8iuaH3qA+fnzmvgtsl
-	YRzNC9mGxZPDZUulq8pEde9X7WKL34Py5MOD7LuZRQNX1oKaGzyr7nkLQR7JBmFksi1v/ivnKfknj
-	FQxpLP85Aye2VQ7xXT0/BprR/HbqCYrqsRVT+YXUV6xwYqbiJ/hsFtA8Ghlyun2/qRGy6vgzlEb7f
-	v2IujPCS3ijj85mh6BWxBSlGJtDcccWezLkRdH/xH/bYfYYH42/97I9cmfpCtUzLa3yg+2GlKzRXu
-	C1cziyxw==;
+	bh=leL4EC+830mx8WYBWzDpr0Oe8lEbaEIjakn1BcxJ1HA=; b=wJKnSEvzUMXjeAAMNTdAr8y4Tn
+	I/2XifSK3CV4xuI8nMmb0KxdfA17iOX38YUCP3mv2k2BxJVK3gB8cjQnouW/p6KAeYXGPa6q8GCIt
+	yHsbi1wevIEI250b2MuGtrHtxNs8+DrAaeoikkYyv6/UiCc7ld4L8vyGn5tBEJsyKEtRFrxvEUxFg
+	NyrLQY+5Iv5+HkaRxkY0XyQkNwqOA15AWsH9nztDqASGQbRCXkE9GFQ6q5/Dx9n97Lf8qQVn3SSGs
+	Q7j0WtxPx822JVGJFDwuplP87uJ8xthI8QffYAVbTour6TCYd7n+2CLoY7TJRKZQGQuSwnxELkmE2
+	DMzTje+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPCnZ-00000008oar-3n7N;
-	Wed, 11 Jun 2025 04:10:49 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1uPDEs-00000008ppY-1pcW;
+	Wed, 11 Jun 2025 04:39:02 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPClO-00000008oJr-05Nt
+	id 1uPC7R-00000008jge-157j
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 04:08:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1749614908; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=es38YOVu5vYbvKWbHCodQvRPZdZLg3ThA+Wr0Te0wSQ=;
-	b=JviSMO/ktuC+7bBcvUcMJzGD4ztV8e690O/OzAbItxEmNR4cGN4tFEWuI9JHhfYBesZqhn20GbKQ3663bTbhl/bEgU4HPMW4k14aUlguk1Aun4ZfqAVRk00UjyakSOoUxESo4RkMpeLf2AtKMyASz7Df43lO0Z/RbYKCRa7VbY4=
-Received: from localhost(mailfrom:feng.tang@linux.alibaba.com fp:SMTPD_---0WdbeqMK_1749614906 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 11 Jun 2025 12:08:26 +0800
-Date: Wed, 11 Jun 2025 12:08:26 +0800
-From: Feng Tang <feng.tang@linux.alibaba.com>
-To: Robin Murphy <robin.murphy@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC] arm64/mm: Lift the cma address limit when
- CONFIG_DMA_NUMA_CMA=y
-Message-ID: <aEkBOqvxXaVXU0fQ@U-2FWC9VHC-2323.local>
-References: <20250521014701.73046-1-feng.tang@linux.alibaba.com>
- <aEhnELJQLw8S8Bho@arm.com>
- <98c0b70a-0cbd-46fd-b481-7663905bb8dc@arm.com>
+	Wed, 11 Jun 2025 03:27:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p95/CNt+4BDC6R90Arq3rvnhbA3GGmfagyu80fN2j/H1/Vr7XGLiVtjVzoQ3qHCH22SLW6XkS5krC+P3Pr0eX7ChB2VU7apGHp0pma6oGt547pASSsMY0ysyIwIjjglxhoj5s2iudRYhyEu3WUopvqsreT05aRKL+pKa247NA+eeZg3V53+0QQ4IbAUtiYnJMRhORPeO9KOMp2KGiw08BYc2MVih6dLwsFFqg5uBlz4kpn4eHy5myw9FaRU/nGg98j0EC6gGrttooFu74TCOn2NuZs1n9fUd1SKjoTZwOEFfVLnCFI/R4IAj412AdKGueXnRo/PCNozjnpHdWFlazg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=leL4EC+830mx8WYBWzDpr0Oe8lEbaEIjakn1BcxJ1HA=;
+ b=ePM+1YqYz6MGJKJAlVSN7noallyV9uW+ZrL28jpCLEoAvdqW6zQkko1qA6UwY+vpYZ0oGXwCO85fu2qN/tdeqU1H7OCF9z1Cp+2FBWXR8vPKLmvFkfmF5+MWWMahf51e+KM+hfL8z1ALS4U8phy6oIa9P0siI4kPlyyY8hP4dMbn3THim3pv/fpC4JrE5XX9UCWUWB0GZpVtwKXNRt4xZzt7CYFB+9bC1HgMrqwcZozu5KM4TO+9t6CwUn2wJ1e9DHbmUzDNpPuLB1PWL6SaORQC2B5gFQwYQesXZeDqej10GFk470JQuch019lzhRQLowEdYGzpI7Z9uQFpvyt58g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=leL4EC+830mx8WYBWzDpr0Oe8lEbaEIjakn1BcxJ1HA=;
+ b=RBcboMMuABTRH0EJFwcFBO3rhE7XTAritto6Edj1d0Ckm7Q6K0mxttz0L6XUL6RLSLGpbEWLhnTpnKtuOBuIZAGgBVVCKJpsFl8VlXRG3DEDeuFaAIjZoL8cIyOCnEd8Boc4Eowo+k341UkywkE5pCL1fYbuSoNgYRPTq1AVk7SGBEovqHxMtezQPtN7jhcr4XVjdfpgS7WxV6J/nGZlh2UtL6RxmUCwiTZ3l8D1UK7JpySAc/iCoBlVmo/IUDI08LiKdSLNNHtmVlKS38LeI6m3CuIACvdytza8yW6XCYLHFH8OF1NuSSaTn3nxuUZPa620CU/h27FfVGMA7n568Q==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS8PR04MB7671.eurprd04.prod.outlook.com (2603:10a6:20b:299::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Wed, 11 Jun
+ 2025 03:27:10 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8813.024; Wed, 11 Jun 2025
+ 03:27:09 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Hiago De Franco <hiagofranco@gmail.com>
+CC: Mathieu Poirier <mathieu.poirier@linaro.org>, Ulf Hansson
+	<ulf.hansson@linaro.org>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, Hiago
+ De Franco <hiago.franco@toradex.com>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>, "Iuliana Prodan (OSS)"
+	<iuliana.prodan@oss.nxp.com>, "Rafael J . Wysocki" <rafael@kernel.org>
+Subject: RE: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
+ pre-booted remote cores
+Thread-Topic: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
+ pre-booted remote cores
+Thread-Index: AQHb08EqHErDcF6d5U2TRnVBdQP9NrPyV0ZggAjJ0YCAAjiAAA==
+Date: Wed, 11 Jun 2025 03:27:09 +0000
+Message-ID: <PAXPR04MB8459F651D1D0AC8C51F292A48875A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20250602131906.25751-1-hiagofranco@gmail.com>
+ <20250602131906.25751-4-hiagofranco@gmail.com>
+ <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <20250609173115.qecc2noswkcgr3hm@hiago-nb>
+In-Reply-To: <20250609173115.qecc2noswkcgr3hm@hiago-nb>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AS8PR04MB7671:EE_
+x-ms-office365-filtering-correlation-id: 2b2a8400-12d3-4981-c690-08dda897d941
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?M0y3Cc1ksVpmoXjdFJSs7RlV5Nlswda2Z0zCXZ7nCNR9Y4m4qbrOt5nllaGL?=
+ =?us-ascii?Q?tw8wWuYQwZEqPIe8UARg4g7n8eqCqUff7NojI0mR8dZD05ldgl3vw9BSbo7/?=
+ =?us-ascii?Q?iSIj3hUNlpTHouv/m3VNaD0CGITirJL3M7mxdjt575ArBYJImyz396EeJ76y?=
+ =?us-ascii?Q?L1QPpyZXJ1h5iX3TXFju7XtyB79GKUHZSrSPpc7vK88ZTJTJlz+77ZIcySV4?=
+ =?us-ascii?Q?cmOieV/zSJjP5CiKBCaa9zkAEkCpO3ZXXcwvjw1Hs79LG0BEjeU1WAl856Jl?=
+ =?us-ascii?Q?CdHOfWBTbC28jERmms8G5lnvRb03ZDU4DLAYmQWUKCCvHFpKec0vNeCWmYg7?=
+ =?us-ascii?Q?DimFlBWjIy2K8WUyXCgth1T3V3rdh4hGi6+Cgb78hlWATcWBGlB0sRpY+Pul?=
+ =?us-ascii?Q?JrB4dmgJuhm4R6nclJZlWW9XuOKnD4rzZDBvX7f395TzVZ3fhb+6HcN76nMD?=
+ =?us-ascii?Q?PyCt5Hm/ZIrjc3XwyNPlI5UjV/XYIxgy04sfZIXFmjy4c75EgpNCLwijIApz?=
+ =?us-ascii?Q?V3tM9XhE9/hfHOfZf+/MbLJ8XJBqVr+kX5Zz2May3EwEVcaJBknLbvmQaIGl?=
+ =?us-ascii?Q?TaF2jjTbw4wVT6H7dpzAM3XQ5rS6UvbxWMu6R9n/bkPbomBhR7mSV9oTWh90?=
+ =?us-ascii?Q?iVu7HG23H5vgNfr4tdb1Bka3r1eWp0AHdAbwAsBQ4xLTXfah3aVZSv5UYS6E?=
+ =?us-ascii?Q?yx7O4DyU1XhnugAShAD/MlfO0C/biHj69dx8G1RLgYsyQziK5tjqc7f+Zj+X?=
+ =?us-ascii?Q?Zf3z+JtVKASapkCP93Gg0R+Y9StxxIlfuIJJYFSCjJBt9x9/AHfBpNiqb8T5?=
+ =?us-ascii?Q?0nS+/D7BV5WHvUhX+RIUiFrpIn9l1YMrmL61rGV5gEyfLmqwp0muX0sstUVQ?=
+ =?us-ascii?Q?tCDXV+QLIKbbKvzHP/GggwUqWM4WFxsX8gsSkt/rR5oiu95gKBvvpAQe3yrQ?=
+ =?us-ascii?Q?oW9IKqVmEonGLOR/1VbuQHPryn2ge1xNWaZ9nos/HgPlNB+0PUE9wtoqaZMJ?=
+ =?us-ascii?Q?goga6zrHVsjZ33Ho+BJKkL+D+OMBWwEfUiQus63N9VF5fIeVHmNy9Fei0F5D?=
+ =?us-ascii?Q?aJGPQeXL51mKFjjptNTyk9d03ykDnG00CxGBZZ0ZR8dXBephP20jeTXhZHYT?=
+ =?us-ascii?Q?Vwn5vfTNXw1g1CrhXpffHzLV9xVUn88OScEegiqa7el9M9+f1U1euhqzuvKK?=
+ =?us-ascii?Q?BawnCmsD15LCo8JjozWlPh8YuD8/PDb7YXc6EEhLMSXgkO7NoKgAqqLtzapY?=
+ =?us-ascii?Q?t2UcjLkH5EnK6pYvNMw87tFk9WlulO5r/NTtwh7YaUqB/mnl3q0RT4/ZK5AH?=
+ =?us-ascii?Q?KSU1/SwIur2LsYB7cKp9mdrk1xMDljHbTSdiNCsKQGp+9jjHaDilqbB67I08?=
+ =?us-ascii?Q?gmXVL1s5YFyvfjtnbZNC38nyKj7ZeMbzvNxGqGJ4aN7ye4bhGVk5GXmWI8bR?=
+ =?us-ascii?Q?qbsnXJHVY/LGT2pFSV3fAJnCoBLowKVlhF5rpaKIgP6nNS7IDgGnvUAy3d9X?=
+ =?us-ascii?Q?d1GD3hlZIs/3rJM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?zUWnKYIcqWR28ZkUmavdbEuz8po9fTKCxqiJMkgZt888aQV8t8qdFxj6XQ9p?=
+ =?us-ascii?Q?cNKMKUaURlF0jHfkDDY05oWnUjDpHwVJRMZM3Darp+pFqoMvsJI44puq62Wb?=
+ =?us-ascii?Q?D7zErYVvh5LPHHtVeReTNxvkCcDUoT7ZfAt38pKFu0Y+ATseZY1Mw6pC5y2W?=
+ =?us-ascii?Q?iZdFvDz9bklATcN3GiyYi8mGFgxE0Ewoe6HvNwIlqD/O8dtBgx88XEjPFep8?=
+ =?us-ascii?Q?5U3HsNwIUikU8eka80osz2p5fKCsN3XCmsjI0NLyeoMbyDyBFBeVMhX0pF6u?=
+ =?us-ascii?Q?YsVMivkapyIVnmvywtLB6uTBdlNge/1BFTXb67CpDkw96FviXazxPuRyhnAG?=
+ =?us-ascii?Q?sqXuj9lJjxopizRmJqjcdMVbNqiQRRJnSA8ekLEg3WZYP2E3JrX3W5bji7sG?=
+ =?us-ascii?Q?YCV5e/gLlDEFDRk6KkApKAe46JgyE2psPAc/fjrBuSwyYQDxl5orlvrbwZAN?=
+ =?us-ascii?Q?NOUUV9+LqhVVYAghazpxP8TGctTfPNQFscAAvU8vjf+wzEIJKbx17GyxCf5x?=
+ =?us-ascii?Q?qgsW/wnP6CAQkAOZeOSykMCt4rjqS3rkMGfU1SD+7lKgcdrbwteCE318CMsp?=
+ =?us-ascii?Q?T8jnFGtrmchfVnEawKhjCVMRHecliem4mSG8tIeCpeCEvjO3HNeebJx0Pgw4?=
+ =?us-ascii?Q?7s1ISs0n5dC+edNDjLUIcmnPdfpdoo55S/lyzpobDpgTwvuFNJ7BDKzDcR2C?=
+ =?us-ascii?Q?swCF5vbrMaTiRwJtlV+IEJ2j7RWXET9jQS+C3mWvB7bnImJ2LvrMPUBS9kke?=
+ =?us-ascii?Q?zcvcqcOPMoaOV+vyAFlHWRqifldqMEjBkTaXZKSRYooJS3ibCaedEtcRYppq?=
+ =?us-ascii?Q?l/rr7PfClpt66xFXZOtT8XdtLpgke6Cv8JEwBTlr88YNKkSfPUMHuagljfiG?=
+ =?us-ascii?Q?Bpn4ypFcylsj+krYjQOZkoEzuWKfCffwzgkcMJgM/LQrU+TxUweaHMH4g67l?=
+ =?us-ascii?Q?9c+DkEcSLC44kOs/2DVPaqJCh7ocWlaRhAi+8JUgYAxrD6ZUlH25jyr2yYsc?=
+ =?us-ascii?Q?A9pTEfdSxuogXBlJrGZe2tAp98WtzwoANs8KFWZVsKKpPwHWi2dgmucJqbeg?=
+ =?us-ascii?Q?j4oMFuSM8G6Svcw0I+h2cvLDGEw9UZcShuvcBBGpoQbkFolMe45Jg+4TM3d8?=
+ =?us-ascii?Q?fHoUYEYeg7YFXE6YFdmDxurQurqnmKhxvWcO3q8RMs4lvn0VrfDiQ2giF0rc?=
+ =?us-ascii?Q?FnJxexMSZuzONZNy+dN0WVvb32Sxz4nnHmfCUQJma2FX6UikadDhOtlmCSxJ?=
+ =?us-ascii?Q?BWaLAIQ62kr0UC9yxn5+d/amC+e1ibGNwJ12zEa19INnD6tlXSJf81S1K4V5?=
+ =?us-ascii?Q?YU9mcyYP3pUEcC9YTeLI5IdZYBgMYvXCaWoPoNDyuV6Vx1jtD2uJGVoRCaly?=
+ =?us-ascii?Q?jYkS4PDGJf4T+lot+JnLKMNRa3u0Y5xgLvGfquyY6baZO72GUEbg+9oMh+hZ?=
+ =?us-ascii?Q?UtrlEhD23uYrQxaxsIgXRTD6J765AGNHDTomMLfz8bUXW+eetWuYc6h+Hb52?=
+ =?us-ascii?Q?5CgNjFpwer7+lhp1UQ9fzNoLhKtLBaiIBuroqzuwvC7bs3keTSKvaBadfaNV?=
+ =?us-ascii?Q?BCEHEIyRU6v328xFYv0=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <98c0b70a-0cbd-46fd-b481-7663905bb8dc@arm.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b2a8400-12d3-4981-c690-08dda897d941
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Jun 2025 03:27:09.4745
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mXcgytB7ExDNfm/gaX2xZhRayJqTEk3ei3GCHBeBZ6+rCskzJFQZp9fs7RDaS3OBEzMC1eZClsVLGTqiVpCZYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_210834_846670_CD23819C 
-X-CRM114-Status: GOOD (  46.38  )
+X-CRM114-CacheID: sfid-20250610_202717_481191_1D44B3C6 
+X-CRM114-Status: GOOD (  48.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,133 +173,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Marek Szyprowski
-
-Thanks Catalin and Robin for the comments and suggestions!
-
-On Tue, Jun 10, 2025 at 08:46:38PM +0100, Robin Murphy wrote:
-> On 2025-06-10 6:10 pm, Catalin Marinas wrote:
-> > On Wed, May 21, 2025 at 09:47:01AM +0800, Feng Tang wrote:
-> > > When porting an cma related usage from x86_64 server to arm64 server,
-> > > the "cma=4G" setup failed on arm64, and the reason is arm64 has 4G (32bit)
-> > > address limit for cma reservation.
-> > > 
-> > > The limit is reasonable due to device DMA requirement, but for NUMA
-> > > servers which have CONFIG_DMA_NUMA_CMA enabled, the limit is not required
-> > > as that config already allows cma area to be reserved on different NUMA
-> > > nodes whose memory very likely goes beyond 4G limit.
-> > > 
-> > > Lift the cma limit for platform with such configuration.
-> > 
-> > I don't think that's the right fix. Those devices that have a NUMA node
-> > associated may be ok to address memory beyond 4GB. The default for
-> > NUMA_NO_NODE devices is still dma_contiguous_default_area. I also don't
-> > like to make such run-time decisions on the config option.
-> 
-> Indeed, the fact that the kernel was built with the option enabled says
-> nothing at all about the needs of whatever system we're actually running on,
-> so that's definitely wrong. This one is also the kind of option which may
-> well be enabled in a multi-platform distro kernel, since it only adds a tiny
-> amount of code with no functional impact on systems which don't explicitly
-> opt in, but offers a useful benefit to those which can and do.
-
-Yep, the analysis from you two make sense to me. Will drop this patch.
-
-> Furthermore, the justification doesn't add up at all - if the relevant
-> devices could use the per-NUMA-node CMA areas, then... why not just have
-> them use the per-NUMA-node CMA areas, no kernel change needed (and maybe a
-> slight performance bonus too)? On the other hand, where those areas may or
-> may not be allocated is entirely meaningless to NUMA_NO_NODE devices which
-> wouldn't use them anyway.
-
-The usage model ported from x86_64 is use "cma=4G@4G" in cmdline, and use
-something like dma_alloc_from_continguous(NULL, 1 << 18, 18, false) to
-get a huge buffer from 'dma_contiguous_default_area'
-
-btw, I really like the 'numa_cma=' cmdline option, which helps our cma
-usage a lot.
-
-> > That said, maybe we should make the under-4G CMA allocation a best
-> > effort. In the arch code, if that failed, attempt the allocation again
-> > with a limit of 0 and maybe do a pr_notice() that CMA allocation in the
-> > DMA zone failed.
-> 
-> TBH given that the command-line parameter can specify placement as well as
-> size, I think it would make a lot of sense to allow that to override the
-> default limit provided by the arch code. That would give users the most
-> flexibility, at the minor cost of having to accept the consequences if they
-> do specify something which ends up not working for some devices. Otherwise I
-> fear that any attempt to make the code itself cleverer will just lead down a
-> rabbit-hole of trying to second-guess the user's intent - if the size
-> doesn't fit the limit, who says it's right to increase the limit rather than
-> reduce the size? And so on...
-
-Strongly agree. Some platforms may have the 32bit limit, and many other
-platforms which don't have to suffer from the limit. This kind of
-flexibility should benefit users widely.
-
-Something like below?
----
-diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
-index 8df0dfaaca18..6a93ad3e024d 100644
---- a/kernel/dma/contiguous.c
-+++ b/kernel/dma/contiguous.c
-@@ -222,7 +222,12 @@ void __init dma_contiguous_reserve(phys_addr_t limit)
- 	if (size_cmdline != -1) {
- 		selected_size = size_cmdline;
- 		selected_base = base_cmdline;
--		selected_limit = min_not_zero(limit_cmdline, limit);
-+
-+		selected_limit = limit_cmdline ?: limit;
-+		if (limit_cmdline > limit)
-+			pr_notice("User set cma limit [0x%llx] bigger than architectual value [0x%llx], will use the former\n",
-+				limit_cmdline, limit);
-+
- 		if (base_cmdline + size_cmdline == limit_cmdline)
- 			fixed = true;
- 	} else {
-
-
-Thanks,
-Feng
-
-> 
-> Thanks,
-> Robin.
-> 
-> > 
-> > Adding Robin in case he has a different view.
-> > 
-> > > Signed-off-by: Feng Tang <feng.tang@linux.alibaba.com>
+> Subject: Re: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach
+> to pre-booted remote cores
+>=20
+> On Wed, Jun 04, 2025 at 03:19:52AM +0000, Peng Fan wrote:
+> > > Subject: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach
+> to
+> > > pre-booted remote cores
+> > >
+> > > From: Hiago De Franco <hiago.franco@toradex.com>
+> > >
+> > > When the remote core is started before Linux boots (e.g., by the
+> > > bootloader), the driver currently is not able to attach because it
+> > > only checks for cores running in different partitions. If the core
+> > > was kicked by the bootloader, it is in the same partition as Linux
+> > > and it is already up and running.
+> > >
+> > > This adds power mode verification through dev_pm_genpd_is_on(),
+> > > enabling the driver to detect when the remote core is already
+> > > running and properly attach to it if all the power domain devices
+> are on.
+> > >
+> > > To accomplish this, we need to avoid passing any attach_data or
+> > > flags to dev_pm_domain_attach_list(), letting the platform device
+> > > become a consumer of the power domain provider. With that the
+> > > current power state of the genpds will not change, allowing the
+> > > detection of the remote core power state.
+> > >
+> > > We enable and sync the device runtime PM during probe to make
+> sure
+> > > the power domains are correctly managed when the core is
+> controlled
+> > > by the kernel.
+> > >
+> > > Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
 > > > ---
-> > >   arch/arm64/mm/init.c | 9 ++++++++-
-> > >   1 file changed, 8 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> > > index b99bf3980fc6..661758678cc4 100644
-> > > --- a/arch/arm64/mm/init.c
-> > > +++ b/arch/arm64/mm/init.c
-> > > @@ -312,6 +312,7 @@ void __init arm64_memblock_init(void)
-> > >   void __init bootmem_init(void)
-> > >   {
-> > >   	unsigned long min, max;
-> > > +	phys_addr_t cma_limit;
-> > >   	min = PFN_UP(memblock_start_of_DRAM());
-> > >   	max = PFN_DOWN(memblock_end_of_DRAM());
-> > > @@ -343,8 +344,14 @@ void __init bootmem_init(void)
-> > >   	/*
-> > >   	 * Reserve the CMA area after arm64_dma_phys_limit was initialised.
-> > > +	 *
-> > > +	 * When CONFIG_DMA_NUMA_CMA is enabled, system may have CMA reserved
-> > > +	 * area in different NUMA nodes, which likely goes beyond the 32bit
-> > > +	 * limit, thus use (PHYS_MASK+1) as cma limit.
-> > >   	 */
-> > > -	dma_contiguous_reserve(arm64_dma_phys_limit);
-> > > +	cma_limit = IS_ENABLED(CONFIG_DMA_NUMA_CMA) ?
-> > > +			(PHYS_MASK + 1) : arm64_dma_phys_limit;
-> > > +	dma_contiguous_reserve(cma_limit);
-> > >   	/*
-> > >   	 * request_standard_resources() depends on crashkernel's memory being
-> > > -- 
-> > > 2.39.5 (Apple Git-154)
+> > > v4: Changed to use the new dev_pm_genpd_is_on() function
+> instead, as
+> > > suggested by Ulf. This will now get the power status of the two
+> > > remote cores power domains to decided if imx_rpoc needs to
+> attach or
+> > > not. In order to do that, pm_runtime_enable() and
+> > > pm_runtime_get_sync() were introduced and pd_data was removed.
+> > > v3: Unchanged.
+> > > v2: Dropped unecessary include. Removed the imx_rproc_is_on
+> > > function, as suggested.
+> > > v1:
+> > > ---
+> > >  drivers/remoteproc/imx_rproc.c | 29 ++++++++++++++++++++++++--
+> ---
+> > >  1 file changed, 24 insertions(+), 5 deletions(-)
+> > >
+> > > diff --git a/drivers/remoteproc/imx_rproc.c
+> > > b/drivers/remoteproc/imx_rproc.c index
+> > > 627e57a88db2..6f9680142704 100644
+> > > --- a/drivers/remoteproc/imx_rproc.c
+> > > +++ b/drivers/remoteproc/imx_rproc.c
+> > > @@ -18,6 +18,7 @@
+> > >  #include <linux/of_reserved_mem.h>
+> > >  #include <linux/platform_device.h>
+> > >  #include <linux/pm_domain.h>
+> > > +#include <linux/pm_runtime.h>
+> > >  #include <linux/reboot.h>
+> > >  #include <linux/regmap.h>
+> > >  #include <linux/remoteproc.h>
+> > > @@ -890,10 +891,8 @@ static int
+> imx_rproc_partition_notify(struct
+> > > notifier_block *nb,  static int imx_rproc_attach_pd(struct imx_rproc
+> > > *priv)  {
+> > >  	struct device *dev =3D priv->dev;
+> > > -	int ret;
+> > > -	struct dev_pm_domain_attach_data pd_data =3D {
+> > > -		.pd_flags =3D PD_FLAG_DEV_LINK_ON,
+> > > -	};
+> > > +	int ret, i;
+> > > +	bool detached =3D true;
+> > >
+> > >  	/*
+> > >  	 * If there is only one power-domain entry, the platform driver
+> > > framework @@ -902,7 +901,22 @@ static int
+> imx_rproc_attach_pd(struct
+> > > imx_rproc *priv)
+> > >  	if (dev->pm_domain)
+> > >  		return 0;
+> > >
+> > > -	ret =3D dev_pm_domain_attach_list(dev, &pd_data, &priv-
+> > > >pd_list);
+> > > +	ret =3D dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
+> > > +	/*
+> > > +	 * If all the power domain devices are already turned on, the
+> > > remote
+> > > +	 * core is already up when the kernel booted (e.g. kicked by
+> > > the
+> > > +	 * bootloader). In this case attach to it.
+> > > +	 */
+> > > +	for (i =3D 0; i < ret; i++) {
+> > > +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
+> > > +			detached =3D false;
+> > > +			break;
+> > > +		}
+> > > +	}
+> > > +
+> > > +	if (detached)
+> > > +		priv->rproc->state =3D RPROC_DETACHED;
+> > > +
+> > >  	return ret < 0 ? ret : 0;
+> > >  }
+> > >
+> > > @@ -1146,6 +1160,11 @@ static int imx_rproc_probe(struct
+> > > platform_device *pdev)
+> > >  		}
+> > >  	}
+> > >
+> > > +	if (dcfg->method =3D=3D IMX_RPROC_SCU_API) {
+> > > +		pm_runtime_enable(dev);
+> > > +		pm_runtime_get_sync(dev);
+> >
+> > Need put and disable in imx_rproc_remove.
+> >
+> > BTW: Has this patchset tested with M4 in a separate partition, saying
+> > M4 image packed in flash.bin?
+>=20
+> Sorry for the delay.
+>=20
+> I tested it now and there must be something missing on my U-Boot:
+>=20
+> Disable imx8x-cm4 rsrc 278 not owned
+> Disable imx8x-cm4 rsrc 297 not owned
+>=20
+> It removes my nodes from the DT before starting the kernel, so I cannot
+> attach. Do you know what should I do in this case?
+
+In separate partition case, UBoot will check the permission
+by checking the rsrc-id, saying power domain id.
+
+You may need to remove the power-domains property
+from M4 node.
+
+Regards,
+Peng
+
+>=20
+> But apart from that, at least the imx-rproc does not crash or anything.
+>=20
+> >
+> > Regards,
+> > Peng
+> > > +	}
+> > > +
+> > >  	ret =3D rproc_add(rproc);
+> > >  	if (ret) {
+> > >  		dev_err(dev, "rproc_add failed\n");
+> > > --
+> > > 2.39.5
+> > >
+> >
+>=20
+> Best Regards,
+> Hiago.
 
