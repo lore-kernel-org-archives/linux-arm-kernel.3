@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A1EC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F00BC71133
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 03:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l6L5kLiMXVSLesfMswCHaMgooGTQlEM//lxdnBmxha8=; b=iFpaQNeG/p9aQRshXBhZ556gJ5
-	Dk1H18foCnkmZ3rtI31doXwfYje89S1z+9C+2AHkd9QC/bHjUJQZkba5lC94O4R4JOO8hCPLIy32s
-	iZhvSuVcw0/YjTgMfvsg1J+KnarG90bI7RW4zWFdmouV0dGJRqyWPbWrR+7FsiImw5VXeIrf5FtU1
-	yctjSn5gJ1leCnZrDtGzxJsfruCEJRdf1qxYdRaghMlnJb8NtYBy0bbeMyygo6gIdKoYY8upi7q8e
-	QnG1MEH0NfVjPF+9LhUAa/S5oGhvEBmbAyeki0IuTvzDNfx+HQkEMGOSR1Yhhla6SsASx+NIE4wmH
-	Zec2heuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WAifz67KxgOj7WChQ/bt0AIfRmjoY9BafkzaUYp6jaY=; b=K/OCmlWA+CXp7RLWzEh8Xwzikp
+	mjrswLlgXoEtBWgLpQjhf+FIBdbH8L3PeJ/OxXWhQO6prEbtTUQ02YtIohExHjtKEiu57mdLGj/gS
+	DgEWGa3S2j1yrnd24KHgvd1lu8fq9BOYD3W5WR52CtO+7dTqkSLzBm0l4YtRQcs1P5XyL9JX1PLg3
+	ALQyo2H3wfT9IhydwGnIkgb0p7RvEWMUdkzaaUmXNV6HJU6YBHWtKRgSdrydtMKMlOSdeXm7bYtl0
+	/Vik4PN+iVnPBCwhnJEzdzjwrBHPdRYTLQYZf+ThsLJ4lY+BB4Pn/lBcggS8hH0zlck+TPqEnYpeM
+	GM58o87A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPC4I-00000008jUT-0AIE;
-	Wed, 11 Jun 2025 03:24:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPCMJ-00000008khV-311C;
+	Wed, 11 Jun 2025 03:42:39 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPAxT-00000008cNv-3boc;
-	Wed, 11 Jun 2025 02:12:56 +0000
+	id 1uPCKA-00000008kTp-3rKD;
+	Wed, 11 Jun 2025 03:40:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=WAifz67KxgOj7WChQ/bt0AIfRmjoY9BafkzaUYp6jaY=; b=e1vxGUSUbNo/eEeRJVTPQxxy6I
+	exw5rUD3TgcDhPS2dSbYi32c1JGgQYYTFns5cS6RbWiali4UtiWk9HPu2Fj0hKuEtl633Ab0lfLPS
+	Pcju1ZpZp0Ler1QdMp61AzDsRMx5kUJMTFu9ppsZANtmLKQBLKqBp7LYvrOULQN9Hy1sa0jSYDcxU
+	uifbq/dtz38wF1Ntx9LsQrgbWkTPQoGnKu5G7BKId7sdga2UQfqU2v+PJrv8p+nSrPtWci28FrY61
+	H/r3h65R7g7TmxOupyNRGhD8pkBdjwn9Jn4PRWzKmTZGunTSUxvuPmL5BhHWcwaOtvIXuDbHuVyzf
+	rwPtGXlQ==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPCK8-000000025sH-30YY;
+	Wed, 11 Jun 2025 03:40:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 89B865C58D7;
-	Wed, 11 Jun 2025 02:10:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1C4BC4CEF5;
-	Wed, 11 Jun 2025 02:12:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4C63BA51276;
+	Wed, 11 Jun 2025 03:40:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33443C4CEF0;
+	Wed, 11 Jun 2025 03:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749607975;
-	bh=VjWSxk5rTs8+2YM7TLECuuSPNRzmvS+Q0pNNnwsrogA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PszQ96pbYZGKnEs0HNc9JVgtTPdRXqHfZiholh1Lrl6KG0nU/bEhzCLeuGaJzXEyv
-	 xYis4SIZ8EKhSzUL5Eipysmh9VNU6LRnswFmYQbcThAx+pHzRTQaRN9Y8bCqBi07iG
-	 hLPUZblCbsroMPDzWbjZDaghLqqwkv3/KM2RyblH1zjlDh89v9Icbw/Lz615XwZWXl
-	 Px2hER0r9yV9PyvvgPVjk6U7JatTo1JpGhRcd9AbIuldbBL1FTIme7DvenSzaA8o1W
-	 LmC2MV/s4kaJe9uAqXZBLM8yfekmfgsdo9J3ub9lBMAhSoeWZIhL0aGoClnRNKynd1
-	 OJ9mKE5+J+vYg==
+	s=k20201202; t=1749613221;
+	bh=UPRjxBTu6kPICuG6iqdM2F4dkniXO25Wjw0+01KGFmU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z33pKRSU6mJ9GSS4cRBNfZIfpjRhPF1PZPALwTKO3QwWXB5uo9f61gwgeH769IoAC
+	 d6xahp+3wHEl4r/g3tk8o+BeqhrARs7AzJELD84EBatPgwfxi9bkQhTlk8qLlt4j6D
+	 ebmTuRLjo4AW4jTitCG74cjdELPhR8GJah7XjR6cri9pKFl1+4Nf7SIUAbOSQUDMG2
+	 zRUlMRhHZq20l0KfOHLL0Jewlitxfm0yqgy/t3mD7bWYL93vdxOe6a2WRTu3jz7/p9
+	 w+AWN6gAQ46GgDieGGe7FQ6BwXkjIZI2t56ro6VAKh5jCj8mKLOKKm3ef64c2f069E
+	 29Prr/qCH9kjQ==
+Date: Tue, 10 Jun 2025 20:39:57 -0700
 From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 06/16] crypto: riscv/sha512 - stop depending on sha512_generic_block_fn
-Date: Tue, 10 Jun 2025 19:09:13 -0700
-Message-ID: <20250611020923.1482701-7-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250611020923.1482701-1-ebiggers@kernel.org>
-References: <20250611020923.1482701-1-ebiggers@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
+	Jason@zx2c4.com, torvalds@linux-foundation.org
+Subject: Re: [PATCH 07/16] crypto: sha512 - replace sha512_generic with
+ wrapper around SHA-512 library
+Message-ID: <20250611033957.GA1484147@sol>
+References: <20250611020923.1482701-8-ebiggers@kernel.org>
+ <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_191255_940274_9ADF45F4 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250611_044025_078388_0A3C0698 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+On Wed, Jun 11, 2025 at 10:24:41AM +0800, Herbert Xu wrote:
+> Eric Biggers <ebiggers@kernel.org> wrote:
+> >
+> > +       {
+> > +               .base.cra_name          = "sha512",
+> > +               .base.cra_driver_name   = "sha512-lib",
+> > +               .base.cra_priority      = 100,
+> > +               .base.cra_blocksize     = SHA512_BLOCK_SIZE,
+> > +               .base.cra_module        = THIS_MODULE,
+> > +               .digestsize             = SHA512_DIGEST_SIZE,
+> > +               .init                   = crypto_sha512_init,
+> > +               .update                 = crypto_sha512_update,
+> > +               .final                  = crypto_sha512_final,
+> > +               .digest                 = crypto_sha512_digest,
+> > +               .descsize               = sizeof(struct sha512_ctx),
+> > +       },
+> 
+> This changes the export format which breaks fallback support
+> for ahash drivers.
+> 
+> You need to retain the existing export format.
 
-sha512_generic_block_fn() will no longer be available when the SHA-512
-support in the old-school crypto API is changed to just wrap the SHA-512
-library.  Replace the use of sha512_generic_block_fn() in
-sha512-riscv64-glue.c with temporary code that uses the library's
-__sha512_update().  This is just a temporary workaround to keep the
-kernel building and functional at each commit; this code gets superseded
-when the RISC-V optimized SHA-512 is migrated to lib/crypto/ anyway.
+Do you have a concrete example (meaning, a specific driver) where this actually
+matters?  Historically, export and import have always had to be paired for the
+same transformation object, i.e. import was called only with the output of
+export.  There is, and has never been, any test that tests otherwise.  This
+seems like a brand new "requirement" that you've made up unnecessarily.
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- arch/riscv/crypto/Kconfig               | 1 +
- arch/riscv/crypto/sha512-riscv64-glue.c | 8 +++++++-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+It also makes much more sense for the export format to simply be the struct used
+by the library (e.g. sha512_ctx), not some undocumented struct generated by
+pointer arithmetic.
 
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index cd9b776602f89..53e4e1eacf554 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -29,10 +29,11 @@ config CRYPTO_GHASH_RISCV64
- 	  - Zvkg vector crypto extension
- 
- config CRYPTO_SHA512_RISCV64
- 	tristate "Hash functions: SHA-384 and SHA-512"
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-+	select CRYPTO_LIB_SHA512
- 	select CRYPTO_SHA512
- 	help
- 	  SHA-384 and SHA-512 secure hash algorithm (FIPS 180)
- 
- 	  Architecture: riscv64 using:
-diff --git a/arch/riscv/crypto/sha512-riscv64-glue.c b/arch/riscv/crypto/sha512-riscv64-glue.c
-index 4634fca78ae24..b3dbc71de07b0 100644
---- a/arch/riscv/crypto/sha512-riscv64-glue.c
-+++ b/arch/riscv/crypto/sha512-riscv64-glue.c
-@@ -36,11 +36,17 @@ static void sha512_block(struct sha512_state *state, const u8 *data,
- 	if (crypto_simd_usable()) {
- 		kernel_vector_begin();
- 		sha512_transform_zvknhb_zvkb(state, data, num_blocks);
- 		kernel_vector_end();
- 	} else {
--		sha512_generic_block_fn(state, data, num_blocks);
-+		struct __sha512_ctx ctx = {};
-+
-+		static_assert(sizeof(ctx.state) == sizeof(state->state));
-+		memcpy(&ctx.state, state->state, sizeof(ctx.state));
-+		__sha512_update(&ctx, data,
-+				(size_t)num_blocks * SHA512_BLOCK_SIZE);
-+		memcpy(state->state, &ctx.state, sizeof(state->state));
- 	}
- }
- 
- static int riscv64_sha512_update(struct shash_desc *desc, const u8 *data,
- 				 unsigned int len)
--- 
-2.49.0
+And drivers should just use the library as their fallback, or else just do what
+they did before when they must not have been depending on a particular format.
 
+I'll add export and import functions if you insist, but it seems pointless.
+
+Could you at least provide proper definitions for the legacy structs so that I
+don't have to do pointer arithmetic to generate them?
+
+- Eric
 
