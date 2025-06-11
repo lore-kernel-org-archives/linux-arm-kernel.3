@@ -4,51 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8EA0C61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8EAC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ge6AKe268955C+iO3ERSUeTMJbT5c3PFunc4a6ThgtY=; b=4QuPTHDwhf/AoL5lXSVVlQdigU
-	F2E3gSlcZtsb9biBoUMZlh7YZaaj7xFyb/1cRl9DY2BEkvyXkUiVgn52mM3Nrxsdlp3r4DgGMN7H4
-	Apt4wJDYItyZuUMM5Br09PDKxKgAJItX3neZxvOpGdMZBOPPf9FobPnQnBoNUdNUTrSwxOaZnHbfM
-	mwPyR7+FXm7D+bD5bCB9bFsYb5D/k8kxq41zeyyj2cjAQHQP7WQENjMWbh6DYum4aSD+/OfyGt8be
-	/xNW+0y0ifMq1HDqZM0ajHQOPauqXtgQfbdVGpv4bb83uAHqtO5J3y48pT2lTv11j5mpGS+vGbxQM
-	vyiUXKcA==;
+	bh=sSuWTJW5AO5PPyIDz5eBG5iOJG/lVglqsG2HwaWm5RA=; b=1E9yMnP8y49M2C52QK0Y/5A2FO
+	9dQz2Y/Ojv5XYVsaU9qa4YbBXWjyLney6CIgDW+1NdWZPejyaGn6pMmip46JfVrrDeoJJaVoutC8H
+	DG5SBX70jrvVPGq/eT2qQWEZZhwIq+vuRxw774lgD/EMYeSwTdxwjqpubVLC6hC1aLmLfDSa1id/K
+	HcXOvUgi8zXt/V8P0wrgiBIGwMgNKg95TqgjMVydJ1it4IfCx0voaMxGnuXj48OG9vm4JyELCYM3m
+	EiWCgDephAfJ6n6KWhAgRdqUOkkvnL+WHSzdi6RSIYWt7P2TNhtcmPoSwIKVXnonbZ4MWWwEvrx+a
+	HnBW+oLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHSn-00000009QzE-2lN1;
-	Wed, 11 Jun 2025 09:09:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHN1-00000009PoA-0WPo
+	id 1uPHUw-00000009RKg-1ssu;
+	Wed, 11 Jun 2025 09:11:54 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPHPB-00000009QC5-1y3x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 09:03:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 789E41688;
-	Wed, 11 Jun 2025 02:03:22 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A70C93F59E;
-	Wed, 11 Jun 2025 02:03:41 -0700 (PDT)
-Date: Wed, 11 Jun 2025 10:03:37 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v2] perf: arm_spe: Relax period restriction
-Message-ID: <20250611090337.GS8020@e132581.arm.com>
-References: <20250528132501.129586-1-leo.yan@arm.com>
+	Wed, 11 Jun 2025 09:05:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=sSuWTJW5AO5PPyIDz5eBG5iOJG/lVglqsG2HwaWm5RA=;
+	b=B/dq6jNIlicoCug8bep35cBJw6Z6grPioclccKShwtIGGDAiSbovtrcRVM3c/i
+	DjxncVlmxJa6dm2ZYSNa9FqmMevKWKz67qPUchJPhVYqnPMSvATOjo1gGWGPuEka
+	yXlle5wLavForjoxDNc2IVV6UpPKlP/n8zfK5L4hIn2Zg=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgDH7zrbRklok3lnAA--.5090S3;
+	Wed, 11 Jun 2025 17:05:32 +0800 (CST)
+Date: Wed, 11 Jun 2025 17:05:30 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matthias Schiffer <matthias.schiffer@tq-group.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com, Max Merchel <Max.Merchel@tq-group.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: ls1012a: add DTS for TQMLS1012al
+ module with MBLS1012AL board
+Message-ID: <aElG2j8OlA/X6CrV@dragon>
+References: <20250430120605.2068102-1-alexander.stein@ew.tq-group.com>
+ <20250430120605.2068102-2-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250528132501.129586-1-leo.yan@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250430120605.2068102-2-alexander.stein@ew.tq-group.com>
+X-CM-TRANSID: M88vCgDH7zrbRklok3lnAA--.5090S3
+X-Coremail-Antispam: 1Uf129KBjvAXoW3Zw1xWrWkuFyfAw4rGFW8Xrb_yoW8JFyrZo
+	WayF4q9ayrW3y7Zwnrtry2gF1jyr4kXw45Kay7XF4fWa1YvrWqy34jvw4IvFWDur43Kryk
+	Wa43Xa48Ca1Yv3s5n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU8YFADUUUU
+X-Originating-IP: [117.82.86.8]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCx1pZWhJDc-lQQAAsd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_020343_206473_50C784B6 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20250611_020557_815249_7003AEA8 
+X-CRM114-Status: GOOD (  24.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,59 +82,533 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 02:25:01PM +0100, Leo Yan wrote:
-> The minimum interval specified the PMSIDR_EL1.Interval field is a
-> hardware recommendation. However, this value is set by hardware designer
-> before the production. It may not accurately reflects actual hardware
-> limitations, and tools currently have no way to test shorter periods.
+On Wed, Apr 30, 2025 at 02:06:01PM +0200, Alexander Stein wrote:
+> From: Matthias Schiffer <matthias.schiffer@tq-group.com>
 > 
-> This change relaxes the limitation by allowing any non-zero periods.
-> This gives chance for experimenting smaller periods.
+> Add initial support for TQMLS1012AL module mounted on MBLS1012AL.
+> It supports UART1 for console, PCIe, I2C, USB, µSD card (default), SATA
+> and QSPI.
+> There is an alternative ordering option which provides an eMMC instead of
+> an SD card. This uses a different DT instead.
+> Due missing Packet Forwarding Engine (PFE) driver support, there is no
+> support for Ethernet so far.
 > 
-> The downside is that small periods may increase the risk of AUX ring
-> buffer overruns. When an overrun occurs, the perf core layer will
-> trigger an irq work to disable the event and wake up the tool in user
-> space to read the trace data. After the tool finishes reading, it will
-> re-enable the AUX event.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-
-Gentle ping. thanks!
-
+> Signed-off-by: Max Merchel <Max.Merchel@tq-group.com>
+> Signed-off-by: Matthias Schiffer <matthias.schiffer@tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > ---
+> Changes in v2:
+> * Be a bit more specific with lm75 compatible
+> * Remove m25p,fast-read from spi-nor flash
 > 
-> Changes from v1:
-> - Shifted bits with FIELD_PREP().
-> - Removed warning log which is not quite useful. (James Clark)
+>  arch/arm64/boot/dts/freescale/Makefile        |   2 +
+>  ...sl-ls1012a-tqmls1012al-mbls1012al-emmc.dts |  21 ++
+>  .../fsl-ls1012a-tqmls1012al-mbls1012al.dts    | 346 ++++++++++++++++++
+>  .../freescale/fsl-ls1012a-tqmls1012al.dtsi    |  73 ++++
+>  4 files changed, 442 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi
 > 
->  drivers/perf/arm_spe_pmu.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-> index 3efed8839a4e..e40e5daa838d 100644
-> --- a/drivers/perf/arm_spe_pmu.c
-> +++ b/drivers/perf/arm_spe_pmu.c
-> @@ -308,12 +308,16 @@ static u64 arm_spe_event_to_pmscr(struct perf_event *event)
->  
->  static void arm_spe_event_sanitise_period(struct perf_event *event)
->  {
-> -	struct arm_spe_pmu *spe_pmu = to_spe_pmu(event->pmu);
->  	u64 period = event->hw.sample_period;
->  	u64 max_period = PMSIRR_EL1_INTERVAL_MASK;
->  
-> -	if (period < spe_pmu->min_period)
-> -		period = spe_pmu->min_period;
-> +	/*
-> +	 * As per the Arm ARM (DDI 0487 L.a), section D24.7.12 PMSIRR_EL1,
-> +	 * Sampling Interval Reload Register, the INTERVAL field (bits [31:8])
-> +	 * states: "Software must set this to a nonzero value."
-> +	 */
-> +	if (period < FIELD_PREP(PMSIRR_EL1_INTERVAL_MASK, 1))
-> +		period = FIELD_PREP(PMSIRR_EL1_INTERVAL_MASK, 1);
->  	else if (period > max_period)
->  		period = max_period;
->  	else
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index bf575395d7d5b..f6b8686ed3cfe 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -5,6 +5,8 @@ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-frwy.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-oxalis.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-qds.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-rdb.dtb
+> +dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-tqmls1012al-mbls1012al.dtb
+> +dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-kbox-a-230-ls.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28.dtb
+>  dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28-var1.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts
+> new file mode 100644
+> index 0000000000000..82dc0a7c7d535
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts
+> @@ -0,0 +1,21 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright (c) 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Matthias Schiffer
+> + * Author: Max Merchel
+> + */
+> +
+> +#include "fsl-ls1012a-tqmls1012al-mbls1012al.dts"
+> +
+> +&esdhc0 {
+> +	vqmmc-supply = <&reg_1p8v>;
+> +	/delete-property/ no-mmc;
+> +	disable-wp;
+
+disable-wp is already present in esdhc0 of mbls1012al.dts?
+
+> +	mmc-ddr-1_8v;
+> +	mmc-hs200-1_8v;
+> +	no-sdio;
+
+no-sdio too?
+
+> +	no-sd;
+> +	voltage-ranges = <1800 1800>;
+> +	non-removable;
+> +};
+
+What about the following sd properties?  We don't need them for eMMC
+device, do we?
+
+	sd-uhs-sdr104;
+	sd-uhs-sdr50;
+	sd-uhs-sdr25;
+	sd-uhs-sdr12;
+
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts
+> new file mode 100644
+> index 0000000000000..147c7ca130c44
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts
+> @@ -0,0 +1,346 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright (c) 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Matthias Schiffer
+> + * Author: Max Merchel
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/net/ti-dp83867.h>
+> +#include "fsl-ls1012a-tqmls1012al.dtsi"
+> +
+> +/ {
+> +	model = "TQ-Systems TQMLS1012AL on MBLS1012AL";
+> +	compatible = "tq,ls1012a-tqmls1012al-mbls1012al", "tq,ls1012a-tqmls1012al", "fsl,ls1012a";
+> +	chassis-type = "embedded";
+> +
+> +	aliases {
+> +		serial0 = &duart0;
+
+Can we sort it alphabetically?
+
+> +		/* use MAC from U-Boot environment */
+> +		/* TODO: PFE */
+> +		ethernet2 = &swport0;
+> +		ethernet3 = &swport1;
+> +		ethernet4 = &swport2;
+> +		ethernet5 = &swport3;
+> +		spi0 = &qspi;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = &duart0;
+> +	};
+> +
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +		autorepeat;
+> +
+> +		switch-1 {
+> +			label = "S2";
+> +			linux,code = <BTN_0>;
+> +			gpios = <&gpio_exp_3p3v 13 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		switch-2 {
+> +			label = "X15";
+> +			linux,code = <BTN_1>;
+> +			gpios = <&gpio_exp_1p8v 5 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		switch-3 {
+> +			label = "X16";
+> +			linux,code = <BTN_2>;
+> +			gpios = <&gpio_exp_1p8v 4 GPIO_ACTIVE_LOW>;
+> +		};
+> +	};
+> +
+> +	gpio-leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-0 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_HEARTBEAT;
+> +			gpios = <&gpio_exp_3p3v 14 GPIO_ACTIVE_LOW>;
+> +			linux,default-trigger = "heartbeat";
+> +		};
+> +
+> +		led-1 {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_STATUS;
+> +			gpios = <&gpio_exp_3p3v 15 GPIO_ACTIVE_LOW>;
+> +			linux,default-trigger = "default-on";
+> +		};
+> +	};
+> +
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +
+> +		/* global autoconfigured region for contiguous allocations */
+> +		linux,cma {
+> +			compatible = "shared-dma-pool";
+> +			reusable;
+> +			/* 64 MiB */
+> +			size = <0 0x04000000>;
+> +			/*  512 - 128 MiB, our minimum RAM config will be 512 MiB */
+> +			alloc-ranges = <0 0x80000000 0 0x98000000>;
+> +			linux,cma-default;
+> +		};
+> +	};
+> +
+> +	reg_1p5v: regulator-1p5v {
+
+It doesn't seem to be used.
+
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1P5V";
+> +		regulator-min-microvolt = <1500000>;
+> +		regulator-max-microvolt = <1500000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_1p8v: regulator-1p8v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1P8V";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_3p3v: regulator-3p3v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "3P3V";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +	};
+> +};
+> +
+> +&duart0 {
+> +	status = "okay";
+> +};
+> +
+> +&esdhc0 {
+> +	vmmc-supply = <&reg_3p3v>;
+> +	no-mmc;
+> +	no-sdio;
+> +	disable-wp;
+> +	sd-uhs-sdr104;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr12;
+> +	status = "okay";
+> +};
+> +
+> +&i2c0 {
+> +	lm75_48: temperature-sensor@48 {
+> +		compatible = "national,lm75a";
+> +		reg = <0x48>;
+> +		vs-supply = <&reg_3p3v>;
+> +	};
+> +
+> +	gpio_exp_3p3v: gpio-expander@20 {
+
+Please sort I2C devices in order of slave address.
+
+Shawn
+
+> +		compatible = "nxp,pca9555";
+> +		reg = <0x20>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		vcc-supply = <&reg_3p3v>;
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <24 IRQ_TYPE_EDGE_FALLING>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +		gpio-line-names = "", "", "GPIO_3V3_3", "",
+> +				  "", "", "", "",
+> +				  "", "GPIO_3V3_1", "GPIO_3V3_2", "",
+> +				  "", "", "", "";
+> +
+> +		wlan-disable-hog {
+> +			gpio-hog;
+> +			gpios = <0 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "WLAN_DISABLE#";
+> +		};
+> +
+> +		vcc-pcie-en-3v3-hog {
+> +			gpio-hog;
+> +			gpios = <1 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "VCC_PCIE_EN_3V3";
+> +		};
+> +
+> +		vcc-wlan-en-3v3-hog {
+> +			gpio-hog;
+> +			gpios = <3 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "VCC_WLAN_EN_3V3";
+> +		};
+> +
+> +		pcie-rst-hog {
+> +			gpio-hog;
+> +			gpios = <4 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "PCIE_RST#";
+> +		};
+> +
+> +		wlan-rst-hog {
+> +			gpio-hog;
+> +			gpios = <5 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "WLAN_RST#";
+> +		};
+> +
+> +		pcie-dis-hog {
+> +			gpio-hog;
+> +			gpios = <11 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "PCIE_DIS#";
+> +		};
+> +
+> +		pcie-wake-hog {
+> +			gpio-hog;
+> +			gpios = <12 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "PCIE_WAKE#";
+> +		};
+> +	};
+> +
+> +	gpio_exp_1p8v: gpio-expander@70 {
+> +		compatible = "nxp,pca9538";
+> +		reg = <0x70>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +		vcc-supply = <&reg_1p8v>;
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <27 IRQ_TYPE_EDGE_FALLING>;
+> +		interrupt-controller;
+> +		#interrupt-cells = <2>;
+> +		gpio-line-names = "PCIE_CLK_PD#", "PMIC_INT#", "ETH_SW_INT#", "",
+> +				  "", "", "", "",
+> +				  "", "GPIO_3V3_1", "GPIO_3V3_2", "",
+> +				  "", "", "", "";
+> +
+> +		/* do not change PCIE_CLK_PD */
+> +		pcie-clk-pd-hog {
+> +			gpio-hog;
+> +			gpios = <0 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "PCIE_CLK_PD#";
+> +		};
+> +
+> +		pmic-int-hog {
+> +			gpio-hog;
+> +			gpios = <1 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "PMIC_INT#";
+> +		};
+> +
+> +		eth-sw-int-hog {
+> +			gpio-hog;
+> +			gpios = <2 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "ETH_SW_INT#";
+> +		};
+> +
+> +		eth-link-pwrdwn-hog {
+> +			gpio-hog;
+> +			gpios = <3 GPIO_ACTIVE_HIGH>;
+> +			input;
+> +			line-name = "ETH_LINK_PWRDWN#";
+> +		};
+> +
+> +		vcc-wlan-en-1v5-hog {
+> +			gpio-hog;
+> +			gpios = <6 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "VCC_WLAN_EN_1V5";
+> +		};
+> +
+> +		vcc-pcie-en-1v5-hog {
+> +			gpio-hog;
+> +			gpios = <7 GPIO_ACTIVE_HIGH>;
+> +			output-high;
+> +			line-name = "VCC_PCIE_EN_1V5";
+> +		};
+> +	};
+> +
+> +	switch@5f {
+> +		compatible = "microchip,ksz9897";
+> +		reg = <0x5f>;
+> +		reset-gpios = <&gpio_exp_3p3v 7 GPIO_ACTIVE_LOW>;
+> +
+> +		ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			swport0: port@0 {
+> +				reg = <0>;
+> +				label = "swp0";
+> +				phy-mode = "internal";
+> +			};
+> +
+> +			swport1: port@1 {
+> +				reg = <1>;
+> +				label = "swp1";
+> +				phy-mode = "internal";
+> +			};
+> +
+> +			swport2: port@2 {
+> +				reg = <2>;
+> +				label = "swp2";
+> +				phy-mode = "internal";
+> +			};
+> +
+> +			swport3: port@3 {
+> +				reg = <3>;
+> +				label = "swp3";
+> +				phy-mode = "internal";
+> +			};
+> +
+> +			port@6 {
+> +				reg = <6>;
+> +				label = "cpu";
+> +				/* TODO: PFE */
+> +				phy-mode = "rgmii-id";
+> +				rx-internal-delay-ps = <1500>;
+> +				tx-internal-delay-ps = <1500>;
+> +
+> +				fixed-link {
+> +					speed = <1000>;
+> +					full-duplex;
+> +				};
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&pcie1 {
+> +	status = "okay";
+> +};
+> +
+> +/* TODO: PFE */
+> +
+> +&sata {
+> +	status = "okay";
+> +};
+> +
+> +&usb0 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	hub_2_0: hub@1 {
+> +		compatible = "usb451,8142";
+> +		reg = <1>;
+> +		peer-hub = <&hub_3_0>;
+> +		reset-gpios = <&gpio_exp_3p3v 6 GPIO_ACTIVE_LOW>;
+> +		vdd-supply = <&reg_vcc_3v3>;
+> +	};
+> +
+> +	hub_3_0: hub@2 {
+> +		compatible = "usb451,8140";
+> +		reg = <2>;
+> +		peer-hub = <&hub_2_0>;
+> +		reset-gpios = <&gpio_exp_3p3v 6 GPIO_ACTIVE_LOW>;
+> +		vdd-supply = <&reg_vcc_3v3>;
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi
+> new file mode 100644
+> index 0000000000000..5f6ee8fd4094b
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi
+> @@ -0,0 +1,73 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright (c) 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
+> + * D-82229 Seefeld, Germany.
+> + * Author: Matthias Schiffer
+> + * Author: Max Merchel
+> + */
+> +
+> +#include "fsl-ls1012a.dtsi"
+> +
+> +/ {
+> +	compatible = "tq,ls1012a-tqmls1012al", "fsl,ls1012a";
+> +
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		/*  our minimum RAM config will be 512 MiB */
+> +		reg = <0x00000000 0x80000000 0 0x20000000>;
+> +	};
+> +
+> +	reg_vcc_3v3: regulator-3v3 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "VCC_3V3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +	};
+> +};
+> +
+> +&i2c0 {
+> +	status = "okay";
+> +
+> +	jc42_19: temperature-sensor@19 {
+> +		compatible = "nxp,se97b", "jedec,jc-42.4-temp";
+> +		reg = <0x19>;
+> +	};
+> +
+> +	m24c64_50: eeprom@50 {
+> +		compatible = "atmel,24c64";
+> +		reg = <0x50>;
+> +		pagesize = <32>;
+> +		vcc-supply = <&reg_vcc_3v3>;
+> +	};
+> +
+> +	m24c02_51: eeprom@51 {
+> +		compatible = "nxp,se97b", "atmel,24c02";
+> +		reg = <0x51>;
+> +		pagesize = <16>;
+> +		read-only;
+> +		vcc-supply = <&reg_vcc_3v3>;
+> +	};
+> +
+> +	rtc1: rtc@68 {
+> +		compatible = "dallas,ds1339";
+> +		reg = <0x68>;
+> +	};
+> +};
+> +
+> +&qspi {
+> +	status = "okay";
+> +
+> +	flash@0 {
+> +		compatible = "jedec,spi-nor";
+> +		reg = <0>;
+> +		spi-max-frequency = <39000000>;
+> +		spi-rx-bus-width = <4>;
+> +		spi-tx-bus-width = <1>;
+> +
+> +		partitions {
+> +			compatible = "fixed-partitions";
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +		};
+> +	};
+> +};
 > -- 
-> 2.34.1
+> 2.43.0
 > 
+
 
