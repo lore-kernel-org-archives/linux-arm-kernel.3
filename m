@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FD5C678DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93677C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Di8cFteP1XPcCLTgOpByx68RV0Cdgg0zdTJ+ggPrfGM=; b=AY9TuGhNB10HQ/7JXLcFoj/yCp
-	boe7tSG8izX+vcJE6XKhgWaHq69FzpRDzIf3MA4/Z5VWpHCQUxCKgzXEhCLdmro3OiRofp5DG8Mg0
-	sy84/aFT7tjb6/l9ErrLoL2hkHdlaRfhu880T7qCkw4H2MxQOaNsxazZpGaiAWTJtRcbLFUk59t3e
-	dluHidjFwwm6ZsAa4N3kuEvN1VFkclPzCf9UUCzWIo5SZDny7/ba9IJYxQCKBoDMKAh3rFCrWAvUL
-	67BMADG8k51vFAz0JZZDhWPGTv/Fa4Wem7zZYgiaU4kHRZTgogF7L2ecGQ6zDMeZGZTu+etGIabf+
-	p4uA0sig==;
+	bh=2B5nrlxePFX0A+unHdo3dXX9qDe2CbQ8om/K54coDN0=; b=Ner0aQXR3M+L5BQjBCVhoTec6n
+	ms/RLiIr2DS9zN+Gn/yhmyF/tQ0oJsMaOJ/wg0LE2IznEawTwBm7NLz5eF8MymggGPtf//wFNL0Wy
+	3B2RBDie3+KzXxJGFQw253gvdKe7T+EVzJmM+RAMfABQJHN9U4B1WnVdbZ1eloT6Wj8dHUopWrIQw
+	4jZo8DMLDQ61mHuYEZ0h9UofnyMQCEEU2SvnmEiyTZ3l59wK1kzbZcFSFq6kEW1PpD85N2hoK3iQ9
+	pUi5pYyTfMwRt4ZGocNhEeNcKWjgbyxxeyJo2eXb8J1wRTmsahjmXrvq8SVBFNyHDEpdaSK/jABv0
+	gJ/c4fdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMpW-0000000AHQq-1gzh;
-	Wed, 11 Jun 2025 14:53:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uPMpa-0000000AHXU-08jF;
+	Wed, 11 Jun 2025 14:53:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJVy-00000009jf7-29iq
+	id 1uPJXZ-00000009jjQ-2474
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 11:21:06 +0000
+	Wed, 11 Jun 2025 11:22:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 864076154E;
-	Wed, 11 Jun 2025 11:21:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B13E8C4CEEE;
-	Wed, 11 Jun 2025 11:20:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6638F43E9F;
+	Wed, 11 Jun 2025 11:22:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF3EEC4CEEE;
+	Wed, 11 Jun 2025 11:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749640865;
-	bh=PevshR8jJnNZj9lauUzY2OJoRgPg5R1bh+4/c6iM5Ds=;
+	s=k20201202; t=1749640962;
+	bh=docsndFI6Pu2XiM5fhPypxl5HJBhGvZAfSKa9arbkFY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BNtN1SRwdngnasV09EqD20gCyCLT342msBBOYjIo+u5al/JBFGbonQ11QmGYXeUde
-	 NqwFKQlZUZJG5S0YOu7rJX6EXn7nES12TLLRdLX80AK6GKy7cwA9ikhSq3ZiTpZ7zh
-	 JIKzZYT3EdlXVS4afXkk9cvcPyieZNkDVTeq32JEcrF7uiIICvM75GabhVseZ9HdjN
-	 8Dbc2BK09lMCix6y0LReGHQh0iyOk+OUzGM+KKxmRej0QoxZ4PseUb87zX5kcr2OgY
-	 oSqRu6se+oe7GIf7nmNAFX6XvJytOEM/vi30hpbxVwmXDTnJABHxne6S1RdySc/2YY
-	 vHa7cd0nNyFLg==
-Message-ID: <492417fe-c086-4980-b108-0487bad08155@kernel.org>
-Date: Wed, 11 Jun 2025 13:20:57 +0200
+	b=PDP9PBo/LYCXBfQVelEBN/Z6h+1sGl43me9RqV2mdNPiuSrXcTOX5E7srWXDxtsPu
+	 gRXWwmUHGY4GgGe/mF6JXJBg5AY/8xPGwRSo6yRcfcEtz4xckFscb7Cgb9Ma+5tf5U
+	 hy581ySOpQA7DuLaVzyHsEoXUluxKQbGuA34TxjvWVO2o61WSASYs3zCi5/sbdkCZW
+	 i97MmVXropQ3P1zruX8V7ijad/EYSxyxl0Xnez0s5+r603Oq0i+5VgiFAxo7tAcHkW
+	 FbagN9CswA8sZMHJ+nZInFf1LObaTqYIBw44ynOynJHKHvTroW0PCCTr5foGmG5sJA
+	 7U9uLRaS2IMdQ==
+Message-ID: <1ee554e4-d813-47cd-a1ab-9eaa4634cdb1@kernel.org>
+Date: Wed, 11 Jun 2025 13:22:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: opp: adreno: Update regex of OPP
- entry
+Subject: Re: [PATCH v2 4/4] arm64: dts: qcom: Add GPU support to X1P42100 SoC
 To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
@@ -65,7 +64,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-pm@vger.kernel.org
 References: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
- <20250611-x1p-adreno-v2-1-5074907bebbd@oss.qualcomm.com>
+ <20250611-x1p-adreno-v2-4-5074907bebbd@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,9 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250611-x1p-adreno-v2-1-5074907bebbd@oss.qualcomm.com>
+In-Reply-To: <20250611-x1p-adreno-v2-4-5074907bebbd@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_042245_582494_F6D5FB82 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,31 +132,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/06/2025 13:15, Akhil P Oommen wrote:
-> Update regex to allow multi-worded OPP entry names.
-
-Why would we want multi-worded? This needs to be explained here.
-
-
-> 
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
->  Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml b/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
-> index a27ba7b663d456f964628a91a661b51a684de1be..bba95799919eb52d12afa42354ed909d0ef3c627 100644
-> --- a/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
-> +++ b/Documentation/devicetree/bindings/opp/opp-v2-qcom-adreno.yaml
-> @@ -23,7 +23,7 @@ properties:
->        const: operating-points-v2-adreno
+> +		opp-280000000 {
+> +			opp-hz = /bits/ 64 <280000000>;
+> +			opp-level = <RPMH_REGULATOR_LEVEL_LOW_SVS_D1>;
+> +			opp-peak-kBps = <2136719>;
+> +			qcom,opp-acd-level = <0xc82f5ffd>;
+> +			opp-supported-hw = <0x1f>;
+> +		};
+> +	};
+> +
+>  };
 >  
->  patternProperties:
-> -  '^opp-[0-9]+$':
-> +  '^opp(-?[0-9]+)*$':
+>  &gpucc {
+> @@ -41,6 +150,13 @@ &pcie6a_phy {
+>  	compatible = "qcom,x1p42100-qmp-gen4x4-pcie-phy";
+>  };
+>  
+> +&qfprom {
+> +	gpu_speed_bin: gpu_speed_bin@119 {
 
-Not correct regex. You allow "opp", "opp1" and all other unusual
-variants. Commit does not explain what problem you are solving, so I
-have no clue what you want here, but for sure opp1 is wrong.
+No underscores. You need to align downstream code to upstream. See
+coding style.
+
 
 
 Best regards,
