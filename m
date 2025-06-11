@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3C3C71144
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE192C71148
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 17:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pK++XEie+/oAxvEBIgrzqo76AvhJ2lHuoGEeVT7MV9A=; b=NP6q2t4wfrPwvWk5YhJeXX5Vs2
-	oDbLGq0o4C2OTj6knQbWxtAllAXSG6ErzMPIdoVVrPdvUekGt+1albLTgSPP2xXChkK7bacVMR+Dy
-	MpbVNcnsbdXzSLBTp2Vbbcfn5k+ApR5nTSwYhtaDPBEdS1bjGYpEIwOANa5V6qYX3cw7XdUC4RlaK
-	rZzXxrFx5ycGn4+s8SngTc7VuO7x5m49jnTTv6tCN2STeQAxXdINk0TtNbsncwsSt4lrlXawuEzNz
-	Khm/Ih50X5nQARpfCYk6ZZyzBfBouoR3uIfa5SFk/sUqJU6z011PLNTgERWO0IVdyMvxWv0fJbWYV
-	PrFkV1Mg==;
+	bh=IvhYokJxK28Arta44pXJmYqjnB6o8hx+XMuOOdqUSl0=; b=Et4rmVINsLE2FxYfujX6XFEIRn
+	QoYyeIFXqPEypm7MSWZPT/GtVeI8M68VX5zpYAl7UZY307wiDdDPspslCs9S0Kck/56c8atx1Cmz/
+	y2NRLAgqvQMWYxNuScQEXBXDFQBX6DgGYBcbj8ze1fihnZpeH+GgfdgtJpM0GLie1XegSKxcr7Ewi
+	WnT/Fz6BZpEbiLZO1cm48H16jSr2vazL6seo3gKJ0x/PqOjVBFQ2SMu5gKUMofS5W5nXCv7SnhtSL
+	qMEZ7qdV810ViFoTJYYPG67VO6zn78mwiPXeG3qg05dd3WrdfY3dTa0p7ZQNCjUxkkQ3s7uGxEA/V
+	w8wv5p6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPjZ-0000000AlgQ-3UuH;
-	Wed, 11 Jun 2025 17:59:34 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uPPjY-0000000Alfx-2xjQ;
+	Wed, 11 Jun 2025 17:59:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJs2-00000009lua-1cv5
+	id 1uPJme-00000009lKv-1clp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Jun 2025 11:38:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=IvhYokJxK28Arta44pXJmYqjnB6o8hx+XMuOOdqUSl0=; b=LxG1U2JdzdGdWh1DX9rr4Spzl7
+	44tVc0WthClFExCbt0nk8lHleBnt32BiSHfN8jQiQGfi2kia5QFFHCGGRb7c37TmtAXDEkPoS+Uhm
+	DhDE9C0+ZLjEjDD9uL2lXtdWadcELq8bt08tb3dFZh/owMkRKNSANyWPXFTeIxV3qkn5MhTdeDLMW
+	PKV0vbZDoyA2PDhwCynVkZdfnoXsYV4FkN02+a36YmHkHbENRBrZEZj+4LHy0nLp1MYhmC/6DrCam
+	RIllzCW4Vxt1SaPLq49xxFrP2i+I9a2G2uuMiZHbdd0hqLt7OZF7t/ErgurHKBCKROZsp+t5LwR5+
+	eAEKUpnQ==;
+Received: from mail.actia.se ([212.181.117.226])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPJmc-00000002MHZ-2F1a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 11:43:55 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55BBhpIV1352878;
-	Wed, 11 Jun 2025 06:43:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749642231;
-	bh=pK++XEie+/oAxvEBIgrzqo76AvhJ2lHuoGEeVT7MV9A=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=xqBx3ItgdU7Nl+conEmYtGtxX3PCVXC930nUo4zgD4I4dpJM/29Uv/OPcPpz5FLlN
-	 b2aC+HfUMfGnW257C2FBtUpdvNUeAkcGfmrO5DLGFzI54auyIqms+QXbmokrKB9uhu
-	 +25lZkNX1R2g0VLScv8C9s0Kft9lOk5H/Ofo4wAE=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55BBhpjU1108991
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 11 Jun 2025 06:43:51 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 11
- Jun 2025 06:43:50 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 11 Jun 2025 06:43:50 -0500
-Received: from uda0492258.dhcp.ti.com (dhcp-172-24-227-169.dhcp.ti.com [172.24.227.169])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55BBhavG270460;
-	Wed, 11 Jun 2025 06:43:47 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <s-vadapalli@ti.com>
-Subject: [PATCH v2 3/5] arm64: dts: ti: k3-j7200: disable "mcu_cpsw" in SoC file and enable in board file
-Date: Wed, 11 Jun 2025 17:13:34 +0530
-Message-ID: <20250611114336.2392320-4-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250611114336.2392320-1-s-vadapalli@ti.com>
-References: <20250611114336.2392320-1-s-vadapalli@ti.com>
+	Wed, 11 Jun 2025 11:38:20 +0000
+Received: from S036ANL.actianordic.se (10.12.31.117) by S035ANL.actianordic.se
+ (10.12.31.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 11 Jun
+ 2025 13:38:09 +0200
+Received: from S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69]) by
+ S036ANL.actianordic.se ([fe80::e13e:1feb:4ea6:ec69%3]) with mapi id
+ 15.01.2507.039; Wed, 11 Jun 2025 13:38:09 +0200
+From: John Ernberg <john.ernberg@actia.se>
+To: =?iso-8859-2?Q?Horia_Geant=E3?= <horia.geanta@nxp.com>, Pankaj Gupta
+	<pankaj.gupta@nxp.com>, Gaurav Jain <gaurav.jain@nxp.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>
+CC: Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, John Ernberg <john.ernberg@actia.se>
+Subject: [PATCH v6 2/4] crypto: caam - Support iMX8QXP and variants thereof
+Thread-Topic: [PATCH v6 2/4] crypto: caam - Support iMX8QXP and variants
+ thereof
+Thread-Index: AQHb2sVNSN6Tna4ATUu1t4WZeEYssQ==
+Date: Wed, 11 Jun 2025 11:38:08 +0000
+Message-ID: <20250611113748.2986988-3-john.ernberg@actia.se>
+References: <20250611113748.2986988-1-john.ernberg@actia.se>
+In-Reply-To: <20250611113748.2986988-1-john.ernberg@actia.se>
+Accept-Language: en-US, sv-SE
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.49.0
+x-originating-ip: [10.12.12.63]
+x-esetresult: clean, is OK
+x-esetid: 37303A2956B14453627160
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_044354_515394_0E10FB18 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250611_123818_690630_CC4DC950 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +100,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following the existing convention of disabling nodes in the SoC file and
-enabling only the required ones in the board file, disable "mcu_cpsw" node
-in the SoC file "k3-j7200-mcu-wakeup.dtsi" and enable it in the board file
-"k3-j7200-common-proc-board.dts".
+The iMX8QXP (and variants such as the QX, DX, DXP) all identify as iMX8QXP.
 
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+They have the exact same restrictions as the supported iMX8QM introduced
+at commit 61bb8db6f682 ("crypto: caam - Add support for i.MX8QM")
+
+Loosen the check a little bit with a wildcard to also match the iMX8QXP
+and its variants.
+
+Signed-off-by: John Ernberg <john.ernberg@actia.se>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+
 ---
 
-v1 of this patch was 2 different patches which have currently been
-squashed:
- https://lore.kernel.org/r/20250529133443.1252293-9-s-vadapalli@ti.com/
- https://lore.kernel.org/r/20250529133443.1252293-10-s-vadapalli@ti.com/
+v6:
+ - no changes
 
-Squashing the patches is the only change since the v1 series, in
-addition to updating the commit message accordingly.
+v5:
+ - Collect tags
 
-Regards,
-Siddharth.
+v4:
+ - no changes
 
- arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts | 1 +
- arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi       | 2 ++
- 2 files changed, 3 insertions(+)
+v3:
+ - no changes
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-index f684ce6ad9ad..021cdeb84ad1 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts
-@@ -321,6 +321,7 @@ &wkup_gpio0 {
- };
- 
- &mcu_cpsw {
-+	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mcu_cpsw_pins_default>, <&mcu_mdio_pins_default>;
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-index 56ab144fea07..604295092d06 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi
-@@ -432,6 +432,8 @@ mcu_cpsw: ethernet@46000000 {
- 			    "tx4", "tx5", "tx6", "tx7",
- 			    "rx";
- 
-+		status = "disabled";
-+
- 		ethernet-ports {
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--- 
-2.34.1
+v2:
+ - Collect review tag
+---
+ drivers/crypto/caam/ctrl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/crypto/caam/ctrl.c b/drivers/crypto/caam/ctrl.c
+index 766c447c9cfb..ce7b99019537 100644
+--- a/drivers/crypto/caam/ctrl.c
++++ b/drivers/crypto/caam/ctrl.c
+@@ -573,7 +573,7 @@ static const struct soc_device_attribute caam_imx_soc_t=
+able[] =3D {
+ 	{ .soc_id =3D "i.MX7*",  .data =3D &caam_imx7_data },
+ 	{ .soc_id =3D "i.MX8M*", .data =3D &caam_imx7_data },
+ 	{ .soc_id =3D "i.MX8ULP", .data =3D &caam_imx8ulp_data },
+-	{ .soc_id =3D "i.MX8QM", .data =3D &caam_imx8ulp_data },
++	{ .soc_id =3D "i.MX8Q*", .data =3D &caam_imx8ulp_data },
+ 	{ .soc_id =3D "VF*",     .data =3D &caam_vf610_data },
+ 	{ .family =3D "Freescale i.MX" },
+ 	{ /* sentinel */ }
+--=20
+2.49.0
 
