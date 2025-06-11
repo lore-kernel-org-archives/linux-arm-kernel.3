@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA9EC678DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65650C677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zB9iWmDf93Uo2WrJd5zFOj0ovWYxmJgtGnwDr0HEb+s=; b=zASGmoWLOT7NgXuZ2umZ24l8+B
-	hDWcrpD01vbFUi7/efu15HI+FzisTyBCt5jyo3fQzBe5PN1wXnntecQchRVfFLCVx2fRRx3PoF37p
-	PITiIT7KVIjwKxAhlTT5Ki8aRYV4rDp2dolao1HCjJfqjgDOHIfbJgBSYG7T2F0ikuew4XDBiqMAc
-	rYxBeLjk3kLBPgbWsG4FXR2d0CnmNym/9sy/BcxStDAddpqltQ3DfWIMflJiQfThpUlKhmIFW8uqQ
-	Zo9yauHcSzdP3XDYxdzq2ZjotM/2WHqr/eb2LYDhxnGmuvjed0uSOE4ckOGjoYsCAUSvbr+igFCt6
-	ZAjnOUrQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=58Wu3Zke1ReCwYH7mKtaSi3FEN+1epwe46ln5xqBjBw=; b=QB8o/P2lJgAgNwkdeSzgKSFkqh
+	2LpVVmcSYFdgnyIbm2lNoW5ASDBAlzKDbArzo+blkOGn4WgPktK0nt3ATpD1isjdsI50HqNa7IC8R
+	K2bXzToZTbL67JFrd+Vv4Yz2+6wFtLZr+XPMtUuMntjnGjJnzWXbc5SH6ekbaZ1v1UEebFDpQ5dlm
+	bHqllAwWpXsZdIkn0hoKQi6Zo4aEp5O7GfXzF4/jtWc6chefYzHBP0bPDC7FNsAkfhDTcSkeAzx70
+	EfZVx0dHyKuZj7M8YBtwmJFJsUreX/3d9JbKuw1aSfXw4AtWUagdc0E/ZwPfW20wg8nH3hGg20NNr
+	45s1FvBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMlC-0000000AA4r-2hb7;
-	Wed, 11 Jun 2025 14:49:02 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHwY-00000009VJ0-03Fs;
-	Wed, 11 Jun 2025 09:40:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749634824;
-	bh=aWSrVg6trcSvidS1Tw5OfSRqvl9oKQxDz8kbvLt0OCk=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=KkgND5amME3BftnewrZ+UluRD84GILsHRZ+b9TWEVUfhepgjrDHrP8OA4oBwOJ3Tj
-	 faQ4Ubh4lXj3guMCFSRGwNVY9q4GeGoghqcJVYY8wUxg4bSfIQdlPbE7JnnQJ/6kdB
-	 KHt034d0PVhAyJESrZVUTLlnbaVgVFH1j8Oy5QsLwYaqobWGtTS78ws9V2pT0NtqxM
-	 eDIEsmF3OFGTj69U/+8WoTLzDC+OJ6IBF0vW0zTYhGrq6B0+3WHrXi+MQSMwRqLcYZ
-	 srFlTEaJxHNXvMj9xT5Sy3dR8TQkbxswJyCXK4zbf+FUNW4QJfwHwhIrbc1aiLDCm/
-	 t3oFOs/HGTLQQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1194117E3789;
-	Wed, 11 Jun 2025 11:40:23 +0200 (CEST)
-Message-ID: <2f03fe56-f471-43be-8774-1db92d376861@collabora.com>
-Date: Wed, 11 Jun 2025 11:40:22 +0200
+	id 1uPMlF-0000000AACC-42Hj;
+	Wed, 11 Jun 2025 14:49:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPHxI-00000009VSs-1x8t
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Jun 2025 09:41:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0848E1596;
+	Wed, 11 Jun 2025 02:40:52 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 575F43F59E;
+	Wed, 11 Jun 2025 02:41:09 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	pcc@google.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	anshuman.khandual@arm.com,
+	joey.gouly@arm.com,
+	yury.khrustalev@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	frederic@kernel.org,
+	akpm@linux-foundation.org,
+	surenb@google.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v6 0/9] support FEAT_MTE_TAGGED_FAR feature
+Date: Wed, 11 Jun 2025 10:40:58 +0100
+Message-Id: <20250611094107.928457-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v3 04/13] dt-bindings: interconnect: add mt7988-cci
- compatible
-To: Frank Wunderlich <linux@fw-web.de>,
- MyungJoo Ham <myungjoo.ham@samsung.com>,
- Kyungmin Park <kyungmin.park@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Georgi Djakov <djakov@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
- Jia-Wei Chang <jia-wei.chang@mediatek.com>,
- Johnson Wang <johnson.wang@mediatek.com>, =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?=
- <arinc.unal@arinc9.com>, Landen Chao <Landen.Chao@mediatek.com>,
- DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
- Daniel Golle <daniel@makrotopia.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Felix Fietkau <nbd@nbd.name>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-5-linux@fw-web.de>
-Content-Language: en-US
-In-Reply-To: <20250608211452.72920-5-linux@fw-web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_024026_198056_8933DC1D 
-X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-CacheID: sfid-20250611_024112_594678_A4ED743B 
+X-CRM114-Status: UNSURE (   9.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,16 +74,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 08/06/25 23:14, Frank Wunderlich ha scritto:
-> From: Frank Wunderlich <frank-w@public-files.de>
-> 
-> Add compatible for Mediatek MT7988 SoC with mediatek,mt8183-cci fallback
-> which is taken by driver.
-> 
-> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+The FEAT_MTE_TAGGED_FAR feature provides support for
+reporting all non-address bits during a synchronous MTE tag check fault.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+This patchset extends the reporting tag to include
+not only the memory tag (logical tag) but also the address tag via
+si_addr when FEAT_MTE_TAGGED_FAR feature is supported.
 
+Patch Sequences
+================
+
+Patch #1 adds cpufeature FEAT_MTE_TAGGED_FAR
+
+Patch #2 adds MTE_FAR hwcaps and export address tag when it supports
+
+Patch #3 adds mtefar hwcap test
+
+Patch #4 to #7 prepares to add mtefar testcase
+
+Patch #8 refactor check_mmap_option using general testcase pattern
+
+Patch #9 adds mtefar test cases corresponding to
+each testcase of check_mmap_options
+
+Patch History
+================
+v5 to v6:
+  - split Patch #4.
+  - refactor check_mmap_option using general testcase pattern
+  - https://lore.kernel.org/linux-arm-kernel/20250610150144.2523945-1-yeoreum.yun@arm.com/
+
+v4 to v5:
+  - rebased on v6.16-rc1
+  - https://lore.kernel.org/linux-arm-kernel/20250507095757.1663684-1-yeoreum.yun@arm.com/
+
+v3 to v4:
+  - fix hwcap string for FEAT_MTE_TAGGED_FAR
+  - split cpufeature and hwcap modification and merge hwcap's
+    modification with exporting address tag patch
+  - add mtefar testcase on check_mmap_options
+  - https://lore.kernel.org/all/20250410074721.947380-1-yeoreum.yun@arm.com/
+
+v2 to v3:
+  - Rebase to 6.15-rc1
+  - https://lore.kernel.org/all/20250403172758.67106-1-yeoreum.yun@arm.com/
+
+v1 to v2:
+  - add hwcap test for MTE_FAR feature.
+  - add MTE_FAR doc into elf_hwcap.rst
+  - https://lore.kernel.org/all/20250403142707.26397-1-yeoreum.yun@arm.com/
+
+
+Yeoreum Yun (9):
+  arm64/cpufeature: add FEAT_MTE_TAGGED_FAR feature
+  arm64: report address tag when FEAT_MTE_TAGGED_FAR is supported
+  tools/kselftest: add MTE_FAR hwcap test
+  kselftest/arm64/mte: register mte signal handler with
+    SA_EXPOSE_TAGBITS
+  kselftest/arm64/mte: check MTE_FAR feature is supported
+  kselftest/arm64/mte: add address tag related macro and function
+  kselftest/arm64/mte: add verification for address tag in signal
+    handler
+  kselftest/arm64/mte: refactor check_mmap_option test
+  kselftest/arm64/mte: add mtefar tests on check_mmap_options
+
+ Documentation/arch/arm64/elf_hwcaps.rst       |   3 +
+ Documentation/arch/arm64/tagged-pointers.rst  |  11 +-
+ arch/arm64/include/asm/hwcap.h                |   1 +
+ arch/arm64/include/uapi/asm/hwcap.h           |   1 +
+ arch/arm64/kernel/cpufeature.c                |   9 +
+ arch/arm64/kernel/cpuinfo.c                   |   1 +
+ arch/arm64/mm/fault.c                         |   7 +-
+ arch/arm64/tools/cpucaps                      |   1 +
+ tools/testing/selftests/arm64/abi/hwcap.c     |   6 +
+ .../selftests/arm64/mte/check_buffer_fill.c   |   2 +-
+ .../selftests/arm64/mte/check_child_memory.c  |   4 +-
+ .../arm64/mte/check_hugetlb_options.c         |   4 +-
+ .../selftests/arm64/mte/check_ksm_options.c   |   4 +-
+ .../selftests/arm64/mte/check_mmap_options.c  | 543 +++++++++++++++---
+ .../arm64/mte/check_tags_inclusion.c          |   2 +-
+ .../selftests/arm64/mte/check_user_mem.c      |   2 +-
+ .../selftests/arm64/mte/mte_common_util.c     |  70 ++-
+ .../selftests/arm64/mte/mte_common_util.h     |   6 +-
+ tools/testing/selftests/arm64/mte/mte_def.h   |   8 +
+ 19 files changed, 589 insertions(+), 96 deletions(-)
+
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
