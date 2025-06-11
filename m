@@ -4,67 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B132C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B407EC71143
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 18:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grDbEJCqwmwEu2KncBowOfZqj2yNoiJ/Z3B+QMeJmkc=; b=l+x2zPpl4IIURcebtz6e9f0wIa
-	f6/WYGFBHooicXEdD2Fr6EB2FQU91jL+OQEkmeZxKh2+s/BwpM/5kZHuNRRVAzZdIVrj/Ea2PguxP
-	HOnwWDdemAYi39ZVNipo9ByN080u85zYNHGS8rMj1ha8UGMGYH2UwyT4Jk4m3/8UhyAGWDeeX5NFr
-	HVWIIiD3gYfIpOJhyYgX966pVblCs0ed6M4eddKd87y7XiXUqLjgN74lX4t0s6HQbXja77ypW5wX9
-	ziMnpDhpDRNjKjFmJ8sO/EHh5pnS+8DCvbCBDCaKIW64u+41orZr8YXbw3EO0MjShZMSw5KVyH4Z5
-	iCkwDh7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r3EVnRbmSMlgRrDXB3H2BP/1li0w1Wem69SzKRryKtY=; b=11bGtLm8ceHS9TABK6SBBFqaAP
+	81swcH15ZFuVDpLYeI5TRbq2ms7mlMP5E4Wy0ANbxYHd+xbL5XVtKrzBgk2EZF7YqtUaEEEriGjtT
+	48DR08RoeMRMlGTUthH1BcukY+Kkd4SF4GLIEYxYy92laaMhJ3295eKLfSOOTJYx40NWhCw0a+XUR
+	CLWOPqoJ8T+2R/nPCBDwsWO7JF9+xWn9dcmeHJFGIKViPs51OLpCDcdt1DR9U2imAnH/rd8xpcbYx
+	3bNfeVDc+CnV9kIGt8zDztFSdt2hycGK5pLoXGVWkIWhTMX6Q6fUYyEUSY2HJ1uDbuNuEm3NgGftK
+	IjT/d69w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPky-0000000Ao5R-3ZFZ;
-	Wed, 11 Jun 2025 18:01:00 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uPPkx-0000000Ao2P-194X;
+	Wed, 11 Jun 2025 18:00:59 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMOF-0000000A64u-4BeI
+	id 1uPMLD-0000000A5Ug-2bDH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 14:25:21 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 23B992329;
-	Wed, 11 Jun 2025 16:25:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1749651908;
-	bh=ydw5XstCOj0yxT3ihCpLEUcyvE3z56cERDKWAm+csSg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JZcUDvbJTHLRCMKztArv5XRBV2UHFvGOjmfkOUZFrAhTDdy9AxA7voYcK2/vHn6Nu
-	 WyMEobdEFcsh1Q9xpCzPWwsRiRv8z60zykAImLj8Brf+fdGkALvw/eDug2eansN/FX
-	 dBXPhuJWGeeBKrFPsRq82hjT9uHQJ3lRkp960daM=
-Date: Wed, 11 Jun 2025 17:25:03 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Robert Chiras <robert.chiras@nxp.com>,
-	"Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v5 00/13] media: imx8: add camera support
-Message-ID: <20250611142503.GB22730@pendragon.ideasonboard.com>
-References: <20250522-8qxp_camera-v5-0-d4be869fdb7e@nxp.com>
- <aEcUGXeAdf/gBBFX@lizhi-Precision-Tower-5810>
+	Wed, 11 Jun 2025 14:22:13 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55BDrZjD022309;
+	Wed, 11 Jun 2025 16:21:52 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	r3EVnRbmSMlgRrDXB3H2BP/1li0w1Wem69SzKRryKtY=; b=slImy+QRerHTh1HU
+	DGp3sqBUjbpbzZCKMOaa3BESUZhhR2hcTAY6+HsBb5ffnGMuxumTknxTMo28yi9K
+	mu0Zu+nz6c2ycnQlXEUWXBCWWZu8BIlTHXY4RDdqQLZ8e3tD7av+vd5d7ifycU6V
+	J5NjDzwHTFhIYAPnlbRYdZ2QwSDeaM0/NhpbblmhOPGD/Gf8Uc6xEgUl2xV6PK8x
+	zDhf7yFiaaKt3YaTmx0+fEH+agbWtBF4FSKjTCmYeMSt8Co98XhPqY3sAPixCd0J
+	jgzt3YYac9fOvo66CPMoRkyeXwRq5v7xrV/2M+JNBI1MjpHknsMhFC7WcXZlbV3x
+	LE2vVQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cs2u085-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 16:21:52 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AE89940059;
+	Wed, 11 Jun 2025 16:20:45 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B159DB23F16;
+	Wed, 11 Jun 2025 16:08:27 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 11 Jun
+ 2025 16:08:27 +0200
+Message-ID: <2865ab3a-1c20-4951-8132-4be98d73d70e@foss.st.com>
+Date: Wed, 11 Jun 2025 16:08:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aEcUGXeAdf/gBBFX@lizhi-Precision-Tower-5810>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp13
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Linus Walleij
+	<linus.walleij@linaro.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
+ <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
+ <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
+ <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
+ <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
+ <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
+ <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
+ <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
+ <42a0b7ab-d85d-4d52-a263-4a4648c7ff05@kernel.org>
+Content-Language: en-US
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+In-Reply-To: <42a0b7ab-d85d-4d52-a263-4a4648c7ff05@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-11_05,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_072520_181800_473B5356 
-X-CRM114-Status: GOOD (  25.16  )
+X-CRM114-CacheID: sfid-20250611_072211_948850_AC663BF9 
+X-CRM114-Status: GOOD (  26.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,111 +113,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
-
-On Mon, Jun 09, 2025 at 01:04:25PM -0400, Frank Li wrote:
-> On Thu, May 22, 2025 at 01:56:38PM -0400, Frank Li wrote:
-> > Add SCU reset driver for i.MX8QM/i.MX8QXP.
-> > Update binding doc.
-> > Update driver for imx8qxp and imx8qm.
-> > Add dts files for it.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+On 6/11/25 08:35, Krzysztof Kozlowski wrote:
+> On 10/06/2025 15:33, Clement LE GOFFIC wrote:
+>> On 6/10/25 14:38, Krzysztof Kozlowski wrote:
+>>> On 10/06/2025 14:02, Clement LE GOFFIC wrote:
+>>>> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
+>>>>> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
+>>>>>>>
+>>>>>>>> +		};
+>>>>>>>> +
+>>>>>>>> +		hdp: pinctrl@5002a000 {
+>>>>>>>> +			compatible = "st,stm32mp131-hdp";
+>>>>>>>> +			reg = <0x5002a000 0x400>;
+>>>>>>>> +			clocks = <&rcc HDP>;
+>>>>>>>>      			status = "disabled";
+>>>>>>>
+>>>>>>> Why are you disabling it? What is missing?
+>>>>>>
+>>>>>> Nothing is missing just disabled by default.
+>>>>>> The node is then enabled when needed in board's dts file.
+>>>>> Nodes should not be disabled by default if they are complete. That's why
+>>>>> I asked what is missing. Drop.
+>>>>
+>>>> Hi Krzysztof, OK I better understand now.
+>>>> So yes the 'pinctrl-*' properties which are board dependent are lacking.
+>>>
+>>> These are not properties of this node.
+>>
+>> Does this mean I should add 'pinctrl-*' properties in bindings yaml file ?
+>> I don't get it..
 > 
-> Laurent Pinchart:
+> These properties have no meaning here, so the hardware description is
+> complete. You claim that you miss them thus device is incomplete is just
+> not correct: these properties do not belong here! They belong to the
+> board but even there they are totally optional. Why would they be a
+> required resource?
 > 
-> 	Do you have chance to check these patches? Only below patch
-> media: nxp: imx8-isi: Use devm_clk_bulk_get_all() to fetch clocks
-> missed your review tag.
+> To remind: we talk here ONLY about required resources.
 
-I've just pinged Rob in the v4 thread.
+Yes, 'pinctrl-*' properties belongs to the board and are not required.
+So nothing is missing.
 
-> 	DT team member still have not any comments about your concern by
-> use devm_clk_bulk_get_all(). I have quite confidence about this
-> devm_clk_bulk_get_all(), many drivers already switched to use
-> devm_clk_bulk_get_all() recently.
+This hdp node in the SoC dtsi file can be enabled by default.
+But the hdp driver will probe and do nothing because without the 
+'pinctrl-*' properties from the board files it would not be able to 
+access to any pin.
+I consider enabling this driver by default in SoC dtsi file as just 
+increasing the boot time on "every" board.
+It's the board dts that requires the hdp and provides the 'pinctrl-*' 
+properties to connect the hdp to some SoC pin and then to some signal on 
+the board. For me it's natural to have the status okay only in the board 
+dts file.
+
+>>
+>>>>
+>>>> In the last patch of my serie I add them (only for stm32mp157f-dk2) but
+>>>> keep it disabled because the pin is on an external connector (the
+>>>> Arduino connector of the board).
+>>>> This prevent any issue with a possible connected module.
+>>>
+>>> Not relevant. Pin control for connector are board specific, but pinctrl
+>>> SoC part is SoC.
+>>
+>> I think we don't understand each other here too. I don't understand the
+>> end of your sentence "pinctrl SoC part is SoC".
 > 
-> 	Do you need me rebase to v6.16-rc1?
+> Please read first how DTS is organized.
+> 
+> The pin controller device is part of SoC not part of a board.
+> 
+> Pins configuration for devices on the board are not part of the SoC.
+> What is not clear here? We talk here in terms how DTS is supposed to be
+> organized.
 
-The patches apply cleanly on v6.16-rc1, no need to rebase. I'll wait a
-few more days for Rob's reply.
+Now everything is clear, you want me to just set status enable in soc 
+dtsi file but I disagree, keep discussing.
 
-> > Changes in v5:
-> > - collect Laurent Pinchart's review tags
-> > - remove empty endpoint in dts
-> >
-> > Changes in v4:
-> > - Add 4 clean up patches
-> > 	media: nxp: imx8-isi: Remove unused offset in mxc_isi_reg and use BIT() macro for mask
-> > 	media: nxp: imx8-isi: Use dev_err_probe() simplify code
-> > 	media: nxp: imx8-isi: Remove redundant check for dma_set_mask_and_coherent()
-> > 	media: nxp: imx8-isi: Use devm_clk_bulk_get_all() to fetch clocks
-> > - rebase to v6.15-rc1.
-> > - Remove scu reset patches, which already in linux-next
-> > - Remove patch
-> > 	 Add fixed clock node clock-xtal24m to prepare to add camera support.
-> > - other detail change log see each patch's change log
-> > - Link to v3: https://lore.kernel.org/r/20250210-8qxp_camera-v3-0-324f5105accc@nxp.com
-> >
-> > Changes in v3:
-> > - Remove phy driver parts.
-> > - csr is dedicate for mipi csi2, so add it as second register space. csr is
-> > mixed with PHY and link control with csi2.
-> > - Link to v2: https://lore.kernel.org/r/20250205-8qxp_camera-v2-0-731a3edf2744@nxp.com
-> >
-> > Changes in v2:
-> > - move scu reset binding doc to top scu doc.
-> > - isi use seperate binding doc for imx8qxp and imx8qm.
-> > - phy and csi2, compatible string 8qm fallback to qxp
-> > - remove internal review tags
-> > - Link to v1: https://lore.kernel.org/r/20250131-8qxp_camera-v1-0-319402ab606a@nxp.com
-> >
-> > ---
-> > Frank Li (10):
-> >       media: dt-bindings: Add binding doc for i.MX8QXP and i.MX8QM ISI
-> >       media: nxp: imx8-isi: Allow num_sources to be greater than num_sink
-> >       media: nxp: imx8-isi: Remove unused offset in mxc_isi_reg and use BIT() macro for mask
-> >       media: nxp: imx8-isi: Use devm_clk_bulk_get_all() to fetch clocks
-> >       media: nxp: imx8-isi: Remove redundant check for dma_set_mask_and_coherent()
-> >       media: nxp: imx8-isi: Use dev_err_probe() to simplify code
-> >       media: imx8mq-mipi-csi2: Add support for i.MX8QXP
-> >       arm64: dts: imx8: add capture controller for i.MX8's img subsystem
-> >       arm64: dts: imx8q: add linux,cma node for imx8qm-mek and imx8qxp-mek
-> >       arm64: dts: imx8q: add camera ov5640 support for imx8qm-mek and imx8qxp-mek
-> >
-> > Guoniu.zhou (1):
-> >       media: imx8mq-mipi-csi2: Add imx8mq_plat_data for different compatible strings
-> >
-> > Robert Chiras (2):
-> >       media: imx8-isi: Add support for i.MX8QM and i.MX8QXP
-> >       media: dt-bindings: nxp,imx8mq-mipi-csi2: Add i.MX8QM(QXP) compatible strings
-> >
-> >  .../devicetree/bindings/media/fsl,imx8qm-isi.yaml  | 117 +++++++
-> >  .../devicetree/bindings/media/fsl,imx8qxp-isi.yaml | 106 ++++++
-> >  .../bindings/media/nxp,imx8mq-mipi-csi2.yaml       |  38 ++-
-> >  MAINTAINERS                                        |   1 +
-> >  arch/arm64/boot/dts/freescale/Makefile             |  11 +
-> >  arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi     | 362 +++++++++++++++++++++
-> >  .../boot/dts/freescale/imx8qm-mek-ov5640-csi0.dtso |  64 ++++
-> >  .../boot/dts/freescale/imx8qm-mek-ov5640-csi1.dtso |  64 ++++
-> >  arch/arm64/boot/dts/freescale/imx8qm-mek.dts       |  67 ++++
-> >  arch/arm64/boot/dts/freescale/imx8qm-ss-img.dtsi   |  79 +++++
-> >  arch/arm64/boot/dts/freescale/imx8qm.dtsi          |   5 +
-> >  .../boot/dts/freescale/imx8qxp-mek-ov5640-csi.dtso |  63 ++++
-> >  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      |  45 +++
-> >  arch/arm64/boot/dts/freescale/imx8qxp-ss-img.dtsi  |  83 +++++
-> >  arch/arm64/boot/dts/freescale/imx8qxp.dtsi         |   5 +
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 135 ++++----
-> >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |   6 +-
-> >  .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      |   8 +-
-> >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c      | 169 +++++++++-
-> >  19 files changed, 1334 insertions(+), 94 deletions(-)
-> > ---
-> > base-commit: ae1fdcf4b210cd66ac7e97b24219c160e4bb7be5
-> > change-id: 20250114-8qxp_camera-c1af5749d304
+> 
+>>
+>> Maybe some informations that could help:
+>> The 'pinctrl-*' properties are used in the HDP case to select the
+>> internal signal to output AND the alternate function on the pin to
+>> output the HDP function.
+> 
+> We all know this.
 
--- 
-Regards,
+Ok fine
 
-Laurent Pinchart
+Best regards,
+
+Clément
+
+> 
+>>
+>>> Best regards,
+>>> Krzysztof
+>>
+> 
+> 
+> Best regards,
+> Krzysztof
+
 
