@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B440AC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D807DC678DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ADxDhEqnNMjWcfjfUe+wYu6P11ZOgeXzQIIIWBM9gs=; b=4qH0zpBKiHa76eTonV8K1+DhDh
-	ZcYxNrY7ciLPdJC+1Rb5saSE4Q4fBFJdPRccspa/ZnkT7Ro7nnGQKq6PDZC/D5/16ojVluS/YwwFQ
-	n6i/CiN/b3Q9MVX9UF6O18Zof+gtC8kFoLAh5+uNtEXqu4MY3EMtJkYi1XjQc66kVKJo1H7hYnyWA
-	lTSRMUKP2vJzkzq32oCLa4Qvq5JcP/hY3gh5dLt4VJMaXmdn67KIuvR7fuXGpARb7Qux4pdrhEjsX
-	UejLwHuO3IqvGdAsux3wYQXuSvdbEhJYNSNIkmMT3vcfde2emt8XAiSBVoS9W0JFjl802c3mrM4JU
-	HHSVQlnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KKrTP5lp3Unbr1wREdJDcVDZ5eTpzdD9nIeamPRMUDI=; b=2DV3xCVjdSRb52YxnRfcNw34xW
+	JxySNcKVKTGFgPSur/1WWZpT9JvypxBWeGEy3VhIFGT9bwpziRbSpqCnrsLEra79ZUiJ2i9roakWM
+	OZ0hz9uci9o9VUeI9pE3NPFJU3nJgz2yoQHHwxbMXZhCmsB5SisnUutT7DiyX9VuR3pk4LvtZvIpV
+	BxipprUPtYWeDY7BvNVFe7zZKxnTXUCovacVHCJOVtqS8wxKD0ZUTcqp4WYO4hCk1BCknYox4uKQ9
+	0D50XrmJM0VLbdmHjWZyV+KkAASQdPbIB9u+WfIJvWYskidzw5swL2RMR5+H9F5wQ8x4dTwClpjlx
+	bJwSxXvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMmc-0000000ACOh-2BGK;
-	Wed, 11 Jun 2025 14:50:30 +0000
-Received: from mail-m16.yeah.net ([1.95.21.17])
+	id 1uPMmk-0000000ACby-06Rc;
+	Wed, 11 Jun 2025 14:50:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIBD-00000009YR4-0DEv
+	id 1uPIJ6-00000009Z2o-2OyE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 09:55:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=/ADxDhEqnNMjWcfjfUe+wYu6P11ZOgeXzQIIIWBM9gs=;
-	b=DrIjFjqSg4kFzEqvmSxXGJiSlKm8CilkBqOM2ZRERzXoj57wX9RiioD76DS+NV
-	uxur7rDVszE0lTv8P2Pt5AZVnG8OBQIoU81O6cPQSlHEWzaT4rwbHe5ftASgWrAr
-	bh7xqkWh7y4BFrzD61eU7gV47c/uPRBUlNKsZc16FLlJA=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgBnjlF0UkloyylqAA--.31015S3;
-	Wed, 11 Jun 2025 17:55:02 +0800 (CST)
-Date: Wed, 11 Jun 2025 17:55:00 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Yannic Moog <y.moog@phytec.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, upstream@lists.phytec.de,
-	Benjamin Hahn <b.hahn@phytec.de>,
-	Teresa Remmet <t.remmet@phytec.de>,
-	Yashwanth Varakala <y.varakala@phytec.de>,
-	Jan Remmet <j.remmet@phytec.de>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	Wed, 11 Jun 2025 10:03:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 86486629EC;
+	Wed, 11 Jun 2025 10:03:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCB90C4CEF2;
+	Wed, 11 Jun 2025 10:03:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749636223;
+	bh=WnNh6Rm9Jg/5QW7kY8rxY/asPnz6gmr/Wc6rb4KEVVA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gSHzIZMVLV69bRYINCRFNUMLUTYDU0vxl6UqXKftZ/QTsTnzxo/aO5jQhccphsJOg
+	 Cv0pVQAf4rsYJq/ATeNFZ6C3MDdu+0RtwXwHFr9o2gFMg3EYEVLvgjZ7aLYINPVmXi
+	 JwYCSpcY4yEwRLB6HMif7MihNAipdZiaUfLsduDnMzeurlLmXvNAJGxu5W3u46Htni
+	 sdBolxL+Z7eDSPM6ijoUZmqYPKbrXwMiy2vvnC5yvZQ3XO2hfyjgTnuXvyOX1beo61
+	 0TdqK5YHneN6JW2SQF8z+Bdt3v3Y8DfxPQTcNBSsvHzO1oVtTVJnpL1mjhz/4zwsfu
+	 SavGm0vQjveew==
+From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+To: gregkh@linuxfoundation.org
+Cc: linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-mips@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: add imx95-libra-rdk-fpsc board
-Message-ID: <aElSdJay7mI5JSL/@dragon>
-References: <20250509-wip-y-moog-phytec-de-imx95-libra-v2-0-b241a915f2be@phytec.de>
- <20250509-wip-y-moog-phytec-de-imx95-libra-v2-2-b241a915f2be@phytec.de>
+Subject: [PATCH 08/33] serial: 8250: sanitize uart_port::serial_{in,out}() types
+Date: Wed, 11 Jun 2025 12:02:54 +0200
+Message-ID: <20250611100319.186924-9-jirislaby@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250611100319.186924-1-jirislaby@kernel.org>
+References: <20250611100319.186924-1-jirislaby@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250509-wip-y-moog-phytec-de-imx95-libra-v2-2-b241a915f2be@phytec.de>
-X-CM-TRANSID: Mc8vCgBnjlF0UkloyylqAA--.31015S3
-X-Coremail-Antispam: 1Uf129KBjvAXoWfuF43uFyfJFyxGw4DAw4ktFb_yoW5Aw1fAo
-	WYvFs5u3y5Kr1UGr15Gr17tanrZr4kKF45Ka90yrW3JanIv39FyryDXw4jqr18tr40gFyD
-	Z3yfta4rAa9rt395n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU7vtCDUUUU
-X-Originating-IP: [117.82.86.8]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNBsfhGhJUnshWAAA3F
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_025535_442025_387EBA74 
-X-CRM114-Status: GOOD (  25.39  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,1095 +83,484 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 09, 2025 at 02:15:51PM +0200, Yannic Moog wrote:
-> Add device tree for the Libra-i.MX 95 FPSC board. The Libra is a
-> pure development board and has hardware to support FPSC-24-A.0 set of
-> features. The phyCORE-i.MX 95 FPSC [1] SoM uses only a subset of
-> the hardware features of the Libra board. The phyCORE-i.MX 95 FPSC
-> itself is a System on Module designed around the i.MX 95 SoC.
-> The SoM and board utilize the Future Proof Solder Core [2] BGA standard
-> to connect to each other.
-> 
-> To be able to easily map FPSC interface names to SoC interfaces, the
-> FPSC interface names are added as inline comments. Example:
-> 
-> &lpi2c5 { /* I2C2 */
-> 	pinctrl-0 = <&pinctrl_lpi2c5>;
-> 	[...]
-> };
-> 
-> Here, I2C2 is the FPSC interface name. The lpi2c5 instance of the i.MX 95
-> SoC is used to fulfill the i2c functionality and its signals are routed
-> to the FPSC I2C2 signal pins:
-> 
-> pinctrl_lpi2c5: lpi2c5grp {
-> 	fsl,pins = <
-> 		IMX95_PAD_GPIO_IO22__LPI2C5_SDA	0x40000b9e	/* I2C2_SDA */
-> 		IMX95_PAD_GPIO_IO23__LPI2C5_SCL 0x40000b9e	/* I2C2_SCL */
-> 	>;
-> };
-> 
-> [1] https://www.phytec.eu/en/produkte/system-on-modules/phycore-imx-95-fpsc/
-> [2] https://www.phytec.eu/en/produkte/system-on-modules/fpsc/
-> 
-> Signed-off-by: Yannic Moog <y.moog@phytec.de>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile             |   1 +
->  .../boot/dts/freescale/imx95-libra-rdk-fpsc.dts    | 327 ++++++++++
->  .../boot/dts/freescale/imx95-phycore-fpsc.dtsi     | 656 +++++++++++++++++++++
+uart_port::{serial_in,serial_out} (and plat_serial8250_port::* likewise)
+historically use:
+* 'unsigned int' for 32-bit register values in reads and writes, and
+* 'int' for offsets.
 
->  fitImage                                           | Bin 0 -> 14928380 bytes
->  fitImage.its                                       |   1 +
+Make them sane such that:
+* 'u32' is used for register values, and
+* 'unsigned int' is used for offsets.
 
-What are these?
+While at it, name hooks' parameters, so it is clear what is what.
 
->  5 files changed, 985 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 90652292a911..6d018d046009 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -325,6 +325,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie0-ep.dtb
->  imx95-19x19-evk-pcie0-ep-dtbs += imx95-19x19-evk.dtb imx-pcie0-ep.dtbo
->  imx95-19x19-evk-pcie1-ep-dtbs += imx95-19x19-evk.dtb imx-pcie1-ep.dtbo
->  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-pcie0-ep.dtb imx95-19x19-evk-pcie1-ep.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx95-libra-rdk-fpsc.dtb
->  
->  imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
->  
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts b/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts
-> new file mode 100644
-> index 000000000000..adaa7429681f
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dts
-> @@ -0,0 +1,327 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2025 PHYTEC Messtechnik GmbH
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/leds/leds-pca9532.h>
-> +#include <dt-bindings/pwm/pwm.h>
-> +
-> +#include "imx95-phycore-fpsc.dtsi"
-> +
-> +/ {
-> +	compatible = "phytec,imx95-libra-rdk-fpsc",
-> +		"phytec,imx95-phycore-fpsc", "fsl,imx95";
-> +	model = "PHYTEC Libra i.MX95 RDK FPSC";
-> +
-> +	aliases {
-> +		ethernet0 = &enetc_port0;
-> +		serial0 = &lpuart7;
-> +		serial1 = &lpuart8;
-> +		can1 = &flexcan2;
-> +		can2 = &flexcan1;
+Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: "Ilpo Järvinen" <ilpo.jarvinen@linux.intel.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Paul Cercueil <paul@crapouillou.net>
+Cc: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>
+---
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ arch/powerpc/kernel/legacy_serial.c     |  7 ++---
+ drivers/tty/serial/8250/8250_dw.c       | 34 ++++++++++++-------------
+ drivers/tty/serial/8250/8250_em.c       |  4 +--
+ drivers/tty/serial/8250/8250_ingenic.c  |  8 +++---
+ drivers/tty/serial/8250/8250_ioc3.c     |  4 +--
+ drivers/tty/serial/8250/8250_lpc18xx.c  |  2 +-
+ drivers/tty/serial/8250/8250_pci.c      |  6 ++---
+ drivers/tty/serial/8250/8250_port.c     | 30 +++++++++++-----------
+ drivers/tty/serial/8250/8250_rt288x.c   |  4 +--
+ drivers/tty/serial/8250/8250_uniphier.c |  4 +--
+ include/linux/serial_8250.h             |  4 +--
+ include/linux/serial_core.h             |  4 +--
+ 12 files changed, 56 insertions(+), 55 deletions(-)
 
-Can we sort them alphabetically?
-
-> +	};
-> +
-> +	backlight_lvds0: backlight0 {
-> +		compatible = "pwm-backlight";
-> +		pinctrl-0 = <&pinctrl_lvds0>;
-> +		power-supply = <&reg_vdd_12v0>;
-> +		status = "disabled";
-> +	};
-> +
-> +	transceiver1: can-phy {
-> +		compatible = "ti,tcan1043";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <8000000>;
-> +		enable-gpios = <&gpio_expander 10 GPIO_ACTIVE_LOW>;
-> +	};
-> +
-> +	transceiver2: can-phy {
-> +		compatible = "ti,tcan1043";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <8000000>;
-> +		enable-gpios = <&gpio_expander 9 GPIO_ACTIVE_LOW>;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = &lpuart7;
-> +	};
-
-We usually put this generic node before devices.
-
-> +
-> +	panel0_lvds: panel-lvds0 {
-> +		backlight = <&backlight_lvds0>;
-> +		power-supply = <&reg_vdd_3v3>;
-> +		status = "disabled";
-> +
-
-Unneeded newline.
-
-> +	};
-> +
-> +	reg_vdd_12v0: regulator-vdd-12v0 {
-> +		compatible = "regulator-fixed";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <12000000>;
-> +		regulator-min-microvolt = <12000000>;
-> +		regulator-name = "VDD_12V0";
-> +	};
-> +
-> +	reg_vdd_1v8: regulator-vdd-1v8 {
-> +		compatible = "regulator-fixed";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-name = "VDD_1V8";
-> +	};
-> +
-> +	reg_vdd_3v3: regulator-vdd-3v3 {
-> +		compatible = "regulator-fixed";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-name = "VDD_3V3";
-> +	};
-> +
-> +	reg_vdd_5v0: regulator-vdd-5v0 {
-> +		compatible = "regulator-fixed";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-name = "VDD_5V0";
-> +	};
-> +};
-> +
-> +&enetc_port0 {
-> +	phy-handle = <&ethphy0>;
-> +	status = "okay";
-> +};
-> +
-> +&enetc_port2 {
-> +	managed = "in-band-status";
-> +	phy-handle = <&ethphy2>;
-> +	phy-mode = "10gbase-r";
-> +};
-> +
-> +/* CAN FD */
-> +&flexcan1 {
-> +	phys = <&transceiver1>;
-> +	status = "okay";
-> +};
-> +
-> +&flexcan2 {
-> +	phys = <&transceiver2>;
-> +	status = "okay";
-> +};
-> +
-> +/* SPI-NOR */
-> +&flexspi1 {
-> +	pinctrl-0 = <&pinctrl_flexspi>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	spi_nor: flash@0 {
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0>;
-> +		spi-max-frequency = <166000000>;
-> +		spi-rx-bus-width = <4>;
-> +		spi-tx-bus-width = <4>;
-> +		vcc-supply = <&reg_vdd_1v8>;
-> +	};
-> +};
-> +
-> +&gpio2 {
-> +	gpio-line-names = "", "", "", "", "",
-> +			  "", "", "", "", "",
-> +			  "", "", "", "", "",
-> +			  "", "RGMII2_nINT", "GPIO4", "RTC_INT", "",
-> +			  "LVDS1_BL_EN";
-> +};
-> +
-> +&lpi2c1 {
-> +	temperature-sensor@4f {
-> +		compatible = "nxp,p3t1755";
-> +		reg = <0x4f>;
-> +		vs-supply = <&reg_vdd_1v8>;
-> +	};
-> +};
-> +
-> +&lpi2c3 {
-> +	status = "okay";
-> +
-> +	leds@62 {
-> +		compatible = "nxp,pca9533";
-> +		reg = <0x62>;
-> +
-> +		led-1 {
-> +			type = <PCA9532_TYPE_LED>;
-> +		};
-> +
-> +		led-2 {
-> +			type = <PCA9532_TYPE_LED>;
-> +		};
-> +
-> +		led-3 {
-> +			type = <PCA9532_TYPE_LED>;
-> +		};
-> +	};
-> +};
-> +
-> +&lpi2c4 {
-> +	status = "okay";
-> +
-> +	gpio_expander: gpio@20 {
-> +		compatible = "ti,tca6416";
-> +		reg = <0x20>;
-> +		interrupt-parent = <&gpio2>;
-> +		interrupts = <17 IRQ_TYPE_LEVEL_LOW>;
-> +		#gpio-cells = <2>;
-> +		gpio-controller;
-> +		gpio-line-names = "CSI1_CTRL1", "CSI1_CTRL2", "CSI1_CTRL3",
-> +				  "CSI1_CTRL4", "CSI2_CTRL1", "CSI2_CTRL2",
-> +				  "CSI2_CTRL3", "CSI2_CTRL4", "CLK_EN_AV",
-> +				  "nCAN2_EN", "nCAN1_EN", "PCIE1_nWAKE",
-> +				  "PCIE2_nWAKE", "PCIE2_nALERT_3V3",
-> +				  "UART1_BT_RS_SEL", "UART1_RS232_485_SEL";
-> +		vcc-supply = <&reg_vdd_1v8>;
-> +
-> +		uart1_bt_rs_sel: bt-rs-hog {
-> +			gpios = <14 GPIO_ACTIVE_HIGH>;
-> +			gpio-hog;
-> +			line-name = "UART1_BT_RS_SEL";
-> +			output-low;
-> +		};
-> +
-> +		uart1_rs232_485_sel: rs232-485-hog {
-> +			gpios = <15 GPIO_ACTIVE_HIGH>;
-> +			gpio-hog;
-> +			line-name = "UART1_RS232_485_SEL";
-> +			output-low;
-> +		};
-> +	};
-> +};
-> +
-> +&lpi2c5 {
-> +	status = "okay";
-> +
-> +	eeprom@51 {
-> +		compatible = "atmel,24c02";
-> +		reg = <0x51>;
-> +		pagesize = <16>;
-> +		vcc-supply = <&reg_vdd_1v8>;
-> +	};
-> +
-
-Unneeded newline.
-
-> +};
-> +
-> +/* Used for M33 debug */
-> +&lpuart2 {
-> +	pinctrl-0 = <&pinctrl_lpuart2>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +/* A-55 debug UART */
-> +&lpuart7 {
-> +	status = "okay";
-> +};
-> +
-> +/* RS232/RS485/BT */
-> +&lpuart8 {
-> +	uart-has-rtscts;
-> +	status = "okay";
-> +};
-> +
-> +&netc_emdio { /* RGMII2 */
-> +	ethphy0: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-> +		interrupt-parent = <&gpio2>;
-> +		interrupts = <16 IRQ_TYPE_LEVEL_LOW>;
-> +		enet-phy-lane-no-swap;
-> +		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-> +		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-> +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_1_50_NS>;
-> +		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-> +	};
-> +
-> +	ethphy2: ethernet-phy@8 {
-> +		compatible = "ethernet-phy-ieee802.3-c45";
-> +		reg = <0x8>;
-> +		max-speed = <10000>; /* 10Gbit/s */
-> +		status = "disabled";
-> +	};
-> +};
-> +
-> +&pcie0 {
-> +	reset-gpio = <&gpio1 10 GPIO_ACTIVE_LOW>;
-> +	vpcie-supply = <&reg_vdd_3v3>;
-> +	status = "okay";
-> +};
-> +
-> +&pcie1 {
-> +	reset-gpio = <&gpio1 14 GPIO_ACTIVE_LOW>;
-> +	vpcie-supply = <&reg_vdd_3v3>;
-> +	status = "okay";
-> +};
-> +
-> +&rv3028 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_rtc>;
-> +	interrupt-parent = <&gpio2>;
-> +	interrupts = <18 IRQ_TYPE_LEVEL_LOW>;
-> +	aux-voltage-chargeable = <1>;
-> +	wakeup-source;
-> +	trickle-resistor-ohms = <3000>;
-> +};
-> +
-> +&scmi_iomuxc {
-> +	pinctrl_lpuart2: lpuart2grp { /* FPSC proprietary */
-> +		fsl,pins = <
-> +			IMX95_PAD_UART2_TXD__AONMIX_TOP_LPUART2_TX	0x31e
-> +			IMX95_PAD_UART2_RXD__AONMIX_TOP_LPUART2_RX	0x31e
-> +		>;
-> +	};
-> +
-> +	pinctrl_lvds0: lvds0grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO20__GPIO2_IO_BIT20	0x31e
-> +		>;
-> +	};
-> +
-> +	pinctrl_rtc: rtcgrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO18__GPIO2_IO_BIT18	0x31e
-> +		>;
-> +	};
-> +
-> +	pinctrl_tpm4: tpm4grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO21__TPM4_CH1	0x51e
-> +		>;
-> +	};
-> +};
-> +
-> +&tpm4 {
-> +	pinctrl-0 = <&pinctrl_tpm4>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&usb3 {
-> +	fsl,over-current-active-low;
-> +	fsl,power-active-low;
-> +	status = "okay";
-> +};
-> +
-> +&usb3_phy {
-> +	vbus-supply = <&reg_vdd_5v0>;
-> +	status = "okay";
-> +};
-> +
-> +&usb3_dwc3 {
-
-In order of alphabet, usb3_dwc3 should go before usb3_phy, right?
-
-> +	dr_mode = "peripheral";
-> +	status = "okay";
-> +};
-> +
-> +/* uSD Card */
-> +&usdhc2 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
-> new file mode 100644
-> index 000000000000..0e3727d93df0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx95-phycore-fpsc.dtsi
-> @@ -0,0 +1,656 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2025 PHYTEC Messtechnik GmbH
-> + */
-> +
-> +#include <dt-bindings/net/ti-dp83867.h>
-> +#include "imx95.dtsi"
-> +
-> +/ {
-> +	model = "PHYTEC phyCORE-i.MX95 FPSC";
-> +	compatible = "phytec,imx95-phycore-fpsc", "fsl,imx95";
-> +
-> +	aliases {
-> +		ethernet1 = &enetc_port1;
-> +		rtc0 = &rv3028;
-> +		rtc1 = &scmi_bbm;
-> +		i2c1 = &lpi2c2;
-> +		i2c2 = &lpi2c5;
-> +		i2c3 = &lpi2c3;
-> +		i2c4 = &lpi2c4;
-> +		i2c5 = &lpi2c1;
-
-Sort them please.
-
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x00000000 0x80000000 0x00000001 0x00000000>;
-> +	};
-> +
-> +	reg_nvcc_aon: regulator-nvcc-aon {
-> +		compatible = "regulator-fixed";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-name = "VDD_IO";
-> +	};
-> +
-> +	reg_usdhc2_vmmc: regulator-usdhc2 {
-> +		compatible = "regulator-fixed";
-> +		off-on-delay-us = <12000>;
-> +		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-> +		pinctrl-names = "default";
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-name = "VDDSW_SD2";
-> +		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-> +		enable-active-high;
-> +	};
-> +
-> +	reserved-memory {
-> +		ranges;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			alloc-ranges = <0 0x80000000 0 0x7f000000>;
-> +			reusable;
-> +			size = <0 0x3c000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +};
-> +
-> +&enetc_port0 { /* FPSC RGMII2 */
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-0 = <&pinctrl_enetc0>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&enetc_port1 {
-> +	phy-handle = <&ethphy1>;
-> +	phy-mode = "rgmii-id";
-> +	pinctrl-0 = <&pinctrl_enetc1>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
-> +&flexcan1 { /* FPSC CAN1 */
-> +	pinctrl-0 = <&pinctrl_flexcan1>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&flexcan2 { /* FPSC CAN2 */
-> +	pinctrl-0 = <&pinctrl_flexcan2>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&flexspi1 { /* FPSC QSPI */
-> +	pinctrl-0 = <&pinctrl_flexspi>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&gpio1 { /* FPSC GPIO */
-> +	gpio-line-names = "", "", "", "", "GPIO2",
-> +			  "GPIO1", "", "", "", "",
-> +			  "PCIE1_nPERST", "USB1_PWR_EN", "GPIO3", "USB2_PWR_EN", "PCIE2_nPERST";
-> +	pinctrl-0 = <&pinctrl_gpio1>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +};
-> +
-> +&gpio2 { /* FPSC GPIO */
-> +	gpio-line-names = "", "", "", "", "",
-> +			  "", "", "", "", "",
-> +			  "", "", "", "", "",
-> +			  "", "RGMII2_nINT", "GPIO4";
-> +	pinctrl-0 = <&pinctrl_gpio2>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&gpio3 {
-> +	gpio-line-names = "", "", "", "", "",
-> +			  "", "", "SD2_RESET_B";
-> +};
-> +
-> +&gpio4 {
-> +	gpio-line-names = "ENET2_nINT";
-> +};
-> +
-> +&gpio5 {
-> +	gpio-line-names = "", "", "", "", "",
-> +			  "", "", "", "", "",
-> +			  "", "", "", "USB1_OC", "USB2_OC";
-> +};
-> +
-> +&lpi2c1 { /* FPSC I2C5 */
-> +	clock-frequency = <400000>;
-> +	pinctrl-0 = <&pinctrl_lpi2c1>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	/* User EEPROM */
-> +	eeprom@50 {
-> +		compatible = "st,24c32", "atmel,24c32";
-> +		reg = <0x50>;
-> +		pagesize = <32>;
-> +		vcc-supply = <&reg_nvcc_aon>;
-> +	};
-> +
-> +	/* Factory EEPROM */
-> +	eeprom@51 {
-> +		compatible = "st,24c32", "atmel,24c32";
-> +		reg = <0x51>;
-> +		pagesize = <32>;
-> +		vcc-supply = <&reg_nvcc_aon>;
-> +	};
-> +
-> +	/* User EEPROM ID page */
-> +	eeprom@58 {
-> +		compatible = "st,24c32", "atmel,24c32";
-> +		reg = <0x58>;
-> +		pagesize = <32>;
-> +		vcc-supply = <&reg_nvcc_aon>;
-> +	};
-> +
-> +	rv3028: rtc@52 {
-
-We usually sort I2C devices in order of slave address.
-
-Shawn
-
-> +		compatible = "microcrystal,rv3028";
-> +		reg = <0x52>;
-> +	};
-> +
-> +	dram_sense: temperature-sensor@48 {
-> +		compatible = "ti,tmp102";
-> +		reg = <0x48>;
-> +		#thermal-sensor-cells = <1>;
-> +	};
-> +
-> +	emmc_sense: temperature-sensor@49 {
-> +		compatible = "ti,tmp102";
-> +		reg = <0x49>;
-> +		#thermal-sensor-cells = <1>;
-> +	};
-> +
-> +	ethphy_sense: temperature-sensor@4a {
-> +		compatible = "ti,tmp102";
-> +		reg = <0x4a>;
-> +		#thermal-sensor-cells = <1>;
-> +	};
-> +
-> +	pmic_sense: temperature-sensor@4b {
-> +		compatible = "ti,tmp102";
-> +		reg = <0x4b>;
-> +		#thermal-sensor-cells = <1>;
-> +	};
-> +};
-> +
-> +&lpi2c2 { /* FPSC I2C1 */
-> +	clock-frequency = <400000>;
-> +	pinctrl-0 = <&pinctrl_lpi2c2>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpi2c3 { /* FPSC I2C3 */
-> +	clock-frequency = <400000>;
-> +	pinctrl-0 = <&pinctrl_lpi2c3>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpi2c4 { /* FPSC I2C4 */
-> +	clock-frequency = <400000>;
-> +	pinctrl-0 = <&pinctrl_lpi2c4>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpi2c5 { /* FPSC I2C2 */
-> +	clock-frequency = <400000>;
-> +	pinctrl-0 = <&pinctrl_lpi2c5>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpspi3 { /* FPSC SPI2 */
-> +	pinctrl-0 = <&pinctrl_lpspi3>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpspi4 { /* FPSC SPI3 */
-> +	pinctrl-0 = <&pinctrl_lpspi4>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpspi7 { /* FPSC SPI1 */
-> +	pinctrl-0 = <&pinctrl_lpspi7>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpuart5 { /* FPSC UART2 */
-> +	pinctrl-0 = <&pinctrl_lpuart5>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpuart7 { /* FPSC UART3 */
-> +	pinctrl-0 = <&pinctrl_lpuart7>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&lpuart8 { /* FPSC UART1 */
-> +	pinctrl-0 = <&pinctrl_lpuart8>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&netc_blk_ctrl {
-> +	status = "okay";
-> +};
-> +
-> +&netc_emdio { /* FPSC RGMII2 */
-> +	pinctrl-0 = <&pinctrl_emdio>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	ethphy1: ethernet-phy@0 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x0>;
-> +		interrupt-parent = <&gpio4>;
-> +		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-> +		enet-phy-lane-no-swap;
-> +		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
-> +		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-> +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-> +		ti,tx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-> +	};
-> +};
-> +
-> +&netcmix_blk_ctrl {
-> +	status = "okay";
-> +};
-> +
-> +&pcie0 { /* FPSC PCIE1 */
-> +	pinctrl-0 = <&pinctrl_pcie0>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&pcie1 { /* FPSC PCIE2 */
-> +	pinctrl-0 = <&pinctrl_pcie1>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&sai5 {	/* FPSC SAI1 */
-> +	pinctrl-0 = <&pinctrl_sai5>;
-> +	pintrc-names = "default";
-> +};
-> +
-> +&scmi_iomuxc {
-> +	pinctrl_emdio: emdiogrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_ENET2_MDIO__NETCMIX_TOP_NETC_MDIO	0x97e	/* RGMII2_MDIO */
-> +			IMX95_PAD_ENET2_MDC__NETCMIX_TOP_NETC_MDC	0x502	/* RGMII2_MDC */
-> +		>;
-> +	};
-> +
-> +	pinctrl_enetc0: enetc0grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO16__GPIO2_IO_BIT16			0x31e	/* RGMII2_nINT */
-> +			IMX95_PAD_CCM_CLKO3__NETCMIX_TOP_NETC_TMR_1588_TRIG2	0x31e	/* RGMII2_EVENT_IN */
-> +			IMX95_PAD_CCM_CLKO4__NETCMIX_TOP_NETC_TMR_1588_PP2	0x31e	/* RGMII2_EVENT_OUT */
-> +
-> +			IMX95_PAD_ENET1_TD3__NETCMIX_TOP_ETH0_RGMII_TD3		0x57e	/* RGMII2_TX_3 */
-> +			IMX95_PAD_ENET1_TD2__NETCMIX_TOP_ETH0_RGMII_TD2		0x57e	/* RGMII2_TX_2 */
-> +			IMX95_PAD_ENET1_TD1__NETCMIX_TOP_ETH0_RGMII_TD1		0x57e	/* RGMII2_TX_1 */
-> +			IMX95_PAD_ENET1_TD0__NETCMIX_TOP_ETH0_RGMII_TD0		0x57e	/* RGMII2_TX_0 */
-> +			IMX95_PAD_ENET1_TX_CTL__NETCMIX_TOP_ETH0_RGMII_TX_CTL	0x57e	/* RGMII2_TX_CTL */
-> +			IMX95_PAD_ENET1_TXC__NETCMIX_TOP_ETH0_RGMII_TX_CLK	0x58e	/* RGMII2_TXC */
-> +			IMX95_PAD_ENET1_RD3__NETCMIX_TOP_ETH0_RGMII_RD3		0x57e	/* RGMII2_RX_3 */
-> +			IMX95_PAD_ENET1_RD2__NETCMIX_TOP_ETH0_RGMII_RD2		0x57e	/* RGMII2_RX_2 */
-> +			IMX95_PAD_ENET1_RD1__NETCMIX_TOP_ETH0_RGMII_RD1		0x57e	/* RGMII2_RX_1 */
-> +			IMX95_PAD_ENET1_RD0__NETCMIX_TOP_ETH0_RGMII_RD0		0x57e	/* RGMII2_RX_0 */
-> +			IMX95_PAD_ENET1_RX_CTL__NETCMIX_TOP_ETH0_RGMII_RX_CTL	0x57e	/* RGMII2_RX_CTL */
-> +			IMX95_PAD_ENET1_RXC__NETCMIX_TOP_ETH0_RGMII_RX_CLK	0x58e	/* RGMII2_RXC */
-> +		>;
-> +	};
-> +
-> +	pinctrl_enetc1: enetc1grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_ENET1_MDC__GPIO4_IO_BIT0			0x31e
-> +			IMX95_PAD_ENET2_TD0__NETCMIX_TOP_ETH1_RGMII_TD0		0x57e
-> +			IMX95_PAD_ENET2_TD1__NETCMIX_TOP_ETH1_RGMII_TD1		0x57e
-> +			IMX95_PAD_ENET2_TD2__NETCMIX_TOP_ETH1_RGMII_TD2		0x57e
-> +			IMX95_PAD_ENET2_TD3__NETCMIX_TOP_ETH1_RGMII_TD3		0x57e
-> +			IMX95_PAD_ENET2_TX_CTL__NETCMIX_TOP_ETH1_RGMII_TX_CTL	0x57e
-> +			IMX95_PAD_ENET2_TXC__NETCMIX_TOP_ETH1_RGMII_TX_CLK	0x58e
-> +			IMX95_PAD_ENET2_RD0__NETCMIX_TOP_ETH1_RGMII_RD0		0x57e
-> +			IMX95_PAD_ENET2_RD1__NETCMIX_TOP_ETH1_RGMII_RD1		0x57e
-> +			IMX95_PAD_ENET2_RD2__NETCMIX_TOP_ETH1_RGMII_RD2		0x57e
-> +			IMX95_PAD_ENET2_RD3__NETCMIX_TOP_ETH1_RGMII_RD3		0x57e
-> +			IMX95_PAD_ENET2_RX_CTL__NETCMIX_TOP_ETH1_RGMII_RX_CTL	0x57e
-> +			IMX95_PAD_ENET2_RXC__NETCMIX_TOP_ETH1_RGMII_RX_CLK	0x58e
-> +		>;
-> +	};
-> +
-> +	pinctrl_flexcan1: flexcan1grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_PDM_CLK__AONMIX_TOP_CAN1_TX		0x51e	/* CAN1_TX */
-> +			IMX95_PAD_PDM_BIT_STREAM0__AONMIX_TOP_CAN1_RX	0x51e	/* CAN1_RX */
-> +		>;
-> +	};
-> +
-> +	pinctrl_flexcan2: flexcan2grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO25__CAN2_TX	0x51e	/* CAN2_TX */
-> +			IMX95_PAD_GPIO_IO27__CAN2_RX	0x51e	/* CAN2_RX */
-> +		>;
-> +	};
-> +
-> +	pinctrl_flexspi: flexspigrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_XSPI1_SS0_B__FLEXSPI1_A_SS0_B		0x3fe	/* QSPI_CE */
-> +			IMX95_PAD_XSPI1_SCLK__FLEXSPI1_A_SCLK		0x3fe	/* QSPI_CLK */
-> +			IMX95_PAD_XSPI1_DATA0__FLEXSPI1_A_DATA_BIT0	0x3fe	/* QSPI_DATA_0 */
-> +			IMX95_PAD_XSPI1_DATA1__FLEXSPI1_A_DATA_BIT1	0x3fe	/* QSPI_DATA_1 */
-> +			IMX95_PAD_XSPI1_DATA2__FLEXSPI1_A_DATA_BIT2	0x3fe	/* QSPI_DATA_2 */
-> +			IMX95_PAD_XSPI1_DATA3__FLEXSPI1_A_DATA_BIT3	0x3fe	/* QSPI_DATA_3 */
-> +			IMX95_PAD_XSPI1_DQS__FLEXSPI1_A_DQS		0x3fe	/* QSPI_DQS */
-> +		>;
-> +	};
-> +
-> +	pinctrl_gpio1: gpio1grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_UART1_TXD__AONMIX_TOP_GPIO1_IO_BIT5	0x31e	/* GPIO1 */
-> +			IMX95_PAD_UART1_RXD__AONMIX_TOP_GPIO1_IO_BIT4	0x31e	/* GPIO2 */
-> +			IMX95_PAD_SAI1_TXC__AONMIX_TOP_GPIO1_IO_BIT12	0x31e	/* GPIO3 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_gpio2: gpio2grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO17__GPIO2_IO_BIT17	0x31e	/* GPIO4 */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpi2c1: lpi2c1grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_I2C1_SCL__AONMIX_TOP_LPI2C1_SCL	0x40000b9e	/* I2C5_SCL */
-> +			IMX95_PAD_I2C1_SDA__AONMIX_TOP_LPI2C1_SDA	0x40000b9e	/* I2C5_SDA */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpi2c2: lpi2c2grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_I2C2_SDA__AONMIX_TOP_LPI2C2_SDA	0x40000b9e	/* I2C1_SDA_DNU */
-> +			IMX95_PAD_I2C2_SCL__AONMIX_TOP_LPI2C2_SCL	0x40000b9e	/* I2C1_SCL_DNU */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpi2c3: lpi2c3grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO28__LPI2C3_SDA 0x40000b9e	/* I2C3_SDA */
-> +			IMX95_PAD_GPIO_IO29__LPI2C3_SCL 0x40000b9e	/* I2C3_SCL */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpi2c4: lpi2c4grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO30__LPI2C4_SDA 0x40000b9e	/* I2C4_SDA */
-> +			IMX95_PAD_GPIO_IO31__LPI2C4_SCL 0x40000b9e	/* I2C4_SDL */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpi2c5: lpi2c5grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO22__LPI2C5_SDA	0x40000b9e	/* I2C2_SDA */
-> +			IMX95_PAD_GPIO_IO23__LPI2C5_SCL 0x40000b9e	/* I2C2_SCL */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpspi3: lpspi3grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO11__LPSPI3_SCK		0x51e	/* SPI2_SCLK */
-> +			IMX95_PAD_GPIO_IO10__LPSPI3_SOUT	0x51e	/* SPI2_MOSI */
-> +			IMX95_PAD_GPIO_IO09__LPSPI3_SIN		0x51e	/* SPI2_MISO */
-> +			IMX95_PAD_GPIO_IO08__LPSPI3_PCS0	0x51e	/* SPI2_CS */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpspi4: lpspi4grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO21__LPSPI4_SCK		0x51e	/* SPI3_SCLK */
-> +			IMX95_PAD_GPIO_IO20__LPSPI4_SOUT	0x51e	/* SPI3_MOSI */
-> +			IMX95_PAD_GPIO_IO19__LPSPI4_SIN		0x51e	/* SPI3_MISO */
-> +			IMX95_PAD_GPIO_IO18__LPSPI4_PCS0	0x51e	/* SPI3_CS */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpspi7: lpspi7grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO07__LPSPI7_SCK		0x51e	/* SPI1_SCLK */
-> +			IMX95_PAD_GPIO_IO06__LPSPI7_SOUT	0x51e	/* SPI1_MOSI */
-> +			IMX95_PAD_GPIO_IO05__LPSPI7_SIN		0x51e	/* SPI1_MISO */
-> +			IMX95_PAD_GPIO_IO04__LPSPI7_PCS0	0x51e	/* SPI1_CS */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpuart5: lpuart5grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO01__LPUART5_RX		0x51e	/* UART2_RXD */
-> +			IMX95_PAD_GPIO_IO00__LPUART5_TX		0x51e	/* UART2_TXD */
-> +			IMX95_PAD_GPIO_IO03__LPUART5_RTS_B	0x51e	/* UART2_RTS */
-> +			IMX95_PAD_GPIO_IO02__LPUART5_CTS_B	0x51e	/* UART2_CTS */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpuart7: lpuart7grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO37__LPUART7_RX	0x31e	/* UART3_RXD */
-> +			IMX95_PAD_GPIO_IO36__LPUART7_TX	0x31e	/* UART3_TXD */
-> +		>;
-> +	};
-> +
-> +	pinctrl_lpuart8: lpuart8grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO13__LPUART8_RX		0x51e	/* UART1_RXD */
-> +			IMX95_PAD_GPIO_IO12__LPUART8_TX		0x51e	/* UART1_TXD */
-> +			IMX95_PAD_GPIO_IO15__LPUART8_RTS_B	0x51e	/* UART1_RTS */
-> +			IMX95_PAD_GPIO_IO14__LPUART8_CTS_B	0x51e	/* UART1_CTS */
-> +		>;
-> +	};
-> +
-> +	pinctrl_pcie0: pcie0grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO32__HSIOMIX_TOP_PCIE1_CLKREQ_B		0x31e	/* PCIE1_nCLKREQ */
-> +			IMX95_PAD_PDM_BIT_STREAM1__AONMIX_TOP_GPIO1_IO_BIT10	0x31e	/* PCIE1_nPERST */
-> +		>;
-> +	};
-> +
-> +	pinctrl_pcie1: pcie1grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_GPIO_IO35__HSIOMIX_TOP_PCIE2_CLKREQ_B	0x31e	/* PCIE2_nCLKREQ */
-> +			IMX95_PAD_SAI1_RXD0__AONMIX_TOP_GPIO1_IO_BIT14	0x31e	/* PCIE2_nPERST */
-> +		>;
-> +	};
-> +
-> +	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7	0x31e
-> +		>;
-> +	};
-> +
-> +	pinctrl_sai5: sai5grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_XSPI1_DQS__SAI5_RX_SYNC		0x51e	/* SAI1_RX_SYNC */
-> +			IMX95_PAD_XSPI1_SS1_B__SAI5_RX_BCLK		0x51e	/* SAI1_RX_BCLK */
-> +			IMX95_PAD_XSPI1_DATA7__SAI5_RX_DATA_BIT0	0x51e	/* SAI1_RX_DATA */
-> +			IMX95_PAD_XSPI1_DATA5__SAI5_TX_SYNC		0x51e	/* SAI1_TX_SYNC */
-> +			IMX95_PAD_XSPI1_DATA6__SAI5_TX_BCLK		0x51e	/* SAI1_TX_BCLK */
-> +			IMX95_PAD_XSPI1_DATA4__SAI5_TX_DATA_BIT0	0x51e	/* SAI1_TX_DATA */
-> +		>;
-> +	};
-> +
-> +	pinctrl_tpm3: tpm3grp {
-> +	      fsl,pins = <
-> +		      IMX95_PAD_GPIO_IO24__TPM3_CH3	0x51e	/* PWM1 */
-> +	      >;
-> +	};
-> +
-> +	pinctrl_tpm5: tpm5grp {
-> +	      fsl,pins = <
-> +		      IMX95_PAD_GPIO_IO26__TPM5_CH3	0x51e	/* PWM2 */
-> +	      >;
-> +	};
-> +
-> +	pinctrl_usbc: usbcgrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SAI1_TXFS__AONMIX_TOP_GPIO1_IO_BIT11	0x51e	/* USB1_PWR_EN */
-> +			IMX95_PAD_GPIO_IO33__GPIO5_IO_BIT13		0x51e	/* USB1_OC */
-> +		>;
-> +	};
-> +
-> +	pinctrl_usb2: usb2grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SAI1_TXD0__AONMIX_TOP_GPIO1_IO_BIT13	0x51e	/* USB2_PWR_EN */
-> +			IMX95_PAD_GPIO_IO34__GPIO5_IO_BIT14		0x51e	/* USB2_OC */
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc1: usdhc1grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD1_DATA0__USDHC1_DATA0		0x138e
-> +			IMX95_PAD_SD1_DATA1__USDHC1_DATA1		0x138e
-> +			IMX95_PAD_SD1_DATA2__USDHC1_DATA2		0x138e
-> +			IMX95_PAD_SD1_DATA3__USDHC1_DATA3		0x138e
-> +			IMX95_PAD_SD1_DATA4__USDHC1_DATA4		0x138e
-> +			IMX95_PAD_SD1_DATA5__USDHC1_DATA5		0x138e
-> +			IMX95_PAD_SD1_DATA6__USDHC1_DATA6		0x138e
-> +			IMX95_PAD_SD1_DATA7__USDHC1_DATA7		0x138e
-> +			IMX95_PAD_SD1_CMD__USDHC1_CMD			0x138e
-> +			IMX95_PAD_SD1_CLK__USDHC1_CLK			0x158e
-> +			IMX95_PAD_SD1_STROBE__USDHC1_STROBE		0x158e
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD1_DATA0__USDHC1_DATA0		0x138e
-> +			IMX95_PAD_SD1_DATA1__USDHC1_DATA1		0x138e
-> +			IMX95_PAD_SD1_DATA2__USDHC1_DATA2		0x138e
-> +			IMX95_PAD_SD1_DATA3__USDHC1_DATA3		0x138e
-> +			IMX95_PAD_SD1_DATA4__USDHC1_DATA4		0x138e
-> +			IMX95_PAD_SD1_DATA5__USDHC1_DATA5		0x138e
-> +			IMX95_PAD_SD1_DATA6__USDHC1_DATA6		0x138e
-> +			IMX95_PAD_SD1_DATA7__USDHC1_DATA7		0x138e
-> +			IMX95_PAD_SD1_CMD__USDHC1_CMD			0x138e
-> +			IMX95_PAD_SD1_CLK__USDHC1_CLK			0x158e
-> +			IMX95_PAD_SD1_STROBE__USDHC1_STROBE		0x158e
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD1_DATA0__USDHC1_DATA0		0x13fe
-> +			IMX95_PAD_SD1_DATA1__USDHC1_DATA1		0x13fe
-> +			IMX95_PAD_SD1_DATA2__USDHC1_DATA2		0x13fe
-> +			IMX95_PAD_SD1_DATA3__USDHC1_DATA3		0x13fe
-> +			IMX95_PAD_SD1_DATA4__USDHC1_DATA4		0x13fe
-> +			IMX95_PAD_SD1_DATA5__USDHC1_DATA5		0x13fe
-> +			IMX95_PAD_SD1_DATA6__USDHC1_DATA6		0x13fe
-> +			IMX95_PAD_SD1_DATA7__USDHC1_DATA7		0x13fe
-> +			IMX95_PAD_SD1_CMD__USDHC1_CMD			0x13fe
-> +			IMX95_PAD_SD1_CLK__USDHC1_CLK			0x15fe
-> +			IMX95_PAD_SD1_STROBE__USDHC1_STROBE		0x15fe
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc2: usdhc2grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD2_CD_B__USDHC2_CD_B		0x31e	/* CD */
-> +			IMX95_PAD_SD2_CLK__USDHC2_CLK		0x158e	/* CLK */
-> +			IMX95_PAD_SD2_CMD__USDHC2_CMD		0x138e	/* CMD */
-> +			IMX95_PAD_SD2_DATA0__USDHC2_DATA0	0x138e	/* DATA0 */
-> +			IMX95_PAD_SD2_DATA1__USDHC2_DATA1	0x138e	/* DATA1 */
-> +			IMX95_PAD_SD2_DATA2__USDHC2_DATA2	0x138e	/* DATA2 */
-> +			IMX95_PAD_SD2_DATA3__USDHC2_DATA3	0x138e	/* DATA3 */
-> +			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-> +
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD2_CD_B__USDHC2_CD_B		0x31e	/* CD */
-> +			IMX95_PAD_SD2_CLK__USDHC2_CLK		0x158e	/* CLK */
-> +			IMX95_PAD_SD2_CMD__USDHC2_CMD		0x138e	/* CMD */
-> +			IMX95_PAD_SD2_DATA0__USDHC2_DATA0	0x138e	/* DATA0 */
-> +			IMX95_PAD_SD2_DATA1__USDHC2_DATA1	0x138e	/* DATA1 */
-> +			IMX95_PAD_SD2_DATA2__USDHC2_DATA2	0x138e	/* DATA2 */
-> +			IMX95_PAD_SD2_DATA3__USDHC2_DATA3	0x138e	/* DATA3 */
-> +			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD2_CD_B__USDHC2_CD_B		0x31e	/* CD */
-> +			IMX95_PAD_SD2_CLK__USDHC2_CLK		0x15fe	/* CLK */
-> +			IMX95_PAD_SD2_CMD__USDHC2_CMD		0x13fe	/* CMD */
-> +			IMX95_PAD_SD2_DATA0__USDHC2_DATA0	0x13fe	/* DATA0 */
-> +			IMX95_PAD_SD2_DATA1__USDHC2_DATA1	0x13fe	/* DATA1 */
-> +			IMX95_PAD_SD2_DATA2__USDHC2_DATA2	0x13fe	/* DATA2 */
-> +			IMX95_PAD_SD2_DATA3__USDHC2_DATA3	0x13fe	/* DATA3 */
-> +			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3: usdhc3grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SD3_CLK__USDHC3_CLK		0x158e	/* SDIO_CLK */
-> +			IMX95_PAD_SD3_CMD__USDHC3_CMD		0x138e	/* SDIO_CMD */
-> +			IMX95_PAD_SD3_DATA0__USDHC3_DATA0	0x138e	/* SDIO_DATA0 */
-> +			IMX95_PAD_SD3_DATA1__USDHC3_DATA1	0x138e	/* SDIO_DATA1 */
-> +			IMX95_PAD_SD3_DATA2__USDHC3_DATA2	0x138e	/* SDIO_DATA2 */
-> +			IMX95_PAD_SD3_DATA3__USDHC3_DATA3	0x138e	/* SDIO_DATA3 */
-> +		>;
-> +	};
-> +};
-> +
-> +&tpm3 { /* FPSC PWM1 */
-> +	pinctrl-0 = <&pinctrl_tpm3>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&tpm5 {	/* FPSC PWM2 */
-> +	pinctrl-0 = <&pinctrl_tpm5>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&usb3 { /* FPSC USB1 */
-> +	pinctrl-0 = <&pinctrl_usbc>;
-> +	pinctrl-names = "default";
-> +};
-> +
-> +&usdhc1 {
-> +	bus-width = <8>;
-> +	non-removable;
-> +	no-sd;
-> +	no-sdio;
-> +	pinctrl-0 = <&pinctrl_usdhc1>;
-> +	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-> +	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-> +	pinctrl-3 = <&pinctrl_usdhc1>;
-> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-> +	status = "okay";
-> +};
-> +
-> +&usdhc2 { /* FPSC SDCARD */
-> +	bus-width = <4>;
-> +	disable-wp;
-> +	pinctrl-0 = <&pinctrl_usdhc2>;
-> +	pinctrl-1 = <&pinctrl_usdhc2_100mhz>;
-> +	pinctrl-2 = <&pinctrl_usdhc2_200mhz>;
-> +	pinctrl-3 = <&pinctrl_usdhc2>;
-> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&reg_usdhc2_vmmc>;
-> +};
-> +
-> +&usdhc3 { /* FPSC SDIO */
-> +	pinctrl-0 = <&pinctrl_usdhc3>;
-> +	pinctrl-names = "default";
-> +};
-> diff --git a/fitImage b/fitImage
-> new file mode 100644
-> index 000000000000..6d3ad7dab154
-> Binary files /dev/null and b/fitImage differ
-> diff --git a/fitImage.its b/fitImage.its
-> new file mode 120000
-> index 000000000000..393e3dcae552
-> --- /dev/null
-> +++ b/fitImage.its
-> @@ -0,0 +1 @@
-> +/home/moog/share/augenblix2/Yocto.scarthgap/build/deploy-ampliphy-vendor/images//imx95-libra-fpsc-1/fitImage-its*.its
-> \ No newline at end of file
-> 
-> -- 
-> 2.25.1
-> 
+diff --git a/arch/powerpc/kernel/legacy_serial.c b/arch/powerpc/kernel/legacy_serial.c
+index a874eb8e000b..ae1906bfe8a5 100644
+--- a/arch/powerpc/kernel/legacy_serial.c
++++ b/arch/powerpc/kernel/legacy_serial.c
+@@ -54,9 +54,10 @@ static int legacy_serial_console = -1;
+ static const upf_t legacy_port_flags = UPF_BOOT_AUTOCONF | UPF_SKIP_TEST |
+ 	UPF_SHARE_IRQ | UPF_FIXED_PORT;
+ 
+-static unsigned int tsi_serial_in(struct uart_port *p, int offset)
++static u32 tsi_serial_in(struct uart_port *p, unsigned int offset)
+ {
+-	unsigned int tmp;
++	u32 tmp;
++
+ 	offset = offset << p->regshift;
+ 	if (offset == UART_IIR) {
+ 		tmp = readl(p->membase + (UART_IIR & ~3));
+@@ -65,7 +66,7 @@ static unsigned int tsi_serial_in(struct uart_port *p, int offset)
+ 		return readb(p->membase + offset);
+ }
+ 
+-static void tsi_serial_out(struct uart_port *p, int offset, int value)
++static void tsi_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	offset = offset << p->regshift;
+ 	if (!((offset == UART_IER) && (value & UART_IER_UUE)))
+diff --git a/drivers/tty/serial/8250/8250_dw.c b/drivers/tty/serial/8250/8250_dw.c
+index 1902f29444a1..0a22f0cb8896 100644
+--- a/drivers/tty/serial/8250/8250_dw.c
++++ b/drivers/tty/serial/8250/8250_dw.c
+@@ -67,8 +67,8 @@ struct dw8250_data {
+ 	struct dw8250_port_data	data;
+ 	const struct dw8250_platform_data *pdata;
+ 
+-	int			msr_mask_on;
+-	int			msr_mask_off;
++	u32			msr_mask_on;
++	u32			msr_mask_off;
+ 	struct clk		*clk;
+ 	struct clk		*pclk;
+ 	struct notifier_block	clk_notifier;
+@@ -94,7 +94,7 @@ static inline struct dw8250_data *work_to_dw8250_data(struct work_struct *work)
+ 	return container_of(work, struct dw8250_data, clk_work);
+ }
+ 
+-static inline int dw8250_modify_msr(struct uart_port *p, int offset, int value)
++static inline u32 dw8250_modify_msr(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	struct dw8250_data *d = to_dw8250_data(p->private_data);
+ 
+@@ -145,7 +145,7 @@ static void dw8250_force_idle(struct uart_port *p)
+  * routine. Hence, it must not call serial_port_out() or serial_out()
+  * against the modified registers here, i.e. LCR.
+  */
+-static void dw8250_check_lcr(struct uart_port *p, int offset, int value)
++static void dw8250_check_lcr(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	struct dw8250_data *d = to_dw8250_data(p->private_data);
+ 	void __iomem *addr = p->membase + (offset << p->regshift);
+@@ -156,7 +156,7 @@ static void dw8250_check_lcr(struct uart_port *p, int offset, int value)
+ 
+ 	/* Make sure LCR write wasn't ignored */
+ 	while (tries--) {
+-		unsigned int lcr = serial_port_in(p, offset);
++		u32 lcr = serial_port_in(p, offset);
+ 
+ 		if ((value & ~UART_LCR_SPAR) == (lcr & ~UART_LCR_SPAR))
+ 			return;
+@@ -205,13 +205,13 @@ static void dw8250_tx_wait_empty(struct uart_port *p)
+ 	}
+ }
+ 
+-static void dw8250_serial_out(struct uart_port *p, int offset, int value)
++static void dw8250_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	writeb(value, p->membase + (offset << p->regshift));
+ 	dw8250_check_lcr(p, offset, value);
+ }
+ 
+-static void dw8250_serial_out38x(struct uart_port *p, int offset, int value)
++static void dw8250_serial_out38x(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	/* Allow the TX to drain before we reconfigure */
+ 	if (offset == UART_LCR)
+@@ -220,22 +220,22 @@ static void dw8250_serial_out38x(struct uart_port *p, int offset, int value)
+ 	dw8250_serial_out(p, offset, value);
+ }
+ 
+-static unsigned int dw8250_serial_in(struct uart_port *p, int offset)
++static u32 dw8250_serial_in(struct uart_port *p, unsigned int offset)
+ {
+-	unsigned int value = readb(p->membase + (offset << p->regshift));
++	u32 value = readb(p->membase + (offset << p->regshift));
+ 
+ 	return dw8250_modify_msr(p, offset, value);
+ }
+ 
+ #ifdef CONFIG_64BIT
+-static unsigned int dw8250_serial_inq(struct uart_port *p, int offset)
++static u32 dw8250_serial_inq(struct uart_port *p, unsigned int offset)
+ {
+ 	u8 value = __raw_readq(p->membase + (offset << p->regshift));
+ 
+ 	return dw8250_modify_msr(p, offset, value);
+ }
+ 
+-static void dw8250_serial_outq(struct uart_port *p, int offset, int value)
++static void dw8250_serial_outq(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	value &= 0xff;
+ 	__raw_writeq(value, p->membase + (offset << p->regshift));
+@@ -246,28 +246,28 @@ static void dw8250_serial_outq(struct uart_port *p, int offset, int value)
+ }
+ #endif /* CONFIG_64BIT */
+ 
+-static void dw8250_serial_out32(struct uart_port *p, int offset, int value)
++static void dw8250_serial_out32(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	writel(value, p->membase + (offset << p->regshift));
+ 	dw8250_check_lcr(p, offset, value);
+ }
+ 
+-static unsigned int dw8250_serial_in32(struct uart_port *p, int offset)
++static u32 dw8250_serial_in32(struct uart_port *p, unsigned int offset)
+ {
+-	unsigned int value = readl(p->membase + (offset << p->regshift));
++	u32 value = readl(p->membase + (offset << p->regshift));
+ 
+ 	return dw8250_modify_msr(p, offset, value);
+ }
+ 
+-static void dw8250_serial_out32be(struct uart_port *p, int offset, int value)
++static void dw8250_serial_out32be(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	iowrite32be(value, p->membase + (offset << p->regshift));
+ 	dw8250_check_lcr(p, offset, value);
+ }
+ 
+-static unsigned int dw8250_serial_in32be(struct uart_port *p, int offset)
++static u32 dw8250_serial_in32be(struct uart_port *p, unsigned int offset)
+ {
+-       unsigned int value = ioread32be(p->membase + (offset << p->regshift));
++       u32 value = ioread32be(p->membase + (offset << p->regshift));
+ 
+        return dw8250_modify_msr(p, offset, value);
+ }
+diff --git a/drivers/tty/serial/8250/8250_em.c b/drivers/tty/serial/8250/8250_em.c
+index 35094f884492..e90c71494944 100644
+--- a/drivers/tty/serial/8250/8250_em.c
++++ b/drivers/tty/serial/8250/8250_em.c
+@@ -59,7 +59,7 @@ static void serial8250_em_serial_out_helper(struct uart_port *p, int offset,
+ 	}
+ }
+ 
+-static unsigned int serial8250_em_serial_in(struct uart_port *p, int offset)
++static u32 serial8250_em_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	switch (offset) {
+ 	case UART_RX: /* RX @ 0x00 */
+@@ -119,7 +119,7 @@ static void serial8250_em_reg_update(struct uart_port *p, int off, int value)
+ 	serial8250_em_serial_out_helper(p, UART_HCR0_EM, hcr0);
+ }
+ 
+-static void serial8250_em_serial_out(struct uart_port *p, int offset, int value)
++static void serial8250_em_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	switch (offset) {
+ 	case UART_TX:
+diff --git a/drivers/tty/serial/8250/8250_ingenic.c b/drivers/tty/serial/8250/8250_ingenic.c
+index a73dd3773640..94542fc143c2 100644
+--- a/drivers/tty/serial/8250/8250_ingenic.c
++++ b/drivers/tty/serial/8250/8250_ingenic.c
+@@ -168,9 +168,9 @@ OF_EARLYCON_DECLARE(jz4780_uart, "ingenic,jz4780-uart",
+ OF_EARLYCON_DECLARE(x1000_uart, "ingenic,x1000-uart",
+ 		    ingenic_early_console_setup);
+ 
+-static void ingenic_uart_serial_out(struct uart_port *p, int offset, int value)
++static void ingenic_uart_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+-	int ier;
++	u32 ier;
+ 
+ 	switch (offset) {
+ 	case UART_FCR:
+@@ -206,9 +206,9 @@ static void ingenic_uart_serial_out(struct uart_port *p, int offset, int value)
+ 	writeb(value, p->membase + (offset << p->regshift));
+ }
+ 
+-static unsigned int ingenic_uart_serial_in(struct uart_port *p, int offset)
++static u32 ingenic_uart_serial_in(struct uart_port *p, unsigned int offset)
+ {
+-	unsigned int value;
++	u8 value;
+ 
+ 	value = readb(p->membase + (offset << p->regshift));
+ 
+diff --git a/drivers/tty/serial/8250/8250_ioc3.c b/drivers/tty/serial/8250/8250_ioc3.c
+index 499e80aa4cf9..3ebda9a5d07d 100644
+--- a/drivers/tty/serial/8250/8250_ioc3.c
++++ b/drivers/tty/serial/8250/8250_ioc3.c
+@@ -21,12 +21,12 @@ struct ioc3_8250_data {
+ 	int line;
+ };
+ 
+-static unsigned int ioc3_serial_in(struct uart_port *p, int offset)
++static u32 ioc3_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	return readb(p->membase + (offset ^ 3));
+ }
+ 
+-static void ioc3_serial_out(struct uart_port *p, int offset, int value)
++static void ioc3_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	writeb(value, p->membase + (offset ^ 3));
+ }
+diff --git a/drivers/tty/serial/8250/8250_lpc18xx.c b/drivers/tty/serial/8250/8250_lpc18xx.c
+index d52445948da0..6c0489c9c253 100644
+--- a/drivers/tty/serial/8250/8250_lpc18xx.c
++++ b/drivers/tty/serial/8250/8250_lpc18xx.c
+@@ -67,7 +67,7 @@ static int lpc18xx_rs485_config(struct uart_port *port, struct ktermios *termios
+ 	return 0;
+ }
+ 
+-static void lpc18xx_uart_serial_out(struct uart_port *p, int offset, int value)
++static void lpc18xx_uart_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	/*
+ 	 * For DMA mode one must ensure that the UART_FCR_DMA_SELECT
+diff --git a/drivers/tty/serial/8250/8250_pci.c b/drivers/tty/serial/8250/8250_pci.c
+index 73c200127b08..152f914c599d 100644
+--- a/drivers/tty/serial/8250/8250_pci.c
++++ b/drivers/tty/serial/8250/8250_pci.c
+@@ -1751,7 +1751,7 @@ static int pci_fintek_init(struct pci_dev *dev)
+ 	return max_port;
+ }
+ 
+-static void f815xxa_mem_serial_out(struct uart_port *p, int offset, int value)
++static void f815xxa_mem_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	struct f815xxa_data *data = p->private_data;
+ 	unsigned long flags;
+@@ -1846,10 +1846,10 @@ static void kt_handle_break(struct uart_port *p)
+ 	serial8250_clear_and_reinit_fifos(up);
+ }
+ 
+-static unsigned int kt_serial_in(struct uart_port *p, int offset)
++static u32 kt_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	struct uart_8250_port *up = up_to_u8250p(p);
+-	unsigned int val;
++	u32 val;
+ 
+ 	/*
+ 	 * When the Intel ME (management engine) gets reset its serial
+diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
+index 6d7b8c4667c9..f5407832e8a7 100644
+--- a/drivers/tty/serial/8250/8250_port.c
++++ b/drivers/tty/serial/8250/8250_port.c
+@@ -339,14 +339,14 @@ static void default_serial_dl_write(struct uart_8250_port *up, u32 value)
+ }
+ 
+ #ifdef CONFIG_HAS_IOPORT
+-static unsigned int hub6_serial_in(struct uart_port *p, int offset)
++static u32 hub6_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	offset = offset << p->regshift;
+ 	outb(p->hub6 - 1 + offset, p->iobase);
+ 	return inb(p->iobase + 1);
+ }
+ 
+-static void hub6_serial_out(struct uart_port *p, int offset, int value)
++static void hub6_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	offset = offset << p->regshift;
+ 	outb(p->hub6 - 1 + offset, p->iobase);
+@@ -354,73 +354,73 @@ static void hub6_serial_out(struct uart_port *p, int offset, int value)
+ }
+ #endif /* CONFIG_HAS_IOPORT */
+ 
+-static unsigned int mem_serial_in(struct uart_port *p, int offset)
++static u32 mem_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	offset = offset << p->regshift;
+ 	return readb(p->membase + offset);
+ }
+ 
+-static void mem_serial_out(struct uart_port *p, int offset, int value)
++static void mem_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	offset = offset << p->regshift;
+ 	writeb(value, p->membase + offset);
+ }
+ 
+-static void mem16_serial_out(struct uart_port *p, int offset, int value)
++static void mem16_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	offset = offset << p->regshift;
+ 	writew(value, p->membase + offset);
+ }
+ 
+-static unsigned int mem16_serial_in(struct uart_port *p, int offset)
++static u32 mem16_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	offset = offset << p->regshift;
+ 	return readw(p->membase + offset);
+ }
+ 
+-static void mem32_serial_out(struct uart_port *p, int offset, int value)
++static void mem32_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	offset = offset << p->regshift;
+ 	writel(value, p->membase + offset);
+ }
+ 
+-static unsigned int mem32_serial_in(struct uart_port *p, int offset)
++static u32 mem32_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	offset = offset << p->regshift;
+ 	return readl(p->membase + offset);
+ }
+ 
+-static void mem32be_serial_out(struct uart_port *p, int offset, int value)
++static void mem32be_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	offset = offset << p->regshift;
+ 	iowrite32be(value, p->membase + offset);
+ }
+ 
+-static unsigned int mem32be_serial_in(struct uart_port *p, int offset)
++static u32 mem32be_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	offset = offset << p->regshift;
+ 	return ioread32be(p->membase + offset);
+ }
+ 
+ #ifdef CONFIG_HAS_IOPORT
+-static unsigned int io_serial_in(struct uart_port *p, int offset)
++static u32 io_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	offset = offset << p->regshift;
+ 	return inb(p->iobase + offset);
+ }
+ 
+-static void io_serial_out(struct uart_port *p, int offset, int value)
++static void io_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	offset = offset << p->regshift;
+ 	outb(value, p->iobase + offset);
+ }
+ #endif
+-static unsigned int no_serial_in(struct uart_port *p, int offset)
++static u32 no_serial_in(struct uart_port *p, unsigned int offset)
+ {
+-	return (unsigned int)-1;
++	return ~0U;
+ }
+ 
+-static void no_serial_out(struct uart_port *p, int offset, int value)
++static void no_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ }
+ 
+diff --git a/drivers/tty/serial/8250/8250_rt288x.c b/drivers/tty/serial/8250/8250_rt288x.c
+index 6415ca8d3adf..bf28b8a9a710 100644
+--- a/drivers/tty/serial/8250/8250_rt288x.c
++++ b/drivers/tty/serial/8250/8250_rt288x.c
+@@ -33,7 +33,7 @@ static const u8 au_io_out_map[5] = {
+ 	[UART_MCR]	= 6,
+ };
+ 
+-static unsigned int au_serial_in(struct uart_port *p, int offset)
++static u32 au_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	if (offset >= ARRAY_SIZE(au_io_in_map))
+ 		return UINT_MAX;
+@@ -42,7 +42,7 @@ static unsigned int au_serial_in(struct uart_port *p, int offset)
+ 	return __raw_readl(p->membase + (offset << p->regshift));
+ }
+ 
+-static void au_serial_out(struct uart_port *p, int offset, int value)
++static void au_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	if (offset >= ARRAY_SIZE(au_io_out_map))
+ 		return;
+diff --git a/drivers/tty/serial/8250/8250_uniphier.c b/drivers/tty/serial/8250/8250_uniphier.c
+index 4874a9632db3..e3db60bf50c9 100644
+--- a/drivers/tty/serial/8250/8250_uniphier.c
++++ b/drivers/tty/serial/8250/8250_uniphier.c
+@@ -63,7 +63,7 @@ OF_EARLYCON_DECLARE(uniphier, "socionext,uniphier-uart",
+  * The register map is slightly different from that of 8250.
+  * IO callbacks must be overridden for correct access to FCR, LCR, MCR and SCR.
+  */
+-static unsigned int uniphier_serial_in(struct uart_port *p, int offset)
++static u32 uniphier_serial_in(struct uart_port *p, unsigned int offset)
+ {
+ 	unsigned int valshift = 0;
+ 
+@@ -92,7 +92,7 @@ static unsigned int uniphier_serial_in(struct uart_port *p, int offset)
+ 	return (readl(p->membase + offset) >> valshift) & 0xff;
+ }
+ 
+-static void uniphier_serial_out(struct uart_port *p, int offset, int value)
++static void uniphier_serial_out(struct uart_port *p, unsigned int offset, u32 value)
+ {
+ 	unsigned int valshift = 0;
+ 	bool normal = false;
+diff --git a/include/linux/serial_8250.h b/include/linux/serial_8250.h
+index 144de7a7948d..01efdce0fda0 100644
+--- a/include/linux/serial_8250.h
++++ b/include/linux/serial_8250.h
+@@ -46,8 +46,8 @@ struct plat_serial8250_port {
+ 	unsigned int	type;		/* If UPF_FIXED_TYPE */
+ 	upf_t		flags;		/* UPF_* flags */
+ 	u16		bugs;		/* port bugs */
+-	unsigned int	(*serial_in)(struct uart_port *, int);
+-	void		(*serial_out)(struct uart_port *, int, int);
++	u32		(*serial_in)(struct uart_port *, unsigned int offset);
++	void		(*serial_out)(struct uart_port *, unsigned int offset, u32 val);
+ 	u32		(*dl_read)(struct uart_8250_port *up);
+ 	void		(*dl_write)(struct uart_8250_port *up, u32 value);
+ 	void		(*set_termios)(struct uart_port *,
+diff --git a/include/linux/serial_core.h b/include/linux/serial_core.h
+index 914b5e97e056..d65b15449cfe 100644
+--- a/include/linux/serial_core.h
++++ b/include/linux/serial_core.h
+@@ -443,8 +443,8 @@ struct uart_port {
+ 	spinlock_t		lock;			/* port lock */
+ 	unsigned long		iobase;			/* in/out[bwl] */
+ 	unsigned char __iomem	*membase;		/* read/write[bwl] */
+-	unsigned int		(*serial_in)(struct uart_port *, int);
+-	void			(*serial_out)(struct uart_port *, int, int);
++	u32			(*serial_in)(struct uart_port *, unsigned int offset);
++	void			(*serial_out)(struct uart_port *, unsigned int offset, u32 val);
+ 	void			(*set_termios)(struct uart_port *,
+ 				               struct ktermios *new,
+ 				               const struct ktermios *old);
+-- 
+2.49.0
 
 
