@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182BCC61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 08:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1195BC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 08:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKbu1o95QNnYrie8L7Z3Lpp3SPlLgdV1zXb1UY/Ga98=; b=0F4ULlsKuGyyzmcMGAi4yIIhIJ
-	KBAyQPhJaIEn5s0DqSIK/tCyeETLEBGySL/3TG7LtkjYwnrqopzZ6gsIJSDE62XzkkGqGwYpNYrM5
-	NxPCKXqRUa2Rbk3hJDM4lKKuagrDb9Cb7H4SumuAxuBIupROqG/KeIuK4diuVg242kcl+Ex31exgH
-	3Yu7pDghVbr3pNL59F2kVn3W62l8BdaPdu/ZiNTcvUTgrKFfrzZU5E644RFJbpXN5ohpzKXuVpbjS
-	s4mXztALh8PYhsLXObef+i6i45NVQ1gp50GJFqOxJa+WoXFCJmOL7DlKeGdj51WNJ9911IKfnl/op
-	6wUKOdvw==;
+	bh=/yiAY4Q83bBJo2+drko8BS93Fxqshr7ucprcwVtMnHY=; b=mCq3FmjYNeMhmhz0E2TNunEGqG
+	w8Vaisv+cYR/wNmUW4n8DXQ+viegUuzYTDxDFlEjnzcYG/iVdpI58OepaElQ0yBdAzrOVS4ASUBe3
+	suZVa7WWcgU3Rq8Vx01OT3c4uoM3txcW+/2g3g7vlwJ9wszwmAYpnPACpDz/EQ2engFUTRXNyfwY9
+	l5Sr9EPvkEB5yCZWyC4UAuT6afCYqjprF2bq4qeLkZEKgN6TdaLHWqNgbrkO160uudQTRxLS/dkem
+	yLGrPiTdFI6CMWzTbdHFBiHMUdUEIa7PsPQ/+PwekKN0cXbBqXJpyP/10jhCPu48hC+zHbg/azGK0
+	OF77NE7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGrp-00000009H2s-0zEz;
-	Wed, 11 Jun 2025 08:31:29 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1uPGw6-00000009Hgg-0ymh;
+	Wed, 11 Jun 2025 08:35:54 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGSf-00000009DFW-0evg
+	id 1uPGSl-00000009DHT-1tVH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 08:05:30 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-234bfe37cccso77386015ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 01:05:28 -0700 (PDT)
+	Wed, 11 Jun 2025 08:05:36 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2363497cc4dso19563975ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 01:05:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749629128; x=1750233928; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1749629135; x=1750233935; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KKbu1o95QNnYrie8L7Z3Lpp3SPlLgdV1zXb1UY/Ga98=;
-        b=Yr4UEEt4uezKL+3m9kWn125HQGTwvUmL0dxHK8Q4hMhmThIDGcLl7+rKVsESjU3AWt
-         yTUwZDT9LN2Y9pJknIajudX9rcaTpgWaa3pdAc/0HII+nfk5eiHbCBnZQJP0uRaD8XDX
-         1rqQucppWrKz9FWaN9T232Z85lCa0mts/oZ6tnk8g0hqoYBp9MtNNc2LCh7q/G9VC2Gq
-         m5sT0jhCx3ZzG2A6r1r7F9r25EQKPg2MqL6NTN5Jxwn4Jm4HbrkLo1qXI7SAfIzf4HXc
-         HKVTebZdDP3rjeS/LclkmutLc3u2ZHifMlT79+xzgrLIYC7RRCd+TQ85d++QJqdlETHo
-         5epg==
+        bh=/yiAY4Q83bBJo2+drko8BS93Fxqshr7ucprcwVtMnHY=;
+        b=cin84x/eHXnuHlN/j6e9WMz3Rvt8PycFdWHuQhdgImPNzP0KjMJN997fPod3fblPZe
+         YMBK7BQfuphXExw+WCHS701fQXdA6jsontvyXG70bJti4B/2U9m2Sqz8JpfXx3hkRAWv
+         iaTVYBPAxPT+DbH8dhRORX+Hz7uIenajwo7yxOHaB6bHeMNWLO4kULxrCAeQ+24A+rsg
+         YC+1OcIN3JCgvRAY3sVg0BKh4oXpwtt/E44k4vKinTgurx+CItrBcv2V/n72N7eASxAS
+         3tTGvo9P2ogKrO/eq3JAAXtm6IXSGus/VWdiOrSKIy3Oh6o5u4bzvFRm0MuGzgLkeKAq
+         dbag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749629128; x=1750233928;
+        d=1e100.net; s=20230601; t=1749629135; x=1750233935;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KKbu1o95QNnYrie8L7Z3Lpp3SPlLgdV1zXb1UY/Ga98=;
-        b=sxsxiKf1lWc7jJbeP7cK/bXp+JxqSWzJBtmfR0rC/aa1VdWTGiahg1q6ja7pF+Resm
-         U6aL0zhd7fCllEIPyOqH0exPW6NaOHbl9TbVGBady+BUWGyq0KADtaLEG+Gt76cY4MmV
-         LuOESl7aWp/9YC5YDIZtrgBwwGcjFwi6xl6zMIZTGecFW77krRI3RazgrEY1BO8ySsns
-         hu1AzM+2GFPnBF4hZD4OCeySm/Gv0aeTBG7yRl7IQ+s73WZhVpMcwIfDE8WegWU5lk3z
-         cIRxTTNYI1bu6LRcAnhmEJ3iamv4fxzpB5Hb0th2mqMW+4Hof+p6bJVka45PDz4I2p0c
-         ifLA==
-X-Forwarded-Encrypted: i=1; AJvYcCXff0+V0DY820Yu3hSsiXbkr1h6TZzn59/HfR6nUxgbh1+6+ozFusI0qVbucHbkkUn1wez822RcetMoEtgOVUtr@lists.infradead.org
-X-Gm-Message-State: AOJu0YysIJ5QUe9ReMna732j55xH55LglKfLRQWxtpXu2KdNBsXOCDLy
-	nEbexbQ3RFHp7xpvsELf+6h8gmXHSXSQAcXTejzLK/iAC7jhRBtxbtSN
-X-Gm-Gg: ASbGnct7N5K+siU/AXRzX4s1bVDfbZaB8PShR32bfXhVEL+DiWgDwyHrEcb5wP73ELn
-	rWrU3bUJ9JfUNVv/NxJ6uRh32KOto0oRuSW98fAJ9swBuM7ziJedrczTlhMpQw5/eGap+23cn5q
-	QuikHj9wUXZ0jkGi9Y+g8kgWgkc/5xSq6V9pc3XX3mMBGoWa5MKpAoVt+96lLKWZ3DipzUaOq6S
-	cf9U12oX8uaxP4ipJo5/uFEB6BYLny/8v9aCEY5MhoGZQsNqJHoFPR1C28eqUEryanQY15em/5o
-	aNDxVOHcnI/nu6FC7bKgsKZkwMb+mYsE+saZqlCplM9BB7wxAml88UazP7AVvLG/1s6VRYzJppF
-	1TyC5Pz3PltKHnssC1CKBqHrOS6leT6Er8UD//yA2jPklCSyRpO9ViPPOEDjS2XzDGN3iRYo+HH
-	sQ2OL8qQ==
-X-Google-Smtp-Source: AGHT+IGeLq1+OHxDZevQ6QLgjMpafO8y79YrpEjfJFZArC1M6ed/pAiO8LgUIMW+68fVDNOZqDVkAA==
-X-Received: by 2002:a17:903:3c47:b0:235:2375:7ead with SMTP id d9443c01a7336-2364269a903mr28755145ad.28.1749629128388;
-        Wed, 11 Jun 2025 01:05:28 -0700 (PDT)
+        bh=/yiAY4Q83bBJo2+drko8BS93Fxqshr7ucprcwVtMnHY=;
+        b=ZQFGa9wDDHFpEiSUiCl0hL9ZpskbJ/KTRY0YOQC1jbaq+fqOjcXXryVlBQOVns3Zdc
+         d9eqbwGL7Ac280x2F2jxOhPHs1jlxYSNppQYjEBpeZIo0csunog0xQBun0VTNM7yRMV+
+         hi/ivL5dfkktMKOnVCdrIui4g1SgvZMpWfE2kSDxIFdThKLaEJRzX2e4IbJHbBct92Tr
+         WL626XC6yYnVHg6nyIhxAHzDohmqugCGrt624gyReCoXqB0LgT+X8n0daa0Y0RDttVgD
+         rtlcjnb0QgtxdWAwqDB6ZvFLCG2chWh/nONqQLWAlu1QOMm43VchDZS+b29hSJvTpiJX
+         uiRw==
+X-Forwarded-Encrypted: i=1; AJvYcCU23F/emkTkgbG7sD207RsAc5AQEHm59sQNiARKkR6cuP52D6WU8fedG9kEjdmd17PrI4zszETOcGd2mUlyy6d0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSasW2vvKs/gpQxDQF3s0fezWdr/bf8GPgoIjMb+92+df4xB3k
+	+clN3zfr0LQYfOjtUspAdv8wVXY4nbUyF/kdmGY8RfgCj6bD+zMZ4HKt
+X-Gm-Gg: ASbGncuMEyB5x949NFf/7nET/vkO4d2cVi3pWyE9zE+c4PclNTfjS2Z+JV2x15p7N9/
+	ng9E2J82EtmQJRXi1+K3sJ1DcEkqDqspUYFg3qcL9lqhrE86dJ8W3Aw1Qu4ymNkR/OvTQqRa40c
+	D8NkDkixTipW8ncZcWNEoNdDi/vpLJCL4DC/OPZQWbB6wJ62i0FAz/z7AYg9eaJXxzz88SPWU1E
+	kbb/KSEr6Eie0EF0SAi2A6vmu32qTSNEwwzkR9HbUbjOBh7HmnGl80c/x7eDzeZ2pJy9+6iynaQ
+	859zrA2Idp+PvI5KXEZKp2eu28XZlTHw1i2irGaGTfrDKjc0pptSF0NMVFCPr985oFoT9csWupU
+	k7RfMwZBMgb7Huim2JUKVlAYFLaLeaQDpkYr8X+RsJyv7iDG3xisoWJJD5e4fWxoYEum88PfyqZ
+	8LmwIkbQ==
+X-Google-Smtp-Source: AGHT+IEzwF+A+5L5D4Y4qNQiMWPC4Srdbngbqeik56tXJV3s90XynVUFJWSxoFJi+YjtiMgfTeH52w==
+X-Received: by 2002:a17:902:d60d:b0:223:4537:65b1 with SMTP id d9443c01a7336-23641b28de4mr37862505ad.36.1749629134891;
+        Wed, 11 Jun 2025 01:05:34 -0700 (PDT)
 Received: from localhost.localdomain (2001-b400-e357-b8a8-7759-271d-6134-9aa3.emome-ip6.hinet.net. [2001:b400:e357:b8a8:7759:271d:6134:9aa3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2363ad90982sm21283835ad.220.2025.06.11.01.05.26
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2363ad90982sm21283835ad.220.2025.06.11.01.05.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 01:05:28 -0700 (PDT)
+        Wed, 11 Jun 2025 01:05:34 -0700 (PDT)
 From: Peter Yin <peteryin.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -81,17 +81,18 @@ To: Rob Herring <robh@kernel.org>,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
 Cc: peteryin.openbmc@gmail.com
-Subject: [PATCH v2 3/5] ARM: dts: aspeed: harma: add ADC128D818 for voltage monitoring
-Date: Wed, 11 Jun 2025 16:05:12 +0800
-Message-Id: <20250611080514.3123335-4-peteryin.openbmc@gmail.com>
+Subject: [PATCH v2 5/5] ARM: dts: aspeed: harma: add mmc health
+Date: Wed, 11 Jun 2025 16:05:14 +0800
+Message-Id: <20250611080514.3123335-6-peteryin.openbmc@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250611080514.3123335-1-peteryin.openbmc@gmail.com>
 References: <20250611080514.3123335-1-peteryin.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_010529_203531_59B4F6E4 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250611_010535_495139_E3745DDD 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +107,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the ADC128D818 device to I2C bus 29 to support voltage monitoring
-on the Harma platform. This enables accurate measurement of system
-voltages through the onboard ADC.
+Add a GPIO expander node at address 0x13 on i2c11 bus
+to monitor MMC health status via a dedicated GPIO line.
 
 Signed-off-by: Peter Yin <peteryin.openbmc@gmail.com>
 ---
- .../boot/dts/aspeed/aspeed-bmc-facebook-harma.dts   | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ .../dts/aspeed/aspeed-bmc-facebook-harma.dts  | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-index 344e20394665..25b873ace2ea 100644
+index fb026c8fb0ee..b9a93f23bd0a 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-@@ -529,6 +529,19 @@ eeprom@54 {
- 				compatible = "atmel,24c64";
- 				reg = <0x54>;
- 			};
+@@ -454,6 +454,25 @@ eeprom@52 {
+ &i2c11 {
+ 	status = "okay";
+ 
++	gpio@13 {
++		compatible = "nxp,pca9555";
++		reg = <0x13>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-parent = <&sgpiom0>;
++		interrupts = <222 IRQ_TYPE_LEVEL_LOW>;
 +
-+			adc@1d {
-+				compatible = "ti,adc128d818";
-+				reg = <0x1d>;
-+				ti,mode = /bits/ 8 <1>;
-+			};
++		gpio-line-names =
++		"","",
++		"","",
++		"","",
++		"","health-mmc",
++		"","",
++		"","",
++		"","",
++		"","";
++	};
 +
-+			adc@1f {
-+				compatible = "ti,adc128d818";
-+				reg = <0x1f>;
-+				ti,mode = /bits/ 8 <1>;
-+			};
-+
- 		};
- 		imux30: i2c@2 {
- 			#address-cells = <1>;
+ 	gpio@30 {
+ 		compatible = "nxp,pca9555";
+ 		reg = <0x30>;
 -- 
 2.25.1
 
