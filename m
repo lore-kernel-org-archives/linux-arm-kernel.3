@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B27C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6341FC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oAgdP5/7nbSCpei3bdgHz+Kvp3J/VbeQ+Dc9cWuRxQY=; b=ogOqPMbfjFos70QT5AwC1G+R0D
-	GARSkm/N4VgR0GkLBMwtTo6jvJ/85qqoC68irlsLIh2f27ScBF1GqSZp0bEsQI8wL7raLUVrgvc4H
-	XTnQbcyrSlRQD+SB11DufuiY4V/0BYFc+eotdVcwIR4PMKcd+r7ECH1xnQqCFaFpWf4GX6PJ3Mq86
-	R0fp8Ru+o7PFLACHJ5AC/lS4SxiRAXG9ayUanDsFZ/43C/z+cmDvQbo9br45TVJJ8/Ppdyem2jwiK
-	0MFa9n1V87v1Wen5ikOxKRkOX74BQ8sX3DqsxRoySh+/x/y7hmNt1ThBbwAarhrAVmGBNGudvX93t
-	wZ5q3aDQ==;
+	bh=+/+rrjhna+/Vax4rD8HC3TVO3EBLeff26p2DbcJCfS4=; b=W0pJd4rMzUx/jWwV8y2qu/PGgs
+	0cabkMxrAIdxwVNQb71lwdssixp60pkdjRNmWZ16gH9CjcurrOvWH/irVXbNzzIOik9qtZvtghpNL
+	eUaymUmT+utQJ6IhNuR/Zh7NNmLshAAnXIMGD+oQsrwpj533Tr88P/EqaJM3jtF+bZq43DxJRHWSP
+	1SU5odJw6hoBZdYDIBCqqBMaqr4+w1Jo5X1TDUkezdwejgTxM9GuUUHnEBL2xU8bfsFdpvHZ0KtfQ
+	XF0ZZczNQhHGVB1NB35MgQ/F2s3oOIMcprQozun4VhXETX5ezC9cxuM9CfEuHJU7oHiwnwB/BhMJP
+	wsu3yl+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUII-0000000BZ45-36YO;
-	Wed, 11 Jun 2025 22:51:42 +0000
-Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
+	id 1uPUKP-0000000BZce-1mme;
+	Wed, 11 Jun 2025 22:53:53 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRuK-0000000B9DI-144e
+	id 1uPRuM-0000000B9Dy-0CLO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 20:18:49 +0000
-Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-401c43671ecso129516b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 13:18:48 -0700 (PDT)
+	Wed, 11 Jun 2025 20:18:51 +0000
+Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-400fa6eafa9so154079b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 13:18:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749673127; x=1750277927; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749673129; x=1750277929; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=oAgdP5/7nbSCpei3bdgHz+Kvp3J/VbeQ+Dc9cWuRxQY=;
-        b=SHY2Omiy9UhHgRNf+dRypeEJk3TYAkFOVNxAUPL1CT8pefPvs6vKMxHsJCR+gcxG3c
-         LxqSUf6t7ZgNBMRGDAVvCHT82eh+gVk1xBL3dXWRNdl9J5lW1GpGI8PTht+/pl7YvEgU
-         zuFGzPC2jjUA9vga9zgGDW+8rNi0d9acO1kEg/FYMOdoSYNiJ3bvXhRoYCDQ/96IQZIa
-         pUkAN/aV2YwF7Z5w8MNwdcY9gza2EqvaN7NmaSoUiuCY4QlLvvxwWjdJs8iMs/00N6UQ
-         pJkNRIovhxHvRrkZNQQ44/TXhvqK+tGx4W25LKuXhkwqkYQmmO38+BaxMmDN2rN1941u
-         W+BQ==
+        bh=+/+rrjhna+/Vax4rD8HC3TVO3EBLeff26p2DbcJCfS4=;
+        b=07/elMh2WpObbAEtBOBDCVxvhQ752pn7iT5auVkTS+tIsJhq1JVVCag8GDCEFiBMSL
+         TxF6WV5d04e+V6HvqrILNf2GUeCvoVjf0TSKGOAaIkXNcr7ul7MNZbWaXbC8BGvXXWSl
+         zpQddTcGIAOAxAwsPBZduVFg12yPqL1L+J3WwXCUWRtURsLnTEzCppdCJUsFlnRc/PWe
+         UeZj7mwkqVcu1pnkK5Xi0kTZ/UPQBgOvkvkj3Zgl88Ep0nkfhLhzoZIaa3mpFfmMkz3c
+         ZRKJn7bQ9aNPUtTjpH/DG7fIHF45JRSXAsN2bGRLxuFhYHnZgg+s05OUt2mBBFUbKD1A
+         ubQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749673127; x=1750277927;
+        d=1e100.net; s=20230601; t=1749673129; x=1750277929;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=oAgdP5/7nbSCpei3bdgHz+Kvp3J/VbeQ+Dc9cWuRxQY=;
-        b=JrX66SY7cTqR2Gm7fxaHd8OPmW8i1It1OEcTTnMtm+8Hy5+gUf7utjhfRvebODR9Mc
-         QTlRITjBskw9Ir3XZ7Fqu6LERVy7jQRgw98rwfNdJs4pLUKektzZ/C2ooddrcBcxs/p1
-         7qHZTI7MSVr2C1Scgbm88Z/h17n4iqZ+XgimaI7gICVSDlOIUbj0LXGXZN8fd4V7nyRu
-         3YIOZWOJfCSqFlS3gQw/E5O15n2bDVzuPP7qsx2iKKrObgrulxWl6lSVPOUW/PUU5EXA
-         irdqzvseQ6nOKLi5RRwJbdaL/f0Be3BLg7Jrr8/6ImwtpETU0DzbVtDn9/MxR4tZa/iB
-         B3Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCUuaF5alS3EJNGBAc0z9NfQ/XfGnSRdTOEwDD/1+7XPlflvr24Ao1U1yT95Laje8rQY5tHngy0R9Qbtln33wdGG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUChdte7rj1YNQeAHf12nlEiiAi7QT1Jn0wxdzfpeXoK95ewB/
-	w+1muPY1I5CZks+6GSEiKUr+reoKmxzcnyn9ouD5wRfeOOLFPrXT+TDTKTzGuO4ig94=
-X-Gm-Gg: ASbGnctSPxH+iszvDvl1tvFkwWOG0lBbYTAKTlpC+6zyvhTV+/Jew3ET8OaYhS/ILO9
-	TwZYr2QSfg1uj7qOCMCVGyLm4PWXqFB69xE7GEX1I/9avlxhr40eAHucxaTuNJeZLGLeY4J4O//
-	wPl+SlBx9YHOAhtlZg3XX81sQ7JRNTozMFZYMM3OqDXt+O1gDKWh23O/mwauz3mDz6SDYad6U7g
-	AzsGPCfm0MgTyp0U/CcQ9ZqMh31cpLIOfeK24kW1byOFMQiHYdSq0A8RpTiMK9HJKkZgOq1G4L0
-	j8JhcqiXpcuHdOnwLzKMF2Pex+PgPORD+5UwQhtLR+XoSyFZn9v/gm4BoPDpuDfRimcxIM9uZ3L
-	tLQA=
-X-Google-Smtp-Source: AGHT+IEsgVOS0Cay3UgDCHS5flNsvIDVMlhbLgckyCmrDV07SD5UV63dS599YfSdekLGeOGNrlRAZA==
-X-Received: by 2002:a05:6808:1a13:b0:407:9d24:af03 with SMTP id 5614622812f47-40a66048f3bmr626458b6e.14.1749673127379;
-        Wed, 11 Jun 2025 13:18:47 -0700 (PDT)
+        bh=+/+rrjhna+/Vax4rD8HC3TVO3EBLeff26p2DbcJCfS4=;
+        b=OFItczQUHQqKP9SxDUzaeqPtt8PzlPPhkB/eecJ94Z16l/i8r4o94H2y8XFZFQy7HU
+         7P63K35fhJALkZtth3V8ZV2X3T45lZvmxxO3VVNGLeVf+10yZY0xXigUz7Jq6zGuyIbf
+         aMA5C3mDD0wdgPvm5o4IN42kOVAoZ1lkBVzWkkUy46UBSX/WjowzSJHG1E8I2C3PlIoI
+         RZvWdAobn2Cqe2aKOkvfHXiHclYbxWc5x7VkDPKVxuHwADDDqh5p2bWw33giT/P9rILP
+         GQboOVDPE8Im3dXzHQOgjBrETJjn+Tgpx4jJ2xHIBJTE0ueAlFZwPCV+pVckqPhIs85Z
+         b1FQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUEYeL1cdd6yaOi7COgrS5emL9NyFnThDKDxVdFjnrAv+PYizjVeKiyBTDkPLcDdyjTgOPDqu8J9TSeCyE0Z18t@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywrg/oNFFhViuwqMo+I9O6iPHvvojwutOAdXi+Mm0nPVC2TbfAX
+	HR1DPOeWAi8EVWCo115pG7bBMhAtgNRc4AtWqvf5exeTKZUy4c3UXhWajGPjNBsfnT4=
+X-Gm-Gg: ASbGnctr6j+y/mil56Gj4YkDuLTd4vHaveMPx8qZ2N0+Yanv2KIc56wkeQbwsTJxNJJ
+	k5etHrGsYjzY1bkQzlP/evQ7VSExEUHHyhPTFouTUODIVad629VD46bJyiPKcJWfuil9wtW+Ycy
+	MIjQs+0LVG3SZmsgXFFHY2+2lkNYuhCS51GXj9WbS9Pi10idQRIfoK09+T9QnZxZK8AEKy0HURi
+	9J71BZPC/QUsJXrfK0EyqPoY6LdaAoaGrkkiGw5Jfu1YfdJekHdNGJDLEHffUmwBfUU4X1Me3LA
+	BbniyKr2ARZUf4KIJFqQt3D2bOIh3j22fB/MmaaazpE46QRc0hIPkwgv9FLCN+RWqVam
+X-Google-Smtp-Source: AGHT+IGD+DufvyN+5hzy7lg7VM5lfJsR43tAUQCYEJ3xhmONm3bDhzEoWmouYj722aMk3p5q+QWyrQ==
+X-Received: by 2002:a05:6808:80a6:b0:406:6d79:49d2 with SMTP id 5614622812f47-40a5d14fa9emr3327936b6e.26.1749673129216;
+        Wed, 11 Jun 2025 13:18:49 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:4753:719f:673f:547c])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-40a5d80d967sm467732b6e.4.2025.06.11.13.18.45
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-40a5d80d967sm467732b6e.4.2025.06.11.13.18.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 11 Jun 2025 13:18:47 -0700 (PDT)
 From: David Lechner <dlechner@baylibre.com>
-Date: Wed, 11 Jun 2025 15:18:10 -0500
-Subject: [PATCH v4 2/3] bus: ts-nbus: use gpiod_multi_set_value_cansleep
+Date: Wed, 11 Jun 2025 15:18:11 -0500
+Subject: [PATCH v4 3/3] bus: ts-nbus: use bitmap_set_value8()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250611-gpio-set-array-helper-v4-2-fb86a9b499ab@baylibre.com>
+Message-Id: <20250611-gpio-set-array-helper-v4-3-fb86a9b499ab@baylibre.com>
 References: <20250611-gpio-set-array-helper-v4-0-fb86a9b499ab@baylibre.com>
 In-Reply-To: <20250611-gpio-set-array-helper-v4-0-fb86a9b499ab@baylibre.com>
 To: Sebastien Bourdelin <sebastien.bourdelin@savoirfairelinux.com>, 
  Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org
 Cc: Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>
+ linux-kernel@vger.kernel.org, Andy Shevchenko <andy.shevchenko@gmail.com>, 
+ David Lechner <dlechner@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1487; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=K5V5TnWu+110nnHuULWw1Pwd0QiBFgzUapmy9BeC2p8=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoSeSR3WFNtYYJy+OvDmT0FfOVbE2ZWgN1LwSvI
- hhaBWo6iEeJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaEnkkQAKCRDCzCAB/wGP
- wHGJB/91c9MDNHlXlq7EmskEj83sq+4fEyuAUc3SHN4AMqTJs8bzFLhHYUn3PqHXh4DPulwulNb
- f2NoBOAUwUg87Ss0koyZ3DBw1f4JBL8nHCrvwoK5XUNsCuFClysvag/sDr25+YFa89zZDg7BJuq
- h6uZlbirLJj518mNiTG1gVdiP3ezMybNzNLfuma28EkBum7DzArMY8sLulCIGGeiZ2yRrNGEgY6
- JYYMW1zph/pP1NEfwJWZALncH6owE3WbPnYlL46IA3VO30CqHv7NOJnMWBCXykHmee6Eq9Zg+Zm
- tak73kkf4T1P657GshPZBolIVryP3HqVteJGR2V1K15G1dRO
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1852; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=X+l1siqRVwIi6D1PzhyWFvmI4xdYsdCpoCSsUZIeM9Y=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoSeSY/IJ6nkRrANAy2h70ciXzsWX6tvkao1sxD
+ 4OB69BklISJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaEnkmAAKCRDCzCAB/wGP
+ wANcB/wM1esoiB5PaiuSRQBoxKnk8REf7zJM4aV0H6/M2/3mbM0ehJVngqtwdJ0thNdO+U0LWG6
+ XdHZpt4wJR1rc00U1rqILg0nxcEbrpOJ06KpGyloyzjGzRnx/JNr6ZIzsdNFGh7juRM1HaD7h5Z
+ t47OOLSzgr1s9sPy03/lg3kuOK6BKfkZy8h00F0HnfgzzSFvFKxBn7Z8Ct4jyCVpDiq4GaUwpej
+ wH2z0XaWliiQPfYo5AB/bGlE2jcnSmAn5hleY65LDObf1MpSHQaUT8/GGXYZHO1Jnl8iGZvFYx+
+ 7212QTKdyNcP98xvaCHkgAobE2zpI7HZeiHiP/8C6jzd4AnQ
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_131848_295400_A44D3BFA 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250611_131850_091005_58D18321 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,46 +112,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reduce verbosity by using gpiod_multi_set_value_cansleep() instead of
-gpiod_set_array_value_cansleep().
+Use bitmap_set_value8() instead of accessing the bitmap directly.
 
-ts_nbus->data->ndescs is validated to be 8 during probe, so will have
-the same value as the hard-coded 8 that is removed by this change.
+Accessing the bitmap directly is not considered good practice. We now
+have a helper function that can be used instead, so let's use it.
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+The bitmap has to be zero-initialized now to avoid a compiler warning
+since bitmap_set_value8() does read/modify/write rather than just the
+write that this is replacing.
+
+Suggested-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 Signed-off-by: David Lechner <dlechner@baylibre.com>
 ---
- drivers/bus/ts-nbus.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+v4 changes:
+- Fix typo s/get/set/ in commit message
+- Zero-initialize the bitmap to avoid compiler warning
+---
+ drivers/bus/ts-nbus.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/bus/ts-nbus.c b/drivers/bus/ts-nbus.c
-index d3ee102a13893c83c50e41f7298821f4d7ae3487..b4c9308caf0647a3261071d9527fffce77784af2 100644
+index b4c9308caf0647a3261071d9527fffce77784af2..17540034e64a4e591ea61b0b4eef86a2081b02f5 100644
 --- a/drivers/bus/ts-nbus.c
 +++ b/drivers/bus/ts-nbus.c
-@@ -109,8 +109,7 @@ static void ts_nbus_reset_bus(struct ts_nbus *ts_nbus)
+@@ -10,6 +10,7 @@
+  * TS-4600 SoM.
+  */
  
- 	values[0] = 0;
++#include <linux/bitmap.h>
+ #include <linux/bitops.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/kernel.h>
+@@ -105,9 +106,9 @@ static void ts_nbus_set_direction(struct ts_nbus *ts_nbus, int direction)
+  */
+ static void ts_nbus_reset_bus(struct ts_nbus *ts_nbus)
+ {
+-	DECLARE_BITMAP(values, 8);
++	DECLARE_BITMAP(values, 8) = { };
  
--	gpiod_set_array_value_cansleep(8, ts_nbus->data->desc,
--				       ts_nbus->data->info, values);
-+	gpiod_multi_set_value_cansleep(ts_nbus->data, values);
+-	values[0] = 0;
++	bitmap_set_value8(values, byte, 0);
+ 
+ 	gpiod_multi_set_value_cansleep(ts_nbus->data, values);
  	gpiod_set_value_cansleep(ts_nbus->csn, 0);
- 	gpiod_set_value_cansleep(ts_nbus->strobe, 0);
- 	gpiod_set_value_cansleep(ts_nbus->ale, 0);
-@@ -150,12 +149,11 @@ static int ts_nbus_read_byte(struct ts_nbus *ts_nbus, u8 *val)
+@@ -149,9 +150,9 @@ static int ts_nbus_read_byte(struct ts_nbus *ts_nbus, u8 *val)
   */
  static void ts_nbus_write_byte(struct ts_nbus *ts_nbus, u8 byte)
  {
--	struct gpio_descs *gpios = ts_nbus->data;
- 	DECLARE_BITMAP(values, 8);
+-	DECLARE_BITMAP(values, 8);
++	DECLARE_BITMAP(values, 8) = { };
  
- 	values[0] = byte;
+-	values[0] = byte;
++	bitmap_set_value8(values, byte, 8);
  
--	gpiod_set_array_value_cansleep(8, gpios->desc, gpios->info, values);
-+	gpiod_multi_set_value_cansleep(ts_nbus->data, values);
+ 	gpiod_multi_set_value_cansleep(ts_nbus->data, values);
  }
- 
- /*
 
 -- 
 2.43.0
