@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 627E2C71137
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA949C71136
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/XNNifl471C5Gj5Z74tlpg5uINvJ7cxGXpUhY5qwHw=; b=RbHszPaNL6UxagTWYVlEkjuvYt
-	e6FQdyL4AFrLNWeOB6lS1N0iyXAzWTqxJaOFlpQhwtYyTrGQGnqfB0cUVuVfx1anS0MpGWvo60iE1
-	heXhVLAK9pin3oKC2ExrpVbCxXasZWuVsXe7+ytGX1JaAHY9mWl2dphFPBvU14ZY4YUt3fnKBUE2Q
-	QokSL8aGoTvJaJf6M0RpBteN58v5Ug5/T9ft/W4TGHbGN8EYwm22yfKBs7QGWpfCRPL8qAXqwNBJM
-	RRXEL5WJHQO8zY+b9UlxO6rlMv/KFpYU6Y0w/XHWJ4ifR6JXOYL82fSq7ctjDu22FVK1DvulVvB1o
-	qKfVAN8Q==;
+	bh=xOcA8JVEjHxy7SXGk73izLSpZeUh6cImIEszSD+A3x8=; b=JE0QeHraOj9s8/288wA2PJzO8r
+	gvjVI5CMFiDg/r49xUHcRuIyDy9HJ1/ICeCt1Yq7XUhz/Q0PkPnAvqWIpiW8l0VEr/Gtg/K9dH6M7
+	n7zBVmki7GLRMe9Xqvk0aKaDa9v2vG7YzFDOZLO0fDqXlQOoO1rbsUT0pP+ntgMgnwSsmk/4MXlcO
+	azKvtbZONXbGlZ0HYssux6PeNitsK3EdjEDA4gvihucQ+UGi+g7hF+OyqqH6V391fpuplOpHwoImr
+	gh3SE3WmkIkcHL0hAlxUSCvGtHlIlUQkE/WIIZKu40aVNtmcc3XufnT/XDmZzHEOHp2TuEEg+KGtT
+	38lElBaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNmL-0000000ATO2-3buR;
-	Wed, 11 Jun 2025 15:54:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPNmN-0000000ATQL-1kZq;
+	Wed, 11 Jun 2025 15:54:19 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIwf-00000009e6K-31Wb;
-	Wed, 11 Jun 2025 10:44:38 +0000
+	id 1uPIwl-00000009e7H-1lU1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Jun 2025 10:44:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 66F30448E3;
-	Wed, 11 Jun 2025 10:44:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99AB5C4CEF3;
-	Wed, 11 Jun 2025 10:44:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AB990A51682;
+	Wed, 11 Jun 2025 10:44:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FC8EC4CEF2;
+	Wed, 11 Jun 2025 10:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749638677;
-	bh=DFXb2Sd1AviR0meTWbNWr6As2FJfbh6fzCtv+oFGSEI=;
+	s=k20201202; t=1749638682;
+	bh=NLnT5+LOFbAWdUD6OEeMhq8wMEwsqTEbDWDE/LB5oWI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=jxwd/KZPJJwG9Ywjh1/PhRGVdKW45Lk0qDePpntE/WGmu+0Cu+8m9ZsJhmwrjm15d
-	 pp0KgriTv6qpadEyjMj9KerrndYQbYAhprMi5SKtSuNmYGWRXdacFwBDwWd+S6CccU
-	 xqi2pRmxylUOrjjpZnm+QhpDOWYtok/3ghf8eiB3i2CckpHXr7l28hWPvOvng9giI8
-	 JHOqZZcVOEFSSG8xZdAYrrin2Ng2c/TGFsm72zZ6S7anjMveDsnWgTBpYoeS9KcUFk
-	 /O093vWRxY02LXlWByH+fKEDXWdRDV8IEaUzWwsu2fRxDZeuVcNLncmyA7dlrHU7Bu
-	 thZbbZf5ZCDFQ==
+	b=bhJu2rvffdhuDVYngs0/mJHh/Ii4qb2QtctIipm4DBUJclR7bsCSEQGuTxOzsfrfd
+	 Tn7OMefVMV6axO7RrfvnO8OMXp5QKHdplyCFpuiVX3N9XIeci0hEtQCurRRXEoNS47
+	 5oZjNV8VHM9DH7/3p/qvdnQz1P7LRnMlqmILblb6ZJAW41cFP8LhyauvBLQrtkAfWY
+	 nm5aGIbCO8SY0LuJpQe5iQZ1I9feFo0r+Vho7MCYLp7c6CU4howsxj+6Yr+olrWmg6
+	 evu2rEF7aJz8wsiiOu7o+21ahm9P3mc3P2Ioqhcq69dKyjhSWfLsmpSZ15C0ivm/ty
+	 yuu2qvRW95l+A==
 From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: tglx@linutronix.de,
 	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	linux-gpio@vger.kernel.org,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-mediatek@lists.infradead.org,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH] pinctrl: Use dev_fwnode()
-Date: Wed, 11 Jun 2025 12:43:45 +0200
-Message-ID: <20250611104348.192092-17-jirislaby@kernel.org>
+	linuxppc-dev@lists.ozlabs.org,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH] soc: Use dev_fwnode()
+Date: Wed, 11 Jun 2025 12:43:47 +0200
+Message-ID: <20250611104348.192092-19-jirislaby@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250611104348.192092-1-jirislaby@kernel.org>
 References: <20250611104348.192092-1-jirislaby@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_034437_805165_8D7B560D 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20250611_034443_541997_5283DF07 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,75 +85,55 @@ using of_node with of_fwnode_handle().
 So use the dev_fwnode() helper.
 
 Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-Cc: Sean Wang <sean.wang@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-gpio@vger.kernel.org
-
---
-
-Cc: Matthias Brugger <matthias.bgg@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Ludovic Desroches <ludovic.desroches@microchip.com>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Chen-Yu Tsai <wens@csie.org>
-Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Samuel Holland <samuel@sholland.org>
-Cc: linux-mediatek@lists.infradead.org
+Cc: Qiang Zhao <qiang.zhao@nxp.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Thierry Reding <thierry.reding@gmail.com>
+Cc: Jonathan Hunter <jonathanh@nvidia.com>
 Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-sunxi@lists.linux.dev
----
- drivers/pinctrl/mediatek/mtk-eint.c   | 4 ++--
- drivers/pinctrl/pinctrl-at91-pio4.c   | 6 +++---
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 2 +-
- 3 files changed, 6 insertions(+), 6 deletions(-)
+Cc: linuxppc-dev@lists.ozlabs.org
 
-diff --git a/drivers/pinctrl/mediatek/mtk-eint.c b/drivers/pinctrl/mediatek/mtk-eint.c
-index d906a5e4101f..9f175c73613f 100644
---- a/drivers/pinctrl/mediatek/mtk-eint.c
-+++ b/drivers/pinctrl/mediatek/mtk-eint.c
-@@ -561,8 +561,8 @@ int mtk_eint_do_init(struct mtk_eint *eint, struct mtk_eint_pin *eint_pin)
- 			goto err_eint;
+---
+Cc: linux-tegra@vger.kernel.org
+---
+ drivers/soc/fsl/qe/qe_ic.c | 3 +--
+ drivers/soc/tegra/pmc.c    | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/soc/fsl/qe/qe_ic.c b/drivers/soc/fsl/qe/qe_ic.c
+index 4068b501a3a3..943911053af6 100644
+--- a/drivers/soc/fsl/qe/qe_ic.c
++++ b/drivers/soc/fsl/qe/qe_ic.c
+@@ -407,7 +407,6 @@ static int qe_ic_init(struct platform_device *pdev)
+ 	void (*high_handler)(struct irq_desc *desc);
+ 	struct qe_ic *qe_ic;
+ 	struct resource *res;
+-	struct device_node *node = pdev->dev.of_node;
+ 
+ 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+ 	if (res == NULL) {
+@@ -441,7 +440,7 @@ static int qe_ic_init(struct platform_device *pdev)
+ 		high_handler = NULL;
  	}
  
--	eint->domain = irq_domain_create_linear(of_fwnode_handle(eint->dev->of_node),
--						eint->hw->ap_num, &irq_domain_simple_ops, NULL);
-+	eint->domain = irq_domain_create_linear(dev_fwnode(eint->dev), eint->hw->ap_num,
-+						&irq_domain_simple_ops, NULL);
- 	if (!eint->domain)
- 		goto err_eint;
+-	qe_ic->irqhost = irq_domain_create_linear(of_fwnode_handle(node), NR_QE_IC_INTS,
++	qe_ic->irqhost = irq_domain_create_linear(dev_fwnode(&pdev->dev), NR_QE_IC_INTS,
+ 						  &qe_ic_host_ops, qe_ic);
+ 	if (qe_ic->irqhost == NULL) {
+ 		dev_err(dev, "failed to add irq domain\n");
+diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
+index e0d67bfe955c..9543bee0c321 100644
+--- a/drivers/soc/tegra/pmc.c
++++ b/drivers/soc/tegra/pmc.c
+@@ -2500,8 +2500,7 @@ static int tegra_pmc_irq_init(struct tegra_pmc *pmc)
+ 	pmc->irq.irq_set_type = pmc->soc->irq_set_type;
+ 	pmc->irq.irq_set_wake = pmc->soc->irq_set_wake;
  
-diff --git a/drivers/pinctrl/pinctrl-at91-pio4.c b/drivers/pinctrl/pinctrl-at91-pio4.c
-index ca8a54a43ff5..57f105ac962d 100644
---- a/drivers/pinctrl/pinctrl-at91-pio4.c
-+++ b/drivers/pinctrl/pinctrl-at91-pio4.c
-@@ -1212,9 +1212,9 @@ static int atmel_pinctrl_probe(struct platform_device *pdev)
- 		dev_dbg(dev, "bank %i: irq=%d\n", i, ret);
- 	}
- 
--	atmel_pioctrl->irq_domain = irq_domain_create_linear(of_fwnode_handle(dev->of_node),
--			atmel_pioctrl->gpio_chip->ngpio,
--			&irq_domain_simple_ops, NULL);
-+	atmel_pioctrl->irq_domain = irq_domain_create_linear(dev_fwnode(dev),
-+							     atmel_pioctrl->gpio_chip->ngpio,
-+							     &irq_domain_simple_ops, NULL);
- 	if (!atmel_pioctrl->irq_domain)
- 		return dev_err_probe(dev, -ENODEV, "can't add the irq domain\n");
- 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index bf8612d72daa..a090d78a3413 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -1646,7 +1646,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 		}
- 	}
- 
--	pctl->domain = irq_domain_create_linear(of_fwnode_handle(node),
-+	pctl->domain = irq_domain_create_linear(dev_fwnode(&pdev->dev),
- 						pctl->desc->irq_banks * IRQ_PER_BANK,
- 						&sunxi_pinctrl_irq_domain_ops, pctl);
- 	if (!pctl->domain) {
+-	pmc->domain = irq_domain_create_hierarchy(parent, 0, 96,
+-						  of_fwnode_handle(pmc->dev->of_node),
++	pmc->domain = irq_domain_create_hierarchy(parent, 0, 96, dev_fwnode(pmc->dev),
+ 						  &tegra_pmc_irq_domain_ops, pmc);
+ 	if (!pmc->domain) {
+ 		dev_err(pmc->dev, "failed to allocate domain\n");
 -- 
 2.49.0
 
