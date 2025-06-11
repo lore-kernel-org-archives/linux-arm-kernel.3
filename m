@@ -4,51 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250DAC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECC7C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kKGabxrJKTT1jT+MsIDRbUN9gODQJ7nJyG6Bdv8dG7M=; b=S5E2YZSYUFudSNApC0d2cXskgP
-	hjb6h/Q1L9AY/GmbNu0dXqH7VLPMz6/kJFeC9x/vlafeSmgzZt7jyELnCixWCIig1iT/NLShJyUX1
-	wrvkP2DKH3ym98eM+XIaSWqDp0+RWmMyoaZMvUfSlmM0P1S3GXRAxP+ZtCHitPO3/AqqGe9UUiW3A
-	vcfOYY4+hGTsP5OjnUteikz1Hdu6AHa4eOQ618cMFvDPIKs5RNgkZb8xnxsIbGz6tOyE16QzQLZJD
-	boLDHkJkRX53ycclMrgKhRoGXbe+6R/9PD6C0nIOBY3+MEGcyaW5eNZczbwfJ2Mxxdj/+d1oFEcJy
-	mxD9eUjw==;
+	bh=ccxNtrvIzEpdDUUgcBs30bPJOyasf9xZHHkJqeojH7c=; b=IVx+F1wkvFRIDm/mHs7D5Z0O7l
+	sDWora+iB+OekzGt8X7sB9M9Fq/K+224ojD1y6XKpXum1wI/7mKH3nyT0FX54ueCtaYh4aDKf09ND
+	5l4BPgn6EnJknSJpI6K4579e5wnU0SZpaQwLq+ROgsimgnu7+PRLLnnkGXHcRx6GSTiRiSjFWuu7U
+	XqB0gLX/crX54wv6O1NwzKdqeTVjx9kBdbgtTBBtB7j6Lz0LEiv2QwkO73YJ01pp/go3r5+hs2Jlo
+	HYL2T4hlNf27VjZZrNAP6pjuOwFSmn51Zc6iZI96J59mtQn5gfI8JyPvZX01lc/VMr9OMSqE/CwWL
+	q4U/n3MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPI6f-00000009XPX-2Ped;
-	Wed, 11 Jun 2025 09:50:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uPI8n-00000009XoG-2gqg;
+	Wed, 11 Jun 2025 09:53:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHq9-00000009U9q-09qM;
-	Wed, 11 Jun 2025 09:33:50 +0000
+	id 1uPHqD-00000009UAh-1lLH;
+	Wed, 11 Jun 2025 09:33:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ccxNtrvIzEpdDUUgcBs30bPJOyasf9xZHHkJqeojH7c=; b=IewU4Mdv9xt2TeqgLWnwiVbs+q
+	6XSA6haNQP9RFdTvtL7jGfk6/sNqusLIjnVkHeLi6yuN2xK91m+0cr19Mt0BwCMgAoB29FV16C1L6
+	e0GztY8iW1OLy5QrnaUjsTzeJmKHRZ//qw9Tu7LO+rBTdGy5BWFy7FuY5GgKJFRdkZQsyQOQzbGt0
+	X8KxvscrdX046YKP4NkRK2sGXLj8a6TkgsFOA0XY7+R6LKaNR16irFsCu5VRuZZzvBqyDrFTiwr8A
+	ARxXcetp1rN1dDj/pAeLDWbt43j/9SIurNgmdajhKUKWpN/u5l9a5MoY0lETzlni8SdXeVjkiquzu
+	e4h/3ppQ==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPHqB-00000002EZd-2Yx9;
+	Wed, 11 Jun 2025 09:33:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749634427;
-	bh=2Bx5pk/4PGvxDMaVO9PDV3VXGwo3Kr1fdGR9qhTJyQ4=;
+	s=mail; t=1749634429;
+	bh=zCCyZx0OYW+yvOTE8Ci6a80riXGgIIfyVSbsjo4X6m4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jSSIRrP0dym3SIK5fuDSfb41jRmXzwWKM+lizNdp7xWoOSy1Xpawhx6nISRH9wXnO
-	 0lqGn+oK03kY93KRWG3t7cE8mqF5UjpyGlxzGagxF4/neBnPqbs2QBdD9DwVIieBFs
-	 J/ftFm1FhzP/WqmI60Zf8Cxapq4PFD9/msJmdaeyU9bShmQu+661uU5UFv7VrsX4/t
-	 ZljcFtRk3qtl/TRhpl5SXj7Ac0GU9/oWcDLtOEQeMOw9kc/Ml4dKZTuzkqfIrkckFS
-	 zw6PSJ6FfyIwOJKNVoh1feH8eycsUGUwGUiNH6dHWOTYPP8gJdqZbpE9Yb0yJoPOdc
-	 kmiH9ucGZbDwA==
+	b=nqfkRAAy682u+Zdra5IbBIOtKVicuau8Bqv51dmGLvltbOZuF+adcBmAxNZHMdaZ7
+	 cDqFqnCtkA/DEmAf9ZeNNs4ujX40m3PTRkQiRBIwbl7xUe2CkjvYRXCtUbgS4Il8I8
+	 mlI3LAjxCFVcsGJXMb9dzb+DcE+0yJSOkUJBpLAQj5PX573l4WLm2ViIEgwfd1WGOm
+	 OscA08n9U/Y1x9pI4pxDXTQObOa0E/+rV49oGsXO/+9+AW37l1SOoLknadhHR7JFAA
+	 gkK4ODNoPpUY6SilMyccCyoLVFfUnyQW1HJjXUfmAkF2Vpp4pLx0F7ivfXCOLIRzcS
+	 dnqG/J2HWTWOg==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B55F17E36B3;
-	Wed, 11 Jun 2025 11:33:46 +0200 (CEST)
-Message-ID: <10d6fe88-75ff-4c02-8fdd-e1101aaa565c@collabora.com>
-Date: Wed, 11 Jun 2025 11:33:45 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ECFE817E36D4;
+	Wed, 11 Jun 2025 11:33:47 +0200 (CEST)
+Message-ID: <d9811928-5236-43d7-8343-2cd26cf873f2@collabora.com>
+Date: Wed, 11 Jun 2025 11:33:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/13] arm64: dts: mediatek: mt7988: add basic
- ethernet-nodes
+Subject: Re: [PATCH v3 09/13] arm64: dts: mediatek: mt7988a-bpi-r4: drop
+ unused pins
 To: Frank Wunderlich <linux@fw-web.de>,
  MyungJoo Ham <myungjoo.ham@samsung.com>,
  Kyungmin Park <kyungmin.park@samsung.com>,
@@ -70,15 +84,16 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
  netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org
 References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-7-linux@fw-web.de>
+ <20250608211452.72920-10-linux@fw-web.de>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250608211452.72920-7-linux@fw-web.de>
+In-Reply-To: <20250608211452.72920-10-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_023349_227858_C4648F8C 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250611_103351_751440_94C62FF3 
+X-CRM114-Status: UNSURE (   6.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,151 +111,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Il 08/06/25 23:14, Frank Wunderlich ha scritto:
 > From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Add basic ethernet related nodes.
+> Pins were moved from SoC dtsi to Board level dtsi without cleaning up
+> to needed ones. Drop the unused pins now.
 > 
-> Mac1+2 needs pcs (sgmii+usxgmii) to work correctly which will be linked
-> later when driver is merged.
-> 
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> ---
->   arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 124 +++++++++++++++++++++-
->   1 file changed, 121 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> index 560ec86dbec0..ee1e01d720fe 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> @@ -680,7 +680,28 @@ xphyu3port0: usb-phy@11e13000 {
->   			};
->   		};
->   
-> -		clock-controller@11f40000 {
-> +		xfi_tphy0: phy@11f20000 {
-> +			compatible = "mediatek,mt7988-xfi-tphy";
-> +			reg = <0 0x11f20000 0 0x10000>;
-> +			resets = <&watchdog 14>;
-> +			clocks = <&xfi_pll CLK_XFIPLL_PLL_EN>,
-> +				 <&topckgen CLK_TOP_XFI_PHY_0_XTAL_SEL>;
-> +			clock-names = "xfipll", "topxtal";
 
-resets here please, not after reg.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-> +			mediatek,usxgmii-performance-errata;
-> +			#phy-cells = <0>;
-> +		};
-> +
-> +		xfi_tphy1: phy@11f30000 {
-> +			compatible = "mediatek,mt7988-xfi-tphy";
-> +			reg = <0 0x11f30000 0 0x10000>;
-> +			resets = <&watchdog 15>;
-> +			clocks = <&xfi_pll CLK_XFIPLL_PLL_EN>,
-> +				 <&topckgen CLK_TOP_XFI_PHY_1_XTAL_SEL>;
-> +			clock-names = "xfipll", "topxtal";
 
-ditto
-
-> +			#phy-cells = <0>;
-> +		};
-> +
-> +		xfi_pll: clock-controller@11f40000 {
->   			compatible = "mediatek,mt7988-xfi-pll";
->   			reg = <0 0x11f40000 0 0x1000>;
->   			resets = <&watchdog 16>;
-> @@ -714,19 +735,116 @@ phy_calibration_p3: calib@97c {
->   			};
->   		};
->   
-> -		clock-controller@15000000 {
-> +		ethsys: clock-controller@15000000 {
->   			compatible = "mediatek,mt7988-ethsys", "syscon";
->   			reg = <0 0x15000000 0 0x1000>;
->   			#clock-cells = <1>;
->   			#reset-cells = <1>;
->   		};
->   
-> -		clock-controller@15031000 {
-> +		ethwarp: clock-controller@15031000 {
->   			compatible = "mediatek,mt7988-ethwarp";
->   			reg = <0 0x15031000 0 0x1000>;
->   			#clock-cells = <1>;
->   			#reset-cells = <1>;
->   		};
-> +
-> +		eth: ethernet@15100000 {
-> +			compatible = "mediatek,mt7988-eth";
-> +			reg = <0 0x15100000 0 0x80000>,
-> +			      <0 0x15400000 0 0x200000>;
-
-reg = <0 0x15100000 0 0x80000>, <0 0x15400000 0 0x200000>;
-
-it's 83 columns - it's fine.
-
-> +			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&ethsys CLK_ETHDMA_CRYPT0_EN>,
-> +				 <&ethsys CLK_ETHDMA_FE_EN>,
-> +				 <&ethsys CLK_ETHDMA_GP2_EN>,
-> +				 <&ethsys CLK_ETHDMA_GP1_EN>,
-> +				 <&ethsys CLK_ETHDMA_GP3_EN>,
-> +				 <&ethwarp CLK_ETHWARP_WOCPU2_EN>,
-> +				 <&ethwarp CLK_ETHWARP_WOCPU1_EN>,
-> +				 <&ethwarp CLK_ETHWARP_WOCPU0_EN>,
-> +				 <&ethsys CLK_ETHDMA_ESW_EN>,
-> +				 <&topckgen CLK_TOP_ETH_GMII_SEL>,
-> +				 <&topckgen CLK_TOP_ETH_REFCK_50M_SEL>,
-> +				 <&topckgen CLK_TOP_ETH_SYS_200M_SEL>,
-> +				 <&topckgen CLK_TOP_ETH_SYS_SEL>,
-> +				 <&topckgen CLK_TOP_ETH_XGMII_SEL>,
-> +				 <&topckgen CLK_TOP_ETH_MII_SEL>,
-> +				 <&topckgen CLK_TOP_NETSYS_SEL>,
-> +				 <&topckgen CLK_TOP_NETSYS_500M_SEL>,
-> +				 <&topckgen CLK_TOP_NETSYS_PAO_2X_SEL>,
-> +				 <&topckgen CLK_TOP_NETSYS_SYNC_250M_SEL>,
-> +				 <&topckgen CLK_TOP_NETSYS_PPEFB_250M_SEL>,
-> +				 <&topckgen CLK_TOP_NETSYS_WARP_SEL>,
-> +				 <&ethsys CLK_ETHDMA_XGP1_EN>,
-> +				 <&ethsys CLK_ETHDMA_XGP2_EN>,
-> +				 <&ethsys CLK_ETHDMA_XGP3_EN>;
-> +			clock-names = "crypto", "fe", "gp2", "gp1",
-> +				      "gp3",
-
-clock-names = "crypto", "fe", "gp2", "gp1", "gp3",
-
-:-)
-
-> +				      "ethwarp_wocpu2", "ethwarp_wocpu1",
-> +				      "ethwarp_wocpu0", "esw", "top_eth_gmii_sel",
-> +				      "top_eth_refck_50m_sel", "top_eth_sys_200m_sel",
-> +				      "top_eth_sys_sel", "top_eth_xgmii_sel",
-> +				      "top_eth_mii_sel", "top_netsys_sel",
-> +				      "top_netsys_500m_sel", "top_netsys_pao_2x_sel",
-> +				      "top_netsys_sync_250m_sel",
-> +				      "top_netsys_ppefb_250m_sel",
-> +				      "top_netsys_warp_sel","xgp1", "xgp2", "xgp3";
-> +			assigned-clocks = <&topckgen CLK_TOP_NETSYS_2X_SEL>,
-> +					  <&topckgen CLK_TOP_NETSYS_GSW_SEL>,
-> +					  <&topckgen CLK_TOP_USXGMII_SBUS_0_SEL>,
-> +					  <&topckgen CLK_TOP_USXGMII_SBUS_1_SEL>,
-> +					  <&topckgen CLK_TOP_SGM_0_SEL>,
-> +					  <&topckgen CLK_TOP_SGM_1_SEL>;
-> +			assigned-clock-parents = <&apmixedsys CLK_APMIXED_NET2PLL>,
-> +						 <&topckgen CLK_TOP_NET1PLL_D4>,
-> +						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
-> +						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
-> +						 <&apmixedsys CLK_APMIXED_SGMPLL>,
-> +						 <&apmixedsys CLK_APMIXED_SGMPLL>;
-
-Address and size cells must go *before* vendor-specific properties
-
-> +			mediatek,ethsys = <&ethsys>;
-> +			mediatek,infracfg = <&topmisc>;
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-
-Cheers!
-Angelo
 
