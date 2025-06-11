@@ -4,103 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E51C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C405C71141
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cW5kHqGoMgcJPCZRWrn/3XY+/PqK7bC2f+q7PxYZJmI=; b=wSaZAT3VWVp3cQQxrXUIlNNdNn
-	/UuYTt3RkR/k3bLeeV+D2eOgQFIbbRgsSXfnAnPx9JxNVprmwj1jzZvi79IZX1KXmLutQ2AeGWhQy
-	OJn8s3FK4O4VcEWNjvH+6BnKSLUDc7lpggJdl6mPBtc8WTRO4X5FoyiLy7jacSYND/b8wyo/rAaCw
-	UTecymjo8kLBf9iNr7OdPC+EL/yi1cZ+tj7DWLiyqKOWDkuBoyt4N/qAqgfcho5cFJIp0V6LPKBGl
-	lM5xuVaV9LWfXTezlEq6TMCS/061Kr0ijfi0wOU+jVTv117bYNWdphWwg5RxMXCRGfbYJRW3he+m7
-	+9UsdmSA==;
+	bh=PurUogPz4UY7qDnTVjFb+to1h8SXtAe0afH2UVF/ugI=; b=ZtlDqhdHhf9B2UbXE/7Z9TaB+9
+	VefE1WA4aIyfxH0h2+G9ymqr1BsZoA3rlQ22GrIA4hkML2ChSsxbICNjSKQyMJzbZDQK6/qgi1M48
+	7XoKP81fu5bzP+mw/FyQhcDS9aT5EA0M/Tqq8xPh7HZBFMis1vHZIGo+a9dB+0SnusoAuEBjIL4Iz
+	YcA9luboOxWc6QRtNz9gDhiNP2LU4O/ldPV6tQA/02gg3hAuRqq8J5qZHU5RpeR9woyo+yUJKVXYM
+	IgOcrzYwf+AP5YHU4I68Npups93t6DTy8CYX0dWcE4d8s/G5SABevf2F/7qkO58+h9c0l/SaLhsv/
+	JyGrA4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPTx6-0000000BTdg-2c20;
-	Wed, 11 Jun 2025 22:29:48 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1uPTzC-0000000BTsb-3gKG;
+	Wed, 11 Jun 2025 22:31:58 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPSMr-0000000BCsr-31Wt
+	id 1uPSVv-0000000BEJj-2xd6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 20:48:18 +0000
-Received: from phl-compute-09.internal (phl-compute-09.phl.internal [10.202.2.49])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id D87C211401F7;
-	Wed, 11 Jun 2025 16:48:16 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-09.internal (MEProxy); Wed, 11 Jun 2025 16:48:16 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1749674896; x=1749761296; bh=cW5kHqGoMg
-	cJPCZRWrn/3XY+/PqK7bC2f+q7PxYZJmI=; b=lccOqZ4zDxD5QnxYqtuNw7kx61
-	UfSXSwslOKC1hlVyRlsCP/+2aU8f/QlFjHGFaXZcrSRXH3OZzJosB+u41yQ341G2
-	notTs7uCv74XxLa6yP+H5v0tnlLM0BFmYCekjHpbIFvNL+mSKds67ob40vG7nCwJ
-	CJUuqd8ubW8zgIu0sRpI7Qhck4v/+otxVGd99diTuzy/Yn6B/njdP20r8LNd0r4m
-	q/2QjCz0qHrKZWQffh9eNsqiDH8ljzro3KzD1hyKa7x03Y+npAJfuYTEa+hzBfj8
-	Cy55kfl00+QsYT5HFNIdqKDGo6tgrJ/1ZVX+ol7rwiStMx+SY/hi+VLdAlrw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1749674896; x=1749761296; bh=cW5kHqGoMgcJPCZRWrn/3XY+/PqK7bC2f+q
-	7PxYZJmI=; b=gEiLVlyS0LmftbzpaTBiNHWXFGAXALENeNIFVlxu5BbBJmIBQOy
-	6biybY2D/PcrA7qcunHQRIk0Lc7WO6BwVI2Vwr6UX1D2dnaKfebIhWC1Z/qs4auR
-	gBJ/xgaLTafA3GIV9vClFbd4vRcHV0dFA7PFAaQwZXGmNWNZ/koWUeSU92lVb3l8
-	HjJqTSS00nvAKczI1SQWNGBD7ypQ4C+9T0ueW3gQisPaUKyLeeY6azQbCkZpii8M
-	73ldWbhtUwVIVg/3NybE6S+Kx3k/n8bnLsUULHkLyfzlbgLXgIrLY4aXzmZbwVuD
-	ch313qsow9TD9gUh4Sq+xfsTLGUcvZ4kTTg==
-X-ME-Sender: <xms:kOtJaPGBJ8VxML_IFDAM5ojYhisoWLK_dLE_cSg_W0kFUD6pFPaWYQ>
-    <xme:kOtJaMX1soAQHQ6TLFzPL0Tafd6Rou3A4xiDRr39IwAagrc35JAkop911DY103BL-
-    8V6uTrUWnk5j7c4h4g>
-X-ME-Received: <xmr:kOtJaBL7_fPCWP-umOJvhjENK8D6xi_bjdXa8MMhmRuE3r1hmEp7XeTqRSKvuQ48CG4V61A-hpMRSTmJxk_AgL6giBxGKFoL-pc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddufedulecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttdej
-    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
-    cuggftrfgrthhtvghrnhepgfdvffevleegudejfeefheehkeehleehfefgjefffeetudeg
-    tefhuedufeehfeetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
-    hfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopedutddpmhhouggv
-    pehsmhhtphhouhhtpdhrtghpthhtohepshhvvghnsehkvghrnhgvlhdrohhrghdprhgtph
-    htthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgtphhtthhopehnvggr
-    lhesghhomhhprgdruggvvhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptgho
-    nhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsth
-    hsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
-    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvth
-    hrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:kOtJaNF-MWh_9aGOL3AXtXQwiIMLr0T-Num_Cz6QwEHVnVC4sDNXAQ>
-    <xmx:kOtJaFWJ8jcZCzOeD8Me2ZoAJC7GIDSOreY0thhO6Haq5rROJNxNRg>
-    <xmx:kOtJaINz6Yq6x3cT23Xr67urYegzm8UXXJ-sVrEV134fn1b4PP2sNw>
-    <xmx:kOtJaE1yj2w5sxV8CUxJ9CZqGMiZxobzyHRKXUdVcli9BxE_OMtafg>
-    <xmx:kOtJaK4tgj967JTcmaHAgZtX46seZ9XqRRELL3oU5M_5c5dZqVa6ZBHr>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 11 Jun 2025 16:48:16 -0400 (EDT)
-Date: Wed, 11 Jun 2025 22:48:14 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: apple: Drop {address,size}-cells from SPI NOR
-Message-ID: <20250611204814.GC3141695@robin.jannau.net>
-References: <20250610-apple-dts-warnings-v1-1-70b53e8108a0@kernel.org>
+	Wed, 11 Jun 2025 20:57:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749675459; x=1781211459;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=dWBcdnJcsF1wZyPPcP5u/i5J0eHQX2+KLoffvskyitU=;
+  b=F59lHlMMV/A+y7olCRBcQILSBn9OH3xcCABpimxcKrIuXKQG/+ReAMcP
+   kXLUCGN6u6i8yb1+Q5xbYI0mTBSXmEaf6orN/5qVhCbziB9WU0uJ/hw1m
+   fJL50vy+cXAlPomcIrfvLGrG3YynU5CK0aDX2grN/7b6Z5kUEYFcMiyIc
+   M4NKu8ivrnKLpOWansAtBObackRXLYGkaiG2MQc6w2HUXqjqVS04hTDvk
+   c9PFErAQ8EtuwLSBAk7Vv1t/dHLsuH8LdQMnq8fytQMTgJo22R5OYt8ji
+   0wVmER8hhtueTSxDxOkYFpR9LQDhdlNB9EuRBmLw/PGMruH344FDfr+/2
+   w==;
+X-CSE-ConnectionGUID: fcC34RRZT02tFQKU8qdEFw==
+X-CSE-MsgGUID: rmkzVx+kSlOHBJDbxEdvew==
+X-IronPort-AV: E=McAfee;i="6800,10657,11461"; a="51931398"
+X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
+   d="scan'208";a="51931398"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2025 13:57:38 -0700
+X-CSE-ConnectionGUID: wueuEkXlQKapcrFcczwfJA==
+X-CSE-MsgGUID: s3VAqUaqSlmh/sgJgx5fHQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
+   d="scan'208";a="147178731"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 11 Jun 2025 13:57:33 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uPSVm-000ArO-27;
+	Wed, 11 Jun 2025 20:57:30 +0000
+Date: Thu, 12 Jun 2025 04:56:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sean Anderson <sean.anderson@linux.dev>, netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev,
+	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Simon Horman <horms@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lei Wei <quic_leiwei@quicinc.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	Michal Simek <monstr@monstr.eu>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Robert Hancock <robert.hancock@calian.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [net-next PATCH v6 07/10] net: axienet: Convert to use PCS
+ subsystem
+Message-ID: <202506120442.emFFyhZj-lkp@intel.com>
+References: <20250610233134.3588011-8-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250610-apple-dts-warnings-v1-1-70b53e8108a0@kernel.org>
+In-Reply-To: <20250610233134.3588011-8-sean.anderson@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_134817_828017_0BFF2AE6 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250611_135739_752183_A0B0E733 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,34 +108,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 07:19:24PM +0000, Sven Peter wrote:
-> Fix the following warning by dropping #{address,size}-cells from the SPI
-> NOR node which only has a single child node without reg property:
-> 
-> spi1-nvram.dtsi:19.10-38.4: Warning (avoid_unnecessary_addr_size): /soc/spi@235104000/flash@0: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
-> 
-> Fixes: 3febe9de5ca5 ("arm64: dts: apple: Add SPI NOR nvram partition to all devices")
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  arch/arm64/boot/dts/apple/spi1-nvram.dtsi | 2 --
->  1 file changed, 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/apple/spi1-nvram.dtsi b/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
-> index 3df2fd3993b52884d7c00b65099c88d830a7a4c3..9740fbf200f0bcd0e7d1b81885fe9d9ff8f04fdc 100644
-> --- a/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
-> +++ b/arch/arm64/boot/dts/apple/spi1-nvram.dtsi
-> @@ -20,8 +20,6 @@ flash@0 {
->  		compatible = "jedec,spi-nor";
->  		reg = <0x0>;
->  		spi-max-frequency = <25000000>;
-> -		#address-cells = <1>;
-> -		#size-cells = <1>;
->  
->  		partitions {
->  			compatible = "fixed-partitions";
-> 
+Hi Sean,
 
-Reviewed-by: Janne Grunau <j@jannau.net>
+kernel test robot noticed the following build warnings:
 
-Janne
+[auto build test WARNING on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Sean-Anderson/dt-bindings-net-Add-Xilinx-PCS/20250611-143544
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20250610233134.3588011-8-sean.anderson%40linux.dev
+patch subject: [net-next PATCH v6 07/10] net: axienet: Convert to use PCS subsystem
+config: alpha-kismet-CONFIG_OF_DYNAMIC-CONFIG_XILINX_AXI_EMAC-0-0 (https://download.01.org/0day-ci/archive/20250612/202506120442.emFFyhZj-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20250612/202506120442.emFFyhZj-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506120442.emFFyhZj-lkp@intel.com/
+
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for OF_DYNAMIC when selected by XILINX_AXI_EMAC
+   WARNING: unmet direct dependencies detected for OF_DYNAMIC
+     Depends on [n]: OF [=n]
+     Selected by [y]:
+     - XILINX_AXI_EMAC [=y] && NETDEVICES [=y] && ETHERNET [=y] && NET_VENDOR_XILINX [=y] && HAS_IOMEM [=y] && XILINX_DMA [=y]
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
