@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7452AC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 20:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B930C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 20:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NCr5tqoZNhKUiWpUzRDNgI9wNt+KNoev+IaVBwAXqsM=; b=ZShAiYWLM+vTh/rqQ81Whv0ayx
-	cd1mshx7SQGMzkZ9QweEPVkW3MJ/uHGnEArFBFgZdtM8U0p8dZIbEXvA3x7OzVfoSggVucvAQ6Y4K
-	11CzzlZDXSVAOqrYVcrksCmpzX3md+IOL+bV1HgaHRdqb/h67V/BUbhI3j1MvoTyfyYYnzCEiBRvU
-	+P7SUynLMYKabql7XVmP4qhkLmqolz8rNHZnPVFyQfnVjlsz1P+1Icedbwe6L8rcZx8vTfolnW2tA
-	XMu51XHMeti3F+VvCL13NbDwQQeVn4QPkaByMQkOcQge42DGtEsOLoJr+Nou6TifdtKLsJCqKlsRs
-	9PkQMgWw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tk55et+J5o8uLSjIiMP+I0LsC98SNasnkcepLL6FwLo=; b=Tm9dZXfv/ofCSPjm9OpGNcHkCd
+	cWUM7Z87GJSlTS9Af6Dk89qaCAeC4bxS91bN71aNfodbhd/xpgbPxR8EL8uk7f7AoqjL7Ei1+2kW+
+	ud98SoFb+lgWwQpqTBHjk8nvgUdarn19zmzOISupgNzug3S3bqZmdBE18MxkvWAj168wNJc4RdAku
+	xXHxiAIBR2b6lizYHH6GnqaNnkYgeyfRkoHb+7j3Xp6E/JniJ7pY1ghRJ+LZQSTLB3tLNsQOvL0Pt
+	8up+O3rve0fLVEu/W3RaPT6MbUtCBwvFhcGaC0zIGKx5t0Ya4h2zhPEAtbTAYGDDkQVxhVvsvn3qc
+	tAu2Iv5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPSVF-0000000BEDj-1ogh;
-	Wed, 11 Jun 2025 20:56:57 +0000
+	id 1uPSXM-0000000BEYb-0Tnx;
+	Wed, 11 Jun 2025 20:59:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPrS-0000000Aq3G-0E50
+	id 1uPPrT-0000000Aq3X-2HiR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 18:07:43 +0000
+	Wed, 11 Jun 2025 18:07:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5F4715A1;
-	Wed, 11 Jun 2025 11:07:20 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E7391688;
+	Wed, 11 Jun 2025 11:07:23 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 478543F673;
-	Wed, 11 Jun 2025 11:07:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CCE3A3F673;
+	Wed, 11 Jun 2025 11:07:40 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	pcc@google.com,
@@ -50,15 +50,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-doc@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 0/9] support FEAT_MTE_TAGGED_FAR feature
-Date: Wed, 11 Jun 2025 19:07:25 +0100
-Message-Id: <20250611180734.63657-1-yeoreum.yun@arm.com>
+Subject: [PATCH v8 1/9] arm64/cpufeature: add FEAT_MTE_TAGGED_FAR feature
+Date: Wed, 11 Jun 2025 19:07:26 +0100
+Message-Id: <20250611180734.63657-2-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611180734.63657-1-yeoreum.yun@arm.com>
+References: <20250611180734.63657-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_110742_180698_848B8BA2 
-X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-CacheID: sfid-20250611_110743_625071_5772A0A0 
+X-CRM114-Status: UNSURE (   8.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,99 +76,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FEAT_MTE_TAGGED_FAR feature provides support for
-reporting all non-address bits during a synchronous MTE tag check fault.
+Add FEAT_MTE_TAGGED_FAR cpucap which makes FAR_ELx report
+all non-address bits on a synchronous MTE tag check fault since Armv8.9
 
-This patchset extends the reporting tag to include
-not only the memory tag (logical tag) but also the address tag via
-si_addr when FEAT_MTE_TAGGED_FAR feature is supported.
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Acked-by: Yury Khrustalev <yury.khrustalev@arm.com>
+---
+ arch/arm64/kernel/cpufeature.c | 8 ++++++++
+ arch/arm64/tools/cpucaps       | 1 +
+ 2 files changed, 9 insertions(+)
 
-Patch Sequences
-================
-
-Patch #1 adds cpufeature FEAT_MTE_TAGGED_FAR
-
-Patch #2 adds MTE_FAR hwcaps and export address tag when it supports
-
-Patch #3 adds mtefar hwcap test
-
-Patch #4 to #7 prepares to add mtefar testcase
-
-Patch #8 refactor check_mmap_option using general testcase pattern
-
-Patch #9 adds mtefar test cases corresponding to
-each testcase of check_mmap_options
-
-Patch History
-================
-v7 to v8:
-  - rewording some comment word.
-  - https://lore.kernel.org/all/20250611135818.31070-1-yeoreum.yun@arm.com/
-
-v6 to v7:
-  - fix some error on testcase.
-  - https://lore.kernel.org/all/20250611094107.928457-1-yeoreum.yun@arm.com/
-
-v5 to v6:
-  - split Patch #4.
-  - refactor check_mmap_option using general testcase pattern
-  - https://lore.kernel.org/linux-arm-kernel/20250610150144.2523945-1-yeoreum.yun@arm.com/
-
-v4 to v5:
-  - rebased on v6.16-rc1
-  - https://lore.kernel.org/linux-arm-kernel/20250507095757.1663684-1-yeoreum.yun@arm.com/
-
-v3 to v4:
-  - fix hwcap string for FEAT_MTE_TAGGED_FAR
-  - split cpufeature and hwcap modification and merge hwcap's
-    modification with exporting address tag patch
-  - add mtefar testcase on check_mmap_options
-  - https://lore.kernel.org/all/20250410074721.947380-1-yeoreum.yun@arm.com/
-
-v2 to v3:
-  - Rebase to 6.15-rc1
-  - https://lore.kernel.org/all/20250403172758.67106-1-yeoreum.yun@arm.com/
-
-v1 to v2:
-  - add hwcap test for MTE_FAR feature.
-  - add MTE_FAR doc into elf_hwcap.rst
-  - https://lore.kernel.org/all/20250403142707.26397-1-yeoreum.yun@arm.com/
-
-Yeoreum Yun (9):
-  arm64/cpufeature: add FEAT_MTE_TAGGED_FAR feature
-  arm64: report address tag when FEAT_MTE_TAGGED_FAR is supported
-  tools/kselftest: add MTE_FAR hwcap test
-  kselftest/arm64/mte: register mte signal handler with
-    SA_EXPOSE_TAGBITS
-  kselftest/arm64/mte: check MTE_FAR feature is supported
-  kselftest/arm64/mte: add address tag related macro and function
-  kselftest/arm64/mte: add verification for address tag in signal
-    handler
-  kselftest/arm64/mte: refactor check_mmap_option test
-  kselftest/arm64/mte: add mtefar tests on check_mmap_options
-
- Documentation/arch/arm64/elf_hwcaps.rst       |   3 +
- Documentation/arch/arm64/tagged-pointers.rst  |  11 +-
- arch/arm64/include/asm/hwcap.h                |   1 +
- arch/arm64/include/uapi/asm/hwcap.h           |   1 +
- arch/arm64/kernel/cpufeature.c                |   9 +
- arch/arm64/kernel/cpuinfo.c                   |   1 +
- arch/arm64/mm/fault.c                         |   7 +-
- arch/arm64/tools/cpucaps                      |   1 +
- tools/testing/selftests/arm64/abi/hwcap.c     |   6 +
- .../selftests/arm64/mte/check_buffer_fill.c   |   2 +-
- .../selftests/arm64/mte/check_child_memory.c  |   4 +-
- .../arm64/mte/check_hugetlb_options.c         |   4 +-
- .../selftests/arm64/mte/check_ksm_options.c   |   4 +-
- .../selftests/arm64/mte/check_mmap_options.c  | 551 +++++++++++++++---
- .../arm64/mte/check_tags_inclusion.c          |   2 +-
- .../selftests/arm64/mte/check_user_mem.c      |   2 +-
- .../selftests/arm64/mte/mte_common_util.c     |  70 ++-
- .../selftests/arm64/mte/mte_common_util.h     |   6 +-
- tools/testing/selftests/arm64/mte/mte_def.h   |   8 +
- 19 files changed, 593 insertions(+), 100 deletions(-)
-
---
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index b34044e20128..af6a6924a3e8 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -320,6 +320,7 @@ static const struct arm64_ftr_bits ftr_id_aa64pfr1[] = {
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64pfr2[] = {
+ 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_FPMR_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_VISIBLE, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR2_EL1_MTEFAR_SHIFT, 4, ID_AA64PFR2_EL1_MTEFAR_NI),
+ 	ARM64_FTR_END,
+ };
+ 
+@@ -2874,6 +2875,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, MTE, MTE3)
+ 	},
++	{
++		.desc = "FAR on MTE Tag Check Fault",
++		.capability = ARM64_MTE_FAR,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTEFAR, IMP)
++	},
+ #endif /* CONFIG_ARM64_MTE */
+ 	{
+ 		.desc = "RCpc load-acquire (LDAPR)",
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 10effd4cff6b..fe8f4f8ce95c 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -68,6 +68,7 @@ MPAM
+ MPAM_HCR
+ MTE
+ MTE_ASYMM
++MTE_FAR
+ SME
+ SME_FA64
+ SME2
+-- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
