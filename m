@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B10AC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 01:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC4E6C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 01:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mZdmaSdm4nN9o3kcSmnCQqm8oVomLbyxtnfKwvcz+Y=; b=kOa1pctte2u3/HciNQeO8FVWBL
-	LWO8YuIHjZ5PuJLoOT940tUjYdjV0VqUPXIW0uEfygcMn7howjOJVOg2JOsqwEdNabS/7cVJE21z8
-	KsQ5msgwjl0bBb5YI7Fh/jrmIlUF7iQmyv/Ty3LJs+/9PpWNISUIFEfsJuysaB9+cYCVFcZKQebBk
-	qtjzimaMTHH2gsiCQgK70z4FtYzEF40ozeYVBij9HHqyFY8lMdDmLnrADYUyelsWfy9XcPsHV3dLn
-	HsPlAHjDCAQyTwPbzv/e+t3U7qxQvo2xuT40qDkFbEUcxM6fkZudkI2LZiw4xMkQ367gnLs7IcLwi
-	4VRupPfg==;
+	bh=HFNzybZyx0Wu7yBkyufuhZBtndB539SrR/i7yvdQCgY=; b=CSqZmz3RhEXmTEgSbL13Lq//9J
+	LneUd4Rl2T52UWMOpOoXXniic31YOH/Ci1ixAFzsJOsisJjXZ/xfxKYOKwbENvQ4kLsIyG9hwLUnL
+	XRvJhz7VWwAoYwhbyBp5bwYkUfnHmw5OEIteXbgGF3tvRrqbL+CYb3GipX3XNt2hfe4haD5Om022h
+	tysdwBBGO/hXJE+Px95S0Mh2KzKr6jCQI21Z7r1nh9pc3gdQr38yr997RGMhscyibhM/7dQMRWtjE
+	qDkU+2/tV9+yAyIVcPo3JrzuwqDOM6UBDOZemAqPK0PN85wrg2o3LwQSPWmrrpAMBT1lDX9CUgUSH
+	HcCDKatQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPXA3-0000000Bv1D-3dOs;
-	Thu, 12 Jun 2025 01:55:23 +0000
+	id 1uPXCA-0000000BvHu-2X8q;
+	Thu, 12 Jun 2025 01:57:34 +0000
 Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUF3-0000000BXoE-25sQ
+	id 1uPUF5-0000000BXpm-2Rnj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 22:48:22 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747d84fe5f8so177140b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:48:21 -0700 (PDT)
+	Wed, 11 Jun 2025 22:48:24 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747d84fe5f8so177155b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:48:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749682100; x=1750286900; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749682102; x=1750286902; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=4mZdmaSdm4nN9o3kcSmnCQqm8oVomLbyxtnfKwvcz+Y=;
-        b=JUndHQ4JyqcUu8W371Hu7BVqcY1HazIazG07B7U+Rhc6kDuYhX2ZEITTM/R6JS4u55
-         nMEtWWebCzPZzin3W/SKvRLkR3OcS9GMZPVtEZiR8xkEtYjU/leP6yMIHTK9EcbeA2LT
-         T0NAsToE1O4ZlEk+E4B42t9OPOMfYTbrf4KlZDDK6Gu9prla9SI4OK8MNyf14vXnObLh
-         BK+xmFlfXGmPRbyU1XzCA2gjkxfesg7xGdU6nY4vOersC7aDUtOwanaTKVp8HCB+VM5m
-         dd7X4143u9nRpNrHvi9mwefpN4Hr7nXdkUtTluR5ufA3VGVKf2rgDIhAcaejEL4qDY/Z
-         7YIA==
+        bh=HFNzybZyx0Wu7yBkyufuhZBtndB539SrR/i7yvdQCgY=;
+        b=cCEL/2eNNU88+QaLOrUPX+0uagGQaKg4fLSB/TiQ9am9lgCnlHHg4d27oEQkDxzLSw
+         SSGtO3GK0hcGqx7uQaMbssodEs4cIiRR85zP4polkfa6WGOO2eZlCXfjjvipCVrwHLjf
+         Wjyh5CGM8tFlSo5dR1AULSou8Y8wDr69kNgiKBHc2YnszNO5JcJSC50HMpHLdjbixDX/
+         gYZt7bObjKKzOaBCA+b4MMOGV4x4TnCv77ko6b8K9Tezx9DN/BG59h3NM9Vd/kvnVIq3
+         5yFfEkA0bqX+krp5QcVRLQgXo71F/iR5ivWApxkReJrvjbYimnWDG+YlP7DcMkWFEB72
+         edzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749682100; x=1750286900;
+        d=1e100.net; s=20230601; t=1749682102; x=1750286902;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4mZdmaSdm4nN9o3kcSmnCQqm8oVomLbyxtnfKwvcz+Y=;
-        b=l7IqZ5wz2bnPadCkNllj/mTIQCVcGXrILax/yNipVwvzydi23I+ByjDsEx/4kMAJo4
-         RpF+cdztUT5jDFoigcyUDzf9518fG3Lnam00YhkLlHWgWOiw4wuXBfuhneg2nGAsOeS+
-         U7LZwCKVW92EVGhtNwo1NO18ddj6RcTopDfqv9YQTiE9XHs+MDkUymulQQc5PWBdznsv
-         SrK2bPWPoSM9KE3dm5OZI6iNRn6PEJm8Kl5yzCZGxXcVpmAkRJSO91PPg2uz6wmwoUhs
-         mMNA7kpkl2oPEDrEGwZbGKfyyaQDpa/LKcJD82yfGSeiNIIvw9q9SSRek0my+rmxVLwi
-         ITeQ==
-X-Gm-Message-State: AOJu0YzOiyNy/oZvIFfsUFQZLafblIhaagW1YtXyLpV00cXaTbVLc3BR
-	KCJkHlCHPA9axcP1in9cuxT/S0RoDs9vGa3RROfPJ3VlBAh8ezapY6iL9jnFB+Fu9NKg0iBDH0s
-	9xXOWbA==
-X-Google-Smtp-Source: AGHT+IEg+AS8QoF49j7jfT3TPcNYHFW9Ujm+mi8oTh+WHeby3lk+SesimVareIU6PzlpR4BED7xC7oESYEc=
-X-Received: from pgn7.prod.google.com ([2002:a63:d47:0:b0:b2c:4d7e:b626])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:2d43:b0:1f5:56fe:b437
- with SMTP id adf61e73a8af0-21f86727b69mr7698366637.32.1749682100654; Wed, 11
- Jun 2025 15:48:20 -0700 (PDT)
-Date: Wed, 11 Jun 2025 15:45:52 -0700
+        bh=HFNzybZyx0Wu7yBkyufuhZBtndB539SrR/i7yvdQCgY=;
+        b=oqZcetl/p9PBafMA22b9DlCAdiXaJhZg01rQPzebn0Fm5NreWhXP8vLQh2czJbgwkL
+         nYqHRkHvAS5TDU2g+kM+RseNDjn4kYFTy7RBeoLFjFwu9tHz8xCSojFnbpOEbm9TOHfG
+         mJwwvZ3TrAXpKIf8yeo78Ovau8uq9cUgnYMrcwuM230RlS48ymu1u8vjGhQgt+cwW8eu
+         AF6IQeXMPFePB2kZTPrvlh3XlAahLovvQaex0quKSR3tY4TW+QwjIBfKuA3smCrkGhkR
+         HOevE6NsMo1jX1D8Lo3sp+n3y3zwHkZzpsu8giy6e0oLcVXY9p4KSZSkUA9e/infaYgP
+         FiOw==
+X-Gm-Message-State: AOJu0YzI4Z+VV3HIdPIaPRxWxAigOQbUNsUVs+3KWW0nnU2Qt1mkmww3
+	9a3qtmONUBkWr/Z3qj6mRzXQsnQalfnXFRatc6AHBQGj32l6z0zPjXcp62KRuUngc0WLPtF6AII
+	0mNKbnw==
+X-Google-Smtp-Source: AGHT+IEnvdDx8CXnODrzRbVPzUSjqGM5XPwQPio/AeEGGkkzZchdEypRUZqvj+dxhae05POY2+Y5SsikCKY=
+X-Received: from pfbiv13.prod.google.com ([2002:a05:6a00:66cd:b0:736:38af:afeb])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:92a0:b0:748:1bac:aff9
+ with SMTP id d2e1a72fcca58-7486cbd90f4mr7663758b3a.18.1749682102554; Wed, 11
+ Jun 2025 15:48:22 -0700 (PDT)
+Date: Wed, 11 Jun 2025 15:45:53 -0700
 In-Reply-To: <20250611224604.313496-2-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250611224604.313496-2-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-Message-ID: <20250611224604.313496-51-seanjc@google.com>
-Subject: [PATCH v3 49/62] KVM: x86: Drop superfluous "has assigned device"
- check in kvm_pi_update_irte()
+Message-ID: <20250611224604.313496-52-seanjc@google.com>
+Subject: [PATCH v3 50/62] KVM: x86: WARN if IRQ bypass isn't supported in kvm_pi_update_irte()
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_154821_533529_B76DE3BB 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250611_154823_619887_F04D5381 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +95,28 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don't bother checking if the VM has an assigned device when updating
-IRTE entries.  kvm_arch_irq_bypass_add_producer() explicitly increments
-the assigned device count, kvm_arch_irq_bypass_del_producer() explicitly
-decrements the count before invoking kvm_pi_update_irte(), and
-kvm_irq_routing_update() only updates IRTE entries if there's an active
-IRQ bypass producer.
+WARN if kvm_pi_update_irte() is reached without IRQ bypass support, as the
+code is only reachable if the VM already has an IRQ bypass producer (see
+kvm_irq_routing_update()), or from kvm_arch_irq_bypass_{add,del}_producer(),
+which, stating the obvious, are called if and only if KVM enables its IRQ
+bypass hooks.
 
+Cc: David Matlack <dmatlack@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/irq.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ arch/x86/kvm/irq.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/x86/kvm/irq.c b/arch/x86/kvm/irq.c
-index 4119c1e880e7..45cb9f1ee618 100644
+index 45cb9f1ee618..9c03a67fedbe 100644
 --- a/arch/x86/kvm/irq.c
 +++ b/arch/x86/kvm/irq.c
-@@ -517,9 +517,7 @@ static int kvm_pi_update_irte(struct kvm_kernel_irqfd *irqfd,
+@@ -517,7 +517,7 @@ static int kvm_pi_update_irte(struct kvm_kernel_irqfd *irqfd,
  	struct kvm_lapic_irq irq;
  	int r;
  
--	if (!irqchip_in_kernel(kvm) ||
--	    !kvm_arch_has_irq_bypass() ||
--	    !kvm_arch_has_assigned_device(kvm))
-+	if (!irqchip_in_kernel(kvm) || !kvm_arch_has_irq_bypass())
+-	if (!irqchip_in_kernel(kvm) || !kvm_arch_has_irq_bypass())
++	if (!irqchip_in_kernel(kvm) || WARN_ON_ONCE(!kvm_arch_has_irq_bypass()))
  		return 0;
  
  	if (entry && entry->type == KVM_IRQ_ROUTING_MSI) {
