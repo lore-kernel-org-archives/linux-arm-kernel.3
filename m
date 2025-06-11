@@ -4,59 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5880FC71131
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:51:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4120C678DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FhMMj0edu/HvO8ePV5PlKjnSEISm5cjZVKNG9HOxoPY=; b=4xDFAFK4kaWhUYKEAHSqGIuYz8
-	nJpmvO12JTULE5Dr3ReEzLDcv6mvHriTmbUOFhFM5ghGPUuEr5JXcl+cQprh9BBB8QbxwkirYQ+cW
-	waih0DQPf9vHj9cnlLSKNYdLtFCsYHe+BogjmjLtlVgZ/NYqrfJwcTiJAObl0bZToWfTH2FxOJdQ3
-	6Jdj13OWeBJmnUlPb1D8fbYJIsTVK8iWiP1i4WK9OAyEzTn5/GjGj86b69h3FIY0ESl3n4j1UK8Q+
-	bZZAmjhoXwnO4wrAD0KIA3ArSY1mHQPgmbX0y3JDTMzz5/kx3ARw1Z8ptVlfSnGTYvXrNIZ64kEfz
-	SzmZKHeA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDtUF5FFIcxqMgQE1Z9a+jg/9NpVasC4yi18p5Fk/gY=; b=xzvepmFujJGaE2W9XDe3uhbFDj
+	pmF/k3olw7S8Dc0NQMapzBmo/L0XLnXScoVXhXSnxivO/bNH5FR0MqRH8I3Vtn+dKmvZ/nV9vz+5E
+	9DKUmFtYLvlAAcpdGgR8W5LWNro1C1wngt50REAqao0GlPo/CRfB+2O87FrHomq6IR3Luzx/aZOcj
+	+caIbEFFyRR+40yzUSL1vyMOXqdhRR8PjY31xi2VI57uP5B6Q18QQu114+McoEfkSUP6IDvsCItrW
+	47eQT6QP86cIodfPVxweKV8sdD24JVlDCSV2XYOZlM5i/EKdcQ5cMVrAAB0Exew4ixnj1WeY8CAyw
+	Au4u8Qhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMnp-0000000AEVf-49S1;
-	Wed, 11 Jun 2025 14:51:45 +0000
+	id 1uPMno-0000000AESm-21jq;
+	Wed, 11 Jun 2025 14:51:44 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJ1E-00000009fAq-24M6
+	id 1uPJ1C-00000009fAC-3fkU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:49:21 +0000
+	Wed, 11 Jun 2025 10:49:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76C981655;
-	Wed, 11 Jun 2025 03:49:00 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 316543F77D;
-	Wed, 11 Jun 2025 03:49:18 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	ardb@kernel.org,
-	frederic@kernel.org,
-	james.morse@arm.com,
-	joey.gouly@arm.com,
-	scott@os.amperecomputing.com
-Cc: linux-arm-kernel@lists.infradead.org,
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAB9715A1;
+	Wed, 11 Jun 2025 03:48:58 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.67.107])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A7B33F673;
+	Wed, 11 Jun 2025 03:49:15 -0700 (PDT)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 0/6] support FEAT_LSUI and apply it on futex atomic ops
-Date: Wed, 11 Jun 2025 11:49:10 +0100
-Message-Id: <20250611104916.10636-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>
+Subject: [PATCH v9 04/43] arm64: RME: Add wrappers for RMI calls
+Date: Wed, 11 Jun 2025 11:48:01 +0100
+Message-ID: <20250611104844.245235-5-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250611104844.245235-1-steven.price@arm.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_034920_572600_0F31B61D 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_034919_009166_636CFC27 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,51 +82,546 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-previleged level to access to access user memory without clearing
-PSTATE.PAN bit.
+The wrappers make the call sites easier to read and deal with the
+boiler plate of handling the error codes from the RMM.
 
-This patchset support FEAT_LUSI and applies in futex atomic operation
-where can replace from ldxr/stlxr pair implmentation with clearing
-PSTATE.PAN bit to correspondant load/store unprevileged atomic operation
-without clearing PSTATE.PAN bit.
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+Changes from v8:
+ * Switch from arm_smccc_1_2_smc() to arm_smccc_1_2_invoke() in
+   rmi_rtt_read_entry() for consistency.
+Changes from v7:
+ * Minor renaming of parameters and updated comments
+Changes from v5:
+ * Further improve comments
+Changes from v4:
+ * Improve comments
+Changes from v2:
+ * Make output arguments optional.
+ * Mask RIPAS value rmi_rtt_read_entry()
+ * Drop unused rmi_rtt_get_phys()
+---
+ arch/arm64/include/asm/rmi_cmds.h | 508 ++++++++++++++++++++++++++++++
+ 1 file changed, 508 insertions(+)
+ create mode 100644 arch/arm64/include/asm/rmi_cmds.h
 
-Patch Sequences
-================
-
-Patch #1 adds cpufeature for FEAT_LUSI
-
-Patch #2 adds Kconfig for FEAT_LUSI
-
-Patch #3 separtes former futex atomic-op implmentation from futex.h
-to futex_ll_sc_u.h
-
-Patch #4 implments futex atomic operation using lsui instruction.
-
-Patch #5 introduces lsui.h to apply runtime patch to use former
-implmentation when FEAT_LUSI doesn't support.
-
-Yeoreum Yun (6):
-  arm64: cpufeature: add FEAT_LSUI
-  arm64/Kconfig: add LSUI Kconfig
-  arm64/futex: move futex atomic logic with clearing PAN bit
-  arm64/futex: add futex atomic operation with FEAT_LSUI
-  arm64/asm: introduce lsui.h
-  arm64/futex: support futex with FEAT_LSUI
-
- arch/arm64/Kconfig                     |   8 +-
- arch/arm64/include/asm/futex.h         |  99 ++++++-------------
- arch/arm64/include/asm/futex_ll_sc_u.h | 115 +++++++++++++++++++++
- arch/arm64/include/asm/futex_lsui.h    | 132 +++++++++++++++++++++++++
- arch/arm64/include/asm/lsui.h          |  37 +++++++
- arch/arm64/kernel/cpufeature.c         |   8 ++
- arch/arm64/tools/cpucaps               |   1 +
- 7 files changed, 331 insertions(+), 69 deletions(-)
- create mode 100644 arch/arm64/include/asm/futex_ll_sc_u.h
- create mode 100644 arch/arm64/include/asm/futex_lsui.h
- create mode 100644 arch/arm64/include/asm/lsui.h
-
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+new file mode 100644
+index 000000000000..ef53147c1984
+--- /dev/null
++++ b/arch/arm64/include/asm/rmi_cmds.h
+@@ -0,0 +1,508 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2023 ARM Ltd.
++ */
++
++#ifndef __ASM_RMI_CMDS_H
++#define __ASM_RMI_CMDS_H
++
++#include <linux/arm-smccc.h>
++
++#include <asm/rmi_smc.h>
++
++struct rtt_entry {
++	unsigned long walk_level;
++	unsigned long desc;
++	int state;
++	int ripas;
++};
++
++/**
++ * rmi_data_create() - Create a data granule
++ * @rd: PA of the RD
++ * @data: PA of the target granule
++ * @ipa: IPA at which the granule will be mapped in the guest
++ * @src: PA of the source granule
++ * @flags: RMI_MEASURE_CONTENT if the contents should be measured
++ *
++ * Create a new data granule, copying contents from a non-secure granule.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_data_create(unsigned long rd, unsigned long data,
++				  unsigned long ipa, unsigned long src,
++				  unsigned long flags)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_DATA_CREATE, rd, data, ipa, src,
++			     flags, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_data_create_unknown() - Create a data granule with unknown contents
++ * @rd: PA of the RD
++ * @data: PA of the target granule
++ * @ipa: IPA at which the granule will be mapped in the guest
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_data_create_unknown(unsigned long rd,
++					  unsigned long data,
++					  unsigned long ipa)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_DATA_CREATE_UNKNOWN, rd, data, ipa, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_data_destroy() - Destroy a data granule
++ * @rd: PA of the RD
++ * @ipa: IPA at which the granule is mapped in the guest
++ * @data_out: PA of the granule which was destroyed
++ * @top_out: Top IPA of non-live RTT entries
++ *
++ * Unmap a protected IPA from stage 2, transitioning it to DESTROYED.
++ * The IPA cannot be used by the guest unless it is transitioned to RAM again
++ * by the realm guest.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_data_destroy(unsigned long rd, unsigned long ipa,
++				   unsigned long *data_out,
++				   unsigned long *top_out)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_DATA_DESTROY, rd, ipa, &res);
++
++	if (data_out)
++		*data_out = res.a1;
++	if (top_out)
++		*top_out = res.a2;
++
++	return res.a0;
++}
++
++/**
++ * rmi_features() - Read feature register
++ * @index: Feature register index
++ * @out: Feature register value is written to this pointer
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_features(unsigned long index, unsigned long *out)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_FEATURES, index, &res);
++
++	if (out)
++		*out = res.a1;
++	return res.a0;
++}
++
++/**
++ * rmi_granule_delegate() - Delegate a granule
++ * @phys: PA of the granule
++ *
++ * Delegate a granule for use by the realm world.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_granule_delegate(unsigned long phys)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_DELEGATE, phys, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_granule_undelegate() - Undelegate a granule
++ * @phys: PA of the granule
++ *
++ * Undelegate a granule to allow use by the normal world. Will fail if the
++ * granule is in use.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_granule_undelegate(unsigned long phys)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_UNDELEGATE, phys, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_psci_complete() - Complete pending PSCI command
++ * @calling_rec: PA of the calling REC
++ * @target_rec: PA of the target REC
++ * @status: Status of the PSCI request
++ *
++ * Completes a pending PSCI command which was called with an MPIDR argument, by
++ * providing the corresponding REC.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_psci_complete(unsigned long calling_rec,
++				    unsigned long target_rec,
++				    unsigned long status)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_PSCI_COMPLETE, calling_rec, target_rec,
++			     status, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_realm_activate() - Active a realm
++ * @rd: PA of the RD
++ *
++ * Mark a realm as Active signalling that creation is complete and allowing
++ * execution of the realm.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_realm_activate(unsigned long rd)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_REALM_ACTIVATE, rd, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_realm_create() - Create a realm
++ * @rd: PA of the RD
++ * @params: PA of realm parameters
++ *
++ * Create a new realm using the given parameters.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_realm_create(unsigned long rd, unsigned long params)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_REALM_CREATE, rd, params, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_realm_destroy() - Destroy a realm
++ * @rd: PA of the RD
++ *
++ * Destroys a realm, all objects belonging to the realm must be destroyed first.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_realm_destroy(unsigned long rd)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_REALM_DESTROY, rd, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_rec_aux_count() - Get number of auxiliary granules required
++ * @rd: PA of the RD
++ * @aux_count: Number of granules written to this pointer
++ *
++ * A REC may require extra auxiliary granules to be delegated for the RMM to
++ * store metadata (not visible to the normal world) in. This function provides
++ * the number of granules that are required.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rec_aux_count(unsigned long rd, unsigned long *aux_count)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_REC_AUX_COUNT, rd, &res);
++
++	if (aux_count)
++		*aux_count = res.a1;
++	return res.a0;
++}
++
++/**
++ * rmi_rec_create() - Create a REC
++ * @rd: PA of the RD
++ * @rec: PA of the target REC
++ * @params: PA of REC parameters
++ *
++ * Create a REC using the parameters specified in the struct rec_params pointed
++ * to by @params.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rec_create(unsigned long rd, unsigned long rec,
++				 unsigned long params)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_REC_CREATE, rd, rec, params, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_rec_destroy() - Destroy a REC
++ * @rec: PA of the target REC
++ *
++ * Destroys a REC. The REC must not be running.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rec_destroy(unsigned long rec)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_REC_DESTROY, rec, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_rec_enter() - Enter a REC
++ * @rec: PA of the target REC
++ * @run_ptr: PA of RecRun structure
++ *
++ * Starts (or continues) execution within a REC.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rec_enter(unsigned long rec, unsigned long run_ptr)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_REC_ENTER, rec, run_ptr, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_rtt_create() - Creates an RTT
++ * @rd: PA of the RD
++ * @rtt: PA of the target RTT
++ * @ipa: Base of the IPA range described by the RTT
++ * @level: Depth of the RTT within the tree
++ *
++ * Creates an RTT (Realm Translation Table) at the specified level for the
++ * translation of the specified address within the realm.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rtt_create(unsigned long rd, unsigned long rtt,
++				 unsigned long ipa, long level)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_RTT_CREATE, rd, rtt, ipa, level, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_rtt_destroy() - Destroy an RTT
++ * @rd: PA of the RD
++ * @ipa: Base of the IPA range described by the RTT
++ * @level: Depth of the RTT within the tree
++ * @out_rtt: Pointer to write the PA of the RTT which was destroyed
++ * @out_top: Pointer to write the top IPA of non-live RTT entries
++ *
++ * Destroys an RTT. The RTT must be non-live, i.e. none of the entries in the
++ * table are in ASSIGNED or TABLE state.
++ *
++ * Return: RMI return code.
++ */
++static inline int rmi_rtt_destroy(unsigned long rd,
++				  unsigned long ipa,
++				  long level,
++				  unsigned long *out_rtt,
++				  unsigned long *out_top)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_RTT_DESTROY, rd, ipa, level, &res);
++
++	if (out_rtt)
++		*out_rtt = res.a1;
++	if (out_top)
++		*out_top = res.a2;
++
++	return res.a0;
++}
++
++/**
++ * rmi_rtt_fold() - Fold an RTT
++ * @rd: PA of the RD
++ * @ipa: Base of the IPA range described by the RTT
++ * @level: Depth of the RTT within the tree
++ * @out_rtt: Pointer to write the PA of the RTT which was destroyed
++ *
++ * Folds an RTT. If all entries with the RTT are 'homogeneous' the RTT can be
++ * folded into the parent and the RTT destroyed.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rtt_fold(unsigned long rd, unsigned long ipa,
++			       long level, unsigned long *out_rtt)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_RTT_FOLD, rd, ipa, level, &res);
++
++	if (out_rtt)
++		*out_rtt = res.a1;
++
++	return res.a0;
++}
++
++/**
++ * rmi_rtt_init_ripas() - Set RIPAS for new realm
++ * @rd: PA of the RD
++ * @base: Base of target IPA region
++ * @top: Top of target IPA region
++ * @out_top: Top IPA of range whose RIPAS was modified
++ *
++ * Sets the RIPAS of a target IPA range to RAM, for a realm in the NEW state.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rtt_init_ripas(unsigned long rd, unsigned long base,
++				     unsigned long top, unsigned long *out_top)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_RTT_INIT_RIPAS, rd, base, top, &res);
++
++	if (out_top)
++		*out_top = res.a1;
++
++	return res.a0;
++}
++
++/**
++ * rmi_rtt_map_unprotected() - Map NS granules into a realm
++ * @rd: PA of the RD
++ * @ipa: Base IPA of the mapping
++ * @level: Depth within the RTT tree
++ * @desc: RTTE descriptor
++ *
++ * Create a mapping from an Unprotected IPA to a Non-secure PA.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rtt_map_unprotected(unsigned long rd,
++					  unsigned long ipa,
++					  long level,
++					  unsigned long desc)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_RTT_MAP_UNPROTECTED, rd, ipa, level,
++			     desc, &res);
++
++	return res.a0;
++}
++
++/**
++ * rmi_rtt_read_entry() - Read an RTTE
++ * @rd: PA of the RD
++ * @ipa: IPA for which to read the RTTE
++ * @level: RTT level at which to read the RTTE
++ * @rtt: Output structure describing the RTTE
++ *
++ * Reads a RTTE (Realm Translation Table Entry).
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rtt_read_entry(unsigned long rd, unsigned long ipa,
++				     long level, struct rtt_entry *rtt)
++{
++	struct arm_smccc_1_2_regs regs = {
++		SMC_RMI_RTT_READ_ENTRY,
++		rd, ipa, level
++	};
++
++	arm_smccc_1_2_invoke(&regs, &regs);
++
++	rtt->walk_level = regs.a1;
++	rtt->state = regs.a2 & 0xFF;
++	rtt->desc = regs.a3;
++	rtt->ripas = regs.a4 & 0xFF;
++
++	return regs.a0;
++}
++
++/**
++ * rmi_rtt_set_ripas() - Set RIPAS for an running realm
++ * @rd: PA of the RD
++ * @rec: PA of the REC making the request
++ * @base: Base of target IPA region
++ * @top: Top of target IPA region
++ * @out_top: Pointer to write top IPA of range whose RIPAS was modified
++ *
++ * Completes a request made by the realm to change the RIPAS of a target IPA
++ * range.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rtt_set_ripas(unsigned long rd, unsigned long rec,
++				    unsigned long base, unsigned long top,
++				    unsigned long *out_top)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_RTT_SET_RIPAS, rd, rec, base, top, &res);
++
++	if (out_top)
++		*out_top = res.a1;
++
++	return res.a0;
++}
++
++/**
++ * rmi_rtt_unmap_unprotected() - Remove a NS mapping
++ * @rd: PA of the RD
++ * @ipa: Base IPA of the mapping
++ * @level: Depth within the RTT tree
++ * @out_top: Pointer to write top IPA of non-live RTT entries
++ *
++ * Removes a mapping at an Unprotected IPA.
++ *
++ * Return: RMI return code
++ */
++static inline int rmi_rtt_unmap_unprotected(unsigned long rd,
++					    unsigned long ipa,
++					    long level,
++					    unsigned long *out_top)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_invoke(SMC_RMI_RTT_UNMAP_UNPROTECTED, rd, ipa,
++			     level, &res);
++
++	if (out_top)
++		*out_top = res.a1;
++
++	return res.a0;
++}
++
++#endif /* __ASM_RMI_CMDS_H */
+-- 
+2.43.0
 
 
