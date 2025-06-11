@@ -4,195 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D995AC677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 07:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65581C61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 07:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gEePvVteGlezR8qihY8fAlNsANRp3dQthQtDf2V+8w=; b=Qc6JMaHdXmQCP4vdVMu7Z8G0Od
-	xgsD+8N43qZkcNp2kz7bKfqnGy2KxEhrf6DjmRJI95o/e+wLJvg28Eapoiaja0FjOjab9ZjMgGqy+
-	ZbFfeWRUpCJUCWHsJR3NrI4XidtvjN1URzSPds1jhbkV4XgeqmDepXz8naVEjfTC/rtBfrlys6NYq
-	5hUFMZy/QFm/IrRTL7F+uiH8xGE7PQl6qrMm9dwR9tWgVKF02XxvzcUmz/ztQxJmMwQ70yBc/UPpz
-	5S512vFtdljZrvSizYTlCHq8cS1Aw+uQ93M0L4VcRgJsk06qtDih9J+3jmQO+5KLAZPLy8SV4xDCs
-	Grk52r2w==;
+	bh=WY5/o/KateirT30Un4D0rFGHHhpXB/ZaR3B48+zmouw=; b=JI6+uRHudWSguN1kJaRPztTBfE
+	ZFV9YbSnRNBGURYGaC+U7HMugke92iR/gO/y+H1ESsg6zRQcRvqyPCYAu58j8tLYGdK/QYFN5RAeg
+	vUgM/rfehkqS4S1pmDugM8CF9aiAh5a8vQ35TSpQxwvzuHmgWQF1NrePGVhJQ9YGz8W3DHtJf3sIG
+	9cslz/rUoQWgJgDfHjxmIFKrvpQhx/kHqddcVrY4jg0c0Evz6y8kPRyeNfPamnx2XfbAMd2Qmd2hs
+	zOn9LJwFCeGtZ/0nMFdy/Aa6g/R6lZpBpUHY7cwSMt30vZaWQCMEXY+EGALMlJAPe6lQ7QxQScpCY
+	2gtv+6Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGHc-00000009AGU-0rwl;
-	Wed, 11 Jun 2025 07:54:04 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uPGLp-00000009BG8-2ZK7;
+	Wed, 11 Jun 2025 07:58:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPFH8-000000092OC-0Z6s
+	id 1uPFzj-000000097Xc-2yrn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Jun 2025 07:35:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=WY5/o/KateirT30Un4D0rFGHHhpXB/ZaR3B48+zmouw=; b=GrLt5KZRjcI/hJzUI/5VL4etq4
+	BguQ73nu7GSO7g7eSSz69XYyP/forc71dG+JOoSsgaV1jOIyuWqm5pXdG20Wtr+bnkTLGXEAmSGts
+	91U1gKUt5IZqMYoaziXaWCfMKYwdtSsSBmyoP7DvjTz6NfCcnduriNP5S0rcpc8vQPRWH9ZJ78iZl
+	v0duhPRrGL4MnLjwcbMSdlQLi4l5yo71PJfvEDzkeNXUtrxrJYPHdtcYmpvGV8Wf+nTkzSNcQau06
+	GD57SnZlGXfKtfUiODVIQUMgL4+VmiQBcsuHx2BVPpch9oCxeoPOZL8snP65R8pCHDLzHhlDI645V
+	Tebn7kcw==;
+Received: from mail-dm6nam10on20602.outbound.protection.outlook.com ([2a01:111:f403:2413::602] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPFzg-00000002A0m-42n3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 06:49:31 +0000
+	Wed, 11 Jun 2025 07:35:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rH+HaJ6IdEKIEwxNtkqdlO80CqHdYEejYsLCwNjKwC33Ebw7DB/T9I6/kgh7pupWI1ZW3o71GNlYGwl4KIMNfjbk1kXmXAO2woExosAqOCoTRyCX2WLtlPqHscKDGPFsl9i29Oxj7pQnB4bPQzowfaxtAliPxcm06ddSi8P7gcgF6N0yy9fU+1meA24Dso4ZVCBGu2P3nWR6cR1WR/dzqP5644efuxKJu8LZYxaNEspcb041ZQZiYnqt5fvM7XjVTDibWW3mbyXj4Ya70QbTIVyL4cp8QbNdgNc+mq9HDmcJNKkeLlsJoq9YSZzvjBwP30rXqkBMqWbZQ9b/oV3j+g==
+ b=MRN8+RpZdSQMTQaWTWnO7X0kH8IQ4+ble/jp9dPmkmU7EBYsk2ceaO5e1L/EWZnUNNDRsi9nX4Z/nw6f2RAgGDVgMfXwLft18iLO7r85Wwv/0FYZLIKHc2cGaGf50H8KrUNm8tU7ae2UBBYHAtOglM4hl8XiMNxXcNzg9+/z9fDhXBEsneygbdzr9ts7VOqyMJsbSkJj2Imnkpn8eBrHXh5fzPDSDNL99md61/uPHWJJNdnz0PXxJyMokMotydQpeudpL8M9sJsfuj/LfOUbRO9UIbsAd0Y/Wvq4UwmXeEdgkqHn6JtySQdXbqcMTc8UEx53JDgojsuARucgk2ulxA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7gEePvVteGlezR8qihY8fAlNsANRp3dQthQtDf2V+8w=;
- b=vsGTpHn0UN3zocKYGK1a6yrky5M0klsLENhDXjViYCMVz17jnVSpO7wKU+mcjTEJxzxZ0Bsh9b5xo1oeWCSxoZaDqXsM6wLl/I3FQSB5W1pI1kh/pz/bGohL0fpbmGsArtvQSDjgG7CeUA3xeBWfwCgbMoDPN6fVDClrQR22GqX0bzK8I8eMNQa3KdmqiCdmYr6H78RCafoT7IdlPgjsYGSa4no4lsOwEeELyPG5W+CuhSWhic7XkYqUMG+sAQkfTmf2xfgtnY9epCIrVHNfEKHW+olti/6LvcOOG5WRkph8DFO+qxL7oSpN7Nl6Byqyh5yPEordyAzVBKXm1jhqcQ==
+ bh=WY5/o/KateirT30Un4D0rFGHHhpXB/ZaR3B48+zmouw=;
+ b=S3uBr9cTQrwJ/gGS6qUpHIVTIpB6KAwmnI6s/v8r4QhqyLwVxOt5u0f1bVZJCaM6JLkS238BOhkUkS+59MtyOhuQEnkne/+VPld97U8wFBhp69M70L7jRlRyqhm/op3SvdWZmBjyn9q+2+G2dxufQ1Q1D2Z6iwu9UmWRIo/R0Q7mIMwU5RnAs12lxNqK6EuTXA4dnAxeEYsQQzTwBREaaZk+FGPcv3g92Si3S8EmrV29Wq5v9m+7yh8cmSY7ID0NSWz6/xiciuG7CwJqH/vmqLvAgvoSozkWvHT/pcudt+TH44/OKM2gEBOpW0M3Sjdnk7q5I6AstnLHGDrApkXtLw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 13.93.42.39) smtp.rcpttodomain=kernel.org smtp.mailfrom=topic.nl; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=topic.nl;
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7gEePvVteGlezR8qihY8fAlNsANRp3dQthQtDf2V+8w=;
- b=mnw9CJCwA3Rb5cK1YabY7AyJElg74RccPQc1oBOiLnlW1p63wtfkOgK73rlAVDqnv/QC8PQgUrPI7PkZSP/zd3lmaFuhrdVr8yzX8moPItEDSPpsnuuhnkSn8n753IdYxe+7yWLSuDqTEtKV0Ic20XWF4NbXXZ5zC4siHCn8WMvaBeQsZe00eUcHJhd2hH3yZ09hqBMPN2tZ6Y/q+k/9j3ulQyT9y446z6ytj23/0F67Hglfzxnm/SHfNG9txa0asloAPv+gvhUM3KYnEDj2f5OxsyTxLfFQZn81BVo6Nx41aAcBfOnLhKCvVyhokKVh9dx55AnSzJLa9yW9R10uOw==
-Received: from DUZPR01CA0005.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:3c3::9) by DBBPR04MB7548.eurprd04.prod.outlook.com
- (2603:10a6:10:20c::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Wed, 11 Jun
- 2025 06:48:56 +0000
-Received: from DU6PEPF0000952A.eurprd02.prod.outlook.com
- (2603:10a6:10:3c3:cafe::7a) by DUZPR01CA0005.outlook.office365.com
- (2603:10a6:10:3c3::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.19 via Frontend Transport; Wed,
- 11 Jun 2025 06:49:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
- smtp.mailfrom=topic.nl; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=topic.nl;
-Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
- 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
- client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
-Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
- DU6PEPF0000952A.mail.protection.outlook.com (10.167.8.11) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8835.15 via Frontend Transport; Wed, 11 Jun 2025 06:48:56 +0000
-Received: from PA4PR04CU001.outbound.protection.outlook.com (40.93.76.78) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Wed, 11 Jun 2025 06:48:55 +0000
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=topic.nl;
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
- by VI0PR04MB10662.eurprd04.prod.outlook.com (2603:10a6:800:26c::11) with
+ bh=WY5/o/KateirT30Un4D0rFGHHhpXB/ZaR3B48+zmouw=;
+ b=jCLyBzH9OaTCyurDE/kqY4Khw9IDOu46dx7TVr7JXgzRwhoHaYT2sSjxvfDvjlej69fjIf5rMBHfV7SzpsemfuUcy6M72159qRgVdG/H86rhTdMMROYuDM27nyMCO2FGo19EgkN0f+4Wm4NjpHg351qLnEqoQF56Go4HuF4pMHKWDwI/AYZfARMvUxbgTY2ZG9+IU1npp6UiNETamz4grm6w+Tq5k+cYr/Ixq/R7X8cyeIuNMP68RwtdYkp5VpIikRXJxQqt6Hd+L5mKNi7PcKmeEmaS3t0aVXbqTnqg1ivVSzuTfrm6ztKOERsVYFku27n30D2J69jDjZIUczD7iw==
+Received: from BN6PR17CA0046.namprd17.prod.outlook.com (2603:10b6:405:75::35)
+ by BY5PR12MB4322.namprd12.prod.outlook.com (2603:10b6:a03:20a::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.31; Wed, 11 Jun
- 2025 06:48:52 +0000
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a%4]) with mapi id 15.20.8835.018; Wed, 11 Jun 2025
- 06:48:52 +0000
-Message-ID: <9f8a7c43-4862-45aa-951c-bf3e3c1f5513@topic.nl>
-Date: Wed, 11 Jun 2025 08:48:51 +0200
-User-Agent: Mozilla Thunderbird
-From: Mike Looijmans <mike.looijmans@topic.nl>
-Subject: Re: [PATCH v4 1/2] PCI: xilinx: Wait for link-up status during
- initialization
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Michal Simek
- <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250610185734.GA819344@bhelgaas>
- <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.bd37b5e5-7e20-4db7-b2f4-b11b97bc1326@emailsignatures365.codetwo.com>
-Content-Language: nl, en-US
-Organization: TOPIC
-In-Reply-To: <20250610185734.GA819344@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: AS4P192CA0024.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e1::16) To AS8PR04MB8644.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::12)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Wed, 11 Jun
+ 2025 07:35:20 +0000
+Received: from BL6PEPF0001AB75.namprd02.prod.outlook.com
+ (2603:10b6:405:75:cafe::55) by BN6PR17CA0046.outlook.office365.com
+ (2603:10b6:405:75::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8746.32 via Frontend Transport; Wed,
+ 11 Jun 2025 07:35:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BL6PEPF0001AB75.mail.protection.outlook.com (10.167.242.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.15 via Frontend Transport; Wed, 11 Jun 2025 07:35:19 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 11 Jun
+ 2025 00:35:04 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 11 Jun
+ 2025 00:35:04 -0700
+Received: from build-shgarg-noble-20250422.internal (10.127.8.11) by
+ mail.nvidia.com (10.129.68.9) with Microsoft SMTP Server id 15.2.1544.14 via
+ Frontend Transport; Wed, 11 Jun 2025 00:35:03 -0700
+From: Shubhi Garg <shgarg@nvidia.com>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Alexandre
+ Belloni" <alexandre.belloni@bootlin.com>, <--to=jonathanh@nvidia.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-rtc@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Shubhi Garg
+	<shgarg@nvidia.com>
+Subject: [PATCH v3 4/6] rtc: nvvrs: add NVIDIA VRS PSEQ RTC device driver
+Date: Wed, 11 Jun 2025 07:34:52 +0000
+Message-ID: <20250611073454.978859-5-shgarg@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250611073454.978859-1-shgarg@nvidia.com>
+References: <20250611073454.978859-1-shgarg@nvidia.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|VI0PR04MB10662:EE_|DU6PEPF0000952A:EE_|DBBPR04MB7548:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55169798-c478-437c-1a79-08dda8b40995
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB75:EE_|BY5PR12MB4322:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74643982-a01f-471a-9b42-08dda8ba84b2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?TWwvVGJyMzcyblZrS3c5NXlPbUo0VDNRTXNmUkEzR1Qvd3FYSytCeUtlOUJL?=
- =?utf-8?B?SGFkQVpKazlzRXFvRHFBVytFSXNSU3JXTFV5cE1GRzdiS0NpM2gvWmJidU5R?=
- =?utf-8?B?YTFpamgvTUJnb0dmay9xVTltWG1rMnFReStWM1BhMStuNjA0OEZZT0pUTHVu?=
- =?utf-8?B?a1ZlVTRQS21NN3VrWjRzNm42cUI2KytZVDRQbU11dmNVQkMwbDRiL1hNcWl3?=
- =?utf-8?B?K2Nta25kMW9ETFc5ZHpXc3U0L2dvSTlDU21RSHhmYWIyUUYxdDBmSnFsUXB3?=
- =?utf-8?B?dzRxVDVnSXRUWERtUXE3bmlIRmRSREk3anNDeXluNmp4VTJtbUZtOUlNSzdj?=
- =?utf-8?B?U21xSDZ0NWpTYUhyYUJSdE01QU4zTlJ4b2lzN1ljd0xBU3VtMGs3YnhjOHlX?=
- =?utf-8?B?a0lnWFlCbkN2ZVRydDk3M3JSVDROWDZhbVNGTVF3b1JxVU94UnBVYXBYYmxQ?=
- =?utf-8?B?QWRoUWpGTi9GSktHMTh3V2RaL3AwMm4yVjBkT1cya0p1K1g3dTVXQ2ErUlFn?=
- =?utf-8?B?dHJLVWVWS25TOFJQWUtwazVFVEllTjBzUDBUWFNIV2ZORjBCQTFhOGtCbHpz?=
- =?utf-8?B?RC9YZGtWOTlTbDV0dTd2Z0ZFVTBqMUJ3Y2N5UWtXMzl2MG54USs2UlFtR0NZ?=
- =?utf-8?B?ODhKTTRnRGIyZnhrNDBNdzI4MGl4cEJRVDdZcTk0MS8rRS9VQnI3SWM0K2Qz?=
- =?utf-8?B?cjZOT0JiWlU2QTVXaDdBeitTWTFVbWorb2V0bWwrU1pjYjlRVlo0WDZ0bjJ0?=
- =?utf-8?B?aDRwSTQ2RWtrU0MxNmdwWlBKcjRPYjBYN0pSM2lZNUJudTFld1ZvSXF1Y01i?=
- =?utf-8?B?ZWdoY3ZVYUk5RzYrZ1ZkL000ZUZDOHcwS3gyUkZtTU5pbGhRbGIrYWM4cUd1?=
- =?utf-8?B?ZE43NjZWa0hBMHBMczkvazVXSUN1WVNpVDZXdUFKU2NXZ2lSaTZhTjIwU3U1?=
- =?utf-8?B?Z3B3VEJlYndZUmFXYlhyUnc0NGJhWU83dzNML2xlRTR2YmdsR3h3UUZhSHFn?=
- =?utf-8?B?SDdBQ05zUWFyTUlvRzBxdnluT3Z6ZmtPMkRIY2dOb1NlRllqNDlmQ3QvZE92?=
- =?utf-8?B?VTJhcHJ5bFBHMlI4cnMxOHFyaFUza3c0dTdMM1hENVk4cXhmU3YxWmZaV0lu?=
- =?utf-8?B?Nmx0dlV5TEN3NFhicFZ3NXlhZkZnQnRsVTBmOVFMWGZ3NE8vdk9CbEFnVXFw?=
- =?utf-8?B?aFplT3VNVDRHdWxTSStuQ1JSYkU5aUVLckhPcHJGMUxVd1phcjBoRWhvVlNB?=
- =?utf-8?B?ejUwakIrSDJmb3dIcDZiUzd3alFiemQ0R1ZzV2YxZGJsQjk5eWFmd244cXFR?=
- =?utf-8?B?c1YydE9aK2ZLZHd0cjVoWGtVUkN3UGQ3ZXNrTS9VRUVMZTUrM0RyQTJQbC9I?=
- =?utf-8?B?WXBOWjdSbzdUWUdBTEtFNHo0RzNQNWY1dUJGNzJqS1VMWFlBUTIrQmZYc0V3?=
- =?utf-8?B?OWFQZ1BtSGdqK2tOUXJMcXhRUFBxNDlEei9DdXpGbWhaS1NsSDJ2NTdFaVli?=
- =?utf-8?B?OXIxK2VmN2hUVDQxaEpVSFQwcGNSaEpNbHRReHpEVVpURGV2MGJkdEZMRWJu?=
- =?utf-8?B?bXlXWDdHVUZ4WlV6MzVjNFZsL0ZkOHo2eTRBMW9WK2d6akVRUlViVTNQRWx4?=
- =?utf-8?B?SkhBbFByZ1N2VWpSbERvQ1ZLMUIrd1lLcjJRR1UyTzhtMkIyQXFKREo1MmF3?=
- =?utf-8?B?Vm1xWUp0NU5XZFU4UXlGU0tYdXFUS016bTF2bHk2VzhUeEE4U1Zpb1UwME9Z?=
- =?utf-8?B?VExPeGY5SmhreUhubTY5bStXdDJIcmRQb1ZwMzZHZGg3a2hjZHZ0b2tCT0xu?=
- =?utf-8?B?cTVZOFZyc2grZkVJdjg2VWRuRlhhdURQUStaUTdkVlBlU0FYRHI5UEpkZDY0?=
- =?utf-8?B?aGhnb2tkRG9GQmhTeHRwT2xiMEFzVXdrWVUwQzRGNGYvQjR6SGRHU1FsZWNT?=
- =?utf-8?Q?w5j6qhihsP0=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10662
-X-CodeTwo-MessageID: 21e8da7b-ef22-4670-a7b8-e91449d04111.20250611064855@westeu12-emailsignatures-cloud.codetwo.com
-X-CodeTwoProcessed: true
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000952A.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: b7ce279e-8c02-4f45-f351-08dda8b406f2
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700013|7416014|82310400026|376014|1800799024|14060799003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?am5yL2IvQUdHWWpuMnhNOUdRaHp1dC83aUN0bDE5S0xIcy9MVkdPN3dnR2NX?=
- =?utf-8?B?VU1JU1ZCMVBoSldaQ29LS3lDQ0k0RXM0NTIrSStDK0ZXQytWb2hsdjRTWC9o?=
- =?utf-8?B?dGhnUG1oQzhHdnFRWVdXTmdmdmNXNnRheDF2WXBVV09HREdDVUtwcHVoV0hG?=
- =?utf-8?B?Vkx3ZkZ0UkhWdlIvM3ZiU2E3OUtDMis1blpiYWJsTVJROHJPeElnYm5UbnRD?=
- =?utf-8?B?TUdrR1F0NktJMmpzdXMxSG94WmpZa0RmNDBaZTRMK2VLeFJiSXFNa0ZJZ0dm?=
- =?utf-8?B?NDRVdkkybWZvNWhVdnN0eTJaY21MSzRKYXZuZmwzK1RRQUFML0U0RzJDVXc0?=
- =?utf-8?B?L2V6clpEN3RpODUrY1I4VHc1VkJGdE45VEMyc1FsL2RKOWYwOUp2Q1dPY0w1?=
- =?utf-8?B?YVF5dnhmTTBCcktmcGt6VDNPNmRORzRHekwyMUs1VFo4ZCs5NGpOWTBMRzFy?=
- =?utf-8?B?bDhyRXJCRlFNbjFEWWRST3lYdGtiRVZSOUVlT2JyeFRKZG1RWnQ2VGhpVXlU?=
- =?utf-8?B?WCtXWHZhK1FibHQ4alh5SFBtLzJ6TCtSY1prOVJndDgyOS9abndJWlJuR2lv?=
- =?utf-8?B?RmdmMFM4M1ZidEpYeTA4N3NZM3A4b3RZejVJSDVRZGdocUk3b1gvd3h0VVMy?=
- =?utf-8?B?R1hKakxoelZ3SWZpMlZqYlZtSXRLUWVQamdBRDBzYTh1SXFpY0NQSXI0cHdL?=
- =?utf-8?B?YkZNaDBsTElXMjFia1JiZCt3RnpwYVFuNndFa1E1ZzJJQTY4V1hwTUNuZEdv?=
- =?utf-8?B?RTJqZ1JrVFRvdmZ3dHh3cElRMGl6RFUxYkRDeEx1bzVPTHMycFBGZVkxQyto?=
- =?utf-8?B?ZWp6cGtWM1RFSS9nbllEWFRPNjVRZEpuSUE4N3l1anlYcUtHdW00NEJBV0ow?=
- =?utf-8?B?M0pZaFNrL3RidTdkaE1RT3FSUnJ6SlpST3pqRzZoa1VBR0lMV3RzQ2xuR3U5?=
- =?utf-8?B?NndmS1NMYnV0RUMwaDlXMGoycU5FRXVFSmFXOE1RSGljYkhKKzdXQVgvYkJY?=
- =?utf-8?B?cWE0RmljaTVQK0paTzlRNzN0Sm50OEtTZjB6QkhHbFd1Zm8rZHYybnU1YjRX?=
- =?utf-8?B?Zks0aEdCMDdHK2ltNlZFbFVsY3E5ZS9Bc3dJKzMxUUpDNFFDOVhEVmdYWExN?=
- =?utf-8?B?M0g3MmtndDVtSlkyVnMyQm1MVDcvQkswMlpvMkFQL1pvWXgzcENZZHpUZkpv?=
- =?utf-8?B?bFJlWDNEdGxRWGRmdnBvSTJWUXI2UHV2RlRieDQ0dElDT0R6K1NkZXlDU2J6?=
- =?utf-8?B?bCt4Q25maXJvMEJhdS9VTk9LWWU3VStCbFlvRVVva05JUVpkRWY0MXBQYUk3?=
- =?utf-8?B?Q3dURkxHdVJwbUx6SFVNOHF4bFlYdVg4bFFMMjNSM2xpN3Z2VzlIV1NpNkFT?=
- =?utf-8?B?ZUF0T21OdHpnYnBjNm5saW8zMjlnWWlTbUxUcXpOQlh2WnZ2SzhnT3JlRFQv?=
- =?utf-8?B?ZVRaZUJSOEpVV0hMUlVTYWlFeG5OcHZvamhGUVlQWDZZWmppWjZ0eFRpWTJ4?=
- =?utf-8?B?Z0hUaFRIZTI4ZlVPZW5sNytsKytYOXRKZlc1dnoxREkzUmozS0h6VWJsc0I3?=
- =?utf-8?B?elk4T1I2aThPajNrS25rbkJmNEhyVTVPVkVKY0FnU0FnUGpweUtjNG5mMDJt?=
- =?utf-8?B?V284V1dqQUQxb1JSMzhTdnh5MHJzY3B4VU1tSXgwd0VQdVg5anZMUWxSTTVG?=
- =?utf-8?B?U1VUUmplMFF4dUY0UExUTTBobi9vYm90NVlaUjkwREhGTDZCQWQ2Y1J4enRP?=
- =?utf-8?B?K045dVN2Z1RaTEQ3eG1HdnkyVjFlYzBXYVJBV1BiOFhuM2luWFh6cVVEdFpX?=
- =?utf-8?B?MHZRSGtrVHVEb3FoN1FaZDhRc2IxZVAwM3l5cmJsTGg3RnV6OUhLdy9jbjRN?=
- =?utf-8?B?UFJwMlpHMVdZN28xM3c4NlpzeHdMaGVnUFJLSFMvTFNVa1VHQTFvVGxBMTdH?=
- =?utf-8?B?eFg0R3BhNHh2K0w0c1ZyYm95cFd0b1FWcFBnV1EyRGk0Vm8rVWpXZEdLdHU4?=
- =?utf-8?B?bHUyTm5JZDh3PT0=?=
-X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(35042699022)(36860700013)(7416014)(82310400026)(376014)(1800799024)(14060799003);DIR:OUT;SFP:1102;
-X-OriginatorOrg: topic.nl
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 06:48:56.2944
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4MYNpldg2ZGIMabUT0oD/oGFkJoKBS24P48boEf6kAUaKw588q76d5uHlR9a?=
+ =?us-ascii?Q?R081yrniD++MpwhIiQvd50d2vC4W6pVgGXdWcKZQGfuQPQ0qLteesIxaCFC2?=
+ =?us-ascii?Q?Cq4HP57Iw49G/aXbPB7hqeVWpAq9XecsArBDDSxGgmc8o+72G/iBEJY8/qtH?=
+ =?us-ascii?Q?4Sx1fRHhWldXP6brezW527INadwrba9NVPYhnr2Kld8/w+qVwnwX5PZo23gf?=
+ =?us-ascii?Q?7UbSiZ0d1U+UZeRiBdntnqtgN1NYt0roDGntNaL4mM2sJG8wmXfZlZ4c9LuO?=
+ =?us-ascii?Q?T7LhLPoLJtY+sdi3qND9b0xfZD561twI4fVbYSYWYMNLrOGifI3Nkc36npyi?=
+ =?us-ascii?Q?5n7BRytwGB7Kp3kHVggzPU+GuK9jTxhc/74iiVR4zm5zIttxj7ZLW6zwtHI8?=
+ =?us-ascii?Q?yIgwHs4Eq7zbr9lugKauaEh8podEQDvIaUw7CEOyQFeZ3fw5xU/mwD9ExBOM?=
+ =?us-ascii?Q?um554ehZgTbbFN4fZKPbANbGNi6I27BFNWPtMaJhcDPTuEs5UXmbs6mbCTvR?=
+ =?us-ascii?Q?biZ4adWLYGngGHJY0Q9dev/Lf346P037heK324+FO4arcSydUyPQtWEQXMTI?=
+ =?us-ascii?Q?7xy1B1y97suR5puowq1XnLpbG2hPmzUg2bjUuHw0M9CcbQJsjipRLolWL1hU?=
+ =?us-ascii?Q?j05CRANo7iHb0vYcejRqwNKNOas8ERAykSN3YqkMpPkbVVbtGF1Zb62VbYjg?=
+ =?us-ascii?Q?pKOHJiwydDchv1y3Je7v+InJGD6Lx/F4sDucvU07wZ64r93lJ5TCZI4G/g5j?=
+ =?us-ascii?Q?29Na/Q25BKrPbq0sYYUJg3tMfiyeGdP7ozFAX6HSxAfBk75BvZUSOvrbGHPp?=
+ =?us-ascii?Q?4xOJv+DWVTGBFwR0pvpbD9SfXQTbRMPv2CGrGMQcUAVZS/+N4awrtcl7kCLp?=
+ =?us-ascii?Q?Y1xAwutwS7Ssod+8ULbruSCxbBI0m3ygGkS1d8eJNVPXYyGdTqfiAqVeMqCJ?=
+ =?us-ascii?Q?1gnWfUJqX2n8e+E6csYoOU3Sml8bALjqqMEMfWxNYBzFzc/SYt0EiYUS7ecj?=
+ =?us-ascii?Q?4SRV3ubr31Hnd6pn9CvJWVGXUB/2Ymgehvz9cqAcepm440KOBxhdxUsxr7Ub?=
+ =?us-ascii?Q?LmE7i4hzgpeITI7YgLXTuTLL0EV7gYFFS5odkZNBstRcUBG1/h9AQtrKd7sd?=
+ =?us-ascii?Q?kJZggDIAoGRzUN0KbPREJEto4m71Ng11Fj/btxsABdSGajMi5vXLWVZZHLG5?=
+ =?us-ascii?Q?8nVuByeF1y/M2gwu0GoNAdufRGkJhmrs5YiJPw/5kmPvpZN81ljDRfsQ2YFp?=
+ =?us-ascii?Q?c8pK1tSfx3Q0c269Eu82x5q8PgoQ+c0efF08f6iBltrOETfrPo6zTbZBHHGz?=
+ =?us-ascii?Q?ZufHmNZf7a9siTpPOxF9DAwmjtdHzjUEmTlczQ41sS+ELZpMkYNy730ZGBci?=
+ =?us-ascii?Q?o/98rSf3bTJjtJ3J4nV0HMZSvMEemwV9IxBVHqVZqq5UcV5HI/04yzeC76o5?=
+ =?us-ascii?Q?Q46Wfq2nVNpVC2O+tdn01LRHG56gGd+DAzteKva492fZhzQ5Ok4171y8U5LR?=
+ =?us-ascii?Q?0GfOTy6Q2vTkLkzQ0fb/EaY/e/tyygOYbk98?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 07:35:19.8115
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55169798-c478-437c-1a79-08dda8b40995
-X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000952A.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74643982-a01f-471a-9b42-08dda8ba84b2
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB75.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7548
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4322
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_234930_319569_8CDD4DD2 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20250611_083533_206348_971280A3 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,74 +168,531 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for NVIDIA VRS (Voltage Regulator Specification) Power
+Sequencer RTC device driver. This RTC can be used to get/set system
+time, retain system time across boot, wake system from suspend and
+shutdown state.
 
-Met vriendelijke groet / kind regards,=0A=
-=0A=
-Mike Looijmans=0A=
-System Expert=0A=
-=0A=
-=0A=
-TOPIC Embedded Products B.V.=0A=
-Materiaalweg 4, 5681 RJ Best=0A=
-The Netherlands=0A=
-=0A=
-T: +31 (0) 499 33 69 69=0A=
-E: mike.looijmans@topic.nl=0A=
-W: www.topic.nl=0A=
-=0A=
-Please consider the environment before printing this e-mail=0A=
-On 10-06-2025 20:57, Bjorn Helgaas wrote:
-> On Tue, Jun 10, 2025 at 04:39:03PM +0200, Mike Looijmans wrote:
->> When the driver loads, the transceiver and endpoint may still be setting
->> up a link. Wait for that to complete before continuing. This fixes that
->> the PCIe core does not work when loading the PL bitstream from
->> userspace. Existing reference designs worked because the endpoint and
->> PL were initialized by a bootloader. If the endpoint power and/or reset
->> is supplied by the kernel, or if the PL is programmed from within the
->> kernel, the link won't be up yet and the driver just has to wait for
->> link training to finish.
->>
->> As the PCIe spec allows up to 100 ms time to establish a link, we'll
->> allow up to 200ms before giving up.
->> +static int xilinx_pci_wait_link_up(struct xilinx_pcie *pcie)
->> +{
->> +	u32 val;
->> +
->> +	/*
->> +	 * PCIe r6.0, sec 6.6.1 provides 100ms timeout. Since this is FPGA
->> +	 * fabric, we're more lenient and allow 200 ms for link training.
->> +	 */
->> +	return readl_poll_timeout(pcie->reg_base + XILINX_PCIE_REG_PSCR, val,
->> +			(val & XILINX_PCIE_REG_PSCR_LNKUP), 2 * USEC_PER_MSEC,
->> +			2 * PCIE_T_RRS_READY_MS * USEC_PER_MSEC);
->> +}
-> I don't think this is what PCIE_T_RRS_READY_MS is for.  Sec 6.6.1
-> requires 100ms *after* the link is up before sending config requests:
->
->    For cases where system software cannot determine that DRS is
->    supported by the attached device, or by the Downstream Port above
->    the attached device:
->
->      =E2=97=A6 With a Downstream Port that does not support Link speeds g=
-reater
->        than 5.0 GT/s, software must wait a minimum of 100 ms following
->        exit from a Conventional Reset before sending a Configuration
->        Request to the device immediately below that Port.
->
->      =E2=97=A6 With a Downstream Port that supports Link speeds greater t=
-han
->        5.0 GT/s, software must wait a minimum of 100 ms after Link
->        training completes before sending a Configuration Request to the
->        device immediately below that Port. Software can determine when
->        Link training completes by polling the Data Link Layer Link
->        Active bit or by setting up an associated interrupt (see =C2=A7
->        Section 6.7.3.3).  It is strongly recommended for software to
->        use this mechanism whenever the Downstream Port supports it.
->
-Yeah, true, I misread the comment in pci.h. I cannot find any #define to ma=
-tch=20
-the "how long to wait for link training". Each driver appears to use its ow=
-n=20
-timeout. So I should just create my own?
+Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
+---
+
+v3:
+- fixed return value in RTC read_time and read_alarm functions
+- fixed sizeof(*variable) inside rtc driver devm_kzalloc
+- switch to devm_device_init_wakeup() for automatic cleanup
+
+v2:
+- removed regmap struct since it is not required
+- removed rtc_map definition to directly use register definition
+- removed unnecessary dev_err logs
+- fixed dev_err logs to dev_dbg
+- used rtc_lock/unlock in irq handler
+- changed RTC allocation and register APIs as per latest kernel
+- removed nvvrs_rtc_remove function since it's not required
+
+ drivers/rtc/Kconfig               |  10 +
+ drivers/rtc/Makefile              |   1 +
+ drivers/rtc/rtc-nvidia-vrs-pseq.c | 457 ++++++++++++++++++++++++++++++
+ 3 files changed, 468 insertions(+)
+ create mode 100644 drivers/rtc/rtc-nvidia-vrs-pseq.c
+
+diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+index 9aec922613ce..d16de9b32299 100644
+--- a/drivers/rtc/Kconfig
++++ b/drivers/rtc/Kconfig
+@@ -406,6 +406,16 @@ config RTC_DRV_MAX77686
+ 	  This driver can also be built as a module. If so, the module
+ 	  will be called rtc-max77686.
+ 
++config RTC_DRV_NVVRS_PSEQ
++	tristate "NVIDIA VRS Power Sequencer RTC device"
++	depends on MFD_NVVRS_PSEQ
++	help
++	  If you say yes here you will get support for the battery backed RTC device
++	  of NVIDIA VRS Power Sequencer. The RTC is connected via I2C interface and
++	  supports alarm functionality.
++	  This driver can also be built as a module. If so, the module will be called
++	  rtc-nvidia-vrs-pseq.
++
+ config RTC_DRV_NCT3018Y
+ 	tristate "Nuvoton NCT3018Y"
+ 	depends on OF
+diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+index 4619aa2ac469..836e329a7c39 100644
+--- a/drivers/rtc/Makefile
++++ b/drivers/rtc/Makefile
+@@ -120,6 +120,7 @@ obj-$(CONFIG_RTC_DRV_MXC_V2)	+= rtc-mxc_v2.o
+ obj-$(CONFIG_RTC_DRV_GAMECUBE)	+= rtc-gamecube.o
+ obj-$(CONFIG_RTC_DRV_NCT3018Y)	+= rtc-nct3018y.o
+ obj-$(CONFIG_RTC_DRV_NTXEC)	+= rtc-ntxec.o
++obj-$(CONFIG_RTC_DRV_NVVRS_PSEQ)+= rtc-nvidia-vrs-pseq.o
+ obj-$(CONFIG_RTC_DRV_OMAP)	+= rtc-omap.o
+ obj-$(CONFIG_RTC_DRV_OPAL)	+= rtc-opal.o
+ obj-$(CONFIG_RTC_DRV_OPTEE)	+= rtc-optee.o
+diff --git a/drivers/rtc/rtc-nvidia-vrs-pseq.c b/drivers/rtc/rtc-nvidia-vrs-pseq.c
+new file mode 100644
+index 000000000000..fd57e67bda5a
+--- /dev/null
++++ b/drivers/rtc/rtc-nvidia-vrs-pseq.c
+@@ -0,0 +1,457 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
++ *
++ * RTC driver for NVIDIA Voltage Regulator Power Sequencer
++ *
++ */
++
++#include <linux/i2c.h>
++#include <linux/init.h>
++#include <linux/slab.h>
++#include <linux/rtc.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/platform_device.h>
++#include <linux/of_device.h>
++#include <linux/mfd/nvidia-vrs-pseq.h>
++#include <linux/irqdomain.h>
++#include <linux/regmap.h>
++#include <linux/bits.h>
++
++#define ALARM_RESET_VAL		0xffffffff /* Alarm reset/disable value */
++#define NVVRS_INT_RTC_INDEX	0	   /* Only one RTC interrupt register */
++
++struct nvvrs_rtc_info {
++	struct device          *dev;
++	struct i2c_client      *client;
++	struct rtc_device      *rtc_dev;
++	unsigned int           rtc_irq;
++	const struct regmap_irq_chip *rtc_irq_chip;
++	struct regmap_irq_chip_data *rtc_irq_data;
++	/* Mutex to protect RTC operations */
++	struct mutex           lock;
++};
++
++static const struct regmap_irq nvvrs_rtc_irq[] = {
++	REGMAP_IRQ_REG(NVVRS_INT_RTC_INDEX, 0, NVVRS_PSEQ_INT_SRC1_RTC_MASK),
++};
++
++static const struct regmap_irq_chip nvvrs_rtc_irq_chip = {
++	.name	   = "nvvrs-rtc",
++	.status_base    = NVVRS_PSEQ_REG_INT_SRC1,
++	.num_regs       = 1,
++	.irqs	   = nvvrs_rtc_irq,
++	.num_irqs       = ARRAY_SIZE(nvvrs_rtc_irq),
++};
++
++static int nvvrs_update_bits(struct nvvrs_rtc_info *info, u8 reg,
++			     u8 mask, u8 value)
++{
++	int ret;
++	u8 val;
++
++	ret = i2c_smbus_read_byte_data(info->client, reg);
++	if (ret < 0)
++		return ret;
++
++	val = (u8)ret;
++	val &= ~mask;
++	val |= (value & mask);
++
++	return i2c_smbus_write_byte_data(info->client, reg, val);
++}
++
++static int nvvrs_rtc_update_alarm_reg(struct i2c_client *client,
++				      struct nvvrs_rtc_info *info, u8 *time)
++{
++	int ret;
++
++	ret = i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_A3, time[3]);
++	if (ret < 0)
++		return ret;
++
++	ret = i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_A2, time[2]);
++	if (ret < 0)
++		return ret;
++
++	ret = i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_A1, time[1]);
++	if (ret < 0)
++		return ret;
++
++	return i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_A0, time[0]);
++}
++
++static int nvvrs_rtc_enable_alarm(struct nvvrs_rtc_info *info)
++{
++	int ret;
++
++	/* Set RTC_WAKE bit for autonomous wake from sleep */
++	ret = nvvrs_update_bits(info, NVVRS_PSEQ_REG_CTL_2,
++				NVVRS_PSEQ_REG_CTL_2_RTC_WAKE,
++				NVVRS_PSEQ_REG_CTL_2_RTC_WAKE);
++	if (ret < 0) {
++		dev_dbg(info->dev, "Failed to set RTC_WAKE bit (%d)\n", ret);
++		return ret;
++	}
++
++	/* Set RTC_PU bit for autonomous wake from shutdown */
++	ret = nvvrs_update_bits(info, NVVRS_PSEQ_REG_CTL_2,
++				NVVRS_PSEQ_REG_CTL_2_RTC_PU,
++				NVVRS_PSEQ_REG_CTL_2_RTC_PU);
++	if (ret < 0) {
++		dev_dbg(info->dev, "Failed to set RTC_PU bit (%d)\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static int nvvrs_rtc_disable_alarm(struct nvvrs_rtc_info *info)
++{
++	struct i2c_client *client = info->client;
++	u8 val[4];
++	int ret;
++
++	/* Clear RTC_WAKE bit */
++	ret = nvvrs_update_bits(info, NVVRS_PSEQ_REG_CTL_2,
++				NVVRS_PSEQ_REG_CTL_2_RTC_WAKE, 0);
++	if (ret < 0) {
++		dev_dbg(info->dev, "Failed to clear RTC_WAKE bit (%d)\n", ret);
++		return ret;
++	}
++
++	/* Clear RTC_PU bit */
++	ret = nvvrs_update_bits(info, NVVRS_PSEQ_REG_CTL_2,
++				NVVRS_PSEQ_REG_CTL_2_RTC_PU, 0);
++	if (ret < 0) {
++		dev_dbg(info->dev, "Failed to clear RTC_PU bit (%d)\n", ret);
++		return ret;
++	}
++
++	/* Write ALARM_RESET_VAL in RTC Alarm register to disable alarm */
++	val[0] = 0xff;
++	val[1] = 0xff;
++	val[2] = 0xff;
++	val[3] = 0xff;
++
++	ret = nvvrs_rtc_update_alarm_reg(client, info, val);
++	if (ret < 0)
++		dev_dbg(info->dev, "Failed to disable Alarm (%d)\n", ret);
++
++	return ret;
++}
++
++static irqreturn_t nvvrs_rtc_irq_handler(int irq, void *data)
++{
++	struct nvvrs_rtc_info *info = data;
++
++	dev_dbg(info->dev, "RTC alarm IRQ: %d\n", irq);
++
++	rtc_lock(info->rtc_dev);
++	rtc_update_irq(info->rtc_dev, 1, RTC_IRQF | RTC_AF);
++	rtc_unlock(info->rtc_dev);
++
++	return IRQ_HANDLED;
++}
++
++static int nvvrs_rtc_read_time(struct device *dev, struct rtc_time *tm)
++{
++	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
++	struct i2c_client *client = info->client;
++	time64_t secs = 0;
++	int ret;
++	u8 val;
++
++	mutex_lock(&info->lock);
++
++	/* Multi-byte transfers are not supported with PEC enabled
++	 * Read MSB first to avoid coherency issues
++	 */
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_T3);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	secs |= (time64_t)val << 24;
++
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_T2);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	secs |= (time64_t)val << 16;
++
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_T1);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	secs |= (time64_t)val << 8;
++
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_T0);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	secs |= val;
++
++	rtc_time64_to_tm(secs, tm);
++	ret = 0;
++out:
++	mutex_unlock(&info->lock);
++	return ret;
++}
++
++static int nvvrs_rtc_set_time(struct device *dev, struct rtc_time *tm)
++{
++	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
++	struct i2c_client *client = info->client;
++	u8 time[4];
++	time64_t secs;
++	int ret;
++
++	mutex_lock(&info->lock);
++
++	secs = rtc_tm_to_time64(tm);
++	time[0] = secs & 0xff;
++	time[1] = (secs >> 8) & 0xff;
++	time[2] = (secs >> 16) & 0xff;
++	time[3] = (secs >> 24) & 0xff;
++
++	ret = i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_T3, time[3]);
++	if (ret < 0)
++		goto out;
++
++	ret = i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_T2, time[2]);
++	if (ret < 0)
++		goto out;
++
++	ret = i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_T1, time[1]);
++	if (ret < 0)
++		goto out;
++
++	ret = i2c_smbus_write_byte_data(client, NVVRS_PSEQ_REG_RTC_T0, time[0]);
++
++out:
++	mutex_unlock(&info->lock);
++	return ret;
++}
++
++static int nvvrs_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alrm)
++{
++	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
++	struct i2c_client *client = info->client;
++	time64_t alarm_val = 0;
++	int ret;
++	u8 val;
++
++	mutex_lock(&info->lock);
++
++	/* Multi-byte transfers are not supported with PEC enabled */
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_A3);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	alarm_val |= (time64_t)val << 24;
++
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_A2);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	alarm_val |= (time64_t)val << 16;
++
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_A1);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	alarm_val |= (time64_t)val << 8;
++
++	ret = i2c_smbus_read_byte_data(client, NVVRS_PSEQ_REG_RTC_A0);
++	if (ret < 0)
++		goto out;
++
++	val = (u8)ret;
++	alarm_val |= val;
++
++	if (alarm_val == ALARM_RESET_VAL)
++		alrm->enabled = 0;
++	else
++		alrm->enabled = 1;
++
++	rtc_time64_to_tm(alarm_val, &alrm->time);
++	ret = 0;
++out:
++	mutex_unlock(&info->lock);
++	return ret;
++}
++
++static int nvvrs_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
++{
++	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
++	struct i2c_client *client = info->client;
++	u8 time[4];
++	time64_t secs;
++	int ret;
++
++	mutex_lock(&info->lock);
++
++	ret = nvvrs_rtc_enable_alarm(info);
++	if (ret < 0) {
++		dev_err(info->dev, "Failed to enable alarm! (%d)\n", ret);
++		goto out;
++	}
++
++	secs = rtc_tm_to_time64(&alrm->time);
++	time[0] = secs & 0xff;
++	time[1] = (secs >> 8) & 0xff;
++	time[2] = (secs >> 16) & 0xff;
++	time[3] = (secs >> 24) & 0xff;
++
++	ret = nvvrs_rtc_update_alarm_reg(client, info, time);
++
++	alrm->enabled = 1;
++out:
++	mutex_unlock(&info->lock);
++	return ret;
++}
++
++static int nvvrs_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
++{
++	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
++	int ret;
++
++	mutex_lock(&info->lock);
++	if (enabled)
++		ret = nvvrs_rtc_enable_alarm(info);
++	else
++		ret = nvvrs_rtc_disable_alarm(info);
++
++	mutex_unlock(&info->lock);
++	return ret;
++}
++
++static const struct rtc_class_ops nvvrs_rtc_ops = {
++	.read_time = nvvrs_rtc_read_time,
++	.set_time = nvvrs_rtc_set_time,
++	.read_alarm = nvvrs_rtc_read_alarm,
++	.set_alarm = nvvrs_rtc_set_alarm,
++	.alarm_irq_enable = nvvrs_rtc_alarm_irq_enable,
++};
++
++static int nvvrs_rtc_probe(struct platform_device *pdev)
++{
++	struct nvvrs_rtc_info *info;
++	struct device *parent;
++	struct i2c_client *client;
++	int ret;
++
++	info = devm_kzalloc(&pdev->dev, sizeof(*info), GFP_KERNEL);
++	if (!info)
++		return -ENOMEM;
++
++	mutex_init(&info->lock);
++
++	ret = platform_get_irq(pdev, 0);
++	if (ret < 0)
++		return dev_err_probe(&pdev->dev, ret, "Failed to get irq\n");
++
++	info->rtc_irq = ret;
++	info->dev = &pdev->dev;
++	parent = info->dev->parent;
++	client = to_i2c_client(parent);
++	client->flags |= I2C_CLIENT_PEC;
++	i2c_set_clientdata(client, info);
++	info->client = client;
++	info->rtc_irq_chip = &nvvrs_rtc_irq_chip;
++	platform_set_drvdata(pdev, info);
++
++	/* Allocate RTC device */
++	info->rtc_dev = devm_rtc_allocate_device(info->dev);
++	if (IS_ERR(info->rtc_dev))
++		return PTR_ERR(info->rtc_dev);
++
++	info->rtc_dev->ops = &nvvrs_rtc_ops;
++	info->rtc_dev->range_min = RTC_TIMESTAMP_BEGIN_2000;
++	info->rtc_dev->range_max = RTC_TIMESTAMP_END_2099;
++
++	ret = devm_request_threaded_irq(info->dev, info->rtc_irq, NULL,
++					nvvrs_rtc_irq_handler, 0, "rtc-alarm", info);
++	if (ret < 0)
++		dev_err(&pdev->dev, "Failed to request alarm IRQ: %d: %d\n",
++			info->rtc_irq, ret);
++
++	/* RTC as a wakeup source */
++	devm_device_init_wakeup(info->dev);
++
++	return devm_rtc_register_device(info->rtc_dev);
++}
++
++#ifdef CONFIG_PM_SLEEP
++static int nvvrs_rtc_suspend(struct device *dev)
++{
++	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
++	int ret;
++
++	if (device_may_wakeup(dev)) {
++		/* Set RTC_WAKE bit for auto wake system from suspend state */
++		ret = nvvrs_update_bits(info, NVVRS_PSEQ_REG_CTL_2,
++					NVVRS_PSEQ_REG_CTL_2_RTC_WAKE,
++					NVVRS_PSEQ_REG_CTL_2_RTC_WAKE);
++		if (ret < 0) {
++			dev_err(info->dev, "Failed to set RTC_WAKE bit (%d)\n", ret);
++			return ret;
++		}
++
++		return enable_irq_wake(info->rtc_irq);
++	}
++
++	return 0;
++}
++
++static int nvvrs_rtc_resume(struct device *dev)
++{
++	struct nvvrs_rtc_info *info = dev_get_drvdata(dev);
++	int ret;
++
++	if (device_may_wakeup(dev)) {
++		/* Clear FORCE_ACT bit */
++		ret = nvvrs_update_bits(info, NVVRS_PSEQ_REG_CTL_1,
++					NVVRS_PSEQ_REG_CTL_1_FORCE_ACT, 0);
++		if (ret < 0) {
++			dev_err(info->dev, "Failed to clear FORCE_ACT bit (%d)\n", ret);
++			return ret;
++		}
++
++		return disable_irq_wake(info->rtc_irq);
++	}
++
++	return 0;
++}
++
++#endif
++static SIMPLE_DEV_PM_OPS(nvvrs_rtc_pm_ops, nvvrs_rtc_suspend, nvvrs_rtc_resume);
++
++static const struct platform_device_id nvvrs_rtc_id[] = {
++	{ "nvvrs-pseq-rtc", },
++	{ },
++};
++MODULE_DEVICE_TABLE(platform, nvvrs_rtc_id);
++
++static struct platform_driver nvvrs_rtc_driver = {
++	.driver		= {
++		.name   = "nvvrs-pseq-rtc",
++		.pm     = &nvvrs_rtc_pm_ops,
++	},
++	.probe		= nvvrs_rtc_probe,
++	.id_table       = nvvrs_rtc_id,
++};
++
++module_platform_driver(nvvrs_rtc_driver);
++
++MODULE_AUTHOR("Shubhi Garg <shgarg@nvidia.com>");
++MODULE_DESCRIPTION("NVVRS PSEQ RTC driver");
++MODULE_LICENSE("GPL");
+-- 
+2.43.0
 
 
