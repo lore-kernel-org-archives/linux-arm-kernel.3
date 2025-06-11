@@ -4,65 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 471D5C71137
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:48:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C24DC678DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FVl7iw2OPmUTyS5YxK4bwWFOWwYw/pSTt4UiTlbljo=; b=FYSgUuD05zO4GRxpGh5RHqexV3
-	P8wez6XwxVEUb6GRGRJlQFbhri7td71jiubtVkhqtVUyNmQpcVTNEjvAaaAXIOtDnrJvL03AbSN7r
-	isu4RkGRtbox2Nza6NJct/mVb+BE8+0vclku2+qrTluK5z+puts/6Nvx8nD4L7/bvaq2bnrjSJDYD
-	2/Fd+QKJNqsChr6WF7yAOf873Egtj+ZSBWW9bTror6E5Is+moTy4Rq8FkWfzahGAI+dBZCQ9e0kpG
-	hhGqBoSobwFv0ZNk3yp/TPDuInr7EHX1UFSNSxndln89FWxax64S+8r0QRiFgZgsADjbHeBWqp5rM
-	3KjZ8nkA==;
+	bh=pKsoDkaWRyt+MO0xVCluSFtmkcvyQT1Ap5u13pBLHCw=; b=x3Q+T+/dYzq0mldx9TKYYZ66wv
+	FOUlDsNTQWbJTie3r5oCiGn37Feoplwq8zzcQsGQxScOMGi4Lw29pOc23kXx6U4V7OlAA5er+RFtB
+	+dDgquaAo0XEqT1VRAT0+8MeOVfNDTo+YCGdKM8gR338xSv7qv8fQdqRc92e+qcl9NEbzxNZE5EEO
+	jzZCkqxZUCC3aDkguUbeWnNoNAn780vX7VN6CdZM6Um3GFK8f84CMCkg7q/SzAshSRW4DOSyR8e1a
+	873oYSa2NzT3y6JWFk7xh033/WifW/jL82QWAoyfVrLKVQAQQyekfXSa0jCmCp/PcNxBx6q/r9NGy
+	ucMqOWgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMks-0000000A9Xe-21du;
-	Wed, 11 Jun 2025 14:48:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPMku-0000000A9ad-2k3P;
+	Wed, 11 Jun 2025 14:48:44 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHqF-00000009UBB-04Kc;
-	Wed, 11 Jun 2025 09:33:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=8FVl7iw2OPmUTyS5YxK4bwWFOWwYw/pSTt4UiTlbljo=; b=YssMNAqcgprJHjw5rLnQkNNPNi
-	y81DQnTtPLl5Kue3YHRCZueIl5Uo2lSVu4J+N+bNu7CgcE9KNWyIeM9RSgliKOfQYq/gkm+iX3cuw
-	Puo4AYJ7RPffdr9D8ke2fe+/EB3C09RU37DuDmmyvB0M2NYHo+iFXWdt2LOaSzDt1R2Ay8oLWQ8HG
-	x7xOEz4POBssiZMHZL/38jSsHevD+sXO7GetGXrcXBSQMnlQFWFoN1FjjEYRcJ83DFXERH4BOvjUU
-	3Vtdb00FMzoTFc2KMZrmpncQw6MhsQl4AhUKesjWYp2AzGpqrMwqfNA5uZiGMnPL/2v7hENvC4EJY
-	L9pkfuWA==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHqD-00000002EaE-0WNd;
-	Wed, 11 Jun 2025 09:33:54 +0000
+	id 1uPHqa-00000009UCb-2iGn;
+	Wed, 11 Jun 2025 09:34:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749634431;
-	bh=aVqfa+rUoywoe8vYl+T8e4/6MblA1+D7SSSfmwI7pFo=;
+	s=mail; t=1749634454;
+	bh=FOlfdDe+uf3ideT45DVapQQIVFNVGe9nFtZmOza3q8U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jwCAm7igJDiNWfPFK6ayvAuRcMPlY1z66lq7UJ37mZGM1K8yDZ4nqgA81Uz5ClO94
-	 Yzdv8bfwZ3FT1vBwtw1s/47Ihi1g6glMmOe9uxtuK+gD5LA/JLAVg8rBoLRO9WzkOv
-	 Q0S97y5n4zSgKyw5C4rgcBcbQ/C6R0NW6C3hcaKsjUV87IX7oyJHHNZJHzFi6y3v/V
-	 KMg5JLdIgSNAKaubYqbj4lmf+bvGoMKowCP1KMm/EgKB7oCB4e0agMFUpkrHEusU4P
-	 m9dHi+OheXfchlPaOy/nVPO67AeQWIS9XrAPyJVUfrs4xcBC4UyPggXuLwNVGa0jaZ
-	 IRF9KrlWD95JA==
+	b=ns1HNtIe7ESq+ZeiqmSrYo/NHEcdKC+QqzVjHIS3QDMpTCfiSubumWM+xYBnjxTpo
+	 tXpW/PpBKRTxRHtolPcqxHkLoHzTV6MQiyyELq33qdz6KcFtzM2rCeTRuXaMKlojYp
+	 AW1OreTPsKpeFLJAbb5oomsTsJgOH75tY2ymMdxCa4yBNO5+0Ou1eznkmXr3uO4FbX
+	 KztC2vmU25ERWtbqg5YUcrRUgl0bIOajgWLSz8G3/ua7/2HXVO8mEjlkYLt5rQ6mML
+	 c3cBkWpRYSHRFZbkbqbXcx29VdWi0aGPeo8CQxivdNUlx/Ze/AERhjTUQ5OcMx++W7
+	 Eec2GrqGtiRKg==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C3D8517E378F;
-	Wed, 11 Jun 2025 11:33:49 +0200 (CEST)
-Message-ID: <44c53bcb-3df1-41b2-a5ba-8024cbad4aa4@collabora.com>
-Date: Wed, 11 Jun 2025 11:33:42 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6282E17E05C1;
+	Wed, 11 Jun 2025 11:34:13 +0200 (CEST)
+Message-ID: <c978b62a-3d5f-40ac-a0ab-13d7c81eb9dc@collabora.com>
+Date: Wed, 11 Jun 2025 11:34:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/13] arm64: dts: mediatek: mt7988a-bpi-r4: add
- proc-supply for cci
+Subject: Re: [PATCH v3 05/13] arm64: dts: mediatek: mt7988: add cci node
 To: Frank Wunderlich <linux@fw-web.de>,
  MyungJoo Ham <myungjoo.ham@samsung.com>,
  Kyungmin Park <kyungmin.park@samsung.com>,
@@ -84,15 +69,15 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
  netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org
 References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-9-linux@fw-web.de>
+ <20250608211452.72920-6-linux@fw-web.de>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250608211452.72920-9-linux@fw-web.de>
+In-Reply-To: <20250608211452.72920-6-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_103353_375758_B225D3CB 
-X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-CacheID: sfid-20250611_023416_830461_9FB5724F 
+X-CRM114-Status: UNSURE (   6.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,8 +96,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Il 08/06/25 23:14, Frank Wunderlich ha scritto:
 > From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> CCI requires proc-supply. Add it on board level.
+> Add cci devicetree node for cpu frequency scaling.
 > 
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
