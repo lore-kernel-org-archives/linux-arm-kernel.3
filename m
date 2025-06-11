@@ -4,60 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49C2C71134
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A07C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/9FiwEZe5oOU+sII/uasrQfhr+oCoSDXvJiEByqRN4=; b=Ahf2wTKboxBAUGfslH5VrT4K7h
-	WfayAqi+HbFriKk6dlgkr8oUOouRsiQIhtlLBmdrdcVr4I+TIpXAZmEztSx17Roac17QrlwjBDBK7
-	k5HEnRU2fop+WPSmWw8fNEAK27PwI7cBiXQGVI8dVKRsd6DaaG+pCwKWdD9Bfpx9zY63L99i+VuT1
-	vDheFMbP4JvSv80ObOw38yNPg8lJLdAezKIotkT1RLv+GAUQRyyvcsquHtG4PMAUEFYFQfp1IVRq1
-	A5HoSVxcFEHIyRUIpzdML4Qw4KBWUO4CO31tVTxv7nVHdWJW3NSIQrrTMx5CqXIlfEJKWUIC837ye
-	99yra2NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fw0ROdeFkh9FWMHJ/DqYZHwPq7uqPvziD7anVpTSv94=; b=W+A5DrXgy9IY14NfAP36uEjhJ9
+	TebBUAduAtYrktaaCaZp/qkl2jqNaL/AqK/rt9uE/T2LRt9ZMHZjyDz+oI9yBzCI1YL2hMA/AvB+j
+	hbv81MxsogKeq8FtquTrYDFVfePP49PdX130rCLB4fOxeZbSdm7b03RXNt1QsGqTlyWSHrR1usm1H
+	GBzuv7/ayn3o1hBjlITHJyzYn3zw5KG9/N3j56d46J2S/OOPpY1xADyWSASQz3KbxKOjeGf03ipYz
+	ZKz5yAMkv2XRPGJKdQZLO9qEMopfQ73fBJZknrKvKbBCh4kVQONkfbol/QWCFPzI/TADhE1AwjaTX
+	Px001Chw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRWp-0000000B1of-1Xlx;
-	Wed, 11 Jun 2025 19:54:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPN7h-0000000ALLR-2Xys
+	id 1uPRWu-0000000B1yQ-45Ru;
+	Wed, 11 Jun 2025 19:54:36 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPN8e-0000000ALXN-2use
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 15:12:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F7761BCB;
-	Wed, 11 Jun 2025 08:11:56 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ED4E03F59E;
-	Wed, 11 Jun 2025 08:12:13 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	ardb@kernel.org,
-	frederic@kernel.org,
-	james.morse@arm.com,
-	joey.gouly@arm.com,
-	scott@os.amperecomputing.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v2 6/6] arm64/futex: support futex with FEAT_LSUI
-Date: Wed, 11 Jun 2025 16:11:54 +0100
-Message-Id: <20250611151154.46362-7-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250611151154.46362-1-yeoreum.yun@arm.com>
-References: <20250611151154.46362-1-yeoreum.yun@arm.com>
+	Wed, 11 Jun 2025 15:13:17 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-441ab63a415so71210945e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 08:13:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749654795; x=1750259595; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fw0ROdeFkh9FWMHJ/DqYZHwPq7uqPvziD7anVpTSv94=;
+        b=meQud4petqoUl0g0roJITaARqK1qK/4Mm6Go5TcXvT6w/51LPXLogDtHwnx1W0qUgc
+         A6u0Ouo89ABCtBDZZdxsLO6Bs20LEXdjLrEvq4v4qEjmVbdqKPyCr5n0kUsdxWEgEQ0U
+         D7+9doUgC6v7R6BlhitfiPEiHHSYYPAiUSQoPEFcjsOoXEsdJcD9wE47NdMZ5Mj4DoKg
+         Q1IBzdFfid8n6vwxiOGiJwST5Ho44HGD5qZ1hBdeX+udCG39G3tebRu3ObEV8rm+QWl4
+         dE5VWus86f+17z8+tZDlyuP+AK5jHvhofHD1caSIRQXw8lvmK7yz69TrBpvyTwUq8BU8
+         FPIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749654795; x=1750259595;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fw0ROdeFkh9FWMHJ/DqYZHwPq7uqPvziD7anVpTSv94=;
+        b=fAo7gVrI6SggJa4Ui/9S3Jw2c+exnVx497G/NY4DiPRXI8TSkddbgxxMLTvCClgBVs
+         TgypkOaUVsYrwJXb52mm9fMpYf/dp0fjqMDm31ahzJ7kZFKd4i6vT+U5HEr7H/cjHxwJ
+         lLJoJuYH0snb/rk5gPSfv/wzOF73mKUaV95yOVTlWF+EYi38GKljEtPq5ctGbsr4kbZG
+         wIBmjZ/kKL+8PFYcG3m2Q3uUyDOCPyLudmisvGJ4YXTepLNVPBiWkR/0ZVJoWPXxcqBQ
+         ru5CF7NhOK1Nctw4iKhjmNWZH1BxSyLtd5UU4BvmIH8w6IH1RT9JICT3xWejNjSOT/Jc
+         /i0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUGGzHpmV1mi2xBUS855Fj8fUpIOAD+JiGLeYBsecZxhY9kaLoXQCw/xFrn94BLUElMT1pPfifN3wV8bU/Q3MwH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzNFBchN0DeETYRbjH13gQGxiX0kGgGtaRIWKL0wHdv0TFcmY+
+	U3yk35gF4CbP5vAy8s6SK2KFIpM7OgB9dJaiYWu7VVKk/XjtYrxi3r9Q
+X-Gm-Gg: ASbGncuw8xkfV/HN0PfwhmwZQuEhtWj5RNdwilgWJ7qb1go6lAD6MQdpijqA0MWVsV/
+	Fd+LjC6cF1nvNfqHj8+RCOR3SW6Oz4w//DANzxebzpA6ioTr3kz8TkbVXhdn09tHF+qwTcZs/4g
+	feZszcp4ym4XzhdNtUvRid6HU57vlEx0h0/y0NnTbf/Zuw6/VIA+xL8oJDJjCvvlBh3x2/BTKOT
+	Pg+SPUPTb23gSAH5eq2qst3pauD63dwzItNe/9R4lS/Y0fdAR9Tr1kslCcMlUW6uDCwM5y/sU8X
+	54vea1kRmfq0NOYgsMTSK1Mm+Lye1Tf1OpuzdRYPWVqAlotMiYxy79R7hhxM+lejKOGasjo4Zjj
+	Ccd+jjhW81YoREPSQKsaxJPlBCvWuLtxmxjIUqCprcxID8g3Q
+X-Google-Smtp-Source: AGHT+IEDVsHtC1GbgmVXkrBhi7qP89VRSAHqsPRw+3TK8NgfPIpRXp3HCwEkAPPqvPVqYIRwks0NVw==
+X-Received: by 2002:a05:600c:3b1a:b0:450:d012:df7a with SMTP id 5b1f17b1804b1-453248cfda0mr30513625e9.28.1749654794417;
+        Wed, 11 Jun 2025 08:13:14 -0700 (PDT)
+Received: from orome (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45325171412sm23865525e9.17.2025.06.11.08.13.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Jun 2025 08:13:12 -0700 (PDT)
+Date: Wed, 11 Jun 2025 17:13:10 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+Cc: linux-kernel@vger.kernel.org, tglx@linutronix.de, 
+	Qiang Zhao <qiang.zhao@nxp.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH] soc: Use dev_fwnode()
+Message-ID: <nrukbxvov3vgyqtanxqldtnovzhhijpzamxhj3bqrouqbx3tlf@3stf2h62h56d>
+References: <20250611104348.192092-1-jirislaby@kernel.org>
+ <20250611104348.192092-19-jirislaby@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6vwrysg6fi76oazm"
+Content-Disposition: inline
+In-Reply-To: <20250611104348.192092-19-jirislaby@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_081217_725723_43102307 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20250611_081316_733876_F64B6401 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,167 +101,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv9.6, FEAT_LSUI supplies load/store unprevileged instructions
-for kernel to access user memory without clearing PSTATE.PAN.
 
-This patch makes futex use futex_atomic operations implemented with these
-instruction when cpu supports FEAT_LSUI otherwise they work with
-ldxr/stlxr with clearing PSTATE.PAN bit.
+--6vwrysg6fi76oazm
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] soc: Use dev_fwnode()
+MIME-Version: 1.0
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/futex.h | 99 +++++++++++-----------------------
- 1 file changed, 31 insertions(+), 68 deletions(-)
+On Wed, Jun 11, 2025 at 12:43:47PM +0200, Jiri Slaby (SUSE) wrote:
+> irq_domain_create_simple() takes fwnode as the first argument. It can be
+> extracted from the struct device using dev_fwnode() helper instead of
+> using of_node with of_fwnode_handle().
+>=20
+> So use the dev_fwnode() helper.
+>=20
+> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+> Cc: Qiang Zhao <qiang.zhao@nxp.com>
+> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+> Cc: Thierry Reding <thierry.reding@gmail.com>
+> Cc: Jonathan Hunter <jonathanh@nvidia.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+>=20
+> ---
+> Cc: linux-tegra@vger.kernel.org
+> ---
+>  drivers/soc/fsl/qe/qe_ic.c | 3 +--
+>  drivers/soc/tegra/pmc.c    | 3 +--
+>  2 files changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index bc06691d2062..ed4586776655 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -9,71 +9,60 @@
- #include <linux/uaccess.h>
- 
- #include <asm/errno.h>
-+#include <asm/lsui.h>
- 
--#define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
--
--#define __futex_atomic_op(insn, ret, oldval, uaddr, tmp, oparg)		\
--do {									\
--	unsigned int loops = FUTEX_MAX_LOOPS;				\
--									\
--	uaccess_enable_privileged();					\
--	asm volatile(							\
--"	prfm	pstl1strm, %2\n"					\
--"1:	ldxr	%w1, %2\n"						\
--	insn "\n"							\
--"2:	stlxr	%w0, %w3, %2\n"						\
--"	cbz	%w0, 3f\n"						\
--"	sub	%w4, %w4, %w0\n"					\
--"	cbnz	%w4, 1b\n"						\
--"	mov	%w0, %w6\n"						\
--"3:\n"									\
--"	dmb	ish\n"							\
--	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)				\
--	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)				\
--	: "=&r" (ret), "=&r" (oldval), "+Q" (*uaddr), "=&r" (tmp),	\
--	  "+r" (loops)							\
--	: "r" (oparg), "Ir" (-EAGAIN)					\
--	: "memory");							\
--	uaccess_disable_privileged();					\
--} while (0)
-+#define FUTEX_ATOMIC_OP(op)										\
-+static __always_inline int										\
-+__futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-+{									\
-+	return __lsui_ll_sc_u_body(futex_atomic_##op, oparg, uaddr, oval);					\
-+}
-+
-+FUTEX_ATOMIC_OP(add)
-+FUTEX_ATOMIC_OP(or)
-+FUTEX_ATOMIC_OP(and)
-+FUTEX_ATOMIC_OP(eor)
-+FUTEX_ATOMIC_OP(set)
-+
-+#undef FUTEX_ATOMIC_OP
-+
-+static __always_inline int
-+__futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	return __lsui_ll_sc_u_body(futex_cmpxchg, uaddr, oldval, newval, oval);
-+}
- 
- static inline int
- arch_futex_atomic_op_inuser(int op, int oparg, int *oval, u32 __user *_uaddr)
- {
--	int oldval = 0, ret, tmp;
--	u32 __user *uaddr = __uaccess_mask_ptr(_uaddr);
-+	int ret;
-+	u32 __user *uaddr;
- 
- 	if (!access_ok(_uaddr, sizeof(u32)))
- 		return -EFAULT;
- 
-+	uaddr = __uaccess_mask_ptr(_uaddr);
-+
- 	switch (op) {
- 	case FUTEX_OP_SET:
--		__futex_atomic_op("mov	%w3, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_set(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_ADD:
--		__futex_atomic_op("add	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_add(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_OR:
--		__futex_atomic_op("orr	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_or(oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_ANDN:
--		__futex_atomic_op("and	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, ~oparg);
-+		ret = __futex_atomic_and(~oparg, uaddr, oval);
- 		break;
- 	case FUTEX_OP_XOR:
--		__futex_atomic_op("eor	%w3, %w1, %w5",
--				  ret, oldval, uaddr, tmp, oparg);
-+		ret = __futex_atomic_eor(oparg, uaddr, oval);
- 		break;
- 	default:
- 		ret = -ENOSYS;
- 	}
- 
--	if (!ret)
--		*oval = oldval;
--
- 	return ret;
- }
- 
-@@ -81,40 +70,14 @@ static inline int
- futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *_uaddr,
- 			      u32 oldval, u32 newval)
- {
--	int ret = 0;
--	unsigned int loops = FUTEX_MAX_LOOPS;
--	u32 val, tmp;
- 	u32 __user *uaddr;
- 
- 	if (!access_ok(_uaddr, sizeof(u32)))
- 		return -EFAULT;
- 
- 	uaddr = __uaccess_mask_ptr(_uaddr);
--	uaccess_enable_privileged();
--	asm volatile("// futex_atomic_cmpxchg_inatomic\n"
--"	prfm	pstl1strm, %2\n"
--"1:	ldxr	%w1, %2\n"
--"	sub	%w3, %w1, %w5\n"
--"	cbnz	%w3, 4f\n"
--"2:	stlxr	%w3, %w6, %2\n"
--"	cbz	%w3, 3f\n"
--"	sub	%w4, %w4, %w3\n"
--"	cbnz	%w4, 1b\n"
--"	mov	%w0, %w7\n"
--"3:\n"
--"	dmb	ish\n"
--"4:\n"
--	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
--	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
--	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
--	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
--	: "memory");
--	uaccess_disable_privileged();
--
--	if (!ret)
--		*uval = val;
- 
--	return ret;
-+	return __futex_cmpxchg(uaddr, oldval, newval, uval);
- }
- 
- #endif /* __ASM_FUTEX_H */
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+Nice.
 
+Acked-by: Thierry Reding <treding@nvidia.com>
+
+--6vwrysg6fi76oazm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmhJnQYACgkQ3SOs138+
+s6EVqhAAwl9x/C2bZ95K26Ya7KjGd12r+UguN2KE+Ox5oVvGiXJqH01jlbLNQQNd
+e2dWs7Ab/Pm6GDWPizV/3GDmtAjl/VTosIk68fHIfgn+lbOuPCIbF1357hby0EoG
+EsiZkTH37DPAHssGvu8HQvc2dcdrIAY0l8CMDF/02q0rEudONhfR2IdYuUrdQ+2s
+nTXWdU3WyJhznnB+a0RZMZTjqzR8uac7xkAJxoflrCBBfVlJqibqzFqqkjQihAQC
+P+/YoQ6k5S+E2PHm4hpSsYKlgT++RKWIhiWM/TfWdwRqUv8FRQVdGzfh/NrnVJB3
+2/QClOh5C5d+V5NOJPsuZLt/aJNoAcOaHcEP10hxmM4uR7cyKMz6mcB5mxVQ/+eJ
+EQLIhUPtBQQjUO9438neInn5zIv3ASFpLodyMuZQHGuHbD/kcifBX1sPqrFa21yC
+ifK20ep2CQugVVWYR7oYtcylFXLdWtjag46oGtMikG7ym4t/5mEeNhhuh9FmiJ1w
+uYS0ei+jnJSb6fQsmwlZyxvpqBS0XIakoHL+/ZTA/UVMwUenRcQ+mJGI83k6m1IR
+ajr1OdeB9FR2D95Tmi3WlQFsiO/vhi0D0Hg4leYelvUtwrN0y0PCuqJbF6A4lUNi
+i+n2VZDdEsaQSWTwn6S4FRhScCYlb3AALXE43F+jTwR6xbEIXQc=
+=w/HU
+-----END PGP SIGNATURE-----
+
+--6vwrysg6fi76oazm--
 
