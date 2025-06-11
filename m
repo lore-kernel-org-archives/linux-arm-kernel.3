@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BC4C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B040AC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 22:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYsP4ku/s2ZmlGIKcWVAUTJaxKyLYtQ76A2A7rjgHX0=; b=0XhRANkjGFqY6Bkp54oRnDNdLg
-	8TnPRuiNmBkiAoB+F2QCDBU+fOZQHIxE6a9pOUIJ+RGJIZnmX+6Gs5gPw4fzNygaNOVwIzOi6P+MW
-	DxCktg1fBYyEuyJCxvIlENExwzANDMuXbk2x13aVfbs8NhE11GRrp28//+f/05ctKAbr+XuLef1ZA
-	bc5R9Fdv11vmkWzUFZWzyN4cXIh/MOtfiokmE4MRa4CxKlRsgZQ0t67cDQwEBC4ituiP7WGLt2gKu
-	Tvi/BI3Li1CnA6y3MQBTwR0StFFrz6Daz1JqTt4JqlC7OyeKhj+I+h/lkOG+pJIqlp9tgZ7AmV+sY
-	ri6D1R+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P4xCrWE6UfMDQfaIrM/6JY1uVyL0Fej7yEtEL19lwQY=; b=xGQBMuMNwwC8j5XS1DaktETf2e
+	jjIyRgy+OAggTR+lSOehlc8USSZyAlk5U2MvwWunBW316MxAhuUesEBbe4Nva8VKsHo5XGCMxcJWq
+	JF68eo9rNAtWiYBVtjA/24/rY46B0Zme6aaISs1iVxQPhGHUhK/HfUTYWNgP2qhRy7TMF4GMlu4UG
+	lwQ3QUepiVQlppKkH/b56aSNXx8UTiW+oZFlPHKXk3RWUzKSnTDIyQah2bI2jQRaO+bVJQ1w6ZPXd
+	0JuPSG83PAF6n8ldSiefI0iAMjk61t9MeCQnhKaChEi4RWPfGy+pHRvEqHR6FDU59EsRZuw7+KHgq
+	LcN8lR3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPTit-0000000BRZZ-3TkO;
-	Wed, 11 Jun 2025 22:15:07 +0000
+	id 1uPTl0-0000000BRyV-27d4;
+	Wed, 11 Jun 2025 22:17:18 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRRL-0000000AzA7-2s4W
+	id 1uPRUH-0000000B0Jv-0ZII
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 19:48:52 +0000
+	Wed, 11 Jun 2025 19:51:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1749671331; x=1781207331;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=aDdyZCDm5RtgTX/poDkJ6S5z8PkXxnmyIfnGWdKweUk=;
-  b=ZggPgCI/+N7h9FTWw9oT6UDkUz34OJwitkqW8ao7QE/7y8OH+GCX87/g
-   OQWn3lbaXM/TWgdgXGN3r9DIO9zT9Z9qw+vWFH9hK//42/UGMqbtRWKfc
-   HjvFAtaolAL1sGt7PWTYLLpuI515adCOa9I9s5tMmfzih8jMKgbRH9nL3
-   zow7Zt2kX9cV2MtoIBcfukT+F5XiMOPxNZPBEWRa+FyZt7wBlO7hhrIvB
-   A1Y8U0Vh/p62woKlShtLjC3vS1/Z3EhE5YJCtWcmtPsILVpA+tvYxoh97
-   aXlCgPLMIeehNUcQn3W5DEeChTP64vjcP9udqOqRWNga6mftpVE0s7au1
-   A==;
-X-CSE-ConnectionGUID: Mlj04rVUS3aXDCaAEgxBzw==
-X-CSE-MsgGUID: 6Xo02CoxSyS+i1Yy/BDTYg==
+  t=1749671512; x=1781207512;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=0JxLNWRlX6k+uwatmqej4dYDRJCNBxE+haXmVURsNd0=;
+  b=n823Sy5VVVgrYwq7at69PoECaC6jl+a0jY//i4KfKcpXFIkZqaF0tAy0
+   BN0/yWSGFOlXmMjF7e/g0Ym6dqvtosnXeBFMh7bMQshMcyxQlhUfz3Awo
+   B+wDH36LP07QhFXQLrVZt57ewQ3SeIaA37sCrSNJxQWbOcfB0snWbGlBg
+   kCCL3uDzxX70lJXsHoFROkiSSrUzDP2Cf8VzSCLsIjQRc6zLg0xidCcBT
+   n4JAHzn4xB6WMQfduNzcs76ObV747HvsIaESJvINPSZ0u8FoRS/rko/p9
+   tYAFrNZHbLCPUe9dW7NH+hGpYunsFTs+shfwQdVGWUD0YwPtFBkEE6nn5
+   Q==;
+X-CSE-ConnectionGUID: PFE2adCJQrWAEgiYnjIERA==
+X-CSE-MsgGUID: 5eHzcbFMTH+pyjY0H6lqDQ==
 X-IronPort-AV: E=Sophos;i="6.16,228,1744095600"; 
-   d="scan'208";a="210175099"
+   d="scan'208";a="210175217"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Jun 2025 12:48:50 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Jun 2025 12:51:52 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Wed, 11 Jun 2025 12:48:17 -0700
-Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Wed, 11 Jun 2025 12:48:17 -0700
-From: <Ryan.Wanner@microchip.com>
-To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<olivia@selenic.com>
-CC: <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
- Wanner" <Ryan.Wanner@microchip.com>
-Subject: [PATCH v2 10/10] ARM: dts: microchip: sama7d65: Enable CAN bus
-Date: Wed, 11 Jun 2025 12:47:34 -0700
-Message-ID: <ab719861de53432bdf19593fa4eee40adf57aed9.1749666053.git.Ryan.Wanner@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1749666053.git.Ryan.Wanner@microchip.com>
-References: <cover.1749666053.git.Ryan.Wanner@microchip.com>
+ 15.1.2507.44; Wed, 11 Jun 2025 12:51:21 -0700
+Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
+ Transport; Wed, 11 Jun 2025 12:51:21 -0700
+Message-ID: <5373558c-d075-4a35-a941-623e385cdc22@microchip.com>
+Date: Wed, 11 Jun 2025 12:51:22 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] ARM: dts: microchip: sama7d65: Add clock name
+ property
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <cover.1748030737.git.Ryan.Wanner@microchip.com>
+ <f6ae8a38a005e1a4e025b25ddb29113c5e65dead.1748030737.git.Ryan.Wanner@microchip.com>
+ <dc0c2777-ed5b-4729-8ae3-6563d8996e2e@tuxon.dev>
+From: Ryan Wanner <ryan.wanner@microchip.com>
+Content-Language: en-US
+In-Reply-To: <dc0c2777-ed5b-4729-8ae3-6563d8996e2e@tuxon.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_124851_781554_1D334B67 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_125153_237974_F5FEE749 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,71 +90,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Wanner <Ryan.Wanner@microchip.com>
+On 6/7/25 04:57, Claudiu Beznea wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> Hi, Ryan,
+> 
+> On 23.05.2025 23:24, Ryan.Wanner@microchip.com wrote:
+>> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+>>
+>> Add clock-output-names to the xtal nodes, so the driver can correctly
+>> register the main and slow xtal.
+>>
+>> This fixes the issue of the SoC clock driver not being able to find
+>> the main xtal and slow xtal correctly causing a bad clock tree.
+>>
+>> Fixes: 261dcfad1b59 ("ARM: dts: microchip: add sama7d65 SoC DT")
+> 
+> Can you please prepare a similar fix for sam9x7. It is also affected by
+> this, right?
+The driver looks for the xtal differently in the sam9x75 than in the
+SAMA7 clock drivers, so it is not immediately affected. But I will add a
+sam9x7 in the v2 of the patch since in the future it will be needed.
 
-Enable CAN bus for SAMA7D65 curiosity board.
-
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
----
- .../dts/microchip/at91-sama7d65_curiosity.dts | 36 +++++++++++++++++++
- 1 file changed, 36 insertions(+)
-
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-index 759b963d987c..7eaf6ca233ec 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-@@ -40,6 +40,24 @@ reg_5v: regulator-5v {
- 	};
- };
- 
-+&can1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_can1_default>;
-+	status = "okay";
-+};
-+
-+&can2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_can2_default>;
-+	status = "okay";
-+};
-+
-+&can3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_can3_default>;
-+	status = "okay";
-+};
-+
- &dma0 {
- 	status = "okay";
- };
-@@ -277,6 +295,24 @@ &main_xtal {
- };
- 
- &pioa {
-+	pinctrl_can1_default: can1-default {
-+		pinmux = <PIN_PD10__CANTX1>,
-+			 <PIN_PD11__CANRX1>;
-+		bias-disable;
-+	};
-+
-+	pinctrl_can2_default: can2-default {
-+		pinmux = <PIN_PD12__CANTX2>,
-+			 <PIN_PD13__CANRX2>;
-+		bias-disable;
-+	};
-+
-+	pinctrl_can3_default: can3-default {
-+		pinmux = <PIN_PD14__CANTX3>,
-+			 <PIN_PD15__CANRX3>;
-+		bias-disable;
-+	};
-+
- 	pinctrl_gmac0_default: gmac0-default {
- 		pinmux = <PIN_PA26__G0_TX0>,
- 			 <PIN_PA27__G0_TX1>,
--- 
-2.43.0
+Thank you,
+Ryan
+> 
+> Thank you,
+> Claudiu
+> 
+>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+>> ---
+>>  arch/arm/boot/dts/microchip/sama7d65.dtsi | 2 ++
+>>  1 file changed, 2 insertions(+)
+>>
+>> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+>> index b6710ccd4c36..7b1dd28a2cfa 100644
+>> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
+>> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+>> @@ -38,11 +38,13 @@ cpu0: cpu@0 {
+>>       clocks {
+>>               main_xtal: clock-mainxtal {
+>>                       compatible = "fixed-clock";
+>> +                     clock-output-names = "main_xtal";
+>>                       #clock-cells = <0>;
+>>               };
+>>
+>>               slow_xtal: clock-slowxtal {
+>>                       compatible = "fixed-clock";
+>> +                     clock-output-names = "slow_xtal";
+>>                       #clock-cells = <0>;
+>>               };
+>>       };
+> 
 
 
