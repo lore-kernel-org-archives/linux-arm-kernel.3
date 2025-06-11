@@ -4,177 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C70C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7620CC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 09:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1qM1mQZpmOuwDBV6Uw53mME0d5wdy/8UqbSSPrf2Lc=; b=0zzwbg5IAIHzFPaTKvNXYa7hIW
-	yo4zULHgOEzvmVEsTAvkFmT8eZgtbUB5kMVj8B1viPgogNxlmST/chbuFPVoXhX0Ka+wHQxSK8Usl
-	4JTracjQY5haJs7+9xywCdxH9hv+B054v5Fr2hXv2LO9k+FxX5aKaQEBwyIYzRuyyZJqXa+Szk2WE
-	LPGbUQlDEod7nkVt6pQkHMPDRCeoervwfTImeFRpmDnLox4wn9XhY3tP8HJTpd9IggdVP4z181v+3
-	TqvhvegYZOMt041eG2EAl//Zn1qcr5B7sXvwv5zv+MbfcJu8iw1kH37BD7p8VCIzUM2dfpYRzp4Wl
-	b3Nb0Wlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LGzsUKOfV2agJpJYzQdLRyRetgWdJTrvlnjtr6DjfNs=; b=Qdds7ALZUvpUg9UCl2UJdhX23e
+	uu2WLiYh2ARgopjzt6i/jLlF5ZWKstWRwGu427+cQR239745f5CAx6kVRA4uEGvAK2/itnN5oiUF1
+	9pRMycn4bqbdifu8ntAVJgjp0i9mRpP0DUKOYQ5RLSMXgkR8jY2QHRfZIg80q+X7PzHMo8hm4+5mm
+	lsiQANaN+VOlYCy34iIAoRRylBLshYSfR0CB0wABeF8MAHyOhSt9goNl4Nh44szDXd9oEIzn/yXKU
+	9EJ0qlbJqTVWWDXyuFVDWukVs8Oj1ncVkjJ7nAaWRU0OfKPdfgdmPBHIhOs4O/zeNeYc0eXx+ZtSm
+	xg27t7pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHgl-00000009Sc4-1WyG;
-	Wed, 11 Jun 2025 09:24:07 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1uPHrg-00000009ULd-0zZd;
+	Wed, 11 Jun 2025 09:35:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGI7-00000009AL5-0h8D
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 07:54:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Cn0huNzGdGUyS4x9qNe/5OFcsAkGLRW2XATo93wAjsWTsCsOkZFrkuDGuUTFnMnKfUQZpWjf2Up1p9BrKuUoMQOemXskiiXgbAVy+S1A1kA2/1k2BZ9Es0brGDAh5+Xbc0tugq2k3iANsFTJayLFVHsKFoS7EVsmUKU3Nc5FPC8PJPEQcC8C5bfzqBvYCsozvSEuJFQScxJ9GSJ+PvhLOguBAsVhaskLZiGBCI81Y3ciyyxXhNeTonF7Pr82UR6fIsJV5fUQpPO0Wf+ruAJR2Dq0n4RNHf2d5rAD4Hyo7tvIRggultGngQ6XjYnhW/KJwrDVTiJEncdjrrfmoaDXHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j1qM1mQZpmOuwDBV6Uw53mME0d5wdy/8UqbSSPrf2Lc=;
- b=C7dO25OWSJIFRn9ddycwQtHb42nIwn5NBjjWNGfpxkGtUtoj2VhuIy/iDOJv6oKDmqAhUwk3G7YnkjHrAniPFwc5KkoAGpc9tuZdlHO3mk4K6s6BDmHwOTsPk5bgjZNo2bgzIdlk8QrnKu4jbfNBnDIE6IrAe1QcCIQyfdbjXwIPgWz3N7n8m5rGeyFwOd8lgEizvfcNoLRKRSWuZOpOO2Ji7NuCaOZ4UlXH4oQU5fsAWhFmu4rBoQi722mu3nd6z48y8X2/JxMh61WZt6d8MnPQcfBTDmWpk7mGarcIQFR+eQil7Rtxpk1XU5VAvU77yzl1FWFbrP20bXU2zvbpQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j1qM1mQZpmOuwDBV6Uw53mME0d5wdy/8UqbSSPrf2Lc=;
- b=kN7pDTxzKSjcmLZL0hhZCk2L80Rz163anRVWQJwum7kJ6JKV1nznQ552z/kj7t7Pca/CdkrQdqPSOuors/lVpo3zywqH+MUyJfX6C6HXGQzbHj88TIKsBcDdDrsQdvuDJZ/92zKV+85R028763XbVu+enBSCfNgRwtVjuYegoBn7yEBZw+R9jO2MbditCfDziU+RPSJeJiIZowR6so2MS0ChOf0QKuj/zz9sLC2N9ik0sQCu9WVBXTZK63EFbP+Y/M6N9zZqdYTbFIPXGN4x1UcmU1+IL5Rq0l9Ash+OY8jTfJvblSolDKo9mqPbA+lkrueAr+ONxBPZQdJcXuDeiw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB9PR04MB8346.eurprd04.prod.outlook.com (2603:10a6:10:24d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.18; Wed, 11 Jun
- 2025 07:54:31 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8813.024; Wed, 11 Jun 2025
- 07:54:31 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Wed, 11 Jun 2025 15:52:44 +0800
-Subject: [PATCH 2/3] firmware: arm_scmi: perf: Add notify_supported for
- scmi_perf_proto_ops
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250611-scmi-perf-v1-2-df2b548ba77c@nxp.com>
-References: <20250611-scmi-perf-v1-0-df2b548ba77c@nxp.com>
-In-Reply-To: <20250611-scmi-perf-v1-0-df2b548ba77c@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749628374; l=3875;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=PH1c6PwicRSoyygQYAlLYy5cXM62q10Qj6z9/KR4a+o=;
- b=3GL7fg7OZ2Owvi2y/AjM/5O/EGfQ37j/3sKlvzpzB6qLM7sQ4S/riTupAZ/OrbW+p7zRnME9V
- S0WLaXYMvNvBBQbp8W0+aQyK9TIh+LMXIGGV25m4jEKVRA50ip5GkQn
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SG2PR04CA0209.apcprd04.prod.outlook.com
- (2603:1096:4:187::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1uPHpS-00000009U5M-3BwE;
+	Wed, 11 Jun 2025 09:33:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D80AD629DC;
+	Wed, 11 Jun 2025 09:33:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3144C4CEEE;
+	Wed, 11 Jun 2025 09:33:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749634385;
+	bh=xFb7df67RXQJJM6OYnc61HwRVo7NOSQCzNOagtm0TFc=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=XuJ4VI4DlbRxAFJ/x1UXS1DGayFL2lguLqGNSC/cRa7KdtkkGEVtvdQ5yRRV1dnWs
+	 cVTsghconbTtqgCL1o2OCQHRiIdSjio57OiYCMhKcWRGUxdgfZ6oXW9Am2bS+eMiC7
+	 uvPY/WDT0PjDUL14e3u2FwQn4ecKroLs0HewZDgeqzIcwxN1XL1cTK9FpdQljEiq52
+	 /aFjsVcxFhKltJr0y/YgpU6MiOjVd6kT7yeb+kHu9RcHWJDKnyk2UNkhFhHdOjlDsu
+	 Ikj5gzPnc91zOJnxTU9fHG0mg9HPkl4sPg5uA1Udo2qSN6DxlRrallVB2th8jObvna
+	 RMioGv2e4CKZA==
+Message-ID: <d08cb08c-4bdd-4715-8273-9feb7de7474b@kernel.org>
+Date: Wed, 11 Jun 2025 11:32:59 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB9PR04MB8346:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0fb1941b-59cb-4d82-1bf2-08dda8bd32c3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NnNrSmhvV3djU1FzckQrVjRZWjk5dzdZY1hNL0Z4OGhPaUsyNkF5U1ZVdi9N?=
- =?utf-8?B?TEIrK1g4c09PQzFxWnZpcjVIZklyVHdzUldEMTd3NzM1emZqcU9Eclp0eW1W?=
- =?utf-8?B?ZHYwSzBuSDY3VEcrc1NNQzYwOTlpRWpHYy9MS1VVbUdDLzlCNC82RnNrSkov?=
- =?utf-8?B?cFc1L1Zzd3B2cWcrai9lenlRY09GSjlienpVQUxPV3Q4cEM0aSt6bzRJei9s?=
- =?utf-8?B?YkxuRHIzNU5yK2pSMGlQMGx3RVo2OVQzZm1OKzh2Y3Awdm9hTkVDdnI2d0pq?=
- =?utf-8?B?amNucUFjSFRYZUJSZFhhc2Rnci9MSm44bG54aEVXN05nTmRsN0ZnUXpITTJn?=
- =?utf-8?B?cTczd2trMENzY0VmeWVHMjlZbzlzYTBLNVhNZ1p1MWRWY0RzNWVnemtnTE53?=
- =?utf-8?B?U3RzaFVzSDBreGRDTkJiNDNRajlYS0h4d25BdkFjU1J2U1NhTUhnK1dzYWpP?=
- =?utf-8?B?K3NRNkk5QjBwRHIxOWg5KzJXK2lkL1RWb1k5M0RRaU9wUFl5Qi9xMHZzQmJo?=
- =?utf-8?B?bS9NR1FFc1EzRW1mckUycitra243S21YdDhOR2VuQnAvN2JMN1FoSnVWT0c2?=
- =?utf-8?B?WDlOeFZXTSsyd0tDajhIeUJQajNKUCtzaDlWZjZIODJRaWhKeDBhRnl4OCta?=
- =?utf-8?B?VnJUcjMrbGhSUnMzTnNvM0dibURnZWFjdkNXOGxYVk84NzlnYWFXdUdsYnZx?=
- =?utf-8?B?WDVTOHZtd2F5V0FLMkNOYmlMVXhSeWdJVlFsb0tEYjFtRlZZK3JwbWdldjhR?=
- =?utf-8?B?NUViaC9KV1ZMQnVPTE9qblFDYk9xUHZDdVlaanJZaFlhcTBFbzU4Q0hjSDZR?=
- =?utf-8?B?NnM2MUxrSWNLbzhObEhjY1ljOWQybFJTb0pKYU5nazBHeC8vZHFUUTB0cXk1?=
- =?utf-8?B?cytMdFR2cEVyWHBMUUJDRmtJb0d2L1FHSXROYVlwVDFvNWlvTUNTS2o4THNB?=
- =?utf-8?B?M21WM1M1QXg2a293b2x2aGMxWUJkYmZ1cW50YnNQZXV5VkpVV3FWSlVZVjJR?=
- =?utf-8?B?TGNLZW81dG9yZFZNaC9qWVNJeVpIbUk0ZFdIelBXUXlpT2dNaWlPeXoyZmUv?=
- =?utf-8?B?MVUrY2hUMldoNDY0ZFVRMCs5RWNlbW1pVlNya3FLK3NpRi91TzQzOWthUk9B?=
- =?utf-8?B?bUdzbnIrL3pUb2x3WEFOcEc2QlVkZER2cDBRQXZKQk4zZGdVeWM4NDlIMlow?=
- =?utf-8?B?UU5yT2p3T2RqKzdsQWlNeHFZemtTTWtMaDE4c3REdEcwU0NNY2grMGdxaHBE?=
- =?utf-8?B?elI5TFQ0UkhzVTNvRGtZQXh6VWd2dkJ6cTlpZjh1cVZ1bTh5WHdKT3RKMzNw?=
- =?utf-8?B?NXB5RlR1VE1YMlZOYTd1eUUwN1RUZ00zREhaZUh0Y21ld0VGdVVlam80M2gr?=
- =?utf-8?B?TXNxVlVMUUhsTmd5VkxBaXYweXdDYXltUWo1Zy9PTDNaTUpJb05UQUtURnhX?=
- =?utf-8?B?aWVwU3pJMnNQSEQwaXg3OWVVQmxQSi8vOXpwQmFtQldDRXdWL2hHSzgvd2Fa?=
- =?utf-8?B?WFVGcUpYQmJUUzJUOEh3MkRjTEV1Ylg4a1VaT0tYMy9tNjkzd2U0ckpNWDRl?=
- =?utf-8?B?TjRCUGFjaU1DM1g3aWdhM0YyUWRsUkFsTXVYMmtkV2N0ZW82eURxUXA4TmJR?=
- =?utf-8?B?L1pZZkZlUUNRdFo4bmoxcXNOb2IwMjEvQWVOcVhFck1xcXM5QTlSOCtoSXJC?=
- =?utf-8?B?WkZIc0JObUZieGdKSUNWYnBOaTFuOGJYNHByTVpLaHJtc3l5MmloZ2lRTVZu?=
- =?utf-8?B?R1Arc2RnVU5WYmVFK0tCNitubmNVZTlQVGx5RXVzWXN5c2w0UzF4dHU5MG4w?=
- =?utf-8?B?bjh5S1pLaVhXaGVwL25QVjZ1MTUzVEZ1Nk1GbFhSR3BCeVFMMVhPaWxSSTRF?=
- =?utf-8?B?Z3JxeDV1elV2L1VaWXp5Mm11Rlg0Q08rSm1CMzFxU3JpajhpSlB5eWIxSVA0?=
- =?utf-8?B?eTloZnhXbGY4OVFONzFKUUFLa1o1QVN5UVdrT2ZxUVFFdzM1aGxEclRuQ3V0?=
- =?utf-8?B?TmtqK2tGZDF3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Lzh0TXlvcDdUcWZyc0dsUTBhSlphdEZXd05NcHM5T0dydWZ0eHBNSTFaM0hH?=
- =?utf-8?B?dVI3ZmEyei9zUXZPb2NkSWl0VlUyZXdrNTBkQmJJbEF4OXBUYTNpd1dIUHJ6?=
- =?utf-8?B?WjhsdFMyTFpxNTc5dmJPSmU4ZDMxZGJMcVhoRlJGSysvcXhvbEhhbFZVZkpY?=
- =?utf-8?B?Nk5VN1ZBOGwxYmMwSnFTU1ZHUzJFeWEzUGg1Z1JaVXM2Si9lY3pUd0ZlRm1B?=
- =?utf-8?B?eGhhZ2dEU0MxQ2syYUlxUjZwcVF3UHFTdGtlMjFNMnh3a2ErcWEzNUIxSzNB?=
- =?utf-8?B?VTRBVVpGbzBXMTFSZ01ZVFNMRzg5aVRCQk01TzhHbWZCeFk5T0MxTVZ2T09k?=
- =?utf-8?B?TUtMbWppZXM0RVhzRi9pRmIrRlJLT0d1b3c0cnZlVk5iN2dDN3FKNEIwQzU5?=
- =?utf-8?B?OHNrVUl3ZzFVeTVKUjY3M3c4SVJuYVFPK1RxMHhVUHFBYmlRNUhXcGVWRDl4?=
- =?utf-8?B?R2xIeWx6SG9PME9nV2xwYm9BYTcrK1plY2lkeEthRDZWUlZ5TU1VZTAvUXFN?=
- =?utf-8?B?dUthcElnclNLMHBycEcrQlcySkpoRndONU4zL0xXcTAzZkRndU1aTXpMcnVw?=
- =?utf-8?B?ekJuVUd4QlRJc1VaWWowallmVkk2WFM3OFAxMnZZZmptd1pqczNaNlBldExI?=
- =?utf-8?B?UTFJZXZmTm9IWjZGR1NDTHg1SVpzektsMy9rSWw1V285M0FjQzlwTGZkaVN3?=
- =?utf-8?B?TVpncjJhV1BBM2xyZGIreEpIVkJLYmxhenN1cnZDeW5vdnFPQUdjeXVvcFpq?=
- =?utf-8?B?SkFrYTIxSG5qV2hZQ0t0TDIybnNYVVFLWS82UHJxNXdCQ3FwQjBrQ2VQSE04?=
- =?utf-8?B?Q3BQelMvOXR6NnRVM3VGSjJUOXRXWnBkdlc5ZTBWYTdFNXM1eXdHamtXSFRl?=
- =?utf-8?B?VGtyT0FHbjhpOUpMQ0NFTmorQjVkd0NsZERpKzZ5elFXbGtJK2E1a3FiTHg2?=
- =?utf-8?B?YWN6c3hYckRDOU1oZldienJqSUYwT1dFZkN4UDVaUEM0Ynh1L0diQ2RhL0Ft?=
- =?utf-8?B?bnp2MlJhVXMyamlnTXdWdlc4RVZzZ1htelVsekh0dTN1bDBrWnJhRnlNMzZs?=
- =?utf-8?B?T3kxWEs0NkNJd1NDMllkN1dRekhaRTlDczFKZklKeVVDekJ1eERYdzVpMGNF?=
- =?utf-8?B?N3BWSENhZzF5aUJSTnhuREd6aDlQOVlRdWpMTGxVTnVDeHowY29VeFB1RXRR?=
- =?utf-8?B?WTVKbG8rNXBNbnVZcmppLy9VN0k2eldmNVRMTHVXTGVnMm8yZ2lSTXJYZ3pv?=
- =?utf-8?B?bWFMZXo0clprL1pzOEQrVGhzcGwrUUh6ODFnOVQ1OGNVVDczRG05QTdobldp?=
- =?utf-8?B?a2twNGtLRUM2cUpmNmxxWG44RUxZcHV6anZPTC96UmFpTjVDYXZYaGMxR2Zp?=
- =?utf-8?B?cTBXNlRwbzQrcVJRUlg0dkVhVWRtM3dPVnFSUkRlSUdSa3FLQkZJaUdocTVw?=
- =?utf-8?B?eVpUWXEwSHdXOVZkYWxGbE1zSmVwVk5XUFNMMnNkMytSdmxaSStueDNsdjdt?=
- =?utf-8?B?cUhhVFFJOWZyc0NDOHFnUUNYaE1BaE1wemlpYkNDTlBraU16Z0hRelVKZnJz?=
- =?utf-8?B?M3p0b0JHZWw4ZEowbWo2WDNKZk5ZN0Y5cHVhUEZ0MzVYTXVuMGY0K0NKVUxN?=
- =?utf-8?B?azdldmFzU2RFbTN5RzJ5bEJWbnZyanh2K2dwVTd2UUx1TE5Pb0dUYTJwdUlv?=
- =?utf-8?B?a1g2bG9EcHRFOFVGZExKckw1Rk5wZXBjdW1VU1FmRDdXTXBFbEVpN0grUWVl?=
- =?utf-8?B?Mm1uYlRJeEY4QzFxSTNHRHU3NGU5dzNMakVCUDVvY09BYWdHdVF5OWpMTTBL?=
- =?utf-8?B?aVJKTFpzREFneS9jczFlajQyYWVsRHQwL0h5b1NnUFVlaytULy9yTXZVSlg4?=
- =?utf-8?B?eGQza2xjTC8zRlRlOTEvL2ZPM0xOTDE2K25rVDVibmx2a2d3V0dpdEU5VHpO?=
- =?utf-8?B?VTlRZGtOUkJjYklaUFd1a3BFNldNdmZWWmc3aWNjUmFJNTV3UFA5ZVdpRnBP?=
- =?utf-8?B?YWZVWlFDc1NscTlsNFJuMWVxb0ZkbkxIMXlaZ3dDTVJ6N1kra2VnaHpDazBw?=
- =?utf-8?B?QlVxSy9MWGl3QjZVMnhicno4V0IrNURjZnE3aEZFcUZFNmlwWklSUWtITDgy?=
- =?utf-8?Q?BaJaf2taiw57HQ5tK/z36HmWM?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0fb1941b-59cb-4d82-1bf2-08dda8bd32c3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 07:54:31.2224
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3Q71m9M5RTkijiKC3Auh1THxEWaYh9QBGeMYiuro+XvxDYbz6UA+tnN3nAfC0H8G/pBZaswiswBys9iYoy3WGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8346
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_005435_213531_16596C19 
-X-CRM114-Status: GOOD (  11.72  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 08/10] ASoC: dt-bindings: mediatek,mt8196-afe: add
+ audio AFE document
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "Darren.Ye" <darren.ye@mediatek.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: Rob Herring <robh@kernel.org>, linux-sound@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, devicetree@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-gpio@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>
+References: <20250514081125.24475-1-darren.ye@mediatek.com>
+ <20250514081125.24475-9-darren.ye@mediatek.com>
+ <e74d82b3-ed4a-433b-9305-a80b68130a6f@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <e74d82b3-ed4a-433b-9305-a80b68130a6f@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,101 +123,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On 14/05/2025 12:54, Krzysztof Kozlowski wrote:
+> On 14/05/2025 10:11, Darren.Ye wrote:
+>> From: Darren Ye <darren.ye@mediatek.com>
+>>
+>> Add mt8196 audio AFE document.
+> 
+> A nit, subject: drop second/last, redundant "document".
+> See also:
+> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-PERFORMANCE_NOTIFY_LIMITS and PERFORMANCE_NOTIFY_LEVEL are optional
-commands which are not implemented in i.MX95 SCMI firmware. Provide
-a hook to query whether they are supported, before invoke
-event_notifier_register.
+Since you asked what did you miss from previous review (and I replied
+that EVERYTHING) then maybe this will help:
 
-scmi_perf_notify_supported could be directly used here, so just
-move scmi_perf_notify_supported above perf_proto_ops and use it
-in perf_proto_ops.
+How did you implement this?
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/firmware/arm_scmi/perf.c | 37 +++++++++++++++++++------------------
- include/linux/scmi_protocol.h    |  3 +++
- 2 files changed, 22 insertions(+), 18 deletions(-)
+> 
+>>
+>> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+> 
+> 
+> ...
+> 
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - mediatek,vlpcksys
+>> +  - power-domains
+>> +  - memory-region
+>> +  - clocks
+>> +  - clock-names
+> 
+> 
+> Keep the same order as in properties:.
 
-diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-index c7e5a34b254bf4e9c51c7be56803b6d851f0e1d6..ba990643edf0bcb5fc25253b4f52a5dc93b62a77 100644
---- a/drivers/firmware/arm_scmi/perf.c
-+++ b/drivers/firmware/arm_scmi/perf.c
-@@ -1068,24 +1068,6 @@ scmi_power_scale_get(const struct scmi_protocol_handle *ph)
- 	return pi->power_scale;
- }
- 
--static const struct scmi_perf_proto_ops perf_proto_ops = {
--	.num_domains_get = scmi_perf_num_domains_get,
--	.info_get = scmi_perf_info_get,
--	.limits_set = scmi_perf_limits_set,
--	.limits_get = scmi_perf_limits_get,
--	.level_set = scmi_perf_level_set,
--	.level_get = scmi_perf_level_get,
--	.transition_latency_get = scmi_dvfs_transition_latency_get,
--	.rate_limit_get = scmi_dvfs_rate_limit_get,
--	.device_opps_add = scmi_dvfs_device_opps_add,
--	.freq_set = scmi_dvfs_freq_set,
--	.freq_get = scmi_dvfs_freq_get,
--	.est_power_get = scmi_dvfs_est_power_get,
--	.fast_switch_possible = scmi_fast_switch_possible,
--	.fast_switch_rate_limit = scmi_fast_switch_rate_limit,
--	.power_scale_get = scmi_power_scale_get,
--};
--
- static bool scmi_perf_notify_supported(const struct scmi_protocol_handle *ph,
- 				       u8 evt_id, u32 src_id)
- {
-@@ -1107,6 +1089,25 @@ static bool scmi_perf_notify_supported(const struct scmi_protocol_handle *ph,
- 	return supported;
- }
- 
-+static const struct scmi_perf_proto_ops perf_proto_ops = {
-+	.num_domains_get = scmi_perf_num_domains_get,
-+	.info_get = scmi_perf_info_get,
-+	.limits_set = scmi_perf_limits_set,
-+	.limits_get = scmi_perf_limits_get,
-+	.level_set = scmi_perf_level_set,
-+	.level_get = scmi_perf_level_get,
-+	.transition_latency_get = scmi_dvfs_transition_latency_get,
-+	.rate_limit_get = scmi_dvfs_rate_limit_get,
-+	.device_opps_add = scmi_dvfs_device_opps_add,
-+	.freq_set = scmi_dvfs_freq_set,
-+	.freq_get = scmi_dvfs_freq_get,
-+	.est_power_get = scmi_dvfs_est_power_get,
-+	.fast_switch_possible = scmi_fast_switch_possible,
-+	.fast_switch_rate_limit = scmi_fast_switch_rate_limit,
-+	.power_scale_get = scmi_power_scale_get,
-+	.notify_supported = scmi_perf_notify_supported,
-+};
-+
- static int scmi_perf_set_notify_enabled(const struct scmi_protocol_handle *ph,
- 					u8 evt_id, u32 src_id, bool enable)
- {
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index aafaac1496b06a6e4f0ca32eee58a9edf7d4a70f..91865f0ebcbd4b15b55afd8c1a0d0614d6985daf 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -155,6 +155,7 @@ struct scmi_perf_domain_info {
-  *	successive fast_switching requests
-  * @power_scale_get: indicates if the power values provided are in milliWatts
-  *	or in some other (abstract) scale
-+ * @notify_supported: indicates if the event is supported
-  */
- struct scmi_perf_proto_ops {
- 	int (*num_domains_get)(const struct scmi_protocol_handle *ph);
-@@ -185,6 +186,8 @@ struct scmi_perf_proto_ops {
- 	int (*fast_switch_rate_limit)(const struct scmi_protocol_handle *ph,
- 				      u32 domain, u32 *rate_limit);
- 	enum scmi_power_scale (*power_scale_get)(const struct scmi_protocol_handle *ph);
-+	bool (*notify_supported)(const struct scmi_protocol_handle *ph, u8 evt_id,
-+				 u32 src_id);
- };
- 
- /**
+How did you implement this?
 
--- 
-2.37.1
 
+> 
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+How did you implement this?
+
+
+> 
+> <form letter>
+> This is an automated instruction, just in case, because many review tags
+> are being ignored. If you know the process, you can skip it (please do
+> not feel offended by me posting it here - no bad intentions intended).
+> If you do not know the process, here is a short explanation:
+> 
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+> of patchset, under or above your Signed-off-by tag, unless patch changed
+> significantly (e.g. new properties added to the DT bindings). Tag is
+> "received", when provided in a message replied to you on the mailing
+> list. Tools like b4 can help here. However, there's no need to repost
+> patches *only* to add the tags. The upstream maintainer will do that for
+> tags received on the version they apply.
+> 
+> Full context and explanation:
+> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+How did you implement this?
+
+Does such questions help you to find what was missing?
+
+Best regards,
+Krzysztof
 
