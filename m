@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA949C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4C5C7113C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 15:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOcA8JVEjHxy7SXGk73izLSpZeUh6cImIEszSD+A3x8=; b=JE0QeHraOj9s8/288wA2PJzO8r
-	gvjVI5CMFiDg/r49xUHcRuIyDy9HJ1/ICeCt1Yq7XUhz/Q0PkPnAvqWIpiW8l0VEr/Gtg/K9dH6M7
-	n7zBVmki7GLRMe9Xqvk0aKaDa9v2vG7YzFDOZLO0fDqXlQOoO1rbsUT0pP+ntgMgnwSsmk/4MXlcO
-	azKvtbZONXbGlZ0HYssux6PeNitsK3EdjEDA4gvihucQ+UGi+g7hF+OyqqH6V391fpuplOpHwoImr
-	gh3SE3WmkIkcHL0hAlxUSCvGtHlIlUQkE/WIIZKu40aVNtmcc3XufnT/XDmZzHEOHp2TuEEg+KGtT
-	38lElBaQ==;
+	bh=P9tCX6AWaQXGYb4h81VkM8hP8QP6lnZ/090T2IKTHzw=; b=J2rod5X+KSpue8HBnqhhLvPO7j
+	BemKyTiFSCU2kLqY5r+Sb9OwMaWEyH4SKu1EzPr6+hQ9c/otwposRTjuulJlSix8zamxEcAO9jl50
+	XX5Pxn6I5MpqX6qu2/gP536gvymENnQ/0XNSwZcEFevtJ/p9cSSjYsXCcGOZKh7Aa3aP89HkPA5nQ
+	3rV/ZKHIpz8E8effy6+OSjAQ/B7vHgmzI5l4W9sUY8ySMOxFgjPOCBORydlTp1oRVEqu3pXO3xvbj
+	piNRePfZV3vGS6eaQ06dwDocu85RYZbcBghRQZ7wKS0Nuy2BhGZItbl6OV/+mWLMF4bRnx3ThZRw3
+	lwj7uVGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNmN-0000000ATQL-1kZq;
-	Wed, 11 Jun 2025 15:54:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPIwl-00000009e7H-1lU1
+	id 1uPNmQ-0000000ATV9-0Kxy;
+	Wed, 11 Jun 2025 15:54:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPJ1I-00000009fCY-42z4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:44:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AB990A51682;
-	Wed, 11 Jun 2025 10:44:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FC8EC4CEF2;
-	Wed, 11 Jun 2025 10:44:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749638682;
-	bh=NLnT5+LOFbAWdUD6OEeMhq8wMEwsqTEbDWDE/LB5oWI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bhJu2rvffdhuDVYngs0/mJHh/Ii4qb2QtctIipm4DBUJclR7bsCSEQGuTxOzsfrfd
-	 Tn7OMefVMV6axO7RrfvnO8OMXp5QKHdplyCFpuiVX3N9XIeci0hEtQCurRRXEoNS47
-	 5oZjNV8VHM9DH7/3p/qvdnQz1P7LRnMlqmILblb6ZJAW41cFP8LhyauvBLQrtkAfWY
-	 nm5aGIbCO8SY0LuJpQe5iQZ1I9feFo0r+Vho7MCYLp7c6CU4howsxj+6Yr+olrWmg6
-	 evu2rEF7aJz8wsiiOu7o+21ahm9P3mc3P2Ioqhcq69dKyjhSWfLsmpSZ15C0ivm/ty
-	 yuu2qvRW95l+A==
-From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: tglx@linutronix.de,
-	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
-	Qiang Zhao <qiang.zhao@nxp.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-tegra@vger.kernel.org
-Subject: [PATCH] soc: Use dev_fwnode()
-Date: Wed, 11 Jun 2025 12:43:47 +0200
-Message-ID: <20250611104348.192092-19-jirislaby@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250611104348.192092-1-jirislaby@kernel.org>
-References: <20250611104348.192092-1-jirislaby@kernel.org>
+	Wed, 11 Jun 2025 10:49:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0C4115A1;
+	Wed, 11 Jun 2025 03:49:04 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 830B23F77D;
+	Wed, 11 Jun 2025 03:49:22 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	ardb@kernel.org,
+	frederic@kernel.org,
+	james.morse@arm.com,
+	joey.gouly@arm.com,
+	scott@os.amperecomputing.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH 2/6] arm64/Kconfig: add LSUI Kconfig
+Date: Wed, 11 Jun 2025 11:49:12 +0100
+Message-Id: <20250611104916.10636-3-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611104916.10636-1-yeoreum.yun@arm.com>
+References: <20250611104916.10636-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_034443_541997_5283DF07 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250611_034925_041746_DFC2EE4A 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +73,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-irq_domain_create_simple() takes fwnode as the first argument. It can be
-extracted from the struct device using dev_fwnode() helper instead of
-using of_node with of_fwnode_handle().
+Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+previleged level to access to access user memory without clearing
+PSTATE.PAN bit.
+It's enough to add CONFIG_AS_HAS_LSUI only because the code for LUSI uses
+indiviual `.arch_extension` entries.
 
-So use the dev_fwnode() helper.
-
-Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Thierry Reding <thierry.reding@gmail.com>
-Cc: Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linuxppc-dev@lists.ozlabs.org
-
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
-Cc: linux-tegra@vger.kernel.org
----
- drivers/soc/fsl/qe/qe_ic.c | 3 +--
- drivers/soc/tegra/pmc.c    | 3 +--
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ arch/arm64/Kconfig | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/soc/fsl/qe/qe_ic.c b/drivers/soc/fsl/qe/qe_ic.c
-index 4068b501a3a3..943911053af6 100644
---- a/drivers/soc/fsl/qe/qe_ic.c
-+++ b/drivers/soc/fsl/qe/qe_ic.c
-@@ -407,7 +407,6 @@ static int qe_ic_init(struct platform_device *pdev)
- 	void (*high_handler)(struct irq_desc *desc);
- 	struct qe_ic *qe_ic;
- 	struct resource *res;
--	struct device_node *node = pdev->dev.of_node;
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 55fc331af337..20f360eef2ac 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2237,6 +2237,13 @@ config ARM64_GCS
  
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 	if (res == NULL) {
-@@ -441,7 +440,7 @@ static int qe_ic_init(struct platform_device *pdev)
- 		high_handler = NULL;
- 	}
+ endmenu # "v9.4 architectural features"
  
--	qe_ic->irqhost = irq_domain_create_linear(of_fwnode_handle(node), NR_QE_IC_INTS,
-+	qe_ic->irqhost = irq_domain_create_linear(dev_fwnode(&pdev->dev), NR_QE_IC_INTS,
- 						  &qe_ic_host_ops, qe_ic);
- 	if (qe_ic->irqhost == NULL) {
- 		dev_err(dev, "failed to add irq domain\n");
-diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
-index e0d67bfe955c..9543bee0c321 100644
---- a/drivers/soc/tegra/pmc.c
-+++ b/drivers/soc/tegra/pmc.c
-@@ -2500,8 +2500,7 @@ static int tegra_pmc_irq_init(struct tegra_pmc *pmc)
- 	pmc->irq.irq_set_type = pmc->soc->irq_set_type;
- 	pmc->irq.irq_set_wake = pmc->soc->irq_set_wake;
++menu "v9.6 architectural features"
++
++config AS_HAS_LSUI
++	def_bool $(as-instr,.arch_extension lsui)
++
++endmenu # "v9.6 architectural features"
++
+ config ARM64_SVE
+ 	bool "ARM Scalable Vector Extension support"
+ 	default y
+@@ -2498,4 +2505,3 @@ endmenu # "CPU Power Management"
+ source "drivers/acpi/Kconfig"
  
--	pmc->domain = irq_domain_create_hierarchy(parent, 0, 96,
--						  of_fwnode_handle(pmc->dev->of_node),
-+	pmc->domain = irq_domain_create_hierarchy(parent, 0, 96, dev_fwnode(pmc->dev),
- 						  &tegra_pmc_irq_domain_ops, pmc);
- 	if (!pmc->domain) {
- 		dev_err(pmc->dev, "failed to allocate domain\n");
+ source "arch/arm64/kvm/Kconfig"
+-
 -- 
-2.49.0
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
