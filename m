@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3DEC61CE7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 08:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182BCC61CE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 08:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hNzuAa/Uazdw3p5L2VOhfCBO9w/r53QUlAR5HnqCwzk=; b=NYl97MHW4gt4JNull9cX2yz9ZU
-	flK8e1pf6LmX4pGoNBL6mHMRs+BM37eIfgmWqTgrUuL5nWW5pmFDCpsLOFHO96iNVlxz+i3Wct7pu
-	UF2DsSMyOrxz7/ELWKvG6yO05LMrSjaTUarwQd1PYNKHaB1ZBGn0YPVqtRPFulvnY62+rDgkB/Z6x
-	FrQ5ZMFVY+3IHg6CRUdYmiIPbeAQZnzQ5vWaUfsZItK5LH8oIPzekRL3M2Im706vJyweOCvf7zQ/+
-	e4jNe2Mp7icm1lXketDnQePBoKKuMkRVc3BHz15FQFqWVrMQ9uIvZWUXWg4XC1kByUkGUVnM3JswZ
-	rLdEQb3A==;
+	bh=KKbu1o95QNnYrie8L7Z3Lpp3SPlLgdV1zXb1UY/Ga98=; b=0F4ULlsKuGyyzmcMGAi4yIIhIJ
+	KBAyQPhJaIEn5s0DqSIK/tCyeETLEBGySL/3TG7LtkjYwnrqopzZ6gsIJSDE62XzkkGqGwYpNYrM5
+	NxPCKXqRUa2Rbk3hJDM4lKKuagrDb9Cb7H4SumuAxuBIupROqG/KeIuK4diuVg242kcl+Ex31exgH
+	3Yu7pDghVbr3pNL59F2kVn3W62l8BdaPdu/ZiNTcvUTgrKFfrzZU5E644RFJbpXN5ohpzKXuVpbjS
+	s4mXztALh8PYhsLXObef+i6i45NVQ1gp50GJFqOxJa+WoXFCJmOL7DlKeGdj51WNJ9911IKfnl/op
+	6wUKOdvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGpg-00000009Gm0-2HNV;
-	Wed, 11 Jun 2025 08:29:16 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uPGrp-00000009H2s-0zEz;
+	Wed, 11 Jun 2025 08:31:29 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGSc-00000009DE6-0I5g
+	id 1uPGSf-00000009DFW-0evg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 08:05:27 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-234bfe37cccso77385615ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 01:05:25 -0700 (PDT)
+	Wed, 11 Jun 2025 08:05:30 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-234bfe37cccso77386015ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 01:05:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749629125; x=1750233925; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1749629128; x=1750233928; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hNzuAa/Uazdw3p5L2VOhfCBO9w/r53QUlAR5HnqCwzk=;
-        b=X49UxfsAstpRBfffvxd3EkH3OB/eGq09fGC8zptmX73XDZ5HemgiPCTqPzDarACQBS
-         /rzEi1Icj3FQZEeq+E6D548hvlplbqIqu1gxnJZv5frCLAeJ3VgL5/Gz6i8NNDmWSRCm
-         OyWmgq61d3q6e1esNbnVrg1VLaLQuAgkFMYg9goRSwsgdo9ZNnt9ZoPFP0KSgezJn6KP
-         izpy1Y1SgG0JbFMiycPn1/UR4b60K28B8NvXL2or2laTY7iyCAITeqkOHGw6kU/3CAX7
-         Vh3rHpiFOfLWf10NC0Lamf1zvWvzAMUAavFGLN30St5Hz0IzAEqVI5BS4IX8zSkgvsre
-         wbpA==
+        bh=KKbu1o95QNnYrie8L7Z3Lpp3SPlLgdV1zXb1UY/Ga98=;
+        b=Yr4UEEt4uezKL+3m9kWn125HQGTwvUmL0dxHK8Q4hMhmThIDGcLl7+rKVsESjU3AWt
+         yTUwZDT9LN2Y9pJknIajudX9rcaTpgWaa3pdAc/0HII+nfk5eiHbCBnZQJP0uRaD8XDX
+         1rqQucppWrKz9FWaN9T232Z85lCa0mts/oZ6tnk8g0hqoYBp9MtNNc2LCh7q/G9VC2Gq
+         m5sT0jhCx3ZzG2A6r1r7F9r25EQKPg2MqL6NTN5Jxwn4Jm4HbrkLo1qXI7SAfIzf4HXc
+         HKVTebZdDP3rjeS/LclkmutLc3u2ZHifMlT79+xzgrLIYC7RRCd+TQ85d++QJqdlETHo
+         5epg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749629125; x=1750233925;
+        d=1e100.net; s=20230601; t=1749629128; x=1750233928;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hNzuAa/Uazdw3p5L2VOhfCBO9w/r53QUlAR5HnqCwzk=;
-        b=Fx+pJG5uD9pV/CVvWZvSBjVKB0RCS6HgSoXmzAn3AuFqf+/9mZNAR44tyevO5M7N16
-         WJtQai1Kc/FjITGpxyhzZnZvpXpvBEtmwDaMP6zEIf5hpZc7B+gdIeNNrssLYjk3zXQU
-         tJwSkW6ZfiPsiWy2kX6JSUmDTTZ2kdHY2v/7la3RuN06lNX9gzCRtWvAQyMk/05jgia/
-         Zzb5vEm9mrWqEcrvu6tihnvMmVHnfXRYeS2EIsZgzTPqMB+ZV4c7DYbWhC6QWpx4Vyb2
-         KIwT5Old0gEOYNwdLHAmhEnfwe5J6sAPoIZQzmenvq8/5PrEh+tRcixymKaoY0VwGMVY
-         tX2A==
-X-Forwarded-Encrypted: i=1; AJvYcCXi8T6SdVoicNGDO26Qjbaare5ROaJX51LTz/nfi0L7z/CMlsZKZpEduRCUapVG/d0LrKS+qMUtDFuaA00uebY5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCVL8e2z3XfqVvWrrHzXbg/bTXKltVr2iIc5xCN7LaPB2kVb9m
-	XL3bpebqbZ6xrGfKPAycrqjxei/DWnKxwY9BvCmJ9f2X6uAwGLhJWvt5KLCaVw==
-X-Gm-Gg: ASbGncumlv0/7Mvbpx3YXGy908U3ikyDbHYNhSMer4LO9sp2r8wwG6QbgRCqWRdyZ2R
-	NT9O3ELE/bEKiCNBq4PuUV7NMWPX4bsmko2RBb064RhcwkjFc5YVZAb0X4ySTRQjy360QJbvtYg
-	OzIsFl8TT+zr5GgsXBqjgxR1ao0TKltyx9xeqEUZeILRsb7Kqamoi29bNlFNq2VnbuuLcmaPvkD
-	TftT8lhb1j2qMvsKk2enV3m718itpkvooorTD63rpft1ih6x7M9k52EFw0m4K6G5k2GltlmRXsg
-	kn72QuInd2lOnExiM7Xl1pyqhxOFOpRrdaIgmGaL49cVqy2KkIgAUpgJIrLtSReNva03WhX8zif
-	iEEKiqvZOLF1ZMV5LEJW24OntfUjU7IlUew74/Q8RqKYs8mUSomw6nv61SJT5jUG3js3N4oYdqU
-	0bjd8b/g==
-X-Google-Smtp-Source: AGHT+IHoyKh/sH8/DfqDm6/YTmj58rUQ/xaund/2a2KvsOZBw+ZZaPMZVA4RQVLdez8ySceA+Rd2qw==
-X-Received: by 2002:a17:902:ce0f:b0:234:8c64:7878 with SMTP id d9443c01a7336-2364260d248mr28868105ad.11.1749629125239;
-        Wed, 11 Jun 2025 01:05:25 -0700 (PDT)
+        bh=KKbu1o95QNnYrie8L7Z3Lpp3SPlLgdV1zXb1UY/Ga98=;
+        b=sxsxiKf1lWc7jJbeP7cK/bXp+JxqSWzJBtmfR0rC/aa1VdWTGiahg1q6ja7pF+Resm
+         U6aL0zhd7fCllEIPyOqH0exPW6NaOHbl9TbVGBady+BUWGyq0KADtaLEG+Gt76cY4MmV
+         LuOESl7aWp/9YC5YDIZtrgBwwGcjFwi6xl6zMIZTGecFW77krRI3RazgrEY1BO8ySsns
+         hu1AzM+2GFPnBF4hZD4OCeySm/Gv0aeTBG7yRl7IQ+s73WZhVpMcwIfDE8WegWU5lk3z
+         cIRxTTNYI1bu6LRcAnhmEJ3iamv4fxzpB5Hb0th2mqMW+4Hof+p6bJVka45PDz4I2p0c
+         ifLA==
+X-Forwarded-Encrypted: i=1; AJvYcCXff0+V0DY820Yu3hSsiXbkr1h6TZzn59/HfR6nUxgbh1+6+ozFusI0qVbucHbkkUn1wez822RcetMoEtgOVUtr@lists.infradead.org
+X-Gm-Message-State: AOJu0YysIJ5QUe9ReMna732j55xH55LglKfLRQWxtpXu2KdNBsXOCDLy
+	nEbexbQ3RFHp7xpvsELf+6h8gmXHSXSQAcXTejzLK/iAC7jhRBtxbtSN
+X-Gm-Gg: ASbGnct7N5K+siU/AXRzX4s1bVDfbZaB8PShR32bfXhVEL+DiWgDwyHrEcb5wP73ELn
+	rWrU3bUJ9JfUNVv/NxJ6uRh32KOto0oRuSW98fAJ9swBuM7ziJedrczTlhMpQw5/eGap+23cn5q
+	QuikHj9wUXZ0jkGi9Y+g8kgWgkc/5xSq6V9pc3XX3mMBGoWa5MKpAoVt+96lLKWZ3DipzUaOq6S
+	cf9U12oX8uaxP4ipJo5/uFEB6BYLny/8v9aCEY5MhoGZQsNqJHoFPR1C28eqUEryanQY15em/5o
+	aNDxVOHcnI/nu6FC7bKgsKZkwMb+mYsE+saZqlCplM9BB7wxAml88UazP7AVvLG/1s6VRYzJppF
+	1TyC5Pz3PltKHnssC1CKBqHrOS6leT6Er8UD//yA2jPklCSyRpO9ViPPOEDjS2XzDGN3iRYo+HH
+	sQ2OL8qQ==
+X-Google-Smtp-Source: AGHT+IGeLq1+OHxDZevQ6QLgjMpafO8y79YrpEjfJFZArC1M6ed/pAiO8LgUIMW+68fVDNOZqDVkAA==
+X-Received: by 2002:a17:903:3c47:b0:235:2375:7ead with SMTP id d9443c01a7336-2364269a903mr28755145ad.28.1749629128388;
+        Wed, 11 Jun 2025 01:05:28 -0700 (PDT)
 Received: from localhost.localdomain (2001-b400-e357-b8a8-7759-271d-6134-9aa3.emome-ip6.hinet.net. [2001:b400:e357:b8a8:7759:271d:6134:9aa3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2363ad90982sm21283835ad.220.2025.06.11.01.05.22
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2363ad90982sm21283835ad.220.2025.06.11.01.05.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 01:05:24 -0700 (PDT)
+        Wed, 11 Jun 2025 01:05:28 -0700 (PDT)
 From: Peter Yin <peteryin.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -81,17 +81,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
 Cc: peteryin.openbmc@gmail.com
-Subject: [PATCH v2 2/5] ARM: dts: aspeed: harma: add fan board I/O expander
-Date: Wed, 11 Jun 2025 16:05:11 +0800
-Message-Id: <20250611080514.3123335-3-peteryin.openbmc@gmail.com>
+Subject: [PATCH v2 3/5] ARM: dts: aspeed: harma: add ADC128D818 for voltage monitoring
+Date: Wed, 11 Jun 2025 16:05:12 +0800
+Message-Id: <20250611080514.3123335-4-peteryin.openbmc@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250611080514.3123335-1-peteryin.openbmc@gmail.com>
 References: <20250611080514.3123335-1-peteryin.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_010526_105902_104A14C8 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250611_010529_203531_59B4F6E4 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +106,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add GPIO I/O expander node for the fan board to detect and monitor
-fan board status.
+Add the ADC128D818 device to I2C bus 29 to support voltage monitoring
+on the Harma platform. This enables accurate measurement of system
+voltages through the onboard ADC.
 
 Signed-off-by: Peter Yin <peteryin.openbmc@gmail.com>
 ---
- .../dts/aspeed/aspeed-bmc-facebook-harma.dts  | 38 +++++++++++++++++++
- 1 file changed, 38 insertions(+)
+ .../boot/dts/aspeed/aspeed-bmc-facebook-harma.dts   | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-index 3a215bb1e220..344e20394665 100644
+index 344e20394665..25b873ace2ea 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
-@@ -218,6 +218,25 @@ temperature-sensor@4b {
- 		compatible = "ti,tmp75";
- 		reg = <0x4b>;
- 	};
+@@ -529,6 +529,19 @@ eeprom@54 {
+ 				compatible = "atmel,24c64";
+ 				reg = <0x54>;
+ 			};
 +
-+	gpio@12 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x12>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <116 IRQ_TYPE_LEVEL_LOW>;
++			adc@1d {
++				compatible = "ti,adc128d818";
++				reg = <0x1d>;
++				ti,mode = /bits/ 8 <1>;
++			};
 +
-+		gpio-line-names =
-+		"","",
-+		"","",
-+		"","",
-+		"","",
-+		"","",
-+		"","",
-+		"","fcb1-activate",
-+		"","";
-+	};
- };
- 
- &i2c1 {
-@@ -273,6 +292,25 @@ temperature-sensor@4b {
- 		compatible = "ti,tmp75";
- 		reg = <0x4b>;
- 	};
++			adc@1f {
++				compatible = "ti,adc128d818";
++				reg = <0x1f>;
++				ti,mode = /bits/ 8 <1>;
++			};
 +
-+	gpio@12 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x12>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <114 IRQ_TYPE_LEVEL_LOW>;
-+
-+		gpio-line-names =
-+		"","",
-+		"","",
-+		"","",
-+		"","",
-+		"","",
-+		"","",
-+		"","fcb0-activate",
-+		"","";
-+	};
- };
- 
- &i2c3 {
+ 		};
+ 		imux30: i2c@2 {
+ 			#address-cells = <1>;
 -- 
 2.25.1
 
