@@ -4,136 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40417C678DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85937C678DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zYXRhiTCKjL/ILq0gnh0QN/qZigjj3xGh6BayDOZZXM=; b=NCl9s1dqF5S4cvnllguCa4noXc
-	BmbWK73hvgJwZcrGIa0unfoIZo2YW2lkHZrV5wo+IIkqErM93nqxjKjPXuQ/ScyXSRjYpAE/Bg9MS
-	0C9b4jU76R2Gm0BqZ3vwdpiwK+Z2Zr2H/BUxHd/JHwFHXeMR6iDs50S4zhVJzFmkYj+cdoUQGOciP
-	2Wh2CyAyBREEfOVAhucDvFw8GwOvynSLyKBSbJ3hCBc4G7KQ86KE37NYomIm5Rt0wYYW8+vCSSP/N
-	HLHVPNYy46zDw7k7a+zV+kKMu/NusdgONeieRHzWVMNDUSDDOh2pPpI7hs7Y12i+zfDPes+1K/R+h
-	+bk0mXrQ==;
+	bh=EhPS5PZpO7S8Eq5vQ9IQOdZwbTZkVOREB/qmFhe5DKk=; b=UqaWJQ32B6XVkv840O1TfVk9Yt
+	qYgn4Fw2vf86pZI8Y0LC7uZSjRVlzGUcrx3e2X0gWP7afaXF8YM7GTdcAQyezcMBNhJPlbfCgAy0X
+	CEcIXOhzUtlsbh9Rl1CPbkYSjA3FObjaX2lmKs46NcFDsY6Wruu0Q3CZjQI5WR78x0/3MdrnvwoCl
+	00yAEAhAxRekV/9Y3m15/zw5j6ysLxfbsqGb+9jGoQjS5Xg4fNGRWVWNjQ/1HGbV/rJ7zttngSeDN
+	JEc4o/Tm46PgopXmVajrcvfmj+mK3O+R2FgL+x97SnLhyJ+zRggiGb8S7arkofbFuNdztcIujLk1F
+	6gAgqv6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMmO-0000000AByY-1BKO;
-	Wed, 11 Jun 2025 14:50:16 +0000
+	id 1uPMmM-0000000ABvg-2j5M;
+	Wed, 11 Jun 2025 14:50:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPI9p-00000009Xya-2fCG;
-	Wed, 11 Jun 2025 09:54:09 +0000
+	id 1uPI4U-00000009Wxu-3WBF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 11 Jun 2025 09:48:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:References:
-	In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=zYXRhiTCKjL/ILq0gnh0QN/qZigjj3xGh6BayDOZZXM=; b=VTancJQBNry+btvz0XGuV4WBGj
-	D+4duJkgHXj7qEv9rn+ta9eA9R3QlI1wKZMOBVFhwZZq+oVg6l7HdyLlpkrWVy+qsP/akmOCysvvn
-	6+b3VkV1aN1o1LPUwOON5UAPYaVX/WvUc3JUjor978qS9DA0Ci7ENvaW6bpTnAM1+He2Y1Q391xWj
-	dWza3MZrDzYxUgsVKKdsTMAIXb9bOaLto8WRL6+EloIiydNwbXfU/Wm2cEUtngRNcX3nVqzu//gXo
-	DibhAjaDYQlpv5EkrtOyVxHgRfNG/MEiuKhPFCl9GQ2NEdIxxvX+G2lZuxE0HIxae9j3ufuG1sKaQ
-	BNcrKxVw==;
-Received: from mout.gmx.net ([212.227.15.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPI9n-00000002FQY-2091;
-	Wed, 11 Jun 2025 09:54:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1749635594; x=1750240394; i=frank-w@public-files.de;
-	bh=zYXRhiTCKjL/ILq0gnh0QN/qZigjj3xGh6BayDOZZXM=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:Date:In-Reply-To:References:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Xo8m6QJCi1JyBEsPJjQ97sZu9YQMq5UsQ72KLON8c8AQU4UkYH2k0L6HiMzd8Qm/
-	 vgz3OvDfSnHTx+ByyF7I2B3iCZU+PtY3wyiVoq4DjAzGRiIFjQMkFjs5PFIkiPdzE
-	 nJca4cpThicSjz1ZKm3bk4nhioTV0OoKHuOYhw2UTt126ntxmmGLnXKta8UTeuzs4
-	 V8i1JA+Y7mWJy/o7GuOkogc0h7MBnYdlvBKCc7LS6StO97JvVXleC68/NaDVTWOfz
-	 ieSKAWS5rGI0OUKqz5/Lx8/sc2QPwulr/6nVh40Gf8BAeeRSoIveN92IAPr/z2IXK
-	 3r/sEEgp5T+chUDbJQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [100.64.173.171] ([100.64.173.171]) by
- trinity-msg-rest-gmx-gmx-live-847b5f5c86-xfcwg (via HTTP); Wed, 11 Jun 2025
- 09:53:14 +0000
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=EhPS5PZpO7S8Eq5vQ9IQOdZwbTZkVOREB/qmFhe5DKk=; b=n8w6DHuUi+yanV1OhijWf3e4Ag
+	i+6XBGi2ZwDUxkUMOfXHTlIMS6S5uVGFzqs+dWJ18Du9kC+HYl9L8Y61WIoCTJSwJMwOLA3aMRm6s
+	gOc6gvlRgjqtgWtEo2bYlXkHOuWqgqU9DOuzIRW3XSapvzW/tx7gaqlZnzHAgZzUHD7fz82cDiILO
+	PpUZ/cDjQXX6Lnt78rFfBtzdwC8zqIx04U4BcO3rLHr0WXmaOecVPHU+AnAa6zF0hdlfcz2n6ft5d
+	CHuIrfo1xhteUnNmRrJQQ4sZFUzOhmipdyItjVCyeJ82/UqLpPk2N0LfHgOwE/0pAfIHw56msdG+u
+	APfbBOBg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPI4S-00000002FFl-1o00
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 11 Jun 2025 09:48:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 561B626AC;
+	Wed, 11 Jun 2025 02:48:13 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 864A93F59E;
+	Wed, 11 Jun 2025 02:48:29 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	pcc@google.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	anshuman.khandual@arm.com,
+	joey.gouly@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	frederic@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io,
+	samuel.holland@sifive.com,
+	palmer@rivosinc.com,
+	charlie@rivosinc.com,
+	thiago.bauermann@linaro.org,
+	bgray@linux.ibm.com,
+	tglx@linutronix.de,
+	puranjay@kernel.org,
+	david@redhat.com,
+	yang@os.amperecomputing.com,
+	mbenes@suse.cz,
+	joel.granados@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v5 7/7] kselftest/arm64/mte: add MTE_STORE_ONLY testcases
+Date: Wed, 11 Jun 2025 10:48:02 +0100
+Message-Id: <20250611094802.929332-8-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250611094802.929332-1-yeoreum.yun@arm.com>
+References: <20250611094802.929332-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Message-ID: <trinity-86821bec-44c3-4443-948c-129059072e31-1749635594371@trinity-msg-rest-gmx-gmx-live-847b5f5c86-xfcwg>
-From: Frank Wunderlich <frank-w@public-files.de>
-To: angelogioacchino.delregno@collabora.com, linux@fw-web.de,
- myungjoo.ham@samsung.com, kyungmin.park@samsung.com, cw00.choi@samsung.com,
- djakov@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, matthias.bgg@gmail.com
-Cc: jia-wei.chang@mediatek.com, johnson.wang@mediatek.com,
- arinc.unal@arinc9.com, Landen.Chao@mediatek.com, dqfext@gmail.com,
- sean.wang@mediatek.com, daniel@makrotopia.org, lorenzo@kernel.org,
- nbd@nbd.name, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Aw: Re: [PATCH v3 06/13] arm64: dts: mediatek: mt7988: add basic
- ethernet-nodes
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 11 Jun 2025 09:53:14 +0000
-In-Reply-To: <10d6fe88-75ff-4c02-8fdd-e1101aaa565c@collabora.com>
-References: <20250608211452.72920-1-linux@fw-web.de>
- <20250608211452.72920-7-linux@fw-web.de>
- <10d6fe88-75ff-4c02-8fdd-e1101aaa565c@collabora.com>
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:Q2R61HcTqndi0q11hWidyahbItcW6ovT4kgROL1nVAsKt0arHVAd/NiryzdzXvAIws3t1
- ltx6Ujod5/iaAeAuFrBp4VokrPC0pJudFY+6gFvpd1MtY33eWlb2ozX94z0F2Mjq/aXDsO/3ET5G
- GFAlTdZsBexqzqnJ+QwafaN3oXIxoVCkaoBT1kMbhQtbf32oXXYwf8ZlyRiRYv/4/94izt82b38Q
- NThXJCHzy8z7Zt5QvO7dDdxPjFfYAK6TA992FYMywk7zpo/mgwL3rvjWvd59fDqeE2tV7SE01nEu
- hMqr+0lS+1c7ydPOToBhQUpp+Fg99b2tHnBunWJPcfetcBJ0wpzTXiMDJJ+hiq5Tv4=
-UI-OutboundReport: notjunk:1;M01:P0:2Zyrp1I1JME=;mBDTp/4Eo5Q/GEjqqicjM4prH5Z
- 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
- 6/+IGGwuXw==
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_105407_646608_865166C6 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250611_104836_815922_4CBCE6BB 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,181 +98,789 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
 
-thanks for review.
+Adds new test cases using MTE_STORE_ONLY feature.
 
-> Gesendet: Mittwoch, 11. Juni 2025 um 11:33
-> Von: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.c=
-om>
-> Betreff: Re: [PATCH v3 06/13] arm64: dts: mediatek: mt7988: add basic et=
-hernet-nodes
->
-> Il 08/06/25 23:14, Frank Wunderlich ha scritto:
-> > From: Frank Wunderlich <frank-w@public-files.de>
-> >=20
-> > Add basic ethernet related nodes.
-> >=20
-> > Mac1+2 needs pcs (sgmii+usxgmii) to work correctly which will be linke=
-d
-> > later when driver is merged.
-> >=20
-> > Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> > Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
-> > ---
-> >   arch/arm64/boot/dts/mediatek/mt7988a.dtsi | 124 ++++++++++++++++++++=
-+-
-> >   1 file changed, 121 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi b/arch/arm64/bo=
-ot/dts/mediatek/mt7988a.dtsi
-> > index 560ec86dbec0..ee1e01d720fe 100644
-> > --- a/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> > +++ b/arch/arm64/boot/dts/mediatek/mt7988a.dtsi
-> > @@ -680,7 +680,28 @@ xphyu3port0: usb-phy@11e13000 {
-> >   			};
-> >   		};
-> >  =20
-> > -		clock-controller@11f40000 {
-> > +		xfi_tphy0: phy@11f20000 {
-> > +			compatible =3D "mediatek,mt7988-xfi-tphy";
-> > +			reg =3D <0 0x11f20000 0 0x10000>;
-> > +			resets =3D <&watchdog 14>;
-> > +			clocks =3D <&xfi_pll CLK_XFIPLL_PLL_EN>,
-> > +				 <&topckgen CLK_TOP_XFI_PHY_0_XTAL_SEL>;
-> > +			clock-names =3D "xfipll", "topxtal";
->=20
-> resets here please, not after reg.
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ .../selftests/arm64/mte/check_mmap_options.c  | 359 +++++++++++++++++-
+ .../testing/selftests/arm64/mte/check_prctl.c |  25 +-
+ 2 files changed, 365 insertions(+), 19 deletions(-)
 
-OK
+diff --git a/tools/testing/selftests/arm64/mte/check_mmap_options.c b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+index 1a77dd8f59c0..b8e96cccc605 100644
+--- a/tools/testing/selftests/arm64/mte/check_mmap_options.c
++++ b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+@@ -35,6 +35,11 @@ enum mte_mem_check_type {
+ 	CHECK_CLEAR_PROT_MTE = 2,
+ };
+ 
++enum mte_tag_op_type {
++	TAG_OP_ALL = 0,
++	TAG_OP_STONLY = 1,
++};
++
+ struct check_mmap_testcase {
+ 	int check_type;
+ 	int mem_type;
+@@ -42,17 +47,24 @@ struct check_mmap_testcase {
+ 	int mapping;
+ 	int tag_check;
+ 	int atag_check;
++	int tag_op;
+ 	bool enable_tco;
+ };
+ 
++#define TAG_OP_ALL		0
++#define TAG_OP_STONLY		1
++
+ static size_t page_size;
+ static int sizes[] = {
+ 	1, 537, 989, 1269, MT_GRANULE_SIZE - 1, MT_GRANULE_SIZE,
+ 	/* page size - 1*/ 0, /* page_size */ 0, /* page size + 1 */ 0
+ };
+ 
+-static int check_mte_memory(char *ptr, int size, int mode, int tag_check, int atag_check)
++static int check_mte_memory(char *ptr, int size, int mode,
++		int tag_check,int atag_check, int tag_op)
+ {
++	char buf[MT_GRANULE_SIZE];
++
+ 	if (!mtefar_support && atag_check == ATAG_CHECK_ON)
+ 		return KSFT_SKIP;
+ 
+@@ -81,16 +93,34 @@ static int check_mte_memory(char *ptr, int size, int mode, int tag_check, int at
+ 	if (cur_mte_cxt.fault_valid == true && tag_check == TAG_CHECK_OFF)
+ 		return KSFT_FAIL;
+ 
++	if (tag_op == TAG_OP_STONLY) {
++		mte_initialize_current_context(mode, (uintptr_t)ptr, -UNDERFLOW);
++		memcpy(buf, ptr - UNDERFLOW, MT_GRANULE_SIZE);
++		mte_wait_after_trig();
++		if (cur_mte_cxt.fault_valid == true)
++			return KSFT_FAIL;
++
++		mte_initialize_current_context(mode, (uintptr_t)ptr, size + OVERFLOW);
++		memcpy(buf, ptr + size, MT_GRANULE_SIZE);
++		mte_wait_after_trig();
++		if (cur_mte_cxt.fault_valid == true)
++			return KSFT_FAIL;
++	}
++
+ 	return KSFT_PASS;
+ }
+ 
+-static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_check)
++static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping,
++		int tag_check, int atag_check, int tag_op)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, result, map_size;
+ 	int item = ARRAY_SIZE(sizes);
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
++	if (tag_op == TAG_OP_STONLY && !mtestonly_support)
++		return KSFT_SKIP;
++
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, tag_op);
+ 	for (run = 0; run < item; run++) {
+ 		map_size = sizes[run] + OVERFLOW + UNDERFLOW;
+ 		map_ptr = (char *)mte_allocate_memory(map_size, mem_type, mapping, false);
+@@ -106,7 +136,7 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
+ 			munmap((void *)map_ptr, map_size);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_check, tag_op);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		mte_free_memory((void *)map_ptr, map_size, mem_type, false);
+ 		if (result != KSFT_SKIP)
+@@ -115,14 +145,18 @@ static int check_anonymous_memory_mapping(int mem_type, int mode, int mapping, i
+ 	return KSFT_PASS;
+ }
+ 
+-static int check_file_memory_mapping(int mem_type, int mode, int mapping, int tag_check, int atag_check)
++static int check_file_memory_mapping(int mem_type, int mode, int mapping,
++		int tag_check, int atag_check, int tag_op)
+ {
+ 	char *ptr, *map_ptr;
+ 	int run, fd, map_size;
+ 	int total = ARRAY_SIZE(sizes);
+ 	int result = KSFT_PASS;
+ 
+-	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, false);
++	if (tag_op == TAG_OP_STONLY && !mtestonly_support)
++		return KSFT_SKIP;
++
++	mte_switch_mode(mode, MTE_ALLOW_NON_ZERO_TAG, tag_op);
+ 	for (run = 0; run < total; run++) {
+ 		fd = create_temp_file();
+ 		if (fd == -1)
+@@ -144,7 +178,7 @@ static int check_file_memory_mapping(int mem_type, int mode, int mapping, int ta
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, tag_check, atag_check, tag_op);
+ 		mte_clear_tags((void *)ptr, sizes[run]);
+ 		munmap((void *)map_ptr, map_size);
+ 		close(fd);
+@@ -177,7 +211,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int at
+ 			ksft_print_msg("FAIL: mprotect not ignoring clear PROT_MTE property\n");
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_check, TAG_OP_ALL);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		if (result != KSFT_PASS)
+ 			return KSFT_FAIL;
+@@ -201,7 +235,7 @@ static int check_clear_prot_mte_flag(int mem_type, int mode, int mapping, int at
+ 			close(fd);
+ 			return KSFT_FAIL;
+ 		}
+-		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_check);
++		result = check_mte_memory(ptr, sizes[run], mode, TAG_CHECK_ON, atag_check, TAG_OP_ALL);
+ 		mte_free_memory_tag_range((void *)ptr, sizes[run], mem_type, UNDERFLOW, OVERFLOW);
+ 		close(fd);
+ 		if (result != KSFT_PASS)
+@@ -219,6 +253,7 @@ const char *format_test_name(struct check_mmap_testcase *tc)
+ 	const char *mapping_str;
+ 	const char *tag_check_str;
+ 	const char *atag_check_str;
++	const char *tag_op_str;
+ 
+ 	switch (tc->check_type) {
+ 	case CHECK_ANON_MEM:
+@@ -303,6 +338,23 @@ const char *format_test_name(struct check_mmap_testcase *tc)
+ 	         check_type_str, mapping_str, sync_str, mem_type_str,
+ 	         tag_check_str, atag_check_str);
+ 
++	switch (tc->tag_op) {
++	case TAG_OP_ALL:
++		tag_op_str = "";
++		break;
++	case TAG_OP_STONLY:
++		tag_op_str = " / store-only";
++		break;
++	default:
++		assert(0);
++		break;
++	}
++
++	snprintf(test_name, TEST_NAME_MAX,
++	         "Check %s with %s mapping, %s mode, %s memory and %s (%s%s)\n",
++	         check_type_str, mapping_str, sync_str, mem_type_str,
++	         tag_check_str, atag_check_str, tag_op_str);
++
+ 	return test_name;
+ }
+ 
+@@ -318,6 +370,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = true,
+ 		},
+ 		{
+@@ -327,6 +380,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = true,
+ 		},
+ 		{
+@@ -336,6 +390,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -345,6 +400,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_OFF,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -354,6 +410,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -363,6 +420,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -372,6 +430,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -381,6 +440,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -390,6 +450,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -399,6 +460,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -408,6 +470,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -417,6 +480,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -426,6 +490,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -435,6 +500,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -444,6 +510,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -453,6 +520,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -462,6 +530,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -471,6 +540,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -480,6 +550,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -489,6 +560,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -498,6 +570,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -507,6 +580,257 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_ANON_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_SYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_PRIVATE,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MMAP,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
++			.enable_tco = false,
++		},
++		{
++			.check_type = CHECK_FILE_MEM,
++			.mem_type = USE_MPROTECT,
++			.mte_sync = MTE_ASYNC_ERR,
++			.mapping = MAP_SHARED,
++			.tag_check = TAG_CHECK_ON,
++			.atag_check = ATAG_CHECK_OFF,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -516,6 +840,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -525,6 +850,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -534,6 +860,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -543,6 +870,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -552,6 +880,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -561,6 +890,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -570,6 +900,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -579,6 +910,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_SHARED,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -588,6 +920,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_STONLY,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -597,6 +930,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 		{
+@@ -606,6 +940,7 @@ int main(int argc, char *argv[])
+ 			.mapping = MAP_PRIVATE,
+ 			.tag_check = TAG_CHECK_ON,
+ 			.atag_check = ATAG_CHECK_ON,
++			.tag_op = TAG_OP_ALL,
+ 			.enable_tco = false,
+ 		},
+ 	};
+@@ -643,7 +978,8 @@ int main(int argc, char *argv[])
+ 								     test_cases[i].mte_sync,
+ 								     test_cases[i].mapping,
+ 								     test_cases[i].tag_check,
+-								     test_cases[i].atag_check),
++								     test_cases[i].atag_check,
++								     test_cases[i].tag_op),
+ 				      format_test_name(&test_cases[i]));
+ 			break;
+ 		case CHECK_FILE_MEM:
+@@ -651,7 +987,8 @@ int main(int argc, char *argv[])
+ 							        test_cases[i].mte_sync,
+ 							        test_cases[i].mapping,
+ 							        test_cases[i].tag_check,
+-							        test_cases[i].atag_check),
++							        test_cases[i].atag_check,
++								test_cases[i].tag_op),
+ 				      format_test_name(&test_cases[i]));
+ 			break;
+ 		case CHECK_CLEAR_PROT_MTE:
+diff --git a/tools/testing/selftests/arm64/mte/check_prctl.c b/tools/testing/selftests/arm64/mte/check_prctl.c
+index 4c89e9538ca0..83fa20cc6072 100644
+--- a/tools/testing/selftests/arm64/mte/check_prctl.c
++++ b/tools/testing/selftests/arm64/mte/check_prctl.c
+@@ -60,7 +60,7 @@ void check_basic_read(void)
+ /*
+  * Attempt to set a specified combination of modes.
+  */
+-void set_mode_test(const char *name, int hwcap2, int mask)
++void set_mode_test(const char *name, int hwcap2, int hwcap3, int mask)
+ {
+ 	int ret;
+ 
+@@ -69,6 +69,11 @@ void set_mode_test(const char *name, int hwcap2, int mask)
+ 		return;
+ 	}
+ 
++	if ((getauxval(AT_HWCAP3) & hwcap3) != hwcap3) {
++		ksft_test_result_skip("%s\n", name);
++		return;
++	}
++
+ 	ret = set_tagged_addr_ctrl(mask);
+ 	if (ret < 0) {
+ 		ksft_test_result_fail("%s\n", name);
+@@ -81,7 +86,7 @@ void set_mode_test(const char *name, int hwcap2, int mask)
+ 		return;
+ 	}
+ 
+-	if ((ret & PR_MTE_TCF_MASK) == mask) {
++	if ((ret & (PR_MTE_TCF_MASK | PR_MTE_STORE_ONLY)) == mask) {
+ 		ksft_test_result_pass("%s\n", name);
+ 	} else {
+ 		ksft_print_msg("Got %x, expected %x\n",
+@@ -93,12 +98,16 @@ void set_mode_test(const char *name, int hwcap2, int mask)
+ struct mte_mode {
+ 	int mask;
+ 	int hwcap2;
++	int hwcap3;
+ 	const char *name;
+ } mte_modes[] = {
+-	{ PR_MTE_TCF_NONE,  0,          "NONE"  },
+-	{ PR_MTE_TCF_SYNC,  HWCAP2_MTE, "SYNC"  },
+-	{ PR_MTE_TCF_ASYNC, HWCAP2_MTE, "ASYNC" },
+-	{ PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC,  HWCAP2_MTE, "SYNC+ASYNC"  },
++	{ PR_MTE_TCF_NONE,                                        0,          0,                     "NONE"  },
++	{ PR_MTE_TCF_SYNC,                                        HWCAP2_MTE, 0,                     "SYNC"  },
++	{ PR_MTE_TCF_ASYNC,                                       HWCAP2_MTE, 0,                     "ASYNC" },
++	{ PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC,                     HWCAP2_MTE, 0,                     "SYNC+ASYNC"  },
++	{ PR_MTE_TCF_SYNC | PR_MTE_STORE_ONLY,                    HWCAP2_MTE, HWCAP3_MTE_STORE_ONLY, "SYNC+STONLY" },
++	{ PR_MTE_TCF_ASYNC | PR_MTE_STORE_ONLY,                   HWCAP2_MTE, HWCAP3_MTE_STORE_ONLY, "ASYNC+STONLY" },
++	{ PR_MTE_TCF_SYNC | PR_MTE_TCF_ASYNC | PR_MTE_STORE_ONLY, HWCAP2_MTE, HWCAP3_MTE_STORE_ONLY, "SYNC+ASYNC+STONLY" },
+ };
+ 
+ int main(void)
+@@ -106,11 +115,11 @@ int main(void)
+ 	int i;
+ 
+ 	ksft_print_header();
+-	ksft_set_plan(5);
++	ksft_set_plan(8);
+ 
+ 	check_basic_read();
+ 	for (i = 0; i < ARRAY_SIZE(mte_modes); i++)
+-		set_mode_test(mte_modes[i].name, mte_modes[i].hwcap2,
++		set_mode_test(mte_modes[i].name, mte_modes[i].hwcap2, mte_modes[i].hwcap3,
+ 			      mte_modes[i].mask);
+ 
+ 	ksft_print_cnts();
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-> > +			mediatek,usxgmii-performance-errata;
-> > +			#phy-cells =3D <0>;
-
-maybe #phy-cells above vendor-specific property like below?
-
-> > +		};
-> > +
-> > +		xfi_tphy1: phy@11f30000 {
-> > +			compatible =3D "mediatek,mt7988-xfi-tphy";
-> > +			reg =3D <0 0x11f30000 0 0x10000>;
-> > +			resets =3D <&watchdog 15>;
-> > +			clocks =3D <&xfi_pll CLK_XFIPLL_PLL_EN>,
-> > +				 <&topckgen CLK_TOP_XFI_PHY_1_XTAL_SEL>;
-> > +			clock-names =3D "xfipll", "topxtal";
->=20
-> ditto
-
-ok, #phy-cells last?
-
-> > +			#phy-cells =3D <0>;
-> > +		};
-> > +
-> > +		xfi_pll: clock-controller@11f40000 {
-> >   			compatible =3D "mediatek,mt7988-xfi-pll";
-> >   			reg =3D <0 0x11f40000 0 0x1000>;
-> >   			resets =3D <&watchdog 16>;
-> > @@ -714,19 +735,116 @@ phy_calibration_p3: calib@97c {
-> >   			};
-> >   		};
-> >  =20
-> > -		clock-controller@15000000 {
-> > +		ethsys: clock-controller@15000000 {
-> >   			compatible =3D "mediatek,mt7988-ethsys", "syscon";
-> >   			reg =3D <0 0x15000000 0 0x1000>;
-> >   			#clock-cells =3D <1>;
-> >   			#reset-cells =3D <1>;
-> >   		};
-> >  =20
-> > -		clock-controller@15031000 {
-> > +		ethwarp: clock-controller@15031000 {
-> >   			compatible =3D "mediatek,mt7988-ethwarp";
-> >   			reg =3D <0 0x15031000 0 0x1000>;
-> >   			#clock-cells =3D <1>;
-> >   			#reset-cells =3D <1>;
-> >   		};
-> > +
-> > +		eth: ethernet@15100000 {
-> > +			compatible =3D "mediatek,mt7988-eth";
-> > +			reg =3D <0 0x15100000 0 0x80000>,
-> > +			      <0 0x15400000 0 0x200000>;
->=20
-> reg =3D <0 0x15100000 0 0x80000>, <0 0x15400000 0 0x200000>;
->=20
-> it's 83 columns - it's fine.
-
-ok, thought 80 columns is the limit...
-
-> > +			interrupts =3D <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
-> > +				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
-> > +				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
-> > +				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>;
-> > +			clocks =3D <&ethsys CLK_ETHDMA_CRYPT0_EN>,
-> > +				 <&ethsys CLK_ETHDMA_FE_EN>,
-> > +				 <&ethsys CLK_ETHDMA_GP2_EN>,
-> > +				 <&ethsys CLK_ETHDMA_GP1_EN>,
-> > +				 <&ethsys CLK_ETHDMA_GP3_EN>,
-> > +				 <&ethwarp CLK_ETHWARP_WOCPU2_EN>,
-> > +				 <&ethwarp CLK_ETHWARP_WOCPU1_EN>,
-> > +				 <&ethwarp CLK_ETHWARP_WOCPU0_EN>,
-> > +				 <&ethsys CLK_ETHDMA_ESW_EN>,
-> > +				 <&topckgen CLK_TOP_ETH_GMII_SEL>,
-> > +				 <&topckgen CLK_TOP_ETH_REFCK_50M_SEL>,
-> > +				 <&topckgen CLK_TOP_ETH_SYS_200M_SEL>,
-> > +				 <&topckgen CLK_TOP_ETH_SYS_SEL>,
-> > +				 <&topckgen CLK_TOP_ETH_XGMII_SEL>,
-> > +				 <&topckgen CLK_TOP_ETH_MII_SEL>,
-> > +				 <&topckgen CLK_TOP_NETSYS_SEL>,
-> > +				 <&topckgen CLK_TOP_NETSYS_500M_SEL>,
-> > +				 <&topckgen CLK_TOP_NETSYS_PAO_2X_SEL>,
-> > +				 <&topckgen CLK_TOP_NETSYS_SYNC_250M_SEL>,
-> > +				 <&topckgen CLK_TOP_NETSYS_PPEFB_250M_SEL>,
-> > +				 <&topckgen CLK_TOP_NETSYS_WARP_SEL>,
-> > +				 <&ethsys CLK_ETHDMA_XGP1_EN>,
-> > +				 <&ethsys CLK_ETHDMA_XGP2_EN>,
-> > +				 <&ethsys CLK_ETHDMA_XGP3_EN>;
-> > +			clock-names =3D "crypto", "fe", "gp2", "gp1",
-> > +				      "gp3",
->=20
-> clock-names =3D "crypto", "fe", "gp2", "gp1", "gp3",
->=20
-> :-)
-
-do not know how this was happen...of course i change this ;)
-
-> > +				      "ethwarp_wocpu2", "ethwarp_wocpu1",
-> > +				      "ethwarp_wocpu0", "esw", "top_eth_gmii_sel",
-> > +				      "top_eth_refck_50m_sel", "top_eth_sys_200m_sel",
-> > +				      "top_eth_sys_sel", "top_eth_xgmii_sel",
-> > +				      "top_eth_mii_sel", "top_netsys_sel",
-> > +				      "top_netsys_500m_sel", "top_netsys_pao_2x_sel",
-> > +				      "top_netsys_sync_250m_sel",
-> > +				      "top_netsys_ppefb_250m_sel",
-> > +				      "top_netsys_warp_sel","xgp1", "xgp2", "xgp3";
-> > +			assigned-clocks =3D <&topckgen CLK_TOP_NETSYS_2X_SEL>,
-> > +					  <&topckgen CLK_TOP_NETSYS_GSW_SEL>,
-> > +					  <&topckgen CLK_TOP_USXGMII_SBUS_0_SEL>,
-> > +					  <&topckgen CLK_TOP_USXGMII_SBUS_1_SEL>,
-> > +					  <&topckgen CLK_TOP_SGM_0_SEL>,
-> > +					  <&topckgen CLK_TOP_SGM_1_SEL>;
-> > +			assigned-clock-parents =3D <&apmixedsys CLK_APMIXED_NET2PLL>,
-> > +						 <&topckgen CLK_TOP_NET1PLL_D4>,
-> > +						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
-> > +						 <&topckgen CLK_TOP_NET1PLL_D8_D4>,
-> > +						 <&apmixedsys CLK_APMIXED_SGMPLL>,
-> > +						 <&apmixedsys CLK_APMIXED_SGMPLL>;
->=20
-> Address and size cells must go *before* vendor-specific properties
-
-OK, same for #phy-cells above?
-
-> > +			mediatek,ethsys =3D <&ethsys>;
-> > +			mediatek,infracfg =3D <&topmisc>;
-> > +			#address-cells =3D <1>;
-> > +			#size-cells =3D <0>;
-> > +
->=20
-> Cheers!
-> Angelo
->=20
 
