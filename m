@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A637EC71141
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 00:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D651AC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 00:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vBV8ONm1woYvPckJRib1WYeJ0sSeMlwaWEnLKoaPZXQ=; b=dYEDiShsesXScT6WdRZBThQaMB
-	D/mC9s/98A/pw4MNl/PMONDiZKd8VrPs2AmWWe0laEXgSFqAAB/ftoupuKe/aisTgC383AfVcSCFE
-	4notQ8ANhBbNyT9y0PyC0y6R+U19NLbSx23U3CWbMmrf6bo/S3U3l4Om1e6a0+ZQs8yK9X1S0aW4b
-	9DM0ifQkUBP6EfSRVexRs+kYBVJ4XhbLQrUgFsBMp0qxV9OSZOETxzhnFtgVYwoZzSNNvKAVLUdAu
-	X1h69/QLGPJYoXG1TxyJoiqwRK9KG24IYNTbz+SXJTDsB/+2yzBVQY2wF7Eq0x/S2REEkgvImTUI/
-	Dd768OiQ==;
+	bh=Uk2iCAGJzrguXHDElw3kCcpBtr7DWJxGiIVAHEgt7PU=; b=xqQtKIKbYkCGfdgIRusBuWjv8a
+	CmIQ1AOdmTQq4VBxIHO7B9TjP2QGg76a8LDdZuk0ySsS//sqZ0uH+cbmMTUd1/D1o0ulyf4E/0+pK
+	j1Jh/UL0o0aeI9gXn5rfxf57abzsEfqXmAqzmy2+VhkJmPSMfnJIQqZQB3a4t32ervzdrL9znDB/A
+	FX1jEsaioQBnF9VKqB6m8fO3OOboE6GCRI+FntvEapsVmk2fucLVok0GgLawysQIkk4mkHr87J0ms
+	1KUImVqddJsd4Ah4Rt91cUh70RVcZOU+7mMl2gnpv6PkxzgRTBJRctcwAkQNbI/R2iyLWz6vSMF0I
+	aVt+LHCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPVqD-0000000Bn23-40n6;
-	Thu, 12 Jun 2025 00:30:49 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uPVsK-0000000BnD1-30WI;
+	Thu, 12 Jun 2025 00:33:00 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUDz-0000000BX4t-00Cj
+	id 1uPUE0-0000000BX5y-3Hnj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 22:47:16 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-311a6b43ed7so301960a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:14 -0700 (PDT)
+	Wed, 11 Jun 2025 22:47:17 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-747a9ef52a4so487235b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 11 Jun 2025 15:47:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749682034; x=1750286834; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1749682035; x=1750286835; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=vBV8ONm1woYvPckJRib1WYeJ0sSeMlwaWEnLKoaPZXQ=;
-        b=3QXlSUVexdPT9HG+ZH7N36ZRLmLhSr20EWn+OBlok6CO7SkJ+I54j+zscrUUhhhESx
-         0WTaIJwlF5W92j0iEBW9XU6Egrxeqo1K2op6yEsdhoL156wYksQCAOFQfagylzhtMCTb
-         pJB8GzQ2N44g6ESYcoO9P+vN6bcKGJe6PI3OHW3tL4pUbVpSwDXvWaBrMLOJn99fi4Nb
-         pQaJEsuB6aLn1L3BrETFhp0RmjvTvM1yUppyQGw8BCIzM0yP9UbmMAY+xDLFYqXkqYwQ
-         v8Wh9j8ahriaogy0NsHMxHtHgJC5jlumzsP/8BqibFlweI6s4n88/j7+8ykVgKvcrz8R
-         Czvw==
+        bh=Uk2iCAGJzrguXHDElw3kCcpBtr7DWJxGiIVAHEgt7PU=;
+        b=WqotKNmBOS438tKrAf4CRq6Bx7j9JXDq12H8/I9+U1BeP+dYWaxSPLkytenmw/bzpi
+         knBQKyob011t96krrskj+ep99hC4R9mvD6WdzdtAKxSzTLfg5/RISp0isP6bavyUCsY2
+         oODSMIQF29JgAwhIYLmeO6rjH45jzV0M9pItdqsvZgW+8fKFIZC8HCjGMCEESqR1Iw35
+         YETHNWpc8EhlRTz6QdUqI+AmOSf5iKTWZBsIJLZ+JBfvIn4KUevVddiYV2YfyCtiZk//
+         hsVtx7DwzZbFJ1AWlaf3Y0ncsal4FefOu9pm0pqMa0dS27C6HCBpZhPmZQEQSfrLhm84
+         W0rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749682034; x=1750286834;
+        d=1e100.net; s=20230601; t=1749682035; x=1750286835;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vBV8ONm1woYvPckJRib1WYeJ0sSeMlwaWEnLKoaPZXQ=;
-        b=r8YO3zMjUxP9K7kq3HRqF5CxlBtLClhbvCOE3fd3U/WoJwKurdB7n5BKhrjzD+LNs3
-         iif5hxD8mT0YyaytxgjMdQX7aPHTIYBjbkZjomfwFbW2J7LjhbbuOy7oIfIgoHqkvMl0
-         MmLf8NLTForYTsLv7HHFaDxJEWrIHv01HRYb1NGEXKDUNLars9DNRvx9MgEBtCAberhW
-         QDdI0MdQpIggwXQEj383XGVSkDZxUY9DxAZ8/PsHmw1dmfUy3AC7taoSaxrRHetoBhFL
-         XjNS23EHiyI/UuakZ7DVDM09KOFnClRHLH7Dd1zKNdOQbjHBxq3F/U25X5BPF5mig2Um
-         i5qg==
-X-Gm-Message-State: AOJu0Yw3s0KuELUXaO7jKSYtUNGcLwd07jRHvmu6olxn/q1zeZnnKQue
-	OkL0QPjxniYpr2w0gkHPHLx+Tc6GWUs8f2X+R9VJMb0gN3kxGSVM1EfNpAhUeOzryudb/ac/qAb
-	Y0dIw2A==
-X-Google-Smtp-Source: AGHT+IEPFYmZzXUCGlwdowyqWkn5bPnHZM+aDnI6sRBuhesrGFICkRbpeSKEZTLooo10gbnXC/Ab4llRnXs=
-X-Received: from pjbsv3.prod.google.com ([2002:a17:90b:5383:b0:311:6040:2c7a])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3d4e:b0:311:c1ec:7d0a
- with SMTP id 98e67ed59e1d1-313c08d253fmr1028886a91.25.1749682033852; Wed, 11
- Jun 2025 15:47:13 -0700 (PDT)
-Date: Wed, 11 Jun 2025 15:45:13 -0700
+        bh=Uk2iCAGJzrguXHDElw3kCcpBtr7DWJxGiIVAHEgt7PU=;
+        b=iYqM5lXU0raLCjBIcJMOJRFnIE1FJ1/+xKc2pUkrs75/QV09fum13cW4sZopr/gk0B
+         Q8+CdPHDRenjaMOWCmZGvgcegYIZbfNI5NPl6KcP4svZRLOr8Ejbk58uwMp9ssaTqZNR
+         mF0OWO0GhP4fVO8/GtYFYRCn/PTDoUzWCnQ06AJYhH7RrvGoiMu/SEGrltwuF42AUcsy
+         VIYBVGT72nBl7VkGnsFGdKEIQnJzo7N3Zos1bK4HN6sYhCKLEUsKNEr5GN3ZDkrF5VyT
+         RjzHvXHnj9lGqwJwCTymXqsmUzjKAYqEXggDBUWF03C5NUlbydzuOmWx53x1HXHB2WD+
+         r1uw==
+X-Gm-Message-State: AOJu0Yz9yD973h1Wc3CURm+my3SXsiMyRtjOhXPTixkN9btIOQ015JKw
+	WhCcVnQ7LsDfpLtvztmMEjBZOrUh0irUY6RVkiEnBssLfHC9VO7jCsjhlHF199DaPYOQo7cwjvL
+	3/EpfLw==
+X-Google-Smtp-Source: AGHT+IGox2X2Zreqz4euwsJYQpeNVHu/PrMeM6P+22mIkRw9tS6EPJEXitiClHg3UaYo284wvAOiHfeC7Dw=
+X-Received: from pfbfa12.prod.google.com ([2002:a05:6a00:2d0c:b0:742:a99a:ec52])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:b95:b0:73e:598:7e5b
+ with SMTP id d2e1a72fcca58-7487c207d5emr1537775b3a.1.1749682035598; Wed, 11
+ Jun 2025 15:47:15 -0700 (PDT)
+Date: Wed, 11 Jun 2025 15:45:14 -0700
 In-Reply-To: <20250611224604.313496-2-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250611224604.313496-2-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-Message-ID: <20250611224604.313496-12-seanjc@google.com>
-Subject: [PATCH v3 10/62] KVM: SVM: Add helper to deduplicate code for getting
- AVIC backing page
+Message-ID: <20250611224604.313496-13-seanjc@google.com>
+Subject: [PATCH v3 11/62] KVM: SVM: Drop vcpu_svm's pointless
+ avic_backing_page field
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
@@ -79,8 +79,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_154715_036746_30D788DC 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20250611_154716_822464_5E747000 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,72 +96,73 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a helper to get the physical address of the AVIC backing page, both
-to deduplicate code and to prepare for getting the address directly from
-apic->regs, at which point it won't be all that obvious that the address
-in question is what SVM calls the AVIC backing page.
+Drop vcpu_svm's avic_backing_page pointer and instead grab the physical
+address of KVM's vAPIC page directly from the source.  Getting a physical
+address from a kernel virtual address is not an expensive operation, and
+getting the physical address from a struct page is *more* expensive for
+CONFIG_SPARSEMEM=y kernels.  Regardless, none of the paths that consume
+the address are hot paths, i.e. shaving cycles is not a priority.
 
-No functional change intended.
+Eliminating the "cache" means KVM doesn't have to worry about the cache
+being invalid, which will simplify a future fix when dealing with vCPU IDs
+that are too big.
 
-Reviewed-by: Maxim Levitsky <mlevitsk@redhat.com>
+WARN if KVM attempts to allocate a vCPU's AVIC backing page without an
+in-kernel local APIC.  avic_init_vcpu() bails early if the APIC is not
+in-kernel, and KVM disallows enabling an in-kernel APIC after vCPUs have
+been created, i.e. it should be impossible to reach
+avic_init_backing_page() without the vAPIC being allocated.
+
 Tested-by: Sairaj Kodilkar <sarunkod@amd.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/svm/avic.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ arch/x86/kvm/svm/avic.c | 6 ++----
+ arch/x86/kvm/svm/svm.h  | 1 -
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
 diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-index 4b882148f2c0..c36f7db9252e 100644
+index c36f7db9252e..ab228872a19b 100644
 --- a/arch/x86/kvm/svm/avic.c
 +++ b/arch/x86/kvm/svm/avic.c
-@@ -234,14 +234,18 @@ int avic_vm_init(struct kvm *kvm)
- 	return err;
+@@ -236,7 +236,7 @@ int avic_vm_init(struct kvm *kvm)
+ 
+ static phys_addr_t avic_get_backing_page_address(struct vcpu_svm *svm)
+ {
+-	return __sme_set(page_to_phys(svm->avic_backing_page));
++	return __sme_set(__pa(svm->vcpu.arch.apic->regs));
  }
  
-+static phys_addr_t avic_get_backing_page_address(struct vcpu_svm *svm)
-+{
-+	return __sme_set(page_to_phys(svm->avic_backing_page));
-+}
-+
  void avic_init_vmcb(struct vcpu_svm *svm, struct vmcb *vmcb)
- {
- 	struct kvm_svm *kvm_svm = to_kvm_svm(svm->vcpu.kvm);
--	phys_addr_t bpa = __sme_set(page_to_phys(svm->avic_backing_page));
- 	phys_addr_t lpa = __sme_set(page_to_phys(kvm_svm->avic_logical_id_table_page));
- 	phys_addr_t ppa = __sme_set(page_to_phys(kvm_svm->avic_physical_id_table_page));
+@@ -281,7 +281,7 @@ static int avic_init_backing_page(struct kvm_vcpu *vcpu)
+ 	    (id > X2AVIC_MAX_PHYSICAL_ID))
+ 		return -EINVAL;
  
--	vmcb->control.avic_backing_page = bpa;
-+	vmcb->control.avic_backing_page = avic_get_backing_page_address(svm);
- 	vmcb->control.avic_logical_id = lpa;
- 	vmcb->control.avic_physical_id = ppa;
- 	vmcb->control.avic_vapic_bar = APIC_DEFAULT_PHYS_BASE;
-@@ -305,7 +309,7 @@ static int avic_init_backing_page(struct kvm_vcpu *vcpu)
- 	BUILD_BUG_ON(__PHYSICAL_MASK_SHIFT >
- 		     fls64(AVIC_PHYSICAL_ID_ENTRY_BACKING_PAGE_MASK));
+-	if (!vcpu->arch.apic->regs)
++	if (WARN_ON_ONCE(!vcpu->arch.apic->regs))
+ 		return -EINVAL;
  
--	new_entry = __sme_set(page_to_phys(svm->avic_backing_page)) |
-+	new_entry = avic_get_backing_page_address(svm) |
- 		    AVIC_PHYSICAL_ID_ENTRY_VALID_MASK;
- 	WRITE_ONCE(*entry, new_entry);
+ 	if (kvm_apicv_activated(vcpu->kvm)) {
+@@ -298,8 +298,6 @@ static int avic_init_backing_page(struct kvm_vcpu *vcpu)
+ 			return ret;
+ 	}
  
-@@ -845,7 +849,7 @@ get_pi_vcpu_info(struct kvm *kvm, struct kvm_kernel_irq_routing_entry *e,
- 	pr_debug("SVM: %s: use GA mode for irq %u\n", __func__,
- 		 irq.vector);
- 	*svm = to_svm(vcpu);
--	vcpu_info->pi_desc_addr = __sme_set(page_to_phys((*svm)->avic_backing_page));
-+	vcpu_info->pi_desc_addr = avic_get_backing_page_address(*svm);
- 	vcpu_info->vector = irq.vector;
+-	svm->avic_backing_page = virt_to_page(vcpu->arch.apic->regs);
+-
+ 	/* Setting AVIC backing page address in the phy APIC ID table */
+ 	entry = avic_get_physical_id_entry(vcpu, id);
+ 	if (!entry)
+diff --git a/arch/x86/kvm/svm/svm.h b/arch/x86/kvm/svm/svm.h
+index cc27877d69ae..1585288200f4 100644
+--- a/arch/x86/kvm/svm/svm.h
++++ b/arch/x86/kvm/svm/svm.h
+@@ -306,7 +306,6 @@ struct vcpu_svm {
  
- 	return 0;
-@@ -906,7 +910,7 @@ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
- 			enable_remapped_mode = false;
+ 	u32 ldr_reg;
+ 	u32 dfr_reg;
+-	struct page *avic_backing_page;
+ 	u64 *avic_physical_id_cache;
  
- 			/* Try to enable guest_mode in IRTE */
--			pi.base = __sme_set(page_to_phys(svm->avic_backing_page));
-+			pi.base = avic_get_backing_page_address(svm);
- 			pi.ga_tag = AVIC_GATAG(to_kvm_svm(kvm)->avic_vm_id,
- 						     svm->vcpu.vcpu_id);
- 			pi.is_guest_mode = true;
+ 	/*
 -- 
 2.50.0.rc1.591.g9c95f17f64-goog
 
