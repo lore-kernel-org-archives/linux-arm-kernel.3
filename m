@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B952C677C4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFDFC677C4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 14:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNmO5MXL4YbXFJMjrtUnQpcFwza8gEaFd6wGGcUJeY8=; b=gJWttWqQg7NcwtFEr8kwqLyoRB
-	58wYTVnuWWDcV0DAqIrR6rx1wulbfFRBaZAJrrkckVfCqMj5SruPh9zPgeo62ZsKBvA4kuRiFB21F
-	7z3J9vlsdF/8z7CWnPWSwwNcGZ/x4rltsc/ralrlqT5/01+hZTp7hv2AvqlMf9ihjKzbzTU80sRxS
-	/nr2sx7AruCA53MH8Xeue3Km448yuHxKQoK3/1OFkSZ1wblygYjxAv9D/9U1psQm/WvXBSABdFdux
-	55letuqzQpePYQWe2asEy66I2l8y4gdBhjMoAs5zCMRAmYn9JeK087K91AhKMCHQS5PS4Joqbs47A
-	KFFlKX7w==;
+	bh=oEFMlZie8kskgjG6qcv+yvOS+T6KEhjDxok/WLmGvJs=; b=smUspCqrQAPV3U7vdEetJKsyvN
+	lV0tdlSWnmMxpx3auQGDTBAs54CpL6xigJDgbBT1WUyJjhIv6lAgAtfaCk+IFywgs52LEHvr02M/k
+	8uHAQnwPcR4A4PefDPHG6YEitZP/VdKm1GaPiSuJ9s/OeEzP41wPiOjxrT6fJPvSX12IbNpKXtsF3
+	CIUBqeIAba1IJrlhSCWPyJuXakSpENo8PXoarDqKQjcbBBdtG8QvAhR5G6VQflTAsqUlBV9t/FDyJ
+	kYq4rZZ2ZGdWY/80W74UEK/Cb85KNtiMty7EYQ9LowZ2lKkeMbk1C0Z+7nAckDVPYEOZbsCcaNy5C
+	URYp+JFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMoM-0000000AFGm-2p9v;
-	Wed, 11 Jun 2025 14:52:18 +0000
+	id 1uPMoQ-0000000AFO4-2NoF;
+	Wed, 11 Jun 2025 14:52:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJ1U-00000009fGP-1bsd
+	id 1uPJ1i-00000009fKw-0Q7g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 10:49:37 +0000
+	Wed, 11 Jun 2025 10:49:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 628EF15A1;
-	Wed, 11 Jun 2025 03:49:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31C3015A1;
+	Wed, 11 Jun 2025 03:49:30 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.67.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D5F6A3F673;
-	Wed, 11 Jun 2025 03:49:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AF6C3F673;
+	Wed, 11 Jun 2025 03:49:46 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -57,17 +57,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>
-Subject: [PATCH v9 09/43] KVM: arm64: Allow passing machine type in KVM creation
-Date: Wed, 11 Jun 2025 11:48:06 +0100
-Message-ID: <20250611104844.245235-10-steven.price@arm.com>
+Subject: [PATCH v9 13/43] arm64: RME: Support for the VGIC in realms
+Date: Wed, 11 Jun 2025 11:48:10 +0100
+Message-ID: <20250611104844.245235-14-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250611104844.245235-1-steven.price@arm.com>
 References: <20250611104844.245235-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_034936_507512_08D1B788 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20250611_034950_234477_BBEAA99B 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,129 +82,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously machine type was used purely for specifying the physical
-address size of the guest. Reserve the higher bits to specify an ARM
-specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
-used to create a realm guest.
+The RMM provides emulation of a VGIC to the realm guest but delegates
+much of the handling to the host. Implement support in KVM for
+saving/restoring state to/from the REC structure.
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes since v7:
- * Add some documentation explaining the new machine type.
-Changes since v6:
- * Make the check for kvm_rme_is_available more visible and report an
-   error code of -EPERM (instead of -EINVAL) to make it explicit that
-   the kernel supports RME, but the platform doesn't.
+Changes from v8:
+ * Propagate gicv3_hcr to from the RMM.
+Changes from v5:
+ * Handle RMM providing fewer GIC LRs than the hardware supports.
 ---
- Documentation/virt/kvm/api.rst | 16 ++++++++++++++--
- arch/arm64/kvm/arm.c           | 15 +++++++++++++++
- arch/arm64/kvm/mmu.c           |  3 ---
- include/uapi/linux/kvm.h       | 19 +++++++++++++++----
- 4 files changed, 44 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/kvm_rme.h |  1 +
+ arch/arm64/kvm/arm.c             | 16 +++++++++--
+ arch/arm64/kvm/rme.c             |  5 ++++
+ arch/arm64/kvm/vgic/vgic-init.c  |  2 +-
+ arch/arm64/kvm/vgic/vgic-v3.c    |  6 +++-
+ arch/arm64/kvm/vgic/vgic.c       | 49 ++++++++++++++++++++++++++++++--
+ 6 files changed, 72 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 65543289f75c..0049d67fe38f 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -181,8 +181,20 @@ flag KVM_VM_MIPS_VZ.
- ARM64:
- ^^^^^^
+diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+index f716b890e484..9bcad6ec5dbb 100644
+--- a/arch/arm64/include/asm/kvm_rme.h
++++ b/arch/arm64/include/asm/kvm_rme.h
+@@ -92,6 +92,7 @@ struct realm_rec {
  
--On arm64, the physical address size for a VM (IPA Size limit) is limited
--to 40bits by default. The limit can be configured if the host supports the
-+On arm64, the machine type identifier is used to encode a type and the
-+physical address size for the VM. The lower byte (bits[7-0]) encode the
-+address size and the upper bits[11-8] encode a machine type. The machine
-+types that might be available are:
-+
-+ ======================   ============================================
-+ KVM_VM_TYPE_ARM_NORMAL   A standard VM
-+ KVM_VM_TYPE_ARM_REALM    A "Realm" VM using the Arm Confidential
-+                          Compute extensions, the VM's memory is
-+                          protected from the host.
-+ ======================   ============================================
-+
-+The physical address size for a VM (IPA Size limit) is limited to 40bits
-+by default. The limit can be configured if the host supports the
- extension KVM_CAP_ARM_VM_IPA_SIZE. When supported, use
- KVM_VM_TYPE_ARM_IPA_SIZE(IPA_Bits) to set the size in the machine type
- identifier, where IPA_Bits is the maximum width of any physical
+ void kvm_init_rme(void);
+ u32 kvm_realm_ipa_limit(void);
++u32 kvm_realm_vgic_nr_lr(void);
+ 
+ int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+ int kvm_init_realm_vm(struct kvm *kvm);
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 8080443d24af..b3e3323573c6 100644
+index 7be1bdfc5f0b..0cdcc2ca4a88 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -172,6 +172,21 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 	mutex_unlock(&kvm->lock);
- #endif
+@@ -689,19 +689,24 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+ 	}
  
-+	if (type & ~(KVM_VM_TYPE_ARM_MASK | KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
-+		return -EINVAL;
++	kvm_timer_vcpu_put(vcpu);
++	kvm_vgic_put(vcpu);
 +
-+	switch (type & KVM_VM_TYPE_ARM_MASK) {
-+	case KVM_VM_TYPE_ARM_NORMAL:
-+		break;
-+	case KVM_VM_TYPE_ARM_REALM:
-+		if (!static_branch_unlikely(&kvm_rme_is_available))
-+			return -EPERM;
-+		kvm->arch.is_realm = true;
-+		break;
-+	default:
-+		return -EINVAL;
++	vcpu->cpu = -1;
++
++	if (vcpu_is_rec(vcpu))
++		return;
++
+ 	kvm_vcpu_put_debug(vcpu);
+ 	kvm_arch_vcpu_put_fp(vcpu);
+ 	if (has_vhe())
+ 		kvm_vcpu_put_vhe(vcpu);
+-	kvm_timer_vcpu_put(vcpu);
+-	kvm_vgic_put(vcpu);
+ 	kvm_vcpu_pmu_restore_host(vcpu);
+ 	if (vcpu_has_nv(vcpu))
+ 		kvm_vcpu_put_hw_mmu(vcpu);
+ 	kvm_arm_vmid_clear_active();
+ 
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+-	vcpu->cpu = -1;
+ }
+ 
+ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+@@ -922,6 +927,11 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+ 			return ret;
+ 	}
+ 
++	if (!irqchip_in_kernel(kvm) && kvm_is_realm(vcpu->kvm)) {
++		/* Userspace irqchip not yet supported with Realms */
++		return -EOPNOTSUPP;
 +	}
 +
- 	kvm_init_nested(kvm);
+ 	mutex_lock(&kvm->arch.config_lock);
+ 	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
+ 	mutex_unlock(&kvm->arch.config_lock);
+diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+index f094544592b5..25705da6f153 100644
+--- a/arch/arm64/kvm/rme.c
++++ b/arch/arm64/kvm/rme.c
+@@ -77,6 +77,11 @@ u32 kvm_realm_ipa_limit(void)
+ 	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
+ }
  
- 	ret = kvm_share_hyp(kvm, kvm + 1);
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index d654a817c063..7d1c9625e9a2 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -886,9 +886,6 @@ static int kvm_init_ipa_range(struct kvm *kvm,
- 	if (kvm_is_realm(kvm))
- 		kvm_ipa_limit = kvm_realm_ipa_limit();
- 
--	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
--		return -EINVAL;
--
- 	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
- 	if (is_protected_kvm_enabled()) {
- 		phys_shift = kvm_ipa_limit;
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 3690664e272c..88496dba0f84 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -645,14 +645,25 @@ struct kvm_enable_cap {
- #define KVM_S390_SIE_PAGE_OFFSET 1
- 
- /*
-- * On arm64, machine type can be used to request the physical
-- * address size for the VM. Bits[7-0] are reserved for the guest
-- * PA size shift (i.e, log2(PA_Size)). For backward compatibility,
-- * value 0 implies the default IPA size, 40bits.
-+ * On arm64, machine type can be used to request both the machine type and
-+ * the physical address size for the VM.
-+ *
-+ * Bits[11-8] are reserved for the ARM specific machine type.
-+ *
-+ * Bits[7-0] are reserved for the guest PA size shift (i.e, log2(PA_Size)).
-+ * For backward compatibility, value 0 implies the default IPA size, 40bits.
-  */
-+#define KVM_VM_TYPE_ARM_SHIFT		8
-+#define KVM_VM_TYPE_ARM_MASK		(0xfULL << KVM_VM_TYPE_ARM_SHIFT)
-+#define KVM_VM_TYPE_ARM(_type)		\
-+	(((_type) << KVM_VM_TYPE_ARM_SHIFT) & KVM_VM_TYPE_ARM_MASK)
-+#define KVM_VM_TYPE_ARM_NORMAL		KVM_VM_TYPE_ARM(0)
-+#define KVM_VM_TYPE_ARM_REALM		KVM_VM_TYPE_ARM(1)
++u32 kvm_realm_vgic_nr_lr(void)
++{
++	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS);
++}
 +
- #define KVM_VM_TYPE_ARM_IPA_SIZE_MASK	0xffULL
- #define KVM_VM_TYPE_ARM_IPA_SIZE(x)		\
- 	((x) & KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+ static int get_start_level(struct realm *realm)
+ {
+ 	/*
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index eb1205654ac8..77b4962ebfb6 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -81,7 +81,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 	 * the proper checks already.
+ 	 */
+ 	if (type == KVM_DEV_TYPE_ARM_VGIC_V2 &&
+-		!kvm_vgic_global_state.can_emulate_gicv2)
++	    (!kvm_vgic_global_state.can_emulate_gicv2 || kvm_is_realm(kvm)))
+ 		return -ENODEV;
+ 
+ 	/*
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index b9ad7c42c5b0..c10ad817030d 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -8,9 +8,11 @@
+ #include <linux/kvm_host.h>
+ #include <linux/string_choices.h>
+ #include <kvm/arm_vgic.h>
++#include <asm/kvm_emulate.h>
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_asm.h>
++#include <asm/rmi_smc.h>
+ 
+ #include "vgic.h"
+ 
+@@ -758,7 +760,9 @@ void vgic_v3_put(struct kvm_vcpu *vcpu)
+ 		return;
+ 	}
+ 
+-	if (likely(!is_protected_kvm_enabled()))
++	if (vcpu_is_rec(vcpu))
++		cpu_if->vgic_vmcr = vcpu->arch.rec.run->exit.gicv3_vmcr;
++	else if (likely(!is_protected_kvm_enabled()))
+ 		kvm_call_hyp(__vgic_v3_save_vmcr_aprs, cpu_if);
+ 	WARN_ON(vgic_v4_put(vcpu));
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index c7aed48c5668..2908b4610c4e 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -10,7 +10,9 @@
+ #include <linux/list_sort.h>
+ #include <linux/nospec.h>
+ 
++#include <asm/kvm_emulate.h>
+ #include <asm/kvm_hyp.h>
++#include <asm/kvm_rme.h>
+ 
+ #include "vgic.h"
+ 
+@@ -23,6 +25,8 @@ struct vgic_global kvm_vgic_global_state __ro_after_init = {
+ 
+ static inline int kvm_vcpu_vgic_nr_lr(struct kvm_vcpu *vcpu)
+ {
++	if (unlikely(vcpu_is_rec(vcpu)))
++		return kvm_realm_vgic_nr_lr();
+ 	return kvm_vgic_global_state.nr_lr;
+ }
+ 
+@@ -864,10 +868,25 @@ static inline bool can_access_vgic_from_kernel(void)
+ 	return !static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif) || has_vhe();
+ }
+ 
++static inline void vgic_rmm_save_state(struct kvm_vcpu *vcpu)
++{
++	struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
++	int i;
 +
- /*
-  * ioctls for /dev/kvm fds:
-  */
++	for (i = 0; i < kvm_vcpu_vgic_nr_lr(vcpu); i++) {
++		cpu_if->vgic_lr[i] = vcpu->arch.rec.run->exit.gicv3_lrs[i];
++		vcpu->arch.rec.run->enter.gicv3_lrs[i] = 0;
++	}
++
++	cpu_if->vgic_hcr = vcpu->arch.rec.run->exit.gicv3_hcr;
++}
++
+ static inline void vgic_save_state(struct kvm_vcpu *vcpu)
+ {
+ 	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
+ 		vgic_v2_save_state(vcpu);
++	else if (vcpu_is_rec(vcpu))
++		vgic_rmm_save_state(vcpu);
+ 	else
+ 		__vgic_v3_save_state(&vcpu->arch.vgic_cpu.vgic_v3);
+ }
+@@ -903,10 +922,30 @@ void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu)
+ 	vgic_prune_ap_list(vcpu);
+ }
+ 
++static inline void vgic_rmm_restore_state(struct kvm_vcpu *vcpu)
++{
++	struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
++	int i;
++
++	for (i = 0; i < kvm_vcpu_vgic_nr_lr(vcpu); i++) {
++		vcpu->arch.rec.run->enter.gicv3_lrs[i] = cpu_if->vgic_lr[i];
++		/*
++		 * Also populate the rec.run->exit copies so that a late
++		 * decision to back out from entering the realm doesn't cause
++		 * the state to be lost
++		 */
++		vcpu->arch.rec.run->exit.gicv3_lrs[i] = cpu_if->vgic_lr[i];
++	}
++
++	vcpu->arch.rec.run->enter.gicv3_hcr = cpu_if->vgic_hcr & RMI_PERMITTED_GICV3_HCR_BITS;
++}
++
+ static inline void vgic_restore_state(struct kvm_vcpu *vcpu)
+ {
+ 	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
+ 		vgic_v2_restore_state(vcpu);
++	else if (vcpu_is_rec(vcpu))
++		vgic_rmm_restore_state(vcpu);
+ 	else
+ 		__vgic_v3_restore_state(&vcpu->arch.vgic_cpu.vgic_v3);
+ }
+@@ -976,7 +1015,10 @@ void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
+ 
+ void kvm_vgic_load(struct kvm_vcpu *vcpu)
+ {
+-	if (unlikely(!irqchip_in_kernel(vcpu->kvm) || !vgic_initialized(vcpu->kvm))) {
++	if (unlikely(vcpu_is_rec(vcpu)))
++		return;
++	if (unlikely(!irqchip_in_kernel(vcpu->kvm) ||
++		     !vgic_initialized(vcpu->kvm))) {
+ 		if (has_vhe() && static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
+ 			__vgic_v3_activate_traps(&vcpu->arch.vgic_cpu.vgic_v3);
+ 		return;
+@@ -990,7 +1032,10 @@ void kvm_vgic_load(struct kvm_vcpu *vcpu)
+ 
+ void kvm_vgic_put(struct kvm_vcpu *vcpu)
+ {
+-	if (unlikely(!irqchip_in_kernel(vcpu->kvm) || !vgic_initialized(vcpu->kvm))) {
++	if (unlikely(vcpu_is_rec(vcpu)))
++		return;
++	if (unlikely(!irqchip_in_kernel(vcpu->kvm) ||
++		     !vgic_initialized(vcpu->kvm))) {
+ 		if (has_vhe() && static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
+ 			__vgic_v3_deactivate_traps(&vcpu->arch.vgic_cpu.vgic_v3);
+ 		return;
 -- 
 2.43.0
 
