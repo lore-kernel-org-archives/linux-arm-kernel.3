@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C2DC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 16:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE48CC71137
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 16:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2IafO0bbLugSujGK5zlfc688S/34ViKtl13YGJp2mjw=; b=4TcXe1cmdhSY3Apjg5OAVGTBGg
-	msgrjRAoqhEKebecfT+Zz8gurjpwu1BINPc11Kns1d8QwddwR0UohnLiEBtyPB6lLBe4f33e7LiWH
-	XoJvJffN3yy9p/rbfgGmI3taF6fXBKLA5AmMLwaK5AaxIBrRmUObGxhgbtrE3f+V2DGNK+pm7hrsU
-	YnRbT96to0Mmrbq3veLR8gpCHlTaNmMYx/TDmGgeHIZECELDB4CSNQXcAqtT5moonTNbP59IV/fcP
-	/2O5bXPXIrnfN5X8LeRsLi3nNmGFG09v2A1Yb66xWBIAIlvLCTVTO6W113L3kTQ3jUun8sLgB1jHn
-	3NXdBt8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gPwsajLBsNL8XA7/sk2C74g5jjpD7PSQHxW65bPJTD4=; b=J1EWf46Fe+YK/q16lOiBqKaegA
+	vpvkU1KAM3PzJR7rQaIil37L3/o7cHGfl5MU/qiYa2uRzxEwViux6CfVXm75BF5h0f93BP+QN8yCD
+	hpIkCOxfDmw5Cin2U+glfZPLU0bFsVpjvr2B2dGdmiVkiIKgKIAvDUCkP4RmnIAav56FzA1oV81JN
+	1Q3RLjq+FeKfECY9Hoy0YhWWM4h7EDwa9sT4cHRKcxrcWr9wZTqursS74mwkUUast+Qip4NGdThzx
+	H9Tt62cOLdl1pPc742Hg+Rw6s9Qi2Nq9VyeIWBnLr1I8W3PxiJTpQKjCn9taQ1fO2GxsehrtcAH+Y
+	SY8bPWNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPON2-0000000AcP1-2AgJ;
-	Wed, 11 Jun 2025 16:32:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uPORD-0000000Ad97-2hNY;
+	Wed, 11 Jun 2025 16:36:31 +0000
+Received: from out-69.smtpout.orange.fr ([193.252.22.69] helo=out.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPLF8-00000009vX9-2CwF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 11 Jun 2025 13:11:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D14A9A517C1;
-	Wed, 11 Jun 2025 13:11:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A0DC4CEF0;
-	Wed, 11 Jun 2025 13:11:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749647509;
-	bh=17MkG0C8bl6FcCEHcrp0f+2wYA/v8JqJiSHUihbbJUM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=TkznKi4NMMMbKmHu/Mtx6e9UakZtgM1nRXe7YsEu4UaMcz841YocvQ3hTkogVZQmF
-	 7RyPNjSHimH3xjWsT0uZ/xe/z09QbbYngY5nsY6zq5DEi+/jKq593ArSNx2Kr2qcmu
-	 n5h3iv25+gDirKuEWq83XqrtPLtEnqWaJt1oxBxUIhFNifuLM0Y33kpw2ABL/GUW4u
-	 3BD9VR0AsvDzT/je5EWyQjaAADmE7aBQT/XpeKoO7h8P8qX/mujoFLGqiHGJAUEtgY
-	 adkcVpxI3lgsb7Krt5bL9hjrk3dwwb9mDUwuPlF3MkpfpaxaUoHm5ZAjU8wWGQXqfC
-	 3WSQT9AG092QA==
-Date: Wed, 11 Jun 2025 08:11:48 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uPLKI-00000009w6e-2fhG;
+	Wed, 11 Jun 2025 13:17:13 +0000
+Received: from [172.16.82.72] ([124.33.176.97])
+	by smtp.orange.fr with ESMTPA
+	id PLK1uaf7zSZTqPLK3uQEoa; Wed, 11 Jun 2025 15:17:07 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1749647827;
+	bh=gPwsajLBsNL8XA7/sk2C74g5jjpD7PSQHxW65bPJTD4=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=M17/FgXiTcdr7lS6G03JsO24EzLrPAbSaLdpabOS8KSO9ZEXvCwjxVSLQlhclwiey
+	 GU56llktfNWO77AIbtJnO0IAiggrUGmaiUzv8Xmkw2DgB0RpdGc07IBsV0w1nsbXu8
+	 fAXtlPWEo57EiI6hAVY6AQFCCwfdJ6BzRYW0kgC5C3yIIN6W5eFA9Fc3JLan2k8kHc
+	 egUAG7bVTwa/EvSd4aaAKk/s2n6UNuFr5HTZgzxV3+RLRh3GYkYM20NYmhzLtOoyO6
+	 HW0Pw9zzC3ok64XoPrHLF5ogesxujWXldaMR0SeWUqXPPz9UoJXWYF/7kr4W1ygWPl
+	 fGi2IavEa67Cw==
+X-ME-Helo: [172.16.82.72]
+X-ME-Auth: bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI=
+X-ME-Date: Wed, 11 Jun 2025 15:17:07 +0200
+X-ME-IP: 124.33.176.97
+Message-ID: <e252f15f-ea80-4969-b754-82da5f9a7f56@wanadoo.fr>
+Date: Wed, 11 Jun 2025 22:16:52 +0900
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: jerry.lin@quantatw.com, yang.chen@quantatw.com, conor+dt@kernel.org, 
- patrick@stwcx.xyz, joel@jms.id.au, linux-kernel@vger.kernel.org, 
- andrew@codeconstruct.com.au, linux-arm-kernel@lists.infradead.org, 
- krzk+dt@kernel.org, devicetree@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org
-To: Jason Hsu <jasonhell19@gmail.com>
-In-Reply-To: <20250611112650.595554-1-jasonhell19@gmail.com>
-References: <20250611112650.595554-1-jasonhell19@gmail.com>
-Message-Id: <174964724537.330081.15600848712697673858.robh@kernel.org>
-Subject: Re: [PATCH v8 0/2] Add Meta(Facebook) Ventura BMC(AST2600)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] net: can: mcp251x: use new GPIO line value setter
+ callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Marc Kleine-Budde <mkl@pengutronix.de>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>
+References: <20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org>
+ <20250610-gpiochip-set-rv-net-v1-3-35668dd1c76f@linaro.org>
+ <b2f87cff-3a81-482b-bfdd-389950b7ec8e@wanadoo.fr>
+ <CAMRc=MfCwz3BV15aATr_5er7wU=AmKV=Z=sHJyrjEvLwx2cMjQ@mail.gmail.com>
+ <b9ea7e0e-7dd1-460b-950a-083620dd52e9@wanadoo.fr>
+ <CAMRc=Mf4qupdJEm9mWPF3-B3hprn6AvP7Po2=aQYbaSvFf8OeA@mail.gmail.com>
+Content-Language: en-US
+From: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+Autocrypt: addr=mailhol.vincent@wanadoo.fr; keydata=
+ xjMEZluomRYJKwYBBAHaRw8BAQdAf+/PnQvy9LCWNSJLbhc+AOUsR2cNVonvxhDk/KcW7FvN
+ LFZpbmNlbnQgTWFpbGhvbCA8bWFpbGhvbC52aW5jZW50QHdhbmFkb28uZnI+wrIEExYKAFoC
+ GwMFCQp/CJcFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQTtj3AFdOZ/IOV06OKrX+uI
+ bbuZwgUCZx41XhgYaGtwczovL2tleXMub3BlbnBncC5vcmcACgkQq1/riG27mcIYiwEAkgKK
+ BJ+ANKwhTAAvL1XeApQ+2NNNEwFWzipVAGvTRigA+wUeyB3UQwZrwb7jsQuBXxhk3lL45HF5
+ 8+y4bQCUCqYGzjgEZx4y8xIKKwYBBAGXVQEFAQEHQJrbYZzu0JG5w8gxE6EtQe6LmxKMqP6E
+ yR33sA+BR9pLAwEIB8J+BBgWCgAmFiEE7Y9wBXTmfyDldOjiq1/riG27mcIFAmceMvMCGwwF
+ CQPCZwAACgkQq1/riG27mcJU7QEA+LmpFhfQ1aij/L8VzsZwr/S44HCzcz5+jkxnVVQ5LZ4B
+ ANOCpYEY+CYrld5XZvM8h2EntNnzxHHuhjfDOQ3MAkEK
+In-Reply-To: <CAMRc=Mf4qupdJEm9mWPF3-B3hprn6AvP7Po2=aQYbaSvFf8OeA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_061150_699126_7E58E99B 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20250611_061711_878181_6C65100F 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,139 +104,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 11 Jun 2025 19:26:48 +0800, Jason Hsu wrote:
-> Add Linux device tree entry related to Meta(Facebook) Ventura specific
-> devices connected to BMC(AST2600) SoC.
+On 11/06/2025 at 01:05, Bartosz Golaszewski wrote:
+> On Tue, Jun 10, 2025 at 5:48 PM Vincent Mailhol
+> <mailhol.vincent@wanadoo.fr> wrote:
+>>
+>> On 10/06/2025 at 23:05, Bartosz Golaszewski wrote:
+>>> On Tue, Jun 10, 2025 at 3:55 PM Vincent Mailhol
+>>> <mailhol.vincent@wanadoo.fr> wrote:
+>>>>
+>>>> On 10/06/2025 at 21:37, Bartosz Golaszewski wrote:
+>>>>> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>>>>>
+>>>>> struct gpio_chip now has callbacks for setting line values that return
+>>>>> an integer, allowing to indicate failures. Convert the driver to using
+>>>>> them.
+>>>>>
+>>>>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>>>>                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>
+>>>> This does not match the address with which you sent the patch: brgl@bgdev.pl
+>>>>
+>>>>> ---
+>>>>>  drivers/net/can/spi/mcp251x.c | 16 ++++++++++------
+>>>>>  1 file changed, 10 insertions(+), 6 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
+>>>>> index ec5c64006a16f703bc816983765584c5f3ac76e8..7545497d14b46c6388f3976c2bf7b9a99e959c1e 100644
+>>>>> --- a/drivers/net/can/spi/mcp251x.c
+>>>>> +++ b/drivers/net/can/spi/mcp251x.c
+>>>>> @@ -530,8 +530,8 @@ static int mcp251x_gpio_get_multiple(struct gpio_chip *chip,
+>>>>>       return 0;
+>>>>>  }
+>>>>>
+>>>>> -static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+>>>>> -                          int value)
+>>>>> +static int mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+>>>>> +                         int value)
+>>>>>  {
+>>>>>       struct mcp251x_priv *priv = gpiochip_get_data(chip);
+>>>>>       u8 mask, val;
+>>>>> @@ -545,9 +545,11 @@ static void mcp251x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+>>>>>
+>>>>>       priv->reg_bfpctrl &= ~mask;
+>>>>>       priv->reg_bfpctrl |= val;
+>>>>> +
+>>>>> +     return 0;
+>>>>
+>>>> mcp251x_gpio_set() calls mcp251x_write_bits() which calls mcp251x_spi_write()
+>>>> which can fail.
+>>>>
+>>>> For this change to really make sense, the return value of mcp251x_spi_write()
+>>>> should be propagated all the way around.
+>>>>
+>>>
+>>> I don't know this code so I followed the example of the rest of the
+>>> codebase where the result of this function is never checked - even in
+>>> functions that do return values. I didn't know the reason for this and
+>>> so didn't want to break anything as I have no means of testing it.
+>>
+>> The return value of mcp251x_spi_write() is used in mcp251x_hw_reset(). In other
+>> locations, mcp251x_spi_write() is only used in functions which return void, so
+>> obviously, the return value is not checked.
+>>
 > 
-> ---
-> v1:
->     1. Create ventura dts file.
->     2. Add commit msg.
->     3. Use format-patch to generate patch.
->     4. Add subject prefixes matching the subsystem.
-> ---
-> v2:
->     1. Modify email content.
-> ---
-> v3:
->     1. Add mail list.
-> ---
-> v4:
->     1. Apply git send-email --thread option.
->     2. Sort nodes in the dts alphanumerically.
-> ---
-> v5:
->     1. Run scripts/checkpatch.pl and fix reported warnings.
->     2. Remove unnecessary 88E6393X CONFIG FRU.
-> ---
-> v6:
->     1. Add a new stage for the DTS change.
->     2. Run scripts/checkpatch.pl and fix reported error.
->     3. Fix the issue in a separate patch.
-> ---
-> v7:
->     1. Fix broken indentation in the device tree file.
->     2. Sort nodes alphabetically, then by address if equal.
->     3. Rename fan sensor nodes from 'hwmon' to 'fan-controller'.
-> ---
-> v8:
->     1. This patch series has significant changes compared to
->        previous versions, and quite some time has passed since the last
->        submission.Therefore, previously received Acked-by/Reviewed-by/Tested-by
->        tags are not included in this version.
->        If needed, tags can be added again after review of thisnew version.
-> ---
-> Signed-off-by: Jason Hsu <jasonhell19@gmail.com>
-> 
-> Jason Hsu (2):
->   dt-bindings: arm: aspeed: add Meta Ventura board
->   ARM: dts: aspeed: ventura: add Meta Ventura BMC
-> 
->  .../bindings/arm/aspeed/aspeed.yaml           |    1 +
->  arch/arm/boot/dts/aspeed/Makefile             |    1 +
->  .../aspeed/aspeed-bmc-facebook-ventura.dts    | 1481 +++++++++++++++++
->  3 files changed, 1483 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dts
-> 
-> --
-> 2.34.1
-> 
-> 
-> 
+> Wait, after a second look GPIO callbacks (including those that return
+> a value like request()) use mcp251x_write_bits() which has no return
+> value.
 
+Yes. Read again my first message:
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+  mcp251x_gpio_set() calls mcp251x_write_bits() which calls mcp251x_spi_write()
+  which can fail.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+My point is that the grand father can fail.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+> It probably should propagate what mcp251x_spi_write() returns
 
-  pip3 install dtschema --upgrade
+Exactly what I asked for :)
 
+> but that's material for a different series.
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: failed to guess base
+Why? Are you going to do this other series?
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+If the answer is no, then please just do it here. Propagating the error in
+mcp251x_write_bits() is a three line change. Am I asking for too much?
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250611112650.595554-1-jasonhell19@gmail.com:
+> The goal of this one is to
+> use the new setters treewide and drop the old ones from struct
+> gpio_chip.
 
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e6e0000/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e6e0000/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e780000/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: i2c@400 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('aspeed,hw-timeout-ms' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e790000/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e790000/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb@1e790000/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-
-
-
-
-
+Yours sincerely,
+Vincent Mailhol
 
