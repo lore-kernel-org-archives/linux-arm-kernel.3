@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E649C71134
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 02:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E523C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 11 Jun 2025 02:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uZdQsFt4GeWqDc7rqot5PaQVq14ZLz8q+8+ujmTkMPE=; b=V1J50lnoVmLFrpVdU3yRcXKdDv
-	XorrvVmUuqGPLRfodpM0CJP+RZXj7aODrjLzYqUzklHyxRtN0rKWeRfw6w4I/feQFswrPLR5fi4+q
-	gjef5UQxNtgAHFN9HfVRmQ1XXqt+h0aW2CgUTdVPaWR/CRDR5NvELQEHVuTKzF3jFf6Bzpt4IIfdZ
-	g7CeSuDfyC4W2y6S/L+vzCA5uWppqigZpmsGqsp6iHYH9BV2o2wzoCoaUeJHvXeyQofqHcvah/S7y
-	tg24WRq8m2cfQ4o8cfZ+jLsAqXvOjPGB9/r68k/LUSg/XbziryIfCJVpfVWSS5CDBrsGniQzZ4ufJ
-	N5N1gILg==;
+	bh=M/tUlGAsop7HfEuU5u21UOIp+zdYcfC7RJiau9Z/VfQ=; b=PgA4OwUUQPPcLtWXwdAZUmtJNl
+	/5hQ4E6GdfxfcBryHjcsAAb5pM1sEDOF4eV09mpUYMv9oZ+0BlVXq3vx97jbo7q9EKADM23g7CNuz
+	9A2mW8vCBiBTObvX7ap8RB572NRyVWdzGl3DabX/hTe5RI+1QrZa1sOkJJFMwtZDYs9Ssz0vJMET7
+	f96aDTrK81FgUnAtVrfIFiyP7upiHP5qhdHMfINL9h2r5cyTWNCXfxhKB9AkzFe5I2Gw5KUbSn/2D
+	LiAIvKevTkOn4yhPjyAYfoTYKQVEo4BVQbu0TBvx5VqFGWpyI5VU6GKmBA5GOLcqTkAu8RCWM6g0F
+	PvVCPwHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPB3r-00000008dib-41Rn;
-	Wed, 11 Jun 2025 02:19:31 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uPB61-00000008dzX-3vjq;
+	Wed, 11 Jun 2025 02:21:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPAxR-00000008cMB-3HuQ;
+	id 1uPAxS-00000008cNM-2YaW;
 	Wed, 11 Jun 2025 02:12:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D0310A51255;
-	Wed, 11 Jun 2025 02:12:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50059C4CEF1;
-	Wed, 11 Jun 2025 02:12:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1A9295C58C6;
+	Wed, 11 Jun 2025 02:10:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42FE8C4CEED;
+	Wed, 11 Jun 2025 02:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749607972;
-	bh=hTzqIPE8jGSH60x3USrFNk9o+3svOV8hf9z113UDgJI=;
+	s=k20201202; t=1749607973;
+	bh=gAsG0eS/3zuv1F7cjPNbJC5G1+pAp7BGy0Mdkjxn9oc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O9SOps0Uo2bDYBlyskNcRKbp7I+RI3AAQBONiPJ5syevbDXXmUhAsMbLHADD/c1eh
-	 9VRigQ7XlLzJCkIZ3KqoBH67n5HLlbkMOH3gebJSi7cLvFFr2+G8vVcH8WmUMzSkH9
-	 wikjUROQdLIVlJaJ86iPHSU9hoVvcS4W/uonPUUNxcTTs79BA2Qc0rlSQzMoZrVOUN
-	 4dBYK3gGkDQPcmyTHWTRc9/tq39ILKBYirIDvlR9jJ4Gyt9kQ/1r/KtSOhs7UDuKUJ
-	 jkGfUex1KyuizQT/O1E/6lMDD9oMtb4U6f3nNyskPJ1xh1pVg4T40DY432p5vFuF3N
-	 bUqmz4zt2qCtg==
+	b=QDN69Rym8ttOx2o9Pvsr4THxrdZ8Hdk4sqTYfKz4mdd1AaNpPuXhHTzdvP2i8r+n2
+	 7+w4SEqd6vEu7nqRvm1lZI/65WA2XXX5iQZs+uRQUgf3ND/zxp51OxVVRiAFXFER4a
+	 /GyReJv6thSSagQABJUnCEE6KzM0lsRtDGsI72OPRpQcX0ajXlgf/mxcqUF7OEfUzv
+	 P4tRCN0Zpy4Gv8pxGvUTH3+mRuwbja/AQf/rzF+Fl1Cv0YSEpUX0gQ7KDv06Ok3d5b
+	 4kpJJh+N7U5HxJw2GqkD6GAhMb0xGJRCSfccnb7fKIqStXrjq8eTGtzMGk6nfsLNp6
+	 ozwH3EGVe/fpA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,17 +53,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 01/16] crypto: sha512 - rename conflicting symbols
-Date: Tue, 10 Jun 2025 19:09:08 -0700
-Message-ID: <20250611020923.1482701-2-ebiggers@kernel.org>
+Subject: [PATCH 03/16] lib/crypto/sha512: add HMAC-SHA384 and HMAC-SHA512 support
+Date: Tue, 10 Jun 2025 19:09:10 -0700
+Message-ID: <20250611020923.1482701-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250611020923.1482701-1-ebiggers@kernel.org>
 References: <20250611020923.1482701-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_191253_970006_DFB0D21F 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250610_191254_745708_D8DECDB6 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,248 +80,480 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Rename existing functions and structs in architecture-optimized SHA-512
-code that had names conflicting with the upcoming library interface
-which will be added to <crypto/sha2.h>: sha384_init, sha512_init,
-sha512_update, sha384, and sha512.
+Since HMAC support is commonly needed and is fairly simple, include it
+as a first-class citizen of the SHA-512 library.
 
-Note: all affected code will be superseded by later commits that migrate
-the arch-optimized SHA-512 code into the library.  This commit simply
-keeps the kernel building for the initial introduction of the library.
+The API supports both incremental and one-shot computation, and either
+preparing the key ahead of time or just using a raw key.  The
+implementation is much more streamlined than crypto/hmac.c.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/arm64/crypto/sha512-glue.c     |  8 ++++----
- arch/s390/crypto/sha512_s390.c      |  8 ++++----
- arch/sparc/crypto/sha512_glue.c     | 14 +++++++-------
- arch/x86/crypto/sha512_ssse3_glue.c | 10 +++++-----
- 4 files changed, 20 insertions(+), 20 deletions(-)
+ include/crypto/sha2.h | 222 ++++++++++++++++++++++++++++++++++++++++++
+ lib/crypto/Kconfig    |   5 +-
+ lib/crypto/sha512.c   | 144 ++++++++++++++++++++++++++-
+ 3 files changed, 367 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/crypto/sha512-glue.c b/arch/arm64/crypto/sha512-glue.c
-index 15aa9d8b7b2c4..a78e184c100fa 100644
---- a/arch/arm64/crypto/sha512-glue.c
-+++ b/arch/arm64/crypto/sha512-glue.c
-@@ -25,12 +25,12 @@ static void sha512_arm64_transform(struct sha512_state *sst, u8 const *src,
- 				   int blocks)
- {
- 	sha512_blocks_arch(sst->state, src, blocks);
- }
+diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
+index 9b679ab9a3230..c784bffa533b8 100644
+--- a/include/crypto/sha2.h
++++ b/include/crypto/sha2.h
+@@ -145,10 +145,26 @@ struct __sha512_ctx {
+ 	u64 bytecount_hi;
+ 	u8 buf[SHA512_BLOCK_SIZE];
+ };
+ void __sha512_update(struct __sha512_ctx *ctx, const u8 *data, size_t len);
  
--static int sha512_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
-+static int sha512_update_arm64(struct shash_desc *desc, const u8 *data,
-+			       unsigned int len)
- {
- 	return sha512_base_do_update_blocks(desc, data, len,
- 					    sha512_arm64_transform);
- }
++/*
++ * HMAC key and message context structs, shared by HMAC-SHA384 and HMAC-SHA512.
++ * The hmac_sha384_* and hmac_sha512_* structs wrap this one so that the API has
++ * proper typing and doesn't allow mixing the functions arbitrarily.
++ */
++struct __hmac_sha512_key {
++	struct sha512_block_state istate;
++	struct sha512_block_state ostate;
++};
++struct __hmac_sha512_ctx {
++	struct __sha512_ctx sha_ctx;
++	struct sha512_block_state ostate;
++};
++void __hmac_sha512_init(struct __hmac_sha512_ctx *ctx,
++			const struct __hmac_sha512_key *key);
++
+ /**
+  * struct sha384_ctx - Context for hashing a message with SHA-384
+  * @ctx: private
+  */
+ struct sha384_ctx {
+@@ -200,10 +216,113 @@ void sha384_final(struct sha384_ctx *ctx, u8 out[SHA384_DIGEST_SIZE]);
+  *
+  * Context: Any context.
+  */
+ void sha384(const u8 *data, size_t len, u8 out[SHA384_DIGEST_SIZE]);
  
-@@ -42,11 +42,11 @@ static int sha512_finup(struct shash_desc *desc, const u8 *data,
- }
++/**
++ * struct hmac_sha384_key - Prepared key for HMAC-SHA384
++ * @key: private
++ */
++struct hmac_sha384_key {
++	struct __hmac_sha512_key key;
++};
++
++/**
++ * struct hmac_sha384_ctx - Context for computing HMAC-SHA384 of a message
++ * @ctx: private
++ */
++struct hmac_sha384_ctx {
++	struct __hmac_sha512_ctx ctx;
++};
++
++/**
++ * hmac_sha384_preparekey() - Prepare a key for HMAC-SHA384
++ * @key: (output) the key structure to initialize
++ * @raw_key: the raw HMAC-SHA384 key
++ * @raw_key_len: the key length in bytes.  All key lengths are supported.
++ *
++ * Note: the caller is responsible for zeroizing both the struct hmac_sha384_key
++ * and the raw key once they are no longer needed.
++ *
++ * Context: Any context.
++ */
++void hmac_sha384_preparekey(struct hmac_sha384_key *key,
++			    const u8 *raw_key, size_t raw_key_len);
++
++/**
++ * hmac_sha384_init() - Initialize a HMAC-SHA384 context for a new message
++ * @ctx: (output) the HMAC context to initialize
++ * @key: the prepared HMAC key
++ *
++ * If you don't need incremental computation, consider hmac_sha384() instead.
++ *
++ * Context: Any context.
++ */
++static inline void hmac_sha384_init(struct hmac_sha384_ctx *ctx,
++				    const struct hmac_sha384_key *key)
++{
++	__hmac_sha512_init(&ctx->ctx, &key->key);
++}
++
++/**
++ * hmac_sha384_update() - Update a HMAC-SHA384 context with message data
++ * @ctx: the HMAC context to update; must have been initialized
++ * @data: the message data
++ * @data_len: the data length in bytes
++ *
++ * This can be called any number of times.
++ *
++ * Context: Any context.
++ */
++static inline void hmac_sha384_update(struct hmac_sha384_ctx *ctx,
++				      const u8 *data, size_t data_len)
++{
++	__sha512_update(&ctx->ctx.sha_ctx, data, data_len);
++}
++
++/**
++ * hmac_sha384_final() - Finish computing a HMAC-SHA384 value
++ * @ctx: the HMAC context to finalize; must have been initialized
++ * @out: (output) the resulting HMAC-SHA384 value
++ *
++ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
++ *
++ * Context: Any context.
++ */
++void hmac_sha384_final(struct hmac_sha384_ctx *ctx, u8 out[SHA384_DIGEST_SIZE]);
++
++/**
++ * hmac_sha384() - Compute HMAC-SHA384 in one shot, using a prepared key
++ * @key: the prepared HMAC key
++ * @data: the message data
++ * @data_len: the data length in bytes
++ * @out: (output) the resulting HMAC-SHA384 value
++ *
++ * If you're using the key only once, consider using hmac_sha384_usingrawkey().
++ *
++ * Context: Any context.
++ */
++void hmac_sha384(const struct hmac_sha384_key *key,
++		 const u8 *data, size_t data_len, u8 out[SHA384_DIGEST_SIZE]);
++
++/**
++ * hmac_sha384_usingrawkey() - Compute HMAC-SHA384 in one shot, using a raw key
++ * @raw_key: the raw HMAC-SHA384 key
++ * @raw_key_len: the key length in bytes.  All key lengths are supported.
++ * @data: the message data
++ * @data_len: the data length in bytes
++ * @out: (output) the resulting HMAC-SHA384 value
++ *
++ * If you're using the key multiple times, prefer to use
++ * hmac_sha384_preparekey() followed by multiple calls to hmac_sha384() instead.
++ *
++ * Context: Any context.
++ */
++void hmac_sha384_usingrawkey(const u8 *raw_key, size_t raw_key_len,
++			     const u8 *data, size_t data_len,
++			     u8 out[SHA384_DIGEST_SIZE]);
++
+ /**
+  * struct sha512_ctx - Context for hashing a message with SHA-512
+  * @ctx: private
+  */
+ struct sha512_ctx {
+@@ -255,6 +374,109 @@ void sha512_final(struct sha512_ctx *ctx, u8 out[SHA512_DIGEST_SIZE]);
+  *
+  * Context: Any context.
+  */
+ void sha512(const u8 *data, size_t len, u8 out[SHA512_DIGEST_SIZE]);
  
- static struct shash_alg algs[] = { {
- 	.digestsize		= SHA512_DIGEST_SIZE,
- 	.init			= sha512_base_init,
--	.update			= sha512_update,
-+	.update			= sha512_update_arm64,
- 	.finup			= sha512_finup,
- 	.descsize		= SHA512_STATE_SIZE,
- 	.base.cra_name		= "sha512",
- 	.base.cra_driver_name	= "sha512-arm64",
- 	.base.cra_priority	= 150,
-@@ -55,11 +55,11 @@ static struct shash_alg algs[] = { {
- 	.base.cra_blocksize	= SHA512_BLOCK_SIZE,
- 	.base.cra_module	= THIS_MODULE,
- }, {
- 	.digestsize		= SHA384_DIGEST_SIZE,
- 	.init			= sha384_base_init,
--	.update			= sha512_update,
-+	.update			= sha512_update_arm64,
- 	.finup			= sha512_finup,
- 	.descsize		= SHA512_STATE_SIZE,
- 	.base.cra_name		= "sha384",
- 	.base.cra_driver_name	= "sha384-arm64",
- 	.base.cra_priority	= 150,
-diff --git a/arch/s390/crypto/sha512_s390.c b/arch/s390/crypto/sha512_s390.c
-index 33711a29618c3..e8bb172dbed75 100644
---- a/arch/s390/crypto/sha512_s390.c
-+++ b/arch/s390/crypto/sha512_s390.c
-@@ -15,11 +15,11 @@
++/**
++ * struct hmac_sha512_key - Prepared key for HMAC-SHA512
++ * @key: private
++ */
++struct hmac_sha512_key {
++	struct __hmac_sha512_key key;
++};
++
++/**
++ * struct hmac_sha512_ctx - Context for computing HMAC-SHA512 of a message
++ * @ctx: private
++ */
++struct hmac_sha512_ctx {
++	struct __hmac_sha512_ctx ctx;
++};
++
++/**
++ * hmac_sha512_preparekey() - Prepare a key for HMAC-SHA512
++ * @key: (output) the key structure to initialize
++ * @raw_key: the raw HMAC-SHA512 key
++ * @raw_key_len: the key length in bytes.  All key lengths are supported.
++ *
++ * Note: the caller is responsible for zeroizing both the struct hmac_sha512_key
++ * and the raw key once they are no longer needed.
++ *
++ * Context: Any context.
++ */
++void hmac_sha512_preparekey(struct hmac_sha512_key *key,
++			    const u8 *raw_key, size_t raw_key_len);
++
++/**
++ * hmac_sha512_init() - Initialize a HMAC-SHA512 context for a new message
++ * @ctx: (output) the HMAC context to initialize
++ * @key: the prepared HMAC key
++ *
++ * If you don't need incremental computation, consider hmac_sha512() instead.
++ *
++ * Context: Any context.
++ */
++static inline void hmac_sha512_init(struct hmac_sha512_ctx *ctx,
++				    const struct hmac_sha512_key *key)
++{
++	__hmac_sha512_init(&ctx->ctx, &key->key);
++}
++
++/**
++ * hmac_sha512_update() - Update a HMAC-SHA512 context with message data
++ * @ctx: the HMAC context to update; must have been initialized
++ * @data: the message data
++ * @data_len: the data length in bytes
++ *
++ * This can be called any number of times.
++ *
++ * Context: Any context.
++ */
++static inline void hmac_sha512_update(struct hmac_sha512_ctx *ctx,
++				      const u8 *data, size_t data_len)
++{
++	__sha512_update(&ctx->ctx.sha_ctx, data, data_len);
++}
++
++/**
++ * hmac_sha512_final() - Finish computing a HMAC-SHA512 value
++ * @ctx: the HMAC context to finalize; must have been initialized
++ * @out: (output) the resulting HMAC-SHA512 value
++ *
++ * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
++ *
++ * Context: Any context.
++ */
++void hmac_sha512_final(struct hmac_sha512_ctx *ctx, u8 out[SHA512_DIGEST_SIZE]);
++
++/**
++ * hmac_sha512() - Compute HMAC-SHA512 in one shot, using a prepared key
++ * @key: the prepared HMAC key
++ * @data: the message data
++ * @data_len: the data length in bytes
++ * @out: (output) the resulting HMAC-SHA512 value
++ *
++ * If you're using the key only once, consider using hmac_sha512_usingrawkey().
++ *
++ * Context: Any context.
++ */
++void hmac_sha512(const struct hmac_sha512_key *key,
++		 const u8 *data, size_t data_len, u8 out[SHA512_DIGEST_SIZE]);
++
++/**
++ * hmac_sha512_usingrawkey() - Compute HMAC-SHA512 in one shot, using a raw key
++ * @raw_key: the raw HMAC-SHA512 key
++ * @raw_key_len: the key length in bytes.  All key lengths are supported.
++ * @data: the message data
++ * @data_len: the data length in bytes
++ * @out: (output) the resulting HMAC-SHA512 value
++ *
++ * If you're using the key multiple times, prefer to use
++ * hmac_sha512_preparekey() followed by multiple calls to hmac_sha512() instead.
++ *
++ * Context: Any context.
++ */
++void hmac_sha512_usingrawkey(const u8 *raw_key, size_t raw_key_len,
++			     const u8 *data, size_t data_len,
++			     u8 out[SHA512_DIGEST_SIZE]);
++
+ #endif /* _CRYPTO_SHA2_H */
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index adabf2640fdc2..2ef61c69ae709 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -168,12 +168,13 @@ config CRYPTO_LIB_SHA256_GENERIC
+ 	  enabled, this implementation serves the users of CRYPTO_LIB_SHA256.
+ 
+ config CRYPTO_LIB_SHA512
+ 	tristate
+ 	help
+-	  The SHA-384 and SHA-512 library functions.  Select this if your module
+-	  uses any of these functions from <crypto/sha2.h>.
++	  The SHA-384, SHA-512, HMAC-SHA384, and HMAC-SHA512 library functions.
++	  Select this if your module uses any of these functions from
++	  <crypto/sha2.h>.
+ 
+ config CRYPTO_LIB_SHA512_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_SHA512
+ 
+diff --git a/lib/crypto/sha512.c b/lib/crypto/sha512.c
+index 88452e21b66ee..ebcb8ff0b76a8 100644
+--- a/lib/crypto/sha512.c
++++ b/lib/crypto/sha512.c
+@@ -1,19 +1,21 @@
+ // SPDX-License-Identifier: GPL-2.0-or-later
+ /*
+- * SHA-384 and SHA-512 library functions
++ * SHA-384, SHA-512, HMAC-SHA384, and HMAC-SHA512 library functions
+  *
+  * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
+  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+  * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
+  * Copyright 2025 Google LLC
+  */
+ 
++#include <crypto/hmac.h>
+ #include <crypto/internal/sha2.h>
  #include <linux/kernel.h>
  #include <linux/module.h>
+ #include <linux/overflow.h>
++#include <linux/wordpart.h>
  
- #include "sha.h"
+ static const u64 sha512_K[80] = {
+ 	0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL, 0xb5c0fbcfec4d3b2fULL,
+ 	0xe9b5dba58189dbbcULL, 0x3956c25bf348b538ULL, 0x59f111f1b605d019ULL,
+ 	0x923f82a4af194f9bULL, 0xab1c5ed5da6d8118ULL, 0xd807aa98a3030242ULL,
+@@ -243,10 +245,148 @@ void sha512(const u8 *data, size_t len, u8 out[SHA512_DIGEST_SIZE])
+ 	sha512_update(&ctx, data, len);
+ 	sha512_final(&ctx, out);
+ }
+ EXPORT_SYMBOL_GPL(sha512);
  
--static int sha512_init(struct shash_desc *desc)
-+static int sha512_init_s390(struct shash_desc *desc)
++static void __hmac_sha512_preparekey(struct __hmac_sha512_key *key,
++				     const u8 *raw_key, size_t raw_key_len,
++				     const struct sha512_block_state *iv)
++{
++	union {
++		unsigned long w[SHA512_BLOCK_SIZE / sizeof(unsigned long)];
++		u8 b[SHA512_BLOCK_SIZE];
++	} derived_key = { 0 };
++
++	if (unlikely(raw_key_len > SHA512_BLOCK_SIZE)) {
++		if (iv == &sha384_iv)
++			sha384(raw_key, raw_key_len, derived_key.b);
++		else
++			sha512(raw_key, raw_key_len, derived_key.b);
++	} else {
++		memcpy(derived_key.b, raw_key, raw_key_len);
++	}
++
++	for (size_t i = 0; i < ARRAY_SIZE(derived_key.w); i++)
++		derived_key.w[i] ^= REPEAT_BYTE(HMAC_IPAD_VALUE);
++	key->istate = *iv;
++	sha512_blocks(&key->istate, derived_key.b, 1);
++
++	for (size_t i = 0; i < ARRAY_SIZE(derived_key.w); i++)
++		derived_key.w[i] ^= REPEAT_BYTE(HMAC_OPAD_VALUE ^
++						HMAC_IPAD_VALUE);
++	key->ostate = *iv;
++	sha512_blocks(&key->ostate, derived_key.b, 1);
++
++	memzero_explicit(&derived_key, sizeof(derived_key));
++}
++
++void hmac_sha384_preparekey(struct hmac_sha384_key *key,
++			    const u8 *raw_key, size_t raw_key_len)
++{
++	__hmac_sha512_preparekey(&key->key, raw_key, raw_key_len, &sha384_iv);
++}
++EXPORT_SYMBOL_GPL(hmac_sha384_preparekey);
++
++void hmac_sha512_preparekey(struct hmac_sha512_key *key,
++			    const u8 *raw_key, size_t raw_key_len)
++{
++	__hmac_sha512_preparekey(&key->key, raw_key, raw_key_len, &sha512_iv);
++}
++EXPORT_SYMBOL_GPL(hmac_sha512_preparekey);
++
++void __hmac_sha512_init(struct __hmac_sha512_ctx *ctx,
++			const struct __hmac_sha512_key *key)
++{
++	__sha512_init(&ctx->sha_ctx, &key->istate, SHA512_BLOCK_SIZE);
++	ctx->ostate = key->ostate;
++}
++EXPORT_SYMBOL_GPL(__hmac_sha512_init);
++
++static void __hmac_sha512_final(struct __hmac_sha512_ctx *ctx,
++				u8 *out, size_t digest_size)
++{
++	const u32 bitcount = 8 * (SHA512_BLOCK_SIZE + digest_size);
++	union {
++		u8 b[SHA512_BLOCK_SIZE];
++		__be32 w[SHA512_BLOCK_SIZE / sizeof(__be32)];
++	} block;
++
++	__sha512_final(&ctx->sha_ctx, block.b, digest_size);
++
++	memset(&block.b[digest_size], 0, SHA512_BLOCK_SIZE - digest_size);
++	block.b[digest_size] = 0x80;
++	block.w[ARRAY_SIZE(block.w) - 1] = cpu_to_be32(bitcount);
++	sha512_blocks(&ctx->ostate, block.b, 1);
++	for (size_t i = 0; i < digest_size; i += 8)
++		put_unaligned_be64(ctx->ostate.h[i / 8], out + i);
++
++	memzero_explicit(ctx, sizeof(*ctx));
++	memzero_explicit(&block, sizeof(block));
++}
++
++void hmac_sha384_final(struct hmac_sha384_ctx *ctx,
++		       u8 out[SHA384_DIGEST_SIZE])
++{
++	__hmac_sha512_final(&ctx->ctx, out, SHA384_DIGEST_SIZE);
++}
++EXPORT_SYMBOL_GPL(hmac_sha384_final);
++
++void hmac_sha512_final(struct hmac_sha512_ctx *ctx,
++		       u8 out[SHA512_DIGEST_SIZE])
++{
++	__hmac_sha512_final(&ctx->ctx, out, SHA512_DIGEST_SIZE);
++}
++EXPORT_SYMBOL_GPL(hmac_sha512_final);
++
++void hmac_sha384(const struct hmac_sha384_key *key,
++		 const u8 *data, size_t data_len, u8 out[SHA384_DIGEST_SIZE])
++{
++	struct hmac_sha384_ctx ctx;
++
++	hmac_sha384_init(&ctx, key);
++	hmac_sha384_update(&ctx, data, data_len);
++	hmac_sha384_final(&ctx, out);
++}
++EXPORT_SYMBOL_GPL(hmac_sha384);
++
++void hmac_sha512(const struct hmac_sha512_key *key,
++		 const u8 *data, size_t data_len, u8 out[SHA512_DIGEST_SIZE])
++{
++	struct hmac_sha512_ctx ctx;
++
++	hmac_sha512_init(&ctx, key);
++	hmac_sha512_update(&ctx, data, data_len);
++	hmac_sha512_final(&ctx, out);
++}
++EXPORT_SYMBOL_GPL(hmac_sha512);
++
++void hmac_sha384_usingrawkey(const u8 *raw_key, size_t raw_key_len,
++			     const u8 *data, size_t data_len,
++			     u8 out[SHA384_DIGEST_SIZE])
++{
++	struct hmac_sha384_key key;
++
++	hmac_sha384_preparekey(&key, raw_key, raw_key_len);
++	hmac_sha384(&key, data, data_len, out);
++
++	memzero_explicit(&key, sizeof(key));
++}
++EXPORT_SYMBOL_GPL(hmac_sha384_usingrawkey);
++
++void hmac_sha512_usingrawkey(const u8 *raw_key, size_t raw_key_len,
++			     const u8 *data, size_t data_len,
++			     u8 out[SHA512_DIGEST_SIZE])
++{
++	struct hmac_sha512_key key;
++
++	hmac_sha512_preparekey(&key, raw_key, raw_key_len);
++	hmac_sha512(&key, data, data_len, out);
++
++	memzero_explicit(&key, sizeof(key));
++}
++EXPORT_SYMBOL_GPL(hmac_sha512_usingrawkey);
++
+ #ifdef sha512_mod_init_arch
+ static int __init sha512_mod_init(void)
  {
- 	struct s390_sha_ctx *ctx = shash_desc_ctx(desc);
- 
- 	ctx->sha512.state[0] = SHA512_H0;
- 	ctx->sha512.state[1] = SHA512_H1;
-@@ -60,11 +60,11 @@ static int sha512_import(struct shash_desc *desc, const void *in)
+ 	sha512_mod_init_arch();
  	return 0;
- }
- 
- static struct shash_alg sha512_alg = {
- 	.digestsize	=	SHA512_DIGEST_SIZE,
--	.init		=	sha512_init,
-+	.init		=	sha512_init_s390,
- 	.update		=	s390_sha_update_blocks,
- 	.finup		=	s390_sha_finup,
- 	.export		=	sha512_export,
- 	.import		=	sha512_import,
- 	.descsize	=	sizeof(struct s390_sha_ctx),
-@@ -80,11 +80,11 @@ static struct shash_alg sha512_alg = {
- 	}
- };
- 
- MODULE_ALIAS_CRYPTO("sha512");
- 
--static int sha384_init(struct shash_desc *desc)
-+static int sha384_init_s390(struct shash_desc *desc)
+@@ -257,7 +397,7 @@ static void __exit sha512_mod_exit(void)
  {
- 	struct s390_sha_ctx *ctx = shash_desc_ctx(desc);
- 
- 	ctx->sha512.state[0] = SHA384_H0;
- 	ctx->sha512.state[1] = SHA384_H1;
-@@ -101,11 +101,11 @@ static int sha384_init(struct shash_desc *desc)
- 	return 0;
  }
+ module_exit(sha512_mod_exit);
+ #endif
  
- static struct shash_alg sha384_alg = {
- 	.digestsize	=	SHA384_DIGEST_SIZE,
--	.init		=	sha384_init,
-+	.init		=	sha384_init_s390,
- 	.update		=	s390_sha_update_blocks,
- 	.finup		=	s390_sha_finup,
- 	.export		=	sha512_export,
- 	.import		=	sha512_import,
- 	.descsize	=	sizeof(struct s390_sha_ctx),
-diff --git a/arch/sparc/crypto/sha512_glue.c b/arch/sparc/crypto/sha512_glue.c
-index 47b9277b6877a..fb81c3290c8c0 100644
---- a/arch/sparc/crypto/sha512_glue.c
-+++ b/arch/sparc/crypto/sha512_glue.c
-@@ -38,11 +38,11 @@ static int sha512_sparc64_finup(struct shash_desc *desc, const u8 *src,
- {
- 	sha512_base_do_finup(desc, src, len, sha512_block);
- 	return sha512_base_finish(desc, out);
- }
- 
--static struct shash_alg sha512 = {
-+static struct shash_alg sha512_alg = {
- 	.digestsize	=	SHA512_DIGEST_SIZE,
- 	.init		=	sha512_base_init,
- 	.update		=	sha512_sparc64_update,
- 	.finup		=	sha512_sparc64_finup,
- 	.descsize	=	SHA512_STATE_SIZE,
-@@ -53,11 +53,11 @@ static struct shash_alg sha512 = {
- 		.cra_blocksize	=	SHA512_BLOCK_SIZE,
- 		.cra_module	=	THIS_MODULE,
- 	}
- };
- 
--static struct shash_alg sha384 = {
-+static struct shash_alg sha384_alg = {
- 	.digestsize	=	SHA384_DIGEST_SIZE,
- 	.init		=	sha384_base_init,
- 	.update		=	sha512_sparc64_update,
- 	.finup		=	sha512_sparc64_finup,
- 	.descsize	=	SHA512_STATE_SIZE,
-@@ -85,17 +85,17 @@ static bool __init sparc64_has_sha512_opcode(void)
- }
- 
- static int __init sha512_sparc64_mod_init(void)
- {
- 	if (sparc64_has_sha512_opcode()) {
--		int ret = crypto_register_shash(&sha384);
-+		int ret = crypto_register_shash(&sha384_alg);
- 		if (ret < 0)
- 			return ret;
- 
--		ret = crypto_register_shash(&sha512);
-+		ret = crypto_register_shash(&sha512_alg);
- 		if (ret < 0) {
--			crypto_unregister_shash(&sha384);
-+			crypto_unregister_shash(&sha384_alg);
- 			return ret;
- 		}
- 
- 		pr_info("Using sparc64 sha512 opcode optimized SHA-512/SHA-384 implementation\n");
- 		return 0;
-@@ -104,12 +104,12 @@ static int __init sha512_sparc64_mod_init(void)
- 	return -ENODEV;
- }
- 
- static void __exit sha512_sparc64_mod_fini(void)
- {
--	crypto_unregister_shash(&sha384);
--	crypto_unregister_shash(&sha512);
-+	crypto_unregister_shash(&sha384_alg);
-+	crypto_unregister_shash(&sha512_alg);
- }
- 
- module_init(sha512_sparc64_mod_init);
- module_exit(sha512_sparc64_mod_fini);
- 
-diff --git a/arch/x86/crypto/sha512_ssse3_glue.c b/arch/x86/crypto/sha512_ssse3_glue.c
-index 067684c543952..97744b7d23817 100644
---- a/arch/x86/crypto/sha512_ssse3_glue.c
-+++ b/arch/x86/crypto/sha512_ssse3_glue.c
-@@ -36,12 +36,12 @@
- #include <crypto/sha512_base.h>
- 
- asmlinkage void sha512_transform_ssse3(struct sha512_state *state,
- 				       const u8 *data, int blocks);
- 
--static int sha512_update(struct shash_desc *desc, const u8 *data,
--		       unsigned int len, sha512_block_fn *sha512_xform)
-+static int sha512_update_x86(struct shash_desc *desc, const u8 *data,
-+			     unsigned int len, sha512_block_fn *sha512_xform)
- {
- 	int remain;
- 
- 	/*
- 	 * Make sure struct sha512_state begins directly with the SHA512
-@@ -67,11 +67,11 @@ static int sha512_finup(struct shash_desc *desc, const u8 *data,
- }
- 
- static int sha512_ssse3_update(struct shash_desc *desc, const u8 *data,
- 		       unsigned int len)
- {
--	return sha512_update(desc, data, len, sha512_transform_ssse3);
-+	return sha512_update_x86(desc, data, len, sha512_transform_ssse3);
- }
- 
- static int sha512_ssse3_finup(struct shash_desc *desc, const u8 *data,
- 	      unsigned int len, u8 *out)
- {
-@@ -139,11 +139,11 @@ static bool avx_usable(void)
- }
- 
- static int sha512_avx_update(struct shash_desc *desc, const u8 *data,
- 		       unsigned int len)
- {
--	return sha512_update(desc, data, len, sha512_transform_avx);
-+	return sha512_update_x86(desc, data, len, sha512_transform_avx);
- }
- 
- static int sha512_avx_finup(struct shash_desc *desc, const u8 *data,
- 	      unsigned int len, u8 *out)
- {
-@@ -201,11 +201,11 @@ asmlinkage void sha512_transform_rorx(struct sha512_state *state,
- 				      const u8 *data, int blocks);
- 
- static int sha512_avx2_update(struct shash_desc *desc, const u8 *data,
- 		       unsigned int len)
- {
--	return sha512_update(desc, data, len, sha512_transform_rorx);
-+	return sha512_update_x86(desc, data, len, sha512_transform_rorx);
- }
- 
- static int sha512_avx2_finup(struct shash_desc *desc, const u8 *data,
- 	      unsigned int len, u8 *out)
- {
+-MODULE_DESCRIPTION("SHA-384 and SHA-512 library functions");
++MODULE_DESCRIPTION("SHA-384, SHA-512, HMAC-SHA384, and HMAC-SHA512 library functions");
+ MODULE_LICENSE("GPL");
 -- 
 2.49.0
 
