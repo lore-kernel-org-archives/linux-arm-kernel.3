@@ -4,53 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D866C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 05:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02414C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 05:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+8oCrgXHXqL4I5+bmc4b/S6pj4SzLAlFLpmFo/by64=; b=iE6TUlgspbhuPbTncKdMHvp/bq
-	3qowqrNC6yQJLQ+iPIeFy6UT9pQ12R6c8GL+JeewX/YRRsrG5aRWsSpBQr08E364HD94Q+PxxGzu/
-	8zBfaLO618JDXIF1NPWZFiW0J4/efGoEX0S6xXApY/Aeb7H1s+K4nJwKSQ21XgtKw6COd2SYiMwrI
-	2PugvrWhAT7PfqYxUbSeV1e8ssOJw67BAgn4OdSAynNwTuvxmKYdbu18m/UjGKOAxWblIJta3goZk
-	vAb5VhGfwdkfgSvQGUaWd47Vhg/LILDcDorlfo/KoIJhPSrvRATxm+ccGrRmemk9mIJeQyGaokK/G
-	V827HSaA==;
+	bh=Z/t8lLUiFoXTd5zgRP+4OV8+E8OvgbBaVBJMzxkwCWI=; b=seBsq1d7LhUOC8YW7BQo3cGwEW
+	/Nnt5dVQOtl66XWfPf/zyNA5PPhG4wXP1wcatJgShMf4UznpJnPKzzoVtJ0GUvds4FFllHYJkqf5l
+	oiD73QRW0/XukAPyFmHq0EWlOfZDY400VOdSAKtJzvy9xaE2trg9KX+C8yldZDpt1FqSRCnxCbs4d
+	I8c9iaRcgwo7EhG1l65k2r5y7dGSQU2YjyPqCP7OVAp7DYmCGlq0tehJ7ks656bjwLN4FmOc7s6sB
+	5vzrEBT3G9WoHHDWpmtAyokiyoCMChwp/4JgDH1U+zR2Ld+/9skx70tFg7gvW4zImg9zHrQlanurH
+	QKYk/fwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPaNL-0000000CDiA-1Jpd;
-	Thu, 12 Jun 2025 05:21:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPaLC-0000000CDTi-1oss
+	id 1uPaPP-0000000CDrZ-46LW;
+	Thu, 12 Jun 2025 05:23:27 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPaLZ-0000000CDUB-0dMe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 05:19:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CDF71595;
-	Wed, 11 Jun 2025 22:18:45 -0700 (PDT)
-Received: from [10.163.33.129] (unknown [10.163.33.129])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E29553F66E;
-	Wed, 11 Jun 2025 22:19:02 -0700 (PDT)
-Message-ID: <28ccdeaa-865e-4e81-8a95-eaec9b2754ef@arm.com>
-Date: Thu, 12 Jun 2025 10:48:59 +0530
+	Thu, 12 Jun 2025 05:19:31 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55C5JM1d2777716;
+	Thu, 12 Jun 2025 00:19:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749705562;
+	bh=Z/t8lLUiFoXTd5zgRP+4OV8+E8OvgbBaVBJMzxkwCWI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=PwN9NjQqcsSqDe2oXG6CwGyH1Mrjr65I8EpYBao1jJSoP+RHyQSQf+FbbH4Xra024
+	 RsAk1NH0SdfifAui2hIR5DrRmPke6zP2pxI/FSwboeX9KQ9Ynv6LprE7W15aXhaUbj
+	 tz4119hXwH/kIMn0EHkx9cO93VCjo7nFgL0cA/Fw=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55C5JM223383057
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 12 Jun 2025 00:19:22 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 12
+ Jun 2025 00:19:22 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 12 Jun 2025 00:19:22 -0500
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55C5JHui1457466;
+	Thu, 12 Jun 2025 00:19:18 -0500
+Message-ID: <03555d09-e506-4f48-a073-b06b63e1af4a@ti.com>
+Date: Thu, 12 Jun 2025 10:49:17 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH 1/2] coresight: stm: Remove redundant NULL checks
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20250611-arm_cs_fix_smatch_warning_v1-v1-0-02a66c69b604@arm.com>
- <20250611-arm_cs_fix_smatch_warning_v1-v1-1-02a66c69b604@arm.com>
+Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Read firmware-names from
+ device tree
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
+        Eric
+ Dumazet <edumazet@google.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Andrew Lunn <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>
+References: <20250610052501.3444441-1-danishanwar@ti.com>
+ <20250611170211.7398b083@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20250611-arm_cs_fix_smatch_warning_v1-v1-1-02a66c69b604@arm.com>
-Content-Type: text/plain; charset=UTF-8
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <20250611170211.7398b083@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_221906_519291_57A34998 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20250611_221929_283915_A9BBB1CD 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,68 +93,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jakub
 
+On 12/06/25 5:32 am, Jakub Kicinski wrote:
+> On Tue, 10 Jun 2025 10:55:01 +0530 MD Danish Anwar wrote:
+>> Refactor the way firmware names are handled for the ICSSG PRUETH driver.
+>> Instead of using hardcoded firmware name arrays for different modes (EMAC,
+>> SWITCH, HSR), the driver now reads the firmware names from the device tree
+>> property "firmware-name". Only the EMAC firmware names are specified in the
+>> device tree property. The firmware names for all other supported modes are
+>> generated dynamically based on the EMAC firmware names by replacing
+>> substrings (e.g., "eth" with "sw" or "hsr") as appropriate.
+> 
+> Could you include an example?
 
-On 11/06/25 8:14 PM, Leo Yan wrote:
-> container_of() cannot return NULL, so the checks for NULL pointers are
-> unnecessary and can be safely removed.
-> 
-> As a result, this commit silences the following smatch warnings:
-> 
->   coresight-stm.c:345 stm_generic_link() warn: can 'drvdata' even be NULL?
->   coresight-stm.c:356 stm_generic_unlink() warn: can 'drvdata' even be NULL?
->   coresight-stm.c:387 stm_generic_set_options() warn: can 'drvdata' even be NULL?
->   coresight-stm.c:422 stm_generic_packet() warn: can 'drvdata' even be NULL?
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-stm.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-> index e45c6c7204b4491e0f879bc7d5d445aa1d3118be..464b0c85c3f7d3519169d62a51e9f8c6281b5358 100644
-> --- a/drivers/hwtracing/coresight/coresight-stm.c
-> +++ b/drivers/hwtracing/coresight/coresight-stm.c
-> @@ -342,7 +342,7 @@ static int stm_generic_link(struct stm_data *stm_data,
->  {
->  	struct stm_drvdata *drvdata = container_of(stm_data,
->  						   struct stm_drvdata, stm);
-> -	if (!drvdata || !drvdata->csdev)
-> +	if (!drvdata->csdev)
->  		return -EINVAL;
->  
->  	return coresight_enable_sysfs(drvdata->csdev);
-> @@ -353,7 +353,7 @@ static void stm_generic_unlink(struct stm_data *stm_data,
->  {
->  	struct stm_drvdata *drvdata = container_of(stm_data,
->  						   struct stm_drvdata, stm);
-> -	if (!drvdata || !drvdata->csdev)
-> +	if (!drvdata->csdev)
->  		return;
->  
->  	coresight_disable_sysfs(drvdata->csdev);
-> @@ -384,7 +384,7 @@ static long stm_generic_set_options(struct stm_data *stm_data,
->  {
->  	struct stm_drvdata *drvdata = container_of(stm_data,
->  						   struct stm_drvdata, stm);
-> -	if (!(drvdata && coresight_get_mode(drvdata->csdev)))
-> +	if (!coresight_get_mode(drvdata->csdev))
->  		return -EINVAL;
->  
->  	if (channel >= drvdata->numsp)
-> @@ -419,7 +419,7 @@ static ssize_t notrace stm_generic_packet(struct stm_data *stm_data,
->  						   struct stm_drvdata, stm);
->  	unsigned int stm_flags;
->  
-> -	if (!(drvdata && coresight_get_mode(drvdata->csdev)))
-> +	if (!coresight_get_mode(drvdata->csdev))
->  		return -EACCES;
->  
->  	if (channel >= drvdata->numsp)
-> 
+Sure. Below are the firmwares used currently for PRU0 core
 
-Seems to be a sensible clean up.
+EMAC: ti-pruss/am65x-sr2-pru0-prueth-fw.elf
+SW  : ti-pruss/am65x-sr2-pru0-prusw-fw.elf
+HSR : ti-pruss/am65x-sr2-pru0-pruhsr-fw.elf
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+If you look closely you'll see the names of all three firmwares are same
+except for the operating mode.
 
+In general for PRU0 core, firmware name is,
+
+	ti-pruss/am65x-sr2-pru0-pru<mode>-fw.elf
+
+Since the EMAC firmware names are defined in DT, I am reading those
+directly and for other modes just swapping mode name. i.e. eth -> sw or
+eth -> hsr.
+
+I will add this example in commit msg in next revision.
+
+> 
+>> This improves flexibility and allows firmware names to be customized via
+>> the device tree, reducing the need for code changes when firmware names
+>> change for different platforms.
+> 
+> You seem to be deleting the old constants. Is there no need to keep
+> backward compatibility with DT blobs which don't have the firmware-name
+> properties ?
+
+ICSSG-PRUETH driver is only supported by AM65x and AM64x and both the
+DTs have the firmware name property. So I don't think there is any need
+to maintain the older hard coded values.
+
+AM65x -
+https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/arch/arm64/boot/dts/ti/k3-am654-icssg2.dtso#n28:~:text=pru2_1%3E%2C%20%3C%26rtu2_1%3E%2C%20%3C%26tx_pru2_1%3E%3B-,firmware%2Dname,-%3D%20%22ti%2Dpruss/am65x
+
+AM64x -
+https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/arch/arm64/boot/dts/ti/k3-am642-evm.dts#:~:text=tx_pru1_1%3E%3B-,firmware%2Dname,-%3D%20%22ti%2Dpruss
+
+Let me know if this is okay.
+
+-- 
+Thanks and Regards,
+Danish
 
