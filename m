@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B76C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D50A3C61CE8
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 22:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HVKvRk5s7YqZIIU7nV5V0nJPuOy2Jc7veLLKo/mUO+A=; b=j/yOqCwnx83i22
-	Hu/6qzKQZ8kmp7xTrnKJKrFEoptS91Wwpmo1dBfti7TrHpKJuUISUKjjdOHpuvcWxKG88brGTsE6o
-	6y4MjmkhkluL7umWthcRdn77i+bdljs5e7v3lDLd7SsMk5b9sY/yWQ6uzkIbays/GgkdGtBRDVGAL
-	+fQNPdy97kaq8JMDGkVvwFdBAlhEqJbxeOtHlBz32AXocrqrMpT62mT7/nLJ60ggDHjkdUUt90znC
-	k+7fyWFZ+TBcpGOrZLekU4NliyshdUUGS2ybzx3yWmoU1sFw8/gIfgB0AdyYrUxPyK0jtRNF8iXpi
-	CxT04ehUcrg1DLk51CWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qnTMWXcG9+Pj+4+oKpZctYbDP9BDcMJqDrvbPw6A3Uo=; b=VYBcNuN/eg46Ch9e7foV8xMf3E
+	OTzZplLBjSimE4evIMZzvTlJnKS8srlhJ9vHK1qgNYWmoZcdkiHLDDl534cIVFus2mv8N2CZPDqzs
+	h+hnYZmPEld/S/Fsn7CeJYlur6aEs7fpz7lIZv8CsodOLl88Me08UjfLSX4RrszVtreI2cGSCXbdo
+	f9qjRnvvWSF72W1VnY7w5/XObRGykQhxfEAEsQAy2d3Ak8m2Gw1jrlh3HZxNYbNopsRbh3+8aiBwC
+	SONNhFeMnvc3WKlufHHQ/52/gxYbEkRlns2YaxWXYuopkaxE9BaUBOA18pBbOrxr6a1tYQThMBaEA
+	23FSpQGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPq6w-0000000EjB2-2cia;
-	Thu, 12 Jun 2025 22:09:27 +0000
-Received: from layka.disroot.org ([178.21.23.139])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjZ3-0000000Djot-3PDY;
-	Thu, 12 Jun 2025 15:10:03 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 7075025C7B;
-	Thu, 12 Jun 2025 17:10:00 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id guWSlxOGple0; Thu, 12 Jun 2025 17:09:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1749740999; bh=dSXo45mIJJx9bDeTqNn31sUJ/q0OnjYwLXEix43Xrw0=;
-	h=From:Subject:Date:To:Cc;
-	b=glwmPQ2CSMUg8fREOyygECG6WwXxlVb+wX16fBWBwWSdhrZZs3DDXfSGRf1pL2KUv
-	 XBiaj0mtIneJeaSpdZBwbrM27QMAN5ZPKHsV6E94LVOqygMVnlh5SbVyRkjXFLO4Kh
-	 ytQFo315OmRo8ozmC6/lB7Q0RrpIFYHfa2se+eG2hA5HyScrGNlNJvvSRDeIFcvn1W
-	 SRIFgp8gVdxMjO6SzYVMTTg/2XS95cuhMeOTEwdKhMQAsVdFC7vCD4C9jI6ilIy39i
-	 WktJloerb2WhF6VsYwM/vsSLNVk712C2IvKdBN+1o4EAHlSK2VtT7yr+3wYeDgOHXZ
-	 H+wnu1ViQdNqg==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Subject: [PATCH 0/2] Support for Exynos7870's MIPI PHY blocks
-Date: Thu, 12 Jun 2025 20:39:28 +0530
-Message-Id: <20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org>
+	id 1uPq6y-0000000EjCM-2BMN;
+	Thu, 12 Jun 2025 22:09:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPjdY-0000000DkQc-0fbl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 15:14:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A5D0153B;
+	Thu, 12 Jun 2025 08:14:16 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 223A43F66E;
+	Thu, 12 Jun 2025 08:14:32 -0700 (PDT)
+Date: Thu, 12 Jun 2025 16:14:27 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>
+Subject: Re: [PATCH v9 41/43] KVM: arm64: Expose support for private memory
+Message-ID: <20250612151427.GA1913753@e124191.cambridge.arm.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-42-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKjtSmgC/x3MTQqAIBBA4avErBswy4yuEi36GWsWmSiEIt09a
- fkt3ssQyDMFGKsMnh4OfNuCpq5gOxd7EPJeDFJIJZRskWKyd9CDFnixY3Rnwk41ZtDK9OsioZT
- Ok+H4X6f5fT+Xq/nrZQAAAA==
-X-Change-ID: 20250523-exynos7870-mipi-phy-451f875f6ba2
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749740994; l=845;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=dSXo45mIJJx9bDeTqNn31sUJ/q0OnjYwLXEix43Xrw0=;
- b=8D4uqf1bHJF54i/+4jjJQo9pGHE9cAYBK0Au1T4+ogxwrDYvP9PPCEjq13Ru+GQKkhUc+0qcS
- IlkF/AAqxdhCI54z50n1Z7RsvpIJIcihHrGP2kSNOtGQtBp+xNwGE3C
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250611104844.245235-42-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_081001_987061_56F363BE 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_081440_338853_656EA651 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +78,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for Exynos7870's MIPI DSIM (for display)
-and CSIS (for camera) PHY blocks. It contains a single DSIM and three
-CSIS PHYs.
+Hi Steven,
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
-Kaustabh Chakraborty (2):
-      dt-bindings: phy: samsung,mipi-video-phy: document exynos7870 MIPI phy
-      phy: exynos-mipi-video: introduce support for exynos7870
+On Wed, Jun 11, 2025 at 11:48:38AM +0100, Steven Price wrote:
+> Select KVM_GENERIC_PRIVATE_MEM and provide the necessary support
+> functions.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> ---
+> Changes since v2:
+>  * Switch kvm_arch_has_private_mem() to a macro to avoid overhead of a
+>    function call.
+>  * Guard definitions of kvm_arch_{pre,post}_set_memory_attributes() with
+>    #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES.
+>  * Early out in kvm_arch_post_set_memory_attributes() if the WARN_ON
+>    should trigger.
+> ---
+>  arch/arm64/include/asm/kvm_host.h |  6 ++++++
+>  arch/arm64/kvm/Kconfig            |  1 +
+>  arch/arm64/kvm/mmu.c              | 24 ++++++++++++++++++++++++
+>  3 files changed, 31 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index a1857802db64..9903b0e8ef3f 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1514,6 +1514,12 @@ struct kvm *kvm_arch_alloc_vm(void);
+>  
+>  #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+>  
+> +#ifdef CONFIG_KVM_PRIVATE_MEM
+> +#define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
+> +#else
+> +#define kvm_arch_has_private_mem(kvm) false
+> +#endif
 
- .../bindings/phy/samsung,mipi-video-phy.yaml       | 29 ++++++++++--
- drivers/phy/samsung/phy-exynos-mipi-video.c        | 52 ++++++++++++++++++++++
- include/linux/soc/samsung/exynos-regs-pmu.h        |  5 +++
- 3 files changed, 82 insertions(+), 4 deletions(-)
----
-base-commit: 0bb71d301869446810a0b13d3da290bd455d7c78
-change-id: 20250523-exynos7870-mipi-phy-451f875f6ba2
+I don't understand the ifdef here (or below). In the Kconfig you 'select
+KVM_GENERIC_PRIVATE_MEM', so it will always be on/defined? Unless I'm
+misunderstanding something.
 
-Best regards,
--- 
-Kaustabh Chakraborty <kauschluss@disroot.org>
+> +
+>  int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+>  bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+>  
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 713248f240e0..3a04b040869d 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -37,6 +37,7 @@ menuconfig KVM
+>  	select HAVE_KVM_VCPU_RUN_PID_CHANGE
+>  	select SCHED_INFO
+>  	select GUEST_PERF_EVENTS if PERF_EVENTS
+> +	select KVM_GENERIC_PRIVATE_MEM
+>  	help
+>  	  Support hosting virtualized guest machines.
+>  
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 580ed362833c..c866891fd8f9 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -2384,6 +2384,30 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>  	return ret;
+>  }
+>  
+> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+> +bool kvm_arch_pre_set_memory_attributes(struct kvm *kvm,
+> +					struct kvm_gfn_range *range)
+> +{
+> +	WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm));
+> +	return false;
+> +}
+> +
+> +bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
+> +					 struct kvm_gfn_range *range)
+> +{
+> +	if (WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm)))
+> +		return false;
+> +
+> +	if (range->arg.attributes & KVM_MEMORY_ATTRIBUTE_PRIVATE)
+> +		range->attr_filter = KVM_FILTER_SHARED;
+> +	else
+> +		range->attr_filter = KVM_FILTER_PRIVATE;
+> +	kvm_unmap_gfn_range(kvm, range);
+> +
+> +	return false;
+> +}
+> +#endif
+> +
+>  void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
+>  {
+>  }
+> -- 
+> 2.43.0
+> 
 
+Thanks,
+Joey
 
