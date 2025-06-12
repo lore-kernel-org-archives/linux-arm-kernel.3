@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D465C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 00:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBC4C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 00:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNxFg8PxKyiuoizCWNy+6ACkP8PYHeNOWM+dAdRlSGg=; b=3gZ/MHZloHFMWGoWEuBoeYSyOB
-	kluN/KQ7O5aOT8NvymVfZZOXANke5RA2I+XByykCdfF6oH+5mUbUBtVDPLWVF15lyH8lnYEFcOl7j
-	UYd2NJLeebjRVjRGQVqyQPUq5hBwGSkwi12F9BVQ/ET/OmP8Lubne1whVbGzFNWgJpksMsGRWjJl8
-	5BzfXcRK+vrkOxEeUMVyEoLgd6m9dQQvAM3Kv8l+0iZcNxF0oly9qFURR3ssPktj0u83daI4TZKfd
-	aoVeQy6zaWlilXFA5ogO53qdJzwAwCcEOG9N0+ps5LmrmpWUN8miTWJmu4OVogjyW5OYsAP8o9rEQ
-	Ic5n6LgQ==;
+	bh=ObgREgS2LbREVTVWt2meuQSNcQMFkiPDU2dHRlXpVkM=; b=cO8Sv9ZMkjUFPEI3O6ixvuw8Dd
+	g20/31oQWimJ+2UKVLqCloMsNC45zwD5x4ltf3g0HmwQN81lzObkh7JpefKunoEFiRFxu9uvKTph/
+	D/U0Pq0NwUxB2p9vn7Lw37sknEF0uOf18KckQhjNx0oIxWdW6YSaefn6W0XpCDwe5eaUS/djMT5Xh
+	4dLsQwcevyFSR8lUJJGGosDWqmy/HvSwDG3sfB0h7XBtY8htBg9RK+e53mmWgfUa6bAYkG22tLrQy
+	oJioc4/sjLbbn86n2Kym/Zi/P33nyar4rhbuE+fXryYS5EUWiamcICadUuL/cXP6tGH2QBl/0wsvt
+	FBiknszQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPsDk-0000000EwsW-3AqM;
+	id 1uPsDk-0000000Ews7-26FV;
 	Fri, 13 Jun 2025 00:24:36 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPlN5-0000000E0Tj-1FkQ
+	id 1uPlKm-0000000E0OT-3mS0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 17:05:49 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-313bb9b2f5bso1560486a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 10:05:47 -0700 (PDT)
+	Thu, 12 Jun 2025 17:03:26 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-74865da80c4so856344b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 10:03:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749747946; x=1750352746; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1749747803; x=1750352603; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cNxFg8PxKyiuoizCWNy+6ACkP8PYHeNOWM+dAdRlSGg=;
-        b=AI8n0+kJkUT8XI4pdsljsASsiwQcbH5CLFNsSK0R1Q1g045/S6nocnfhi/l2anwjYT
-         n64zcQy4O9/W2Fo/Tp2LAN8xSk2ycaQ+sAqCme1N97EFcI6uGdxpe8hJAUyMOpzTb/iX
-         blFoM3D/bxsby2nOuHFBllfqa/NIKjY/lcN867KTPskp7ADdHx7ZLDH6q/j+59TgPubE
-         TsgYrhsrWkKwuMP6NlNMEE6W0DnnY3z7+WP7EJo0jsFrP2tMS8lD77gGWti7271tE20X
-         8KhPLBTKGRnauz3rZAJa4C8e5GJ2L8UV/sQbAEX0bfUBWm9muw+Im1bm+3jhSz8hEL7w
-         /F6A==
+        bh=ObgREgS2LbREVTVWt2meuQSNcQMFkiPDU2dHRlXpVkM=;
+        b=Vpt7WXTa+Y8Y2FQcVfgRoI/iWrGsKjubDKaLeSqbUDRNTc88qq/yTutdHSpbtJ7RjU
+         94yhK8VocSWbBIHKh9Jl+l69A5Swonb1RnqS1uAIzkeLIF7jn6bp+GYhCgylJbxtxP4/
+         jciAtf1eHdUNpSz6xBh6BVTY0lw3KK5n8sipAGSAl4Yu4GxffbLWsLt0gFZLf7xhaJvd
+         PIRWJukCBQLendJnb5DTIN7qmJqIJdgaUj4iA/J/7HvodzE/AQuBUDYSsWfrVji46+e6
+         dXUduh2d7/lkaesIO7Yzqu/pA/CIG8MfZy9fpvzIylQfzGEjda8gwAOFK3phC1Jtg05L
+         65sQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749747946; x=1750352746;
+        d=1e100.net; s=20230601; t=1749747803; x=1750352603;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cNxFg8PxKyiuoizCWNy+6ACkP8PYHeNOWM+dAdRlSGg=;
-        b=WaXim1MKgOLhAU7tCONDsVrm8uktGLQMUBQrVxNQXHypxrc3LZzOBlVApISdfrpl/c
-         D4eYtamTLLFQVo1e6or6mLNt30cfIVCH788HMiOtZ8YXQ5Gd0SQtyQDDx3G/YJ+Mg6Gv
-         mqqPw7U24+6Tj3XlzQ5yl0w6kY0UrsCYT2qjbTl5mDuR1Bai9AOuN2wHrDQJNY54dGaX
-         e5vTosTaZL4jz3wgx3RjqZc1NOXzlvpdIirGjfvhiQFbUcWNBcq10DBAzm1gfNQMoEn0
-         hjqb9ImZGfO25prP9bFfM7IEkvxuws2r25dMZV7sppvlH2/5W3CZSvPUBYtW90ItqkMO
-         Ic3A==
-X-Forwarded-Encrypted: i=1; AJvYcCVyuLcE+eK11anhhxpOWFtQQoIkBZNPwcCzXoDcIEgM6wtqBDZreCfG0wLNtCNV7vlrLFlkSBQI9v2LPfOFnANG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHOq5njAA86/w8grcN5yodAjLtiFp8zglgjztbEP+F/l2d3CRu
-	ZCo7DP9vAtHsexRdbG+mxRIF38PoRamJZv+FjILXk6L+Tm7bsAW99UV3
-X-Gm-Gg: ASbGnctBl84sXJfxBF/FskqE1anUbmZ6LZKV6tKVf4JKEsklLq7rXb/kEyW7TH7rjyA
-	eM1Kjtd+hMHtxtTQ0DPFTJkh94R9ELo4L+HmfO8Ret4D7w/ORFwvJQ8VvcWmSaiKdq6nZs4uk/y
-	UMaTDpNmQgrdIbtqfCGiFvSLAKdM5iUp2DVvYii2Shtu8LO4yQ3D4YVL+EWQem/+PuKXjLmaRgW
-	IdfShyF5B4H4SkTVwxuITlaqY5gkAzzc0GY77A2tdf2dDwhSEyLXFIwxIis1lRjt1xWFBJA1eIY
-	WpC6X5rYSGHwLt9cfXa20zkQmziXyeNolj7kG1wFOvjouUGETfAfDiIeD5Pj
-X-Google-Smtp-Source: AGHT+IHhknZBtS5YbF0CJppl2HUlNUSeEzsngrk+Z0OR6pwaGzvadi+iraIcZLg169ex6XW9Mg09aQ==
-X-Received: by 2002:a17:90b:2704:b0:313:1e60:584d with SMTP id 98e67ed59e1d1-313af12a2bcmr13383532a91.11.1749747946385;
-        Thu, 12 Jun 2025 10:05:46 -0700 (PDT)
+        bh=ObgREgS2LbREVTVWt2meuQSNcQMFkiPDU2dHRlXpVkM=;
+        b=XCh3BM5CmvnTjYlRRM+/p6Xk115qH0n44JPh/ba2eRF8QyZqu8E7jGrnZLUO7gioiT
+         LlSivta0mbBWBgblGQKqGJQHsCvPKzZSGhjD23K6Iu/lTote6r5pji99Je8/NaoHISZo
+         tPw0pFJrP5XSdKgm0Vtp0QWnx9adJobpzCB8TvPFg6qeXyotJhnbbifUM2bVwjgWSSqx
+         dH6DoBi3BKvR79Q5IdhDQAlY08nK8W/3lsY0Zy9qDOY8W/62aEYZDmO59cG7wci8c3Xg
+         vfQNpxMwDtyjiv33wdRMw8ITYxLTf7YjMWhqY5OSYqDF8NDo6Iz29y44SKqO/iWeTKjD
+         O0lQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVyfCOmiqlu/FIUCyVaCwwGcX70D/D5Quf1Fv60zYTHh385/5Gq2EB6idE+QX4P3tUne/I0uka3MF47UJTEUKQt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEqQtzbCAM4JzshXCX8TjGR7/w0gREzDxc+3FlFNwxlWHhQPLt
+	J+JqigKs/FiuRwHDaTgJNRaQIHC2sD6KMaIQUAn/0O4/k8cZF4RS4JGi
+X-Gm-Gg: ASbGnct5EsptDQ5wD2/CJ9Hto0oGdXBQC2ZCXcV6xjDiRNq4zSIz+k2HzdjmzSoiSne
+	nBDj0oNfxT2zs5iidzQ8S0Bl8t2BhEYEU6TVqYjsC+TttYJIafaDc1emUUUPQiy8+X3yQ3NCHS3
+	9QEgyvBMWdt9s3Qx/APnX+EHX8EzmVaG3UyRTb+EIAh/A+XH9Q1o+a/HfdxwPo1ofVw8+sIpX0B
+	UCRoxiIv96HaosIwgjgjuhkSSw5WhY/OvmLJLfIy2bB7W1U9T0KGFuB2h2VGxF5bs5cd768wsbZ
+	y/HQnoRgnx3CNYbYlyH2h5FpOgUvkDvYroUd6wcmHshykPGeUZhZ9zbFPgML
+X-Google-Smtp-Source: AGHT+IF54y3q62NL+kS/gD45o5e+WyN4FsAe5RdZjZEeztChTbyzYm/Srld6U8FosLrer/YeMYeZ3w==
+X-Received: by 2002:a05:6a21:998a:b0:1f5:5a0b:4768 with SMTP id adf61e73a8af0-21faa58c2c6mr352397637.21.1749747803298;
+        Thu, 12 Jun 2025 10:03:23 -0700 (PDT)
 Received: from hiago-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313c19d2dd0sm1760004a91.17.2025.06.12.10.05.42
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fd613fee4sm1647097a12.26.2025.06.12.10.03.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 10:05:45 -0700 (PDT)
-Date: Thu, 12 Jun 2025 14:05:40 -0300
+        Thu, 12 Jun 2025 10:03:22 -0700 (PDT)
+Date: Thu, 12 Jun 2025 14:03:17 -0300
 From: Hiago De Franco <hiagofranco@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
 	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
 	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
 	Hiago De Franco <hiago.franco@toradex.com>,
 	"imx@lists.linux.dev" <imx@lists.linux.dev>,
 	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
@@ -87,18 +87,19 @@ Cc: Peng Fan <peng.fan@nxp.com>,
 	"Rafael J . Wysocki" <rafael@kernel.org>
 Subject: Re: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
  pre-booted remote cores
-Message-ID: <20250612170540.ulflkvws4nty5vz5@hiago-nb>
+Message-ID: <20250612170317.k3cok3utmiy5ptq3@hiago-nb>
 References: <20250602131906.25751-1-hiagofranco@gmail.com>
  <20250602131906.25751-4-hiagofranco@gmail.com>
  <PAXPR04MB84594F9ABDF0728D9A71FAFE886CA@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <wlcbd6tgwptv25ms2xfpqo5xkfoczg3l5kr6jae6qamdevmvbt@3ikiy7i53qy2>
+ <20250609173115.qecc2noswkcgr3hm@hiago-nb>
+ <PAXPR04MB8459F651D1D0AC8C51F292A48875A@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <wlcbd6tgwptv25ms2xfpqo5xkfoczg3l5kr6jae6qamdevmvbt@3ikiy7i53qy2>
+In-Reply-To: <PAXPR04MB8459F651D1D0AC8C51F292A48875A@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_100547_341666_801784D6 
-X-CRM114-Status: GOOD (  48.44  )
+X-CRM114-CacheID: sfid-20250612_100324_941564_32705847 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,143 +114,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn,
+Hi Peng,
 
-On Wed, Jun 11, 2025 at 10:36:33AM -0500, Bjorn Andersson wrote:
-> On Wed, Jun 04, 2025 at 03:19:52AM +0000, Peng Fan wrote:
-> > > Subject: [PATCH v4 3/3] remoteproc: imx_rproc: detect and attach to
-> > > pre-booted remote cores
-> > > 
-> > > From: Hiago De Franco <hiago.franco@toradex.com>
-> > > 
-> > > When the remote core is started before Linux boots (e.g., by the
-> > > bootloader), the driver currently is not able to attach because it only
-> > > checks for cores running in different partitions. If the core was kicked
-> > > by the bootloader, it is in the same partition as Linux and it is already
-> > > up and running.
-> > > 
-> > > This adds power mode verification through dev_pm_genpd_is_on(),
-> > > enabling the driver to detect when the remote core is already running
-> > > and properly attach to it if all the power domain devices are on.
-> > > 
-> > > To accomplish this, we need to avoid passing any attach_data or flags
-> > > to dev_pm_domain_attach_list(), letting the platform device become a
-> > > consumer of the power domain provider. With that the current power
-> > > state of the genpds will not change, allowing the detection of the
-> > > remote core power state.
-> > > 
-> > > We enable and sync the device runtime PM during probe to make sure
-> > > the power domains are correctly managed when the core is controlled
-> > > by the kernel.
-> > > 
-> > > Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-> > > ---
-> > > v4: Changed to use the new dev_pm_genpd_is_on() function instead,
-> > > as suggested by Ulf. This will now get the power status of the two
-> > > remote cores power domains to decided if imx_rpoc needs to attach or
-> > > not. In order to do that, pm_runtime_enable() and
-> > > pm_runtime_get_sync() were introduced and pd_data was removed.
-> > > v3: Unchanged.
-> > > v2: Dropped unecessary include. Removed the imx_rproc_is_on
-> > > function, as suggested.
-> > > v1:
-> > > ---
-> > >  drivers/remoteproc/imx_rproc.c | 29 ++++++++++++++++++++++++-----
-> > >  1 file changed, 24 insertions(+), 5 deletions(-)
-> > > 
-> > > diff --git a/drivers/remoteproc/imx_rproc.c
-> > > b/drivers/remoteproc/imx_rproc.c index
-> > > 627e57a88db2..6f9680142704 100644
-> > > --- a/drivers/remoteproc/imx_rproc.c
-> > > +++ b/drivers/remoteproc/imx_rproc.c
-> > > @@ -18,6 +18,7 @@
-> > >  #include <linux/of_reserved_mem.h>
-> > >  #include <linux/platform_device.h>
-> > >  #include <linux/pm_domain.h>
-> > > +#include <linux/pm_runtime.h>
-> > >  #include <linux/reboot.h>
-> > >  #include <linux/regmap.h>
-> > >  #include <linux/remoteproc.h>
-> > > @@ -890,10 +891,8 @@ static int imx_rproc_partition_notify(struct
-> > > notifier_block *nb,  static int imx_rproc_attach_pd(struct imx_rproc
-> > > *priv)  {
-> > >  	struct device *dev = priv->dev;
-> > > -	int ret;
-> > > -	struct dev_pm_domain_attach_data pd_data = {
-> > > -		.pd_flags = PD_FLAG_DEV_LINK_ON,
-> > > -	};
-> > > +	int ret, i;
-> > > +	bool detached = true;
-> > > 
-> > >  	/*
-> > >  	 * If there is only one power-domain entry, the platform driver
-> > > framework @@ -902,7 +901,22 @@ static int
-> > > imx_rproc_attach_pd(struct imx_rproc *priv)
-> > >  	if (dev->pm_domain)
-> > >  		return 0;
-> > > 
-> > > -	ret = dev_pm_domain_attach_list(dev, &pd_data, &priv-
-> > > >pd_list);
-> > > +	ret = dev_pm_domain_attach_list(dev, NULL, &priv->pd_list);
-> > > +	/*
-> > > +	 * If all the power domain devices are already turned on, the
-> > > remote
-> > > +	 * core is already up when the kernel booted (e.g. kicked by
-> > > the
-> > > +	 * bootloader). In this case attach to it.
-> > > +	 */
-> > > +	for (i = 0; i < ret; i++) {
-> > > +		if (!dev_pm_genpd_is_on(priv->pd_list->pd_devs[i])) {
-> > > +			detached = false;
-> > > +			break;
-> > > +		}
-> > > +	}
-> > > +
-> > > +	if (detached)
-> > > +		priv->rproc->state = RPROC_DETACHED;
-> > > +
-> > >  	return ret < 0 ? ret : 0;
-> > >  }
-> > > 
-> > > @@ -1146,6 +1160,11 @@ static int imx_rproc_probe(struct
-> > > platform_device *pdev)
-> > >  		}
-> > >  	}
-> > > 
-> > > +	if (dcfg->method == IMX_RPROC_SCU_API) {
-> > > +		pm_runtime_enable(dev);
-> > > +		pm_runtime_get_sync(dev);
+On Wed, Jun 11, 2025 at 03:27:09AM +0000, Peng Fan wrote:
 > > 
-> > Need put and disable in imx_rproc_remove.
+> > Sorry for the delay.
 > > 
+> > I tested it now and there must be something missing on my U-Boot:
+> > 
+> > Disable imx8x-cm4 rsrc 278 not owned
+> > Disable imx8x-cm4 rsrc 297 not owned
+> > 
+> > It removes my nodes from the DT before starting the kernel, so I cannot
+> > attach. Do you know what should I do in this case?
 > 
-> Note that you also need to pm_runtime_put() if pm_runtime_get_sync()
-> returns an error. So the suggestion is to use the convenience helper
-> pm_runtime_resume_and_get() to handle this for you.
+> In separate partition case, UBoot will check the permission
+> by checking the rsrc-id, saying power domain id.
 > 
-> Probably a good idea to check the return value regardless.
+> You may need to remove the power-domains property
+> from M4 node.
 
-Thanks for the review, noted, I can include this in the next version.
+Without the power-domains property, rproc gives me a kernel panic:
 
-> 
-> Regards,
-> Bjorn
-> 
-> > BTW: Has this patchset tested with M4 in a separate partition,
-> > saying M4 image packed in flash.bin?
-> > 
-> > Regards,
-> > Peng
-> > > +	}
-> > > +
-> > >  	ret = rproc_add(rproc);
-> > >  	if (ret) {
-> > >  		dev_err(dev, "rproc_add failed\n");
-> > > --
-> > > 2.39.5
-> > > 
-> >
+[    1.253234] remoteproc remoteproc0: imx-rproc is available
+[    1.258501] remoteproc remoteproc0: attaching to imx-rproc
+[    1.263950] Unable to handle kernel paging request at virtual address ffff80005ae57d39
+[    1.271812] Mem abort info:
+[    1.274575]   ESR = 0x0000000096000005
+[    1.278299]   EC = 0x25: DABT (current EL), IL = 32 bits
+[    1.282581] mmc0: SDHCI controller on 5b010000.mmc [5b010000.mmc] using ADMA
+[    1.283607]   SET = 0, FnV = 0
+[    1.293701]   EA = 0, S1PTW = 0
+[    1.296815]   FSC = 0x05: level 1 translation fault
+[    1.301699] Data abort info:
+[    1.304545]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+[    1.310079]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[    1.315073]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[    1.320367] swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000096bf3000
+[    1.327061] [ffff80005ae57d39] pgd=0000000000000000, p4d=1000000097085003, pud=0000000000000000
+[    1.335750] Internal error: Oops: 0000000096000005 [#1]  SMP
+[    1.341373] Modules linked in:
+[    1.344414] CPU: 3 UID: 0 PID: 47 Comm: kworker/u16:3 Not tainted 6.16.0-rc1-00024-gfe5d6ab20714-dirty
+ #857 PREEMPT
+[    1.354932] Hardware name: Toradex Colibri iMX8QXP on Colibri Evaluation Board V3 (DT)
+[    1.362837] Workqueue: events_unbound deferred_probe_work_func
+[    1.368651] pstate: 00000005 (nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    1.375601] pc : rproc_handle_resources.constprop.0+0x78/0x1d0
+[    1.381421] lr : rproc_boot+0x368/0x578
+[    1.385242] sp : ffff8000819f3990
+[    1.388542] x29: ffff8000819f3990 x28: ffff80005ae57d3d x27: 0000000000000000
+[    1.395671] x26: 0000000000000000 x25: ffff0000016ee038 x24: ffff800080f3c680
+[    1.402793] x23: ffff8000813d6da8 x22: 00000000d999ad39 x21: ffff0000016ee000
+[    1.409917] x20: 00000000266656c3 x19: ffff80005ae57d39 x18: 0000000000000006
+[    1.417040] x17: ffff000002020600 x16: ffff000002020000 x15: 4addd15cca11c529
+[    1.424164] x14: 73ebceed5d6cd787 x13: 4addd15cca11c529 x12: 73ebceed5d6cd787
+[    1.431288] x11: 95a4e33b6b190664 x10: 9e3cdabdb09ca345 x9 : ab3734eafdd6fd1c
+[    1.438412] x8 : d58a055de4cfb385 x7 : de97fab1791acbbe x6 : 9946d97107d0dcda
+[    1.445535] x5 : ffff0000032b2c00 x4 : 00000000000003fc x3 : ffff0000032b2b80
+[    1.452659] x2 : fffffffffffffff0 x1 : ffff8000814bd000 x0 : ffff8000814bd000
+[    1.459786] Call trace:
+[    1.462215]  rproc_handle_resources.constprop.0+0x78/0x1d0 (P)
+[    1.468036]  rproc_boot+0x368/0x578
+[    1.471510]  rproc_add+0x180/0x18c
+[    1.474898]  imx_rproc_probe+0x3e4/0x540
+[    1.475274] mmc0: new HS400 MMC card at address 0001
+[    1.478799]  platform_probe+0x68/0xc0
+[    1.484628] mmcblk0: mmc0:0001 Q2J55L 7.09 GiB
+[    1.487400]  really_probe+0xc0/0x38c
+[    1.487412]  __driver_probe_device+0x7c/0x15c
+[    1.487424]  driver_probe_device+0x3c/0x10c
+[    1.493941]  mmcblk0: p1 p2
+[    1.495392]  __device_attach_driver+0xbc/0x158
+[    1.495405]  bus_for_each_drv+0x84/0xe0
+[    1.495417]  __device_attach+0x9c/0x1ac
+[    1.500468] mmcblk0boot0: mmc0:0001 Q2J55L 16.0 MiB
+[    1.503906]  device_initial_probe+0x14/0x20
+[    1.503918]  bus_probe_device+0xac/0xb0
+[    1.503929]  deferred_probe_work_func+0x9c/0xec
+[    1.509863] mmcblk0boot1: mmc0:0001 Q2J55L 16.0 MiB
+[    1.511117]  process_one_work+0x14c/0x28c
+[    1.511132]  worker_thread+0x2cc/0x3d4
+[    1.511142]  kthread+0x12c/0x208
+[    1.511157]  ret_from_fork+0x10/0x20
+[    1.517964] mmcblk0rpmb: mmc0:0001 Q2J55L 4.00 MiB, chardev (241:0)
+[    1.518770] Code: 8b36c033 9100127c 54000924 d503201f (b9400261)
+[    1.518777] ---[ end trace 0000000000000000 ]---
+
+Currently I have the M4 partiton defined into the SCU code:
+
+            /* Create partition */
+            BRD_ERR(rm_partition_create(pt_boot, &pt_m4_0, SC_FALSE,
+                SC_TRUE, SC_FALSE, SC_TRUE, SC_FALSE, SC_R_M4_0_PID0,
+                rsrc_list, ARRAY_SIZE(rsrc_list),
+                pad_list, ARRAY_SIZE(pad_list),
+                NULL, 0));
+
+            /* Name partition for debug */
+            PARTITION_NAME(pt_m4_0, "MCU0");
+            
+            /* Allow AP to use SYSTEM (not production!) */
+            BRD_ERR(rm_set_peripheral_permissions(SC_PT, SC_R_SYSTEM,
+                pt_boot, SC_RM_PERM_SEC_RW));
+
+            /* Move M4 0 TCM */
+            BRD_ERR(rm_find_memreg(pt_boot, &mr, 0x034FE0000ULL,
+                0x034FE0000ULL));
+            BRD_ERR(rm_assign_memreg(pt_boot, pt_m4_0, mr));
+
+            /* Move partition to be owned by SC */
+            BRD_ERR(rm_set_parent(pt_boot, pt_m4_0, SC_PT));
+
+            /* Check if booting with the no_ap flag set */
+            if (no_ap != SC_FALSE)
+            {
+                /* Move boot to be owned by M4 0 for Android Automotive */
+                BRD_ERR(rm_set_parent(SC_PT, pt_boot, pt_m4_0));
+            }
+        }
+
+        /* Allow all to access the SEMA42s */
+        BRD_ERR(rm_set_peripheral_permissions(SC_PT, SC_R_M4_0_SEMA42,
+            SC_RM_PT_ALL, SC_RM_PERM_FULL));
+
+I believe this SCU code is correct, at least this is more or less what
+NXP provides as example, right?
 
 Best Regards,
 Hiago.
