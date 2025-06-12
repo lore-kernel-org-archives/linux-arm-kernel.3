@@ -4,81 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F364C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33244C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jK207JmCPoreSPAxEuJucLTQP5EiXczQgWbs/TTbYI0=; b=R2EAvjKb+EiVOW0P01F0Q+I5ya
-	vPjcg6q1sVon2of1ooZ4r+IKnavSl0VoUFA827eP03JXAGQjlcqZANN7jSQse/ekjQsCHv4O1Fy9F
-	4jxRclSUGFFkcMsydiNUDH8F1JSCByqMNth6smOaxeSS/3yp7F45ag5pXF5WPYeSymfunHRoqajLw
-	Al42Q24IGL9tndaN9p5FaZ9pp8qqfInXLCURlCT3dKPlk1OUmy3dj8q4BFS7VDT6BcS6HiehdZhoh
-	O5npB8w0omOk973abZhIx3MTom9w1CyK1F0Bb8985kWHHo3dOqTkGst9lzSX7slvgRKprchQXppHc
-	nkWIlZ/Q==;
+	bh=uLre0J7phx1M8RNlFf77e/G5IGuIZamAQ16l81/Lwls=; b=QuyUyoD+LhwB2bOVAF24c2CNHr
+	q5bPBd/e5P2WfBKlvEs4LTAc897TPIQRgLELwhhQf8IfATH2TeSiZuc5EwoNV5dTy6+LrIawJ1y/F
+	wDEgDKWzAApLyp7CuO5W3+fS6fOIfMGXqt4n38O5yke5HH18SLULC7pRmemD6ur26fglS+mNpOz5d
+	agPsDXMAn2gHo3uSWyBMMpzxi9Zqc5fUpWp11o6i7WOKShzr340SgfptE1kTtSBx06VQ3D3ePxMu9
+	OgGYCQpFv9e0nHIgc87Whtpf7qTm3YmdLploLSb6GiivHpPyO8u95XffBnZxoZnxuG43F6UiKq+v2
+	/O9lJ1lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPfFm-0000000D03N-3aVV;
-	Thu, 12 Jun 2025 10:33:51 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPe4N-0000000CnT4-12uW;
-	Thu, 12 Jun 2025 09:18:01 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id C9E871C00B7; Thu, 12 Jun 2025 11:17:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1749719872;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jK207JmCPoreSPAxEuJucLTQP5EiXczQgWbs/TTbYI0=;
-	b=PkZDjm+VNaBiHoM19j/d5n9YER5Bd3SVefh8dKqwEN8k5jc2k65ob+oA7hwkxHW6kxGWBX
-	9O4xDZh7LriFaoxfmyvFJQg3qyg3IlrtwF8xT0JGHqOaRBnYof2s+Lj763My4eXvfO6kxu
-	0RF39dsnyWVpKCOD3wdHEG1hkzigaK4=
-Date: Thu, 12 Jun 2025 11:17:52 +0200
-From: Pavel Machek <pavel@ucw.cz>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Michael Hennerich <michael.hennerich@analog.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <jpaulo.silvagoncalves@gmail.com>,
-	Leonard =?iso-8859-1?Q?G=F6hrs?= <l.goehrs@pengutronix.de>,
-	kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>,
-	Roan van Dijk <roan@protonic.nl>,
-	Tomasz Duszynski <tomasz.duszynski@octakon.com>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
-	Mudit Sharma <muditsharma.info@gmail.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	=?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>,
-	Andreas Klinger <ak@it-klinger.de>,
-	Petre Rodan <petre.rodan@subdimension.ro>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 00/28] iio: zero init stack with { } instead of memset()
-Message-ID: <aEqbQPvz0FsLXt0Z@duo.ucw.cz>
-References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
+	id 1uPfHt-0000000D0Z1-1j22;
+	Thu, 12 Jun 2025 10:36:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPe5S-0000000Cnfs-1z7Q
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 09:19:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C2D7153B;
+	Thu, 12 Jun 2025 02:18:45 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C22A3F66E;
+	Thu, 12 Jun 2025 02:19:05 -0700 (PDT)
+Date: Thu, 12 Jun 2025 10:19:03 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] coresight: stm: Remove redundant NULL checks
+Message-ID: <20250612091903.GW8020@e132581.arm.com>
+References: <20250611-arm_cs_fix_smatch_warning_v1-v1-0-02a66c69b604@arm.com>
+ <20250611-arm_cs_fix_smatch_warning_v1-v1-1-02a66c69b604@arm.com>
+ <28ccdeaa-865e-4e81-8a95-eaec9b2754ef@arm.com>
+ <CAJ9a7ViTTVzXifBc0u_sB54Q71MDVk40=53TfK4OfXwy2vL3bg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="rtWrUApkft0MEwbP"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
+In-Reply-To: <CAJ9a7ViTTVzXifBc0u_sB54Q71MDVk40=53TfK4OfXwy2vL3bg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_021759_728529_99F80366 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20250612_021906_553784_DAB13D6C 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,117 +67,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jun 12, 2025 at 09:28:42AM +0100, Mike Leach wrote:
+> On Thu, 12 Jun 2025 at 06:19, Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+> >
+> >
+> >
+> > On 11/06/25 8:14 PM, Leo Yan wrote:
+> > > container_of() cannot return NULL, so the checks for NULL pointers are
+> > > unnecessary and can be safely removed.
+> > >
+> > > As a result, this commit silences the following smatch warnings:
+> > >
+> > >   coresight-stm.c:345 stm_generic_link() warn: can 'drvdata' even be NULL?
+> > >   coresight-stm.c:356 stm_generic_unlink() warn: can 'drvdata' even be NULL?
+> > >   coresight-stm.c:387 stm_generic_set_options() warn: can 'drvdata' even be NULL?
+> > >   coresight-stm.c:422 stm_generic_packet() warn: can 'drvdata' even be NULL?
+> > >
+> > > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> > > ---
+> > >  drivers/hwtracing/coresight/coresight-stm.c | 8 ++++----
+> > >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+> > > index e45c6c7204b4491e0f879bc7d5d445aa1d3118be..464b0c85c3f7d3519169d62a51e9f8c6281b5358 100644
+> > > --- a/drivers/hwtracing/coresight/coresight-stm.c
+> > > +++ b/drivers/hwtracing/coresight/coresight-stm.c
+> > > @@ -342,7 +342,7 @@ static int stm_generic_link(struct stm_data *stm_data,
+> > >  {
+> > >       struct stm_drvdata *drvdata = container_of(stm_data,
+> > >                                                  struct stm_drvdata, stm);
+> > > -     if (!drvdata || !drvdata->csdev)
+> > > +     if (!drvdata->csdev)
+> > >               return -EINVAL;
 
---rtWrUApkft0MEwbP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> I'd agree that the container_of() cannot return NULL, but what happens
+> if stm_data is NULL?
+> Perhaps the NULL check was on the wrong parameter?
 
-Hi!
+The pointer "stm_data" should be safe.  The data structure is allocated
+in probe and released in the remove, the structure "stm_data" is safely
+accessed during runtime.
 
-> Jonathan mentioned recently that he would like to get away from using
-> memset() to zero-initialize stack memory in the IIO subsystem. And we
-> have it on good authority that initializing a struct or array with =3D { }
-> is the preferred way to do this in the kernel [1]. So here is a series
-> to take care of that.
+If stm_data really has NULL pointer issue, we should already receive
+alarms for kernel oops :)
 
-1) Is it worth the churn?
-
-2) Will this fail to initialize padding with some obscure compiler?
-
-3) Why do you believe that {} is the preffered way? All we have is
-Kees' email that explains that =3D {} maybe works in configs he tested.
-
-BR,
-								Pavel
-
-> [1]:
-> https://lore.kernel.org/linux-iio/202505090942.48EBF01B@keescook/
-
-
-
-> ---
-> David Lechner (28):
->       iio: accel: adxl372: use =3D { } instead of memset()
->       iio: accel: msa311: use =3D { } instead of memset()
->       iio: adc: dln2-adc: use =3D { } instead of memset()
->       iio: adc: mt6360-adc: use =3D { } instead of memset()
->       iio: adc: rockchip_saradc: use =3D { } instead of memset()
->       iio: adc: rtq6056: use =3D { } instead of memset()
->       iio: adc: stm32-adc: use =3D { } instead of memset()
->       iio: adc: ti-ads1015: use =3D { } instead of memset()
->       iio: adc: ti-ads1119: use =3D { } instead of memset()
->       iio: adc: ti-lmp92064: use =3D { } instead of memset()
->       iio: adc: ti-tsc2046: use =3D { } instead of memset()
->       iio: chemical: scd4x: use =3D { } instead of memset()
->       iio: chemical: scd30: use =3D { } instead of memset()
->       iio: chemical: sunrise_co2: use =3D { } instead of memset()
->       iio: dac: ad3552r: use =3D { } instead of memset()
->       iio: imu: inv_icm42600: use =3D { } instead of memset()
->       iio: imu: inv_mpu6050: use =3D { } instead of memset()
->       iio: light: bh1745: use =3D { } instead of memset()
->       iio: light: ltr501: use =3D { } instead of memset()
->       iio: light: opt4060: use =3D { } instead of memset()
->       iio: light: veml6030: use =3D { } instead of memset()
->       iio: magnetometer: af8133j: use =3D { } instead of memset()
->       iio: pressure: bmp280: use =3D { } instead of memset()
->       iio: pressure: mpl3115: use =3D { } instead of memset()
->       iio: pressure: mprls0025pa: use =3D { } instead of memset()
->       iio: pressure: zpa2326: use =3D { } instead of memset()
->       iio: proximity: irsd200: use =3D { } instead of memset()
->       iio: temperature: tmp006: use =3D { } instead of memset()
->=20
->  drivers/iio/accel/adxl372.c                       | 3 +--
->  drivers/iio/accel/msa311.c                        | 4 +---
->  drivers/iio/adc/dln2-adc.c                        | 4 +---
->  drivers/iio/adc/mt6360-adc.c                      | 3 +--
->  drivers/iio/adc/rockchip_saradc.c                 | 4 +---
->  drivers/iio/adc/rtq6056.c                         | 4 +---
->  drivers/iio/adc/stm32-adc.c                       | 3 +--
->  drivers/iio/adc/ti-ads1015.c                      | 4 +---
->  drivers/iio/adc/ti-ads1119.c                      | 4 +---
->  drivers/iio/adc/ti-lmp92064.c                     | 4 +---
->  drivers/iio/adc/ti-tsc2046.c                      | 3 +--
->  drivers/iio/chemical/scd30_core.c                 | 3 +--
->  drivers/iio/chemical/scd4x.c                      | 3 +--
->  drivers/iio/chemical/sunrise_co2.c                | 6 ++----
->  drivers/iio/dac/ad3552r.c                         | 3 +--
->  drivers/iio/imu/inv_icm42600/inv_icm42600_accel.c | 5 ++---
->  drivers/iio/imu/inv_icm42600/inv_icm42600_gyro.c  | 5 ++---
->  drivers/iio/imu/inv_mpu6050/inv_mpu_acpi.c        | 4 +---
->  drivers/iio/imu/inv_mpu6050/inv_mpu_ring.c        | 6 ++----
->  drivers/iio/light/bh1745.c                        | 4 +---
->  drivers/iio/light/ltr501.c                        | 4 +---
->  drivers/iio/light/opt4060.c                       | 4 +---
->  drivers/iio/light/veml6030.c                      | 4 +---
->  drivers/iio/magnetometer/af8133j.c                | 4 +---
->  drivers/iio/pressure/bmp280-core.c                | 5 +----
->  drivers/iio/pressure/mpl3115.c                    | 3 +--
->  drivers/iio/pressure/mprls0025pa_i2c.c            | 5 +----
->  drivers/iio/pressure/zpa2326.c                    | 4 +---
->  drivers/iio/proximity/irsd200.c                   | 3 +--
->  drivers/iio/temperature/tmp006.c                  | 4 +---
->  30 files changed, 34 insertions(+), 85 deletions(-)
-> ---
-> base-commit: 4c6073fec2fee4827fa0dd8a4ab4e6f7bbc05ee6
-> change-id: 20250611-iio-zero-init-stack-with-instead-of-memset-0d12d41a7e=
-cb
->=20
-> Best regards,
-
---=20
-I don't work for Nazis and criminals, and neither should you.
-Boycott Putin, Trump, and Musk!
-
---rtWrUApkft0MEwbP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaEqbQAAKCRAw5/Bqldv6
-8quUAJ9TqDazu4enIZD/WIHKSEebP5o8lQCgo2StzDEJ7G4crF9oQEjDZPrt78A=
-=/MEA
------END PGP SIGNATURE-----
-
---rtWrUApkft0MEwbP--
+Thanks,
+Leo
 
