@@ -4,122 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF606C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD82C71141
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=62uW12ETa8XNpTffn3dUFpx6iUTMTRBW6Og8HrEICJk=; b=qjFrH0wJU9IyTi+uWvU09ROZcs
-	BtTvj59IyLk/JwPxXpyt+I+88pT0iX3zM6EHETQWUoj8aELQOKiSj6Pw8A4R14IG9uJshYAXszAxE
-	OtLLGObumyb5qrEtI+XN3niL4HCE59/AP6DpdlOKueJTzVWEwRhV9E9cRuYQBADY9sQIoZhLUeceM
-	B/R1XYRdsnijSTJ+iEEBgmvVMtizTRAo+3wtBXzm4/51/ceUpU1q6kN+wb+Ce5Vxa+dJ+rbCym/pU
-	IrLMJR/UV5NbyjHBd/02SLXI5oN3eYgl5QIccBe7ye/1+HAHOktZDUQG8o7FjjSakWaqHRevgAM74
-	MhW+FvTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z4M5RaYJulUbWoXifSgx3bTPj3YUj8pSZBzgPM+jUK4=; b=DIzUeTm7lz2Gl1ezEF2hoxCLtV
+	SHyBeVUnFpDGSxU63L1yvzEVqmZ204b4Ee5ZaK1+TB2DmdeX5ArtzJUpVrbWvhRiP2evVDYs91E+C
+	yXZh9oR7VL30WgFN0QZhm6licAH83w3GCbRmux3Ge/BxpxGiPzE2XygZKp6m9EshaeL3/jQHi7WEF
+	kl2VH9sfKhERMBMucJ/OIQzxgAQu/o3rv1LaFs+LJqZXxbIaAxIIwTc9gLOY1jW6vfh5MDc8R1ZEB
+	GShtVvlc9MyJjXXUxVVdgbQ4bdQ9M2Dx5x1XV/a9PsKBmIytgQfJMUUdd1AqUyQsKFA0lz9cIDKsC
+	uVJsQXqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhps-0000000DN5E-2cYC;
-	Thu, 12 Jun 2025 13:19:16 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uPhpy-0000000DNGR-398e;
+	Thu, 12 Jun 2025 13:19:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPfkp-0000000D5wa-32xD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 11:05:56 +0000
+	id 1uPfyK-0000000D7rJ-0B5a;
+	Thu, 12 Jun 2025 11:19:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EC51BA51BE6;
-	Thu, 12 Jun 2025 11:05:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFA18C4CEEA;
-	Thu, 12 Jun 2025 11:05:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4A1AA5C5E68;
+	Thu, 12 Jun 2025 11:17:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F05D9C4CEEA;
+	Thu, 12 Jun 2025 11:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749726354;
-	bh=J7zUfhMpAdwFfUP75/R8HkzXHrkbFmTeVwn8MXHX3wo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G5BJuoTc4SmTGNDTEXaxziELQuqow+YWxAYIBa3/bnaqCE15yWEFuB+v/S7567Gvd
-	 Es6LynGXcv5ll4OSjE7b0sk6pKbD4tcjBDTPMKy0m+gf8kBWR/FTNVY1UHRPM65bMt
-	 jmsBOplO9IAkKCWw3IIYTrg4EE1SZmPw3kvARLswbhZI1wwPsC9ByxfBscYrTvsDWY
-	 U20HQ4loBBP+hlcE3HQ17MbfgXB1G31CJveorWHgY5FV/+di1E7DxmFv8XsgB3/LVG
-	 caqfdKlvLBNYjRznPW9euvbbKUwZGxA0FIKed+mVcfm8SsxeNO4kCXn4mR5S9rOwYL
-	 xCMaGxB/I1bNA==
-Message-ID: <4f31f016-d250-41ea-b613-b074b8ea00d1@kernel.org>
-Date: Thu, 12 Jun 2025 13:05:49 +0200
+	s=k20201202; t=1749727190;
+	bh=cVFIRmuMf6og7Otn6VJlaRqnyuBkLItWoFn62vUOnjM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lTGQ+cJhe9eZSn5HmAjgjMOPj+acY3/oeNpoK8fL1gqghvZKVnzxOakX7r+haXSBN
+	 EL+jVv9tfs1O8+sZRjzU/5akH1X7kfPsUaVG/m7+4diX4raIdu1nTn1V5uY88eDmIJ
+	 ZSBKP/3zmgEbntuMMAdFJ5mE3wK2dGCtgX8VTwXM5y3rGoLeWMOKotnPLAzmTg9cDk
+	 KlnALPQd3PXlcdquOVqHkun20NWb5kWerPFVydU52CDPIHseFhz3V4cUYuYo5QFt8t
+	 Fc/D0fPHbSfPcAFVGLX8/1QpitP5eZ4jwbsDgJ4rnP5+HU3TcMX5soZtUbMRICprBB
+	 IEYp1lSkuM7pQ==
+Date: Thu, 12 Jun 2025 13:19:45 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Laszlo Fiat <laszlo.fiat@proton.me>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/4] PCI: dw-rockchip: Do not enumerate bus before
+ endpoint devices are ready
+Message-ID: <aEq30a7vJmKyYWYT@ryzen>
+References: <20250611105140.1639031-7-cassel@kernel.org>
+ <20250611211456.GA869983@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp13
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
- <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
- <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
- <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
- <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
- <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
- <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
- <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
- <42a0b7ab-d85d-4d52-a263-4a4648c7ff05@kernel.org>
- <2865ab3a-1c20-4951-8132-4be98d73d70e@foss.st.com>
- <f1a63830-0533-4f1c-9116-32e8c1e61a8b@kernel.org>
- <26a4f12a-2295-402e-8e31-45733aa6582d@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <26a4f12a-2295-402e-8e31-45733aa6582d@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250611211456.GA869983@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_040555_894449_8AF2BE9C 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20250612_041952_165560_D27DB7A9 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,84 +80,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 11:31, Clement LE GOFFIC wrote:
-> On 6/11/25 17:48, Krzysztof Kozlowski wrote:
->> On 11/06/2025 16:08, Clement LE GOFFIC wrote:
->>> On 6/11/25 08:35, Krzysztof Kozlowski wrote:
->>>> On 10/06/2025 15:33, Clement LE GOFFIC wrote:
->>>>> On 6/10/25 14:38, Krzysztof Kozlowski wrote:
->>>>>> On 10/06/2025 14:02, Clement LE GOFFIC wrote:
->>>>>>> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
->>>>>>>> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
->>>>>>>>>>
->>>>>>>>>>> +		};
->>>>>>>>>>> +
->>>>>>>>>>> +		hdp: pinctrl@5002a000 {
->>>>>>>>>>> +			compatible = "st,stm32mp131-hdp";
->>>>>>>>>>> +			reg = <0x5002a000 0x400>;
->>>>>>>>>>> +			clocks = <&rcc HDP>;
->>>>>>>>>>>       			status = "disabled";
->>>>>>>>>>
->>>>>>>>>> Why are you disabling it? What is missing?
->>>>>>>>>
->>>>>>>>> Nothing is missing just disabled by default.
->>>>>>>>> The node is then enabled when needed in board's dts file.
->>>>>>>> Nodes should not be disabled by default if they are complete. That's why
->>>>>>>> I asked what is missing. Drop.
->>>>>>>
->>>>>>> Hi Krzysztof, OK I better understand now.
->>>>>>> So yes the 'pinctrl-*' properties which are board dependent are lacking.
->>>>>>
->>>>>> These are not properties of this node.
->>>>>
->>>>> Does this mean I should add 'pinctrl-*' properties in bindings yaml file ?
->>>>> I don't get it..
->>>>
->>>> These properties have no meaning here, so the hardware description is
->>>> complete. You claim that you miss them thus device is incomplete is just
->>>> not correct: these properties do not belong here! They belong to the
->>>> board but even there they are totally optional. Why would they be a
->>>> required resource?
->>>>
->>>> To remind: we talk here ONLY about required resources.
->>>
->>> Yes, 'pinctrl-*' properties belongs to the board and are not required.
->>> So nothing is missing.
->>>
->>> This hdp node in the SoC dtsi file can be enabled by default.
->>> But the hdp driver will probe and do nothing because without the
->>> 'pinctrl-*' properties from the board files it would not be able to
->>> access to any pin.
->>
->>
->> Pinctrl has other features in general, including interfaces to userspace
->> (as pretty often combined with gpio, although not sure if relevant here).
+On Wed, Jun 11, 2025 at 04:14:56PM -0500, Bjorn Helgaas wrote:
+> On Wed, Jun 11, 2025 at 12:51:42PM +0200, Niklas Cassel wrote:
+> > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
+> > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
+> > and instead enumerate the bus directly after receiving the Link Up IRQ.
+> > 
+> > This means that there is no longer any delay between link up and the bus
+> > getting enumerated.
 > 
-> You're right. Also HDP pinctrl has a GPO feature accessible from userspace.
-> But by default the HDP is not connected to any pad; it needs the board 
-
-OK, then that was the answer to my first question - what is missing.
-However aren't these pads connected internally also to other parts of
-the SoC (like in most other vendors)?
-
-> 'pinctrl-*' properties to configure the SoC pinctrl and expose HDP on 
-> the SoC pads.
+> Minor quibble about "no longer any delay": dw_pcie_wait_for_link()
+> doesn't contain any explicit delay *after* we notice the link is up,
+> so we didn't guarantee sufficient delay even before ec9fd499b9c6.
 > 
-> That's why for me the enabling of the driver should be in the board file 
-> together with the SoC pinctrl configuration.
-
-And what are the default pad settings configured by HPD driver in
-bootloader (and by bootloader I mean one of few bootloaders this is
-going to be used on like U-Boot)
-
+> If the link came up before the first check, dw_pcie_wait_for_link()
+> didn't delay at all.  Otherwise, it delayed 90ms * N, and we have no
+> idea when in the 90ms period the link came up, so the post link-up
+> delay was effectively some random amount between 0 and 90ms.
 > 
-> The userland cannot change the pinctrl alternate function mux, this is 
-> statically defined by the devicetree.
+> I would propose something like:
+> 
+>   PCI: dw-rockchip: Wait PCIE_T_RRS_READY_MS after link-up IRQ
+> 
+>   Per PCIe r6.0, sec 6.6.1, software must generally wait a minimum of
+>   100ms (PCIE_T_RRS_READY_MS) after Link training completes before
+>   sending a Configuration Request.
+> 
+>   Prior to ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since
+>   we can detect Link Up"), dw-rockchip used dw_pcie_wait_for_link(),
+>   which waited between 0 and 90ms after the link came up before we
+>   enumerate the bus, and this was apparently enough for most devices.
+> 
+>   After ec9fd499b9c6, rockchip_pcie_rc_sys_irq_thread() started
+>   enumeration immediately when handling the link-up IRQ, and devices
+>   (e.g., Laszlo Fiat's PLEXTOR PX-256M8PeGN NVMe SSD) may not be ready
+>   to handle config requests yet.
+> 
+>   Delay PCIE_T_RRS_READY_MS after the link-up IRQ before starting
+>   enumeration.
 
-If you expose GPIO then userland needs this regardless of alternate mux.
-IOW, board level could not configure mux because it should be always
-configured to safe GPIO input.
+Ok, I will shamelessly use this text verbatim.
 
-Best regards,
-Krzysztof
+
+
+> I think the comment at the PCIE_T_RRS_READY_MS definition should be
+> enough (although it might need to be updated to mention link-up).
+> This delay is going to be a standard piece of every driver, so it
+> won't require special notice.
+
+Looking at pci.h, we already have a comment mentioning exactly this
+(link-up):
+https://github.com/torvalds/linux/blob/v6.16-rc1/drivers/pci/pci.h#L51-L63
+
+I will change the patches to use PCIE_RESET_CONFIG_DEVICE_WAIT_MS instead.
+
+
+Kind regards,
+Niklas
 
