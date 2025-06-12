@@ -4,104 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E1CC7114A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E5AC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0sCYZE5IfgD4vq8LpQHj7/SMtKJgfoiLAqLcowjxSDE=; b=Kc+Vyr0oNEOIAj0MvX4Hcp13FI
-	m/QYtnY1Zczs55Haz9zY6UXUnteyRgTME0fBnzhOI4VCwJReZsaCSRNgf8JIpi/B6qjpU5Wao6xtN
-	YMhDZ6Lx63VrNaY5IT9I8/+9X3Wh2rOCrwfPUKoWz4C/aRVnDLMoDfKoZ3VoNJaTH2RnE9JvbAtjb
-	PaZDRoovcxTph5ZqadPP2O7r8aDuchOxfvpw+JmJAXWTPFO0SeC1LL/mlY+RZa7pkD02AylPMTLVS
-	ne+HDpQfsCUywM6UkREW4+lTTHFVz2GkUzaq+dSh92gWGA5LyR5SYp8AiMzug9fvNtn9CJbxzZ6LV
-	f+QCddTQ==;
+	bh=x1aM1/RH/pAvF5wMxosW5xMQEnEHvU9V8b+/IGhMbko=; b=gyJMjvDlNWT4B9o8hcBz/Nr0fd
+	UTceAOZUrycSAcZCpi1HUwljbeUDL6fhV9omOPjx8xco1w4qWgTEoUaZPnmG127bAwCaKtDQSPhys
+	QmyQrBSjD9mMlRlAOGtGt2grDk43Xcf52DU9IVgEzU/pT5h4ybmlpk89AuU147A4BaSX5sah+mfyg
+	X4nhvPRqYlVlE1NNggpB1vadLGCUQaPE68gvO617sUOi+hda2kgYAA9+m/jzH5kxlcWTmW+E6YCVl
+	yRykT8KuGnkP0ScuhHZn4tBq5EH/glx0t5twyoMhOvbm4eTKLY/x5BrQwe0s8cnA4ufIB2sXFR1QX
+	e9zCsw+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnor-0000000EGQj-2oxb;
-	Thu, 12 Jun 2025 19:42:37 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uPnow-0000000EGZa-48UL;
+	Thu, 12 Jun 2025 19:42:43 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhyv-0000000DST9-1iNs;
-	Thu, 12 Jun 2025 13:28:38 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a531fcaa05so556545f8f.3;
-        Thu, 12 Jun 2025 06:28:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749734916; x=1750339716; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0sCYZE5IfgD4vq8LpQHj7/SMtKJgfoiLAqLcowjxSDE=;
-        b=ZQkk43OAqs9jzPZBoX3Ztbrb+JJe42SuHVgfzew6RCp3pJwxTJZ4JhZ6s+p8L1xPYN
-         vObLVPtr0yQIP6Dk1oKsuOSK7Pn59Plvg1zuUp0QwqatLCDASkMk2AZsPLd0etdmOhWO
-         maKPfbP4qfAwxxwAGmNqhUC3UF6z+wcGQBwz32dyi9X0tnn6SSFByYJTEZWbXZI5wnce
-         AJB68vLDuzrnj2aMNTj9NTKLYaIE1wXnvjcKw/E0PgCA3mwJkBKM+fWLeojbL0B4RH4p
-         xmzuZSsdoJk8p1fMmUtl1Gu93e29QxeKVfBKDoDRTkdTsKrHqfSDDurNBlXmTdZOoil8
-         BXQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749734916; x=1750339716;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0sCYZE5IfgD4vq8LpQHj7/SMtKJgfoiLAqLcowjxSDE=;
-        b=kci65EOAogSY3Lc8UJY+KvC7b2+FfStL9UbiI0wgrxfs/AUXYixOzxBFaDT+gg0Fn/
-         4KRy8VvyzRECIOWNVktRHqiJVuJuT3weZZtheckFMBFS9AFZ0t2hBjS5OZnl/YHg8qNz
-         FuohXTITLZmJCubXG42SJ28Yr0HIdURuXdIYRUGMWewpX23oWOFE9A64N2SJfRhr5/fv
-         89w3o8lKSy9+wwG7eXBXAwqiXiLfN68SVepwZ8rtQbZktcf2uz2xBcWbmlhdavr4L4Y7
-         QVuSaTa+j0TFuy1s7Hf+6w7UE1nEavnGLRaVtYYLCJ2zhYiPOJP2VKVQJ+mYAf8RIDjD
-         3itw==
-X-Forwarded-Encrypted: i=1; AJvYcCUUhg0GCvDIc+dt/VIpoNw5fbfRs0OKADyM/4VxEg2Vo8SSNkmLNEjHzQfYyWwFWyP0ceRsRYnYD+yjWwNtoG1I@lists.infradead.org, AJvYcCWXHvcr+oeDBCGqdT7jQDo8VQ2kZve4JjO0arUQHA9nW2mr1l64hXPad/lr1b76sMa3t4xB4rv/HwnW1Kg=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNSvvzuSXKtAy18ErJMiTTzqBzAVCaNUNvLcpu/lZ6bzk0zvNn
-	IaNukn5dbiPeLZoqF7XsdOauiAScAIo1I+qAUaqZhCAyNnccW30+Cxb/
-X-Gm-Gg: ASbGncuGn/4z25KBK62oFKt+L6g71umdVyisD9HNBvwv6DnlvZqGKA1kcpC3FfK+Dqo
-	aZwcB3Fdb4F+28JBDVDsryxu9Y+6hRXextqmJF71cb099rzhM2EeXaY1AhvOcWTTvYW/xllW4ka
-	akaVUEE98CRKo7B9U54Lj8zcN1XyqWHLBlwE9wtAU61EsWolzVgZ4zXe13ULUbNuJUY+wWYrabl
-	/JksV8HNZzJaLaRyNu9HSbSKKXJBSkEVSJOMGNSnLOHu9yezlqm0XcHu/b8bYvxiS29CL4htoQf
-	klk9X86P/qqZbpMcxS5uy+ZNf9I+oNNPP2HN/0jzNDUJ1hdULDdGib6olTYwyT8oOvY/xnZ21k8
-	=
-X-Google-Smtp-Source: AGHT+IF2Rk2EMA7CUDmu9RW+8xww+gs3Pr2zOlxJ5syLEar+9EgPxlxS8SPmYN1F0YFp/SKDPm47gA==
-X-Received: by 2002:a05:6000:258a:b0:3a4:f00b:69b6 with SMTP id ffacd0b85a97d-3a560760e2emr3033081f8f.54.1749734915582;
-        Thu, 12 Jun 2025 06:28:35 -0700 (PDT)
-Received: from giga-mm.. ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a561b653d5sm1982809f8f.86.2025.06.12.06.28.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 06:28:35 -0700 (PDT)
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: sophgo@lists.linux.dev,
-	soc@lists.linux.dev
-Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>,
-	Chao Wei <chao.wei@sophgo.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v8 2/6] arm64: dts: sophgo: Add initial SG2000 SoC device tree
-Date: Thu, 12 Jun 2025 15:28:10 +0200
-Message-ID: <20250612132844.767216-3-alexander.sverdlin@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
-References: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
+	id 1uPiGa-0000000DVjq-1k2R
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 13:46:53 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55C7emFn026020;
+	Thu, 12 Jun 2025 13:46:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	x1aM1/RH/pAvF5wMxosW5xMQEnEHvU9V8b+/IGhMbko=; b=RQ6PsOvPbmUc2k63
+	MpaiDqoVd+/4Ms7pv7QZ9CEB+A2PSsbkfhBO0L8H5rhO3GOE+znwNsvfiyuZ3xbY
+	IiWpS/OR7M/tbz67azpmbIot2y7DTfOc5+yxcxpr0fVpFt0RoFin+NRcPHAzYq91
+	a4Qolrx1D4/zcqkndchg+oVoLLnDkSqdog7ri4WJlsRdj4BDjuzwysAYMsXr0owi
+	J/6dlv25/CbbDCqTmGz6GDCQrev8sE9OKxbCvT22Nt/1lX+I3N/knjgQxqrf0upw
+	JlTZvifj/xU73mlhmu1XsjZ8OQIrwpU1RGVm5796k6g4bmgNDEUzPGp9+cagrUJ0
+	bmstMA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 475v2ybhe8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Jun 2025 13:46:23 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55CDkMTi030294
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Jun 2025 13:46:22 GMT
+Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 12 Jun 2025 06:46:18 -0700
+From: Luo Jie <quic_luoj@quicinc.com>
+Date: Thu, 12 Jun 2025 21:46:08 +0800
+Subject: [PATCH v4 1/5] coccinelle: misc: Add field_modify script
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250612-field_modify-v4-1-ae4f74da45a6@quicinc.com>
+References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+In-Reply-To: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+To: Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes
+	<linux@rasmusvillemoes.dk>,
+        Julia Lawall <Julia.Lawall@inria.fr>,
+        "Nicolas
+ Palix" <nicolas.palix@imag.fr>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton
+	<oliver.upton@linux.dev>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>
+CC: <linux-kernel@vger.kernel.org>, <cocci@inria.fr>,
+        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+        <andrew@lunn.ch>, <quic_kkumarcs@quicinc.com>,
+        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
+        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
+        Luo Jie <quic_luoj@quicinc.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749735973; l=2080;
+ i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
+ bh=67KHPK0ryj5WYDYDXexeSpchGNbTFtE5nDzepjRpz2w=;
+ b=MynC0pYX9Gv44FXGa3PgGdulk7VDm8uFk33/XLd0kf5RVAs3oe7amKe2dYFqLnvfyUx8W/sO7
+ coZ/hJ2Y+6NDMnBRlz8KI5Rv00X/ldzEzE+OETZwsIwzNRQF3sppunv
+X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
+ pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEyMDEwNSBTYWx0ZWRfX9fjypbZRF9us
+ TSdivsvAB3bdNAS/dxa3k/4waJ8PLm46wEH5ll9rscH0cPBNAm0qpQaSyq9lgMCjbVPc50L0yan
+ 3H2TzimlAdE4ZR2p3bJuBlteOc55c+S79y0VpU4swAbb/On/+nzuZu8kpX5BV4wVskOWbM/m2Em
+ cEo2ztZ33frACuREuAeeIoO30RjEAY5G0odY+oHdvVq57zTo6vvY6w27GOeBTRZKMEivQDzD/vB
+ DlH3VNKvg6f/hHorTbQH7bWnEA80VCyDbqThyRRL/ISqU1OAckF5WDuYnIcdkT3zWAlRfRqsokY
+ H96EOxoC8aLjgCeao/C357UZGg6XExEp+SpWeEU9McpNIqg7SM1Mj9G0j0NjqJoUzF4huvJUiz9
+ T5lEUkC87MRY9PwQbks7ZYBhRPTcOZTfwX+46GTc+7SztAUVBJmPrsRNnZ3qfS5KXAc4RcFD
+X-Proofpoint-GUID: F-nCuB_1zsCz5ribdNyO6PeJKsI-5Y3m
+X-Proofpoint-ORIG-GUID: F-nCuB_1zsCz5ribdNyO6PeJKsI-5Y3m
+X-Authority-Analysis: v=2.4 cv=f+BIBPyM c=1 sm=1 tr=0 ts=684ada2f cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
+ a=05oQ047nAAAA:8 a=l05NuDNGqYqV5CF8ttEA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22 a=vNAg3JWiabyzeNEprMgK:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-12_09,2025-06-12_02,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 mlxlogscore=999 bulkscore=0 impostorscore=0
+ lowpriorityscore=0 priorityscore=1501 adultscore=0 phishscore=0 mlxscore=0
+ malwarescore=0 clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506120105
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_062837_444765_D8B7245D 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20250612_064652_466382_1C436F12 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,108 +134,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree for the SG2000 SoC by SOPHGO (from ARM64 PoV).
+Find and suggest conversions of opencoded field modify patterns with
+the wrapper FIELD_MODIFY() API defined in include/linux/bitfield.h
+for catching the possible parameter type error in the compile time.
 
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
- arch/arm64/boot/dts/sophgo/sg2000.dtsi | 86 ++++++++++++++++++++++++++
- 1 file changed, 86 insertions(+)
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+ scripts/coccinelle/misc/field_modify.cocci | 61 ++++++++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/sophgo/sg2000.dtsi b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
+diff --git a/scripts/coccinelle/misc/field_modify.cocci b/scripts/coccinelle/misc/field_modify.cocci
 new file mode 100644
-index 000000000000..51177dfe9ed2
+index 000000000000..48b00194a265
 --- /dev/null
-+++ b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
-@@ -0,0 +1,86 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++++ b/scripts/coccinelle/misc/field_modify.cocci
+@@ -0,0 +1,61 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/// Replace below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
++/// - reg &= ~MASK;
++/// - reg |= FIELD_PREP(MASK, val);
++//
++// Confidence: High
++// Author: Luo Jie <quic_luoj@quicinc.com>
++// Copyright: (C) 2025 Qualcomm Innovation Center, Inc.
++// Keywords: FIELD_PREP, FIELD_MODIFY
++// Options: --include-headers
 +
-+#define SOC_PERIPHERAL_IRQ(nr)		GIC_SPI (nr)
++virtual context
++virtual patch
++virtual org
++virtual report
 +
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <riscv/sophgo/cv180x.dtsi>
-+#include <riscv/sophgo/cv181x.dtsi>
++@ depends on context && !patch && !org && !report@
++identifier reg, val;
++constant mask;
++symbol FIELD_PREP;
++@@
 +
-+/ {
-+	compatible = "sophgo,sg2000";
-+	interrupt-parent = <&gic>;
++* reg &= ~mask;
++* reg |= FIELD_PREP(mask, val);
 +
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
++@ depends on !context && patch && !org && !report @
++identifier reg, val;
++constant mask;
++symbol FIELD_PREP, FIELD_MODIFY;
++@@
 +
-+		cpu@0 {
-+			compatible = "arm,cortex-a53";
-+			device_type = "cpu";
-+			reg = <0>;
-+			enable-method = "psci";
-+			i-cache-size = <32768>;
-+			d-cache-size = <32768>;
-+			next-level-cache = <&l2>;
-+		};
++-reg &= ~mask;
++-reg |= FIELD_PREP(mask, val);
+++FIELD_MODIFY(mask, &reg, val);
 +
-+		l2: l2-cache {
-+			compatible = "cache";
-+			cache-level = <2>;
-+			cache-unified;
-+			cache-size = <0x20000>;
-+		};
-+	};
++@r depends on !context && !patch && (org || report)@
++identifier reg, val;
++constant mask;
++symbol FIELD_PREP;
++position p;
++@@
 +
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x20000000>;	/* 512MiB */
-+	};
++ reg &= ~mask;
++ reg |= FIELD_PREP@p(mask, val);
 +
-+	pmu {
-+		compatible = "arm,cortex-a53-pmu";
-+		interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>;
-+	};
++@script:python depends on report@
++p << r.p;
++x << r.reg;
++@@
 +
-+	psci {
-+		compatible = "arm,psci-0.2";
-+		method = "smc";
-+		cpu_on = <0xc4000003>;
-+		cpu_off = <0x84000002>;
-+	};
++msg="WARNING: Consider using FIELD_MODIFY helper on %s" % (x)
++coccilib.report.print_report(p[0], msg)
 +
-+	soc {
-+		gic: interrupt-controller@1f01000 {
-+			compatible = "arm,cortex-a15-gic";
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			reg = <0x01f01000 0x1000>,
-+			      <0x01f02000 0x2000>;
-+		};
++@script:python depends on org@
++p << r.p;
++x << r.reg;
++@@
 +
-+		pinctrl: pinctrl@3001000 {
-+			compatible = "sophgo,sg2000-pinctrl";
-+			reg = <0x03001000 0x1000>,
-+			      <0x05027000 0x1000>;
-+			reg-names = "sys", "rtc";
-+		};
-+
-+		clk: clock-controller@3002000 {
-+			compatible = "sophgo,sg2000-clk";
-+			reg = <0x03002000 0x1000>;
-+			clocks = <&osc>;
-+			#clock-cells = <1>;
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
-+		always-on;
-+		clock-frequency = <25000000>;
-+	};
-+};
++msg="WARNING: Consider using FIELD_MODIFY helper on %s" % (x)
++msg_safe=msg.replace("[","@(").replace("]",")")
++coccilib.org.print_todo(p[0], msg_safe)
+
 -- 
-2.49.0
+2.34.1
 
 
