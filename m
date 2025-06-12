@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25724C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D45FC71155
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 22:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jwKofyWM0e2WLHFKipbL7sb0giDz21/hXxANfZKkehY=; b=R9dwWIp72PY5HOAOWXQHFYblIo
-	eFRebYaCKv0DwT23fAd4y4AKROceu3mw8Xv1irMOKWbI9AI+fZWqwgVfLv6i3d/KhrL6EI3jVpARN
-	JCMuZULz01Zp8tHU032xX6JO3Tqe/bcIgE6a5wmvSF6gy5fRiRCuHdRxeev3KafTdrvlRevO/bhBR
-	szRzC5TXlcWk2wvZ3iJNWC6wczGmN0VHlAphV5xj4ryUoGskbGZLMQjAeiRDN4u7mqUsXiaF9mzBe
-	B/gJk/DIQsk8Sz1VapH1vTjoWcjioyk6JB3W1CiQWnmsI2LhYQcaeQhQl+Dd3XeeWjrADOy93LsJg
-	2sjZJD3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ovLz1bXOwuyb8LOC7DzxQcjGmyjM0gF1HJUD1277E/E=; b=NyVN69HmIy0U0KSKqSIEIT9QpK
+	XfYwMbvIJYWltjw5CxBu4c/SCsIEsqacAlOYZ2tpcwlI1dyJyDaqcLf/ymt9l9QCNwU0abBek/dfZ
+	wpgu+s6o5MvXfeVHDAozJnujY1w9aNlKPGJqn51ss5vmIi3vt4xHNc4kYg6OTMSRoadtsw6OrHOl/
+	zYPPebqYwg9s1rOFa8TCPGXA40adxnDrRa7wcx+4X/iDl3CfBE+sGiU8zKnnkYnC2rTHnWsIlA7HU
+	Ar9PuiHbwlKtIlcUQ1Sl+JtoiO6f1dczikrd4PMIcrVi3yjppTgte6nBi+DFUd5XTKZVW57G8+C0i
+	zP1C8DvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPq72-0000000EjHK-3WfJ;
-	Thu, 12 Jun 2025 22:09:32 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uPq7B-0000000EjUS-0d81;
+	Thu, 12 Jun 2025 22:09:41 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjj2-0000000DlZq-30bJ
+	id 1uPk3A-0000000Dp44-0qUY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:20:22 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 6F09525FB6;
-	Thu, 12 Jun 2025 17:20:19 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id tcELlw7S0eog; Thu, 12 Jun 2025 17:20:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1749741613; bh=YjHKXoGS9lM5GhA05KViUVsqZivIimAtQJUNBJMlZPA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TRt79YF+PS3Os8Z++ofYAvsVOHcRXhlBRFiW1q9t4J7dZEHTujYCJnomfWyoeTNLr
-	 AmOZ0pRISL43vGHj51ZMNIaeG+gdG1MQIb1OpRE843BvVolFk2BzQXnJUIH+BXoKtw
-	 DOHMnYhHPafxht/8GoUqKb7u7iAiG91P3P9qVDdzEiiSXWGnXOVmml83wVDMufx+7s
-	 i5LoXXQuLBzPI9SpGVzihCvLqNOVpmfH01Oge4bGQVgOJh6ZUPyfMcvYyncagf9/Pr
-	 tDLr+ONs6FvgEMUuOZj43hzMdakkqbogMYUcs6yvyToyTg3NGY4xqZ/oiGSCWxFuu4
-	 Mle7m1Clj0b1g==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Thu, 12 Jun 2025 20:48:15 +0530
-Subject: [PATCH 11/12] drm/bridge: samsung-dsim: add driver support for
- exynos7870 DSIM bridge
+	Thu, 12 Jun 2025 15:41:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ovLz1bXOwuyb8LOC7DzxQcjGmyjM0gF1HJUD1277E/E=; b=0pgm9N7kHgk7OBk8ajf/hV/MYm
+	81fRtd8g0erMhPmAyoRZ47m9U30VPZRp8hqFxlGArohluP0+CO1LPc9Z4q96EYTrl0mLDe3MDfd0s
+	DFXFCzS3G7AQforiMBlF+hf0Xlz/tSvVz5FhvcmMGUQHhN98GoCNp80biRzuMOSYUwWaR1Lpi4vBt
+	hPUdhaP880Rz+Ny0Z2MT7+1cOtU0Jabkf6xS9up3vYdtADVHdHxa2eXdGrJ/FA+wWAjX7MEjfyJAq
+	1M9c4np7ZJwpZZcArG7uUWDRxAtX0jgLanBpa5s80EW2Sdq88Hz6kV6qwTMNQp0Jx0okFUTCBpAAw
+	O9pr/ypg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58594)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uPk31-000837-1j;
+	Thu, 12 Jun 2025 16:40:59 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uPk2w-0000uM-0f;
+	Thu, 12 Jun 2025 16:40:54 +0100
+Date: Thu, 12 Jun 2025 16:40:54 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/9] net: stmmac: rk: much needed cleanups
+Message-ID: <aEr1BhIoC6-UM2XV@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250612-exynos7870-dsim-v1-11-1a330bca89df@disroot.org>
-References: <20250612-exynos7870-dsim-v1-0-1a330bca89df@disroot.org>
-In-Reply-To: <20250612-exynos7870-dsim-v1-0-1a330bca89df@disroot.org>
-To: Inki Dae <inki.dae@samsung.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749741499; l=4373;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=YjHKXoGS9lM5GhA05KViUVsqZivIimAtQJUNBJMlZPA=;
- b=wGhAuhziFS6IYeZJ62M7MY8r4R43oQKU+dXrxo0McfmoMd1W5bQwl5Br2ZWQrb2l7EgzLO/+8
- eJX20SR58v1AnwvB6rqDEiXnde4qSPvMJfi6nQw5xRQbGFjaWncQ6O+
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_082021_023947_0139F9C7 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20250612_084108_237009_E6469FCF 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,134 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Exynos7870's DSIM IP block in the bridge driver.
+Hi,
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- drivers/gpu/drm/bridge/samsung-dsim.c | 74 +++++++++++++++++++++++++++++++++++
- include/drm/bridge/samsung-dsim.h     |  1 +
- 2 files changed, 75 insertions(+)
+This series starts attacking the reams of fairly identical duplicated
+code in dwmac-rk. Every new SoC that comes along seems to need more
+code added to this file because e.g. the way the clock is controlled
+is different in every SoC.
 
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 50dcdb9b81f68098936fbb3f121a0010b11cd8dd..446fe1f42d7f81986307891485805aacea55a1b9 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -311,6 +311,32 @@ static const unsigned int exynos5433_reg_ofs[] = {
- 	[DSIM_PHYTIMING2_REG] = 0xBC,
- };
- 
-+static const unsigned int exynos7870_reg_ofs[] = {
-+	[DSIM_LINK_STATUS_REG] = 0x04,
-+	[DSIM_DPHY_STATUS_REG] = 0x08,
-+	[DSIM_SWRST_REG] = 0x0C,
-+	[DSIM_CLKCTRL_REG] = 0x10,
-+	[DSIM_TIMEOUT_REG] = 0x14,
-+	[DSIM_ESCMODE_REG] = 0x1C,
-+	[DSIM_MDRESOL_REG] = 0x20,
-+	[DSIM_MVPORCH_REG] = 0x24,
-+	[DSIM_MHPORCH_REG] = 0x28,
-+	[DSIM_MSYNC_REG] = 0x2C,
-+	[DSIM_CONFIG_REG] = 0x30,
-+	[DSIM_INTSRC_REG] = 0x34,
-+	[DSIM_INTMSK_REG] = 0x38,
-+	[DSIM_PKTHDR_REG] = 0x3C,
-+	[DSIM_PAYLOAD_REG] = 0x40,
-+	[DSIM_RXFIFO_REG] = 0x44,
-+	[DSIM_SFRCTRL_REG] = 0x48,
-+	[DSIM_FIFOCTRL_REG] = 0x4C,
-+	[DSIM_PLLCTRL_REG] = 0x94,
-+	[DSIM_PHYCTRL_REG] = 0xA4,
-+	[DSIM_PHYTIMING_REG] = 0xB4,
-+	[DSIM_PHYTIMING1_REG] = 0xB8,
-+	[DSIM_PHYTIMING2_REG] = 0xBC,
-+};
-+
- enum reg_value_idx {
- 	RESET_TYPE,
- 	PLL_TIMER,
-@@ -383,6 +409,24 @@ static const unsigned int exynos5433_reg_values[] = {
- 	[PHYTIMING_HS_TRAIL] = DSIM_PHYTIMING2_HS_TRAIL(0x0c),
- };
- 
-+static const unsigned int exynos7870_reg_values[] = {
-+	[RESET_TYPE] = DSIM_SWRST,
-+	[PLL_TIMER] = 80000,
-+	[STOP_STATE_CNT] = 0xa,
-+	[PHYCTRL_ULPS_EXIT] = DSIM_PHYCTRL_ULPS_EXIT(0x177),
-+	[PHYCTRL_VREG_LP] = 0,
-+	[PHYCTRL_SLEW_UP] = 0,
-+	[PHYTIMING_LPX] = DSIM_PHYTIMING_LPX(0x07),
-+	[PHYTIMING_HS_EXIT] = DSIM_PHYTIMING_HS_EXIT(0x0c),
-+	[PHYTIMING_CLK_PREPARE] = DSIM_PHYTIMING1_CLK_PREPARE(0x08),
-+	[PHYTIMING_CLK_ZERO] = DSIM_PHYTIMING1_CLK_ZERO(0x2b),
-+	[PHYTIMING_CLK_POST] = DSIM_PHYTIMING1_CLK_POST(0x0d),
-+	[PHYTIMING_CLK_TRAIL] = DSIM_PHYTIMING1_CLK_TRAIL(0x09),
-+	[PHYTIMING_HS_PREPARE] = DSIM_PHYTIMING2_HS_PREPARE(0x09),
-+	[PHYTIMING_HS_ZERO] = DSIM_PHYTIMING2_HS_ZERO(0x0f),
-+	[PHYTIMING_HS_TRAIL] = DSIM_PHYTIMING2_HS_TRAIL(0x0c),
-+};
-+
- static const unsigned int imx8mm_dsim_reg_values[] = {
- 	[RESET_TYPE] = DSIM_SWRST,
- 	[PLL_TIMER] = 500,
-@@ -544,6 +588,35 @@ static const struct samsung_dsim_driver_data exynos5422_dsi_driver_data = {
- 	.min_freq = 500,
- };
- 
-+static const struct samsung_dsim_driver_data exynos7870_dsi_driver_data = {
-+	.reg_ofs = exynos7870_reg_ofs,
-+	.plltmr_reg = 0xa0,
-+	.has_clklane_stop = 1,
-+	.has_sfrctrl = 1,
-+	.num_clks = 4,
-+	.max_freq = 1500,
-+	.wait_for_hdr_fifo = 0,
-+	.wait_for_reset = 1,
-+	.num_bits_resol = 12,
-+	.video_mode_bit = 18,
-+	.pll_stable_bit = 24,
-+	.esc_clken_bit = 16,
-+	.byte_clken_bit = 17,
-+	.tx_req_hsclk_bit = 20,
-+	.lane_esc_clk_bit = 8,
-+	.lane_esc_data_offset = 9,
-+	.pll_p_offset = 13,
-+	.pll_m_offset = 3,
-+	.pll_s_offset = 0,
-+	.main_vsa_offset = 16,
-+	.reg_values = exynos7870_reg_values,
-+	.pll_fin_min = 6,
-+	.pll_fin_max = 12,
-+	.m_min = 41,
-+	.m_max = 125,
-+	.min_freq = 500,
-+};
-+
- static const struct samsung_dsim_driver_data imx8mm_dsi_driver_data = {
- 	.reg_ofs = exynos5433_reg_ofs,
- 	.plltmr_reg = 0xa0,
-@@ -583,6 +656,7 @@ samsung_dsim_types[DSIM_TYPE_COUNT] = {
- 	[DSIM_TYPE_EXYNOS5410] = &exynos5_dsi_driver_data,
- 	[DSIM_TYPE_EXYNOS5422] = &exynos5422_dsi_driver_data,
- 	[DSIM_TYPE_EXYNOS5433] = &exynos5433_dsi_driver_data,
-+	[DSIM_TYPE_EXYNOS7870] = &exynos7870_dsi_driver_data,
- 	[DSIM_TYPE_IMX8MM] = &imx8mm_dsi_driver_data,
- 	[DSIM_TYPE_IMX8MP] = &imx8mm_dsi_driver_data,
- };
-diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
-index 2dd63032d83ab5df0e1780a692789c340c2126dc..842cbb44f5a803191a9b2f6252846bc8b848bb4f 100644
---- a/include/drm/bridge/samsung-dsim.h
-+++ b/include/drm/bridge/samsung-dsim.h
-@@ -29,6 +29,7 @@ enum samsung_dsim_type {
- 	DSIM_TYPE_EXYNOS5410,
- 	DSIM_TYPE_EXYNOS5422,
- 	DSIM_TYPE_EXYNOS5433,
-+	DSIM_TYPE_EXYNOS7870,
- 	DSIM_TYPE_IMX8MM,
- 	DSIM_TYPE_IMX8MP,
- 	DSIM_TYPE_COUNT,
+The first thing to realise is that the driver only supports RMII and
+RGMII interface modes. So, the first patch adds a .get_interfaces()
+implementation which reports this for phylink's usage, thus ensuring
+that we error out during initialisation should something that isn't
+supported be specified. Note that there is one case where there are
+a pair of interfaces, one supports only RMII the other supports RMII
+and RGMII, but we report both anyway - something that the existing
+driver allows. A future patch may attempt to fix this.
+
+Rather than writing code, let's realise that there are two major
+implementations here:
+
+1. a struct clk that needs to be set.
+2. writing a register with settings for RGMII and RMII speeds.
+
+Provide implementations for these, Also realise that as a result
+of doing this, we can kill off the .set_rgmii_speed() and
+.set_rmii_speed() methods by combining them together - indeed,
+this is what later SoCs already do by pointing both these methods
+at the same function.
+
+Overall, this patch series shrinks the file LOC by almost 8.7%
+by removing 175 lines from over 2000 lines.
+
+Apart from the error reporting changing and restricting interface
+modes to those that the driver supports, no functional change is
+anticipated with this patch. However, I have no hardware to test
+this.
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 689 +++++++++----------------
+ 1 file changed, 257 insertions(+), 432 deletions(-)
 
 -- 
-2.49.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
