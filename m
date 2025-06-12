@@ -4,154 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB968C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 07:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F2CC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 07:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vUCXf5yox9l5DUFaTFtbl3hXhpvAgfaqtQE0oVZ+/Qo=; b=jGvZ5Bts2xj+tRYKJ1QUHLEdXk
-	2/ZHOjYwIV9kC53DRM+nCpS0sY1t3uR3BsmiY4iHsEQy980aj2xc8z5ZVkVee5Zp57Rt5ie1gNiEI
-	LmhB28k2Kou3r7U0B1Ri0pnq6CvN4Z/BMGK+tBT9MKYmrux+7mjZOWjli7UB/iSplIWBunyWbmwuY
-	ooweM+PfB6SXgwQdpzPU7rPfuOCp5Ahz9jOnp8Pzxk4yzbV/Nly/a/aR7oNMUtsI4Nbb+yWYhBSVR
-	Qa2IiPntGPsRWNy1CYrte1i+vG1Sot40vuXwnnJZU/1xKL1M9naJ4IgADYWjH8fFPErp9BGKIpP7w
-	CEq8sPWg==;
+	bh=dAOjJxhCfv8VWKL7BVvY9ZNzsKcaY5YiZqclR7H4/vs=; b=ks8T9KZww15y/eCOzmrhzqkU9y
+	cu0ObeJLMnm82kJtTg/gGbuaNfoIQf6tFXjhAOfiovcLjm+90diYE2Sz2iUkPX1xmrM7Nfx195H3F
+	EySyNgYwR9A0MLT1NU01aDfr06P4W4fXeDx25nWxUeVscH+6LDIABtOw3UgL1H1//7c8ZETeoZrLz
+	EKTuWHen1xOyygDWfZKv/wNS9sIlIYzu2gdiTgn7L01JS8LKs6kw5sMTur7Z0djpI07J62YiB13iS
+	pFKpd3SkIHeigNjRrELMctk41omf3o5+WzGAolqm/dyECuvOdeR8SkAy4jVoBizqh2Et9+6UYSYbZ
+	ZkpgfHKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbzH-0000000COWo-2py3;
-	Thu, 12 Jun 2025 07:04:35 +0000
-Received: from mail-mw2nam04on2061f.outbound.protection.outlook.com ([2a01:111:f403:240a::61f] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1uPc4e-0000000COyy-2Ocs;
+	Thu, 12 Jun 2025 07:10:08 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbx9-0000000COBh-0xc1;
-	Thu, 12 Jun 2025 07:02:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q/5CQrzJlXTDzsqsH+FMRzSEtrH71NWBcSEfnZn1K11jZOv76DNEraI9c0Ib8L6xsTRjg//IP1tBUkapXjFlcjBX6aXdkyInn/5GyjuIED41MY9v+xGVP0egrXYyghpiSpaEniwWeWb//0EgBB+L7lzGXU5b1OjUumAqvHP76RDtHnGNJS+WJI+iGkTc7gzi9V0ZSn2XMKvmluZ1JyNWqGe+o8YmGv8RWfH+5ZwCtk6IAowU+wRFbgYVQUrWB/f6tcuwFev3oBM3d2u2f6QLzcGmnUkvzofquBAKf3vLXR4jlVytsIk+GETrJSzJuGNQvGpdNPb0Z/i6SBuvjBaYnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vUCXf5yox9l5DUFaTFtbl3hXhpvAgfaqtQE0oVZ+/Qo=;
- b=bclDWkIJxu757+XhbskISKV+Ias2tqrxUZnIzSJ4XJb108flOnns8qvwyIDrNNdjC4ezg5rPq+aIzPmfujCSwjdbmmlgz8FGBvgATEI/OxK+eRCjnE22xTTLVbF4h1/1ZG115uFpB+IKQzEZiioUe+Hlug7T81g8L2DEF9DRzUxg/u5d242CMsc+JI0S6oFCnu2oj5Uz2yPdJ35j6oib+K/yZKo/sfy8nzcLKQW6zY42jKWInPychhjXopKX8I8vrlBLIAz5B6dyc9UYkhMTeXdODeqqHZ+jVKz62N/bHNAgwsYLwcoSAPeks6i53yNSIPi2uxHMFizFMpQuJc5DSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vUCXf5yox9l5DUFaTFtbl3hXhpvAgfaqtQE0oVZ+/Qo=;
- b=Uoda2a1M5WLTPQE0SRcaVRuhqpe7PnzCrV6lN9VOFBSsxJCEVhnG7h4aypaMXJ24S4c0YG7AL03J/C6kU9M+ny/DNYa6m9BrDb4EhLRyPrE0Gsyx5uOsZ7iWayVs0DN211C397TtGCon1kY3SLrJ87sxQuywRSXacLA/KBzgLfd0B1GygVYkxihLC+Ytk3NeB2jdzwflUmXJheqCUXJPUQ3K0QJmVlMFaxS3ZcSQmgvzEX+bqPDGqB6KVfuY+E/sj5EhADhk4UgIJLVeocDL7qBvlZn+Qr1LakbqboKiCrDUmx3gtxqqsbbTM1X//72TouEOX/iZivzByMA2cM0gTg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7728.namprd12.prod.outlook.com (2603:10b6:8:13a::10)
- by PH7PR12MB7257.namprd12.prod.outlook.com (2603:10b6:510:205::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.33; Thu, 12 Jun
- 2025 07:02:18 +0000
-Received: from DS0PR12MB7728.namprd12.prod.outlook.com
- ([fe80::f790:9057:1f2:6e67]) by DS0PR12MB7728.namprd12.prod.outlook.com
- ([fe80::f790:9057:1f2:6e67%5]) with mapi id 15.20.8835.018; Thu, 12 Jun 2025
- 07:02:18 +0000
-Date: Thu, 12 Jun 2025 17:02:13 +1000
-From: Alistair Popple <apopple@nvidia.com>
-To: Dan Williams <dan.j.williams@intel.com>
-Cc: David Hildenbrand <david@redhat.com>, Christoph Hellwig <hch@lst.de>, 
-	linux-mm@kvack.org, gerald.schaefer@linux.ibm.com, jgg@ziepe.ca, willy@infradead.org, 
-	linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev, linux-fsdevel@vger.kernel.org, 
-	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, jhubbard@nvidia.com, 
-	zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org, balbirs@nvidia.com, 
-	lorenzo.stoakes@oracle.com, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, John@groves.net
-Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
-Message-ID: <axbj5vrowokxfmrm3gl6tw3mn6xbzz7uwbxkf75bbgmzf7htwc@vcr5ajluw3rn>
-References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
- <6840f9ed3785a_249110084@dwillia2-xfh.jf.intel.com.notmuch>
- <20250605074637.GA7727@lst.de>
- <b064c820-1735-47db-96e3-6f2b00300c67@redhat.com>
- <6841c408e85d3_249110075@dwillia2-xfh.jf.intel.com.notmuch>
+	id 1uPc2W-0000000COnW-4Alc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 07:07:58 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-74849e33349so668340b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 00:07:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749712076; x=1750316876; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dAOjJxhCfv8VWKL7BVvY9ZNzsKcaY5YiZqclR7H4/vs=;
+        b=R2mQac3NALwXO5ff6rDtJre0mzUS5O2DNSnPSGPBmDWgUmAAPiMxnas6q9r5OhqfTA
+         zskjPb8MS6dXITls74T+voQptmO9vLHTMVR7g/MhjANJewAjHkWewrOSOJ+OM4BmijfO
+         5s3T40YyT7ej9Qqw0FTdjXM1KBOSyKK7U03Qj62CR7FJqyhH2MPkdER56+TbVFtAb6w9
+         YWa59w39bolHC6qRqYI0s2oobq9MrgaffD2V3Gk+iQzB/3skHhuGMOFDgpwZTEUxxMbZ
+         OkN2fI7ycOl74e7lRRlxJDogEyry2e4yNFVrQqHwFDXc+SCUfX7ygDVFCR/s8AukhksF
+         Jy5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749712076; x=1750316876;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dAOjJxhCfv8VWKL7BVvY9ZNzsKcaY5YiZqclR7H4/vs=;
+        b=jThffZ9gO36phf43zRZzEGTWlVOszRoysRGoBdUsy4dIgKwn0SF/oq1BD2azigPuHh
+         G4oKC0zIJdWdGK5fjmvrkerQarcmBav7PFjZzRiLAQDIY7tJq3+MN3XhARr89mp4h5Yz
+         LVixkpNOuME+bNy9/qAxHEeULbGM0SAlbEpRAgtpGlI0BCaV+4QS9OD8S8k1wcOSOtFT
+         YY5nHjiSs74PpwPv0RHO8V4YIQ1HKfMXqBiee0baOw92JeEpBBzMTxLyZ1ZIhYmErTf3
+         rVd3TCGZ0+bZgVrMMO4YRi+zS720NrPDU+rdmRCQOBlIh93c+uBn3zSVOxZ1lZWNSIai
+         nCBA==
+X-Forwarded-Encrypted: i=1; AJvYcCWSBmdC0SMGv/Hne45afI+gKg8IO9nNjcNfAu1K0xtnHz7AuZJXg/VvoE3/VJk3Vra7q4et8bmvhsDqUlP6hMFy@lists.infradead.org
+X-Gm-Message-State: AOJu0YziNiULDXDXQarbv+C3eMjKFtVgIisUw1SZlQGAW38SA5vgM7Yw
+	czKzD0ChxL1OTLbNnFjuQNG4yMi8dMg7x4IGVX/HuMyzMc9AbY6SmoC6r43ljtAJ5IA=
+X-Gm-Gg: ASbGncuOaC6AgdhoW1vxQXZPMbWiFlfeqr7T9KetA5kSBoFw1hEiLjctAR92mWouEeJ
+	LkywBUCUrfaGQgKSZIe7U/6l+I7zQUIrmeo8BxOoK6dRGmkUKwV4B8XIXkR7LwA7c2bvI8cE+wI
+	/kfsdsLtc3d/Bo1/72w6JB+EMxmGgLaHMZ7fZFmYk1Vrcj1TvpZrOP8g8ETbitXoiyYPGv0DcBq
+	i85NUsAJ7fooEtVOnsx85PmtNzl8n4eVtLLWHQdjmi/OcIeHsScJ+aeIV7nJwRiAxJcFDSdXZnn
+	khExm0/82r2iMBFtFmCYj8LLW41iFUMzEoEdG2RBh6v8wsY3+OQkKx6hcmqoOVx3i7qxLSmsVxD
+	gpBGqN3WhrS1FF/9ajguK
+X-Google-Smtp-Source: AGHT+IGfi33QMmP2NxREt3lPErfPBTHFxGftgC5xTDBsF/Wzhv8TdBvW48FWIe805inRamkcxDRnzw==
+X-Received: by 2002:a05:6a20:729c:b0:1ee:efa5:6573 with SMTP id adf61e73a8af0-21f86600846mr9497042637.8.1749712064431;
+        Thu, 12 Jun 2025 00:07:44 -0700 (PDT)
+Received: from ankitchauhan-Legion-5-15ITH6 ([2405:201:4042:d128:1895:113a:65dd:3ae0])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74880a06b64sm738064b3a.143.2025.06.12.00.07.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 00:07:43 -0700 (PDT)
+Date: Thu, 12 Jun 2025 12:36:56 +0530
+From: Ankit Chauhan <ankitchauhan2065@gmail.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm: lanyang: fix lable->label typo for lanyang dts
+Message-ID: <20250612070656.bir2ywkwu27gxs7d@ankitchauhan-Legion-5-15ITH6>
+References: <20250529-lanyang-lable-fix-v1-1-8a2dcb48bda4@gmail.com>
+ <3fe9885cc54a328932915a63816ac1b7952689a2.camel@codeconstruct.com.au>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6841c408e85d3_249110075@dwillia2-xfh.jf.intel.com.notmuch>
-X-ClientProxiedBy: SYBPR01CA0084.ausprd01.prod.outlook.com
- (2603:10c6:10:3::24) To DS0PR12MB7728.namprd12.prod.outlook.com
- (2603:10b6:8:13a::10)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7728:EE_|PH7PR12MB7257:EE_
-X-MS-Office365-Filtering-Correlation-Id: f502f158-533f-4b51-fae3-08dda97f11a0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4a3FS1wnQOy9+H8iy88nbDY2bWFS0ZAe6UogmZqC1Xt5Tr3xP2LHgqFw4nJb?=
- =?us-ascii?Q?7bCVBNill4fJs13n7tLjTlCRZnz5oiXh4dbyNUSOR/RvdpXpUFjFrGO5FyaK?=
- =?us-ascii?Q?zdZMrkTPW4B9rDTc+sooBHR25NYgFYyEbzik1/ufcg7jsGbIcnZpNtGnFOl0?=
- =?us-ascii?Q?b8kn2jx1110REbGAgYTomZcmgetNWu5Fgs/VK1BXW/UQgvwb3gjpyLN+PnEr?=
- =?us-ascii?Q?ZSNq2QTS/+wxwxfpLO0v0Ym2iZNcwMfIzwWUlmOu8ExzfCEYZjRn9xCQfKGM?=
- =?us-ascii?Q?V5yLRzhz/6MEUKY5p19QzO7qNY9VnMrAzfHCQtSW9rRX6AAldK79oNIPkHx4?=
- =?us-ascii?Q?0sv8UApzIa9uX+tq+UdgG2PVhi0NskVqny2BUt5HzytiOTeSKCHttkjIRzhV?=
- =?us-ascii?Q?V9DHMCAoulvSctdaOgDNlzP4bBzAFPzPnB4QqtzPapktvMHFVEZ63oqasDiS?=
- =?us-ascii?Q?whrn3YDlFVuU9vFp7f+YfkL3WTj8lOR+0fPgxdVOXXvR6wPHUEnY46lkpOcb?=
- =?us-ascii?Q?tr8nf2BVV7TdevzZB4qMxQKUgOKFlKYf3o4C1zh1eRQA92kindq6reahZT+L?=
- =?us-ascii?Q?4LMpocYw3Z/1eWFygwoF1lE8LCGgvOOmYdyPEBiwEi8lDblteIMWDlLFC3Sv?=
- =?us-ascii?Q?D3AQVAgELZg40wQtE8Oilhb3oEmTdnaDwn/R7Ln88mkPYLNNWG9EasjUne4W?=
- =?us-ascii?Q?wD9JYxRJDeIvlXOudvWA/a61lxQJnJdw7Z/MvqrSXsw7RRVs7M0rhpAj6I9h?=
- =?us-ascii?Q?Op20MC42CLuDZICR3o/qhKtISXtvIMMuOJxwpDIFBgNONvPJgbqRuZ+tFLIl?=
- =?us-ascii?Q?Z2n3dlbM5TBu4bnqCfaD50eW+nSxNu/k1Xv0scGuxwmqFRySgHzIqQGO6799?=
- =?us-ascii?Q?VnA8m2Z/yxKX9Wd1/QY1RsUd2TgfreedFXU24WImQ9P7ZKKd9HDr1h3kTfss?=
- =?us-ascii?Q?Ud4y4Cef5vCMCJ01QtNENt/v1MryKV1uhiyZZKFtpRRB05ncMqICUp9mQRwK?=
- =?us-ascii?Q?O73pMRKbUIGWk+pLn1UP/S8Sw35p3eVfpsAxJGkID68xXih/XuAkgh1A/2GC?=
- =?us-ascii?Q?CpbejkKRw8rw6BBL6D8xbegznuRi+tkrrR7Dl9H2kXxkqgJptblWJIvtYVNB?=
- =?us-ascii?Q?xxlD5/GZCSi/7uZe1hMHVW9JV6TDmG3eChMr2Ru80QN5BXtrrE/8ezl2uJNo?=
- =?us-ascii?Q?4JNnAp6ErMrsNCi2E7oyDnOOdBnLWpW/5jaNp15rjxKHdZJiqy8FM21Wa9P5?=
- =?us-ascii?Q?7ukAkZ5JkX/60cuTnZ+SH/NlsWlWWnESFLvWOfdzMxayisicqAKNEL/IVPVz?=
- =?us-ascii?Q?ZywR/QjWp7Zy54yXU3+jixBspfOKuLxFETSDLZkSa9dv8Vlefnk+wyjemBdv?=
- =?us-ascii?Q?AMgJbMgIkstTEF5rXrtR5H5DlTgqnG/XJZ5nEvrsWZE/Oru1cDm2EI8zBvCg?=
- =?us-ascii?Q?QW69X9VM6zU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7728.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aFlEOLD2IHJOSSXxiB6jHCmiSGiy6QIllTDJ9kVah7bohtG0zH9f/nFXHzyZ?=
- =?us-ascii?Q?GU2iozlIngO6tN+q1sD3SuonjBbOsgEzES8iafV0i+0PO3o/zpFddFwY/Dow?=
- =?us-ascii?Q?0pOkGdFxdaXsbmkw0mDTvc3467ZZA5Qei+HQnfagv/QnvbMi8LUGgg1fZf/p?=
- =?us-ascii?Q?3vi8eFBoz6X7wkwi79pEYRBzw6lS3E7uilojRV8U+LQLHaZx/+hnlVkpeo8W?=
- =?us-ascii?Q?OhnZFUWEm+JYwebLwMNRsNX6ZDgOl860ftoP82VbhuBvPmeKO7jUVwoPBA/4?=
- =?us-ascii?Q?cjlDd7LMDhnctWp/MPiznWbIYPu8FxGy9BjpyxN1bvQRG8RRGJkolGRTUNVp?=
- =?us-ascii?Q?a4Sd1kQfDg7UNQTF5P8XTmV8hib/Qk7gMdp3PzD3d2pd6Ve40HbpXNpAi1km?=
- =?us-ascii?Q?+Fv9cI/hJ0YBIXWWUNVleK+eswEuvEzOmQC+WILacr3GAJ6psuEpKFT8bXip?=
- =?us-ascii?Q?dkY+Yh0jzbNEKE4tRez8uAQTh7k8eTphUHtDCZGm1jFre0ectS8Zbb/7AyOF?=
- =?us-ascii?Q?htsbOn1UoXdN/HsRWptMHs+QWwHC0hhCywVwkkIhaYof3jHnv1dQix+aHD9L?=
- =?us-ascii?Q?lK96dlxMGPjvfKj+W4+jRwsuBZJ9lDmuv+DY4ScFTIWMjG3SpiROX4ugAfbB?=
- =?us-ascii?Q?4hBEiRlc8o/jDD4LS6w0EoR7VhZovLzXKDUHIBf6CwPb+3RI7avTKsMHvBQO?=
- =?us-ascii?Q?N8Yu2T2RwMN2iHUVpuxAhLy9Ar5u3OTcIgKu00dxL8A7Fpf9k9aIjR91ZyyP?=
- =?us-ascii?Q?LkDSpQH9JGBTMmE2JWoAdrvwSXse3AclDVoDCf/Aq/GNlKOSi/6nvHacm4bQ?=
- =?us-ascii?Q?1z9sM4jcEFKszb2T64Ay+S8nO0wHvLM5MrFUQZ28VrKGcO1NbQXCRxKXCfqr?=
- =?us-ascii?Q?c9m+cGTy7S6xxU5OqmGRj7apMrZLzu0sLdqEbIxlvuGIw1N13b+Zq/pyfNCe?=
- =?us-ascii?Q?SB6vyVhkPlG1RV67YCjWramP57tNAI7M5xvcjPR3G9DlCRqeauof6/c6/VB2?=
- =?us-ascii?Q?elpvK7j8OVNVh6xZ2ehhZftmvPvn6Pcs1UK8/kd9gSk8h9A67PD9BrpZ7WRX?=
- =?us-ascii?Q?NY/adlHz7nGCYLLOtUQL4D8Mj91D2zVJLrAxY7Y0mZrxGf/G1IfVUCHgmis2?=
- =?us-ascii?Q?Ne6R+jMR7S2fXx0h5XfaomiSLFyjbdBeD0cKsn7hBH5sVNcXLJs35ONe6POP?=
- =?us-ascii?Q?/1njy5z9tcmoB66WXBjYnx6NiN6OJxEbI5ZeAV7pydYtrL9rFiZ674Ab4m1f?=
- =?us-ascii?Q?1Y7h/GDMEtt1xOm/J0pOfWsY60acKXslmwWnwOn2KXjCzXFNKyAAHeyBJQHw?=
- =?us-ascii?Q?ch50gcow2AjcizDTLQ2RirZeKmahbqU8X2F5hMXtvgo0JW5eZvve3ftUAbMz?=
- =?us-ascii?Q?fthN8mMODz/wNJ7t4y46+B8fAOiRBpT47m/nNONb9QZU3W7CKB29fyCkwt3P?=
- =?us-ascii?Q?/V282wnyFGRmG0az2n1g4N6RIw0IGppDFkFavmJaxPkXKOh4+yibR3K5sKa8?=
- =?us-ascii?Q?dk7dLk6ck6GJPhsXxkoOpY+U7WX04tw5k2hMTj68o6vrK+Gb91BGyDzxIrIx?=
- =?us-ascii?Q?vkaRFRsSiFZmUBFHb33FOiKGl5x45iT+bAzbEf2g?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f502f158-533f-4b51-fae3-08dda97f11a0
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7728.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 07:02:18.2867
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xpBxcDnQe+MJ5At/ibFW2GlOpZ5y9xX+HiYXMYLG21aGp9ybCrTpER6dxLQEAifDIAH4fSIg31Ul3Bbdr7HxIQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7257
+In-Reply-To: <3fe9885cc54a328932915a63816ac1b7952689a2.camel@codeconstruct.com.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_000223_267669_9B1A45EF 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250612_000757_035954_FE7BA200 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,35 +100,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 09:21:28AM -0700, Dan Williams wrote:
-> David Hildenbrand wrote:
-> > On 05.06.25 09:46, Christoph Hellwig wrote:
-> > > On Wed, Jun 04, 2025 at 06:59:09PM -0700, Dan Williams wrote:
-> > >> +/* return normal pages backed by the page allocator */
-> > >> +static inline struct page *vm_normal_gfp_pmd(struct vm_area_struct *vma,
-> > >> +					     unsigned long addr, pmd_t pmd)
-> > >> +{
-> > >> +	struct page *page = vm_normal_page_pmd(vma, addr, pmd);
-> > >> +
-> > >> +	if (!is_devdax_page(page) && !is_fsdax_page(page))
-> > >> +		return page;
-> > >> +	return NULL;
-> > > 
-> > > If you go for this make it more straight forward by having the
-> > > normal path in the main flow:
-> > > 
-> > > 	if (is_devdax_page(page) || is_fsdax_page(page))
-> > > 		return NULL;
-> > > 	return page;
-> > 
-> > +1
-> > 
-> > But I'd defer introducing that for now if avoidable. I find the naming 
-> > rather ... suboptimal :)
+On Thu, Jun 12, 2025 at 03:01:58PM +0930, Andrew Jeffery wrote:
+> Hi Ankit, thanks for the fix.
 > 
-> Agree, that was a "for lack of a better term" suggestion, but the
-> suggestion is indeed lacking.
+> Regarding the subject, can you please use the prefix 'ARM: dts:
+> aspeed:'? From there, I'd prefer something like:
+> 
+>    ARM: dts: aspeed: lanyang: Fix 'lable' typo in LED nodes
+> 
+> On Thu, 2025-05-29 at 17:09 +0530, Ankit Chauhan wrote:
+> > Fix an obvious spelling error in the dts file for Lanyang BMC.
+> > This was reported by bugzilla a few years ago but never got fixed.
+> > 
+> > Reported by: Jens Schleusener <Jens.Schleusener@fossies.org>
+> 
+> Please make sure these tags reflect convention:
+> 
+> https://docs.kernel.org/process/submitting-patches.html#using-reported-by-tested-by-reviewed-by-suggested-by-and-fixes
+> 
+> Rather than spaces, they use `-` to separate words, so:
+> 
+> Reported-by: ...
+> 
+> > Closes: https://bugzilla.kernel.org/show_bug.cgi?id=205891
+> > 
+> > Signed-off-by: Ankit Chauhan <ankitchauhan2065@gmail.com>
+> 
+> Finally, all the tags should go together in the 'trailer' (final
+> paragraph). There should not be an empty line between the `Closes:` tag
+> and your `Signed-off-by:` tag above.
+>
 
-I don't like the naming either ... maybe that is motivation enough for me to
-audit the callers and have them explicitly filter the pages they don't want.
+Hi Andrew,
+
+Thanks for the feedback. I will make all the necessary changes and send
+a v2 PATCH.
+
+Kind regards,
+Ankit Chauhan
 
