@@ -4,52 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52DFBC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60A3C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CKYGtLN14dlBwqKyTJ2XAM9ti0G4/eyAqspnPbL171o=; b=E7qE55OTTsZIPW
-	znUqV+bCTcjFZaQBV5yCZ9SbZXfqofE6PnXDS0uhKsIN/CuA1nXG3X/XJHPUbnbHtl4Hvy66/fAqb
-	ZLOndiw0bz5yPaVEdmBqTjSIgxuY8T6KrlVouSeK3AslbJZoG1IHOMKoMsp6X2l5KlcOT0HjaCxXn
-	+savWNFwFNxgyqVSY/9V0waIseJ1oVZqiz2HaMy+y7B3Xbim7es5h4f2pv04VhZswW2ns+sK96Lv5
-	FrimF01yu9qWbI6Jf7K7wMT5EuKLno+xQ9iCjumFtTa/GIHZHbU/8S/E7Lwsdmp6zbuRyTXugLcP4
-	TssPjwe4elf7SJnYDpXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Yxy3kDPx/wDerzggfOVpYsU42F/TlHt7uqqCu1aFX0=; b=nQRsMOtgc17zjsYT1IgoAdW1R0
+	SGYiuG5edGVunbCNM2NcldWObnU1D/rx+ZgGQI91IBvY4L3BvTZI6rTN69C0K6m2gxbikaqgDMTXS
+	+GaxCL3e0XTW/5RF3goVz4gl2rDhc/u703PkGi2cvw0RSwt0xNlFbh/9fRks1CHx021Gq4M7ARzq2
+	NUwqlFvImUjfPNgSvaFfqF55wlR6qLXf5lpilG3jI86l46Rgvo6wFdg16Ms7Cjm6o/+XsNzFbaW74
+	0m8BIfdG1wVcz+Sqyu3sMiu8Th6dUAjaNvD8Pb2p+bQ+otkJ7m01sNk19UDevZP72X5Bmmf2jR4bt
+	ZOK+l0Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhpa-0000000DMVT-02mI;
-	Thu, 12 Jun 2025 13:18:58 +0000
+	id 1uPhpc-0000000DMaz-3si5;
+	Thu, 12 Jun 2025 13:19:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPf6S-0000000Cy3r-0LfM
+	id 1uPfDA-0000000CzP7-3zjC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 10:24:13 +0000
+	Thu, 12 Jun 2025 10:31:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34AA51424;
-	Thu, 12 Jun 2025 03:23:51 -0700 (PDT)
-Received: from [10.163.33.129] (unknown [10.163.33.129])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7033F3F59E;
-	Thu, 12 Jun 2025 03:24:07 -0700 (PDT)
-Message-ID: <ddc006af-3084-4fef-b822-144fb404bc8d@arm.com>
-Date: Thu, 12 Jun 2025 15:54:04 +0530
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 912B11424;
+	Thu, 12 Jun 2025 03:30:45 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 18DDD3F59E;
+	Thu, 12 Jun 2025 03:31:03 -0700 (PDT)
+Date: Thu, 12 Jun 2025 11:31:01 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 0/3] firmware: arm_scmi: perf/cpufreq: Enable
+ notification only if supported by platform
+Message-ID: <aEqsZWSlq9wKv10a@pluto>
+References: <20250611-scmi-perf-v1-0-df2b548ba77c@nxp.com>
+ <20250611-cherubic-solemn-toucanet-aac5af@sudeepholla>
+ <aEmFnJVG8lXTDNmO@pluto>
+ <20250612034351.GA7552@nxa18884-linux>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V4 1/2] arm64/debug: Drop redundant DBG_MDSCR_* macros
-To: Marc Zyngier <maz@kernel.org>
-References: <20250612033547.480952-1-anshuman.khandual@arm.com>
- <20250612033547.480952-2-anshuman.khandual@arm.com>
- <86wm9hcr14.wl-maz@kernel.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <86wm9hcr14.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250612034351.GA7552@nxa18884-linux>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_032412_212616_308D18A9 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250612_033109_142235_37C9A01D 
+X-CRM114-Status: GOOD (  43.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,218 +67,128 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, kvm@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/06/25 1:47 PM, Marc Zyngier wrote:
-> On Thu, 12 Jun 2025 04:35:46 +0100,
-> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
->>
->> MDSCR_EL1 has already been defined in tools sysreg format and hence can be
->> used in all debug monitor related call paths. But using generated sysreg
->> definitions causes build warnings because there is a mismatch between mdscr
->> variable (u32) and GENMASK() based masks (long unsigned int). Convert all
->> variables handling MDSCR_EL1 register as u64 which also reflects its true
->> width as well.
->>
->> --------------------------------------------------------------------------
->> arch/arm64/kernel/debug-monitors.c: In function ‘disable_debug_monitors’:
->> arch/arm64/kernel/debug-monitors.c:108:13: warning: conversion from ‘long
->> unsigned int’ to ‘u32’ {aka ‘unsigned int’} changes value from
->> ‘18446744073709518847’ to ‘4294934527’ [-Woverflow]
->>   108 |   disable = ~MDSCR_EL1_MDE;
->>       |             ^
->> --------------------------------------------------------------------------
->>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>  arch/arm64/include/asm/assembler.h      |  4 ++--
->>  arch/arm64/include/asm/debug-monitors.h |  6 ------
->>  arch/arm64/kernel/debug-monitors.c      | 22 +++++++++++-----------
->>  arch/arm64/kernel/entry-common.c        |  4 ++--
->>  4 files changed, 15 insertions(+), 21 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
->> index ad63457a05c5..f229d96616e5 100644
->> --- a/arch/arm64/include/asm/assembler.h
->> +++ b/arch/arm64/include/asm/assembler.h
->> @@ -53,7 +53,7 @@
->>  	.macro	disable_step_tsk, flgs, tmp
->>  	tbz	\flgs, #TIF_SINGLESTEP, 9990f
->>  	mrs	\tmp, mdscr_el1
->> -	bic	\tmp, \tmp, #DBG_MDSCR_SS
->> +	bic	\tmp, \tmp, #MDSCR_EL1_SS
->>  	msr	mdscr_el1, \tmp
->>  	isb	// Take effect before a subsequent clear of DAIF.D
->>  9990:
->> @@ -63,7 +63,7 @@
->>  	.macro	enable_step_tsk, flgs, tmp
->>  	tbz	\flgs, #TIF_SINGLESTEP, 9990f
->>  	mrs	\tmp, mdscr_el1
->> -	orr	\tmp, \tmp, #DBG_MDSCR_SS
->> +	orr	\tmp, \tmp, #MDSCR_EL1_SS
->>  	msr	mdscr_el1, \tmp
->>  9990:
->>  	.endm
->> diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
->> index 8f6ba31b8658..1f37dd01482b 100644
->> --- a/arch/arm64/include/asm/debug-monitors.h
->> +++ b/arch/arm64/include/asm/debug-monitors.h
->> @@ -13,14 +13,8 @@
->>  #include <asm/ptrace.h>
->>  
->>  /* Low-level stepping controls. */
->> -#define DBG_MDSCR_SS		(1 << 0)
->>  #define DBG_SPSR_SS		(1 << 21)
->>  
->> -/* MDSCR_EL1 enabling bits */
->> -#define DBG_MDSCR_KDE		(1 << 13)
->> -#define DBG_MDSCR_MDE		(1 << 15)
->> -#define DBG_MDSCR_MASK		~(DBG_MDSCR_KDE | DBG_MDSCR_MDE)
->> -
->>  #define	DBG_ESR_EVT(x)		(((x) >> 27) & 0x7)
->>  
->>  /* AArch64 */
->> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
->> index 58f047de3e1c..08f1d02507cd 100644
->> --- a/arch/arm64/kernel/debug-monitors.c
->> +++ b/arch/arm64/kernel/debug-monitors.c
->> @@ -34,7 +34,7 @@ u8 debug_monitors_arch(void)
->>  /*
->>   * MDSCR access routines.
->>   */
->> -static void mdscr_write(u32 mdscr)
->> +static void mdscr_write(u64 mdscr)
->>  {
->>  	unsigned long flags;
->>  	flags = local_daif_save();
->> @@ -43,7 +43,7 @@ static void mdscr_write(u32 mdscr)
->>  }
->>  NOKPROBE_SYMBOL(mdscr_write);
->>  
->> -static u32 mdscr_read(void)
->> +static u64 mdscr_read(void)
->>  {
->>  	return read_sysreg(mdscr_el1);
->>  }
->> @@ -79,16 +79,16 @@ static DEFINE_PER_CPU(int, kde_ref_count);
->>  
->>  void enable_debug_monitors(enum dbg_active_el el)
->>  {
->> -	u32 mdscr, enable = 0;
->> +	u64 mdscr, enable = 0;
->>  
->>  	WARN_ON(preemptible());
->>  
->>  	if (this_cpu_inc_return(mde_ref_count) == 1)
->> -		enable = DBG_MDSCR_MDE;
->> +		enable = MDSCR_EL1_MDE;
->>  
->>  	if (el == DBG_ACTIVE_EL1 &&
->>  	    this_cpu_inc_return(kde_ref_count) == 1)
->> -		enable |= DBG_MDSCR_KDE;
->> +		enable |= MDSCR_EL1_KDE;
->>  
->>  	if (enable && debug_enabled) {
->>  		mdscr = mdscr_read();
->> @@ -100,16 +100,16 @@ NOKPROBE_SYMBOL(enable_debug_monitors);
->>  
->>  void disable_debug_monitors(enum dbg_active_el el)
->>  {
->> -	u32 mdscr, disable = 0;
->> +	u64 mdscr, disable = 0;
->>  
->>  	WARN_ON(preemptible());
->>  
->>  	if (this_cpu_dec_return(mde_ref_count) == 0)
->> -		disable = ~DBG_MDSCR_MDE;
->> +		disable = ~MDSCR_EL1_MDE;
->>  
->>  	if (el == DBG_ACTIVE_EL1 &&
->>  	    this_cpu_dec_return(kde_ref_count) == 0)
->> -		disable &= ~DBG_MDSCR_KDE;
->> +		disable &= ~MDSCR_EL1_KDE;
->>  
->>  	if (disable) {
->>  		mdscr = mdscr_read();
->> @@ -415,7 +415,7 @@ void kernel_enable_single_step(struct pt_regs *regs)
->>  {
->>  	WARN_ON(!irqs_disabled());
->>  	set_regs_spsr_ss(regs);
->> -	mdscr_write(mdscr_read() | DBG_MDSCR_SS);
->> +	mdscr_write(mdscr_read() | MDSCR_EL1_SS);
->>  	enable_debug_monitors(DBG_ACTIVE_EL1);
->>  }
->>  NOKPROBE_SYMBOL(kernel_enable_single_step);
->> @@ -423,7 +423,7 @@ NOKPROBE_SYMBOL(kernel_enable_single_step);
->>  void kernel_disable_single_step(void)
->>  {
->>  	WARN_ON(!irqs_disabled());
->> -	mdscr_write(mdscr_read() & ~DBG_MDSCR_SS);
->> +	mdscr_write(mdscr_read() & ~MDSCR_EL1_SS);
->>  	disable_debug_monitors(DBG_ACTIVE_EL1);
->>  }
->>  NOKPROBE_SYMBOL(kernel_disable_single_step);
->> @@ -431,7 +431,7 @@ NOKPROBE_SYMBOL(kernel_disable_single_step);
->>  int kernel_active_single_step(void)
->>  {
->>  	WARN_ON(!irqs_disabled());
->> -	return mdscr_read() & DBG_MDSCR_SS;
->> +	return mdscr_read() & MDSCR_EL1_SS;
->>  }
->>  NOKPROBE_SYMBOL(kernel_active_single_step);
->>  
->> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
->> index 7c1970b341b8..171f93f2494b 100644
->> --- a/arch/arm64/kernel/entry-common.c
->> +++ b/arch/arm64/kernel/entry-common.c
->> @@ -344,7 +344,7 @@ static DEFINE_PER_CPU(int, __in_cortex_a76_erratum_1463225_wa);
->>  
->>  static void cortex_a76_erratum_1463225_svc_handler(void)
->>  {
->> -	u32 reg, val;
->> +	u64 reg, val;
->>  
->>  	if (!unlikely(test_thread_flag(TIF_SINGLESTEP)))
->>  		return;
->> @@ -354,7 +354,7 @@ static void cortex_a76_erratum_1463225_svc_handler(void)
->>  
->>  	__this_cpu_write(__in_cortex_a76_erratum_1463225_wa, 1);
->>  	reg = read_sysreg(mdscr_el1);
->> -	val = reg | DBG_MDSCR_SS | DBG_MDSCR_KDE;
->> +	val = reg | MDSCR_EL1_SS | MDSCR_EL1_KDE;
->>  	write_sysreg(val, mdscr_el1);
->>  	asm volatile("msr daifclr, #8");
->>  	isb();
+On Thu, Jun 12, 2025 at 11:43:52AM +0800, Peng Fan wrote:
+> On Wed, Jun 11, 2025 at 02:33:37PM +0100, Cristian Marussi wrote:
+> >On Wed, Jun 11, 2025 at 01:17:11PM +0100, Sudeep Holla wrote:
+> >> On Wed, Jun 11, 2025 at 03:52:42PM +0800, Peng Fan (OSS) wrote:
+> >> > PERFORMANCE_NOTIFY_LIMITS and PERFORMANCE_NOTIFY_LEVEL are optional
+> >> > commands. If use these commands on platforms that not support the two,
+> >> > there is error log:
+> >> >   SCMI Notifications - Failed to ENABLE events for key:13000008 !
+> >> >   scmi-cpufreq scmi_dev.4: failed to register for limits change notifier for domain 8
+> >> > 
+> >> 
+> >
+> >Hi,
+> >
+> >I had a quick look/refresh to this stuff from years ago...
+> >
+> >...wont be so short to explain :P
+> >
+> >In general when you register a notifier_block for some SCMI events,
+> >the assumption was that a driver using proto_X_ops could want to register
+> >NOT only for proto_X events BUT also for other protos...in such a case you
+> >are NOT guaranteed that such other proto_Y was initialized when your
+> >driver probes and tries to register the notifier...indeed it could be
+> >that such proto_Y could be a module that has still to be loaded !
+> >
+> >...in this scenario you can end-up quickly in a hell of probe-dependency
+> >if you write a driver asking for SCMI events that can or cannot be still
+> >readily available when the driver probes...
+> >
+> >....so the decision was to simply place such notifier registration requests
+> >on hold on a pending list...whenever the needed missing protocol is
+> >loaded/inialized the notifier registration is completed...if the proto_Y
+> >never arrives nothing happens...and your driver caller can probe
+> >successfully anyway...
+> >
+> >This means in such a corner-case the notifier registration is sort of
+> >asynchonous and eventual errors detected later, when the protocol is
+> >finally initialized and notifiers finalized, cannot be easily reported
+> >(BUT I think we could improve on this ... thinking about this...)
+> >
+> >...BUT....
+> >
+> >....this is NOT our case NOR the most common case...the usual scenario,
+> >like cpufreq, is that a driver using proto_X_ops tries to register for
+> >that same proto_X events and in such a case we can detect that such
+> >domain is unsupported and fail while avoiding to send any message indeed....
+> >
+> >....so....:P...while I was going through this rabbit-hole....this issues
+> >started to feel familiar...O_o....
+> >
+> >... indeed I realized that the function that you (Peng) now invoke to
+> >set the per-domain perf_limit_notify flag was introduced just for these
+> >reasons to check and avoid such situation for all protocols in the core:
+> >
+> >
+> >commit 8733e86a80f5a7abb7b4b6ca3f417b32c3eb68e3
+> >Author: Cristian Marussi <cristian.marussi@arm.com>
+> >Date:   Mon Feb 12 12:32:23 2024 +0000
+> >
+> >    firmware: arm_scmi: Check for notification support
+> >    
+> >    When registering protocol events, use the optional .is_notify_supported
+> >    callback provided by the protocol to check if that specific notification
+> >    type is available for that particular resource on the running system,
+> >    marking it as unsupported otherwise.
+> >    
+> >    Then, when a notification enable request is received, return an error if
+> >    it was previously marked as unsuppported, so avoiding to send a needless
+> >    notification enable command and check the returned value for failure.
+> >    
+> >    Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> >    Link: https://lore.kernel.org/r/20240212123233.1230090-2-cristian.marussi@arm.com
+> >    Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> >
+> >
+> >...so my suspect is that we are ALREADY avoiding to send unneeded
+> >messages when a domain does NOT support notifications for ALL
+> >protocols...it is just that we are a bit too noisy...
+> >
+> >@Peng do you observe the message being sent instead ? (so maybe the
+> >above has a bug...) or it is just the message ?
 > 
-> Whilst you're at it, please also change the open-coded constant in
-> __cpu_setup to MDSCR_EL1_TDCC.
+> Just the message.
+> 
+> arm-scmi arm-scmi.0.auto: SCMI Notifications - Notification NOT supported - proto_id:19  evt_id:0  src_id:8
+> SCMI Notifications - Failed to ENABLE events for key:13000008 !
+> scmi-cpufreq scmi_dev.4: failed to register for limits change notifier for domain 8
+> 
+> It just make user has a feeling that there must be something wrong, especially
+> those not know the internals.
 
-I believe you are suggesting about the following change, will fold
-in the patch. But I guess 'mov' would still be preferred compared
-to 'mov_q' as MDSCR_EL1_TDCC is a 32 bit constant (atleast the non
-zero portion) ?
+Yes indeed it is too much noisy...
 
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -454,7 +454,7 @@ SYM_FUNC_START(__cpu_setup)
-        dsb     nsh
+> 
+> And from the error message, "Failed to ENABLE events for key..", we not
+> know which protocol, and whether notification supported.
+> 
+> I was thinking to propogate the error value, but __scmi_enable_evt
+> always use -EINVAL if not success.
+> 
 
-        msr     cpacr_el1, xzr                  // Reset cpacr_el1
--       mov     x1, #1 << 12                    // Reset mdscr_el1 and disable
-+       mov     x1, MDSCR_EL1_TDCC              // Reset mdscr_el1 and disable
-        msr     mdscr_el1, x1                   // access to the DCC from EL0
-        reset_pmuserenr_el0 x1                  // Disable PMU access from EL0
-        reset_amuserenr_el0 x1                  // Disable AMU access from EL0
+I suppose, if you want also to save cycles that you could mark internally a
+protocol, at init time, as NOT suporting notifs (if you can detect that no domain
+is supported OR the related notfs commands are NOT available) and then
+bailing out early with -ENOTOPSUPP when trying to register a new
+notifier (amd muting all the errs to dbgs....) so that the caller can
+warn if wanted or not...
 
+> >
+> >> I wonder if it makes sense to quiesce the warnings from the core if the
+> >> platform doesn't support notifications.
+> 
+> If not quiesce, we might need to make it clear from the error message,
+> saying whether X events are supported for Y protocols or not, not just
+> a "Failed to ENABLE events for key.."
+> 
 
+Yes that was a very early and primitve errors message of mine...my bad :D
+
+Thanks,
+Cristian
 
