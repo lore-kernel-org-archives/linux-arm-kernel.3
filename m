@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F138C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F8AC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8OnpIVRMDsCvWvEU627B7xFOFqUm/Prfg2szCnr5fc=; b=mjX5YdWLWqMpuA74Al12qLloMt
-	/h3aJDqh3z6cW2CoKsWTbDTaNOA79zVvIRRAZrq+Tzdr//cE7yvAQjdsWI+Q+JbZjzyfG1X79ATCm
-	jsmMv6qojdzqJgkDuRuFWwtpBMCppkHwq67etFM4pPKnGgkycnbh049vDlnsOZb1tECbqdBifV6rY
-	MU3qUY35PreESG+eqa+9IKC2IxCjBNRcQwkDfA04LYUDSWKr0EE75YrvoAh5eIr8d0W0+ETj1LbMW
-	gBKzr/VrUtMRv5n8csaVW4XnS8ltvC9ibkhS+t2C7gelUlI/r5tG79caApTa0ayHu7JGrwD4V+2LD
-	kP6dYLHA==;
+	bh=cZnvOnHtbSmTRkDQY5OMcUHswqrZh6xf9n5dNyGk7Nw=; b=CD2uuYJeqbVybX+2uuFheknN9m
+	J8GO7Fv4UAug8Cm5xvJSC6Yuw+GYhuHM1JkumW3Y53zTXi8HKwKTGqm+pOrvYdJOIJrGTz68+S7kx
+	VXlDoWJu+pcSrM2oKl7kNzHZCeWB/S4XgCv1GcMn7y0S8ebIAwqtl5nqYZU2EdNw65YpLrNYEXmUi
+	MlPYMnz8aw3VGcExwnxmqh6OsADD3yZwpP3YPFP1BpZxGMljb/8wspEniAPBjPAGuUSaEcY5aw2pV
+	4Hnvxis1X3xmzWQLjZNs8q0buP2WPgq2kGf2C++wFS3SratcpUnLho8T9kpD0XfegwDe4vuDmMnKk
+	OWV6DG7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnrQ-0000000EKOc-2pJe;
-	Thu, 12 Jun 2025 19:45:16 +0000
+	id 1uPnrW-0000000EKVW-424K;
+	Thu, 12 Jun 2025 19:45:22 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPk3w-0000000DpG0-2Jbu
+	id 1uPk47-0000000DpII-0tny
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:41:57 +0000
+	Thu, 12 Jun 2025 15:42:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=U8OnpIVRMDsCvWvEU627B7xFOFqUm/Prfg2szCnr5fc=; b=GrvY1SOCPxPv97W26JYreUrBFT
-	GnkuxBm7nYyHeUfamWkF81FFBqf6p2jGGsjkbk7zbJgaFcplaCsNn7z9Z8IdCG9gQ6AUABI65UUER
-	oMCowzW5X0+H4rcfduxN+0ijLU+8bkB9AY0KdRNWowMsOeAbV97zhHBQeGN5PM5lUlMZIqYdOhhwE
-	YnUQz48g2qTMgeX6V5hRFIM+WpXMPFWVYpTJmxSKDWqt0cPbb2I7wOyKgn52wolYjbXwYJJgFQRbC
-	hDq9M9wOm6Ke9xtrmDNafvMwQ2SJZ5MjK4UZHLNnowMEEIzRAZ8GWM3HsxYSo1Ga5sjMwSek9h54E
-	CzC5CaVA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42644 helo=rmk-PC.armlinux.org.uk)
+	bh=cZnvOnHtbSmTRkDQY5OMcUHswqrZh6xf9n5dNyGk7Nw=; b=sHIPscLDJe2PxlFKqqldN0N61g
+	9eMwdItQ/K45eKRVOY9dFpQYtJYYO6gHd6+qgOD4kbdXK0fxqMRvX9kt0bQiIE2cuSKLJaBxaDchy
+	YauesJ/+zfnj+mr6OuJ4fJ7kk9cZOcEKDJyxveXbeQ2Rxvau7NNTYQBoRlcTdgNd3f335LmmNCBXp
+	YtB0ImDWdzH87emHvyHdeCati/P/swpV0q3xhbe5OpnFbpfxLmrMu2LPLB7lnFjLsCKGzD4bLAvw9
+	vSS1RHTq3OQ2CX8wQ92N3s7OICM48tcD3GSoZaVjWZ/WG65b3h4qjLMnbkbCJ3KJDgwZWyWv9SlCh
+	6P2jOglg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44308 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uPk3s-00084s-1R;
-	Thu, 12 Jun 2025 16:41:52 +0100
+	id 1uPk42-00085O-2N;
+	Thu, 12 Jun 2025 16:42:02 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uPk3E-004CFl-BZ; Thu, 12 Jun 2025 16:41:12 +0100
+	id 1uPk3O-004CFx-Ir; Thu, 12 Jun 2025 16:41:22 +0100
 In-Reply-To: <aEr1BhIoC6-UM2XV@shell.armlinux.org.uk>
 References: <aEr1BhIoC6-UM2XV@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -63,16 +63,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 7/9] net: stmmac: rk: simplify px30_set_rmii_speed()
+Subject: [PATCH net-next 9/9] net: stmmac: rk: remove obsolete .set_*_speed()
+ methods
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uPk3E-004CFl-BZ@rmk-PC.armlinux.org.uk>
-Date: Thu, 12 Jun 2025 16:41:12 +0100
+Message-Id: <E1uPk3O-004CFx-Ir@rmk-PC.armlinux.org.uk>
+Date: Thu, 12 Jun 2025 16:41:22 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_084156_587326_7C92D06D 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250612_084207_252971_1C1AD24E 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +88,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-px30_set_rmii_speed() doesn't need to be as verbose as it is - it
-merely needs the values for the register and clock rate which depend
-on the speed, and then call the appropriate functions. Rewrite the
-function to make it so.
+Now that no SoC implements the .set_*_speed() methods, we can get rid
+of these methods and the now unused code in rk_set_clk_tx_rate().
+Arrange for the function to return an error when the .set_speed()
+method is not implemented.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 29 +++++++++----------
- 1 file changed, 14 insertions(+), 15 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 21 +------------------
+ 1 file changed, 1 insertion(+), 20 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 8ad6b3b0e282..72f2b80bf3bb 100644
+index 7cdb09037da0..18ae12df4a85 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -250,6 +250,8 @@ static void px30_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
+@@ -37,8 +37,6 @@ struct rk_gmac_ops {
+ 	void (*set_to_rgmii)(struct rk_priv_data *bsp_priv,
+ 			     int tx_delay, int rx_delay);
+ 	void (*set_to_rmii)(struct rk_priv_data *bsp_priv);
+-	void (*set_rgmii_speed)(struct rk_priv_data *bsp_priv, int speed);
+-	void (*set_rmii_speed)(struct rk_priv_data *bsp_priv, int speed);
+ 	int (*set_speed)(struct rk_priv_data *bsp_priv,
+ 			 phy_interface_t interface, int speed);
+ 	void (*set_clock_selection)(struct rk_priv_data *bsp_priv, bool input,
+@@ -1707,29 +1705,12 @@ static int rk_set_clk_tx_rate(void *bsp_priv_, struct clk *clk_tx_i,
+ 			      phy_interface_t interface, int speed)
  {
- 	struct clk *clk_mac_speed = bsp_priv->clks[RK_CLK_MAC_SPEED].clk;
- 	struct device *dev = &bsp_priv->pdev->dev;
-+	unsigned int con1;
-+	long rate;
- 	int ret;
+ 	struct rk_priv_data *bsp_priv = bsp_priv_;
+-	struct device *dev = &bsp_priv->pdev->dev;
  
- 	if (!clk_mac_speed) {
-@@ -258,25 +260,22 @@ static void px30_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- 	}
+ 	if (bsp_priv->ops->set_speed)
+ 		return bsp_priv->ops->set_speed(bsp_priv, bsp_priv->phy_iface,
+ 						speed);
  
- 	if (speed == 10) {
--		regmap_write(bsp_priv->grf, PX30_GRF_GMAC_CON1,
--			     PX30_GMAC_SPEED_10M);
+-	switch (bsp_priv->phy_iface) {
+-	case PHY_INTERFACE_MODE_RGMII:
+-	case PHY_INTERFACE_MODE_RGMII_ID:
+-	case PHY_INTERFACE_MODE_RGMII_RXID:
+-	case PHY_INTERFACE_MODE_RGMII_TXID:
+-		if (bsp_priv->ops->set_rgmii_speed)
+-			bsp_priv->ops->set_rgmii_speed(bsp_priv, speed);
+-		break;
+-	case PHY_INTERFACE_MODE_RMII:
+-		if (bsp_priv->ops->set_rmii_speed)
+-			bsp_priv->ops->set_rmii_speed(bsp_priv, speed);
+-		break;
+-	default:
+-		dev_err(dev, "unsupported interface %d", bsp_priv->phy_iface);
+-	}
 -
--		ret = clk_set_rate(clk_mac_speed, 2500000);
--		if (ret)
--			dev_err(dev, "%s: set clk_mac_speed rate 2500000 failed: %d\n",
--				__func__, ret);
-+		con1 = PX30_GMAC_SPEED_10M;
-+		rate = 2500000;
- 	} else if (speed == 100) {
--		regmap_write(bsp_priv->grf, PX30_GRF_GMAC_CON1,
--			     PX30_GMAC_SPEED_100M);
--
--		ret = clk_set_rate(clk_mac_speed, 25000000);
--		if (ret)
--			dev_err(dev, "%s: set clk_mac_speed rate 25000000 failed: %d\n",
--				__func__, ret);
--
-+		con1 = PX30_GMAC_SPEED_100M;
-+		rate = 25000000;
- 	} else {
- 		dev_err(dev, "unknown speed value for RMII! speed=%d", speed);
-+		return;
- 	}
-+
-+	regmap_write(bsp_priv->grf, PX30_GRF_GMAC_CON1, con1);
-+
-+	ret = clk_set_rate(clk_mac_speed, rate);
-+	if (ret)
-+		dev_err(dev, "%s: set clk_mac_speed rate %ld failed: %d\n",
-+			__func__, rate, ret);
+-	return 0;
++	return -EINVAL;
  }
  
- static const struct rk_gmac_ops px30_ops = {
+ static int rk_gmac_probe(struct platform_device *pdev)
 -- 
 2.30.2
 
