@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AEB5C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5D1C71149
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZsYXdUJxDqqAruGjKI1G6QK33eagQBI2kBAS/U2H9E=; b=0tGFM1NWeiJoVlljCPeKZnfwR4
-	NefkVRPLGsZivIY6Iqx4ELTQc+FE/TNZCK+TBOfh/pwPBcnXAwQJi4CEStYGq0GJs/WdO3ScmCden
-	ezXimeQnmEKHRwkYSXg9rQclBZ53ZsN+QfLg82sk7+bZ3t2IgYFh4lk/HXfSZdC9s/7IgDtalRraf
-	N7dJy14HtNpNexvjICC8H7i3spX9yOA1oVwjma3f2gjfj6NC/9+2PjnsJJ0yj+vhr9sxdIp/VNrq3
-	2x5ozGh845lnsT8lB012MksekDQNhnKlYChH9DN9p/tWUgNy1xWUqjcv6oG38HlIUIa02xR8/iCYS
-	4PQ7byIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VykrZWwEjSsRKBmGHl3bXx1U1tiN0/5iojMxb7NfyWY=; b=MRIwmjKAs5CJGLBTYwC4nc7xkf
+	7JGam1qOb91LNIOBwlWUOPZ+OfFyr7NMnd3wpHWh7NM2M9wOcMctfj1YJ9FEp6I0RiLcIpNAHDyhk
+	TFmOuxRuuRwZhtDcpTNq0wQI6LnhAJQ+P9YSMBynFgL9b4KquNRGphbjLt0n85AiwrHfNGsUSMtS6
+	Nyz13XMUqGK/VGHlzceUNE1wEptNURzbvA0AfHDWUOgh5CuboLHIcmxjF1NAzs7mid0JYi1UWBEt2
+	b4WBCZSGX8ebKOgpAR18HwZgmGNfvft1FUv3oBCeDM7OrnXfsGhJm9s2vLt466eyE7x4mKlNrSIbT
+	zAY7VqAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnmw-0000000EDhu-2JiB;
-	Thu, 12 Jun 2025 19:40:38 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uPnmj-0000000EDbi-1QEd;
+	Thu, 12 Jun 2025 19:40:25 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhht-0000000DKz0-2bL1
+	id 1uPhGG-0000000DHSB-3AIN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 13:11:03 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55CDA0Z32925702;
-	Thu, 12 Jun 2025 08:10:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749733800;
-	bh=SZsYXdUJxDqqAruGjKI1G6QK33eagQBI2kBAS/U2H9E=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=R49oWCXaLeCfto2fyhcX2Jk6U0KZNdPtDpKrvGWbubbskG+aLLBqLbREwF7QbmKcd
-	 7OYm7RcUMzTCdwG00Bsk6z945Ucq/sEKFUXc0NzL6jS8KN0MCl2uGmQYws+UoISeqp
-	 Dz5eCdTo+xIsSS7Ve7zKvmFGNXi+y3yACikjK5pk=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55CDA0Q91974279
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 12 Jun 2025 08:10:00 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 12
- Jun 2025 08:09:59 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 12 Jun 2025 08:09:59 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55CD9xgi2202130;
-	Thu, 12 Jun 2025 08:09:59 -0500
-Message-ID: <ef6d6315-6517-4c8b-bf76-e41bb72bae8d@ti.com>
-Date: Thu, 12 Jun 2025 08:09:59 -0500
+	Thu, 12 Jun 2025 12:42:30 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mtr@pengutronix.de>)
+	id 1uPhG0-00029s-Mk; Thu, 12 Jun 2025 14:42:12 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mtr@pengutronix.de>)
+	id 1uPhFz-0037mO-05;
+	Thu, 12 Jun 2025 14:42:11 +0200
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mtr@pengutronix.de>)
+	id 1uPhFy-008uO9-2t;
+	Thu, 12 Jun 2025 14:42:10 +0200
+Date: Thu, 12 Jun 2025 14:42:10 +0200
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: yassine.ouaissa@allegrodvt.com
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Dufresne <nicolas@ndufresne.ca>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] dt-bindings: media: allegro-dvt: add decoder
+ dt-bindings for Gen3 IP
+Message-ID: <aErLIriSYa1meukJ@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	yassine.ouaissa@allegrodvt.com,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Michal Simek <michal.simek@amd.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Dufresne <nicolas@ndufresne.ca>,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <20250605-allegro_dvt_al300_dec_driver-v2-0-1ef4839f5f06@allegrodvt.com>
+ <20250605-allegro_dvt_al300_dec_driver-v2-2-1ef4839f5f06@allegrodvt.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/5] arm: omap2plus_defconfig: Enable TPS65219
- regulator
-To: Andreas Kemnade <andreas@kemnade.info>
-CC: Kory Maincent <kory.maincent@bootlin.com>,
-        Tony Lindgren
-	<tony@atomide.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Aaro Koskinen
-	<aaro.koskinen@iki.fi>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Roger Quadros
-	<rogerq@kernel.org>,
-        Russell King <linux@armlinux.org.uk>,
-        Bajjuri Praneeth
-	<praneeth@ti.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
-	<broonie@kernel.org>,
-        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
- <20250609-bbg-v2-5-5278026b7498@bootlin.com>
- <1d87fa3b-c3b9-44fd-9e61-7f1ffadcfb0c@ti.com> <20250612081255.255be21e@akair>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250612081255.255be21e@akair>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250605-allegro_dvt_al300_dec_driver-v2-2-1ef4839f5f06@allegrodvt.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mtr@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_061101_804201_5D6BE75F 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20250612_054228_788669_E329DFDE 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +97,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/12/25 1:12 AM, Andreas Kemnade wrote:
-> Am Wed, 11 Jun 2025 16:13:05 -0500
-> schrieb Andrew Davis <afd@ti.com>:
+On Thu, 05 Jun 2025 12:26:57 +0000, Yassine Ouaissa via B4 Relay wrote:
+> From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 > 
->> On 6/9/25 10:43 AM, Kory Maincent wrote:
->>> Enable the TPS65219 regulator in the defconfig, as the TPS65214
->>> variant is used by the newly introduced BeagleBoard Green Eco board.
->>>
->>> Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
->>> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
->>> ---
->>>    arch/arm/configs/omap2plus_defconfig | 3 +++
->>>    1 file changed, 3 insertions(+)
->>>
->>> diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
->>> index 9f9780c8e62a..2ad669f7b202 100644
->>> --- a/arch/arm/configs/omap2plus_defconfig
->>> +++ b/arch/arm/configs/omap2plus_defconfig
->>
->> Why omap2plus_defconfig? OMAP3 and newer are all ARMv7 and
->> boards with those can/should use multi_v7_defconfig.
->>
-> if there are enough drivers enabled there, it would work, but it is not.
-> So there need to be a bunch of patches to add the missing stuff.
-> omap2plus_defconfig is there and support for boards are added.
+> Add compatible for video decoder on allegrodvt Gen 3 IP.
 > 
-
-Yes multi_v7 is still missing stuff for some boards we want to
-support, and we are working on adding those needed modules now.
-
-We won't get feature parity in multi_v7 if we keep adding new
-boards to the old omap2plus_defconfig. For this patch series
-how about we add support to both defconfigs?
-
-> So I think until multi_v7_defconfig is really usable for OMAP3+, we
-> should stick with the name omap2plus_defconfig and add stuff.
-> If we rename omap2plus_defconfig to omap2_defconfig, we should imho
-> disable OMAP3/4/5 there to avoid confusion.
+> v2:
+> - Change the YAML file name, use the existing vendor-prefix.
+> - Improuve the dt-bindings description.
+> - Change the device compatible identifier, from "allegrodvt, al300-vdec",
+>   to "allegro, al300-vdec"
+> - Simplify the register property specification,
+>   by using the simple min/max items constraint (Krzysztof Kozlowski)
+> - Remove the clock-names property. And remove it from the required
+>   properties list (Krzysztof Kozlowski) (Conor Dooley)
+> - Use the simple maxItems constraint for the memory-region property.
+>   Also for the firmware-name (Krzysztof Kozlowski)
+> - Example changes:
+>   - Use header provides definitions for the interrupts (Conor Dooley)
+>   - Improuve Interrupt specification using GIC constants (Conor Dooley)
+>   - Use generic node name "video-decoder" (Krzysztof Kozlowski) (Conor Dooley)
+>   - Remove unused label (Krzysztof Kozlowski)
+>   - Change clock reference from <&mcu_clock_dec> to <&mcu_core_clk>
+>   - Use hex format for reg property (Krzysztof Kozlowski) (Conor Dooley)
+>   - Reduce memory region size (Krzysztof Kozlowski) (Conor Dooley)
 > 
+>   - Link v1: https://patchwork.linuxtv.org/project/linux-media/patch/20250511144752.504162-4-yassine.ouaissa@allegrodvt.com/
+> 
+> Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
+> ---
+>  .../bindings/media/allegro,al300-vdec.yaml         | 75 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  2 +
+>  2 files changed, 77 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..26f9ac39682431b1d4828aed5d1ed43ef099e204
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
+> @@ -0,0 +1,75 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/allegro,al300-vdec.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allegro DVT Video IP Decoder Gen 3
+> +
+> +maintainers:
+> +  - Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>
+> +
+> +description: The al300-vdec represents the gen 3 of Allegro DVT IP video
+> +  decoding technology, offering significant advancements over its
+> +  predecessors. This new decoder features enhanced processing capabilities
+> +  with improved throughput and reduced latency.
+> +
+> +  Communication between the host driver software and the MCU is implemented
+> +  through a specialized mailbox interface mechanism. This mailbox system
+> +  provides a structured channel for exchanging commands, parameters, and
+> +  status information between the host CPU and the MCU controlling the codec
+> +  engines.
+> +
+> +properties:
+> +  compatible:
+> +    const: allegro,al300-vdec
+> +
+> +  reg:
+> +    maxItems: 2
+> +    minItems: 2
+> +
+> +  reg-names:
+> +    items:
+> +      - const: regs
+> +      - const: apb
 
-Yes, that was part of the plan, right now these SoCs are enabled
-in both configs, so new boards often get enabled in one or the other
-but rarely both.
+If I understand correctly, "regs" are the registers to control the MCU
+and "apb" are the registers of the actual codec engines, which is
+controlled by the MCU. The driver never accesses the apb registers, but
+uses the apb address only to configure the firmware and tell it, where
+the registers of the codec engines are found.
 
-Andrew
+Maybe a separate node for the actual codec that is referred via a
+phandle could be a better description of the hardware?
 
-> Regards,
-> Andreas
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: MCU core clock
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +
+> +  firmware-name:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - clocks
+> +
+> +additionalProperties: False
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    axi {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        video-decoder@a0120000 {
+> +            compatible = "allegro,al300-vdec";
+> +            reg = <0x00 0xa0120000 0x00 0x10000>,
+> +                  <0x01 0x80000000 0x00 0x8000>;
+> +            reg-names = "regs", "apb";
+> +            interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+> +            clocks = <&mcu_core_clk>;
+> +            firmware-name = "al300_vdec.fw";
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index abc6ba61048771303bc219102f2db602266b7c30..1ff78b9a76cb8cdf32263fcd9b4579b4a2bb6b2a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -816,7 +816,9 @@ M:	Michael Tretter <m.tretter@pengutronix.de>
+>  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+> +F:	Documentation/devicetree/bindings/media/allegro,al300-vdec.yaml
+>  F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
+> +F:	drivers/media/platform/allegro-dvt/al300
+>  F:	drivers/media/platform/allegro-dvt/zynqmp
+>  
+>  ALLIED VISION ALVIUM CAMERA DRIVER
+> 
+> -- 
+> 2.30.2
+> 
+> 
+> 
 
