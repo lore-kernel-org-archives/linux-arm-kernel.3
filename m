@@ -4,83 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED7CC71151
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E369BC7114C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PBSJcOpXxu8Nk2XaqOIUz/lrKkb5r1l+pE4x8iGOPKo=; b=dma7wK94VXRbharhfEv5H65ivK
-	EEpRd5prPvkjXw1wOLKXp2WWrWp4enAND/6tnuwvIwVYOPdQdrZBcoZ7kmo2iOC2pCz3orx6AASkX
-	XYE627H5+dKtkl8OYuQvrUodjwItY/Uwg+a2kz1n1UsrwPEeMfcgzFVKdFkD/VoBttL+yjgYV7ZoF
-	j/d6plM13pcqT2wzknBXg2V4/FUlQqRisfTQp4CtzvAO+yCEA0zUScpaLaGfhANzEN1CHC3gYZsRm
-	PgWMAXZXWnytQfutcSWOmwRHSVDVzwd3sE9UD7fq82yQDsnVCG4us1BlQz66UeGBbw4f7cZxZTH8v
-	FPIRr0bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6wLh0Bfznwrpy2ODyPunjDZzKz1nyvlK3wv3RxF8avk=; b=VJuJ81L7y8P0jo2DRhBI9lJ1qe
+	FNhHN2s7edi1wjcou7tPAxcElAIFsNjBOnwMzBC5HnnqKtTqETlsMk/D2edEiVEosM3w9i0Yp7Ewd
+	xeTQTS/qRMYiYRFtKVtPKAhC+Z5AYhLjkJxjNbJXpsLuMo7RfH3HaiaF9BCWSSjfOnjFfnU2D67Dp
+	h6KVPX035PKw7c3/T1ISZ0pOG87Sqo01DawBvpzrzc/oVFXRY6GHlyh0kiBavhUtfci+Qe73OcpCu
+	HUV3gtTvYEvzfuzVbtYIWCXuqr/MD7Pyeh8j/0/WarUkl+a0eBxydNHvqqTxoWHL7gMCin7vJvw5C
+	sE1qpKig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPowP-0000000EXGV-2cmq;
-	Thu, 12 Jun 2025 20:54:29 +0000
-Received: from mail-ua1-f49.google.com ([209.85.222.49])
+	id 1uPowQ-0000000EXIE-3Sqz;
+	Thu, 12 Jun 2025 20:54:30 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPiC8-0000000DUoA-2pj2
+	id 1uPiEM-0000000DV6s-1QNx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 13:42:17 +0000
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-87ee848a74bso248481241.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:42:16 -0700 (PDT)
+	Thu, 12 Jun 2025 13:44:35 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3a4f7865b22so186897f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:44:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749735873; x=1750340673; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6wLh0Bfznwrpy2ODyPunjDZzKz1nyvlK3wv3RxF8avk=;
+        b=IzbySmYp6chKmJdOb5MQ0iUagJf0/1iX+9x/FypZrPdWULEXw0/X2FaYJVyta3rJwz
+         SyTqJUC+9si2lfdWFzUoOftYVN29027plzy7sBDpYETH71tniB+C2b5RMidCEUAsCk2P
+         vPzJi7J2yhZLtZldRNCzcidc4PHxPq9LC+fzAJwGIbEuhyNu9kdTBzU23dDmdWRyVeLj
+         WB12ABM6BO2W7OOdhg7N8PEawmLo1490IZu9mjm54FL3FCPZmg5PTBjGu7gaDjUI/Bj4
+         yGTpj/d6ib83eqwJOrsC0Ql9exxHUG5KE0BlSavv9HKFVdmpe2vLSKQM6iL95g6KLDAm
+         vyyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749735734; x=1750340534;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PBSJcOpXxu8Nk2XaqOIUz/lrKkb5r1l+pE4x8iGOPKo=;
-        b=WErsFnEDAC8XNr4bQI5cIR/pi1jhfgANIb2h9Lo5GmoiOhJXCal3PdNAU79yoW5gvb
-         g7ZEUTQ2LNP03fecN4YQ0lrYX4+hAJA0MGGBq9gSw553IBM28QHN0q9ReBECpr6SSYCe
-         z3LEBHPn/4L8FuawAjKIpgV/CL4EkmC4G06LUZvVYCYerqz0MwtKBJ4jEvL8jPGdydKs
-         zgeZVZN5RFxdgxdqv+eW+Z+3a2OiLxREk/5nqA7A9WRYbHY9Awau5GtpSI9NSHZniOH0
-         XHHyPn5tcAclnEpE0my83JnznYXyzPOATcpEQMTOZwK728eG5J4KXIlJxJaT9rvhvo+Q
-         aH5A==
-X-Gm-Message-State: AOJu0Yy/siSyXVySS5RScZKcKY2InQipJZzj8kpvpgMRLQgFryASfabf
-	5ibtDsM9iTDC6HRCZv47g/Fm7E6rnbpbN59cpVFJnUWsPK1k4DPh+JvWxfKmX7Nr
-X-Gm-Gg: ASbGncsyIBmxp1cY7s14mDfTnNdMjkBl2CGgQqcxuRCUYzKQLHk9yl9B0KGV6fyq4T5
-	CHDyHajWGfl8f1oRPdGhNVy1lT8RJmQHAaMt9ZEpV5H5PE2X1/5ETCeJG3pkTb+wzndG9JdwSGG
-	8TMEeGwL8eDc35nS4uvfDcuHmFcMw5D07OD++afVjBFQ2vb2UUQtryiRQztY58dxdz89CLpBymt
-	+EcxaLzDYEkeefbyRNu2bySXVOSch3o3C4CCstsKrmJfcnICU364oD5xeNr5hDGx1HejF2njxS6
-	eJ03uUB50K/U/7KYE7t6QtWDMDKe5Z70GhFV6HdhXreu88MwkN9w4ccbo7/mgBKkm/uHvn1plQG
-	ECYZjCmX4VyN2vjagB94OHuF1
-X-Google-Smtp-Source: AGHT+IFh73e7003c0/8zCIrc5ZR+n2lfWSMILknah2AlnaHnrR44/7PbGKLVUw1lhGBnTxoZ74boAA==
-X-Received: by 2002:a05:6102:3e1f:b0:4e2:a29d:ecb6 with SMTP id ada2fe7eead31-4e7bae7360bmr7349940137.1.1749735734123;
-        Thu, 12 Jun 2025 06:42:14 -0700 (PDT)
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com. [209.85.217.46])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4e7d07b6caasm229422137.6.2025.06.12.06.42.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Jun 2025 06:42:13 -0700 (PDT)
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-4e7c7b6e5b6so272107137.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:42:13 -0700 (PDT)
-X-Received: by 2002:a05:6102:8003:b0:4e2:a5b9:df1d with SMTP id
- ada2fe7eead31-4e7baec76a6mr7321614137.8.1749735733720; Thu, 12 Jun 2025
- 06:42:13 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749735873; x=1750340673;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6wLh0Bfznwrpy2ODyPunjDZzKz1nyvlK3wv3RxF8avk=;
+        b=ipfECWHoz7LBVJF/B003y0wt082MayutVI2Z77D1SiIFozo3OW6/QJYzzseDR+XEP9
+         3rV2mur+GdFkFGCcuEJcYtBJj154yPQvlPybzLojw24nRFOTRc0S44+guyAjpNFWgQPp
+         ioYFIxcmKZLXMRim7Lj/viDABvIadzx7E14CfYKIqptHN/ZWfVCumdiWBioEc+WeZqtt
+         68Wnv4DL9kYHIsMRqXXa+qtBjjrGiiLSe99+k6f0VDjAgCKv4MT3Vjb/mLA8cTgB22F8
+         BAKOygG2I/30i+qM6VPcQsFdSLEvkBXDyzOGzIoD/8DtYnBqbBYroxuYqSpSylL+HEC1
+         EvEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXBFkLZ6dZQQc2bEWqLWiaAKmT2qw9r85i9UZ4KMuecXGMuHbveVuqX7fzU9csM/K6DAA4p4uw+ycBCefJHRIWB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8g/4CHm9TGXlSuZwcZzTWY9PmC5hM1DNN5FXy8WWM+8IP9BW7
+	HHKFTvOEOtrrXA/rduJ2X4cxMQxiV4vfoNxOJ4Z1U4phU4Y88suLSmwb5TT+dDjUxMI=
+X-Gm-Gg: ASbGnctczcI/dqqZgO2MIqVJc3vse56rhCLc2A9IkC9HO020JnZL6wDJcgShdGpBypv
+	c2zhIIy1xhBVRTFJlqLwbijN3dqkTMK8MxD2Vw0c4o5lHea1yai9r+hKRFE0tGF1gk0lNBSlpPl
+	pROqhM+IIWJJQg4gQDJ5z50l7ZgFnRPJhuQPtUDbFOLKOvDWeJgBz3v2bSa4H0pXTue0fwdhHI7
+	5xbfUDbgnteDYd6hmWmdUF6l1AgZ/WtTTV1ugxMqJNy20NDJ0/Uf6FMxqyZkICpP1DrN9vpz2hi
+	whKCAsBRYK/qqAFsHbOi2fwMrBXo+RynxJ3RLZcPa+XOZjIUmv8Yo+AyRhIzvllga44FyeCKiQ=
+	=
+X-Google-Smtp-Source: AGHT+IHtHbOKUROa0ve5oP7CqlT0tuVP3Uhvzz+OcfUoUTB8LdEAWIqsjOFYSVDtkpJs1KvalbK6XQ==
+X-Received: by 2002:a05:6000:2409:b0:3a4:e740:cd6e with SMTP id ffacd0b85a97d-3a5586cbc4emr2389747f8f.8.1749735872804;
+        Thu, 12 Jun 2025 06:44:32 -0700 (PDT)
+Received: from kuoka.. ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a561976f13sm2053661f8f.4.2025.06.12.06.44.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 06:44:31 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: krzk@kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	asahi@lists.linux.dev,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH 2/2] arm64: defconfig: Drop unneeded unselectable sound drivers
+Date: Thu, 12 Jun 2025 15:44:23 +0200
+Message-ID: <20250612134421.95782-4-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250612134421.95782-3-krzysztof.kozlowski@linaro.org>
+References: <20250612134421.95782-3-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-References: <20250608215212.1619182-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250608215212.1619182-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 12 Jun 2025 15:42:02 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWM=KazUzpaPvUDdJ-5qcgG-7ZD5BJPuKhNktBevZ--NQ@mail.gmail.com>
-X-Gm-Features: AX0GCFveIMZ5PUkBzPLlVATe778amDQDvOgnEVFgoe_6ipYROtU2cjeE9uVnk5E
-Message-ID: <CAMuHMdWM=KazUzpaPvUDdJ-5qcgG-7ZD5BJPuKhNktBevZ--NQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: renesas: Add bootph-all to sysinfo EEPROM on
- R-Car Gen3
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1290; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=KY0F8+kc7mm5xaiPKfTg64NGT6LMQadpTVG2dcSzIOw=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoStm2S0PrTSvMJ4T068lWmaIsuO1xRYGmPZ7xW
+ PrQgJMoVw2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaErZtgAKCRDBN2bmhouD
+ 17NtD/sG7Qwg74MQDSYs/mqC4KOD2fT4ykjXIqRK6biOw7HMjliCiQOw+XynSblUFD9TbDeyzqT
+ wIL4LCWYQ6kd47NBX8GSUpB/ShaOaI09o8Nuy1Kvj8aEljhdiGp4ckeF295qq5RG3oWInFtoM5Y
+ Ld1HGX2nOK137IibuLsWIZ2ZNYbWdHCfIu6ZJi2KGD016k91JQ7RHI5oe/O48vpG8smsfj88clN
+ D+d+D7N3TACVgoKNVdvwcG++7BfJHe/0N0kc/KcYGAZHkZW0RxMRV5CRa5JTFFT8HcofN4enuDQ
+ tAJvQkDehFT+nBaBrM7fcnC2yO1q7SPya558nohVVCvhDhTgxuZsMEkH+1HMhwKU9IrEePtSGLB
+ kvhxRHRZkeRVjucthVP2BvwQTOyzfsdGGWN/h2bVSY03neVozbnN4xg1jtBDtGDYwQ09NmCpykW
+ xuEhh8DUGiQXNfvIgZu2azW39j6MrXpfIPSpY3PUarMkn9Hu/YsUtylj9Nk85JewomYhwYmsdRK
+ DoSNGbvJ2vuJG3IOsdCLweB/RzSo3K3RgXz1/OJMl5IcAnQX4zbf/k0QYip6Iz9mrwZNuP5asAc
+ hMFMPaGNU2Lri7c8q57FPcMmeXna0xFDfiEBqGfP/ESJTFcH+68lzwGlgAhFImmUaNS3AcKdz38 7U6Cs+MlvUiIVcw==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_064216_710924_56BE843D 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20250612_064434_375546_76621C2A 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +119,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 8 Jun 2025 at 23:52, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Add bootph-all property to sysinfo EEPROM on Renesas R-Car Gen3
-> Salvator-X(S), ULCB, Condor, Ebisu, Draak boards. The sysinfo
-> EEPROM is used by U-Boot early on, mark it using the bootph-all
-> property. No functional change for the Linux kernel, this only
-> reduces the divergence of DTs between U-Boot and Linux.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+SND_SOC_ES8328 is selected by SND_SOC_ES8328_I2C. SND_SOC_WCD939X is
+selected by SND_SOC_WCD939X.  None of these are user-visible options so
+their presence in defconfig is redundant.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.17.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Gr{oetje,eeting}s,
+---
 
-                        Geert
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Sven Peter <sven@kernel.org>
+Cc: Janne Grunau <j@jannau.net>
+Cc: asahi@lists.linux.dev
+Cc: linux-samsung-soc@vger.kernel.org
+---
+ arch/arm64/configs/defconfig | 2 --
+ 1 file changed, 2 deletions(-)
 
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 14fcd0a85f5b..a47e1616b4ef 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1057,7 +1057,6 @@ CONFIG_SND_SOC_DA7213=m
+ CONFIG_SND_SOC_ES7134=m
+ CONFIG_SND_SOC_ES7241=m
+ CONFIG_SND_SOC_ES8316=m
+-CONFIG_SND_SOC_ES8328=m
+ CONFIG_SND_SOC_ES8328_I2C=m
+ CONFIG_SND_SOC_GTM601=m
+ CONFIG_SND_SOC_MSM8916_WCD_ANALOG=m
+@@ -1075,7 +1074,6 @@ CONFIG_SND_SOC_TLV320AIC32X4_I2C=m
+ CONFIG_SND_SOC_TLV320AIC3X_I2C=m
+ CONFIG_SND_SOC_WCD9335=m
+ CONFIG_SND_SOC_WCD934X=m
+-CONFIG_SND_SOC_WCD939X=m
+ CONFIG_SND_SOC_WCD939X_SDW=m
+ CONFIG_SND_SOC_WM8524=m
+ CONFIG_SND_SOC_WM8904=m
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.45.2
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
