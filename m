@@ -4,136 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3566EC7114B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D5BC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFS+tzU1PTBVNIbgbt33HlW9jxX0q+T17o5SHXqVTL0=; b=zUob+pU1C8UsLSMzfCIxP/DzkY
-	G836GWXaeC/kBAK8dQSaV8KLQOayCoc9v9v/l0G+JnSHiHQUvZrhNEPLcWI+JDsj4SIcXJF8rxvRN
-	xJylls4MsgbhBGJO32Ak3WMjIabfNOFLMnabWejArSi6Y3kHb13DDGscoLZpZXqdxzwEHGb66rw2G
-	RhtOYUbMqu9YyVNnyB3TpvWnr/yTciz3E8tBZhON9/XEBsDuuMEjkk94o/fsFiOZqHvRU9D3LAQv5
-	kVRTK0pqFXizkWdTpXYy//CUiNT3dh+z7fLedNcyeuhjrtNxPgqM18/oATC5uS4HSkQhWGaZB33VQ
-	sCwnIwfw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TAPAekU/LrZe1nJf7fcuyTNybcW9G7I09lCZHvf9oYc=; b=JMHEmKkWVMYmYmMStrTaH59X+I
+	0roDZ43xT1R9LzqAp4zb2RWBoBLAgK/IGLGY/lCfWTgfvHJ65nCbFz5ER4D1GFnhnacVJR/SqWRnH
+	DMtmyC/5CXwcky+AjZ4pCAxoGwc+NH3ph1zLEteP9OPVGIq0j42KyQJ1gywWC8+bb63LQV5tRa3qo
+	GTUE6oQTmdIYvCeB+z/jh+ZnEfiQjUuZPsLMgF8LE3hfQBflQTyy59VLfZKEE5Sw0b/8mSCCeu9ea
+	uE3wGwkKHZF5FS1w6iTRl52JSRRrApEDwqp02Nw0s6XcsZcFn/xDqOVMmXj09RkqIWobPKTlcE5Ye
+	VIE+Vk6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPowR-0000000EXJB-28uG;
-	Thu, 12 Jun 2025 20:54:31 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1uPowQ-0000000EXHK-0qIl;
+	Thu, 12 Jun 2025 20:54:30 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPiFZ-0000000DVQ4-4C0Z
+	id 1uPiEK-0000000DV6a-33an
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 13:45:51 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a524caf77eso142633f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:45:49 -0700 (PDT)
+	Thu, 12 Jun 2025 13:44:33 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3a4e575db1aso50013f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:44:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749735948; x=1750340748; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=FFS+tzU1PTBVNIbgbt33HlW9jxX0q+T17o5SHXqVTL0=;
-        b=JriGkDcG7+TNpiSm+tV9aE0OEjXhz8NGrFVsvx3XWkw8n5AgjVr6XXfhaR6dUiBCJu
-         0MuCuzsvJvbJ84eSzdxkcibG2/TIFBpER+t+TXH7iARXF4SdnnBixlVpGS2K/XgGQbFv
-         DwXVEhWso4QYVxp/nyUG8mHT+nrrBozYAhXVCdQZD0pGvJljw+6v/V9IiBoJVFaz0lXG
-         vE+lNBgjafpeZJXCEKvAVC3UmADy1jROr7ZxQd962GqsrwGx2XWUDqnDccy595C4NHfJ
-         cVpMjVyl+M6lIW3kaufkgV/pbjRar6Wj83JgVdcSUOxMgdp+/eV9sKI42LT182UX/pAZ
-         NZkQ==
+        d=linaro.org; s=google; t=1749735871; x=1750340671; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TAPAekU/LrZe1nJf7fcuyTNybcW9G7I09lCZHvf9oYc=;
+        b=nqSTyrdKC2zxdpc/7eE2IAUZe4a6dEb/8BwstSlspcEpmpmeSIGmpIDPu4SYnIj+Es
+         g7OftiJpxkRzRvorbzmfkii6bgMfUK4a9BmvWlbBxEWqb+AnKs41lckW0O/Q8amHnvKR
+         Kn/OJ6hF6FRxwkOIfCNgmz6FO9OIPjjuJzGXQwG3C84QSvfeZB8wbRlJTsKVNOHhj1tS
+         fT34o+S+aQqn9ytuC5Zje6KkJG0zaa06pK88F71jfZLqXxqK6S0kZ41SdLhPF6wSEaus
+         DDzL9RC+Qe+9UyYYKNaHYA8WMK1sfc4MEuRs6vDn64bPkvFuHT1rtQEGduY/FMjZ685W
+         SxcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749735948; x=1750340748;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1749735871; x=1750340671;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FFS+tzU1PTBVNIbgbt33HlW9jxX0q+T17o5SHXqVTL0=;
-        b=LE92BSP5xAOt65e6xi43G62R2kKOLNo/JCWrWxR7nJcUetCOe3HyMuCGaWgkWL9ACR
-         8C/hDmy9GICMA4HOVZg0s8rjBxBegIo78ffBBR2JqbXYbTS6r9yOkn44kYZsD2u8mjTZ
-         9rFHNOV0iW/vYFL1eloo0Lz9doeSOj2EzgRr2KY0Bh9amtqDSZrDFlWsyD7XoJr8+2xL
-         mC0nIXPgEajjIKkfP0voBiRxzuoQMxEr4tFJbebOvxcQtB9Rk+mferpeMAcy6A5eP1b1
-         kSGFPJmpMVtc/bKR40j3tPOW6d1tTFI6gr4BMybFwOrCPZXGItsaOWOJQnJNPMfMQ8ag
-         /f9w==
-X-Forwarded-Encrypted: i=1; AJvYcCW/Waqovh0Db9TS2PF/6gkKeq7RZyZEAMac/1G/lqdvtlRBM+vSi5yR9ie7vN+HbFuUoU1RumZ4UHKM11w/e9qM@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrzFljQnFhXJ7z9IsxJG7j94JExhngKFJE6hOr56YbLK+ITE5/
-	eDWRKAvPSTAkedm/Q7rttvazdnKCMtGAwctMOEkjj5opoP8cBdaMiJpySfnLC1GjLZU=
-X-Gm-Gg: ASbGncuESPRmvb9Eymqy4HhInLfyW4BV+sguokvNWkLdMAwzG+684E8GxJHyQElqxYY
-	hY88BFZR9PRtwZKLCnpkwYTc65OUyDw+6CfALNjOc8MVsSW934AkLB1t8znFdzdiIwC1G1VuYv/
-	Z+WNJDdpVoAivhP+swYgtTIWJuZq2tIR5uXwSbgYiORIxI0wDGCXXbRi+qYbUWoHueD2qe6EyCg
-	G8/CSS2pDUEtC3uOWFLSxWAq6bTSbwQ/4t/7K70RP7atNiTz58RyBnfkluRD/hLQD9y9/+vVwuC
-	kQz+7DAWx7jCo6kcZWpRBQKQaXzWe+tdCJLwy9k7HLXHUvHhoHb/WjE//icbVxf/9Hl6DUCfpOh
-	DvM9p9k4=
-X-Google-Smtp-Source: AGHT+IH4t/UQaGFpHnjGNvxWJ6BkPEz48jvJdMiP4Iqu7ZDfUHh58OSY9dXNCy83MVYJ4nUOMm6V5Q==
-X-Received: by 2002:a05:6000:2303:b0:3a3:61ab:86c2 with SMTP id ffacd0b85a97d-3a5586cba07mr2265575f8f.7.1749735948418;
-        Thu, 12 Jun 2025 06:45:48 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a5619ab86dsm2022108f8f.44.2025.06.12.06.45.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Jun 2025 06:45:47 -0700 (PDT)
-Message-ID: <a92820a9-50f9-4127-96f4-47fb5715f441@linaro.org>
-Date: Thu, 12 Jun 2025 15:45:46 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: defconfig: Switch SOUND to module
-To: krzk@kernel.org
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Arnd Bergmann <arnd@arndb.de>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- asahi@lists.linux.dev, linux-samsung-soc@vger.kernel.org
-References: <20250612134421.95782-3-krzysztof.kozlowski@linaro.org>
+        bh=TAPAekU/LrZe1nJf7fcuyTNybcW9G7I09lCZHvf9oYc=;
+        b=rLlc09O38gJlse08KBP4hdjv0cfnBFDSvzevfyi+Y9BVD2H9YD5IIccsdX74F6sX4J
+         aUeQ13u6f7LmXeg4iVMs3O1iAswTPatdqsqM19kxQ/6GNIFz2CVvUSxPKv3S4iZuJd2Q
+         1J6sIs+c2afibh7aXPRy8bBypElSx/s/j0yEnS65daANYYznpSRAXFXwpGx8DLchhCw9
+         s49FPUy1i5vRwR7Y1RLYWE28WwvRVBzkWggPh7LRfcC1NxwxgcIdngWj6R68Y1c9Co83
+         WMA0dzWBXaFZyKstrFSkciCaxc1og3LjYyOZd08KkA/TYgT2s7RW7t8LxmKerQg8x6Kf
+         bE9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXwANPU3NEwx/fdpnH7FH1RAbawPgA0ttT6Gj9OZHN0yFK0jaAMUFB4C480SUVdFtS34dXphtd8GyV46L4HEnCs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyij/PFfUtVTOi1i02BGPVyXd6KFuH+aQfLLZvv7RiAUFl4q7eF
+	YvdyGH8T3i/zUX+fo5hr+5D4GKBAc4Ka96DbrAKaXxWxbojiN7OBm4CdlJxkjfx2j30=
+X-Gm-Gg: ASbGncsuF0GHmKHw6whTIxIv3tofjV565R6rkoFSKoh+8Z479OEd4bXqKovGbXKl9RN
+	KJ4Cb+sPlUYb5+YFDrsCT/hkZORIXl6hJAKOFgjVvf0RYpy8mUriiA4HIQRwpONADQZKmQcPyhd
+	SUALIZ65QYqCeZtczxjhQ2k6GMrsxUZze64J/UfNlzDLbBnWe/KQN/SyFqeaI+K5JLo5flTFv4f
+	KP7RcUiI07ATLX+YX+uk+txPwjmNm8210UpJrbQgbWEgpxVmIdjvQLBYZngdOM8BI3LaIbXAUvc
+	bMMZBryHOODs8dx4Ozyo5Q5BBZ7BtrzHzQkU/uguXuJ5y96HC1aKwR6mglQG0NJfo3/ZT13x0IL
+	0vlrbxm6x
+X-Google-Smtp-Source: AGHT+IE+fhgoMi57FWpyHSYtxYdJ8jLOUeAusqX+ark2CzDRRR4iGxpFzDQ3xzR11gn00SA1jvJm8A==
+X-Received: by 2002:a05:6000:26c1:b0:3a4:f8a9:ba02 with SMTP id ffacd0b85a97d-3a5586b8858mr2485885f8f.1.1749735871092;
+        Thu, 12 Jun 2025 06:44:31 -0700 (PDT)
+Received: from kuoka.. ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a561976f13sm2053661f8f.4.2025.06.12.06.44.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 06:44:30 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <20250612134421.95782-3-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: krzk@kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	asahi@lists.linux.dev,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH 1/2] arm64: defconfig: Switch SOUND to module
+Date: Thu, 12 Jun 2025 15:44:22 +0200
+Message-ID: <20250612134421.95782-3-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2107; i=krzysztof.kozlowski@linaro.org;
+ h=from:subject; bh=fmLKNgtKcJwjP5FDnh9DbIUvWbuQxYQ2VpHaBRIju80=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoStm1fWX3mgWeCfVDeyKr/swV92niRZ1QIQm2L
+ x0clvJz/4OJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaErZtQAKCRDBN2bmhouD
+ 16UJD/4gbBqdnKUQ84IoVn0fZjjNqBAcba0ix34ZycfQc2PNtNzj0qZHfGCJGVpQOxzcgkoXOEq
+ jhWhHkYFtIo6Lsg0VwNqL/L3ekD4JJHQGo960GpnogiLCrnrbpxbshD0lwLcbDRQXIQjLWt0tQj
+ fKUm5PbsBezIb+pefiu1vvOmYAVgD32POwCeudbqt8eq6Zm2Vx2tJ6uWY+oSu5O+7pzdMNNFePK
+ 7dGjAVGZ5KCVNJozzdJhZlY1YGvqXQM5oC8q1P43A6oo4Ie9b5V0JsNahMzjraH5cludNg96ZLC
+ v/4snCT7kkqVoiOHeiPRPOSHOQ89QRyEz70ytN9gU7ZtO9wEKVq6t1uF6EIhjG+BIvELqdO/Uah
+ HFLOq6ud/MkyU+F3euRxLvrUvNotkQHr2yQyQY6BGRsJKxQi0jodb8ePJA8KOajiIE4KEUry0dy
+ Fyyasl030WAwpGABh4Hf+bd7QZYRerUBaFPYpplwas95E50QgGjNnDDMm7QbPoXiIWFmGA+Yw3K
+ xIA4t5W9xTZFf84FQgC8P4MaDrkN8qDh1d6qXTtDDkYqklXdv9bwKe2seNkDmzbY0vziJiDXXDS
+ hqBYYohbVXBdyN1IWxk1IP1NQvbo9nwur4ejDfTY9tbEJVoyaTO6gsebVFDwtW/m+FAC5Wu1SJD wDzMrRZ67JlN7Ew==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_064550_042257_087BB18E 
-X-CRM114-Status: UNSURE (   7.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_064432_776990_29D631E9 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,14 +116,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 15:44, Krzysztof Kozlowski wrote:
-> Sound drivers are not essential to boot boards or mount rootfs,
-> therefore in effort to reduce the size of kernel image (and boot images)
-> switch the ASoC drivers to modules to decrease the size:
-> 
->   vmlinux: 152864 kB -> 154528 kB
-Opposite...
+Sound drivers are not essential to boot boards or mount rootfs,
+therefore in effort to reduce the size of kernel image (and boot images)
+switch the ASoC drivers to modules to decrease the size:
 
-Best regards,
-Krzysztof
+  vmlinux: 152864 kB -> 154528 kB
+  Image: 39391 kB -> 39067 kB
+
+No difference in resulting include/generated/autoconf.h, except making
+modules: SND_SOC_SAMSUNG, SND_SOC_SDCA_OPTIONAL, SND_SOC_APPLE_MCA,
+SND_TIMER, SND_COMPRESS_OFFLOAD, SND_PCM, SND_SOC_SOF_OF and
+SND_DMAENGINE_PCM.
+
+Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+---
+
+If patches are fine, I will take them via Samsung SoC.
+
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Sven Peter <sven@kernel.org>
+Cc: Janne Grunau <j@jannau.net>
+Cc: asahi@lists.linux.dev
+Cc: linux-samsung-soc@vger.kernel.org
+---
+ arch/arm64/configs/defconfig | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 62d3c87858e1..14fcd0a85f5b 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -979,12 +979,12 @@ CONFIG_BACKLIGHT_LP855X=m
+ CONFIG_LOGO=y
+ # CONFIG_LOGO_LINUX_MONO is not set
+ # CONFIG_LOGO_LINUX_VGA16 is not set
+-CONFIG_SOUND=y
+-CONFIG_SND=y
++CONFIG_SOUND=m
++CONFIG_SND=m
+ CONFIG_SND_ALOOP=m
+ CONFIG_SND_HDA_TEGRA=m
+ CONFIG_SND_HDA_CODEC_HDMI=m
+-CONFIG_SND_SOC=y
++CONFIG_SND_SOC=m
+ CONFIG_SND_BCM2835_SOC_I2S=m
+ CONFIG_SND_SOC_FSL_ASRC=m
+ CONFIG_SND_SOC_FSL_MICFIL=m
+@@ -1021,12 +1021,12 @@ CONFIG_SND_SOC_ROCKCHIP_SAI=m
+ CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
+ CONFIG_SND_SOC_ROCKCHIP_RT5645=m
+ CONFIG_SND_SOC_RK3399_GRU_SOUND=m
+-CONFIG_SND_SOC_SAMSUNG=y
+ CONFIG_SND_SOC_RCAR=m
+ CONFIG_SND_SOC_MSIOF=m
+ CONFIG_SND_SOC_RZ=m
++CONFIG_SND_SOC_SAMSUNG=m
+ CONFIG_SND_SOC_SOF_TOPLEVEL=y
+-CONFIG_SND_SOC_SOF_OF=y
++CONFIG_SND_SOC_SOF_OF=m
+ CONFIG_SND_SOC_SOF_MTK_TOPLEVEL=y
+ CONFIG_SND_SOC_SOF_MT8186=m
+ CONFIG_SND_SOC_SOF_MT8195=m
+-- 
+2.45.2
+
 
