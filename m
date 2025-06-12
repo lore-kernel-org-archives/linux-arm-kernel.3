@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19383C71141
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1518C71143
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tq3Oh7MkG0Ecu2ZMpO6AlQlRHoiNU+CrpvlZyRxRlNc=; b=dRxHdUwswlhS9vgGpvbzdQV0pA
-	ZeX6icmhfyHQRic+lHiNr/Ry5Pe19OYrfjeuDxny/0Rzb25I0lwpkYnzdIBzkuK7W4WyxhcAMRZ12
-	qHs94LC3HbS5I8USXrGfDb3ZIUtSF5h+a8UGNAGo+CywcwbD5P101gZtR6xs5v/KAtiYQN1Bg8cFE
-	2s3IjOy+JarO/II2GilIcad5M009tNrHW11OrJELo0T0ukVD8yq5XOFupdHORdYeq6qZZm27YikWU
-	ilkTWp6QFXOCwLOsEmk6/IvoN48VVPItCWhWuwB2bAB2RnVWlnVJaSnVZf0McHnTXxvWovJNPDbUc
-	EyOJFOug==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Subject:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sG+fQgqPLWzsP4M8L8/zRm4F61bufFR1eNGGeeUi/2I=; b=sPOrpyHPAZb5Z/
+	eJZn6+H1Cl11dg02A8T8FEfMalLxH/JKgKt2Nly4/1LbgSeQtkQPNcREAcveoiX3CMZPQjhbNKcgQ
+	ii19bbu3VDqP0evzsnRMBQCoYb8F/ysATYdXzTsyp88CX+EBsdUGFDRNjwhF9qY0w/MSWBF4VR0wX
+	xx+WfmL8UVbXWFDL8N9sPlwcK8qf9TenznfV+JyJEMuipwblKxKJBvo6aSpyRpObkIeOJOvOTbvsX
+	AEl7KoU/cW2br+VIo2tOTCmAWxUS3XQp4raA516Z4jO6dn8nnJdeCVjupGhgC95Dmj0HrXOtKE57a
+	7budwtvpzHXXdYOOhW3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhph-0000000DMiA-02wd;
-	Thu, 12 Jun 2025 13:19:05 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uPhpo-0000000DMwM-0hI2;
+	Thu, 12 Jun 2025 13:19:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPfRn-0000000D2Wo-0N7A;
-	Thu, 12 Jun 2025 10:46:17 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bHzbl64zPz6L54g;
-	Thu, 12 Jun 2025 18:41:39 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1B8241402A5;
-	Thu, 12 Jun 2025 18:46:01 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 12 Jun
- 2025 12:45:59 +0200
-Date: Thu, 12 Jun 2025 11:45:57 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Pavel Machek <pavel@ucw.cz>
-CC: David Lechner <dlechner@baylibre.com>, Michael Hennerich
-	<michael.hennerich@analog.com>, Lars-Peter Clausen <lars@metafoo.de>,
-	Jonathan Cameron <jic23@kernel.org>, Nuno =?UTF-8?Q?S=C3=A1?=
-	<nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Heiko Stuebner <heiko@sntech.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
-	<alexandre.torgue@foss.st.com>, Francesco Dolcini <francesco@dolcini.it>,
-	=?UTF-8?Q?Jo=C3=A3o?= Paulo =?UTF-8?Q?Gon=C3=A7al?= =?UTF-8?Q?ves?=
-	<jpaulo.silvagoncalves@gmail.com>, Leonard =?UTF-8?Q?G?=
- =?UTF-8?Q?=C3=B6hrs?= <l.goehrs@pengutronix.de>, <kernel@pengutronix.de>,
-	Oleksij Rempel <o.rempel@pengutronix.de>, Roan van Dijk <roan@protonic.nl>,
-	Tomasz Duszynski <tomasz.duszynski@octakon.com>, Jacopo Mondi
-	<jacopo@jmondi.org>, Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
-	Mudit Sharma <muditsharma.info@gmail.com>, Javier Carrasco
-	<javier.carrasco.cruz@gmail.com>, =?UTF-8?Q?Ond=C5=99ej?= Jirman
-	<megi@xff.cz>, Andreas Klinger <ak@it-klinger.de>, Petre Rodan
-	<petre.rodan@subdimension.ro>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>
-Subject: Re: [PATCH 00/28] iio: zero init stack with { } instead of memset()
-Message-ID: <20250612114557.00007628@huawei.com>
-In-Reply-To: <aEqbQPvz0FsLXt0Z@duo.ucw.cz>
-References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
-	<aEqbQPvz0FsLXt0Z@duo.ucw.cz>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- frapeml500008.china.huawei.com (7.182.85.71)
+	id 1uPfX0-0000000D3rx-2aOx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 10:51:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 54C5C4A01F;
+	Thu, 12 Jun 2025 10:51:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E41BC4CEEE;
+	Thu, 12 Jun 2025 10:51:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749725498;
+	bh=HKv+RczLAZ17iqylg22JlcAa16U8HVKbqtgbPN/3rrM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aO49gxay9bAykPC0QZcmIl7XHKGGMrp1dwVKDmKPefGeezyBbVis/1s3ZqPtBkDN1
+	 ySK0Ocks5vOLZNXFVG45wYhjeEpDo74myMPibgFEjV20ISoa2cC0QItgO/tN1HOroV
+	 INN5vmR+CAnWaJpY1C3sNfIZvARifUgoOWV5ZGw3SZoNRHxgOAQu8E7O/TaAovQw7f
+	 A8DVpW269wF7sRO0VF5FYf3QtoGHUvCvw7H6bffEP0o8MTcWrjnq0kzNXS0ERCs8bI
+	 jDUVdQmAZ07fvUA8ADWHwMh1I7VqDllMzEeEyVhHtuWFt45kceBGgQwNuBBQREq++f
+	 CVE3bzopG+jRQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uPfWx-006DBO-DR;
+	Thu, 12 Jun 2025 11:51:35 +0100
+Date: Thu, 12 Jun 2025 11:51:34 +0100
+Message-ID: <86v7p1cjwp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH V4 1/2] arm64/debug: Drop redundant DBG_MDSCR_* macros
+In-Reply-To: <ddc006af-3084-4fef-b822-144fb404bc8d@arm.com>
+References: <20250612033547.480952-1-anshuman.khandual@arm.com>
+	<20250612033547.480952-2-anshuman.khandual@arm.com>
+	<86wm9hcr14.wl-maz@kernel.org>
+	<ddc006af-3084-4fef-b822-144fb404bc8d@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, ada.coupriediaz@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_034615_424532_F7796171 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20250612_035138_697279_D8F9880F 
+X-CRM114-Status: GOOD (  31.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,122 +82,256 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, kvm@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Jun 2025 11:17:52 +0200
-Pavel Machek <pavel@ucw.cz> wrote:
+On Thu, 12 Jun 2025 11:24:04 +0100,
+Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+>=20
+>=20
+>=20
+> On 12/06/25 1:47 PM, Marc Zyngier wrote:
+> > On Thu, 12 Jun 2025 04:35:46 +0100,
+> > Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+> >>
+> >> MDSCR_EL1 has already been defined in tools sysreg format and hence ca=
+n be
+> >> used in all debug monitor related call paths. But using generated sysr=
+eg
+> >> definitions causes build warnings because there is a mismatch between =
+mdscr
+> >> variable (u32) and GENMASK() based masks (long unsigned int). Convert =
+all
+> >> variables handling MDSCR_EL1 register as u64 which also reflects its t=
+rue
+> >> width as well.
+> >>
+> >> ----------------------------------------------------------------------=
+----
+> >> arch/arm64/kernel/debug-monitors.c: In function =E2=80=98disable_debug=
+_monitors=E2=80=99:
+> >> arch/arm64/kernel/debug-monitors.c:108:13: warning: conversion from =
+=E2=80=98long
+> >> unsigned int=E2=80=99 to =E2=80=98u32=E2=80=99 {aka =E2=80=98unsigned =
+int=E2=80=99} changes value from
+> >> =E2=80=9818446744073709518847=E2=80=99 to =E2=80=984294934527=E2=80=99=
+ [-Woverflow]
+> >>   108 |   disable =3D ~MDSCR_EL1_MDE;
+> >>       |             ^
+> >> ----------------------------------------------------------------------=
+----
+> >>
+> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> >> Cc: Will Deacon <will@kernel.org>
+> >> Cc: Mark Rutland <mark.rutland@arm.com>
+> >> Cc: linux-arm-kernel@lists.infradead.org
+> >> Cc: linux-kernel@vger.kernel.org
+> >> Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> >> ---
+> >>  arch/arm64/include/asm/assembler.h      |  4 ++--
+> >>  arch/arm64/include/asm/debug-monitors.h |  6 ------
+> >>  arch/arm64/kernel/debug-monitors.c      | 22 +++++++++++-----------
+> >>  arch/arm64/kernel/entry-common.c        |  4 ++--
+> >>  4 files changed, 15 insertions(+), 21 deletions(-)
+> >>
+> >> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/a=
+sm/assembler.h
+> >> index ad63457a05c5..f229d96616e5 100644
+> >> --- a/arch/arm64/include/asm/assembler.h
+> >> +++ b/arch/arm64/include/asm/assembler.h
+> >> @@ -53,7 +53,7 @@
+> >>  	.macro	disable_step_tsk, flgs, tmp
+> >>  	tbz	\flgs, #TIF_SINGLESTEP, 9990f
+> >>  	mrs	\tmp, mdscr_el1
+> >> -	bic	\tmp, \tmp, #DBG_MDSCR_SS
+> >> +	bic	\tmp, \tmp, #MDSCR_EL1_SS
+> >>  	msr	mdscr_el1, \tmp
+> >>  	isb	// Take effect before a subsequent clear of DAIF.D
+> >>  9990:
+> >> @@ -63,7 +63,7 @@
+> >>  	.macro	enable_step_tsk, flgs, tmp
+> >>  	tbz	\flgs, #TIF_SINGLESTEP, 9990f
+> >>  	mrs	\tmp, mdscr_el1
+> >> -	orr	\tmp, \tmp, #DBG_MDSCR_SS
+> >> +	orr	\tmp, \tmp, #MDSCR_EL1_SS
+> >>  	msr	mdscr_el1, \tmp
+> >>  9990:
+> >>  	.endm
+> >> diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/incl=
+ude/asm/debug-monitors.h
+> >> index 8f6ba31b8658..1f37dd01482b 100644
+> >> --- a/arch/arm64/include/asm/debug-monitors.h
+> >> +++ b/arch/arm64/include/asm/debug-monitors.h
+> >> @@ -13,14 +13,8 @@
+> >>  #include <asm/ptrace.h>
+> >> =20
+> >>  /* Low-level stepping controls. */
+> >> -#define DBG_MDSCR_SS		(1 << 0)
+> >>  #define DBG_SPSR_SS		(1 << 21)
+> >> =20
+> >> -/* MDSCR_EL1 enabling bits */
+> >> -#define DBG_MDSCR_KDE		(1 << 13)
+> >> -#define DBG_MDSCR_MDE		(1 << 15)
+> >> -#define DBG_MDSCR_MASK		~(DBG_MDSCR_KDE | DBG_MDSCR_MDE)
+> >> -
+> >>  #define	DBG_ESR_EVT(x)		(((x) >> 27) & 0x7)
+> >> =20
+> >>  /* AArch64 */
+> >> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/de=
+bug-monitors.c
+> >> index 58f047de3e1c..08f1d02507cd 100644
+> >> --- a/arch/arm64/kernel/debug-monitors.c
+> >> +++ b/arch/arm64/kernel/debug-monitors.c
+> >> @@ -34,7 +34,7 @@ u8 debug_monitors_arch(void)
+> >>  /*
+> >>   * MDSCR access routines.
+> >>   */
+> >> -static void mdscr_write(u32 mdscr)
+> >> +static void mdscr_write(u64 mdscr)
+> >>  {
+> >>  	unsigned long flags;
+> >>  	flags =3D local_daif_save();
+> >> @@ -43,7 +43,7 @@ static void mdscr_write(u32 mdscr)
+> >>  }
+> >>  NOKPROBE_SYMBOL(mdscr_write);
+> >> =20
+> >> -static u32 mdscr_read(void)
+> >> +static u64 mdscr_read(void)
+> >>  {
+> >>  	return read_sysreg(mdscr_el1);
+> >>  }
+> >> @@ -79,16 +79,16 @@ static DEFINE_PER_CPU(int, kde_ref_count);
+> >> =20
+> >>  void enable_debug_monitors(enum dbg_active_el el)
+> >>  {
+> >> -	u32 mdscr, enable =3D 0;
+> >> +	u64 mdscr, enable =3D 0;
+> >> =20
+> >>  	WARN_ON(preemptible());
+> >> =20
+> >>  	if (this_cpu_inc_return(mde_ref_count) =3D=3D 1)
+> >> -		enable =3D DBG_MDSCR_MDE;
+> >> +		enable =3D MDSCR_EL1_MDE;
+> >> =20
+> >>  	if (el =3D=3D DBG_ACTIVE_EL1 &&
+> >>  	    this_cpu_inc_return(kde_ref_count) =3D=3D 1)
+> >> -		enable |=3D DBG_MDSCR_KDE;
+> >> +		enable |=3D MDSCR_EL1_KDE;
+> >> =20
+> >>  	if (enable && debug_enabled) {
+> >>  		mdscr =3D mdscr_read();
+> >> @@ -100,16 +100,16 @@ NOKPROBE_SYMBOL(enable_debug_monitors);
+> >> =20
+> >>  void disable_debug_monitors(enum dbg_active_el el)
+> >>  {
+> >> -	u32 mdscr, disable =3D 0;
+> >> +	u64 mdscr, disable =3D 0;
+> >> =20
+> >>  	WARN_ON(preemptible());
+> >> =20
+> >>  	if (this_cpu_dec_return(mde_ref_count) =3D=3D 0)
+> >> -		disable =3D ~DBG_MDSCR_MDE;
+> >> +		disable =3D ~MDSCR_EL1_MDE;
+> >> =20
+> >>  	if (el =3D=3D DBG_ACTIVE_EL1 &&
+> >>  	    this_cpu_dec_return(kde_ref_count) =3D=3D 0)
+> >> -		disable &=3D ~DBG_MDSCR_KDE;
+> >> +		disable &=3D ~MDSCR_EL1_KDE;
+> >> =20
+> >>  	if (disable) {
+> >>  		mdscr =3D mdscr_read();
+> >> @@ -415,7 +415,7 @@ void kernel_enable_single_step(struct pt_regs *reg=
+s)
+> >>  {
+> >>  	WARN_ON(!irqs_disabled());
+> >>  	set_regs_spsr_ss(regs);
+> >> -	mdscr_write(mdscr_read() | DBG_MDSCR_SS);
+> >> +	mdscr_write(mdscr_read() | MDSCR_EL1_SS);
+> >>  	enable_debug_monitors(DBG_ACTIVE_EL1);
+> >>  }
+> >>  NOKPROBE_SYMBOL(kernel_enable_single_step);
+> >> @@ -423,7 +423,7 @@ NOKPROBE_SYMBOL(kernel_enable_single_step);
+> >>  void kernel_disable_single_step(void)
+> >>  {
+> >>  	WARN_ON(!irqs_disabled());
+> >> -	mdscr_write(mdscr_read() & ~DBG_MDSCR_SS);
+> >> +	mdscr_write(mdscr_read() & ~MDSCR_EL1_SS);
+> >>  	disable_debug_monitors(DBG_ACTIVE_EL1);
+> >>  }
+> >>  NOKPROBE_SYMBOL(kernel_disable_single_step);
+> >> @@ -431,7 +431,7 @@ NOKPROBE_SYMBOL(kernel_disable_single_step);
+> >>  int kernel_active_single_step(void)
+> >>  {
+> >>  	WARN_ON(!irqs_disabled());
+> >> -	return mdscr_read() & DBG_MDSCR_SS;
+> >> +	return mdscr_read() & MDSCR_EL1_SS;
+> >>  }
+> >>  NOKPROBE_SYMBOL(kernel_active_single_step);
+> >> =20
+> >> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entr=
+y-common.c
+> >> index 7c1970b341b8..171f93f2494b 100644
+> >> --- a/arch/arm64/kernel/entry-common.c
+> >> +++ b/arch/arm64/kernel/entry-common.c
+> >> @@ -344,7 +344,7 @@ static DEFINE_PER_CPU(int, __in_cortex_a76_erratum=
+_1463225_wa);
+> >> =20
+> >>  static void cortex_a76_erratum_1463225_svc_handler(void)
+> >>  {
+> >> -	u32 reg, val;
+> >> +	u64 reg, val;
+> >> =20
+> >>  	if (!unlikely(test_thread_flag(TIF_SINGLESTEP)))
+> >>  		return;
+> >> @@ -354,7 +354,7 @@ static void cortex_a76_erratum_1463225_svc_handler=
+(void)
+> >> =20
+> >>  	__this_cpu_write(__in_cortex_a76_erratum_1463225_wa, 1);
+> >>  	reg =3D read_sysreg(mdscr_el1);
+> >> -	val =3D reg | DBG_MDSCR_SS | DBG_MDSCR_KDE;
+> >> +	val =3D reg | MDSCR_EL1_SS | MDSCR_EL1_KDE;
+> >>  	write_sysreg(val, mdscr_el1);
+> >>  	asm volatile("msr daifclr, #8");
+> >>  	isb();
+> >=20
+> > Whilst you're at it, please also change the open-coded constant in
+> > __cpu_setup to MDSCR_EL1_TDCC.
+>=20
+> I believe you are suggesting about the following change, will fold
+> in the patch. But I guess 'mov' would still be preferred compared
+> to 'mov_q' as MDSCR_EL1_TDCC is a 32 bit constant (atleast the non
+> zero portion) ?
 
-> Hi!
-> 
-> > Jonathan mentioned recently that he would like to get away from using
-> > memset() to zero-initialize stack memory in the IIO subsystem. And we
-> > have it on good authority that initializing a struct or array with = { }
-> > is the preferred way to do this in the kernel [1]. So here is a series
-> > to take care of that.  
-> 
-> 1) Is it worth the churn?
-> 
-> 2) Will this fail to initialize padding with some obscure compiler?
-> 
-> 3) Why do you believe that {} is the preffered way? All we have is
-> Kees' email that explains that = {} maybe works in configs he tested.
-> 
-Pavel,
+Digression: I'm not sure why you'd ever consider using mov_q for a
+single-bit constant, irrespective of where that bit is set. The mov
+instruction (and all the logical operations taking an immediate as a
+parameter) can encode any contiguous stream of 1s with an arbitrary
+rotation. See C6.2.247 and co.
 
-I think main thing that matters in Kees email is there is a self test
-that should fire if a compiler ever does this wrong.
+>=20
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -454,7 +454,7 @@ SYM_FUNC_START(__cpu_setup)
+>         dsb     nsh
+>=20
+>         msr     cpacr_el1, xzr                  // Reset cpacr_el1
+> -       mov     x1, #1 << 12                    // Reset mdscr_el1 and di=
+sable
+> +       mov     x1, MDSCR_EL1_TDCC              // Reset mdscr_el1 and di=
+sable
+>         msr     mdscr_el1, x1                   // access to the DCC from=
+ EL0
+>         reset_pmuserenr_el0 x1                  // Disable PMU access fro=
+m EL0
+>         reset_amuserenr_el0 x1                  // Disable AMU access fro=
+m EL0
 
-Using this syntax is definitely not a 'kernel wide' preference yet
-but I do prefer to make some changes like this in IIO just because it
-reduces the amount of code that smells different when reviewing.
-Given how many drivers we now have, sadly people pick different ones
-to cut and paste from so we get a lot of new drivers that look like
-how we preferred to do things 10 years ago :(
+Yes.
 
-However it is a fair bit of churn. hmm.  Let's let this sit for
-a little while and see if other view points come in.
+	M.
 
-Thanks 
-
-Jonathan
- 
-
-> BR,
-> 								Pavel
-> 
-> > [1]:
-> > https://lore.kernel.org/linux-iio/202505090942.48EBF01B@keescook/  
-> 
-> 
-> 
-> > ---
-> > David Lechner (28):
-> >       iio: accel: adxl372: use = { } instead of memset()
-> >       iio: accel: msa311: use = { } instead of memset()
-> >       iio: adc: dln2-adc: use = { } instead of memset()
-> >       iio: adc: mt6360-adc: use = { } instead of memset()
-> >       iio: adc: rockchip_saradc: use = { } instead of memset()
-> >       iio: adc: rtq6056: use = { } instead of memset()
-> >       iio: adc: stm32-adc: use = { } instead of memset()
-> >       iio: adc: ti-ads1015: use = { } instead of memset()
-> >       iio: adc: ti-ads1119: use = { } instead of memset()
-> >       iio: adc: ti-lmp92064: use = { } instead of memset()
-> >       iio: adc: ti-tsc2046: use = { } instead of memset()
-> >       iio: chemical: scd4x: use = { } instead of memset()
-> >       iio: chemical: scd30: use = { } instead of memset()
-> >       iio: chemical: sunrise_co2: use = { } instead of memset()
-> >       iio: dac: ad3552r: use = { } instead of memset()
-> >       iio: imu: inv_icm42600: use = { } instead of memset()
-> >       iio: imu: inv_mpu6050: use = { } instead of memset()
-> >       iio: light: bh1745: use = { } instead of memset()
-> >       iio: light: ltr501: use = { } instead of memset()
-> >       iio: light: opt4060: use = { } instead of memset()
-> >       iio: light: veml6030: use = { } instead of memset()
-> >       iio: magnetometer: af8133j: use = { } instead of memset()
-> >       iio: pressure: bmp280: use = { } instead of memset()
-> >       iio: pressure: mpl3115: use = { } instead of memset()
-> >       iio: pressure: mprls0025pa: use = { } instead of memset()
-> >       iio: pressure: zpa2326: use = { } instead of memset()
-> >       iio: proximity: irsd200: use = { } instead of memset()
-> >       iio: temperature: tmp006: use = { } instead of memset()
-> > 
-> >  drivers/iio/accel/adxl372.c                       | 3 +--
-> >  drivers/iio/accel/msa311.c                        | 4 +---
-> >  drivers/iio/adc/dln2-adc.c                        | 4 +---
-> >  drivers/iio/adc/mt6360-adc.c                      | 3 +--
-> >  drivers/iio/adc/rockchip_saradc.c                 | 4 +---
-> >  drivers/iio/adc/rtq6056.c                         | 4 +---
-> >  drivers/iio/adc/stm32-adc.c                       | 3 +--
-> >  drivers/iio/adc/ti-ads1015.c                      | 4 +---
-> >  drivers/iio/adc/ti-ads1119.c                      | 4 +---
-> >  drivers/iio/adc/ti-lmp92064.c                     | 4 +---
-> >  drivers/iio/adc/ti-tsc2046.c                      | 3 +--
-> >  drivers/iio/chemical/scd30_core.c                 | 3 +--
-> >  drivers/iio/chemical/scd4x.c                      | 3 +--
-> >  drivers/iio/chemical/sunrise_co2.c                | 6 ++----
-> >  drivers/iio/dac/ad3552r.c                         | 3 +--
-> >  drivers/iio/imu/inv_icm42600/inv_icm42600_accel.c | 5 ++---
-> >  drivers/iio/imu/inv_icm42600/inv_icm42600_gyro.c  | 5 ++---
-> >  drivers/iio/imu/inv_mpu6050/inv_mpu_acpi.c        | 4 +---
-> >  drivers/iio/imu/inv_mpu6050/inv_mpu_ring.c        | 6 ++----
-> >  drivers/iio/light/bh1745.c                        | 4 +---
-> >  drivers/iio/light/ltr501.c                        | 4 +---
-> >  drivers/iio/light/opt4060.c                       | 4 +---
-> >  drivers/iio/light/veml6030.c                      | 4 +---
-> >  drivers/iio/magnetometer/af8133j.c                | 4 +---
-> >  drivers/iio/pressure/bmp280-core.c                | 5 +----
-> >  drivers/iio/pressure/mpl3115.c                    | 3 +--
-> >  drivers/iio/pressure/mprls0025pa_i2c.c            | 5 +----
-> >  drivers/iio/pressure/zpa2326.c                    | 4 +---
-> >  drivers/iio/proximity/irsd200.c                   | 3 +--
-> >  drivers/iio/temperature/tmp006.c                  | 4 +---
-> >  30 files changed, 34 insertions(+), 85 deletions(-)
-> > ---
-> > base-commit: 4c6073fec2fee4827fa0dd8a4ab4e6f7bbc05ee6
-> > change-id: 20250611-iio-zero-init-stack-with-instead-of-memset-0d12d41a7ecb
-> > 
-> > Best regards,  
-> 
-
+--=20
+Without deviation from the norm, progress is not possible.
 
