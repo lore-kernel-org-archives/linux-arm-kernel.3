@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F69C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 11:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB33FC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 11:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7rpCXoQa8qBRKAGEbT3aJ+9iCXIjVhuZnCnBsSzdhY=; b=KWRK5oaAOMwCXSLCV0a9bNc2pX
-	C7lfxOdn8oZhjwVemdZECMgqj/VBBGd9rwr8aq8tzbmP5quqRP0MXaiACsx6M06kx3UAN1zTP+J9i
-	xB4SlV+PW78wq3X2hxRHrr/v9w5tkfWRys0BeY13ymrrwBN+9OyF7I13YcoSDvUltTvbbIwUV9ND4
-	dWUp0dcqise19CK7y53Odmqj01HsvdOV/dcH30ss7A86uQnZdJHf5LExDTPZ+93SFtnL9vn9hSwvw
-	DuF3OoeM1rEq8KUn0XfaL5u2klFroWLToq/MSAfE7QVkBLs26D2rIJjtLe2OKDGrCEkw4wMtfFPeh
-	mNe7ow9g==;
+	bh=U5qnDiUIOftQ1UGMYjPAY5aOTb/9TMIIrEGlK8HEkf0=; b=pThZh4VNU/huChGpOy1oRhDN8k
+	VldLHzrFofKgQOgqm/5xX5t3WS0bTRYw5V0TAQzhtn0uDDe2RfyKKHog3PTyGL82SN9IKa9iXIjuq
+	BX4BINsmPIuPpHQ1WyePD47tNYgHVX3HFBFEx+eaRxNZM50mXdlRMaeK+ZttybAliRYdDxeZfQP5L
+	QjJUuwmWf//JtK4x26/Ujdole2i2YdOQXpL/w2iyyuJk3V6N3GIIuNeOto9srK0IkfR7CvNQmmj4S
+	8Z/CsA+EGY6e+RNLsEfhHRuFPJj2Kgrcegbmo67aZaNNAKcG8VQ4QvOWF3L7W5R14BmWJim7OvlQt
+	pWbcZvRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPff2-0000000D5D3-3NjU;
-	Thu, 12 Jun 2025 10:59:56 +0000
+	id 1uPfh8-0000000D5Q6-20r1;
+	Thu, 12 Jun 2025 11:02:06 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPdj0-0000000CjlM-1bCh
+	id 1uPdj1-0000000CjmV-0Etk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 08:55:55 +0000
+	Thu, 12 Jun 2025 08:55:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2BF14A4FB;
-	Thu, 12 Jun 2025 08:55:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55480C4CEEA;
-	Thu, 12 Jun 2025 08:55:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C99C844209;
+	Thu, 12 Jun 2025 08:55:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77A6AC4CEEE;
+	Thu, 12 Jun 2025 08:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749718553;
-	bh=0QUTCiUny0eCr51w7ek1yKVwt5TNV5EjnPzwiEPvTMA=;
+	s=k20201202; t=1749718554;
+	bh=RQYBtssOY7+oGdh2lG5OPgacAKGthN9dqgrlCVHiJRE=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Yy4qzLDf07NFS4ydPK/3k4p/HYydUhpDxE7fSzbg319wHA0xctInGEHO0SuFXwaVb
-	 chQhJdMyJZ3Tmg/ozH03H2giBJBJK0tEQ4TgnaD0H9fT9GOcWI22j/QXfN9W5KM4HY
-	 ClTplDgWRItB6ZfASmbCvk+m0IlYm15w4MQOAwRTTmWL9falFUEqgNJ8IYwor1GhOu
-	 dKVzm5DRrEbKhKwRAVXfLgQOGtIvYLs7TSYyjbz0wrGd+3fDekzD7CBn15oYH97l0D
-	 nbmUFfuE+JnExjsoXssmsAWKSfrc2Nuj2pvj4gi93YT8Am1cKo2DjnlZhSax8wFYB8
-	 dsDsEjjhTbg6Q==
-Date: Thu, 12 Jun 2025 03:55:52 -0500
+	b=tKTGJlXb7NbO6b72bfefP6nbDKNQIB3EPfZ0fRG9zHBuxX+fFJBmM8JWl9A4wNp/v
+	 AkNRhDzu+4ySC7dtwTvZSNlgxGB+7ewfbaWK5dmxhClE0JsHuHf7sbDpq0hxqcbbt5
+	 dzHrHEa5uGzGQBn+ULgzXGLd/USBX3zERlwZUx8W7rVnapqLQmcjFlBGWuw+6N8er3
+	 mQEUsjf45FweghnyY8tFh/T7yXa9qiYDwxeZr/QYcItPdEvIM6IWKfWJPYzllmt7+c
+	 IxBj3LPrx4TF5DVcjZLSarj3g1d8bQl2avHfL44BVhst20ce2laoO6mq9aP7rjp/cj
+	 URlXZ3zyVZ2hA==
+Date: Thu, 12 Jun 2025 03:55:53 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: u-kumar1@ti.com, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
- vigneshr@ti.com, a-chavda@ti.com, p-mantena@ti.com, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
+Cc: u-kumar1@ti.com, linux-arm-kernel@lists.infradead.org, 
+ Nishanth Menon <nm@ti.com>, Vinod Koul <vkoul@kernel.org>, 
+ Peter Ujfalusi <peter.ujfalusi@gmail.com>, dmaengine@vger.kernel.org, 
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ a-chavda@ti.com, p-mantena@ti.com, vigneshr@ti.com, 
  Santosh Shilimkar <ssantosh@kernel.org>, praneeth@ti.com, 
- Conor Dooley <conor+dt@kernel.org>, dmaengine@vger.kernel.org, 
- Nishanth Menon <nm@ti.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Vinod Koul <vkoul@kernel.org>
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>
 To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-In-Reply-To: <20250612071521.3116831-13-s-adivi@ti.com>
+In-Reply-To: <20250612071521.3116831-14-s-adivi@ti.com>
 References: <20250612071521.3116831-1-s-adivi@ti.com>
- <20250612071521.3116831-13-s-adivi@ti.com>
-Message-Id: <174971855176.3983058.3404871673988477983.robh@kernel.org>
-Subject: Re: [PATCH v2 12/17] dt-bindings: dma: ti: Add document for K3
- BCDMA V2
+ <20250612071521.3116831-14-s-adivi@ti.com>
+Message-Id: <174971855245.3983211.889546911604873358.robh@kernel.org>
+Subject: Re: [PATCH v2 13/17] dt-bindings: dma: ti: Add document for K3
+ PKTDMA V2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_015554_435725_1FA1205C 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250612_015555_117898_5F110198 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +79,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 12 Jun 2025 12:45:16 +0530, Sai Sree Kartheek Adivi wrote:
+On Thu, 12 Jun 2025 12:45:17 +0530, Sai Sree Kartheek Adivi wrote:
 > New binding document for
-> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
+> Texas Instruments K3 Packet DMA (PKTDMA) V2.
 > 
-> BCDMA V2 is introduced as part of AM62L.
+> PKTDMA V2 is introduced as part of AM62L.
 > 
 > Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 > ---
->  .../bindings/dma/ti/k3-bcdma-v2.yaml          | 97 +++++++++++++++++++
->  1 file changed, 97 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+>  .../bindings/dma/ti/k3-pktdma-v2.yaml         | 73 +++++++++++++++++++
+>  1 file changed, 73 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dma/ti/k3-pktdma-v2.yaml
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -98,11 +97,11 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.example.dtb: /example-0/cbass_main/dma-controller@485c4000: failed to match any schema with compatible: ['ti,dmss-bcdma-v2']
+Documentation/devicetree/bindings/dma/ti/k3-pktdma-v2.example.dtb: /example-0/cbass_main/dma-controller@485c0000: failed to match any schema with compatible: ['ti,dmss-pktdma-v2']
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250612071521.3116831-13-s-adivi@ti.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250612071521.3116831-14-s-adivi@ti.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
