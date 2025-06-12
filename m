@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F097C71149
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9D7C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OayAwQmqUS5xBnpKlsPtHcH+ut8P7sLkCqxdrNplYgE=; b=FP2p2S9P88podJy9PpdPNcGoMv
-	2FatrEywhu+dU7llOqm8a/PKvXMIiGc+fHDn0lUbwSTgl3hUG7hAngcvuGKjx32du38+soLofjUlu
-	5BRW/k/fuSzK00xL74dOMpPNpWNf9lm7tHxU9wJZVjnmRPhtanx01Et3VHuszX7GFu6G5XjAVCQAO
-	wgEowLONmiuvg1uqYQUx0S5w5vt/wwkDZ6RJ38oe1NofJbNtunLIPHuI7vUJLLljhZUzIBqB/GmoT
-	URut2gTzUuL6DLvegRrlQF/eBNp6/uGxGPuobYJfGauOUEP1fIClsQHznylUdfb+yIkFFW2G5k+Fz
-	gdQ1F1Eg==;
+	bh=sWK+FTL0galNkZu+x7Qv/q2CzcK439fjgooKj6i6UTg=; b=Nst0Z6Eq44WrF7LJVgVYRJnT6t
+	1Or2wKRCNO4JnhiaylwLye1s5WUYm3QRxuA+K1UpRiZJ0WAIEjSosenVaWHgA1aTC0oDG1NoMWkp5
+	B6RsQiBtHI87WWFGnmOki5VhahMi6e9AAaT8atxRrPoFhNYI5d8geAXthHDcVBJfWsXLBatRsWkFl
+	t6wQZ5AHIWYKmHm5QOkO5+G0BLZ1CNE4QzNdT13ZEBioNBb0a4z685WP022cH0Qhfhy65SlSy5BCQ
+	hVHBJPDVMVL0QF2M/EBkMtniLV2RBm+tFxDDz1QN0zLw+N5JxTD/g1h/7ORwT75t0tm40JZxczuZj
+	WLhAvelw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnpO-0000000EHIw-0Bp3;
-	Thu, 12 Jun 2025 19:43:10 +0000
+	id 1uPnpd-0000000EHht-0U6g;
+	Thu, 12 Jun 2025 19:43:25 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPj3H-0000000Ddro-0RkS
+	id 1uPj9i-0000000DexO-2fDV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 14:37:11 +0000
+	Thu, 12 Jun 2025 14:43:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5E78B62A05;
-	Thu, 12 Jun 2025 14:37:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83BB4C4CEEE;
-	Thu, 12 Jun 2025 14:37:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB2BD62A08;
+	Thu, 12 Jun 2025 14:43:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A74DC4CEEA;
+	Thu, 12 Jun 2025 14:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749739030;
-	bh=XjylmrRqZ48JZY8HZ5z1esy1sYe5LmPYknndof2mkwE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=lAS5Z+Yk6ujy0mqVXbxU0MD8zqK3f11QGtQgLaObOTArWWNB6dz0YpeYoEuTRnS/B
-	 aajjVn9I2j73wiyftslTWJRwYx+zQiGOZ7OtLSpvL014ktvQazBM6JG/M3EntCtfLX
-	 bke+zAqp1zvE4R2qA3POsn5fxdNetskS9JEay7lcfGingJwuy3jR6ERYfB+f7vWhuE
-	 2rbqcPLc7m4uDwSB2UlrVTdW9463736wVNOQS+TZZs1luDKaaLCd1Kmb+SZw1WDRe2
-	 4+oKzAe4sVBNdOWp+JiC2Z20Q0ELDBMB0WyJgjU2d2hX0fT7Vf4nQ3wk+ud7Tq3HEB
-	 r5hq2OHQcTTgw==
-Date: Thu, 12 Jun 2025 07:37:08 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
- Eric Dumazet <edumazet@google.com>, "David S. Miller"
- <davem@davemloft.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>
-Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Read firmware-names
- from device tree
-Message-ID: <20250612073708.69902ffc@kernel.org>
-In-Reply-To: <03555d09-e506-4f48-a073-b06b63e1af4a@ti.com>
-References: <20250610052501.3444441-1-danishanwar@ti.com>
-	<20250611170211.7398b083@kernel.org>
-	<03555d09-e506-4f48-a073-b06b63e1af4a@ti.com>
+	s=k20201202; t=1749739429;
+	bh=lrhWjcC1p3vpAdzkTP5scpnrJVT2HqrYXcMoc7cDr2E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HzTvcfiLdY7e9RyrcfxKBcFXqy5kFNwZcuFmJvfP73bDt/3Mmdsi6oJJ5yLV/Q4xi
+	 VtYreZ0IVnD8yTQD81hKk5I1nfMdoXvPZD3Z2ETh+JMSw4Giv7XqCcKnAuoukyT/D9
+	 Jjt3qW6ZSJ+ZhGsr0cpYoSxB+688QvM01DqF+P78V3UqeQGDYfHT7uUTIfp3Re44Ok
+	 /Cx6sXGz1hHc9ryM9w4hf07lVps1CtbPfuNWAuX4FUNduU87jOOrXYvj3oQ2e3MEwu
+	 VrBkgRoLIqGPynkRbK6PHAFrTStNHdrH4pDeWTukvnOwNkMPTWXPB7mZtz4jzhjiWD
+	 lXNXQBVyN1XcQ==
+Message-ID: <023f1c08-f9bb-483f-89e8-2ff5206d1f19@kernel.org>
+Date: Thu, 12 Jun 2025 16:43:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: defconfig: Switch SOUND to module
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, krzk@kernel.org
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Janne Grunau <j@jannau.net>, asahi@lists.linux.dev,
+ linux-samsung-soc@vger.kernel.org
+References: <20250612134421.95782-3-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20250612134421.95782-3-krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,23 +72,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Jun 2025 10:49:17 +0530 MD Danish Anwar wrote:
-> > You seem to be deleting the old constants. Is there no need to keep
-> > backward compatibility with DT blobs which don't have the firmware-name
-> > properties ?  
+On 12.06.25 15:44, Krzysztof Kozlowski wrote:
+> Sound drivers are not essential to boot boards or mount rootfs,
+> therefore in effort to reduce the size of kernel image (and boot images)
+> switch the ASoC drivers to modules to decrease the size:
 > 
-> ICSSG-PRUETH driver is only supported by AM65x and AM64x and both the
-> DTs have the firmware name property. So I don't think there is any need
-> to maintain the older hard coded values.
+>    vmlinux: 152864 kB -> 154528 kB
+>    Image: 39391 kB -> 39067 kB
 > 
-> AM65x -
-> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/arch/arm64/boot/dts/ti/k3-am654-icssg2.dtso#n28:~:text=pru2_1%3E%2C%20%3C%26rtu2_1%3E%2C%20%3C%26tx_pru2_1%3E%3B-,firmware%2Dname,-%3D%20%22ti%2Dpruss/am65x
+> No difference in resulting include/generated/autoconf.h, except making
+> modules: SND_SOC_SAMSUNG, SND_SOC_SDCA_OPTIONAL, SND_SOC_APPLE_MCA,
+> SND_TIMER, SND_COMPRESS_OFFLOAD, SND_PCM, SND_SOC_SOF_OF and
+> SND_DMAENGINE_PCM.
 > 
-> AM64x -
-> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/arch/arm64/boot/dts/ti/k3-am642-evm.dts#:~:text=tx_pru1_1%3E%3B-,firmware%2Dname,-%3D%20%22ti%2Dpruss
+> Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
-> Let me know if this is okay.
+> ---
+> 
+> If patches are fine, I will take them via Samsung SoC.
+> 
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Sven Peter <sven@kernel.org>
+> Cc: Janne Grunau <j@jannau.net>
+> Cc: asahi@lists.linux.dev
+> Cc: linux-samsung-soc@vger.kernel.org
+> ---
 
-IDK much about embedded but what you say sounds convincing to me :)
-Just also add that paragraph to the commit msg? (without the links)
+Acked-by: Sven Peter <sven@kernel.org>
+
 
