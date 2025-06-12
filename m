@@ -4,138 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E18C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CC7C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFpN9A7N1FAhnqmYi16qpoBihZ1VUNhOREImXIAGnqU=; b=Qr05bFm1kyAbZfgYZy5jXlqvU9
-	ir1IdQGDy5Y7LDR+Dnl04Kpu7qRJlrrq+1JQN/ACQndZyfkAe0PqOw+/L+LwdMGGX2ZrvGOQhM0Z6
-	eLPWWdH7m9Gi07KGb6n682WYaXIzMid8Bqc1y1ySrkHu/jHS7LfuexzWgcLau5gafI8TGRfkO3dXI
-	U91SfXKNztHrDZXC3mCtWTr8b8Vues3h7izpcn06sVhPxijaEhYo85Whl80hQHRg/mwsEAfL86ELN
-	NzRtjtKqUml1qPpgS7wDepRNRJyXDzKh2ALbjmgPQ+sgQCZAhrxxWGci5oE9O5dRPN4OSYrUQKeGD
-	Hl8upRww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kupJBdF3bRQvq/tea6rBHGJdi0zjK/xa2PLS2INWzNI=; b=Q1tfHJqP/nriQVsJCEnm0L+INN
+	eDGvv4wV+lAvKJJ4pRATl6Av7VG7q2ppytSqihqv33hZM81QMHJpws9rI3omH136v163PIOjR3L4q
+	AmGVw1k6z1IwqTwD5+8C+n8JATiDFGNwQfiCwBSxgGyDs7TsOzOnQuPPBUWFFzPcds506CmK0MFrg
+	GrgQroZe3FviQnaeCnRbIxqaz+Ba3zhtUZRY4cChR04VOg1eUpNmlmGkbgB1sQywwTnOm61SQ40wZ
+	hQsZuuME53Q4DBge0dC4VK3LJT9DzcoqZscWuvBNu9y7qzyLIdHaoiw+yaztZhztijRG9B/1dLff4
+	cAZocIOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnnw-0000000EF9p-23UI;
-	Thu, 12 Jun 2025 19:41:43 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1uPnoP-0000000EFp7-3ztj;
+	Thu, 12 Jun 2025 19:42:10 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhul-0000000DRYI-2Djs;
-	Thu, 12 Jun 2025 13:24:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7292543A32;
-	Thu, 12 Jun 2025 13:24:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749734655;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=IFpN9A7N1FAhnqmYi16qpoBihZ1VUNhOREImXIAGnqU=;
-	b=Yawixxk0l9Lmyu9zuyEuHrAp00k53iEx0a69ejSoQ6i7ZTO85H4HeFbTAPIJWR/RhEHoUt
-	z+oIP9xXkah3ahqWwdDDN46Xlw6qxqIZJiaScAPnrh3aVKNiO1/ByNySo83VvaatvwznOe
-	C/mxXCNnBKAMoAn5yV/BmOhN6XDjlG+9eRA6R5Kg/OLP9b4QqYUx9SLjHZ96bZ6SMc+qi1
-	sBu2r0/fN2AP4JHOmlBcLMZiOhh+24cuauOsHX7dOsuscocWL01EY4gY2MqlpWR57T8OE5
-	Y1pq+t44+kIU1+8PgFkx+oxurge5sFeP0Qn6/j8yvgWmOzG7ralWaXnwrQSRXA==
-Message-ID: <cb081d0f-3a53-4b5e-9f14-92745820fc75@bootlin.com>
-Date: Thu, 12 Jun 2025 15:23:14 +0200
+	id 1uPhwd-0000000DRxr-3tlM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 13:26:17 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=QA9vChC0ZhpDJJJM5fkMihDPJt0CM8Jatpt0KQMalcQxqHmw2ioMUw7EdMP6umvz0i60+XVtt7mfYk4NzndjIGHY3r4n/cw5YjTcQcehl9tvsOIiWc883w7UdC/Ow25AnAGcrMF1k/aX53FyO7J31S7wMrSBUGSOkhV5HmJyPElkg2Lt7B+LW7Pwi4v+2KaJShGBSf9GO35sqXGSVtqmBn8ZNmyE7BKj4YC6WDG8sIu6OjodvECMqd0OCrfkdc+dFXl2c7EyyzP+8fJnT+lxqStWReogz+LsD2FxqkHif7QKgcMjxXK6ceAdm1RRWSa4UHUsts3hll/ktsgKH5ikYw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kupJBdF3bRQvq/tea6rBHGJdi0zjK/xa2PLS2INWzNI=;
+ b=vY0ZZoYFoGHSVuBoqnGJH2jXjeDbKccbB5wGefF3Im5cJ32JFCblEnNaiN1ZzMJeDNA00Z0RYus+snaxOczlGyynp9sEccndxWD70R7BRvgeKoHyDwUwUnBsurAEKKtzUQD3erJbs0Kn77o0L+dCe9zIgWBYBrrSoRbxA3vkRRmyTcGg8Ky8+XSSONAWgxO7TRsBsZ2Q8pbQXDujGMLhrbvLhr4IGlJgGS5PSsgtbWCBsO1G8j2QWtHCveRmobRs33ax0NQvAcXveLRbVcaOS0a/xPRfAN02MOz/0zAgk40oKU+KPjX66OmvJqvC/Z6TFjEMwRokC/kwM1lIpygg8Q==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kupJBdF3bRQvq/tea6rBHGJdi0zjK/xa2PLS2INWzNI=;
+ b=UX0OdO3RI/jDCVZQ2n9gwz9i8aVRaJfLN18yXJkPb4U0iY7dRM5EOf064VbM9wqVKfDO/JaW1nSBC+7RiUTD8gX25Ev1MYjpP0xMBtQkgr3lprGyN/aU3RhbYmxyDeORr08w4eXijHwEjyJqCudXHM2jrdt4tG9oNn7SJhWCci0=
+Received: from AS8P189CA0051.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:458::34)
+ by VE1PR08MB5567.eurprd08.prod.outlook.com (2603:10a6:800:1a7::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Thu, 12 Jun
+ 2025 13:26:09 +0000
+Received: from AMS0EPF0000019C.eurprd05.prod.outlook.com
+ (2603:10a6:20b:458:cafe::b8) by AS8P189CA0051.outlook.office365.com
+ (2603:10a6:20b:458::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.20 via Frontend Transport; Thu,
+ 12 Jun 2025 13:26:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF0000019C.mail.protection.outlook.com (10.167.16.248) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
+ via Frontend Transport; Thu, 12 Jun 2025 13:26:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B6C01EKFYWsvpmxkc276xVDtjQhz0+BEVPfar7gw9w8rG+t3Z1sukC0B+iSKCoew80/uIoCCTXotenVcGTufaEct0Mwo9UYapVWoTahhhTGQz3vTWCI2NnE+geQ++jsMzAP8TzoowfXEDPWhguJ3fDnYnR1DuUhh9Sl+QNP5EYBalAKlXg97NKlj7DzJWU/MZILySHuX09ByQi3l17rWmIQ+d+DKkzDdPBFwk6UanuQ55Poe8Y01m6Pc4bHoItd2G6+vqDcSH5m1ubjss8XABK1Fyykm6sVGLd1wn2ph/d0fLLcZ72ZXq+5Tus+6CTlIkECFw9+dvFsU/E7m0nUhuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kupJBdF3bRQvq/tea6rBHGJdi0zjK/xa2PLS2INWzNI=;
+ b=ieONOGR4R4Wc3rFhKj0IPM6D1GpeaM/+87B89uWnT4iXFHnh0Sm9IHNqmensURwc14JWeOFO3EuORApenGLBd0nCKk3Il2GpTnzjP6BbzuJx8bsqSxir7DJUp+ACf1UsQrLIiDhXpn6NONzftB1gcgif2cMrrIejPkg/5SZ68U10xT4uqds6d/Oqx9+OcxNhhbgnwq2dS2RIsk2B7HO2GVDEl26DijxLF3p27Xw/2dWBIVbC9DnZB+gjmL+3Fvj+RmoZeuE2PVzi089j0PpVIXIIEWZCjU0odrfc5FSMSLboS1zWzTS/QfVvdfZd5xlkkNfu8um+OKRbF0HsdBEJAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kupJBdF3bRQvq/tea6rBHGJdi0zjK/xa2PLS2INWzNI=;
+ b=UX0OdO3RI/jDCVZQ2n9gwz9i8aVRaJfLN18yXJkPb4U0iY7dRM5EOf064VbM9wqVKfDO/JaW1nSBC+7RiUTD8gX25Ev1MYjpP0xMBtQkgr3lprGyN/aU3RhbYmxyDeORr08w4eXijHwEjyJqCudXHM2jrdt4tG9oNn7SJhWCci0=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by PAXPR08MB7334.eurprd08.prod.outlook.com
+ (2603:10a6:102:231::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.24; Thu, 12 Jun
+ 2025 13:25:34 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.8835.018; Thu, 12 Jun 2025
+ 13:25:33 +0000
+Date: Thu, 12 Jun 2025 14:25:31 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: sudeep.holla@arm.com, peterhuewe@gmx.de, jgg@ziepe.ca,
+	stuart.yoder@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-integrity@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] fix failure of integration IMA with tpm_crb_ffa
+Message-ID: <aErVS4XVZHknlC2L@e129823.arm.com>
+References: <20250610060334.2149041-1-yeoreum.yun@arm.com>
+ <aEgmhwu1RP27yBpw@kernel.org>
+ <aEgwpXXftXW6JNRy@e129823.arm.com>
+ <aEg6Bgh8TqzK5nSu@kernel.org>
+ <aEhDY4VlkIPYAjPE@e129823.arm.com>
+ <aEhIPC95FisptBO5@kernel.org>
+ <aEhNnAxlToRMteA2@e129823.arm.com>
+ <aEmxaJQNfYJwSCd0@kernel.org>
+ <aEm+gqyp0aa4ULYa@e129823.arm.com>
+ <aEqsX0hBKb7ZC1qZ@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aEqsX0hBKb7ZC1qZ@kernel.org>
+X-ClientProxiedBy: LO4P265CA0042.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2ac::7) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: DWC2 gadget: unexpected device reenumeration on Rockchip RK3308
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Minas Harutyunyan <Minas.Harutyunyan@synopsys.com>
-Cc: Alan Stern <stern@rowland.harvard.edu>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- Kever Yang <kever.yang@rock-chips.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?Q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Stefan Wahren <wahrenst@gmx.net>,
- Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- heiko@sntech.de, vkoul@kernel.org, kishon@kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20250414185458.7767aabc@booty>
- <a96409af-4f82-4b65-b822-dd8c71508212@rowland.harvard.edu>
- <cf84f5ca-8c7a-b6c6-492c-c9cf6f73130d@synopsys.com>
- <20250415162825.083f351c@booty>
- <8c2e18a9-44d1-47b3-8fe4-46bdc5be8d76@rowland.harvard.edu>
- <20250502155308.11a991d4@booty>
- <cc80988c-5941-46f3-8183-f3f9acb7dd5d@rowland.harvard.edu>
- <20250509091738.4ae76d18@booty>
- <329f68fb-a097-ff3d-da9d-f535a8429ea7@synopsys.com>
- <20250520140936.08d72db6@booty>
-Content-Language: en-US
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
- xsFNBGCG5KEBEAD1yQ5C7eS4rxD0Wj7JRYZ07UhWTbBpbSjHjYJQWx/qupQdzzxe6sdrxYSY
- 5K81kIWbtQX91pD/wH5UapRF4kwMXTAqof8+m3XfYcEDVG31Kf8QkJTG/gLBi1UfJgGBahbY
- hjP40kuUR/mr7M7bKoBP9Uh0uaEM+DuKl6bSXMSrJ6fOtEPOtnfBY0xVPmqIKfLFEkjh800v
- jD1fdwWKtAIXf+cQtC9QWvcdzAmQIwmyFBmbg+ccqao1OIXTgu+qMAHfgKDjYctESvo+Szmb
- DFBZudPbyTAlf2mVKpoHKMGy3ndPZ19RboKUP0wjrF+Snif6zRFisHK7D/mqpgUftoV4HjEH
- bQO9bTJZXIoPJMSb+Lyds0m83/LYfjcWP8w889bNyD4Lzzzu+hWIu/OObJeGEQqY01etOLMh
- deuSuCG9tFr0DY6l37d4VK4dqq4Snmm87IRCb3AHAEMJ5SsO8WmRYF8ReLIk0tJJPrALv8DD
- lnLnwadBJ9H8djZMj24+GC6MJjN8dDNWctpBXgGZKuCM7Ggaex+RLHP/+14Vl+lSLdFiUb3U
- ljBXuc9v5/9+D8fWlH03q+NCa1dVgUtsP2lpolOV3EE85q1HdMyt5K91oB0hLNFdTFYwn1bW
- WJ2FaRhiC1yV4kn/z8g7fAp57VyIb6lQfS1Wwuj5/53XYjdipQARAQABzSlMb3VpcyBDaGF1
- dmV0IDxsb3Vpcy5jaGF1dmV0QGJvb3RsaW4uY29tPsLBlAQTAQgAPgIbAwULCQgHAgYVCgkI
- CwIEFgIDAQIeAQIXgBYhBItxBK6aJy1mk/Un8uwYg/VeC0ClBQJmlnw+BQkH8MsdAAoJEOwY
- g/VeC0ClyhwP/Ra6H+5F2NEW6/IMVHeXmhuly8CcZ3kyoKeGNowghIcTBo59dFh0atGCvr+y
- K9YD5Pyg9aX4Ropw1R1RVIMrWoUNZUKebRTu6iNHkE6tmURJaKLzR+9la+789jznQvbV+9gM
- YTBppX4/0cWY58jiDiDV4aJ77JDo7aWNK4hz8mZsB+Y7ezMuS4jy2r4b7dZ+YL/T9/k3/emO
- PkAuFkVhkNhytMEyOBsT7SjL4IUBeYWvOw9MIaXEl4qW/5HLGtMuNhS94NsviDXZquoOHOby
- 2uuRAI0bLz1qcsnY90yyPlDJ0pMuJHbi0DBzPTIYkyuwoyplfWxnUPp1wfsjiy/B6mRKTbdE
- a/K6jNzdVC1LLjTD4EjwnCE8IZBRWH1NVC1suOkw3Sr1FYcHFSYqNDrrzO+RKtR1JMrIe8/3
- Xhe2/UNUhppsK3SaFaIsu98mVQY3bA/Xn9wYcuAAzRzhEHgrbp8LPzYdi6Qtlqpt4HcPV3Ya
- H9BkCacgyLHcdeQbBXaup9JbF5oqbdtwev3waAmNfhWhrQeqQ0tkrpJ46l9slEGEdao5Dcct
- QDRjmJz7Gx/rKJngQrbboOQz+rhiHPoJc/n75lgOqtHRePNEf9xmtteHYpiAXh/YNooXJvdA
- tgR1jAsCsxuXZnW2DpVClm1WSHNfLSWona8cTkcoSTeYCrnXzsFNBGCG6KUBEADZhvm9TZ25
- JZa7wbKMOpvSH36K8wl74FhuVuv7ykeFPKH2oC7zmP1oqs1IF1UXQQzNkCHsBpIZq+TSE74a
- mG4sEhZP0irrG/w3JQ9Vbxds7PzlQzDarJ1WJvS2KZ4AVnwc/ucirNuxinAuAmmNBUNF8w6o
- Y97sdgFuIZUP6h972Tby5bu7wmy1hWL3+2QV+LEKmRpr0D9jDtJrKfm25sLwoHIojdQtGv2g
- JbQ9Oh9+k3QG9Kh6tiQoOrzgJ9pNjamYsnti9M2XHhlX489eXq/E6bWOBRa0UmD0tuQKNgK1
- n8EDmFPW3L0vEnytAl4QyZEzPhO30GEcgtNkaJVQwiXtn4FMw4R5ncqXVvzR7rnEuXwyO9RF
- tjqhwxsfRlORo6vMKqvDxFfgIkVnlc2KBa563qDNARB6caG6kRaLVcy0pGVlCiHLjl6ygP+G
- GCNfoh/PADQz7gaobN2WZzXbsVS5LDb9w/TqskSRhkgXpxt6k2rqNgdfeyomlkQnruvkIIjs
- Sk2X68nwHJlCjze3IgSngS2Gc0NC/DDoUBMblP6a2LJwuF/nvaW+QzPquy5KjKUO2UqIO9y+
- movZqE777uayqmMeIy4cd/gg/yTBBcGvWVm0Dh7dE6G6WXJUhWIUtXCzxKMmkvSmZy+gt1rN
- OyCd65HgUXPBf+hioCzGVFSoqQARAQABwsOyBBgBCAAmAhsuFiEEi3EErponLWaT9Sfy7BiD
- 9V4LQKUFAmaWfGYFCQfwx0ECQAkQ7BiD9V4LQKXBdCAEGQEIAB0WIQRPj7g/vng8MQxQWQQg
- rS7GWxAs4gUCYIbopQAKCRAgrS7GWxAs4gfGEACcA0XVNesbVIyvs5SJpJy+6csrH4yy233o
- GclX2P7pcCls55wiV6ywCtRaXWFjztYmklQieaZ/zq+pUuUDtBZo95rUP20E56gYV2XFB18W
- YeekTwH5d2d/j++60iHExWTB+sgMEv3CEGikUBj7iaMX2KtaB1k9K+3K6dx/s1KWxOClFkbJ
- EV/tmeq7Ta8LiytQM9b4yY550tzC0pEEeFcLFXo1m5KcJauYnAqrlOVY48NFpFUd9oAZf/Pz
- p3oEs+zn/8zK2PBrZZCD6AhrbotRy7irE5eimhxcsFm1+MG5ufnaQUWHrRYXVuFhvkSoqZ8j
- GPgPEpFor4NjRyX/PMLglQ7S5snkvKcr3Lun44aybXEHq/1FTzW2kOh6kFHFFOPbMv1voJKM
- IzrmDoDS+xANt/La7OwpCylCgF6t9oHHTTGfAfwtfYZbiepC66FDe/Jt/QLwkIXeIoeSS1O4
- 6rJdGWG2kHthUM+uIbUbaRJW8AkJpzP1Mz7TieR/9jO4YPeUm9tGL5kP2yyNtzFilcoOeox1
- NSFNAPz+zPcovVmxAaSDGcSzhQVJVlk8xPib8g4fnI8qJ3Gj7xyw8D9dzxhCR2DIFmZL84En
- N7Rj+k4VIGY7M/cVvxL81jlbMGMERMmb96Cua9z1ROviGA1He2gbHOcp6qmLNu3nprleG8PL
- ZRNdEAC0iZapoyiXlVCKLFIwUPnxUz5iarqIfQU8sa1VXYYd/AAAFI6Wv3zfNtGicjgHP8rN
- CIegqm2Av1939XXGZJVI9f3hEoUn04rvxCgcDcUvn7I0WTZ4JB9G5qAGvQLXeXK6Byu77qTx
- eC7PUIIEKN3X47e8xTSj2reVTlanDr8yeqZhxpKHaS0laF8RbD85geZtAK67qEByX2KC9DUo
- eHBFuXpYMzGQnf2SG105ePI2f4h5iAfbTW9VWH989fx4f2hVlDwTe08/NhPdwq/Houov9f/+
- uPpYEMlHCNwE8GRV7aEjd/dvu87PQPm4zFtC3jgQaUKCbYYlHmYYRlrLQenX3QSorrQNPbfz
- uQkNLDVcjgD2fxBpemT7EhHYBz+ugsfbtdsH+4jVCo5WLb/HxE6o5zvSIkXknWh1DhFj/qe9
- Zb9PGmfp8T8Ty+c/hjE5x6SrkRCX8qPXIvfSWLlb8M0lpcpFK+tB+kZlu5I3ycQDNLTk3qmf
- PdjUMWb5Ld21PSyCrtGc/hTKwxMoHsOZPy6UB8YJ5omZdsavcjKMrDpybguOfxUmGYs2H3MJ
- ghIUQMMOe0267uQcmMNDPRueGWTLXcuyz0Tpe62Whekc3gNMl0JrNz6Gty8OBb/ETijfSHPE
- qGHYuyAZJo9A/IazHuJ+4n+gm4kQl1WLfxoRMzYHCA==
-In-Reply-To: <20250520140936.08d72db6@booty>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdduhedukecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpefnohhuihhsucevhhgruhhvvghtuceolhhouhhishdrtghhrghuvhgvthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvdfhfeduueekhfettdfgfeettdehudfhfeffleelteeffeejveduueetvdeuueeinecuffhomhgrihhnpehsrhdrhhhtpdgsohhothhlihhnrdgtohhmnecukfhppedvtddtudemkeeiudemgedugedtmegtkeeitdemheguiedumeeifeefleemieeirgeimegvtdejheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemgedugedtmegtkeeitdemheguiedumeeifeefleemieeirgeimegvtdejhedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemgedugedtmegtkeeitdemheguiedumeeifeefleemieeirgeimegvtdejhegnpdhmrghilhhfrhhomheplhhouhhishdrtghhrghuvhgvthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudejpdhrtghpthhtoheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdprhgtphhtt
- hhopefoihhnrghsrdfjrghruhhthihunhihrghnsehshihnohhpshihshdrtghomhdprhgtphhtthhopehsthgvrhhnsehrohiflhgrnhgurdhhrghrvhgrrhgurdgvughupdhrtghpthhtoheplhhinhhugidquhhssgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehkvghvvghrrdihrghnghesrhhotghkqdgthhhiphhsrdgtohhmpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhm
-X-GND-Sasl: louis.chauvet@bootlin.com
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|PAXPR08MB7334:EE_|AMS0EPF0000019C:EE_|VE1PR08MB5567:EE_
+X-MS-Office365-Filtering-Correlation-Id: 989ffef8-00bf-4a95-4b60-08dda9b4b0a6
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?+m3QGVWHIqwBfPh91lBRG1UyhP0sq6/vNfe28wDSZ7C8QZRlE32+Vd0ezhWt?=
+ =?us-ascii?Q?VEc1HczVAXuRnq3qOrjmLM/l+S8HkM453Fqgll0qG+kfbEHp9qiEKPFLE2v2?=
+ =?us-ascii?Q?rwVJJvxETv9S9Fl9ODxUTS1xQhaxIiBEfIv24pUD+1CcOkrgULEFADP0qhe/?=
+ =?us-ascii?Q?u9MyhOAh0B2WeS8cDr/evHU6KAOMr/7KJ6XzeD2EC/2V7lr92LctEXHwokyM?=
+ =?us-ascii?Q?GQOe5Z4JkmB5MFdVDCPpJ6it6zPWljXeKVaIN6T4xlOKVW2EPPrMqaac8Uh2?=
+ =?us-ascii?Q?+ImOZGVP//YgKZ26NGyxrxmI11IAslX5B9qm1NMiAF5c7x/m4wpJ9EgZ+RH/?=
+ =?us-ascii?Q?qcD47uKJtiMisw4whlVPjtd0OSDD7IsQWX0e9g4uVWfLeqRFIhHzWWtRxtZh?=
+ =?us-ascii?Q?cXCpGCCFi0Dpf5B0W8Xu7r5hs52tQ3wuz6KdZ61omGfSQBBkT1Vfq8EPkZS9?=
+ =?us-ascii?Q?CDUOj3BZdkmI2EXEzSaidgRwp519dXctXg01/5sI9rvWpY7HM/oikFYrgXPQ?=
+ =?us-ascii?Q?jXrji51QN2cmLA5azogXlUXVzw9ka7knW5IMYkeVuQkSXN1+JbsNoDQCtoHR?=
+ =?us-ascii?Q?fhw9ktOadbf3KQQyw1WD8V9lADi1TYxyr9eroOq82p2O0Jeo+rzEmJTYR7Dj?=
+ =?us-ascii?Q?wRKI8dTGaZlR4KslDrd/a/foHd540Ew1H8P+IIMDDsCEej3zb/9o5AIfX/GE?=
+ =?us-ascii?Q?XI51xVz6Sob3MUdl3zDLVyLw+4sRcfQeGj6HjCBbqur4gsMAprckZgW9AWI2?=
+ =?us-ascii?Q?xdb5oytN6HOUi/LpT+gIPtHLiWX506CPE/0DdVfdiFqIFJ3Bnua41omvTLTs?=
+ =?us-ascii?Q?YoPj5KRvlty7oSKYG18anYtN5fIVVbuFK8I7WsxrS1Hv7oMRHNktm9PhEKRo?=
+ =?us-ascii?Q?6qTjAU/1RuA5z5rEa0/IIKnrWkpBRJswDeDTWgfmVYsNjVyU+XzuMOCIxDGg?=
+ =?us-ascii?Q?hK1eKqKdeFgyLRNJnHWeqywUdFrdXkpJI48j+cX/lz0VuxweXE7MbjtFBvAa?=
+ =?us-ascii?Q?rbaXsT/cuA5M5nI2N8Dh4IvLVSD0yp/hoxoZxp05H2YDHKRpYb0BSTulyaie?=
+ =?us-ascii?Q?T1qCxepJ+0Uf31/39tp/ZsSK6L1vDwEPVWgmXRH+58HV9BV/HScUXB/JQqSy?=
+ =?us-ascii?Q?FtYPPQUwISCzQCUM5kygIskzZDIz2fenv3eQ7GXE56t+cIOoiBnsr3EY772S?=
+ =?us-ascii?Q?e4sK8P7yDHeq8Nf0YVtaJU9PCv5i8P6+Tk+8c/ExZLkZhqPttR7JL+mwi/E6?=
+ =?us-ascii?Q?FbvcMRR1ypTg6aB9VnKMlUKUfYWou9E8MQikRPivkrXslcEXfEzVp4R8PkrQ?=
+ =?us-ascii?Q?kpScMoNlfH+AIpLViaWu0MmUOkkzvo5DBcgfAN5ExOkXlbkx0zjP2KwwOMf9?=
+ =?us-ascii?Q?RkfItA90EelSyKJbJSZzhmEgWu7W6WAI6bgwxA/KHXOz8qc0FSEkgoIhNwBH?=
+ =?us-ascii?Q?oA3vgP62OVM=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR08MB7334
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF0000019C.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 24a502dc-0461-44c5-59c9-08dda9b49c0c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|35042699022|1800799024|82310400026|36860700013|14060799003;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CjLuBOwckGWiYz06uWX9sK70Uc8FLewL+Xibt4tzmMMmCW4A/PSmM8+ftoQc?=
+ =?us-ascii?Q?ibXzUVL+KsbwbLPSEd3DOzM5fJ5cfvZCcasJHSQ3p/QLXvraQWwjwacm5e/r?=
+ =?us-ascii?Q?kWhEfPzEuU34v6bThbj1iHFkNhpD4MM32rjVYE0k5SB1in7MQLSzytg02Ecm?=
+ =?us-ascii?Q?lt1gm/yy0HVqkjhDOsVGsZEcAbxSQik5uax1EArNuSMpZD2emfzsxP6fQ0RV?=
+ =?us-ascii?Q?rlAQ4QAk8B5FkHrlJi4pRx5tYeoGuVCHZzBTa4BLESBQll/iia5nZtF3igrU?=
+ =?us-ascii?Q?YwHQm456OIan5/JiWDb6HrJhzKW0/NEUFqNrogocdNSYs1+tmGnav+cUylGb?=
+ =?us-ascii?Q?RUeVKuCgttJkjoPRZV+RcrQ7NvSzNyhAlqO4raVOJMSgKZ3gUlRLexHtve4a?=
+ =?us-ascii?Q?LRL7D6TjGDRirSARIjci4oIMQnRJNUNFmyhPEKXMB0S3HAAmIVVg7qf1m7+e?=
+ =?us-ascii?Q?h6JXXPxlWedTz1rqYGFwcA4w01Vf/mVwJUCQQAFckSfywT3hkQC2nmyOoGIC?=
+ =?us-ascii?Q?UpEQIQyHRShc5ZF/wAgtTa5K31auyYuR+jw1pq2Jop9uhSu3a1dK2oXmxgjJ?=
+ =?us-ascii?Q?s0LdRqRmeO9wghoo8YJ29mFcjB+SAhhbz5fhXr01AECVVFmNch0Prp0Vm4Nb?=
+ =?us-ascii?Q?xbdj/yhkLFewYiQYO+/8K4z/yEx+sw9VxCA5iZbTVOCaubU0YCzqrW2t9uXX?=
+ =?us-ascii?Q?VpeWSGieqJpE623NDPVH0yS7+2pIwFB6iFpo7JfcJIbMAa5ChPGaorP2f5nW?=
+ =?us-ascii?Q?jM6IpTZh8KTHHcUS/ZJ2YZ9hOBXVICyIIrRK3EXM7SFHmi56872cHoPfqIVg?=
+ =?us-ascii?Q?XkA/Bi1VbYudKkMfksMgP821KzEVPtpFtTNff/P7b/O18OSB9mpm5KJCCgLC?=
+ =?us-ascii?Q?nnbCI7SA9cn6ksi/lZr8aCtCH7GvvFeQuZ2F2hrDoOTzqIxtTTo8ulV77D9x?=
+ =?us-ascii?Q?VsNLI0XKk0nScvWxjUt4tY3Vlt7WpgRYLI2noJSKeAIEDwUHgaXfvUE7bBEP?=
+ =?us-ascii?Q?vZ9KRRrXIio0TsiBVD5Mb0DMKC3sVz3zVP/y89/ea6E1Tn0sPgWLoziTA+Zd?=
+ =?us-ascii?Q?4MwLjnT6hlkcg2NZsVQn8gq4WdgBHQhV7axy6yVW+CYlqjTLEa+z2Hg87zQS?=
+ =?us-ascii?Q?qpjVt3FK+P5UnEBjecnd+X6M0/U4nUm+wlkBe8AdO1204flBvbEyIojuU2jS?=
+ =?us-ascii?Q?FpWZUCOv9UH6DyJe3T9dq1I+/pWeECNlEIwlkNy2xvtU0oyibma+s1ZwpLX0?=
+ =?us-ascii?Q?JDecZsU3YG7pPz9ZutnYiDWcYrHkjD0UCAoySEpOEc5M4l7gGYm3Efzondja?=
+ =?us-ascii?Q?QKykqeIJbInjI82FF/sivb/n6Tc2qx8FAB1HkNkpn6IMCvfdE2+wmbNB6aHi?=
+ =?us-ascii?Q?T33rOsMqR54rRfLr3jt5+Ib0Lb96/hjWqQlgv6CJHBycXFfEuDjBgvJFHt2+?=
+ =?us-ascii?Q?kkkLp6kQ4Tq+SNFcLK4AggtoE2LZ0HB8tS/UatM276lLmgoWAvSgYOwm0Nm4?=
+ =?us-ascii?Q?sdX3P4MvN/Q2bphdSU3H6NtiC31P7kfxw0Rt?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(35042699022)(1800799024)(82310400026)(36860700013)(14060799003);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 13:26:07.8536
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 989ffef8-00bf-4a95-4b60-08dda9b4b0a6
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019C.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR08MB5567
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_062420_290879_112C9FD4 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250612_062616_063646_F45FC516 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,204 +207,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-Le 20/05/2025 à 14:09, Luca Ceresoli a écrit :
-> Hello Minas,
+Hi Jarkko,
 
 [...]
-
-> Minas, do you have any hints or advice to understand why there is a
-> disconnect about ~6 seconds after a successful enumeration in gadget
-> mode?
-
-+CC: vkoul@kernel.org, kishon@kernel.org, 
-linux-rockchip@lists.infradead.org, 
-linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
-heiko@sntech.de
-
-Hello,
-
-I am a colleague of Luca and have been working on an issue related to 
-USB peripheral disconnections over the past few days. I believe I have 
-found some interesting insights that explain the disconnection.
-
-To provide some context, I have added traces in relevant functions to 
-understand the sequence of events (filtered on interesting logs, see [1] 
-for full logs):
+> Yep, and you sort it out by not compiling it as a module.
+>
+> +	ret = ffa_register(&tpm_crb_ffa_driver);
+> +	BUG_ON(!ret && !tpm_crb_ffa);
+>
+> These lines struck me in your patch. The commit message has nothing
+> about ffa_register().
 
 
-[... boot proccess ...]
+Sorry. I think I miss the description for this detail.
 
-[    0.628744] dwc2 ff400000.usb: mapped PA ff400000 to VA (____ptrval____)
-[    0.629358] dwc2 ff400000.usb: supply vusb_d not found, using dummy 
-regulator
-[    0.630478] dwc2 ff400000.usb: supply vusb_a not found, using dummy 
-regulator
-[    0.631297] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/usb/dwc2/platform.c:157:dwc2_lowlevel_hw_enable
-[    0.632406] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/phy-core.c:230:phy_init
-[    0.633233] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:491:rockchip_usb2phy_init
-[    0.634262] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:539:rockchip_usb2phy_init 
-(before schedule_delayed_work otg_sm_work)
-[    0.635602] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/phy-core.c:309:phy_power_on
-[    0.636379] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:577:rockchip_usb2phy_power_on
-[    0.637496] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:606:rockchip_usb2phy_power_on 
-(before rockchip_usb2phy_reset)
+This is core of this patch.
+So, in patch #1, by chaning the ffa_init() to rootfs_initcall,
+it ensures the generation of "tpm_crb_ffa device" is created before
+crb_acpi_driver_init() but "tpm_crb_ffa device" isn't probe yet since
+the "tpm_crb_ffa driver" isn't yet registered which is registered by
+"tpm_crb_ffa_init()".
 
-[... bunch of dwc2 ff400000.usb logs ...]
+Therefore, this patch does that when crb_acpi_driver_init() is called first,
+tpm_crb_init() registers "tpm_crb_ffa driver" via "ffa_register()"
+to trigger probing of "tpm_crb_ffa device" to initalize
+the TPM device using CRB over FF-A.
 
-[    0.688708] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/usb/dwc2/platform.c:200:dwc2_lowlevel_hw_disable
-[    0.689661] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/phy-core.c:360:phy_power_off
-[    0.690442] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:620:rockchip_usb2phy_power_off
-[    0.691522] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/phy-core.c:271:phy_exit
-[    0.692261] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:648:rockchip_usb2phy_exit 
-(before cancel_delayed_work_sync otg_sm_work/chg_work)
-[    0.698909] dwmmc_rockchip ff490000.mmc: IDMAC supports 32-bit 
-address mode.
+>
+> Also, please remove BUG_ON(). That said, I don't think 2/2 is needed.
 
-[... boot finished ...]
+Okay. I'll replace it with error message.
 
-[... call to my peripheral setup script ...]
+Thanks.
 
-[   44.493316] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/usb/dwc2/platform.c:157:dwc2_lowlevel_hw_enable
-[   44.495078] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/phy-core.c:230:phy_init
-[   44.495837] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:491:rockchip_usb2phy_init
-[   44.496960] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:539:rockchip_usb2phy_init 
-(before schedule_delayed_work otg_sm_work)
-[   44.498317] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/phy-core.c:309:phy_power_on
-[   44.499107] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:577:rockchip_usb2phy_power_on
-[   44.500160] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:606:rockchip_usb2phy_power_on 
-(before rockchip_usb2phy_reset)
-
-
-[... bunch of dwc2 ff400000.usb logs ...]
-[   44.976346] dwc2 ff400000.usb: dwc2_hsotg_start_req: DXEPCTL=0x80028000
-
-[... ~5 seconds delay ...]
-
-[   50.660998] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:670:rockchip_usb2phy_otg_sm_work
-[   50.662128] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:685:rockchip_usb2phy_otg_sm_work 
-(rport->state=0 vbus_attach=1 rphy->chg_state=0 rphy->chg_type=0 
-extcon_get_state=0)
-[   50.663862] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:831:rockchip_chg_detect_work
-[   50.664973] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:839:rockchip_chg_detect_work 
-(rphy->chg_state=0 rport->suspended=0)
-[   50.666316] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:620:rockchip_usb2phy_power_off
-[   50.769027] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:831:rockchip_chg_detect_work
-[   50.770093] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:839:rockchip_chg_detect_work 
-(rphy->chg_state=1 rport->suspended=1)
-[   50.813030] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:831:rockchip_chg_detect_work
-[   50.814083] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:839:rockchip_chg_detect_work 
-(rphy->chg_state=2 rport->suspended=1)
-[   50.857013] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:831:rockchip_chg_detect_work
-[   50.858067] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:839:rockchip_chg_detect_work 
-(rphy->chg_state=3 rport->suspended=1)
-[   50.859409] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:670:rockchip_usb2phy_otg_sm_work
-[   50.860475] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:685:rockchip_usb2phy_otg_sm_work 
-(rport->state=1 vbus_attach=1 rphy->chg_state=5 rphy->chg_type=6 
-extcon_get_state=0)
-[   50.862267] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:577:rockchip_usb2phy_power_on
-[   50.863326] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:606:rockchip_usb2phy_power_on 
-(before rockchip_usb2phy_reset)
-
-[... bunch of dwc2 ff400000.usb logs ...]
-
-[   52.868992] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:670:rockchip_usb2phy_otg_sm_work
-[   52.870108] phy phy-ff008000.syscon:usb2phy@100.0: 
-drivers/phy/rockchip/phy-rockchip-inno-usb2.c:685:rockchip_usb2phy_otg_sm_work 
-(rport->state=3 vbus_attach=1 rphy->chg_state=5 rphy->chg_type=6 
-extcon_get_state=0)
-
-[... repeated every 2 seconds ...]
-
-
-
-I found two potential issues that may be relevant:
-
-1 - The workers rockchip_usb2phy_otg_sm_work and 
-rockchip_chg_detect_work call rockchip_usb2phy_power_off/on directly, 
-bypassing phy_power_off/on. This means the state of the PHY after a call 
-to phy_power_on may not be the one expected by users of the struct phy api.
-2 -  The worker rockchip_chg_detect_work always disables the PHY at its 
-first call, which creates the disconnection.
-
-
-For issue 1, here is the phy_power_on/off reference count:
-
-[    0.635602] phy_power_on	count = 1
-[    0.689661] phy_power_off	count = 0
-[   44.498317] phy_power_on	count = 1 // ./setup-cdc-serial
-[   50.666316] rockchip_usb2phy_power_off => direct call to power_off! 
-This causes issues in the dwc2 driver because the PHY is powered off 
-even if the phy_power_on counter is not zero, leading to the disconnection
-[   50.862267] rockchip_usb2phy_power_on => direct call to power_on and 
-reset! This will reset the PHY even if the phy_power_on counter is not zero.
-
-This is my first time digging into the USB/PHY subsystem, so I might be 
-wrong, but this behavior seems very strange. Once phy_power_on is 
-called, I expect the PHY to never go off until phy_power_off is called.
-
-
-For issue 2, this is also a strange behavior. I understand that 
-resetting the PHY before its first use might be necessary, but I don't 
-understand why this must be delayed by 6 seconds. In my opinion, this 
-reset sequence should occur synchronously during the phy_init call.
-
-I quickly looked at other PHY drivers, and none of them seem to have 
-asynchronous behavior or any internal calls to power_on/power_off.
-
-Could you confirm if what I found is indeed the issue and if the 
-rockchip_usb2phy driver needs to be fixed?
-
-Does anyone know why rockchip_usb2phy needs to perform these 
-asynchronous tasks and these power_on/off calls?
-
-Let me know if you need more logs to understand the issue.
-
-Thanks a lot,
-Louis Chauvet
-
-
-[1]:https://paste.sr.ht/~fomys/26e0d03d03537a6eb3757fb709b6d5a81484eee3
-
--- 
-Louis Chauvet, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+--
+Sincerely,
+Yeoreum Yun
 
