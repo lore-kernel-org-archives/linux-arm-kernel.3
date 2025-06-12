@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD82C71141
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38EFC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z4M5RaYJulUbWoXifSgx3bTPj3YUj8pSZBzgPM+jUK4=; b=DIzUeTm7lz2Gl1ezEF2hoxCLtV
-	SHyBeVUnFpDGSxU63L1yvzEVqmZ204b4Ee5ZaK1+TB2DmdeX5ArtzJUpVrbWvhRiP2evVDYs91E+C
-	yXZh9oR7VL30WgFN0QZhm6licAH83w3GCbRmux3Ge/BxpxGiPzE2XygZKp6m9EshaeL3/jQHi7WEF
-	kl2VH9sfKhERMBMucJ/OIQzxgAQu/o3rv1LaFs+LJqZXxbIaAxIIwTc9gLOY1jW6vfh5MDc8R1ZEB
-	GShtVvlc9MyJjXXUxVVdgbQ4bdQ9M2Dx5x1XV/a9PsKBmIytgQfJMUUdd1AqUyQsKFA0lz9cIDKsC
-	uVJsQXqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lFHYqoHj11Pf7C9Bg1GN9jEeWSJy3J0EFTOrzRw6uz8=; b=3D4n0gPzViYJwESIVWp/hBFgzo
+	X/7bywbKXFwmtMpOLzYAp1hYhxD8SM2W+NnvtAAhyVv2Lb9G1rEIl4M6MgLYm6lw0zi/kE2ETAbG/
+	i2iJtgGKjlJD/0qRCsQP0y1imyD80MBZixIOaex9X+ww7vZo+i48ALcYeli4PXV81vrPsJHP5T+GU
+	Zmeh0ZsERoPAIllFLNI9panK7ZLQwUCt0TCCyjI/edYTmA9uvPh7iW7C+mu9GV7EmPP06ZBawlQyI
+	3V1VWGsZ/5bRnpBa0ooJ0Jjh0ZFrm19Q0TSMqR9F9sk5VeCnIpXENSeSyVPabD0YTXmfOrlh2Ei4V
+	9kj+bfkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhpy-0000000DNGR-398e;
-	Thu, 12 Jun 2025 13:19:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uPhq3-0000000DNPB-0dNR;
+	Thu, 12 Jun 2025 13:19:27 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPfyK-0000000D7rJ-0B5a;
-	Thu, 12 Jun 2025 11:19:53 +0000
+	id 1uPg4V-0000000D8ir-3SKc;
+	Thu, 12 Jun 2025 11:26:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A1AA5C5E68;
-	Thu, 12 Jun 2025 11:17:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F05D9C4CEEA;
-	Thu, 12 Jun 2025 11:19:47 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7F52EA51C07;
+	Thu, 12 Jun 2025 11:26:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0BFEC4CEEA;
+	Thu, 12 Jun 2025 11:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749727190;
-	bh=cVFIRmuMf6og7Otn6VJlaRqnyuBkLItWoFn62vUOnjM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lTGQ+cJhe9eZSn5HmAjgjMOPj+acY3/oeNpoK8fL1gqghvZKVnzxOakX7r+haXSBN
-	 EL+jVv9tfs1O8+sZRjzU/5akH1X7kfPsUaVG/m7+4diX4raIdu1nTn1V5uY88eDmIJ
-	 ZSBKP/3zmgEbntuMMAdFJ5mE3wK2dGCtgX8VTwXM5y3rGoLeWMOKotnPLAzmTg9cDk
-	 KlnALPQd3PXlcdquOVqHkun20NWb5kWerPFVydU52CDPIHseFhz3V4cUYuYo5QFt8t
-	 Fc/D0fPHbSfPcAFVGLX8/1QpitP5eZ4jwbsDgJ4rnP5+HU3TcMX5soZtUbMRICprBB
-	 IEYp1lSkuM7pQ==
-Date: Thu, 12 Jun 2025 13:19:45 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>, linux-pci@vger.kernel.org,
+	s=k20201202; t=1749727574;
+	bh=Wr3zLVYuYfWGn+MSJ4fOyJXUCAJrNU6nB+Tbsj+k/iU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=suHdLQXP65AqhZVXPaBfZJ5EJOGqG4tRoTejZ33KOs6rNHz/jZQ2DjOB1d4n6k8ac
+	 vODQ10GDg36OJ1lTqsWE/Jo+ItxEdyB71INni/2nHKasIoFbNmRUQMM091SoDAZoAl
+	 xOSwtsoGcmcB+ng0JK+fJGZCLFU/ixkrZBUds2/vpQs2baRKDAC5FLyqzFKnAhiMAV
+	 PrWRNU/1wENhvT4D7bGh93F/oraWclj2JU1tphs0tyWLUcSChs+vmuJkLR50dQ0loA
+	 Uoj0aw32ZptKrU4aNlDJNse2llCnkXH7SpvbQoiO6jlgpnAcDS0QtacOnA9DdEe718
+	 T8BEvYTjfl+rQ==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Chaotian Jing <chaotian.jing@mediatek.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: mhiramat@kernel.org,
+	Tomasz Figa <tfiga@chromium.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <aEq30a7vJmKyYWYT@ryzen>
-References: <20250611105140.1639031-7-cassel@kernel.org>
- <20250611211456.GA869983@bhelgaas>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] mtk-sd: Prevent memory corruption from DMA map failure
+Date: Thu, 12 Jun 2025 20:26:10 +0900
+Message-ID: <174972756982.3337526.6755001617701603082.stgit@mhiramat.tok.corp.google.com>
+X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
+User-Agent: StGit/0.19
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250611211456.GA869983@bhelgaas>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_041952_165560_D27DB7A9 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20250612_042615_928821_39D26726 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,61 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 04:14:56PM -0500, Bjorn Helgaas wrote:
-> On Wed, Jun 11, 2025 at 12:51:42PM +0200, Niklas Cassel wrote:
-> > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
-> > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
-> > and instead enumerate the bus directly after receiving the Link Up IRQ.
-> > 
-> > This means that there is no longer any delay between link up and the bus
-> > getting enumerated.
-> 
-> Minor quibble about "no longer any delay": dw_pcie_wait_for_link()
-> doesn't contain any explicit delay *after* we notice the link is up,
-> so we didn't guarantee sufficient delay even before ec9fd499b9c6.
-> 
-> If the link came up before the first check, dw_pcie_wait_for_link()
-> didn't delay at all.  Otherwise, it delayed 90ms * N, and we have no
-> idea when in the 90ms period the link came up, so the post link-up
-> delay was effectively some random amount between 0 and 90ms.
-> 
-> I would propose something like:
-> 
->   PCI: dw-rockchip: Wait PCIE_T_RRS_READY_MS after link-up IRQ
-> 
->   Per PCIe r6.0, sec 6.6.1, software must generally wait a minimum of
->   100ms (PCIE_T_RRS_READY_MS) after Link training completes before
->   sending a Configuration Request.
-> 
->   Prior to ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since
->   we can detect Link Up"), dw-rockchip used dw_pcie_wait_for_link(),
->   which waited between 0 and 90ms after the link came up before we
->   enumerate the bus, and this was apparently enough for most devices.
-> 
->   After ec9fd499b9c6, rockchip_pcie_rc_sys_irq_thread() started
->   enumeration immediately when handling the link-up IRQ, and devices
->   (e.g., Laszlo Fiat's PLEXTOR PX-256M8PeGN NVMe SSD) may not be ready
->   to handle config requests yet.
-> 
->   Delay PCIE_T_RRS_READY_MS after the link-up IRQ before starting
->   enumeration.
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Ok, I will shamelessly use this text verbatim.
+If msdc_prepare_data() fails to map the DMA region, the request is
+not prepared for data receiving, but msdc_start_data() proceeds
+the DMA with previous setting.
+Since this will lead a memory corruption, we have to stop the
+request operation soon after the msdc_prepare_data() fails to
+prepare it.
 
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+---
+ drivers/mmc/host/mtk-sd.c |   17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
+index 3594010bc229..56b4999fe58f 100644
+--- a/drivers/mmc/host/mtk-sd.c
++++ b/drivers/mmc/host/mtk-sd.c
+@@ -834,6 +834,11 @@ static void msdc_prepare_data(struct msdc_host *host, struct mmc_data *data)
+ 	}
+ }
+ 
++static bool msdc_data_prepared(struct mmc_data *data)
++{
++	return data->host_cookie & MSDC_PREPARE_FLAG;
++}
++
+ static void msdc_unprepare_data(struct msdc_host *host, struct mmc_data *data)
+ {
+ 	if (data->host_cookie & MSDC_ASYNC_FLAG)
+@@ -1466,8 +1471,18 @@ static void msdc_ops_request(struct mmc_host *mmc, struct mmc_request *mrq)
+ 	WARN_ON(!host->hsq_en && host->mrq);
+ 	host->mrq = mrq;
+ 
+-	if (mrq->data)
++	if (mrq->data) {
+ 		msdc_prepare_data(host, mrq->data);
++		if (!msdc_data_prepared(mrq->data)) {
++			/*
++			 * Failed to prepare DMA area, fail fast before
++			 * starting any commands.
++			 */
++			mrq->cmd->error = -ENOSPC;
++			mmc_request_done(mmc_from_priv(host), mrq);
++			return;
++		}
++	}
+ 
+ 	/* if SBC is required, we have HW option and SW option.
+ 	 * if HW option is enabled, and SBC does not have "special" flags,
 
-> I think the comment at the PCIE_T_RRS_READY_MS definition should be
-> enough (although it might need to be updated to mention link-up).
-> This delay is going to be a standard piece of every driver, so it
-> won't require special notice.
-
-Looking at pci.h, we already have a comment mentioning exactly this
-(link-up):
-https://github.com/torvalds/linux/blob/v6.16-rc1/drivers/pci/pci.h#L51-L63
-
-I will change the patches to use PCIE_RESET_CONFIG_DEVICE_WAIT_MS instead.
-
-
-Kind regards,
-Niklas
 
