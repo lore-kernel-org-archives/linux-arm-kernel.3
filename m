@@ -4,122 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D52C7114C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A7DC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UZaUurOrt1AA6JlidBnCXvptFMXwOUkDYNh/JmFBZE=; b=hyQLDoEGWZB8RXq9wk1qwXkiKR
-	RfN8Vo/8BylejbXpT7sNowFEJ53Hvr9MBwErb9STSW7+6TBp16/Hqjk6RIH27Clv0Wv5ve/t+D2MW
-	ShlNunrrlr2NFo8DmS16MmWe3MLLijr8pYQsETsSddoDT8ZexdFfm6qfZ3tmUs/keFdpGSygkNCib
-	N1xYzte+7O/Ogipqie2N6tnQ3BIO2Ga7O6ZSOie08PldTyFLFs7VNVh1Ek0SQAKtkt+pW53nogVjH
-	Iw0naq+aHKmu1r07HvrUbKHsfnzyGO/F+r/iFj34/GY/1/z5cmRrvoezVrYbkS6qAjNAi64b0T4YX
-	wmH6aTKw==;
+	bh=ERviKJzJWlZq/zWcOwo++EjzTpgeVRiokZ0eXobkweM=; b=Y97gudzy66shTj0YCT2dXst6Gb
+	+euOwvXdMemBoPuW3o9FMZiPTFuRbFlClxu8mh274sgDEvmVWftbqXWLznMip1m6AsvoZnxlmDWj4
+	pyefhchjiptIxOCnc36c0bWJwH4oP8/8tqJHIqAWmM2AvEX/D+cuv7T5nqtkFiJLS3xverZF4W+5U
+	JRuHjsAgDguNtOl8LiwttAfzSi7viB9ISs3G6Zkequ3HIlkUwIFBwnLvjm97qU/9yBcY7AaEwvyL5
+	6I1VMvNjnESftB4UeWuFT/QZ/jpfUaqA/FuXtBGfVX/6VX5Mn0sDESjocOST0dmdD5zv/wo6aJRJO
+	WCyML1gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPowS-0000000EXKI-0T3f;
-	Thu, 12 Jun 2025 20:54:32 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uPowO-0000000EXFA-0if7;
+	Thu, 12 Jun 2025 20:54:28 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPiGf-0000000DVkq-0fwN
+	id 1uPi1G-0000000DSxd-1HCu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 13:46:58 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55C7qdJV026026;
-	Thu, 12 Jun 2025 13:46:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	Thu, 12 Jun 2025 13:31:03 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55CCgPWj025965;
+	Thu, 12 Jun 2025 15:30:51 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4UZaUurOrt1AA6JlidBnCXvptFMXwOUkDYNh/JmFBZE=; b=Qpayt6fDpRwqs5IN
-	QfrYHcEju6B6ZpFnGfEsdHYk+XBSoB5zqvMPDR4vuk0zL0JPGQDnnrhgzD9X1V/Y
-	9/H9SxGRc1n7ZoqBbnTMtP0F/ZPYgTxvooOLZC5gYSqj+4LjS4+R3evBS95W2s5z
-	DdiJdN4L794EKFG8kSMcn00O8/kPFu99CihdpWpQMjdd6nVrya3DGmAIJuC62P/l
-	Hvj27wsIDiJGzyQiOJBNuYnJi8bcJrtLR7LUw75uaL5fL2X0IM22389QTeEQC6tO
-	pefzhazr/K/uK+nbETJBM/Qv1SdY3/ukciN53pY1GQ5DsrZX5qv3yfVPDXUS0h0E
-	niSDmg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 475v2ybhed-1
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	ERviKJzJWlZq/zWcOwo++EjzTpgeVRiokZ0eXobkweM=; b=CEkICjMoTQD0BpEW
+	suZqI97L6bGTXYEmI0lLhmS2Ix8pEnmIJHj/w4j00yCvyX9kVbX2PNQv2Lmi3QFv
+	HDEskOLiZ8Py1q+A4WKKv9CMH7uTzGKdJIeu80R6cRHVMtTnVQIxzwgDPB7xnuRR
+	ijfoEtAvYSluQMpp1+1c2fnyWw3yTPp3qkti4j/vZQcMOvp7y0BN0ay9XHXS8ARo
+	q9LRzEgc8F3S2ZV+80Xd2hmJ7VEtFHixDtvZUlg8aguRUhAMuUQeLCASt6l3l7lK
+	Mf7xPzOdZCA+HPxzb4mh8aoz4cZGpEf67SDE5YKcLNl2vlNA0BeXuZPgTh9HddHa
+	7vdsrQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474aums1xg-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Jun 2025 13:46:28 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55CDkRnp007216
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Jun 2025 13:46:27 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 12 Jun 2025 06:46:22 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Thu, 12 Jun 2025 21:46:09 +0800
-Subject: [PATCH v4 2/5] arm64: tlb: Convert the opencoded field modify
+	Thu, 12 Jun 2025 15:30:51 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 53BB940046;
+	Thu, 12 Jun 2025 15:29:42 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8557AB9C2B7;
+	Thu, 12 Jun 2025 15:28:53 +0200 (CEST)
+Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 12 Jun
+ 2025 15:28:52 +0200
+Message-ID: <341950d6-1a2c-4191-948a-6e572fa74cc0@foss.st.com>
+Date: Thu, 12 Jun 2025 15:28:51 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250612-field_modify-v4-2-ae4f74da45a6@quicinc.com>
-References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
-In-Reply-To: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
-To: Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes
-	<linux@rasmusvillemoes.dk>,
-        Julia Lawall <Julia.Lawall@inria.fr>,
-        "Nicolas
- Palix" <nicolas.palix@imag.fr>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton
-	<oliver.upton@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <cocci@inria.fr>,
-        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        <andrew@lunn.ch>, <quic_kkumarcs@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        Luo Jie <quic_luoj@quicinc.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749735973; l=1049;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=0hd3Xbu/1BPf0k75pV/Vg9Nmx0tY6XisEeYKWmsaInw=;
- b=MN4Ir/SPSOB8/z6pPsHFnzrQnIsWWBsWdoSc5igPk/5BO651bKFmoL5zTSlDlLiUdAHPXXMZ4
- vBPoLggVWK2BomicbhBfkt28p+7RgruSjgaOkwBcL+/lr/vvTfsC/ws
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEyMDEwNSBTYWx0ZWRfX9OVNPTYq5/fQ
- WkpnNqIAs8aif9RKa9JaAhPX7mhCVvZyQfYblBUBsXEvEiBmm0Y4pVP4QVhFbA5f4dnHWGAlCsG
- nOI13mR4wpofG1paHE2y3nxUMaxRzwkLWaa+Tqdevj15kyNM6+hJ5TOtAAEENnECtfQo0NJ6Uh3
- nTNnZeqwoxGzxTj/ypH3HQIiZzL+e92xKt8/RdjYoT90CFjzc28+jupqJD4DJyTMaki5De4cUd9
- yyNJdF6y1Gb6m4u1ydXUECHgKtAb7ZX0UIwxoUSaWfNQmbiSM4Bup5FiU4TnPlnikG2kZTzr7BS
- gNSRa2CfRaCHeJE+7Nba2eckEYS1mJ5ZtHZfNa5p2uwor/p9uxEuufCjjRLGPjpCfNVza6ix3gp
- 0OZ06PXEKdGLydTLwngKtFf5ttjmyvqCackEh2I/mR5fQ+RwLrK4WzFp7UxB0YzxntXY+jda
-X-Proofpoint-GUID: 95-X0mNwDG0cKiO8OxADInFGJISH4C46
-X-Proofpoint-ORIG-GUID: 95-X0mNwDG0cKiO8OxADInFGJISH4C46
-X-Authority-Analysis: v=2.4 cv=f+BIBPyM c=1 sm=1 tr=0 ts=684ada34 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=YgwN3AOMAAAA:8
- a=COk6AnOGAAAA:8 a=C2vL1j-_i977Atbg1qQA:9 a=QEXdDO2ut3YA:10
- a=ztR1XV6QG-NWxUt1dNgd:22 a=TjNXssC_j7lpFel5tvFf:22
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH v3 5/9] ARM: dts: stm32: add Hardware debug
+ port (HDP) on stm32mp13
+From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Linus Walleij
+	<linus.walleij@linaro.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-gpio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>
+References: <20250523-hdp-upstream-v3-0-bd6ca199466a@foss.st.com>
+ <20250523-hdp-upstream-v3-5-bd6ca199466a@foss.st.com>
+ <5b7a2102-ff68-4aab-a88d-0c4f9195ef95@kernel.org>
+ <3c868c4b-8a0e-44b5-9d6e-3a0526d9deeb@foss.st.com>
+ <3ba588ed-1614-4877-b6fc-b5aa853b8c2e@kernel.org>
+ <714ad17d-53f1-4703-8e13-61c290a8da89@foss.st.com>
+ <7000f63e-5e68-465d-9d7f-1a6ca0524222@kernel.org>
+ <a49d0af2-07b7-4f51-941b-fa25b2879720@foss.st.com>
+ <42a0b7ab-d85d-4d52-a263-4a4648c7ff05@kernel.org>
+ <2865ab3a-1c20-4951-8132-4be98d73d70e@foss.st.com>
+ <f1a63830-0533-4f1c-9116-32e8c1e61a8b@kernel.org>
+ <26a4f12a-2295-402e-8e31-45733aa6582d@foss.st.com>
+ <4f31f016-d250-41ea-b613-b074b8ea00d1@kernel.org>
+ <782763e2-99d6-4533-b0db-79b618577586@foss.st.com>
+ <30f8e319-4103-44ba-8f98-c01e7b0ba76c@kernel.org>
+ <49e5b9ca-6860-4ebe-9856-ae550e1aff42@foss.st.com>
+Content-Language: en-US
+In-Reply-To: <49e5b9ca-6860-4ebe-9856-ae550e1aff42@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-12_09,2025-06-12_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 mlxlogscore=579 bulkscore=0 impostorscore=0
- lowpriorityscore=0 priorityscore=1501 adultscore=0 phishscore=0 mlxscore=0
- malwarescore=0 clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506120105
+ definitions=2025-06-12_08,2025-06-12_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_064657_206493_6B26B277 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250612_063102_628193_E8754306 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,36 +119,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-- reg &= ~MASK;
-- reg |= FIELD_PREP(MASK, val);
-The semantic patch that makes this change is available
-in scripts/coccinelle/misc/field_modify.cocci.
+On 6/12/25 15:21, Clement LE GOFFIC wrote:
+> On 6/12/25 15:09, Krzysztof Kozlowski wrote:
+>> On 12/06/2025 15:02, Clement LE GOFFIC wrote:
+>>> On 6/12/25 13:05, Krzysztof Kozlowski wrote:
+>>>> On 12/06/2025 11:31, Clement LE GOFFIC wrote:
+>>>>> On 6/11/25 17:48, Krzysztof Kozlowski wrote:
+>>>>>> On 11/06/2025 16:08, Clement LE GOFFIC wrote:
+>>>>>>> On 6/11/25 08:35, Krzysztof Kozlowski wrote:
+>>>>>>>> On 10/06/2025 15:33, Clement LE GOFFIC wrote:
+>>>>>>>>> On 6/10/25 14:38, Krzysztof Kozlowski wrote:
+>>>>>>>>>> On 10/06/2025 14:02, Clement LE GOFFIC wrote:
+>>>>>>>>>>> On 5/29/25 11:01, Krzysztof Kozlowski wrote:
+>>>>>>>>>>>> On 28/05/2025 14:14, Clement LE GOFFIC wrote:
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>> +        };
+>>>>>>>>>>>>>>> +
+>>>>>>>>>>>>>>> +        hdp: pinctrl@5002a000 {
+>>>>>>>>>>>>>>> +            compatible = "st,stm32mp131-hdp";
+>>>>>>>>>>>>>>> +            reg = <0x5002a000 0x400>;
+>>>>>>>>>>>>>>> +            clocks = <&rcc HDP>;
+>>>>>>>>>>>>>>>                     status = "disabled";
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>> Why are you disabling it? What is missing?
+>>>>>>>>>>>>>
+>>>>>>>>>>>>> Nothing is missing just disabled by default.
+>>>>>>>>>>>>> The node is then enabled when needed in board's dts file.
+>>>>>>>>>>>> Nodes should not be disabled by default if they are 
+>>>>>>>>>>>> complete. That's why
+>>>>>>>>>>>> I asked what is missing. Drop.
+>>>>>>>>>>>
+>>>>>>>>>>> Hi Krzysztof, OK I better understand now.
+>>>>>>>>>>> So yes the 'pinctrl-*' properties which are board dependent 
+>>>>>>>>>>> are lacking.
+>>>>>>>>>>
+>>>>>>>>>> These are not properties of this node.
+>>>>>>>>>
+>>>>>>>>> Does this mean I should add 'pinctrl-*' properties in bindings 
+>>>>>>>>> yaml file ?
+>>>>>>>>> I don't get it..
+>>>>>>>>
+>>>>>>>> These properties have no meaning here, so the hardware 
+>>>>>>>> description is
+>>>>>>>> complete. You claim that you miss them thus device is incomplete 
+>>>>>>>> is just
+>>>>>>>> not correct: these properties do not belong here! They belong to 
+>>>>>>>> the
+>>>>>>>> board but even there they are totally optional. Why would they be a
+>>>>>>>> required resource?
+>>>>>>>>
+>>>>>>>> To remind: we talk here ONLY about required resources.
+>>>>>>>
+>>>>>>> Yes, 'pinctrl-*' properties belongs to the board and are not 
+>>>>>>> required.
+>>>>>>> So nothing is missing.
+>>>>>>>
+>>>>>>> This hdp node in the SoC dtsi file can be enabled by default.
+>>>>>>> But the hdp driver will probe and do nothing because without the
+>>>>>>> 'pinctrl-*' properties from the board files it would not be able to
+>>>>>>> access to any pin.
+>>>>>>
+>>>>>>
+>>>>>> Pinctrl has other features in general, including interfaces to 
+>>>>>> userspace
+>>>>>> (as pretty often combined with gpio, although not sure if relevant 
+>>>>>> here).
+>>>>>
+>>>>> You're right. Also HDP pinctrl has a GPO feature accessible from 
+>>>>> userspace.
+>>>>> But by default the HDP is not connected to any pad; it needs the board
+>>>>
+>>>> OK, then that was the answer to my first question - what is missing.
+>>>> However aren't these pads connected internally also to other parts of
+>>>> the SoC (like in most other vendors)?
+>>>
+>>> No, HDP "output pads" are only connected to SoC pinctrl to route outside
+>>> the internal SoC signals for debug purpose.
+>>>
+>>>>> 'pinctrl-*' properties to configure the SoC pinctrl and expose HDP on
+>>>>> the SoC pads.
+>>>>>
+>>>>> That's why for me the enabling of the driver should be in the board 
+>>>>> file
+>>>>> together with the SoC pinctrl configuration.
+>>>>
+>>>> And what are the default pad settings configured by HPD driver in
+>>>> bootloader (and by bootloader I mean one of few bootloaders this is
+>>>> going to be used on like U-Boot)
+>>>
+>>> The default is to use the GPIO of the SoC pinctrl. The HDP is not routed
+>>> outside.
+>>>    >>
+>>>>> The userland cannot change the pinctrl alternate function mux, this is
+>>>>> statically defined by the devicetree.
+>>>>
+>>>> If you expose GPIO then userland needs this regardless of alternate 
+>>>> mux.
+>>>> IOW, board level could not configure mux because it should be always
+>>>> configured to safe GPIO input.
+>>>
+>>> For userland sight view, SoC GPIO are preferred instead of HDP.
+>>> HDP is only GPO not GPIO. 'pinctrl-*' properties configure at the same
+>>> time the SoC pinctrl mux to HDP and the HDP pinctrl mux to one of the
+>>> HDP functions (e.g. GPO).
+>> Thanks, that's explains, fine to keep it disabled. Unless it is obvious
+>> for everyone, it would be nice to put it in commit msg.
+> 
+> You're welcome, so I'll provide the V6 with more information in the
+> commit message of patch [5-7] among other needed fixes.
 
-More information about semantic patching is available at
-http://coccinelle.lip6.fr/
+V5*
 
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
----
- arch/arm64/include/asm/tlbflush.h | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index aa9efee17277..cdcee05bdf6d 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -112,8 +112,7 @@ static inline unsigned long get_trans_granule(void)
- 	    level >= 0 && level <= 3) {					\
- 		u64 ttl = level & 3;					\
- 		ttl |= get_trans_granule() << 2;			\
--		arg &= ~TLBI_TTL_MASK;					\
--		arg |= FIELD_PREP(TLBI_TTL_MASK, ttl);			\
-+		FIELD_MODIFY(TLBI_TTL_MASK, &arg, ttl);			\
- 	}								\
- 									\
- 	__tlbi(op, arg);						\
-
--- 
-2.34.1
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> _______________________________________________
+> Linux-stm32 mailing list
+> Linux-stm32@st-md-mailman.stormreply.com
+> https://st-md-mailman.stormreply.com/mailman/listinfo/linux-stm32
 
 
