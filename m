@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7306EC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 22:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F04C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 23:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jzmRU8e0Q9GIzwuNdLe4pkXfG5Ts0iaAXYrkLn/GG3U=; b=YVDSusgxGDZoOro/LyZznEdhQg
-	B7yDqbfM0g+mZ14K+3InIrk0TulzCalMSMDSzmJluWUSgzjf6Pp6XhdsvvZdaZ3tXH0YLVfakR7rj
-	6FFjKn/JhbDKn7SLKBh0CvcBy74WAZD6k4a+SVAPhoi2jt4mesZ5AigbU9j4uOTWbzSEMgRVoALL5
-	bcayQU2Ftg/wym9e63ml8JftO5Qhbt6mOSbWeLEXQYqC79xlsYrg6LD4Uu0WA7Lw4uHUuf/KZX8jU
-	w/Sne3wgHzReOmY2/KeSHOBtiSCDYhFrl0VAAQ60nNkxzW26R40MKqKYP9wYeBECwOKgSgumyPbjJ
-	YZ6/gYeg==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OamLTREMTNhbPzis3H8yslOZNEyB94k23+YHs8WfuuM=; b=0le11/F3kIXvqqFRUjPLxkPZTe
+	rHMmfsAydQyenmOnbnLI4IGnJaPLz4I5jUymSlFSjEGIzU6LfZ3xGv9YHUYqCbnRA1LlaTauem9Mj
+	yYkAXA3kA+FpH+sfH1heIFMAnMfkTdiC/MEfJaVE+40oT0WhtKC3pc9TkRx8lI1X9qdbORGGqYYQ/
+	WIxSOvd9mXah13ful5qqX30q+xa6OPngtox7kQ5JzaiyDa3vTxwnbtCxu4USKUwzg7sXfGrsBWHl6
+	hmnguPm+sO3HG6qgFtuiWECxAbBe+TAmmPcP9yvy6ABqjAY/glZLmMkPCHzDYFpp05lrp+dJRbtsE
+	Akm7aDVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPqtU-0000000EpWU-2i0j;
-	Thu, 12 Jun 2025 22:59:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPrW4-0000000ErWq-1cEZ;
+	Thu, 12 Jun 2025 23:39:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPqrM-0000000EpRj-0RZd;
-	Thu, 12 Jun 2025 22:57:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B35775C697B;
-	Thu, 12 Jun 2025 22:55:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEF88C4CEEA;
-	Thu, 12 Jun 2025 22:57:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749769043;
-	bh=ykd8RMALh+FdUALg8KX24gUcm7zV+uiH0gak7IN+QcA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=bassEZNry6kd0FxoEjj3OZds11wg8zyXxiinwQKUNNZ9d1DWAymwA9WtsM60Zm/A1
-	 Qc9n+tB88AX3JOeZ6aB7sAooB+oDrBJZd60+6IjglPshNVx7FJei6c0a/kkIwp3tPN
-	 75Z5kgoPW5boNXY8b/dwsUiRLVYr/kH5Gr9IcNSFFHVDSEDRj5NtCCykhkp6TkkO6s
-	 4OYf1sohglFKMx3W1naaWODcpQIqIaIsTZVujtLmsGm4jAE6tNVkXb+jacNtqAROb2
-	 BVhv3SbYtOJC7TLvZdVoDagGoQEEAYfzGiSinwI5+nS6AOeORKdn7Oiz9iUHFj5jO6
-	 0bqn68VgBUrTw==
-Date: Thu, 12 Jun 2025 15:57:21 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Eric Dumazet <edumazet@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Add TCP LRO support
-Message-ID: <20250612155721.4bb76ab1@kernel.org>
-In-Reply-To: <aEtAZq8Th7nOdakk@lore-rh-laptop>
-References: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
-	<CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
-	<aEg1lvstEFgiZST1@lore-rh-laptop>
-	<20250611173626.54f2cf58@kernel.org>
-	<aEtAZq8Th7nOdakk@lore-rh-laptop>
+	id 1uPqUk-0000000Emn1-44em
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 22:34:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749767641;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=OamLTREMTNhbPzis3H8yslOZNEyB94k23+YHs8WfuuM=;
+	b=fDgRqPvpuE1QhNV1cf5dI63co8opXzFjVrkhSC8MUkZd10XbYfWU71H4B3KSrYVSO2tltZ
+	Og46r/ZlDqG4sb77fq4HppHPBCiZO0d9dVLKhAXN1p1h7SRfzUlCd73f2tEfNYUVr7jjIy
+	SsJUBUvGKjdN4W7uWDVY+eD2GoqTAgI=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-643-qnUHBIeGP2m8rFR11MZLsQ-1; Thu,
+ 12 Jun 2025 18:32:06 -0400
+X-MC-Unique: qnUHBIeGP2m8rFR11MZLsQ-1
+X-Mimecast-MFC-AGG-ID: qnUHBIeGP2m8rFR11MZLsQ_1749767525
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6DB801800343;
+	Thu, 12 Jun 2025 22:32:05 +0000 (UTC)
+Received: from [172.20.188.120] (unknown [10.30.45.122])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 846C230044CC;
+	Thu, 12 Jun 2025 22:32:04 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 24 of 41): Test report for for-kernelci
+ (6.16.0-rc1, upstream-arm-next, 39dfc971)
+Date: Thu, 12 Jun 2025 22:32:04 -0000
+To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Message-Id: <52545.125061218320600539@us-mta-643.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7mWfHW7sYePIXbJdOukgn1S_h1joaweKj4T5r5qYqKg_1749767525
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_155724_188860_1DAA6AB8 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250612_153403_080636_A2056228 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +84,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Jun 2025 23:02:30 +0200 Lorenzo Bianconi wrote:
-> > I'm not Eric but FWIW 256B is not going to help much. It's best to keep
-> > the len / truesize ratio above 50%, so with 32k buffers we're talking
-> > about copying multiple frames.  
-> 
-> what I mean here is reallocate the skb if the true size is small (e.g. below
-> 256B) in order to avoid consuming the high order page from the page_pool. Maybe
-> we can avoid it if reducing the page order to 2 for LRO queues provide
-> comparable results.
+Hi, we tested your kernel and here are the results:
 
-Hm, truesize is the buffer size, right? If the driver allocated n bytes
-of memory for packets it sent up the stack, the truesizes of the skbs
-it generated must add up to approximately n bytes.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-So if the HW places one aggregation session per buffer, and the buffer
-is 32kB -- to avoid mem use ratio < 25% you'd need to copy all sessions
-smaller than 8kB?
+Tested-by: CKI Project <cki-project@redhat.com>
 
-If I'm not making sense - just ignore, I haven't looked at the rest of
-the driver :)
+Kernel information:
+    Commit message: arm64/ptrace: Fix stack-out-of-bounds read in regs_get_=
+kernel_stack_nth()
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1867320503
+
+Tests that were not ran because of internal issues:
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    Hardware - Firmware test suite [aarch64]
+    machineinfo [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    selinux-policy: serge-testsuite [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+    xfstests - btrfs [aarch64]
+    xfstests - ext4 [aarch64]
+    xfstests - xfs [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
