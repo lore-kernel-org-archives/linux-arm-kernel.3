@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F67C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636F5C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=1WNAXXSOxT4DLp1YMQMWXGbDAEfwxLyPcvFozLrc3Ck=; b=LezzOVG9msHTb4
-	grkxJhUSWU6EdIjdwrm6OZ17IXnEEqQq+TkzY9ZD3qV14dV3/PDzFBiMqtSmF0dL/L8H8ONYCwla5
-	KIWORA2MGMQATqHsV4RNh2nL1fh/Mp/Gb9sS0CiSr9bKAp9ysbrg1ZZ/d49baSNFlIOxXcMGUsYnk
-	hQlFUPQ/QKOvadxlTGmuwSyRT2gU9LXrXcEAnvNTdbBr3ha/CZELkbWzwsLZ7kuhma2JKWJCaKwvP
-	ABAO4gnG0oQd6/CoOXAIQ4exUz+JCa9snkfMyVeAzo/LtKaeDk/xNFelkT0xZU8kepA+Y1QOzIdF1
-	G3TaN3d1k/IKQjJzsSKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OAwzjOoPOJenUbA+hupVn9J/974uXM3UmFx57fi1psE=; b=PPZO1LG+C/O6G7EGTXoUamTfSd
+	cqmdY9nlZH8snr2AjZiFfMebEqCulmbWLKnQ6m2cXdX4AKZ7Nd1hOS6W29uLu9zyMvHbDeAFI1Fdc
+	pPCooJsWydJ7NE7Lug2vDc3twhONLtbr87wlAGVEzLTtnl3H4Slk3bByLDSZxBMpsUrVT75Q9DuXs
+	H21HQxmdWJ+bbzPrQFM1HFAr+vVIJBqQnnHuZ8OiaQzYLqd7YEXCBjdMXzrL1LGP5zTgsRdajYXYi
+	jeL6sDgje4n15RN4vHgT2DYzLXIqZSLLYTGEwxj5ONokjiXYdaWTW5+J2pVQuY8b8EntJRPlBIM0t
+	5zc+MzUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhqB-0000000DNeO-1hNq;
-	Thu, 12 Jun 2025 13:19:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uPhpN-0000000DMGI-3GPP;
+	Thu, 12 Jun 2025 13:18:45 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPgGL-0000000DA0g-25T4;
-	Thu, 12 Jun 2025 11:38:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 535425C5FC6;
-	Thu, 12 Jun 2025 11:36:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 847A9C4CEEA;
-	Thu, 12 Jun 2025 11:38:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749728308;
-	bh=dvltVZQeoJH8CB+yRsJHbwu0+yuikY9e90OT10169d0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=GrH18u1GPneQW7cOB0tVsoOuu1hgWVJxGhLrjZbuYvHScNf5YSmVvlriPaUHQ90Zd
-	 HWZQt0e3K1zO6F785Ejp9okiBIFHvw2yknOeeF68PnN7BN2ymVXjbPwHHo2BIB50X2
-	 0goe6kd+q+kuiFZT+WMjVRsCX/krBul9Z6Zp+yDz69fH+aAwNXQBz3eGuTXt+l0Wb8
-	 bAiFz0TOsEAFlSqL1h8+M+zH6IFC8lJCUJz4cuClf1hTJVPjclFLg9Li4FtvNq3g/1
-	 04xDN99xb2kcnW+QLV6y4YaN21OZtLGukX/Gr6A77ocX7daz8VKRaJA3tjcb5J+PE0
-	 MqmItp9DXUg7w==
-Date: Thu, 12 Jun 2025 06:38:27 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <20250612113827.GA894522@bhelgaas>
+	id 1uPesY-0000000Cvhc-1xm3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 10:09:51 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 12 Jun
+ 2025 18:09:34 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 12 Jun 2025 18:09:34 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson
+	<bjorn.andersson@oss.qualcomm.com>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+	<nfraprado@collabora.com>, Taniya Das <quic_tdas@quicinc.com>, Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
+	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@google.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<soc@lists.linux.dev>, Mo Elbadry <elbadrym@google.com>, Rom Lemarchand
+	<romlem@google.com>, William Kennington <wak@google.com>, Yuxiao Zhang
+	<yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
+	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
+Subject: [PATCH v0 5/5] arm64: configs: Update defconfig for AST2700 platform support
+Date: Thu, 12 Jun 2025 18:09:33 +0800
+Message-ID: <20250612100933.3007673-6-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
+References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aEq30a7vJmKyYWYT@ryzen>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_043829_575388_CC648EBD 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20250612_030950_502024_F94A2301 
+X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +78,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 01:19:45PM +0200, Niklas Cassel wrote:
-> On Wed, Jun 11, 2025 at 04:14:56PM -0500, Bjorn Helgaas wrote:
-> > On Wed, Jun 11, 2025 at 12:51:42PM +0200, Niklas Cassel wrote:
-> > > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
-> > > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
-> > > and instead enumerate the bus directly after receiving the Link Up IRQ.
-> > > 
-> > > This means that there is no longer any delay between link up and the bus
-> > > getting enumerated.
+- Enable options for ASPEED AST2700 SoC.
 
-> > I think the comment at the PCIE_T_RRS_READY_MS definition should be
-> > enough (although it might need to be updated to mention link-up).
-> > This delay is going to be a standard piece of every driver, so it
-> > won't require special notice.
-> 
-> Looking at pci.h, we already have a comment mentioning exactly this
-> (link-up):
-> https://github.com/torvalds/linux/blob/v6.16-rc1/drivers/pci/pci.h#L51-L63
-> 
-> I will change the patches to use PCIE_RESET_CONFIG_DEVICE_WAIT_MS instead.
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-I'll more closely later, but I think PCIE_T_RRS_READY_MS and
-PCIE_RESET_CONFIG_DEVICE_WAIT_MS are duplicates and only one should
-exist.  It looks like they got merged at about the same time by
-different people, so we didn't notice.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 897fc686e6a9..c9d90aa07e59 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -38,6 +38,7 @@ CONFIG_ARCH_AIROHA=y
+ CONFIG_ARCH_SUNXI=y
+ CONFIG_ARCH_ALPINE=y
+ CONFIG_ARCH_APPLE=y
++CONFIG_ARCH_ASPEED=y
+ CONFIG_ARCH_BCM=y
+ CONFIG_ARCH_BCM2835=y
+ CONFIG_ARCH_BCM_IPROC=y
+-- 
+2.34.1
 
-Bjorn
 
