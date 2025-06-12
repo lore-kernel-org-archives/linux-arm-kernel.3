@@ -4,70 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ADFC7114C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 22:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F65C71150
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 22:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGisR5q01XAIOesQs5L0N+XGe0zqQ7m0wPiojzEI9Og=; b=wmncpophZYh13MuXgSxf0nmZNW
-	5hTDzmMF6tAevKpx2KCGLCVjQ/izk8QsbLFJ7j4HC/LQb/zaySRil67v6ynOIQNQtcDF5+i5vXZzy
-	AedHYWZD4+JDYXMqLsbSGKmwVQ2WBp58wCQpfSkWdJ/JA9AA6H2cI1QW2Q/PTObZQG26zGcd1eUiQ
-	gF8EatUAlUNDXzgGN0aIAao+RIrpYctiUlPq9yyuj6B7N1PXp06DuiZglhv7MIXjAlWLiv5qwZPwg
-	5lwWWlZNKWcEvErXCz1e+kf2nAYjKSVCjbHbnYNAMbVCz2qdXKePkuwuYY0tdjQjLjgVjRtXsl11F
-	mf4c3c/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=drjDvrrw4mJFoILdSf7D8mtW8M84pvZBDvAYOC3Fxds=; b=kyuygl193GiG6doGCtC4o2cmDI
+	xi3QrfnGOsxf4FQ7OQ/usL2cjIT/NAGUTWad371zv7ih0ubhL73Sdb86qzQuRW+aPweKJRf7aY1SA
+	vG9YkyMffajNsARoj4wKX1J6VLvUIdtGHNCHMpgtXH2PNDHWf1RJxQisTvLhmmPLLC35Zy0i8mr1A
+	Tr5XWJz7Ba2Hm8wegCTZEkBJDBmTlXAznc4A7rYqU+0zXWn5ssVw2bseV7o5LjmRysMJlGskpOMJQ
+	LF1CVewI6QLvew40nEXWvhcCSbfJCtOAov/GSnJr1j/L5d8iyWUKYG1B2Cm8pU68M1mcaDv6503Qs
+	dSU0MZWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPq77-0000000EjMj-1In8;
-	Thu, 12 Jun 2025 22:09:37 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uPq73-0000000EjIe-4AKO;
+	Thu, 12 Jun 2025 22:09:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjmr-0000000DmHx-1Q4w
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:24:18 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 2ACBD25F65;
-	Thu, 12 Jun 2025 17:24:16 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id r_qGc3chGkXr; Thu, 12 Jun 2025 17:24:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1749741854; bh=0tk46VOA66/3d6qEQYb+l0xO5AU5QMnPGgQyQYlF/vI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=c9oYCxm6GzAKVUh3/hD8mUU1mPHM0GoTYBTH4HmJAG7VE7B9Y99P7sCDQ4qv2mpXx
-	 I8J/8GjyUnSo/k7MtjpC7x8kTvlmsv9KK2FS3Zfkm1V513+FM9Z8Dqcd6HuZYqjovy
-	 HhUzgxCBWHXOWpeue2JxAs4RM/zZAOJjI1TAty5yy1O5Q9Hn7FfqZMu7zzwS11l+x1
-	 zdGcqg4Qu8fo+qUGXVr32YjbQ7AkCqr5qLgNRfZmufgvdYg81M89Ba/m8LdV1vNDKA
-	 TTBX7bPAAXw25uss6vAddZLSB+sqGRZtUM3K8zf8JsgUIsJsC6LZxbE7o5Aq+O1E28
-	 YDng7IvzQtrVQ==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Thu, 12 Jun 2025 20:53:38 +0530
-Subject: [PATCH 2/5] arch: arm64: dts: exynos7870: add DSI support
+	id 1uPjjm-0000000Dlld-2ejm;
+	Thu, 12 Jun 2025 15:21:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 622CB44805;
+	Thu, 12 Jun 2025 15:21:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89ACBC4CEEA;
+	Thu, 12 Jun 2025 15:21:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749741666;
+	bh=wshbG/vQ6UX9QKzvPFllw/wGW4HRGOaCAzXepA4wqWI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XaiYzB2Af7RXh0Twpx+T1OBL4I2ke8snzfvGviZYp+JvsI80bLXqv1VwQ7/bZvCAB
+	 jizLTAUq6IHMdMIAuO0x67PXluwMf2ftZJNMOparAc6c+UshciGzVnPEpDNw/sVwkR
+	 ZPBrUrcdppmPGKgeJQHc9UkW8StOvC7G/0cn8iK+2eVUWiLznnW74BA+2oAQ89O/Gy
+	 2W0appmJNEt1/IrH8cz1kMuoc9pMa4Dl/JJPtYNlNMUDF4IZ+ek/ZgGGrjwzsj6Vzi
+	 ROXQfNq1C0bDEhqoDOPCn6t75lY9Th9OUowpOVsmqGOVfe00p/d12aL3fiTFh/yqgA
+	 fIK6za3tIWq5A==
+Date: Thu, 12 Jun 2025 16:20:59 +0100
+From: Will Deacon <will@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	David Hildenbrand <david@redhat.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Rik van Riel <riel@surriel.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>, Harry Yoo <harry.yoo@oracle.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH v1] mm: Remove arch_flush_tlb_batched_pending() arch
+ helper
+Message-ID: <20250612152058.GE12912@willie-the-truck>
+References: <20250609103132.447370-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250612-exynos7870-drm-dts-v1-2-88c0779af6cb@disroot.org>
-References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
-In-Reply-To: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749741830; l=3928;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=0tk46VOA66/3d6qEQYb+l0xO5AU5QMnPGgQyQYlF/vI=;
- b=oRITryE5Tj7D7uu58NlAzssxkZrSPl/+hx5ra3b5dMF7+F3JnWCYOkPxa54i02PCt9JRSE27b
- y2zBSY2wNGzAq1n4fhKlvF/f6nv1dv+t+9cUZNwVyvfGEOEVKeBGJr2
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250609103132.447370-1-ryan.roberts@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_082417_642640_5EC14A3F 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_082106_688257_B7A21F94 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree nodes for MIPI PHYs, Samsung's DECON and DSIM blocks, and
-DECON IOMMU devicetree nodes. Enables SoC support for hardware to be
-able to drive a MIPI DSI display.
+On Mon, Jun 09, 2025 at 11:31:30AM +0100, Ryan Roberts wrote:
+> Since commit 4b634918384c ("arm64/mm: Close theoretical race where stale
+> TLB entry remains valid"), all arches that use tlbbatch for reclaim
+> (arm64, riscv, x86) implement arch_flush_tlb_batched_pending() with a
+> flush_tlb_mm().
+> 
+> So let's simplify by removing the unnecessary abstraction and doing the
+> flush_tlb_mm() directly in flush_tlb_batched_pending(). This effectively
+> reverts commit db6c1f6f236d ("mm/tlbbatch: introduce
+> arch_flush_tlb_batched_pending()").
+> 
+> Suggested-by: Will Deacon <will@kernel.org>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/include/asm/tlbflush.h | 11 -----------
+>  arch/riscv/include/asm/tlbflush.h |  1 -
+>  arch/riscv/mm/tlbflush.c          |  5 -----
+>  arch/x86/include/asm/tlbflush.h   |  5 -----
+>  mm/rmap.c                         |  2 +-
+>  5 files changed, 1 insertion(+), 23 deletions(-)
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- arch/arm64/boot/dts/exynos/exynos7870.dtsi | 94 ++++++++++++++++++++++++++++++
- 1 file changed, 94 insertions(+)
+Thank you, Ryan!
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870.dtsi b/arch/arm64/boot/dts/exynos/exynos7870.dtsi
-index 5cba8c9bb403405b2d9721ab8cf9d61e3d5faf95..fac92081fef389fe6084db3043614f0b276d0f19 100644
---- a/arch/arm64/boot/dts/exynos/exynos7870.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos7870.dtsi
-@@ -178,6 +178,14 @@ pmu_system_controller: system-controller@10480000 {
- 				     "samsung,exynos7-pmu", "syscon";
- 			reg = <0x10480000 0x10000>;
- 
-+			mipi_phy: mipi-phy {
-+				compatible = "samsung,exynos7870-mipi-video-phy";
-+				#phy-cells = <1>;
-+
-+				samsung,disp-sysreg = <&syscon_disp>;
-+				samsung,cam-sysreg = <&syscon_cam>;
-+			};
-+
- 			reboot-mode {
- 				compatible = "syscon-reboot-mode";
- 				offset = <0x080c>;
-@@ -674,6 +682,86 @@ cmu_isp: clock-controller@144d0000 {
- 				 <&cmu_mif CLK_GOUT_MIF_CMU_ISP_VRA>;
- 		};
- 
-+		syscon_cam: syscon@144f1040 {
-+			compatible = "samsung,exynos7870-cam-sysreg",
-+				     "samsung,exynos7870-sysreg", "syscon";
-+			reg = <0x144f1040 0x04>;
-+		};
-+
-+		dsi: dsi@14800000 {
-+			compatible = "samsung,exynos7870-mipi-dsi";
-+			reg = <0x14800000 0x100>;
-+			interrupts = <GIC_SPI 207 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			clock-names = "bus_clk", "sclk_mipi",
-+				      "phyclk_mipidphy0_rxclkesc0",
-+				      "phyclk_mipidphy0_bitclkdiv8";
-+			clocks = <&cmu_dispaud CLK_GOUT_DISPAUD_BUS_DISP>,
-+				 <&cmu_dispaud CLK_GOUT_DISPAUD_APB_DISP>,
-+				 <&cmu_dispaud CLK_GOUT_DISPAUD_MUX_MIPIPHY_RXCLKESC0_USER>,
-+				 <&cmu_dispaud CLK_GOUT_DISPAUD_MUX_MIPIPHY_TXBYTECLKHS_USER>;
-+
-+			phy-names = "dsim";
-+			phys = <&mipi_phy 1>;
-+
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					dsi_to_decon: endpoint {
-+						remote-endpoint = <&decon_to_dsi>;
-+					};
-+				};
-+			};
-+		};
-+
-+		decon: decon@14830000 {
-+			compatible = "samsung,exynos7870-decon";
-+			reg = <0x14830000 0x8000>;
-+			interrupt-names = "fifo", "vsync", "lcd_sys";
-+			interrupts = <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 202 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 203 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			clock-names = "pclk_decon0", "aclk_decon0",
-+				      "decon0_eclk", "decon0_vclk";
-+			clocks = <&cmu_dispaud CLK_GOUT_DISPAUD_MUX_PLL>,
-+				 <&cmu_dispaud CLK_GOUT_DISPAUD_MUX_BUS_USER>,
-+				 <&cmu_dispaud CLK_GOUT_DISPAUD_MUX_DECON_ECLK>,
-+				 <&cmu_dispaud CLK_GOUT_DISPAUD_MUX_DECON_VCLK>;
-+
-+			iommus = <&sysmmu_decon>;
-+
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+					decon_to_dsi: endpoint {
-+						remote-endpoint = <&dsi_to_decon>;
-+					};
-+				};
-+			};
-+		};
-+
-+		sysmmu_decon: sysmmu@14860000 {
-+			compatible = "samsung,exynos-sysmmu";
-+			reg = <0x14860000 0x1000>;
-+			interrupts = <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <0>;
-+
-+			clock-names = "sysmmu";
-+			clocks = <&cmu_dispaud CLK_GOUT_DISPAUD_MUX_BUS_USER>;
-+		};
-+
- 		pinctrl_dispaud: pinctrl@148c0000 {
- 			compatible = "samsung,exynos7870-pinctrl";
- 			reg = <0x148c0000 0x1000>;
-@@ -691,6 +779,12 @@ cmu_dispaud: clock-controller@148d0000 {
- 				 <&cmu_mif CLK_GOUT_MIF_CMU_DISPAUD_DECON_ECLK>,
- 				 <&cmu_mif CLK_GOUT_MIF_CMU_DISPAUD_DECON_VCLK>;
- 		};
-+
-+		syscon_disp: syscon@148f100c {
-+			compatible = "samsung,exynos7870-disp-sysreg",
-+				     "samsung,exynos7870-sysreg", "syscon";
-+			reg = <0x148f100c 0x04>;
-+		};
- 	};
- 
- 	timer {
+Acked-by: Will Deacon <will@kernel.org>
 
--- 
-2.49.0
+I assume this will go via akpm rather than the arch tree?
 
+Will
 
