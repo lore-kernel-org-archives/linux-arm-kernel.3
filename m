@@ -4,65 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8503C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 06:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D510C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 06:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZT1q8VwCdE0CtIsr1CnU/DTYu0PZsqPDY3Z49/cttbs=; b=1Xnqezq4fX1InWJanm2skfSFwV
-	ju/VtrVmVdvTW6zjc2soxw3AGV5Q+PSvvuFLvPvRpTIo4bl5sR88tgZHtFKg1HhoZbP4/n9SHZXb+
-	xQ5HdoWCLGaD/XlhnYThKRAyFriAW7dPEM9mhjiqojBk88Sic2Nc0cUAlwP75sRVzfyJCdwYZsIg8
-	s5S7sQgusR1WD+lAZleagCn6eJL/qpRA5gUsq6Rmmo0F6gxHd8cVFzNxCXbQeRyEZmWeBRDthwqh+
-	sNAmtSvoy4RaNv0i19PNUxMBboDBIcrYjhCerUcc8nXZAIldNKbPTE46tzsfxVKcdszmafeV9OzL0
-	ZSdeocog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mDCNxCiX5CIOfx/smFjNPbsKZhAyZ3eCgJahtTIlnys=; b=2onEoG6A5N7DSK17dsymzFlyWY
+	2uIS2KkwMaOtG6JOsfwoI5q9pM21dhEJKJoXUVm8WUF2WvlLUZTMdNTQhhD38X08JHutwy6dhzNEk
+	OgwGNOkkuNi8wEu4I0tAKPvalA7Prdb/I/oyZx2iVSZ40rXcPCTIJuKgsxxiWvxMsGFeMDF7AA1FW
+	ugtrEAlhvfDzvFaDq4oyKFQBlzAWhUZtF92G6r5s8vUqUZPBDr9Qc2UIzi+06OuVKnJh9OClbz0+k
+	h74V/OSC6ElnXZ/blTvWKPYDVhFxrsKPJbq00t+GqwnlZNuLPEXHPpvfMh2Muw8SPKb4TyePL2ov8
+	j4kgmJgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbiS-0000000CLyn-1wsc;
-	Thu, 12 Jun 2025 06:47:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbgL-0000000CLLZ-1rmX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 06:45:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11DE014BF;
-	Wed, 11 Jun 2025 23:44:40 -0700 (PDT)
-Received: from [10.163.33.129] (unknown [10.163.33.129])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 711AB3F59E;
-	Wed, 11 Jun 2025 23:44:52 -0700 (PDT)
-Message-ID: <f89faeb2-1091-41af-ae06-f49bd2d4866a@arm.com>
-Date: Thu, 12 Jun 2025 12:14:49 +0530
+	id 1uPbse-0000000CN57-2i5B;
+	Thu, 12 Jun 2025 06:57:44 +0000
+Received: from mail-dm6nam10on20604.outbound.protection.outlook.com ([2a01:111:f403:2413::604] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPbqX-0000000CMni-0rGY;
+	Thu, 12 Jun 2025 06:55:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ne/mWo/3HIyKHZZXkuivVrlUSy3LPdP8WsKcgmVOmaO+o7mP8cAceChMLaq7VBrDHihu0TpCA+3rRBqqmlGaxvwVSVEWbOS9PWmosMZMm/uf5tOO5DqLrRXtKJfk0nQmSIs8t1A0bQr3Ha2ccIICxd8YW8coe0ENz7CycVV/il3yBzf1zw4G4xJoJ1MlL3yW6cdhx19t7UD9L49EqVZ/9OBH+9qiYy/dfIk71wpAKXlX/EoeSDJHTk+H5sGWvwbnfT4KP+sy4HQnnz7fYsNnFl1nfdc1f0L6XMwpbxNJ0zr1KU6FU97vWXiPT6XWA6FE+YGjb9Fz9J1sPTdztuMNNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mDCNxCiX5CIOfx/smFjNPbsKZhAyZ3eCgJahtTIlnys=;
+ b=GuALqvMTbv81a1wkhMcfsy51Mo2vX72F/jKXmtCMKzMyBQuoAywcsoMmdjuHc+La1BWMPPmML9OGB237mfHuqIbEhisDo9NVypuQGShi6kEjTGDZy4JyC6xLz3xzKeubtSw2By75So1VpgHPb9xuDPD4Racyug0rLTHJHLQyncfjxkXUMiCnSLq5yIEMU9L7LpcxUrFGfzlwptwdklpCS7efCzDwtiGR9SZETs/nT1+OqhYUmDvt4Vz4zfVEuBQB+rGKj8lWTQfgR9U9kE77cLNHrwlSdR7k93+BT4RSJmbczcRFU9dDmR0wpyrfsPDdWNfekhnQpSWBtTUZ/HhMmA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mDCNxCiX5CIOfx/smFjNPbsKZhAyZ3eCgJahtTIlnys=;
+ b=EDijHz/Gen4f8CgL1DFQwbYkpxNLz8kOMmTeIcIxEgsk4PRwQCb/ag8vL8Z52iD9MH2TFN1FuXZ75GWaOz5HTq/rxvwoWUCUdRxzJumOkHZab7hRmWa7FJWoZ8WHc8rrEkRecHup24MIqGpoJxcC/gVpypUW6qrTUSx9eTqtHtAZqxTJqukwHBWOjAHRXSIwNlnVgq4SrtruH0ucmkeGWcBDY6ctNnWi8Zla44Y2ditoPmWsTNhywZfjruYnFGhYC0u6qwEoSDPmcJYyJJY2VT7MAIDFTrep9u3O+kct9GcS00oV/vSsl7mxEiRhZs3Kjx33nzxisrqfkfsR179log==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7728.namprd12.prod.outlook.com (2603:10b6:8:13a::10)
+ by PH7PR12MB7257.namprd12.prod.outlook.com (2603:10b6:510:205::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8769.33; Thu, 12 Jun
+ 2025 06:55:28 +0000
+Received: from DS0PR12MB7728.namprd12.prod.outlook.com
+ ([fe80::f790:9057:1f2:6e67]) by DS0PR12MB7728.namprd12.prod.outlook.com
+ ([fe80::f790:9057:1f2:6e67%5]) with mapi id 15.20.8835.018; Thu, 12 Jun 2025
+ 06:55:28 +0000
+Date: Thu, 12 Jun 2025 16:55:23 +1000
+From: Alistair Popple <apopple@nvidia.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com, 
+	dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org, linux-kernel@vger.kernel.org, 
+	nvdimm@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, 
+	linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de, zhang.lyra@gmail.com, 
+	debug@rivosinc.com, bjorn@kernel.org, balbirs@nvidia.com, lorenzo.stoakes@oracle.com, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	John@groves.net
+Subject: Re: [PATCH 02/12] mm: Convert pXd_devmap checks to vma_is_dax
+Message-ID: <ru3g42fdhlo4hrffkmuz7usqe77jetgggx7jmjdx3nr5gw7lrc@3te4cu737jqt>
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <224f0265027a9578534586fa1f6ed80270aa24d5.1748500293.git-series.apopple@nvidia.com>
+ <371b8fdd-129d-4fe3-bbc7-f0a1bc433b30@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <371b8fdd-129d-4fe3-bbc7-f0a1bc433b30@redhat.com>
+X-ClientProxiedBy: SYBPR01CA0191.ausprd01.prod.outlook.com
+ (2603:10c6:10:52::35) To DS0PR12MB7728.namprd12.prod.outlook.com
+ (2603:10b6:8:13a::10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/10] arm64: sysreg: Add new PMSFCR_EL1 fields and
- PMSDSFR_EL1 register
-To: James Clark <james.clark@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, leo.yan@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
- kvmarm@lists.linux.dev
-References: <20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org>
- <20250605-james-perf-feat_spe_eft-v3-1-71b0c9f98093@linaro.org>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250605-james-perf-feat_spe_eft-v3-1-71b0c9f98093@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7728:EE_|PH7PR12MB7257:EE_
+X-MS-Office365-Filtering-Correlation-Id: 17d71744-93a8-42a1-bcaa-08dda97e1d59
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CivukSvRdq+PrSaqv4nvjL0iIkAAc7sNQG4AEGFuHkj9kCCE1XOO1EdqCXL/?=
+ =?us-ascii?Q?XFGTXJE4lxUP9tF8UMyuefgydHDYkqca4KGEkKhOfyov2vg3Rw9WMu+8Mq5D?=
+ =?us-ascii?Q?1iNSXcVqq3XtVhSd+JlY35VDl/1xyoeJB00q0SPyhQ6JLJImtgsToH6sD0yR?=
+ =?us-ascii?Q?MnHPdtQMnb2W/5zx5tO0B993E2zEs/JpARr3pvNs8OQpMDbsApEWEi447eGU?=
+ =?us-ascii?Q?p7TAu43EKA+PZd3BKWi5o9ctZx/UWDi2lEt1we6XgTBC3wiBcJac8hsKIjtI?=
+ =?us-ascii?Q?nI3BNdrcqqTmzpVk8dd8F1V8D7ZQs52haAIUl4R+D/5OTNxyGi2ip674X70L?=
+ =?us-ascii?Q?XQzQvna464fA1gHJ3pzz6QFLR9pZOE+egawwkmoIKlHiYQT4ZtYI234Sb/5M?=
+ =?us-ascii?Q?6eLZwWBMP8dylortGt/sVTIIEoJLdrPur3EQ5UKDzgY/DGkLo9zT1J4FFDUW?=
+ =?us-ascii?Q?jDJpUr7E5Wz7nDgiMMn8DJF3Ux2S/1G/VXI+Gdafy2tZljG9e7FECSdsNLpm?=
+ =?us-ascii?Q?aH5qF7SN3jlaoKOrXEEIBylmEG/p7AoKzoIXYn8+MBbFgelp3vUkCrcTEDCy?=
+ =?us-ascii?Q?iJ4rpDYXrW6Iy4Sbv5FHimSC0csm8HK4pAhUyoEYYuMDytVygL/NKna3rHg2?=
+ =?us-ascii?Q?N7QryyRvaDCVsIOyD4YYcwvn5riIhoZ8+yA34ATNWAWkKH9/4hPHk+VrHY0L?=
+ =?us-ascii?Q?oU5CzMFzcHwIIhS0ztBwtMtCU39AwVJa44qaG3Ia1ij68ZXwaFnBUYgjlJpE?=
+ =?us-ascii?Q?PMZPnh+v6FJPif9dYziOOEVRyOIyw0+BVT7DtdIcwn0gXlJbvH3UCWMh5e9J?=
+ =?us-ascii?Q?ZsdJM0vmPQn2NGTNrbiEm9zlP1NRV5uTovqBZJ6ZsmorCIj8xQxaIMmdv11v?=
+ =?us-ascii?Q?w+qNuTWa2nwbWo7DjaKUQqM0Mr3gG4cZ9KWyhfyT+6asYVV2N+CT9DYoKFiT?=
+ =?us-ascii?Q?6RsGeb7uEhU9H/55A84Ck16xspbtviK1WDvMogKvmOVu30xv3o+wfqEv+NOp?=
+ =?us-ascii?Q?ImEjTIt2PLMYN99SJlXqOiiX++dr61NvVO5RxGMdNGUtKZFcuQAw9J+awxJ2?=
+ =?us-ascii?Q?dOnYbQKCwaO7rN+UfUpGCOOWkloYqFoe1ubPbGJyeLATrgdtECz1KG3Fveyw?=
+ =?us-ascii?Q?50+tlBm6NQqydTjSr7KaWE/X1mSKcj5pJ2fyNllFakLGkWBXWrzHevvd010C?=
+ =?us-ascii?Q?po8mnxQOQeaAxGiGXu2CSOWUrpll8rwQLFh8LH6eV3zyag3wMkxZkhgGhGvf?=
+ =?us-ascii?Q?PhQAlge3qtwDW/bpdut3h2vWj+GdcqaEyqlHj8Y5w0jco9hUfKWDTWr8occN?=
+ =?us-ascii?Q?VWCatG4iSTKhsQYPrF210UwUH7EtUYe/Rhm7lf7/wEiiqm8NFiB12WZ5BU6N?=
+ =?us-ascii?Q?DjwcUN72vv33L7ll/wfeSGvEI3Z/DypR34H/qxR6T0U2x4aH9A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7728.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/EV+KhOxFJJGglJgod7Rp1eIOACACuQaPgNUfLCnTQ3sPV3/Qp0Q4Bluc9Uv?=
+ =?us-ascii?Q?hbMLdCkg0/IduXgKTBeJt64CuAJACUYSX82Amh+cDS+U7OAqj430LQru8ULN?=
+ =?us-ascii?Q?2hjUBYmuuNKJ2FCbNaXBN8aMcUbOoUL4eVLUWHscEAFLB+f2pqOV6m7dVVHb?=
+ =?us-ascii?Q?s44eUjne8RHyz+zQx6KOsguc5Z906g41SxAVQSxoaNKB9jTHLMs2aq+8AhaZ?=
+ =?us-ascii?Q?+csOSirW2mD123CYHCd4zc32jmJ8eSo6uZeuQSfCrqX+koeAN02aDZ9OLEiA?=
+ =?us-ascii?Q?+8PrT27OFOKdxAHKCpaxPh/lvB9ge8jWfdVz4/qysxetEA0Iar6NIcRuEcnG?=
+ =?us-ascii?Q?8H4PLrHj7EM6QwYGSfb1qRLIntGfeoH9XRrvrN+QUhnAEkGlgqyBWu9kXgpn?=
+ =?us-ascii?Q?5xwY3XI6IBHKPd77FcZG/GZZw6dBvGULB8cmezB/V+mG0cHVH3BqFUo6/K8Y?=
+ =?us-ascii?Q?NhMWQiqXCobcW7TsyqiTvSwCMDcHlZMGVXdhaU/h9PDCsw3C7SiNvbwCelYi?=
+ =?us-ascii?Q?kEbrM71ibDDmMiscwkRIWQ6JEGcj9ACWX4bm5K9FTs/aH0VzwmZwSbEVD5E+?=
+ =?us-ascii?Q?QXMCy+mQ5YhxWrmMFWMaZjJjXW63E9NpNRw1KOZaqgvmPkP9wWyjKkBMci9/?=
+ =?us-ascii?Q?3F83F8fTfZ7cEanVnBRf8vqXrH7QNqhiE99VxDS6zOZyDHj+rj2tBsW+h3zE?=
+ =?us-ascii?Q?YdD17PAm8IOMt0GgyDWW7auCyMhbiFQjLSeMffQBQYmJgqtjzHq7OR+9xZho?=
+ =?us-ascii?Q?G4CHttylo1ip69L2YHgxxJf6CnTMuokNhMlDOQ3jKBqKSSPGocu4gSD+T7MA?=
+ =?us-ascii?Q?rdLyW0o+/ZF8CDrjmd/DbPmSfMCkCypoIVQVLU5L315+jA7Ek97YJ1mnz+3E?=
+ =?us-ascii?Q?TSc937Vdbw2AjwRhJkYuWo9L8DV4CmZBjcA+f82Q+aUZP6r9gJdi4KyD4+FO?=
+ =?us-ascii?Q?Oaa3XVk87SkwgKzIbVNJegwaoQ0pyVgVk6qi2hE1qIlBhctviTlOl1AZRKpw?=
+ =?us-ascii?Q?IpQpwvZU1cbAPhhLwHey+8wOHVBFLLGgG5SMTGNdT/pgKjXvWX2jh5uHbSkw?=
+ =?us-ascii?Q?+UX7qFF+uBOOlE7DwjA6wi01Bz6A+ytMOP1ur3e7WnyoKWTd2eGeWqVvMrte?=
+ =?us-ascii?Q?Z4xqXmaTwfZ7fyFcY4kfyS7OzLJG49AyPfaxfL/KGb+U6uXG3cr7Ky20FxuF?=
+ =?us-ascii?Q?VAHng2Laft2TuvnYdP6Pdf4JL8OizYabgStLTD8VP5U7lkd9kOKITEoqz+sc?=
+ =?us-ascii?Q?b3XPztB2B1xchpAgWZNyPhxjXJLKCk7drZFJGn3/gOkIYBte+QZSTaKv1+t0?=
+ =?us-ascii?Q?dUN6QJ5f2VCblPY69ysxugeRIEVI3sjaJYUEPZTTiiQI0Z0Ftpl0nrqu1/GU?=
+ =?us-ascii?Q?ADjq3aeVomLj3JrnRBng3fa8EWYN2Wj27gphhyXQ3xjCNwC2o/9rIEiJJhGM?=
+ =?us-ascii?Q?oSbsGHy8KKXLjxUqdNtqsFOBBu1FvFisBogbm7O9HJ3O0zlBdY+ihGkd2C3A?=
+ =?us-ascii?Q?2OOqucJpvzTF1oRBIp6g8iObrbcQy5b9tPye7EqhKrueQeOpgdbn295sCpwi?=
+ =?us-ascii?Q?vUtfrJFWKO9tj+ukCZYzdGHhqyu5N2ZrtZMbwtcV?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17d71744-93a8-42a1-bcaa-08dda97e1d59
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7728.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 06:55:28.4032
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0Pg+G/Xmvc/7fr9U1Ar0JTrj3yzIX9zeKy3WdQq7UKpk3WoSinUm94fuWOi7+NtzFwXFaT2o2TYHzBKKJHG8Wg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7257
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_234501_543762_CD8DE30F 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250611_235533_242249_874D8843 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +162,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/06/25 4:18 PM, James Clark wrote:
-> Add new fields and register that are introduced for the features
-> FEAT_SPE_EFT (extended filtering) and FEAT_SPE_FDS (data source
-> filtering).
+On Fri, May 30, 2025 at 11:37:21AM +0200, David Hildenbrand wrote:
+> On 29.05.25 08:32, Alistair Popple wrote:
+> > Currently dax is the only user of pmd and pud mapped ZONE_DEVICE
+> > pages. Therefore page walkers that want to exclude DAX pages can check
+> > pmd_devmap or pud_devmap. However soon dax will no longer set PFN_DEV,
+> > meaning dax pages are mapped as normal pages.
+> > 
+> > Ensure page walkers that currently use pXd_devmap to skip DAX pages
+> > continue to do so by adding explicit checks of the VMA instead.
+> > 
+> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> > ---
+> >   fs/userfaultfd.c | 2 +-
+> >   mm/hmm.c         | 2 +-
+> >   mm/userfaultfd.c | 2 +-
+> >   3 files changed, 3 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/fs/userfaultfd.c b/fs/userfaultfd.c
+> > index 22f4bf9..de671d3 100644
+> > --- a/fs/userfaultfd.c
+> > +++ b/fs/userfaultfd.c
+> > @@ -304,7 +304,7 @@ static inline bool userfaultfd_must_wait(struct userfaultfd_ctx *ctx,
+> >   		goto out;
+> >   	ret = false;
+> > -	if (!pmd_present(_pmd) || pmd_devmap(_pmd))
+> > +	if (!pmd_present(_pmd) || vma_is_dax(vmf->vma))
+> >   		goto out;
+> >   	if (pmd_trans_huge(_pmd)) {
+> > diff --git a/mm/hmm.c b/mm/hmm.c
+> > index 082f7b7..db12c0a 100644
+> > --- a/mm/hmm.c
+> > +++ b/mm/hmm.c
+> > @@ -429,7 +429,7 @@ static int hmm_vma_walk_pud(pud_t *pudp, unsigned long start, unsigned long end,
+> >   		return hmm_vma_walk_hole(start, end, -1, walk);
+> >   	}
+> > -	if (pud_leaf(pud) && pud_devmap(pud)) {
+> > +	if (pud_leaf(pud) && vma_is_dax(walk->vma)) {
+> >   		unsigned long i, npages, pfn;
+> >   		unsigned int required_fault;
+> >   		unsigned long *hmm_pfns;
+> > diff --git a/mm/userfaultfd.c b/mm/userfaultfd.c
+> > index e0db855..133f750 100644
+> > --- a/mm/userfaultfd.c
+> > +++ b/mm/userfaultfd.c
+> > @@ -1791,7 +1791,7 @@ ssize_t move_pages(struct userfaultfd_ctx *ctx, unsigned long dst_start,
+> >   		ptl = pmd_trans_huge_lock(src_pmd, src_vma);
+> >   		if (ptl) {
+> > -			if (pmd_devmap(*src_pmd)) {
+> > +			if (vma_is_dax(src_vma)) {
+> >   				spin_unlock(ptl);
+> >   				err = -ENOENT;
+> >   				break;
 > 
-> Tested-by: Leo Yan <leo.yan@arm.com>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  arch/arm64/tools/sysreg | 13 +++++++++++--
->  1 file changed, 11 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 8a8cf6874298..2e897d8a4040 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -2859,11 +2859,20 @@ Field	0	RND
->  EndSysreg
->  
->  Sysreg	PMSFCR_EL1	3	0	9	9	4
-> -Res0	63:19
-> +Res0	63:53
-> +Field	52	SIMDm
-> +Field	51	FPm
-> +Field	50	STm
-> +Field	49	LDm
-> +Field	48	Bm
-> +Res0	47:21
-> +Field	20	SIMD
-> +Field	19	FP
->  Field	18	ST
->  Field	17	LD
->  Field	16	B
-> -Res0	15:4
-> +Res0	15:5
-> +Field	4	FDS
->  Field	3	FnE
->  Field	2	FL
->  Field	1	FT
-> 
+> I assume we could also just refuse dax folios, right?
 
-These register fields checks out against ARM ARM DDI 0487 (L.b)
+Yep.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> If we decide to check VMAs, we should probably check earlier.
+
+Ok, that makes sense.
+ 
+> But I wonder, what about anonymous non-dax pages in COW mappings? Is it
+> possible? Not supported?
+
+You mean other non-dax ZONE_DEVICE pages? Currently not possible, because
+non-dax ZONE_DEVICE pages can't be pmd mapped (although it is a future
+enhancement I'd like to make).
+
+> If supported, checking the actual folio would be the right thing to do.
+> 
+> -- 
+> Cheers,
+> 
+> David / dhildenb
+> 
 
