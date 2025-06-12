@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 293EDC71141
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0938EC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5Yge3eonScwXwoSFzwn6yAncIbUlekk9IQaDErSPy8=; b=AqvRICWqVLlxzzxLax6u/RppDG
-	dlkD0e5ma6fVeFEqQogLLs3QaIT+hvzYe3cBtqa9vkb1x745rmdKv9YbXo6lZFuhedoAYjUqmtJNl
-	4gjj0/nNTCEuDW/xbGwHHxYEd08cK9/jlkna3Vvhats2L8UvdUrpfnGS2V9sCo4CxxNuo//fSTFm3
-	8RPw5NI/rqQ0VLkP+HOC9XsanPgC9t8vkuGV4NbaaRn6tWr3rlPG1lWzb613Gn9U5dmWKXm4Bs9LQ
-	J/SRpsBQM7Ypp3AJcKtgn0UCxsxtGomOCL0rvjURPrNJLANSh1lHKFptl2aDPR9DdxCnR1YDdMUgu
-	ukTx/xOw==;
+	bh=rw8VwIrpZ3iA1HdRiGx0TETpsKKPFrlaMsej0W1/koE=; b=hFynOhTFevaAO0z6c6fH8y/KjN
+	8TejH8f3Vk75BIUiRVb+TW+afTSpC2eKA3r5JmrnVjOGfMDa16Bf4V6zlKdJvBKGFsH5e0j0OxymP
+	G62wTZL+R6i7xWkF7qAWJ0BKOApicNd4hwTre41P1c3yYQAieqJYQQ2ZnBowxn3Z4wMyimnTE6YsU
+	5sT2MF/sgudJoG/CfTbFMBZoClzzgzK1x+pb1DRD66P7DiXBVHeIRxgv7ZnMdvy21XceF4050RGEW
+	cn5InBoBr/E51ydwfiocTav3rgvBTJZ8DXc8zEODVkIKZa7Hf27ypOFWuybvjgAQlxtRA6UEPCTcu
+	Oj/MP/dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhq5-0000000DNTp-23lG;
-	Thu, 12 Jun 2025 13:19:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uPhq6-0000000DNWJ-3cvA;
+	Thu, 12 Jun 2025 13:19:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPg7y-0000000D91e-1ny2
+	id 1uPg9t-0000000D9FH-4Ah2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 11:29:51 +0000
+	Thu, 12 Jun 2025 11:31:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 72C7D5C5C78;
-	Thu, 12 Jun 2025 11:27:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3110C4CEEA;
-	Thu, 12 Jun 2025 11:29:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D05A844B7D;
+	Thu, 12 Jun 2025 11:31:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D679C4CEEA;
+	Thu, 12 Jun 2025 11:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749727788;
-	bh=h0T3I7+TyMc8TPOcdKVmcbRavVxEBpO6mjA9/hD7GHQ=;
+	s=k20201202; t=1749727908;
+	bh=+BsA3cwuds/jgcNwO1cJQWgktBoVm/F0s6venw96rjk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RfdUCG1Y+NMTMgwC6sdb2WUIdBETLGR2cl+QEVneNbfasc66xvmqmDv2xqr/J1+zY
-	 ZpEjTI2ohRf2iuWtU3DGYamY10vvSjHiNI8ghanj3moN/B2+SLBBovKMZff6FBjSIn
-	 1KNzOVCtmn4kwkoHEqGceFJrtIMjmgXDIZL4sQa/glz7+3tRYqJE2e3kcAcOo2VfCo
-	 seeQ7z/Ps4D8JyratgoT2PloZk7fYuE7iQWFR+lcQDXYdnta4+SCWKS9FyvtaXS3bI
-	 uCPwkiXSbNK9wgkbMTTMF1w33nFG5GI9Q0LURf1SkCTnFWI3aBNhl6sLTbsbRQcQx4
-	 u0TJCoCx1BV1w==
-Message-ID: <750da319-d25f-454d-b376-ebbc194e0e41@kernel.org>
-Date: Thu, 12 Jun 2025 13:29:40 +0200
+	b=RZyeQb6jo9ZUL24z6GUmHkHkhC9yRhdSfl62rZp7e4biO3eo8bRAkbfErVjB6ON5v
+	 xfYe9VfqEiWbsWuvzhOVP99UJyqLEpJX2RWe0iEAlEAl9IxF5aegAEyh4Z627gWXjN
+	 JnNuFnMLzX+iV9ReTNHBOpC4LSxfsfGDX0JD7UtgymKTOdCAGMzRzMBDyChTXifWGm
+	 4g3h+YTq1eiy6iwR8hEpASdKq/8kLMDJpqFIXYGw7fanNMWtFUUWCHVZPLbY+lUq9T
+	 ZjzihnIoDXBr/S17myzZLg9+cRAMQOS5xnKZuJKedi5qnVEqxQA3N8BUxY2FC8uvOY
+	 Z7K2greq8hH0w==
+Message-ID: <22deb36a-ca61-4793-99b4-87f520445490@kernel.org>
+Date: Thu, 12 Jun 2025 13:31:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: opp: adreno: Update regex of OPP
- entry
-To: Akhil P Oommen <quic_akhilpo@quicinc.com>,
- Akhil P Oommen <akhilpo@oss.qualcomm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
- Konrad Dybcio <konradybcio@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
- Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
- freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
- <20250611-x1p-adreno-v2-1-5074907bebbd@oss.qualcomm.com>
- <492417fe-c086-4980-b108-0487bad08155@kernel.org>
- <d482653e-5c0e-4b03-98d6-2c898b445917@quicinc.com>
+Subject: Re: [PATCH] soc: Use dev_fwnode()
+To: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>, linux-kernel@vger.kernel.org
+Cc: tglx@linutronix.de, Qiang Zhao <qiang.zhao@nxp.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-tegra@vger.kernel.org
+References: <20250611104348.192092-1-jirislaby@kernel.org>
+ <20250611104348.192092-19-jirislaby@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -114,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <d482653e-5c0e-4b03-98d6-2c898b445917@quicinc.com>
+In-Reply-To: <20250611104348.192092-19-jirislaby@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_042950_557772_D57C8E54 
-X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-CacheID: sfid-20250612_043150_079777_CDEDB7AF 
+X-CRM114-Status: UNSURE (   9.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,24 +122,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2025 14:24, Akhil P Oommen wrote:
->>>  
->>>  patternProperties:
->>> -  '^opp-[0-9]+$':
->>> +  '^opp(-?[0-9]+)*$':
->>
->> Not correct regex. You allow "opp", "opp1" and all other unusual
->> variants. Commit does not explain what problem you are solving, so I
->> have no clue what you want here, but for sure opp1 is wrong.
+On 11/06/2025 12:43, Jiri Slaby (SUSE) wrote:
+> irq_domain_create_simple() takes fwnode as the first argument. It can be
+> extracted from the struct device using dev_fwnode() helper instead of
+> using of_node with of_fwnode_handle().
 > 
-> Just to confirm, would this be fine for the requirement I mentioned above?
+> So use the dev_fwnode() helper.
 > 
-> "'^opp(-[0-9]+)*$'"
-
-No, You did not solve half of the problems - still allows "opp" and
-commit msg does not explain why "opp" is now correct. Describe the
-actual problem and then write the regex solving it in specific way, not
-causing other effects.
+> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+> Cc: Qiang Zhao <qiang.zhao@nxp.com>
+> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+> Cc: Thierry Reding <thierry.reding@gmail.com>
+> Cc: Jonathan Hunter <jonathanh@nvidia.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> 
+> ---
+> Cc: linux-tegra@vger.kernel.org
+> ---
+>  drivers/soc/fsl/qe/qe_ic.c | 3 +--
+>  drivers/soc/tegra/pmc.c    | 3 +--
+These are separate subsystems. You need to split the patch per each
+actual SoC vendor.
 
 Best regards,
 Krzysztof
