@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1757CC71141
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27707C71143
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DYbrBlase0oO4ztUlS8jmhmYd8yKTzxvz808aawDrY0=; b=1+HybabLwuMcV/rZVWVoRfIZjZ
-	56RUwDouJ/1PnRtPCKL7aYCivPCo6ke9dZ386iMbDPa3sxx8RoU58ExSFt5tvxLPgXPR3ms9j6tO3
-	ykOaUe3bNjJQhihocYmrE+HqSF2IXkEGAlcFGKT0+MAmP/DdU7whSihf9EyUF2ZTSaUx0QotGAsU8
-	EWxdqvqYcg8V8g7puH+8ay7gMg1TgaUtkWDtNH6Wc7sM2b2T3H/0gHKtLSVvc+htu70O7LGD6/PPs
-	IMJ2fnhVqFin34ymWomyYmVZAoaqBF8ucsFPK/2jbQR3C5KoInQkhAPcA9VzPRPdIyki9nCOHsdQR
-	5bE9GmMg==;
+	bh=0nLKCyM9+2s7ZOuFlFvdhhUz1Dz6JtJyRw8Cb9utTqw=; b=CAaSXvH2qruPFHAZaiwXPH3Qe8
+	h+NPaqdqWHn+2MsuuWIEsSUjGDPsqYhsIf4bYJ/870o2xXO6fm9xFzuHlO9SstzeHg+/9u3gzcd0X
+	QkLMuDAK+gXP6/e0WfNyjiJlQKSt+0nJs6BWojUnMxXRitDomQgqQbaaziiwz/HETQDENYSdIEGdo
+	40/dgMWFqFwEmFEL5tih4++Zk++kdpkMpviF5Bj6tTqdyxf/09jho/W5vSEdifHsEydhmYRN4Ns2B
+	aVVy6/3I+Mugn24cihvYIiLM0qRF0zk2iDJGEH4PHNy8Tecjzjf5Eyh5Pp4S8FokuuOOYYG/UuaQG
+	k5jVggNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhpP-0000000DMIM-3CpU;
+	id 1uPhpP-0000000DMHn-0rSF;
 	Thu, 12 Jun 2025 13:18:47 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPexN-0000000Cwep-1rSw
+	id 1uPewo-0000000CwXa-1DJY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 10:14:50 +0000
+	Thu, 12 Jun 2025 10:14:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 98C18A51B3A;
-	Thu, 12 Jun 2025 10:14:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE77C4CEEA;
-	Thu, 12 Jun 2025 10:14:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 81355A51B15;
+	Thu, 12 Jun 2025 10:14:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2410C4CEEA;
+	Thu, 12 Jun 2025 10:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749723288;
-	bh=i2cHV/Yqlp5Wqq3ytl1FXkrfZHTvJKGGxfV2IqHWh3Y=;
-	h=Date:Subject:From:To:References:In-Reply-To:From;
-	b=vAcrUhXd6EcHsF0iKvHsD3Y5X6hl+NdM9KDJMh4DLnOgu2j7J/aaLaEJycI7wPEOR
-	 EvylEAEpKln6BP5S30djNorLdSXiYMcdW0LOAynlrPkn+p7sMqGYSJnq327Kmdzp5Z
-	 bv7sipOQg95+hFJqd4vdXf1ne2kvpNtrEC5e02M/UGZpFtnBMt2scFmUNzgqxActkm
-	 p8eelP3YfvcQwekC9vs4u+oLvq5ufnNFQ0QlVLjEHJ0EkOcyPujRiiz701mm7T8uCh
-	 hvmbyMfI0FYedCNm7R/+zlZXfmpQLFYV1xIZgruS+LjWDwTiAEQiJ91Brvtvo1U/g9
-	 7kZr1jjkuL8FQ==
-Message-ID: <0b404d5c-2315-45cd-b25e-d5ab92040887@kernel.org>
-Date: Thu, 12 Jun 2025 12:14:39 +0200
+	s=k20201202; t=1749723253;
+	bh=GlwJT56CuE3DrE9U/6MGegpQYrYWCyocuP3+ulwLTRQ=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=ilZDYkBdI3GBvYmaHrX8W8rReWkv4w3jXneJ6NFEb6o32F0+ftO5oGTSRHhyjBVrI
+	 9+NmykFf63/1Fa2P05ziOzF11o05F52e3ftmigNdvrrRrrYWuPKxz5SrgXWsX/I+OP
+	 He+eiNHgFRHV2ZsoHWi9sncHMOa8AgR8saThDctY+3HM+rB5moZlJ3mbkb0Ne/LibX
+	 P/X3OjJKpaY9+ud1ueS3zUhvgdyQbyD5uPpuUsLCVvlW12KUs+xoOt2ibu8P1dKGkO
+	 3cOlWxUcq49tMt8G3UL6vIN3DIJk6u6qiO4rUIkeDrws7auIH4JPXAy/7cYlLFwD1H
+	 87EZf83pvmrjg==
+Message-ID: <7d4d4c53-d18b-421b-8279-6325771a1cb9@kernel.org>
+Date: Thu, 12 Jun 2025 12:14:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v0 4/5] arm64: dts: aspeed: Add AST2700 EVB device tree
-From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
@@ -68,7 +67,7 @@ To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
  spuranik@nvidia.com
 References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
  <20250612100933.3007673-5-ryan_chen@aspeedtech.com>
- <7d4d4c53-d18b-421b-8279-6325771a1cb9@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -113,12 +112,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <7d4d4c53-d18b-421b-8279-6325771a1cb9@kernel.org>
+In-Reply-To: <20250612100933.3007673-5-ryan_chen@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_031449_625026_F15EE714 
-X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-CacheID: sfid-20250612_031414_461792_01C92235 
+X-CRM114-Status: UNSURE (   7.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -134,28 +133,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 12:14, Krzysztof Kozlowski wrote:
-> On 12/06/2025 12:09, Ryan Chen wrote:
->> - Add ast2700-evb.dts for the ASPEED AST2700 Evaluation Board.
->> - Set board model and compatible strings: "aspeed,ast2700-evb",
->> "aspeed,ast2700".
->> - Reference the common AST2700 SoC device tree aspeed-g7.dtsi.
->> - Define memory layout and reserved-memory regions for
->> MCU firmware, ATF, and OP-TEE.
->> - Add OP-TEE firmware node with SMC method.
->> - Set up serial12 as the default console.
->>
->> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+On 12/06/2025 12:09, Ryan Chen wrote:
+> - Add ast2700-evb.dts for the ASPEED AST2700 Evaluation Board.
+> - Set board model and compatible strings: "aspeed,ast2700-evb",
+> "aspeed,ast2700".
+> - Reference the common AST2700 SoC device tree aspeed-g7.dtsi.
+> - Define memory layout and reserved-memory regions for
+> MCU firmware, ATF, and OP-TEE.
+> - Add OP-TEE firmware node with SMC method.
+> - Set up serial12 as the default console.
 > 
-> How this can be patch 0?
-> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 
-I meant: v0.
+How this can be patch 0?
 
-> You need to start using standard tools: git and b4 (see submitting
-> patches and other process docs).
-> 
-> 
+You need to start using standard tools: git and b4 (see submitting
+patches and other process docs).
+
 
 Best regards,
 Krzysztof
