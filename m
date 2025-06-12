@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D862C7113E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 06:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE14C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 06:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d0ztJlo825I13kb3bxddMAoPs02kBnZ14ol1fnruaBk=; b=qIWV7aJ4KOUDgtuXpsVl9RQRKX
-	H52HoSfe40OEvyxz+tMWEDgHjrb2MwwmCps9mQlgZ/RLHFJpAyEOhPRLbpZzczMNFgNrDBJWlw5W0
-	Bx1lwJAzTbnDoms6VWw9PZqcogT9OfZHUaCxEU5awZpqGh1JkkhaMQI6gvtBIrqRRU3Q3NyP3SpkA
-	+2WTHfJYjeP1x9ASyTk3/AMykSBSt8QHbB5SK6oXEIhZmUmLAdRui2YypWLuYfbrRbSxbPrH73Y4T
-	gaEBB1mEeoVqIRnJD+VKTitfclL4cknvZqzAw5quv9UkmI3oE7vPylgu+l1fJENoz7eiL2TwLMz0Z
-	vZ2Kn7wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pcG+u7XTE77LvdmU3nj+pJWQxH9In1s+aDUwIIMrdTM=; b=W0MUu4AnOy71Kh7YvP7du33QmU
+	xcMO/FIbknX5jj7iRQu3oI6qqpAgM09JJn5gsMqspNWpgsDX3fLSwsgk3CvetQggXgOpsXkrqtagv
+	bdEvHFlFcr1TFAgg50KN16t6kPy+QvD+mChzmkFw1jVt+dBfviBZlWIRiCyKFquB1GWe2Eztpn3D8
+	G3Y1NxHqYBHk8WkmbnQbJaicYSir91ix1v9M5DkQ8+yg1mrdysNCK68PiGwoDAGikIUYTljw5lCXo
+	bU0Q5AS1n/84Zg6uS/qVZfZAqzMMfd5FaZ4byOkYZocBUOeBKhjqVY6sVlXjdTIQ0RFC5Qxk479FV
+	dyCuGzcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbK0-0000000CJ6S-3NfB;
-	Thu, 12 Jun 2025 06:21:56 +0000
-Received: from mail.andi.de1.cc ([178.238.236.174])
+	id 1uPbY7-0000000CKVh-3Ks9;
+	Thu, 12 Jun 2025 06:36:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPbFz-0000000CISJ-0wWA
+	id 1uPbW1-0000000CKGS-00uN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 06:17:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=d0ztJlo825I13kb3bxddMAoPs02kBnZ14ol1fnruaBk=; b=6Tnk2zpkgi0x5+D82Lxct/AdoC
-	iaw89WEFQKaSURM/9N0G/vYHbWPR9syN8Lce4kYsIaHls/rp9AZHk6GIg4yPviQ5BaKOJPzss2E2b
-	zkscX4co+YmrV2qUBBUQrTIlQvK4G2etPhd69AE6xW0gYWthmxZTrgkOJsGgp3CGSZphCn55JLtAZ
-	vWMzvomzcm5v8y89ZxPFFYSeJDY4JqAsmel/43USago5qpkoU+xmXx0ekee6RRzRJNK/R/SDLtei6
-	bE4f14YN7R6E7jJuWc0gSAjM80i2v1UsuEgN884lOfdqJp99+mO93lBpeTsfSgEhWMIBLB3DgbMgK
-	uAOEWfNQ==;
-Date: Thu, 12 Jun 2025 08:12:55 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Andrew Davis <afd@ti.com>
-Cc: Kory Maincent <kory.maincent@bootlin.com>, Tony Lindgren
- <tony@atomide.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen
- <aaro.koskinen@iki.fi>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
- <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, Bajjuri Praneeth
- <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
- <broonie@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 5/5] arm: omap2plus_defconfig: Enable TPS65219
- regulator
-Message-ID: <20250612081255.255be21e@akair>
-In-Reply-To: <1d87fa3b-c3b9-44fd-9e61-7f1ffadcfb0c@ti.com>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
-	<20250609-bbg-v2-5-5278026b7498@bootlin.com>
-	<1d87fa3b-c3b9-44fd-9e61-7f1ffadcfb0c@ti.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
+	Thu, 12 Jun 2025 06:34:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 65BE95C2F55;
+	Thu, 12 Jun 2025 06:31:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE244C4CEEA;
+	Thu, 12 Jun 2025 06:33:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749710028;
+	bh=efaVr7x4DyfPYiYGhfU7gIrNkZWvEaUcvLN7XhkIyA4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IkQX2ljSLK7qpNmxvKCm2f3cCS4vshkU+IKzyIJAxjA5bZgIlZssxZR43mje9/kKX
+	 cy1KCc3w5JiMRgWDJ/BLC+l6dC8eHsHwjslwXLr75+W0u5sRcp/LNp/w7awEFcy2U+
+	 PfAeLQ2GgZOlFulpuBJqfHrZr0y7926RhJ21BqoETwJpaVKFI5JdKvF5qljSHl90t0
+	 wlDSxcLsAOyRmMWNquJ8Gk94VzD7pCyTZbJk75nSrrUj9dE05IG+/DbdSfKIBk3lT9
+	 MUrGCi2rjOXNCVidMHEodkkM4RiufSFT8IVOG58fTduTTZYD4X1PEEBRGYGDtTrn7S
+	 pLhYwY+h9qDDw==
+Received: from 91-161-240-24.subs.proxad.net ([91.161.240.24] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uPbVS-0068PW-Bv;
+	Thu, 12 Jun 2025 07:33:46 +0100
+Date: Thu, 12 Jun 2025 07:33:46 +0100
+Message-ID: <87ikl1foz9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	ardb@kernel.org,
+	frederic@kernel.org,
+	james.morse@arm.com,
+	joey.gouly@arm.com,
+	scott@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] arm64/Kconfig: add LSUI Kconfig
+In-Reply-To: <aEnC6img102ZygDy@e129823.arm.com>
+References: <20250611104916.10636-1-yeoreum.yun@arm.com>
+	<20250611104916.10636-3-yeoreum.yun@arm.com>
+	<86zfeecnog.wl-maz@kernel.org>
+	<aEnC6img102ZygDy@e129823.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 91.161.240.24
+X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, ardb@kernel.org, frederic@kernel.org, james.morse@arm.com, joey.gouly@arm.com, scott@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_231747_265698_F0C8EC50 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250611_233421_125037_B163D3EE 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +95,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Wed, 11 Jun 2025 16:13:05 -0500
-schrieb Andrew Davis <afd@ti.com>:
-
-> On 6/9/25 10:43 AM, Kory Maincent wrote:
-> > Enable the TPS65219 regulator in the defconfig, as the TPS65214
-> > variant is used by the newly introduced BeagleBoard Green Eco board.
-> > 
-> > Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
-> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
-> > ---
-> >   arch/arm/configs/omap2plus_defconfig | 3 +++
-> >   1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
-> > index 9f9780c8e62a..2ad669f7b202 100644
-> > --- a/arch/arm/configs/omap2plus_defconfig
-> > +++ b/arch/arm/configs/omap2plus_defconfig  
+On Wed, 11 Jun 2025 18:54:50 +0100,
+Yeoreum Yun <yeoreum.yun@arm.com> wrote:
 > 
-> Why omap2plus_defconfig? OMAP3 and newer are all ARMv7 and
-> boards with those can/should use multi_v7_defconfig.
+> Hi Marc,
 > 
-if there are enough drivers enabled there, it would work, but it is not.
-So there need to be a bunch of patches to add the missing stuff.
-omap2plus_defconfig is there and support for boards are added.
+> > On Wed, 11 Jun 2025 11:49:12 +0100,
+> > Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+> > >
+> > > Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+> > > previleged level to access to access user memory without clearing
+> > > PSTATE.PAN bit.
+> > > It's enough to add CONFIG_AS_HAS_LSUI only because the code for LUSI uses
+> > > indiviual `.arch_extension` entries.
+> > >
+> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > ---
+> > >  arch/arm64/Kconfig | 8 +++++++-
+> > >  1 file changed, 7 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > > index 55fc331af337..20f360eef2ac 100644
+> > > --- a/arch/arm64/Kconfig
+> > > +++ b/arch/arm64/Kconfig
+> > > @@ -2237,6 +2237,13 @@ config ARM64_GCS
+> > >
+> > >  endmenu # "v9.4 architectural features"
+> > >
+> > > +menu "v9.6 architectural features"
+> > > +
+> > > +config AS_HAS_LSUI
+> > > +	def_bool $(as-instr,.arch_extension lsui)
+> > > +
+> > > +endmenu # "v9.6 architectural features"
+> > > +
+> > >  config ARM64_SVE
+> > >  	bool "ARM Scalable Vector Extension support"
+> > >  	default y
+> > > @@ -2498,4 +2505,3 @@ endmenu # "CPU Power Management"
+> > >  source "drivers/acpi/Kconfig"
+> > >
+> > >  source "arch/arm64/kvm/Kconfig"
+> > > -
+> >
+> > Can you please document what toolchain versions have support for this?
+> >
+> > Thanks,
+> 
+> Okay. But here with comment or Is any other suggested place for
+> this?
 
-So I think until multi_v7_defconfig is really usable for OMAP3+, we
-should stick with the name omap2plus_defconfig and add stuff.
-If we rename omap2plus_defconfig to omap2_defconfig, we should imho
-disable OMAP3/4/5 there to avoid confusion.
+The help section in the Kconfig option you are introducing would be a
+good start.
 
-Regards,
-Andreas
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
