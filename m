@@ -4,107 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C52BC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 22:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBA6C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 22:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jR0dRbES+djCk871EvFuYPXeaS3gynvrA8wMIo/eRkk=; b=sTMKrpnfW6AakhS3PgyQr/jE28
-	FvHlGg8jTc1b+u0lgMNuJvQ3YPUGgse7eocDW1X6PfWjDCrUysCDo/F87h5WNOeB1gJQqU7KkM/Yu
-	dRkv6kOW8dKLmuyrLBzvjHINN2m+88mNs8hGwoTdFmLecwq4ZaJQNLnJUG8YlUiWhsTw+/LCDpQTg
-	gUWl5hS4vPPJgEaWKjiUKIrvMsnYfhhgesVAkWYFJI+3d8rfFkUNkiqdBRU79PED98DZcLoJQesgw
-	3p+ATGZoU3/R+uyMaTEjxT5sqe9qvekQ39ketsASanf5EWNimTNj/Wkq4dujcgYtNz82Gy/9uebP5
-	F5eyO7tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YCrf2dWoqxi7qBorfxi68XMsLE4nKtVCX+GjBvyiMMI=; b=Q2oPfDD+gpfmibaX3pFSStmtst
+	Ok+PPMuXirTEYZRzNrrvDOgfqRnZcVQHG8e3H0hHbfKaDdPJi3eFOREWuEcUPDBdFSwewGETSq82D
+	MUEP9oqKmg840PfGm/KEwpAJ9Li8GmwHT54rQ7dKj6zY/ttWJJMuzxF3yqD3Gf/adAPlYRuZH/Pmr
+	FsGqlbCRx6lST9DbkEabwmcPrOe0bx0h+jrau87jKUTihkIMrzA5OyygZZRMvMoalOz0FL1nnW6zM
+	PIXJHdJIMhL/o4exKl8v29ol/Z+t4Ni+AzUw0m/OjcLocXm7ZE+WqDjo1cl080/4zmojeylBjmmIx
+	4qVS77yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPq7Y-0000000EkEE-41cN;
-	Thu, 12 Jun 2025 22:10:04 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1uPqG8-0000000ElbL-3CpN;
+	Thu, 12 Jun 2025 22:18:56 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnJi-0000000ECL0-2GbK;
-	Thu, 12 Jun 2025 19:10:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749755427; x=1781291427;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BQ0TV5Stz/vWyyu62ZhSbJbmlu58TvJYqNpEEOYBVC0=;
-  b=Z9fdBnBxaQ4kHop2kZtkSzAkk9inYw5f12I71aXNGB9kgIhFiOAId3BT
-   0cdswwDQDrdAmJZvdtWs6AK/Z5BIUG8lIBhbIRCcsDiXY3e8g9VBkin3v
-   +Kj4vwdRrahYXLl2aq0pIND3oE7XNMEMaAc4TbV8jVQX3t2kFBzncUD1W
-   GqwS7xT5KHvsAP3PysqOAPKz/0q9ersa1XdRoFkke4PpcxUMIDsW4O1pS
-   c6lP6xs5atSEvQs1N6QgFCJw2jTuEdlKVLM1bW35Uy6XDuZxdx2nEOhUe
-   4wgNQbQzTvHDkEkoHENgcoEmmPd5kK1ejzH7DK0hjb9w7v6A949jSMTe/
-   w==;
-X-CSE-ConnectionGUID: 1vQ6mywGTHedCjvm5zZ+FQ==
-X-CSE-MsgGUID: 2E7fJDrgSheCL7MkXFQlng==
-X-IronPort-AV: E=McAfee;i="6800,10657,11462"; a="52093205"
-X-IronPort-AV: E=Sophos;i="6.16,231,1744095600"; 
-   d="scan'208";a="52093205"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2025 12:10:21 -0700
-X-CSE-ConnectionGUID: e9iD3O3SS36bVUZFVNkguw==
-X-CSE-MsgGUID: lSBa5jyTT9mJ70WAU7t4XQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,231,1744095600"; 
-   d="scan'208";a="184852801"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2025 12:10:13 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1uPnJQ-000000061me-0q0g;
-	Thu, 12 Jun 2025 22:10:08 +0300
-Date: Thu, 12 Jun 2025 22:10:07 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Pavel Machek <pavel@ucw.cz>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	David Lechner <dlechner@baylibre.com>,
-	linux-rockchip@lists.infradead.org,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <jpaulo.silvagoncalves@gmail.com>,
-	Leonard =?iso-8859-1?Q?G=F6hrs?= <l.goehrs@pengutronix.de>,
-	kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>,
-	Roan van Dijk <roan@protonic.nl>,
-	Tomasz Duszynski <tomasz.duszynski@octakon.com>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
-	Mudit Sharma <muditsharma.info@gmail.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	=?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>,
-	Andreas Klinger <ak@it-klinger.de>,
-	Petre Rodan <petre.rodan@subdimension.ro>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 00/28] iio: zero init stack with { } instead of memset()
-Message-ID: <aEsmDyc44P8amm5p@smile.fi.intel.com>
-References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
- <aEqbQPvz0FsLXt0Z@duo.ucw.cz>
- <2243943.irdbgypaU6@workhorse>
- <aEsiTy++yKGe1p9W@duo.ucw.cz>
+	id 1uPqDx-0000000ElTf-4Acb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 22:16:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fUFANYQfpSgR/9Ukz90NOd0HWFAvEaKO1WQgb3fZeFljK39hihZhzPd81hDHLvDCwAHG3AUhg42BJeqk2cY7gL2T2hAQCll/aCyrS+Rcqtxab8NKYbhduQRKmAgswgPRt3FgOJb2OEp/Fmb94nXR32BRqfj64blcIP67RKDZwwuXR8opHJ2iTKMg9fuSTlRQQ7jYszk8yXXnhoIkNL0zXciwnpuqc1E+9fYWC4j2U6c2qe7l6IL4U2oS+WErljnKUpcTlDyX+nlPUlmJzliasZzWBTetTzm8dKaUWbxZ8mydi9Z+rAsALtuIoQEMdgHcoMpXl60W7wcMd8ZlZxEORQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YCrf2dWoqxi7qBorfxi68XMsLE4nKtVCX+GjBvyiMMI=;
+ b=VtOHsGJ13XjVpHf7UlnTB36g81rwTM8hoYkL4H8XC6LsTcSy5ZOi96ZJt6EqHK/xx+Lrfxlr9cg0Tg6qp2CG3ybp7PdY+J/aWne6utd3K0SjZ+QXcIqiib6eXWGyAoF1OkDUkGdkeo6K6BpSe0XABjWKs7eehnRfca1xOaUjDJS28YIWii+0N9XWN66hoN3ks//M7czR2jPlaklKYILc2nBpW5ZaH7TBjydkRByqSoJKGs8cCzoGHFiVfDlGe7hwalH+BXnsDGApZ0wTpB9Zt4dlEJfkLp3Jf4wARhNKEg1cTnDSVxL4oaSj47iMpIDveB+SxkXP3ZtHTM3ndbayTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YCrf2dWoqxi7qBorfxi68XMsLE4nKtVCX+GjBvyiMMI=;
+ b=vYpX8GqWUHMAQPAakwN9SiV1ccmXubGCQBrr4dfglXZPYAthduPSV/3/5K7ibt1lzgcZVztMWSwJ9QMUkmiGc6/e4ZD7mPD/qz2d++xC3ESHFM26hP0i7j/xwjswTL3vx4T3UmtMutQXq7XO1Zq8+GPJ9fnUGHaZS+ywQL8H7RBUJnGC2MY4cAoxac74BY+mwPjiHz5JFqvjMhelHmxACjCpOQO7qmLmAFECp1/DHrYoOW1FlmiXqAdIMPnRrQApgLESy8bQZRrhTneS23t8fOao+POq1bqIML+AkGzDLCtk6RCkzmDePDFAuvdYQ2o/binszRYPg5ZpCq8JyNMZ/w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from BYAPR03MB3461.namprd03.prod.outlook.com (2603:10b6:a02:b4::23)
+ by SA0PR03MB5449.namprd03.prod.outlook.com (2603:10b6:806:bd::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Thu, 12 Jun
+ 2025 22:16:36 +0000
+Received: from BYAPR03MB3461.namprd03.prod.outlook.com
+ ([fe80::706b:dd15:bc81:313c]) by BYAPR03MB3461.namprd03.prod.outlook.com
+ ([fe80::706b:dd15:bc81:313c%5]) with mapi id 15.20.8835.018; Thu, 12 Jun 2025
+ 22:16:36 +0000
+From: Matthew Gerlach <matthew.gerlach@altera.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	maxime.chevallier@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	richardcochran@gmail.com,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: Matthew Gerlach <matthew.gerlach@altera.com>,
+	Mun Yew Tham <mun.yew.tham@altera.com>
+Subject: [PATCH v5] dt-bindings: net: Convert socfpga-dwmac bindings to yaml
+Date: Thu, 12 Jun 2025 15:16:30 -0700
+Message-Id: <20250612221630.45198-1-matthew.gerlach@altera.com>
+X-Mailer: git-send-email 2.35.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BY3PR05CA0006.namprd05.prod.outlook.com
+ (2603:10b6:a03:254::11) To BYAPR03MB3461.namprd03.prod.outlook.com
+ (2603:10b6:a02:b4::23)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aEsiTy++yKGe1p9W@duo.ucw.cz>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BYAPR03MB3461:EE_|SA0PR03MB5449:EE_
+X-MS-Office365-Filtering-Correlation-Id: f223a267-7e83-41f4-8528-08dda9fecbd9
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|921020|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?z3t2hRmcuXeKG5K9iS6FLWgN+0dtM41rWv6tLgwzKHb2oqFw6cvP1of8/4OR?=
+ =?us-ascii?Q?ZxOEibbRyRJ4MVGT1XEtNTvgt4RHaKWJPoQZ+Ue5WSSRsStrsA1xBmUuTEps?=
+ =?us-ascii?Q?mY+JLKAg+Qz34p//VIVWOcxt/Rt9m8Bcaw6h9sFslI9lYqcl3qaH1BWC0bvv?=
+ =?us-ascii?Q?HBC21tzZbQpS6ttAsdO7408/M0cbHG+fC0avRGD4DcwFsbCnwu6u3ntKOc/3?=
+ =?us-ascii?Q?VqFWYfTh7OXb0ZaPz4NEf2a6v4IcKhjk3wDBQ4TcBe3vvOXUzaUlqAEX0x6r?=
+ =?us-ascii?Q?9Hk+dLfNJ9U8y3AmzHKAMYHYcOapwAefuHHuF4bK/OssUioCGMgqok24BGMX?=
+ =?us-ascii?Q?gfHSLUr0392aOQ/ZTnRY93mJKLJ5iElKRFOL1Is2DkhG2qRjQAA4pC8LL1fW?=
+ =?us-ascii?Q?C1i5v4yLKqYBINIEsfFn+MdadWemRlzYGxWGAtf/2oFFWfq0Ln/H3Y9V77fF?=
+ =?us-ascii?Q?NOI9cYuz8h70GFmGxNu6f5z97j+PDDq4A2Oxft5hfIiZID6v/+KTbTs7PUi8?=
+ =?us-ascii?Q?6eHpz1g0GjfN5z8Eivbg0anaWUwoHJMB3ksxakSgsR6p0GLiYY3bfH+Dp2vU?=
+ =?us-ascii?Q?nzhJUmM5tHsHAy1XSY0y6OOnaRHB8E4fExFP/N65/spk4wh3ZtQqibhSRvPD?=
+ =?us-ascii?Q?/yR/wLOBtqPKxpGkKYShfdLHaqUYU4Xgo4rb7cmY652gLmVxoWsIPiZL3z6a?=
+ =?us-ascii?Q?2Jt4S9aHYdydLhDsLbH869+tuET4uJje2bHL75d1uJz7qEFqLyKnA5ICZJ7Y?=
+ =?us-ascii?Q?c+W89uJoFTTE+XyhgubTPp/qgPwEbOo7kjmtnNaxZo50qV0TRDRNSiRR/bvQ?=
+ =?us-ascii?Q?GimVSppnEH6uZIGuVh9LuZTX6qNcrxEB9WrrAIk3Ht29VDse6d5OCRnIL78B?=
+ =?us-ascii?Q?LPsP0lD6Gk8jsbtn30QOk+aFQQfU90SAD1n0QyI5ZKD/gKvqJXm8IcRIrm9q?=
+ =?us-ascii?Q?TgoYuFZOi6yiBQAKs2Ab2b8Tt9X+Bz8Q7PUd9TQ5FVr/I7weMpCfcqsgPSkT?=
+ =?us-ascii?Q?NZPbzeRnpfYcLpOAPgFlH2a1UuxnvNkJ71HzUHK6sAvh5Rxg+6nrh2lQ3i+p?=
+ =?us-ascii?Q?FqkfW8OMP2pmRgaJ+8Ht0FRi+NDHfiQMQsPbaimRkULt75O+TMZM9zThvdIw?=
+ =?us-ascii?Q?H4UqVwY+2SokH1wJFJ7v5c+3HVPZWIIiwvCxq08rt6eNC2clJ9JRxZF/Pevt?=
+ =?us-ascii?Q?RddNbaFFk5+rkhU5ElNyvGo8z6obkAPKOTzS5TTX3CbO6q6xu3zxGapYONAP?=
+ =?us-ascii?Q?9ChNcJ5YD/hOokHdta4gvt2ONSs7kQL/wSDN4lM8Fw0053r8LZdkDB3lAMmj?=
+ =?us-ascii?Q?o22fEhJdPHyjFZCpUwjUSEoJq4ihqErwudlNkum6TPYKz39StVjE4Q+sq8/+?=
+ =?us-ascii?Q?iLmct9WmjQI7boU9R3Jahf4+Co2h7CQRLOxhDfTb+CK/f+beeA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR03MB3461.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(921020)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KRmw90wUUR/Rw9lmuIvQ3tTUlVjA5cy1gajYtTR7FZjgxtrVc8NK2RAR5duZ?=
+ =?us-ascii?Q?+ehOX1mR8/PABVuLSQLbn6wgdKixE7I5fUYlBpgjb+IlVGXz979uFkqHJ/oi?=
+ =?us-ascii?Q?f29ou8NgqIHmTA6Vc+s8/o1taHI2sRJRtrNT3FAfbGUhzk+v61mcGNfsGLwk?=
+ =?us-ascii?Q?nBPzQrTjErRiFL47Bx8p6A2FJYYJ0lfrWt6AIlG6P4ZGfRrHGazAgQ4JtKqY?=
+ =?us-ascii?Q?Oej9LDYMI1L20XlzVPPesUB1VfJmkqPI5AvU86CGhw8J+nE9IvpmE4U0SFUo?=
+ =?us-ascii?Q?W60Rf8LsXZVelukAcSpwI9Np6Q3JkBENOhOYbt0j0Xy+UAPfOtblqXTfIbxL?=
+ =?us-ascii?Q?TZFnuDId13sGe23FZzajItdsaXsJRsqjkrGGmzm3SOhm01IrwBci0a3kqOGJ?=
+ =?us-ascii?Q?Z7TZupaGgrVcoNbxEKN9GxawbgAvqEjMKHWLXlV4p89jrYYsQLOaYEEog703?=
+ =?us-ascii?Q?RjSkYneBBWZX9A2bBxvFcFirqXZUIadtIUcWd4aItG37ZB3qYb4RX8YUWKKp?=
+ =?us-ascii?Q?BQdM8G373jetLBoy+8eja5G7xVzCbNRt4g93pVb8PzYquHCFMoSv+3SGZmjd?=
+ =?us-ascii?Q?dV0RL1UVXKn9gRo/4z6fP2d+immEuZapewXQ47AtgyRTADZ/eIsUoIfdFiBI?=
+ =?us-ascii?Q?+igk9RZ7gwFl+AE1ZP+/ed2KzKNNhiQkfHPEFTxU3jXbLV8dKQRcQnwzdlSE?=
+ =?us-ascii?Q?/6Sxt2v1PJk7ljZrerOuJrmbuxKIzitAVKtUbCwONYeWEskatFfdIcUc5tYm?=
+ =?us-ascii?Q?3ek6+hPMT6jyud59kcgInXf+iEgiBV/aQ6BM3z/SIVP44gkb3k6Fq8FLv3pl?=
+ =?us-ascii?Q?zsx18sZziEmcgFmdNsJD1K+YLv5G/ZtogyBupd9COiM8yNetpc18392LEZXz?=
+ =?us-ascii?Q?u1GHgjNo8YtutFeTJ+Re6wXi9YsJv0EVOuCjEgmMiJfghzYVM4ZJbLt098OM?=
+ =?us-ascii?Q?CXtaV1vQ2UGLVzQ9UlCBJtoJBVpLPsR4kg+u+6bhXPFyxRFORGqpEsTcgRrW?=
+ =?us-ascii?Q?HRGI1hK6gyaPfETARD0IFR1GShC9V3kjKRxjcrDwomYEXyM5qvABBfsEXoMF?=
+ =?us-ascii?Q?OGvk74/QQzsLF4FQQLVNRF2/qyzzJASbep5esL6334Mj8g+Cd2uhYK/5qAXB?=
+ =?us-ascii?Q?f9LkVjGFetSh63QRI6Wmd8gXTEgHS5vYiLpvi4Lb5GM9ABgxx3l4u4lMCVgk?=
+ =?us-ascii?Q?Y2zTpzX7+ve6mFCluTIV/NKCcebzZChfQ4YoYukfWa0jxc98K53nh3LjIJcu?=
+ =?us-ascii?Q?MIfvqD7XTl6S0EFVXs+wSgVtSneFV+puAGa/MG/rDeD8HV3nx2x7RgddORMc?=
+ =?us-ascii?Q?BruoCdHayIRp3rH8NGdN5zHdm124LQdyTFZwH9cZ+Zrl/82i/ZGHiuTCRfCB?=
+ =?us-ascii?Q?wCq+2Kf1EWXb8Z7R516wfnNEWS6Xk4KJ9j6N+vxL9bzjZBTnYcndqJi2HqxG?=
+ =?us-ascii?Q?o6pa3QegQ0UPL8rQp7pkjPI/BuYI6HeOMCFfQQMAd5Pn5IiYnGP2n4yuP8PQ?=
+ =?us-ascii?Q?NxyH9MDRKvDWg/hHFm4vAExsJ8PfM9qeXv3PtnQIvm+3wcT0rggdHNGBlSjp?=
+ =?us-ascii?Q?zPJ6hCQl1q2Fvx/GXSZR4euy6Qxx8NlyuR5/QUvKLJyQC9HS+/Xi4vv7wX3u?=
+ =?us-ascii?Q?Hg=3D=3D?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f223a267-7e83-41f4-8528-08dda9fecbd9
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR03MB3461.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 22:16:36.6166
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y58XvfqSVeuCV5FNe4JmNodsMh14qDwiRHUQyB/X5jsIDdJLmyNeTBrBjrBiFlI6FIJR9PwV8md/n5I+AuG9GmPspz+sRJhVmwaAr4qFFFU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR03MB5449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_121026_662005_7C62EB51 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20250612_151642_087121_2F6F5B6F 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +172,355 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 08:54:07PM +0200, Pavel Machek wrote:
-> > On Thursday, 12 June 2025 11:17:52 Central European Summer Time Pavel Machek wrote:
-> > > 
-> > > > Jonathan mentioned recently that he would like to get away from using
-> > > > memset() to zero-initialize stack memory in the IIO subsystem. And we
-> > > > have it on good authority that initializing a struct or array with = { }
-> > > > is the preferred way to do this in the kernel [1]. So here is a series
-> > > > to take care of that.
-> > > 
-> > > 1) Is it worth the churn?
-> > > 
-> > > 2) Will this fail to initialize padding with some obscure compiler?
-> > 
-> > as of right now, the only two C compilers that are supported are
-> > GCC >= 8.1, and Clang >= 13.0.1. If anyone even manages to get the
-> > kernel
-> 
-> Well... I'm pretty sure parts of this would make it into -stable as a
-> dependency, or because AUTOSEL decides it is a bugfix. So..
-> 
-> GNU C                  4.9              gcc --version
-> Clang/LLVM (optional)  10.0.1           clang --version
+Convert the bindings for socfpga-dwmac to yaml. Since the original
+text contained descriptions for two separate nodes, two separate
+yaml files were created.
 
-Even though, what the kernel versions are you referring to? I am sure there
-plenty of cases with {} there.
+Signed-off-by: Mun Yew Tham <mun.yew.tham@altera.com>
+Signed-off-by: Matthew Gerlach <matthew.gerlach@altera.com>
+---
+v5:
+ - Fix dt_binding_check error: comptabile.
+ - Rename altr,gmii-to-sgmii.yaml to altr,gmii-to-sgmii-2.0.yaml
 
+v4:
+ - Change filename from socfpga,dwmac.yaml to altr,socfpga-stmmac.yaml.
+ - Updated compatible in select properties and main properties.
+ - Fixed clocks so stmmaceth clock is required.
+ - Added binding for altr,gmii-to-sgmii.
+ - Update MAINTAINERS.
+
+v3:
+ - Add missing supported phy-modes.
+
+v2:
+ - Add compatible to required.
+ - Add descriptions for clocks.
+ - Add clock-names.
+ - Clean up items: in altr,sysmgr-syscon.
+ - Change "additionalProperties: true" to "unevaluatedProperties: false".
+ - Add properties needed for "unevaluatedProperties: false".
+ - Fix indentation in examples.
+ - Drop gmac0: label in examples.
+ - Exclude support for Arria10 that is not validating.
+---
+ .../bindings/net/altr,gmii-to-sgmii-2.0.yaml  |  49 ++++++
+ .../bindings/net/altr,socfpga-stmmac.yaml     | 162 ++++++++++++++++++
+ .../devicetree/bindings/net/socfpga-dwmac.txt |  57 ------
+ MAINTAINERS                                   |   7 +-
+ 4 files changed, 217 insertions(+), 58 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/altr,gmii-to-sgmii-2.0.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+ delete mode 100644 Documentation/devicetree/bindings/net/socfpga-dwmac.txt
+
+diff --git a/Documentation/devicetree/bindings/net/altr,gmii-to-sgmii-2.0.yaml b/Documentation/devicetree/bindings/net/altr,gmii-to-sgmii-2.0.yaml
+new file mode 100644
+index 000000000000..aafb6447b6c2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/altr,gmii-to-sgmii-2.0.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++# Copyright (C) 2025 Altera Corporation
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/altr,gmii-to-sgmii-2.0.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Altera GMII to SGMII Converter
++
++maintainers:
++  - Matthew Gerlach <matthew.gerlach@altera.com>
++
++description:
++  This binding describes the Altera GMII to SGMII converter.
++
++properties:
++  compatible:
++    const: altr,gmii-to-sgmii-2.0
++
++  reg:
++    items:
++      - description: Registers for the emac splitter IP
++      - description: Registers for the GMII to SGMII converter.
++      - description: Registers for TSE control.
++
++  reg-names:
++    items:
++      - const: hps_emac_interface_splitter_avalon_slave
++      - const: gmii_to_sgmii_adapter_avalon_slave
++      - const: eth_tse_control_port
++
++required:
++  - compatible
++  - reg
++  - reg-names
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    phy@ff000240 {
++        compatible = "altr,gmii-to-sgmii-2.0";
++        reg = <0xff000240 0x00000008>,
++              <0xff000200 0x00000040>,
++              <0xff000250 0x00000008>;
++        reg-names = "hps_emac_interface_splitter_avalon_slave",
++                    "gmii_to_sgmii_adapter_avalon_slave",
++                    "eth_tse_control_port";
++    };
+diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+new file mode 100644
+index 000000000000..ccbbdb870755
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+@@ -0,0 +1,162 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/altr,socfpga-stmmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Altera SOCFPGA SoC DWMAC controller
++
++maintainers:
++  - Matthew Gerlach <matthew.gerlach@altera.com>
++
++description:
++  This binding describes the Altera SOCFPGA SoC implementation of the
++  Synopsys DWMAC for the Cyclone5, Arria5, Stratix10, and Agilex7 families
++  of chips.
++  # TODO: Determine how to handle the Arria10 reset-name, stmmaceth-ocp, that
++  # does not validate against net/snps,dwmac.yaml.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - altr,socfpga-stmmac
++          - altr,socfpga-stmmac-a10-s10
++
++  required:
++    - compatible
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: altr,socfpga-stmmac
++          - const: snps,dwmac-3.70a
++          - const: snps,dwmac
++      - items:
++          - const: altr,socfpga-stmmac-a10-s10
++          - const: snps,dwmac-3.74a
++          - const: snps,dwmac
++
++  clocks:
++    minItems: 1
++    items:
++      - description: GMAC main clock
++      - description:
++          PTP reference clock. This clock is used for programming the
++          Timestamp Addend Register. If not passed then the system
++          clock will be used and this is fine on some platforms.
++
++  clock-names:
++    minItems: 1
++    items:
++      - const: stmmaceth
++      - const: ptp_ref
++
++  iommus:
++    maxItems: 1
++
++  phy-mode:
++    enum:
++      - gmii
++      - mii
++      - rgmii
++      - rgmii-id
++      - rgmii-rxid
++      - rgmii-txid
++      - sgmii
++      - 1000base-x
++
++  rxc-skew-ps:
++    description: Skew control of RXC pad
++
++  rxd0-skew-ps:
++    description: Skew control of RX data 0 pad
++
++  rxd1-skew-ps:
++    description: Skew control of RX data 1 pad
++
++  rxd2-skew-ps:
++    description: Skew control of RX data 2 pad
++
++  rxd3-skew-ps:
++    description: Skew control of RX data 3 pad
++
++  rxdv-skew-ps:
++    description: Skew control of RX CTL pad
++
++  txc-skew-ps:
++    description: Skew control of TXC pad
++
++  txen-skew-ps:
++    description: Skew control of TXC pad
++
++  altr,emac-splitter:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Should be the phandle to the emac splitter soft IP node if DWMAC
++      controller is connected an emac splitter.
++
++  altr,f2h_ptp_ref_clk:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to Precision Time Protocol reference clock. This clock is
++      common to gmac instances and defaults to osc1.
++
++  altr,gmii-to-sgmii-converter:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Should be the phandle to the gmii to sgmii converter soft IP.
++
++  altr,sysmgr-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description:
++      Should be the phandle to the system manager node that encompass
++      the glue register, the register offset, and the register shift.
++      On Cyclone5/Arria5, the register shift represents the PHY mode
++      bits, while on the Arria10/Stratix10/Agilex platforms, the
++      register shift represents bit for each emac to enable/disable
++      signals from the FPGA fabric to the EMAC modules.
++    items:
++      - items:
++          - description: phandle to the system manager node
++          - description: offset of the control register
++          - description: shift within the control register
++
++patternProperties:
++  "^mdio[0-9]$":
++    type: object
++
++required:
++  - compatible
++  - clocks
++  - clock-names
++  - altr,sysmgr-syscon
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++unevaluatedProperties: false
++
++examples:
++
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    soc {
++        #address-cells = <1>;
++        #size-cells = <1>;
++        ethernet@ff700000 {
++            compatible = "altr,socfpga-stmmac", "snps,dwmac-3.70a",
++            "snps,dwmac";
++            altr,sysmgr-syscon = <&sysmgr 0x60 0>;
++            reg = <0xff700000 0x2000>;
++            interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>;
++            interrupt-names = "macirq";
++            mac-address = [00 00 00 00 00 00]; /* Filled in by U-Boot */
++            clocks = <&emac_0_clk>;
++            clock-names = "stmmaceth";
++            phy-mode = "sgmii";
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/net/socfpga-dwmac.txt b/Documentation/devicetree/bindings/net/socfpga-dwmac.txt
+deleted file mode 100644
+index 612a8e8abc88..000000000000
+--- a/Documentation/devicetree/bindings/net/socfpga-dwmac.txt
++++ /dev/null
+@@ -1,57 +0,0 @@
+-Altera SOCFPGA SoC DWMAC controller
+-
+-This is a variant of the dwmac/stmmac driver an inherits all descriptions
+-present in Documentation/devicetree/bindings/net/stmmac.txt.
+-
+-The device node has additional properties:
+-
+-Required properties:
+- - compatible	: For Cyclone5/Arria5 SoCs it should contain
+-		  "altr,socfpga-stmmac". For Arria10/Agilex/Stratix10 SoCs
+-		  "altr,socfpga-stmmac-a10-s10".
+-		  Along with "snps,dwmac" and any applicable more detailed
+-		  designware version numbers documented in stmmac.txt
+- - altr,sysmgr-syscon : Should be the phandle to the system manager node that
+-   encompasses the glue register, the register offset, and the register shift.
+-   On Cyclone5/Arria5, the register shift represents the PHY mode bits, while
+-   on the Arria10/Stratix10/Agilex platforms, the register shift represents
+-   bit for each emac to enable/disable signals from the FPGA fabric to the
+-   EMAC modules.
+- - altr,f2h_ptp_ref_clk use f2h_ptp_ref_clk instead of default eosc1 clock
+-   for ptp ref clk. This affects all emacs as the clock is common.
+-
+-Optional properties:
+-altr,emac-splitter: Should be the phandle to the emac splitter soft IP node if
+-		DWMAC controller is connected emac splitter.
+-phy-mode: The phy mode the ethernet operates in
+-altr,sgmii-to-sgmii-converter: phandle to the TSE SGMII converter
+-
+-This device node has additional phandle dependency, the sgmii converter:
+-
+-Required properties:
+- - compatible	: Should be altr,gmii-to-sgmii-2.0
+- - reg-names	: Should be "eth_tse_control_port"
+-
+-Example:
+-
+-gmii_to_sgmii_converter: phy@100000240 {
+-	compatible = "altr,gmii-to-sgmii-2.0";
+-	reg = <0x00000001 0x00000240 0x00000008>,
+-		<0x00000001 0x00000200 0x00000040>;
+-	reg-names = "eth_tse_control_port";
+-	clocks = <&sgmii_1_clk_0 &emac1 1 &sgmii_clk_125 &sgmii_clk_125>;
+-	clock-names = "tse_pcs_ref_clk_clock_connection", "tse_rx_cdr_refclk";
+-};
+-
+-gmac0: ethernet@ff700000 {
+-	compatible = "altr,socfpga-stmmac", "snps,dwmac-3.70a", "snps,dwmac";
+-	altr,sysmgr-syscon = <&sysmgr 0x60 0>;
+-	reg = <0xff700000 0x2000>;
+-	interrupts = <0 115 4>;
+-	interrupt-names = "macirq";
+-	mac-address = [00 00 00 00 00 00];/* Filled in by U-Boot */
+-	clocks = <&emac_0_clk>;
+-	clock-names = "stmmaceth";
+-	phy-mode = "sgmii";
+-	altr,gmii-to-sgmii-converter = <&gmii_to_sgmii_converter>;
+-};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b8f217c7d92b..3e5aef9e1538 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3262,10 +3262,15 @@ M:	Dinh Nguyen <dinguyen@kernel.org>
+ S:	Maintained
+ F:	drivers/clk/socfpga/
+ 
++ARM/SOCFPGA DWMAC GLUE LAYER BINDINGS
++M:	Matthew Gerlach <matthew.gerlach@altera.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/net/altr,gmii-to-sgmii.yaml
++F:	Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
++
+ ARM/SOCFPGA DWMAC GLUE LAYER
+ M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
+ S:	Maintained
+-F:	Documentation/devicetree/bindings/net/socfpga-dwmac.txt
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+ 
+ ARM/SOCFPGA EDAC BINDINGS
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.35.3
 
 
