@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FC2C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 04:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F05C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 04:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/B+8RevM6Ofau8Z/9+qoo89gx+LXuukTjT6hC38HhEk=; b=c2HHx2OhLSEI0dFkhs/v+/wTVZ
-	DtrE51Ri+5uBq1MY9nX1OWMQ+zLJ4Yckii9j0aGLXp/udReRnsXKlytlPT53xGEgdEI+Wo5iOFa4/
-	f5eJG2qi9qt2qWrRxQvU0T8FSg6l8Iz5Vnq5Xy4Dxb2gqYx8pi72J7VAuJIMiL0Gja+JlcchoQuKq
-	qtpsabkuznkIVmjLbr/dZ5mxL4SgFbix0kS4T/rBGxH0qaH31GSJOIvHsdngQ0jkRB2yXwUarihkv
-	yuW238PXMDpORecASeCeUaYiU70bBtg+G8XWkFjtb8s34rwMSSUxAl+iFfPKRJ1WKvP7E5SsJYrRG
-	jfWRY7wQ==;
+	bh=ORxEy6Z1UwG2c1EpsL1AL/4rn7l1/IPGac8D3BNCqU8=; b=T2L7hlBLYYr/dqlcUJd8Wj82Xk
+	Fa6TO2fak3zS99LEfmXfhUEfDp1BYqGWShsxcFxNq5Z+VfyWBiKx7yK3TmpNlKWnh9KUHYP9byfnI
+	5ay3gF8ERhtOWga5hMHcQdEOyjCzJLbAmBkLLifMwTaG/Uvn8BdW2wbE9TlIvWChpdPT14a4vDlmL
+	jRrGdRtvuwK57XkeSqQXno2S0yelUPJgq8j0Z5FZ10c4nf8pqslzDhs3b+Vt3iRo0V8OyMbGIipJe
+	C7P3j/YUXJyM2JjdNauJL7E/gtt/w1OFHYIgs2wD6RSxsL7u2ahoJJg4dPv4MZfc+48GpUXb7OEnH
+	Kj4ecYMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPZ9h-0000000C73M-04s0;
-	Thu, 12 Jun 2025 04:03:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPZFb-0000000C7kv-0NkB;
+	Thu, 12 Jun 2025 04:09:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPZ7X-0000000C6e5-3rML
+	id 1uPVOX-0000000Bjya-2Cw0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 04:00:56 +0000
+	Thu, 12 Jun 2025 00:02:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FAD149EF8;
-	Thu, 12 Jun 2025 04:00:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C361C4CEEB;
-	Thu, 12 Jun 2025 04:00:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D242629E4;
+	Thu, 12 Jun 2025 00:02:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7590C4CEE3;
+	Thu, 12 Jun 2025 00:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749700854;
-	bh=mz2ucRVIwB/L/SqWdSybuRAOphTiphXBWZwiEvEMGII=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kvx+gSGjRIoWdvm8i5SbrmJAGs8P+t1fqoq5G6z952YQahbrdaUCKD4XCaFk3qQEL
-	 mzMMrXgvUimUpcKl6cmkVvZu8w+6NiRGVWjJ/qky8z+DqLC0KWZUum+PFPF+3sAuJ0
-	 xPr7ZstiL+rW8iOADVH/2JqQ6cXB1cxTwoUnPPbLidKTL8IEDsUYWQPxFrGbU4OJPQ
-	 oZXr+bh26djhv8ZX/JlGoXWL1exM+GRboaeFYoaBs2l01Bc0hWd9AEdK693jg8V3bL
-	 Dp3Dbjx4wcuhdRboFOBQoZM6sbYplbFAFxPfdAatfxNrbJ9T3U4YdTd2/9KGFjSZIO
-	 MFPj8OLy1ltTw==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Konrad Dybcio <konradybcio@kernel.org>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm CPUCP mailbox driver
-Date: Wed, 11 Jun 2025 23:00:34 -0500
-Message-ID: <174970084177.547582.1881380220654294150.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250605-enable-cpucp-v1-1-111ecef7e4c9@oss.qualcomm.com>
-References: <20250605-enable-cpucp-v1-1-111ecef7e4c9@oss.qualcomm.com>
+	s=k20201202; t=1749686532;
+	bh=QZ/fn76hbIECH2SJNsLWkYeQQ/XFL72WxozjIyCrQXo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Rjyn+NohjKOQ7SiU6IF8v3IyU/H/Usnw4tSJgqG3xE+AjD1k7f0Ig2AYXS03qf5IR
+	 x/wXVykDQhY3YAWqcFMaGU299A+AcmYsxx9QMN0lTOeUvUiuys2jH8lkkBqu5uwmZQ
+	 zLmevpnwbcMgMAcyjDg0n3C2JQDsJ6JPL1YdX9UTdT9A6+x48iZCZHMn4wr9iEYzic
+	 ILxaXO2VhjID8LkGbQ+vrq3w3h8PRPhSK5WzzB2LGARMUkW4dE0uDnDRHQEay5942G
+	 BuRQa8Qmcc+2kqw1tPMiugEo4CavoFYgbcTYU/SZNfdZrBYwzsZCQKzQknHytUaE0V
+	 9pyQ3m1EF0kLA==
+Date: Wed, 11 Jun 2025 17:02:11 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
+ Eric Dumazet <edumazet@google.com>, "David S. Miller"
+ <davem@davemloft.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>
+Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Read firmware-names
+ from device tree
+Message-ID: <20250611170211.7398b083@kernel.org>
+In-Reply-To: <20250610052501.3444441-1-danishanwar@ti.com>
+References: <20250610052501.3444441-1-danishanwar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_210055_976435_A1B29AD9 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +73,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 10 Jun 2025 10:55:01 +0530 MD Danish Anwar wrote:
+> Refactor the way firmware names are handled for the ICSSG PRUETH driver.
+> Instead of using hardcoded firmware name arrays for different modes (EMAC,
+> SWITCH, HSR), the driver now reads the firmware names from the device tree
+> property "firmware-name". Only the EMAC firmware names are specified in the
+> device tree property. The firmware names for all other supported modes are
+> generated dynamically based on the EMAC firmware names by replacing
+> substrings (e.g., "eth" with "sw" or "hsr") as appropriate.
 
-On Thu, 05 Jun 2025 19:06:06 -0500, Bjorn Andersson wrote:
-> The Qualcomm CPUCP mailbox driver needs to be enabled for CPU frequency
-> scaling to work on the X Elite platform, so enable this driver.
-> 
-> 
+Could you include an example?
 
-Applied, thanks!
+> This improves flexibility and allows firmware names to be customized via
+> the device tree, reducing the need for code changes when firmware names
+> change for different platforms.
 
-[1/1] arm64: defconfig: Enable Qualcomm CPUCP mailbox driver
-      commit: 3871b51a684275e3a47fbebf93c0a0e7a05d7f9f
-
-Best regards,
+You seem to be deleting the old constants. Is there no need to keep
+backward compatibility with DT blobs which don't have the firmware-name
+properties ?
 -- 
-Bjorn Andersson <andersson@kernel.org>
+pw-bot: cr
 
