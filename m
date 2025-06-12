@@ -4,95 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE8FC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 03:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97857C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 03:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zWNCbeBKvxxOUbIvlFwqhkFW85ttwZ/2J/QVGWuOg30=; b=UTtPMtgKX3vSaJKX09Fbyth8/Y
-	g0aXIFtnOYBWcaZswsHLh5Hib2qSo1v+iMwyTtjYdIz5JvzlBwiHlfZ9urBi4Z0Gjmz6WkZz2AMTC
-	0mRf1Yf4BlEUaVjCi9tkNGpyVviHRumE5iEvmiO0xaXZ0Lz/Kn1/qoILXoxcY6F04NNSud78vo4Ud
-	HWcDyQta87emy+MA6NqrNZv+1Dru25yPXyV9dnHg1ErRti/WfxK8DZ5RN+pWB/GXu5BLm4zn8Nwv2
-	aNNWIIj9rgZKFI3jUAiiB1cysb11B8weXh9zueQglDwYRO00WlRxj84Uudml57Ta4f0g83bv3XwbJ
-	FB8BOR/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j4m9qzeyse7sWAVAE6b7KsyxE8k+79J/FEsxRK5Qmvk=; b=4+UGkSrF8mbtOyqlcYfaAqOyfu
+	LUtiGZfFVBUHJCDw2/Hk0452LxJRnFdgDn2v4UZ5nkSIASYWDWnBeif3StRC0rCFxa9+rQIrRyHSJ
+	oiA0vFUeVMl9orlPKiGIjoe0cUX/vvY2apA4XEFLbdnZNQCn2zGMUmZRsGTIx21FM/61hJTsHAqSJ
+	QLsh+SVEeKkIwx/bPsqNjr6QkLq6dcg+OrEp3pPvg4+DMrYQe59TpzM1vUmAEEi38NzmJsjZJP0TI
+	GWWY2XsG6J6xHumQ6SYtksHeWBRCIx2yA06wzS7oGaq8ijF+jxcOsYWhdihO6qp9tBnjhlFiynIx1
+	qYYt1dwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPYF8-0000000C2Fc-0ZK5;
-	Thu, 12 Jun 2025 03:04:42 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1uPYHC-0000000C2Ol-3b5r;
+	Thu, 12 Jun 2025 03:06:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPVar-0000000Bljw-0taz
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 00:14:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749687297; x=1781223297;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3+i/qQYgvBYTLJ9rk46HeDginwQWUDS8zT4mmWEEUrE=;
-  b=hnFPhapWb3bF8EcweI5rpHeprV0XMdvGfBxeDYYWheOFwJKlM7qk/6xZ
-   FHrvAWAcisfBGHUJNIYAZY6X65FAG+g20IITEgoXPPQzxiaHnGLwCY5/W
-   413mn9TbuPmFYVL3b0pBU2/GYl0gRutlfY9cXmJe52xbTEg5FEJuvoAot
-   rSxomsBZfzc6BxajarHn9M4K1SxqM7C+t6S8kwoEwtXwlhgYUxKV+286h
-   6H7SiPnxa/SuNlJ8OcIe7y+lbAHFsLGuuAFeIVO4xGJlOSfuiVOQmduDC
-   uKs2lvNw5ZIODMh3pmRIhrbr7dlNL9/07NCC49Wg/LAyD4pMRQgvgwaHW
-   Q==;
-X-CSE-ConnectionGUID: VPEtjox7SbiWjMZ5xskgIw==
-X-CSE-MsgGUID: YqLAweYuT4S/WAXWJ5Catg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11461"; a="51727357"
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="51727357"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2025 17:14:53 -0700
-X-CSE-ConnectionGUID: 1f0u85CwQt2U7n5U0sxH2w==
-X-CSE-MsgGUID: +x7J175lRBSblLkppAz+cg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="147842871"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 11 Jun 2025 17:14:47 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uPVae-000Ax0-2r;
-	Thu, 12 Jun 2025 00:14:44 +0000
-Date: Thu, 12 Jun 2025 08:14:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sean Anderson <sean.anderson@linux.dev>, netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev,
-	Vineeth Karumanchi <vineeth.karumanchi@amd.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Simon Horman <horms@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Lei Wei <quic_leiwei@quicinc.com>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Michal Simek <monstr@monstr.eu>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Robert Hancock <robert.hancock@calian.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [net-next PATCH v6 06/10] net: pcs: Add Xilinx PCS driver
-Message-ID: <202506120722.o7HB1e60-lkp@intel.com>
-References: <20250610233134.3588011-7-sean.anderson@linux.dev>
+	id 1uPVvf-0000000BnUa-4BMM;
+	Thu, 12 Jun 2025 00:36:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B8CD15C649D;
+	Thu, 12 Jun 2025 00:34:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0CEC4CEE3;
+	Thu, 12 Jun 2025 00:36:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749688587;
+	bh=VX2z2/FTyVn7BQpo+/VJOHyJJYMp0fe/rlbeOnwg8S8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Gs8Ktq8oAq+gDWOf1HIkw1MKCjkvLUD34+FWmtdYgVDcMktaU8GYHoBfX87Y0SOQN
+	 j712zYHBDZbysi8LQDV6hLTiAk9E15f0PjFmRABnbS3MiBl4dqJRQAn/rnekjgX2Y1
+	 bW+lTZ2OUHhB0IbqfqnDueXhcyWZwR1f3gt6AGEjWbRRNddUmQzB8d2eB7huh4AiQj
+	 t90s0vnkhMn3itY4Cx4MU8ENXBhHLU4L1prU3J3M7hQx0wr0W5LEgmWFt6q7edqW6k
+	 cLTKz8/faCH5zcZyM8ZKVMeadORQw6ceFG49PlUd5WCD+PMC1YLk7q0daBgwMQWK5t
+	 eQxr7fkyGGavA==
+Date: Wed, 11 Jun 2025 17:36:26 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Eric Dumazet <edumazet@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Add TCP LRO support
+Message-ID: <20250611173626.54f2cf58@kernel.org>
+In-Reply-To: <aEg1lvstEFgiZST1@lore-rh-laptop>
+References: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
+	<CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
+	<aEg1lvstEFgiZST1@lore-rh-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250610233134.3588011-7-sean.anderson@linux.dev>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_171457_295675_197DAE76 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_173628_083900_BB913E73 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+On Tue, 10 Jun 2025 15:39:34 +0200 Lorenzo Bianconi wrote:
+> > Tell us more... It seems small LRO packets will consume a lot of
+> > space, incurring a small skb->len/skb->truesize ratio, and bad TCP WAN
+> > performance.  
+> 
+> I think the main idea is forward to hw LRO queues (queues 24-31 in this
+> case) just specific protocols with mostly big packets but I completely
+> agree we have an issue for small packets. One possible approach would be
+> to define a threshold (e.g. 256B) and allocate a buffer or page from the
+> page allocator for small packets (something similar to what mt7601u driver
+> is doing[0]).  What do you think?
 
-kernel test robot noticed the following build warnings:
+I'm not Eric but FWIW 256B is not going to help much. It's best to keep
+the len / truesize ratio above 50%, so with 32k buffers we're talking
+about copying multiple frames.
 
-[auto build test WARNING on net-next/main]
+> > And order-5 pages are unlikely to be available in the long run anyway.  
+> 
+> I agree. I guess we can reduce the order to ~ 2 (something similar to
+> mtk_eth_soc hw LRO implementation [1]).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sean-Anderson/dt-bindings-net-Add-Xilinx-PCS/20250611-143544
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250610233134.3588011-7-sean.anderson%40linux.dev
-patch subject: [net-next PATCH v6 06/10] net: pcs: Add Xilinx PCS driver
-config: sh-kismet-CONFIG_COMMON_CLK-CONFIG_PCS_XILINX-0-0 (https://download.01.org/0day-ci/archive/20250612/202506120722.o7HB1e60-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250612/202506120722.o7HB1e60-lkp@intel.com/reproduce)
+Would be good to test. SW GRO can "re-GRO" the partially coalesced
+packets, so it's going to be diminishing returns.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506120722.o7HB1e60-lkp@intel.com/
+> > LRO support would only make sense if the NIC is able to use multiple
+> > order-0 pages to store the payload.  
+> 
+> The hw supports splitting big packets over multiple order-0 pages if we
+> increase the MTU over one page size, but according to my understanding
+> hw LRO requires contiguous memory to work.
 
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for COMMON_CLK when selected by PCS_XILINX
-   WARNING: unmet direct dependencies detected for COMMON_CLK
-     Depends on [n]: !HAVE_LEGACY_CLK [=y]
-     Selected by [y]:
-     - PCS_XILINX [=y] && NETDEVICES [=y]
+Hm, you're already passing buffers smaller than normal TSO so
+presumably having a smaller buffers will break the sessions more 
+often but still work?
 
+You mean want to steal some of the code from:
+https://lore.kernel.org/all/20250421222827.283737-1-kuba@kernel.org/
+and make the buffer size user-configurable. But not a requirement.
+Let's at least get some understanding of the perf benefit of 
+32k vs 16k or 8k
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+pw-bot: cr
 
