@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B71C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0239FC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OvhC8nSpix1Vgr7VmRf3QvNU+tiGc69Yj4BU3oy6dHw=; b=Lgq/+Ff6QDa1stBodZPnJp6pmS
-	TigoznaH8N0e0liasAoAAO2uGqfh+KWpNLjcQVcQjj4BrSVRnxjQupz0m0c4IToCsaVW0bQ0zSplb
-	dvzAeh9gOP1FgkS9+9xYopPjIFZ0rxX1e5iBiJa+Byzsan9hSE46QNQRvgRnAAMwa7G9rySoiaZ6p
-	sNbjgQOheFCjb+PCaPDH/tWIO/r68yiHd8mEasL8bb5mpvgotaDKvXR2lP2qHNMjSUWVpbd27aEDr
-	gwteqHbZ1m23wXnmadKViOy96P0iIbrtnctDAwK8NyEYgQyBw479ybDpOICRe5DMS4W6l6Cg4/KBt
-	8bHhhyDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hGjtsJI7nBbeGiSOxYGQG5J5O3n4fwiWLCBVJcdBU7s=; b=caBSGSFvNjAlLHiIbRSNjulut0
+	3uVpNbwhMGpTujZjdsZ84koxZCpw9arU9/LGsTyU79ff1FgzgxiEk2UD5bNif0H25bTvm7/rdkvYl
+	MV00Hz5TavtTjSlPUGP1I6Jsc/NLwRbINjuz1Bp+btpUgUqJjR14ctz4S3HN/0RD9+/dFFlidxVPt
+	70b6D73rYp91ivJDImosZ1eDxnYhn7BT0lRL1QsdJF7iZ8VxFX4TZ1M4G7OBgMiO8cPXicKmbH3oV
+	n4oRPxqVKxFOnJwsafl1vg0k38TaFVjvWdtp6rYp4B4FV0F1eofSOJj4C7MTT6ntyQUuegLLRGEDX
+	X2KZKwng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoJs-0000000ETcq-3hHk;
-	Thu, 12 Jun 2025 20:14:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPoSb-0000000EUKr-3jug;
+	Thu, 12 Jun 2025 20:23:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoHi-0000000ETFs-0qJk
+	id 1uPoPj-0000000EUCk-0v7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 20:12:27 +0000
+	Thu, 12 Jun 2025 20:20:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 202F843CEE;
-	Thu, 12 Jun 2025 20:12:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0913C4CEF1;
-	Thu, 12 Jun 2025 20:12:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 77E0C629D1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 20:20:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D76CBC4CEEA
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 20:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749759145;
-	bh=+48g9boYrfhqh6oqAlx4hdDyZbb4+UXU4X2BzsEPKTQ=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=KFSifGw/qMZ5yRxKIXmq+GhYB6lh8UKqjLSfyCCuMh4zDI+V1KBVBQwuXJYZFz9jW
-	 FOTGRxLTY8uvJNbAKNfhBkNeyYrFGl1AkiXRVMg+K2UGP9Lqg5IgO+Kl5jqrl0RoRT
-	 fF9dlKjBTGiyYUWmoXbZPatVajnHIeYgr1vy9L8bluO/YTaovLygxV61aStDrWVAwZ
-	 /WkviVMZWpWeDaqT3xrWLzsT4w7Iyuu8UKHHTFdc8SlTjyxFIKsXhkDhNBZRY4v3FC
-	 V/61ynrIBUs08wFaBeQg33GD+fKtqpxnIz/h1NPyD0L4M/P9rOEIxDjSrEG8KzLKEG
-	 Gk6U95RG8Uqqw==
-Date: Thu, 12 Jun 2025 15:12:23 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1749759641;
+	bh=a5WnHSJOT46nfRLoD18xXpSv/uFhg0hnrMwi626QFM4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EQk77JAzfHA1ctAuntDsiKXHOyamy1WEk9XvQgt05vU0kl3Shdb2eGQzR0tfqGNs0
+	 G2bFJ+r+9XJTYVMKWQUnBP24ypbY/joG8PauU7XTL77t+RQy0RGHc2vMrGK9n3tRl5
+	 Cr0IH75Y8aZV7scEUwy+dbpv9V2cVCSSuOCNWIy5CBbNL4K0X2j8HT2tqwSMQ3OaFw
+	 OY+/1utzWN5IfCQ86IvkyXNXM2PkcyifMhymbsdr2ItBcaVyLWZ1injIjBeP9qxF4E
+	 lpQD+JsRgPGpdvWsq5VRK3d7fQ4oT2i7ZC9R/QZk7dk5H/jagHuvra7+dwbxbHT4rt
+	 hdY1ZBd7U96tA==
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6071ac9dc3eso2437566a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 13:20:41 -0700 (PDT)
+X-Gm-Message-State: AOJu0YzCz6NRTBXUs0DJqdTeodKVYERohY3ATOVComOyr+tqE+4siHaQ
+	ikRFKAwDybrR0Tw9xrhinsp+YhafMQE2XFITylFH9oRgfL8XMSwq/qdiFYeOcSMZfHVyRWYBX4k
+	sIJA1oFTqAortWi2FLlkrDlhA8M+unQ==
+X-Google-Smtp-Source: AGHT+IFnbXsRtFIL+scyAGYD3x7MKmnzII7AQnyQRZO9L1192M/CFiTale2tKX90VabUQqwsW4Kt7dfjYByaYhdz368=
+X-Received: by 2002:a17:907:3f1f:b0:adb:2a66:85bc with SMTP id
+ a640c23a62f3a-adec5cafe61mr40529466b.34.1749759640448; Thu, 12 Jun 2025
+ 13:20:40 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
- Yashwanth Varakala <y.varakala@phytec.de>, Shawn Guo <shawnguo@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Will Deacon <will@kernel.org>, 
- Teresa Remmet <t.remmet@phytec.de>, Benjamin Hahn <b.hahn@phytec.de>, 
- Jan Remmet <j.remmet@phytec.de>, Conor Dooley <conor+dt@kernel.org>, 
- devicetree@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
- upstream@lists.phytec.de, Fabio Estevam <festevam@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev
-To: Yannic Moog <y.moog@phytec.de>
-In-Reply-To: <20250611-wip-y-moog-phytec-de-imx95-libra-v3-0-c8d09f1bdbf0@phytec.de>
-References: <20250611-wip-y-moog-phytec-de-imx95-libra-v3-0-c8d09f1bdbf0@phytec.de>
-Message-Id: <174975871561.2915543.9713933816111618183.robh@kernel.org>
-Subject: Re: [PATCH v3 0/2] Add new imx imx95-libra-rdk-fpsc SBC
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_131226_277472_2B6C6650 
-X-CRM114-Status: GOOD (  18.05  )
+References: <20250611-arm-brbe-v19-v23-0-e7775563036e@kernel.org>
+ <20250611-arm-brbe-v19-v23-1-e7775563036e@kernel.org> <36f59ea1-1468-425d-991c-c4bacefe0fd4@amperemail.onmicrosoft.com>
+In-Reply-To: <36f59ea1-1468-425d-991c-c4bacefe0fd4@amperemail.onmicrosoft.com>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 12 Jun 2025 15:20:28 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJ-65ObSrV3pi2E+kceffY8vdQVUqhVfkXpAOU08UP7kA@mail.gmail.com>
+X-Gm-Features: AX0GCFux25NsO0y0HZrrApebcJ9A5SylHMyyGXcZP_lg5KPx0d0huWPEE-_d9JE
+Message-ID: <CAL_JsqJ-65ObSrV3pi2E+kceffY8vdQVUqhVfkXpAOU08UP7kA@mail.gmail.com>
+Subject: Re: [PATCH v23 1/4] arm64/sysreg: Add BRBE registers and fields
+To: Adam Young <admiyo@amperemail.onmicrosoft.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,97 +79,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jun 12, 2025 at 2:46=E2=80=AFPM Adam Young
+<admiyo@amperemail.onmicrosoft.com> wrote:
+>
+> tested-by: Adam Young<admiyo@os.amperecomputing.com>
 
-On Wed, 11 Jun 2025 15:05:29 +0200, Yannic Moog wrote:
-> The Libra i.MX 95 is a SBC that consists of the Libra base board
-> and the phyCORE i.MX 95 FPSC SoM.
-> This series adds its binding and device trees.
-> 
-> ---
-> Changes in v3:
-> - fix more style issues
-> - remove the rs232/485 gpio hog -> switch on the board is used instead
-> - remove erroneously added build artefacts
-> - Link to v2: https://lore.kernel.org/r/20250509-wip-y-moog-phytec-de-imx95-libra-v2-2-b241a915f2be@phytec.de
-> 
-> Changes in v2:
-> - fix indentation error in bindings
-> - align alias naming with FPSC enumeration
-> - Link to v1: https://lore.kernel.org/r/20250507-wip-y-moog-phytec-de-imx95-libra-v1-0-4b73843ad4cd@phytec.de
-> 
-> ---
-> Yannic Moog (2):
->       dt-bindings: add imx95-libra-rdk-fpsc
->       arm64: dts: add imx95-libra-rdk-fpsc board
-> 
->  Documentation/devicetree/bindings/arm/fsl.yaml     |   7 +
->  arch/arm64/boot/dts/freescale/Makefile             |   1 +
->  .../boot/dts/freescale/imx95-libra-rdk-fpsc.dts    | 318 ++++++++++
->  .../boot/dts/freescale/imx95-phycore-fpsc.dtsi     | 656 +++++++++++++++++++++
->  4 files changed, 982 insertions(+)
-> ---
-> base-commit: 68087d05675e3ac0ed632bc7b175abf06617c584
-> change-id: 20250415-wip-y-moog-phytec-de-imx95-libra-27c9ce555b91
-> 
-> Best regards,
-> --
-> Yannic Moog <y.moog@phytec.de>
-> 
-> 
-> 
+Thanks, I assume this is for patch 1, 2, and 4 at least because just
+this patch does nothing on its own.
 
+Note that on the mail lists, you should not top-post, but reply below
+the quoted message.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Rob
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 68087d05675e3ac0ed632bc7b175abf06617c584
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250611-wip-y-moog-phytec-de-imx95-libra-v3-0-c8d09f1bdbf0@phytec.de:
-
-arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dtb: usb@4c200000 (fsl,imx95-usb): compatible: 'oneOf' conditional failed, one must be fixed:
-	['fsl,imx95-usb', 'fsl,imx7d-usb', 'fsl,imx27-usb'] is too long
-	'fsl,imx95-usb' is not one of ['fsl,imx27-usb']
-	'fsl,imx95-usb' is not one of ['fsl,imx23-usb', 'fsl,imx25-usb', 'fsl,imx28-usb', 'fsl,imx35-usb', 'fsl,imx50-usb', 'fsl,imx51-usb', 'fsl,imx53-usb', 'fsl,imx6q-usb', 'fsl,imx6sl-usb', 'fsl,imx6sx-usb', 'fsl,imx6ul-usb', 'fsl,imx7d-usb', 'fsl,vf610-usb']
-	'fsl,imx95-usb' is not one of ['fsl,imx8dxl-usb', 'fsl,imx8ulp-usb']
-	'fsl,imx95-usb' is not one of ['fsl,imx8mm-usb', 'fsl,imx8mn-usb', 'fsl,imx93-usb']
-	'fsl,imx95-usb' is not one of ['fsl,imx6sll-usb', 'fsl,imx7ulp-usb']
-	'fsl,imx27-usb' was expected
-	'fsl,imx7ulp-usb' was expected
-	'fsl,imx6ul-usb' was expected
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dtb: usb@4c200000 (fsl,imx95-usb): interrupts: [[0, 176, 4], [0, 174, 4]] is too long
-	from schema $id: http://devicetree.org/schemas/usb/chipidea,usb2-imx.yaml#
-arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dtb: /soc/usb@4c200000: failed to match any schema with compatible: ['fsl,imx95-usb', 'fsl,imx7d-usb', 'fsl,imx27-usb']
-arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dtb: usbmisc@4c200200 (fsl,imx95-usbmisc): compatible: 'oneOf' conditional failed, one must be fixed:
-	['fsl,imx95-usbmisc', 'fsl,imx7d-usbmisc', 'fsl,imx6q-usbmisc'] is too long
-	'fsl,imx95-usbmisc' is not one of ['fsl,imx25-usbmisc', 'fsl,imx27-usbmisc', 'fsl,imx35-usbmisc', 'fsl,imx51-usbmisc', 'fsl,imx53-usbmisc', 'fsl,imx6q-usbmisc', 'fsl,vf610-usbmisc']
-	'fsl,imx95-usbmisc' is not one of ['fsl,imx6ul-usbmisc', 'fsl,imx6sl-usbmisc', 'fsl,imx6sx-usbmisc', 'fsl,imx7d-usbmisc']
-	'fsl,imx95-usbmisc' is not one of ['fsl,imx7ulp-usbmisc', 'fsl,imx8mm-usbmisc', 'fsl,imx8mn-usbmisc', 'fsl,imx8ulp-usbmisc']
-	'fsl,imx6sll-usbmisc' was expected
-	'fsl,imx6q-usbmisc' was expected
-	'fsl,imx6ul-usbmisc' was expected
-	from schema $id: http://devicetree.org/schemas/usb/fsl,usbmisc.yaml#
-arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dtb: usbmisc@4c200200 (fsl,imx95-usbmisc): reg: [[0, 1277166080, 0, 512], [0, 1275133972, 0, 4]] is too long
-	from schema $id: http://devicetree.org/schemas/usb/fsl,usbmisc.yaml#
-arch/arm64/boot/dts/freescale/imx95-libra-rdk-fpsc.dtb: /soc/usbmisc@4c200200: failed to match any schema with compatible: ['fsl,imx95-usbmisc', 'fsl,imx7d-usbmisc', 'fsl,imx6q-usbmisc']
-
-
-
-
-
+>
+> Built and run on a BRBE capable machine.
+>
+> Built userland perf tool
+>
+> can run
+>
+> perf record --branch-filter any,save_type,u true
+>
+> as well as
+>
+> perf record --branch-filter any,save_type,u ./sort
+>
+> And will generate a perf.data file.
+>
+> The mechanism applies cleanly and produced what looks like sane output.
+>
+>
+> On 6/11/25 14:01, Rob Herring (Arm) wrote:
+> > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> >
+> > This patch adds definitions related to the Branch Record Buffer Extensi=
+on
+> > (BRBE) as per ARM DDI 0487K.a. These will be used by KVM and a BRBE dri=
+ver
+> > in subsequent patches.
+> >
+> > Some existing BRBE definitions in asm/sysreg.h are replaced with equiva=
+lent
+> > generated definitions.
+> >
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Reviewed-by: Mark Brown <broonie@kernel.org>
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> > Tested-by: James Clark <james.clark@linaro.org>
+> > Acked-by: Will Deacon <will@kernel.org>
+> > Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
+> > ---
+> > v19:
+> > - split BRBINF.CC field into mantissa and exponent
+> > ---
+> >   arch/arm64/include/asm/sysreg.h |  16 ++---
+> >   arch/arm64/tools/sysreg         | 132 +++++++++++++++++++++++++++++++=
++++++++++
+> >   2 files changed, 138 insertions(+), 10 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/s=
+ysreg.h
+> > index f1bb0d10c39a..ef76a4b9e240 100644
+> > --- a/arch/arm64/include/asm/sysreg.h
+> > +++ b/arch/arm64/include/asm/sysreg.h
+> > @@ -202,16 +202,8 @@
+> >   #define SYS_DBGVCR32_EL2            sys_reg(2, 4, 0, 7, 0)
+> >
+> >   #define SYS_BRBINF_EL1(n)           sys_reg(2, 1, 8, (n & 15), (((n &=
+ 16) >> 2) | 0))
+> > -#define SYS_BRBINFINJ_EL1            sys_reg(2, 1, 9, 1, 0)
+> >   #define SYS_BRBSRC_EL1(n)           sys_reg(2, 1, 8, (n & 15), (((n &=
+ 16) >> 2) | 1))
+> > -#define SYS_BRBSRCINJ_EL1            sys_reg(2, 1, 9, 1, 1)
+> >   #define SYS_BRBTGT_EL1(n)           sys_reg(2, 1, 8, (n & 15), (((n &=
+ 16) >> 2) | 2))
+> > -#define SYS_BRBTGTINJ_EL1            sys_reg(2, 1, 9, 1, 2)
+> > -#define SYS_BRBTS_EL1                        sys_reg(2, 1, 9, 0, 2)
+> > -
+> > -#define SYS_BRBCR_EL1                        sys_reg(2, 1, 9, 0, 0)
+> > -#define SYS_BRBFCR_EL1                       sys_reg(2, 1, 9, 0, 1)
+> > -#define SYS_BRBIDR0_EL1                      sys_reg(2, 1, 9, 2, 0)
+> >
+> >   #define SYS_TRCITECR_EL1            sys_reg(3, 0, 1, 2, 3)
+> >   #define SYS_TRCACATR(m)                     sys_reg(2, 1, 2, ((m & 7)=
+ << 1), (2 | (m >> 3)))
+> > @@ -277,8 +269,6 @@
+> >   /* ETM */
+> >   #define SYS_TRCOSLAR                        sys_reg(2, 1, 1, 0, 4)
+> >
+> > -#define SYS_BRBCR_EL2                        sys_reg(2, 4, 9, 0, 0)
+> > -
+> >   #define SYS_MIDR_EL1                        sys_reg(3, 0, 0, 0, 0)
+> >   #define SYS_MPIDR_EL1                       sys_reg(3, 0, 0, 0, 5)
+> >   #define SYS_REVIDR_EL1                      sys_reg(3, 0, 0, 0, 6)
+> > @@ -821,6 +811,12 @@
+> >   #define OP_COSP_RCTX                        sys_insn(1, 3, 7, 3, 6)
+> >   #define OP_CPP_RCTX                 sys_insn(1, 3, 7, 3, 7)
+> >
+> > +/*
+> > + * BRBE Instructions
+> > + */
+> > +#define BRB_IALL_INSN        __emit_inst(0xd5000000 | OP_BRB_IALL | (0=
+x1f))
+> > +#define BRB_INJ_INSN __emit_inst(0xd5000000 | OP_BRB_INJ  | (0x1f))
+> > +
+> >   /* Common SCTLR_ELx flags. */
+> >   #define SCTLR_ELx_ENTP2     (BIT(60))
+> >   #define SCTLR_ELx_DSSBS     (BIT(44))
+> > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> > index 8a8cf6874298..81c4e214ba33 100644
+> > --- a/arch/arm64/tools/sysreg
+> > +++ b/arch/arm64/tools/sysreg
+> > @@ -1329,6 +1329,138 @@ UnsignedEnum  3:0     MTEPERM
+> >   EndEnum
+> >   EndSysreg
+> >
+> > +
+> > +SysregFields BRBINFx_EL1
+> > +Res0 63:47
+> > +Field        46      CCU
+> > +Field        45:40   CC_EXP
+> > +Field        39:32   CC_MANT
+> > +Res0 31:18
+> > +Field        17      LASTFAILED
+> > +Field        16      T
+> > +Res0 15:14
+> > +Enum 13:8            TYPE
+> > +     0b000000        DIRECT_UNCOND
+> > +     0b000001        INDIRECT
+> > +     0b000010        DIRECT_LINK
+> > +     0b000011        INDIRECT_LINK
+> > +     0b000101        RET
+> > +     0b000111        ERET
+> > +     0b001000        DIRECT_COND
+> > +     0b100001        DEBUG_HALT
+> > +     0b100010        CALL
+> > +     0b100011        TRAP
+> > +     0b100100        SERROR
+> > +     0b100110        INSN_DEBUG
+> > +     0b100111        DATA_DEBUG
+> > +     0b101010        ALIGN_FAULT
+> > +     0b101011        INSN_FAULT
+> > +     0b101100        DATA_FAULT
+> > +     0b101110        IRQ
+> > +     0b101111        FIQ
+> > +     0b110000        IMPDEF_TRAP_EL3
+> > +     0b111001        DEBUG_EXIT
+> > +EndEnum
+> > +Enum 7:6     EL
+> > +     0b00    EL0
+> > +     0b01    EL1
+> > +     0b10    EL2
+> > +     0b11    EL3
+> > +EndEnum
+> > +Field        5       MPRED
+> > +Res0 4:2
+> > +Enum 1:0     VALID
+> > +     0b00    NONE
+> > +     0b01    TARGET
+> > +     0b10    SOURCE
+> > +     0b11    FULL
+> > +EndEnum
+> > +EndSysregFields
+> > +
+> > +SysregFields BRBCR_ELx
+> > +Res0 63:24
+> > +Field        23      EXCEPTION
+> > +Field        22      ERTN
+> > +Res0 21:10
+> > +Field        9       FZPSS
+> > +Field        8       FZP
+> > +Res0 7
+> > +Enum 6:5     TS
+> > +     0b01    VIRTUAL
+> > +     0b10    GUEST_PHYSICAL
+> > +     0b11    PHYSICAL
+> > +EndEnum
+> > +Field        4       MPRED
+> > +Field        3       CC
+> > +Res0 2
+> > +Field        1       ExBRE
+> > +Field        0       E0BRE
+> > +EndSysregFields
+> > +
+> > +Sysreg       BRBCR_EL1       2       1       9       0       0
+> > +Fields       BRBCR_ELx
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBFCR_EL1      2       1       9       0       1
+> > +Res0 63:30
+> > +Enum 29:28   BANK
+> > +     0b00    BANK_0
+> > +     0b01    BANK_1
+> > +EndEnum
+> > +Res0 27:23
+> > +Field        22      CONDDIR
+> > +Field        21      DIRCALL
+> > +Field        20      INDCALL
+> > +Field        19      RTN
+> > +Field        18      INDIRECT
+> > +Field        17      DIRECT
+> > +Field        16      EnI
+> > +Res0 15:8
+> > +Field        7       PAUSED
+> > +Field        6       LASTFAILED
+> > +Res0 5:0
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBTS_EL1       2       1       9       0       2
+> > +Field        63:0    TS
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBINFINJ_EL1   2       1       9       1       0
+> > +Fields BRBINFx_EL1
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBSRCINJ_EL1   2       1       9       1       1
+> > +Field        63:0 ADDRESS
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBTGTINJ_EL1   2       1       9       1       2
+> > +Field        63:0 ADDRESS
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBIDR0_EL1     2       1       9       2       0
+> > +Res0 63:16
+> > +Enum 15:12   CC
+> > +     0b0101  20_BIT
+> > +EndEnum
+> > +Enum 11:8    FORMAT
+> > +     0b0000  FORMAT_0
+> > +EndEnum
+> > +Enum 7:0             NUMREC
+> > +     0b00001000      8
+> > +     0b00010000      16
+> > +     0b00100000      32
+> > +     0b01000000      64
+> > +EndEnum
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBCR_EL2       2       4       9       0       0
+> > +Fields       BRBCR_ELx
+> > +EndSysreg
+> > +
+> > +Sysreg       BRBCR_EL12      2       5       9       0       0
+> > +Fields       BRBCR_ELx
+> > +EndSysreg
+> > +
+> >   Sysreg      ID_AA64ZFR0_EL1 3       0       0       4       4
+> >   Res0        63:60
+> >   UnsignedEnum        59:56   F64MM
+> >
+>
 
