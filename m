@@ -4,102 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6F1C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E883DC71149
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bD8PDRIgZsjcIS9lKDcZdxD8mZFpquswL/wkRzyKbz4=; b=VEfI15UFJD+efrqRLO5pQoCogW
-	6StfPi7pFDvY0e/S4u6+jG9/Hv2NZlbm/im+Ihj86ScjSfQtsPKT3qxvAb2MV2SrrtNJPAuwU2G/K
-	L+GDBk9UwM5BWqEY6lAOR0MhuauPdbECXXEb0HNroLqfG+0Ir83H9o82fIgtBkzBwV2sSyEeuh9X/
-	qU+ccYo6qYbKjbNPTtFkFKlY5mmc5NbH37udJ/C+XyVK/yP50oho5UVwNi69R0Z5IISeTolMxGsI1
-	0v4aSKJlnKc6xRzDkpdJyzZGWLMuJJjdhs2cJe21+E2/j/tQjBTxp5RsOaMpp0kNfXhGNT/fwoPGm
-	4uaFpTaQ==;
+	bh=qtQJv0RTrMd+4eARveiNX/r+vLLDHZOFNXZ+EHiCc8Y=; b=it72kPyxi49G/GLlXdM6d/Ctru
+	5xoY4vIPjyikD6D+X1Uh7owBAk1i6gFeQn3EtzEznjRIOBcZ+1BHNyat5PP5/Kv9RKUYQRYbZmKi2
+	Lvrx0qqscPylah7kaO/Umz9A0gFOqHtJ+PpxCcubatPZVEcsUT1xm1Z1S9wA60p5HJcu0B3W5oqTG
+	PZu+oTR2+v9L4/f/VL/VUfHxAWOwdGc7i27pNqgeGq9ttTii2r7Ni74hfNDgLhuFBqIeH8LUdNGQE
+	UQ77GhcRwq9FNx/NZv+Vmhf5IDf924qZmvNp+GHRvBfWA4IypYTaf6qrPRUKhJNx4+Me9ZMv+bcup
+	me0bvd1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhtq-0000000DRIW-3tv3;
-	Thu, 12 Jun 2025 13:23:22 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1uPnmm-0000000EDcN-0wU6;
+	Thu, 12 Jun 2025 19:40:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhOv-0000000DJ14-2yQS;
-	Thu, 12 Jun 2025 12:51:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749732685; x=1781268685;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Bql/TNuo24JhgENmtOEIa3XVAhbnXtyYW3C4rsZ9KFs=;
-  b=SbW4ldG7t6vYkDvdyKYmzgm+j6O4i6JoS4+20uzDzF1Q8zADcziGHeq6
-   HTWC0eC6veOSOc9NoYB/oVGqlzAPl/kojuaQOUCsV5xq9yM4aMkPCoWXM
-   Ha6V0GVLAeax86OaH0/oeWV6sp204g2CUKWgIDjFiWU3FltuleUDtAB+0
-   lquKQL1oBf07LduOYgEoVrcd4D1YKGL50OYuPjpivFGTedq/MsWQN1CHU
-   lGXdWRBJAfVZ59orN8rabHxeFcn7sUX4ltSpGSDA9HnKpNu1VcEEkqNo+
-   JHsGSjweYU3P6TQJch7IuWWRVn+HqZmhv5owL0A2AHY/7FDOLR3NFTVCp
-   g==;
-X-CSE-ConnectionGUID: fDU+g/XeSPKtRD/N1F6wng==
-X-CSE-MsgGUID: J8RwB4uiTWae9SDHBY2Oxw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11462"; a="69478293"
-X-IronPort-AV: E=Sophos;i="6.16,230,1744095600"; 
-   d="scan'208";a="69478293"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2025 05:51:20 -0700
-X-CSE-ConnectionGUID: mofzayPbSfemxo/78nvEhA==
-X-CSE-MsgGUID: 65CP34ARQ+yNMlLSnRyUqQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,230,1744095600"; 
-   d="scan'208";a="152795140"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2025 05:51:14 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uPhOg-00000005x89-01m7;
-	Thu, 12 Jun 2025 15:51:10 +0300
-Date: Thu, 12 Jun 2025 15:51:09 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Michael Hennerich <michael.hennerich@analog.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <jpaulo.silvagoncalves@gmail.com>,
-	Leonard =?iso-8859-1?Q?G=F6hrs?= <l.goehrs@pengutronix.de>,
-	kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>,
-	Roan van Dijk <roan@protonic.nl>,
-	Tomasz Duszynski <tomasz.duszynski@octakon.com>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
-	Mudit Sharma <muditsharma.info@gmail.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	=?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>,
-	Andreas Klinger <ak@it-klinger.de>,
-	Petre Rodan <petre.rodan@subdimension.ro>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 00/28] iio: zero init stack with { } instead of memset()
-Message-ID: <aErNPaZzvgAps_-b@smile.fi.intel.com>
-References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
+	id 1uPhXz-0000000DJpE-1EXp;
+	Thu, 12 Jun 2025 13:00:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A137629ED;
+	Thu, 12 Jun 2025 13:00:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97055C4CEEA;
+	Thu, 12 Jun 2025 13:00:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749733246;
+	bh=98J4zwVuQp/nbB05Jiw3q7/W838MgXOQSKEV80NOtco=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oFwezS59tRXNI07znkqsGmf11eibxUmJ5WAEOCUQNxsdiVh8uUUbkBCWCuyBHBeHa
+	 0Y1M4y5lvUb8GEQ4p0gZ8vtrGlzLnhgtGY8k7DlduItEx+B8IpVpBJbHbDB1rL35wS
+	 HQoD/H49516e6BP4JggsLnBhRJOly71NSZ/k75QOUjAL2XYdiq/OaRBIDp5QCriqlw
+	 yhnibje7Apf1SyXtYkhFl3rbU3aRF79hRHwSOTFYB4aV8ISLzkqZxhoKwmmFPrcRT2
+	 S1XF1r0Mo5TPHYgsy1kNALIAAur9YJZFl8fFGTiHyUPOwMAD//EM0yDJDm5qJnPSrm
+	 52ggHCrbOx54A==
+Date: Thu, 12 Jun 2025 18:30:37 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+	Damien Le Moal <dlemoal@kernel.org>, Laszlo Fiat <laszlo.fiat@proton.me>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/4] PCI: dw-rockchip: Do not enumerate bus before
+ endpoint devices are ready
+Message-ID: <apkamrd6ty2km7mjwz4mpe2xhewxgd3crmeqdmnj7wn6jl4emv@3nwrt43u2ons>
+References: <aEq8pxE45PmeXN_W@ryzen>
+ <20250612122108.GA901642@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_055125_757877_E7B0499C 
-X-CRM114-Status: GOOD (  12.40  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250612122108.GA901642@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,23 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 05:38:52PM -0500, David Lechner wrote:
-> Jonathan mentioned recently that he would like to get away from using
-> memset() to zero-initialize stack memory in the IIO subsystem. And we
-> have it on good authority that initializing a struct or array with = { }
-> is the preferred way to do this in the kernel [1]. So here is a series
-> to take care of that.
+On Thu, Jun 12, 2025 at 07:21:08AM -0500, Bjorn Helgaas wrote:
+> On Thu, Jun 12, 2025 at 01:40:23PM +0200, Niklas Cassel wrote:
+> > On Thu, Jun 12, 2025 at 06:38:27AM -0500, Bjorn Helgaas wrote:
+> > > On Thu, Jun 12, 2025 at 01:19:45PM +0200, Niklas Cassel wrote:
+> > > > On Wed, Jun 11, 2025 at 04:14:56PM -0500, Bjorn Helgaas wrote:
+> > > > > On Wed, Jun 11, 2025 at 12:51:42PM +0200, Niklas Cassel wrote:
+> > > > > > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
+> > > > > > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
+> > > > > > and instead enumerate the bus directly after receiving the Link Up IRQ.
+> > > > > > 
+> > > > > > This means that there is no longer any delay between link up and the bus
+> > > > > > getting enumerated.
+> > > 
+> > > > > I think the comment at the PCIE_T_RRS_READY_MS definition should be
+> > > > > enough (although it might need to be updated to mention link-up).
+> > > > > This delay is going to be a standard piece of every driver, so it
+> > > > > won't require special notice.
+> > > > 
+> > > > Looking at pci.h, we already have a comment mentioning exactly this
+> > > > (link-up):
+> > > > https://github.com/torvalds/linux/blob/v6.16-rc1/drivers/pci/pci.h#L51-L63
+> > > > 
+> > > > I will change the patches to use PCIE_RESET_CONFIG_DEVICE_WAIT_MS instead.
+> > > 
+> > > I'll more closely later, but I think PCIE_T_RRS_READY_MS and
+> > > PCIE_RESET_CONFIG_DEVICE_WAIT_MS are duplicates and only one should
+> > > exist.  It looks like they got merged at about the same time by
+> > > different people, so we didn't notice.
+> > 
+> > I came to the same conclusion, I will send a patch to remove
+> > PCIE_T_RRS_READY_MS and convert the only existing user to use
+> > PCIE_RESET_CONFIG_DEVICE_WAIT_MS.
+> 
+> I think PCIE_T_RRS_READY_MS expresses the purpose of the wait more
+> specifically.  It's not that the device is completely ready after
+> 100ms; just that it should be able to respond with RRS if it needs
+> more time.
 
-I believe we may do that independently of the compilers that can leave garbage
-in the padding. In case it happens, it will be good adventure to fix the bugs
-in the code, that for some reason take padding(s) into account for the real
-values.
+Yes, but none of the drivers are checking for the RRS status currently. So using
+PCIE_T_RRS_READY_MS gives a wrong impression that the driver is waiting for the
+RRS status from the device.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+- Mani
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+மணிவண்ணன் சதாசிவம்
 
