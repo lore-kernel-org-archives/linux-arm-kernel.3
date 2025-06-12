@@ -4,61 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F05C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 04:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBBCC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 04:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ORxEy6Z1UwG2c1EpsL1AL/4rn7l1/IPGac8D3BNCqU8=; b=T2L7hlBLYYr/dqlcUJd8Wj82Xk
-	Fa6TO2fak3zS99LEfmXfhUEfDp1BYqGWShsxcFxNq5Z+VfyWBiKx7yK3TmpNlKWnh9KUHYP9byfnI
-	5ay3gF8ERhtOWga5hMHcQdEOyjCzJLbAmBkLLifMwTaG/Uvn8BdW2wbE9TlIvWChpdPT14a4vDlmL
-	jRrGdRtvuwK57XkeSqQXno2S0yelUPJgq8j0Z5FZ10c4nf8pqslzDhs3b+Vt3iRo0V8OyMbGIipJe
-	C7P3j/YUXJyM2JjdNauJL7E/gtt/w1OFHYIgs2wD6RSxsL7u2ahoJJg4dPv4MZfc+48GpUXb7OEnH
-	Kj4ecYMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mydB29AOx/TM21Ne13Nxm4F6D5FxXkGhWI5+MrJ/cvM=; b=LxQEfYZqb0Fk3nsb0TuM+BRYQ6
+	Aq2YOOLMkltvODKAYAbaL6jtGe0OOODyIPhvRqK3OBH2LVnktxRtxBArH9b8I8xh4LAzQ+Es4LV19
+	O/YRqpKrHWoAHOuP60+ykerCQnoT/6qmQN+cLtTRlGZ2JX//xRT6ynGR8hveJFHEJuq5rcWg/GVuU
+	dSxpK7TFoMc9xVhdrbzTw+seG2WlUEBSVvn0mUqfM447FdDUZiC4iNFDrxL0LXZpAY5qpwl/4FbFG
+	ZAE/moJq4yXVk9RgV65BudH2+3q0y7i/w8P6cyjsDh/cqPWo2QNKBi3WJbkZQebGpf1pXEdZ8MUo1
+	AyMaSAQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPZFb-0000000C7kv-0NkB;
-	Thu, 12 Jun 2025 04:09:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uPZca-0000000C8w9-0o7p;
+	Thu, 12 Jun 2025 04:33:00 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPVOX-0000000Bjya-2Cw0
+	id 1uPZaR-0000000C8kX-05lo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 00:02:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D242629E4;
-	Thu, 12 Jun 2025 00:02:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7590C4CEE3;
-	Thu, 12 Jun 2025 00:02:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749686532;
-	bh=QZ/fn76hbIECH2SJNsLWkYeQQ/XFL72WxozjIyCrQXo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Rjyn+NohjKOQ7SiU6IF8v3IyU/H/Usnw4tSJgqG3xE+AjD1k7f0Ig2AYXS03qf5IR
-	 x/wXVykDQhY3YAWqcFMaGU299A+AcmYsxx9QMN0lTOeUvUiuys2jH8lkkBqu5uwmZQ
-	 zLmevpnwbcMgMAcyjDg0n3C2JQDsJ6JPL1YdX9UTdT9A6+x48iZCZHMn4wr9iEYzic
-	 ILxaXO2VhjID8LkGbQ+vrq3w3h8PRPhSK5WzzB2LGARMUkW4dE0uDnDRHQEay5942G
-	 BuRQa8Qmcc+2kqw1tPMiugEo4CavoFYgbcTYU/SZNfdZrBYwzsZCQKzQknHytUaE0V
-	 9pyQ3m1EF0kLA==
-Date: Wed, 11 Jun 2025 17:02:11 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
- Eric Dumazet <edumazet@google.com>, "David S. Miller"
- <davem@davemloft.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>
-Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Read firmware-names
- from device tree
-Message-ID: <20250611170211.7398b083@kernel.org>
-In-Reply-To: <20250610052501.3444441-1-danishanwar@ti.com>
-References: <20250610052501.3444441-1-danishanwar@ti.com>
+	Thu, 12 Jun 2025 04:30:48 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ore@pengutronix.de>)
+	id 1uPZZr-0007m0-Ti; Thu, 12 Jun 2025 06:30:11 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1uPZZo-0033qj-0b;
+	Thu, 12 Jun 2025 06:30:08 +0200
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1uPZZo-008lSG-02;
+	Thu, 12 Jun 2025 06:30:08 +0200
+Date: Thu, 12 Jun 2025 06:30:07 +0200
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: David Lechner <dlechner@baylibre.com>
+Cc: Michael Hennerich <michael.hennerich@analog.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	=?utf-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>,
+	Leonard =?utf-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>,
+	kernel@pengutronix.de, Roan van Dijk <roan@protonic.nl>,
+	Tomasz Duszynski <tomasz.duszynski@octakon.com>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
+	Mudit Sharma <muditsharma.info@gmail.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	=?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>,
+	Andreas Klinger <ak@it-klinger.de>,
+	Petre Rodan <petre.rodan@subdimension.ro>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 11/28] iio: adc: ti-tsc2046: use = { } instead of memset()
+Message-ID: <aEpXz8sx6wwAE7it@pengutronix.de>
+References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
+ <20250611-iio-zero-init-stack-with-instead-of-memset-v1-11-ebb2d0a24302@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-11-ebb2d0a24302@baylibre.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ore@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_213047_049918_7B4E59C8 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +105,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Jun 2025 10:55:01 +0530 MD Danish Anwar wrote:
-> Refactor the way firmware names are handled for the ICSSG PRUETH driver.
-> Instead of using hardcoded firmware name arrays for different modes (EMAC,
-> SWITCH, HSR), the driver now reads the firmware names from the device tree
-> property "firmware-name". Only the EMAC firmware names are specified in the
-> device tree property. The firmware names for all other supported modes are
-> generated dynamically based on the EMAC firmware names by replacing
-> substrings (e.g., "eth" with "sw" or "hsr") as appropriate.
+On Wed, Jun 11, 2025 at 05:39:03PM -0500, David Lechner wrote:
+> Use { } instead of memset() to zero-initialize stack memory to simplify
+> the code.
+> 
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
 
-Could you include an example?
+Reviewed-by: Oleksij Rempel <o.rempel@pengutronix.de>
 
-> This improves flexibility and allows firmware names to be customized via
-> the device tree, reducing the need for code changes when firmware names
-> change for different platforms.
-
-You seem to be deleting the old constants. Is there no need to keep
-backward compatibility with DT blobs which don't have the firmware-name
-properties ?
+Thank you!
 -- 
-pw-bot: cr
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
