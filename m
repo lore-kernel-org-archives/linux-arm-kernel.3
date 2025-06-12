@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A165C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 00:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66337C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 00:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmhS5q7Q2QFYu1FyChk3Bwu8/VP2DbtV3PA++BzP3I4=; b=HAXKCZCIFlf7utqYtCfFn0UFEy
-	v2Jn3UIgFxjhOdRsiikSmu/bFDvp9B+mxwkFEbj4l4b0/1akN3vvPqXcIRG0DmqlMbKs8ygkjRTDF
-	B9iPzh+GWUA+hoDIy2YoqoC4RsbWMbEEG8BKbzz62xt1fIuqR97dLQ0iC8T6ZvswacZDKZ37ptnCQ
-	OvjxArzcvaoRq7+/hye+5Fn2P9t4yeEXbS3sT4TxYCBmmEOwwxcB8HvbMc6bbqC6Y60jzORViiaX0
-	Kxu18h2w+7yOrTsG7vf6q7aqtqeuJtczoGEI1PsTlpCAOuFR/9fsXfQJtViuocSPpvXhjTfqsBF4v
-	GPexr5kA==;
+	bh=MCWdKGDkn0LPrrpZul9GwNXUtPRdna1q2f9cpPPTLvA=; b=L1/0IBeOGMjug+VpRAdZbGBsCW
+	pd3uAm+V3snvCpWD4rRacSndpH/Nk1ephLnTL6HsPj6rs1KItStFMmUkZIgMw57FH7pNWVbVtYAO3
+	3XVl5l1trbBszb1xAVzTnD6nHqd+8+3gE9oFYxEHCsz1Watx4FJlc7N5imDA2XZZvvkROJAU9E7xN
+	V0Cq1U9IKI/e2AYwnwMflK8jSoLD07hHMoDCm+9vv8RyboS2pphB+ZhCbZqI5eRR/tGmID3jk+TWQ
+	YeTqGrqqogeYEC2yz2nu2jUrx9bXqok0rLYQtwiATk5r98AuR6olOxYalLZBOZd72ukhH040+vs3J
+	hCCCqapA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPsDd-0000000EwlH-2Nww;
-	Fri, 13 Jun 2025 00:24:29 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uPsDe-0000000EwlY-0KYu;
+	Fri, 13 Jun 2025 00:24:30 +0000
+Received: from mail-ua1-f51.google.com ([209.85.222.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPkF5-0000000DrpW-3nXH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:53:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=tmhS5q7Q2QFYu1FyChk3Bwu8/VP2DbtV3PA++BzP3I4=; b=xo4iP4o3N6RVnhnvSvbtonYi7l
-	aY9nUo1fpB9Dag+WbMG+hJjUn8SuAFv0RKy1Nokmp66ac7FrWsP8frWtqn+N7oTI0N6Fz7HZbwQLt
-	HhbCs0CeOFpE9TE0A6lx0aRU59UVxUnbxFgmrm7CYGRARBJLeGwCe5jzonHK758Mocr0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uPkF1-00FZHK-9n; Thu, 12 Jun 2025 17:53:23 +0200
-Date: Thu, 12 Jun 2025 17:53:23 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 9/9] net: stmmac: rk: remove obsolete
- .set_*_speed() methods
-Message-ID: <32ddc0ac-ca68-4926-b815-51183912c83a@lunn.ch>
-References: <aEr1BhIoC6-UM2XV@shell.armlinux.org.uk>
- <E1uPk3O-004CFx-Ir@rmk-PC.armlinux.org.uk>
+	id 1uPkFm-0000000Drwt-2uBG;
+	Thu, 12 Jun 2025 15:54:11 +0000
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-86dc3482b3dso1333570241.0;
+        Thu, 12 Jun 2025 08:54:10 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749743649; x=1750348449;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MCWdKGDkn0LPrrpZul9GwNXUtPRdna1q2f9cpPPTLvA=;
+        b=YLTCeZ3HXTRVzTi0gBW/RHUmNDf1H8glzY8MEYyX6UhigI6zk2T8648u/aIjGdUrAd
+         R7wBRNNKXQygknFpQpAgNABvfayvjUEXKF6qftcYem9FSapG/9HxgwDGmWzO5QDZB5i7
+         RO/9JjVzsam90MGfJnJ0vUP2s4aTVVpHuE8f3hEdBSmDFn7At+YBtTMJdHdPQUTrccmT
+         2zSpVOBxGKcs8WMGCVZTl6PE1GCR6IGUAUC6ubWd8REIlgTRSguvWNy07Zg29U7inwAC
+         rKKhPPJrnnTtEOHFlsaKW3nA/2C20cpv1eLf6u/hhaKnv0AugXIsIm9iywosdIwfodaB
+         4jSg==
+X-Forwarded-Encrypted: i=1; AJvYcCUTkop8/VEMWom/4geHtriX+ntuBB9QxPcrQBLEBwabDT9+IYqcGsgpXqni5Rag49I09Bu0rqeTVuiR57P/uu4=@lists.infradead.org, AJvYcCVFD68M1vkxwPiKuXEKmAflNC0p8OKSfv4mOOBLztUfjQLLal0OUTwsiRmBdorj5g193cgqwoUbTbJrru3taCPy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwqYXvHW97G353sE2Bvhvd4bPj0meXeNwdZZKJC2xOhWc3dzFs
+	y82PvkndCRNkcUFoexXBg3jdIrXkorwV17lAF3mOYJiWIfItQ93Qd/PgeKjYOCss
+X-Gm-Gg: ASbGncvoWJuleB25jKQ64VFeHUiOvxWkRjbpONNhMt0HrkHoB0gdrFxaKprr9KcqiJb
+	GwL/sCyGJVFzecLN1ZvGqxOP9a4BGdtJ1epnlXOCBXnUJ9RDjxLsv2LnXyYNiIbMomyCSegDYhM
+	XTC382JcVvQ9qZQaqBUmF3Qc4HvsdMdPkqiNGGbSkfTp7tyxyG98Focr5m5Z3/trw/1RPYFW6HV
+	OTBL6txu8snllzVTW9KbGhd9h6K25oBEXVlqEtfnc8k1ClKwGek08HeUS+GIBSm2UFYNN9OL9Bc
+	czUiPBLaW73kd5mSrm8hpljlu3ajUBmB3G+qicr9evYe0LEdyQz8aBsG3vGz9k/LLwbNwrnXxPD
+	JUnvIFwvB0cf2de2fvw6ZmkJZ
+X-Google-Smtp-Source: AGHT+IHy7rM7dN5WWUDpSHm+bFd1+12mYW2HOcANIoOTxCQNBnuXr9ZCJe13Ty7CWgjWb8ZZxNsNGg==
+X-Received: by 2002:a05:6122:82a2:b0:527:67d9:100d with SMTP id 71dfb90a1353d-5312db9ca02mr3639165e0c.4.1749743648711;
+        Thu, 12 Jun 2025 08:54:08 -0700 (PDT)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5312f49300csm343365e0c.3.2025.06.12.08.54.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Jun 2025 08:54:08 -0700 (PDT)
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-4e7b3363c5aso1294925137.1;
+        Thu, 12 Jun 2025 08:54:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW0viu9MLfFgfo2xl97sSVC1UD73eqeLBNbcRa74V9iqU8vLOGcq9BG7b5+xU9VdqGDl7i+20GUOhKFz4NXlXZN@lists.infradead.org, AJvYcCW34aHsFsHH2ofYIQZhYxL1wNSsC2j3LOojc0D5hji0SbsQzyEW3s2+sr30RYzVY3PvD/SptlOGSPsYPEkWW4Y=@lists.infradead.org
+X-Received: by 2002:a05:6102:5113:b0:4e4:3c3a:f163 with SMTP id
+ ada2fe7eead31-4e7cd7a4049mr3737309137.7.1749743648153; Thu, 12 Jun 2025
+ 08:54:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1uPk3O-004CFx-Ir@rmk-PC.armlinux.org.uk>
+References: <20250610193403161UQCV5cVGXCRVDheTb7jvi@zte.com.cn>
+In-Reply-To: <20250610193403161UQCV5cVGXCRVDheTb7jvi@zte.com.cn>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 12 Jun 2025 17:53:55 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV2Ar95nrmH=NTwY+pkrg6nD-sNoVG7MJY7ofJF4N3bNA@mail.gmail.com>
+X-Gm-Features: AX0GCFsIwHF9_aoZ54iuAPGFucIDRqFn8Tjpa14cAUcOdjFvqEv5PYmW-DjzBPU
+Message-ID: <CAMuHMdV2Ar95nrmH=NTwY+pkrg6nD-sNoVG7MJY7ofJF4N3bNA@mail.gmail.com>
+Subject: Re: [PATCH v2] pmdomain: Use str_enable_disable-like helpers
+To: shao.mingyin@zte.com.cn
+Cc: ulf.hansson@linaro.org, changhuang.liang@starfivetech.com, 
+	geert+renesas@glider.be, magnus.damm@gmail.com, heiko@sntech.de, 
+	krzk@kernel.org, alim.akhtar@samsung.com, walker.chen@starfivetech.com, 
+	sebastian.reichel@collabora.com, detlev.casanova@collabora.com, 
+	finley.xiao@rock-chips.com, shawn.lin@rock-chips.com, pgwipeout@gmail.com, 
+	qiu.yutan@zte.com.cn, linux-pm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, yang.yang29@zte.com.cn, 
+	xu.xin16@zte.com.cn, yang.tao172@zte.com.cn, ye.xingchen@zte.com.cn
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_085327_941680_903D700C 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_085410_727347_294F5572 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +100,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 04:41:22PM +0100, Russell King (Oracle) wrote:
-> Now that no SoC implements the .set_*_speed() methods, we can get rid
-> of these methods and the now unused code in rk_set_clk_tx_rate().
-> Arrange for the function to return an error when the .set_speed()
-> method is not implemented.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Hi Mingyin,
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+On Tue, 10 Jun 2025 at 13:34, <shao.mingyin@zte.com.cn> wrote:
+> From: Shao Mingyin <shao.mingyin@zte.com.cn>
+>
+> Replace ternary (condition ? "enable" : "disable") syntax and ternary
+> (condition ? "on" : "off") syntax with helpers from
+> string_choices.h because:
+> 1. Simple function call with one argument is easier to read.  Ternary
+>    operator has three arguments and with wrapping might lead to quite
+>    long code.
+> 2. Is slightly shorter thus also easier to read.
+> 3. It brings uniformity in the text - same string.
+> 4. Allows deduping by the linker, which results in a smaller binary
+>    file.
+>
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+> ---
+> v2:
+>  %sable ==> %s in jh71xx_pmu_dev()
 
-    Andrew
+Thanks for the update!
+
+While I already provided my Rb-tag on Krzysztof's original [1], your
+version is whitespace-damaged (TABs replaced by spaces), and thus
+cannot be applied.
+
+[1] https://lore.kernel.org/all/CAMuHMdXJ57mATWW4AnBedn+D7TQ4PadkJ642daquFtAo=wZFrQ@mail.gmail.com/
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
