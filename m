@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F04C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 23:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AFCC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 23:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OamLTREMTNhbPzis3H8yslOZNEyB94k23+YHs8WfuuM=; b=0le11/F3kIXvqqFRUjPLxkPZTe
-	rHMmfsAydQyenmOnbnLI4IGnJaPLz4I5jUymSlFSjEGIzU6LfZ3xGv9YHUYqCbnRA1LlaTauem9Mj
-	yYkAXA3kA+FpH+sfH1heIFMAnMfkTdiC/MEfJaVE+40oT0WhtKC3pc9TkRx8lI1X9qdbORGGqYYQ/
-	WIxSOvd9mXah13ful5qqX30q+xa6OPngtox7kQ5JzaiyDa3vTxwnbtCxu4USKUwzg7sXfGrsBWHl6
-	hmnguPm+sO3HG6qgFtuiWECxAbBe+TAmmPcP9yvy6ABqjAY/glZLmMkPCHzDYFpp05lrp+dJRbtsE
-	Akm7aDVQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8t46q3qqq58O3Iozg3ZVMZkLga+rVEXppYIQU8pZTR0=; b=b76SyDlK528haXanNa4SnfaAKK
+	ViFkAgGDBUu9bx2Wk8TJ7nQWTz43O3ux3EITTtPszVkH6CMknI3C+P9YwindP99LR3N30LH6RH/3t
+	2LXMfHFXUREXv+GtieK+d0KRZwID/2SKi/KHFpShrZOBayTmp/JY8+J9wjciYlfScet44ucdz91To
+	le/GXQRAOL6CLYRiAxOl29bHOv6FjQhBMiBwAcqlPfQDJDi12AjuF9bzIV17LOCJCTG08AedBGzLv
+	QHGUadZVhBtg3Rm3MNF4M/PZPA+wdeReqbiFkj+QDhIUn/pNx4dzyCoUFjQiJORYB6sIfWDC3UEOy
+	RSDjnNZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPrW4-0000000ErWq-1cEZ;
-	Thu, 12 Jun 2025 23:39:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uPrcw-0000000EtoB-3TwD;
+	Thu, 12 Jun 2025 23:46:34 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPqUk-0000000Emn1-44em
+	id 1uPral-0000000EsO5-3JzW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 22:34:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749767641;
+	Thu, 12 Jun 2025 23:44:22 +0000
+Message-ID: <dbe26b36-a10c-4afb-88ad-a6f7f9bff440@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1749771854;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=OamLTREMTNhbPzis3H8yslOZNEyB94k23+YHs8WfuuM=;
-	b=fDgRqPvpuE1QhNV1cf5dI63co8opXzFjVrkhSC8MUkZd10XbYfWU71H4B3KSrYVSO2tltZ
-	Og46r/ZlDqG4sb77fq4HppHPBCiZO0d9dVLKhAXN1p1h7SRfzUlCd73f2tEfNYUVr7jjIy
-	SsJUBUvGKjdN4W7uWDVY+eD2GoqTAgI=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-643-qnUHBIeGP2m8rFR11MZLsQ-1; Thu,
- 12 Jun 2025 18:32:06 -0400
-X-MC-Unique: qnUHBIeGP2m8rFR11MZLsQ-1
-X-Mimecast-MFC-AGG-ID: qnUHBIeGP2m8rFR11MZLsQ_1749767525
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6DB801800343;
-	Thu, 12 Jun 2025 22:32:05 +0000 (UTC)
-Received: from [172.20.188.120] (unknown [10.30.45.122])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 846C230044CC;
-	Thu, 12 Jun 2025 22:32:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 24 of 41): Test report for for-kernelci
- (6.16.0-rc1, upstream-arm-next, 39dfc971)
-Date: Thu, 12 Jun 2025 22:32:04 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8t46q3qqq58O3Iozg3ZVMZkLga+rVEXppYIQU8pZTR0=;
+	b=Rh4BNFVBqPKyzkGEg0VtlBVcGVma+gqZgIWAUmqAsAdlmzUPABYeGR+rU4K4DFugaPTDCH
+	DTvJ0F/BqKuCcM4tgryjopxwu4S87qgFaOcDxAPnhq/TXQ/UAx21rrv7j0uKhy9+F+HcWa
+	havTzu7j2MGZIk2vEYr+o91l1q0qADY=
+Date: Thu, 12 Jun 2025 19:44:09 -0400
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <52545.125061218320600539@us-mta-643.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7mWfHW7sYePIXbJdOukgn1S_h1joaweKj4T5r5qYqKg_1749767525
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
+To: David Lechner <dlechner@baylibre.com>, Mark Brown <broonie@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>,
+ linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org,
+ "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
+ Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>
+References: <20250116232118.2694169-1-sean.anderson@linux.dev>
+ <20250116232118.2694169-2-sean.anderson@linux.dev>
+ <9f40295b-484a-48e8-b053-ff8550e589d7@baylibre.com>
+ <46a7eba6-a705-4543-b967-e83ccc89e7d4@linux.dev>
+ <6afc379a-2f9f-4462-ae30-ef6945a83236@baylibre.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <6afc379a-2f9f-4462-ae30-ef6945a83236@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_153403_080636_A2056228 
-X-CRM114-Status: UNSURE (   6.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_164420_868933_91DA6006 
+X-CRM114-Status: GOOD (  35.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +82,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi David,
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+I am (finally!) getting around to doing v2 of this series, and I ran
+into a small problem with your proposed solution.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+On 1/23/25 16:59, David Lechner wrote:
+> ---
+> From: David Lechner <dlechner@baylibre.com>
+> Date: Thu, 23 Jan 2025 15:35:19 -0600
+> Subject: [PATCH 2/2] spi: add support for multi-bus controllers
+> 
+> Add support for SPI controllers with multiple physical SPI buses.
+> 
+> This is common in the type of controller that can be used with parallel
+> flash memories, but can be used for general purpose SPI as well.
+> 
+> To indicate support, a controller just needs to set ctlr->num_buses to
+> something greater than 1. Peripherals indicate which bus they are
+> connected to via device tree (ACPI support can be added if needed).
+> 
+> In the future, this can be extended to support peripherals that also
+> have multiple SPI buses to use those buses at the same time by adding
+> a similar bus flags field to struct spi_transfer.
+> 
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> ---
+>  drivers/spi/spi.c       | 26 +++++++++++++++++++++++++-
+>  include/linux/spi/spi.h | 13 +++++++++++++
+>  2 files changed, 38 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+> index 10c365e9100a..f7722e5e906d 100644
+> --- a/drivers/spi/spi.c
+> +++ b/drivers/spi/spi.c
+> @@ -2364,7 +2364,7 @@ static void of_spi_parse_dt_cs_delay(struct device_node *nc,
+>  static int of_spi_parse_dt(struct spi_controller *ctlr, struct spi_device *spi,
+>  			   struct device_node *nc)
+>  {
+> -	u32 value, cs[SPI_CS_CNT_MAX];
+> +	u32 value, buses[8], cs[SPI_CS_CNT_MAX];
+>  	int rc, idx;
+>  
+>  	/* Mode (clock phase/polarity/etc.) */
+> @@ -2379,6 +2379,29 @@ static int of_spi_parse_dt(struct spi_controller *ctlr, struct spi_device *spi,
+>  	if (of_property_read_bool(nc, "spi-cs-high"))
+>  		spi->mode |= SPI_CS_HIGH;
+>  
+> +	rc = of_property_read_variable_u32_array(nc, "spi-buses", buses, 1,
+> +						 ARRAY_SIZE(buses));
+> +	if (rc < 0 && rc != -EINVAL) {
+> +		dev_err(&ctlr->dev, "%pOF has invalid 'spi-buses' property (%d)\n",
+> +			nc, rc);
+> +		return rc;
+> +	}
+> +
+> +	if (rc == -EINVAL) {
+> +		/* Default when property is omitted. */
+> +		spi->buses = BIT(0);
 
-Kernel information:
-    Commit message: arm64/ptrace: Fix stack-out-of-bounds read in regs_get_=
-kernel_stack_nth()
+For backwards compatibility, the default bus for CS 1 on gqspi must be 1
+and not 0. Ideally there would be some hook for the master to fix things
+up when the slaves are probed, but that doesn't seem to exist. I was
+thinking about doing this with OF changesets. Do you have any better
+ideas?
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1867320503
+--Sean
 
-Tests that were not ran because of internal issues:
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    Hardware - Firmware test suite [aarch64]
-    machineinfo [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    selinux-policy: serge-testsuite [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-    xfstests - btrfs [aarch64]
-    xfstests - ext4 [aarch64]
-    xfstests - xfs [aarch64]
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+> +	} else {
+> +		for (idx = 0; idx < rc; idx++) {
+> +			if (buses[idx] >= ctlr->num_buses) {
+> +				dev_err(&ctlr->dev,
+> +					"%pOF has out of range 'spi-buses' property (%d)\n",
+> +					nc, buses[idx]);
+> +				return -EINVAL;
+> +			}
+> +			spi->buses |= BIT(buses[idx]);
+> +		}
+> +	}
+> +
+>  	/* Device DUAL/QUAD mode */
+>  	if (!of_property_read_u32(nc, "spi-tx-bus-width", &value)) {
+>  		switch (value) {
+> @@ -3072,6 +3095,7 @@ struct spi_controller *__spi_alloc_controller(struct device *dev,
+>  	mutex_init(&ctlr->add_lock);
+>  	ctlr->bus_num = -1;
+>  	ctlr->num_chipselect = 1;
+> +	ctlr->num_buses = 1;
+>  	ctlr->slave = slave;
+>  	if (IS_ENABLED(CONFIG_SPI_SLAVE) && slave)
+>  		ctlr->dev.class = &spi_slave_class;
+> diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
+> index 4c087009cf97..bc45d70e8c45 100644
+> --- a/include/linux/spi/spi.h
+> +++ b/include/linux/spi/spi.h
+> @@ -187,6 +187,11 @@ struct spi_device {
+>  	struct device		dev;
+>  	struct spi_controller	*controller;
+>  	u32			max_speed_hz;
+> +	/*
+> +	 * Bit flags indicating which buses this device is connected to. Only
+> +	 * applicable to multi-bus controllers.
+> +	 */
+> +	u8 			buses;
+>  	u8			chip_select[SPI_CS_CNT_MAX];
+>  	u8			bits_per_word;
+>  	bool			rt;
+> @@ -570,6 +575,14 @@ struct spi_controller {
+>  	 */
+>  	u16			num_chipselect;
+>  
+> +	/*
+> +	 * Some specialized SPI controllers can have more than one physical
+> +	 * bus interface per controller. This specifies the number of buses
+> +	 * in that case. Other controllers do not need to set this (defaults
+> +	 * to 1).
+> +	 */
+> +	u16			num_buses;
+> +
+>  	/* Some SPI controllers pose alignment requirements on DMAable
+>  	 * buffers; let protocol drivers know about these requirements.
+>  	 */
+> -- 
+> 2.43.0
+> 
+> 
+> 
 
