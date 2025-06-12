@@ -4,48 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79178C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 03:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FC2C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 04:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ftr4d9wrnc3LbF3lzwe84cxjJmU+iUX18gZfDt1Bco8=; b=Jwdib/WA/gBPc8
-	x6MR0lQAU/mXjL8HGYDkVpoUlyO6CiieNc29/RvTvZEiB0spOX+ZjGSKiiH/qQzI0c5mqFMJp99oP
-	zkGMAUHDhUe/47HB2cdaBvGXejpDzAZgtcHdyiv2eqjGxK69Kx4afB0m8MRslQ5Mp7Waho/s/9off
-	m/F6xdJ1RP7+6r2KSvuvySClnmzpb+d9ulG4FKNunw659m/2/AiX7Cjj/pO7o/rsdH+HsEESJr7HR
-	wILqzpNczK6FRE3LMZKilYwa72e2bM66TfWl+hQHW87+TrZjdC7MGUXNmEVlV/wOFpAZxXRJw6sYr
-	HCeNRHNxJHQeiySpBArQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/B+8RevM6Ofau8Z/9+qoo89gx+LXuukTjT6hC38HhEk=; b=c2HHx2OhLSEI0dFkhs/v+/wTVZ
+	DtrE51Ri+5uBq1MY9nX1OWMQ+zLJ4Yckii9j0aGLXp/udReRnsXKlytlPT53xGEgdEI+Wo5iOFa4/
+	f5eJG2qi9qt2qWrRxQvU0T8FSg6l8Iz5Vnq5Xy4Dxb2gqYx8pi72J7VAuJIMiL0Gja+JlcchoQuKq
+	qtpsabkuznkIVmjLbr/dZ5mxL4SgFbix0kS4T/rBGxH0qaH31GSJOIvHsdngQ0jkRB2yXwUarihkv
+	yuW238PXMDpORecASeCeUaYiU70bBtg+G8XWkFjtb8s34rwMSSUxAl+iFfPKRJ1WKvP7E5SsJYrRG
+	jfWRY7wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPYpk-0000000C5AV-1qDd;
-	Thu, 12 Jun 2025 03:42:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPYjW-0000000C4l5-2Uii
+	id 1uPZ9h-0000000C73M-04s0;
+	Thu, 12 Jun 2025 04:03:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPZ7X-0000000C6e5-3rML
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 03:36:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55ECA1595;
-	Wed, 11 Jun 2025 20:35:46 -0700 (PDT)
-Received: from a076716.blr.arm.com (a076716.blr.arm.com [10.164.21.47])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 544983F66E;
-	Wed, 11 Jun 2025 20:36:02 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH V4 2/2] KVM: selftests: Change MDSCR_EL1 register holding variables as uint64_t
-Date: Thu, 12 Jun 2025 09:05:47 +0530
-Message-Id: <20250612033547.480952-3-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250612033547.480952-1-anshuman.khandual@arm.com>
-References: <20250612033547.480952-1-anshuman.khandual@arm.com>
+	Thu, 12 Jun 2025 04:00:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0FAD149EF8;
+	Thu, 12 Jun 2025 04:00:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C361C4CEEB;
+	Thu, 12 Jun 2025 04:00:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749700854;
+	bh=mz2ucRVIwB/L/SqWdSybuRAOphTiphXBWZwiEvEMGII=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kvx+gSGjRIoWdvm8i5SbrmJAGs8P+t1fqoq5G6z952YQahbrdaUCKD4XCaFk3qQEL
+	 mzMMrXgvUimUpcKl6cmkVvZu8w+6NiRGVWjJ/qky8z+DqLC0KWZUum+PFPF+3sAuJ0
+	 xPr7ZstiL+rW8iOADVH/2JqQ6cXB1cxTwoUnPPbLidKTL8IEDsUYWQPxFrGbU4OJPQ
+	 oZXr+bh26djhv8ZX/JlGoXWL1exM+GRboaeFYoaBs2l01Bc0hWd9AEdK693jg8V3bL
+	 Dp3Dbjx4wcuhdRboFOBQoZM6sbYplbFAFxPfdAatfxNrbJ9T3U4YdTd2/9KGFjSZIO
+	 MFPj8OLy1ltTw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Konrad Dybcio <konradybcio@kernel.org>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm CPUCP mailbox driver
+Date: Wed, 11 Jun 2025 23:00:34 -0500
+Message-ID: <174970084177.547582.1881380220654294150.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250605-enable-cpucp-v1-1-111ecef7e4c9@oss.qualcomm.com>
+References: <20250605-enable-cpucp-v1-1-111ecef7e4c9@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_203606_674827_753CD271 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20250611_210055_976435_A1B29AD9 
+X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -58,50 +74,22 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, kvm@vger.kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, linux-kselftest@vger.kernel.org, Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change MDSCR_EL1 register holding local variables as uint64_t that reflects
-its true register width as well.
 
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: kvm@vger.kernel.org
-Cc: kvmarm@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-kselftest@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- tools/testing/selftests/kvm/arm64/debug-exceptions.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On Thu, 05 Jun 2025 19:06:06 -0500, Bjorn Andersson wrote:
+> The Qualcomm CPUCP mailbox driver needs to be enabled for CPU frequency
+> scaling to work on the X Elite platform, so enable this driver.
+> 
+> 
 
-diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-index c7fb55c9135b..e34963956fbc 100644
---- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-+++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-@@ -140,7 +140,7 @@ static void enable_os_lock(void)
- 
- static void enable_monitor_debug_exceptions(void)
- {
--	uint32_t mdscr;
-+	uint64_t mdscr;
- 
- 	asm volatile("msr daifclr, #8");
- 
-@@ -223,7 +223,7 @@ void install_hw_bp_ctx(uint8_t addr_bp, uint8_t ctx_bp, uint64_t addr,
- 
- static void install_ss(void)
- {
--	uint32_t mdscr;
-+	uint64_t mdscr;
- 
- 	asm volatile("msr daifclr, #8");
- 
+Applied, thanks!
+
+[1/1] arm64: defconfig: Enable Qualcomm CPUCP mailbox driver
+      commit: 3871b51a684275e3a47fbebf93c0a0e7a05d7f9f
+
+Best regards,
 -- 
-2.25.1
-
+Bjorn Andersson <andersson@kernel.org>
 
