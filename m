@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1C3C71141
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDEFC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//KIOgJjM01MpzgegQDtwvaHYoc3AqWti1AbtH1NP7c=; b=p5Mw4nmj9h8ylqUIxq1TeOfcPQ
-	fGFHNBD1K3NVBv95nufdNMTlKrCiuA/LBys0Jk5Yj/xLP4TfORgdj4W6tuDAD1H18JU+GRdyR4VR5
-	xkwRSmvzFHki2NvwDdkAMBY4MtUYCnTZR2kRI8xlSnzLGMx/gynXOLi98Kq+6A6HIFa6/6sMJSRiy
-	9/Rgj3qOQSfOqtD1ZVQuYvlvXDe74k/jpe2zkFJy19/ANKPGLyCQmfseMNy4CLn32K0w2FZB1OynV
-	yF1vPJst3dGA+1RZT0lf7HobQLlF5bPzOmSvBugZODyytMN+VCwWKn700tK3Zdy/ow3KlrYwNVxt5
-	3lyadGtg==;
+	bh=Lt55w9x7Ii4e9yHLow4yHm87TwRsyGn6Htp1OEe/9RQ=; b=lWyw2fsvkzsW+OeSl3R9JWCDL5
+	qEMLeC4LagAOYKZiKW2qWceHAdh7wTnlzUInwqKy8788/+qPEnIAUs+a9ftEy0T2XJG55dmJc7h6L
+	BVzu3BBnz5wODCgbVgYCHn+fYQL7GTkT+1MYKEHA2z4mbKpxit820ePJWxe8DXjjAoWG3gw+z1llW
+	odn4HwFh//w9uon48Lt0R1c7ZwV28YtTwOOGWoApotCOeeE4uqToQ0/CxalBViYH66cMoifoTdrr0
+	7Wnr8h+GeaSIRIBd3uvuAHpE/YPfLeUPSZMX2BZuUAodwD51QN/+KGXGmZvk0/5DWwOqcfmoHcP7z
+	xBtCOqcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhrJ-0000000DPX0-04vv;
-	Thu, 12 Jun 2025 13:20:45 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uPhrM-0000000DPdQ-2N3N;
+	Thu, 12 Jun 2025 13:20:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPh4o-0000000DGEg-0dYE;
-	Thu, 12 Jun 2025 12:30:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1749731436;
-	bh=xMj0PeXUpejsICB72qzZq/FU9wUca+EJE4sWUqWhTeA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Pdr3jsG8LEBbrTq48ZzhTF8vjLwU0K+gNO+X2iv7Gdtf7LmKBdaFEIz5QMWdeccwD
-	 GLCxrTWkvx74UkGx64K3aPq/B4r5m2wWanFUdRsvxE/zkUcEWjvmC0tdmaSl7DthRD
-	 5BeuUwEdjAOZP363EEtatAdEPq2wvbL19UMWfJpDqLJEWqCebJY82sVUPdY5Cah+Bp
-	 d6wLrrwIXhisc4G9pCT8qm9/8yoDg9PO+QNBA6isGJKMkProKjiDrtP+vHW8of9oIv
-	 T0bBlbb2VBZy8YlsWjQe1n9JNo/CshEopiXzxi9osJgM+NETN7+2eF9RvK13lDKGw6
-	 5cndkuogjgGWQ==
-Received: from [192.168.1.90] (unknown [212.93.144.165])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48C9D17E06BF;
-	Thu, 12 Jun 2025 14:30:35 +0200 (CEST)
-Message-ID: <85cb44fd-f597-443e-81b4-e259513aec9f@collabora.com>
-Date: Thu, 12 Jun 2025 15:30:23 +0300
+	id 1uPh7b-0000000DGbk-3Ctc
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 12:33:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 75CBCA509DF;
+	Thu, 12 Jun 2025 12:33:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FC6BC4CEEA;
+	Thu, 12 Jun 2025 12:33:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749731610;
+	bh=XHmQstvfanfzC7FHLXlVhn+/xiU+w0Rr72xmTwR0M/0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=uzy2FMc79vbPGrR43FVIRsW3RKK2BWPs5tvdvyhHo3bDQ9dYV1OHot8dEKGiUkv5i
+	 Vqd0z7T4DoLAo0ylOfrW6XYtXff+4qksm5pM3IlbUma2a4N6zgutsOVo0gcn4BxX4P
+	 wZhj86qHv1QQJaiAPvNRQxw9YGjrzkiRp0jyXX1mjZ38k0/buFdv72Gj3J6YtwdeYW
+	 076BPvDjjiFIua3RTBbG+piMmTiimVwTcf26gBMTxO/YIobw71ZckdQmWjWvoaAHwy
+	 XXN4WEJU6aRr80V42EPitKowp3AuPZPS9nFYBQtBNu3i9hI2yu3LUOOxDxvwvzracR
+	 dDU2DcbQC2NXw==
+From: Mark Brown <broonie@kernel.org>
+To: Patrice Chotard <patrice.chotard@foss.st.com>, 
+ Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-spi@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel-janitors@vger.kernel.org
+In-Reply-To: <aEmAGTUzzKZlLe3K@stanley.mountain>
+References: <aEmAGTUzzKZlLe3K@stanley.mountain>
+Subject: Re: [PATCH next] spi: stm32-ospi: clean up on error in probe()
+Message-Id: <174973160798.39704.11177150841033836429.b4-ty@kernel.org>
+Date: Thu, 12 Jun 2025 13:33:27 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: dts: rockchip: Fix HDMI output on RK3576
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org
-Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20250612-rk3576-hdmitx-fix-v1-0-4b11007d8675@collabora.com>
- <3011644.e9J7NaK4W3@workhorse>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <3011644.e9J7NaK4W3@workhorse>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c25d1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_053038_345926_07401819 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20250612_053331_867890_7F6AC48E 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+On Wed, 11 Jun 2025 16:09:45 +0300, Dan Carpenter wrote:
+> If reset_control_acquire() fails, then we can't return directly.
+> We need to do a little clean up first.
+> 
+> 
 
-On 6/12/25 3:13 PM, Nicolas Frattaroli wrote:
-> On Wednesday, 11 June 2025 23:47:46 Central European Summer Time Cristian Ciocaltea wrote:
->> Since commit c871a311edf0 ("phy: rockchip: samsung-hdptx: Setup TMDS
->> char rate via phy_configure_opts_hdmi"), the workaround of passing the
->> PHY rate from DW HDMI QP bridge driver via phy_set_bus_width() became
->> partially broken, unless the rate adjustment is done as with RK3588,
->> i.e. by CCF from VOP2.
->>
->> Attempting to fix this up at PHY level would not only introduce
->> additional hacks, but it would also fail to adequately resolve the
->> display issues that are a consequence of the system CRU limitations.
->>
->> Therefore, let's proceed with the solution already implemented for
->> RK3588, that is to make use of the HDMI PHY PLL as a more accurate DCLK
->> source in VOP2.
->>
->> It's worth noting a follow-up patch is going to drop the hack from the
->> bridge driver altogether, while switching to HDMI PHY configuration API
->> for setting up the TMDS character rate.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->> Cristian Ciocaltea (3):
->>       dt-bindings: display: vop2: Add optional PLL clock property for rk3576
->>       arm64: dts: rockchip: Enable HDMI PHY clk provider on rk3576
->>       arm64: dts: rockchip: Add HDMI PHY PLL clock source to VOP2 on rk3576
->>
->>  .../bindings/display/rockchip/rockchip-vop2.yaml   | 56 +++++++++++++++++-----
->>  arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  7 ++-
->>  2 files changed, 49 insertions(+), 14 deletions(-)
->> ---
->> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
->> change-id: 20250611-rk3576-hdmitx-fix-e030fbdb0d17
->>
-> 
-> For the whole series:
-> 
-> Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
-> This fixes HDMI output for 4K resolutions on my RK3576 ArmSoM Sige5.
-> The DTB checks and bindings checks pass as well.
-Many thanks for the additional testing!
+Applied to
 
-Regards,
-Cristian
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/1] spi: stm32-ospi: clean up on error in probe()
+      commit: 83f066fac3c231e58e9adf3b307e96fee172dfb3
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
