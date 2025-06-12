@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD8AC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CD7C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFVqscBuDB6XCAkbPeDvoERlJXGPjkbiwgQjtupWEvE=; b=3AWuU26FUdZECoqsMpMd/2bEis
-	w6gwSzGYdZQqMJpmNXj/vy2nO+IABgRzIVdL4GLzOtVQVmbOun7FirtW2z7pcJzKUTVoheZt+QTOZ
-	6qfMDlJdegzakxmEQ4qDktZEizwxD5f5itJLrDe/p6vyNuuWooI4t8pIv9JlXR2XAwRMYwwXjSnp+
-	OcPf/2LarH1VEVEMUE+5eQES2k10uzowQ3YZKgP7JUPpUllCYOBTN5M/da2/IhHlRpWRyazMo4OpM
-	kNTAX5m/HAeucHoAq5C/zQxQPeK9CpSv1zXP+X0Fo1cBXDQa+ciONXz0fmCGsNgGEgoBqEpmTCG5N
-	6zgRVM3w==;
+	bh=1+P+sojjLRcmgnA9DaQn0t78DpFrljTsKd9E6p6Gpww=; b=ginIZ9ppZl6E6sM65SR4KMOKmQ
+	DcWAPhG4lZsZ3kZokOmpextZS5BIy9K7msj0HW6E6AfinQXIQ3JnxF5my7R8WJi/f/NF743s/yJ2v
+	n8kHKCQp3xjIo2wCjBrDV4KCrcI7D6hHvNzK+tmZE7g7e/TpCF1zJnZwDFyXDWqUZfUA/iBNhwzdx
+	1R/90qAA0sv8QJtFaapvI0GcVRUKHYTWle1psZtS0GHESX0ktJS2uPj6JjZy2Ppb8tcTQ79NJ0QBd
+	Ae5qUC8bGU5UwcK2n2p8OInmGyFKZ2OPWsfAaJtG66rynErd0YhsDQkeY2Z5GI1TOZqeiXRSSDavv
+	9iYwZIBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnra-0000000EKZh-07AH;
-	Thu, 12 Jun 2025 19:45:26 +0000
+	id 1uPnre-0000000EKhY-42rY;
+	Thu, 12 Jun 2025 19:45:30 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPk6L-0000000DqDc-3VES
+	id 1uPk8x-0000000DquM-3Vzi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:44:26 +0000
+	Thu, 12 Jun 2025 15:47:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=oFVqscBuDB6XCAkbPeDvoERlJXGPjkbiwgQjtupWEvE=; b=fQioXdDvR+3n87uy0LcT7pJTvB
-	0u5UA5v8ziZc+WuUFHgIetdKpF8sLoDEfNaSA+/ZMsPxzaq4WTZNaLHxMS/q0fizjanbuRwT2z9oH
-	uR5jFU6lADjBI6/spVCNhUFLpzm5JBQlxlhn6MV+O42FNU5pvJnGthNFnWie7sx6AZEQ=;
+	bh=1+P+sojjLRcmgnA9DaQn0t78DpFrljTsKd9E6p6Gpww=; b=TIMPOeB3bSk5ZvSSmbNkej2lM+
+	KzhtwYWgY9H0BOuBUYHfO1zutgGWdyBG5u2W26lEu+FavEFZpeBnnYJLn5+YVMWk/AkOxX5QQuME3
+	hUAANh859OHjPPPSADGxoVNwaldlJaWjptlyFuNsDAQofkIT2y21xXvmA8QqR0JVqez4=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1uPk6C-00FZ0o-B6; Thu, 12 Jun 2025 17:44:16 +0200
-Date: Thu, 12 Jun 2025 17:44:16 +0200
+	id 1uPk8s-00FZ6s-DV; Thu, 12 Jun 2025 17:47:02 +0200
+Date: Thu, 12 Jun 2025 17:47:02 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -51,17 +51,17 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next] net: stmmac: improve .set_clk_tx_rate() method
- error message
-Message-ID: <68547db8-2f4c-4f94-af0f-0d14dc3669eb@lunn.ch>
-References: <E1uPjjx-0049r5-NN@rmk-PC.armlinux.org.uk>
+Subject: Re: [PATCH net-next 2/9] net: stmmac: rk: simplify set_*_speed()
+Message-ID: <52f1a387-9161-437f-a5b3-95c9308846bb@lunn.ch>
+References: <aEr1BhIoC6-UM2XV@shell.armlinux.org.uk>
+ <E1uPk2o-004CFH-Q4@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1uPjjx-0049r5-NN@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1uPk2o-004CFH-Q4@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_084425_869192_95C040DA 
-X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-CacheID: sfid-20250612_084707_879000_BB900A54 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,10 +77,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 04:21:17PM +0100, Russell King (Oracle) wrote:
-> Improve the .set_clk_tx_rate() method error message to include the
-> PHY interface mode along with the speed, which will be helpful to
-> the RK implementations.
+On Thu, Jun 12, 2025 at 04:40:46PM +0100, Russell King (Oracle) wrote:
+> Rather than having lots of regmap_write()s to the same register but
+> with different values depending on the speed, reorganise the
+> functions to use a local variable for the value, and then have one
+> regmap_write() call to write it to the register. This reduces the
+> amount of code and is a step towards further reducing the code size.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
