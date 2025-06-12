@@ -4,65 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D929EC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B3BC71143
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2N+mZR2W2/KMVPzDT+8WKucF4rOv4Bmrt5+nAt6ZNvo=; b=KSUQPqFBKrkn/YDRKLa00uSjDq
-	ZK2+ZCu7PE070wGpLdsXGH9kulvMzy4FJYIfpnb1yOqVJLo/XcDi3dz+WsWBQKWMiJWXqhuH1zBsv
-	DsX1RmihMQkk+7+wb3aYanh+WzhBw2YNCAOYk4jYXUWnWqsQUAPm1K/N/hwrHaVKgW3Xu4lfX/qnE
-	A5MkIMDv9OWPnedLPRJfbvtn0XS7izjGQV8K2bmuTjMjp3/zSazNt8v4LrM9l9MJqShuNx5RaX+Kj
-	hWvgkXBYNe+T7xaGrAWIDwJ2Y+LnTe5DXJjvcepmLcWGbowdBgq+xCi/ouL9s4gJfYN7ZP7R1IK5f
-	lLcz2hLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ELcPuvNKLZu6Ryw5rajS8NLZ+N5vs8CjzH8DFZ2k5qY=; b=dmTqI/u1r2aRwq75F8OSAE8ZBR
+	9Ws6DuSlBsBYXeGupOr2s/2ctoRWxYPel323B2PgaEY4/ntAiqHn4J4V4Nsft7eFuTE5o6kuikNGg
+	m1zYX/kiBNJ+k7LGdWQYQkxn18QNmsQ1r7SqMIFBeHSnEmdVmQgjkppE9z0SLfyz2b3Rh/4vqrKah
+	gL2fp2oogh/DDU1/dyHIWIkUYCFfKaSkcaIEV0/9lPkuygpHQnHCtv7IvFiu0naBA39L7YRmc8nic
+	+rkwMP9j6CK2evAZdUKFmG59oudcSRHKHIJodPSclT9J1ogktP6ohROICADwpxgIuvLT6PVw54quG
+	AiKuKNEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhpN-0000000DMG6-0u6r;
-	Thu, 12 Jun 2025 13:18:45 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1uPhpX-0000000DMQp-1FdL;
+	Thu, 12 Jun 2025 13:18:55 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPesX-0000000Cvhc-0CuR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 10:09:50 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 12 Jun
- 2025 18:09:34 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 12 Jun 2025 18:09:34 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson
-	<bjorn.andersson@oss.qualcomm.com>, Geert Uytterhoeven
-	<geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
-	<nfraprado@collabora.com>, Taniya Das <quic_tdas@quicinc.com>, Lad Prabhakar
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
-	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@google.com>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<soc@lists.linux.dev>, Mo Elbadry <elbadrym@google.com>, Rom Lemarchand
-	<romlem@google.com>, William Kennington <wak@google.com>, Yuxiao Zhang
-	<yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
-	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
-Subject: [PATCH v0 4/5] arm64: dts: aspeed: Add AST2700 EVB device tree
-Date: Thu, 12 Jun 2025 18:09:32 +0800
-Message-ID: <20250612100933.3007673-5-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
-References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+	id 1uPf4t-0000000CxnG-0kkm;
+	Thu, 12 Jun 2025 10:22:36 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-607b59b447bso1416148a12.1;
+        Thu, 12 Jun 2025 03:22:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749723753; x=1750328553; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ELcPuvNKLZu6Ryw5rajS8NLZ+N5vs8CjzH8DFZ2k5qY=;
+        b=VaW+o+5WDmlEPHSTfwHmWR3V1fj8UnInGhB/HgxYVB6fCjSSxtA49hTilGQf8w06av
+         5eOO006XcpQlx4nkb2+bVrPtuwPxA0h6IF2SXQF5QdUq1QrIW4cZC62YisjoMjyRcvNH
+         NfU//yq7Afmivj8mHHVBHteWWk0AqTLh4vwwzPhJ2V/0cH0zy3ANJoLfDc1yXo/mC3c+
+         KWK3t2UYdht8d8EjN1BQ6o78u9hywdSRqLpXh7AMUgIB/QqTzKvFg6eYwK39wTWBtaCY
+         ilcFE91WFbaE0s0SQI+fvkBCjHpoyQmpuMYiMXImI6oSG41zF9D8NOuUuxp4QleNLHBj
+         vGJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749723753; x=1750328553;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ELcPuvNKLZu6Ryw5rajS8NLZ+N5vs8CjzH8DFZ2k5qY=;
+        b=miCwyNXJ3HhKkSPKDgW7rXUrjZt9hJUABT/R8zxQu+kqGxlBSO0j7hFcdMZKm4xFB9
+         kq46XEMcj5nGk2Lbx62hT3CKLFwyKCfJLWN0R/7b9xQa/ob4QP4ZfO9SKDbsgbXIIeCZ
+         L+TeNCIdm4UfzxFJ7OVDTlg/dJu6zJGSQcoYmT/XFkRI0smwogWlt4C6nEMGH5Pvzyag
+         L9h0+dO+NOPRmvPkjCi0BoMOFCRqmCf7GobbT5xCS9iRS0KnRnoeUoEFqvTzW4dD3xdj
+         JV85B3NwyuD8aB9vefu+fGnxkxi0HngOEGCXm8DBCiJD/tdfPjaXTSyuID8zAKd835QT
+         CCoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVO5lWJZUmkqK3L0UDSI/tPTql69mXsXQZpen21zSBl84WyO573g4/KoRzp82oGgrSpwa+8L0utffJHnteWfEQ=@lists.infradead.org, AJvYcCVzKwNp7ECcBF9dpMyZ7+6X/IbX//Xim5PZeenQPOeXMBHjs5he5RtPW9x8absH1k2G1mGDsoti5Wnjbgo8nZRP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHRePTerHZCSOtln94yUyx1rpkbP2/cUGAcW5V02XJOZdy6Kzr
+	nZS+2vhsoi166SUtFFefF6nq3KNDJv0F7kzJQDlLunNJriuj03Lt6Bgd
+X-Gm-Gg: ASbGnctg6AISAVTh9DbNUcd1INuMSxqTUTLMM1GwD/vEr556jJsPAMr8H1UZaDipyxb
+	cODkVYAKMXnWBUIY41CC/ivcwhIrioM2EFW3RJYTv2poaL7FxiJSOAqwstZwwCIYGsAb1tN3N6N
+	FEZEW14Uz8xWMPOKsj23qSDpkB71wQJnSJmjywAJ4vGXzaKLYHAtQ+3NwyirWyJrWrz649ICTnO
+	f6IKovJgqPsqMRhHCeNlM5g8XDr9yXBHVPgiQtU04uG1A0jYYIZaBAAzZ4lCEXdFY5ATO+Ffbxh
+	kB8lUCbGEpJAiiFxeMFGf+TL1sWKsc/6HdKu3Y5y8+NbsS4726L1cnkro533X39egDaosLXMSI1
+	w1fS+8LdcRg==
+X-Google-Smtp-Source: AGHT+IE0/bTYEFCNhrQjD7YEJLFi+GzwBTgnJRxUstfNcaX5VD81i0FvmEvIypNuTLGINT6BjMUjbg==
+X-Received: by 2002:a05:6402:40c5:b0:607:f431:33f4 with SMTP id 4fb4d7f45d1cf-6086b2a46c4mr1919282a12.16.1749723753038;
+        Thu, 12 Jun 2025 03:22:33 -0700 (PDT)
+Received: from smtpclient.apple ([89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6086a551a2esm939584a12.1.2025.06.12.03.22.30
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Jun 2025 03:22:32 -0700 (PDT)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.600.51.1.1\))
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add HDMI PHY PLL clock source
+ to VOP2 on rk3576
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <20250612-rk3576-hdmitx-fix-v1-3-4b11007d8675@collabora.com>
+Date: Thu, 12 Jun 2025 12:22:19 +0200
+Cc: Sandy Huang <hjc@rock-chips.com>,
+ =?utf-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ kernel@collabora.com,
+ Andy Yan <andyshrk@163.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <01D5D2D8-392B-4926-884E-1A4FB87C03CF@gmail.com>
+References: <20250612-rk3576-hdmitx-fix-v1-0-4b11007d8675@collabora.com>
+ <20250612-rk3576-hdmitx-fix-v1-3-4b11007d8675@collabora.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+X-Mailer: Apple Mail (2.3826.600.51.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_030949_085491_95ECF014 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250612_032235_216975_35E47D6A 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,104 +119,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Add ast2700-evb.dts for the ASPEED AST2700 Evaluation Board.
-- Set board model and compatible strings: "aspeed,ast2700-evb",
-"aspeed,ast2700".
-- Reference the common AST2700 SoC device tree aspeed-g7.dtsi.
-- Define memory layout and reserved-memory regions for
-MCU firmware, ATF, and OP-TEE.
-- Add OP-TEE firmware node with SMC method.
-- Set up serial12 as the default console.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- arch/arm64/boot/dts/Makefile               |  1 +
- arch/arm64/boot/dts/aspeed/Makefile        |  4 ++
- arch/arm64/boot/dts/aspeed/ast2700-evb.dts | 54 ++++++++++++++++++++++
- 3 files changed, 59 insertions(+)
- create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
- create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
 
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index 79b73a21ddc2..d9c3e58b9ca5 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -35,3 +35,4 @@ subdir-y += tesla
- subdir-y += ti
- subdir-y += toshiba
- subdir-y += xilinx
-+subdir-y += aspeed
-diff --git a/arch/arm64/boot/dts/aspeed/Makefile b/arch/arm64/boot/dts/aspeed/Makefile
-new file mode 100644
-index 000000000000..ffe7e15017cc
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+dtb-$(CONFIG_ARCH_ASPEED) += \
-+	ast2700-evb.dtb
-diff --git a/arch/arm64/boot/dts/aspeed/ast2700-evb.dts b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-new file mode 100644
-index 000000000000..ecd4b55931e7
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-@@ -0,0 +1,54 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+/dts-v1/;
-+#include "aspeed-g7.dtsi"
-+
-+/ {
-+	model = "ASPEED ast2700 Development Board";
-+	compatible = "aspeed,ast2700-evb", "aspeed,ast2700";
-+
-+	aliases {
-+		serial12 = &serial12;
-+	};
-+
-+	chosen {
-+		stdout-path = &serial12;
-+	};
-+
-+	firmware {
-+		optee: optee {
-+			compatible = "linaro,optee-tz";
-+			method = "smc";
-+		};
-+	};
-+
-+	memory@400000000 {
-+		device_type = "memory";
-+		reg = <0x4 0x00000000 0x40000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		mcu_fw: mcu-firmware@42fe00000 {
-+			reg = <0x4 0x2fe00000 0x200000>;
-+			no-map;
-+		};
-+
-+		atf: trusted-firmware-a@430000000 {
-+			reg = <0x4 0x30000000 0x80000>;
-+			no-map;
-+		};
-+
-+		optee_core: optee-core@430080000 {
-+			reg = <0x4 0x30080000 0x1000000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&serial12 {
-+	status = "okay";
-+};
--- 
-2.34.1
+> Wiadomo=C5=9B=C4=87 napisana przez Cristian Ciocaltea =
+<cristian.ciocaltea@collabora.com> w dniu 11 cze 2025, o godz. 23:47:
+>=20
+> Since commit c871a311edf0 ("phy: rockchip: samsung-hdptx: Setup TMDS
+> char rate via phy_configure_opts_hdmi"), the workaround of passing the
+> rate from DW HDMI QP bridge driver via phy_set_bus_width() became
+> partially broken, as it cannot reliably handle mode switches anymore.
+>=20
+> Attempting to fix this up at PHY level would not only introduce
+> additional hacks, but it would also fail to adequately resolve the
+> display issues that are a consequence of the system CRU limitations.
+>=20
+> Instead, proceed with the solution already implemented for RK3588: =
+make
+> use of the HDMI PHY PLL as a better suited DCLK source for VOP2. This
+> will not only address the aforementioned problem, but it should also
+> facilitate the proper operation of display modes up to 4K@60Hz.
+>=20
+> It's worth noting that anything above 4K@30Hz still requires high TMDS
+> clock ratio and scrambling support, which hasn't been mainlined yet.
+>=20
+> Fixes: d74b842cab08 ("arm64: dts: rockchip: Add vop for rk3576")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+> arch/arm64/boot/dts/rockchip/rk3576.dtsi | 6 ++++--
+> 1 file changed, 4 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi =
+b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> index =
+6a13fe0c3513fb2ff7cd535aa70e3386c37696e4..b1ac23035dd789f0478bf10c78c74ef1=
+67d94904 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> @@ -1155,12 +1155,14 @@ vop: vop@27d00000 {
+> <&cru HCLK_VOP>,
+> <&cru DCLK_VP0>,
+> <&cru DCLK_VP1>,
+> - <&cru DCLK_VP2>;
+> + <&cru DCLK_VP2>,
+> + <&hdptxphy>;
+> clock-names =3D "aclk",
+>      "hclk",
+>      "dclk_vp0",
+>      "dclk_vp1",
+> -      "dclk_vp2";
+> +      "dclk_vp2",
+> +      "pll_hdmiphy0";
+> iommus =3D <&vop_mmu>;
+> power-domains =3D <&power RK3576_PD_VOP>;
+> rockchip,grf =3D <&sys_grf>;
+>=20
+> --=20
+> 2.49.0
+>=20
+>=20
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
+Cristian,
+It fixes fractional hd modes for me on rk3576.
+Thx for this fix!
+ =20
 
