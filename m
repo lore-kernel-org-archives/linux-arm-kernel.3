@@ -4,79 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB19C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 08:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F210CC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 08:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wfDHTrFXy/Dsnr3dkhQtOEyBcylfiPvR+Hl91tFW04c=; b=x5Jr6QxIsW/Bdzbjz6WVxylEKg
-	63i29AjJZP1Zb38oRwOKMW+fQBaa7XPRu0zwOfIR8fqMbIykk+apOgpLP3Yos0Gpad+H/6kVTeCd9
-	HiVWEQYEgL2L8XGeRCvkO3xgz6o6oKVbrtFinaB0DWHO3WFpx9ey64vx2oGaHE6h0Aya7doUCtc6c
-	AbeNHWDbHLvM/2k44SRqVYJp1+s5xXxvApY+mbQNhOKRJ3jyj2i+l9gzMnxnLHX31CELWKfEx2+zD
-	kZIeXKZYXLAs/L5WzWVgNkb5EzyhT3xZa0slBF6R4PCO+490rn4fuI27zbMMWIKh3EQa8ZjIn7Tur
-	MEot0tGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WiDzAn4+HWkWsHpHab8gNzJmu21cw/WE8wAv2NgQNKg=; b=DnBAkE1f5wRaD+sLbPDkkuhh+P
+	FYk1p/qfGQ8naTtkTA4Yn78q3uR0YTcjLs50z3lq1SAdGEl+YcQkSU7vxtdyDb9yreByvYVriXg3Q
+	wiZQ7TFUNjNXkxG9awEnYWaS1P1U4XxxQoPIAONBMXy9FMu/oA2qj+5Gi6Qed7ucI+rsxaTXtAEM0
+	uogjgXl3qD3pXj0D4JE4L8FeQUNWku+y2c8XiChBJfeT7nyxaiKkd7LVQth/ZFM76OMUdhbTwCqDl
+	LKzFRtz0DYDu7KdJN1lG5jAUtxoy4J/SS5UPfFZFMluIOQKfjyq/wSYpGXXucPHmuw6kluEVej3I+
+	brJcTvLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPd0I-0000000CYo5-0bNC;
-	Thu, 12 Jun 2025 08:09:42 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uPd2O-0000000CZKS-2Bs2;
+	Thu, 12 Jun 2025 08:11:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPcUo-0000000CT7l-3Vph
+	id 1uPcdm-0000000CUiZ-0dOq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 07:37:12 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1uPcUe-0003tr-3k; Thu, 12 Jun 2025 09:37:00 +0200
-Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1uPcUd-0035Gr-2K;
-	Thu, 12 Jun 2025 09:36:59 +0200
-Received: from localhost ([::1] helo=dude02.red.stw.pengutronix.de)
-	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1uPcUd-0004zL-21;
-	Thu, 12 Jun 2025 09:36:59 +0200
-From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Thu, 12 Jun 2025 09:36:58 +0200
-Subject: [PATCH v2] clk: scmi: Fix children encountered before parents case
+	Thu, 12 Jun 2025 07:46:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D32F49CA8;
+	Thu, 12 Jun 2025 07:46:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BEB1C4CEEA;
+	Thu, 12 Jun 2025 07:46:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749714385;
+	bh=BnVLqkIfog7TQQpAK8OVRX7AJZSEduyE8mbMO5FCsWQ=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=AZmtrP2MnExiQ8UkzL+NUIfF0x3NNzeFfRC9b7Ixyaw03zNq/rnUmmMo+RbEsyTUe
+	 cgLRkO9Vymem5qOj0R5wPg+ieu5S+olxZBxFSH0yqkvL+6bn9US6rAjXHddyFS7lzC
+	 BYbUOvemRsXRmiUUdQzYEUs8/qKzUAUWk0Za/h/agGb/BxdRQW4M4nPnQpjbDq6Fsz
+	 9XwArDhyeq/l6nTKKe8pt5pZlxoUear4SET57CB5soN830hHWkQqVQJEiwHBN73SwC
+	 h1SS2wBJnZ6F8R7u9tlNJxqKCWPmn7jOVE4eBxheIIuN4N4gDnaDuyXpthPuBrV3qb
+	 XE0GuwRugE60g==
+Message-ID: <1cea4f55-752f-4581-a003-1c9d31a36039@kernel.org>
+Date: Thu, 12 Jun 2025 09:46:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/7] arm64: dts: exynos: use proper node names for GPIO
+ based I2C busses
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, Herve Codina <herve.codina@bootlin.com>
+References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com>
+ <20250519121512.5657-2-wsa+renesas@sang-engineering.com>
+ <006ee7d6-1289-4f4a-819d-9a5e5120db99@kernel.org> <aCtD7BH5N_uPGkq7@shikoro>
+ <3f6e1b74-5d19-4194-b98b-91ab6f10446c@kernel.org> <aCtK1-Yn6u8-n8mU@shikoro>
+ <e5a3ce2b-4ebe-44c9-9bf5-9f460d5e7fe8@kernel.org> <aCtbg0_vD07g394k@shikoro>
+ <aCt9e-rrOOR0C5HI@shikoro>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aCt9e-rrOOR0C5HI@shikoro>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250612-clk-scmi-children-parent-fix-v2-1-125b26a311f6@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAJmDSmgC/42NQQ6CMBBFr0Jm7Zi2gQZceQ/CorQjTMTStEgwh
- LtbOYGbn7y3eH+HRJEpwa3YIdLKiWefQV0KsKPxAyG7zKCEqoQWJdrpicm+GO3Ik4vkMZi8Cz5
- 4w7IydSNVX/dGQE6ESFmf+bbLPHJa5vg531b5s3+GV4kSe1JCN1Xpaq3vgfzwXuLsebs6gu44j
- i+c2xZEzQAAAA==
-X-Change-ID: 20250604-clk-scmi-children-parent-fix-45a8912b8ba0
-To: Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Peng Fan <peng.fan@nxp.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sascha Hauer <s.hauer@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749713819; l=3000;
- i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=1yD285e4f/0qm5mzi45IH4TOYoV/J2DAnenMER1YRKs=;
- b=XNTPkQxA3Prq1iZoWgkw+UcaeEVdXtG1ggKYfSmh4iFLCzEmUtqC7HjsEgzqHCxEFdMxj5E8y
- Sk5dQeGLNEAAwjF2e9uauKN7WjC5RmebKWhpT6DJatu9i/vifAgE08g
-X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
- pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: s.hauer@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_003710_882680_D60F3A7D 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20250612_004626_231319_1D72C2EF 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,92 +126,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When it comes to clocks with parents the SCMI clk driver assumes that
-parents are always initialized before their children which might not
-always be the case.
+On 19/05/2025 20:50, Wolfram Sang wrote:
+> On Mon, May 19, 2025 at 06:25:39PM +0200, Wolfram Sang wrote:
+>>
+>>> I think either we use i2c-X or commit 57138f5b8c92 ("schemas: i2c: Avoid
+>>> extra characters in i2c nodename pattern") from Herve was not correct
+>>> and needs to be fixed.
+>>
+>> I will look if I can fix dt-schema instead. Thanks for the pointer!
+> 
+> Found it! Patch sent.
+> 
 
-During initialization of the parent_data array we have:
-
-	sclk->parent_data[i].hw = hws[sclk->info->parents[i]];
-
-hws[sclk->info->parents[i]] will not yet be initialized when children
-are encountered before their possible parents. Solve this by allocating
-all struct scmi_clk as an array first and populating all hws[] upfront.
-
-Fixes: 65a8a3dd3b95f ("clk: scmi: Add support for clock {set,get}_parent")
-Reviewed-by: peng.fan@nxp.com
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
----
-Changes in v2:
-- Collect reviewed-by from Cristian Marussi and Peng Fan
-- Do not use a local variable that is only used once (Christian)
-- Link to v1: https://lore.kernel.org/r/20250604-clk-scmi-children-parent-fix-v1-1-be206954d866@pengutronix.de
----
- drivers/clk/clk-scmi.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index 15510c2ff21c0335f5cb30677343bd4ef59c0738..1b1561c84127b9e41bfb6096ceb3626f32c4fee0 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -404,6 +404,7 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 	const struct scmi_handle *handle = sdev->handle;
- 	struct scmi_protocol_handle *ph;
- 	const struct clk_ops *scmi_clk_ops_db[SCMI_MAX_CLK_OPS] = {};
-+	struct scmi_clk *sclks;
- 
- 	if (!handle)
- 		return -ENODEV;
-@@ -430,18 +431,21 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 	transport_is_atomic = handle->is_transport_atomic(handle,
- 							  &atomic_threshold_us);
- 
-+	sclks = devm_kcalloc(dev, count, sizeof(*sclks), GFP_KERNEL);
-+	if (!sclks)
-+		return -ENOMEM;
-+
-+	for (idx = 0; idx < count; idx++)
-+		hws[idx] = &sclks[idx].hw;
-+
- 	for (idx = 0; idx < count; idx++) {
--		struct scmi_clk *sclk;
-+		struct scmi_clk *sclk = &sclks[idx];
- 		const struct clk_ops *scmi_ops;
- 
--		sclk = devm_kzalloc(dev, sizeof(*sclk), GFP_KERNEL);
--		if (!sclk)
--			return -ENOMEM;
--
- 		sclk->info = scmi_proto_clk_ops->info_get(ph, idx);
- 		if (!sclk->info) {
- 			dev_dbg(dev, "invalid clock info for idx %d\n", idx);
--			devm_kfree(dev, sclk);
-+			hws[idx] = NULL;
- 			continue;
- 		}
- 
-@@ -479,13 +483,11 @@ static int scmi_clocks_probe(struct scmi_device *sdev)
- 		if (err) {
- 			dev_err(dev, "failed to register clock %d\n", idx);
- 			devm_kfree(dev, sclk->parent_data);
--			devm_kfree(dev, sclk);
- 			hws[idx] = NULL;
- 		} else {
- 			dev_dbg(dev, "Registered clock:%s%s\n",
- 				sclk->info->name,
- 				scmi_ops->enable ? " (atomic ops)" : "");
--			hws[idx] = &sclk->hw;
- 		}
- 	}
- 
-
----
-base-commit: 5abc7438f1e9d62e91ad775cc83c9594c48d2282
-change-id: 20250604-clk-scmi-children-parent-fix-45a8912b8ba0
+Where? I cannot find anything in my inbox and also no pull requests on
+Github.
 
 Best regards,
--- 
-Sascha Hauer <s.hauer@pengutronix.de>
-
+Krzysztof
 
