@@ -4,149 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C12C71149
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE876C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 21:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lv11xYbUwzhG0Lj+vKpmiNasvXHQyxKygGaR8jkBcsc=; b=m5NWAHIFX6qHpTnoFJaR8wgN9T
-	bQ6wqlPYmDI9k39AEvhu2L+w0ivYzc5l7KPTaSaWriLdZ5xPpPuNWQ27Sc7oquza2Kvai6960akw7
-	yIuG+ji8pppNzWwybXY7DWFdmixVx8fCR5DjODGYcrfGZgkdg7adqGSax8iPj0srjm3hHHDUz5olb
-	PvzckLPwuR8BLUUnWME2vl4kpPkFyIMZsvuKNhm2mwSmho7om4Qdt5qrmQQV82Z8hVmIWjcGI1PcH
-	2x+pPfyJnS4R117Leqvp9rMKcK87FMXa0slsmcMdv8ty8SOcjDQjKHym5JVmUwob/qkX+yBgh9A/n
-	/fyAkAhg==;
+	bh=LOKJjcfsSsNThKcLqemyKzz1ZnHRFo+n9OT/7ofuqcI=; b=AXMFVDqQlAjzPIk3+fODsXNrOK
+	QBIacAcY4aRprsXvWYVyWIK1iUVGEit845il7EU0SulI4mdIkQTkRL0KRLIyHT5U13TJ8WCqSROda
+	nz1sHdcMalPA76UGUITC0yKuPjB9A2CYdflFgxw6jT4E4TC9XIB4+xl7m0srZA9J/DVF0intTRg64
+	8NYfBCIhPdzi3Y5ZFA7QGpqWVtu9reTWlqVdGaZVMTgtEfpfqDAu1jionyyrPvAifpI4saH0uCzyT
+	/xdSofCWzCm8akSpO2OI1WDWsSqHunWxRK8wsSOw+iWSAovIYXL97W3iWlkp4Cn0hpusU+m7FiE0R
+	etCiZDuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoxK-0000000EZNQ-016U;
-	Thu, 12 Jun 2025 20:55:26 +0000
-Received: from mail-dm6nam12on20625.outbound.protection.outlook.com ([2a01:111:f403:2417::625] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1uPp6P-0000000EcHk-2bsM;
+	Thu, 12 Jun 2025 21:04:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPlg2-0000000E1zz-1kVd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 17:25:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WT4cO3e88TaDnpn72a4yvI9L9vjJOGmyn1MDFWzV4mflHNAvJwiCIkl1Vj2uU4ok/qisYYeKAs6mmJHOXdu5ElEnDqlgq1/Q2aij7imrIvL4EeDsuxO8su7N2uO3JxPImgSHkJhh4rlT5dEvSUAo9i4UO5tDZAupKK6losmYYRx3l6E3bdadeHI8Hv+zJwz7F1O2UhLANyFP+X84y4voHcj34le+5hu+ms1Lgm1KrxD/Fg28yMID/yZH2yIdzbRo2peBQhqlLFGuL1Rib/sdNCEoQgq8hFmgqqX9r6eXfQqt8mK48LSMmBZdQeKa+eTFiP2C5WzQfO+Y6Vah4RlTyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lv11xYbUwzhG0Lj+vKpmiNasvXHQyxKygGaR8jkBcsc=;
- b=R5aQCvb6zdYzM31gUOQM5iVirPsuNVsypuWHKGtk+Ian0oolMTU95p9oSceoSuDqZ8rETFiC0oKsyY+9LIXRl9KTFkz8Q4RuXzHfFF4ouZeVe/9nKEcccoQ+3vKT7xP4hynNvKfnOMdCjaYtJmXLlhD5QLzckOz9FPws7k17J1/FNGxEmAG9f30nNyO8cen6gGeo1LHDFP2TENVRR3q8dfDv4ejeQvY4vTIyDF8qQMzGy3Ad8sQMKB+vc6ExLpdrxR1fJaOR9ltGUE92oPRmUb4/lk0SlJFlkgy+zJTd0lMpkHZToFevD+41ams047yYKX9oaLVI5aiGbJvgD40WWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lv11xYbUwzhG0Lj+vKpmiNasvXHQyxKygGaR8jkBcsc=;
- b=eWmDu6ClnVPahe/V02ZBaGGpY0TXvjG8PwbBqDnM1WHoz1NzgNxOYEtYfXnT89CXoB/pn7gLlJenQLWwH1OtyAZL1sZcPJM5K42AyUktPZlMHiwpWXSXDYIS/SzZW2kDdovxUoGbrzHrecB704/fxr5wl4nvP3+oxL7TftN4tnaXy6FcRpwV7Yclm/K0PlqdoQDfccGw4PeX9wmC92CbKo12qOdoNHcAc/hBxvomjs0HfiqWmrGYumN3YbcETJJAL8kk11UKP2LizeGHN8ygqstoD2GPJSuOmEzaWBYtUHKmEbctzijWH6ndGSWw/ZxbqB7Bp3IETjIxjRDEfRrtww==
-Received: from MN2PR03CA0021.namprd03.prod.outlook.com (2603:10b6:208:23a::26)
- by MN2PR12MB4486.namprd12.prod.outlook.com (2603:10b6:208:263::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.34; Thu, 12 Jun
- 2025 17:25:15 +0000
-Received: from BL6PEPF00022570.namprd02.prod.outlook.com
- (2603:10b6:208:23a:cafe::82) by MN2PR03CA0021.outlook.office365.com
- (2603:10b6:208:23a::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.22 via Frontend Transport; Thu,
- 12 Jun 2025 17:25:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF00022570.mail.protection.outlook.com (10.167.249.38) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8835.15 via Frontend Transport; Thu, 12 Jun 2025 17:25:15 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 12 Jun
- 2025 10:24:58 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 12 Jun
- 2025 10:24:57 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 12 Jun 2025 10:24:54 -0700
-Date: Thu, 12 Jun 2025 10:24:51 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "jgg@nvidia.com" <jgg@nvidia.com>, "will@kernel.org" <will@kernel.org>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>, "joro@8bytes.org"
-	<joro@8bytes.org>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "peterz@infradead.org" <peterz@infradead.org>,
-	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "praan@google.com"
-	<praan@google.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v1 08/12] iommufd/viommu: Replace ops->viommu_alloc with
- ops->viommu_init
-Message-ID: <aEsNY4X4AaxDVINo@nvidia.com>
-References: <cover.1749488870.git.nicolinc@nvidia.com>
- <5586990446e4c97827b5a195622ec0f8cf9d2d67.1749488870.git.nicolinc@nvidia.com>
- <BN9PR11MB52762103614C7B8F1322F7CE8C74A@BN9PR11MB5276.namprd11.prod.outlook.com>
+	id 1uPp4F-0000000Ec3U-2yGm;
+	Thu, 12 Jun 2025 21:02:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1565A62A12;
+	Thu, 12 Jun 2025 21:02:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCFAC4CEED;
+	Thu, 12 Jun 2025 21:02:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749762154;
+	bh=iM6BZQQJgZKEbKntENWh02GdDa6BeA3Rk/HIeclWu4E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UyG4M7IKfyuY1vGOCTJ35Eh/uzrXm5jbPS4/MNGAKwJKUhdHIriMznC/dl3cEQPG0
+	 +Q3BSi+TNZzYl96Iug6RnmWrUm0DwrFv0KjbyOQ3zVwnSo+NAe2WVrLFgBb3ThYoF4
+	 euNbam8IN/YVcuzn6rG/n2HCCLVc5bFMYYdy9A9oSbHgxheidJDqa5jZyefvTqwjsS
+	 oJL9VJsStkDLqvAljjIJu1AyZoi5/764x44DYq+lyAALoRG5A5pXBRLU4/cAmqfNVT
+	 Qhk9hhJG/HaTy/NWKCh8wzmMMOWxBV6yy2NL+qXnzWQg2Dqxwr50gxeW0MmkF/DQr5
+	 XLAZdqQunH3lQ==
+Date: Thu, 12 Jun 2025 23:02:30 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Eric Dumazet <edumazet@google.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Add TCP LRO support
+Message-ID: <aEtAZq8Th7nOdakk@lore-rh-laptop>
+References: <20250610-airoha-eth-lro-v1-1-3b128c407fd8@kernel.org>
+ <CANn89iJsNWkWzAJbOvaBNjozuLOQBcpVo1bnvfeGq5Zm6h9e=Q@mail.gmail.com>
+ <aEg1lvstEFgiZST1@lore-rh-laptop>
+ <20250611173626.54f2cf58@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GWlYu+qUx6A6DKw3"
 Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52762103614C7B8F1322F7CE8C74A@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00022570:EE_|MN2PR12MB4486:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f0744c9-ba7a-42b1-a1c3-08dda9d61853
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|7416014|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vLtA2DLXkP5wCijGgu6DM30l85fWMEwObZlO5MgrTocZVvotFXk+qF/+vS+j?=
- =?us-ascii?Q?q5JpDP1pJgYKNQoa6waBlzleGFftUiqlJG/LK2J9MDA09CbCmC8LnXqS08eO?=
- =?us-ascii?Q?cZnM0eu5Tj5Kak9J3SbynAuvNV+Yy+aDJr5OpmelmpweDR/uB/gK19B+paSA?=
- =?us-ascii?Q?xJuCte3lAJZB+dEcwOagpy9TwK8O1Y0AfjBf80vLhtMlmBIgN0rf0PAqTmWo?=
- =?us-ascii?Q?yp+TY7H6sjQqoUz43wXzaS0rWMHOFhY8UCVmGouNOV9d7u1ZZmci7putzUla?=
- =?us-ascii?Q?ZMizSb4s6dE9oKwKjx5JUKnNok9CvU1ge79VoSvPnkpUy1SURayA+JSCpaih?=
- =?us-ascii?Q?gAC/KiDYZekThKIjK0AQN3ZmX+5/y1P3sLAOsJ+J/gI/hd7H+jfrnB+1iaht?=
- =?us-ascii?Q?KaPrkfkFci+kBuSBYAqMpI3DYqdIlkPcI7xtdd3I0ffNlwKnRbkSHNLXyDqt?=
- =?us-ascii?Q?ly070FgWxy1x7a3rFiDxQRpfSirSiuhz1waT+J8T/1PlI+xAlcnrqAZHg9NA?=
- =?us-ascii?Q?HIbMEf/9TZUC/a+8bBGAeB7YfUM0CoaKuDrESI0HqLrwXigsxfehtIRPNUt4?=
- =?us-ascii?Q?sQ8N1YDAucHRcSYMroZCrxpnrioYiMaXarQtBh4xIk5EK7Lj19hALTYA7K6c?=
- =?us-ascii?Q?l35NEJgMyMOMc2LP3em2umphwW2LEb6R4GDdXww9ncyShkT/CDofPsTs1Ly5?=
- =?us-ascii?Q?loAWVcOgG91spP+4UkFYb+hyJ3btohGZ3Kn/AEXzWqVfskcokFgI0OJexOVM?=
- =?us-ascii?Q?RBl31NrlmfHgik8gzU9MD2jOlhZwMqQejwDYYCjjNuZoi39eBwTYEQ8fusqK?=
- =?us-ascii?Q?2Y3a/KyQ4T1R3EymMTlMNn1vcx2m7XsWdpxDvdsfGtuFOKSBprd0LWH/zJCF?=
- =?us-ascii?Q?5+1srGBA7PBaB2h+jV/tV3y1Fg66G9ziiFU2cJIszIJbXiZdsOX707oIPk3x?=
- =?us-ascii?Q?St1V5F3hwx5cxaMA8TlxVXzyVsdHK1riyGH9Te/NQjTqdHlwkrke4NlbBB8m?=
- =?us-ascii?Q?bzgi7wD8bCXGMMFz81ZLn90xjSd3i3XLVaZY6R4FI3qjyV5E0EV18Ruzt2+X?=
- =?us-ascii?Q?t4GMV69wkqExfiLIgus9M8hYXKxBOXTpKfYzNc8pxxcIvDeQ4DeSA/lZDLBK?=
- =?us-ascii?Q?BPnzf7m0/b9bi3Z7VE8QY6cXqOq+qlQkDe7Ou5tSefpUTt6O4iMIPACInBXM?=
- =?us-ascii?Q?Tc8l5bwpgKBMKQsIXl8fEgosT3iOJzDgrWAhBQbpVBLfAC9IcPlP2J6GG/XV?=
- =?us-ascii?Q?062VycH0d31ul3N0ZUeoJlZq1mc8FMiUmgbn/OwQDNLLyxuWubnb7CZD1KQX?=
- =?us-ascii?Q?QgufwXOag2qRVo+JjVR1Cq+/TcKej5UwXrKyH4HSkqv3e+s8jcelzU3Rt6ze?=
- =?us-ascii?Q?YjGAjE6eEwcQ+1w+FKJYEn9HwLZV025qx23L3OUcgyY/Grbst7qAS0rumRRG?=
- =?us-ascii?Q?KNGlCrgphH+MWQbuuzaIOhdhk7IWpV44G/0aVTyZDwgl6pQmjvtLtHH24xsY?=
- =?us-ascii?Q?o/qtCAk9raRAhqdqJB7IrvNkApSVZ+CGndNI?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(7416014)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 17:25:15.0698
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f0744c9-ba7a-42b1-a1c3-08dda9d61853
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00022570.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4486
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_102522_454765_C8AEC6B2 
-X-CRM114-Status: GOOD (  14.26  )
+In-Reply-To: <20250611173626.54f2cf58@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,45 +74,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 08:27:12AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Tuesday, June 10, 2025 1:14 AM
-> > 
-> > +	rc = ops->get_viommu_size(cmd->type, idev->dev, &viommu_size);
-> > +	if (rc)
-> > +		goto out_put_idev;
-> > +
-> > +	/*
-> > +	 * It is a driver bug for providing a viommu_size smaller than the core
-> > +	 * vIOMMU structure size
-> > +	 */
-> > +	if (WARN_ON_ONCE(viommu_size < sizeof(*viommu))) {
-> > +		rc = -EINVAL;
-> > +		goto out_put_idev;
-> > +	}
-> > +
-> 
-> It's not about user providing an invalid argument. Sounds cleaner
-> to return NOSUPPORT in such case.
 
-Yea, I think that's legit. The driver is broken to support vIOMMU
-allocations.
+--GWlYu+qUx6A6DKw3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Maybe we should change this one too?
-226 static struct iommufd_hwpt_nested *
-227 iommufd_hwpt_nested_alloc(struct iommufd_ctx *ictx,
-228                           struct iommufd_hwpt_paging *parent,
-229                           struct iommufd_device *idev, u32 flags,
-230                           const struct iommu_user_data *user_data)
-231 {
-...
-266         if (WARN_ON_ONCE(hwpt->domain->type != IOMMU_DOMAIN_NESTED)) {
-267                 rc = -EINVAL;
-268                 goto out_abort;
-269         }
+> On Tue, 10 Jun 2025 15:39:34 +0200 Lorenzo Bianconi wrote:
+> > > Tell us more... It seems small LRO packets will consume a lot of
+> > > space, incurring a small skb->len/skb->truesize ratio, and bad TCP WAN
+> > > performance. =20
+> >=20
+> > I think the main idea is forward to hw LRO queues (queues 24-31 in this
+> > case) just specific protocols with mostly big packets but I completely
+> > agree we have an issue for small packets. One possible approach would be
+> > to define a threshold (e.g. 256B) and allocate a buffer or page from the
+> > page allocator for small packets (something similar to what mt7601u dri=
+ver
+> > is doing[0]).  What do you think?
+>=20
+> I'm not Eric but FWIW 256B is not going to help much. It's best to keep
+> the len / truesize ratio above 50%, so with 32k buffers we're talking
+> about copying multiple frames.
 
-Similarly, the driver is broken to support nested HWPT allocations.
+Hi Jakub,
 
-Thanks
-Nicolin
+what I mean here is reallocate the skb if the true size is small (e.g. below
+256B) in order to avoid consuming the high order page from the page_pool. M=
+aybe
+we can avoid it if reducing the page order to 2 for LRO queues provide
+comparable results.
+
+>=20
+> > > And order-5 pages are unlikely to be available in the long run anyway=
+=2E =20
+> >=20
+> > I agree. I guess we can reduce the order to ~ 2 (something similar to
+> > mtk_eth_soc hw LRO implementation [1]).
+>=20
+> Would be good to test. SW GRO can "re-GRO" the partially coalesced
+> packets, so it's going to be diminishing returns.
+
+ack, I will do.
+
+>=20
+> > > LRO support would only make sense if the NIC is able to use multiple
+> > > order-0 pages to store the payload. =20
+> >=20
+> > The hw supports splitting big packets over multiple order-0 pages if we
+> > increase the MTU over one page size, but according to my understanding
+> > hw LRO requires contiguous memory to work.
+>=20
+> Hm, you're already passing buffers smaller than normal TSO so
+> presumably having a smaller buffers will break the sessions more=20
+> often but still work?
+
+I will test it.
+
+>=20
+> You mean want to steal some of the code from:
+> https://lore.kernel.org/all/20250421222827.283737-1-kuba@kernel.org/
+
+ack, I will take a look.
+
+> and make the buffer size user-configurable. But not a requirement.
+> Let's at least get some understanding of the perf benefit of=20
+> 32k vs 16k or 8k
+
+ack, I will do.
+
+Regards,
+Lorenzo
+
+> --=20
+> pw-bot: cr
+
+--GWlYu+qUx6A6DKw3
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaEtAYwAKCRA6cBh0uS2t
+rMGGAQD8IPe8MoY4V366zinNUIPPKyB070wrYzfX9tsT+tHyoQD/T1CmJhx+pqlk
+cSGShFOwx4/ZNLd0ZWvClZvmVC7ptwA=
+=Ir7x
+-----END PGP SIGNATURE-----
+
+--GWlYu+qUx6A6DKw3--
 
