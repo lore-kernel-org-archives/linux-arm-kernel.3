@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF46C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 09:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA09C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 09:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMbLJupS5OSTa8U/8vbg4Z1Ks0Ank3I8G7D8geSAtv8=; b=BNqs5dg7tEVW5nht9+Un0ic6MY
-	f7O4Ss/SBbWl8SnPxFLZTJRU0o2QI8vUDk+WfKQRc7KILNH1T9hi4rVwPZyIlMx7WR+sjo/TaLLed
-	j1fawHykv9Bi+40O+rda7KHP9uAUTW9uKgKnEYxuxnWDTV4D1dNBSYc440b6+NUvfqeRvnwSKGfFx
-	YMDg2XxS0LefVRswGQxiuH5K5qUIgaZUWQd+ZeWmfDQjClMYFaHJ+utv+PtoClqJrw34mc/gC4DPw
-	1Ma1SkopCG2tJx78yx+XLKyYtsvjS76z9/sHIrRCTLpKJ9aOx1ZvvOz87gq0IvYMZLtKLta6Br7/E
-	Rn1yAVEA==;
+	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=; b=PtGLe0/XrNBxwMUmyfP8mFAT5X
+	qsBsL98HvsBiGGY0CseWsUygML2oAZPFGwfHlMgvxcaXllH3/z5oR/VJ0LgpH41BwOkGAWCtkn/ID
+	oyrrj+QRM11c5ibJA8B55xuPiPd5+LLk4jJDUT2jWORxzaY9XwxjUyBhoS1hYUm7nEyM4Y0EiPaFp
+	1CU16hjMtimrRe5sVZ6uCsZpU4b8y6o2Q6U0ecG+btVPgIwMInE6sMHY1N1O/QHaXs3WCXzqS0Ufe
+	3LyWfz+ymN7dytd1h/UtW4w0lgJBC8v1wkiTtSFIabKzrOboxrZT1zChO/avBmgIEmihOPWXK0sI3
+	FeVoQtJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPe5e-0000000Cnh0-3G6X;
-	Thu, 12 Jun 2025 09:19:18 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1uPe7j-0000000Cnq3-26gd;
+	Thu, 12 Jun 2025 09:21:27 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPdBs-0000000CbOp-1D3q
+	id 1uPdBw-0000000CbQy-1jjQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 08:21:41 +0000
+	Thu, 12 Jun 2025 08:21:46 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 54DF01F7EC;
-	Thu, 12 Jun 2025 08:21:26 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 09EEE219B1;
+	Thu, 12 Jun 2025 08:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749716486; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1749716489; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=CMbLJupS5OSTa8U/8vbg4Z1Ks0Ank3I8G7D8geSAtv8=;
-	b=am8tzd0qbejFWyneBMVIjMmmk6jb6Zn7Luf7K/oe+jflha+VeB2yX1WsfrgzmGfJ5OQS2b
-	a9ATkzs74vuXpxY+X/lsuX8dSNL2JWVmL1FbYRQ7r2oli30Yc14HxRCgomhCLm1eoQuEXV
-	qjpdG7+hu2nXLDR7cyhGWJAcG6AMl1A=
+	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
+	b=PuQMsCT/WCVuDeWwZtYPLC3VXnRJbhS8DZm2DY7JtPh/ekZYr11u4QIx0457VrgKF1ioqt
+	yZ8jkmf+8raHncehbrCkr6Cx2oXWAnuEMXA4kZHQ7jdt/Oe9EOuwHvvb9+R1ZGx+OszMCY
+	8ricy7tgPciLrI+IBc3XhG6zHoroLOM=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749716486;
+	s=susede2_ed25519; t=1749716489;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=CMbLJupS5OSTa8U/8vbg4Z1Ks0Ank3I8G7D8geSAtv8=;
-	b=5sJBuITOmizzL61ZX9azTl1jzzTG5hZvyF1oUPShF6EdIDxWOaiIaqQVw5qGD2iKcCFCbw
-	/+adl1gTe2+6DpCA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=am8tzd0q;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=5sJBuITO
+	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
+	b=S9iHZcbcV5tQF4Svd2pd/jon9engi9gL9AI8WYM/yKdGiRlNcaKAS9CYEC/wLTDwq3wea6
+	9djnEXay2xzbwKBA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="PuQMsCT/";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=S9iHZcbc
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749716486; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1749716489; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=CMbLJupS5OSTa8U/8vbg4Z1Ks0Ank3I8G7D8geSAtv8=;
-	b=am8tzd0qbejFWyneBMVIjMmmk6jb6Zn7Luf7K/oe+jflha+VeB2yX1WsfrgzmGfJ5OQS2b
-	a9ATkzs74vuXpxY+X/lsuX8dSNL2JWVmL1FbYRQ7r2oli30Yc14HxRCgomhCLm1eoQuEXV
-	qjpdG7+hu2nXLDR7cyhGWJAcG6AMl1A=
+	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
+	b=PuQMsCT/WCVuDeWwZtYPLC3VXnRJbhS8DZm2DY7JtPh/ekZYr11u4QIx0457VrgKF1ioqt
+	yZ8jkmf+8raHncehbrCkr6Cx2oXWAnuEMXA4kZHQ7jdt/Oe9EOuwHvvb9+R1ZGx+OszMCY
+	8ricy7tgPciLrI+IBc3XhG6zHoroLOM=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749716486;
+	s=susede2_ed25519; t=1749716489;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=CMbLJupS5OSTa8U/8vbg4Z1Ks0Ank3I8G7D8geSAtv8=;
-	b=5sJBuITOmizzL61ZX9azTl1jzzTG5hZvyF1oUPShF6EdIDxWOaiIaqQVw5qGD2iKcCFCbw
-	/+adl1gTe2+6DpCA==
+	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
+	b=S9iHZcbcV5tQF4Svd2pd/jon9engi9gL9AI8WYM/yKdGiRlNcaKAS9CYEC/wLTDwq3wea6
+	9djnEXay2xzbwKBA==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 017C913A6D;
-	Thu, 12 Jun 2025 08:21:25 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9547B132D8;
+	Thu, 12 Jun 2025 08:21:28 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id UPKlOgWOSmgILAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 12 Jun 2025 08:21:25 +0000
+	id SGwUIwiOSmgILAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 12 Jun 2025 08:21:28 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: deller@gmx.de,
 	soci@c64.rulez.org,
@@ -95,9 +95,9 @@ Cc: linux-fbdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-omap@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 03/14] fbdev/c2p: Include <linux/export.h>
-Date: Thu, 12 Jun 2025 10:16:26 +0200
-Message-ID: <20250612081738.197826-4-tzimmermann@suse.de>
+Subject: [PATCH v2 10/14] fbdev/mb862xx: Do not include <linux/export.h>
+Date: Thu, 12 Jun 2025 10:16:33 +0200
+Message-ID: <20250612081738.197826-11-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250612081738.197826-1-tzimmermann@suse.de>
 References: <20250612081738.197826-1-tzimmermann@suse.de>
@@ -125,20 +125,19 @@ X-Spamd-Result: default: False [-3.01 / 50.00];
 	FROM_HAS_DN(0.00)[];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
 	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim,suse.de:mid,suse.de:email];
 	FROM_EQ_ENVFROM(0.00)[];
 	R_RATELIMIT(0.00)[to_ip_from(RLwqwbgho3bgbo9wb3ecq1qfng)];
 	RCVD_TLS_ALL(0.00)[];
 	DKIM_TRACE(0.00)[suse.de:+];
 	TO_DN_SOME(0.00)[];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
-X-Rspamd-Queue-Id: 54DF01F7EC
+X-Rspamd-Queue-Id: 09EEE219B1
 X-Rspamd-Action: no action
 X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_012140_463266_3311A1A2 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_012144_598512_1F784DF4 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,42 +152,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the compile-time warnings
+Fix the compile-time warning
 
-  drivers/video/fbdev/c2p_iplan2.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/c2p_planar.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/mb862xx/mb862xx-i2c.c: warning: EXPORT_SYMBOL() is not used, but #include <linux/export.h> is present
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Helge Deller <deller@gmx.de>
 ---
- drivers/video/fbdev/c2p_iplan2.c | 1 +
- drivers/video/fbdev/c2p_planar.c | 1 +
- 2 files changed, 2 insertions(+)
+ drivers/video/fbdev/mb862xx/mb862xx-i2c.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/video/fbdev/c2p_iplan2.c b/drivers/video/fbdev/c2p_iplan2.c
-index cfd2361f24b1..ee4b315d3f40 100644
---- a/drivers/video/fbdev/c2p_iplan2.c
-+++ b/drivers/video/fbdev/c2p_iplan2.c
-@@ -8,6 +8,7 @@
-  *  for more details.
-  */
+diff --git a/drivers/video/fbdev/mb862xx/mb862xx-i2c.c b/drivers/video/fbdev/mb862xx/mb862xx-i2c.c
+index ffdb1597d303..08b7f19a67a5 100644
+--- a/drivers/video/fbdev/mb862xx/mb862xx-i2c.c
++++ b/drivers/video/fbdev/mb862xx/mb862xx-i2c.c
+@@ -9,7 +9,6 @@
+ #include <linux/i2c.h>
+ #include <linux/io.h>
+ #include <linux/delay.h>
+-#include <linux/export.h>
  
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/string.h>
- 
-diff --git a/drivers/video/fbdev/c2p_planar.c b/drivers/video/fbdev/c2p_planar.c
-index 819c82a98ac0..236aad5137ef 100644
---- a/drivers/video/fbdev/c2p_planar.c
-+++ b/drivers/video/fbdev/c2p_planar.c
-@@ -8,6 +8,7 @@
-  *  for more details.
-  */
- 
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/string.h>
- 
+ #include "mb862xxfb.h"
+ #include "mb862xx_reg.h"
 -- 
 2.49.0
 
