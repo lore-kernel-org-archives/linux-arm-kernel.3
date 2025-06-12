@@ -4,54 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0E79C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21197C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yj1/RO4kxC4qOB4Tp4SB2qEu/HZwebp/3z5TAo2594=; b=MizaVxAL+Th/hNaS+oUwIVyU8r
-	P2CUFFekoP0+LfKVZXNBp0ZMbZ68EbNlAmwxYnydfCAhz81QtDV2HgT2W6ugTO3eMkEmFpJvebmds
-	iOZAahblYfIZYy8/py5gJfAOYLtYDozhNMqUy9aERxLF7qmFZTsNVTm8u+TK5A18Rr2b1UCZrygsL
-	jpAXoD4C2nE2gGDLkYOF9QUgMKs5KCw/sHOXM07+F7tQmYLxuRm+AoJhigdD3o0ifvFrkM1YTPNSu
-	iQcQB2Vj2ERQGbUHV7CpdytpnXkH4lpVUTqG+mko1SnCuAco41TZR6heqZNcrfk6MekXOk9dVKvQi
-	+hJ3e9sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k4gTnAusbtfL5G0grnWGEElF552MerFrkX+8ouuadF0=; b=ZfzgUqaC4Y8HccMknob7qCfuA5
+	qXHWD4cB4Qt50UA8msi9l9P+CCoChtw6ok60ijxshGbugTTBKzI6vcVaTC0Bp1mgGazpHM8pVj9GO
+	oCcS3G3MdhAQtunA8QBJqp2HNCm3auGu0kDvwG7RDz4PQok0g0UchT64CdA6IRl2iJkDW5l6R8lpo
+	5bgW794Mq2oBxE81NdtIIAkayf8MbQ/sckFRpA3XihRv+8Fkb6HcQo3bfUVGc5czvekckmeDswD4J
+	iY7NL+znopS1y7t1w7kejX6cUAVMRgUsV6xqHnwH16bvyK/LBdnkEIcZzObfADy51upI8h0tWBGL0
+	4fea2lGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPf9S-0000000Cydq-1yWt;
-	Thu, 12 Jun 2025 10:27:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPdy7-0000000CmU8-0cEP
+	id 1uPfBY-0000000Cz2G-371u;
+	Thu, 12 Jun 2025 10:29:29 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPdzB-0000000Cmgg-2RTT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 09:11:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5282D153B;
-	Thu, 12 Jun 2025 02:11:10 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11BA93F66E;
-	Thu, 12 Jun 2025 02:11:29 -0700 (PDT)
-Date: Thu, 12 Jun 2025 10:11:28 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] coresight: perf: Use %px for printing pointers
-Message-ID: <20250612091128.GV8020@e132581.arm.com>
-References: <20250611-arm_cs_fix_smatch_warning_v1-v1-0-02a66c69b604@arm.com>
- <20250611-arm_cs_fix_smatch_warning_v1-v1-2-02a66c69b604@arm.com>
- <1a3ff93c-7a25-4462-849c-b5031953bd41@arm.com>
+	Thu, 12 Jun 2025 09:12:39 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55C93cWv004497;
+	Thu, 12 Jun 2025 11:12:27 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	k4gTnAusbtfL5G0grnWGEElF552MerFrkX+8ouuadF0=; b=ovwOcZGvVZO+1lK8
+	pwGai2+7sgumZ9z7lixxIQdKouskKxZyNisYGGKx2ibHkV7KU+T2BW5ewjpdZ4PG
+	g92OxE9AH0lbYtHM4Di29+naHxN0/2LQuJzzItlndQCP4P6R1jnqjBUHg8j9rnSI
+	E8aUzlcKiyAeyEXg0pXGC8Gdav+n93DLCf9u9zcp/GWScF94I60S4wJjbSc/deuZ
+	5A8zGO6f4kn14VLnpel7Mwu9Kkp5zI3UJNgH6yUwcU6g5w21zWJ4Tn+JRyQbQ8O1
+	iaUc/K6zYN4xgRUCnghOdKXp+Irc6WizD32L7lR+YF+RE2x11hnDqvYyjzj70xvv
+	QC9IgA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474ajaegp1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 12 Jun 2025 11:12:27 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 51E7840044;
+	Thu, 12 Jun 2025 11:11:22 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B23985C820E;
+	Thu, 12 Jun 2025 11:10:44 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 12 Jun
+ 2025 11:10:44 +0200
+Message-ID: <11dcec73-8e29-4139-bddf-4b63de3f9aed@foss.st.com>
+Date: Thu, 12 Jun 2025 11:10:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1a3ff93c-7a25-4462-849c-b5031953bd41@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH next] spi: stm32-ospi: clean up on error in probe()
+To: Dan Carpenter <dan.carpenter@linaro.org>
+CC: Mark Brown <broonie@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>, <linux-spi@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <kernel-janitors@vger.kernel.org>
+References: <aEmAGTUzzKZlLe3K@stanley.mountain>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <aEmAGTUzzKZlLe3K@stanley.mountain>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-12_06,2025-06-10_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_021131_225964_D6791969 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20250612_021238_112446_6331249E 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,66 +97,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 11:14:00AM +0530, Anshuman Khandual wrote:
-> On 11/06/25 8:14 PM, Leo Yan wrote:
-> > Use "%px" to print a pointer, which is better than casting the pointer
-> > to unsigned long and printing it with the "%lx" specifier.
-> > 
-> > Note, the printing format will be updated as 64-bit value:
-> > 
-> >   # cat /sys/devices/cs_etm/sinks/trbe0
-> >   0x000000003744496a
+
+
+On 6/11/25 15:09, Dan Carpenter wrote:
+> If reset_control_acquire() fails, then we can't return directly.
+> We need to do a little clean up first.
 > 
-> But what was it before this patch is applied ? Just wondering if
-> there are sysfs changes that might be visible to the user space.
+> Fixes: cf2c3eceb757 ("spi: stm32-ospi: Make usage of reset_control_acquire/release() API")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+>  drivers/spi/spi-stm32-ospi.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+> index db6b1cfc970f..4ab7e86f4bd5 100644
+> --- a/drivers/spi/spi-stm32-ospi.c
+> +++ b/drivers/spi/spi-stm32-ospi.c
+> @@ -937,8 +937,10 @@ static int stm32_ospi_probe(struct platform_device *pdev)
+>  		goto err_pm_enable;
+>  
+>  	ret = reset_control_acquire(ospi->rstc);
+> -	if (ret)
+> -		return dev_err_probe(dev, ret, "Can not acquire reset %d\n", ret);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Can not acquire reset %d\n", ret);
+> +		goto err_pm_resume;
+> +	}
+>  
+>  	reset_control_assert(ospi->rstc);
+>  	udelay(2);
 
-Good question. Before this patch, the printing does not pad with
-leading zeros, so the output result is:
 
-    # cat /sys/devices/cs_etm/sinks/trbe0
-    0x3744496a
+Hi Dan
 
-The perf tool in user space extracts the lower 32-bit value with the
-specifier "%x". I verified that this would be fine that the tool can
-read out the hash value properly.
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-    ret = perf_pmu__scan_file(pmu, path, "%x", &hash);
-
-Thanks,
-Leo
-
-
-> > This commit dismisses the following smatch warnings:
-> > 
-> >   coresight-etm-perf.c:854 etm_perf_sink_name_show() warn: argument 4 to %lx specifier is cast from pointer
-> >   coresight-etm-perf.c:946 etm_perf_cscfg_event_show() warn: argument 4 to %lx specifier is cast from pointer
-> > 
-> > Signed-off-by: Leo Yan <leo.yan@arm.com>
-> > ---
-> >  drivers/hwtracing/coresight/coresight-etm-perf.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> > index f1551c08ecb20ebd7feab82dbaee3176e6bcc999..f677c08233ba1a28b277674662c6e6db904873dd 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> > @@ -851,7 +851,7 @@ static ssize_t etm_perf_sink_name_show(struct device *dev,
-> >  	struct dev_ext_attribute *ea;
-> >  
-> >  	ea = container_of(dattr, struct dev_ext_attribute, attr);
-> > -	return scnprintf(buf, PAGE_SIZE, "0x%lx\n", (unsigned long)(ea->var));
-> > +	return scnprintf(buf, PAGE_SIZE, "0x%px\n", ea->var);
-> >  }
-> >  
-> >  static struct dev_ext_attribute *
-> > @@ -943,7 +943,7 @@ static ssize_t etm_perf_cscfg_event_show(struct device *dev,
-> >  	struct dev_ext_attribute *ea;
-> >  
-> >  	ea = container_of(dattr, struct dev_ext_attribute, attr);
-> > -	return scnprintf(buf, PAGE_SIZE, "configid=0x%lx\n", (unsigned long)(ea->var));
-> > +	return scnprintf(buf, PAGE_SIZE, "configid=0x%px\n", ea->var);
-> >  }
-> >  
-> >  int etm_perf_add_symlink_cscfg(struct device *dev, struct cscfg_config_desc *config_desc)
-> > 
+Thanks
+Patrice
 
