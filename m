@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C54C7114A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C26C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j7urv+43q9m5//eN/fBrHnA2GxbG1zcAPVe31MZBFY0=; b=CJNW1Ci5XTjsMx/WDuRI7KjkWP
-	0/7SOi7utesNUxPw+aO2gVl6ag/wl8K1S2PU4ngmjGmc9MLSFBkYSl5KcfII1Z0qRJYpCK6l3O5GP
-	ojuzaY1xvrNz81kqQKaTYownNIlLob20PuDI6l3CjTPhaI2qgHTuVgB2I2zNBUAQXQZ38Jo/VY16q
-	llKfIxt2PozL9hTn1mJvj9XrRR5a/poQRQPlRtyGd62CdQKhchxxZfV+JtBxQ4NRYWQl/3i9IDs3X
-	Ib8OzX/xG1NqfzkO0cTjPXMzCMqx+EmKInCHjjoC19MFHa+GKkDzH9X3aqsSG4/3b0ZcRfmm10Ts4
-	MSx3TVEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=McFbzN0pVqcRY01RjIh8RVKmMr+Bk1WAZrw+8JtAonw=; b=y5y4cT5dFTK9Yr
+	eWjxVA0TUZluctAqOuVU+xzi8ZgxpviY18p2Ys+5C252RARyxv2fMUk7Ao4buDosJyi04CQJZ+Vqk
+	/U6DBVNa5XOf2vS4h9sp08Y6hIe3NFHVejYsqYRav0oFSNwD97kCuCppFLukOOpsfUL6vKl1oR5zY
+	URZB94zl3KibryWbDQC715HjITdelOMMMGpTAdV54/yxZ1V9xRwxgFZyXP2vU4nCOQ4pr3cxbBfiZ
+	BaFBmwybAsQGeRNk4EoknizdiBH772X3NiMdxCR/2SHZ20IqXXwVuj4wtsQS5Q1Hg29hwvCmp7iz9
+	yExDGHWqpi9H34v2TQlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPowd-0000000EXi0-22ET;
-	Thu, 12 Jun 2025 20:54:43 +0000
-Received: from mail-vk1-f182.google.com ([209.85.221.182])
+	id 1uPowk-0000000EXzz-1egE;
+	Thu, 12 Jun 2025 20:54:50 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjOQ-0000000Di91-0uVz
+	id 1uPjhH-0000000DkvM-3Vnb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 14:59:03 +0000
-Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-53118db57b4so330749e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 07:59:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749740339; x=1750345139;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=j7urv+43q9m5//eN/fBrHnA2GxbG1zcAPVe31MZBFY0=;
-        b=T/fAZlAQwQsi5tsWAK730FCJIg7uKdAEnZ0Lce9R9UKtvlKPNDKCZH2W7BqtVxnZAy
-         8hgrq5bklIv0ftg50iEc1DdcaKdrFzacGsD3gSB40p/kebBkUv/J+3PGtXh3J5EseySk
-         BpRN7lk39KjDhsU4g+0QR6y3zH88JcV4jxKgYUznfKj55hnnAyLLRxe8Uj/PzrxyuIiG
-         mKUpXd62AhDFDsi49GWJX/CQ1CHvHbkWbx+KCem+Z0VwqiNa1DmJ9Ciusywu69POgDVn
-         Fu7W2bYrbMpChu/nbz5gIlj0q1x2PvX7Xdn9GiUyu8Qqh+rDkRQpa7jXIDEv8KHvYWR3
-         FaOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVFk9o/GPGNrmluPy2OKUFRpSId7f7hCK3/kJNrK3Z4UVJKmhaE/kXs+USZtcTjpJfoXAw0mYoSCIC1q0JBH+dm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq1YFyr8g7MXcSWdesXFJy4knJgUFwuMDCf2AubcMmAfJSI6pE
-	OMIVFBLZCh2sMwZd/jZUHxPAwt2RDavKOZTRSwLj98AcmpjlKsbqEilln1O0BNVF
-X-Gm-Gg: ASbGncvFGI5bt8NZXwYA3z8ewKpnxcaAahaE2TdtZMyutU6XKbNq9cpsW0fC10aAcoE
-	oBGXBeh/ytvbOHxzS1u5zAduf46wrYBdAdnz6uE08jYJtsF/XdjTE3e68AVgEiDly8Zv2K2S2m5
-	UqptK3/uc9mRgvwBeLkJWAuBG48canAbJUksqUr6aacqFi/oV8C+E6KKGp3UnAn0+BgiPrbbE3X
-	ar8wrC5/bAbFvgoSlzTrMHklJIqC2KHubYmewl/EfojLNmVQDgIVKDUORyD1aanjbBSnJ9d1rx4
-	10bnDjBKHlYy+xA/P6wKPjXhC54XL+OsxQtWiNHfvmzWePyyCKC9DDvEfndIa4jmcQHQ9NclKAm
-	3fbYpNmGQf+QYXq84dn02aYeI
-X-Google-Smtp-Source: AGHT+IH5deZItB/yhtdH/gM8m9ArMF8C96UPVHs8y94wBGdau7c7k1ucGg9nj4lxIyqj3pAk64pzig==
-X-Received: by 2002:a05:6122:1d49:b0:52f:47de:3700 with SMTP id 71dfb90a1353d-5312cdd6ffbmr4126956e0c.5.1749740339373;
-        Thu, 12 Jun 2025 07:58:59 -0700 (PDT)
-Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5312f493001sm315447e0c.1.2025.06.12.07.58.58
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Jun 2025 07:58:58 -0700 (PDT)
-Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-4e7ccab0776so225226137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 07:58:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUb4lH0cMVzpmflVlT8Y9x0rKVyeojSnkbiHdICp0JEtPEhOI8QIvXFmsz7Dwq9mDf9F/HwNSqqSqIqIo0FNCjH@lists.infradead.org
-X-Received: by 2002:a05:6102:3046:b0:4e6:a338:a41d with SMTP id
- ada2fe7eead31-4e7ccb9decbmr4392145137.11.1749740338109; Thu, 12 Jun 2025
- 07:58:58 -0700 (PDT)
+	Thu, 12 Jun 2025 15:18:33 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 65C2523069;
+	Thu, 12 Jun 2025 17:18:30 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id rzGFH5v5AW84; Thu, 12 Jun 2025 17:18:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1749741509; bh=bNelyn9B2iPBX/xAeabKNOJ/SJ1fiqXUANtY4YCvtYU=;
+	h=From:Subject:Date:To:Cc;
+	b=gJ3mGo/knt129fwJhT7FvJnW7pL9kFut0rfePWssCSW3xRlsqZ8Kx3L7C072KKnKw
+	 NhireUBkSezKH9Ak1s/934vY79k0EY6Ym6iQKx1HQLAHhOr3VjvXWz/KyQHxjFcV5S
+	 671nK5LP98DKb5LsnBeUEMGB8Vx3429AOtwmvHyft7QNuKJACZBVgq/ywbKXzHSPMe
+	 tiu+wsudXihicsDjIL0D2c5l70aXGfpJuUyOkFstsaKP39yJpB5X0TkdbjN9MlU1pN
+	 klcfwPKV/vTQw2FiqwuKgkH/ovYv4JKllwRon0gl4Vgx4JfuRi1ovzliidJ0/cZzem
+	 HPOt4uAicGnUg==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH 00/12] Support for Exynos7870 DSIM bridge
+Date: Thu, 12 Jun 2025 20:48:04 +0530
+Message-Id: <20250612-exynos7870-dsim-v1-0-1a330bca89df@disroot.org>
 MIME-Version: 1.0
-References: <20250610-gpiochip-set-rv-soc-v1-0-1a0c36c9deed@linaro.org> <20250610-gpiochip-set-rv-soc-v1-2-1a0c36c9deed@linaro.org>
-In-Reply-To: <20250610-gpiochip-set-rv-soc-v1-2-1a0c36c9deed@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 12 Jun 2025 16:58:46 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXt7W+XLoeQWqjNR8dBS3oCwFKBydVZueqtYg2uka0WxQ@mail.gmail.com>
-X-Gm-Features: AX0GCFuo1dTCSfHZ3zIJsOn9_JIHrUSOYlkHewmTg8yRd6ll7bXt9Le_Qc4mtYM
-Message-ID: <CAMuHMdXt7W+XLoeQWqjNR8dBS3oCwFKBydVZueqtYg2uka0WxQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] soc: renesas: pwc-rzv2m: use new GPIO line value
- setter callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Linus Walleij <linus.walleij@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKzvSmgC/x3MQQqAIBBA0avErBNswqyuEi0kx5pFGg5EEd09a
+ fkW/z8glJkExuqBTCcLp1jQ1BUsm4srKfbFgBqNNtgquu6YxPZWKy+8q4CD78iFxRmEUh2ZAl/
+ /cZrf9wPSE1h9YQAAAA==
+X-Change-ID: 20250523-exynos7870-dsim-f29d6eafca52
+To: Inki Dae <inki.dae@samsung.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749741499; l=1998;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=bNelyn9B2iPBX/xAeabKNOJ/SJ1fiqXUANtY4YCvtYU=;
+ b=7YAvpcOOIIkM5ooW+kuxBu//qdWk0BjK6t32Rhv9PQ4kmvlYPZBWr96Nl3TYXg0HBfMF0GQ96
+ GYG/S1yQ12QCyobP8Cgo3Tjcc6aRElD3TsokY+ksfNMF1FKQ+8hxmUk
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_075902_253261_BBAB5EBC 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20250612_081832_012785_F8860EE8 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,26 +98,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Jun 2025 at 14:38, Bartosz Golaszewski <brgl@bgdev.pl> wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+This patch series introduces a lot of changes to the existing DSIM
+bridge driver, by introdcing new registers and making register offsets
+configurable for different SoCs. These preliminary changes are followed
+by the introduction of support for Exynos7870's DSIM IP block.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.17.
+Work is heavily inspired and only possible due to Samsung's vendor
+kernel sources. Testing has been done with Samsung Galaxy J7 Prime
+(samsung-on7xelte), Samsung Galaxy A2 Core (samsung-a2corelte), and
+Samsung Galaxy J6 (samsung-j6lte), all with DSI video mode panels.
 
-Gr{oetje,eeting}s,
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Kaustabh Chakraborty (12):
+      drm/bridge: samsung-dsim: separate LINK and DPHY status registers
+      drm/bridge: samsung-dsim: add SFRCTRL register
+      drm/bridge: samsung-dsim: add flag to control header FIFO wait
+      drm/bridge: samsung-dsim: allow configuring bits and offsets of CLKCTRL register
+      drm/bridge: samsung-dsim: allow configuring the MAIN_VSA offset
+      drm/bridge: samsung-dsim: allow configuring the VIDEO_MODE bit
+      drm/bridge: samsung-dsim: allow configuring PLL_M and PLL_S offsets
+      drm/bridge: samsung-dsim: allow configuring the PLL_STABLE bit
+      drm/bridge: samsung-dsim: increase timeout value for PLL_STABLE
+      dt-bindings: samsung,mipi-dsim: document exynos7870 DSIM compatible
+      drm/bridge: samsung-dsim: add driver support for exynos7870 DSIM bridge
+      drm/exynos: dsi: add support for exynos7870
 
-                        Geert
+ .../bindings/display/bridge/samsung,mipi-dsim.yaml |  26 +++
+ drivers/gpu/drm/bridge/samsung-dsim.c              | 250 +++++++++++++++++----
+ drivers/gpu/drm/exynos/exynos_drm_dsi.c            |   9 +
+ include/drm/bridge/samsung-dsim.h                  |  13 ++
+ 4 files changed, 254 insertions(+), 44 deletions(-)
+---
+base-commit: 0bb71d301869446810a0b13d3da290bd455d7c78
+change-id: 20250523-exynos7870-dsim-f29d6eafca52
 
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
