@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F84FC71141
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E83DC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SmBCHSayfo1iii9svsSckOfb18ZwXXJC+aiyuq2cdsE=; b=UbQ5PYblqHpFiVP17cM310XVA/
-	MbDEUTkmzl2j9XEKDv1cjc7iJIZycdFffM0oU6ebUynIMxgYLxPgMFsHEpIDN6VpnZqEMCiAnNQul
-	CkeQR55sOqstLJr1boWJv3YrRWq9gOxiiMGrmf7/wF8LJoagbYxDgemWFcAWeFvx2XGJ2Aedj4+cQ
-	O/WgA+hILDWvqlx/T/tbqtRGcgmSKtKdqknys4Fi5aR1pFCAMjfJGP/21yAHCC4A9rPIWR32L6x5W
-	lcHdLgUBsuq+XOM+vF1obFTyWT6f1YVFpi3z17wvb3ghonCHTeJGp8+E8DIIFh3dbnQGIAjzloH7y
-	I0nyMWzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iBEN4IjxBRAPK20wCwKrXmzKKZ7Vi/F0t5WX/YIqLKk=; b=UER9lHBATYfsG4AmLJO2uU3RHn
+	Ml8fuxmQFAboGF/5bjJkmlMCyMsHjdp+GF61+7/G7mdL8wXVQkL4nPibHq3Th/C4KA5ta8ygHo0Gf
+	2Wa4eibBG9AV1xLVTcGjtLCfl1ui7PHXwPaOj21S7A9hcOO1Crt1Cuak4MMAWqPsP02B0X/qz9pCR
+	cCnARBXtMhU/MTIv4Stc4kooBEWqs11rNewpIzajeAe1gvsPPBNGKmsAZDfNk33eP8C0jXmBFkpna
+	kRwGMo/vPFUw/2eUAB3c7HVL309vvbj4y91VSwYM6Ea0a2WvoOJn69BHqAS+kAVIe1jwCYV/LPKtf
+	SHhMTshg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhqb-0000000DONI-3KK7;
-	Thu, 12 Jun 2025 13:20:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPhqj-0000000DOdP-2DNa;
+	Thu, 12 Jun 2025 13:20:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPgRZ-0000000DBry-1dEz;
-	Thu, 12 Jun 2025 11:50:06 +0000
+	id 1uPgaO-0000000DCcX-2wSI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 11:59:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FA0E4491B;
-	Thu, 12 Jun 2025 11:50:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29921C4AF0C;
-	Thu, 12 Jun 2025 11:50:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E5869A489A4;
+	Thu, 12 Jun 2025 11:59:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91F7FC4CEEA;
+	Thu, 12 Jun 2025 11:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749729005;
-	bh=GHuMuAeNK50IE8bnNq+YCIKQbjGZygjZTh2aEInq0qI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RpS2iSmY6gJsj1xmQLwNSatzd1YUcLQ6Z1HAp/6BAC6nadqpJTsiJZwcsiOqHzuZV
-	 EWm60IVh1PZTq9i5n7IvP8cYojc8J728NRXQgsVPUFZF0Ly4aPKdYaIHvarUtIVcoZ
-	 PsayNiGGp8QBVdzChUzwxlBxFpTgqOtHt1FjDKxUWo/5j9yx+x8FpXCxjzckBzs21+
-	 0k1Dn0GvM02pSOnSyNZSRlggbdzSz4Qub53K8PsKewGg/iMJtkOyHxOcrV4QdLwaI1
-	 fYlOKwkqRCjwLcYu7GXPe2P8v9uf+RQked3Mx8he46G8txXiQIEQK5AmLDG9ypxtYH
-	 H8ljaiYjkkM6w==
-From: Niklas Cassel <cassel@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 5/5] PCI: rockchip-host: Use macro PCIE_RESET_CONFIG_DEVICE_WAIT_MS
-Date: Thu, 12 Jun 2025 13:49:28 +0200
-Message-ID: <20250612114923.2074895-12-cassel@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250612114923.2074895-7-cassel@kernel.org>
-References: <20250612114923.2074895-7-cassel@kernel.org>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2074; i=cassel@kernel.org; h=from:subject; bh=GHuMuAeNK50IE8bnNq+YCIKQbjGZygjZTh2aEInq0qI=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDK89p2UvyofNoNVg0tjwU/bUP9na6M0Tk9/nPntwe8tO mJFuzfmd5SyMIhxMciKKbL4/nDZX9ztPuW44h0bmDmsTCBDGLg4BWAiHBsZ/gefsdfU5LrbsXzZ svgHDRNEEkPdAk9eLH62n7nWk1vj+wGGf9paj28uLI+68GX+LK3oyrQk+09VzDk73ON5tvOVlKS lsAMA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1749729551;
+	bh=KwyfDAOUs8iXdBHsahZWDUxixFdgjL8coSsHcLU1FFc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=hi8Tjgl5Xk3icFuGpyYyDFFfVzg1ypgjAOS3N0mkSgrnF2K7AqIzQ1hcEQ9AAF0Se
+	 wXOULqH4zKeq3IryH+iTq5zP4QmQQWG+nOXAxa5CzOtW7yF3B2CSnta4oHJ5VPSbXZ
+	 17M6EUqQxkdp1qahy6SGN7OtNxJjEURyTpnGpZW7fnJWROTU0ve0kQPcyfANXs+vsa
+	 KP02ehjxy8WL9vP1SkJlesd9a/S1Q38qpVASTJgMBbNnxWoEvNFEooPWDZL7GCEjmM
+	 stO8RHsQ64JVC4Taq0CdWHVwI5oq4MZ5jTHaF0pQTt/n9ZIk0cBgtPg8Gcn00DGI2Z
+	 GxUPwzKoSNvhw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uPgaL-006E7f-55;
+	Thu, 12 Jun 2025 12:59:09 +0100
+Date: Thu, 12 Jun 2025 12:59:08 +0100
+Message-ID: <86tt4lcgs3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Sairaj Kodilkar <sarunkod@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Joao Martins <joao.m.martins@oracle.com>,
+	Francesco Lavra <francescolavra.fl@gmail.com>,
+	David Matlack <dmatlack@google.com>
+Subject: Re: [PATCH v3 02/62] KVM: arm64: WARN if unmapping vLPI fails
+In-Reply-To: <20250611224604.313496-4-seanjc@google.com>
+References: <20250611224604.313496-2-seanjc@google.com>
+	<20250611224604.313496-4-seanjc@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, oliver.upton@linux.dev, pbonzini@redhat.com, joro@8bytes.org, dwmw2@infradead.org, baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, sarunkod@amd.com, vasant.hegde@amd.com, mlevitsk@redhat.com, joao.m.martins@oracle.com, francescolavra.fl@gmail.com, dmatlack@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_045005_464315_B012F6A0 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20250612_045912_802999_7BBF0C8A 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +98,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Macro PCIE_T_RRS_READY_MS was added to pci.h in commit 70a7bfb1e515 ("PCI:
-rockchip-host: Wait 100ms after reset before starting configuration").
+On Wed, 11 Jun 2025 23:45:05 +0100,
+Sean Christopherson <seanjc@google.com> wrote:
+> 
+> WARN if unmapping a vLPI in kvm_vgic_v4_unset_forwarding() fails, as
+> failure means an IRTE has likely been left in a bad state, i.e. IRQs
+> won't go where they should.
 
-Later, in commit d5ceb9496c56 ("PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS
-waiting time value"), PCIE_RESET_CONFIG_DEVICE_WAIT_MS was added to pci.h.
+I have no idea what an IRTE is. But not having an VLPI mapping for an
+interrupt at the point where we're tearing down the forwarding is
+pretty benign. IRQs *still* go where they should, and we don't lose
+anything.
 
-These macros represent the same thing.
+What it may mean is that userspace and the guest may have done things
+in the wrong order for KVM to accelerate interrupt delivery. That's
+silly, but also completely harmless.
 
-Since the comment above PCIE_RESET_CONFIG_DEVICE_WAIT_MS is strictly more
-correct than the comment above PCIE_T_RRS_READY_MS, change rockchip-host
-to use PCIE_RESET_CONFIG_DEVICE_WAIT_MS, and remove PCIE_T_RRS_READY_MS,
-as rockchip-host is the only user of this macro.
+	M.
 
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/pcie-rockchip-host.c | 2 +-
- drivers/pci/pci.h                           | 7 -------
- 2 files changed, 1 insertion(+), 8 deletions(-)
 
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index b9e7a8710cf0..3d40daff98bd 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -325,7 +325,7 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
- 	msleep(PCIE_T_PVPERL_MS);
- 	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
- 
--	msleep(PCIE_T_RRS_READY_MS);
-+	msleep(PCIE_RESET_CONFIG_DEVICE_WAIT_MS);
- 
- 	/* 500ms timeout value should be enough for Gen1/2 training */
- 	err = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_BASIC_STATUS1,
-diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-index 12215ee72afb..5a83338c8f99 100644
---- a/drivers/pci/pci.h
-+++ b/drivers/pci/pci.h
-@@ -35,13 +35,6 @@ struct pcie_tlp_log;
-  */
- #define PCIE_T_PERST_CLK_US		100
- 
--/*
-- * End of conventional reset (PERST# de-asserted) to first configuration
-- * request (device able to respond with a "Request Retry Status" completion),
-- * from PCIe r6.0, sec 6.6.1.
-- */
--#define PCIE_T_RRS_READY_MS	100
--
- /*
-  * PCIe r6.0, sec 5.3.3.2.1 <PME Synchronization>
-  * Recommends 1ms to 10ms timeout to check L2 ready.
 -- 
-2.49.0
-
+Without deviation from the norm, progress is not possible.
 
