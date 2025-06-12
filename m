@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1626BC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 21:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3988C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 21:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtBm7dhzS7vdeIwSr3GhYSR7TMJjCHW8IHR7lAffLu0=; b=TabVN1qdv0tGeuS1TghJi6jXrE
-	K0vSM5q941iTYMH3c+aqgH2NlOHAwQEhOdSaVStteRLHd48mqLIj7ErkKINARbay7CWyGUWzRoxR/
-	SMGIAkSYsyYl02PLdUaUDmsLONj7jeZLQmRnirxhN808DwDRefLcL5RTgHBhYjnvwJgAPwXPCNDUp
-	e/96bqfY7wxROg353Nhw0cgNUGvhAyeP6rTwGbiu0C938b7fclPEC/rlUSYQjD0xgnQLQjXRIQzwe
-	mBV7LSBZNeYy95L3apzEGQPxuCvDfuBp3Hk+05mvCw7bmjEZTqbq5xS6OJA2GF1sb5CWNT6urR6Xn
-	jzHu/zZA==;
+	bh=4bgNZC8EZ+8YN8zYzWZFcyV2guT062DAzWNQyh77fkg=; b=U45KBgNGUePB9wiPSz6Y/ElSc4
+	zzAMJK52DSWaDpCs9Y83eJH343SQxmbaWgRlWnCWDpZCHiFxG+qgFiGeImbOGxqSGwRW0Gb5KerME
+	9VtLZJGWQHJG7uJ5JfzqoOMplqnSRLFLm/sn29b7zZeN+i4gB7eXzo4q6xhUI3xG5vTkcndY10GDd
+	GMQqD5lqSD+pTrMEd0iKM4A4cj3/83QNVGCQ16xrz/EgoTB7pGlOtN5qTvJB544rNvL3MQt5+4GP6
+	Eixxmj1uGhE0/YIyLplPvD0Pc13cl0di1LPAN08CuNoCN81LV94pwOxAT7mVZv2V+Qrr4+H3Gf2lg
+	6u9XzVXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPplf-0000000EglQ-0WDD;
-	Thu, 12 Jun 2025 21:47:27 +0000
-Received: from mail-wr1-f43.google.com ([209.85.221.43])
+	id 1uPpnm-0000000Eh3G-1yXw;
+	Thu, 12 Jun 2025 21:49:38 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPpT4-0000000EegY-2Swy;
-	Thu, 12 Jun 2025 21:28:15 +0000
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-3a50fc7ac4dso981536f8f.0;
-        Thu, 12 Jun 2025 14:28:14 -0700 (PDT)
+	id 1uPpQv-0000000EeMZ-0iUC;
+	Thu, 12 Jun 2025 21:26:02 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3a4f379662cso1301263f8f.0;
+        Thu, 12 Jun 2025 14:26:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749763693; x=1750368493; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1749763560; x=1750368360; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=RtBm7dhzS7vdeIwSr3GhYSR7TMJjCHW8IHR7lAffLu0=;
-        b=jfkuup3ApMM/85/ldg4lEHM6DjocjzXc65ap4kpKu+Iz18ox3FO5joge6RoWI2Gvf0
-         NdYsz2F1vAapkZoI2+vPOxpbjIZRW8RU3JIPwG2PcdHcVSmtRgUZW71wY0YC3WhgBJZk
-         08ttmGy4VPJ60B2cOnz3VGvc2QYHlOa7lfhYKX42s5xoK2lAzH7i4H7sN+Eiaho8xxg/
-         B1CkBB5Y/BqIHPOCzv/GWRy+bMQdjqu2CVCiHKOkW8ajap5FmUY33TxgwPlIZKChjPqz
-         CdfJxws8a3dt04btSZDzt7u3i3Md4aQGGvUEJQKl9iyGkLgDNGwTp84Ity//XMx/aeS3
-         Rl3A==
+        bh=4bgNZC8EZ+8YN8zYzWZFcyV2guT062DAzWNQyh77fkg=;
+        b=X5xXZgWS9+IsiOzTK2BfJ32fzOZssBxocrrm54LvIDbEe86gAZqkjBIXrLXLGGc2LE
+         V8CX52Z8MEd0kUHpehzE/VAWCduO7rNN657CUEWNVCBALSILP4uHc2RLQ0pbqKiODoRP
+         yrS0cEHgP7ldOnMPrCj4+YELP09yW7wonuqQfxxDncaedKj16DTG4TUHqF57vFNhF0AW
+         x+rnQTfa2Jy4cmQm/Fleu99CqGFPJThdSj4Kbme2BAZveq4+y8AfoKud/5eBBj//YOq3
+         93rQampc0jTTi5jqwx3+/LoXPJqwHgEuYqkv8sGNnnYZvlSQ+ZSlQAEKe8sXxu4aTj62
+         HNYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749763693; x=1750368493;
+        d=1e100.net; s=20230601; t=1749763560; x=1750368360;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=RtBm7dhzS7vdeIwSr3GhYSR7TMJjCHW8IHR7lAffLu0=;
-        b=kNoGhXVu6CKStjFGIdBq6+z3FP01I5WckmoRgsc5wRDykVeROYhz1iMIbiBsldcohL
-         mYMxl0qqA/3oZaQx7B6up0K5Fvu9mavfrcNNuCKR+nnw8L1igiNRyaVVERshw0pZ6eOw
-         OjBiuYP+SCEc4jD3u6OGEqOyyNV/P5PRSuRC24zReQRDwp6o7kqx5VeeVTUbpIssemFL
-         o2i/q+k+LT16RuAvHoLWY5oDHSj2a9/y/YoL5r9Kq3deZ0meSbKhkT4KHNGReFZ+M5Tk
-         6g8/P6ENwGrgcnwQwAWtcC9njy6gSaxEKcKc+ozZgISBQDziT01zQOqSkd8C77TbEyTa
-         DKlw==
-X-Forwarded-Encrypted: i=1; AJvYcCVS9KlaORpgCMHDividmOhLMLpUdcK+/RfMBCMrj22Ty802bbgRF+6hxPzXt9TWeKn6PgUN8Qf9YTO77R1faz4r@lists.infradead.org, AJvYcCW7qKvqLl2nxF7V+go2xRBk2g3WkTPDf1a78YKcMkdVhnmMMX8A1uOzoVQ4M1Rury67GdDDJZ1B1UyYy22NlGU=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4J7s45hf15B3P+KhgdgZr6TpNO76wyg3ENhjDUxcAx9K1vCVb
-	foKDbLGc0jYJGFdY2z1rPgFMufg5/PEnuuVT/KOCLx/tThzM76P3VV+d
-X-Gm-Gg: ASbGncvU5zQJKLl/t5UTk6xGycqsxGlMaghMgOVbhPeQ5BeYw2s0YtjWCGXFsQiojyN
-	7h4Sw0KqcYtwpx5oK3ObBPxHM0ksk1QCFHZ3y9xllJcmjd14xphFjqjDEkvLRqD+WWcXEYGVSfL
-	8c8wPbI/lE7YCtuuqnjN+TzgV4p8S+iz63qcleAVjbbtYX+3Vumx7qQ3fKi8PTUCtksxDzepiPl
-	xmbfkYhfD8rk2IyaIejdheQPbenlFlNB5wkuwMxM+H0CIliwFzo+ixAmfTQItnNxQZLpwWj2n9y
-	kShwRX0dxosTnJsPB4ulEAkEyhDWBLJGIcdNsEoqj5BOix4ARkjxMLJE5yxR57GTC69P1aEWW+q
-	VGS2uTFZIxS1XBvWNJvVhg1i7W5s8rWdoWeBZmpX4uGbUzSd9fcaVh9sXJB1t3Th5Xh6yg4KxR+
-	lJSf6zpWwYBSMR0uzd8pzkmDxLjQ==
-X-Google-Smtp-Source: AGHT+IE1XU4nO/VzkNo3ZuofzqheSkVfnICKLzbgowD//YuyvE9aSKTHQ8v90RNFDlyeUk68AvpS0w==
-X-Received: by 2002:a05:6000:1acc:b0:3a5:2875:f986 with SMTP id ffacd0b85a97d-3a56871751cmr620856f8f.44.1749763692667;
-        Thu, 12 Jun 2025 14:28:12 -0700 (PDT)
+        bh=4bgNZC8EZ+8YN8zYzWZFcyV2guT062DAzWNQyh77fkg=;
+        b=vI9M/GA0HpW20SFXoPQTXAwtAT2ZG73/p98RWlRfEoCV450xEmgWMlVDycyl+81CfM
+         jQmB7jsHG9NHTOooWELCOlSBJsMidnbcrZKaIe6lMy6Jz32uDq0Wv01iZyBr3T25RBO+
+         igUisjlb0PPt4gxCJspRTuMDl8RDy6lVg0g/ytbDuGz12z9sULPfVNY9wHU22LqDVt/e
+         yj46Ari1pFwO3ue5J1+oHDrPqSjTtyi3AJ3lCufztPzHOJzEbfdoYKvTWxU5z7L00Sb1
+         Uf0/B0c7aP5aVr3Mo8MAJpDpYhgnV5P/WB4gti3y79HJE4jBjsm9d6zsnNwg9tis0Kfd
+         uvUA==
+X-Forwarded-Encrypted: i=1; AJvYcCVfEPlp+OIPc284sXYO1PoiSu+99RZz7YpcXRcT1TVt4Ueky5xvsBijYqO2q30oCt9nFTsj4ba/srf99iqmiOng@lists.infradead.org, AJvYcCX4GHTdsr3EuSEJmllPh4WqOYfI/tPdqG/JXlFYnZY69A4ZCFV2l7fpa1gEBq/FAlG5k4V8REd9agDFimfUQJ4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3dzijjQ3xA1yEtMHw3ld/sQj+FcGq8zSHu8foUu0DmHeUoZqk
+	YisMm/JoJ/0KeF6XxqNoe5FfwxD1+JQMUMmdYGssDUFqJ6aZFKzk+x28
+X-Gm-Gg: ASbGncu1w9rZVs9DD6kdw9TcUzr5cvniEzIxehoTLU06h2Nplj3UZphVM/8QAryQ1Pi
+	cnSOIhE3g+AEqEqF1beeWTb35vCieE1nXFRQl+HaM8UERYN4dVwQiTdiLlTuJdUfI+fHgsd7ZyO
+	S5zwfPVQa4/E/gJAf+UH5UtGrQ1zqF4bpPSsfIFcsTyHR79wYKw1wyFSkxxWEq/CVYDP2uNAYq6
+	uGBqL6hzaSH+U0RlnIchP25ayAWrYaJMKAnwb7WrUGI40+qerI/YZfjIo/dJZt8+0u8195dcy+E
+	XsffoDX35SeWit5yea0ae6rCqxOyPOacgmdNZ7/NBoirudhtT4eRZpDNzkwKWmP9vcDx41Nm7B3
+	qKkMFNgRvS5j1xpInzOzo8ukh592ORGZ/H8+UsUs9yA+TN2njBWmXbNyjv6Jr7iskovcDdhGYum
+	Z1aqetML6Sz/qzGpflKYpJ9FMzR+FJGc/NkAy9
+X-Google-Smtp-Source: AGHT+IHDrhuvDBNzi1HkVALmKY8HkCyd4dp7xmwD3CMCAlBZD/sd6lcRLB41MxGjbZLFJ5vPTfE4cg==
+X-Received: by 2002:a05:6000:1ace:b0:3a4:f379:65b6 with SMTP id ffacd0b85a97d-3a56876c6ffmr585636f8f.46.1749763559385;
+        Thu, 12 Jun 2025 14:25:59 -0700 (PDT)
 Received: from ?IPV6:2003:ea:8f22:3f00:7533:d8b1:ff14:6fe5? (p200300ea8f223f007533d8b1ff146fe5.dip0.t-ipconnect.de. [2003:ea:8f22:3f00:7533:d8b1:ff14:6fe5])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a568b2ca65sm413139f8f.77.2025.06.12.14.28.11
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a568b28240sm404295f8f.72.2025.06.12.14.25.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Jun 2025 14:28:12 -0700 (PDT)
-Message-ID: <42c05496-61b2-4b09-b853-3d99b3dfe95c@gmail.com>
-Date: Thu, 12 Jun 2025 23:28:18 +0200
+        Thu, 12 Jun 2025 14:25:58 -0700 (PDT)
+Message-ID: <8956fa53-3eda-4079-8203-a8fddcc17bf3@gmail.com>
+Date: Thu, 12 Jun 2025 23:26:04 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next 3/3] net: phy: add Kconfig symbol PHY_PACKAGE
+Subject: [PATCH net-next 1/3] net: phy: move __phy_package_[read|write]_mmd to
+ phy_package.c
 From: Heiner Kallweit <hkallweit1@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, Paolo Abeni <pabeni@redhat.com>,
  Jakub Kicinski <kuba@kernel.org>, David Miller <davem@davemloft.net>,
@@ -135,8 +136,8 @@ In-Reply-To: <eec346a4-e903-48af-8150-0191932a7a0b@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_142814_631853_3C55483F 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250612_142601_220375_81163E27 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,92 +152,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only a handful of PHY drivers needs the PHY package functionality,
-therefore build the module only if needed.
+Move both functions to phy_package.c, so that phy_core.c no longer
+has a dependency on phy_package.c (phy_package_address).
 
 Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
 ---
- drivers/net/phy/Kconfig          | 6 ++++++
- drivers/net/phy/Makefile         | 2 +-
- drivers/net/phy/mediatek/Kconfig | 1 +
- drivers/net/phy/qcom/Kconfig     | 1 +
- 4 files changed, 9 insertions(+), 1 deletion(-)
+ drivers/net/phy/phy-core.c        | 75 +++----------------------------
+ drivers/net/phy/phy_package.c     | 68 +++++++++++++++++++++++++++-
+ drivers/net/phy/phylib-internal.h |  6 ++-
+ 3 files changed, 78 insertions(+), 71 deletions(-)
 
-diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index 53dad2482..28acc6392 100644
---- a/drivers/net/phy/Kconfig
-+++ b/drivers/net/phy/Kconfig
-@@ -25,6 +25,9 @@ if PHYLIB
- config SWPHY
- 	bool
+diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
+index e177037f9..27f183356 100644
+--- a/drivers/net/phy/phy-core.c
++++ b/drivers/net/phy/phy-core.c
+@@ -375,8 +375,8 @@ static void mmd_phy_indirect(struct mii_bus *bus, int phy_addr, int devad,
+ 			devad | MII_MMD_CTRL_NOINCR);
+ }
  
-+config PHY_PACKAGE
-+	 tristate
+-static int mmd_phy_read(struct mii_bus *bus, int phy_addr, bool is_c45,
+-			int devad, u32 regnum)
++int mmd_phy_read(struct mii_bus *bus, int phy_addr, bool is_c45,
++		 int devad, u32 regnum)
+ {
+ 	if (is_c45)
+ 		return __mdiobus_c45_read(bus, phy_addr, devad, regnum);
+@@ -385,9 +385,10 @@ static int mmd_phy_read(struct mii_bus *bus, int phy_addr, bool is_c45,
+ 	/* Read the content of the MMD's selected register */
+ 	return __mdiobus_read(bus, phy_addr, MII_MMD_DATA);
+ }
++EXPORT_SYMBOL_GPL(mmd_phy_read);
+ 
+-static int mmd_phy_write(struct mii_bus *bus, int phy_addr, bool is_c45,
+-			 int devad, u32 regnum, u16 val)
++int mmd_phy_write(struct mii_bus *bus, int phy_addr, bool is_c45,
++		  int devad, u32 regnum, u16 val)
+ {
+ 	if (is_c45)
+ 		return __mdiobus_c45_write(bus, phy_addr, devad, regnum, val);
+@@ -396,6 +397,7 @@ static int mmd_phy_write(struct mii_bus *bus, int phy_addr, bool is_c45,
+ 	/* Write the data into MMD's selected register */
+ 	return __mdiobus_write(bus, phy_addr, MII_MMD_DATA, val);
+ }
++EXPORT_SYMBOL_GPL(mmd_phy_write);
+ 
+ /**
+  * __phy_read_mmd - Convenience function for reading a register
+@@ -485,71 +487,6 @@ int phy_write_mmd(struct phy_device *phydev, int devad, u32 regnum, u16 val)
+ }
+ EXPORT_SYMBOL(phy_write_mmd);
+ 
+-/**
+- * __phy_package_read_mmd - read MMD reg relative to PHY package base addr
+- * @phydev: The phy_device struct
+- * @addr_offset: The offset to be added to PHY package base_addr
+- * @devad: The MMD to read from
+- * @regnum: The register on the MMD to read
+- *
+- * Convenience helper for reading a register of an MMD on a given PHY
+- * using the PHY package base address. The base address is added to
+- * the addr_offset value.
+- *
+- * Same calling rules as for __phy_read();
+- *
+- * NOTE: It's assumed that the entire PHY package is either C22 or C45.
+- */
+-int __phy_package_read_mmd(struct phy_device *phydev,
+-			   unsigned int addr_offset, int devad,
+-			   u32 regnum)
+-{
+-	int addr = phy_package_address(phydev, addr_offset);
+-
+-	if (addr < 0)
+-		return addr;
+-
+-	if (regnum > (u16)~0 || devad > 32)
+-		return -EINVAL;
+-
+-	return mmd_phy_read(phydev->mdio.bus, addr, phydev->is_c45, devad,
+-			    regnum);
+-}
+-EXPORT_SYMBOL(__phy_package_read_mmd);
+-
+-/**
+- * __phy_package_write_mmd - write MMD reg relative to PHY package base addr
+- * @phydev: The phy_device struct
+- * @addr_offset: The offset to be added to PHY package base_addr
+- * @devad: The MMD to write to
+- * @regnum: The register on the MMD to write
+- * @val: value to write to @regnum
+- *
+- * Convenience helper for writing a register of an MMD on a given PHY
+- * using the PHY package base address. The base address is added to
+- * the addr_offset value.
+- *
+- * Same calling rules as for __phy_write();
+- *
+- * NOTE: It's assumed that the entire PHY package is either C22 or C45.
+- */
+-int __phy_package_write_mmd(struct phy_device *phydev,
+-			    unsigned int addr_offset, int devad,
+-			    u32 regnum, u16 val)
+-{
+-	int addr = phy_package_address(phydev, addr_offset);
+-
+-	if (addr < 0)
+-		return addr;
+-
+-	if (regnum > (u16)~0 || devad > 32)
+-		return -EINVAL;
+-
+-	return mmd_phy_write(phydev->mdio.bus, addr, phydev->is_c45, devad,
+-			     regnum, val);
+-}
+-EXPORT_SYMBOL(__phy_package_write_mmd);
+-
+ /**
+  * phy_modify_changed - Function for modifying a PHY register
+  * @phydev: the phy_device struct
+diff --git a/drivers/net/phy/phy_package.c b/drivers/net/phy/phy_package.c
+index c738f76e8..5dd5db7e8 100644
+--- a/drivers/net/phy/phy_package.c
++++ b/drivers/net/phy/phy_package.c
+@@ -52,7 +52,8 @@ void *phy_package_get_priv(struct phy_device *phydev)
+ }
+ EXPORT_SYMBOL_GPL(phy_package_get_priv);
+ 
+-int phy_package_address(struct phy_device *phydev, unsigned int addr_offset)
++static int phy_package_address(struct phy_device *phydev,
++			       unsigned int addr_offset)
+ {
+ 	struct phy_package_shared *shared = phydev->shared;
+ 	u8 base_addr = shared->base_addr;
+@@ -90,6 +91,71 @@ int __phy_package_write(struct phy_device *phydev, unsigned int addr_offset,
+ }
+ EXPORT_SYMBOL_GPL(__phy_package_write);
+ 
++/**
++ * __phy_package_read_mmd - read MMD reg relative to PHY package base addr
++ * @phydev: The phy_device struct
++ * @addr_offset: The offset to be added to PHY package base_addr
++ * @devad: The MMD to read from
++ * @regnum: The register on the MMD to read
++ *
++ * Convenience helper for reading a register of an MMD on a given PHY
++ * using the PHY package base address. The base address is added to
++ * the addr_offset value.
++ *
++ * Same calling rules as for __phy_read();
++ *
++ * NOTE: It's assumed that the entire PHY package is either C22 or C45.
++ */
++int __phy_package_read_mmd(struct phy_device *phydev,
++			   unsigned int addr_offset, int devad,
++			   u32 regnum)
++{
++	int addr = phy_package_address(phydev, addr_offset);
 +
- config LED_TRIGGER_PHY
- 	bool "Support LED triggers for tracking link state"
- 	depends on LEDS_TRIGGERS
-@@ -157,6 +160,7 @@ config BCM54140_PHY
- 	tristate "Broadcom BCM54140 PHY"
- 	depends on HWMON || HWMON=n
- 	select BCM_NET_PHYLIB
-+	select PHY_PACKAGE
- 	help
- 	  Support the Broadcom BCM54140 Quad SGMII/QSGMII PHY.
++	if (addr < 0)
++		return addr;
++
++	if (regnum > (u16)~0 || devad > 32)
++		return -EINVAL;
++
++	return mmd_phy_read(phydev->mdio.bus, addr, phydev->is_c45, devad,
++			    regnum);
++}
++EXPORT_SYMBOL(__phy_package_read_mmd);
++
++/**
++ * __phy_package_write_mmd - write MMD reg relative to PHY package base addr
++ * @phydev: The phy_device struct
++ * @addr_offset: The offset to be added to PHY package base_addr
++ * @devad: The MMD to write to
++ * @regnum: The register on the MMD to write
++ * @val: value to write to @regnum
++ *
++ * Convenience helper for writing a register of an MMD on a given PHY
++ * using the PHY package base address. The base address is added to
++ * the addr_offset value.
++ *
++ * Same calling rules as for __phy_write();
++ *
++ * NOTE: It's assumed that the entire PHY package is either C22 or C45.
++ */
++int __phy_package_write_mmd(struct phy_device *phydev,
++			    unsigned int addr_offset, int devad,
++			    u32 regnum, u16 val)
++{
++	int addr = phy_package_address(phydev, addr_offset);
++
++	if (addr < 0)
++		return addr;
++
++	if (regnum > (u16)~0 || devad > 32)
++		return -EINVAL;
++
++	return mmd_phy_write(phydev->mdio.bus, addr, phydev->is_c45, devad,
++			     regnum, val);
++}
++EXPORT_SYMBOL(__phy_package_write_mmd);
++
+ static bool __phy_package_set_once(struct phy_device *phydev, unsigned int b)
+ {
+ 	struct phy_package_shared *shared = phydev->shared;
+diff --git a/drivers/net/phy/phylib-internal.h b/drivers/net/phy/phylib-internal.h
+index afac2bd15..ebda74eb6 100644
+--- a/drivers/net/phy/phylib-internal.h
++++ b/drivers/net/phy/phylib-internal.h
+@@ -7,6 +7,7 @@
+ #define __PHYLIB_INTERNAL_H
  
-@@ -292,6 +296,7 @@ source "drivers/net/phy/mediatek/Kconfig"
- config MICREL_PHY
- 	tristate "Micrel PHYs"
- 	depends on PTP_1588_CLOCK_OPTIONAL
-+	select PHY_PACKAGE
- 	help
- 	  Supports the KSZ9021, VSC8201, KS8001 PHYs.
+ struct phy_device;
++struct mii_bus;
  
-@@ -323,6 +328,7 @@ config MICROSEMI_PHY
- 	depends on MACSEC || MACSEC=n
- 	depends on PTP_1588_CLOCK_OPTIONAL || !NETWORK_PHY_TIMESTAMPING
- 	select CRYPTO_LIB_AES if MACSEC
-+	select PHY_PACKAGE
- 	help
- 	  Currently supports VSC8514, VSC8530, VSC8531, VSC8540 and VSC8541 PHYs
+ /*
+  * phy_supported_speeds - return all speeds currently supported by a PHY device
+@@ -20,7 +21,10 @@ void of_set_phy_timing_role(struct phy_device *phydev);
+ int phy_speed_down_core(struct phy_device *phydev);
+ void phy_check_downshift(struct phy_device *phydev);
  
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index 4e69597f2..b4795aaf9 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -19,7 +19,7 @@ obj-$(CONFIG_MDIO_BUS)		+= mdio-bus.o
- obj-$(CONFIG_PHYLINK)		+= phylink.o
- obj-$(CONFIG_PHYLIB)		+= libphy.o
- obj-$(CONFIG_PHYLIB)		+= mdio_devres.o
--obj-$(CONFIG_PHYLIB)		+= phy_package.o
-+obj-$(CONFIG_PHY_PACKAGE)	+= phy_package.o
+-int phy_package_address(struct phy_device *phydev, unsigned int addr_offset);
++int mmd_phy_read(struct mii_bus *bus, int phy_addr, bool is_c45,
++		 int devad, u32 regnum);
++int mmd_phy_write(struct mii_bus *bus, int phy_addr, bool is_c45,
++		  int devad, u32 regnum, u16 val);
  
- obj-$(CONFIG_NETWORK_PHY_TIMESTAMPING) += mii_timestamper.o
+ int genphy_c45_read_eee_adv(struct phy_device *phydev, unsigned long *adv);
  
-diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
-index 9f30a91be..bb7dc8762 100644
---- a/drivers/net/phy/mediatek/Kconfig
-+++ b/drivers/net/phy/mediatek/Kconfig
-@@ -27,6 +27,7 @@ config MEDIATEK_GE_SOC_PHY
- 	depends on ARCH_AIROHA || (ARCH_MEDIATEK && NVMEM_MTK_EFUSE) || \
- 		   COMPILE_TEST
- 	select MTK_NET_PHYLIB
-+	select PHY_PACKAGE
- 	help
- 	  Supports MediaTek SoC built-in Gigabit Ethernet PHYs.
- 
-diff --git a/drivers/net/phy/qcom/Kconfig b/drivers/net/phy/qcom/Kconfig
-index 570626cc8..bba14be8d 100644
---- a/drivers/net/phy/qcom/Kconfig
-+++ b/drivers/net/phy/qcom/Kconfig
-@@ -24,6 +24,7 @@ config QCA808X_PHY
- config QCA807X_PHY
- 	tristate "Qualcomm QCA807x PHYs"
- 	select QCOM_NET_PHYLIB
-+	select PHY_PACKAGE
- 	depends on OF_MDIO
- 	help
- 	  Currently supports the Qualcomm QCA8072, QCA8075 and the PSGMII
 -- 
 2.49.0
 
