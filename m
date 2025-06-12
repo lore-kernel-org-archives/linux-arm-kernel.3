@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B8AC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578B8C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n8UmY+DjVICQvkxkV5qowXtXkSU++ghDZkpNVcnAI3M=; b=RXrNaDauyrbX7xPlk+K+oNLkXv
-	3AYIwPTiYuRfk6EdeNxc8ApCGp59GTYCaShdjHd6Bcg/KtLKqe0i8wyN9f7KOFADh3Hc6RmHMHiPj
-	yj5H4Lv9PqyngXI9jNLm/MFZEkpZhThgQD9+OLz+8C3AcM2aU00U1vUAlzGWqq9uEJRyvPeWDmv3A
-	tHOcaSPPmke9aBFBnmYXI8F8a00tJdqciUg5WWsV5+KTDeCzgyC9i+ZdjlgII1fuKOFqQYAAzbbj2
-	sRpqFejZ+vFUY7asR7waIMRn6TL+fadWwAa+eaYFp/neCK+J1/vLDv3kkdlUkOaKNqOD654ybDlZo
-	6JRqH7VQ==;
+	bh=vcbYXs+5scM2Ewr0ehY0oWRXHkwlQznubZyVEYLUaIk=; b=u1vjGR2X103FAc0FLMo3d9sMmZ
+	fAVk+P3ZIqvAHPw6YHH3GJULAJv1VXuVEnCfr5jaUuhGjbhb7P5rTWfe0aqFFYXC7gGoqdPNA6AnD
+	l4tJtUCQC1wX3Rh6OaL7I/SpCshkp3lJCuufRr2ygX5yqiD1Bsetp2dFG+dGCig6oivxGv9vjz1Is
+	ysR/uTyqMmJjSIPfP2vsVMpzpEyzKQMDG4LLYJeeePkDOK1S4V8KfGUjF/tdVy/IuTUEFcN/njIpT
+	9smPeXA7DYqjcWKpGhNwiLN8uS4VxQ4MKShx8/8NIgJgGbFq0m1PdN+Q6Ha5hWKCuByE1fJ6BAK6b
+	sIqds2Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoSZ-0000000EUJu-37dV;
-	Thu, 12 Jun 2025 20:23:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPoSa-0000000EUJz-13ms;
+	Thu, 12 Jun 2025 20:23:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoHk-0000000ETGQ-1kuO
+	id 1uPoHm-0000000ETH3-3cBQ
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 12 Jun 2025 20:12:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E48E42B84;
-	Thu, 12 Jun 2025 20:12:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8910C4CEEA;
-	Thu, 12 Jun 2025 20:12:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A6BF629D7;
+	Thu, 12 Jun 2025 20:12:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B7DBC4CEED;
+	Thu, 12 Jun 2025 20:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749759148;
-	bh=bIZ8HFvB6OMgNNW2NXkcAGo3Nhl2JK11AbarG/O5N+Y=;
+	s=k20201202; t=1749759149;
+	bh=sLxW/2gM/xqjmwMF98veHA/94KEa5ynyyYmqAzwLAQk=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=UC5n9LvWLL3JZhvYwMX5kxSKsoXED94YidpkOLAjq+oMTeoMB8cpXOP1D7c/rczip
-	 9aGAul3sQjIBUsgNebjAZae9a18D3eY8afIPf/74C7jrJ4ihLDwAGe73XAXMKSS98f
-	 8NBKQero4YKp3/5mekWKhXl/5zmXkEiIYRr3aTUtJmJY25j5gN1oHuRtp2Wq38ejxT
-	 mZBLjGzUGHI9o2OnMG8dyU/9jduusKQeUuQrvUJCek9mbj7A70IMyEqP+v7QOTZpiu
-	 VjXyc872zaqo9YngpIo/MPl5Yh0DkBcNSToFJ5OvK9lD2KJchsyvbLrIhmFtn5BLrB
-	 DB6v1/rDDUyiw==
-Date: Thu, 12 Jun 2025 15:12:26 -0500
+	b=Xt0LIvRFtNEdszKSMxfx0SHkf4CXLdrEB8u0VRJPpGTd5cqGqlzku5M3Qm1bPm4B/
+	 POaxPoE6fOGMo2iKzgOJkYrdJCSQlS/zCmHK37UAZj/5ob+oquaXRjIXAvxgUsC4I3
+	 L6nbpjlL4FKMIhTYg0pYm4KJSNrzrX5lz6ZwlLJfwZwddwIhS8QFe5lOn8jVwAW6vt
+	 4Xn1TqmV4LccpdsaRQ9xHa9Go/BXQzunnGrHV+WSsPv7JSfv3almt4rky4y1cxjS4y
+	 A15oJVNrVzKdF9W5pmA704lE21yKGaFignM+cYUGscM8A3GHiuNAYcWoMMzvITNLSx
+	 234fWPDag6aag==
+Date: Thu, 12 Jun 2025 15:12:28 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, soc@lists.linux.dev, 
- Mo Elbadry <elbadrym@google.com>, Arnd Bergmann <arnd@arndb.de>, 
- William Kennington <wak@google.com>, Taniya Das <quic_tdas@quicinc.com>, 
- linux-kernel@vger.kernel.org, spuranik@nvidia.com, 
- Eric Biggers <ebiggers@google.com>, Joel Stanley <joel@jms.id.au>, 
- linux-aspeed@lists.ozlabs.org, Will Deacon <will@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- nfraprado@collabora.com, linux-arm-kernel@lists.infradead.org, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- Rom Lemarchand <romlem@google.com>, devicetree@vger.kernel.org, 
- Geert Uytterhoeven <geert@linux-m68k.org>, leohu@nvidia.com, 
- Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, 
- Yuxiao Zhang <yuxiaozhang@google.com>, dkodihalli@nvidia.com, 
- wthai@nvidia.com
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-In-Reply-To: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
-References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
-Message-Id: <174975871838.2916138.1953670783794758715.robh@kernel.org>
-Subject: Re: [PATCH v0 0/5] Add initial AST2700 SoC support
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_131228_503198_1DE5A59B 
-X-CRM114-Status: GOOD (  18.46  )
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+In-Reply-To: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
+References: <20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org>
+Message-Id: <174975871931.2916531.8899085865861205227.robh@kernel.org>
+Subject: Re: [PATCH 0/5] Support for Exynos7870's display stack (DECON,
+ MIPIPHY, DSIM, etc.)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +72,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 12 Jun 2025 18:09:28 +0800, Ryan Chen wrote:
-> This patch series introduces initial support for the Aspeed AST2700 SoC
-> and the AST2700 Evaluation Board (EVB) to the Linux kernel. The AST2700
-> is the 7th generation Baseboard Management Controller (BMC) SoC from Aspeed,
-> featuring improved performance, enhanced security, and expanded I/O
-> capabilities compared to previous generations.
+On Thu, 12 Jun 2025 20:53:36 +0530, Kaustabh Chakraborty wrote:
+> Exynos7870 has a IP subsystem in its architecture dedicated to display
+> management. Notably, this block includes the Display Enhancement
+> Controller (DECON), and the DSI Master (DSIM).
 > 
-> The patchset includes the following changes:
-> - Device tree bindings for AST2700 boards.
-> - Addition of the AST2700 platform to the Kconfig menu.
-> - Basic device tree for the AST2700 SoC.
-> - Device tree for the AST2700-EVB.
-> - Updated defconfig to enable essential options for AST2700.
+> The following series and its sub-series implement all components for a
+> functioning display pipeline. All vital information which helped shaping
+> up the patches have been retrieved from Exynos7870 vendor kernel sources
+> as provided by Samsung.
 > 
-> Ryan Chen (5):
->   dt-bindings: arm: aspeed: Add AST2700 board compatible
->   arm64: Kconfig: Add Aspeed SoC family (ast2700) platform option
->   arm64: dts: aspeed: Add initial AST2700 SoC device tree
->   arm64: dts: aspeed: Add AST2700 EVB device tree
->   arm64: configs: Update defconfig for AST2700 platform support
+> Testing has been done on all three devices available upstream, i.e.
+> Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2 Core
+> (samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte). Regrettably,
+> I've only been able to test the functionality on video mode, as none of
+> the devices have panels working in command mode.
 > 
->  .../bindings/arm/aspeed/aspeed.yaml           |   5 +
->  arch/arm64/Kconfig.platforms                  |   6 +
->  arch/arm64/boot/dts/Makefile                  |   1 +
->  arch/arm64/boot/dts/aspeed/Makefile           |   4 +
->  arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi     | 380 ++++++++++++++++++
->  arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  54 +++
->  arch/arm64/configs/defconfig                  |   1 +
->  7 files changed, 451 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
->  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
->  create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+> This series implements changes in the SoC subsystem, which includes
+> devicetree additions. It depends on all sub-series listed below:
+> (Legend: [R]eviewed, [A]ccepted)
 > 
+> exynosdrm-decon            - https://lore.kernel.org/r/20250612-exynosdrm-decon-v2-0-d6c1d21c8057@disroot.org
+> exynos7870-mipi-phy        - https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
+> exynos7870-dsim            - https://lore.kernel.org/r/20250612-exynos7870-dsim-v1-0-1a330bca89df@disroot.org
+> panel-samsung-s6e8aa5x01   - https://lore.kernel.org/r/20250612-panel-synaptics-tddi-v1-0-dfb8a425f76c@disroot.org
+> panel-synaptics-tddi       - https://lore.kernel.org/r/20250612-panel-samsung-s6e8aa5x01-v1-0-06dcba071ea6@disroot.org
+> 
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+> Kaustabh Chakraborty (5):
+>       dt-bindings: samsung: exynos-sysreg: add exynos7870 sysregs
+>       arch: arm64: dts: exynos7870: add DSI support
+>       arch: arm64: dts: exynos7870-on7xelte: enable display panel support
+>       arch: arm64: dts: exynos7870-a2corelte: enable display panel support
+>       arch: arm64: dts: exynos7870-j6lte: enable display panel support
+> 
+>  .../soc/samsung/samsung,exynos-sysreg.yaml         |  6 ++
+>  .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 41 ++++++++++
+>  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    | 38 +++++++++
+>  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 40 +++++++++
+>  arch/arm64/boot/dts/exynos/exynos7870.dtsi         | 94 ++++++++++++++++++++++
+>  5 files changed, 219 insertions(+)
+> ---
+> base-commit: 0bb71d301869446810a0b13d3da290bd455d7c78
+> change-id: 20250523-exynos7870-drm-dts-87ccab731ba9
+> 
+> Best regards,
 > --
-> 2.34.1
+> Kaustabh Chakraborty <kauschluss@disroot.org>
 > 
 > 
 > 
@@ -142,28 +140,64 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/v6.16-rc1 (exact match)
+ Base: using specified base-commit 0bb71d301869446810a0b13d3da290bd455d7c78
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/aspeed/' for 20250612100933.3007673-1-ryan_chen@aspeedtech.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org:
 
-arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: serial@14c33b00 (ns16550a): 'pinctrl-0' is a dependency of 'pinctrl-names'
-	from schema $id: http://devicetree.org/schemas/pinctrl/pinctrl-consumer.yaml#
-arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@100 (aspeed,ast2700-intc-ic): interrupts-extended: [[6, 0, 3844]] is too short
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@110 (aspeed,ast2700-intc-ic): interrupts-extended: [[6, 1, 3844]] is too short
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@120 (aspeed,ast2700-intc-ic): interrupts-extended: [[6, 2, 3844]] is too short
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@130 (aspeed,ast2700-intc-ic): interrupts-extended: [[6, 3, 3844]] is too short
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@140 (aspeed,ast2700-intc-ic): interrupts-extended: [[6, 4, 3844]] is too short
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@150 (aspeed,ast2700-intc-ic): interrupts-extended: [[6, 5, 3844]] is too short
-	from schema $id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: False schema does not allow {'compatible': ['samsung,exynos7870-mipi-video-phy'], '#phy-cells': 1, 'samsung,disp-sysreg': [[12]], 'samsung,cam-sysreg': [13], 'phandle': 73}
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam-sysreg' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam0-sysreg' is a required property
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam1-sysreg' is a required property
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy:compatible:0: 'samsung,exynos7870-mipi-video-phy' is not one of ['samsung,s5pv210-mipi-video-phy', 'samsung,exynos5420-mipi-video-phy', 'samsung,exynos5433-mipi-video-phy']
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: Unevaluated properties are not allowed ('compatible', 'samsung,cam-sysreg' were unexpected)
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/system-controller@10480000/mipi-phy: failed to match any schema with compatible: ['samsung,exynos7870-mipi-video-phy']
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/dsi@14800000: failed to match any schema with compatible: ['samsung,exynos7870-mipi-dsi']
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['syna,td4300-panel']
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: decon@14830000 (samsung,exynos7870-decon): 'iommus', 'ports' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/samsung/samsung,exynos7-decon.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: False schema does not allow {'compatible': ['samsung,exynos7870-mipi-video-phy'], '#phy-cells': 1, 'samsung,disp-sysreg': [[12]], 'samsung,cam-sysreg': [13], 'phandle': 73}
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam-sysreg' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam0-sysreg' is a required property
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam1-sysreg' is a required property
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy:compatible:0: 'samsung,exynos7870-mipi-video-phy' is not one of ['samsung,s5pv210-mipi-video-phy', 'samsung,exynos5420-mipi-video-phy', 'samsung,exynos5433-mipi-video-phy']
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: Unevaluated properties are not allowed ('compatible', 'samsung,cam-sysreg' were unexpected)
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/system-controller@10480000/mipi-phy: failed to match any schema with compatible: ['samsung,exynos7870-mipi-video-phy']
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: False schema does not allow {'compatible': ['samsung,exynos7870-mipi-video-phy'], '#phy-cells': 1, 'samsung,disp-sysreg': [[12]], 'samsung,cam-sysreg': [13], 'phandle': 72}
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam-sysreg' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam0-sysreg' is a required property
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: 'samsung,cam1-sysreg' is a required property
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy:compatible:0: 'samsung,exynos7870-mipi-video-phy' is not one of ['samsung,s5pv210-mipi-video-phy', 'samsung,exynos5420-mipi-video-phy', 'samsung,exynos5433-mipi-video-phy']
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: system-controller@10480000 (samsung,exynos7870-pmu): mipi-phy: Unevaluated properties are not allowed ('compatible', 'samsung,cam-sysreg' were unexpected)
+	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-pmu.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: /soc@0/system-controller@10480000/mipi-phy: failed to match any schema with compatible: ['samsung,exynos7870-mipi-video-phy']
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/dsi@14800000: failed to match any schema with compatible: ['samsung,exynos7870-mipi-dsi']
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['syna,td4101-panel']
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: decon@14830000 (samsung,exynos7870-decon): 'iommus', 'ports' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/samsung/samsung,exynos7-decon.yaml#
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: /soc@0/dsi@14800000: failed to match any schema with compatible: ['samsung,exynos7870-mipi-dsi']
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['samsung,s6e8aa5x01']
+arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb: decon@14830000 (samsung,exynos7870-decon): 'iommus', 'ports' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/display/samsung/samsung,exynos7-decon.yaml#
 
 
 
