@@ -4,55 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED980C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162A0C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOh23LqQbhRMCoztjM1ifX7mBIeSO/uuTyzeGfBiC88=; b=TaqLQzHJOwRcaeOyZ5cWwABUHO
-	5wCxAvxWXZLoWA4NKXFG3ErbjDd8NQunS8v/qQGY+4HZhabUkgqD3+qtNzP+qTgXCRYECG3WrdNlq
-	GLk+1RzmGYsLnC9/yafbd1Rc0eapjP6+lOmn7rxI4pHzSAvBHl3bgonNxUzqJzRCtxny7HZ91dQC9
-	5CdlwvHqwWvLc3yTn/Y9sbtEZCGwQl9nwbZkNxcbGVbtCbdY+s4dL51O0L4mjrq2Jg83T3ThWQPTd
-	yUawLQV3TuqSTqQ0MSEjshORrK1kKHpbSbh2v2KqwiZHInzt3UHWKO2y3M7yTjyW36cGYeB1nC1GR
-	Y3WXGreg==;
+	bh=2UoLqPJz+BVnnu2pZ/H+yolFKvZxInzCZIkRhDZ6aJs=; b=gNiyNlHsnvdZpbYe3gbH7PCnAW
+	zce23YiKpdLFNgGBG07iMXfKM93ZtkfuxItdZjwykuQCDL3NKtrAIaPdweqnkETrpVoqSpsD/hUk6
+	B34Q8U6pmf7x8kBGtHwJayFLoqq2ulFAsq0GGYNEi7TlNFsQukOqXyfkzSBqMwwEuYxKY5P+d/v1T
+	573nqGMTCEgLGiJHH5IRYI4Lf33ihxMY2SySG+lbyA8kLPctrCoOERkLdFMo5B5ZbRDHNXKt1VtEY
+	FGRvagU8gT+zvAPjl/Of0yG6dsWu+lLj3Nb3PotINoDBgYRrRgMTKrbxAZPStnt2S0v3KKxNZn09b
+	dEiVMtbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoti-0000000EWxI-2Zrd;
-	Thu, 12 Jun 2025 20:51:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPorW-0000000EWjq-0fZK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 20:49:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8AE59152B;
-	Thu, 12 Jun 2025 13:49:02 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D2543F673;
-	Thu, 12 Jun 2025 13:49:19 -0700 (PDT)
-Date: Thu, 12 Jun 2025 22:49:09 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Lifeng Zheng <zhenglifeng1@huawei.com>, Will Deacon <will@kernel.org>
-Cc: sudeep.holla@arm.com, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxarm@huawei.com, jonathan.cameron@huawei.com,
-	viresh.kumar@linaro.org, yangyicong@hisilicon.com,
-	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
-	vincent.guittot@linaro.org
-Subject: Re: [PATCH] arm64: topology: Setup amu fie when cpu hotplugging
-Message-ID: <aEs9RRs95IrHBBX6@arm.com>
-References: <20250607094533.416368-1-zhenglifeng1@huawei.com>
- <20250612151736.GC12912@willie-the-truck>
+	id 1uPovq-0000000EX6N-3ozM;
+	Thu, 12 Jun 2025 20:53:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPosE-0000000EWrM-3KPH;
+	Thu, 12 Jun 2025 20:50:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=2UoLqPJz+BVnnu2pZ/H+yolFKvZxInzCZIkRhDZ6aJs=; b=MnOn7UpCUHLmkLoGKQkM1LYp/J
+	8uTWiXXY0apSQkrUQKiKu6X0L1hRdKp9aeQ39K/ylHiXfhekRXUKwgKW0aBkkAjzotQ1EYfxizsAl
+	QPi6TUtPPI7okS5LGDiYiE4hmgk2MIEa2vW3jZF5fgS6pooaR/W2cLGb2gfXxw8xqZsd2XFcdSpYk
+	Jyd+nkmMyiN71hIU44gjV77gKAX78sdP4olTFg5v8KXsA0YFuWLFZxt0wT24xqq8h2H/gn6wOAmOX
+	e0stihEWPAVrH93QGtAv8mVMnKD3WcU2fREQCDJDzojwoZuSpD0A+k6iWxtW2mTFq/c9RqLsA3Xvt
+	NbqcgFeg==;
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPosC-00000002hAj-2W2b;
+	Thu, 12 Jun 2025 20:50:10 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-23508d30142so17628915ad.0;
+        Thu, 12 Jun 2025 13:50:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749761404; x=1750366204; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2UoLqPJz+BVnnu2pZ/H+yolFKvZxInzCZIkRhDZ6aJs=;
+        b=TjSR1LQRKUw6j4EJaQifizsA7vi7pG3rznmTCzVIRSI7XCr80dJA4z+1Qwkh9r/3/S
+         oK74Z3rd8WuC5QZA+9aIbz5auUZq0r65mPAd4UjD2yzUnJQtvzF0qFrJni910XL4xnWI
+         0FNBLZF0xqGfcNLJVWa4b8qgbcrGMsPk/1VKBxVdVJxYzcwlmQ208SWVL1eJ6VTd+u29
+         oxzi3e4uY6GHBW2lGvFRnPpH0hMKGt5/mQvKfuXSUjO/ZHU6/z92ZaFqvglymBvzHl7U
+         LQZAM4DOLJhGn58Ng4Bt48D4jjQr/vaHIDYlt+mdXusU9X5FJ6hilxKDiO9KQ2Z2bx1H
+         ae5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749761404; x=1750366204;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2UoLqPJz+BVnnu2pZ/H+yolFKvZxInzCZIkRhDZ6aJs=;
+        b=PTLH/cyR9hbprZnma4AhRbTFZv2L75LddXeGt5K4/MxvKtneXUhmcTrb2rm8795jfw
+         KuDifNqUyjTADjSR4EMQX8y6Wy1Q+jLbk+t/f3d6uMP168xBuPjWFIkoLC7bie48F2sW
+         j2Kzol/N0w7uia6zkLZgTKLuK6bStdQOCuDOsuoLME25t6x/1qmLM1gNW4/UBhP99wJJ
+         1A9QegzoMHGimpJnvmv+fbruk9lVivpMQsLw9vxUbRrYYG73gELUVMypXLwlAFUFJobe
+         iofqA6IlSrEEQSw3pU0HvYgRaILpw1h7u/OGrgbvFO+NmLA6clKx0Y4aO0/MhV5wYRCm
+         ij2g==
+X-Forwarded-Encrypted: i=1; AJvYcCU37k1RTrefbYKRLuKxySehCpzr8HpurtU18zlLhEQPnekVjo9hVFuiX1j38HuUSikNFIrLjZVENM8q+tAtIPq7@lists.infradead.org, AJvYcCUWxzxlw/uhGoC+x1nnDv0lWF52WEXVcHAYiJpeNH6aA/+jHntAXIOoowAEAQQA7Pb5RIfgEIOfULDa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmTT3gHqq+pfbrZrONfvAAdR3ttmwYoDbaKU1ZSrnoixXU+FSB
+	Pfdv1RZcRI3LBQnCAeUm4SvxMY09NVxZQh/1qkG3QN+tlFWxdLIZoF6y
+X-Gm-Gg: ASbGncv5inc6zO5K8Fbb0yQuMlt2klhme6QJi2ZykFNQPmA/hvQvLBXoyo5zCkObiOS
+	QxOY6wvmlGCWEN8UF9xCKsbGFMCwhurxUByB6nM2ZHDqPIRL1OAHHmEqmEXLzMsA6oNLR9GeHLS
+	s7yrClYkWp1MKzMa0/WHQ0wUXlRltQeEA/7iXmOkHDX3a59+XtfS3v7+KnUHH7nn3ulpHZrLBQC
+	YT22WFJon9b7+cezsauRsg8LFcw6GtgYBgVV1JY8Xnq8hqsT2I/ijLZgJmtXtgrvIc2E/Wrl4RP
+	xIkz5UlIHwf8N/ufSmWee7I3fKjx/b2m9agjKfQ2DewV8/rkAQ==
+X-Google-Smtp-Source: AGHT+IG+khSNpIZ1lLheFLw/LHPdBlZ34dCXBeuy237kfv8em5EfwIdvXLjGbIw5JRwoxwzkTzKMoQ==
+X-Received: by 2002:a17:903:41cf:b0:234:9092:9dda with SMTP id d9443c01a7336-2365da07967mr7032275ad.24.1749761403815;
+        Thu, 12 Jun 2025 13:50:03 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:725c::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365d88bfe4sm1670705ad.18.2025.06.12.13.49.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 13:50:03 -0700 (PDT)
+Date: Thu, 12 Jun 2025 17:49:57 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-rockchip@lists.infradead.org,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 1/4] PCI: pcie-rockchip: add Link Control and
+ Status Register 2
+Message-ID: <aEs9daeceXkePg7y@geday>
+References: <28ae3286f3217881ae6ea3aecad47ae4567d6ec7.1749588810.git.geraldogabriel@gmail.com>
+ <20250611194259.GA825364@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250612151736.GC12912@willie-the-truck>
+In-Reply-To: <20250611194259.GA825364@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_134926_285491_E533272B 
-X-CRM114-Status: GOOD (  46.99  )
+X-CRM114-CacheID: sfid-20250612_215008_875208_88CCDF98 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,157 +119,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 04:17:36PM +0100, Will Deacon wrote:
-> [+arm topology folks]
-> 
-> On Sat, Jun 07, 2025 at 05:45:33PM +0800, Lifeng Zheng wrote:
-> > Amu fie was set up by a cpufreq policy notifier after the policy was
-> > created. This caused some problems:
-> > 
-> > 1. The cpus related to the same policy would all fail to set up amu fie if
-> > one of them couldn't pass the freq_counters_valid() check.
-> >
-I believe that was actually deliberate - it's all or nothing.
-On the other hand, that validation is pretty straightforward.
-Would you mind sharing some more details on the setup that triggers it?
-> > 2. The cpus fail to set up amu fie would never have a chance to set up
-> > again.
-> 
-I'd say that's the consequence of 1.
-> I don't fully understand this (we don't tend to use the past tense in commit
-> messages), but it sounds like you're saying that the singleton nature of
-> the AMU driver is causing you problems with late CPU hotplug. Is that
-> correct? Can you perhaps be a bit more specific about what goes wrong and
-> how to reproduce the issue, please?
-> 
-> > When boot with maxcpu=1 restrict, the support amu flags of the offline cpus
-> > would never be setup. After that, when cpufreq policy was being created,
-> > the online cpu might set up amu fie fail because the other cpus related to
-> > the same policy couldn't pass the freq_counters_valid() check. Hotplug the
-> > offline cpus, since the policy was already created, amu_fie_setup() would
-> > never be called again. All cpus couldn't setup amu fie in this situation.
-> > 
-> > After commit 1f023007f5e7 ("arm64/amu: Use capacity_ref_freq() to set AMU
-> > ratio"), the max_freq stores in policy data is never needed when setting up
-> > amu fie.  This indicates that the setting up of amu fie does not depend on
-> > the policy any more. So each cpu can set up amu fie separately during
-> > hotplug and the problems above will be solved.
-I do not think this is the conclusion I would draw from that change.
-It aligns the AMU FIE code to use the right ratio based on the reference freq
-instead of cpuinfo.max_freq
-> > 
-> > Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> > ---
-> >  arch/arm64/kernel/topology.c | 56 ++++++++++++++----------------------
-> >  1 file changed, 21 insertions(+), 35 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> > index 5d07ee85bdae..207eab4fa31f 100644
-> > --- a/arch/arm64/kernel/topology.c
-> > +++ b/arch/arm64/kernel/topology.c
-> > @@ -351,63 +351,49 @@ int arch_freq_get_on_cpu(int cpu)
-> >  	return freq;
-> >  }
-> >  
-> > -static void amu_fie_setup(const struct cpumask *cpus)
-> > +static void amu_fie_setup(unsigned int cpu)
-> >  {
-> > -	int cpu;
-> > -
-> > -	/* We are already set since the last insmod of cpufreq driver */
-> >  	if (cpumask_available(amu_fie_cpus) &&
-> > -	    unlikely(cpumask_subset(cpus, amu_fie_cpus)))
-> > +	    cpumask_test_cpu(cpu, amu_fie_cpus))
-> >  		return;
-> >  
-> > -	for_each_cpu(cpu, cpus)
-> > -		if (!freq_counters_valid(cpu))
-> > -			return;
-> > +	if (!freq_counters_valid(cpu))
-> > +		return;
-> >  
-> >  	if (!cpumask_available(amu_fie_cpus) &&
-> >  	    !zalloc_cpumask_var(&amu_fie_cpus, GFP_KERNEL)) {
-> > -		WARN_ONCE(1, "Failed to allocate FIE cpumask for CPUs[%*pbl]\n",
-> > -			  cpumask_pr_args(cpus));
-> > +		WARN_ONCE(1, "Failed to allocate FIE cpumask for CPUs[%u]\n",
-> > +			  cpu);
-> >  		return;
-> >  	}
-> >  
-> > -	cpumask_or(amu_fie_cpus, amu_fie_cpus, cpus);
-> > +	cpumask_set_cpu(cpu, amu_fie_cpus);
-> >  
-> >  	topology_set_scale_freq_source(&amu_sfd, amu_fie_cpus);
-> 
-> Isn't it going to be potentially expensive to call this every time a CPU
-> comes online?
-> 
-It does seem *bit excessive - I guess this should use single-CPU mask, to start
-with.
-> Will
-> 
-> [left the rest of the patch below for the folks I added]
+On Wed, Jun 11, 2025 at 02:42:59PM -0500, Bjorn Helgaas wrote:
+> I would do a pure conversion patch of the existing #defines.  Then I
+> suspect you wouldn't need a patch to add the Link 2 registers at all
+> because you could just use the #defines from pci_regs.h.
 
-I think I kinda get the idea, but having more details would help to clarify
-things.
+Hi Bjorn,
 
----
-BR
-Beata
-> 
-> >  
-> > -	pr_debug("CPUs[%*pbl]: counters will be used for FIE.",
-> > -		 cpumask_pr_args(cpus));
-> > +	pr_debug("CPUs[%u]: counters will be used for FIE.", cpu);
-> >  }
-> >  
-> > -static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
-> > -				 void *data)
-> > +static int cpuhp_topology_online(unsigned int cpu)
-> >  {
-> > -	struct cpufreq_policy *policy = data;
-> > -
-> > -	if (val == CPUFREQ_CREATE_POLICY)
-> > -		amu_fie_setup(policy->related_cpus);
-> > -
-> > -	/*
-> > -	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
-> > -	 * counters don't have any dependency on cpufreq driver once we have
-> > -	 * initialized AMU support and enabled invariance. The AMU counters will
-> > -	 * keep on working just fine in the absence of the cpufreq driver, and
-> > -	 * for the CPUs for which there are no counters available, the last set
-> > -	 * value of arch_freq_scale will remain valid as that is the frequency
-> > -	 * those CPUs are running at.
-> > -	 */
-> > +	amu_fie_setup(cpu);
-> >  
-> >  	return 0;
-> >  }
-> >  
-> > -static struct notifier_block init_amu_fie_notifier = {
-> > -	.notifier_call = init_amu_fie_callback,
-> > -};
-> > -
-> >  static int __init init_amu_fie(void)
-> >  {
-> > -	return cpufreq_register_notifier(&init_amu_fie_notifier,
-> > -					CPUFREQ_POLICY_NOTIFIER);
-> > +	int ret;
-> > +
-> > +	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> > +				"arm64/topology:online",
-> > +				cpuhp_topology_online,
-> > +				NULL);
-> > +
-> > +	if (ret < 0)
-> > +		return ret;
-> > +
-> > +	return 0;
-> >  }
-> >  core_initcall(init_amu_fie);
-> >  
-> > -- 
-> > 2.33.0
-> > 
+I've hit roadblock, maybe you can help?
+
+PCIE_RC_CONFIG_DCR_CSPL_LIMIT is defined as 0xff...
+
+I'd like to kill that define too, since it will be
+orphaned.
+
+But hardcoding 0xff seems like illegible solution.
+
+Perhaps there is another standard define that
+maps to 0xff that I can use? Anyone comes
+to your mind?
+
+Thanks!
+Geraldo Nascimento
 
