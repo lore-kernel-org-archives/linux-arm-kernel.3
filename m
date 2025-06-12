@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33677C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6385C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/m6E0eflbecPOAi0IhSItdpwfWKaZob25c6HB0Jj8ls=; b=MwFT0kY/imJqpzo0Z2JX/ZtSVi
-	RQls4C6qgTFPtWbKtpixFvex14+9p+bDS7YaE9jO16rYM0I36tdBRqtXEdYoqaCsQmpDUTh2UEZxx
-	nPBnLd6EK8wun8hayDxviRj6QMl/rVB/49RIDHuKueoRD6ia4KBuL/yu37Q3YU7nBGNCRfat2Rd3O
-	XlZS109eTePj5NVEqtJpLXWwbJ7SD6Dw1oml0kZsGZCRlM2mAX4qT1t0xkMyOoAtVAOKZVTUU8WfQ
-	gU5+RnyNQnE87YoIw5F2CuzZrI4k1TWo9SWuHLm8Ilh/43a8v4KULiLEYKJsrLwQevdrbyIixk3pr
-	EZ75by+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RfogaeDXFu8NsSm9XLGcZrTDHnRVDxhctoqJhgjWD2Y=; b=YcjUPf6+KDmdsGR7Y53Lx6uSHo
+	QG51sP4nP9uwBr19mSYrXyMIsltZue67XMXLlgJ1ynFbfc/FyyKAdBnkG3WwxwIuOBTYg9oy1Pyxg
+	ry7esutYqa78gNd9k9c3Oo26L7o73pclELH2nZeg6NtaM002xEOn4ThHvT8A/bVap4+h4FOEP4Xw+
+	Jteny7W+ts328Bcev+RSrXMgTjIfIIfZca4c97jS5GVJ1A9OcLj0GjCwnWpNX05VzYfZUvDmaTLa0
+	tTFOL0bZeRnuFFqeASI5Tl2I6S7GdLwgZhrBBh3gDxmkL5JCM2ikc4yibanIWtIihvD1qhRNQ75uP
+	Am+uRfGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnqP-0000000EIgh-2BDa;
-	Thu, 12 Jun 2025 19:44:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPnqZ-0000000EIt9-4ATN;
+	Thu, 12 Jun 2025 19:44:24 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjTI-0000000Dj2y-0u7E;
-	Thu, 12 Jun 2025 15:04:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EC1CD5C57A4;
-	Thu, 12 Jun 2025 15:01:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B6B1C4CEEA;
-	Thu, 12 Jun 2025 15:03:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749740643;
-	bh=Bb6hvKEG60SQOjiGd2QP6QUtwyg0asrlkazEzmEbitY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VD/2KqLMH6TKSeK13rAPSXWvv4lMXjHk3Eufs/KU+g2FZgRsYfbr8KDO5MG1bjZq9
-	 dtGpef30+c0DI+SxZituxrSCBSKKvw2A8Wdr/mj1TboIWnzRc+ky3uxIh1+3/EB+CV
-	 6Qm0sG7TrMqN2KCZSZvi4s9UoBj4G8UH5Uwc2lGbrywl3rmhf4JUGEYuSqfSsWn3TF
-	 N8YyGZ92nK/JRqF9Qz7XDMjKyMYJibrxvMtFdoAlZl7QqLgAnOHWjuzCzqBxJxQQx1
-	 QOWvxNdAd+EQCPpPS6VzSIZ9NTrBFmxyr3ixR79ometz3rx+z7nZU9Cuv7wvg2ny5/
-	 PGV85mmE9DvRA==
-Date: Thu, 12 Jun 2025 20:33:54 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Niklas Cassel <cassel@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Laszlo Fiat <laszlo.fiat@proton.me>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/4] PCI: dw-rockchip: Do not enumerate bus before
- endpoint devices are ready
-Message-ID: <2e23r5i5kmju476fcakodccyqnwanbhtyul5prqpqdgqivy3t6@ci54hfghhbb7>
-References: <apkamrd6ty2km7mjwz4mpe2xhewxgd3crmeqdmnj7wn6jl4emv@3nwrt43u2ons>
- <20250612144447.GA903908@bhelgaas>
+	id 1uPjXk-0000000DjfR-0Jqe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 15:08:41 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-44069f5f3aaso1492735e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 08:08:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749740918; x=1750345718; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RfogaeDXFu8NsSm9XLGcZrTDHnRVDxhctoqJhgjWD2Y=;
+        b=mEfyGQGAfJ+o9x2STc4yHuwQRnH+zLYm7BXoXbwaFkFu41k+pZGFgzXmEVZAkwdHfM
+         ugkt8afFqbx5E0iVIGu+M7LCFne9GP1f/bK37dXuc9Ylf+G8hAOxfLviuYeo5kULcn/b
+         icyySC53X/gCdJj0GGQ93WHt+b1/zaxE953D6gN7wMwKTc6yR2zTHIJq0CMksz+iTu8P
+         82PYAhHlgWII6QnbGGcYh+m8CfIWNRCS+gaKoLhq2i+9RctlIpPk8LHsu+zbZG5oCLJm
+         ZTN6dOnlbPCm3PZapXhMk9PQTvcAmgC/R3ZtCTs9D7TnqUtLBKcARLVnCkoFb/nPCbpi
+         pKAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749740918; x=1750345718;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RfogaeDXFu8NsSm9XLGcZrTDHnRVDxhctoqJhgjWD2Y=;
+        b=tXvHF1NCENKfDm8nRDnYmD4CbwJKVfc/uCi/4kqjRGqKHNOPGI9zIDB49vSkG8tyTD
+         6eGybPt8li7B6hCQt2ijL2AlRWnx6weH4fxsnbPngOQjknB4YL/pWcMAZ7PEYimteZeK
+         EBhUMbETjqUH4N5dR5kFs761tqrbEkJDeEDadgBUm05/4iH96PYaKa3592Eh0WqCgSS0
+         pVL9WxJkBnaS8yLvNO7EkKJ/qyNACf1jPdAaCNsgTsiFInk113vApWd4ziGI+Eu2Dqi9
+         BbfUfDT85KE2rzpZ81tHFizBWJNgp8F/knxwZNBSu2tFwoZOQ/8k3VqM0I7UuvotyTrI
+         pUGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQD/+e1eC8a5L5hMBtWokZx4lye63PuJNV1juzNFS63ULNkw8i+hjpR5AiU4+lty3qjVV2azGdjELYNMCX2TbE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5nSP2X46QAM45McTFhRSAEYZCapx4j36/RBXFnw9aW1i0jkrk
+	/9Q1nwZx4X9igTtrMEJEOURq1mRfzbLTqLlHGojwOfurOeu2OV+nHrke3KNpemVRC5U=
+X-Gm-Gg: ASbGnctvGi5VhwLtzsHgukROGD0l/O2VqlJVkMlYufJRYFXlKCiJU8qFFon9dx/bmvF
+	4jKi996GxJHfY73SJOdM56K6qYpwQmmf/hCZor7oeXS1JLVaNauzRd1EPd7tEPx0QEMpL6g/vHt
+	CPdkN+jwDHDg4HBCiQywta7qcZXLIeqfzRuW8U9H/ozZvAOdqO6xxewewGxTuPX8Z50JMF6AEy9
+	HKB9a3VL3QsVWmaIuCcxDszfX0nIRo5RxKIQInwM/2I+VtXHCuX/eWRXJeC2D2sj5tnecHQ8qrr
+	Og3ut5kV20mSTrKmb0XAi/ox1nJ4M9FJXWBbvR0PCXWFMPJzBNY5Lj+wP8A+uxV0G0A9PhmlnoJ
+	AOVg+ky9oO9+ci8TSGA==
+X-Google-Smtp-Source: AGHT+IGsHolW/1zgZsW15i4xzcpT6QiGNVGcfarQaCKUIeuKHVzXBnh/SKJKOYXQYnzFBUqMAybUug==
+X-Received: by 2002:a05:600c:4e45:b0:439:8294:2115 with SMTP id 5b1f17b1804b1-4532e8e40d2mr12583245e9.8.1749740916809;
+        Thu, 12 Jun 2025 08:08:36 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea1925sm24251255e9.12.2025.06.12.08.08.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 08:08:34 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250504145907.1728721-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250504145907.1728721-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: Re: [PATCH v4 0/4] arm64: dts: exynos: add initial support for
+ Samsung Galaxy S22+
+Message-Id: <174974091358.105902.6680955080416928440.b4-ty@linaro.org>
+Date: Thu, 12 Jun 2025 17:08:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250612144447.GA903908@bhelgaas>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_080404_329474_5838C9F0 
-X-CRM114-Status: GOOD (  36.99  )
+X-CRM114-CacheID: sfid-20250612_080840_118531_8DD8599B 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +104,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 09:44:47AM -0500, Bjorn Helgaas wrote:
-> On Thu, Jun 12, 2025 at 06:30:37PM +0530, Manivannan Sadhasivam wrote:
-> > On Thu, Jun 12, 2025 at 07:21:08AM -0500, Bjorn Helgaas wrote:
-> > > On Thu, Jun 12, 2025 at 01:40:23PM +0200, Niklas Cassel wrote:
-> > > > On Thu, Jun 12, 2025 at 06:38:27AM -0500, Bjorn Helgaas wrote:
-> > > > > On Thu, Jun 12, 2025 at 01:19:45PM +0200, Niklas Cassel wrote:
-> > > > > > On Wed, Jun 11, 2025 at 04:14:56PM -0500, Bjorn Helgaas wrote:
-> > > > > > > On Wed, Jun 11, 2025 at 12:51:42PM +0200, Niklas Cassel wrote:
-> > > > > > > > Commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can
-> > > > > > > > detect Link Up") changed so that we no longer call dw_pcie_wait_for_link(),
-> > > > > > > > and instead enumerate the bus directly after receiving the Link Up IRQ.
-> > > > > > > > 
-> > > > > > > > This means that there is no longer any delay between link up and the bus
-> > > > > > > > getting enumerated.
-> > > > > 
-> > > > > > > I think the comment at the PCIE_T_RRS_READY_MS definition should be
-> > > > > > > enough (although it might need to be updated to mention link-up).
-> > > > > > > This delay is going to be a standard piece of every driver, so it
-> > > > > > > won't require special notice.
-> > > > > > 
-> > > > > > Looking at pci.h, we already have a comment mentioning exactly this
-> > > > > > (link-up):
-> > > > > > https://github.com/torvalds/linux/blob/v6.16-rc1/drivers/pci/pci.h#L51-L63
-> > > > > > 
-> > > > > > I will change the patches to use PCIE_RESET_CONFIG_DEVICE_WAIT_MS instead.
-> > > > > 
-> > > > > I'll more closely later, but I think PCIE_T_RRS_READY_MS and
-> > > > > PCIE_RESET_CONFIG_DEVICE_WAIT_MS are duplicates and only one should
-> > > > > exist.  It looks like they got merged at about the same time by
-> > > > > different people, so we didn't notice.
-> > > > 
-> > > > I came to the same conclusion, I will send a patch to remove
-> > > > PCIE_T_RRS_READY_MS and convert the only existing user to use
-> > > > PCIE_RESET_CONFIG_DEVICE_WAIT_MS.
-> > > 
-> > > I think PCIE_T_RRS_READY_MS expresses the purpose of the wait more
-> > > specifically.  It's not that the device is completely ready after
-> > > 100ms; just that it should be able to respond with RRS if it needs
-> > > more time.
-> > 
-> > Yes, but none of the drivers are checking for the RRS status
-> > currently. So using PCIE_T_RRS_READY_MS gives a wrong impression
-> > that the driver is waiting for the RRS status from the device.
+
+On Sun, 04 May 2025 17:59:03 +0300, Ivaylo Ivanov wrote:
+> Hey folks,
 > 
-> There's 100ms immediately after reset or link-up when we can't send
-> config requests because the device may not be able to respond at all.
+> This patchset adds device tree files for Exynos 2200 and Samsung
+> Galaxy S22+.
 > 
-> After 100ms, the device should be able to respond to config requests
-> with SC, UR, RRS, or CA status (sec 2.2.9.1).  If it responds with
-> RRS, the access should be retried either by hardware or (if RRS SV is
-> enabled) by software.  This is the origin of "RRS_READY" -- the device
-> can at least do RRS.
+> [1] is a dependancy on the aforementioned series for the usb phy drivers
+> and bindings.
 > 
+> [...]
 
-Yeah, but the usage of 100ms is only valid if RRS SV is enabled by the software
-as per sec 6.6.1:
+Applied, thanks!
 
-"It is strongly recommended that software use 100 ms wait periods only if
-software enables Configuration RRS Software Visibility".
+[1/4] dt-bindings: arm: samsung: document g0s board binding
+      https://git.kernel.org/krzk/linux/c/a67a28f59fbaeebbc37186d60a6c56e16b99829c
+[2/4] arm64: dts: exynos: add initial support for exynos2200 SoC
+      https://git.kernel.org/krzk/linux/c/11715fcf1ccab759d43ee1ad3b1b5bedd7559b48
+[3/4] arm64: dts: exynos: add initial support for Samsung Galaxy S22+
+      https://git.kernel.org/krzk/linux/c/5430fd9e0794a21b08ccdc01ddc942b09830c1be
+[4/4] MAINTAINERS: add entry for Samsung Exynos2200 SoC
+      https://git.kernel.org/krzk/linux/c/6c1497a4bd72438360d977f37837d9638b702f33
 
-So I guess we should only have 3 delays in the drivers:
-
-1. 100ms after PERST# deassert for ports supporting link speed < 5.0 GT/s (I
-believe once the gpiod_ call returns, it could be considered as the exit from
-the conventional reset).
-
-2. 1s to poll for the link up after PERST# deassert.
-
-3. 100ms after link up (either by polling or interrupt) for ports supporting
-link speed > 5.0 GT/s.
-
-> "CONFIG_READY" would make sense except that it would be confused with
-> the spec's usage of "Configuration Ready" (unfortunately not formally
-> defined).  The PCIe r6.0, sec 6.22 implementation note says devices
-> may take up to 1 second to become Configuration Ready, and that when a
-> device is Configuration Ready, system software can proceed without
-> further delay to configure the device.
-> 
-> "PCIE_RESET_CONFIG_DEVICE_WAIT_MS" seems a little long to me (we might
-> not need "DEVICE"), but it does include "CONFIG" which is definitely
-> relevant.  "PCIE_RESET_CONFIG_WAIT_MS"?
-> 
-
-Shorter the better :) Looks good to me.
-
-- Mani
-
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
