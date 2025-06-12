@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA13C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A72C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pq7C0R4E2XSkWcjWutsZp1ZBQTicxPhIkd8OpkWTuhk=; b=LYIpimlLte6tyTXEK0sROgY/So
-	sz06/zrR5VUfcfgmkh+lX2aPz0Mi1xzsbOVFnrE7BXaeI1Tt13GUcX3EkVEkFU6rHSiCwNPSrd8mh
-	70CYUY30zX15Wr3hn26bFDFAAdnxfzcuUCYbcMeBUlUHxv27nrzxTsT/Bg/QA6HpulfEEf+cyiSKN
-	QFfpGnxUL7/9fnqNIlrlFfFS+JWkZ2Qx+e/XDPOyabcsCi9A2E5W0+bDrqBzA2eDRv9eUDd+vJuzE
-	H8fQcCUnIn11xw+70mfTVo+1Qdb+8ygAVx1pNhREtmub/eML3fm48bg7U22/GhF86qs2CkWqGTD6K
-	NzaWq3Kg==;
+	bh=7JL26w8K0dLRiG1S/saI2ZvE8MpTkarkv0Vc5Oq/vhs=; b=VHg1Vy3T+zswlVvUg1V+jjCXmr
+	Rg+eay8wh8VL9ryRmzLYCsgvMIjpfvuT+wLGrh4G2AxpfIix0tu4EWXFyspYzNU4JPTsa2ECdD7aN
+	ZAtVR+JNgCFGNInF8I/H658GjYnruJk9ChrwOIucKfp3bt06RaL3J4k71QLMHkS/ugQ1wxtPr3JHU
+	1gg7lvQE5/zsSPGwrFNeKrVzltYUl3Y7gvOvx+GHpA99xgDMIxrfYO3KyMz1pj344CtXF6LoKGfTi
+	UXyiVq8dk7GC0QBwGJrBJw2q07y6Tq302Z/fZon2zxlRW1ITQlD8nQYLmqr5l23rk3AjoiDFyq5dR
+	taEn5FRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnrm-0000000EKp6-34gg;
-	Thu, 12 Jun 2025 19:45:38 +0000
+	id 1uPnrr-0000000EKxv-1Mmm;
+	Thu, 12 Jun 2025 19:45:46 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPkAO-0000000Dr7l-2roR
+	id 1uPkAx-0000000DrBU-2jGZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:48:37 +0000
+	Thu, 12 Jun 2025 15:49:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Pq7C0R4E2XSkWcjWutsZp1ZBQTicxPhIkd8OpkWTuhk=; b=SO3ihB7jHnaSOG7iS49kyxLkGP
-	BHymFTZSA5Inmq4qoxmPtj+UrTlvFco0FbIzAi10gEf3EpkvdT5GFbJKLz/vTTvSHRVnKcp8Mnpi7
-	stkunfMdoTle+dJnHxo657gbXHreNGgH6Riddev5pW8D7V/Fa0qy68LJFxcIxenMzbB0=;
+	bh=7JL26w8K0dLRiG1S/saI2ZvE8MpTkarkv0Vc5Oq/vhs=; b=jpYSMxTK9gNaS+poyIPobuZAt3
+	0M9of1MFVOXd+v0hB0/ZwQmSUaGyjIDeKubwkrb15sH16fQNZL8OVCESDTo4ZamFZLOZlcrXQ2ACC
+	4DnjDACkIU6ILtzndZH7reHhG1+/5WPT7ML1GAgGHMznhqM6+w8SFX77rLd7CnVVCiqs=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1uPkAJ-00FZAe-Ns; Thu, 12 Jun 2025 17:48:31 +0200
-Date: Thu, 12 Jun 2025 17:48:31 +0200
+	id 1uPkAs-00FZBv-LR; Thu, 12 Jun 2025 17:49:06 +0200
+Date: Thu, 12 Jun 2025 17:49:06 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -51,18 +51,19 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 3/9] net: stmmac: rk: add struct for programming
- register based speeds
-Message-ID: <92cfb2d8-03db-404d-96d6-c9782ce22bf8@lunn.ch>
+Subject: Re: [PATCH net-next 4/9] net: stmmac: rk: combine rv1126
+ set_*_speed() methods
+Message-ID: <d0af5dcc-1567-42b0-9bc5-417dd8c37d33@lunn.ch>
 References: <aEr1BhIoC6-UM2XV@shell.armlinux.org.uk>
- <E1uPk2t-004CFN-Td@rmk-PC.armlinux.org.uk>
+ <E1uPk2z-004CFT-0e@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1uPk2t-004CFN-Td@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1uPk2z-004CFT-0e@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_084836_717782_39CBB6E7 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250612_084911_688978_928D3765 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,12 +78,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 04:40:51PM +0100, Russell King (Oracle) wrote:
-> There is a common pattern in the driver where many SoCs need to write a
-> single register with a value dependent on the interface mode and speed.
-> Rather than having a lot of repeated code, add some common functions
-> and a struct to contain the values to be written to a register to
-> select the RGMII and RMII speeds.
+On Thu, Jun 12, 2025 at 04:40:57PM +0100, Russell King (Oracle) wrote:
+> Just like rk3568, there is no need to have separate RGMII and RMII
+> methods to set clk_mac_speed() as rgmii_clock() can be used to return
+> the clock rate for both RGMII and RMII interface modes. Combine these
+> two methods.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
