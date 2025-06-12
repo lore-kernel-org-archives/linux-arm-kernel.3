@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279B2C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28B8C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EY76ou1m9gK9zjho/3G/XbRunrqXXiNEfkjAJLicmPs=; b=jDh74s4NYY7d6OBGW3TF+v8uCI
-	fngDpk+XSJ16W9FlM9GGYObzscy2XEWzu/usnLdcL9tkwvsnqg71tICJjmEs2HRwn27aT1Pybd4hv
-	1nfhVkWpk6lef6Y7l3WQeWElSf4cqihGUndIqbKEg364fmaFBgYjyWOr89C4frsZU3Rb5N8Cc+VrG
-	PA6yXT5F4bJOPs68hsf/tdSFLksGyzw9o6DwGyB7ZGwDWzgWNn1cfCp60NmxJhRpYuAA7PNZC0J2M
-	fZEipD96w/eGT1LgsuSoTl4TbFT8237zyV4Q3P2SNgABZ/woH4yarKwVfBsb3MipkABs3kYlOzfI/
-	B0qW4XlA==;
+	bh=Lu8U5b+n07s1SAPTYBLiA3WfPD30MNk969DNa7VGNjE=; b=4lXwD+0CeBDkiQK4euZYxx/7dk
+	S1uJcH8GaZ/DlQSnwf9EWflalZJkd2BbdCU99U+Cq5NEHc4VUOZyCTLkxdwaHLf1w47ij7iGykAlk
+	VjHcD33DsPiRU4qLdAatYDwzhyPWcsBh2m/ZbTjrXnEG4dh08FIUa3JUnExRXKdeOhn5puo69m1+5
+	EEt2bTRP+28qy0kUlvfnl7ndjBpARtN1wZ0T1PeWIKf3kapZ2QJJ9/XApeqON+J/U+ltz3UNqmurU
+	HnqIeOLXnsJS9UeNeKAu94q/dZ+U5d/xfiDmhsRZZMyNY3Vj4KCNYTgJVLNcHokwkeOFK4/l/uSKh
+	uC6F5spg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhpQ-0000000DMIt-1TG4;
-	Thu, 12 Jun 2025 13:18:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uPhpS-0000000DMKb-1xVx;
+	Thu, 12 Jun 2025 13:18:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPeya-0000000Cwlg-06s9
+	id 1uPf0Y-0000000Cx5K-3JRu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 10:16:05 +0000
+	Thu, 12 Jun 2025 10:18:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9BF075C4D17;
-	Thu, 12 Jun 2025 10:13:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B768EC4CEEA;
-	Thu, 12 Jun 2025 10:15:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0172162A05;
+	Thu, 12 Jun 2025 10:18:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B242C4CEED;
+	Thu, 12 Jun 2025 10:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749723362;
-	bh=7FGoClZ0ml34gXc4dFPqG8zZERR14btnitxt2Mt6UNs=;
+	s=k20201202; t=1749723485;
+	bh=haHjCLuyFcjjryC0APdEnmv4gb5nv2DCaiXwfEunHJM=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=LfakI3expq8CouXdOICpLytc1xOKKFqPeAcib0tnQ4dxZ588j99YPtCQU9Nv6XYG3
-	 AfkbW8PJrf3dCXCh6DksHTAwRb/r3jnKGFTvRLicPKl4hw1lZKuCwZ16WPsA6nbr6Y
-	 Ydb6lH7vKUnJuHWCDKhypq3Qme8UPbHK7ob3+luuhBpR2nZuLN7Z0AVhqeEdwftOIj
-	 kqj+rXEXWcbjaFx8NCVwH82WaNGs8eb/0xxvHPKqq5/PxPHThId4LW5BI/K0COoD/z
-	 /o2em6nIJCHD0c9nfTuySDNMDOxEURanK96KYz54R0Yj44eOE8gUeZGWCA1QmftrYf
-	 Ifu6KJAGoIqnA==
-Message-ID: <278193c2-7061-4cd3-88e3-402ac85eddf7@kernel.org>
-Date: Thu, 12 Jun 2025 12:15:55 +0200
+	b=dQYFqmGYD9dnEMLAaX7tWl8uJkb68MH4h4zEji8ux2NVi9l54qh4m/jwWVlvrh42N
+	 Z0hrv/Pjkmc462Dn8jaSdyvjs0ya6fhOO2DIgU7kc15G7zvA5lNzEwP9tdnlKhDEx7
+	 gy8fnMRvJOnWAHqgvOe6/9tImJ/TrlyT9Jw8Gsesp3YRyic7RCyqfFys4N5WxHtZdE
+	 E/QwbElGUCd9Z3ff4kvXszezEmgX2tn52SPjBhHiPRq7sCEbsn/xEjTWFvpFli4K3j
+	 hAuTNHUltzD9fd8DM5VAhmx9UJSs88tSp0nyKCB40cpP+Jy/1DzXFm5RvNFezFingB
+	 XmOTOgl8MHq9A==
+Message-ID: <485749d4-b3c4-4965-9714-ad534d37e8c9@kernel.org>
+Date: Thu, 12 Jun 2025 12:17:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v0 1/5] dt-bindings: arm: aspeed: Add AST2700 board
- compatible
+Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
+ tree
 To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
@@ -67,7 +67,7 @@ To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
  wthai@nvidia.com, leohu@nvidia.com, dkodihalli@nvidia.com,
  spuranik@nvidia.com
 References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
- <20250612100933.3007673-2-ryan_chen@aspeedtech.com>
+ <20250612100933.3007673-4-ryan_chen@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,13 +113,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250612100933.3007673-2-ryan_chen@aspeedtech.com>
+In-Reply-To: <20250612100933.3007673-4-ryan_chen@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_031604_146234_26C5BD15 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,17 +131,216 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/06/2025 12:09, Ryan Chen wrote:
-> Add device tree compatible string for AST2700 based boards
-> ("aspeed,ast2700-evb" and "aspeed,ast2700") to the Aspeed SoC
-> board bindings. This allows proper schema validation and
-> enables support for AST2700 platforms.
+> This add the initial device tree support for the ASPEED AST2700 SoC.
+> 
+> - Add top-level compatible string "aspeed,ast2700" and set up
+> address-cells/size-cells for 64-bit address space.
+> - Describe a quad-core ARM Cortex-A35 CPU cluster with L2 cache,
+> including cache properties and PSCI enable-method.
+> - Add PMU and ARMv8 timer nodes with correct PPI interrupt wiring.
+> - Model the dual-SoC architecture with two simple-bus nodes:
+> soc0 (@0x10000000) and soc1 (@0x14000000).
+> - Add syscon nodes for both SoCs (syscon0, syscon1) with clock/reset
+> cell definitions and address mapping.
+> - Add GICv3 interrupt controller node under soc0, with full register
+> mapping and interrupt properties.
+> - Hierarchical interrupt controller structure:
+>   - intc0 under soc0, with child intc0_11 node.
+>   - intc1 under soc1, with child intc1_0~intc1_5 nodes.
+> - Add serial4 node under soc0, others serial node under soc1.
 > 
 > Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 > ---
-Align with your colleagues. This is not v0, but vX+1. And X was already
-3 since you sent it!
+>  arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi | 380 ++++++++++++++++++++++
+>  1 file changed, 380 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+> new file mode 100644
+> index 000000000000..d197187bcf9f
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+> @@ -0,0 +1,380 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +#include <dt-bindings/clock/aspeed,ast2700-scu.h>
+> +#include <dt-bindings/reset/aspeed,ast2700-scu.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +/ {
+> +	#address-cells = <2>;
+> +	#size-cells = <1>;
+> +	interrupt-parent = <&gic>;
+> +
+> +	cpus {
+> +		#address-cells = <2>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a35";
+> +			reg = <0x0 0x0>;
+> +			enable-method = "psci";
+> +			i-cache-size = <0x8000>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2>;
+> +		};
+> +
+> +		cpu1: cpu@1 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a35";
+> +			enable-method = "psci";
+> +			reg = <0x0 0x1>;
+> +			i-cache-size = <0x8000>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2>;
+> +		};
+> +
+> +		cpu2: cpu@2 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a35";
+> +			enable-method = "psci";
+> +			reg = <0x0 0x2>;
+> +			i-cache-size = <0x8000>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2>;
+> +		};
+> +
+> +		cpu3: cpu@3 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a35";
+> +			enable-method = "psci";
+> +			reg = <0x0 0x3>;
+> +			i-cache-size = <0x8000>;
+> +			i-cache-line-size = <64>;
+> +			i-cache-sets = <256>;
+> +			d-cache-size = <0x8000>;
+> +			d-cache-line-size = <64>;
+> +			d-cache-sets = <128>;
+> +			next-level-cache = <&l2>;
+> +		};
+> +
+> +		l2: l2-cache0 {
+> +			compatible = "cache";
+> +			cache-level = <2>;
+> +			cache-unified;
+> +			cache-size = <0x80000>;
+> +			cache-line-size = <64>;
+> +			cache-sets = <1024>;
+> +		};
+> +	};
+> +
+> +	arm-pmu {
+> +		compatible = "arm,cortex-a35-pmu";
+> +		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+> +	};
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0";
+> +		method = "smc";
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+> +		arm,cpu-registers-not-fw-configured;
+> +		always-on;
+> +	};
+> +
+> +	soc0: soc@10000000 {
+> +		compatible = "simple-bus";
+> +		reg = <0x0 0x10000000 0x10000000>;
+> +		#address-cells = <2>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		syscon0: syscon@12c02000 {
+> +			compatible = "aspeed,ast2700-scu0", "syscon", "simple-mfd";
+> +			reg = <0x0 0x12c02000 0x1000>;
+> +			ranges = <0x0 0x0 0 0x12c02000 0x1000>;
+> +			#address-cells = <2>;
+> +			#size-cells = <1>;
+> +			#clock-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+> +		gic: interrupt-controller@12200000 {
+> +			compatible = "arm,gic-v3";
+> +			reg = <0 0x12200000 0x10000>, /* GICD */
+> +			      <0 0x12280000 0x80000>, /* GICR */
+> +			      <0 0x40440000 0x1000>;  /* GICC */
+> +			#interrupt-cells = <3>;
+> +			interrupt-controller;
+> +			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+> +			interrupt-parent = <&gic>;
+> +		};
+> +
+> +		serial4: serial@12c1a000 {
+> +			compatible = "ns16550a";
+> +			reg = <0x0 0x12c1a000 0x1000>;
+> +			clocks = <&syscon0 SCU0_CLK_GATE_UART4CLK>;
+> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +	};
+> +
+> +	soc1: soc@14000000 {
+> +		compatible = "simple-bus";
+> +		reg = <0x0 0x14000000 0x10000000>;
+> +		#address-cells = <2>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		syscon1: syscon@14c02000 {
+> +			compatible = "aspeed,ast2700-scu1", "syscon", "simple-mfd";
+> +			reg = <0x0 0x14c02000 0x1000>;
+> +			ranges = <0x0 0x0 0x0 0x14c02000 0x1000>;
+> +			#address-cells = <2>;
+> +			#size-cells = <1>;
+> +			#clock-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+> +		serial12: serial@14c33b00 {
+> +			compatible = "ns16550a";
+> +			reg = <0x0 0x14c33b00 0x100>;
+> +			clocks = <&syscon1 SCU1_CLK_GATE_UART12CLK>;
+> +			interrupts-extended =
+> +				<&intc1_4 18 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+> +			reg-shift = <2>;
+> +			status = "disabled";
+> +		};
+> +	};
+> +};
+> +
+> +&soc0 {
 
-https://lore.kernel.org/all/20241212155237.848336-4-kevin_chen@aspeedtech.com/
+This is the base DTSI, there is no existing node to override. Just
+define complete SoC node in one place like every other vendor.
+
+
+> +	intc0: interrupt-controller@12100000 {
+> +		compatible = "simple-mfd";
+
+NAK, never tested.
+
+Not allowed, see bindings. And test it next time.
+
 
 Best regards,
 Krzysztof
