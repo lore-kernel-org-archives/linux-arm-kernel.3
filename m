@@ -4,95 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EEDC61CE8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7489C71149
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKvQ0kizkJd8CblYTjjvTx/DyqmBuLZOpwvQ/Oh9KYc=; b=YvNT2WhhmNg8Kopow1R4bCWz3y
-	IACkJfLoT+3dtHEm8G9aJDxFo5+qkGcr4N3aeTK9TBPbItCAk1ZAAV4UiIzhKWXq8O2yyyVS09rwW
-	2fwHgeDcvyBxGy3eG7KCjHnYuNAPUErsCV4HP2zeROuPWip2YqB6diU+7C9nvKiULTrPfXHR5PeDk
-	ELTExtm2xq8DVen+krABryRtSNxhnEjjFG6t1EyMXoRudUcVihM8YcNMsR+kAUPhyUHEEnvditvwW
-	4erhmfkLsOz1oapC+sgCDHrV/1XdMZHx8vqGGGiUOgVvi5k9Ezje1S+MPuFNoR/Q72iTcKK/tBP/C
-	T5notBow==;
+	bh=WGaAAH127Wfrg3JZDU0tyMf010p52bIgp6Qxcvg427Q=; b=xAVfLocFBc5ctS7UhSqOp3AxpI
+	zsAj3ppQb+WCcVH8oJmsO40cus82QDxc0oqMNo/+W4GoDcSHEmzNXeJYMn0NcMfbcJZj7JYo6mSb6
+	mExOhaUv/q2OJ/uNmJPe3ZQshAz+7hweYXz8nQTfvxy9/j6OQMo0vEvlqIGSMyL1nKV92toO6sqj5
+	pP0i975BhDEnVvy+/vkQB96fDx/LZ5FqL5h54nIjBV6csWnpaB+wPWF2eYVNWpH7TLG5wXRdX6AOl
+	CwVMdAv1FO+X206CSH1hpmzTkf1vWJK0ygDzWhwoqEtQgDR24Kyu+Iy37YwLd8ZUmk3+EPhhPnH4N
+	h35y8pJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnr0-0000000EJlh-1WUs;
-	Thu, 12 Jun 2025 19:44:50 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjsG-0000000Dn8N-2Xpt
+	id 1uPnr2-0000000EJrA-26c9;
+	Thu, 12 Jun 2025 19:44:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPjue-0000000DnXr-2IWe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:29:53 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-44069f5f3aaso1514255e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 08:29:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749742191; x=1750346991; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DKvQ0kizkJd8CblYTjjvTx/DyqmBuLZOpwvQ/Oh9KYc=;
-        b=UWAfK/ERJFzWEOXlhVvTaRvyRfrP6jbPOpASM9qWPjG7FX1+VCtFM08wcmJwcOm+KM
-         7G+8HhY4+LaLbEfj91BSHaXUaoWmzNjmXrMYRqXWUyGSi6tC9yDJu84yijkwkid43M8X
-         4746KEe0eMFh7nPe/4UlyGuralFE33uVpi8AgF3QApK2jG0JQ6lEHP5E3jsBoTJ4gXJy
-         yktSB97KGkO6GjFSlN8X7XIxPt4QlHYuBgJFq1Z92J2ojJr4qPq8j3QZLdlR1CeG3p0l
-         vmdf8OcoyuYestEEwCo3VGXt+ajYoFND6xNETFrzm7Nox7vwop61VWyPmoi4xkJanHYJ
-         rsYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749742191; x=1750346991;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DKvQ0kizkJd8CblYTjjvTx/DyqmBuLZOpwvQ/Oh9KYc=;
-        b=B4XA3xnxkFo9arxS3WmNdcV5hqB4BOZsXHzEMjuw8Ysr5JhYRUtQlThDAJV5KJAFAY
-         zIc+aMJnhtriPBeo4JZY88xk4uvE+SSa1tXYRhXywpYBDIq3WNdn95ImaqYeht4000hb
-         1qsmcCuq5LkvdAHQooTQw97ErLAKQ5c2v0nTU9CamCw/jGU/Cd+Abv3aYH2qkml8g92M
-         wiTgOIwbKsW3Yi789636ObBXpWXwmpp5dtEVow9iFQd8xlS1NhiZGuVmwcVcpZjNVOB4
-         TXZsk0nRv37cVa8eV6Oae2Bz6lSs4vh6U5yo3sgg1Wfo8irpyGS3O3nTctJt/fadjS5Y
-         hZYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWsicyA0mqgcGPS67QxXH8mYBl+3Dad+gStm3DaveeJW1T9K1budjc4zFdNbJhCNsKuh12p37XEJcC8hPp68kHc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxu90se5yUTtzopQAxm6Rz34+Z0UubUGUg2Pp+pJ5ni+ew7pROo
-	bDL2pStj/XLI3TYabwXmIjHFV/tbuo0KaJ0mNnuzBLdul+OSaGW93w0sJQ1iBIQ7ijo=
-X-Gm-Gg: ASbGncsVCsi5fr4coeDHkp4cbm6jFeVaOOI96HxisR6njm8G7K8VmX8ne8YmZZObjm9
-	9D1XdyNx5zn/e43/fVp1tuRF1sWYnM4RdO/MFMPhhLgYYz/7k5HyCAAldasdZkr5cDLCy7FIhuZ
-	9wEVqeUmz5KCKy/IZZOU4uVAEk8vSKSykERIJF6+vjp9JGOkmW4nf2r5ROnQsHz6HYqlhSq3h8T
-	e0WmNXOPMTT7wz0ohZ9xSXO0TFF85qwMMgn5Zn82ZaCn8k6pECccLs4gkkgd7Dx+yPmuo3fvGk1
-	0xd35wBDR3EfWAc4mM+nRopIs6FKkOSyae8ccE1sb8mdtENh9VCzCYVEtMX5VSz5bteRUefrG86
-	TrgV8hIc=
-X-Google-Smtp-Source: AGHT+IHcEf5K0JeoZyRffkMk2oZLKO8IT8ky+qUldOOWFDZEO8dRcFFzDiYHDmEiK60pzDMoVYDLyQ==
-X-Received: by 2002:a05:6000:26c1:b0:3a4:f8a9:ba02 with SMTP id ffacd0b85a97d-3a5586b8858mr2648512f8f.1.1749742191063;
-        Thu, 12 Jun 2025 08:29:51 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e232e4asm23557265e9.11.2025.06.12.08.29.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 08:29:49 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com, 
- alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org, 
- robh@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com, 
- sunyeal.hong@samsung.com, shin.son@samsung.com, 
- Raghav Sharma <raghav.s@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- chandan.vn@samsung.com, karthik.sun@samsung.com, dev.tailor@samsung.com
-In-Reply-To: <20250529112640.1646740-1-raghav.s@samsung.com>
-References: <CGME20250529111705epcas5p25e80695086d6dc0d37343082b7392be7@epcas5p2.samsung.com>
- <20250529112640.1646740-1-raghav.s@samsung.com>
-Subject: Re: [PATCH v3 0/4] Add clock support for CMU_HSI2
-Message-Id: <174974218878.126240.878153774506566554.b4-ty@linaro.org>
-Date: Thu, 12 Jun 2025 17:29:48 +0200
+	Thu, 12 Jun 2025 15:32:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13E69153B;
+	Thu, 12 Jun 2025 08:31:57 -0700 (PDT)
+Received: from [10.1.37.36] (e122027.cambridge.arm.com [10.1.37.36])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8784E3F66E;
+	Thu, 12 Jun 2025 08:32:14 -0700 (PDT)
+Message-ID: <8817e2bf-2283-4536-8a5f-9c32173b3a61@arm.com>
+Date: Thu, 12 Jun 2025 16:32:13 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 41/43] KVM: arm64: Expose support for private memory
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
+References: <20250611104844.245235-1-steven.price@arm.com>
+ <20250611104844.245235-42-steven.price@arm.com>
+ <20250612151427.GA1913753@e124191.cambridge.arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250612151427.GA1913753@e124191.cambridge.arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_082952_649469_04216C1D 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_083220_680025_C3B666A0 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +77,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 29 May 2025 16:56:36 +0530, Raghav Sharma wrote:
-> This series sorts clock yaml and adds clock support for the CMU_HSI2 block.
+On 12/06/2025 16:14, Joey Gouly wrote:
+> Hi Steven,
 > 
-> Patch[1/4]: dt-bindings: clock: exynosautov920: sort clock definitions
->         - Sorts the compatible strings for clocks
+> On Wed, Jun 11, 2025 at 11:48:38AM +0100, Steven Price wrote:
+>> Select KVM_GENERIC_PRIVATE_MEM and provide the necessary support
+>> functions.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> ---
+>> Changes since v2:
+>>  * Switch kvm_arch_has_private_mem() to a macro to avoid overhead of a
+>>    function call.
+>>  * Guard definitions of kvm_arch_{pre,post}_set_memory_attributes() with
+>>    #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES.
+>>  * Early out in kvm_arch_post_set_memory_attributes() if the WARN_ON
+>>    should trigger.
+>> ---
+>>  arch/arm64/include/asm/kvm_host.h |  6 ++++++
+>>  arch/arm64/kvm/Kconfig            |  1 +
+>>  arch/arm64/kvm/mmu.c              | 24 ++++++++++++++++++++++++
+>>  3 files changed, 31 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>> index a1857802db64..9903b0e8ef3f 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -1514,6 +1514,12 @@ struct kvm *kvm_arch_alloc_vm(void);
+>>  
+>>  #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+>>  
+>> +#ifdef CONFIG_KVM_PRIVATE_MEM
+>> +#define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
+>> +#else
+>> +#define kvm_arch_has_private_mem(kvm) false
+>> +#endif
 > 
-> Patch[2/4]: dt-bindings: clock: exynosautov920: add hsi2 clock definitions
->         - Adds DT binding for CMU_HSI2 and clock definitions
+> I don't understand the ifdef here (or below). In the Kconfig you 'select
+> KVM_GENERIC_PRIVATE_MEM', so it will always be on/defined? Unless I'm
+> misunderstanding something.
+
+I have to admit this is somewhat cargo-culted from x86. And I think they
+have more build configurations which don't include KVM_GENERIC_PRIVATE_MEM.
+
+It is possible to build without KVM_GENERIC_PRIVATE_MEM (by disabling
+CONFIG_KVM). But that's probably not very interesting here - the
+definition shouldn't actually matter in that case.
+
+So I think you're right - there's no need for the #ifdeffery here.
+
+Thanks,
+Steve
+
+>> +
+>>  int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+>>  bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+>>  
+>> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+>> index 713248f240e0..3a04b040869d 100644
+>> --- a/arch/arm64/kvm/Kconfig
+>> +++ b/arch/arm64/kvm/Kconfig
+>> @@ -37,6 +37,7 @@ menuconfig KVM
+>>  	select HAVE_KVM_VCPU_RUN_PID_CHANGE
+>>  	select SCHED_INFO
+>>  	select GUEST_PERF_EVENTS if PERF_EVENTS
+>> +	select KVM_GENERIC_PRIVATE_MEM
+>>  	help
+>>  	  Support hosting virtualized guest machines.
+>>  
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 580ed362833c..c866891fd8f9 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -2384,6 +2384,30 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>>  	return ret;
+>>  }
+>>  
+>> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
+>> +bool kvm_arch_pre_set_memory_attributes(struct kvm *kvm,
+>> +					struct kvm_gfn_range *range)
+>> +{
+>> +	WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm));
+>> +	return false;
+>> +}
+>> +
+>> +bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
+>> +					 struct kvm_gfn_range *range)
+>> +{
+>> +	if (WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm)))
+>> +		return false;
+>> +
+>> +	if (range->arg.attributes & KVM_MEMORY_ATTRIBUTE_PRIVATE)
+>> +		range->attr_filter = KVM_FILTER_SHARED;
+>> +	else
+>> +		range->attr_filter = KVM_FILTER_PRIVATE;
+>> +	kvm_unmap_gfn_range(kvm, range);
+>> +
+>> +	return false;
+>> +}
+>> +#endif
+>> +
+>>  void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
+>>  {
+>>  }
+>> -- 
+>> 2.43.0
+>>
 > 
-> [...]
-
-Applied, thanks!
-
-[1/4] dt-bindings: clock: exynosautov920: sort clock definitions
-      https://git.kernel.org/krzk/linux/c/3d6470990bfc8600609177962a53201cb0640daa
-[2/4] dt-bindings: clock: exynosautov920: add hsi2 clock definitions
-      https://git.kernel.org/krzk/linux/c/da5cb65d25f747236a003b82525eb6de5d49a2e6
-[3/4] clk: samsung: exynosautov920: add block hsi2 clock support
-      https://git.kernel.org/krzk/linux/c/2d539f31ab0eb3eb3bd9491b7dcd52dec7967e15
-[4/4] arm64: dts: exynosautov920: add CMU_HSI2 clock DT nodes
-      https://git.kernel.org/krzk/linux/c/e2016763590f571cdc3912d6a7ec848d2b61e6c2
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Thanks,
+> Joey
 
 
