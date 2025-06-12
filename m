@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1EAC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8950DC71141
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1wGCQc0mcjPV9WgUkNTeUr3SyYHwhLuPypKWT3sxnDM=; b=YUB0J6d4H+EqHRBPaeArflxcxq
-	p9JJ7DhEENQIlVHSnbNKY6sn/G1BdKWX7DAttSHKhBa4bWbs/S6v2S3nFgmQ/xdYydTS3rGEPWehp
-	71gq2TWa7FUy1N0znsfQOTwOV906iZlKSXjg06OMCCX5fSB3SpUiN+u02oDWl+xz8Xacs8gqdaOgT
-	fb2mavapU1zZFkjtK4Ff2HB/KbKmQEdt0aCJMkDChUMwypJndcTdWaMlRvC9STqYwzvQkMLyYwq6n
-	YGbUKZciULkP8NBku4e/tTgtCxS0AaKQQXRhjVgvIxOQ42aQ444ED9xyZUTAFS1I7PT5wMwbJTsFr
-	HTOKHNWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xl9Kz303AHWCJmJ1utR89kK9BbAzW0U5PoVQajnmYEE=; b=DYOsXBsrVqLeFype33Mf7WTwGl
+	8OEMYVatYwkX79W2jJOhtBFJnaZxMN4JtGARIOnCqyXG5DDjwOEiCVkRF/PxFqUu8XPyAaDE1qaQN
+	6Zs/N2p+K/c617rKCm5Ens9z9igNDknvTCdaLJMshXOL62I+EhOIG3uTw+l9f8EnO/Hy0Tk248B8p
+	+bnjHw7UVqw0R6slcOJp7XV1NjqZ2lnxrqlVftwjPR5U4wtwqVrfSv7ghnQGRRbCJXWMVGfPo37lr
+	tNU4E78NVeiibOXDJFNyrP50spRN4N9+GpGelpvhE+KOhkCYLFmh923E6S9E9Ui2dTDV8U+Fs+nv7
+	iN8qINbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPfUX-0000000D3RP-2sNa;
-	Thu, 12 Jun 2025 10:49:05 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uPfWc-0000000D3id-2JTe;
+	Thu, 12 Jun 2025 10:51:14 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPeVS-0000000CqsN-0OEA
+	id 1uPeXG-0000000CrcL-0Hq4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 09:45:59 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55C9jRZX1635161;
-	Thu, 12 Jun 2025 04:45:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749721527;
-	bh=1wGCQc0mcjPV9WgUkNTeUr3SyYHwhLuPypKWT3sxnDM=;
-	h=From:To:CC:Subject:Date;
-	b=SBKpd59ZfkK9r8jsdEr/Qis3VM6MSHyCwkYAyVVxxkHKaiYT263Q39aEo0HB8jbxL
-	 Xyp4KaI/iG+HKlysjnGrKMt0Znr+MLgkMUrJGVSe7CPLnGnD6Yo6OK+svo8aTbvtz8
-	 diFfqWDvjpAdBk1zeHlxnzBedKBTMiNlD56ACPrQ=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55C9jRrE1841138
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 12 Jun 2025 04:45:27 -0500
-Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 12
- Jun 2025 04:45:27 -0500
-Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 12 Jun 2025 04:45:27 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55C9jRVC490857;
-	Thu, 12 Jun 2025 04:45:27 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 55C9jP8J021791;
-	Thu, 12 Jun 2025 04:45:26 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: <namcao@linutronix.de>, <m-malladi@ti.com>, <john.fastabend@gmail.com>,
-        <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
-        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net] net: ti: icssg-prueth: Fix packet handling for XDP_TX
-Date: Thu, 12 Jun 2025 15:15:23 +0530
-Message-ID: <20250612094523.1615719-1-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 12 Jun 2025 09:47:51 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-235e1d4cba0so6916795ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 02:47:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749721669; x=1750326469; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xl9Kz303AHWCJmJ1utR89kK9BbAzW0U5PoVQajnmYEE=;
+        b=MVZ3MBb1OdcaSE4KJAPSNFTQI+9SPN5Fi70Ha/AvztjRtp6dd0IUZ9/hBd8ivjRgfT
+         ZNjeVt7SYmtqVyjyxiQsoBDJMpkPzjmwKJEnZqU+hYbte0FEcsSX4Y94PAwl6CgLLFpn
+         V/Wz7p29u/2iaUnQcSPHivh7YYSuZwQvQ446+zWEjE/R7QEaQqVot7hje97tt7xorI+M
+         iSn3qbkycl/X86yHkr724aaEVQo/R5tZKAFsN8iZGSp65jM4DxFpk6aWklBb2GnP/PrM
+         wHIOIFpf0mf5ps/YQ/860+cmsFfVC7ltNwkxo9D+StHVpfKwKIj55rG+Y2cyrfCh4wC3
+         P+0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749721669; x=1750326469;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xl9Kz303AHWCJmJ1utR89kK9BbAzW0U5PoVQajnmYEE=;
+        b=S71Zqi60Tbj9grMMWUffmd3PVKk4K/U25hQZM3EVbFo+l7Vnld002viW4lNNeb2OoS
+         eGPuAE/W5uYVWYmG6+8xpH3X3HpeOXNCOkyDcHb3YXkHvu0Cvi88Tx3JyaUcY2s0KF4g
+         juD1gkqgWJYRXaVwfy+kX2NX33O8jmYXoEIjRU5RfURKXBsyrGlDwGUba5qd6rCQvGfQ
+         +NMWItOe5wjQ8hPqhbinRxULeIPxb1s9bmwdcMMbDjjA+vvTsYN2xt5z+RDk/iT4A9bE
+         LjNJXb8rTbfSgFKGK0rtjQKZJwd5QosMiwWBXeXDrZwXA5RfsuDSVQJTYhqH7Klv9paa
+         bgkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXZofj4WSWiMPv2gNYTDFN+3W5qOO4cfqfBWVKjFSHL6CPT4YbodxUr4VV3ZdReLI2xpgl0ps441NhnAeSomOrF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb5dGzvOJShCpFx0UyZM2ztKskKZoPPusHuGBHF3P+/3XjagN1
+	ZlxS6T+957InPirTveajTttjL7emBN6XH68DSR/lT9nLpoZ0UCN/s9OJ
+X-Gm-Gg: ASbGnctPvKpzGdjOUkQj8XrkQYp/7p+6vEAz78Xf2th0k+aZpqHd11EiJLS/ljP8vCn
+	Wyr6hi656z+W0MR+Pf7slP88Uokyg7ZwFOfymzWwmku2gKBRIUKSkaf8jubOp3B5+5u6DifzzkX
+	i5T0wOAIBbF3QXhq3jSD6BsDee5iAIGciS8ZfU8zbCsnD5NKwOJylRwmP/ZjFjhzFjHkEFRldG+
+	DmTN34zreySWjWZdRoFvqodGpRwQtstIcwPPvClNWtLW+ZkoTxaqZH4P+UU/PB7dhmQeinuLXku
+	XM+q1G2rX8PQuyZ1b0CVCY464rqV04p80Z3rx9bkAjJuW6qWgoBER/6rsk8Neg==
+X-Google-Smtp-Source: AGHT+IHhLvngJtDRD+nYjK9Btm6MhDv0YP4D2zr7z7HuxF1XD76CH+/kMW6iFysL+jWx2aXWWVzh5w==
+X-Received: by 2002:a17:902:f612:b0:235:f55d:99cc with SMTP id d9443c01a7336-2364d62da39mr36075835ad.2.1749721668549;
+        Thu, 12 Jun 2025 02:47:48 -0700 (PDT)
+Received: from archie.me ([103.124.138.155])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fd613d81dsm966545a12.25.2025.06.12.02.47.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 02:47:47 -0700 (PDT)
+Received: by archie.me (Postfix, from userid 1000)
+	id B44D44241817; Thu, 12 Jun 2025 16:47:44 +0700 (WIB)
+Date: Thu, 12 Jun 2025 16:47:44 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v17 1/7] Documentation/firmware: add imx/se to
+ other_interfaces
+Message-ID: <aEqiQEMpbekiG6Hn@archie.me>
+References: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
+ <20250426-imx-se-if-v17-1-0c85155a50d1@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oH2YG5RUiU+HONaV"
+Content-Disposition: inline
+In-Reply-To: <20250426-imx-se-if-v17-1-0c85155a50d1@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_024558_223875_2C50B627 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250612_024750_105612_1E02E961 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,78 +108,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While transmitting XDP frames for XDP_TX, page_pool is
-used to get the DMA buffers (already mapped to the pages)
-and need to be freed/reycled once the transmission is complete.
-This need not be explicitly done by the driver as this is handled
-more gracefully by the xdp driver while returning the xdp frame.
-__xdp_return() frees the XDP memory based on its memory type,
-under which page_pool memory is also handled. This change fixes
-the transmit queue timeout while running XDP_TX.
 
-logs:
-[  309.069682] icssg-prueth icssg1-eth eth2: NETDEV WATCHDOG: CPU: 0: transmit queue 0 timed out 45860 ms
-[  313.933780] icssg-prueth icssg1-eth eth2: NETDEV WATCHDOG: CPU: 0: transmit queue 0 timed out 50724 ms
-[  319.053656] icssg-prueth icssg1-eth eth2: NETDEV WATCHDOG: CPU: 0: transmit queue 0 timed out 55844 ms
-...
+--oH2YG5RUiU+HONaV
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
- drivers/net/ethernet/ti/icssg/icssg_common.c | 19 ++-----------------
- 1 file changed, 2 insertions(+), 17 deletions(-)
+On Sat, Apr 26, 2025 at 12:31:32AM +0530, Pankaj Gupta wrote:
+> +Each 'se-if' comprise of twp layers:
+> +- (C_DEV Layer) User-Space software-access interface.
+> +- (Service Layer) OS-level software-access interface.
+> +
+> +   +--------------------------------------------+
+> +   |            Character Device(C_DEV)         |
+> +   |                                            |
+> +   |   +---------+ +---------+     +---------+  |
+> +   |   | misc #1 | | misc #2 | ... | misc #n |  |
+> +   |   |  dev    | |  dev    |     | dev     |  |
+> +   |   +---------+ +---------+     +---------+  |
+> +   |        +-------------------------+         |
+> +   |        | Misc. Dev Synchr. Logic |         |
+> +   |        +-------------------------+         |
+> +   |                                            |
+> +   +--------------------------------------------+
+> +
+> +   +--------------------------------------------+
+> +   |               Service Layer                |
+> +   |                                            |
+> +   |      +-----------------------------+       |
+> +   |      | Message Serialization Logic |       |
+> +   |      +-----------------------------+       |
+> +   |          +---------------+                 |
+> +   |          |  imx-mailbox  |                 |
+> +   |          |   mailbox.c   |                 |
+> +   |          +---------------+                 |
+> +   |                                            |
+> +   +--------------------------------------------+
+> +
+> <snipped>
+> +
+> +  Misc-device(/dev/<se>_mux_chn) synchronization protocol:
+> +
+> +                                Non-Secure               +   Secure
+> +                                                         |
+> +                                                         |
+> +                  +---------+      +-------------+       |
+> +                  | se_fw.c +<---->+imx-mailbox.c|       |
+> +                  |         |      |  mailbox.c  +<-->+------+    +-----=
+-+
+> +                  +---+-----+      +-------------+    | MU X +<-->+ ELE |
+> +                      |                               +------+    +-----=
+-+
+> +                      +----------------+                 |
+> +                      |                |                 |
+> +                      v                v                 |
+> +                  logical           logical              |
+> +                  receiver          waiter               |
+> +                     +                 +                 |
+> +                     |                 |                 |
+> +                     |                 |                 |
+> +                     |            +----+------+          |
+> +                     |            |           |          |
+> +                     |            |           |          |
+> +              device_ctx     device_ctx     device_ctx   |
+> +                                                         |
+> +                User 0        User 1       User Y        |
+> +                +------+      +------+     +------+      |
+> +                |misc.c|      |misc.c|     |misc.c|      |
+> + kernel space   +------+      +------+     +------+      |
+> +                                                         |
+> + +------------------------------------------------------ |
+> +                    |             |           |          |
+> + userspace     /dev/ele_muXch0    |           |          |
+> +                          /dev/ele_muXch1     |          |
+> +                                        /dev/ele_muXchY  |
+> +                                                         |
+> +
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index 5b8fdb882172..12f25cec6255 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -98,20 +98,11 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
- {
- 	struct cppi5_host_desc_t *first_desc, *next_desc;
- 	dma_addr_t buf_dma, next_desc_dma;
--	struct prueth_swdata *swdata;
--	struct page *page;
- 	u32 buf_dma_len;
- 
- 	first_desc = desc;
- 	next_desc = first_desc;
- 
--	swdata = cppi5_hdesc_get_swdata(desc);
--	if (swdata->type == PRUETH_SWDATA_PAGE) {
--		page = swdata->data.page;
--		page_pool_recycle_direct(page->pp, swdata->data.page);
--		goto free_desc;
--	}
--
- 	cppi5_hdesc_get_obuf(first_desc, &buf_dma, &buf_dma_len);
- 	k3_udma_glue_tx_cppi5_to_dma_addr(tx_chn->tx_chn, &buf_dma);
- 
-@@ -135,7 +126,6 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
- 		k3_cppi_desc_pool_free(tx_chn->desc_pool, next_desc);
- 	}
- 
--free_desc:
- 	k3_cppi_desc_pool_free(tx_chn->desc_pool, first_desc);
- }
- EXPORT_SYMBOL_GPL(prueth_xmit_free);
-@@ -612,13 +602,8 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- 	k3_udma_glue_tx_dma_to_cppi5_addr(tx_chn->tx_chn, &buf_dma);
- 	cppi5_hdesc_attach_buf(first_desc, buf_dma, xdpf->len, buf_dma, xdpf->len);
- 	swdata = cppi5_hdesc_get_swdata(first_desc);
--	if (page) {
--		swdata->type = PRUETH_SWDATA_PAGE;
--		swdata->data.page = page;
--	} else {
--		swdata->type = PRUETH_SWDATA_XDPF;
--		swdata->data.xdpf = xdpf;
--	}
-+	swdata->type = PRUETH_SWDATA_XDPF;
-+	swdata->data.xdpf = xdpf;
- 
- 	/* Report BQL before sending the packet */
- 	netif_txq = netdev_get_tx_queue(ndev, tx_chn->id);
+Wrap both diagrams above in literal code block (use double-colon).
 
-base-commit: 5d6d67c4cb10a4b4d3ae35758d5eeed6239afdc8
--- 
-2.43.0
+Thanks.
 
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--oH2YG5RUiU+HONaV
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaEqiOAAKCRD2uYlJVVFO
+ozyXAP0aBRO1KFa+AGM5cBvWcVeY8OuEyqTxzHKI/v6k+zKsNQEAvGxANofk/mBi
+s+wj3u05E/Xgxa9C5b23RBYacSQLLAE=
+=SdFq
+-----END PGP SIGNATURE-----
+
+--oH2YG5RUiU+HONaV--
 
