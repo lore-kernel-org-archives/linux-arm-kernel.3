@@ -4,66 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42536C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A1FC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zOmxR3NasFLONDD4Kvo0UbW3qzmEdzYFcLqLATAQS6M=; b=QLerv4peozAbC0/ONGDATZtsmt
-	fpQGba9BASVNLGJqlc/7LMaNquSsIT9K+3sUvAiFbG7E4GV7EYnBPrUTwXG04edhJK8G8K7EZISMV
-	teNQZy5DPn7Z1yh1NNkMwufn6dmYr6fxn43p5qZndS1NkWqq2AAwU+6A30RMgVOecA5oW+qHhjlak
-	05QOnHkiqWfWxiuuBnWxuFgrySsVU0Q8MDLyEKLWZd+D0IO4nW17Zn1b6ppF6JtZ0xzVpdw5+shxG
-	p0S9tKuM7gwu0Xv7jd50JrlJd7sMqJp+/Y8KkMGf4sXPx5EH08jIwTKcF7HXhEc8ezxZya2KqXE+a
-	J4urDRiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/7QBolZuLgWE3f/SzPJCWH+6GD07xvh2jTNHJv6/k+U=; b=v0Wlxibu052er5oi/Gs8RuNTZf
+	k15VbT4QJSlm8Xnqa2DD8DMA9TQqV5RgGJxt4Rp105f4Ke6QQQOl8VbDmvtmweM4AZ7DiugWYl3hz
+	GQRIWgBIuOiC1sPdny6UutUqbEzPo7JH0WNQrx47qDFOHNDGlfjiavkiakE9ThvLdtTsQGVAyfl5x
+	NmIbcSW+aEsltdSDkiy7sKGSUYbVhwB42N6xPS9GOyClPpDlcxxWXzOwyuif5blTAhZIzZws4ITVd
+	6yesrDchHZykDXE3VMYKAlBkWo7ASqHLE/z3tWFegHQzSuRW/Zk7ndo04ddVkYgKN+/E79VtaFmMF
+	dpYfZa2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPowp-0000000EYBE-30A9;
-	Thu, 12 Jun 2025 20:54:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPowq-0000000EYE6-2uK6;
+	Thu, 12 Jun 2025 20:54:56 +0000
+Received: from mail-germanywestcentralazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c20c::1] helo=FR6P281CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjhp-0000000Dl4u-0Q1q
+	id 1uPjht-0000000Dl5Y-49Fs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:19:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1CAF4A79D;
-	Thu, 12 Jun 2025 15:19:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E28CFC4CEEA;
-	Thu, 12 Jun 2025 15:19:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749741544;
-	bh=ph4NrsjjtamLfSRGSV8IrWFOeVnkUjNMXGKpS7G1gOI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KxnDutY6UJEe6l2TzebzS3WVZS27DCvR2GXMecLqwD6dU1rOKbP6mMgNjjTFDEQ8r
-	 mietXp/OMOfHCfBPBIDifj860usNRyGuFVBXTXYg0NWuEcEQ4GKNKfKZS/iAVLutrL
-	 ENCgfSxNVkJyhwkitubz6H9t//6MbpbXfZkz34NvZlr4FcJIH0YPHihmt6D0XL0Rb3
-	 nWDdL5JO3AlpOMVa15tcXaAKEJG3YWYnE3fUqqhPHR+d9759WY4X3RMy6IbAvTItzu
-	 Dk/1VGJP79u6HvSRfd3hpUbYBE5sR+Y4CnS8mkitcdMYNEQZJGzTm+YYp4DqXAr/0m
-	 +mqRWtxhFhypQ==
-Date: Thu, 12 Jun 2025 16:18:59 +0100
-From: Will Deacon <will@kernel.org>
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Song Liu <song@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Toshiyuki Sato <fj6611ie@aa.jp.fujitsu.com>
-Subject: Re: [PATCH v7] arm64/module: Use text-poke API for late relocations.
-Message-ID: <20250612151859.GD12912@willie-the-truck>
-References: <20250603223417.3700218-1-dylanbhatch@google.com>
+	Thu, 12 Jun 2025 15:19:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uaeJp5iEOKHNi+ZR8nQ5+WWzP+ydSSO3DVd7R2CrNX07zrMPuh2l4zOBGcc8HobSbFwkyHVWMFMxFBKTfC5D/0ehDXB1xPnCgZDDNTFWMZ4q4U+FT03pB8MYISY5Gx9cGTxubpTG2/wUmUuZQ1sjQW6SUENWin44JveKQRI45vozoQG4fBomELiKbxodv26bUGjAj0/cb/OCY8yX+wAfbN2V96TMIEy/NJfS/HEimj0kOOW7vXAMzXtAlPn7uOMw7p2y+Kr49DP0HP7TN2l3quj/7SqXPyVm19nAN9GW8+4pzjNXFXpoIQzi1oZT1fLBp7OxR6gDGBx5y1ZshFMuhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/7QBolZuLgWE3f/SzPJCWH+6GD07xvh2jTNHJv6/k+U=;
+ b=o/A5YDi5Eipmd0YzA9kkyr/3BNPXNvG8bwArRn5UpLUTky/rjjgUDXpe/vw5/tiUr1aqIgN8nNCUjrUvNGpdl+tcJ/G6mITlDpQjsIAA/oYsVBI6NfeewbgdkZEQ6ZU+AcHCm0q9gJsvmvRsvwB9paFV4p22JJQt7PwRhVYp/8kcClNBpQKoDhZWWTAwmysFbgjjPYhNkSvO7imIBv2YBA476m/asFwsSIFa8HGM8YP6kVSNJ8W3RewRwoDRZi059xAKhsiiNZixA3HbyiBqIOJOJQrAO8hs3qdfULIkfETb4xDSNDNSw+nQByp6OJ+zPMk+n00Ai1m7lWvncYzfXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siewert.io; dmarc=pass action=none header.from=siewert.io;
+ dkim=pass header.d=siewert.io; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siewert.io;
+Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d18:2::182)
+ by FR3P281MB1600.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:7b::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Thu, 12 Jun
+ 2025 15:19:01 +0000
+Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ ([fe80::6ec7:ece3:1787:5e48]) by FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ ([fe80::6ec7:ece3:1787:5e48%6]) with mapi id 15.20.8835.018; Thu, 12 Jun 2025
+ 15:19:01 +0000
+From: Tan Siewert <tan@siewert.io>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Joel Stanley <joel@jms.id.au>,
+	linux-aspeed@lists.ozlabs.org,
+	openbmc@lists.ozlabs.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Tan Siewert <tan@siewert.io>
+Subject: [PATCH] pinctrl: aspeed: Log error if SCU protection is active
+Date: Thu, 12 Jun 2025 17:18:59 +0200
+Message-ID: <20250612151900.32874-1-tan@siewert.io>
+X-Mailer: git-send-email 2.49.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0045.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c7::14) To FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d18:2::182)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250603223417.3700218-1-dylanbhatch@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: FR3PPFB3D0CF1D2:EE_|FR3P281MB1600:EE_
+X-MS-Office365-Filtering-Correlation-Id: 440bd7d2-42d2-42cd-dd59-08dda9c47599
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|376014|52116014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gVZ3OvyOxTrA8sII4eyNssVnKG5nULplEKnTaaYufmpkdeHCWAwstmLDvMY0?=
+ =?us-ascii?Q?cYN+fcoSdYhnNL1rcJyhvahuZvLI7rWQClI383RB+o5HdKU7Bxt6VVQPjO1P?=
+ =?us-ascii?Q?sSHzM+a2pG/zUnrlkmUDG4mX5C65qKZmckKzHWmd5XHfk12oGCxkmi7Zebbt?=
+ =?us-ascii?Q?dOlI4rEi9z0YyflYdxOdcAE4DCK51Ty26yT1VjHBFKhGZhGHnB3fFiqUN/p+?=
+ =?us-ascii?Q?mFCSy4zutw000iz0KZXJYIF3Jg8SVgyc8VGHwLKlIWVy6PiRB5nMkXnnRvo4?=
+ =?us-ascii?Q?8/NvYFDffR5i2oOi5M9b7t6c420fxuiGfSsQavjzyV7aEDFGstDpgrU98Pca?=
+ =?us-ascii?Q?bsukr79586pC/c1pggAlKHF0wNxhO+HU7h99T6zpG8/TwQPBK5yALepNVnXn?=
+ =?us-ascii?Q?HbscFUDFhVHEKjTJdhFRgxnbrx0G8Cza9eivK58orrGw03tJPgFvcZ7VytyG?=
+ =?us-ascii?Q?cUkTz0HvlRIRlDF7uNOlbNZAB8qcN5eqVdcDId3TYm9O91dzDJ3MqA+66h4I?=
+ =?us-ascii?Q?57Hs06bm0ZOslhm70NjupeUFJJfTqJippc8L300ETQTrWp4n5C7+Hp3oS8Dv?=
+ =?us-ascii?Q?8R0ImCy7fh54CMXbPyWfx6Enerv27misG9nR+QwXvJA5J8dYTRAQ0Ej1xoI0?=
+ =?us-ascii?Q?FeJQpONFOW5cdj32q+Sa+6s4+u4Jp+PLG695H40Zmsi6NO92GvEPz8XlXDXE?=
+ =?us-ascii?Q?L1+TU0+0PkPN8xvSw2Tx+ia4NuiOWk4xiPrshGFheKYWk8NyCSQJRaNm+zN8?=
+ =?us-ascii?Q?HJCBP8V0o9fcor8EWzxX241rmsLuPdRfBpDRV8TzeE9asNyb6sD9ToDBjfke?=
+ =?us-ascii?Q?LpW+Jn2FEOLbqDiXW6p4pu2Kwah1HMX7UpjzR8uTyOWT6h9AylY/JM8IElVU?=
+ =?us-ascii?Q?ZdAZ1OPBQsnOJzrcshOgS7XlzIW9FZ3uFZp7S3BcoUfgAKS3UjRst8TIDx/E?=
+ =?us-ascii?Q?rwisiBvnE/ptx3tQwKZ6porJvvfcPRodTbkJIecj1x9FWqcCogjCUB/nZPle?=
+ =?us-ascii?Q?q+WDm2VeX7+13vMdKIjFs/jMomwIpcXQjMG8Du2QBONhcPJZAnr8hSa8b5sr?=
+ =?us-ascii?Q?8x2n1zehitVYSWz4yNe/974P441T7Z9dRsmU6YFsZuzb28XikVFI10uotU6p?=
+ =?us-ascii?Q?BPR1bBgvoCpwKHiMi8KuVg9/1lf/HzHgCTagjVj/sR4kdYoPYuMMQwzTaotp?=
+ =?us-ascii?Q?FHiLY9WsOySNic3s4P+37m18GA/h2D1vF76q/Dg95V1B+FWV+xjW9iQoHmE+?=
+ =?us-ascii?Q?RGQQtN202aQKbq0oyigRan3Ygd7RPqToQfbCbEBlAf7PTcpvEXKsMZbEtL9P?=
+ =?us-ascii?Q?R7zzRZkwECDTX7kQkn81FgaOASlW21FZcDvbMEByGrZjfDWIdZCUQzHHztMi?=
+ =?us-ascii?Q?MSlOcJLOrc3ThSodimgd207URKnrotzzSxA8uKpxOuEvjPsIGslqWfqF9yDJ?=
+ =?us-ascii?Q?91hNhbFIO4s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(376014)(52116014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RvDSfGpThgEyWqCoWOLVSXtLdLNUk3djpN4NidPYmZYu/MspXtvJD7Rjh3r4?=
+ =?us-ascii?Q?k1w0nkeDUXRqM8Rb/L4Dr3DdOOvm96h/8uSW5ybEo+oCu8Qk2LXnR1PAgPGx?=
+ =?us-ascii?Q?T+TRtHHAY30hbI+WGw9SX4pjQvLAW3wA1bkQbn94mkAnmxRh0wU375erjf1o?=
+ =?us-ascii?Q?mgxNjx4epdXdS8dllTzClkLMZoVtd5YvV51pqRjKijIu/biSlz7gITagkMJ9?=
+ =?us-ascii?Q?KFAb1qR3M81Vc1c6225j6GXjrxu5y5tV9TVXmmoa6HFMz28sXQMNMrCcH0fl?=
+ =?us-ascii?Q?oSqwQ1hUP20equJsi45cwdn9HDt9H5N/F4nmPytfhoX3PAZPDUirQ5rNSKuk?=
+ =?us-ascii?Q?MGxIY4VEd26G9mmWXY6Jm+ltpyhiriF1GXYxCuQs4sJKXoPs7Wy73UdddYGJ?=
+ =?us-ascii?Q?Hple6tleG7mrZRNahf19GmU33aWBiL3pWtVj2MGjaKo7eflPcJvuoqov/+xG?=
+ =?us-ascii?Q?oBLBSi8Ygi5U06Skca0hiyQD1Nb0B1LQ5793W1x1eor/nEPOid2WV5EfQ/HF?=
+ =?us-ascii?Q?EijpE4C1WbyMS9bnDoe7M2v6/T3+zt14CJUENndX2kWKSj71y/N/gsTJLwrZ?=
+ =?us-ascii?Q?m2MJLtQ4WHhJiTFrTlblEEnOutg7YGNc8nBTkx6DMiiYyCO2g04LgjFCztdv?=
+ =?us-ascii?Q?BbrVS4IG02sInMm7EKu3fOqstJjwsz/of4KUr4mru/+kNMo3b85JWXUD8cxd?=
+ =?us-ascii?Q?tIn/1/lL4kY40LMf/Of71oHvrx0p9QwomWv/OvGPHX8VblZk8j+1syMBirzE?=
+ =?us-ascii?Q?ieI6WSdKXTtkOrrGwMbLsu7BGl0KSzfo9CQaO7mzFMjIeEZY6epKACxnaDMq?=
+ =?us-ascii?Q?eU4+KXbwtIuwjStAMrsTiDSnWftGivt8w+mFHt8ueFX6PigTKO/C05G9kwlj?=
+ =?us-ascii?Q?ZG1OT8lTa/irFEsNJT4uyhzpOJxzVBs+nf1vQBE2x2NEBPz7JZvVujdnS9ni?=
+ =?us-ascii?Q?2rJ0x5GLGhJVUMYMujBca7i2Gg/DWQLRzyaU5jQ6IkMQ2wyGX3K0wF9sTxpY?=
+ =?us-ascii?Q?FpuHsQZRI131dc4ETeNRYT4lRtNaVsY93WQzLfE6s+igZjoOoki3KdoHd6s3?=
+ =?us-ascii?Q?9ActVvMwqWlLsHTKqPk2Yddlm1PWVTdMxEVtjRGTT2l76tnCs/snwspUNBK3?=
+ =?us-ascii?Q?PZCY/QEIj6dmmRrOEDwCQG6t0YyaUpH50fVanSBjLNVME2Zz2dioDc5DM5l3?=
+ =?us-ascii?Q?UOY57Ex2TawEGF1jilH3MEVcav3YRfrqE9xUlsB+nhr5x3AwfzS9XrlK6zsR?=
+ =?us-ascii?Q?djHtFbCaYkwb4NguMP7XmAiqFQwFzf1jSKolBvqHNuJluzs8pz75S9rOXnbW?=
+ =?us-ascii?Q?vH0WqxzzsPpmZRFSQAee85SCOqcv3oFTNQkAnu90UnDwc48nlFGCsa0svjmP?=
+ =?us-ascii?Q?nuSt5vA8rI/xHK0aDtyfV+0N+FQGVyW6a+iH6HLcktuGyuXoij3q+mVk/Rs0?=
+ =?us-ascii?Q?DPRL+TD7LGP15CYeR/LN0Fb2S1x+epw9qTK2ATXVaLxBZ1tjh58rnOPHUuH3?=
+ =?us-ascii?Q?4ngE7Dv9J2HllpX5R+dgNIt+sFtVstzcoeeqvh6Gz5ES2pOKXyK/+LVttXJa?=
+ =?us-ascii?Q?ZbtZohnTg++dZtkViZcSsnpvAWHkjugOA9HAWRWZpcDaBdxdRhu/VU0vV/My?=
+ =?us-ascii?Q?672nkogLDUV5+XLx61+hxBc=3D?=
+X-OriginatorOrg: siewert.io
+X-MS-Exchange-CrossTenant-Network-Message-Id: 440bd7d2-42d2-42cd-dd59-08dda9c47599
+X-MS-Exchange-CrossTenant-AuthSource: FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 15:19:01.1985
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e8b4abbe-444b-4835-b8fd-87ac97451a7e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yZPBBA8+h3l6ClMLaGt+WqEzY3+ESrJjsM1/ZvIzYj4vDvNd6opasu5CJKYFJ4bP
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FR3P281MB1600
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_081905_157731_3084683E 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20250612_081910_177153_10A9A519 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +157,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 10:34:17PM +0000, Dylan Hatch wrote:
-> To enable late module patching, livepatch modules need to be able to
-> apply some of their relocations well after being loaded. In this
-> scenario however, the livepatch module text and data is already RX-only,
-> so special treatment is needed to make the late relocations possible. To
-> do this, use the text-poking API for these late relocations.
-> 
-> This patch is partially based off commit 88fc078a7a8f6 ("x86/module: Use
-> text_poke() for late relocations").
-> 
-> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
-> Acked-by: Song Liu <song@kernel.org>
-> ---
->  arch/arm64/kernel/module.c | 101 +++++++++++++++++++++----------------
->  1 file changed, 57 insertions(+), 44 deletions(-)
+ASPEED pinctrl and other drivers accessing SCU registers rely on the
+bootloader to unlock the SCU before handing over to the kernel.
 
-Thanks for sticking with this, Dylan:
+However, some userspace scripts may re-enable SCU protection via
+/dev/mem, causing pinctrl operations such as disabling GPIOD passthrough
+to fail in not-so-obvious ways. For example, a GPIO request for GPID0 on
+an AST2500 fails with:
 
-Acked-by: Will Deacon <will@kernel.org>
+  [  428.204733] aspeed-g5-pinctrl 1e6e2080.pinctrl: request() failed for pin 24
+  [  428.204998] aspeed-g5-pinctrl 1e6e2080.pinctrl: pin-24 (1e780000.gpio:536) status -1
 
-Catalin, I assume you'll pick this up for 6.17.
+With dynamic_debug enabled, the SCU write failures become visible:
 
-Cheers,
+  [  428.204657] Disabling signal GPID0IN for GPID
+  [  428.204673] Want SCU70[0x00200000]=0x1, got 0x1 from 0xF122D206
+  [  428.204708] Want SCU70[0x00200000]=0x0, got 0x1 from 0xF122D206
 
-Will
+Since SCU unlocking would need to be done in multiple drivers, adding
+unlock logic to each is not viable. Instead, this patch adds an
+explicit error message and early abort in `sig_expr_set()` if SCU
+protection is detected by checking the SCU Protection Key Register.
+
+Before:
+
+  [  428.204733] aspeed-g5-pinctrl 1e6e2080.pinctrl: request() failed for pin 24
+  [  428.204998] aspeed-g5-pinctrl 1e6e2080.pinctrl: pin-24 (1e780000.gpio:536) status -1
+
+After:
+
+  [   43.558353] aspeed-g5-pinctrl 1e6e2080.pinctrl: SCU protection is active, cannot continue
+  [   43.559107] aspeed-g5-pinctrl 1e6e2080.pinctrl: request() failed for pin 24
+  [   43.559434] aspeed-g5-pinctrl 1e6e2080.pinctrl: pin-24 (1e780000.gpio:536) status -1
+
+Suggested-by: Andrew Jeffery <andrew@aj.id.au>
+Signed-off-by: Tan Siewert <tan@siewert.io>
+---
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g4.c | 21 +++++++++++++++++
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c | 24 +++++++++++++++++++-
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c | 26 ++++++++++++++++++++++
+ 3 files changed, 70 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g4.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g4.c
+index 774f8d05142f..81680c032b3c 100644
+--- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g4.c
++++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g4.c
+@@ -28,6 +28,8 @@
+ #define SIG_EXPR_LIST_DECL_SINGLE SIG_EXPR_LIST_DECL_SESG
+ #define SIG_EXPR_LIST_DECL_DUAL SIG_EXPR_LIST_DECL_DESG
+ 
++#define SCU_UNLOCKED_VALUE 0x00000001
++
+ /*
+  * The "Multi-function Pins Mapping and Control" table in the SoC datasheet
+  * references registers by the device/offset mnemonic. The register macros
+@@ -36,6 +38,7 @@
+  * reference registers beyond those dedicated to pinmux, such as the system
+  * reset control and MAC clock configuration registers.
+  */
++#define SCU00           0x00 /* Protection Key Register */
+ #define SCU2C           0x2C /* Misc. Control Register */
+ #define SCU3C           0x3C /* System Reset Control/Status Register */
+ #define SCU48           0x48 /* MAC Interface Clock Delay Setting */
+@@ -2582,6 +2585,24 @@ static int aspeed_g4_sig_expr_set(struct aspeed_pinmux_data *ctx,
+ 		if (desc->ip == ASPEED_IP_SCU && desc->reg == HW_STRAP2)
+ 			continue;
+ 
++		/*
++		 * The SCU should be unlocked, with SCU00 returning 0x01.
++		 * However, it may have been locked, e.g. by a
++		 * userspace script using /dev/mem.
++		 */
++		u32 value;
++
++		ret = regmap_read(ctx->maps[desc->ip], SCU00, &value);
++
++		if (ret < 0)
++			return ret;
++
++		if (value != SCU_UNLOCKED_VALUE) {
++			dev_err(ctx->dev,
++				"SCU protection is active, cannot continue\n");
++			return -EPERM;
++		}
++
+ 		ret = regmap_update_bits(ctx->maps[desc->ip], desc->reg,
+ 					 desc->mask, val);
+ 
+diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
+index 5bb8fd0d1e41..7b3f887edda5 100644
+--- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
++++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g5.c
+@@ -28,6 +28,8 @@
+ #define SIG_EXPR_LIST_DECL_SINGLE SIG_EXPR_LIST_DECL_SESG
+ #define SIG_EXPR_LIST_DECL_DUAL SIG_EXPR_LIST_DECL_DESG
+ 
++#define SCU_UNLOCKED_VALUE 0x00000001
++
+ /*
+  * The "Multi-function Pins Mapping and Control" table in the SoC datasheet
+  * references registers by the device/offset mnemonic. The register macros
+@@ -37,6 +39,7 @@
+  * reset control and MAC clock configuration registers. The AST2500 goes a step
+  * further and references registers in the graphics IP block.
+  */
++#define SCU00           0x00 /* Protection Key Register */
+ #define SCU2C           0x2C /* Misc. Control Register */
+ #define SCU3C           0x3C /* System Reset Control/Status Register */
+ #define SCU48           0x48 /* MAC Interface Clock Delay Setting */
+@@ -2763,7 +2766,26 @@ static int aspeed_g5_sig_expr_set(struct aspeed_pinmux_data *ctx,
+ 
+ 		/* On AST2500, Set bits in SCU70 are cleared from SCU7C */
+ 		if (desc->ip == ASPEED_IP_SCU && desc->reg == HW_STRAP1) {
+-			u32 value = ~val & desc->mask;
++			/*
++			 * The SCU should be unlocked, with SCU00
++			 * returning 0x01.
++			 * However, it may have been locked, e.g. by a
++			 * userspace script using /dev/mem.
++			 */
++			u32 value;
++
++			ret = regmap_read(ctx->maps[desc->ip], SCU00, &value);
++
++			if (ret < 0)
++				return ret;
++
++			if (value != SCU_UNLOCKED_VALUE) {
++				dev_err(ctx->dev,
++					"SCU protection is active, cannot continue\n");
++				return -EPERM;
++			}
++
++			value = ~val & desc->mask;
+ 
+ 			if (value) {
+ 				ret = regmap_write(ctx->maps[desc->ip],
+diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+index 5a7cd0a88687..68e40f2c015b 100644
+--- a/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
++++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g6.c
+@@ -17,6 +17,10 @@
+ #include "../pinctrl-utils.h"
+ #include "pinctrl-aspeed.h"
+ 
++#define SCU_UNLOCKED_VALUE 0x00000001
++
++#define SCU000		0x000 /* Protection Key Register */
++#define SCU010		0x010 /* Protection Key Register 2 */
+ #define SCU400		0x400 /* Multi-function Pin Control #1  */
+ #define SCU404		0x404 /* Multi-function Pin Control #2  */
+ #define SCU40C		0x40C /* Multi-function Pin Control #3  */
+@@ -2668,6 +2672,28 @@ static int aspeed_g6_sig_expr_set(struct aspeed_pinmux_data *ctx,
+ 		WARN_ON(desc->ip != ASPEED_IP_SCU);
+ 		is_strap = desc->reg == SCU500 || desc->reg == SCU510;
+ 
++		/*
++		 * The SCU should be unlocked, with SCU000 and SCU010
++		 * both returning 0x01. However, it may have been locked,
++		 * e.g. by a userspace script using /dev/mem.
++		 */
++		u32 scuprt_val, scuprt2_val;
++
++		ret = regmap_read(ctx->maps[desc->ip], SCU000, &scuprt_val);
++		if (ret < 0)
++			return ret;
++
++		ret = regmap_read(ctx->maps[desc->ip], SCU010, &scuprt2_val);
++		if (ret < 0)
++			return ret;
++
++		if (scuprt_val != SCU_UNLOCKED_VALUE ||
++		    scuprt2_val != SCU_UNLOCKED_VALUE) {
++			dev_err(ctx->dev,
++				"SCU protection is active, cannot continue\n");
++			return -EPERM;
++		}
++
+ 		if (is_strap) {
+ 			/*
+ 			 * The AST2600 has write protection mask registers for
+-- 
+2.49.0
+
 
