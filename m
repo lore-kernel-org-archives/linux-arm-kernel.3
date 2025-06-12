@@ -4,115 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AC1C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 11:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1757CC71141
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KV2raVMltn4SFpAF4A6GQbfks1PnBbrURU9IoC05gfg=; b=bERVXQUJ67EsW5qcgVLstmCa2h
-	czruE7C7pqTVm3X+2vE1QdsZ79uyGrRYe8WWV20TApcjS2hWyxFYc4lHlGf2L56OM5YD8nmLfkfXh
-	WPBf5KTErIeSKobPeTfA+7XeqDe073RJilI+uXlpxm8eQiFmWU67OxRy++iAWSgHhhqautZ9+JpJ8
-	t6aXG/g3cso6CJ4bHZETa5/h1emcC9N93S2+Z58I7nVWr7+alYBWDE7fYirSnk4giP9oWxyyK6L4l
-	BE380vnh9wnGrSW7CH174blTYsTzshGZUcG3IXDcnJancyb4ecNUzFF2eCZrbxEu6digH3wgZyj0I
-	WaipT6Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DYbrBlase0oO4ztUlS8jmhmYd8yKTzxvz808aawDrY0=; b=1+HybabLwuMcV/rZVWVoRfIZjZ
+	56RUwDouJ/1PnRtPCKL7aYCivPCo6ke9dZ386iMbDPa3sxx8RoU58ExSFt5tvxLPgXPR3ms9j6tO3
+	ykOaUe3bNjJQhihocYmrE+HqSF2IXkEGAlcFGKT0+MAmP/DdU7whSihf9EyUF2ZTSaUx0QotGAsU8
+	EWxdqvqYcg8V8g7puH+8ay7gMg1TgaUtkWDtNH6Wc7sM2b2T3H/0gHKtLSVvc+htu70O7LGD6/PPs
+	IMJ2fnhVqFin34ymWomyYmVZAoaqBF8ucsFPK/2jbQR3C5KoInQkhAPcA9VzPRPdIyki9nCOHsdQR
+	5bE9GmMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPgAY-0000000D9JJ-2Jr7;
-	Thu, 12 Jun 2025 11:32:31 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uPhpP-0000000DMIM-3CpU;
+	Thu, 12 Jun 2025 13:18:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPegV-0000000Ct9s-37Lm
+	id 1uPexN-0000000Cwep-1rSw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 09:57:24 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55C7k3rN011004;
-	Thu, 12 Jun 2025 09:57:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KV2raVMltn4SFpAF4A6GQbfks1PnBbrURU9IoC05gfg=; b=lDM0dIjLfn75399c
-	6vA2SBAqGmUaKxliuNOradf9dY4vXx9psuNYiGpkkpRVVpXYdtTXHN0R2ezOXubW
-	G8MTyHTGkvg6RSLtKmigaGaZPTczIcpZ6K34v3fucoCUvp0tWYNyvUugeRwKDofN
-	FG0QOFvjHqWuePTN9buR1dc128E68P+3dcvXmBX+El/k9uPctuFZ+rGjbeVABAZl
-	kq6CyrOtMFRi0iG8vZeF3IlpRfIQhBIG+j6x1uCb/CnaNqJlQc8NgshQo1KVeftk
-	YeTowCIpY40Mo0sLFO9lMIANb4eJKWJy02/RAYcFLY8mHTQb9ZvZnwJ3JnwHy5TT
-	KOempA==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474ekpyrk3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Jun 2025 09:57:17 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55C9vGQE013708
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Jun 2025 09:57:16 GMT
-Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 12 Jun 2025 02:57:11 -0700
-From: Taniya Das <quic_tdas@quicinc.com>
-Date: Thu, 12 Jun 2025 15:25:14 +0530
-Subject: [PATCH v9 10/10] arm64: defconfig: Enable QCS615 clock controllers
+	Thu, 12 Jun 2025 10:14:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 98C18A51B3A;
+	Thu, 12 Jun 2025 10:14:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAE77C4CEEA;
+	Thu, 12 Jun 2025 10:14:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749723288;
+	bh=i2cHV/Yqlp5Wqq3ytl1FXkrfZHTvJKGGxfV2IqHWh3Y=;
+	h=Date:Subject:From:To:References:In-Reply-To:From;
+	b=vAcrUhXd6EcHsF0iKvHsD3Y5X6hl+NdM9KDJMh4DLnOgu2j7J/aaLaEJycI7wPEOR
+	 EvylEAEpKln6BP5S30djNorLdSXiYMcdW0LOAynlrPkn+p7sMqGYSJnq327Kmdzp5Z
+	 bv7sipOQg95+hFJqd4vdXf1ne2kvpNtrEC5e02M/UGZpFtnBMt2scFmUNzgqxActkm
+	 p8eelP3YfvcQwekC9vs4u+oLvq5ufnNFQ0QlVLjEHJ0EkOcyPujRiiz701mm7T8uCh
+	 hvmbyMfI0FYedCNm7R/+zlZXfmpQLFYV1xIZgruS+LjWDwTiAEQiJ91Brvtvo1U/g9
+	 7kZr1jjkuL8FQ==
+Message-ID: <0b404d5c-2315-45cd-b25e-d5ab92040887@kernel.org>
+Date: Thu, 12 Jun 2025 12:14:39 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v0 4/5] arm64: dts: aspeed: Add AST2700 EVB device tree
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+ nfraprado@collabora.com, Taniya Das <quic_tdas@quicinc.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Eric Biggers <ebiggers@google.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, soc@lists.linux.dev,
+ Mo Elbadry <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>,
+ William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
+ wthai@nvidia.com, leohu@nvidia.com, dkodihalli@nvidia.com,
+ spuranik@nvidia.com
+References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
+ <20250612100933.3007673-5-ryan_chen@aspeedtech.com>
+ <7d4d4c53-d18b-421b-8279-6325771a1cb9@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <7d4d4c53-d18b-421b-8279-6325771a1cb9@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250612-qcs615-mm-v9-clock-controllers-v9-10-b34dc78d6e1b@quicinc.com>
-References: <20250612-qcs615-mm-v9-clock-controllers-v9-0-b34dc78d6e1b@quicinc.com>
-In-Reply-To: <20250612-qcs615-mm-v9-clock-controllers-v9-0-b34dc78d6e1b@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Will Deacon
-	<will@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Taniya Das <quic_tdas@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=JcO8rVKV c=1 sm=1 tr=0 ts=684aa47d cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=EUspDBNiAAAA:8
- a=COk6AnOGAAAA:8 a=AElZlkIX1ip-SmTVEvQA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEyMDA3NiBTYWx0ZWRfX4eEC9irIRCCB
- c0GJ/pkCEIfIqhs3M28ZoMazSJqoAZJbws+0H8GsYQzj+z1GhQ/oKmW7oB37oKZTi54qkNC6qGO
- XRwgIscx2lig/Omu40GvFgHeRO96nGKv0+ib3QhGcaUGfBUhHh3eY0IpGevnwbbY06ObiLk+h+K
- RhC3XCQm9lxKXsXgXeX3YkdImowYU2pH8oW23q3u2OJ3jNXHHOeae3yM0puGeHGpHqdySKxTPQc
- v+cqvT9I+9qhyKNj0BGZ9gKtqqU1bAFv6e5PGUDC2m3Abz/BGXtYH/2G9sDoxGK2RNeVa+rEQ/F
- NR9sJNl6kNXwucu2twQnG0IBXev0LcOEcF5rSfmYK7qFq+ZXyro4Oyzf0/i+v++0J503/R9Z6mw
- acfXJCCf31lCoO7COzaFAtF2I6QNm0eqocn3HLkqetdhY1oga8Wzdp0DKL2wkvWFXg2tkuwC
-X-Proofpoint-GUID: vAnuZamaiF99YRnPZgpojiHxJpLaqJmW
-X-Proofpoint-ORIG-GUID: vAnuZamaiF99YRnPZgpojiHxJpLaqJmW
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-12_07,2025-06-10_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=762 bulkscore=0 spamscore=0 impostorscore=0 phishscore=0
- priorityscore=1501 mlxscore=0 adultscore=0 clxscore=1015 malwarescore=0
- suspectscore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506120076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_025723_787253_7CA9F56F 
-X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-CacheID: sfid-20250612_031449_625026_F15EE714 
+X-CRM114-Status: UNSURE (   9.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,38 +134,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the QCS615 display, video, camera and graphics clock controller
-for their respective functionalities on the Qualcomm QCS615 ride
-platform.
+On 12/06/2025 12:14, Krzysztof Kozlowski wrote:
+> On 12/06/2025 12:09, Ryan Chen wrote:
+>> - Add ast2700-evb.dts for the ASPEED AST2700 Evaluation Board.
+>> - Set board model and compatible strings: "aspeed,ast2700-evb",
+>> "aspeed,ast2700".
+>> - Reference the common AST2700 SoC device tree aspeed-g7.dtsi.
+>> - Define memory layout and reserved-memory regions for
+>> MCU firmware, ATF, and OP-TEE.
+>> - Add OP-TEE firmware node with SMC method.
+>> - Set up serial12 as the default console.
+>>
+>> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> 
+> How this can be patch 0?
+> 
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+I meant: v0.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 510e0d0a3397929bb267f558d4c2ace87eb3979b..2f053ef2c84a637a0161edaa0c9c1e19dc4e9c1e 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1376,11 +1376,15 @@ CONFIG_MSM_GCC_8998=y
- CONFIG_MSM_MMCC_8998=m
- CONFIG_QCM_GCC_2290=y
- CONFIG_QCM_DISPCC_2290=m
-+CONFIG_QCS_DISPCC_615=m
-+CONFIG_QCS_CAMCC_615=m
- CONFIG_QCS_GCC_404=y
- CONFIG_QCS_GCC_615=y
- CONFIG_QCS_GCC_8300=y
- CONFIG_SC_CAMCC_7280=m
- CONFIG_SA_CAMCC_8775P=m
-+CONFIG_QCS_GPUCC_615=m
-+CONFIG_QCS_VIDEOCC_615=m
- CONFIG_QDU_GCC_1000=y
- CONFIG_SC_CAMCC_8280XP=m
- CONFIG_SC_DISPCC_7280=m
+> You need to start using standard tools: git and b4 (see submitting
+> patches and other process docs).
+> 
+> 
 
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
