@@ -4,66 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1976FC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B81C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6nmeiDBbSv6hLGTHeA+98clwxPNiLe7VKe+Gy5mksc=; b=rGsp91k5llipao7S8swK4x/usC
-	g8DZktopQefH3iqmqpM8XopiyBNHyjWje6HS251+gvXxnE8XJbHx2KU9ZHtIQOuVEOTj8k5k3NQVD
-	bSXxbpyU+Cy6pAyszVZQRA7yJkoa+ktVZ/bRN+Pt7hQRkQC3OgpLLWo/Gv5FRtbCBa1bpt1Oa6mwe
-	Kf5A2H6+1yB3vwm7/ISaLZB0GyV1NBAYPqS+u6t/Wg+Tp3Bk9Kip5KYpa9/60j7yQm4lYOVPjkKW5
-	l2tzrkqaSoJHWER8ETpULk50c+LX57j+bFg8tZJf0JdcU8+JUKgNyfa8qCojB+q4V15ySleHSztus
-	+6d93dcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v/+L6f/1uHzWnn9d+9wYdEO6UW4NdjChdkgAdlxXmrg=; b=EKVdifQzCDJuow6pV20+ZDHgrO
+	8IvWMBHcKmb/XuTVjy/cuBNd0TyMfFUy6xWr/YtMnNGU2oWfW4lRGfQDwIt1KRMwDAFY0oqSvkFvh
+	w9d5EK32BJ+5e/ogUC08metLMbgNYm284PWn79xQOCbsGKUNmPJl0f0L9xfojuSiOL4Yimu6x+gdQ
+	VXASN1B0rUO7AMml9r4mobi6S3KIfA5TejtXCsLA5baS2bzVbxIyTEoi2h8+SJ9Qn5sGjE+qxQSyo
+	e/xIE9DCbwYbLdy9++AfZgfF3gi3jjGis+lGLjL8A0D53QyzLY+CsHq7erEaWxJadE51OR0hn4Lok
+	wOAKEycw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnsu-0000000EN1N-3wws;
-	Thu, 12 Jun 2025 19:46:48 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uPnsw-0000000EN3a-1dZC;
+	Thu, 12 Jun 2025 19:46:50 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPl2M-0000000Dywe-488c
+	id 1uPl6Y-0000000DzWu-29uF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 16:44:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 164C3A51ED0;
-	Thu, 12 Jun 2025 16:44:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9AD2C4CEEA;
-	Thu, 12 Jun 2025 16:44:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749746661;
-	bh=f6nmeiDBbSv6hLGTHeA+98clwxPNiLe7VKe+Gy5mksc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Em3I8Zna+1C3CD8q08/uSigRLg8MyInTdQluiuvCHBfs14yu/3dzII2rWyqzgiy+X
-	 SZ5P7TskeJO3Wv/WpXlghNf0vmu8T9cgKnN6HpC18QjLkB5Mf1g3d+f2xu0XOLJYhp
-	 OCrd6vxq/gp66mWtmkCHko+FInDcMNUQgVHOkruCJfZeW/GPLCMRezsc4eoB6zHcAd
-	 GDSSCI8nZlC//+8QtsRYbYc11kcjacnBNyA3fjHavJf2DRiRWpBRlwlo+blcgSM+jH
-	 SjuDuOt4UDEEuYEMLgwfTV3+xNZiDemsU9FDOy/orC/7CRaP/EqUxUWIeqR38NcaJC
-	 5EugFEF5yzfqg==
-Date: Thu, 12 Jun 2025 17:44:18 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/gcs: Don't call gcs_free() during flush_gcs()
-Message-ID: <6901c30b-0b31-4c9c-9943-e5205485691e@sirena.org.uk>
-References: <20250611-arm64-gcs-flush-thread-v1-1-cc26feeddabd@kernel.org>
- <aEm-F04k0sC1tOCp@arm.com>
- <4b354842-2108-4904-9294-fb9b00978986@sirena.org.uk>
- <aErokN0vKT3urlmA@arm.com>
- <93a0f043-d5f6-432f-ac37-266dd5bbe899@sirena.org.uk>
- <20250612162027.GA13202@willie-the-truck>
+	Thu, 12 Jun 2025 16:48:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1749746907; x=1750351707; i=markus.elfring@web.de;
+	bh=v/+L6f/1uHzWnn9d+9wYdEO6UW4NdjChdkgAdlxXmrg=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:Cc:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=oULeuCSf9Sbnd3qn8vGzLM1Fvxw/fzfSMKT3bFwAWJMVklyRvL6LpNwZsYp1bEV1
+	 xMKeFvnz1WauR9T7jYaPKffjtP7gl1EPhPwnIHPnhhWSIElS3M6GL9L14upE5GeW3
+	 HHfSWgkn0BabMBL7qNJ/tGSpfLGuOVQhBLfcY9tF3BqLJUQt1qD/bQd7MgxTa1G4O
+	 Wti9SJOeE8L3QO1a1PuuuFEfra4ChN3vl3T1K16qJ9F+x4yBQANcjkg59vQ15Q3cq
+	 6dHVOMxGaXOEGJ3hZYkKInhAgSptyqrOPKvOmQB+1gXYBvD0Y/JzxLZ3d3FPxhX/9
+	 JdFru0RoyB58W8GmPw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.213]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1N5CUp-1urDcU1OZJ-00riKD; Thu, 12
+ Jun 2025 18:48:27 +0200
+Message-ID: <77406d43-230f-4690-b306-4d698449c01b@web.de>
+Date: Thu, 12 Jun 2025 18:48:25 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="g9doPJH8Qa6O3G2u"
-Content-Disposition: inline
-In-Reply-To: <20250612162027.GA13202@willie-the-truck>
-X-Cookie: Biz is better.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [cocci] [PATCH v4 1/5] coccinelle: misc: Add field_modify script
+To: Luo Jie <quic_luoj@quicinc.com>, cocci@inria.fr
+References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+ <20250612-field_modify-v4-1-ae4f74da45a6@quicinc.com>
+Content-Language: en-GB, de-DE
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ Andrew Lunn <andrew@lunn.ch>, Catalin Marinas <catalin.marinas@arm.com>,
+ Joey Gouly <joey.gouly@arm.com>, Julia Lawall <Julia.Lawall@inria.fr>,
+ "Kiran Kumar C.S.K" <quic_kkumarcs@quicinc.com>,
+ Lei Wei <quic_leiwei@quicinc.com>, Marc Zyngier <maz@kernel.org>,
+ Nicolas Palix <nicolas.palix@imag.fr>, Oliver Upton
+ <oliver.upton@linux.dev>, Pavithra R <quic_pavir@quicinc.com>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Suruchi Agarwal <quic_suruchia@quicinc.com>,
+ Suzuki Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Yury Norov <yury.norov@gmail.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ quic_linchen@quicinc.com
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250612-field_modify-v4-1-ae4f74da45a6@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:UzKkftK+8VBIQ8zZF1Grhg2CG5pgrqfHBd7AQzZq0RLtAcod8Gk
+ EMQmvWcuAKpkDnY30sv8oPuXMFXm8WWJdnXJTVbs0wZ+6Wj38MIeOyvcBfJJwhaedbVR9SN
+ K35gc21Uync3Bf6bVP3s22rzYrdFyR9lHgR4PfQ9ir9TLBEv2X+GyQrK37aHesGQ2ZrvNDL
+ 5NQIGiKfHrR0c8C0nbeSw==
+UI-OutboundReport: notjunk:1;M01:P0:xmzVfNKDDmw=;EUX4lV23la1vGW48h/NMjdiIgwW
+ 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
+ HZYrzrjuPjG33emz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_094423_095121_8354FB44 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20250612_094842_850998_CB122027 
+X-CRM114-Status: UNSURE (   6.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +140,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+=E2=80=A6
+> ---
+>  scripts/coccinelle/misc/field_modify.cocci | 61 +++++++++++++++++++++++=
++++++++
+=E2=80=A6
 
---g9doPJH8Qa6O3G2u
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Did you overlook the addition of patch version descriptions?
+https://lore.kernel.org/all/?q=3D%22This+looks+like+a+new+version+of+a+pre=
+viously+submitted+patch%22
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.15#n310
 
-On Thu, Jun 12, 2025 at 05:20:28PM +0100, Will Deacon wrote:
 
-> Having looking a little at the code, I think that
-> arch_release_task_struct() might be better than deactivate_mm(). The
-> latter takes an 'mm' parameter which we ignore but I think happens to
-> be 'current->mm'and so things work. Given that, and that we don't do any
-> GCS management on the activate_mm() path, freeing the GCS in the
-> task-centric functions makes more sense to me.
+=E2=80=A6
+> +@ depends on context && !patch && !org && !report@
+=E2=80=A6
 
-The issue with that is that we only call arch_release_task_struct()
-quite late, after the mm has been disassociated from the task.
-do_exit() cleans up the mm with exit_mm() relatively early on, and
-free_task() which is what calls arch_release_task_struct() is one of the
-last things we do as we clean up.
+I imagine that the condition selections can be simplified.
 
---g9doPJH8Qa6O3G2u
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+=E2=80=A6
+> +@script:python depends on report@
+> +p << r.p;
+> +x << r.reg;
+> +@@
+> +
+> +msg=3D"WARNING: Consider using FIELD_MODIFY helper on %s" % (x)
+> +coccilib.report.print_report(p[0], msg)
+Do you know that a string construction can also be directly passed
+to such a function call?
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhLA+EACgkQJNaLcl1U
-h9CcEQf+OppxOZFdiQ6126vFkOw2K2aoXa4etd6ht4IXrEO5qIWP9bzeSq8cxS8w
-CoIGCLsTcS6Ms5vREcV2pS4N0TffQ9wlvUgmaYq+DcxMFXP/OqbmXmxRGSX83ZHu
-OtiRyuTJE89OoTVBmY1rfIgGbS5vlubhjw8kimI7FsVo3wvi6uaRbUnXcVgN9CTH
-OKtSl5fARe/5y3MH8KIX8gI0uwdm+gPbQitGq6vy94o+WK64KDtvBPRC9jklfMst
-+oPJMRALzedUkqD/LDpwFyd8AosaC6K6cTx0ZmWxHyHMa9+q5YNzcx4/5/7BVSiY
-fW23Fjd1dbwiVBNRTf5FQvRNgXm06A==
-=m3z+
------END PGP SIGNATURE-----
-
---g9doPJH8Qa6O3G2u--
+Regards,
+Markus
 
