@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5078BC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C2FC71143
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+XK8NyVFQA+1Gz+tMwtToB5WFGwKlF2wpjOgwPYyIto=; b=ise9/86Rx2JVjB3arrhbWPeGmJ
-	tyhwsWGaGdpHNFt7FcZCxw1f/Uhx+vdEj5fGtiKVM6IvZWjzR1Dm/VKUHC5t0TThVy/9G5Vw/japY
-	7/+uy0PR9jbcCEIGYX0kV44YvZT+mNDsKx6/3YDG5dCyxSrmlWj6kW+MfQINe+3lkIdxcZeexwhVt
-	9hE3rcavSmSB03kBBUSb2CQcNxX2j21lyUdJDDMoUNkj6jIZARlC7zKS1HPjM6oDy2iFGomuIKKHc
-	zkWAXJLONvt/wfLaIPl9P7esTLeezoyu2e/7JnW9wtgks9xU8b9B8rLS7i+NklZ5zv1b4fAVAoTZV
-	zBgQ5LNQ==;
+	bh=28r9o4XcIg4LmBzbPFAjzXFJOw4dentxCSNmN52243c=; b=uWXJMJ8gmFiVESetYlpqSLQIgz
+	FTPPLwm5ePBmsumIHYcegwL2+3IWD6RkUk2Jd0Dz8NjI2FnuDd5Mq0eARRfTLq0OVgk4PCmc8t3zZ
+	8Cpr60LxjXghfJ2oxS4/0TIJ8NwpNk6ODcSXFny/F5UvvHtmCG9F+znatYYc9hxiz/WjA5UnEjCJ9
+	DMgs1HlPJ3dl8/uzs7o7c76VaxlwY/1a4kUY2YFTx45TWa8TIDRmlomXdiPQHl82KP/VKmNN/VHYS
+	7vPiSKH4kwBULY2jzZr4wRuIkgMdCaEtf9xvjiedHt59FfgEpK2KeFxnLqS1v+WmnGvC8cWwytHn8
+	fpjLX1Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhqM-0000000DNxD-0uwC;
-	Thu, 12 Jun 2025 13:19:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uPhqR-0000000DO8R-3eIy;
+	Thu, 12 Jun 2025 13:19:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPgKs-0000000DAWx-0SKQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 11:43:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749728587;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=+XK8NyVFQA+1Gz+tMwtToB5WFGwKlF2wpjOgwPYyIto=;
-	b=bWZ2ESqEVJmCtS2TDNodekXZmM9waXlxldl0AlIvBlcANX3XfP2OsfneoS/C+8ZQwkqGqE
-	fKxrBoO2KoXsRNNH1GXQril02EGHUD7mkwQzhkxgoNXT0YNnPQK2iDeJkrlDB+KsakP/Sn
-	1+VEpyL/WV4WBe5zsHy2wdK72eoiRJU=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-368-kr5FpgndOQ-zwrtKyauUUw-1; Thu,
- 12 Jun 2025 07:43:04 -0400
-X-MC-Unique: kr5FpgndOQ-zwrtKyauUUw-1
-X-Mimecast-MFC-AGG-ID: kr5FpgndOQ-zwrtKyauUUw_1749728583
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C88BE195608E;
-	Thu, 12 Jun 2025 11:43:02 +0000 (UTC)
-Received: from [172.20.188.120] (unknown [10.30.45.122])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 19D50180045B;
-	Thu, 12 Jun 2025 11:43:02 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 24 of 41): Test report for for-kernelci
- (6.16.0-rc1, upstream-arm-next, 19272b37)
-Date: Thu, 12 Jun 2025 11:43:01 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	id 1uPgRJ-0000000DBhN-10mi;
+	Thu, 12 Jun 2025 11:49:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 72B47A51C34;
+	Thu, 12 Jun 2025 11:49:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61258C4CEEA;
+	Thu, 12 Jun 2025 11:49:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749728988;
+	bh=njIe3vfl/yf5a86Ak2CvrAcNRqdijy5GYXgG3V1TR/Q=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aR2f9CzX4sSdrcF01pGjRWKZr3p5X2TCpNofdfzPk+Whcf3aQIjbaVvLHASzaA8VR
+	 Ahg5SQQTsjzoYwwndIrmsZJ6bhIVUH8WWsSBUgKyeN3lIabuKC4Tf7K74Ioqk1471x
+	 AOw6553PZud0t0e23XIFz4uJujc1WAvGx1pkz6nIHaP2SvG3xBXUQqbVWZFP7Rq/a5
+	 UCTpG3aw8C4bbWTW/CaHPTMHIKX9ngyp1qN9Y6PSYhQSLi8VM+duuZBcVuhJtRB5E7
+	 FQ3ce7GO/0If2ta0VEmtQx/XLCTfgdXwisiGIqvB8xldCdqGEvTqUmOReDhv6MQCCp
+	 cEhVg2r91nWoQ==
+From: Niklas Cassel <cassel@kernel.org>
+To: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Stanimir Varbanov <svarbanov@mm-sol.com>
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Laszlo Fiat <laszlo.fiat@proton.me>,
+	Niklas Cassel <cassel@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org
+Subject: [PATCH v2 0/5] PCI: dwc: Do not enumerate bus before endpoint devices are ready
+Date: Thu, 12 Jun 2025 13:49:23 +0200
+Message-ID: <20250612114923.2074895-7-cassel@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <06400.125061207430400100@us-mta-368.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UxFQzZCsh_tXDVZxDSHZN2tV2fLgU0mxtp3QPqTaUec_1749728583
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1672; i=cassel@kernel.org; h=from:subject; bh=njIe3vfl/yf5a86Ak2CvrAcNRqdijy5GYXgG3V1TR/Q=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDK89h3m2vVR+7+JaGj15ilvzx6Pt/HZqLl0zfpvcXVTK 76sln64raOUhUGMi0FWTJHF94fL/uJu9ynHFe/YwMxhZQIZwsDFKQAT2cLB8JutaP6tsqf56uE9 wuVTp1tNPtR5+TjbPw+7z1/Xs+9c5fqf4b/rVptpMlkFh7W2Wa4/pV9cHFEqwLR0+iI12RXOHJ/ /zWUDAA==
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_044310_215228_5262F0A4 
-X-CRM114-Status: UNSURE (   6.31  )
+X-CRM114-CacheID: sfid-20250612_044949_348116_5DBEC96D 
+X-CRM114-Status: UNSURE (   8.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,54 +87,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hello all,
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+The DWC PCIe controller driver currently does not follow the PCIe
+specification with regards to the delays after link training, before
+sending out configuration requests. This series fixes this.
 
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: Linux 6.16-rc1
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1866156451
-
-Tests that were not ran because of internal issues:
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    Hardware - Firmware test suite [aarch64]
-    machineinfo [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    selinux-policy: serge-testsuite [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-    xfstests - btrfs [aarch64]
-    xfstests - ext4 [aarch64]
-    xfstests - xfs [aarch64]
+At the same time, PATCH 1/4 addresses a regression where a Plextor
+NVMe drive fails to be configured correctly. With this series, the
+Plextor NVMe drive works once again.
 
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+Kind regards,
+Niklas
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+Changes since v1:
+-Put msleep() before the dev_dbg() that says "Enumerating bus" (Damien)
+-Rewrite comment above LINK_WAIT_MAX_RETRIES / LINK_WAIT_SLEEP_MS (Damien)
+-Remove comments above PCIE_RESET_CONFIG_DEVICE_WAIT_MS (Bjorn)
+-Use different Fixes-tags (Bjorn)
+-Shamelessly took Bjorn's commit message for patch 1 and 2 (Bjorn)
+-Use PCIE_RESET_CONFIG_DEVICE_WAIT_MS rather than PCIE_T_RRS_READY_MS
+-Add new patch (5/5) that drops PCIE_T_RRS_READY_MS
+
+
+Niklas Cassel (5):
+  PCI: dw-rockchip: Wait PCIE_RESET_CONFIG_DEVICE_WAIT_MS after link-up
+    IRQ
+  PCI: qcom: Wait PCIE_RESET_CONFIG_DEVICE_WAIT_MS after link-up IRQ
+  PCI: dwc: Ensure that dw_pcie_wait_for_link() waits 100 ms after link
+    up
+  PCI: dwc: Reduce LINK_WAIT_SLEEP_MS
+  PCI: rockchip-host: Use macro PCIE_RESET_CONFIG_DEVICE_WAIT_MS
+
+ drivers/pci/controller/dwc/pcie-designware.c  | 13 ++++++++++++-
+ drivers/pci/controller/dwc/pcie-designware.h  | 13 +++++++++----
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c |  1 +
+ drivers/pci/controller/dwc/pcie-qcom.c        |  1 +
+ drivers/pci/controller/pcie-rockchip-host.c   |  2 +-
+ drivers/pci/pci.h                             |  7 -------
+ 6 files changed, 24 insertions(+), 13 deletions(-)
+
+-- 
+2.49.0
 
 
