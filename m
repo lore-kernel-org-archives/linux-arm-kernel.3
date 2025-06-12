@@ -4,67 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0239FC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61700C7114A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 20:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hGjtsJI7nBbeGiSOxYGQG5J5O3n4fwiWLCBVJcdBU7s=; b=caBSGSFvNjAlLHiIbRSNjulut0
-	3uVpNbwhMGpTujZjdsZ84koxZCpw9arU9/LGsTyU79ff1FgzgxiEk2UD5bNif0H25bTvm7/rdkvYl
-	MV00Hz5TavtTjSlPUGP1I6Jsc/NLwRbINjuz1Bp+btpUgUqJjR14ctz4S3HN/0RD9+/dFFlidxVPt
-	70b6D73rYp91ivJDImosZ1eDxnYhn7BT0lRL1QsdJF7iZ8VxFX4TZ1M4G7OBgMiO8cPXicKmbH3oV
-	n4oRPxqVKxFOnJwsafl1vg0k38TaFVjvWdtp6rYp4B4FV0F1eofSOJj4C7MTT6ntyQUuegLLRGEDX
-	X2KZKwng==;
+	bh=6qiWD4JXlRTSkr0OCRaCLJF5LrOxAnEBQoG5YvQMX2A=; b=s0dL5ouIPo/gMnqUktXz5xuRII
+	VAD8tYbwcl/cLUA/lTyITh8SYqO20cH6+BLj4//tErBep/m11ZhknfR47xKart0R4nx47r25MGIRM
+	4ztl/r0W9rkEETEqhEDdfB/81SGjPSvArGxNS5pgXjJlnY4lWJkoJAbmRE6grbcpLZI1459+Gxs8T
+	vn7ctcna9ynHdLdpd2HTsAcqk9d+CeXkaVoza1v9BRxEANtJ3ymVHt4BVLI5+PtwwTg5ejIKYPbXu
+	We+IVkuAOcHz1XwG8PAuzoaxmknYMMI4eQ8YPTMZcDHRWkKnCVDTkDK6lNjBOab/aAyAVXXJ5wwhn
+	0+C7XNpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoSb-0000000EUKr-3jug;
-	Thu, 12 Jun 2025 20:23:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uPoSa-0000000EUKP-3Ilt;
+	Thu, 12 Jun 2025 20:23:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPoPj-0000000EUCk-0v7Q
+	id 1uPoLa-0000000ETse-1gmC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 12 Jun 2025 20:16:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6qiWD4JXlRTSkr0OCRaCLJF5LrOxAnEBQoG5YvQMX2A=; b=gIW5z9hSPm4aZblF0UogulebSE
+	3bBys6rTXa7x5/UZAy5z5wsnIMqSVyAdu1NcUu1a0pheta/5gR1xqUMkVrC9PhbDAzjZKNpOn915r
+	NbipUMcMOF7fHoma/AeCADtLV+KTv5r4/fDx1AAKUU0Js5EDTxmZMWae59xIklvPHNr1pujp36Lcd
+	oJrsN0n6Ty0JLkKfhDOxt/mfAvTSbNBHFqv97UD9MqT0CJvGW/1RvnolMTQmWZwvMj57c1PA8XRhH
+	EyIrRCXHSq+6gZunsqeWnePOR3yY09pNOpkXSGC5rZ7Tt68p9HVuZIUJi6UWldC8RReUjQLBmMvHs
+	BS6LQN9g==;
+Received: from mout.web.de ([212.227.15.14])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPoLM-00000002g6d-41WG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 20:20:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77E0C629D1
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 20:20:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D76CBC4CEEA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 20:20:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749759641;
-	bh=a5WnHSJOT46nfRLoD18xXpSv/uFhg0hnrMwi626QFM4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=EQk77JAzfHA1ctAuntDsiKXHOyamy1WEk9XvQgt05vU0kl3Shdb2eGQzR0tfqGNs0
-	 G2bFJ+r+9XJTYVMKWQUnBP24ypbY/joG8PauU7XTL77t+RQy0RGHc2vMrGK9n3tRl5
-	 Cr0IH75Y8aZV7scEUwy+dbpv9V2cVCSSuOCNWIy5CBbNL4K0X2j8HT2tqwSMQ3OaFw
-	 OY+/1utzWN5IfCQ86IvkyXNXM2PkcyifMhymbsdr2ItBcaVyLWZ1injIjBeP9qxF4E
-	 lpQD+JsRgPGpdvWsq5VRK3d7fQ4oT2i7ZC9R/QZk7dk5H/jagHuvra7+dwbxbHT4rt
-	 hdY1ZBd7U96tA==
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6071ac9dc3eso2437566a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 13:20:41 -0700 (PDT)
-X-Gm-Message-State: AOJu0YzCz6NRTBXUs0DJqdTeodKVYERohY3ATOVComOyr+tqE+4siHaQ
-	ikRFKAwDybrR0Tw9xrhinsp+YhafMQE2XFITylFH9oRgfL8XMSwq/qdiFYeOcSMZfHVyRWYBX4k
-	sIJA1oFTqAortWi2FLlkrDlhA8M+unQ==
-X-Google-Smtp-Source: AGHT+IFnbXsRtFIL+scyAGYD3x7MKmnzII7AQnyQRZO9L1192M/CFiTale2tKX90VabUQqwsW4Kt7dfjYByaYhdz368=
-X-Received: by 2002:a17:907:3f1f:b0:adb:2a66:85bc with SMTP id
- a640c23a62f3a-adec5cafe61mr40529466b.34.1749759640448; Thu, 12 Jun 2025
- 13:20:40 -0700 (PDT)
+	Thu, 12 Jun 2025 20:16:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1749759321; x=1750364121; i=markus.elfring@web.de;
+	bh=6qiWD4JXlRTSkr0OCRaCLJF5LrOxAnEBQoG5YvQMX2A=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:
+	 References:From:Cc:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=O/61qFsWC+jsy2q8T+nUj4Cth0ry95AIGHDhC2oaqerD3418OvlNptTBmW85AMoC
+	 mnyO8xQh2OpmWDbicbE8bQQk8B3iYE6BJaiIwTArq0wxp1czYYIDHAxB+DFHp/yml
+	 DFfoZfRFkuzKLGe6ltaIAukKIWIbBhjY9bX1D/FiQUeF0huZuJpFqzdlCNB/6PGF9
+	 N81vNLLSvlfCKOOj85gJgHbkySGlgZxTMj8jkipr1bDP0yeMduLpmgpts2W/5PyOo
+	 QbKRuimmOM+k8m9J5oR1G4GLsHH/jTBJj2cdu/dJr0dJpLkrrOyoQymTpdxK5HwTK
+	 myNP377FjEkEG4k3sw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.213]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N0qqv-1umon62TMT-011GGb; Thu, 12
+ Jun 2025 22:15:21 +0200
+Message-ID: <3537a4ce-b5e8-44d5-a884-70a81562068d@web.de>
+Date: Thu, 12 Jun 2025 22:15:10 +0200
 MIME-Version: 1.0
-References: <20250611-arm-brbe-v19-v23-0-e7775563036e@kernel.org>
- <20250611-arm-brbe-v19-v23-1-e7775563036e@kernel.org> <36f59ea1-1468-425d-991c-c4bacefe0fd4@amperemail.onmicrosoft.com>
-In-Reply-To: <36f59ea1-1468-425d-991c-c4bacefe0fd4@amperemail.onmicrosoft.com>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 12 Jun 2025 15:20:28 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJ-65ObSrV3pi2E+kceffY8vdQVUqhVfkXpAOU08UP7kA@mail.gmail.com>
-X-Gm-Features: AX0GCFux25NsO0y0HZrrApebcJ9A5SylHMyyGXcZP_lg5KPx0d0huWPEE-_d9JE
-Message-ID: <CAL_JsqJ-65ObSrV3pi2E+kceffY8vdQVUqhVfkXpAOU08UP7kA@mail.gmail.com>
-Subject: Re: [PATCH v23 1/4] arm64/sysreg: Add BRBE registers and fields
-To: Adam Young <admiyo@amperemail.onmicrosoft.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [cocci] [PATCH v4 2/5] arm64: tlb: Convert the opencoded field
+ modify
+To: Luo Jie <quic_luoj@quicinc.com>, cocci@inria.fr
+References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+ <20250612-field_modify-v4-2-ae4f74da45a6@quicinc.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ Andrew Lunn <andrew@lunn.ch>, Catalin Marinas <catalin.marinas@arm.com>,
+ Joey Gouly <joey.gouly@arm.com>, Julia Lawall <Julia.Lawall@inria.fr>,
+ "Kiran Kumar C.S.K" <quic_kkumarcs@quicinc.com>,
+ Lei Wei <quic_leiwei@quicinc.com>, Marc Zyngier <maz@kernel.org>,
+ Nicolas Palix <nicolas.palix@imag.fr>, Oliver Upton
+ <oliver.upton@linux.dev>, Pavithra R <quic_pavir@quicinc.com>,
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+ Suruchi Agarwal <quic_suruchia@quicinc.com>,
+ Suzuki Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>,
+ Yury Norov <yury.norov@gmail.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ quic_linchen@quicinc.com
+In-Reply-To: <20250612-field_modify-v4-2-ae4f74da45a6@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:pA7EGEjfJnflF4TE9tOyoGXxUB/CzNseX2uUxJifNOawy2xR3sw
+ EpfU8UgiCF7Gkwcx+fgXhi8wIvPzl+Z1knLjb45m3UDFMU8K/nfuWw9NUvJ3Evp0bONcLYm
+ 6pRgCRt5Hwqlt+w524mTGSeQuG0RXzixxhhasYuD7PsfvRW2QzHuFbVbd1wisbV7nM8DrjW
+ /Kdo1s6l3WTQSOLXK/9Mg==
+UI-OutboundReport: notjunk:1;M01:P0:W0k8pYu0TLU=;0N+yz1Jd+j/p7C7cl3SIf5Tx+gs
+ 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
+ THSY34RPGLT/+AIU
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250612_211615_227892_6D7E0414 
+X-CRM114-Status: UNSURE (   5.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,258 +156,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 2:46=E2=80=AFPM Adam Young
-<admiyo@amperemail.onmicrosoft.com> wrote:
->
-> tested-by: Adam Young<admiyo@os.amperecomputing.com>
+I see further refinement possibilities for such a change description.
 
-Thanks, I assume this is for patch 1, 2, and 4 at least because just
-this patch does nothing on its own.
 
-Note that on the mail lists, you should not top-post, but reply below
-the quoted message.
+> Replace below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
+> - reg &= ~MASK;
+> - reg |= FIELD_PREP(MASK, val);
 
-Rob
+* How do you think about to omit leading minus characters?
 
->
-> Built and run on a BRBE capable machine.
->
-> Built userland perf tool
->
-> can run
->
-> perf record --branch-filter any,save_type,u true
->
-> as well as
->
-> perf record --branch-filter any,save_type,u ./sort
->
-> And will generate a perf.data file.
->
-> The mechanism applies cleanly and produced what looks like sane output.
->
->
-> On 6/11/25 14:01, Rob Herring (Arm) wrote:
-> > From: Anshuman Khandual <anshuman.khandual@arm.com>
-> >
-> > This patch adds definitions related to the Branch Record Buffer Extensi=
-on
-> > (BRBE) as per ARM DDI 0487K.a. These will be used by KVM and a BRBE dri=
-ver
-> > in subsequent patches.
-> >
-> > Some existing BRBE definitions in asm/sysreg.h are replaced with equiva=
-lent
-> > generated definitions.
-> >
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Reviewed-by: Mark Brown <broonie@kernel.org>
-> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> > Tested-by: James Clark <james.clark@linaro.org>
-> > Acked-by: Will Deacon <will@kernel.org>
-> > Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
-> > ---
-> > v19:
-> > - split BRBINF.CC field into mantissa and exponent
-> > ---
-> >   arch/arm64/include/asm/sysreg.h |  16 ++---
-> >   arch/arm64/tools/sysreg         | 132 +++++++++++++++++++++++++++++++=
-+++++++++
-> >   2 files changed, 138 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/s=
-ysreg.h
-> > index f1bb0d10c39a..ef76a4b9e240 100644
-> > --- a/arch/arm64/include/asm/sysreg.h
-> > +++ b/arch/arm64/include/asm/sysreg.h
-> > @@ -202,16 +202,8 @@
-> >   #define SYS_DBGVCR32_EL2            sys_reg(2, 4, 0, 7, 0)
-> >
-> >   #define SYS_BRBINF_EL1(n)           sys_reg(2, 1, 8, (n & 15), (((n &=
- 16) >> 2) | 0))
-> > -#define SYS_BRBINFINJ_EL1            sys_reg(2, 1, 9, 1, 0)
-> >   #define SYS_BRBSRC_EL1(n)           sys_reg(2, 1, 8, (n & 15), (((n &=
- 16) >> 2) | 1))
-> > -#define SYS_BRBSRCINJ_EL1            sys_reg(2, 1, 9, 1, 1)
-> >   #define SYS_BRBTGT_EL1(n)           sys_reg(2, 1, 8, (n & 15), (((n &=
- 16) >> 2) | 2))
-> > -#define SYS_BRBTGTINJ_EL1            sys_reg(2, 1, 9, 1, 2)
-> > -#define SYS_BRBTS_EL1                        sys_reg(2, 1, 9, 0, 2)
-> > -
-> > -#define SYS_BRBCR_EL1                        sys_reg(2, 1, 9, 0, 0)
-> > -#define SYS_BRBFCR_EL1                       sys_reg(2, 1, 9, 0, 1)
-> > -#define SYS_BRBIDR0_EL1                      sys_reg(2, 1, 9, 2, 0)
-> >
-> >   #define SYS_TRCITECR_EL1            sys_reg(3, 0, 1, 2, 3)
-> >   #define SYS_TRCACATR(m)                     sys_reg(2, 1, 2, ((m & 7)=
- << 1), (2 | (m >> 3)))
-> > @@ -277,8 +269,6 @@
-> >   /* ETM */
-> >   #define SYS_TRCOSLAR                        sys_reg(2, 1, 1, 0, 4)
-> >
-> > -#define SYS_BRBCR_EL2                        sys_reg(2, 4, 9, 0, 0)
-> > -
-> >   #define SYS_MIDR_EL1                        sys_reg(3, 0, 0, 0, 0)
-> >   #define SYS_MPIDR_EL1                       sys_reg(3, 0, 0, 0, 5)
-> >   #define SYS_REVIDR_EL1                      sys_reg(3, 0, 0, 0, 6)
-> > @@ -821,6 +811,12 @@
-> >   #define OP_COSP_RCTX                        sys_insn(1, 3, 7, 3, 6)
-> >   #define OP_CPP_RCTX                 sys_insn(1, 3, 7, 3, 7)
-> >
-> > +/*
-> > + * BRBE Instructions
-> > + */
-> > +#define BRB_IALL_INSN        __emit_inst(0xd5000000 | OP_BRB_IALL | (0=
-x1f))
-> > +#define BRB_INJ_INSN __emit_inst(0xd5000000 | OP_BRB_INJ  | (0x1f))
-> > +
-> >   /* Common SCTLR_ELx flags. */
-> >   #define SCTLR_ELx_ENTP2     (BIT(60))
-> >   #define SCTLR_ELx_DSSBS     (BIT(44))
-> > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> > index 8a8cf6874298..81c4e214ba33 100644
-> > --- a/arch/arm64/tools/sysreg
-> > +++ b/arch/arm64/tools/sysreg
-> > @@ -1329,6 +1329,138 @@ UnsignedEnum  3:0     MTEPERM
-> >   EndEnum
-> >   EndSysreg
-> >
-> > +
-> > +SysregFields BRBINFx_EL1
-> > +Res0 63:47
-> > +Field        46      CCU
-> > +Field        45:40   CC_EXP
-> > +Field        39:32   CC_MANT
-> > +Res0 31:18
-> > +Field        17      LASTFAILED
-> > +Field        16      T
-> > +Res0 15:14
-> > +Enum 13:8            TYPE
-> > +     0b000000        DIRECT_UNCOND
-> > +     0b000001        INDIRECT
-> > +     0b000010        DIRECT_LINK
-> > +     0b000011        INDIRECT_LINK
-> > +     0b000101        RET
-> > +     0b000111        ERET
-> > +     0b001000        DIRECT_COND
-> > +     0b100001        DEBUG_HALT
-> > +     0b100010        CALL
-> > +     0b100011        TRAP
-> > +     0b100100        SERROR
-> > +     0b100110        INSN_DEBUG
-> > +     0b100111        DATA_DEBUG
-> > +     0b101010        ALIGN_FAULT
-> > +     0b101011        INSN_FAULT
-> > +     0b101100        DATA_FAULT
-> > +     0b101110        IRQ
-> > +     0b101111        FIQ
-> > +     0b110000        IMPDEF_TRAP_EL3
-> > +     0b111001        DEBUG_EXIT
-> > +EndEnum
-> > +Enum 7:6     EL
-> > +     0b00    EL0
-> > +     0b01    EL1
-> > +     0b10    EL2
-> > +     0b11    EL3
-> > +EndEnum
-> > +Field        5       MPRED
-> > +Res0 4:2
-> > +Enum 1:0     VALID
-> > +     0b00    NONE
-> > +     0b01    TARGET
-> > +     0b10    SOURCE
-> > +     0b11    FULL
-> > +EndEnum
-> > +EndSysregFields
-> > +
-> > +SysregFields BRBCR_ELx
-> > +Res0 63:24
-> > +Field        23      EXCEPTION
-> > +Field        22      ERTN
-> > +Res0 21:10
-> > +Field        9       FZPSS
-> > +Field        8       FZP
-> > +Res0 7
-> > +Enum 6:5     TS
-> > +     0b01    VIRTUAL
-> > +     0b10    GUEST_PHYSICAL
-> > +     0b11    PHYSICAL
-> > +EndEnum
-> > +Field        4       MPRED
-> > +Field        3       CC
-> > +Res0 2
-> > +Field        1       ExBRE
-> > +Field        0       E0BRE
-> > +EndSysregFields
-> > +
-> > +Sysreg       BRBCR_EL1       2       1       9       0       0
-> > +Fields       BRBCR_ELx
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBFCR_EL1      2       1       9       0       1
-> > +Res0 63:30
-> > +Enum 29:28   BANK
-> > +     0b00    BANK_0
-> > +     0b01    BANK_1
-> > +EndEnum
-> > +Res0 27:23
-> > +Field        22      CONDDIR
-> > +Field        21      DIRCALL
-> > +Field        20      INDCALL
-> > +Field        19      RTN
-> > +Field        18      INDIRECT
-> > +Field        17      DIRECT
-> > +Field        16      EnI
-> > +Res0 15:8
-> > +Field        7       PAUSED
-> > +Field        6       LASTFAILED
-> > +Res0 5:0
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBTS_EL1       2       1       9       0       2
-> > +Field        63:0    TS
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBINFINJ_EL1   2       1       9       1       0
-> > +Fields BRBINFx_EL1
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBSRCINJ_EL1   2       1       9       1       1
-> > +Field        63:0 ADDRESS
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBTGTINJ_EL1   2       1       9       1       2
-> > +Field        63:0 ADDRESS
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBIDR0_EL1     2       1       9       2       0
-> > +Res0 63:16
-> > +Enum 15:12   CC
-> > +     0b0101  20_BIT
-> > +EndEnum
-> > +Enum 11:8    FORMAT
-> > +     0b0000  FORMAT_0
-> > +EndEnum
-> > +Enum 7:0             NUMREC
-> > +     0b00001000      8
-> > +     0b00010000      16
-> > +     0b00100000      32
-> > +     0b01000000      64
-> > +EndEnum
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBCR_EL2       2       4       9       0       0
-> > +Fields       BRBCR_ELx
-> > +EndSysreg
-> > +
-> > +Sysreg       BRBCR_EL12      2       5       9       0       0
-> > +Fields       BRBCR_ELx
-> > +EndSysreg
-> > +
-> >   Sysreg      ID_AA64ZFR0_EL1 3       0       0       4       4
-> >   Res0        63:60
-> >   UnsignedEnum        59:56   F64MM
-> >
->
+* Subsequent blank line?
+
+
+> More information about semantic patching is available at
+> http://coccinelle.lip6.fr/
+
+I suggest to omit this information here (and in similar patches).
+
+Regards,
+Markus
 
