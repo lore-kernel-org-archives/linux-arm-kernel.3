@@ -4,62 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35528C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 08:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE39C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 08:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wEfLjsMWOcY/1xx1MExuBedf8lJgAMiB/kQuvYjhW5Y=; b=WMgYrl5/GSqEHJsx4TH+2bPAZ4
-	hiV7CYm31LFIfwToO/mEETAQFc/XLf5ZneJLpuha0D48fUz6vKijHApHernHb9VurxCwyQVoM/8Lb
-	Mwo6TIYq/k2tXd7I+f7CvbP9eBM0vE7SDTSXCDLgzXZ6b6TqR1y77lH7bcMUou2mCyuZ8hD3R/7sV
-	hMt30dxtTzOgH5PLAyBwi55KR2m1fvvZkhqhK2ktSwUE1zOm/KogNwEPyh0f1cVAhtwaVOHL4hYpr
-	QPN5safrnF0BiPNNfCa0vjF14gdQBxIbErGgARMY7airC8XQdKkHJ+p9IwdENt2V3gGsGbMCaQxqj
-	art7iMJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wAcXwrNiqDJpeutFZq0A35YRxAPArSLzCPVOyFH7y18=; b=OhlQtlZHYsgYcn7fK1/niAUuKD
+	XDSTpDM8DDRzex+HVVh34jJ6aiMfZTRapcE+re9jyP3Fj3CRdWrZTv5SfaB3RnoZtV9CA5nNRSGzP
+	dlXR3PC/CB+pdN6Q63fdg9pg5M39kBpsFipAa9cHIRVqwtJXUsFVeoeLF0acC/EcHKs547om8SGF8
+	AblQWMNgO0iFOR/qbK5BhRRn3m7loKw/+QBAK32LN/i8S1+8RNoWQsZIRCdd8s2ATZovEpZp53L65
+	tlXt6vfCBE8XSJbNZtvt9hDJvBWQWPxVX1WllU+pgV1yZEfrsvV8pAlWGSAxuovi60Xi4sZtqbRD+
+	7N2rVEIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPdVn-0000000Cfm4-0UMt;
-	Thu, 12 Jun 2025 08:42:15 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uPdXt-0000000CgSP-21E7;
+	Thu, 12 Jun 2025 08:44:25 +0000
+Received: from mail.formbizup.com ([51.195.200.90])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPcnC-0000000CWkG-3YkQ
+	id 1uPcpW-0000000CX8q-0mpP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 07:56:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1749714968;
-	bh=wEfLjsMWOcY/1xx1MExuBedf8lJgAMiB/kQuvYjhW5Y=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OrgM7fk2giHneU0ZGmbu6sAUqh0o40hFWABuR8jC1UoQ6AMuK23qacFbdtW1PKj96
-	 J0bXtMXgXsKDTVzDwKYXcEhpLrP50g+ShbQsfkkMxa8o0+MRQA30dyAUdwx5bV5urY
-	 IEf9R48l50xXY7Sq8MyhKVgJFvd+e9IX2URjPXiU2FW5dMGPcsyhi1gppru8foPSMR
-	 cs/Lw/ZYLYUKVpgXJzzimXU+faACgixnOiAMf3b7c3eCIs4mUssVDrJARPgkLRM5H8
-	 biL1kpIltutmH3L2Qlyg4zbS7rHVSEFfcQ2dPEqyRAWfNJ8dI9lzlc3lU4jQ4xLde/
-	 K8HF2RX7ivetQ==
-Received: from [IPv6:2405:6e00:2427:47f7:b08d:7091:d46e:c806] (unknown [120.20.31.221])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id EC56B65F91;
-	Thu, 12 Jun 2025 15:56:04 +0800 (AWST)
-Message-ID: <67c89ca729669f55e2659ad8070a154c59ef83db.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v4 1/1] ARM: dts: aspeed: Add device tree for Nvidia's
- GB200 UT3.0b platform BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Donald Shannon <donalds@nvidia.com>, robh@kernel.org,
- krzk+dt@kernel.org,  conor+dt@kernel.org
-Cc: joel@jms.id.au, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, etanous@nvidia.com
-Date: Thu, 12 Jun 2025 17:26:03 +0930
-In-Reply-To: <20250611013025.2898412-2-donalds@nvidia.com>
-References: <20250611013025.2898412-1-donalds@nvidia.com>
-	 <20250611013025.2898412-2-donalds@nvidia.com>
+	Thu, 12 Jun 2025 07:58:36 +0000
+Received: by mail.formbizup.com (Postfix, from userid 1002)
+	id 2CBD24F299; Thu, 12 Jun 2025 09:55:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=formbizup.com;
+	s=mail; t=1749714956;
+	bh=wAcXwrNiqDJpeutFZq0A35YRxAPArSLzCPVOyFH7y18=;
+	h=Date:From:To:Subject:From;
+	b=pW1GseDrjf9Yb95M+IsBYYCaTg2OsYTqnYbZdAG6RZqfmAJGgCrjXEKkrBQPv9uKi
+	 baTz3i2WEbTukMOc1vxbCmvzy4o4tfKLxyrYGNCAqQ/iADRYUTI9JnW662Pi8NhwuY
+	 W2DFbtRXpnsk30hGQJz4j7Y5G+zM6laws8dExh63R3d+lk6bZ2C+QrC2x79/di+Ljv
+	 0Txj4RfTWV4LXLAk6JzQxlBkK8YLCPTYCyAPKEY9qZY85hBwp0PpB2hO+LEQgVIDF2
+	 vTDLXiLLy/k24hkWk5dOoUGb1/mn4S4LCCAhYBDK31c9e4As2JxmIbjyfediZB8b44
+	 TZeEWyWAOX0UA==
+Received: by mail.formbizup.com for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 07:55:35 GMT
+Message-ID: <20250612084501-0.1.9n.s1jx.0.bq3tatwhki@formbizup.com>
+Date: Thu, 12 Jun 2025 07:55:35 GMT
+From: "Samuel Zeman" <samuel.zeman@formbizup.com>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: =?UTF-8?Q?Spolupr=C3=A1ce_s_dovozcem?=
+X-Mailer: mail.formbizup.com
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_005611_076969_A556F664 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20250612_005834_375476_125E579F 
+X-CRM114-Status: UNSURE (   1.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,88 +67,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Donald,
+Dobr=C3=BD den,
 
-In addition to addressing Krzysztof's comments regarding checkpatch:
+zastupuji spole=C4=8Dnost specializuj=C3=ADc=C3=AD se na dovoz pap=C3=ADr=
+ensk=C3=A9ho, =C5=A1koln=C3=ADho a kancel=C3=A1=C5=99sk=C3=A9ho zbo=C5=BE=
+=C3=AD, kreativn=C3=ADch pot=C5=99eb, dekorac=C3=AD a sez=C3=B3nn=C3=ADch=
+ (v=C3=A1no=C4=8Dn=C3=ADch) produkt=C5=AF.
 
-On Tue, 2025-06-10 at 18:30 -0700, Donald Shannon wrote:
-> The GB200NVL UT3.0b BMC is an Aspeed Ast2600 based BMC
-> for Nvidia Blackwell GB200NVL platform.
+V na=C5=A1=C3=AD nab=C3=ADdce najdete a=C5=BE 3000 pe=C4=8Dliv=C4=9B vybr=
+an=C3=BDch produkt=C5=AF, kter=C3=A9 jsou ide=C3=A1ln=C3=AD pro velkoobch=
+odn=C3=AD prodej.
 
-Can you add some words contrasting this platform to the one submitted
-by Willie?
+V sou=C4=8Dasnosti obsluhujeme v=C3=ADce ne=C5=BE 425 z=C3=A1kazn=C3=ADk=C5=
+=AF v tuzemsku i zahrani=C4=8D=C3=AD, co=C5=BE sv=C4=9Bd=C4=8D=C3=AD o na=
+=C5=A1=C3=AD spolehlivosti a =C5=A1irok=C3=A9m dosahu.
 
-https://lore.kernel.org/all/20250401153955.314860-3-wthai@nvidia.com/
+Jako p=C5=99=C3=ADm=C3=BD dovozce m=C5=AF=C5=BEeme nab=C3=ADdnout konkure=
+nceschopn=C3=A9 ceny bez prost=C5=99edn=C3=ADk=C5=AF, atraktivn=C3=AD log=
+istick=C3=A9 podm=C3=ADnky (minim=C3=A1ln=C3=AD objedn=C3=A1vka od 1000 K=
+=C4=8D bez DPH) a v=C4=8Dasn=C3=A9 vy=C5=99=C3=ADzen=C3=AD objedn=C3=A1ve=
+k.
+
+Pokud hled=C3=A1te partnera s =C5=A1irokou nab=C3=ADdkou produkt=C5=AF a =
+v=C3=BDhodn=C3=BDmi podm=C3=ADnkami spolupr=C3=A1ce, r=C3=A1di pro v=C3=A1=
+s p=C5=99iprav=C3=ADme nab=C3=ADdku =C5=A1itou na m=C3=ADru.
+
+T=C4=9B=C5=A1=C3=ADme se na mo=C5=BEnost nav=C3=A1z=C3=A1n=C3=AD =C3=BAsp=
+=C4=9B=C5=A1n=C3=A9 spolupr=C3=A1ce!
 
 
-> Reference to Ast2600 SOC [1].
-> Reference to Blackwell GB200NVL Platform [2].
->=20
-> Link: https://www.aspeedtech.com/server_ast2600/=C2=A0[1]
-> Link:
-> https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703=C2=A0[2]
->=20
-
-Please omit the blank line here so the Link: tags are part of the
-trailer.
-
-> Signed-off-by: Donald Shannon <donalds@nvidia.com>
-> ---
-> Changes v1 -> v2:
-> =C2=A0 - Changed phy-mode to rgmii-id [Lunn]
-> =C2=A0 - Removed redundant max-speed for mac0 [Lunn]
-> =C2=A0 - Fixed typo from gb200nvl to gb200 in Makefile
-> Changes v2 -> v3:
-> =C2=A0 - Fixed whitespace issues [Krzysztof]
-> =C2=A0 - Fixed schema validation issues from my end ( there are still
-> issues with the aspeed dtsi file that are not related to this new
-> dts) [Herring]
-> =C2=A0 - Reordered to follow style guide [Krzysztof]
-> =C2=A0 - Removed redundant status okays
-> =C2=A0 - Changed vcc to vdd for the power gating on the gpio expanders
-> Changes v3 -> v4:
-> =C2=A0 - Added changelog [Krzysztof]
-> =C2=A0 - Added nvidia,gb200-ut30b board binding [Krzysztof]
-> =C2=A0 - Removed unused imports
-> =C2=A0 - Reordered a couple other style guide violations
-> =C2=A0 - Added back in a couple needed "status okay"s
-> ---
-> =C2=A0.../bindings/arm/aspeed/aspeed.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../aspeed/aspeed-bmc-nvidia-gb200-ut30b.dts=C2=A0 | 1154
-> +++++++++++++++++
-> =C2=A03 files changed, 1156 insertions(+)
-> =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200=
--
-> ut30b.dts
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> index a3736f134130..420fabf05b24 100644
-> --- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> +++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-> @@ -98,6 +98,7 @@ properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - inventec,starscream-bmc
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - inventec,transformer-bmc
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 - jabil,rbp-bmc
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 - nvidia,gb200-ut30b
-
-For what it's worth, checkpatch reports at least the following:
-
-   167: WARNING: DT binding docs and includes should be a separate patch. S=
-ee: Documentation/devicetree/bindings/submitting-patches.rst
-   180: WARNING: added, moved or deleted file(s), does MAINTAINERS need upd=
-ating?
-   193: WARNING: DT compatible string "nvidia,gb200-ut30b" appears un-docum=
-ented -- check ./Documentation/devicetree/bindings/
-
-Thanks,
-
-Andrew
+S p=C5=99=C3=A1telsk=C3=BDm pozdravem
+Samuel Zeman
 
