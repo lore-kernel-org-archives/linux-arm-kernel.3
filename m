@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72306C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 07:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 364C2C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 07:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ku/jjd89ljx7CQ5vE12Yi2egUmf/++KmoKuuLcxDrro=; b=SqI2Y9gRGzesJtwZKwDfKHPJEO
-	wl7HorJbHZqmVgUHVa0dSzhsXr/okvKTMtMVPkSciCfnZ2eFHES1BkC6q1pOPQhI3jfoM8gsLCY7j
-	fCIlLP9Qz+z6dsuyf3tjSrv2yL4AjdB2uguQTSfBWA20scaWylpi/nEyistAodyyNrPGyLWSuX6iR
-	Xv0f+/ntAw5Ejipz8Zj6UbwrcA9jqJOlfbEYxwtSoibXSi2MQ8877mX1kqzfUqBGW20Kr0tK9zouH
-	bX0pL9fWcnxIMsucIGP0D20fI6MXP++6zGXtjmYm+hYBFyPnumOl6gqgjbXcEdzLNDGW8n2YPE/Ys
-	DrE5xMAA==;
+	bh=JGpE21FrM42Bs+KszC9e8Y10pM1cswEbcJTesyB39f4=; b=KPt6MX+vnBDSe5phs5Pep3mWWg
+	bG2PHP+8OA54IiA9CJem7TOP63y62RPOFHiWKw9hZ8sQH+L/Sx+a2PcDtut0+yqmIL3gbBG9k9igC
+	/cLgTPrVGTL7qZ1QEKm+ZJPPCExPWJZYaCaWf7ZiaVTypePigsSlYRj8sj4ANGzVAs3U57MpG/ATS
+	U3NF5zmUK1+ElC/pK/Dxz3xclHmIe5qotTCHVMjpC1m9XHFskEwN9akfvd4G+7rhVb2GpYklat0KI
+	PBPRZ1E6hZuMBKfOhevv3zvGHwjsAapxHfWsy7OAeblj3KgWBEEt1Q0LkG73ngMrFYfLmhWKI/k7D
+	ieVNAIPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPclg-0000000CWPw-3LHZ;
-	Thu, 12 Jun 2025 07:54:36 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uPcnm-0000000CWry-1QaK;
+	Thu, 12 Jun 2025 07:56:46 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPcBK-0000000CPoS-3uuU
+	id 1uPcOU-0000000CS4Z-0TAu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 07:17:04 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55C7H03V2800922;
-	Thu, 12 Jun 2025 02:17:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749712620;
-	bh=ku/jjd89ljx7CQ5vE12Yi2egUmf/++KmoKuuLcxDrro=;
-	h=From:To:Subject:Date:In-Reply-To:References;
-	b=oaqzUFZp9FQrWVnDkTMNXahxCIRh4TaOyrZEgnr/ynPWmL50v+KH+gBbYv7v+TDWl
-	 mwUiVCm9ioeHmGQOcEK4hFDsH/W0gwWduy7GRrUCIU/OJJkOAMvYyVdwFGaljS4kj8
-	 PssZme2Q9JEs9EM/5r4VLDPJyVJJcNjO5iiXVw+s=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55C7GxVl1619085
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 12 Jun 2025 02:16:59 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 12
- Jun 2025 02:16:59 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 12 Jun 2025 02:16:59 -0500
-Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.227.7])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55C7FTKd1608959;
-	Thu, 12 Jun 2025 02:16:55 -0500
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-To: Peter Ujfalusi <peter.ujfalusi@gmail.com>, Vinod Koul <vkoul@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-        Santosh
- Shilimkar <ssantosh@kernel.org>,
-        Sai Sree Kartheek Adivi <s-adivi@ti.com>, <dmaengine@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <praneeth@ti.com>,
-        <vigneshr@ti.com>, <u-kumar1@ti.com>, <a-chavda@ti.com>,
-        <p-mantena@ti.com>
-Subject: [PATCH v2 17/17] dmaengine: ti: k3-udma-v2: Update glue layer to support PKTDMA V2
-Date: Thu, 12 Jun 2025 12:45:21 +0530
-Message-ID: <20250612071521.3116831-18-s-adivi@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250612071521.3116831-1-s-adivi@ti.com>
-References: <20250612071521.3116831-1-s-adivi@ti.com>
+	Thu, 12 Jun 2025 07:30:39 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <sha@pengutronix.de>)
+	id 1uPcON-0001dv-QA; Thu, 12 Jun 2025 09:30:31 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <sha@pengutronix.de>)
+	id 1uPcON-0035AV-1C;
+	Thu, 12 Jun 2025 09:30:31 +0200
+Received: from sha by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <sha@pengutronix.de>)
+	id 1uPcON-008nuf-0r;
+	Thu, 12 Jun 2025 09:30:31 +0200
+Date: Thu, 12 Jun 2025 09:30:31 +0200
+From: Sascha Hauer <s.hauer@pengutronix.de>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: scmi: Fix children encountered before parents case
+Message-ID: <aEqCF-xV04VIKCfg@pengutronix.de>
+References: <20250604-clk-scmi-children-parent-fix-v1-1-be206954d866@pengutronix.de>
+ <20250612034723.GB7552@nxa18884-linux>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250612034723.GB7552@nxa18884-linux>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: sha@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_001703_063598_23573657 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20250612_003038_149769_A6701306 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,293 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update glue layer to support PKTDMA V2 for non DMAengine users.
+On Thu, Jun 12, 2025 at 11:47:23AM +0800, Peng Fan wrote:
+> On Wed, Jun 04, 2025 at 01:00:30PM +0200, Sascha Hauer wrote:
+> >When it comes to clocks with parents the SCMI clk driver assumes that
+> >parents are always initialized before their children which might not
+> >always be the case.
+> >
+> >During initialization of the parent_data array we have:
+> >
+> >	sclk->parent_data[i].hw = hws[sclk->info->parents[i]];
+> >
+> >hws[sclk->info->parents[i]] will not yet be initialized when children
+> >are encountered before their possible parents. Solve this by allocating
+> >all struct scmi_clk as an array first and populating all hws[] upfront.
+> >
+> >Fixes: 65a8a3dd3b95f ("clk: scmi: Add support for clock {set,get}_parent")
+> >Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+> 
+> Thanks for the fix. To i.MX, the index of child clk is always after
+> parent clk per current SM design. Not sure you met real issue, anyway
+> this patch itself is correct.
 
-The updates include
-- Handling absence of TISCI
-- Direct IRQs
-- Autopair: Lack of PSIL pair.
+I had issues on TI AM62L (not yet upstream).
 
-Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
----
- drivers/dma/ti/k3-udma-glue.c    | 91 ++++++++++++++++++++++----------
- drivers/dma/ti/k3-udma-private.c | 48 +++++++++++++++--
- drivers/dma/ti/k3-udma.h         |  2 +
- 3 files changed, 110 insertions(+), 31 deletions(-)
+Sascha
 
-diff --git a/drivers/dma/ti/k3-udma-glue.c b/drivers/dma/ti/k3-udma-glue.c
-index f87d244cc2d67..886d57dadacae 100644
---- a/drivers/dma/ti/k3-udma-glue.c
-+++ b/drivers/dma/ti/k3-udma-glue.c
-@@ -244,6 +244,9 @@ static int k3_udma_glue_cfg_tx_chn(struct k3_udma_glue_tx_channel *tx_chn)
- 	const struct udma_tisci_rm *tisci_rm = tx_chn->common.tisci_rm;
- 	struct ti_sci_msg_rm_udmap_tx_ch_cfg req;
- 
-+	if (!tisci_rm->tisci)
-+		return 0;
-+
- 	memset(&req, 0, sizeof(req));
- 
- 	req.valid_params = TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |
-@@ -502,21 +505,26 @@ int k3_udma_glue_enable_tx_chn(struct k3_udma_glue_tx_channel *tx_chn)
- {
- 	int ret;
- 
--	ret = xudma_navss_psil_pair(tx_chn->common.udmax,
--				    tx_chn->common.src_thread,
--				    tx_chn->common.dst_thread);
--	if (ret) {
--		dev_err(tx_chn->common.dev, "PSI-L request err %d\n", ret);
--		return ret;
--	}
-+	if (tx_chn->common.udmax->match_data->type == DMA_TYPE_PKTDMA_V2) {
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
-+				UDMA_CHAN_RT_CTL_AUTOPAIR | UDMA_CHAN_RT_CTL_EN);
-+	} else {
-+		ret = xudma_navss_psil_pair(tx_chn->common.udmax,
-+					    tx_chn->common.src_thread,
-+					    tx_chn->common.dst_thread);
-+		if (ret) {
-+			dev_err(tx_chn->common.dev, "PSI-L request err %d\n", ret);
-+			return ret;
-+		}
- 
--	tx_chn->psil_paired = true;
-+		tx_chn->psil_paired = true;
- 
--	xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
--			    UDMA_PEER_RT_EN_ENABLE);
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
-+				UDMA_PEER_RT_EN_ENABLE);
- 
--	xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
--			    UDMA_CHAN_RT_CTL_EN);
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
-+				UDMA_CHAN_RT_CTL_EN);
-+	}
- 
- 	k3_udma_glue_dump_tx_rt_chn(tx_chn, "txchn en");
- 	return 0;
-@@ -682,7 +690,6 @@ static int k3_udma_glue_cfg_rx_chn(struct k3_udma_glue_rx_channel *rx_chn)
- 			   TI_SCI_MSG_VALUE_RM_UDMAP_CH_CHAN_TYPE_VALID |
- 			   TI_SCI_MSG_VALUE_RM_UDMAP_CH_ATYPE_VALID;
- 
--	req.nav_id = tisci_rm->tisci_dev_id;
- 	req.index = rx_chn->udma_rchan_id;
- 	req.rx_fetch_size = rx_chn->common.hdesc_size >> 2;
- 	/*
-@@ -702,11 +709,18 @@ static int k3_udma_glue_cfg_rx_chn(struct k3_udma_glue_rx_channel *rx_chn)
- 	req.rx_chan_type = TI_SCI_RM_UDMAP_CHAN_TYPE_PKT_PBRR;
- 	req.rx_atype = rx_chn->common.atype_asel;
- 
-+	if (!tisci_rm->tisci) {
-+		// TODO: look at the chan settings
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CFG_REG,
-+				    UDMA_CHAN_RT_CTL_TDOWN | UDMA_CHAN_RT_CTL_PAUSE);
-+		return 0;
-+	}
-+
-+	req.nav_id = tisci_rm->tisci_dev_id;
- 	ret = tisci_rm->tisci_udmap_ops->rx_ch_cfg(tisci_rm->tisci, &req);
- 	if (ret)
- 		dev_err(rx_chn->common.dev, "rchan%d cfg failed %d\n",
--			rx_chn->udma_rchan_id, ret);
--
-+				rx_chn->udma_rchan_id, ret);
- 	return ret;
- }
- 
-@@ -755,8 +769,11 @@ static int k3_udma_glue_cfg_rx_flow(struct k3_udma_glue_rx_channel *rx_chn,
- 	}
- 
- 	if (xudma_is_pktdma(rx_chn->common.udmax)) {
--		rx_ringfdq_id = flow->udma_rflow_id +
-+		if (tisci_rm->tisci)
-+			rx_ringfdq_id = flow->udma_rflow_id +
- 				xudma_get_rflow_ring_offset(rx_chn->common.udmax);
-+		else
-+			rx_ringfdq_id = flow->udma_rflow_id;
- 		rx_ring_id = 0;
- 	} else {
- 		rx_ring_id = flow_cfg->ring_rxq_id;
-@@ -803,6 +820,13 @@ static int k3_udma_glue_cfg_rx_flow(struct k3_udma_glue_rx_channel *rx_chn,
- 		rx_ringfdq_id = k3_ringacc_get_ring_id(flow->ringrxfdq);
- 	}
- 
-+	if (!tisci_rm->tisci) {
-+		xudma_rflowrt_write(flow->udma_rflow, UDMA_RX_FLOWRT_RFA,
-+				UDMA_CHAN_RT_CTL_TDOWN | UDMA_CHAN_RT_CTL_PAUSE);
-+		rx_chn->flows_ready++;
-+		return 0;
-+	}
-+
- 	memset(&req, 0, sizeof(req));
- 
- 	req.valid_params =
-@@ -1307,6 +1331,9 @@ int k3_udma_glue_rx_flow_enable(struct k3_udma_glue_rx_channel *rx_chn,
- 	if (!rx_chn->remote)
- 		return -EINVAL;
- 
-+	if (!tisci_rm->tisci)
-+		return 0;
-+
- 	rx_ring_id = k3_ringacc_get_ring_id(flow->ringrx);
- 	rx_ringfdq_id = k3_ringacc_get_ring_id(flow->ringrxfdq);
- 
-@@ -1348,6 +1375,9 @@ int k3_udma_glue_rx_flow_disable(struct k3_udma_glue_rx_channel *rx_chn,
- 	if (!rx_chn->remote)
- 		return -EINVAL;
- 
-+	if (!tisci_rm->tisci)
-+		return 0;
-+
- 	memset(&req, 0, sizeof(req));
- 	req.valid_params =
- 			TI_SCI_MSG_VALUE_RM_UDMAP_FLOW_DEST_QNUM_VALID |
-@@ -1383,21 +1413,26 @@ int k3_udma_glue_enable_rx_chn(struct k3_udma_glue_rx_channel *rx_chn)
- 	if (rx_chn->flows_ready < rx_chn->flow_num)
- 		return -EINVAL;
- 
--	ret = xudma_navss_psil_pair(rx_chn->common.udmax,
--				    rx_chn->common.src_thread,
--				    rx_chn->common.dst_thread);
--	if (ret) {
--		dev_err(rx_chn->common.dev, "PSI-L request err %d\n", ret);
--		return ret;
--	}
-+	if (rx_chn->common.udmax->match_data->type == DMA_TYPE_PKTDMA_V2) {
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG,
-+				UDMA_CHAN_RT_CTL_AUTOPAIR |  UDMA_CHAN_RT_CTL_EN);
-+	} else {
-+		ret = xudma_navss_psil_pair(rx_chn->common.udmax,
-+					    rx_chn->common.src_thread,
-+					    rx_chn->common.dst_thread);
-+		if (ret) {
-+			dev_err(rx_chn->common.dev, "PSI-L request err %d\n", ret);
-+			return ret;
-+		}
- 
--	rx_chn->psil_paired = true;
-+		rx_chn->psil_paired = true;
- 
--	xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG,
--			    UDMA_CHAN_RT_CTL_EN);
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG,
-+				UDMA_CHAN_RT_CTL_EN);
- 
--	xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
--			    UDMA_PEER_RT_EN_ENABLE);
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
-+				UDMA_PEER_RT_EN_ENABLE);
-+	}
- 
- 	k3_udma_glue_dump_rx_rt_chn(rx_chn, "rxrt en");
- 	return 0;
-diff --git a/drivers/dma/ti/k3-udma-private.c b/drivers/dma/ti/k3-udma-private.c
-index 05228bf000333..5fccb8d18c898 100644
---- a/drivers/dma/ti/k3-udma-private.c
-+++ b/drivers/dma/ti/k3-udma-private.c
-@@ -3,18 +3,28 @@
-  *  Copyright (C) 2019 Texas Instruments Incorporated - http://www.ti.com
-  *  Author: Peter Ujfalusi <peter.ujfalusi@ti.com>
-  */
-+#include <linux/irq.h>
-+#include <linux/irqchip.h>
-+#include <linux/irqdomain.h>
-+#include <linux/interrupt.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
- 
- int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
- {
--	return navss_psil_pair(ud, src_thread, dst_thread);
-+	if (IS_ENABLED(CONFIG_TI_K3_UDMA))
-+		return navss_psil_pair(ud, src_thread, dst_thread);
-+
-+	return 0;
- }
- EXPORT_SYMBOL(xudma_navss_psil_pair);
- 
- int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread, u32 dst_thread)
- {
--	return navss_psil_unpair(ud, src_thread, dst_thread);
-+	if (IS_ENABLED(CONFIG_TI_K3_UDMA))
-+		return navss_psil_unpair(ud, src_thread, dst_thread);
-+
-+	return 0;
- }
- EXPORT_SYMBOL(xudma_navss_psil_unpair);
- 
-@@ -159,15 +169,32 @@ void xudma_##res##rt_write(struct udma_##res *p, int reg, u32 val)	\
- EXPORT_SYMBOL(xudma_##res##rt_write)
- XUDMA_RT_IO_FUNCTIONS(tchan);
- XUDMA_RT_IO_FUNCTIONS(rchan);
-+XUDMA_RT_IO_FUNCTIONS(rflow);
- 
- int xudma_is_pktdma(struct udma_dev *ud)
- {
--	return ud->match_data->type == DMA_TYPE_PKTDMA;
-+	return (ud->match_data->type == DMA_TYPE_PKTDMA ||
-+			ud->match_data->type == DMA_TYPE_PKTDMA_V2);
- }
- EXPORT_SYMBOL(xudma_is_pktdma);
- 
- int xudma_pktdma_tflow_get_irq(struct udma_dev *ud, int udma_tflow_id)
- {
-+	if (ud->match_data->type == DMA_TYPE_PKTDMA_V2) {
-+		__be32 addr[2] = {0, 0};
-+		struct of_phandle_args out_irq;
-+		int ret;
-+
-+		out_irq.np = dev_of_node(ud->dev);
-+		out_irq.args_count = 1;
-+		out_irq.args[0] = udma_tflow_id;
-+		ret = of_irq_parse_raw(addr, &out_irq);
-+		if (ret)
-+			return ret;
-+
-+		return irq_create_of_mapping(&out_irq);
-+	}
-+
- 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
- 
- 	return msi_get_virq(ud->dev, udma_tflow_id + oes->pktdma_tchan_flow);
-@@ -176,6 +203,21 @@ EXPORT_SYMBOL(xudma_pktdma_tflow_get_irq);
- 
- int xudma_pktdma_rflow_get_irq(struct udma_dev *ud, int udma_rflow_id)
- {
-+	if (ud->match_data->type == DMA_TYPE_PKTDMA_V2) {
-+		__be32 addr[2] = {0, 0};
-+		struct of_phandle_args out_irq;
-+		int ret;
-+
-+		out_irq.np = dev_of_node(ud->dev);
-+		out_irq.args_count = 1;
-+		out_irq.args[0] = udma_rflow_id;
-+		ret = of_irq_parse_raw(addr, &out_irq);
-+		if (ret)
-+			return ret;
-+
-+		return irq_create_of_mapping(&out_irq);
-+	}
-+
- 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
- 
- 	return msi_get_virq(ud->dev, udma_rflow_id + oes->pktdma_rchan_flow);
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index b54962601f1e2..fea1213f65fe0 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -736,6 +736,8 @@ u32 xudma_rchanrt_read(struct udma_rchan *rchan, int reg);
- void xudma_rchanrt_write(struct udma_rchan *rchan, int reg, u32 val);
- bool xudma_rflow_is_gp(struct udma_dev *ud, int id);
- int xudma_get_rflow_ring_offset(struct udma_dev *ud);
-+u32 xudma_rflowrt_read(struct udma_rflow *rflow, int reg);
-+void xudma_rflowrt_write(struct udma_rflow *rflow, int reg, u32 val);
- 
- int xudma_is_pktdma(struct udma_dev *ud);
- 
 -- 
-2.34.1
-
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
