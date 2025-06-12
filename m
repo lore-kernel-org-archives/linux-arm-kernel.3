@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFA09C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 09:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAB7C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 09:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=; b=PtGLe0/XrNBxwMUmyfP8mFAT5X
-	qsBsL98HvsBiGGY0CseWsUygML2oAZPFGwfHlMgvxcaXllH3/z5oR/VJ0LgpH41BwOkGAWCtkn/ID
-	oyrrj+QRM11c5ibJA8B55xuPiPd5+LLk4jJDUT2jWORxzaY9XwxjUyBhoS1hYUm7nEyM4Y0EiPaFp
-	1CU16hjMtimrRe5sVZ6uCsZpU4b8y6o2Q6U0ecG+btVPgIwMInE6sMHY1N1O/QHaXs3WCXzqS0Ufe
-	3LyWfz+ymN7dytd1h/UtW4w0lgJBC8v1wkiTtSFIabKzrOboxrZT1zChO/avBmgIEmihOPWXK0sI3
-	FeVoQtJA==;
+	bh=OR3V0M3UkZrWg4zgWBIPGNB/5nFZ8enXp7456gTPkOI=; b=De9mgq9tLe6CADkPpds2SrYc4D
+	wKEgv4xDLruiD/ZHaJqg7SaP/jT8AiAgik4jLdZCovplw0KDf47oxyaHwcUMS/yXx7XFAtUbNagDr
+	4YLkVrzXEWFOwW7P+4BTMIaGm/F7Aw6HF8Afc2btrbV8TGE/DT/iw3MNjKaRndjl3GCMA0aWJACri
+	wNclfN1FM8F7Msv78TWr1OLl45Xeu4FTMqXsfcf/ob+uqIoeT6JFfz++afHoxwc4FxpisdpvstKF4
+	3Jj+le9VrDKkibP9hONzLUNg638DYVc34Dzp/QWt8LmDwW2DWcICgR1b427Q+bO0UjaANKMWzXVgb
+	kxNJWokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPe7j-0000000Cnq3-26gd;
-	Thu, 12 Jun 2025 09:21:27 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1uPe9p-0000000Co36-0mkD;
+	Thu, 12 Jun 2025 09:23:37 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPdBw-0000000CbQy-1jjQ
+	id 1uPdBx-0000000CbRq-3qod
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 08:21:46 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Thu, 12 Jun 2025 08:21:47 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 09EEE219B1;
-	Thu, 12 Jun 2025 08:21:29 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id B10E21F7ED;
+	Thu, 12 Jun 2025 08:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749716489; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1749716486; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
-	b=PuQMsCT/WCVuDeWwZtYPLC3VXnRJbhS8DZm2DY7JtPh/ekZYr11u4QIx0457VrgKF1ioqt
-	yZ8jkmf+8raHncehbrCkr6Cx2oXWAnuEMXA4kZHQ7jdt/Oe9EOuwHvvb9+R1ZGx+OszMCY
-	8ricy7tgPciLrI+IBc3XhG6zHoroLOM=
+	bh=OR3V0M3UkZrWg4zgWBIPGNB/5nFZ8enXp7456gTPkOI=;
+	b=Jgh/WIQ3Br998E58v7FiT37BePDgKgfiPs8sB3WuAWqDCe9XxOE5ieP+DqGp5SShSZPJic
+	SOxo9OlfCkgGOSu9N9sVgB1i4b/DRN50NDz5VRgMFihzOCauuHBjPWlLfZW5rT7ZTiuR8Z
+	O6A/FZMiKfMHZkVOtG6wNML1WfIHXL4=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749716489;
+	s=susede2_ed25519; t=1749716486;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
-	b=S9iHZcbcV5tQF4Svd2pd/jon9engi9gL9AI8WYM/yKdGiRlNcaKAS9CYEC/wLTDwq3wea6
-	9djnEXay2xzbwKBA==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="PuQMsCT/";
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=S9iHZcbc
+	bh=OR3V0M3UkZrWg4zgWBIPGNB/5nFZ8enXp7456gTPkOI=;
+	b=lYpe0EtBizhg6snUfdSWOSBO6KwmN9h6s308NmCyV9AH+bW14JcBzYYk1AD0t5sgoPZO1m
+	G4jYCWWJAO0drrBw==
+Authentication-Results: smtp-out2.suse.de;
+	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749716489; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1749716486; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
-	b=PuQMsCT/WCVuDeWwZtYPLC3VXnRJbhS8DZm2DY7JtPh/ekZYr11u4QIx0457VrgKF1ioqt
-	yZ8jkmf+8raHncehbrCkr6Cx2oXWAnuEMXA4kZHQ7jdt/Oe9EOuwHvvb9+R1ZGx+OszMCY
-	8ricy7tgPciLrI+IBc3XhG6zHoroLOM=
+	bh=OR3V0M3UkZrWg4zgWBIPGNB/5nFZ8enXp7456gTPkOI=;
+	b=Jgh/WIQ3Br998E58v7FiT37BePDgKgfiPs8sB3WuAWqDCe9XxOE5ieP+DqGp5SShSZPJic
+	SOxo9OlfCkgGOSu9N9sVgB1i4b/DRN50NDz5VRgMFihzOCauuHBjPWlLfZW5rT7ZTiuR8Z
+	O6A/FZMiKfMHZkVOtG6wNML1WfIHXL4=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749716489;
+	s=susede2_ed25519; t=1749716486;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QFF/VDCaBeJg0xRNuB1Q3WCLsI36V6WPpnd2AkwWVQg=;
-	b=S9iHZcbcV5tQF4Svd2pd/jon9engi9gL9AI8WYM/yKdGiRlNcaKAS9CYEC/wLTDwq3wea6
-	9djnEXay2xzbwKBA==
+	bh=OR3V0M3UkZrWg4zgWBIPGNB/5nFZ8enXp7456gTPkOI=;
+	b=lYpe0EtBizhg6snUfdSWOSBO6KwmN9h6s308NmCyV9AH+bW14JcBzYYk1AD0t5sgoPZO1m
+	G4jYCWWJAO0drrBw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9547B132D8;
-	Thu, 12 Jun 2025 08:21:28 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5C191132D8;
+	Thu, 12 Jun 2025 08:21:26 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id SGwUIwiOSmgILAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 12 Jun 2025 08:21:28 +0000
+	id EH8aFQaOSmgILAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 12 Jun 2025 08:21:26 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: deller@gmx.de,
 	soci@c64.rulez.org,
@@ -95,49 +94,39 @@ Cc: linux-fbdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-omap@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 10/14] fbdev/mb862xx: Do not include <linux/export.h>
-Date: Thu, 12 Jun 2025 10:16:33 +0200
-Message-ID: <20250612081738.197826-11-tzimmermann@suse.de>
+Subject: [PATCH v2 04/14] fbdev/cyber2000fb: Unexport symbols
+Date: Thu, 12 Jun 2025 10:16:27 +0200
+Message-ID: <20250612081738.197826-5-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250612081738.197826-1-tzimmermann@suse.de>
 References: <20250612081738.197826-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-3.01 / 50.00];
+X-Spamd-Result: default: False [-2.80 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
 	R_MISSING_CHARSET(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FREEMAIL_TO(0.00)[gmx.de,c64.rulez.org,ffwll.ch,armlinux.org.uk,gmail.com,kernel.org];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	RCVD_COUNT_TWO(0.00)[2];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim,suse.de:mid,suse.de:email];
-	FROM_EQ_ENVFROM(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLwqwbgho3bgbo9wb3ecq1qfng)];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	MIME_TRACE(0.00)[0:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
+	FREEMAIL_TO(0.00)[gmx.de,c64.rulez.org,ffwll.ch,armlinux.org.uk,gmail.com,kernel.org];
 	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
 	TO_DN_SOME(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
-X-Rspamd-Queue-Id: 09EEE219B1
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_012144_598512_1F784DF4 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250612_012146_096294_211744BB 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,25 +143,86 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Fix the compile-time warning
 
-  drivers/video/fbdev/mb862xx/mb862xx-i2c.c: warning: EXPORT_SYMBOL() is not used, but #include <linux/export.h> is present
+  drivers/video/fbdev/cyber2000fb.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+
+The affected symbols are not used anywhere, so remove the functions
+entirely.
+
+v2:
+- remove unused functions (Helge)
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 ---
- drivers/video/fbdev/mb862xx/mb862xx-i2c.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/video/fbdev/cyber2000fb.c | 36 -------------------------------
+ drivers/video/fbdev/cyber2000fb.h |  2 --
+ 2 files changed, 38 deletions(-)
 
-diff --git a/drivers/video/fbdev/mb862xx/mb862xx-i2c.c b/drivers/video/fbdev/mb862xx/mb862xx-i2c.c
-index ffdb1597d303..08b7f19a67a5 100644
---- a/drivers/video/fbdev/mb862xx/mb862xx-i2c.c
-+++ b/drivers/video/fbdev/mb862xx/mb862xx-i2c.c
-@@ -9,7 +9,6 @@
- #include <linux/i2c.h>
- #include <linux/io.h>
- #include <linux/delay.h>
--#include <linux/export.h>
+diff --git a/drivers/video/fbdev/cyber2000fb.c b/drivers/video/fbdev/cyber2000fb.c
+index 986760b90465..5cb5ee517f81 100644
+--- a/drivers/video/fbdev/cyber2000fb.c
++++ b/drivers/video/fbdev/cyber2000fb.c
+@@ -1089,7 +1089,6 @@ void cyber2000fb_enable_extregs(struct cfb_info *cfb)
+ 		cyber2000_grphw(EXT_FUNC_CTL, old, cfb);
+ 	}
+ }
+-EXPORT_SYMBOL(cyber2000fb_enable_extregs);
  
- #include "mb862xxfb.h"
- #include "mb862xx_reg.h"
+ /*
+  * Disable access to the extended registers
+@@ -1109,41 +1108,6 @@ void cyber2000fb_disable_extregs(struct cfb_info *cfb)
+ 	else
+ 		cfb->func_use_count -= 1;
+ }
+-EXPORT_SYMBOL(cyber2000fb_disable_extregs);
+-
+-/*
+- * Attach a capture/tv driver to the core CyberX0X0 driver.
+- */
+-int cyber2000fb_attach(struct cyberpro_info *info, int idx)
+-{
+-	if (int_cfb_info != NULL) {
+-		info->dev	      = int_cfb_info->fb.device;
+-#ifdef CONFIG_FB_CYBER2000_I2C
+-		info->i2c	      = &int_cfb_info->i2c_adapter;
+-#else
+-		info->i2c	      = NULL;
+-#endif
+-		info->regs	      = int_cfb_info->regs;
+-		info->irq             = int_cfb_info->irq;
+-		info->fb	      = int_cfb_info->fb.screen_base;
+-		info->fb_size	      = int_cfb_info->fb.fix.smem_len;
+-		info->info	      = int_cfb_info;
+-
+-		strscpy(info->dev_name, int_cfb_info->fb.fix.id,
+-			sizeof(info->dev_name));
+-	}
+-
+-	return int_cfb_info != NULL;
+-}
+-EXPORT_SYMBOL(cyber2000fb_attach);
+-
+-/*
+- * Detach a capture/tv driver from the core CyberX0X0 driver.
+- */
+-void cyber2000fb_detach(int idx)
+-{
+-}
+-EXPORT_SYMBOL(cyber2000fb_detach);
+ 
+ #ifdef CONFIG_FB_CYBER2000_DDC
+ 
+diff --git a/drivers/video/fbdev/cyber2000fb.h b/drivers/video/fbdev/cyber2000fb.h
+index 04641aa13acc..21095df8fdb0 100644
+--- a/drivers/video/fbdev/cyber2000fb.h
++++ b/drivers/video/fbdev/cyber2000fb.h
+@@ -488,7 +488,5 @@ struct cyberpro_info {
+  * Note! Writing to the Cyber20x0 registers from an interrupt
+  * routine is definitely a bad idea atm.
+  */
+-int cyber2000fb_attach(struct cyberpro_info *info, int idx);
+-void cyber2000fb_detach(int idx);
+ void cyber2000fb_enable_extregs(struct cfb_info *cfb);
+ void cyber2000fb_disable_extregs(struct cfb_info *cfb);
 -- 
 2.49.0
 
