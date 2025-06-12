@@ -4,57 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20247C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DCF3C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OTdk/W8JCQtrmQJ01xeotuP1J4QJ3C3dS07xj7859k8=; b=PtdQXnn+Danva04/88fVQmjHzw
-	HJrVl0xQg/f7JpBN1ElLeYCWhwsoxWcZBkOyFYjWnF6gqUwdqWH2nZ26z0m4uYy26TT1b8ITnjdef
-	otGKvsziivhphnA7IvRyTJmRTDlO6xly9+6hONn/wy6adv8xaVLIkjxSqeGlszpYI+M+WhK7KxVqz
-	tBaSsHEZhliP+Cskpw2MXj698N25evpWTfcZ3t+6dIERfxZQ/3xLhFA6wK8BVs3WT2KiXn81VD5Nz
-	DT5u1h/2lpxT41bT6/zrROYDG9ZQ8+X5sEXITOce9Nd7V6Za683DdUftDFd46J1ShnzUkQPbBUzye
-	6IjfbRdg==;
+	bh=PWsK6/4szkHoVXHrnAm4LALSER2jQ1ghC7Ix2DLbky0=; b=QQQCgtCq5fik2mWcYZnO8Ts7SG
+	a7Th1h0XlLeSV8DLYzmF8AGAqx8OHAfs0+OKiu3RyEZMys0m1De8tMlsVYjc3mrnvz2JZK+apMFiT
+	rGCQmUw/rAHMbvartLeCCa1keO7rwR9mQ23/gNtK7GkK5p0qQ8Znv28F0fjedx7t6uJTx5BndIyQd
+	zo3Jo2CbMF881sititEBRxBWA0GtxcTucTuB/c3OISCoBxKF3WYsM4GFDve97QUWbsE0bBYK3P0zP
+	efJJA0k+Kc+PC+J76WencZd/BZITTaVzUD0t8hfJfFlrDMhGY1zHektq5VkR+YwYihzpfqtneaJZF
+	Qc6/3eVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPfOC-0000000D1XT-0I1J;
-	Thu, 12 Jun 2025 10:42:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPeLo-0000000CpY5-0JP5
+	id 1uPfQL-0000000D25z-0pNB;
+	Thu, 12 Jun 2025 10:44:45 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPePG-0000000CptR-0V2K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 09:36:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4A4314BF;
-	Thu, 12 Jun 2025 02:35:37 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5133E3F66E;
-	Thu, 12 Jun 2025 02:35:56 -0700 (PDT)
-Date: Thu, 12 Jun 2025 10:35:53 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	<arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] clk: scmi: Fix children encountered before parents
- case
-Message-ID: <20250612-vivacious-bipedal-beetle-b04714@sudeepholla>
-References: <20250612-clk-scmi-children-parent-fix-v2-1-125b26a311f6@pengutronix.de>
- <20250612-eccentric-fresh-bee-e52db4@sudeepholla>
- <aEqTNLTp0EzcC2aa@pengutronix.de>
+	Thu, 12 Jun 2025 09:39:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=PWsK6/4szkHoVXHrnAm4LALSER2jQ1ghC7Ix2DLbky0=;
+	b=gCgCKhQbohyOe0xUCPsJ3o4Ew/mFa7zLgMkmqU0BS9KZaD06obYbyN0WtRyCXQ
+	RdKxtQYtBavGjIlWxi3tSqzVWp0Tb1ZBRikMCHdkTfX0e9JdZegrO4h+PgwDcLLC
+	vEc/cl7bkv8Y6lRYN4tOAocJ4iuR0/3xVKMRC2NKkkiVI=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD31+0yoEpo1rB_AA--.16809S3;
+	Thu, 12 Jun 2025 17:39:00 +0800 (CST)
+Date: Thu, 12 Jun 2025 17:38:57 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v17 1/7] Documentation/firmware: add imx/se to
+ other_interfaces
+Message-ID: <aEqgMVHl0C07/dPz@dragon>
+References: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
+ <20250426-imx-se-if-v17-1-0c85155a50d1@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aEqTNLTp0EzcC2aa@pengutronix.de>
+In-Reply-To: <20250426-imx-se-if-v17-1-0c85155a50d1@nxp.com>
+X-CM-TRANSID: Ms8vCgD31+0yoEpo1rB_AA--.16809S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUYJPEUUUUU
+X-Originating-IP: [117.82.86.8]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAR5qZWhKmz8VvgAAs9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_023600_154741_5DD31019 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20250612_023934_494653_46F76FA1 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,64 +79,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 10:43:32AM +0200, Sascha Hauer wrote:
-> On Thu, Jun 12, 2025 at 09:29:16AM +0100, Sudeep Holla wrote:
-> > On Thu, Jun 12, 2025 at 09:36:58AM +0200, Sascha Hauer wrote:
-> > > When it comes to clocks with parents the SCMI clk driver assumes that
-> > > parents are always initialized before their children which might not
-> > > always be the case.
-> > > 
-> > > During initialization of the parent_data array we have:
-> > > 
-> > > 	sclk->parent_data[i].hw = hws[sclk->info->parents[i]];
-> > > 
-> > > hws[sclk->info->parents[i]] will not yet be initialized when children
-> > > are encountered before their possible parents. Solve this by allocating
-> > > all struct scmi_clk as an array first and populating all hws[] upfront.
-> > > 
-> > 
-> > LGTM. I would like to add a note that we don't free individual scmi_clk
-> > if for some reason it fails to setup. I can do that when I apply, just
-> > checking if anyone has any objections. Please shout out if you have.
+On Sat, Apr 26, 2025 at 12:31:32AM +0530, Pankaj Gupta wrote:
+> Documents i.MX SoC's Service layer and C_DEV driver for selected SoC(s)
+> that contains the NXP hardware IP(s) for Secure Enclaves(se) like:
+> - NXP EdgeLock Enclave on i.MX93 & i.MX8ULP
 > 
-> Feel free to add that note. I should have added this myself since it's
-> not entirely obvious that the devm_kfree() has to be removed with this
-> patch.
-> 
+> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-I did that and realised only bit later that I usually route SCMI clk driver
-changes via clk tree.
+No one cared to give a Reviewed-by on this one?
 
-Please repost with
+Shawn
 
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-
-I am sharing below the commit message update I did when I applied.
-
-Regards,
-Sudeep
-
--->8
-
-clk: scmi: Handle case where child clocks are initialized before their parents
-
-The SCMI clock driver currently assumes that parent clocks are always
-initialized before their children. However, this assumption can fail if
-a child clock is encountered before its parent during probe.
-
-This leads to an issue during initialization of the parent_data array:
-
-    sclk->parent_data[i].hw = hws[sclk->info->parents[i]];
-
-If the parent clock's hardware structure has not been initialized yet,
-this assignment results in invalid data.
-
-To resolve this, allocate all struct scmi_clk instances as a contiguous
-array at the beginning of the probe and populate the hws[] array upfront.
-This ensures that any parent referenced later is already initialized,
-regardless of the order in which clocks are processed.
-
-Note that we can no longer free individual scmi_clk instances if
-scmi_clk_ops_init() fails which shouldn't be a problem if the SCMI
-platform has proper per-agent clock discovery.
 
