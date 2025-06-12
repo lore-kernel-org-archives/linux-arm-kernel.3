@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38EFC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E827C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lFHYqoHj11Pf7C9Bg1GN9jEeWSJy3J0EFTOrzRw6uz8=; b=3D4n0gPzViYJwESIVWp/hBFgzo
-	X/7bywbKXFwmtMpOLzYAp1hYhxD8SM2W+NnvtAAhyVv2Lb9G1rEIl4M6MgLYm6lw0zi/kE2ETAbG/
-	i2iJtgGKjlJD/0qRCsQP0y1imyD80MBZixIOaex9X+ww7vZo+i48ALcYeli4PXV81vrPsJHP5T+GU
-	Zmeh0ZsERoPAIllFLNI9panK7ZLQwUCt0TCCyjI/edYTmA9uvPh7iW7C+mu9GV7EmPP06ZBawlQyI
-	3V1VWGsZ/5bRnpBa0ooJ0Jjh0ZFrm19Q0TSMqR9F9sk5VeCnIpXENSeSyVPabD0YTXmfOrlh2Ei4V
-	9kj+bfkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M0kvq/12rDbuJoW2tEUY3xZ2q0mV8QHq6VdoGLJBCVM=; b=ATS1rC9jhKJDlczD3HdEhsSgiX
+	VLnvbc1s85v0XfacMbEV2+qu+VjcXkAFrymQfWfjYJuu/69GmOLOUE3y7lnFNcCkFZc/tYZE3rlhH
+	UqZcrR1pA5vxBFBcFTksQCTQ5drSjtWR39eA757TnlHfZnMtq8NSUZyLp3BDcDkC6VxWMMifvEuo/
+	GC/4cCbDP1K4QtyXZT1K6ngaoSqGnE3qn9GI3rmBwbGpSYPPbcszZwgJxO4wbcjgZExsqEyXtg2kQ
+	o8N2OTMPsSqTivarOdKNakXzcUz37XY+25UA5eLShmuVo+ybdmFdDTlw8QxONdyO+/IyErLa9Wr7/
+	Aw2QWnQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhq3-0000000DNPB-0dNR;
-	Thu, 12 Jun 2025 13:19:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uPhpK-0000000DMEv-288O;
+	Thu, 12 Jun 2025 13:18:42 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPg4V-0000000D8ir-3SKc;
-	Thu, 12 Jun 2025 11:26:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7F52EA51C07;
-	Thu, 12 Jun 2025 11:26:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0BFEC4CEEA;
-	Thu, 12 Jun 2025 11:26:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749727574;
-	bh=Wr3zLVYuYfWGn+MSJ4fOyJXUCAJrNU6nB+Tbsj+k/iU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=suHdLQXP65AqhZVXPaBfZJ5EJOGqG4tRoTejZ33KOs6rNHz/jZQ2DjOB1d4n6k8ac
-	 vODQ10GDg36OJ1lTqsWE/Jo+ItxEdyB71INni/2nHKasIoFbNmRUQMM091SoDAZoAl
-	 xOSwtsoGcmcB+ng0JK+fJGZCLFU/ixkrZBUds2/vpQs2baRKDAC5FLyqzFKnAhiMAV
-	 PrWRNU/1wENhvT4D7bGh93F/oraWclj2JU1tphs0tyWLUcSChs+vmuJkLR50dQ0loA
-	 Uoj0aw32ZptKrU4aNlDJNse2llCnkXH7SpvbQoiO6jlgpnAcDS0QtacOnA9DdEe718
-	 T8BEvYTjfl+rQ==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Chaotian Jing <chaotian.jing@mediatek.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: mhiramat@kernel.org,
-	Tomasz Figa <tfiga@chromium.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] mtk-sd: Prevent memory corruption from DMA map failure
-Date: Thu, 12 Jun 2025 20:26:10 +0900
-Message-ID: <174972756982.3337526.6755001617701603082.stgit@mhiramat.tok.corp.google.com>
-X-Mailer: git-send-email 2.50.0.rc1.591.g9c95f17f64-goog
-User-Agent: StGit/0.19
+	id 1uPenV-0000000CuVa-2vWJ;
+	Thu, 12 Jun 2025 10:04:39 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55CA4NFf2882638;
+	Thu, 12 Jun 2025 05:04:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749722663;
+	bh=M0kvq/12rDbuJoW2tEUY3xZ2q0mV8QHq6VdoGLJBCVM=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=BoxAwgD2buHHc5xQReJkJk/XWxKlkhor4zR5KLFTmrpzvrwJ0RSC0RknNnYtdQy9s
+	 VK584tKRpAyyAZo8czRUE19ivyZVGcX+bgWCKGZyFPH6cSseR/o3dBDFUrPSJ3dHuk
+	 SGZhe2ni5JBz61w74do3uGu1TNiLfPoJUCGxHn3I=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55CA4N3m2496745
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 12 Jun 2025 05:04:23 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 12
+ Jun 2025 05:04:22 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 12 Jun 2025 05:04:22 -0500
+Received: from localhost (dhcp-172-24-227-169.dhcp.ti.com [172.24.227.169])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55CA4LvJ1998196;
+	Thu, 12 Jun 2025 05:04:21 -0500
+Date: Thu, 12 Jun 2025 15:34:20 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Enric Balletbo i Serra <eballetb@redhat.com>
+CC: Roger Quadros <rogerq@kernel.org>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>, <vkoul@kernel.org>,
+        <kishon@kernel.org>, <sjakhade@cadence.com>,
+        <thomas.richard@bootlin.com>, <christophe.jaillet@wanadoo.fr>,
+        <u.kleine-koenig@baylibre.com>, <linux-phy@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>
+Subject: Re: [PATCH v3 1/2] phy: cadence-torrent: Add PCIe multilink
+ configuration for 100 MHz refclk
+Message-ID: <6b747de0-9d10-43e9-a2b1-23a129301538@ti.com>
+References: <20250109121614.754466-1-s-vadapalli@ti.com>
+ <20250109121614.754466-2-s-vadapalli@ti.com>
+ <fccedc26-0bb9-4078-8a94-4199f6b383c1@kernel.org>
+ <CALE0LRsdsTU-NLN4fgh2c8qnS-pPP1BDJvjnvsSOnud8amk3=A@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CALE0LRsdsTU-NLN4fgh2c8qnS-pPP1BDJvjnvsSOnud8amk3=A@mail.gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_042615_928821_39D26726 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250612_030437_943589_3A534733 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +92,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+On Thu, Jun 12, 2025 at 10:48:20AM +0200, Enric Balletbo i Serra wrote:
 
-If msdc_prepare_data() fails to map the DMA region, the request is
-not prepared for data receiving, but msdc_start_data() proceeds
-the DMA with previous setting.
-Since this will lead a memory corruption, we have to stop the
-request operation soon after the msdc_prepare_data() fails to
-prepare it.
+Hello Enric,
 
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
----
- drivers/mmc/host/mtk-sd.c |   17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+> Hi all,
+> 
+> On Thu, Jan 9, 2025 at 5:35 PM Roger Quadros <rogerq@kernel.org> wrote:
+> >
+> >
+> >
+> > On 09/01/2025 14:16, Siddharth Vadapalli wrote:
+> > > From: Swapnil Jakhade <sjakhade@cadence.com>
+> > >
+> > > Add register sequences to support PCIe multilink configuration for 100MHz
+> > > reference clock. Maximum two PCIe links are supported.
+> > >
+> > > Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
+> > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> >
+> > Reviewed-by: Roger Quadros <rogerq@kernel.org>
+> >
+> 
+> These patches seem good and have been reviewed but look stalled here.
+> There is any chance to rebase it on top of the mainline?
 
-diff --git a/drivers/mmc/host/mtk-sd.c b/drivers/mmc/host/mtk-sd.c
-index 3594010bc229..56b4999fe58f 100644
---- a/drivers/mmc/host/mtk-sd.c
-+++ b/drivers/mmc/host/mtk-sd.c
-@@ -834,6 +834,11 @@ static void msdc_prepare_data(struct msdc_host *host, struct mmc_data *data)
- 	}
- }
- 
-+static bool msdc_data_prepared(struct mmc_data *data)
-+{
-+	return data->host_cookie & MSDC_PREPARE_FLAG;
-+}
-+
- static void msdc_unprepare_data(struct msdc_host *host, struct mmc_data *data)
- {
- 	if (data->host_cookie & MSDC_ASYNC_FLAG)
-@@ -1466,8 +1471,18 @@ static void msdc_ops_request(struct mmc_host *mmc, struct mmc_request *mrq)
- 	WARN_ON(!host->hsq_en && host->mrq);
- 	host->mrq = mrq;
- 
--	if (mrq->data)
-+	if (mrq->data) {
- 		msdc_prepare_data(host, mrq->data);
-+		if (!msdc_data_prepared(mrq->data)) {
-+			/*
-+			 * Failed to prepare DMA area, fail fast before
-+			 * starting any commands.
-+			 */
-+			mrq->cmd->error = -ENOSPC;
-+			mmc_request_done(mmc_from_priv(host), mrq);
-+			return;
-+		}
-+	}
- 
- 	/* if SBC is required, we have HW option and SW option.
- 	 * if HW option is enabled, and SBC does not have "special" flags,
+The patches apply cleanly on the latest linux-next tagged next-20250612.
 
+Regards,
+Siddharth.
 
