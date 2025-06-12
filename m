@@ -4,55 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C43C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAAEC7114A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhao6CWHKt4YHjPOypkGd1HjwpRJ0pRhQmjxPcCYQbE=; b=i0+aEfrD4H0ibBmDYOSSBESjz3
-	2e3ZQLwXEGNKUBYdXHnDL3K8Hm4meeO4+tobB29lHTFurZvmQCrbhk6kTGIssRuA+pNkXoC4ODxGA
-	j1g4SNXCgHtvWOxjySFA91/4fLAWGcZNBw5mxtwuck3dPgR2/jhzUImTfmWwim0VYMwmu81DiM3ed
-	NKetE1/UOR6P1zwY07B0XdtrN7dAlrwxG+pRbJ2ceYgjq0DG4yYRjw6hLP9lJfgm44ZF6edpXxlgp
-	21fPaWh9Pq3l5ft9sjqY4mFslio6dqrTrSW/ZladwVulk/iLiCAsoCfl7KCfkmdHChoA25n5hJphR
-	uWNFze2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U0X8ZH/rfO/Z6losPFjqk2K4HYFkVNB0nAVwC7e9oDU=; b=cSbtOng5uPOISHzj8JHk5aouEo
+	BicJ/a8TGm/Qeo4lpjUwcJ+vURncYMLSzimQpeN9cfBpXHSfTwiSCpKIDbOg5SDhBgVVnRoTo5dcH
+	eSsTELFjjwSozWlUeyOG4AgzaF0irmUKFqBdsloRU6RbwCnu1L3f6sLBv5iPHIam81+PBDmDjDJNV
+	zzKEaMKZo7L65yD/5XXfOPlLCY90EbOlPD7463cyQqfdZa9z+dzsNohJFL5/3jX1Qgl9u8ygNF88s
+	tP2E+T/INaO5s+Y6w5K1z9UTDPX4iQT9AxnmEDwkqZ9utY7EpED8TTWOtVRUZezQX1g6+5KrjgyO3
+	TpHCMSGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPns6-0000000ELZI-156R;
-	Thu, 12 Jun 2025 19:46:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPkMI-0000000Dt8M-0TdZ
+	id 1uPnsK-0000000EMCN-3gju;
+	Thu, 12 Jun 2025 19:46:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPkTs-0000000DuFM-1URn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 16:00:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D8F9153B;
-	Thu, 12 Jun 2025 09:00:33 -0700 (PDT)
-Received: from [10.57.84.35] (unknown [10.57.84.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96C423F66E;
-	Thu, 12 Jun 2025 09:00:52 -0700 (PDT)
-Message-ID: <066fa735-98ad-45f4-9316-b983d2e5a3d3@arm.com>
-Date: Thu, 12 Jun 2025 17:00:51 +0100
+	Thu, 12 Jun 2025 16:08:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 752986113B;
+	Thu, 12 Jun 2025 16:08:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B62BAC4CEEB;
+	Thu, 12 Jun 2025 16:08:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749744523;
+	bh=7+b3JmMUKKzZHXO8vtquG03ptonMmn+AG6H+hfCo32c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yu1eX2+yaTkbsl/d4yM4lfN2qNWWfjohdrJaOUTEURh2W67frVLVNJ9rRCgFxQrZf
+	 ndFlg8mMHcvOcqS4PhqSjZpEbYibip25n9/WMXx9yOX9Qth3pi9r1Ayvek6EEAdSHv
+	 dpNwxRCRDKpCbTYgUBrbAGwJ94lvMUwnRRjqgU+jxCip+i+JE/KLG2QPyM/zn8B4rJ
+	 Q8E6oTzwL6dbMpRzg3e6H8iuHtrL7hK+9Sl08Ggg407bIOdcfokMKeKs+14qTtTgx8
+	 HyWxtWvtY4MFq9igWIknEFRf4dzrpbgGHF6GMIobafqVsAe1ZXwkLzRnaepfDdulDX
+	 7aP4hDoAddGvQ==
+Date: Thu, 12 Jun 2025 21:38:32 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	Niklas Cassel <cassel@kernel.org>
+Subject: Re: [PATCH v11 10/11] PCI: dwc: Print warning message when
+ cpu_addr_fixup() exists
+Message-ID: <az74rxjpfahjwmz7fg5agn47org7arpblariuauujhovkaieha@d6r2yp23vqan>
+References: <20250313-pci_fixup_addr-v11-0-01d2313502ab@nxp.com>
+ <20250313-pci_fixup_addr-v11-10-01d2313502ab@nxp.com>
+ <v77jy5tldwuasjzqirlwx45zigt6bpnaiz67e4w7r2lxqrdsek@5qzzobothf5r>
+ <aEr3nGCqRuyIwA37@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64/mm: Ensure lazy_mmu_mode never nests
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250606135654.178300-1-ryan.roberts@arm.com>
- <aEgeQCCzRt-B8_nW@arm.com> <3cad01ea-b704-4156-807e-7a83643917a8@arm.com>
- <aEhKSq0zVaUJkomX@arm.com> <b567a16a-8d80-4aab-84c2-21cbc6a6a35d@arm.com>
- <20250612145906.GB12912@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250612145906.GB12912@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_090054_366989_2B07A1E7 
-X-CRM114-Status: GOOD (  28.88  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aEr3nGCqRuyIwA37@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,93 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 15:59, Will Deacon wrote:
-> On Tue, Jun 10, 2025 at 05:37:20PM +0100, Ryan Roberts wrote:
->> On 10/06/2025 16:07, Catalin Marinas wrote:
->>> On Tue, Jun 10, 2025 at 02:41:01PM +0100, Ryan Roberts wrote:
->>>> On 10/06/2025 13:00, Catalin Marinas wrote:
->>>>> On Fri, Jun 06, 2025 at 02:56:52PM +0100, Ryan Roberts wrote:
->>>>>> Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
->>>>>> provided a quick fix to ensure that lazy_mmu_mode continues to work when
->>>>>> CONFIG_DEBUG_PAGEALLOC is enabled, which can cause lazy_mmu_mode to
->>>>>> nest.
->>>>>>
->>>>>> The solution in that patch is the make the implementation tolerant to
->>>>>
->>>>> s/is the make/is to make/
->>>>>
->>>>>> nesting; when the inner nest exits lazy_mmu_mode, we exit then the outer
->>>>>> exit becomes a nop. But this sacrifices the optimization opportunity for
->>>>>> the remainder of the outer user.
->>>>> [...]
->>>>>> I wonder if you might be willing to take this for v6.16? I think its a neater
->>>>>> solution then my first attempt - Commit 1ef3095b1405 ("arm64/mm: Permit
->>>>>> lazy_mmu_mode to be nested") - which is already in Linus's master.
->>>>>>
->>>>>> To be clear, the current solution is safe, I just think this is much neater.
->>>>>
->>>>> Maybe better, though I wouldn't say much neater. One concern I have is
->>>>> about whether we'll get other such nesting in the future and we need to
->>>>> fix them in generic code. Here we control __kernel_map_pages() but we
->>>>> may not for other cases.
->>>>>
->>>>> Is it the fault of the arch code that uses apply_to_page_range() via
->>>>> __kernel_map_pages()? It feels like it shouldn't care about the lazy
->>>>> mode as that's some detail of the apply_to_page_range() implementation.
->>>>> Maybe this API should just allow nesting.
->>>>
->>>> I don't think it is possible to properly support nesting:
->>>>
->>>> enter_lazy_mmu
->>>>     for_each_pte {
->>>>         read/modify-write pte
->>>>
->>>>         alloc_page
->>>>             enter_lazy_mmu
->>>>                 make page valid
->>>>             exit_lazy_mmu
->>>>
->>>>         write_to_page
->>>>     }
->>>> exit_lazy_mmu
->>>>
->>>> This example only works because lazy_mmu doesn't support nesting. The "make page
->>>> valid" operation is completed by the time of the inner exit_lazy_mmu so that the
->>>> page can be accessed in write_to_page. If nesting was supported, the inner
->>>> exit_lazy_mmu would become a nop and write_to_page would explode.
->>>
->>> What I meant is for enter/exit_lazy_mmu to handle a kind of de-nesting
->>> themselves: enter_lazy_mmu would emit the barriers if already in lazy
->>> mode, clear pending (well, it doesn't need to do this but it may be
->>> easier to reason about in terms of flattening). exit_lazy_mmu also needs
->>> to emit the barriers but leave the lazy mode on if already on when last
->>> entered. This does need some API modifications to return the old mode on
->>> enter and get an argument for exit. But the correctness wouldn't be
->>> affected since exit_lazy_mmu still emits the barriers irrespective of
->>> the nesting level.
->>
->> Ahh I see what you mean now; exit always emits barriers but only the last exit
->> clears TIF_LAZY_MMU.
->>
->> I think that's much cleaner, but we are changing the API which needs changes to
->> all the arches and my attempt at [1] didn't really gain much enthusiasm.
+On Thu, Jun 12, 2025 at 11:51:56AM -0400, Frank Li wrote:
+> On Thu, Jun 12, 2025 at 08:16:03PM +0530, Manivannan Sadhasivam wrote:
+> > On Thu, Mar 13, 2025 at 11:38:46AM -0400, Frank Li wrote:
+> > > If the parent 'ranges' property in DT correctly describes the address
+> > > translation, the cpu_addr_fixup() callback is not needed. Print a warning
+> > > message to inform users to correct their DTB files and prepare to remove
+> > > cpu_addr_fixup().
+> > >
+> >
+> > This patch seem to have dropped, but I do see a value in printing the warning to
+> > encourage developers/users to fix the DTB in some way. Since we fixed the driver
+> > to parse the DT 'ranges' properly, the presence of cpu_addr_fixup() callback
+> > indicates that the translation is not properly described in DT. So DT has to be
+> > fixed.
 > 
-> To be honest, I don't think the proposal in this series is really
-> improving what we have. Either we support nested lazy mode or we don't;
-> having __kernel_map_pages() mess around with the lazy mmu state because
-> it somehow knows that set_memory_valid() is going to use it is fragile
-> and ugly.
+> This patch already in mainline with Bjorn's fine tuned at when merge.
 > 
-> So I'm incined to leave the current code as-is, unless we can remove it
-> in favour of teaching the core code how to handle it instead.
+> 	fixup = pci->ops ? pci->ops->cpu_addr_fixup : NULL;
+>         if (fixup) {
+>                 fixup_addr = fixup(pci, cpu_phys_addr);
+>                 if (reg_addr == fixup_addr) {
+>                         dev_info(dev, "%s reg[%d] %#010llx == %#010llx == fixup(cpu %#010llx); %ps is redundant with this devicetree\n",
+>                                  reg_name, index, reg_addr, fixup_addr,
+>                                  (unsigned long long) cpu_phys_addr, fixup);
+>                 } else {
+>                         dev_warn(dev, "%s reg[%d] %#010llx != %#010llx == fixup(cpu %#010llx); devicetree is broken\n",
+>                                  reg_name, index, reg_addr, fixup_addr,
+>                                  (unsigned long long) cpu_phys_addr);
+>                         reg_addr = fixup_addr;
+>                 }
+> 
+>                 return cpu_phys_addr - reg_addr;
+>         }
+> 
+> I have not seen this "dev_warn(pci->dev, "cpu_addr_fixup() usage detected. Please fix your DTB!\n");"
+> 
 
-Yeah fair enough. I'm not going to have time to do the proper nesting support
-thing. But I'll see if I can find someone internally that I might be able to
-convince. If not, we'll just leave as is.
+This patch is supposed to add this warning and nothing else.
 
-> 
-> Cheers,
-> 
-> Will
+- Mani
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
