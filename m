@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7489C71149
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97622C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WGaAAH127Wfrg3JZDU0tyMf010p52bIgp6Qxcvg427Q=; b=xAVfLocFBc5ctS7UhSqOp3AxpI
-	zsAj3ppQb+WCcVH8oJmsO40cus82QDxc0oqMNo/+W4GoDcSHEmzNXeJYMn0NcMfbcJZj7JYo6mSb6
-	mExOhaUv/q2OJ/uNmJPe3ZQshAz+7hweYXz8nQTfvxy9/j6OQMo0vEvlqIGSMyL1nKV92toO6sqj5
-	pP0i975BhDEnVvy+/vkQB96fDx/LZ5FqL5h54nIjBV6csWnpaB+wPWF2eYVNWpH7TLG5wXRdX6AOl
-	CwVMdAv1FO+X206CSH1hpmzTkf1vWJK0ygDzWhwoqEtQgDR24Kyu+Iy37YwLd8ZUmk3+EPhhPnH4N
-	h35y8pJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nSawF9ebc78ryHIqklO5r3z28OGmxw8RdjKALoXzVZQ=; b=e585N5L4uh6quu0vRmYp6JwKUQ
+	S75Y6jcarl1KiWJHDM5e7YdpQDoq9y9IqE/Su4rjW0QWL64JmUtodSv7CrbsvolBO5mYyyvhlRGxB
+	5wbZJP3S/Z6+sV9UIewUiULRxE+J+GK8t9LMlCMwX+bt8p9dTlTblar5pH9vGSIk5exMMdu0SpPTX
+	ERXOWCBhkMIQnfOHTidCCzZKAmlkp7GGbFE9SnkxIGmyatPvB8+/wU5KO+iyUap8FWvh4MuxNEr4/
+	SNxFkNz8tg6WXjHcBTpQ2kLD3QBAjZPi/k/yZFP8GDLYgie0oc3kRWbVQ5AMMJsZC2j7TjUVQ4USi
+	aZpxIRmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnr2-0000000EJrA-26c9;
-	Thu, 12 Jun 2025 19:44:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjue-0000000DnXr-2IWe
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:32:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 13E69153B;
-	Thu, 12 Jun 2025 08:31:57 -0700 (PDT)
-Received: from [10.1.37.36] (e122027.cambridge.arm.com [10.1.37.36])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8784E3F66E;
-	Thu, 12 Jun 2025 08:32:14 -0700 (PDT)
-Message-ID: <8817e2bf-2283-4536-8a5f-9c32173b3a61@arm.com>
-Date: Thu, 12 Jun 2025 16:32:13 +0100
+	id 1uPnr3-0000000EJsP-1Dhr;
+	Thu, 12 Jun 2025 19:44:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPjwk-0000000Dntz-17t8;
+	Thu, 12 Jun 2025 15:34:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4D4986113B;
+	Thu, 12 Jun 2025 15:34:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 797ACC4CEEA;
+	Thu, 12 Jun 2025 15:34:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749742468;
+	bh=WvdhfgNJT5v5cFAw5+htw1gcZlt/xJmT2/R10D/S/u4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sHCXl8OM0W3Li5mbXc8STHlocqBbXXzomS0PWwgJWbz9cPCa54iJ2BC06tl1CtSSD
+	 o9DSbjNJbGQfrRPz7e/uZiNZllbuyP4YtV7NsDuUMzv56drJTilCdRnnEFmTB40vp5
+	 lvClEDILxGEBM6Q6n6kMN1sBtbvz6dnslKdPM193Zth8kHhv9XvOINgAdVdjlZ2WPC
+	 79K0gR+Lbgh0HEbQYC994/TP0yWkoA/iEr7w9JSQJAFCR6AFiPUYE9l4Z3qHpahe/1
+	 RDhCm4kvzNw9ZGUItpYK6VDaTBN04njeKSdtFYA8aNiY9okUmbkSmBEg0OeoKOmvWJ
+	 zeJYrFQ3IqPKw==
+Date: Thu, 12 Jun 2025 16:34:24 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: arm: mediatek: add mt8173-hana rev2
+Message-ID: <20250612-scholar-crown-517f28582edf@spud>
+References: <20250612135559.2601139-1-uwu@icenowy.me>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 41/43] KVM: arm64: Expose support for private memory
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
-References: <20250611104844.245235-1-steven.price@arm.com>
- <20250611104844.245235-42-steven.price@arm.com>
- <20250612151427.GA1913753@e124191.cambridge.arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250612151427.GA1913753@e124191.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_083220_680025_C3B666A0 
-X-CRM114-Status: GOOD (  20.09  )
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="rBD6QiyAktVQ2uJs"
+Content-Disposition: inline
+In-Reply-To: <20250612135559.2601139-1-uwu@icenowy.me>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,115 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 16:14, Joey Gouly wrote:
-> Hi Steven,
-> 
-> On Wed, Jun 11, 2025 at 11:48:38AM +0100, Steven Price wrote:
->> Select KVM_GENERIC_PRIVATE_MEM and provide the necessary support
->> functions.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> ---
->> Changes since v2:
->>  * Switch kvm_arch_has_private_mem() to a macro to avoid overhead of a
->>    function call.
->>  * Guard definitions of kvm_arch_{pre,post}_set_memory_attributes() with
->>    #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES.
->>  * Early out in kvm_arch_post_set_memory_attributes() if the WARN_ON
->>    should trigger.
->> ---
->>  arch/arm64/include/asm/kvm_host.h |  6 ++++++
->>  arch/arm64/kvm/Kconfig            |  1 +
->>  arch/arm64/kvm/mmu.c              | 24 ++++++++++++++++++++++++
->>  3 files changed, 31 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->> index a1857802db64..9903b0e8ef3f 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -1514,6 +1514,12 @@ struct kvm *kvm_arch_alloc_vm(void);
->>  
->>  #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
->>  
->> +#ifdef CONFIG_KVM_PRIVATE_MEM
->> +#define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
->> +#else
->> +#define kvm_arch_has_private_mem(kvm) false
->> +#endif
-> 
-> I don't understand the ifdef here (or below). In the Kconfig you 'select
-> KVM_GENERIC_PRIVATE_MEM', so it will always be on/defined? Unless I'm
-> misunderstanding something.
 
-I have to admit this is somewhat cargo-culted from x86. And I think they
-have more build configurations which don't include KVM_GENERIC_PRIVATE_MEM.
+--rBD6QiyAktVQ2uJs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-It is possible to build without KVM_GENERIC_PRIVATE_MEM (by disabling
-CONFIG_KVM). But that's probably not very interesting here - the
-definition shouldn't actually matter in that case.
+On Thu, Jun 12, 2025 at 09:55:58PM +0800, Icenowy Zheng wrote:
+> My Lenovo Flex 11 Chromebook contains a board with revision ID 2.
+>=20
+> Add rev2 to the compatible list of base hana DTB to allow depthcharge to
+> match the DTB.
+>=20
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> ---
+>  Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Docume=
+ntation/devicetree/bindings/arm/mediatek.yaml
+> index 108ae5e0185d9..7d13547ff57ba 100644
+> --- a/Documentation/devicetree/bindings/arm/mediatek.yaml
+> +++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+> @@ -132,6 +132,7 @@ properties:
+>            - const: google,hana-rev5
+>            - const: google,hana-rev4
+>            - const: google,hana-rev3
+> +          - const: google,hana-rev2
 
-So I think you're right - there's no need for the #ifdeffery here.
+Ordinarily I would complain about inserting a compatible like this
+being a problem, but these chromebooks are all cocked up so w/e
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks,
-Steve
+>            - const: google,hana
+>            - const: mediatek,mt8173
+>        - description: Google Hana rev7 (Poin2 Chromebook 11C)
+> --=20
+> 2.49.0
+>=20
 
->> +
->>  int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
->>  bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
->>  
->> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
->> index 713248f240e0..3a04b040869d 100644
->> --- a/arch/arm64/kvm/Kconfig
->> +++ b/arch/arm64/kvm/Kconfig
->> @@ -37,6 +37,7 @@ menuconfig KVM
->>  	select HAVE_KVM_VCPU_RUN_PID_CHANGE
->>  	select SCHED_INFO
->>  	select GUEST_PERF_EVENTS if PERF_EVENTS
->> +	select KVM_GENERIC_PRIVATE_MEM
->>  	help
->>  	  Support hosting virtualized guest machines.
->>  
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 580ed362833c..c866891fd8f9 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -2384,6 +2384,30 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
->>  	return ret;
->>  }
->>  
->> +#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
->> +bool kvm_arch_pre_set_memory_attributes(struct kvm *kvm,
->> +					struct kvm_gfn_range *range)
->> +{
->> +	WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm));
->> +	return false;
->> +}
->> +
->> +bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
->> +					 struct kvm_gfn_range *range)
->> +{
->> +	if (WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm)))
->> +		return false;
->> +
->> +	if (range->arg.attributes & KVM_MEMORY_ATTRIBUTE_PRIVATE)
->> +		range->attr_filter = KVM_FILTER_SHARED;
->> +	else
->> +		range->attr_filter = KVM_FILTER_PRIVATE;
->> +	kvm_unmap_gfn_range(kvm, range);
->> +
->> +	return false;
->> +}
->> +#endif
->> +
->>  void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
->>  {
->>  }
->> -- 
->> 2.43.0
->>
-> 
-> Thanks,
-> Joey
+--rBD6QiyAktVQ2uJs
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaErzgAAKCRB4tDGHoIJi
+0q7hAP4+dlT8mJ7UwIKnCYl2qYuKoPNuL652IQfNk/cSnsBByQEAxsWxRVNvWavo
+iouK9N1MJK5viXIHp3ANj69LAdfTdwk=
+=vB56
+-----END PGP SIGNATURE-----
+
+--rBD6QiyAktVQ2uJs--
 
