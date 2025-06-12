@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03CA9C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A3EC61CE8
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1sBKmOIevGi+6n8iHRw7aDQ4iSU3hQcgvE0ZLGu7yXg=; b=4QnruyC1HHQiVTy4iri0CWycVF
-	mZus1Rwmrsoo/6T6KqklTuTEgdrOkDAiMqqI+mw+7pRMUzdFZaHHkwZH/qhFOxwK384OLfJkUPsEw
-	EC36JBXGUNvpvSdXmXouq1gsceEnFFp9Kvfd8NNZRidvLVpGlLTQkSl7Qo3+SH7V26fEYfBNQaQxl
-	MTx/P+1YnpglkdyY7eTxFzgr/nP360mvxTy3Aren6NepN9YjT8iWHCU3xjPNIYhG4pKWB336fisK7
-	B9p6K8ienNEq/28naqnN9uIpHsYccRIhUM/p9SxLuE6DgfU4F0Oxj2GvyGlzoQCKRAsGSLYwQPXHn
-	x8BG9Tkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t7kFj3CUvv/CS73sWzGwnm3tHKJMaqfmiaX3ddssg0U=; b=xwn1bMtjOve1FiLkS4qHftI1Nq
+	dGIUX63nI2mYutxUQK6k5eDFpeNAQwGs0LljzqqbB3mH15RkeHCdbYzsYlMDmqz914au/CwwVCBB4
+	dJYxMp0l4dS6XYP/SAPxgv6QDpq+p+LnX1/iUGDYeBA/hdBxhtWb2MLpjPFBjxMek5+fbY0u4fmvK
+	UmuSN5zj9LafabXZoQn7uzqKk14GvtLqPOrLDRBSr4EICt2BIEzAoe3M/i/5yxHg5yXQ+xGcLsGxo
+	TnTnt+m9jnMDcz7hsLnf3YyzJk8AuJqoYH1VoORGxXj6cavAQelYUG8Akjm58LeOjntYNy7bNVBK6
+	pfplWb+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnqv-0000000EJZg-2pMW;
-	Thu, 12 Jun 2025 19:44:45 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uPnqx-0000000EJeQ-3BfA;
+	Thu, 12 Jun 2025 19:44:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjoi-0000000DmaL-1sRf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 15:26:13 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4531898b208so1097375e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 08:26:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749741971; x=1750346771; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1sBKmOIevGi+6n8iHRw7aDQ4iSU3hQcgvE0ZLGu7yXg=;
-        b=mq64XGAYHBRuVYg4OyXeLYhJzY/6uOYcwutnywtGqY1Fs0Qt+w3yh1D/Vpl/o1mFfQ
-         SMFiAAYvCyld56p4uiUIGA6hP69wrrM4mSNZqPaITW7pACSOpCHvHRjATvGZMGLhIaQS
-         LcDGwcm7/Iv7UjmJMNE1LgBMaehxpFGflgFL6X23hNRFRNVJjBVVsrsWXLsfPVBizWCc
-         uWY5p4TpzHS5f9yFjhM2joksvfzJEFWbq3aXqiPOQa9QhLCeGpzu8KtItv5/R/zrKn44
-         +5lGbG/C/Z0HBpUUdJGvhVW874/kfRMxd7HP/a8j/w951OG3dYPYx+gchVoKCHfMpz83
-         4Qqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749741971; x=1750346771;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1sBKmOIevGi+6n8iHRw7aDQ4iSU3hQcgvE0ZLGu7yXg=;
-        b=PMlg4UFsTEPZJawUcgas5GVZuR5A4OsiWj59KW247W/wCKF61n/8KI5t9FPHWhPiPg
-         JPWgXNPzNebT9YyMQiDl3qVEBFPJGK0MQfjiuST5wxUprh9Hsz/t8yLktVbs05QDW8TR
-         iaVzIP8zj+769qYrKeuWemKJ0YPsn8xsrZdgYMIquPGjSz5rc+WhZ6+cFEMQv2L2Sr3i
-         52sUSgoVwDOlpZwJ4U8Il1fVfmONXDHMJn/PVFBTniqBtW3OS1/mZzlikmjOqx8V6OHa
-         7ogmf2yGDBIjWXUgG9xntdcsVY0bosgSnre8ZSfuTLx+GbUCDoCt+M2EbRSvHRJSJbsI
-         l73Q==
-X-Gm-Message-State: AOJu0YzLKC74hMxCH7jfOPQdrvdjsUFYdsCOs/Q/7F6PzgxXQROSTocH
-	w1Nd6UgTh5v413GYjlzmYA3Hp1CiULz/tQUBqDq/O21drCJDeFzyIpPnVp7yoJlzkRaMrDrutHK
-	sTMUg
-X-Gm-Gg: ASbGncszFMnh98D9Q9/gXj9de2KUgrpHGewCuuQNFx54OApAPHH++kS7Okv1k1Ud5G4
-	qye2h6uWgYNB/wv823SXsBJInMrinPwSz2Lk3KnE7T/ZcAFBqyRAgLlM4GG2329hMXQ3wjCgE9r
-	af77yO9HxBKDTgJEdhuBUqZYs5VIG0wXggCCDDv7oqzAKW+dI9rtAqk08yiwSMnBpVsd/rVIvdl
-	2My6AQIbPqhyEYko2S5cefIIpyhtxPCeWASnGCNFO+YosXgkqcxUbWCVJ0ph3ZzrFpCPeUXtrlb
-	CptTLRg/Fuhls0RCU0sY2uGxkLnBqeQ8PEf8HGk/4/NxE3ecvGDU7AUjErhI+IUlGtQ7U/6uoTh
-	W3Ekyrf0=
-X-Google-Smtp-Source: AGHT+IFwsXsRYXgrfKWCfKNi+TTveszbMKXHntYaq5wTQetC41r6t1yJqHS2kPZNjw4WdDHEMJSJmg==
-X-Received: by 2002:a05:600c:3f86:b0:441:d244:1463 with SMTP id 5b1f17b1804b1-453247e681bmr29156945e9.0.1749741970845;
-        Thu, 12 Jun 2025 08:26:10 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a56198cc12sm2244629f8f.25.2025.06.12.08.26.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 08:26:08 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alexey Charkov <alchark@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250515-wmt-dts-updates-v2-0-246937484cc8@gmail.com>
-References: <20250515-wmt-dts-updates-v2-0-246937484cc8@gmail.com>
-Subject: Re: [PATCH v2 0/5] ARM: dts: vt8500: Minor fixups and L2 cache on
- WM8850
-Message-Id: <174974196751.110269.9543855041154753417.b4-ty@linaro.org>
-Date: Thu, 12 Jun 2025 17:26:07 +0200
+	id 1uPjrG-0000000Dn1A-0OuI;
+	Thu, 12 Jun 2025 15:28:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D104F5C6667;
+	Thu, 12 Jun 2025 15:26:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58504C4CEEA;
+	Thu, 12 Jun 2025 15:28:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749742129;
+	bh=t7kFj3CUvv/CS73sWzGwnm3tHKJMaqfmiaX3ddssg0U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NBJ1AJLi2/VBvcn8K3zZFaIdebMiKc4pC4pqU1oD174Nyic3I5Vc0tYsWBUagR3AR
+	 dhN5uG49SFhLwzEphylzAUlEdaqgzBH9qYOpNbvbXJ84CycsJnzwvt1OMWLIBi+/sk
+	 AelZxxiwy4IWq8CJ9KwdfplFJa1ffrGvIdnEov3hsqdrPZgOEbnQT3F0xN79BxCSxM
+	 64O1AJCB+RBxUMbwUd5fdM9v2Bvbxt6vn90YdmeRBiat3KXXlYDWlG3U/INFGhf5hI
+	 oJKLvjpF5D5LPgwG3pmKaH2CQcRlHkhj98dnUFeDAtcKm2u/VAOjF72WtKJvSvYIdT
+	 PwREXpzfhGKKw==
+Date: Thu, 12 Jun 2025 16:28:43 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: phy: samsung,mipi-video-phy: document
+ exynos7870 MIPI phy
+Message-ID: <20250612-unpaid-slacker-edaf80ce160b@spud>
+References: <20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org>
+ <20250612-exynos7870-mipi-phy-v1-1-3fff0b62d9d3@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="f30wP9juoNGzy1L/"
+Content-Disposition: inline
+In-Reply-To: <20250612-exynos7870-mipi-phy-v1-1-3fff0b62d9d3@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_082612_493517_B26D1C2C 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20250612_082850_172557_4E4BC381 
+X-CRM114-Status: UNSURE (   8.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,31 +85,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 15 May 2025 22:38:39 +0300, Alexey Charkov wrote:
-> Small fixups for VT8500 related device trees to improve correctness in
-> light of current guidelines.
-> 
-> While at that, also include a DT node for the PL310 cache controller
-> present in WM8850/WM8950.
-> 
-> 
-> [...]
+--f30wP9juoNGzy1L/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied, thanks!
+On Thu, Jun 12, 2025 at 08:39:29PM +0530, Kaustabh Chakraborty wrote:
+> The Exynos7870 MIPI PHY device contains one DSIM PHY block and three
+> CSIS PHY blocks. It also requires two sysregs, one for display, and the
+> other for cameras. Document this device.
+>=20
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 
-[1/5] ARM: dts: vt8500: Add node address and reg in CPU nodes
-      https://git.kernel.org/krzk/linux-dt/c/4ce310e733d8e520e52772099ebeb980fd491cec
-[2/5] ARM: dts: vt8500: Move memory nodes to board dts and fix addr/size
-      https://git.kernel.org/krzk/linux-dt/c/ab46710603aba03ec6881152219ee7de27d20eff
-[3/5] ARM: dts: vt8500: Use generic node name for the SD/MMC controller
-      https://git.kernel.org/krzk/linux-dt/c/8b37e3c425c3fa8439ec2e100521cb1e9651741e
-[4/5] ARM: dts: vt8500: Fix the unit address of the VT8500 LCD controller
-      https://git.kernel.org/krzk/linux-dt/c/1918e51321c0c34341397644512568ac3451e416
-[5/5] ARM: dts: vt8500: Add L2 cache controller on WM8850/WM8950
-      https://git.kernel.org/krzk/linux-dt/c/6cd594ed969d5cfc7f97029f8ca0d240637ebb8d
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+--f30wP9juoNGzy1L/
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEryKwAKCRB4tDGHoIJi
+0mqJAP9DJbUlkADvUrHdf81purqcXzTVeDAzhbMUmKO+F21UFAD/QjLSgELcwtip
+njn3vQB/7wZoDC6VzVfnBVgIdy1XAwg=
+=Bir7
+-----END PGP SIGNATURE-----
+
+--f30wP9juoNGzy1L/--
 
