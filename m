@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB92BC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D194C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SYW0+B04sInxcyPw7RL4odLCTvi8nL12cX8+rIobfUQ=; b=lNz7jJNLWntWQ9dHFJdUiHAIS3
-	wp9yI2V8DW5zzvArSgrnN888v3uAFTAoIAJGx/Yw6BDY661IQls2Qqi5HPwrF3G5UUOJTlfKqyM30
-	s21NoRaS40Ep+7WVZ6Q2nRMcRrdssyLM2BZRraIaCcP+V3xSmgPnR3NlZ2flsBWJh4rYtp9qJfmXy
-	7lPbXMF47wLlz0vOQ/K4iiQWAGo5Ci/nSGUF7Hkv9xAF2Qu07BE3U651coU5zhNbHALBO4Uy0X66P
-	dqbl6guYbieKqczJBuA8ZxihPWs/WeS2RfvDQVhbea8sEaOZZ9e3R/afn7FavYM0THf3wpAytnrim
-	I9fon+vQ==;
+	bh=OeMSlNL5v7plT+CdY2CAH8xRYdEmWgOgE7l1ThlWmy8=; b=oq8pnThTFuZvbX1F1DcMb7QgdK
+	eMwTo6q2TolPjMfEaZXQvWdn7+1rRKO+6wl5YWfSPMcrAbsxR10JVZNSpnKAWQbOjofp4e+wHF/RI
+	nCppyG1KO76fCtFkqeHQTBJsFTHsM10AthuI64WDS0F62QsO6HxdIecv4OzMtNuxPL8XyPYqdVZrD
+	s6Qm3eFqdi2xeDs9X2a8W3Rclmh31RrnvrTaQHJ+GhlaugvZLjzMdbX5t2bwxhg1kg7FVcTN0n8Oh
+	4um/E8CAyt9XX/tcwgYpbLGrHCgyHOgbQXZGu4xbgvMvRd4t6NtpDU/KCmehUTDsCdvLwSwe8UCmy
+	nsYo9sMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnnU-0000000EEQt-1F9X;
-	Thu, 12 Jun 2025 19:41:14 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uPnnZ-0000000EEXT-1g5i;
+	Thu, 12 Jun 2025 19:41:17 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhmQ-0000000DLoY-3mRw
+	id 1uPhmV-0000000DLq2-2Bif
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 13:15:43 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so7994935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:15:42 -0700 (PDT)
+	Thu, 12 Jun 2025 13:15:48 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-45024721cbdso7996885e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:15:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749734141; x=1750338941; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749734146; x=1750338946; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=SYW0+B04sInxcyPw7RL4odLCTvi8nL12cX8+rIobfUQ=;
-        b=XfNA3MKHs/mmnBX2fpoTL/czd7RiBNu6yCus653FhIxhq66TxPtvOaapYPwkZN2v1l
-         SdIgBtmBoHEiB76NIWaMirBskSnjaaMM+m0edxoAMjg3kWoD9K+WscwUaa/TiKH+9Dn5
-         Kra3QA6slcYxjwhrRMTgLQZioMeNhVbahl3qVZyNITV0izQG51G6NlW5NkYDvLogjrmZ
-         NwFYAh/Wg83OX5Gr6G5fgSWSKLY05G4h2gWBvkT8qgp/okipLX4OUsV7jKSqMbrqQZV8
-         Zi4ihZQNmnGSCqRWBHvKw3Vvgi15gd7ki/RkBChxXq3B6eSBFBuNNyxs4IQMG39TPdWM
-         0QUw==
+        bh=OeMSlNL5v7plT+CdY2CAH8xRYdEmWgOgE7l1ThlWmy8=;
+        b=C7UIX63YSIdIshnVDah89UiSBzYapwI/5uAo2dQy3yZ4dMHD3HXUX/icQIo+dSuACw
+         NVK2kLCwbXEqfpFyFoZmduS54hwpriTuNe3GJgwNB4aq8tz/U3cY6+Upx8lnVbH25hok
+         wWDjZB8nlCHJyB8YCktcrFHO1tdbOTtVSDFmX4B9Ay/BinSNHu7cCAVfodtgDFm2uHUq
+         6UyfCbazdbdomRyJUtBnoXB2m4pvHiyzF4mAA78bJ/Bxxa/HnIpTh/b9j9+VImcftF/3
+         EJqhFwi9FitqlJgpx+d6R8MZ6xFjhrnm6rA+QTwteD4DxL7mZbaVaa9Iu4tN7AQGZl4M
+         uIxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749734141; x=1750338941;
+        d=1e100.net; s=20230601; t=1749734146; x=1750338946;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=SYW0+B04sInxcyPw7RL4odLCTvi8nL12cX8+rIobfUQ=;
-        b=XQzphGXYz8hQMma/6/5TI1X8Gt5dUlbWv4IZYUoHrmJ0t5dlqpA+OdeSDjvVYZm8QZ
-         j1F6uTZYOHeb7hdnMtN4E9aagFaKYkU06eikewqxoTK6YVsyhrW4J42pO2jsTyGYy5Ln
-         +WqzgfIYVTXA3c7XTs0ooulPqPnIkvS/NI4WBlwl5mlLOTYq4Qy+jJYhhQ3FN3ZcBhjo
-         EUIhXqDvBU0qcHgPF51HZUqla7WOP2dlq0rk9Aj5pvFRLzacGgXp6zimunG/LfMPf7VJ
-         MEqohss250WIHCwBrCCIE7prHQZpKNxn39xfOlnZ+igqIkyT+nDaSJwFsU9PGBX79YaE
-         sUig==
-X-Gm-Message-State: AOJu0YxDZtoDVzmrOuaabkQtMJgUF6bMD1SSm0erGv/Ee7BhuXUjpC+o
-	ARtaB5SMJd/IDS2YQBJVz11u2+1Ir+xTYbQr/LfmkYUjSE3sV6l6d6kBVf1d7Wob5hU=
-X-Gm-Gg: ASbGncsmANBfIHalJ+Zq4zpf21tta1vjRHaSTcGoTe3QKymo3+1OMGEcURyKBI89MMo
-	dneqDsvzSEESgZ83lhde/MKwtZ6MH8+CB3vvdcb446Sq8eA5nIzJCGKdmcnwHpBmo1RtWhywUnB
-	4/0HsjyA67NvVY7yFdnK1/ULtxdji+rlBx3+yH0849ZED45q/d0NL5JmFZIFwCsF7WS15TR2y/h
-	DcFUrg25q3pyuqu5h60f3DCWLl6MyBw38IecVFq1TZWhJqz1qbvuZ0nAroXMxhMg3oGYD+6vfTQ
-	37aoxt8wc6J4IsWruuAPn0t+RDRuG/hfR8USJibO5t4xUbWqgS9/3y0=
-X-Google-Smtp-Source: AGHT+IFpZ9SXfAbcx9UYgsykf4kQVZZ7hDQIXoDecEBolRJ+pnmV+MNhvJktOJmHqFQTsif+GRyCYg==
-X-Received: by 2002:a05:600c:3586:b0:43d:ea:51d2 with SMTP id 5b1f17b1804b1-4532b8c2f2bmr38451605e9.14.1749734141385;
-        Thu, 12 Jun 2025 06:15:41 -0700 (PDT)
+        bh=OeMSlNL5v7plT+CdY2CAH8xRYdEmWgOgE7l1ThlWmy8=;
+        b=kFUYPIiwB2A1xrq99oJWebSGfXZfmFYGRUnRfo0Xbf1yeItY0lJJHzR+hjLPUsqv5V
+         d77WB8w1TIEtguTeK3X35TBBNq0sykXVh4ZiVaZexlXaP+lG2EPiRGwInuFbR1YTsHQy
+         ztD4owz0OJiTvZMi15ONWcwZQNFfWSQlUws5Y1YZJZ6V7GI2XnXKAbQrSPJRV73Z09mX
+         Cu20AOAyoIaaAbBeywo1Uv3hvmDknkaB2tudk07mKJeZd7TeGkyiD5Cl4W99XgpRNGt9
+         Rv7RRSD8AGEY8X8cvOpiQyWtUVLEGWpoiNfOQXf4EvokDvP6a5MC4X0aZpP2G2gj796p
+         HrRg==
+X-Gm-Message-State: AOJu0Yz/JgBps9D/XZfX24FNvW+13IptyeJ3Cag+c8u/bGjJUQxiUBhm
+	2MzH17cU5dp7zXCGyWgNqiP7zmhh2qQEOVCkyZNby1Jf0qze9tu8UlDy6yO7aYBT64g=
+X-Gm-Gg: ASbGncuTCARISeD2MIPtjVRDsvt9APTq+27fM3uLWldDyazVXSYr2sxw0Bg79owxpN3
+	ob8EI91NKY+lDxecdbOjlhEX+0PYJQDh6pVBjVgcb4ZHv33fSKVGAN7S5N06cTDDvbcpGSKTuAB
+	yUyp32Jct+bBhHAqrC9LY6Ka+kKZd3oKBPbzPwns707nfsRqcD9Py0+31mWwZisquUPih6+jHpz
+	eFg05090JGkBKSHvdR33XCOLXyYXaCiK6iNTAjV4GhMjOnItbZU52Toli/ungNmSYjsUrTHgs7i
+	7dzIO5sR0s1IoLHAvDAxqItXIeuGcgRos5qXlZCK539gbByR7CHk2zE=
+X-Google-Smtp-Source: AGHT+IFfk2JNW5+JEjAS4QGCHFxkYolSwpuwPG6mz1wRQQcTjF+58a/OlpyQ8Y8a8U04LXW/Ou6tzQ==
+X-Received: by 2002:a05:600c:c04e:b0:44b:eb56:1d45 with SMTP id 5b1f17b1804b1-453249a1500mr45370855e9.15.1749734142562;
+        Thu, 12 Jun 2025 06:15:42 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:8b99:9926:3892:5310])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea17d7sm20619795e9.10.2025.06.12.06.15.40
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea17d7sm20619795e9.10.2025.06.12.06.15.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 06:15:40 -0700 (PDT)
+        Thu, 12 Jun 2025 06:15:42 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 12 Jun 2025 15:15:23 +0200
-Subject: [PATCH 14/16] pinctrl: sunxi: use new GPIO line value setter
+Date: Thu, 12 Jun 2025 15:15:24 +0200
+Subject: [PATCH 15/16] pinctrl: as3722: use new GPIO line value setter
  callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-14-556b0a530cd4@linaro.org>
+Message-Id: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-15-556b0a530cd4@linaro.org>
 References: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-0-556b0a530cd4@linaro.org>
 In-Reply-To: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-0-556b0a530cd4@linaro.org>
 To: Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>, 
@@ -93,26 +93,26 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-sunxi@lists.linux.dev, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1804;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2237;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=nIb1ERVNbKJsSviHJxgUP0dw0VlXNMpXQSUn3radzBU=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoStLnDirgrB5LayZ6bmpzTb9vnrrWDTKxpwuY6
- 6GuRs6+7+OJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaErS5wAKCRARpy6gFHHX
- cjGPD/wNvb4j//YoAIysQkS1R/JAVIQzuJnhYsUG1hvGNE0K/Tj2zywZqHvUHGhwy0MMfY4/IPv
- ipPG/UE5TMpaAfnUreWMO+6gxvRyBKLPdnaXZFXBx84htL1YUquIbzHMfT+cuIwtCnRANTxi9So
- I+0/W4Ejq/+fTnRec5gzwllQdA+qwsjIuNLHh2hmROmHFzBhnrngKJdRyiYjB4n08hMg33DyloF
- R+WMLG5USaOhzS/cXh74PjDCSNab71daGuxVVLjx6sNQm+imFmYb4aAZaHP34eGfUMMInd9XzFM
- SSClmvWkl4TCO/CRIH9s2dok8DZbUhgNwR2461FteN5+z4/wJh7owtQ3RtsRJeriFnI6cdJNxiH
- O/cD4XHBvqloqHTCEeD0KHICq0c4Ka6xKLZZaxo1/eJAtBPvQDdS6VXDNjKjxr4hpedktowfEPL
- 8dzAoSnwDri+1MvHu82L2GIfD+vUzkRxP8AhYFQlINlgKg+FSNbV8utKdF7Dp/RvA0AyTR5AygF
- CpNuMQSY+P7pgwk41Y9dwdiFlxRy30of81JlYjV6kdmBpB17p+eWnhfObkprJ5ndF6wY7DM75ri
- VViJexUTAn0tAMuSEcLxSC3FqL/JUCBI8vRA1fvCu2BIbzgjhzOLrsorSrBLj10sqL1w8ZimBia
- 8eHbwXrot5DU3sQ==
+ bh=fTmHKsEYrKTNyxoNVzmb5kuSXiJl4noseL2AUv0JQqs=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoStLnJzYKUbqVxOzi9/0Npp9vPvP9vlYV0ANF5
+ rwLBnERYbWJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaErS5wAKCRARpy6gFHHX
+ coSBEADHmODbD8gx++i43lj29SdaYhpz3ZGxHPtzCbpJM8Weriq+nhM6eLcP4+WvjNqshPbwg/Z
+ n20SACuNZZz+S0+l9KGgSHzYrmCVuUEiF3DNl2mICCeEspJAxClBAGUA2y0Q2TpEV2SLxz2I4dv
+ EtAY+a2ESleqNVnppDCes+DFZ5n5aP6K5VD8Hg7J2DLFYtNp6qHprkyCqcTsOnSb/nuo86E8kZF
+ zDRkzeByIrj4z71f8Y4fLKzDGxq8krDXvhm9SD73b2UCvw6QXQosqznLheEz4+Z9CPrd1jKbE7r
+ cDjRGZ920JYxOSVQHMaipi7GJZsBW/MOU8qI7Ox3HnQbMfHtmliB1rwYB4AhffpcWWuFNw/64se
+ CQfZuf3MI8WBKHUHreGVFrkLIfa/dDyNdag0niMoHvtUfXOc5gdwfyduPuuRAwPEoy/gflanzKJ
+ W/ZDOKFh3IPWI9cbeaKRzvYbJ4CV2OjtB5/gz+V9t7+aIOwlEnHvNhmcYT47t9LDEBkuOasfyVx
+ HOartloAzNYSN3ytVG9SxzobpHzoH5MHqHi1q6l1kLVt8GWdw//Pyxa4Mi/53e/YSBADF7E5j/d
+ icL7N29K4WriyHwptsCLWDZn/Wh/0d2q55xgK3Mjnea9jsemXZ7KgCgdZb4MJD9JsUi+EPUMeDp
+ qq668JcQgjxm84g==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_061542_944439_D640FC4B 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250612_061547_568470_E368ED69 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,42 +135,64 @@ them.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/pinctrl/sunxi/pinctrl-sunxi.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/pinctrl/pinctrl-as3722.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-index bf8612d72daacdde6209b0b5c84e010ef3b846c9..9a94c5276828aca51212f536400897e447c62ecd 100644
---- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-+++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-@@ -955,8 +955,8 @@ static int sunxi_pinctrl_gpio_get(struct gpio_chip *chip, unsigned offset)
- 	return val;
+diff --git a/drivers/pinctrl/pinctrl-as3722.c b/drivers/pinctrl/pinctrl-as3722.c
+index 0d8c75ce20eda97627aef773342a0b63ff6114a1..0c7777a7669fe60d7ffd15263261a9f4d5d7b659 100644
+--- a/drivers/pinctrl/pinctrl-as3722.c
++++ b/drivers/pinctrl/pinctrl-as3722.c
+@@ -471,8 +471,8 @@ static int as3722_gpio_get(struct gpio_chip *chip, unsigned offset)
+ 	return (invert_enable) ? !val : val;
  }
  
--static void sunxi_pinctrl_gpio_set(struct gpio_chip *chip,
--				unsigned offset, int value)
-+static int sunxi_pinctrl_gpio_set(struct gpio_chip *chip, unsigned int offset,
-+				  int value)
+-static void as3722_gpio_set(struct gpio_chip *chip, unsigned offset,
+-		int value)
++static int as3722_gpio_set(struct gpio_chip *chip, unsigned int offset,
++			   int value)
  {
- 	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
- 	u32 reg, shift, mask, val;
-@@ -976,6 +976,8 @@ static void sunxi_pinctrl_gpio_set(struct gpio_chip *chip,
- 	writel(val, pctl->membase + reg);
+ 	struct as3722_pctrl_info *as_pci = gpiochip_get_data(chip);
+ 	struct as3722 *as3722 = as_pci->as3722;
+@@ -484,7 +484,7 @@ static void as3722_gpio_set(struct gpio_chip *chip, unsigned offset,
+ 	if (ret < 0) {
+ 		dev_err(as_pci->dev,
+ 			"GPIO_CONTROL%d_REG read failed: %d\n", offset, ret);
+-		return;
++		return ret;
+ 	}
+ 	en_invert = !!(val & AS3722_GPIO_INV);
  
- 	raw_spin_unlock_irqrestore(&pctl->lock, flags);
+@@ -498,12 +498,19 @@ static void as3722_gpio_set(struct gpio_chip *chip, unsigned offset,
+ 	if (ret < 0)
+ 		dev_err(as_pci->dev,
+ 			"GPIO_SIGNAL_OUT_REG update failed: %d\n", ret);
 +
-+	return 0;
++	return ret;
  }
  
- static int sunxi_pinctrl_gpio_direction_output(struct gpio_chip *chip,
-@@ -1597,7 +1599,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
- 	pctl->chip->direction_input = sunxi_pinctrl_gpio_direction_input;
- 	pctl->chip->direction_output = sunxi_pinctrl_gpio_direction_output;
- 	pctl->chip->get = sunxi_pinctrl_gpio_get;
--	pctl->chip->set = sunxi_pinctrl_gpio_set;
-+	pctl->chip->set_rv = sunxi_pinctrl_gpio_set;
- 	pctl->chip->of_xlate = sunxi_pinctrl_gpio_of_xlate;
- 	pctl->chip->to_irq = sunxi_pinctrl_gpio_to_irq;
- 	pctl->chip->of_gpio_n_cells = 3;
+ static int as3722_gpio_direction_output(struct gpio_chip *chip,
+-		unsigned offset, int value)
++					unsigned int offset, int value)
+ {
+-	as3722_gpio_set(chip, offset, value);
++	int ret;
++
++	ret = as3722_gpio_set(chip, offset, value);
++	if (ret)
++		return ret;
++
+ 	return pinctrl_gpio_direction_output(chip, offset);
+ }
+ 
+@@ -520,7 +527,7 @@ static const struct gpio_chip as3722_gpio_chip = {
+ 	.request		= gpiochip_generic_request,
+ 	.free			= gpiochip_generic_free,
+ 	.get			= as3722_gpio_get,
+-	.set			= as3722_gpio_set,
++	.set_rv			= as3722_gpio_set,
+ 	.direction_input	= pinctrl_gpio_direction_input,
+ 	.direction_output	= as3722_gpio_direction_output,
+ 	.to_irq			= as3722_gpio_to_irq,
 
 -- 
 2.48.1
