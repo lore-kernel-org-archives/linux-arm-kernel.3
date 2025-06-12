@@ -4,77 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55396C7114A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A586CC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KUIfLwvoP44U5nDfSmqojpW++w9cxu2WaXPKkzeIK40=; b=LqG2dnfv7MQYHL6pbBgNa+nu+B
-	SRPxXoqM9GZZPWhNIaqDqFeH/3Xtd1DIOSeTJHNQfBKRkPpPN8XwP0pCzVUn9FGyudHDfZ57N/j0+
-	HO0X1bCLyVHLjQbBpfOSDnWh3sNJcCepVoI7rJpxiJXAXZqZYtXjNK9ZflLvYIRcF996ZCsRIAmkO
-	zul6HZxuPLbAAUY9s5/0vEd5jSkugUpxK3pAB1Mn5OgaRrDFMeRw5zvML7zw+iaA1WWAQOPMW2Ldf
-	ifcM4R9W5yZOxg5Gl5sslsmRFNkhXTS9mziRs8MvvC+Za13QC2z3xLhkiUXLbLeZ2AD8N0JQEsi7M
-	ItwiLhdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sIri+8ueIWYqKzsYFWBLvyPfUx7fG1/u504P8kfBtiY=; b=ZoGG3dRpV5a2GyIrIZvrL1bE6x
+	ggEXLrz8KFGltneoeoG+Dq74gjLQ4xuNUUC/Sp04MOlgAwFmMgMP3/KduL2tS82UU+qaCl05DQA5+
+	0BzFvSMpN8wHeGNejhw/7Q3pt6B/FjJNBRTzDkA9t++jRR1Kds+cnnV9HI2ndX5Ub1iNl+9jTeSIl
+	B2xtMsz2vuS9tajPAFXeadH/65vlYCEjWQd9sYeKhDLiDovXkv5fFqD/EzIBZ8Y0zkurzajE8XTUK
+	UBE/KNj4ozO7y8bWcpcNk6in95spb4fGZ3j8XqWjiTxlYQPEroY2rkBAuHdg9B22+Wh8PRPFMNPZh
+	wZUzMjQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnp8-0000000EGsw-11G9;
-	Thu, 12 Jun 2025 19:42:54 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1uPnpB-0000000EGzA-2R9a;
+	Thu, 12 Jun 2025 19:42:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPiPw-0000000DXbj-2aOv;
-	Thu, 12 Jun 2025 13:56:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749736578; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Z9Q6LpwOskFzXu7qFIqDahCinDV85umIMp0V5V90dF7bGYa5NYV89EM6WS0OwHQqd4/Uv2GrLuC17jCqKWGsiS3DgT6YHgWlkx0nVLYDPAGFWkjHJgF1egrIEVsnPr+yAxCQm6AkbkBgWNKa4ARXHPstwsiFDVRpeo62daoIcjA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749736578; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=KUIfLwvoP44U5nDfSmqojpW++w9cxu2WaXPKkzeIK40=; 
-	b=i68huo5HXEszm0XtLDeI3hap5XBQ0TEjonhcTuFAHwLyctmv+zfAdxJP4AYyOPd8EytdSiiU+3o/mbGHoDKTg5IKe0tEmkpcVlco54i1d6deoZqw1NQjgQnM6VIICB5TrmIq5V89n7yuMrsDQX3jW3TUWT/GhE2Med+bYTb+2/w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749736578;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=KUIfLwvoP44U5nDfSmqojpW++w9cxu2WaXPKkzeIK40=;
-	b=cB79ZboY1lFL9af6mnwgT0N6Y0FcjVW7L4hsO0ita2ELplHFr9csDJsspMYpZ+wM
-	iXN1J/COAX88HG2r91O8+liDKQ6izRy+6ZX5HT6MKqoixIRZP/0CbfNrk5lnI7DeQbd
-	TBdTShZFNU85CZzECc15JWt2HEJ50Peaeil1iaVjkeBp1k8SD5taNTsYM0mU8Wz0QF+
-	7hzKXd4o8bVxpr13ffHrBOSFy6Jw4cREKjzEXFUfwM5e9h8BwKqt6gUhnuKsPW1XfbR
-	b0bg3k2M5B1ZX0UVvHPM698VsCqcF5tzp4MCl/VVL5Z+bAJsfgNJZ0UHYrKPqwM39nb
-	VWTuVDzl5A==
-Received: by mx.zohomail.com with SMTPS id 174973657610749.98040995348208;
-	Thu, 12 Jun 2025 06:56:16 -0700 (PDT)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Sean Wang <sean.wang@mediatek.com>
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH 1/2] dt-bindings: arm: mediatek: add mt8173-hana rev2
-Date: Thu, 12 Jun 2025 21:55:58 +0800
-Message-ID: <20250612135559.2601139-1-uwu@icenowy.me>
-X-Mailer: git-send-email 2.49.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
-X-ZohoMail-Owner: <20250612135559.2601139-1-uwu@icenowy.me>+zmo_0_
+	id 1uPieX-0000000Da6k-2xnB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 14:11:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8074C5C65B1;
+	Thu, 12 Jun 2025 14:09:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C053DC4CEEA;
+	Thu, 12 Jun 2025 14:11:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749737496;
+	bh=eVcT22CR6MUvmIdjYr3MtOpYN2U0aHt7Hy7WNsb7NkM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=rF1dgaeHPS7gQ0UjeHj1ioH3nZys3BESMWp2LfjYJNHYhw5M9lc1TIihF5xWfoxXK
+	 5iCWIOSnDgcG+jFBZDdO0ywovQxdgyD7ph3XLqnazH6rknAxTxP8K/DoxpW0iUCIW8
+	 HYWkSEUH5+jJM8bJ8ntZOqzFEJUiYia5B5ISrRg7X09jz4efh2nPXP3mUQuJ7Tuw25
+	 WxRLc7225gaD7Ey274985yUp5TX2VKwcrrwlvvZQotqll2x9vGDLT+6Oo4iRlq90q1
+	 1aCGQKjoVi17yK7bFTJAnCP4/sHsroEyROlll7hzgeZrF7mcpnI+EhpKvTSxERiPrg
+	 oA60e9XLjelIA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uPieU-006GX7-24;
+	Thu, 12 Jun 2025 15:11:34 +0100
+Date: Thu, 12 Jun 2025 15:11:33 +0100
+Message-ID: <86sek5cane.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Luo Jie <quic_luoj@quicinc.com>
+Cc: Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes
+	<linux@rasmusvillemoes.dk>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	"Nicolas\
+ Palix" <nicolas.palix@imag.fr>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton
+	<oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	<linux-kernel@vger.kernel.org>,
+	<cocci@inria.fr>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<andrew@lunn.ch>,
+	<quic_kkumarcs@quicinc.com>,
+	<quic_linchen@quicinc.com>,
+	<quic_leiwei@quicinc.com>,
+	<quic_suruchia@quicinc.com>,
+	<quic_pavir@quicinc.com>
+Subject: Re: [PATCH v4 0/5] Add FIELD_MODIFY() helper
+In-Reply-To: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: quic_luoj@quicinc.com, yury.norov@gmail.com, linux@rasmusvillemoes.dk, Julia.Lawall@inria.fr, nicolas.palix@imag.fr, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-kernel@vger.kernel.org, cocci@inria.fr, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, andrew@lunn.ch, quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com, quic_leiwei@quicinc.com, quic_suruchia@quicinc.com, quic_pavir@quicinc.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_065632_693421_7D91A308 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_071137_834717_EAA2FB26 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-My Lenovo Flex 11 Chromebook contains a board with revision ID 2.
+On Thu, 12 Jun 2025 14:46:07 +0100,
+Luo Jie <quic_luoj@quicinc.com> wrote:
+> 
+> Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
+> macros. It is functionally similar as xxx_replace_bits(), but adds
+> the compile time checking to catch incorrect parameter type errors.
+> 
+> This series also converts the four instances of opencoded FIELD_MODIFY()
+> that are found in the core kernel files, to instead use the new
+> FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
+> the script field_modify.cocci.
+> 
+> The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
+> 
+> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 
-Add rev2 to the compatible list of base hana DTB to allow depthcharge to
-match the DTB.
+I already indicated that the *pre-existing* set of helpers are enough
+for what we want to do, that we *already* use them for KVM/arm64, and
+that I didn't need nor want two ways to do the same thing in the same
+code base.
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
----
- Documentation/devicetree/bindings/arm/mediatek.yaml | 1 +
- 1 file changed, 1 insertion(+)
+My opinion hasn't changed on that front, and I don't see a point in
+these patches.
 
-diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
-index 108ae5e0185d9..7d13547ff57ba 100644
---- a/Documentation/devicetree/bindings/arm/mediatek.yaml
-+++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
-@@ -132,6 +132,7 @@ properties:
-           - const: google,hana-rev5
-           - const: google,hana-rev4
-           - const: google,hana-rev3
-+          - const: google,hana-rev2
-           - const: google,hana
-           - const: mediatek,mt8173
-       - description: Google Hana rev7 (Poin2 Chromebook 11C)
+	M.
+
 -- 
-2.49.0
-
+Without deviation from the norm, progress is not possible.
 
