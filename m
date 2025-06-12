@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02414C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 05:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2777C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 05:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z/t8lLUiFoXTd5zgRP+4OV8+E8OvgbBaVBJMzxkwCWI=; b=seBsq1d7LhUOC8YW7BQo3cGwEW
-	/Nnt5dVQOtl66XWfPf/zyNA5PPhG4wXP1wcatJgShMf4UznpJnPKzzoVtJ0GUvds4FFllHYJkqf5l
-	oiD73QRW0/XukAPyFmHq0EWlOfZDY400VOdSAKtJzvy9xaE2trg9KX+C8yldZDpt1FqSRCnxCbs4d
-	I8c9iaRcgwo7EhG1l65k2r5y7dGSQU2YjyPqCP7OVAp7DYmCGlq0tehJ7ks656bjwLN4FmOc7s6sB
-	5vzrEBT3G9WoHHDWpmtAyokiyoCMChwp/4JgDH1U+zR2Ld+/9skx70tFg7gvW4zImg9zHrQlanurH
-	QKYk/fwQ==;
+	bh=f0hXMw8ptRoZo8p1kCUGMksKDyTuNXCp9RDEBkWxjOA=; b=L/8n3RgblDj+F3x5bDFHMwcDb7
+	IrW/I3scvBozgtO6/k57ENlLDwkrHr3292fk4RHnJFGum5GWyh+EhyH6pHkc1N+lCDy57dGLGtMkm
+	XJknkg32e189VJVansXwUIEmMK1fUVOkhGG9mPrAbRoZhfY2iWYIVmSWP6asM2Q1xtCNBOnctJOkU
+	8fkohAVc3ndMLKGtRehb00oCWfcgjuxSqXFihdJntwJTkmO8Riy6iCZpWDv0vmwDHc4qDXD5WTI6X
+	RyFPuBY9EOWAnv0Gi0LfuJVCNlYHmepMwT83uxk8MJ45elABkLoFNx7KtFkMkfS0zezpdlODmPh7v
+	UbcVnesg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPaPP-0000000CDrZ-46LW;
-	Thu, 12 Jun 2025 05:23:27 +0000
+	id 1uPaRV-0000000CE3U-2v8L;
+	Thu, 12 Jun 2025 05:25:37 +0000
 Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPaLZ-0000000CDUB-0dMe
+	id 1uPaMy-0000000CDfW-15Pz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 05:19:31 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55C5JM1d2777716;
-	Thu, 12 Jun 2025 00:19:22 -0500
+	Thu, 12 Jun 2025 05:20:58 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55C5KqE32777873;
+	Thu, 12 Jun 2025 00:20:52 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749705562;
-	bh=Z/t8lLUiFoXTd5zgRP+4OV8+E8OvgbBaVBJMzxkwCWI=;
+	s=ti-com-17Q1; t=1749705652;
+	bh=f0hXMw8ptRoZo8p1kCUGMksKDyTuNXCp9RDEBkWxjOA=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=PwN9NjQqcsSqDe2oXG6CwGyH1Mrjr65I8EpYBao1jJSoP+RHyQSQf+FbbH4Xra024
-	 RsAk1NH0SdfifAui2hIR5DrRmPke6zP2pxI/FSwboeX9KQ9Ynv6LprE7W15aXhaUbj
-	 tz4119hXwH/kIMn0EHkx9cO93VCjo7nFgL0cA/Fw=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55C5JM223383057
+	b=ePPip87uWoVMAXtwg7UZuCmvzjYTFrqY4z0RyKdYQe047ftJS5HKh8iNxGQYadiBG
+	 GhLLq45++EdhLh1Rd9eTQSF6nB2lSj6n+J5Il4cmk6S7UrsCGB0Gd1GOWPJM0XMcNx
+	 dwqD3ruNjFI6L4b5YXEJ8Tbiuu3eXUKdQezzBbHg=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55C5KpNN2306843
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 12 Jun 2025 00:19:22 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 12 Jun 2025 00:20:51 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 12
- Jun 2025 00:19:22 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 12 Jun 2025 00:19:22 -0500
+ Jun 2025 00:20:51 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 12 Jun 2025 00:20:50 -0500
 Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55C5JHui1457466;
-	Thu, 12 Jun 2025 00:19:18 -0500
-Message-ID: <03555d09-e506-4f48-a073-b06b63e1af4a@ti.com>
-Date: Thu, 12 Jun 2025 10:49:17 +0530
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55C5KjFH1459677;
+	Thu, 12 Jun 2025 00:20:46 -0500
+Message-ID: <42ac0736-cb5a-4d99-a11c-6f861adbdb5f@ti.com>
+Date: Thu, 12 Jun 2025 10:50:45 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Read firmware-names from
- device tree
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Meghana Malladi <m-malladi@ti.com>, Paolo Abeni <pabeni@redhat.com>,
-        Eric
- Dumazet <edumazet@google.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
+Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Add prp offload support
+ to ICSSG driver
+To: Jakub Kicinski <kuba@kernel.org>, Himanshu Mittal <h-mittal1@ti.com>
+CC: <pabeni@redhat.com>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
         <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
         Roger Quadros
-	<rogerq@kernel.org>
-References: <20250610052501.3444441-1-danishanwar@ti.com>
- <20250611170211.7398b083@kernel.org>
+	<rogerq@kernel.org>, <m-malladi@ti.com>,
+        <pratheesh@ti.com>, <prajith@ti.com>
+References: <20250610061638.62822-1-h-mittal1@ti.com>
+ <20250611170424.08e47f1a@kernel.org>
 Content-Language: en-US
 From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20250611170211.7398b083@kernel.org>
+In-Reply-To: <20250611170424.08e47f1a@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_221929_283915_A9BBB1CD 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20250611_222056_387681_F660005E 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,59 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub
 
-On 12/06/25 5:32 am, Jakub Kicinski wrote:
-> On Tue, 10 Jun 2025 10:55:01 +0530 MD Danish Anwar wrote:
->> Refactor the way firmware names are handled for the ICSSG PRUETH driver.
->> Instead of using hardcoded firmware name arrays for different modes (EMAC,
->> SWITCH, HSR), the driver now reads the firmware names from the device tree
->> property "firmware-name". Only the EMAC firmware names are specified in the
->> device tree property. The firmware names for all other supported modes are
->> generated dynamically based on the EMAC firmware names by replacing
->> substrings (e.g., "eth" with "sw" or "hsr") as appropriate.
+
+On 12/06/25 5:34 am, Jakub Kicinski wrote:
+> On Tue, 10 Jun 2025 11:46:38 +0530 Himanshu Mittal wrote:
+>> Add support for ICSSG PRP mode which supports offloading of:
+>>  - Packet duplication and PRP trailer insertion
+>>  - Packet duplicate discard and PRP trailer removal
+>>
+>> Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
+>> ---
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 23 +++++++++++++++++++-
+>>  drivers/net/ethernet/ti/icssg/icssg_prueth.h |  3 +++
+>>  2 files changed, 25 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> index 86fc1278127c..65883c7851c5 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> @@ -138,6 +138,19 @@ static struct icssg_firmwares icssg_hsr_firmwares[] = {
+>>  	}
+>>  };
+>>  
+>> +static struct icssg_firmwares icssg_prp_firmwares[] = {
+>> +	{
+>> +		.pru = "ti-pruss/am65x-sr2-pru0-pruprp-fw.elf",
+>> +		.rtu = "ti-pruss/am65x-sr2-rtu0-pruprp-fw.elf",
+>> +		.txpru = "ti-pruss/am65x-sr2-txpru0-pruprp-fw.elf",
+>> +	},
+>> +	{
+>> +		.pru = "ti-pruss/am65x-sr2-pru1-pruprp-fw.elf",
+>> +		.rtu = "ti-pruss/am65x-sr2-rtu1-pruprp-fw.elf",
+>> +		.txpru = "ti-pruss/am65x-sr2-txpru1-pruprp-fw.elf",
+>> +	}
+>> +};
 > 
-> Could you include an example?
-
-Sure. Below are the firmwares used currently for PRU0 core
-
-EMAC: ti-pruss/am65x-sr2-pru0-prueth-fw.elf
-SW  : ti-pruss/am65x-sr2-pru0-prusw-fw.elf
-HSR : ti-pruss/am65x-sr2-pru0-pruhsr-fw.elf
-
-If you look closely you'll see the names of all three firmwares are same
-except for the operating mode.
-
-In general for PRU0 core, firmware name is,
-
-	ti-pruss/am65x-sr2-pru0-pru<mode>-fw.elf
-
-Since the EMAC firmware names are defined in DT, I am reading those
-directly and for other modes just swapping mode name. i.e. eth -> sw or
-eth -> hsr.
-
-I will add this example in commit msg in next revision.
-
+> AFAIU your coworker is removing the static names, please wait until 
+> the dust is settled on that:
 > 
->> This improves flexibility and allows firmware names to be customized via
->> the device tree, reducing the need for code changes when firmware names
->> change for different platforms.
-> 
-> You seem to be deleting the old constants. Is there no need to keep
-> backward compatibility with DT blobs which don't have the firmware-name
-> properties ?
+> https://lore.kernel.org/all/20250610052501.3444441-1-danishanwar@ti.com/
 
-ICSSG-PRUETH driver is only supported by AM65x and AM64x and both the
-DTs have the firmware name property. So I don't think there is any need
-to maintain the older hard coded values.
-
-AM65x -
-https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/arch/arm64/boot/dts/ti/k3-am654-icssg2.dtso#n28:~:text=pru2_1%3E%2C%20%3C%26rtu2_1%3E%2C%20%3C%26tx_pru2_1%3E%3B-,firmware%2Dname,-%3D%20%22ti%2Dpruss/am65x
-
-AM64x -
-https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/tree/arch/arm64/boot/dts/ti/k3-am642-evm.dts#:~:text=tx_pru1_1%3E%3B-,firmware%2Dname,-%3D%20%22ti%2Dpruss
-
-Let me know if this is okay.
+Yes, it's better to wait for that patch to get merged before we add new
+firmware.
 
 -- 
 Thanks and Regards,
