@@ -4,106 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB85C71141
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB8AC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TF4TS7HJTGPNOkFIxQGNmmFmjlfd1e/5O/TAB6Zj10=; b=xm0Kzuab+swhELO3ygn/nO/aic
-	fNhydJ7dfRdeytHF3jmBgvY4SsK4x120uMPKzRn+S1l5Yi0T0l0Gyl/sfB2lsEtNNlTjSZz7lryLT
-	yPBQVQgC1rJgiM8IvdErSF9MQnKM8rVyu1n45yn5b4g9YjINUhRQE+9QUquHQqh7sYXlXa/UVDQ+h
-	91/eXB7Zk/XwtvAwDxzwim/dEjd4XbLCiJ4Gbw7HKiAebfllsHjrRDt955rWElFNfVM7GeotGJnb9
-	nC8IpEB3xWwdxeM03ai2TYzaixy+kJGVDtRkwCAZXgqN9udwIrBAAm0DNSUAa8sudM96/Wdt+TNG7
-	5F5KH1fA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=anKlnwbFl0i8atiPf5c4Ks2L7I/qYyoFEOqCpl8Xjz4=; b=tf9RCz40N4y/PTUWakw64Xgo53
+	9hiU9iGqJkgJ1US147bUAD/lD8mI6DiEnvrIheMn66pPalFnj3nb0EetMyRaaG5YoETIB4oWzdw5f
+	HD4gUpZwHQItx5ZdGOILxKxi70fnpZwn+S69jbxECKSqi5saAWLjUDwUpnvMFbLsYwBR6t+ouKqw/
+	aEanqheDodhJ2VvWVDvg9VycmVIwsNcnKjfd6uFmd42kJ9rGsS0P0r5tkVFe/TIPVFJ7bhd9DvFbD
+	QuEOpQ7NaBo8u4oBse+a8Csub9VtHI6OqmkE/L4yAUnlH6uIyFEZG1KjqZVKBqfGXhTCv2M2hvhil
+	Gf6B7q1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhqn-0000000DOk6-0cPD;
-	Thu, 12 Jun 2025 13:20:13 +0000
-Received: from mout.kundenserver.de ([217.72.192.73])
+	id 1uPhr1-0000000DP8f-39m8;
+	Thu, 12 Jun 2025 13:20:27 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPgeF-0000000DCqx-3CeK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 12:03:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=oldschoolsolutions.biz; s=s1-ionos; t=1749729771; x=1750334571;
-	i=jens.glathe@oldschoolsolutions.biz;
-	bh=9TF4TS7HJTGPNOkFIxQGNmmFmjlfd1e/5O/TAB6Zj10=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=hq88WZBS/UZk1CLqJ5Y4whdiepavhaheE0DTj4N4enSKSJdgOwD+GJYaadckRVAg
-	 tH7sdODyk/6WnQDGA4UQiRPA5SKO8Af1vUDluLzz6r9SB5aETlnfVYDtlTy7Qp7wA
-	 UfT050iwsWJQuo+DwgtWo5awDbUTcfyFjoL2JS7m49bcrbzMPzgrY9MRNPWO/SY0D
-	 0iiDSI7upSlLysms9LbaWXg4P7LXeJb284oldpPzGIUb53F/Cm9vE1wf4RVJHBh0V
-	 ZsJOGf5zSuo0r3KjnWwr2UNTfvI8aeMS684Pxd137VnC4yMI+DEII0DzZ2rDYk3dF
-	 PwHJ1i/8xmlqoszmgw==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from [192.168.0.192] ([91.64.235.193]) by mrelayeu.kundenserver.de
- (mreue106 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1MY6TD-1uKSMI1X8H-00LaH9; Thu, 12 Jun 2025 14:02:51 +0200
-Message-ID: <0e6fd97d-9a56-426b-8b98-dc8aa50d02d2@oldschoolsolutions.biz>
-Date: Thu, 12 Jun 2025 14:02:47 +0200
+	id 1uPgnC-0000000DDTe-0yjC;
+	Thu, 12 Jun 2025 12:12:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749730279; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=gLVUSH8whkjznJ84HhEKxxnjU2XuDwX04WtVl7Ke0k/VtxuyHepvYyZFEsDsuRxdsOR+mZGQaf6prN0Jl3RFazK5tsm20vUPJNrfC7uMH7EkaAb8x+J6/uAl/jUVupirBlfKqcEg9lOnbR3b7+HuupT2MjpmNEg4RkgTVsrnDEU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1749730279; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=anKlnwbFl0i8atiPf5c4Ks2L7I/qYyoFEOqCpl8Xjz4=; 
+	b=NnYk+ho5QsNnUw/GyWrBWAlNSFdprVwt/SMpMEjygvo543BdEKRBHtfoDB0IlobqSRFj3aQKnfuW61HRwi3mlbyo7MjKlqvXIxcbmt1jg1nM3R/1ZxeziAGckm4SGc4esonsJ/LIuXqmUTX6AGNZ7pwSisvbKzWfbHfGMTWV5H8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749730279;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=anKlnwbFl0i8atiPf5c4Ks2L7I/qYyoFEOqCpl8Xjz4=;
+	b=SK7OXUzcTO6J2OvgkAoNUrfYDQNfzeYE74UjS+nOX7vgUkpRNbgyTF8jQkg2hh0D
+	dUAV/oN8qsLxpnK+Y+fEssRjHR7B+gVr7b2h2PGccmdr2X9JotCuSJJ08Fv1WSCt0fN
+	YQykWtOBwsZmWFYSR+CE0ujPPquYI14ZwNERJFwc=
+Received: by mx.zohomail.com with SMTPS id 1749730276781981.6042234328434;
+	Thu, 12 Jun 2025 05:11:16 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: David Lechner <dlechner@baylibre.com>, linux-rockchip@lists.infradead.org
+Cc: Michael Hennerich <michael.hennerich@analog.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Jonathan Cameron <jic23@kernel.org>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Francesco Dolcini <francesco@dolcini.it>,
+ =?UTF-8?B?Sm/Do28gUGF1bG8gR29uw6dhbHZlcw==?=
+ <jpaulo.silvagoncalves@gmail.com>,
+ Leonard =?UTF-8?B?R8O2aHJz?= <l.goehrs@pengutronix.de>,
+ kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Roan van Dijk <roan@protonic.nl>,
+ Tomasz Duszynski <tomasz.duszynski@octakon.com>,
+ Jacopo Mondi <jacopo@jmondi.org>,
+ Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
+ Mudit Sharma <muditsharma.info@gmail.com>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ =?UTF-8?B?T25kxZllag==?= Jirman <megi@xff.cz>,
+ Andreas Klinger <ak@it-klinger.de>,
+ Petre Rodan <petre.rodan@subdimension.ro>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Pavel Machek <pavel@ucw.cz>
+Subject: Re: [PATCH 00/28] iio: zero init stack with { } instead of memset()
+Date: Thu, 12 Jun 2025 14:11:08 +0200
+Message-ID: <2243943.irdbgypaU6@workhorse>
+In-Reply-To: <aEqbQPvz0FsLXt0Z@duo.ucw.cz>
+References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
+ <aEqbQPvz0FsLXt0Z@duo.ucw.cz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] Support for Adreno X1-45 GPU
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
- Konrad Dybcio <konradybcio@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>,
- Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
- Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
- freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-References: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
-Content-Language: en-US
-From: Jens Glathe <jens.glathe@oldschoolsolutions.biz>
-In-Reply-To: <20250611-x1p-adreno-v2-0-5074907bebbd@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:PA710ORLSCeaHxN8hFzgvAQEIwCwCDgAqOPxruFizn/AlMGjSUW
- 85uyv+NKj8CJmTO0sQnvMTIrZKQ6go/mQ+6xlAatX56T7sbfoY9mrlGxuK9GqULgAmnaFnI
- SRZ9HjMKSXySd+iYIlVnC8F/m6mNicG0sb5pyedZWjPtYWzcuTS7566I4WNuxQLOEyqK+x9
- Bh/Uz2SCZsJOfkrhXHa1g==
-UI-OutboundReport: notjunk:1;M01:P0:L1EqaybFqPc=;SH5yWekgKGHaAg1DHQsy+EzoiJq
- Fl33glttMNku1XZ3PTQbtb1rmTcDXbw/vl6qSCG/34IBmm/DS8vKdIccBDVBP8bvI/DqmMJez
- 6byvoL6GFFNM1CzDtjKWZABX9NJ4LnQbkIpGuj1Y/Z6MN9X3klsIW2zF8chmAuuQdzLNN0pqA
- PoqPsBYemVKVNhE3XnbyZCuHtha/Q0gfKOyhl5icS1r70P47mUuNWR4cfk9LEjrRm//zd/8cY
- WzQ5F792ABH62d95D1KWBO8AjRUshhpAHKvH4ThW7NJ60XhXuPnqMZeyRmeOusx+NBn2FpgxF
- J0yLdMiIMLTAk41h1Dlhg7zy4o6gjT9jsegg9l9k5X9Bi0hTsjtQiRJFTnY6Id4dmxT5GlMEq
- RenJBljZbzGPcA/rFtr0cukkKmtA8osWr+fsey1+lXU8LCSXGwi+dATMTpW7JnR0ingmsdM+Z
- YKUjVso7pM+kd4zpmNR2Q3JPozM3VMR0ZDH+t/STUVNeiFgCDYUaPmHczxPJTpBRdpBKLehhR
- SOySjY8o/cs8vTG0PQnUjCgO6NdHRt81X0Vq9/2gcoRAxjBfhQuV0cHJ+Kx0fTpsY8ubz1ul/
- myEmfKl1BwJ0nnK636uqKlkh2pVOgN6i3lZv2UbRmtjtIAJ6IMiXQ969R+AGuuyIQ8UxH6sxt
- FZigztwQCqqYwZGlABZzY7ZGb8sXiHw+CRSHq7Tf2ddwl8rz4H+ALxOBNFuYtWo6Q30NT0RTs
- gfW8TXxhGDGay92JfTOmmaePFtXJXKmhHUytOWrvwfmJoA5/qvqFXkwfm9hsZCAyLMW6Rr5Nv
- Dup8v0DVyMrM9CjYr4zCsEarLgGkTGOAF2BPED53kmP5iQBCPKoYLz72NlKRgyNfdUyWDNy2K
- dTtdW7K8AYxt4ZhH6eSVWHQsBd5pfUy/svx8mJJtnNhTKhNsJLu2+Wfr+PASg7eIRHHtH6T/I
- b5Qsn35pG1HRk11oxA8Rzvhwb4SgPmuJN4SRzV1JNj6roLIRwB55utfAiGpMdIZRTHr0aMd2q
- tzMaB2gTpJt/8iT3lypRZuSrQPxIe7Bl/tGWiqwNJiwZ+IvsYb3DhRyx1PyWON/xc8OdnGgcj
- K/9WeZoUvksWB2cXT2ppehye2Ng5A+QwmgTeKoHp4meAOiNN7ZSSndmchBFGVrYA503WOpm0f
- LDurQ1mJ9EQVTQJOMtYM9kqpDTt0rhwRxzYGgkkOygitExSsr6C1TVGcAf3Vesk4tG+6Ctkvw
- PPtbXm1kMH5pmSk86Ek+TqY9T93192Ci7WQ5rE/vF4qmA3DhitQJDGZn+Hyxtx4b4Qn0+aOUx
- 4vBkLmiZxmrdt2llTj0c44+bd707cNzq/WJQNEfhJ5RhEeHG0fNTFv9106zHmCODAl2l44zqX
- v/xI4aoMh/F4Yb/2uTgcBijj7AMpCZ+9s8g7pkk0Dn81sYe3pNcjsb+Ix/t+fed23Qp+bv82f
- KOWpJFA==
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_050312_095298_474CBBE4 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_051226_351738_F0C4E621 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,28 +99,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/25 13:15, Akhil P Oommen wrote:
+Hello,
 
-> Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
-> version). X1-45 is a smaller version of X1-85 with lower core count and
-> smaller memories. From UMD perspective, this is similar to "FD735"
-> present in Mesa.
->
-Hi Akhil,
+I thought I'd chime in as someone uninvolved because this seemed
+interesting.
 
-when loading the driver (still without firmware files) I'm getting a=20
-speedbin warning:
+On Thursday, 12 June 2025 11:17:52 Central European Summer Time Pavel Machek wrote:
+> Hi!
+> 
+> > Jonathan mentioned recently that he would like to get away from using
+> > memset() to zero-initialize stack memory in the IIO subsystem. And we
+> > have it on good authority that initializing a struct or array with = { }
+> > is the preferred way to do this in the kernel [1]. So here is a series
+> > to take care of that.
+> 
+> 1) Is it worth the churn?
+> 
+> 2) Will this fail to initialize padding with some obscure compiler?
 
-[=C2=A0=C2=A0=C2=A0 3.318341] adreno 3d00000.gpu: [drm:a6xx_gpu_init [msm]=
-] *ERROR*=20
-missing support for speed-bin: 233. Some OPPs may not be supported by=20
-hardware
+as of right now, the only two C compilers that are supported are
+GCC >= 8.1, and Clang >= 13.0.1. If anyone even manages to get the kernel
+to finish a build with something else, I think the compiler not
+implementing the C standard correctly is the least of their worries.
 
-I've seen that there is a table for speed bins, this one is not there.=20
-Tested on a Lenovo ThinkBook 16 G7 QOY.
+My bigger worry is that = { } is only guaranteed to be as correct as
+memset on C23, and the kernel's standard right now is C11. For that
+reason alone, I don't think memset should be moved away from for now,
+unless someone can verify that every GCC release >= 8.1 and every
+Clang release >= 13.0.1 does the right thing here regardless.
 
-with best regards
+> 
+> 3) Why do you believe that {} is the preffered way? All we have is
+> Kees' email that explains that = {} maybe works in configs he tested.
 
-Jens
+= { } is guaranteed to work in C23, as per the standard, but again we're
+not on C23.
+
+The reason to prefer this is likely that it's easier for static analysis
+to see the struct as initialised, but that's me making assumptions here.
+
+A more human-centric argument is that once we're on a C standards version
+where = { } is guaranteed to be correct, then = { } is much more obviously
+correct to a reader than a memset with a value and a size somewhere later
+in the code. This argument is evident from the number of patches in this
+series where the memset and the declaration are not in the same hunk.
+That's the kind of stuff that keeps me awake at night, sweating profusely.
+
+Kind regards,
+Nicolas Frattaroli
+
+> 
+> BR,
+> 								Pavel
+> 
+> > [1]:
+> > https://lore.kernel.org/linux-iio/202505090942.48EBF01B@keescook/
+> 
+> 
+> 
+> > ---
+> > David Lechner (28):
+> >       iio: accel: adxl372: use = { } instead of memset()
+> >       iio: accel: msa311: use = { } instead of memset()
+> >       iio: adc: dln2-adc: use = { } instead of memset()
+> >       iio: adc: mt6360-adc: use = { } instead of memset()
+> >       iio: adc: rockchip_saradc: use = { } instead of memset()
+> >       iio: adc: rtq6056: use = { } instead of memset()
+> >       iio: adc: stm32-adc: use = { } instead of memset()
+> >       iio: adc: ti-ads1015: use = { } instead of memset()
+> >       iio: adc: ti-ads1119: use = { } instead of memset()
+> >       iio: adc: ti-lmp92064: use = { } instead of memset()
+> >       iio: adc: ti-tsc2046: use = { } instead of memset()
+> >       iio: chemical: scd4x: use = { } instead of memset()
+> >       iio: chemical: scd30: use = { } instead of memset()
+> >       iio: chemical: sunrise_co2: use = { } instead of memset()
+> >       iio: dac: ad3552r: use = { } instead of memset()
+> >       iio: imu: inv_icm42600: use = { } instead of memset()
+> >       iio: imu: inv_mpu6050: use = { } instead of memset()
+> >       iio: light: bh1745: use = { } instead of memset()
+> >       iio: light: ltr501: use = { } instead of memset()
+> >       iio: light: opt4060: use = { } instead of memset()
+> >       iio: light: veml6030: use = { } instead of memset()
+> >       iio: magnetometer: af8133j: use = { } instead of memset()
+> >       iio: pressure: bmp280: use = { } instead of memset()
+> >       iio: pressure: mpl3115: use = { } instead of memset()
+> >       iio: pressure: mprls0025pa: use = { } instead of memset()
+> >       iio: pressure: zpa2326: use = { } instead of memset()
+> >       iio: proximity: irsd200: use = { } instead of memset()
+> >       iio: temperature: tmp006: use = { } instead of memset()
+> > 
+> >  drivers/iio/accel/adxl372.c                       | 3 +--
+> >  drivers/iio/accel/msa311.c                        | 4 +---
+> >  drivers/iio/adc/dln2-adc.c                        | 4 +---
+> >  drivers/iio/adc/mt6360-adc.c                      | 3 +--
+> >  drivers/iio/adc/rockchip_saradc.c                 | 4 +---
+> >  drivers/iio/adc/rtq6056.c                         | 4 +---
+> >  drivers/iio/adc/stm32-adc.c                       | 3 +--
+> >  drivers/iio/adc/ti-ads1015.c                      | 4 +---
+> >  drivers/iio/adc/ti-ads1119.c                      | 4 +---
+> >  drivers/iio/adc/ti-lmp92064.c                     | 4 +---
+> >  drivers/iio/adc/ti-tsc2046.c                      | 3 +--
+> >  drivers/iio/chemical/scd30_core.c                 | 3 +--
+> >  drivers/iio/chemical/scd4x.c                      | 3 +--
+> >  drivers/iio/chemical/sunrise_co2.c                | 6 ++----
+> >  drivers/iio/dac/ad3552r.c                         | 3 +--
+> >  drivers/iio/imu/inv_icm42600/inv_icm42600_accel.c | 5 ++---
+> >  drivers/iio/imu/inv_icm42600/inv_icm42600_gyro.c  | 5 ++---
+> >  drivers/iio/imu/inv_mpu6050/inv_mpu_acpi.c        | 4 +---
+> >  drivers/iio/imu/inv_mpu6050/inv_mpu_ring.c        | 6 ++----
+> >  drivers/iio/light/bh1745.c                        | 4 +---
+> >  drivers/iio/light/ltr501.c                        | 4 +---
+> >  drivers/iio/light/opt4060.c                       | 4 +---
+> >  drivers/iio/light/veml6030.c                      | 4 +---
+> >  drivers/iio/magnetometer/af8133j.c                | 4 +---
+> >  drivers/iio/pressure/bmp280-core.c                | 5 +----
+> >  drivers/iio/pressure/mpl3115.c                    | 3 +--
+> >  drivers/iio/pressure/mprls0025pa_i2c.c            | 5 +----
+> >  drivers/iio/pressure/zpa2326.c                    | 4 +---
+> >  drivers/iio/proximity/irsd200.c                   | 3 +--
+> >  drivers/iio/temperature/tmp006.c                  | 4 +---
+> >  30 files changed, 34 insertions(+), 85 deletions(-)
+> > ---
+> > base-commit: 4c6073fec2fee4827fa0dd8a4ab4e6f7bbc05ee6
+> > change-id: 20250611-iio-zero-init-stack-with-instead-of-memset-0d12d41a7ecb
+> > 
+> > Best regards,
+> 
+> 
+
+
+
 
 
