@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91F9C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 09:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270DAC71141
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 09:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GIuVXXciXnWQDTLHg7lB38aj0IWUGv+yXlAFA9ulE7A=; b=U1Q3qwiBLSe36lRRK9ZHbVQgYG
-	cw8KPgjULmUpmwMuHM9CVEHRFTM1lVNmA9EsOVZ/Ge2NbP2Q7ORJ74n/R5ork/bzc0Z7kmmo/2tIY
-	5mFUKMY9/F/uu4gzSOjDYC9ZUKevBcflYPXfMRTAPdUa3BSbX9wA2njolhVu0ABP2lbAwTl9/18QU
-	CN3ax/BF531IhNpsfICrChYYtIvBN7Vha2d911buSeVu6YO3z2i3YKvNduo2bBtPk1f0nsPTIeJeQ
-	nUCc0ak16j4nTaXtCGIQ9RFmhcLXi+jb3s+R0hHeTP2OrnI82NzP0wNiSK1yiClDcjDdhTyKotKxj
-	VD7CjiIg==;
+	bh=G/L860iFSRWtDQn8ireYrc3Cye0vTyizniIYlymGiLU=; b=HpFQv7HyhRC878KM5iF6P3zsYF
+	V1CZb2Z8hwXHUHu9MEPRcR74TFZ4+B4ZehYNaviyjc2fddBFaPJbIO794T/pUJuzY9JZlRmXDlrLt
+	Ot8Uf3MUvFRL6/XTNdgUROMGRtfOQdKmHC/c+FJ99B12/id4kV5dRApHxw5LhNyd6kj7CtLZ1l7PR
+	vqfJoRQnb4eD4YVtnMCtTLxj9/7uqQZWDDU0yUOmN/6h/6V7GMNQeJWXkiYXu/W/9oFSzIxkN0T8H
+	m0Nw9i3Q3IJ45QUTrd2+EbxLsSD2/+utR7DqtDqJlH7AHd1Te/HO1y2rsEwSRA4FvnhsMN7Iry0qQ
+	4uDYnB+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPe1S-0000000CmzQ-1LoJ;
-	Thu, 12 Jun 2025 09:14:58 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1uPe3Y-0000000CnJQ-0Eut;
+	Thu, 12 Jun 2025 09:17:08 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPdBm-0000000CbLR-3Ppb
+	id 1uPdBq-0000000CbNl-3EqC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 08:21:36 +0000
+	Thu, 12 Jun 2025 08:21:40 +0000
 Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id ED5021F7E8;
-	Thu, 12 Jun 2025 08:21:25 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 71D6B218FC;
+	Thu, 12 Jun 2025 08:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749716486; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1749716487; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GIuVXXciXnWQDTLHg7lB38aj0IWUGv+yXlAFA9ulE7A=;
-	b=dLdJja9fDr/7XWXv8gRR0pirjAR5kkSUn0RqazGgHFnaPBU8GnY7tmEEzdq1wGsB/pzxwi
-	2sn3P48HP6pjUJW5+ky3IqoEN9zJFVXrDQDED+S2HEgNJaICh1+tw6wStjK9HmFvPQ6SQD
-	ASnoCxjdbu/c7MY1XLcHzyvZADZS4hQ=
+	bh=G/L860iFSRWtDQn8ireYrc3Cye0vTyizniIYlymGiLU=;
+	b=QKG4HyYH1Oi3zSDwB0196c9Kp+qDzcGdzcc3rHOCQL0A+mPOXmC0059Lc6RjxizFof8J6y
+	V43uRp4qUvs2K3IES5cbl7Z5u2p1AA1znqwIIxtHU4Et9TkBn/NWTnIAO9DKViSMDTt3M3
+	f1jir0NlRFCegsS9lPg7qZsHcj3iSWk=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749716486;
+	s=susede2_ed25519; t=1749716487;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GIuVXXciXnWQDTLHg7lB38aj0IWUGv+yXlAFA9ulE7A=;
-	b=8o97eX7b/DJpVTQ2t4DkHPqLsrbeekcxVTyYQbaz8VTEgTNd+eS8HmFxflVMhA8FHSQapY
-	u6LRl8AqJkq1RXCg==
-Authentication-Results: smtp-out2.suse.de;
+	bh=G/L860iFSRWtDQn8ireYrc3Cye0vTyizniIYlymGiLU=;
+	b=1odK2eCW3Wun/wlpQaQJx2lHf3/sEYHhLAMtqsi3IotmLTfqrHiZe0WxxJ1ela/E4qC7q+
+	OZNybidr1hLFNrAw==
+Authentication-Results: smtp-out1.suse.de;
 	none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749716485; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1749716487; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GIuVXXciXnWQDTLHg7lB38aj0IWUGv+yXlAFA9ulE7A=;
-	b=Sqi2gbkxY+6aIMOe63VkmfHnbuIRnLC5qaYhEgfHbO6AIK0P2x7n8+yTKcHLgabJA8lATw
-	O6ngpoJSmi8A0AprVnIALlZeskYzXPHC7Zi8HvcUYFx/hP+6DJ3VHkdtHwnlczZk/0vjfP
-	9q6jkOGvJM+eM2fUTQGDJSibGy1CZTA=
+	bh=G/L860iFSRWtDQn8ireYrc3Cye0vTyizniIYlymGiLU=;
+	b=QKG4HyYH1Oi3zSDwB0196c9Kp+qDzcGdzcc3rHOCQL0A+mPOXmC0059Lc6RjxizFof8J6y
+	V43uRp4qUvs2K3IES5cbl7Z5u2p1AA1znqwIIxtHU4Et9TkBn/NWTnIAO9DKViSMDTt3M3
+	f1jir0NlRFCegsS9lPg7qZsHcj3iSWk=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749716485;
+	s=susede2_ed25519; t=1749716487;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GIuVXXciXnWQDTLHg7lB38aj0IWUGv+yXlAFA9ulE7A=;
-	b=QVxqICHy1ZFKShYxJT4IhU9vCztMbGc6K4SqzNio9SmwUqXhSLHKkICQomcBx8qJL0K2i8
-	zlTLOdMbW8CGywCA==
+	bh=G/L860iFSRWtDQn8ireYrc3Cye0vTyizniIYlymGiLU=;
+	b=1odK2eCW3Wun/wlpQaQJx2lHf3/sEYHhLAMtqsi3IotmLTfqrHiZe0WxxJ1ela/E4qC7q+
+	OZNybidr1hLFNrAw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 9A2A7132D8;
-	Thu, 12 Jun 2025 08:21:25 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1F984132D8;
+	Thu, 12 Jun 2025 08:21:27 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id eA5GJAWOSmgILAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 12 Jun 2025 08:21:25 +0000
+	id kMlyBgeOSmgILAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 12 Jun 2025 08:21:27 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: deller@gmx.de,
 	soci@c64.rulez.org,
@@ -94,9 +94,9 @@ Cc: linux-fbdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-omap@vger.kernel.org,
 	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 02/14] fbdev: Include <linux/export.h>
-Date: Thu, 12 Jun 2025 10:16:25 +0200
-Message-ID: <20250612081738.197826-3-tzimmermann@suse.de>
+Subject: [PATCH v2 06/14] fbdev/matroxfb: Include <linux/export.h>
+Date: Thu, 12 Jun 2025 10:16:29 +0200
+Message-ID: <20250612081738.197826-7-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250612081738.197826-1-tzimmermann@suse.de>
 References: <20250612081738.197826-1-tzimmermann@suse.de>
@@ -104,29 +104,31 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Spamd-Result: default: False [-2.80 / 50.00];
 	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
 	R_MISSING_CHARSET(0.50)[];
 	NEURAL_HAM_SHORT(-0.20)[-1.000];
 	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	FREEMAIL_TO(0.00)[gmx.de,c64.rulez.org,ffwll.ch,armlinux.org.uk,gmail.com,kernel.org];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
 	FROM_HAS_DN(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo];
-	FROM_EQ_ENVFROM(0.00)[];
+	ARC_NA(0.00)[];
 	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
 	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:email];
+	FREEMAIL_TO(0.00)[gmx.de,c64.rulez.org,ffwll.ch,armlinux.org.uk,gmail.com,kernel.org];
 	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	R_RATELIMIT(0.00)[to_ip_from(RLeer19tzumyaughgdh7h6uhe9)];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	FREEMAIL_ENVRCPT(0.00)[gmail.com,gmx.de]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_012135_142491_39888CB2 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250612_012139_122156_9D873753 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,271 +145,113 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Fix the compile-time warnings
 
-  drivers/video/fbdev/core/cfbcopyarea.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/cfbfillrect.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/cfbimgblt.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/fb_ddc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/fb_defio.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/fb_io_fops.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/fb_sys_fops.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/fbcmap.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/fbcon.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/fbmon.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/modedb.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/svgalib.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/syscopyarea.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/sysfillrect.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/core/sysimgblt.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/macmodes.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/sbuslib.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
-  drivers/video/fbdev/wmt_ge_rops.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/g450_pll.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_DAC1064.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_Ti3026.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_accel.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_base.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_g450.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+  drivers/video/fbdev/matrox/matroxfb_misc.c: warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
 Reviewed-by: Helge Deller <deller@gmx.de>
 ---
- drivers/video/fbdev/core/cfbcopyarea.c | 2 ++
- drivers/video/fbdev/core/cfbfillrect.c | 2 ++
- drivers/video/fbdev/core/cfbimgblt.c   | 2 ++
- drivers/video/fbdev/core/fb_ddc.c      | 1 +
- drivers/video/fbdev/core/fb_defio.c    | 1 +
- drivers/video/fbdev/core/fb_io_fops.c  | 1 +
- drivers/video/fbdev/core/fb_sys_fops.c | 2 ++
- drivers/video/fbdev/core/fbcmap.c      | 1 +
- drivers/video/fbdev/core/fbcon.c       | 1 +
- drivers/video/fbdev/core/fbmon.c       | 2 ++
- drivers/video/fbdev/core/modedb.c      | 1 +
- drivers/video/fbdev/core/svgalib.c     | 1 +
- drivers/video/fbdev/core/syscopyarea.c | 2 ++
- drivers/video/fbdev/core/sysfillrect.c | 2 ++
- drivers/video/fbdev/core/sysimgblt.c   | 2 ++
- drivers/video/fbdev/macmodes.c         | 1 +
- drivers/video/fbdev/sbuslib.c          | 1 +
- drivers/video/fbdev/wmt_ge_rops.c      | 1 +
- 18 files changed, 26 insertions(+)
+ drivers/video/fbdev/matrox/g450_pll.c         | 2 ++
+ drivers/video/fbdev/matrox/matroxfb_DAC1064.c | 1 +
+ drivers/video/fbdev/matrox/matroxfb_Ti3026.c  | 1 +
+ drivers/video/fbdev/matrox/matroxfb_accel.c   | 2 ++
+ drivers/video/fbdev/matrox/matroxfb_base.c    | 1 +
+ drivers/video/fbdev/matrox/matroxfb_g450.c    | 2 ++
+ drivers/video/fbdev/matrox/matroxfb_misc.c    | 1 +
+ 7 files changed, 10 insertions(+)
 
-diff --git a/drivers/video/fbdev/core/cfbcopyarea.c b/drivers/video/fbdev/core/cfbcopyarea.c
-index 23fbf3a8df7c..ce2e6807be60 100644
---- a/drivers/video/fbdev/core/cfbcopyarea.c
-+++ b/drivers/video/fbdev/core/cfbcopyarea.c
-@@ -2,6 +2,8 @@
- /*
-  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
-  */
-+
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/bitrev.h>
-diff --git a/drivers/video/fbdev/core/cfbfillrect.c b/drivers/video/fbdev/core/cfbfillrect.c
-index 615de89256d5..bd2fbbda10c6 100644
---- a/drivers/video/fbdev/core/cfbfillrect.c
-+++ b/drivers/video/fbdev/core/cfbfillrect.c
-@@ -2,6 +2,8 @@
- /*
-  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
-  */
-+
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/bitrev.h>
-diff --git a/drivers/video/fbdev/core/cfbimgblt.c b/drivers/video/fbdev/core/cfbimgblt.c
-index bcec4e32c0e7..e116cd1d8a39 100644
---- a/drivers/video/fbdev/core/cfbimgblt.c
-+++ b/drivers/video/fbdev/core/cfbimgblt.c
-@@ -2,6 +2,8 @@
- /*
-  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
-  */
-+
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/bitrev.h>
-diff --git a/drivers/video/fbdev/core/fb_ddc.c b/drivers/video/fbdev/core/fb_ddc.c
-index e25143219862..824796361367 100644
---- a/drivers/video/fbdev/core/fb_ddc.c
-+++ b/drivers/video/fbdev/core/fb_ddc.c
-@@ -10,6 +10,7 @@
- 
- #include <linux/delay.h>
- #include <linux/device.h>
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/i2c-algo-bit.h>
-diff --git a/drivers/video/fbdev/core/fb_defio.c b/drivers/video/fbdev/core/fb_defio.c
-index 4fc93f253e06..8df2e51e3390 100644
---- a/drivers/video/fbdev/core/fb_defio.c
-+++ b/drivers/video/fbdev/core/fb_defio.c
-@@ -11,6 +11,7 @@
- #include <linux/module.h>
- #include <linux/kernel.h>
- #include <linux/errno.h>
-+#include <linux/export.h>
- #include <linux/string.h>
- #include <linux/mm.h>
- #include <linux/vmalloc.h>
-diff --git a/drivers/video/fbdev/core/fb_io_fops.c b/drivers/video/fbdev/core/fb_io_fops.c
-index 3408ff1b2b7a..6ab60fcd0050 100644
---- a/drivers/video/fbdev/core/fb_io_fops.c
-+++ b/drivers/video/fbdev/core/fb_io_fops.c
-@@ -1,5 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- 
-+#include <linux/export.h>
- #include <linux/fb.h>
- #include <linux/module.h>
- #include <linux/uaccess.h>
-diff --git a/drivers/video/fbdev/core/fb_sys_fops.c b/drivers/video/fbdev/core/fb_sys_fops.c
-index a9aa6519a5b3..be96b3b3942e 100644
---- a/drivers/video/fbdev/core/fb_sys_fops.c
-+++ b/drivers/video/fbdev/core/fb_sys_fops.c
-@@ -9,6 +9,8 @@
-  * for more details.
+diff --git a/drivers/video/fbdev/matrox/g450_pll.c b/drivers/video/fbdev/matrox/g450_pll.c
+index 96996efc9288..e2c1478aa47f 100644
+--- a/drivers/video/fbdev/matrox/g450_pll.c
++++ b/drivers/video/fbdev/matrox/g450_pll.c
+@@ -14,6 +14,8 @@
   *
   */
+ 
++#include <linux/export.h>
 +
-+#include <linux/export.h>
- #include <linux/fb.h>
- #include <linux/module.h>
- #include <linux/uaccess.h>
-diff --git a/drivers/video/fbdev/core/fbcmap.c b/drivers/video/fbdev/core/fbcmap.c
-index ff09e57f3c38..9cc3e87da14b 100644
---- a/drivers/video/fbdev/core/fbcmap.c
-+++ b/drivers/video/fbdev/core/fbcmap.c
-@@ -11,6 +11,7 @@
-  *  more details.
-  */
+ #include "g450_pll.h"
+ #include "matroxfb_DAC1064.h"
  
-+#include <linux/export.h>
- #include <linux/string.h>
- #include <linux/module.h>
- #include <linux/fb.h>
-diff --git a/drivers/video/fbdev/core/fbcon.c b/drivers/video/fbdev/core/fbcon.c
-index 2df48037688d..25684f5d6523 100644
---- a/drivers/video/fbdev/core/fbcon.c
-+++ b/drivers/video/fbdev/core/fbcon.c
-@@ -56,6 +56,7 @@
-  *  more details.
-  */
- 
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/types.h>
- #include <linux/fs.h>
-diff --git a/drivers/video/fbdev/core/fbmon.c b/drivers/video/fbdev/core/fbmon.c
-index 0a26399dbc89..023caaea682e 100644
---- a/drivers/video/fbdev/core/fbmon.c
-+++ b/drivers/video/fbdev/core/fbmon.c
-@@ -26,6 +26,8 @@
-  * for more details.
+diff --git a/drivers/video/fbdev/matrox/matroxfb_DAC1064.c b/drivers/video/fbdev/matrox/matroxfb_DAC1064.c
+index 99bdcb52ef4b..9a893b70ab19 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_DAC1064.c
++++ b/drivers/video/fbdev/matrox/matroxfb_DAC1064.c
+@@ -13,6 +13,7 @@
   *
   */
+ 
++#include <linux/export.h>
+ 
+ #include "matroxfb_DAC1064.h"
+ #include "matroxfb_misc.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_Ti3026.c b/drivers/video/fbdev/matrox/matroxfb_Ti3026.c
+index f53b8066e8a5..4eb636cd1f89 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_Ti3026.c
++++ b/drivers/video/fbdev/matrox/matroxfb_Ti3026.c
+@@ -79,6 +79,7 @@
+  *
+  */
+ 
++#include <linux/export.h>
+ 
+ #include "matroxfb_Ti3026.h"
+ #include "matroxfb_misc.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_accel.c b/drivers/video/fbdev/matrox/matroxfb_accel.c
+index 52e15dc6f45b..2670db392da2 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_accel.c
++++ b/drivers/video/fbdev/matrox/matroxfb_accel.c
+@@ -77,6 +77,8 @@
+  *
+  */
+ 
++#include <linux/export.h>
 +
+ #include "matroxfb_accel.h"
+ #include "matroxfb_DAC1064.h"
+ #include "matroxfb_Ti3026.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_base.c b/drivers/video/fbdev/matrox/matroxfb_base.c
+index 81603ce05a22..5be0cdcd7c71 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_base.c
++++ b/drivers/video/fbdev/matrox/matroxfb_base.c
+@@ -101,6 +101,7 @@
+  */
+ 
+ #include <linux/aperture.h>
 +#include <linux/export.h>
- #include <linux/fb.h>
- #include <linux/module.h>
- #include <linux/pci.h>
-diff --git a/drivers/video/fbdev/core/modedb.c b/drivers/video/fbdev/core/modedb.c
-index 7196b055f2bd..53a610948c4a 100644
---- a/drivers/video/fbdev/core/modedb.c
-+++ b/drivers/video/fbdev/core/modedb.c
-@@ -11,6 +11,7 @@
-  *  more details.
+ #include <linux/version.h>
+ 
+ #include "matroxfb_base.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_g450.c b/drivers/video/fbdev/matrox/matroxfb_g450.c
+index 86fe757d7761..800c05b70ee3 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_g450.c
++++ b/drivers/video/fbdev/matrox/matroxfb_g450.c
+@@ -13,6 +13,8 @@
+  *
   */
  
 +#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/slab.h>
- #include <linux/fb.h>
-diff --git a/drivers/video/fbdev/core/svgalib.c b/drivers/video/fbdev/core/svgalib.c
-index 821b89a0a645..d6053af749f6 100644
---- a/drivers/video/fbdev/core/svgalib.c
-+++ b/drivers/video/fbdev/core/svgalib.c
-@@ -10,6 +10,7 @@
-  * Some parts are based on David Boucher's viafb (http://davesdomain.org.uk/viafb/)
-  */
- 
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/kernel.h>
- #include <linux/string.h>
-diff --git a/drivers/video/fbdev/core/syscopyarea.c b/drivers/video/fbdev/core/syscopyarea.c
-index b634e2d21208..773569bce67c 100644
---- a/drivers/video/fbdev/core/syscopyarea.c
-+++ b/drivers/video/fbdev/core/syscopyarea.c
-@@ -2,6 +2,8 @@
- /*
-  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
-  */
 +
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/bitrev.h>
-diff --git a/drivers/video/fbdev/core/sysfillrect.c b/drivers/video/fbdev/core/sysfillrect.c
-index 372ca6a324c2..12eea3e424bb 100644
---- a/drivers/video/fbdev/core/sysfillrect.c
-+++ b/drivers/video/fbdev/core/sysfillrect.c
-@@ -2,6 +2,8 @@
- /*
-  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
-  */
-+
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/bitrev.h>
-diff --git a/drivers/video/fbdev/core/sysimgblt.c b/drivers/video/fbdev/core/sysimgblt.c
-index c756cc658b7d..0a5bfd8ad095 100644
---- a/drivers/video/fbdev/core/sysimgblt.c
-+++ b/drivers/video/fbdev/core/sysimgblt.c
-@@ -2,6 +2,8 @@
- /*
-  *	Copyright (C)  2025 Zsolt Kajtar (soci@c64.rulez.org)
-  */
-+
-+#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/bitrev.h>
-diff --git a/drivers/video/fbdev/macmodes.c b/drivers/video/fbdev/macmodes.c
-index cd689161f561..b16a9d9bef98 100644
---- a/drivers/video/fbdev/macmodes.c
-+++ b/drivers/video/fbdev/macmodes.c
-@@ -16,6 +16,7 @@
-  */
- 
- #include <linux/errno.h>
-+#include <linux/export.h>
- #include <linux/fb.h>
- #include <linux/string.h>
- #include <linux/module.h>
-diff --git a/drivers/video/fbdev/sbuslib.c b/drivers/video/fbdev/sbuslib.c
-index 4c79654bda30..dd2002d0810f 100644
---- a/drivers/video/fbdev/sbuslib.c
-+++ b/drivers/video/fbdev/sbuslib.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <linux/compat.h>
-+#include <linux/export.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/string.h>
-diff --git a/drivers/video/fbdev/wmt_ge_rops.c b/drivers/video/fbdev/wmt_ge_rops.c
-index 92fbb3f3a0d3..2bd26bfb2b46 100644
---- a/drivers/video/fbdev/wmt_ge_rops.c
-+++ b/drivers/video/fbdev/wmt_ge_rops.c
-@@ -7,6 +7,7 @@
-  *  Copyright (C) 2010 Alexey Charkov <alchark@gmail.com>
+ #include "matroxfb_base.h"
+ #include "matroxfb_misc.h"
+ #include "matroxfb_DAC1064.h"
+diff --git a/drivers/video/fbdev/matrox/matroxfb_misc.c b/drivers/video/fbdev/matrox/matroxfb_misc.c
+index 3fe99214c116..2c5f0099532b 100644
+--- a/drivers/video/fbdev/matrox/matroxfb_misc.c
++++ b/drivers/video/fbdev/matrox/matroxfb_misc.c
+@@ -85,6 +85,7 @@
+  *
   */
  
 +#include <linux/export.h>
- #include <linux/module.h>
- #include <linux/fb.h>
- #include <linux/io.h>
+ 
+ #include "matroxfb_misc.h"
+ #include <linux/interrupt.h>
 -- 
 2.49.0
 
