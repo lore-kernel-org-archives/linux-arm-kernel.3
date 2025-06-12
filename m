@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64AB5C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C892C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGdZgxrn0tMGbWaO4ypRnn0aOZ4kIPbtRk8VYoe9no4=; b=4Tdlr6oaOuZVDYSYvWT+XbO3Yr
-	WhfzCT4BYQKqXAkmq3D6MYPHYEvlg2T2pWhIkgQE5STGeE6Wam83Env/rySGy5NTS1HBxGY/gPc/w
-	rrKXc0tBXsJUkJ5akou0EBeRCdyn8wyNxV3atCef3ffS+N5A3vjvBmbfkrNRJe1pj5FKM02PBWPax
-	ScB/LPPAXq9eiJnjOCdRHENn72gTaucc/fsbZ+9rrnu2ns1E4GX6NUB7prmjqT7vZqKGQ97gaPqff
-	UbEHGl/InhYrPegjWogBNoXePvXTwFbmdSk29GwP1AAKFsAGpcrjdlwb6wJNaQLhweaMRlO3Elikt
-	O78YPHQg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7uOp99Xhix4DCbgkelosQ0oqGiKLPJYCNWVfcTBT5mo=; b=NeSuHOmVa2KyU1
+	dsAEM3to4geSbNeQS44KpJWeLmVauzbbzuf28stFrai7wHqIzoWJrCKZhczKjUFWAYizPWMn+cqBi
+	R5C5m7A9rcAvp775EDrXFl6HVPL1VLZ5imJdBIDbGMl8+rsALdw6tJ9vdB+Zl5qi+AuyiksC6Jfff
+	5W91CQLZ76Nyx9A2BDN/6Ko2cPp3z9NHhmBT5r84iUkeEsqtglFCEAFv0u5hfuWS4tYHK0uP1M1Gd
+	o8fh/BP4Cikd7eIPyusPdlr4pvQbUYUrR0mQoUiOVZznlcUPl114IUa5a4xwkKsntnIJj20Mm/ZR8
+	/2jFTHmRQai4eSL1UP8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhpM-0000000DMFz-2o6I;
-	Thu, 12 Jun 2025 13:18:44 +0000
+	id 1uPhpL-0000000DMFP-0GOE;
+	Thu, 12 Jun 2025 13:18:43 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPesV-0000000Cvhc-29AW
+	id 1uPesQ-0000000Cvhc-45Wh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 10:09:48 +0000
+	Thu, 12 Jun 2025 10:09:44 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 12 Jun
@@ -51,18 +51,16 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
 	<romlem@google.com>, William Kennington <wak@google.com>, Yuxiao Zhang
 	<yuxiaozhang@google.com>, <wthai@nvidia.com>, <leohu@nvidia.com>,
 	<dkodihalli@nvidia.com>, <spuranik@nvidia.com>
-Subject: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device tree
-Date: Thu, 12 Jun 2025 18:09:31 +0800
-Message-ID: <20250612100933.3007673-4-ryan_chen@aspeedtech.com>
+Subject: [PATCH v0 0/5] Add initial AST2700 SoC support
+Date: Thu, 12 Jun 2025 18:09:28 +0800
+Message-ID: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
-References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_030947_556915_6E787C33 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20250612_030943_010177_63811C16 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,416 +75,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This add the initial device tree support for the ASPEED AST2700 SoC.
+This patch series introduces initial support for the Aspeed AST2700 SoC
+and the AST2700 Evaluation Board (EVB) to the Linux kernel. The AST2700
+is the 7th generation Baseboard Management Controller (BMC) SoC from Aspeed,
+featuring improved performance, enhanced security, and expanded I/O
+capabilities compared to previous generations.
 
-- Add top-level compatible string "aspeed,ast2700" and set up
-address-cells/size-cells for 64-bit address space.
-- Describe a quad-core ARM Cortex-A35 CPU cluster with L2 cache,
-including cache properties and PSCI enable-method.
-- Add PMU and ARMv8 timer nodes with correct PPI interrupt wiring.
-- Model the dual-SoC architecture with two simple-bus nodes:
-soc0 (@0x10000000) and soc1 (@0x14000000).
-- Add syscon nodes for both SoCs (syscon0, syscon1) with clock/reset
-cell definitions and address mapping.
-- Add GICv3 interrupt controller node under soc0, with full register
-mapping and interrupt properties.
-- Hierarchical interrupt controller structure:
-  - intc0 under soc0, with child intc0_11 node.
-  - intc1 under soc1, with child intc1_0~intc1_5 nodes.
-- Add serial4 node under soc0, others serial node under soc1.
+The patchset includes the following changes:
+- Device tree bindings for AST2700 boards.
+- Addition of the AST2700 platform to the Kconfig menu.
+- Basic device tree for the AST2700 SoC.
+- Device tree for the AST2700-EVB.
+- Updated defconfig to enable essential options for AST2700.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi | 380 ++++++++++++++++++++++
- 1 file changed, 380 insertions(+)
+Ryan Chen (5):
+  dt-bindings: arm: aspeed: Add AST2700 board compatible
+  arm64: Kconfig: Add Aspeed SoC family (ast2700) platform option
+  arm64: dts: aspeed: Add initial AST2700 SoC device tree
+  arm64: dts: aspeed: Add AST2700 EVB device tree
+  arm64: configs: Update defconfig for AST2700 platform support
+
+ .../bindings/arm/aspeed/aspeed.yaml           |   5 +
+ arch/arm64/Kconfig.platforms                  |   6 +
+ arch/arm64/boot/dts/Makefile                  |   1 +
+ arch/arm64/boot/dts/aspeed/Makefile           |   4 +
+ arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi     | 380 ++++++++++++++++++
+ arch/arm64/boot/dts/aspeed/ast2700-evb.dts    |  54 +++
+ arch/arm64/configs/defconfig                  |   1 +
+ 7 files changed, 451 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+ create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
 
-diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
-new file mode 100644
-index 000000000000..d197187bcf9f
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
-@@ -0,0 +1,380 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <dt-bindings/clock/aspeed,ast2700-scu.h>
-+#include <dt-bindings/reset/aspeed,ast2700-scu.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <1>;
-+	interrupt-parent = <&gic>;
-+
-+	cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			reg = <0x0 0x0>;
-+			enable-method = "psci";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		cpu1: cpu@1 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			enable-method = "psci";
-+			reg = <0x0 0x1>;
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		cpu2: cpu@2 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			enable-method = "psci";
-+			reg = <0x0 0x2>;
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		cpu3: cpu@3 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a35";
-+			enable-method = "psci";
-+			reg = <0x0 0x3>;
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		l2: l2-cache0 {
-+			compatible = "cache";
-+			cache-level = <2>;
-+			cache-unified;
-+			cache-size = <0x80000>;
-+			cache-line-size = <64>;
-+			cache-sets = <1024>;
-+		};
-+	};
-+
-+	arm-pmu {
-+		compatible = "arm,cortex-a35-pmu";
-+		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-+		arm,cpu-registers-not-fw-configured;
-+		always-on;
-+	};
-+
-+	soc0: soc@10000000 {
-+		compatible = "simple-bus";
-+		reg = <0x0 0x10000000 0x10000000>;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		syscon0: syscon@12c02000 {
-+			compatible = "aspeed,ast2700-scu0", "syscon", "simple-mfd";
-+			reg = <0x0 0x12c02000 0x1000>;
-+			ranges = <0x0 0x0 0 0x12c02000 0x1000>;
-+			#address-cells = <2>;
-+			#size-cells = <1>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		gic: interrupt-controller@12200000 {
-+			compatible = "arm,gic-v3";
-+			reg = <0 0x12200000 0x10000>, /* GICD */
-+			      <0 0x12280000 0x80000>, /* GICR */
-+			      <0 0x40440000 0x1000>;  /* GICC */
-+			#interrupt-cells = <3>;
-+			interrupt-controller;
-+			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+			interrupt-parent = <&gic>;
-+		};
-+
-+		serial4: serial@12c1a000 {
-+			compatible = "ns16550a";
-+			reg = <0x0 0x12c1a000 0x1000>;
-+			clocks = <&syscon0 SCU0_CLK_GATE_UART4CLK>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+	};
-+
-+	soc1: soc@14000000 {
-+		compatible = "simple-bus";
-+		reg = <0x0 0x14000000 0x10000000>;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		syscon1: syscon@14c02000 {
-+			compatible = "aspeed,ast2700-scu1", "syscon", "simple-mfd";
-+			reg = <0x0 0x14c02000 0x1000>;
-+			ranges = <0x0 0x0 0x0 0x14c02000 0x1000>;
-+			#address-cells = <2>;
-+			#size-cells = <1>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		serial12: serial@14c33b00 {
-+			compatible = "ns16550a";
-+			reg = <0x0 0x14c33b00 0x100>;
-+			clocks = <&syscon1 SCU1_CLK_GATE_UART12CLK>;
-+			interrupts-extended =
-+				<&intc1_4 18 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+	};
-+};
-+
-+&soc0 {
-+	intc0: interrupt-controller@12100000 {
-+		compatible = "simple-mfd";
-+		reg = <0 0x12100000 0x4000>;
-+		ranges = <0x0 0x0 0x0 0x12100000 0x4000>;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		intc0_11: interrupt-controller@1b00 {
-+			compatible = "aspeed,ast2700-intc-ic";
-+			reg = <0x0 0x1b00 0x10>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			interrupts = <GIC_SPI 192 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+				     <GIC_SPI 193 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+				     <GIC_SPI 194 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+				     <GIC_SPI 195 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+				     <GIC_SPI 196 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
-+				     <GIC_SPI 197 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+	};
-+};
-+
-+&soc1 {
-+	intc1: interrupt-controller@14c18000 {
-+		compatible = "simple-mfd";
-+		reg = <0 0x14c18000 0x400>;
-+		ranges = <0x0 0x0 0x0 0x14c18000 0x400>;
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+
-+		intc1_0: interrupt-controller@100 {
-+			compatible = "aspeed,ast2700-intc-ic";
-+			reg = <0x0 0x100 0x10>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			interrupts-extended =
-+				<&intc0_11 0 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+
-+		intc1_1: interrupt-controller@110 {
-+			compatible = "aspeed,ast2700-intc-ic";
-+			reg = <0x0 0x110 0x10>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			interrupts-extended =
-+				<&intc0_11 1 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+
-+		intc1_2: interrupt-controller@120 {
-+			compatible = "aspeed,ast2700-intc-ic";
-+			reg = <0x0 0x120 0x10>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			interrupts-extended =
-+				<&intc0_11 2 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+
-+		intc1_3: interrupt-controller@130 {
-+			compatible = "aspeed,ast2700-intc-ic";
-+			reg = <0x0 0x130 0x10>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			interrupts-extended =
-+				<&intc0_11 3 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+
-+		intc1_4: interrupt-controller@140 {
-+			compatible = "aspeed,ast2700-intc-ic";
-+			reg = <0x0 0x140 0x10>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			interrupts-extended =
-+				<&intc0_11 4 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+
-+		intc1_5: interrupt-controller@150 {
-+			compatible = "aspeed,ast2700-intc-ic";
-+			reg = <0x0 0x150 0x10>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			interrupts-extended =
-+				<&intc0_11 5 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+	};
-+
-+	serial0: serial@14c33000 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33000 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART0CLK>;
-+		interrupts-extended = <&intc1_4 7 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial1: serial@14c33100 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33100 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART1CLK>;
-+		interrupts-extended = <&intc1_4 8 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial2: serial@14c33200 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33200 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART2CLK>;
-+		interrupts-extended = <&intc1_4 9 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial3: serial@14c33300 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33300 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART3CLK>;
-+		interrupts-extended = <&intc1_4 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial5: serial@14c33400 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33400 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART5CLK>;
-+		interrupts-extended = <&intc1_4 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial6: serial@14c33500 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33500 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART6CLK>;
-+		interrupts-extended = <&intc1_4 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial7: serial@14c33600 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33600 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART7CLK>;
-+		interrupts-extended = <&intc1_4 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial8: serial@14c33700 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33700 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART8CLK>;
-+		interrupts-extended = <&intc1_4 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial9: serial@14c33800 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33800 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART9CLK>;
-+		interrupts-extended = <&intc1_4 15 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial10: serial@14c33900 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33900 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART10CLK>;
-+		interrupts-extended = <&intc1_4 16 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial11: serial@14c33a00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33a00 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART11CLK>;
-+		interrupts-extended = <&intc1_4 17 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial12: serial@14c33b00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33b00 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_GATE_UART12CLK>;
-+		interrupts-extended = <&intc1_4 18 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		pinctrl-names = "default";
-+	};
-+
-+	serial13: serial@14c33c00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33c00 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_UART13>;
-+		interrupts-extended = <&intc1_0 23 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+
-+	serial14: serial@14c33d00 {
-+		compatible = "ns16550a";
-+		reg = <0x0 0x14c33d00 0x100>;
-+		clocks = <&syscon1 SCU1_CLK_UART14>;
-+		interrupts-extended = <&intc1_1 23 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
-+		reg-shift = <2>;
-+		status = "disabled";
-+	};
-+};
-+
 -- 
 2.34.1
 
