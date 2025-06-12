@@ -4,98 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDDDC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1C3C71141
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 13:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEJs2y5lh32zGmKZ8Qzhu9KFrGD77yTrgBvMh7VvKkA=; b=FwpuZyUN48qU0B82VHBT1JS4nH
-	WkNG7ayaNOjzXY01If9oDXZUkwkIysRu1FLFM/wdNh/eb+V2Rwi84L/EWh/nqjxK5I8J5rtgVNnb2
-	Z1PNY1ivkoGp3j0L3To10CQWts3w6f6YqYbPJ28Re0+uIDJuiIRz1Viido7ooVm7sttU0hRiuHDdN
-	05q0IxvZvI0pQSUeFaYl4cRnuTd7gfH6hkeMMkCP12cyMGoXJW4gbnU0SM0nkSXNCrl9Tb9cmyKe4
-	YR04k93vVP/oQGaMpOEfZueT3WuYlnNWbEN4FjcKaLv1OeNyS/FynONMrgenpXTm2NOb/589l1dyT
-	Ms43JwBw==;
+	bh=//KIOgJjM01MpzgegQDtwvaHYoc3AqWti1AbtH1NP7c=; b=p5Mw4nmj9h8ylqUIxq1TeOfcPQ
+	fGFHNBD1K3NVBv95nufdNMTlKrCiuA/LBys0Jk5Yj/xLP4TfORgdj4W6tuDAD1H18JU+GRdyR4VR5
+	xkwRSmvzFHki2NvwDdkAMBY4MtUYCnTZR2kRI8xlSnzLGMx/gynXOLi98Kq+6A6HIFa6/6sMJSRiy
+	9/Rgj3qOQSfOqtD1ZVQuYvlvXDe74k/jpe2zkFJy19/ANKPGLyCQmfseMNy4CLn32K0w2FZB1OynV
+	yF1vPJst3dGA+1RZT0lf7HobQLlF5bPzOmSvBugZODyytMN+VCwWKn700tK3Zdy/ow3KlrYwNVxt5
+	3lyadGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhrG-0000000DPTE-2u04;
-	Thu, 12 Jun 2025 13:20:42 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1uPhrJ-0000000DPX0-04vv;
+	Thu, 12 Jun 2025 13:20:45 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPh3U-0000000DG0z-3rNi;
-	Thu, 12 Jun 2025 12:29:17 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ad883afdf0cso187153266b.0;
-        Thu, 12 Jun 2025 05:29:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749731355; x=1750336155; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NEJs2y5lh32zGmKZ8Qzhu9KFrGD77yTrgBvMh7VvKkA=;
-        b=Di3Ov1OeubLTypJEW8AJatj34sNFmqaFU38IOGz6poIZmoDCikdV1Z8WOKxahJWHmk
-         B8QAJEknXNSySZk3cgb6uL8MljatUA8J7p9hb0gUhejyWgOwiHfjosDevAE/lcBvTp5T
-         sY5VJOMOGsKBvOgVWOPTRUis/V/ZtNN6H+5rLQXEitdjdnrshGS207iS3BD3+iMWtaa+
-         lxBklZJPpO4MNSjJRM6UuSCe6vjT4lFKrwVDGtqzYj9KfB/RAv/A1uDhhHdTQPjxaaZb
-         sn9guF6SyTg4mqouygmBpogOtzq5z9IcvoXylK45z1uorECCPAp7cFoPky569WOvObD5
-         2UUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749731355; x=1750336155;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NEJs2y5lh32zGmKZ8Qzhu9KFrGD77yTrgBvMh7VvKkA=;
-        b=ubhTAn3U+h4TgHjcnUWb7MNB5hHyNLOtptd6iXxTkY5G9B/mfMwtdYPYAi/e7tT/wQ
-         /nT3/hMVa4cx0aP8VnINzcCCrc1A3WaSFzrVbeomfsWcq+cWQNAF8138vFZ1vM35AM3q
-         +pjmeEFouGfSILzFtH07bZbFhcTbL49sCXWifgglFRzxx2LhmTfCqMgPMWx9P1jnRidb
-         4aKm8I+U60K4x6KD3UbPv1JAs/JQUaREt22WrjAPYBsDKDBXfNsiHq4NpCRSbp8vcgeW
-         f4cHB5qPm65qa/Zprg9lL48kCO1Bbv1Us5kRAoPWrX8D51EP571jLhIuZycJIdF6niM0
-         UEnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9WNcHAIjnhxjL8hpmixMnSqKrKhRZEAsGAatXfdciuX5aNAt1dCq3v4i+BC0Dp1bom0vqW/hTLpuxwetlfr8F@lists.infradead.org, AJvYcCWe6an5WKwr8s8X1+o+NFFWPo8Qlee+w7xlxxqUfy4nRpuT/e5fw/HlfhtCuEANtmjZk53y01Nauh8UKGonZ6g=@lists.infradead.org, AJvYcCWrGRe+DS9U1YfHXJZTC4D3/bsnUWP91ovzcA8mpVlq+z+AWftk/bW/Yw+x1K61l5nlncwJT+GoaEeO3RjEbI4=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyd1+jShpk/HAJ9BvKyQ3xNqCzk7dWehVZY6PcdmUFu+3XA7hUo
-	JL9+2lj1mvbZ4T2j8IlYEE3pdt2ON5OQEcpJH31MbXcAk+mNXu4iWLUC7VgPf9IjGKcVFn04Uf+
-	cyUrxHowxsB3YukrtFcvsJjCL+C3jJkY=
-X-Gm-Gg: ASbGncvwu8LPe3Mw0J4gz62duAB36ep3AcV4/lSUBvVY0hppGI07TFYc5u+a9NcfOT9
-	ZyM+CNQgbtgXh61+K+TA99Plt2Cow04NHfoQxpJS9BEFpd/SEmtK+hxKp0H6opo9DtPTHpMGtkQ
-	3/aF64qqGtyH6FX+gqAIwAgGEkvlqWIZuxlraxT2Dy85w=
-X-Google-Smtp-Source: AGHT+IGlkqMkspvLMpeTjF8aN4KiUGRrevrrBMyqe/WGI6YMF5fU2+dVwFdEvs12L1YJUL60yY3huaWNWMMfCo5r7oM=
-X-Received: by 2002:a17:907:1c9e:b0:ade:5ba:40e1 with SMTP id
- a640c23a62f3a-adea270e2f5mr330585366b.0.1749731354468; Thu, 12 Jun 2025
- 05:29:14 -0700 (PDT)
+	id 1uPh4o-0000000DGEg-0dYE;
+	Thu, 12 Jun 2025 12:30:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1749731436;
+	bh=xMj0PeXUpejsICB72qzZq/FU9wUca+EJE4sWUqWhTeA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Pdr3jsG8LEBbrTq48ZzhTF8vjLwU0K+gNO+X2iv7Gdtf7LmKBdaFEIz5QMWdeccwD
+	 GLCxrTWkvx74UkGx64K3aPq/B4r5m2wWanFUdRsvxE/zkUcEWjvmC0tdmaSl7DthRD
+	 5BeuUwEdjAOZP363EEtatAdEPq2wvbL19UMWfJpDqLJEWqCebJY82sVUPdY5Cah+Bp
+	 d6wLrrwIXhisc4G9pCT8qm9/8yoDg9PO+QNBA6isGJKMkProKjiDrtP+vHW8of9oIv
+	 T0bBlbb2VBZy8YlsWjQe1n9JNo/CshEopiXzxi9osJgM+NETN7+2eF9RvK13lDKGw6
+	 5cndkuogjgGWQ==
+Received: from [192.168.1.90] (unknown [212.93.144.165])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48C9D17E06BF;
+	Thu, 12 Jun 2025 14:30:35 +0200 (CEST)
+Message-ID: <85cb44fd-f597-443e-81b4-e259513aec9f@collabora.com>
+Date: Thu, 12 Jun 2025 15:30:23 +0300
 MIME-Version: 1.0
-References: <20250611-iio-zero-init-stack-with-instead-of-memset-v1-0-ebb2d0a24302@baylibre.com>
- <aEqbQPvz0FsLXt0Z@duo.ucw.cz> <2243943.irdbgypaU6@workhorse>
-In-Reply-To: <2243943.irdbgypaU6@workhorse>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Thu, 12 Jun 2025 15:28:37 +0300
-X-Gm-Features: AX0GCFscYljXh7LJwJGoGDo8-EH4wvCa4kp802_hSw1Ko3S3oAJ3o3w3MKMG3Hc
-Message-ID: <CAHp75VdVB1OogZay+FDYVY0XajxcOx6t8T8LJSs+zSZg8TkaDQ@mail.gmail.com>
-Subject: Re: [PATCH 00/28] iio: zero init stack with { } instead of memset()
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: David Lechner <dlechner@baylibre.com>, linux-rockchip@lists.infradead.org, 
-	Michael Hennerich <michael.hennerich@analog.com>, Lars-Peter Clausen <lars@metafoo.de>, 
-	Jonathan Cameron <jic23@kernel.org>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Francesco Dolcini <francesco@dolcini.it>, 
-	=?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>, 
-	=?UTF-8?Q?Leonard_G=C3=B6hrs?= <l.goehrs@pengutronix.de>, 
-	kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>, 
-	Roan van Dijk <roan@protonic.nl>, Tomasz Duszynski <tomasz.duszynski@octakon.com>, 
-	Jacopo Mondi <jacopo@jmondi.org>, Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>, 
-	Mudit Sharma <muditsharma.info@gmail.com>, 
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>, =?UTF-8?Q?Ond=C5=99ej_Jirman?= <megi@xff.cz>, 
-	Andreas Klinger <ak@it-klinger.de>, Petre Rodan <petre.rodan@subdimension.ro>, 
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, Pavel Machek <pavel@ucw.cz>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] arm64: dts: rockchip: Fix HDMI output on RK3576
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org
+Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20250612-rk3576-hdmitx-fix-v1-0-4b11007d8675@collabora.com>
+ <3011644.e9J7NaK4W3@workhorse>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <3011644.e9J7NaK4W3@workhorse>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_052916_960098_5E349C54 
-X-CRM114-Status: GOOD (  30.21  )
+X-CRM114-CacheID: sfid-20250612_053038_345926_07401819 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,69 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 3:12=E2=80=AFPM Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
+Hi Nicolas,
 
-> I thought I'd chime in as someone uninvolved because this seemed
-> interesting.
+On 6/12/25 3:13 PM, Nicolas Frattaroli wrote:
+> On Wednesday, 11 June 2025 23:47:46 Central European Summer Time Cristian Ciocaltea wrote:
+>> Since commit c871a311edf0 ("phy: rockchip: samsung-hdptx: Setup TMDS
+>> char rate via phy_configure_opts_hdmi"), the workaround of passing the
+>> PHY rate from DW HDMI QP bridge driver via phy_set_bus_width() became
+>> partially broken, unless the rate adjustment is done as with RK3588,
+>> i.e. by CCF from VOP2.
+>>
+>> Attempting to fix this up at PHY level would not only introduce
+>> additional hacks, but it would also fail to adequately resolve the
+>> display issues that are a consequence of the system CRU limitations.
+>>
+>> Therefore, let's proceed with the solution already implemented for
+>> RK3588, that is to make use of the HDMI PHY PLL as a more accurate DCLK
+>> source in VOP2.
+>>
+>> It's worth noting a follow-up patch is going to drop the hack from the
+>> bridge driver altogether, while switching to HDMI PHY configuration API
+>> for setting up the TMDS character rate.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>> Cristian Ciocaltea (3):
+>>       dt-bindings: display: vop2: Add optional PLL clock property for rk3576
+>>       arm64: dts: rockchip: Enable HDMI PHY clk provider on rk3576
+>>       arm64: dts: rockchip: Add HDMI PHY PLL clock source to VOP2 on rk3576
+>>
+>>  .../bindings/display/rockchip/rockchip-vop2.yaml   | 56 +++++++++++++++++-----
+>>  arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  7 ++-
+>>  2 files changed, 49 insertions(+), 14 deletions(-)
+>> ---
+>> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+>> change-id: 20250611-rk3576-hdmitx-fix-e030fbdb0d17
+>>
+> 
+> For the whole series:
+> 
+> Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> This fixes HDMI output for 4K resolutions on my RK3576 ArmSoM Sige5.
+> The DTB checks and bindings checks pass as well.
+Many thanks for the additional testing!
 
-Welcome! Other opinions on such a topic are always appreciated.
-
-> On Thursday, 12 June 2025 11:17:52 Central European Summer Time Pavel Mac=
-hek wrote:
-> >
-> > > Jonathan mentioned recently that he would like to get away from using
-> > > memset() to zero-initialize stack memory in the IIO subsystem. And we
-> > > have it on good authority that initializing a struct or array with =
-=3D { }
-> > > is the preferred way to do this in the kernel [1]. So here is a serie=
-s
-> > > to take care of that.
-> >
-> > 1) Is it worth the churn?
-> >
-> > 2) Will this fail to initialize padding with some obscure compiler?
->
-> as of right now, the only two C compilers that are supported are
-> GCC >=3D 8.1, and Clang >=3D 13.0.1. If anyone even manages to get the ke=
-rnel
-> to finish a build with something else, I think the compiler not
-> implementing the C standard correctly is the least of their worries.
->
-> My bigger worry is that =3D { } is only guaranteed to be as correct as
-> memset on C23, and the kernel's standard right now is C11. For that
-> reason alone, I don't think memset should be moved away from for now,
-> unless someone can verify that every GCC release >=3D 8.1 and every
-> Clang release >=3D 13.0.1 does the right thing here regardless.
->
-> >
-> > 3) Why do you believe that {} is the preffered way? All we have is
-> > Kees' email that explains that =3D {} maybe works in configs he tested.
->
-> =3D { } is guaranteed to work in C23, as per the standard, but again we'r=
-e
-> not on C23.
->
-> The reason to prefer this is likely that it's easier for static analysis
-> to see the struct as initialised, but that's me making assumptions here.
->
-> A more human-centric argument is that once we're on a C standards version
-> where =3D { } is guaranteed to be correct, then =3D { } is much more obvi=
-ously
-> correct to a reader than a memset with a value and a size somewhere later
-> in the code. This argument is evident from the number of patches in this
-> series where the memset and the declaration are not in the same hunk.
-> That's the kind of stuff that keeps me awake at night, sweating profusely=
-.
-
-While all you said seems true and I agree with, the pedantism here is
-not needed as in the Linux kernel we have {} used for ages in tons of
-code and if something went wrong with that we should have had bug
-reports already. Are you aware of such? Personally I haven't heard
-even one related to this. But if you know, I am really more than
-interested to read about (please, give pointers to such a discussion).
-
---=20
-With Best Regards,
-Andy Shevchenko
+Regards,
+Cristian
 
