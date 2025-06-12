@@ -4,97 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82719C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49020C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 10:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E6IteP7BP9moGyYHUNtJgLr0pJFVsqjJ7MguYFjZTR8=; b=In8TvI95PEmHAU+nP+evchVkRL
-	0O5c0yYvt9TcQU+hVghbYeworad/C965r4PW9SdZGoF5Ro3Ah8jBAh4cZqoGS1VHz592+Qe0w4uQb
-	GMjjJfvsHt/XYeqhIVKJco2d4GHbQidMo3ia5e6aaT+LdqiZmwC5mhXEw2XXikb9F0IKT89EufDJK
-	6OU7aYKKb4jxM5BWPhpNqBQcssmXVYJYsSQPyDDD61qxj+CmT4ben0zoY2yN0pzouQDUf+Ca3fFq+
-	fHakmICS/WbC/DRvE7H1KZUVUDbPhZXsH6ApfHNGkQwBcoEdd6UFf5TLZTs35ptbcb8+RQ2bds/NG
-	h6MZa/bQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8NxJW8a0rDs+8sBFsEtXBrcHDs56LoiAx3JrdQr1I1I=; b=GOv8aZaOYJejxSZE6sBBSIZF3u
+	j5i6JGVWEWKU/T5SBXm+HUWwmsyG0m5i9C9qTKobXKL3XEy7H/UPaUnAyhhHpG35ypSPaNnoMi3iv
+	Y0XlkWSsFxGBBbsO5uJdLkwFWE7Rd0tZ6vols7ks8f5L2wujBedVOES+jCYzkuKqkUrFiP/Qu3g58
+	CepRHp22w+Ei/3wdl+nE00AMaOB45y2i4m35/UZVV+3mYGuKIeZYS8uq8JpT5qewufkMVmha9i/Kr
+	zOT5BQmhhGunzk24shKEJSaqeEK2g8a6jp5Equ7FlfDYZBtDFyCeUswVTYJAu8cRkf6sCFecmNdqM
+	Mf0Q1x+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPepo-0000000Cuq0-3lDc;
-	Thu, 12 Jun 2025 10:07:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uPesc-0000000Cvmu-0MyT;
+	Thu, 12 Jun 2025 10:09:54 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPdeJ-0000000CiSs-07s0
+	id 1uPdvA-0000000Clm3-3bc9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 08:51:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1749718260;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=E6IteP7BP9moGyYHUNtJgLr0pJFVsqjJ7MguYFjZTR8=;
-	b=FRTrvHG+MjgkEDet6S0VW13F1D2uWiPHr6bg8BafbTfSELsxoVz1RYcoc1Tl9XYKlKQVD1
-	v3k3kbD+pnTLxMOBc9ImE4QZBAubBUuYNxrsakJA/QPNktdPCqPwgZ05Fo+PWCH6fak21M
-	w4jb3IaaXLoWfqJEh4bVuFIr8Ky2ea4=
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com
- [209.85.210.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-594-TDkbjkizPJCWaBZ4OuR2IQ-1; Thu, 12 Jun 2025 04:49:17 -0400
-X-MC-Unique: TDkbjkizPJCWaBZ4OuR2IQ-1
-X-Mimecast-MFC-AGG-ID: TDkbjkizPJCWaBZ4OuR2IQ_1749718157
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-736eaf421f6so219277a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 01:49:17 -0700 (PDT)
+	Thu, 12 Jun 2025 09:08:30 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6077d0b9bbeso1314441a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 02:08:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1749719307; x=1750324107; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8NxJW8a0rDs+8sBFsEtXBrcHDs56LoiAx3JrdQr1I1I=;
+        b=RmwKTx6sqkEIdWStzb4OzKFjmVvEeax48daX86nKJoh9cP+2n74fawbqO6HtAEaaJF
+         VtmvQCs5Li+Z5SvBxL+vOQQ6L8mjv0Wy7ubMEpV52rcKJgOUgKsjoo5LpOD6HRiQs4pu
+         B05CpOjOm/fSqivrpSqebXHvYsg1wcm4q+ZcI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749718157; x=1750322957;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E6IteP7BP9moGyYHUNtJgLr0pJFVsqjJ7MguYFjZTR8=;
-        b=uNwDqC32qLFizO99rmxYQjSxF1d6d6zZf9q5hyElP7czTRsI7bTtj//zkWDw2EWr9a
-         zJC8UfyAjbVR0j3ub4Sjb1K/SFALdwqxD0punpMtKPRPGjJ95NB/jjElAi92EvECT8AB
-         qiM2g2Pit3DeR+fYodjXA0U10IgO422PiZjMevSZjrWL4lxzZbwUcHEC5DKWyxc7V99+
-         TvHncXF1RGZ2Cg95aW/cOWOBQWZOjEvuSX93pnoCpN+94Kvv9E1rCY+ADY6lVOU3/Shr
-         GRFN6WXuwG50kKCfadF5l0le8wpeeXtwsIBiDXi64JiTlJMP9HrLfPOl5HRiVHKbnqV0
-         P7Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCV7Czkh6at7LxJ5syyPK03pM9DGEJnQKUlNdI6JE5nGH3O9BCn7+N3UEjhj2yDx7QjjZN9F/3pWFshYMz6sqxMn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yylx9wszidBXSdW/ueLrom1IoSBFXLxlGzHPkcNVls2xQ4g6SDC
-	xkerMGSNWWSjFd7+RlsD5uFTgapHrI/EpsV+chVlrloCfhbpOoiWNcTLaMtFUBzNmYxWMCjlX+W
-	igMFnA8uRJVEk27tiRr5b+h6eyILJRGcjYhj5OYVKdopVR4VwfyuigcR/ekXVA4UoAFyegO+INt
-	XSR1t+lsxko9TOES9CKevy9r5hshRJfZNsfOS727vfbuIHZrmQtJM=
-X-Gm-Gg: ASbGnctsZKIy12PqgZPAjSr7Ds+g7Bt4GUYO5SeYLDv4rNOJXzkazJRcu7GhgfEftDv
-	vH+S1hO98qyPNeXy/TraGm4q8pzoUacMCwmvWL3364ui/33uALYui3+Ox+RpQM1LvKJwRBh6NA4
-	L9iuA=
-X-Received: by 2002:a05:6820:481a:b0:60f:880:6082 with SMTP id 006d021491bc7-610ef6f0f1fmr647773eaf.1.1749718157194;
-        Thu, 12 Jun 2025 01:49:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGwPFH5xCDRpuf1s5d5mJAfNQIldXb2TcD3mthjSOwkVxy4npvtOqbY5CzUVlMoXgCj/fxjsyNscrEZA/vemEI=
-X-Received: by 2002:a05:6820:481a:b0:60f:880:6082 with SMTP id
- 006d021491bc7-610ef6f0f1fmr647769eaf.1.1749718156873; Thu, 12 Jun 2025
- 01:49:16 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749719307; x=1750324107;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8NxJW8a0rDs+8sBFsEtXBrcHDs56LoiAx3JrdQr1I1I=;
+        b=iAA1xQ+4Zw1fLcRkeoi/qRwO9eT0gOcEPjM9LMf2Thq2CXzMHf+xjdtSsy+pb/knDb
+         mh7r5CKE6jVh3bFc749RSBJBcgIWBC3R0CGTY4wpGnRgdgo8c/wMCkQmp69sDeY+Jfyo
+         mvfYWhf3cnLhdM2BhVh/2NnBGIaXpAV5y0XdQhCQdDKN+vvs1UgEzvtuhhHf278AUMX1
+         tGYshBf/RXtEiiTl5htck1zLrzMiMToTgfssRel1Uz55HXMfHGi+uLLVhA8q6CAX3ep/
+         iq5+X3NFKYxVz3n9UIjXoHdYUE6LqVxnFRMnVs1qK8+RyKceclRA9Sb2FyFC7kDdeCKm
+         k8nA==
+X-Forwarded-Encrypted: i=1; AJvYcCVT5iQWEPBJText5+E6lh5y5RVN1fkBvwzI8TAgYwMt9Xw4/v/SHIN3p7wB0EqM2B9BuLJtzFTe7B9OHfOuq8/m@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHp+DD/XrFBxVxTZURLf1bjj7xWhmVXA3oALvQEikFYZbiNifH
+	NWHDdhxj4lbJ9KrdDz7Dh01RAxZLHlCfwSKuAjlUQAB8PZuM4ua8GnvRkTiJt0YGAa4=
+X-Gm-Gg: ASbGncsG9qAVQMt1J+r5GRtgAgRxx6Gkz3BBygC4D+fVj4BdAxxW2ezH57Pa82Zdu+r
+	UHyiqrKtyPaR2m0jH/IpEFnO/7OgqDXPWq3/Bi+OiA94ZZxwJeQMFsLczJxUu4Ql16d0WT22X9s
+	tAdZfbHVP00k0oBjX2ogqnHGQcZ9+XOfuImovgJPAkcj6M312s4szfJ4SyH7H7NJyOXtSwvyZko
+	NydmDCzPxc0YvJz8br65jk87EGYr8lXtMnivAXPnIHZnHrxcFHvFIzgWLL3YqS22TB0Bbh7nrca
+	b/aP5Y06cDoXygFw2K8J1ctOPoTasVNhhTwGY8gXKjAlC4z71FO2NQZcZ4ziVuIJMUEz197NqtB
+	Nr838gbFmhiTCEH3H4q0zsQLQM71Vo6SuIYla
+X-Google-Smtp-Source: AGHT+IHXDyupYzZCXJi0eiJsh48G5Ym1bzk1PJGvBlaIo3IRc/SJXPwW1VjHYYpk3eeIYvpgukMg0A==
+X-Received: by 2002:a17:907:c807:b0:ad5:e18:2141 with SMTP id a640c23a62f3a-adea273e373mr294920066b.53.1749719306831;
+        Thu, 12 Jun 2025 02:08:26 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.42.38])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adead4cf274sm99933366b.31.2025.06.12.02.08.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 02:08:26 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	Matteo Lisi <matteo.lisi@engicam.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
+	Eric Biggers <ebiggers@google.com>,
+	Fabio Estevam <festevam@denx.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Rob Herring <robh@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 00/10] Support Engicam MicroGEA boards
+Date: Thu, 12 Jun 2025 11:07:45 +0200
+Message-ID: <20250612090823.2519183-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250109121614.754466-1-s-vadapalli@ti.com> <20250109121614.754466-2-s-vadapalli@ti.com>
- <fccedc26-0bb9-4078-8a94-4199f6b383c1@kernel.org>
-In-Reply-To: <fccedc26-0bb9-4078-8a94-4199f6b383c1@kernel.org>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Thu, 12 Jun 2025 10:48:20 +0200
-X-Gm-Features: AX0GCFucWcc-KrL-D5Adt3auExiV1GTxSbUzP5wSIA--M9Ad_QrNh0O58OSRSGM
-Message-ID: <CALE0LRsdsTU-NLN4fgh2c8qnS-pPP1BDJvjnvsSOnud8amk3=A@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] phy: cadence-torrent: Add PCIe multilink
- configuration for 100 MHz refclk
-To: Roger Quadros <rogerq@kernel.org>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, vkoul@kernel.org, kishon@kernel.org, 
-	sjakhade@cadence.com, thomas.richard@bootlin.com, 
-	christophe.jaillet@wanadoo.fr, u.kleine-koenig@baylibre.com, 
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7rK_XSkhLLcHsglDyU51-Hp9DkTuxoSZKBS3yVnrACc_1749718157
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_015103_136150_07B7835E 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250612_020828_904664_E7F6D0E9 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +121,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+The series adds support for Engicam MicroGEA boards:
 
-On Thu, Jan 9, 2025 at 5:35=E2=80=AFPM Roger Quadros <rogerq@kernel.org> wr=
-ote:
->
->
->
-> On 09/01/2025 14:16, Siddharth Vadapalli wrote:
-> > From: Swapnil Jakhade <sjakhade@cadence.com>
-> >
-> > Add register sequences to support PCIe multilink configuration for 100M=
-Hz
-> > reference clock. Maximum two PCIe links are supported.
-> >
-> > Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->
-> Reviewed-by: Roger Quadros <rogerq@kernel.org>
->
+- BMM
+- RMM
+- GTW
 
-These patches seem good and have been reviewed but look stalled here.
-There is any chance to rebase it on top of the mainline?
+based on MicroGEA-MX6UL SoM.
 
-Thanks,
-   Enric
+Changes in v4:
+- Fix commit title. It was referring to a wrong configuration
 
+Changes in v3:
+- Drop an extra blank line from the iomuxc node.
+- Rename sgtl5000 node to audio-codec.
+- Move the reg property of the audio-codec node right
+  after the compatible property.
+- Drop an extra blank line from iomuxc and iomuxc_snvs nodes.
+- Rename sgtl5000 node to audio-codec.
+- Move the reg property of the audio-codec node right
+  after the compatible property.
+- Drop an extra blank line from iomuxc and iomuxc_snvs nodes.
+- Drop an extra blank line from the iomuxc node.
+
+Changes in v2:
+- Change local-mac-address to 00 00 00 00 00 00. The actual value will
+  be set by the bootloader. The previous one was assigned to Freescale
+  Semiconductor.
+- Move iomuxc and iomuxc_snvs nodes to the end of the DTS file.
+- Move iomuxc and iomuxc_snvs nodes to the end of the DTS file.
+- Drop an extra blank line
+- Move iomuxc and iomuxc_snvs nodes to the end of the DTS file.
+
+Dario Binacchi (10):
+  dt-bindings: arm: fsl: support Engicam MicroGEA BMM board
+  ARM: dts: imx6ul: support Engicam MicroGEA-MX6UL SoM
+  ARM: dts: imx6ul: support Engicam MicroGEA BMM board
+  ARM: imx_v6_v7_defconfig: cleanup with savedefconfig
+  ARM: imx_v6_v7_defconfig: select CONFIG_INPUT_PWM_BEEPER
+  dt-bindings: arm: fsl: support Engicam MicroGEA RMM board
+  ARM: dts: imx6ul: support Engicam MicroGEA RMM board
+  dt-bindings: arm: fsl: support Engicam MicroGEA GTW board
+  ARM: dts: imx6ul: support Engicam MicroGEA GTW board
+  ARM: imx_v6_v7_defconfig: select CONFIG_USB_HSIC_USB3503
+
+ .../devicetree/bindings/arm/fsl.yaml          |   9 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |   3 +
+ .../nxp/imx/imx6ull-engicam-microgea-bmm.dts  | 303 +++++++++++++++
+ .../nxp/imx/imx6ull-engicam-microgea-gtw.dts  | 162 ++++++++
+ .../nxp/imx/imx6ull-engicam-microgea-rmm.dts  | 360 ++++++++++++++++++
+ .../dts/nxp/imx/imx6ull-engicam-microgea.dtsi |  95 +++++
+ arch/arm/configs/imx_v6_v7_defconfig          |  27 +-
+ 7 files changed, 938 insertions(+), 21 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-gtw.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-rmm.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea.dtsi
+
+-- 
+2.43.0
+
+base-commit: 2c4a1f3fe03edab80db66688360685031802160a
+branch: imx6ull-engicam-microgea
 
