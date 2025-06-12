@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B60C71153
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 21:43:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A166AC71150
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 21:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9HiArrZ02HbUfeGxXuFT3mdQ4lNmwORA+PN3sHB+XQ=; b=c1l522SgQjfMuMimQHhURZBeHQ
-	rnM7VB6qknOPF71CeJj5pHM5OyFmdS9rgIk/PoIzxi+cC9ZMlrLpraB5tTqmaCyx5T0eAN3PmchY8
-	iilRTjJS1F0r9UFOPEi5C4iuvnQjwdOo3i/X+IqmpEYnfdQYHrFegty35qDSfj8NJzCvfhnjanOmb
-	diYcZI0HFCGSGixr34irotTt4GkRvklkd90JnUMwpmQpOB03vd7X+Qe2rWszvW96sAG2n4oNZMguW
-	OsSQKJ2kKhcZNw77IlSIyJrzIb8ZtSS5XGp59VDUBPXYuTlVBwI0tR1RjZI1Q2UumCEXMUTsWPC/J
-	IbVpixDQ==;
+	bh=QgjWbyRXALjtRuEf50d4igPVh19J0Bh4OW3WaVr0/DA=; b=PjkscZR5ACkKuHgp4F6I+3aOBB
+	jOfKhDuXtvO740p2WW0xKDPrUN4phAuSwhNxJfXp5GW+pf29i2iK0QG7ia3hJMWB51HyceCiZk5kv
+	RsLYCTrnH1HtE3oVvdmLQajgyc1DOxM9n1ocgCO2FFaTbYgSgN3kTBGH74ANjZLWOt/txpXEwgV1/
+	NCh87IaTU2a9Sabtxro/BzR0PP+NnjdOS69yd9OqeEHunC4aVGjfwkbFX78ZNBVFlnGQJXWT/lHAH
+	DD51nhm2MafordkUlT5Fniq7Sc+waUun8arG4X57gDnY8MJatsEdQeXZQ7aUDz54EP0xrM+tuaXwI
+	fGOM6iWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPphT-0000000EfSm-1siq;
-	Thu, 12 Jun 2025 21:43:07 +0000
+	id 1uPphU-0000000EfTY-2HSI;
+	Thu, 12 Jun 2025 21:43:08 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPpDd-0000000Ed84-2qpg
+	id 1uPpDd-0000000Ed87-3Gwl
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 12 Jun 2025 21:12:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=s9HiArrZ02HbUfeGxXuFT3mdQ4lNmwORA+PN3sHB+XQ=; b=EWtw2x4iVSiFPVSKJ1BbWbsZcU
-	DCFgNbKyz7bMab7urbcnnLQoFkdRzbxC/8psyGX8MJuoQW+8hM5EwxcVFvj1JfURujr0iWZZHH74N
-	TnIdzVCA3G7QJzCOfiFE+djkwvVRcIqe39qnJP8koYFvcUKVjBT9+BwY39tAroZAR8n2MCcJUiMDr
-	ZWwGi2oyVSvhebV3QkwnHdIYZGhv4N6AounR+jiXqLzT7z+Doxzp63Umurp0kot+UEIRAjE3Ym+rx
-	RqWwJ0wwaU2uGxXLhDKNkPp0pqtiMESGhdwwEPT7Q/lDsE+ludcwR2n7OWz8fgUoX0tBI8zS+4r/0
-	VwhVCfwA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	bh=QgjWbyRXALjtRuEf50d4igPVh19J0Bh4OW3WaVr0/DA=; b=YDvLiBPhuaTsydfiHPRkTIqryV
+	M0YMObDJzLkD2vsZ8kKGzZORuhNUcHNVZIjhvSqaF88H32qfi1ndZG2CGFC14z6fPvrpTzKG+1eqI
+	0EuBaFtRkBMQ0ReU3ySPIzQR/XSHzj54ocDKIV2OxHL5mNHovD2pxOTVHLtusyy7xpXXMEzzwW86o
+	+Fu6jXe3+3raNs6p1Btlok/i9tHuhtmhuW9mCD4jbciaJDoxjdrJ5/iJoXrVlIFDNR0eVq0P+uVb0
+	j33lVCOxvATsC8fg03c7uVTbUknMH6pvz17kyWT6/KrNLBrtDUbC92AW5j5JZHZWK3YA5E7wgZlpm
+	jf1QZPBw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPpDS-00000002hzI-2coa
+	id 1uPpDS-00000002hzM-2Ib2
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 12 Jun 2025 21:12:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6111C5C6898;
-	Thu, 12 Jun 2025 21:09:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8277AC4CEF0;
+	by sea.source.kernel.org (Postfix) with ESMTP id 22FDA4A867;
+	Thu, 12 Jun 2025 21:12:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C75B0C4AF1C;
 	Thu, 12 Jun 2025 21:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1749762721;
-	bh=OOlbVfIgzSBqrQXeX6P9ycG03p+lP2ZHx7YjgEpCU6M=;
+	bh=F/Z4decNsz4B5o9bV+TnqdRPSE6G0uWtE1olsYTJyJw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UVmNVb2Gfw6soyav8Jw1t1IwyIz2kFnRbuRi3hmFF12qeTZUMUy5tTozoCDUiKMVi
-	 oEBrxso0VJoAcEmJzA/yVAa/NTGp6St9onOGoTy2+frh21hxPqXhTvdQF4Q9s9Kvt3
-	 fYJNnrH6GHUjk3tsjqvYosY+p17eN8lNq2vrZd+M66jP+Bv/qB3Q3YRw0EqVLqGnAp
-	 F1m5yFZNrTFG2gym27EcynxVevQvMslRVAjpky2045VYi7H8iF+B7fvsFVcdkm0fkl
-	 DyJ62B7/DdeEGtgwENgDH8eRicdujy/J0AHuRRmAg/bFp1p/xxfmolWK23eiMRmgFj
-	 NHX0R/Tmp/Ikg==
+	b=kA5XHzVqJvgGcVKM9DXo7DqZXxZRzPNluPUT67R3nqfpYeewQtfAdlM0Lij/aERAj
+	 jqplxG/MYLbXxhcd/DB1QJVt5TT0666VO6gvruTPFZGCpwFDaHL5PUX1KJEwXgyZ8X
+	 e4fN4LVfF8DRBJc4YjfCEzGNvxCqrrDs0m8DOqxSdTaVZcFoL6JLaAkrFKKtygAYJs
+	 o4TXZKw69sNPcyJLmEwDezwdmY5vZJZUUjw65osYte2zTSUN7AJHBHkrFBIQ1fIB65
+	 LLX/jzFuc41sN8JRkSpF1kQNCXhEWgCIP4HfvdzN7Sn/JeQJAmLrzy3hFmBK9PhbKU
+	 Rj0DHmAxJ2S1A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6DE42C71144;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B92EFC71148;
 	Thu, 12 Jun 2025 21:12:01 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Thu, 12 Jun 2025 21:11:25 +0000
-Subject: [PATCH 01/11] pmdomain: apple: Drop default ARCH_APPLE in Kconfig
+Date: Thu, 12 Jun 2025 21:11:29 +0000
+Subject: [PATCH 05/11] i2c: apple: Drop default ARCH_APPLE in Kconfig
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250612-apple-kconfig-defconfig-v1-1-0e6f9cb512c1@kernel.org>
+Message-Id: <20250612-apple-kconfig-defconfig-v1-5-0e6f9cb512c1@kernel.org>
 References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
 In-Reply-To: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
 To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
@@ -87,20 +87,20 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-input@vger.kernel.org, dmaengine@vger.kernel.org, 
  linux-sound@vger.kernel.org, Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1001; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=979; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=OOlbVfIgzSBqrQXeX6P9ycG03p+lP2ZHx7YjgEpCU6M=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4a304RI+5uRSxcm2H0JiO3dduZX2HrBD36b5tV1dlZfM
- EnjkDLrKGVhEONgkBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAEzk7F5GhhlGi+Uymmt3XJY6
- o5eV9aXOS3nGtZvsb97re8a/Led9msbwP7ByVZLoA4uPsRrqS1llrFVnWH9h/9D1rOtKQJZHCsM
- 0LgA=
+ bh=F/Z4decNsz4B5o9bV+TnqdRPSE6G0uWtE1olsYTJyJw=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ4a309Tjlzsdfh/YrRvMdvlWd/X9b492KIXyqdx64bvnh
+ ea2t4u0OkpZGMQ4GGTFFFm277c3ffLwjeDSTZfew8xhZQIZwsDFKQATMV3G8IfjxgbDMtONC+JW
+ vj3Zcn/W0gvHX8tm3fhgcvNZsNPBjuRbjAxL6xJk8nXf2sqf7lvLznvmksb5tFtZEtVWLD1LZf0
+ 8zJkA
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
  auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_221207_479745_F2F56EC4 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250612_221207_421156_F94FA0FD 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,21 +123,21 @@ Thus, drop `default ARCH_APPLE` from Kconfig.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/pmdomain/apple/Kconfig | 1 -
+ drivers/i2c/busses/Kconfig | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/drivers/pmdomain/apple/Kconfig b/drivers/pmdomain/apple/Kconfig
-index 12237cbcfaa983083367bad70b1b54ded9ac9824..a8973f8057fba74cd3e8c7d15cd2972081c6697d 100644
---- a/drivers/pmdomain/apple/Kconfig
-+++ b/drivers/pmdomain/apple/Kconfig
-@@ -9,7 +9,6 @@ config APPLE_PMGR_PWRSTATE
- 	select MFD_SYSCON
- 	select PM_GENERIC_DOMAINS
- 	select RESET_CONTROLLER
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index 48c5ab8320090cc383cea32337fb391c2b01a904..93440702b8eaf0fba4cca337eb2fd2959801a570 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -992,7 +992,6 @@ config I2C_APPLE
+ 	tristate "Apple SMBus platform driver"
+ 	depends on !I2C_PASEMI
+ 	depends on ARCH_APPLE || COMPILE_TEST
 -	default ARCH_APPLE
  	help
- 	  The PMGR block in Apple SoCs provides high-level power state
- 	  controls for SoC devices. This driver manages them through the
+ 	  Say Y here if you want to use the I2C controller present on Apple
+ 	  Silicon chips such as the M1.
 
 -- 
 2.34.1
