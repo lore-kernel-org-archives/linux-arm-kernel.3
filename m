@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F36C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52C4DC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dpryYjr6dJZUJcBNCU3DY41Q8g7jIiX7s0MfCXnX/8U=; b=z9u/e/2b30YDTkbmalYVs7vyji
-	L7qRkw9JhmKm0+fP6BmKx5BEvt0ckn468RMvYfD7MUndRhhXZRal+PcJX4N2Ed8qBNc1O71e6ZeEQ
-	hOSrlb2d2VFcdV3XV4g6qjLWu56HD8eRvpuXz02tvOaKGp76wLsMKjXLixYlY4WRp1PwCUlhlABSh
-	d77M152LltTRyauH+6O1nLTYO1jIX3G8KGTBw4qZhk7pK+JI3IDDisbneJcBKgFuAYGO2FeYifozW
-	+zSENrstOrmk6vPH2gaayxsUfJAmBQ7HwaMRRk4gDbN0+dI1AFPYIjCisBAUeVUqlJzgkUHP8IDFC
-	qfquch8w==;
+	bh=ddos4D+qX7/1EnT+iqN5KagM9V0p0W2P3w/4kWY208s=; b=t91/I4bBz0+IfG32pRGVdoAgLv
+	hEu5ZfpsH3SM/64M/YnuX7Rhz7z+iKp/9ZrC376jgeIREGH8/HsQrpWRC8foEFc2j6l0qoU3ZKoKz
+	5eOAtH/sP5tb0SQ5tHlJoqELJvBL24UUcN3ykJEACjTqOPTEPFwzlDyFBOEBvYgVm4kiF55cXhXuL
+	vmLC7n/O5uelNpeZU24NKpcODeonmqDAo0LzX2xufTQOcmURqn5Z3keNkaWlDazBsQZv7URv3NMlA
+	+j+QJN05RM0vifGhKYj4X5cytpP7MJDJPzBOY7Vu9aXmov9PRyGBF8iOJ47DrtzImO4f27WJXU3mI
+	7/OC8Lfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnnA-0000000EE2x-1ywQ;
-	Thu, 12 Jun 2025 19:40:52 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uPnnC-0000000EE6M-1sx5;
+	Thu, 12 Jun 2025 19:40:54 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhmD-0000000DLj0-2ofh
+	id 1uPhmF-0000000DLjw-3t5c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 13:15:30 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-451d3f72391so12369825e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:15:29 -0700 (PDT)
+	Thu, 12 Jun 2025 13:15:33 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43edecbfb46so7577855e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 06:15:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749734128; x=1750338928; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749734130; x=1750338930; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dpryYjr6dJZUJcBNCU3DY41Q8g7jIiX7s0MfCXnX/8U=;
-        b=NjteY8DKveLOa3vp3l3sXJHsaPiHu+ajrxBuItSM5x6NsX1E1T6B9zAkYhCfKpwI+f
-         4QWxZdAvMhleR48N+nRmsMU7Mb4emkfvtjOtHQ1rrwwSKsl7OT1TENFSdTuFXdII0D3k
-         RxJWeAsDkQh79M+qGgEpPcNTIakp19vTnptHwzplExb/a5HlpBwQgEruFEOMJp9Cjh8k
-         XSofmWBc4ooClv+15bbVSSJvM0XUc6xKxGRBewSt0Jdwh9UKcyAnExaC0RMnvTCUvhw7
-         kJCyg3oLl7bly/sMoyQ7lhd2uRFudIhI5DCwUv9ew+9wyYLSy60BPIcasczcyoJFsYsQ
-         NY3w==
+        bh=ddos4D+qX7/1EnT+iqN5KagM9V0p0W2P3w/4kWY208s=;
+        b=DrZTZuwyksc3oY3nPcccXXn9gRvufh0CqDg4Gf6/FQ5b8Onr16tCJKn1xepR71ROp4
+         GztdSfkwtBTJpOJvhtiRYf2riNsIBbPrTHlMHs80wXvpbAJe0rnaZ7nlX9aXyn4/R2Gj
+         K2iIAZbKm6QijykQr3Z9x7lE5n5dSHEeiTAL5I2BVcH2QGDec2MUO92MWANEkyNjs64i
+         lO2oI96co+0lchKDqc0+YRODveTCG62pQQqNgP0VwB7Pmi56KXBYGTk5tso83rMczz0+
+         nWU9VaOZA8oD0Zti8s0Q9iUK7cNuXtKNE36fE3m8y9xPphczBJCacS5Voiozjl/fzjFl
+         8yVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749734128; x=1750338928;
+        d=1e100.net; s=20230601; t=1749734130; x=1750338930;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dpryYjr6dJZUJcBNCU3DY41Q8g7jIiX7s0MfCXnX/8U=;
-        b=MtkHBvlGH0CKkUgYkwgcED16654JXLzMr4eLXkZ2oxBpqYJtYDpQh8TOGGWl7jkfML
-         8PcORixITVpYGuaql00mFboHVPE+jW6KWF8H5SMdawnjFsUII3syxeYIhUkjBPe+5Imi
-         JpRkFwNArt2CbSpt/aFr1lUJXCEIHnMXgUPqTsKJw/Cxh8AhFbWaYNhDpyvKMCVy3neG
-         tRsv+utOyqw/ME5pnAFWhPPh4bTzr1MMrCAWukFLY4xU40pn2B9HqmsLHtFEBjBKIC+2
-         0uNr92HGRXzUW9MECc8so+xZJzzByBaXkXzsKVyaebig7DvVqPV02I8Pu3anzbsWwO8a
-         jA0A==
-X-Gm-Message-State: AOJu0YzX65Qm9HPmSSJ3/8rEuJgjqL7ZONcju8PnCLSSaKnUjrmBoWe5
-	ziQDGofuHwGTo1yqYwPzwRptargnD9i8FmfOLVs9rAEhwZ+ihlLLZ2cuOvNyeyca5CE=
-X-Gm-Gg: ASbGnctAP6hNsXeFb+gP9GaY3kWuKq2jFNDUH4J21/TahAIw/xwpoBe0sUOs1+TA9bZ
-	lk5FFYqIlsJ8cOOsD7t5W9yd64QpxhsrW4joKe9B1Ech56tUr9Gae/trUv5gCa+TL7cB7yLbj9x
-	PUPv0kxBsHo6oBmm7pbyVK9xXj05sR4TURLhP4D/Z6+9XRso+IhaVhUqdVDlpZCZooEPjM9ZWsD
-	oHJ4UnBX8/t5A0bMwmO9lTXb8+dRFy0Ngjg47aMUiKSOoCffJ+K2q0haJvqOD/Xq1FWvqvrKQUd
-	bxCYjnqwL+9+YjUShu56Y2yBsp6Q7XO9aeF5tTvHoG8bzMeHMZXhzGG/rG56zOG77A==
-X-Google-Smtp-Source: AGHT+IHYhHp/jvxkulDT8caAK3JFprrXp6WBLQybVLzjI96KoA3fZGyckOWajuSkl9W+4oQhpYhEmw==
-X-Received: by 2002:a05:600c:5291:b0:44a:b7a3:b95f with SMTP id 5b1f17b1804b1-4532b966af9mr29139925e9.25.1749734128225;
-        Thu, 12 Jun 2025 06:15:28 -0700 (PDT)
+        bh=ddos4D+qX7/1EnT+iqN5KagM9V0p0W2P3w/4kWY208s=;
+        b=MloQDdgfjD0wXyLrAuf2TH2fBxk+tCqahA+Oo9nT799nIYd7ajVm/r2q8WNgBv1Yzs
+         8GcokR2xkgn6HHx7kz9SO40iJNCQdaMw4V3z3JCYrcZVMXdVPCTYkwBv4mfG6mobeXyY
+         EipioDN6spcP6gmdJfW8bvIbXNd8d4x2ZCADgCvbatkfMxx5HUBfzvagjJ0VKB//LXSw
+         cZQy2VLaxgReHEeugAFQRLgrR+PM7nmJiNcRuCoEO3OpJuUBB1/XZynKVPxENYOSU8+Y
+         VQoK3sY1L3NMhEh72QoXNBoSkdGNDyGWT4nplELUhW3pQ2wEUt52CVlk0svQEkwT1iHS
+         RvZA==
+X-Gm-Message-State: AOJu0YyoeRMuaeFP0E1URUyLTJyTHBZSojsWkGOjp6rjNBJJ1wI+eU52
+	1dhF9bskInzE5v8OcuKcyr3FjbYLybscSd8yk77T7pVGcohvMhm1lkSJfizt2wXJIIk=
+X-Gm-Gg: ASbGnctHJgHadClFJlUZM7/8HTAdnbJAOJUgfKEBl/jFmMXXuViK02x/vU996PJy8BV
+	7iXUxRxD4mPMWWyKni36emUuvtRIWl8Db+r0NPRHjrLhSPIiyHrwr4KJo9gCCRPnTfela5eL+o8
+	Ywm5w3Lkpg6yuJmNeztUKoRZUrX1m4Z9EKaZv5WXrzStPPjoisGrsD/GJtBrcVc2L/2MuI3BPpb
+	HHHnkxD0HsR9U/VtKdArKKxVWW20sD4ZNraYSE9dUzTssq7UyaEmd0wXw9Etu8F8jP3mQC/jHZ7
+	TAmP2c+gYWnED/Ql9Xa/4ETbQnQnm+ijctaFlOvM6daOUj/k1yRy1Mg=
+X-Google-Smtp-Source: AGHT+IEjm92mzG6iTvPU0aaqMJR5tJjcC1kKUVwpXp7/ZRJdx/YJfK1/AxyJNMPRaZiUgO8dI0ZM0g==
+X-Received: by 2002:a05:6000:18a2:b0:3a5:3b56:974e with SMTP id ffacd0b85a97d-3a560694b22mr2626108f8f.6.1749734130365;
+        Thu, 12 Jun 2025 06:15:30 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:8b99:9926:3892:5310])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea17d7sm20619795e9.10.2025.06.12.06.15.27
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea17d7sm20619795e9.10.2025.06.12.06.15.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 06:15:27 -0700 (PDT)
+        Thu, 12 Jun 2025 06:15:30 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 12 Jun 2025 15:15:15 +0200
-Subject: [PATCH 06/16] pinctrl: aw9523: use new GPIO line value setter
+Date: Thu, 12 Jun 2025 15:15:17 +0200
+Subject: [PATCH 08/16] pinctrl: xway: use new GPIO line value setter
  callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-6-556b0a530cd4@linaro.org>
+Message-Id: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-8-556b0a530cd4@linaro.org>
 References: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-0-556b0a530cd4@linaro.org>
 In-Reply-To: <20250612-gpiochip-set-rv-pinctrl-remaining-v1-0-556b0a530cd4@linaro.org>
 To: Dvorkin Dmitry <dvorkin@tibbo.com>, Wells Lu <wellslutw@gmail.com>, 
@@ -93,26 +93,26 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-sunxi@lists.linux.dev, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2777;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1950;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=/k8zafhiaZ5lNZ/R4/TDowhHogmpS6F04NS8uK5axS4=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoStLlAWn+gixCdfC0imr4N4CjdzgtOVQSb/c3U
- huOoAJ6Hj2JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaErS5QAKCRARpy6gFHHX
- crzhD/0T0e3xmRZAZFh9L727loONGDCc4JHCYoraLqm9oW7X2GMp5bsZjgzR9lIpJTcS2lz2/50
- 7K1JpLe+3IV/JM3Jsuje0k5O9ZSzUrg7tWjzcR5APoxHEJVxL+esq136rwbVMiMUqJdB68n9Ohb
- 2as5Wk1vASZi13ROmULzSgpb3+uiQaAGkDcpL1ieFstxBzDZS34ojSuMUj2pzkeZpu4qSMsmpV+
- j6o1OXBEOa7XzItsZ+wdhDVDjo74LIH6w+7ZetDer8IKdulsgwMsiIpL90cW0p0COp7+nXuI6kh
- 32Yb8Zw49Z6wxkQQpps9iwDAsqLk3Q/V0EOnKLPvJPtJAG5pc7lojKUwGfj1X9EFl+Q8VlEiCTE
- 7Llv1zB9G9hNDtLE9U2hT7toep6c0798QQ3teRYgyLVERdkGjpLfL5kdV1GnnUYUmavpJaXikA7
- wfngkE49CVSCKrsvtodJj3jyvNergEk5cGDqKSa/m3yHljlRrQoDndSM/+WnK8r3LToblbH8Jep
- xs0ev/kWXAJHtnIhiwALmT2dtnHVAVV2m1aqDyabjB+ozDZ8lYW1USpwg/rezqcCY/d3pLF33qp
- Ely+uT5GKTkEsTBk4pIujiVaFHqyLFnGLWFBMvPVxOEDVK0Grf+UJ3FowqoNFYx6FUGLwXpfdlX
- 6Hw3h2VYdTU5O1Q==
+ bh=83dVwDjCWymw8bEavhDOHIM+hxScalMSI8x7KJC7tWY=;
+ b=kA0DAAoBEacuoBRx13IByyZiAGhK0uWivjkySga8kTnFeUwUE68bmLo7YM/dAt6M6sI+TJxUj
+ 4kCMwQAAQoAHRYhBBad62wLw8RgE9LHnxGnLqAUcddyBQJoStLlAAoJEBGnLqAUcddyEcsP/0U/
+ lQ+/N8a7qZ3Y1MwY7dHUJKTAx5Dfzvi0QNp3MMjqS8cvsbF+baaAXMW8ngmt+x64NWoYANmZ6bH
+ 1lRgsQ8pUweyVIBotIf0V1huvpTG5o6r6v6jVRpqLWw6OTMlDXHFcbpZDl9MFXQm1LgD/gNqkaR
+ pOAY8yWvG5YXJGzz5PaZOxE8Dn81QWKgYwJh0kY4qgqOrIy5eefHE0LjmtWWWvlpkU3unM5uTWa
+ k8Rw37a2U49NeIX1dz7lM8O7RicIdC/a8YqDuRkU99HRBPnMawH93t9cSlWVVqi3rEzt9nMMlZn
+ 8YZVHGwgC2TaJWyVzd+3zMJy2wqx94f4WFgCMk7oK98TbH6VaT57g3qyYorVUBPJ9DuYeiHN3Kz
+ 0VXawdCFHV4VwHWhX13VnGIo5tHIFn1PCQxKz6LysoKHrvPDXKdvVduU3lAOX9d4IUiND4hUSPx
+ 6kD6UrXqaS9XCdctmTZROU1jqUSo+jSET9EqeIsb/TfqSdc7CBrSiyFIKaTXDZNVF0WAhJA8rN1
+ yANcZDYks4P2EiL/bRon27uP/947tNFjIXoY4QHGBfTBfi9DSQfyCoIoLs0SbXbofzs4A74Bxgm
+ PE5Q269V5ir7Xb+83MPmRPLy4bK/9pOzT3CdEFZfGMhdoZZ9bpHDY0j6tS3nlEPrf6rllqjrk3V
+ U+5o7
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_061529_721715_E1F89D35 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250612_061531_970233_246D6289 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,81 +135,51 @@ them.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/pinctrl/pinctrl-aw9523.c | 26 ++++++++++++++++----------
- 1 file changed, 16 insertions(+), 10 deletions(-)
+ drivers/pinctrl/pinctrl-xway.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/pinctrl/pinctrl-aw9523.c b/drivers/pinctrl/pinctrl-aw9523.c
-index 9bf53de20be874661168ba28f64517b4325ce0c3..c844540384198f40f1142528d815fb6e4d5194b7 100644
---- a/drivers/pinctrl/pinctrl-aw9523.c
-+++ b/drivers/pinctrl/pinctrl-aw9523.c
-@@ -625,14 +625,14 @@ static int aw9523_gpio_get_multiple(struct gpio_chip *chip,
- 	return ret;
- }
+diff --git a/drivers/pinctrl/pinctrl-xway.c b/drivers/pinctrl/pinctrl-xway.c
+index 02e65d25e72911b812446ad4b90bfd611c9c1714..53c6c22ff24d752ba66bdd8d46c860bfd9a93731 100644
+--- a/drivers/pinctrl/pinctrl-xway.c
++++ b/drivers/pinctrl/pinctrl-xway.c
+@@ -1293,7 +1293,7 @@ static struct ltq_pinmux_info xway_info = {
+ };
  
--static void aw9523_gpio_set_multiple(struct gpio_chip *chip,
-+static int aw9523_gpio_set_multiple(struct gpio_chip *chip,
- 				    unsigned long *mask,
- 				    unsigned long *bits)
+ /* ---------  gpio_chip related code --------- */
+-static void xway_gpio_set(struct gpio_chip *chip, unsigned int pin, int val)
++static int xway_gpio_set(struct gpio_chip *chip, unsigned int pin, int val)
  {
- 	struct aw9523 *awi = gpiochip_get_data(chip);
- 	u8 mask_lo, mask_hi, bits_lo, bits_hi;
- 	unsigned int reg;
--	int ret;
-+	int ret = 0;
+ 	struct ltq_pinmux_info *info = dev_get_drvdata(chip->parent);
  
- 	mask_lo = *mask;
- 	mask_hi = *mask >> 8;
-@@ -644,27 +644,33 @@ static void aw9523_gpio_set_multiple(struct gpio_chip *chip,
- 		reg = AW9523_REG_OUT_STATE(AW9523_PINS_PER_PORT);
- 		ret = regmap_write_bits(awi->regmap, reg, mask_hi, bits_hi);
- 		if (ret)
--			dev_warn(awi->dev, "Cannot write port1 out level\n");
-+			goto out;
- 	}
- 	if (mask_lo) {
- 		reg = AW9523_REG_OUT_STATE(0);
- 		ret = regmap_write_bits(awi->regmap, reg, mask_lo, bits_lo);
- 		if (ret)
--			dev_warn(awi->dev, "Cannot write port0 out level\n");
-+			goto out;
- 	}
- 	mutex_unlock(&awi->i2c_lock);
+@@ -1301,6 +1301,8 @@ static void xway_gpio_set(struct gpio_chip *chip, unsigned int pin, int val)
+ 		gpio_setbit(info->membase[0], GPIO_OUT(pin), PORT_PIN(pin));
+ 	else
+ 		gpio_clearbit(info->membase[0], GPIO_OUT(pin), PORT_PIN(pin));
 +
-+out:
-+	return ret;
++	return 0;
  }
  
--static void aw9523_gpio_set(struct gpio_chip *chip,
--			    unsigned int offset, int value)
-+static int aw9523_gpio_set(struct gpio_chip *chip, unsigned int offset,
-+			   int value)
- {
- 	struct aw9523 *awi = gpiochip_get_data(chip);
- 	u8 regbit = offset % AW9523_PINS_PER_PORT;
-+	int ret;
- 
- 	mutex_lock(&awi->i2c_lock);
--	regmap_update_bits(awi->regmap, AW9523_REG_OUT_STATE(offset),
--			   BIT(regbit), value ? BIT(regbit) : 0);
-+	ret = regmap_update_bits(awi->regmap, AW9523_REG_OUT_STATE(offset),
-+				 BIT(regbit), value ? BIT(regbit) : 0);
- 	mutex_unlock(&awi->i2c_lock);
-+
-+	return ret;
+ static int xway_gpio_get(struct gpio_chip *chip, unsigned int pin)
+@@ -1328,9 +1330,7 @@ static int xway_gpio_dir_out(struct gpio_chip *chip, unsigned int pin, int val)
+ 	else
+ 		gpio_setbit(info->membase[0], GPIO_OD(pin), PORT_PIN(pin));
+ 	gpio_setbit(info->membase[0], GPIO_DIR(pin), PORT_PIN(pin));
+-	xway_gpio_set(chip, pin, val);
+-
+-	return 0;
++	return xway_gpio_set(chip, pin, val);
  }
  
- 
-@@ -779,8 +785,8 @@ static int aw9523_init_gpiochip(struct aw9523 *awi, unsigned int npins)
- 	gc->direction_output = aw9523_direction_output;
- 	gc->get = aw9523_gpio_get;
- 	gc->get_multiple = aw9523_gpio_get_multiple;
--	gc->set = aw9523_gpio_set;
--	gc->set_multiple = aw9523_gpio_set_multiple;
-+	gc->set_rv = aw9523_gpio_set;
-+	gc->set_multiple_rv = aw9523_gpio_set_multiple;
- 	gc->set_config = gpiochip_generic_config;
- 	gc->parent = dev;
- 	gc->owner = THIS_MODULE;
+ /*
+@@ -1354,7 +1354,7 @@ static struct gpio_chip xway_chip = {
+ 	.direction_input = xway_gpio_dir_in,
+ 	.direction_output = xway_gpio_dir_out,
+ 	.get = xway_gpio_get,
+-	.set = xway_gpio_set,
++	.set_rv = xway_gpio_set,
+ 	.request = gpiochip_generic_request,
+ 	.free = gpiochip_generic_free,
+ 	.to_irq = xway_gpio_to_irq,
 
 -- 
 2.48.1
