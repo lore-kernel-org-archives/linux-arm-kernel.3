@@ -4,190 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51FAC71149
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C483CC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2PsUpfei5npMzjxrp2K1BudGv93X+JICYdeyQv9PuM=; b=B6rDg+oUrP9uHcPHhKw6Kd5Tvg
-	FQQEoJeiW/g8AJaaU03V5ID7f4QNP4PuZwyp1J9XiO1M5Iz29cwyyCIPF7MRmSEW4zpzC4MIawEW9
-	+FBWE+4FjuD592ddZwLHavWvSTEf2GisQYhEpFDAMkCZrqRDX1qQJDdHUIMU+pNQ9LwoL79Cu466y
-	GsbpX+sPlF2aa1t3PhJDbU063cLBf+DN/SZWtYUKyNhxkrlSeqCT7JbhQARxTIR3wesBv6zU+LOdS
-	lybY1jvOuUMXzGfisaFydFZrH7bvSJt7JmXj5q9z6/Ec7bXXoIoruXPmu3FxpCTgLLhuCYod+ozKR
-	z70gzM6w==;
+	bh=icfnPJxQK+6jhDwUzz9Y3fm8tV+truVzDKj2VhFlMo8=; b=xalRIiItdMdHhEz/szGqLdtM/T
+	PZhQdIK8/nZ5ECTa7qfZ2Sueu4fjWiFvVZqwSw92gXfSWNwagJBOBebrM1oY5b8pV8REp/Njieijz
+	quZo7gt2Q/C8PlK4+60SKAct9Td7pm/OwfQ8qha3mBqDV1BvsaPGpOBs32r5x03B+xex0ZkUXi/IA
+	96Qzl9P7cNPMyO0aJd5O6wnmYFOKPuvL13MvurM0sagVrNazy+wvo8eOUQOKpXnj1KDnqFWM9mKPa
+	aoyXpf7MrJDS0e8jWAyAF6Cpf/CCzA/8o/kj0Eh+RbAhLDhgzvN7CFza5XaHGi3qXoacSihWlJk4q
+	GJCNbBTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnpH-0000000EH7O-3xxP;
-	Thu, 12 Jun 2025 19:43:03 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uPnpL-0000000EHE4-1gYj;
+	Thu, 12 Jun 2025 19:43:07 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPijY-0000000Db3u-3U0e;
-	Thu, 12 Jun 2025 14:16:50 +0000
-Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55CDu2eY032377;
-	Thu, 12 Jun 2025 14:15:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=H2PsUpfei5npMzjxrp
-	2K1BudGv93X+JICYdeyQv9PuM=; b=JKOh6vnlTAmSD5BsvX4yk01g2PnYU5Xv4m
-	gBy+Tue0tQFGrtlk2YAY49f8Qmn3UdHdY2MH6AO9+Y9UnnXJVSLFUb0ah1VUJKpu
-	0CR7/IZMDp8KLALMAuKhsBrYoiqpr0OpqvZFQ7Y0rtm3H0RRLPmUbAjBo86iF0S+
-	qA2ehFSZBLud2AysAfzBLGhv/XFc9mcLw42OuT3sAC5//TvOSF9u+NvBOKmdUbvl
-	L6T+9jOqb8ra+HaQDW5GqLr3X3OCQbT9a72tfLK3pmDz6bB1opfzgfYz6qsZhzHZ
-	yGXxyE8xZaFEBCxlwaeQmV6OdPgDXnIPl73l6WTMQPuDoaASx7ug==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4752xk182a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Jun 2025 14:15:39 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 55CDem0V016765;
-	Thu, 12 Jun 2025 14:15:38 GMT
-Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012045.outbound.protection.outlook.com [40.107.200.45])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 474bvbnmfs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Jun 2025 14:15:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fu6KghwzJ/WLUm/34LTsVbM2Y6pqhr0xGM6nPFpFSKelFYvsCZn8Ie0kC9Dyqekv0dlgtliU860nCAqJnTdOBYwnChIh/qFEsMVvqs6QLN5T90UuxJpoVPM0fIuAPpDSQDBuYVF0KArmi08Dxcjr9rUhyQngwbWQCUXuDCUgcTt1ATaLXJyo6N73L7FFwXT1ezNcmQp7p1AnBgnYT6KTngpykq6ZExCGPMXYcEU/N8EY4v8M6mH/mhjOrRiPMf7+ijazlMgkTyE4yS57EFc0PKI1/oCTXPrmQB0KJKgeT1Jkj9UTin0DouQI5U6zA1E95SIZtg4tFltcMug9LIdOxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H2PsUpfei5npMzjxrp2K1BudGv93X+JICYdeyQv9PuM=;
- b=qVJ6/URnG2ySFmXF+wZSrGID8LIOQvqdcrp5ugVbHomjEJn38QruzFUkpWH3zKDvQs7CUmFulgesHZQEbNASa03/fDow3qDFUl8S5jLjoHs/PgFY2ueAQ34NdDwbsf+PDjL6rpIXMXyL/W1MX3pRVwL9S9YhEJ3zDPmAotZN7abNyFC9gySNU5smfR7wbE6Sa+fK20+LhOS/qXvsOJCSr5nu9yqqeWVzCs45jXdAdDF90wb+L3Tqnl4uYLo8ep98KyJHYDo4NdO2u+EePtSDfFsZ1bbeSrmxbNKErlsO+6iOcW20UhxXuDAjZNTb8r948ZIKJpQijRF47RPp+X7ouQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	id 1uPiwv-0000000Dd0Y-2yhg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 12 Jun 2025 14:30:38 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a525eee2e3so891493f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 12 Jun 2025 07:30:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H2PsUpfei5npMzjxrp2K1BudGv93X+JICYdeyQv9PuM=;
- b=EOlQM7VyL6tiIF1FwXxQUaLDDdgfzNs7oamVuyBviWxBG8KlIebDIxhXCvH0DoJon1ynB7lduzMttlaAyBFmdAGcKVB1UtkEZwRLjVTit2QGa/CO/HJho2TfIEUbJY2al46uPFazxemran6ihHcr0zDTV2Hz/UBsTvobyOEOWcY=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by DS4PPF751CD7230.namprd10.prod.outlook.com (2603:10b6:f:fc00::d2c) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.26; Thu, 12 Jun
- 2025 14:15:34 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%6]) with mapi id 15.20.8813.024; Thu, 12 Jun 2025
- 14:15:34 +0000
-Date: Thu, 12 Jun 2025 15:15:31 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Alistair Popple <apopple@nvidia.com>
-Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
-        dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
-        david@redhat.com, linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
-        linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
-        linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
-        zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
-        balbirs@nvidia.com, linux-arm-kernel@lists.infradead.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, John@groves.net
-Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
-Message-ID: <fda482ca-ed0a-4c1e-a94d-38e3cfce0258@lucifer.local>
-References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
-X-ClientProxiedBy: LO4P123CA0437.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a9::10) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+        d=gmail.com; s=20230601; t=1749738636; x=1750343436; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=icfnPJxQK+6jhDwUzz9Y3fm8tV+truVzDKj2VhFlMo8=;
+        b=c2WfBAyF3qPjCO3gb2M+qxv+FBs4fmCWCOqPmk/sg1QsbnkAjCTujFK0K+sodi82wy
+         e4/8YsbPa03MddvN9jjQrNfsy40ouNVccC8Ni6fRN8ReftREfwT0Xve4Y2+foOOa62YC
+         hJ7VLjo7x9mjBgshCTv+nR0CgDofRSoJng5Q9dXVJrjbnkjb2n1ficFcxaAhvIa5YQz4
+         qgMfr/tvqCE8san8zmXCMeZGM6raxCy1/DFVi7M8jRgRGMnU0xezZInhiBw0EWVG2mkU
+         6IJ0d/lqT1u1rWG9VG6+ZQNKwSJjwIL0Ck64BOtRkaeO0oA+0jCDVOP5BwZrxaDtjsQS
+         EqWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749738636; x=1750343436;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=icfnPJxQK+6jhDwUzz9Y3fm8tV+truVzDKj2VhFlMo8=;
+        b=YBIO9ctb91yxHvxgeqR7A8nW0U+IlTkE3St5yWQf794KdQdGRUSRngKvoMxyb2nUtg
+         FAjosg5oihR3dv3BIILk6wptynf3LuNuK9PrDGTcpTnbzMvUczO/UybOnyFFtDQKgk9U
+         zmZRcfsgWcyDLk9jmc1ejDC0q/uxx0NlHtwVS1VVdn9jvI6Wv1OzKW7D5lZkYh/C3v6B
+         VNyhEAMriuQBMT7W9VzSzo6g0vtE3u8mW8l/KSUAQgT7HN775afjRCiZ9IVsKG8imNv1
+         53OJaoMQAFAazunxOmTJTb5XPt+58DsSgtQuemFwW9fAoV90y40SM8uAQHcemjJwhAus
+         Cx4g==
+X-Forwarded-Encrypted: i=1; AJvYcCXgYgs47m+TCzTJEOt6fpXeqRUT0wuDyK/yreKAHLzENevZKvqejKS3ROzQOHcYztydvPg62nUtKHw2Z+BRll8b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu8aIjXRxvU2ZLWiMygt97+AN5FtLeAB5NkmLqU7pKQDHuGKii
+	P4IUPcJXUNm3why7mn5KwsElAruWctpn7uUKzEN8NmdEV0tWtBj+CgPQ
+X-Gm-Gg: ASbGncsT3hTtDagedrdhJrtBg8UQXl5pN246zWvoTbCYo6w7ykwVvRKepzcoYikn9dc
+	OL2HZN17A/2vHomX+VkzpeVPWqWyYACOE+NBivf3LGe9iAJr4kk6GUPbQdydlk6NKeUiQQXkAQs
+	ldbYw7GHJ7ccHdURk/WhfOGvx0QAJ6XR/Shs9E0sPdIg/ZiVRobQPt3m3h0FN+EvLPOZ1fJWtSf
+	p0RMk/oKAcOm3Jc7deHUtEb2xSUZ0JPnC9XIlp54oB3ZnUEPI1rE20TSm7kKpKs2niGFvOVLgTj
+	nH7nTZliABDleUOO/MbpIQpzscInM1seWY4flGS2cywoZEH3W0Iyr57Gu2tPRiyrT1oFtY99HcF
+	63ImA3m3G+In+Xl5oog7SzHIy2dn3Fo0SW6gllO1VeVPmXf0Sl+LpZL72YEU=
+X-Google-Smtp-Source: AGHT+IGxvolHiwOg3aDkzQdAyMUz7W4ExlIeoU65YP9vh/gmeQMHftNhAqlS1vFT6yBh4YZN7vBDHg==
+X-Received: by 2002:a05:6000:248a:b0:3a4:dc2a:924e with SMTP id ffacd0b85a97d-3a5606a3e80mr2745067f8f.6.1749738635664;
+        Thu, 12 Jun 2025 07:30:35 -0700 (PDT)
+Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a561a3cdb4sm2156646f8f.54.2025.06.12.07.30.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 07:30:34 -0700 (PDT)
+Date: Thu, 12 Jun 2025 16:30:32 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Jon Hunter <jonathanh@nvidia.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Prabhakar <prabhakar.csengg@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
+ kernel for NFS boot
+Message-ID: <kjotbgwqlvl4uv4bcynqsiynf4dsoplw3szaqlcfd7rm7k633p@64c552v3llz2>
+References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdWhwJTbJOBhKmC9YUaSebBg-9m7euqmxqJLCXdr6++siA@mail.gmail.com>
+ <bdd989b4-a572-44c2-ae7b-2c445c09fd7a@linaro.org>
+ <d05f2c03-fa86-4fc6-9b81-1a7b5592c2e8@nvidia.com>
+ <CAMuHMdX9NzFvsOv9eT0t4KVNufHSqVEht7yRbrt0qE49WgHpGg@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DS4PPF751CD7230:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c095389-e798-4bc3-c10e-08dda9bb98a0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OlUFFusLfbx13QM3cpHhxE2zNWfznemflll34bceRobz/0QFM4eYx0hC5e8e?=
- =?us-ascii?Q?lTb5yVDuohp0sexF/rTKeZMix8MKebT9gUVWhOekzYblC486o8suDlZ+sTPD?=
- =?us-ascii?Q?h7tdiAuK+XtlWMX4rQCjaKR8g69779FE54/2svinzL2fM2Cj97mSDtOJg0iX?=
- =?us-ascii?Q?MNVmUsrG+WPq1l9Cw7RM9NUNuwHBYDTjoY4GWvzVWsbniCavJLK89gQmINyV?=
- =?us-ascii?Q?rz8rfiUlkMsCUzoO3z17Edhv8spGXy3fwjt4tExAMYf08NWxKZIEubKWafK4?=
- =?us-ascii?Q?SeJDEIKdRt3enKOmkUNaUTs8g+wUgiL5JZni7LZEg5eWdkHGvAZZiaJupQoV?=
- =?us-ascii?Q?nfNWqUbtdY5YywL1up43W4Rt/5IMi2DHVJjX9AeAqCAChduCNi5C0MrhXCDH?=
- =?us-ascii?Q?/KzCW25jYP13thHEb1vghCEsD3vAlWAmKmGYdtlkyIEtaB5JoTnPlGgQ80At?=
- =?us-ascii?Q?SiTtNTiZioYwxpGO9SrihmAL55mGhUExbB0ihP7CX/9B2inPXdAvY7eob9p3?=
- =?us-ascii?Q?a8sDt+EM26H8hhjv8GSx8iLMn3Bi6Z/DGF5055FSsfSitHWOX2QC6ssSAy8q?=
- =?us-ascii?Q?JnljkxZgUcU3XDZL21b4ZZLk45CSEvnFdDFZSPR7AT+tE3IckF2qfT2yiWhN?=
- =?us-ascii?Q?xNEGEcLogeiLUba+WcEUbvuzAMo9ne8wtU1ysu9UX3vvmB6Hc5/FCLQEYn5h?=
- =?us-ascii?Q?jxbqbjk2enjT7wCA7vVWulX1PTBgV3//VPYqlYDKblvYiyrdzGwtrSdO2Ix/?=
- =?us-ascii?Q?qhu++voRAdT7hhU+ZEHaEjCW5ABP5//MrZtKYdwhCyhdlCt/aEXAqS9grs7U?=
- =?us-ascii?Q?1UD6DrsPSWTG/TTYMku00hAsnofoYFpEKgwucEujPt++qM0QlSCgUTYvVpbg?=
- =?us-ascii?Q?T88v3+m4Z9ygx6aYFT28udpweAhXmWEkqhmQQ5hhplyzRYnlTHajWRwMYIj7?=
- =?us-ascii?Q?jCAl7BMA4VzOmt9R+cYI24Krwc9jco+9SFZ3TPUMWMmHoh/d0voeTNBWNa+7?=
- =?us-ascii?Q?sELzX4uDAGs0WPlujHH4t3qyHJeEQC6HaIoP1Am3BYBw4f0BEI/AZWutFL2u?=
- =?us-ascii?Q?/BwEFCuy/yF0WMhFR70fLD1oAeTHmruIT8pRaIAeBU2cRVntepgHrzI31C6e?=
- =?us-ascii?Q?QZnsRE6va9GiHmNDMXE/P7FvSK81IN+r8r7DCC3lMJ1eRBtMmzwcn4NMxMWd?=
- =?us-ascii?Q?InxnvnDOrKnkK/zOjJwVMX7jJsYinXIoyDPto40vCO1tvsqzW///F3ZmkEGZ?=
- =?us-ascii?Q?ce5Sslrn9g7cMIfv3dUonDLkjjCeoIBKftB0AXrCtnHmmEjOL1EeOYuzVK2E?=
- =?us-ascii?Q?PuXPW85Vg6NSQeDkxVfH9ct+QRsCxh5ban0lvDu2rm01yvEONXI5uAL/5xcQ?=
- =?us-ascii?Q?fjl2hHjeT0CWknTW2BPszmvZUKLtqUQqNid9Fzk7NGD1qsEV+D2aTqzA+pGr?=
- =?us-ascii?Q?w0p/lHEg1Ow=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FWEwriCtUToSfceMZOvbfKA7l3HssoXn14GqZnTV11sNrOj1gETBWIflyMjw?=
- =?us-ascii?Q?VEQRMmh0OpN8v8e/iBNtuI8vNqwkAR7bo6IIEP5XDyih6TbACEoxpi7lV9hc?=
- =?us-ascii?Q?8DDU8TLODtrVS/ZkOnjq9X8WNe0nDtB5XuMEneT6OWE4nVjMT6xgTLndk8B/?=
- =?us-ascii?Q?0Xrov8emIlclOWDXZt1+gjUrD0f5ZGBCNacYinInaNvyFhjwd6mRcsrXkKVO?=
- =?us-ascii?Q?dDGvoXZ1ISjriUxJEA7vjCFGm4PGkKC2rumpO7e/qmAJJmh85E/0RxMA51yw?=
- =?us-ascii?Q?t5ECtOGOMizKQ6Jwglg+ogjgboZ9OjpLR8N7OUK4yOnOWyOn5g7rSnHHxIVB?=
- =?us-ascii?Q?nckd52W4uQfIl2J2/phBKj+GMKZuJHLk8SJSCoGg2s34qmAwJt1h1qDBRSXq?=
- =?us-ascii?Q?0N8TkkU/dcTuUAUBQximdnWyvyveFIvFEPv8/hOPo3iZrlRaw3e5odhXQhFh?=
- =?us-ascii?Q?PQcfLwgsgRceX3xelO0e6pLyr0J/I2j88r1y2DkYJzEw3lENFvQ98xTJbcGg?=
- =?us-ascii?Q?Lzidw0eBCkDsR7RtZHMd79TWCZF7BtfdRiZr/hjVJ5uER5+m6UC2PpX3ul2p?=
- =?us-ascii?Q?pL+6REolaYRRZXdJ+L+MW0fYvsASDPLh0+EJaZxDy2GU0ydT4+LlWFam5pPm?=
- =?us-ascii?Q?I2lUD2z3zlAVyy4GFzeLmorsv1foDdPmPPXA6kkVWDaT8Vbf+c2JjfrS+/Tb?=
- =?us-ascii?Q?mHB8iHQ86b4XNFMVL9AHJWwVTTB/c+QBPCInwvWDiSOj4es7doVYMw7DMXNs?=
- =?us-ascii?Q?6HCXaJ8qviJ5tgvPB/tbNFGoBQ4IXUpiloxPee3EUAp4uExAbLwJUGkg+gPT?=
- =?us-ascii?Q?talMINWGjBBhmzY+FEMbi3c5p7S1QNa+kfwynh0vBAI8mp0EoYftk0kEXJWm?=
- =?us-ascii?Q?dS94YRcbIiaoRemsdqTMvR7bhW/Wwe2YKu+c46byR8l2C5FzcvXrHBvOS4dQ?=
- =?us-ascii?Q?HbLOsQgIpF8gCaCukSqOwtW/het1mUJMAvR48DUFHvqbzfpMotdNSwjs5Hg2?=
- =?us-ascii?Q?VhVIUuzDLcnc5Sb2K/ew2HQc9Mc7jiggo7PLpSzMLdcV0vIltC3GDj89l42s?=
- =?us-ascii?Q?xBeya9fkRc3qpccEYxT10GFF8BGDsCo8Ntk9b4sPB8OcwxX3yXVWjVmYTyOX?=
- =?us-ascii?Q?rMBnJi/e1TQgVooS9kmodY2cnuqhmJw2YZ39/s51QQzRjnMEhRUG4u/pZbaa?=
- =?us-ascii?Q?s/xkGU1+N4cHblOiCxtQzqNyVniDQvySDpzz7dQbTaWnDH9gLtftP2ncR5Eq?=
- =?us-ascii?Q?/QShy+5+24nPce83p8qAFwUIYibhFLa+dHR13Hi7duy9x5TNR3U64CBLcGFw?=
- =?us-ascii?Q?3g2t19hoURA9+xoAkA+svwukrJR7yXWSXQc+sWaraepigmdmsYf9BCCniN9N?=
- =?us-ascii?Q?yHKoxpPU9+pG5OMpOUJp0rPW3QieQcdVkXIQg+IWqJ1P3lYo7EaSw4d7l+86?=
- =?us-ascii?Q?kgrzdgcTTDhrUuUuavZTvRmkySv7nd7OEzwfMmJSVsmcweTTa1Qrx9McxROo?=
- =?us-ascii?Q?bsnpzAP1yfny5VrGZkgA81XQPwJUB8N6emsC8Q4dZjscOZptbdKC0ZCxqN25?=
- =?us-ascii?Q?a2Zk7M5Nxt7cKYijBJKAmdriwTNyNh6JJEG3BUTqzob652Ncc5JK6b3psmqC?=
- =?us-ascii?Q?aw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: x1+wQPcWeIteSO9KtZ3BygwTOKXNvrNRhVMKdHUR3Me5+VzD9pFzPhLdD4BI6wB9UnHIpfLOmITMA9cepZGMK3NOBSfY4+zlJVZhcaF2fqU+GyFBMp612b6zYwT+cBnuhg3ci4q5xvcn78EQ9xR8XmfACjuzHlHJTUIqiCXoS6YgR6d8BylhCor/6BGV5xPDEDJNcuPCfSfCdCwdpVcxr7kN3sl2R1P1hhrD0omQu3ZianAznb5763zlI+3j7z4ifE9W0kNjlpmIZ4BGDB/pljfCRzqED8tYUU+KYG6D0VC2bls/m6J4MakKISpvBel/u4IZ34S+b67tQrA3ibusZu6r2EiZClOuE9ZGYGV5k8OGu79roZyK9M/sThSefZ5J7jBnZrhol0TnIzi02BELIxZj7rCzsYAaOqM8GF4Uq73oyeo4KhKcjIg399YY/4VvaPmjOjrkLgbouePfPStNYK1txbgrN/MA1dDsxldHICKTxmErMPXS6qTK2ZA+gXPzUxsOJWaGXyBlu2kIjX1YPyvWfslYg6PKRwbcDGwZbmrxJ3VclCJ+d9q/VU1SRltkXy52TErWOIALwRQpd+pEUCBV00BibUC2iXoq6ou5dO4=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c095389-e798-4bc3-c10e-08dda9bb98a0
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 14:15:34.2125
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0wH01p/gPKez1LQG38k0W8E9NVX+hH28xyy+YWDP9KQeoVR0UKJQzRJ6HpvNmoAzUIPRMYLSs27ztvyf/jselTQ9a2UfMwyg/A4Tk6vjy6o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF751CD7230
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-12_09,2025-06-12_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 malwarescore=0 mlxscore=0
- mlxlogscore=999 phishscore=0 spamscore=0 suspectscore=0 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2506120109
-X-Authority-Analysis: v=2.4 cv=K4AiHzWI c=1 sm=1 tr=0 ts=684ae10b b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=GoEa3M9JfhUA:10 a=Ikd4Dj_1AAAA:8 a=7x8u9wrohGjcWX8-er4A:9 a=CjuIK1q_8ugA:10 cc=ntf awl=host:14714
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEyMDEwOSBTYWx0ZWRfX3bP5oeiM8iac vw804riXBz5sQqvlt1llDkWseTHZs6BTPjZyHKSpCAnmXTUaUg+xT1U+jkyz/C7mmS9q4qDeIUU jsD5ZuUpQwiy+FTE7e2GWOTywUp39mJ+WbO/HFv+6E4eFQte6Ul/sQxSILlJtfHOqcfV6Y7l8hy
- 3byzPp94EnAepjc3tZ3y81sxYodpbe8G+SmJmPVYqicTsx20qQzpRWHHD++jgAbYAX0ApDb3ZUC 8Wu0ZZNWCA2IpUO00+CfB3qrS/NoM2D9D5wYv73m5M16vCBihG7g7G4Wl3Dr0F/WQQZCwgkX37Q ZhtKuWPjDhgKtFKZBb00USWUxM6CvR1jW9J092Qi+ko7QpYicrg332tcy/YLFoDURjN4CtD3x/O
- obDbC8yuvrClARtRqjQ8ApDELyyJZMXJmTuYBCZpUcv0slfzob4T1F7047pNbVoMOwEB4fw8
-X-Proofpoint-ORIG-GUID: Gq-_2Ma3mkMBzCraREYeHwYq63A9vngu
-X-Proofpoint-GUID: Gq-_2Ma3mkMBzCraREYeHwYq63A9vngu
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="dkf5kmp4veftageg"
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdX9NzFvsOv9eT0t4KVNufHSqVEht7yRbrt0qE49WgHpGg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_071648_983193_1AF8AF57 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20250612_073037_757499_B92B4F7F 
+X-CRM114-Status: GOOD (  36.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,87 +109,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:04PM +1000, Alistair Popple wrote:
-> Previously dax pages were skipped by the pagewalk code as pud_special() or
-> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
-> refcounted normally that is no longer the case, so add explicit checks to
-> skip them.
->
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> ---
->  include/linux/memremap.h | 11 +++++++++++
->  mm/pagewalk.c            | 12 ++++++++++--
->  2 files changed, 21 insertions(+), 2 deletions(-)
->
-> diff --git a/include/linux/memremap.h b/include/linux/memremap.h
-> index 4aa1519..54e8b57 100644
-> --- a/include/linux/memremap.h
-> +++ b/include/linux/memremap.h
-> @@ -198,6 +198,17 @@ static inline bool folio_is_fsdax(const struct folio *folio)
->  	return is_fsdax_page(&folio->page);
->  }
->
-> +static inline bool is_devdax_page(const struct page *page)
-> +{
-> +	return is_zone_device_page(page) &&
-> +		page_pgmap(page)->type == MEMORY_DEVICE_GENERIC;
-> +}
-> +
-> +static inline bool folio_is_devdax(const struct folio *folio)
-> +{
-> +	return is_devdax_page(&folio->page);
-> +}
-> +
->  #ifdef CONFIG_ZONE_DEVICE
->  void zone_device_page_init(struct page *page);
->  void *memremap_pages(struct dev_pagemap *pgmap, int nid);
-> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-> index e478777..0dfb9c2 100644
-> --- a/mm/pagewalk.c
-> +++ b/mm/pagewalk.c
-> @@ -884,6 +884,12 @@ struct folio *folio_walk_start(struct folio_walk *fw,
->  		 * support PUD mappings in VM_PFNMAP|VM_MIXEDMAP VMAs.
->  		 */
->  		page = pud_page(pud);
-> +
-> +		if (is_devdax_page(page)) {
 
-Is it only devdax that can exist at PUD leaf level, not fsdax?
+--dkf5kmp4veftageg
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
+ kernel for NFS boot
+MIME-Version: 1.0
 
-> +			spin_unlock(ptl);
-> +			goto not_found;
-> +		}
-> +
->  		goto found;
->  	}
->
-> @@ -911,7 +917,8 @@ struct folio *folio_walk_start(struct folio_walk *fw,
->  			goto pte_table;
->  		} else if (pmd_present(pmd)) {
->  			page = vm_normal_page_pmd(vma, addr, pmd);
-> -			if (page) {
-> +			if (page && !is_devdax_page(page) &&
-> +			    !is_fsdax_page(page)) {
->  				goto found;
->  			} else if ((flags & FW_ZEROPAGE) &&
->  				    is_huge_zero_pmd(pmd)) {
-> @@ -945,7 +952,8 @@ struct folio *folio_walk_start(struct folio_walk *fw,
->
->  	if (pte_present(pte)) {
->  		page = vm_normal_page(vma, addr, pte);
-> -		if (page)
-> +		if (page && !is_devdax_page(page) &&
-> +		    !is_fsdax_page(page))
->  			goto found;
->  		if ((flags & FW_ZEROPAGE) &&
->  		    is_zero_pfn(pte_pfn(pte))) {
+On Thu, Jun 12, 2025 at 02:34:32PM +0200, Geert Uytterhoeven wrote:
+> Hi Jon,
+>=20
+> CC Arnd
+>=20
+> On Thu, 12 Jun 2025 at 14:20, Jon Hunter <jonathanh@nvidia.com> wrote:
+> > On 23/05/2025 12:54, Krzysztof Kozlowski wrote:
+> > > On 23/05/2025 13:39, Geert Uytterhoeven wrote:
+> > >> On Tue, 6 May 2025 at 12:47, Prabhakar <prabhakar.csengg@gmail.com> =
+wrote:
+> > >>> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > >>>
+> > >>> Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`=
+m`) to
+> > >>> ensure the Ethernet driver is available early in the boot process. =
+This
+> > >>> is necessary for platforms mounting the root filesystem via NFS, as=
+ the
+> > >>> driver must be available before the root filesystem is accessed.
+> > >>>
+> > >>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.c=
+om>
+> > >>> ---
+> > >>> With this change, the Renesas RZ/V2H EVK board can boot from NFS
+> > >>> which has the DWMAC IP.
+> > >>
+> > >> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > >> i.e. will queue in renesas-devel for v6.17.
+> > >
+> > > With my Nacked, please.
+> >
+> > I was surprised to see this change in -next. We also use NFS for testing
+> > and we use the dwmac drivers. To date we are explictly building these
+> > drivers into the initramfs but I noticed that that is now failing
+> > because this driver is no longer a module by default. This is easy for
+>=20
+> Oops, sorry for that...
+>=20
+> > us to fix.
+>=20
+> Good ;-)
+>=20
+> > I do agree that if we start to build every networking driver into the
+> > kernel it is going to bloat. Yes I do see the kernel image growing
+> > regardless of this, but nonetheless it seems better to just build as a
+> > module IMO.
+>=20
+> Not _every_ networking driver, of course.  AFAIK, making network
+> drivers built-in for systems where development is done using nfsroot
+> has always been acceptable for the arm64 defconfig before.  For things
+> not critical for booting, modular is indeed the preferred way.
 
-I'm probably echoing others here (and I definitely particularly like Dan's
-suggestion of a helper function here, and Jason's suggestion of explanatory
-comments), but would also be nice to not have to do this separately at each page
-table level and instead have something that you can say 'get me normal non-dax
-page at page table level <parameter>'.
+Last time I tried to merge something like this I was told that we
+shouldn't bloat the kernel for everyone just for our own convenience. I
+tend to agree with this now. It's trivial to make local adjustments for
+things like this. In fact, that's what I do all the time. I will use
+defconfig as a base line and if I want the convenience of having network
+drivers included because I don't want to update the initramfs every time
+I update the kernel, I'll just change the driver to built-in in my local
+=2Econfig.
 
-> --
-> git-series 0.9.1
+I think of the defconfig as more of a reference for what a typical
+development system would need. So it gives you reasonable build coverage
+and such for a wide variety of boards.
+
+If we start building too many things into the kernel, then at some point
+it's going to become uselessly large for everyone. That's essentially
+trading everyone's convenience for your own.
+
+> BTW, we have other low-hanging fruit to fix, though:
+>=20
+> CONFIG_SOUND=3Dy
+> CONFIG_SND=3Dy
+> CONFIG_SND_SOC=3Dy
+> CONFIG_SND_SOC_SAMSUNG=3Dy (Krzysztof? ;-)
+> CONFIG_USB=3Dy
+
+Yeah, there's probably a lot of options that could be changed to modules
+to improve things. But perhaps we can start by not making things worse.
+
+Thierry
+
+--dkf5kmp4veftageg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmhK5IUACgkQ3SOs138+
+s6E0Tg/+IGLRD8EtHHbSTM+B0SarrqyRAXrUqz9kqwBFfy9hmBgPVV77MW1w4S6d
+bt5j5/QZyPgujqrjttC7a9q0KkTgI+xlSgd5+3J9Ilp3F3IMsysomotJqRol0xNb
+ANq8ob8PBvArENT9WdsTrYq439BaB0H6iCZafvtMwEeSJ/fuLOuOv9gYMHJUyEIm
+yLdfUKBkP1kJwc0Ke1YJCDWL12WRSJA2F8ZlqhpL5M9+juNRN0AMwbsPf1w4ZU50
+0H2h6Zzdhroe6sdzi1ln8hBYehYJEt073YaN7DYV2tkVmXOlgGwBLox+digiiSZH
+rktx5n3f/c9vUco2+omNs4Otj5I4vW3zslU+cf7skWbmEAApgjgrGoSVG/fTk0dO
+SNYPTQdCP49eNHmXWYfHnp9xno3ceetfzEGKIShqdqk+IoonBE8VRruZq3l7kFk/
+eZ+ZYE4z8oaueb+FQoRdJBkpM+Np/6wvXduH85nlTL253JMScqt5e1q/L0tBPvwa
+cpwDkzyyY7756xGD+HW8aSfBwyX8LbkZZXk7G8N056TsrVqIACRRqy19a150G5Nz
+ZLL2tMtRuN9FAeZacQNQd8zVnojS+ewm79IyaDl7vN/sxwhQQTdDxiVHa6S57uke
+/Vt5CLR2HH86TGWNoQK3afycP0toYFIF6hU+gTTMyrgi9epkZA4=
+=Qw4a
+-----END PGP SIGNATURE-----
+
+--dkf5kmp4veftageg--
 
