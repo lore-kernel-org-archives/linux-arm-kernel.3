@@ -4,122 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762B6C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22177C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmk++c2mkcJELsKXVxVYZLuqg2o3nAxMrCB7YLxsRv4=; b=HsMud7W/p/oqhd4qSKU8p9Vylm
-	cOBwvFuLIh39XVK1rnQ+bOIK1y1xxdIYNppALc2jnDBTBCBei5H0dskoMvqtpGOo1YMMZRHrO66gt
-	cL0dpLiV8VeOKOYiymsjfXgjALnKjLBJDX6xq6iSLFOjwyQ6YcPWvnX1fNZC3xWg+f5QrApf2YSxQ
-	Fk5EdyKu3m8KolFC7Jg3IoNXxua7VguC5wnPodTdelEYpHwWGrVZIf8EIo2PTwg7v/Q8B0l5GEect
-	+olEDxVRV3AILroEM5do/fwKTRrAOzElI/rlXU4Cba9JYIQVWCjxk7Q5hpGapE+Q1xGOIOvJqsOQW
-	a+k52UDw==;
+	bh=Xe+/CWthc6ot+OCxKsW3fGV6MDdG1CZZweZmpwlQwl8=; b=12dM3oE8hwXYXRl3/jSc+rBSdS
+	eMc+dWUzbPm4D/IdA1Bj1pBAGWQeZ665mZW1a4HibfvRJnngWkyiauZasIyJYbvUJhSdRGNv5OFsA
+	UFCtLfE+dkdW8VCVo3147a0kS0mMz/XBHJJAC6E7PmV7YT862EV0TND3MBkfAohZpFdB7brjqF72b
+	K0/ZNK2aMm6xgEjy9feLCBxRpVP7Le+Z77hDS4XgvYIS8E3hOZSyamDRd9vxVZOJcECRts8GbQwG4
+	aCdQg2MeuEaSZ55gG+tsIXlG4qWbhiV05QJGpd0T1fLIlkNAY1O0HeofZ9CcRrkDW3NEGsTdvxkfD
+	UkXjpNzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnp7-0000000EGrT-1QoR;
-	Thu, 12 Jun 2025 19:42:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uPnp9-0000000EGvZ-2YG2;
+	Thu, 12 Jun 2025 19:42:55 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPiLT-0000000DWpx-2BQl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 12 Jun 2025 13:51:56 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55C7p1oH029232;
-	Thu, 12 Jun 2025 13:46:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tmk++c2mkcJELsKXVxVYZLuqg2o3nAxMrCB7YLxsRv4=; b=NY7Ih6hXYb4q4aUl
-	T7DCkzP1NaC6tHihZKVsvVoj2zj18kcTjB+R8ARPs3c88rF6R2seGrubyAvwHXIG
-	pZ/bftZtSSnKBk4srW3OEkuudg3gI5kNvkKWxn8r34izLD4VyyYJzQET/q162iAL
-	vxQ3rokzKNYNRu6BpQx6d/P2OWskB/7XfnnnFPiGRErCCqy9vK5UboLp4GT2XCwz
-	8g84HA+9fHR9L+35BLs1YF43WtO9b3OyYgrmdhrJTwgb1IAFd2IU8+4nkYAD1nhE
-	gjmKBANWC0RQxDI6ROEscwOyMev7f5ecCLDzP9FxNrxPgdcRlBB+gnmzAJ4OYZiB
-	0RprXg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 474dn6gq2y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Jun 2025 13:46:36 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55CDkaoC007559
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 12 Jun 2025 13:46:36 GMT
-Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 12 Jun 2025 06:46:31 -0700
-From: Luo Jie <quic_luoj@quicinc.com>
-Date: Thu, 12 Jun 2025 21:46:11 +0800
-Subject: [PATCH v4 4/5] arm64: kvm: Convert the opencoded field modify
+	id 1uPiQ5-0000000DXfD-1re6;
+	Thu, 12 Jun 2025 13:56:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749736586; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lvR1fq3NchjreiyUiIeLyfUSl3q2G2RoAlsQESjIc53+9OOmdW49NG0QOCklpaAxkpzOf+O3J5TOvuWFybfEplwcaG6SlWktPmVS4TBXLl1CE+CNBIWgpw+JPMzHAHvrgK3MAmVcgjWwsLQjgM1OiYYRK5Yzn18WQBKTwVWeYRY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1749736586; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Xe+/CWthc6ot+OCxKsW3fGV6MDdG1CZZweZmpwlQwl8=; 
+	b=UDb8x8KAEskyKoSz1q1Mjj674Y9Rt4VlIoYO9Btoo4sS28yUQqBfQK7bS5IbuU518aeieAFSnj+TDZqkC9cgxYZZSvCSmghmOHXVmgKQJMWTPv+DDBO/oEGe4QqVIqZePNHuSv8DtRWGH0koTxGY2nAaixJwK5J2UjvLaqR9j/4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749736586;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=Xe+/CWthc6ot+OCxKsW3fGV6MDdG1CZZweZmpwlQwl8=;
+	b=n8+WYuf92DJ5Lm1peHwH0i8dXZkNIOPgt6STqoXZn6bE31CoXzRJ7aDTt1IPiUfh
+	XEjSZx+S0IZMuy5sEy/SA0Ayo2YBiyF/OSXxBVCrX+L6rMKOiyXcJF0k+rFEmYjLIvn
+	5gyhXvQ81zaLxlmvGB/DqrM1LDnuGFFfTwq9TvyjZn32JvK1bv1xeaoMuwh2dnchIPO
+	tzuQGpMYbgc2ttKjYPZsz5dvWbyK1lvofXwv/tFR5IOhFwwxJv1lqD+FwFJDt27KfX0
+	GYrwEKtAQvYBc4LsXL0BBDQZ4y5dpMAJYjJmW46HmjVRr/t43nrfjeHjWv9lVTvViGF
+	1pKHyolYxQ==
+Received: by mx.zohomail.com with SMTPS id 1749736583346329.0335267878131;
+	Thu, 12 Jun 2025 06:56:23 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH 2/2] arm64: dts: mediatek: mt8173: add hana revision 2
+Date: Thu, 12 Jun 2025 21:55:59 +0800
+Message-ID: <20250612135559.2601139-2-uwu@icenowy.me>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250612135559.2601139-1-uwu@icenowy.me>
+References: <20250612135559.2601139-1-uwu@icenowy.me>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250612-field_modify-v4-4-ae4f74da45a6@quicinc.com>
-References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
-In-Reply-To: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
-To: Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes
-	<linux@rasmusvillemoes.dk>,
-        Julia Lawall <Julia.Lawall@inria.fr>,
-        "Nicolas
- Palix" <nicolas.palix@imag.fr>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton
-	<oliver.upton@linux.dev>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <cocci@inria.fr>,
-        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        <andrew@lunn.ch>, <quic_kkumarcs@quicinc.com>,
-        <quic_linchen@quicinc.com>, <quic_leiwei@quicinc.com>,
-        <quic_suruchia@quicinc.com>, <quic_pavir@quicinc.com>,
-        Luo Jie <quic_luoj@quicinc.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749735973; l=1164;
- i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=iUjNUxN1xIpBV8h+1ymERj2J0ETvO565u+bdg94CNuw=;
- b=Rl/McSDJhXaLrhpJ0frxvIhIfvp4v21iFTJNHsQn3oCpHpvZ7M8UNZbO5IH81vMeAfKUvO89l
- gY9neAwYxBmBqcFuZzRyP/hcmI7vRbga2VnXux64d/LdbO8KZ2cnmIi
-X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
- pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEyMDEwNiBTYWx0ZWRfXz+dJ0Eg/kmV6
- IkjDE3jTwrQvyd5ADMggW5TOhrbScj2wcenOOXIP4M9vQEjgp30TJCO+o0rhASugfHVPkHRgDOq
- IdPPg6KrFbiBVtbWAY1K77H4iWe59CPkYuB+P8m84X6VxfbWibrDMVDwcy4Jv6LYeCGO4sbVXIp
- /jNz1YCWsa+wTvscwVHoT15Z0L7TCc+8SgTcXmzkGCQ3Au/8PJinX+Bs+XakkfssEbSINBYBL6Q
- 4tazH1o4O4WU561Dh4tAZJP6xMiMK0RFMuFueAQxDl3agaRgMTfOf57SgONWQzRtBEi5BoN4H0f
- lxyZdtJ1hE0hmbE9b+03W3SKMnnzbJS8x1PJgv3fn1IMvQBviSjGV2IHvQbueV8v7TrS7bzbqPW
- p3n2ERo0pfJo2oIU+dTN0qJOWSGEfvNQl+KWZj1C1NKuUTtDNlBsmEJhGjz9pZIb0+DbrRRg
-X-Proofpoint-GUID: 9eXI8tMV2ghSaD5ylQpNtXpLf2lL_h-b
-X-Authority-Analysis: v=2.4 cv=FaQ3xI+6 c=1 sm=1 tr=0 ts=684ada3c cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=YgwN3AOMAAAA:8
- a=COk6AnOGAAAA:8 a=8vQftXNygbJtpsvDVS4A:9 a=QEXdDO2ut3YA:10
- a=ztR1XV6QG-NWxUt1dNgd:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: 9eXI8tMV2ghSaD5ylQpNtXpLf2lL_h-b
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-12_09,2025-06-12_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 adultscore=0
- mlxlogscore=754 mlxscore=0 spamscore=0 suspectscore=0 malwarescore=0
- priorityscore=1501 clxscore=1015 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506120106
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
+X-ZohoMail-Owner: <20250612135559.2601139-2-uwu@icenowy.me>+zmo_0_
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_065155_565421_D0FCE237 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250612_065641_548763_92DA10FC 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,39 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
-- reg &= ~MASK;
-- reg |= FIELD_PREP(MASK, val);
-The semantic patch that makes this change is available
-in scripts/coccinelle/misc/field_modify.cocci.
+The current mt8173-elm-hana.dts file only contains compatible strings
+for revision 3~6, makes boards with revision 0~2 to fail to match a
+revision-specific DTS and may fall back to the rev7 one (which lacks
+some gpio-keys).
 
-More information about semantic patching is available at
-http://coccinelle.lip6.fr/
+As I've got a Lenovo Flex 11 Chromebook with board revision 2, add it to
+the base hana DTB file.
 
-Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 ---
- arch/arm64/kvm/vgic/vgic-mmio-v3.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-index ae4c0593d114..946db5b3500f 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-@@ -123,10 +123,8 @@ static void vgic_mmio_write_v3_misc(struct kvm_vcpu *vcpu,
- 			val &= ~GICD_CTLR_nASSGIreq;
- 
- 		/* Dist stays enabled? nASSGIreq is RO */
--		if (was_enabled && dist->enabled) {
--			val &= ~GICD_CTLR_nASSGIreq;
--			val |= FIELD_PREP(GICD_CTLR_nASSGIreq, is_hwsgi);
--		}
-+		if (was_enabled && dist->enabled)
-+			FIELD_MODIFY(GICD_CTLR_nASSGIreq, &val, is_hwsgi);
- 
- 		/* Switching HW SGIs? */
- 		dist->nassgireq = val & GICD_CTLR_nASSGIreq;
-
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts
+index fcf0cb76a87c3..84638a07587f3 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dts
+@@ -11,5 +11,5 @@ / {
+ 	chassis-type = "laptop";
+ 	compatible = "google,hana-rev6", "google,hana-rev5",
+ 		     "google,hana-rev4", "google,hana-rev3",
+-		     "google,hana", "mediatek,mt8173";
++		     "google,hana-rev2", "google,hana", "mediatek,mt8173";
+ };
 -- 
-2.34.1
+2.49.0
 
 
