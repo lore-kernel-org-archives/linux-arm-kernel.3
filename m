@@ -4,112 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987D3C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2B9C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QE7uo3opxh9em17i8XHHo2wsfE9LEuRzwaUWPwJTNU=; b=uL5Ol/jc90u/XCmYWf0jvmFxYN
-	UmXAZT0rTw8qL0NJL9Drz7FHratpSvGyUY0W51U7z1bY316afJ5IOLLK+imBGal2YRZgACb4Y4HjX
-	J2HmA8ChnIvC3oxL/fKCNmTodv259gQs0n1FY32es+FEyfbKdmLOqPPzmwe+JTj6q5luZgEzc6Avy
-	ts2+w090ZbS6eai2eLGdy7lpiVDI1MRD9Gn5pEZEA+n0Bl73c35H0qQVnhzGKa5MIjHTx7MSVha/c
-	2YkyMJVC2pCOwqNd+x9LWJi9U/1HuRWOMtEoBOSEsOiyvgOrsBkAWigXuxBptxWrdxxrb2ktJJOQS
-	Ebrn70AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EP1qAjWPTNOSFlnv1KdFQenJ78MrI9mcZoWHWMsliQY=; b=kompOJ6YWJKDKeLEXK2dZbYF4w
+	x10GHlqU2iLd4tV23JYuEEZGw8eRWmUN5WEPIlWSQMq9ma5kbVxFIpuiJTiR6QwXRMDGh4Gi7iyvI
+	CnOOL7xVGCnNYUeDpS6azKbdUfs5/3p1uL31yBT24RZOkWamvFciGz84Dy8KxOn7gwLXSH5wWbIkc
+	FRAScLYtc+wl9hylGLus3wpBBgH4g0BPb4KnMYzkTx0xMGU3QKv15uTIAGOUHQy2Mxe3EkUt7/pNj
+	cDDXN0lFgkFE5N1v2IL/hWUP6+uMFGedyErctiVrEt3sTc32IBZE09wE5gE0IVgStwZeGaAiyczpP
+	yJU8QkpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1FX-0000000G0ss-1lfe;
-	Fri, 13 Jun 2025 10:03:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uQ1KZ-0000000G1fI-1hgN;
+	Fri, 13 Jun 2025 10:08:15 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ17U-0000000FzSZ-2tuk;
-	Fri, 13 Jun 2025 09:54:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 790415C47E8;
-	Fri, 13 Jun 2025 09:52:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14343C4CEE3;
-	Fri, 13 Jun 2025 09:54:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749808482;
-	bh=7S40Zuc2TNAecTyadpX90VMiKscvd9zWpUm96dO61pk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IgwWZzCduhTWWVz0Ik0YoXpB8DwGFZHsTowAQDDHQVYhQv9QRP34IURI4Hl9yCc29
-	 4FlZxQ2xGoW39/quqB0hicrkzjFGe/Iim73kY7UdEr5popAOvhGPe+hej2bdOUGzzz
-	 NCFidSOWEI6m1Yy8pRAA5+KJ5oPRZ26qrLNWEhxBte0vywQJIcqitbBfmPICZeWUtf
-	 DBbBwNtxjtxEmoJ3kTn+WjaFCpezmZplSZdZK//Zrcetp8lu6MfuITyXXmwUJ/zkIe
-	 O1VLGw+kvQJANu1osi+nLeWlr0UQZ9okqtAaCaipvC9FcpoC8G9iFHKlozVAC5vzQK
-	 AZv9VAeaeADpg==
-Message-ID: <576ca6bb-291c-458e-9703-46e7d2f43bbe@kernel.org>
-Date: Fri, 13 Jun 2025 11:54:35 +0200
+	id 1uQ1IF-0000000G1Fl-3f7p
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 10:05:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xaxKoxmHnLSTF2PuuQ8RIF3CYaPRJ1/T3+ZGXuH2AVdyAsjFbw71GvtjjebxigLEQ/9wnKJSf5btbkhQRN6typ/8mCaowQfAexbPT/u5j+IQTHB1PQSSjAdG1AYiIE7F1jCUbKbyiA2sRswBc2PawzSzXaDkWTrPtP8nmHmnGKj6uJcfCNk8HE5xBZzdDnrSz1PhPPbFLELNIfljtn38tMssN3qcn/kOtlqTtbLZpQTM5wYeXkFWRxSx//8vCYRGr4uOOjabhMa0DBZWHJHqSxpPm3ZcUSIqWY+j9Vub46ih8wAfS0IvcEJ18GWjJQv8CLBWCnjo3v6q2sg6KB4/NQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EP1qAjWPTNOSFlnv1KdFQenJ78MrI9mcZoWHWMsliQY=;
+ b=huionPsr9tT1G+uuDx2twgVVC34EGCn3YDFPFKcpsswIv2Bu03qBqJDy/clBV0Y4DWiSh5gQkVrS2AYyr0jn43/CO3mw18fsIJcmkgAMvYyhSI27SGndg29h3bf2PMBtfQVsJXgz5TLuL8dr65JXE6BA0NS53QVn7qeNiHnrsrkyfDw6X0pTSwwcNrx6ixZ3YI2VCZrnz+WQE3Zk85s5E3FxgSC6KdF+lVRtpV80LsZcnzgs6WyDQVhzG6GGM7BwdqpnJwZENE3VCPvxt0I5E11E0/sAIgASS9O48n0V2eIhjBaABr3cl8qka+14mNRSiSvTDixEaIRBvCx9JDg9ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EP1qAjWPTNOSFlnv1KdFQenJ78MrI9mcZoWHWMsliQY=;
+ b=VDZYZR/8jhpAl7Bf8jRL9uPreJ5yT4TRV9Qy5c79zu8+ShYIGu/kiL4eKjcGlKLbs2sgh4XrHOW0wNT11dgV/qvUoINXMLIEjD/QGt+J0+Yecqf6qsc2knlqXiC2EGVrwkgfJSgP7DfzufOdKawrQnp/UzZeE4FtlgeK9tuvY+yO217qrPe11tOkGH8ZHAtbDpD491pqc7dlkBfGEvQQ9mCTEtQ51amhLiGexBZrfZ1HKX9NClxupAK/vcnifyYpNquk/gfaFkmgQtle+vh6fgmZqwwQ7RdmhqHDAHjLJw9UpEgKPCUH7lNwhpJaqpGJ2czocnIwOCFBvuMeOdl+mg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by GVXPR04MB10681.eurprd04.prod.outlook.com (2603:10a6:150:226::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Fri, 13 Jun
+ 2025 10:05:41 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.8813.018; Fri, 13 Jun 2025
+ 10:05:41 +0000
+From: Joy Zou <joy.zou@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	ulf.hansson@linaro.org,
+	richardcochran@gmail.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-pm@vger.kernel.org,
+	frank.li@nxp.com,
+	ye.li@nxp.com,
+	ping.bai@nxp.com,
+	peng.fan@nxp.com,
+	aisheng.dong@nxp.com,
+	xiaoning.wang@nxp.com
+Subject: [PATCH v5 0/9] Add i.MX91 platform support
+Date: Fri, 13 Jun 2025 18:02:46 +0800
+Message-Id: <20250613100255.2131800-1-joy.zou@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0002.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::21) To AS4PR04MB9386.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] pci: aspeed: Add ASPEED PCIe host controller driver
-To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, vkoul@kernel.org, kishon@kernel.org,
- linus.walleij@linaro.org, p.zabel@pengutronix.de,
- linux-aspeed@lists.ozlabs.org, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org
-Cc: elbadrym@google.com, romlem@google.com, anhphan@google.com,
- wak@google.com, yuxiaozhang@google.com, BMC-SW@aspeedtech.com
-References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com>
- <20250613033001.3153637-8-jacky_chou@aspeedtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250613033001.3153637-8-jacky_chou@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|GVXPR04MB10681:EE_
+X-MS-Office365-Filtering-Correlation-Id: a30d8ab0-fc5c-4393-4dc7-08ddaa61da6e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ER4wbpnDw4cnvuh1eW16LRtApO5y1k+Tter62x60hSM0nKmK1zXsRt4cutuy?=
+ =?us-ascii?Q?l6ZsMC3qjUqN7WnAgwEsVDUU91Z31vp5VLSI/G67K28d2/Cmncoc4o+Fm9Pa?=
+ =?us-ascii?Q?q/eH8rgYZ5pF0n520Zj5JvH5QWkGoOTBlfFZHqJDtA+D3EASqVyKhsCQwS6d?=
+ =?us-ascii?Q?Z04+YfxZOwTBGIhHoYqRdN6swPn909SpNFaerG3B3rnSav5wyy8rYKSSyPrG?=
+ =?us-ascii?Q?+a7AsefDiYIzhHLX7yRBdmHBK9XTpEMN5PKqEfgDAeSE3CGJG5sm9aGBpnJL?=
+ =?us-ascii?Q?fUN4A7Ms9jpSW2rKXeaWdis3z7WAAgYzUY8TWS04pnyU9naGJ7K7XLxGQWpQ?=
+ =?us-ascii?Q?aHyUisAsNH1W7Oxi086bUls8tOE4uIvkcuyFrSe9KbjYYjFlq61HW+1/nKii?=
+ =?us-ascii?Q?z7BEmwimGIbM/uxlWmyKmoFF5fM43N2xUdoqoYbanh6v49jA10iwekuUL2UZ?=
+ =?us-ascii?Q?lK7LM3v9l5xxL6WPcMp5r8X8XK2w+hy1bxtdlGYZUE7W+ED1qkEOFK5Gc0Du?=
+ =?us-ascii?Q?8Bx5u/okHscqeLvS6U9paZkXQVbaDUGfefLDe9vIeH5PrvWTmXvj+snwL2h1?=
+ =?us-ascii?Q?F+hYvTPOTt+rlQ/6K7w/XgG/B9z1PiNbPcf4YIgHjXmva9fc7FfstOLi4b/b?=
+ =?us-ascii?Q?5DNPvjauzX0v7gkzgxxXjjK99tvvbxJTs1+j4XfrObSSAZzPcdu+NOBui7QI?=
+ =?us-ascii?Q?qH18F+B+/NB1YPZPQg14gJNUf1DSxsYHM4SOpJM6auERrijSuJof2hAZEBJx?=
+ =?us-ascii?Q?fhCtk37PUQmDdNBFrRCqa2vIPIfIxlEEVMbPSdnxoDyJyCL4eAcoSuL4SUBN?=
+ =?us-ascii?Q?bqeanC1/9D5xufG+h2RRkBvZtIGc5kbPo/8ll29W+GGUsXJxV0b3bcEwjXWv?=
+ =?us-ascii?Q?NwQ0+QRyqlgo+mZ0lwJr5bPqBpQZQSRIssgb+f6S0ZOz/OdpgS3qtijxIu9u?=
+ =?us-ascii?Q?J5sF0udCvkQvP0z+nLWDAXec473GjrMrP7Np3FaRdmnz9d46MRp64X0/hRox?=
+ =?us-ascii?Q?w0ZLUNdHymEwspHNfBI8hu3YVjLe6zNRSATbEhl6Q/bfx/Pd/rdHXxkTiIN3?=
+ =?us-ascii?Q?3Hskf4G1X0HExqIVk2FY09FdAxaoqbN00E4lVyIykvhCtSzo2e1rgayBrdnl?=
+ =?us-ascii?Q?zmDzOtjQmn9CIf4MtctA2FCo5fjLvZhe4A3g+dgTcUKO06TafaZmfGeucbQF?=
+ =?us-ascii?Q?nbIO+EEv0WyU966U66Bn869Z/DdC00LI19V5ncnzgwtoeL+q2lwvvMwSH43y?=
+ =?us-ascii?Q?iiH3FmnWcBTtEHEzdDHuJ2/t9LOhHysLvgwMQ6zJTy8/B5W2tldC4aQwzN27?=
+ =?us-ascii?Q?thybeywFLBETvO0z6a0uYkOeSqpEu6gjEbMwnoJJi3JtoYbnQ9xLLPM+p8lP?=
+ =?us-ascii?Q?BFt1THp1vLenZCRugM3m592ulCTKu0qg71aWBjqBfUlAI6zoPriNzNLkHJKb?=
+ =?us-ascii?Q?lsjztsam+VL0D5zaBexYRl/PRAIE234wM2UbN2Xr0x2Vg0cEif7sll5kpQnO?=
+ =?us-ascii?Q?rJXTbE0zevx+QCk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ff2uX0WfSI3iL40U4Lxt+5jJ33bC1nPY9Ai4Yi9t9wTYOJUEd5CZkSbSngOv?=
+ =?us-ascii?Q?bzkjZFNKYunDOXLZHmmcQws67L85WKT+JeoOmIAOC9LiaooaQrvNE5fvXm/L?=
+ =?us-ascii?Q?M9RGlt/P6hyPGSZFHG5MUqzadEmBaobGaNS+AQg8Ey5TIksoYwZ4X42OuYYh?=
+ =?us-ascii?Q?4Wa2K7StJWITj4i+uDATuh/d9fN7PPyydGInOeaWq2cGyBJxRxufdb6oCLdZ?=
+ =?us-ascii?Q?xfVHGN0xBdIP2AR+hr0ckFNDINn6mdPrnUit0wEGvgtt1TmqhS6iy331Jt+C?=
+ =?us-ascii?Q?YNxSiSHvN4ztU1LimIUU1d7vAP2jhMrext5aOCvWMZQerPj6jgVgM6U4/RAC?=
+ =?us-ascii?Q?KYWHj6fvXD7rxXjGG4gEjDSqNpkI/NIu5LkAVySsZ7wTJvp9Gz/7RZpN5ABQ?=
+ =?us-ascii?Q?ZrpamyzeOn9VlmVYeeLGid1JrJdE3qqrS055GiebWUFs1zL+nW4kjxNNNN9w?=
+ =?us-ascii?Q?Z9dFXdX98cEAT92+Ar0tIMyJCnuFNt3WJn2urblKZkgRh2p8zkgVZvHjsr5a?=
+ =?us-ascii?Q?Va0hjiEYTHQLUdJ2aqxitjkbhr9TNUm/21AOyxklZ+rSpiPdSIDP8gPL7JR/?=
+ =?us-ascii?Q?Ym7xDHcusW1n6fTNv+KwFsuN0e/JTatLOICkUfgBajFQ8DTkgcRf5UhVMbP8?=
+ =?us-ascii?Q?1buaJZj+pjrMfqbeI7xE3X75AfMX470SKULh1dBbkrMW2wgbiuQiUZLlUezh?=
+ =?us-ascii?Q?MTp6bFJxY6FhEIifL0e04lXl2RUYgwIXBreCp+yJoDZ+GtHECQwT0EZYwnQb?=
+ =?us-ascii?Q?TrQgd36Su/xIpCyUQZBK0MxF6wYkGtPOxwA51RMyk3uhUBgkIYRyoWMe8s7f?=
+ =?us-ascii?Q?j3Na3tdu1CCCpow16M3uRhc6uLshNnAzF97+i/UxyL4vh6FeVzph9Sm6xHcV?=
+ =?us-ascii?Q?Yefv9qDYY03nDDC6Jwa0TqHqTO8ATYSe5iYSIfIE8pw5f95GdmqsXtYgMpe9?=
+ =?us-ascii?Q?AAoLoBWsDlSYJKZ610Gm8KHoSrnUgvKSY3WiZTHZn8/SjNmC7f6snWRdW70Q?=
+ =?us-ascii?Q?bXKCS7ohzmsmK6z6C9ZROPEUrpBytU1iSoN+Vg99+E4QEwyyaQHh/hNwCdDl?=
+ =?us-ascii?Q?kFdYEnGIyyqgarJ2eWbnAV4zyzCjzO0J4SsWZD9zoFC0XWvT174WPVt/Afv8?=
+ =?us-ascii?Q?otRK0sLr3kBpoVADN1rafuzOc8O5R3mroui3aLwaPfK4kFH6yHOacmdfExiE?=
+ =?us-ascii?Q?HpizTLhPWLd69/0t85J+WMYLVtRrUw5xfBfiqL9u2nxtGV3VSbOssDH5eWiA?=
+ =?us-ascii?Q?bQEWkCCKpr/JxYAg6OzzsJlWifZfkfMbha7O//lD4lOd1kMVCw53Lx4YQpjt?=
+ =?us-ascii?Q?pp20AFYlFAtR2OOKC6BmL8xQ+wWcnPYaJ8AZgPdPn4gzHmlYqSRFZ52Cl6b2?=
+ =?us-ascii?Q?5Aps0oMYyiYJwmHFU+sEJSaH2Fe+e/rQJqnOH+PgKhc8Xh4LKjl2egHEcYbF?=
+ =?us-ascii?Q?X++/87eOL4bj3N6rJB2cTGqK539YE18yLmy3yZLqysK38mzDV+rJHyc20n2e?=
+ =?us-ascii?Q?btdqiZUT6p8DyJPn7g9mjwpa/BWCF0FdNTbqLtRwZfbWcN1gI/4ZzNx0xIc/?=
+ =?us-ascii?Q?zX0+ZVn4E6HiA6PqmYLE29VtpTq9RUQUKSEpKzwp?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a30d8ab0-fc5c-4393-4dc7-08ddaa61da6e
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 10:05:41.2575
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0wXLFGpoBTw+jXfSxCpt0dwyqMo/Zdc4XY6OwIE+gLgPWzMxi0/Wil6ek9bM+j78
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10681
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_025444_830877_F601892C 
-X-CRM114-Status: GOOD (  28.86  )
+X-CRM114-CacheID: sfid-20250613_030551_920317_9F57C58C 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,272 +183,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 05:30, Jacky Chou wrote:
-> Introduce PCIe Root Complex driver for ASPEED SoCs. Support RC
-> initialization, reset, clock, IRQ domain, and MSI domain setup.
-> Implement platform-specific setup and register configuration for
-> ASPEED. And provide PCI config space read/write and INTx/MSI
-> interrupt handling.
-> 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
->  drivers/pci/controller/Kconfig       |   13 +
->  drivers/pci/controller/Makefile      |    1 +
->  drivers/pci/controller/pcie-aspeed.c | 1039 ++++++++++++++++++++++++++
->  3 files changed, 1053 insertions(+)
->  create mode 100644 drivers/pci/controller/pcie-aspeed.c
-> 
-> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-> index 886f6f43a895..f6b5eea3b570 100644
-> --- a/drivers/pci/controller/Kconfig
-> +++ b/drivers/pci/controller/Kconfig
-> @@ -216,6 +216,19 @@ config PCIE_MT7621
->  	help
->  	  This selects a driver for the MediaTek MT7621 PCIe Controller.
->  
-> +config PCIE_ASPEED
-> +	bool "ASPEED PCIe controller"
-> +	depends on PCI
+The design of i.MX91 platform is very similar to i.MX93.
+Extracts the common parts in order to reuse code.
 
-depends ARCH_ASPEED || COMPILE_TEST
+The mainly difference between i.MX91 and i.MX93 is as follows:
+- i.MX91 removed some clocks and modified the names of some clocks.
+- i.MX91 only has one A core.
+- i.MX91 has different pinmux.
+- i.MX91 has updated to new temperature sensor same with i.MX95.
 
-> +	depends on OF || COMPILE_TEST
-> +	select PCI_MSI_ARCH_FALLBACKS
-> +	help
-> +	  Enable this option to add support for the PCIe controller
-> +	  found on ASPEED SoCs.
-> +	  This driver provides initialization and management for PCIe
-> +	  Root Complex functionality, including interrupt and MSI support.
-> +	  Select Y if your platform uses an ASPEED SoC and requires PCIe
-> +	  connectivity.
-> +
->  config PCI_HYPERV_INTERFACE
->  	tristate "Microsoft Hyper-V PCI Interface"
->  	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
-> diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
-> index 038ccbd9e3ba..1339f88e153d 100644
-> --- a/drivers/pci/controller/Makefile
-> +++ b/drivers/pci/controller/Makefile
-> @@ -39,6 +39,7 @@ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
->  obj-$(CONFIG_PCIE_HISI_ERR) += pcie-hisi-error.o
->  obj-$(CONFIG_PCIE_APPLE) += pcie-apple.o
->  obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
-> +obj-$(CONFIG_PCIE_ASPEED) += pcie-aspeed.o
->  
->  # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
->  obj-y				+= dwc/
-> diff --git a/drivers/pci/controller/pcie-aspeed.c b/drivers/pci/controller/pcie-aspeed.c
-> new file mode 100644
-> index 000000000000..c745684a7f9b
-> --- /dev/null
-> +++ b/drivers/pci/controller/pcie-aspeed.c
-> @@ -0,0 +1,1039 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright 2025 Aspeed Technology Inc.
-> + */
-> +#include <linux/irqchip/chained_irq.h>
-> +#include <linux/irqdomain.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/kernel.h>
-> +#include <linux/msi.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/of_platform.h>
+---
+Changes for v5:
+- rename imx93.dtsi to imx91_93_common.dtsi.
+- move imx93 specific part from imx91_93_common.dtsi to imx93.dtsi.
+- modify the imx91.dtsi to use imx91_93_common.dtsi.
+- add new the imx93-blk-ctrl binding and driver patch for imx91 support.
+- add new net patch for imx91 support.
+- change node name codec and lsm6dsm into common name audio-codec and
+  inertial-meter, and add BT compatible string for imx91 board dts.
 
-Where do you use it?
+Changes for v4:
+- Add one imx93 patch that add labels in imx93.dtsi
+- modify the references in imx91.dtsi
+- modify the code alignment
+- remove unused newline
+- delete the status property
+- align pad hex values
 
-> +#include <linux/of_address.h>
+Changes for v3:
+- Add Conor's ack on patch #1
+- format imx91-11x11-evk.dts with the dt-format tool
+- add lpi2c1 node
 
-Where do you use it?
+Changes for v2:
+- change ddr node pmu comaptible
+- remove mu1 and mu2
+- change iomux node compatible and enable 91 pinctrl
+- refine commit message for patch #2
+- change hex to lowercase in pinfunc.h
+- ordering nodes with the dt-format tool
 
+Joy Zou (8):
+  dt-bindings: soc: imx-blk-ctrl: add i.MX91 blk-ctrl compatible
+  arm64: dts: freescale: rename imx93.dtsi to imx91_93_common.dtsi
+  arm64: dts: imx93: move i.MX93 specific part from imx91_93_common.dtsi
+    to imx93.dtsi
+  arm64: dts: imx91: add i.MX91 dtsi support
+  arm64: dts: freescale: add i.MX91 11x11 EVK basic support
+  arm64: defconfig: enable i.MX91 pinctrl
+  pmdomain: imx93-blk-ctrl: mask DSI and PXP PD domain register on
+    i.MX91
+  net: stmmac: imx: add i.MX91 support
 
-> +#include <linux/of_irq.h>
+Pengfei Li (1):
+  dt-bindings: arm: fsl: add i.MX91 11x11 evk board
 
-Where do you use it?
+ .../devicetree/bindings/arm/fsl.yaml          |    6 +
+ .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     |   55 +-
+ arch/arm64/boot/dts/freescale/Makefile        |    1 +
+ .../boot/dts/freescale/imx91-11x11-evk.dts    |  878 ++++++++++
+ arch/arm64/boot/dts/freescale/imx91-pinfunc.h |  770 +++++++++
+ arch/arm64/boot/dts/freescale/imx91.dtsi      |  124 ++
+ .../boot/dts/freescale/imx91_93_common.dtsi   | 1215 ++++++++++++++
+ arch/arm64/boot/dts/freescale/imx93.dtsi      | 1412 ++---------------
+ arch/arm64/configs/defconfig                  |    1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-imx.c   |    2 +
+ drivers/pmdomain/imx/imx93-blk-ctrl.c         |   15 +
+ 11 files changed, 3166 insertions(+), 1313 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
 
+-- 
+2.37.1
 
-> +#include <linux/of_pci.h>
-
-Where do you use it?
-
-> +#include <linux/pci.h>
-> +#include <linux/regmap.h>
-> +#include <linux/reset.h>
-> +#include <linux/irq.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/workqueue.h>
-> +#include <linux/gpio/consumer.h>
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +
-
-
-
-...
-
-> +
-> +static int aspeed_pcie_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct pci_host_bridge *host;
-> +	struct aspeed_pcie *pcie;
-> +	struct device_node *node = dev->of_node;
-> +	const void *md = of_device_get_match_data(dev);
-
-Not void, but specific type. This is not Javascript, we have here types.
-
-> +	int irq, ret;
-> +
-> +	if (!md)
-> +		return -ENODEV;
-> +
-> +	host = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-> +	if (!host)
-> +		return -ENOMEM;
-> +
-> +	pcie = pci_host_bridge_priv(host);
-> +	pcie->dev = dev;
-> +	pcie->tx_tag = 0;
-> +	platform_set_drvdata(pdev, pcie);
-> +
-> +	pcie->platform = md;
-> +	pcie->host = host;
-> +
-> +	pcie->reg = devm_platform_ioremap_resource(pdev, 0);
-> +
-> +	of_property_read_u32(node, "msi_address", &pcie->msi_address);
-> +	of_property_read_u32(node, "linux,pci-domain", &pcie->domain);
-> +
-> +	pcie->cfg = syscon_regmap_lookup_by_phandle(dev->of_node, "aspeed,pciecfg");
-> +	if (IS_ERR(pcie->cfg))
-> +		return dev_err_probe(dev, PTR_ERR(pcie->cfg), "Failed to map pciecfg base\n");
-> +
-> +	pcie->pciephy = syscon_regmap_lookup_by_phandle(node, "aspeed,pciephy");
-> +	if (IS_ERR(pcie->pciephy))
-> +		return dev_err_probe(dev, PTR_ERR(pcie->pciephy), "Failed to map pciephy base\n");
-> +
-> +	pcie->h2xrst = devm_reset_control_get_exclusive(dev, "h2x");
-> +	if (IS_ERR(pcie->h2xrst))
-> +		return dev_err_probe(dev, PTR_ERR(pcie->h2xrst), "Failed to get h2x reset\n");
-> +
-> +	pcie->perst = devm_reset_control_get_exclusive(dev, "perst");
-> +	if (IS_ERR(pcie->perst))
-> +		return dev_err_probe(dev, PTR_ERR(pcie->perst), "Failed to get perst reset\n");
-> +
-> +	ret = pcie->platform->setup(pdev);
-> +	if (ret)
-> +		goto err_setup;
-> +
-> +	host->sysdata = pcie;
-> +
-> +	ret = aspeed_pcie_init_irq_domain(pcie);
-> +	if (ret)
-> +		goto err_irq_init;
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		goto err_irq;
-> +
-> +	ret = devm_request_irq(dev, irq, aspeed_pcie_intr_handler, IRQF_SHARED, dev_name(dev),
-> +			       pcie);
-> +	if (ret)
-> +		goto err_irq;
-> +
-> +	pcie->clock = clk_get(dev, NULL);
-
-Huh...
-
-> +	if (IS_ERR(pcie->clock))
-> +		goto err_clk;
-> +	ret = clk_prepare_enable(pcie->clock);
-
-devm_clk_get_enabled.
-
-> +	if (ret)
-> +		goto err_clk_enable;
-> +
-> +	ret = pci_host_probe(host);
-> +	if (ret)
-> +		goto err_clk_enable;
-> +
-> +	return 0;
-> +
-> +err_clk_enable:
-> +	clk_put(pcie->clock);
-> +err_clk:
-> +err_irq:
-> +	aspeed_pcie_irq_domain_free(pcie);
-> +err_irq_init:
-> +err_setup:
-> +	return dev_err_probe(dev, ret, "Failed to setup PCIe RC\n");
-> +}
-> +
-> +static void aspeed_pcie_remove(struct platform_device *pdev)
-> +{
-> +	struct aspeed_pcie *pcie = platform_get_drvdata(pdev);
-> +
-> +	if (pcie->clock) {
-> +		clk_disable_unprepare(pcie->clock);
-> +		clk_put(pcie->clock);
-> +	}
-> +
-> +	pci_stop_root_bus(pcie->host->bus);
-> +	pci_remove_root_bus(pcie->host->bus);
-> +	aspeed_pcie_irq_domain_free(pcie);
-> +}
-> +
-> +static struct aspeed_pcie_rc_platform pcie_rc_ast2600 = {
-
-This should be const. Why it cannot?
-
-> +	.setup = aspeed_ast2600_setup,
-> +	.reg_intx_en = 0x04,
-> +	.reg_intx_sts = 0x08,
-> +	.reg_msi_en = 0x20,
-> +	.reg_msi_sts = 0x28,
-> +};
-> +
-> +static struct aspeed_pcie_rc_platform pcie_rc_ast2700 = {
-
-This should be const. Why it cannot?
-
-> +	.setup = aspeed_ast2700_setup,
-> +	.reg_intx_en = 0x40,
-> +	.reg_intx_sts = 0x48,
-> +	.reg_msi_en = 0x50,
-> +	.reg_msi_sts = 0x58,
-> +};
-> +
-> +static const struct of_device_id aspeed_pcie_of_match[] = {
-> +	{ .compatible = "aspeed,ast2600-pcie", .data = &pcie_rc_ast2600 },
-> +	{ .compatible = "aspeed,ast2700-pcie", .data = &pcie_rc_ast2700 },
-> +	{}
-> +};
-> +
-> +static struct platform_driver aspeed_pcie_driver = {
-> +	.driver = {
-> +		.name = "aspeed-pcie",
-> +		.suppress_bind_attrs = true,
-
-Why?
-
-> +		.of_match_table = aspeed_pcie_of_match,
-> +	},
-> +	.probe = aspeed_pcie_probe,
-> +	.remove = aspeed_pcie_remove,
-
-So how exactly remove can be triggered?
-
-> +};
-> +
-> +module_platform_driver(aspeed_pcie_driver);
-> +
-> +MODULE_AUTHOR("Jacky Chou <jacky_chou@aspeedtech.com>");
-> +MODULE_DESCRIPTION("ASPEED PCIe Root Complex");
-> +MODULE_LICENSE("GPL");
-
-
-Best regards,
-Krzysztof
 
