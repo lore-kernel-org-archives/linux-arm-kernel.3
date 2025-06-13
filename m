@@ -4,87 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4F2C71151
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6198C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=twkhsV1zF0hL+QCGl5QNOY+ykroDooxraR5ZCGY5fWM=; b=rKns0ErlN7bTw3
-	sj6HotWtfhfr3NJ/WCgWEXGDFj9yrrn4tUHqpyxXchN4ZzXTCLCJrgGyRnuab+M8Yc6CMuvCO9RNO
-	ACyLuQmjXbjgDcztu+ZRVzpf1QHMQKpkt//lfbcDhwM4buUFR27r1UdQphrfW0pUqIDqTjxt6eddf
-	0G7EEeLNC5pA1uTiaFu2vxnz3xI5aZV7oJLtLb3gXHwbxhAL8vyq8MzDGhUAeH8WCYQfiCHsHwB1A
-	WK6HPMUMhRvLhox0WNuXftlDuHFTX3XeBXGwFWYQTYHCKOUpNgUyCUgKsvxMtYfiHKCDVIbCtBhQ7
-	HtflW8ptZNrbjMfz5EXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jfDDrHGnrxzE3qTx+O8rcB4tZDTR681mZX3VQtddhy8=; b=G2Ri4miJhRqVRcUvf65q6Nucu5
+	yS2UEJx9USqHal/fuqkzeEVaTlyBJxsNd75GG73bXz7RHQe8PONa6UAiACrh3fSdUa3M3K0IZXCm1
+	Cn1qzokjdrEIFNjSvrL0kdeFeiT0431Ni6AmeHEiKmR2VWjwWLDuetTOiSBmj4ykBCdXJ3nV6U3Se
+	bRoeC1EBMpL32IKWF8fp5gvF/Nol8a9ENSC6wUr4OtFKJZJZ6CF49QfhrznCLxx462mxOM0KXrH60
+	iYDP7w1/GjTVRD7kmEgxghR3JAwp+XgwEguNzLt8bFE8irv0pQBrwxAUThL7kdLiUA4g6fVJTQVaw
+	yTxBN1KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ41O-0000000GRJG-0hDD;
-	Fri, 13 Jun 2025 13:00:38 +0000
-Received: from server.couthit.com ([162.240.164.96])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ3vl-0000000GQno-3J9P
+	id 1uQ477-0000000GSE0-2Ef4;
+	Fri, 13 Jun 2025 13:06:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ44q-0000000GRuE-0yLc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 12:54:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=twkhsV1zF0hL+QCGl5QNOY+ykroDooxraR5ZCGY5fWM=; b=es8djR6vmm6TqtJIf58kZsllKp
-	TzJmAZ2/GXq/4luB7VASVqpOdTNjmUPkZPjYIo/46HunuURSwxzibLkvBHzA2N04pV4VoNgxw7tEz
-	OI4eiivibzdE0CYnkl7EDz57A2S9ANJUUPUf0+fAvvlfdIdqNVR5c9jVzwpzZqAQW+By7viRsMlaN
-	JlH4U6dDN0c9ppdK0lZWJjHlkUu4GhkKE/3U3K0J7xDUtvjetOUG03C0QYigVF+yznKZPGVpNcUh7
-	Ov4XQ+082tULqHZDQBDRXrGp/uiXZwj2YV0xBKWhlKyWNNhXjKmOY8WyNiQTocNk1DBm1k6RTAAIv
-	sJCo7lHw==;
-Received: from [122.175.9.182] (port=23246 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uQ3uu-0000000DXDE-3J6J;
-	Fri, 13 Jun 2025 08:53:57 -0400
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 079A91781C8F;
-	Fri, 13 Jun 2025 18:23:43 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id DB65117882B2;
-	Fri, 13 Jun 2025 18:23:42 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id tfKVzeSMqLXe; Fri, 13 Jun 2025 18:23:42 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 8286E1781C8F;
-	Fri, 13 Jun 2025 18:23:42 +0530 (IST)
-Date: Fri, 13 Jun 2025 18:23:42 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Message-ID: <909024001.1496409.1749819222224.JavaMail.zimbra@couthit.local>
-In-Reply-To: <cdcd54ff-ff67-4ad8-8aa7-baa711928242@linux.dev>
-References: <20250610105721.3063503-1-parvathi@couthit.com> <20250610123245.3063659-7-parvathi@couthit.com> <cdcd54ff-ff67-4ad8-8aa7-baa711928242@linux.dev>
-Subject: Re: [PATCH net-next v8 06/11] net: ti: prueth: Adds HW timestamping
- support for PTP using PRU-ICSS IEP module
+	Fri, 13 Jun 2025 13:04:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C17E1C0A;
+	Fri, 13 Jun 2025 06:03:49 -0700 (PDT)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 12FA53F59E;
+	Fri, 13 Jun 2025 06:04:07 -0700 (PDT)
+From: James Morse <james.morse@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	sudeep.holla@arm.com,
+	Rob Herring <robh@kernel.org>,
+	Ben Horgan <ben.horgan@arm.com>,
+	James Morse <james.morse@arm.com>
+Subject: [PATCH 0/5] cacheinfo: Set cache 'id' based on DT data
+Date: Fri, 13 Jun 2025 13:03:51 +0000
+Message-Id: <20250613130356.8080-1-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds HW timestamping support for PTP using PRU-ICSS IEP module
-Thread-Index: 8LzCZ2vNfRRRUg8kt8zc1YlyHE5Drg==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_055449_909692_57C46406 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20250613_060412_316480_4B9BA1A7 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,96 +62,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag@marvell.com, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This series adds support for cache-ids to device-tree systems.
+These values are exposed to user-space via
+/sys/devices/system/cpu/cpuX/cache/indexY/id
+and are used to identify caches and their associated CPUs by kernel interfaces
+such as resctrl.
 
-> On 10/06/2025 13:32, Parvathi Pudi wrote:
->> From: Roger Quadros <rogerq@ti.com>
->> 
->> PRU-ICSS IEP module, which is capable of timestamping RX and
->> TX packets at HW level, is used for time synchronization by PTP4L.
->> 
->> This change includes interaction between firmware and user space
->> application (ptp4l) with required packet timestamps. The driver
->> initializes the PRU firmware with appropriate mode and configuration
->> flags. Firmware updates local registers with the flags set by driver
->> and uses for further operation. RX SOF timestamp comes along with
->> packet and firmware will rise interrupt with TX SOF timestamp after
->> pushing the packet on to the wire.
->> 
->> IEP driver is available in upstream and we are reusing for hardware
->> configuration for ICSSM as well. On top of that we have extended it
->> with the changes for AM57xx SoC.
->> 
->> Extended ethtool for reading HW timestamping capability of the PRU
->> interfaces.
->> 
->> Currently ordinary clock (OC) configuration has been validated with
->> Linux ptp4l.
->> 
->> Signed-off-by: Roger Quadros <rogerq@ti.com>
->> Signed-off-by: Andrew F. Davis <afd@ti.com>
->> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
->> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
->> ---
->>   drivers/net/ethernet/ti/icssg/icss_iep.c      |  42 ++
->>   drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  23 +
->>   drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 443 +++++++++++++++++-
->>   drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  11 +
->>   .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |  85 ++++
->>   5 files changed, 602 insertions(+), 2 deletions(-)
->>   create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
-> 
-> [...]
-> 
->> @@ -732,9 +949,22 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16
->> *bd_rd_ptr,
->>   		src_addr += actual_pkt_len;
->>   	}
->>   
->> +	if (pkt_info->timestamp) {
->> +		src_addr = (void *)PTR_ALIGN((uintptr_t)src_addr,
->> +					   ICSS_BLOCK_SIZE);
->> +		dst_addr = &ts;
->> +		memcpy(dst_addr, src_addr, sizeof(ts));
->> +	}
->> +
->>   	if (!pkt_info->sv_frame) {
->>   		skb_put(skb, actual_pkt_len);
->>   
->> +		if (icssm_prueth_ptp_rx_ts_is_enabled(emac) &&
->> +		    pkt_info->timestamp) {
->> +			ssh = skb_hwtstamps(skb);
->> +			memset(ssh, 0, sizeof(*ssh));
->> +			ssh->hwtstamp = ns_to_ktime(ts);
->> +		}
->>   		/* send packet up the stack */
->>   		skb->protocol = eth_type_trans(skb, ndev);
->>   		netif_receive_skb(skb);
-> 
-> Could you please explain why do you need to copy timestamp to a
-> temporary variable if you won't use it in some cases? I believe these
-> 2 blocks should be placed under the last if condition and simplified a
-> bit, like
-> 
-> +		if (icssm_prueth_ptp_rx_ts_is_enabled(emac) &&
-> +		    pkt_info->timestamp) {
-> +			src_addr = (void*)PTR_ALIGN((uintptr_t)src_addr,
-> +					   ICSS_BLOCK_SIZE);
-> +			memcpy(&ts, src_addr, sizeof(ts));
-> +			ssh = skb_hwtstamps(skb);
-> +			ssh->hwtstamp = ns_to_ktime(ts);
-> +		}
-> 
-> This will avoid useless copy when the packet will be dropped anyway, WDYT?
+Resctrl anticipates cache-ids are unique for a given cache level, but may
+be sparse. See Documentation/filesystems/resctrl.rst's "Cache IDs" section.
 
-Yes, we can merge both the if conditions to make it simple.
+Another user is PCIe's cache-steering hints, where an id provided by the
+hardware would be needed. Today this expects a platform specific ACPI hook
+the program that value into the PCIe root port registers. If DT platforms
+are ever supported, it will likely need a kernel driver to convert the
+user-space cache-id to whatever hardware value is needed.
 
-We will address this in the next version.
+Rob H previously preferred to generate a cache-id from the information DT
+already has. (Rob: does the PCIe cache-steering use-case change this?)
 
-Thanks and Regards,
-Parvathi.
+This series generates a 32bit cache-id from the lowest CPU hardware id
+of the CPU's associated with that cache. On arm64, CPU hardware ids may
+be greater than 32bits, but can be swizzled into 32bits. An architecture
+hook is provided to allow the architecture to swizzle the values into 32bits.
+
+Finally, the MPAM driver needs to know the size of a cache, which is stored
+in cacheinfo. Add a helper to retrieve that information.
+
+This series is based on v6.16-rc1, and can be retreived from:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/cacheinfo/v1
+
+The MPAM driver that makes use of these can be found here:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.16-rc1
+
+What is MPAM? Set your time-machine to 2020:
+https://lore.kernel.org/lkml/20201030161120.227225-1-james.morse@arm.com/
+
+
+Bugs welcome,
+Thanks,
+
+James Morse (4):
+  cacheinfo: Add arch hook to compress CPU h/w id into 32 bits for
+    cache-id
+  arm64: cacheinfo: Provide helper to compress MPIDR value into u32
+  cacheinfo: Expose the code to generate a cache-id from a device_node
+  cacheinfo: Add helper to find the cache size from cpu+level
+
+Rob Herring (1):
+  cacheinfo: Set cache 'id' based on DT data
+
+ arch/arm64/include/asm/cache.h | 14 +++++++++++
+ arch/arm64/kernel/sleep.S      |  1 +
+ drivers/base/cacheinfo.c       | 45 ++++++++++++++++++++++++++++++++++
+ include/linux/cacheinfo.h      | 21 ++++++++++++++++
+ 4 files changed, 81 insertions(+)
+
+-- 
+2.39.5
+
 
