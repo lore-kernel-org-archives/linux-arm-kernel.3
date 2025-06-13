@@ -4,70 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FBCBC71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBA0C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MuBzFJ8bax/C07ekYms0nJGiLaxwPvHrXMpn69ItGCE=; b=QkQKW8AJzQKVJIlhVgwasTzZP4
-	iM7+R9jbCyNROZA9zMqO1Nz9kmZCYHyDDkVF3eTJhKocfAsXWvORK9vUwSeeq/FtSBniD0BbV/zNl
-	EZvi6Ku5dWL7cfIOl3Jz29Y1sWOPNuJkBZ8X4ctRMaZb3p6bd7AhzuTwTMYkAeBzGTVeT6dU622hk
-	gxvRGVc+fuO8IMX74aorRR3jni/QItLyv6qKv8ieah5tL9PBMo9zbwkssdDhwXInG1LppAg8KAnv9
-	f9mpL5ZOzEuQV1Px/tfkT0f0p+OFOXe0Mh2y5A6uD2VQixvkGzduwNTJE/eN8VqlHO07Ut7WoVuUH
-	WS6ULUMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9bCHCGcohcJ2Z8gKyh3s4OeACkb8tG/8ddHOZfIjF3E=; b=GHA1+lwVH5T374iMUkv//fqsYN
+	G4II8Qjz34WqZ+uCuSm7YfTK24wxVMdZ7MdCOWmSShqHjsElQqfgzC28lUFRyNV1OspLepS506tZi
+	pldJqzMUjniqqspztkR+XSFOuxgCSkGr5PCyj/dL7NyRo9MnAVow1EMMZhr9EdK9+DsIGJaCaiVng
+	mhwcUkh1oT702hAytn3o0FwSe3nC/XAzvThOXLKZurrxoQWapbOa1lxS3efD1k3CXnMtEeHYSP3OY
+	YtgoIpFNQcXDcseAs8PMLMMRsgltAffWh2G2SCKKf6MCoPMtDIHxCAyQN/rBKvrY9iWjakIpPqkRC
+	+2NSgoCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBhq-000000006Sp-1QF2;
-	Fri, 13 Jun 2025 21:12:58 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uQBlU-000000006lm-0t5K;
+	Fri, 13 Jun 2025 21:16:44 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBf8-000000005kw-1xbt
+	id 1uQBjJ-000000006ap-143K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 21:10:12 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1749849007;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MuBzFJ8bax/C07ekYms0nJGiLaxwPvHrXMpn69ItGCE=;
-	b=W/+KmpmNybGnuRoYv0AkuKtnsKYy49mDsnZqnAuVFR1iteOuBy0nacsuwGwXn52voU6/A3
-	rlpGxKzE17HSzJPSKGvwNQJEKPQ2IFAH0QXreT8YqKLVvYCy/n1ZCmO4AAVX15Jd+MYBUZ
-	f078Jahg2V4fzWuEaulUv7ngS3jkX9Tek/CfN3Gn+gU1TOIbsKZQYlPliMSLFsqyqornBW
-	lsIadsSDSfNHZTi+A/6p2ZwnwTvAdvZSMEF/OVyDAxeAFC4jk3gJJG1QVukp+FAy2z+3wo
-	2gYCjOHwj5rC7TfnnNYbSEVUNJgT0ejodJqurt21ADxWP4ylesQwYB2SVPEGEg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1749849007;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MuBzFJ8bax/C07ekYms0nJGiLaxwPvHrXMpn69ItGCE=;
-	b=B+7CxHUzslKZqG2mQ5S8cP+m4qTSW7M8mzh4mOWSOA/tKqAiCbq9U6NTQHVBHdo+sCpJ1L
-	VBPCCiAD4jsOM0DA==
-To: Eugen Hristev <eugen.hristev@linaro.org>, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-Cc: linux-doc@vger.kernel.org, corbet@lwn.net, mingo@redhat.com,
- rostedt@goodmis.org, john.ogness@linutronix.de, senozhatsky@chromium.org,
- pmladek@suse.com, peterz@infradead.org, mojha@qti.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, vincent.guittot@linaro.org,
- konradybcio@kernel.org, dietmar.eggemann@arm.com, juri.lelli@redhat.com,
- andersson@kernel.org
-Subject: Re: [RFC][PATCH 09/14] genirq: add irq_kmemdump_register
-In-Reply-To: <f916cf7f-6d0d-4d31-8e4b-24fc7da13f4d@linaro.org>
-References: <20250422113156.575971-1-eugen.hristev@linaro.org>
- <20250422113156.575971-10-eugen.hristev@linaro.org> <87h61wn2qq.ffs@tglx>
- <1331aa82-fee9-4788-abd9-ef741d00909e@linaro.org>
- <f916cf7f-6d0d-4d31-8e4b-24fc7da13f4d@linaro.org>
-Date: Fri, 13 Jun 2025 23:10:06 +0200
-Message-ID: <87ikkzpcup.ffs@tglx>
+	Fri, 13 Jun 2025 21:14:30 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-4c4fa0bfca2so757455137.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 14:14:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1749849267; x=1750454067; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9bCHCGcohcJ2Z8gKyh3s4OeACkb8tG/8ddHOZfIjF3E=;
+        b=Dy6E3xULaVECXSf2w1pdctXYP6EyPfnZ7of3JKLdpcahFgynwL57Qd1AUeljsA+BOL
+         G0t5d4giuI/biMnQRf//Oom8GVY3809fDWF9Y7IpROcWK2yJbNT8pJ4feqLXxZ5Tdvbl
+         8KFrUdBOpG0podfEt4+Rz2B/2YZwHpQYyVXNX/OmjNhqbtmw5y7SMyGyILLZcIXt9u4J
+         Q4CFNOFZoKwGZi6yM6klWIfN39A3CHON2Bu015nAfIMmHLP5A+PL6DDIsCJCZ9kh9sRt
+         JnLM43pYTGstvCXLuznuCo4oV2BL2N9I8uh87gU48SCNY863JKN+FyHXRj5s+/0kdWTL
+         Oe+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749849267; x=1750454067;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9bCHCGcohcJ2Z8gKyh3s4OeACkb8tG/8ddHOZfIjF3E=;
+        b=XeYAPWjupVQdy/mujk3kaPUYhJSkvr0qS7v+avMFT6PpQGL7OFFC+BHYku1lz9A0DO
+         FQHXoNj/5yMwP4efgkMQ3dd5n2SgKyypd5jl/SnH6AxOyw7uDn621Mi7WYJLqy9+N7C0
+         ieeGyA/+9c5PbDPZA+dth/a3XLYml+m/VSt78pCBup3277XAtvfkS6XZRdX/RdCk7U3L
+         sDN3x3f9yzVBC0vfjn70/GI4AP72SRBgh7bLM9ygd6+0wcAF27xTwlXKnamWAXuJqW55
+         h6YZ/b9H7FrvDsZ7UAQh1zakn/nhCeTA4dsAD5CBVI51/jGQspQz9WBJu1d6RnRtPXf+
+         P+CQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXGDxoUgpX6iq2VkOxzqweeHDFB2j5T2oYl09XMZILqW5UnLaIV3HjWfN8n+B5QB8slPaESgWzi0HXUsZc52Qzq@lists.infradead.org
+X-Gm-Message-State: AOJu0YydZ0kKivf9TGxDsVKBzETykz2BwpPNjvFW3poL5M4R4Q+gYjj5
+	NyGD10pR6cKWmbKm9oo6bQ4LxCL0+krUH6yfaANOcWsHmurjSjGBrJiE8FjjMmO3WLJnAwChddm
+	ttc7SErWIm9fWUjdxk9JN1zLLcv1SazMwz0lr7lai
+X-Gm-Gg: ASbGncspjF6jnaA6YMK0JBVVsy4vvcFuB7sJXRmHQXq6Fvt/JaRNGauEGT7o+4eraAt
+	Of1qvJWIvZmFSn+efrPFCL2bf6Je7ZLkEMU7mW7LNKKhlXWzuMjRGeNsMT5e/P9ZLzUcvSSO9pz
+	fluoynrmB1ld+uVbuNyxBQV7k4HGO4F0U7E4BpNooaVw==
+X-Google-Smtp-Source: AGHT+IFDKOFSYaUuF6G7K6OfIsfpObQ96cqfG2SkXcaTm8DQdC0kgY8LOqBWYZw9a+dWxydmoDEXMMYsxWer9ReGFRQ=
+X-Received: by 2002:a05:6102:26c2:b0:4c5:1c2e:79f5 with SMTP id
+ ada2fe7eead31-4e7f61c6ecfmr1328879137.16.1749849267109; Fri, 13 Jun 2025
+ 14:14:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20250613134817.681832-1-herve.codina@bootlin.com> <20250613134817.681832-7-herve.codina@bootlin.com>
+In-Reply-To: <20250613134817.681832-7-herve.codina@bootlin.com>
+From: Saravana Kannan <saravanak@google.com>
+Date: Fri, 13 Jun 2025 14:13:49 -0700
+X-Gm-Features: AX0GCFvxcUcb0pxRJ6zcIBbIU8xYBQJLfYNKarcjHKuyfWeI8fRbEayRS0Ht4OY
+Message-ID: <CAGETcx9u-7TJ6_J5HdmDT=7A6Z08P-rUC0n+qnBoBi+ejRc2SQ@mail.gmail.com>
+Subject: Re: [PATCH v3 06/28] driver core: fw_devlink: Introduce fw_devlink_set_device()
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, 
+	Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Davidlohr Bueso <dave@stgolabs.net>, 
+	Dave Jiang <dave.jiang@intel.com>, Alison Schofield <alison.schofield@intel.com>, 
+	Vishal Verma <vishal.l.verma@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
+	Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-cxl@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>, 
+	Horatiu Vultur <horatiu.vultur@microchip.com>, 
+	Steen Hegelund <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_141010_814051_C09ED721 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20250613_141429_292954_A91F7744 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,127 +116,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13 2025 at 17:33, Eugen Hristev wrote:
-> On 5/7/25 13:27, Eugen Hristev wrote:
->>> Let KMEMDUMP_VAR() store the size and the address of 'nr_irqs' in a
->>> kmemdump specific section and then kmemdump can just walk that section
->>> and dump stuff. No magic register functions and no extra storage
->>> management for static/global variables.
->>>
->>> No?
->> 
->> Thank you very much for your review ! I will try it out.
+On Fri, Jun 13, 2025 at 6:49=E2=80=AFAM Herve Codina <herve.codina@bootlin.=
+com> wrote:
 >
-> I have tried this way and it's much cleaner ! thanks for the
-> suggestion.
+> Setting fwnode->dev is specific to fw_devlink.
+>
+> In order to avoid having a direct 'fwnode->dev =3D dev;' in several
+> place in the kernel, introduce fw_devlink_set_device() helper to perform
+> this operation.
+>
 
-Welcome.
+This should not be set anywhere outside the driver core files. I'll
+get to reviewing the series, but until then, NACK to this.
 
-> The thing that I am trying to figure out now is how to do something
-> similar for a dynamically allocated memory, e.g.
-> void *p = kmalloc(...);
-> and then I can annotate `p` itself, it's address and size, but what I
-> would also want to so dump the whole memory region pointed out by p. and
-> that area address and size cannot be figured out at compile time hence I
-> can't instantiate a struct inside the dedicated section for it.
-> Any suggestion on how to make that better ? Or just keep the function
-> call to register the area into kmemdump ?
+Is there a specific patch that explain why we need to set this outside
+driver core?
 
-Right. For dynamically allocated memory there is obviously no compile
-time magic possible.
+-Saravana
 
-But I think you can simplify the registration for dynamically allocated
-memory significantly.
-
-struct kmemdump_entry {
-	void			*ptr;
-        size_t			size;
-        enum kmemdump_uids	uid;
-};
-
-You use that layout for the compile time table and the runtime
-registrations.
-
-I intentionally used an UID as that avoids string allocation and all of
-the related nonsense. Mapping UID to a string is a post processing
-problem and really does not need to be done in the kernel. The 8
-character strings are horribly limited and a simple 4 byte unique id is
-achieving the same and saving space.
-
-Just stick the IDs into include/linux/kmemdump_ids.h and expose the
-content for the post processing machinery.
-
-So you want KMEMDUMP_VAR() for the compile time created table to either
-automatically create that ID derived from the variable name or you add
-an extra argument with the ID.
-
-kmemdump_init()
-        // Use a simple fixed size array to manage this
-        // as it avoids all the memory allocation nonsense
-        // This stuff is neither performance critical nor does allocating
-        // a few hundred entries create a memory consumption problem
-        // It consumes probably way less memory than the whole IDR/XARRAY allocation
-        // string duplication logic consumes text and data space.
-	kmemdump_entries = kcalloc(NR_ENTRIES, sizeof(*kmemdump_entries), GFP_KERNEL);
-
-kmemdump_register(void *ptr, size_t size, enum kmemdump_uids uid)
-{
-        guard(entry_mutex);
-
-	entry = kmemdump_find_empty_slot();
-        if (!entry)
-        	return;
-
-        entry->ptr = ptr;
-        entry->size = size;
-        entry->uid = uid;
-
-        // Make this unconditional by providing a dummy backend
-        // implementation. If the backend changes re-register all
-        // entries with the new backend and be done with it.
-        backend->register(entry);
-}
-
-kmemdump_unregister(void *ptr)
-{
-        guard(entry_mutex);
-        entry = find_entry(ptr);
-        if (entry) {
-                backend->unregister(entry);
-        	memset(entry, 0, sizeof(*entry);
-        }
-}
-
-You get the idea.
-
-Coming back to the registration at the call site itself.
-
-       struct foo = kmalloc(....);
-
-       if (!foo)
-       		return;
-
-       kmemdump_register(foo, sizeof(*foo), KMEMDUMP_ID_FOO);
-
-That's a code duplication shitshow. You can wrap that into:
-
-       struct foo *foo = kmemdump_alloc(foo, KMEMDUMP_ID_FOO, kmalloc, ...);
-
-#define kmemdump_alloc(var, id, fn, ...)				\
-	({								\
-        	void *__p = fn(##__VA_ARGS__);				\
-									\
-                if (__p)						\
-                	kmemdump_register(__p, sizeof(*var), id);	\
-		__p;
-        })
-
-or something daft like that. And provide the matching magic for the free
-side.
-
-Thoughts?
-
-Thanks,
-
-        tglx
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> ---
+>  include/linux/fwnode.h | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/include/linux/fwnode.h b/include/linux/fwnode.h
+> index a921ca2fe940..a1345e274125 100644
+> --- a/include/linux/fwnode.h
+> +++ b/include/linux/fwnode.h
+> @@ -231,4 +231,10 @@ void fw_devlink_purge_absent_suppliers(struct fwnode=
+_handle *fwnode);
+>  void fw_devlink_refresh_fwnode(struct fwnode_handle *fwnode);
+>  bool fw_devlink_is_strict(void);
+>
+> +static inline void fw_devlink_set_device(struct fwnode_handle *fwnode,
+> +                                        struct device *dev)
+> +{
+> +       fwnode->dev =3D dev;
+> +}
+> +
+>  #endif
+> --
+> 2.49.0
+>
 
