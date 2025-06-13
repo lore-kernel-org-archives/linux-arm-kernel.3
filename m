@@ -4,76 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C49C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1697C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:25:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EpUxaYtDfM8Poktzce5PH6qo8rQBTaWCptN8Tmk0S6c=; b=sXOYkqKsZ8DuyCvZbRNgNODPSI
-	IW1ChJs7lI/WpzoTPvFjhFyaUrud/ldqHpDE8tHcCkZ2x7nZZwxG7TZ2C1w+D9IDZzBkbw0lQMk/d
-	Gf6Wizb3W8Zd0AHtWldnDcveSAL5pfc8/WeHZxjf4M9Orrlj81iiUTG+6A350Vsa/G1Cg8X3nWbBy
-	B8tC21dv+c9Ykwqbs+DTbhIj8+jmBgOkmlxNRvcN/jIGb9EfxsGjJ66pPeR3qAm3YumhrRiLO0Ciz
-	y2wX77TJSt49mtT47FCWG0NZj8Ie8mB8lo0hpXwhDvTeYkdwd0taJ+gEsnLtUdFbSrT+1JO5/FPo9
-	vQ1Myxhg==;
+	bh=nU0lDOj4fnV4lbhScWiQUVCcAJe+tLfpYFaq2c/Ynhc=; b=eunQI5ZYUUEgdPOZulknJ/qm1O
+	RH/yH0Cl39AwlPAdIF2IYwhENqEhyxxu5DX+DqPOahEuDaCfcaAKkiIlJQi1Jj1/4KQtNCWDCOPSU
+	Zatm2wVdvPKveykW7vuo+IQ1dmqYFpV+u3c3TjRGFhz0VrlqfxM/wZdfuA5OqMRONu0prAzCfCWTm
+	SmJpzBTAT+WlqEALIr35m+/pDN+dMr2p2sF2phIaxY1zMFYIT4czsf12LZl2jtI259O75WtOwrys4
+	qCyuJ/hJkjVDtL0X5ANIF3f/ctYidH6PPeBh60zrMb06BQxmyF//SvzBv9a0fI4s/j/d6AWBi6Xnz
+	t7+XSm+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ7Bb-0000000H2oT-0G66;
-	Fri, 13 Jun 2025 16:23:23 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1uQ7Do-0000000H32j-3hmC;
+	Fri, 13 Jun 2025 16:25:40 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5wG-0000000GoMJ-1GsH;
-	Fri, 13 Jun 2025 15:03:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749827008; x=1781363008;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=lmsC6NuVWnVy+Dsfq0irR7B12PqvUPA3RWEtvjKTL2I=;
-  b=PZn4Tw5sXcWcXzPIq19XwSzX+8cnpBnjjd9lCMWzcIvLykLlLbVPmDjL
-   isheiuBLKMlRils53lfqDZPeLXJDyxMinWf/JDQO437RsPhxVChkeubLy
-   AlRoSy4CUodpK4WQtg4xZ5bAJRN8YuCmXGBASV8EoVUvfkkmWNpYijCCz
-   Kh6vY5lhSEQK4ZzjIjULieBoVHDlSoRTAuAH6b+qlqyy5XU3VE+QU0DqN
-   m2wl26xMHwt6BTFACQ3WD5zkbsQ8bV00KUtWiSltFMBXCRPcnf+9YpbXr
-   erH2CggpaA4L5nyOn6DMn7BJTN894ZPEq1GysFgoJCKvBn8ER64032yx7
-   g==;
-X-CSE-ConnectionGUID: zPMd+BUmRuCsV8twgnSqgQ==
-X-CSE-MsgGUID: xSIhq87qTjC4CtlmqqWKiQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11463"; a="55718055"
-X-IronPort-AV: E=Sophos;i="6.16,234,1744095600"; 
-   d="scan'208";a="55718055"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:03:23 -0700
-X-CSE-ConnectionGUID: wEeUUgUfTD2/YHByLcKAww==
-X-CSE-MsgGUID: Zw0bhwMyS9KD3iB4u6xSBw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,234,1744095600"; 
-   d="scan'208";a="148320085"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.102])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:03:17 -0700
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Fri, 13 Jun 2025 18:03:14 +0300 (EEST)
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
-cc: linux-rockchip@lists.infradead.org, Shawn Lin <shawn.lin@rock-chips.com>, 
-    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-    =?ISO-8859-2?Q?Krzysztof_Wilczy=F1ski?= <kw@linux.com>, 
-    Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-    Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-    linux-phy@lists.infradead.org, linux-pci@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [RFC PATCH v4 2/5] PCI: rockchip: Drop unused custom registers
- and bitfields
-In-Reply-To: <ed25d30f2761e963164efffcfbe35502feb3adc2.1749826250.git.geraldogabriel@gmail.com>
-Message-ID: <97114c68-5eb7-18b0-adbd-227e1d7957c6@linux.intel.com>
-References: <cover.1749826250.git.geraldogabriel@gmail.com> <ed25d30f2761e963164efffcfbe35502feb3adc2.1749826250.git.geraldogabriel@gmail.com>
+	id 1uQ5xd-0000000Goag-2XO9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 15:04:55 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55DAlkP2027642;
+	Fri, 13 Jun 2025 15:04:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=nU0lDOj4fnV4lbhScWiQUVCcAJe+tL
+	fpYFaq2c/Ynhc=; b=gczvSCYaCYtxBqY7tij7LaHV95ZM5dT9KLXs2772CDrHWW
+	4yBPAT+J2rxpmf73BuVUNVHKrAHJUMB8/ABj0LeJvtFU8CrKcntWTl3ThKh1g7wB
+	nkHxJ8jdR3B1PYvIr5BOWLZNQXwYf3ZXrFU2bURgBqi0MdWOIXXsDfYGj+SceDzw
+	hq5AWeXyucV/jlhWM9GEAGrKUEpdZ6AdGJIyhLoqNhqYBDUmPja7rnf8lbJKJw8Q
+	dD6vNP2scvumPjKrEUZGTSO3Dcsj6ZeDAYfZr0+IZc5jZEVC7PFdQKFZqoGKMUwv
+	qCAEoNccYSw9n9Nhrm0/0aJlH7YxJEHfb17niA2Q==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 474x4mpu58-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Jun 2025 15:04:40 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55DDje1p022352;
+	Fri, 13 Jun 2025 15:04:39 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 475050anv6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Jun 2025 15:04:39 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55DF4b5b37224918
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 13 Jun 2025 15:04:37 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8664920043;
+	Fri, 13 Jun 2025 15:04:37 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0612C20040;
+	Fri, 13 Jun 2025 15:04:37 +0000 (GMT)
+Received: from osiris (unknown [9.111.92.109])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 13 Jun 2025 15:04:36 +0000 (GMT)
+Date: Fri, 13 Jun 2025 17:04:35 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Tengda Wu <wutengda@huaweicloud.com>, Oleg Nesterov <oleg@redhat.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "David A . Long" <dave.long@linaro.org>,
+        Masami Hiramatsu <mhiramat@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH -next] arm64/ptrace: Fix stack-out-of-bounds read in
+ regs_get_kernel_stack_nth()
+Message-ID: <20250613150435.26153B5d-hca@linux.ibm.com>
+References: <20250604005533.1278992-1-wutengda@huaweicloud.com>
+ <20250612163331.GA13384@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250612163331.GA13384@willie-the-truck>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=Y4X4sgeN c=1 sm=1 tr=0 ts=684c3e08 cx=c_pps a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=7XB3cJai-94OTXmGs3EA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: uwSIkbTXw9knD9U00yLIga3sZ76sILCJ
+X-Proofpoint-ORIG-GUID: uwSIkbTXw9knD9U00yLIga3sZ76sILCJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEzMDEwNyBTYWx0ZWRfX0DEYwy1xF1tK rzsFKtB1UXWYoQiamn4W1/RqmeNO/QlD1ORGeZrZkvEbSfUSte1MlAfQF1LqTVA5xYkT77hj3lA 3tRQGtTE5tTuD37x8Hjuc99UK+WdaDtuiIAeuWEMUGiiV4YAdpKh9lco/vDrRaV6q1jXRop5CKK
+ y2FGB1xY+e+FspHfHxamopWFIr6IptP4az/RLd0iMgHM+bOo1dX6bFIhmZMZHi9c56JEBnG6tJo lVLqkk1ab+Ur53kfYOr68IGWWODpktWs1obcRzQ0N7NcW1tWj8hPuyU2cqzoHlwcHOphAQ7aG9+ 9YfQlh9+Lqj1jvngXRGdqRtGHm3kwYHjsS9belae3ToB3vE5dCBTh3hx1LSc2gBaEMuZj11smIv
+ zFrySB6YupbRZLLAmxIswv0N0sxM3VetXZoEEUfGhI39hvnQM1YIc5SjqEj+vz49WpytVgnq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-13_01,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=603 spamscore=0
+ clxscore=1011 lowpriorityscore=0 malwarescore=0 bulkscore=0 adultscore=0
+ impostorscore=0 suspectscore=0 phishscore=0 mlxscore=0 priorityscore=1501
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506130107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_080328_393259_BAABF15A 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250613_080454_119742_9DD466CA 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,55 +113,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 13 Jun 2025, Geraldo Nascimento wrote:
-
-> Since we are now using standard PCIe defines, drop
-> unused custom-defined ones, which are now referenced
-> from offset at added Capabilities Register.
-
-These are quite short lines, please reflow the changelog paragraphs to the 
-usual length.
-
-> Suggested-By: Bjorn Helgaas <bhelgaas@google.com>
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
->  drivers/pci/controller/pcie-rockchip.h | 11 +----------
->  1 file changed, 1 insertion(+), 10 deletions(-)
+On Thu, Jun 12, 2025 at 05:33:32PM +0100, Will Deacon wrote:
+> On Wed, Jun 04, 2025 at 12:55:33AM +0000, Tengda Wu wrote:
+> > diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+> > index f79b0d5f71ac..fe3f7e554d14 100644
+> > --- a/arch/arm64/kernel/ptrace.c
+> > +++ b/arch/arm64/kernel/ptrace.c
+> > @@ -141,7 +141,7 @@ unsigned long regs_get_kernel_stack_nth(struct pt_regs *regs, unsigned int n)
+> >  
+> >  	addr += n;
+> >  	if (regs_within_kernel_stack(regs, (unsigned long)addr))
+> > -		return *addr;
+> > +		return READ_ONCE_NOCHECK(addr);
 > 
-> diff --git a/drivers/pci/controller/pcie-rockchip.h b/drivers/pci/controller/pcie-rockchip.h
-> index 5864a20323f2..f611599988d7 100644
-> --- a/drivers/pci/controller/pcie-rockchip.h
-> +++ b/drivers/pci/controller/pcie-rockchip.h
-> @@ -155,16 +155,7 @@
->  #define PCIE_EP_CONFIG_DID_VID		(PCIE_EP_CONFIG_BASE + 0x00)
->  #define PCIE_EP_CONFIG_LCS		(PCIE_EP_CONFIG_BASE + 0xd0)
->  #define PCIE_RC_CONFIG_RID_CCR		(PCIE_RC_CONFIG_BASE + 0x08)
-> -#define PCIE_RC_CONFIG_DCR		(PCIE_RC_CONFIG_BASE + 0xc4)
-> -#define   PCIE_RC_CONFIG_DCR_CSPL_SHIFT		18
-> -#define   PCIE_RC_CONFIG_DCR_CSPL_LIMIT		0xff
-> -#define   PCIE_RC_CONFIG_DCR_CPLS_SHIFT		26
-> -#define PCIE_RC_CONFIG_DCSR		(PCIE_RC_CONFIG_BASE + 0xc8)
-> -#define   PCIE_RC_CONFIG_DCSR_MPS_MASK		GENMASK(7, 5)
-> -#define   PCIE_RC_CONFIG_DCSR_MPS_256		(0x1 << 5)
-> -#define PCIE_RC_CONFIG_LINK_CAP		(PCIE_RC_CONFIG_BASE + 0xcc)
-> -#define   PCIE_RC_CONFIG_LINK_CAP_L0S		BIT(10)
-> -#define PCIE_RC_CONFIG_LCS		(PCIE_RC_CONFIG_BASE + 0xd0)
-> +#define PCIE_RC_CONFIG_CR		(PCIE_RC_CONFIG_BASE + 0xc0)
+> I think this should be '*addr', but that makes me wonder wtf s390 is
+> doing...
 
-This will cause a build failure because PCIE_RC_CONFIG_CR is used in 1/5 
-but only introduced here so you'll need to do this in the same patch as 
-any step within a series must build too. IMO it would anyway make sense to 
-combine patches 1 & 2.
-
->  #define PCIE_EP_CONFIG_LCS		(PCIE_EP_CONFIG_BASE + 0xd0)
-
-Aren't you going to convert this as well?
-
->  #define PCIE_RC_CONFIG_L1_SUBSTATE_CTRL2 (PCIE_RC_CONFIG_BASE + 0x90c)
->  #define PCIE_RC_CONFIG_THP_CAP		(PCIE_RC_CONFIG_BASE + 0x274)
-> 
-
--- 
- i.
-
+That's obviously a brown paper bag bug in our code... will be fixed.
 
