@@ -4,55 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F378C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 07:54:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2042C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 07:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YQgpJS6ry5iZMhsW2xSDfHWIqEsddGqeA1Qe+msXQA=; b=TKETydJQmCMXl+9C1tnCMrL8UN
-	+LzIfxpj4KVb4sM3hyOoT1VEIJvBAA8fkMmzGcPaaZZix6eb2+LDT/L3275FHMoNYlYQuHwMuxh/Y
-	n8BwYvKB0e50aq8Cl/+iybMFniNZV/ThZXWUM8FxomMi7fP2J0AQuvzlkxsMrtVP2nsIH/87a5rgO
-	Cd8e1e2SEfJy9GUcubNsOjUf4/GLCg9VxToIkhhRj31W3/44efjq3ppEJOYP75JYogi+Fexsb5C9R
-	Kea2O8Hz1VxTlDESfdGU6r1gLPhxU1Y2sSoqPnLx932znYdCWIw8TbICr+P3Ie7h+bew2IIjycXM1
-	8jc11u5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GV5IiH1lX/tVnEyhZKXJm4snMe5XD+W9EpFTNssURzc=; b=P0N8xA4YjXkB7c39pkuQOu4tVi
+	eIqLB2+Fu1Rh1C7UIbYfY2+V0wS4dzuS1V0yCK0kVCdAbfSXm2RqIdqB7M2N7C+IEkILhRz8KZf1Q
+	rdTuVacdtxH6ynyrv4H4uINcMPN7j44HDuANzJDqbCwhjy+XVlYr2XELdesktBBIjFv8p2S4HBckX
+	N3EnXtLLhR82AyMZ1Ogr3K21zUKs8VMqcMIzw954nBQjvpsd5oXez9x9uj/IHaQ10JfNjh05TML8j
+	BZ1gq/Dzu7MWQnv9mUX46DiUGwgqzN31aSyaJAkP+MtOe/8WDv50NskFE79cJwwbm+reFUvPHXTmO
+	Nwu6uSgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzEo-0000000FhSf-1XYG;
-	Fri, 13 Jun 2025 07:54:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPz85-0000000FfOF-2FWC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 07:47:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1AA61D14;
-	Fri, 13 Jun 2025 00:46:52 -0700 (PDT)
-Received: from [10.164.146.16] (J09HK2D2RT.blr.arm.com [10.164.146.16])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBB693F59E;
-	Fri, 13 Jun 2025 00:47:10 -0700 (PDT)
-Message-ID: <831db1e9-ed27-4116-b43b-ac580603d7ac@arm.com>
-Date: Fri, 13 Jun 2025 13:17:07 +0530
+	id 1uPzH3-0000000Fhii-0Qn4;
+	Fri, 13 Jun 2025 07:56:29 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPz8m-0000000FfUK-1JOB;
+	Fri, 13 Jun 2025 07:47:57 +0000
+X-UUID: b46be22a482a11f09f706fa2197c6ceb-20250613
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=GV5IiH1lX/tVnEyhZKXJm4snMe5XD+W9EpFTNssURzc=;
+	b=PdyK+4mM1oc1I9BPeVs75+3anIPHYhq+C8lxZOMSwykkzH34K/5xQ2RWxUka6eFSioRlg6b5Xo2mZt1qjuaA08CA/EbST3ztjVKMRsmAi7hWuH7UFvOm7xUxEoypaY3j/nEfMxq4KjQG7fD60PTgwtgKSviydtA4STLBYW8fTsI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.3,REQID:afb0436c-caaf-4ef7-a3ae-8bed88675263,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:09905cf,CLOUDID:c769a558-abad-4ac2-9923-3af0a8a9a079,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b46be22a482a11f09f706fa2197c6ceb-20250613
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <kuyo.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 347310490; Fri, 13 Jun 2025 00:47:50 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 13 Jun 2025 15:47:45 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n1.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.1258.39 via Frontend
+ Transport; Fri, 13 Jun 2025 15:47:45 +0800
+Message-ID: <c32fcf451dad1cac40ad827e53ac6c027403b07e.camel@mediatek.com>
+Subject: Re: [PATCH 1/1] sched/core: Fix migrate_swap() vs. hotplug
+From: Kuyo Chang <kuyo.chang@mediatek.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
+	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, "Ben
+ Segall" <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, "Valentin
+ Schneider" <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Date: Fri, 13 Jun 2025 15:47:47 +0800
+In-Reply-To: <20250606082834.GM30486@noisy.programming.kicks-ass.net>
+References: <20250602072242.1839605-1-kuyo.chang@mediatek.com>
+	 <20250605100009.GO39944@noisy.programming.kicks-ass.net>
+	 <8e1018116ad7c5c325eced2cb17b65c73ca2ceca.camel@mediatek.com>
+	 <20250606082834.GM30486@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/13] arm64: debug: call step handlers statically
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
- <20250609173413.132168-5-ada.coupriediaz@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250609173413.132168-5-ada.coupriediaz@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_004713_670392_DED047A2 
-X-CRM114-Status: GOOD (  34.16  )
+X-CRM114-CacheID: sfid-20250613_004756_359617_B06BA3C8 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,218 +93,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/06/25 11:04 PM, Ada Couprie Diaz wrote:
-> Software stepping checks for the correct handler by iterating over a list
-> of dynamically registered handlers and calling all of them until one
-> handles the exception.
-> 
-> This is the only generic way to handle software stepping handlers in arm64
-> as the exception does not provide an immediate that could be checked,
-> contrary to software breakpoints.
-> 
-> However, the registration mechanism is not exported and has only
-> two current users : the KGDB stepping handler, and the uprobe single step
-> handler.
-> Given that one comes from user mode and the other from kernel mode, call
-> the appropriate one by checking the source EL of the exception.
-> Add a stand-in that returns DBG_HOOK_ERROR when the configuration
-> options are not enabled.
-> 
-> Unify the naming of the handler to XXX_singlestep_handler(), making it
-> clear they are related.
+On Fri, 2025-06-06 at 10:28 +0200, Peter Zijlstra wrote:
+>=20
+> External email : Please do not click links or open attachments until
+> you have verified the sender or the content.
+>=20
+>=20
+> On Fri, Jun 06, 2025 at 11:46:57AM +0800, Kuyo Chang wrote:
+>=20
+> > Thank you for your patch.
+> > I believe this patch also effectively addresses this race
+> > condition.
+> > I will queue it in our test pool for testing.
+>=20
+> Thank you; I shall await the results!
+>=20
+It works well during both regular and hotplug tests(one week).
+I believe the patch is workable.
+Please help to merge, thx.
 
-Makes sense.
+>=20
+> > > @@ -101,12 +98,12 @@ static bool cpu_stop_queue_work(unsigned int
+> > > cpu, struct cpu_stop_work *work)
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 raw_spin_lock_irqsave(&sto=
+pper->lock, flags);
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enabled =3D stopper->enabl=
+ed;
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (enabled)
+> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 __cpu_stop_queue_work(stopper, work, &wakeq);
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 __cpu_stop_queue_work(stopper, work);
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else if (work->done)
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0 cpu_stop_signal_done(work->done);
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 raw_spin_unlock_irqrestore=
+(&stopper->lock, flags);
+> > >=20
+> > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wake_up_q(&wakeq);
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wake_up_process(stopper->thread=
+);
+> >=20
+> > BTW, should we add enabled check here?
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (enabled)
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 wake_up_process(stopper->thread);
+>=20
+> Ah yes. Spuriously waking the stopper thread is harmless, but
+> wasteful.
+>=20
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 preempt_enable();
+> > >=20
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return enabled;
 
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/kgdb.h      |  9 +++++++++
->  arch/arm64/include/asm/uprobes.h   |  9 +++++++++
->  arch/arm64/kernel/debug-monitors.c | 25 ++++++-------------------
->  arch/arm64/kernel/kgdb.c           | 17 +++--------------
->  arch/arm64/kernel/probes/uprobes.c |  9 +--------
->  5 files changed, 28 insertions(+), 41 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
-> index 82a76b2102fb..fa0c1edb8a65 100644
-> --- a/arch/arm64/include/asm/kgdb.h
-> +++ b/arch/arm64/include/asm/kgdb.h
-> @@ -26,6 +26,15 @@ extern int kgdb_fault_expected;
->  
->  int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr);
->  int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +#ifdef CONFIG_KGDB
-> +int kgdb_singlestep_handler(struct pt_regs *regs, unsigned long esr);
-> +#else
-> +static inline int kgdb_singlestep_handler(struct pt_regs *regs,
-> +	unsigned long esr)
-> +{
-> +	return DBG_HOOK_ERROR;
-> +}
-> +#endif
->  
->  #endif /* !__ASSEMBLY__ */
->  
-> diff --git a/arch/arm64/include/asm/uprobes.h b/arch/arm64/include/asm/uprobes.h
-> index 3659a79a9f32..5858e436a5a7 100644
-> --- a/arch/arm64/include/asm/uprobes.h
-> +++ b/arch/arm64/include/asm/uprobes.h
-> @@ -29,5 +29,14 @@ struct arch_uprobe {
->  };
->  
->  int uprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +#ifdef CONFIG_UPROBES
-> +int uprobe_singlestep_handler(struct pt_regs *regs, unsigned long esr);
-> +#else
-> +static inline int uprobe_singlestep_handler(struct pt_regs *regs,
-> +	unsigned long esr)
-> +{
-> +	return DBG_HOOK_ERROR;
-> +}
-> +#endif
->  
->  #endif
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 15d7158a7548..b156bef7f61e 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -200,30 +200,17 @@ void unregister_kernel_step_hook(struct step_hook *hook)
->  }
->  
->  /*
-> - * Call registered single step handlers
-> + * Call single step handlers
->   * There is no Syndrome info to check for determining the handler.
-> - * So we call all the registered handlers, until the right handler is
-> - * found which returns zero.
-> + * However, there is only one possible handler for user and kernel modes, so
-> + * check and call the appropriate one.
->   */
->  static int call_step_hook(struct pt_regs *regs, unsigned long esr)
->  {
-> -	struct step_hook *hook;
-> -	struct list_head *list;
-> -	int retval = DBG_HOOK_ERROR;
-> +	if (user_mode(regs))
-> +		return uprobe_singlestep_handler(regs, esr);
->  
-> -	list = user_mode(regs) ? &user_step_hook : &kernel_step_hook;
-> -
-> -	/*
-> -	 * Since single-step exception disables interrupt, this function is
-> -	 * entirely not preemptible, and we can use rcu list safely here.
-> -	 */
-> -	list_for_each_entry_rcu(hook, list, node)	{
-> -		retval = hook->fn(regs, esr);
-> -		if (retval == DBG_HOOK_HANDLED)
-> -			break;
-> -	}
-> -
-> -	return retval;
-> +	return kgdb_singlestep_handler(regs, esr);
->  }
->  NOKPROBE_SYMBOL(call_step_hook);
->  
-> diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
-> index b5a3b9c85a65..8f6ce2ea005c 100644
-> --- a/arch/arm64/kernel/kgdb.c
-> +++ b/arch/arm64/kernel/kgdb.c
-> @@ -250,7 +250,7 @@ int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr)
->  }
->  NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
->  
-> -static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
-> +int kgdb_singlestep_handler(struct pt_regs *regs, unsigned long esr)
-
-This rename makes sense but as mentioned later kgdb_single_step_handler()
-might save some changes in uprobes callback function.
-
->  {
->  	if (!kgdb_single_step)
->  		return DBG_HOOK_ERROR;
-> @@ -258,11 +258,7 @@ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
->  	kgdb_handle_exception(0, SIGTRAP, 0, regs);
->  	return DBG_HOOK_HANDLED;
->  }
-> -NOKPROBE_SYMBOL(kgdb_step_brk_fn);
-> -
-> -static struct step_hook kgdb_step_hook = {
-> -	.fn		= kgdb_step_brk_fn
-> -};
-> +NOKPROBE_SYMBOL(kgdb_singlestep_handler);
->  
->  static int __kgdb_notify(struct die_args *args, unsigned long cmd)
->  {
-> @@ -301,13 +297,7 @@ static struct notifier_block kgdb_notifier = {
->   */
->  int kgdb_arch_init(void)
->  {
-> -	int ret = register_die_notifier(&kgdb_notifier);
-> -
-> -	if (ret != 0)
-> -		return ret;
-> -
-> -	register_kernel_step_hook(&kgdb_step_hook);
-> -	return 0;
-> +	return register_die_notifier(&kgdb_notifier);
->  }
->  
->  /*
-> @@ -317,7 +307,6 @@ int kgdb_arch_init(void)
->   */
->  void kgdb_arch_exit(void)
->  {
-> -	unregister_kernel_step_hook(&kgdb_step_hook);
->  	unregister_die_notifier(&kgdb_notifier);
->  }
-
-kgdb_arch_init()/_exit() now deals only with kgdb_notifier registration
-and un-registration only.
- >  
-> diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
-> index ad68b4a5974d..fefc990860bc 100644
-> --- a/arch/arm64/kernel/probes/uprobes.c
-> +++ b/arch/arm64/kernel/probes/uprobes.c
-> @@ -182,7 +182,7 @@ int uprobe_brk_handler(struct pt_regs *regs,
->  	return DBG_HOOK_ERROR;
->  }
->  
-> -static int uprobe_single_step_handler(struct pt_regs *regs,
-> +int uprobe_singlestep_handler(struct pt_regs *regs,
->  				      unsigned long esr)
-
-A small nit - if the kgdb handler be changed as kgdb_single_step_handler()
-the above rename can be skipped.
- >  {
->  	struct uprobe_task *utask = current->utask;
-> @@ -194,15 +194,8 @@ static int uprobe_single_step_handler(struct pt_regs *regs,
->  	return DBG_HOOK_ERROR;
->  }
->  
-> -/* uprobe single step handler hook */
-> -static struct step_hook uprobes_step_hook = {
-> -	.fn = uprobe_single_step_handler,
-> -};
-> -
->  static int __init arch_init_uprobes(void)
->  {
-> -	register_user_step_hook(&uprobes_step_hook);
-> -
->  	return 0;
->  }
->  
-
-The arch hook arch_init_uprobes() is redundant now and can be dropped.
-
-static int __init arch_init_uprobes(void)
-{
-        return 0;
-}
-device_initcall(arch_init_uprobes);
-
-git grep arch_init_uprobes
-arch/arm64/kernel/probes/uprobes.c:static int __init arch_init_uprobes(void)
-arch/arm64/kernel/probes/uprobes.c:device_initcall(arch_init_uprobes);
-
-Otherwise LGTM.
 
