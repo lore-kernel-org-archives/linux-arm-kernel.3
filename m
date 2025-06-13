@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01650C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 14:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F0DC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 14:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rojaM8IKxNE0HNc3bXYtiBaq+3WL5n4QlsN0h/h4+Ag=; b=CrdcbfM11uHBkbRiSvNgUD+Kel
-	8oSn69bM5BAO0HW2BDx178mhLLWeZMwzVJVKPlcmZGzSDdf9BtM6GfAjiqm7CKRb0l+1dfyoEfARs
-	K+rc0fZWq0TLedMG2W+9y2HRoAufZ7Ou7jnozC/57w6nBD1k2E7YHeihULCcF9L50fBnmc5C3g8xX
-	pQe2qbbVPj6DkVMA4yM5Sarc5s7xvOVFF/4vmsTVaOnP3Iv1uF0LFz7qpCiZnEZK06ynS1IyFOekw
-	aCv/+9V3w27Kyp+kRy98HXxgqWp0r3sLd6WZ72fO82Kf/OGcW1NWdOkfSlu4hmm8ikiam7mNGPiCF
-	Re9JodXA==;
+	bh=WKhGf/QJQpZzz9XDmJmiYvWYjQMvBbB+K2PYVqMHzA0=; b=nY4NRnKAeH+EGumXVn3e6PDZ0h
+	ZQ0Qr3XLJsM4lhsc6aw7r1Q1nN7vmrD5Gc6PAWEKJimCfBKGnMmxi017t3KUWv2YUyU+HJ/0GLRA5
+	S093YGTHBZ5+TvD8/Sec9lphRigDv/i6iMVuPqN8+OhBPQe7PlUDVRr+1IUNCIQEzwxPc4hHtDFsP
+	5Jf2XARoxWwbjMPEJh2uFK9YUUNXy8asQOqpgVWmrDXIy8d4j/Xgfd9v/K1oNXtonhBNVBjvZDYvd
+	d1SKD6yb65AVXizWfe/DNwUAdbZVHsLaLaYKuWgWdLWi0oo0WkcyuEDkCEZuK3LFvN6wA0jWJMD51
+	a5RE1aCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ59y-0000000GeND-1R8v;
-	Fri, 13 Jun 2025 14:13:34 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1uQ5CE-0000000GesN-0NoE;
+	Fri, 13 Jun 2025 14:15:54 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ4m3-0000000GYkw-0Q9x
+	id 1uQ4m3-0000000GYlr-0WjK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 13:48:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id AD0DD443AA;
-	Fri, 13 Jun 2025 13:48:44 +0000 (UTC)
+	Fri, 13 Jun 2025 13:48:53 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 291AF442C8;
+	Fri, 13 Jun 2025 13:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749822527;
+	t=1749822529;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=rojaM8IKxNE0HNc3bXYtiBaq+3WL5n4QlsN0h/h4+Ag=;
-	b=fUen3tKhvrygho9OJprDGDelKug3icGKV5d9fmt3aZ1J8M903biOwsUsVcDxxrQ8+H+++k
-	qL5JyDYFz74DID66KA/s/4xpLhcav5UtQRu2XQAwK6Org9hgIC9SNLK4Gv5MAW+lzZMdxI
-	os2Ga/rQTjLYroh2hX+ctsQUHeTtwEShSNw2tJhA85dXKP+tyOIVPjXs3Rp8C/Y/8JU+CJ
-	jHK2qrqG8Rsw5PBm2x117qRa0EEX8AD5I0cvzeiPiBFu2y/xEQv4CJgqkwAryOigskxcdB
-	mvPdKzQb2anqd/19f+DMqzTKDltdL5jPAkFG6qcfK9C0hPKZ+O61FpiU1s/UsQ==
+	bh=WKhGf/QJQpZzz9XDmJmiYvWYjQMvBbB+K2PYVqMHzA0=;
+	b=HZ36IoB/e1T643VwutZnR3mM0Rw10AMTL7VH9vAtrmlDKNYa5IoMmfEey56m35T00Ava5f
+	BUHgF2snG4YJMIPvWut5m0flpXnww+wQOhHkGmDFmluUnWAOk1R6iji45ZntTIG55G+2+N
+	jgKmk0Bz1MdxDXjYjbJ1A9d8KU1RxSxouVtGsaM7HfQmq5t7fcL09aoEzu7jema9GQ76PP
+	oAky33JKc5kN5pPc5PE6sVBKJ3i1yVOqJ+rd8XbVHbPwQXp46hMF6ccCppXDBzNLcp7oOn
+	yWdus2ch9Yi82V4YJBSHdkfw3PxtV8rArMRFlgVcYEDu2Qprr0K+Q6ixGrq/7Q==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -91,9 +91,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v3 01/28] Revert "treewide: Fix probing of devices in DT overlays"
-Date: Fri, 13 Jun 2025 15:47:41 +0200
-Message-ID: <20250613134817.681832-2-herve.codina@bootlin.com>
+Subject: [PATCH v3 02/28] driver core: Rename get_dev_from_fwnode() wrapper to get_device_from_fwnode()
+Date: Fri, 13 Jun 2025 15:47:42 +0200
+Message-ID: <20250613134817.681832-3-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250613134817.681832-1-herve.codina@bootlin.com>
 References: <20250613134817.681832-1-herve.codina@bootlin.com>
@@ -105,8 +105,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeduudcutefuodetggdotef
  hhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_064851_292567_F89B543A 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20250613_064851_295118_70FC20A1 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,108 +121,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Saravana Kannan <saravanak@google.com>
+get_dev_from_fwnode() calls get_device() and so it acquires a reference
+on the device returned.
 
-This reverts commit 1a50d9403fb90cbe4dea0ec9fd0351d2ecbd8924.
+In order to be more obvious that this wrapper is a get_device() variant,
+rename it to get_device_from_fwnode().
 
-While the commit fixed fw_devlink overlay handling for one case, it
-broke it for another case. So revert it and redo the fix in a separate
-patch.
-
-Fixes: 1a50d9403fb9 ("treewide: Fix probing of devices in DT overlays")
-Reported-by: Herve Codina <herve.codina@bootlin.com>
-Closes: https://lore.kernel.org/lkml/CAMuHMdXEnSD4rRJ-o90x4OprUacN_rJgyo8x6=9F9rZ+-KzjOg@mail.gmail.com/
-Closes: https://lore.kernel.org/all/20240221095137.616d2aaa@bootlin.com/
-Closes: https://lore.kernel.org/lkml/20240312151835.29ef62a0@bootlin.com/
-Signed-off-by: Saravana Kannan <saravanak@google.com>
-Link: https://lore.kernel.org/lkml/20240411235623.1260061-2-saravanak@google.com/
+Suggested-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/lkml/CAGETcx97QjnjVR8Z5g0ndLHpK96hLd4aYSV=iEkKPNbNOccYmA@mail.gmail.com/
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-Acked-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Saravana Kannan <saravanak@google.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/bus/imx-weim.c    | 6 ------
- drivers/i2c/i2c-core-of.c | 5 -----
- drivers/of/dynamic.c      | 1 -
- drivers/of/platform.c     | 5 -----
- drivers/spi/spi.c         | 5 -----
- 5 files changed, 22 deletions(-)
+ drivers/base/core.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
-index 83d623d97f5f..87070155b057 100644
---- a/drivers/bus/imx-weim.c
-+++ b/drivers/bus/imx-weim.c
-@@ -327,12 +327,6 @@ static int of_weim_notify(struct notifier_block *nb, unsigned long action,
- 				 "Failed to setup timing for '%pOF'\n", rd->dn);
+diff --git a/drivers/base/core.c b/drivers/base/core.c
+index cbc0099d8ef2..36ccee91ba9a 100644
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -1881,7 +1881,7 @@ static void fw_devlink_unblock_consumers(struct device *dev)
+ 	device_links_write_unlock();
+ }
  
- 		if (!of_node_check_flag(rd->dn, OF_POPULATED)) {
--			/*
--			 * Clear the flag before adding the device so that
--			 * fw_devlink doesn't skip adding consumers to this
--			 * device.
--			 */
--			rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
- 			if (!of_platform_device_create(rd->dn, NULL, &pdev->dev)) {
- 				dev_err(&pdev->dev,
- 					"Failed to create child device '%pOF'\n",
-diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
-index eb7fb202355f..30b48a428c0b 100644
---- a/drivers/i2c/i2c-core-of.c
-+++ b/drivers/i2c/i2c-core-of.c
-@@ -176,11 +176,6 @@ static int of_i2c_notify(struct notifier_block *nb, unsigned long action,
- 			return NOTIFY_OK;
- 		}
+-#define get_dev_from_fwnode(fwnode)	get_device((fwnode)->dev)
++#define get_device_from_fwnode(fwnode)	get_device((fwnode)->dev)
  
--		/*
--		 * Clear the flag before adding the device so that fw_devlink
--		 * doesn't skip adding consumers to this device.
--		 */
--		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
- 		client = of_i2c_register_device(adap, rd->dn);
- 		if (IS_ERR(client)) {
- 			dev_err(&adap->dev, "failed to create client for '%pOF'\n",
-diff --git a/drivers/of/dynamic.c b/drivers/of/dynamic.c
-index 0aba760f7577..6a117e1b6798 100644
---- a/drivers/of/dynamic.c
-+++ b/drivers/of/dynamic.c
-@@ -225,7 +225,6 @@ static void __of_attach_node(struct device_node *np)
- 	np->sibling = np->parent->child;
- 	np->parent->child = np;
- 	of_node_clear_flag(np, OF_DETACHED);
--	np->fwnode.flags |= FWNODE_FLAG_NOT_DEVICE;
+ static bool fwnode_init_without_drv(struct fwnode_handle *fwnode)
+ {
+@@ -1891,7 +1891,7 @@ static bool fwnode_init_without_drv(struct fwnode_handle *fwnode)
+ 	if (!(fwnode->flags & FWNODE_FLAG_INITIALIZED))
+ 		return false;
  
- 	raw_spin_unlock_irqrestore(&devtree_lock, flags);
+-	dev = get_dev_from_fwnode(fwnode);
++	dev = get_device_from_fwnode(fwnode);
+ 	ret = !dev || dev->links.status == DL_DEV_NO_DRIVER;
+ 	put_device(dev);
  
-diff --git a/drivers/of/platform.c b/drivers/of/platform.c
-index f77cb19973a5..ef9445ba168b 100644
---- a/drivers/of/platform.c
-+++ b/drivers/of/platform.c
-@@ -739,11 +739,6 @@ static int of_platform_notify(struct notifier_block *nb,
- 		if (of_node_check_flag(rd->dn, OF_POPULATED))
- 			return NOTIFY_OK;
+@@ -1960,7 +1960,7 @@ static struct device *fwnode_get_next_parent_dev(const struct fwnode_handle *fwn
+ 	struct device *dev;
  
--		/*
--		 * Clear the flag before adding the device so that fw_devlink
--		 * doesn't skip adding consumers to this device.
--		 */
--		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
- 		/* pdev_parent may be NULL when no bus platform device */
- 		pdev_parent = of_find_device_by_node(parent);
- 		pdev = of_platform_device_create(rd->dn, NULL,
-diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-index 1bc0fdbb1bd7..f76b9ad1c63b 100644
---- a/drivers/spi/spi.c
-+++ b/drivers/spi/spi.c
-@@ -4803,11 +4803,6 @@ static int of_spi_notify(struct notifier_block *nb, unsigned long action,
- 			return NOTIFY_OK;
- 		}
+ 	fwnode_for_each_parent_node(fwnode, parent) {
+-		dev = get_dev_from_fwnode(parent);
++		dev = get_device_from_fwnode(parent);
+ 		if (dev) {
+ 			fwnode_handle_put(parent);
+ 			return dev;
+@@ -2016,8 +2016,8 @@ static bool __fw_devlink_relax_cycles(struct fwnode_handle *con_handle,
+ 		goto out;
+ 	}
  
--		/*
--		 * Clear the flag before adding the device so that fw_devlink
--		 * doesn't skip adding consumers to this device.
--		 */
--		rd->dn->fwnode.flags &= ~FWNODE_FLAG_NOT_DEVICE;
- 		spi = of_register_spi_device(ctlr, rd->dn);
- 		put_device(&ctlr->dev);
+-	sup_dev = get_dev_from_fwnode(sup_handle);
+-	con_dev = get_dev_from_fwnode(con_handle);
++	sup_dev = get_device_from_fwnode(sup_handle);
++	con_dev = get_device_from_fwnode(con_handle);
+ 	/*
+ 	 * If sup_dev is bound to a driver and @con hasn't started binding to a
+ 	 * driver, sup_dev can't be a consumer of @con. So, no need to check
+@@ -2156,7 +2156,7 @@ static int fw_devlink_create_devlink(struct device *con,
+ 	if (sup_handle->flags & FWNODE_FLAG_NOT_DEVICE)
+ 		sup_dev = fwnode_get_next_parent_dev(sup_handle);
+ 	else
+-		sup_dev = get_dev_from_fwnode(sup_handle);
++		sup_dev = get_device_from_fwnode(sup_handle);
  
+ 	if (sup_dev) {
+ 		/*
+@@ -2225,7 +2225,7 @@ static void __fw_devlink_link_to_consumers(struct device *dev)
+ 		bool own_link = true;
+ 		int ret;
+ 
+-		con_dev = get_dev_from_fwnode(link->consumer);
++		con_dev = get_device_from_fwnode(link->consumer);
+ 		/*
+ 		 * If consumer device is not available yet, make a "proxy"
+ 		 * SYNC_STATE_ONLY link from the consumer's parent device to
 -- 
 2.49.0
 
