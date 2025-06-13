@@ -4,112 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6644DC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0CFC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mYOuzDkNxD2lkqcPpX+ydgTB/+Gwybfqhgm68AHQXH8=; b=xhAMvmx9ExCE5sPmkbChUOx3Q7
-	jsnTyrLbtP+q204YeF9x752OXV3PmNz8odhuJuwuwe74VTGXmvJnQjjn159XfqBLVS0TLgD4Rg1Ys
-	JRj2aMv4UzAX9iJXCmxm1eRq0XUzbfSWkmp4TalVY1m6PHLTE/cIq0ZRDNEztiZXYD8gVtSNf7sV2
-	+63t56ZD2V0l9ZTtXbvVfT0RsWUeHcDm4h8IxRljCx7K7My9fctV/B0OTZwhZbDVpwaUMwuBvAWIu
-	SP3WtJ+8TQmzJivfE7Esx/Op/1bwLJJ9m66No1ImrDtXGIUeZ0mSwvAKNhV5Z8Rws0MShblBG1r5H
-	GiFVBlAA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KiX2+CscDCt7wsJQZtwDpIWKdj5blnMNZa1lqkwq94Q=; b=c91hnTR2VW5svL1EfODdwhOunv
+	wFX+OtUhXVrUZtPL/ac9xFc354D5CdSgN3O61d2YqmpMelORqy0zHe70mbIytI1pb4l3rbRYmsdoY
+	KQXTCavZI/VKc6d3D/LVKUlvvkH//Vf3KslB4jPpv4GjKrE0fLM0EVJ64dTUljWSJu8BvgMHcpKIV
+	vgnPfqpq6D5feBPj4ToexBqdVOhKTsWFcGfVvFg++KiKuQ9vZVEd1Oo8zGHYeAYrtIviPDlfhPhBa
+	fuYXNmqk3qdEnvgjgzRt77xoFbG+H4p58xlv6yPO2cdUlbAEAxE5f3DpWQvccHaBCOt0pviPdkZr8
+	sannagLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2dI-0000000GCLS-35LJ;
-	Fri, 13 Jun 2025 11:31:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2GD-0000000G8Qs-2Sgg
+	id 1uQ2dP-0000000GCW0-3lB5;
+	Fri, 13 Jun 2025 11:31:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ2Kb-0000000G8rw-2G9V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 11:07:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E36116113B;
-	Fri, 13 Jun 2025 11:07:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38C32C4CEE3;
-	Fri, 13 Jun 2025 11:07:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749812868;
-	bh=yp9sbCbl7MbubwJbO1yJwsl5U12/4EmLw/erbx5e7Po=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Y0xF8S9dprgIwjWWQiwL7aCI0FmWcGZPE87ZgHrl/1Zs8oSXq7JOCcVUXJde7u0bC
-	 Up0hj/JoNTvTL2gRlFNt+5GdQfy28Crz1QK2gkoJgCCxGWoDk53VnCewe7NlS3CWcn
-	 YPqixTfJOPTujSHxju23V5IRW/FsNskaOk8qcJhQOmXwzRE6+lyRPrW7R+QLWWaJZv
-	 TJ0SKIcmE3ebTJEAryUacymgFboYmIgCCXK9o+Z0eAtdm3ZNgnYA5JUubUsSg7suzE
-	 zlf0pH2OZfUdZgQQgVp+D/X9mLqSCw7bOeedY0BueiiiYWhMGXPq1f2GsjWTNbFqay
-	 gSKjS8CHRlpFg==
-Message-ID: <2fb10aee-6610-43f4-9d12-88a97e0f66e5@kernel.org>
-Date: Fri, 13 Jun 2025 13:07:43 +0200
+	Fri, 13 Jun 2025 11:12:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54D3C1C0A;
+	Fri, 13 Jun 2025 04:11:57 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 82D623F59E;
+	Fri, 13 Jun 2025 04:12:16 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: will@kernel.org,
+	catalin.marinas@arm.com,
+	sami.mujawar@arm.com,
+	aneesh.kumar@kernel.org,
+	steven.price@arm.com,
+	linux-kernel@vger.kernel.org,
+	sudeep.holla@arm.com,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [PATCH 0/3] arm64: realm: Add support for encrypted data from firmware
+Date: Fri, 13 Jun 2025 12:11:50 +0100
+Message-ID: <20250613111153.1548928-1-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] dt-bindings: gpio: gpio-xilinx: Mark clocks as
- required property
-To: Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org,
- monstr@monstr.eu, michal.simek@xilinx.com, git@xilinx.com
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
- Srinivas Neeli <srinivas.neeli@amd.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>
-References: <8407ef56b11632c1a7abfce8a4534ed8a8ed56cc.1749809570.git.michal.simek@amd.com>
- <cbde9b9e2b0f9d12fdd1ba24fddb1543159357aa.1749809570.git.michal.simek@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <cbde9b9e2b0f9d12fdd1ba24fddb1543159357aa.1749809570.git.michal.simek@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250613_041221_620112_AEF16A76 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,35 +67,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 12:12, Michal Simek wrote:
-> On Microblaze platforms there is no need to handle clocks because the
-> system is starting with clocks enabled (can be described via fixed clock
-> node or clock-frequency property or not described at all).
-> With using soft IPs with SOC platforms there is mandatory to handle clocks
-> as is explained in commit 60dbdc6e08d6 ("dt-bindings: net: emaclite: Add
-> clock support").
-> That's why make clock as required in dt binding because it is present in
-> both configurations and should be described even there is no way how to
-> handle it on Microblaze systems.
-> 
-> Signed-off-by: Michal Simek <michal.simek@amd.com>
-> ---
-> 
-> Changes in v2:
-> - Add fpga region patch to fix issue which was introduces by this change
-> 
-> Based on discussion at
-> https://lore.kernel.org/lkml/20241002-revivable-crummy-f780adec538c@spud/
-> 
-> Actually this shouldn't be only targetting GPIO but also for example
-> xlnx,xps-timebase-wdt-1.00.a but I would like to check it first on gpio
-> before starting to check other bindings.
+Confidential compute firmware may provide secret data via reserved memory regions
+(e.g., ACPI CCEL, EFI Coco secret area). These must be ioremap'ed() as encrypted.
+As of now, realm only maps "trusted devices" (RIPAS = RSI_RIPAS_DEV) as encrypted.
+This series adds support for mapping areas that are protected
+(i.e., RIPAS = RSI_RIPAS_RAM) as encrypted. Also, extrapolating that, we can map
+anything that is not RIPAS_EMPTY as protected, as it is guaranteed to be "protected".
 
-IIUC, patch #1 is a prerequisite, so you need to squash them. Otherwise
-dt_binding_check is not bisectable and we want it to be bisectable.
+With this in place, we can naturally map any firmware provided area based on the
+RIPAS value. If the firmware provides a shared region (not trusted), it must have
+set the RIPAS accordingly, before placing the data, as the transition is always
+destructive.
 
-(dtbs_check does not have to be, as long as linux-next is concerned)
+Also enables the EFI Coco secret area support and Confidential Compute Event
+Log (CCEL) for arm64.
 
-Best regards,
-Krzysztof
+
+Suzuki K Poulose (3):
+  arm64: realm: ioremap: Allow mapping memory as encrypted
+  arm64: Enable EFI secret area Securityfs support
+  arm64: acpi: Enable ACPI CCEL support
+
+ arch/arm64/include/asm/io.h          |  6 +++++-
+ arch/arm64/include/asm/rsi.h         |  2 +-
+ arch/arm64/kernel/acpi.c             |  5 +++++
+ arch/arm64/kernel/rsi.c              | 26 ++++++++++++++++++++++----
+ drivers/virt/coco/efi_secret/Kconfig |  2 +-
+ 5 files changed, 34 insertions(+), 7 deletions(-)
+
+-- 
+2.43.0
+
 
