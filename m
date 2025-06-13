@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6A0C71153
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 09:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3752C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 09:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pofvz1uL8csJ9RhmM5SsUe9BW9gOrd+A9cM0B30FyAg=; b=L1be1KSJpv/lSaPdDGk+lkn3lr
-	HlPYVYe0Sawb6wwgdCU3ew/88UioHIYusvNxu+UwM7d1eiCiHvUBRONabWb0xWeLoKNA/aLYgcV0n
-	ToJfLEbfHezqWkkXoM7LXttabLGQA+TKkyXtwPs1zJVOkV6P7f2HAFYY6vaakod65p/bTf0HR7rpP
-	QPjRuqU6hez3EwbcXAWxK4+zQqlu9NdIcBNAFSXSIbpKy4Ikh5dVB0eCjaRulXMI3U6JmFVD52tnu
-	6VdB5UZbdAhVFuQB+2cdjbPPEGW7l6kD6V3KRaorgR8ZdMN+j2rsOOzi6XAEorFFgjKYLJlM3iJJS
-	RLXpoyQw==;
+	bh=L+YN4MTZBkTzMLCaO2wC4gmmUGZnS4C1FG9BefD5M2o=; b=W8XUY9tWTg0QxKBArFwvvmibfN
+	sH2kdkrX++RoZyto4Uno/OADU3tFL1+/qqzpVQK3GXwqZgPUFISYePjWxvO6vlU5owRKBN65ZyNHZ
+	C5n0Kp4NcZFM46QRE6JMaqhR+Htm810jYQ7VzPHdumfeHCd9YBHxb3L5ca75R0UuJzRQqro+QpcqW
+	BL1E9Yhl2oHZgd8y2pztQOtCvedOpUARyDVcI27mjArCO8vZHpclxXzbmBHAqEhF8d67MGp7W0g+3
+	hI8x+fV94Z/ToQEqNglkW2k/TnFpnWE631omKhAGFTrmzqUr/9SC0FnS1zge890yQjit1WKdBevNr
+	dmTTb9oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0Ny-0000000FrEq-1gUE;
-	Fri, 13 Jun 2025 09:07:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uQ0Pl-0000000Fs6z-39lZ;
+	Fri, 13 Jun 2025 09:09:34 +0000
+Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0LR-0000000FqMj-38sl;
-	Fri, 13 Jun 2025 09:05:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79DFD49D84;
-	Fri, 13 Jun 2025 09:05:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A22C4CEE3;
-	Fri, 13 Jun 2025 09:04:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749805505;
-	bh=/z3ISYzkV0unW5sqeJeb8uAQIRvRJjWrGvnYEIkJOl0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I1D314jDshWGk9VU2FaY4xmGqqNeYJ+VEfnVmgJTbLmVUHHkWXnQ/bz5woAKzjvTP
-	 /DOvGnVk+VFicXXGm06il7p1yMWrGU1SrtwLvKYooEcl1/LvCtWvSdod2fqOwHKinI
-	 StbcptvHentF5Eltm8p22RKUHdoQ8dkhrZbjNGzfbjCDBfPqIjy3CbCryp/gAlspNP
-	 nuP7WJp4925btgScwJ1DSd8MdyUnu4D9EASBYnU5c4z+mq08FLc+QW5rd6RDW3eene
-	 yN6Ex20uiZkditsFIUM2eMD/uqKuvBx+c4h1Q9GSHmhOOXLosJ4N/TXPLe1SvV8MF1
-	 g9Dz9rRKzCncg==
-Date: Fri, 13 Jun 2025 14:34:54 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: 'Krzysztof Kozlowski' <krzk@kernel.org>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.or, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, kw@linux.com, robh@kernel.org, 
-	bhelgaas@google.com, jingoohan1@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	alim.akhtar@samsung.com, vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de, 
-	m.szyprowski@samsung.com, jh80.chung@samsung.com, 
-	'Pankaj Dubey' <pankaj.dubey@samsung.com>
-Subject: Re: [PATCH 04/10] PCI: exynos: Add platform device private data
-Message-ID: <fty3sp3brzpcs6jeqg6yxiwgpbyqogxqt5mo7owiw4vkl7vj2j@b33zfdizuy4d>
-References: <20250518193152.63476-1-shradha.t@samsung.com>
- <CGME20250518193239epcas5p4cb4112382560f38ad9708e000eb2335f@epcas5p4.samsung.com>
- <20250518193152.63476-5-shradha.t@samsung.com>
- <20250521-cheerful-spiked-mackerel-ef7ade@kuoka>
- <0e2301dbcef4$42969af0$c7c3d0d0$@samsung.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0e2301dbcef4$42969af0$c7c3d0d0$@samsung.com>
+	id 1uPzIQ-0000000Fi3U-08Os
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 07:57:56 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1749801470;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=L+YN4MTZBkTzMLCaO2wC4gmmUGZnS4C1FG9BefD5M2o=;
+	b=sG6q1yaomuV3OMNUoQqhkbuH1Xcj2p7del+A7bay2fusZru9OEE8vWFR9UthMbY3VpLLfI
+	FUolafPTe92AVJjXi4pi5inFQskTUn+5VcHL1uolO93tIKvk8tlCvfrwE0e3akdsHhcC8V
+	xULhpn0qpRQt3dVp2ppv0jcfC8bE3yRFWAhE3OIwjSlJd+fb0tB+Svm/dPDtaN8FVUic8Q
+	AlUuSwdrSq1M+QGe+Yic0cPdymG4mu6zz0PJ+rqKgAXWDJlPscQ3e8bvOMPMPVcUGhiwnQ
+	jVaBmQpd3KW1TkF59UGitXhqsK7wY8V8Q1vheo3YthkTxgD8q+/QVo+u1ZZMvg==
+Content-Type: multipart/signed;
+ boundary=8d0444eb434897e482c102aa76e1f2eca706077e00be5351cd2962a65c42;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 13 Jun 2025 09:57:32 +0200
+Message-Id: <DAL8UI7TH6IJ.2EVGYOYRQSS89@cknow.org>
+Cc: <linux-crypto@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, "Corentin Labbe" <clabbe@baylibre.com>,
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 3/7] crypto: testmgr - replace
+ CRYPTO_MANAGER_DISABLE_TESTS with CRYPTO_SELFTESTS
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Eric Biggers" <ebiggers@kernel.org>
+References: <20250505203345.802740-1-ebiggers@kernel.org>
+ <20250505203345.802740-4-ebiggers@kernel.org>
+ <DAJOCL4UQWZ1.2CB0NH55US5EI@cknow.org> <20250611163430.GA1254@sol>
+In-Reply-To: <20250611163430.GA1254@sol>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_020505_846513_CA471982 
-X-CRM114-Status: GOOD (  26.25  )
+X-CRM114-CacheID: sfid-20250613_005754_782101_94272708 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,92 +74,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 27, 2025 at 04:13:58PM +0530, Shradha Todi wrote:
-> 
-> 
-> > -----Original Message-----
-> > From: Krzysztof Kozlowski <krzk@kernel.org>
-> > Sent: 21 May 2025 15:15
-> > To: Shradha Todi <shradha.t@samsung.com>
-> > Cc: linux-pci@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.or;
-> > linux-kernel@vger.kernel.org; linux-phy@lists.infradead.org; manivannan.sadhasivam@linaro.org; lpieralisi@kernel.org;
-> > kw@linux.com; robh@kernel.org; bhelgaas@google.com; jingoohan1@gmail.com; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > alim.akhtar@samsung.com; vkoul@kernel.org; kishon@kernel.org; arnd@arndb.de; m.szyprowski@samsung.com;
-> > jh80.chung@samsung.com; Pankaj Dubey <pankaj.dubey@samsung.com>
-> > Subject: Re: [PATCH 04/10] PCI: exynos: Add platform device private data
-> > 
-> > On Mon, May 19, 2025 at 01:01:46AM GMT, Shradha Todi wrote:
-> > > -static const struct dw_pcie_ops dw_pcie_ops = {
-> > > +static const struct dw_pcie_ops exynos_dw_pcie_ops = {
-> > >  	.read_dbi = exynos_pcie_read_dbi,
-> > >  	.write_dbi = exynos_pcie_write_dbi,
-> > >  	.link_up = exynos_pcie_link_up,
-> > > @@ -279,6 +286,7 @@ static int exynos_pcie_probe(struct
-> > > platform_device *pdev)  {
-> > >  	struct device *dev = &pdev->dev;
-> > >  	struct exynos_pcie *ep;
-> > > +	const struct samsung_pcie_pdata *pdata;
-> > >  	struct device_node *np = dev->of_node;
-> > >  	int ret;
-> > >
-> > > @@ -286,8 +294,11 @@ static int exynos_pcie_probe(struct platform_device *pdev)
-> > >  	if (!ep)
-> > >  		return -ENOMEM;
-> > >
-> > > +	pdata = of_device_get_match_data(dev);
-> > > +
-> > > +	ep->pdata = pdata;
-> > >  	ep->pci.dev = dev;
-> > > -	ep->pci.ops = &dw_pcie_ops;
-> > > +	ep->pci.ops = pdata->dwc_ops;
-> > >
-> > >  	ep->phy = devm_of_phy_get(dev, np, NULL);
-> > >  	if (IS_ERR(ep->phy))
-> > > @@ -363,9 +374,9 @@ static int exynos_pcie_resume_noirq(struct device *dev)
-> > >  		return ret;
-> > >
-> > >  	/* exynos_pcie_host_init controls ep->phy */
-> > > -	exynos_pcie_host_init(pp);
-> > > +	ep->pdata->host_ops->init(pp);
-> > >  	dw_pcie_setup_rc(pp);
-> > > -	exynos_pcie_start_link(pci);
-> > > +	ep->pdata->dwc_ops->start_link(pci);
-> > 
-> > One more layer of indirection.
-> > 
-> > Read:
-> > https://lore.kernel.org/all/CAL_JsqJgaeOcnUzw+rUF2yO4hQYCdZYssjxHzrDvvHGJimrASA@mail.gmail.com/
-> > 
-> 
-> I went through this thread and the solution to avoid redirection seems to be:
-> 1. Make the common parts into a library that each driver can call
-> 2. When there is barely anything in common, make a separate driver
-> 
-> From my understanding of these 2 drivers, there is hardly anything that can go into common library
-> 1. host_init, dbi_read, dbi_write these ops have completely different flow
-> 2. link_up, start_link have similar flow but different register offsets
-> 3. write_dbi2 and stop_link is not implemented for exynos but needed for FSD
-> 4. Resources are different - FSD does not have regulator, Exynos5433 does not have syscon, FSD has msi IRQ vs exynos5433 has legacy
-> 5. Exynos is host only whereas FSD is dual mode controller.
-> 
-> I don’t see any other way except redirection, or using lots of if(variant == FSD) which is also discouraged.
+--8d0444eb434897e482c102aa76e1f2eca706077e00be5351cd2962a65c42
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Please wrap your replies to 80 columns.
+On Wed Jun 11, 2025 at 6:34 PM CEST, Eric Biggers wrote:
+> On Wed, Jun 11, 2025 at 01:41:06PM +0200, Diederik de Haas wrote:
+>> On Mon May 5, 2025 at 10:33 PM CEST, Eric Biggers wrote:
+>> > The negative-sense of CRYPTO_MANAGER_DISABLE_TESTS is a longstanding
+>> > mistake that regularly causes confusion.  Especially bad is that you c=
+an
+>> > have CRYPTO=3Dn && CRYPTO_MANAGER_DISABLE_TESTS=3Dn, which is ambiguou=
+s.
+>> >
+>> > Replace CRYPTO_MANAGER_DISABLE_TESTS with CRYPTO_SELFTESTS which has t=
+he
+>> > expected behavior.
+>> >
+>> > The tests continue to be disabled by default.
+>> > ---
+>> >  <snip>
+>>=20
+>> I built a 6.16-rc1 kernel [1] and its config is based upon Debian's and
+>> that has enabled CRYPTO_SELFTESTS [2] (due to Debian bug 599441 [3]).
+>>=20
+>> I then installed it on 3 Rockchip based devices and booted into that.
+>> 1. Radxa Rock 5B (rk3588)
+>> 2. PINE64 Quartz64 Model B (rk3568)
+>> 3. PINE64 RockPro64 (rk3399)
+>>=20
+>> The filtered dmesg output for Rock 5B:
+>> ERROR:
+>> [    0.709822] basic hdkf test(hmac(sha256)): failed to allocate transfo=
+rm: -2
+>> WARNING:
+>
+> https://lore.kernel.org/r/20250610191600.54994-1-ebiggers@kernel.org/ fix=
+ed the
+> HKDF failure.  It was caused by a patch that changed initcall levels.
+>
+>> [    8.877288] alg: skcipher: skipping comparison tests for xctr-aes-ce =
+because xctr(aes-generic) is unavailable
+>
+> That's expected if you have CONFIG_CRYPTO_AES_ARM64_CE_BLK enabled but
+> CONFIG_CRYPTO_XCTR disabled.  Some tests are skipped in that case.
 
-> 
+Happy to report that with that patch and that config option, the error
+and warning are now gone. Thanks :-)
 
-IMO it is OK to have the callbacks for cases like this. This is also similar to
-Qcom driver where each SoC requires custom register updates and going by the
-common library or a new driver wouldn't be feasible.
+PULL request for the patch is already sent to Linus:
+https://lore.kernel.org/linux-crypto/aEupSzhTI4h8kz-5@gondor.apana.org.au/
 
-> And about making it a different driver altogether, I'm completely okay to do so. In fact we had previously tried to post it as a
-> different driver which was rejected.
-> 
+>> [   14.172991] alg: ahash: rk-sha1 export() overran state buffer on test=
+ vector 0, cfg=3D"import/export"
+>> [   14.202291] alg: ahash: rk-sha256 export() overran state buffer on te=
+st vector 0, cfg=3D"import/export"
+>> [   14.230887] alg: ahash: rk-md5 export() overran state buffer on test =
+vector 0, cfg=3D"import/export"
+>
+> That means the Rockchip crypto driver is broken.
 
-No, please do not create a new driver, that is another maintainer burden.
+The crypto driver for rk3399 is still broken.
 
-- Mani
+> Anyway, the more interesting part of your email is that you pointed out t=
+hat
+> Debian has the crypto self-tests enabled, precisely in order to automatic=
+ally
+> disable buggy drivers like these.
+>
+> So I'll send a patch that adds back a kconfig knob to run the fast tests =
+only,
+> which I had removed in commit 698de822780f.
 
--- 
-மணிவண்ணன் சதாசிவம்
+I responded about this to a new patch submission here:
+https://lore.kernel.org/linux-crypto/DAJXJHLY2ITB.3IBN23DX0RO4Z@cknow.org/
+and v2 of that patch can be found here:
+https://lore.kernel.org/linux-crypto/20250612174709.26990-1-ebiggers@kernel=
+.org/
+
+Cheers,
+  Diederik
+
+--8d0444eb434897e482c102aa76e1f2eca706077e00be5351cd2962a65c42
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaEvZ9AAKCRDXblvOeH7b
+bgePAP4+kEWYKZ1eqayKsFe8tBfUVxnfdStRKU8Qr/95saO95wEApLF/txTDorHT
+OXmTzRTcsInQy9LVjH2/+08cAly/KQs=
+=NvpI
+-----END PGP SIGNATURE-----
+
+--8d0444eb434897e482c102aa76e1f2eca706077e00be5351cd2962a65c42--
 
