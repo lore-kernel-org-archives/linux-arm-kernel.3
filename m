@@ -4,68 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00773C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 15:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C10C71153
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 15:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9S0PRQYIzJ71HyYKuyuDHFoDnhVAjXRU7hWTT6uJjk=; b=r+pM1K27ejFLsUN79E1C/el4V2
-	vcL9mhlRpiCgOLsYL63YZFp5UyXmaHmbzBLTyS/7HCm5+YQPMpMaiM1XlVhZHMD2HKDSKRUjd/gnI
-	2aRQCKcupjTmnUrR4AT6UlglOSof8XSQSJcPNh0djJ6mofaH8cXmgTCM464z4HOvFYxQEF9paAizd
-	XMrw4/K2bfD1X2L/pRXz5Vq8/Ph+NoRiHVEefRRVYDRF0WSaRHOLAuYYUnmXr0Bu7g3aWghDx+mov
-	m6bSGT/42c0mlWK2MIMZqHvpK2KTdH07kUPwAzoc94LKxDtllUDJh671bJibGM8Ihp3qD9Bwv13E3
-	cEa6nl6w==;
+	bh=bGVqaU+Que4M9qvQmzpxGWFZ1E/ComP2nHfd9io9TGU=; b=q848gl/QNkoRP34xVtSFCHdEMn
+	VRBmdbq6StxhDh0A7wYlGd99YbNwBL8JMpU9lZ8tEdz0aYErqBzTKobHMKQF7C6v1YAqB7oN/Lsbe
+	RCxGjivhGAtsSBV4xtWx0+HFyVohtmZSLTUMyots7iQ5ElfJATIOhzexzshIOQ7PoglWVrD2dCl+P
+	fJqSJS7dpkwg24fa9yV1VcCYQPHzub+lqBQgZpofLCsPCe7JdxmTsohUzSm8zEmkllhn1wrwEMvo5
+	TtW3mLN6AJyyjXHZ7PeZyK+fMf/NOjaAOcttMzzJn/G0eyDxRni6w8VmoDzszy/6v3wldrFVsv9f4
+	6aS4O9Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6TB-0000000GtuM-19i5;
-	Fri, 13 Jun 2025 15:37:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uQ6VF-0000000GuDH-2LkA;
+	Fri, 13 Jun 2025 15:39:38 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5Xx-0000000GiYB-14Cq
+	id 1uQ4mC-0000000GYoN-3Xqx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 14:38:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F09EF5C6B45;
-	Fri, 13 Jun 2025 14:36:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA6CEC4CEE3;
-	Fri, 13 Jun 2025 14:38:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749825500;
-	bh=72UKJbZgygU3I/7FaNc+D1AwlBQQCsQR3FH9DEz2Bjw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u0NS+mN8VCm4FKZwvLmvdn8xaDq9PJGtAn4HpElss4XdTXDrBW6bMr4C+yYQO0Lm0
-	 tBZrgumJJHZi/a0DYkLgTvGcBx/+B9FkVxNs6KKsQ7Z48YXuHQ1ELCrxDGT0n+ZfHZ
-	 f7q2ucRnB0fpTwiOnAn78gmPhc1zLH3kpUX7ghVhqmNm8AqW5D/wtxJV00AlNrMWCm
-	 DUMOm4eP7buiAYzEnoVLSUGMyi8cR1svDggvdzhmJiX2fGlLbFzhG2ztbd6lj/9QWC
-	 kbDCwB8Og/kulnim7UGJERtyTCmO7tVwGWSxLtDTZvwrz+70ZTX5SD8k7bXP9gpDMD
-	 JA0HaiKUfIALQ==
-From: Sven Peter <sven@kernel.org>
-To: Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>,
+	Fri, 13 Jun 2025 13:49:02 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 20A3B442CB;
+	Fri, 13 Jun 2025 13:48:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749822539;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bGVqaU+Que4M9qvQmzpxGWFZ1E/ComP2nHfd9io9TGU=;
+	b=Hg1YrEqFq8YxJIEZNa8SZlOwoofL+G2t43urtdlT4z/gLcAQM+xlmhA9/Jlz9B7PoluI+A
+	f0akg42zyOfdhobiT9ciiVs089LMz1FUsmpGNOZS60jdWFVGCjfrPAOzohvgmH2a5QpHi8
+	FK7v/5OZLOdbWYGNd+13UO3jCyUS8h6hLWP3YBrO2BiS9TIEkidOjgkXtVquFYrWEm1HAs
+	2rlkgY3yD+cNLLWYUOosi9UUKBBsO4qAMdhajY1XxYKrHr1xymp7DzD2q6nd2uTu5Fwp+7
+	MlKNzeafqMzjI/zTi0PZPIQbrG9rNxmx8JPpDoix+PylIr6mgLjVo5uPvdEPJg==
+From: Herve Codina <herve.codina@bootlin.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Herve Codina <herve.codina@bootlin.com>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sven Peter <sven@kernel.org>
-Cc: asahi@lists.linux.dev,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: apple: Drop {address,size}-cells from SPI NOR
-Date: Fri, 13 Jun 2025 16:38:11 +0200
-Message-Id: <174982533895.547352.10071865015714260186.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250610-apple-dts-warnings-v1-1-70b53e8108a0@kernel.org>
-References: <20250610-apple-dts-warnings-v1-1-70b53e8108a0@kernel.org>
+	linux-pci@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-cxl@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: [PATCH v3 06/28] driver core: fw_devlink: Introduce fw_devlink_set_device()
+Date: Fri, 13 Jun 2025 15:47:46 +0200
+Message-ID: <20250613134817.681832-7-herve.codina@bootlin.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250613134817.681832-1-herve.codina@bootlin.com>
+References: <20250613134817.681832-1-herve.codina@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeduudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehffeigfejueelueeuffelueefgfelhfejhfehieegudekteeiledttdfhffekffenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdrlhhotggrlhguohhmrghinhdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeelpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhr
+ ghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_073821_336420_1D14FCEE 
-X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-CacheID: sfid-20250613_064901_012823_16AD14BE 
+X-CRM114-Status: UNSURE (   8.98  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,21 +122,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Setting fwnode->dev is specific to fw_devlink.
 
-On Tue, 10 Jun 2025 19:19:24 +0000, Sven Peter wrote:
-> Fix the following warning by dropping #{address,size}-cells from the SPI
-> NOR node which only has a single child node without reg property:
-> 
-> spi1-nvram.dtsi:19.10-38.4: Warning (avoid_unnecessary_addr_size): /soc/spi@235104000/flash@0: unnecessary #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg" property
-> 
-> 
+In order to avoid having a direct 'fwnode->dev = dev;' in several
+place in the kernel, introduce fw_devlink_set_device() helper to perform
+this operation.
 
-Applied, thanks!
+Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+---
+ include/linux/fwnode.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-[1/1] arm64: dts: apple: Drop {address,size}-cells from SPI NOR
-      commit: 811a909978bf59caa25359e0aca4e30500dcff26
-
-Best regards,
+diff --git a/include/linux/fwnode.h b/include/linux/fwnode.h
+index a921ca2fe940..a1345e274125 100644
+--- a/include/linux/fwnode.h
++++ b/include/linux/fwnode.h
+@@ -231,4 +231,10 @@ void fw_devlink_purge_absent_suppliers(struct fwnode_handle *fwnode);
+ void fw_devlink_refresh_fwnode(struct fwnode_handle *fwnode);
+ bool fw_devlink_is_strict(void);
+ 
++static inline void fw_devlink_set_device(struct fwnode_handle *fwnode,
++					 struct device *dev)
++{
++	fwnode->dev = dev;
++}
++
+ #endif
 -- 
-Sven Peter <sven@kernel.org>
+2.49.0
+
 
