@@ -4,86 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C7AC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 08:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA8BC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 08:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z2jx2sNLNoJ0ygGTf3Y8T5QDDcxRyAG0f6aRQMfMYKs=; b=jpwzWdy9vFNk4KYyQuQjCDBWAb
-	1jZhvo6iPPoIGTPniEiiBa6N3v+fIQ5Hw6kjG1b+x7rXnUlAOP7ynKjSq6qhE2dt6BZa8XLdav9q6
-	u4m6WZKj8KX+kBoOlVUhsrGWaYC6+KIziUMmViMy+zsGHacefympUMbMPoFpIDKFI7CHfhcNz9CD1
-	Uhw6K9Jp9TcwpUu86r4qsFz4QWWaNqCp2H8i6CSqUsUSzoFaKn+74Os+dnUS19heayZwM1b7BQS5n
-	EawaHCXewkrsBZMklkB67AXEoK8vJomM8H+wtVVX2qXryOAt1bkvZPE2jJdXnNuXZoeRxmLhfq8Ea
-	lqvuRZ7A==;
+	bh=4i/uycGc9IMJTkT+aPn3NiUgZauSdlLEx0uEl81rWwk=; b=utlo0jKIBFxMLxVlVypkctbIWi
+	axdz+WpReIW+2bLmFVnHgHoitBRioir2zWDCetjV1i7VPcdNu/8o/faoVlbsKkoEqhDOFDt3ZLS56
+	0R54ssrTxFqdMQIzAGc8d0Kpo6BgwOiFWfaFOti0DfdteYqWuZEl2ER7rr8RohAKXeG/VZYqPNFy9
+	P7Uld+390GSNthLV4JJury0FjWDyUqYMXWtIddaJxqch2CZI7SWHlyKOnk6jA8R0pvQciWFizq5Du
+	6I5e46vr+/U33LRamZFSnhhTFVska8OZP98K5XDVuyLxU1D0cGPjFYCh8PCCWRPxCyTrkN909mQVF
+	Tq8nJnTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ01B-0000000Fmav-283T;
-	Fri, 13 Jun 2025 08:44:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uQ0Ah-0000000Foyd-1IqQ;
+	Fri, 13 Jun 2025 08:53:59 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzwf-0000000FmE3-1s7a;
-	Fri, 13 Jun 2025 08:39:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=z2jx2sNLNoJ0ygGTf3Y8T5QDDcxRyAG0f6aRQMfMYKs=; b=rQ36yDZorSY7w6v0mymR9sfvfh
-	CcQUwIpKYppDnk1uAQSm0A2Q799yQMAXL9NNLdn47N9HHM1TTX/zkct6HHOz+kRFU0v9J313BSZ4H
-	TFuVa7LpqbT533KNTTBfs3OpZVXhwLn0anuLlayzf4R1l8Q6PAVQKdrisWneB5Ga5pQ7e+fV05O12
-	HFphSAAxRU025PdXIJqQcKlgtovHAsL6DAI+ssR7evOY75PdKD073uA5PHMprMnEzvIJChA0e4m1b
-	2vmcLPNRFcbAtL5w4ZL/s3mSY464DsjOSXCwXLLmoaSTJQTjfwxdKZctgB7hM9qeRYmaX6wvcdDXq
-	PLqrxOdw==;
-Received: from abb.hmeau.com ([144.6.53.87])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzwc-00000002vu0-1MtR;
-	Fri, 13 Jun 2025 08:39:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=z2jx2sNLNoJ0ygGTf3Y8T5QDDcxRyAG0f6aRQMfMYKs=; b=Dqacu+sT7ilY3QllsgF/kbefo0
-	GdITohgE0nQBt/EYnqx4lHQgvV4Dv6F1wIU9eQAl4ci4vNvkw5yOCf/xRMQJjk97CC1+WtFXiNmt9
-	ng1hmwEm7mvHCGCLGIPB7Y0qihOstz/KTuCJv0q+xNXMeFq9dhAhp2IxaG8qNR9AHI2DHj2vAxXXY
-	9q/fvfkAp4GpD+vKUtKur21el66NXn0IUE0vQ7byU41Bhod/OxxMR6yFo6zPsd6p9ujY4MfOYL0b3
-	Wtj8YQibzup0USfdWJ89Ve02aoDvW+cit1BycTBi4ecJ+kNE+EJ8cz7FFwUxzo64ntpSAv/kuwscm
-	zwvheCug==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1uPzwM-00Cs6f-1z;
-	Fri, 13 Jun 2025 16:39:11 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 13 Jun 2025 16:39:10 +0800
-Date: Fri, 13 Jun 2025 16:39:10 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Jason@zx2c4.com, torvalds@linux-foundation.org
-Subject: Re: [PATCH 07/16] crypto: sha512 - replace sha512_generic with
- wrapper around SHA-512 library
-Message-ID: <aEvjrhkLnB_GEKnV@gondor.apana.org.au>
-References: <20250611020923.1482701-8-ebiggers@kernel.org>
- <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
- <20250611033957.GA1484147@sol>
- <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
- <20250611035842.GB1484147@sol>
- <20250613053624.GA163131@sol>
- <aEu5cyDOMcKteW_b@gondor.apana.org.au>
- <20250613055439.GB163131@sol>
- <CAMj1kXEDCRfCgvtuhRc+a=m1kVt-zkcCqi_=_WOFTmt4Hz2gGg@mail.gmail.com>
+	id 1uQ08P-0000000FoWd-1Yjg
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 08:51:38 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-450dd065828so14839385e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 01:51:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749804695; x=1750409495; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4i/uycGc9IMJTkT+aPn3NiUgZauSdlLEx0uEl81rWwk=;
+        b=Ic3Ud6i1jJL0fK0Tvbn/Su7hJCJ0AbVYYFWHk2lCshAkntiGq8mVJeiKxXgOwQbDEp
+         ACt6ExCyYU2Me2AL1YyjNMABHwdt3IqZwel/VjvNk/v7VUH6Di9NsD1qWlM274WjsKde
+         lBf6jro+bxSoEWXisLsHuKEaCq8gTBPkFBav9vkbiComqG/CuV7UX2KUh8VIbAr9KSLK
+         X2Ykh8Mlevvi+sFxGqKndLKvPynya+jNFPAK0CaeAENSR/AyGL+sXl/FBQYmfMJI/xFJ
+         SnPT+lDeGfcHn79SPWxfxOA4N88Op95kOoGZD/VCaKU4tP8TxI+s37ii2KkGBBUurk9t
+         2CAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749804695; x=1750409495;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=4i/uycGc9IMJTkT+aPn3NiUgZauSdlLEx0uEl81rWwk=;
+        b=hUdPgiUueXBbWpBbwYATuuKiRinDH9jfHhpLen9pBUd4xwFfZ6Cln8c1G7nl3Y5DOO
+         UXQovd02JBGnu4iTdFPTA0PQNecJES0f0DHSGGkZLfJMVycpKSqZwTPXMsk4wuFbqzzU
+         /xyCobgEMoYRGUInEv0IOeospTQQYVSmZUyFQG1QLt5fIKczNFLKFXlXypjWUWgKek25
+         7bwE2I6JT60lZW2Bnx/21Y6liMTzt2PhZR+gOqsJd6QONcX7ToNKk4t9fR5Vaqyii8ce
+         qA4Lt3Pnrqojh2l5Aym0PKQ6w6rQ1t3JucTvcIpLJ9VQAAU4pXbiNGd/kvUeMPakTR7y
+         orVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVJVsW/0QitF7x2dWmGi8rdOKd1CKkICcRs+WYTieWKerFVsPEFG3zUVhv+cZebijxhU1hMbzRqGX4XgFIoClqL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyF7LVeXxQhYb6WgMPDuuPI0li6z3HBiltA/JwzzPGu50PFmEdA
+	nnry9/s1fl8WB2BFFoBg4rkwXqGVbDXCxzzSNSAXQzj5tGn4NGB95SJVxFG+WarkRAY=
+X-Gm-Gg: ASbGncuKPfnuenFU+A8TzRdvxvOvaIdXR5SPQGLYDCoMT0B3pZWw3KD/Yl7J7mnUziz
+	PPHcwDY//6G7wf+S62R0voLlyN855SE60snXD5Qp3q5hAjXjf6Cre56whP/sz1L6PAePADt4rnM
+	SX6wKqoGCZTg2cuHl6kwg1RFRaBbRGb9qmtWF/LV8CzIu1Se3OLgYtxtp6JhbrDYlspwc/g4w3M
+	bIwFqDq3Qp++Qm0tZzJyWcMcbHyMnH7rHTZ5qR7cMGyqukAzAJQDJ1DKYb3lq1H7G0K4Zd+Wb5g
+	PFuqo+4gBFtXOnL9FYTqzVwPOos0s3ba1BtuDYhpj2+yRZPd5Ha4nSzNdFsB3ieUBUwC/5eNb8C
+	1Z4NZpNIf8AVBLdDsztMX9zQ3f5GhxBJI1cgKh4c=
+X-Google-Smtp-Source: AGHT+IEUAqqXCa6QukFfprZqmstdAPX/2X+IrxwAqf6HoHLLDv2NyKBWx+d7mBvUd0+CFYb9GJHC/Q==
+X-Received: by 2002:a05:6000:4313:b0:3a4:dc2a:924e with SMTP id ffacd0b85a97d-3a5686e4794mr1735144f8f.6.1749804694922;
+        Fri, 13 Jun 2025 01:51:34 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae? ([2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54a63sm1721189f8f.11.2025.06.13.01.51.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Jun 2025 01:51:34 -0700 (PDT)
+Message-ID: <e0ce89fd-456d-4ef2-bf8a-0ea0f1e646ef@linaro.org>
+Date: Fri, 13 Jun 2025 10:51:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXEDCRfCgvtuhRc+a=m1kVt-zkcCqi_=_WOFTmt4Hz2gGg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v4 2/4] phy: rockchip: usbdp: move orientation handling
+ further down
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>
+Cc: Alexey Charkov <alchark@gmail.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
+ <20250610-rk3576-sige5-usb-v4-2-7e7f779619c1@collabora.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250610-rk3576-sige5-usb-v4-2-7e7f779619c1@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_093926_426959_134371B1 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250613_015137_425091_7669862F 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,29 +134,141 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 09:38:11AM +0200, Ard Biesheuvel wrote:
->
-> Perhaps I am just slow, but could you please explain again what the
-> point is of all these changes?
+On 10/06/2025 16:07, Nicolas Frattaroli wrote:
+> The orientation handling code isn't referenced until very far down the
+> driver code.
 > 
-> Where is h/w accelerated ahash being used to the extent that it
-> justifies changing all this existing code to accommodate it?
+> Move it down some ways so it can later reference other driver functions
+> without needing forward declarations.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>   drivers/phy/rockchip/phy-rockchip-usbdp.c | 100 +++++++++++++++---------------
+>   1 file changed, 50 insertions(+), 50 deletions(-)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> index c066cc0a7b4f10fc3cd8779323c369360893520d..fff54900feea601c8fe6bf4c7123dfebc5661a15 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> @@ -651,56 +651,6 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+>   	udphy->mode = UDPHY_MODE_DP_USB;
+>   }
+>   
+> -static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+> -				 enum typec_orientation orien)
+> -{
+> -	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
+> -
+> -	mutex_lock(&udphy->mutex);
+> -
+> -	if (orien == TYPEC_ORIENTATION_NONE) {
+> -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+> -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+> -		/* unattached */
+> -		rk_udphy_usb_bvalid_enable(udphy, false);
+> -		goto unlock_ret;
+> -	}
+> -
+> -	udphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
+> -	rk_udphy_set_typec_default_mapping(udphy);
+> -	rk_udphy_usb_bvalid_enable(udphy, true);
+> -
+> -unlock_ret:
+> -	mutex_unlock(&udphy->mutex);
+> -	return 0;
+> -}
+> -
+> -static void rk_udphy_orien_switch_unregister(void *data)
+> -{
+> -	struct rk_udphy *udphy = data;
+> -
+> -	typec_switch_unregister(udphy->sw);
+> -}
+> -
+> -static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
+> -{
+> -	struct typec_switch_desc sw_desc = { };
+> -
+> -	sw_desc.drvdata = udphy;
+> -	sw_desc.fwnode = dev_fwnode(udphy->dev);
+> -	sw_desc.set = rk_udphy_orien_sw_set;
+> -
+> -	udphy->sw = typec_switch_register(udphy->dev, &sw_desc);
+> -	if (IS_ERR(udphy->sw)) {
+> -		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
+> -			PTR_ERR(udphy->sw));
+> -		return PTR_ERR(udphy->sw);
+> -	}
+> -
+> -	return devm_add_action_or_reset(udphy->dev,
+> -					rk_udphy_orien_switch_unregister, udphy);
+> -}
+> -
+>   static int rk_udphy_refclk_set(struct rk_udphy *udphy)
+>   {
+>   	unsigned long rate;
+> @@ -1451,6 +1401,56 @@ static struct phy *rk_udphy_phy_xlate(struct device *dev, const struct of_phandl
+>   	return ERR_PTR(-EINVAL);
+>   }
+>   
+> +static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+> +				 enum typec_orientation orien)
+> +{
+> +	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
+> +
+> +	mutex_lock(&udphy->mutex);
+> +
+> +	if (orien == TYPEC_ORIENTATION_NONE) {
+> +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+> +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+> +		/* unattached */
+> +		rk_udphy_usb_bvalid_enable(udphy, false);
+> +		goto unlock_ret;
+> +	}
+> +
+> +	udphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
+> +	rk_udphy_set_typec_default_mapping(udphy);
+> +	rk_udphy_usb_bvalid_enable(udphy, true);
+> +
+> +unlock_ret:
+> +	mutex_unlock(&udphy->mutex);
+> +	return 0;
+> +}
+> +
+> +static void rk_udphy_orien_switch_unregister(void *data)
+> +{
+> +	struct rk_udphy *udphy = data;
+> +
+> +	typec_switch_unregister(udphy->sw);
+> +}
+> +
+> +static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
+> +{
+> +	struct typec_switch_desc sw_desc = { };
+> +
+> +	sw_desc.drvdata = udphy;
+> +	sw_desc.fwnode = dev_fwnode(udphy->dev);
+> +	sw_desc.set = rk_udphy_orien_sw_set;
+> +
+> +	udphy->sw = typec_switch_register(udphy->dev, &sw_desc);
+> +	if (IS_ERR(udphy->sw)) {
+> +		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
+> +			PTR_ERR(udphy->sw));
+> +		return PTR_ERR(udphy->sw);
+> +	}
+> +
+> +	return devm_add_action_or_reset(udphy->dev,
+> +					rk_udphy_orien_switch_unregister, udphy);
+> +}
+> +
+>   static int rk_udphy_probe(struct platform_device *pdev)
+>   {
+>   	struct device *dev = &pdev->dev;
+> 
 
-There are two separate changes.
-
-First of all the export format is being made consistent so that
-any hardware hash can switch over to a software fallback after
-it has started, e.g., in the event of a memory allocation failure.
-
-The partial block API handling on the other hand is about simplifying
-the drivers so that they are less error-prone.
-
-Cheers,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
