@@ -4,93 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C366C7114A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC0BC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Ea/eTX+P8wMCNrPfmeI34ssYwADQCsaNDUn6KV6aWI=; b=we8pfSnbJUj3DnjMclU/WQDy9B
-	GluZcZgbVEjIeGIqDXw7d7nqVBsxbz6GIxZGhxAoj6yU1GIGyzgg6NjEtAy0stbac6MjtzCF2lE3i
-	MbpetrevXwKgbgBHMpD1ejNMEdbyQNHwDSlPozPWPi21lKgkqw5DK8mN3AQV59YeoNy6AYjfQjY49
-	drC76n7PaBRi7B/z0UHPCH3pBybFvhm+4kKGrTKwoe6uBZbU4uHftYHwtn11/4m8aerte2PyPDBTI
-	toZMh1JyUpacZxLOfrU1xykVJdeHX3Uq5hlqLHz1r5HuCgP/2+tsOzRRZn0K+uB1RZsYVjmW/NMke
-	Quxsv2WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TP8f9H321cpDY7PjjNkFIXkN20w2DjJZC9sAvsk14TI=; b=QQZAjPSWnIgLEmDVCuyhH8rfbK
+	QH+oCvzbiXps4p8guZAuNQHRi/M8azwe0SaqJCb9UGZ+YvkEF8w8LoZH+kPv4fDJyDi8T7ChaPnd5
+	iK3cdytQDBI1P2FmIOh7xuL0tY/DDq2Fh8+Y5TRME1DLK4xiY2UTkPGcxaqSbvL5+/yAfbYTUqLDn
+	XViIkKz3w1Lg2PtJlDeQdbewLSK5RpuWJnMlltxzkQ/Zd5QQ5+fkLPbSnZWm+7xMBUvyUtNbX+9Yq
+	roxivlcI+qv0FUIdcfZxJ870kRxha1pqPfamoqtccpswQUeJ0URGHEv3uHAHcYXeBSMZHj2u+3vhd
+	GZjv1isg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBa8-000000003v2-3gdt;
-	Fri, 13 Jun 2025 21:05:00 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1uQBfh-000000005tA-2esW;
+	Fri, 13 Jun 2025 21:10:45 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBWv-000000003G6-1Tsq;
-	Fri, 13 Jun 2025 21:01:42 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-74849e33349so2412395b3a.3;
-        Fri, 13 Jun 2025 14:01:41 -0700 (PDT)
+	id 1uQBdV-000000005L7-3IwB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 21:08:31 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-60727e46168so4306011a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 14:08:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749848500; x=1750453300; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/Ea/eTX+P8wMCNrPfmeI34ssYwADQCsaNDUn6KV6aWI=;
-        b=aZt+My6eml+EMhy1M7EoigpbiVBUgYtdKi8bm0o9fLqXaash2PdAvgUdGuU1OpVnxG
-         pWV0ZP9aSxuW61SzbSAH+CS0DQhOL2R6g7B+xXOaZZxLKu38kxQATpr1+73J2x8fwFt4
-         CUZ6V5mSQAGpZ58/KCKDRo04JO9qcqknqQMz7G59n6jtUEBJAkA6tzAMSSa4XW5e7woe
-         DYYgHIQsbXxyM689KwgHTiz0BrcKm8/a/Ghb/CnEUSN1wT8oiWOYUNTD4Vn+E38X0FgE
-         wbDPAZXOYa0ojrvs1THi5/w2PypiOnQwmlZvdipYDqhnXaB00aT3Np2dITxpClrnNvN9
-         RdZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749848500; x=1750453300;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1749848908; x=1750453708; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/Ea/eTX+P8wMCNrPfmeI34ssYwADQCsaNDUn6KV6aWI=;
-        b=ag21Xvu3T2upMALNk5eJDAMGYB0UnbDEWQyyPZOCCoVA62jnZyiDYBabnYV6n0ovSD
-         gABIXVPN53lfrN++fxwc488oFWEv6N05bu/HM9aHP6Qtf0uMH+cdsO0F3H1EEfSqAF+U
-         pplpaGI4NYu70FwoVvyUrMA/L7spsXmVR6C5MXfrStZaiJGZJUoRSlKJOjfnfzavwOyZ
-         DKboA7taxTWDKVqbzcKSyME2ZHWSZjmw7GDJNfd6eAIklsbPYjSNylnRXe+ezDgbzqI/
-         JLNbradgYpozNzHWr6925TLJGDb2i2vWMz+QeVwEEAU442Sv+0z/Go3lhNPW41JSy6ky
-         hXQw==
-X-Forwarded-Encrypted: i=1; AJvYcCVVDe2acvV72aTL2pvBPR4DKcNawKQH7vLOcBvwefVxIxyfT9Z3npB1pAjTLXPw0/M4lryq9XyrK8kl@lists.infradead.org, AJvYcCVv7pixKLOUVuz+rq1QhjPFdkFBbpvHUc1NLNDKBSXcxM7vNyaDzmF20l/saZN7OSXIJJ1pkb9GAIhQJ/SbGAsJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwR20vo3uLd5u8nkP1zgRgdBnlf8VGWUkqeqbtdKGOOoQILAiHz
-	ikaeP7ITja9clf3KzjzOUXaSRBcXVCiFref8xtFNFG/LvtpWLrQOp39A
-X-Gm-Gg: ASbGncuCVLDejYn3dipvMmj2qYM3aSbZxfirN/9n3Cy/d/v0DT8bqThdLfB5iKsKFVx
-	k9hrrwtnW7iDkBZ05bV2cSz/oVbRlBg/huTaNfan0CM8JBo/2V6ojFzU7vmli5QnaIlzSCwbmwK
-	RNENWORBVt2Hq9smGs5atm1JLVt7OWSsgl02QPe54T0BCAbErtZQZLyUxpN+ejjiYDkaPLl6+3T
-	Q50GBlGgEo4nwvK8ZRolMbMWGFW3eiudrPMem7x1Xnm3S5O3elLPQxi/WUHKEG/CKhZxMCKJNbr
-	QrNyv5YdRhURjMkCeVMXDkRdYx+1UKgH5FdZdaKvQ7i2JqSQmcLE2tyv4J/R
-X-Google-Smtp-Source: AGHT+IEsJDU1mE5FbmCdQgmCN7qJMpOL0gk1MDx5GEVgrbcSEqjFwfTmcrPEttgVlM8tBhRjqtH0pg==
-X-Received: by 2002:a05:6a00:a85:b0:736:43d6:f008 with SMTP id d2e1a72fcca58-7489cffbb1emr1058801b3a.12.1749848500523;
-        Fri, 13 Jun 2025 14:01:40 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:84a2::dead:c001])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-748900051a6sm2111176b3a.42.2025.06.13.14.01.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 14:01:39 -0700 (PDT)
-Date: Fri, 13 Jun 2025 18:01:34 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RESEND RFC PATCH v4 1/5] PCI: rockchip: Use standard PCIe
- defines
-Message-ID: <aEyRrtMZ0LidhyOR@geday>
-References: <aEyJhoiPP0Ugm1t6@geday>
- <20250613205023.GA975137@bhelgaas>
+        bh=TP8f9H321cpDY7PjjNkFIXkN20w2DjJZC9sAvsk14TI=;
+        b=bm0vdm2WCUpdMbk4n8urvrxFpnbJZcKB4QT6kctifuVJRa/NJ1rxyxI0Gw8FOp6DCg
+         PODkKx5Odwq1XDTOjX1XGQsOBPVOdvYGod4cBEzZyAwIe4x8EPsxDpK/e9lTvFI4omQB
+         W/rt4LLlJsYXtcbEg2PcfI3iLD2aew1oGRFX+SoslfA5EMPQN9urFI75C2PSO6v6BdYV
+         KuugV5Eg9DQ30eQxis3pT/uWhF3/N+yFJNAmYz8O/kwH7l0o+bGholnyKktbwZKjywb3
+         wSvpq74rNYBw9goPygm+a0FzhJWnsWfq+AqhcMB1dNHRcAZmFg+hsJql2yu0G5K8OVCS
+         CLwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749848908; x=1750453708;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TP8f9H321cpDY7PjjNkFIXkN20w2DjJZC9sAvsk14TI=;
+        b=c9JHv+IBBqA6ErIqgzuYz1TVYxX4dxwihJFS7m191X2NEaI2n3U7ZUWpKLlaMQuM/u
+         +rtPZcNuCBLoUDxzvLj7M/zwd7zx0aLXrfuqo1/XGHR75QpPS/9Rc/OHrt4zLQNJ7yIj
+         eJVV83GYvp3DQzF9v7kyaHfrTQIYL1yzNh+DYqsV65qYcuoUK40bxNiv2JIwFxvb+arO
+         efH8fldX35P5OQp9FXgi+H6d0j5c8ja3+qhokrCI10ozyaIiqnANNEyoGK9vGJKCn5YL
+         HU6rw+mvxqWpkccUDzO3Dn1Z7cmVsIvjcnhjD6QKQkdO2IyXvyWkTCrRvTN2snAFAcjH
+         HQug==
+X-Forwarded-Encrypted: i=1; AJvYcCV2uaf+D1Smdn+hxjr5qwSjwGPwPYarATO+VyzJw182MDwgoZ2Y1pIftKJc69MqaYhMBNTULHWLk6oVpI1qeR8e@lists.infradead.org
+X-Gm-Message-State: AOJu0YylHTPq+dsC14Dpk356WWaS/NFuppUJurrzRb1WSnrD2HCGO/lP
+	a19BgtFyP4ToK3++70i8N3pLjkAczHcb0h6bdwAuayChjxUnMvU6Du4Jy+XSUu4BiRP9KPMEZB+
+	6rJZSu5FpCsh2PF4apFQI6dhGqPIVDSVKxTYn
+X-Gm-Gg: ASbGncsZPIIFmH+XCQRhN8rZzwVHgjNymf9vHYwl1D9RY0JKJjcmFDCuXwqS+Wb27LQ
+	Pvis9FE0yfZnLrYP8oixDuDUbZFBpkPy1ujHBGfyT7VGLQnwarJADWESgm+fIVNZxTUp7AdlT+F
+	tFeAk+zlaQLH5+tW/ymMKvohYLwp4JNNe81m5v7obOiDdYEsvhYs3kQQ==
+X-Google-Smtp-Source: AGHT+IFsWY5YZ3lvdRtP1H251UQ0HMURmtDSi0LBfNR1vwvh677WfY0+mwSxId1SrjTaSFF8a7NweFe3vpJ7+cNMcf8=
+X-Received: by 2002:a17:907:9801:b0:adb:1804:db93 with SMTP id
+ a640c23a62f3a-adfad4f61femr57095366b.49.1749848907663; Fri, 13 Jun 2025
+ 14:08:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250613205023.GA975137@bhelgaas>
+References: <20250613181312.1269794-1-miquel.raynal@bootlin.com>
+In-Reply-To: <20250613181312.1269794-1-miquel.raynal@bootlin.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Sat, 14 Jun 2025 00:07:51 +0300
+X-Gm-Features: AX0GCFsiAqLiq2Z0quLAABeTm2pe1sVJI7AxoQc4QuY0ns9mKyO4ue_CKtpYGMg
+Message-ID: <CAHp75VcfaU41FV-uN=82GdUqRadxYc6XaLX2Hr9x-4RfAV8CEg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: nuvoton: Fix boot on ma35dx platforms
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Steam Lin <stlin2@winbond.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_140141_391984_1769EB5B 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250613_140829_823466_C8043B55 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,30 +96,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 03:50:23PM -0500, Bjorn Helgaas wrote:
-> I don't have access to any of these TRMs, so I only know what's in the
-> driver.
-> 
+On Fri, Jun 13, 2025 at 9:13=E2=80=AFPM Miquel Raynal <miquel.raynal@bootli=
+n.com> wrote:
+>
+> As part of a wider cleanup trying to get rid of OF specific APIs, an
+> incorrect (and partially unrelated) cleanup was introduced.
+>
+> The goal was to replace a device_for_each_chil_node() loop including an
+> additional condition inside by a macro doing both the loop and the
+> check on a single line.
+>
+> The snippet:
+>
+>         device_for_each_child_node(dev, child)
+>                 if (fwnode_property_present(child, "gpio-controller"))
+>                         continue;
+>
+> was replaced by:
+>
+>         for_each_gpiochip_node(dev, child)
+>
+> which expands into:
+>
+>         device_for_each_child_node(dev, child)
+>                 for_each_if(fwnode_property_present(child, "gpio-controll=
+er"))
+>
+> This change is actually doing the opposite of what was initially
+> expected, breaking the probe of this driver, breaking at the same time
+> the whole boot of Nuvoton platforms (no more console, the kernel WARN()).
+>
+> Revert these two changes to roll back to the correct behavior.
 
-They are not under NDA and can be obtained though Rockchip's
-official site:
-https://rockchip.fr/Rockchip%20RK3399%20TRM%20V1.3%20Part2.pdf
+Thank you for the report and the fix.
+Can we also add a comment on top of each of these if:s to prevent from
+blind change in the future?
 
-> When you say "without fear", are you saying there's a way to do that
-> 32-bit write such that the LNKSTA bits are discarded by the hardware?
-> Or just that the hardware forces us to accept this potential status
-> register corruption?
-
-I meant to say those registers themselves are defined in TRM as 32 bits.
-
-> 
-> Is this something that could be written using the config access path?
-> I guess probably not, based on this:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/controller/pcie-rockchip-host.c?id=v6.15#n141
-> 
-
-That certainly looks frightening.
-
-> Bjorn
+--=20
+With Best Regards,
+Andy Shevchenko
 
