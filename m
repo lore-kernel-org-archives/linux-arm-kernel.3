@@ -4,101 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1697C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3352DC71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nU0lDOj4fnV4lbhScWiQUVCcAJe+tLfpYFaq2c/Ynhc=; b=eunQI5ZYUUEgdPOZulknJ/qm1O
-	RH/yH0Cl39AwlPAdIF2IYwhENqEhyxxu5DX+DqPOahEuDaCfcaAKkiIlJQi1Jj1/4KQtNCWDCOPSU
-	Zatm2wVdvPKveykW7vuo+IQ1dmqYFpV+u3c3TjRGFhz0VrlqfxM/wZdfuA5OqMRONu0prAzCfCWTm
-	SmJpzBTAT+WlqEALIr35m+/pDN+dMr2p2sF2phIaxY1zMFYIT4czsf12LZl2jtI259O75WtOwrys4
-	qCyuJ/hJkjVDtL0X5ANIF3f/ctYidH6PPeBh60zrMb06BQxmyF//SvzBv9a0fI4s/j/d6AWBi6Xnz
-	t7+XSm+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KF3cFtJQTcMBQy4lM7jXXcjLVtEEtKJIoATzivLkWQQ=; b=E0FMaW3phMMtf7dRYxw4qktePu
+	vYgvj+yiBEzczWdeuhEYHAYty7yXP2QpRNxtt2nNXApxGHRxsZKZ2PnUze/azLKtno95Rl+jPkMX/
+	eoAlrTXH7/Qc8/6FXDV3/3tLjXXyexZSj/WCUKbJKfTC4mhZ4G9tt/ugwBnUjqtyx6I2C2tVUD38e
+	hZHb7U5bdoWwymu3SJu6TPijltlJUb0g5LzyEUELb+kh1ovvzvWIQ+FWKr6THaXF+MCwFBIzLsMFV
+	+P/5cSeNlEANo2TZifIYF7OjxMBgbcFXRGzNnq08uYcjLd97U35UZ2DvXIgJqYTfcGRxRCWvTR3RJ
+	vQCUDS4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ7Do-0000000H32j-3hmC;
-	Fri, 13 Jun 2025 16:25:40 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uQ7G2-0000000H3BS-2Xfk;
+	Fri, 13 Jun 2025 16:27:58 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5xd-0000000Goag-2XO9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 15:04:55 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55DAlkP2027642;
-	Fri, 13 Jun 2025 15:04:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=nU0lDOj4fnV4lbhScWiQUVCcAJe+tL
-	fpYFaq2c/Ynhc=; b=gczvSCYaCYtxBqY7tij7LaHV95ZM5dT9KLXs2772CDrHWW
-	4yBPAT+J2rxpmf73BuVUNVHKrAHJUMB8/ABj0LeJvtFU8CrKcntWTl3ThKh1g7wB
-	nkHxJ8jdR3B1PYvIr5BOWLZNQXwYf3ZXrFU2bURgBqi0MdWOIXXsDfYGj+SceDzw
-	hq5AWeXyucV/jlhWM9GEAGrKUEpdZ6AdGJIyhLoqNhqYBDUmPja7rnf8lbJKJw8Q
-	dD6vNP2scvumPjKrEUZGTSO3Dcsj6ZeDAYfZr0+IZc5jZEVC7PFdQKFZqoGKMUwv
-	qCAEoNccYSw9n9Nhrm0/0aJlH7YxJEHfb17niA2Q==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 474x4mpu58-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Jun 2025 15:04:40 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55DDje1p022352;
-	Fri, 13 Jun 2025 15:04:39 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 475050anv6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 13 Jun 2025 15:04:39 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55DF4b5b37224918
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 13 Jun 2025 15:04:37 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8664920043;
-	Fri, 13 Jun 2025 15:04:37 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0612C20040;
-	Fri, 13 Jun 2025 15:04:37 +0000 (GMT)
-Received: from osiris (unknown [9.111.92.109])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 13 Jun 2025 15:04:36 +0000 (GMT)
-Date: Fri, 13 Jun 2025 17:04:35 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Tengda Wu <wutengda@huaweicloud.com>, Oleg Nesterov <oleg@redhat.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        "David A . Long" <dave.long@linaro.org>,
-        Masami Hiramatsu <mhiramat@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH -next] arm64/ptrace: Fix stack-out-of-bounds read in
- regs_get_kernel_stack_nth()
-Message-ID: <20250613150435.26153B5d-hca@linux.ibm.com>
-References: <20250604005533.1278992-1-wutengda@huaweicloud.com>
- <20250612163331.GA13384@willie-the-truck>
+	id 1uQ5y6-0000000Gogq-1ZpH;
+	Fri, 13 Jun 2025 15:05:23 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-312028c644bso1959739a91.0;
+        Fri, 13 Jun 2025 08:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749827122; x=1750431922; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KF3cFtJQTcMBQy4lM7jXXcjLVtEEtKJIoATzivLkWQQ=;
+        b=ZrOxTTGDwVapBm7gAdowEhHSsMzFMSocpLPW1IPs/8AQw0S+sAIpL2wV/jRmMZ5U13
+         LwVQCmL5AVJYxDsRbgHrBBH2CsETF0KgBGRaRMcSHAO62FeF6TF4NgHGbxz9TX0RpstK
+         P9158iCZR5sNH9PkpzHZEKl6ox3uOOZ7co2EshvmqBZXCz3iji9xaHR+2YVFD97pxFmF
+         azZ6nnumo/Rg9hnb5JyBEuZ6fP+IHo2Wt9VCqHMLJ4kJzbdhE+/fO7N6csb1TdzWRcXM
+         F/odtrTU5LS3/XrQVg/gfNJquWpw0KF7iEe2jaCp6x45Dr3FgaoQ31810WjjzBjj/e6e
+         CWTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749827122; x=1750431922;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KF3cFtJQTcMBQy4lM7jXXcjLVtEEtKJIoATzivLkWQQ=;
+        b=p9EvcFYqfJGubiMoWpkXClfi26ugqMn2mcX2iLplksh7I6pmHes7R3AJl0hKM/88Cg
+         0ryLC3i8FchsEuqAaqPIkxulbfkCFGK+aUwrNX8bvq+joe33laXLo7SOHL2qmyANA/mV
+         poR1NmHNv8b3EkswzI/V1XCEERPwUzXLSA4nWk2CnO6M2GIpf+vCtBhqQKiU1SDoFyYe
+         7vnAsjj8troR7anbd7fJamJAEm8nZKl+q4I5Xin3cDdubWtTX8LTp8GPM3NOrDfBa+Vf
+         gkSAr0NUtVVD0GMF0+rDWU3n7KlIiSQUmqXr/3OBBRp5OF1wmG3OowfVNJLLYxqepphg
+         pVYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW8qZk/ISePqZUl98+Oqm3ageoyOzpINOPPXfDf/GeXxHWUJ0jscSShaLZnS64gbWdhLLW61/YocpZN@lists.infradead.org, AJvYcCWWvEiJD2dGmbw+8nVTGZ/dR9Tzlc+p6iz46MraJ+ZIefhRVOOYEPu0yZk8/JPVx/RLfxwOPztDwV5EQF/mcLaN@lists.infradead.org
+X-Gm-Message-State: AOJu0YymzyOXXQZEkzp6o7gSzp9ETDUcPTK9u8yYPd8Qzq7Ddj/fkOyY
+	V6XPsaUZOasek9vSXihPoucHrrauqjO2uA1M5OrTUbUPyRwaUi4q9ebzuF5MVrRx
+X-Gm-Gg: ASbGncsiVqGqgm7uTsA9TVQ7WoytFy/Tyv6s7+dVmT/blCD6xjre8+QDHBg7qG7syaW
+	UUoQfZcb4gY0J34qQxHmUpWGacSIZu75+cnIIhxW3loq6LCren8KBoH7ZBiruySZNmBwAuRoC2k
+	yxDZSzxYcehOf8AEEP2bkvad+rSfq4eQasFgsc+tLCvs863KWsFUDqe5PaqJ8WhPVCQO5F6XXoM
+	jWfl5/GwK/NuJ7OIKJ+VuhzluxHvKF0ug8fElJbdr4GDcPoIxfiBjm42T/UH1gZNDHgaApRFUIK
+	f78++Ar4LsazwAf2o+5Eb2orCQn9B1ZxddabtznoOzp+RwyS0A==
+X-Google-Smtp-Source: AGHT+IHdK8qQo3ZG3V7b3Hz4SJ4IVpLiY2VBl4h1vhl+f3MfcXfp7Rgjw/llpCTAemK6u+3no+kgZA==
+X-Received: by 2002:a17:90b:582d:b0:312:f0d0:bc4 with SMTP id 98e67ed59e1d1-313f1be5b9dmr93821a91.5.1749827121457;
+        Fri, 13 Jun 2025 08:05:21 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:838f::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365deca008sm15308325ad.193.2025.06.13.08.05.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 08:05:20 -0700 (PDT)
+Date: Fri, 13 Jun 2025 12:05:15 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RESEND RFC PATCH v4 0/5] PCI: rockchip: Improve driver quality
+Message-ID: <cover.1749827015.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250612163331.GA13384@willie-the-truck>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=Y4X4sgeN c=1 sm=1 tr=0 ts=684c3e08 cx=c_pps a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=7XB3cJai-94OTXmGs3EA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: uwSIkbTXw9knD9U00yLIga3sZ76sILCJ
-X-Proofpoint-ORIG-GUID: uwSIkbTXw9knD9U00yLIga3sZ76sILCJ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEzMDEwNyBTYWx0ZWRfX0DEYwy1xF1tK rzsFKtB1UXWYoQiamn4W1/RqmeNO/QlD1ORGeZrZkvEbSfUSte1MlAfQF1LqTVA5xYkT77hj3lA 3tRQGtTE5tTuD37x8Hjuc99UK+WdaDtuiIAeuWEMUGiiV4YAdpKh9lco/vDrRaV6q1jXRop5CKK
- y2FGB1xY+e+FspHfHxamopWFIr6IptP4az/RLd0iMgHM+bOo1dX6bFIhmZMZHi9c56JEBnG6tJo lVLqkk1ab+Ur53kfYOr68IGWWODpktWs1obcRzQ0N7NcW1tWj8hPuyU2cqzoHlwcHOphAQ7aG9+ 9YfQlh9+Lqj1jvngXRGdqRtGHm3kwYHjsS9belae3ToB3vE5dCBTh3hx1LSc2gBaEMuZj11smIv
- zFrySB6YupbRZLLAmxIswv0N0sxM3VetXZoEEUfGhI39hvnQM1YIc5SjqEj+vz49WpytVgnq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-13_01,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=603 spamscore=0
- clxscore=1011 lowpriorityscore=0 malwarescore=0 bulkscore=0 adultscore=0
- impostorscore=0 suspectscore=0 phishscore=0 mlxscore=0 priorityscore=1501
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506130107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_080454_119742_9DD466CA 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20250613_080522_419334_DD9777D3 
+X-CRM114-Status: UNSURE (   7.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,21 +100,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 05:33:32PM +0100, Will Deacon wrote:
-> On Wed, Jun 04, 2025 at 12:55:33AM +0000, Tengda Wu wrote:
-> > diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> > index f79b0d5f71ac..fe3f7e554d14 100644
-> > --- a/arch/arm64/kernel/ptrace.c
-> > +++ b/arch/arm64/kernel/ptrace.c
-> > @@ -141,7 +141,7 @@ unsigned long regs_get_kernel_stack_nth(struct pt_regs *regs, unsigned int n)
-> >  
-> >  	addr += n;
-> >  	if (regs_within_kernel_stack(regs, (unsigned long)addr))
-> > -		return *addr;
-> > +		return READ_ONCE_NOCHECK(addr);
-> 
-> I think this should be '*addr', but that makes me wonder wtf s390 is
-> doing...
+During a 30-day debugging-run fighting quirky PCIe devices on RK3399
+some quality improvements began to take form and this is my attempt
+at upstreaming it. It will ensure maximum chance of retraining to Gen2
+5.0GT/s, on all four lanes and plus if anybody is debugging the PHY
+they'll now get real values from TEST_I[3:0] for every TEST_ADDR[4:0]
+without risk of locking up kernel like with present broken async
+strobe TEST_WRITE.
 
-That's obviously a brown paper bag bug in our code... will be fixed.
+---
+V3 -> V4: fix setting-up of TLS in Link Control and Status Register 2,
+also adjust commit titles
+V2 -> V3: correctly clean-up with standard PCIe defines as per Bjorn's
+suggestion
+V1 -> V2: use standard PCIe defines as suggested by Bjorn
+
+Geraldo Nascimento (5):
+  PCI: rockchip: Use standard PCIe defines
+  PCI: rockchip: Drop unused custom registers and bitfields
+  PCI: rockchip: Set Target Link Speed before retraining
+  phy: rockchip-pcie: Enable all four lanes
+  phy: rockchip-pcie: Adjust read mask and write
+
+ drivers/pci/controller/pcie-rockchip-host.c | 48 +++++++++++----------
+ drivers/pci/controller/pcie-rockchip.h      | 11 +----
+ drivers/phy/rockchip/phy-rockchip-pcie.c    | 16 ++++---
+ 3 files changed, 36 insertions(+), 39 deletions(-)
+
+-- 
+2.49.0
+
 
