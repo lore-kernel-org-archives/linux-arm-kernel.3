@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89525C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 09:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52EEBC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ix+SD8hPa/MVIuFsCMemGPyuyacErhJT3LRTUpCOMM=; b=XQqAfANL1KxuVo3IrUPRn5e8J0
-	0aIEo/utHZBvu091OIUoS6OjQG64PnJlpQmJArXY4f8pKdrYQ55dGe+mcSDtot2sIEhm63P+lcJTm
-	YVquAqDeIre4mCsrld9L/SCZ9la0yMHn/9qM9VpACU6UwTE3n1ZH/mL8+xt0oUDefMYmY8dyO9ady
-	iDHS/ZzRK4LSlOIuoMpJsKWA242nG5p0HOQ/uHQXsY6+zmxzLezv/0JBWnTfREoZ7ieGbkvdF2fv1
-	W2V8M01RcmhDzNz0gFpTWH8msuudtKwarChVkwewzheaZrTaNwwo9mPz2scJUe0imrCE6FYMom3mw
-	2f4Daxew==;
+	bh=V2ZoMDz8BXPT+PWBYhz3bu1T4BmImTEIPCvfqf1KBKM=; b=M+S5AzeIHcdjNT+0wfawyOQ3sL
+	onve1ESoxfeKqpcuuGD1OrlU9DNSmLQ5Osf+bmfZlEE/cU9i50HuPER9mUMEPtLc+Dkz2di9lezlN
+	YX762xlcJqatbkhBinfJKw0jzjiUf7kwCQ+Bc758R1j2a/CJ6kdY9MrkSlv2T2QMbracQWV1/S4j+
+	c54iRdor2CDgxpnD8bE5nX5lJmeGCUf5A+doiOMLNZaAnEsT0Q9yE1vy8JQkHJyoMQ8+StJKUDppm
+	1XndfOvLTJpbT0u1atvUJaeYNm/dyx/dsL92Z/clmGcKQDMGhxEpzSbAOS9Apyp7R+6cA3VOjFK/N
+	ZYQqEuzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1B1-0000000G0JI-0Hkb;
-	Fri, 13 Jun 2025 09:58:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uQ1DG-0000000G0a4-1URq;
+	Fri, 13 Jun 2025 10:00:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ13V-0000000Fyce-1ald;
-	Fri, 13 Jun 2025 09:50:38 +0000
+	id 1uQ145-0000000Fyl5-42yj;
+	Fri, 13 Jun 2025 09:51:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A48ADA50B0F;
-	Fri, 13 Jun 2025 09:50:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17EF6C4CEE3;
-	Fri, 13 Jun 2025 09:50:29 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 396BAA4F502;
+	Fri, 13 Jun 2025 09:51:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E083EC4CEE3;
+	Fri, 13 Jun 2025 09:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749808236;
-	bh=aoiu36vRWs+xCRQ4i7I5bZ9e+mpCxXx2jTYnOagqdHc=;
+	s=k20201202; t=1749808272;
+	bh=rYOisCnlWBaaGeYPQE6dgdjQ9PsJAUikQFuHw9C8lZ0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EguPdziNfQVFXhGugXO7CxVDI9hmhHEse2V8d9DfmaJLP2zPCWPiwDCqETugb6aqg
-	 EovPSvD8xMKL6QL2InygSOr54EKhGof73pM1Sw26ZxLwBJp0iDPCWzXQPBoy2735ny
-	 +CkixnfG+TpDATOVwDAuoRdDpyXsEBJ6g/aW0oasj+3Q6ssDs1OU2v+UKnJcc85AlP
-	 SAYD3d+JNmJs1aIND1eplli51ZAh6hEB6EcmkGRWqGOYKnrheIUj87KvByxUndUVau
-	 /j0KhctSzqmpk6Gt6djtxuf/+M9582WOduahXLRpD2hXHINaVWyijCpqgdrgPAEPNU
-	 q403k+tQENT6w==
-Message-ID: <b387a2ed-af47-45a9-871e-d43a66e41f21@kernel.org>
-Date: Fri, 13 Jun 2025 11:50:28 +0200
+	b=k9TsuvXO2mwjb2Xjr45tABkcMnNJqse6zW4DjkKEHKk4QKDckpAzXFM6ZkhADQWEN
+	 gLwspUevhzKfyr1wr0oymLToBUpW+JrcLgr3J9hVufaa/s+BhwyPzxxu4dnLE5WRP+
+	 3AfiwA7FWojm2UqOo4ZA+0vwvoS2En6+qR9uIKkMC+WY4o/BCHfueHFxlfwzrElag0
+	 UiX1LwBxmmi/DYI/nM6Z73X/prRbXIQLhPULLBcC2JzZCuBUGOcJos7k2txfuu5Xuv
+	 W+A6Y+37EXEfIxHfa/XfUPNUj/5OBoLmWHzpkx1ThKbJU+E1OUs9ZFCJ4XpylDwqQ+
+	 I7zGAyfk5rZFQ==
+Message-ID: <9be50674-357d-45d8-9117-b66922b46d25@kernel.org>
+Date: Fri, 13 Jun 2025 11:51:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] dt-bindings: pci: Add document for ASPEED PCIe RC
+Subject: Re: [PATCH 4/7] ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST ctrl
+ pin
 To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
  lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
@@ -58,7 +59,7 @@ To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
 Cc: elbadrym@google.com, romlem@google.com, anhphan@google.com,
  wak@google.com, yuxiaozhang@google.com, BMC-SW@aspeedtech.com
 References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com>
- <20250613033001.3153637-4-jacky_chou@aspeedtech.com>
+ <20250613033001.3153637-5-jacky_chou@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250613033001.3153637-4-jacky_chou@aspeedtech.com>
+In-Reply-To: <20250613033001.3153637-5-jacky_chou@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_025037_567542_2A9C6DF7 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20250613_025114_134252_167145C4 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,193 +126,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 13/06/2025 05:29, Jacky Chou wrote:
-> Add device tree binding documentation for the ASPEED PCIe Root Complex
-> controller. This binding describes the required and optional properties
-> for configuring the PCIe RC node, including support for syscon phandles,
-> MSI, clocks, resets, and interrupt mapping. The schema enforces strict
-> property validation and provides a comprehensive example for reference.
+> Add pinctrl support for PCIe RC PERST pin.
 > 
 > Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 > ---
->  .../devicetree/bindings/pci/aspeed-pcie.yaml  | 159 ++++++++++++++++++
->  1 file changed, 159 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/aspeed-pcie.yaml
+>  arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/pci/aspeed-pcie.yaml b/Documentation/devicetree/bindings/pci/aspeed-pcie.yaml
-> new file mode 100644
-> index 000000000000..5b50a9e2d472
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/aspeed-pcie.yaml
-
-Same comments.
-
-> @@ -0,0 +1,159 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/aspeed-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED PCIe Root Complex Controller
-> +
-> +maintainers:
-> +  - Jacky Chou <jacky_chou@aspeedtech.com>
-> +
-> +description: |
-
-Do not need '|' unless you need to preserve formatting.
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
+> index 289668f051eb..a93e15c64a4b 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
+> @@ -2,6 +2,11 @@
+>  // Copyright 2019 IBM Corp.
+>  
+>  &pinctrl {
+> +	pinctrl_pcierc1_default: pcierc1_default {
 
 
-> +  Device tree binding for the ASPEED PCIe Root Complex controller.
-
-No, describe the hardware. Your current description is 100% redundant.
-It is never useful to say in DT binding description that it is a DT
-binding. It cannot be anything else, can it?
-
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - aspeed,ast2600-pcie
-> +      - aspeed,ast2700-pcie
-> +
-> +  device_type:
-> +    const: pci
-
-You need to include proper pci schema and drop all redundant properties.
-
-Look at other schemas.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  ranges:
-> +    minItems: 2
-> +    maxItems: 2
-> +
-> +  interrupts:
-> +    description: IntX and MSI interrupt
-
-Need to list the items. Look at other schemas.
-
-> +
-> +  resets:
-> +    items:
-> +      - description: Module reset
-> +      - description: PCIe PERST
-> +
-> +  reset-names:
-> +    items:
-> +      - const: h2x
-> +      - const: perst
-> +
-> +  msi-parent: true
-> +
-> +  msi_address:
-
-Where is this property defined?  I do not see in kernel nor in dtschema.
-Drop and use existing properties. I am not even talking about coding
-style...
-
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: MSI address
-> +
-> +  aspeed,ahbc:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle to ASPEED AHBC syscon.
-
-For what purpose?
-
-> +
-> +  aspeed,pciecfg:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle to ASPEED PCIe configuration syscon.
-
-For what purpose?
-
-> +
-> +  aspeed,pciephy:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: Phandle to ASPEED PCIe PHY syscon.
-
-For what purpose?
-
-> +
-> +  clocks:
-> +    description: PCIe BUS clock
-
-Missing constraints.
-
-Just open any other  binding and do not implement things diferently.
-
-> +
-> +  interrupt-controller:
-> +    description: Interrupt controller node for handling legacy PCI interrupts.
-> +    type: object
-> +    properties:
-> +      '#address-cells':
-> +        const: 0
-> +      '#interrupt-cells':
-> +        const: 1
-> +      interrupt-controller: true
-> +
-> +    required:
-> +      - '#address-cells'
-> +      - '#interrupt-cells'
-> +      - interrupt-controller
-> +
-> +    additionalProperties: false
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/pci-bus.yaml#
-> +  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: aspeed,ast2600-pcie
-> +    then:
-> +      required:
-> +        - aspeed,ahbc
-
-else: make it false
-
-> +
-> +required:
-> +  - interrupts
-> +  - bus-range
-> +  - ranges
-> +  - resets
-> +  - reset-names
-> +  - msi-parent
-> +  - msi-controller
-> +  - aspeed,pciephy
-> +  - aspeed,pciecfg
-> +  - interrupt-map-mask
-> +  - interrupt-map
-> +  - interrupt-controller
-
-Messed order, missing properties. Open other bindings...
-
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/ast2600-clock.h>
-> +
-> +    apb {
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +
-> +      pcie0: pcie@1e7700C0 {
-> +        compatible = "aspeed,ast2600-pcie";
-> +        device_type = "pci";
-> +        reg = <0x1e7700C0 0x40>;
-
-Lower case hex. Please follow carefully DTS coding style.
+No underscores in node names. Follow finally DTS coding style. You have
+been told that in previous patchsets already.
 
 
 
