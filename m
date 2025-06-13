@@ -4,89 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C607FC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 08:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6568DC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 08:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J405qXIsAkaaQ6HHUqff/iiQgjpmkZvb1eF2OKZ5QAQ=; b=bRtRC3VBiCot1WnoRVXqWx0g+1
-	i0mCGwvA6Nc9ob96j9G+VlPic5elUiVNjjWkXRysAUWDSWYNrd0zRNOWt9IAB2EIrcHwPTBsXtN50
-	bv3t023zr28L4GloGKJlk1zZCVLdNjB4XUJa9Jp4IBeeP2FjlcbvzJNAfzOkRsaKQiLQZBS/7261L
-	wo/C42ul1szoGohtIEyGm2Q+U7rXB/HVvxdlkaSqvfbJToipGQqpq2SstdWqsBfWnJuhjN9b0RQ1N
-	mCDHM4sRJhkfcn08ixmJWQP59nT0127fHEDmnUlT8rCM0yDbeg79FJNklfopkOLhTuYAj0YZ+DSw4
-	WjO3KPmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FuVKR04bmZL+iPnpm1NuoWfaFzEVtg7SLgkPz8uhkho=; b=yhBK3l9stXVemFToyJwJq6Wl5M
+	e4V08hRj5te7VPP+Rurq6sBFdOxMCQPbakFQj/W3ammh/y1QRLfMq08xKEHN+GynjGr4f1qWhZMKi
+	BjqON44L9d25xh99Rz6HD18/FxtVJKpeJT1VG+i9Du36qojwr4YGwawKFdVPxFTFUrJ93xHfJS0i1
+	2fBzZDuBC6vbgTcN6RARto5JdJ3Vi5105YSMO862HSKk0eoxP+f5ODJZFb9A0WqlBX0tohcSzMI2r
+	ctIajtBp7AMR/dxBUHSBUlEk4OrNks0AyZbEjoyyAxa8ilM8P2Cs8cknbS4T9e6AjiAig4FUnMDfP
+	0LwUh8eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzsC-0000000Flma-3Ofu;
-	Fri, 13 Jun 2025 08:34:52 +0000
-Received: from mail-ua1-x92f.google.com ([2607:f8b0:4864:20::92f])
+	id 1uPzvP-0000000Fm8n-3acl;
+	Fri, 13 Jun 2025 08:38:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPzpv-0000000FldS-2XhR
+	id 1uPzt8-0000000Flup-04AY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Jun 2025 08:35:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=FuVKR04bmZL+iPnpm1NuoWfaFzEVtg7SLgkPz8uhkho=; b=BpB9FAdDlWchLWx3SlIPTRUn9I
+	GqKQzPXsEc+9WqKUkcrtNKXv7AhRHe5YWWIUn63aEpX03x1hv6MiPwPqEBVaATqbvcjbzNQYSpfjs
+	e2+eT0V1U17C8WhB3luefeEfwdh6ctj33+/+aAoPKASt3Bkg013KrWokoiLgcRquNLLy6TA7ZELkQ
+	1t3K7vEpxqKSYWfh6mtls5ojBOCuJRIansAf6e7VRS15qauDxxJ4bE5ydUYwSmX69thQe0vzNn6s6
+	B/tnl+OQcRlamH4MIvGX45b/YqOEyxZ2UYe/AAKdLzxNJKcLh9OJ4otTeYdV5v4M03qPm/NefLJ6K
+	AVko57fQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPzt5-00000002vm5-2yAd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 08:32:32 +0000
-Received: by mail-ua1-x92f.google.com with SMTP id a1e0cc1a2514c-87ed1c2b487so96351241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 01:32:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1749803550; x=1750408350; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=J405qXIsAkaaQ6HHUqff/iiQgjpmkZvb1eF2OKZ5QAQ=;
-        b=bnIQej5kG8LafOZkXW+c7usvba3urV+GDx24ah1PHI3Ep2pUVuYdgLnGPwEFbN3SWu
-         hJl00OOct3rCE5xo/wiwmk6kZcXe8Qn2zj4wmPYlLPu0p9wfLk2FPiM44r0NoWvIoyHm
-         Bnz0ZfF43Xu0FCr3U5cqQ1m4ZdVl8fabTJGYd4qgJvsx5j+dqznm+uXHY5RxFFyIexpz
-         IbLgJE47MuBh/9+FrAHdSVD/oxCakFezyHXWOwKiN8a5KMAI/Kyop7dh350KGjDm6lgJ
-         +kmuuV2vxtfHHlHsviO2VOBSUy0OqH16ZZg4kIzmEDb3sLMT7uHGVNFzAPF2HtR/w3R6
-         xbow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749803550; x=1750408350;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=J405qXIsAkaaQ6HHUqff/iiQgjpmkZvb1eF2OKZ5QAQ=;
-        b=XXsuJvuLbOOKZNGwDn6UQjsMZ2PrNGXgQ7L40K7pZ4TmX2RwGK/MRa3Y93pnBKpSbq
-         mEMcCmU9b2SqimEcQeixS+NjZkTnEcPL5hqFaZZ4/yCB/4PmUHAUnZlkq435ptcqc7oI
-         hwVkyZcJEiuzKayRpfsIeBOnELS2BZeO+KmaHB64HNIme6Ms7YT+JsUpNigjgaA3nU+z
-         FGW2vs/zRuElqMVd4QS1xNIqlUiVjmdqCXYP4/69M0rmDLDZrTbPVfQ3VzHtTvW8akNk
-         44OQpbSTBQN9F56kewAqRkaYzI7sXUFsG+wk6Vs79QFjL3De6GBvRzXrykPQcwcxgF5v
-         W4HA==
-X-Forwarded-Encrypted: i=1; AJvYcCWPDCqJ0HjKNncBaN2FZUO0rGm4DPqk9/BIFZ52KTxmiOsopnIL91kUuyr7yNRzSNwaqVo1QuzfsLgk7P3WT3Bf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRW+GHishR5toYJ6TPef165/YkAXkkf7j4XAdBI67qviXGwKZu
-	MFMjin2vZWhbp3bje2iPW0OQHxg84PGSicsJzWxaaD5/bL5Xxw6nZs3wt4tcSqNW3KoYRJUPWV6
-	BwA3UiCP0MYq3tzIvijFx2GRb+xtP0Nmo3yENN8ptfQ==
-X-Gm-Gg: ASbGnct43ckfQCjxbboDKjjBLYi0uQHNNsRYX31gg4YTRxWd9alC6RfPKZ4bKxY0EqP
-	xZ2w/TlJy6zlu+VDqGn1momvqBu4H3cCYElkiCGGLAw4gkj90RYf26qwun/TkjbPwFhohFhTDgi
-	BRTUH7LPpASjW0G8u8dqstRp2TTVSXBPLobb51gQud7/M=
-X-Google-Smtp-Source: AGHT+IGjfqmGHZ++E68u9IYFbwPPPlA9C6cYjkbz7TN8o82wVreUeiUObDw9xsR+IrjHsi6gsVp6xiPba2TUT9U8KZw=
-X-Received: by 2002:a05:6102:38cc:b0:4e5:a0c9:3579 with SMTP id
- ada2fe7eead31-4e7e39d8353mr404443137.4.1749803550411; Fri, 13 Jun 2025
- 01:32:30 -0700 (PDT)
+	Fri, 13 Jun 2025 08:35:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CF6BE5C4C62;
+	Fri, 13 Jun 2025 08:33:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CABC2C4CEE3;
+	Fri, 13 Jun 2025 08:35:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749803741;
+	bh=N/8P0oycOvrWCHveGAARJ8Iq/A6rTrCmjERwqUceixE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VAMjjzcJGtBEMa/AETTO4Z89i5RT5sA32Le4ZYKcA+R1uZt1O+/34FtTwu+fqKrB7
+	 Bex5iL8vLE2UgqPd8QZP82V4okcTXDuJoYhO5zt4TWFTU+ecSsa6bLHCvtqnarooK1
+	 t4APrMv/dZzUW/qpPr0EIoUkz0LAn85po8PWcKlswsUno6gBKg1Gwn/So6WE6P8FeI
+	 B7mKfDSAtdeG20sUQkYl+BF8tnp0fPFlp5/fBnW/mqj4FeP+Za+93PeAt0z9XBBNUn
+	 dMxiuzZRykFrB28NcqAOykW+1QqYj9VY3pGFeocaNqFbos5xZP+nQJMj4FOCvuddgf
+	 YqUSHnfRufsiQ==
+Message-ID: <af89d78a-c3ea-4771-a9b3-805266e263c6@kernel.org>
+Date: Fri, 13 Jun 2025 10:35:35 +0200
 MIME-Version: 1.0
-References: <20250606-pispbe-mainline-split-jobs-handling-v6-v7-0-46169f0622b7@ideasonboard.com>
- <20250606-pispbe-mainline-split-jobs-handling-v6-v7-2-46169f0622b7@ideasonboard.com>
-In-Reply-To: <20250606-pispbe-mainline-split-jobs-handling-v6-v7-2-46169f0622b7@ideasonboard.com>
-From: Naushir Patuck <naush@raspberrypi.com>
-Date: Fri, 13 Jun 2025 09:31:56 +0100
-X-Gm-Features: AX0GCFsyTraf_uRc2iDgE2HwWNjYCrPi2Mep05YPCt_X0Mktt-KufxERnc7iduU
-Message-ID: <CAEmqJPod6cKh2z1f4qFatcAdQ7m1GoBNQrYVESHb1UehNv1c6A@mail.gmail.com>
-Subject: Re: [PATCH v7 2/4] media: pisp_be: Remove config validation from schedule()
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Nick Hollinghurst <nick.hollinghurst@raspberrypi.com>, 
-	David Plowman <david.plowman@raspberrypi.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
-	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt: bindings: arm: add bindings for TQMLS1012AL
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Matthias Schiffer <matthias.schiffer@tq-group.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com, Conor Dooley <conor.dooley@microchip.com>
+References: <20250613075927.392499-1-alexander.stein@ew.tq-group.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250613075927.392499-1-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_013231_693059_F9364B4C 
-X-CRM114-Status: GOOD (  28.81  )
+X-CRM114-CacheID: sfid-20250613_093548_118460_9F8EB960 
+X-CRM114-Status: UNSURE (   5.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,92 +139,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+On 13/06/2025 09:59, Alexander Stein wrote:
+> From: Matthias Schiffer <matthias.schiffer@tq-group.com>
+> 
+> TQMLS1012AL is a SOM using NXP LS1012A CPU. MBLS1012AL is a carrier
+> reference design.
+> 
 
-Thank you for this patch.
+Subject: It's dt-bindings. Also double bindings is redundant.
 
-On Fri, 6 Jun 2025 at 11:29, Jacopo Mondi <jacopo.mondi@ideasonboard.com> wrote:
->
-> The config parameters buffer is already validated in
-> pisp_be_validate_config() at .buf_prepare() time.
->
-> However some of the same validations are also performed at
-> pispbe_schedule() time. In particular the function checks that:
->
-> 1) config.num_tiles is valid
-> 2) At least one of the BAYER or RGB input is enabled
->
-> The input config validation is already performed in
-> pisp_be_validate_config() and while job.hw_enables is modified by
-> pispbe_xlate_addrs(), the function only resets the input masks if
->
-> - there is no input buffer available, but pispbe_prepare_job() fails
->   before calling pispbe_xlate_addrs() in this case
-> - bayer_enable is 0, but in this case rgb_enable is valid as guaranteed
->   by pisp_be_validate_config()
-> - only outputs are reset in rgb_enable
->
-> For this reasons there is no need to repeat the check at
-> pispbe_schedule() time.
->
-> The num_tiles validation can be moved to pisp_be_validate_config() as
-> well. As num_tiles is a u32 it can'be be < 0, so change the sanity
-> check accordingly.
->
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-Reviewed-by: Naushir Patuck <naush@raspberrypi.com>
 
-> ---
->  .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 25 ++++++----------------
->  1 file changed, 7 insertions(+), 18 deletions(-)
->
-> diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-> index b1449245f394..92c452891d6c 100644
-> --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-> +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-> @@ -588,24 +588,6 @@ static void pispbe_schedule(struct pispbe_dev *pispbe, bool clear_hw_busy)
->         pispbe->hw_busy = true;
->         spin_unlock_irqrestore(&pispbe->hw_lock, flags);
->
-> -       if (job.config->num_tiles <= 0 ||
-> -           job.config->num_tiles > PISP_BACK_END_NUM_TILES ||
-> -           !((job.hw_enables.bayer_enables | job.hw_enables.rgb_enables) &
-> -             PISP_BE_BAYER_ENABLE_INPUT)) {
-> -               /*
-> -                * Bad job. We can't let it proceed as it could lock up
-> -                * the hardware, or worse!
-> -                *
-> -                * For now, just force num_tiles to 0, which causes the
-> -                * H/W to do something bizarre but survivable. It
-> -                * increments (started,done) counters by more than 1,
-> -                * but we seem to survive...
-> -                */
-> -               dev_dbg(pispbe->dev, "Bad job: invalid number of tiles: %u\n",
-> -                       job.config->num_tiles);
-> -               job.config->num_tiles = 0;
-> -       }
-> -
->         pispbe_queue_job(pispbe, &job);
->
->         return;
-> @@ -703,6 +685,13 @@ static int pisp_be_validate_config(struct pispbe_dev *pispbe,
->                 return -EIO;
->         }
->
-> +       if (config->num_tiles == 0 ||
-> +           config->num_tiles > PISP_BACK_END_NUM_TILES) {
-> +               dev_dbg(dev, "%s: Invalid number of tiles: %d\n", __func__,
-> +                       config->num_tiles);
-> +               return -EINVAL;
-> +       }
-> +
->         /* Ensure output config strides and buffer sizes match the V4L2 formats. */
->         fmt = &pispbe->node[TDN_OUTPUT_NODE].format;
->         if (bayer_enables & PISP_BE_BAYER_ENABLE_TDN_OUTPUT) {
->
-> --
-> 2.49.0
->
+
+
+Best regards,
+Krzysztof
 
