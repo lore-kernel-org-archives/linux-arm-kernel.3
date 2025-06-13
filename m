@@ -4,125 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA8BC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 08:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E69FC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 08:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4i/uycGc9IMJTkT+aPn3NiUgZauSdlLEx0uEl81rWwk=; b=utlo0jKIBFxMLxVlVypkctbIWi
-	axdz+WpReIW+2bLmFVnHgHoitBRioir2zWDCetjV1i7VPcdNu/8o/faoVlbsKkoEqhDOFDt3ZLS56
-	0R54ssrTxFqdMQIzAGc8d0Kpo6BgwOiFWfaFOti0DfdteYqWuZEl2ER7rr8RohAKXeG/VZYqPNFy9
-	P7Uld+390GSNthLV4JJury0FjWDyUqYMXWtIddaJxqch2CZI7SWHlyKOnk6jA8R0pvQciWFizq5Du
-	6I5e46vr+/U33LRamZFSnhhTFVska8OZP98K5XDVuyLxU1D0cGPjFYCh8PCCWRPxCyTrkN909mQVF
-	Tq8nJnTA==;
+	bh=GRZ18CzDwYVkPfbc/vicytDcPd0i4VNwBl+a1hEsk5Q=; b=4Dz9phakbH2RMIR2BJzX8fOfPQ
+	KJ9jXqXigwpTPuzxMnY+04qBXTQuDsYlmbRNzK+BRQe4X8+UNoLRpczL2oIsCkRPtGDRbyKarurmk
+	MWY3agwhvxXWwGcjIOAhfi50I3NVqCghGD6hXSZog2/JVseqU8PsVuoRJcS/7fT63hbHOd2iK1xHZ
+	yutqc+92cB3HaCeKB4WvGK3k1Zv8QOU6jO0XukA0PyWeoGSsKTLOcaihqOgCuOHbYWfMHDiAw1bt9
+	rEtQr7HB6bthm7w0T+hSyJ3gGTNUw0aP+Z6ypzigZqJcPeTZTIDNI6uEO1gG/zxoSEd1CN/sVbmoY
+	8pv9jxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0Ah-0000000Foyd-1IqQ;
-	Fri, 13 Jun 2025 08:53:59 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uQ0BE-0000000Fp7y-2aZP;
+	Fri, 13 Jun 2025 08:54:32 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ08P-0000000FoWd-1Yjg
+	id 1uPyvH-0000000FbOo-1LVN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 08:51:38 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-450dd065828so14839385e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 01:51:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749804695; x=1750409495; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4i/uycGc9IMJTkT+aPn3NiUgZauSdlLEx0uEl81rWwk=;
-        b=Ic3Ud6i1jJL0fK0Tvbn/Su7hJCJ0AbVYYFWHk2lCshAkntiGq8mVJeiKxXgOwQbDEp
-         ACt6ExCyYU2Me2AL1YyjNMABHwdt3IqZwel/VjvNk/v7VUH6Di9NsD1qWlM274WjsKde
-         lBf6jro+bxSoEWXisLsHuKEaCq8gTBPkFBav9vkbiComqG/CuV7UX2KUh8VIbAr9KSLK
-         X2Ykh8Mlevvi+sFxGqKndLKvPynya+jNFPAK0CaeAENSR/AyGL+sXl/FBQYmfMJI/xFJ
-         SnPT+lDeGfcHn79SPWxfxOA4N88Op95kOoGZD/VCaKU4tP8TxI+s37ii2KkGBBUurk9t
-         2CAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749804695; x=1750409495;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4i/uycGc9IMJTkT+aPn3NiUgZauSdlLEx0uEl81rWwk=;
-        b=hUdPgiUueXBbWpBbwYATuuKiRinDH9jfHhpLen9pBUd4xwFfZ6Cln8c1G7nl3Y5DOO
-         UXQovd02JBGnu4iTdFPTA0PQNecJES0f0DHSGGkZLfJMVycpKSqZwTPXMsk4wuFbqzzU
-         /xyCobgEMoYRGUInEv0IOeospTQQYVSmZUyFQG1QLt5fIKczNFLKFXlXypjWUWgKek25
-         7bwE2I6JT60lZW2Bnx/21Y6liMTzt2PhZR+gOqsJd6QONcX7ToNKk4t9fR5Vaqyii8ce
-         qA4Lt3Pnrqojh2l5Aym0PKQ6w6rQ1t3JucTvcIpLJ9VQAAU4pXbiNGd/kvUeMPakTR7y
-         orVg==
-X-Forwarded-Encrypted: i=1; AJvYcCVJVsW/0QitF7x2dWmGi8rdOKd1CKkICcRs+WYTieWKerFVsPEFG3zUVhv+cZebijxhU1hMbzRqGX4XgFIoClqL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF7LVeXxQhYb6WgMPDuuPI0li6z3HBiltA/JwzzPGu50PFmEdA
-	nnry9/s1fl8WB2BFFoBg4rkwXqGVbDXCxzzSNSAXQzj5tGn4NGB95SJVxFG+WarkRAY=
-X-Gm-Gg: ASbGncuKPfnuenFU+A8TzRdvxvOvaIdXR5SPQGLYDCoMT0B3pZWw3KD/Yl7J7mnUziz
-	PPHcwDY//6G7wf+S62R0voLlyN855SE60snXD5Qp3q5hAjXjf6Cre56whP/sz1L6PAePADt4rnM
-	SX6wKqoGCZTg2cuHl6kwg1RFRaBbRGb9qmtWF/LV8CzIu1Se3OLgYtxtp6JhbrDYlspwc/g4w3M
-	bIwFqDq3Qp++Qm0tZzJyWcMcbHyMnH7rHTZ5qR7cMGyqukAzAJQDJ1DKYb3lq1H7G0K4Zd+Wb5g
-	PFuqo+4gBFtXOnL9FYTqzVwPOos0s3ba1BtuDYhpj2+yRZPd5Ha4nSzNdFsB3ieUBUwC/5eNb8C
-	1Z4NZpNIf8AVBLdDsztMX9zQ3f5GhxBJI1cgKh4c=
-X-Google-Smtp-Source: AGHT+IEUAqqXCa6QukFfprZqmstdAPX/2X+IrxwAqf6HoHLLDv2NyKBWx+d7mBvUd0+CFYb9GJHC/Q==
-X-Received: by 2002:a05:6000:4313:b0:3a4:dc2a:924e with SMTP id ffacd0b85a97d-3a5686e4794mr1735144f8f.6.1749804694922;
-        Fri, 13 Jun 2025 01:51:34 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae? ([2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54a63sm1721189f8f.11.2025.06.13.01.51.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Jun 2025 01:51:34 -0700 (PDT)
-Message-ID: <e0ce89fd-456d-4ef2-bf8a-0ea0f1e646ef@linaro.org>
-Date: Fri, 13 Jun 2025 10:51:33 +0200
+	Fri, 13 Jun 2025 07:34:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749800039; x=1781336039;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=zDyW2YzdNIcgTXgb9UDuwf6OQnBlAw3y8AqdSgAIfvs=;
+  b=E6rPm0TQrv1X4jTKAWIDjHbSn3cTHl8ArHVVOKs7kWt2qGuzjYUTJYKp
+   Ezq5T+pyzgEFltP94xt5a4zG9/Y+jrcC12Dhvy1U6OQSe9iVPV7Qv5X4u
+   Af8BsXnmcoXZB5K1/d752EoGDPJEIUBkCv4tUmrzOSr4zVBzA2CJe27nU
+   ZErUiA+Wwg3oDunMm9zq1ZbfvgO9QPbPQjQ7BPyznBpA2DEq1VVFPqvnG
+   dZbaaVZbCQhCK1pFv6oH418uhndb4UefWBIFib2CCRm55eJT+bS6px5x1
+   NDydWV4ztJniUUZClydckMgpBrrD3diNuhMOCAyKHFTNgGb8tqQ6UHmC2
+   g==;
+X-CSE-ConnectionGUID: pDK4ItozT3CJhM0IZTe6RA==
+X-CSE-MsgGUID: W556bKuwTWuu427pyZ4dTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11462"; a="51927017"
+X-IronPort-AV: E=Sophos;i="6.16,233,1744095600"; 
+   d="scan'208";a="51927017"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 00:33:57 -0700
+X-CSE-ConnectionGUID: 622XRQTvRliCsL2uzHZr4g==
+X-CSE-MsgGUID: tRJKQX7rQh6HtcBJwtFkZQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,233,1744095600"; 
+   d="scan'208";a="147633125"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 00:33:56 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Fri, 13 Jun 2025 00:33:53 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Fri, 13 Jun 2025 00:33:53 -0700
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (40.107.236.68)
+ by edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Fri, 13 Jun 2025 00:33:32 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ym1sc7d9LnDqMFxb1YFKJSTEozLF18pjaCMsIa5oZ5CUYc5hf4K57XYAi39RXJLJLtFrZNgupWUtYMvsy0PsSSb/gIjpJABrQN9h90XJwZv3K9C5vo5HQboSJM8YsP6oCeBdptHp0mcOwep6XgeWzbWsnveZv6271J/zn9m++DKHpGX2mB+bB4KjIDAg9ZgUJxcuo9Nmjdu+eeNiLJV4fS5m7zJytAcNIUKdvcFUxfFnQVBzM/kVi8Y6r1ROCUhD9qlwiTjILXTU8m4qm5HWITciG2Wpcs6jI2J5e6Cn/6wVROVCMnK9O2wk2YOnAa+tRNmcCDOVqvrvVg+RfzgpJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GRZ18CzDwYVkPfbc/vicytDcPd0i4VNwBl+a1hEsk5Q=;
+ b=ZYkqBI8OteB1t9UfwQqxxUbUumhuvYgmlDpWhfJHDnF19fyZw6OOzSprmhIJgrnlsPw13HF87KRdWwnOAOt2knMWTMGtVko7slHPClVFwQnOgtQL/zRXifTwRMLhMs4CUURw3cmsZqLZo95y7rIClw+61ee4rALfx7FWF0zW5ABrYHVX9AbEuCYhArZLuz96r1tVmg586Udu/IM1m9XSyQSHzrXnn2ZKD/S0J0ZyVzhzcYGA8E2NZPXy6cqtpfb+EZAdjCdP7n/4h1EA6ym/aPHjYou+pfnD0BEw1QFSgin1LqsRnE4RR8LtkcRh9wHQBg2iU82VjJJxke3CmSq0Qw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by SJ1PR11MB6202.namprd11.prod.outlook.com (2603:10b6:a03:45b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.29; Fri, 13 Jun
+ 2025 07:33:24 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%4]) with mapi id 15.20.8835.025; Fri, 13 Jun 2025
+ 07:33:24 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+CC: "jgg@nvidia.com" <jgg@nvidia.com>, "will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "joro@8bytes.org"
+	<joro@8bytes.org>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
+	<yi.l.liu@intel.com>, "peterz@infradead.org" <peterz@infradead.org>,
+	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "praan@google.com"
+	<praan@google.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>
+Subject: RE: [PATCH v1 05/12] iommu: Introduce get_viommu_size and viommu_init
+ ops
+Thread-Topic: [PATCH v1 05/12] iommu: Introduce get_viommu_size and
+ viommu_init ops
+Thread-Index: AQHb2WH5pFGoF+3KtUmvezY7edKsjLP/MHUwgACVjICAAPHe0A==
+Date: Fri, 13 Jun 2025 07:33:24 +0000
+Message-ID: <BN9PR11MB52768FBE36CED363F26CD07D8C77A@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <cover.1749488870.git.nicolinc@nvidia.com>
+ <bc2c57254c40028e4dc74f32ac350826a26b3d8c.1749488870.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276F17940D4B219D5B4F4BC8C74A@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aEsJKZLRTf36Dh3Q@nvidia.com>
+In-Reply-To: <aEsJKZLRTf36Dh3Q@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SJ1PR11MB6202:EE_
+x-ms-office365-filtering-correlation-id: 11701882-4656-411a-1a55-08ddaa4c94a4
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?kWbaK7dzo7iAuBDuHzIFVsyRb9HbXsA1FkqqJErzioBt+DiTrJ0DjO1YFQ7Z?=
+ =?us-ascii?Q?S6REpUi/6ekbcwfNaogMcM3tCEwRCjZ4dZliKBoThHKcGAcoI/xAmGHLEDgm?=
+ =?us-ascii?Q?MxVscGJgZhXMuEF74mwKMnSwomN8LEdTQHWjyST7ilB4pW7TpIqrSSok48aR?=
+ =?us-ascii?Q?1cjL3KV5zleYRCqi+Lhm655Wpq/dZdi5R/Wif0osVRdZoXdGvRDQTyFI6wgE?=
+ =?us-ascii?Q?LDyEfcWEE6EVXDth28FNDq2DFfD7qb/fNAlTLVJL+Otzhbj2kmdMK8J2dT3A?=
+ =?us-ascii?Q?aZoox+oZCH809Mn7QpTWhSMLHMYaFEujjnuB0klflzA3dOETees+G9b6lbLZ?=
+ =?us-ascii?Q?PV9YA1zviMJuHgD2KX64vOPwZv872/6bz1xtFCdUgeLcfLJVmRb2T1Qx0nwN?=
+ =?us-ascii?Q?RHB32nReh6YQxI4i92f2wV7mjQv1AdgcAWwucH8KQoQa2LRu+D/nUF+0SuBw?=
+ =?us-ascii?Q?GIBhnERHOEPmGmIjL86zTQKgjtbAMrC10NIStyGTw66w4wtxlUF/WGwf3RT5?=
+ =?us-ascii?Q?5dRxHR/tMDKsdskxjhAPY5B8c745gcuB96dwNDpG0QJl2SyNLmQXQmSJzwdo?=
+ =?us-ascii?Q?aBEcVpHlbjBpgz+XcKaoLO7AO+MhoCx7klJFfjScCnYPPWtmlZzIkiASsp2F?=
+ =?us-ascii?Q?jQx0Nul7XttjXsZrjqg4DLXFhsiarqF9YVFzua8JZSQNwPM4hhRHMJcIthOL?=
+ =?us-ascii?Q?lo33fvYX/o8qrsgNrnMcoUKey1vA9gGmRVAJ/eRgjX4WH63lGfG629qYRUVk?=
+ =?us-ascii?Q?eD+H+wjivxrRBNkC6A1ynYqwKupODxWfZxSdtIJFzg7H7M6HIk7esd+JGNET?=
+ =?us-ascii?Q?bSZ0SJGXEQ7+Aaf4rzooHzEqKHGbk0gnPFX8SfirfL2ZN/Qg2ud3LjyQBHQ9?=
+ =?us-ascii?Q?C5C3f1ceAeyXI9a4ZctZcmo8vlREFYHlKJ9PfkWclL3TqnJ2+wT+NsgoaWTd?=
+ =?us-ascii?Q?9Ogcxxpd+CkT10Cw35fdG+LpzQlHval25GD/vzLQ/pY+LAUlc0PnpUO0HmqY?=
+ =?us-ascii?Q?XzvIJKGHs831I0J3IMvdk9oPOXhlNpEhuaWxVK/aHWmIkb2jT1xwz6SevTnO?=
+ =?us-ascii?Q?78OAbhmPWo0GtscjPGI58SzgS9Aju2Y6xtscN1fuduTlOGibYMGAB8WiV8x6?=
+ =?us-ascii?Q?1gsTfl3NMiJ4AGeAcXWeiU0v2FipsPl4QviM/Mq5cSZ27oktWdAUO2lk/mjq?=
+ =?us-ascii?Q?y6J3VvyMplcILHRcou/Euh052Yr8Ur6tX0PITTwvGkjYsHM9dIHZcqGpRnHw?=
+ =?us-ascii?Q?Bn37btnSkEXbWUcxm121fwOrT7zkxI9ZnnTjXon+PW9RtUzDUJM/Qz2S9aRU?=
+ =?us-ascii?Q?6s+1bsdze4Yar+deVyC2SfJp7figfv9ztHkMGwFNo53Q+NqvjKGr0m1nx3gH?=
+ =?us-ascii?Q?pKymkaq5i7438d8nFX3ybWB+CsdrU7pLX84QjeBIgxk5vKcdPNlnQU9AyTHH?=
+ =?us-ascii?Q?4t/mxCviZDbbui0msIFc4yrERvbj7GBWsKHiU9svYjqVeq3AOPnVSA=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?x0jYrszavrgJSMRJoPIh43tF6qe7LzJyphuWXcleOG92/m52WaDC3PqdBGVV?=
+ =?us-ascii?Q?N3yB+JB3Wa2uvY5E4GX6jKojUCMxov7r5mXiEsKcT/Zlz1YmWMqEGI7VZ4Av?=
+ =?us-ascii?Q?c8fIXGKGhzdsnwUMuGvdwac2G4SZHVtA5joU8cCJwcRcNDw+tc2lVNJIrgUZ?=
+ =?us-ascii?Q?Lpodo5Fokzb7Oo1jxumOckI1sSn0T/DyiA3p04wyouxGDWesSCrevTNCp9C3?=
+ =?us-ascii?Q?Iw7EMK60p9YCUXL0BATil7tIxLp53z+o7ILAIWEW1q0V9us+SD3bKZuoRh5D?=
+ =?us-ascii?Q?DQNAi0cQxbKKuOw40W5MIBUWFTHIa6M4vLWM6hFtHeB0Njjd/am+jGnLcbR8?=
+ =?us-ascii?Q?a1SYKC2DvPiHmRxXcgnI/59Lp6TWRA5Pgq5gBchBtsFKaQNgAaZIqeCc9qwX?=
+ =?us-ascii?Q?LZD8aBVRJkJQwO/f8B0nbk7ovVZjMIeriARB7ayYziA1wdXCeJG3aStaqw5t?=
+ =?us-ascii?Q?qZgbxyynpM8t6ttyebjc9Ru27lzbuV8FNUSX2FOTbZi6RFyEada7KiAbAivl?=
+ =?us-ascii?Q?sTlshNUCmx1+htjUXVdFd7rX6nF5OtKViStrLWd2Nh+PsMxpMSvZT5fNiyPm?=
+ =?us-ascii?Q?2vn9wldeaMfbnHpXRlQYO6mLtExyv1KQ0hNoEfigiCaJ9W4qosT7W/BCR4/V?=
+ =?us-ascii?Q?mWHI70lYNX3TRZ7qjgdHhlOzpaG3hpwVbmE9fP21rR+7xuPcl48WQkPuMjSd?=
+ =?us-ascii?Q?yVEOA2VkM4gzqLaIstCuT11VzhJnhd5oq3bSIHCeBPgLW2iWqnT6vx2nk18c?=
+ =?us-ascii?Q?S+4iT56XQEeI6VPEyQSCMsEexcMo5d4s2kNyc4Gn+pAJ7dKfwkiePepV5bjR?=
+ =?us-ascii?Q?NqEdpuTEjioPCBWuWo9OuqH+862dC6E04Pvjw+a95eBGoiRdg8exswHuzdMY?=
+ =?us-ascii?Q?ar4RjfwuQnO0SFl019ndcpXvvomUZ+sly9IFI3BKtEMYn/MGK6mLxpbRobgm?=
+ =?us-ascii?Q?t41I2d0hrpFpIKAukg9X8DE8UH36whNgo2/6DLRODWKvVIdOJ9lxsBjANx9X?=
+ =?us-ascii?Q?D0/zK0Awubm/rFK8PlaKms0Opy9sdZrrhG/6KnlzBbWxqqmqXZZmc/UmZ53v?=
+ =?us-ascii?Q?trDl/hUcw1hJ/lrM7Nh0NOCPvThiSmzwhkZC784NrHeimLAwZ9PJEhi68nNu?=
+ =?us-ascii?Q?GCw7kkamSCujlmmtgWrcvDOfsipnhf3RdxmU2A7vnao1KhKSKHHa6wjGgkbQ?=
+ =?us-ascii?Q?smCSpBeyiRxQvlWRPvFuO9twhsvZvlgrsUkph3mxPIMvEelifEF5XRGORue3?=
+ =?us-ascii?Q?EQnrkG3FZnaQXctDIgNep2ymK4jvO4SvCJGQKwpKE2xl4avuFZjpv3wxEAki?=
+ =?us-ascii?Q?hh+NIWwRESL9ySEF5tFmFo+/PfovwuqdJpI/XzrToTLzCKcI3acbk8F444DJ?=
+ =?us-ascii?Q?hzszLOdzs7BLXIFQt7vIveA5YNPDOg9Cpqff/SMsjYDNCzuwj+0Wraa8ZZRv?=
+ =?us-ascii?Q?y8FSTpOIJvPFiRpIjdBigjcTFvMOVUpg/9NkN7Dhx4X9c/e58HyDIj5qnWXg?=
+ =?us-ascii?Q?0V4anZISUo8QA7rDsUfu5UJvhu+FISr3N3cB33fYrhDqBiQZC96FX0X5mpAT?=
+ =?us-ascii?Q?33VtyX8Y95gpGhocf3mtqrcjOY90gGWKhgW9UVqn?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH v4 2/4] phy: rockchip: usbdp: move orientation handling
- further down
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>
-Cc: Alexey Charkov <alchark@gmail.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250610-rk3576-sige5-usb-v4-0-7e7f779619c1@collabora.com>
- <20250610-rk3576-sige5-usb-v4-2-7e7f779619c1@collabora.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250610-rk3576-sige5-usb-v4-2-7e7f779619c1@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11701882-4656-411a-1a55-08ddaa4c94a4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jun 2025 07:33:24.4353
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jZHbSrEPz9HM++GFAf7yJqZbsGlJ9ngplUk+qw3i3EOsuGZjdSR4fVRIpm0Op+11XmEmyJpz1jero1/pUzDe7A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR11MB6202
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_015137_425091_7669862F 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20250613_003359_375503_23576FD2 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,141 +204,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2025 16:07, Nicolas Frattaroli wrote:
-> The orientation handling code isn't referenced until very far down the
-> driver code.
-> 
-> Move it down some ways so it can later reference other driver functions
-> without needing forward declarations.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->   drivers/phy/rockchip/phy-rockchip-usbdp.c | 100 +++++++++++++++---------------
->   1 file changed, 50 insertions(+), 50 deletions(-)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> index c066cc0a7b4f10fc3cd8779323c369360893520d..fff54900feea601c8fe6bf4c7123dfebc5661a15 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> @@ -651,56 +651,6 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
->   	udphy->mode = UDPHY_MODE_DP_USB;
->   }
->   
-> -static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-> -				 enum typec_orientation orien)
-> -{
-> -	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
-> -
-> -	mutex_lock(&udphy->mutex);
-> -
-> -	if (orien == TYPEC_ORIENTATION_NONE) {
-> -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
-> -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
-> -		/* unattached */
-> -		rk_udphy_usb_bvalid_enable(udphy, false);
-> -		goto unlock_ret;
-> -	}
-> -
-> -	udphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
-> -	rk_udphy_set_typec_default_mapping(udphy);
-> -	rk_udphy_usb_bvalid_enable(udphy, true);
-> -
-> -unlock_ret:
-> -	mutex_unlock(&udphy->mutex);
-> -	return 0;
-> -}
-> -
-> -static void rk_udphy_orien_switch_unregister(void *data)
-> -{
-> -	struct rk_udphy *udphy = data;
-> -
-> -	typec_switch_unregister(udphy->sw);
-> -}
-> -
-> -static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
-> -{
-> -	struct typec_switch_desc sw_desc = { };
-> -
-> -	sw_desc.drvdata = udphy;
-> -	sw_desc.fwnode = dev_fwnode(udphy->dev);
-> -	sw_desc.set = rk_udphy_orien_sw_set;
-> -
-> -	udphy->sw = typec_switch_register(udphy->dev, &sw_desc);
-> -	if (IS_ERR(udphy->sw)) {
-> -		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
-> -			PTR_ERR(udphy->sw));
-> -		return PTR_ERR(udphy->sw);
-> -	}
-> -
-> -	return devm_add_action_or_reset(udphy->dev,
-> -					rk_udphy_orien_switch_unregister, udphy);
-> -}
-> -
->   static int rk_udphy_refclk_set(struct rk_udphy *udphy)
->   {
->   	unsigned long rate;
-> @@ -1451,6 +1401,56 @@ static struct phy *rk_udphy_phy_xlate(struct device *dev, const struct of_phandl
->   	return ERR_PTR(-EINVAL);
->   }
->   
-> +static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-> +				 enum typec_orientation orien)
-> +{
-> +	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
-> +
-> +	mutex_lock(&udphy->mutex);
-> +
-> +	if (orien == TYPEC_ORIENTATION_NONE) {
-> +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
-> +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
-> +		/* unattached */
-> +		rk_udphy_usb_bvalid_enable(udphy, false);
-> +		goto unlock_ret;
-> +	}
-> +
-> +	udphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
-> +	rk_udphy_set_typec_default_mapping(udphy);
-> +	rk_udphy_usb_bvalid_enable(udphy, true);
-> +
-> +unlock_ret:
-> +	mutex_unlock(&udphy->mutex);
-> +	return 0;
-> +}
-> +
-> +static void rk_udphy_orien_switch_unregister(void *data)
-> +{
-> +	struct rk_udphy *udphy = data;
-> +
-> +	typec_switch_unregister(udphy->sw);
-> +}
-> +
-> +static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
-> +{
-> +	struct typec_switch_desc sw_desc = { };
-> +
-> +	sw_desc.drvdata = udphy;
-> +	sw_desc.fwnode = dev_fwnode(udphy->dev);
-> +	sw_desc.set = rk_udphy_orien_sw_set;
-> +
-> +	udphy->sw = typec_switch_register(udphy->dev, &sw_desc);
-> +	if (IS_ERR(udphy->sw)) {
-> +		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
-> +			PTR_ERR(udphy->sw));
-> +		return PTR_ERR(udphy->sw);
-> +	}
-> +
-> +	return devm_add_action_or_reset(udphy->dev,
-> +					rk_udphy_orien_switch_unregister, udphy);
-> +}
-> +
->   static int rk_udphy_probe(struct platform_device *pdev)
->   {
->   	struct device *dev = &pdev->dev;
-> 
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Friday, June 13, 2025 1:07 AM
+>=20
+> On Thu, Jun 12, 2025 at 08:12:29AM +0000, Tian, Kevin wrote:
+> > > From: Nicolin Chen <nicolinc@nvidia.com>
+> > > Sent: Tuesday, June 10, 2025 1:13 AM
+> > > + * @get_viommu_size: Get the size of a driver-level vIOMMU structure
+> for a
+> > > given
+> > > + *                   @dev corresponding to @viommu_type. Driver shou=
+ld
+> return
+> > > an
+> > > + *                   errno if vIOMMU isn't supported accordingly. It=
+ is required
+> > > + *                   for driver to use the VIOMMU_STRUCT_SIZE macro =
+to
+> sanitize
+> > > + *                   a driver-level vIOMMU structure related to the =
+core one
+> >
+> > What about returning size with '0' indicating NOSUPPORT?
+>=20
+> I tend to support other errnos here. Basically this moves all the
+> driver-level sanity checks from viommu_alloc to get_viommu_size,
+> to reject an incompatible case immediately before allocating any
+> structure. And there can be another errno than EOPNOTSUPP.
+>=20
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Okay. Make sense.
 
