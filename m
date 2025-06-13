@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F0C7C7114A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 05:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E028C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 05:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o+ZXJK5vabVpIbj4thHc31K5dbmHYYZH1fC2DzTsqBo=; b=w+MIibQa1mwd1VbSyiLY+19/2n
-	y1PH5ODz3m9rzKLH7UL/ET4ZjYx3QH4uG31QLht7UhkbVPHzk+bzdPSvEqDpfTrIjnZttJkcouwZH
-	4olZnZ4aZl7vsMPyIZCg2LLQzWDnnvs7NHZpHKs0AVkc7iepEYAjt9ThHTOX7VOZFyAs6/sUrjsZH
-	ZciH1PQ7l3wPOn0OPvp/0yMaLRZqA17U3MWMO4s6ohkwQuGyxvxdSvVnm6EI3IWWP9vM8wUm4gOhn
-	Ac84vpNrFqLruTlPCesplq/lAjzwS6AWeJ3Ja/ThJwGhx2ge2+PDMPv7+E2cDKTiOPLOD/Gm2VnWI
-	Ba1iPd4Q==;
+	bh=CxRccK9TPNkSjUlVA9FxqDEHBsSIzMxTRGu02KOjBxE=; b=Mtc8EsZJDrcThnaNt2A2ysU5hW
+	G03JECJgf1xo6KzzyqMA0aSEqZaFbd6LR73cgeo5415AbL6RPvGu+I4LjgEGi5Ml7jHka8NWmT5xS
+	1JoN6QEdzd3sp8hOuGLCiyyy5atj+gxU/C3mhfbezSnIe7KMIp30aQuaYxkGR0XpTqXdQlYGu9SLB
+	qdR8vowGSdElHF1otAF5ztrvrENnxQA7yG7zdELJj1f+J1hRFDcAR6MBZ6L6H5qmOSB8IvmynN3/L
+	qBm8NbswZmnTgjStNhaBrHjqPNqmAg1C2ZApuXr4Q3/Dgyc0Yvjwlrm4mBzlGe5nqOsgzSw7Zr6r5
+	2GibzoTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPx7f-0000000FOfi-06mo;
-	Fri, 13 Jun 2025 05:38:39 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uPx9u-0000000FOvo-1pV7;
+	Fri, 13 Jun 2025 05:40:58 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPwz8-0000000FNdr-1lhX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 05:29:51 +0000
+	id 1uPx0T-0000000FNnI-1pfs;
+	Fri, 13 Jun 2025 05:31:14 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-74849e33349so1660773b3a.3;
+        Thu, 12 Jun 2025 22:31:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1749792588;
-	bh=o+ZXJK5vabVpIbj4thHc31K5dbmHYYZH1fC2DzTsqBo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=N9MssL99BFu955VaFR1nkL3xaUvn26A3cCWyDm62uEGpqkx1vySP1F20rcycQXUTW
-	 C3h2aiWfBMTAVnAiYTzmm69r/fFhc+oyh6X2lEKQqmCFyyjkIN4vgVde9cWkpwcbTg
-	 UtYCrdl/gEYRPNb7mm09wWg1aO56GKqYSi0TWK91uB+DrwzxoMDwm51hOd8aKJoNzL
-	 maC+IuhtEB4uQsMHZpx22saMCLYYuyw9aODFECe6Qy534RqU2XS8iZqcxi1CqCCPxT
-	 F8cp4Maxs7BCyZOL8TMUkdYFG5bw/hlkF3LR+/u60Y6p5rkfqMvWYcK9KHDRv1JuVB
-	 sDfDKwY2bN9ZA==
-Received: from [192.168.68.112] (unknown [180.150.112.166])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id BDC42680F3;
-	Fri, 13 Jun 2025 13:29:44 +0800 (AWST)
-Message-ID: <7b3be5c104b1fe1033570f2f3e2391991b6d9d42.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v0 0/5] Add initial AST2700 SoC support
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, soc@lists.linux.dev, Mo Elbadry
- <elbadrym@google.com>,  Arnd Bergmann <arnd@arndb.de>, William Kennington
- <wak@google.com>, Taniya Das <quic_tdas@quicinc.com>,
- linux-kernel@vger.kernel.org, spuranik@nvidia.com,  Eric Biggers
- <ebiggers@google.com>, Joel Stanley <joel@jms.id.au>,
- linux-aspeed@lists.ozlabs.org, Will Deacon <will@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Nishanth
- Menon <nm@ti.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- nfraprado@collabora.com,  linux-arm-kernel@lists.infradead.org, Kuninori
- Morimoto <kuninori.morimoto.gx@renesas.com>, Rom Lemarchand
- <romlem@google.com>,  devicetree@vger.kernel.org, Geert Uytterhoeven
- <geert@linux-m68k.org>,  leohu@nvidia.com, Bjorn Andersson
- <bjorn.andersson@oss.qualcomm.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
- dkodihalli@nvidia.com, wthai@nvidia.com
-Date: Fri, 13 Jun 2025 14:59:43 +0930
-In-Reply-To: <174975871838.2916138.1953670783794758715.robh@kernel.org>
-References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
-	 <174975871838.2916138.1953670783794758715.robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+        d=gmail.com; s=20230601; t=1749792672; x=1750397472; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CxRccK9TPNkSjUlVA9FxqDEHBsSIzMxTRGu02KOjBxE=;
+        b=KADC+c1MLuksktrquASKUFeKZ1C7uHvF6oI5xlpX/XiqZAA22j92+WoFyE/H2M/+bO
+         Np8uMKm0n4eOtdAQW/nc0D4t2hCDigrUZJVlutQZGxnOayyZE4N5H03Pv6zXKIwvTSZz
+         rSMHYFJZdpOWjzMwRbvInRtjknthMgWbeKgsed2YWvLffC9cZ0lkexYcl+fIMdKseNgf
+         oI4D3NPYxAQH83UAM932P6XqYbv/+BlAtfhJmYUQIUlGec/Chiyxu43pn6ufLITvHVBa
+         TOyQMX0s2x177VpoSZQryF03ryf7pM3fvE/blfr8CxhbbYKB1CC11yfpkhT3gc5KipO+
+         vVFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749792672; x=1750397472;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CxRccK9TPNkSjUlVA9FxqDEHBsSIzMxTRGu02KOjBxE=;
+        b=kTcudBwArP4jz3+so6b5JnC2ePxstbnVDmoAG2VNzIU11wT3EwEE/MuE1RyJGP1mH0
+         9iZhrSXLe/MxMnlgaUK2+VxxbHO6yUMom+WGH1HGFAEn+jJq3PB+zljOIA8qsKETt1C8
+         Fq0okRXDEFIQP1E58a4tCKMOm3OW3M+ChO6H+gYHyKEcxbOuYhnWHbYG1Ya96ElZ2Hj/
+         TZB0qaJrKqzs+kOk3MyJrtoemKgMRa5UOUAQdAcoaZ5UTF9bXPowOZAxlNMo5S9CoE5o
+         jnnzCBwhElJJ4eoe0G5H107pxyGZnGmKJ3KMCxxZpLilJK4P574XOqIU5GA3w3O0Um4J
+         X4KA==
+X-Forwarded-Encrypted: i=1; AJvYcCUTmalICe3J6KEuuohTAN12CbDhrQIdrY8f2i7Drn/1//rUe5ox8/FBPERV6AnbtVfc5ukeD9d2/9GG@lists.infradead.org, AJvYcCVGjNksSv54m7VD2M6ScT+8yFcXGgawqhxi70BHQI5GUVqZ9EDcvGRStYN0qiqe7X2hbEPaB8FOg13t3DR06zKV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUqIGLLTNvU7PdmFlFBuCh9Wt9t70ho09iRo3SnjPC+JhB2XPX
+	DPO77dUfZQxCfaRklzwX5SU3rs7ZG0itNDWJvVT1mcs7AOR3gsCw1nyB3WQFDwo8
+X-Gm-Gg: ASbGnct8uQVrkRYB0doKWCK7thQwW6fTe6bORAB6CRAP6D+HS9UeJ85pl5c9TTI+js0
+	bXt4S9PPJawwPw0JkKFZcvNqTz8XF4qErp+OfeSgqrJggCTP4rG3KcJRETUSR87AntHOc2cVSva
+	+m1n0Rs5nKUiUp2KOFrtuukYCNuX+IU/3BG+WpTMI4aRIpY1CsLKSJQVHUWHAdUVJbIU6x76VPu
+	4H7XNuyDYhJrytDTSMpHj3tyXqInvff/rxypbMP0y4qY5aHN1M7Y4ngYDx/qjHvaJlpyKZwN6QD
+	doaDkMD2xhBtdjMqVYqPylys/QtwqyMW4VzsdxlXlGBAc0dSBlFE1lBWhzI0
+X-Google-Smtp-Source: AGHT+IFW3YLUNguMP7Jju7pJGbAloDxqM68G7zonX52FPkJnUD/CTS3dbXq3+Dz07CjcjRnXcH9SdA==
+X-Received: by 2002:aa7:88ca:0:b0:746:25d1:b711 with SMTP id d2e1a72fcca58-7488f71e65dmr2200476b3a.17.1749792672571;
+        Thu, 12 Jun 2025 22:31:12 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:7667::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7488ffeca16sm717943b3a.35.2025.06.12.22.31.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 22:31:11 -0700 (PDT)
+Date: Fri, 13 Jun 2025 02:31:06 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v3 3/5] PCI: rockchip-host: Set Target Link Speed
+ before retraining
+Message-ID: <aEu3mqIp-QjgYTWT@geday>
+References: <cover.1749791474.git.geraldogabriel@gmail.com>
+ <ad9dc26689ae2c9e811d093ba18c9e579b6747ea.1749791474.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ad9dc26689ae2c9e811d093ba18c9e579b6747ea.1749791474.git.geraldogabriel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_222950_664132_CA1F511D 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20250612_223113_482856_FF5EE44E 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,119 +104,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-06-12 at 15:12 -0500, Rob Herring (Arm) wrote:
->=20
-> On Thu, 12 Jun 2025 18:09:28 +0800, Ryan Chen wrote:
-> > This patch series introduces initial support for the Aspeed AST2700 SoC
-> > and the AST2700 Evaluation Board (EVB) to the Linux kernel. The AST2700
-> > is the 7th generation Baseboard Management Controller (BMC) SoC from As=
-peed,
-> > featuring improved performance, enhanced security, and expanded I/O
-> > capabilities compared to previous generations.
-> >=20
-> > The patchset includes the following changes:
-> > - Device tree bindings for AST2700 boards.
-> > - Addition of the AST2700 platform to the Kconfig menu.
-> > - Basic device tree for the AST2700 SoC.
-> > - Device tree for the AST2700-EVB.
-> > - Updated defconfig to enable essential options for AST2700.
-> >=20
-> > Ryan Chen (5):
-> > =C2=A0 dt-bindings: arm: aspeed: Add AST2700 board compatible
-> > =C2=A0 arm64: Kconfig: Add Aspeed SoC family (ast2700) platform option
-> > =C2=A0 arm64: dts: aspeed: Add initial AST2700 SoC device tree
-> > =C2=A0 arm64: dts: aspeed: Add AST2700 EVB device tree
-> > =C2=A0 arm64: configs: Update defconfig for AST2700 platform support
-> >=20
-> > =C2=A0.../bindings/arm/aspeed/aspeed.yaml=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 5 +
-> > =C2=A0arch/arm64/Kconfig.platforms=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
-=C2=A0 6 +
-> > =C2=A0arch/arm64/boot/dts/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
-=C2=A0 1 +
-> > =C2=A0arch/arm64/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 4 +
-> > =C2=A0arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi=C2=A0=C2=A0=C2=A0=C2=A0=
- | 380 ++++++++++++++++++
-> > =C2=A0arch/arm64/boot/dts/aspeed/ast2700-evb.dts=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 54 +++
-> > =C2=A0arch/arm64/configs/defconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
-=C2=A0 1 +
-> > =C2=A07 files changed, 451 insertions(+)
-> > =C2=A0create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
-> > =C2=A0create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
-> > =C2=A0create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-> >=20
-> > --
-> > 2.34.1
-> >=20
-> >=20
-> >=20
->=20
->=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->=20
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->=20
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->=20
-> =C2=A0 pip3 install dtschema --upgrade
->=20
->=20
-> This patch series was applied (using b4) to base:
-> =C2=A0Base: attempting to guess base-commit...
-> =C2=A0Base: tags/v6.16-rc1 (exact match)
->=20
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
->=20
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/aspeed/=
-' for 20250612100933.3007673-1-ryan_chen@aspeedtech.com:
->=20
-> arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: serial@14c33b00 (ns16550a): '=
-pinctrl-0' is a dependency of 'pinctrl-names'
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/pinctrl/pinctrl-consumer.yaml#
-> arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@100 (asp=
-eed,ast2700-intc-ic): interrupts-extended: [[6, 0, 3844]] is too short
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@110 (asp=
-eed,ast2700-intc-ic): interrupts-extended: [[6, 1, 3844]] is too short
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@120 (asp=
-eed,ast2700-intc-ic): interrupts-extended: [[6, 2, 3844]] is too short
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@130 (asp=
-eed,ast2700-intc-ic): interrupts-extended: [[6, 3, 3844]] is too short
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@140 (asp=
-eed,ast2700-intc-ic): interrupts-extended: [[6, 4, 3844]] is too short
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
-> arch/arm64/boot/dts/aspeed/ast2700-evb.dtb: interrupt-controller@150 (asp=
-eed,ast2700-intc-ic): interrupts-extended: [[6, 5, 3844]] is too short
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0from schema $id: http://d=
-evicetree.org/schemas/interrupt-controller/aspeed,ast2700-intc.yaml#
->=20
+On Fri, Jun 13, 2025 at 02:21:59AM -0300, Geraldo Nascimento wrote:
+> Current code may fail Gen2 retraining if Target Link Speed
+> is set to 2.5 GT/s in Link Control and Status Register 2.
+> Set it to 5.0 GT/s accordingly.
+> 
+> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> ---
+>  drivers/pci/controller/pcie-rockchip-host.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+> index 65653218b9ab..68634ae8caaf 100644
+> --- a/drivers/pci/controller/pcie-rockchip-host.c
+> +++ b/drivers/pci/controller/pcie-rockchip-host.c
+> @@ -341,6 +341,10 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+>  		 * Enable retrain for gen2. This should be configured only after
+>  		 * gen1 finished.
+>  		 */
+> +		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL2);
+> +		status |= FIELD_PREP(PCI_EXP_LNKCTL2_TLS, PCI_EXP_LNKCTL2_TLS_5_0GT);
 
-To draw a line in the sand here: while the existing Aspeed devicetrees
-(AST2600 and below) produce warnings, I won't accept devicetree patches
-for the AST2700 and related boards unless they are warning-free.
+Although this incidentally "works" for facilitating Gen2 training
+because mask clears 2.5 GT/s, this will shift the value 0x2
+by the mask I think. This is clearly wrong, and instead
+we should use AND clearing plus OR'ing the 5.0GT/s value.
 
-Please make sure to test with the dt_binding_check and dtbs_check
-targets (or equivalent) before sending your patches.
+But I wait until at least Bjorn's review to send v4 with
+correction.
 
-Andrew
+Geraldo Nascimento
 
