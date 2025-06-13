@@ -4,186 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BCBC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 03:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC61C61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 03:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3DWMmmARDnfDOvtL7GxjYuq1hLPDObsbuInHstc82MQ=; b=EN2p1emPfgfRnCtMi0Th7tUUZm
-	NgxEH9oe7fZO/FPQwdK/dnIGdfqpnub7+QYqdrBsescClI81q5sV/uEywcLQi71gettpXK/z4dzmk
-	ks3yDfMIzku7OPPENU01vMERpiGNV8T0BgoAHzroNTxIs/EC5roGUHosNmqFl7ORD7PcPqEpSalU3
-	2J5B6zmn3LBwWH3X5ybzgHJZLh1nMkrSXEeIDrG1XlYy8JEbFwYUlWbtLRfIF1L3rh/5Y/42RSvU8
-	+QxoOt9C306Vgs31Ba6A3PpRbLpZFafN/DQEPE46frYg4HXzOx27OACietAaGEay2EXZPLf3LX96Q
-	EifOk/9A==;
+	bh=wu1Rbj5R9TlTeIj2nUkeEzz5Dw4zTebJyl0NRk8rX/w=; b=EleuzRLgYRew5uCY20VELq0AdW
+	4UycvoDHug5hMrpYDWCjzvhnw6d2Obgb8R7O3GuSZYM8CulGiezFD18u/PNFZSBblTgIcHwPdECjl
+	61myvOl2YSwDThVmqwH2vbmrXgvwRvd3+DJZXo4K7AhKB7sbtqIEUI7jNEfv7J/4iEDg+lYan7CIG
+	B1x6BcLJFdIBVG0+SwrXr6Ijqwrev0FzmOPUVA5giSXdKyiGdeeJAPTctl4/RVi82vhy6Vu8p8YYE
+	O+wGGiajSViBhQNWS6i6WkipuvTS33L2/pbPfs+h2pb+P9ppsTx97mBnKnK/lwW+6LKRDKnxQJqpN
+	Mdm/h0sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPunK-0000000FCo5-0Q9i;
-	Fri, 13 Jun 2025 03:09:30 +0000
-Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1uPuw6-0000000FDn9-3jfT;
+	Fri, 13 Jun 2025 03:18:34 +0000
+Received: from mail-bn8nam12on20725.outbound.protection.outlook.com ([2a01:111:f403:2418::725] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPtih-0000000F6pL-3g1y
+	id 1uPutt-0000000FDYc-0LOr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 02:00:42 +0000
+	Fri, 13 Jun 2025 03:16:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N2hIj/OEBxvTB7EyFk4KX/lUTm7k/NMpdrQ0T1TBXHOO1697OMX9yZETj4Mq7YQQOQGhJkbok0xJKURtjaNJzmDFQQ1r5si0ljvGX47YIVYe5A+92p2xSFDXQO0+c3LiNdieHf/YwHUJJVDzTFHUCIIL6NQ/JdmkXLLZseZzYmxbhYr7pTF4Adpqtnq/TfeOvrV90eAWCV/2SosK9qDm1KuAxh8i1yfnqdxaeh7zOBnQswpIgSg++bhZm5/NVBiNev5A6G7jjdlDX0DS+uJVgCjUhXeiov7v76gQlkcnC/YnUcbG/d79rs7ZkS/woRJD2WXCsJIf4cIbkglmEK5TRg==
+ b=BNSQwbbPj1wjcH5h5MKtv3TkKgBGX517m8PUckxyfHbQyYHtRot6NkgI8BMK+e44CIAQzpXopB0Np+y2iHtEpFPW9Q12qJTM1rRmkPdgaajMxUOdgS8R/U3Ywq4Q4MzfsgtnR3l24CUe4zTMS9fYTi0LTxjEJOtk1R0XEYC6Z/18sl+ksRzEKFro9xn/gnymxzIb91vM+ujvCS65wM6mWJImuQz/vnSWaT3AMacAwieqM0k5cBRliqtXXjBB1DUV6Xg9MJK5smf4yUTuZmtDIPvJzuLe3wF3cnhI8OxchcctRC3kdgIcM76P6zoQMRdqH/B1gbsX0UwtTSOg2MkcOw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3DWMmmARDnfDOvtL7GxjYuq1hLPDObsbuInHstc82MQ=;
- b=S1uWCqsP3bfvfL1x7K/H3uyFqPIHAt2xw35rTnYGgV97Fl1rd2uQ3uQquzSoqFuz3WAF+r/Ptmq4IexOCiYnY9sj/fX/7r4MOvhZc2ffHUBaXdcBONB88BzodE0m69rG248ytXzJ/5U0AGcE6bMx3gyCix1LEszWkcYMs2C6CVLxlxXk4D/B+qHJS6ldsEAX7jwKEkJy2RBGgoZAEiST42uH/Zy3ZmdwdnEdMcCsGsjRu6W6ZUp8z9PQ5iJebz5crdYNjS6RPp0IrGW7iqTT6Nel33ffyKJNHP2b2MviMw8n0KD0hBGYtoLahjYZtH7h8/RiQZz7Jv7beDVdwyQzzQ==
+ bh=wu1Rbj5R9TlTeIj2nUkeEzz5Dw4zTebJyl0NRk8rX/w=;
+ b=Jj96mtFvwjFrRFOyfdcz3GdW6tQvMcs3mN93csDQ1DSVB+VlPLBcwRNhJYxcgw81YTeYzwsMaLR3GLAWnCXO9b0VLy7Y+MUvNuR7F02pUzATgUtsBK8X7UP+5+6co4qubRY3G6EKPLIvx5/Q9tOAp9gpK0u7TA8uPchhRq9GLkukfFVpW4subIdLPANcM5fvlMZmq9gUDgFNyU5sVaVgSiIZoHkbf6QD4i6cS4PIVDhNC/+ZiRfH22QCTQioGecG14C8y71GpQV8S0JurnUHF2PKo5P7Z8qfzipngChBZ2dT4N7whxqZfljU2vjbtn6gXt2CbSBgJuesEg+gsr7Www==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=amperemail.onmicrosoft.com; dkim=pass
+ header.d=amperemail.onmicrosoft.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=amperemail.onmicrosoft.com; s=selector1-amperemail-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3DWMmmARDnfDOvtL7GxjYuq1hLPDObsbuInHstc82MQ=;
- b=VZJYriro7iX6PRcxXXOTzSBKS6aKqC8omu6hisLtloREwt3U/nWQzPBVHA1/A3kcjolTzk93V8QvP9BR0XHlYM0cTKvxRdCA2dymanZrx2uASMqanx7CYwFGBE7yUKmXzTsaIBqQ7wEbRwKZFgiOTyUCilQGSdvlQH2HNSaYlMndZ4rv6sknwYVF3muq21r/So1o9OTbAjA98LV/VTjCz7adPxarFJBygUlNI24PrDkjJmlTEL2Y9n+u+9vWAQ38F94nsdUglwxlBzWTslaz33B70chctD0ftw+rVts+TGL48zQdOVcYnKJNcYPKvEfjFbQicy3WCbfrZOiVoqe4FA==
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
- by SEZPR06MB5480.apcprd06.prod.outlook.com (2603:1096:101:a3::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.25; Fri, 13 Jun
- 2025 02:00:18 +0000
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11%3]) with mapi id 15.20.8813.021; Fri, 13 Jun 2025
- 02:00:18 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson
-	<bjorn.andersson@oss.qualcomm.com>, Geert Uytterhoeven
-	<geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>, "nfraprado@collabora.com"
-	<nfraprado@collabora.com>, Taniya Das <quic_tdas@quicinc.com>, Lad Prabhakar
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
-	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@google.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "soc@lists.linux.dev" <soc@lists.linux.dev>,
-	Mo Elbadry <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>, William
- Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
-	"wthai@nvidia.com" <wthai@nvidia.com>, "leohu@nvidia.com" <leohu@nvidia.com>,
-	"dkodihalli@nvidia.com" <dkodihalli@nvidia.com>, "spuranik@nvidia.com"
-	<spuranik@nvidia.com>
-Subject: RE: [PATCH v0 1/5] dt-bindings: arm: aspeed: Add AST2700 board
- compatible
-Thread-Topic: [PATCH v0 1/5] dt-bindings: arm: aspeed: Add AST2700 board
- compatible
-Thread-Index: AQHb24IdOCKn20r1VE+Du2gnGQSf77P/TvKAgAEHp2A=
-Date: Fri, 13 Jun 2025 02:00:18 +0000
-Message-ID: <OS8PR06MB75417E28FB28DEBF9568531FF277A@OS8PR06MB7541.apcprd06.prod.outlook.com>
-References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
- <20250612100933.3007673-2-ryan_chen@aspeedtech.com>
- <278193c2-7061-4cd3-88e3-402ac85eddf7@kernel.org>
-In-Reply-To: <278193c2-7061-4cd3-88e3-402ac85eddf7@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|SEZPR06MB5480:EE_
-x-ms-office365-filtering-correlation-id: f88c4988-0ac1-4a29-ac12-08ddaa1e0bf5
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?SjlCY2FGZkZLV0RlS2dqSG8xTWMwTVMvQ2FLT0ZscExvTUIxUlVFbU1XbU12?=
- =?utf-8?B?ejlTVDdlaXJILzBJRWNsRmNXSGJQcmNzMmtRYWJWZDRwcXdBKy9rSVVBUGhK?=
- =?utf-8?B?c3BDcVpaRjZhN0R0VzhGMVFEcU9Gci9QaEFWSlFaMUQ4akpMTUJhUyt2UWM0?=
- =?utf-8?B?RTVvbkFIQkYvMS9jR2JjVEFZd3JCNjQ1alh3UENwOExMbEhQanY5N3gyUm9O?=
- =?utf-8?B?RVk1eUF2Mzl6U3VSODNCeVFSLzQ4cDkvL08vVVhLeVFsUXpTKzIxaFh2WnZO?=
- =?utf-8?B?TU9mRVluLy9LNUo5ekxpQnVzbXdyNHE5c1p5Zmw3MUkxZG9QeG43cldCU092?=
- =?utf-8?B?V1JvcDFBdXprZWZaZVJNcHJORG5VS3RxQlhQeW5kYTNOVW5sMndtM09xUWRI?=
- =?utf-8?B?a3BEVGlkTE5UZjFEN25TRnZiUUJKTWErSUU5Z1RIRGNaY0hmanVFYUhTNGNp?=
- =?utf-8?B?WUNuaGpjTlRmanJacE5BREpnQkpicHlWODhKbVpmbDBsWmJnV0M4M1ZXTjlt?=
- =?utf-8?B?V0l4cTlFNkx2K0hwTU02QnFVUlBxTWtiNCtoeThNNERIaFhGNW1ERWtIOHFj?=
- =?utf-8?B?YnljM3N1SzlVT01lUjk1YUFDUmM2aXFrTGkxSitmaHo2Q0VsZ1JlUG4vellW?=
- =?utf-8?B?UnFac3ExbHlQbmFRTFNac0ZBZUk4a3Jjc3hhNnZ0aG5zZkN4amgwSGlGMEdF?=
- =?utf-8?B?OGFuTHFHbnJrVXhRM2hVWlZ4YWoweGxlY3MxeW5ZNXpoQlR6U1AwejZGanBY?=
- =?utf-8?B?MnIyUkZpTXM4STdtRHk2OWw3TlU1QmEwbjFpRmlscDRkQk8zRnh1OS9sajV0?=
- =?utf-8?B?SFQwdFBQQ2lUOEt3ZTFNUzZMMERvK3AyeDBEUXEyUFFkTnQxdGxmeGVrSjl1?=
- =?utf-8?B?eU1NZGJWUjZRamlaZDNmUUZpVWEvampHZ2hoQUc2VXVrWklRTjJ6QjB2MExh?=
- =?utf-8?B?c3JkZ2ZuTi9vUGN0N2Rnc0hvV2hkeXc5RDZuclNpWTZQc0ZmYlpDWUJFeW40?=
- =?utf-8?B?ZUJad2hGS3pMMFROdGpCVHBaYU9wZkY1YXdTYWhndUw2NVZWRzFYKzQ2c1M4?=
- =?utf-8?B?NSs3Snh4cC9sdDBrd21scWNiWVNlQ0hDS2ZyZldRcGRGVWdNMWk0T05EZXhC?=
- =?utf-8?B?UnVRZ29BZmVYUENsZThGVm81RFF1bnZ6b3FHdkVpakZROHRhb3pqT0Z3eFlL?=
- =?utf-8?B?VnRUa3lKM29vZEJiSUYxSXU1dnJTZmxRdm1iT0hjT2VkSG9qbE9IWVJvU0M5?=
- =?utf-8?B?VVozL3VBTUQ1cTlZVDBjd3pmbkhxUGZnU3dFYTZhdVVCVTZUQVhGUEV5OWN6?=
- =?utf-8?B?SHQ0TFlBbm54ei91U0djbjFZWm5wa0dzeG0vVFpEODlWV00yL1pDeHVxLzlG?=
- =?utf-8?B?Y2NPTzZ5Q2RNc3JIT1ZWalBhMlp4R2hRNFYvY3g0RVFkamxqM0lxOGhpV1l1?=
- =?utf-8?B?TDVFbVVHNGdBWCtmM0FieGUxMlUwN0NJdzIxbHZJMlVjaHFXWTJFRnBJdnF3?=
- =?utf-8?B?L3IyOWlhbklzZ0VrS2dSSDRnbFI1NlFJZVNDYTIyZ3lJNlVRc25yQUFQVlNr?=
- =?utf-8?B?L3g5S1NNVlVQd0RnYm9yTVNURUdYZ0p5Um1vWFpXRUhsaVdsUExiM0lIYzZm?=
- =?utf-8?B?RzZ6UHMxTk4ybklxWlZCWjVzdXc1ajdTUW1oVG5VRW8vTE5ubC9OM0hKRlZU?=
- =?utf-8?B?RmhBb0c0Tkd6U3NMWkZEc2ZXc2tFL0pnVmhIU21TNmttUmRTRXFsNHFoZkFH?=
- =?utf-8?B?eFhpU3FtODAwMjVZejVrTEsrWk1VaVE4Slo5clhFU3VNR0ZkRlBSMlBDc0pp?=
- =?utf-8?B?WGJZV3lTWk9CTTBVZ2Z3NkQwK01LdlpIeC95d1QrcW5HVDA5TG5HVkY0c1dQ?=
- =?utf-8?B?cUNWM1BPZHhadnE5WHBzV3Bza3NrRW5LbVJ6dk9WanVpR2dzZ0hxVzRHbUxx?=
- =?utf-8?B?Y3QzdUFtWmpUcG80Uytqd1pZc0ZvSTNtYlZFdFF1bFh0VVE4Um52ZFpoZXNJ?=
- =?utf-8?Q?fAJT15sFZmlRjr/VI4ppBJjJEM3dFk=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ald1R2ZkOFpUaG5XTXR1ZE9KaGtBWFllUml5dk5ManpiamdLMDgzWS9rcW5Q?=
- =?utf-8?B?MHFJSC80UW9QS2psZXhSU3loZkIwVGRPcWhycmhqZ3B0b2xhL2xIUjJ4VW1T?=
- =?utf-8?B?NmlRaWZUSk5TS2hlOFgzQ1I5NlIrTjl3QTFTaFd1NDZnOHhYV0M5YitRcWNI?=
- =?utf-8?B?WW8rdnRpU2x6aGp4TmlieUdscHBFSlVYY09HZi9RZS95MkdBRnZZWGQ4M3NU?=
- =?utf-8?B?ZFBPM0h3dGJib3RkT1hPUElIRTBGMEhQYWtoWkVNR1JHVi8ydlR4aisrRElv?=
- =?utf-8?B?eUpzbitOcTFWdStxd1RFVElIbHQ3eXRtM0U2L20zNjEwWDlVbzBncUVGN3Jk?=
- =?utf-8?B?TTIybDc3S0ZtSFZOcndnZlEvQkJFaGNZSTRod0VINmErRGtqdWRwdktjQmdv?=
- =?utf-8?B?d2RjaDVBSFVJUWRMbzQ5YTBjdFd2bUFQUGlYQ1dxK3kzMWxqZFRFOWVSTGtS?=
- =?utf-8?B?d2NPdDRLSUt5bDM4M3VrRzFyVmMxZHVLd01wWklsRzcxMzZlQ0thY0srdUxK?=
- =?utf-8?B?WXY2MXRBOTVNcVBZcTMxWC9CSXBTOXQzTjhSOHJsUm9NTUlQV0IzeXdOeXdi?=
- =?utf-8?B?bnhrTnRQSmlvMk8wVWZwaS9heU9VTjRBM0FIVXhnWGZQUHY5dXdnM0gyVUNY?=
- =?utf-8?B?dDBQczMyNk5tTHZzbWk0Zi9LQ3FCNkFlQlJaS09MZUg4Q25vcDRBVW55VHpE?=
- =?utf-8?B?V3RiSFRYaTBLbTQ5bDEyVmYydUVIb1VGdG1Pd0VxNEFFNDM0NVdFTENTRmVF?=
- =?utf-8?B?U2xHMWNMYnJYZHVBdXUxY3czV3hPVkFKbFZ3UFhTd3BmUWlLd1M4cXlKcnhP?=
- =?utf-8?B?T3NwcEdXWTl4Wm1OV2pTc1ZEOWNYQVo0TkpTZFZQblpxKzhBVUliczBpYUVK?=
- =?utf-8?B?WW5kTWhBZ0g5OGZ5MXMwMHFKWFI1ZjVYenIzYWthNEx1SU9yTEVEaXJsUFly?=
- =?utf-8?B?dmVCbjdMdlR0c3YrTkF0UXRhRGFDOEFkaEI3OUluMllEQ0VoQldtQzJQMGI4?=
- =?utf-8?B?YkcyVEh6VjRWeHlENUpuOEswR3VCcmFEMlUvT3dZbkZHU0FseFlBNmpNUlFT?=
- =?utf-8?B?b250QThNT2NqZklza3h3Z2lhY1Rxdjh3OFJmaEw4T2FLNVMxb0gzZk5OOHpI?=
- =?utf-8?B?REhSRWZWaXdsYmZlQkhHZ05qUVNYWDJsbTNXaVdOT3BJMW94ckZpMGhNMVYx?=
- =?utf-8?B?elRtQnUvSjdOZEFDUVJvUE9zQXFQSlNJRUNVeEFJQ0VmbkI1S3F2dXJrNlQx?=
- =?utf-8?B?SWpITm83VEo1WFYyK2ZxQkd0enVyR25mL0o0RThsdURkeXZIOUlPekxpQ0xk?=
- =?utf-8?B?aFExV2hleXp4dHh4ME5yQURJNnY3amRuT3VoWldUbVFWTGJjNUVtcGpHZG5i?=
- =?utf-8?B?dFZrbHpKRDA4M1pGTkJmWE44NHV2S2VKaTVndTJYUzhSbDBGRDJybnpPdmha?=
- =?utf-8?B?UXowaUw1MVU2d0N3UFc1MDNRY3YwbjkxNHRnR2NEdlA4L0orVkVlRVl4ME9i?=
- =?utf-8?B?VTdOUWFyRTFEZzdnRHJnTFJtZkVCS3pub09qNVJGL0lVOHFWN1pwd0RSeFJL?=
- =?utf-8?B?a2FGUkZyS1YySUxCU3d4TjFIWGtsK09oR0g3cVJVaWNKdmFCYjVuSzkvWTdy?=
- =?utf-8?B?dGQ2QTBsQzZqeVNDa3kyM1VNYTl4cng5RFhJN1ZVcmgyeXh5TDhNVjBaeTR2?=
- =?utf-8?B?aU11OXNSUU02OUpGL0E3c2k2djZjVngzaHpTampSbkNESzRxVEdKL3gxbjBG?=
- =?utf-8?B?OVl1dHNnSFdTczNsTkZML01DVkVyVXJCanIrdXFIeWRFRnVvalFYU2swak5H?=
- =?utf-8?B?a0w1T1JVVWxTTGNxSmdxVXpiVlJIKzIxdjJycS9MK1hqMWtYQnNUb3FnVnRN?=
- =?utf-8?B?K1M5cVFWRjkwOHhNWFNSUUNZWnF1UldmUTJXWHJ6bHVyRW9vV1ZIcFAxSHQr?=
- =?utf-8?B?ZTRRQjVvU2IvbXczSjJnUkdVUm96czZJK3E3WXQvTWt3ZlB1Y3RZeWRkSGVE?=
- =?utf-8?B?Z3FmR1YzSXNjQVp4YndYTWJmYnJLY2d3cENYd2thVjNJSTRYUEZnNzN6Znpq?=
- =?utf-8?B?ZDlIMnQvNmgwMU5QTHBscm1sL0tPTUI2ZEJIMHRqY2t3VG15Z0R5czcyMk9H?=
- =?utf-8?Q?thrUrMHWmQrr1cA/VjtIpp8zD?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ bh=wu1Rbj5R9TlTeIj2nUkeEzz5Dw4zTebJyl0NRk8rX/w=;
+ b=ozzq/Lc3apgcw/EGHhIA2ogJZuAfCULGSkpAGOpzFMzyoAXEFgbxHEvow2mruzGpmtmN5uAIwVkzi9zpC/jzCV6+ExU8lgdydat/uKg/08e6nV0/26ih2IDKF6M10DV27zo4UHrt8sLJV6qfooVq6eMKLAqvvylUbEcepPThcxM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amperemail.onmicrosoft.com;
+Received: from BN3PR01MB9212.prod.exchangelabs.com (2603:10b6:408:2cb::8) by
+ SA1PR01MB8564.prod.exchangelabs.com (2603:10b6:806:37b::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8835.18; Fri, 13 Jun 2025 03:16:08 +0000
+Received: from BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::3513:ad6e:208c:5dbd]) by BN3PR01MB9212.prod.exchangelabs.com
+ ([fe80::3513:ad6e:208c:5dbd%3]) with mapi id 15.20.8835.018; Fri, 13 Jun 2025
+ 03:16:08 +0000
+Message-ID: <b78b635b-a39c-4629-b7d8-a9d85c171819@amperemail.onmicrosoft.com>
+Date: Thu, 12 Jun 2025 23:16:06 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v23 2/4] arm64: Handle BRBE booting requirements
+To: "Rob Herring (Arm)" <robh@kernel.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, James Clark <james.clark@linaro.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvmarm@lists.linux.dev
+References: <20250611-arm-brbe-v19-v23-0-e7775563036e@kernel.org>
+ <20250611-arm-brbe-v19-v23-2-e7775563036e@kernel.org>
+Content-Language: en-US
+From: Adam Young <admiyo@amperemail.onmicrosoft.com>
+In-Reply-To: <20250611-arm-brbe-v19-v23-2-e7775563036e@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MN2PR19CA0044.namprd19.prod.outlook.com
+ (2603:10b6:208:19b::21) To BN3PR01MB9212.prod.exchangelabs.com
+ (2603:10b6:408:2cb::8)
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PR01MB9212:EE_|SA1PR01MB8564:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0468c8e-4a7a-45d9-389c-08ddaa28a3e7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|10070799003|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SW04aXlOTGEwRUxDN0YvcWlCZlpSdzJXS2xpODRtakJ6V3lQVmtYOFR6TFFR?=
+ =?utf-8?B?ZjBLbktoUkg4aEtpRm0zQ1BlRlVaNDBkK1ZyejN6N0x1WG9lU0JYVTRXQ2Q4?=
+ =?utf-8?B?ZG03cVFvZ0lvZy9ybmJib3MySFFiWGFmR29pT1FuRlpSNmJtMXc3MTFseUcx?=
+ =?utf-8?B?WGpQMno2OVpXb1RmaU91ZTBPUzg5eER5QVRJOVpHVlo0alRLVmhxZWg4aHB1?=
+ =?utf-8?B?cnpqQlhITjFCRzNxUGxPbXN0ai9SSGFEQ0t1eUtmUjBYT0JMWlRBZ2pyY1Iv?=
+ =?utf-8?B?VlA1aHNVVTRpV2J5V3Bqb1pkYWhRaTVXbUY5aEFULzVEQW0zT3NZOS9uWmV4?=
+ =?utf-8?B?NkVXZzRxUVFWRDNjSm5SM0wweXRCRWJkODhISmZnY0N0TTl0UzE3ek5raHY1?=
+ =?utf-8?B?QjVEMW4xUXJNcXBRZU1aVi9ZTTV3SlJ0cENrMmNWbVhaVHZWUTMrQ1NXeXcx?=
+ =?utf-8?B?YnBjbURubHFoM08vTFVsK2ZwVDJOOGdSUmlyMjFCaDMxZDVUNmpnNHdFZGpl?=
+ =?utf-8?B?elpkR29CbWE1TFJPYU4rQU9XSUJ2WXp3YUJPdmkwbXQ5L0doMVZreWdtWG1Y?=
+ =?utf-8?B?aFd3bEV1QWFkV0JFeGhmMU5nZUtHMk82WllZdnExUWg5S3BQNjFoakRXVWhx?=
+ =?utf-8?B?R2lSNnhaZHkrUWI0cm1xN2pnbnB5UXpJZnBiS3Vrdi9XcjNxVDJaTndUWFVW?=
+ =?utf-8?B?NlU1TGV0dEdWbWI2MzQzTWZFUmgvVEpPWEZ3bmY0VllEZVA3QjVjYWdtYVJu?=
+ =?utf-8?B?SnRFMzh5WmpySVpna1ZzZmg0NTIwbVdyaWRFemt0ZEVPUnVCbjNJQ3pEZlVK?=
+ =?utf-8?B?M1kvSzZuaHJ5YnZCSVdaZTdZS08wS1BwQnNsejdpbU50d3hTTXpRZENMUXJ6?=
+ =?utf-8?B?MHllSVVkVVR4bkFFV2RiWUwrRTdyR2hOdlZZTlhzeGEwNWgxNUVtTFo4U0Zw?=
+ =?utf-8?B?TXYyY0Vtd01QZFlkVTZMVlg4MEV2c3dDRFFnTnZGYUdSbWZEdXRzaGdpNXRP?=
+ =?utf-8?B?dmFFd25Wa2F3Nk5XRy92Z3JyZHVCc0pMTC9UeThsZUJCZjlFdnZZQWwya1dM?=
+ =?utf-8?B?KzliN2RKdUJNV1g4RE5UTjlpb3UwWDhxamZ1Zk02VnloWDd1cExsY0J6UGs4?=
+ =?utf-8?B?aG5QRllrVDhVb002WTNqU2ZERjVWY2ZjcitsR3ZkTVBPNFNyMWtmcFh2SzZ6?=
+ =?utf-8?B?VmtDV0xIWGFOYkpleXZ0RUpCZ2FqQW45WkpzQ29CUml4SmhSR3lOZ0VlWWZl?=
+ =?utf-8?B?VkM3RFlJalphSndJSWtjZks0Q2o4R0dnZmlIU3hRM21GL3BvdmpFa2duOXR0?=
+ =?utf-8?B?cWlSYnJuNk94OUgraXlsbmd5SEpSUm10NTBUdjBKVXNYbW1qZ1RtTXlpRU05?=
+ =?utf-8?B?dTYrVC9pdzdQOVNpcEpWdjNjWWduZFRpRlc0eHg3UjF4Ny9SYU92R0VaV0xK?=
+ =?utf-8?B?NG1lRDhVc0txcFMya2pLYnZXOVRhSjlGdU5jUnVDK01EOU5VTDN1WS9wWEN5?=
+ =?utf-8?B?ck1lbDl4Q05SNDJuSHB2MWROVE5pUWNlSUN5NDNZZDRoM2hUM2pwWXQvTG5F?=
+ =?utf-8?B?SURqS3FoNzczNjk2MHFRaFdLS0hkT1Q2dmMwU2oyQnRrUG1RcDR1VzVmcURE?=
+ =?utf-8?B?UWdFVXRmUHVaVWlBNDE0SjhFZjh3dlpwQmtOOSsrTlg1V01VeFI1VzBMalJP?=
+ =?utf-8?B?OWpEVU4xQnVCQVRmSGhybHNSYytQbzBxM1FXVW1iT1QxUjNPSUVmbVNpcmQv?=
+ =?utf-8?B?anRsWXdmVDg5SVc5NXUrdGNFaUhQNHpkZXRzbWNmNVJEZ3BvRjR5K3Z3U2NM?=
+ =?utf-8?B?cndIcTlhbmxHRDV6RU1ha3Q4K1p3dzJUeFVCY2g4T1BJTGhoRWFEVXpEdkFr?=
+ =?utf-8?B?Y081bGpIcXd3cmEvT2xSMkExMHJZTHhaOVBTeW80VkVvcW5uRFFIWksxcUcw?=
+ =?utf-8?B?b2lEcHY5UFJYRXpOSkI1T0hoWFZnS0dyb3I1eTh5dTJCQSs0clladzl5cmkz?=
+ =?utf-8?B?bmJadDFnUTR3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN3PR01MB9212.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(10070799003)(921020)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NmhIVWFKNTRCSzZTZFFaSVB5d1JpUHdVUlZ0U3Z2NlVSM0IzR1ZUb0R1LzRs?=
+ =?utf-8?B?ZG10SVNCQkFDMmkzSWdNNmRxb0N1anQyNk1FeWFrRWFJeXdFcENySnFydWI2?=
+ =?utf-8?B?UDdOTDd4N3ZLUWxSdC84WWpCakZXbGQ2UHNzVHpVTWdXNXBBQlorUmptLzRT?=
+ =?utf-8?B?cWQ1RjRiYlJ6di9mdTNFdzV6NDFNbWxJdENTcFhuRzRRZFlPKzFVRHRFcnUv?=
+ =?utf-8?B?Nm5FN0ZWUG5jWFJNZzNBakNDcC80dFkvTGZuck9jVEVqazdreFU2bnozRnMy?=
+ =?utf-8?B?SWxlQ0FHUzQzbklEV2lYQklCeitxcWVOUFpoYmNwaVYzSHpCcFVBSWFEVEY4?=
+ =?utf-8?B?RXY4aEwwcDlhOXRjYUhuZjEzK2l0MlRnQzIyd3NZSTFzYzNXQ3RXQytaZVNG?=
+ =?utf-8?B?aDAreFQ2NGVWRExTUC9JM241MzZsNlE2T0VGY0ZJS0piM2lSRCt2QkFFNHFj?=
+ =?utf-8?B?WlA4SGJ1YTNRQzBtcTZ0MVpCOTd0MlhBUS85NXBOL0hDL3UzeWZ5d1dmR0lK?=
+ =?utf-8?B?ZnptS3MyMWJVUVNuNzVuL2tFVnpxMGt6NktWK0pKWVVjTkRZWUpxRkJOR1R4?=
+ =?utf-8?B?VUFrTXEvN0hkTnBkamJCUjVBR0F5UTBQdzNUbUYyNngyU0FabmpxTndmY1cx?=
+ =?utf-8?B?blRPRHJ3bkQyUFJYUGsrQXVkMkZ6VXBiM0VXVHdzY2lrc3JXN1VNMUl6aTJr?=
+ =?utf-8?B?UDBPTzN5bWdsbndNVzFZd3NEcVFWUnR3ZVdpSHBjMlR6bHJSRURPK2c2WjZp?=
+ =?utf-8?B?ZTNicTlrNmMxNkFTUk9rNFRYRUlQOTdjTlpwVUlYbGNkRzVHbm9CdTlSVGNw?=
+ =?utf-8?B?a0pTMWJXVnY5VkFDWmJHdWdSVGQ5MmVUQ3E3SFhUNmFHbzJMZmNBVDlkNjNH?=
+ =?utf-8?B?Qy9HQ2V2eldoSlkwUE9NUGRINWJ2YVh4ZGplcWxMN1lOZ0xmY2JVYjF3Snlt?=
+ =?utf-8?B?ZGNGbFNEUkI5b0o5ajRUWGNZamFyUmpKTnQrZTA2N3hTMXFMaVN5RU81T3gx?=
+ =?utf-8?B?YU1Kb1BQUkV0U2p4WmdWcWNkNi93NzZ6SGNzSjhHVkhwaUx0RDR5VHU0Ull6?=
+ =?utf-8?B?QWpxTnpjVkFxNzdoK2ZaV0diVk5uOGhjRXIzSjBPR3Z0aWhZcXQvcTJWL0lG?=
+ =?utf-8?B?cHB1WTZaRTFFZTZmNnY1MWswU2pqQW10eFZCRjRlS3F5Z2g4UEFramErR3hW?=
+ =?utf-8?B?bHd2UGUrUFhjM3NqMDV3MGJMVWFoUVRYSEozY0o2aFp2SWJ0VVh0dlYwdFZp?=
+ =?utf-8?B?YkJRQWJEZDk2NEVoSjgxVXpiYVpGVS9lQ3VSOWwyMU5rVGxxQ2JvUUpWWno5?=
+ =?utf-8?B?dURhTENQQ016YUliZHdBbGl5Q2hYL3FpYk1LL3B1aEYrNHRUWGZlR0lneXl4?=
+ =?utf-8?B?V2JjalczSU0rRU9MTmxSOG42dFVaME43aFVGMlN0eHNCMU45ajZQVU9ZZVBE?=
+ =?utf-8?B?aExwdldONW03cDZPT282TFdycjhTcnZrSkpNVGg3Vmtjd1lBdS9nWlVYaFZR?=
+ =?utf-8?B?cnBWeW1zZ0dLR2dlYlhNMHhqV2w0b0lQNjlNY0xGMEJNNUx6Zkg3a20ySDc2?=
+ =?utf-8?B?cFVIWHJpd2ZKVlJzSENLVFhwYmxvZ0hPRTQrTmlyWFpHU09BRlR5d3JpN0tQ?=
+ =?utf-8?B?QzRSMWNsNDc5L0Vaa1FkcVRFblhXd3l5NmVCMGwrZkxNRDlPb1hUL0NVUHV5?=
+ =?utf-8?B?N0JRYlRBYmk3dUtuTXlpd2dPM2RhWlJFVlJWNlhtaWlDb2ZZYW1lUVRlem1i?=
+ =?utf-8?B?bm9Sa0N3aW5nSzJlRnNnd1Y2M3lPQ0hzVGh5enJRS3BHdXdGVlJUaW5YWG5j?=
+ =?utf-8?B?bXNtUVIyckVSM1E5aThsa0tveHJ3MWFXQmdVUlJaRDJCTkRPVVhhSGtzM00y?=
+ =?utf-8?B?UXVyck1vMU1BeldMREpEYTZXVXBmdUFRVXpsWmU0QlpiKzlMWldvallVZTR6?=
+ =?utf-8?B?WE52TEdKODd4eG9hSU1BUDR3QVE0S0YvUEd0TWo4UGFZR3pkZXlWdGJBcW50?=
+ =?utf-8?B?ZkhrcWRDVE9TamtEN1UxRkJRd0h1bXJmT0Q5NWVGZm5VVml0UHNmenRoNjk1?=
+ =?utf-8?B?MEtQczhpaFBWMEJYbjVMSjhiUGozTE5wYm9UV3lJZGtsM1VaTWRUWEExWUlZ?=
+ =?utf-8?B?Qk1hck55UC9UWkI2S2ZxdW9vMTVQWVNUdmJBTnFkRFhaSVo5a1dxTk5Cc1NU?=
+ =?utf-8?B?MUM0STE3eUJwZEZ0aXhOMFpsT3MxQVJxQmVVZFI3cW1wR1NvVFNONGhLYkNG?=
+ =?utf-8?Q?wPU1TAD1zGkaKTbbkU0duWZpRXKWh7P7UIb1Uk+SXI=3D?=
+X-OriginatorOrg: amperemail.onmicrosoft.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0468c8e-4a7a-45d9-389c-08ddaa28a3e7
+X-MS-Exchange-CrossTenant-AuthSource: BN3PR01MB9212.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f88c4988-0ac1-4a29-ac12-08ddaa1e0bf5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jun 2025 02:00:18.2284
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 03:16:08.3186
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: fzbzwdlm0aFOvoU2AIMeiaqDWbWzGF1QUS5rTe55TNiXNxLsZBfNsEuWprJXyDpNG3mtyrlS0QxyxJ8UXYvpambHKAYdlba/mBC/XuvgDiE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5480
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Prf0nwYWncWIZoQodULp3l5IlB+ml7HifvESu0+0IR7f7/qABXycZUX22SmWqKBf7Ui5WeEg0/iHOpMPzqHAYsNENOA6Wj9PWuedXbF18Jv8XftOJy01IubIMgavwRBX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB8564
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_190041_045902_FCBECD84 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250612_201617_212342_A261329F 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,17 +186,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYwIDEvNV0gZHQtYmluZGluZ3M6IGFybTogYXNwZWVkOiBB
-ZGQgQVNUMjcwMCBib2FyZA0KPiBjb21wYXRpYmxlDQo+IA0KPiBPbiAxMi8wNi8yMDI1IDEyOjA5
-LCBSeWFuIENoZW4gd3JvdGU6DQo+ID4gQWRkIGRldmljZSB0cmVlIGNvbXBhdGlibGUgc3RyaW5n
-IGZvciBBU1QyNzAwIGJhc2VkIGJvYXJkcw0KPiA+ICgiYXNwZWVkLGFzdDI3MDAtZXZiIiBhbmQg
-ImFzcGVlZCxhc3QyNzAwIikgdG8gdGhlIEFzcGVlZCBTb0MgYm9hcmQNCj4gPiBiaW5kaW5ncy4g
-VGhpcyBhbGxvd3MgcHJvcGVyIHNjaGVtYSB2YWxpZGF0aW9uIGFuZCBlbmFibGVzIHN1cHBvcnQg
-Zm9yDQo+ID4gQVNUMjcwMCBwbGF0Zm9ybXMuDQo+ID4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBSeWFu
-IENoZW4gPHJ5YW5fY2hlbkBhc3BlZWR0ZWNoLmNvbT4NCj4gPiAtLS0NCj4gQWxpZ24gd2l0aCB5
-b3VyIGNvbGxlYWd1ZXMuIFRoaXMgaXMgbm90IHYwLCBidXQgdlgrMS4gQW5kIFggd2FzIGFscmVh
-ZHkNCj4gMyBzaW5jZSB5b3Ugc2VudCBpdCENCj4gDQpHb3QgaXQsIHdpbGwgZ28gZm9yIHY0LCB0
-aGFua3MgdGhlIGluc3RydWN0aW9uLg0KDQo+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8y
-MDI0MTIxMjE1NTIzNy44NDgzMzYtNC1rZXZpbl9jaGVuQGFzcGVlZHRlYw0KPiBoLmNvbS8NCj4g
-DQo+IEJlc3QgcmVnYXJkcywNCj4gS3J6eXN6dG9mDQo=
+
+On 6/11/25 14:01, Rob Herring (Arm) wrote:
+> From: Anshuman Khandual <anshuman.khandual@arm.com>
+>
+> To use the Branch Record Buffer Extension (BRBE), some configuration is
+> necessary at EL3 and EL2. This patch documents the requirements and adds
+> the initial EL2 setup code, which largely consists of configuring the
+> fine-grained traps and initializing a couple of BRBE control registers.
+>
+> Before this patch, __init_el2_fgt() would initialize HDFGRTR_EL2 and
+> HDFGWTR_EL2 with the same value, relying on the read/write trap controls
+> for a register occupying the same bit position in either register. The
+> 'nBRBIDR' trap control only exists in bit 59 of HDFGRTR_EL2, while bit
+> 59 of HDFGWTR_EL2 is RES0, and so this assumption no longer holds.
+>
+> To handle HDFGRTR_EL2 and HDFGWTR_EL2 having (slightly) different bit
+> layouts, __init_el2_fgt() is changed to accumulate the HDFGRTR_EL2 and
+> HDFGWTR_EL2 control bits separately. While making this change the
+> open-coded value (1 << 62) is replaced with
+> HDFG{R,W}TR_EL2_nPMSNEVFR_EL1_MASK.
+>
+> The BRBCR_EL1 and BRBCR_EL2 registers are unusual and require special
+> initialisation: even though they are subject to E2H renaming, both have
+> an effect regardless of HCR_EL2.TGE, even when running at EL2. So we
+> must initialize BRBCR_EL2 in case we run in nVHE mode. This is handled
+> in __init_el2_brbe() with a comment to explain the situation.
+>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Tested-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> [Mark: rewrite commit message, fix typo in comment]
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Co-developed-by: "Rob Herring (Arm)" <robh@kernel.org>
+> Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
+> ---
+> v22:
+> - Reword booting.rst section name (s/feature/the/) and move next to
+>    other PMU related features instead of in the middle of SME features.
+> - Drop setting SYS_BRBCR_EL1
+> - Drop CONFIG_ARM64_BRBE ifdef
+> - Rework initialization of HFGITR_EL2
+>
+> v20:
+>   - Document that MDCR_EL3.SBRBE can be 0b01 also
+>   - Fix "HDFGWTR_EL2 is RES0" in commit msg
+> ---
+>   Documentation/arch/arm64/booting.rst | 21 +++++++++++
+>   arch/arm64/include/asm/el2_setup.h   | 71 ++++++++++++++++++++++++++++++++++--
+>   2 files changed, 89 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> index dee7b6de864f..fbdc4b071755 100644
+> --- a/Documentation/arch/arm64/booting.rst
+> +++ b/Documentation/arch/arm64/booting.rst
+> @@ -388,6 +388,27 @@ Before jumping into the kernel, the following conditions must be met:
+>   
+>       - SMCR_EL2.EZT0 (bit 30) must be initialised to 0b1.
+>   
+> +  For CPUs with the Branch Record Buffer Extension (FEAT_BRBE):
+> +
+> +  - If EL3 is present:
+> +
+> +    - MDCR_EL3.SBRBE (bits 33:32) must be initialised to 0b01 or 0b11.
+> +
+> +  - If the kernel is entered at EL1 and EL2 is present:
+> +
+> +    - BRBCR_EL2.CC (bit 3) must be initialised to 0b1.
+> +    - BRBCR_EL2.MPRED (bit 4) must be initialised to 0b1.
+> +
+> +    - HDFGRTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
+> +    - HDFGRTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
+> +    - HDFGRTR_EL2.nBRBIDR  (bit 59) must be initialised to 0b1.
+> +
+> +    - HDFGWTR_EL2.nBRBDATA (bit 61) must be initialised to 0b1.
+> +    - HDFGWTR_EL2.nBRBCTL  (bit 60) must be initialised to 0b1.
+> +
+> +    - HFGITR_EL2.nBRBIALL (bit 56) must be initialised to 0b1.
+> +    - HFGITR_EL2.nBRBINJ  (bit 55) must be initialised to 0b1.
+> +
+>     For CPUs with the Performance Monitors Extension (FEAT_PMUv3p9):
+>   
+>    - If EL3 is present:
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index ba5df0df02a4..de8a57f728c5 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -189,6 +189,28 @@
+>   .Lskip_set_cptr_\@:
+>   .endm
+>   
+> +/*
+> + * Configure BRBE to permit recording cycle counts and branch mispredicts.
+> + *
+> + * At any EL, to record cycle counts BRBE requires that both BRBCR_EL2.CC=1 and
+> + * BRBCR_EL1.CC=1.
+> + *
+> + * At any EL, to record branch mispredicts BRBE requires that both
+> + * BRBCR_EL2.MPRED=1 and BRBCR_EL1.MPRED=1.
+> + *
+> + * Set {CC,MPRED} in BRBCR_EL2 in case nVHE mode is used and we are
+> + * executing in EL1.
+> + */
+> +.macro __init_el2_brbe
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_\@
+> +
+> +	mov_q	x0, BRBCR_ELx_CC | BRBCR_ELx_MPRED
+> +	msr_s	SYS_BRBCR_EL2, x0
+> +.Lskip_brbe_\@:
+> +.endm
+> +
+>   /* Disable any fine grained traps */
+>   .macro __init_el2_fgt
+>   	mrs	x1, id_aa64mmfr0_el1
+> @@ -196,20 +218,62 @@
+>   	cbz	x1, .Lskip_fgt_\@
+>   
+>   	mov	x0, xzr
+> +	mov	x2, xzr
+>   	mrs	x1, id_aa64dfr0_el1
+>   	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
+>   	cmp	x1, #3
+>   	b.lt	.Lskip_spe_fgt_\@
+>   	/* Disable PMSNEVFR_EL1 read and write traps */
+> -	orr	x0, x0, #(1 << 62)
+> +	orr	x0, x0, #HDFGRTR_EL2_nPMSNEVFR_EL1_MASK
+> +	orr	x2, x2, #HDFGWTR_EL2_nPMSNEVFR_EL1_MASK
+>   
+>   .Lskip_spe_fgt_\@:
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_fgt_\@
+> +
+> +	/*
+> +	 * Disable read traps for the following registers
+> +	 *
+> +	 * [BRBSRC|BRBTGT|RBINF]_EL1
+> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
+> +	 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBDATA_MASK
+> +
+> +	/*
+> +	 * Disable write traps for the following registers
+> +	 *
+> +	 * [BRBSRCINJ|BRBTGTINJ|BRBINFINJ|BRBTS]_EL1
+> +	 */
+> +	orr	x2, x2, #HDFGWTR_EL2_nBRBDATA_MASK
+> +
+> +	/* Disable read and write traps for [BRBCR|BRBFCR]_EL1 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBCTL_MASK
+> +	orr	x2, x2, #HDFGWTR_EL2_nBRBCTL_MASK
+> +
+> +	/* Disable read traps for BRBIDR_EL1 */
+> +	orr	x0, x0, #HDFGRTR_EL2_nBRBIDR_MASK
+> +
+> +.Lskip_brbe_fgt_\@:
+>   
+>   .Lset_debug_fgt_\@:
+>   	msr_s	SYS_HDFGRTR_EL2, x0
+> -	msr_s	SYS_HDFGWTR_EL2, x0
+> +	msr_s	SYS_HDFGWTR_EL2, x2
+>   
+>   	mov	x0, xzr
+> +	mov	x2, xzr
+> +
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_BRBE_SHIFT, #4
+> +	cbz	x1, .Lskip_brbe_insn_fgt_\@
+> +
+> +	/* Disable traps for BRBIALL instruction */
+> +	orr	x2, x2, #HFGITR_EL2_nBRBIALL_MASK
+> +
+> +	/* Disable traps for BRBINJ instruction */
+> +	orr	x2, x2, #HFGITR_EL2_nBRBINJ_MASK
+> +
+> +.Lskip_brbe_insn_fgt_\@:
+>   	mrs	x1, id_aa64pfr1_el1
+>   	ubfx	x1, x1, #ID_AA64PFR1_EL1_SME_SHIFT, #4
+>   	cbz	x1, .Lskip_sme_fgt_\@
+> @@ -250,7 +314,7 @@
+>   .Lset_fgt_\@:
+>   	msr_s	SYS_HFGRTR_EL2, x0
+>   	msr_s	SYS_HFGWTR_EL2, x0
+> -	msr_s	SYS_HFGITR_EL2, xzr
+> +	msr_s	SYS_HFGITR_EL2, x2
+>   
+>   	mrs	x1, id_aa64pfr0_el1		// AMU traps UNDEF without AMU
+>   	ubfx	x1, x1, #ID_AA64PFR0_EL1_AMU_SHIFT, #4
+> @@ -311,6 +375,7 @@
+>   	__init_el2_hcrx
+>   	__init_el2_timers
+>   	__init_el2_debug
+> +	__init_el2_brbe
+>   	__init_el2_lor
+>   	__init_el2_stage2
+>   	__init_el2_gicv3
+>
+tested-by: Adam Young<admiyo@os.amperecomputing.com>
+
+
+Built and run on a BRBE capable machine.
+Built userland perf tool can run
+
+perf record --branch-filter any,save_type,u true
+
+as well as
+
+perf record --branch-filter any,save_type,u ./sort
+
+And will generate a perf.data file.
+The mechanism applies cleanly and produced what looks like sane output.
+
+Using autofdo to convert to a gcov format created a file that could be 
+included in a gcc build as profiling data.
+
+
+
 
