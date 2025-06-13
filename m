@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4238BC71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 15:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12128C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 15:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h4h0LpS6xpSGwytVH75yTnoCe+mq0Wger5l74OVyqBc=; b=LQ7JwxDYMVFbENP7OyvSuoDfUu
-	HQDSLaVa0DLW1Ha38gl8edLW6tOT85lfHa/nVyhcakawKOe2xb8R+Dqhugu7fceKv5zmpB974jCdx
-	rBPZqaJeEu6mh0bauSKb5vX9rbWKixYp0sU0aQeBH6aFqU39e8mftt2J2POy7nBM4NTEVqAuPj0hm
-	Cf6iUiBPK770ZIQu5jN6a9lVgaIFINHL6gxRambaN/VyW4PEYW1hHE3gMPIHwvu3uUOnErLxC/mAc
-	v5iXwnGBGeg5LZbr4YFSj4Xi9TQqvFg/RAwVa6Wdc9chpNCACE769p+ZLkQkVB4iHoYRz4dW5x5Oh
-	8ONc5Mdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xEgelSD5Y6cjUjzsLRZYNoWzpw2Y3t/tsaVt3vKT1wo=; b=315e3kcUWUwgAxC/84Rp46fL4h
+	7RN93R/HdgYnwKSlHlBtYg6xPtl0zwTjL/gBuZYAXc8SSVSV6pfTAsVFvTp+tOWsb8+KNUkKkI+5p
+	QuUtBKhZ39Q0iL3Gcyn5ZDKTsK+QFVVJpbRU0uiwKJqjUiHUPBnMNYerZ4AZWgM/mRIlqPQo6lO48
+	W0LNlpx1ukx/J/mXvsrdeshY4QDpzvSOxxfKcsvQEVH+B/Wz4ZDROMUAeiM+0X9SXbNx6S7ke/geh
+	dV+n5DrPkTWrJwviT3p036F3u8JBwG2Zfbp33Du46xOjkFiQJVU1pbg4sT7nxu2bJqtpCLSsDoNjW
+	9PsbkS1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6DJ-0000000GquX-2RKk;
-	Fri, 13 Jun 2025 15:21:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uQ6Fe-0000000Gs3g-0q6v;
+	Fri, 13 Jun 2025 15:23:30 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ4z4-0000000Gbk2-09DM;
-	Fri, 13 Jun 2025 14:02:18 +0000
+	id 1uQ5G9-0000000Gfm4-2uTc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 14:19:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62B3A62A03;
-	Fri, 13 Jun 2025 14:02:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92389C4CEEF;
-	Fri, 13 Jun 2025 14:02:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id ADFD9A511AF;
+	Fri, 13 Jun 2025 14:19:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56E50C4CEE3;
+	Fri, 13 Jun 2025 14:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749823337;
-	bh=CQucgb1bg0xXPls5H7qr6pbanXMG619gYuEhe3r6jdw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ur3kkzedQWntfr0lGNXGpqQBM2QdnEihDlqla44a5n6yOytZZEuWdRGcNq6Y91SZ5
-	 54CjUgweeYK6CndciVGUbjwh4UK5+u9Lu9WSD4RDbChIgCn1kXkse0BUGrt8eUxOhF
-	 t5uuj0X3cKmjV5Kf9AplE1T4SNDVUMT1JujcSNwdOHLXt+WZxlICwYL+B2eWdJutUq
-	 BYYC/VSwUEst5VJO5gER5ynfRq3Kn6zWZy8kqx+VV9mQ01nbeuzR0XuHyooCDGfGih
-	 tV/9MB3R8rmuY+fEUMl5k2lSGvcBtChKwa4nLgCY8CLxyJH5S/2++EPWyG2ad7RcQe
-	 gkEm2Y3e8QrjA==
-Date: Fri, 13 Jun 2025 15:02:11 +0100
-From: Lee Jones <lee@kernel.org>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
-	Daniel Semkowicz <dse@thaumatec.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH 2/4] mfd: rk8xx-core: allow to customize RK806 reset
- method
-Message-ID: <20250613140211.GC897353@google.com>
-References: <20250526-rk8xx-rst-fun-v1-0-ea894d9474e0@cherry.de>
- <20250526-rk8xx-rst-fun-v1-2-ea894d9474e0@cherry.de>
+	s=k20201202; t=1749824396;
+	bh=G3QUvE9fVBj/4xzIusLt/Z6WDoefDqStXRa6WM8E3hA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nHeLn86wfhg+II2r5HBdwXvxucDtnfYggKiM3diLS3V//sRZ/hdCyqMdlNrnT/2IE
+	 L5r8iOK5Xa9cES4i2hdPrHLVI2gUNVXQpj66g/x/hV91YdeRWP3MwmoP+z9ALFBUBq
+	 ps7jRfsPbCqqQMYDF2Lbs2DHCeHIN1FaCgM6jyC2hAZa6aIymHzdiSMoUDEAkNoUwZ
+	 02C/EwbzW8oWExUX/NxF0+K0M71ZC0BGF0ovYM0pWuRdy3sUwgC/A+Qpd3FQ4+IueT
+	 tghZ99sqhC1mqGlataXPxaa4kA/LegTDMT2DJnx+uIBhgi/zhMDqCn2D2TmxrCKAil
+	 ueizbu1cLTcZQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uQ5G1-006cHs-5h;
+	Fri, 13 Jun 2025 15:19:49 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Mostafa Saleh <smostafa@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH] arm64: Unconditionally select CONFIG_JUMP_LABEL
+Date: Fri, 13 Jun 2025 15:19:36 +0100
+Message-Id: <20250613141936.2219895-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250526-rk8xx-rst-fun-v1-2-ea894d9474e0@cherry.de>
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, aneesh.kumar@kernel.org, smostafa@google.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, ardb@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250613_071957_863018_DE8C316D 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +83,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 26 May 2025, Quentin Schulz wrote:
+Aneesh reports that his kernel fails to boot in nVHE mode with
+KVM's protected mode enabled. Further investigation by Mostafa
+reveals that this fails because CONFIG_JUMP_LABEL=n and that
+we have static keys shared between EL1 and EL2.
 
-> From: Quentin Schulz <quentin.schulz@cherry.de>
-> 
-> The RK806 PMIC (and RK809, RK817; but those aren't handled here) has a
-> bitfield for configuring the restart/reset behavior (which I assume
-> Rockchip calls "function") whenever the PMIC is reset (at least by
-> software; c.f. DEV_RST in the datasheet).
-> 
-> For RK806, the following values are possible for RST_FUN:
-> 
-> 0b00 means "restart PMU"
-> 0b01 means "Reset all the power off reset registers, forcing
-> 	the state to switch to ACTIVE mode"
-> 0b10 means "Reset all the power off reset registers, forcing
-> 	the state to switch to ACTIVE mode, and simultaneously
-> 	pull down the RESETB PIN for 5mS before releasing"
-> 0b11 means the same as for 0b10 just above.
-> 
-> This adds the appropriate logic in the driver to parse the new
-> rockchip,rst-fun DT property to pass this information.
-> 
-> If it is missing, the register is left untouched and relies either on
-> the silicon default or on whatever was set earlier in the boot stages
-> (e.g. the bootloader).
-> 
-> Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-> ---
->  drivers/mfd/rk8xx-core.c  | 15 +++++++++++++++
->  include/linux/mfd/rk808.h |  2 ++
->  2 files changed, 17 insertions(+)
+While this can be worked around, it is obvious that we have long
+relied on having CONFIG_JUMP_LABEL enabled at all times, as all
+supported compilers now have 'asm goto' (which is the basic block
+for jump labels).
 
-The test robots seem unhappy with this.  Please fix and resubmit.
+Let's simplify our lives once and for all by mandating jump labels.
+It's not like anyone else is testing anything without them, and
+we already rely on them for other things (kfence, xfs, preempt).
 
+Link: https://lore.kernel.org/r/yq5ah60pkq03.fsf@kernel.org
+Reported-by: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Reported-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin marinas <catalin.marinas@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/Kconfig         | 1 +
+ arch/arm64/kernel/Makefile | 3 +--
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 55fc331af3371..393d71124f5d2 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -256,6 +256,7 @@ config ARM64
+ 	select HOTPLUG_SMT if HOTPLUG_CPU
+ 	select IRQ_DOMAIN
+ 	select IRQ_FORCED_THREADING
++	select JUMP_LABEL
+ 	select KASAN_VMALLOC if KASAN
+ 	select LOCK_MM_AND_FIND_VMA
+ 	select MODULES_USE_ELF_RELA
+diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+index 2920b0a514037..a2faf0049dab1 100644
+--- a/arch/arm64/kernel/Makefile
++++ b/arch/arm64/kernel/Makefile
+@@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
+ 			   cpufeature.o alternative.o cacheinfo.o		\
+ 			   smp.o smp_spin_table.o topology.o smccc-call.o	\
+ 			   syscall.o proton-pack.o idle.o patching.o pi/	\
+-			   rsi.o
++			   rsi.o jump_label.o
+ 
+ obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
+ 					   sys_compat.o
+@@ -47,7 +47,6 @@ obj-$(CONFIG_PERF_EVENTS)		+= perf_regs.o perf_callchain.o
+ obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF)	+= watchdog_hld.o
+ obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
+ obj-$(CONFIG_CPU_PM)			+= sleep.o suspend.o
+-obj-$(CONFIG_JUMP_LABEL)		+= jump_label.o
+ obj-$(CONFIG_KGDB)			+= kgdb.o
+ obj-$(CONFIG_EFI)			+= efi.o efi-rt-wrapper.o
+ obj-$(CONFIG_PCI)			+= pci.o
 -- 
-Lee Jones [李琼斯]
+2.39.2
+
 
