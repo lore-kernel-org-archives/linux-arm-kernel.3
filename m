@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7DDC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAD7C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 07:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mjj2AS+NMkUtiq/HNsOMXDNRC+8qjoN7mp8VfZ4hKLE=; b=NZbNfI7y/spKzQCgMcK0Zd48Tu
-	nU7xp8SjL9JVII/9LzTEyM3+VfawSKBEtXx+1wBT74Q1WMLvta6sa3QdWnu8qNmEUVoHizTRJaxLy
-	nWHG27WDJ+vR/U0syq68AacKqH+sV7skAvNBAuyYh32s1i44z897bm2LgnTLtQI8uIRi9d2GeTRMs
-	FFzhl3RdECz+pkBXzELNm+lR1U5apNUNoI5KRDeqqnr690hlL6Ync3TdT6Pj3NpdBzzb+MmOzyItI
-	ae+aFerwO6KAwDMBZ7NAXPkSTWcTI3BPp5ad3A2a++rEFh6YttzSdo8L3zVBTQNd0J0n3mGjZU3+h
-	g/RrO7Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/BRy9T3GJRyRf9B/1o6vliSFsXzSoe+6lNyeT9l/lCs=; b=B+VL3s6uQtm4BXURgVmo2qfc8F
+	U67fAZwvN6hznhp5nPXOkJ2JLRhQ3+gu65MfPIro6M8jua5ZgNSqqBj9/DuEYq84kkFuiCtAt5st3
+	8wO6UABW33ouZdvHaDmwgJHUtQuVxsiHjRDDmmGfpTbnF8mzr3ZclupVwwySJGO9edQQcBGbxdVvL
+	aykJCMY+89GztkTjqNK14Tyro0mNjrGUt1VKqPGjQ8P1Ho+M2dAju+nICTvRk4tXgcOZvchWmPpFp
+	PezHAQ0lrBK8v2Th6QLqOPz3eDF8oY8/2lk2yCx8/Rc2lDSp0cabJLZHO9l1QNZQWLLePVKXughDa
+	WZ1YGUTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPyLi-0000000FX7a-0z1w;
-	Fri, 13 Jun 2025 06:57:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPyaL-0000000FZde-3P9X;
+	Fri, 13 Jun 2025 07:12:21 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPyJR-0000000FWvJ-36iv;
-	Fri, 13 Jun 2025 06:54:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 04F0844D6D;
-	Fri, 13 Jun 2025 06:54:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F465C4CEF1;
-	Fri, 13 Jun 2025 06:54:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749797692;
-	bh=1s/szMVjHm2c5YpFJE4JzICjVT6sl1T+nHxY2oXfPJ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WeCuvtCG8iIXRXnhJ5iaXqjj6hBoLE9nJhyZji6mGfw9szRLL/Xy8f1ycbXigCuA0
-	 WIpW3PtLH3zAaZyLQDW/cX2DUoNiB+goqVATpP01Qea3eOEg9GCgh5QexINECMGp/4
-	 bPmFsLCXhGAn5t78RMVAqR6W2u5OnhX5B3lKZ9a6G2SDoFddyWs4dfw5Ocq1CuDinq
-	 uAopszmsyYSwpmdYpIJZ0rWr3S3LJcRGpSwrTcMCvG/P2Y3G/kQX5hIKeMsmhv4bZr
-	 2A6WingZ25Re1WjygPKDCtn1gR1UrNGiHyEPP2+pANoVrQDuNmOXqS/H9/DBebDa2/
-	 2Ocmit6DjOuww==
-Date: Fri, 13 Jun 2025 12:24:41 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com, 
-	heiko@sntech.de, manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com, 
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com, 
-	khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v4 2/2] PCI: dwc: Remove redundant MPS configuration
-Message-ID: <6v7m7qt4n26n6pmx5tggmmvv7na6t5v5wtfqev5x4wxosymwul@j3dizxyyy4tg>
-References: <20250510155607.390687-1-18255117159@163.com>
- <20250510155607.390687-3-18255117159@163.com>
+	id 1uPyY2-0000000FZDy-18ds
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 07:09:59 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250613070952epoutp0284daa2d9c74977727cb4e209367d1a62~IiIyR800v0586205862epoutp02E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 07:09:52 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250613070952epoutp0284daa2d9c74977727cb4e209367d1a62~IiIyR800v0586205862epoutp02E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1749798592;
+	bh=/BRy9T3GJRyRf9B/1o6vliSFsXzSoe+6lNyeT9l/lCs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dVhGyv7E4bH4IcN/CvjW3XdsuoMJEplVpr43Z1rP/59ZIsI/O/UJhu+bTKVhTPglf
+	 pzHyjQ5FyMOQKFM/p63MsEj0Xx9Lj7Y2cifpxxAP6J96ePq3VKU4UzQwPYhTBPy5w3
+	 ZbI3hheVjlEohR+YmbcVibTum7s8rhgAi1P2GxeQ=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250613070951epcas5p1fdc2bff451059aec05b30db2383871db~IiIxZ79nR0357803578epcas5p1e;
+	Fri, 13 Jun 2025 07:09:51 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.178]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4bJVrs4Gtzz3hhTC; Fri, 13 Jun
+	2025 07:09:49 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250613055040epcas5p35219ddeddd9fe5f4632ca837db91847a~IhDouBZAM2143021430epcas5p3H;
+	Fri, 13 Jun 2025 05:50:40 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250613055037epsmtip108ea6972ed6eff7d92b617765eca97a2~IhDlulA8s0439404394epsmtip1N;
+	Fri, 13 Jun 2025 05:50:37 +0000 (GMT)
+From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
+	ivo.ivanov.ivanov1@gmail.com, m.szyprowski@samsung.com,
+	s.nawrocki@samsung.com, pritam.sutar@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+	selvarasu.g@samsung.com
+Subject: [PATCH v3 1/9] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Fri, 13 Jun 2025 11:26:05 +0530
+Message-Id: <20250613055613.866909-2-pritam.sutar@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250613055613.866909-1-pritam.sutar@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250510155607.390687-3-18255117159@163.com>
+X-CMS-MailID: 20250613055040epcas5p35219ddeddd9fe5f4632ca837db91847a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250613055040epcas5p35219ddeddd9fe5f4632ca837db91847a
+References: <20250613055613.866909-1-pritam.sutar@samsung.com>
+	<CGME20250613055040epcas5p35219ddeddd9fe5f4632ca837db91847a@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_235453_824504_AD18C8D3 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20250613_000958_618042_F2914BD1 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +99,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 10, 2025 at 11:56:07PM +0800, Hans Zhang wrote:
-> The Meson PCIe controller driver manually configures maximum payload
-> size (MPS) through meson_set_max_payload, duplicating functionality now
-> centralized in the PCI core.  Deprecating redundant code simplifies the
-> driver and aligns it with the consolidated MPS management strategy,
-> improving long-term maintainability.
-> 
-> Signed-off-by: Hans Zhang <18255117159@163.com>
+Add a dedicated compatible string for USB HS phy found in this SoC.
+The devicetree node requires two clocks, named "phy" and "ref"
+(same as clocks required by Exynos850).
 
-I believe that the root port MPS set by PCI core in patch 1 should be enough to
-remove the logic in the driver. But given that we already saw that is not the
-case with Armada controllers, it would be good if one of the Meson maintainers
-could verify if this series works as intented. Since the driver is not using the
-DEVCAP value, but using the hardcoded value, I'm slightly worried that setting
-MPS value other than 256 would have any downside.
+Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+---
+ Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-But anyway, the root port MPS should be the same with and without this series.
-This can be verified by:
-
-sudo lspci -vvv | grep MaxPayload
-
-Also, performing any benchmark and making sure that the device performance
-didn't get affected would be great.
-
-- Mani
-
-> ---
->  drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
->  1 file changed, 17 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
-> index db9482a113e9..126f38ed453d 100644
-> --- a/drivers/pci/controller/dwc/pci-meson.c
-> +++ b/drivers/pci/controller/dwc/pci-meson.c
-> @@ -261,22 +261,6 @@ static int meson_size_to_payload(struct meson_pcie *mp, int size)
->  	return fls(size) - 8;
->  }
->  
-> -static void meson_set_max_payload(struct meson_pcie *mp, int size)
-> -{
-> -	struct dw_pcie *pci = &mp->pci;
-> -	u32 val;
-> -	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> -	int max_payload_size = meson_size_to_payload(mp, size);
-> -
-> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
-> -	val &= ~PCI_EXP_DEVCTL_PAYLOAD;
-> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
-> -
-> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
-> -	val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
-> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
-> -}
-> -
->  static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
->  {
->  	struct dw_pcie *pci = &mp->pci;
-> @@ -381,7 +365,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp *pp)
->  
->  	pp->bridge->ops = &meson_pci_ops;
->  
-> -	meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
->  	meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
->  
->  	return 0;
-> -- 
-> 2.25.1
-> 
-
+diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+index cc60d2f6f70e..71db17d93c6a 100644
+--- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+@@ -33,6 +33,7 @@ properties:
+       - samsung,exynos7-usbdrd-phy
+       - samsung,exynos7870-usbdrd-phy
+       - samsung,exynos850-usbdrd-phy
++      - samsung,exynosautov920-usbdrd-phy
+ 
+   clocks:
+     minItems: 1
+@@ -217,6 +218,7 @@ allOf:
+               - samsung,exynos5420-usbdrd-phy
+               - samsung,exynos7870-usbdrd-phy
+               - samsung,exynos850-usbdrd-phy
++              - samsung,exynosautov920-usbdrd-phy
+     then:
+       properties:
+         clocks:
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
