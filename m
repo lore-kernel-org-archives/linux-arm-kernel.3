@@ -4,102 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ECFC71148
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90552C7114A
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Y1TYF3o9MJosGx0HwGV/hmhcmkYfIUKomItVW1Sq2k0=; b=Dsk0lnNoCYemmT
-	Zhlqu+M5OA8SiowJbw99E4NOzo4nWlofAWw1436JWMU+/22ZwDljijziMYX6gkoBTJwki4qWIkzRQ
-	9YdVMXnVCRKGazKPPad5qKYZuah0RxeN7xn2bRRPwDNwqwKjlpFYNZx5QhFPwReeFiN+jyJgwagCG
-	JKDxRxRmVNVAX2XXrJyiePLrRobEOq2EVJ+4k5xFOy2b33gW8t+84+zoII6DJD5zInT7cGiVdNITA
-	OG4otVUv+D0fQScpY6xQeqa9x63R8e2IJTYl/MMahcyoiMp1HKu2OJIg4DNIwLNcQtYc/1Kyy/35E
-	yI6S8BOw1ekK1rC20RVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kT0oyU/Nh757Vz/q1GQHVARXcSaMbfaag4GCfYlRurQ=; b=tEjtBicUj3kME8nftAeGuMci1q
+	dYZ1KOL57UntQZo5oQG7hez/9BlMNVHpx7drDnxCtGf9UsbfCP8lhACSXVJ4k+d9ugNtr5XqESqEd
+	Hx/6if4Qt++1P/OlFkQcbr/GmuQVzwhrUJE5sgfBYSXOEEdYkM5QeIjhx0Fwni4QFfwbQ1HDT6rm9
+	7okt+3OT1Y59aYTmwyCkj4oNofgOTBDUdh7bGE2lM2+hObiyB9W1sFxh/ohXam7M7oTPtfzooJiNf
+	NVNG+0GFAIFFD5jgbvVXuVvvH0P8HYx0ogFHWLiUOJOs79ZOWgAZMvZYPGUZRQy2LAnKrVyW/wl5w
+	a0xwelXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9wF-0000000HQDX-0USJ;
-	Fri, 13 Jun 2025 19:19:43 +0000
-Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
+	id 1uQ9wD-0000000HQA0-01Bj;
+	Fri, 13 Jun 2025 19:19:41 +0000
+Received: from relay15.mail.gandi.net ([217.70.178.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9ZN-0000000HN14-3Mwg
+	id 1uQ94K-0000000HJ8V-04su
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 18:56:08 +0000
-Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-60f24b478e3so1215355eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 11:56:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749840965; x=1750445765; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y1TYF3o9MJosGx0HwGV/hmhcmkYfIUKomItVW1Sq2k0=;
-        b=eE7Cqo3X1/wRerpdcqoPT9lyftGIWHWUx7/i1QuRXN923hkRvMyrz6+Uc68Xe9MZ4b
-         G0WcwC/BhfoOBw8zcmYuEWsyiLOtgzpsEqXwp9F2Pl1Q0hGjqekZB75RLxGMOysPENAI
-         g156b6pOvn5q5kUqZkQR8FEKwoVjI5vDIIyHHuiI9JMNGrY2h2M/LLR9sCmKayPk6yX6
-         dPTmLnuzDwyX/w592ml2CnIoALJuii3thPBw3RD3XHCCsRmnRr42GjeeNNIG+BJxx+ap
-         ojT45iHlwQfy/4z1lygfYF8JI6IfCW8d4oEyG6bG4ojPoLhWNBP3QSZIVNNleDHb93/3
-         yDmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749840965; x=1750445765;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y1TYF3o9MJosGx0HwGV/hmhcmkYfIUKomItVW1Sq2k0=;
-        b=uHEZpTOLyxCdHbl982E2e0ZFtPLKz4N9ABDTynC7beMvGOeVnxgDgEt+jmrOO9S+/R
-         1EftvZUpXUVCG8IUWIB296mKmyQJvKAf7OG1dzYdnJ+6pEzz2KukUdmGdzF+mocCByif
-         qgNI2sZDwLOKY5uD5mvNAtMAWP7kECBdNjwwJmC8UuI42mwIUjhBtUnPJy505N/2BBox
-         Lc173f21E2Ukchp+6DS065WlbVj1IM9GsjNY8iKGDBrhDI/rDB9XOFKHyMh4aJpKWlHD
-         yUvmqAWZwCBStbKOL7wM838EHVnWpOmlOw+I7jTa6bBwOJnq8+n9F6+OXcEhvSg3D8qO
-         Y5PQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVc4058PlQIDJwmLaecXVq1ENHI/QwOo2EAU0MyIx5bIC/Wt9ERde7hf+qCHi3cHz9HN8wkRcGzOycUuXhMhSbb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf6c86uvrmbnpRrPmIeYtVfoQOlA05fFUAZV7ZVRh7R6Ymb+H0
-	vpHsJYQ9927TqxR9jt3T5qWhHXkvrqjCuVPcdqxseGZ1DAvehYGV2gjUSvZFXLp7m68=
-X-Gm-Gg: ASbGncuYCo90gsBYSDMT+GLk3SJw0v2Dni/Wbui61gdjyP/dCPUfhHSm4YjeNjcS+ke
-	zvwaMaXux7pvox57IdO+VZ/IzAQuHudVsHjBYllEOr9TjUxYtZjHSdDMORpNfYBJeiKZmoXja3S
-	zMFDCL1cPEff38aWiz3mhbRjsh7huENjsCezne1kJpUqnIdclJActApLMtue4RDsh34WsbETuoo
-	brX2EA6Q1AlW3vvt8Rnj6YSaKhyiSrTmF9cu2+CpJ/9qgJvZl2GJMb6Cgf9G6dNGkp1eknTJDm8
-	eWLeXcFCn3WNzslR1Q1M4K9LwPlyTFVDbjlURNJGQd9LLlz5GEuwSBKr2khLAqMkZMM=
-X-Google-Smtp-Source: AGHT+IH2MWQtTOQvVuN+GKtLbqMqE9OuQOP/DXYYureGIwrlvQ2mli5y2ygIXgHzv9OAPmZM88lIWg==
-X-Received: by 2002:a05:6820:814:b0:60f:3442:96b9 with SMTP id 006d021491bc7-61110ff7a50mr540561eaf.3.1749840964805;
-        Fri, 13 Jun 2025 11:56:04 -0700 (PDT)
-Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:4647:c57:a73c:39d8])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-61108f07e08sm256244eaf.27.2025.06.13.11.56.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 11:56:03 -0700 (PDT)
-From: David Lechner <dlechner@baylibre.com>
-Subject: [PATCH v5 0/3] bus: ts-nbus: use gpiod_multi_set_value_cansleep
-Date: Fri, 13 Jun 2025 13:55:27 -0500
-Message-Id: <20250613-gpio-set-array-helper-v5-0-273fab50cc8e@baylibre.com>
+	Fri, 13 Jun 2025 18:24:01 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5A535442A4;
+	Fri, 13 Jun 2025 18:23:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749839038;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kT0oyU/Nh757Vz/q1GQHVARXcSaMbfaag4GCfYlRurQ=;
+	b=OBfKExpt8M5d0lvM2Qq04f0QiyRb6Ve9jo3lGS7pkFPDPDWRFJMsRM3OlivWaUHufkbRNQ
+	/lT0pDAcnmoI7TcseDKZlJM5Vty5LXl9wZMKqHiaU4GSNa8OHEJImLfbhdCWkOo8CtFRVc
+	NpvEmowYtUeyWlkoB0QjdhuP/zSC7HW0/+sE3iBgz/g6fdVUFJy3J9Co1xd7v8ZZ0OH3YA
+	FMEcAo8Zkowr2aPm/kRSe9hxrsX7tQvzjz83fYWVPkqU8LKB/d109zv2T9OKe3AU03rqA8
+	LpJGuqJQW6L05uL0HsBIxK9RFUtwSVTmzYIlWzDPVpoTCu6Gju7BjR2IFjD+Kg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Steam Lin <stlin2@winbond.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v2] arm64: dts: ti: k3-am62a7-sk: Describe the SPI NAND
+Date: Fri, 13 Jun 2025 20:23:56 +0200
+Message-ID: <20250613182356.1272642-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAB90TGgC/4XPSwrCMBCA4atI1kbyapq48h7iYpJMbUBtSaRYp
- Hc37UYRi8t/YL5hniRjipjJfvMkCYeYY3crUW03xLdwOyONoTQRTFSMS07PfexoxjuFlGCkLV5
- 6TNQFBVIYWbMgSdntEzbxsbjHU+k25nuXxuXMwOfpP3HglFFruTfeOxU0HhyMl+gS7nx3JTM6i
- DckmF6DRIG4rxqmTFNbL39A8gPibA2SBQoadC11rQKYH5B6Q5qvvqYK1DijwTplLbgvaJqmF0B
- RaAOYAQAA
-X-Change-ID: 20250131-gpio-set-array-helper-bd4a328370d3
-To: Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org
-Cc: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>, 
- Andy Shevchenko <andy.shevchenko@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1915; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=++uE2N5iG8oRabYWPvqc1xZ0NdyMvXJg7Pp68u6U0pM=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoTHQn8OH/6JMhZq0tcuH66PDJbaNGfuO8EYGYf
- bqSi4lTXkqJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaEx0JwAKCRDCzCAB/wGP
- wL11CACbdE4hxkOjFwtT6N/riTIylQaavW5TjgmkT2kDkqqVPKqqdQWBLEm2iIfONpmkvV381ux
- q/GgBKcW+hxEM9ILrT6MdgN1qyScmpXBTc/ra3ZJz2DSy9qJ5rXnscay+TKk4pir4VOAcHOxlPn
- yPtfIKBKbMX+KyfrGZPYgHNJ2P9juYzDw5q8IeOKwFhVmZcIfgA0LhxvYARl1BapQgrsdgZguIV
- IlkPzlwZJvp9EK1LdJzfM/YAZAU4vQL5+txUhPx3fPDe1WT4F3nqvc8FFjGYdDWhRnARqyh3K1F
- 5U5hNpVM8/xLMR6ZpRqinew/FouDHnrMpFM7b716qLzHhw52
-X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
- fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeeiiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegteefudelfeejffehveelgefgtddvudfhudegueeijeevjeeivdfhudfgtedtheenucfkphepvdgrtddumegtsgdurgemvdefmegsjedvvdemrgdutdgrmeelfhgvkeemudgsiegvmeelledtudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudgrmedvfeemsgejvddvmegruddtrgemlehfvgekmedusgeivgemleeltddupdhhvghlohepfhifrddrpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddupdhrtghpthhtohepnhhmsehtihdrtghomhdprhgtphhtthhopehvihhgnhgvshhhrhesthhirdgtohhmpdhrtghpthhtohepkhhrihhsthhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrn
+ hgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_115605_954815_9DFFFD34 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20250613_112400_186767_7E51335C 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,55 +80,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is what remains from "gpiolib: add gpiod_multi_set_value_cansleep"
-that didn't get applied yet for the bus subsystem. So I have changed
-the subject line accordingly.
+Describe the octal SPI NAND available on the low-power starter kit.
 
-Arnd,
+The pinctrl configuration comes from TI fork.
 
-There was no maintainer listed in MAINTAINERS for the ts-nbus driver
-and it looks like you have picked up patches for it in the past. Could
-you please pick up these as well?
+With the current mainline tree, we currently get the following
+performances:
 
+eraseblock write speed is 7507 KiB/s
+eraseblock read speed is 15802 KiB/s
+page write speed is 7551 KiB/s
+page read speed is 15609 KiB/s
+2 page write speed is 7551 KiB/s
+2 page read speed is 15609 KiB/s
+erase speed is 284444 KiB/s
+2x multi-block erase speed is 512000 KiB/s
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
-Changes in v5:
-- Fix undeclared variable in ts_nbus_reset_bus()
-- Link to v4: https://lore.kernel.org/r/20250611-gpio-set-array-helper-v4-0-fb86a9b499ab@baylibre.com
-
-Changes in v4:
-- Dropped all non-ts-nbus patches.
-- Fixed a reported issue with uninitialized variables.
-- Link to v3: https://lore.kernel.org/r/20250210-gpio-set-array-helper-v3-0-d6a673674da8@baylibre.com
-
-Changes in v3:
-- Added IS_ERR_OR_NULL() check to gpiod_multi_set_value_cansleep()
-- Added new patches to clean up accessing bitmap directly (ts-nbus, ad2s1210).
-- Added function prefix for max3191x.
-- Removed unnecessary braces in ad7606 patch.
-- Picked up additional trailers.
-- Link to v2: https://lore.kernel.org/r/20250206-gpio-set-array-helper-v2-0-1c5f048f79c3@baylibre.com
-
 Changes in v2:
-- Renamed new function from gpiods_multi_set_value_cansleep() to
-  gpiod_multi_set_value_cansleep()
-- Fixed typo in name of replaced function in all commit messages.
-- Picked up trailers.
-- Link to v1: https://lore.kernel.org/r/20250131-gpio-set-array-helper-v1-0-991c8ccb4d6e@baylibre.com
-
+* Added the bootph-all property.
 ---
-David Lechner (3):
-      bus: ts-nbus: validate ts,data-gpios array size
-      bus: ts-nbus: use gpiod_multi_set_value_cansleep
-      bus: ts-nbus: use bitmap_set_value8()
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 42 +++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
- drivers/bus/ts-nbus.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
----
-base-commit: 19a60293b9925080d97f22f122aca3fc46dadaf9
-change-id: 20250131-gpio-set-array-helper-bd4a328370d3
-
-Best regards,
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+index b27759026014..3a8b45272526 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+@@ -876,3 +876,45 @@ &c7x_0 {
+ &main_rti4 {
+ 	status = "reserved";
+ };
++
++&fss {
++	status = "okay";
++};
++
++&ospi0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&ospi0_pins_default>;
++
++	flash@0 {
++		compatible = "spi-nand";
++		reg = <0>;
++		spi-tx-bus-width = <8>;
++		spi-rx-bus-width = <8>;
++		spi-max-frequency = <25000000>;
++		cdns,tshsl-ns = <60>;
++		cdns,tsd2d-ns = <60>;
++		cdns,tchsh-ns = <60>;
++		cdns,tslch-ns = <60>;
++		cdns,read-delay = <2>;
++		bootph-all;
++	};
++};
++
++&main_pmx0 {
++	ospi0_pins_default: ospi0-default-pins {
++		bootph-all;
++		pinctrl-single,pins = <
++			AM62AX_IOPAD(0x000, PIN_OUTPUT, 0) /* (H24) OSPI0_CLK */
++			AM62AX_IOPAD(0x02c, PIN_OUTPUT, 0) /* (F23) OSPI0_CSn0 */
++			AM62AX_IOPAD(0x00c, PIN_INPUT, 0) /* (E25) OSPI0_D0 */
++			AM62AX_IOPAD(0x010, PIN_INPUT, 0) /* (G24) OSPI0_D1 */
++			AM62AX_IOPAD(0x014, PIN_INPUT, 0) /* (F25) OSPI0_D2 */
++			AM62AX_IOPAD(0x018, PIN_INPUT, 0) /* (F24) OSPI0_D3 */
++			AM62AX_IOPAD(0x01c, PIN_INPUT, 0) /* (J23) OSPI0_D4 */
++			AM62AX_IOPAD(0x020, PIN_INPUT, 0) /* (J25) OSPI0_D5 */
++			AM62AX_IOPAD(0x024, PIN_INPUT, 0) /* (H25) OSPI0_D6 */
++			AM62AX_IOPAD(0x028, PIN_INPUT, 0) /* (J22) OSPI0_D7 */
++			AM62AX_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
++		>;
++	};
++};
 -- 
-David Lechner <dlechner@baylibre.com>
+2.48.1
 
 
