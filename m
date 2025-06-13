@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF846C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A5AC71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHhT/9vCRjUN3YTO0u3ems5D9aA0HtvNCeJ9uyFGQTU=; b=yG7VvWimw6/yWCoEiflsra3kpr
-	RHVzAIAl27JJO/Ods7DHey+mUEVnONKx1mwN28kmmrjIM/s7k2YEn529vCfopIqFxs9NGYqoEGzo5
-	XdFGvEwEj7OGU8Pn/T1MX32Nk/KGVduBsR6zYRnLH9/80PK/8+ZhrD4+fKdznnAVhhTYgne5SouJG
-	oJnxBCQpCAszvZNADb4KBOINbO0/BdHs+g7ewf5iVzhS+Rt1kB1V0kP9kjWxjz49K6Y8ufuLFFYw3
-	1dXTGCFg6KdOXa8BzhMorce0TrZXqzk4b1PgbtPGamOg+i8K8NjWaIdnohLTtQIHVc3vlxV6x13jc
-	SqfE4iZw==;
+	bh=tIfdzcVsJS+Y1xlZNSjmnndTMnBgOYe6g0smELzJkrE=; b=3QEI2o2ZELCYwSdaTuVQm6pHLi
+	AndtDKOaq/UcM4AYonDFqVuRRcHKEZhScIUprcof8n3BRJtV1CoMKWMEOd3nBEJC6IplHPk3Gmuqb
+	pAaQV2ZnyjQolgVEARQ4ACsU4P2ffqil3XNmN5RE2NQCTrDbvNxuDwTnp8/RwCzwpuqtdYdP8pkwV
+	PYhaFI3DyFcsycJ/QFv3HkpiK6/XytSLfJtL9sZ3kFMgliuoKLXJMdeSSLLYGlQomixRDMPHwRbGM
+	SM3e0FK9N+8KKhKz888utIJH5JLP1HixElFg+3/4Rdgho4RCoU6phi4baTRGpXTE2iWlLD6PEQKoS
+	atKtN1GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQAFW-0000000HThR-1Zrq;
-	Fri, 13 Jun 2025 19:39:38 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uQAFV-0000000HTh9-3T2O;
+	Fri, 13 Jun 2025 19:39:37 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ7zM-0000000H9Gb-1eW1
+	id 1uQ7w3-0000000H8xI-0Bzg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 17:14:49 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bJmDQ068yz6L4wf;
-	Sat, 14 Jun 2025 01:12:38 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id C596214033C;
-	Sat, 14 Jun 2025 01:14:36 +0800 (CST)
-Received: from localhost (10.122.19.247) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 13 Jun
- 2025 19:14:36 +0200
-Date: Fri, 13 Jun 2025 18:14:34 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Yicong Yang <yangyicong@huawei.com>
-CC: Catalin Marinas <catalin.marinas@arm.com>, <yangyicong@hisilicon.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<james.morse@arm.com>, <conor@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arch@vger.kernel.org>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, <linux-mm@kvack.org>,
-	<gregkh@linuxfoundation.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, "Dan Williams"
-	<dan.j.williams@intel.com>
-Subject: Re: [RFC PATCH 2/6] arm64: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <20250613181434.00004e7e@huawei.com>
-In-Reply-To: <64ae0e68-b025-4a33-9389-5393ee887fb4@huawei.com>
-References: <20250320174118.39173-1-Jonathan.Cameron@huawei.com>
-	<20250320174118.39173-3-Jonathan.Cameron@huawei.com>
-	<Z-bo7AQ1h6VQr65V@arm.com>
-	<64ae0e68-b025-4a33-9389-5393ee887fb4@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 13 Jun 2025 17:11:24 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55DHAnCP3183815;
+	Fri, 13 Jun 2025 12:10:49 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749834649;
+	bh=tIfdzcVsJS+Y1xlZNSjmnndTMnBgOYe6g0smELzJkrE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=Y3W/JpxVwNVQbD3bTSuqcNoWS2DUs1sx94Iq2aqEy4TDX1+edD6Gn5xLVlmu+bMLZ
+	 Hdg5BR6bstG2Vcd1BvuJnxPF6Sbin5e0q38zTbnTh40leylgPCcj/ovbVd2of2s0sF
+	 ceHivc9iWxLQ7q0+sBQ5ejLR4gkyJzXLvJSbcMEc=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55DHAnHH2745269
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 13 Jun 2025 12:10:49 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 13
+ Jun 2025 12:10:48 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 13 Jun 2025 12:10:48 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55DHAmgB4049360;
+	Fri, 13 Jun 2025 12:10:48 -0500
+Message-ID: <db82d506-3d10-4f6d-a100-d29e3685ba46@ti.com>
+Date: Fri, 13 Jun 2025 12:10:47 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/7] dt-bindings: omap: Add missing AM33xx compatible
+ strings
+To: Kory Maincent <kory.maincent@bootlin.com>,
+        Tony Lindgren
+	<tony@atomide.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Aaro Koskinen
+	<aaro.koskinen@iki.fi>,
+        Andreas Kemnade <andreas@kemnade.info>,
+        Kevin Hilman
+	<khilman@baylibre.com>,
+        Roger Quadros <rogerq@kernel.org>,
+        Russell King
+	<linux@armlinux.org.uk>,
+        Paul Barker <paul.barker@sancloud.com>,
+        Marc Murphy
+	<marc.murphy@sancloud.com>
+CC: Jason Kridner <jkridner@gmail.com>, Bajjuri Praneeth <praneeth@ti.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>,
+        <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20250613-bbg-v3-0-514cdc768448@bootlin.com>
+ <20250613-bbg-v3-1-514cdc768448@bootlin.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250613-bbg-v3-1-514cdc768448@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.122.19.247]
-X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
- frapeml500008.china.huawei.com (7.182.85.71)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_101448_569462_2223B907 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20250613_101123_247671_27E0CB3E 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,55 +106,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Mar 2025 15:14:14 +0800
-Yicong Yang <yangyicong@huawei.com> wrote:
-
-> On 2025/3/29 2:22, Catalin Marinas wrote:
-> > On Thu, Mar 20, 2025 at 05:41:14PM +0000, Jonathan Cameron wrote:  
-> >> +struct system_cache_flush_method {
-> >> +	int (*invalidate_memregion)(int res_desc,
-> >> +				    phys_addr_t start, size_t len);
-> >> +};  
-> > [...]  
-> >> +int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
-> >> +{
-> >> +	guard(spinlock_irqsave)(&scfm_lock);
-> >> +	if (!scfm_data)
-> >> +		return -EOPNOTSUPP;
-> >> +
-> >> +	return scfm_data->invalidate_memregion(res_desc, start, len);
-> >> +}  
-> > 
-> > WBINVD on x86 deals with the CPU caches as well. Even the API naming in
-> > Linux implies CPU caches. IIUC, devices registering to the above on Arm
-> > SoCs can only deal with system caches. Is it sufficient?
-> >   
+On 6/13/25 10:49 AM, Kory Maincent wrote:
+> Add several compatible strings that were missing from the binding
+> documentation for AM33xx-based boards. Update vendor prefix from
+> "ti" to "beagle" for BeagleBone to match actual hardware vendors.
 > 
-> The device driver who register this method should handle this. If the
-> hardware support maintaining the coherency among the system, for example
-> on system cache invalidation the hardware is also able to invalidate the
-> involved cachelines on all the subordinate caches (L1/L2/etc, by back
-> invalidate snoop or other ways), then software don't need to invalidate
-> the non-system cache explicitly. Otherwise the driver need to explicitly
-> invalidate the non-system cache explicitly in their
-> scfm_data::invalidate_memregion() method. Here in the generally code we
-> simply don't know the capability of the hardware.
-
-Coming to this a little late.  It would definitely be helpful to understand
-whether other hardware implementations where this is relevant (e.g. CXL
-capable systems) do require explicit flushes of the caches nearer the
-CPU and any dance that they need in that case to ensure no race conditions
-leave stale lines.
-
-The PSCI spec (that never was) did allow for reporting that it was necessary
-to stop all traffic prior to flushes, but that is crazy to support and
-someone built the wrong system if they need to do that under even
-vaguely normal software flows.
-
-Jonathan
- 
+> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+> ---
 > 
-> Thanks.
+> Change in v3:
+> - Change vendor prefix from ti to beagle
+> - Remove BeagleBone board variant description.
 > 
+> Change in v2:
+> - New patch
+> ---
+>   Documentation/devicetree/bindings/arm/ti/omap.yaml | 22 +++++++++++++++++++++-
+>   1 file changed, 21 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml b/Documentation/devicetree/bindings/arm/ti/omap.yaml
+> index 3603edd7361d..45fa1c61cafd 100644
+> --- a/Documentation/devicetree/bindings/arm/ti/omap.yaml
+> +++ b/Documentation/devicetree/bindings/arm/ti/omap.yaml
+> @@ -104,12 +104,32 @@ properties:
+>         - description: TI AM33 based platform
+>           items:
+>             - enum:
+> +              - beagle,am335x-bone
+> +              - beagle,am335x-bone-black
+> +              - beagle,am335x-bone-black-wireless
+> +              - beagle,am335x-bone-blue
+> +              - beagle,am335x-pocketbeagle
+> +              - bosch,am335x-guardian
+>                 - compulab,cm-t335
+> +              - grinn,am335x-chiliboard
+> +              - grinn,am335x-chilisom
+> +              - gumstix,am335x-pepper
+> +              - isee,am335x-base0033
+> +              - moxa,uc-2101
+>                 - moxa,uc-8100-me-t
+> +              - myir,myc-am335x
+> +              - myir,myd-am335x
+>                 - novatech,am335x-lxm
+> -              - ti,am335x-bone
+> +              - oct,osd3358-sm-refdesign
+> +              - sancloud,am335x-boneenhanced
+> +              - seeed,am335x-bone-green
+> +              - seeed,am335x-bone-green-wireless
+> +              - tcl,am335x-sl50
+>                 - ti,am335x-evm
+> +              - ti,am335x-evmsk
+> +              - ti,am335x-shc
 
+SHC looks like a Bosch board.
+
+Otherwise this looks much nicer now,
+
+Reviewed-by: Andrew Davis <afd@ti.com>
+
+>                 - ti,am3359-icev2
+> +              - vscom,onrisc
+>             - const: ti,am33xx
+>   
+>         - description: Compulab board variants based on TI AM33
+> 
 
