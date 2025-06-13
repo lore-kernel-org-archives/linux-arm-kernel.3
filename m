@@ -4,172 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA50DC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 09:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE7AC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 09:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PijZJiYHSmOkV1ew7Oz60T6GDs942y8HTyI1XDVHxVk=; b=QhxzvnF4Ja/uEft/sch7+K+gEt
-	dV13HEu0R84/rPf7b9HGioJ4O5pi2UXRQf2BSvfwXchDgkgf8z+58EfSVhA7oMbMxzqaWmqoZYOhz
-	1yLvyJ/dVBpBoWhdXlmRWwJTfHuAc25wssCjdaxXnYTviqm8BRvrPxkdDYzU60TRTRY/7N06UEhw1
-	1uYbPSNKXyb0Y9kJyO2w8Y5OAW2XPdlHFM2Mlahz7HBuN3W+1W+KytofJkPEnQi8mpS1YXf9JsBVN
-	2eONpg8MCmSLXAAdv63c8vMWPrncHvUESKCnZI1XMp4t1d9113znQPENFedjGVFJ9b95pwz15de63
-	0EjhWBWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PSI7jptZHY/4Sy+PfqbdO0ph97YahPFYMpetcy/CilE=; b=w/CFpHUFEcc9/47iSgpycRqOXa
+	NSqoAdwEnHVqCfpqkmxs9wnwEx1dd/vtq6fHWoIT9ojGd3xgIhWcwG7KjHXuspUC2QlyWte1g3URm
+	JnjN7eu0wYxxa0mJxv/mAHhc6rNiby9jd3sqrM2R4AM3+DXfXvLLvxswy7pFOb3W7JtY/DJpcvp1Q
+	RAemqeAwF+LGhz26ToQfeOntQfydaYWhp6dRPv3WlG/e6FPG+orWX2eVgy72ulBtPhur7nrbm/eg1
+	+ctbskmhBEg1EdL39nQ+KBfdKdzVSNEp1gdxKg9AQXsac6dQiZ8FhD3pO2nbUPPE9oief/koFpLxA
+	YPQRYeMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ122-0000000FyPf-1pvB;
-	Fri, 13 Jun 2025 09:49:06 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1uQ14G-0000000Fym2-2gXC;
+	Fri, 13 Jun 2025 09:51:24 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0sY-0000000FvxE-2wC2;
-	Fri, 13 Jun 2025 09:39:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rPQw/0AQy+uF9Gki9qRFt0k3UY1ekbJ8HV1Gy2OPBAZXEX7DsYS2qVMl1Q1zYCO2fyB0V9rN516WVJuv/n3OrFCpReg7g4jfrusd+sII30hmllZAOFt9xqLgDrLvjNTduYLjN/H/z9ZX62TH2sL7jV3Oml7bIqC/QzmttghLw2UwAtu+9dcdp9RjO0JpsgJpjnuM0ojwYJFOiJ5Ho8Fru4YMCZiezwdMQVYbjiev4ShbYx2EUE6jkPLwbDTCWtIVjgs8Vma9JmmmeTSSOqnhNoIQ5LLvrLvYoDBw1JJEm9R5NSHKW2p7DeNHan3FFOG6064VH7S5mDfUJJ7aTQIhhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PijZJiYHSmOkV1ew7Oz60T6GDs942y8HTyI1XDVHxVk=;
- b=Q8GcLBKUVuOiEBSeco3LihH7BfIoqvP5yyoHSe+VrkbFwvw3ayD8tQTWYB/VbrA6PyAFmbWz1HLUbjNp9Nh1sSZ/34NG8yuYP7aMfiG7IcFmd1T7mYRYvTM0+VzkbTIRVKB5zPiHuFwIF7SpmS2XMr/RdzrIUYa8NzeOD6utxoUDNwPUOz8+e6izFebOXJhQT70DEDHVX9O3v9p3aTucm+qJLDOZx0imc5gb9zTm4OuIgGz+yMfpp7TZD532TQszq8/i5DPoC7ouA73chh3JGnuFMv41mFrWkL8eEa2iDnwrR8tZfM+Razi5h5ALF/7+6galq5CRQlK7NYsolNxhSg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PijZJiYHSmOkV1ew7Oz60T6GDs942y8HTyI1XDVHxVk=;
- b=qapbt+xRnneVCU0jGRSpmFimShGWDMvOJgGxlkQbwsAm7hxUv7+Gx+LMeDychpHD4IwYic6Vw28bs8yBvF1DKe8XClc/N/5gKkro7qcoFSsPPU1kNC5bU2KwLRbOiyjBhv/jGjlfzCNG/xzJpqeJU/vfj2KTvHZy3vFXs1whBMXk2gTtmetwean3b4SU4pxX4pVfC3J5dSeDLjgRZ7t5/b6c7aegDwuoLWxUKuAzrIrKhY5tB64lG+Wlmryjww4+PZO4EvWy1TmWBwMx8P/a7zd+d3qdsbkgAZZoCvJRGPxB9TJVsO8bSqFlOT2ouDptTm2EAsWyEglYg3hnDqcBgg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by OSQPR03MB8526.apcprd03.prod.outlook.com (2603:1096:604:280::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.26; Fri, 13 Jun
- 2025 09:39:07 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::a311:33f6:519d:73bf]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::a311:33f6:519d:73bf%3]) with mapi id 15.20.8813.036; Fri, 13 Jun 2025
- 09:39:05 +0000
-Message-ID: <faf7d7bd-489a-4cc2-bb00-7df5980161cf@amlogic.com>
-Date: Fri, 13 Jun 2025 17:39:03 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/6] clk: meson: t7: add t7 clock peripherals
- controller driver
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu
- <chuan.liu@amlogic.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>,
- Dmitry Rokosov <ddrokosov@sberdevices.ru>, robh+dt <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20250509074825.1933254-1-jian.hu@amlogic.com>
- <20250509074825.1933254-7-jian.hu@amlogic.com>
- <1jo6vvy63e.fsf@starbuckisacylon.baylibre.com>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <1jo6vvy63e.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2PR06CA0218.apcprd06.prod.outlook.com
- (2603:1096:4:68::26) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+	id 1uQ0y1-0000000FxL6-0RHc;
+	Fri, 13 Jun 2025 09:44:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 30875A50ADA;
+	Fri, 13 Jun 2025 09:44:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4209C4CEE3;
+	Fri, 13 Jun 2025 09:44:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749807895;
+	bh=856dxDS+Uf8WXPdeMuD0cTLl98kWJ40xrdivrBRQOok=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IDCKOhifcsK5rlivUrkhIrXEivpkcqJc7VPxFhAEAlYL4ZLDhBikU1vMyTRdBKW0h
+	 fIcG0hUICIwieAxhuvNNqwo2y228BZl4+ozJviwbofC7MQqSAor7xd2Xa8sAZ/6BC0
+	 oJIumLp/g5mwnDTf52oFvyyBuWS613l2sJOwdggvCXmvBSgvniHj6SE3G6KWoQ7sGu
+	 z9C7WHJNi1Wmo7JAkUofQKCoYPZHwbj7C7tptXcxpim1ohZAqSFqjWyt/wzK2sApT6
+	 Xx4l7ioJvnWArjgzD1EaO+hwmEZINJQUftaVAOAK06iMhGPNXmCOsLrf3kDgpxH/AH
+	 24wvSrAq/ZtZQ==
+Message-ID: <36cb3578-1efb-4d2e-b50a-47e6dfd3bdd0@kernel.org>
+Date: Fri, 13 Jun 2025 11:44:47 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|OSQPR03MB8526:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc6287ad-b159-4be9-3b28-08ddaa5e238d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TXRva25YSEZQcTRoK0JNYWpDcVVVeTk5WU9qUWtPaEhkNlkrbXRsK3BYRWpz?=
- =?utf-8?B?ektTaEZaOEo2a2FOeVFIYVkrZ1RBaFh3WTR5dUR1eklSKzkwdlFuOENoN0x4?=
- =?utf-8?B?cUw5R3dHTzYwK0lnRDI0bVZzeEIxempySGI3VkxlYjA2SzFzektCSkZad2xM?=
- =?utf-8?B?VkZIT2drZk1IOXBrRkdVNU5JUm5VWDRXeHRMampLOGJIMHNtNTVIaTk1aEF0?=
- =?utf-8?B?dFRsTStkYWJhZisySmxyblRtMXZLUjgyanorOUlFTjRIblp0d0ZtSGJVSVIr?=
- =?utf-8?B?a00xOTNjRzFYQ2ZHWVF4Qkt1MEFkd1VxNkEzczZBSGpBUWs2Q2NWa3lPZjBi?=
- =?utf-8?B?Vm1IUlZjRGJBQlVLR1h6K09iSVMrMHovVHYyUDlqOTd5eHBYTnZObEg3WFJ0?=
- =?utf-8?B?elF4cFdDVkJzYXAxUUdTbjJmMTJsdjdVdmYwamtBMHhrZVlHNjBMc2lvU0R4?=
- =?utf-8?B?TFFuZkNrZHRWMXZ2YVBpVUVadTZKNDZIbHgvT3V0TnhLOURTQVdXVFJKSHJp?=
- =?utf-8?B?OXhpbnhvcW55ZEwxczF2anlYQ1JEa3drODcya21oc21hSFJBUmFiaC9IRTVR?=
- =?utf-8?B?S09NOFR3VFhhZ1RsU29NNnhoSGlIU1o1ZEM0ZjNIUkZvbHpoTWZXL3FRZFh1?=
- =?utf-8?B?VktSTUVvdU1SV09EVWxJc2RSZVZNY1phZU5hREJJNURha2p0Y1JuM3F0K0s1?=
- =?utf-8?B?bDgzcDBlSmNBT1hKN0F4cXF6ZzB5bXBFLzBreHYyYnFDV0xlcEFlUHliTjB1?=
- =?utf-8?B?aXFGdVc1OGJxajlmWWR0WnJkWkIyQm5XRDF4QmdIWkM0ZUpmSFc1eFJjQ1FR?=
- =?utf-8?B?R2J4eG43VFFlSVVtaC94VGpYSDYzR3pBMFlXajJKT201MUF4M0F2Rk55dHEv?=
- =?utf-8?B?MkROQ2ppRVpLTWFHOGJ0WDQwM28xb0NvSGV0UHI4NUxHOHpwOXhuM3BLRHBy?=
- =?utf-8?B?dG54NTZUa2NRbC96aWpEVVpGZ0RPd1JlYy8vekFvUGNJVzJrV08vbEQ4OWhp?=
- =?utf-8?B?SWlFcGwvODEvVFVNWmRWT0JmWWNrZy91RkNRYlZBNWpKUXYxdlJ6VkJ1aDhz?=
- =?utf-8?B?ZkorMXdSaTY2L2ZYaDZSN0J5VEt0ayt6MHVxS2VURlo2MGx5a29ITE5pUEVY?=
- =?utf-8?B?TjlOdHh2dUlwblZ1U1hPSkpERE5mdE9sQ0NtZTBGa1NudjBRbmZKSmtHZXp5?=
- =?utf-8?B?Wm01bkVqUy9DeEo5YjJzZDlIS2hzTUo4cW9IczZ2dU9qcG5RODZ0MXk4elRj?=
- =?utf-8?B?c0p0QmJxVGN1RGxjSitVbnJqVUQ0d0txaXJjSENkYmYxbW5ORCtuRlJWd05R?=
- =?utf-8?B?dHZGeFg3ZTZvNm1SSjk0K2plcmFrc2tYU3hFSktTa2dDd2d2Q0Vxd0dxWXBC?=
- =?utf-8?B?Q1M0UHp4Z290RUt1SkRybGlUY2JwUndxdGpZcG10K3NKdnRBTTU3VWFheWtW?=
- =?utf-8?B?eU5wZkx6SVpNb0lQeWRCRVlhWXdpQ3V1UlpjZ1gwOERESC9ob2tQd0tLUFF0?=
- =?utf-8?B?VW4yM05CVmJXRHp0ZnhySU02SGxsZ3hlZ1Y1SEttOGZuU0VmcWJBUUVGSWJ1?=
- =?utf-8?B?U1Z1Rkx2Rjd5aE95RXR6djZRS282dURwcFNpSWtkdXRsVnNoL0RmMm01NXlZ?=
- =?utf-8?B?YWcwMDBrK1hya3IzYVRuTDZNYzBrUnlHZnppdkhzMGdGcEpEQVNaRUJaallB?=
- =?utf-8?B?N213SzF3eXVXTGt1NkpZdE5yN1RUdFVHS3Ftd05YRG1rMmM3d2xYTUp1NWht?=
- =?utf-8?B?b0gvZWU2TU9CZGJPRjVxdTNjNWJodXZudDJqV1RNUnN4bkRkV2J2dlpWZlc1?=
- =?utf-8?B?QS94RXppN1kzZWVNb2hCdlhQMDNXbkZsR0g2aVFKN3krT0x3dkN1NzBqRDVn?=
- =?utf-8?B?S3hRUHp0VW4xOGllNng1WmNISzl4Mm5XcVhpRnlQK0RQbDFPQTNLY29QcnBr?=
- =?utf-8?Q?nsmuOAdeTCY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SDNUaDUvRnZoTHg4ZksrTWZmTmM0eFE4YU8xZCtFSHlZcTJmK0RKZXgvYjhY?=
- =?utf-8?B?V1NCZWtsTjlmUStmTGRnZWJ6dHZuV2FYNEdFNUtwenhGNWRZK0dZVk9PL0lM?=
- =?utf-8?B?VXo3MTF4L21sazB6d0dSTkJ6MllqQWVqcGEvc0lMZUZDSnMxUDVBbWFqdjRn?=
- =?utf-8?B?MlFLYVJWd015OGxvd2l6OFMxRlBjS1pZeTFidDhOMjNNcnJZbHdyTnZ5S3E0?=
- =?utf-8?B?UGd2U0h0NitTU2RZakd5RmdzVzg1M09Ydjd6eWR4bk0vUEt5Nkx0ODFicUpX?=
- =?utf-8?B?emJ5WFF4OG53QVhqb01ZK2g5L0tJTThkdHF0V25NTkRpZkthZFh5NkZnTHpl?=
- =?utf-8?B?ZERMN2ovZDY5UzRCSXdpVWZUZzhjL3oxZWNOUEtmZnNyY28yU2c1TWg3WkY3?=
- =?utf-8?B?aXhrMk85TUwwNEFweVl4WnhwWU1ZU2ViYWFYcjF3TzkrUEdaOHNJNExDT2dI?=
- =?utf-8?B?UWVLbVFGa3h0SDRsL2RaaGNHbnRPa29kYW1NcEhMb0dGaEFOUXlQUXhjd1Na?=
- =?utf-8?B?RGMvZ0Mrc2FPVzVRcDN0ZjBCZFBqSHVtS0xLeDhQVzAzUVFNN2xuWnpVaVJI?=
- =?utf-8?B?Q0pjQStVRldOclZUdFZ0Z3JaWDdqejc5N0FpaHYzeDlDMUE2YTlRZ1hHaS9U?=
- =?utf-8?B?VGRSbGh5OXpHc3RiZjlkQmtwazdMbjBLUXRwOU1UMTBrREFGb0FyYlFVNWV1?=
- =?utf-8?B?S2ZzbHc2MytjY3FSYTZEMkpTNFdsTmpNZWtkRzRuZUdBN0sydTZUMXJFOXRL?=
- =?utf-8?B?TDRhamFKYnpPTThlQys3N0Jpc0xQRm0veHNLaUVBT0ZwemE2KzRPQTNCVkNj?=
- =?utf-8?B?MXpBUHA5VGRUMTZad3M3TzRvTVIvS1dic1ppekFWaCtMeUl1eHJXaGJXdWVC?=
- =?utf-8?B?Q295Z0NRRTZ4SXhPL1UvUG1SZ2ZQQ2Q4a3ZOcitvZjgzZkxNWmNzdCtUbHRX?=
- =?utf-8?B?bS94ZjRpT20xc1NpcktpRjNQTThqbkpjN0kyZFBVeWkrL0t4VnhieTJId3g1?=
- =?utf-8?B?SE42ZXllK2lsdXk2dWxPeC9INVJ3ditSYTB4cVZjZHhIeDAxcGg1cmRVcGZR?=
- =?utf-8?B?SS9MS29GZldhdjIxTVlJVHYrN2RuSDNpU29Rb1dOVGt6amRsZ3ZMZ2x6R0FU?=
- =?utf-8?B?TDNLc1VkK1BFR3pQRlByM3VXay8wU3BPY0FqVTRPNjdUOU11dFViLzgvRnJa?=
- =?utf-8?B?WVVjUnF4S01lcjMxMlVyczBiR3Y5a1B6eW5jdHcwdWlDS3N6M1VOL1JmK08r?=
- =?utf-8?B?eE5FUzFHZk1sM3RKVlhlS3diYTdhakxiWWI5Zk96N0dYREVGQytTODc1MENU?=
- =?utf-8?B?UEVOeElRbUxMTHRld3ppNGlKYzFYaSt5R0VBUnhQVDRvbFJZU1NnQjNyUDMr?=
- =?utf-8?B?TEVvZE9ncExyazhjUWc4aERhTnVvK3RvaWNiSGJrSU52dXdRSmxsaXo5Qncz?=
- =?utf-8?B?Nm1LdVp1eUo4Y2NIV1l5U3pUdjhpUXhCbjZRb2ZnUDdWM2dQRmVCK2RNbUlZ?=
- =?utf-8?B?Z0FHZGttSDVJWFROd3psZUZwZDlIa0pDbmlmSytPVExMZmlwc0dhTENFc1RP?=
- =?utf-8?B?MENwNEg0M3dvT29Obnc4dzFGMmI1LzFob1QxM21tK3ZOemx2TUU0ZU40Nmtm?=
- =?utf-8?B?YWRxTHdXV2J1WWtqdENtM3dZdTdyY2lndDR3N0R5aUVKRW1vZjdwRTlyaW5i?=
- =?utf-8?B?RXdmWU1COTBxMTFEbkExUEJlSzBsb0MvdHNaamlmby9NUWE5ZkNwVDk4WDNZ?=
- =?utf-8?B?eGFEak1VMm9YeTJWaUsxOVUwNjluYjg3WDA2MEQ1SklMWnMzSWhEUy9GQTBU?=
- =?utf-8?B?VnFaNi8xS1RQYXVIaVR4V1NjeFFVWjc3c25WQU5MZi9jbllmdklNc2pIVHhF?=
- =?utf-8?B?K0lXb2hISXRFcE9QdXJOcDFnUXhNQVhPbk9BM1A5MVE4Ull1YWJSZDU2eC9x?=
- =?utf-8?B?bERWQTRHek5OVHRyNTNBRlF0RXNPeUYvSjZoUkEvN0l2U1VueGlFd251cFR5?=
- =?utf-8?B?cXFBTi9KVjFpVnF2SkxSMDVpUHVjeWpqL2pJT3BKV2JCUEZtSER4Q0tFcVZv?=
- =?utf-8?B?c0lVWXgxT0NoZEJSek05em5lVUx0ZDBzSXFDbWFFVkt5dVE1YVhSd3lIak1G?=
- =?utf-8?Q?RFhSYDIXg4D64VIFKpgx6WvDh?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc6287ad-b159-4be9-3b28-08ddaa5e238d
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 09:39:05.8142
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /9jhUEpmGEIoZJGENaIFKW+HSgso5gPCMJdm+JcCgiozRDbRCUHNkZA1HD1vWAfq4WrPfVVi+qqY+d6EoaWS6Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSQPR03MB8526
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/7] dt-bindings: phy: Add document for ASPEED PCIe PHY
+To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, vkoul@kernel.org, kishon@kernel.org,
+ linus.walleij@linaro.org, p.zabel@pengutronix.de,
+ linux-aspeed@lists.ozlabs.org, linux-pci@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org
+Cc: elbadrym@google.com, romlem@google.com, anhphan@google.com,
+ wak@google.com, yuxiaozhang@google.com, BMC-SW@aspeedtech.com
+References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com>
+ <20250613033001.3153637-2-jacky_chou@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250613033001.3153637-2-jacky_chou@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_023918_858537_911679BC 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250613_024457_281737_853A542A 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,138 +124,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 13/06/2025 05:29, Jacky Chou wrote:
+> Add device tree binding YAML documentation for the ASPEED PCIe PHY.
+> This schema describes the required properties for the PCIe PHY node,
+> including compatible strings and register space, and provides an
+> example for reference.
+> 
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+> ---
+>  .../bindings/phy/aspeed-pcie-phy.yaml         | 38 +++++++++++++++++++
 
-On 2025/5/14 16:00, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On Fri 09 May 2025 at 07:48, Jian Hu <jian.hu@amlogic.com> wrote:
->
->> Add Peripheral clock controller driver for the Amlogic T7 SoC family.
->>
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>   drivers/clk/meson/Kconfig          |   13 +
->>   drivers/clk/meson/Makefile         |    1 +
->>   drivers/clk/meson/t7-peripherals.c | 2359 ++++++++++++++++++++++++++++
->>   3 files changed, 2373 insertions(+)
->>   create mode 100644 drivers/clk/meson/t7-peripherals.c
->>
->> ......
->>
->> +
->> +static u32 t7_eth_rmii_table[] = { 0, 7 };
->> +
->> +static const struct clk_parent_data t7_eth_rmii_parents[] = {
->> +     { .fw_name = "fdiv2", },
->> +     { .fw_name = "rmii_pad", },
-> Are you sure about that ? check the bindings
+Filename basedon compatible
 
+A nit, subject: drop second/last, redundant "document for". The
+"dt-bindings" prefix is already stating that these are documents.
+See also:
+https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-Ok, rmii_pad is optional parent, I will update it in DT bindings.
+>  MAINTAINERS                                   | 10 +++++
+>  2 files changed, 48 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/aspeed-pcie-phy.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/aspeed-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/aspeed-pcie-phy.yaml
+> new file mode 100644
+> index 000000000000..762bf7b0aedc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/aspeed-pcie-phy.yaml
+> @@ -0,0 +1,38 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/aspeed-pcie-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ASPEED PCIe PHY
+> +
+> +maintainers:
+> +  - Jacky Chou <jacky_chou@aspeedtech.com>
+> +
+> +description: |
 
->> +
->> +#define SPI_PWM_CLK_MUX(_name, _reg, _mask, _shift, _parent_data) {  \
->> +     .data = &(struct clk_regmap_mux_data) {                 \
->> +             .offset = _reg,                                 \
->> +             .mask = _mask,                                  \
->> +             .shift = _shift,                                \
->> +     },                                                      \
->> +     .hw.init = &(struct clk_init_data) {                    \
->> +             .name = #_name "_sel",                          \
->> +             .ops = &clk_regmap_mux_ops,                     \
->> +             .parent_data = _parent_data,                    \
->> +             .num_parents = ARRAY_SIZE(_parent_data),        \
->> +     },                                                      \
->> +}
->> +
->> +#define SPI_PWM_CLK_DIV(_name, _reg, _shift, _width, _parent) {      \
->> +     .data = &(struct clk_regmap_div_data) {                 \
->> +             .offset = _reg,                                 \
->> +             .shift = _shift,                                \
->> +             .width = _width,                                \
->> +     },                                                      \
->> +     .hw.init = &(struct clk_init_data) {                    \
->> +             .name = #_name "_div",                          \
->> +             .ops = &clk_regmap_divider_ops,                 \
->> +             .parent_hws = (const struct clk_hw *[]) {       \
->> +                     &_parent.hw                             \
->> +             },                                              \
->> +             .num_parents = 1,                               \
->> +             .flags = CLK_SET_RATE_PARENT,                   \
->> +     },                                                      \
->> +}
->> +
->> +#define SPI_PWM_CLK_GATE(_name, _reg, _bit, _parent) {               \
->> +     .data = &(struct clk_regmap_gate_data) {                \
->> +             .offset = _reg,                                 \
->> +             .bit_idx = _bit,                                \
->> +     },                                                      \
->> +     .hw.init = &(struct clk_init_data) {                    \
->> +             .name = #_name,                                 \
->> +             .ops = &clk_regmap_gate_ops,                    \
->> +             .parent_hws = (const struct clk_hw *[]) {       \
->> +                     &_parent.hw                             \
->> +             },                                              \
->> +             .num_parents = 1,                               \
->> +             .flags = CLK_SET_RATE_PARENT,                   \
->> +     },                                                      \
->> +}
->
-> Again that something that has been repeated for way too long.
-> You'll wait for the clean-up to be done. If you want to help, you can
-> review and test the patch being sent. It may speed things up.
+Do not need '|' unless you need to preserve formatting.
 
+> +  The ASPEED PCIe PHY provides the physical layer interface for PCIe
+> +  controllers in the SoC. This node represents the register block for the PCIe
+> +  PHY, which is typically accessed by PCIe Root Complex or Endpoint drivers
+> +  via syscon.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - aspeed,ast2600-pcie-phy
+> +      - aspeed,ast2700-pcie-phy
+> +
+> +  reg:
+> +    maxItems: 1
+> +
 
-I want to confirm here .
+No phy cells? How is this a phy exactly?
 
-you said the clean-up patch is not related to spi and pwm clocks, Right ?
+No resources? This looks just incomplete.
 
+> +required:
+> +  - compatible
+> +  - reg
 
-I can see the regmap drop table patch [0], is it the sending patch?
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    pcie-phy@1e6ed200 {
+> +      compatible = "aspeed,ast2600-pcie-phy";
+> +      reg = <0x1e6ed200 0x100>;
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index a5a650812c16..68115443607d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3696,6 +3696,16 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
+>  F:	drivers/media/platform/aspeed/
+>  
+> +ASPEED PCIE CONTROLLER DRIVER
+> +M:	Jacky Chou <jacky_chou@aspeedtech.com>
+> +L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
+> +L:	linux-pci@vger.kernel.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/pci/aspeed-pcie-cfg.yaml
+> +F:	Documentation/devicetree/bindings/pci/aspeed-pcie.yaml
+> +F:	Documentation/devicetree/bindings/phy/aspeed-pcie-phy.yaml
+> +F:	drivers/pci/controller/pcie-aspeed.c
 
-
-[0]: 
-https://patchwork.kernel.org/project/linux-amlogic/patch/20250120-amlogic-clk-drop-clk-regmap-tables-v3-0-126244146947@baylibre.com/
-
-
-I will apply the regmap clean-up patch serial and verified it on T7.
+There is no such file... actually many above do not exist.
 
 
-If not， Please correct me.
-
->> +
->> +static const struct clk_parent_data t7_spicc_parents[] = {
->> +     { .fw_name = "xtal", },
->> +     { .fw_name = "sys", },
->> +     { .fw_name = "fdiv4", },
->> +     { .fw_name = "fdiv3", },
->> +     { .fw_name = "fdiv2", },
->> +     { .fw_name = "fdiv5", },
->> +     { .fw_name = "fdiv7", },
->> +     { .fw_name = "gp1", },
->> +};
->> +
->> ......
->> +static struct clk_regmap t7_sys_gic = {
->> +     .data = &(struct clk_regmap_gate_data) {
->> +             .offset = CLKCTRL_SYS_CLK_EN0_REG2,
->> +             .bit_idx = 30,
->> +     },
->> +     .hw.init = &(struct clk_init_data){
->> +             .name = "t7_sys_gic",
->> +             .ops = &clk_regmap_gate_ops,
->> +             .parent_data = &(const struct clk_parent_data) {
->> +                     .fw_name = "sys",
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT | CLK_IS_CRITICAL,
-> Do you really intend to for the rate of the sys pll to be set through
-> this clock ?
-
-
-Ok, CLK_SET_RATE_PARENT is not necessary here, I will remove it.
-
->> ......
-> --
-> Jerome
+Best regards,
+Krzysztof
 
