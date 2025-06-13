@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C32FC71150
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E748C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3eicwB1UmvHODKZli4goECmZsQeSTPnqsg3+q1aTnwo=; b=roiwJkBYaWLU/POVLpuznOT4ue
-	TBn2VUj0mk3/nOAMjKtrB524gePLte/CaoLqwtknJ8th5e+i7hQ75DMc9yz0SyUzMTXmTBVpo30dB
-	a9+AY1I7vLT6zEeBgNuUoONEwrX8YctMLS6nRwTHTkk/p0X2kHyWCug0YDY1M2KdgB4BhiCo3Rr54
-	lBWKbjzZcSLFqmSiS86oDTp0G0345oTMFXAJ3UB9HgaPZB3E9QSFTWb95izCiZSUhouGrbIpRnzg+
-	+qU+J4DFSUwul2uWCQiXLpzQZoMyiLLNQn9ea5DvpPEUy41LZX8E4rY8GXuAqwS0SAveRWtD4DYIY
-	Rm606b3w==;
+	bh=Cve182HA640bM6WHffXlu/g4SPAJ6n6lGi80IfVW3Ks=; b=w+lI7rSiz7TCZuS51LOPs2GaX5
+	5yMsE9uAL99qb4UzkAPUTiF7pGpRHVHbqxYKut8H8ozDrLRAj16FuP0WUPdFyQiUGz/YhkK/FVOUX
+	1HfVMlG8TgdZxuh/DL53cgG6wptL1+rOqSYv4NADeVbXD0ygJ9vk7g0P1OdaihqKLK9EAB+2ahL4J
+	fGxqLAmFd7a5PipASFEVYahao2cZpndyM3vcvVZlaVlIZhivDM1A/N8cGn31ac4XlSP1mFZy3ZD9g
+	EnnXbDYZWs4MYEbT53S05N81S7dGp6YTyNAeX9MWqEUUSvnamQ2fzh4qbZuboM7HAQdeVf3UleCaa
+	yvgfodeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ8xi-0000000HGXp-0Xu9;
-	Fri, 13 Jun 2025 18:17:10 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uQ8xg-0000000HGVa-40UP;
+	Fri, 13 Jun 2025 18:17:08 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6nR-0000000GypK-0UeK
+	id 1uQ6nE-0000000Gym6-2EGV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 15:58:26 +0000
+	Fri, 13 Jun 2025 15:58:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749830305; x=1781366305;
+  t=1749830292; x=1781366292;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=cGUKaP6dgfpeo+RKTZCV94jyFa+uREbM3iubZvhap0M=;
-  b=BKjdvVPKz3ig74aAJTdgC9hp5CWQx++/bmujXPTRXR2ctFEOLorvUkvh
-   KC1Ow+YTrrPAplg5jl+LYTmOBjmCLFr1iyjXN+vKcMonBw17OpzgkJBVF
-   eujwrK4ClhjH+093ACBrV4+AeCVno83Mqlg/bN5zk1YCpYAGC9Nm+d1pM
-   6pi855wu6skFc/ECLhpO1ws/2yd4pYXViCxjq66p9jU9BHtqLdxA58niO
-   cUD2xCoknWJTc/ZsnuvKWQWrOWiE7nAvnVzRkvXdqhl9vL7xQSmKqfNNe
-   yzX59pwO1gJRy0ItbALd9pR/tgvSLtxz9sQCU5OkgrB34xaIsh5LZ6s/o
+  bh=V9FMKPIwnq1H9P0zOSWLaguOqdABhVFp/9v1hViBzRA=;
+  b=Jp7oVDfNEy3d4G4pfI1R7iyCS7QJO1QsDLVR3BCjCFfPx/TkOompHJqf
+   kpKjForpN517uaV/HwV56eoWXQenafURwRfGO6KkgS3w2EyZYH0q3Zig4
+   JRoj/Xy1D0sqNseTKBjNELfwmfjt+Hd9SOpy1vu8g4TeyVA+P1+ErLguo
+   TrU4TN0/KF1MDASxNkjGc6L8dh/9zYn4y/owGcKvdWjJsBU0Mg9m2JS2i
+   kcORaEjA+vlspD5kekcg6qD5JwIzI/qdK5JDkK4FyhVPooPFP2d60vume
+   VkTYEaW+uxdqN996mJx5HpTXStu6Zdeo5z9VAlSuUm5cD1vAhBupu9sK0
    A==;
-X-CSE-ConnectionGUID: rJf3eNkxSHyBVk/7j8/PWQ==
-X-CSE-MsgGUID: Q0dYjNjES4W290QfkP6m7A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11463"; a="63403155"
+X-CSE-ConnectionGUID: mhyV2JNiT5iS3/Ew6lnLGQ==
+X-CSE-MsgGUID: yTtwgoOiSZaunf1tLz2iog==
+X-IronPort-AV: E=McAfee;i="6800,10657,11463"; a="39661078"
 X-IronPort-AV: E=Sophos;i="6.16,234,1744095600"; 
-   d="scan'208";a="63403155"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:58:25 -0700
-X-CSE-ConnectionGUID: ZNpjhcVcQvCbGVVMZUTnnQ==
-X-CSE-MsgGUID: Q3OrfPCuRPKKipwCiTZe7w==
+   d="scan'208";a="39661078"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:58:11 -0700
+X-CSE-ConnectionGUID: VA2G6141T8+w5h4vLYaebA==
+X-CSE-MsgGUID: ASlK1NJbQtSiVGGS5YDhrA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,234,1744095600"; 
-   d="scan'208";a="147743732"
+   d="scan'208";a="178842660"
 Received: from iherna2-mobl4.amr.corp.intel.com (HELO [10.125.111.232]) ([10.125.111.232])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:58:19 -0700
-Message-ID: <4fed7722-d0f7-4bde-a06b-a003718651ea@intel.com>
-Date: Fri, 13 Jun 2025 08:58:17 -0700
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:58:06 -0700
+Message-ID: <f9ca87ab-e565-431a-9866-d56278cf465f@intel.com>
+Date: Fri, 13 Jun 2025 08:58:03 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 10/28] cxl/test: Use fw_devlink_set_device()
+Subject: Re: [PATCH v3 09/28] cxl/test: Use device_set_node()
 To: Herve Codina <herve.codina@bootlin.com>, Andrew Lunn <andrew@lunn.ch>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
@@ -93,15 +93,15 @@ Cc: Wolfram Sang <wsa@kernel.org>,
  Luca Ceresoli <luca.ceresoli@bootlin.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 References: <20250613134817.681832-1-herve.codina@bootlin.com>
- <20250613134817.681832-11-herve.codina@bootlin.com>
+ <20250613134817.681832-10-herve.codina@bootlin.com>
 Content-Language: en-US
 From: Dave Jiang <dave.jiang@intel.com>
-In-Reply-To: <20250613134817.681832-11-herve.codina@bootlin.com>
+In-Reply-To: <20250613134817.681832-10-herve.codina@bootlin.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_085825_172030_24FF68AD 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20250613_085812_596660_5CC90C29 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,10 +119,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 6/13/25 6:47 AM, Herve Codina wrote:
-> The code set directly fwnode.dev field.
+> The code set directly dev->fwnode.
 > 
-> Use the dedicated fw_devlink_set_device() helper to perform this
-> operation.
+> Use the dedicated helper to perform this operation.
 > 
 > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 
@@ -132,17 +131,17 @@ Reviewed-by: Dave Jiang <dave.jiang@intel.com>
 >  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 > diff --git a/tools/testing/cxl/test/cxl.c b/tools/testing/cxl/test/cxl.c
-> index 1db7732a70df..80e6fb3c9a43 100644
+> index 8a5815ca870d..1db7732a70df 100644
 > --- a/tools/testing/cxl/test/cxl.c
 > +++ b/tools/testing/cxl/test/cxl.c
-> @@ -1047,7 +1047,7 @@ static void mock_companion(struct acpi_device *adev, struct device *dev)
+> @@ -1046,7 +1046,7 @@ static void mock_companion(struct acpi_device *adev, struct device *dev)
+>  {
 >  	device_initialize(&adev->dev);
 >  	fwnode_init(&adev->fwnode, NULL);
->  	device_set_node(dev, &adev->fwnode);
-> -	adev->fwnode.dev = dev;
-> +	fw_devlink_set_device(&adev->fwnode, dev);
+> -	dev->fwnode = &adev->fwnode;
+> +	device_set_node(dev, &adev->fwnode);
+>  	adev->fwnode.dev = dev;
 >  }
 >  
->  #ifndef SZ_64G
 
 
