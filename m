@@ -4,119 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3785C71156
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 12:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E8FC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 12:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=; b=JUukOIf45HlLe0LwZ2oQcIxT4M
-	a4GKEm2jbyw8OQUq9CJ0NYrBrHbHd2+E7GCKzLsIpVHaHzzUCnWKf8QO9hCwkF6gswUYVt6pxAY1C
-	ltgj47vJTLj+3MuqsN97DmwhdEfx8hVyZUDY8KLkntN5f/R3K9Nj63qcLWWqf7BQFJV14coeincFG
-	YVX+eCcCZwaqb1BDS1X+tBnkr1lcMYMMj5OXHWinXop6Ur21S7vn4uuW2lZ1kROaDhsYmGNcPWUxm
-	s0P+UjdNjXky9O0uH8DFzum+cUDInggMhWPFOW12ahpe2/7QZ7ohbX37J0v+K4WU+ftMN94NZjfi3
-	1W06rlJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vv4Pqa/1FuG6Cl4k7KZAwhVvN32B2mS5wcZejBitBwk=; b=fHJA5UlIpJsGSS2o49D1t/ev6r
+	dJnh48E9YQrk4uNulyC3I8DdaXLWPGBXRZ1TPVc4E64bn5fB+w0nWuMKUnS7Yp7QNqoKEUa9SQyHb
+	dNEX1rP6iuZdrx6QGDu3lL6jCD70xwiFtZ3P42+w00BYckvsqFVv7IvvwmWEdRF7Q9SaIZJeQnKoR
+	3+Xje03QFtQPQv/LcWVLq/8b6+gQbczWOgC5wiJGohp9dMFE430mtaDLlYGiGmoZixpHZId3c+9I5
+	cDQFcUfcNroSCAyfJ7ub9m/PwL/fDWxe64ZwcNYujt3O9DnC84mtYqdbbSSSLQsEa+7ytR+7/0bwt
+	IIOuiklg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ37m-0000000GJcE-0cf9;
-	Fri, 13 Jun 2025 12:03:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uQ37n-0000000GJdI-1X5I;
+	Fri, 13 Jun 2025 12:03:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2nZ-0000000GFME-1wef
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 13 Jun 2025 11:42:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=; b=TFGd/XE/EpTB6UyYQQvY5OWri7
-	h2JYe9lT/dsfhWEJ4yuDVfHM8cqZfXKKrI5ydoLnv+FBiMjbW8xzLL2/hnDkGkRMhwXRGY+uqsz/I
-	OkfyPbOUzFJJ5i0f1H8ZxUb0HSz7fwxA2Tahlva9c2eoidOLFesdl4BGmDX+zAPZH1TT4Zc3h/iXs
-	FtJfO8Syky6fgbWGLb4tp6JNDGwNDOdO9gVZovHTiAUNN6ucPpqCAHqIWKfJXUitd6yUmpk9XMA+c
-	RjrlFtQXy0drT6RREuzEjlGSD/O9pWVG++W3ne/E35SrSijPWDdOJRsac1is+bmfPQhjzP9kLBPU+
-	csq9PrgA==;
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2nX-00000002z0o-2Ld0
+	id 1uQ2ry-0000000GHYl-1lHo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 11:42:17 +0000
-Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-408e0986303so1365629b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 04:42:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1749814932; x=1750419732; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=;
-        b=fMtK9BFRKP2n6AmA5FXs9cXF4dVjn5j7qT56h3+wzAaHLtLsz2E+Ig/Ihw2h8uvrq4
-         aC10S/wRvJLWrkmBA82yvVoAYAuVkt1s+94JunW688Ji34h8fOr+k1di+RAtzlebWKXv
-         VvRto1uRgHTuLgYwyeZoTPjLA1YoWnFrw05SiAousYhYWolJpLdBNZu/zdKRY58orSZh
-         JxwBL2uSuQ1WPu3+Af4qgWGkRmi3f4zMnyMKNZ+8OrulalygWLSdJN9dOht+7jMh1DTR
-         CH8imTRQvdvKOsGKFmG/7gDkZx8Zr6MCHg2OGIsVJlHv6eB2w3RRasOonSYWpeRbRhPl
-         Hg1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749814932; x=1750419732;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=;
-        b=Us5cyBqR9pY6cTCV79X900IOPO+pjPCMfJ1J3hHTJWWm9ZpI1zkBllQkwuOcmw/z0s
-         vY2agQAbbHu5pA5y7mMb0sCl2N7qlMqmGWbOV0FVUSqd8p1jdhNZAMCwbw2wrGvv2Oxe
-         ZqqHabH+pEk69ggsWFIg7ZZCZzSK/H52K0gyW5EfsrUiQoGMrCotAoQ2guchYy8o4vsY
-         uOFJ0lcVY5N+qM056vAMwIf+ajesuATg3u3nLXqPk3pySeeVz9PC3c++0CGYz6EW4VDm
-         PSni/E+/eRyZiGl04Mn91tXOGImMACNdS0gHTgF2rGjP6f0Gqq9URpDQrj4BhvI7PzTR
-         2tNA==
-X-Forwarded-Encrypted: i=1; AJvYcCX81xEdI5di+P6ui6zVcF4Nj+SU9UNQwYh6IJ+c3Q+rWD3Hywjt+C8QOCv0Gw0u87NlPmFDQppUYePj0Vr5Ys5B@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcMujHKryUOYdErV7QD6E9DSi5nWsDU/vnbueyJAAO4EVnu3wj
-	zUerXdnKObHwlbfVWDB6nsFNFyeyMVasB7BH7+e6+KaLzFHDleNl7b/bIwJajTxPbpTF4oPcJza
-	2myqn
-X-Gm-Gg: ASbGncuTefdUCZfucHT/HgW0Hzbpy92o4INzbq42RSUSM30mDjN6otcTka2NkULSxyu
-	NbN5TtvD06y3GfsYndkHmFll8iEB7mzz+/rNsWnifj+8OALQE8ybvoVC5KJ2UT7HdYcRDh8MMKd
-	uuPUwAgibDA3TyDxCxA2VXfD1YM0XhkjuXDY1STIIjii2eCUA+BId8uH9yADx2WiZYXPGr/jJT6
-	dDMtlBlpfaD7H2fN2x8uergKfvU88OMh6l82jvUNsnLY2iFjR8UAUIyDIck0nqAlUrF9+o7AZpj
-	mYPDz8YH4ebTJYRK3u9c5PfSKSLNDgK8orKoZ/mXX4wIg1RJB/j9qhp/+ksex4G8zNuvCI0csvy
-	GrFqNgXqrIlvIjlWKzdp1iYittDH2i5nI
-X-Google-Smtp-Source: AGHT+IF3wVYZI/s3wM1PNe5izmwye5C2dxIzh460VAl75DrcM6tXXLw5OFqnGApeHtjQqkaMBAsXNA==
-X-Received: by 2002:ad4:5ce1:0:b0:6fa:eaf9:89f1 with SMTP id 6a1803df08f44-6fb3e685f23mr33483696d6.44.1749814921454;
-        Fri, 13 Jun 2025 04:42:01 -0700 (PDT)
-Received: from fedora.. (cpe-109-60-82-18.zg3.cable.xnet.hr. [109.60.82.18])
-        by smtp.googlemail.com with ESMTPSA id 6a1803df08f44-6fb35b3058fsm20558206d6.37.2025.06.13.04.41.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 04:42:01 -0700 (PDT)
-From: Robert Marko <robert.marko@sartura.hr>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	olivia@selenic.com,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	vkoul@kernel.org,
-	andi.shyti@kernel.org,
-	broonie@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	kernel@pengutronix.de,
-	ore@pengutronix.de,
-	luka.perkov@sartura.hr,
-	arnd@arndb.de,
+	Fri, 13 Jun 2025 11:46:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2648249D9D;
+	Fri, 13 Jun 2025 11:46:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A25EC4CEE3;
+	Fri, 13 Jun 2025 11:46:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749815210;
+	bh=vv4Pqa/1FuG6Cl4k7KZAwhVvN32B2mS5wcZejBitBwk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RdiGAmfm65ZeFbeMGTwHL6UxyRQdfgTfZIYn6LqmM7ff73kMv3j2uqU1Z0yObT1y3
+	 dqbPkCK863lyBfheR394/wz+8ZFvIScrvTq9gcoP2CNHX0IvUqvTvAWLIuwaKD2H2V
+	 +LxU6tVRQFG8Yf9uR2ldtlvYSe9fP5GKbXlmYv+Ikzmq3+ClVkd0HUc4n33oVpTa3x
+	 Y2TBpSg6P/9kshW/HOO3qWhYOlT99gdWY/twzR3i4XrGIap8vpc59pXZQ6jcLznmcb
+	 rZ1ygISFoPB6Qqyxf7B5MAfCPZVjw9lcvnXwOZnEvTqK+G+N7TlkaRvnTL0Zt0shqy
+	 dAJ2r+qMjI/6g==
+Date: Fri, 13 Jun 2025 12:46:43 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Robert Marko <robert.marko@sartura.hr>
+Cc: catalin.marinas@arm.com, will@kernel.org, olivia@selenic.com,
+	herbert@gondor.apana.org.au, davem@davemloft.net, vkoul@kernel.org,
+	andi.shyti@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-spi@vger.kernel.org, kernel@pengutronix.de,
+	ore@pengutronix.de, luka.perkov@sartura.hr, arnd@arndb.de,
 	daniel.machon@microchip.com
-Cc: Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH v7 2/6] spi: atmel: make it selectable for ARCH_LAN969X
-Date: Fri, 13 Jun 2025 13:39:37 +0200
-Message-ID: <20250613114148.1943267-3-robert.marko@sartura.hr>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250613114148.1943267-1-robert.marko@sartura.hr>
+Subject: Re: [PATCH v7 2/6] spi: atmel: make it selectable for ARCH_LAN969X
+Message-ID: <51dba7b7-d4fb-46bf-892e-a9634cb91659@sirena.org.uk>
 References: <20250613114148.1943267-1-robert.marko@sartura.hr>
+ <20250613114148.1943267-3-robert.marko@sartura.hr>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="liIKPqX/LlpnoGyN"
+Content-Disposition: inline
+In-Reply-To: <20250613114148.1943267-3-robert.marko@sartura.hr>
+X-Cookie: Use extra care when cleaning on stairs.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_124215_717602_4DEDA498 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20250613_044650_476910_91D7CACB 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,27 +81,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LAN969x uses the Atmel SPI, so make it selectable for ARCH_LAN969X.
 
-Signed-off-by: Robert Marko <robert.marko@sartura.hr>
----
- drivers/spi/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--liIKPqX/LlpnoGyN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index 60eb65c927b1..3b0ee0f6cb6a 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -145,7 +145,7 @@ config SPI_ASPEED_SMC
- 
- config SPI_ATMEL
- 	tristate "Atmel SPI Controller"
--	depends on ARCH_AT91 || COMPILE_TEST
-+	depends on ARCH_AT91 || ARCH_LAN969X || COMPILE_TEST
- 	depends on OF
- 	help
- 	  This selects a driver for the Atmel SPI Controller, present on
--- 
-2.49.0
+On Fri, Jun 13, 2025 at 01:39:37PM +0200, Robert Marko wrote:
+> LAN969x uses the Atmel SPI, so make it selectable for ARCH_LAN969X.
+>=20
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 
+Acked-by: Mark Brown <broonie@kernel.org>
+
+--liIKPqX/LlpnoGyN
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmhMD6IACgkQJNaLcl1U
+h9A2Tgf/S6jX4OTt8qMSDrYcgp49BzBMvfKq3YWuJ3TFTWtu27WywUPhj8oa42gc
+CzCOluHc+ctjn36Z6ENUygx8Sf9f2wO3QKsekaC5m301aySloWnBNCNh1CTWoKWa
+pcfCXorRLKUmIgyjTB9QnmFTebtF76O2QJYsosZAZX4E0h3fTyP2/O6eJuNshznh
+uW1yFBG7eO96O5ZigTfvCchi4CPiV2Eq44+35WRc/FkxiSyRMCCXpK/t1U8RFgEy
+M+DhG9KsPmk8y11dExnW+9rmYy8IY/FTxQwP4DWGTeacxTjwkUhvAacfOsXB6pB+
+aocL1gPyEZX8iTv2UnOf81f1YoBl0A==
+=og7b
+-----END PGP SIGNATURE-----
+
+--liIKPqX/LlpnoGyN--
 
