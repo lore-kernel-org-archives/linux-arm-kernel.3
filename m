@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2626BC71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B74C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvL9AL31A+o3wK3njb/Du4yvgoiu7rebh1/wJmOONVs=; b=Qhy9DDhXUBGfH+6yqd0EDsCjkb
-	SshjbkiryZm/MqjFamqAUa6SSEf9Rb1BiJPcRWhKzcr57sYBVVOyfzWNqusWVxJLR2Mt9vAwmR1L2
-	Zysb2IehBTVouO73WdSHUqYiJLZxuoFAITxLJeHkiNbHZ/AoZmRETFRresSawZ6TE5aCMDbMT0tD8
-	5SC43bg4c1bk9rNGSimYtr/DZOM7lM61hVjfTpq2/XqG+uFIvYUT3Ij5I2BinGIZiUdbm9US+yb8T
-	t9hP/aCq5qiXovLJ+I6p2YPyJmZNwXU93GuxFGqANcq3kItE9NznFj6zO1dh2UA7pl2ZC1OUNVIyj
-	41gb1lHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HH6Nl9aCE0w7i/ip8/7INu6gVHjV0Eds4PyBcZeW2Jk=; b=BNoSOJy1M69OVBz+By2BPjUvPA
+	0TpekUCTesF5onXIDoIROhQliwsKRpCnu8KtaNdtincfeC0XJVZCaJbHrARTztCMrUUwE8iaz2v+Q
+	9m4Bp8EkdwAr8GLERTb7p2SdjAt7VpKlVt21pDIL3LP5xvI4iqdO4Tjhr+jPQRN44Tupw6wZApwEp
+	LfDtsmadi9sO1v0wQsUp2tyoGNsdRn8NsbQdZXBE2Pr6ofGaBNIESvnLjBm79KxioZyiPaxEIkl4N
+	iFuqTfjyF++n4eQPXqmI/6c6oZXzAYehIIslzgZqXFFKzBxRbEUKpxP1DPZLzTVIGl/CbkUk9DhYG
+	djKfJHZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ995-0000000HJa2-2Ove;
-	Fri, 13 Jun 2025 18:28:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ7wq-0000000H926-31kJ;
-	Fri, 13 Jun 2025 17:12:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0B2ED61F1A;
-	Fri, 13 Jun 2025 17:12:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43202C4CEEB;
-	Fri, 13 Jun 2025 17:12:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749834730;
-	bh=MwLvd5PG7WoLPNV5X3+UTldK/899ju4MNdrqiosDJ9I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BhivCur+l0uxRrXdj3m3GKjsKlQNT6CXQx3iCBvVkXSvE4m7EvCcVuRfY6gZB5DtI
-	 RrJabvRIGIr3L4g87xf0gTfQDs/DflrsqDAj5QlhN5vplNG9fEENywbAPzXW3gnNlq
-	 m+coGK+eBLQeJtsoxM3fU4c5Xpiy8kfmTbUODa1wg4jIDHjdtxdql01cyMgso0UG9q
-	 znLaUKdE+SbabPCvrEijY1od4XSYKiQECxgj+txYdWIoB7IUqgUD3yiEVggSkRo5Am
-	 oG2oDjLPd9qcjldUhG53BMbb8wG7cjW4jHsngIK0FAWMIuyciYpkyJRP9+ahUBrIUW
-	 mqv3dY3gjk5ZQ==
-Date: Fri, 13 Jun 2025 10:11:43 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v2 09/12] lib/crc/s390: migrate s390-optimized CRC code
- into lib/crc/
-Message-ID: <20250613171143.GB1284@sol>
-References: <20250607200454.73587-1-ebiggers@kernel.org>
- <20250607200454.73587-10-ebiggers@kernel.org>
- <aExLZaoBCg55rZWJ@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+	id 1uQ9h8-0000000HNYV-2r6Q;
+	Fri, 13 Jun 2025 19:04:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ7bo-0000000H73R-0Gh0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 16:50:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B22231C0A;
+	Fri, 13 Jun 2025 09:50:06 -0700 (PDT)
+Received: from [10.57.28.131] (unknown [10.57.28.131])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 534A23F673;
+	Fri, 13 Jun 2025 09:50:22 -0700 (PDT)
+Message-ID: <2e022f4e-4c87-4da1-9d02-f7a3ae7c5798@arm.com>
+Date: Fri, 13 Jun 2025 17:50:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aExLZaoBCg55rZWJ@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/11] arm64: defconfig: Enable Apple Silicon drivers
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
+ Andi Shyti <andi.shyti@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Vinod Koul <vkoul@kernel.org>, =?UTF-8?Q?Martin_Povi=C5=A1er?=
+ <povik+lin@cutebit.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, iommu@lists.linux.dev,
+ linux-input@vger.kernel.org, dmaengine@vger.kernel.org,
+ linux-sound@vger.kernel.org
+References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
+ <20250612-apple-kconfig-defconfig-v1-11-0e6f9cb512c1@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250612-apple-kconfig-defconfig-v1-11-0e6f9cb512c1@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250613_095028_156423_1AC2800F 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 06:01:41PM +0200, Alexander Gordeev wrote:
-> On Sat, Jun 07, 2025 at 01:04:51PM -0700, Eric Biggers wrote:
-> > From: Eric Biggers <ebiggers@google.com>
-> > 
-> > Move the s390-optimized CRC code from arch/s390/lib/crc* into its new
-> > location in lib/crc/s390/, and wire it up in the new way.  This new way
-> > of organizing the CRC code eliminates the need to artificially split the
-> > code for each CRC variant into separate arch and generic modules,
-> > enabling better inlining and dead code elimination.  For more details,
-> > see "lib/crc: prepare for arch-optimized code in subdirs of lib/crc/".
-> > 
-> > Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ...
+On 2025-06-12 10:11 pm, Sven Peter wrote:
+> Enable drivers for hardware present on Apple Silicon machines.
+> The power domain and interrupt driver should be built-it since these are
+> critical for the system to boot, the rest can be build as modules.
+
+Nit: I'd be tempted to put this patch first, just in case anyone 
+bisecting with "make defconfig" in their process lands in the middle and 
+suddenly loses some drivers (although arguably them going from "=y" to 
+"=m" could still be a surprise, but at least a bit less so).
+
+[...]
+> @@ -1504,6 +1520,7 @@ CONFIG_ARCH_TEGRA_194_SOC=y
+>   CONFIG_ARCH_TEGRA_234_SOC=y
+>   CONFIG_TI_PRUSS=m
+>   CONFIG_OWL_PM_DOMAINS=y
+> +CONFIG_APPLE_PMGR_PWRSTATE=y
+
+If this is critical for any Apple platform to work then it would 
+probably make sense to explicitly select it from ARCH_APPLE, as is done 
+for APPLE_AIC...
+
+>   CONFIG_RASPBERRYPI_POWER=y
+>   CONFIG_IMX_SCU_PD=y
+>   CONFIG_QCOM_CPR=y
+> @@ -1567,6 +1584,7 @@ CONFIG_QCOM_PDC=y
+>   CONFIG_QCOM_MPM=y
+>   CONFIG_TI_SCI_INTR_IRQCHIP=y
+>   CONFIG_TI_SCI_INTA_IRQCHIP=y
+> +CONFIG_APPLE_AIC=y
+
+...which I think means this would already be redundant.
+
+Thanks,
+Robin.
+
+>   CONFIG_RESET_GPIO=m
+>   CONFIG_RESET_IMX7=y
+>   CONFIG_RESET_QCOM_AOSS=y
+> @@ -1640,6 +1658,7 @@ CONFIG_ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
+>   CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
+>   CONFIG_MESON_DDR_PMU=m
+>   CONFIG_NVMEM_LAYOUT_SL28_VPD=m
+> +CONFIG_NVMEM_APPLE_EFUSES=m
+>   CONFIG_NVMEM_IMX_OCOTP=y
+>   CONFIG_NVMEM_IMX_OCOTP_ELE=m
+>   CONFIG_NVMEM_IMX_OCOTP_SCU=y
 > 
-> Hi Eric,
-> 
-> With this series I am getting on s390:
-> 
-> alg: hash: skipping comparison tests for crc32c-s390 because crc32c-generic is unavailable
-> 
-> Thanks!
 
-I think that's actually from "crypto/crc32c: register only one shash_alg"
-(https://lore.kernel.org/linux-crypto/20250601224441.778374-3-ebiggers@kernel.org/),
-not the patch you replied to.
-
-Those self-test warnings are expected.  But I guess they are going to confuse
-people, so we should do something to make them go away.
-
-I think we should do what I've proposed for SHA-512: stop worrying about setting
-the cra_driver_name to something meaningful (which has never really worked
-anyway), instead just use *-lib, and update crypto/testmgr.c accordingly.
-
-I'll send out patches that do that.
-
-- Eric
 
