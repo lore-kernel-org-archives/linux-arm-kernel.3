@@ -4,46 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E73A1C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 20:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CAA4C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 20:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=u/h9HQjJH1bWylQQT/J8qEDaltCmR2pOTk7fZ7W7lv0=; b=KeatVddklOWN51
-	Qm2YTIRhx+giQzxoJt8W2anN6esg/viQ7DDNUOxQhWVNCxzzVedzJlatZapz2xQDFncJoozVdCdEG
-	G0XlDt9yOz/A60ZrmFyZDxn/1Tag3cCyUKXCyP45ol37DXKWwZLBg1rnV2U/K6xS1c8ZwU/Ok3WER
-	yBeQ7Xn51D/WMsTwAwAYW3+AasH2rOyvwFjTx0iV4h9VM0rY1FrBL0qRs3PSvXAxS/fjK112tSl3n
-	24kFdkFp6O2DyVa6po+/sZAaNHClILsPKMzJTUT8D/eTXPenzz8mFTKgjsTvg2INz2AaZn12kHzVl
-	1z58NbS8Cy1QUvoKn5iQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GwN4Vlj9V/Si30XGhhYcfcrSEwd+tR4XQQLqO9MnNd0=; b=m5YOXlwsz4Btkt01TXfgg23gYg
+	lJI8WK/YjXCVSL4+Ui6f+TwCsvEOpMmzBzu4HRgeYu99xywQDh/fvlF1JR40kCSDTV1TeedpdGO92
+	cqq2zxmj5ohWJ2u/JQSSxJtMgeJ1QgFQr9Qeakw2GRZIEEPw3gTLZpy56uPUFVr2DSmkmjppylHSo
+	epj4RTI6TfvUSQfBTx+312AojV+2sn5RAHNLlv8Oo7txt+arFjU0L+YC1OiD/Sl5zsFIYemPm1KoQ
+	9G7+dLboeNG/UeZeD9IoY7C9u0vO+jpRKAlogPszy4niCT+DywWWxYN9J5vxYn2JBrNgLjZrHLlAf
+	RoBqKJug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQAx5-0000000HYyI-04Zv;
-	Fri, 13 Jun 2025 20:24:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uQB1Q-0000000HZUT-2pRp;
+	Fri, 13 Jun 2025 20:29:08 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQAtX-0000000HYU3-1hMf;
-	Fri, 13 Jun 2025 20:21:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 604E55C54A9;
-	Fri, 13 Jun 2025 20:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD5CC4CEF0;
-	Fri, 13 Jun 2025 20:20:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749846057;
-	bh=6KUd6SjVInqm4qHBGUp3HKQszrrAseaeXFamTSXmz2g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=aKTWHR0Pj5XwixyMybSxmRXMXqFopnZeQjwxw+eWNwNhtratX2Fbax6AgWr98Ilrq
-	 Xk25jE2ldYwGCX/BaWf5e9/O0gSF/CZsF2be3nn1/N7IXDm7jmuu/Y/Deeh3cTZ7Te
-	 xId65s512KOKFMjtHi9+pPsqL69FSZxPwXzScQg3T036KXeg7F5TUOPFiKIYM93gKk
-	 XEMmDsqzwNLIrzAd5QNY7NboalW/wi6L4juJS7b4pcjZoJ/VjGz0K3e2Tc55Vn+NRL
-	 irccNfeU7j54nmkZrGByvaETg7hex3mXJIzu73WxXyqY4fS7nJz90A0bPuJLbDuKMq
-	 liK0r/XgoPa0g==
-Date: Fri, 13 Jun 2025 15:20:56 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
+	id 1uQAzG-0000000HZFp-0elz;
+	Fri, 13 Jun 2025 20:26:55 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2360ff7ac1bso19430705ad.3;
+        Fri, 13 Jun 2025 13:26:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749846413; x=1750451213; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GwN4Vlj9V/Si30XGhhYcfcrSEwd+tR4XQQLqO9MnNd0=;
+        b=PEEHtEUoQSDHHCKT0WqjLTOFtNjs+VvbsER/ebLBQzpNK/17vgZub4v2K1HD2RcdUC
+         yW6/ve9fzht5b9jSPU8mLTobnTpW6Tq4E/PHFRtZS6B3TCLLAzgwgm9htw1xJ2ndoo6d
+         qPgnmyTc762VL9RJZRkeJpbAFWnBrHydhRhmjC58x3j9Wwd/QoDVnjLMiFwGXzzm30Nu
+         wkixLJYXAbGv6O5LYchK6gXTLWwiyWqzNpXYl2w8bOO/OxRtQ5D6Kp3iZoQ0zzs0PGJH
+         6jRTjZBJBrKfmCykcABIH7lx01187oGPR1/AM7pcn4moprsMl2dZxf8ZH69w0ByIvYkX
+         0G1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749846413; x=1750451213;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GwN4Vlj9V/Si30XGhhYcfcrSEwd+tR4XQQLqO9MnNd0=;
+        b=ZwzeWStFHid3DSQ6rUZ24HyHw4peuHXJ0p4im9C1/jbjYl5O9fU7YNEb3dEjGm7cEC
+         0JfRPhpzWd+PdaXRBpLmTAMPZ04F8M61AoIk5anW0ec/CaMAoMPrZ0tXo5ZcFrHgdrg7
+         Wu8jlyG3jVezjnIouhj+1B4g213T04ttDxS2cHeYSyEOCmlq85YePqHmcCQHhe1S7Clr
+         ENM7cr9RTtCcpLlW4uVdIYGhRvt8wZ4nqTzErmbq5+BXmrarH/HsFJ19r8NDie+qndTS
+         uf4F9CUVv+91P4NZT1ZL6P+gpt8W1iZPFJB75ThbeBD5btLPYpJXUgsHp+kCah0aYqmL
+         7PSw==
+X-Forwarded-Encrypted: i=1; AJvYcCUwrnfak7T7JnHd37CsNbk9WicAPrdW4Df4Mf/YbmJKFBeXf9+IV/42KFxh+lb4bad3qarYy7Ycpjoy796zuonR@lists.infradead.org, AJvYcCXgVVyndVUHbN9UHDQJKZjYDR8WbGcJyKv3xD2LPdYxB8DcBDQayKyqVoOvEZxAn27adGc+NTjgEa7r@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIkyi2guUgYTuhnEfh3i1zH7caXe4UWFjdyrET3CakMjWdJzu6
+	7TbR7ne8qAUfk/t57pQo+cJNYes4TFOf+AwtCRUwAh/BCpcMu8/7HYZGLTK4BApF
+X-Gm-Gg: ASbGncstktLepa5EOb20R4ytIBfwo4HI8XRgJDvVpf1atzQcjwFYCJ0+ZmUeeE+aciy
+	8mA9IUq0YqHTxs+9x/Rgcu+sGH2+ebDJ56YsUQZnFagFTFJH4tmgqe91ZmY9PZHwlmLvynKkRSS
+	0anUgy/TXlWzERFM82/5a5phw2/H6eLm5BgEoLyEFtUO4bWz1WkGGCezO/a9qhj7FF+NlGWK3eZ
+	zmbvEYPP+JGboQe/J0c6DljrRsboXV8nJW5QaTk8ZTi48UG3hE18i6df16xJsPtvDBMrVQgO/PT
+	O6+NJhiQMWGoAY9wkTkHReCKndNWmJ6el99FKH/hPKAY5KAyNw==
+X-Google-Smtp-Source: AGHT+IFMYwG+tAQaxnOsOinKwBE/kqO0tD/aAkh1rN9LDtPDMa0ftPIDcZwR/F9qih5cAjFZot/vjg==
+X-Received: by 2002:a17:902:c941:b0:231:ea68:4e2a with SMTP id d9443c01a7336-2366b12f867mr13009585ad.34.1749846413249;
+        Fri, 13 Jun 2025 13:26:53 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:84a2::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365e0d0b12sm18838725ad.253.2025.06.13.13.26.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 13:26:52 -0700 (PDT)
+Date: Fri, 13 Jun 2025 17:26:46 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
 Cc: linux-rockchip@lists.infradead.org,
 	Shawn Lin <shawn.lin@rock-chips.com>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -54,16 +79,18 @@ Cc: linux-rockchip@lists.infradead.org,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
 	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RESEND RFC PATCH v4 5/5] phy: rockchip-pcie: Adjust read mask
- and write
-Message-ID: <20250613202056.GA974155@bhelgaas>
+Subject: Re: [RESEND RFC PATCH v4 1/5] PCI: rockchip: Use standard PCIe
+ defines
+Message-ID: <aEyJhoiPP0Ugm1t6@geday>
+References: <992ab6278af59b8f2f82521bf4611f69a916bbe1.1749827015.git.geraldogabriel@gmail.com>
+ <20250613201409.GA973486@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b32c8e4e0e36c03ae72bff13926d8bdd9131c838.1749827015.git.geraldogabriel@gmail.com>
+In-Reply-To: <20250613201409.GA973486@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_132059_487176_29FB9390 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250613_132654_192323_5BA670E5 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +105,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 12:06:28PM -0300, Geraldo Nascimento wrote:
-> Section 17.6.10 of the RK3399 TRM "PCIe PIPE PHY registers Description"
-> defines asynchronous strobe TEST_WRITE which should be enabled then
-> disabled and seems to have been copy-pasted as of current. Adjust it.
-> While at it, adjust read mask which should be the same as write mask.
-
-Not a PCI patch, but "adjust" doesn't tell us what's happening.
-
-From reading the patch, I assume that since PHY_CFG_WR_ENABLE and
-PHY_CFG_WR_DISABLE were both defined to be 1, this code:
-
-        regmap_write(rk_phy->reg_base, rk_phy->phy_data->pcie_conf,
-                     HIWORD_UPDATE(PHY_CFG_WR_DISABLE,
-                                   PHY_CFG_WR_MASK,
-                                   PHY_CFG_WR_SHIFT));
-
-actually left something *enabled* when it meant to disable it.
-
-Maybe the subject/commit log could say something about actually
-disabling whatever this is instead of leaving it enabled?
-
-PHY_CFG_RD_MASK appears unused, so maybe it should be just removed.
-
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
->  drivers/phy/rockchip/phy-rockchip-pcie.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+On Fri, Jun 13, 2025 at 03:14:09PM -0500, Bjorn Helgaas wrote:
+> On Fri, Jun 13, 2025 at 12:05:31PM -0300, Geraldo Nascimento wrote:
+> > -	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
+> > +	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+> >  	status |= (PCI_EXP_LNKSTA_LBMS | PCI_EXP_LNKSTA_LABS) << 16;
 > 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
-> index 48bcc7d2b33b..35d2523ee776 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-pcie.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
-> @@ -30,9 +30,9 @@
->  #define PHY_CFG_ADDR_SHIFT    1
->  #define PHY_CFG_DATA_MASK     0xf
->  #define PHY_CFG_ADDR_MASK     0x3f
-> -#define PHY_CFG_RD_MASK       0x3ff
-> +#define PHY_CFG_RD_MASK       0x3f
->  #define PHY_CFG_WR_ENABLE     1
-> -#define PHY_CFG_WR_DISABLE    1
-> +#define PHY_CFG_WR_DISABLE    0
->  #define PHY_CFG_WR_SHIFT      0
->  #define PHY_CFG_WR_MASK       1
->  #define PHY_CFG_PLL_LOCK      0x10
-> -- 
-> 2.49.0
+> It looks funny to write PCI_EXP_LNKCTL with bits from PCI_EXP_LNKSTA.
+> I guess this is because rockchip_pcie_write() does 32-bit writes, but
+> PCI_EXP_LNKCTL and PCI_EXP_LNKSTA are adjacent 16-bit registers.
 > 
+> If the hardware supports it, adding rockchip_pcie_readw() and
+> rockchip_pcie_writew() for 16-bit accesses would make this read
+> better.
+> 
+> Hopefully the hardware *does* support this (it's required per spec at
+> least for config accesses, which would be a different path in the
+> hardware).  Doing the 32-bit write of PCI_EXP_LNKCTL above is
+> problematic because writes PCI_EXP_LNKSTA as well, and PCI_EXP_LNKSTA
+> includes some RW1C bits that may be unintentionally cleared.
+
+Hi Bjorn and thank you for the review,
+
+while your rationale is correct per PCIe spec, per RK3399 TRM
+those registers are indeed 32 bits in the Rockchip-IP PCIe, so
+I'm forced to work with that, but without fear that other
+registers get messed-up. (See for example Section 17.6.6.1.30
+of RK3399 TRM, Part 2)
+
+Regards,
+Geraldo Nascimento
 
