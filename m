@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E65C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB7DDC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oajSuti6jz9rnNbhXAfUaBOuSqrfLjbzmaFWuDd/IoU=; b=DsGwCLJLObmK263MIqsvpTgmuw
-	fqugeG/4U0Q08i/p8pI7MvLB28ZdcGqUz7d82xKX/AKui+DrmlBp9/foB0AZUuWp+w0Y4lqUkdaUH
-	g/dw0f/WYBHLvBPe6WCQympO4+JdnjBJZc65TgR9AP0/dSVKqW7VADxB4CkuIo3sWuobeXYuA6vyT
-	3BK2vIPxvW6rX3hgsdqfnYYJk/nw/4/QUIUQccVClcW31f5uAVUwg+d/XvJ3v97Nqk23/E7n0miOP
-	Ko52jrldFkaEx+pTN+6W/2lWn/vD+rc9BkCPUz/oKydETNF5IHRKeJBWxZnwptAXcEA0VYdcSLlDJ
-	JfnK90Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mjj2AS+NMkUtiq/HNsOMXDNRC+8qjoN7mp8VfZ4hKLE=; b=NZbNfI7y/spKzQCgMcK0Zd48Tu
+	nU7xp8SjL9JVII/9LzTEyM3+VfawSKBEtXx+1wBT74Q1WMLvta6sa3QdWnu8qNmEUVoHizTRJaxLy
+	nWHG27WDJ+vR/U0syq68AacKqH+sV7skAvNBAuyYh32s1i44z897bm2LgnTLtQI8uIRi9d2GeTRMs
+	FFzhl3RdECz+pkBXzELNm+lR1U5apNUNoI5KRDeqqnr690hlL6Ync3TdT6Pj3NpdBzzb+MmOzyItI
+	ae+aFerwO6KAwDMBZ7NAXPkSTWcTI3BPp5ad3A2a++rEFh6YttzSdo8L3zVBTQNd0J0n3mGjZU3+h
+	g/RrO7Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPyD6-0000000FWYV-0ct8;
-	Fri, 13 Jun 2025 06:48:20 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uPyLi-0000000FX7a-0z1w;
+	Fri, 13 Jun 2025 06:57:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPyAo-0000000FWMW-1s7K
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 06:46:00 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55D6jquR3062110;
-	Fri, 13 Jun 2025 01:45:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749797152;
-	bh=oajSuti6jz9rnNbhXAfUaBOuSqrfLjbzmaFWuDd/IoU=;
-	h=From:To:CC:Subject:Date;
-	b=j7B+/F4UHhVdPcs8O9Ydb+uSyMe8pCC/kUbLQFR0baLIIzw/p8rAqtagY4O6LapLn
-	 5Wo6nxtQ7J5/WaB4TqEK/X4einHMBsWFs/WQ0QrYlRR0+Gn7s+9qi6LNDqexUCCOfI
-	 WGfhqdBVc2VWCNZUii6zl7RII2SGlEwcNn/AE1AQ=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55D6jq1R031690
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 13 Jun 2025 01:45:52 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 13
- Jun 2025 01:45:52 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 13 Jun 2025 01:45:52 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55D6jqOS1130541;
-	Fri, 13 Jun 2025 01:45:52 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 55D6joAm011920;
-	Fri, 13 Jun 2025 01:45:51 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
-	<m-malladi@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next v2] net: ti: icssg-prueth: Read firmware-names from device tree
-Date: Fri, 13 Jun 2025 12:15:47 +0530
-Message-ID: <20250613064547.44394-1-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uPyJR-0000000FWvJ-36iv;
+	Fri, 13 Jun 2025 06:54:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 04F0844D6D;
+	Fri, 13 Jun 2025 06:54:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F465C4CEF1;
+	Fri, 13 Jun 2025 06:54:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749797692;
+	bh=1s/szMVjHm2c5YpFJE4JzICjVT6sl1T+nHxY2oXfPJ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WeCuvtCG8iIXRXnhJ5iaXqjj6hBoLE9nJhyZji6mGfw9szRLL/Xy8f1ycbXigCuA0
+	 WIpW3PtLH3zAaZyLQDW/cX2DUoNiB+goqVATpP01Qea3eOEg9GCgh5QexINECMGp/4
+	 bPmFsLCXhGAn5t78RMVAqR6W2u5OnhX5B3lKZ9a6G2SDoFddyWs4dfw5Ocq1CuDinq
+	 uAopszmsyYSwpmdYpIJZ0rWr3S3LJcRGpSwrTcMCvG/P2Y3G/kQX5hIKeMsmhv4bZr
+	 2A6WingZ25Re1WjygPKDCtn1gR1UrNGiHyEPP2+pANoVrQDuNmOXqS/H9/DBebDa2/
+	 2Ocmit6DjOuww==
+Date: Fri, 13 Jun 2025 12:24:41 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com, 
+	heiko@sntech.de, manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com, 
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com, 
+	khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 2/2] PCI: dwc: Remove redundant MPS configuration
+Message-ID: <6v7m7qt4n26n6pmx5tggmmvv7na6t5v5wtfqev5x4wxosymwul@j3dizxyyy4tg>
+References: <20250510155607.390687-1-18255117159@163.com>
+ <20250510155607.390687-3-18255117159@163.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250510155607.390687-3-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_234558_577656_75F520BF 
-X-CRM114-Status: GOOD (  23.52  )
+X-CRM114-CacheID: sfid-20250612_235453_824504_AD18C8D3 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,254 +77,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the way firmware names are handled for the ICSSG PRUETH driver.
-Instead of using hardcoded firmware name arrays for different modes (EMAC,
-SWITCH, HSR), the driver now reads the firmware names from the device tree
-property "firmware-name". Only the EMAC firmware names are specified in the
-device tree property. The firmware names for all other supported modes are
-generated dynamically based on the EMAC firmware names by replacing
-substrings (e.g., "eth" with "sw" or "hsr") as appropriate.
+On Sat, May 10, 2025 at 11:56:07PM +0800, Hans Zhang wrote:
+> The Meson PCIe controller driver manually configures maximum payload
+> size (MPS) through meson_set_max_payload, duplicating functionality now
+> centralized in the PCI core.  Deprecating redundant code simplifies the
+> driver and aligns it with the consolidated MPS management strategy,
+> improving long-term maintainability.
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
 
-Example: Below are the firmwares used currently for PRU0 core
+I believe that the root port MPS set by PCI core in patch 1 should be enough to
+remove the logic in the driver. But given that we already saw that is not the
+case with Armada controllers, it would be good if one of the Meson maintainers
+could verify if this series works as intented. Since the driver is not using the
+DEVCAP value, but using the hardcoded value, I'm slightly worried that setting
+MPS value other than 256 would have any downside.
 
-EMAC: ti-pruss/am65x-sr2-pru0-prueth-fw.elf
-SW  : ti-pruss/am65x-sr2-pru0-prusw-fw.elf
-HSR : ti-pruss/am65x-sr2-pru0-pruhsr-fw.elf
+But anyway, the root port MPS should be the same with and without this series.
+This can be verified by:
 
-All three firmware names are same except for the operating mode.
+sudo lspci -vvv | grep MaxPayload
 
-In general for PRU0 core, firmware name is,
+Also, performing any benchmark and making sure that the device performance
+didn't get affected would be great.
 
-        ti-pruss/am65x-sr2-pru0-pru<mode>-fw.elf
+- Mani
 
-Since the EMAC firmware names are defined in DT, driver will read those
-directly and for other modes swap the mode name. i.e. eth -> sw or
-eth -> hsr.
+> ---
+>  drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+>  1 file changed, 17 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
+> index db9482a113e9..126f38ed453d 100644
+> --- a/drivers/pci/controller/dwc/pci-meson.c
+> +++ b/drivers/pci/controller/dwc/pci-meson.c
+> @@ -261,22 +261,6 @@ static int meson_size_to_payload(struct meson_pcie *mp, int size)
+>  	return fls(size) - 8;
+>  }
+>  
+> -static void meson_set_max_payload(struct meson_pcie *mp, int size)
+> -{
+> -	struct dw_pcie *pci = &mp->pci;
+> -	u32 val;
+> -	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> -	int max_payload_size = meson_size_to_payload(mp, size);
+> -
+> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> -	val &= ~PCI_EXP_DEVCTL_PAYLOAD;
+> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+> -
+> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> -	val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
+> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+> -}
+> -
+>  static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
+>  {
+>  	struct dw_pcie *pci = &mp->pci;
+> @@ -381,7 +365,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp *pp)
+>  
+>  	pp->bridge->ops = &meson_pci_ops;
+>  
+> -	meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
+>  	meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
+>  
+>  	return 0;
+> -- 
+> 2.25.1
+> 
 
-This preserves backwards compatibility as ICSSG driver is supported only
-by AM65x and AM64x. Both of these have "firmware-name" property
-populated in their device tree.
-
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
-v1 - v2: Changed commit message to include an example as suggested by 
-         Jakub Kicinski <kuba@kernel.org>
-
-v1: https://lore.kernel.org/all/20250610052501.3444441-1-danishanwar@ti.com/
-
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 135 +++++++++++++------
- drivers/net/ethernet/ti/icssg/icssg_prueth.h |  12 +-
- 2 files changed, 102 insertions(+), 45 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 86fc1278127c..a1e013b0a0eb 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -125,45 +125,6 @@ static irqreturn_t prueth_tx_ts_irq(int irq, void *dev_id)
- 	return IRQ_HANDLED;
- }
- 
--static struct icssg_firmwares icssg_hsr_firmwares[] = {
--	{
--		.pru = "ti-pruss/am65x-sr2-pru0-pruhsr-fw.elf",
--		.rtu = "ti-pruss/am65x-sr2-rtu0-pruhsr-fw.elf",
--		.txpru = "ti-pruss/am65x-sr2-txpru0-pruhsr-fw.elf",
--	},
--	{
--		.pru = "ti-pruss/am65x-sr2-pru1-pruhsr-fw.elf",
--		.rtu = "ti-pruss/am65x-sr2-rtu1-pruhsr-fw.elf",
--		.txpru = "ti-pruss/am65x-sr2-txpru1-pruhsr-fw.elf",
--	}
--};
--
--static struct icssg_firmwares icssg_switch_firmwares[] = {
--	{
--		.pru = "ti-pruss/am65x-sr2-pru0-prusw-fw.elf",
--		.rtu = "ti-pruss/am65x-sr2-rtu0-prusw-fw.elf",
--		.txpru = "ti-pruss/am65x-sr2-txpru0-prusw-fw.elf",
--	},
--	{
--		.pru = "ti-pruss/am65x-sr2-pru1-prusw-fw.elf",
--		.rtu = "ti-pruss/am65x-sr2-rtu1-prusw-fw.elf",
--		.txpru = "ti-pruss/am65x-sr2-txpru1-prusw-fw.elf",
--	}
--};
--
--static struct icssg_firmwares icssg_emac_firmwares[] = {
--	{
--		.pru = "ti-pruss/am65x-sr2-pru0-prueth-fw.elf",
--		.rtu = "ti-pruss/am65x-sr2-rtu0-prueth-fw.elf",
--		.txpru = "ti-pruss/am65x-sr2-txpru0-prueth-fw.elf",
--	},
--	{
--		.pru = "ti-pruss/am65x-sr2-pru1-prueth-fw.elf",
--		.rtu = "ti-pruss/am65x-sr2-rtu1-prueth-fw.elf",
--		.txpru = "ti-pruss/am65x-sr2-txpru1-prueth-fw.elf",
--	}
--};
--
- static int prueth_start(struct rproc *rproc, const char *fw_name)
- {
- 	int ret;
-@@ -186,11 +147,11 @@ static int prueth_emac_start(struct prueth *prueth)
- 	int ret, slice;
- 
- 	if (prueth->is_switch_mode)
--		firmwares = icssg_switch_firmwares;
-+		firmwares = prueth->icssg_switch_firmwares;
- 	else if (prueth->is_hsr_offload_mode)
--		firmwares = icssg_hsr_firmwares;
-+		firmwares = prueth->icssg_hsr_firmwares;
- 	else
--		firmwares = icssg_emac_firmwares;
-+		firmwares = prueth->icssg_emac_firmwares;
- 
- 	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
- 		ret = prueth_start(prueth->pru[slice], firmwares[slice].pru);
-@@ -1632,6 +1593,87 @@ static void prueth_unregister_notifiers(struct prueth *prueth)
- 	unregister_netdevice_notifier(&prueth->prueth_netdevice_nb);
- }
- 
-+static void icssg_read_firmware_names(struct device_node *np,
-+				      struct icssg_firmwares *fw)
-+{
-+	int i;
-+
-+	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-+		of_property_read_string_index(np, "firmware-name", i * 3 + 0,
-+					      &fw[i].pru);
-+		of_property_read_string_index(np, "firmware-name", i * 3 + 1,
-+					      &fw[i].rtu);
-+		of_property_read_string_index(np, "firmware-name", i * 3 + 2,
-+					      &fw[i].txpru);
-+	}
-+}
-+
-+/* icssg_firmware_name_replace - Replace a substring in firmware name
-+ * @dev: device pointer for memory allocation
-+ * @src: source firmware name string
-+ * @from: substring to replace
-+ * @to: replacement substring
-+ *
-+ * Return: a newly allocated string with the replacement, or the original
-+ * string if replacement is not possible.
-+ */
-+static const char *icssg_firmware_name_replace(struct device *dev,
-+					       const char *src,
-+					       const char *from,
-+					       const char *to)
-+{
-+	size_t prefix, from_len, to_len, total;
-+	const char *p = strstr(src, from);
-+	char *buf;
-+
-+	if (!p)
-+		return src; /* fallback: no replacement, use original */
-+
-+	prefix = p - src;
-+	from_len = strlen(from);
-+	to_len = strlen(to);
-+	total = strlen(src) - from_len + to_len + 1;
-+
-+	buf = devm_kzalloc(dev, total, GFP_KERNEL);
-+	if (!buf)
-+		return src; /* fallback: allocation failed, use original */
-+
-+	strscpy(buf, src, prefix + 1);
-+	strscpy(buf + prefix, to, to_len + 1);
-+	strscpy(buf + prefix + to_len, p + from_len, total - prefix - to_len);
-+
-+	return buf;
-+}
-+
-+/**
-+ * icssg_mode_firmware_names - Generate firmware names for a specific mode
-+ * @dev: device pointer for logging and context
-+ * @src: source array of firmware name structures
-+ * @dst: destination array to store updated firmware name structures
-+ * @from: substring in firmware names to be replaced
-+ * @to: substring to replace @from in firmware names
-+ *
-+ * Iterates over all MACs and replaces occurrences of the @from substring
-+ * with @to in the firmware names (pru, rtu, txpru) for each MAC. The
-+ * updated firmware names are stored in the @dst array.
-+ */
-+static void icssg_mode_firmware_names(struct device *dev,
-+				      struct icssg_firmwares *src,
-+				      struct icssg_firmwares *dst,
-+				      const char *from, const char *to)
-+{
-+	int i;
-+
-+	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-+		dst[i].pru = icssg_firmware_name_replace(dev, src[i].pru,
-+							 from, to);
-+		dst[i].rtu = icssg_firmware_name_replace(dev, src[i].rtu,
-+							 from, to);
-+		dst[i].txpru = icssg_firmware_name_replace(dev, src[i].txpru,
-+							   from, to);
-+	}
-+}
-+
- static int prueth_probe(struct platform_device *pdev)
- {
- 	struct device_node *eth_node, *eth_ports_node;
-@@ -1808,6 +1850,15 @@ static int prueth_probe(struct platform_device *pdev)
- 		icss_iep_init_fw(prueth->iep1);
- 	}
- 
-+	/* Read EMAC firmware names from device tree */
-+	icssg_read_firmware_names(np, prueth->icssg_emac_firmwares);
-+
-+	/* Generate other mode firmware names based on EMAC firmware names */
-+	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
-+				  prueth->icssg_switch_firmwares, "eth", "sw");
-+	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
-+				  prueth->icssg_hsr_firmwares, "eth", "hsr");
-+
- 	spin_lock_init(&prueth->vtbl_lock);
- 	spin_lock_init(&prueth->stats_lock);
- 	/* setup netdev interfaces */
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 23c465f1ce7f..c03e3b3626c1 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -259,9 +259,9 @@ struct prueth_pdata {
- };
- 
- struct icssg_firmwares {
--	char *pru;
--	char *rtu;
--	char *txpru;
-+	const char *pru;
-+	const char *rtu;
-+	const char *txpru;
- };
- 
- /**
-@@ -300,6 +300,9 @@ struct icssg_firmwares {
-  * @is_switchmode_supported: indicates platform support for switch mode
-  * @switch_id: ID for mapping switch ports to bridge
-  * @default_vlan: Default VLAN for host
-+ * @icssg_emac_firmwares: Firmware names for EMAC mode, indexed per MAC
-+ * @icssg_switch_firmwares: Firmware names for SWITCH mode, indexed per MAC
-+ * @icssg_hsr_firmwares: Firmware names for HSR mode, indexed per MAC
-  */
- struct prueth {
- 	struct device *dev;
-@@ -343,6 +346,9 @@ struct prueth {
- 	spinlock_t vtbl_lock;
- 	/** @stats_lock: Lock for reading icssg stats */
- 	spinlock_t stats_lock;
-+	struct icssg_firmwares icssg_emac_firmwares[PRUETH_NUM_MACS];
-+	struct icssg_firmwares icssg_switch_firmwares[PRUETH_NUM_MACS];
-+	struct icssg_firmwares icssg_hsr_firmwares[PRUETH_NUM_MACS];
- };
- 
- struct emac_tx_ts_response {
-
-base-commit: 6d4e01d29d87356924f1521ca6df7a364e948f13
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
