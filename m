@@ -4,153 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4749C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:43:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420E6C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 22:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JA9TqWiM+BunVgliQGnEvrDMAkgh63XvsClcdw7h5i0=; b=FjQ8JuxvP/G6pk+KvH1f/MiRxA
-	TSwGg3gJS0odMJZ1DbypGhobcMzgpZtLIC26quMOB64FgRtg67FkBkn+lOli4GeSFnUFGajVp4gO5
-	zKdk4m6SYRvkDaplsxU796UHE73LJmpKkgv9DEolPlhVfT7x5Z8KyiJVKNAkAZG7QnvA1itS3CMa5
-	r8uYjpaKmLAo4dCFT0g/DL07rNbH80Lf3DgCmc+wljBVn+O3h1Y56MkQvnSsGKHYKwAlhqlpTG6B6
-	um7Rn+JUjmSUGCx3mRGzTMXyGFeskKtsmekG6Bm1n7vjjCmWlC61ntsGCZ+FPNLGGEllteTjySBYs
-	ZAb6+XXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=+OkkduMqK5cNysKB4yzBR4lU60G4xlkptYsz2TMDQQk=; b=hgVh9o3O0Erqm2
+	nqskTTm8IzH4h8+czY+HJRVOyWxaiHyR1QjUfrgL74XaCJbDMsUs3vf7AA4Nvy2ZqJiSo8sCk6YA0
+	vkIw911Zm/gGRmnGVLxtqs8tkeihXrFlTWGTc48SFdcmtFpj7pqIxNapPOKf3IXEotmopZn2JP5sC
+	YHBHktixYSEiBBiCAJrUCxXik0OCoJrhfEvOfpyniwxUIcJ8q5jKZ0Y9xrYjE2THR85PB8LX6M3f/
+	IKZtZS03nrwDCFCThQoLxcS6knRqeawOt6Ff2Lsuufoh1DQLTWkuNunDont5NKPOthGRe9rmZYckj
+	xiUVrwSuOFJWbRfKnMdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQCBG-000000008nV-0YLj;
-	Fri, 13 Jun 2025 21:43:22 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uQCUa-00000000BqK-1nD1;
+	Fri, 13 Jun 2025 22:03:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQC6B-000000008Mc-1Ntf
+	id 1uQCSR-00000000Bj9-3hvi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 21:38:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qJLkWnIgUO4+VNutAeWTs/0fCI8ojySnqLMOCP+Rl9qWfyMN9OcjOKhmfVJGjTnrK+/TtNDC1Tp6j+Sm7Nk0AOZLtMTgLYuuvoQxHbXKDk2fuSuTyMZ0yM6V6ttOscGdmvOi4W2mvAzy6HZdci/QCEcD+LflhaOc+P2HynQLm9wP3R9VpIlJzFtuGbWLoeiMHF1ouxNKBA8x022z8sfg/Lg/S5nyrcSM45vAZudYTJC4JmirSaHvLp6rAT5fL9VZaIALNpxIxoaKY3QBrgrs4w9Ck6rX6FbyvuLJHTRPlIn34MPO0DD1b0hSpHxsf59LbHKEm7njQiTRLxNV5LmbRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VFJAvsV0zNOqPyCCAPdhwbyV3irLpG1oqJK7Y2ShdnM=;
- b=szsF3u4kCLKnPP9Dd87jdbRWy+sSeV+x9tBmekciGWhiTFr1hFndDOPgQOXly29HObwItwaxkmhWitfO09qw7l/oZd7cVbCsSR4qx5KKwD+nSwW562NbsZjMz3tYaZTGurASTEBqOmPNCo6WAN8q00cA8Pfo/XVMdzw6xwxkXP2g6xRjtL3h68nrKApdiDZlUmaLU5aphs269AcNWunzD5isvCVA0qLe9AL+01GvAr0tiVZ8r1Svf+dcE9KxRxD5jST9CZ2zckEu/+aMWUrfpjRWAaMKZzsgACNp9yJcuHW0zZSpV6HeHA3LbV+DweOcp4++iH4CpEHmxOFEcIbsqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VFJAvsV0zNOqPyCCAPdhwbyV3irLpG1oqJK7Y2ShdnM=;
- b=O7+4WU3xZceF8nqKmfr601lWn4y+iijV7AXp7DAJnZ4vrD+J6J5qkVW6PvVK41jxK7F0ho8RBhbJDi1HF39R+jqgOP/3xMJ6MRdTRjAJmd4EubUb0pxzBv8O0JAr1UanZB08v90JNTjzRk71bb7L1lh78+ePQQd6dgVb71QrPH6SY3Wd7S8zHiyea1L75xEJY9lAWIS5BEDxY4AFZCTaK7lxmcVcxvZeu29tvp554Nb8gYpv/TASyOEu5rcyrgp1yMnA3D8lzZgEwj0k5+lX8yxWUxkq83gMzWqzll5dVAgmEEMcxsjTVcoBfMLfHAcyo2C4Swb9lwH/6RLazYOMBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU2PR04MB8582.eurprd04.prod.outlook.com (2603:10a6:10:2d9::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.26; Fri, 13 Jun
- 2025 21:38:04 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.018; Fri, 13 Jun 2025
- 21:38:04 +0000
-Date: Fri, 13 Jun 2025 17:37:56 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: =?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <jpaulo.silvagoncalves@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>
-Subject: Re: [PATCH] arm64: dts: freescale: imx8mp-toradex-smarc: add fan
- cooling levels
-Message-ID: <aEyaNEFl3gD6snOP@lizhi-Precision-Tower-5810>
-References: <20250613-tdx-smarc-imx8mp-fan-cooling-level-v1-1-59aae8fee2db@toradex.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250613-tdx-smarc-imx8mp-fan-cooling-level-v1-1-59aae8fee2db@toradex.com>
-X-ClientProxiedBy: PH7P220CA0102.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32d::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 13 Jun 2025 22:01:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E9312629D0;
+	Fri, 13 Jun 2025 22:01:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E85EC4CEE3;
+	Fri, 13 Jun 2025 22:01:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749852066;
+	bh=Q4i3PDbu1STbHbbwGxaxWMYZqyXSfts65HVlG376auM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=rOEU3pskrhCUXIC9exM3DbnLO6Z58LFRstZMwm8FRcCm0ZE3V/XyBigJUPeR1L7LT
+	 H4Mv+8zYRbncG5Bz5Fa0BQYBdWY4TEB1xwBQxxGYK2t5w+/lgDSau+Ep34MGIuxF0f
+	 kebzay7p4cr0MApOqLaU+vvhAE+vjdFVIILnJevr9V6cm9/ByzXzBut0B+RIvYRF86
+	 w1ex6y4ew3wA8G3wuk0lqj803k4XuH1x+qx6wzWmjYASinLYCySaA5198ruiFBCMhx
+	 blCti/bipt1jx9/Scmwffs/CYkkqlMSap2iR5cA4Z1qQ7IlHE1CMvonlmUE02m6ooG
+	 7GwhfZIl2MAbw==
+Date: Fri, 13 Jun 2025 17:01:04 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	linux-arm-kernel@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Anand Moon <linux.amoon@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] PCI/pwrctrl: Add optional slot clock to pwrctrl
+ driver for PCI slots
+Message-ID: <20250613220104.GA986309@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB8582:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39c98fae-90a3-4352-ec5f-08ddaac293f2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?+7Ijaa5Kn6K9leLQRV8lRnbhGeoqiKo51NLG2T54EtvPsMwa2Y9UN+qmLI?=
- =?iso-8859-1?Q?6ktAvDBcEHSEhye9aZpn0PGLOK9gISdgPonMwQrdiSiEkB5UaZPHCd7Kk7?=
- =?iso-8859-1?Q?Cu4WWoofclB85qRe0oEKZH+x6u1kIVUttVsHbjpCn5tEGkEOn5W/grqCzn?=
- =?iso-8859-1?Q?q4j27Lz8W4UDDKLG/9TSMrIU92vK83bVzVouU3C/ediSnRihHSagrR8zle?=
- =?iso-8859-1?Q?YOWSqmnIrtVFzqIss7m6kt5dUXPpEDuqJlUiEFfh+6nHmv8j0xf/v/Jnsn?=
- =?iso-8859-1?Q?E7HiE3NdMjZfYdmBrlIerLE99aDIMO31TA8di9SeevJWhcNVV9rultbDkZ?=
- =?iso-8859-1?Q?GclPaxEURbgtq1gfXddBhUd0mVUpqM6VExeHyPYkRRM26mhDP1MBOZuzSe?=
- =?iso-8859-1?Q?V7r/XY072SB1cqQC59DdzCSjc8MEOpoKJNIPJrvQxs5ObSi4plC07lA2eV?=
- =?iso-8859-1?Q?SFVS2nfEWYrQbvm9RrUWzJFtzKKz0c1jEHAK/NHU2KRfq41L04QxFD3LXN?=
- =?iso-8859-1?Q?RCa1XVqmbXeqIh9ZnP5HUHsmkiy3wPnQbLKgLjFi2xbl6KydpyIECCRuaw?=
- =?iso-8859-1?Q?eq2eU3EG36rPIdpKMkkUtag6Fhc0O2NssXYPGiMu4I5PqzsACpQXAqBD/4?=
- =?iso-8859-1?Q?dhqYYR/8oqhNGx9S8djbuxi80k3D5VcgYNbTMmdCStzIYTOGx14YVkjPMA?=
- =?iso-8859-1?Q?rLY6aRXZZdhy3xLu2qJ9FizQ+qgy5JnCgQi1mcjTZ8DXNNw+WwnSQ7niSp?=
- =?iso-8859-1?Q?zyeBQWc95tLs+wG40qll0TsUzfiwK9geC8JxbWwPlhy/DRJ+i5tUnAIwwV?=
- =?iso-8859-1?Q?4CIYR5ak3VHFpXVdmLWVrPRuzxQmGru5dzgsrmk2ZE8QVts0l6aR3XUYIa?=
- =?iso-8859-1?Q?lt+SOeZ8xVph12SBlDsyDgy3wo+ntwtgpeBHVoIDIW5xSt4Fc8+RMA3wIy?=
- =?iso-8859-1?Q?PelE8jcaonv2VaaCmMILHtt7wsve2hKuWWlAl7LGc1IYoRiG63WPKIEEqC?=
- =?iso-8859-1?Q?xVI7wTmWarjRieLAId/HUu1s65kj2/s3iSlCFXYddXqKRP1FaJZtyirHxQ?=
- =?iso-8859-1?Q?aE6vycSbWYV0+BpurBPJrWSTi3UMfVzdkJFIcD9Bvvh3nMM1TxOfZP2tZN?=
- =?iso-8859-1?Q?RM7A8VLlf18KIb3YJLcpUqx51qK1g1WH9ac1s5n4qa7HlyrsoH3+XehC86?=
- =?iso-8859-1?Q?kX1v49aP/rqv2I87eqBjf+8xSXzf6XynXPEzvYFZngYJy7plSi4z64/rlS?=
- =?iso-8859-1?Q?dO04hHJX4Ahp43qqv7yAIqKJGry7S8YrzCZujJWRBuKmtKmmpRddtxBCfs?=
- =?iso-8859-1?Q?IywbUrdcUlaAz/eEs0cFn2+MM0kIr6tgkmyJRMo/icHVtW/1mHYQvQlVUn?=
- =?iso-8859-1?Q?87veQSSFPzR8I5j1s8uusWj5N55z3eWn4Zbah8sT04SLM9xJ7refrAGWE8?=
- =?iso-8859-1?Q?HOp+6nujRlcr3vigbnAQlYkQnXSP3gwlt9+FY232PIwkX39XeqdKDexKaU?=
- =?iso-8859-1?Q?088vNiVYj1veasBcJvwa0Fi5dn5S6a+0eA4NYcFFMyEQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?wOQQgwXsGMqtOrj+yGyZvBin/vtCXkgLmB3ZuriNS3RSnLu22pp4aZlGS0?=
- =?iso-8859-1?Q?Gj8cuVoA0F1KKQYLYWCz3zvRHjw34D6qzV78vM1Sih45HEi66d9mn0DdvR?=
- =?iso-8859-1?Q?MWNAPkP/l/N1i+eyNLnAnhaw6myINLE8rdPtvi+7EID0nxn+tqoYsqIBq0?=
- =?iso-8859-1?Q?UNQk94j8lmsy0FuXnUAwZj8M1Vop3om1RCLnFYK1SKJ5qWiH6UDLXBh0SX?=
- =?iso-8859-1?Q?Z5w0Aa9+W/uf79yD5etIW2gniWY6nYVqncN/IcpzF7DHcnw5jo9nRIWFbM?=
- =?iso-8859-1?Q?dypoK8MdYgh6GRvELysc/xgKTef50y+5od7qWNHpixy9NWhruscqd9BTIj?=
- =?iso-8859-1?Q?w1GuIAsmx+DTVVttjh6lLt08k/v8xeTdN6ezvFw01J5jcSKARoAjgsJQJt?=
- =?iso-8859-1?Q?BB5exsyuNSw3AmnLce2K5zaV1rmpxpjblTWy4eqHQS/iIXQDkkWI3IYh7f?=
- =?iso-8859-1?Q?jfGjQLXXnHUXaYPhLXyoP+M2+inSI+pwGuhyWhYy6jCO6RQg1aQqqPpYq4?=
- =?iso-8859-1?Q?DGSnGMlCocGOFKxoy6xV8bRGbiA6XzQHzgoNQ4BZ1f4bhGgXcK0IARIrT5?=
- =?iso-8859-1?Q?mMOleYwyMI+/qQIiJeSOq5O7obvkfgaMquXnWfP+b58th5xromc30QK/lX?=
- =?iso-8859-1?Q?apxB7s6Y/D7iFgn8+fWX2iL9AViCi9+roAUj5Hs3VUh/RGy0lh/oeJxpqX?=
- =?iso-8859-1?Q?P6YcUd7BC/DtwFoXXoE4RCtfZFWTzzmDagAj3PvsukBJEJq7KMjL/crAR3?=
- =?iso-8859-1?Q?PWERgJ6LhJ1YXzSJ7bK9gpzn7EalL4DZa4sgbwqsSyszEmWzce0mdL47oH?=
- =?iso-8859-1?Q?nfsHJkpomvoURsqoMLhGOZtH6ERiQdZE4WzXXQVzb/iWl1ZA1K8y5C8fYw?=
- =?iso-8859-1?Q?m4fgrUM9pVIRukdmCXu7SzdMufyg92k0KatOi5Jdef30mSUWOddeiSXZLQ?=
- =?iso-8859-1?Q?WYz2ywfd+vhn8W49LjHjvIeCsuotNWWFh2kaxnwdy3XFs9XlhqVELdDSva?=
- =?iso-8859-1?Q?U/ESXFX+8cylVi3pDZru3jwLNkshRP7WvHRavlS5oBAYg3tT6APdW+UcKS?=
- =?iso-8859-1?Q?QUvcfvl4rzM8gBhUQlx0XSLoMctaAU+CkrX1o/c6gqJCbqgiG49VDfVOHC?=
- =?iso-8859-1?Q?cOHFC37b3tw4EWetyK0tTI2K/nuOd9gatpd0zXCTIa4xGJVc5wGEN95pS/?=
- =?iso-8859-1?Q?yYi9uMPO0fiOaJC3YE21cOBOU/riJqlfTRz3mSbTlrLtDLJ9OhnjpqTxOA?=
- =?iso-8859-1?Q?5mdXvFlMiUFFxBp0RLxLJqWdgQrMCekYMDIqHIxjUa9C13x3KzuQ2LnAM0?=
- =?iso-8859-1?Q?GyTukKFqrxkh+yYBiJjZGPXD0K69X2wDkv1AXQNvcZ7sDmeE+q3tpanBql?=
- =?iso-8859-1?Q?CgabpoMMq9YPuN2mCHadWJzem4mJvzUzfM42YiVqIt0xGqh4+MNIWCLqQl?=
- =?iso-8859-1?Q?IqxqvxtuX1iKO91OQeCiKnAPwgBHafzhQ2OkWOnF+ztm5UINwFhAIw3LCQ?=
- =?iso-8859-1?Q?O4/c0OSQZxTbOoqQa4Yz08J5NyRv6z4b2qlnyb09HCkmTECh1Jat0Cj+OV?=
- =?iso-8859-1?Q?F3anFYsI2w1rPWKQf9hlZMbAn+FCtzbz6eaxB7ZrJ5IRxLI8Gunqk17S9W?=
- =?iso-8859-1?Q?U23gk1gfapZYi1dsRX7eldeXOCCvUdDqkg?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39c98fae-90a3-4352-ec5f-08ddaac293f2
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 21:38:04.0491
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 89V6CwBVbTSg4txwHsBpn+1rhsvbE8H0DFI0b8GsEh8S5Cs8frBUiCD/eGTy66toPjEbNCudB18UEShHiOjC2Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8582
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_143807_369769_7C117CFD 
-X-CRM114-Status: GOOD (  19.15  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdW_89naftFMo881zp=7QGJDznFzzqLQ-kLEuyJ=KJWQnA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,55 +79,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 01:35:04PM -0300, João Paulo Gonçalves wrote:
-> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
->
-> The fan controller on this board cannot work in automatic mode, and
-> requires software control, the reason is that it has no temperature
-> sensor connected.
+On Thu, Jun 12, 2025 at 03:16:45PM +0200, Geert Uytterhoeven wrote:
+> On Sat, 7 Jun 2025 at 21:46, Marek Vasut
+> <marek.vasut+renesas@mailbox.org> wrote:
+> > Add the ability to enable optional slot clock into the pwrctrl driver.
+> > This is used to enable slot clock in split-clock topologies, where the
+> > PCIe host/controller supply and PCIe slot supply are not provided by
+> > the same clock. The PCIe host/controller clock should be described in
+> > the controller node as the controller clock, while the slot clock should
+> > be described in controller bridge/slot subnode.
+> >
+> > Example DT snippet:
+> > &pcicontroller {
+> >     clocks = <&clk_dif 0>;             /* PCIe controller clock */
+> >
+> >     pci@0,0 {
+> >         #address-cells = <3>;
+> >         #size-cells = <2>;
+> >         reg = <0x0 0x0 0x0 0x0 0x0>;
+> >         compatible = "pciclass,0604";
+> >         device_type = "pci";
+> >         clocks = <&clk_dif 1>;         /* PCIe slot clock */
+> >         vpcie3v3-supply = <&reg_3p3v>;
+> >         ranges;
+> >     };
+> > };
+> >
+> > Example clock topology:
+> >  ____________                    ____________
+> > |  PCIe host |                  | PCIe slot  |
+> > |            |                  |            |
+> > |    PCIe RX<|==================|>PCIe TX    |
+> > |    PCIe TX<|==================|>PCIe RX    |
+> > |            |                  |            |
+> > |   PCIe CLK<|======..  ..======|>PCIe CLK   |
+> > '------------'      ||  ||      '------------'
+> >                     ||  ||
+> >  ____________       ||  ||
+> > |  9FGV0441  |      ||  ||
+> > |            |      ||  ||
+> > |   CLK DIF0<|======''  ||
+> > |   CLK DIF1<|==========''
+> > |   CLK DIF2<|
+> > |   CLK DIF3<|
+> > '------------'
+> >
+> > Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > Reviewed-by: Anand Moon <linux.amoon@gmail.com>
+> > Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> 
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> 
+> Bartosz: Any chance you can apply this patch to an immutable branch,
+> so I can merge that before taking the other two patches?
+> The alternative is to postpone the DTS patches for one cycle.
 
-why not use built-in temperature sensor
+I applied this patch only to pci/pwrctrl for v6.17 and made a note
+that the commit should be immutable:
 
-tmu: tmu@30260000 {
-                                compatible = "fsl,imx8mp-tmu";
-                                reg = <0x30260000 0x10000>;
-                                clocks = <&clk IMX8MP_CLK_TSENSOR_ROOT>;
-                                nvmem-cells = <&tmu_calib>;
-                                nvmem-cell-names = "calib";
-                                #thermal-sensor-cells = <1>;
-                        };
+  66db1d3cbdb0 ("PCI/pwrctrl: Add optional slot clock for PCI slots")
 
-Frank
+We will likely add other pwrctrl patches to this branch during this
+cycle; I assume that will be OK as long as 66db1d3cbdb0 remains
+untouched, right?
 
->
-> Given that this board is a development kit and does not have any
-> specific fan, add a default single cooling level that would enable the
-> fan to spin with a 100% duty cycle, enabling a safe default.
->
-> Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
-> index 55b8c5c14fb4f3e7407243760ac01b0aca0dacf5..5f233304cea747d3f04a748265f96696668c9d6b 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
-> @@ -213,6 +213,7 @@ fan_controller: fan@18 {
->  		#pwm-cells = <2>;
->
->  		fan {
-> +			cooling-levels = <255>;
->  			pwms = <&fan_controller 40000 PWM_POLARITY_INVERTED>;
->  		};
->  	};
->
-> ---
-> base-commit: 1a2ad59da68dd294f994efbf68c5d671f6b42fad
-> change-id: 20250613-tdx-smarc-imx8mp-fan-cooling-level-b67265ae2c49
->
-> Best regards,
-> --
-> João Paulo Gonçalves <joao.goncalves@toradex.com>
->
+Bjorn
 
