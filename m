@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C94C71159
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9EFC71150
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cqG2PqVw3HqOIYGAG850BjgDwkb+Sht11Jx983Z/KlI=; b=2oaaH9Hnd6LyyZ0l5m5Oe/ZkXY
-	NR3CYnDHlb1vKV2YR1tJW1dhgTNZ+r9DmUd+pRfKoY9joxOkA4c9YL4N5Uefd4KoqnIHsYefKgJP9
-	LQWL8ow6g0YiaPBCan5fdoPDX6rgmBxfWlR/ZuHt0isNGWMcnrWFlm2Aa2rSbXI5mwUIL2SVfwUZ7
-	bRB00kTPKcJFbU0g0NoXgQAHYA3+Ax3soZTxjlmHPEbyNXZ/Z8TYkALVehJ1Zi6pRbKDDFmFVaZN2
-	eDhBK5/4OOkIzpZTaoV3YPbjcjkDLobub4fAflyQ2kc0NjFfschgIUKC33f4CHA77nz18F5NhJFn2
-	5W9vKnHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xXUd6lfewKPENm5Aa8Bd/d/D/7UIBoRsbAQtScnCe8M=; b=NgO8x1RUYhBb3V2DM2pnURD6v4
+	waNC3BgsZdK4FFE6BOUCyhCORjkvHIQ3LICgOyQHjqj3UAnPHpvewknU6PDsIZFfJz7H+0C7sKmEJ
+	SeiX7tZxFLRfywSt12qxPfL85ZB4U0Z3Or4lRvg4GsnNdTIPBXrB5UKg+SbivYLyrH3GBMgwtC4vY
+	JZ956wiN4ukJzirX7CnEMC6sbE8zN4J1kiV5XFc6OOhuHR5RiyB2t8u8m/gGVu1qadKumzHbPLq4l
+	ckEgVq9wP0ObdBrfjyXyn65XZRMvqvpVo/Ml8TUvv1WpxlzUPH7GkHcQFtM7viUfLJO4Nkuk2LsUn
+	Cz6mKPbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9hG-0000000HNhg-3LHZ;
-	Fri, 13 Jun 2025 19:04:14 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1uQ9hF-0000000HNfX-1Gzi;
+	Fri, 13 Jun 2025 19:04:13 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ8u1-0000000HEhr-2kl6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 18:13:23 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3D5CB1F4F3;
-	Fri, 13 Jun 2025 18:13:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749838397;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=cqG2PqVw3HqOIYGAG850BjgDwkb+Sht11Jx983Z/KlI=;
-	b=KE6Ft6znr3dVhvxcyi44AEgdjmLtZk/4CfSHx7HX7ov1SJ6NTiyAPR+b+qJzoR/3hmsEwf
-	6LmMBteem4lSIPWpJmDTwF9sN1sPi6u9dOakioXRhmuKnsfxGvBvAw5i6kIAhLnqG3jJqW
-	datB0VIxCwb7ckPGrq0IcOwlsGTmvUyZjzbf6/WpW5yzUxVcip8L/mQmFYYcqsyVNaas5V
-	QRh+pHHf62OTt4+O4pc2okLIGWr3W7UJz/xyK4Wy3N+PuBZ4bQFH/P/XCV3DZ0/6c9jZBI
-	5nvwAJU53pHTTJvD90ZOfyGpbrZLFIjsFkcwuGLrqXkoFoQ7A9mq4lpbOSH97g==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Steam Lin <stlin2@winbond.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] pinctrl: nuvoton: Fix boot on ma35dx platforms
-Date: Fri, 13 Jun 2025 20:13:12 +0200
-Message-ID: <20250613181312.1269794-1-miquel.raynal@bootlin.com>
-X-Mailer: git-send-email 2.48.1
+	id 1uQ8n6-0000000HEIq-3grb;
+	Fri, 13 Jun 2025 18:06:13 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b2fca9dc5f8so1880313a12.1;
+        Fri, 13 Jun 2025 11:06:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749837972; x=1750442772; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xXUd6lfewKPENm5Aa8Bd/d/D/7UIBoRsbAQtScnCe8M=;
+        b=TL8SLiD6mrhtNO9f2Evs/vTwZKTGwrCL4m7eupY7h3DmNHa3g4a162xVVn7iTt1ETI
+         w4yItZMROtuDy2+6QNh3lhyZ22CE+iSwca6XwOefYPHNikjEZU2KoenQFo2QIyD8bftS
+         XBP19tDtuyWEFm8suKEWJllcg7SuT+PLy1t1OdtzkrkfZrmCdGenqNqZtYC6F6gamIAc
+         uXIQxBcE9FcbpFeTQkpRvqbSRvEKfIyCFaDDOK1jMq+4evGEn88YyLcCn5yTSpi0GRtE
+         KRHgZNMgnSRbVWcdv5xC5Iov5jEzit7zItln6Dvx3UxEflgpsj5UztW+swbDXXJ2GyGC
+         rGsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749837972; x=1750442772;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xXUd6lfewKPENm5Aa8Bd/d/D/7UIBoRsbAQtScnCe8M=;
+        b=CkLj3hjw7qTER3JYx7AWNXwDmbOyAepPtoQ52MhHUqo+G7hMdpUahp60+Fe5LweGb5
+         B5zn3/rlNJyRYjGnnteY4ZnLUDqkp9F25mITsF7tN0QOPnG0OLWFqcio+Z1A4BSOu66m
+         ktln4DcWnmFWZlQdW4l0x8FwR3NVnMSNQ1eE+ecp1O7XPESk9blLpmBpWISlURdb3SGm
+         5leLae0R1/QCEPyIOzb6xiJfIJWhHucBnSmMHf1B5S2iV4LEegkiEs6ecTbgKrkSVp+O
+         x8zEDajLiM8wnQOhsKVA7KOPfZLCDgwsdyxG7kALwgzPbykVq/uReaoWBk7nEs0kyGpN
+         k9PA==
+X-Forwarded-Encrypted: i=1; AJvYcCWVbg5BN5yL+MwmbPii0Nv55MZQ8gDPW0tRvu3516hpK1S4c/HM1hzzd5hif0xO0d0roR0FcOdVT1WV@lists.infradead.org, AJvYcCXdHYqabom41W6n/gTC81oFovteIGnE9ye9bWdvgySDbjZQCHleOERxbDk2n3LPyw3LzhjOHECJVcdJWjJQVdtI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwF23Ded0kQd0pOY7fsPVARc2UOa8AFh/RLkzSenFwy5UKGxnzT
+	9aIXrlLQy++5tIuFm9LcPtIjocV1fgCWyScrHhs7X3xjIHZ+JR2aJpJGHAoYZdGn
+X-Gm-Gg: ASbGncvNJ1UQY+m6JXxNOXQA4oUW1r+Rl1YaTtFalQOpp+vpOXmAM+YEG4bK9HliR+0
+	Fz5+fohHI7G8lJq8qlsCXtY3vOjWoHT6EB1DP7SAjjjDW3fuTvpKTKuTW0nL9WG6cI7HP1+i552
+	e8ouVCEjIgtNNEugEBiGXb1P1qhRlBfThUDecRi7bQXQ/+vxvyPfo3XrgG4nZrY/JyYVD/qvwEW
+	AtEBRVgWpQM3Suz+e/ICXb947rEDT6g2lU4L/8xt37h+2LMlkYOxcFuVTMvW5nYKtC72GTkVPnk
+	Vks6tMS2A7EQYDiAmS/t/BEQLV5Fa+cYYOfRXYjHeeXL4UyjdtrzGH7IoPx0
+X-Google-Smtp-Source: AGHT+IH2DqbuxD4MEb4wwFaAB966G/5kXTTb/l9FTKLx6klqy6VsZe3elDybbPK71Ba9qjzXcLhjZw==
+X-Received: by 2002:a05:6a21:99a8:b0:1f5:535c:82dc with SMTP id adf61e73a8af0-21fbd668c44mr392814637.42.1749837971960;
+        Fri, 13 Jun 2025 11:06:11 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:84a2::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe1639f97sm1755775a12.6.2025.06.13.11.06.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 11:06:11 -0700 (PDT)
+Date: Fri, 13 Jun 2025 15:06:01 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rick wertenbroek <rick.wertenbroek@gmail.com>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v5 2/4] PCI: rockchip: Set Target Link Speed before
+ retraining
+Message-ID: <aExoiaPhqXPmv_Oy@geday>
+References: <cover.1749833986.git.geraldogabriel@gmail.com>
+ <1966f8ddc4a81426b4f1f48c22bea9b4a6e6297c.1749833987.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeeigecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegteefudelfeejffehveelgefgtddvudfhudegueeijeevjeeivdfhudfgtedtheenucfkphepvdgrtddumegtsgdurgemvdefmegsjedvvdemrgdutdgrmeelfhgvkeemudgsiegvmeelledtudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudgrmedvfeemsgejvddvmegruddtrgemlehfvgekmedusgeivgemleeltddupdhhvghlohepfhifrddrpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohephigthhhurghnghefsehnuhhvohhtohhnrdgtohhmpdhrtghpthhtohepshgthhhunhhgsehnuhhvohhtohhnrdgtohhmpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprghnugihrdhshhgvvhgthhgvnhhkohesg
- hhmrghilhdrtghomhdprhgtphhtthhopehsthhlihhnvdesfihinhgsohhnugdrtghomhdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhgphhiohesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1966f8ddc4a81426b4f1f48c22bea9b4a6e6297c.1749833987.git.geraldogabriel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_111321_842399_EC211606 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250613_110612_916959_73876F90 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +105,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As part of a wider cleanup trying to get rid of OF specific APIs, an
-incorrect (and partially unrelated) cleanup was introduced.
+On Fri, Jun 13, 2025 at 02:03:50PM -0300, Geraldo Nascimento wrote:
+> Current code may fail Gen2 retraining if Target Link Speed
+> is set to 2.5 GT/s in Link Control and Status Register 2.
+> Set it to 5.0 GT/s accordingly.
+> 
+> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> ---
+>  drivers/pci/controller/pcie-rockchip-host.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+> index 8489d51e01ca..467e3fc377f7 100644
+> --- a/drivers/pci/controller/pcie-rockchip-host.c
+> +++ b/drivers/pci/controller/pcie-rockchip-host.c
+> @@ -341,6 +341,10 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+>  		 * Enable retrain for gen2. This should be configured only after
+>  		 * gen1 finished.
+>  		 */
+> +		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL2);
+> +		status &= ~PCI_EXP_LNKCTL2_TLS;
+> +		status |= PCI_EXP_LNKCTL2_TLS_5_0GT;
+> +		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL2);
+>  		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL2);
 
-The goal was to replace a device_for_each_chil_node() loop including an
-additional condition inside by a macro doing both the loop and the
-check on a single line.
+Hi,
 
-The snippet:
+I see rockchip_pcie_write() was added twice, in this patch and also in
+1/4.
 
-	device_for_each_child_node(dev, child)
-		if (fwnode_property_present(child, "gpio-controller"))
-			continue;
+I'll send v6 with correction after I get some reviews.
 
-was replaced by:
+Thank you,
+Geraldo Nascimento
 
-	for_each_gpiochip_node(dev, child)
-
-which expands into:
-
-	device_for_each_child_node(dev, child)
-		for_each_if(fwnode_property_present(child, "gpio-controller"))
-
-This change is actually doing the opposite of what was initially
-expected, breaking the probe of this driver, breaking at the same time
-the whole boot of Nuvoton platforms (no more console, the kernel WARN()).
-
-Revert these two changes to roll back to the correct behavior.
-
-Fixes: 693c9ecd8326 ("pinctrl: nuvoton: Reduce use of OF-specific APIs")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/pinctrl/nuvoton/pinctrl-ma35.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pinctrl/nuvoton/pinctrl-ma35.c b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-index 06ae1fe8b8c5..b51704bafd81 100644
---- a/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-+++ b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-@@ -1074,7 +1074,10 @@ static int ma35_pinctrl_probe_dt(struct platform_device *pdev, struct ma35_pinct
- 	u32 idx = 0;
- 	int ret;
- 
--	for_each_gpiochip_node(dev, child) {
-+	device_for_each_child_node(dev, child) {
-+		if (fwnode_property_present(child, "gpio-controller"))
-+			continue;
-+
- 		npctl->nfunctions++;
- 		npctl->ngroups += of_get_child_count(to_of_node(child));
- 	}
-@@ -1092,7 +1095,10 @@ static int ma35_pinctrl_probe_dt(struct platform_device *pdev, struct ma35_pinct
- 	if (!npctl->groups)
- 		return -ENOMEM;
- 
--	for_each_gpiochip_node(dev, child) {
-+	device_for_each_child_node(dev, child) {
-+		if (fwnode_property_present(child, "gpio-controller"))
-+			continue;
-+
- 		ret = ma35_pinctrl_parse_functions(child, npctl, idx++);
- 		if (ret) {
- 			fwnode_handle_put(child);
--- 
-2.48.1
-
+>  		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+>  		status |= PCI_EXP_LNKCTL_RL;
+> -- 
+> 2.49.0
+> 
 
