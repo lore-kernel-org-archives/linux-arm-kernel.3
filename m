@@ -4,173 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5EEC71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3B7C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ScshJfFQkWw2Q+qHB7tEYXoAysJ5n33VUTBzZaRNqq4=; b=Nb0DGuRegSUZeGgI/7amos9uD4
-	1wzW+YORIU28lDnQK1ceWmCTHs3t2RodMKeg/yPZ/faWdcDSSf5S4pK6SnM4ARXb9hAGSkzTea8tj
-	SRweM8zyCPf3CeX8HUTfoNa8VUtes+Wl0P/7fsgNlK7PzQSZpzDSzR+6XrSWaNifLm9PYlL1VXeDh
-	vxc6C879P7QIEyukO17HwZcTKWXGSSFt5tAG7NIj3lDH8O13VyfNFn9lzwZyF6rb4Z1AV5Ts27KWz
-	iMZiHsGmFE3RSozHZe31gtgl5LuQ+MXUGehqfh8sxGsHhV31kMuCEbknwlvludT9zaGlaXi+r8Zsh
-	+6dnvMwQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7ozLG9TWXlp500cW1lxmO9NrJcYLPAvisq6GBk6D5d4=; b=5Dy3o0xrdgEufngpxSJYrOIBc3
+	/3uGy60LssRda5XO4Z4FDqD3hbJ+inFfsWCwZo7XlVGlMk4r3Ca8hK21Wch54ypwOZg4t2tvmRAqI
+	ziq7gsnDPc0GpHNIA+zlSKw2TiqM4BgpQPZyluD+ybQqFo/FexyPuN99BCtp8ejJ96mMhi+WZdo/T
+	B/pAoytYk03sQh/5xKGHmXDsgpsQfhPVeUD7641WmAkxveVMu8A2MtdXJ6JPhhF3AU5rkdm6a+vLx
+	nsakmqPPa43jERn5sMVtElm+nACmwNYki08u7zCY7wlbbJsV5SdPdWAHxpA/sSxNlT+wmJNuTiMfA
+	EYY6RJxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2cQ-0000000GAee-31wV;
-	Fri, 13 Jun 2025 11:30:46 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uQ2cJ-0000000GAXw-22id;
+	Fri, 13 Jun 2025 11:30:39 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1J7-0000000G1RK-2SQG
+	id 1uQ0S0-0000000FspY-07Yp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 10:06:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gcbQ1xlEF2E2sKJqkN4UBAVkGwfH50FxdCq6TtztF6XfgSJCaq6BozUe10TaZMDZmIqtFntiK8KAKkWP1POqep/ddaj+Zkd0sMzBp9B4e9r/YUpapxIfB0L6FpBJxcEfmLuHRaqOMYVCDGi2GoFnVAGCtjdyZebV1UHpgW1x4FCxcdwBPJQYcgC2aq2t6eKGUoGG3pIIPymgjCbIErxtCCq2sx2TqP9GF2si58GsvaqGRVLjREn84YIItuqMV5Yjq0wY8pU3/Dyy6kHmjHFU2phqZa5MLKVBaurpPSje/9TQxZY5PgoDqOjVQCrh2fAphCrkvDD9/CHjRwO7G5UA1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ScshJfFQkWw2Q+qHB7tEYXoAysJ5n33VUTBzZaRNqq4=;
- b=mcx2IA/KOLTB2IUJM4CQ0hGsUNo1eKBhl196yDpYwsJYIht/2Kt6NVZAaJv+GzVgazHB7/oUgCb1JyEtcIYU23EbvseqZ4H9HdmHADSN/npEcb3wE8d6F+7jeN+/T8qFX2Nnbmnw+ZMPdJeFRmht8ezzDh2wM2n52XRn2Mw2p5FJHKext9TboBfWKVaNBF9MPuhbhUaBPxuViXczcUdMAAkAYqoJr2GoISl8ML4tiSMNUGKkRHQpr/MB6RICouH9/5WuFiPMnYGtXzewBP8Slm+U0ZG/uSAsA9CH2up/4j6tp54RC39IRcYJjw0rv9vXbFH+HgFYqTkMx0/hfz+2xg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ScshJfFQkWw2Q+qHB7tEYXoAysJ5n33VUTBzZaRNqq4=;
- b=MPozlaemZfLHhNqCcJv68g0xE394L8Lui4tt7AjwXA0CigLAk6/uFYicmqpFIKs38R1GyZDTjhEKoX3y2kOg7wvkJPpaiYYwq4vZna6VKsr/bRMaClyvj6MMFL1d82qCcQaz6WeaT0LQgZajX+VE7c/VXn6v7ZzB+j3ekboaPkQwryGF3/lGyn2H6I7siIwQCz5ZXPVJFoeXZ105rngS/Zh2rUfAtKtaj1l8JybaRXlf+w8HfVemBx8jVou+7fLmivaQL9e1Lq3Ilubhi2pOTFXfM7N73LQlyeFf5uL+rdT1O/9f87QX4CPT5KzbGkg1v2bCXjjUW6Js7piZ1aYEmQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
- by VE1PR04MB7294.eurprd04.prod.outlook.com (2603:10a6:800:1a3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.25; Fri, 13 Jun
- 2025 10:06:41 +0000
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.8813.018; Fri, 13 Jun 2025
- 10:06:41 +0000
-From: Joy Zou <joy.zou@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	ulf.hansson@linaro.org,
-	richardcochran@gmail.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-pm@vger.kernel.org,
-	frank.li@nxp.com,
-	ye.li@nxp.com,
-	ping.bai@nxp.com,
-	peng.fan@nxp.com,
-	aisheng.dong@nxp.com,
-	xiaoning.wang@nxp.com
-Subject: [PATCH v5 6/9] arm64: dts: freescale: add i.MX91 11x11 EVK basic support
-Date: Fri, 13 Jun 2025 18:02:52 +0800
-Message-Id: <20250613100255.2131800-7-joy.zou@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250613100255.2131800-1-joy.zou@nxp.com>
-References: <20250613100255.2131800-1-joy.zou@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0002.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::21) To AS4PR04MB9386.eurprd04.prod.outlook.com
- (2603:10a6:20b:4e9::8)
+	Fri, 13 Jun 2025 09:11:53 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-451d3f72391so24891785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 02:11:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749805910; x=1750410710; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7ozLG9TWXlp500cW1lxmO9NrJcYLPAvisq6GBk6D5d4=;
+        b=i1/bEzqtORWuvl4kQPVijMx3zu7OF2F3YJOOP7XNbwUqhugdrGY2slCqBhIwXe+SGU
+         aESMp96ShyHC0hy7R/dMioUdE23EzEU+uWL8XUw5dUFwxhpIxRFAvsE/yGnEwt+apidO
+         H/wxfjryCQFbscpQvop+GIgaoiPoV4qKYOMlzQNp3J4fUyOxD39LSeDXPJe9Zg+2vzkV
+         75Dvog4spG2s34txD8zkHdP3AlVgyEolFbqmy33fYiBhow4TE2gpsMsfrINnIWoILk+l
+         2E2JwtP/uDaEPFFqyZz/gIwYnskOSdp8iqaqhC1PoxaheQzGkaIMTOgxp5GngrZZV1WJ
+         w9qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749805910; x=1750410710;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=7ozLG9TWXlp500cW1lxmO9NrJcYLPAvisq6GBk6D5d4=;
+        b=ekyNj611oAtZmiSnH7IUsVfIDgyB8BUJXAnG0mWjiSsVqRjzkyepEquByS/hc7xitd
+         kwut18jJ8X87OqZuJyUOUdqg20OwvaKqEoUHhgjcE/Hx4b9rXkofabg+vJaiWW0jghgN
+         Lg2oJ3V0K0bW3JkOCQXCJlE0s4pPheEjqyxQ7jyouAc4O61r7cettBIA+h4hr4evVo1C
+         Tk/pSqSO2VCKZBAjuiFinTz1JP+Jh1STFoyVQ6rYkTiePDjVoLFQUbKjR8ovUrVoCZC8
+         F0JrQu7pJ/Tf7KK/hynaTaRC2WPtAg9g4/5VCQvyrazqbtGwsA79sk+S05RLbiDv0fO9
+         VuUw==
+X-Forwarded-Encrypted: i=1; AJvYcCVfXKSDUMJieugGMIB3QVSAtwFx4GGQ1cS4WVafq0dNW/uOIRP3+P62fqi6XU+qfn5bY5mvzfnaD7fwtcG5Q9cP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA7L/JEnD+JLgNz14njwleOeYSMYNro6KKwYA9fNRIm5zsMR1p
+	akzPzkqekkfoCyj1jRSP0cKS6TmT/YvhP94GSLdg6yk3bAqYOH96ax78IE4qqRihNWw=
+X-Gm-Gg: ASbGncu7cKHsR7e02Bdiv37rk89osqACeb6NJRJU4g3cSj3WVLuepPNz0W9udE+uE9D
+	JOQa9mwshAKtfu7ZmZ0WC9hcNQd50J1wjW0jpNv8zLkRJ6cLXdFYpNgzgEvMmZ/wJuDlyHI8mh4
+	O0MI1kAoYdZfHM0OaoXtVoMBrvEEa3xsU7ZwcD65aat+4jsqZ1sVFsSZbI9gIPqklgeF6G95ZkG
+	mMXLFfBWvbokgWqmtC5lKTbnZVSZ7wrWY2bcme4lSx5MlkoDYPgFrCXrjDkQaokpg8n28SWAEDg
+	GNYD929aWjUX5C0QyGaWnAj5NYKbtqdKAXvu0O+eNgY4+Zo4Rm/WCveI9EnTAvFzQpmxWSbO699
+	GPLu7tADqFL9WtCUj05YpwYr4I3Zv5uGLckRcZXE=
+X-Google-Smtp-Source: AGHT+IE7zzs25YomGG0GJ6Odvys+iqo9vej97SNc1R9zS14YSI75oBU9F4KxDKgapuN6gQnKxG76Sw==
+X-Received: by 2002:a05:6000:2504:b0:3a4:eed7:15f2 with SMTP id ffacd0b85a97d-3a56877b818mr2212745f8f.43.1749805910360;
+        Fri, 13 Jun 2025 02:11:50 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae? ([2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e25ec9fsm45098505e9.34.2025.06.13.02.11.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Jun 2025 02:11:49 -0700 (PDT)
+Message-ID: <40033b4b-15da-41e4-98c3-2b5f19a8a5a7@linaro.org>
+Date: Fri, 13 Jun 2025 11:11:48 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|VE1PR04MB7294:EE_
-X-MS-Office365-Filtering-Correlation-Id: 503d88a7-f6dd-4284-0240-08ddaa61fe6a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?akMR+Hovb4/jZ9BhNnjAxxHeKjHigaJwpzv49S0tWtPcoUEoEBfQAXsuaAb3?=
- =?us-ascii?Q?4ckr/V6MKUoHpdrNI7UZ7S06rb5oHHwKutSWOYMdcUe1cFseGPUZTycQcQNt?=
- =?us-ascii?Q?bpkpBM6o9/0tcdorIp39XgraRQXu9iLgk/zREzneKUvo5QgXKE+2UlTHy7XZ?=
- =?us-ascii?Q?jnQQKNd2a14aSrZuiFcL+GjqIzgueozOhf+YNthuiM0/rYmT0J/H9Dai58RJ?=
- =?us-ascii?Q?CUTdf2y/LM0xYFWNjYJJK2x0II2PTSrZsUznj4/VwMy1m9OL1tciI4IocdOU?=
- =?us-ascii?Q?1WaxQv7hyg05hE3pYSSjTVBsBl8El5mgB9OUUyTHthnjP24nHIv5xpRGsQoE?=
- =?us-ascii?Q?YGQZLQqb/lhj76gnT4cJuXldHJcu4LCDihamb1oCrD7QzTW7dJvtzRaa8+Z6?=
- =?us-ascii?Q?BPTRzRdzNDy2+iWpnjG2fAONFlTbP0ObQUDqp8SuV64Clrn/d70mp4FRXBxt?=
- =?us-ascii?Q?qKYKesPUf4G0D6F6MP7tfIsgmumCAG+da++j0b2tpvmhVRhZNGHkRzXgcWMq?=
- =?us-ascii?Q?/lkq/91cPq41GEk9LgKjwfA3cdipfNf2FuAE2Wn9le9e8/aAAUW75TgrnsS8?=
- =?us-ascii?Q?NlMel7EcffaWc/pbx66IZkYX/jK/3IofjmMt6Ak0CXgzfr7kjFjS8c4G1W4G?=
- =?us-ascii?Q?9DD3/V8EnaRkONFfdTwkkg50Lbm6I6+uWj+Mm8B4+A8c4abXZ86ZoarrtuOS?=
- =?us-ascii?Q?AmrvKHZ+fNZ1LAdmrG4YlUtiouUTJW8ioD1ufmyHQxtrTSmiOiouR7qGb9a3?=
- =?us-ascii?Q?PgomNYuqaFbTuFcJ8nJlFG3eEYlpLKVRSLvxWcDAXo4SsFWXjsblGWDM01BU?=
- =?us-ascii?Q?rTDlKyXZ6zjtaZwaY4IfNxdC1U6V2V8Xl8n9raj+UeA8AINQK5C4IqiWUy/C?=
- =?us-ascii?Q?ctevAw5lqgzlvh2Xxx0LGk64yAga4pbsGDAJBkqGjyHf4xwFFNAsG661HZaU?=
- =?us-ascii?Q?xfkdcZn8L4PBvFsjugh00q13+YZWYweDdz5+kAfa0leKBlI042eikFX7uDbF?=
- =?us-ascii?Q?foTZxDGo+Yedfanv1dHujuGTEiVH7Xfe/Nf8N0cF9jLdDh3BON1ZqGgV67oI?=
- =?us-ascii?Q?OtV7fxq9eISay15Dr5EBYg6CyyXqc1ZEuWgEZBV7erkIBakbAMhM1pOZ3HX5?=
- =?us-ascii?Q?KlgP8CG0E8xzqT9Sp2kx7qu0hMq4cYFL+F7HHeIaJZ/6JK2nZ9c3FCW6yPbB?=
- =?us-ascii?Q?79TWxco8mIaOFCXHHaxz9ketXKaRg5PjyV0B9ZcMzafWMuKrw8u4Z6X2EvMl?=
- =?us-ascii?Q?b3YBI7ArPw9VSetWLNDZ1ujLuOEAeLTG0xLW4CE0nLEA+9liJ/WhvMhUOPR3?=
- =?us-ascii?Q?p/nLjbG1LbvRgCjpXQVX0tXEXa2R3977iIVKoDsOdkSdtnOuqWWFO2BzZzkC?=
- =?us-ascii?Q?IFZOqezwmeJmxPrba032D5+l6u3gcIsLVbMQhHwQVL7Om8G8LSrQvbuHi49a?=
- =?us-ascii?Q?2sc0JKm4Up7RVEzm5zTbHZpSA69m3zYH6fJ2+rCsSixcBDYfpzQezeYhmcHm?=
- =?us-ascii?Q?1mHDiq3Jw5Yiwgw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4GaTilAp/mm2Vsbp3s64QwIdatKkhDzwzfchrR5RGL3C0JPhD5JTBmjIm4tj?=
- =?us-ascii?Q?q/GADiXTdkFoaFRfh7GiUQAvwHYKhZ8uzCtAfJ/a0kBisKZ0knPrxUTk6k3M?=
- =?us-ascii?Q?9fegrBbaCy/ugq4JCkH8O7AXxHGcoK4oZ1KSKRV2wpY95TOU4x2mDwwxDNP6?=
- =?us-ascii?Q?1QT0cbwaKdX+0slBOKNv9WxNjpqAV1e2lPTb+hrApz7HfCjvSgmrqaM9VoGE?=
- =?us-ascii?Q?jKBGB6kqtbQMMIUQGfPXkIB4JYZu61Ml4l5K0vPaNN2WHEYu+2UhpTzMl81g?=
- =?us-ascii?Q?F+Db+XnLjTKPDV0CrvjlaZsvxMo0qlHLpjafsiCgubcc9G3prbGcjZjGdZl+?=
- =?us-ascii?Q?1qzViQ8qetf+kAC4QnU6pltu1mgWd7Wf0kxzMpeU+0GJ/nii6TWSm2rGZHzv?=
- =?us-ascii?Q?XFImd+upFnGhYmunyi3buOnqwA+MdebKK9N/gIKl9NhnWf4GDuVZIPkuBTHG?=
- =?us-ascii?Q?xmrZku3GP9N2Y+kDpvZI3EV6QHAyu61/3PhmVDI8DmXR2xYbPFC+uzWzwOSg?=
- =?us-ascii?Q?LBC4tLHpCyHdF6uemrl9TH5KNIYnAZ6jIsrCrj3EryUyhNwip8UZefvsD4nE?=
- =?us-ascii?Q?CqKNh9rGWDQRzClD6OU1Q/hFAJXHOzpo8HCcl4/9SKbOtUkU7jfZhCloC6mt?=
- =?us-ascii?Q?rAavDTTa59E909T4PUsoUUExcIwrVSMQorjo01f94X1qrqDCUc9J1LLDM9JT?=
- =?us-ascii?Q?gWY/RLbJmDHK27nihOI1cu/GGxi3GbauWTMSIOGqOOEeOwJ/NEfaxk8WlgdW?=
- =?us-ascii?Q?Uh3doMgEJkYkYsypa5rmXoyRPaOQS7UabSdrFvE3nDQhdjF8p6EcHQ0+Hbes?=
- =?us-ascii?Q?/Gk8+Cc02iBH9l0Izw1MgFFE1e4JnU4QbVG9XmL+TIo+ZcCpAlslpbz1BfOV?=
- =?us-ascii?Q?R9zNqWuQ51YYyp422xzxjs8xQxqysKdRgi5rmpClPYk3k2sloh9Z2OqEH/wm?=
- =?us-ascii?Q?jpfWncQ4jwMUndFafP2+ST8XZ+OI61xSCEMYNoi5QBwWaFiyGTG1ghoosgmU?=
- =?us-ascii?Q?52qt//jAnd8uPU+QA+6Yuko9eO1YAqLBOzih6If4KlNQSxdlu7iAwx3vyXig?=
- =?us-ascii?Q?51U4qPRgUSVBR+ABqhmsmTR6k9d2hXsOpJpLhfRLBXBTy0GuaIlv2LLz646S?=
- =?us-ascii?Q?2U0bhOTILEvj2Q/o0HfOd0UERUT7foB/66ueRKUIxvudHpl9tBun48KF0BdC?=
- =?us-ascii?Q?j2ssRjzj4vzo3qUbnujegeHvES6FwbaktfJ+S61Zs5Zu/w23BhrsPlLghuyD?=
- =?us-ascii?Q?e+9HKor0/8K6ScpC6qo20aWXLiYNuTuOnr9VmEgirANhClJ9YvthTN+Sv7vI?=
- =?us-ascii?Q?4hUIjweOE3k8IfY+jxyoydyNQSQKsII51oRR0sRdI6NCDFL+7ToW6oysd4U1?=
- =?us-ascii?Q?V2k4+IksW7UPxV+nsxKL0Ivr1ZV9Nk6fM8C237O115un9d3WyYrak5WQ1eiW?=
- =?us-ascii?Q?sLyodzSvgZCWe8k1Cl4q4987YD+XYaehnKCIopAjv1APyUrg8ElYEpd0IkwC?=
- =?us-ascii?Q?cYEJea4y7lyZOCZpFxlknQneEZ0r5wN3lYS3mD1ojc8038IeeICdXX9Yr2Vm?=
- =?us-ascii?Q?qMn0aIF2QGrPOGvGZUvq/4xrMFZYmzn2vsp3uuU4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 503d88a7-f6dd-4284-0240-08ddaa61fe6a
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 10:06:41.7352
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1PqrSkbRZLXDTuIoJejtdv389bFhlrfy/eVwuk3KwfuGww1i/9rrTg/Ko+0APHQp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7294
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v3 8/9] phy: exyons5-usbdrd: support SS combo phy for
+ ExynosAutov920
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
+ m.szyprowski@samsung.com, s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20250613055613.866909-1-pritam.sutar@samsung.com>
+ <CGME20250613055102epcas5p44f66699e2e1f3896948b71819ffea181@epcas5p4.samsung.com>
+ <20250613055613.866909-9-pritam.sutar@samsung.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250613055613.866909-9-pritam.sutar@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_030645_785437_260B69F4 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20250613_021152_083504_F6A91E37 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,923 +134,398 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add i.MX91 11x11 EVK board support.
-- Enable ADC1.
-- Enable lpuart1 and lpuart5.
-- Enable network eqos and fec.
-- Enable I2C bus and children nodes under I2C bus.
-- Enable USB and related nodes.
-- Enable uSDHC1 and uSDHC2.
-- Enable Watchdog3.
+On 13/06/2025 07:56, Pritam Manohar Sutar wrote:
+> This SoC has a DWC3 compatible link controller and single USB 3.1 DRD
+> combo phy that supports both UTMI+ (HS) and PIPE3 (SS) and three USB2.0
+> DRD HS phy controllers those only support the UTMI+ (HS) interface.
+> 
+> Combo phy is combination of two phys. Among these phys, one supports
+> USB3.1 SSP+(10Gbps) protocol and is backwards compatible to the
+> USB3.0 SS(5Gbps). 'Add-on USB2.0' phy is required to support
+> USB2.0 HS(480Mbps), FS(12Mbps) and LS(1.5Mbps) data rates.
+> 
+> Add required change in phy driver to support combo SS phy for this SoC.
+> 
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> ---
+>   drivers/phy/samsung/phy-exynos5-usbdrd.c | 310 ++++++++++++++++++++++-
+>   1 file changed, 306 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> index ac7bc1d1afd2..97a4f67b0958 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -273,6 +273,36 @@
+>   #define EXYNOSAUTOV920_DRD_HSPPLLTUNE		0x110
+>   #define HSPPLLTUNE_FSEL				GENMASK(18, 16)
+>   
+> +/* ExynosAutov920 phy usb31drd port reg */
+> +#define EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL	0x000
+> +#define PHY_RST_CTRL_PIPE_LANE0_RESET_N_OVRD_EN	BIT(5)
+> +#define PHY_RST_CTRL_PIPE_LANE0_RESET_N		BIT(4)
+> +#define PHY_RST_CTRL_PHY_RESET_OVRD_EN		BIT(1)
+> +#define PHY_RST_CTRL_PHY_RESET			BIT(0)
+> +
+> +#define EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0	0x0004
+> +#define PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR		GENMASK(31, 16)
+> +#define PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK		BIT(8)
+> +#define PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK		BIT(4)
+> +#define PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL		BIT(0)
+> +
+> +#define EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON1	0x0008
+> +
+> +#define EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2	0x000c
+> +#define PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_EN		BIT(0)
+> +#define PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA		GENMASK(31, 16)
+> +
+> +#define EXYNOSAUTOV920_USB31DRD_PHY_CONFIG0	0x100
+> +#define PHY_CONFIG0_PHY0_PMA_PWR_STABLE		BIT(14)
+> +#define PHY_CONFIG0_PHY0_PCS_PWR_STABLE		BIT(13)
+> +#define PHY_CONFIG0_PHY0_ANA_PWR_EN		BIT(1)
+> +
+> +#define EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7	0x11c
+> +#define PHY_CONFIG7_PHY_TEST_POWERDOWN		BIT(24)
+> +
+> +#define EXYNOSAUTOV920_USB31DRD_PHY_CONFIG4	0x110
+> +#define PHY_CONFIG4_PIPE_RX0_SRIS_MODE_EN	BIT(2)
+> +
+>   /* Exynos9 - GS101 */
+>   #define EXYNOS850_DRD_SECPMACTL			0x48
+>   #define SECPMACTL_PMA_ROPLL_REF_CLK_SEL		GENMASK(13, 12)
+> @@ -2048,6 +2078,237 @@ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
+>   	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
+>   };
+>   
+> +static void
+> +exynosautov920_usb31drd_cr_clk(struct exynos5_usbdrd_phy *phy_drd, bool high)
+> +{
+> +	void __iomem *reg_phy = phy_drd->reg_phy;
+> +	u32 reg = 0;
+> +
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +	if (high)
+> +		reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
+> +	else
+> +		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
+> +
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +	usleep_range(1, 2);
+> +}
+> +
+> +static void
+> +exynosautov920_usb31drd_port_phy_ready(struct exynos5_usbdrd_phy *phy_drd)
+> +{
+> +	struct device *dev = phy_drd->dev;
+> +	void __iomem *reg_phy = phy_drd->reg_phy;
+> +	static const unsigned int timeout_us = 20000;
+> +	static const unsigned int sleep_us = 40;
+> +	u32 reg = 0;
+> +	int err;
+> +
+> +	/* Clear cr_para_con */
+> +	reg &= ~(PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
+> +			PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR);
+> +	reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +	writel(0x0, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON1);
+> +	writel(0x0, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
+> +
+> +	exynosautov920_usb31drd_cr_clk(phy_drd, true);
+> +	exynosautov920_usb31drd_cr_clk(phy_drd, false);
+> +
+> +	/*
+> +	 * The maximum time from phy reset de-assertion to de-assertion of
+> +	 * tx/rx_ack can be as high as 5ms in fast simulation mode.
+> +	 * Time to phy ready is < 20ms
+> +	 */
+> +	err = readl_poll_timeout(reg_phy +
+> +				EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0,
+> +			reg, !(reg & PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK),
+> +			sleep_us, timeout_us);
+> +	if (err)
+> +		dev_err(dev, "timed out waiting for rx/tx_ack: %#.8x\n", reg);
+> +
+> +	reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +}
+> +
+> +static void
+> +exynosautov920_usb31drd_cr_write(struct exynos5_usbdrd_phy *phy_drd,
+> +				 u16 addr, u16 data)
+> +{
+> +	struct device *dev = phy_drd->dev;
+> +	void __iomem *reg_phy = phy_drd->reg_phy;
+> +	u32 cnt = 0;
+> +	u32 reg = 0;
+> +
+> +	/* Pre Clocking */
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +	reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +
+> +	/*
+> +	 * tx clks must be available prior to assertion of tx req.
+> +	 * tx pstate p2 to p0 transition directly is not permitted.
+> +	 * tx clk ready must be asserted synchronously on tx clk prior
+> +	 * to internal transmit clk alignment sequence in the phy
+> +	 * when entering from p2 to p1 to p0.
+> +	 */
+> +	do {
+> +		exynosautov920_usb31drd_cr_clk(phy_drd, true);
+> +		exynosautov920_usb31drd_cr_clk(phy_drd, false);
+> +		cnt++;
+> +	} while (cnt < 15);
+> +
+> +	reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +
+> +	/*
+> +	 * tx data path is active when tx lane is in p0 state
+> +	 * and tx data en asserted. enable cr_para_wr_en.
+> +	 */
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
+> +	reg &= ~PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA;
+> +	reg |= FIELD_PREP(PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA, data) |
+> +		PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_EN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
+> +
+> +	/* write addr */
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +	reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR;
+> +	reg |= FIELD_PREP(PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR, addr) |
+> +		PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
+> +		PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +
+> +	/* check cr_para_ack*/
+> +	cnt = 0;
+> +	do {
+> +		/*
+> +		 * data symbols are captured by phy on rising edge of the
+> +		 * tx_clk when tx data enabled.
+> +		 * completion of the write cycle is acknowledged by assertion
+> +		 * of the cr_para_ack.
+> +		 */
+> +		exynosautov920_usb31drd_cr_clk(phy_drd, true);
+> +		reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
+> +		if ((reg & PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK))
+> +			break;
+> +
+> +		exynosautov920_usb31drd_cr_clk(phy_drd, false);
+> +
+> +		/*
+> +		 * wait for minimum of 10 cr_para_clk cycles after phy reset
+> +		 * is negated, before accessing control regs to allow for
+> +		 * internal resets.
+> +		 */
+> +		cnt++;
+> +	} while (cnt < 10);
+> +
+> +	if (cnt == 10)
+> +		dev_dbg(dev, "CR write failed to 0x%04x\n", addr);
+> +	else
+> +		exynosautov920_usb31drd_cr_clk(phy_drd, false);
+> +}
+> +
+> +static void
+> +exynosautov920_usb31drd_phy_reset(struct exynos5_usbdrd_phy *phy_drd, int val)
+> +{
+> +	void __iomem *reg_phy = phy_drd->reg_phy;
+> +	u32 reg;
+> +
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +	reg &= ~PHY_RST_CTRL_PHY_RESET_OVRD_EN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +	if (val)
+> +		reg |= PHY_RST_CTRL_PHY_RESET;
+> +	else
+> +		reg &= ~PHY_RST_CTRL_PHY_RESET;
+> +
+> +	reg |= PHY_RST_CTRL_PHY_RESET_OVRD_EN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +}
+> +
+> +static void
+> +exynosautov920_usb31drd_lane0_reset(struct exynos5_usbdrd_phy *phy_drd, int val)
+> +{
+> +	void __iomem *reg_phy = phy_drd->reg_phy;
+> +	u32 reg;
+> +
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +	reg |= PHY_RST_CTRL_PIPE_LANE0_RESET_N_OVRD_EN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +	if (val)
+> +		reg &= ~PHY_RST_CTRL_PIPE_LANE0_RESET_N;
+> +	else
+> +		reg |= PHY_RST_CTRL_PIPE_LANE0_RESET_N;
+> +
+> +	reg &= ~PHY_RST_CTRL_PIPE_LANE0_RESET_N_OVRD_EN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
+> +}
+> +
+> +static void
+> +exynosautov920_usb31drd_pipe3_init(struct exynos5_usbdrd_phy *phy_drd)
+> +{
+> +	void __iomem *reg_phy = phy_drd->reg_phy;
+> +	u32 reg;
+> +
+> +	/*
+> +	 * Phy and Pipe Lane reset assert.
+> +	 * assert reset (phy_reset = 1).
+> +	 * The lane-ack outputs are asserted during reset (tx_ack = rx_ack = 1)
+> +	 */
+> +	exynosautov920_usb31drd_phy_reset(phy_drd, 1);
+> +	exynosautov920_usb31drd_lane0_reset(phy_drd, 1);
+> +
+> +	/*
+> +	 * ANA Power En, PCS & PMA PWR Stable Set
+> +	 * ramp-up power suppiles
+> +	 */
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG0);
+> +	reg |= PHY_CONFIG0_PHY0_ANA_PWR_EN | PHY_CONFIG0_PHY0_PCS_PWR_STABLE |
+> +		PHY_CONFIG0_PHY0_PMA_PWR_STABLE;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG0);
+> +
+> +	usleep_range(10, 15);
+> +
+> +	/*
+> +	 * phy is not functional in test_powerdown mode, test_powerdown to be
+> +	 * de-asserted for normal operation
+> +	 */
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
+> +	reg &= ~PHY_CONFIG7_PHY_TEST_POWERDOWN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
+> +
+> +	/*
+> +	 * phy reset signal be asserted for minimum 10us after power
+> +	 * supplies are ramped-up
+> +	 */
+> +	usleep_range(10, 15);
+> +
+> +	/*
+> +	 * Phy and Pipe Lane reset assert de-assert
+> +	 */
+> +	exynosautov920_usb31drd_phy_reset(phy_drd, 0);
+> +	exynosautov920_usb31drd_lane0_reset(phy_drd, 0);
+> +
+> +	/* Pipe_rx0_sris_mode_en  = 1 */
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG4);
+> +	reg |= PHY_CONFIG4_PIPE_RX0_SRIS_MODE_EN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG4);
+> +
+> +	/*
+> +	 * wait for lane ack outputs to de-assert (tx_ack = rx_ack = 0)
+> +	 * Exit from the reset state is indicated by de-assertion of *_ack
+> +	 */
+> +	exynosautov920_usb31drd_port_phy_ready(phy_drd);
+> +
+> +	/* override values for level settings */
+> +	exynosautov920_usb31drd_cr_write(phy_drd, 0x22, 0x00F5);
+> +}
+> +
+>   static void
+>   exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
+>   {
+> @@ -2142,12 +2403,15 @@ exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
+>   	/* after POR low and delay 75us, PHYCLOCK is guaranteed. */
+>   	usleep_range(75, 80);
+>   
+> -	/* force pipe3 signal for link */
+> +	/* Disable forcing pipe interface */
+>   	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
+> -	reg |= LINKCTRL_FORCE_PIPE_EN;
+> -	reg &= ~LINKCTRL_FORCE_PHYSTATUS;
+> -	reg |= LINKCTRL_FORCE_RXELECIDLE;
+> +	reg &= ~LINKCTRL_FORCE_PIPE_EN;
+>   	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
+> +
+> +	/* Pclk to pipe_clk */
+> +	reg = readl(reg_phy + EXYNOS2200_DRD_CLKRST);
+> +	reg |= EXYNOS2200_CLKRST_LINK_PCLK_SEL;
+> +	writel(reg, reg_phy + EXYNOS2200_DRD_CLKRST);
+>   }
+>   
+>   static void
+> @@ -2183,6 +2447,22 @@ static int exynosautov920_usbdrd_phy_init(struct phy *phy)
+>   	return exynos850_usbdrd_phy_init(phy);
+>   }
+>   
+> +static void
+> +exynosautov920_usb31drd_ssphy_disable(struct exynos5_usbdrd_phy *phy_drd)
+> +{
+> +	void __iomem *reg_phy = phy_drd->reg_phy;
+> +	u32 reg;
+> +
+> +	/* 1. Assert reset (phy_reset = 1) */
+> +	exynosautov920_usb31drd_lane0_reset(phy_drd, 1);
+> +	exynosautov920_usb31drd_phy_reset(phy_drd, 1);
+> +
+> +	/* phy test power down */
+> +	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
+> +	reg |= PHY_CONFIG7_PHY_TEST_POWERDOWN;
+> +	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
+> +}
+> +
+>   static int exynosautov920_usbdrd_phy_exit(struct phy *phy)
+>   {
+>   	struct phy_usb_instance *inst = phy_get_drvdata(phy);
+> @@ -2195,18 +2475,37 @@ static int exynosautov920_usbdrd_phy_exit(struct phy *phy)
+>   
+>   	if (inst->phy_cfg->id == EXYNOS5_DRDPHY_UTMI)
+>   		exynosautov920_usbdrd_hsphy_disable(phy_drd);
+> +	else if (inst->phy_cfg->id == EXYNOS5_DRDPHY_PIPE3)
+> +		exynosautov920_usb31drd_ssphy_disable(phy_drd);
+>   
+>   	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks, phy_drd->clks);
+>   
+>   	return 0;
+>   }
+>   
+> +static const struct
+> +exynos5_usbdrd_phy_config usb31drd_phy_cfg_exynosautov920[] = {
+> +	{
+> +		.id		= EXYNOS5_DRDPHY_PIPE3,
+> +		.phy_init	= exynosautov920_usb31drd_pipe3_init,
+> +	},
+> +};
+> +
+>   static const struct phy_ops exynosautov920_usb31drd_phy_ops = {
+>   	.init		= exynosautov920_usbdrd_phy_init,
+>   	.exit		= exynosautov920_usbdrd_phy_exit,
+>   	.owner		= THIS_MODULE,
+>   };
+>   
+> +static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_ssphy = {
+> +	.phy_cfg		= usb31drd_phy_cfg_exynosautov920,
+> +	.phy_ops		= &exynosautov920_usb31drd_phy_ops,
+> +	.clk_names		= exynos5_clk_names,
+> +	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
+> +	.core_clk_names		= exynos5_core_clk_names,
+> +	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
+> +};
+> +
+>   static const struct
+>   exynos5_usbdrd_phy_config usbdrd_hsphy_cfg_exynosautov920[] = {
+>   	{
+> @@ -2455,6 +2754,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
+>   	}, {
+>   		.compatible = "samsung,exynosautov920-usbdrd-phy",
+>   		.data = &exynosautov920_usbdrd_phy
+> +	}, {
+> +		.compatible = "samsung,exynosautov920-usb31drd-ssphy",
+> +		.data = &exynosautov920_usb31drd_ssphy
+>   	},
+>   	{ },
+>   };
 
-Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
-Signed-off-by: Joy Zou <joy.zou@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../boot/dts/freescale/imx91-11x11-evk.dts    | 878 ++++++++++++++++++
- 2 files changed, 879 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 0b473a23d120..fbedb3493c09 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -315,6 +315,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx91-11x11-evk.dtb
- 
- imx93-9x9-qsb-i3c-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-i3c.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-new file mode 100644
-index 000000000000..7ce76b207eae
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-@@ -0,0 +1,878 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/usb/pd.h>
-+#include "imx91.dtsi"
-+
-+/ {
-+	compatible = "fsl,imx91-11x11-evk", "fsl,imx91";
-+	model = "NXP i.MX91 11X11 EVK board";
-+
-+	aliases {
-+		ethernet0 = &fec;
-+		ethernet1 = &eqos;
-+		rtc0 = &bbnsm_rtc;
-+	};
-+
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
-+
-+	reg_vref_1v8: regulator-adc-vref {
-+		compatible = "regulator-fixed";
-+		regulator-max-microvolt = <1800000>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-name = "vref_1v8";
-+	};
-+
-+	reg_audio_pwr: regulator-audio-pwr {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "audio-pwr";
-+		gpio = <&adp5585 1 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		off-on-delay-us = <12000>;
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		pinctrl-names = "default";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "VSD_3V3";
-+		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reg_usdhc3_vmmc: regulator-usdhc3 {
-+		compatible = "regulator-fixed";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "WLAN_EN";
-+		gpio = <&pcal6524 20 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		/*
-+		 * IW612 wifi chip needs more delay than other wifi chips to complete
-+		 * the host interface initialization after power up, otherwise the
-+		 * internal state of IW612 may be unstable, resulting in the failure of
-+		 * the SDIO3.0 switch voltage.
-+		 */
-+		startup-delay-us = <20000>;
-+	};
-+
-+	reg_vdd_12v: regulator-vdd-12v {
-+		compatible = "regulator-fixed";
-+		regulator-max-microvolt = <12000000>;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-name = "reg_vdd_12v";
-+		gpio = <&pcal6524 14 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reg_vrpi_3v3: regulator-vrpi-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "VRPI_3V3";
-+		vin-supply = <&buck4>;
-+		gpio = <&pcal6524 2 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reg_vrpi_5v: regulator-vrpi-5v {
-+		compatible = "regulator-fixed";
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "VRPI_5V";
-+		gpio = <&pcal6524 8 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x40000000>;
-+			reusable;
-+			size = <0 0x10000000>;
-+			linux,cma-default;
-+		};
-+	};
-+};
-+
-+&adc1 {
-+	vref-supply = <&reg_vref_1v8>;
-+	status = "okay";
-+};
-+
-+&eqos {
-+	phy-handle = <&ethphy1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-0 = <&pinctrl_eqos>;
-+	pinctrl-1 = <&pinctrl_eqos_sleep>;
-+	pinctrl-names = "default", "sleep";
-+	status = "okay";
-+
-+	mdio {
-+		compatible = "snps,dwmac-mdio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		clock-frequency = <5000000>;
-+
-+		ethphy1: ethernet-phy@1 {
-+			reg = <1>;
-+			realtek,clkout-disable;
-+		};
-+	};
-+};
-+
-+&fec {
-+	phy-handle = <&ethphy2>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-0 = <&pinctrl_fec>;
-+	pinctrl-1 = <&pinctrl_fec_sleep>;
-+	pinctrl-names = "default", "sleep";
-+	fsl,magic-packet;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		clock-frequency = <5000000>;
-+
-+		ethphy2: ethernet-phy@2 {
-+			reg = <2>;
-+			eee-broken-1000t;
-+			realtek,clkout-disable;
-+		};
-+	};
-+};
-+
-+/*
-+ * When add, delete or change any target device setting in &lpi2c1,
-+ * please synchronize the changes to the &i3c1 bus in imx91-11x11-evk-i3c.dts.
-+ */
-+&lpi2c1 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_lpi2c1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	audio_codec: wm8962@1a {
-+		compatible = "wlf,wm8962";
-+		reg = <0x1a>;
-+		clocks = <&clk IMX93_CLK_SAI3_GATE>;
-+		AVDD-supply = <&reg_audio_pwr>;
-+		CPVDD-supply = <&reg_audio_pwr>;
-+		DBVDD-supply = <&reg_audio_pwr>;
-+		DCVDD-supply = <&reg_audio_pwr>;
-+		MICVDD-supply = <&reg_audio_pwr>;
-+		PLLVDD-supply = <&reg_audio_pwr>;
-+		SPKVDD1-supply = <&reg_audio_pwr>;
-+		SPKVDD2-supply = <&reg_audio_pwr>;
-+		gpio-cfg = <
-+			0x0000 /* 0:Default */
-+			0x0000 /* 1:Default */
-+			0x0000 /* 2:FN_DMICCLK */
-+			0x0000 /* 3:Default */
-+			0x0000 /* 4:FN_DMICCDAT */
-+			0x0000 /* 5:Default */
-+		>;
-+	};
-+
-+	inertial-meter@6a {
-+		compatible = "st,lsm6dso";
-+		reg = <0x6a>;
-+	};
-+};
-+
-+&lpi2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_lpi2c2>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	pcal6524: gpio@22 {
-+		compatible = "nxp,pcal6524";
-+		reg = <0x22>;
-+		#interrupt-cells = <2>;
-+		interrupt-controller;
-+		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		interrupt-parent = <&gpio3>;
-+		pinctrl-0 = <&pinctrl_pcal6524>;
-+		pinctrl-names = "default";
-+	};
-+
-+	pmic@25 {
-+		compatible = "nxp,pca9451a";
-+		reg = <0x25>;
-+		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-parent = <&pcal6524>;
-+
-+		regulators {
-+			buck1: BUCK1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <2237500>;
-+				regulator-min-microvolt = <650000>;
-+				regulator-name = "BUCK1";
-+				regulator-ramp-delay = <3125>;
-+			};
-+
-+			buck2: BUCK2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <2187500>;
-+				regulator-min-microvolt = <600000>;
-+				regulator-name = "BUCK2";
-+				regulator-ramp-delay = <3125>;
-+			};
-+
-+			buck4: BUCK4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-min-microvolt = <600000>;
-+				regulator-name = "BUCK4";
-+			};
-+
-+			buck5: BUCK5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-min-microvolt = <600000>;
-+				regulator-name = "BUCK5";
-+			};
-+
-+			buck6: BUCK6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3400000>;
-+				regulator-min-microvolt = <600000>;
-+				regulator-name = "BUCK6";
-+			};
-+
-+			ldo1: LDO1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <1600000>;
-+				regulator-name = "LDO1";
-+			};
-+
-+			ldo4: LDO4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <800000>;
-+				regulator-name = "LDO4";
-+			};
-+
-+			ldo5: LDO5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-name = "LDO5";
-+			};
-+		};
-+	};
-+
-+	adp5585: io-expander@34 {
-+		compatible = "adi,adp5585-00", "adi,adp5585";
-+		reg = <0x34>;
-+		#gpio-cells = <2>;
-+		gpio-controller;
-+		#pwm-cells = <3>;
-+		gpio-reserved-ranges = <5 1>;
-+
-+		exp-sel-hog {
-+			gpio-hog;
-+			gpios = <4 GPIO_ACTIVE_HIGH>;
-+			output-low;
-+		};
-+	};
-+};
-+
-+&lpi2c3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_lpi2c3>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	ptn5110: tcpc@50 {
-+		compatible = "nxp,ptn5110", "tcpci";
-+		reg = <0x50>;
-+		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-parent = <&gpio3>;
-+
-+		typec1_con: connector {
-+			compatible = "usb-c-connector";
-+			data-role = "dual";
-+			label = "USB-C";
-+			op-sink-microwatt = <15000000>;
-+			power-role = "dual";
-+			self-powered;
-+			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)
-+				     PDO_VAR(5000, 20000, 3000)>;
-+			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			try-power-role = "sink";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					typec1_dr_sw: endpoint {
-+						remote-endpoint = <&usb1_drd_sw>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+
-+	ptn5110_2: tcpc@51 {
-+		compatible = "nxp,ptn5110", "tcpci";
-+		reg = <0x51>;
-+		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-parent = <&gpio3>;
-+		status = "okay";
-+
-+		typec2_con: connector {
-+			compatible = "usb-c-connector";
-+			data-role = "dual";
-+			label = "USB-C";
-+			op-sink-microwatt = <15000000>;
-+			power-role = "dual";
-+			self-powered;
-+			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)
-+				     PDO_VAR(5000, 20000, 3000)>;
-+			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
-+			try-power-role = "sink";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					typec2_dr_sw: endpoint {
-+						remote-endpoint = <&usb2_drd_sw>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+
-+	pcf2131: rtc@53 {
-+		compatible = "nxp,pcf2131";
-+		reg = <0x53>;
-+		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-parent = <&pcal6524>;
-+		status = "okay";
-+	};
-+};
-+
-+&lpuart1 {
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&lpuart5 {
-+	pinctrl-0 = <&pinctrl_uart5>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "nxp,88w8987-bt";
-+	};
-+};
-+
-+&usbotg1 {
-+	adp-disable;
-+	disable-over-current;
-+	dr_mode = "otg";
-+	hnp-disable;
-+	srp-disable;
-+	usb-role-switch;
-+	samsung,picophy-dc-vol-level-adjust = <7>;
-+	samsung,picophy-pre-emp-curr-control = <3>;
-+	status = "okay";
-+
-+	port {
-+		usb1_drd_sw: endpoint {
-+			remote-endpoint = <&typec1_dr_sw>;
-+		};
-+	};
-+};
-+
-+&usbotg2 {
-+	adp-disable;
-+	disable-over-current;
-+	dr_mode = "otg";
-+	hnp-disable;
-+	srp-disable;
-+	usb-role-switch;
-+	samsung,picophy-dc-vol-level-adjust = <7>;
-+	samsung,picophy-pre-emp-curr-control = <3>;
-+	status = "okay";
-+
-+	port {
-+		usb2_drd_sw: endpoint {
-+			remote-endpoint = <&typec2_dr_sw>;
-+		};
-+	};
-+};
-+
-+&usdhc1 {
-+	bus-width = <8>;
-+	non-removable;
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	bus-width = <4>;
-+	cd-gpios = <&gpio3 00 GPIO_ACTIVE_LOW>;
-+	no-mmc;
-+	no-sdio;
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_gpio_sleep>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	status = "okay";
-+};
-+
-+&wdog3 {
-+	fsl,ext-reset-output;
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_eqos: eqosgrp {
-+		fsl,pins = <
-+			MX91_PAD_ENET1_MDC__ENET1_MDC                           0x57e
-+			MX91_PAD_ENET1_MDIO__ENET_QOS_MDIO                      0x57e
-+			MX91_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0                  0x57e
-+			MX91_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1                  0x57e
-+			MX91_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2                  0x57e
-+			MX91_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3                  0x57e
-+			MX91_PAD_ENET1_RXC__ENET_QOS_RGMII_RXC                  0x5fe
-+			MX91_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL            0x57e
-+			MX91_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0                  0x57e
-+			MX91_PAD_ENET1_TD1__ENET1_RGMII_TD1                     0x57e
-+			MX91_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2                  0x57e
-+			MX91_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3                  0x57e
-+			MX91_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK  0x5fe
-+			MX91_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL            0x57e
-+		>;
-+	};
-+
-+	pinctrl_eqos_sleep: eqossleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_ENET1_MDC__GPIO4_IO0                           0x31e
-+			MX91_PAD_ENET1_MDIO__GPIO4_IO1                          0x31e
-+			MX91_PAD_ENET1_RD0__GPIO4_IO10                          0x31e
-+			MX91_PAD_ENET1_RD1__GPIO4_IO11                          0x31e
-+			MX91_PAD_ENET1_RD2__GPIO4_IO12                          0x31e
-+			MX91_PAD_ENET1_RD3__GPIO4_IO13                          0x31e
-+			MX91_PAD_ENET1_RXC__GPIO4_IO9                           0x31e
-+			MX91_PAD_ENET1_RX_CTL__GPIO4_IO8                        0x31e
-+			MX91_PAD_ENET1_TD0__GPIO4_IO5                           0x31e
-+			MX91_PAD_ENET1_TD1__GPIO4_IO4                           0x31e
-+			MX91_PAD_ENET1_TD2__GPIO4_IO3                           0x31e
-+			MX91_PAD_ENET1_TD3__GPIO4_IO2                           0x31e
-+			MX91_PAD_ENET1_TXC__GPIO4_IO7                           0x31e
-+			MX91_PAD_ENET1_TX_CTL__GPIO4_IO6                        0x31e
-+		>;
-+	};
-+
-+	pinctrl_fec: fecgrp {
-+		fsl,pins = <
-+			MX91_PAD_ENET2_MDC__ENET2_MDC			0x57e
-+			MX91_PAD_ENET2_MDIO__ENET2_MDIO			0x57e
-+			MX91_PAD_ENET2_RD0__ENET2_RGMII_RD0		0x57e
-+			MX91_PAD_ENET2_RD1__ENET2_RGMII_RD1		0x57e
-+			MX91_PAD_ENET2_RD2__ENET2_RGMII_RD2		0x57e
-+			MX91_PAD_ENET2_RD3__ENET2_RGMII_RD3		0x57e
-+			MX91_PAD_ENET2_RXC__ENET2_RGMII_RXC		0x5fe
-+			MX91_PAD_ENET2_RX_CTL__ENET2_RGMII_RX_CTL	0x57e
-+			MX91_PAD_ENET2_TD0__ENET2_RGMII_TD0		0x57e
-+			MX91_PAD_ENET2_TD1__ENET2_RGMII_TD1		0x57e
-+			MX91_PAD_ENET2_TD2__ENET2_RGMII_TD2		0x57e
-+			MX91_PAD_ENET2_TD3__ENET2_RGMII_TD3		0x57e
-+			MX91_PAD_ENET2_TXC__ENET2_RGMII_TXC		0x5fe
-+			MX91_PAD_ENET2_TX_CTL__ENET2_RGMII_TX_CTL	0x57e
-+		>;
-+	};
-+
-+	pinctrl_fec_sleep: fecsleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_ENET2_MDC__GPIO4_IO14			0x51e
-+			MX91_PAD_ENET2_MDIO__GPIO4_IO15			0x51e
-+			MX91_PAD_ENET2_RD0__GPIO4_IO24			0x51e
-+			MX91_PAD_ENET2_RD1__GPIO4_IO25			0x51e
-+			MX91_PAD_ENET2_RD2__GPIO4_IO26			0x51e
-+			MX91_PAD_ENET2_RD3__GPIO4_IO27			0x51e
-+			MX91_PAD_ENET2_RXC__GPIO4_IO23			0x51e
-+			MX91_PAD_ENET2_RX_CTL__GPIO4_IO22		0x51e
-+			MX91_PAD_ENET2_TD0__GPIO4_IO19			0x51e
-+			MX91_PAD_ENET2_TD1__GPIO4_IO18			0x51e
-+			MX91_PAD_ENET2_TD2__GPIO4_IO17			0x51e
-+			MX91_PAD_ENET2_TD3__GPIO4_IO16			0x51e
-+			MX91_PAD_ENET2_TXC__GPIO4_IO21			0x51e
-+			MX91_PAD_ENET2_TX_CTL__GPIO4_IO20		0x51e
-+		>;
-+	};
-+
-+	pinctrl_flexcan2: flexcan2grp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO25__CAN2_TX	0x139e
-+			MX91_PAD_GPIO_IO27__CAN2_RX	0x139e
-+		>;
-+	};
-+
-+	pinctrl_flexcan2_sleep: flexcan2sleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO25__GPIO2_IO25  0x31e
-+			MX91_PAD_GPIO_IO27__GPIO2_IO27	0x31e
-+		>;
-+	};
-+
-+	pinctrl_lcdif_gpio: lcdifgpiogrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO00__GPIO2_IO0			0x51e
-+			MX91_PAD_GPIO_IO01__GPIO2_IO1			0x51e
-+			MX91_PAD_GPIO_IO02__GPIO2_IO2			0x51e
-+			MX91_PAD_GPIO_IO03__GPIO2_IO3			0x51e
-+		>;
-+	};
-+
-+	pinctrl_lcdif: lcdifgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x31e
-+			MX91_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x31e
-+			MX91_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x31e
-+			MX91_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x31e
-+			MX91_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA0		0x31e
-+			MX91_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA1		0x31e
-+			MX91_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA2		0x31e
-+			MX91_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA3		0x31e
-+			MX91_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA4		0x31e
-+			MX91_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA5		0x31e
-+			MX91_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA6		0x31e
-+			MX91_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA7		0x31e
-+			MX91_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA8		0x31e
-+			MX91_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA9		0x31e
-+			MX91_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x31e
-+			MX91_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x31e
-+			MX91_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x31e
-+			MX91_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x31e
-+			MX91_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x31e
-+			MX91_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x31e
-+			MX91_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x31e
-+			MX91_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x31e
-+			MX91_PAD_GPIO_IO27__GPIO2_IO27			0x31e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c1: lpi2c1grp {
-+		fsl,pins = <
-+			MX91_PAD_I2C1_SCL__LPI2C1_SCL			0x40000b9e
-+			MX91_PAD_I2C1_SDA__LPI2C1_SDA			0x40000b9e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c2: lpi2c2grp {
-+		fsl,pins = <
-+			MX91_PAD_I2C2_SCL__LPI2C2_SCL			0x40000b9e
-+			MX91_PAD_I2C2_SDA__LPI2C2_SDA			0x40000b9e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c3: lpi2c3grp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO28__LPI2C3_SDA			0x40000b9e
-+			MX91_PAD_GPIO_IO29__LPI2C3_SCL			0x40000b9e
-+		>;
-+	};
-+
-+	pinctrl_pcal6524: pcal6524grp {
-+		fsl,pins = <
-+			MX91_PAD_CCM_CLKO2__GPIO3_IO27			0x31e
-+		>;
-+	};
-+
-+	pinctrl_pdm: pdmgrp {
-+		fsl,pins = <
-+			MX91_PAD_PDM_CLK__PDM_CLK			0x31e
-+			MX91_PAD_PDM_BIT_STREAM0__PDM_BIT_STREAM0	0x31e
-+			MX91_PAD_PDM_BIT_STREAM1__PDM_BIT_STREAM1	0x31e
-+		>;
-+	};
-+
-+	pinctrl_pdm_sleep: pdmsleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_PDM_CLK__GPIO1_IO8			0x31e
-+			MX91_PAD_PDM_BIT_STREAM0__GPIO1_IO9		0x31e
-+			MX91_PAD_PDM_BIT_STREAM1__GPIO1_IO10		0x31e
-+		>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_RESET_B__GPIO3_IO7                 0x31e
-+		>;
-+	};
-+
-+	pinctrl_sai1: sai1grp {
-+		fsl,pins = <
-+			MX91_PAD_SAI1_TXC__SAI1_TX_BCLK			0x31e
-+			MX91_PAD_SAI1_TXFS__SAI1_TX_SYNC		0x31e
-+			MX91_PAD_SAI1_TXD0__SAI1_TX_DATA0		0x31e
-+			MX91_PAD_SAI1_RXD0__SAI1_RX_DATA0		0x31e
-+		>;
-+	};
-+
-+	pinctrl_sai1_sleep: sai1sleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_SAI1_TXC__GPIO1_IO12                   0x51e
-+			MX91_PAD_SAI1_TXFS__GPIO1_IO11			0x51e
-+			MX91_PAD_SAI1_TXD0__GPIO1_IO13			0x51e
-+			MX91_PAD_SAI1_RXD0__GPIO1_IO14			0x51e
-+		>;
-+	};
-+
-+	pinctrl_sai3: sai3grp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO26__SAI3_TX_SYNC		0x31e
-+			MX91_PAD_GPIO_IO16__SAI3_TX_BCLK		0x31e
-+			MX91_PAD_GPIO_IO17__SAI3_MCLK			0x31e
-+			MX91_PAD_GPIO_IO19__SAI3_TX_DATA0		0x31e
-+			MX91_PAD_GPIO_IO20__SAI3_RX_DATA0		0x31e
-+		>;
-+	};
-+
-+	pinctrl_sai3_sleep: sai3sleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO26__GPIO2_IO26			0x51e
-+			MX91_PAD_GPIO_IO16__GPIO2_IO16			0x51e
-+			MX91_PAD_GPIO_IO17__GPIO2_IO17			0x51e
-+			MX91_PAD_GPIO_IO19__GPIO2_IO19			0x51e
-+			MX91_PAD_GPIO_IO20__GPIO2_IO20			0x51e
-+		>;
-+	};
-+
-+	pinctrl_spdif: spdifgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO22__SPDIF_IN		0x31e
-+			MX91_PAD_GPIO_IO23__SPDIF_OUT		0x31e
-+		>;
-+	};
-+
-+	pinctrl_spdif_sleep: spdifsleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO22__GPIO2_IO22		0x31e
-+			MX91_PAD_GPIO_IO23__GPIO2_IO23		0x31e
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			MX91_PAD_UART1_RXD__LPUART1_RX			0x31e
-+			MX91_PAD_UART1_TXD__LPUART1_TX			0x31e
-+		>;
-+	};
-+
-+	pinctrl_uart5: uart5grp {
-+		fsl,pins = <
-+			MX91_PAD_DAP_TDO_TRACESWO__LPUART5_TX	0x31e
-+			MX91_PAD_DAP_TDI__LPUART5_RX		0x31e
-+			MX91_PAD_DAP_TMS_SWDIO__LPUART5_RTS_B	0x31e
-+			MX91_PAD_DAP_TCLK_SWCLK__LPUART5_CTS_B	0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD1_CLK__USDHC1_CLK		0x158e
-+			MX91_PAD_SD1_CMD__USDHC1_CMD		0x138e
-+			MX91_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
-+			MX91_PAD_SD1_DATA1__USDHC1_DATA1	0x138e
-+			MX91_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
-+			MX91_PAD_SD1_DATA3__USDHC1_DATA3	0x138e
-+			MX91_PAD_SD1_DATA4__USDHC1_DATA4	0x138e
-+			MX91_PAD_SD1_DATA5__USDHC1_DATA5	0x138e
-+			MX91_PAD_SD1_DATA6__USDHC1_DATA6	0x138e
-+			MX91_PAD_SD1_DATA7__USDHC1_DATA7	0x138e
-+			MX91_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD1_CLK__USDHC1_CLK		0x15fe
-+			MX91_PAD_SD1_CMD__USDHC1_CMD		0x13fe
-+			MX91_PAD_SD1_DATA0__USDHC1_DATA0	0x13fe
-+			MX91_PAD_SD1_DATA1__USDHC1_DATA1	0x13fe
-+			MX91_PAD_SD1_DATA2__USDHC1_DATA2	0x13fe
-+			MX91_PAD_SD1_DATA3__USDHC1_DATA3	0x13fe
-+			MX91_PAD_SD1_DATA4__USDHC1_DATA4	0x13fe
-+			MX91_PAD_SD1_DATA5__USDHC1_DATA5	0x13fe
-+			MX91_PAD_SD1_DATA6__USDHC1_DATA6	0x13fe
-+			MX91_PAD_SD1_DATA7__USDHC1_DATA7	0x13fe
-+			MX91_PAD_SD1_STROBE__USDHC1_STROBE	0x15fe
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			MX91_PAD_SD1_CLK__USDHC1_CLK		0x1582
-+			MX91_PAD_SD1_CMD__USDHC1_CMD		0x1382
-+			MX91_PAD_SD1_DATA0__USDHC1_DATA0	0x1382
-+			MX91_PAD_SD1_DATA1__USDHC1_DATA1	0x1382
-+			MX91_PAD_SD1_DATA2__USDHC1_DATA2	0x1382
-+			MX91_PAD_SD1_DATA3__USDHC1_DATA3	0x1382
-+			MX91_PAD_SD1_DATA4__USDHC1_DATA4	0x1382
-+			MX91_PAD_SD1_DATA5__USDHC1_DATA5	0x1382
-+			MX91_PAD_SD1_DATA6__USDHC1_DATA6	0x1382
-+			MX91_PAD_SD1_DATA7__USDHC1_DATA7	0x1382
-+			MX91_PAD_SD1_STROBE__USDHC1_STROBE	0x1582
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__USDHC2_CLK		0x158e
-+			MX91_PAD_SD2_CMD__USDHC2_CMD		0x138e
-+			MX91_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
-+			MX91_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
-+			MX91_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
-+			MX91_PAD_SD2_DATA3__USDHC2_DATA3	0x138e
-+			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__USDHC2_CLK		0x15fe
-+			MX91_PAD_SD2_CMD__USDHC2_CMD		0x13fe
-+			MX91_PAD_SD2_DATA0__USDHC2_DATA0	0x13fe
-+			MX91_PAD_SD2_DATA1__USDHC2_DATA1	0x13fe
-+			MX91_PAD_SD2_DATA2__USDHC2_DATA2	0x13fe
-+			MX91_PAD_SD2_DATA3__USDHC2_DATA3	0x13fe
-+			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CD_B__GPIO3_IO0		0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio_sleep: usdhc2gpiosleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CD_B__GPIO3_IO0		0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__USDHC2_CLK		0x1582
-+			MX91_PAD_SD2_CMD__USDHC2_CMD		0x1382
-+			MX91_PAD_SD2_DATA0__USDHC2_DATA0	0x1382
-+			MX91_PAD_SD2_DATA1__USDHC2_DATA1	0x1382
-+			MX91_PAD_SD2_DATA2__USDHC2_DATA2	0x1382
-+			MX91_PAD_SD2_DATA3__USDHC2_DATA3	0x1382
-+			MX91_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_sleep: usdhc2sleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD2_CLK__GPIO3_IO1             0x51e
-+			MX91_PAD_SD2_CMD__GPIO3_IO2		0x51e
-+			MX91_PAD_SD2_DATA0__GPIO3_IO3		0x51e
-+			MX91_PAD_SD2_DATA1__GPIO3_IO4		0x51e
-+			MX91_PAD_SD2_DATA2__GPIO3_IO5		0x51e
-+			MX91_PAD_SD2_DATA3__GPIO3_IO6		0x51e
-+			MX91_PAD_SD2_VSELECT__GPIO3_IO19	0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__USDHC3_CLK		0x158e
-+			MX91_PAD_SD3_CMD__USDHC3_CMD		0x138e
-+			MX91_PAD_SD3_DATA0__USDHC3_DATA0	0x138e
-+			MX91_PAD_SD3_DATA1__USDHC3_DATA1	0x138e
-+			MX91_PAD_SD3_DATA2__USDHC3_DATA2	0x138e
-+			MX91_PAD_SD3_DATA3__USDHC3_DATA3	0x138e
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__USDHC3_CLK		0x15fe
-+			MX91_PAD_SD3_CMD__USDHC3_CMD		0x13fe
-+			MX91_PAD_SD3_DATA0__USDHC3_DATA0	0x13fe
-+			MX91_PAD_SD3_DATA1__USDHC3_DATA1	0x13fe
-+			MX91_PAD_SD3_DATA2__USDHC3_DATA2	0x13fe
-+			MX91_PAD_SD3_DATA3__USDHC3_DATA3	0x13fe
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__USDHC3_CLK		0x1582
-+			MX91_PAD_SD3_CMD__USDHC3_CMD		0x1382
-+			MX91_PAD_SD3_DATA0__USDHC3_DATA0	0x1382
-+			MX91_PAD_SD3_DATA1__USDHC3_DATA1	0x1382
-+			MX91_PAD_SD3_DATA2__USDHC3_DATA2	0x1382
-+			MX91_PAD_SD3_DATA3__USDHC3_DATA3	0x1382
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_sleep: usdhc3sleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_SD3_CLK__GPIO3_IO20		0x31e
-+			MX91_PAD_SD3_CMD__GPIO3_IO21		0x31e
-+			MX91_PAD_SD3_DATA0__GPIO3_IO22		0x31e
-+			MX91_PAD_SD3_DATA1__GPIO3_IO23		0x31e
-+			MX91_PAD_SD3_DATA2__GPIO3_IO24		0x31e
-+			MX91_PAD_SD3_DATA3__GPIO3_IO25		0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_wlan: usdhc3wlangrp {
-+		fsl,pins = <
-+			MX91_PAD_CCM_CLKO1__GPIO3_IO26		0x31e
-+		>;
-+	};
-+};
--- 
-2.37.1
-
+With the subject fix:
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
