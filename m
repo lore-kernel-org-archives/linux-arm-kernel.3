@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70681C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4F2C71151
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qzS2TVF0KTqdm7w3+IvzHczTzwQfADP8TeCIQv8e5jU=; b=P9sUUV3XskjvDiraCwgF+PWq2J
-	icSyxRlzQFLMttTclx5PBYWWybodzUpAn1NbQRGR8KyygEMEXCoGlzfSGoM9gtHp+1Tr+5BBZf/b9
-	zYLKQFhCgW9oTW3vSBalD5w272hA6hsz6/o5V69PuxL6Agy7poSGli0Ji91u6/D7og+y6PaBna6wl
-	jIt2Efy6WI95+jUXOV2EbtSR32sVNRzTfFZwSwqdjcqfHG4TXHJKKZtT1ZYKwCENMQKqyiy3z6O0y
-	9Ge3myfoOZI7Dzj0KA3kZmDTTdHNsKVHa/5E0PdTwOmutaAv9OAnR68/0saSji5E9GcPCYH6krh9I
-	1ww+1qHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=twkhsV1zF0hL+QCGl5QNOY+ykroDooxraR5ZCGY5fWM=; b=rKns0ErlN7bTw3
+	sj6HotWtfhfr3NJ/WCgWEXGDFj9yrrn4tUHqpyxXchN4ZzXTCLCJrgGyRnuab+M8Yc6CMuvCO9RNO
+	ACyLuQmjXbjgDcztu+ZRVzpf1QHMQKpkt//lfbcDhwM4buUFR27r1UdQphrfW0pUqIDqTjxt6eddf
+	0G7EEeLNC5pA1uTiaFu2vxnz3xI5aZV7oJLtLb3gXHwbxhAL8vyq8MzDGhUAeH8WCYQfiCHsHwB1A
+	WK6HPMUMhRvLhox0WNuXftlDuHFTX3XeBXGwFWYQTYHCKOUpNgUyCUgKsvxMtYfiHKCDVIbCtBhQ7
+	HtflW8ptZNrbjMfz5EXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ41M-0000000GRHs-2SxD;
-	Fri, 13 Jun 2025 13:00:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uQ41O-0000000GRJG-0hDD;
+	Fri, 13 Jun 2025 13:00:38 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ3qL-0000000GPo0-2Y81;
-	Fri, 13 Jun 2025 12:49:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 105DE6113B;
-	Fri, 13 Jun 2025 12:49:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91142C4CEF0;
-	Fri, 13 Jun 2025 12:49:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749818952;
-	bh=wX1Jm2lYAIbPE66Dwi838XJj+Gobl7EuV/Pwtb/T0aU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dY4I2aA6Z9SjXZtLDpYISinWj+O617Ldj351pF+kracLye+Kw9TIWvjn8uxIxuDp0
-	 jkPS5lraJ9urY3aBbuZoG7j+UvdETTn2Dyo3x7mQF20QUfSbZzbINynOUxmWe+4l89
-	 vEWo+AS8KtiBnTyCvbCY6J8i/Y/tK/Q5w5jTY59y7LF0Maed6VuMj5ra9ham/13ztQ
-	 Jrqd/VZ3uT0IkKDYLUYfDmj22ZNXERHWCzHByusQORPfGsFQ7pAAnYW+80zAqNgCNQ
-	 WHsijro6ETpxi8I/E0P4PzrA3u1woE47rr6jnPqSCILpPY2GSHYgmMf5thERAfCGPn
-	 f3OoRpKpWIlqQ==
-From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Niklas Cassel <cassel@kernel.org>,
-	Simon Xue <xxm@rock-chips.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v3 3/6] PCI: dw-rockchip: Wait PCIE_RESET_CONFIG_WAIT_MS after link-up IRQ
-Date: Fri, 13 Jun 2025 14:48:42 +0200
-Message-ID: <20250613124839.2197945-11-cassel@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250613124839.2197945-8-cassel@kernel.org>
-References: <20250613124839.2197945-8-cassel@kernel.org>
+	id 1uQ3vl-0000000GQno-3J9P
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 12:54:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=twkhsV1zF0hL+QCGl5QNOY+ykroDooxraR5ZCGY5fWM=; b=es8djR6vmm6TqtJIf58kZsllKp
+	TzJmAZ2/GXq/4luB7VASVqpOdTNjmUPkZPjYIo/46HunuURSwxzibLkvBHzA2N04pV4VoNgxw7tEz
+	OI4eiivibzdE0CYnkl7EDz57A2S9ANJUUPUf0+fAvvlfdIdqNVR5c9jVzwpzZqAQW+By7viRsMlaN
+	JlH4U6dDN0c9ppdK0lZWJjHlkUu4GhkKE/3U3K0J7xDUtvjetOUG03C0QYigVF+yznKZPGVpNcUh7
+	Ov4XQ+082tULqHZDQBDRXrGp/uiXZwj2YV0xBKWhlKyWNNhXjKmOY8WyNiQTocNk1DBm1k6RTAAIv
+	sJCo7lHw==;
+Received: from [122.175.9.182] (port=23246 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1uQ3uu-0000000DXDE-3J6J;
+	Fri, 13 Jun 2025 08:53:57 -0400
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id 079A91781C8F;
+	Fri, 13 Jun 2025 18:23:43 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id DB65117882B2;
+	Fri, 13 Jun 2025 18:23:42 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id tfKVzeSMqLXe; Fri, 13 Jun 2025 18:23:42 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 8286E1781C8F;
+	Fri, 13 Jun 2025 18:23:42 +0530 (IST)
+Date: Fri, 13 Jun 2025 18:23:42 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Message-ID: <909024001.1496409.1749819222224.JavaMail.zimbra@couthit.local>
+In-Reply-To: <cdcd54ff-ff67-4ad8-8aa7-baa711928242@linux.dev>
+References: <20250610105721.3063503-1-parvathi@couthit.com> <20250610123245.3063659-7-parvathi@couthit.com> <cdcd54ff-ff67-4ad8-8aa7-baa711928242@linux.dev>
+Subject: Re: [PATCH net-next v8 06/11] net: ti: prueth: Adds HW timestamping
+ support for PTP using PRU-ICSS IEP module
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1789; i=cassel@kernel.org; h=from:subject; bh=wX1Jm2lYAIbPE66Dwi838XJj+Gobl7EuV/Pwtb/T0aU=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDJ85HT4ufb1SDw2nubNbWhoUZR5dwprmb5Y8Z9bHLwRv m+3f+7pKGVhEONikBVTZPH94bK/uNt9ynHFOzYwc1iZQIYwcHEKwES6djL84Y55rPPKPm2/gt75 XfLS0+Ze5ztoL5ies/y05yeJ5Q3MWQz/fY+8aFqUJysZ/eDl9/r2lScYWbnl/kp79sy/FyyT80y WBQA=
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
+Thread-Topic: prueth: Adds HW timestamping support for PTP using PRU-ICSS IEP module
+Thread-Index: 8LzCZ2vNfRRRUg8kt8zc1YlyHE5Drg==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250613_055449_909692_57C46406 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +96,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, saikrishnag@marvell.com, m-karicheri2 <m-karicheri2@ti.com>, jacob e keller <jacob.e.keller@intel.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, basharath <basharath@couthit.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per PCIe r6.0, sec 6.6.1, software must generally wait a minimum of
-100ms (PCIE_RESET_CONFIG_WAIT_MS) after Link training completes before
-sending a Configuration Request.
+Hi,
 
-Prior to ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since
-we can detect Link Up"), dw-rockchip used dw_pcie_wait_for_link(),
-which waited between 0 and 90ms after the link came up before we
-enumerate the bus, and this was apparently enough for most devices.
+> On 10/06/2025 13:32, Parvathi Pudi wrote:
+>> From: Roger Quadros <rogerq@ti.com>
+>> 
+>> PRU-ICSS IEP module, which is capable of timestamping RX and
+>> TX packets at HW level, is used for time synchronization by PTP4L.
+>> 
+>> This change includes interaction between firmware and user space
+>> application (ptp4l) with required packet timestamps. The driver
+>> initializes the PRU firmware with appropriate mode and configuration
+>> flags. Firmware updates local registers with the flags set by driver
+>> and uses for further operation. RX SOF timestamp comes along with
+>> packet and firmware will rise interrupt with TX SOF timestamp after
+>> pushing the packet on to the wire.
+>> 
+>> IEP driver is available in upstream and we are reusing for hardware
+>> configuration for ICSSM as well. On top of that we have extended it
+>> with the changes for AM57xx SoC.
+>> 
+>> Extended ethtool for reading HW timestamping capability of the PRU
+>> interfaces.
+>> 
+>> Currently ordinary clock (OC) configuration has been validated with
+>> Linux ptp4l.
+>> 
+>> Signed-off-by: Roger Quadros <rogerq@ti.com>
+>> Signed-off-by: Andrew F. Davis <afd@ti.com>
+>> Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+>> Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+>> ---
+>>   drivers/net/ethernet/ti/icssg/icss_iep.c      |  42 ++
+>>   drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  23 +
+>>   drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 443 +++++++++++++++++-
+>>   drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  11 +
+>>   .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |  85 ++++
+>>   5 files changed, 602 insertions(+), 2 deletions(-)
+>>   create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+> 
+> [...]
+> 
+>> @@ -732,9 +949,22 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16
+>> *bd_rd_ptr,
+>>   		src_addr += actual_pkt_len;
+>>   	}
+>>   
+>> +	if (pkt_info->timestamp) {
+>> +		src_addr = (void *)PTR_ALIGN((uintptr_t)src_addr,
+>> +					   ICSS_BLOCK_SIZE);
+>> +		dst_addr = &ts;
+>> +		memcpy(dst_addr, src_addr, sizeof(ts));
+>> +	}
+>> +
+>>   	if (!pkt_info->sv_frame) {
+>>   		skb_put(skb, actual_pkt_len);
+>>   
+>> +		if (icssm_prueth_ptp_rx_ts_is_enabled(emac) &&
+>> +		    pkt_info->timestamp) {
+>> +			ssh = skb_hwtstamps(skb);
+>> +			memset(ssh, 0, sizeof(*ssh));
+>> +			ssh->hwtstamp = ns_to_ktime(ts);
+>> +		}
+>>   		/* send packet up the stack */
+>>   		skb->protocol = eth_type_trans(skb, ndev);
+>>   		netif_receive_skb(skb);
+> 
+> Could you please explain why do you need to copy timestamp to a
+> temporary variable if you won't use it in some cases? I believe these
+> 2 blocks should be placed under the last if condition and simplified a
+> bit, like
+> 
+> +		if (icssm_prueth_ptp_rx_ts_is_enabled(emac) &&
+> +		    pkt_info->timestamp) {
+> +			src_addr = (void*)PTR_ALIGN((uintptr_t)src_addr,
+> +					   ICSS_BLOCK_SIZE);
+> +			memcpy(&ts, src_addr, sizeof(ts));
+> +			ssh = skb_hwtstamps(skb);
+> +			ssh->hwtstamp = ns_to_ktime(ts);
+> +		}
+> 
+> This will avoid useless copy when the packet will be dropped anyway, WDYT?
 
-After ec9fd499b9c6, rockchip_pcie_rc_sys_irq_thread() started
-enumeration immediately when handling the link-up IRQ, and devices
-(e.g., Laszlo Fiat's PLEXTOR PX-256M8PeGN NVMe SSD) may not be ready
-to handle config requests yet.
+Yes, we can merge both the if conditions to make it simple.
 
-Delay PCIE_RESET_CONFIG_WAIT_MS after the link-up IRQ before starting
-enumeration.
+We will address this in the next version.
 
-Cc: Laszlo Fiat <laszlo.fiat@proton.me>
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
-Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
-Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 93171a392879..108d30637920 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -458,6 +458,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
- 
- 	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
- 		if (rockchip_pcie_link_up(pci)) {
-+			msleep(PCIE_RESET_CONFIG_WAIT_MS);
- 			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
- 			/* Rescan the bus to enumerate endpoint devices */
- 			pci_lock_rescan_remove();
--- 
-2.49.0
-
+Thanks and Regards,
+Parvathi.
 
