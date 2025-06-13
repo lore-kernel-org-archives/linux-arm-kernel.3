@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868B5C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70681C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sua3wmKZCDZzBblumNVqbb0azhUVtw/foyDYmDLLRHg=; b=PyvgcjpBpLPjb548vJfCrAgOTb
-	asvas177pg5OYFTVTlBzvgJVNu9e3RGHaFGSB7lfGh6MSitd/xEvKTetGxYXHN7KhgPDsdIdmlyKd
-	WCjZHSuxd+nWxNn2EdCSGaevvFh5ksQ+2WPH9AV7THItGt32965N/3ZGOHcMms8zjA2dPW6++wwWO
-	OKPogWkqrhuDLAKVqTunAPf2PYdl2Q+EHWxZMLPRYCs271HQrFEeeSW9HKSxyNC77OcGWxadZBcpM
-	xPOKNQjVp63vZ/cFxEnk6MqFEqat8OevRzB0XVN8lx7UNc1Dv/uPHEgHAGvWdOfr5Z8yw2JSdXn80
-	/0SKn2jA==;
+	bh=qzS2TVF0KTqdm7w3+IvzHczTzwQfADP8TeCIQv8e5jU=; b=P9sUUV3XskjvDiraCwgF+PWq2J
+	icSyxRlzQFLMttTclx5PBYWWybodzUpAn1NbQRGR8KyygEMEXCoGlzfSGoM9gtHp+1Tr+5BBZf/b9
+	zYLKQFhCgW9oTW3vSBalD5w272hA6hsz6/o5V69PuxL6Agy7poSGli0Ji91u6/D7og+y6PaBna6wl
+	jIt2Efy6WI95+jUXOV2EbtSR32sVNRzTfFZwSwqdjcqfHG4TXHJKKZtT1ZYKwCENMQKqyiy3z6O0y
+	9Ge3myfoOZI7Dzj0KA3kZmDTTdHNsKVHa/5E0PdTwOmutaAv9OAnR68/0saSji5E9GcPCYH6krh9I
+	1ww+1qHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ41N-0000000GRId-2Nk9;
-	Fri, 13 Jun 2025 13:00:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uQ41M-0000000GRHs-2SxD;
+	Fri, 13 Jun 2025 13:00:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ3uQ-0000000GQh9-3bd4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 12:53:26 +0000
+	id 1uQ3qL-0000000GPo0-2Y81;
+	Fri, 13 Jun 2025 12:49:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D505962A07;
-	Fri, 13 Jun 2025 12:53:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF9FC4CEE3;
-	Fri, 13 Jun 2025 12:53:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 105DE6113B;
+	Fri, 13 Jun 2025 12:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91142C4CEF0;
+	Fri, 13 Jun 2025 12:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749819205;
-	bh=9bKZsFj11JsEIuU5G0syifnAlEs0CyADlHgSACdxKsw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sQDKRhhDfCKqOsDfp8tpdaS7yaLs3Bs5QzNVbP2K47LuyiDX3T0Qq3xLT/NJ+pJAr
-	 UGLyXBDcQrIJyQICNf61RICiTzC5cupiLKV7PPgNpLu8YVYasioF+5G1wCYIYtuLu4
-	 OZFhzRF+qB8r7qEymmOBBvUT68RIWsmqQokk1aW/DFhM9ee64C8fahYDbIPgBKsSNp
-	 NnGM+c3SpoeWeh+P6q5vcLelKdDjmMcu3zHUgbznlCdp5S08BO8FWNlTlIxm5mM+XF
-	 bTVTvP/obal7otAUwOf5UZcPM9EM6FmV10QIW8orANXtRpYjEW3DPBTwstlFVF66vF
-	 54Xvd9sN/DYEQ==
-Message-ID: <f7ed19b4-4b4c-482b-81c7-3429f21d1def@kernel.org>
-Date: Fri, 13 Jun 2025 14:53:20 +0200
+	s=k20201202; t=1749818952;
+	bh=wX1Jm2lYAIbPE66Dwi838XJj+Gobl7EuV/Pwtb/T0aU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dY4I2aA6Z9SjXZtLDpYISinWj+O617Ldj351pF+kracLye+Kw9TIWvjn8uxIxuDp0
+	 jkPS5lraJ9urY3aBbuZoG7j+UvdETTn2Dyo3x7mQF20QUfSbZzbINynOUxmWe+4l89
+	 vEWo+AS8KtiBnTyCvbCY6J8i/Y/tK/Q5w5jTY59y7LF0Maed6VuMj5ra9ham/13ztQ
+	 Jrqd/VZ3uT0IkKDYLUYfDmj22ZNXERHWCzHByusQORPfGsFQ7pAAnYW+80zAqNgCNQ
+	 WHsijro6ETpxi8I/E0P4PzrA3u1woE47rr6jnPqSCILpPY2GSHYgmMf5thERAfCGPn
+	 f3OoRpKpWIlqQ==
+From: Niklas Cassel <cassel@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Laszlo Fiat <laszlo.fiat@proton.me>,
+	Niklas Cassel <cassel@kernel.org>,
+	Simon Xue <xxm@rock-chips.com>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH v3 3/6] PCI: dw-rockchip: Wait PCIE_RESET_CONFIG_WAIT_MS after link-up IRQ
+Date: Fri, 13 Jun 2025 14:48:42 +0200
+Message-ID: <20250613124839.2197945-11-cassel@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250613124839.2197945-8-cassel@kernel.org>
+References: <20250613124839.2197945-8-cassel@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
- <20250613-hdp-upstream-v5-2-6fd6f0dc527c@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250613-hdp-upstream-v5-2-6fd6f0dc527c@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1789; i=cassel@kernel.org; h=from:subject; bh=wX1Jm2lYAIbPE66Dwi838XJj+Gobl7EuV/Pwtb/T0aU=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDJ85HT4ufb1SDw2nubNbWhoUZR5dwprmb5Y8Z9bHLwRv m+3f+7pKGVhEONikBVTZPH94bK/uNt9ynHFOzYwc1iZQIYwcHEKwES6djL84Y55rPPKPm2/gt75 XfLS0+Ze5ztoL5ies/y05yeJ5Q3MWQz/fY+8aFqUJysZ/eDl9/r2lScYWbnl/kp79sy/FyyT80y WBQA=
+X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,19 +82,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 12:14, Clément Le Goffic wrote:
-> 'HDP' stands for Hardware Debug Port, it is an hardware block in
-> STMicrolectronics' MPUs that let the user decide which internal SoC's
-> signal to observe.
-> It provides 8 ports and for each port there is up to 16 different
-> signals that can be output.
-> Signals are different for each MPU.
-> 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
+Per PCIe r6.0, sec 6.6.1, software must generally wait a minimum of
+100ms (PCIE_RESET_CONFIG_WAIT_MS) after Link training completes before
+sending a Configuration Request.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Prior to ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since
+we can detect Link Up"), dw-rockchip used dw_pcie_wait_for_link(),
+which waited between 0 and 90ms after the link came up before we
+enumerate the bus, and this was apparently enough for most devices.
 
-Best regards,
-Krzysztof
+After ec9fd499b9c6, rockchip_pcie_rc_sys_irq_thread() started
+enumeration immediately when handling the link-up IRQ, and devices
+(e.g., Laszlo Fiat's PLEXTOR PX-256M8PeGN NVMe SSD) may not be ready
+to handle config requests yet.
+
+Delay PCIE_RESET_CONFIG_WAIT_MS after the link-up IRQ before starting
+enumeration.
+
+Cc: Laszlo Fiat <laszlo.fiat@proton.me>
+Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
+Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
+Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
+Signed-off-by: Niklas Cassel <cassel@kernel.org>
+---
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index 93171a392879..108d30637920 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -458,6 +458,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+ 
+ 	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+ 		if (rockchip_pcie_link_up(pci)) {
++			msleep(PCIE_RESET_CONFIG_WAIT_MS);
+ 			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+ 			/* Rescan the bus to enumerate endpoint devices */
+ 			pci_lock_rescan_remove();
+-- 
+2.49.0
+
 
