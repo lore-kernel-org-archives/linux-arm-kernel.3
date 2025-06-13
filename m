@@ -4,55 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA18C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEB5C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kVUOxiMG28/lyCa9DqFU7+pIhEmM8PXDAmpM5fCxa3Q=; b=jzSEGG9Prf9hy2075zyPm4QRRm
-	rvBNJ0Z0DN8UDdM+AahkIq3i91A5dSc98wDOri33nmFxcc1fYx0sOrxPkiX0l/8bEQUWE40inEUjF
-	zwfVpBuKdamQXWoJRq7e0O7CGj1OKglbG9uH8fjXWxvMP3aHfPo1SoNnU/g6nJKwzh+mgqDeXIcBB
-	cSfgue1lbaxjLTrbAdGYEbiSCa6cQxw82E16G+1SVUxaBMJmfIKjZTFoAFelsLxBK2aNGxGoDoPFT
-	KWbn5Y8+S5XC1b5F6mj5Q8t4thjuI093vrSnO2L835MFSu9wlDQvcQ3esZ4XGHGau1lE1bHGC9Wh+
-	n41y/RdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/ejW372tLidV6m7pAYZ/EWeHW7tRte3yRmvT+hobzE0=; b=xYQ9bJj+DvzVlxBsJ6eiIq0aGN
+	dUm83O8ERGN0KlgEH9c8VIrE3ro5OMamoRLmqRKJd/wVzjAiepxvOFpSfHYtQj2luySI5UCI/G8Bz
+	vQVm0Qro/gnqEWFOcI3SvuCucr66ZOM22UAF+SRBlSndSYE5xig15iaew4qRKlYi58YvRGszRivxm
+	vSBCr9Wvf95BlyUuzp+lHHEdcfTUfRBQT1tP/r8hmjlh5gRttAqUKYysLsCyca797AKnZrkJI0S5M
+	wW1CQ6BPKXBibtot+whj8L3r6zCRypviCErxUVE2KWNBpmoR1Aikylsokiq4jMZME+JAjKzVYpUsj
+	/bzNrekQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ4ro-0000000Ga1L-0nNd;
-	Fri, 13 Jun 2025 13:54:48 +0000
+	id 1uQ4u4-0000000GaRs-3xW6;
+	Fri, 13 Jun 2025 13:57:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ4h4-0000000GWOz-2p0a
+	id 1uQ4hQ-0000000GWUd-2OTY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 13:43:43 +0000
+	Fri, 13 Jun 2025 13:44:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC8F62B;
-	Fri, 13 Jun 2025 06:43:19 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 722613F59E;
-	Fri, 13 Jun 2025 06:43:38 -0700 (PDT)
-Date: Fri, 13 Jun 2025 14:43:35 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	<arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3] clk: scmi: Handle case where child clocks are
- initialized before their parents
-Message-ID: <20250613-congenial-tamarin-of-experience-cb2598@sudeepholla>
-References: <20250612-clk-scmi-children-parent-fix-v3-1-7de52a27593d@pengutronix.de>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D264F2B;
+	Fri, 13 Jun 2025 06:43:41 -0700 (PDT)
+Received: from MacBook-Pro.blr.arm.com (MacBook-Pro.blr.arm.com [10.164.18.48])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 89B9A3F59E;
+	Fri, 13 Jun 2025 06:43:56 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: akpm@linux-foundation.org,
+	david@redhat.com,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: lorenzo.stoakes@oracle.com,
+	Liam.Howlett@oracle.com,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	suzuki.poulose@arm.com,
+	steven.price@arm.com,
+	gshan@redhat.com,
+	linux-arm-kernel@lists.infradead.org,
+	yang@os.amperecomputing.com,
+	ryan.roberts@arm.com,
+	anshuman.khandual@arm.com,
+	Dev Jain <dev.jain@arm.com>
+Subject: [PATCH v3 0/2] Enable permission change on arm64 kernel block mappings
+Date: Fri, 13 Jun 2025 19:13:50 +0530
+Message-Id: <20250613134352.65994-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250612-clk-scmi-children-parent-fix-v3-1-7de52a27593d@pengutronix.de>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_064342_754682_FDF04453 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250613_064404_650815_6161B7DD 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,37 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 02:56:57PM +0200, Sascha Hauer wrote:
-> The SCMI clock driver currently assumes that parent clocks are always
-> initialized before their children. However, this assumption can fail if
-> a child clock is encountered before its parent during probe.
-> 
-> This leads to an issue during initialization of the parent_data array:
-> 
->     sclk->parent_data[i].hw = hws[sclk->info->parents[i]];
-> 
-> If the parent clock's hardware structure has not been initialized yet,
-> this assignment results in invalid data.
-> 
-> To resolve this, allocate all struct scmi_clk instances as a contiguous
-> array at the beginning of the probe and populate the hws[] array
-> upfront. This ensures that any parent referenced later is already
-> initialized, regardless of the order in which clocks are processed.
-> 
-> Note that we can no longer free individual scmi_clk instances if
-> scmi_clk_ops_init() fails which shouldn't be a problem if the SCMI
-> platform has proper per-agent clock discovery.
-> 
-> Fixes: 65a8a3dd3b95f ("clk: scmi: Add support for clock {set,get}_parent")
-> Reviewed-by: peng.fan@nxp.com
-> Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+This series paves the path to enable huge mappings in vmalloc space and
+linear map space by default on arm64. For this we must ensure that we can
+handle any permission games on the kernel (init_mm) pagetable. Currently,
+__change_memory_common() uses apply_to_page_range() which does not support
+changing permissions for block mappings. We attempt to move away from this
+by using the pagewalk API, similar to what riscv does right now; however,
+it is the responsibility of the caller to ensure that we do not pass a
+range overlapping a partial block mapping; in such a case, the system must
+be able to support splitting the range (which can be done on BBM2 systems).
 
-Mike/Stephen,
+This series is tied with Yang Shi's attempt [1] at using huge mappings
+in the linear mapping in case the system supports BBML2, in which case
+we will be able to split the linear mapping if needed without break-before-make.
+Thus, Yang's series, IIUC, will be one such user of my series; suppose we
+are changing permissions on a range of the linear map backed by PMD-hugepages,
+then the sequence of operations should look like the following:
 
-Please pick this up in your next round of fixes.
+split_range(start)
+split_range(end);
+___change_memory_common(start, end);
+
+However, this series can be used independently of Yang's; since currently
+permission games are being played only on pte mappings (due to apply_to_page_range
+not supporting otherwise), this series provides the mechanism for enabling
+huge mappings for various kernel mappings like linear map and vmalloc.
+
+[1] https://lore.kernel.org/all/20250304222018.615808-1-yang@os.amperecomputing.com/
+
+v2->v3:
+ - Drop adding PGWALK_NOLOCK, instead have a new lockless helper
+ - Merge patch 1 and 2 from v2
+ - Add a patch *actually* enabling vmalloc-huge permission change
+
+v1->v2:
+ - Squash patch 2 and 3
+ - Add comment describing the responsibility of the caller to ensure no
+   partial overlap with block mapping
+ - Add comments and return -EINVAL at relevant places to document the usage
+   of PGWALK_NOLOCK (Lorenzo)
+ - Nest walk_kernel_page_table_range() with lazy_mmu calls, instead of
+   doing so only per PTE level, fix bug in the PTE callback, introduce
+   callbacks for all pagetable levels, use ptdesc_t instead of unsigned
+   long, introduce ___change_memory_common and use them for direct map
+   permission change functions (Ryan)
+
+v1:
+https://lore.kernel.org/all/20250530090407.19237-1-dev.jain@arm.com/
+
+Dev Jain (2):
+  arm64: pageattr: Use pagewalk API to change memory permissions
+  arm64: pageattr: Enable huge-vmalloc permission change
+
+ arch/arm64/mm/pageattr.c | 161 ++++++++++++++++++++++++++++++---------
+ include/linux/pagewalk.h |   3 +
+ mm/pagewalk.c            |  26 +++++++
+ 3 files changed, 155 insertions(+), 35 deletions(-)
 
 -- 
-Regards,
-Sudeep
+2.30.2
+
 
