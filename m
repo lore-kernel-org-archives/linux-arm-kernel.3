@@ -4,71 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42455C71153
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868B5C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 13:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kq61Ud1QxXq44e5cflOyeynlbOOOGsZzUCs5cu4bf3Y=; b=gNUmUohWukAnrFDSOTsnJxC4vv
-	6k8kOq0/Ue4xXyCuKuGnpkoa7iBPsCoB5UBiptLcjiGXhY1uwaHKOxjojgPdf+wVFGEFrFhA73vgR
-	ckY6p2GrGaMwRDED+IW/ATGJMQaRrMI/03JwlX8HEHSykic3LYOXNw7xd/e8q2ps/bgt9+u5D+xcB
-	nEv4TmA4aVqT6neYssODiOWh9klHZRDdt4axyziD5OtEHbVGXcAVNX1JU9eBwGmxFIga49Olmuo08
-	POR19mriJ9ZnnjCI97g9904+NvzlTElb3edWiykOSs68Dx7UGGYiskeEVykzfMpchf1QQVQV3gEiT
-	Z0uj5ZAw==;
+	bh=Sua3wmKZCDZzBblumNVqbb0azhUVtw/foyDYmDLLRHg=; b=PyvgcjpBpLPjb548vJfCrAgOTb
+	asvas177pg5OYFTVTlBzvgJVNu9e3RGHaFGSB7lfGh6MSitd/xEvKTetGxYXHN7KhgPDsdIdmlyKd
+	WCjZHSuxd+nWxNn2EdCSGaevvFh5ksQ+2WPH9AV7THItGt32965N/3ZGOHcMms8zjA2dPW6++wwWO
+	OKPogWkqrhuDLAKVqTunAPf2PYdl2Q+EHWxZMLPRYCs271HQrFEeeSW9HKSxyNC77OcGWxadZBcpM
+	xPOKNQjVp63vZ/cFxEnk6MqFEqat8OevRzB0XVN8lx7UNc1Dv/uPHEgHAGvWdOfr5Z8yw2JSdXn80
+	/0SKn2jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ41L-0000000GRH3-2vti;
-	Fri, 13 Jun 2025 13:00:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uQ41N-0000000GRId-2Nk9;
+	Fri, 13 Jun 2025 13:00:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ3qH-0000000GPmh-2d8D;
-	Fri, 13 Jun 2025 12:49:10 +0000
+	id 1uQ3uQ-0000000GQh9-3bd4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 12:53:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8284B5C1125;
-	Fri, 13 Jun 2025 12:46:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B3BAC4CEEF;
-	Fri, 13 Jun 2025 12:49:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D505962A07;
+	Fri, 13 Jun 2025 12:53:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF9FC4CEE3;
+	Fri, 13 Jun 2025 12:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749818948;
-	bh=b4dI36+7QZrufn62jpx3nCwsgQ+MzFpAS9kwu6KrqjQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=st6dNrs+clIM0Xs+sDPIYqnFZJUgdbbF+07JBuLONi+zTuAZ8K9a+giRzTNKwq3/p
-	 I8U+4Pef/v1MCQAfERX4Ej8w/N0S29+6ubqaUJC0EqR/qy8OOVtoSPZ/153LES6q7t
-	 G6afEq4eb61e6ae/xlK54EHPIk7nSnpOeh4yQgF35yUMy6v6Ax7bzSdIcX7tyH5IHK
-	 g/LElfxTgrE+th/kVxysQVuqvHAjFX5orQxuog8LFFajxk/yiJk++uR2uFt0TTcXWR
-	 gtOP20twmwhV1mghT9S5tw/L+eZmuouqRKDXYJuqgM2UcTKFPiN1oxM+UwTc5BS/yA
-	 KTHrrzs7bD9EQ==
-From: Niklas Cassel <cassel@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Laszlo Fiat <laszlo.fiat@proton.me>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 2/6] PCI: rockchip-host: Use macro PCIE_RESET_CONFIG_WAIT_MS
-Date: Fri, 13 Jun 2025 14:48:41 +0200
-Message-ID: <20250613124839.2197945-10-cassel@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250613124839.2197945-8-cassel@kernel.org>
-References: <20250613124839.2197945-8-cassel@kernel.org>
+	s=k20201202; t=1749819205;
+	bh=9bKZsFj11JsEIuU5G0syifnAlEs0CyADlHgSACdxKsw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sQDKRhhDfCKqOsDfp8tpdaS7yaLs3Bs5QzNVbP2K47LuyiDX3T0Qq3xLT/NJ+pJAr
+	 UGLyXBDcQrIJyQICNf61RICiTzC5cupiLKV7PPgNpLu8YVYasioF+5G1wCYIYtuLu4
+	 OZFhzRF+qB8r7qEymmOBBvUT68RIWsmqQokk1aW/DFhM9ee64C8fahYDbIPgBKsSNp
+	 NnGM+c3SpoeWeh+P6q5vcLelKdDjmMcu3zHUgbznlCdp5S08BO8FWNlTlIxm5mM+XF
+	 bTVTvP/obal7otAUwOf5UZcPM9EM6FmV10QIW8orANXtRpYjEW3DPBTwstlFVF66vF
+	 54Xvd9sN/DYEQ==
+Message-ID: <f7ed19b4-4b4c-482b-81c7-3429f21d1def@kernel.org>
+Date: Fri, 13 Jun 2025 14:53:20 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2155; i=cassel@kernel.org; h=from:subject; bh=b4dI36+7QZrufn62jpx3nCwsgQ+MzFpAS9kwu6KrqjQ=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDJ85LR1d7x7b5p98mOW6IpK38Ve2XfO+h1dvCyWpYlvu lxGWMf8jlIWBjEuBlkxRRbfHy77i7vdpxxXvGMDM4eVCWQIAxenANzkHYwMP74b7TX3Xn5hJ3vy obNvjj7Z6r/1Xeh6hj7ulloDlZIqH4b/yVITGkqklBqWPJ4b06M/K7XywuJ3LVZOzL0udrzzfik yAAA=
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
+ <20250613-hdp-upstream-v5-2-6fd6f0dc527c@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250613-hdp-upstream-v5-2-6fd6f0dc527c@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_054909_744071_0B871B2F 
-X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +120,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Macro PCIE_RESET_CONFIG_WAIT_MS was added to pci.h in commit d5ceb9496c56
-("PCI: Add PCIE_RESET_CONFIG_DEVICE_WAIT_MS waiting time value").
+On 13/06/2025 12:14, Clément Le Goffic wrote:
+> 'HDP' stands for Hardware Debug Port, it is an hardware block in
+> STMicrolectronics' MPUs that let the user decide which internal SoC's
+> signal to observe.
+> It provides 8 ports and for each port there is up to 16 different
+> signals that can be output.
+> Signals are different for each MPU.
+> 
+> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+> ---
 
-Later, in commit 70a7bfb1e515 ("PCI: rockchip-host: Wait 100ms after reset
-before starting configuration"), PCIE_T_RRS_READY_MS was added to pci.h.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-These macros are duplicates, and represent the exact same delay in the
-PCIe specification.
-
-Since the comment above PCIE_RESET_CONFIG_WAIT_MS is strictly more correct
-than the comment above PCIE_T_RRS_READY_MS, change rockchip-host to use
-PCIE_RESET_CONFIG_WAIT_MS, and remove PCIE_T_RRS_READY_MS, as
-rockchip-host is the only user of this macro.
-
-Reviewed-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
----
- drivers/pci/controller/pcie-rockchip-host.c | 2 +-
- drivers/pci/pci.h                           | 7 -------
- 2 files changed, 1 insertion(+), 8 deletions(-)
-
-diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-index b9e7a8710cf0..c11ed45c25f6 100644
---- a/drivers/pci/controller/pcie-rockchip-host.c
-+++ b/drivers/pci/controller/pcie-rockchip-host.c
-@@ -325,7 +325,7 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
- 	msleep(PCIE_T_PVPERL_MS);
- 	gpiod_set_value_cansleep(rockchip->perst_gpio, 1);
- 
--	msleep(PCIE_T_RRS_READY_MS);
-+	msleep(PCIE_RESET_CONFIG_WAIT_MS);
- 
- 	/* 500ms timeout value should be enough for Gen1/2 training */
- 	err = readl_poll_timeout(rockchip->apb_base + PCIE_CLIENT_BASIC_STATUS1,
-diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-index 98d6fccb383e..819833e57590 100644
---- a/drivers/pci/pci.h
-+++ b/drivers/pci/pci.h
-@@ -35,13 +35,6 @@ struct pcie_tlp_log;
-  */
- #define PCIE_T_PERST_CLK_US		100
- 
--/*
-- * End of conventional reset (PERST# de-asserted) to first configuration
-- * request (device able to respond with a "Request Retry Status" completion),
-- * from PCIe r6.0, sec 6.6.1.
-- */
--#define PCIE_T_RRS_READY_MS	100
--
- /*
-  * PCIe r6.0, sec 5.3.3.2.1 <PME Synchronization>
-  * Recommends 1ms to 10ms timeout to check L2 ready.
--- 
-2.49.0
-
+Best regards,
+Krzysztof
 
