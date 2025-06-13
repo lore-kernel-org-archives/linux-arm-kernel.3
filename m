@@ -4,55 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0CFC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCF5C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KiX2+CscDCt7wsJQZtwDpIWKdj5blnMNZa1lqkwq94Q=; b=c91hnTR2VW5svL1EfODdwhOunv
-	wFX+OtUhXVrUZtPL/ac9xFc354D5CdSgN3O61d2YqmpMelORqy0zHe70mbIytI1pb4l3rbRYmsdoY
-	KQXTCavZI/VKc6d3D/LVKUlvvkH//Vf3KslB4jPpv4GjKrE0fLM0EVJ64dTUljWSJu8BvgMHcpKIV
-	vgnPfqpq6D5feBPj4ToexBqdVOhKTsWFcGfVvFg++KiKuQ9vZVEd1Oo8zGHYeAYrtIviPDlfhPhBa
-	fuYXNmqk3qdEnvgjgzRt77xoFbG+H4p58xlv6yPO2cdUlbAEAxE5f3DpWQvccHaBCOt0pviPdkZr8
-	sannagLA==;
+	bh=DtMBj33Sx1oAMqINRFAH5h963S3E6ZA3nRC5DmVePTA=; b=i0L8FX/Ba6eIioUs9nNtxSHjgr
+	wWIpWp0Lk580jWYsLFFsgF5r+dJG4tPwA/LHZy5EJbO6pfeEr8i2UgxbXwbNs3ZwbsFD4lfI3ecwg
+	LjY1TjZVJBxzFqsGBhdXC8xr0eXCYLxX01rkP22oFinrJfYaCaErW9M6Xc5eWrajprWt0WDI3jBoB
+	E1Q273l/GEfVLeFFwVAD/dXmBruUxF5yfRjEQYhq7HY9mF63eet7TsAeCKhhU+a+DI9NHMHp33XH4
+	ZzkS5B/DAqrZHNIUet8lqkMogDHEiBpBZeV2mSUVh1zolkKDShqO3ks0DjuRMT5LC9RrZ9MpBbM4U
+	u/5yCpIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2dP-0000000GCW0-3lB5;
-	Fri, 13 Jun 2025 11:31:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2Kb-0000000G8rw-2G9V
+	id 1uQ2dO-0000000GCSD-0eGV;
+	Fri, 13 Jun 2025 11:31:46 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ2I6-0000000G8eK-3p7f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 11:12:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54D3C1C0A;
-	Fri, 13 Jun 2025 04:11:57 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 82D623F59E;
-	Fri, 13 Jun 2025 04:12:16 -0700 (PDT)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org,
-	catalin.marinas@arm.com,
-	sami.mujawar@arm.com,
-	aneesh.kumar@kernel.org,
-	steven.price@arm.com,
-	linux-kernel@vger.kernel.org,
-	sudeep.holla@arm.com,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH 0/3] arm64: realm: Add support for encrypted data from firmware
-Date: Fri, 13 Jun 2025 12:11:50 +0100
-Message-ID: <20250613111153.1548928-1-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+	Fri, 13 Jun 2025 11:09:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pfyq41+PUvQ4foxrnDW7G+Cv7P/PVbKDXeNZL5fr3E+Bx97aodZPAA6mO18E1Bbh65Vzh2NHykkOVmryHpwgH88U/Vu9ShtkTTlowXUJZqKWKNVHx/6jCverMET/I6eXs/OU3pPTYTXW9GW6oaS/3aOdI6l6c09AC3Iw4vA06HmshYpR/tjvbpLNdw/4KAp4BCJlfViwi60f7mEyrLkiEoSoBNpOEx+tX6hcrePVB8gDux4c7TpOCUimy5D5SARkyX2vv8quBQqiYHPT42WU44Ji6evUDEz/pzHkxpLIdM3llvYOP3svS6HeOxgteLD9lfzJcSMmwjczWygNvD0F/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DtMBj33Sx1oAMqINRFAH5h963S3E6ZA3nRC5DmVePTA=;
+ b=FsFGmY9pbNqRuxE4U6YCDk+notS9//yy/OwbAMPa0myiENc2vPI0t0mn18I7LcJfTwIkcY9gFDnVdKLWwaip41t3tch5OaOe1WQJnCOvAcbou/h+5weH9SVOks0I8Y+MnLgQQt1DyY51ia3D4+Ll+/ZX/pmQd3/OgfbaHK6nFp4QVsGlCFs3an4uPbho5TKQKnxOG1CjGsKqvF4RQPDB/9/kVfCzNf9/K1+oHNMTCt7S4QoggmBZjIXps5vrlE2oK/dpW1MHhX5NvgiyHeLqwggar49z/E6kvJGvHSctykZOEU9QcWs1Ja3cfMyWmFYNo5HSqZRytuC8xgP2UfBAuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DtMBj33Sx1oAMqINRFAH5h963S3E6ZA3nRC5DmVePTA=;
+ b=h4k+d6V+icWoKqoAxKGOM46onww5lRlZsN3AsXB5hvriUWSXqiLt4IVUM4gSbIzomV0rFfCuLF3VgoQYIOaAifj4bK2tZvd5qhgXDoyAbaLGrQico8iHXKqJ3CcsCpBu5RGdaZGjXQp15wiqlH1ZPO+FYe2guOPUZfX+8GWgY4JlzVCb7iwX/QEO9+nNf/gX1lUQLaScfFHJnI68PAXXUVG0gTDb+0M74E1N9oB8S5/wz0p6ZWe9Gtyd8AtEanNvk54sLkCYKNW2mqyBNsK1YNkqu0MbN9ExEYPQuJkeDsjo0z+T/MIFexkNqbgO2UghGN86SJeJ2rin7Z9StKVcew==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SG2PR06MB4802.apcprd06.prod.outlook.com (2603:1096:4:169::8) by
+ TYSPR06MB7344.apcprd06.prod.outlook.com (2603:1096:405:9b::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8813.29; Fri, 13 Jun 2025 11:09:26 +0000
+Received: from SG2PR06MB4802.apcprd06.prod.outlook.com
+ ([fe80::685f:929d:f06c:a349]) by SG2PR06MB4802.apcprd06.prod.outlook.com
+ ([fe80::685f:929d:f06c:a349%3]) with mapi id 15.20.8835.018; Fri, 13 Jun 2025
+ 11:09:26 +0000
+From: Yuesong Li <liyuesong@vivo.com>
+To: Dong Aisheng <aisheng.dong@nxp.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: opensource.kernel@vivo.com,
+	Yuesong Li <liyuesong@vivo.com>
+Subject: [PATCH v1] i2c: lpi2c: convert to use secs_to_jiffies()
+Date: Fri, 13 Jun 2025 19:06:38 +0800
+Message-Id: <20250613110649.3283336-1-liyuesong@vivo.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0026.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::16) To SG2PR06MB4802.apcprd06.prod.outlook.com
+ (2603:1096:4:169::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PR06MB4802:EE_|TYSPR06MB7344:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6364c83f-8d0c-4558-b777-08ddaa6ac2aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZAG5UpNG4jDEhZlYHg7IlulPsEV8PFsySc12eJdKEKed+yAEg711B8YOrq+/?=
+ =?us-ascii?Q?vCfZLC+tdXnAea+OAuIBkUigRONdIaBVniXGa+NkwclnYWdvxPYM90e6Zv6h?=
+ =?us-ascii?Q?P9uLvAPhQ7CSmZnIRQx5IBjX2N4vr9JYjPk4gydtUS82LIm8auwIMaooQlY0?=
+ =?us-ascii?Q?OUrT99x/3e8imIAgCNyTIjAHJ/O9iuZ0vaDjG64837ZeiljpXzpFblgznGdh?=
+ =?us-ascii?Q?/COyR9RLXgbDFMqCeHIsq5zSN7CE0GBZmzNaXEGnEBMA7m292dwotL0x+H5N?=
+ =?us-ascii?Q?1/Uno35R3z+szmgNp+t0qzLqFds8peqv/LRdTNitwwA/cZPw0EevnA9db9k6?=
+ =?us-ascii?Q?zV+cNCH0eliLv4W9wQKYQQtbNzfP2t6IskQgv2K4/qLiTNAW8p2gvA2svWJJ?=
+ =?us-ascii?Q?Sv+ykmlH5r6U2YseDe/SP37PBa52mfM4U5T8UgnJzEgNkIdjAVAHA4LsBpkY?=
+ =?us-ascii?Q?kggT6zGx5/y/NlI6bdDnk/HyuhzUXeQo2E5gYs9ca9jASXICF3J61T01F1P1?=
+ =?us-ascii?Q?WSwm01tMjyDSWrwBfZwmLXnilX9lkap5aaz6BI5h1j2mvvjUHznzBJXXq35g?=
+ =?us-ascii?Q?+rg8F/K40IQRDrxeSpn9t08HGVls4fRoBtE14VjD1lbH5U1U39J99GtmGZPL?=
+ =?us-ascii?Q?j1jYESQsxJpx3HWfB0fJKAxAK3jV+gjEHST5nvcRM8uNTIhsemu9UpHuyyfe?=
+ =?us-ascii?Q?yZsD0AjZKTBFrLatjPHY8lJ6L6wQ0k6O0ys0ZRYpy0VWP5nnIEzR1h4Jt+Xf?=
+ =?us-ascii?Q?yHc4KigA6v/htpk//O6YHYTAWHkRArtKW9Ay/RIaon4psVp2cyjsijrSNHMc?=
+ =?us-ascii?Q?szYYpUNhwvN3vmPDTl3WfopCx4SkaABSInTMJGlY+U8kh5nFX+ur7cxJxw1R?=
+ =?us-ascii?Q?N8jQhICQioeg0sCEBWm9DNabqrDRw131JD8XfJiF6AAIbURC8KWwz4jARdup?=
+ =?us-ascii?Q?0T/Z1TjHfHL/wwamsapnzA8R8T4CoQPD7eiFcdgdr/jDsdsKZVX6d54ItD46?=
+ =?us-ascii?Q?UPRgN4Hft8mbPTmv0tEDo6ZFm3TM2HWcO/qMgK6C2Ga76FLJA+Co7F0ccl/Y?=
+ =?us-ascii?Q?heWfirPTVHORVFujXgW7yRmoRfgSDBeRp5UWD8Qb66r9cVp3V3WfaEruLB1p?=
+ =?us-ascii?Q?6F4jz6MIlGKW0xRP5Qac+INGm3iF8JSDyIlBPJukuAt9rszUUxF7ZNbS4e7/?=
+ =?us-ascii?Q?n/hoKFpF7+FkJPugxLu9mnNcZDyK2T45/N8TtKZlJBvE9Rr7JwYC0h6D27eW?=
+ =?us-ascii?Q?CPCsBd82NBTKB8rH2qEqp4nAx4ZLeBxkUCjfanEP1lTYoGvgq7afrnKUESEJ?=
+ =?us-ascii?Q?N+sz3SMatlFzDjRbZqs4mXmgmd43aW50LDw7T49kbseNbgGYtFn6MFzrlP2/?=
+ =?us-ascii?Q?SyY01dndTdhxraTIXXyRs0n7i3hDrlvzaESkzuYy2QzHjyKILcUJElmpeNhW?=
+ =?us-ascii?Q?TVU0mzZhTHNTvsehUhVfaacsrrdVFvK0SA317kCM1baH6qYSLGqrH52hFTBV?=
+ =?us-ascii?Q?O3DDC6P/5/tnNnI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SG2PR06MB4802.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VzmykN5X/bhC2rBh00nOTaIIsqx/8pnjO3p2xBiD3lg/BrrqoWcXsywCObD5?=
+ =?us-ascii?Q?hYO5Zh1a4Rs+QP/9sJLwezxM5tbZ1CKoRN4UkHai9Tuulsx361KqwWV8PEyt?=
+ =?us-ascii?Q?D+sy7iCpKpILTHLSmsbN4zdQmSORjKMyeofVyU6ASvOcazJpw2ZPavt3qOXM?=
+ =?us-ascii?Q?ZteKCZ2CqcY8gkYbd+WNGewamiBox/2vUcBTftHZTWVxTday1XKg98gLkKND?=
+ =?us-ascii?Q?8h8KU02/EMbetEBo/7pa2BN4PP5J1NA1hJxpcdyQz47VhhIl8s3Udv1xoqTF?=
+ =?us-ascii?Q?sXDxooGgjBN8MeTcFPbkKshmggBiVGt0J7A4dZLp8kkYOOZXvaZK4IaDvc7Z?=
+ =?us-ascii?Q?LJgK6xnlIy0MfCoOmNiver1ZOV3RVp2D+mcKLLP4yuHCB0TOgGdY1CWnxz+2?=
+ =?us-ascii?Q?s0ErVfDXcNdI+rpEx4iv7ZvGpjkw5iYQL4EruplIaDykY/Sh5+TDn+k2g5yr?=
+ =?us-ascii?Q?7GoNBzfHX0GtCfrAScnq//V5Cn454vKdlb6FQ7BSVgvngUORT+o0jI7FXYf5?=
+ =?us-ascii?Q?cpjSD2Pf5THsefwZQ2T3wuy3pCL8F1QnKfFJoDeJvMpaHAwRj3Fisb5aBPzx?=
+ =?us-ascii?Q?4xs0/jB5He2xzZFoSUkRPhjXU8H+YQf8LE8CCIXZ+dlBi/Q7RCPm+eyKCzvv?=
+ =?us-ascii?Q?r+Lvmn+8vt1GzGnJldb0o0V3I214SR7ZZB+6/8+MQjA01V7yvWJLus65REd/?=
+ =?us-ascii?Q?jrPOh4fS2kbx1zIpaCOXMNJaXighfZifFtGq4pImvWCldtknyHCdUG/tlwna?=
+ =?us-ascii?Q?sjmed2b9RlRjPomScuUcNqyS7PDTcCkjUA5cUcN5muVoX+n7k+cXJRCfZPQT?=
+ =?us-ascii?Q?9aD5KjEr02KE8HmnU/QikRWC0PM31DVRLih3+US0S+duS4MxQiiF/lLQMvMH?=
+ =?us-ascii?Q?iVagUBJj5miVRMbQ05ivIZjWlLP7Wxlc+zREmn0eiDUAgOWHC7FBHYyQcuOJ?=
+ =?us-ascii?Q?oo6ruC5sBloqSN6umoMDCRLmrDGLHOswcIp6eB/IVi6Po6e+ExFwYEPRz3/U?=
+ =?us-ascii?Q?7X11ZV6+Q7DrVpkvMoI5RhBOVoOzDUjZ2BYUCkWiG5Sw4cKoMb4AufjlsJ2M?=
+ =?us-ascii?Q?uArlVNtAuZtp8dXymWzPgiF5498DJKXKJcHZZ1oxRSsfj82YpwNHm+Efx/Pc?=
+ =?us-ascii?Q?QUaEfI34mudt3XQeYlC+K+P6MqB2xTzZ67cRCJNYnE0N8gx5XJbp3gRj2Ygf?=
+ =?us-ascii?Q?GB7RJhcqG8WI3FajEkDr2BfQGFmUoLsqeZzBh3j900+tj4+7DAtI3lIguVpO?=
+ =?us-ascii?Q?IRmK7QE8YbaX9WR81j3zveJExZSkHMkECjS+nIUTSv0kp76Ij24zt52Dy8bU?=
+ =?us-ascii?Q?HjZCeYV5wRxnSzH2iDq0Z3nlY+KAn3mHb6YiumR3mu1tzalonhLz42050Lug?=
+ =?us-ascii?Q?3EnAcY1V/MAWtVlw034JuLo4PawioBf4lxIPCgcs0eD/jZjLuqeRQHW7msdB?=
+ =?us-ascii?Q?D/uKeKBg8BkXUTF+OujaWuQO9+GmWW2AkcJ0VoVO+zuYosxwPblZZASS2e+1?=
+ =?us-ascii?Q?aIY+trU3zejytLiX2JT+TkeER82n90mkI8a/DVnFno8/7J9yMJXa7v73v2U1?=
+ =?us-ascii?Q?t8vlGair+RNrwWCSWwcRR9yhSYeC7CChI546DcDb?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6364c83f-8d0c-4558-b777-08ddaa6ac2aa
+X-MS-Exchange-CrossTenant-AuthSource: SG2PR06MB4802.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 11:09:26.8306
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AiI+rKyy9lxoM7ogv6hBLT3psF+PWw2t5DmURJxqcFUmeDUIYiOiFJhTCYfJ6Sg8HhTvaEQbV2oBN4xaRC3C/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB7344
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_041221_620112_AEF16A76 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250613_040947_087138_4F36E2F2 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,35 +163,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Confidential compute firmware may provide secret data via reserved memory regions
-(e.g., ACPI CCEL, EFI Coco secret area). These must be ioremap'ed() as encrypted.
-As of now, realm only maps "trusted devices" (RIPAS = RSI_RIPAS_DEV) as encrypted.
-This series adds support for mapping areas that are protected
-(i.e., RIPAS = RSI_RIPAS_RAM) as encrypted. Also, extrapolating that, we can map
-anything that is not RIPAS_EMPTY as protected, as it is guaranteed to be "protected".
+Since secs_to_jiffies()(commit:b35108a51cf7) has been introduced, we can
+use it to avoid scaling the time to msec.
 
-With this in place, we can naturally map any firmware provided area based on the
-RIPAS value. If the firmware provides a shared region (not trusted), it must have
-set the RIPAS accordingly, before placing the data, as the transition is always
-destructive.
+Signed-off-by: Yuesong Li <liyuesong@vivo.com>
+---
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Also enables the EFI Coco secret area support and Confidential Compute Event
-Log (CCEL) for arm64.
-
-
-Suzuki K Poulose (3):
-  arm64: realm: ioremap: Allow mapping memory as encrypted
-  arm64: Enable EFI secret area Securityfs support
-  arm64: acpi: Enable ACPI CCEL support
-
- arch/arm64/include/asm/io.h          |  6 +++++-
- arch/arm64/include/asm/rsi.h         |  2 +-
- arch/arm64/kernel/acpi.c             |  5 +++++
- arch/arm64/kernel/rsi.c              | 26 ++++++++++++++++++++++----
- drivers/virt/coco/efi_secret/Kconfig |  2 +-
- 5 files changed, 34 insertions(+), 7 deletions(-)
-
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index 342d47e67586..dfdfc23551ab 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -563,7 +563,7 @@ static int lpi2c_imx_dma_timeout_calculate(struct lpi2c_imx_struct *lpi2c_imx)
+ 	time += 1;
+ 
+ 	/* Double calculated time */
+-	return msecs_to_jiffies(time * MSEC_PER_SEC);
++	return secs_to_jiffies(time);
+ }
+ 
+ static int lpi2c_imx_alloc_rx_cmd_buf(struct lpi2c_imx_struct *lpi2c_imx)
 -- 
-2.43.0
+2.34.1
 
 
