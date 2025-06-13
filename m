@@ -4,67 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69602C71157
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3785C71156
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 12:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y4rYEknlid74iQrzC2QrAEhTEupcZSkvuvP0iPDm0Wc=; b=Y86HoS5Pb/L/H21/uogJPpvRnO
-	l/+rKmYxl0226LyQjcZKhwF4SRfMXSHv6s1Y0p4egj+6RZQfOVf6xIuYQL/Pyvt7kLk+MHJopzJNX
-	1037UtJrF59CuihugUZfnz53XuJUwvIVDw7BZgmVtO0NHdPXDvvn3ebvrsHwL5wdm+Lfm2rOaZxHW
-	nS2ZQEuNJYL3j/QStYXz4ORA0/sZllgUjc1oieIv50HPE/IM472EQ8s+4J0MDvsIAkePbsodEGkSU
-	d29SJPQQ4R5gXH+Z5M/qOu10F7KVR4bhYF533k4LJ5InKnGL/p9tGK3SJmOvBG2TmX5ejCDH7to8M
-	8ysswP6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=; b=JUukOIf45HlLe0LwZ2oQcIxT4M
+	a4GKEm2jbyw8OQUq9CJ0NYrBrHbHd2+E7GCKzLsIpVHaHzzUCnWKf8QO9hCwkF6gswUYVt6pxAY1C
+	ltgj47vJTLj+3MuqsN97DmwhdEfx8hVyZUDY8KLkntN5f/R3K9Nj63qcLWWqf7BQFJV14coeincFG
+	YVX+eCcCZwaqb1BDS1X+tBnkr1lcMYMMj5OXHWinXop6Ur21S7vn4uuW2lZ1kROaDhsYmGNcPWUxm
+	s0P+UjdNjXky9O0uH8DFzum+cUDInggMhWPFOW12ahpe2/7QZ7ohbX37J0v+K4WU+ftMN94NZjfi3
+	1W06rlJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ37o-0000000GJdn-1LVt;
-	Fri, 13 Jun 2025 12:03:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uQ37m-0000000GJcE-0cf9;
+	Fri, 13 Jun 2025 12:03:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2xd-0000000GIKa-3uaw;
-	Fri, 13 Jun 2025 11:52:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6A390A50C13;
-	Fri, 13 Jun 2025 11:52:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3680CC4CEE3;
-	Fri, 13 Jun 2025 11:52:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749815560;
-	bh=9Ib3i1mlFKicVwKiPGf5NRYHamJ2n8eOcsjuXffXj54=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aw8bXodJydbeLxjxs9CS/1ymdxGC+nk/uG6P0DwTJYpW42Pg/5BHWY+BJi5zY2cph
-	 LKHTsRogZ8cDXCb/AGkccXPdupEBA3Ah84vP4n+51iTDbEwRj00qU77a4uUHOCw+dQ
-	 lnvzOuTJRixDvWsz/46CN4nXvGvstFtySvo/iVuwszfFmwpXdTX4FmiqNhqbUvvFLZ
-	 J2BSZ+yTPCkuHm6UqmrUuIOEuWfSgydKa9JUjRMSu3uRcbiIIJPnDNrIhn7wfg9b43
-	 n3qU/sG/nuANHXA8sduV69dpVBZTlX5yi68+CoSdIcI3cTPulotnddlGKqRm5Nx7Gf
-	 LDrFtJaEuhFtQ==
-Date: Fri, 13 Jun 2025 13:52:33 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org, kw@linux.com,
-	bhelgaas@google.com, heiko@sntech.de,
-	manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v4 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <aEwRAZgLJUECbGz6@ryzen>
-References: <20250510155607.390687-1-18255117159@163.com>
- <20250510155607.390687-2-18255117159@163.com>
- <co2q55j4mk2ux7af4sj6snnfomditwizg5jevg6oilo3luby5z@6beqtbn3l432>
+	id 1uQ2nZ-0000000GFME-1wef
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Jun 2025 11:42:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=; b=TFGd/XE/EpTB6UyYQQvY5OWri7
+	h2JYe9lT/dsfhWEJ4yuDVfHM8cqZfXKKrI5ydoLnv+FBiMjbW8xzLL2/hnDkGkRMhwXRGY+uqsz/I
+	OkfyPbOUzFJJ5i0f1H8ZxUb0HSz7fwxA2Tahlva9c2eoidOLFesdl4BGmDX+zAPZH1TT4Zc3h/iXs
+	FtJfO8Syky6fgbWGLb4tp6JNDGwNDOdO9gVZovHTiAUNN6ucPpqCAHqIWKfJXUitd6yUmpk9XMA+c
+	RjrlFtQXy0drT6RREuzEjlGSD/O9pWVG++W3ne/E35SrSijPWDdOJRsac1is+bmfPQhjzP9kLBPU+
+	csq9PrgA==;
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ2nX-00000002z0o-2Ld0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 11:42:17 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-408e0986303so1365629b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 04:42:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1749814932; x=1750419732; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=;
+        b=fMtK9BFRKP2n6AmA5FXs9cXF4dVjn5j7qT56h3+wzAaHLtLsz2E+Ig/Ihw2h8uvrq4
+         aC10S/wRvJLWrkmBA82yvVoAYAuVkt1s+94JunW688Ji34h8fOr+k1di+RAtzlebWKXv
+         VvRto1uRgHTuLgYwyeZoTPjLA1YoWnFrw05SiAousYhYWolJpLdBNZu/zdKRY58orSZh
+         JxwBL2uSuQ1WPu3+Af4qgWGkRmi3f4zMnyMKNZ+8OrulalygWLSdJN9dOht+7jMh1DTR
+         CH8imTRQvdvKOsGKFmG/7gDkZx8Zr6MCHg2OGIsVJlHv6eB2w3RRasOonSYWpeRbRhPl
+         Hg1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749814932; x=1750419732;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PE5/rsY41g/vAp/0hcg6OhOgOrChXE3RFe9mIYZZ5WM=;
+        b=Us5cyBqR9pY6cTCV79X900IOPO+pjPCMfJ1J3hHTJWWm9ZpI1zkBllQkwuOcmw/z0s
+         vY2agQAbbHu5pA5y7mMb0sCl2N7qlMqmGWbOV0FVUSqd8p1jdhNZAMCwbw2wrGvv2Oxe
+         ZqqHabH+pEk69ggsWFIg7ZZCZzSK/H52K0gyW5EfsrUiQoGMrCotAoQ2guchYy8o4vsY
+         uOFJ0lcVY5N+qM056vAMwIf+ajesuATg3u3nLXqPk3pySeeVz9PC3c++0CGYz6EW4VDm
+         PSni/E+/eRyZiGl04Mn91tXOGImMACNdS0gHTgF2rGjP6f0Gqq9URpDQrj4BhvI7PzTR
+         2tNA==
+X-Forwarded-Encrypted: i=1; AJvYcCX81xEdI5di+P6ui6zVcF4Nj+SU9UNQwYh6IJ+c3Q+rWD3Hywjt+C8QOCv0Gw0u87NlPmFDQppUYePj0Vr5Ys5B@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcMujHKryUOYdErV7QD6E9DSi5nWsDU/vnbueyJAAO4EVnu3wj
+	zUerXdnKObHwlbfVWDB6nsFNFyeyMVasB7BH7+e6+KaLzFHDleNl7b/bIwJajTxPbpTF4oPcJza
+	2myqn
+X-Gm-Gg: ASbGncuTefdUCZfucHT/HgW0Hzbpy92o4INzbq42RSUSM30mDjN6otcTka2NkULSxyu
+	NbN5TtvD06y3GfsYndkHmFll8iEB7mzz+/rNsWnifj+8OALQE8ybvoVC5KJ2UT7HdYcRDh8MMKd
+	uuPUwAgibDA3TyDxCxA2VXfD1YM0XhkjuXDY1STIIjii2eCUA+BId8uH9yADx2WiZYXPGr/jJT6
+	dDMtlBlpfaD7H2fN2x8uergKfvU88OMh6l82jvUNsnLY2iFjR8UAUIyDIck0nqAlUrF9+o7AZpj
+	mYPDz8YH4ebTJYRK3u9c5PfSKSLNDgK8orKoZ/mXX4wIg1RJB/j9qhp/+ksex4G8zNuvCI0csvy
+	GrFqNgXqrIlvIjlWKzdp1iYittDH2i5nI
+X-Google-Smtp-Source: AGHT+IF3wVYZI/s3wM1PNe5izmwye5C2dxIzh460VAl75DrcM6tXXLw5OFqnGApeHtjQqkaMBAsXNA==
+X-Received: by 2002:ad4:5ce1:0:b0:6fa:eaf9:89f1 with SMTP id 6a1803df08f44-6fb3e685f23mr33483696d6.44.1749814921454;
+        Fri, 13 Jun 2025 04:42:01 -0700 (PDT)
+Received: from fedora.. (cpe-109-60-82-18.zg3.cable.xnet.hr. [109.60.82.18])
+        by smtp.googlemail.com with ESMTPSA id 6a1803df08f44-6fb35b3058fsm20558206d6.37.2025.06.13.04.41.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 04:42:01 -0700 (PDT)
+From: Robert Marko <robert.marko@sartura.hr>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	olivia@selenic.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	vkoul@kernel.org,
+	andi.shyti@kernel.org,
+	broonie@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	kernel@pengutronix.de,
+	ore@pengutronix.de,
+	luka.perkov@sartura.hr,
+	arnd@arndb.de,
+	daniel.machon@microchip.com
+Cc: Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH v7 2/6] spi: atmel: make it selectable for ARCH_LAN969X
+Date: Fri, 13 Jun 2025 13:39:37 +0200
+Message-ID: <20250613114148.1943267-3-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250613114148.1943267-1-robert.marko@sartura.hr>
+References: <20250613114148.1943267-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <co2q55j4mk2ux7af4sj6snnfomditwizg5jevg6oilo3luby5z@6beqtbn3l432>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_045242_107791_A43ECE3C 
-X-CRM114-Status: GOOD (  37.23  )
+X-CRM114-CacheID: sfid-20250613_124215_717602_4DEDA498 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,118 +131,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 12:08:31PM +0530, Manivannan Sadhasivam wrote:
-> On Sat, May 10, 2025 at 11:56:06PM +0800, Hans Zhang wrote:
-> > Current PCIe initialization logic may leave root ports operating with
-> > non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> > configuration is handled during bus enumeration, root port MPS values
-> > inherited from firmware or hardware defaults might not utilize the full
-> > capabilities supported by the controller hardware. This can result is
-> > uboptimal data transfer efficiency across the PCIe hierarchy.
-> > 
-> > During host controller probing phase, when PCIe bus tuning is enabled,
-> > the implementation now configures root port MPS settings to their
-> > hardware-supported maximum values. By iterating through bridge devices
-> > under the root bus and identifying PCIe root ports, each port's MPS is
-> > set to 128 << pcie_mpss to match the device's maximum supported payload
-> > size.
-> 
-> I don't think the above statement is accurate. This patch is not iterating
-> through the bridges and you cannot identify root ports using that. What this
-> patch does is, it checks whether the device is root port or not and if it is,
-> then it sets the MPS to MPSS (hw maximum) if PCIE_BUS_TUNE_OFF is not set.
+LAN969x uses the Atmel SPI, so make it selectable for ARCH_LAN969X.
 
-Correct.
-Later, when the bus is walked, if any downstream device does not support
-the MPS value currently configured in the root port, pci_configure_mps()
-will reduce the MPS in the root port to the max supported by the downstream
-device.
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+---
+ drivers/spi/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-So even we start off by setting MPS in the root port to the max supported
-by the root port, it might get reduced later on.
+diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+index 60eb65c927b1..3b0ee0f6cb6a 100644
+--- a/drivers/spi/Kconfig
++++ b/drivers/spi/Kconfig
+@@ -145,7 +145,7 @@ config SPI_ASPEED_SMC
+ 
+ config SPI_ATMEL
+ 	tristate "Atmel SPI Controller"
+-	depends on ARCH_AT91 || COMPILE_TEST
++	depends on ARCH_AT91 || ARCH_LAN969X || COMPILE_TEST
+ 	depends on OF
+ 	help
+ 	  This selects a driver for the Atmel SPI Controller, present on
+-- 
+2.49.0
 
-
-> 
-> > The Max Read Request Size (MRRS) is subsequently adjusted through
-> > existing companion logic to maintain compatibility with PCIe
-> > specifications.
-> > 
-> > Explicit initialization at host probing stage ensures consistent PCIe
-> > topology configuration before downstream devices perform their own MPS
-> > negotiations. This proactive approach addresses platform-specific
-> > requirements where controller drivers depend on properly initialized
-> > root port settings, while maintaining backward compatibility through
-> > PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
-> > utilized without altering existing device negotiation behaviors.
-> > 
-> > Suggested-by: Niklas Cassel <cassel@kernel.org>
-> > Signed-off-by: Hans Zhang <18255117159@163.com>
-> > ---
-> >  drivers/pci/probe.c | 72 ++++++++++++++++++++++++++-------------------
-> >  1 file changed, 41 insertions(+), 31 deletions(-)
-> > 
-> > diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> > index 364fa2a514f8..1f67c03d170a 100644
-> > --- a/drivers/pci/probe.c
-> > +++ b/drivers/pci/probe.c
-> > @@ -2149,6 +2149,37 @@ int pci_setup_device(struct pci_dev *dev)
-> >  	return 0;
-> >  }
-> >  
-> > +static void pcie_write_mps(struct pci_dev *dev, int mps)
-> > +{
-> > +	int rc;
-> > +
-> > +	if (pcie_bus_config == PCIE_BUS_PERFORMANCE) {
-> > +		mps = 128 << dev->pcie_mpss;
-> > +
-> > +		if (pci_pcie_type(dev) != PCI_EXP_TYPE_ROOT_PORT &&
-> > +		    dev->bus->self)
-> > +
-> > +			/*
-> > +			 * For "Performance", the assumption is made that
-> > +			 * downstream communication will never be larger than
-> > +			 * the MRRS.  So, the MPS only needs to be configured
-> > +			 * for the upstream communication.  This being the case,
-> > +			 * walk from the top down and set the MPS of the child
-> > +			 * to that of the parent bus.
-> > +			 *
-> > +			 * Configure the device MPS with the smaller of the
-> > +			 * device MPSS or the bridge MPS (which is assumed to be
-> > +			 * properly configured at this point to the largest
-> > +			 * allowable MPS based on its parent bus).
-> > +			 */
-> > +			mps = min(mps, pcie_get_mps(dev->bus->self));
-> > +	}
-> > +
-> > +	rc = pcie_set_mps(dev, mps);
-> > +	if (rc)
-> > +		pci_err(dev, "Failed attempting to set the MPS\n");
-> > +}
-> > +
-> >  static void pci_configure_mps(struct pci_dev *dev)
-> >  {
-> >  	struct pci_dev *bridge = pci_upstream_bridge(dev);
-> > @@ -2178,6 +2209,16 @@ static void pci_configure_mps(struct pci_dev *dev)
-> >  		return;
-> >  	}
-> >  
-> > +	/*
-> > +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
-> > +	 * start off by setting root ports' MPS to MPSS. Depending on the MPS
-> > +	 * strategy, and the MPSS of the devices below the root port, the MPS
-> > +	 * of the root port might get overridden later.
-> > +	 */
-> > +	if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-> > +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
-> > +		pcie_write_mps(dev, 128 << dev->pcie_mpss);
-> 
-> I believe you can just use "pcie_set_mps(dev, 128 << dev->pcie_mpss)" directly
-> and avoid moving pcie_write_mps() around.
-
-+1
-
-
-Kind regards,
-Niklas
 
