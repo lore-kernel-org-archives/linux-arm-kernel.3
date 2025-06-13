@@ -4,171 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2B9C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3506FC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EP1qAjWPTNOSFlnv1KdFQenJ78MrI9mcZoWHWMsliQY=; b=kompOJ6YWJKDKeLEXK2dZbYF4w
-	x10GHlqU2iLd4tV23JYuEEZGw8eRWmUN5WEPIlWSQMq9ma5kbVxFIpuiJTiR6QwXRMDGh4Gi7iyvI
-	CnOOL7xVGCnNYUeDpS6azKbdUfs5/3p1uL31yBT24RZOkWamvFciGz84Dy8KxOn7gwLXSH5wWbIkc
-	FRAScLYtc+wl9hylGLus3wpBBgH4g0BPb4KnMYzkTx0xMGU3QKv15uTIAGOUHQy2Mxe3EkUt7/pNj
-	cDDXN0lFgkFE5N1v2IL/hWUP6+uMFGedyErctiVrEt3sTc32IBZE09wE5gE0IVgStwZeGaAiyczpP
-	yJU8QkpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wMKt/wPLq9KRfU6Jf04/z1jGFWH/wF4jH0NXJm6Bhlo=; b=JIQD8rxwH6kZbZW662HzhUYR7y
+	SjKdq3s3aqFpPG+AMWo/dK1TYkm1O0OCnxc5FcEfyXd+MLY3EfBjv0f3I7psbG4r9HxVppCQ/cgKB
+	UDd2zwNBsGpxyHAWZ2e03IZfGYpq5WPX+NgeQQdDGoFXLSqowOmBr0D6G9tK2cXsAXwhxiili7CRl
+	T4knNcYEV8xjFiNroKxUtWUhflor1ui78fQxG0E2xJzYpdMvfWVZ2NtIoz1Swptcfv7rdGCvg3CWD
+	NsuRZuuROS1wzn+EX+dMvopMkA5MYNbBakj25kiCUZ5aHIHskd7sxNWKCBJS4k0KOzvEFYaNoXK2O
+	7gXDvEMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1KZ-0000000G1fI-1hgN;
-	Fri, 13 Jun 2025 10:08:15 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uQ1Lq-0000000G1x7-0LX4;
+	Fri, 13 Jun 2025 10:09:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1IF-0000000G1Fl-3f7p
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 10:05:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xaxKoxmHnLSTF2PuuQ8RIF3CYaPRJ1/T3+ZGXuH2AVdyAsjFbw71GvtjjebxigLEQ/9wnKJSf5btbkhQRN6typ/8mCaowQfAexbPT/u5j+IQTHB1PQSSjAdG1AYiIE7F1jCUbKbyiA2sRswBc2PawzSzXaDkWTrPtP8nmHmnGKj6uJcfCNk8HE5xBZzdDnrSz1PhPPbFLELNIfljtn38tMssN3qcn/kOtlqTtbLZpQTM5wYeXkFWRxSx//8vCYRGr4uOOjabhMa0DBZWHJHqSxpPm3ZcUSIqWY+j9Vub46ih8wAfS0IvcEJ18GWjJQv8CLBWCnjo3v6q2sg6KB4/NQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EP1qAjWPTNOSFlnv1KdFQenJ78MrI9mcZoWHWMsliQY=;
- b=huionPsr9tT1G+uuDx2twgVVC34EGCn3YDFPFKcpsswIv2Bu03qBqJDy/clBV0Y4DWiSh5gQkVrS2AYyr0jn43/CO3mw18fsIJcmkgAMvYyhSI27SGndg29h3bf2PMBtfQVsJXgz5TLuL8dr65JXE6BA0NS53QVn7qeNiHnrsrkyfDw6X0pTSwwcNrx6ixZ3YI2VCZrnz+WQE3Zk85s5E3FxgSC6KdF+lVRtpV80LsZcnzgs6WyDQVhzG6GGM7BwdqpnJwZENE3VCPvxt0I5E11E0/sAIgASS9O48n0V2eIhjBaABr3cl8qka+14mNRSiSvTDixEaIRBvCx9JDg9ww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EP1qAjWPTNOSFlnv1KdFQenJ78MrI9mcZoWHWMsliQY=;
- b=VDZYZR/8jhpAl7Bf8jRL9uPreJ5yT4TRV9Qy5c79zu8+ShYIGu/kiL4eKjcGlKLbs2sgh4XrHOW0wNT11dgV/qvUoINXMLIEjD/QGt+J0+Yecqf6qsc2knlqXiC2EGVrwkgfJSgP7DfzufOdKawrQnp/UzZeE4FtlgeK9tuvY+yO217qrPe11tOkGH8ZHAtbDpD491pqc7dlkBfGEvQQ9mCTEtQ51amhLiGexBZrfZ1HKX9NClxupAK/vcnifyYpNquk/gfaFkmgQtle+vh6fgmZqwwQ7RdmhqHDAHjLJw9UpEgKPCUH7lNwhpJaqpGJ2czocnIwOCFBvuMeOdl+mg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
- by GVXPR04MB10681.eurprd04.prod.outlook.com (2603:10a6:150:226::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Fri, 13 Jun
- 2025 10:05:41 +0000
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.8813.018; Fri, 13 Jun 2025
- 10:05:41 +0000
-From: Joy Zou <joy.zou@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	ulf.hansson@linaro.org,
-	richardcochran@gmail.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-pm@vger.kernel.org,
-	frank.li@nxp.com,
-	ye.li@nxp.com,
-	ping.bai@nxp.com,
-	peng.fan@nxp.com,
-	aisheng.dong@nxp.com,
-	xiaoning.wang@nxp.com
-Subject: [PATCH v5 0/9] Add i.MX91 platform support
-Date: Fri, 13 Jun 2025 18:02:46 +0800
-Message-Id: <20250613100255.2131800-1-joy.zou@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0002.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::21) To AS4PR04MB9386.eurprd04.prod.outlook.com
- (2603:10a6:20b:4e9::8)
+	id 1uQ08b-0000000Fob7-2xGU;
+	Fri, 13 Jun 2025 08:51:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=wMKt/wPLq9KRfU6Jf04/z1jGFWH/wF4jH0NXJm6Bhlo=; b=P2ppK4slPzIPIUpPaOllJTjG98
+	8niRUGkbT+FrJOgGWk+t0x00GeyyJugkpkx343d8Ud5i+rQ98fiklT78X1dPz+KN2cXSNRT+Ra6w9
+	rBtTsEiy72njlgeFpGqirRh10ymTzmjDn75oB5SI01lQ+07bLaF9NcLtxy3oWzA/VT9fK6HccT5NI
+	0LGt0qc2tdWD6GC+N2pn5SQVjf/P1ImmwQqoVi00eEsPqQQyPrThG8yf5lginln8b5eZy2bd7ryoI
+	ZgMLy29CbXLiUCRlQf9HPzEorAtQuYSSsgvwoGTwk02dZc63x6kTMhT/Q5o6oGcC67affiCbmJ50y
+	c7lL8VHQ==;
+Received: from abb.hmeau.com ([144.6.53.87])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ08Y-00000002wFy-1bhl;
+	Fri, 13 Jun 2025 08:51:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=wMKt/wPLq9KRfU6Jf04/z1jGFWH/wF4jH0NXJm6Bhlo=; b=ejeNYxJxjqQkEf+Qtb4/A1GtfZ
+	b7jAaCx+igD/opjcpb3XKwVwchdM/PXR4tiwHprFmt4/L2Xs+ZpChWQHUuX2LYsCxrUU+eiustbeA
+	ZKVolER6TWQLfjepmarO/P1DHA89vwzY7ArJk9gDAzisKwslfsuuBqb/Wg3/aWQPZOOjQoyMRELCP
+	8Xbl2WNglxWI/mZ9MWHvlGbxuFigF+67XenNjqAmRVolrvDDN1QbLFg2RHZ/qe/i3LN+yRpvaWrJm
+	DTsKHT9mnfmMylzfbbw6eoUAmVq33jZS3a+a6lk6aGGMWMPA7TQxzmLPlMLIij5j0NMLYobmukZhv
+	QJp9aG1g==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1uQ08Q-00CsF4-2w;
+	Fri, 13 Jun 2025 16:51:39 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 13 Jun 2025 16:51:38 +0800
+Date: Fri, 13 Jun 2025 16:51:38 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
+	Jason@zx2c4.com, torvalds@linux-foundation.org
+Subject: [PATCH] crypto: ahash - Stop legacy tfms from using the set_virt
+ fallback path
+Message-ID: <aEvmmr0huGGd2Psv@gondor.apana.org.au>
+References: <20250611020923.1482701-8-ebiggers@kernel.org>
+ <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
+ <20250611033957.GA1484147@sol>
+ <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
+ <20250611035842.GB1484147@sol>
+ <20250613053624.GA163131@sol>
+ <aEu5cyDOMcKteW_b@gondor.apana.org.au>
+ <20250613055439.GB163131@sol>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|GVXPR04MB10681:EE_
-X-MS-Office365-Filtering-Correlation-Id: a30d8ab0-fc5c-4393-4dc7-08ddaa61da6e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ER4wbpnDw4cnvuh1eW16LRtApO5y1k+Tter62x60hSM0nKmK1zXsRt4cutuy?=
- =?us-ascii?Q?l6ZsMC3qjUqN7WnAgwEsVDUU91Z31vp5VLSI/G67K28d2/Cmncoc4o+Fm9Pa?=
- =?us-ascii?Q?q/eH8rgYZ5pF0n520Zj5JvH5QWkGoOTBlfFZHqJDtA+D3EASqVyKhsCQwS6d?=
- =?us-ascii?Q?Z04+YfxZOwTBGIhHoYqRdN6swPn909SpNFaerG3B3rnSav5wyy8rYKSSyPrG?=
- =?us-ascii?Q?+a7AsefDiYIzhHLX7yRBdmHBK9XTpEMN5PKqEfgDAeSE3CGJG5sm9aGBpnJL?=
- =?us-ascii?Q?fUN4A7Ms9jpSW2rKXeaWdis3z7WAAgYzUY8TWS04pnyU9naGJ7K7XLxGQWpQ?=
- =?us-ascii?Q?aHyUisAsNH1W7Oxi086bUls8tOE4uIvkcuyFrSe9KbjYYjFlq61HW+1/nKii?=
- =?us-ascii?Q?z7BEmwimGIbM/uxlWmyKmoFF5fM43N2xUdoqoYbanh6v49jA10iwekuUL2UZ?=
- =?us-ascii?Q?lK7LM3v9l5xxL6WPcMp5r8X8XK2w+hy1bxtdlGYZUE7W+ED1qkEOFK5Gc0Du?=
- =?us-ascii?Q?8Bx5u/okHscqeLvS6U9paZkXQVbaDUGfefLDe9vIeH5PrvWTmXvj+snwL2h1?=
- =?us-ascii?Q?F+hYvTPOTt+rlQ/6K7w/XgG/B9z1PiNbPcf4YIgHjXmva9fc7FfstOLi4b/b?=
- =?us-ascii?Q?5DNPvjauzX0v7gkzgxxXjjK99tvvbxJTs1+j4XfrObSSAZzPcdu+NOBui7QI?=
- =?us-ascii?Q?qH18F+B+/NB1YPZPQg14gJNUf1DSxsYHM4SOpJM6auERrijSuJof2hAZEBJx?=
- =?us-ascii?Q?fhCtk37PUQmDdNBFrRCqa2vIPIfIxlEEVMbPSdnxoDyJyCL4eAcoSuL4SUBN?=
- =?us-ascii?Q?bqeanC1/9D5xufG+h2RRkBvZtIGc5kbPo/8ll29W+GGUsXJxV0b3bcEwjXWv?=
- =?us-ascii?Q?NwQ0+QRyqlgo+mZ0lwJr5bPqBpQZQSRIssgb+f6S0ZOz/OdpgS3qtijxIu9u?=
- =?us-ascii?Q?J5sF0udCvkQvP0z+nLWDAXec473GjrMrP7Np3FaRdmnz9d46MRp64X0/hRox?=
- =?us-ascii?Q?w0ZLUNdHymEwspHNfBI8hu3YVjLe6zNRSATbEhl6Q/bfx/Pd/rdHXxkTiIN3?=
- =?us-ascii?Q?3Hskf4G1X0HExqIVk2FY09FdAxaoqbN00E4lVyIykvhCtSzo2e1rgayBrdnl?=
- =?us-ascii?Q?zmDzOtjQmn9CIf4MtctA2FCo5fjLvZhe4A3g+dgTcUKO06TafaZmfGeucbQF?=
- =?us-ascii?Q?nbIO+EEv0WyU966U66Bn869Z/DdC00LI19V5ncnzgwtoeL+q2lwvvMwSH43y?=
- =?us-ascii?Q?iiH3FmnWcBTtEHEzdDHuJ2/t9LOhHysLvgwMQ6zJTy8/B5W2tldC4aQwzN27?=
- =?us-ascii?Q?thybeywFLBETvO0z6a0uYkOeSqpEu6gjEbMwnoJJi3JtoYbnQ9xLLPM+p8lP?=
- =?us-ascii?Q?BFt1THp1vLenZCRugM3m592ulCTKu0qg71aWBjqBfUlAI6zoPriNzNLkHJKb?=
- =?us-ascii?Q?lsjztsam+VL0D5zaBexYRl/PRAIE234wM2UbN2Xr0x2Vg0cEif7sll5kpQnO?=
- =?us-ascii?Q?rJXTbE0zevx+QCk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ff2uX0WfSI3iL40U4Lxt+5jJ33bC1nPY9Ai4Yi9t9wTYOJUEd5CZkSbSngOv?=
- =?us-ascii?Q?bzkjZFNKYunDOXLZHmmcQws67L85WKT+JeoOmIAOC9LiaooaQrvNE5fvXm/L?=
- =?us-ascii?Q?M9RGlt/P6hyPGSZFHG5MUqzadEmBaobGaNS+AQg8Ey5TIksoYwZ4X42OuYYh?=
- =?us-ascii?Q?4Wa2K7StJWITj4i+uDATuh/d9fN7PPyydGInOeaWq2cGyBJxRxufdb6oCLdZ?=
- =?us-ascii?Q?xfVHGN0xBdIP2AR+hr0ckFNDINn6mdPrnUit0wEGvgtt1TmqhS6iy331Jt+C?=
- =?us-ascii?Q?YNxSiSHvN4ztU1LimIUU1d7vAP2jhMrext5aOCvWMZQerPj6jgVgM6U4/RAC?=
- =?us-ascii?Q?KYWHj6fvXD7rxXjGG4gEjDSqNpkI/NIu5LkAVySsZ7wTJvp9Gz/7RZpN5ABQ?=
- =?us-ascii?Q?ZrpamyzeOn9VlmVYeeLGid1JrJdE3qqrS055GiebWUFs1zL+nW4kjxNNNN9w?=
- =?us-ascii?Q?Z9dFXdX98cEAT92+Ar0tIMyJCnuFNt3WJn2urblKZkgRh2p8zkgVZvHjsr5a?=
- =?us-ascii?Q?Va0hjiEYTHQLUdJ2aqxitjkbhr9TNUm/21AOyxklZ+rSpiPdSIDP8gPL7JR/?=
- =?us-ascii?Q?Ym7xDHcusW1n6fTNv+KwFsuN0e/JTatLOICkUfgBajFQ8DTkgcRf5UhVMbP8?=
- =?us-ascii?Q?1buaJZj+pjrMfqbeI7xE3X75AfMX470SKULh1dBbkrMW2wgbiuQiUZLlUezh?=
- =?us-ascii?Q?MTp6bFJxY6FhEIifL0e04lXl2RUYgwIXBreCp+yJoDZ+GtHECQwT0EZYwnQb?=
- =?us-ascii?Q?TrQgd36Su/xIpCyUQZBK0MxF6wYkGtPOxwA51RMyk3uhUBgkIYRyoWMe8s7f?=
- =?us-ascii?Q?j3Na3tdu1CCCpow16M3uRhc6uLshNnAzF97+i/UxyL4vh6FeVzph9Sm6xHcV?=
- =?us-ascii?Q?Yefv9qDYY03nDDC6Jwa0TqHqTO8ATYSe5iYSIfIE8pw5f95GdmqsXtYgMpe9?=
- =?us-ascii?Q?AAoLoBWsDlSYJKZ610Gm8KHoSrnUgvKSY3WiZTHZn8/SjNmC7f6snWRdW70Q?=
- =?us-ascii?Q?bXKCS7ohzmsmK6z6C9ZROPEUrpBytU1iSoN+Vg99+E4QEwyyaQHh/hNwCdDl?=
- =?us-ascii?Q?kFdYEnGIyyqgarJ2eWbnAV4zyzCjzO0J4SsWZD9zoFC0XWvT174WPVt/Afv8?=
- =?us-ascii?Q?otRK0sLr3kBpoVADN1rafuzOc8O5R3mroui3aLwaPfK4kFH6yHOacmdfExiE?=
- =?us-ascii?Q?HpizTLhPWLd69/0t85J+WMYLVtRrUw5xfBfiqL9u2nxtGV3VSbOssDH5eWiA?=
- =?us-ascii?Q?bQEWkCCKpr/JxYAg6OzzsJlWifZfkfMbha7O//lD4lOd1kMVCw53Lx4YQpjt?=
- =?us-ascii?Q?pp20AFYlFAtR2OOKC6BmL8xQ+wWcnPYaJ8AZgPdPn4gzHmlYqSRFZ52Cl6b2?=
- =?us-ascii?Q?5Aps0oMYyiYJwmHFU+sEJSaH2Fe+e/rQJqnOH+PgKhc8Xh4LKjl2egHEcYbF?=
- =?us-ascii?Q?X++/87eOL4bj3N6rJB2cTGqK539YE18yLmy3yZLqysK38mzDV+rJHyc20n2e?=
- =?us-ascii?Q?btdqiZUT6p8DyJPn7g9mjwpa/BWCF0FdNTbqLtRwZfbWcN1gI/4ZzNx0xIc/?=
- =?us-ascii?Q?zX0+ZVn4E6HiA6PqmYLE29VtpTq9RUQUKSEpKzwp?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a30d8ab0-fc5c-4393-4dc7-08ddaa61da6e
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 10:05:41.2575
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0wXLFGpoBTw+jXfSxCpt0dwyqMo/Zdc4XY6OwIE+gLgPWzMxi0/Wil6ek9bM+j78
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10681
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613055439.GB163131@sol>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_030551_920317_9F57C58C 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20250613_095146_658923_7ADE50B5 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,79 +97,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The design of i.MX91 platform is very similar to i.MX93.
-Extracts the common parts in order to reuse code.
+On Thu, Jun 12, 2025 at 10:54:39PM -0700, Eric Biggers wrote:
+>
+> Actually, crypto_ahash::base::fb is initialized if CRYPTO_ALG_NEED_FALLBACK,
+> which many of the drivers already set.  Then crypto_ahash_update() calls
+> ahash_do_req_chain() if the algorithm does *not* have
+> CRYPTO_AHASH_ALG_BLOCK_ONLY set.  Which then exports the driver's custom state
+> and tries to import it into the fallback.
+> 
+> As far as I can tell, it's just broken for most of the existing drivers.
 
-The mainly difference between i.MX91 and i.MX93 is as follows:
-- i.MX91 removed some clocks and modified the names of some clocks.
-- i.MX91 only has one A core.
-- i.MX91 has different pinmux.
-- i.MX91 has updated to new temperature sensor same with i.MX95.
+This fallback path is only meant to be used for drivers that have
+been converted.  But you're right there is a check missing in there.
 
----
-Changes for v5:
-- rename imx93.dtsi to imx91_93_common.dtsi.
-- move imx93 specific part from imx91_93_common.dtsi to imx93.dtsi.
-- modify the imx91.dtsi to use imx91_93_common.dtsi.
-- add new the imx93-blk-ctrl binding and driver patch for imx91 support.
-- add new net patch for imx91 support.
-- change node name codec and lsm6dsm into common name audio-codec and
-  inertial-meter, and add BT compatible string for imx91 board dts.
+Thanks,
 
-Changes for v4:
-- Add one imx93 patch that add labels in imx93.dtsi
-- modify the references in imx91.dtsi
-- modify the code alignment
-- remove unused newline
-- delete the status property
-- align pad hex values
+---8<---
+Ensure that drivers that have not been converted to the ahash API
+do not use the ahash_request_set_virt fallback path as they cannot
+use the software fallback.
 
-Changes for v3:
-- Add Conor's ack on patch #1
-- format imx91-11x11-evk.dts with the dt-format tool
-- add lpi2c1 node
+Reported-by: Eric Biggers <ebiggers@kernel.org>
+Fixes: 9d7a0ab1c753 ("crypto: ahash - Handle partial blocks in API")
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 
-Changes for v2:
-- change ddr node pmu comaptible
-- remove mu1 and mu2
-- change iomux node compatible and enable 91 pinctrl
-- refine commit message for patch #2
-- change hex to lowercase in pinfunc.h
-- ordering nodes with the dt-format tool
-
-Joy Zou (8):
-  dt-bindings: soc: imx-blk-ctrl: add i.MX91 blk-ctrl compatible
-  arm64: dts: freescale: rename imx93.dtsi to imx91_93_common.dtsi
-  arm64: dts: imx93: move i.MX93 specific part from imx91_93_common.dtsi
-    to imx93.dtsi
-  arm64: dts: imx91: add i.MX91 dtsi support
-  arm64: dts: freescale: add i.MX91 11x11 EVK basic support
-  arm64: defconfig: enable i.MX91 pinctrl
-  pmdomain: imx93-blk-ctrl: mask DSI and PXP PD domain register on
-    i.MX91
-  net: stmmac: imx: add i.MX91 support
-
-Pengfei Li (1):
-  dt-bindings: arm: fsl: add i.MX91 11x11 evk board
-
- .../devicetree/bindings/arm/fsl.yaml          |    6 +
- .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     |   55 +-
- arch/arm64/boot/dts/freescale/Makefile        |    1 +
- .../boot/dts/freescale/imx91-11x11-evk.dts    |  878 ++++++++++
- arch/arm64/boot/dts/freescale/imx91-pinfunc.h |  770 +++++++++
- arch/arm64/boot/dts/freescale/imx91.dtsi      |  124 ++
- .../boot/dts/freescale/imx91_93_common.dtsi   | 1215 ++++++++++++++
- arch/arm64/boot/dts/freescale/imx93.dtsi      | 1412 ++---------------
- arch/arm64/configs/defconfig                  |    1 +
- .../net/ethernet/stmicro/stmmac/dwmac-imx.c   |    2 +
- drivers/pmdomain/imx/imx93-blk-ctrl.c         |   15 +
- 11 files changed, 3166 insertions(+), 1313 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
- create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-
+diff --git a/crypto/ahash.c b/crypto/ahash.c
+index e10bc2659ae4..992228a9f283 100644
+--- a/crypto/ahash.c
++++ b/crypto/ahash.c
+@@ -347,6 +347,9 @@ static int ahash_do_req_chain(struct ahash_request *req,
+ 	if (crypto_ahash_statesize(tfm) > HASH_MAX_STATESIZE)
+ 		return -ENOSYS;
+ 
++	if (crypto_hash_no_export_core(tfm))
++		return -ENOSYS;
++
+ 	{
+ 		u8 state[HASH_MAX_STATESIZE];
+ 
+diff --git a/include/crypto/internal/hash.h b/include/crypto/internal/hash.h
+index 0f85c543f80b..f052afa6e7b0 100644
+--- a/include/crypto/internal/hash.h
++++ b/include/crypto/internal/hash.h
+@@ -91,6 +91,12 @@ static inline bool crypto_hash_alg_needs_key(struct hash_alg_common *alg)
+ 		!(alg->base.cra_flags & CRYPTO_ALG_OPTIONAL_KEY);
+ }
+ 
++static inline bool crypto_hash_no_export_core(struct crypto_ahash *tfm)
++{
++	return crypto_hash_alg_common(tfm)->base.cra_flags &
++	       CRYPTO_AHASH_ALG_NO_EXPORT_CORE;
++}
++
+ int crypto_grab_ahash(struct crypto_ahash_spawn *spawn,
+ 		      struct crypto_instance *inst,
+ 		      const char *name, u32 type, u32 mask);
 -- 
-2.37.1
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
