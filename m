@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D96C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 14:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55464C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 14:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSiNv1mf/Hbd9uda8Ii8TTZIQwo1ErNS1QHpuTshDBU=; b=2x1WRSQo7eRMiaT+Diy3IYS1Pa
-	cEYcRYnVi4a5/jRcpobD6me7+YOv7K51I1iYCE9kp8ZLvR2H9aIKxEy8I3W4qfvG0UaKG0FsR8CQx
-	VB6jYJT1YawXxlM0vfLylXYpc086Rz27LBbNVO9eisxJJ7I6Mm/LE/aXTwcyfT8d0lgDpqymB+ql5
-	qjbc6gLhIvthNdyH6Cz7q5VixUzafFNVQ9rJNj1SKK5LQ9trpriokRlMxEBHxmG0M9ihDMEDgR2IN
-	JnisO4BiSL0U/N4tp+zIbaO+rWu7gQ5ilwKKtguOeDErQYFuU0Ed27g79xguGLjMuYry7WrNMWAuo
-	EMol3qBA==;
+	bh=KVpFY9cJTFG3+SXwZWcq2Mk8FXznG01vlFE4IEFImPE=; b=mB2xS7IdvvoluLGX3pdpx8Df2V
+	StkMv0diV4ElZiGFATQ3rKHVyxrahgY2aMvBrxOXZWQiTjbPbqLuhCBaPJ7XB9gyNKwLhOkt37GTs
+	CfOa0Pd0qIc+P+foQqTCRNBOQ0SrrW7fhMlRmeSTOQIpv/mJAsnQUe6O0Vu5RmhZBKVIvNxXQm0tH
+	y7cdr0QKTWgKcXEYtbE+InpLyFxA9f0i6AzBK5qAqX6EBqydKy1hhP0SxwNE2iMi5QL/FkqU5YLdk
+	Xmsg4XG7ba1DJJnXRWuLrEahg2H5ucLeJVFJMeCG8mjI+JC71X9zo0x3yG0O4tRxSnOwBvCzIRln1
+	Ti2LBexw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5J2-0000000GgLz-2mbd;
-	Fri, 13 Jun 2025 14:22:56 +0000
+	id 1uQ5NX-0000000Gh2r-3iTW;
+	Fri, 13 Jun 2025 14:27:35 +0000
 Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ4mA-0000000GYnm-2Z4D
+	id 1uQ4mF-0000000GYp4-1Nx1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 13:48:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id A4472442A5;
-	Fri, 13 Jun 2025 13:48:54 +0000 (UTC)
+	Fri, 13 Jun 2025 13:49:04 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 8971C42E77;
+	Fri, 13 Jun 2025 13:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749822537;
+	t=1749822541;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ZSiNv1mf/Hbd9uda8Ii8TTZIQwo1ErNS1QHpuTshDBU=;
-	b=ZQNaOg78U3O6p5ZeYOS8VkbIVtg2jbvpeHfHQ9ke1B/vbZg6oUVdudcrK7ygGk1sKUT4Gw
-	Qn0vVX1SYORVVecL1ysGQf4o46Zn6pOK1AWCDnczAmxJ4KZ92qCMVXK83XqU+ztD5nKDwI
-	ePFhRvnGAtcefomKD2HOYgSWFWx8kvgxjhKWAn8tfqwA1juOOljn4of2gJE3y07dA8rg83
-	ptNJ3FXobB4V7gx9riVNoNoqWfD4B0ryxF8z91dGxSiUON3Tk6MwvX2pqkTlpm3lQRWtDE
-	sGkK3Aq8p933dnPso/wcuKkwyZdBF8t8SjmV5f6FIKCA45eycud/7bOqrTLDtg==
+	bh=KVpFY9cJTFG3+SXwZWcq2Mk8FXznG01vlFE4IEFImPE=;
+	b=adlR8BkXJAse71AhOs7Yc5jczpPTRxqxbwmj0FhTvvld9hVkgsUrPkovvKEuZ8qMkIW43B
+	yBB4qZ7WUY0APUhgT6EwRT6I9IxipdAil3v4bvhISEHkDEWCIYWmJ5oNm8YT1FE5NtLIg8
+	8qnr5dgFC2u0KuLUfQ0ZjcZY9VP7ElldulkRa6Y4HKwMp81Gz67LEyZHuyk4HNOwyvfZEO
+	dg+1tw2SuDYGIqoAgOlUZT8Y41d/BTeVKPVY1jSLDr4+lySJJfHjLsXu17jDmPb+/Q7PdI
+	ztlibfiuwYQAugIK1ztcavc2kFcNRYS6SxWHk6E0bpv2c/XGRyTz8xTF9ypU5A==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -91,9 +91,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v3 05/28] bus: simple-pm-bus: Populate child nodes at probe
-Date: Fri, 13 Jun 2025 15:47:45 +0200
-Message-ID: <20250613134817.681832-6-herve.codina@bootlin.com>
+Subject: [PATCH v3 07/28] drivers: core: Use fw_devlink_set_device()
+Date: Fri, 13 Jun 2025 15:47:47 +0200
+Message-ID: <20250613134817.681832-8-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250613134817.681832-1-herve.codina@bootlin.com>
 References: <20250613134817.681832-1-herve.codina@bootlin.com>
@@ -101,12 +101,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeduudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehffeigfejueelueeuffelueefgfelhfejhfehieegudekteeiledttdfhffekffenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdrlhhotggrlhguohhmrghinhdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeelpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhr
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeduudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehffeigfejueelueeuffelueefgfelhfejhfehieegudekteeiledttdfhffekffenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdrlhhotggrlhguohhmrghinhdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeelpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhr
  ghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_064858_810555_1540517A 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20250613_064903_516007_EB693D6D 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,99 +121,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The simple-pm-bus driver handles several simple busses. When it is used
-with busses other than a compatible "simple-pm-bus", it doesn't populate
-its child devices during its probe.
+The code set directly fwnode->dev field.
 
-This confuses fw_devlink and results in wrong or missing devlinks.
-
-Once a driver is bound to a device and the probe() has been called,
-device_links_driver_bound() is called.
-
-This function performs operation based on the following assumption:
-    If a child firmware node of the bound device is not added as a
-    device, it will never be added.
-
-Among operations done on fw_devlinks of those "never be added" devices,
-device_links_driver_bound() changes their supplier.
-
-With devices attached to a simple-bus compatible device, this change
-leads to wrong devlinks where supplier of devices points to the device
-parent (i.e. simple-bus compatible device) instead of the device itself
-(i.e. simple-bus child).
-
-When the device attached to the simple-bus is removed, because devlinks
-are not correct, its consumers are not removed first.
-
-In order to have correct devlinks created, make the simple-pm-bus driver
-compliant with the devlink assumption and create its child devices
-during its probe.
+Use the dedicated fw_devlink_set_device() helper to perform this
+operation.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/bus/simple-pm-bus.c | 23 ++++++++++++++---------
- 1 file changed, 14 insertions(+), 9 deletions(-)
+ drivers/base/core.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/bus/simple-pm-bus.c b/drivers/bus/simple-pm-bus.c
-index d8e029e7e53f..cfa05f9bd226 100644
---- a/drivers/bus/simple-pm-bus.c
-+++ b/drivers/bus/simple-pm-bus.c
-@@ -42,14 +42,15 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
- 	match = of_match_device(dev->driver->of_match_table, dev);
- 	/*
- 	 * These are transparent bus devices (not simple-pm-bus matches) that
--	 * have their child nodes populated automatically.  So, don't need to
--	 * do anything more. We only match with the device if this driver is
--	 * the most specific match because we don't want to incorrectly bind to
--	 * a device that has a more specific driver.
-+	 * need to have their child nodes populated. So, don't need to do
-+	 * anything more except populate child nodes during this probe(). We
-+	 * only match with the device if this driver is the most specific match
-+	 * because we don't want to incorrectly bind to a device that has a more
-+	 * specific driver.
+diff --git a/drivers/base/core.c b/drivers/base/core.c
+index ce367c44f642..3afe821f37f2 100644
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -3742,7 +3742,7 @@ int device_add(struct device *dev)
+ 	 * device and the driver sync_state callback is called for this device.
  	 */
- 	if (match && match->data) {
- 		if (of_property_match_string(np, "compatible", match->compatible) == 0)
--			return 0;
-+			goto populate;
- 		else
- 			return -ENODEV;
+ 	if (dev->fwnode && !dev->fwnode->dev) {
+-		dev->fwnode->dev = dev;
++		fw_devlink_set_device(dev->fwnode, dev);
+ 		fw_devlink_link_device(dev);
  	}
-@@ -64,13 +65,14 @@ static int simple_pm_bus_probe(struct platform_device *pdev)
  
- 	dev_set_drvdata(&pdev->dev, bus);
+@@ -3902,7 +3902,7 @@ void device_del(struct device *dev)
+ 	device_unlock(dev);
  
--	dev_dbg(&pdev->dev, "%s\n", __func__);
--
- 	pm_runtime_enable(&pdev->dev);
+ 	if (dev->fwnode && dev->fwnode->dev == dev)
+-		dev->fwnode->dev = NULL;
++		fw_devlink_set_device(dev->fwnode, NULL);
  
-+populate:
- 	if (np)
- 		of_platform_populate(np, NULL, lookup, &pdev->dev);
- 
-+	dev_dbg(&pdev->dev, "%s\n", __func__);
-+
- 	return 0;
- }
- 
-@@ -78,12 +80,15 @@ static void simple_pm_bus_remove(struct platform_device *pdev)
- {
- 	const void *data = of_device_get_match_data(&pdev->dev);
- 
--	if (pdev->driver_override || data)
-+	if (pdev->driver_override)
- 		return;
- 
- 	dev_dbg(&pdev->dev, "%s\n", __func__);
- 
--	pm_runtime_disable(&pdev->dev);
-+	of_platform_depopulate(&pdev->dev);
-+
-+	if (!data)
-+		pm_runtime_disable(&pdev->dev);
- }
- 
- static int simple_pm_bus_runtime_suspend(struct device *dev)
+ 	/* Notify clients of device removal.  This call must come
+ 	 * before dpm_sysfs_remove().
 -- 
 2.49.0
 
