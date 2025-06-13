@@ -4,124 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C984C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:19:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 291FBC71150
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZHeYqEVybulKIAJ/SLz1vtqwVOqbhPS/lmlXAmsbCt8=; b=T9ppzJ82BOTCJNKYyL6ZH2IEXb
-	UuRnO+ToaXGh4UyiD4qovkmv0S5QgOD7B6pfPyO2QDL32iIT7K3jK2IJahal2zZb174jusuWJkGW3
-	UeEq/I7nSkG4nicPbqEb8L0KNRStiMwuy59AALpNeLlfiYvCOx0Ql/ZviyF9icQ4wmNd8zqvKG0hv
-	TZfk6/nWAzkHvt8k8Nv0tQaFKaUV2JWhmRoqK4h88EsH7sVWGr5BISpTvwNHX3A1F6tmbdBrnhHaf
-	1gKx6bz6KPy4+lfWBpYwQ8qTxGh4LP6UtZf1onajZzD6oKKVYM+qSxPrzi7JCALVbBHa/tAkuIKXC
-	mA77FLaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dI+YClki4Q+OM8j5JXLpkAENpDyF7Cb60VCru1h+I9Y=; b=x8YZxL5YnWCeo5wsh9lmyAILCw
+	DqadprfNJ+wOg+0R3InmGngwyeD/t9JFdBpZ7jvMmPr+wSZ6ZHt/4H2ypN4LfYTbuLOFWipEluDt9
+	Pg0gvyGYr+sXfTT08GCcYdpiWldZrQ2kS7QHQxHOKoM9b2oJIZ4VH0ekf/2dMn4tlf4tkQiuzP/ET
+	fEjAUSUxD/nqaWWxq2BUz+xyr8/gAcqZKUK3SajxjAbb7XATlSjujxINiH0WQUHIQNQpbjDSJqlbA
+	LyqeRgKPkDtWiHVvG/rgpF7bVpIIoD9yjOBKKsFfvvoygKE6AgD9qntjcnFCBed6aOperTRaNZDjc
+	mDogBTKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9wE-0000000HQBl-0npw;
-	Fri, 13 Jun 2025 19:19:42 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1uQ9wF-0000000HQEN-3Hip;
+	Fri, 13 Jun 2025 19:19:43 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9O7-0000000HKjS-445I
+	id 1uQ9ZQ-0000000HN1L-2A8P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 18:44:29 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-311da0bef4aso2770003a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 11:44:27 -0700 (PDT)
+	Fri, 13 Jun 2025 18:56:09 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-60634f82c77so716159eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 11:56:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1749840267; x=1750445067; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZHeYqEVybulKIAJ/SLz1vtqwVOqbhPS/lmlXAmsbCt8=;
-        b=E4y+xngTYBgmIN4RAQll862wUUhJULZPmJSVptSBR56PP1QKnHvdr4NRqKhVlsmkzS
-         YuDt9aJdMWgD56N8KiJgFHQghnyYx8Rz9NJn2Pu4feRndSNKJ5AFmCN5gYFZzjmlVZLJ
-         Ydw1pC+gJGls8LxWwd3NrAoEbUVzyevr2cjRg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749840267; x=1750445067;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749840967; x=1750445767; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZHeYqEVybulKIAJ/SLz1vtqwVOqbhPS/lmlXAmsbCt8=;
-        b=pRD55Nw5BErvT36KZl3D3LmViVqYPX7hVNfOi4cqMzbnkrDJZQoewRf/qcLZc8Kce+
-         RKtK0Bk//9yZFQQWYD9jBHmBco1aw98kwsgZxririDhLC+zv8RDm9vn46dKMOx29H8FL
-         ewX5/7fUY6/Yj2DmbhTlaCu44BWvY7IbS7VycnXQbVatS9cXYJHe9MvzVyXMOAoM39Od
-         HdlqDX+gmUQvijbs1KwshAnyN0KmMDfkYj5Uyo1tXQriFv0EkN12rKGelISmpFPWww+R
-         nP395SvJjoTOPw/x4XikEmdddaQg2ZF/RbS04fGRdM1zu4yF7VpQ7H5M7Y4Qd8ZAq1X6
-         1Jtw==
-X-Forwarded-Encrypted: i=1; AJvYcCVAU5CmqhbCiYCDk2/0gxJsjDYMZTKIpfgNCVuQo8eIpSQphS3KsFSeDieTTL7+gf1LAmyj8O4jcyim16iqgMmA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIjRpl07c81xraDAsbcMYY9C2hiFKXFNvFCCle1bxcY4X/L3nR
-	Cq4VhJg8kFJlSp6AyphOuzl/6/J1I8NknEJ6ZzKpRLcvOM6bBm08Xr6cxJHvjr1P8w==
-X-Gm-Gg: ASbGncun6pAcnGSNVSpvamX2jThu+O7QfTP+SnsqbftbZZVN8lFKiEDb9YWk1SGCov1
-	1FGoc7T91DP1h9YzQbSond74MEt9S7HrgWjU2pbVk2bKbnBmACKwcYZrrW4qVXAb0NDzSVh4wZ+
-	OVpMys1Gp4u1yuysRm6fWPE4NO3viVf+3cSwQMz9+ouPng9U/XZPrJZ/FCZAMl4UFJq2aZeLZgE
-	q9XM84NSxul660x8xEnGEOnKNYkuF0pHmLXwMG5UtSSNOuEpkjgG1B1QMdo6whArf/niZQ4drGx
-	Kd0Db0P2MXKciYqoUz/F0UVL1NaggPVKXYkd62qsLlmMOkWtFUGU9KsSxuI9ns9qkzoF0EXC7fg
-	mg57kn+F5BesoFxbS0QUERlPuPw==
-X-Google-Smtp-Source: AGHT+IE3l/ieo58PZuP/VXIQXaNY72ns5eLc69FqJbf0YSdSZl1/lgIYYyrYbd3f+TjZzr4aXsSomQ==
-X-Received: by 2002:a17:90b:4cd1:b0:311:f2f6:44ff with SMTP id 98e67ed59e1d1-313f1db806fmr1227482a91.17.1749840266701;
-        Fri, 13 Jun 2025 11:44:26 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313c1bca4c7sm3729100a91.3.2025.06.13.11.44.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Jun 2025 11:44:23 -0700 (PDT)
-Message-ID: <d995799f-b4d9-4c90-a1a0-2e8e212a6b59@broadcom.com>
-Date: Fri, 13 Jun 2025 11:44:22 -0700
+        bh=dI+YClki4Q+OM8j5JXLpkAENpDyF7Cb60VCru1h+I9Y=;
+        b=q2KqaO74mY+0FGhobHCxgPfHMCKbIxk6r2Htq3OJfs5tu52Y0ubKsFvndBNuoJSRNI
+         yuOaeTIcpOemdVNlNTk3EWUKWc3XimipwUyfmwbDQeMS0L1ui2LVp9qJOMbgt5YorLLQ
+         Z+O/000AyuxtN8iAKep9u4aLiNMJwr3yY5trFeBAEC6AijQHWsltzgbMuvlk1wjXIe5p
+         3ioKGXEk1A2KhPLTh5yK/T9ARSUmlF3bm53UgxW+fmbdomVQqGk7YYvvlsvSkvmlmZFJ
+         zociogpfRKxt4mDSNJ+yCHAf42w/P0g2o6qh5qI2YHOmu1Ql244Sorp8hZaIdOgTHtDx
+         B/fA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749840967; x=1750445767;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dI+YClki4Q+OM8j5JXLpkAENpDyF7Cb60VCru1h+I9Y=;
+        b=Y7Y8gVx8o2oOE5eeVRb7p+KFmWpqldPrwCFathGSkLlR8pP+sLNxAHisjTRQIaK56V
+         LMjniJqAWHbapXSPQJuoheTlPs6ihTMt8bYT0Rc7u7YY6IsCNmxT77/3Bhy2H1pdNd7c
+         k1UZHBPVX9qwYHgarNtmdS/v/p5MdtejAdFIAnPy9VK/thQGU4E9Fvf2/Q0+eK0xYlpe
+         kmlYNka3XQ2cL+zfu3gS78gxvtl9wr01X87oHg0qFA4pLk12jVn4O8JDQuOQfkZ19Nin
+         ZV8CTc0UUbQGr6YRqFYXqLM+QNB1qmP6W8O+IT1UTbIltn2fr0Ih5qk4tG16PjG+kI0x
+         1hpg==
+X-Forwarded-Encrypted: i=1; AJvYcCWo278UCwdtRrV21uTH0u3w/5J8jrDXededtYW8JPuzITBkMoSdgxydojc0v4TdYfsg3De/o/pTd8TxmKxpWjHf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZthdJMGIkUrl9XUePbUptmuPtmpLd0MVDNfQ74PfdezJDrxC/
+	Hj5LyurWqFcNiIQTRiufmF7n7Uy0S1NMLdKpV25BmAR77Cjs5ImF8rQk9DsuKZ/CzOI=
+X-Gm-Gg: ASbGnct5IkEdu+M9MWQbaPcmFkjSk8gzFg8loKaLxCNmqj4+AUD5okqLVrH6bc0jwd+
+	SY2pbUowSe963LXfeW4I1AYYHrBjBVrfiwqfII9YhoaE9GEKL3P/tTnZNpXv3sxGXDFc0u/N4iy
+	W5xpeqSm+99WeJ70nnNfBrPUamS7zyw8C9pU1Lxg3CmFWwvHoq01ZcO+qNH5Ccmmc2A/wl5RbBx
+	tAaawpidDOjKblsPg2t2TP5IU69JWZnZ1GMa6JimBBnO2smxFHmJGm6uc6TehSD5qqLxqJi8Vy9
+	l49EaP6QhrC2PZCB4bI8zxn26QbS1vrJj0qXsgOZWI/+Iabel8nHpjp+acRtNeVcjFc=
+X-Google-Smtp-Source: AGHT+IHIDNuqhtDyrUFqLqhDihe2otHFXjR2z0Uj0/IxHd8WHsBb5KQ/hfkoGSBN5gTvsdjyeJ771A==
+X-Received: by 2002:a05:6820:2220:b0:60b:d6f1:7c50 with SMTP id 006d021491bc7-61110dfc503mr554725eaf.0.1749840967556;
+        Fri, 13 Jun 2025 11:56:07 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:4647:c57:a73c:39d8])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-61108f07e08sm256244eaf.27.2025.06.13.11.56.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 11:56:06 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Date: Fri, 13 Jun 2025 13:55:28 -0500
+Subject: [PATCH v5 1/3] bus: ts-nbus: validate ts,data-gpios array size
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] cpufreq: brcmstb-avs: Fully open-code compatible for
- grepping
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Markus Mayer <mmayer@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Viresh Kumar <viresh.kumar@linaro.org>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250613071643.46754-2-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250613071643.46754-2-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250613-gpio-set-array-helper-v5-1-273fab50cc8e@baylibre.com>
+References: <20250613-gpio-set-array-helper-v5-0-273fab50cc8e@baylibre.com>
+In-Reply-To: <20250613-gpio-set-array-helper-v5-0-273fab50cc8e@baylibre.com>
+To: Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1149; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=SFpLyUrSkeov8lTDekLTl8UML1Z5oaveGJ3pRpViCz0=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoTHQuTsVQSh+FA+OKrMbq7r95SDLAKurmzl6n4
+ eF3OJTvep2JATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaEx0LgAKCRDCzCAB/wGP
+ wLf/CACNf5sXMZSBwHrR52sDXKkT4pw+mfyzKQkTvQU/RNoOzSFHeNzl3etvgs8aItFSQTCaZDH
+ +Kn1nNY/N/mbvJKdZpsMAD/LgP5aR3hLOcp+IfbZ1pzhZj3uMQ8XXf0VVGzRhEVhy/z/sIzJZpi
+ bA2KUclSU5ndPJZS96FRk+LAbirsKK97ExHRQFZFC8xgl0II20W/hPiGtdgs5A/1YeGynRLaomM
+ 3s9oScLTVwynnmJT4qlp0I2iFLDFrL1qz65UzoUG3nUabTPNVmjHfYqNSOsYfzXW8bfZemySSAD
+ ZfmCDJLVCIdbBRkoiY/FfEcScqIm2bvrZwi+vSvvOwjU54BE
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_114428_070178_71285F82 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250613_115608_561559_2A4A251D 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,14 +110,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/13/25 00:16, Krzysztof Kozlowski wrote:
-> It is very useful to find driver implementing compatibles with `git grep
-> compatible`, so driver should not use defines for that string, even if
-> this means string will be effectively duplicated.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Add validation of ts,data-gpios array size during probe. The driver
+later hard-codes 8 as the size of the array when using it, so we should
+be validating that the array is actually that big to prevent possible
+out of bounds accesses.
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: David Lechner <dlechner@baylibre.com>
+---
+ drivers/bus/ts-nbus.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/bus/ts-nbus.c b/drivers/bus/ts-nbus.c
+index 2328c48b9b1260e805c631f2aa7379d620084537..d3ee102a13893c83c50e41f7298821f4d7ae3487 100644
+--- a/drivers/bus/ts-nbus.c
++++ b/drivers/bus/ts-nbus.c
+@@ -48,6 +48,10 @@ static int ts_nbus_init_pdata(struct platform_device *pdev,
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(ts_nbus->data),
+ 				     "failed to retrieve ts,data-gpio from dts\n");
+ 
++	if (ts_nbus->data->ndescs != 8)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "invalid number of ts,data-gpios\n");
++
+ 	ts_nbus->csn = devm_gpiod_get(&pdev->dev, "ts,csn", GPIOD_OUT_HIGH);
+ 	if (IS_ERR(ts_nbus->csn))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(ts_nbus->csn),
+
 -- 
-Florian
+2.43.0
+
 
