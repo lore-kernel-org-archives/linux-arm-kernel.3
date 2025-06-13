@@ -4,104 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBA0C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCAFC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9bCHCGcohcJ2Z8gKyh3s4OeACkb8tG/8ddHOZfIjF3E=; b=GHA1+lwVH5T374iMUkv//fqsYN
-	G4II8Qjz34WqZ+uCuSm7YfTK24wxVMdZ7MdCOWmSShqHjsElQqfgzC28lUFRyNV1OspLepS506tZi
-	pldJqzMUjniqqspztkR+XSFOuxgCSkGr5PCyj/dL7NyRo9MnAVow1EMMZhr9EdK9+DsIGJaCaiVng
-	mhwcUkh1oT702hAytn3o0FwSe3nC/XAzvThOXLKZurrxoQWapbOa1lxS3efD1k3CXnMtEeHYSP3OY
-	YtgoIpFNQcXDcseAs8PMLMMRsgltAffWh2G2SCKKf6MCoPMtDIHxCAyQN/rBKvrY9iWjakIpPqkRC
-	+2NSgoCg==;
+	bh=BgL7knV6yI8Y1Hx7bT1tq1wKfGShjoMrf4TYYwMBN6A=; b=dQWq2lblo0tVX3vJTTIku/jVwd
+	QO698/vPtTf0Vb3JgHVTSp/gbwAZsggz402ElG/DyGOA9nITYFeZ8ShRLQGN5OWmhkozgJyeMQzzT
+	1LQXV5rUTPLKx1bXC1+0E1jsyLrkSM3VTbPB5pIKy8bwNQLL++gwV26SsNT8zIBoU7G6mwKw4V55e
+	9YYDOibmt0QB+r+RCIgxAmspE7QgW37V6S//W/o95HX0TKqjFK2w1tEl2y20BDT9i9EXsF1nSEivH
+	Oi2fPhR28CF+IYBr7+wlFvUCfWn4wvR5Eaa4mvbj5Wzam0snqtTvgVXTchlyDs9c2rJQuIZH8YX20
+	xdRag2FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBlU-000000006lm-0t5K;
-	Fri, 13 Jun 2025 21:16:44 +0000
-Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
+	id 1uQBo5-00000000714-3ylx;
+	Fri, 13 Jun 2025 21:19:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBjJ-000000006ap-143K
+	id 1uQBlx-000000006oy-3uWp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 21:14:30 +0000
-Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-4c4fa0bfca2so757455137.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 14:14:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749849267; x=1750454067; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9bCHCGcohcJ2Z8gKyh3s4OeACkb8tG/8ddHOZfIjF3E=;
-        b=Dy6E3xULaVECXSf2w1pdctXYP6EyPfnZ7of3JKLdpcahFgynwL57Qd1AUeljsA+BOL
-         G0t5d4giuI/biMnQRf//Oom8GVY3809fDWF9Y7IpROcWK2yJbNT8pJ4feqLXxZ5Tdvbl
-         8KFrUdBOpG0podfEt4+Rz2B/2YZwHpQYyVXNX/OmjNhqbtmw5y7SMyGyILLZcIXt9u4J
-         Q4CFNOFZoKwGZi6yM6klWIfN39A3CHON2Bu015nAfIMmHLP5A+PL6DDIsCJCZ9kh9sRt
-         JnLM43pYTGstvCXLuznuCo4oV2BL2N9I8uh87gU48SCNY863JKN+FyHXRj5s+/0kdWTL
-         Oe+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749849267; x=1750454067;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9bCHCGcohcJ2Z8gKyh3s4OeACkb8tG/8ddHOZfIjF3E=;
-        b=XeYAPWjupVQdy/mujk3kaPUYhJSkvr0qS7v+avMFT6PpQGL7OFFC+BHYku1lz9A0DO
-         FQHXoNj/5yMwP4efgkMQ3dd5n2SgKyypd5jl/SnH6AxOyw7uDn621Mi7WYJLqy9+N7C0
-         ieeGyA/+9c5PbDPZA+dth/a3XLYml+m/VSt78pCBup3277XAtvfkS6XZRdX/RdCk7U3L
-         sDN3x3f9yzVBC0vfjn70/GI4AP72SRBgh7bLM9ygd6+0wcAF27xTwlXKnamWAXuJqW55
-         h6YZ/b9H7FrvDsZ7UAQh1zakn/nhCeTA4dsAD5CBVI51/jGQspQz9WBJu1d6RnRtPXf+
-         P+CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXGDxoUgpX6iq2VkOxzqweeHDFB2j5T2oYl09XMZILqW5UnLaIV3HjWfN8n+B5QB8slPaESgWzi0HXUsZc52Qzq@lists.infradead.org
-X-Gm-Message-State: AOJu0YydZ0kKivf9TGxDsVKBzETykz2BwpPNjvFW3poL5M4R4Q+gYjj5
-	NyGD10pR6cKWmbKm9oo6bQ4LxCL0+krUH6yfaANOcWsHmurjSjGBrJiE8FjjMmO3WLJnAwChddm
-	ttc7SErWIm9fWUjdxk9JN1zLLcv1SazMwz0lr7lai
-X-Gm-Gg: ASbGncspjF6jnaA6YMK0JBVVsy4vvcFuB7sJXRmHQXq6Fvt/JaRNGauEGT7o+4eraAt
-	Of1qvJWIvZmFSn+efrPFCL2bf6Je7ZLkEMU7mW7LNKKhlXWzuMjRGeNsMT5e/P9ZLzUcvSSO9pz
-	fluoynrmB1ld+uVbuNyxBQV7k4HGO4F0U7E4BpNooaVw==
-X-Google-Smtp-Source: AGHT+IFDKOFSYaUuF6G7K6OfIsfpObQ96cqfG2SkXcaTm8DQdC0kgY8LOqBWYZw9a+dWxydmoDEXMMYsxWer9ReGFRQ=
-X-Received: by 2002:a05:6102:26c2:b0:4c5:1c2e:79f5 with SMTP id
- ada2fe7eead31-4e7f61c6ecfmr1328879137.16.1749849267109; Fri, 13 Jun 2025
- 14:14:27 -0700 (PDT)
+	Fri, 13 Jun 2025 21:17:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 127FB6116F;
+	Fri, 13 Jun 2025 21:17:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B31DDC4CEEF;
+	Fri, 13 Jun 2025 21:17:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749849432;
+	bh=QZrUX6qLPma6r2q9zM5C/BtmOqxPggrx08ycD2emiA8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=QwdoRFt+1rKlEawYaPoCDXPd9etqGhgN7bT92XXnLx8aEBTnirS9/XGx0TVrMgb6E
+	 oJ7LrKzNpnvwkbi9oGXBVMxFgT2Cpt5KMEmx9lkc0szL31v428jFDl4LysWo5AnMb1
+	 1+ZFAWEXtqZpQdvIGEIkgzuG9VuSE55wL6a0+/q+/fQbDhRhIXGR8bWaxQrgch0RbT
+	 oxdTmAzvVldybW+hbGjCI4EH5H4TWaodErFhiuz0p+Nr5gq3/bfj7q6G9JtJ8naJzo
+	 hcSkF/OBl4PEnNur8t9t+t+VykGT1hNyEVl7JZuyI5K/6+QEA8ve1WVkYc5H7Ch4cM
+	 ltk4RYkrIopcw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BD04C7114A;
+	Fri, 13 Jun 2025 21:17:12 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Fri, 13 Jun 2025 23:17:07 +0200
+Subject: [PATCH v2 1/2] dt-bindings: gpu: Add Apple SoC GPU
 MIME-Version: 1.0
-References: <20250613134817.681832-1-herve.codina@bootlin.com> <20250613134817.681832-7-herve.codina@bootlin.com>
-In-Reply-To: <20250613134817.681832-7-herve.codina@bootlin.com>
-From: Saravana Kannan <saravanak@google.com>
-Date: Fri, 13 Jun 2025 14:13:49 -0700
-X-Gm-Features: AX0GCFvxcUcb0pxRJ6zcIBbIU8xYBQJLfYNKarcjHKuyfWeI8fRbEayRS0Ht4OY
-Message-ID: <CAGETcx9u-7TJ6_J5HdmDT=7A6Z08P-rUC0n+qnBoBi+ejRc2SQ@mail.gmail.com>
-Subject: Re: [PATCH v3 06/28] driver core: fw_devlink: Introduce fw_devlink_set_device()
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Peter Rosin <peda@axentia.se>, 
-	Derek Kiernan <derek.kiernan@amd.com>, Dragan Cvetic <dragan.cvetic@amd.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Wolfram Sang <wsa@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Davidlohr Bueso <dave@stgolabs.net>, 
-	Dave Jiang <dave.jiang@intel.com>, Alison Schofield <alison.schofield@intel.com>, 
-	Vishal Verma <vishal.l.verma@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
-	Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-cxl@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>, 
-	Horatiu Vultur <horatiu.vultur@microchip.com>, 
-	Steen Hegelund <steen.hegelund@microchip.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_141429_292954_A91F7744 
-X-CRM114-Status: GOOD (  19.61  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250613-sgx-dt-v2-1-fb2b7d1c3ff7@gmail.com>
+References: <20250613-sgx-dt-v2-0-fb2b7d1c3ff7@gmail.com>
+In-Reply-To: <20250613-sgx-dt-v2-0-fb2b7d1c3ff7@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749849431; l=3960;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=3r2IVrL38qapDPG/5iQRSW6ZZ0cbJ6URhg9pEUW+SNk=;
+ b=585Ssxh53I/dFrq96K6/8DikvQkcX8QUs4kakByC0QwcJeI3Cay2QQC7ddIkVHz7cE6h62nb4
+ 74YGnDIWqUyBcdqSKyMVfb5tr56Nj9g+4hGiRc2a3ORETvj3DfAwSGm
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,49 +86,135 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 6:49=E2=80=AFAM Herve Codina <herve.codina@bootlin.=
-com> wrote:
->
-> Setting fwnode->dev is specific to fw_devlink.
->
-> In order to avoid having a direct 'fwnode->dev =3D dev;' in several
-> place in the kernel, introduce fw_devlink_set_device() helper to perform
-> this operation.
->
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-This should not be set anywhere outside the driver core files. I'll
-get to reviewing the series, but until then, NACK to this.
+Add bindings for the GPU present in Apple SoCs
 
-Is there a specific patch that explain why we need to set this outside
-driver core?
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+ Documentation/devicetree/bindings/gpu/apple,agx.yaml | 94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ MAINTAINERS                                          |  1 +
+ 2 files changed, 95 insertions(+)
 
--Saravana
+diff --git a/Documentation/devicetree/bindings/gpu/apple,agx.yaml b/Documentation/devicetree/bindings/gpu/apple,agx.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..51629b3833b0a8c296eaccdfd6d9eeef02a5bc63
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpu/apple,agx.yaml
+@@ -0,0 +1,94 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpu/apple,agx.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple SoC GPU
++
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
++
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - apple,agx-g13g
++          - apple,agx-g13s
++          - apple,agx-g14g
++      - items:
++          - enum:
++              - apple,agx-g13c
++              - apple,agx-g13d
++          - const: apple,agx-g13s
++
++  reg:
++    items:
++      - description: GPU coprocessor control registers
++      - description: GPU block MMIO registers
++
++  reg-names:
++    items:
++      - const: asc
++      - const: sgx
++
++  power-domains:
++    maxItems: 1
++
++  mboxes:
++    maxItems: 1
++
++  memory-region:
++    items:
++      - description: Region containing GPU MMU TTBs
++      - description: Region containing GPU MMU page tables
++      - description:
++          Region containing a shared handoff structure for VM
++          management coordination
++      - description: Calibration blob. Mostly power-related configuration
++      - description: Calibration blob. Mostly GPU-related configuration
++      - description: Shared global variables with GPU firmware
++
++  memory-region-names:
++    items:
++      - const: ttbs
++      - const: pagetables
++      - const: handoff
++      - const: hw-cal-a
++      - const: hw-cal-b
++      - const: globals
++
++  apple,firmware-abi:
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 3
++    description:
++      macOS version the current firmware is paired with, used to pick
++      the version of firmware ABI to be used.
++      Bootloader will overwrite this
++
++required:
++  - compatible
++  - reg
++  - mboxes
++  - memory-region
++  - apple,firmware-abi
++
++additionalProperties: false
++
++examples:
++  - |
++    gpu@6400000 {
++        compatible = "apple,agx-g13g";
++        reg = <0x6400000 0x40000>,
++              <0x4000000 0x1000000>;
++        reg-names = "asc", "sgx";
++        mboxes = <&agx_mbox>;
++        power-domains = <&ps_gfx>;
++        memory-region = <&uat_ttbs>, <&uat_pagetables>, <&uat_handoff>,
++                        <&gpu_hw_cal_a>, <&gpu_hw_cal_b>, <&gpu_globals>;
++        memory-region-names = "ttbs", "pagetables", "handoff",
++                              "hw-cal-a", "hw-cal-b", "globals";
++
++        apple,firmware-abi = <0 0 0>;
++    };
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a92290fffa163f9fe8fe3f04bf66426f9a894409..2a32c9c4ee355a1109a3e2031ea3663c39cc8c68 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2331,6 +2331,7 @@ F:	Documentation/devicetree/bindings/arm/apple/*
+ F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
+ F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+ F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
++F:	Documentation/devicetree/bindings/gpu/apple,agx.yaml
+ F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
+ F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+ F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
 
-> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> ---
->  include/linux/fwnode.h | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/include/linux/fwnode.h b/include/linux/fwnode.h
-> index a921ca2fe940..a1345e274125 100644
-> --- a/include/linux/fwnode.h
-> +++ b/include/linux/fwnode.h
-> @@ -231,4 +231,10 @@ void fw_devlink_purge_absent_suppliers(struct fwnode=
-_handle *fwnode);
->  void fw_devlink_refresh_fwnode(struct fwnode_handle *fwnode);
->  bool fw_devlink_is_strict(void);
->
-> +static inline void fw_devlink_set_device(struct fwnode_handle *fwnode,
-> +                                        struct device *dev)
-> +{
-> +       fwnode->dev =3D dev;
-> +}
-> +
->  #endif
-> --
-> 2.49.0
->
+-- 
+2.49.0
+
+
 
