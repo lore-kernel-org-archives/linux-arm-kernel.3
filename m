@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B878EC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E65C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZSJsZ5prUow1osV4xFCQPoa5QsUPc8zmLK0PX41l4c=; b=gDC9m1svHYws1I2a4i1LDmBdrY
-	xVy5qQT1hMZtq5jm4H/kNHYhA4m2cRZX2ffMWTqoFSVTDyLBfRCkTZCQYra2pdPtd6W1Q+i7E4zfs
-	fsM/WKznvgwZFsXSFuNslzuCRlM534HjxZ2JKhS95BJfxDgbdUp4CgfWgWeEJukYkP+rQxL3MO2Jf
-	x7o/0W/TzywLIXHOiPDKAvVKVwasa5a95tnC7q/o+fcLCRinWSc198HdX4PbCOl0aqIkrG47Vld9l
-	Li4a00ahy6x5o1FtFHrakUGQPvDY+YGMd3B7TaQSgll8fUExqDN53dOGM/b0BNVkfkMVNbHizupWE
-	3HEDT7Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oajSuti6jz9rnNbhXAfUaBOuSqrfLjbzmaFWuDd/IoU=; b=DsGwCLJLObmK263MIqsvpTgmuw
+	fqugeG/4U0Q08i/p8pI7MvLB28ZdcGqUz7d82xKX/AKui+DrmlBp9/foB0AZUuWp+w0Y4lqUkdaUH
+	g/dw0f/WYBHLvBPe6WCQympO4+JdnjBJZc65TgR9AP0/dSVKqW7VADxB4CkuIo3sWuobeXYuA6vyT
+	3BK2vIPxvW6rX3hgsdqfnYYJk/nw/4/QUIUQccVClcW31f5uAVUwg+d/XvJ3v97Nqk23/E7n0miOP
+	Ko52jrldFkaEx+pTN+6W/2lWn/vD+rc9BkCPUz/oKydETNF5IHRKeJBWxZnwptAXcEA0VYdcSLlDJ
+	JfnK90Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPy7A-0000000FUr5-2oT7;
-	Fri, 13 Jun 2025 06:42:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uPyD6-0000000FWYV-0ct8;
+	Fri, 13 Jun 2025 06:48:20 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPy3n-0000000FUcL-29mV;
-	Fri, 13 Jun 2025 06:38:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C184F4A55E;
-	Fri, 13 Jun 2025 06:38:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A305C4CEE3;
-	Fri, 13 Jun 2025 06:38:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749796722;
-	bh=tROfEO8euW7h0JprdW23sw/j5uJHnALwGHFYIu1qnIc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pv7YBXXOJmQxXTV4jr0t1k2py0pGy6WO1Uo1f3lcTcLD9104WQCKyIgfI35DgY/9p
-	 rfjfU30z4XBKgfl6pUeyzHKm+HtNj5lL5aWGofUPsuBPfLL5+9yRtIPFtjlcZPStd/
-	 y8xYDdlOne5pTOMq3uyVKb1zYRb6gOo0wkGCj/RKGDWDtF1aNUaDDIi4Nvl64R2s6O
-	 d3QcUqlqGQeLCbj7m4Z89cesssF+y7i368gvbMXyTWB9F1sFWF71x2ODjBjjtgUxXx
-	 8iHbINVDEoozAApgAAxxS/WpQamaZCxwPLmHp7NQv/iZR0G92fP8OGeqjzE3ySTbcm
-	 W8GU9Yk0CGgIw==
-Date: Fri, 13 Jun 2025 12:08:31 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com, 
-	heiko@sntech.de, manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com, 
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com, 
-	khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH v4 1/2] PCI: Configure root port MPS during host probing
-Message-ID: <co2q55j4mk2ux7af4sj6snnfomditwizg5jevg6oilo3luby5z@6beqtbn3l432>
-References: <20250510155607.390687-1-18255117159@163.com>
- <20250510155607.390687-2-18255117159@163.com>
+	id 1uPyAo-0000000FWMW-1s7K
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 06:46:00 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55D6jquR3062110;
+	Fri, 13 Jun 2025 01:45:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1749797152;
+	bh=oajSuti6jz9rnNbhXAfUaBOuSqrfLjbzmaFWuDd/IoU=;
+	h=From:To:CC:Subject:Date;
+	b=j7B+/F4UHhVdPcs8O9Ydb+uSyMe8pCC/kUbLQFR0baLIIzw/p8rAqtagY4O6LapLn
+	 5Wo6nxtQ7J5/WaB4TqEK/X4einHMBsWFs/WQ0QrYlRR0+Gn7s+9qi6LNDqexUCCOfI
+	 WGfhqdBVc2VWCNZUii6zl7RII2SGlEwcNn/AE1AQ=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55D6jq1R031690
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 13 Jun 2025 01:45:52 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 13
+ Jun 2025 01:45:52 -0500
+Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 13 Jun 2025 01:45:52 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55D6jqOS1130541;
+	Fri, 13 Jun 2025 01:45:52 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 55D6joAm011920;
+	Fri, 13 Jun 2025 01:45:51 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
+	<m-malladi@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net-next v2] net: ti: icssg-prueth: Read firmware-names from device tree
+Date: Fri, 13 Jun 2025 12:15:47 +0530
+Message-ID: <20250613064547.44394-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250510155607.390687-2-18255117159@163.com>
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_233843_593348_901A814C 
-X-CRM114-Status: GOOD (  30.10  )
+X-CRM114-CacheID: sfid-20250612_234558_577656_75F520BF 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,105 +93,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 10, 2025 at 11:56:06PM +0800, Hans Zhang wrote:
-> Current PCIe initialization logic may leave root ports operating with
-> non-optimal Maximum Payload Size (MPS) settings. While downstream device
-> configuration is handled during bus enumeration, root port MPS values
-> inherited from firmware or hardware defaults might not utilize the full
-> capabilities supported by the controller hardware. This can result is
-> uboptimal data transfer efficiency across the PCIe hierarchy.
-> 
-> During host controller probing phase, when PCIe bus tuning is enabled,
-> the implementation now configures root port MPS settings to their
-> hardware-supported maximum values. By iterating through bridge devices
-> under the root bus and identifying PCIe root ports, each port's MPS is
-> set to 128 << pcie_mpss to match the device's maximum supported payload
-> size.
+Refactor the way firmware names are handled for the ICSSG PRUETH driver.
+Instead of using hardcoded firmware name arrays for different modes (EMAC,
+SWITCH, HSR), the driver now reads the firmware names from the device tree
+property "firmware-name". Only the EMAC firmware names are specified in the
+device tree property. The firmware names for all other supported modes are
+generated dynamically based on the EMAC firmware names by replacing
+substrings (e.g., "eth" with "sw" or "hsr") as appropriate.
 
-I don't think the above statement is accurate. This patch is not iterating
-through the bridges and you cannot identify root ports using that. What this
-patch does is, it checks whether the device is root port or not and if it is,
-then it sets the MPS to MPSS (hw maximum) if PCIE_BUS_TUNE_OFF is not set.
+Example: Below are the firmwares used currently for PRU0 core
 
-> The Max Read Request Size (MRRS) is subsequently adjusted through
-> existing companion logic to maintain compatibility with PCIe
-> specifications.
-> 
-> Explicit initialization at host probing stage ensures consistent PCIe
-> topology configuration before downstream devices perform their own MPS
-> negotiations. This proactive approach addresses platform-specific
-> requirements where controller drivers depend on properly initialized
-> root port settings, while maintaining backward compatibility through
-> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
-> utilized without altering existing device negotiation behaviors.
-> 
-> Suggested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
->  drivers/pci/probe.c | 72 ++++++++++++++++++++++++++-------------------
->  1 file changed, 41 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index 364fa2a514f8..1f67c03d170a 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -2149,6 +2149,37 @@ int pci_setup_device(struct pci_dev *dev)
->  	return 0;
->  }
->  
-> +static void pcie_write_mps(struct pci_dev *dev, int mps)
-> +{
-> +	int rc;
-> +
-> +	if (pcie_bus_config == PCIE_BUS_PERFORMANCE) {
-> +		mps = 128 << dev->pcie_mpss;
-> +
-> +		if (pci_pcie_type(dev) != PCI_EXP_TYPE_ROOT_PORT &&
-> +		    dev->bus->self)
-> +
-> +			/*
-> +			 * For "Performance", the assumption is made that
-> +			 * downstream communication will never be larger than
-> +			 * the MRRS.  So, the MPS only needs to be configured
-> +			 * for the upstream communication.  This being the case,
-> +			 * walk from the top down and set the MPS of the child
-> +			 * to that of the parent bus.
-> +			 *
-> +			 * Configure the device MPS with the smaller of the
-> +			 * device MPSS or the bridge MPS (which is assumed to be
-> +			 * properly configured at this point to the largest
-> +			 * allowable MPS based on its parent bus).
-> +			 */
-> +			mps = min(mps, pcie_get_mps(dev->bus->self));
-> +	}
-> +
-> +	rc = pcie_set_mps(dev, mps);
-> +	if (rc)
-> +		pci_err(dev, "Failed attempting to set the MPS\n");
-> +}
-> +
->  static void pci_configure_mps(struct pci_dev *dev)
->  {
->  	struct pci_dev *bridge = pci_upstream_bridge(dev);
-> @@ -2178,6 +2209,16 @@ static void pci_configure_mps(struct pci_dev *dev)
->  		return;
->  	}
->  
-> +	/*
-> +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
-> +	 * start off by setting root ports' MPS to MPSS. Depending on the MPS
-> +	 * strategy, and the MPSS of the devices below the root port, the MPS
-> +	 * of the root port might get overridden later.
-> +	 */
-> +	if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-> +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
-> +		pcie_write_mps(dev, 128 << dev->pcie_mpss);
+EMAC: ti-pruss/am65x-sr2-pru0-prueth-fw.elf
+SW  : ti-pruss/am65x-sr2-pru0-prusw-fw.elf
+HSR : ti-pruss/am65x-sr2-pru0-pruhsr-fw.elf
 
-I believe you can just use "pcie_set_mps(dev, 128 << dev->pcie_mpss)" directly
-and avoid moving pcie_write_mps() around.
+All three firmware names are same except for the operating mode.
 
-- Mani
+In general for PRU0 core, firmware name is,
 
+        ti-pruss/am65x-sr2-pru0-pru<mode>-fw.elf
+
+Since the EMAC firmware names are defined in DT, driver will read those
+directly and for other modes swap the mode name. i.e. eth -> sw or
+eth -> hsr.
+
+This preserves backwards compatibility as ICSSG driver is supported only
+by AM65x and AM64x. Both of these have "firmware-name" property
+populated in their device tree.
+
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+v1 - v2: Changed commit message to include an example as suggested by 
+         Jakub Kicinski <kuba@kernel.org>
+
+v1: https://lore.kernel.org/all/20250610052501.3444441-1-danishanwar@ti.com/
+
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 135 +++++++++++++------
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |  12 +-
+ 2 files changed, 102 insertions(+), 45 deletions(-)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 86fc1278127c..a1e013b0a0eb 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -125,45 +125,6 @@ static irqreturn_t prueth_tx_ts_irq(int irq, void *dev_id)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static struct icssg_firmwares icssg_hsr_firmwares[] = {
+-	{
+-		.pru = "ti-pruss/am65x-sr2-pru0-pruhsr-fw.elf",
+-		.rtu = "ti-pruss/am65x-sr2-rtu0-pruhsr-fw.elf",
+-		.txpru = "ti-pruss/am65x-sr2-txpru0-pruhsr-fw.elf",
+-	},
+-	{
+-		.pru = "ti-pruss/am65x-sr2-pru1-pruhsr-fw.elf",
+-		.rtu = "ti-pruss/am65x-sr2-rtu1-pruhsr-fw.elf",
+-		.txpru = "ti-pruss/am65x-sr2-txpru1-pruhsr-fw.elf",
+-	}
+-};
+-
+-static struct icssg_firmwares icssg_switch_firmwares[] = {
+-	{
+-		.pru = "ti-pruss/am65x-sr2-pru0-prusw-fw.elf",
+-		.rtu = "ti-pruss/am65x-sr2-rtu0-prusw-fw.elf",
+-		.txpru = "ti-pruss/am65x-sr2-txpru0-prusw-fw.elf",
+-	},
+-	{
+-		.pru = "ti-pruss/am65x-sr2-pru1-prusw-fw.elf",
+-		.rtu = "ti-pruss/am65x-sr2-rtu1-prusw-fw.elf",
+-		.txpru = "ti-pruss/am65x-sr2-txpru1-prusw-fw.elf",
+-	}
+-};
+-
+-static struct icssg_firmwares icssg_emac_firmwares[] = {
+-	{
+-		.pru = "ti-pruss/am65x-sr2-pru0-prueth-fw.elf",
+-		.rtu = "ti-pruss/am65x-sr2-rtu0-prueth-fw.elf",
+-		.txpru = "ti-pruss/am65x-sr2-txpru0-prueth-fw.elf",
+-	},
+-	{
+-		.pru = "ti-pruss/am65x-sr2-pru1-prueth-fw.elf",
+-		.rtu = "ti-pruss/am65x-sr2-rtu1-prueth-fw.elf",
+-		.txpru = "ti-pruss/am65x-sr2-txpru1-prueth-fw.elf",
+-	}
+-};
+-
+ static int prueth_start(struct rproc *rproc, const char *fw_name)
+ {
+ 	int ret;
+@@ -186,11 +147,11 @@ static int prueth_emac_start(struct prueth *prueth)
+ 	int ret, slice;
+ 
+ 	if (prueth->is_switch_mode)
+-		firmwares = icssg_switch_firmwares;
++		firmwares = prueth->icssg_switch_firmwares;
+ 	else if (prueth->is_hsr_offload_mode)
+-		firmwares = icssg_hsr_firmwares;
++		firmwares = prueth->icssg_hsr_firmwares;
+ 	else
+-		firmwares = icssg_emac_firmwares;
++		firmwares = prueth->icssg_emac_firmwares;
+ 
+ 	for (slice = 0; slice < PRUETH_NUM_MACS; slice++) {
+ 		ret = prueth_start(prueth->pru[slice], firmwares[slice].pru);
+@@ -1632,6 +1593,87 @@ static void prueth_unregister_notifiers(struct prueth *prueth)
+ 	unregister_netdevice_notifier(&prueth->prueth_netdevice_nb);
+ }
+ 
++static void icssg_read_firmware_names(struct device_node *np,
++				      struct icssg_firmwares *fw)
++{
++	int i;
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		of_property_read_string_index(np, "firmware-name", i * 3 + 0,
++					      &fw[i].pru);
++		of_property_read_string_index(np, "firmware-name", i * 3 + 1,
++					      &fw[i].rtu);
++		of_property_read_string_index(np, "firmware-name", i * 3 + 2,
++					      &fw[i].txpru);
++	}
++}
++
++/* icssg_firmware_name_replace - Replace a substring in firmware name
++ * @dev: device pointer for memory allocation
++ * @src: source firmware name string
++ * @from: substring to replace
++ * @to: replacement substring
++ *
++ * Return: a newly allocated string with the replacement, or the original
++ * string if replacement is not possible.
++ */
++static const char *icssg_firmware_name_replace(struct device *dev,
++					       const char *src,
++					       const char *from,
++					       const char *to)
++{
++	size_t prefix, from_len, to_len, total;
++	const char *p = strstr(src, from);
++	char *buf;
++
++	if (!p)
++		return src; /* fallback: no replacement, use original */
++
++	prefix = p - src;
++	from_len = strlen(from);
++	to_len = strlen(to);
++	total = strlen(src) - from_len + to_len + 1;
++
++	buf = devm_kzalloc(dev, total, GFP_KERNEL);
++	if (!buf)
++		return src; /* fallback: allocation failed, use original */
++
++	strscpy(buf, src, prefix + 1);
++	strscpy(buf + prefix, to, to_len + 1);
++	strscpy(buf + prefix + to_len, p + from_len, total - prefix - to_len);
++
++	return buf;
++}
++
++/**
++ * icssg_mode_firmware_names - Generate firmware names for a specific mode
++ * @dev: device pointer for logging and context
++ * @src: source array of firmware name structures
++ * @dst: destination array to store updated firmware name structures
++ * @from: substring in firmware names to be replaced
++ * @to: substring to replace @from in firmware names
++ *
++ * Iterates over all MACs and replaces occurrences of the @from substring
++ * with @to in the firmware names (pru, rtu, txpru) for each MAC. The
++ * updated firmware names are stored in the @dst array.
++ */
++static void icssg_mode_firmware_names(struct device *dev,
++				      struct icssg_firmwares *src,
++				      struct icssg_firmwares *dst,
++				      const char *from, const char *to)
++{
++	int i;
++
++	for (i = 0; i < PRUETH_NUM_MACS; i++) {
++		dst[i].pru = icssg_firmware_name_replace(dev, src[i].pru,
++							 from, to);
++		dst[i].rtu = icssg_firmware_name_replace(dev, src[i].rtu,
++							 from, to);
++		dst[i].txpru = icssg_firmware_name_replace(dev, src[i].txpru,
++							   from, to);
++	}
++}
++
+ static int prueth_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *eth_node, *eth_ports_node;
+@@ -1808,6 +1850,15 @@ static int prueth_probe(struct platform_device *pdev)
+ 		icss_iep_init_fw(prueth->iep1);
+ 	}
+ 
++	/* Read EMAC firmware names from device tree */
++	icssg_read_firmware_names(np, prueth->icssg_emac_firmwares);
++
++	/* Generate other mode firmware names based on EMAC firmware names */
++	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
++				  prueth->icssg_switch_firmwares, "eth", "sw");
++	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
++				  prueth->icssg_hsr_firmwares, "eth", "hsr");
++
+ 	spin_lock_init(&prueth->vtbl_lock);
+ 	spin_lock_init(&prueth->stats_lock);
+ 	/* setup netdev interfaces */
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index 23c465f1ce7f..c03e3b3626c1 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -259,9 +259,9 @@ struct prueth_pdata {
+ };
+ 
+ struct icssg_firmwares {
+-	char *pru;
+-	char *rtu;
+-	char *txpru;
++	const char *pru;
++	const char *rtu;
++	const char *txpru;
+ };
+ 
+ /**
+@@ -300,6 +300,9 @@ struct icssg_firmwares {
+  * @is_switchmode_supported: indicates platform support for switch mode
+  * @switch_id: ID for mapping switch ports to bridge
+  * @default_vlan: Default VLAN for host
++ * @icssg_emac_firmwares: Firmware names for EMAC mode, indexed per MAC
++ * @icssg_switch_firmwares: Firmware names for SWITCH mode, indexed per MAC
++ * @icssg_hsr_firmwares: Firmware names for HSR mode, indexed per MAC
+  */
+ struct prueth {
+ 	struct device *dev;
+@@ -343,6 +346,9 @@ struct prueth {
+ 	spinlock_t vtbl_lock;
+ 	/** @stats_lock: Lock for reading icssg stats */
+ 	spinlock_t stats_lock;
++	struct icssg_firmwares icssg_emac_firmwares[PRUETH_NUM_MACS];
++	struct icssg_firmwares icssg_switch_firmwares[PRUETH_NUM_MACS];
++	struct icssg_firmwares icssg_hsr_firmwares[PRUETH_NUM_MACS];
+ };
+ 
+ struct emac_tx_ts_response {
+
+base-commit: 6d4e01d29d87356924f1521ca6df7a364e948f13
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
