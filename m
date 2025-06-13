@@ -4,73 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAA8C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66CBC61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whxBYE463gQ4dvnKL9epaVnqgXjwtqwBi/Pgw4zDGAo=; b=fSqeA6nsXEf9Wz66fVSqE/hje2
-	SDG3RbyZMVu4XDlx9zpOZ2WIUDJQhQKrc37CRj5XBt5WAKNeFukj767sVPT8uAlmGqgLenxS8ITp5
-	whNR9k2hTMHCr5ucZewFfZhTwG/+UNeXFpoQrEj5ennuWP5URZuCZysNSta2ltgBK1RLhCaAo5DjI
-	bzPvIOEarD19KE6UXRn54QZJhEpXCv//gjg9TqzCQpoUgJ59SZunUZyOh+ztKQuPZIMIrL9UqXIto
-	frFG64T1DWWX5zuJf1dlmXhy1ZhaIJ5maODSnWEWla/sfFHB00oXaHa1U9MAiM8c20dMdB8OSaVrH
-	ZNFu0JrA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6xzAGmlco6qUFbBxYH8Ud/TzcDt3ioun3y2mb8YveBg=; b=OQwc92v/Me9YPYxz1mzeeiIuEe
+	khBl6UH1YAfyni5pPuUT3FLp+cI/zrdULI4goq1jVyxo5NbaOytCzFa34WKLjF1xgSzJNzny3Txmh
+	0YUAl58fpU0txDoIJfPV27hMBi+urVuWVzV6KV9z9fXCrCjH2JbTPGCl/SP3uE2QzFxMHSfwgGM9Q
+	xwhQH9NqqQMdgt6Vmq1GYfmot47LXAou9BKIeKRZke6jGjk3dK1dif7OtU7DYqo7/OAqqUlYHqDvJ
+	quygSp0VC6s42AG+l/n8h4ysKFsz+UMa/9MZ3CLlAQyIKrjHRf9zCxyZdCJPBb1RyjIpC+b4e7VUX
+	X49Gx8ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPxkg-0000000FTJI-0kOz;
-	Fri, 13 Jun 2025 06:18:58 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1uPxmw-0000000FTXT-04Xe;
+	Fri, 13 Jun 2025 06:21:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPxgb-0000000FSkO-41aD
+	id 1uPxi4-0000000FSwB-3j2Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 06:14:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 45C08442B2;
-	Fri, 13 Jun 2025 06:14:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749795282;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=whxBYE463gQ4dvnKL9epaVnqgXjwtqwBi/Pgw4zDGAo=;
-	b=Qg6CdPM/9/G53Ye6rnkUDr/xFI5pnFi0Qc2CNo1k5EJ9FV6eeqEo9HcGkBncQNINKnTK98
-	fFM2dOiZpmv915v6xjq0WEIz6AmeUYd9byqGSpg+Lz4n8SxLd86euyc46UGqdsULU+N1Tc
-	7WrZMQVzSXLDZtvOaX6ufHwhVYG9UmE+/DwyiMg8vIuR7BiHJXLYgnbL+78gmDh/qqAFrP
-	+qgd+urf+ygVbQn5z2gtF0L0ClUhuNkizcnLVIm99OlxY+N7yXptSwfSPx3ETcyV1dyNrQ
-	Pa/ziU7E+M9dWpsuV40eIYOf1Rr85jOcyrkOxOYbTrve/Ll7IorDwei5XjJdTA==
-Date: Fri, 13 Jun 2025 08:14:39 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Matthew Gerlach <matthew.gerlach@altera.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, richardcochran@gmail.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Mun Yew Tham
- <mun.yew.tham@altera.com>
-Subject: Re: [PATCH v5] dt-bindings: net: Convert socfpga-dwmac bindings to
- yaml
-Message-ID: <20250613081439.2ad972ef@fedora.home>
-In-Reply-To: <20250612221630.45198-1-matthew.gerlach@altera.com>
-References: <20250612221630.45198-1-matthew.gerlach@altera.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Fri, 13 Jun 2025 06:16:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3600B4A790;
+	Fri, 13 Jun 2025 06:16:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B6DFC4CEE3;
+	Fri, 13 Jun 2025 06:16:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749795376;
+	bh=LDowsZjTisnENRW4Zn7Q4eTu221JSNSVoxDBbay443M=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=p0EEjyNNYNNUXw9BDQHuScNWevEGP3VSXiDrTR6/5rGE3V4bqZ3GKs4UpwDKeLqmN
+	 7rlQ0eJyK96vBZgdjhMTxR28pYZMQRlsydkDC7rdhB3NYiThf/34P1qTXKmnXg0ihj
+	 8DwesiLrXaLehrhfaOiJfSE5U9rYYGSHz/nMYFG8q9An7T7MpzlbB9e6mzXZv+q6aW
+	 jq1OcReKDnB9jdYu1N6ohLwmW39GERw6GYdeIcChblOOgntz3tq+TpXwEmm+ZfflsW
+	 JLd/kVOXnvFvDEZDQGwSIju7+K18kCTEN7ccvzEOhxyel6Pcfh83ydxDMiJJgb4O18
+	 RwTFvB8c4+P1Q==
+Message-ID: <749c581e-cc00-428f-8eb9-222f9d574486@kernel.org>
+Date: Fri, 13 Jun 2025 08:16:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
+ tree
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+ "nfraprado@collabora.com" <nfraprado@collabora.com>,
+ Taniya Das <quic_tdas@quicinc.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Eric Biggers <ebiggers@google.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>, Mo Elbadry
+ <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>,
+ William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
+ "wthai@nvidia.com" <wthai@nvidia.com>, "leohu@nvidia.com"
+ <leohu@nvidia.com>, "dkodihalli@nvidia.com" <dkodihalli@nvidia.com>,
+ "spuranik@nvidia.com" <spuranik@nvidia.com>
+References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
+ <20250612100933.3007673-4-ryan_chen@aspeedtech.com>
+ <485749d4-b3c4-4965-9714-ad534d37e8c9@kernel.org>
+ <OS8PR06MB7541A100B918AAA84D1ABDCAF277A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <OS8PR06MB7541A100B918AAA84D1ABDCAF277A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddujedvtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedukedprhgtphhtthhopehmrghtthhhvgifrdhgvghrlhgrtghhsegrlhhtvghrrgdrtghomhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlo
- hhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_231446_638246_5A0E7E48 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_231616_993427_6055E19E 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +141,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Matthew,
-
-On Thu, 12 Jun 2025 15:16:30 -0700
-Matthew Gerlach <matthew.gerlach@altera.com> wrote:
-
-> Convert the bindings for socfpga-dwmac to yaml. Since the original
-> text contained descriptions for two separate nodes, two separate
-> yaml files were created.
+On 13/06/2025 04:29, Ryan Chen wrote:
+>> Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
+>> tree
+>>
+>> On 12/06/2025 12:09, Ryan Chen wrote:
+>>> This add the initial device tree support for the ASPEED AST2700 SoC.
+>>>
+>>> - Add top-level compatible string "aspeed,ast2700" and set up
+>>> address-cells/size-cells for 64-bit address space.
+>>> - Describe a quad-core ARM Cortex-A35 CPU cluster with L2 cache,
+>>> including cache properties and PSCI enable-method.
+>>> - Add PMU and ARMv8 timer nodes with correct PPI interrupt wiring.
+>>> - Model the dual-SoC architecture with two simple-bus nodes:
+>>> soc0 (@0x10000000) and soc1 (@0x14000000).
+>>> - Add syscon nodes for both SoCs (syscon0, syscon1) with clock/reset
+>>> cell definitions and address mapping.
+>>> - Add GICv3 interrupt controller node under soc0, with full register
+>>> mapping and interrupt properties.
+>>> - Hierarchical interrupt controller structure:
+>>>   - intc0 under soc0, with child intc0_11 node.
+>>>   - intc1 under soc1, with child intc1_0~intc1_5 nodes.
+>>> - Add serial4 node under soc0, others serial node under soc1.
+>>>
+>>> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+>>> ---
+>>>  arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi | 380
+>>> ++++++++++++++++++++++
+>>>  1 file changed, 380 insertions(+)
+>>>  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+>>>
+>>> diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+>>> b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+>>> new file mode 100644
+>>> index 000000000000..d197187bcf9f
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
+>>> @@ -0,0 +1,380 @@
+>>> +// SPDX-License-Identifier: GPL-2.0-or-later #include
+>>> +<dt-bindings/clock/aspeed,ast2700-scu.h>
+>>> +#include <dt-bindings/reset/aspeed,ast2700-scu.h>
+>>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +
+>>> +/ {
+>>> +	#address-cells = <2>;
+>>> +	#size-cells = <1>;
+>>> +	interrupt-parent = <&gic>;
+>>> +
+>>> +	cpus {
+>>> +		#address-cells = <2>;
+>>> +		#size-cells = <0>;
+>>> +
+>>> +		cpu0: cpu@0 {
+>>> +			device_type = "cpu";
+>>> +			compatible = "arm,cortex-a35";
+>>> +			reg = <0x0 0x0>;
+>>> +			enable-method = "psci";
+>>> +			i-cache-size = <0x8000>;
+>>> +			i-cache-line-size = <64>;
+>>> +			i-cache-sets = <256>;
+>>> +			d-cache-size = <0x8000>;
+>>> +			d-cache-line-size = <64>;
+>>> +			d-cache-sets = <128>;
+>>> +			next-level-cache = <&l2>;
+>>> +		};
+>>> +
+>>> +		cpu1: cpu@1 {
+>>> +			device_type = "cpu";
+>>> +			compatible = "arm,cortex-a35";
+>>> +			enable-method = "psci";
+>>> +			reg = <0x0 0x1>;
+>>> +			i-cache-size = <0x8000>;
+>>> +			i-cache-line-size = <64>;
+>>> +			i-cache-sets = <256>;
+>>> +			d-cache-size = <0x8000>;
+>>> +			d-cache-line-size = <64>;
+>>> +			d-cache-sets = <128>;
+>>> +			next-level-cache = <&l2>;
+>>> +		};
+>>> +
+>>> +		cpu2: cpu@2 {
+>>> +			device_type = "cpu";
+>>> +			compatible = "arm,cortex-a35";
+>>> +			enable-method = "psci";
+>>> +			reg = <0x0 0x2>;
+>>> +			i-cache-size = <0x8000>;
+>>> +			i-cache-line-size = <64>;
+>>> +			i-cache-sets = <256>;
+>>> +			d-cache-size = <0x8000>;
+>>> +			d-cache-line-size = <64>;
+>>> +			d-cache-sets = <128>;
+>>> +			next-level-cache = <&l2>;
+>>> +		};
+>>> +
+>>> +		cpu3: cpu@3 {
+>>> +			device_type = "cpu";
+>>> +			compatible = "arm,cortex-a35";
+>>> +			enable-method = "psci";
+>>> +			reg = <0x0 0x3>;
+>>> +			i-cache-size = <0x8000>;
+>>> +			i-cache-line-size = <64>;
+>>> +			i-cache-sets = <256>;
+>>> +			d-cache-size = <0x8000>;
+>>> +			d-cache-line-size = <64>;
+>>> +			d-cache-sets = <128>;
+>>> +			next-level-cache = <&l2>;
+>>> +		};
+>>> +
+>>> +		l2: l2-cache0 {
+>>> +			compatible = "cache";
+>>> +			cache-level = <2>;
+>>> +			cache-unified;
+>>> +			cache-size = <0x80000>;
+>>> +			cache-line-size = <64>;
+>>> +			cache-sets = <1024>;
+>>> +		};
+>>> +	};
+>>> +
+>>> +	arm-pmu {
+>>> +		compatible = "arm,cortex-a35-pmu";
+>>> +		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(4) |
+>> IRQ_TYPE_LEVEL_HIGH)>;
+>>> +	};
+>>> +
+>>> +	psci {
+>>> +		compatible = "arm,psci-1.0";
+>>> +		method = "smc";
+>>> +	};
+>>> +
+>>> +	timer {
+>>> +		compatible = "arm,armv8-timer";
+>>> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) |
+>> IRQ_TYPE_LEVEL_LOW)>,
+>>> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) |
+>> IRQ_TYPE_LEVEL_LOW)>,
+>>> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) |
+>> IRQ_TYPE_LEVEL_LOW)>,
+>>> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) |
+>> IRQ_TYPE_LEVEL_LOW)>;
+>>> +		arm,cpu-registers-not-fw-configured;
+>>> +		always-on;
+>>> +	};
+>>> +
+>>> +	soc0: soc@10000000 {
+>>> +		compatible = "simple-bus";
+>>> +		reg = <0x0 0x10000000 0x10000000>;
+>>> +		#address-cells = <2>;
+>>> +		#size-cells = <1>;
+>>> +		ranges;
+>>> +
+>>> +		syscon0: syscon@12c02000 {
+>>> +			compatible = "aspeed,ast2700-scu0", "syscon", "simple-mfd";
+>>> +			reg = <0x0 0x12c02000 0x1000>;
+>>> +			ranges = <0x0 0x0 0 0x12c02000 0x1000>;
+>>> +			#address-cells = <2>;
+>>> +			#size-cells = <1>;
+>>> +			#clock-cells = <1>;
+>>> +			#reset-cells = <1>;
+>>> +		};
+>>> +
+>>> +		gic: interrupt-controller@12200000 {
+>>> +			compatible = "arm,gic-v3";
+>>> +			reg = <0 0x12200000 0x10000>, /* GICD */
+>>> +			      <0 0x12280000 0x80000>, /* GICR */
+>>> +			      <0 0x40440000 0x1000>;  /* GICC */
+>>> +			#interrupt-cells = <3>;
+>>> +			interrupt-controller;
+>>> +			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) |
+>> IRQ_TYPE_LEVEL_HIGH)>;
+>>> +			interrupt-parent = <&gic>;
+>>> +		};
+>>> +
+>>> +		serial4: serial@12c1a000 {
+>>> +			compatible = "ns16550a";
+>>> +			reg = <0x0 0x12c1a000 0x1000>;
+>>> +			clocks = <&syscon0 SCU0_CLK_GATE_UART4CLK>;
+>>> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+>>> +			reg-shift = <2>;
+>>> +			status = "disabled";
+>>> +		};
+>>> +	};
+>>> +
+>>> +	soc1: soc@14000000 {
+>>> +		compatible = "simple-bus";
+>>> +		reg = <0x0 0x14000000 0x10000000>;
+>>> +		#address-cells = <2>;
+>>> +		#size-cells = <1>;
+>>> +		ranges;
+>>> +
+>>> +		syscon1: syscon@14c02000 {
+>>> +			compatible = "aspeed,ast2700-scu1", "syscon", "simple-mfd";
+>>> +			reg = <0x0 0x14c02000 0x1000>;
+>>> +			ranges = <0x0 0x0 0x0 0x14c02000 0x1000>;
+>>> +			#address-cells = <2>;
+>>> +			#size-cells = <1>;
+>>> +			#clock-cells = <1>;
+>>> +			#reset-cells = <1>;
+>>> +		};
+>>> +
+>>> +		serial12: serial@14c33b00 {
+>>> +			compatible = "ns16550a";
+>>> +			reg = <0x0 0x14c33b00 0x100>;
+>>> +			clocks = <&syscon1 SCU1_CLK_GATE_UART12CLK>;
+>>> +			interrupts-extended =
+>>> +				<&intc1_4 18 (GIC_CPU_MASK_SIMPLE(4) |
+>> IRQ_TYPE_LEVEL_HIGH)>;
+>>> +			reg-shift = <2>;
+>>> +			status = "disabled";
+>>> +		};
+>>> +	};
+>>> +};
+>>> +
+>>> +&soc0 {
+>>
+>> This is the base DTSI, there is no existing node to override. Just define
+>> complete SoC node in one place like every other vendor.
 > 
-> Signed-off-by: Mun Yew Tham <mun.yew.tham@altera.com>
-> Signed-off-by: Matthew Gerlach <matthew.gerlach@altera.com>
+> My original is use this way, but when I do checkpatch, get
+> CHECK: line length of 106 exceeds 100 columns.
+> interrupts = <GIC_SPI 192 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>,
+> That the reason modify by this way.
 
-Sorry I've been spending some time away from netdev@ lately... This
-looks very good, again thanks !
+Look how other recent, most developed platforms do it and learn from
+them instead of coming with own, confusing style.
 
-Unless there's some more comments from the DT bindings maintainers, you
-can add my :
- 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> 
+>>
+>>
+>>> +	intc0: interrupt-controller@12100000 {
+>>> +		compatible = "simple-mfd";
+>>
+>> NAK, never tested.
+>>
+>> Not allowed, see bindings. And test it next time.
+> 
+> Got it, will update by following. 
+> Intc0: bus@12100000 {
+>         compatible = "simple-bus";
+>         #address-cells = <2>;
+>         #size-cells = <1>;
+>         reg = <0 0x12100000 0x4000>;
+> 		ranges = <0x0 0x0 0x0 0x12100000 0x4000>;
+> 		#address-cells = <2>;
 
-Maxime
+Does not follow DTS coding style and anyway, what sort of bus is this?
+
+
+
+Best regards,
+Krzysztof
 
