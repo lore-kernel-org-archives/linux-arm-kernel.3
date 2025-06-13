@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420E6C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 22:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63902C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 22:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=+OkkduMqK5cNysKB4yzBR4lU60G4xlkptYsz2TMDQQk=; b=hgVh9o3O0Erqm2
-	nqskTTm8IzH4h8+czY+HJRVOyWxaiHyR1QjUfrgL74XaCJbDMsUs3vf7AA4Nvy2ZqJiSo8sCk6YA0
-	vkIw911Zm/gGRmnGVLxtqs8tkeihXrFlTWGTc48SFdcmtFpj7pqIxNapPOKf3IXEotmopZn2JP5sC
-	YHBHktixYSEiBBiCAJrUCxXik0OCoJrhfEvOfpyniwxUIcJ8q5jKZ0Y9xrYjE2THR85PB8LX6M3f/
-	IKZtZS03nrwDCFCThQoLxcS6knRqeawOt6Ff2Lsuufoh1DQLTWkuNunDont5NKPOthGRe9rmZYckj
-	xiUVrwSuOFJWbRfKnMdQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UYPjxyG6Lkdruehl3Wfp/fvOgutsisDdZvGlZZakKgQ=; b=nXy6LMliv79mPYsDiStGiZxdcB
+	Fqu95FNlex26yHilqMJeJpff+mIBqF7/QGARY5VN18ZiObvpJqPabkb0vNdBxvJs7AKAaF26TgJQB
+	5j7wEJ473Z7AJbhI4Np75Vle5rXubztGgVXanE/tUmrzPl3AnMAl+zQFm+sQl7mQfj6K0tCO0xsuh
+	DbXlNvrm7kPluQvqfScl297ey2Z/RMI3L+9sG+MxGwAjhwqcP7F0XMN9xDNkiLJVUllGosFJs2otv
+	pBccUCL6zkkLyM8hiSd408pC6WJhaFh6/va2aAO72NaGmQqq77IBkexhmqNCusBVhu9CFOYqQNPvp
+	ggkXlsgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQCUa-00000000BqK-1nD1;
-	Fri, 13 Jun 2025 22:03:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uQCag-00000000Cxu-2kLH;
+	Fri, 13 Jun 2025 22:09:41 +0000
+Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQCSR-00000000Bj9-3hvi
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 22:01:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9312629D0;
-	Fri, 13 Jun 2025 22:01:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E85EC4CEE3;
-	Fri, 13 Jun 2025 22:01:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749852066;
-	bh=Q4i3PDbu1STbHbbwGxaxWMYZqyXSfts65HVlG376auM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=rOEU3pskrhCUXIC9exM3DbnLO6Z58LFRstZMwm8FRcCm0ZE3V/XyBigJUPeR1L7LT
-	 H4Mv+8zYRbncG5Bz5Fa0BQYBdWY4TEB1xwBQxxGYK2t5w+/lgDSau+Ep34MGIuxF0f
-	 kebzay7p4cr0MApOqLaU+vvhAE+vjdFVIILnJevr9V6cm9/ByzXzBut0B+RIvYRF86
-	 w1ex6y4ew3wA8G3wuk0lqj803k4XuH1x+qx6wzWmjYASinLYCySaA5198ruiFBCMhx
-	 blCti/bipt1jx9/Scmwffs/CYkkqlMSap2iR5cA4Z1qQ7IlHE1CMvonlmUE02m6ooG
-	 7GwhfZIl2MAbw==
-Date: Fri, 13 Jun 2025 17:01:04 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Anand Moon <linux.amoon@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] PCI/pwrctrl: Add optional slot clock to pwrctrl
- driver for PCI slots
-Message-ID: <20250613220104.GA986309@bhelgaas>
+	id 1uQBYG-000000003ac-41Wl;
+	Fri, 13 Jun 2025 21:03:07 +0000
+Date: Fri, 13 Jun 2025 14:02:53 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1749848582;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYPjxyG6Lkdruehl3Wfp/fvOgutsisDdZvGlZZakKgQ=;
+	b=Kc8nPVhlXgf6TePD1ArgM60c5dmNUT/R1JjVbnGxN7TexwkvkpcVz2WLId55A9oZ/CDUE5
+	FbP2i2FSaWw7NAS2SkcnbcgK6HWEZ0xCShW/gxdnuC/LY4NPQptRcXYiWmJk0yYg54tCZA
+	FkggVzxEL64vxvaUGTfILfyirGgdhDI=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Anish Ghulati <aghulati@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Thomas Huth <thuth@redhat.com>
+Subject: Re: [PATCH 0/8] KVM: Remove include/kvm, standardize includes
+Message-ID: <aEyR_bixN696F1sP@linux.dev>
+References: <20250611001042.170501-1-seanjc@google.com>
+ <125bfa5b-4727-4998-a0da-fb50feec6df6@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdW_89naftFMo881zp=7QGJDznFzzqLQ-kLEuyJ=KJWQnA@mail.gmail.com>
+In-Reply-To: <125bfa5b-4727-4998-a0da-fb50feec6df6@redhat.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250613_140306_096754_3CDE62C3 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 03:16:45PM +0200, Geert Uytterhoeven wrote:
-> On Sat, 7 Jun 2025 at 21:46, Marek Vasut
-> <marek.vasut+renesas@mailbox.org> wrote:
-> > Add the ability to enable optional slot clock into the pwrctrl driver.
-> > This is used to enable slot clock in split-clock topologies, where the
-> > PCIe host/controller supply and PCIe slot supply are not provided by
-> > the same clock. The PCIe host/controller clock should be described in
-> > the controller node as the controller clock, while the slot clock should
-> > be described in controller bridge/slot subnode.
-> >
-> > Example DT snippet:
-> > &pcicontroller {
-> >     clocks = <&clk_dif 0>;             /* PCIe controller clock */
-> >
-> >     pci@0,0 {
-> >         #address-cells = <3>;
-> >         #size-cells = <2>;
-> >         reg = <0x0 0x0 0x0 0x0 0x0>;
-> >         compatible = "pciclass,0604";
-> >         device_type = "pci";
-> >         clocks = <&clk_dif 1>;         /* PCIe slot clock */
-> >         vpcie3v3-supply = <&reg_3p3v>;
-> >         ranges;
-> >     };
-> > };
-> >
-> > Example clock topology:
-> >  ____________                    ____________
-> > |  PCIe host |                  | PCIe slot  |
-> > |            |                  |            |
-> > |    PCIe RX<|==================|>PCIe TX    |
-> > |    PCIe TX<|==================|>PCIe RX    |
-> > |            |                  |            |
-> > |   PCIe CLK<|======..  ..======|>PCIe CLK   |
-> > '------------'      ||  ||      '------------'
-> >                     ||  ||
-> >  ____________       ||  ||
-> > |  9FGV0441  |      ||  ||
-> > |            |      ||  ||
-> > |   CLK DIF0<|======''  ||
-> > |   CLK DIF1<|==========''
-> > |   CLK DIF2<|
-> > |   CLK DIF3<|
-> > '------------'
-> >
-> > Acked-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> > Reviewed-by: Anand Moon <linux.amoon@gmail.com>
-> > Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On Thu, Jun 12, 2025 at 06:56:53AM +0200, Paolo Bonzini wrote:
+> On 6/11/25 02:10, Sean Christopherson wrote:
+> > Kill off include/kvm (through file moves/renames), and standardize the set of
+> > KVM includes across all architectures.
+> > 
+> > This conflicts with Colton's partioned PMU series[1], but this should work as
+> > a nice prepatory cleanup for the partitioned PMU work (and hopefully can land
+> > sooner).
+> > 
+> > Note, these patches were originally posted as part of a much larger and more
+> > agressive RFC[1].  We've effectively abandoned upstreaming the multi-KVM idea,
+> > but I'm trying to (slowly) upstream the bits and pieces that I think/hope are
+> > generally beneficial.
+> > 
+> > [1] https://lore.kernel.org/all/20250602192702.2125115-1-coltonlewis@google.com
+> > [2] https://lore.kernel.org/all/20230916003118.2540661-1-seanjc@google.com
 > 
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> 
-> Bartosz: Any chance you can apply this patch to an immutable branch,
-> so I can merge that before taking the other two patches?
-> The alternative is to postpone the DTS patches for one cycle.
+> Marc, Oliver, I'd like to commit this to kvm/next sometime soon; I'll wait
+> for your ack since most of the meat here is in arch/arm64.
 
-I applied this patch only to pci/pwrctrl for v6.17 and made a note
-that the commit should be immutable:
+Let it rip, just to get ahead of potential conflicts can you push out a
+topic branch?
 
-  66db1d3cbdb0 ("PCI/pwrctrl: Add optional slot clock for PCI slots")
+Acked-by: Oliver Upton <oliver.upton@linux.dev>
 
-We will likely add other pwrctrl patches to this branch during this
-cycle; I assume that will be OK as long as 66db1d3cbdb0 remains
-untouched, right?
-
-Bjorn
+Thanks,
+Oliver
 
