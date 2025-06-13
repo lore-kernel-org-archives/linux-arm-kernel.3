@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E748C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CF83C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cve182HA640bM6WHffXlu/g4SPAJ6n6lGi80IfVW3Ks=; b=w+lI7rSiz7TCZuS51LOPs2GaX5
-	5yMsE9uAL99qb4UzkAPUTiF7pGpRHVHbqxYKut8H8ozDrLRAj16FuP0WUPdFyQiUGz/YhkK/FVOUX
-	1HfVMlG8TgdZxuh/DL53cgG6wptL1+rOqSYv4NADeVbXD0ygJ9vk7g0P1OdaihqKLK9EAB+2ahL4J
-	fGxqLAmFd7a5PipASFEVYahao2cZpndyM3vcvVZlaVlIZhivDM1A/N8cGn31ac4XlSP1mFZy3ZD9g
-	EnnXbDYZWs4MYEbT53S05N81S7dGp6YTyNAeX9MWqEUUSvnamQ2fzh4qbZuboM7HAQdeVf3UleCaa
-	yvgfodeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=otyT+YaTJjPBX9e3RtgYlk7uAkCyCMfxu1qgrQAGDgk=; b=FAzLCSZZg7My/G
+	7ltjEkMtMOtzDsZnSTwXXUNQUJUO+W0kDVMqnsS/A4US5yE+VM3oK7jos03RKNG31Z0m8t8231sFW
+	61pfUtup7eiONrRAD+eCyO9uRvcCjDqYKOVPgCBO1WkaqT8hOb8AGoNjkLe/0fsUbNOqb1SrhC+9c
+	h1WhoXrk/rud5EDHqsPXYHMZH/+HVt5vbXNvfO6hLm/I0yxDyLWa65Iy4sJKug4QJbVz5Tfog4Ahe
+	BFPwBsm9GqArBx0mxWZO5KTk7uI3q6Xgx8vsc0hOk5juECkTv2YNFEIo0fCH02IrHZzN+ogAqBoqM
+	HpPFoASsPcqWr+IvxvYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ8xg-0000000HGVa-40UP;
-	Fri, 13 Jun 2025 18:17:08 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1uQ8xo-0000000HGdD-20ZO;
+	Fri, 13 Jun 2025 18:17:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6nE-0000000Gym6-2EGV
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 15:58:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749830292; x=1781366292;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=V9FMKPIwnq1H9P0zOSWLaguOqdABhVFp/9v1hViBzRA=;
-  b=Jp7oVDfNEy3d4G4pfI1R7iyCS7QJO1QsDLVR3BCjCFfPx/TkOompHJqf
-   kpKjForpN517uaV/HwV56eoWXQenafURwRfGO6KkgS3w2EyZYH0q3Zig4
-   JRoj/Xy1D0sqNseTKBjNELfwmfjt+Hd9SOpy1vu8g4TeyVA+P1+ErLguo
-   TrU4TN0/KF1MDASxNkjGc6L8dh/9zYn4y/owGcKvdWjJsBU0Mg9m2JS2i
-   kcORaEjA+vlspD5kekcg6qD5JwIzI/qdK5JDkK4FyhVPooPFP2d60vume
-   VkTYEaW+uxdqN996mJx5HpTXStu6Zdeo5z9VAlSuUm5cD1vAhBupu9sK0
-   A==;
-X-CSE-ConnectionGUID: mhyV2JNiT5iS3/Ew6lnLGQ==
-X-CSE-MsgGUID: yTtwgoOiSZaunf1tLz2iog==
-X-IronPort-AV: E=McAfee;i="6800,10657,11463"; a="39661078"
-X-IronPort-AV: E=Sophos;i="6.16,234,1744095600"; 
-   d="scan'208";a="39661078"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:58:11 -0700
-X-CSE-ConnectionGUID: VA2G6141T8+w5h4vLYaebA==
-X-CSE-MsgGUID: ASlK1NJbQtSiVGGS5YDhrA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,234,1744095600"; 
-   d="scan'208";a="178842660"
-Received: from iherna2-mobl4.amr.corp.intel.com (HELO [10.125.111.232]) ([10.125.111.232])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 08:58:06 -0700
-Message-ID: <f9ca87ab-e565-431a-9866-d56278cf465f@intel.com>
-Date: Fri, 13 Jun 2025 08:58:03 -0700
+	id 1uQ6nw-0000000Gyx4-18kB;
+	Fri, 13 Jun 2025 15:58:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 44535A51438;
+	Fri, 13 Jun 2025 15:58:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5B51C4CEE3;
+	Fri, 13 Jun 2025 15:58:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749830334;
+	bh=ubx0aSPirWzdiPRt3UtSIssQRIZ/h985GJfW7cPAiJ8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Cb2gSlz42q4+9rckZbHNm9mmnaMRvUkvnKuTABMYiq84cfWP92JqlnKt4mc/n1poM
+	 T1TVcBG64hgiXnN1aHOB/gmT48zyQJZyMuDYETaY5RHNIjn6CXyB0f5jMv+qNx8OoK
+	 G2wnFuAqX6HtyA5hVjSFwbyd9k58RoaA+uERxSXQFNexM+5+E+YvraktV0HOcCYw+u
+	 fzC/lxxv9xfphyGnR6gtAC8Of00o1jYtLjo/lL95F/0SKU3b6ob3iwvx57JLO+hoGw
+	 hdtymaQhdLgvfyR0uQzoUfJDQErdB8E/NcxpoZN50++35IjeEINdfnkpPoGoPclMxL
+	 RRUepl/Ha9XoA==
+Date: Fri, 13 Jun 2025 10:58:53 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+	vkoul@kernel.org, kishon@kernel.org, linus.walleij@linaro.org,
+	p.zabel@pengutronix.de, linux-aspeed@lists.ozlabs.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, openbmc@lists.ozlabs.org,
+	linux-gpio@vger.kernel.org, elbadrym@google.com, romlem@google.com,
+	anhphan@google.com, wak@google.com, yuxiaozhang@google.com,
+	BMC-SW@aspeedtech.com
+Subject: Re: [PATCH 2/7] dt-bindings: pci: Add document for ASPEED PCIe Config
+Message-ID: <20250613155853.GA962329@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/28] cxl/test: Use device_set_node()
-To: Herve Codina <herve.codina@bootlin.com>, Andrew Lunn <andrew@lunn.ch>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Peter Rosin <peda@axentia.se>, Derek Kiernan <derek.kiernan@amd.com>,
- Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Mark Brown <broonie@kernel.org>,
- Len Brown <lenb@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Wolfram Sang <wsa@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Davidlohr Bueso <dave@stgolabs.net>,
- Alison Schofield <alison.schofield@intel.com>,
- Vishal Verma <vishal.l.verma@intel.com>, Ira Weiny <ira.weiny@intel.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-cxl@vger.kernel.org, Allan Nielsen <allan.nielsen@microchip.com>,
- Horatiu Vultur <horatiu.vultur@microchip.com>,
- Steen Hegelund <steen.hegelund@microchip.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-References: <20250613134817.681832-1-herve.codina@bootlin.com>
- <20250613134817.681832-10-herve.codina@bootlin.com>
-Content-Language: en-US
-From: Dave Jiang <dave.jiang@intel.com>
-In-Reply-To: <20250613134817.681832-10-herve.codina@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613033001.3153637-3-jacky_chou@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_085812_596660_5CC90C29 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250613_085856_379793_E769B23C 
+X-CRM114-Status: UNSURE (   6.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,32 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 13, 2025 at 11:29:56AM +0800, Jacky Chou wrote:
+> Add device tree binding documentation for the ASPEED AST2600/AST2700 PCIe
+> configuration syscon block. This shared register space is used by multiple
+> PCIe-related devices to coordinate and manage common PCIe settings.
+> The binding describes the required compatible strings and register space
+> for the configuration node.
 
+Make your subject match style of:
 
-On 6/13/25 6:47 AM, Herve Codina wrote:
-> The code set directly dev->fwnode.
-> 
-> Use the dedicated helper to perform this operation.
-> 
-> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+  git log --oneline Documentation/devicetree/bindings/pci/
 
-Reviewed-by: Dave Jiang <dave.jiang@intel.com>
-> ---
->  tools/testing/cxl/test/cxl.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/cxl/test/cxl.c b/tools/testing/cxl/test/cxl.c
-> index 8a5815ca870d..1db7732a70df 100644
-> --- a/tools/testing/cxl/test/cxl.c
-> +++ b/tools/testing/cxl/test/cxl.c
-> @@ -1046,7 +1046,7 @@ static void mock_companion(struct acpi_device *adev, struct device *dev)
->  {
->  	device_initialize(&adev->dev);
->  	fwnode_init(&adev->fwnode, NULL);
-> -	dev->fwnode = &adev->fwnode;
-> +	device_set_node(dev, &adev->fwnode);
->  	adev->fwnode.dev = dev;
->  }
->  
-
+s/Add document for/Add/
 
