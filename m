@@ -4,92 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1DCC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6644DC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ECNdaOgprCZ21ffz0S0ElddSmNcpxaOPXvRqQLB08fs=; b=Rp9WOvUv3XpUHyATHjV/ij2bYW
-	pfNaD2imlbZFgc4GO2I0WZPQQZTnWDfSgqGjijS+V0V+kK+TKR76DvG8YCzd85G4qAGtnKSUMkIh2
-	jJg/NIb1Nm6a65IJtp6T0o/bJPP3iiDyn2NWf4+ov6B9w6NaWUIq6WO/8PqF72kIJ8IhdUDZ+ON5p
-	hZPM1HRn4H8E0dhd4K/oRw5SoBis4BQWl9nMLHq0+43MAIyjweL0kq7pd0cIvnD/kxiRWtAS2qnj5
-	hCk0LINXlpR+z7zUZ+sjlrA1PPBBZ0hrI+hbmWyiJyWK73UwbZHA80+MGarS49sLYspukqm6IZrQr
-	Ujuqml/w==;
+	bh=mYOuzDkNxD2lkqcPpX+ydgTB/+Gwybfqhgm68AHQXH8=; b=xhAMvmx9ExCE5sPmkbChUOx3Q7
+	jsnTyrLbtP+q204YeF9x752OXV3PmNz8odhuJuwuwe74VTGXmvJnQjjn159XfqBLVS0TLgD4Rg1Ys
+	JRj2aMv4UzAX9iJXCmxm1eRq0XUzbfSWkmp4TalVY1m6PHLTE/cIq0ZRDNEztiZXYD8gVtSNf7sV2
+	+63t56ZD2V0l9ZTtXbvVfT0RsWUeHcDm4h8IxRljCx7K7My9fctV/B0OTZwhZbDVpwaUMwuBvAWIu
+	SP3WtJ+8TQmzJivfE7Esx/Op/1bwLJJ9m66No1ImrDtXGIUeZ0mSwvAKNhV5Z8Rws0MShblBG1r5H
+	GiFVBlAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2dF-0000000GCDe-1Arf;
-	Fri, 13 Jun 2025 11:31:37 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uQ2dI-0000000GCLS-35LJ;
+	Fri, 13 Jun 2025 11:31:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ28A-0000000G7wU-2TES
+	id 1uQ2GD-0000000G8Qs-2Sgg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 10:59:32 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55DAxHoL1961667;
-	Fri, 13 Jun 2025 05:59:17 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1749812357;
-	bh=ECNdaOgprCZ21ffz0S0ElddSmNcpxaOPXvRqQLB08fs=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=hY6aifoZtXHMKs15wOkCqYOJWD+HDjcuOyx2WlKxO1qshiV17P0bGLtYjWCINj4vJ
-	 FRoQoGS8OauWjIiC7dQZl1PUwHupCluhYFVRyqvYvUrbwtC+vwtMzQl5Z7nijEhXcU
-	 tgh1tFNqYEAyTZLPQ6wctoH2X1aOT/jX9s7ZGt0M=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55DAxH6O2682137
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 13 Jun 2025 05:59:17 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 13
- Jun 2025 05:59:17 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 13 Jun 2025 05:59:17 -0500
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55DAxBK73455305;
-	Fri, 13 Jun 2025 05:59:12 -0500
-Message-ID: <65bf4f83-43c2-4640-9858-afb96fa1cfc7@ti.com>
-Date: Fri, 13 Jun 2025 16:29:11 +0530
+	Fri, 13 Jun 2025 11:07:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E36116113B;
+	Fri, 13 Jun 2025 11:07:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38C32C4CEE3;
+	Fri, 13 Jun 2025 11:07:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749812868;
+	bh=yp9sbCbl7MbubwJbO1yJwsl5U12/4EmLw/erbx5e7Po=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Y0xF8S9dprgIwjWWQiwL7aCI0FmWcGZPE87ZgHrl/1Zs8oSXq7JOCcVUXJde7u0bC
+	 Up0hj/JoNTvTL2gRlFNt+5GdQfy28Crz1QK2gkoJgCCxGWoDk53VnCewe7NlS3CWcn
+	 YPqixTfJOPTujSHxju23V5IRW/FsNskaOk8qcJhQOmXwzRE6+lyRPrW7R+QLWWaJZv
+	 TJ0SKIcmE3ebTJEAryUacymgFboYmIgCCXK9o+Z0eAtdm3ZNgnYA5JUubUsSg7suzE
+	 zlf0pH2OZfUdZgQQgVp+D/X9mLqSCw7bOeedY0BueiiiYWhMGXPq1f2GsjWTNbFqay
+	 gSKjS8CHRlpFg==
+Message-ID: <2fb10aee-6610-43f4-9d12-88a97e0f66e5@kernel.org>
+Date: Fri, 13 Jun 2025 13:07:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v10] net: ti: icssg-prueth: add TAPRIO offload
- support
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-CC: Meghana Malladi <m-malladi@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Simon Horman <horms@kernel.org>,
-        Guillaume La Roque <glaroque@baylibre.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Roger Quadros <rogerq@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Jakub Kicinski <kuba@kernel.org>, Eric
- Dumazet <edumazet@google.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
-        Roger
- Quadros <rogerq@ti.com>
-References: <20250502104235.492896-1-danishanwar@ti.com>
- <20250506154631.gvzt75gl2saqdpqj@skbuf>
- <5e928ff0-e75b-4618-b84c-609138598801@ti.com>
- <b05cc264-44f1-42e9-ba38-d2ef587763f5@ti.com>
- <20250610085001.3upkj2wbmoasdcel@skbuf>
- <1cee4cab-c88f-4bd8-bd71-62cd06901b3b@ti.com>
- <20250610150254.w4gvmbsw6nrhb6k4@skbuf>
- <10d1c003-fcac-4463-8bce-f40bda3047f0@ti.com>
- <20250612151043.6wfefe42pzeeazvg@skbuf>
+Subject: Re: [PATCH v2 2/2] dt-bindings: gpio: gpio-xilinx: Mark clocks as
+ required property
+To: Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org,
+ monstr@monstr.eu, michal.simek@xilinx.com, git@xilinx.com
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+ Srinivas Neeli <srinivas.neeli@amd.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>
+References: <8407ef56b11632c1a7abfce8a4534ed8a8ed56cc.1749809570.git.michal.simek@amd.com>
+ <cbde9b9e2b0f9d12fdd1ba24fddb1543159357aa.1749809570.git.michal.simek@amd.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20250612151043.6wfefe42pzeeazvg@skbuf>
-Content-Type: text/plain; charset="UTF-8"
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <cbde9b9e2b0f9d12fdd1ba24fddb1543159357aa.1749809570.git.michal.simek@amd.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_035930_769875_43BA7849 
-X-CRM114-Status: GOOD (  40.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,118 +124,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/06/25 8:40 pm, Vladimir Oltean wrote:
-> On Wed, Jun 11, 2025 at 03:10:35PM +0530, MD Danish Anwar wrote:
->>> I am not very positive that even if adding the extra restrictions
->>> discovered here (cycle-time cannot be != IEP_DEFAULT_CYCLE_TIME_NS),
->>> the implementation will work as expected. I am not sure that our image
->>> of "as expected" is the same.
->>>
->>> Given that these don't seem to be hardware limitations, but constraints
->>> imposed by the ICSSG firmware, I guess my suggestion would be to start
->>> with the selftest I mentioned earlier (which may need to be adapted),
->>
->> Yes I am working on running the selftest on ICSSG driver however there
->> are some setup issues that I am encountering. I will try to test this
->> using the selftest.
->>
->>> and use it to get a better picture of the gaps. Then make a plan to fix
->>> them in the firmware, and see what it takes. If it isn't going to be
->>> sufficient to fix the bugs unless major API changes are introduced, then
->>> maybe it doesn't make sense for Linux to support taprio offload on the
->>> buggy firmware versions.
->>>
->>> Or maybe it does (with the appropriate restrictions), but it would still
->>> inspire more trust to see that the developer at least got some version
->>> of the firmware to pass a selftest, and has a valid reference to follow.
->>
->> Sure. I think we can go back to v9 implementation (no extend feature)
->> and add two additional restrictions in the driver.
->>
->> 1. Cycle-time needs to be 1ms
->> 2. Base-time needs to be Multiple of 1ms
->>
->> With these two restrictions we can have the basic taprio support. Once
->> the firmware is fixed and has support for both the above cases, I will
->> modify the driver as needed.
->>
->> I know firmware is very buggy as of now. But we can still start the
->> driver integration and fix these bugs with time.
->>
->> I will try to test the implementation with these two limitations using
->> the selftest and share the logs if it's okay with you to go ahead with
->> these limitations.
->>
->>> Not going to lie, it doesn't look great that we discover during v10 that
->>> taprio offload only works with a cycle time of 1 ms. The schedule is
->>
->> I understand that. Even I got to know about this limitation after my
->> last response to v10
->> (https://lore.kernel.org/all/5e928ff0-e75b-4618-b84c-609138598801@ti.com/)
->>
->>> network-dependent and user-customizable, and maybe the users didn't get
->>> the memo that only 1 ms was tested :-/
->>
->> Let me know if it'll be okay to go ahead with the two limitations
->> mentioned above for now (with selftest done).
->>
->> If it's okay, I will try to send v11 with testing with selftest done as
->> well. Thanks for the continuous feedback.
+On 13/06/2025 12:12, Michal Simek wrote:
+> On Microblaze platforms there is no need to handle clocks because the
+> system is starting with clocks enabled (can be described via fixed clock
+> node or clock-frequency property or not described at all).
+> With using soft IPs with SOC platforms there is mandatory to handle clocks
+> as is explained in commit 60dbdc6e08d6 ("dt-bindings: net: emaclite: Add
+> clock support").
+> That's why make clock as required in dt binding because it is present in
+> both configurations and should be described even there is no way how to
+> handle it on Microblaze systems.
 > 
-> I don't want to gate your upstreaming efforts, but a new version with
-> just these extra restrictions, and no concrete plan to lift them, will
-> be seen with scepticism from reviewers. You can alleviate some of that
-> by showing results from a selftest.
-
-We will make a complete plan for fixing these restrictions and I will
-update the community.
-
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
+> ---
 > 
-> The existing selftest uses a 2 ms schedule and a 10 ms schedule. Neither
-> of those is supported by your current proposal. You can modify the
-> schedules to be compatible with your current firmware, and the selftest
-> may pass that way, but I will not be in favor of accepting that change
-> upstream, because the cycle time is something that needs to be highly
-> adaptive to the network requirements.
+> Changes in v2:
+> - Add fpga region patch to fix issue which was introduces by this change
 > 
+> Based on discussion at
+> https://lore.kernel.org/lkml/20241002-revivable-crummy-f780adec538c@spud/
+> 
+> Actually this shouldn't be only targetting GPIO but also for example
+> xlnx,xps-timebase-wdt-1.00.a but I would like to check it first on gpio
+> before starting to check other bindings.
 
-I can tweak the script to use 1ms cycle time. I tried to run the script
-however I am not able to run the script due to multiple package
-dependencies which I am currently trying to resolve.
+IIUC, patch #1 is a prerequisite, so you need to squash them. Otherwise
+dt_binding_check is not bisectable and we want it to be bisectable.
 
-I checked your commit [1] where you have introduced the tc_taprio.sh
-script. You have mentioned,
-	"This is specifically intended for NICs with an offloaded data path
-(switchdev/DSA) and requires taprio 'flags 2'. Also, $h1 and $h2 must
-support hardware timestamping, and $h1 tc-etf offload, for isochron to
-work."
+(dtbs_check does not have to be, as long as linux-next is concerned)
 
-My NIC does support offloaded data path (switchdev), taprio 'flags 2'
-and hardware timestamping. However we don't support tc-etf offload.
-
-Will it be possible to use this script without the support of tc-etf
-offload?
-
-> So to summarize, you can try to move forward with a restricted version
-> of this feature, but you will have to be very transparent as to what
-> works and what are the next steps, as well as give assurance that you
-> intend to keep supporting the current firmware and its API when an
-> improved firmware will become available that lifts these restrictions.
-
-We are working on a plan to get full taprio support and I will update
-the community accordingly. I want the driver to get upstreamed with
-whatever support we have right now and add things later on. If I am able
-to verify the `tc_taprio.sh` script then I would share results from
-there. If I am not able to verify the script, I will at least try to
-mention what we are supporting now and what are the limitations and when
-do we plan on addressing those limitations.
-
-[1]
-https://lore.kernel.org/all/20250426144859.3128352-5-vladimir.oltean@nxp.com/#r
-
--- 
-Thanks and Regards,
-Danish
+Best regards,
+Krzysztof
 
