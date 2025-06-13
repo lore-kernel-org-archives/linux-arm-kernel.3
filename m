@@ -4,93 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9EFC71150
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ECFC71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xXUd6lfewKPENm5Aa8Bd/d/D/7UIBoRsbAQtScnCe8M=; b=NgO8x1RUYhBb3V2DM2pnURD6v4
-	waNC3BgsZdK4FFE6BOUCyhCORjkvHIQ3LICgOyQHjqj3UAnPHpvewknU6PDsIZFfJz7H+0C7sKmEJ
-	SeiX7tZxFLRfywSt12qxPfL85ZB4U0Z3Or4lRvg4GsnNdTIPBXrB5UKg+SbivYLyrH3GBMgwtC4vY
-	JZ956wiN4ukJzirX7CnEMC6sbE8zN4J1kiV5XFc6OOhuHR5RiyB2t8u8m/gGVu1qadKumzHbPLq4l
-	ckEgVq9wP0ObdBrfjyXyn65XZRMvqvpVo/Ml8TUvv1WpxlzUPH7GkHcQFtM7viUfLJO4Nkuk2LsUn
-	Cz6mKPbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Y1TYF3o9MJosGx0HwGV/hmhcmkYfIUKomItVW1Sq2k0=; b=Dsk0lnNoCYemmT
+	Zhlqu+M5OA8SiowJbw99E4NOzo4nWlofAWw1436JWMU+/22ZwDljijziMYX6gkoBTJwki4qWIkzRQ
+	9YdVMXnVCRKGazKPPad5qKYZuah0RxeN7xn2bRRPwDNwqwKjlpFYNZx5QhFPwReeFiN+jyJgwagCG
+	JKDxRxRmVNVAX2XXrJyiePLrRobEOq2EVJ+4k5xFOy2b33gW8t+84+zoII6DJD5zInT7cGiVdNITA
+	OG4otVUv+D0fQScpY6xQeqa9x63R8e2IJTYl/MMahcyoiMp1HKu2OJIg4DNIwLNcQtYc/1Kyy/35E
+	yI6S8BOw1ekK1rC20RVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9hF-0000000HNfX-1Gzi;
-	Fri, 13 Jun 2025 19:04:13 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1uQ9wF-0000000HQDX-0USJ;
+	Fri, 13 Jun 2025 19:19:43 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ8n6-0000000HEIq-3grb;
-	Fri, 13 Jun 2025 18:06:13 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b2fca9dc5f8so1880313a12.1;
-        Fri, 13 Jun 2025 11:06:12 -0700 (PDT)
+	id 1uQ9ZN-0000000HN14-3Mwg
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 18:56:08 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-60f24b478e3so1215355eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 11:56:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749837972; x=1750442772; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xXUd6lfewKPENm5Aa8Bd/d/D/7UIBoRsbAQtScnCe8M=;
-        b=TL8SLiD6mrhtNO9f2Evs/vTwZKTGwrCL4m7eupY7h3DmNHa3g4a162xVVn7iTt1ETI
-         w4yItZMROtuDy2+6QNh3lhyZ22CE+iSwca6XwOefYPHNikjEZU2KoenQFo2QIyD8bftS
-         XBP19tDtuyWEFm8suKEWJllcg7SuT+PLy1t1OdtzkrkfZrmCdGenqNqZtYC6F6gamIAc
-         uXIQxBcE9FcbpFeTQkpRvqbSRvEKfIyCFaDDOK1jMq+4evGEn88YyLcCn5yTSpi0GRtE
-         KRHgZNMgnSRbVWcdv5xC5Iov5jEzit7zItln6Dvx3UxEflgpsj5UztW+swbDXXJ2GyGC
-         rGsg==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749840965; x=1750445765; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y1TYF3o9MJosGx0HwGV/hmhcmkYfIUKomItVW1Sq2k0=;
+        b=eE7Cqo3X1/wRerpdcqoPT9lyftGIWHWUx7/i1QuRXN923hkRvMyrz6+Uc68Xe9MZ4b
+         G0WcwC/BhfoOBw8zcmYuEWsyiLOtgzpsEqXwp9F2Pl1Q0hGjqekZB75RLxGMOysPENAI
+         g156b6pOvn5q5kUqZkQR8FEKwoVjI5vDIIyHHuiI9JMNGrY2h2M/LLR9sCmKayPk6yX6
+         dPTmLnuzDwyX/w592ml2CnIoALJuii3thPBw3RD3XHCCsRmnRr42GjeeNNIG+BJxx+ap
+         ojT45iHlwQfy/4z1lygfYF8JI6IfCW8d4oEyG6bG4ojPoLhWNBP3QSZIVNNleDHb93/3
+         yDmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749837972; x=1750442772;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xXUd6lfewKPENm5Aa8Bd/d/D/7UIBoRsbAQtScnCe8M=;
-        b=CkLj3hjw7qTER3JYx7AWNXwDmbOyAepPtoQ52MhHUqo+G7hMdpUahp60+Fe5LweGb5
-         B5zn3/rlNJyRYjGnnteY4ZnLUDqkp9F25mITsF7tN0QOPnG0OLWFqcio+Z1A4BSOu66m
-         ktln4DcWnmFWZlQdW4l0x8FwR3NVnMSNQ1eE+ecp1O7XPESk9blLpmBpWISlURdb3SGm
-         5leLae0R1/QCEPyIOzb6xiJfIJWhHucBnSmMHf1B5S2iV4LEegkiEs6ecTbgKrkSVp+O
-         x8zEDajLiM8wnQOhsKVA7KOPfZLCDgwsdyxG7kALwgzPbykVq/uReaoWBk7nEs0kyGpN
-         k9PA==
-X-Forwarded-Encrypted: i=1; AJvYcCWVbg5BN5yL+MwmbPii0Nv55MZQ8gDPW0tRvu3516hpK1S4c/HM1hzzd5hif0xO0d0roR0FcOdVT1WV@lists.infradead.org, AJvYcCXdHYqabom41W6n/gTC81oFovteIGnE9ye9bWdvgySDbjZQCHleOERxbDk2n3LPyw3LzhjOHECJVcdJWjJQVdtI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF23Ded0kQd0pOY7fsPVARc2UOa8AFh/RLkzSenFwy5UKGxnzT
-	9aIXrlLQy++5tIuFm9LcPtIjocV1fgCWyScrHhs7X3xjIHZ+JR2aJpJGHAoYZdGn
-X-Gm-Gg: ASbGncvNJ1UQY+m6JXxNOXQA4oUW1r+Rl1YaTtFalQOpp+vpOXmAM+YEG4bK9HliR+0
-	Fz5+fohHI7G8lJq8qlsCXtY3vOjWoHT6EB1DP7SAjjjDW3fuTvpKTKuTW0nL9WG6cI7HP1+i552
-	e8ouVCEjIgtNNEugEBiGXb1P1qhRlBfThUDecRi7bQXQ/+vxvyPfo3XrgG4nZrY/JyYVD/qvwEW
-	AtEBRVgWpQM3Suz+e/ICXb947rEDT6g2lU4L/8xt37h+2LMlkYOxcFuVTMvW5nYKtC72GTkVPnk
-	Vks6tMS2A7EQYDiAmS/t/BEQLV5Fa+cYYOfRXYjHeeXL4UyjdtrzGH7IoPx0
-X-Google-Smtp-Source: AGHT+IH2DqbuxD4MEb4wwFaAB966G/5kXTTb/l9FTKLx6klqy6VsZe3elDybbPK71Ba9qjzXcLhjZw==
-X-Received: by 2002:a05:6a21:99a8:b0:1f5:535c:82dc with SMTP id adf61e73a8af0-21fbd668c44mr392814637.42.1749837971960;
-        Fri, 13 Jun 2025 11:06:11 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:84a2::dead:c001])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe1639f97sm1755775a12.6.2025.06.13.11.06.07
+        d=1e100.net; s=20230601; t=1749840965; x=1750445765;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y1TYF3o9MJosGx0HwGV/hmhcmkYfIUKomItVW1Sq2k0=;
+        b=uHEZpTOLyxCdHbl982E2e0ZFtPLKz4N9ABDTynC7beMvGOeVnxgDgEt+jmrOO9S+/R
+         1EftvZUpXUVCG8IUWIB296mKmyQJvKAf7OG1dzYdnJ+6pEzz2KukUdmGdzF+mocCByif
+         qgNI2sZDwLOKY5uD5mvNAtMAWP7kECBdNjwwJmC8UuI42mwIUjhBtUnPJy505N/2BBox
+         Lc173f21E2Ukchp+6DS065WlbVj1IM9GsjNY8iKGDBrhDI/rDB9XOFKHyMh4aJpKWlHD
+         yUvmqAWZwCBStbKOL7wM838EHVnWpOmlOw+I7jTa6bBwOJnq8+n9F6+OXcEhvSg3D8qO
+         Y5PQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVc4058PlQIDJwmLaecXVq1ENHI/QwOo2EAU0MyIx5bIC/Wt9ERde7hf+qCHi3cHz9HN8wkRcGzOycUuXhMhSbb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzf6c86uvrmbnpRrPmIeYtVfoQOlA05fFUAZV7ZVRh7R6Ymb+H0
+	vpHsJYQ9927TqxR9jt3T5qWhHXkvrqjCuVPcdqxseGZ1DAvehYGV2gjUSvZFXLp7m68=
+X-Gm-Gg: ASbGncuYCo90gsBYSDMT+GLk3SJw0v2Dni/Wbui61gdjyP/dCPUfhHSm4YjeNjcS+ke
+	zvwaMaXux7pvox57IdO+VZ/IzAQuHudVsHjBYllEOr9TjUxYtZjHSdDMORpNfYBJeiKZmoXja3S
+	zMFDCL1cPEff38aWiz3mhbRjsh7huENjsCezne1kJpUqnIdclJActApLMtue4RDsh34WsbETuoo
+	brX2EA6Q1AlW3vvt8Rnj6YSaKhyiSrTmF9cu2+CpJ/9qgJvZl2GJMb6Cgf9G6dNGkp1eknTJDm8
+	eWLeXcFCn3WNzslR1Q1M4K9LwPlyTFVDbjlURNJGQd9LLlz5GEuwSBKr2khLAqMkZMM=
+X-Google-Smtp-Source: AGHT+IH2MWQtTOQvVuN+GKtLbqMqE9OuQOP/DXYYureGIwrlvQ2mli5y2ygIXgHzv9OAPmZM88lIWg==
+X-Received: by 2002:a05:6820:814:b0:60f:3442:96b9 with SMTP id 006d021491bc7-61110ff7a50mr540561eaf.3.1749840964805;
+        Fri, 13 Jun 2025 11:56:04 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:4647:c57:a73c:39d8])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-61108f07e08sm256244eaf.27.2025.06.13.11.56.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 11:06:11 -0700 (PDT)
-Date: Fri, 13 Jun 2025 15:06:01 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rick wertenbroek <rick.wertenbroek@gmail.com>,
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v5 2/4] PCI: rockchip: Set Target Link Speed before
- retraining
-Message-ID: <aExoiaPhqXPmv_Oy@geday>
-References: <cover.1749833986.git.geraldogabriel@gmail.com>
- <1966f8ddc4a81426b4f1f48c22bea9b4a6e6297c.1749833987.git.geraldogabriel@gmail.com>
+        Fri, 13 Jun 2025 11:56:03 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH v5 0/3] bus: ts-nbus: use gpiod_multi_set_value_cansleep
+Date: Fri, 13 Jun 2025 13:55:27 -0500
+Message-Id: <20250613-gpio-set-array-helper-v5-0-273fab50cc8e@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1966f8ddc4a81426b4f1f48c22bea9b4a6e6297c.1749833987.git.geraldogabriel@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAB90TGgC/4XPSwrCMBCA4atI1kbyapq48h7iYpJMbUBtSaRYp
+ Hc37UYRi8t/YL5hniRjipjJfvMkCYeYY3crUW03xLdwOyONoTQRTFSMS07PfexoxjuFlGCkLV5
+ 6TNQFBVIYWbMgSdntEzbxsbjHU+k25nuXxuXMwOfpP3HglFFruTfeOxU0HhyMl+gS7nx3JTM6i
+ DckmF6DRIG4rxqmTFNbL39A8gPibA2SBQoadC11rQKYH5B6Q5qvvqYK1DijwTplLbgvaJqmF0B
+ RaAOYAQAA
+X-Change-ID: 20250131-gpio-set-array-helper-bd4a328370d3
+To: Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>, 
+ Andy Shevchenko <andy.shevchenko@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1915; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=++uE2N5iG8oRabYWPvqc1xZ0NdyMvXJg7Pp68u6U0pM=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoTHQn8OH/6JMhZq0tcuH66PDJbaNGfuO8EYGYf
+ bqSi4lTXkqJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaEx0JwAKCRDCzCAB/wGP
+ wL11CACbdE4hxkOjFwtT6N/riTIylQaavW5TjgmkT2kDkqqVPKqqdQWBLEm2iIfONpmkvV381ux
+ q/GgBKcW+hxEM9ILrT6MdgN1qyScmpXBTc/ra3ZJz2DSy9qJ5rXnscay+TKk4pir4VOAcHOxlPn
+ yPtfIKBKbMX+KyfrGZPYgHNJ2P9juYzDw5q8IeOKwFhVmZcIfgA0LhxvYARl1BapQgrsdgZguIV
+ IlkPzlwZJvp9EK1LdJzfM/YAZAU4vQL5+txUhPx3fPDe1WT4F3nqvc8FFjGYdDWhRnARqyh3K1F
+ 5U5hNpVM8/xLMR6ZpRqinew/FouDHnrMpFM7b716qLzHhw52
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_110612_916959_73876F90 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250613_115605_954815_9DFFFD34 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +114,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 02:03:50PM -0300, Geraldo Nascimento wrote:
-> Current code may fail Gen2 retraining if Target Link Speed
-> is set to 2.5 GT/s in Link Control and Status Register 2.
-> Set it to 5.0 GT/s accordingly.
-> 
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
->  drivers/pci/controller/pcie-rockchip-host.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
-> index 8489d51e01ca..467e3fc377f7 100644
-> --- a/drivers/pci/controller/pcie-rockchip-host.c
-> +++ b/drivers/pci/controller/pcie-rockchip-host.c
-> @@ -341,6 +341,10 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
->  		 * Enable retrain for gen2. This should be configured only after
->  		 * gen1 finished.
->  		 */
-> +		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL2);
-> +		status &= ~PCI_EXP_LNKCTL2_TLS;
-> +		status |= PCI_EXP_LNKCTL2_TLS_5_0GT;
-> +		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL2);
->  		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL2);
+This is what remains from "gpiolib: add gpiod_multi_set_value_cansleep"
+that didn't get applied yet for the bus subsystem. So I have changed
+the subject line accordingly.
 
-Hi,
+Arnd,
 
-I see rockchip_pcie_write() was added twice, in this patch and also in
-1/4.
+There was no maintainer listed in MAINTAINERS for the ts-nbus driver
+and it looks like you have picked up patches for it in the past. Could
+you please pick up these as well?
 
-I'll send v6 with correction after I get some reviews.
+---
+Changes in v5:
+- Fix undeclared variable in ts_nbus_reset_bus()
+- Link to v4: https://lore.kernel.org/r/20250611-gpio-set-array-helper-v4-0-fb86a9b499ab@baylibre.com
 
-Thank you,
-Geraldo Nascimento
+Changes in v4:
+- Dropped all non-ts-nbus patches.
+- Fixed a reported issue with uninitialized variables.
+- Link to v3: https://lore.kernel.org/r/20250210-gpio-set-array-helper-v3-0-d6a673674da8@baylibre.com
 
->  		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
->  		status |= PCI_EXP_LNKCTL_RL;
-> -- 
-> 2.49.0
-> 
+Changes in v3:
+- Added IS_ERR_OR_NULL() check to gpiod_multi_set_value_cansleep()
+- Added new patches to clean up accessing bitmap directly (ts-nbus, ad2s1210).
+- Added function prefix for max3191x.
+- Removed unnecessary braces in ad7606 patch.
+- Picked up additional trailers.
+- Link to v2: https://lore.kernel.org/r/20250206-gpio-set-array-helper-v2-0-1c5f048f79c3@baylibre.com
+
+Changes in v2:
+- Renamed new function from gpiods_multi_set_value_cansleep() to
+  gpiod_multi_set_value_cansleep()
+- Fixed typo in name of replaced function in all commit messages.
+- Picked up trailers.
+- Link to v1: https://lore.kernel.org/r/20250131-gpio-set-array-helper-v1-0-991c8ccb4d6e@baylibre.com
+
+---
+David Lechner (3):
+      bus: ts-nbus: validate ts,data-gpios array size
+      bus: ts-nbus: use gpiod_multi_set_value_cansleep
+      bus: ts-nbus: use bitmap_set_value8()
+
+ drivers/bus/ts-nbus.c | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
+---
+base-commit: 19a60293b9925080d97f22f122aca3fc46dadaf9
+change-id: 20250131-gpio-set-array-helper-bd4a328370d3
+
+Best regards,
+-- 
+David Lechner <dlechner@baylibre.com>
+
 
