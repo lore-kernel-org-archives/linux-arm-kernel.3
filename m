@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE8FC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494B1C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2M/eCXY1ToDvTm9hwkGDq/8LUzWrm55Tahx+FO3/MkM=; b=UsTJk7cks9ciy9fQM0LE4E/SxT
-	I3zn8j1NjeFhScPXt3WrGOUiACqdG8MRQKQYlrvAJkfT+uLE35SmkTyA3GQ/XmCg1JiPzPsmIYIXu
-	QK7HoCTMU0ozXf0uOtbpDQbnwVWcEHnDd66BL2BKrDFWP5hu6gJsAfbCmyyYHcFOr+qDXI36plxOi
-	3yWqn+q/hBONg+2aKhr/4i56dOThN62caER+iGSX3XBrrW8CDzSJVmTF0I5jhZ7wgSVVr1kPcyD3V
-	NYcFHXuMVRDxD9uHKjTRAPeLzv3de2/fc6NUG9rcVn1KgZf2G0kX6LTHj6hilWzuOBy0Ulm1Ruu3U
-	uPtEd48A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OOVi85YqZgwGXGhiKBANfYwAT8bk0/6cs0m4L0QZ5ww=; b=JK5WW8aEzBn5yV
+	Sqkl3BZ+XwFRQCONrhnyIDH4uP3W7Ho6qbfiLgSurA+Asd1SgQSUumGoLK4P5b5njdeFe9GI8opC+
+	fdOmmbJxYCaFa2LamjEd1BEjp6mouLfzZaKqoHimH/JYmVAT4w+tf+P8OZogcxVkh/E0LIznuQ8fa
+	I674+gay5zkqaWJ9DOX7SESGjhwkvQRiLqJJiQGQ1iNYLu3J/4cfAKAJdGjP2qayMc2xfGXKKwDWi
+	iybCzLZBx4SEv6hTn4bc6upwsJKYVd8WMBP3LwWU8tAj/njjB4WROlByRVKpnVDsZ8pu6epn6XFsd
+	62r6TbjbuyvGHO1lhFiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ8wy-0000000HFAn-0Qfs;
-	Fri, 13 Jun 2025 18:16:24 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6XG-0000000Gult-2BQO;
-	Fri, 13 Jun 2025 15:41:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=2M/eCXY1ToDvTm9hwkGDq/8LUzWrm55Tahx+FO3/MkM=;
-	b=lS3LqaYlJDzuE5fir8AzvoACaNs2VvSrzFWYdhJauogGyv7h0960NeLFzcFewe
-	s+kbgv00uhKvD4vmYfQu3NemlkNUI/EYKTGH1EzVTq8U0dLSHOgUFu/kcYBd64m5
-	/RM5+8n2FFAW0ysoNM1tOLE9n0ePrEbHzigmWrEY4hOVo=
-Received: from [192.168.71.94] (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wBnkHB4RkxorB7fHw--.15462S2;
-	Fri, 13 Jun 2025 23:40:41 +0800 (CST)
-Message-ID: <a88ccb03-3039-4955-a6cc-18774c6799f6@163.com>
-Date: Fri, 13 Jun 2025 23:40:40 +0800
+	id 1uQ8x1-0000000HFFu-0iFa;
+	Fri, 13 Jun 2025 18:16:27 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ6fA-0000000GxCx-2ded
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 15:49:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A0F7F4441C;
+	Fri, 13 Jun 2025 15:49:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1749829788;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=OOVi85YqZgwGXGhiKBANfYwAT8bk0/6cs0m4L0QZ5ww=;
+	b=UCS0Yhp0BmMKUNuUyOR1T25Kcr7nlJYjEgZK7Ufhbcj4FHb/qXJeRN4v5mPpJFrUUd2oem
+	fTzexFYkAKc3Kmfz2P1OQvLBE+rxYG/C49/ZWpML3/gowta2wgXwaugkZO9UfkCjyYXWDx
+	RB6/pbV8Lk9OHGzj0x6TCeGHiOuWwOw/GqRXABCIgt30idmf0uSS81p/0VYG7O3uIIXuci
+	oyU8nkw5n3EEIwKUqyshs1iZB8Srz5x5aWPAzF2rECrBLWduAsy0u7nADm+hGQEekGTeZN
+	nOKckX4BRAxjjOjp2rEOrb5hE9vJqwJBHUL1+pi98FGvNMufLUkIapIRvlBCPw==
+From: Kory Maincent <kory.maincent@bootlin.com>
+Subject: [PATCH v3 0/7] Add support for BeagleBone Green Eco board
+Date: Fri, 13 Jun 2025 17:49:43 +0200
+Message-Id: <20250613-bbg-v3-0-514cdc768448@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] PCI: dwc: Remove redundant MPS configuration
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
- heiko@sntech.de, manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
- pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
- jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org,
- yue.wang@amlogic.com, hanjie.lin@amlogic.com
-References: <20250510155607.390687-1-18255117159@163.com>
- <20250510155607.390687-3-18255117159@163.com>
- <6v7m7qt4n26n6pmx5tggmmvv7na6t5v5wtfqev5x4wxosymwul@j3dizxyyy4tg>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <6v7m7qt4n26n6pmx5tggmmvv7na6t5v5wtfqev5x4wxosymwul@j3dizxyyy4tg>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wBnkHB4RkxorB7fHw--.15462S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWF4UZFWrurWxWFy8Zr1UJrb_yoW5Zw15pF
-	W5XFs3CF4rJr4rZanFka1rAa42yas8AFyUJF9rG34fZF9IyFsrGFy2yFWF9FyxZrZ2gF1S
-	v34Ygr43Z3Z8JFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uq9a9UUUUU=
-X-Originating-IP: [124.79.114.92]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiQxdro2hMQiMsKAACsf
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAJdITGgC/1WMQQ6CMBBFr0JmbU070Ja68h7GBYUBmig1LWk0h
+ LtbcGGY3Zv89xaIFBxFuBQLBEouOj9lKE8FtGMzDcRclxmQo+QSS2btwLQyXNSd6LHRkJevQL1
+ 775XbPfPo4uzDZ48msX2PfhKMM+qrxpDUlO9qvZ8fbjq3/glbIeHfUtz8LMyWRF1zVFZXpj5a6
+ 7p+Acr49H7OAAAA
+To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+ Roger Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Paul Barker <paul.barker@sancloud.com>, 
+ Marc Murphy <marc.murphy@sancloud.com>
+Cc: Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>, 
+ Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Kory Maincent <kory.maincent@bootlin.com>
+X-Mailer: b4 0.15-dev-8cb71
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeefhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtkeertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepudfhveduteffgfekvdfhveehgeehtdelgefhffduiefffedvheefgeeiiedvkeetnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgduleemkeehkeejmeejuddttdemfedttgefmeektgehsgemfhdtkegumeegfeegsgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekheekjeemjedutddtmeeftdgtfeemkegthegsmehftdekugemgeefgegspdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvvddprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhgvrghss
+ ehkvghmnhgruggvrdhinhhfohdprhgtphhtthhopehmrghrtgdrmhhurhhphhihsehsrghntghlohhuugdrtghomhdprhgtphhtthhopehlihhnuhigqdhomhgrphesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehjkhhrihgunhgvrhesghhmrghilhdrtghomhdprhgtphhtthhopehtohhnhiesrghtohhmihguvgdrtghomhdprhgtphhtthhopehkhhhilhhmrghnsegsrgihlhhisghrvgdrtghomh
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_084142_954130_ADF01019 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20250613_084952_803351_9C7965CB 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,102 +88,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+SeeedStudio BeagleBone Green Eco (BBGE) is a clone of the BeagleBone Green
+(BBG). It has minor differences from the BBG, such as a different PMIC,
+a different Ethernet PHY, and a larger eMMC.
 
+Also update the omap.yaml binding to include missing compatible strings
+that were previously undocumented.
 
-On 2025/6/13 14:54, Manivannan Sadhasivam wrote:
-> On Sat, May 10, 2025 at 11:56:07PM +0800, Hans Zhang wrote:
->> The Meson PCIe controller driver manually configures maximum payload
->> size (MPS) through meson_set_max_payload, duplicating functionality now
->> centralized in the PCI core.  Deprecating redundant code simplifies the
->> driver and aligns it with the consolidated MPS management strategy,
->> improving long-term maintainability.
->>
->> Signed-off-by: Hans Zhang <18255117159@163.com>
-> 
-> I believe that the root port MPS set by PCI core in patch 1 should be enough to
-> remove the logic in the driver. But given that we already saw that is not the
-> case with Armada controllers, it would be good if one of the Meson maintainers
-> could verify if this series works as intented. Since the driver is not using the
-> DEVCAP value, but using the hardcoded value, I'm slightly worried that setting
-> MPS value other than 256 would have any downside.
-> 
-> But anyway, the root port MPS should be the same with and without this series.
-> This can be verified by:
-> 
-> sudo lspci -vvv | grep MaxPayload
-> 
-> Also, performing any benchmark and making sure that the device performance
-> didn't get affected would be great.
-> 
+Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+---
+Changes in v3:
+- Update multi_v7_defconfig with TPS65219 config.
+- Remove extraneous compatible strings.
+- Replace BeagleBone compatible board name vendor to use "beagle" instead
+  of "ti".
+- Link to v2: https://lore.kernel.org/r/20250609-bbg-v2-0-5278026b7498@bootlin.com
 
-Dear Mani,
+Changes in v2:
+- Add patch 1 to 3 to fix binding and devicetree inconsistencies.
+- Rename tps node name to generic pmic node name in am335x-bone-common.
+- Link to v1: https://lore.kernel.org/r/20250523-bbg-v1-0-ef4a9e57eeee@bootlin.com
 
-Thank you for your reminder. I found two friends of Amlogic from the 
-submission records and copied the email to them. And ask them to help 
-test these two patches.
+---
+Kory Maincent (7):
+      dt-bindings: omap: Add missing AM33xx compatible strings
+      ARM: dts: omap: Remove incorrect compatible strings from device trees
+      arm: dts: omap: am335x-bone-common: Rename tps to generic pmic node
+      dt-bindings: omap: Add Seeed BeagleBone Green Eco
+      arm: dts: omap: Add support for BeagleBone Green Eco board
+      arm: omap2plus_defconfig: Enable TPS65219 regulator
+      arm: multi_v7_defconfig: Enable TPS65219 regulator
 
-But I don't know if they are still employed, or do you know anyone to 
-help with the test?
-
-
-
-
-
-Dear yue.wang and hanjie.lin,
-
-Could you help test these two patches? I don't know if it affects the 
-normal function of your Root Port. If it works properly, please let me 
-know. Thank you very much.
+ Documentation/devicetree/bindings/arm/ti/omap.yaml |  23 ++-
+ arch/arm/boot/dts/ti/omap/Makefile                 |   1 +
+ arch/arm/boot/dts/ti/omap/am335x-base0033.dts      |   2 +-
+ arch/arm/boot/dts/ti/omap/am335x-bone-common.dtsi  |   2 +-
+ arch/arm/boot/dts/ti/omap/am335x-bone.dts          |   4 +-
+ .../boot/dts/ti/omap/am335x-boneblack-wireless.dts |   4 +-
+ arch/arm/boot/dts/ti/omap/am335x-boneblack.dts     |   4 +-
+ arch/arm/boot/dts/ti/omap/am335x-boneblue.dts      |   4 +-
+ arch/arm/boot/dts/ti/omap/am335x-bonegreen-eco.dts | 169 +++++++++++++++++++++
+ .../boot/dts/ti/omap/am335x-bonegreen-wireless.dts |   4 +-
+ arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts     |   4 +-
+ arch/arm/boot/dts/ti/omap/am335x-chiliboard.dts    |   3 +-
+ arch/arm/boot/dts/ti/omap/am335x-myirtech-myd.dts  |   2 +-
+ .../arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts |   2 +-
+ arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts  |   4 +-
+ .../ti/omap/am335x-sancloud-bbe-extended-wifi.dts  |   5 +-
+ .../boot/dts/ti/omap/am335x-sancloud-bbe-lite.dts  |   5 +-
+ arch/arm/boot/dts/ti/omap/am335x-sancloud-bbe.dts  |   2 +-
+ arch/arm/boot/dts/ti/omap/am335x-shc.dts           |   2 +-
+ arch/arm/configs/multi_v7_defconfig                |   3 +
+ arch/arm/configs/omap2plus_defconfig               |   3 +
+ 21 files changed, 221 insertions(+), 31 deletions(-)
+---
+base-commit: e22b9ddaf3afd031abc350c303c7c07a51c569d8
+change-id: 20250523-bbg-769018d1f2a7
 
 Best regards,
-Hans
-
-
-
-> - Mani
-> 
->> ---
->>   drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
->>   1 file changed, 17 deletions(-)
->>
->> diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
->> index db9482a113e9..126f38ed453d 100644
->> --- a/drivers/pci/controller/dwc/pci-meson.c
->> +++ b/drivers/pci/controller/dwc/pci-meson.c
->> @@ -261,22 +261,6 @@ static int meson_size_to_payload(struct meson_pcie *mp, int size)
->>   	return fls(size) - 8;
->>   }
->>   
->> -static void meson_set_max_payload(struct meson_pcie *mp, int size)
->> -{
->> -	struct dw_pcie *pci = &mp->pci;
->> -	u32 val;
->> -	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
->> -	int max_payload_size = meson_size_to_payload(mp, size);
->> -
->> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
->> -	val &= ~PCI_EXP_DEVCTL_PAYLOAD;
->> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
->> -
->> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
->> -	val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
->> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
->> -}
->> -
->>   static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
->>   {
->>   	struct dw_pcie *pci = &mp->pci;
->> @@ -381,7 +365,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp *pp)
->>   
->>   	pp->bridge->ops = &meson_pci_ops;
->>   
->> -	meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
->>   	meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
->>   
->>   	return 0;
->> -- 
->> 2.25.1
->>
-> 
+-- 
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
 
