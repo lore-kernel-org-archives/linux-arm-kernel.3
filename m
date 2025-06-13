@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73CCC7114A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5D2C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 18:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1K2XaU3tNN3z0G/Brd+aKIcwvKoH6QYgKOpK8mTmcUQ=; b=M7ix8XKtbAyqjwDUrKwvaa3aik
-	KP5BFBlOt8qMaa1uEqC6V5BB3t7mX9BiqSwSQhUVllWf6pNkx6uRfn0miPhxusd05TA1WDHkZ48Ls
-	iN0emsmuhIt14h4nN+egzd647KOBS7LT5UZRSkANJidbuLPMQW8jIVHaHevQTbo8ceEygsDYeN5YX
-	n0d0SWyRFQJMqFyq9e18I4RNqbWPdYLiG90G5RLmdupmGi3BtYz8j0Tf1EDxtUzo893jqjYs+jU/8
-	nUEYV2fUHE5QbzyqdJ02iVB8+wlaST2NpuCcufuaHDdu+1aYJQuvg5Db8+gyqBJ90bU+Z+vM3VFHC
-	TANCxCug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cpq4jyvcxAWR6CISrugBCEzMTNh/5zrqihpiJffvPRA=; b=XD5KYlOOMY5/Mg
+	IMKYtW7Y+PyvziD6uwHdctqohzrabVUPeRHTYq6XMT+8fwDT0jMyhx/D1/1deTEswfz477XsEYXGd
+	HilZQuuOa02Lw2XmHmmmlu5N7rm7tHAqBYfcEYG0N4+zI6Zk12Nwdf2n0BaNLibEBRzWqMGWKUemW
+	GfIvtxfMPUHmCia93pV/3p5adoD2etB/bVnKU5moRlSLBgYlacD0muDJHWagPEBwHxBdn2jY8orh3
+	ojOwpF8jtwzzdhm6ZHT8IJcOc1okf7Yk1iDgWsMYDNL09DpWqTXCJ8q9hsQ6+2iBl8i3WGR2gIXM0
+	4Sn0Apq9CczGnphbNNaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ8xC-0000000HFZK-0Ie1;
-	Fri, 13 Jun 2025 18:16:38 +0000
-Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6i0-0000000Gxm5-0hg0
+	id 1uQ8xF-0000000HFg7-3Ir4;
+	Fri, 13 Jun 2025 18:16:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ6jS-0000000Gy0s-3OlC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 15:52:49 +0000
-Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-73838f64415so1637656a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 08:52:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749829966; x=1750434766; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1K2XaU3tNN3z0G/Brd+aKIcwvKoH6QYgKOpK8mTmcUQ=;
-        b=1C8V+Th5hRE8hkaUsrEUONKtkIyZPD/cbrBpLRaSTTSJpOcIwjwfYJiC+/Gyrl38oV
-         0XxdehRkMEgfpCWA+IlyV8Sr2p8kKA2DxMf8TawAtkH8zN2a6DnqYkp3f981+uJriqGr
-         aMwTttU9yorboOj893m2yf4+P9XjqOGBU1PyDJKiHAplE7sp7aPUbwlBWlQcJX/8UM9M
-         684TJ/AJjsw0YXVAWeYvqmt94+9pCAEOjDQ2iVhLP/1bmOtdiGvZ1CEkqYnsOh8wQkcV
-         c9kEvUDuxxg13v0/rqOu+cznmoyvKwqitg6cogPjqDcgtVQlfFc+nQ+D933xPwBCkVv7
-         0Zpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749829966; x=1750434766;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1K2XaU3tNN3z0G/Brd+aKIcwvKoH6QYgKOpK8mTmcUQ=;
-        b=h8VSJjfrckpX7zpZqNPCY/pONpJdK0RsjVa5GoVqrbzBLdopJt1R5x6+j68P0rSias
-         CvNPbjz1fPr/H83iNwMy1HQyeAlYju6BzwF46WH1lcEIX26rtXmj5bi0Tj2sQcbJFsj9
-         a1nFRpZN9O83hJyQgfCzVZW1YoLLPGP1O+oAikoh9ieePCnFuTppGg80346WwHCwAUq1
-         pqSusCxCC0x4aAR8hLWUMyOeAUmTHPBpG0B8ONDKZ3LztSecLNrtbOv29pihMyBLwNM+
-         MM1/k/tkl0IyT+2GCiUu/Vpuccd+vZQZwQRbcG7snq3RbRYOwZhsMghn9iJjX5XOT8cB
-         XVKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWBiabi8NGyQQATxCkwo6Eqo6q1mjyc8j/AEgE73TwwGGgC+S2Xd6h/HvLsxYzgd1ju6+bOL9jxiwTUp6uhixPE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzuqk7WpaOIfCdIenS8O3uKBwYWguBKX2klgL6EQt2u2t2yQe1p
-	1vgRlqxgo1SQ0VmFSFzgiKMbkicPfS6tVca6+TXmvtw7eZNKOESSziwbxLe0vpLY91goMjdcXRS
-	F42HZNPvxCQ==
-X-Google-Smtp-Source: AGHT+IHFbGJBseK+0NlITWxhqlLkXWlDYICLQM+zu92+pohfxizATwmXWeCDlmWgZ4GDVI5eahezZ/DYLRTe
-X-Received: from otbbu4.prod.google.com ([2002:a05:6830:d04:b0:72b:8185:e90e])
- (user=rananta job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6830:210d:b0:72b:9d5e:9456
- with SMTP id 46e09a7af769-73a36367352mr186163a34.13.1749829966723; Fri, 13
- Jun 2025 08:52:46 -0700 (PDT)
-Date: Fri, 13 Jun 2025 15:52:38 +0000
-In-Reply-To: <20250613155239.2029059-1-rananta@google.com>
-Mime-Version: 1.0
-References: <20250613155239.2029059-1-rananta@google.com>
-X-Mailer: git-send-email 2.50.0.rc2.692.g299adb8693-goog
-Message-ID: <20250613155239.2029059-5-rananta@google.com>
-Subject: [PATCH v3 4/4] KVM: arm64: selftests: Add test for nASSGIcap attribute
-From: Raghavendra Rao Ananta <rananta@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
-Cc: Raghavendra Rao Anata <rananta@google.com>, Mingwei Zhang <mizhang@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 13 Jun 2025 15:54:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EEA51C0A;
+	Fri, 13 Jun 2025 08:53:55 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE0D03F59E;
+	Fri, 13 Jun 2025 08:54:13 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH 00/12] perf arm-spe: Support new events in FEAT_SPEv1p4
+Date: Fri, 13 Jun 2025 16:53:33 +0100
+Message-Id: <20250613-arm_spe_support_hitm_overhead_v1_public-v1-0-6faecf0a8775@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAH1JTGgC/5WNQQ6DIBBFr2JYlwYRremq92gMQZyWSaqQQUkbw
+ 91LvUGX7yf/vZ1FIITIrtXOCBJG9EuB+lQx68zyBI5TYSaFbEVXC25o1jGAjlsInlbtcJ21T0A
+ OzKRTrcM2vtByq4zsmqZvVaNYsQWCB76P0n0o7DCunj5HOMnf+n8jSS74RchJqdF2Y9vfyvNs/
+ cyGnPMXAi0y/twAAAA=
+X-Change-ID: 20250610-arm_spe_support_hitm_overhead_v1_public-c4a263385434
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ James Clark <james.clark@linaro.org>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1749830053; l=2636;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=x/vuRwsI7claaPV1ru+xRI5aJd1BjECDtBhmWCSDVT8=;
+ b=027hfQMenkWH7wwgD3IgFe2qvyhqJhby52SkoLvr/t4WOS62ugNzWHL118/GMSHnsXBgFpaAr
+ ErOXDob/AfmAc7kox4B7LjhkCmMKqFZaFBvEayBDZVVSLiyaq0BNDE/
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_085248_204715_E3A09410 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250613_085418_938802_F45BDFCD 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,77 +80,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend vgic_init to test the nASSGIcap attribute, asserting that it is
-configurable (within reason) prior to initializing the VGIC.
-Additionally, check that userspace cannot set the attribute after the
-VGIC has been initialized.
+This series adds support for new event types introduced in Arm SPE v1.4.
 
-Signed-off-by: Raghavendra Rao Ananta <rananta@google.com>
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+The first two patches modify the Arm SPE driver to expose 'events' entry
+in SysFS caps folder. This allows users to discover which events are
+supported by the hardware.
+
+Starting from patch 03, changes are made to the perf tool:
+
+Patch 03 is a fixing for setting remote bit.
+
+Patch 04 refactors the code to avoid duplicate definitions of event
+bits.
+
+Patch 05 dumps new event bits in raw format via the 'perf script -D'
+command.
+
+Patches 06 to 11 enhance memory-level information based on the new
+events introduced in FEAT_SPEv1p4.
+
+Patch 12 changes the logic to parse events after data source analysis.
+The event information complements the data source and provides a more
+complete view. As a result, Arm SPE can now support both HITM and peer
+modes (See the "--display" options in perf c2c).
+
+This series has been tested on FVP RevC platform.
+
+Note: for a local HITM event, the emulation does not provide any info
+for LLC. However, the perf c2c tool relies on LLC + HITM for accounting
+local HITM. I to manually set the LLC HIT flag to verify the
+"perf c2c -d tot" command.
+
 ---
- tools/testing/selftests/kvm/arm64/vgic_init.c | 41 +++++++++++++++++++
- 1 file changed, 41 insertions(+)
+Leo Yan (12):
+      drivers/perf: arm_spe: Store event reserved bits in driver data
+      drivers/perf: arm_spe: Expose events capability
+      perf arm_spe: Correct setting remote access
+      perf arm_spe: Directly propagate raw event
+      perf arm_spe: Decode event types for new features
+      perf arm_spe: Add "events" entry in meta data
+      perf arm_spe: Refine memory level filling
+      perf arm_spe: Separate setting of memory levels for loads and stores
+      perf arm_spe: Fill memory levels for FEAT_SPEv1p4
+      perf arm_spe: Refactor arm_spe__get_metadata_by_cpu()
+      perf arm_spe: Set HITM flag
+      perf arm_spe: Allow parsing both data source and events
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_init.c b/tools/testing/selftests/kvm/arm64/vgic_init.c
-index b3b5fb0ff0a9..aaecba432dbc 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_init.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_init.c
-@@ -675,6 +675,46 @@ static void test_v3_its_region(void)
- 	vm_gic_destroy(&v);
- }
- 
-+static void test_v3_nassgicap(void)
-+{
-+	struct kvm_vcpu *vcpus[NR_VCPUS];
-+	struct vm_gic vm;
-+	__u8 nassgicap;
-+	int ret;
-+
-+	vm = vm_gic_create_with_vcpus(KVM_DEV_TYPE_ARM_VGIC_V3, NR_VCPUS, vcpus);
-+	TEST_REQUIRE(!__kvm_has_device_attr(vm.gic_fd, KVM_DEV_ARM_VGIC_GRP_FEATURES,
-+					    KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap));
-+
-+	kvm_device_attr_get(vm.gic_fd, KVM_DEV_ARM_VGIC_GRP_FEATURES,
-+			    KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap, &nassgicap);
-+	if (!nassgicap) {
-+		nassgicap = true;
-+		ret = __kvm_device_attr_set(vm.gic_fd, KVM_DEV_ARM_VGIC_GRP_FEATURES,
-+					    KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap, &nassgicap);
-+		TEST_ASSERT(ret && errno == EINVAL,
-+			    "Enabled nASSGIcap even though it's unavailable");
-+	} else {
-+		nassgicap = false;
-+		kvm_device_attr_set(vm.gic_fd, KVM_DEV_ARM_VGIC_GRP_FEATURES,
-+				    KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap, &nassgicap);
-+
-+		nassgicap = true;
-+		kvm_device_attr_set(vm.gic_fd, KVM_DEV_ARM_VGIC_GRP_FEATURES,
-+				    KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap, &nassgicap);
-+	}
-+
-+	kvm_device_attr_set(vm.gic_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+			    KVM_DEV_ARM_VGIC_CTRL_INIT, NULL);
-+
-+	ret = __kvm_device_attr_set(vm.gic_fd, KVM_DEV_ARM_VGIC_GRP_FEATURES,
-+				    KVM_DEV_ARM_VGIC_FEATURE_nASSGIcap, &nassgicap);
-+	TEST_ASSERT(ret && errno == EBUSY,
-+		    "Configured nASSGIcap after initializing the VGIC");
-+
-+	vm_gic_destroy(&vm);
-+}
-+
- /*
-  * Returns 0 if it's possible to create GIC device of a given type (V2 or V3).
-  */
-@@ -730,6 +770,7 @@ void run_tests(uint32_t gic_dev_type)
- 		test_v3_last_bit_single_rdist();
- 		test_v3_redist_ipa_range_check_at_vcpu_run();
- 		test_v3_its_region();
-+		test_v3_nassgicap();
- 	}
- }
- 
+ drivers/perf/arm_spe_pmu.c                         |  15 +-
+ tools/perf/arch/arm64/util/arm-spe.c               |   5 +
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  |  37 +----
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  |  33 ++--
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     |  14 ++
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     |   7 +
+ tools/perf/util/arm-spe.c                          | 173 ++++++++++++++++-----
+ tools/perf/util/arm-spe.h                          |   2 +
+ 8 files changed, 194 insertions(+), 92 deletions(-)
+---
+base-commit: 27605c8c0f69e319df156b471974e4e223035378
+change-id: 20250610-arm_spe_support_hitm_overhead_v1_public-c4a263385434
+
+Best regards,
 -- 
-2.50.0.rc2.692.g299adb8693-goog
+Leo Yan <leo.yan@arm.com>
 
 
