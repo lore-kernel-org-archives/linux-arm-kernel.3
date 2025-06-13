@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28831C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF846C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:39:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=LL3RY/V1J0xcsuEJkdFMp5QtdK1gttswPIe/WMAkbfk=; b=XGznIkrds5zej5
-	RSRTbmO1OIm+gi7o6pfRQhbiNJiGfNN4+Megx9HkjYQ11QW2U1GqsrLlup9sE68YenXLh/3dDnkO+
-	Yf+GvT+h2MM1Kv+HtumtOuhmXSqEv+mgi5H0tYYYEZotKtuusyyULVmwovZSGaCafYwpPyLeRZetF
-	tIOl7eSovlOm1UKqrNs1bSux5ahbj2vwEe25iwGa6eJ8NTfdZ49B7HpQk7xeg6EUbdP+hS8Ypoeir
-	uLCkSqC7tSnN71coN4HnNmzgZnk3MLHh3yvyQ3HDU/lQMVpB9DlO6602gcqapihDsBar+6xXqs4bE
-	Z++vw7zmCc0TxkKnUjRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dHhT/9vCRjUN3YTO0u3ems5D9aA0HtvNCeJ9uyFGQTU=; b=yG7VvWimw6/yWCoEiflsra3kpr
+	RHVzAIAl27JJO/Ods7DHey+mUEVnONKx1mwN28kmmrjIM/s7k2YEn529vCfopIqFxs9NGYqoEGzo5
+	XdFGvEwEj7OGU8Pn/T1MX32Nk/KGVduBsR6zYRnLH9/80PK/8+ZhrD4+fKdznnAVhhTYgne5SouJG
+	oJnxBCQpCAszvZNADb4KBOINbO0/BdHs+g7ewf5iVzhS+Rt1kB1V0kP9kjWxjz49K6Y8ufuLFFYw3
+	1dXTGCFg6KdOXa8BzhMorce0TrZXqzk4b1PgbtPGamOg+i8K8NjWaIdnohLTtQIHVc3vlxV6x13jc
+	SqfE4iZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQAET-0000000HTZq-11BU;
-	Fri, 13 Jun 2025 19:38:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uQAFW-0000000HThR-1Zrq;
+	Fri, 13 Jun 2025 19:39:38 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQACI-0000000HTN5-46Dr
+	id 1uQ7zM-0000000H9Gb-1eW1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 19:36:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BFC605C1347;
-	Fri, 13 Jun 2025 19:34:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E18E1C4CEE3;
-	Fri, 13 Jun 2025 19:36:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749843378;
-	bh=dBkT5f8fAKtHK7jzxmh9DkTqqqZtM261/i4B9cEg6ys=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=GA+bbtTVzgFpKvTQA8xE4YPDSmLjvHrRh92eFCHuw+8KEv+6kNkssCfAR+yH2CpW5
-	 B2nn3xhnMp4hMJl7LRvwn9XlU86L9kms7W9Aodxz5+NWWx4KoD6ybrNiVsD3OkeZIv
-	 QjHko6pEccjQDw/uHA6mi+sCtdYH9GW02H6xmp5vPxBXvTONa2p91Iv/9Su+ubxHyI
-	 4pn5ptTmp5AbleEqHOUxMZ6uHp7Oj56YFjhog4DtSvTIZDqCkGDQ1LXXNcWLjXHQ9p
-	 2JFvEPQ6Ank3b236mVNRQlQsZyHGDPkZhmHyKwd37SkziGt1ZRB5ZGb+zu3OJnRy1O
-	 L7ZqQkBzIbFIg==
-Date: Fri, 13 Jun 2025 14:36:16 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, lpieralisi@kernel.org,
-	kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, jinankjain@linux.microsoft.com,
-	skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
-	x86@kernel.org
-Subject: Re: [PATCH 4/4] PCI: hv: Use the correct hypercall for unmasking
- interrupts on nested
-Message-ID: <20250613193616.GA971782@bhelgaas>
+	Fri, 13 Jun 2025 17:14:49 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bJmDQ068yz6L4wf;
+	Sat, 14 Jun 2025 01:12:38 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id C596214033C;
+	Sat, 14 Jun 2025 01:14:36 +0800 (CST)
+Received: from localhost (10.122.19.247) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 13 Jun
+ 2025 19:14:36 +0200
+Date: Fri, 13 Jun 2025 18:14:34 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Yicong Yang <yangyicong@huawei.com>
+CC: Catalin Marinas <catalin.marinas@arm.com>, <yangyicong@hisilicon.com>,
+	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<james.morse@arm.com>, <conor@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arch@vger.kernel.org>, <linuxarm@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, <linux-mm@kvack.org>,
+	<gregkh@linuxfoundation.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, "Dan Williams"
+	<dan.j.williams@intel.com>
+Subject: Re: [RFC PATCH 2/6] arm64: Support
+ ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+Message-ID: <20250613181434.00004e7e@huawei.com>
+In-Reply-To: <64ae0e68-b025-4a33-9389-5393ee887fb4@huawei.com>
+References: <20250320174118.39173-1-Jonathan.Cameron@huawei.com>
+	<20250320174118.39173-3-Jonathan.Cameron@huawei.com>
+	<Z-bo7AQ1h6VQr65V@arm.com>
+	<64ae0e68-b025-4a33-9389-5393ee887fb4@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1749599526-19963-5-git-send-email-nunodasneves@linux.microsoft.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.122.19.247]
+X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_123619_061023_A7FD6E52 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250613_101448_569462_2223B907 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +80,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 04:52:06PM -0700, Nuno Das Neves wrote:
-> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-> 
-> Running as nested root on MSHV imposes a different requirement
-> for the pci-hyperv controller.
-> 
-> In this setup, the interrupt will first come to the L1 (nested) hypervisor,
-> which will deliver it to the appropriate root CPU. Instead of issuing the
-> RETARGET hypercall, we should issue the MAP_DEVICE_INTERRUPT
-> hypercall to L1 to complete the setup.
+On Sat, 29 Mar 2025 15:14:14 +0800
+Yicong Yang <yangyicong@huawei.com> wrote:
 
-Maybe strengthen this to say that this issues MAP_DEVICE_INTERRUPT
-instead of RETARGET in this case?  (Not just that we "should".) 
+> On 2025/3/29 2:22, Catalin Marinas wrote:
+> > On Thu, Mar 20, 2025 at 05:41:14PM +0000, Jonathan Cameron wrote:  
+> >> +struct system_cache_flush_method {
+> >> +	int (*invalidate_memregion)(int res_desc,
+> >> +				    phys_addr_t start, size_t len);
+> >> +};  
+> > [...]  
+> >> +int cpu_cache_invalidate_memregion(int res_desc, phys_addr_t start, size_t len)
+> >> +{
+> >> +	guard(spinlock_irqsave)(&scfm_lock);
+> >> +	if (!scfm_data)
+> >> +		return -EOPNOTSUPP;
+> >> +
+> >> +	return scfm_data->invalidate_memregion(res_desc, start, len);
+> >> +}  
+> > 
+> > WBINVD on x86 deals with the CPU caches as well. Even the API naming in
+> > Linux implies CPU caches. IIUC, devices registering to the above on Arm
+> > SoCs can only deal with system caches. Is it sufficient?
+> >   
+> 
+> The device driver who register this method should handle this. If the
+> hardware support maintaining the coherency among the system, for example
+> on system cache invalidation the hardware is also able to invalidate the
+> involved cachelines on all the subordinate caches (L1/L2/etc, by back
+> invalidate snoop or other ways), then software don't need to invalidate
+> the non-system cache explicitly. Otherwise the driver need to explicitly
+> invalidate the non-system cache explicitly in their
+> scfm_data::invalidate_memregion() method. Here in the generally code we
+> simply don't know the capability of the hardware.
 
-> Rename hv_arch_irq_unmask() to hv_irq_retarget_interrupt().
+Coming to this a little late.  It would definitely be helpful to understand
+whether other hardware implementations where this is relevant (e.g. CXL
+capable systems) do require explicit flushes of the caches nearer the
+CPU and any dance that they need in that case to ensure no race conditions
+leave stale lines.
+
+The PSCI spec (that never was) did allow for reporting that it was necessary
+to stop all traffic prior to flushes, but that is crazy to support and
+someone built the wrong system if they need to do that under even
+vaguely normal software flows.
+
+Jonathan
+ 
+> 
+> Thanks.
+> 
+
 
