@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE04C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148EEC71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vCCUroqKPbiJJ17Nuebi9IjJZUo5bSpMus2Ix4G+6gM=; b=AQq8AoTVSZbZU98Kme8fhXce6Y
-	odchpPXaT0AS/cAJyD97QezAH2cI3KLeQLvcKiyZVuZyGsiGPT8MT6xAVse8vv9Vs51IJ8EVzZwPZ
-	DuSxIynymNYGadOO/90kKdSbv4SNYSc+Izgaacj3dhXWOB+fWnjyNbnTHs1rWdm536nKExGt1x3q9
-	DPEAUYW/HaXMWJc7rhv56o4QI4m04hFMzKzLSPPa6ZOt8yedBJwO6Zkdi9vwBGp1y1vsDVNfkYwoO
-	G3J+41Es4Dyk0t8WLWtwT6Od+KPriVAjbdbZoXXHXL/MBWx/jBf8mtvuxHAFfhwVh/dpuxAJP2mW7
-	s78rwsjQ==;
+	bh=mzNQkY2OXtljp7yt/i/tI+v/gWIw5D47TujWJasE/B0=; b=s4J96wQHKJjw5mTgCH2iaW5EPU
+	8kjqbCG83MQPOOmz89F7eIB4vEkp+UFdy2NmHyxCRMjLg9CLTngWPNndkGreAguOZdeg5rExVhlIo
+	hkrcPxH4CPs3J1WPUjDBR1DKJDtdj+InAf0nBYw4Kxgd28onOEu58k3SpXzBgQVFXHCQpHN3iiXGP
+	EUxsMx192bxP/ScRW18DLzzwv3YM7VAIv7n86dpBpzEef0Wx2aq5tMVRw7JyfLUKPNlpJvYoWInAx
+	8xuY481B+gjLevUwE0UtZ0WcHZXQaSCa1nzBLOIcwPSEqjI1GfJyAzGtaP6P79YJLTKV7D5b45Wo3
+	thrWdSkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ6ph-0000000GzGD-3fdZ;
-	Fri, 13 Jun 2025 16:00:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uQ6ry-0000000Gzhj-2PaQ;
+	Fri, 13 Jun 2025 16:03:06 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5jm-0000000Glho-18U5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 14:50:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A83B24A9F4;
-	Fri, 13 Jun 2025 14:50:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA233C4CEF0;
-	Fri, 13 Jun 2025 14:50:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749826233;
-	bh=JD0gFeCUEl8TiGFgMAnaGs74gyKTlAHzY+Py5LzUKjQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KeCYzdXgP26k1gwX5o9SSDgvrzbb28BxL4FBy5Z4db5fOz7SxhW8ES0V22rPFTmyO
-	 fSAXyriI+USEQEoC0k+wqQiaK6dJzrOB77hzLfKvPFHhEIm3cEtZMGaY5vSFDunuDQ
-	 3NEPfnlxEnKJSZ+HlKYH9R+NHwu62A/HjqeDgng+Ba89V9/pIVh/09PeWjucgBZMPF
-	 6cZ2aPNCh8wF0+f0PGr8Rg4oyQC1iSLdy1aziraNRm96SCGy7MEUbTeO8PHocUzJyy
-	 VHkahhYaBVPeD0Ic92roBA4VoMvLQOh6g0MYgQ1ZO1/FeI4o/GZTGyOI4fpYp7qz7G
-	 lSsiuKFi8u6Jg==
-Date: Fri, 13 Jun 2025 20:14:47 +0530
-From: Naveen N Rao <naveen@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
-	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
-	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
-	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
-	David Matlack <dmatlack@google.com>
-Subject: Re: [PATCH v3 11/62] KVM: SVM: Drop vcpu_svm's pointless
- avic_backing_page field
-Message-ID: <h4ofo2jby6glf7v6u3p2tbx6ism6s2sxtwx2pclavxnyckec7u@2ysnvrtga7a3>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-13-seanjc@google.com>
+	id 1uQ5kY-0000000Glu9-03Oe;
+	Fri, 13 Jun 2025 14:51:23 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-31329098ae8so2008234a91.1;
+        Fri, 13 Jun 2025 07:51:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749826281; x=1750431081; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mzNQkY2OXtljp7yt/i/tI+v/gWIw5D47TujWJasE/B0=;
+        b=T5UyoAView4pZEnR+pubW3yO3fF3sDY9XzSSzzoUlRmwy6Xrc2R0Ac8F9XwgZrTuZi
+         fwEejck5+LyR/E2pfMmPD4z8xPB+X/EPwI2KOj71GRAhxoygCKAG3DlBkFZ7jpkNXw3y
+         ULmRTNEZy/WrKKx8dlvO1aSu0HbkLaKGSVZxzleFi5ca5v3DJPY2iRc78ym9jz4JxpG7
+         +woeXJObrGsG+OZ8KMH1tb2Q4Mw5rjR1xZP5uwVvL/5cffQTypslsVoGbxIaHfirLFZX
+         H2OI1uWEX6LqQn8NjFB5SPNwuZjidWMG4Vci/7h+m05zFi7pMHSVsUdA8ZLATOt5f7cD
+         PGyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749826281; x=1750431081;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mzNQkY2OXtljp7yt/i/tI+v/gWIw5D47TujWJasE/B0=;
+        b=Tpq7PvvBp53Z1geWFBjpZWwuEsHM9pLfWGzZai0M8YBmCD3/ZvPKCmqFYX70H5Nzkt
+         +2Qm2sn6HoKsgCdsuZXRlGq/ZJBJI0bD9IxWnlvXqM0SR9wc+rSPgWlCWyk8Pbi67708
+         MCemOxaHd5SmSsVRnuZ2n2xGHcHNjMLdnaZp9Y3YeHnUeuGvbW31OO6h/vQm9VcsBIKe
+         5WoJk2oGy2e0f8r/oqBwt7hN4ljbxj3q3tPsOez15vr5ttCnacMV641t+8Izt1i5yBNQ
+         GcssiOVaX9GgUJiOtmL3hTkYXpGJP1YnwdBcf+rpFrJCS2LXQ4lZTouOCu9YN39UvnZV
+         G/vg==
+X-Forwarded-Encrypted: i=1; AJvYcCUi7El3RoD8SMZmZVubFTlvlakrerQx7U46DiAXbMhnvcAVJnN8i3VPpEetyTggGNgPPTEF/zXlaB3t5t/Y8/hE@lists.infradead.org, AJvYcCWAGPpPm3Ako204gTPolWHNGHT8gRadJ3fwDlVvg2DjTMrDeci3zP1mqoAOSWXByjgB/UM6qBXWjwZq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJhuirbo50xf+8uZWYIuFwcQTVSYCxduP4fmiXrIm1Y4m6sFFQ
+	uN+eDiFkMT6Jqi9zrL68gyQG1nyCJO3Hq3pxPHvCJllllhImt4fs6AAhUX9W/iVx
+X-Gm-Gg: ASbGncvUF4qGVmhPV46ys2F6OQ+ekx2jq6FUlrzNPT3dfEdeqE56dwJbBemgwUGL97N
+	M/lc1yD4KTeSmvMoglShbk+4MCtZaDvlF+PpLKA3nkE5rOG1eAkfjlDcIg5p8aE4HuwA/Hzv9Sv
+	7TNERyOUHsMvGp//6vhH3SRPFrBwliysdVeOiuv76QwDJhWohLWeDsP10OKxab8gaobqGFji94z
+	fiK8gFeRs+V+uSWrfn0+Anu2WZYtH6D0vZ84L6gtgCyhk9Fms4hTN5gh34RmnporgaDXbbudJez
+	Fwzn6vLlGadwPhY6aYfy4lnYbIkAqG/KAk+AkWLqPrXmoN1OJQ==
+X-Google-Smtp-Source: AGHT+IEU1euNi7vVAr/Eva34gPyHAVXAx6uKoAkzHEKswgDcWh+Lz9KRkR7xgmskZ5u1W9LnCJ8nuQ==
+X-Received: by 2002:a17:90b:4c09:b0:30a:3e8e:ea30 with SMTP id 98e67ed59e1d1-313e90b17a4mr1463779a91.11.1749826281041;
+        Fri, 13 Jun 2025 07:51:21 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:838f::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313c19d2ea0sm3463812a91.20.2025.06.13.07.51.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 07:51:20 -0700 (PDT)
+Date: Fri, 13 Jun 2025 11:51:14 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v4 1/5] PCI: rockchip: Use standard PCIe defines
+Message-ID: <992ab6278af59b8f2f82521bf4611f69a916bbe1.1749826250.git.geraldogabriel@gmail.com>
+References: <cover.1749826250.git.geraldogabriel@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250611224604.313496-13-seanjc@google.com>
+In-Reply-To: <cover.1749826250.git.geraldogabriel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_075034_330959_E9BC6C66 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20250613_075122_047679_3C39A1F4 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +102,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 03:45:14PM -0700, Sean Christopherson wrote:
-> Drop vcpu_svm's avic_backing_page pointer and instead grab the physical
-> address of KVM's vAPIC page directly from the source.  Getting a physical
-> address from a kernel virtual address is not an expensive operation, and
-> getting the physical address from a struct page is *more* expensive for
-> CONFIG_SPARSEMEM=y kernels.  Regardless, none of the paths that consume
-> the address are hot paths, i.e. shaving cycles is not a priority.
-> 
-> Eliminating the "cache" means KVM doesn't have to worry about the cache
-> being invalid, which will simplify a future fix when dealing with vCPU IDs
-> that are too big.
-> 
-> WARN if KVM attempts to allocate a vCPU's AVIC backing page without an
-> in-kernel local APIC.  avic_init_vcpu() bails early if the APIC is not
-> in-kernel, and KVM disallows enabling an in-kernel APIC after vCPUs have
-> been created, i.e. it should be impossible to reach
-> avic_init_backing_page() without the vAPIC being allocated.
-> 
-> Tested-by: Sairaj Kodilkar <sarunkod@amd.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/svm/avic.c | 6 ++----
->  arch/x86/kvm/svm/svm.h  | 1 -
->  2 files changed, 2 insertions(+), 5 deletions(-)
+Current code uses custom-defined register offsets
+and bitfields for standard PCIe registers. Change
+to using standard PCIe defines.
 
-Reviewed-by: Naveen N Rao (AMD) <naveen@kernel.org>
+Suggested-By: Bjorn Helgaas <bhelgaas@google.com>
+Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+---
+ drivers/pci/controller/pcie-rockchip-host.c | 44 ++++++++++-----------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
 
-- Naveen
+diff --git a/drivers/pci/controller/pcie-rockchip-host.c b/drivers/pci/controller/pcie-rockchip-host.c
+index b9e7a8710cf0..65653218b9ab 100644
+--- a/drivers/pci/controller/pcie-rockchip-host.c
++++ b/drivers/pci/controller/pcie-rockchip-host.c
+@@ -40,18 +40,18 @@ static void rockchip_pcie_enable_bw_int(struct rockchip_pcie *rockchip)
+ {
+ 	u32 status;
+ 
+-	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
++	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 	status |= (PCI_EXP_LNKCTL_LBMIE | PCI_EXP_LNKCTL_LABIE);
+-	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
++	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ }
+ 
+ static void rockchip_pcie_clr_bw_int(struct rockchip_pcie *rockchip)
+ {
+ 	u32 status;
+ 
+-	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
++	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 	status |= (PCI_EXP_LNKSTA_LBMS | PCI_EXP_LNKSTA_LABS) << 16;
+-	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
++	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ }
+ 
+ static void rockchip_pcie_update_txcredit_mui(struct rockchip_pcie *rockchip)
+@@ -269,7 +269,7 @@ static void rockchip_pcie_set_power_limit(struct rockchip_pcie *rockchip)
+ 	scale = 3; /* 0.001x */
+ 	curr = curr / 1000; /* convert to mA */
+ 	power = (curr * 3300) / 1000; /* milliwatt */
+-	while (power > PCIE_RC_CONFIG_DCR_CSPL_LIMIT) {
++	while (power > FIELD_MAX(PCI_EXP_DEVCAP_PWR_VAL)) {
+ 		if (!scale) {
+ 			dev_warn(rockchip->dev, "invalid power supply\n");
+ 			return;
+@@ -278,10 +278,10 @@ static void rockchip_pcie_set_power_limit(struct rockchip_pcie *rockchip)
+ 		power = power / 10;
+ 	}
+ 
+-	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DCR);
+-	status |= (power << PCIE_RC_CONFIG_DCR_CSPL_SHIFT) |
+-		  (scale << PCIE_RC_CONFIG_DCR_CPLS_SHIFT);
+-	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_DCR);
++	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCAP);
++	status |= FIELD_PREP(PCI_EXP_DEVCAP_PWR_VAL, power);
++	status |= FIELD_PREP(PCI_EXP_DEVCAP_PWR_SCL, scale);
++	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCAP);
+ }
+ 
+ /**
+@@ -309,14 +309,14 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+ 	rockchip_pcie_set_power_limit(rockchip);
+ 
+ 	/* Set RC's clock architecture as common clock */
+-	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
++	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 	status |= PCI_EXP_LNKSTA_SLC << 16;
+-	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
++	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 
+ 	/* Set RC's RCB to 128 */
+-	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
++	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 	status |= PCI_EXP_LNKCTL_RCB;
+-	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
++	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 
+ 	/* Enable Gen1 training */
+ 	rockchip_pcie_write(rockchip, PCIE_CLIENT_LINK_TRAIN_ENABLE,
+@@ -341,9 +341,9 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+ 		 * Enable retrain for gen2. This should be configured only after
+ 		 * gen1 finished.
+ 		 */
+-		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LCS);
++		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 		status |= PCI_EXP_LNKCTL_RL;
+-		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LCS);
++		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCTL);
+ 
+ 		err = readl_poll_timeout(rockchip->apb_base + PCIE_CORE_CTRL,
+ 					 status, PCIE_LINK_IS_GEN2(status), 20,
+@@ -380,15 +380,15 @@ static int rockchip_pcie_host_init_port(struct rockchip_pcie *rockchip)
+ 
+ 	/* Clear L0s from RC's link cap */
+ 	if (of_property_read_bool(dev->of_node, "aspm-no-l0s")) {
+-		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_LINK_CAP);
+-		status &= ~PCIE_RC_CONFIG_LINK_CAP_L0S;
+-		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_LINK_CAP);
++		status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP);
++		status &= ~PCI_EXP_LNKCAP_ASPM_L0S;
++		rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_LNKCAP);
+ 	}
+ 
+-	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_DCSR);
+-	status &= ~PCIE_RC_CONFIG_DCSR_MPS_MASK;
+-	status |= PCIE_RC_CONFIG_DCSR_MPS_256;
+-	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_DCSR);
++	status = rockchip_pcie_read(rockchip, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCTL);
++	status &= ~PCI_EXP_DEVCTL_PAYLOAD;
++	status |= PCI_EXP_DEVCTL_PAYLOAD_256B;
++	rockchip_pcie_write(rockchip, status, PCIE_RC_CONFIG_CR + PCI_EXP_DEVCTL);
+ 
+ 	return 0;
+ err_power_off_phy:
+-- 
+2.49.0
 
 
