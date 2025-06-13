@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED675C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 15:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DB5C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 15:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nrbs5uSY5Dm+NFLiFo1N3a9/UV+24MsYnTxxTvcJ3Ss=; b=LoYtAg1GuqgT+L92m+QPHC1kn0
-	pRj1Q8RKXgfYXielVkexwa8Zs4pVwW8z7ZWgaSxy/cWZvY41Fsb43NMIVN/J5CVHOJT2FOntEq0XD
-	d7cdw26IzM/gqMyu6+mjqzbSfl8+21DSp5/dcczlSRi2DDHk2zoVvjXwidnGPz/bgvWSAqrOvnFqN
-	hB6u86+TQXRvlPyzZJ0GGrzNLdeZrJh+/sm93bZy4ieESzmJbKUFGc9dcpPt8G3O8s+GbHIFSjuMP
-	mLXaEiY4rm4Ea08nYbh1PWKTwDuwSjFE+QRPxX3uEzyVi9XZmRpwUt/e3K/NJHyfBHYo4x2P/9mC3
-	nlI+mPJQ==;
+	bh=C91PbV5adXo5227fc5pkhMehYQ+Jm3sWSgHA/lPTAZw=; b=YjAOUIwRTGpevqUGeImeL8DCfY
+	5mk+3/2fPJzXBHsLYl5JcbIF2nNM1SejAxzfmlEzxnqVmMhEdOL3sNKQKhdi+bUYiCPAbo6kLTbza
+	pDnAaHBeacRF4tV/EDxOMAyx99ynH4fqQRzIrM5ZGRXAKCPxmjRodaA/cyY7wqcOUsHe2zhbqaMAC
+	fpOldEBUjSyS2KJtjODCL7nmKfI1q7zbL+pQmW2AJeVfcjTkv8oWQuTdz+n9EWDWKv7r/gvKS4o9W
+	4UmN8HXSEfRF1d0hzRg2Oi8D6XFGjAsWYB4vA88rYxtiLK1nSjcVlXhV75sNfxCqFMg///5z2QYxQ
+	ESDBLofA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5xY-0000000Goa5-2xWJ;
-	Fri, 13 Jun 2025 15:04:48 +0000
+	id 1uQ5zp-0000000Gp5P-1ofA;
+	Fri, 13 Jun 2025 15:07:09 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ4mt-0000000GZ0J-3hs5
+	id 1uQ4mw-0000000GZ0z-1UmP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 13:49:45 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id 3C9EB42E77;
-	Fri, 13 Jun 2025 13:49:40 +0000 (UTC)
+	Fri, 13 Jun 2025 13:49:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 9E7E343980;
+	Fri, 13 Jun 2025 13:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749822582;
+	t=1749822585;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Nrbs5uSY5Dm+NFLiFo1N3a9/UV+24MsYnTxxTvcJ3Ss=;
-	b=KQF4JSbYd5Q2TcnyFu+OqsJEeoMAWwCvH1A66lYc+gqGfZRLfoBEvZCENia/cwTxUS7pkN
-	ZtHsbBYNsvOMqZy7ek9MyxKklRXl3aC4yh2OYXvyxgKEu1/dn2QL5ZwmzqubQBPu5iWFcA
-	6QRKRp7q+TOLZvS6XVcSiInJz0ZcDN3Ch/N4n/gspTKjcVpC+/o1fGYljm6qdxvAd1gkFc
-	r2lpbxe1Mv7n8sGn24us+ikO1wKF9ZVNTdO8ef9HdWF2O5rBbqXuyX2x3CAOw/6bKVVH8K
-	L60lb4SjSf+0vveliFMQvvinDm/qATwIZ+8vrMoSGt1JSC+JW6+TwLTEO6Xr8A==
+	bh=C91PbV5adXo5227fc5pkhMehYQ+Jm3sWSgHA/lPTAZw=;
+	b=LshL0SqSJkjDEhT1UxmZnISMHNj9IX7W8AdLMeDWWro+rRe4D1v6rmoWSxjObro8U5qATn
+	0HHHwha2xiA2HoP2iJrdz8TAqF9cDFdo/Ck570//JJNw0d7QFzhkbJz0VJsgKrjdwz/e7/
+	Mo1gNHfmRQrT5f8qnedUvyAwQ3ed8epVsiAPFu0fukr/XHXhvUqFM5rILeX2ca2CJNbnJu
+	IW1TURS42E8cwzMCr+heoYgLhlXQOFMSDFvpGZtsJfx9tIE4m2S8SbcWrwvV9+v/BAOiNL
+	xpIPDs0H8Qgqod0teAHzF4WN5ac4oHHNArierP6Ig3Pf6fDD77qP1fXm19yrDA==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -91,9 +91,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v3 23/28] misc: lan966x_pci: Rename lan966x_pci.dtso to lan966x_evb_lan9662_nic.dtso
-Date: Fri, 13 Jun 2025 15:48:03 +0200
-Message-ID: <20250613134817.681832-24-herve.codina@bootlin.com>
+Subject: [PATCH v3 24/28] PCI: Add Microchip LAN9662 PCI Device ID
+Date: Fri, 13 Jun 2025 15:48:04 +0200
+Message-ID: <20250613134817.681832-25-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250613134817.681832-1-herve.codina@bootlin.com>
 References: <20250613134817.681832-1-herve.codina@bootlin.com>
@@ -101,12 +101,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeduudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeetgfeihfduudeklefghfekfedtieekvedttdfghfevlefgffdtjeegvdffjefgieenucffohhmrghinhepmhhitghrohgthhhiphdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdrlhhotggrlhguohhmrghinhdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeelpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhos
- ehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehkvghrnhgvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeduudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehffeigfejueelueeuffelueefgfelhfejhfehieegudekteeiledttdfhffekffenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedujeenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtrdhlohgtrghlughomhgrihhnpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegledprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrkhhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrh
+ hgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_064944_052863_CDD5FE79 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250613_064946_528972_2CEA9A03 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,82 +121,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The lan966x_pci.dtso describes the Microchip EVB-LAN9662-NIC board [0]
+Existing code uses the 0x9660 value (LAN9662 PCI Device ID) in several
+places.
 
-This PCI board embeds a LAN9962 PCI device chip, part of the LAN966x
-family.
+Avoid this direct use of the 0x9660 value replacing it by defined PCI
+Device ID.
 
-Rename the lan966x_pci.dtso accordingly.
-
-Link: https://www.microchip.com/en-us/development-tool/EV53U25A [0]
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- MAINTAINERS                                               | 2 +-
- drivers/misc/Makefile                                     | 2 +-
- .../{lan966x_pci.dtso => lan966x_evb_lan9662_nic.dtso}    | 0
- drivers/misc/lan966x_pci.c                                | 8 ++++----
- 4 files changed, 6 insertions(+), 6 deletions(-)
- rename drivers/misc/{lan966x_pci.dtso => lan966x_evb_lan9662_nic.dtso} (100%)
+ drivers/misc/lan966x_pci.c | 2 +-
+ drivers/pci/quirks.c       | 2 +-
+ include/linux/pci_ids.h    | 1 +
+ 3 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a7b1e4c42d9d..bea712ad4f6e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16277,9 +16277,9 @@ F:	drivers/irqchip/irq-lan966x-oic.c
- MICROCHIP LAN966X PCI DRIVER
- M:	Herve Codina <herve.codina@bootlin.com>
- S:	Maintained
-+F:	drivers/misc/lan966x_evb_lan9662_nic.dtso
- F:	drivers/misc/lan966x_pci.c
- F:	drivers/misc/lan966x_pci.dtsi
--F:	drivers/misc/lan966x_pci.dtso
- 
- MICROCHIP LAN969X ETHERNET DRIVER
- M:	Daniel Machon <daniel.machon@microchip.com>
-diff --git a/drivers/misc/Makefile b/drivers/misc/Makefile
-index 917b9a7183aa..1e0da2d20528 100644
---- a/drivers/misc/Makefile
-+++ b/drivers/misc/Makefile
-@@ -71,7 +71,7 @@ obj-$(CONFIG_TPS6594_PFSM)	+= tps6594-pfsm.o
- obj-$(CONFIG_NSM)		+= nsm.o
- obj-$(CONFIG_MARVELL_CN10K_DPI)	+= mrvl_cn10k_dpi.o
- lan966x-pci-objs		:= lan966x_pci.o
--lan966x-pci-objs		+= lan966x_pci.dtbo.o
-+lan966x-pci-objs		+= lan966x_evb_lan9662_nic.dtbo.o
- obj-$(CONFIG_MCHP_LAN966X_PCI)	+= lan966x-pci.o
- obj-y				+= keba/
- obj-y				+= amd-sbi/
-diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_evb_lan9662_nic.dtso
-similarity index 100%
-rename from drivers/misc/lan966x_pci.dtso
-rename to drivers/misc/lan966x_evb_lan9662_nic.dtso
 diff --git a/drivers/misc/lan966x_pci.c b/drivers/misc/lan966x_pci.c
-index 9c79b58137e5..b28066c96534 100644
+index b28066c96534..e60ab662b8f3 100644
 --- a/drivers/misc/lan966x_pci.c
 +++ b/drivers/misc/lan966x_pci.c
-@@ -19,8 +19,8 @@
- #include <linux/slab.h>
- 
- /* Embedded dtbo symbols created by cmd_wrap_S_dtb in scripts/Makefile.lib */
--extern char __dtbo_lan966x_pci_begin[];
--extern char __dtbo_lan966x_pci_end[];
-+extern char __dtbo_lan966x_evb_lan9662_nic_begin[];
-+extern char __dtbo_lan966x_evb_lan9662_nic_end[];
- 
- struct pci_dev_intr_ctrl {
- 	struct pci_dev *pci_dev;
-@@ -125,8 +125,8 @@ struct lan966x_pci {
- 
- static int lan966x_pci_load_overlay(struct lan966x_pci *data)
- {
--	u32 dtbo_size = __dtbo_lan966x_pci_end - __dtbo_lan966x_pci_begin;
--	void *dtbo_start = __dtbo_lan966x_pci_begin;
-+	u32 dtbo_size = __dtbo_lan966x_evb_lan9662_nic_end - __dtbo_lan966x_evb_lan9662_nic_begin;
-+	void *dtbo_start = __dtbo_lan966x_evb_lan9662_nic_begin;
- 
- 	return of_overlay_fdt_apply(dtbo_start, dtbo_size, &data->ovcs_id, dev_of_node(data->dev));
+@@ -197,7 +197,7 @@ static void lan966x_pci_remove(struct pci_dev *pdev)
  }
+ 
+ static struct pci_device_id lan966x_pci_ids[] = {
+-	{ PCI_DEVICE(PCI_VENDOR_ID_EFAR, 0x9660) },
++	{ PCI_DEVICE(PCI_VENDOR_ID_EFAR, PCI_DEVICE_ID_EFAR_LAN9662) },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(pci, lan966x_pci_ids);
+diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+index d7f4ee634263..bde077ce663a 100644
+--- a/drivers/pci/quirks.c
++++ b/drivers/pci/quirks.c
+@@ -6302,7 +6302,7 @@ DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_INTEL, 0xa76e, dpc_log_size);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_XILINX, 0x5020, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_XILINX, 0x5021, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_REDHAT, 0x0005, of_pci_make_dev_node);
+-DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_EFAR, 0x9660, of_pci_make_dev_node);
++DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_EFAR, PCI_DEVICE_ID_EFAR_LAN9662, of_pci_make_dev_node);
+ 
+ /*
+  * Devices known to require a longer delay before first config space access
+diff --git a/include/linux/pci_ids.h b/include/linux/pci_ids.h
+index e2d71b6fdd84..5d69fde7dd97 100644
+--- a/include/linux/pci_ids.h
++++ b/include/linux/pci_ids.h
+@@ -934,6 +934,7 @@
+ #define PCI_VENDOR_ID_EFAR		0x1055
+ #define PCI_DEVICE_ID_EFAR_SLC90E66_1	0x9130
+ #define PCI_DEVICE_ID_EFAR_SLC90E66_3	0x9463
++#define PCI_DEVICE_ID_EFAR_LAN9662	0x9660
+ 
+ #define PCI_VENDOR_ID_MOTOROLA		0x1057
+ #define PCI_DEVICE_ID_MOTOROLA_MPC105	0x0001
 -- 
 2.49.0
 
