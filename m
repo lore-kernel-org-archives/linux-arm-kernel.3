@@ -4,46 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0C9C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:04:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D7CAC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iboh6yi5km8cRmbBCKiUMFzSRZx5KSFjqs6i7VXB3cs=; b=DsoBDVYYojJuL2SdagMcfHiCpy
-	hXgGU5kSm8E5aXJ669bJ3j9bE/vYNZlQJqtoNDUFgx0PBTk4G5iqMjoc8N4JF8sEAXR22xlPmLKoC
-	dPFPRNMijsqJ/HGr69Rd0oHIzogWVG8QGGGxah3mmCltcairDCLFGiFK+lMvLOMtv064WjUs8hrEA
-	39mCXNjOfSDJq8ZfB98InXzuqp0i0hlhOJdTQX2F27PXgeQv8dNgnnV++djreavVYkqEEXww4ul1E
-	SkK16Q8kXnA9jCxPqLgqNBVVKqcl/ngrbGDigzaZGdqHmd4mjII6QHPDHw5q5KRs7bpiTpuR3TObE
-	pHkoQ/Zg==;
+	bh=LsMpqaCRhjE+dhyYns+fNIO//Rr1iAnsBUp1qLn9v74=; b=nC9OJbUL8YH0KGnJgh4n7fhmmx
+	mqdCQqgv4VvxwHaX9E+3NtrGglCXWWJd/2hYkv/0BZraYK4FHsJVP8BZ6cTCyxlcTKIIiebBtXqFB
+	s+b3/DETR+o1yg63wWpk73oRtvJwwKfRDwbBC/6Dvv05SkXfyrRGLW7n1FThJLJo+lB7mBPlnmAYg
+	Y427KTjrMeWJRxmUXpOOtahlhA4YxEhhyYGrS/y757acaQu9D9Wb+RrCnJdgFV0DMFQfeI37XUcKy
+	MoIK59DsQ3TYZKsX23ND9pd9yRqnZOXC4NVzUCY1B8oWIpQN88kPFY2Qba9+G9pjkvrDtvu2gYC1P
+	54rDmB/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9h7-0000000HNYA-45yV;
-	Fri, 13 Jun 2025 19:04:06 +0000
-Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	id 1uQ9h9-0000000HNYz-156T;
+	Fri, 13 Jun 2025 19:04:07 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ7W2-0000000H4vu-459X
+	id 1uQ7f1-0000000H7HK-2oer
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 16:44:32 +0000
-Message-ID: <1a8c923f-0905-4cc0-9fbd-949d29a2f39b@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1749833067;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iboh6yi5km8cRmbBCKiUMFzSRZx5KSFjqs6i7VXB3cs=;
-	b=Tu4RR7QZYjmHgsNZLEA8PTqicUNYUQlyqspr+qbc/DmWfZ6mhTM8Yd5J0xW9xkV3UwZVpa
-	o/+TF5a1i6LjxqOJ6mZ8hHLze98geIuDCkLUTPc9njWjDU+5AqCYZH4Sm2mQ6cePdNojvW
-	nDb7MWQuHGBRnQoMpEYYrTrRcHJfm+A=
-Date: Fri, 13 Jun 2025 12:44:20 -0400
+	Fri, 13 Jun 2025 16:53:49 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-72bc3987a05so1385366a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 09:53:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1749833627; x=1750438427; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LsMpqaCRhjE+dhyYns+fNIO//Rr1iAnsBUp1qLn9v74=;
+        b=WHWi/5f3Bxve9WGQNQHg3eVqoFnOETfuSHt+OsynVmfYnRQcRuUGqrvdMYq3UfUXVC
+         X0AWFnf1pX205Gb2tQdbuf83NGDqdYKZYjZZT2UzrHs3SCceDmmpiFf6SHTSaQL7BA3b
+         WO/+XgIUMtKlO1DWcIvEGZ7lzUQIjB141PplMeXPM4EYRNBY6xlzvWrBANEJq90+YWW5
+         pL5X2TwCh3WDRu8CGf0x7yqWPvVmKziWu33Ucrg7uCEg/+SMmgZxSPi4aj/8QPQZvXD/
+         gO1GwyyUshOq1149I8wM1UeqI6vrpjqFy4WSj1eyGklplr8RZYjHITidq0R5AJ9RAO5i
+         drPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749833627; x=1750438427;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LsMpqaCRhjE+dhyYns+fNIO//Rr1iAnsBUp1qLn9v74=;
+        b=YMz46rYAiwP10owEqZuKpXKaQCMRak4zEtueXB9W/3398mksaLaem3jMdl3JYC5L3h
+         x7YgHQ2pTyLgzPlkvatHyNGv+y6paqlgIIfczxI9Tcsawu53RN7V6qvLzoCFwhg14drV
+         RYA/xmkXM6iTt8XhG1dWwwRQjVgrAxSbSaY0ij5Zi47vm9PacjfhFLib8o8vr4FyfB16
+         SUO5RNuvmkRZFqxWQISlhzDbePXGBSUY9xQpYk5VJmKT34ginu3df+3sMdcFmHKS4vZL
+         cfmxABxnttsMY6BZZIdBCpFgdNOpsuqccbcSsliVC+YlX0tkDyvBgSYHNjLUwiCH+QcH
+         gZJg==
+X-Forwarded-Encrypted: i=1; AJvYcCUEIDjqZDiJARRs0Axl2e0fVtCuqgfC3c/Gz+SoWvQ06zW44B/cmwEFwd7bJ43p5k9U70FMoLdYf7MkS9I/xti9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMTByx6nkOtGrUWJZrWh9Van8ZGigq8DbpgpK0hiTnXqEXD1lb
+	joHaslSZubEtrl9Rm1Z0o0fS3fp+I0FfO6WFaDs05LORGbROoFI7T/VyHkIZsB10w46dFwmH/8k
+	Q4QiK
+X-Gm-Gg: ASbGncupwkQfibYWYegY7YZ3eLSkvl/T4Zl3wQKSPo6DIoA0E7AmJyBrOc8GAOQcr2u
+	sT8whFTEY576DFFf5/6nZQjilFucIUJUBU8i1DSzaht9fo/NtFtwui7LBdwbuouynzr1stzybYD
+	o4hMjPKL94Z/jMtZUxjro/tvxx89iPpNddnSy0/vC5MtW7xAoxNPskXEgpgKBYrLCdorw7IBJP0
+	vlkB1T2+FU2AsJK9rtLOMFW6R2nlS2kMN0oo/npTNtS/Ywac8LYxI2U6cBpUIPZEUEZmNetVrxy
+	oi8xLVp5l4CMTl9agKEXwiLrRsfTnPLPA5DTLu2a7qDFxVchKGYZ92mVLss3Zbh4K8xn50GbJEv
+	cu7iXT5ys/Yu4hQ06MhK/25e0KBP3FJBxg7Jy
+X-Google-Smtp-Source: AGHT+IGm+JBqqiEmyl18/kEEXB/ADyzMADcbl2xBx0ulsbC0s8fZGx5yePDIuJfHwHi4w+HBVRh2OQ==
+X-Received: by 2002:a05:6830:3c04:b0:72a:1222:9e8a with SMTP id 46e09a7af769-73a3634980emr354864a34.14.1749833626674;
+        Fri, 13 Jun 2025 09:53:46 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:4647:c57:a73c:39d8? ([2600:8803:e7e4:1d00:4647:c57:a73c:39d8])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-73a283dbf9asm266939a34.12.2025.06.13.09.53.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Jun 2025 09:53:46 -0700 (PDT)
+Message-ID: <40762c1b-91a9-4aaa-9d98-e4f22cde8f20@baylibre.com>
+Date: Fri, 13 Jun 2025 11:53:45 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 1/7] dt-bindings: spi: zynqmp-qspi: Split the bus
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-To: David Lechner <dlechner@baylibre.com>, Mark Brown <broonie@kernel.org>,
+To: Sean Anderson <sean.anderson@linux.dev>, Mark Brown <broonie@kernel.org>,
  Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
 Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
  linux-arm-kernel@lists.infradead.org,
@@ -64,13 +96,13 @@ References: <20250116232118.2694169-1-sean.anderson@linux.dev>
  <4923f49f-273f-4166-94bc-afe39618672c@baylibre.com>
  <f3160819-f6f4-4079-9562-802caa2fef20@linux.dev>
 Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
 In-Reply-To: <f3160819-f6f4-4079-9562-802caa2fef20@linux.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_094431_301455_2BAC073F 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20250613_095347_818651_C1E4395F 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,14 +117,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/13/25 11:57, Sean Anderson wrote:
+On 6/13/25 10:57 AM, Sean Anderson wrote:
 > On 6/13/25 10:20, David Lechner wrote:
 >> On 6/12/25 6:44 PM, Sean Anderson wrote:
 >>> Hi David,
->>> 
+>>>
 >>> I am (finally!) getting around to doing v2 of this series, and I ran
 >>> into a small problem with your proposed solution.
->>> 
+>>>
 >>> On 1/23/25 16:59, David Lechner wrote:
 >>>> ---
 >>>> From: David Lechner <dlechner@baylibre.com>
@@ -146,34 +178,27 @@ On 6/13/25 11:57, Sean Anderson wrote:
 >>>> +	if (rc == -EINVAL) {
 >>>> +		/* Default when property is omitted. */
 >>>> +		spi->buses = BIT(0);
->>> 
+>>>
 >>> For backwards compatibility, the default bus for CS 1 on gqspi must be 1
 >>> and not 0. Ideally there would be some hook for the master to fix things
 >>> up when the slaves are probed, but that doesn't seem to exist. I was
 >>> thinking about doing this with OF changesets. Do you have any better
 >>> ideas?
->>> 
->> 
+>>>
+>>
 >> Does this work? 
->> 
+>>
 >> 		spi->buses = BIT(cs[0]);
->> 
+>>
 >> (would have to move all the new code after cs[0] is assigned of course)
 > 
 > Yeah, but do we really want to make this the default for all drivers?
 > This is really a quirk of the existing gqspi binding and I don't think
 > it makes sense in general.
+> 
 
-I think I will add a flag like
+Can we just leave spi->buses unset then and leave it up to the controller
+driver to interpret that as "default" and handle it appropriately?
 
-		/* Default when property is omitted. */
-		if (ctlr->flags & SPI_CONTROLLER_DEFAULT_BUS_IS_CS)
-			spi->buses = BIT(cs[0]);
-		else
-			spi->buses = BIT(0);
-
-which should keep the defaults sane for everyone else.
-
---Sean
-
+OF changessets seems overkill to me.
 
