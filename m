@@ -4,112 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CEE8C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255BCC71153
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VC3uyx7XQrp1bKJ1F7dGGuSJWNhI/VpAgtY9+aI1yGY=; b=Bo7CDeZI+knFX5QA++dq2ZS3zO
-	4noybBQc6m893/ht+vi0IUgpLaDdqPh3NT66Z0YoX9ZlPxWF9WL5YXUqo3gbkDQGyh4BcDRbpgqgO
-	DjF+KCcKSs4VAc2jIB9ONG5fsJ549R5lJqsqlgOowSEmU83l0p3PUIN4zQAipUQ5D9T7XFAHKqSoe
-	UROFFR1xIiZHykzuabqx5lmHncVwjm7prD6ulUmYD4SNMG8I73FdH5m3U9evABs7LIofpMUs4A61Z
-	AkR5fybMSkpsOtq5Zmr6TlsL2b+rV43gAdJS1XQF3qnxkGst/iyEWDivrMsByYXDJNoKNH16yWuoz
-	yjMLqSKw==;
+	bh=eC46Zkpw6d3lBo3+a+RaoeCgnAIh3kmQCFRudHTfIGo=; b=QSsIY0mpbST/CJAGVxs34tRYuK
+	Y/VK+4//G3B4uaX/hE4i87NpSyMrKR1gHWbOH5PcW5p8Pq6tGHO4i6KthRvL4y3W2dA2DCLCAO7iU
+	XP65m/GYky3He89KgARDkTnKaCO6a5pjW5F2bWt2TL+zVG4fMvUUasKugSnl4h9AIXv+MEEFC0jBS
+	9Q4RZF5cujDyZ9JMhe6I6d4uPtuT6aGJpmbW7uJRI/IpqOJDvNPp5FHBGJLP3D0bCLq5HX6+JGER2
+	mnpuQZvOQsuKuSQtpzeF30FSVM7dy4yN7PXyfvCaugShjEee9BzHPWgPpMDFltZ5cDvpzOBGhJ4F6
+	DtRRrYCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2cN-0000000GAc8-2zmh;
-	Fri, 13 Jun 2025 11:30:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uQ2cP-0000000GAdW-1SQc;
+	Fri, 13 Jun 2025 11:30:45 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0zD-0000000FxpG-413T;
-	Fri, 13 Jun 2025 09:46:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A599743AB8;
-	Fri, 13 Jun 2025 09:46:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DFA3C4CEE3;
-	Fri, 13 Jun 2025 09:46:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749807971;
-	bh=OIwbFNihb+LikVlp9wBsLvj8g2wYol3rhIQiQU23i8w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LxOzqpTgbOu+cOIwLwtebyN1rPySY6jpgaj2zgrIVp5cufvoPNUHjZUWPRWvfaBH0
-	 lz7WOZCM4k8U7Pib3MHuXrebbe3ECKgj2Yl0jXaaddNRD3fmMD2vdyBK/mIpE0hMBj
-	 9vQQgkKk30EDnUaGIprbGYn1KoGw1xc/cxaUFrql2OcOWaZquzW4HG4yYTpobrkQDk
-	 bIKbTLEwBjX1lQ+GwMdcIt3qUS/yjLSfnnhuNb6WKptv6SwavMke+cmxR5pp1VM+4W
-	 N29eDa1r7zYBdmutL5uclVD45xli3s8lz4p0stesHt0JGuKCrGaEpmSK7iVmvITdl7
-	 m1/Moc8gR7odw==
-Message-ID: <618978dd-943a-4e50-8aae-c6132559edad@kernel.org>
-Date: Fri, 13 Jun 2025 11:46:04 +0200
+	id 1uQ1IH-0000000G1Fl-3ElJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 13 Jun 2025 10:05:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PvxdZLCD+X5qj+QRVWmAPlRnr3FgVld0nh92zK1/Adw19Sy0JZ2EIkIZhm6BuZ32cLsrj9WrVpODd+7uhRX/HU3ybfdDpObq/wx+mGdjPLEFBD5DZVOYkjfsGzhl8Xw2cIw3HPkEd/b9XuhcN6omf95PFyUfjsaZv/aKWN8vM+rWwhVcgrZAA3ki1Ia7QlaTxNw6RRbEtdDcNtiG4C89MXGj9eJO4w9bQ4v/dv6jaHps28GKsrOMzZ6zDUE8saSNdPKf0YQ2rVqeWbTd4su4SQ5Icjn/yQ3SeTvP+Xl/6TfF+0vfyz4+5HAlsj8jeEHxjcVAjrUga2zmM2vX9dMoHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eC46Zkpw6d3lBo3+a+RaoeCgnAIh3kmQCFRudHTfIGo=;
+ b=fzG1PU9i+LTAvolFoR8BQf85aENNmesapMX1HTl31yV7jEgByrUZowp0DSgJGAi9380yBejcbY5ShMWvL83LG81aiNrVMXoaMygh7w2+2SUjVd6XWpsPAgEOodSaazbZ1hUS2dICH2+WeEAUGPavdq4hGvV8KfQdPNVBCsJep+rVdIjz7ku0Nt1wntjt5CNLhWYjeduEWBlKT6WlIchj8j1GxVFzxV8/oyWYCWogioJZLLLg0bQ9ZDhhIDRT5eItaqk3zexLsd4dD4TyYFwQiU5aBJdRx6jXGyVgQHBBq/hx5G7XKmfRgy7XBRn0JW+no1VHx+dkf+QCYni+v6SUZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eC46Zkpw6d3lBo3+a+RaoeCgnAIh3kmQCFRudHTfIGo=;
+ b=NSxZzJ+qXnJv3tlKYx9Td6S1vQFwa7Gk3Q7yP3rmoevI/h17WG9MNyg3x61P3hG4+Z7qiOH1F8VuFQUzMz97nFh+2vX1Wiheyy0VhU7n53AnNWIwVXcMXSfx3Jjuo+KcYQg/iwV/6cafLrC9LznopUSoYYaWc9CK2CbQM19ENUt323bAHJYgNLps/o8skiqWmW/VVUmpJWSzQe1Z2OpIH2CMyd8g15+DZJT/FYoSG3XxSRu7mMPmwPNubDfFKXAVC9dHZyZQxgede3PYgPb4EOtiaBP+IbRQYx20fDBqegmBJiHZwm7UxFq6P6Dnyxu4v8FzYivSHiqwYOdJgX2DLg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by GVXPR04MB10681.eurprd04.prod.outlook.com (2603:10a6:150:226::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.30; Fri, 13 Jun
+ 2025 10:05:51 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.8813.018; Fri, 13 Jun 2025
+ 10:05:51 +0000
+From: Joy Zou <joy.zou@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	ulf.hansson@linaro.org,
+	richardcochran@gmail.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-pm@vger.kernel.org,
+	frank.li@nxp.com,
+	ye.li@nxp.com,
+	ping.bai@nxp.com,
+	peng.fan@nxp.com,
+	aisheng.dong@nxp.com,
+	xiaoning.wang@nxp.com
+Subject: [PATCH v5 1/9] dt-bindings: arm: fsl: add i.MX91 11x11 evk board
+Date: Fri, 13 Jun 2025 18:02:47 +0800
+Message-Id: <20250613100255.2131800-2-joy.zou@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20250613100255.2131800-1-joy.zou@nxp.com>
+References: <20250613100255.2131800-1-joy.zou@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0002.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::21) To AS4PR04MB9386.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/7] dt-bindings: pci: Add document for ASPEED PCIe Config
-To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, vkoul@kernel.org, kishon@kernel.org,
- linus.walleij@linaro.org, p.zabel@pengutronix.de,
- linux-aspeed@lists.ozlabs.org, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org
-Cc: elbadrym@google.com, romlem@google.com, anhphan@google.com,
- wak@google.com, yuxiaozhang@google.com, BMC-SW@aspeedtech.com
-References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com>
- <20250613033001.3153637-3-jacky_chou@aspeedtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250613033001.3153637-3-jacky_chou@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|GVXPR04MB10681:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0da86958-8a9e-4800-3861-08ddaa61e064
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UdEEg71kR43V1IJYaZF6lscyJIl+DBbEhlqSc2xcEfQugF1fGy6WzkE88vk3?=
+ =?us-ascii?Q?2Z43OiLk6dIn1w/4B015rLmlv2FxUSjmInsn3WqVrnzJoA6iO8IJy4iJTdwt?=
+ =?us-ascii?Q?XLvGx5u0sVYfeqZrfQbbhy82XnRGZU5Xv7Z/yrjGazKYeQvWjIAMzWKzyqm/?=
+ =?us-ascii?Q?7y71ECDR3jlfxfod8T+n01XUudu9x4SB3zPfY1CDXY7yh6+WyJSDEepYoDcP?=
+ =?us-ascii?Q?MK+2K3kW6K6Fp4JhK9tYWl9QBSetidPOeF7068fV7ACPFQ+4YAQrzfn9zt5W?=
+ =?us-ascii?Q?g6xnTvGtuPWrBJk57M7qU+3sDcSRdNmqNp0oHd4LGhmlVtx95RNJQi08pQrP?=
+ =?us-ascii?Q?gVYl3FI/2pQLqavmHjooGIv/iHxyDQFo+xcdKdKLOC1MzIFtd7kxiXAII6yo?=
+ =?us-ascii?Q?iolUkDvI3swQXLl06KBNn9nxUGmWEz179uq61Fl6FCFR5nUbVg+XH9dCdl78?=
+ =?us-ascii?Q?5dApCvl85ESRcXXvGLP1XZ6qPZuk65ffjRryJaklC5Yu8xTVScqB8Jdl/tbO?=
+ =?us-ascii?Q?2ue5C+LTzHzLjC0TaMdriRBOgJyxho24HeHQBS6WI8Y6z069DK3gnZAtoBG8?=
+ =?us-ascii?Q?cm5Ba/eW6ycF5ot1Z/EDILLb9ywCCxed+oSm5YclE/l7AJ2ReDjD/w0iS5Xi?=
+ =?us-ascii?Q?Ms4VHH+XEKa4FnnC/9G+JKluo1J6NaB6LjJPasE8kAmZtZvsSZxCoW6ah6Gf?=
+ =?us-ascii?Q?EG1w1G221uxQk6PteAwX7/1I4Qln5wwdftIX2gvlNrqZs85m4hs7+TWRn43P?=
+ =?us-ascii?Q?qzHQIJ6TmWbDXX0OJ5u2/vi7iKMiGhlIKtfGs2CboOHr59jnIj2gUZm72YkM?=
+ =?us-ascii?Q?dv2Ck+Ryy8Za9kcmS2yn4EYyi6PXGGfH0dR4tq2hZKXpOtER5I2ebScPFRHq?=
+ =?us-ascii?Q?TqEK5GU3xPuFZBCtrjR4x0LnSn3mqNu9YkYV4SAtVmmhaTycFzEOlZiBaavz?=
+ =?us-ascii?Q?LQOnMhRghFTOQlkTj1SHrbvSN4PvA8VLmuugTlmvGGzMcyFbrbwIjini1JX5?=
+ =?us-ascii?Q?Qzf0FNPR0bKsHKrhxR94ifNQNvNr62tdYuhw/aT/l7PmMhfp272LIYSCyYuG?=
+ =?us-ascii?Q?VC6RWvDdqUcXatxhahDrWaen3TxQbo2RJUAr2H5i8xri+0xpOlI8P3hfOGPd?=
+ =?us-ascii?Q?goABzQ8FDNTUFFdGflTXDChn8W1cRYnOcXlQy3GMDU6IGlGtP+BgKYaXvP6g?=
+ =?us-ascii?Q?QXhRXIZsdF9pbISb+Zcs9MfCyhFX6Ksti2h/EAMhoLkgjTbx1OnamY2YRFJ0?=
+ =?us-ascii?Q?GP/7cckKNiGciCKKIXjJZUYwFa4c1qSImcRPEqahn6u5RdR/mKrtgoUh0Pop?=
+ =?us-ascii?Q?UcTtLvYfbI43c7w02+YBudnx4zF2AZdx++dPatupIjDmy+V6pyIQabOfv1R9?=
+ =?us-ascii?Q?4aigeQ2wo5a6dwQP5UndKcS+UfQdd76foF4TfN2wrShIHx5NZIduxgvtCzDQ?=
+ =?us-ascii?Q?l20PWGel+DQwyT/UZJR/oDzCDCV/UwA+pvkyWqKFLqYXYwxsVO5t2KJsG/k2?=
+ =?us-ascii?Q?TYBv0ICvuxYysCs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Aej2B1aqwn7Wr0a5IgpnFqTswdJRAS4ICzvfGK2XCyzHmPTTqFG/IpEr9q6p?=
+ =?us-ascii?Q?blB3xiY5DfOJuoO8LqKbrnYF5zpPbLDnZLRBLS9P/DcP2/fNz5iR2n6fALjU?=
+ =?us-ascii?Q?eIHc/dQugXBTM2Ijg1zv8rQbbQ9f8uQyhu3uroYbmrxHMF71M+BjU+V3bsV8?=
+ =?us-ascii?Q?SgYWUztrZyYIt+lBSaWVECiMOAS/rGVXKmXtag5bowj8JOncMrZNSPLF5Z9T?=
+ =?us-ascii?Q?Sjd7oiWnTclGLzp41Wc6vFoF9vKYImJw9AEMu8IX1wXvmgQvZieMG9MOq/c8?=
+ =?us-ascii?Q?ht8iFRU7AKjKgoSzlqSXe2qU9IoIg1D3bW3MwKUpMjws6WopSH1Jz26bW33m?=
+ =?us-ascii?Q?DCwLqJ/czsvBonHSnV2PRjuby0QOQ01D16nkAKdQ2Yd9SI8pbTu+90bF2dwU?=
+ =?us-ascii?Q?wNT76J8aCuopwMK0t6JWv//QtpYCQoMXSUVqOW2ELnnWF8fgKPqSgIFQfkfi?=
+ =?us-ascii?Q?PXUPWx0lM7nmDb3tnr/+elr7j5Uiwkrn85KVjaPkANQpvArtfNBQl7Z/2nyx?=
+ =?us-ascii?Q?m5uJ74GFFlzs+Qt7wnWZBJNr5YEJCDzWoNaoi/flJ3rIoLu+bFaKefAMQLCP?=
+ =?us-ascii?Q?ArKfmP8t0ihjrjT5yTII/HBQaMHrvw2aUCB83yj45GeeMglcxuIANK3ZKRaq?=
+ =?us-ascii?Q?9G9RjqzeqMrqIfig+WLag3GmtnCO22b4BFM5CaO/2kGtOhyLB7XdvKb8iRM5?=
+ =?us-ascii?Q?fWI8wuy/0hkyisOrtQsPJpBQbI5gzSQGilTYUCuEdv+v+5jgfu9lDahSKzz5?=
+ =?us-ascii?Q?L63EGafuSUXi8eFyjMw8oKqZpKs1YqXEOTQOnRmv0Mfq7V/RFzmy1+tyWq4e?=
+ =?us-ascii?Q?B6kjhIErBf+s0dSuLIZTwHhTdd+ntn6HxcBYTeM1gNpLI4S4jEQqiuvxKnHe?=
+ =?us-ascii?Q?sEv9CjgyBhBIBdxIkQC3ySXB3kfjbxaxNJg6TmtGkCCBTr20qNsZCfJxCka3?=
+ =?us-ascii?Q?vEMDkFfqj7k8bvmiaXGda8OL7ex2vpRsM6KrbDMymMBGInhiX36l+qisjBEl?=
+ =?us-ascii?Q?7eGYVJTnGKqPncASudpQ2zq+Mt5ip5ty+qkf6flAYnG5oHe1m3Z+TnAzH6ot?=
+ =?us-ascii?Q?S8biu++2iTsaMihFY/zEoPMQxkFljvUo8oQV4jrhXNn0568A59o5X2DJXFhk?=
+ =?us-ascii?Q?KB3MuPxWxC/Q1jg1obHkX0kBQKElTKWbCxBpBRMxlQHRh6HX2qOMeYskdm/K?=
+ =?us-ascii?Q?jaACbYyK8Fbmci1UPTR4MflEkLPvHaJtL7My1qon+nuDjyisaZzk8B9AYi8S?=
+ =?us-ascii?Q?h33sZWj9td8IHtw8RJqh7PC+Nl5zTvJ+sZmaEQ7+Ye6u6zOIx4YhELVVb7Qe?=
+ =?us-ascii?Q?CE63Ka6CdF9Ego1v4qNxqhvx/w0iIO7idD998YdKhjkEgr4dIXgeOMsTO5eS?=
+ =?us-ascii?Q?6PvV9uXT+iek3z46qu12Wg+vITVEvRhaT8osyNR0nyTUOY95uSRs/cxX2WJ+?=
+ =?us-ascii?Q?IhEIEbOEAF5RzgCVRQt2MZ6E7/odAtAJ5vDvlm3HMo/HbXH/2vDoDFPOgpcR?=
+ =?us-ascii?Q?RbtIz0DPDKH28wsSmI5nh/17fUQF1hIy49YkZZpY5bFATj56dqPsBJ/kQ8c0?=
+ =?us-ascii?Q?+zblRLj8zItFGLgY5924++QEVVzJpPk24pGUqgrg?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0da86958-8a9e-4800-3861-08ddaa61e064
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 10:05:51.3192
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: x8sPY65zQ5/RZAUnL33s6dL3ZZFklLMYFwKzQH+53Q9xDEEQall0M4K07ifxDrom
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10681
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_024612_042097_757AD877 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250613_030553_813947_FAFFA11B 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,83 +186,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 05:29, Jacky Chou wrote:
-> Add device tree binding documentation for the ASPEED AST2600/AST2700 PCIe
-> configuration syscon block. This shared register space is used by multiple
-> PCIe-related devices to coordinate and manage common PCIe settings.
-> The binding describes the required compatible strings and register space
-> for the configuration node.
-> 
-> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-> ---
->  .../bindings/pci/aspeed-pcie-cfg.yaml         | 41 +++++++++++++++++++
->  1 file changed, 41 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pci/aspeed-pcie-cfg.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/aspeed-pcie-cfg.yaml b/Documentation/devicetree/bindings/pci/aspeed-pcie-cfg.yaml
-> new file mode 100644
-> index 000000000000..6b51eedf4c47
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/aspeed-pcie-cfg.yaml
-> @@ -0,0 +1,41 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/aspeed-pcie-cfg.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASPEED PCIe Configuration
-> +
-> +maintainers:
-> +  - Jacky Chou <jacky_chou@aspeedtech.com>
-> +
-> +description: |
-> +  The ASPEED PCIe configuration syscon block provides a set of registers shared
+From: Pengfei Li <pengfei.li_1@nxp.com>
 
-How is this a pci device? You just described syscon, so this goes to soc.
+Add the board imx91-11x11-evk in the binding docuemnt.
 
-All other comments apply as well.
+Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
+Signed-off-by: Joy Zou <joy.zou@nxp.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-> +  by multiple PCIe-related devices within the SoC. This node represents the
-> +  common configuration space that allows these devices to coordinate and manage
-> +  shared PCIe settings, including address mapping, control, and status
-> +  registers. The syscon interface enables Linux drivers for various PCIe devices
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index d3b5e6923e41..a778666b1d42 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1374,6 +1374,12 @@ properties:
+               - fsl,imx8ulp-evk           # i.MX8ULP EVK Board
+           - const: fsl,imx8ulp
+ 
++      - description: i.MX91 based Boards
++        items:
++          - enum:
++              - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
++          - const: fsl,imx91
++
+       - description: i.MX93 based Boards
+         items:
+           - enum:
+-- 
+2.37.1
 
-Do not describe OS. Describe the hardware and drop Linux drivers completely.
-
-> +  to access  and modify these shared registers in a consistent and centralized
-> +  manner.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - aspeed,ast2600-pcie-cfg
-> +      - aspeed,ast2700-pcie-cfg
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pcie-cfg@1e770000 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-Look how syscons are called in other vendors.
-
-> +      compatible = "aspeed,ast2600-pcie-cfg";
-> +      reg = <0x1e770000 0x80>;
-> +    };
-
-
-Best regards,
-Krzysztof
 
