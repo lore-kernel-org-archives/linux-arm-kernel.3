@@ -4,124 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB69EC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 09:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2E9C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 09:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rvOAxba2/00VE8ZUtElUxztZVVpqTN92ajrYDHddxwI=; b=Adh4u25o4LtjQCpLldEOfrvy3T
-	lzViExO9U2dZUse3N4yC4xMEFpTPpz1UKhpiMsYmQsrk3bPMYuPp9YqKg2VPUCze0qgn+5Cb/dmv2
-	QhccroOfFRAix12CFGJZcz4ZYXnnoRbHUGNLiOCmd9NDnP/cTmhYdFGJpYRziI58Vdr+A7qVltpa/
-	wizETXGH7TbG+GGNsjnoj7smFT0O+Xwh0PEP4gYBBThnzvRgi1wEPf7C+AFhigiXdg0RDpHBTYRTo
-	gYYzQzK6zTpvYgzsvlCABNr6S55hCv+hz9RzIRiLzciIcRPKHWU9T6O1EJPw2m344lGzchFk40nQk
-	ojbi2HdQ==;
+	bh=Qukd4stYOCYEBe2KGcf2tpYpRWJZmwskg2vfqUfUsKY=; b=odsWbgP7Iz5MZ74UP0jx/+h0ZC
+	2zkHb1Kl4bKR8yBlPKrZlelgr+Q17S3MHTz7jnLtsfTptUkOvJSAAnPANo2I3OO7zmpmyfrhGITbl
+	t7tXI79VWZ83Yp/elXruzyTDu5UDRwBlL2gg3T9nS9+g0D8PYIl5gfG3aB3SEEyqv3tvX2aL1tWWC
+	ql96GJ5UZQ3M1d1fspIEpg2vsdID1zfKs3lQcf6zXWlt9/QuRG0RoD3F1/JxPOKLLtq0/e+Cfn6OD
+	ERfN8wiB5GJuudEd5+LCFduOUoefxn/El4XgeKfDmBq8awSzPd21+rzpZSVBmEvH++NZhq8FwKuYd
+	G5237nSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0vL-0000000FwB7-0AvR;
-	Fri, 13 Jun 2025 09:42:11 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uQ0vN-0000000FwEB-2lT2;
+	Fri, 13 Jun 2025 09:42:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ0Ye-0000000Fth4-0wup
+	id 1uQ0ZV-0000000FtmM-2yRv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 13 Jun 2025 09:19:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Qukd4stYOCYEBe2KGcf2tpYpRWJZmwskg2vfqUfUsKY=; b=bz+kf/GOcPpQHn31gCX41zXrmi
+	y+pxn4LEYdtYyEej4oenwJC3CdSHe8xN6x9n2koPou1TB/E1Kv9y19U3QKuQox2Wo0nMmVUD23fI2
+	7VPo6zEjGNva342VFkF8PRRCzPLM3NMG4V8FXTaLrhLtoprpWwggKp9EIf+K9d9uOYMdWFdcCZt2y
+	hXTaoghOXQWjQgFAAYhrWkZgTPSbKwc6hha3bYfCmz9ugeMQxI0QwqqVSorR1QmilsBWGVNxnPQ2p
+	Q+V6ZatgU7BUMqS+0+9jxcCj230N4wbcqu3buLoQf/xbopQsgFDgvYQ5c/uYi0jkmP2OjWmDBK4iy
+	bGl3JFuQ==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uQ0ZT-00000002xED-0Lmr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 09:18:45 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-451d54214adso15696635e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 02:18:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749806323; x=1750411123; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rvOAxba2/00VE8ZUtElUxztZVVpqTN92ajrYDHddxwI=;
-        b=xlNTI12MUlGu7mEqTVL/oLnXVeo4efqqI5f07wLWqOtwWXtt2/zZezL6eXbWeFtUKH
-         FJUfnVX/I6zxGAfDCEryo4PjV5bgDnOOfcWrQSZn3kHPqvWUTcHtrFLFx/BFb4tPv+Z0
-         9yIrvwyHUnkqWZAJCpna54kvXApSZ+QkmhYGUpRJmiyoVUC4ZBH8Evs2ZeIkQw8+8R+L
-         ulXm1QXY5VD3qy+1fKbMpSslD//b2xYUOlyZyI2Gfv/elIYCO2bcdQjup3AYnQkZNtYm
-         nGH6v6BhAqbOc5+7ckIXPI5rL2JzvQb0GY2ztNuDJqixaQShCMCKevnGZBMhEQLCOsOi
-         lDHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749806323; x=1750411123;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=rvOAxba2/00VE8ZUtElUxztZVVpqTN92ajrYDHddxwI=;
-        b=qIxaDOFdbKoxfxp/nKPu+McKVogYFz+vKS9o62bDEGZrm1jlSnoR6cz9Gzwv///knk
-         6tF51Sd2+KGwGAW/iUHBhL4dUQjHK1Q5bS8oBvE4/pXpfH9nmRaU3hsY9T6qOgn4dxQn
-         gB/EYccfScj33P0GWlf5+prID5hibPrQBn7t55uuahgwsVvhs+IeYo1hDmu4ZdUgORMU
-         snCV0harE7K6zLMCpk+1RTQbSPtwMFry5JI5v+eEM3ZjUZ3dHe3AlfswayE5qXlMCJ+b
-         OU/YNABanCOl+evfvXTibkRp5kESgJzsy7SOdKXNwbo1m2vSIAj9oVUOIcxxr3YnQCip
-         WbsA==
-X-Forwarded-Encrypted: i=1; AJvYcCXtTBGvoCHz2yRTsyzUvNl5VVAfrpH7v/NFfmrmHK7Z1kSxaZNly/a7BPY8HielIpxxEmqOzcFHIB83DkIGa0Hx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcIwSM/+4dKrFkG5UBqWuC1zVClzFe6Q3FOO+UcUfyxX7jHLcL
-	cuR0aV5w7HYtq4N0q1YSYo8N9appluwwVWRqbbdNi2qrOuiGxJnb58rfAzKdt3f7gFI=
-X-Gm-Gg: ASbGncvymOcVKqW5K8HbegPlBhx37pzFIWjSl+lYiSPN+Gq8sDNx9QgbTeFgZYIAHno
-	Fz8k+7DadBxXswQQzK2ChRZ7zHod5PSfjgjPFSLLXmZP01TmtOOIsNXC3jguhoa+cLoY0N8h87o
-	rVzeBpEuRxqPLLiW4CJfQaeF7NtilzmEG5C5TJjTQlgyOE629lQZPWW/UPZLmXaFwy2kwG3HH7v
-	5cKaeHZtLSntVy4oJy2/yFnHwLWhZ3jK+c72Td6VyxVzhQNDqPFI5mqN7KN32IJvD/P4DJaeJv4
-	yHLtlyL9OGZsQZL5dz97SNuej4/IUhXBNMHoGmYeURy26YasglSQ/RE7v3pxU0beBonITnakFhV
-	my/iyhok7khEnBfQcAoE5c8UdjZ2rPmFbo5mLT60=
-X-Google-Smtp-Source: AGHT+IF88GdW/9+83jn7KWBiIwltmYkzKMHV54Iv3aLyXMYm3AtrpaFf6Fm3vYfY7PC7NerjrZzM+A==
-X-Received: by 2002:a05:600c:348a:b0:43d:172:50b1 with SMTP id 5b1f17b1804b1-45334b7a9fdmr21567635e9.29.1749806322733;
-        Fri, 13 Jun 2025 02:18:42 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae? ([2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b6debasm1768202f8f.93.2025.06.13.02.18.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Jun 2025 02:18:42 -0700 (PDT)
-Message-ID: <4f30104b-aea6-4820-9b08-047297da149a@linaro.org>
-Date: Fri, 13 Jun 2025 11:18:41 +0200
+	Fri, 13 Jun 2025 09:19:37 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55D8wHNm020220;
+	Fri, 13 Jun 2025 11:19:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	Qukd4stYOCYEBe2KGcf2tpYpRWJZmwskg2vfqUfUsKY=; b=xmCVzlKQCtuGgHtz
+	pUXCmVGQ3ONSiquNM8AvJbe2b/bd2r1R7FQVmDfjwI6Ztf/N52gp85Y3iOSOAnYc
+	t+4L78ug3jzrEG0441Cs8UX4zGFErHHGupHayHwXXjmacQCRLOzX0OYroE6ImLUv
+	WOdeCRhWKnajWFJasN7CCOYOu4nLybchNgNt8DnWqPWWxspQ61ErvQ4/j8V/7Gcr
+	c7eZEkL7meNLk1I7QE7nGYAsdhpig1zoHCZiJJDfWzdy516k/04MfKmGcIcMs+Nv
+	bQgcwFa1QXBntuBa+UI484nKk78R/Kd+yCqish+Gu/u8sBLN4xWYnQXsVoLqCvK0
+	uLj8lg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474ajakwn4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Jun 2025 11:19:27 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 38AE340056;
+	Fri, 13 Jun 2025 11:18:08 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7B050BAD4D4;
+	Fri, 13 Jun 2025 11:17:19 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 13 Jun
+ 2025 11:17:19 +0200
+Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 13 Jun
+ 2025 11:17:19 +0200
+From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Jens Wiklander <jens.wiklander@linaro.org>,
+        "Rob Herring" <robh+dt@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor Dooley" <conor+dt@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
+        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v17 1/6] remoteproc: core: Introduce rproc_pa_to_va helper
+Date: Fri, 13 Jun 2025 11:16:45 +0200
+Message-ID: <20250613091650.2337411-2-arnaud.pouliquen@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250613091650.2337411-1-arnaud.pouliquen@foss.st.com>
+References: <20250613091650.2337411-1-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 2/2] phy: exynos-mipi-video: introduce support for
- exynos7870
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org>
- <20250612-exynos7870-mipi-phy-v1-2-3fff0b62d9d3@disroot.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250612-exynos7870-mipi-phy-v1-2-3fff0b62d9d3@disroot.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-12_10,2025-06-12_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_021844_271917_1493C341 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250613_101936_020887_A18FF839 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,108 +115,91 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 17:09, Kaustabh Chakraborty wrote:
-> Add support for Exynos7870 in the existing MIPI CSIS/DSIM driver. The
-> SoC has one DSIM phy and three CSIS phys.
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
->   drivers/phy/samsung/phy-exynos-mipi-video.c | 52 +++++++++++++++++++++++++++++
->   include/linux/soc/samsung/exynos-regs-pmu.h |  5 +++
->   2 files changed, 57 insertions(+)
-> 
-> diff --git a/drivers/phy/samsung/phy-exynos-mipi-video.c b/drivers/phy/samsung/phy-exynos-mipi-video.c
-> index f6756a609a9a0774ecb6e27cf96726891683636c..b184923b9b400f0d536a913bdf32f3156c0a1854 100644
-> --- a/drivers/phy/samsung/phy-exynos-mipi-video.c
-> +++ b/drivers/phy/samsung/phy-exynos-mipi-video.c
-> @@ -213,6 +213,55 @@ static const struct mipi_phy_device_desc exynos5433_mipi_phy = {
->   	},
->   };
->   
-> +static const struct mipi_phy_device_desc exynos7870_mipi_phy = {
-> +	.num_regmaps = 3,
-> +	.regmap_names = {
-> +		"samsung,pmu-syscon",
-> +		"samsung,disp-sysreg",
-> +		"samsung,cam-sysreg"
-> +	},
-> +	.num_phys = 4,
-> +	.phys = {
-> +		{
-> +			/* EXYNOS_MIPI_PHY_ID_CSIS0 */
-> +			.coupled_phy_id = EXYNOS_MIPI_PHY_ID_DSIM0,
-> +			.enable_val = EXYNOS4_PHY_ENABLE,
-> +			.enable_reg = EXYNOS7870_MIPI_PHY_CONTROL0,
-> +			.enable_map = EXYNOS_MIPI_REGMAP_PMU,
-> +			.resetn_val = BIT(0),
-> +			.resetn_reg = 0,
-> +			.resetn_map = EXYNOS_MIPI_REGMAP_CAM0,
-> +		}, {
-> +			/* EXYNOS_MIPI_PHY_ID_DSIM0 */
-> +			.coupled_phy_id = EXYNOS_MIPI_PHY_ID_CSIS0,
-> +			.enable_val = EXYNOS4_PHY_ENABLE,
-> +			.enable_reg = EXYNOS7870_MIPI_PHY_CONTROL0,
-> +			.enable_map = EXYNOS_MIPI_REGMAP_PMU,
-> +			.resetn_val = BIT(0),
-> +			.resetn_reg = 0,
-> +			.resetn_map = EXYNOS_MIPI_REGMAP_DISP,
-> +		}, {
-> +			/* EXYNOS_MIPI_PHY_ID_CSIS1 */
-> +			.coupled_phy_id = EXYNOS_MIPI_PHY_ID_NONE,
-> +			.enable_val = EXYNOS4_PHY_ENABLE,
-> +			.enable_reg = EXYNOS7870_MIPI_PHY_CONTROL1,
-> +			.enable_map = EXYNOS_MIPI_REGMAP_PMU,
-> +			.resetn_val = BIT(1),
-> +			.resetn_reg = 0,
-> +			.resetn_map = EXYNOS_MIPI_REGMAP_CAM0,
-> +		}, {
-> +			/* EXYNOS_MIPI_PHY_ID_CSIS2 */
-> +			.coupled_phy_id = EXYNOS_MIPI_PHY_ID_NONE,
-> +			.enable_val = EXYNOS4_PHY_ENABLE,
-> +			.enable_reg = EXYNOS7870_MIPI_PHY_CONTROL2,
-> +			.enable_map = EXYNOS_MIPI_REGMAP_PMU,
-> +			.resetn_val = BIT(2),
-> +			.resetn_reg = 0,
-> +			.resetn_map = EXYNOS_MIPI_REGMAP_CAM0,
-> +		},
-> +	},
-> +};
-> +
->   struct exynos_mipi_video_phy {
->   	struct regmap *regmaps[EXYNOS_MIPI_REGMAPS_NUM];
->   	int num_phys;
-> @@ -351,6 +400,9 @@ static const struct of_device_id exynos_mipi_video_phy_of_match[] = {
->   	}, {
->   		.compatible = "samsung,exynos5433-mipi-video-phy",
->   		.data = &exynos5433_mipi_phy,
-> +	}, {
-> +		.compatible = "samsung,exynos7870-mipi-video-phy",
-> +		.data = &exynos7870_mipi_phy,
->   	},
->   	{ /* sentinel */ },
->   };
-> diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
-> index 1a2c0e0838f99821151661878f022f2129a0c19b..8fd59994bca76a6bf21306337f0b47ccb5a22adc 100644
-> --- a/include/linux/soc/samsung/exynos-regs-pmu.h
-> +++ b/include/linux/soc/samsung/exynos-regs-pmu.h
-> @@ -662,6 +662,11 @@
->   #define EXYNOS5433_PAD_RETENTION_UFS_OPTION			(0x3268)
->   #define EXYNOS5433_PAD_RETENTION_FSYSGENIO_OPTION		(0x32A8)
->   
-> +/* For Exynos7870 */
-> +#define EXYNOS7870_MIPI_PHY_CONTROL0				(0x070c)
-> +#define EXYNOS7870_MIPI_PHY_CONTROL1				(0x0714)
-> +#define EXYNOS7870_MIPI_PHY_CONTROL2				(0x0734)
-> +
->   /* For Tensor GS101 */
->   /* PMU ALIVE */
->   #define GS101_SYSIP_DAT0					(0x810)
-> 
+When a resource table is loaded by an external entity such as U-boot or
+OP-TEE, we do not necessarily get the device address(da) but the physical
+address(pa).
+This helper performs similar translation than the rproc_da_to_va()
+but based on a physical address.
 
-Looks good:
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+---
+ drivers/remoteproc/remoteproc_core.c | 46 ++++++++++++++++++++++++++++
+ include/linux/remoteproc.h           |  1 +
+ 2 files changed, 47 insertions(+)
+
+diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+index 81b2ccf988e8..d06eef1fa424 100644
+--- a/drivers/remoteproc/remoteproc_core.c
++++ b/drivers/remoteproc/remoteproc_core.c
+@@ -230,6 +230,52 @@ void *rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem)
+ }
+ EXPORT_SYMBOL(rproc_da_to_va);
+ 
++/**
++ * rproc_pa_to_va() - lookup the kernel virtual address for a physical address of a remoteproc
++ * memory
++ *
++ * @rproc: handle of a remote processor
++ * @pa: remoteproc physical address
++ * @len: length of the memory region @pa is pointing to
++ * @is_iomem: optional pointer filled in to indicate if @da is iomapped memory
++ *
++ * This function is a helper function similar to rproc_da_to_va() but it deals with physical
++ * addresses instead of device addresses.
++ *
++ * Return: a valid kernel address on success or NULL on failure
++ */
++void *rproc_pa_to_va(struct rproc *rproc, phys_addr_t pa, size_t len, bool *is_iomem)
++{
++	struct rproc_mem_entry *carveout;
++	void *ptr = NULL;
++
++	list_for_each_entry(carveout, &rproc->carveouts, node) {
++		int offset = pa - carveout->dma;
++
++		/*  Verify that carveout is allocated */
++		if (!carveout->va)
++			continue;
++
++		/* try next carveout if da is too small */
++		if (offset < 0)
++			continue;
++
++		/* try next carveout if da is too large */
++		if (offset + len > carveout->len)
++			continue;
++
++		ptr = carveout->va + offset;
++
++		if (is_iomem)
++			*is_iomem = carveout->is_iomem;
++
++		break;
++	}
++
++	return ptr;
++}
++EXPORT_SYMBOL(rproc_pa_to_va);
++
+ /**
+  * rproc_find_carveout_by_name() - lookup the carveout region by a name
+  * @rproc: handle of a remote processor
+diff --git a/include/linux/remoteproc.h b/include/linux/remoteproc.h
+index b4795698d8c2..8fd0d7f63c8e 100644
+--- a/include/linux/remoteproc.h
++++ b/include/linux/remoteproc.h
+@@ -690,6 +690,7 @@ int rproc_detach(struct rproc *rproc);
+ int rproc_set_firmware(struct rproc *rproc, const char *fw_name);
+ void rproc_report_crash(struct rproc *rproc, enum rproc_crash_type type);
+ void *rproc_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem);
++void *rproc_pa_to_va(struct rproc *rproc, phys_addr_t pa, size_t len, bool *is_iomem);
+ 
+ /* from remoteproc_coredump.c */
+ void rproc_coredump_cleanup(struct rproc *rproc);
+-- 
+2.25.1
+
 
