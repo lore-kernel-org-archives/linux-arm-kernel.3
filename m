@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B74C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D344DC71150
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 19:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HH6Nl9aCE0w7i/ip8/7INu6gVHjV0Eds4PyBcZeW2Jk=; b=BNoSOJy1M69OVBz+By2BPjUvPA
-	0TpekUCTesF5onXIDoIROhQliwsKRpCnu8KtaNdtincfeC0XJVZCaJbHrARTztCMrUUwE8iaz2v+Q
-	9m4Bp8EkdwAr8GLERTb7p2SdjAt7VpKlVt21pDIL3LP5xvI4iqdO4Tjhr+jPQRN44Tupw6wZApwEp
-	LfDtsmadi9sO1v0wQsUp2tyoGNsdRn8NsbQdZXBE2Pr6ofGaBNIESvnLjBm79KxioZyiPaxEIkl4N
-	iFuqTfjyF++n4eQPXqmI/6c6oZXzAYehIIslzgZqXFFKzBxRbEUKpxP1DPZLzTVIGl/CbkUk9DhYG
-	djKfJHZg==;
+	bh=cYQKVIsJMhuZ99Ye+NhcTo0fD3PFwm2XWlaykYXMczw=; b=KkbE1wDj3C/cqy9RdKk13+uHJi
+	X+AUaCxoO/iPNkHr6Uyoz0gRJPJeaMD88tJ746G/yblbdfLWCRhxy1OGcakqT6qzo4Ox74DsksOlQ
+	UYvs50ej3JrKBH5jTFhMjHLnJPCM+8+LrhhwJ3RcyMKO42ainTggyo3P5JgCky+LcjWiAFiqYTdGI
+	FOb8dtEFzqRM51ApHfgXWjJt0qm5bpuxjCmfUtVLhtYqxExc07kgmrbOGmoGAyVmhwbYypAxOZ65q
+	XlyuH5zHJwGkHYbzkUXbyyf2c5n4ggO/ppVgyUJfUA33eHE09UNpuRC82lZ/dB49TP4S6GtsBiIRA
+	6BkTlM9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ9h8-0000000HNYV-2r6Q;
-	Fri, 13 Jun 2025 19:04:06 +0000
+	id 1uQ9h9-0000000HNZc-3fdr;
+	Fri, 13 Jun 2025 19:04:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ7bo-0000000H73R-0Gh0
+	id 1uQ7h9-0000000H7bg-34RT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 16:50:29 +0000
+	Fri, 13 Jun 2025 16:56:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B22231C0A;
-	Fri, 13 Jun 2025 09:50:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B7C21C0A;
+	Fri, 13 Jun 2025 09:55:38 -0700 (PDT)
 Received: from [10.57.28.131] (unknown [10.57.28.131])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 534A23F673;
-	Fri, 13 Jun 2025 09:50:22 -0700 (PDT)
-Message-ID: <2e022f4e-4c87-4da1-9d02-f7a3ae7c5798@arm.com>
-Date: Fri, 13 Jun 2025 17:50:20 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C1F523F66E;
+	Fri, 13 Jun 2025 09:55:53 -0700 (PDT)
+Message-ID: <7ffe2c8a-1433-4adf-9786-ee0a9d2f3867@arm.com>
+Date: Fri, 13 Jun 2025 17:55:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/11] arm64: defconfig: Enable Apple Silicon drivers
+Subject: Re: [PATCH 07/11] iommu/apple-dart: Drop default ARCH_APPLE in
+ Kconfig
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
  Ulf Hansson <ulf.hansson@linaro.org>,
@@ -56,15 +57,15 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-input@vger.kernel.org, dmaengine@vger.kernel.org,
  linux-sound@vger.kernel.org
 References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
- <20250612-apple-kconfig-defconfig-v1-11-0e6f9cb512c1@kernel.org>
+ <20250612-apple-kconfig-defconfig-v1-7-0e6f9cb512c1@kernel.org>
 From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-In-Reply-To: <20250612-apple-kconfig-defconfig-v1-11-0e6f9cb512c1@kernel.org>
+In-Reply-To: <20250612-apple-kconfig-defconfig-v1-7-0e6f9cb512c1@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_095028_156423_1AC2800F 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250613_095559_816764_C1D096A6 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,51 +81,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2025-06-12 10:11 pm, Sven Peter wrote:
-> Enable drivers for hardware present on Apple Silicon machines.
-> The power domain and interrupt driver should be built-it since these are
-> critical for the system to boot, the rest can be build as modules.
+> When the first driver for Apple Silicon was upstreamed we accidentally
+> included `default ARCH_APPLE` in its Kconfig which then spread to almost
+> every subsequent driver. As soon as ARCH_APPLE is set to y this will
+> pull in many drivers as built-ins which is not what we want.
+> Thus, drop `default ARCH_APPLE` from Kconfig.
 
-Nit: I'd be tempted to put this patch first, just in case anyone 
-bisecting with "make defconfig" in their process lands in the middle and 
-suddenly loses some drivers (although arguably them going from "=y" to 
-"=m" could still be a surprise, but at least a bit less so).
+Acked-by: Robin Murphy <robin.murphy@arm.com>
 
-[...]
-> @@ -1504,6 +1520,7 @@ CONFIG_ARCH_TEGRA_194_SOC=y
->   CONFIG_ARCH_TEGRA_234_SOC=y
->   CONFIG_TI_PRUSS=m
->   CONFIG_OWL_PM_DOMAINS=y
-> +CONFIG_APPLE_PMGR_PWRSTATE=y
-
-If this is critical for any Apple platform to work then it would 
-probably make sense to explicitly select it from ARCH_APPLE, as is done 
-for APPLE_AIC...
-
->   CONFIG_RASPBERRYPI_POWER=y
->   CONFIG_IMX_SCU_PD=y
->   CONFIG_QCOM_CPR=y
-> @@ -1567,6 +1584,7 @@ CONFIG_QCOM_PDC=y
->   CONFIG_QCOM_MPM=y
->   CONFIG_TI_SCI_INTR_IRQCHIP=y
->   CONFIG_TI_SCI_INTA_IRQCHIP=y
-> +CONFIG_APPLE_AIC=y
-
-...which I think means this would already be redundant.
-
-Thanks,
-Robin.
-
->   CONFIG_RESET_GPIO=m
->   CONFIG_RESET_IMX7=y
->   CONFIG_RESET_QCOM_AOSS=y
-> @@ -1640,6 +1658,7 @@ CONFIG_ARM_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
->   CONFIG_NVIDIA_CORESIGHT_PMU_ARCH_SYSTEM_PMU=m
->   CONFIG_MESON_DDR_PMU=m
->   CONFIG_NVMEM_LAYOUT_SL28_VPD=m
-> +CONFIG_NVMEM_APPLE_EFUSES=m
->   CONFIG_NVMEM_IMX_OCOTP=y
->   CONFIG_NVMEM_IMX_OCOTP_ELE=m
->   CONFIG_NVMEM_IMX_OCOTP_SCU=y
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>   drivers/iommu/Kconfig | 1 -
+>   1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+> index 0a33d995d15dd759eb47705c00b411f1157b408a..91d0c871acc418ac5fede4f177ce3af97aef5560 100644
+> --- a/drivers/iommu/Kconfig
+> +++ b/drivers/iommu/Kconfig
+> @@ -305,7 +305,6 @@ config APPLE_DART
+>   	depends on !GENERIC_ATOMIC64	# for IOMMU_IO_PGTABLE_DART
+>   	select IOMMU_API
+>   	select IOMMU_IO_PGTABLE_DART
+> -	default ARCH_APPLE
+>   	help
+>   	  Support for Apple DART (Device Address Resolution Table) IOMMUs
+>   	  found in Apple ARM SoCs like the M1.
 > 
 
 
