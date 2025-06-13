@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6279FC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD00C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnM3QYrZbDdNwgp3VbgDL7GK+m9lRJdFtEa81BkatSY=; b=d8RevF02dBU91c8hNJ4sLchBGB
-	0mwk/Vq9g1JZxQpQKeEFp7xfREkJwGlRFzzWwNwZehcurQlteDXE5iqZmHL/dWiL1D7Rq6oiG6Dsz
-	Sbe25VYR5TpZZ3sdR+0s+tv6MbGqyu5kibn7vakcwfOzVRJSi4ZhgMvG8I3ZJGUTW1/EnLJBgVbv8
-	Qec+aj5rvIsLlZe5vQ0imtmYyJ3Q3jjnkWJ9jdBskVyMw2TH2dC2498mTxf347IjhSDeNyZEeei2Y
-	Yfs9dRyzyMZiUOmc7SstEku1mZL0IVY7K2S7LuyCagFAsTsQ+fP9u0J1ndcUSZX7AAckrjI8LXlHU
-	XZLmqFZQ==;
+	bh=5bbNZ883xvJuG5wx+JnsQECFyc477rVNTpWqO1pT9TQ=; b=kOEMcZVH2lItbHNsoXWtGVg8A5
+	tWaRv7tRk4wjp3mViO67EeTAU7MPRIa+UvjvD5tAflp5Sn9ZZ1ud2qbZXmR9v0Ldg9KwuFTR+sYe+
+	3mHB7yjB+nc2cHhWLE7ydKzq22p69hEIfk+DkWJ7vrRkGv65uR0CVLLyHm3vav0lcxklY6a012CYA
+	LPmNiNK08ZSvR1L80jQfn8ljPUPWCIq+m0j/0TTLncbYLYiewMgoFsrw5lvR0V6pcWzH2VJN88HgY
+	0uysWxJf7F4vOMWuhW80H0mIsd6jOZOxsDDSmN7IKmcTxbXzIPBGokdPiUR8TsnJKLhgKdsdl8Qfj
+	5G5lC7oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2dA-0000000GC1x-0EEv;
-	Fri, 13 Jun 2025 11:31:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uQ2dB-0000000GC6F-42vS;
+	Fri, 13 Jun 2025 11:31:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1qe-0000000G5n4-2H7P
+	id 1uQ1tA-0000000G67m-1jfX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 10:41:25 +0000
+	Fri, 13 Jun 2025 10:44:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 142AC5C5744;
-	Fri, 13 Jun 2025 10:39:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5037EC4CEE3;
-	Fri, 13 Jun 2025 10:41:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D1E78629D7;
+	Fri, 13 Jun 2025 10:43:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD306C4CEE3;
+	Fri, 13 Jun 2025 10:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749811283;
-	bh=YHHL4QbFiSRPbnZcmYApRf0H6dtBcxbktvlOiKHYobo=;
+	s=k20201202; t=1749811439;
+	bh=mnbw6A0mNVYyInMDA9EbKUPtqVXfTwi9C7mfH7beIQQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uLoReckm7iHVOkCYxGKQOBZA8xRZoK/R6CQfw6wzZH4TaD9WRojsFnIo5qtZVj2mI
-	 Ameb1r6diffxkhAG+W1Kim+2MYzl3GPYVgWRotvwzt1EKrlrLO1Q0f/HxtjGyJaptX
-	 k+LyZOwE+S6oQjX+Lv7LaU88ohGCExAPRJ4a02wOuCVk/syuAKBkUot8iecak5dobj
-	 O0k9V8BFrd+Ln2vXSAmpUCsO0E+G368A0DXPcv9E3GvO595Y2lVQXgEgjVRv0tDEgO
-	 DjqdN9ft4iLh541ZOeffZtcZ/VeR79E86ak4xsn2TFWyFvITQNU1MnrOpVPohgyQIz
-	 73pBdBLwuUuHw==
-Message-ID: <05e936ee-cb24-4761-8827-e2d45ac0cd68@kernel.org>
-Date: Fri, 13 Jun 2025 12:41:14 +0200
+	b=gU0uRFkVCP3yxRwUtFbnMhRQdsKCOZoM/nzYLTQN7tkZlScexuLQ0L+q7JGcJeK2A
+	 3VAsyyRyInGzeylTmqtJGqIjxLJuv/ts3Afu7vNPiZxyvvOIasA/KAk2onqqtLPNjz
+	 0e6GuEIj2vcTxBqEYHokMug56dvF8YaRCEvSLY2BZBxpFAwnT4ckrG3Dc/Fsg4MJGQ
+	 KxDM+ttltbj3Y/X+EShpvMXDylbvNfZPow47cooj4pnKkoEjzJoOeCiyj0NckKtzEz
+	 RDBfKa4YSGSE6Vz5KyjwR2FDZ5unY3yXTXx5tOOm/7iERiXMlR8X7e1eq+vTooBai8
+	 ZJ8zd7ghroI9w==
+Message-ID: <27ca7dfa-9dee-43f5-9e97-78de5e964f6e@kernel.org>
+Date: Fri, 13 Jun 2025 12:43:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/9] dt-bindings: soc: imx-blk-ctrl: add i.MX91
- blk-ctrl compatible
+Subject: Re: [PATCH v5 4/9] arm64: dts: imx93: move i.MX93 specific part from
+ imx91_93_common.dtsi to imx93.dtsi
 To: Joy Zou <joy.zou@nxp.com>, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
  catalin.marinas@arm.com, will@kernel.org, andrew+netdev@lunn.ch,
@@ -61,7 +61,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-pm@vger.kernel.org, frank.li@nxp.com, ye.li@nxp.com, ping.bai@nxp.com,
  peng.fan@nxp.com, aisheng.dong@nxp.com, xiaoning.wang@nxp.com
 References: <20250613100255.2131800-1-joy.zou@nxp.com>
- <20250613100255.2131800-3-joy.zou@nxp.com>
+ <20250613100255.2131800-5-joy.zou@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250613100255.2131800-3-joy.zou@nxp.com>
+In-Reply-To: <20250613100255.2131800-5-joy.zou@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_034124_678820_2BC8CA47 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,18 +125,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 13/06/2025 12:02, Joy Zou wrote:
-> Add new compatible string "fsl,imx91-media-blk-ctrl" for i.MX91,
-> which has different input clocks compared to i.MX93. Update the
-> clock-names list and handle it in the if-else branch accordingly.
-> 
-> Keep the same restriction for the existed compatible strings.
+> Move i.MX93 specific part from imx91_93_common.dtsi to imx93.dtsi.
+
+You just moved them to the common file. Why are you moving the same line
+again?
+
 > 
 > Signed-off-by: Joy Zou <joy.zou@nxp.com>
 > ---
->  .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 55 +++++++++++++++----
->  1 file changed, 43 insertions(+), 12 deletions(-)
+>  .../boot/dts/freescale/imx91_93_common.dtsi   | 140 +---------------
+>  arch/arm64/boot/dts/freescale/imx93.dtsi      | 155 ++++++++++++++++++
+>  2 files changed, 157 insertions(+), 138 deletions(-)>
+> diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+> index 64cd0776b43d..da4c1c0699b3 100644
+> --- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>  /*
+> - * Copyright 2022 NXP
+> + * Copyright 2025 NXP
 
-This wasn't here in v4 and changelog is silent about it.
+Why?
 
 
 Best regards,
