@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04A1C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FAFC71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cp2gFOEZRolrC1cu3ilAyN1wQaeSGonjrUSYtHJ5W+g=; b=bP/bNlGfCIiTL2KMY0aIN3PQp4
-	ukF5sDhl1avBFYkDGij4G+GzbR0DeYI2IwDS65R8cFcOgW8kb7NGOD63DFhd9YWJ9PnCvz3Tyzdum
-	WEUQ5KvPpglgL34LklkI1d/b/pxKd2FyOy952ya785YnF05HRO7MkCC/mdcEfIdYLHe4nthk57GIv
-	84dWkAlHBUiEgDnuv0tFV0EpunltCpV/DhDQHaY9+9kvnxOQmdVnuNn3qGs09A2Yi7+e0ZgfBTurU
-	GKBxraZvbYLjH6+84UK6/wxIV7FV2zZE0serQCbyp+c58J12ENajOp9KYoK8podlA1foZw99TBWmg
-	TdrGjsuA==;
+	bh=akMVwoF+N7VsrL9WTTtCNnfp5uG51OqdAtK0k00xxME=; b=H+mdkY31UPSsDr/FBf8vdCx170
+	VDBA26pVUK4/1wt2K/a7MaEQG6D9BkhP5buQSjDc3VErIhWWP4VDnNqbbJKpAm3tb0ClkGaXENOmo
+	sqQutu76idijbuT89HxRk3rFn2AyNG1u+NQbWW3f2/duw0MDvdiC7XcN7FN6sZUTD20HL1Y3hd/to
+	SsJSWUs0EcG18DxRLJT5iC9X2/Knp8yhxA1c/OQDyAWC083RbIKwlfKR9VqobdqKcbEBiJwXyz6p4
+	vrfvBAuUz4kqv5dgpmsFGhJIAunqp/Wl+yZepqZR13e/lq+dLcFlq+BPONoWQQIFCAgTbkOuEm9T8
+	lwj8srfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2ci-0000000GBDZ-2FAX;
-	Fri, 13 Jun 2025 11:31:06 +0000
+	id 1uQ2ch-0000000GBBc-2dCB;
+	Fri, 13 Jun 2025 11:31:03 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1SV-0000000G3QX-0EwH
+	id 1uQ1SU-0000000G3QH-2DDi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 10:16:29 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55D9wdHZ002442;
+	Fri, 13 Jun 2025 10:16:28 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55D9ZixC007076;
 	Fri, 13 Jun 2025 12:16:17 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Cp2gFOEZRolrC1cu3ilAyN1wQaeSGonjrUSYtHJ5W+g=; b=SmXY4g70YJNSrCYw
-	kF5SRQUW/VRfN1n8xRz8ou9gkRMZq/roq2liY5r0j5izZCQfK+s6d8YM6MOBHG7z
-	cOWbTbDw6xIJr2h9FHrwb9f9qvR5ju/yCoDOzafzngczjTZJUTxL4DSnD+YC9fqC
-	4qNgNPvKz8MpjOUcxCQ1G4XRv9H08M2Y8kvONaRD9iZWCmefGtmztBWhATeyiEOV
-	pDnIFXVyOyUrxeFOed4oJ2STuKt7s/uTyyPr7TtIOsKUJWEf7wVNfvnbsqJVt8+Q
-	RJNqir/HK1CYx0uicMSWlYynOEXEb7lwMyosNn4wethYbNqVCorR/orimLC3OZcZ
-	/uDx3A==
+	akMVwoF+N7VsrL9WTTtCNnfp5uG51OqdAtK0k00xxME=; b=tuIpcw4bNXqJLpNB
+	N/LWNV/rO4nmOFmmCpsc1WKf5mxaFL2Bs4YfX7dJkwj5/rYdDFWnXltW2rJmAVcB
+	CLBV66ehwx5IMbQNkbHJWCsoGlkSC1KMLwzIc/JPXd2Tvp+WlYfJWKkDEJbALzR1
+	+vwAxkiCqd3aLkJHWgQUq869IqYUueWy5ACP8s5+EVLLDjnx/9rViKYQxbt1i3T4
+	6KymEp9HO7z7oBR+NLmk1/CiMA/LbUnT/9cinuDf/mQV5CjCTac9naGkW2u0ZyZh
+	q2h63ZK6rCgsUIgL3RcxrHe1MEaeuhqymgz++fspBlo8QvuzNcO4teTehssXPmgO
+	n08gcQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cs356au-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474y05jqsm-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 13 Jun 2025 12:16:17 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 76B8B4005D;
-	Fri, 13 Jun 2025 12:15:05 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BCDC04005A;
+	Fri, 13 Jun 2025 12:15:04 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1D76F2F6F05;
-	Fri, 13 Jun 2025 12:14:21 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 60D7C210215;
+	Fri, 13 Jun 2025 12:14:20 +0200 (CEST)
 Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 13 Jun
  2025 12:14:20 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Fri, 13 Jun 2025 12:14:16 +0200
-Subject: [PATCH v5 5/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp13
+Date: Fri, 13 Jun 2025 12:14:15 +0200
+Subject: =?utf-8?q?=5BPATCH_v5_4/9=5D_MAINTAINERS=3A_add_Cl=C3=A9ment_Le_?=
+ =?utf-8?q?Goffic_as_STM32_HDP_maintainer?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250613-hdp-upstream-v5-5-6fd6f0dc527c@foss.st.com>
+Message-ID: <20250613-hdp-upstream-v5-4-6fd6f0dc527c@foss.st.com>
 References: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
 In-Reply-To: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -85,8 +85,9 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-12_10,2025-06-12_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_031627_381683_27D11BB4 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250613_031626_870294_4B965485 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,37 +102,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the hdp devicetree node for stm32mp13 SoC family.
-
-Keep the node disabled as HDP needs the pinctrl SoC configuration to be
-able to output its mux output signal outside of the SoC, on the SoC pad.
-This configuration is provided in the board dtsi file through 'pinctrl-*'
-properties as well as HDP mux configuration.
-Thus, if needed, HDP should be enabled in board dtsi file.
+Add Clément Le Goffic as STM32 HDP maintainer.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp131.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ MAINTAINERS | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
-index 492bcf586361..7519ffa0dba8 100644
---- a/arch/arm/boot/dts/st/stm32mp131.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
-@@ -954,6 +954,13 @@ dts: thermal@50028000 {
- 			status = "disabled";
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4f17af5d7240..2a223d92e46b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23458,6 +23458,12 @@ F:	drivers/bus/stm32_etzpc.c
+ F:	drivers/bus/stm32_firewall.c
+ F:	drivers/bus/stm32_rifsc.c
  
-+		hdp: pinctrl@5002a000 {
-+			compatible = "st,stm32mp131-hdp";
-+			reg = <0x5002a000 0x400>;
-+			clocks = <&rcc HDP>;
-+			status = "disabled";
-+		};
++ST STM32 HDP PINCTRL DRIVER
++M:	Clément Le Goffic <clement.legoffic@foss.st.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/pinctrl/st,stm32-hdp.yaml
++F:	drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
 +
- 		mdma: dma-controller@58000000 {
- 			compatible = "st,stm32h7-mdma";
- 			reg = <0x58000000 0x1000>;
+ ST STM32 I2C/SMBUS DRIVER
+ M:	Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>
+ M:	Alain Volmat <alain.volmat@foss.st.com>
 
 -- 
 2.43.0
