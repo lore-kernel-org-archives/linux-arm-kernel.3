@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04598C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 14:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA99BC71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 14:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNd/bH6tNn7AA01d7QKLXaHMTv/Kd/6mEFWBwdb70fc=; b=2OwHjswBquihu6Zz3p6UfLLRkL
-	wm4qXPy8+hYZJUSdVibiFkchjLH41a3GXcd2KhX5yXdyM5mq0v9+JV10hDskZWyOyhejIf9i4jkKp
-	W85HDfQ2IsAO8y3VlK3zx0TlPQVb9of9DGQCzbh4+rluDoNfdKqw5fHsuSeW3hNE5OLrLOFEqT+Ja
-	AFcynddsmn5gOQrljJqZOdhWrHBdzK1jbAneFoaIbzAjW1ByzEXnG2w2tNQqwWGjbBEztJeC43MxT
-	ywjJgI8tgMo+NpjVLkO3joORO6J4Acl7T2z8x/RmGtpahUqPXMp0t24QHYKqhaWV0Pe2CDcfEHJkN
-	tVmI6DnA==;
+	bh=OwoSn5Dm1JTkqRnnKPn8/rYnXTTvHblvHSJ5b9VB5fI=; b=QD7BV6Hk+ai40Jdanx+p/46yQu
+	AkkHFtlk0oMvePvoB07wt7HY6krf3xrM/VLhYpAcSN7k7U38/jGvmk1YT0OKAublHd8hk1RxYMBQK
+	XMuqe8VfPZ44fYQr+3eJcA/QjHbaCpWXuHo3x6SJKofpQn78Tdb1pT9Mz76nxGsAAgPncuXstthX8
+	kVI1Lcb8jtCejb3gk5wGI8J0RrRt2RApGGZyHlA+/zEUHBAPZvUC3z2pLuAfZ32JE+Bjv5d7UpLrn
+	CU/12vCD1w4eV9lZNZXBnU7vwg843cbQkL3mI9ZvnDuPZmbM+K7kk22MaDVI+QXz3af+KfbbuxQyO
+	UQL9Ad0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5fY-0000000Gkjv-3pRE;
-	Fri, 13 Jun 2025 14:46:12 +0000
+	id 1uQ5hm-0000000Gl0l-2smh;
+	Fri, 13 Jun 2025 14:48:30 +0000
 Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ4mb-0000000GYv0-00Jp
+	id 1uQ4md-0000000GYvi-1WRm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 13:49:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPA id A7A8D44288;
-	Fri, 13 Jun 2025 13:49:20 +0000 (UTC)
+	Fri, 13 Jun 2025 13:49:28 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPA id 9BE70442CB;
+	Fri, 13 Jun 2025 13:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1749822563;
+	t=1749822565;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=NNd/bH6tNn7AA01d7QKLXaHMTv/Kd/6mEFWBwdb70fc=;
-	b=L5D+Sk5sxQpPZT6JgylcAiTXySDHAUa1pED55D+xqqoeJ2jeNw5lYe1udkeUb++nk6Q0Al
-	Q605mB99cGt4/HswSKXjl0zJ89nmAmMqJWza/RpXS3lVC8h+vHEICiBX1cauGpfoKAdE8M
-	9bMq+ihkedDSTz+n6wTLrYoAwS33ChMblUpaFxAn73cZXTadfMz/EPxOoLBVBA2WMwojww
-	CC3TmfJL4zSnsQ4nAuxuhWWTtw8oC9pdbhuxK+XQkRabxBN2OjDso9pz2e+kdCA2zWCHtR
-	/Ixl/JH4gD7nVZhIRAn+NnrDwYAXsfbP+0wpUeZI0elC/xmdWHNSe1W6WPPS3g==
+	bh=OwoSn5Dm1JTkqRnnKPn8/rYnXTTvHblvHSJ5b9VB5fI=;
+	b=dyQ/VqoFoyodiG9J/BzsBBcQr5APDS+nNCkWsYMnrjGb8Bv7pSiviw2GUSOjkzjzodF6UH
+	zITRCA/kFWpAiFP4Z49Ea9AM0xzCMtfUf15I+aw3qL3Oh6BpfO056iaGadHNpTXAwloWCt
+	pFlyBR1IJjsE0Y7WrXL+EcOTqCw05sk4mtmAxgQldNBprKGDrbzUHb5kfBU9f8e7FiKxX6
+	8Wpr4cp2xflyp8oBf06IhartNsw6TLLlC4gYkKCWEVaC6nUiQ2YpcXmzuqBv6hCqay79Zw
+	a3s4hsWXOt/j9eSSbTAvS7wDWgqB8ArBRMmOVMlLL96ZUaaL6qLMQGYngHbJfA==
 From: Herve Codina <herve.codina@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -91,9 +91,9 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Steen Hegelund <steen.hegelund@microchip.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: [PATCH v3 15/28] i2c: core: Introduce i2c_get_adapter_physdev()
-Date: Fri, 13 Jun 2025 15:47:55 +0200
-Message-ID: <20250613134817.681832-16-herve.codina@bootlin.com>
+Subject: [PATCH v3 16/28] i2c: mux: Set adapter physical device
+Date: Fri, 13 Jun 2025 15:47:56 +0200
+Message-ID: <20250613134817.681832-17-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250613134817.681832-1-herve.codina@bootlin.com>
 References: <20250613134817.681832-1-herve.codina@bootlin.com>
@@ -105,8 +105,9 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugddukeduudcutefuodetggdotef
  hgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
 X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_064925_475425_531F2C41 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20250613_064927_546199_9DA8C5A8 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,74 +122,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The physical device providing an I2C adapter is the device that calls
-i2c_add_adapter() or variants and i2c_del_adapter().
+For i2c muxes, the parent of the mux adapter device is the adapter
+device the mux is connected to.
 
-Most of the time this physical device is the parent of the adapter
-device.
+This parent is not the physical device related to the mux adapter.
+Indeed, the physical device of the mux adapter is the mux device itself.
 
-Exceptions exist with i2c muxes. Indeed, in case of i2c muxes, the
-parent of the mux adapter device points to the adapter device the mux is
-connected to instead of the physical of this mux adapter.
-
-Introduce i2c_get_adapter_physdev() and a new physdev field in the
-adapter structure in order to ease the adapter physical device
-retrieval.
+Fill the adap.physdev with the mux device.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- drivers/i2c/i2c-core-base.c | 16 ++++++++++++++++
- include/linux/i2c.h         |  3 +++
- 2 files changed, 19 insertions(+)
+ drivers/i2c/i2c-mux.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 2ad2b1838f0f..86cd6da25024 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -1916,6 +1916,22 @@ struct i2c_adapter *i2c_get_adapter_by_fwnode(struct fwnode_handle *fwnode)
- }
- EXPORT_SYMBOL(i2c_get_adapter_by_fwnode);
- 
-+/**
-+ * i2c_get_adapter_physdev() - Get the physical device of an adapter
-+ * @adapter: the adapter to get the physical device from
-+ *
-+ * Return:
-+ * Look up and return the &struct device corresponding to the device supplying
-+ * this @adapter.
-+ *
-+ * The user must call put_device() once done with the physical device returned.
-+ */
-+struct device *i2c_get_adapter_physdev(struct i2c_adapter *adapter)
-+{
-+	return get_device(adapter->physdev ?: adapter->dev.parent);
-+}
-+EXPORT_SYMBOL(i2c_get_adapter_physdev);
-+
- static void i2c_parse_timing(struct device *dev, char *prop_name, u32 *cur_val_p,
- 			    u32 def_val, bool use_def)
- {
-diff --git a/include/linux/i2c.h b/include/linux/i2c.h
-index 20fd41b51d5c..dff04d20cafe 100644
---- a/include/linux/i2c.h
-+++ b/include/linux/i2c.h
-@@ -744,6 +744,7 @@ struct i2c_adapter {
- 	int timeout;			/* in jiffies */
- 	int retries;
- 	struct device dev;		/* the adapter device */
-+	struct device *physdev;		/* the physical device */
- 	unsigned long locked_flags;	/* owned by the I2C core */
- #define I2C_ALF_IS_SUSPENDED		0
- #define I2C_ALF_SUSPEND_REPORTED	1
-@@ -911,6 +912,8 @@ struct i2c_adapter *i2c_get_adapter(int nr);
- void i2c_put_adapter(struct i2c_adapter *adap);
- unsigned int i2c_adapter_depth(struct i2c_adapter *adapter);
- 
-+struct device *i2c_get_adapter_physdev(struct i2c_adapter *adap);
-+
- void i2c_parse_fw_timings(struct device *dev, struct i2c_timings *t, bool use_defaults);
- 
- /* Return the functionality mask */
+diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
+index fda72e8be885..3bf2035f485f 100644
+--- a/drivers/i2c/i2c-mux.c
++++ b/drivers/i2c/i2c-mux.c
+@@ -318,6 +318,7 @@ int i2c_mux_add_adapter(struct i2c_mux_core *muxc,
+ 	priv->adap.algo = &priv->algo;
+ 	priv->adap.algo_data = priv;
+ 	priv->adap.dev.parent = &parent->dev;
++	priv->adap.physdev = muxc->dev;
+ 	priv->adap.retries = parent->retries;
+ 	priv->adap.timeout = parent->timeout;
+ 	priv->adap.quirks = parent->quirks;
 -- 
 2.49.0
 
