@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC0BC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FBCBC71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 21:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TP8f9H321cpDY7PjjNkFIXkN20w2DjJZC9sAvsk14TI=; b=QQZAjPSWnIgLEmDVCuyhH8rfbK
-	QH+oCvzbiXps4p8guZAuNQHRi/M8azwe0SaqJCb9UGZ+YvkEF8w8LoZH+kPv4fDJyDi8T7ChaPnd5
-	iK3cdytQDBI1P2FmIOh7xuL0tY/DDq2Fh8+Y5TRME1DLK4xiY2UTkPGcxaqSbvL5+/yAfbYTUqLDn
-	XViIkKz3w1Lg2PtJlDeQdbewLSK5RpuWJnMlltxzkQ/Zd5QQ5+fkLPbSnZWm+7xMBUvyUtNbX+9Yq
-	roxivlcI+qv0FUIdcfZxJ870kRxha1pqPfamoqtccpswQUeJ0URGHEv3uHAHcYXeBSMZHj2u+3vhd
-	GZjv1isg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MuBzFJ8bax/C07ekYms0nJGiLaxwPvHrXMpn69ItGCE=; b=QkQKW8AJzQKVJIlhVgwasTzZP4
+	iM7+R9jbCyNROZA9zMqO1Nz9kmZCYHyDDkVF3eTJhKocfAsXWvORK9vUwSeeq/FtSBniD0BbV/zNl
+	EZvi6Ku5dWL7cfIOl3Jz29Y1sWOPNuJkBZ8X4ctRMaZb3p6bd7AhzuTwTMYkAeBzGTVeT6dU622hk
+	gxvRGVc+fuO8IMX74aorRR3jni/QItLyv6qKv8ieah5tL9PBMo9zbwkssdDhwXInG1LppAg8KAnv9
+	f9mpL5ZOzEuQV1Px/tfkT0f0p+OFOXe0Mh2y5A6uD2VQixvkGzduwNTJE/eN8VqlHO07Ut7WoVuUH
+	WS6ULUMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBfh-000000005tA-2esW;
-	Fri, 13 Jun 2025 21:10:45 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1uQBhq-000000006Sp-1QF2;
+	Fri, 13 Jun 2025 21:12:58 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQBdV-000000005L7-3IwB
+	id 1uQBf8-000000005kw-1xbt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 21:08:31 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-60727e46168so4306011a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 14:08:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749848908; x=1750453708; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TP8f9H321cpDY7PjjNkFIXkN20w2DjJZC9sAvsk14TI=;
-        b=bm0vdm2WCUpdMbk4n8urvrxFpnbJZcKB4QT6kctifuVJRa/NJ1rxyxI0Gw8FOp6DCg
-         PODkKx5Odwq1XDTOjX1XGQsOBPVOdvYGod4cBEzZyAwIe4x8EPsxDpK/e9lTvFI4omQB
-         W/rt4LLlJsYXtcbEg2PcfI3iLD2aew1oGRFX+SoslfA5EMPQN9urFI75C2PSO6v6BdYV
-         KuugV5Eg9DQ30eQxis3pT/uWhF3/N+yFJNAmYz8O/kwH7l0o+bGholnyKktbwZKjywb3
-         wSvpq74rNYBw9goPygm+a0FzhJWnsWfq+AqhcMB1dNHRcAZmFg+hsJql2yu0G5K8OVCS
-         CLwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749848908; x=1750453708;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TP8f9H321cpDY7PjjNkFIXkN20w2DjJZC9sAvsk14TI=;
-        b=c9JHv+IBBqA6ErIqgzuYz1TVYxX4dxwihJFS7m191X2NEaI2n3U7ZUWpKLlaMQuM/u
-         +rtPZcNuCBLoUDxzvLj7M/zwd7zx0aLXrfuqo1/XGHR75QpPS/9Rc/OHrt4zLQNJ7yIj
-         eJVV83GYvp3DQzF9v7kyaHfrTQIYL1yzNh+DYqsV65qYcuoUK40bxNiv2JIwFxvb+arO
-         efH8fldX35P5OQp9FXgi+H6d0j5c8ja3+qhokrCI10ozyaIiqnANNEyoGK9vGJKCn5YL
-         HU6rw+mvxqWpkccUDzO3Dn1Z7cmVsIvjcnhjD6QKQkdO2IyXvyWkTCrRvTN2snAFAcjH
-         HQug==
-X-Forwarded-Encrypted: i=1; AJvYcCV2uaf+D1Smdn+hxjr5qwSjwGPwPYarATO+VyzJw182MDwgoZ2Y1pIftKJc69MqaYhMBNTULHWLk6oVpI1qeR8e@lists.infradead.org
-X-Gm-Message-State: AOJu0YylHTPq+dsC14Dpk356WWaS/NFuppUJurrzRb1WSnrD2HCGO/lP
-	a19BgtFyP4ToK3++70i8N3pLjkAczHcb0h6bdwAuayChjxUnMvU6Du4Jy+XSUu4BiRP9KPMEZB+
-	6rJZSu5FpCsh2PF4apFQI6dhGqPIVDSVKxTYn
-X-Gm-Gg: ASbGncsZPIIFmH+XCQRhN8rZzwVHgjNymf9vHYwl1D9RY0JKJjcmFDCuXwqS+Wb27LQ
-	Pvis9FE0yfZnLrYP8oixDuDUbZFBpkPy1ujHBGfyT7VGLQnwarJADWESgm+fIVNZxTUp7AdlT+F
-	tFeAk+zlaQLH5+tW/ymMKvohYLwp4JNNe81m5v7obOiDdYEsvhYs3kQQ==
-X-Google-Smtp-Source: AGHT+IFsWY5YZ3lvdRtP1H251UQ0HMURmtDSi0LBfNR1vwvh677WfY0+mwSxId1SrjTaSFF8a7NweFe3vpJ7+cNMcf8=
-X-Received: by 2002:a17:907:9801:b0:adb:1804:db93 with SMTP id
- a640c23a62f3a-adfad4f61femr57095366b.49.1749848907663; Fri, 13 Jun 2025
- 14:08:27 -0700 (PDT)
+	Fri, 13 Jun 2025 21:10:12 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1749849007;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MuBzFJ8bax/C07ekYms0nJGiLaxwPvHrXMpn69ItGCE=;
+	b=W/+KmpmNybGnuRoYv0AkuKtnsKYy49mDsnZqnAuVFR1iteOuBy0nacsuwGwXn52voU6/A3
+	rlpGxKzE17HSzJPSKGvwNQJEKPQ2IFAH0QXreT8YqKLVvYCy/n1ZCmO4AAVX15Jd+MYBUZ
+	f078Jahg2V4fzWuEaulUv7ngS3jkX9Tek/CfN3Gn+gU1TOIbsKZQYlPliMSLFsqyqornBW
+	lsIadsSDSfNHZTi+A/6p2ZwnwTvAdvZSMEF/OVyDAxeAFC4jk3gJJG1QVukp+FAy2z+3wo
+	2gYCjOHwj5rC7TfnnNYbSEVUNJgT0ejodJqurt21ADxWP4ylesQwYB2SVPEGEg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1749849007;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MuBzFJ8bax/C07ekYms0nJGiLaxwPvHrXMpn69ItGCE=;
+	b=B+7CxHUzslKZqG2mQ5S8cP+m4qTSW7M8mzh4mOWSOA/tKqAiCbq9U6NTQHVBHdo+sCpJ1L
+	VBPCCiAD4jsOM0DA==
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+Cc: linux-doc@vger.kernel.org, corbet@lwn.net, mingo@redhat.com,
+ rostedt@goodmis.org, john.ogness@linutronix.de, senozhatsky@chromium.org,
+ pmladek@suse.com, peterz@infradead.org, mojha@qti.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, vincent.guittot@linaro.org,
+ konradybcio@kernel.org, dietmar.eggemann@arm.com, juri.lelli@redhat.com,
+ andersson@kernel.org
+Subject: Re: [RFC][PATCH 09/14] genirq: add irq_kmemdump_register
+In-Reply-To: <f916cf7f-6d0d-4d31-8e4b-24fc7da13f4d@linaro.org>
+References: <20250422113156.575971-1-eugen.hristev@linaro.org>
+ <20250422113156.575971-10-eugen.hristev@linaro.org> <87h61wn2qq.ffs@tglx>
+ <1331aa82-fee9-4788-abd9-ef741d00909e@linaro.org>
+ <f916cf7f-6d0d-4d31-8e4b-24fc7da13f4d@linaro.org>
+Date: Fri, 13 Jun 2025 23:10:06 +0200
+Message-ID: <87ikkzpcup.ffs@tglx>
 MIME-Version: 1.0
-References: <20250613181312.1269794-1-miquel.raynal@bootlin.com>
-In-Reply-To: <20250613181312.1269794-1-miquel.raynal@bootlin.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Sat, 14 Jun 2025 00:07:51 +0300
-X-Gm-Features: AX0GCFsiAqLiq2Z0quLAABeTm2pe1sVJI7AxoQc4QuY0ns9mKyO4ue_CKtpYGMg
-Message-ID: <CAHp75VcfaU41FV-uN=82GdUqRadxYc6XaLX2Hr9x-4RfAV8CEg@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: nuvoton: Fix boot on ma35dx platforms
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Steam Lin <stlin2@winbond.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_140829_823466_C8043B55 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250613_141010_814051_C09ED721 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +82,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 9:13=E2=80=AFPM Miquel Raynal <miquel.raynal@bootli=
-n.com> wrote:
+On Fri, Jun 13 2025 at 17:33, Eugen Hristev wrote:
+> On 5/7/25 13:27, Eugen Hristev wrote:
+>>> Let KMEMDUMP_VAR() store the size and the address of 'nr_irqs' in a
+>>> kmemdump specific section and then kmemdump can just walk that section
+>>> and dump stuff. No magic register functions and no extra storage
+>>> management for static/global variables.
+>>>
+>>> No?
+>> 
+>> Thank you very much for your review ! I will try it out.
 >
-> As part of a wider cleanup trying to get rid of OF specific APIs, an
-> incorrect (and partially unrelated) cleanup was introduced.
->
-> The goal was to replace a device_for_each_chil_node() loop including an
-> additional condition inside by a macro doing both the loop and the
-> check on a single line.
->
-> The snippet:
->
->         device_for_each_child_node(dev, child)
->                 if (fwnode_property_present(child, "gpio-controller"))
->                         continue;
->
-> was replaced by:
->
->         for_each_gpiochip_node(dev, child)
->
-> which expands into:
->
->         device_for_each_child_node(dev, child)
->                 for_each_if(fwnode_property_present(child, "gpio-controll=
-er"))
->
-> This change is actually doing the opposite of what was initially
-> expected, breaking the probe of this driver, breaking at the same time
-> the whole boot of Nuvoton platforms (no more console, the kernel WARN()).
->
-> Revert these two changes to roll back to the correct behavior.
+> I have tried this way and it's much cleaner ! thanks for the
+> suggestion.
 
-Thank you for the report and the fix.
-Can we also add a comment on top of each of these if:s to prevent from
-blind change in the future?
+Welcome.
 
---=20
-With Best Regards,
-Andy Shevchenko
+> The thing that I am trying to figure out now is how to do something
+> similar for a dynamically allocated memory, e.g.
+> void *p = kmalloc(...);
+> and then I can annotate `p` itself, it's address and size, but what I
+> would also want to so dump the whole memory region pointed out by p. and
+> that area address and size cannot be figured out at compile time hence I
+> can't instantiate a struct inside the dedicated section for it.
+> Any suggestion on how to make that better ? Or just keep the function
+> call to register the area into kmemdump ?
+
+Right. For dynamically allocated memory there is obviously no compile
+time magic possible.
+
+But I think you can simplify the registration for dynamically allocated
+memory significantly.
+
+struct kmemdump_entry {
+	void			*ptr;
+        size_t			size;
+        enum kmemdump_uids	uid;
+};
+
+You use that layout for the compile time table and the runtime
+registrations.
+
+I intentionally used an UID as that avoids string allocation and all of
+the related nonsense. Mapping UID to a string is a post processing
+problem and really does not need to be done in the kernel. The 8
+character strings are horribly limited and a simple 4 byte unique id is
+achieving the same and saving space.
+
+Just stick the IDs into include/linux/kmemdump_ids.h and expose the
+content for the post processing machinery.
+
+So you want KMEMDUMP_VAR() for the compile time created table to either
+automatically create that ID derived from the variable name or you add
+an extra argument with the ID.
+
+kmemdump_init()
+        // Use a simple fixed size array to manage this
+        // as it avoids all the memory allocation nonsense
+        // This stuff is neither performance critical nor does allocating
+        // a few hundred entries create a memory consumption problem
+        // It consumes probably way less memory than the whole IDR/XARRAY allocation
+        // string duplication logic consumes text and data space.
+	kmemdump_entries = kcalloc(NR_ENTRIES, sizeof(*kmemdump_entries), GFP_KERNEL);
+
+kmemdump_register(void *ptr, size_t size, enum kmemdump_uids uid)
+{
+        guard(entry_mutex);
+
+	entry = kmemdump_find_empty_slot();
+        if (!entry)
+        	return;
+
+        entry->ptr = ptr;
+        entry->size = size;
+        entry->uid = uid;
+
+        // Make this unconditional by providing a dummy backend
+        // implementation. If the backend changes re-register all
+        // entries with the new backend and be done with it.
+        backend->register(entry);
+}
+
+kmemdump_unregister(void *ptr)
+{
+        guard(entry_mutex);
+        entry = find_entry(ptr);
+        if (entry) {
+                backend->unregister(entry);
+        	memset(entry, 0, sizeof(*entry);
+        }
+}
+
+You get the idea.
+
+Coming back to the registration at the call site itself.
+
+       struct foo = kmalloc(....);
+
+       if (!foo)
+       		return;
+
+       kmemdump_register(foo, sizeof(*foo), KMEMDUMP_ID_FOO);
+
+That's a code duplication shitshow. You can wrap that into:
+
+       struct foo *foo = kmemdump_alloc(foo, KMEMDUMP_ID_FOO, kmalloc, ...);
+
+#define kmemdump_alloc(var, id, fn, ...)				\
+	({								\
+        	void *__p = fn(##__VA_ARGS__);				\
+									\
+                if (__p)						\
+                	kmemdump_register(__p, sizeof(*var), id);	\
+		__p;
+        })
+
+or something daft like that. And provide the matching magic for the free
+side.
+
+Thoughts?
+
+Thanks,
+
+        tglx
 
