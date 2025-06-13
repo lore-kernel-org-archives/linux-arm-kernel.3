@@ -4,154 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54674C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AF9C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 16:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juNQORmBoFtZVvDJ3lz7p2sZbFi154fMU61LracQ6H0=; b=QBjcJKftA6QWpu9QzNGf51/png
-	up0GKMZ48kfpgyJpnzD6rh+GDhQ3cc75oEQ1flb9q8TLphpiX3hzTHXtbOD0hyPV1P8gHFuFF6c4m
-	VMPzO6FNJ2KD5u2IRyKZmC3QAMNA35d0tbx02FF9xv8Bx7G/JQE1994n1c6bSctZU4fDKcjrNb7sE
-	B1PZxyVuZ0ceNo5+FKTEr1BcpTtAHLIAuG8sHYeH3LJoZ024dTI2g9QwiOohb1IlIdQNxEJlK+w9N
-	Gke1MOBevlaNFUywUYJmY8L7ZVn1DTB0hyk+bxoJOQRtUfHzNDGa8RE4XxD1nWhqSBm+goSoF+dWf
-	ZaYtQbcg==;
+	bh=H8jiEiES8+qUM2cqXDPdwSgaPuU6OGlRs4pC0s/GeL0=; b=xd/txCK8cwWh2hksRoIi8f66VR
+	z2D6sKAG10qSBEmHCsHO7HfgimKY7KxWLyRTVcaQoh/gq2BcTMmhJqB6YVWh6p6kdcxfEHN05fCBH
+	8o7MRA2TaiLnumlWhYmtOnQbzsFVbfAQGSAd3xs6SCCHI1DBJlPH3vrvPz0vbmwhoK3R/qan2nHNS
+	S3aEelpa2f+lu4nJXcOejxg380fGCTDZtKnITmSbR/dsaOYF4AF/mlq4ekwzyguBc6qirLqIRql3e
+	vXROo+PYYKmecuxgcGcVJRTIx6hkVgp/bfYqe/rC2TldB33a58qKveD0CEgwNeMZMogH0KJzFNua3
+	Ryg5fGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ75U-0000000H1kL-3x0b;
-	Fri, 13 Jun 2025 16:17:04 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uQ79N-0000000H2ay-17zB;
+	Fri, 13 Jun 2025 16:21:05 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ5mk-0000000GmRz-0Cex
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 14:53:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q5RxybD5qfJEv3EEGQ5QH0KzeK57z2Y2YJuOOaeGLne/cxur/hVc3DkxDWM2c65sEyI+pfNpW9UqUZAlOuXFBg/uNAa8GDkqoO0V7Utn1O57k0VliQcO0IUnptSwvLktPIPz63NLd0ICB3feihbVoytkNtxEfgINLSdD63nshxSEG6Uu8coTcK/8J/PuLOryMOh3lxWiZ9HVaz4dEmODqu992ncBhx/3utslr7NHeQ8TIcXPv6IJcCCxtVAGVcWbOSLaWbW1qewuGEKlhpENaQyk6DRKYwY7VGx7tIEeYBsDJ5lT+yqUs/v2n/Ux9bqx1XdYZtYRK9+XOIYB96Srfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=juNQORmBoFtZVvDJ3lz7p2sZbFi154fMU61LracQ6H0=;
- b=qTQzwInVaFNulYp3ejy/F4HOvKPLb25zIu1w3U5AzQJuTJ+nM3s2DgMZsbROZ5pPhxo2ZEYOyX2T7teUOBpvn+Kd9RmLkw7VjV/tJDw/cMQrU0rGyqYMw2fwmZAQ+iMDAXQqwsCcO6yaR42fJPQVbKGTzefFbPTlRiZInM1XLPHpZz7XOOMs2BeFPeP3ZaqvYtzjDmANC6lAEwKjrf6UK61D5hntLJwm12/IqlkqwQjnfYibPkA21fkC2wZrJO6J2RpI0IopEeQ7926nt7cM1YFYh34tS8ot1loSc/pNPZvcju3FWpvXgwP437CK8ExtG2EnCKSWhXecnh0RjOc+dQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=juNQORmBoFtZVvDJ3lz7p2sZbFi154fMU61LracQ6H0=;
- b=F4hJ/D7vct3D3ZJw2d2wyuwzosJGnmDFJAOmUcFSAjFJ4UAqgzEsOapVDY+j00h8fNLNmgzlSpLRajjm/itcCU3w1kCvrcfXphECp0f/kY3O7vsNmwa2f+F7/jQhgZTuZZ7/YZYOIhJToXpYBryxW0cEPKqA3DSGIz3H9mVfQoxhzZhU6TKCbQFOeo/XZv/8O1vIwiaGUpxh/NeuT39jaR4s4SAPbG8dkFQnWW4XaCf+3KGVLmoeOX0UM30GNmX4urjfpmRO350fMY7jqDUg7GEV9bqjJ7djuo+mEN86S38XqWdAUr3Nk6l0KUFX9c+A48dSgJ4KPO7O58QJDetdtw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA4PR04MB7567.eurprd04.prod.outlook.com (2603:10a6:102:e5::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.22; Fri, 13 Jun
- 2025 14:53:32 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.018; Fri, 13 Jun 2025
- 14:53:31 +0000
-Date: Fri, 13 Jun 2025 10:53:23 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-usb@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, s32@nxp.com,
-	linaro-s32@linaro.org, Larisa Grigore <larisa.grigore@nxp.com>,
-	Ionut Vicovan <Ionut.Vicovan@nxp.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-Subject: Re: [PATCH 2/3 v2] usb: chipidea: s32g: Add usb support for s32g2
-Message-ID: <aEw7Y0FAlSTqiN5t@lizhi-Precision-Tower-5810>
-References: <cover.1749747898.git.dan.carpenter@linaro.org>
- <b5da1cf4e5813d60fdbd9dd5952cd1908ee880e5.1749747898.git.dan.carpenter@linaro.org>
+	id 1uQ5tp-0000000GntU-2JGc;
+	Fri, 13 Jun 2025 15:00:58 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b2f603b0ef6so1626498a12.1;
+        Fri, 13 Jun 2025 08:00:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749826857; x=1750431657; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=H8jiEiES8+qUM2cqXDPdwSgaPuU6OGlRs4pC0s/GeL0=;
+        b=PzvAC0mxjai0UwTTC6CUENozaI9FxY8t2X0vgFuv1e01f2jq4BjOuF+Yq7JGCpJ/7Y
+         DWovrMFcH1nhMQNN6CNOT0lU8a5E/mcjb06w306YEk1TqKbyY5ooZ/9UMHjXDrxZzgPv
+         LmNzSQaKY1NI71NXRPi6FRqdUUIW6xCuvYEfWnQD7GgZWPqJHOdR8gUn5TH2kbw0y4xf
+         zP+ME2VV8u5muNf7UvoEteaUJ3jtVyxllUnUeEr7vVaN9RR/Lgk04agoNJVbKrqpyNXF
+         t5FNUz4fdwIARd+qKazxfPaXcWkTwSPXrvJPmGvgc8Sc6mLGN3BJifWpob+BsL4FhJpG
+         Fvgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749826857; x=1750431657;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H8jiEiES8+qUM2cqXDPdwSgaPuU6OGlRs4pC0s/GeL0=;
+        b=V1tIDbV+X9zQ2KAiyC0Xb4WgtUci1s5n9zR/Z8ZP/vjGwiaaMOYMblJdTxe73sc7AI
+         Qd0mTfYTI5dL4ezRlf1TJW/UZYpDy85kISvA5blathl295bBLe41DdxtvD9bHWPibJL/
+         6X1y9Syhw1eAyYvAGu+jVyMSdCEjU2I4+l1Eqt+N5qlsos8Glrztz7qSGTWjVTgfi3g0
+         k31peoKwEpyaJpHfeGsE5tM91x3xEUHUxp2cFCN+2n9/g6huQ0YXOAKkj6C9xOamEwGG
+         tn/6ucnsrPIXXJ9+QFEY9IQ52xBrsQ/UWSSvaso+6YDT31irIWS8NXEHdbblV0DPZiuX
+         j1Xw==
+X-Forwarded-Encrypted: i=1; AJvYcCV38QyqQqGxXRuRhwHHjpfLaZTMSikrj8rsPwJaOdATkVT96UB0sjZoc7EyAnZ10+AO5aiwtDhEhktu@lists.infradead.org, AJvYcCXEp3tIaIzWR15w2xqa29c/elOtV2OUA2zVpfE/CwGKu+8iwIklkbGrBxOijKzCOQwcnXw2tqBztYSQGGBG34it@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywph15PFI3w4WtK1R7qc5RxoENVQdzNqKV1h1OqusiCQJMNMVPT
+	oMPOO6JIorJZiiDJFhTupN6FFb6VbEAjzRa+ndAk3RUBKBfdcte6tgAwP+4Vhhcp
+X-Gm-Gg: ASbGncuoIayMYJMqgCbfmUzPtzlf681QQrZydXyniW9MxCTjYa1CDkTFV5SARwcs0tQ
+	YtSTm0JC10Fi+/5EL/UZvSjJmanzwoef08nFYA8VQ8y8JlssUmBlgMU79z6m71NXj5ik8q+nphM
+	A4wzghyFJAIodnqvaAO6nVFN5PopJiu3ye6SLGTawL3n85RTVJ8Ke0rBi/j9FmzVOHYoleKzydY
+	ZAxU+GNzlmlogpGS7DHnJW0/bx7FKcFVj0+goI34QoXg7yGvZb9osi+Y6Wn8C0bdezCZYJ7TR11
+	dWbCnTGhvwIpfE03xwWLLZESQrzaqG+bUhAAYvPTCG7wTWsHXmGyuvSTzHCS
+X-Google-Smtp-Source: AGHT+IHC4qfJgFLaeGwJ0qqEkImTRcGA8emN7/hG0BhuZcGgDlfiA7i4akpRVf9dQJcSyAfy5FGJnA==
+X-Received: by 2002:a05:6a20:2445:b0:215:df62:7d51 with SMTP id adf61e73a8af0-21fac8b12d8mr4816889637.11.1749826855282;
+        Fri, 13 Jun 2025 08:00:55 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:838f::dead:c001])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe1691be9sm1813060a12.68.2025.06.13.08.00.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 13 Jun 2025 08:00:54 -0700 (PDT)
+Date: Fri, 13 Jun 2025 12:00:49 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Shawn Lin <shawn.lin@rock-chips.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v4 0/4] PCI: rockchip: Improve quality of driver
+Message-ID: <aEw9IVCAtANnLPib@geday>
+References: <cover.1749825317.git.geraldogabriel@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b5da1cf4e5813d60fdbd9dd5952cd1908ee880e5.1749747898.git.dan.carpenter@linaro.org>
-X-ClientProxiedBy: PH5P220CA0012.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:34a::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA4PR04MB7567:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0010268a-66d3-47f6-5932-08ddaa8a1077
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2ApNc6xN34Eax+DAFVdymxL5I1GNbgOYkOT1YQohFOhrSmGbKHTuwzpunf0P?=
- =?us-ascii?Q?IRTdnF//X7j1mLDwm6TbM6AoFr0Y+aWN6UkvZruYwG/ZGgn+XxQjltEfI14v?=
- =?us-ascii?Q?7FD/hvx9iVRF4DOaxU7LNW7v0p0WwogfrF+fFWSl52gKl+2ICYOMRcI8M7uL?=
- =?us-ascii?Q?nVA0nly+R3fDfHWkLecVkdNdG+eIdMM+70CVl3bC1Mp+CRQiw8tcw4X9ckaa?=
- =?us-ascii?Q?Zqzbf5r4zwKkNmTsSxasji5aMMwhSirZvpIjhxU5IS8U21+/YWgykEJjxjEK?=
- =?us-ascii?Q?7PyvzXViqQzpKLQkd4p9yd5qD9SU3YJL/OP2yJzqI1YipYnabTS5v0IsCoKn?=
- =?us-ascii?Q?8H88On78TT8WnL6VLTE4POAC/tf4H5nqBOKOG/XlmJci0n66QtRsSXstF+T0?=
- =?us-ascii?Q?ZKVvSI7x8RCJ+MKqoBx5oOktE/+2+GXnl0Xuo3cuVL1cXt0kiGLd8lwgAIf9?=
- =?us-ascii?Q?ApUGVklPTtKjEzoTabNDaqb4y7+c3FFOGDEOZbydNb5zC+7PuJ/qXnudv7r8?=
- =?us-ascii?Q?XqfnruuD8x458iEN3a1cpt+ZHSwATtJ7xJhDHaPFPlxHrEaGm07M4TiLHM6j?=
- =?us-ascii?Q?fAz2OQUeKLWNhbrjYUVOuW2rtSv9iglmoN41M+bv95E/5t6dGcwBn/KEVKhi?=
- =?us-ascii?Q?C/5fWGouxFqsSEm9V7nF2UM0zKYtYMueIFSqJZlfwSSzEVd3erMMGvdQhdDw?=
- =?us-ascii?Q?19QY0M000c2e3txhtP9jTMws9SphR/qGUrwgKqVh/FzSHA3kKVDXVVbigrA/?=
- =?us-ascii?Q?OhaXkCULw/ghzqjt/ae1u1D6oYCz/eWA+RWi9osiYmodZAMjXkgPPMhjjw+3?=
- =?us-ascii?Q?PB4hE3AM2DcedbrJ9o4twstNLa0tveF/P0yNaUoeconJJ3lUK6UZ/t2EAPqO?=
- =?us-ascii?Q?3NpS+Hrebd4/j7wzoEsfDsFBo88KKi72GjAlA4e5ad44/1MDoQEcArE6CmFK?=
- =?us-ascii?Q?sg/VIUt/O4fnuJ3fGiFUfTq8jh0+9RBje6luIstZQGUpHqEIatSgfQBTeP4Q?=
- =?us-ascii?Q?ZucfCoOpakQSvo2Ul3D1GODUZ84bJVO42DDxHUNFWqlGTWcGmSynHDZsQQeJ?=
- =?us-ascii?Q?iPcZJ5rEeZ7UjgXU7tvk6nUMwJ96xIaNDteJXWZgF/zmFFytCGvou4Uuz0ag?=
- =?us-ascii?Q?9PmMt+KlqsVmRT911N4otlt0SZuNzf+b0KUiTbx8W7MyeJFMcFjXUjrqs8VU?=
- =?us-ascii?Q?Vn+K1fH6qxET52PT+iytN1kELBnvDz7eZedJxTbP/+BY85cRfvUWj60GDxAJ?=
- =?us-ascii?Q?1u3aBl/BTrVB5ArOklEaBeSHJaMSrECG98xTjzQkc+AmpupGMFBjFYJ3VAFO?=
- =?us-ascii?Q?ZtPNyDHPRaOM4rDeB4n1h5gMTJjf8WzdvINOIkZZbR3soWk0B0bwM6nPJp+3?=
- =?us-ascii?Q?N5hO1ZA53zV67VL+1woR/Pv4TQ2gGOw8pnD9KgBQIcmZ2tX8QRd5Z8o37Rd6?=
- =?us-ascii?Q?+rMuy561JkV65xxQkFGxulkmh5XMmclgMeNWL/gLWH+uZKT1gWZUfg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ipCCtarvW3KFXwNnu00yPOaT3S10GIpDw7S4uM7uVzcDItFDZhLEZPnI8omg?=
- =?us-ascii?Q?5inWpQRiSTq2aiz6ihl0gZImOmUGQGHgHI+gIfDBig37b+XkH0VaeYBv9HFr?=
- =?us-ascii?Q?/+Sr8dQaBdMSAawlkYTc4GuytAS7oTIr2yxYOQ+5+XmjP5XJFsLFCNiwsRSy?=
- =?us-ascii?Q?fVOhleTwAfcZICknARweOgT+WA6BZ24uDSeZjuzFfYURQE0MzvmfS2CODK1q?=
- =?us-ascii?Q?eY5PwsJcwRHazgiBiIgPr0T0bs6IK7g6xplKv1Mqy+PjqVwLqbrnh0EjmeCp?=
- =?us-ascii?Q?Owttjg5261qVRojZynoMxo5JSUhP6CoO9hBBDTFRVA2LLbOi0b6bnP+ViNSV?=
- =?us-ascii?Q?M2WDISwIa0OjNtTh2bFGuuP4l9bfyHS84cl4tBlYgefWNieM189s6qSIIQDM?=
- =?us-ascii?Q?zeZlBjNgiU9M0FTLAez6EKK4m96zwwrnaEE3aoPZqgtMQyGsxQJlwJYbDsq1?=
- =?us-ascii?Q?t3mwXKLFhv15E1z/CsbF4zbBHrOCHJMK18z64CP6dV2IMVQQIf6PqfuILe4e?=
- =?us-ascii?Q?Q1z5ngTgBLdVsW6Grj0M96h3VloY9cwwvwZr9BZ3LksXtUPnv7uLCDKGCkE5?=
- =?us-ascii?Q?yQXbnvigA3SHReiF1DyDQukUHuKLCsUvdl41ZyGtGiP7uQXqeyMLApmXfg4P?=
- =?us-ascii?Q?5uRJRNEgs+ofIVR+AKJp/8pcZnVGLwG9ThsA4IP+xZRBzq7wr7LOJlWpHNxP?=
- =?us-ascii?Q?Qxhfwy7E2mx0UDSDI2xzgZ1J9N8i4e/WDhYB5SDpsWZfMP8wYSzmftuqYqKU?=
- =?us-ascii?Q?oYcfu+FDp6Eh1+keZ1Nu9ZlRN/vF6D866lHX6Aby3lmAcMkqGMJ8nN+6GCne?=
- =?us-ascii?Q?AAq3feZPjHxDZlRS6EZk7Ze3HGcpfUhLI17k2ZG9o97LERkH9l5xexQ/qeYh?=
- =?us-ascii?Q?4O/TIOFx5JG4uxZgVa6MD9V0WhgGrDoQlLbGoZYplsPsAMS+UDFtGUV+MPcY?=
- =?us-ascii?Q?wssDdoqAVWdOdlNt3ww0CJv3bAyf1VM1fhGUQZM5C96EGa1A9bvfLIj3xuG0?=
- =?us-ascii?Q?JJhQ+lLMgcpyqhCPmHYv0zf6vIYPauoVCMWfppwtcWniVnQLMQrTT6cxdeWa?=
- =?us-ascii?Q?nptdSQ7ozR3RiEnkLHwKiWYS9VjYbOD9KSJv/u50dRs/mIh04vbHdvOUEoEg?=
- =?us-ascii?Q?uaTvyb/i3wzIzjoJ8Yuc70TeSc50Iu4s6dSFOiBxHWGGMKEGiTJl56eGwIvV?=
- =?us-ascii?Q?3y5MTVCF/LGM8qSfZGKU74ykypHGnuRYEGRqHa8ouO58d0yci5PD5ii53Q66?=
- =?us-ascii?Q?aosrCNDcZ/C7zvejJR92TerPCBuUE1o3xBFJaaj2jE7pWxYslIO8+pBOdH1b?=
- =?us-ascii?Q?60Sif4iZyJ8mCu8oWj2BjNmQshQO9eoWUHfsUydf7znZE0kyQ6wB52ueFv3t?=
- =?us-ascii?Q?U6Zr/h4eDIOxad5s7DE38hTdrbqg7u2N6DzuW0lSMWTRtvuHEKguq9fkm2jf?=
- =?us-ascii?Q?tD5XHXqN9LDBoUD3fIzGx8zOflbe+zBymDMVF3//o/bURf6qcf7oH9L3C8l4?=
- =?us-ascii?Q?RfuBhZ/DcHAwt8pbKFkUHtvdhb5TmJf+AzWTb3Gx1tYaj6X+7T1uyOzN8CBy?=
- =?us-ascii?Q?ee/5aybHDVWAiv1staRJKCsxtq/lYZV0hiZwcGxx?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0010268a-66d3-47f6-5932-08ddaa8a1077
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 14:53:31.6404
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5tWY9vkbayHc+9Y4Ti7MqB+gwDYMaNvyP70JYOplpEtQFSw5HA0JulG0othzYwNMTSsPK8QBpmqdXWnXZ+2maw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7567
+In-Reply-To: <cover.1749825317.git.geraldogabriel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_075338_246573_39C7ECF8 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20250613_080057_590579_2F63BA51 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,179 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 09:50:59PM +0300, Dan Carpenter wrote:
-> From: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
->
-> Enable USB driver for s32g2.  This chip has an errata ERR050474,
-
-Can you provide errata link here?
-
-> so we need to set S32G_UCMALLBE for it to handle packages which
-> aren't 4 byte aligned correctly.
->
-> Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+On Fri, Jun 13, 2025 at 11:48:27AM -0300, Geraldo Nascimento wrote:
+> During a 30-day debugging-run fighting quirky PCIe devices on RK3399
+> some quality improvements began to take form and this is my attempt
+> at upstreaming it. It will ensure maximum chance of retraining to Gen2
+> 5.0GT/s, on all four lanes and plus if anybody is debugging the PHY
+> they'll now get real values from TEST_I[3:0] for every TEST_ADDR[4:0]
+> without risk of locking up kernel like with present broken async
+> strobe TEST_WRITE.
+> 
 > ---
-> Changes since v1:
-> * Update the copyright
-> * Use the .power_lost_check callback.
+> V3 -> V4: fix TLS setting-up in Link Control and Status Register 2 and
+> adjust commit titles
+> V2 -> V3: correctly clean-up with standard PCIe defines as per Bjorn's
+> suggestion
+> V1 -> V2: use standard PCIe defines as suggested by Bjorn
+> 
+> Geraldo Nascimento (4):
+>   PCI: rockchip: Drop unused custom registers and bitfields
+>   PCI: rockchip: Set Target Link Speed before retraining
+>   phy: rockchip-pcie: Enable all four lanes
+>   phy: rockchip-pcie: Adjust read mask and write
+> 
+>  drivers/pci/controller/pcie-rockchip-host.c |  4 ++++
+>  drivers/pci/controller/pcie-rockchip.h      | 11 +----------
+>  drivers/phy/rockchip/phy-rockchip-pcie.c    | 16 +++++++++-------
+>  3 files changed, 14 insertions(+), 17 deletions(-)
+> 
+> -- 
+> 2.49.0
 >
->  drivers/usb/chipidea/ci_hdrc_imx.c |  6 +++
->  drivers/usb/chipidea/usbmisc_imx.c | 74 ++++++++++++++++++++++++++++++
->  2 files changed, 80 insertions(+)
->
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> index 780f4d151345..e8c847eab8e3 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> @@ -1,6 +1,7 @@
->  // SPDX-License-Identifier: GPL-2.0+
->  /*
->   * Copyright 2012 Freescale Semiconductor, Inc.
-> + * Copyright 2025 NXP
->   * Copyright (C) 2012 Marek Vasut <marex@denx.de>
->   * on behalf of DENX Software Engineering GmbH
->   */
-> @@ -78,6 +79,10 @@ static const struct ci_hdrc_imx_platform_flag imx8ulp_usb_data = {
->  		CI_HDRC_HAS_PORTSC_PEC_MISSED,
->  };
->
-> +static const struct ci_hdrc_imx_platform_flag s32g_usb_data = {
-> +	.flags = CI_HDRC_DISABLE_HOST_STREAMING,
-> +};
-> +
->  static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
->  	{ .compatible = "fsl,imx23-usb", .data = &imx23_usb_data},
->  	{ .compatible = "fsl,imx28-usb", .data = &imx28_usb_data},
-> @@ -89,6 +94,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
->  	{ .compatible = "fsl,imx7d-usb", .data = &imx7d_usb_data},
->  	{ .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
->  	{ .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
-> +	{ .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, ci_hdrc_imx_dt_ids);
-> diff --git a/drivers/usb/chipidea/usbmisc_imx.c b/drivers/usb/chipidea/usbmisc_imx.c
-> index 118b9a68496b..67ff073ad806 100644
-> --- a/drivers/usb/chipidea/usbmisc_imx.c
-> +++ b/drivers/usb/chipidea/usbmisc_imx.c
-> @@ -1,6 +1,7 @@
->  // SPDX-License-Identifier: GPL-2.0+
->  /*
->   * Copyright 2012 Freescale Semiconductor, Inc.
-> + * Copyright 2025 NXP
->   */
->
->  #include <linux/module.h>
-> @@ -155,6 +156,18 @@
->  					 BLKCTL_OTG_VBUS_WAKEUP_EN | \
->  					 BLKCTL_OTG_DPDM_WAKEUP_EN)
->
-> +#define S32G_WAKEUP_IE		BIT(0)
-> +#define S32G_CORE_IE		BIT(1)
-> +#define S32G_PWRFLTEN		BIT(7)
-> +#define S32G_WAKEUPCTRL		BIT(10)
-> +#define S32G_WAKEUPEN		BIT(11)
-> +
-> +/* Workaround errata ERR050474 (handle packages that aren't 4 byte aligned) */
-> +#define S32G_UCMALLBE		BIT(15)
-> +
-> +#define S32G_WAKEUP_BITS (S32G_WAKEUP_IE | S32G_CORE_IE | S32G_WAKEUPEN | \
-> +			  S32G_WAKEUPCTRL)
-> +
->  struct usbmisc_ops {
->  	/* It's called once when probe a usb device */
->  	int (*init)(struct imx_usbmisc_data *data);
-> @@ -614,6 +627,52 @@ static int usbmisc_vf610_init(struct imx_usbmisc_data *data)
->  	return 0;
->  }
->
-> +static int usbmisc_s32g_set_wakeup(struct imx_usbmisc_data *data, bool enabled)
-> +{
-> +	struct imx_usbmisc *usbmisc = dev_get_drvdata(data->dev);
-> +	unsigned long flags;
-> +	u32 reg;
-> +
-> +	spin_lock_irqsave(&usbmisc->lock, flags);
-> +
-> +	reg = readl(usbmisc->base);
-> +	if (enabled)
-> +		reg |= S32G_WAKEUP_BITS;
-> +	else
-> +		reg &= ~S32G_WAKEUP_BITS;
-> +
-> +	writel(reg, usbmisc->base);
-> +	spin_unlock_irqrestore(&usbmisc->lock, flags);
-> +
-> +	return 0;
-> +}
-> +
-> +static int usbmisc_s32g_init(struct imx_usbmisc_data *data, u32 extra_flags)
-> +{
-> +	struct imx_usbmisc *usbmisc = dev_get_drvdata(data->dev);
-> +	unsigned long flags;
-> +	u32 reg;
-> +
-> +	spin_lock_irqsave(&usbmisc->lock, flags);
-> +
-> +	reg = readl(usbmisc->base);
-> +
-> +	reg |= S32G_PWRFLTEN;
-> +	reg |= extra_flags;
-> +
-> +	writel(reg, usbmisc->base);
-> +
-> +	spin_unlock_irqrestore(&usbmisc->lock, flags);
-> +	usbmisc_s32g_set_wakeup(data, false);
-> +
-> +	return 0;
-> +}
-> +
-> +static int usbmisc_s32g2_init(struct imx_usbmisc_data *data)
-> +{
-> +	return usbmisc_s32g_init(data, S32G_UCMALLBE);
-> +}
-> +
->  static int usbmisc_imx7d_set_wakeup
->  	(struct imx_usbmisc_data *data, bool enabled)
->  {
-> @@ -1033,6 +1092,11 @@ static int usbmisc_imx6sx_power_lost_check(struct imx_usbmisc_data *data)
->  		return 0;
->  }
->
-> +static int usbmisc_s32g_power_lost_check(struct imx_usbmisc_data *data)
-> +{
-> +	return 1;
-> +}
-> +
->  static u32 usbmisc_blkctl_wakeup_setting(struct imx_usbmisc_data *data)
->  {
->  	u32 wakeup_setting = BLKCTL_WAKEUP_SOURCE;
-> @@ -1131,6 +1195,12 @@ static const struct usbmisc_ops imx95_usbmisc_ops = {
->  	.vbus_comparator_on = usbmisc_imx7d_vbus_comparator_on,
->  };
->
-> +static const struct usbmisc_ops s32g2_usbmisc_ops = {
-> +	.init = usbmisc_s32g2_init,
-> +	.set_wakeup = usbmisc_s32g_set_wakeup,
-> +	.power_lost_check = usbmisc_s32g_power_lost_check,
-> +};
-> +
->  static inline bool is_imx53_usbmisc(struct imx_usbmisc_data *data)
->  {
->  	struct imx_usbmisc *usbmisc = dev_get_drvdata(data->dev);
-> @@ -1356,6 +1426,10 @@ static const struct of_device_id usbmisc_imx_dt_ids[] = {
->  		.compatible = "fsl,imx95-usbmisc",
->  		.data = &imx95_usbmisc_ops,
->  	},
-> +	{
-> +		.compatible = "nxp,s32g2-usbmisc",
-> +		.data = &s32g2_usbmisc_ops,
-> +	},
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, usbmisc_imx_dt_ids);
-> --
-> 2.47.2
->
+
+I somehow have screwed-up threading again. Please ignore. Resending
+now.
+
+Geraldo Nascimento
 
