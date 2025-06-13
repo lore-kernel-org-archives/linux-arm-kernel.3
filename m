@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52EEBC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987D3C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2ZoMDz8BXPT+PWBYhz3bu1T4BmImTEIPCvfqf1KBKM=; b=M+S5AzeIHcdjNT+0wfawyOQ3sL
-	onve1ESoxfeKqpcuuGD1OrlU9DNSmLQ5Osf+bmfZlEE/cU9i50HuPER9mUMEPtLc+Dkz2di9lezlN
-	YX762xlcJqatbkhBinfJKw0jzjiUf7kwCQ+Bc758R1j2a/CJ6kdY9MrkSlv2T2QMbracQWV1/S4j+
-	c54iRdor2CDgxpnD8bE5nX5lJmeGCUf5A+doiOMLNZaAnEsT0Q9yE1vy8JQkHJyoMQ8+StJKUDppm
-	1XndfOvLTJpbT0u1atvUJaeYNm/dyx/dsL92Z/clmGcKQDMGhxEpzSbAOS9Apyp7R+6cA3VOjFK/N
-	ZYQqEuzw==;
+	bh=+QE7uo3opxh9em17i8XHHo2wsfE9LEuRzwaUWPwJTNU=; b=uL5Ol/jc90u/XCmYWf0jvmFxYN
+	UmXAZT0rTw8qL0NJL9Drz7FHratpSvGyUY0W51U7z1bY316afJ5IOLLK+imBGal2YRZgACb4Y4HjX
+	J2HmA8ChnIvC3oxL/fKCNmTodv259gQs0n1FY32es+FEyfbKdmLOqPPzmwe+JTj6q5luZgEzc6Avy
+	ts2+w090ZbS6eai2eLGdy7lpiVDI1MRD9Gn5pEZEA+n0Bl73c35H0qQVnhzGKa5MIjHTx7MSVha/c
+	2YkyMJVC2pCOwqNd+x9LWJi9U/1HuRWOMtEoBOSEsOiyvgOrsBkAWigXuxBptxWrdxxrb2ktJJOQS
+	Ebrn70AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1DG-0000000G0a4-1URq;
-	Fri, 13 Jun 2025 10:00:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uQ1FX-0000000G0ss-1lfe;
+	Fri, 13 Jun 2025 10:03:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ145-0000000Fyl5-42yj;
-	Fri, 13 Jun 2025 09:51:15 +0000
+	id 1uQ17U-0000000FzSZ-2tuk;
+	Fri, 13 Jun 2025 09:54:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 396BAA4F502;
-	Fri, 13 Jun 2025 09:51:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E083EC4CEE3;
-	Fri, 13 Jun 2025 09:51:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 790415C47E8;
+	Fri, 13 Jun 2025 09:52:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14343C4CEE3;
+	Fri, 13 Jun 2025 09:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749808272;
-	bh=rYOisCnlWBaaGeYPQE6dgdjQ9PsJAUikQFuHw9C8lZ0=;
+	s=k20201202; t=1749808482;
+	bh=7S40Zuc2TNAecTyadpX90VMiKscvd9zWpUm96dO61pk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k9TsuvXO2mwjb2Xjr45tABkcMnNJqse6zW4DjkKEHKk4QKDckpAzXFM6ZkhADQWEN
-	 gLwspUevhzKfyr1wr0oymLToBUpW+JrcLgr3J9hVufaa/s+BhwyPzxxu4dnLE5WRP+
-	 3AfiwA7FWojm2UqOo4ZA+0vwvoS2En6+qR9uIKkMC+WY4o/BCHfueHFxlfwzrElag0
-	 UiX1LwBxmmi/DYI/nM6Z73X/prRbXIQLhPULLBcC2JzZCuBUGOcJos7k2txfuu5Xuv
-	 W+A6Y+37EXEfIxHfa/XfUPNUj/5OBoLmWHzpkx1ThKbJU+E1OUs9ZFCJ4XpylDwqQ+
-	 I7zGAyfk5rZFQ==
-Message-ID: <9be50674-357d-45d8-9117-b66922b46d25@kernel.org>
-Date: Fri, 13 Jun 2025 11:51:05 +0200
+	b=IgwWZzCduhTWWVz0Ik0YoXpB8DwGFZHsTowAQDDHQVYhQv9QRP34IURI4Hl9yCc29
+	 4FlZxQ2xGoW39/quqB0hicrkzjFGe/Iim73kY7UdEr5popAOvhGPe+hej2bdOUGzzz
+	 NCFidSOWEI6m1Yy8pRAA5+KJ5oPRZ26qrLNWEhxBte0vywQJIcqitbBfmPICZeWUtf
+	 DBbBwNtxjtxEmoJ3kTn+WjaFCpezmZplSZdZK//Zrcetp8lu6MfuITyXXmwUJ/zkIe
+	 O1VLGw+kvQJANu1osi+nLeWlr0UQZ9okqtAaCaipvC9FcpoC8G9iFHKlozVAC5vzQK
+	 AZv9VAeaeADpg==
+Message-ID: <576ca6bb-291c-458e-9703-46e7d2f43bbe@kernel.org>
+Date: Fri, 13 Jun 2025 11:54:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] ARM: dts: aspeed-g6: Add AST2600 PCIe RC PERST ctrl
- pin
+Subject: Re: [PATCH 7/7] pci: aspeed: Add ASPEED PCIe host controller driver
 To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
  lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
@@ -59,7 +58,7 @@ To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
 Cc: elbadrym@google.com, romlem@google.com, anhphan@google.com,
  wak@google.com, yuxiaozhang@google.com, BMC-SW@aspeedtech.com
 References: <20250613033001.3153637-1-jacky_chou@aspeedtech.com>
- <20250613033001.3153637-5-jacky_chou@aspeedtech.com>
+ <20250613033001.3153637-8-jacky_chou@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250613033001.3153637-5-jacky_chou@aspeedtech.com>
+In-Reply-To: <20250613033001.3153637-8-jacky_chou@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_025114_134252_167145C4 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250613_025444_830877_F601892C 
+X-CRM114-Status: GOOD (  28.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +124,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 05:29, Jacky Chou wrote:
-> Add pinctrl support for PCIe RC PERST pin.
+On 13/06/2025 05:30, Jacky Chou wrote:
+> Introduce PCIe Root Complex driver for ASPEED SoCs. Support RC
+> initialization, reset, clock, IRQ domain, and MSI domain setup.
+> Implement platform-specific setup and register configuration for
+> ASPEED. And provide PCI config space read/write and INTx/MSI
+> interrupt handling.
 > 
 > Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 > ---
->  arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi | 5 +++++
->  1 file changed, 5 insertions(+)
+>  drivers/pci/controller/Kconfig       |   13 +
+>  drivers/pci/controller/Makefile      |    1 +
+>  drivers/pci/controller/pcie-aspeed.c | 1039 ++++++++++++++++++++++++++
+>  3 files changed, 1053 insertions(+)
+>  create mode 100644 drivers/pci/controller/pcie-aspeed.c
 > 
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-> index 289668f051eb..a93e15c64a4b 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-> @@ -2,6 +2,11 @@
->  // Copyright 2019 IBM Corp.
+> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+> index 886f6f43a895..f6b5eea3b570 100644
+> --- a/drivers/pci/controller/Kconfig
+> +++ b/drivers/pci/controller/Kconfig
+> @@ -216,6 +216,19 @@ config PCIE_MT7621
+>  	help
+>  	  This selects a driver for the MediaTek MT7621 PCIe Controller.
 >  
->  &pinctrl {
-> +	pinctrl_pcierc1_default: pcierc1_default {
+> +config PCIE_ASPEED
+> +	bool "ASPEED PCIe controller"
+> +	depends on PCI
+
+depends ARCH_ASPEED || COMPILE_TEST
+
+> +	depends on OF || COMPILE_TEST
+> +	select PCI_MSI_ARCH_FALLBACKS
+> +	help
+> +	  Enable this option to add support for the PCIe controller
+> +	  found on ASPEED SoCs.
+> +	  This driver provides initialization and management for PCIe
+> +	  Root Complex functionality, including interrupt and MSI support.
+> +	  Select Y if your platform uses an ASPEED SoC and requires PCIe
+> +	  connectivity.
+> +
+>  config PCI_HYPERV_INTERFACE
+>  	tristate "Microsoft Hyper-V PCI Interface"
+>  	depends on ((X86 && X86_64) || ARM64) && HYPERV && PCI_MSI
+> diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
+> index 038ccbd9e3ba..1339f88e153d 100644
+> --- a/drivers/pci/controller/Makefile
+> +++ b/drivers/pci/controller/Makefile
+> @@ -39,6 +39,7 @@ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
+>  obj-$(CONFIG_PCIE_HISI_ERR) += pcie-hisi-error.o
+>  obj-$(CONFIG_PCIE_APPLE) += pcie-apple.o
+>  obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
+> +obj-$(CONFIG_PCIE_ASPEED) += pcie-aspeed.o
+>  
+>  # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
+>  obj-y				+= dwc/
+> diff --git a/drivers/pci/controller/pcie-aspeed.c b/drivers/pci/controller/pcie-aspeed.c
+> new file mode 100644
+> index 000000000000..c745684a7f9b
+> --- /dev/null
+> +++ b/drivers/pci/controller/pcie-aspeed.c
+> @@ -0,0 +1,1039 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright 2025 Aspeed Technology Inc.
+> + */
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/kernel.h>
+> +#include <linux/msi.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/of_platform.h>
+
+Where do you use it?
+
+> +#include <linux/of_address.h>
+
+Where do you use it?
 
 
-No underscores in node names. Follow finally DTS coding style. You have
-been told that in previous patchsets already.
+> +#include <linux/of_irq.h>
 
+Where do you use it?
+
+
+> +#include <linux/of_pci.h>
+
+Where do you use it?
+
+> +#include <linux/pci.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset.h>
+> +#include <linux/irq.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/workqueue.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +
+
+
+
+...
+
+> +
+> +static int aspeed_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct pci_host_bridge *host;
+> +	struct aspeed_pcie *pcie;
+> +	struct device_node *node = dev->of_node;
+> +	const void *md = of_device_get_match_data(dev);
+
+Not void, but specific type. This is not Javascript, we have here types.
+
+> +	int irq, ret;
+> +
+> +	if (!md)
+> +		return -ENODEV;
+> +
+> +	host = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+> +	if (!host)
+> +		return -ENOMEM;
+> +
+> +	pcie = pci_host_bridge_priv(host);
+> +	pcie->dev = dev;
+> +	pcie->tx_tag = 0;
+> +	platform_set_drvdata(pdev, pcie);
+> +
+> +	pcie->platform = md;
+> +	pcie->host = host;
+> +
+> +	pcie->reg = devm_platform_ioremap_resource(pdev, 0);
+> +
+> +	of_property_read_u32(node, "msi_address", &pcie->msi_address);
+> +	of_property_read_u32(node, "linux,pci-domain", &pcie->domain);
+> +
+> +	pcie->cfg = syscon_regmap_lookup_by_phandle(dev->of_node, "aspeed,pciecfg");
+> +	if (IS_ERR(pcie->cfg))
+> +		return dev_err_probe(dev, PTR_ERR(pcie->cfg), "Failed to map pciecfg base\n");
+> +
+> +	pcie->pciephy = syscon_regmap_lookup_by_phandle(node, "aspeed,pciephy");
+> +	if (IS_ERR(pcie->pciephy))
+> +		return dev_err_probe(dev, PTR_ERR(pcie->pciephy), "Failed to map pciephy base\n");
+> +
+> +	pcie->h2xrst = devm_reset_control_get_exclusive(dev, "h2x");
+> +	if (IS_ERR(pcie->h2xrst))
+> +		return dev_err_probe(dev, PTR_ERR(pcie->h2xrst), "Failed to get h2x reset\n");
+> +
+> +	pcie->perst = devm_reset_control_get_exclusive(dev, "perst");
+> +	if (IS_ERR(pcie->perst))
+> +		return dev_err_probe(dev, PTR_ERR(pcie->perst), "Failed to get perst reset\n");
+> +
+> +	ret = pcie->platform->setup(pdev);
+> +	if (ret)
+> +		goto err_setup;
+> +
+> +	host->sysdata = pcie;
+> +
+> +	ret = aspeed_pcie_init_irq_domain(pcie);
+> +	if (ret)
+> +		goto err_irq_init;
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +	if (irq < 0)
+> +		goto err_irq;
+> +
+> +	ret = devm_request_irq(dev, irq, aspeed_pcie_intr_handler, IRQF_SHARED, dev_name(dev),
+> +			       pcie);
+> +	if (ret)
+> +		goto err_irq;
+> +
+> +	pcie->clock = clk_get(dev, NULL);
+
+Huh...
+
+> +	if (IS_ERR(pcie->clock))
+> +		goto err_clk;
+> +	ret = clk_prepare_enable(pcie->clock);
+
+devm_clk_get_enabled.
+
+> +	if (ret)
+> +		goto err_clk_enable;
+> +
+> +	ret = pci_host_probe(host);
+> +	if (ret)
+> +		goto err_clk_enable;
+> +
+> +	return 0;
+> +
+> +err_clk_enable:
+> +	clk_put(pcie->clock);
+> +err_clk:
+> +err_irq:
+> +	aspeed_pcie_irq_domain_free(pcie);
+> +err_irq_init:
+> +err_setup:
+> +	return dev_err_probe(dev, ret, "Failed to setup PCIe RC\n");
+> +}
+> +
+> +static void aspeed_pcie_remove(struct platform_device *pdev)
+> +{
+> +	struct aspeed_pcie *pcie = platform_get_drvdata(pdev);
+> +
+> +	if (pcie->clock) {
+> +		clk_disable_unprepare(pcie->clock);
+> +		clk_put(pcie->clock);
+> +	}
+> +
+> +	pci_stop_root_bus(pcie->host->bus);
+> +	pci_remove_root_bus(pcie->host->bus);
+> +	aspeed_pcie_irq_domain_free(pcie);
+> +}
+> +
+> +static struct aspeed_pcie_rc_platform pcie_rc_ast2600 = {
+
+This should be const. Why it cannot?
+
+> +	.setup = aspeed_ast2600_setup,
+> +	.reg_intx_en = 0x04,
+> +	.reg_intx_sts = 0x08,
+> +	.reg_msi_en = 0x20,
+> +	.reg_msi_sts = 0x28,
+> +};
+> +
+> +static struct aspeed_pcie_rc_platform pcie_rc_ast2700 = {
+
+This should be const. Why it cannot?
+
+> +	.setup = aspeed_ast2700_setup,
+> +	.reg_intx_en = 0x40,
+> +	.reg_intx_sts = 0x48,
+> +	.reg_msi_en = 0x50,
+> +	.reg_msi_sts = 0x58,
+> +};
+> +
+> +static const struct of_device_id aspeed_pcie_of_match[] = {
+> +	{ .compatible = "aspeed,ast2600-pcie", .data = &pcie_rc_ast2600 },
+> +	{ .compatible = "aspeed,ast2700-pcie", .data = &pcie_rc_ast2700 },
+> +	{}
+> +};
+> +
+> +static struct platform_driver aspeed_pcie_driver = {
+> +	.driver = {
+> +		.name = "aspeed-pcie",
+> +		.suppress_bind_attrs = true,
+
+Why?
+
+> +		.of_match_table = aspeed_pcie_of_match,
+> +	},
+> +	.probe = aspeed_pcie_probe,
+> +	.remove = aspeed_pcie_remove,
+
+So how exactly remove can be triggered?
+
+> +};
+> +
+> +module_platform_driver(aspeed_pcie_driver);
+> +
+> +MODULE_AUTHOR("Jacky Chou <jacky_chou@aspeedtech.com>");
+> +MODULE_DESCRIPTION("ASPEED PCIe Root Complex");
+> +MODULE_LICENSE("GPL");
 
 
 Best regards,
