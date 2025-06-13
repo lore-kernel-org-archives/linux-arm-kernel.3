@@ -4,173 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E38C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 10:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB14C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9xqbrsSOH2z20XiNB5+mivIeqiJ52KzLWXDL9kQ1to=; b=R+vSsTENXPKAhnqUl+1J4SgwTU
-	EcDqg1eWn9rH2f6+SoVq/G3IihDR3xao03KpfaQBUWQiT1tZ1RpFv+Wg7mQbeAd//+CtIlHKFoGoK
-	5meTokyiCBeHr9XGZA07A6Q1XydoQXsZYwuL/VKmpJSPf5+GstA+1Wn2K/wcCzSu70ix7Kqa5Y7nW
-	kFZ70K4rM2ifkAdoabia/hcZzGjNiQrIYmceBv0pXQo3CrB3J4qcvCPEavPjvrOzum8xe4ILy7cJ3
-	+0+22HGMYE1ifryFRfOkpom5/QQXHrZp54A5YIQl3Gj+I2aTVYyTJq+w78lAQiNAp+xF/4NlO7xnw
-	5TA/pqog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CXQlUz8NH4RKs5YhzNOm8OertaH0oxCLEbwOpHRFPsA=; b=fwybuSW6yCSproiEBPywQd3Dm1
+	g3jEy8DD8RUg4aU8xTogIgvVFyvGiz2Nh9SZx72dCHLuCWP6DVGyf8WL0BFVbXxw+JRfUOn8k/zE0
+	E1PW12thozkACQXd2CIx0oaWGfaBXI8CmAE11g8FNE5xyOOWVV3rNlbcl1BKAW7jdoa2s2GZXHYA+
+	XIlNE/kbWxXqb/paJwN59cM69xNyfxa50FnQCjdo4l8oJ03PEW0DHTrKk5kyZscpgHiyEmHS91HUi
+	oYWGXsgowcC6vpd7AtHVcQL+ecAjB4W+eeJZ4UURH+93hJy/GFOJXcR4I1VIwTj9/+yBWgR4tL5TK
+	U6Et5rtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1Tf-0000000G3g9-16JY;
-	Fri, 13 Jun 2025 10:17:39 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uQ2cH-0000000GAX1-2DXT;
+	Fri, 13 Jun 2025 11:30:37 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1Io-0000000G1Nf-22Hx
+	id 1uQ0PR-0000000Fs2m-3hBm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 10:06:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cdosrhIGMKjNWxEUuQXoYFBPWXCo8QnXrGowEZgbLscqiG5CSxnLvv1RlgRJAh4H6QeInFzLiZYb6RPUA5jPEMgMk3MwUoLHSTR4364dmJj0uPHjh9qHUTFungEBm6uMbptNCRwMAYi0oEsoNCeivqrVPgCSMV89Bu4v4/2wPBkXmAUTMAbeEi7/ryOi4j731lzyanwQLbew0l8Nr5xz7MS3wNNo8vRj4N0WgMHmpcgIrt2lznS4wigolIfj/swujxHqhH75WciSVCzxJSqVbz2+fojB+TjqvZ/aQTI3OIkOfqU8BBiYBjScm8b3AIBb2PJJbkncNcgSBn3lG7Pkog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f9xqbrsSOH2z20XiNB5+mivIeqiJ52KzLWXDL9kQ1to=;
- b=CphOXtzs2rK8hzv+59lb47O7zcUb88B6Gajkz/0926qRXSwpzb+rKH3IETgTe6GfW1Ktsg462JiA6jeMbyrkM7CmMK4TcGEzAapaBQCcmB1kKCJSdq4g12lF28M3wkY3gHLJzfUkuN1sJ1j2osrRuSVfq099fxZDwGnbRV3oO5SZIUfQg28Pyxakuk9Ta92woBQcyj9kp2ABiLYKKWcyCCOp84IYWb2W3Y3gYtEAxYy8tozna6xz3VL9YqFSMj4rfCB+uQ5SIT9VUJU7/pdoW4dzAaeLjFmorTx5wIfScVRlxLSqvQbK23KpCVHkMM/eueZcXrAWyrzs9wug6t59Aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f9xqbrsSOH2z20XiNB5+mivIeqiJ52KzLWXDL9kQ1to=;
- b=kX3hH1sOuB3PoeRLeJi1hConJhmLqnREN4eJ2cj5+1FP9lhKS2D41R7fiA0q8F9Em1K+tsrDCTL6v5bxq/PbMiTFy7dtjn2wdogI2lxMnYZw2BNWLFB0WUYHrPQIhF1sKLB/xVrMpzvB4hvPRYu26PoatpoOZao9A4SRhDTLHKaMSGQDVr1fqG7FRRd/cyxbZDNxDpjcNwsykvJukFs90xrfvOhvpcUPY461LPsK2gVjGJYPG8KUeD7M+JB5yfLmmjN40UXXxGBpHWSBLcMUqo/1V1m+rvWK0ujgBW5eXassSZjBfaR2S3p66FtIcPQ3D2uW1l7X2JDLohitH8oTdQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
- by VE1PR04MB7294.eurprd04.prod.outlook.com (2603:10a6:800:1a3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.25; Fri, 13 Jun
- 2025 10:06:23 +0000
-Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
- ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.8813.018; Fri, 13 Jun 2025
- 10:06:23 +0000
-From: Joy Zou <joy.zou@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	ulf.hansson@linaro.org,
-	richardcochran@gmail.com,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-pm@vger.kernel.org,
-	frank.li@nxp.com,
-	ye.li@nxp.com,
-	ping.bai@nxp.com,
-	peng.fan@nxp.com,
-	aisheng.dong@nxp.com,
-	xiaoning.wang@nxp.com
-Subject: [PATCH v5 4/9] arm64: dts: imx93: move i.MX93 specific part from imx91_93_common.dtsi to imx93.dtsi
-Date: Fri, 13 Jun 2025 18:02:50 +0800
-Message-Id: <20250613100255.2131800-5-joy.zou@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250613100255.2131800-1-joy.zou@nxp.com>
-References: <20250613100255.2131800-1-joy.zou@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0002.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::21) To AS4PR04MB9386.eurprd04.prod.outlook.com
- (2603:10a6:20b:4e9::8)
+	Fri, 13 Jun 2025 09:09:15 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so15616755e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 02:09:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1749805752; x=1750410552; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CXQlUz8NH4RKs5YhzNOm8OertaH0oxCLEbwOpHRFPsA=;
+        b=Oc0D2NvmjNU3UglsqCckqa1Xq/bz51NabEqrWomzt6P1K/I05VRmXO47dH+j52WqPW
+         Vd+P6jMdp7lyCRmB1aU53C0b7Y5cdwz2mx9JWQU+gM+/GmWFu0AHmHaj5TpzCYrcZ/LS
+         f4Y1DkDdphURtp4A+gaF3uIHEvmmZShYjDCtOHQbapNUS2LSEaqH80w53aLmq8THOE0i
+         mBtT//oj1VOiHEPLVCgf2d89jHUSPLuAyxTePvhjW5C1PrZJhV3cFz4YfhHcs6fedbno
+         yp9j96PQUAJbvnDyBquDSq5pLjQLv0Kc/OTJEatRaSW08XRDTrizoisMJKCCtk/01+le
+         YSWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749805752; x=1750410552;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=CXQlUz8NH4RKs5YhzNOm8OertaH0oxCLEbwOpHRFPsA=;
+        b=h41ptnH438OUdIBqmbOjcBtZzUZTZloQ+Wd95cRTdSFLk7Snc51BzQZ8JHhQiPtnju
+         wPcTvnhZOMdlwRe05tjdA/CTWTZVO50tBjCTFAORbqf/FpJiYUUZHhTY0eelW9KB2Xtc
+         HME+60JXJBYoFkN4/934ra/U+MgHxo7rwjFGhH05efJY8Vr1DDs1Ufg0AGO3sukmxXXV
+         G7otnDm0q+ALW5lYPzAi3eXZ9up3iaDtyJajJmX5xLkOFX8ahPz+hgFhATeMTaIB2cru
+         KlIVgXUhtClRrCW89qB3ny4/pcKWt2Izu2TAaCg3ZYMza9vYfHtFNFTkM/JQ+I4uF0kx
+         WUFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXkv2VBxWc3HmnRufBX88meJoBO6zRAuMurCoAJfMJx4qBZXkHCWS1gLXhvhhbDYpzhllQEpBG9Ccbio7XeP7t2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQiVJKMAhATu9vCGeN5bKZfO6z8oRfnMnUbJ0jIXK6b6y/YGj2
+	DCVjqV5nl8GT3ulEOJnB5pm+h6rXtKOxa3gTc/FqaUxGOLU4/8VIazwAyjgYjzenh0M=
+X-Gm-Gg: ASbGncuo+GQOUdpcC5LJM1G+fk38JRsclg/ZUiSFWxYADMoyuk6VmFminLR+31ML27y
+	cAcybYVNNBc274s3s9uUtD3deRG0u3nqUHKWEsup9hlbdljSFL5aGgxz3SKPNN7mv/sbUbFeYYg
+	lMwgQobIXWDhLF2Pa0VfINeSzw0L68p9Oiy24AujC3DJ+4NUHYwJzBoa8669bGEuLd0rh1ELSM0
+	/98evq9JYx+XdA/lJ0baijFA4Wvm6HDE3u+ZevZ1IygNI0NFie0JvRr99lXaDXS7rZXV/AsP8FX
+	1IlKpZmkttyKdDv/Mlrvy0HRV9HRUt/8kKyNUmwIT9TAK99CL3SGMOJwluoxTVPUf96KYBSfPQb
+	AOKz9B6gjWbFq22IOJnEVpHWSmuTv9g+LcaIseHc=
+X-Google-Smtp-Source: AGHT+IHW3acdKxXcnJh3SLcMaiIZuM+wugqUJyJT7+OattxaekXRGEooYT12PSs+GLWZGdwtC7vsrA==
+X-Received: by 2002:a05:600c:1c19:b0:43d:9d5:474d with SMTP id 5b1f17b1804b1-4533499db1emr23920095e9.0.1749805752222;
+        Fri, 13 Jun 2025 02:09:12 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae? ([2a01:e0a:3d9:2080:4144:6a84:fe1d:3aae])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea17d7sm45570775e9.10.2025.06.13.02.09.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Jun 2025 02:09:11 -0700 (PDT)
+Message-ID: <8e52fe1c-0c06-4e19-8552-ad3985ef8818@linaro.org>
+Date: Fri, 13 Jun 2025 11:09:10 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|VE1PR04MB7294:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98f8dadf-3dd2-4cb0-b86b-08ddaa61f391
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HT1Z+ERGQ0RZuRvsNiuHu/ln251mtIMLbO+dncVcS1qYHfC5MFyuyg6+jB3P?=
- =?us-ascii?Q?ua6N7yEBr86TXb4Fzp/TRrapR+GpKm/4Gu6FTu5LodE4gsww+vWalTgnUhYE?=
- =?us-ascii?Q?8zG1eHZUP35z74xmfDsJKY8+8k0sPOyqMNte/elE6mwsK+8dcOy8IxrudKG0?=
- =?us-ascii?Q?asIn0tDyCo1i49gRV7jPc73DXAyMJN64jyaavUzWVddbe3aDClWcSKI/HX8S?=
- =?us-ascii?Q?qt+ge9pc4QzBJCe91s8PBroLOo+ShEEpkPDFe4NA0N1qaIuywq1rRupdhzTb?=
- =?us-ascii?Q?qaFD2Ni9LrkDWklmVPIqrQobEYLo3lGFg/PZvruZGIq8459KMsBEl9RcTq6g?=
- =?us-ascii?Q?eQbzT/qLxSXc1WOFhYBD7AF4xHF53TeRP0VTH1bBTfQ+gbvwiSG53N0dLeY6?=
- =?us-ascii?Q?46JOgfXLCPPy457ORsFcX+VahLzB4GRWA/6wZYjqmH9blIAVNJpNya4FklsF?=
- =?us-ascii?Q?fSQR+lF3TvRYIRCLcagZuuZXcb6vRHDP1fPpsq46w1vRnp+mehC5EGo9IF/z?=
- =?us-ascii?Q?ilLtlb5tsP1PzsnyfrZDFmHK3c/L2J2EK7ygmDc5aCsWbt9gAxkwtFC6O1cG?=
- =?us-ascii?Q?w4p9q1JR4+JMSY+EIBWsfzSiAN7Rx22F9eF4Dm8ti0pW7XgZEXeU/JfbkKNa?=
- =?us-ascii?Q?JKerZKraBC0y/V5ERoE3HgMdrhcQH7eqoY/+BlJrW4tgYxCF6RX5KGna1ROC?=
- =?us-ascii?Q?ahYkDwkT+prU9lV6mqbfe3eyPfIwuftrPG40WCIVmdp+r8aQRtT9uaS+8/jc?=
- =?us-ascii?Q?/IlIRSg5LXZsLLW8wfbxGXVV0pte0prNdTImztU1txPirHhsBGf3I2ZHiYe4?=
- =?us-ascii?Q?hW/iUM2n4svVrY4GwRsRbngvY6CDHKtHPs9jZrTIYRZ4dOE3uJW1kZ5T+MUe?=
- =?us-ascii?Q?amTRpR+uP5wIUV6RYkxiulPOHGvJ0ckBcLRCfKW+ftVxkc+xSrmoLkfX2r2S?=
- =?us-ascii?Q?DDYCdEI9ZLkCGMCpLZt9K+D/3qsS7SUisXc0LK6d1jj2T8I/rWAid4BQxq3r?=
- =?us-ascii?Q?38NpdhCSrB+qn28DxTyODYIgBQj66Ih0EHiSuh5IDV2z31grTZthPNf/9n8l?=
- =?us-ascii?Q?QZEkQxH0KE4a/lZAUVP612ajbnoBIO9SZjpvVyeu+RKoE19uEYWbgll5OLIk?=
- =?us-ascii?Q?BO/KW0qYKP6NEMJ/TkphloaQfEG9hW+ycs6FQ4A3ur/RsyEtvkuA58MlnZaT?=
- =?us-ascii?Q?OFfcOwG2365vac5RT+v026aQ0Tn9iOrP4D1xqBdd34V/6v+CVLhDC9Zf2zZW?=
- =?us-ascii?Q?SwQr4vSMTnhReeWeY2kSbT9cPEMWNRdjqFworGCwzXXzyFOHdmFhxb9G8Ifr?=
- =?us-ascii?Q?LJuDW+Vq3KUnP3xSZoAjRz6btm+Xi5etnBpsWrHmsmBYn1Xb91QWR9eQXOJb?=
- =?us-ascii?Q?oybuF/cJxkz8jKV2UtMIt+2y9BHUJ06c2/AR9bFiG20vpV4Wgh79RDzwmjxT?=
- =?us-ascii?Q?oU57Vf5u9LWpJ4UDDbqCkDMjEvddKDDdf+O46HTAOIzge5YF/qJ2DmCawyU1?=
- =?us-ascii?Q?txrJZZhlW4WMWWA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bXzrlgjE3y6aQjb3Bq9zpejdmk36l6pKj+q+seDW6/lcRDInv68jRI1JdGXx?=
- =?us-ascii?Q?XKKcjj2nDpbcvSEfFwzbqdleS8nQTEaEmdD6K5NVZ1idkVicZhWJRBlSxCSI?=
- =?us-ascii?Q?3RxxMPdP/v+FBhl6fqqrAsUw8F2bDo24aNLsFrqOrnvPQPN7KItcbyby0rhg?=
- =?us-ascii?Q?It1wjPpwgF7J8B3WYpGyrXgHLAn/4/WAyZFO98MgPRTI0mjbS3kc2swoGpt2?=
- =?us-ascii?Q?qsxNKH3dLss/BnI8DLcDALFO+nd2ESSYe+526Db+aTA2rHRr9J4ilyc6Bu+2?=
- =?us-ascii?Q?B6EX7dpkVSNlfQbAglOzvZZnqCSYBR/ds1vXYMboSKLBbF3EB5qUn8OqhT05?=
- =?us-ascii?Q?cFyqfLEd9TIkKul5fFUbJTeV7DVpk1XdWsNb/vWLY2iM7GcK7JFE8ELLRtXj?=
- =?us-ascii?Q?HPtqZ7/9eepQfQqSTTQ6sQxL32tGi7xe1qsydWZK4mYLtRD5UbD57Y09F4I7?=
- =?us-ascii?Q?x1VPEmWdRKevM7M/DkltJqcxwhaO0RyW5uJnLA/TES98T25HeR27Ml/cmOAW?=
- =?us-ascii?Q?4OY+5IPcaHP+ws8vEM/Ab6+D6rxYFHQSByruwyE+rmp4v7PZtliu7zTuPF/i?=
- =?us-ascii?Q?b/w02P21hD7YEbVr1PKJrVBK/p36NqBSvhRqbW80pWD3znEkut2TagJUFEPj?=
- =?us-ascii?Q?08VNgwW5ELHymf/kxppWiL9P/CSairzCuxgZQM0O8tMzl4vmQj6OGBeJs19g?=
- =?us-ascii?Q?xcDmNacTj4k2RNHaAGa8p7ni5btbXdK+PH03vA+N6wx5M31yHUu5xu/oUBaY?=
- =?us-ascii?Q?lZJWiqNBeNj4Gp18B21WBBz3zImp/OLUw17A84sdejdL0V/ymtsbJc9N3adD?=
- =?us-ascii?Q?eYHH9H0j0rEbbhz6GMLOypXUhZZ/V34CI1528FVeZwpkRmaJfGMnlYjgt80k?=
- =?us-ascii?Q?53xrB2QuDuJq6IFNKLeA2uMkDzm9XMV0cf2qVoJS9macrFradMOLJAvN8wYk?=
- =?us-ascii?Q?jaB+0bT5w56Dg25nELaFTlnozzIlaPtMvHtHxVNG2JfiTFU/U35F4pDk2sKo?=
- =?us-ascii?Q?f9VOTisqC3r+sz6jzqKboEgOalyw5AfxKJFi/gAkT3vcg5S/Da4Tpa7RPK71?=
- =?us-ascii?Q?aYCjIF+GVXzt7Zb2U1Tz/M+Gba9kNWZvWQJxplcsSdpdJeTCZ/bUc2KvnubM?=
- =?us-ascii?Q?ZBrGhkwCvUCrlY40o4asqr6baJ568TYYKdrqxpeu+hw04POLZquOvxmkYHPd?=
- =?us-ascii?Q?UgK4jVsaJskyDJFFy1YTlYz6M8d2Xzaa78alPIyNMk3PWxlRdL9kMjASzl7U?=
- =?us-ascii?Q?zHJodC0oAOb9fbzwtRDnkNtzo6ejG7vNXB2yvZKLQ9gaHk2ftWs0UzFCk+b6?=
- =?us-ascii?Q?fcyZJ47sP2FUbtdcFavGEIjKQGAR71qYvzYpXxpiZHLf0mP50Zl4txGbj2CC?=
- =?us-ascii?Q?H4+XV2pLH9frcnLFHUMTPmdIAjR25IsYkyrVshBGC78zZ6oxb24K27DoJuco?=
- =?us-ascii?Q?Fi563f79YWPZkZ7gscLqtXEJLFm8LBpG0xc8cCH370ncMyjZqm1DEByLvBeH?=
- =?us-ascii?Q?f3l5LGv/TEYaMVJV5dOY6MGfEuUtPG93Zzf6IjGxuI80TMhu2xW28/YXOMf+?=
- =?us-ascii?Q?0tHUMYApGYAywgmnsRvIUop8YNMPuxd3z9GHE9lg?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98f8dadf-3dd2-4cb0-b86b-08ddaa61f391
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 10:06:23.4530
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pZLprSP8zsh1JtbZoCRPf5ALTa/Ntyqa6UEz+q0Ikns0a5YhnphDYqtwBMY3LkG8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7294
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v3 2/9] phy: exyons5-usbdrd: support HS phy for
+ ExynosAutov920
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
+ m.szyprowski@samsung.com, s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20250613055613.866909-1-pritam.sutar@samsung.com>
+ <CGME20250613055043epcas5p2437abc65042529a2012a6ca80559ac80@epcas5p2.samsung.com>
+ <20250613055613.866909-3-pritam.sutar@samsung.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250613055613.866909-3-pritam.sutar@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_030626_672735_00ED6AE1 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20250613_020913_954660_BAE3EF28 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,380 +134,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move i.MX93 specific part from imx91_93_common.dtsi to imx93.dtsi.
+Hi,
 
-Signed-off-by: Joy Zou <joy.zou@nxp.com>
----
- .../boot/dts/freescale/imx91_93_common.dtsi   | 140 +---------------
- arch/arm64/boot/dts/freescale/imx93.dtsi      | 155 ++++++++++++++++++
- 2 files changed, 157 insertions(+), 138 deletions(-)
+s/exyons5/exynos5/ in subject
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-index 64cd0776b43d..da4c1c0699b3 100644
---- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2022 NXP
-+ * Copyright 2025 NXP
-  */
- 
- #include <dt-bindings/clock/imx93-clock.h>
-@@ -52,7 +52,7 @@ aliases {
- 		spi7 = &lpspi8;
- 	};
- 
--	cpus {
-+	cpus: cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 
-@@ -77,58 +77,6 @@ A55_0: cpu@0 {
- 			enable-method = "psci";
- 			#cooling-cells = <2>;
- 			cpu-idle-states = <&cpu_pd_wait>;
--			i-cache-size = <32768>;
--			i-cache-line-size = <64>;
--			i-cache-sets = <128>;
--			d-cache-size = <32768>;
--			d-cache-line-size = <64>;
--			d-cache-sets = <128>;
--			next-level-cache = <&l2_cache_l0>;
--		};
--
--		A55_1: cpu@100 {
--			device_type = "cpu";
--			compatible = "arm,cortex-a55";
--			reg = <0x100>;
--			enable-method = "psci";
--			#cooling-cells = <2>;
--			cpu-idle-states = <&cpu_pd_wait>;
--			i-cache-size = <32768>;
--			i-cache-line-size = <64>;
--			i-cache-sets = <128>;
--			d-cache-size = <32768>;
--			d-cache-line-size = <64>;
--			d-cache-sets = <128>;
--			next-level-cache = <&l2_cache_l1>;
--		};
--
--		l2_cache_l0: l2-cache-l0 {
--			compatible = "cache";
--			cache-size = <65536>;
--			cache-line-size = <64>;
--			cache-sets = <256>;
--			cache-level = <2>;
--			cache-unified;
--			next-level-cache = <&l3_cache>;
--		};
--
--		l2_cache_l1: l2-cache-l1 {
--			compatible = "cache";
--			cache-size = <65536>;
--			cache-line-size = <64>;
--			cache-sets = <256>;
--			cache-level = <2>;
--			cache-unified;
--			next-level-cache = <&l3_cache>;
--		};
--
--		l3_cache: l3-cache {
--			compatible = "cache";
--			cache-size = <262144>;
--			cache-line-size = <64>;
--			cache-sets = <256>;
--			cache-level = <3>;
--			cache-unified;
- 		};
- 	};
- 
-@@ -184,44 +132,6 @@ gic: interrupt-controller@48000000 {
- 		interrupt-parent = <&gic>;
- 	};
- 
--	thermal-zones {
--		cpu-thermal {
--			polling-delay-passive = <250>;
--			polling-delay = <2000>;
--
--			thermal-sensors = <&tmu 0>;
--
--			trips {
--				cpu_alert: cpu-alert {
--					temperature = <80000>;
--					hysteresis = <2000>;
--					type = "passive";
--				};
--
--				cpu_crit: cpu-crit {
--					temperature = <90000>;
--					hysteresis = <2000>;
--					type = "critical";
--				};
--			};
--
--			cooling-maps {
--				map0 {
--					trip = <&cpu_alert>;
--					cooling-device =
--						<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
--						<&A55_1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
--				};
--			};
--		};
--	};
--
--	cm33: remoteproc-cm33 {
--		compatible = "fsl,imx93-cm33";
--		clocks = <&clk IMX93_CLK_CM33_GATE>;
--		status = "disabled";
--	};
--
- 	mqs1: mqs1 {
- 		compatible = "fsl,imx93-mqs";
- 		gpr = <&aonmix_ns_gpr>;
-@@ -307,15 +217,6 @@ aonmix_ns_gpr: syscon@44210000 {
- 				reg = <0x44210000 0x1000>;
- 			};
- 
--			mu1: mailbox@44230000 {
--				compatible = "fsl,imx93-mu", "fsl,imx8ulp-mu";
--				reg = <0x44230000 0x10000>;
--				interrupts = <GIC_SPI 22 IRQ_TYPE_LEVEL_HIGH>;
--				clocks = <&clk IMX93_CLK_MU1_B_GATE>;
--				#mbox-cells = <2>;
--				status = "disabled";
--			};
--
- 			system_counter: timer@44290000 {
- 				compatible = "nxp,sysctr-timer";
- 				reg = <0x44290000 0x30000>;
-@@ -519,14 +420,6 @@ src: system-controller@44460000 {
- 				#size-cells = <1>;
- 				ranges;
- 
--				mlmix: power-domain@44461800 {
--					compatible = "fsl,imx93-src-slice";
--					reg = <0x44461800 0x400>, <0x44464800 0x400>;
--					#power-domain-cells = <0>;
--					clocks = <&clk IMX93_CLK_ML_APB>,
--						 <&clk IMX93_CLK_ML>;
--				};
--
- 				mediamix: power-domain@44462400 {
- 					compatible = "fsl,imx93-src-slice";
- 					reg = <0x44462400 0x400>, <0x44465800 0x400>;
-@@ -542,26 +435,6 @@ clock-controller@44480000 {
- 				#clock-cells = <1>;
- 			};
- 
--			tmu: tmu@44482000 {
--				compatible = "fsl,qoriq-tmu";
--				reg = <0x44482000 0x1000>;
--				interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
--				clocks = <&clk IMX93_CLK_TMC_GATE>;
--				little-endian;
--				fsl,tmu-range = <0x800000da 0x800000e9
--						 0x80000102 0x8000012a
--						 0x80000166 0x800001a7
--						 0x800001b6>;
--				fsl,tmu-calibration = <0x00000000 0x0000000e
--						       0x00000001 0x00000029
--						       0x00000002 0x00000056
--						       0x00000003 0x000000a2
--						       0x00000004 0x00000116
--						       0x00000005 0x00000195
--						       0x00000006 0x000001b2>;
--				#thermal-sensor-cells = <1>;
--			};
--
- 			micfil: micfil@44520000 {
- 				compatible = "fsl,imx93-micfil";
- 				reg = <0x44520000 0x10000>;
-@@ -677,15 +550,6 @@ wakeupmix_gpr: syscon@42420000 {
- 				reg = <0x42420000 0x1000>;
- 			};
- 
--			mu2: mailbox@42440000 {
--				compatible = "fsl,imx93-mu", "fsl,imx8ulp-mu";
--				reg = <0x42440000 0x10000>;
--				interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
--				clocks = <&clk IMX93_CLK_MU2_B_GATE>;
--				#mbox-cells = <2>;
--				status = "disabled";
--			};
--
- 			wdog3: watchdog@42490000 {
- 				compatible = "fsl,imx93-wdt";
- 				reg = <0x42490000 0x10000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
-index bebb7b4490fb..e7a9348bad7f 100644
---- a/arch/arm64/boot/dts/freescale/imx93.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
-@@ -4,3 +4,158 @@
-  */
- 
- #include "imx91_93_common.dtsi"
-+
-+/{
-+	cm33: remoteproc-cm33 {
-+		compatible = "fsl,imx93-cm33";
-+		clocks = <&clk IMX93_CLK_CM33_GATE>;
-+		status = "disabled";
-+	};
-+
-+	thermal-zones {
-+		cpu-thermal {
-+			polling-delay-passive = <250>;
-+			polling-delay = <2000>;
-+
-+			thermal-sensors = <&tmu 0>;
-+
-+			trips {
-+				cpu_alert: cpu-alert {
-+					temperature = <80000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				cpu_crit: cpu-crit {
-+					temperature = <90000>;
-+					hysteresis = <2000>;
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0: map0 {
-+					trip = <&cpu_alert>;
-+					cooling-device =
-+						<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						<&A55_1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&aips1 {
-+	mu1: mailbox@44230000 {
-+		compatible = "fsl,imx93-mu", "fsl,imx8ulp-mu";
-+		reg = <0x44230000 0x10000>;
-+		interrupts = <GIC_SPI 22 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&clk IMX93_CLK_MU1_B_GATE>;
-+		#mbox-cells = <2>;
-+		status = "disabled";
-+	};
-+
-+	tmu: tmu@44482000 {
-+		compatible = "fsl,qoriq-tmu";
-+		reg = <0x44482000 0x1000>;
-+		interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&clk IMX93_CLK_TMC_GATE>;
-+		#thermal-sensor-cells = <1>;
-+		little-endian;
-+		fsl,tmu-range = <0x800000da 0x800000e9
-+				 0x80000102 0x8000012a
-+				 0x80000166 0x800001a7
-+				 0x800001b6>;
-+		fsl,tmu-calibration = <0x00000000 0x0000000e
-+				       0x00000001 0x00000029
-+				       0x00000002 0x00000056
-+				       0x00000003 0x000000a2
-+				       0x00000004 0x00000116
-+				       0x00000005 0x00000195
-+				       0x00000006 0x000001b2>;
-+	};
-+};
-+
-+&aips2 {
-+	mu2: mailbox@42440000 {
-+		compatible = "fsl,imx93-mu", "fsl,imx8ulp-mu";
-+		reg = <0x42440000 0x10000>;
-+		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&clk IMX93_CLK_MU2_B_GATE>;
-+		#mbox-cells = <2>;
-+		status = "disabled";
-+	};
-+};
-+
-+&cpus {
-+	A55_0: cpu@0 {
-+		device_type = "cpu";
-+		compatible = "arm,cortex-a55";
-+		reg = <0x0>;
-+		enable-method = "psci";
-+		#cooling-cells = <2>;
-+		cpu-idle-states = <&cpu_pd_wait>;
-+		i-cache-size = <32768>;
-+		i-cache-line-size = <64>;
-+		i-cache-sets = <128>;
-+		d-cache-size = <32768>;
-+		d-cache-line-size = <64>;
-+		d-cache-sets = <128>;
-+		next-level-cache = <&l2_cache_l0>;
-+	};
-+
-+	A55_1: cpu@100 {
-+		device_type = "cpu";
-+		compatible = "arm,cortex-a55";
-+		reg = <0x100>;
-+		enable-method = "psci";
-+		#cooling-cells = <2>;
-+		cpu-idle-states = <&cpu_pd_wait>;
-+		i-cache-size = <32768>;
-+		i-cache-line-size = <64>;
-+		i-cache-sets = <128>;
-+		d-cache-size = <32768>;
-+		d-cache-line-size = <64>;
-+		d-cache-sets = <128>;
-+		next-level-cache = <&l2_cache_l1>;
-+	};
-+
-+	l2_cache_l0: l2-cache-l0 {
-+		compatible = "cache";
-+		cache-size = <65536>;
-+		cache-line-size = <64>;
-+		cache-sets = <256>;
-+		cache-level = <2>;
-+		cache-unified;
-+		next-level-cache = <&l3_cache>;
-+	};
-+
-+	l2_cache_l1: l2-cache-l1 {
-+		compatible = "cache";
-+		cache-size = <65536>;
-+		cache-line-size = <64>;
-+		cache-sets = <256>;
-+		cache-level = <2>;
-+		cache-unified;
-+		next-level-cache = <&l3_cache>;
-+	};
-+
-+	l3_cache: l3-cache {
-+		compatible = "cache";
-+		cache-size = <262144>;
-+		cache-line-size = <64>;
-+		cache-sets = <256>;
-+		cache-level = <3>;
-+		cache-unified;
-+	};
-+};
-+
-+&src {
-+	mlmix: power-domain@44461800 {
-+		compatible = "fsl,imx93-src-slice";
-+		reg = <0x44461800 0x400>, <0x44464800 0x400>;
-+		clocks = <&clk IMX93_CLK_ML_APB>,
-+			 <&clk IMX93_CLK_ML>;
-+		#power-domain-cells = <0>;
-+	};
-+};
--- 
-2.37.1
+On 13/06/2025 07:56, Pritam Manohar Sutar wrote:
+> This SoC has a single USB 3.1 DRD combo phy that supports both
+> UTMI+ (HS) and PIPE3 (SS) and three USB2.0 DRD HS phy controllers
+> those only support the UTMI+ (HS) interface.
+> 
+> Support only UTMI+ port for this SoC which is very similar to what
+> the existing Exynos850 supports.
+> 
+> The combo phy support is out of scope of this commit.
+> 
+> Add required change in phy driver to support HS phy for this SoC.
+> 
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> ---
+>   drivers/phy/samsung/phy-exynos5-usbdrd.c | 25 ++++++++++++++++++++++++
+>   1 file changed, 25 insertions(+)
+> 
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> index 917a76d584f0..15965b4c6f78 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -2025,6 +2025,28 @@ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
+>   	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
+>   };
+>   
+> +static const struct phy_ops exynosautov920_usbdrd_phy_ops = {
+> +	.init		= exynos850_usbdrd_phy_init,
+> +	.exit		= exynos850_usbdrd_phy_exit,
+> +	.owner		= THIS_MODULE,
+> +};
+> +
+> +static const struct exynos5_usbdrd_phy_config phy_cfg_exynosautov920[] = {
+> +	{
+> +		.id		= EXYNOS5_DRDPHY_UTMI,
+> +		.phy_init	= exynos850_usbdrd_utmi_init,
+> +	},
+> +};
+> +
+> +static const struct exynos5_usbdrd_phy_drvdata exynosautov920_usbdrd_phy = {
+> +	.phy_cfg		= phy_cfg_exynosautov920,
+> +	.phy_ops		= &exynosautov920_usbdrd_phy_ops,
+> +	.clk_names		= exynos5_clk_names,
+> +	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
+> +	.core_clk_names		= exynos5_core_clk_names,
+> +	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
+> +};
+> +
+>   static const struct exynos5_usbdrd_phy_config phy_cfg_gs101[] = {
+>   	{
+>   		.id		= EXYNOS5_DRDPHY_UTMI,
+> @@ -2228,6 +2250,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
+>   	}, {
+>   		.compatible = "samsung,exynos850-usbdrd-phy",
+>   		.data = &exynos850_usbdrd_phy
+> +	}, {
+> +		.compatible = "samsung,exynosautov920-usbdrd-phy",
+> +		.data = &exynosautov920_usbdrd_phy
+>   	},
+>   	{ },
+>   };
 
+Looks fine, with the subject fix:
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+
+Thanks,
+Neil
 
