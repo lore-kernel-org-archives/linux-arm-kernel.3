@@ -4,56 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66DCCC61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACA8C61DB2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X28Ylbouea5vKL5T/LKTK2QtwCKn03+9spdzrFuGEuI=; b=Fb6RDjHXG5tfz/u5j86P+Ep7A2
-	1VHXqmfwOHHgDEKMH4tQ6UeTEhwtCvIP5CVed6nhCe9FGe4CA8N07Z2TJzPBtiaDx1OVVqm1ESVfM
-	4NTepfGtWlVL3/g4YfCw0ekpJgAuh9EtXj0V4FYc5l9czJWaDrussIP2BUWm22MBYkK8N/MOGbTa5
-	sAiuisSIUUThWlfuM+b7zczRC9UdQ8Oljm5rf/3zXBzz59KJ3lxL1+mPC/0BZHXaaxAECwB4yA7Rg
-	paF3du8De1tayimCN5ty0LQgVkccs/tQbmVWxW5mX0kmNzxhP1+jdfgc1OVwGuDS/e4uKAxNRnaa9
-	txpB5mGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f/GcgsXHUhlzhtAEdazRJMkmtIz2FI0Oad30LtZ8Mwk=; b=dbi3A1ZlVp676OJaIDxXegGiRd
+	IqTzZIdGKKJQQNPS4XvDgHYQu4lJaA3h3LZpK2oIXBDYzDt7OK2RVZEH12475V4Nplslwt8evuUWJ
+	aWuhAt9QfmYQsWs3dY3IyjkRSms4d5eLpT73U9+8D0pCaexqq/lSYyqBF/3K0hChoxz+Mbz+jPdWd
+	wggwMAEF3EbTH1Ly3LvFPW6C5z8D1hI9aSlK7m7OcXCBv/i0NIAIp6qvvtjFmHGa76VvFI9m5TWm+
+	9eJATIdBRQk8fOzw3bH0+rkKJWE/N6q1Zx01VYA3nNyh6xZVhaOC7+uklggT8IjOs9KYdAi/h5aiB
+	iz/jXKFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPxgC-0000000FSeu-0c1p;
-	Fri, 13 Jun 2025 06:14:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPxdv-0000000FSVv-20VD
+	id 1uPxiR-0000000FT0R-0r3C;
+	Fri, 13 Jun 2025 06:16:39 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPxfx-0000000FSc4-3iUT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 06:12:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 639C91D14;
-	Thu, 12 Jun 2025 23:11:38 -0700 (PDT)
-Received: from [10.164.146.16] (J09HK2D2RT.blr.arm.com [10.164.146.16])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39BB13F59E;
-	Thu, 12 Jun 2025 23:11:55 -0700 (PDT)
-Message-ID: <15c103f5-fd7a-4960-b984-4055a745aa5a@arm.com>
-Date: Fri, 13 Jun 2025 11:41:52 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH v3 03/13] arm64: debug: call software break handlers
- statically
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
- <20250609173413.132168-4-ada.coupriediaz@arm.com>
+	Fri, 13 Jun 2025 06:14:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nm6ijUZ1WdMvWlIoqiDl7ZGi7PQA64//epUDA5DLfFeqh2yNEzH1napEgWQPBcoVTsbCD3TmUdGCVXbkrbhoQtNDGjYIZlWtkOShvR+aDZipbfIw5qhEni4K+LAMZgmPPTa/+a6i3+gdpUMqM/B/Bvu8jgno8rAaFUnqMasA3sSvvQhdE0hlhXz+3dMaCPP2fHNgjw7kwF+NJu34XniTSR7mY8EGhXJXhdbqWQzlPAYql6t/VXGsac6jlrCGKhhpCkAJ4LxhReAWj3LXCwuQrpZa0C1BldDEDHt6EybU91o/Hfa268kWgI3W92cd+j68V1JvrYybn3GUVgo9tx8wVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f/GcgsXHUhlzhtAEdazRJMkmtIz2FI0Oad30LtZ8Mwk=;
+ b=m/ojkukdq5Sn5dxfNJt1cvQv3wqnKFxI174EPXOIX5I7zd0PoxYs9FE7ejCNCYNs8mu0dSgVrmpECV8ZnQ0DweePvPfXpJ3nmZS4sgD85Kp+snpJvgm+fccJ5k7AMvXGVFbm0B7RWkTcWh6ul55ZTK1ncwLPPoq2N4lZzW0zekEbteBhs5Z9CgRenhraMpCpzFYs7Hk8x+JIY8oLxwZCNPXPnrPwn/xGNn8mZpIKlOYAymIkBqDfUQJ478WN/gmYRl0eTwctUpyb3Sf7Rq0uySvvA5PiCmTUdmnDM7aCwDsbayYx4SKmAw5vIrdWwQqXpiGE4BB2yQyrqyZOIdixZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f/GcgsXHUhlzhtAEdazRJMkmtIz2FI0Oad30LtZ8Mwk=;
+ b=UEorM+y0J0Tf5R+YqjJhtAcQcXutgObTH4eXx+TrMsDKSVfq6y+o8blbMBI+T2ddh44RCMkmteXlG3c7jrKW2JElOAw0NRwujAuWsCDQ3KvTkk7SWVNnMo4ZdOk0LeQsiyAGkUq+5Sxvy4Uns3h7JEoSfOcdokkKjNFRQWYlG8hC1tcJCaMMDdEK2pe7xpwF2J97LzD2Qx1FFY4/E/N7YRLJw64rF5u/tBGMiDgFNWQib1ouDB12nSBR5MU4/E2hGOPxRJbJYYcqgfq4qXh+40T7ylJmiYP/6FNKBJVWmnoGkWe/IFAqsY7wqW0VQbKeJkG+apTnq6dnnGthhp0RPw==
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by DU2PR04MB8535.eurprd04.prod.outlook.com (2603:10a6:10:2d6::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.25; Fri, 13 Jun
+ 2025 06:13:56 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%4]) with mapi id 15.20.8835.023; Fri, 13 Jun 2025
+ 06:13:56 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: "tharvey@gateworks.com" <tharvey@gateworks.com>, Frank Li
+	<frank.li@nxp.com>
+CC: "l.stach@pengutronix.de" <l.stach@pengutronix.de>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 1/2] PCI: imx6: Remove apps_reset toggle in _core_reset
+ functions
+Thread-Topic: [PATCH v2 1/2] PCI: imx6: Remove apps_reset toggle in
+ _core_reset functions
+Thread-Index: AQHb20HdMtjlU3ox3UWRJCXhOZGdU7P/styAgAA8ZACAAG1fgA==
+Date: Fri, 13 Jun 2025 06:13:56 +0000
+Message-ID: <AS8PR04MB8676883A907B64E70CEC3B9C8C77A@AS8PR04MB8676.eurprd04.prod.outlook.com>
+References: <20250612022747.1206053-1-hongxing.zhu@nxp.com>
+ <20250612022747.1206053-2-hongxing.zhu@nxp.com>
+ <aEr8PxcHp55Bo5Os@lizhi-Precision-Tower-5810>
+ <CAJ+vNU3vyznybZ_QZBrB+nc1=2+BcC8csOtR5=6-gmgn6sb5tQ@mail.gmail.com>
+In-Reply-To: <CAJ+vNU3vyznybZ_QZBrB+nc1=2+BcC8csOtR5=6-gmgn6sb5tQ@mail.gmail.com>
+Accept-Language: en-US
 Content-Language: en-US
-In-Reply-To: <20250609173413.132168-4-ada.coupriediaz@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|DU2PR04MB8535:EE_
+x-ms-office365-filtering-correlation-id: e7a4b6a3-8031-4d3a-629d-08ddaa417a7e
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?cytiRXJ4TjkxZXUvWFJ3VEMyWXppblZDS2NsdytYOEVCZ29QelNiMHhNN2Fa?=
+ =?utf-8?B?cmYzbnY5SUhVK2hMeE9GNjMrNGlWdmEveUY4Q2dtaERFV2VnLytQK0E1d3lQ?=
+ =?utf-8?B?KzNpd0hLa1JWL0pzQ2lhNFoyQ2hNTkZoZUV0eDlYUmVJQzVwbUd5aVBXQjU0?=
+ =?utf-8?B?SXRYemtDdUNtaGh5WHNqYUJNMFQrTHRidEMxYUgyUDVqZlJ5Z21uRTZtaEJ5?=
+ =?utf-8?B?a3V2WWZ6ZmI4KzF0bzN0OE0rWWhNMzJSWmExOExjQVR1Ym0rM0ZFellmUjVq?=
+ =?utf-8?B?WGFPUFFmcU5FdHBuVW9RQndDRTVWcUJLSm1uVVRnUjloUGVSMjFqQzh5UWFo?=
+ =?utf-8?B?djUwUTY4TmV4c2tGRWVmNHlrV2p1OVVFV1VpL3QzU0l4OHhrcnpzNW9aMXV5?=
+ =?utf-8?B?Slg1dnJNS1UwVjJ0REpNOHluclJETGZMaFNVdUVQU29kcStmelhoNTNkNy9Q?=
+ =?utf-8?B?R2FLcWRKQ0FLYmsxeUttR0pzS2JBZDRBUDR2bG80NTh1OTNrRXpSSlBSNjI2?=
+ =?utf-8?B?enNHMnYyaitacE5vL2h4QmkwTEFRZVVOaUJLQlpEOTJPMjRRdGdia0YxWGt2?=
+ =?utf-8?B?YmNuOHUwM05MS0xUNXdYejJseU9TRnoxd1RhMm5BTUpydmVKUlJoQUMycUti?=
+ =?utf-8?B?c0Y1aituUklpd2RzRyt0VG5oM3ZXU0syNjZyQTRFWDBPRjFlMmg2cnJ1UlVU?=
+ =?utf-8?B?UVdPSExoZnBQdUdCS2MzbjdJR1BwekI3b3BSQXE5TU9Rdk80cE5VVlZvdHY4?=
+ =?utf-8?B?Mnpoc2FubytCN095WUdFb1VMQk1RU0ZIb3BXQlpIZEVyM3JMVEFHcHAzWDZZ?=
+ =?utf-8?B?b1VQZkF3Z2JTVXU4YTRHL3BLVjhmeFNiYVAyL3pLR0RtMnRkWEl1VDFhNFJO?=
+ =?utf-8?B?b2x6VkluRUp2T1JPeVEyblVlUS9QK1FLN1JMWFBIb2VhdUl5YUxzWVFGbnRx?=
+ =?utf-8?B?SnhJQzZJYlF1L0V4TmprOTBwV1dhRm5GMTZab3F1aU1iY2p5VFFRQ0dlM3l0?=
+ =?utf-8?B?NkdPRVJ1RXBGVnl5MnovWklMMmxBaDkzL3g5TTZQS3ZqVE14TWd3NHNBSFNV?=
+ =?utf-8?B?aDAzd1hPRm52NnZyWDFVeFd1czdxcmpoUWVXRWZCVGNLY0Z3eXNtcHY0Nzh6?=
+ =?utf-8?B?R3Vua2g5d2d5M1VISTVTeUVyQTU1MnB3UERHYWNhaEJlcXBCNnUvNXpNY3I0?=
+ =?utf-8?B?bkdXZmxVOGZJa3VFSngzQk9lRGxkVXVCT0lQdTVvMzZEc3hOSGtYZGRlUEdr?=
+ =?utf-8?B?eU1NWUNBbTBOLzhueS9OK0RaVWxWRjdVT2hBRFVyMDhMOVNDVmxwL1g1Q25O?=
+ =?utf-8?B?VG5lK01BVHlMRjBHTjEyNWRQY2YzZTVOVVBoSFI0dXNLK0VTNDJKV01DQS9G?=
+ =?utf-8?B?SUtTRTczcmI3K2V5TnNobzBxc0V1Ry8zek9GbS9KUmZjWmtsZ3NERHM4R3Rr?=
+ =?utf-8?B?bUk4VUhtVHJtYmJYKzFPWEZSRm9ZaS9zZWdRc1dKYWMweG9tZlNXUUdSMmVH?=
+ =?utf-8?B?ZFFRbmZqT0s1bjBzRlhmQzFYS0xDRFFrNWQ0Ly9qQVdZT3BrdEkwZ0pZMmxn?=
+ =?utf-8?B?QWR3eXIvOHRlZnAxcVVoaS9tcU40VnlkRU4wQzdMbHAvVnEyR1cxdzI2dUxj?=
+ =?utf-8?B?dEc5K0hqTmVrb2ZEWFpMZFNzamEyekVQcUZDN05TMkgzYk9hWE05cXNDTUdJ?=
+ =?utf-8?B?b0JrakRyTk9iQmhOL3BiclB6SzRibUVqMWt6d3RVdFFPMmo4T29iMXNTTldp?=
+ =?utf-8?B?d1hvbmk2QmNFa25zN1EvNStaWnpQMFVZeGliQ2NkeCtMUEJpS3BYVnNYRzA2?=
+ =?utf-8?B?eEl0TFY3azdBMnB0S080aFFtYURqMk12d3NFUi9kMjJUVkdxUC9aUGxkUnYx?=
+ =?utf-8?B?Zm5HZjZ0M2lKL2FkaVZ4SnFQa0ZpajZkT1R3ekVoTU5ialJuZDducXkzWitz?=
+ =?utf-8?B?em9EeGtIUjlXa2tnRmlXNEhYRmpVd3BsUGhPTVppVDRkTGdaOTAveVZDN0sy?=
+ =?utf-8?Q?TSvXe7dH07ReFa4/NtHcvMBji9mm8E=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UUN3aXpzQWJmdnJNQTJqalF1VjExQ0NPcHZKMUdaaTJHWmJPdUZ5cllJeVZh?=
+ =?utf-8?B?WVMrT1pmci9PVmw2SnVjckZrK0hISk8wcmpmWkNXWW9BS211cGdpV2dhMlZv?=
+ =?utf-8?B?R0V0TmEvaGJkeXJmNmVMTHFXeHk5OCsvcFdKeUxWTjVmWHhRbkhGK3FBQ25F?=
+ =?utf-8?B?cDZpbi91OWdzOGRqSTlLZEZrN25Lb3NsKzBTanVHQjg0YkRObHROeEpmNDVa?=
+ =?utf-8?B?c2RaT2lGNUdrNmg2b2s5clNPNFcyZEU1aXczM012Ulk3NitoZWE0bytsbTRC?=
+ =?utf-8?B?NFFVTFhmcklOZStKeW1nVmQ3NzVkc00vR0loM3pYaXg4dGo5OFB2RzFyMnVP?=
+ =?utf-8?B?ZXo2MTdyN0pDVDFsQ2JFYTlIWVNWUzlKQmhkMjNWMTVLd2NIZ0wxWFphZ1da?=
+ =?utf-8?B?c1FaMFUzRXlTY0JsVFRwcEZHR05qR2g0VHlOTy9Yd1Y5NmNwOWxzcnZ3R1BL?=
+ =?utf-8?B?dGZGdTdvRFowUnJqQ0hVaWUxdzRGVlpJb0xmSG5PbWQvU0tDc1NwNFd3Zk4r?=
+ =?utf-8?B?dXNBeXArbmpPaUxTL1ZSZnUwdllCcDdMaWFGRzlTMUpzcGNGaUt6TTk4dGdv?=
+ =?utf-8?B?Ump5YUI2dlBVc1IvRXNUellsbEp3SG84bjBvT053WGovamZ3K0RBSkhSbDJk?=
+ =?utf-8?B?dU1qa2lPTXN2cFhueENJWENuZXlxNUl6OHFteG1FTCtocU0veE5uOGJKalZo?=
+ =?utf-8?B?d1VYV3VYNVlNRGhTb2V6MEZHQVJ2Z0swRTc2WVlDRXQyNkh6QmRGUURIbHlo?=
+ =?utf-8?B?b0sxVWg1UXlrY2ZRQnJYUFFadkN1bzhncHFmb0NDUktmYUxWY1VCTEFTNExZ?=
+ =?utf-8?B?d3Q0dnZybVlCN1BOYzcwaXhFSVl1MmdMeU5Bc2VlZlVMcWpEcjRkdS9ESjh5?=
+ =?utf-8?B?U2VoYXczQWp2alZmYkJwK0kxb0lQWjh5RlNKSXJGdHY3eUN4a0F1MDNUNHll?=
+ =?utf-8?B?L25nRFZ5a2p2WlhBRmxVekdzZWJlWmw5TG9qTVpPcXY1MjNONXAwaHZ1MXJh?=
+ =?utf-8?B?K3JTTjZyU3JKazY2UEZHbUczc3hZQ05GbmlYZ3g2cnZTZnVsQllyMGhFZ2ZE?=
+ =?utf-8?B?MFdhTEpXcVdKTHpDNGxTNTZKMlhKdnlQdVkwZ3FBT05oRlNlWXA0d2Mxb1Zp?=
+ =?utf-8?B?UUNoeUNFSC9WZHI0RG5ucFVGYWorZnY5Wnd2UmM3YWw3dWhBQlVSaENnTmM5?=
+ =?utf-8?B?aVhxQ1lpTDVqMjBLZ3NxNVh3OXVqT2tJZmFSalExM3NWMENnalpDV3BiSE5i?=
+ =?utf-8?B?VEI5MFBzaUM3dlBJSVc1Q2k4Q1BtWVRSSUl3VzhaS0RYVzIzNnRrZGtsTHU0?=
+ =?utf-8?B?SFBJL1NQNXdVeUowM044ZkpZcFVGUGxrWllsWWVIZms2K0NPem1ZL2lleHZl?=
+ =?utf-8?B?TlBIM3V6SUhXYU0yNzJ0NTgveUVzdXREeThtamxaZUNQOUtyaDBKbUYyeElK?=
+ =?utf-8?B?WUVHdVRUMGN0Wk02UmZ5MnVLZlcwUWNiUkVuS0NYLzhYb1QzS3l5dlJFYlpp?=
+ =?utf-8?B?NG16VVJleW9HdmRvbTFxVDZZbXNNUkxwT2JsOE5wU0JTODV2aUI2TUtSZFRD?=
+ =?utf-8?B?RFViL3g5VUJ0YjJIMFA5RFpiNjJYU2xoaldkTEV1N2Rjd2F2TDJGTGV2S1li?=
+ =?utf-8?B?NFJCVGpDdTVhL0cyTnRJM0Z6TTdocXdKbDdzaXFsTUhaUUpVdmtNMXlOY0Zv?=
+ =?utf-8?B?d1pULzEyaEsyNTA3bXl3UlMxeHlpMUx4dXdvMlJwWDVoQWxCclB5QW9jT2J0?=
+ =?utf-8?B?VUVjbDcrc3ZWN1VjeG4zd2VxRWJEYXpESG8zSWNTMFRUVW9GaW15K3pNdCtO?=
+ =?utf-8?B?bHFGTTN2SGJzbjJReU94RFlQTTNSQXpsY2lNb2t0VHdBRTQ3Z09QQkZodjkw?=
+ =?utf-8?B?QVVaRG5HR2x4b2NlSVVycHpTNzVRL1ZtZ0xwNWNLTWZTYXFnaW0zZjkydTNZ?=
+ =?utf-8?B?dEIwcGwrQnVSaTBmcmZUTWh5TFlXTnQyckZXaERYZEtMeUQvYko3ZW5RZmFE?=
+ =?utf-8?B?Sm00MWRac2RMNEttK245K1YrcUdFRUl1ck90ODJoRGxxNkVnTmhwdW1lWTVI?=
+ =?utf-8?B?RmlsS1k2MU9VTHpTU2o0NVZPMmJTSWxVODgwckpRNTNXUDR5T3FkZHBOV2t4?=
+ =?utf-8?Q?OLooFlNfWt2Ta6SiTLiCGIrxb?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7a4b6a3-8031-4d3a-629d-08ddaa417a7e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jun 2025 06:13:56.1117
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4vTRafQHjztyrUG46okMmSNkLX5dJ5j6YCEmGYBmi2bEaoPIhLku+32yoDghQv6DknmZUoe7ma1KtcqMFD7qgQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_231159_619533_AA7579C9 
-X-CRM114-Status: GOOD (  35.13  )
+X-CRM114-CacheID: sfid-20250612_231406_101799_7DF2C776 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,508 +193,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A small nit - s/break handlers/break point handlers/
-
-On 09/06/25 11:04 PM, Ada Couprie Diaz wrote:
-> Software breakpoints pass an immediate value in ESR ("comment") that can
-> be used to call a specialized handler (KGDB, KASAN...).
-> We do so in two different ways :
->  - During early boot, `early_brk64` statically checks against known
->    immediates and calls the corresponding handler,
->  - During init, handlers are dynamically registered into a list. When
->    called, the generic software breakpoint handler will iterate over
->    the list to find the appropriate handler.
-> 
-> The dynamic registration does not provide any benefit here as it is not
-> exported and all its uses are within the arm64 tree. It also depends on an
-> RCU list, whose safe access currently relies on the non-preemptible state
-> of `do_debug_exception`.
-> 
-> Replace the list iteration logic in `call_break_hooks` to call
-> the breakpoint handlers statically if they are enabled, like in
-> `early_brk64`.
-> Expose the handlers in their respective headers to be reachable from
-> `arch/arm64/kernel/debug-monitors.c` at link time.
-> 
-> Unify the naming of the software breakpoint handlers to XXX_brk_handler(),
-> making it clear they are related and to differentiate from the
-> hardware breakpoints.
-
-Unless absolutely necessary - could we please move these renames into a
-separate patch in itself instead ? That will reduce the churn and help
-the reviewers see the functional changes more clearly.
-
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/kgdb.h                 |  3 +
->  arch/arm64/include/asm/kprobes.h              |  8 +++
->  arch/arm64/include/asm/traps.h                |  6 ++
->  arch/arm64/include/asm/uprobes.h              |  2 +
->  arch/arm64/kernel/debug-monitors.c            | 54 +++++++++++++----
->  arch/arm64/kernel/kgdb.c                      | 22 ++-----
->  arch/arm64/kernel/probes/kprobes.c            | 31 ++--------
->  arch/arm64/kernel/probes/kprobes_trampoline.S |  2 +-
->  arch/arm64/kernel/probes/uprobes.c            |  9 +--
->  arch/arm64/kernel/traps.c                     | 59 ++++---------------
->  10 files changed, 83 insertions(+), 113 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
-> index 21fc85e9d2be..82a76b2102fb 100644
-> --- a/arch/arm64/include/asm/kgdb.h
-> +++ b/arch/arm64/include/asm/kgdb.h
-> @@ -24,6 +24,9 @@ static inline void arch_kgdb_breakpoint(void)
->  extern void kgdb_handle_bus_error(void);
->  extern int kgdb_fault_expected;
->  
-> +int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +
->  #endif /* !__ASSEMBLY__ */
->  
->  /*
-> diff --git a/arch/arm64/include/asm/kprobes.h b/arch/arm64/include/asm/kprobes.h
-> index be7a3680dadf..f2782560647b 100644
-> --- a/arch/arm64/include/asm/kprobes.h
-> +++ b/arch/arm64/include/asm/kprobes.h
-> @@ -41,4 +41,12 @@ void __kretprobe_trampoline(void);
->  void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
->  
->  #endif /* CONFIG_KPROBES */
-> +
-> +int __kprobes kprobe_brk_handler(struct pt_regs *regs,
-> +				 unsigned long esr);
-> +int __kprobes kprobe_ss_brk_handler(struct pt_regs *regs,
-> +				 unsigned long esr);
-> +int __kprobes kretprobe_brk_handler(struct pt_regs *regs,
-> +				 unsigned long esr);
-> +
->  #endif /* _ARM_KPROBES_H */
-> diff --git a/arch/arm64/include/asm/traps.h b/arch/arm64/include/asm/traps.h
-> index 82cf1f879c61..e3e8944a71c3 100644
-> --- a/arch/arm64/include/asm/traps.h
-> +++ b/arch/arm64/include/asm/traps.h
-> @@ -29,6 +29,12 @@ void arm64_force_sig_fault_pkey(unsigned long far, const char *str, int pkey);
->  void arm64_force_sig_mceerr(int code, unsigned long far, short lsb, const char *str);
->  void arm64_force_sig_ptrace_errno_trap(int errno, unsigned long far, const char *str);
->  
-> +int bug_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +int cfi_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +int reserved_fault_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +int kasan_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +
->  int early_brk64(unsigned long addr, unsigned long esr, struct pt_regs *regs);
->  
->  /*
-> diff --git a/arch/arm64/include/asm/uprobes.h b/arch/arm64/include/asm/uprobes.h
-> index 014b02897f8e..3659a79a9f32 100644
-> --- a/arch/arm64/include/asm/uprobes.h
-> +++ b/arch/arm64/include/asm/uprobes.h
-> @@ -28,4 +28,6 @@ struct arch_uprobe {
->  	bool simulate;
->  };
->  
-> +int uprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
-> +
->  #endif
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 9e69f2e915e8..15d7158a7548 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -21,8 +21,11 @@
->  #include <asm/cputype.h>
->  #include <asm/daifflags.h>
->  #include <asm/debug-monitors.h>
-> +#include <asm/kgdb.h>
-> +#include <asm/kprobes.h>
->  #include <asm/system_misc.h>
->  #include <asm/traps.h>
-> +#include <asm/uprobes.h>
->  
->  /* Determine debug architecture. */
->  u8 debug_monitors_arch(void)
-> @@ -299,20 +302,47 @@ void unregister_kernel_break_hook(struct break_hook *hook)
->  
->  static int call_break_hook(struct pt_regs *regs, unsigned long esr)
->  {
-> -	struct break_hook *hook;
-> -	struct list_head *list;
-> -
-> -	list = user_mode(regs) ? &user_break_hook : &kernel_break_hook;
-> -
-> -	/*
-> -	 * Since brk exception disables interrupt, this function is
-> -	 * entirely not preemptible, and we can use rcu list safely here.
-> -	 */
-> -	list_for_each_entry_rcu(hook, list, node) {
-> -		if ((esr_brk_comment(esr) & ~hook->mask) == hook->imm)
-> -			return hook->fn(regs, esr);
-> +	if (user_mode(regs)) {
-> +		if (IS_ENABLED(CONFIG_UPROBES) &&
-> +			esr_brk_comment(esr) == UPROBES_BRK_IMM)
-> +			return uprobe_brk_handler(regs, esr);
-> +		return DBG_HOOK_ERROR;
->  	}
->  
-> +	if (esr_brk_comment(esr) == BUG_BRK_IMM)
-> +		return bug_brk_handler(regs, esr);
-> +
-> +	if (IS_ENABLED(CONFIG_CFI_CLANG) && esr_is_cfi_brk(esr))
-> +		return cfi_brk_handler(regs, esr);
-> +
-> +	if (esr_brk_comment(esr) == FAULT_BRK_IMM)
-> +		return reserved_fault_brk_handler(regs, esr);
-> +
-> +	if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) &&
-> +		(esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
-> +		return kasan_brk_handler(regs, esr);
-> +
-> +	if (IS_ENABLED(CONFIG_UBSAN_TRAP) && esr_is_ubsan_brk(esr))
-> +		return ubsan_brk_handler(regs, esr);
-> +
-> +	if (IS_ENABLED(CONFIG_KGDB)) {
-> +		if (esr_brk_comment(esr) == KGDB_DYN_DBG_BRK_IMM)
-> +			return kgdb_brk_handler(regs, esr);
-> +		if (esr_brk_comment(esr) == KGDB_COMPILED_DBG_BRK_IMM)
-> +			return kgdb_compiled_brk_handler(regs, esr);
-> +	}
-> +
-> +	if (IS_ENABLED(CONFIG_KPROBES)) {
-> +		if (esr_brk_comment(esr) == KPROBES_BRK_IMM)
-> +			return kprobe_brk_handler(regs, esr);
-> +		if (esr_brk_comment(esr) == KPROBES_BRK_SS_IMM)
-> +			return kprobe_ss_brk_handler(regs, esr);
-> +	}
-> +
-> +	if (IS_ENABLED(CONFIG_KRETPROBES) &&
-> +		esr_brk_comment(esr) == KRETPROBES_BRK_IMM)
-> +		return kretprobe_brk_handler(regs, esr);
-> +
->  	return DBG_HOOK_ERROR;
->  }
->  NOKPROBE_SYMBOL(call_break_hook);
-> diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
-> index f3c4d3a8a20f..b5a3b9c85a65 100644
-> --- a/arch/arm64/kernel/kgdb.c
-> +++ b/arch/arm64/kernel/kgdb.c
-> @@ -234,21 +234,21 @@ int kgdb_arch_handle_exception(int exception_vector, int signo,
->  	return err;
->  }
->  
-> -static int kgdb_brk_fn(struct pt_regs *regs, unsigned long esr)
-> +int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	kgdb_handle_exception(1, SIGTRAP, 0, regs);
->  	return DBG_HOOK_HANDLED;
->  }
-> -NOKPROBE_SYMBOL(kgdb_brk_fn)
-> +NOKPROBE_SYMBOL(kgdb_brk_handler)
->  
-> -static int kgdb_compiled_brk_fn(struct pt_regs *regs, unsigned long esr)
-> +int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	compiled_break = 1;
->  	kgdb_handle_exception(1, SIGTRAP, 0, regs);
->  
->  	return DBG_HOOK_HANDLED;
->  }
-> -NOKPROBE_SYMBOL(kgdb_compiled_brk_fn);
-> +NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
->  
->  static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
->  {
-> @@ -260,16 +260,6 @@ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
->  }
->  NOKPROBE_SYMBOL(kgdb_step_brk_fn);
->  
-> -static struct break_hook kgdb_brkpt_hook = {
-> -	.fn		= kgdb_brk_fn,
-> -	.imm		= KGDB_DYN_DBG_BRK_IMM,
-> -};
-> -
-> -static struct break_hook kgdb_compiled_brkpt_hook = {
-> -	.fn		= kgdb_compiled_brk_fn,
-> -	.imm		= KGDB_COMPILED_DBG_BRK_IMM,
-> -};
-> -
->  static struct step_hook kgdb_step_hook = {
->  	.fn		= kgdb_step_brk_fn
->  };
-> @@ -316,8 +306,6 @@ int kgdb_arch_init(void)
->  	if (ret != 0)
->  		return ret;
->  
-> -	register_kernel_break_hook(&kgdb_brkpt_hook);
-> -	register_kernel_break_hook(&kgdb_compiled_brkpt_hook);
->  	register_kernel_step_hook(&kgdb_step_hook);
->  	return 0;
->  }
-> @@ -329,8 +317,6 @@ int kgdb_arch_init(void)
->   */
->  void kgdb_arch_exit(void)
->  {
-> -	unregister_kernel_break_hook(&kgdb_brkpt_hook);
-> -	unregister_kernel_break_hook(&kgdb_compiled_brkpt_hook);
->  	unregister_kernel_step_hook(&kgdb_step_hook);
->  	unregister_die_notifier(&kgdb_notifier);
->  }
-> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
-> index d9e462eafb95..0c5d408afd95 100644
-> --- a/arch/arm64/kernel/probes/kprobes.c
-> +++ b/arch/arm64/kernel/probes/kprobes.c
-> @@ -292,8 +292,8 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
->  	return 0;
->  }
->  
-> -static int __kprobes
-> -kprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
-> +int __kprobes
-> +kprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	struct kprobe *p, *cur_kprobe;
->  	struct kprobe_ctlblk *kcb;
-> @@ -336,13 +336,8 @@ kprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
->  	return DBG_HOOK_HANDLED;
->  }
->  
-> -static struct break_hook kprobes_break_hook = {
-> -	.imm = KPROBES_BRK_IMM,
-> -	.fn = kprobe_breakpoint_handler,
-> -};
-> -
-> -static int __kprobes
-> -kprobe_breakpoint_ss_handler(struct pt_regs *regs, unsigned long esr)
-> +int __kprobes
-> +kprobe_ss_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
->  	unsigned long addr = instruction_pointer(regs);
-> @@ -360,13 +355,8 @@ kprobe_breakpoint_ss_handler(struct pt_regs *regs, unsigned long esr)
->  	return DBG_HOOK_ERROR;
->  }
->  
-> -static struct break_hook kprobes_break_ss_hook = {
-> -	.imm = KPROBES_BRK_SS_IMM,
-> -	.fn = kprobe_breakpoint_ss_handler,
-> -};
-> -
-> -static int __kprobes
-> -kretprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
-> +int __kprobes
-> +kretprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	if (regs->pc != (unsigned long)__kretprobe_trampoline)
->  		return DBG_HOOK_ERROR;
-> @@ -375,11 +365,6 @@ kretprobe_breakpoint_handler(struct pt_regs *regs, unsigned long esr)
->  	return DBG_HOOK_HANDLED;
->  }
->  
-> -static struct break_hook kretprobes_break_hook = {
-> -	.imm = KRETPROBES_BRK_IMM,
-> -	.fn = kretprobe_breakpoint_handler,
-> -};
-> -
->  /*
->   * Provide a blacklist of symbols identifying ranges which cannot be kprobed.
->   * This blacklist is exposed to userspace via debugfs (kprobes/blacklist).
-> @@ -422,9 +407,5 @@ int __kprobes arch_trampoline_kprobe(struct kprobe *p)
->  
->  int __init arch_init_kprobes(void)
->  {
-> -	register_kernel_break_hook(&kprobes_break_hook);
-> -	register_kernel_break_hook(&kprobes_break_ss_hook);
-> -	register_kernel_break_hook(&kretprobes_break_hook);
-> -
->  	return 0;
->  }
-> diff --git a/arch/arm64/kernel/probes/kprobes_trampoline.S b/arch/arm64/kernel/probes/kprobes_trampoline.S
-> index a362f3dbb3d1..b60739d3983f 100644
-> --- a/arch/arm64/kernel/probes/kprobes_trampoline.S
-> +++ b/arch/arm64/kernel/probes/kprobes_trampoline.S
-> @@ -12,7 +12,7 @@
->  SYM_CODE_START(__kretprobe_trampoline)
->  	/*
->  	 * Trigger a breakpoint exception. The PC will be adjusted by
-> -	 * kretprobe_breakpoint_handler(), and no subsequent instructions will
-> +	 * kretprobe_brk_handler(), and no subsequent instructions will
->  	 * be executed from the trampoline.
->  	 */
->  	brk #KRETPROBES_BRK_IMM
-> diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
-> index cb3d05af36e3..ad68b4a5974d 100644
-> --- a/arch/arm64/kernel/probes/uprobes.c
-> +++ b/arch/arm64/kernel/probes/uprobes.c
-> @@ -173,7 +173,7 @@ int arch_uprobe_exception_notify(struct notifier_block *self,
->  	return NOTIFY_DONE;
->  }
->  
-> -static int uprobe_breakpoint_handler(struct pt_regs *regs,
-> +int uprobe_brk_handler(struct pt_regs *regs,
->  				     unsigned long esr)
->  {
->  	if (uprobe_pre_sstep_notifier(regs))
-> @@ -194,12 +194,6 @@ static int uprobe_single_step_handler(struct pt_regs *regs,
->  	return DBG_HOOK_ERROR;
->  }
->  
-> -/* uprobe breakpoint handler hook */
-> -static struct break_hook uprobes_break_hook = {
-> -	.imm = UPROBES_BRK_IMM,
-> -	.fn = uprobe_breakpoint_handler,
-> -};
-> -
->  /* uprobe single step handler hook */
->  static struct step_hook uprobes_step_hook = {
->  	.fn = uprobe_single_step_handler,
-> @@ -207,7 +201,6 @@ static struct step_hook uprobes_step_hook = {
->  
->  static int __init arch_init_uprobes(void)
->  {
-> -	register_user_break_hook(&uprobes_break_hook);
->  	register_user_step_hook(&uprobes_step_hook);
->  
->  	return 0;
-> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> index 685c11b2c553..654c8ea46ec6 100644
-> --- a/arch/arm64/kernel/traps.c
-> +++ b/arch/arm64/kernel/traps.c
-> @@ -987,7 +987,7 @@ void do_serror(struct pt_regs *regs, unsigned long esr)
->  int is_valid_bugaddr(unsigned long addr)
->  {
->  	/*
-> -	 * bug_handler() only called for BRK #BUG_BRK_IMM.
-> +	 * bug_brk_handler() only called for BRK #BUG_BRK_IMM.
->  	 * So the answer is trivial -- any spurious instances with no
->  	 * bug table entry will be rejected by report_bug() and passed
->  	 * back to the debug-monitors code and handled as a fatal
-> @@ -997,7 +997,7 @@ int is_valid_bugaddr(unsigned long addr)
->  }
->  #endif
->  
-> -static int bug_handler(struct pt_regs *regs, unsigned long esr)
-> +int bug_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	switch (report_bug(regs->pc, regs)) {
->  	case BUG_TRAP_TYPE_BUG:
-> @@ -1017,13 +1017,8 @@ static int bug_handler(struct pt_regs *regs, unsigned long esr)
->  	return DBG_HOOK_HANDLED;
->  }
->  
-> -static struct break_hook bug_break_hook = {
-> -	.fn = bug_handler,
-> -	.imm = BUG_BRK_IMM,
-> -};
-> -
->  #ifdef CONFIG_CFI_CLANG
-> -static int cfi_handler(struct pt_regs *regs, unsigned long esr)
-> +int cfi_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	unsigned long target;
->  	u32 type;
-> @@ -1046,15 +1041,9 @@ static int cfi_handler(struct pt_regs *regs, unsigned long esr)
->  	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
->  	return DBG_HOOK_HANDLED;
->  }
-> -
-> -static struct break_hook cfi_break_hook = {
-> -	.fn = cfi_handler,
-> -	.imm = CFI_BRK_IMM_BASE,
-> -	.mask = CFI_BRK_IMM_MASK,
-> -};
->  #endif /* CONFIG_CFI_CLANG */
->  
-> -static int reserved_fault_handler(struct pt_regs *regs, unsigned long esr)
-> +int reserved_fault_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	pr_err("%s generated an invalid instruction at %pS!\n",
->  		"Kernel text patching",
-> @@ -1064,11 +1053,6 @@ static int reserved_fault_handler(struct pt_regs *regs, unsigned long esr)
->  	return DBG_HOOK_ERROR;
->  }
->  
-> -static struct break_hook fault_break_hook = {
-> -	.fn = reserved_fault_handler,
-> -	.imm = FAULT_BRK_IMM,
-> -};
-> -
->  #ifdef CONFIG_KASAN_SW_TAGS
->  
->  #define KASAN_ESR_RECOVER	0x20
-> @@ -1076,7 +1060,7 @@ static struct break_hook fault_break_hook = {
->  #define KASAN_ESR_SIZE_MASK	0x0f
->  #define KASAN_ESR_SIZE(esr)	(1 << ((esr) & KASAN_ESR_SIZE_MASK))
->  
-> -static int kasan_handler(struct pt_regs *regs, unsigned long esr)
-> +int kasan_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	bool recover = esr & KASAN_ESR_RECOVER;
->  	bool write = esr & KASAN_ESR_WRITE;
-> @@ -1107,26 +1091,14 @@ static int kasan_handler(struct pt_regs *regs, unsigned long esr)
->  	arm64_skip_faulting_instruction(regs, AARCH64_INSN_SIZE);
->  	return DBG_HOOK_HANDLED;
->  }
-> -
-> -static struct break_hook kasan_break_hook = {
-> -	.fn	= kasan_handler,
-> -	.imm	= KASAN_BRK_IMM,
-> -	.mask	= KASAN_BRK_MASK,
-> -};
->  #endif
->  
->  #ifdef CONFIG_UBSAN_TRAP
-> -static int ubsan_handler(struct pt_regs *regs, unsigned long esr)
-> +int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
->  {
->  	die(report_ubsan_failure(esr & UBSAN_BRK_MASK), regs, esr);
->  	return DBG_HOOK_HANDLED;
->  }
-> -
-> -static struct break_hook ubsan_break_hook = {
-> -	.fn	= ubsan_handler,
-> -	.imm	= UBSAN_BRK_IMM,
-> -	.mask	= UBSAN_BRK_MASK,
-> -};
->  #endif
->  
->  /*
-> @@ -1138,31 +1110,20 @@ int __init early_brk64(unsigned long addr, unsigned long esr,
->  {
->  #ifdef CONFIG_CFI_CLANG
->  	if (esr_is_cfi_brk(esr))
-> -		return cfi_handler(regs, esr) != DBG_HOOK_HANDLED;
-> +		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
->  #endif
->  #ifdef CONFIG_KASAN_SW_TAGS
->  	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
-> -		return kasan_handler(regs, esr) != DBG_HOOK_HANDLED;
-> +		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
->  #endif
->  #ifdef CONFIG_UBSAN_TRAP
->  	if (esr_is_ubsan_brk(esr))
-> -		return ubsan_handler(regs, esr) != DBG_HOOK_HANDLED;
-> +		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
->  #endif
-> -	return bug_handler(regs, esr) != DBG_HOOK_HANDLED;
-> +	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
->  }>  
->  void __init trap_init(void)
->  {
-> -	register_kernel_break_hook(&bug_break_hook);
-> -#ifdef CONFIG_CFI_CLANG
-> -	register_kernel_break_hook(&cfi_break_hook);
-> -#endif
-> -	register_kernel_break_hook(&fault_break_hook);
-> -#ifdef CONFIG_KASAN_SW_TAGS
-> -	register_kernel_break_hook(&kasan_break_hook);
-> -#endif
-> -#ifdef CONFIG_UBSAN_TRAP
-> -	register_kernel_break_hook(&ubsan_break_hook);
-> -#endif
->  	debug_traps_init();
->  }
-
-debug_traps_init() can be renamed as trap_init() and just drop this
-redundant indirection. All applicable comments can also be changed
-as required there after.
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBUaW0gSGFydmV5IDx0aGFydmV5
+QGdhdGV3b3Jrcy5jb20+DQo+IFNlbnQ6IDIwMjXlubQ25pyIMTPml6UgMzo0OA0KPiBUbzogRnJh
+bmsgTGkgPGZyYW5rLmxpQG54cC5jb20+DQo+IENjOiBIb25neGluZyBaaHUgPGhvbmd4aW5nLnpo
+dUBueHAuY29tPjsgbC5zdGFjaEBwZW5ndXRyb25peC5kZTsNCj4gbHBpZXJhbGlzaUBrZXJuZWwu
+b3JnOyBrd0BsaW51eC5jb207IG1hbml2YW5uYW4uc2FkaGFzaXZhbUBsaW5hcm8ub3JnOw0KPiBy
+b2JoQGtlcm5lbC5vcmc7IGJoZWxnYWFzQGdvb2dsZS5jb207IHNoYXduZ3VvQGtlcm5lbC5vcmc7
+DQo+IHMuaGF1ZXJAcGVuZ3V0cm9uaXguZGU7IGtlcm5lbEBwZW5ndXRyb25peC5kZTsgZmVzdGV2
+YW1AZ21haWwuY29tOw0KPiBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2Vy
+bmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+IGlteEBsaXN0cy5saW51eC5kZXY7IGxpbnV4LWtl
+cm5lbEB2Z2VyLmtlcm5lbC5vcmcNCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2MiAxLzJdIFBDSTog
+aW14NjogUmVtb3ZlIGFwcHNfcmVzZXQgdG9nZ2xlIGluIF9jb3JlX3Jlc2V0DQo+IGZ1bmN0aW9u
+cw0KPiANCj4gT24gVGh1LCBKdW4gMTIsIDIwMjUgYXQgOToxMeKAr0FNIEZyYW5rIExpIDxGcmFu
+ay5saUBueHAuY29tPiB3cm90ZToNCj4gPg0KPiA+IE9uIFRodSwgSnVuIDEyLCAyMDI1IGF0IDEw
+OjI3OjQ2QU0gKzA4MDAsIFJpY2hhcmQgWmh1IHdyb3RlOg0KPiA+ID4gYXBwc19yZXNldCBpcyBM
+VFNTTV9FTiBvbiBpLk1YNywgaS5NWDhNUSwgaS5NWDhNTSBhbmQgaS5NWDhNUA0KPiBwbGF0Zm9y
+bXMuDQo+ID4gPiBTaW5jZSB0aGUgYXNzZXJ0aW9uL2RlLWFzc2VydGlvbiBvZiBhcHBzX3Jlc2V0
+KExUU1NNX0VOIGJpdCkgaGFkDQo+ID4gPiBiZWVuIHdyYXBwZXJlZCBpbiBpbXhfcGNpZV9sdHNz
+bV9lbmFibGUoKSBhbmQNCj4gPiA+IGlteF9wY2llX2x0c3NtX2Rpc2FibGUoKTsNCj4gPiA+DQo+
+ID4gPiBSZW1vdmUgYXBwc19yZXNldCB0b2dnbGUgaW4gaW14X3BjaWVfYXNzZXJ0X2NvcmVfcmVz
+ZXQoKSBhbmQNCj4gPiA+IGlteF9wY2llX2RlYXNzZXJ0X2NvcmVfcmVzZXQoKSBmdW5jdGlvbnMu
+IFVzZQ0KPiA+ID4gaW14X3BjaWVfbHRzc21fZW5hYmxlKCkgYW5kIGlteF9wY2llX2x0c3NtX2Rp
+c2FibGUoKSB0byBjb25maWd1cmUNCj4gYXBwc19yZXNldCBkaXJlY3RseS4NCj4gPiA+DQo+ID4g
+PiBGaXggZmFpbCB0byBlbnVtZXJhdGUgcmVsaWFibHkgUEk3QzlYMkc2MDhHUCAoaG90cGx1Zykg
+YXQgaS5NWDhNTSwNCj4gPiA+IHdoaWNoIHJlcG9ydGVkIEJ5IFRpbS4NCj4gPiA+DQo+ID4NCj4g
+PiBZb3UgbWF5IHJlbmFtZSBhcHBzX3Jlc2V0IHRvIGx0c3NtX3Jlc2V0IHRvIGF2b2lkIGNvbmZ1
+c2UgZm9yIGxlZ2FuY3kNCj4gPiBwbGF0Zm9ybSBsYXRlci4NCj4gDQo+IEhpIEZyYW5rIGFuZCBS
+aWNoYXJkLA0KPiANCj4gSSB3YXMgdGhpbmtpbmcgb2YgbWFraW5nIHRoZSBzYW1lIHN1Z2dlc3Rp
+b24gaG93ZXZlciB0aGUgYXBwcyByZXNldCBpcyBpbg0KPiBzZXZlcmFsIHBsYWNlczoNCj4gLSBp
+bXg4bSouZHRzaSBwY2kgbm9kZSBhcyAncmVzZXQtbmFtZXMnIGFuZCByZXNldCBpbmRleCBudW1i
+ZXIgI2RlZmluZQ0KPiAtIGlteDhtKi1yZXNldC5oIGJpbmRpbmdzIGFzIHJlc2V0IGluZGV4IG51
+bWJlci9kZWZpbmUNCj4gLSBwY2ktaW14LmMgZHJpdmVyDQo+IA0KPiBHcmFudGVkIGl0IGlzIHVz
+ZWQgYnkgaW14N2QuZHRzaSwgZnNsLGlteDhtcS1wY2llLCBmc2wsaW14OG1tLXBjaWUsDQo+IGZz
+bCxpbXg4bXAtcGNpZSBhbmQgaW4gZXZlcnkgb25lIG9mIHRob3NlIHJlZmVyZW5jZSBtYW51YWxz
+IGl0J3MgYml0NiBvZg0KPiBTUkNfUENJRVBIX1JDUiBuYW1lZCBQQ0lFX0NUUkxfQVBQU19FTiBi
+dXQgZGVzY3JpYmVkIGFzDQo+ICdQY2llX2N0cmxfYXBwX2x0c3NtX2VuYWJsZScuIENhbiB5b3Ug
+YXNrIHlvdXIgcmVmZXJlbmNlcyB0byBnZXQgbW9yZQ0KPiBkZWZpbml0aW9uIGZvciB0aGlzIGJp
+dD8gSSdtIHN0aWxsIHVuY2xlYXIgd2h5ICdkZS1hc3NlcnRpbmcnIGl0IHR3aWNlIHdhcyBhbiBp
+c3N1ZS4NCkkgc3VzcGVjdCB0aGF0IHRoZSBsaW5rIGhhZCBiZWVuIGFibm9ybWFsIGFscmVhZHkg
+YmVmb3JlICdkZS1hc3NlcnRpbmcnDQogdGhlIGx0c3NtX2VuIGJpdCBhdCB0d2ljZSB0aW1lLiBU
+aGUgcmVnbWFwX3JlYWQoKSB0cmlnZ2VyIHRoZSBoYW5nIGluDQogeW91ciB1c2UgY2FzZSBhY3R1
+YWxseS4NCg0KQmVzdCBSZWdhcmRzDQpSaWNoYXJkIFpodQ0KPiANCj4gUmVnYXJkbGVzcywgYW55
+IGNsZWFudXAgY2hhbmdpbmcgdGhlIG5hbWUgY2FuIGJlIGEgc2VwZXJhdGUgcGF0Y2ggaW4gbXkN
+Cj4gb3Bpbmlvbi4NCj4gDQo+IEJlc3QgUmVnYXJkcywNCj4gDQo+IFRpbQ0KPiANCj4gDQo+ID4N
+Cj4gPiBSZXZpZXdlZC1ieTogRnJhbmsgTGkgPEZyYW5rLkxpQG54cC5jb20+DQo+ID4NCj4gPg0K
+PiA+ID4gUmVwb3J0ZWQtYnk6IFRpbSBIYXJ2ZXkgPHRoYXJ2ZXlAZ2F0ZXdvcmtzLmNvbT4NCj4g
+PiA+IENsb3NlczoNCj4gPiA+IGh0dHBzOi8vZXVyMDEuc2FmZWxpbmtzLnByb3RlY3Rpb24ub3V0
+bG9vay5jb20vP3VybD1odHRwcyUzQSUyRiUyRmxvDQo+ID4gPg0KPiByZS5rZXJuZWwub3JnJTJG
+YWxsJTJGQ0FKJTJCdk5VM29oUjJZS1R3QzR4b1lyYzF6LW5lRG9IMlRUWmNNSER5JQ0KPiAyQnAN
+Cj4gPiA+DQo+IG9qOSUzRGpTeSUyQnclNDBtYWlsLmdtYWlsLmNvbSUyRiZkYXRhPTA1JTdDMDIl
+N0Nob25neGluZy56aHUlNDANCj4gbnhwLg0KPiA+ID4NCj4gY29tJTdDM2QxYjNmZmEzOGVmNDAz
+ODA2M2EwOGRkYTllYTBjNjMlN0M2ODZlYTFkM2JjMmI0YzZmYTkyY2Q5OWMNCj4gNWMzDQo+ID4g
+Pg0KPiAwMTYzNSU3QzAlN0MwJTdDNjM4ODUzNTQ0ODgxNjcxOTU0JTdDVW5rbm93biU3Q1RXRnBi
+R1pzYjNkOGUNCj4geUpGYlhCMGUNCj4gPiA+DQo+IFUxaGNHa2lPblJ5ZFdVc0lsWWlPaUl3TGpB
+dU1EQXdNQ0lzSWxBaU9pSlhhVzR6TWlJc0lrRk9Jam9pVFdGcGJDSXNJDQo+ID4gPg0KPiBsZFVJ
+am95ZlElM0QlM0QlN0MwJTdDJTdDJTdDJnNkYXRhPTd2VjVIeUVhbHVZZjRpNGwyYW5FWCUyRmI2
+ejN4DQo+IFVQYzANCj4gPiA+IHVyaEhOSWRUUEt3VSUzRCZyZXNlcnZlZD0wDQo+ID4gPiBGaXhl
+czogZWY2MWM3ZDhkMDMyICgiUENJOiBpbXg2OiBEZWFzc2VydCBhcHBzX3Jlc2V0IGluDQo+ID4g
+PiBpbXhfcGNpZV9kZWFzc2VydF9jb3JlX3Jlc2V0KCkiKQ0KPiA+ID4gU2lnbmVkLW9mZi1ieTog
+UmljaGFyZCBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0KPiA+ID4gLS0tDQo+ID4gPiAgZHJp
+dmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYuYyB8IDUgKysrLS0NCj4gPiA+ICAxIGZp
+bGUgY2hhbmdlZCwgMyBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQ0KPiA+ID4NCj4gPiA+
+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2ktaW14Ni5jDQo+ID4g
+PiBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4gPiA+IGluZGV4IDVm
+MjY3ZGQyNjFiNS4uZjRlMDM0MmY0ZDU2IDEwMDY0NA0KPiA+ID4gLS0tIGEvZHJpdmVycy9wY2kv
+Y29udHJvbGxlci9kd2MvcGNpLWlteDYuYw0KPiA+ID4gKysrIGIvZHJpdmVycy9wY2kvY29udHJv
+bGxlci9kd2MvcGNpLWlteDYuYw0KPiA+ID4gQEAgLTc3Niw3ICs3NzYsNiBAQCBzdGF0aWMgaW50
+IGlteDdkX3BjaWVfY29yZV9yZXNldChzdHJ1Y3QgaW14X3BjaWUNCj4gPiA+ICppbXhfcGNpZSwg
+Ym9vbCBhc3NlcnQpICBzdGF0aWMgdm9pZA0KPiA+ID4gaW14X3BjaWVfYXNzZXJ0X2NvcmVfcmVz
+ZXQoc3RydWN0IGlteF9wY2llICppbXhfcGNpZSkgIHsNCj4gPiA+ICAgICAgIHJlc2V0X2NvbnRy
+b2xfYXNzZXJ0KGlteF9wY2llLT5wY2llcGh5X3Jlc2V0KTsNCj4gPiA+IC0gICAgIHJlc2V0X2Nv
+bnRyb2xfYXNzZXJ0KGlteF9wY2llLT5hcHBzX3Jlc2V0KTsNCj4gPiA+DQo+ID4gPiAgICAgICBp
+ZiAoaW14X3BjaWUtPmRydmRhdGEtPmNvcmVfcmVzZXQpDQo+ID4gPiAgICAgICAgICAgICAgIGlt
+eF9wY2llLT5kcnZkYXRhLT5jb3JlX3Jlc2V0KGlteF9wY2llLCB0cnVlKTsgQEANCj4gPiA+IC03
+ODgsNyArNzg3LDYgQEAgc3RhdGljIHZvaWQgaW14X3BjaWVfYXNzZXJ0X2NvcmVfcmVzZXQoc3Ry
+dWN0DQo+ID4gPiBpbXhfcGNpZSAqaW14X3BjaWUpICBzdGF0aWMgaW50IGlteF9wY2llX2RlYXNz
+ZXJ0X2NvcmVfcmVzZXQoc3RydWN0DQo+ID4gPiBpbXhfcGNpZSAqaW14X3BjaWUpICB7DQo+ID4g
+PiAgICAgICByZXNldF9jb250cm9sX2RlYXNzZXJ0KGlteF9wY2llLT5wY2llcGh5X3Jlc2V0KTsN
+Cj4gPiA+IC0gICAgIHJlc2V0X2NvbnRyb2xfZGVhc3NlcnQoaW14X3BjaWUtPmFwcHNfcmVzZXQp
+Ow0KPiA+ID4NCj4gPiA+ICAgICAgIGlmIChpbXhfcGNpZS0+ZHJ2ZGF0YS0+Y29yZV9yZXNldCkN
+Cj4gPiA+ICAgICAgICAgICAgICAgaW14X3BjaWUtPmRydmRhdGEtPmNvcmVfcmVzZXQoaW14X3Bj
+aWUsIGZhbHNlKTsgQEANCj4gPiA+IC0xMTc2LDYgKzExNzQsOSBAQCBzdGF0aWMgaW50IGlteF9w
+Y2llX2hvc3RfaW5pdChzdHJ1Y3QgZHdfcGNpZV9ycCAqcHApDQo+ID4gPiAgICAgICAgICAgICAg
+IH0NCj4gPiA+ICAgICAgIH0NCj4gPiA+DQo+ID4gPiArICAgICAvKiBNYWtlIHN1cmUgdGhhdCBQ
+Q0llIExUU1NNIGlzIGNsZWFyZWQgKi8NCj4gPiA+ICsgICAgIGlteF9wY2llX2x0c3NtX2Rpc2Fi
+bGUoZGV2KTsNCj4gPiA+ICsNCj4gPiA+ICAgICAgIHJldCA9IGlteF9wY2llX2RlYXNzZXJ0X2Nv
+cmVfcmVzZXQoaW14X3BjaWUpOw0KPiA+ID4gICAgICAgaWYgKHJldCA8IDApIHsNCj4gPiA+ICAg
+ICAgICAgICAgICAgZGV2X2VycihkZXYsICJwY2llIGRlYXNzZXJ0IGNvcmUgcmVzZXQgZmFpbGVk
+OiAlZFxuIiwNCj4gPiA+IHJldCk7DQo+ID4gPiAtLQ0KPiA+ID4gMi4zNy4xDQo+ID4gPg0K
 
