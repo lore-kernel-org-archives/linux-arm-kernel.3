@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16C5C61DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 05:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA77C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 05:48:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m3k1yr4GslKpTzf5lqnCGMcEjSghKmBJjnIvXsOuWCc=; b=LcrG4OLp80AVXjoX2aR0TULo/r
-	uDFYLnx5IC03Tl6TQWLzDj1FWNF15voEheM9oR/U0X6Q4bjHMdG/2GJJf5QLPFgFr2jr7IXnDiZOL
-	+J4VzIHgTlj3F5OsUeuZ1RWxpvvVK91p3vZT/0DeN5tHZev6Pwj/Rx+nRIGH2zLAu4fyCTJb1JTI8
-	0LzZKjbUmY/knVR1B2aqdYj1l9HXl5tNcKe82A7djpD5CqrER2WJ0aQm7ctZNsWqo9vxeYd7Taxnr
-	Xs4IqRXuPzQ+Qa5M19K3JirH41is0OLdm75wRTkvdRtHfc+ocF4BAfaQMLMGgSaV9a8oc8kfulHx2
-	9Ol6fADQ==;
+	bh=oTmKBJlMorLr5a5LInNozxhvLN2jsh96HUsPIOSges8=; b=gVyqRaKWcdguk1/nLMeyRPi1BY
+	zYi6z/8IUDiscFnF11ey+QoqDXs54gCvUiguXN5HMblzRpL+lSQG0Tl+xY0IUGVs+BLbfvOA83/ob
+	HQpomABubJ+oe4LYSBmYgP2SeT19THyfq6CEDPYff6aW4K+prSTizXyNdcN/JZf80CZQvIyNTuL2H
+	UPI9okEXOyiU3s7TrmMnVwtQZwpq9kaBhVa/B9HsOlszig7NWEMcu+4DGCiDmaQNcS/fs4ie/cmJp
+	OGWmnxmPWwuvLESOe+WePIOw4scXcHXU3oVaOygu1Slv6t++rr5ZsHxxH7J6xtgpZypVQHlzLXqnu
+	AjKFTJBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPxEO-0000000FQCU-20Lw;
-	Fri, 13 Jun 2025 05:45:36 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uPxGd-0000000FQLI-1FyO;
+	Fri, 13 Jun 2025 05:47:55 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPx6b-0000000FOXa-43Gq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 05:37:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1749793050;
-	bh=m3k1yr4GslKpTzf5lqnCGMcEjSghKmBJjnIvXsOuWCc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mAUilWM21VC7VSJqWG0x27cxIkQzvrwFDSVB5KSKvDE9cRXOzAys05cSFQ0cOXawd
-	 IgOPWk7nlVlI3B8Ovt9CMgQps65zkZ3WyAnjRUiRhamZjUIZ+sVyNdg9emdwGzYk5a
-	 8hvwEeYNdivCAuWWNeYndziLQeHNjfRRE0ZuzRQ/CRdQteb+PK39YJGQR5MHwGhicq
-	 B7lBcvGfmNrYMZVMVBQSSfVX1UZhUU/1U0JhBdcnUnvMDYGecwE9OVDQUUbg3HvC17
-	 KgE2RlbyhioHPG78vPgk/xjs7BEnFiOocWdLH/hSRF0yx6f3+QAcl2soQ1wVPYHMVX
-	 p7JKPApw5UHpQ==
-Received: from [192.168.68.112] (unknown [180.150.112.166])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 9C11E680F3;
-	Fri, 13 Jun 2025 13:37:29 +0800 (AWST)
-Message-ID: <6a51eda96a7ffbb228ec08877a4f6649413c9bef.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v4 1/1] ARM: dts: aspeed: Add device tree for Nvidia's
- GB200 UT3.0b platform BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Donald Shannon <donalds@nvidia.com>, "robh@kernel.org"
- <robh@kernel.org>,  "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>
-Cc: "joel@jms.id.au" <joel@jms.id.au>, "devicetree@vger.kernel.org"
-	 <devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	 <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	 <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	 <linux-kernel@vger.kernel.org>, Ed Tanous <etanous@nvidia.com>
-Date: Fri, 13 Jun 2025 15:07:29 +0930
-In-Reply-To: <PH7PR12MB72826C4B588D08923A512E91D774A@PH7PR12MB7282.namprd12.prod.outlook.com>
-References: <20250611013025.2898412-1-donalds@nvidia.com>
-	 <20250611013025.2898412-2-donalds@nvidia.com>
-	 <67c89ca729669f55e2659ad8070a154c59ef83db.camel@codeconstruct.com.au>
-	 <PH7PR12MB72826C4B588D08923A512E91D774A@PH7PR12MB7282.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1uPx8A-0000000FOlY-1kLr;
+	Fri, 13 Jun 2025 05:39:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=oTmKBJlMorLr5a5LInNozxhvLN2jsh96HUsPIOSges8=; b=MpUKvseYkq6vJrGW2wEeJYJbyd
+	9erfk9k/OIelxhqtST2G63Etxjf/l4waEtio+lwGS/YvJWxHfrgBi7vT90612S2yjiaqZg1yp15VQ
+	+0/WMgh/vWFN+5EgWp3ePM0JPWxCCpPWUI0u5QyzgQ4rkMbrihzPy4P6vEiyqF0fdglweaZbKgPz3
+	lcGc8LrVFasnavMmSFfunXd6iOB/a1rCbFuV0dhbTYtYvRyMxWPlr/CehCMPWOA2oG4goBifYOIWq
+	IzJcLJ6dtEyg2eFqAxj8/SFtUE7Z7jjo6CbGdNHcee5UbceM6xFGgNpq2B+CHnWG+fWFvlVe4T6VL
+	vyjVaA/w==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1uPx7z-00CqA6-2c;
+	Fri, 13 Jun 2025 13:39:00 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 13 Jun 2025 13:38:59 +0800
+Date: Fri, 13 Jun 2025 13:38:59 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
+	Jason@zx2c4.com, torvalds@linux-foundation.org
+Subject: Re: [PATCH 07/16] crypto: sha512 - replace sha512_generic with
+ wrapper around SHA-512 library
+Message-ID: <aEu5cyDOMcKteW_b@gondor.apana.org.au>
+References: <20250611020923.1482701-8-ebiggers@kernel.org>
+ <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
+ <20250611033957.GA1484147@sol>
+ <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
+ <20250611035842.GB1484147@sol>
+ <20250613053624.GA163131@sol>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613053624.GA163131@sol>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_223734_193884_C68D0335 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250612_223910_452704_3E64F1B6 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-06-12 at 16:59 +0000, Donald Shannon wrote:
-> Hi Andrew and Krzysztof,
->=20
-> The difference in this device tree is adding more GPIO expanders and
-> changing the networking.
+On Thu, Jun 12, 2025 at 10:36:24PM -0700, Eric Biggers wrote:
+>
+> You do know that most of the sha512 asynchronous hash drivers use custom state
+> formats and not your new one, right?  So your code in ahash_do_req_chain() is
+> broken for most asynchronous hash drivers anyway.
 
-Can you please include a description of these differences in the commit
-message?
+Every driver needs to be converted by hand.  Once a driver has
+been converted it'll be marked as block-only which activates
+the fallback path in ahash.
 
->=20
-> Would it be best practice to create a new device binding (in this
-> case nvidia,gb200-ut30b), even if it is just a slight modification on
-> gb200nvl-bmc? Or can I reuse the gb200nvl-bmc compatible string and
-> avoid the yaml binding change all together since it would share the
-> same drivers?
-
-You can include the aspeed-bmc-nvidia-gb200nvl-bmc.dts file and
-override the nodes where the differences lie if that helps. There are
-existing examples of this strategy, for instance:
-
-   $ git grep '^#include .*\.dts"$' arch/arm/boot/dts/aspeed/
-   arch/arm/boot/dts/aspeed/aspeed-ast2600-evb-a1.dts:#include "aspeed-ast2=
-600-evb.dts"
-   arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge-4u.dts:#include "aspee=
-d-bmc-ibm-blueridge.dts"
-   arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-1s4u.dts:#include "aspee=
-d-bmc-ibm-rainier-4u.dts"
-   arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-4u.dts:#include "aspeed-=
-bmc-ibm-rainier.dts"
-
-Whether or not the differences warrant a separate compatible - I'm not
-sure.
-
-Andrew
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
