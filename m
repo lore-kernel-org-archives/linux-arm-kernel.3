@@ -4,144 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB63C71148
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A230C71148
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 11:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fQhrER86kV77D51W9dBRr05vyvK8XEmW5e/obbwfp+A=; b=aoTHK5sic+LsrAA8WZEjrHonoS
-	X9OB4p1Bg+CnPxgBeLiP5vBDFMzcAnndP01sNr2gcqw0IUT0V7Wvz++MYBmuYC1ijIp4JXFGsqRKe
-	lyRj6t9meK4Gr5pgD6p/gGtvKb0AgmKVeD1PZoapM8WqiPUYujsGZz7mVgJCSkB24RldAaI85yMcn
-	fuakYT5K+JQvj+0mSz9n3BiwTRZgFs5RMHW5fcCQdqq9391KCluBiyV8oOjQs2S6pjX7kZyQGc2ZX
-	WPc735/0BsxN8gsi6ydWcaooHJEJCzfL1DTs/DGx2HvElzcs6i5ldQRdT3xz01wE8j8BDK4J2JqtD
-	MYjjPZ7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=soCA1TZ0DhY5YcbIv8yTONB+anARgZKgPRV/EvTfcRg=; b=v/HydWkmBbT1WDhzbEMxtqt1rg
+	FgK8l4ZM628mVZ7p4ShPd0Djfma2JeA23QusTCOO2mqsVlw3CeREzA6CQZ7v4z7gEITzPhYrLSPKJ
+	DcK25LpWPD0gxbUWjinRMSUlPd8IdbN1ykk9PpjQMwS0uS/JVgXW6LWTCiepBQWQdw8F9qQolTPL5
+	t2YMFr6rKG2yr9tFk4xffd2zkqifYQWN4iZ0Ix2PR6jfz0EGs9ZfHwli6jPzzoFO2pYXwiXJGbrg0
+	U/QNh8vBpgqNAkTyzu3otkpaN520bACCNlBaKZylDIoj3G+KSosU1QW6mtLDg/6uf+6CmE8kTgnbd
+	KgOkn4NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ2cZ-0000000GAuV-1Vkb;
-	Fri, 13 Jun 2025 11:30:55 +0000
-Received: from mail-bn8nam12on20605.outbound.protection.outlook.com ([2a01:111:f403:2418::605] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uQ2cc-0000000GB1q-4AOu;
+	Fri, 13 Jun 2025 11:30:58 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQ1Pg-0000000G2t1-3AQJ
+	id 1uQ1SN-0000000G3Nb-0Yks
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 10:13:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HjlxypH2/tzy0gK0qqDDMVRA4gCrB8EmCqdyIfkoTaWo099s/CF9F+o1rwH8Vngx8QmtJAqPlacrmMTymLuFP18FyUEi8RPLKtfUkIyQU2CTNxoSEe2gCF6tPsQtm9HCLOX9fXKQ8+4UPzVpzuNx6nyo4cZ22/xqUT7i9EWZJWXJGjx6tA8ybcr+TfcCTpTXKLDHJHvB8FKFxvTK3IDpc3MjD2Rh9OKIi+ZRtspLMNjVdVxfmG5hyRmW2py6vS325nmHoVO0lzVgUvn5SBkF5ojvElcYjcqardtB+H1Z7IQW95DJKzq+OfMNfm3LUguMNqxW7SL7eivSfqQMM52yzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fQhrER86kV77D51W9dBRr05vyvK8XEmW5e/obbwfp+A=;
- b=IL9jlo8KBY9FZaF+Ug10pE8ug13iXFK8f66OGssYpewrbjdO7aKsvFT4H2oj22tGcPOVy30nrzkgBOswNEcBhrMPV7ThGG6NE/LRQluQ6n+V8X+N6rRsBjmzmO49YYZr7rjX5WSRXbndl41919Qa+MF2B2DxOtRTqcJ81Umi9kePuKANmCxF69fGG+3Tf0w3N4gB9ll/IDsJdZn9lLSmvCNUzHOcSFI7q4SNrEX2lpMHE9T2oYneAUQPc+M8W06nMCuYdm/ASC9XBpRYk0EhgRpQ/iSQDn8ciV3BlgBJqMjo6kHnkPrhpivXWV74wObuK4mHUPPpcOK3MqZBr4Hv/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fQhrER86kV77D51W9dBRr05vyvK8XEmW5e/obbwfp+A=;
- b=j3mBTLhe4+pxP+PfteFEk01tPi1A543KFCvqMVup3WUZKlhrgKUJxiN39x/arPYBZ9JiGVYNEnsVIlbwoGI0J+rhrOSBulJG6AGzFsjxjbUAhhwepqStcbVtFJynzsHlmeeIkMjLxJAQ8gVtB7pH3WZbNSvhek7RYsLkK7IJip8=
-Received: from BY5PR04CA0007.namprd04.prod.outlook.com (2603:10b6:a03:1d0::17)
- by LV3PR12MB9353.namprd12.prod.outlook.com (2603:10b6:408:21b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.26; Fri, 13 Jun
- 2025 10:13:24 +0000
-Received: from CO1PEPF000044FA.namprd21.prod.outlook.com
- (2603:10b6:a03:1d0:cafe::14) by BY5PR04CA0007.outlook.office365.com
- (2603:10b6:a03:1d0::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.22 via Frontend Transport; Fri,
- 13 Jun 2025 10:13:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- CO1PEPF000044FA.mail.protection.outlook.com (10.167.241.200) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8857.0 via Frontend Transport; Fri, 13 Jun 2025 10:13:23 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 13 Jun 2025 10:16:20 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55D9r6he023723;
+	Fri, 13 Jun 2025 12:16:06 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	soCA1TZ0DhY5YcbIv8yTONB+anARgZKgPRV/EvTfcRg=; b=8NxR359Zqy+fSwh3
+	qvK2htwumIHxxsigcx31wFV42Sr2el/kQOCjwRelYmsKsRSGu2O78DCkKthJvXzn
+	BS/pr3aCcQMfIoH+MpOaL+HZLArA+EEVP+OUVv8ZjQ9xiPVBt0NH0Vy8XgMUPY5Z
+	FMatzkVjRA8BtwvD0WfAr/05Yyg/56s3gO76Ofb1PidmKIGVvWWv3WmGCMRFule+
+	p8Jo+y0onsNEvDCmq71egC8L+eaUTzZBQkDoMfOTo1zBCQgqG3thOq7xQQRvQDs/
+	RDUPDuUDjWkxZ/s5vtvGExynBHyxeLD+VI0278h+br3VSmNO9BB2nA0G5Tx0XWcS
+	Q7rhLw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 474cs3569r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 13 Jun 2025 12:16:06 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 450F140065;
+	Fri, 13 Jun 2025 12:15:12 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 56E7339DE0E;
+	Fri, 13 Jun 2025 12:14:23 +0200 (CEST)
+Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 13 Jun
- 2025 05:13:08 -0500
-Received: from localhost (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39 via Frontend
- Transport; Fri, 13 Jun 2025 05:13:07 -0500
-From: Michal Simek <michal.simek@amd.com>
-To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
-	<michal.simek@xilinx.com>, <git@xilinx.com>
-CC: Bartosz Golaszewski <brgl@bgdev.pl>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij
-	<linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, Shubhrajyoti Datta
-	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, "open
- list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
-	<devicetree@vger.kernel.org>, "moderated list:ARM/ZYNQ ARCHITECTURE"
-	<linux-arm-kernel@lists.infradead.org>, "open list:GPIO SUBSYSTEM"
-	<linux-gpio@vger.kernel.org>
-Subject: [PATCH v2 2/2] dt-bindings: gpio: gpio-xilinx: Mark clocks as required property
-Date: Fri, 13 Jun 2025 12:12:53 +0200
-Message-ID: <cbde9b9e2b0f9d12fdd1ba24fddb1543159357aa.1749809570.git.michal.simek@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <8407ef56b11632c1a7abfce8a4534ed8a8ed56cc.1749809570.git.michal.simek@amd.com>
-References: <8407ef56b11632c1a7abfce8a4534ed8a8ed56cc.1749809570.git.michal.simek@amd.com>
+ 2025 12:14:23 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Fri, 13 Jun 2025 12:14:19 +0200
+Subject: [PATCH v5 8/9] ARM: dts: stm32: add alternate pinmux for HDP pin
+ and add HDP pinctrl node
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1562; i=michal.simek@amd.com; h=from:subject:message-id; bh=Porp3/L87PdaokpFBMH3QzoSa3a15c+OlRJdI7MyIEE=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWR4/1w5Y1PGFgvv29uP1v2aJf61weLhW4Xdy69s7f+56 5217Bzxwo5SFgYxDgZZMUWW6Uw6Dmu+XVsqtjwyH2YOKxPIEAYuTgGYSOpMRob5zys3TKj52d/W u+jce00T/WvCr7qylofIssfymjdJp/xiZDg2q/j/i5t3otaziH2ddoo55piE/K1dTCfcNdyL+5/ 7fmYCAA==
-X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB03.amd.com: michal.simek@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000044FA:EE_|LV3PR12MB9353:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1f78aacf-0f81-428e-cd4d-08ddaa62ee7b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7416014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?c3LyD9v9UAlTTj+glmnFVutCMXXIKTcfpWu80CIMu6QhFCqOuw8KnqgfLfso?=
- =?us-ascii?Q?dKOTzbElnk9vfLrrlX6zEqps9h3WfbjPm/RC6f3YeDlJmvHvGE74qoK1EFXS?=
- =?us-ascii?Q?xmsav2b6PIp0gSCylj8QHbXC/MnHjv4GddImv+RfeDdqkShQUgqmF9PHHFnp?=
- =?us-ascii?Q?0e6aVR4VL6mfDUKPJUohkCQi7bPeP+hHLwOmq/o4OZz9mu8qoervNYDrhXHJ?=
- =?us-ascii?Q?VqTfL5ffyKxhcWk30EEngECeifInkS/X71+tDradSIsYmy/hD88UXL+aDwzo?=
- =?us-ascii?Q?CZYx+aCimpHfQV5Acaa764oZE3Lczn3rQ49noFZyaQMxdyO7IhrVjNU1olV/?=
- =?us-ascii?Q?geCfWP6+/5zmBaJIQpRpU4it/Uli3Ggv1OmsdHwesBljkM6y4GvvFKM6mRBx?=
- =?us-ascii?Q?i6ApFNnD8BjHsixHmfAnvtJh7eMv2a3g8kRvTYEf+pryRTkUGGihKlBTsRId?=
- =?us-ascii?Q?eAHbAcOTUr2fxDjzHtDWo77Ba3siZI6xtFvghuP8E/uyrNLlNpZFuInxHT97?=
- =?us-ascii?Q?5Aj3B5w0Nw07GIW2lpGQU+nmgzAI5uiKzBap4q92hjy5ajGUga0J9EL8AAmU?=
- =?us-ascii?Q?NyeOnr4JABWTWyX210GhJaaexYQTu3DFS8HMoXtufoPfljB5s0DUtZWNa6pt?=
- =?us-ascii?Q?ZWSwL37wIwGSiAj+E3bRQmWlkcYL0ggbePfBDDV6smV3FrYWKxoSfOykz033?=
- =?us-ascii?Q?RHrCh+/4AikJL7Xesq07wDpGIAEOc7Nm2VLDaSKgFGrfgJub+E/oJHWCQczu?=
- =?us-ascii?Q?7CthGhf1MV4Wox152rfCDE05EHIHulw/P2/Mwv1gYraFScuurDNvRxdP69TS?=
- =?us-ascii?Q?P9gVh2NAtQqEp4HVbghbDz4LD5gflr9lwrEUdiZx2fHAkLlxd6Gkv98jYJ21?=
- =?us-ascii?Q?DgQxJDcFvDm0QFAxUDXj8ovna6HUpdu7cJAQbkslxg2iaAynt07UM3AZYaXG?=
- =?us-ascii?Q?TjPPkjXAYAE+IpVztxa41JiJxt+8XrTz3ZpSADkRfXJ06eVIXQyvfSSc3dOw?=
- =?us-ascii?Q?scYEfxf1BmvcgbJ7Du7wM2odunVdc57aSuNkjCMBln/j5I68VLRKqvbYJPfY?=
- =?us-ascii?Q?D14g4HifR9M6Vp9x83JkTT6AbPWIpYi9RHpU6edGkvwzK6VcE5UHJFGmGwEc?=
- =?us-ascii?Q?aFxmcOJXP66WsrpECRfoA8N6nT6atzNhVRuIQ1BQV+KVwE9Xkw8UgGxS4LZO?=
- =?us-ascii?Q?QIXhvHRFhjbUJed81ksx+6L/UpoFuvUfWAVeD/ivJZBWcmzWE6AlPokgXCoB?=
- =?us-ascii?Q?uYGLgGSY60U9GH4KbT8RgDBB/arPcAN6QLbG/VL3HzPND6pbYwXcWNMUzr9t?=
- =?us-ascii?Q?ZcxIIUbWHST3NLaO3Z75zRbYsvIAdBb+GibA3cwHHjGBC0gkKG68hj1bncu5?=
- =?us-ascii?Q?NnwST7yo4wvzdCASNfYDG1OdkE27doQzK01siLfTZuwPxr75eZ+9snsBsoFk?=
- =?us-ascii?Q?kLr4L1VUtY9XColkaS7AnBaRN43oaAs18CCubz8TEl4VO+j9UogLTOlrovLH?=
- =?us-ascii?Q?jdfP61inblcgBQAAChI4hfBQ5T5cVnJ2oX4anqVM9HwXZBymz6tgTwHfvw?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7416014)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2025 10:13:23.9616
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f78aacf-0f81-428e-cd4d-08ddaa62ee7b
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044FA.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9353
+Message-ID: <20250613-hdp-upstream-v5-8-6fd6f0dc527c@foss.st.com>
+References: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
+In-Reply-To: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
+	<clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-0537a
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-12_10,2025-06-12_02,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_031332_979888_CACD16DD 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250613_031619_463277_3A868F25 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,45 +101,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Microblaze platforms there is no need to handle clocks because the
-system is starting with clocks enabled (can be described via fixed clock
-node or clock-frequency property or not described at all).
-With using soft IPs with SOC platforms there is mandatory to handle clocks
-as is explained in commit 60dbdc6e08d6 ("dt-bindings: net: emaclite: Add
-clock support").
-That's why make clock as required in dt binding because it is present in
-both configurations and should be described even there is no way how to
-handle it on Microblaze systems.
+Introduce hdp node to output a user defined value on port hdp2.
+Add pinctrl nodes to be able to output this signal on one SoC pin.
 
-Signed-off-by: Michal Simek <michal.simek@amd.com>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
+ arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-Changes in v2:
-- Add fpga region patch to fix issue which was introduces by this change
-
-Based on discussion at
-https://lore.kernel.org/lkml/20241002-revivable-crummy-f780adec538c@spud/
-
-Actually this shouldn't be only targetting GPIO but also for example
-xlnx,xps-timebase-wdt-1.00.a but I would like to check it first on gpio
-before starting to check other bindings.
-
----
- Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
-index 8fbf12ca067e..7af4eb2d1858 100644
---- a/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
-+++ b/Documentation/devicetree/bindings/gpio/xlnx,gpio-xilinx.yaml
-@@ -117,6 +117,7 @@ properties:
- required:
-   - reg
-   - compatible
-+  - clocks
-   - gpio-controller
-   - "#gpio-cells"
+diff --git a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi b/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
+index 40605ea85ee1..4a31e9f7a897 100644
+--- a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
+@@ -5,6 +5,14 @@
+  */
+ #include <dt-bindings/pinctrl/stm32-pinfunc.h>
  
++&hdp {
++	/omit-if-no-ref/
++	hdp2_gpo: hdp2-pins {
++		function = "gpoval2";
++		pins = "HDP2";
++	};
++};
++
+ &pinctrl {
+ 	/omit-if-no-ref/
+ 	adc1_ain_pins_a: adc1-ain-0 {
+@@ -731,6 +739,23 @@ pins {
+ 		};
+ 	};
+ 
++	/omit-if-no-ref/
++	hdp2_pins_a: hdp2-0 {
++		pins {
++			pinmux = <STM32_PINMUX('E', 13, AF0)>; /* HDP2 */
++			bias-disable;
++			drive-push-pull;
++			slew-rate = <2>;
++		};
++	};
++
++	/omit-if-no-ref/
++	hdp2_sleep_pins_a: hdp2-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('E', 13, ANALOG)>; /* HDP2 */
++		};
++	};
++
+ 	/omit-if-no-ref/
+ 	i2c1_pins_a: i2c1-0 {
+ 		pins {
+
 -- 
 2.43.0
 
