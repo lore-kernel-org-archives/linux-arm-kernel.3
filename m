@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED13C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B878EC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 13 Jun 2025 06:42:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4Z4Zk6gFMiiiZCc+KOTwsC9S+QK7pJWpmIYxo8X11Ys=; b=B6lHgS88X2l3V6sB5KTB/yNtrs
-	utBCQyLjGuLDIogLMgqbLCRP1WThvWGd2IQxfGa6HI1ZSStoGo22SoSX6mVoW3r+yHTb549G4JrNI
-	a3Y9SOyzicMhZVlPSLjxbbW1nZnDRvJnf8BUQDCicRhS/+hGkUpBIh1pxY9fEz6HRz/75H41xKqch
-	+BSvQeoA308SpjiWrIM9GhwdHFScnYoQzHlByyjvztKwlND1L6dtwvYvBtGQKwo42ok3ruwuCBHpE
-	qgmC3Gnurr0VNZTyQ9dJcrRAVnQP6CaKNfmI4U81+miZJZXleC+2A4ekamhqk3ZnTfHFVP8ETTLWy
-	M0DxteKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pZSJsZ5prUow1osV4xFCQPoa5QsUPc8zmLK0PX41l4c=; b=gDC9m1svHYws1I2a4i1LDmBdrY
+	xVy5qQT1hMZtq5jm4H/kNHYhA4m2cRZX2ffMWTqoFSVTDyLBfRCkTZCQYra2pdPtd6W1Q+i7E4zfs
+	fsM/WKznvgwZFsXSFuNslzuCRlM534HjxZ2JKhS95BJfxDgbdUp4CgfWgWeEJukYkP+rQxL3MO2Jf
+	x7o/0W/TzywLIXHOiPDKAvVKVwasa5a95tnC7q/o+fcLCRinWSc198HdX4PbCOl0aqIkrG47Vld9l
+	Li4a00ahy6x5o1FtFHrakUGQPvDY+YGMd3B7TaQSgll8fUExqDN53dOGM/b0BNVkfkMVNbHizupWE
+	3HEDT7Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPy4v-0000000FUgj-2iuA;
-	Fri, 13 Jun 2025 06:39:53 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPy2f-0000000FUYU-2H6S
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 13 Jun 2025 06:37:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=4Z
-	4Zk6gFMiiiZCc+KOTwsC9S+QK7pJWpmIYxo8X11Ys=; b=SL9wuNi92DVR4EZZg1
-	AcrmdZhnTbCzkePXev9RZ2c9A4mBcPkVyZR1r5Sd5MfJTFIPW6EX4VxC2qGqCgQ9
-	RfeqOC/NB3B0M5+S9bc7pgO5LMBRTMM7sNgfOzVP4G91LJOuOwrgi142L1QFaBgt
-	Vaad342x3Z0IHqsY5D11Yb1zo=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id PCgvCgCXdSQGx0togsW6Bg--.7897S2;
-	Fri, 13 Jun 2025 14:36:55 +0800 (CST)
-From: wangdicheng <wangdich9700@163.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com
-Cc: linux-kernel@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: [PATCH] ALSA: usb-audio: Rename ALSA kcontrol PCM and PCM1 for the KTMicro sound card
-Date: Fri, 13 Jun 2025 14:36:36 +0800
-Message-Id: <20250613063636.239683-1-wangdich9700@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1uPy7A-0000000FUr5-2oT7;
+	Fri, 13 Jun 2025 06:42:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPy3n-0000000FUcL-29mV;
+	Fri, 13 Jun 2025 06:38:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C184F4A55E;
+	Fri, 13 Jun 2025 06:38:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A305C4CEE3;
+	Fri, 13 Jun 2025 06:38:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749796722;
+	bh=tROfEO8euW7h0JprdW23sw/j5uJHnALwGHFYIu1qnIc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pv7YBXXOJmQxXTV4jr0t1k2py0pGy6WO1Uo1f3lcTcLD9104WQCKyIgfI35DgY/9p
+	 rfjfU30z4XBKgfl6pUeyzHKm+HtNj5lL5aWGofUPsuBPfLL5+9yRtIPFtjlcZPStd/
+	 y8xYDdlOne5pTOMq3uyVKb1zYRb6gOo0wkGCj/RKGDWDtF1aNUaDDIi4Nvl64R2s6O
+	 d3QcUqlqGQeLCbj7m4Z89cesssF+y7i368gvbMXyTWB9F1sFWF71x2ODjBjjtgUxXx
+	 8iHbINVDEoozAApgAAxxS/WpQamaZCxwPLmHp7NQv/iZR0G92fP8OGeqjzE3ySTbcm
+	 W8GU9Yk0CGgIw==
+Date: Fri, 13 Jun 2025 12:08:31 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com, 
+	heiko@sntech.de, manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com, 
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com, 
+	khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, Niklas Cassel <cassel@kernel.org>
+Subject: Re: [PATCH v4 1/2] PCI: Configure root port MPS during host probing
+Message-ID: <co2q55j4mk2ux7af4sj6snnfomditwizg5jevg6oilo3luby5z@6beqtbn3l432>
+References: <20250510155607.390687-1-18255117159@163.com>
+ <20250510155607.390687-2-18255117159@163.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PCgvCgCXdSQGx0togsW6Bg--.7897S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Gr45AryrAF1UtrWfXr4fXwb_yoWkAwb_Ja
-	1Y9FW7AF15GFy3AFy7KF1ava4vyay7uasFgF98tryDta4Dtw1UAr42yF1kZFyqgrZ3JFy3
-	J3WDtr1S9a47JjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUbl_MDUUUUU==
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: pzdqwv5lfkmliqq6il2tof0z/1S2mRwBrT2hLxekfZwAAsU
+In-Reply-To: <20250510155607.390687-2-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_233733_939389_16614148 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_233843_593348_901A814C 
+X-CRM114-Status: GOOD (  30.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +77,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: wangdicheng <wangdicheng@kylinos.cn>
+On Sat, May 10, 2025 at 11:56:06PM +0800, Hans Zhang wrote:
+> Current PCIe initialization logic may leave root ports operating with
+> non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> configuration is handled during bus enumeration, root port MPS values
+> inherited from firmware or hardware defaults might not utilize the full
+> capabilities supported by the controller hardware. This can result is
+> uboptimal data transfer efficiency across the PCIe hierarchy.
+> 
+> During host controller probing phase, when PCIe bus tuning is enabled,
+> the implementation now configures root port MPS settings to their
+> hardware-supported maximum values. By iterating through bridge devices
+> under the root bus and identifying PCIe root ports, each port's MPS is
+> set to 128 << pcie_mpss to match the device's maximum supported payload
+> size.
 
-PCM1 not in Pulseaudio's control list;standardize control to "Speaker"and"Headphone"
+I don't think the above statement is accurate. This patch is not iterating
+through the bridges and you cannot identify root ports using that. What this
+patch does is, it checks whether the device is root port or not and if it is,
+then it sets the MPS to MPSS (hw maximum) if PCIE_BUS_TUNE_OFF is not set.
 
-Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
----
- sound/usb/mixer_maps.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> The Max Read Request Size (MRRS) is subsequently adjusted through
+> existing companion logic to maintain compatibility with PCIe
+> specifications.
+> 
+> Explicit initialization at host probing stage ensures consistent PCIe
+> topology configuration before downstream devices perform their own MPS
+> negotiations. This proactive approach addresses platform-specific
+> requirements where controller drivers depend on properly initialized
+> root port settings, while maintaining backward compatibility through
+> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
+> utilized without altering existing device negotiation behaviors.
+> 
+> Suggested-by: Niklas Cassel <cassel@kernel.org>
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>  drivers/pci/probe.c | 72 ++++++++++++++++++++++++++-------------------
+>  1 file changed, 41 insertions(+), 31 deletions(-)
+> 
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 364fa2a514f8..1f67c03d170a 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -2149,6 +2149,37 @@ int pci_setup_device(struct pci_dev *dev)
+>  	return 0;
+>  }
+>  
+> +static void pcie_write_mps(struct pci_dev *dev, int mps)
+> +{
+> +	int rc;
+> +
+> +	if (pcie_bus_config == PCIE_BUS_PERFORMANCE) {
+> +		mps = 128 << dev->pcie_mpss;
+> +
+> +		if (pci_pcie_type(dev) != PCI_EXP_TYPE_ROOT_PORT &&
+> +		    dev->bus->self)
+> +
+> +			/*
+> +			 * For "Performance", the assumption is made that
+> +			 * downstream communication will never be larger than
+> +			 * the MRRS.  So, the MPS only needs to be configured
+> +			 * for the upstream communication.  This being the case,
+> +			 * walk from the top down and set the MPS of the child
+> +			 * to that of the parent bus.
+> +			 *
+> +			 * Configure the device MPS with the smaller of the
+> +			 * device MPSS or the bridge MPS (which is assumed to be
+> +			 * properly configured at this point to the largest
+> +			 * allowable MPS based on its parent bus).
+> +			 */
+> +			mps = min(mps, pcie_get_mps(dev->bus->self));
+> +	}
+> +
+> +	rc = pcie_set_mps(dev, mps);
+> +	if (rc)
+> +		pci_err(dev, "Failed attempting to set the MPS\n");
+> +}
+> +
+>  static void pci_configure_mps(struct pci_dev *dev)
+>  {
+>  	struct pci_dev *bridge = pci_upstream_bridge(dev);
+> @@ -2178,6 +2209,16 @@ static void pci_configure_mps(struct pci_dev *dev)
+>  		return;
+>  	}
+>  
+> +	/*
+> +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
+> +	 * start off by setting root ports' MPS to MPSS. Depending on the MPS
+> +	 * strategy, and the MPSS of the devices below the root port, the MPS
+> +	 * of the root port might get overridden later.
+> +	 */
+> +	if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
+> +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
+> +		pcie_write_mps(dev, 128 << dev->pcie_mpss);
 
-diff --git a/sound/usb/mixer_maps.c b/sound/usb/mixer_maps.c
-index 0e9b5431a47f..faac7df1fbcf 100644
---- a/sound/usb/mixer_maps.c
-+++ b/sound/usb/mixer_maps.c
-@@ -383,6 +383,13 @@ static const struct usbmix_name_map ms_usb_link_map[] = {
- 	{ 0 }   /* terminator */
- };
- 
-+/* KTMicro USB */
-+static struct usbmix_name_map s31b2_0022_map[] = {
-+	{ 23, "Speaker Playback" },
-+	{ 18, "Headphone Playback" },
-+	{ 0 }
-+};
-+
- /* ASUS ROG Zenith II with Realtek ALC1220-VB */
- static const struct usbmix_name_map asus_zenith_ii_map[] = {
- 	{ 19, NULL, 12 }, /* FU, Input Gain Pad - broken response, disabled */
-@@ -692,6 +699,11 @@ static const struct usbmix_ctl_map usbmix_ctl_maps[] = {
- 		.id = USB_ID(0x045e, 0x083c),
- 		.map = ms_usb_link_map,
- 	},
-+	{
-+		/* KTMicro USB */
-+		.id = USB_ID(0X31b2, 0x0022),
-+		.map = s31b2_0022_map,
-+	},
- 	{ 0 } /* terminator */
- };
- 
+I believe you can just use "pcie_set_mps(dev, 128 << dev->pcie_mpss)" directly
+and avoid moving pcie_write_mps() around.
+
+- Mani
+
 -- 
-2.25.1
-
+மணிவண்ணன் சதாசிவம்
 
