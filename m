@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E75E5C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 02:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D6DC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 02:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=muvH186xbp1wZouT3DAGJVB1Ry12NAmcqUPQ49mvjxQ=; b=XGpaxqKumcUqSLCLNgWxASXJSg
-	ZCBq8PGDpVqnP9Tr+0eTah1sZGXThtNDTO3D6LkmYZQvL81GvkCC3euzs0feNYOGGTKTzctIfJezb
-	PmNIO5tT2lFSZc2gekPZJQ39snvGQI+RXF0v8jpeoQR+rJ4BXvVJ3H1pmx1NuAudMC+oMZOat7YcG
-	b9/R+2WFDD67u6p51EZ0T+Q5BdzQh1uehQsOlzd/SQpPZaYdm7xWcYxoyNYl4vkYpK6LUAcsjjIjf
-	dEApNqQzq+HClBWof2MA4Lk2e9TH/hfEymvXGSXyeF0d+di9LFSwQHmK3ZxS3btwAzdzFhNWVaO7B
-	DNkIIFDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/4zSIPw19HlLUie6b0kgjQJHS7vidQhIk3Cd96brfSo=; b=tY/+5w6pFQGRq9uG5cG5HViwpD
+	7RiH4FXKW8pQAJo9mLU1Np4WKqdSAG0JWQrYUdTgHlX+HQgi5JGrn6Q0aEOt3MVGX/yphyKPwUFTx
+	cz9lPnTqq36TZ3o5SqEX1YEr0FeoC206ueI94YsVowGCumyQIryV0lmS4YwVsRjdjsPwoET3hpHT6
+	81A1SrKkx8IPLcOPVfDfG/ha9u309i/SXZJ+WI+urprlCi3QUCDvB3f26gM9D5cq3qf5uvxU5lKcn
+	5JU5sWglUz87FCj6+Nb11CXeuQ1AIbkVzu1lEkc92GLFjmOdEGHVwJzTSNeO2hwvhiwCZKR83Yt15
+	a3qXKXhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQGiK-00000000Xm2-1b9K;
-	Sat, 14 Jun 2025 02:33:48 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1uQGmo-00000000Y1x-1BSM;
+	Sat, 14 Jun 2025 02:38:26 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQGg9-00000000Xd5-41xo;
-	Sat, 14 Jun 2025 02:31:35 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-879d2e419b9so3068990a12.2;
-        Fri, 13 Jun 2025 19:31:33 -0700 (PDT)
+	id 1uQGke-00000000XvR-465n
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Jun 2025 02:36:14 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54998f865b8so2486616e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 13 Jun 2025 19:36:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749868293; x=1750473093; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=muvH186xbp1wZouT3DAGJVB1Ry12NAmcqUPQ49mvjxQ=;
-        b=Pkayy9jIkmePg+DKe+xLLmjmuI6hqsvMjjCEg+0iIaAJ7o/7MU9VcigC8VBxe0SNyH
-         igD9txP1YndW6hyNX7izni+nF8Taso38h9cX5/u0jmPdVpanouWR1T5I/Dn1nLKNIlkn
-         UXlBk9xAPqVg2rg0T2geyexkzD9rUIxvfKuGalq3aLgxVDLk0VlUS7QowLSQkzPuo5lN
-         DK6WN/J8/06YAbJmIKD17IpaIXTzOW0Of6CnpM4qdIb/3ENlW0qrjKIHMbQLlukpEGfp
-         CzLJd/FiwlmNMkiEnExcNSayHjeR+QHnF9tNlyYq4fSvEU3wue9J0Vh5Gvvf/LNdav7h
-         AhWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749868293; x=1750473093;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1749868570; x=1750473370; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=muvH186xbp1wZouT3DAGJVB1Ry12NAmcqUPQ49mvjxQ=;
-        b=aAFgALtwHn7+lz536+jth0VyhZW3oUObD7of3/HUcOFVhCBSY/63wlBSYwRAaNBUFT
-         RGLmGRVVg28CeQmxQayOhFt19HB5HLGlu6lYAd1JRT4m+EwICH9GsI17ukgID6ILtQcA
-         6Ku4FnQRCnDkKfBFrjtwXtWH68eWVIvdJluIi8m+J56NVZrR9zrMqphG2QeLUxp4iNIj
-         4vYLg6wbjJIq5/x8+6FVSqwhorp9mkD9gIvOiiJk5AUSnBdK1blY0WkKQMnckztvPNsA
-         6ZXRwInbnOpzlaa9SDsZ8zZCIjP27ssp6EmmH2CUAVFjoWUix/uQjJMHEVXRYcYo0kT3
-         N6xw==
-X-Forwarded-Encrypted: i=1; AJvYcCUBmS9GBVfjpHtGT2k9E7dRsyP1/Wc4ZuaPkS2phsaHX+u6lChNwVg1yul+hEoGUsvltwBLO4GKgQD6@lists.infradead.org, AJvYcCUFhgMcKZdVUqu4GQJZaPce53+4ixhTSEJZR4+2ld6EttyDC/nXxC/8mV4ojLe1nskQPYpCWBZlhzQ1P0pcfoBD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3TtC3Gzgpc7eWLmux4ZiodpgzTCHFSzeIJfOVfyPCofQL0MWZ
-	yqCnXaqc1ZBfbd5nMhNwmg4NTcA0/bP9AZff4oGOrfFgI3Z1dPLqrWdkljhQg6i2
-X-Gm-Gg: ASbGncto6Tt8pGWs5cGbowheFtg5c9zYjn2OBhtnf6RDSCnx08+Nmf+USTobKsFmBas
-	ceF9uQ0zDuCR98vULDLfkUFi4PpdWq3kzrnilZqhjRtN7Qoo+dWZPxNdCVZ4M+D3VdCjaygUxGZ
-	eVHqcEBAIAFUPfeMmqjXKfELBOLYS1BkmL3RA29Cqgq4uQjmbCSiqboab1DaHNL+NHS+QSEInrc
-	Wryx4IrUUHOsRPmt4EZ37cjbi0IyAxJMsVXD+DqzjeisdFzDNlCbq/uF8WyMR/r3dXPCXddRVjV
-	TQ1CH058FZBYoUcILsIvceBjZGe7u+oksiG0eqoFgxBpjOzZ/w==
-X-Google-Smtp-Source: AGHT+IHCj4fIQmaD0smD64d+WdoNvxKcsF+LPm8LepKLk3m/wfu/XLkOZVHbtI+96XbJp9WpjbjE8Q==
-X-Received: by 2002:a17:90b:1dc4:b0:311:fde5:e225 with SMTP id 98e67ed59e1d1-313f1c01641mr3118796a91.14.1749868293053;
-        Fri, 13 Jun 2025 19:31:33 -0700 (PDT)
-Received: from geday ([2804:7f2:800b:87ca::dead:c001])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313c19cd5a6sm4158494a91.12.2025.06.13.19.31.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jun 2025 19:31:32 -0700 (PDT)
-Date: Fri, 13 Jun 2025 23:31:16 -0300
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	linux-phy@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RESEND RFC PATCH v4 1/5] PCI: rockchip: Use standard PCIe
- defines
-Message-ID: <aEze9A8jtNsZLxr7@geday>
-References: <aEyJhoiPP0Ugm1t6@geday>
- <20250613205023.GA975137@bhelgaas>
- <aEyRrtMZ0LidhyOR@geday>
+        bh=/4zSIPw19HlLUie6b0kgjQJHS7vidQhIk3Cd96brfSo=;
+        b=3x8Ikry+84sh/oYb+1u191TuViegfjTNSMxwXKg6WGi2YOSXAu0ytehfdClPTwRSTu
+         EchHdh4/YbzhCw6M+aT7if0drOeAUZFMuDLCPuPA2BhU+CWSFJiV27X7cVvTgctP7wyo
+         CbLviI6FSZulYAkfRhJHx4Bdb2LHGukNn6idq06mnoy8P0JrhSVruwZkneTqOxLLJk58
+         bwwglr9vqCuWvdHlLtrpGfZOV1OQiwDiBR9BrtL5Oiz6i968sE1LPNga4ktS/kYkLBPH
+         Voru1nY2Onjs9UbZdS7WmJVwT+IPX6/SknS/D5eOVTfp1PSjWzLxuSca355I0IGuwrl+
+         5EDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749868570; x=1750473370;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/4zSIPw19HlLUie6b0kgjQJHS7vidQhIk3Cd96brfSo=;
+        b=synMxjjThhk2STzBfN8GE0+YRcMySDXwo5+BInKb0nvXUl+sABJj/66ZFZJG5tDgSt
+         ppbNgqKRS+ZBLZTAQdnu+XFUuvdBNDyq25SJsCrElNK42zJHuX4mjb71QdoX5A/II/kf
+         bhnVMyPnn20S5dg+KY+QPIwdqmDyz/ezbLOmGn+Q8ZXi3Pc5Y8HdYyqER0awj3s9CiK1
+         pzikculsgiseTpgidX9YbpHtxdDfRhLrHpPaL6CbkrwqxmwM98hJp0ww4+8ktt0Znail
+         CGtbJ52fqG/T/ZU7CV6p/jDi00Jvq3AdG2V9bZptltqcYfqWfMIycglCgT4OManJzZ8/
+         qJuw==
+X-Forwarded-Encrypted: i=1; AJvYcCUSTpeeREP7tEfucnE3S/YcsJ6T1QA8xM1i39/LU92XGCy2lB4IMZPNY+EzYJDbZyZWi9sTDbHru7SweFeJoA0Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQad2PoqEku5MQuMMHyCeA3yL/E/SlX/ShjYjfORkd8mDYxxhp
+	X28IHleeAvx4ms2/3YwhKDPIlgDgq8iKVIRoID7yr3/7KCQHaNtl7HoDG6zu7m8AAV6MlkDAJOG
+	MdvIaaRjPRVYXjECPcDXZ1svLkOa9s5uPpdf9fK0=
+X-Gm-Gg: ASbGnctsar0Qb+YzWB+QzYrMIPt0Ra6jdpRVBhkgZD1kSEqoCVjx/RIXc3BUsGjv87Y
+	ArSQRS7YMWWujR4VYAuyqlVaiQVlHe5gLpUThQXrA0ISAakqgKhzalBgbih3zEbxJKK5mIbuw7J
+	xdchnad6VoxIaZAEDTAmpz2TnteYX66uE0l56hkgIHrk6aOetsIVV7XzSfLN2RiBrKXKOqBI0=
+X-Google-Smtp-Source: AGHT+IFxdd/eeA/jqO+ioIaQwggzyaJAKSp2npacWe2qm5ZmqZbGMbcXq9pAMDlbKaGfZHdE5uH6xTWQR5MyLSGGuXg=
+X-Received: by 2002:a05:6512:3f12:b0:553:ae47:6856 with SMTP id
+ 2adb3069b0e04-553b6e7d3b4mr334265e87.10.1749868570161; Fri, 13 Jun 2025
+ 19:36:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aEyRrtMZ0LidhyOR@geday>
+References: <20250614020524.631521-1-kuyo.chang@mediatek.com>
+In-Reply-To: <20250614020524.631521-1-kuyo.chang@mediatek.com>
+From: John Stultz <jstultz@google.com>
+Date: Fri, 13 Jun 2025 19:35:58 -0700
+X-Gm-Features: AX0GCFtDliQH_6brlg-dmQaZIRQh31WrUqfBwRgyCd0Z_gzAKUDVN86BzaEZjjk
+Message-ID: <CANDhNCpoKUbQU590m-vBKhk96ZCKDsYWOHwP_LL2W84SPOnXww@mail.gmail.com>
+Subject: Re: [PATCH 1/1] sched/deadline: Fix fair_server runtime calculation formula
+To: Kuyo Chang <kuyo.chang@mediatek.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_193133_999603_ECE71858 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250613_193613_015788_0D48DD5F 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,17 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 06:01:40PM -0300, Geraldo Nascimento wrote:
-> They are not under NDA and can be obtained though Rockchip's
-> official site:
-> https://rockchip.fr/Rockchip%20RK3399%20TRM%20V1.3%20Part2.pdf
+On Fri, Jun 13, 2025 at 7:05=E2=80=AFPM Kuyo Chang <kuyo.chang@mediatek.com=
+> wrote:
+> From: kuyo chang <kuyo.chang@mediatek.com>
+>
+> [Symptom]
+> The calculation formula for fair_server runtime is based on
+> Frequency/CPU scale-invariance.
+> This will cause excessive RT latency (expect absolute time).
+>
+> [Analysis]
+> Consider the following case under a Big.LITTLE architecture:
+>
+> Assume the runtime is : 50,000,000 ns, and FIE/CIE as below
+> FIE: 100
+> CIE:50
+> First by FIE, the runtime is scaled to 50,000,000 * 100 >> 10 =3D 4,882,8=
+12
+> Then by CIE, it is further scaled to 4,882,812 * 50 >> 10 =3D 238,418.
+>
+> So it will scaled to 238,418 ns.
+>
+> [Solution]
+> The runtime for fair_server should be absolute time
+> asis RT bandwidth control.
+> Fix the runtime calculation formula for the fair_server.
+>
+> Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
 
-Hm, sorry about the confusion Bjorn, that is not an official website
-at all it seems, so I assume these are leaked?
+While I've not quite gotten my head around the details in the
+dl_server code, I've been able to reproduce the problem described here
+with a 6.12 based kernel.
 
-If so, it's a real pity, there's not particularly confidential about
-these docs, and they are essential for working with Rockchip chips.
+Running cyclictest (with arguments "-t -a -p99 -m") , and a randomized
+input test on an Android device, its pretty easy to trip 100ms to
+*multi-second* delays of the RT prio 99 threads.
 
-Sorry,
-Geraldo Nascimento
+Perfetto image:
+https://github.com/johnstultz-work/misc/blob/main/images/2025-06-13_cyclict=
+est-dl-server-latency.png
+
+Link to the actual trace:
+https://ui.perfetto.dev/#!/?s=3D9bbb9e539ac2bbbfe3cfa954409134662a9f624a
+
+Using this patch, so far in my testing with the same workload, the max
+cyclictest latencies stick around the single digit ms range.
+
+The part that is a little confusing to me, is that prior to the long
+stall, it doesn't appear that RT tasks are actually starving
+SCHED_NORMAL tasks, so I'm conceptually surprised to see the dl_server
+boosting the normal tasks, especially for so long, but I admittedly
+haven't looked in detail at the code and have been going off my
+understanding of how it was supposed to replace rt-throttling, so I
+may be missing a subtlety.
+
+thanks
+-john
 
