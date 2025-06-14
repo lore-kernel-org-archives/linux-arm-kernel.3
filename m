@@ -4,78 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A257AC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 02:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE792C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 02:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3d8Zhx9ObiwNzJOCXqpj07GKelYT8v9Bbdj5NmJup8A=; b=nr1jBet3uOud2w23YBQog0WjvG
-	cIn4po2YuQNsKwKs70JQ1GcM0NR2MmtQyJyNANOBAf5SFHyeUz7RTJHY7YEE9QjhUD1a9vPvFOq2C
-	r25tTBXxNI/6a97P32yFRt+1dZiw1WTTingMOnLqZpLzrFrok1RCDlqoVpBHB7/2afd4o4f0AlDFT
-	ORk2/sOu/5Y0P1/K5k+6FNbTMniL00JYhQVLPgB0JWMes4UNWq0KuCC+BZVyvIzB6494XU4GSn/ub
-	OgF4mt2IurVMgko6QA85jrMrhwWOCjg397/cyE/A3Ef22DRJY69zQ4ykmakrIlnDR79JgYw+EDPxj
-	6TxbXEXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+dscW/dvb3RIpT4gh7qXnsS5297WNQKrqUPPCMPmLA8=; b=G04h2C2shyL36Qrrj6jR9VyAEw
+	zeh2ytJzAklhJQ1gMR7+ObauHlwIYxdabvd3GFoV626LQd2XE8zldVohi7fXIOukkOKgo2Nr/Uhcy
+	jOVhf5dtDOnhBbQJFKJYGolNVnzTSxLyGGwoWEWMbqNmv2ikpy4ihH045nWI4mzHw8RZq4TOnQWak
+	QRvqkyYdTHyV4C41VZ3cUyFK+S/K1HvfS5VxX5QvabvnCxEQSpcK8qNyePIWxuqELXB6mN+DDr5c6
+	VLRsk/zsjNHwjC/BxaUtjYEIkjd9J8tnckZ+x2i4mXuF3Il7SigN5BPEJcfQ95/5Mb2s/GvOc1pxz
+	UAnSflQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQGJC-00000000WPV-1nji;
-	Sat, 14 Jun 2025 02:07:50 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uQGMY-00000000Weo-1Aes;
+	Sat, 14 Jun 2025 02:11:18 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQGH2-00000000WIC-2BtY;
-	Sat, 14 Jun 2025 02:05:37 +0000
-X-UUID: 0cc84b6848c411f09eb0dd999d3936bf-20250613
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=3d8Zhx9ObiwNzJOCXqpj07GKelYT8v9Bbdj5NmJup8A=;
-	b=rm4iv6JXqailfLDuFOVVmxKG7qC21pB7C6rypGQE78KqWP7+qPANaJs3AGB/Fkc1gW+N3rSal3bbMdEaUUy2eVBmIzciBNIaRKvlZUjKCmPdkG/D80gBf+qoaBUHtSlJYd3vvt7hE75Uh9ahcQ47bhU02GTscPzo4lsbsjAIOYQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.3,REQID:cc78903a-669e-4dda-93a1-2ffccdad15e5,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-35
-X-CID-META: VersionHash:09905cf,CLOUDID:5bcef676-7521-4364-b0ef-cd7d9c0ecbde,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:2,IP:nil
-	,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
-	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 0cc84b6848c411f09eb0dd999d3936bf-20250613
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <kuyo.chang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 583862450; Fri, 13 Jun 2025 19:05:31 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Sat, 14 Jun 2025 10:05:28 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Sat, 14 Jun 2025 10:05:28 +0800
-From: Kuyo Chang <kuyo.chang@mediatek.com>
-To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
-	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel
- Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: jstultz <jstultz@google.com>, kuyo chang <kuyo.chang@mediatek.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH 1/1] sched/deadline: Fix fair_server runtime calculation formula
-Date: Sat, 14 Jun 2025 10:04:55 +0800
-Message-ID: <20250614020524.631521-1-kuyo.chang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1uQGKO-00000000WV1-0iJq;
+	Sat, 14 Jun 2025 02:09:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749866944; x=1781402944;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=T7F5BTPkmIJqijZcvCaJDzeehyOgLhWobs1d8ZTzUB8=;
+  b=jd1tkCekWS+1mdplY34q5PYBs9dnO8tLSxUYfzpki0X29oW2pQgILDLI
+   MzXsIEBH3xickUO35SY6HnOH9pY3wguayIhA3DiqECUlFmQLxvJ3kjqZU
+   umVGJTJxDsEUf66uWTMib/K8oTwTc+SpLEtFBcbX6I7AA5JsJy8YpbqMi
+   FCQDjGeCiZiHpSr9YbL/3YQkTpnc5Kxx1NWCyibTqeIfH5wQ/2j8AeSu+
+   PGMbP0TPQ2e5tMRFgu0Hc5gRcFb6WinHKSzIWL0t61WX1RTyjfVNxM5QY
+   LNSnPGnqCI+WCGROyCzpj4/DClu+SLXEVUuOMXzigTMlJ/amYUEFNNRdu
+   A==;
+X-CSE-ConnectionGUID: ZORVnwBXQ9WI9pnVojqinQ==
+X-CSE-MsgGUID: MrM59gKhR6y8koxGCEJYGQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11463"; a="69668262"
+X-IronPort-AV: E=Sophos;i="6.16,235,1744095600"; 
+   d="scan'208";a="69668262"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2025 19:09:02 -0700
+X-CSE-ConnectionGUID: dYhVJh5yTR6s0T8b+3tZig==
+X-CSE-MsgGUID: NmfKjhUOQ6mo1Nvl5ddlFg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,235,1744095600"; 
+   d="scan'208";a="148347803"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 13 Jun 2025 19:08:53 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uQGJz-000DAM-2X;
+	Sat, 14 Jun 2025 02:08:39 +0000
+Date: Sat, 14 Jun 2025 10:07:51 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jacky Chou <jacky_chou@aspeedtech.com>, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	joel@jms.id.au, andrew@codeconstruct.com.au, vkoul@kernel.org,
+	kishon@kernel.org, linus.walleij@linaro.org, p.zabel@pengutronix.de,
+	linux-aspeed@lists.ozlabs.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	elbadrym@google.com, romlem@google.com, anhphan@google.com,
+	wak@google.com, yuxiaozhang@google.com, BMC-SW@aspeedtech.com
+Subject: Re: [PATCH 7/7] pci: aspeed: Add ASPEED PCIe host controller driver
+Message-ID: <202506140931.MWdyPxX1-lkp@intel.com>
+References: <20250613033001.3153637-8-jacky_chou@aspeedtech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613033001.3153637-8-jacky_chou@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250613_190536_572140_848EB719 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250613_190904_226996_1C554623 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,71 +95,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: kuyo chang <kuyo.chang@mediatek.com>
+Hi Jacky,
 
-[Symptom]
-The calculation formula for fair_server runtime is based on
-Frequency/CPU scale-invariance.
-This will cause excessive RT latency (expect absolute time).
+kernel test robot noticed the following build warnings:
 
-[Analysis]
-Consider the following case under a Big.LITTLE architecture:
+[auto build test WARNING on pci/next]
+[also build test WARNING on pci/for-linus robh/for-next linusw-pinctrl/devel linusw-pinctrl/for-next linus/master v6.16-rc1 next-20250613]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Assume the runtime is : 50,000,000 ns, and FIE/CIE as below
-FIE: 100
-CIE:50
-First by FIE, the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
-Then by CIE, it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
+url:    https://github.com/intel-lab-lkp/linux/commits/Jacky-Chou/dt-bindings-phy-Add-document-for-ASPEED-PCIe-PHY/20250613-113331
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
+patch link:    https://lore.kernel.org/r/20250613033001.3153637-8-jacky_chou%40aspeedtech.com
+patch subject: [PATCH 7/7] pci: aspeed: Add ASPEED PCIe host controller driver
+config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20250614/202506140931.MWdyPxX1-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250614/202506140931.MWdyPxX1-lkp@intel.com/reproduce)
 
-So it will scaled to 238,418 ns.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506140931.MWdyPxX1-lkp@intel.com/
 
-[Solution]
-The runtime for fair_server should be absolute time
-asis RT bandwidth control.
-Fix the runtime calculation formula for the fair_server.
+All warnings (new ones prefixed by >>):
 
-Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
----
- kernel/sched/deadline.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+>> drivers/pci/controller/pcie-aspeed.c:481:6: warning: variable 'status' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+     481 |         if (bus->number == 0) {
+         |             ^~~~~~~~~~~~~~~~
+   drivers/pci/controller/pcie-aspeed.c:541:9: note: uninitialized use occurs here
+     541 |         writel(status, pcie->reg + H2X_CFGE_INT_STS);
+         |                ^~~~~~
+   drivers/pci/controller/pcie-aspeed.c:481:2: note: remove the 'if' if its condition is always false
+     481 |         if (bus->number == 0) {
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+     482 |                 /* Internal access to bridge */
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     483 |                 writel(TLP_BYTE_EN(0xf) << 16 | (where & ~3), pcie->reg + H2X_CFGI_TLP);
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     484 |                 writel(CFGI_TLP_FIRE, pcie->reg + H2X_CFGI_CTRL);
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     485 |                 *val = readl(pcie->reg + H2X_CFGI_RET_DATA);
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     486 |         } else {
+         |         ~~~~~~
+   drivers/pci/controller/pcie-aspeed.c:474:24: note: initialize the variable 'status' to silence this warning
+     474 |         u32 bdf_offset, status;
+         |                               ^
+         |                                = 0
+   drivers/pci/controller/pcie-aspeed.c:573:6: warning: variable 'status' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+     573 |         if (bus->number == 0) {
+         |             ^~~~~~~~~~~~~~~~
+   drivers/pci/controller/pcie-aspeed.c:622:9: note: uninitialized use occurs here
+     622 |         writel(status, pcie->reg + H2X_CFGE_INT_STS);
+         |                ^~~~~~
+   drivers/pci/controller/pcie-aspeed.c:573:2: note: remove the 'if' if its condition is always false
+     573 |         if (bus->number == 0) {
+         |         ^~~~~~~~~~~~~~~~~~~~~~~
+     574 |                 /* Internal access to bridge */
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     575 |                 writel(CFGI_WRITE | TLP_BYTE_EN(byte_en) << 16 | (where & ~3),
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     576 |                        pcie->reg + H2X_CFGI_TLP);
+         |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+     577 |                 writel(val, pcie->reg + H2X_CFGI_WR_DATA);
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     578 |                 writel(CFGI_TLP_FIRE, pcie->reg + H2X_CFGI_CTRL);
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     579 |         } else {
+         |         ~~~~~~
+   drivers/pci/controller/pcie-aspeed.c:552:24: note: initialize the variable 'status' to silence this warning
+     552 |         u32 bdf_offset, status, type;
+         |                               ^
+         |                                = 0
+   2 warnings generated.
 
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index ad45a8fea245..8bfa846cf0dc 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -1504,7 +1504,10 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
- 	if (dl_entity_is_special(dl_se))
- 		return;
- 
--	scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
-+	if (dl_se == &rq->fair_server)
-+		scaled_delta_exec = delta_exec;
-+	else
-+		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
- 
- 	dl_se->runtime -= scaled_delta_exec;
- 
-@@ -1611,7 +1614,7 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
-  */
- void dl_server_update_idle_time(struct rq *rq, struct task_struct *p)
- {
--	s64 delta_exec, scaled_delta_exec;
-+	s64 delta_exec;
- 
- 	if (!rq->fair_server.dl_defer)
- 		return;
-@@ -1624,9 +1627,7 @@ void dl_server_update_idle_time(struct rq *rq, struct task_struct *p)
- 	if (delta_exec < 0)
- 		return;
- 
--	scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
--
--	rq->fair_server.runtime -= scaled_delta_exec;
-+	rq->fair_server.runtime -= delta_exec;
- 
- 	if (rq->fair_server.runtime < 0) {
- 		rq->fair_server.dl_defer_running = 0;
+
+vim +481 drivers/pci/controller/pcie-aspeed.c
+
+   469	
+   470	static int aspeed_ast2700_rd_conf(struct pci_bus *bus, unsigned int devfn,
+   471					  int where, int size, u32 *val)
+   472	{
+   473		struct aspeed_pcie *pcie = bus->sysdata;
+   474		u32 bdf_offset, status;
+   475		u8 type;
+   476		int ret;
+   477	
+   478		if ((bus->number == 0 && devfn != 0))
+   479			return PCIBIOS_DEVICE_NOT_FOUND;
+   480	
+ > 481		if (bus->number == 0) {
+   482			/* Internal access to bridge */
+   483			writel(TLP_BYTE_EN(0xf) << 16 | (where & ~3), pcie->reg + H2X_CFGI_TLP);
+   484			writel(CFGI_TLP_FIRE, pcie->reg + H2X_CFGI_CTRL);
+   485			*val = readl(pcie->reg + H2X_CFGI_RET_DATA);
+   486		} else {
+   487			if (!aspeed_ast2700_get_link(pcie))
+   488				return PCIBIOS_DEVICE_NOT_FOUND;
+   489	
+   490			bdf_offset = aspeed_pcie_get_bdf_offset(bus, devfn, where);
+   491	
+   492			type = (bus->number == 1) ? PCI_HEADER_TYPE_NORMAL : PCI_HEADER_TYPE_BRIDGE;
+   493	
+   494			writel(CRG_READ_FMTTYPE(type) | CRG_PAYLOAD_SIZE, pcie->reg + H2X_CFGE_TLP_1ST);
+   495			writel(AST2700_TX_DESC1_VALUE | (pcie->tx_tag << 8) | TLP_BYTE_EN(0xf),
+   496			       pcie->reg + H2X_CFGE_TLP_NEXT);
+   497			writel(bdf_offset, pcie->reg + H2X_CFGE_TLP_NEXT);
+   498			writel(CFGE_TX_IDLE | CFGE_RX_BUSY, pcie->reg + H2X_CFGE_INT_STS);
+   499			writel(CFGE_TLP_FIRE, pcie->reg + H2X_CFGE_CTRL);
+   500	
+   501			ret = readl_poll_timeout(pcie->reg + H2X_CFGE_INT_STS, status,
+   502						 (status & CFGE_TX_IDLE), 0, 50);
+   503			if (ret) {
+   504				dev_err(pcie->dev,
+   505					"[%X:%02X:%02X.%02X]CR tx timeout sts: 0x%08x\n",
+   506					pcie->domain, bus->number, PCI_SLOT(devfn),
+   507					PCI_FUNC(devfn), status);
+   508				ret = PCIBIOS_SET_FAILED;
+   509				*val = ~0;
+   510				goto out;
+   511			}
+   512	
+   513			ret = readl_poll_timeout(pcie->reg + H2X_CFGE_INT_STS, status,
+   514						 (status & CFGE_RX_BUSY), 0, 50000);
+   515			if (ret) {
+   516				dev_err(pcie->dev,
+   517					"[%X:%02X:%02X.%02X]CR rx timeoutsts: 0x%08x\n",
+   518					pcie->domain, bus->number, PCI_SLOT(devfn),
+   519					PCI_FUNC(devfn), status);
+   520				ret = PCIBIOS_SET_FAILED;
+   521				*val = ~0;
+   522				goto out;
+   523			}
+   524			*val = readl(pcie->reg + H2X_CFGE_RET_DATA);
+   525		}
+   526	
+   527		switch (size) {
+   528		case 1:
+   529			*val = (*val >> ((where & 3) * 8)) & 0xff;
+   530			break;
+   531		case 2:
+   532			*val = (*val >> ((where & 2) * 8)) & 0xffff;
+   533			break;
+   534		case 4:
+   535		default:
+   536			break;
+   537		}
+   538	
+   539		ret = PCIBIOS_SUCCESSFUL;
+   540	out:
+   541		writel(status, pcie->reg + H2X_CFGE_INT_STS);
+   542		pcie->tx_tag = (pcie->tx_tag + 1) % 0xF;
+   543		return ret;
+   544	}
+   545	
+
 -- 
-2.45.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
