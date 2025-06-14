@@ -4,115 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12A8C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 11:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F44FC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 11:17:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0oxGuemdIuK3NUwV1UDNAEN0iAI8g66lvnNqCN2Kthg=; b=SLfS1prih176HFf9fMSnVgwkZd
-	AETGm1VNqNWMLuMLx9OonXfoDIyoKqOuXU2AiA9zSIsnGpiNdKnN3h5a+JCV7JAfnVTsxnol4JR4K
-	K1Q2CUCUSnZ7LSasCIV1Bsup5LGnkrezcq58t4PzsHdziDYdRCgoS10axk02L6phAsWeZAbgpOhgq
-	SvnwunkEKyXNzRCO+VvXAFlP314JHzmkEtRAXDEVbDwjEIlhQRpUrmTtH4Xi7o5bwNVAO/OPbG5b4
-	kYROz7b4chqD5/bL1qBv8EpaUkf9VtdsMnyeFNDuWfIzO/NQ8FILRmRGZq/lYKj/qGpqTTyxVD2Nz
-	5MA2fxyQ==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=23ZYKOjKAg6Z4RsmhRnef4fxyr8C7DuBo5MUbYH/Jtw=; b=p5RvEjLjap9Vo5Ug9HqCoQmnys
+	MxnDdkk3EdEDpIIazErd/5lvqE5q6G8I8K9My5BTZ5ZY9hZuQqWJ+gUvaEsS66PVNCif/8ts4K15Q
+	UvsAsrlPHu9LEQslX57Vx3N/q09bHgfliRZkHtSyfh3lPSgxVjsP7Pw7BNuEXFmSqiBG647eUKDl2
+	sLiHJMXbKMaB5uh/bOJhd8A14YcQIQPZgJ/9WDQl5FhjuzuIZKSu9/8+i5HwUMi0IWHFT4/MaERlf
+	48B/5o+J1JYnJycJBkjlXkNBBEYmnPXE9T/M15ZRQlT/VtIbAaUVP95UpvxdJFRbs7xEQeqBcbi+T
+	4al1eXsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQOqZ-00000001Alx-1oCx;
-	Sat, 14 Jun 2025 11:14:51 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1uQOsp-00000001Aul-0ohK;
+	Sat, 14 Jun 2025 11:17:11 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQOoI-00000001AWe-1UXt
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 14 Jun 2025 11:12:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1749899540; x=1750504340; i=wahrenst@gmx.net;
-	bh=0oxGuemdIuK3NUwV1UDNAEN0iAI8g66lvnNqCN2Kthg=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=X3IwR654iHbRoBjNQbtXFouz1XJeWSsEU43WT1cWwYSkNL4R5+RcTqtP2LDQGxb+
-	 wclWEQRd2H/Ze6OxJjzHK9ItENxlUm9LXAYC41DtshDB74xxLIpTUP0nHdYQB9Kbk
-	 0ErGo+qG6KrFys6EgvM9H5Ol++ETSeyphtGLcutoVkZOEPXNnMI7x8kjOZxEMCP3m
-	 CDOMZSMvdk4r4hwrwDnYT83KwUq8dwgR/ckBnJfM9YVdv8kM5meeYPlKisCQvs2u8
-	 xwBBwLgS3dBBEDE35jjhalbYDWMahNx/HBTYsLhp8cTVe0NKhYlfxrg5oUIUK/G6o
-	 6E7YuVaVQD9hJT7xDg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from stefanw-SCHENKER ([91.41.216.208]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MkYXm-1v5oi20H5q-00bxUu; Sat, 14
- Jun 2025 13:12:20 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	kernel-list@raspberrypi.com,
-	linux-gpio@vger.kernel.org,
-	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH] gpio: raspberrypi-exp: use new GPIO line value setter callbacks
-Date: Sat, 14 Jun 2025 13:12:16 +0200
-Message-Id: <20250614111216.93677-1-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.34.1
+	id 1uQOoa-00000001AX6-0xaE;
+	Sat, 14 Jun 2025 11:12:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D533A5C5628;
+	Sat, 14 Jun 2025 11:10:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A581C4CEEB;
+	Sat, 14 Jun 2025 11:12:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749899566;
+	bh=9wVEwKDRxCUUHYAtNHKLRbgqbNZpbzuce/1YR2Sz23o=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=LTmaV3tb2hcMRRxMSe4a59qK2K9g3tJhPwicOqGofFQ2PrPD/j5BTD3GKTqR/LqCL
+	 12Ihqpd6PVhpQOtJw4YW5OCH5LkNF4QBLNPPKx955+Du6fR+HG6829g1/wEEB7vSH2
+	 HxLmnc4gXkJYGKHKlFly4oXB9RXpTUfKkPjN2ZE32Dmnqh0BCc0iXDrTCICrW4jhnw
+	 Jr18OqsYrlwZQlSufeICaZaLnUjfv+MvS9MNqm7YaU9xrOXBlWr/afGJ0c1TXnYknR
+	 Iec62PgQZLpsHqe5kjdPMgrvOAZ4ddEdRY1HRQkBnhV8GVHwFc2RxBSYR3wDWQMl/u
+	 YYYEn5j7KA9gA==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Jiaxin Yu <jiaxin.yu@mediatek.com>, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250424102509.1083185-1-wenst@chromium.org>
+References: <20250424102509.1083185-1-wenst@chromium.org>
+Subject: Re: (subset) [PATCH v2 00/13] ASoC: mediatek: use reserved memory
+ or enable buffer pre-allocation
+Message-Id: <174989956314.19870.6679132279735424997.b4-ty@kernel.org>
+Date: Sat, 14 Jun 2025 12:12:43 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:QcOoQ1ODeG9NQSpJQCOzzkRLXKhf29hZqygjiXcyQKUpg+s7CHU
- /6fL7iNxK+FfTYrxtX5dFNyBSiC9sXoBsJMRk7MxSHvVUVgormSsCmIU5RG2XOhZJlYM8Zr
- Zp2m4D71snikiNcXmiGaMY6NBBO68ISgYuPaxpBR4g6on6+zQPw5tL4WAyO7zomObQCuJb4
- JsnDaZ/qc6VdRRWrlXgaQ==
-UI-OutboundReport: notjunk:1;M01:P0:70Up9Xrztbo=;38hKEtspog7angch4NpSH4yk28I
- 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
- rsFwrdUzOIJ2M/TX
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c25d1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250614_041230_693691_EA8CD336 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250614_041248_362348_B5A44B64 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,60 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+On Thu, 24 Apr 2025 18:24:54 +0800, Chen-Yu Tsai wrote:
+> This is v2 of what was just a single patch "ASoC: mediatek: re-enable
+> buffer pre-allocation on some platforms". Link to v1:
+> 
+>     https://lore.kernel.org/all/20250401085659.1222008-1-wenst@chromium.org/
+> 
+> Angelo requested that these platforms use reserved memory regions if
+> possible, and fall back to pre-allocated buffers only if that fails,
+> to align with other MediaTek SoCs / platforms that already use reserved
+> memory. The series covers MediaTek's MT8173, MT8183, MT8186, and MT8192
+> SoCs.
+> 
+> [...]
 
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- drivers/gpio/gpio-raspberrypi-exp.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+Applied to
 
-diff --git a/drivers/gpio/gpio-raspberrypi-exp.c b/drivers/gpio/gpio-raspb=
-errypi-exp.c
-index 9d1b95e429f1..b4b607515a04 100644
-=2D-- a/drivers/gpio/gpio-raspberrypi-exp.c
-+++ b/drivers/gpio/gpio-raspberrypi-exp.c
-@@ -175,7 +175,7 @@ static int rpi_exp_gpio_get(struct gpio_chip *gc, unsi=
-gned int off)
- 	return !!get.state;
- }
-=20
--static void rpi_exp_gpio_set(struct gpio_chip *gc, unsigned int off, int =
-val)
-+static int rpi_exp_gpio_set(struct gpio_chip *gc, unsigned int off, int v=
-al)
- {
- 	struct rpi_exp_gpio *gpio;
- 	struct gpio_get_set_state set;
-@@ -188,10 +188,14 @@ static void rpi_exp_gpio_set(struct gpio_chip *gc, u=
-nsigned int off, int val)
-=20
- 	ret =3D rpi_firmware_property(gpio->fw, RPI_FIRMWARE_SET_GPIO_STATE,
- 					 &set, sizeof(set));
--	if (ret || set.gpio !=3D 0)
-+	if (ret || set.gpio !=3D 0) {
- 		dev_err(gc->parent,
- 			"Failed to set GPIO %u state (%d %x)\n", off, ret,
- 			set.gpio);
-+		return ret ? ret : -EIO;
-+	}
-+
-+	return 0;
- }
-=20
- static int rpi_exp_gpio_probe(struct platform_device *pdev)
-@@ -228,7 +232,7 @@ static int rpi_exp_gpio_probe(struct platform_device *=
-pdev)
- 	rpi_gpio->gc.direction_output =3D rpi_exp_gpio_dir_out;
- 	rpi_gpio->gc.get_direction =3D rpi_exp_gpio_get_direction;
- 	rpi_gpio->gc.get =3D rpi_exp_gpio_get;
--	rpi_gpio->gc.set =3D rpi_exp_gpio_set;
-+	rpi_gpio->gc.set_rv =3D rpi_exp_gpio_set;
- 	rpi_gpio->gc.can_sleep =3D true;
-=20
- 	return devm_gpiochip_add_data(dev, &rpi_gpio->gc, rpi_gpio);
-=2D-=20
-2.34.1
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+
+Thanks!
+
+[01/13] ASoC: dt-bindings: Convert MT8173 AFE binding to dt-schema
+        commit: bb90e0c91d375ec5db8a4f8cd2555900aea0725f
+[02/13] ASoC: dt-bindings: mt8173-afe-pcm: Add power domain
+        commit: 2fd902152c15a8cacab91e4a660413d189411561
+[03/13] ASoC: dt-bindings: mt8173-afe-pcm: Allow specifying reserved memory region
+        commit: 473ee884263f2127ea4e46a74ba15d07446ceabb
+[04/13] ASoC: dt-bindings: mt8186-afe-pcm: Allow specifying reserved memory region
+        commit: 81c73294a4eb2df31e974db2fc4397f5e0ecae09
+[05/13] ASoC: dt-bindings: mt8192-afe-pcm: Allow specifying reserved memory region
+        commit: cd12d3a5ed10e3e3b323f2b2c652de1c8e17a750
+[06/13] ASoC: mediatek: use reserved memory or enable buffer pre-allocation
+        commit: ec4a10ca4a68ec97f12f4d17d7abb74db34987db
+[07/13] ASoC: mediatek: mt8183-afe-pcm: Support >32 bit DMA addresses
+        commit: 9e7bc5cb8d089d9799e17a9ac99c5da9b13b02e3
+[08/13] ASoC: mediatek: mt8173-afe-pcm: use local `dev` pointer in driver callbacks
+        commit: b2c090c9f6aa9d19f4c966233d7fcb872255f83b
+[09/13] ASoC: mediatek: mt8183-afe-pcm: use local `dev` pointer in driver callbacks
+        commit: bb8d8ba4715cb8f997d63d90ba935f6073595df5
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
