@@ -4,97 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA7F9C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 18:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29ADBC7114A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 14 Jun 2025 18:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k0Bs6c37/y07phySGIaMXCLcTr8q9NO06Gh+4XGoKB8=; b=aa+xOcpjiVHNO6q1eqEQ1+ZF2M
-	8k+IaOCvIGyhEp+C1jZe/js+RxKTwfuVrgP6jA3Dnc2TtDV/TtvW7f1w7aCtjvF+cSNfB26FPWpfe
-	0d0cr726NAI2OGJph9wH3BYEXivIm0bdhIpPyps/OO10mM9p0ibkgmGLjIVcP1iXwx71qgiLkLpbL
-	WFyFh8uUWORh2R7bGi6NEAII2EnkIFG3QGourzQdwenIZMSwv9vOEXASMfxRz3t5Q5gUDiKw/kzPK
-	lw11/vs6Nyvho8PiPeOe71wRKvK7ozfL10zpejU9x37lkM2LOWIAEc/qKs72eutZ1w+b243IngEz1
-	cFI3Paeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LWVGJpxfZxK5NWqKsMehk6v+OXAVVCcYoYUm9xSLX/c=; b=mzYvPta7aq/uIUnl7E8t0F/Yei
+	iwBKtEVroL+LabedZasY5YBQNtdS3MfKG3g+WeaiUnkiucn39nlPteKl08I6cVNy2qeAf8v1Lw3F5
+	SdnfnH+zqP8SxPaRR0rjK/isPMgf053ayBdWeeCUdJ8x8OKytdmEtyBSuPwnz4CQ0SQjx9Vmcse+u
+	SAEjsJQrBjHMTGmayogVG1LE5lcmuFGnyGaFvXE5xod6PJJ7cv/yCAQE6K65j6BY9PFVgvzvA+TbR
+	A17s2C+L2GJyUB3X8nfvXLLnyvBmdx4TainCEWa+Dyh4o1Rt05kVO2XGI4bfjpN/n8jXhUxafJSku
+	GgXYNFsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQVa4-00000001f7L-3Riw;
-	Sat, 14 Jun 2025 18:26:16 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1uQVcD-00000001fGH-3TPV;
+	Sat, 14 Jun 2025 18:28:29 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQVPQ-00000001eDd-0QE5;
-	Sat, 14 Jun 2025 18:15:17 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3a3798794d3so2890556f8f.1;
-        Sat, 14 Jun 2025 11:15:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749924914; x=1750529714; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k0Bs6c37/y07phySGIaMXCLcTr8q9NO06Gh+4XGoKB8=;
-        b=cqXtFjZqLypQPX9M2PsrDyAwcwQ3hTJn2w/vyjCYp0h7bbK0dMpVuA931apLnuUuJs
-         exarGl0iDIez6kRkBDZoQbJCzAiU8Iqfa/k7teLZ6uFEMspJmM1v/3IeR6WnSaJZ/Pc0
-         2Q79TQYN2YCRxJlHM9vKYsb2otS4ZuDKmj3KydjudsO1pfzssPNk50mCDqp2897t+yvd
-         6J94onU773OunoiKIh+w5T3oO9KUkxrb0XqI3eoXUpYzGTCThdR3LMAJNSxQA7df6E5c
-         uhuKiL0uXm2nUwuUMXm9rWJHqWKJt2NJwkPtY7SN4SGc5uwNLMsONTF7RzTLXTJsso82
-         yW+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749924914; x=1750529714;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=k0Bs6c37/y07phySGIaMXCLcTr8q9NO06Gh+4XGoKB8=;
-        b=FSPgfcEcSgODb2F3F0k3EIZg+kV+ZBWixI7qw0wrH1/qwczX18asHHfnNio9cjyZG9
-         9TbyTSfl/keNqfw/tN3d8mVHjJEeEMNJHTBEWQmxilzlCAJ9fU3nNF1oC757Sh2Mjx/c
-         fGVDt7UJawiALwRvIoBogfxBpp7FNsHlNNg4ZwgSCWfS+oSO8bu0YI3WCRhU3a2MdPpE
-         ZL6IhuVu/3dc3TIqPFpJ9XuZxIKjMYq7gq+K93rZ9PBl6wiFbWDEiGM3PlaUMhICcFJm
-         M2j3aQjZ+x/h7jyicfgVnxrYykBFxMEwFVJ/RWuPEAbrQNj8YkccJZXp5iTUJSlI+bPV
-         ToBw==
-X-Forwarded-Encrypted: i=1; AJvYcCV43VmV4JjnCWNF/g9NpfGIicFlAH4NSaaqqSYz8TioCqjUK4dpStgb9Lu92Fr0xC/GbCb6CB1YDl61KGOWvoes@lists.infradead.org, AJvYcCV5uBLUPg6sbT/TWJhlhFQu8sD0+AKFVbQaQQ4eHYXpmsMlTnz9fjacWof/S0M0RJXC6zd1YpkEkH6U4Q6leV8=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv/17TnoSn4rlg5djD/4L7A0C1YJsJPpZApNroObdlRf/OxMGV
-	DjYJFT/SCHIXAuks8SAEx4LWOun3ssJ7Gyfjn96zqmxDbdledVJujNe/
-X-Gm-Gg: ASbGncs/pfZin+nZB6bwpvDRrhF4DSG0sPkCcDsjsNiO5IZxpkWiMOvwBhJVxwcHr4Y
-	Ae5i6vJcR0k1m2ir1st88UAutdtO8i90ZTbaglAU5M5N/BaLztDQcE+0tSbWuor+YIo8Q7hpnQy
-	NaDQ74d7SsfOJZ0BMV3RMF9R6jzl4s/6VjN9oh/wy/yCx6sgQDD1Yl4Q/mL/gDA8orBFlvA9NX/
-	hqJVgwNu0FfJDrBTuHfyvs+2pvB1TCOH37tDV6KgKlOlNCyTuNl9TTaFS/XoCL4zbFQGcd5yv5Z
-	HfzktoyRlRHPKXb0ScEtsYFaIgvb50aAOMdlrLlLr6ARany20BpOI74iNIKxPpWL8xkbyeOTMVa
-	Oyw==
-X-Google-Smtp-Source: AGHT+IG5rFauCOueVdM2iXEQWzdE2SfWJbIG/lvF5F894+FF1XVgY2tgRSBxiioBxzB/96rT9zK44w==
-X-Received: by 2002:a05:6000:1881:b0:3a4:e5fa:73f0 with SMTP id ffacd0b85a97d-3a572397846mr3775795f8f.20.1749924914431;
-        Sat, 14 Jun 2025 11:15:14 -0700 (PDT)
-Received: from alchark-surface.localdomain ([5.194.93.132])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532de8c50esm88195255e9.4.2025.06.14.11.15.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Jun 2025 11:15:14 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Sat, 14 Jun 2025 22:14:36 +0400
-Subject: [PATCH v2 4/4] arm64: dts: rockchip: add overlay for the WiFi/BT
- module on Sige5 v1.2
+	id 1uQVYE-00000001eui-27Nf
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 14 Jun 2025 18:24:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=LWVGJpxfZxK5NWqKsMehk6v+OXAVVCcYoYUm9xSLX/c=; b=AFnGMw0U82bkfJeUm1qa6MToAQ
+	4DNM7+9jW6wRrHGrILCc1akHMwLWpcAODcTO4kRMTR8zKDpDDaMZACfuNkd8LMyjCxKq1f7SREwEg
+	+59raP3R8l8vsFX4S0BUsQR9lpfnZgJ0EgZX+jCpxIzPe8vdoex1+W2CxPlyxTvU/1Sp2hYBbm00p
+	hO6lLM/+m0qcJk1Irc5h5sXSvF3V33IotOT/w33bOwIRfEb+JmW00/eC6+48RLFHz3Wjl1aQkz9HY
+	Sbp3rzOaw1HwVyg10QT6TpP/81H8WWkoVYRumO9m3jiyBFhQ2t6Gywb2pPDmUlAwjdtoeFgu1eBfB
+	Drupz9fw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43052)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uQVW4-00027I-1a;
+	Sat, 14 Jun 2025 19:22:08 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uQVW0-00031F-1O;
+	Sat, 14 Jun 2025 19:22:04 +0100
+Date: Sat, 14 Jun 2025 19:22:04 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: add
+ ethqos_pcs_set_inband()
+Message-ID: <aE29zFKp5PLAM5pP@shell.armlinux.org.uk>
+References: <E1uPkbO-004EyA-EU@rmk-PC.armlinux.org.uk>
+ <20250614153512.GQ414686@horms.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250614-sige5-updates-v2-4-3bb31b02623c@gmail.com>
-References: <20250614-sige5-updates-v2-0-3bb31b02623c@gmail.com>
-In-Reply-To: <20250614-sige5-updates-v2-0-3bb31b02623c@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Detlev Casanova <detlev.casanova@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749924902; l=3898;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=EFL42CJiaQOiXrGt6/pdixsIsoXZFU3sPb2V2UplPlE=;
- b=YfwVvAfQQ0bYQttXHGd+f/0IXgDcOU1tVo0HYaR34VuKkZq7NKdZWXwTmc/z2ybOD877W5oXS
- EjW7JI6YLZYCjDF5xMJJ4cXS3R2+/oITH6nGhdnZRpmiBy5Q6OOoLx5
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250614153512.GQ414686@horms.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250614_111516_145246_B9C87808 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20250614_112422_550726_854E5073 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,103 +88,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Broadcom based WiFi/Bluetooth module (BW3752-50B1)
-found in ArmSoM Sige5 boards version 1.2. This includes SDIO connected
-WiFi with OOB interrupt support, as well as UART connected Bluetooth
-with its respective interrupts.
+On Sat, Jun 14, 2025 at 04:35:12PM +0100, Simon Horman wrote:
+> On Thu, Jun 12, 2025 at 05:16:30PM +0100, Russell King (Oracle) wrote:
+> > Add ethqos_pcs_set_inband() to improve readability, and to allow future
+> > changes when phylink PCS support is properly merged.
+> > 
+> > Reviewed-by: Andrew Halaney <ahalaney@redhat.com>
+> > Tested-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org> # sa8775p-ride-r3
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> 
+> Thanks Russell,
+> 
+> The nit below notwithstanding this looks good to me.
+> 
+> Reviewed-by: Simon Horman <horms@kernel.org>
+> 
+> > ---
+> >  .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 13 +++++++++----
+> >  1 file changed, 9 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> > index e30bdf72331a..2e398574c7a7 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> > @@ -622,6 +622,11 @@ static void ethqos_set_serdes_speed(struct qcom_ethqos *ethqos, int speed)
+> >  	}
+> >  }
+> >  
+> > +static void ethqos_pcs_set_inband(struct stmmac_priv *priv, bool enable)
+> > +{
+> > +	stmmac_pcs_ctrl_ane(priv, priv->ioaddr, enable, 0, 0);
+> 
+> FWIIW, I would have gone for the following, as all the type of
+> three of the trailing parameters is bool.
+> 
+> 	stmmac_pcs_ctrl_ane(priv, priv->ioaddr, enable, false, false);
 
-PCM support for Bluetooth SCO audio is left out for now. It is connected
-to SAI2 in M0 pin mode in case someone needs to enable it.
+So the original code:
 
-Note that v1.1 boards used a Realtek based module which is incompatible
-with these DT nodes, so v1.1 would need a different overlay.
+            stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 0, 0, 0);
+            stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 1, 0, 0);
+            stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 1, 0, 0);
+            stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 1, 0, 0);
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- arch/arm64/boot/dts/rockchip/Makefile              |  5 +++
- .../rockchip/rk3576-armsom-sige5-v1.2-wifibt.dtso  | 49 ++++++++++++++++++++++
- 2 files changed, 54 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4bf84622db473696f64b157ba94560f476d4f52f..26533be1dd865972b681d133aad6fbbbf4e64bce 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -143,6 +143,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-display-vz.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5-v1.2-wifibt.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-roc-pc.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-rock-4d.dtb
-@@ -225,6 +226,10 @@ rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
- 	rk3568-wolfvision-pf5-display-vz.dtbo \
- 	rk3568-wolfvision-pf5-io-expander.dtbo
- 
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5-v1.2-wifibt.dtb
-+rk3576-armsom-sige5-v1.2-wifibt-dtbs := rk3576-armsom-sige5.dtb \
-+	rk3576-armsom-sige5-v1.2-wifibt.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
- rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
- 	rk3588-edgeble-neu6a-wifi.dtbo
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5-v1.2-wifibt.dtso b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5-v1.2-wifibt.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..6985c3b22ebe4efcc7e7b7370f527838a557cf2b
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5-v1.2-wifibt.dtso
-@@ -0,0 +1,49 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * DT-overlay to enable the onboard WiFi and Bluetooth module present in v1.2
-+ * boards. Note that v1.1 boards use a different module, so this probably won't
-+ * work there.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&sdio {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+        wifi@1 {
-+                compatible = "brcm,bcm4329-fmac";
-+                reg = <1>;
-+                clock-names = "lpo";
-+                clocks = <&hym8563>;
-+                interrupt-names = "host-wake";
-+                interrupt-parent = <&gpio0>;
-+                interrupts = <RK_PB0 IRQ_TYPE_LEVEL_HIGH>;
-+                pinctrl-0 = <&wifi_wake_host>;
-+                pinctrl-names = "default";
-+        };
-+};
-+
-+&uart4 {
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm43438-bt";
-+		clock-names = "lpo";
-+		clocks = <&hym8563>;
-+		device-wakeup-gpios = <&gpio1 RK_PD7 GPIO_ACTIVE_HIGH>;
-+		interrupt-names = "host-wakeup";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PB1 IRQ_TYPE_LEVEL_HIGH>;
-+		pinctrl-0 = <&bt_reg_on>, <&bt_wake_host>, <&host_wake_bt>;
-+		pinctrl-names = "default";
-+		shutdown-gpios = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
-+		vbat-supply = <&vcc_3v3_s3>;
-+		vddio-supply = <&vcc_1v8_s3>;
-+	};
-+};
+While one could convert the last two arguments to true/false, I'd prefer
+leaving them as is, as less change means less chance to introduce a bug.
 
 -- 
-2.49.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
