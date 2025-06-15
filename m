@@ -4,92 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82CCC61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Jun 2025 19:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359ECC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Jun 2025 19:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FlPzMKu4igdnQzEXLhlv+B8h95JnIJGKPzIiOmsd940=; b=b2wPZ/bAws5jat9oSkSApT0wsk
-	zVAt1262HRysTXAUGxo+i3gZOWnZqWlkL0811D9ruFshBmrDeGw+GNfWa3Vy/4tydtnC421Dg6oJR
-	Y34YJ8ndQbbQESAOecVro7WPTPPLoNU1I7Leg0v4gTbFUO4bSa/HmMrWvxnGxnvwIhbwOpsXAscL1
-	lor811Pel1pe0DgEzbCCZ+IdioDc3DsjRyNYmn0njXxWiCwY7ZAWfb6y5T2U7FHuGtwy1PEkz9SHS
-	4sTjaiZICn5ZeMKP+hg0pb3PHozm0xbT7iPLBjvo5xMAdvTLtC7tiwnG4AYUxMn78TzOYjM+tMORF
-	cQgpaXHw==;
+	bh=9Bm1Ypz9xIQ9oSWoxmBY5SZFvMd6ktsJLpK/MNzMMqc=; b=4hrXFhJhw5dF7cx8FUplYHdtBY
+	dsUPcGM41Pbg3v/thQe6lzxyph8mo1YzfNRw8+TAmtZQv0Z/4hV/bQKk9mvc/WAJSGBLwLxpHCiVE
+	tF+JtW95aLwWR9FLOSebvlla1t830GEEZmRUpQVtzprpAEQ/BGXvm2FQw8P8tY/WWRL1/fPcq7db5
+	89pOfrd9RSQsSjqZe5spGXPaPkIMTqtrjLRLYBsiXR0ZOT2pBP2qDhV6+i0sWaJ9No5hEHuGi0e9F
+	mc1UFpJI/6AW4Qvd4PIvV5t/Pw/4/tUS5jkN58tVURe69BytPDf2XQrPpWSocJJXaqGY7LLNum5vn
+	RaMfRsLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQsrF-00000002lkp-1zbZ;
-	Sun, 15 Jun 2025 19:17:33 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1uQtD7-00000002mRz-0T3D;
+	Sun, 15 Jun 2025 19:40:09 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQsp2-00000002ldk-1yhA
+	id 1uQtAs-00000002mHN-1v2m
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Jun 2025 19:15:17 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-441ab63a415so43444765e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Jun 2025 12:15:15 -0700 (PDT)
+	Sun, 15 Jun 2025 19:37:51 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ade30256175so736761266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Jun 2025 12:37:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750014914; x=1750619714; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FlPzMKu4igdnQzEXLhlv+B8h95JnIJGKPzIiOmsd940=;
-        b=h+st97jmGG98BMkFyYpyVy/TH90T3iAqzEAgGtnsAuyp4MR+p7u5zMc0BwPfrof6G6
-         Cv7UFCog48+TNW8Oc6EOTOTQwumMbCmY3dFH3B4vslQD+FtLZhEEl4EyEYj5IH/YvxGL
-         c9B4Ds38p1z23xU3ppZCHMXl1l7UbBAtl+WHyq3iiXXM7BkvXeE7gVSfQjARudEL5TSs
-         0xPMUnc2CAQ6RkKwOemHT6fdwsYHO16dg8z6ErMsKYL9yrgP4qnCqFb7X/DyK0YYNF14
-         3DWmpsYeCOfTdbbCdDBOnVmlTCzAvt7M6ERDuxRYDT+lWPWAcxJOa4RyIg7e20FZ7PbW
-         Bs6g==
+        d=linux-foundation.org; s=google; t=1750016269; x=1750621069; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9Bm1Ypz9xIQ9oSWoxmBY5SZFvMd6ktsJLpK/MNzMMqc=;
+        b=dLqpUrLuTWXMfO6J9+xpUv+vLXAJwDf/FHeynR/5MNid1o0fSeVKQ4O/wbrYeR0wQZ
+         2qUWJ2KUoEd2JAjxLProYEeRx2btM6LH24o2MKDSHZR/Pi7lYHSsAh2vQufqKYPv4Tsk
+         tfGtcNruhY9cV0KLWZyYDAiyCgLgXRl5JFsGo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750014914; x=1750619714;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FlPzMKu4igdnQzEXLhlv+B8h95JnIJGKPzIiOmsd940=;
-        b=vYepaECag9GXkzL3WlPAZnSHjM1S4Jc5IV1x3DNcEwn8d3uWimO+ALfXkXAstro3Q7
-         O8SDzG2CIRKJlPjfrb8ojSlUN3aoRNPwJhUbb+ecQt4HKGX7Z9YTWRbw+5Kyh4n96Bi8
-         8WaOPniaPkxqiLy1VTmFDtDRr1dZ9J21l+cSQzIXcK9xeQnDZR9X9lyYPPnKuH7HcKSk
-         AMKtg/XO+T5On37IMxENm4CHCxCgPBc+of48yoH26LM0QnmzsnARpz74HOVKD6g80pKM
-         iKu+8IsNjVjHlaGPBQCQJ5WsYVBi6UMykKEMVOjEIqs8Zn5V2oW7pxVUIMfrdbtiJcBm
-         PFAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLZzjNmxP4f4DLhL+z878fCzxroYpN1SNlqWpSOpUv38LLLnxzY9zbvnayCtctklgiCCuNMZh4gaEkzLGP8m5Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJuxC/LkTSaUHHx6mzvNuKMeuc0v4rRO5sADxF5R6K/wRBrpzt
-	1TOVk2Xv0U7zxtH5CDcFLmFuu/q4BVKNFAKa8ZBbqWXq8dX0Ao9eZoIj
-X-Gm-Gg: ASbGnctZrF4J6lK7HrkCY2zGuHRCXpwWl/4KmRYPczcdzDtVr+yRvLswDgJwTuXA7l+
-	wsB3RAoGoiM/nzLc7QccDCYCMK1Z+U8eHgvwhbjdKwPJBC4hAETNxZGiu4FT+ZQY3k/pVZlVv60
-	FSccH82NvUrWu1jPs6SsGepfzQC+OIsLG4Mvdzrl/fd+8P/VMBXSNZwYnR5zT116/1RV5zx6KCm
-	fmeHNSrZQbichL294RraqT4woLGz6RQ+HYIC6NlVxJhW2B8LVrhlxtAkVoq73m+uvoeziS1pdU+
-	h+EQ5sxz42vuYXFBiFPHXVwzbW4itjNf35zVKSfaF+Ms1nmIfE9oWioTww==
-X-Google-Smtp-Source: AGHT+IH2bJWppEAVzSL6erEhSao6ZwWSsziOevhXh5q8BLnlA4Nj/np4851kfzIOx/I/qjbdaicjSw==
-X-Received: by 2002:a05:600c:8b65:b0:44b:eb56:1d45 with SMTP id 5b1f17b1804b1-4533ca6e6a8mr72032075e9.15.1750014914236;
-        Sun, 15 Jun 2025 12:15:14 -0700 (PDT)
-Received: from gmail.com ([2a02:c7c:f4f0:900:5194:623a:df1:d4bc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e13cfbesm118671195e9.22.2025.06.15.12.15.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Jun 2025 12:15:12 -0700 (PDT)
-Date: Sun, 15 Jun 2025 20:15:07 +0100
-From: Qasim Ijaz <qasdev00@gmail.com>
-To: Sinan Kaya <Okaya@kernel.org>
-Cc: Eugen Hristev <eugen.hristev@linaro.org>, Vinod Koul <vkoul@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 2/2] dmaengine: qcom_hidma: fix handoff FIFO memory leak
- on driver removal
-Message-ID: <aE8bu2woUe96DVo-@gmail.com>
-References: <20250601224231.24317-1-qasdev00@gmail.com>
- <20250601224231.24317-3-qasdev00@gmail.com>
- <3c6513fe-83b3-4117-8df6-6f8c7eb07303@linaro.org>
- <7649f016-87f1-475d-8ff7-7608b14c5654@kernel.org>
+        d=1e100.net; s=20230601; t=1750016269; x=1750621069;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9Bm1Ypz9xIQ9oSWoxmBY5SZFvMd6ktsJLpK/MNzMMqc=;
+        b=fR0JA5UM8ilElVF855l/NCfeu+QM8Cuitatbcet5InRmir6eTiAoCNA2tPba5nouqE
+         7wQSAKon3gpRpIm/nFOgOvg7D1VSnfytrR7xcvqcHbzSl+heGLQBtzDohG+vdI6kACTj
+         oncSmynzQXi/tIdgvsTuNdKRNIoWaVauVe3NeisO+SUQL//n3cGXcZyUITWgJ1CQEDBt
+         fIKj6nTRwPQvTLiXryOieYGLCVFGc1m7bo9LzhUOMwJhfRi62Ok2ehvQk+mu2pMIfRfY
+         Jr8tbffDoCjngJvyF/ZGF54xLItxwpwXCCKdHhk3WmbEPtmMiCbOesKpBuT/aQd7ivj5
+         gJdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXv32MoKhEyZKwuxZ+GZafPkR6abl9JYoWdfxNGaY9rlvrN5fU9XaKSXm8J0UMOm5//K3uhF3t2rSujA/KPl9ww@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXbCSI7+wyaRYzda0ODITXCFAAhPcYh9CjbcW04ET+9gejVHmK
+	BA4GUUNBapLl3bq0+ct9pws0noduswd0QuG3mrUPB76OIPDoP3pYfdRe6c2juzXfPgoi5Bhix9W
+	asA+QVFI=
+X-Gm-Gg: ASbGncvvYm7nmNMSZByT/ccr8HOKUTn7cjlTJueiPj6q3FNwxorf+HLWAfoFlWi5IPl
+	Tp2v/P7Sghv2At/21QjDPuyV4mHLNruqwAJGEFD5Jgs2JKzv+uer14ZLS4bH8JCYjiAR30iUcGv
+	ZSL2pXNfMOzvgIbgH7A+9S0fLYHg01V1OAfOToITg4VkMrvE54goymq4KDFaD+mDMDOPDXLKy1L
+	hzZiBt+rEwxwQTJtuTY2ZgiR68+ZAYkNBltqBHuvrGN1CztI5TZ7M28tt9p0lKzN2Betb1iq8GG
+	fkNGApG8Q5FtzccUNxPWH9oVwaIKaqtWIO9j5zq85D/U5MvKHQFn+3IrLpcsrWPs5XYHg+4KrzS
+	WF/7GuYH8yqvw8CzKv0IYoXQuB3Ay/hed9B42S1Ioz6OQJ7s=
+X-Google-Smtp-Source: AGHT+IEB9tkaUDagaSKykBQD7txKfn9patM/IfbxlrGy5bvCNr6h2KxKt7zh3cmBFavzkcP9HzSTWA==
+X-Received: by 2002:a17:907:1ca0:b0:adb:2db9:b0ac with SMTP id a640c23a62f3a-adfad28d3d8mr643126866b.7.1750016268762;
+        Sun, 15 Jun 2025 12:37:48 -0700 (PDT)
+Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com. [209.85.208.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adec88ff483sm535295666b.90.2025.06.15.12.37.46
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 15 Jun 2025 12:37:48 -0700 (PDT)
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-606c5c9438fso7898770a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Jun 2025 12:37:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUJy01IJuZA9npxK2ZmQbolLcZ8ZmSJAVIBC8H/6SL4/7quZ21aTzHcr99vX3rILFgeEbZIOdiybgWU6E94xoJ9@lists.infradead.org
+X-Received: by 2002:a05:6402:50cc:b0:5f3:26bb:8858 with SMTP id
+ 4fb4d7f45d1cf-608d09a2d16mr6285703a12.34.1750016266135; Sun, 15 Jun 2025
+ 12:37:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7649f016-87f1-475d-8ff7-7608b14c5654@kernel.org>
+References: <aEjo6YZn59m5FnZ_@gondor.apana.org.au> <20250611033957.GA1484147@sol>
+ <aEj8J3ZIYEFp_XT4@gondor.apana.org.au> <20250611035842.GB1484147@sol>
+ <20250613053624.GA163131@sol> <aEu5cyDOMcKteW_b@gondor.apana.org.au>
+ <20250613055439.GB163131@sol> <aEvmmr0huGGd2Psv@gondor.apana.org.au>
+ <20250615031807.GA81869@sol> <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
+ <20250615184638.GA1480@sol>
+In-Reply-To: <20250615184638.GA1480@sol>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Sun, 15 Jun 2025 12:37:29 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wiAh0fnfm-LomMWDV=OGhCHCp0C_7xZASE_8pZ3ZP0CXg@mail.gmail.com>
+X-Gm-Features: AX0GCFsirgA8Ga0u26X0ToUgNd-a86j5gL8Na8fIUJo1Hy2_joO0gogaJwm_iSM
+Message-ID: <CAHk-=wiAh0fnfm-LomMWDV=OGhCHCp0C_7xZASE_8pZ3ZP0CXg@mail.gmail.com>
+Subject: Re: [PATCH] crypto: ahash - Stop legacy tfms from using the set_virt
+ fallback path
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org, x86@kernel.org, Jason@zx2c4.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_121516_516478_87710225 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20250615_123750_777793_E476675F 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,56 +112,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 06, 2025 at 09:35:44AM -0400, Sinan Kaya wrote:
-> 
-> On 6/5/2025 9:04 AM, Eugen Hristev wrote:
-> > > diff --git a/drivers/dma/qcom/hidma_ll.c b/drivers/dma/qcom/hidma_ll.c
-> > > index fee448499777..0c2bae46746c 100644
-> > > --- a/drivers/dma/qcom/hidma_ll.c
-> > > +++ b/drivers/dma/qcom/hidma_ll.c
-> > > @@ -816,6 +816,7 @@ int hidma_ll_uninit(struct hidma_lldev *lldev)
-> > >   	required_bytes = sizeof(struct hidma_tre) * lldev->nr_tres;
-> > >   	tasklet_kill(&lldev->task);
-> > > +	kfifo_free(&lldev->handoff_fifo);
-> > >   	memset(lldev->trepool, 0, required_bytes);
-> > >   	lldev->trepool = NULL;
-> > >   	atomic_set(&lldev->pending_tre_count, 0);
-> > Is it possible that the handoff_fifo is freed, then we could observe
-> > reset complete interrupts before they are being cleared in
-> > hidma_ll_uninit later on, which would lead to the following call chain
-> > 
-> >   hidma_ll_inthandler - hidma_ll_int_handler_internal -
-> > hidma_handle_tre_completion - hidma_post_completed -
-> > tasklet_schedule(&lldev->task); - hidma_ll_tre_complete - kfifo_out
-> 
-> According to the documentation, the way to guarantee this from not happening
-> 
-> is to call tasklet_disable() to ensure that tasklet completes execution.
-> Only after that
-> 
-> data structures used by the tasklet can be freed.
-> 
-> I think proper order is:
-> 
-> 1. tasklet_disable
-> 
-> 2. tasklet_kill
-> 
-> 3. kfifo_free
+On Sun, 15 Jun 2025 at 11:47, Eric Biggers <ebiggers@kernel.org> wrote:
+>
+> So yes, QCE seems to have only one queue, and even that one queue is *much*
+> slower than just using the CPU.  It's even slower than the generic C code.
 
-Hi Sinan, hi Eugen,
+Honestly, I have *NEVER* seen an external crypto accelerator that is
+worth using unless it's integrated with the target IO.
 
-Thanks for reviewing the patch and for pointing out the correct
-shutdown ordering.
+Now, it's not my area of expertise either, so there may well be some
+random case that I haven't heard about, but the only sensible use-case
+I'm aware of is when the network card just does all the offloading and
+just does the whole SSL thing (or IPsec or whatever, but if you care
+about performance you'd be better off using wireguard and doing it all
+on the CPU anyway)
 
-If you’re both happy with it, I’ll send a v2 that calls
-tasklet_disable() before tasklet_kill(), then frees the handoff_fifo.
+And even then, people tend to not be happy with the results, because
+the hardware is too inflexible or too rare.
 
-Just let me know and I’ll resend.
+(Replace "network card" with "disk controller" if that's your thing -
+the basic idea is the same: it's worthwhile if it's done natively by
+the IO target, not done by some third party accelerator - and while
+I'm convinced encryption on the disk controller makes sense, I'm not
+sure I'd actually *trust* it from a real cryptographic standpoint if
+you really care about it, because some of those are most definitely
+black boxes with the trust model seemingly being based on the "Trust
+me, Bro" approach to security).
 
-Thanks
-Qasim
-> 
-> 
-> 
+The other case is the "key is physically separate and isn't even under
+kernel control at all", but then it's never about performance in the
+first place (ie security keys etc).
+
+Even if the hardware crypto engine is fast - and as you see, no they
+aren't - any possible performance is absolutely killed by lack of
+caches and the IO overhead.
+
+This seems to also be pretty much true of async SMP crypto on the CPU
+as well.  You can get better benchmarks by offloading the crypto to
+other CPU's, but I'm not convinced it's actually a good trade-off in
+reality. The cost of scheduling and just all the overhead of
+synchronization is very very real, and the benchmarks where it looks
+good tend to be the "we do nothing else, and we don't actually touch
+the data anyway, it's just purely about pointless benchmarking".
+
+Just the set-up costs for doing things asynchronously can be higher
+than the cost of just doing the operation itself.
+
+             Linus
 
