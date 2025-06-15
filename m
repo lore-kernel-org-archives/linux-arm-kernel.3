@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABFBEC71150
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Jun 2025 07:35:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A167DC71150
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Jun 2025 08:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVvYXz6wUvp3En0Ra38+d3WL0JSdDoIIFx/YyoeGpK0=; b=R6gtxycUt250nWgjgM9d+xmXc9
-	4kCcc8x4y7WTd9k4574m5lZAONLO3MAwlWsMbwBeKqk1HXaOzM3OTSMKWBiN0EYODyKsIpdnFh9iV
-	Hx3fVzCopExopC8CUGoDnCowm/IpOIIj0R7D7e9nnBY6frD4BbJKTxl/87hcDEMZz3/JTwDq5QxMZ
-	QggE2EmNSJ4wy+nJL/k6ZU514BKBIotbCt/5/dkYBBbs4FrgXq/QOmxGxHFrdNUr0lnEOMovRU20X
-	7Tj+z8y3ZsjL4N22CvWJnCczYTCWt6Yjtdo+VX7fw/Hk2ylOUuCQC82N6S0ti1XOSSUMVAGi9fbQd
-	5c2CKENA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4ml8sgPpLF0KKeUn/LoITFfWypkzxkwGlJzqXXaPxog=; b=iA25i3xvdDi0gT
+	pjstZmGwkOKJ062VHhWizbyEPK94ism8R/+WBow5OEfEGuTB9b4fRjUWWIfvyaVJWWxw2SNxy5L0g
+	RCxsmTQJc/A6zLI7KmJVTCPYql1otc6wY7edoOXB3otFhvONmWFUftWjvcKhFVn4svqIzEVPJsCI5
+	hEipXn2lyHlD7uVqXUb9esV1Rbk4L+4RW+zRTIDqwGimS7bno4FZw9N49m+oxWE0Efs2SC2puVrfQ
+	G62ctlhOH3xM3KYjKI9yfVW73U8Nwpg7wFu4Br9NBld1i8INuVXS0a1BLfb4yRCfRXEM58JteZ8U0
+	M6yRRVjUWYHgQO4kjf/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQhth-00000002KUu-2JIe;
-	Sun, 15 Jun 2025 07:35:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uQitt-00000002Mbd-3mel;
+	Sun, 15 Jun 2025 08:39:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQhrV-00000002KPn-1nyD
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 15 Jun 2025 07:33:06 +0000
+	id 1uQirg-00000002MV8-2lqf;
+	Sun, 15 Jun 2025 08:37:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 682FF5C4105;
-	Sun, 15 Jun 2025 07:30:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 208D4C4CEE3;
-	Sun, 15 Jun 2025 07:32:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 28EB6A4F58D;
+	Sun, 15 Jun 2025 08:37:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05ACEC4CEE3;
+	Sun, 15 Jun 2025 08:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749972783;
-	bh=ykudC0+no0iilN4butkJwk8mXZbTEnB+zY/KM0JFPEc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IJuElzMUTv8SfPQxgLvhjHzJ3f9fOBrzL+zteUNVUtl4xBR8FZL2lgfNDLQBXGMQ7
-	 0zUJt93LVEtexmyyc26exBRT/Zznt3xjQXl6o4d4xYLYriKfRdzKIWZ9vEm7lZeqeC
-	 9NSHNEz0c59zdQUgFm9u3ThPQjXn+bSmqIoKhgvSv/OcAwoH/XW4R5nJtW5BMIwJiv
-	 TVd8mkbVwEERuR6VGAHcnhdcMVJuxy9C3VUfLcm4dH4PAb499sl/yY/RkpGnI7TROa
-	 Aplxjxbgav6cylupbND1LduzSHFqAkZsKqpc6M1gsxOVr0e1Oan/l4lHkxYtI7yc2g
-	 ZtNUkhSSPzK7Q==
-Date: Sun, 15 Jun 2025 10:32:54 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Dev Jain <dev.jain@arm.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, catalin.marinas@arm.com,
-	will@kernel.org, lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, surenb@google.com,
-	mhocko@suse.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	suzuki.poulose@arm.com, steven.price@arm.com, gshan@redhat.com,
-	linux-arm-kernel@lists.infradead.org, yang@os.amperecomputing.com,
-	ryan.roberts@arm.com, anshuman.khandual@arm.com
-Subject: Re: [PATCH v3 1/2] arm64: pageattr: Use pagewalk API to change
- memory permissions
-Message-ID: <aE53Jp7ZGgTxtxwG@kernel.org>
-References: <20250613134352.65994-1-dev.jain@arm.com>
- <20250613134352.65994-2-dev.jain@arm.com>
+	s=k20201202; t=1749976638;
+	bh=ya0FHPPaoMwryR5s/tkb+Pmcvo+q33+OAufiSPMpG00=;
+	h=From:Subject:Date:To:Cc:From;
+	b=XNVoBnr0M2veZfT3I7ngWIgveBZLJzOQYaOujnjzIaos4jpnp5duh4xUibNY9PAyb
+	 42+UcBAS31Ss0whhs7m8EQ0rxpS8ZRmvblDivX9FtKrEU0zhkEpqVMjvUq4C9IUAwH
+	 gcDc0rnUO7EZbfjt24xEfgwgEM0BER2/ZeTHEXQsH5zkGZb5atoyaCiMGcexkA7MTj
+	 ZYpjVARGTTUxknvO+YLsuggPKXaUQYRSo+fl4YNV5J9b7/eJg3AM1TvkLuE7FjpTN1
+	 zK+OkaQA8Ed6M/N/WrWVwFYX3YPjQdhdSCU711pitN+ujP3QHEWKomY1fiBUD241Br
+	 0ue5b9IX2ELYA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next 0/2] net: airoha: Improve hwfd buffer/descriptor
+ queues setup
+Date: Sun, 15 Jun 2025 10:36:17 +0200
+Message-Id: <20250615-airoha-hw-num-desc-v1-0-8f88daa4abd7@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250613134352.65994-2-dev.jain@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAGGTmgC/x2MywqAIBAAf0X23IJKD+pXooPolntIQ+kB0r8nH
+ YdhpkCmxJRhEgUSXZw5hgqqEWC9CRshu8qgpe5kr1o0nKI36G8M546OskWpRiuHam2roYZHopW
+ ffzov7/sBzxMXlGQAAAA=
+X-Change-ID: 20250614-airoha-hw-num-desc-019c07061c42
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_003305_515952_F26D37EB 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20250615_013720_767531_93069BA0 
+X-CRM114-Status: UNSURE (   5.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 07:13:51PM +0530, Dev Jain wrote:
-> -/*
-> - * This function assumes that the range is mapped with PAGE_SIZE pages.
-> - */
-> -static int __change_memory_common(unsigned long start, unsigned long size,
-> +static int ___change_memory_common(unsigned long start, unsigned long size,
->  				pgprot_t set_mask, pgprot_t clear_mask)
->  {
->  	struct page_change_data data;
-> @@ -61,9 +140,28 @@ static int __change_memory_common(unsigned long start, unsigned long size,
->  	data.set_mask = set_mask;
->  	data.clear_mask = clear_mask;
->  
-> -	ret = apply_to_page_range(&init_mm, start, size, change_page_range,
-> -					&data);
-> +	arch_enter_lazy_mmu_mode();
-> +
-> +	/*
-> +	 * The caller must ensure that the range we are operating on does not
-> +	 * partially overlap a block mapping. Any such case should either not
-> +	 * exist, or must be eliminated by splitting the mapping - which for
-> +	 * kernel mappings can be done only on BBML2 systems.
-> +	 *
-> +	 */
-> +	ret = walk_kernel_page_table_range_lockless(start, start + size,
-> +						    &pageattr_ops, NULL, &data);
+Compute the number of hwfd buffers/descriptors according to the reserved
+memory size if provided via DTS.
+Reduce the required hwfd buffers queue size for QDMA1.
 
-x86 has a cpa_lock for set_memory/set_direct_map to ensure that there's on
-concurrency in kernel page table updates. I think arm64 has to have such
-lock as well.
+---
+Lorenzo Bianconi (2):
+      net: airoha: Compute number of descriptors according to reserved memory size
+      net: airoha: Differentiate hwfd buffer size for QDMA0 and QDMA1
 
-> +	arch_leave_lazy_mmu_mode();
-> +
-> +	return ret;
-> +}
+ drivers/net/ethernet/airoha/airoha_eth.c | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
+---
+base-commit: 8909f5f4ecd551c2299b28e05254b77424c8c7dc
+change-id: 20250614-airoha-hw-num-desc-019c07061c42
 
+Best regards,
 -- 
-Sincerely yours,
-Mike.
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
