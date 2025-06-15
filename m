@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C459C61CE8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Jun 2025 18:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D82CCC61CE8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 15 Jun 2025 19:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JOyv4kS6IEiUR/F0Uy79/6bdOLzA/RPRpgmG1fQSlWY=; b=xb2HO9qnDhi62HLYz4AqIjgnQk
-	qOEKKkkY1sg1vOsnU+L0IX6y9RTc2VkICITw1KgUUJoqD9kmsAh3ZMl1gQnu5AtV4NbFgMlteRm7Y
-	3DfQVn4Dt8NecDwFU9LpeezP3+tPSTW07MSi2vKikeqRAMovYENxxdQKtl97EG/qNucyw6taAhsyt
-	DvtE0m8EZZebXVvFGuXQ/H2CE3hYM4dsb5dgBjryCBAeLK1nQzJOsCyXVAQoeDb3NmgppxtricDAD
-	tMv4m7KVUrGkFnFyiXEt1xNBe+MkW3HgUXPxtWYQ7Y+stjoIHeRogjylre/3szLlri6/SPR0PRwUB
-	E5wu6p/g==;
+	bh=FlPzMKu4igdnQzEXLhlv+B8h95JnIJGKPzIiOmsd940=; b=b2wPZ/bAws5jat9oSkSApT0wsk
+	zVAt1262HRysTXAUGxo+i3gZOWnZqWlkL0811D9ruFshBmrDeGw+GNfWa3Vy/4tydtnC421Dg6oJR
+	Y34YJ8ndQbbQESAOecVro7WPTPPLoNU1I7Leg0v4gTbFUO4bSa/HmMrWvxnGxnvwIhbwOpsXAscL1
+	lor811Pel1pe0DgEzbCCZ+IdioDc3DsjRyNYmn0njXxWiCwY7ZAWfb6y5T2U7FHuGtwy1PEkz9SHS
+	4sTjaiZICn5ZeMKP+hg0pb3PHozm0xbT7iPLBjvo5xMAdvTLtC7tiwnG4AYUxMn78TzOYjM+tMORF
+	cQgpaXHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQsQ0-00000002kcX-2ADu;
-	Sun, 15 Jun 2025 18:49:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uQsrF-00000002lkp-1zbZ;
+	Sun, 15 Jun 2025 19:17:33 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQsNm-00000002kQZ-3YXO;
-	Sun, 15 Jun 2025 18:47:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BC534AB32;
-	Sun, 15 Jun 2025 18:47:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA633C4CEE3;
-	Sun, 15 Jun 2025 18:47:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750013226;
-	bh=5b3uNryP074LRzS0e8lRw21Ibl8znCFGJk8dG32zXQw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dBPtFxhSJMUXxmaT/KxQ35nsgIcXL/g9ImLlDTQb++SUrhRAv5BrYEyhMzlivQTnA
-	 b5r6qgTgn/HKGqJKv8iIJZIrBrbSU8quRUHzUx02dyadCT/fXANUmLE4BYuuyerOk5
-	 syWDFFmKz8D7g32RagfLqYXxRSTC1HcHir74l/R1J5sHSjE1peKYYs60gZCL3eQPFb
-	 cTq1v0r+DKJnH6n9ApPtKk3wepQy940tpEOG1qlya7EY3CViKAzbLFJr2wnU1AGoVG
-	 WMCEPfl0m7mcUWeu5p5Yg2rrbz49hc8W2AJ7VRhT2wOOyNch3zWfyN/nLXRv7u5Cna
-	 suPZqRSuvlvJQ==
-Date: Sun, 15 Jun 2025 11:46:38 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, Jason@zx2c4.com, torvalds@linux-foundation.org
-Subject: Re: [PATCH] crypto: ahash - Stop legacy tfms from using the set_virt
- fallback path
-Message-ID: <20250615184638.GA1480@sol>
-References: <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
- <20250611033957.GA1484147@sol>
- <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
- <20250611035842.GB1484147@sol>
- <20250613053624.GA163131@sol>
- <aEu5cyDOMcKteW_b@gondor.apana.org.au>
- <20250613055439.GB163131@sol>
- <aEvmmr0huGGd2Psv@gondor.apana.org.au>
- <20250615031807.GA81869@sol>
- <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
+	id 1uQsp2-00000002ldk-1yhA
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 15 Jun 2025 19:15:17 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-441ab63a415so43444765e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Jun 2025 12:15:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750014914; x=1750619714; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=FlPzMKu4igdnQzEXLhlv+B8h95JnIJGKPzIiOmsd940=;
+        b=h+st97jmGG98BMkFyYpyVy/TH90T3iAqzEAgGtnsAuyp4MR+p7u5zMc0BwPfrof6G6
+         Cv7UFCog48+TNW8Oc6EOTOTQwumMbCmY3dFH3B4vslQD+FtLZhEEl4EyEYj5IH/YvxGL
+         c9B4Ds38p1z23xU3ppZCHMXl1l7UbBAtl+WHyq3iiXXM7BkvXeE7gVSfQjARudEL5TSs
+         0xPMUnc2CAQ6RkKwOemHT6fdwsYHO16dg8z6ErMsKYL9yrgP4qnCqFb7X/DyK0YYNF14
+         3DWmpsYeCOfTdbbCdDBOnVmlTCzAvt7M6ERDuxRYDT+lWPWAcxJOa4RyIg7e20FZ7PbW
+         Bs6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750014914; x=1750619714;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FlPzMKu4igdnQzEXLhlv+B8h95JnIJGKPzIiOmsd940=;
+        b=vYepaECag9GXkzL3WlPAZnSHjM1S4Jc5IV1x3DNcEwn8d3uWimO+ALfXkXAstro3Q7
+         O8SDzG2CIRKJlPjfrb8ojSlUN3aoRNPwJhUbb+ecQt4HKGX7Z9YTWRbw+5Kyh4n96Bi8
+         8WaOPniaPkxqiLy1VTmFDtDRr1dZ9J21l+cSQzIXcK9xeQnDZR9X9lyYPPnKuH7HcKSk
+         AMKtg/XO+T5On37IMxENm4CHCxCgPBc+of48yoH26LM0QnmzsnARpz74HOVKD6g80pKM
+         iKu+8IsNjVjHlaGPBQCQJ5WsYVBi6UMykKEMVOjEIqs8Zn5V2oW7pxVUIMfrdbtiJcBm
+         PFAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXLZzjNmxP4f4DLhL+z878fCzxroYpN1SNlqWpSOpUv38LLLnxzY9zbvnayCtctklgiCCuNMZh4gaEkzLGP8m5Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJuxC/LkTSaUHHx6mzvNuKMeuc0v4rRO5sADxF5R6K/wRBrpzt
+	1TOVk2Xv0U7zxtH5CDcFLmFuu/q4BVKNFAKa8ZBbqWXq8dX0Ao9eZoIj
+X-Gm-Gg: ASbGnctZrF4J6lK7HrkCY2zGuHRCXpwWl/4KmRYPczcdzDtVr+yRvLswDgJwTuXA7l+
+	wsB3RAoGoiM/nzLc7QccDCYCMK1Z+U8eHgvwhbjdKwPJBC4hAETNxZGiu4FT+ZQY3k/pVZlVv60
+	FSccH82NvUrWu1jPs6SsGepfzQC+OIsLG4Mvdzrl/fd+8P/VMBXSNZwYnR5zT116/1RV5zx6KCm
+	fmeHNSrZQbichL294RraqT4woLGz6RQ+HYIC6NlVxJhW2B8LVrhlxtAkVoq73m+uvoeziS1pdU+
+	h+EQ5sxz42vuYXFBiFPHXVwzbW4itjNf35zVKSfaF+Ms1nmIfE9oWioTww==
+X-Google-Smtp-Source: AGHT+IH2bJWppEAVzSL6erEhSao6ZwWSsziOevhXh5q8BLnlA4Nj/np4851kfzIOx/I/qjbdaicjSw==
+X-Received: by 2002:a05:600c:8b65:b0:44b:eb56:1d45 with SMTP id 5b1f17b1804b1-4533ca6e6a8mr72032075e9.15.1750014914236;
+        Sun, 15 Jun 2025 12:15:14 -0700 (PDT)
+Received: from gmail.com ([2a02:c7c:f4f0:900:5194:623a:df1:d4bc])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e13cfbesm118671195e9.22.2025.06.15.12.15.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Jun 2025 12:15:12 -0700 (PDT)
+Date: Sun, 15 Jun 2025 20:15:07 +0100
+From: Qasim Ijaz <qasdev00@gmail.com>
+To: Sinan Kaya <Okaya@kernel.org>
+Cc: Eugen Hristev <eugen.hristev@linaro.org>, Vinod Koul <vkoul@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] dmaengine: qcom_hidma: fix handoff FIFO memory leak
+ on driver removal
+Message-ID: <aE8bu2woUe96DVo-@gmail.com>
+References: <20250601224231.24317-1-qasdev00@gmail.com>
+ <20250601224231.24317-3-qasdev00@gmail.com>
+ <3c6513fe-83b3-4117-8df6-6f8c7eb07303@linaro.org>
+ <7649f016-87f1-475d-8ff7-7608b14c5654@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXGd93Kg0Vs8ExLhK=fxhRBASU9sOPfgYUogv+rwVqgUsg@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7649f016-87f1-475d-8ff7-7608b14c5654@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_114706_915477_6AC04482 
-X-CRM114-Status: GOOD (  28.94  )
+X-CRM114-CacheID: sfid-20250615_121516_516478_87710225 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +104,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 15, 2025 at 09:22:51AM +0200, Ard Biesheuvel wrote:
-> On Sun, 15 Jun 2025 at 05:18, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> ...
-> > After disabling the crypto self-tests, I was then able to run a benchmark of
-> > SHA-256 hashing 4096-byte messages, which fortunately didn't encounter the
-> > recursion bug.  I got the following results:
-> >
-> >     ARMv8 crypto extensions: 1864 MB/s
-> >     Generic C code: 358 MB/s
-> >     Qualcomm Crypto Engine: 55 MB/s
-> >
-> > So just to clarify, you believe that asynchronous hash drivers like the Qualcomm
-> > Crypto Engine one are useful, and the changes that you're requiring to the
-> > CPU-based code are to support these drivers?
-> >
+On Fri, Jun 06, 2025 at 09:35:44AM -0400, Sinan Kaya wrote:
 > 
-> And this offload engine only has one internal queue, right? Whereas
-> the CPU results may be multiplied by the number of cores on the soc.
-> It would still be interesting how much of this is due to latency
-> rather than limited throughput but it seems highly unlikely that there
-> are any message sizes large enough where QCE would catch up with the
-> CPUs. (AIUI, the only use case we have in the kernel today for message
-> sizes that are substantially larger than this is kTLS, but I'm not
-> sure how well it works with crypto_aead compared to offload at a more
-> suitable level in the networking stack, and this driver does not
-> implement GCM in the first place)
+> On 6/5/2025 9:04 AM, Eugen Hristev wrote:
+> > > diff --git a/drivers/dma/qcom/hidma_ll.c b/drivers/dma/qcom/hidma_ll.c
+> > > index fee448499777..0c2bae46746c 100644
+> > > --- a/drivers/dma/qcom/hidma_ll.c
+> > > +++ b/drivers/dma/qcom/hidma_ll.c
+> > > @@ -816,6 +816,7 @@ int hidma_ll_uninit(struct hidma_lldev *lldev)
+> > >   	required_bytes = sizeof(struct hidma_tre) * lldev->nr_tres;
+> > >   	tasklet_kill(&lldev->task);
+> > > +	kfifo_free(&lldev->handoff_fifo);
+> > >   	memset(lldev->trepool, 0, required_bytes);
+> > >   	lldev->trepool = NULL;
+> > >   	atomic_set(&lldev->pending_tre_count, 0);
+> > Is it possible that the handoff_fifo is freed, then we could observe
+> > reset complete interrupts before they are being cleared in
+> > hidma_ll_uninit later on, which would lead to the following call chain
+> > 
+> >   hidma_ll_inthandler - hidma_ll_int_handler_internal -
+> > hidma_handle_tre_completion - hidma_post_completed -
+> > tasklet_schedule(&lldev->task); - hidma_ll_tre_complete - kfifo_out
 > 
-> On ARM socs, these offload engines usually exist primarily for the
-> benefit of the verified boot implementation in mask ROM, which
-> obviously needs to be minimal but doesn't have to be very fast in
-> order to get past the first boot stages and hand over to software.
-> Then, since the IP block is there, it's listed as a feature in the
-> data sheet, even though it is not very useful when running under the
-> OS.
+> According to the documentation, the way to guarantee this from not happening
+> 
+> is to call tasklet_disable() to ensure that tasklet completes execution.
+> Only after that
+> 
+> data structures used by the tasklet can be freed.
+> 
+> I think proper order is:
+> 
+> 1. tasklet_disable
+> 
+> 2. tasklet_kill
+> 
+> 3. kfifo_free
 
-With 1 MiB messages, I get 1913 MB/s with ARMv8 CE and 142 MB/s with QCE.
+Hi Sinan, hi Eugen,
 
-(BTW, that's single-buffer ARMv8 CE.  My two-buffer code is over 3000 MB/s.)
+Thanks for reviewing the patch and for pointing out the correct
+shutdown ordering.
 
-I then changed my benchmark code to take full advantage of the async API and
-submit as many requests as the hardware can handle.  (This would be a best-case
-scenario for QCE; in many real use cases this is not possible.)  Result with QCE
-was 58 MB/s with 4 KiB messages or 155 MB/s for 1 MiB messages.
+If you’re both happy with it, I’ll send a v2 that calls
+tasklet_disable() before tasklet_kill(), then frees the handoff_fifo.
 
-So yes, QCE seems to have only one queue, and even that one queue is *much*
-slower than just using the CPU.  It's even slower than the generic C code.
+Just let me know and I’ll resend.
 
-And until I fixed it recently, the Crypto API defaulted to using QCE instead of
-ARMv8 CE.
-
-But this seems to be a common pattern among the offload engines.
-I noticed a similar issue with Intel QAT, which I elaborate on in this patch:
-https://lore.kernel.org/r/20250615045145.224567-1-ebiggers@kernel.org
-
-- Eric
+Thanks
+Qasim
+> 
+> 
+> 
 
