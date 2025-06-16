@@ -4,174 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9D0C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 09:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FABC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 09:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T5AblgMIgfJT36bKWhO2j6nN3NVjCiBPyX7fbTiFv0Y=; b=zLce24e+HG0LWvKWaD5R4w2se8
-	A2zE08Gc0S/FgBXRTAbmf9qdWFgoj+gs8C1XKBkh9u/dLcqPOTBjKwIMmfeL21CuYxRTk6pjj7mT0
-	4Nu8Re5vLtN8I9gMIrZLSIgO9S9iiEarYhvsdgGCtDFK0HTt0tS1pMIxgWDgeW6iWkZpnzIGdUawZ
-	3ejMzAIfC48tRZg0sp0ooKm1XRAywDbTsAAG/rDNDQGVtCkd4Crsnw0xZ2kqBTBOOZF+a9TljfqMx
-	R45eUtZQjH7NZZ2DmM8RSaRvLkVX354zJr29YTFTliVBQ/5BfDtE5sjCGsEi7VAp2ZnLPpdES9DUw
-	rPA3XuaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lY4tRoNk/eY68a+Ymm8sqTpoYioW7Yn2xvhNPhPrCAE=; b=wkILpraeDqXiAPYZgdJ0XsKXpo
+	zUOTIKjoQejUlV3Vh62DGXPZDJobDdwbjqXEf9tCaXS8H7K6XggK0dofbt7Oz16shJiqrLb4tZ92g
+	oLQl02fx2HyCBNgB6Q67U3Yqjbvzu+uFZQU6L7R1+mnPrtl8OpeS2UXuSr9GB6w7Km1ZMxwrjSDai
+	AUqBGT3Pwrwb1dTPFX0+J3a8eGHySatQz0k1oHYg6GotNV/wXabpRRAMgPE76D4m6Q6sE6o3bwOJc
+	BYGm/T0UORV3/T3zoI1jlNVON1E3Y3Jz9Lw2EN+TgIdUc/EEHXFjX9Yc/1HJOacgT/7L1ga4Rm3/X
+	drriom4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6ZY-00000003z0v-3NJY;
-	Mon, 16 Jun 2025 09:56:12 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uR6bm-00000003znh-110u;
+	Mon, 16 Jun 2025 09:58:30 +0000
+Received: from mx0b-009a6c02.pphosted.com ([148.163.141.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR5us-00000003tFs-2cQR;
-	Mon, 16 Jun 2025 09:14:13 +0000
+	id 1uR5wc-00000003tda-1der
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 09:15:59 +0000
+Received: from pps.filterd (m0462408.ppops.net [127.0.0.1])
+	by mx0b-009a6c02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55FNA2vA029271;
+	Mon, 16 Jun 2025 17:15:07 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=20250420; bh=lY4tRoNk/eY68a+Ymm8sqTp
+	oYioW7Yn2xvhNPhPrCAE=; b=DONpaDgSQD1m5qHUhPNBheu76bNf9FvLsj8rF9m
+	FuDrshgt3aJBXOt53Wsq62CJLlmtFUCHNk3C9Z34jvBWRlgcCIUBOz++7QKQbkpO
+	dkTwDsqtUlqXAvVW4JwbOXh+UbyOkbnwUIh/L5EKFyNxJtO0k37vBWy1087h85T4
+	Lwp3FJoRCFNO3J8wwJHl6Q1nS4GsBUAuLT29PcSZQOMYEyuWkLfOR2fwLgI1eItJ
+	4UMV8B8PDSyJeTKAJcy8GV08UqOinrJToAQOM+QwcfSyAlkBopmZ1ZnjfGTTSFVF
+	o7A52lrUY5gMx8sUJwJrN5XnDeMHdA7yE7spPT/SbfYI3Zg==
+Received: from tydpr03cu002.outbound.protection.outlook.com (mail-japaneastazon11013045.outbound.protection.outlook.com [52.101.127.45])
+	by mx0b-009a6c02.pphosted.com (PPS) with ESMTPS id 479c8p9cwv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 17:15:06 +0800 (WST)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kOMoiMmhDKV2Wa1FqY02LPmmE7GOV5eDEjWakYMwVwzVXTWbl+QOT/6D1JD3kUPzlOBgVfhxnGY+ai+UXEWURaV+NPgmdiDQq0JwVqPfLzkM5XD14kS7ncaGElf0NX1aZ+gZlH9AywaTht6Gu1qJhfNnWDXwdpwBt4ql7g96FBzJO5XnVp7mCIPbhhoZSAn4D64MlJdehBk/Tx0zdytF5aOjYT9enw2criBO8czl0IAvGUGyW16UKx08d4Qg9X2VOTbA6b+pkjXAVr6rtE173FyC9/7Dm9kSbuincXQMp51kfz/1dgB70FSv1t23JqsqVO3h1Rin7d/XsA6cqBWjyw==
+ b=YUyaKnP9zfwPIL6ZO4HFOIOQd5pTPW37etg2m77GBaw6vuVK1UD1g/tnQyujxCC2Kc9QXsfR8gYkohumks4rE4ycoWQ4MFZkpB0lwk9wsv8w8HPRMAE2KzlGUhPJytzqIh0ji0Xoqq/GErzo+Rwy6CLdlPSG/eJs6sswiiuC0IowioiGmZ4H7FA9fPTC8lqcs3oRTF3qk0JGM8+tA7dXuNAhlvi/4FycrFO6iFjijhKU/crhM5QO8aXm/GLkZka52eJtMWNY66C7Q4JqZXDxMf0E707ePO8uJ+gl6gKYXDrL/uDKmpqL1M1XrAfml5j4XMYTtk42fvRht89cWBweXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T5AblgMIgfJT36bKWhO2j6nN3NVjCiBPyX7fbTiFv0Y=;
- b=tpPciTNLau1aJAGyENCX7kohVzX+g4F5daYF/w/6YA6s4gRgaUfNWb+yK4PK/ZnoygxjAC97Xpl5MCWgTOF95rDENsFGTVHDGSPcgpFkogi5gwAh7ibaUX8cKHgGsao0wqmPuubZHhb8gMPsbvbUrQE77FUEB5aRshcOC3wTjUX7PfDaSsrg24illlN1LQoic0UJG5ofTs27tNILkWpmvvXkizUfaPCGHATi6/7ns6pYB+QJZ2WiGyZYiymLSGHPb5aU07K9Ual4Z7Oum86fjhJwwK0M3TPn5TFVcggboFhzmzS3z/2CQ2qDV7t5FzHqegrf2M9eol58W5B2Y+sGxA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
+ bh=lY4tRoNk/eY68a+Ymm8sqTpoYioW7Yn2xvhNPhPrCAE=;
+ b=TY6WIItIs1BrnXtoJdW6OBLGiND4GLJGgFvq5kxFBjqvqHH5TDj1NzeODnxBO1wVQdKcvpoNkMuH8HtRo7lR/e5x643qJ0n8w2tSn4A7OV3GgHR7amZMeAcxlai7iI7QYxRYzEMONL9v9N69h8dnHkkuEMS2e7+Vn7m4QjK06xpBRBxcunGtWjBxVXgIJaj1bSHg2XHzc7cDR00F7U5/On6KacuOPY+oHhR8ENeDiJwTtY9bvM2Gtravuw9S3McswgSiTNdxKtUFDra2g1yKzfDYR0goTA5Pl8Id34VgBO5wNXVX1zuYmS1g3pgcIipdf+RNTM9I1Q3jQ4N7ihyBbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T5AblgMIgfJT36bKWhO2j6nN3NVjCiBPyX7fbTiFv0Y=;
- b=E9xbOgenYq0Hw4Nt+ojxrljRnsK/mB0WI28qqV7cXVxOoVmqh3S6DPREXWMDo37Cpg/yEtAwPZINy11hV4rlpXId/ZTfaO/mr2jbiuzvR2XNORL1iMCmqx7JVxfpL/ZtlO8BtpzVOWQvoWinCGL7c8/dbJyocasNA5zKN/brxYU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by GVXPR04MB9804.eurprd04.prod.outlook.com (2603:10a6:150:114::6) with
+ bh=lY4tRoNk/eY68a+Ymm8sqTpoYioW7Yn2xvhNPhPrCAE=;
+ b=Dc3SFebG8wdfTNVF3wHdeaPB0jiZzHuVpTeq6rvotwmKw9kWyI63UVyeVqLMd49i6IwOknY4KDRqEm1DaHu4gG2f/KWABF45GZCkfq3jMerImSHLuZT6E6RJSTTjVIPwVaMptw3EsIPzsp6YvQmzfiNY95O1RGgD/GVoQpZU8bM90ZUE1cKi/crAb3W94i7AMG5JvlV5j28eV05vr3Gqh5huleLcrP4zmxI3grgY9oHVU3spvTEKsQQDCN8OEmes4ApHnoF36F4BO4MFPtVn51sNMXq0d4Y1hgJeCxc9u3QWFM5tZC/PW7U7ySQOcGmSupJfj+aoAArjcDXTLsqAwQ==
+Received: from TYCP286CA0110.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:29c::17)
+ by TYZPR04MB7728.apcprd04.prod.outlook.com (2603:1096:405:77::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.24; Mon, 16 Jun
- 2025 09:14:03 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8835.018; Mon, 16 Jun 2025
- 09:14:03 +0000
-Message-ID: <b0be71ba-e2e0-4a6d-94ba-72d54959c929@cherry.de>
-Date: Mon, 16 Jun 2025 11:14:01 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: rockchip: support Ethernet Switch adapter
- for RK3588 Jaguar
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Jakob Unterwurzacher <jakobunt@gmail.com>, foss+kernel@0leil.net,
- conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
- jakob.unterwurzacher@cherry.de, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, robh@kernel.org,
- Kever Yang <kever.yang@rock-chips.com>
-References: <20250523-jaguar-mezz-eth-switch-v2-1-aced8bf6612d@cherry.de>
- <20250527131142.1100673-1-jakob.unterwurzacher@cherry.de>
- <35e0a925-4cba-41de-8fe4-4dd10e8816f1@lunn.ch>
- <380ba32b-bb9a-411e-8006-127461cac08a@cherry.de>
- <3303d8d4-ec5a-4cdc-8391-ab6e35d76b33@lunn.ch>
- <96d32ce8-394b-4454-8910-a66be2813588@cherry.de>
- <bb3486c6-93df-4453-acc6-deba3c8f7f0e@lunn.ch>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <bb3486c6-93df-4453-acc6-deba3c8f7f0e@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA3P292CA0005.ESPP292.PROD.OUTLOOK.COM
- (2603:10a6:250:2c::18) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Mon, 16 Jun
+ 2025 09:15:00 +0000
+Received: from TY2PEPF0000AB8A.apcprd03.prod.outlook.com
+ (2603:1096:400:29c:cafe::48) by TYCP286CA0110.outlook.office365.com
+ (2603:1096:400:29c::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.29 via Frontend Transport; Mon,
+ 16 Jun 2025 09:14:59 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
+ smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
+Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
+ designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
+ client-ip=211.20.1.79; helo=localhost.localdomain;
+Received: from localhost.localdomain (211.20.1.79) by
+ TY2PEPF0000AB8A.mail.protection.outlook.com (10.167.253.8) with Microsoft
+ SMTP Server id 15.20.8835.15 via Frontend Transport; Mon, 16 Jun 2025
+ 09:14:58 +0000
+From: Marshall Zhan <Marshall_Zhan@wiwynn.com>
+To: patrick@stwcx.xyz, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Marshall Zhan <marshall_zhan@wiwynn.com>,
+        Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3] arm: dts: aspeed: yosemite4: add gpio name for uart mux sel
+Date: Mon, 16 Jun 2025 17:14:55 +0800
+Message-Id: <20250616091456.360388-1-Marshall_Zhan@wiwynn.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|GVXPR04MB9804:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2bc6e89c-a535-41c1-3adc-08ddacb62321
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB8A:EE_|TYZPR04MB7728:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 884a3514-4189-4bb7-ffc4-08ddacb644b1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aUtQSmVhQkZBTlRXU3d0VmN5SGEvc0Z0VjhqeEF4SVBpTVVnZVdrMnh4dm9P?=
- =?utf-8?B?dUFDcTJld1A3eWNRUWVpZFBTVU1sVytsRWNwekVHd3IxaXNNbmM3NDFxUHRY?=
- =?utf-8?B?bnJRWXZBRDhITnQ5TExyYUZUYWJIeVdaVytXSklKcHJaYVc5Sk1rSXlPUHlK?=
- =?utf-8?B?SU5ZMitrWFlWL1dUdUZHeldsRHV3VjNKSmxxS1FLNlZ1d3prWHhKbTVRelNp?=
- =?utf-8?B?NU9mV1JEcmNEZ1N1QWo2TEpWa0JYMDA0M3RCUWVYMEhVOFJaa1FheHNhdVBu?=
- =?utf-8?B?VHh2cEcvTlE1NFUzOXIvRWszVjBZOG41cHh5STRteTl2Y2dRbDNlc0tSdU5r?=
- =?utf-8?B?NmNoa3pTQTN5YWd3TmpCQ0h5aHM2QjBSdlMzUTMrMy9lcXFNZWpNR29BbGEz?=
- =?utf-8?B?TWlBSTlJU1gySmdvU2c1NkF2UnNZQkZ2MUJhbDR6dHZ3S1A5WXpHTHo2MEYw?=
- =?utf-8?B?TXM2ZkY1OHhoVGJ3SnpaUTF4aEVxS0g0eWhuelV5UTB1ZkgxdG95aGV1NFV4?=
- =?utf-8?B?MW1RWnc3Z0I1NDM5ak54NVNoVWpTOWdOYVREckdDcm50N0NmR2dubzV0MFpq?=
- =?utf-8?B?VEFBaTJwNklsY211UCtXUG45QVBIS2FyRHAxc3Rld0NybGs3T3VMNXlFSTRn?=
- =?utf-8?B?VTZOcm4vblpJU2lxVkowL2srRXZwckFTTC9ZdnRUOVlrZnJKSkNaa1hRSWtH?=
- =?utf-8?B?M1JnUURBbHREVzFNRUJnNGdwRnFQY011NkJkUUc5QkYzTzF1YlpON0hvWGpV?=
- =?utf-8?B?NXJjclQ4Q1VqY2VvUWtNK20xc3Z1NWpGR2lCeVVBLzd6V00zWEt4QWorUlBQ?=
- =?utf-8?B?RW1BbTRQMW92RHpTdEkrM1VkQjhXeFhsbjF2Rjc0L0w1bnZMZXhIc3FIcisy?=
- =?utf-8?B?VGxsS01qUVRPMnJaSlFKLzRZOEN1VG5LZy9OYTNJSWo1aWtlT0xwVWptMHhS?=
- =?utf-8?B?ZEo2TU1WMmkyT0MzK0NyeERtY0JiOE1sekZmSEFnQ0VWLzNRWWFWOVl2amFK?=
- =?utf-8?B?aXAyTHFGdngxaUJBcXViZk5Bek93aVUvUlBzOTNqam5CVEhZOXdnSWxJY2Uv?=
- =?utf-8?B?TXkrNlZ1UzhuMGxWOEZjRS9YVk9wUW55YmVmUXUvTUpmQlgwemNZOEdDRi9Y?=
- =?utf-8?B?UFV1SDlKcU9VcG9wU0ZWWGFjSHdQU1dQbldyZHJSQWxrNnhGWE1rU1krY3VO?=
- =?utf-8?B?R2dUdjVuQkN1TVVDa0c4UDJPZjZuVEJ3OFBRN3FmUzlhd0REeEhOMFBXYWVv?=
- =?utf-8?B?bmdmZjdzUHFTaG1xL1lUR0VBV1pVcW5KamdvQUpCckNCck5mb2YyMWI0MGQ2?=
- =?utf-8?B?aGJxLzNBNU8xY2JJWkZTbGwyYkRjeTJnRm15a3AyNkJBWGdYdEFsNkh3ZFhm?=
- =?utf-8?B?QS9kVXJlU0x2M2tpTjYrOHRVYWYrK2x3ZFhSNmc2QkpOM0FFamQzeWpFYWZ0?=
- =?utf-8?B?VTlqY2ZJK2JrRFcvN3B5MldFOE8wbkhydHA3NUFicnFKU0pwc0F1SjRGUXZp?=
- =?utf-8?B?U3pBU3pkNThaOC85NVR6NHRrcHJqS1d3SXFVVVExZ1VpaHg4SkRUTlRQVEEv?=
- =?utf-8?B?clZPK0VLNEdyYStOa0JFSFg3RWdXbmd1TkxVa3RkSUFkU0lvS1RKT0RjZXBk?=
- =?utf-8?B?aTY1NGsxT243UXB0aUtiQzIyY2lpdWpxUFNFakx2K3l3aHhMRWtXNjZrWlJ1?=
- =?utf-8?B?aWtOTFVHelpmbE5vZEgzK0UxemlWeFdzK2wvQ0JaK0o3WGR3T2VRQk16RFRy?=
- =?utf-8?B?bGRVOE1XbnJYNkZ2enhRNi9vcDFnaUlJUnFpVWdxNDVQTWFmdFFKK0s4b1lk?=
- =?utf-8?B?QlptdnVCZS92WHlMMTlmQlFoTlJKVXRnWno2dGhIWUtZcDhrRkIrL0lycDJ5?=
- =?utf-8?B?ZXIyK0gxV2ZxRlNBSTIwR0grb2xHWUl3eFN1cld6a1RLZzRUUmY5MW11YTYv?=
- =?utf-8?Q?lnD34pXE368=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L0hzVlIyWkEyVFduSCttejk0YlZReHBQdTFXVm8xRzdFUjI1TUNOdmRqQWQw?=
- =?utf-8?B?R1QvVzR2THpybFJNdHBtTlVYS3hBK3BOY1dDRXVaMTlpVkJlaGN5dVpjRGxL?=
- =?utf-8?B?RlBoRENRR1RIclkzeFdwMVh5Vm5kYis1QmhGTHhXTWpzMEVGck5XTnVaWEJB?=
- =?utf-8?B?R282L0RWNUtaL1JjSkZpK0FRS0RvNGEvUlBVYmVTQkcwVFJRUFZpRWdKTXpk?=
- =?utf-8?B?dURPY0x0czk2akp6TXFGd0hucUd1ZitEQVdhRHdyRjBiTWd3VytCQnh1Q2RB?=
- =?utf-8?B?QXFaV2Y5cGdvRlVHQmRZRHFISjVLdTM1K2Vra0RydGdxZDBvTVJOWUMvVVBa?=
- =?utf-8?B?MWdnNFpDc3RCREtxNHQrTDVrNkF3M3NycGtvQmVDeG9xUVhrcW5tZXViR0g4?=
- =?utf-8?B?NTZ5Y1lBK2JIaXFJSXdFMVRLVVkwWUtMdjc2d1JXdlN1dmlMVDNaenUzR1Bh?=
- =?utf-8?B?eklGWmhCNWYrTmp3U09qSGtZYklSM1NLbDlud05FNnZNd1J3QXJKVEx1NHl5?=
- =?utf-8?B?SERpRTNoWXE2bk1rSmk5V000M0l6bmNBMUZzOW1IUFd2cWo4aE55Nm1STndZ?=
- =?utf-8?B?L21rRTVKUlZWSkdlUmF4dTlKa1g5c0Z1dGJMalBUaC9NREtsR25CNXFGbnNI?=
- =?utf-8?B?ZEphUFZhNHpwNUJtWmpYVWRrUlVhZ1k2emFBWGQzWVZocFNSdHhBc0EzOUJn?=
- =?utf-8?B?LzFJZVVqTWN1ZEZBWDViS0hjdjVPNFpBMEhPWDBuT1hSS0gva0dieFdQN2tP?=
- =?utf-8?B?aVc2WHMzc0NBd0FPdy93d0RHQ0FUZm9MNC9rUDBDSkFGci9CWDhHRnF2ZDRk?=
- =?utf-8?B?ZlV6cWh3TmVFOGhvUVZKZksvNzgxbEY1ZkFSaHJKNDNzQnNtMU9STmxoUnZM?=
- =?utf-8?B?YzNJRjRreThRU2FwUnJKSU4wcXZHblZ0S1hXOThYR01lVVJvYTFVd3ZIbjU2?=
- =?utf-8?B?QVptN1pnVWpsUzBQVnhwL2ZvZGJLY3FFWWhncWNlRkMycTR1L3R1Tk4yYkhu?=
- =?utf-8?B?RWFlaUNXODFGZXFXMVdiV0Q5ajNJMUtZd2llNjBYOW9mVkRtMlAwK2FzdVc3?=
- =?utf-8?B?c2ZRUWFXTzBFMTlXYUFZQ1h4RHY0dUFISEtmS2htOHV3ZDFUWHRQL0Y5K1V3?=
- =?utf-8?B?UE9SZktrR2dITEtyQmVzeFhKVk5jVFFzbm1WYnJpeDcwR3FvSlBlcTc3d3Ux?=
- =?utf-8?B?ZVhiY3k3d2RKTkZSeE9QRDkvT1VPNjFHbmZOdENaUXRnOUpmNTV5MHhhd3Jv?=
- =?utf-8?B?L00xaFFVdWRnOWtkL0lGbmJyVmFQd2k1VGtVbVN6SzQwRkpZNkRDa083bzZO?=
- =?utf-8?B?aE4vUks1YmpudnhwUDdFa1FJNjBZdVFxRU90QmNSbEFjeWI4dTh4Z1BQS2lR?=
- =?utf-8?B?c2JaM05pY0oyUVRiVis3elRsb0tBY2crZVdQUEt3L09IWk1JN21yOE0vNm8y?=
- =?utf-8?B?WDdZK0MwK0xyenEzMG9Pc1h2cnRObEEwMzRIWkRMNDd1UGp2Y0MweWZEZ043?=
- =?utf-8?B?ZlZnZ3B0ZXI2bjBkOXFRWnJtZit1R3RObkUzc1kzeEx2NTdDbDh6WnFCWXM5?=
- =?utf-8?B?U0pXVERwU3BQV0NYV1hUSkhRTk16U25SUS9UV2lHYnNpcFRXM2Y3bm9hb2k1?=
- =?utf-8?B?bER3R0hBR2pTVldlc3BVNzJNWjJCMFNmWWNBcVMrZEUyMDhRS1pSTXhtcHVO?=
- =?utf-8?B?d2pEblMvdTJ0amM5dGg4MW5RUk9hdXhQcWdEV3BGU29VYUVScnpwN2JzUW9I?=
- =?utf-8?B?cVM5bG5helJnRTBOUDQzL2dWdmlia256U1N3SnVON1g3eVR3aUlXK1JJQlB3?=
- =?utf-8?B?ZXduM1VrR2d5clZtMjVRQzFyd0lJVjhIVXZUcVdpKzdLTGs5VXpDeFBEWi8x?=
- =?utf-8?B?bzI5amxoczY2dDFtdjZoUEtXeHIvVFJFeGF6OC9DSFdRd0w0dDJlQWtnWEU2?=
- =?utf-8?B?SFlnRHY3UmRKenBRWDdlWHRJVkUxUTJDend1RFBFTU9jQzc4WkpKa3RhWVVH?=
- =?utf-8?B?QWlELzlES1NDVEFUd2hZQm43TExSOEVWcEc4S3RNaEp0dExCUDdZTzNzSW9Z?=
- =?utf-8?B?Q2NYYS9oRHZtTDY0cGJOQUFtT2d0SUxTNGNDYUtFaGZFNkRIRXJJOHpYM1Vy?=
- =?utf-8?B?a2Z1ZXVrNG43UVBMOXY2TkpYNkJudTNpb2VQWDlIZGlYNmh2bDRESm5GNnlK?=
- =?utf-8?B?ZWc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2bc6e89c-a535-41c1-3adc-08ddacb62321
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 09:14:03.1810
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?avmVhPjBM41LPKqd1SB27mc25gGMVZUObjijWsp62f6k3f0CQHKYtk7X589f?=
+ =?us-ascii?Q?ONQn6YeDu03h7D2lzvRewOCAPW7GUnK2Ok3CcKBZj82UkBJei0IdFvA+tMr5?=
+ =?us-ascii?Q?c6fM6AzQMFyA9WADGOHx7yadSHbQXLdNFve8wdCVua6NI1XGsH/mDY8jvmRH?=
+ =?us-ascii?Q?HnPQ6aRceo4+1c0jp5PEiVP2EWppJ9APX9roPdDgxrSeSubvp3VHUKo9fQUj?=
+ =?us-ascii?Q?wgEYGBDLAWEmpi2U6Wylga1/xyZZPzrpqmiKWPZB0x6bVM/zekjBBHpD53d9?=
+ =?us-ascii?Q?nQfdfEtyQhh/HxozN6EouwDrTMYDDC+hCiiNwjs1EWL7zoW8N3ehZTPNzDdJ?=
+ =?us-ascii?Q?Emg+dh3RfD6WtPYoaJRUV2CFoK8zKwNA+EynwPDE2o4SPeeE2XzFj5FjMJpQ?=
+ =?us-ascii?Q?M+ATo1cBNvAK+wyVBrzw/RgNMIwJ5FapsKWl16uyP6IQIsePpJw5oac7+Rdr?=
+ =?us-ascii?Q?a3uB7KEN3Udlb3w7LAI5UX0BwtdNMKBfmtOLov0ePr8bpRglyAf7U50Dmb9d?=
+ =?us-ascii?Q?KEw/uChMzlx9e2PJBuXzBrkiMuzjOAuOtEsZWgis+kgrLIGx9cUh3iUMsgfQ?=
+ =?us-ascii?Q?rqlWSD1hcHBj3JviC7aqTmeLJm8TuHc3W7s1vAZUlP7pWMdAxYYviGCrVy5h?=
+ =?us-ascii?Q?3/QtahSTFI6Wn64J3wLUZc/2ymScgZK+BQUPQiHkGeo8J1jpWWNXtQGbEgVr?=
+ =?us-ascii?Q?e+AgNIuxa/n925ltqfEH2QobmCnHAVGGKhm9hX77Bug/pK641DTRrISJqiHt?=
+ =?us-ascii?Q?SQLpKBZkIELGdtE6crStmEZWEOXSJBiV0df4mWS5zU3/QC79qU+Yn8cE9raj?=
+ =?us-ascii?Q?1ZGp3urJjtFlYC6mFgX1XPHo1pmR+eQlOwhqOR56piWxChgqjlcZRU5LnmIv?=
+ =?us-ascii?Q?0i2/YXJNI4SIygMJMTAuTeeDbI1gOJCJxW70rzo01zjAgZePzZNmjloiI7Hf?=
+ =?us-ascii?Q?EfTjrBmoXRyoogsAIhYMatokC2h+hd3xzP3c1jGKpTGdeVec9fdvR54k5tz+?=
+ =?us-ascii?Q?TJlO7NUzsWyTPTiR0YRgQot4xUOVQls28rONLZoAOlm4UJPCpeIEjj9CL24q?=
+ =?us-ascii?Q?wNCoq1Iv9FxcrEIs+9M/17gs5nT8eDv2mqabFMarzfkT5Y3tWweHxKQ1Fjgr?=
+ =?us-ascii?Q?336WF08mVyNt4JqbTvmJHC/4yQh4aTOHmohxO5+8grw2dPLOZQQ2LiTJM6pz?=
+ =?us-ascii?Q?RHN4hV7yBHtR0+lzYdd9DyfhmetvliaFHLJGq3LDXMuUMKjcMRxQLOFxeH1q?=
+ =?us-ascii?Q?kal3K/d1y/CIGsnZ3DwDAWV1KRBZ5qXFCLU+UGnocZa3apmgv+2bm7fZCSWC?=
+ =?us-ascii?Q?s3/Y49KDh/IZr0WCQoSG5dvyePahtuopP/WRlhaZPfF0UpbPWy/HZr/H4vXH?=
+ =?us-ascii?Q?iRyAKrbaVRof6BppokBfeXG1OC17ZWkRK0oJOwUP7b3xZNmV0icUD4mzjuV6?=
+ =?us-ascii?Q?pmfqOhy0jO164g3MVN74+gDbjuGbCQfKmESkZ1K7tIiLP7F1Z/kzEhJa3vmH?=
+ =?us-ascii?Q?1N4Yg5LslkkFEdQaKyDgnmJsyZxx/GDzj5Ap?=
+X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: II/jeTvi59zmuYu5XCgvoogfLxb7nEFet4ShZA7i98XLWnsQ+IWtcT5mVyLjEiBoigWmtrAzgiQJi+oGwRXQ7jk8OqqHy4hYhmrt+vOIWYmXh37e2B6lvs5bi8eEQlFJfJa/iqUo9l8C74ZKTZv3/pknFoC7mcwtEJ/DY83yVFEmSx/S/3NJbcrH/uWtk0MJQzApLFaYTzpVhU0zHKDDaQboYv7xHQ8RLX/YCCVQApeOSlDEPCBVq6nsHz/KBhHuYdgzsurjwg4OkSXh6ii6BuXBTABrMyJn6VA584+tPKK755gu2mDGRS/wh9Ihyq1oNrcXeVnLwpxn+6JQXb+k1MPlwRMRS1z1bRu7REvwWakhR1eugHh07Tft/oM2GyBOSUOAKMDoenLhAv17Bl/J/W4vuFfSd4wNh9tDsK3YDcxAhnLe3BEBvsThJXxa60GlgjQj+SOl/CxB4wO/S8YypGy5dPqOwjen6gQ+TBBDKwcrr45jwNL8rD2gf0e7eop0H3gGYJCIh7qd0dY1melW5H2DeX+8OQJ+4E8NX93QP7nBAJcaf2qKVjOdLifx4UDcNdZgJjJRa1B4QkCrh191ssyxZWHKo0e38L9VV5H7T4O7UBRXBtUNC1L27Ee4ZDYO
+X-OriginatorOrg: wiwynn.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 09:14:58.8105
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MEXFAlNBM4+vD3fr6kuiu/h8P/2c8SDd4lMkEyHFIw5BQCmAxam+VkyrE7wk4yuINv9fGvNdl9BOtVMsLrjO0BqXlldRLffHIFTP3WufV70=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9804
+X-MS-Exchange-CrossTenant-Network-Message-Id: 884a3514-4189-4bb7-ffc4-08ddacb644b1
+X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB8A.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR04MB7728
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDA2MCBTYWx0ZWRfX5TBu+/3lWU7z RLatCViGaRzuRIxQuRNsBJSDIwXxmQ9Q2hLnSxlg7eeZl3I8Y7dc8sljljGYzuWCKHx/P+NinFJ zErlKsnlxsRBPJpEbF95KFypomzd1ZZU+LZOesbcs5Cfels9hFRXGsLBF1hehdhXggUC5HduXRD
+ RtpLocOEtB5TBUfRh2P/UQSTU8Ws8lSVlX+AnXLbO0kAPdvKqGMfv9Ho8uV8xN0bZ+4UtfgspsR 1fZoXWTsPMJ0rAcUPAKYh27A5lIGvWbTIIflZOcvPXVxs4s6nLpTy20zOPUXTp3jiz158vWFRqY wR8QlQESOpo9IJOa3QyitCjt1fTDa6OGbPT91CEx8Xj3tX/raGweFXPoGMKxoSOcmSCs6Qq7pgo
+ y6pSVZio8V1cULbu7AQUtfkAlNQdwY/RRFsHLpfLJSAXn8us50ejdv4m0HlK+nVodFvwj4wb
+X-Proofpoint-GUID: ib88x8QJK4XdhIr5Q6t9LP24inT_YULf
+X-Proofpoint-ORIG-GUID: ib88x8QJK4XdhIr5Q6t9LP24inT_YULf
+X-Authority-Analysis: v=2.4 cv=f5tIBPyM c=1 sm=1 tr=0 ts=684fe09a cx=c_pps a=MMwkVYOn1OVg/tRQMohirg==:117 a=6rDDh2uRNVCE5HFPCIqeAA==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=6IFa9wvqVegA:10
+ a=4AL28aEVfeMA:10 a=cPYzWk29AAAA:8 a=wO5IlNbkM71fJ84Eo3gA:9 a=oSR2DF9YFqZEN4IGatwP:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-16_04,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 suspectscore=0
+ mlxscore=0 malwarescore=0 priorityscore=1501 spamscore=0 bulkscore=0
+ impostorscore=0 mlxlogscore=923 phishscore=0 lowpriorityscore=0
+ clxscore=1011 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.21.0-2505280000
+ definitions=main-2506160060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_021411_115646_E84B4BEE 
-X-CRM114-Status: GOOD (  41.24  )
+X-CRM114-CacheID: sfid-20250616_021558_565144_5A4BFF83 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,125 +175,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+From: Marshall Zhan <marshall_zhan@wiwynn.com>
 
-On 6/15/25 4:53 PM, Andrew Lunn wrote:
-> On Fri, Jun 13, 2025 at 04:27:54PM +0200, Quentin Schulz wrote:
->> Hi Andrew,
->>
->> On 5/28/25 3:09 PM, Andrew Lunn wrote:
->>> On Wed, May 28, 2025 at 09:56:51AM +0200, Quentin Schulz wrote:
->>>> Hi Andrew,
->>>>
->>>> On 5/27/25 6:18 PM, Andrew Lunn wrote:
->>>>> On Tue, May 27, 2025 at 03:11:42PM +0200, Jakob Unterwurzacher wrote:
-[...]
->>>> I'll need to implement reading the delay from the stmmac driver to use this
->>>> property, do I need to restrict reading this property to the SoC we tested
->>>> (RK3588)?
->>>
->>> Yes, please only allow it to be used on RK3588, and any other SoC you
->>> can test and verify its behaviour.
->>
->> Coming back to this topic, I'm unfortunately the bearer of some bad news.
->>
->> I implemented the suggested logic (see at the end of this mail) and then
->> went to validate it with Jakob's help. Unfortunately, it seems that the
->> delay value really isn't stable or reliable.
->>
->> We tested the same adapter with two different main boards (the same product,
->> just two different units). With a value of 0x40 for tx_delay (which should
->> be ~2000ps if we have a 31ps per tx_delay unit as empirically decided), we
->> have one board with 1778ps and one with 1391ps. Following a hunch, we
->> started to stress (or cool) the device (with stress-ng/a fan) and it did
->> slightly change the result too. Changing the CPU operating points (and by
->> extension at least CPU clocks) didn't impact the result though.
-> 
-> Thanks for taking such a scientific approach to this. Most developers
-> try values until it works, and call it done. It is nice to see
-> somebody doing some real study.
-> 
-> Russell quoted the standard, which says the delay needs to be between
-> 1ns and 2.6ns, which is quite a wide range. So for a tx_delay value of
-> 0x40, nominally 2000ps, your two values are within that range, and so
-> conform to the standard.
-> 
+Add gpio line name to support multiplexed console
 
-If there's a source about the 2.6ns being the upper limit, I would 
-appreciate a link to it (or the maths leading to this claim) :) My 
-understanding is: at least 1.2ns.
+Signed-off-by: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
+Signed-off-by: Marshall Zhan <marshall_zhan@wiwynn.com>
+---
+ .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 40 +++++++++++++++++++
+ 1 file changed, 40 insertions(+)
 
-Considering that for 125MHz TXC (for 1GbE), the clock period is 8ns and 
-that two
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+index 29f224bccd63..aae789854c52 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+@@ -189,6 +189,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT1_UART_SEL0","SLOT1_UART_SEL1",
++				"SLOT1_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -235,6 +240,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT2_UART_SEL0","SLOT2_UART_SEL1",
++				"SLOT2_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -281,6 +291,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT3_UART_SEL0","SLOT3_UART_SEL1",
++				"SLOT3_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -327,6 +342,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT4_UART_SEL0","SLOT4_UART_SEL1",
++				"SLOT4_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -373,6 +393,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT5_UART_SEL0","SLOT5_UART_SEL1",
++				"SLOT5_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -419,6 +444,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT6_UART_SEL0","SLOT6_UART_SEL1",
++				"SLOT6_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -465,6 +495,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT7_UART_SEL0","SLOT7_UART_SEL1",
++				"SLOT7_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+@@ -511,6 +546,11 @@ gpio@22 {
+ 		reg = <0x22>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
++		gpio-line-names = "SLOT8_UART_SEL0","SLOT8_UART_SEL1",
++				"SLOT8_UART_SEL2","","","","","",
++				"","","","","","","","",
++				"","","","","","","","",
++				"","","","","","","","";
+ 	};
+ 
+ 	gpio@23 {
+-- 
+2.25.1
 
->> While this could be observed with tx_delay property too, this property
->> doesn't claim to provide a value in picoseconds that tx-internal-delay-ps
->> would (but at the same time this didn't stop it to be implemented for the
->> DSA switch we have which claims "more than 1.5ns" and nothing more, so maybe
->> that would be acceptable?).
->>
->> I feel uncomfortable contributing this considering the wildly different
->> results across our very small test sample pool of two units and slightly
->> different operating temperature.
-> 
-> I can understand that. But there is another way to look at this. I am
-> making a big jump from just two boards, but it seems to me, tx_delay
-> and rx_delay are pointless, if they produce such a wide range of
-> values from what should be identical boards. They cannot be used for
-> fine tuning because the same value has a 387ps difference, which is
-> huge compared to the 31ps step.
-> 
-
-I'm making the same conclusion.
-
-I'm not sure though it's a good idea to force the user to implement the 
-delay in the PHY only. I can tell you that we have two variants of 
-RK3399 Puma, RK3588 Jaguar and RK3588 Tiger with either a KSZ9031 or a 
-KSZ9131 PHY. As far as I understood from reading the driver, the delay 
-is implemented differently for both PHYs. KSZ9131 adds a DLL-based clock 
-skew (4.9.3.1 in datasheet[1]) in the appropriate direction whenever 
-phy-mode requires a delay be added by MAC/PHY. KSZ9031 doesn't. Both 
-KSZ9031 and KSZ9131 have per-lane skews. If I wanted the delay to be 
-added by the PHY in the DT, I basically wouldn't be able to share the DT 
-between both variants of our boards as the KSZ9131 would add a 2ns 
-delay[2] based on phy-mode but not KSZ9031 where I assume I would need 
-to use pad skews instead to add up to 1.9ns (TXC; 1.4ns for RXC) but 
-then we would have ~4ns for KSZ9131 which is likely out of spec :/ Today 
-it works by "chance" because our phy-mode is rgmii but the delay is 
-added by the MAC (due to the long-standing mistake in the Rockchip GMAC 
-driver). I have not tested any of the above claims.
-
-[1] 
-https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDocuments/DataSheets/00002841D.pdf
-[2] Link [1] at 4.9.3 RGMII TIMING
-
-> It seems to me, rx_delay and tx_delay should be deprecated, set to 0,
-> and let the PHY do they delays. If i remember correctly, that is what
-> you ended up with for you board?
-> 
-
-This is what we ended up doing for our adapter board indeed.
-
-I'm trying to figure out if there's a way to not break stuff by forcing 
-the properties to 0 and deprecating the values.
-
-tx_delay is used (by the driver) whenever the delay is added by the PCB 
-on TXC (based on phy-mode, which is incorrect). Same for rx_delay but 
-for RXC. So if we set phy-mode correctly (as it's being pushed lately 
-for Rockchip boards), tx_delay/rx_delay will need to be set to 0 
-explicitly whenever the delay is expected to be NOT implemented by the 
-PCB (so in addition to the phy-mode saying "delay not added by the PCB").
-
-If the properties are missing in the DT, they are assigned a default 
-value. So we cannot simply remove them or expect them gone (we also want 
-DT backward compatibility so cannot change the driver behavior :/).
-
-The only way forward that I see is forcing the properties to be 0 in 
-device tree and warn if they are non-zero or something. Will trigger a 
-bunch of warning/errors on existing Device Trees though. And this will 
-not allow us to use two slightly different PHYs for our products without 
-having two separate Device Trees.
-
-Cheers,
-Quentin
 
