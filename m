@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B103FC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 290A2C7115D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnbnrgrBEXGiqecmfaw/rGa+oLa4978wkdeJQzh6awQ=; b=fGcEmhVMFAp/85CryLGbdq+vLt
-	nXg1d2MGctrL0GzxodyA8L2JiFuhECj1PWgdXPzJauP6+kVJ6gRnVCjj2H4ndeobjTXEHfiwvG93h
-	bKuSw9D4Ia1LHQUOtyXUJsfBMtdmC3/h6250GlVAj1qD3vswlB1PG7+of2T4Hy29UXEQFqBm2tY1+
-	mrcerxGQ3ZDHU/UAPmJAuXPvfsFyQvQI5c9J/qBez1AHRnJN0Avns1QDQI+iAv/t6yHqScGdXAGvO
-	q+QXagry839GFjSjL8eAmswAsgDubZx6vHmGkxQ1Dundb4Ep/4YcYHSKSMC6MzKWGst02AH/017WP
-	srsRrIwQ==;
+	bh=VBckLV6jNByzkSdMQw8AHIGDrw+A/A7qK4UW3zfX+Kk=; b=hGsKjEv2AvFr8eNv/GmX3Wd13p
+	3tb0TpYRHwRh/VkTYcNJmbPPGk3l/t+Tw8h7tSkpQVImxeAJG4FaT2AyinvrKc66cV22mQtMUPzk5
+	9aGoDGAuH2+fTxSmMi9vGBd68rfWpmtjBArpzX3XbKLIN+IrHv0zhW3FgkHcVuDj/cBdi69idrj5N
+	bQGJiilgrAAtDZBnXvERURtTmGOf7rNOZ15R0qGBLD6xDl9Z8Gf2Bugj/HwZaO9hGRXIhFNWBAiM1
+	4jdOl12wc43kMa5qLnnsikBkDPdlsl08S8lR4uG2n4+RxeFCKkSl/PgwYfBe2OzEHWvw3Mb5bW3o6
+	CiCGrvAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0TN-00000003FOy-1JDZ;
-	Mon, 16 Jun 2025 03:25:25 +0000
+	id 1uR0VY-00000003FnY-0WbU;
+	Mon, 16 Jun 2025 03:27:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR02I-00000003Cvg-1Fcp
+	id 1uR02N-00000003Cw9-0XWJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Jun 2025 02:57:26 +0000
+	Mon, 16 Jun 2025 02:57:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fnbnrgrBEXGiqecmfaw/rGa+oLa4978wkdeJQzh6awQ=; b=ZbwHg6leq0tIMbnJxM/V7Z2W8f
-	JlHYw/icT8l/kDMNjXsvrypxM90K4o32B875Vzd1fQc+e41E1wTO68poIOIeLgLSKJJINVn4yJlya
-	42TSS7og4tvAgvwiEdCNZ7bqENXQETrT/YTHfgJWBajltSCsuIAsXrrFr2omuLg77vhJB2CCEJflK
-	RNdh58dr2yoOiTRkaZ0upW1saJmnUH4fDYIEkPnP7jL4MoyyK0Qf0nVRwfIqQzln9bzKVYXJr8NSH
-	Q0a5XRMhnvThjS/qtXxKILYLzIflC0c5t18bZuyK3PY8imNjf2cLPj4ujvn7WfUXQHmCaHBC4PCVI
-	dMHgI9PA==;
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	bh=VBckLV6jNByzkSdMQw8AHIGDrw+A/A7qK4UW3zfX+Kk=; b=Om4D2VN92cUGQ3c/f176qsYCXm
+	3wb9GLI8VRG+ElstE93H1tX12YYDGD0KzGJJccJCIluJY862QPy+JsRKrKP9VNhGl7dBM+vyaONl1
+	n3obIUlHliCvJppqrsyGQLdmLhIklStBpYEW3KHPMi4LpqoNSctm1gMzYAnOGtQI0h8sKAMDuTkjt
+	aP1aGB/FxiOBspmBWFN1YvK2fuv38Yt3UN1bbTrIzRRH4lKw87bp7v783SIXW7fEnnkLLrXXvzRV5
+	s1+bcmqRSINVizpcoNIadA0r/BPW/QLqWzPQzyGpnLfE8ClWloQXDVxM8R/XDqlgWraKBHevwuXH+
+	qQKxyhJg==;
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR026-00000003TX6-1PMY
+	id 1uR025-00000003TVp-1KN8
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 16 Jun 2025 02:57:19 +0000
-X-UUID: 8b3deb8e4a5d11f09eb0dd999d3936bf-20250615
+X-UUID: 858726884a5d11f09f706fa2197c6ceb-20250615
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=fnbnrgrBEXGiqecmfaw/rGa+oLa4978wkdeJQzh6awQ=;
-	b=Rb4AW6wp9ZtegD9s+j/Tymf+EgkbFAm+qDxI2/QI6YZrbsneQ31LFXVU8SQSC4RQw7SI31tJYzk34yUCi3+t80NZN6Ig7DMqqVfT/rsVWGN1fyUqaMX9V/obuzOJsImpyKe418bHtvat9HGfn0WAUGWMPmyHlhtdHe4j0TgtMc4=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=VBckLV6jNByzkSdMQw8AHIGDrw+A/A7qK4UW3zfX+Kk=;
+	b=lF+ViI/Q55Q68ANrrcMRpas9q+fzGc4+qK7bItFPOojM6rJTXxnLHkMgLRojTMmCUrhN9mpNykZ8z+GmelHdJ1p7tpkqAkNL2ahA5yeFeGVQyx574RJp0xgRVPt+e0ZCSP28KeG30ZdK3mjmzv1fVo0jA7ZBzmgRkgwbs8w189I=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.3,REQID:79f87e52-9fc8-4af5-9a19-d7f5324d6f03,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.3,REQID:fe324a1d-9c95-4b75-920d-ef8fe25e30dd,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:09905cf,CLOUDID:3294b703-0d95-4f6b-a95f-3c560ebcf3ab,B
+X-CID-META: VersionHash:09905cf,CLOUDID:b893b703-0d95-4f6b-a95f-3c560ebcf3ab,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -58,18 +58,18 @@ X-CID-BVR: 0,NGT
 X-CID-BAS: 0,NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8b3deb8e4a5d11f09eb0dd999d3936bf-20250615
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+X-UUID: 858726884a5d11f09f706fa2197c6ceb-20250615
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
 	(envelope-from <xueqi.zhang@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1549650326; Sun, 15 Jun 2025 19:56:47 -0700
+	with ESMTP id 984824708; Sun, 15 Jun 2025 19:56:38 -0700
 Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 16 Jun 2025 10:56:44 +0800
+ 15.2.1258.39; Mon, 16 Jun 2025 10:56:34 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 16 Jun 2025 10:56:43 +0800
+ 15.2.1258.39 via Frontend Transport; Mon, 16 Jun 2025 10:56:33 +0800
 From: Xueqi Zhang <xueqi.zhang@mediatek.com>
 To: Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>, Robin
  Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Rob Herring
@@ -81,9 +81,9 @@ CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>, Ning li
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <iommu@lists.linux.dev>, Xueqi Zhang
 	<xueqi.zhang@mediatek.com>
-Subject: [RFC PATCH 6/8] iommu/arm-smmu-v3: mediatek: Add wrapper handle for IRQ
-Date: Mon, 16 Jun 2025 10:56:12 +0800
-Message-ID: <20250616025628.25454-7-xueqi.zhang@mediatek.com>
+Subject: [RFC PATCH 1/8] dt-bindings: iommu: mediatek: Add mt8196 support
+Date: Mon, 16 Jun 2025 10:56:07 +0800
+Message-ID: <20250616025628.25454-2-xueqi.zhang@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20250616025628.25454-1-xueqi.zhang@mediatek.com>
 References: <20250616025628.25454-1-xueqi.zhang@mediatek.com>
@@ -91,8 +91,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_035715_367617_3CC1EC63 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20250616_035715_398384_A6A68617 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,421 +107,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mediatek SMMU interrupt is low level active rather than the standard
-edge.Process Mediatek SMMU wrapper interrupt and dump detailed
-information when a translation fault occurs.
+1. Mediatek has its own implementation for wrapper interrupts and
+power management. Add the SoC specific compatible for MT8196
+implementing arm,smmu-v3.
+2. APU SMMU need wait until its power is ready, thus add a phandle
+smmu-mediatek-parents to its power node.
 
 Signed-off-by: Xueqi Zhang <xueqi.zhang@mediatek.com>
 ---
- .../arm/arm-smmu-v3/arm-smmu-v3-mediatek.c    | 349 +++++++++++++++++-
- 1 file changed, 347 insertions(+), 2 deletions(-)
+ .../bindings/iommu/arm,smmu-v3.yaml           | 24 ++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c
-index 48290366e596..448166c1ca64 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c
-@@ -14,7 +14,122 @@
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+index 75fcf4cb52d9..c9a99e54de69 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml
+@@ -20,7 +20,12 @@ properties:
+   $nodename:
+     pattern: "^iommu@[0-9a-f]*"
+   compatible:
+-    const: arm,smmu-v3
++    - description: MediaTek SoCs implementing "arm,smmu-v3"
++      items:
++        - enum:
++            - mediatek,mt8196-apu-smmu
++            - mediatek,mt8196-mm-smmu
++        - const: arm,smmu-v3
  
- #include "arm-smmu-v3.h"
+   reg:
+     maxItems: 1
+@@ -69,11 +74,28 @@ properties:
+       register access with page 0 offsets. Set for Cavium ThunderX2 silicon that
+       doesn't support SMMU page1 register space.
  
-+#include <linux/soc/mediatek/mtk_sip_svc.h>
-+#include <linux/arm-smccc.h>
++  mediatek,smmu-parents:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      A phandle to the SMMU's power node. The SMMU should wait until its power
++      is ready
 +
-+#define SMMUWP_GLB_CTL0			(0x0)
-+#define CTL0_STD_AXI_MODE_DIS		BIT(0)
-+#define CTL0_MON_DIS			BIT(1)
-+#define CTL0_DCM_EN			BIT(2)
-+#define CTL0_WRAPPER_CK_AOEN		BIT(3)
-+#define CTL0_AUTO_AXDOMAIN_EN		BIT(4)
-+#define CTL0_IRQ_BUSY_EN		BIT(5)
-+#define CTL0_ABT_CNT_CLR		BIT(6)
-+#define CTL0_LEGACY_AXCACHE		BIT(7)
-+#define CTL0_COMMIT_DIS			BIT(8)
-+#define CTL0_AUTO_SLP_DIS		BIT(9)
-+#define CTL0_STTSL_DIS			BIT(10)
-+#define CTL0_CFG_TAB_DCM_EN		BIT(11)
-+#define CTL0_CPU_PARTID_DIS		BIT(14)
-+/* New bits of SMMU wrapper extension */
-+#define CTL0_TCU2SLC_DCM_EN		BIT(18)
-+#define CTL0_APB_DCM_EN			BIT(19)
-+#define CTL0_DVM_DCM_EN			BIT(20)
-+#define CTL0_CPU_TBU_PARTID_DIS		BIT(21)
-+
-+#define SMMUWP_IRQ_STA			(0x80)
-+#define STA_TCU_GLB_INTR		BIT(0)
-+#define STA_TCU_CMD_SYNC_INTR		BIT(1)
-+#define STA_TCU_EVTQ_INTR		BIT(2)
-+#define STA_TCU_PRI_INTR		BIT(3)
-+#define STA_TCU_PMU_INTR		BIT(4)
-+#define STA_TCU_RAS_CRI			BIT(5)
-+#define STA_TCU_RAS_ERI			BIT(6)
-+#define STA_TCU_RAS_FHI			BIT(7)
-+
-+#define SMMUWP_IRQ_ACK			(0x84)
-+
-+#define SMMUWP_IRQ_ACK_CNT		(0x88)
-+#define IRQ_ACK_CNT_MSK			GENMASK(7, 0)
-+
-+/* SMMU non-secure interrupt pending count register, count 20 */
-+#define SMMUWP_IRQ_CNTx(cnt)		(0x100 + 0x4 * (cnt))
-+
-+#define SMMU_TCU_CTL1_AXSLC		(0x204)
-+#define AXSLC_BIT_FIELD			GENMASK(8, 4)
-+#define AXSLC_CACHE			BIT(5)
-+#define AXSLC_ALLOCATE			BIT(6)
-+#define AXSLC_SPECULATIVE		BIT(7)
-+#define AXSLC_SET			(AXSLC_CACHE | AXSLC_ALLOCATE | AXSLC_SPECULATIVE)
-+#define SLC_SB_ONLY_EN			BIT(1)
-+
-+/* SMMU TBUx read translation fault monitor0 */
-+#define SMMUWP_TBUx_RTFM0(tbu)		(0x380 + 0x100 * (tbu))
-+#define RTFM0_FAULT_AXI_ID		GENMASK_ULL(19, 0)
-+#define RTFM0_FAULT_DET			BIT(31)
-+
-+/* SMMU TBUx read translation fault monitor1 */
-+#define SMMUWP_TBUx_RTFM1(tbu)		(0x384 + 0x100 * (tbu))
-+#define RTFM1_FAULT_VA_35_32		GENMASK_ULL(3, 0)
-+#define RTFM1_FAULT_VA_31_12		GENMASK_ULL(31, 12)
-+
-+/* SMMU TBUx read translation fault monitor2 */
-+#define SMMUWP_TBUx_RTFM2(tbu)		(0x388 + 0x100 * (tbu))
-+#define RTFM2_FAULT_SID			GENMASK_ULL(7, 0)
-+#define RTFM2_FAULT_SSID		GENMASK_ULL(15, 8)
-+#define RTFM2_FAULT_SSIDV		BIT(16)
-+#define RTFM2_FAULT_SECSID		BIT(17)
-+
-+/* SMMU TBUx write translation fault monitor0 */
-+#define SMMUWP_TBUx_WTFM0(tbu)		(0x390 + 0x100 * (tbu))
-+#define WTFM0_FAULT_AXI_ID		GENMASK_ULL(19, 0)
-+#define WTFM0_FAULT_DET			BIT(31)
-+
-+/* SMMU TBUx write translation fault monitor1 */
-+#define SMMUWP_TBUx_WTFM1(tbu)		(0x394 + 0x100 * (tbu))
-+#define WTFM1_FAULT_VA_35_32		GENMASK_ULL(3, 0)
-+#define WTFM1_FAULT_VA_31_12		GENMASK_ULL(31, 12)
-+
-+/* SMMU TBUx write translation fault monitor2 */
-+#define SMMUWP_TBUx_WTFM2(tbu)		(0x398 + 0x100 * (tbu))
-+#define WTFM2_FAULT_SID			GENMASK_ULL(7, 0)
-+#define WTFM2_FAULT_SSID		GENMASK_ULL(15, 8)
-+#define WTFM2_FAULT_SSIDV		BIT(16)
-+#define WTFM2_FAULT_SECSID		BIT(17)
-+
-+/* SMMU TBU Manual OG Control High Register0 */
-+#define SMMUWP_TBU0_MOGH0		(0x3b4)
-+#define MOGH_EN				BIT(29)
-+#define MOGH_RW				BIT(28)
-+
-+/* SMMU translation fault TBUx */
-+#define SMMUWP_TF_TBU_MSK		GENMASK(26, 24)
-+#define SMMUWP_TF_TBU(tbu)		FIELD_PREP(SMMUWP_TF_TBU_MSK, tbu)
-+
-+#define SMMU_FAULT_RS_INTERVAL		DEFAULT_RATELIMIT_INTERVAL
-+#define SMMU_FAULT_RS_BURST		(1)
-+
-+#define STRSEC(sec)			((sec) ? "SECURE" : "NORMAL")
-+
-+#define WP_OFFSET_MT8196		0x1e0000
-+
- #define MTK_SMMU_COMP_STR_LEN		64
-+
-+#define MTK_SMMU_FAULT_IOVA(low, high) ((low) | (((u64)(high) & 0xf) << 32))
-+
-+#define SMMU_SUCCESS			(0)
-+#define SMMU_ID_ERR			(1)
-+#define SMMU_CMD_ERR			(2)
-+#define SMMU_PARA_INVALID		(3)
-+#define SMMU_NEED			(4)
-+#define SMMU_NONEED			(5)
-+
-+/* plat flags: */
-+#define SMMU_SKIP_PM_CLK		BIT(0)
-+#define SMMU_CLK_AO_EN			BIT(1)
-+#define SMMU_AXSLC_EN			BIT(2)
-+#define SMMU_DIS_CPU_PARTID		BIT(3)
-+#define SMMU_DIS_CPU_TBU_PARTID		BIT(4)
- #define SMMU_REQUIRE_PARENT		BIT(5)
- #define MTK_SMMU_HAS_FLAG(pdata, _x)    (!!(((pdata)->flags) & (_x)))
+ required:
+   - compatible
+   - reg
+   - '#iommu-cells'
  
-@@ -25,22 +140,30 @@ enum mtk_smmu_type {
- };
++allOf:
++  - if:  # for SMMU need to wait its power node
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8196-apu-smmu
++    then:
++      required:
++        - mediatek,smmu-parents
++
+ additionalProperties: false
  
- struct mtk_smmu_v3_plat {
-+	u32			wp_offset;
-+	unsigned int		tbu_cnt;
- 	enum mtk_smmu_type	smmu_type;
- 	u32			flags;
- };
- 
- struct mtk_smmu_v3 {
- 	struct arm_smmu_device	smmu;
-+	void __iomem			*wp_base;
- 	const struct mtk_smmu_v3_plat *plat_data;
- };
- 
- static const struct mtk_smmu_v3_plat mt8196_data_mm = {
-+	.wp_offset		= WP_OFFSET_MT8196,
-+	.tbu_cnt		= 3,
- 	.smmu_type		= MTK_SMMU_MM,
-+	.flags			= SMMU_AXSLC_EN,
- };
- 
- static const struct mtk_smmu_v3_plat mt8196_data_apu = {
-+	.wp_offset		= WP_OFFSET_MT8196,
-+	.tbu_cnt		= 3,
- 	.smmu_type		= MTK_SMMU_APU,
--	.flags			= SMMU_REQUIRE_PARENT,
-+	.flags			= SMMU_AXSLC_EN | SMMU_REQUIRE_PARENT,
- };
- 
- struct mtk_smmu_v3_of_device_data {
-@@ -70,17 +193,228 @@ static const struct mtk_smmu_v3_plat *mtk_smmu_v3_get_plat_data(const struct dev
- 	return NULL;
- }
- 
-+static inline void smmu_write_field(void __iomem *base,
-+				    unsigned int reg,
-+				    unsigned int mask,
-+				    unsigned int val)
-+{
-+	unsigned int regval;
-+
-+	regval = readl_relaxed(base + reg);
-+	regval = (regval & (~mask)) | val;
-+	writel_relaxed(regval, base + reg);
-+}
-+
-+static void smmu_init_wpcfg(struct arm_smmu_device *smmu)
-+{
-+	struct mtk_smmu_v3 *mtk_smmu_v3 = to_mtk_smmu_v3(smmu);
-+	void __iomem *wp_base = mtk_smmu_v3->wp_base;
-+
-+	/* DCM basic setting */
-+	smmu_write_field(wp_base, SMMUWP_GLB_CTL0, CTL0_DCM_EN, CTL0_DCM_EN);
-+	smmu_write_field(wp_base, SMMUWP_GLB_CTL0, CTL0_CFG_TAB_DCM_EN,
-+			 CTL0_CFG_TAB_DCM_EN);
-+
-+	smmu_write_field(wp_base, SMMUWP_GLB_CTL0,
-+			 CTL0_TCU2SLC_DCM_EN | CTL0_APB_DCM_EN |
-+			 CTL0_DVM_DCM_EN,
-+			 CTL0_TCU2SLC_DCM_EN | CTL0_APB_DCM_EN |
-+			 CTL0_DVM_DCM_EN);
-+
-+	if (MTK_SMMU_HAS_FLAG(mtk_smmu_v3->plat_data, SMMU_DIS_CPU_PARTID))
-+		smmu_write_field(wp_base, SMMUWP_GLB_CTL0, CTL0_CPU_PARTID_DIS,
-+				 CTL0_CPU_PARTID_DIS);
-+	if (MTK_SMMU_HAS_FLAG(mtk_smmu_v3->plat_data, SMMU_DIS_CPU_TBU_PARTID))
-+		smmu_write_field(wp_base, SMMUWP_GLB_CTL0,
-+				 CTL0_CPU_TBU_PARTID_DIS, CTL0_CPU_TBU_PARTID_DIS);
-+
-+	/* Used for MM_SMMMU read command overtaking */
-+	if (mtk_smmu_v3->plat_data->smmu_type == MTK_SMMU_MM)
-+		smmu_write_field(wp_base, SMMUWP_GLB_CTL0, CTL0_STD_AXI_MODE_DIS,
-+				 CTL0_STD_AXI_MODE_DIS);
-+
-+	/* Set AXSLC */
-+	if (MTK_SMMU_HAS_FLAG(mtk_smmu_v3->plat_data, SMMU_AXSLC_EN)) {
-+		smmu_write_field(wp_base, SMMUWP_GLB_CTL0,
-+				 CTL0_STD_AXI_MODE_DIS, CTL0_STD_AXI_MODE_DIS);
-+		smmu_write_field(wp_base, SMMU_TCU_CTL1_AXSLC, AXSLC_BIT_FIELD,
-+				 AXSLC_SET);
-+		smmu_write_field(wp_base, SMMU_TCU_CTL1_AXSLC, SLC_SB_ONLY_EN,
-+				 SLC_SB_ONLY_EN);
-+	}
-+}
-+
-+/* Consume SMMU wrapper interrupt bit */
-+static unsigned int
-+smmuwp_consume_intr(void __iomem *wp_base, unsigned int irq_bit)
-+{
-+	unsigned int pend_cnt;
-+
-+	pend_cnt = readl_relaxed(wp_base + SMMUWP_IRQ_CNTx(__ffs(irq_bit)));
-+	smmu_write_field(wp_base, SMMUWP_IRQ_ACK_CNT, IRQ_ACK_CNT_MSK, pend_cnt);
-+	writel_relaxed(irq_bit, wp_base + SMMUWP_IRQ_ACK);
-+
-+	return pend_cnt;
-+}
-+
-+/* clear translation fault mark */
-+static void smmuwp_clear_tf(void __iomem *wp_base)
-+{
-+	smmu_write_field(wp_base, SMMUWP_GLB_CTL0, CTL0_ABT_CNT_CLR, CTL0_ABT_CNT_CLR);
-+	smmu_write_field(wp_base, SMMUWP_GLB_CTL0, CTL0_ABT_CNT_CLR, 0);
-+}
-+
-+static u32 smmuwp_fault_id(u32 axi_id, u32 tbu_id)
-+{
-+	u32 fault_id = (axi_id & ~SMMUWP_TF_TBU_MSK) | (SMMUWP_TF_TBU(tbu_id));
-+
-+	return fault_id;
-+}
-+
-+/* Process TBU translation fault Monitor */
-+static bool smmuwp_process_tf(struct arm_smmu_device *smmu)
-+{
-+	struct mtk_smmu_v3 *mtk_smmu_v3 = to_mtk_smmu_v3(smmu);
-+	void __iomem *wp_base = mtk_smmu_v3->wp_base;
-+	unsigned int sid, ssid, secsidv, ssidv;
-+	u32 i, regval, va35_32, axiid, fault_id;
-+	u64 fault_iova;
-+	bool tf_det = false;
-+
-+	for (i = 0; i < mtk_smmu_v3->plat_data->tbu_cnt; i++) {
-+		regval = readl_relaxed(wp_base + SMMUWP_TBUx_RTFM0(i));
-+		if (!(regval & RTFM0_FAULT_DET))
-+			goto write;
-+
-+		tf_det = true;
-+		axiid = FIELD_GET(RTFM0_FAULT_AXI_ID, regval);
-+		fault_id = smmuwp_fault_id(axiid, i);
-+
-+		regval = readl_relaxed(wp_base + SMMUWP_TBUx_RTFM1(i));
-+		va35_32 = FIELD_GET(RTFM1_FAULT_VA_35_32, regval);
-+		fault_iova = MTK_SMMU_FAULT_IOVA(regval & RTFM1_FAULT_VA_31_12, va35_32);
-+
-+		regval = readl_relaxed(wp_base + SMMUWP_TBUx_RTFM2(i));
-+		sid = FIELD_GET(RTFM2_FAULT_SID, regval);
-+		ssid = FIELD_GET(RTFM2_FAULT_SSID, regval);
-+		ssidv = FIELD_GET(RTFM2_FAULT_SSIDV, regval);
-+		secsidv = FIELD_GET(RTFM2_FAULT_SECSID, regval);
-+		dev_err_ratelimited(smmu->dev, "TF read in %s world, TBU_id-%d-fault_id:0x%x(0x%x)\n",
-+				    STRSEC(secsidv), i, fault_id, axiid);
-+		dev_err_ratelimited(smmu->dev,
-+				    "iova:0x%llx, sid:%d, ssid:%d, ssidv:%d, secsidv:%d\n",
-+				    fault_iova, sid, ssid, ssidv, secsidv);
-+
-+write:
-+		regval = readl_relaxed(wp_base + SMMUWP_TBUx_WTFM0(i));
-+		if (!(regval & WTFM0_FAULT_DET))
-+			continue;
-+
-+		tf_det = true;
-+		axiid = FIELD_GET(WTFM0_FAULT_AXI_ID, regval);
-+		fault_id = smmuwp_fault_id(axiid, i);
-+
-+		regval = readl_relaxed(wp_base + SMMUWP_TBUx_WTFM1(i));
-+		va35_32 = FIELD_GET(WTFM1_FAULT_VA_35_32, regval);
-+		fault_iova = MTK_SMMU_FAULT_IOVA(regval & RTFM1_FAULT_VA_31_12, va35_32);
-+
-+		regval = readl_relaxed(wp_base + SMMUWP_TBUx_WTFM2(i));
-+		sid = FIELD_GET(WTFM2_FAULT_SID, regval);
-+		ssid = FIELD_GET(WTFM2_FAULT_SSID, regval);
-+		ssidv = FIELD_GET(WTFM2_FAULT_SSIDV, regval);
-+		secsidv = FIELD_GET(WTFM2_FAULT_SECSID, regval);
-+		dev_err_ratelimited(smmu->dev, "TF write in %s world, TBU_id-%d-fault_id:0x%x(0x%x)\n",
-+				    STRSEC(secsidv), i, fault_id, axiid);
-+		dev_err_ratelimited(smmu->dev,
-+				    "iova:0x%llx, sid:%d, ssid:%d, ssidv:%d, secsidv:%d\n",
-+				    fault_iova, sid, ssid, ssidv, secsidv);
-+	}
-+
-+	if (!tf_det)
-+		dev_info(smmu->dev, "No TF detected or has been cleaned\n");
-+
-+	return tf_det;
-+}
-+
-+static int
-+mtk_smmu_evt_handler(int irq, struct arm_smmu_device *smmu, u64 *evt, struct ratelimit_state *rs)
-+{
-+	if (!__ratelimit(rs)) {
-+		smmuwp_clear_tf(smmu);
-+		return 0;
-+	}
-+
-+	smmuwp_process_tf(smmu);
-+	smmuwp_clear_tf(smmu);
-+
-+	return 0;
-+}
-+
-+/* Process SMMU wrapper interrupt */
-+static int mtk_smmu_v3_smmuwp_irq_handler(int irq, struct arm_smmu_device *smmu)
-+{
-+	struct mtk_smmu_v3 *mtk_smmuv3 = to_mtk_smmu_v3(smmu);
-+	void __iomem *wp_base = mtk_smmuv3->wp_base;
-+	unsigned int irq_sta, pend_cnt;
-+
-+	irq_sta = readl_relaxed(wp_base + SMMUWP_IRQ_STA);
-+	if (irq_sta == 0)
-+		return 0;
-+
-+	if (irq_sta & STA_TCU_GLB_INTR) {
-+		pend_cnt = smmuwp_consume_intr(wp_base, STA_TCU_GLB_INTR);
-+		dev_dbg(smmu->dev,
-+			"IRQ_STA:0x%x, Non-secure TCU global interrupt detected pending_cnt: %d\n",
-+			irq_sta, pend_cnt);
-+	}
-+
-+	if (irq_sta & STA_TCU_CMD_SYNC_INTR) {
-+		pend_cnt = smmuwp_consume_intr(wp_base, STA_TCU_CMD_SYNC_INTR);
-+		dev_dbg(smmu->dev,
-+			"IRQ_STA:0x%x, Non-secure TCU CMD_SYNC interrupt detected pending_cnt: %d\n",
-+			irq_sta, pend_cnt);
-+	}
-+
-+	if (irq_sta & STA_TCU_EVTQ_INTR) {
-+		pend_cnt = smmuwp_consume_intr(wp_base, STA_TCU_EVTQ_INTR);
-+		dev_dbg(smmu->dev,
-+			"IRQ_STA:0x%x, Non-secure TCU EVTQ interrupt detected pending_cnt: %d\n",
-+			irq_sta, pend_cnt);
-+	}
-+
-+	if (irq_sta & STA_TCU_PRI_INTR) {
-+		pend_cnt = smmuwp_consume_intr(wp_base, STA_TCU_PRI_INTR);
-+		dev_dbg(smmu->dev, "IRQ_STA:0x%x, TCU PRI interrupt detected pending_cnt: %d\n",
-+			irq_sta, pend_cnt);
-+	}
-+
-+	if (irq_sta & STA_TCU_PMU_INTR) {
-+		pend_cnt = smmuwp_consume_intr(wp_base, STA_TCU_PMU_INTR);
-+		dev_dbg(smmu->dev, "IRQ_STA:0x%x, TCU PMU interrupt detected pending_cnt: %d\n",
-+			irq_sta, pend_cnt);
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct arm_smmu_v3_impl mtk_smmu_v3_impl = {
-+	.combined_irq_handle = mtk_smmu_v3_smmuwp_irq_handler,
-+	.smmu_evt_handler = mtk_smmu_evt_handler,
-+};
-+
- struct arm_smmu_device *arm_smmu_v3_impl_mtk_init(struct arm_smmu_device *smmu)
- {
- 	struct mtk_smmu_v3 *mtk_smmu_v3;
- 	struct device *dev = smmu->dev;
--	struct platform_device *parent_pdev;
-+	struct platform_device *pdev = to_platform_device(dev), *parent_pdev;
-+	struct resource *res, wp_res;
- 	struct device_node *parent_node;
- 
- 	mtk_smmu_v3 = devm_krealloc(dev, smmu, sizeof(*mtk_smmu_v3), GFP_KERNEL);
- 	if (!mtk_smmu_v3)
- 		return ERR_PTR(-ENOMEM);
- 
-+	mtk_smmu_v3->smmu.impl = &mtk_smmu_v3_impl;
- 	mtk_smmu_v3->plat_data = mtk_smmu_v3_get_plat_data(dev->of_node);
- 	if (!mtk_smmu_v3->plat_data) {
- 		dev_err(dev, "Get platform data fail\n");
-@@ -111,5 +445,16 @@ struct arm_smmu_device *arm_smmu_v3_impl_mtk_init(struct arm_smmu_device *smmu)
- 		}
- 	}
- 
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return ERR_PTR(-EINVAL);
-+	wp_res = DEFINE_RES_MEM(res->start + mtk_smmu_v3->plat_data->wp_offset,  SZ_4K);
-+	mtk_smmu_v3->wp_base = devm_ioremap_resource(dev, &wp_res);
-+	if (IS_ERR(mtk_smmu_v3->wp_base))
-+		return mtk_smmu_v3->wp_base;
-+
-+	mtk_smmu_pm_get(dev, mtk_smmu_v3->plat_data->smmu_type);
-+	smmu_init_wpcfg(smmu);
-+	mtk_smmu_pm_put(dev, mtk_smmu_v3->plat_data->smmu_type);
- 	return &mtk_smmu_v3->smmu;
- }
+ examples:
 -- 
 2.46.0
 
