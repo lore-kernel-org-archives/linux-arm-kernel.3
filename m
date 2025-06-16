@@ -4,58 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6B5C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEEDC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b9YGj9zZUw7hXSoE/sqWqGMQU6YymliAdwRZI/+I+qo=; b=nfAjEW2IUagSPf
-	oQweZKvx+Lq4uvGRtRRryZghcb9tlq7l1704T+/Wsp0suwZg6e/R5q9HhDvcerUHdNZfzBlez3Nz1
-	7ouoDq0tcf1yR/IpksITvKOeF5ybvpJwfU07OKmdNWMCK2FPSJ8ovumpLLHjJMPDcbSbOwtTINSrk
-	IOiFOZE7BqZqv0baqyMs3L9i35VP9DuNAH67K8gh0LkGlgeI5La9c8UyOM3IJCSPmETcvpuvaHB9Y
-	jmYE6dvhA+icYp0IU9FrWJ7W26XMMRAi7zTD8YiW1/Hy1tCsEx/0v8HV6Xas6JX2J7ekh7zEK3c59
-	ZKbxh2+zvwDIp5pKZYGQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QyIJw42bLVYC1qcn4Rgc4aSobkAPjVXS0kJvM4KjVSE=; b=J/R5GOnHfJLjnVelDIq+LKi0f6
+	fuHwbG7uXBwpQFXFMC0Z9BJ1RXeG2lK3yzmD8UMflr/rKMG6LD+wVJOD/L/5VhOeZRyOTr3qsWUx7
+	B8vDh/DxUgAOOGwOr2BNGW0kVSfl+vP5x+Qy04kp1ckw7MNQt87M7Vv9A9sYMhpFqKg/z7eFFjE0r
+	JOHCv+SpTmpDrzp3v+RzY2ASz7w6aJ4LuqbHYcBy88/AAHnHMm6VYJqpGKKnNtbtC/hX8WVhzK20E
+	z0k5lg4BOLWKk907kBXBA6tMl7sxFJrvQ8NhMEOml+fHgV4H8eMTom+wB5QmceJGTEsbB7qytto+P
+	9NpNPZDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6vT-000000043Hd-2FgT;
-	Mon, 16 Jun 2025 10:18:51 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uR6xf-000000043Q8-10eu;
+	Mon, 16 Jun 2025 10:21:07 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6Fl-00000003vuQ-0G65
+	id 1uR6GV-00000003w0J-0K9n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 09:35:46 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bLPvM1mTnz6L5LJ;
-	Mon, 16 Jun 2025 17:33:35 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1D73614050C;
-	Mon, 16 Jun 2025 17:35:42 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 16 Jun
- 2025 11:35:41 +0200
-Date: Mon, 16 Jun 2025 10:35:40 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Jie Zhan <zhanjie9@hisilicon.com>, <linuxarm@huawei.com>
-Subject: Re: [PATCH v4 2/2] PM / devfreq: Add HiSilicon uncore frequency
- scaling driver
-Message-ID: <20250616103447.000024dd@huawei.com>
-In-Reply-To: <20250530081722.280776-3-zhanjie9@hisilicon.com>
-References: <20250530081722.280776-1-zhanjie9@hisilicon.com>
-	<20250530081722.280776-3-zhanjie9@hisilicon.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 16 Jun 2025 09:36:32 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3ddc99e0b77so331075ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 02:36:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750066590; x=1750671390; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QyIJw42bLVYC1qcn4Rgc4aSobkAPjVXS0kJvM4KjVSE=;
+        b=TWDZIoeHIajGoXlknkx9nvAq+LEbiiYnM9h1yD8Ut+RPTD7Tk9oQBMnjXbFRrcp8bd
+         t2M7xYsbvNgBfVgIm2+opmzg5S1c5jhgxYr1ZYHPYTmCjYAFZ1h2pqm/fA5gMKznPWsc
+         FQPQOu+pGO/Ubw3hF2qSjs4CqYGa8MU0y7AqN8ocrvtMZG9OXlm59E+nxTL2wl7oV3VK
+         ETfpnJY+c1x0zo2+9EPkL7DtlOEppz8VdlmpKJ4EaoL9RgpFrLnN2hZwipjmcoQYcMQi
+         Ef2woKx//L5nHzMQ7UXMoitWnrE0Dhsb5gygSt252fdeGVgpFv8SbgvbFPWXv7AYsqg1
+         slaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750066590; x=1750671390;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QyIJw42bLVYC1qcn4Rgc4aSobkAPjVXS0kJvM4KjVSE=;
+        b=hTCfCkiqzITFs+8vn08HgMDkSoh9+bmwOj8eS8BLCbGnyJY2OkvAc2PVASLeoIyrag
+         Sn72gMEMGoSh26PErn85BxdENSdyZebzIaNTQfzhLq4vMFXWQeetr5ySXnMbrbNHm+oc
+         9Jr/6dqxXoTEb5AYnsr2nKjySN+PEnxGQwpqM1ZDiKvAjZRh9xBoUsQSOkN4vzPE6oQA
+         TaHC0g6IUxlW59tdVFBM44vyzvJuCTdwVYOwDPYUPxghJOKCeX4SDRniRLWiJW34rGkp
+         KA+zGmU/toizMJvdW5GEE0Ge8bUhBPBhAh7NRT4EN3OQD7giWcgQGiv2vnmqWPMvykq4
+         SmzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5RLj1M1SeJoKAdEqVLGdVLmyLghJ8YsllnD76XEakzDWHGdB3ANJuWRaiTf0Idwa/cyjgpkCnheKnzL9nuTNX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzc4OT32IBpT+WPTwy74bV/j+Gd6CwG+EZbQ9GwRaGIq3PH5GGZ
+	FcKa73fvVAHz6fZcqdl21QPrvAIwokUUgWJuT+/fy0SEycSm2dr0sTn9Oqmoa4vspHKRPw4HNVi
+	hv9ytEc4sojMg1yZNjQHFFc6EvgKtCSV2Rf7wSOZK
+X-Gm-Gg: ASbGncuDP5zdjzlA3l4cj8bY4FRaq6Q9Yu6Pna9fvL8ccYFibsVU8afhjj/fTQrsWsI
+	QbAi/9/3tDFbHKL8aJGJwnBguNW7ACZVY/JeKdd8c/SFNaxZ4tGi02R+Z3E2fkXvx32MIyfoD20
+	3Ks/Yi8kodDxE0Zc3wCgC9YhTm39MH9R6uLmL1ZrKgtm6dGPhuKlmVCe8=
+X-Google-Smtp-Source: AGHT+IExfs1Lq6bAplJAKpnyknLozpvmj2f++NKi/uCJl7EYtWLFqXP60HhaEqVs4L7q3T5Sh2zeIsfSjUd+hwvQ/JE=
+X-Received: by 2002:a05:6e02:1d9b:b0:3dd:a4b7:c737 with SMTP id
+ e9e14a558f8ab-3de09fc2b9emr4321945ab.19.1750066589976; Mon, 16 Jun 2025
+ 02:36:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
- frapeml500008.china.huawei.com (7.182.85.71)
+References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
+In-Reply-To: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 16 Jun 2025 02:36:18 -0700
+X-Gm-Features: AX0GCFtd-Ymhas6vUanWJK_PcvegJqPI2_88M-JzDIHqHHA6qrjOwNHCJCZ3ZL4
+Message-ID: <CAP-5=fXSwgxMc+uh=PBAFh4Zm96tL5RDyKPOJ8Q40O4s=EaArA@mail.gmail.com>
+Subject: Re: [PATCH RESEND v7 00/21] drivers/perf: apple_m1: Add Apple A7-A11,
+ T2 SoC support
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
+	asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_023545_396705_53081948 
-X-CRM114-Status: GOOD (  48.52  )
+X-CRM114-CacheID: sfid-20250616_023631_141759_DAC04CD8 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,393 +98,123 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, cw00.choi@samsung.com, kyungmin.park@samsung.com, myungjoo.ham@samsung.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 30 May 2025 16:17:22 +0800
-Jie Zhan <zhanjie9@hisilicon.com> wrote:
+On Sun, Jun 15, 2025 at 6:32=E2=80=AFPM Nick Chan <towinchenmi@gmail.com> w=
+rote:
+>
+> This series adds support for the CPU PMU in the older Apple A7-A11, T2
+> SoCs. These PMUs may have a different event layout, less counters, or
+> deliver their interrupts via IRQ instead of a FIQ. Since some of those
+> older SoCs support 32-bit EL0, counting for 32-bit EL0 also need to
+> be enabled by the driver where applicable.
+>
+> Patch 1 adds the DT bindings.
+> Patch 2-7 prepares the driver to allow adding support for those
+> older SoCs.
+> Patch 8-12 adds support for the older SoCs.
+> Patch 13-21 are the DT changes.
+>
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 
-> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
-> the devfreq framework.  The uncore domain contains shared computing
-> resources, including system interconnects and L3 cache.  The uncore
-> frequency significantly impacts the system-wide performance as well as
-> power consumption.  This driver adds support for runtime management of
-> uncore frequency from kernel and userspace.  The main function includes
-> setting and getting frequencies, changing frequency scaling policies, and
-> querying the list of CPUs whose performance is significantly related to
-> this uncore frequency domain, etc.  The driver communicates with a platform
-> controller through an ACPI PCC mailbox to take the actual actions of
-> frequency scaling.
-> 
-> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
-Hi Zhanjie,
+Hi Nick,
 
-A few comments inline.  In general nice and clean.
+This is substantial work and it looks good to me. Do you know why
+there's been little progress on landing these patches? Buggy Apple ARM
+PMU support in the kernel has led to reworking the perf tool. It seems
+best that we can have the best drivers possible.
 
-I think only one that really needs a change it the one around the
-CPU association firmware handling.
-
-Jonathan
-
+Thanks,
+Ian
 
 > ---
->  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
->  drivers/devfreq/Kconfig                       |  11 +
->  drivers/devfreq/Makefile                      |   1 +
->  drivers/devfreq/hisi_uncore_freq.c            | 656 ++++++++++++++++++
->  4 files changed, 677 insertions(+)
->  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-class-devfreq b/Documentation/ABI/testing/sysfs-class-devfreq
-> index 1e7e0bb4c14e..fed95bb0bb6d 100644
-> --- a/Documentation/ABI/testing/sysfs-class-devfreq
-> +++ b/Documentation/ABI/testing/sysfs-class-devfreq
-> @@ -132,3 +132,12 @@ Description:
->  
->  		A list of governors that support the node:
->  		- simple_ondemand
-> +
-> +What:		/sys/class/devfreq/.../related_cpus
-> +Date:		June 2025
-> +Contact:	Linux power management list <linux-pm@vger.kernel.org>
-> +Description:	The list of CPUs whose performance is closely related to the
-> +		frequency of this devfreq domain.
-> +
-> +		This file is only present if the hisi_uncore_freq driver is in
-> +		use.
-
-Unless this last statement was requested by another reviewer, I'd change it for
-something more generic to allow it to be used by other drivers.  Something like
-
-		This file is only present if a specific device has a close association
-		with a subset of the CPUs.
-
-
-> diff --git a/drivers/devfreq/hisi_uncore_freq.c b/drivers/devfreq/hisi_uncore_freq.c
-> new file mode 100644
-> index 000000000000..7e1b7f48d0f4
-> --- /dev/null
-> +++ b/drivers/devfreq/hisi_uncore_freq.c
-
-
-> +enum hisi_uncore_freq_mode {
-> +	HUCF_MODE_PLATFORM = 0,
-> +	HUCF_MODE_OS,
-> +	HUCF_MODE_MAX,
-
-I assume these max entries are terminators?  I.e. nothing should ever
-come after them?  If so you could drop the commas to make that explicit.
-
-> +};
-> +
-> +#define HUCF_CAP_PLATFORM_CTRL	BIT(0)
-
-> +static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
-> +				u8 cmd, u32 *data)
-> +{
-> +	struct hisi_uncore_pcc_shmem __iomem *addr;
-> +	struct hisi_uncore_pcc_shmem shmem;
-> +	struct pcc_mbox_chan *pchan;
-> +	unsigned int mrtt;
-> +	s64 time_delta;
-> +	u16 status;
-> +	int rc;
-> +
-> +	guard(mutex)(&uncore->pcc_lock);
-> +
-> +	pchan = uncore->pchan;
-> +	if (!pchan)
-> +		return -ENODEV;
-> +
-> +	addr = (struct hisi_uncore_pcc_shmem __iomem *)pchan->shmem;
-> +	if (!addr)
-> +		return -EINVAL;
-> +
-> +	/* Handle the Minimum Request Turnaround Time (MRTT) */
-> +	mrtt = pchan->min_turnaround_time;
-> +	time_delta = ktime_us_delta(ktime_get(),
-> +				    uncore->last_cmd_cmpl_time);
-
-Fits on one line under 80 chars.
-
-> +	if (mrtt > time_delta)
-> +		udelay(mrtt - time_delta);
-
-
-> +
-> +static int hisi_uncore_init_opp(struct hisi_uncore_freq *uncore)
-> +{
-> +	struct device *dev = uncore->dev;
-> +	u32 data = 0, num, index;
-
-Trivial personal preference. Don't mix assignment and no
-assignment declarations.  It's every so slightly harder to read.
-
-> +	unsigned long freq_mhz;
-> +	int rc;
-> +
-> +	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_PLAT_FREQ_NUM,
-> +				  &data);
-> +	if (rc)
-> +		return dev_err_probe(dev, rc, "Failed to get plat freq num\n");
-> +
-> +	num = data;
-> +
-> +	for (index = 0; index < num; index++) {
-> +		data = index;
-> +		rc = hisi_uncore_cmd_send(uncore,
-> +					  HUCF_PCC_CMD_GET_PLAT_FREQ_BY_IDX,
-> +					  &data);
-> +		if (rc) {
-> +			dev_pm_opp_remove_all_dynamic(dev);
-> +			return dev_err_probe(dev, rc,
-> +				"Failed to get plat freq at index %u\n", index);
-> +		}
-> +		freq_mhz = data;
-> +
-> +		/* Don't care OPP votlage, take 1V as default */
-voltage
-
-Spell check in case I missed others.  A W=1 build tends to catch the simple ones
-like this.
-
-> +		rc = dev_pm_opp_add(dev, freq_mhz * HZ_PER_MHZ, 1000000);
-> +		if (rc) {
-> +			dev_pm_opp_remove_all_dynamic(dev);
-> +			return dev_err_probe(dev, rc,
-> +				"Add OPP %lu failed\n", freq_mhz);
-> +		}
-> +	}
-> +
-> +	return devm_add_action_or_reset(dev, devm_hisi_uncore_remove_opp, uncore);
-Hmm. I'm normally a fan of registering these after the calls, but this is one
-of the rare cases where pushing it before (with a comment) cleans up the code.
-
-If you do that, then all the error cases in the loop just need to return and not
-call the cleanup manually.
-
-> +}
-
-> +
-> +static int hisi_platform_gov_handler(struct devfreq *df, unsigned int event,
-> +				     void *val)
-> +{
-> +	struct hisi_uncore_freq *uncore = dev_get_drvdata(df->dev.parent);
-> +	int rc = 0;
-> +	u32 data;
-> +
-> +	if (WARN_ON(!uncore || !uncore->pchan))
-> +		return -ENODEV;
-> +
-> +	switch (event) {
-> +	case DEVFREQ_GOV_START:
-> +		data = HUCF_MODE_PLATFORM;
-> +		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
-> +		break;
-> +	case DEVFREQ_GOV_STOP:
-> +		data = HUCF_MODE_OS;
-> +		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	if (rc)
-> +		dev_err(uncore->dev, "Failed to set operate mode (%d)\n", rc);
-
-Trivial: I'd push this up into the two case statements (with early returns) as then
-you can also report what mode you were trying to set in the string.
-
-> +
-> +	return rc;
-> +}
-
-> +
-> +static int hisi_uncore_add_platform_gov(struct hisi_uncore_freq *uncore)
-> +{
-> +	int rc = 0;
-
-Initialized in only path where it's used.  Maybe push this
-declaration down to if (hisi_platform_gov_usage() block 
-
-> +
-> +	if (!(uncore->cap & HUCF_CAP_PLATFORM_CTRL))
-> +		return 0;
-> +
-> +	guard(mutex)(&hisi_platform_gov_usage_lock);
-> +
-> +	if (hisi_platform_gov_usage == 0) {
-> +		rc = devfreq_add_governor(&hisi_platform_governor);
-
-		int rc = devfreq....
-
-> +		if (rc)
-> +			return rc;
-> +	}
-> +	hisi_platform_gov_usage++;
-> +
-> +	return devm_add_action_or_reset(uncore->dev,
-> +					devm_hisi_uncore_remove_platform_gov,
-> +					uncore);
-> +}
-> +
-> +static int hisi_uncore_mark_related_cpus(struct hisi_uncore_freq *uncore,
-> +				 char *property, int (*get_topo_id)(int cpu),
-> +				 const struct cpumask *(*get_cpumask)(int cpu))
-> +{
-> +	unsigned int i, cpu;
-> +	size_t len;
-> +	int rc;
-> +
-> +	rc = device_property_count_u32(uncore->dev, property);
-> +	if (rc < 0)
-> +		return rc;
-Most of the errors here don't reflect it not being found and are things
-were we should probably fail the driver probe (so someone can fix whatever
-is wrong with the firmware.)  I think only -EINVAL means not here
-(technically arguments are not valid)
-
-> +	if (rc == 0)
-> +		return -EINVAL;
-> +
-> +	len = rc;
-> +	u32 *num __free(kfree) = kcalloc(len, sizeof(*num), GFP_KERNEL);
-> +	if (!num)
-> +		return -ENOMEM;
-
-On this failure path, falling over the other route below doesn't make much sense.
-
-> +
-> +	rc = device_property_read_u32_array(uncore->dev, property, num, len);
-> +	if (rc)
-> +		return rc;
-> +
-> +	for (i = 0; i < len; i++) {
-> +		for_each_possible_cpu(cpu) {
-> +			if (get_topo_id(cpu) == num[i]) {
-
-You could flip to reduce indent.  Marginal though so up to you and definitely
-not worth another spin.
-
-			if (get_topo_id(cpu) != num[i])
-				continue;
-
-			cpumask_or(&uncore->related_cpus, &uncore->related_cpus,
-				   get_cpumask(cpu));
-			break;
-
-> +				cpumask_or(&uncore->related_cpus,
-> +					   &uncore->related_cpus,
-> +					   get_cpumask(cpu));
-> +				break;
-> +			}
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int get_package_id(int cpu)
-> +{
-> +	return topology_physical_package_id(cpu);
-> +}
-> +
-> +static const struct cpumask *get_package_cpumask(int cpu)
-> +{
-> +	return topology_core_cpumask(cpu);
-> +}
-> +
-> +static int get_cluster_id(int cpu)
-> +{
-> +	return topology_cluster_id(cpu);
-> +}
-> +
-> +static const struct cpumask *get_cluster_cpumask(int cpu)
-> +{
-> +	return topology_cluster_cpumask(cpu);
-> +}
-> +
-> +static int hisi_uncore_mark_related_cpus_wrap(struct hisi_uncore_freq *uncore)
-> +{
-> +	int rc;
-> +
-> +	cpumask_clear(&uncore->related_cpus);
-> +
-> +	rc = hisi_uncore_mark_related_cpus(uncore, "related-package",
-> +					   get_package_id,
-> +					   get_package_cpumask);
-> +	if (rc == 0)
-> +		return rc;
-
-return 0;  might make it a tiny bit more explicit that this is a good path.
-Maybe a comment in here on why that is a good path.
-I think this is trying one then the other and only one is expected to be
-present?  Perhaps be a little more paranoid here and check what was seen was
--EINVAL.
-
-	if (rc != -EINVAL)
-		return rc; /* May be 0 or another error code */
-
-Perhaps with an ACPI snippet in the patch description to illustrate what
-is going on here.
-
-
-> +
-> +	return hisi_uncore_mark_related_cpus(uncore, "related-cluster",
-> +					     get_cluster_id,
-> +					     get_cluster_cpumask);
-> +}
-
-> +static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
-> +{
-> +	struct devfreq_dev_profile *profile;
-> +	struct device *dev = uncore->dev;
-> +	unsigned long freq;
-> +	u32 data;
-> +	int rc;
-> +
-> +	rc = hisi_uncore_get_cur_freq(dev, &freq);
-One for another day:
-Whilst we do indeed need to do this, it seems like a small optimization to
-devfreq would be to check for initial_freq == 0 and if it is try get_cur_freq()
-after registration. Mind you I checked and this only seems to apply to
-the imx drivers and this one.
-
-> +	if (rc)
-> +		return dev_err_probe(dev, rc, "Failed to get plat init freq\n");
-> +
-> +	profile = devm_kzalloc(dev, sizeof(*profile), GFP_KERNEL);
-> +	if (!profile)
-> +		return -ENOMEM;
-> +
-> +	*profile = (struct devfreq_dev_profile) {
-> +		.initial_freq = freq,
-> +		.polling_ms = HUCF_DEFAULT_POLLING_MS,
-> +		.timer = DEVFREQ_TIMER_DELAYED,
-> +		.target = hisi_uncore_target,
-> +		.get_dev_status = hisi_uncore_get_dev_status,
-> +		.get_cur_freq = hisi_uncore_get_cur_freq,
-> +		.dev_groups = hisi_uncore_freq_groups,
-> +	};
-> +
-> +	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
-> +	if (rc)
-> +		return dev_err_probe(dev, rc, "Failed to get operate mode\n");
-> +
-> +	if (data == HUCF_MODE_PLATFORM)
-> +		uncore->devfreq = devm_devfreq_add_device(dev, profile,
-> +					  hisi_platform_governor.name, NULL);
-> +	else
-> +		uncore->devfreq = devm_devfreq_add_device(dev, profile,
-> +					  DEVFREQ_GOV_PERFORMANCE, NULL);
-> +	if (IS_ERR(uncore->devfreq))
-> +		return dev_err_probe(dev, PTR_ERR(uncore->devfreq),
-> +			"Failed to add devfreq device\n");
-> +
-> +	return 0;
-> +}
-
+> Changes in v7:
+> - Fix a W=3D1 compile warning in apple_pmu_get_event_idx() as appearently=
+ using GENMASK()
+> in a function prototype causes a warning in GCC.
+> - Link to v6: https://lore.kernel.org/r/20250407-apple-cpmu-v6-0-ae8c2f22=
+5c1f@gmail.com
+>
+> Changes in v6:
+> - Rebased on top of v6.15-rc1 (Conflict with FEAT_PMUv3 support for KVM o=
+n Apple Hardware)
+> - Add patch to skip initialization of PMUv3 remap in EL1 even though not =
+strictly needed
+> - Include DT patches
+> - Link to v5: https://lore.kernel.org/r/20250228-apple-cpmu-v5-0-9e124cd2=
+8ed4@gmail.com
+>
+> Changes in v5:
+> - Slightly change "drivers/perf: apple_m1: Add Apple A11 Support", to kee=
+p things in
+> chronological order.
+> - Link to v4: https://lore.kernel.org/r/20250214-apple-cpmu-v4-0-ffca0e45=
+147e@gmail.com
+>
+> Changes in v4:
+> - Support per-implementation event attr group
+> - Fix Apple A7 event attr groups
+> - Link to v3: https://lore.kernel.org/r/20250213-apple-cpmu-v3-0-be7f8ade=
+d81f@gmail.com
+>
+> Changes in v3:
+> - Configure PMC8 and PMC9 for 32-bit EL0
+> - Remove redundant _common suffix from shared functions
+> - Link to v2: https://lore.kernel.org/r/20250213-apple-cpmu-v2-0-87b36193=
+2e88@gmail.com
+>
+> Changes in v2:
+> - Remove unused flags parameter from apple_pmu_init_common()
+> - Link to v1: https://lore.kernel.org/r/20250212-apple-cpmu-v1-0-f8c7f2ac=
+1743@gmail.com
+>
+> ---
+> Nick Chan (21):
+>       dt-bindings: arm: pmu: Add Apple A7-A11 SoC CPU PMU compatibles
+>       drivers/perf: apple_m1: Only init PMUv3 remap when EL2 is available
+>       drivers/perf: apple_m1: Support per-implementation event tables
+>       drivers/perf: apple_m1: Support a per-implementation number of coun=
+ters
+>       drivers/perf: apple_m1: Support configuring counters for 32-bit EL0
+>       drivers/perf: apple_m1: Support per-implementation PMU startup
+>       drivers/perf: apple_m1: Support per-implementation event attr group
+>       drivers/perf: apple_m1: Add Apple A7 support
+>       drivers/perf: apple_m1: Add Apple A8/A8X support
+>       drivers/perf: apple_m1: Add A9/A9X support
+>       drivers/perf: apple_m1: Add Apple A10/A10X/T2 Support
+>       drivers/perf: apple_m1: Add Apple A11 Support
+>       arm64: dts: apple: s5l8960x: Add CPU PMU nodes
+>       arm64: dts: apple: t7000: Add CPU PMU nodes
+>       arm64: dts: apple: t7001: Add CPU PMU nodes
+>       arm64: dts: apple: s800-0-3: Add CPU PMU nodes
+>       arm64: dts: apple: s8001: Add CPU PMU nodes
+>       arm64: dts: apple: t8010: Add CPU PMU nodes
+>       arm64: dts: apple: t8011: Add CPU PMU nodes
+>       arm64: dts: apple: t8012: Add CPU PMU nodes
+>       arm64: dts: apple: t8015: Add CPU PMU nodes
+>
+>  Documentation/devicetree/bindings/arm/pmu.yaml |   6 +
+>  arch/arm64/boot/dts/apple/s5l8960x.dtsi        |   8 +
+>  arch/arm64/boot/dts/apple/s800-0-3.dtsi        |   8 +
+>  arch/arm64/boot/dts/apple/s8001.dtsi           |   8 +
+>  arch/arm64/boot/dts/apple/t7000.dtsi           |   8 +
+>  arch/arm64/boot/dts/apple/t7001.dtsi           |   9 +
+>  arch/arm64/boot/dts/apple/t8010.dtsi           |   8 +
+>  arch/arm64/boot/dts/apple/t8011.dtsi           |   9 +
+>  arch/arm64/boot/dts/apple/t8012.dtsi           |   8 +
+>  arch/arm64/boot/dts/apple/t8015.dtsi           |  24 +
+>  arch/arm64/include/asm/apple_m1_pmu.h          |   3 +
+>  drivers/perf/apple_m1_cpu_pmu.c                | 807 +++++++++++++++++++=
+++++--
+>  12 files changed, 871 insertions(+), 35 deletions(-)
+> ---
+> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+> change-id: 20250211-apple-cpmu-5a5a3da39483
+>
+> Best regards,
+> --
+> Nick Chan <towinchenmi@gmail.com>
+>
+>
 
