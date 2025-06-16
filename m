@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6599C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02442C7115A
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMy+y5c/8mfi8FAA89LQATnBS6oZZIjVu32K5ipEiDQ=; b=szLYqffrHSLb1iba6c+PEBKDgc
-	ufVF+DXAu06XKFI2GDpC+0ZwS/O7mfFh7MNL9CBk4n7PxN4f/1T7j/tN3Rlsxq1wt31p7pGYTY8Yg
-	/JWGyMwt8BL8OF+MtypEkUM9tWJBBplUAKsU35a3lEwIzh0d5K+P5PJVYgIh8ZFlMqo0t6XFO7xOR
-	Oa4HRIoYJ9U1XvrvQJwfza+s94KR0oHt4zg/USsr8FSXHCRT31HtbDe8MF8xaHusomPUnLZYUIv2f
-	JvK5VZS1y0K5jwkc0Ev+COBTnHvPX51yb/aWNNumVct3IIajQKTVZaCkFT4HB+kMELKyQf19LOWZW
-	xsDkxdxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=170kxITiahI0WLlzh73GbaAad8nEI7X1qHMVlhx8xgg=; b=Lgifc4xJF7tPl2NC/BGUAN1KL3
+	Psd+qScBQwTTSHrycr5Xu1VXKrJwffMzeOc+U4sG3SS2FCCR2GzF7bWPWf7OoBCSy7VY879CtArmi
+	EpCyDucxFIY5byUAsUjDtZQa4jG5Fu7m/GXgE/tx+DSj2PI1oxx3GolJ4b6BDWUCM8BvqlABfz8Xi
+	+iPpklJxDfjm1ePLbofCmuqLqyVCvSXc/v20UgNCc7OB+ERP5P8B2JOqh4ug3U99pUhSKa4J7ceVV
+	AjrpLxWpdDGfgKnbGhUaBk8XiI/GO8kKHcwCY+/KxD56hKdwcCUCUQ+RxhSLGu15ZL7qmZxkK9jtM
+	2EOwcD3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREZz-00000005DdU-3cKG;
-	Mon, 16 Jun 2025 18:29:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uREa0-00000005De1-45nU;
+	Mon, 16 Jun 2025 18:29:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRC0X-00000004v00-0Yp1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 15:44:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A33DF43BFF;
-	Mon, 16 Jun 2025 15:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1237C4CEEA;
-	Mon, 16 Jun 2025 15:44:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750088663;
-	bh=zMy+y5c/8mfi8FAA89LQATnBS6oZZIjVu32K5ipEiDQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pNxQ978VmTyHAQQ9sM1UZUhVQbkOiaADT141E3DfFXEwOcwu4qEMxMTh1IVstEQGt
-	 3PAOJqTKVY8HfvN8cTN+fK2oxDoJ5AkhIlaCRGObXvujSzMrFcaJcYwLfG+Trvg6w4
-	 j921Hfcu+9Nad7s08+IUQFyT3vv1PWMl9FhwEnuqJUBBkMYATf9ppHtqBITbPsM6GW
-	 GeYE5rVpfhm4iainanvkEnHIJwvNF5wE41xpDPrJNfogRb8E6LNirFmNMK9YjpYFnn
-	 p4RkLzn4dxmNQis5Lpyt2r5WaU8IX0y2FEu0CFHx0mShhxY9FLCXOesN5eMnYGP5KQ
-	 EpOZ60DvuS6BQ==
-Date: Mon, 16 Jun 2025 17:44:20 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: lee@kernel.org, alexandre.torgue@foss.st.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, wbg@kernel.org, jic23@kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	olivier.moysan@foss.st.com
-Subject: Re: [PATCH v3 4/8] pwm: stm32: add support for stm32mp25
-Message-ID: <hsmkc6ydsyjgyq7dkhvcytqrn6uu7ezngknetshkf4kj4mjt3i@3hgg42aq3sd5>
-References: <20250110091922.980627-1-fabrice.gasnier@foss.st.com>
- <20250110091922.980627-5-fabrice.gasnier@foss.st.com>
+	id 1uRC74-00000004w06-1x8R;
+	Mon, 16 Jun 2025 15:51:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1750089056; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=CuDhxF78VIhhVcLLbtIDA2g0A3JRBwHgpImUgZeiW4qRpCpfJhMRtz9J7W9/puxsWBKS2acfafaaOewvv4xu4LVPozJ7XRFtOezMnAxj7ClBNDEEwJCQ0Ch+NjBHNxVysZS/2VczSP1P0vTDsE1lkxK3KyTiMGvcAXj1zlViM6s=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1750089056; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=170kxITiahI0WLlzh73GbaAad8nEI7X1qHMVlhx8xgg=; 
+	b=hqKte0ENBFTvga3/nAdinwK6t+q6u3A5RAWGBNgVnX9QLBqT7VaAzL89uiBQzxJAVtYrpwnloyQGdNg2Q8Y7D9rjI8S+WLMgjmpLaxvUpGj7zar4BLkP56KNdtAIMcT6ldRRpJpG39V4tRI6nyjYBkdpmVyXS+zNiE6bsIpk8MA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750089056;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=170kxITiahI0WLlzh73GbaAad8nEI7X1qHMVlhx8xgg=;
+	b=O00Z0MngrOahDkUAGWl2DFdJ+tJUMdAR2SM/vqPLM48emFpW6jWhyqfnh5pCpf1s
+	+pT89k0SmwDB8LXI6AlbYd/0BdXSFRVUsz2T9jedNf4PMpibuiRBBn1r7LsFbMYe/qY
+	+RmeU2GonGGrlMu9bQz7IfqYznSwDPBkLtiZwUeQ=
+Received: by mx.zohomail.com with SMTPS id 1750089054716172.7304639178068;
+	Mon, 16 Jun 2025 08:50:54 -0700 (PDT)
+Message-ID: <2d251d7c-7906-4a66-9791-7f71e7a4b54d@collabora.com>
+Date: Mon, 16 Jun 2025 17:50:50 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ezyzxvlev7k4prvr"
-Content-Disposition: inline
-In-Reply-To: <20250110091922.980627-5-fabrice.gasnier@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI
+ IOMMU
+To: Conor Dooley <conor@kernel.org>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
+ kernel@collabora.com
+References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
+ <20250616145607.116639-3-benjamin.gaignard@collabora.com>
+ <20250616-winter-strict-db98f85db22d@spud>
+ <5c971c09-c398-40a3-9ed5-ec38b6645e1d@collabora.com>
+ <20250616-contempt-remix-5af2b7281cbd@spud>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <20250616-contempt-remix-5af2b7281cbd@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_084425_192136_5954C9F0 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250616_085110_567125_CAB2D381 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +88,60 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---ezyzxvlev7k4prvr
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 4/8] pwm: stm32: add support for stm32mp25
-MIME-Version: 1.0
+Le 16/06/2025 à 17:42, Conor Dooley a écrit :
+> On Mon, Jun 16, 2025 at 05:30:44PM +0200, Benjamin Gaignard wrote:
+>> Le 16/06/2025 à 17:14, Conor Dooley a écrit :
+>>> On Mon, Jun 16, 2025 at 04:55:50PM +0200, Benjamin Gaignard wrote:
+>>>> Add a device tree binding for the Verisilicon (VSI) IOMMU. This IOMMU sits
+>>>> in front of hardware encoder and decoder blocks on SoCs using Verisilicon IP,
+>>>> such as the Rockchip RK3588.
+>>>>
+>>>> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+>>>> ---
+>>>>    .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
+>>>>    1 file changed, 71 insertions(+)
+>>>>    create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+>>>> new file mode 100644
+>>>> index 000000000000..acef855fc61d
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+>>>> @@ -0,0 +1,71 @@
+>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>> +%YAML 1.2
+>>>> +---
+>>>> +$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
+>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>> +
+>>>> +title: Verisilicon IOMMU
+>>>> +
+>>>> +maintainers:
+>>>> +  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
+>>>> +
+>>>> +description: |+
+>>>> +  A Versilicon iommu translates io virtual addresses to physical addresses for
+>>>> +  its associated video decoder.
+>>>> +
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    oneOf:
+>>>> +      - items:
+>>>> +          - const: verisilicon,iommu
+>>> You're missing a soc-specific compatible at the very least here, but is
+>>> there really no versioning on the IP at all? I'd be surprised if
+>>> verisilicon only produced exactly one version of an iommu IP.
+>> I only aware this version of the iommu for the moment.
+> "for the moment", yeah. Is there any information that could be used to
+> version this available?
 
-Hello Fabrice,
+The hardware block isn't documented in the TRM so I don't know if there is a version
+field or something like that.
 
-On Fri, Jan 10, 2025 at 10:19:18AM +0100, Fabrice Gasnier wrote:
-> Add support for STM32MP25 SoC. Use newly introduced compatible to handle
-> new features along with registers and bits diversity.
-> The MFD part of the driver fills in ipidr, so it is used to check the
-> hardware configuration register, when available to gather the number
-> of PWM channels and complementary outputs.
->=20
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+>
+>> Does adding verisilicon,rk3588-iommu sound good for you ?
+> It'd be "rockchip,rk3588-iommu", but sure.
 
-Applied to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-=2E
+"rockchip,rk3588-iommu" is already use for other MMUs in rk3588.
 
-Thanks for your patience
-Uwe
-
---ezyzxvlev7k4prvr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhQO9IACgkQj4D7WH0S
-/k5Gygf9Gy+dDmATpLY1NSgEaVsqseEX8U1OK8Qr0hXVS6DWdx1yiKu/usPB/Ns8
-KlFNa+c0Yd/lDEYjkvaLr0FmmGazj3yReZB7iuTBjo42rR4ZMg70Ch92UmhZL4JQ
-jWYv+ZLzvdDvyEN1mtPizoYrwazqtK+9ajkbSgIWORogLWD2ieG12tfwpE0FjPjB
-IkdnMX9NbFB777pXHx8JZTux0YzwmZ9Y6grswoV2Rdlor2xxm/atUWqAE0g8qRzM
-QFCOVen4t50xS6ptchwAsDwMRIrDfmVaiMg3T8tC55Fpix5GOkkzFfunE33BqDhi
-kt5RKeBIclzLIGFvx72daCwUDZqidg==
-=4Cak
------END PGP SIGNATURE-----
-
---ezyzxvlev7k4prvr--
 
