@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903EEC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA26C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnJtiwxef0NlsIA0iJK2TmfZ9WiB+Rmg7cFo4i5Ph/o=; b=pV37Spa6VPrwfv3mfKiCyxouRl
-	gHxcTHv7VU6aMITh/lhw+YpefKYiY2nxV2fqVHBht2ooe20Lorr2L/iyhidfOTAzdl4Zn4u+UcdES
-	iRzm5zLoyJZ41+TVDAWhd7PBT5E67mzVnR5o+cC0Y67ST6gntQF/vFgDi0yarqFq8BFs7uKgLwyIk
-	4iPBkRKWCmq23yFKHFLpDIjCmrNuMQuANWVJwQ/H2MndOnuPWTAV5Ysp+/RVBFNntIg0lSmh6c6Mc
-	JnXC3Se3sDPvuDiaTGmxAL/eL9QRDH98ncGRwwwRObypKW2955+b2WrRMnewYZSCHgeO8c8V3ZvvK
-	59eiHsxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ywH8Dejsdq3x0VdIrtMd2wFdmECbqVFAg+zOSDofJ2s=; b=TiwZAvNcWjoHEOjwuI045b2IH+
+	7LHmgOGifSoBbRM8REtWcAr9vVqxoa+veGTlMkc2IUmtIS3LWBE18qbwtz/bMBlljBG+icjdEnoPE
+	Dv9cMHvjj9hqnaN4Cw72zuXJt15N51w8Bne+MqrQ2e7SXMnTx7knz/K+8GBn8q06HDB4g53iAQ9WU
+	xeUTe8ksrOdCFxZK5W0ng5MRtuTFT2Td42SJXB91m/jeLaVlcgW4aGj4gedtHp3cDzGe9xpDlsi8z
+	QLx7D+ry2AMB0h18qnCwZVqU47peTMtftPL82JqFLVLvwcWZ64u79GdzXwJyaVuxWpiS+1cHSNBuj
+	km9Q94Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR5N8-00000003oi0-1fdN;
-	Mon, 16 Jun 2025 08:39:18 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uR5PK-00000003pAl-2yQB;
+	Mon, 16 Jun 2025 08:41:34 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR4jh-00000003iug-3lyV
+	id 1uR4qL-00000003jxr-1HeP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 07:58:35 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G6VltD029998;
-	Mon, 16 Jun 2025 09:58:27 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	XnJtiwxef0NlsIA0iJK2TmfZ9WiB+Rmg7cFo4i5Ph/o=; b=tvb1wGB0lVwOwiRr
-	Z7bMY1fiIFQ9Ji1hnw5hcBxVKjKd4vYwI8tg3zEXrirjw3VSxkYVLtEqUgQaItk/
-	YIAkI3/DsnUCHDUNPCcIFom519v8Ne+uUdjfjSHXVr3cw2xEjyDvPQQkMwV25xWk
-	VvjqBe7k6Ojnt1BbaGygHYfsxhvzOQZet0mf5BTlFiDd58e5fyp94lQ5Qplyru5o
-	cCWqq5dmK2MXRkuOrcetm3ANimlt+TiVxJxTGJcxhk9711KGQvJ7jHqPlzvjjg9Y
-	0bNojv/bQW7aEkrYYQ0UJX7JWXC+qg/fUVZNZPweKXUVW6YS2xd8zjApRFqKWc7w
-	FiFVUg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 479jn4m31q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 09:58:27 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7076C40047;
-	Mon, 16 Jun 2025 09:57:12 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1754E4CB020;
-	Mon, 16 Jun 2025 09:56:24 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Jun
- 2025 09:56:23 +0200
-Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Jun
- 2025 09:56:23 +0200
-From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier
-	<mathieu.poirier@linaro.org>,
-        Jens Wiklander <jens.wiklander@linaro.org>,
-        "Rob Herring" <robh+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor Dooley" <conor+dt@kernel.org>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
-        Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v18 6/6] remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
-Date: Mon, 16 Jun 2025 09:55:30 +0200
-Message-ID: <20250616075530.4106090-7-arnaud.pouliquen@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250616075530.4106090-1-arnaud.pouliquen@foss.st.com>
-References: <20250616075530.4106090-1-arnaud.pouliquen@foss.st.com>
+	Mon, 16 Jun 2025 08:05:26 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-553c31542b1so546925e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 01:05:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750061123; x=1750665923; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ywH8Dejsdq3x0VdIrtMd2wFdmECbqVFAg+zOSDofJ2s=;
+        b=Z1kyVY/P0EWgihwiPxIjg3qkOg/ey/hQraR44bbrf6RIAu4AWzhwNKWKFsptCPVJCZ
+         MjIFoVSXVVSuEaOTbqqHCRyRq4NAXLyUKtg9wV6JzsaKk8GvWx+v+oG3+B2p9lVR7t6h
+         ug8YC18nizE/XVISLlTDeIZU2qKM7Bb0Dr+aPYtEodjFNkGu5VB/4/MmJknL1m7Ymk2c
+         59gfrxbsv4kljHeOruX+nmNDadPFX174AfgoCUo4K4L9JwssZmmBy2haF1mW1lpVKLca
+         NdSyPBanF3mSiM8sMuVSimZ92JgVWstfsyGApF0I0z0TbxbF/fe7uNsp/kkjpjjafWQt
+         YX+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750061123; x=1750665923;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ywH8Dejsdq3x0VdIrtMd2wFdmECbqVFAg+zOSDofJ2s=;
+        b=Vmzr3my+vPHl4zkbTG1Ftk3HsaiYvtFWRCxUumxE8hw8BX49o3FVI8kKiDmebxLibC
+         SALl8SW9T+JShZymmce9Wa3g8MPoQKHIvfwMFlH4CF1YMSliVfdHPGNxJLywh0QwNNJk
+         I9wiFG/+kE6/yJCWv1VmAflvhFlYvVkDBMsnRxCMp9SwW2Lz9tkhLA7CM6raMJ4RNbrJ
+         Mz3L18UdHli3shiwlZbU9SW5Rejiq7EFu00Dopzh1ftkNoV7qvQetyr6JBqtETyJU1ne
+         HgrS0XXfBe4nMbC9owS2XRZe2FlMyFlEJy+MoKtj0OnY/hbzyCmbxOXzETDIwwQM8ELQ
+         amvw==
+X-Forwarded-Encrypted: i=1; AJvYcCW7LVlzFSPNhx9PW/PzyA7tQSuUJl6TI3+iqKiXad2465jvH1rkUvo1o31ERoyOAyPtCynd58v3b+e5hUoAPAlF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzz0KwtY6lsZKvd+93calyfNbBRdaOHOlRt0diPPXK8cVIQb/F0
+	yI+zEYPoKGUCWAZpHD0/uLdZSVup3DprEeraV+lpR8C88T3v2tpNNeG5Rcfkpq479M1DW29ANud
+	7oMSzxiQRBcM/HS/o31fI29+7HZ9odqDpVz4FheKIjQ==
+X-Gm-Gg: ASbGncvNeJq+ha195GdKlVMN9m/VT7aQIwbUsukL5rBue0qbFkZ25iH8DQjf06rJ1D/
+	qJpSwh++gQdHL0eeFB7XyuGnfSxNDRFj0xIfxGwUBiSSh4Vjpy75dGOYG0yCpLlqe8EUgnH/UzK
+	/XfUzx9QY29Dme526CLY/01KAkojgcFSGhOiCtDlusVo+cOYD8aBe0qvXRx+bQoZXj9pwhfrTZF
+	t4=
+X-Google-Smtp-Source: AGHT+IHui39rGOe78ZVv1GL/qozjTCuN+gIRPTaD2LzbbRuwGK+ExSJGXv1lf4f3l/OzpiTJL7GG+3gb2jdEJtZBUck=
+X-Received: by 2002:a05:6512:3e07:b0:553:2fa8:8405 with SMTP id
+ 2adb3069b0e04-553b6f4f34bmr2175898e87.56.1750061123552; Mon, 16 Jun 2025
+ 01:05:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.48.86.121]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-16_03,2025-06-13_01,2025-03-28_01
+References: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
+In-Reply-To: <20250613-hdp-upstream-v5-0-6fd6f0dc527c@foss.st.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 16 Jun 2025 10:05:12 +0200
+X-Gm-Features: AX0GCFsKseF3x4tMXUWhM7GW0aQJySrNOOS0VJu19t9Ohnme0LPMU6-HMe9h4i0
+Message-ID: <CAMRc=MeTmwgbHv9R_=GFmjkAV4Nvc-SeSCOz1k6pnGUrF+R9Mg@mail.gmail.com>
+Subject: Re: [PATCH v5 0/9] Introduce HDP support for STM32MP platforms
+To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
+	Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_005834_243962_67552153 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250616_010525_386503_12A481AD 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,130 +100,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new TEE remoteproc driver is used to manage remote firmware in a
-secure, trusted context. The 'st,stm32mp1-m4-tee' compatibility is
-introduced to delegate the loading of the firmware to the trusted
-execution context. In such cases, the firmware should be signed and
-adhere to the image format defined by the TEE.
+On Fri, Jun 13, 2025 at 12:16=E2=80=AFPM Cl=C3=A9ment Le Goffic
+<clement.legoffic@foss.st.com> wrote:
+>
+> This patch series introduces the Hardware Debug Port (HDP) support for
+> STM32MP platforms.
+>
+> It includes updates to the mmio gpio driver, the addition of device tree
+> bindings, the HDP driver, and updates to the device tree files for
+> STM32MP13, STM32MP15,
+> and STM32MP25 SoCs.
+> The series also updates the MAINTAINERS file to include myself as the
+> maintainer for the STM32 HDP driver and adds the necessary
+> pinmux configurations for HDP pins on STM32MP157C-DK2 as example.
+>
+> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
+> ---
 
-Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
----
- drivers/remoteproc/stm32_rproc.c | 57 ++++++++++++++++++++++++++++++--
- 1 file changed, 54 insertions(+), 3 deletions(-)
+[snip]
 
-diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-index db82d4308376..a3613c337264 100644
---- a/drivers/remoteproc/stm32_rproc.c
-+++ b/drivers/remoteproc/stm32_rproc.c
-@@ -18,6 +18,7 @@
- #include <linux/pm_wakeirq.h>
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
-+#include <linux/remoteproc_tee.h>
- #include <linux/reset.h>
- #include <linux/slab.h>
- #include <linux/workqueue.h>
-@@ -255,6 +256,19 @@ static int stm32_rproc_release(struct rproc *rproc)
- 	return 0;
- }
- 
-+static int stm32_rproc_tee_stop(struct rproc *rproc)
-+{
-+	int err;
-+
-+	stm32_rproc_request_shutdown(rproc);
-+
-+	err = rproc_tee_stop(rproc);
-+	if (err)
-+		return err;
-+
-+	return stm32_rproc_release(rproc);
-+}
-+
- static int stm32_rproc_prepare(struct rproc *rproc)
- {
- 	struct device *dev = rproc->dev.parent;
-@@ -691,8 +705,20 @@ static const struct rproc_ops st_rproc_ops = {
- 	.get_boot_addr	= rproc_elf_get_boot_addr,
- };
- 
-+static const struct rproc_ops st_rproc_tee_ops = {
-+	.prepare	= stm32_rproc_prepare,
-+	.start		= rproc_tee_start,
-+	.stop		= stm32_rproc_tee_stop,
-+	.kick		= stm32_rproc_kick,
-+	.load		= rproc_tee_load_fw,
-+	.parse_fw	= rproc_tee_parse_fw,
-+	.find_loaded_rsc_table = rproc_tee_find_loaded_rsc_table,
-+	.release_fw	= rproc_tee_release_fw,
-+};
-+
- static const struct of_device_id stm32_rproc_match[] = {
- 	{ .compatible = "st,stm32mp1-m4" },
-+	{ .compatible = "st,stm32mp1-m4-tee" },
- 	{},
- };
- MODULE_DEVICE_TABLE(of, stm32_rproc_match);
-@@ -854,6 +880,7 @@ static int stm32_rproc_probe(struct platform_device *pdev)
- 	const char *fw_name;
- 	struct rproc *rproc;
- 	unsigned int state;
-+	u32 proc_id;
- 	int ret;
- 
- 	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
-@@ -865,9 +892,29 @@ static int stm32_rproc_probe(struct platform_device *pdev)
- 	if (ret < 0 && ret != -EINVAL)
- 		return ret;
- 
--	rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, fw_name, sizeof(*ddata));
--	if (!rproc)
--		return -ENOMEM;
-+	if (of_device_is_compatible(np, "st,stm32mp1-m4-tee")) {
-+		/*
-+		 * Delegate the firmware management to the secure context.
-+		 * The firmware loaded has to be signed.
-+		 */
-+		ret = of_property_read_u32(np, "st,proc-id", &proc_id);
-+		if (ret) {
-+			dev_err(dev, "failed to read st,rproc-id property\n");
-+			return ret;
-+		}
-+
-+		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_tee_ops, fw_name, sizeof(*ddata));
-+		if (!rproc)
-+			return -ENOMEM;
-+
-+		ret = rproc_tee_register(dev, rproc, proc_id);
-+		if (ret)
-+			return dev_err_probe(dev, ret,  "signed firmware not supported by TEE\n");
-+	} else {
-+		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, fw_name, sizeof(*ddata));
-+		if (!rproc)
-+			return -ENOMEM;
-+	}
- 
- 	ddata = rproc->priv;
- 
-@@ -919,6 +966,8 @@ static int stm32_rproc_probe(struct platform_device *pdev)
- 		dev_pm_clear_wake_irq(dev);
- 		device_init_wakeup(dev, false);
- 	}
-+	rproc_tee_unregister(dev, rproc);
-+
- 	return ret;
- }
- 
-@@ -939,6 +988,8 @@ static void stm32_rproc_remove(struct platform_device *pdev)
- 		dev_pm_clear_wake_irq(dev);
- 		device_init_wakeup(dev, false);
- 	}
-+
-+	rproc_tee_unregister(dev, rproc);
- }
- 
- static int stm32_rproc_suspend(struct device *dev)
--- 
-2.25.1
+> ---
+> Cl=C3=A9ment Le Goffic (9):
+>       gpio: mmio: add BGPIOF_NO_INPUT flag for GPO gpiochip
+>       dt-bindings: pinctrl: stm32: Introduce HDP
+>       pinctrl: stm32: Introduce HDP driver
+>       MAINTAINERS: add Cl=C3=A9ment Le Goffic as STM32 HDP maintainer
+>       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp13
+>       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp15
+>       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp25
+>       ARM: dts: stm32: add alternate pinmux for HDP pin and add HDP pinct=
+rl node
+>       ARM: dts: stm32: add Hardware debug port (HDP) on stm32mp157c-dk2 b=
+oard
+>
 
+Patches 1-4 and 5-9 can go upstream independently. I suggest taking
+patch 1/9 through the GPIO tree and providing an immutable tag to
+Linus to take patches 2-4 through the pinctrl tree. Linus: are you OK
+with that?
+
+Bart
 
