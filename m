@@ -4,93 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8DDC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8B6C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuZ7ryNA5tj6+VLj2Sq6P0eo79hP3I6BooUtB2sx2bc=; b=q0Nq8peG8WczyH4jD2JZ4r/dGX
-	gwIsZGNN/mR3YHSp48XyTU4rbMkXyLnADnxYJmqJP1sSQdqsnZ79Zk+2yoC9RKuLGcbrte/bpljs0
-	/cTmcFmG2zu9dsMor7s9Wd8y1PTZjWO4cw/ROM21OvUL24CymuTPgOyAyfvGjYXCjUpfzTZw+ruP6
-	a6QFmb5M6WA9JN9+3GTiKGfzTx0vJ0cmpY++kN2XbEnC6sWtjUsFZ8nGp8OouTIvZc4k6AklB7KLA
-	JTHxTCQc/L4k7aPTlxQP358Jd7msMQGUf1RknpFFUQSmmk4LtnJN+EzrQQqe9zHQgoCG0VijJyhlU
-	yK8vnfeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LB1res4W8p6ly24QgM7h7EjascWL4QS0qJXjRzw05QM=; b=q9dQ4rZkIKu2ilCiiuc/HrH4BF
+	LHvMKf6Smgc9PGgWvo0Yyh57Ik5fqIfpiHVQuq9TrhCaTMKzUF5pZgSv8OPA+IztuODtfVdrs+Ui8
+	amOZtSVzJcHazu1gp50kbtpMQZDZxlyrcyYDQq0Qiq84tF0OZ7eW9aGSCBAuElFqbB4cWi1Q+KWFh
+	le+swj1qwhUTenIKOEJCAKZmj5RyuDUKwrfU7YrM3REturOvPthYmuoFDY77mHqTEzgfS96/DG6ub
+	gXUQfWaZKpZS803j9BbZB8jja9ZS/Ww7bgS6uLXko/VmfqITQz7hOgTm6tQDpkzywf6PoNIDb5eXK
+	uY+A7I3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR4wn-00000003kxV-0bzt;
-	Mon, 16 Jun 2025 08:12:05 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uR4yy-00000003lDz-457X;
+	Mon, 16 Jun 2025 08:14:20 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR4dr-00000003htK-2gbN
+	id 1uR4ep-00000003i0O-2SFf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 07:52:33 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-451d6ade159so33596865e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 00:52:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750060350; x=1750665150; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HuZ7ryNA5tj6+VLj2Sq6P0eo79hP3I6BooUtB2sx2bc=;
-        b=LPfgzzaWeZQLvhFHOoQmrkp59HserzvxguLPVU7kSegelG2j4M6ZKcF9FndSo4lQaM
-         hC2LtDOp6O+edLIpjWeu29tkfxI+WQ0ODSBmiKaOaFqAPWStnXRgJeLfD3KaA5z8zfsv
-         BU9oyoDVO94IR+L88UspiYLdvaTg5uXqi57nQHkB3W3tiTq83lIEIcXgk7wVk6j4bKNx
-         YJxh5blTaH+7bS6nPeJtLNjscAiDnQVwmdFwZQiQarwC3oAH0YhIc+NhHyi6veLMkWj2
-         qhq18Er/1OLIoUSgKZjavCF5D1Ytj+g7ASArizWEVT32UjTyNtIU1tqtvuDM5J7Lu7Hr
-         u3fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750060350; x=1750665150;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HuZ7ryNA5tj6+VLj2Sq6P0eo79hP3I6BooUtB2sx2bc=;
-        b=DGDMtXhbjsil1WxzudM1stRO/NQRGmM/LbACjYypS4Ql97T0ljKtViF2no3THmawIc
-         yKmOcbJMhovKQnfdpwr+Pvd1Lgss/ssJYbvYd/g1aLmLD2k1WMWgxv5hvRVSeoUBWEkD
-         nyGAR5KiUnOTpOgE6V4TuuxPmosznXe9EtGxnhEGx8XETUbI1Iui0gTZE99K0iiRYRkx
-         xWSJBxvqCFjcnWhfZDJ4VytDHmxv0zp6l6zN7cjjO8oSpPXoNfSenIeDK4BlaYSaOl2/
-         tKlJWZiCc6TTv9x461hjLdq1rcBDfIsLoSc4JwkrzBT7TDJCZTDq2I+lt5DL/XEHb/d0
-         10DA==
-X-Forwarded-Encrypted: i=1; AJvYcCX2LwQjSyFtPdAaXjrriTX3c9GlFIfXaxuS2erkoP0O4IncmEoeXF/5mV1c4X2KEXQ2YLpPtFQsZH2EGGeHwsgJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9SNyxwt6nm8fpqojlcZ1JQkISlG7tBif8RwtWtvalUSwuku4F
-	6OThVhvYabV2NKUCkmFCHZUxsMuR20Y+rCyzFt7Z90L1RFLU0eYz4Kf1qUrgl3iI6WU=
-X-Gm-Gg: ASbGncubWpPIAKXejg8yHDmGwR18vzHxZaULUGGQWQsS55m4UIrbKgaaYuMlWCTrGgC
-	dNoc5ZSIf5CGMkS48AQiNcLcClVYDCvBwUn0mkyo/gMXLfHB2gn3cTUkD4c+kqvhiLnFS+i0nlf
-	UQ3ritC7JHbMCVhYzzkcrcN2Jo22Q2Z+tNgFZjSZHAx4o/x/JhKMKFYPzE+BBmJn3f1g0kylX7f
-	InHxiYRRTSIICKCIDJyOXSVJ1d2i/G5haJ/NU8cdyvPhqDIfKrmeFfJ9ZXEQUDjSxWi8oSgBI9M
-	OQ+ICSS1xseT5e6vguPelEH7rp8aqSd6d++tqrjcxWezCtAj0RmDjzwqCloGIQ==
-X-Google-Smtp-Source: AGHT+IHXRXXZYRGpubgH6HhObOmp8EGF7T7fg1ywZE0VXlicZkh5PVgGSBSmZjmIyIfwlxbLRKwwnQ==
-X-Received: by 2002:a05:600c:6097:b0:43c:fffc:786c with SMTP id 5b1f17b1804b1-4533cb484e6mr75561385e9.19.1750060350043;
-        Mon, 16 Jun 2025 00:52:30 -0700 (PDT)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:4238:f8a4:c034:8590])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e24420csm134888355e9.20.2025.06.16.00.52.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Jun 2025 00:52:29 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Stefan Wahren <wahrenst@gmx.net>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Mon, 16 Jun 2025 07:53:32 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id C0A6E211FE;
+	Mon, 16 Jun 2025 07:53:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1750060408; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LB1res4W8p6ly24QgM7h7EjascWL4QS0qJXjRzw05QM=;
+	b=jA8Tl/bcm1QKccJM+Lx2zE+F5jR85TlQ7FlI5b6T4IhRFkWvzUAoAwMupyjFDtYatgK8Oj
+	pSpp4V10oPOstwTxwjNwXYhunLVkn7ekDvT+vTY/CyDashEJUomAyGD2xY3jebA+KqM6Hg
+	xspwxd6gLYkK6VrIo61aIJuIio+Qxl8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1750060408;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LB1res4W8p6ly24QgM7h7EjascWL4QS0qJXjRzw05QM=;
+	b=L/xo79ZsURSH2a98r12zuA0hZPl/AeTJLT0eHDdrkAUHOP/wOvVojpKQ9GuHz5tHIxgb/f
+	cq/qpmhyLeJr3ACg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1750060408; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LB1res4W8p6ly24QgM7h7EjascWL4QS0qJXjRzw05QM=;
+	b=jA8Tl/bcm1QKccJM+Lx2zE+F5jR85TlQ7FlI5b6T4IhRFkWvzUAoAwMupyjFDtYatgK8Oj
+	pSpp4V10oPOstwTxwjNwXYhunLVkn7ekDvT+vTY/CyDashEJUomAyGD2xY3jebA+KqM6Hg
+	xspwxd6gLYkK6VrIo61aIJuIio+Qxl8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1750060408;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LB1res4W8p6ly24QgM7h7EjascWL4QS0qJXjRzw05QM=;
+	b=L/xo79ZsURSH2a98r12zuA0hZPl/AeTJLT0eHDdrkAUHOP/wOvVojpKQ9GuHz5tHIxgb/f
+	cq/qpmhyLeJr3ACg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 78F8E13A6B;
+	Mon, 16 Jun 2025 07:53:28 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 7fARHHjNT2ieLAAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Mon, 16 Jun 2025 07:53:28 +0000
+Date: Mon, 16 Jun 2025 09:53:28 +0200
+Message-ID: <87frg0p1fr.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: wangdicheng <wangdich9700@163.com>
+Cc: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linux-kernel@vger.kernel.org,
+	alsa-devel@alsa-project.org,
 	linux-arm-kernel@lists.infradead.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	kernel-list@raspberrypi.com,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH] gpio: raspberrypi-exp: use new GPIO line value setter callbacks
-Date: Mon, 16 Jun 2025 09:52:28 +0200
-Message-ID: <175006034577.16922.13168351714262147379.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250614111216.93677-1-wahrenst@gmx.net>
-References: <20250614111216.93677-1-wahrenst@gmx.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	wangdicheng <wangdicheng@kylinos.cn>
+Subject: Re: [PATCH] ALSA: hda/realtek: Fixup ft alc257 rename alc3328
+In-Reply-To: <20250616074520.582138-1-wangdich9700@163.com>
+References: <20250616074520.582138-1-wangdich9700@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-3.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	FREEMAIL_TO(0.00)[163.com];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[gmail.com,kernel.org,perex.cz,suse.com,vger.kernel.org,alsa-project.org,lists.infradead.org,kylinos.cn];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_005231_717122_60C83966 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250616_005331_790949_A17A33EA 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,22 +134,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-
-
-On Sat, 14 Jun 2025 13:12:16 +0200, Stefan Wahren wrote:
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
+On Mon, 16 Jun 2025 09:45:20 +0200,
+wangdicheng wrote:
 > 
+> Audio ALC3328 recognized as ALC257, updated PCI ID0x10EC12F0 to rename it to 3328
 > 
+> Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
 
-Applied, thanks!
+Try to fix up via either rename_tbl[] or rename_pci_tbl[] instead.
 
-[1/1] gpio: raspberrypi-exp: use new GPIO line value setter callbacks
-      https://git.kernel.org/brgl/linux/c/367864935785382bab95f5e5a691535d28f5a21b
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+thanks,
+
+Takashi
+
+> ---
+>  sound/pci/hda/patch_realtek.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/sound/pci/hda/patch_realtek.c b/sound/pci/hda/patch_realtek.c
+> index d3c9ed963588..e18b2a2acba8 100644
+> --- a/sound/pci/hda/patch_realtek.c
+> +++ b/sound/pci/hda/patch_realtek.c
+> @@ -6712,6 +6712,13 @@ static void alc_fixup_disable_mic_vref(struct hda_codec *codec,
+>  		snd_hda_codec_set_pin_target(codec, 0x19, PIN_VREFHIZ);
+>  }
+>  
+> +static void alc_fixup_ft_alc257_rename(struct hda_codec *codec,
+> +                                 const struct hda_fixup *fix, int action)
+> +{
+> +       int err;
+> +       if (action == HDA_FIXUP_ACT_PRE_PROBE)
+> +               err = alc_codec_rename(codec, "ALC3328");
+> +}
+>  
+>  static void alc294_gx502_toggle_output(struct hda_codec *codec,
+>  					struct hda_jack_callback *cb)
+> @@ -7799,6 +7806,7 @@ enum {
+>  	ALC269_FIXUP_VAIO_VJFH52_MIC_NO_PRESENCE,
+>  	ALC233_FIXUP_MEDION_MTL_SPK,
+>  	ALC294_FIXUP_BASS_SPEAKER_15,
+> +	ALC257_FIXUP_FT_RENAME,
+>  };
+>  
+>  /* A special fixup for Lenovo C940 and Yoga Duet 7;
+> @@ -10143,6 +10151,10 @@ static const struct hda_fixup alc269_fixups[] = {
+>  		.type = HDA_FIXUP_FUNC,
+>  		.v.func = alc294_fixup_bass_speaker_15,
+>  	},
+> +	[ALC257_FIXUP_FT_RENAME] = {
+> +		.type = HDA_FIXUP_FUNC,
+> +		.v.func = alc_fixup_ft_alc257_rename,
+> +	},
+>  };
+>  
+>  static const struct hda_quirk alc269_fixup_tbl[] = {
+> @@ -10715,6 +10727,7 @@ static const struct hda_quirk alc269_fixup_tbl[] = {
+>  	SND_PCI_QUIRK(0x10cf, 0x1757, "Lifebook E752", ALC269_FIXUP_LIFEBOOK_HP_PIN),
+>  	SND_PCI_QUIRK(0x10cf, 0x1845, "Lifebook U904", ALC269_FIXUP_LIFEBOOK_EXTMIC),
+>  	SND_PCI_QUIRK(0x10ec, 0x10f2, "Intel Reference board", ALC700_FIXUP_INTEL_REFERENCE),
+> +	SND_PCI_QUIRK(0x10ec, 0x12f0, "BXC NF271B FT board", ALC257_FIXUP_FT_RENAME),
+>  	SND_PCI_QUIRK(0x10ec, 0x118c, "Medion EE4254 MD62100", ALC256_FIXUP_MEDION_HEADSET_NO_PRESENCE),
+>  	SND_PCI_QUIRK(0x10ec, 0x119e, "Positivo SU C1400", ALC269_FIXUP_ASPIRE_HEADSET_MIC),
+>  	SND_PCI_QUIRK(0x10ec, 0x11bc, "VAIO VJFE-IL", ALC269_FIXUP_LIMIT_INT_MIC_BOOST),
+> -- 
+> 2.25.1
+> 
 
