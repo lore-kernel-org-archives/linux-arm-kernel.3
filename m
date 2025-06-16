@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2672CC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 21:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E0AC71159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 21:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=diaMMomGVSeMyl9b0SDQ+0jS5CqmoXFRYMyDr82RfPg=; b=AiR1DrmPJ2mvhq9t+uDbedkhZf
-	7pszuoGbtAd4dSTuHQr3srVnjzR6SETi/gKwg/mxxcsd2waNIPXnKqB72z+GvSCZ3DPxkxaUeglOi
-	tNu1+GCtK7jECOi4jcTEe/OdNt87wSGCgesWnipU6IYysFJBuXAi3+APtM3M2gJXEyzCsb4hC5bS2
-	6MKpdpGeaW5gFTomhM4wxAyqndbT9S9eSRVkS5RRhBmGwOhDD5IJgTT6TfEev0GvRvu0nDxU4hxqs
-	7TgCgp+Ak+CHrMstepV9vyCy71FtA2siNV585LgsrbX1xLdTj/pI7xXy8bS/MxxjFg/jADke5AsO3
-	Xmo3sfSg==;
+	bh=PkxtSh5lJN8oDluqdUpIdBWts0li7o6KCp4HMQP+7eU=; b=VIrvb/5G60kkryImz/3T+knaZt
+	5PgkevNHvk1H5ul2rvuhjBAnFvhb/6gIdVWkfWKP4ezxRclfr9awFukUBv5KdjiHHIxK490HvugGs
+	odhYuF3bKUI+YtYhkMGbhX2HuPaAMrEEIkdM7whqLcQt92lRuta0Br+JY39PSy4POFN4BgpX5MOcC
+	gD+5ZQzN/oA2ACdjYwTtz8HlvLkKr0DPHEFeu/pzE6ivelwyoQKWE2SgAaL+xSdOtjxztrEbS+Ax9
+	8MR2pnmdLEUigHeG3reygDq/Vb45aI0GLpXGzWMgRAFwil9TWDnlfUjqGcD0O/RKzyrcL5GsAJW9T
+	hEZU9O8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRHUF-00000005aPL-0zlq;
-	Mon, 16 Jun 2025 21:35:27 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uRHfy-00000005bpg-2pg6;
+	Mon, 16 Jun 2025 21:47:34 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRHRi-00000005a2g-0ZHf
+	id 1uRHdk-00000005bRz-23Ki
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 21:32:51 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2357c61cda7so18545ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 14:32:49 -0700 (PDT)
+	Mon, 16 Jun 2025 21:45:17 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2348ac8e0b4so26155ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 14:45:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750109569; x=1750714369; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1750110316; x=1750715116; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=diaMMomGVSeMyl9b0SDQ+0jS5CqmoXFRYMyDr82RfPg=;
-        b=cIes3AmkQTdAVjNGVFbdCSsvBx9mlDxCaF+DWRTis70NBuL9XrNXkSOqvivHkoX699
-         AFAjMIZ2reYUdYMxA7S98kFs05O278QfI01w9MQCIM10kVl51CAwe/9zEc1RxqQeNrGX
-         klds13NumJ2QqMLprKkAwkdHH6RNuimilLHEPI4fe0CzT0yUcvoT4QhkHjs2J8qL1TzF
-         XQCP7YZcVyPb/TyYsd8kWhprB1KbGzk92JChfe2plPKQ47wehtH+5kHQMk09D3KQ/aBE
-         JlNXotftFPS4bnPoGHJvERtlHXQjb1V21YqGYl9vbBuDIAZM0+t/e9Qvw/GkBcGocvo+
-         8ivA==
+        bh=PkxtSh5lJN8oDluqdUpIdBWts0li7o6KCp4HMQP+7eU=;
+        b=y42VtvHUNY7R8x/mE742ImVPOONmfZ3VO1MHDM2Qwk5e3M5/vWEIEWXOLskCj3pAie
+         HybVBF22yRjVzhxaz7t/OUrqXrLvSGTDrPnYrde4WCoiivkKc8yjcEZExtdx90/MIQpi
+         0AsTY5byw16e+ojd9p2DxYZKpZCsUzKi2MyguNgpbsCCcm/XoHJBhRbSt6/dHJ8J1LBV
+         W3gI/WvqEog9wiWzh7RwbKUBQf983XbgtY/aprM0J4R5eWcB7dKa4Qo99+p0nXIkuScE
+         tbRgParamdLmXoeWEfw10xbMahoqtJhZtjUhRUvMrlxoVRvBIAi6yBtRGSMn9KsX6sfx
+         sj4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750109569; x=1750714369;
+        d=1e100.net; s=20230601; t=1750110316; x=1750715116;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=diaMMomGVSeMyl9b0SDQ+0jS5CqmoXFRYMyDr82RfPg=;
-        b=A9mK6UyRQwMRM8J+5JbKrXmlLnHJfRPeZqtgVYKA5HwEu9Y6xQG4TcQSvO4wx+C7O4
-         N2eTmdHKXV/hjTiWNCoS0sLth7JPQ3ZqPW+cRs0JuoWq4m2YJMvM9YUI279+f1Sl39Jr
-         r440q8N/nozO4dHIPldxKDHhYQGRHu4xHpRwF+Zyxo58h7bQUCrdz9jZORrVlKTOfslM
-         RqRO3n75e01KaBQkH3ZlcKNnwATS8p/IAbIJpaPA4BXgXBbDZMNpggZV5N3JYXndy9v1
-         KgDpzS20pDphv2AMM7tAbsy6z6N3gl99FaJtfQRnS5klnM4yel8W6Zb8O7YZZS4ejUsW
-         AOpA==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ/WE2VMSoNSNGL2eWBsWj5PxmCeyo3Wnq0BasxJmEUsIvKevu18H+MN6QOLEn6ZfH/QxJPzHdGvFDo5vQbOWT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFSdXE1Jhkx6z2fxsM2k3eI51UnrJN755KjcnHUa9xmlOQ67Dp
-	kla9HScW+SktoVwSF5XKr8zQn95LiZk8CkBG1sXv97uM8LIv1XSo8p/A5Ic8h1nnnQ==
-X-Gm-Gg: ASbGncsEusmuN4VSGxnLqS9mW5U5SIIIRuc/bAGrKCN5kMLvKJDTs6hHVilehu6R7yb
-	FwxyIeFvbE9OYr7+SDLh/yLEViuKeelx/rBshocbFjwy78FWGNwXROexEwccdqDQVjZ//PL4Q6v
-	mC0RuricO4PshD7rxEMQ8sbowT0skwe8BSx4niTQ8o8Sm2rFh/B7cj/px6VDsptAZA5u3BaN/zV
-	9360gzBuluspTlSrv0bzsnLkORpPtBfAF+6sZG7AbUTO+m44qA7FI6htpWkBMfWxXQT4scYVYOn
-	a00aBWDrEl3i9X0WtFQ+HfcBpqgZ5YlGsYXk5eALjYVqFBWFG1cR46eekw8HxOxm6YkK0cFWHY1
-	o12m55GoISS3tR2/aH1ns
-X-Google-Smtp-Source: AGHT+IFWcQvoP+9fcVVp+c/nzrucrkTOoV642VxsR9D43oNtEPpmRjh6B8M7BM1aG3k8myNk+wmbkw==
-X-Received: by 2002:a17:902:e74f:b0:21f:631c:7fc9 with SMTP id d9443c01a7336-2366c4f491bmr6716645ad.0.1750109569076;
-        Mon, 16 Jun 2025 14:32:49 -0700 (PDT)
+        bh=PkxtSh5lJN8oDluqdUpIdBWts0li7o6KCp4HMQP+7eU=;
+        b=NdyDLJLHRPlMhvp1tXcnRty5oLKjrZdrQn4dTc32Id+BoiFGgxhQWxUiISOaGMh1Kf
+         w/HmkxaN+lxetTrLg3KduIh+kO7LIzMU9O87q2hfO4ma/kiuDUiou63H+SCkJxSciNyE
+         s1CGSBGhjj2Nraj5JR46AXdrkO1oRVkQ/L98mOQgCVkP/gjC2XMQa6zH45W4QVE3c9oQ
+         zAr9Q8RohrDFeb8hG5LBQoorIru40nSyObYoFIywmzoQso+neGwNhaB69g9+FuAF2Q0L
+         ZPhWo6MKpc7QN/SxAnGWZKYcyzW41c3ZlFJ2dRmRr1TcobskrO42QRDCnNfZNByKz8Wf
+         +bGA==
+X-Forwarded-Encrypted: i=1; AJvYcCVjtJ476eRbR+D6HgM11ecoAItt6SCzkGVHizFtMIjZATw1FtutLcIYsTBgQOD77xodpyFCk3nBPjgyl8/cQ01h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yye6YfyokgB9UHyDw+hOCWDS8wCCqAeM7Jm/LTEEb/otBDrJdJ6
+	8s7wLFX4Robddc4DVlTg5AS/nLz6vNRv+OVytctfA0q+WYffeLdfAylzd4NkoW35PA==
+X-Gm-Gg: ASbGncutyjZ3hbScCk+gcH7ZEdz3IkDpphbpZ2jyQ1RamgJQ0LQUoN9ottBa7UwCWIX
+	4aDlA8vpKuQ0rW4sRJJLo6OApOclWu2FYl4Icgh2xBNSUNxAFAX1OCjfg5DuNbLbvNIJvaOfPwu
+	NjuH+ltH+/l6v8fXT59+Z1SszBsat5IzmqW5+MQkkCnXrPV3hno7Iaab6U9SgfQZKsXbrfNkBhQ
+	65DDEqYU65pyZbnxi2c+60hC5qtkv6jP914/+t141quyDFQggSyvAXT73M6qMc4Y1aUHwGnolN2
+	5scOiITt6vRYziZuKlxAHYuN7y+wxOMaoQsw28+GiybZtuC1S13yzrCUONYTSn5ixrR5hFZTfSS
+	VaNaw8F9x0yqQZExHMn9S
+X-Google-Smtp-Source: AGHT+IHrQDyvVnwCf9csPzPlw1hS7k+ZaNmE2pdHcui8ltcFiMTENAodaPPmibhzeNqADUXMrthyDA==
+X-Received: by 2002:a17:903:1a27:b0:234:bf4:98ba with SMTP id d9443c01a7336-2366c5bf768mr6063095ad.6.1750110315130;
+        Mon, 16 Jun 2025 14:45:15 -0700 (PDT)
 Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b31886377a6sm5271665a12.71.2025.06.16.14.32.45
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-748900d1ceesm7328258b3a.161.2025.06.16.14.45.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Jun 2025 14:32:48 -0700 (PDT)
-Date: Mon, 16 Jun 2025 21:32:40 +0000
+        Mon, 16 Jun 2025 14:45:14 -0700 (PDT)
+Date: Mon, 16 Jun 2025 21:45:06 +0000
 From: Pranjal Shrivastava <praan@google.com>
-To: Xueqi Zhang <xueqi.zhang@mediatek.com>
-Cc: Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	Ning li <ning.li@mediatek.com>, linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, iommu@lists.linux.dev
-Subject: Re: [RFC PATCH 5/8] iommu/arm-smmu-v3: Add IRQ handle for smmu impl
-Message-ID: <aFCNeOP7oRv7NRjQ@google.com>
-References: <20250616025628.25454-1-xueqi.zhang@mediatek.com>
- <20250616025628.25454-6-xueqi.zhang@mediatek.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, yi.l.liu@intel.com,
+	peterz@infradead.org, jsnitsel@redhat.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev,
+	baolu.lu@linux.intel.com
+Subject: Re: [PATCH v2 03/14] iommufd: Use enum iommu_viommu_type for type in
+ struct iommufd_viommu
+Message-ID: <aFCQYqHostKg0YVt@google.com>
+References: <cover.1749882255.git.nicolinc@nvidia.com>
+ <6c6ba5c0cd381594f17ae74355872d78d7a022c0.1749882255.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250616025628.25454-6-xueqi.zhang@mediatek.com>
+In-Reply-To: <6c6ba5c0cd381594f17ae74355872d78d7a022c0.1749882255.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_143250_193878_7905074F 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250616_144516_531580_106A0DCE 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,81 +103,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 10:56:11AM +0800, Xueqi Zhang wrote:
-> Add IRQ handle for smmu impl
+On Fri, Jun 13, 2025 at 11:35:15PM -0700, Nicolin Chen wrote:
+> Replace unsigned init, to make it clear. No functional changes.
+
+Super nit: Typo: s/init/int
+
 > 
-> Signed-off-by: Xueqi Zhang <xueqi.zhang@mediatek.com>
+> The viommu_alloc iommu op will be deprecated, so don't change that.
+> 
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 ++++++++-
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 8 ++++++++
->  2 files changed, 16 insertions(+), 1 deletion(-)
+>  include/linux/iommufd.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index d36124a6bb54..154417b380fa 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1954,7 +1954,8 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
->  			arm_smmu_decode_event(smmu, evt, &event);
->  			if (arm_smmu_handle_event(smmu, evt, &event))
->  				arm_smmu_dump_event(smmu, evt, &event, &rs);
-> -
-> +			if (smmu->impl && smmu->impl->smmu_evt_handler)
-> +				smmu->impl->smmu_evt_handler(irq, smmu, evt, &rs);
->  			put_device(event.dev);
->  			cond_resched();
->  		}
-> @@ -2091,7 +2092,13 @@ static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
+> diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
+> index 498c9a768506..ac98e49e44fe 100644
+> --- a/include/linux/iommufd.h
+> +++ b/include/linux/iommufd.h
+> @@ -101,7 +101,7 @@ struct iommufd_viommu {
+>  	struct list_head veventqs;
+>  	struct rw_semaphore veventqs_rwsem;
 >  
->  static irqreturn_t arm_smmu_combined_irq_handler(int irq, void *dev)
->  {
-> +	struct arm_smmu_device *smmu = dev;
-> +
->  	arm_smmu_gerror_handler(irq, dev);
-> +
-> +	if (smmu->impl && smmu->impl->combined_irq_handle)
-> +		smmu->impl->combined_irq_handle(irq, smmu);
-> +
->  	return IRQ_WAKE_THREAD;
->  }
->  
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 99eeb6143c49..f45c4bf84bc1 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -792,6 +792,7 @@ struct arm_smmu_device {
->  
->  	struct rb_root			streams;
->  	struct mutex			streams_mutex;
-> +	const struct arm_smmu_v3_impl	*impl;
+> -	unsigned int type;
+> +	enum iommu_viommu_type type;
 >  };
+
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+
 >  
->  struct arm_smmu_stream {
-> @@ -998,6 +999,13 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
->  				struct arm_smmu_cmdq *cmdq, u64 *cmds, int n,
->  				bool sync);
->  
-> +/* Implementation details */
-> +struct arm_smmu_v3_impl {
-> +	int (*combined_irq_handle)(int irq, struct arm_smmu_device *smmu_dev);
-> +	int (*smmu_evt_handler)(int irq, struct arm_smmu_device *smmu_dev,
-> +				u64 *evt, struct ratelimit_state *rs);
-> +};
-
-Let's add these to the exisiting struct arm_smmu_impl_ops and invoke
-them like:
-
-	if (smmu->impl && smmu->impl_ops->combined_irq_handle)
-		smmu->impl_ops->combined_irq_handle(irq, smmu);
-
-Or maybe we could merge the existing impl_dev and impl_ops into a single
-structure.
-
-> +
->  struct arm_smmu_device *arm_smmu_v3_impl_init(struct arm_smmu_device *smmu);
->  #if IS_ENABLED(CONFIG_ARM_SMMU_V3_MEDIATEK)
->  struct arm_smmu_device *arm_smmu_v3_impl_mtk_init(struct arm_smmu_device *smmu);
+>  /**
 > -- 
-> 2.46.0
-> 
+> 2.43.0
 > 
 
