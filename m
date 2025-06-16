@@ -4,67 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB398C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:28:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E6FC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Qa12pQLxpuPnhIr2gx1R5p04XKvqht+MKZhRvRLpwc0=; b=fKkQtVXsx7E9bQSkYHATn41CQ+
-	089TJ5iPjbjAJ8R6sbmAUONwbhGk8gVYDg/BYpAk7i7o5TXVndxieA7VbJrX+RiIWX9ymFpgNoMZQ
-	yg/Id/GwHm8JElQIGC31yL7/Rj/4E74j3KzBlgog32sfs7DKCJ1qjTe0PYKAIw7drJinGPBgD5uI6
-	YCbXxqtuxoHmy2Vz5jvL1hC4iHtJa8KOfXsq4aO8bURqD0tTkdbjUvlXz04twxUhstzSWfKehFWPd
-	wQlz7GBETE4aRsZY+GA7Zs6vq5CMdt7umEh5eUFouk+L5MWWTS8v3bfM+fpNkz2D2qVJYwPr57HJt
-	RxILYYYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HJFxoydqfNwms4ix0SU8lhL5DJUXnQE0mckHnpvWwJY=; b=xIFNvbTpD6g2+Asz3hVau8a/hG
+	Pyx9o4Tj4KeATX8dA4/KYXKpP1qvenruFiEg+bUsLGMvWH9APAnVcTeORGY7eTyY4jVhpcBo/UXxM
+	QAYg7W/WzYwMlsF8/EctBjhEZRg6inFQfm66MZbZ+hBGXaeYzya8IfMN1hbyRjgfTZrMY0EvKfguF
+	TPv+5p1UflQ3Hm1A2BkPYfosD6+HtTDw1/ZOFqz41roFfSRjNyP3cbhgQgIic2gBn6Idjk9Zp96V3
+	3wREfIWxmuGIFPQsJYwJBzYyZ5ltqTL/3vScy1epFnINIXwwUDe8QYWxlxpGqwbAUR7MNHjxE0A/k
+	2CH4/Upg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR81F-00000004Ca9-3abF;
-	Mon, 16 Jun 2025 11:28:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uR83Q-00000004CuH-3o7P;
+	Mon, 16 Jun 2025 11:31:08 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR73e-0000000449u-3zfB;
-	Mon, 16 Jun 2025 10:27:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B7579A5189C;
-	Mon, 16 Jun 2025 10:27:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1806CC4CEEA;
-	Mon, 16 Jun 2025 10:27:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750069637;
-	bh=Rse1XPrFQM8gbRQ9n75PNuNKPkjS6jSQ0wCaAW+iRNM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=KAAd/DRo0OmWZZI5v2URno/X6HitKTcgiKTw4c/LOp3EkMgvk+imqnxTszK/uIS2v
-	 6u2e/aCFu+4SALH3jXGh96ihmbWGJuKUTfxTadTd0jeuedL8DaMYWMgQKag34Chypl
-	 f6uMO5wGfatE8IW/x3LgSdih76upC3A4eN9VP/PGB2iFLqtdV4pFBLuYG+7vKFSsf6
-	 betuBIdV8wEzsQjJ0WqxRDcF7X5Sl1XLGX9AOAiCVmGKDZ/RY1v6P6xiEkCzpo+UWC
-	 ONbVcLh0djWkY66657y5F99ygHecPphlLyfLNayPJAE+I+UrAxXigSiiiuQW83n50h
-	 WuXg3WNnSuTmQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 16 Jun 2025 12:27:06 +0200
-Subject: [PATCH net-next] net: airoha: Always check return value from
- airoha_ppe_foe_get_entry()
+	id 1uR75G-000000044MC-1RVo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 10:28:59 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8fFBq022895;
+	Mon, 16 Jun 2025 10:28:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HJFxoydqfNwms4ix0SU8lhL5DJUXnQE0mckHnpvWwJY=; b=nY4rYel9ClCwW1No
+	X1pl+QvuihnmFS7Bwbtej22gCEu2w+4blJuVxDh/vmPmCt42KjChFqcpSd63+VTe
+	N3amWaUQ6qCxIyoKzITJVrufnzVErMMKZjRS++dXPOlYZwDcOIpwci2AMtE6jm8h
+	Lr3CLH88p9CJ09F0s2kK1n449eSW4m5aUuSWFRwO0416rRZG57hm8PLi7bOqIzbE
+	ffsoTrVnQdoYEmDxNteBQ+jtsd37WaHLbYu8wwoKVp6nzE9f2pvxARlR+i5jbOql
+	XkMA5G0Vb2Dzq42krXnEUsqv5YBW65+6uW3Q7zDBkicombJyPg4aWRLPU643iYTL
+	ZU6TdQ==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4791hcv4eh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 10:28:35 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55GASZqU015512
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 10:28:35 GMT
+Received: from [10.253.8.97] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Jun
+ 2025 03:28:28 -0700
+Message-ID: <3fe9e742-48ec-4b6e-9819-8e0f3e3dad0e@quicinc.com>
+Date: Mon, 16 Jun 2025 18:28:25 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250616-check-ret-from-airoha_ppe_foe_get_entry-v1-1-1acae5d677f7@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAHnxT2gC/x3NQQrDIBBA0auEWXdAhZjQq5QiYsY4lKqMUlpC7
- l7J8m3+P6CRMDW4TwcIfbhxyQP6NkFIPu+EvA2DUWZWVlsMicILhTpGKW/0LCV5Vyu5WMjt1B3
- lLj8062yXRSuzRQ+jVoUif6/T43mef+f0SjR5AAAA
-X-Change-ID: 20250616-check-ret-from-airoha_ppe_foe_get_entry-285677102dfa
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [cocci] [PATCH v4 1/5] coccinelle: misc: Add field_modify script
+To: Markus Elfring <Markus.Elfring@web.de>, <cocci@inria.fr>
+CC: LKML <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+        Andrew Lunn
+	<andrew@lunn.ch>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Joey Gouly
+	<joey.gouly@arm.com>, Julia Lawall <Julia.Lawall@inria.fr>,
+        Kiran Kumar C.S.K
+	<quic_kkumarcs@quicinc.com>,
+        Lei Wei <quic_leiwei@quicinc.com>, Marc Zyngier
+	<maz@kernel.org>,
+        Nicolas Palix <nicolas.palix@imag.fr>,
+        Oliver Upton
+	<oliver.upton@linux.dev>,
+        Pavithra R <quic_pavir@quicinc.com>,
+        "Rasmus
+ Villemoes" <linux@rasmusvillemoes.dk>,
+        Suruchi Agarwal
+	<quic_suruchia@quicinc.com>,
+        Suzuki Poulose <suzuki.poulose@arm.com>,
+        "Will
+ Deacon" <will@kernel.org>, Yury Norov <yury.norov@gmail.com>,
+        Zenghui Yu
+	<yuzenghui@huawei.com>, <quic_linchen@quicinc.com>
+References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+ <20250612-field_modify-v4-1-ae4f74da45a6@quicinc.com>
+ <77406d43-230f-4690-b306-4d698449c01b@web.de>
+Content-Language: en-US
+From: Luo Jie <quic_luoj@quicinc.com>
+In-Reply-To: <77406d43-230f-4690-b306-4d698449c01b@web.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDA2NSBTYWx0ZWRfX0trSX0jUlmbl
+ 6/Kiw2eqMZ+BaTUN2QnDoVU6PmcQoECUdQU/nJ0Rd2nbupFMdM8KE/vfTcoi6S/ezP8CF4fMOmu
+ nAbdpUJwGCI8QXx+ejCbePe7SbtLchEX6GY4DQPisKkvTkzD471AK6Z98T0ZN+XfCaaWPoOxvNv
+ 7DSZG+Dl7/vDooXk9b070/1QEG8CKbTNcJXzvfo8/rVO9Pwctb8E1h4yZGvaILsWyrv44QjmEaA
+ lBxRVfKemoD1a0I6TqeBob35qYuwSg/I6n8hJbupx28VRiuRYwBE1X70QteRfWvdloExMD6fDrf
+ irkVboxpxihvVQUNFfwYQWncbL1nKp0w3f1P3b37Yw3UBxWvENx9YgL9G0vnCESWwpxA9CUXgct
+ tEasvGlSEjadoj8S3qlBBg1nZGnTpeSodP2a1y8+jtOe0Qk31qhbXeSX5BPvfct07rQt7R8r
+X-Authority-Analysis: v=2.4 cv=PtaTbxM3 c=1 sm=1 tr=0 ts=684ff1d3 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8
+ a=AhEd9QK3q4IM9PeCSbkA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: R63nRGutN0gsMd22foqEZFrLFmuWrZDi
+X-Proofpoint-GUID: R63nRGutN0gsMd22foqEZFrLFmuWrZDi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-16_04,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 clxscore=1015 mlxlogscore=999 suspectscore=0 malwarescore=0
+ lowpriorityscore=0 impostorscore=0 adultscore=0 spamscore=0
+ priorityscore=1501 phishscore=0 mlxscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506160065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_032719_061116_FDED424C 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250616_032858_387044_4FE65C97 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +134,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-airoha_ppe_foe_get_entry routine can return NULL, so check the returned
-pointer is not NULL in airoha_ppe_foe_flow_l2_entry_update()
 
-Fixes: b81e0f2b58be3 ("net: airoha: Add FLOW_CLS_STATS callback support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_ppe.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 50d816344b1f8c1ed639de357f62e761ede92f05..c354d536bc66e97ab853792e4ab4273283d2fb91 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -819,8 +819,10 @@ airoha_ppe_foe_flow_l2_entry_update(struct airoha_ppe *ppe,
- 		int idle;
- 
- 		hwe = airoha_ppe_foe_get_entry(ppe, iter->hash);
--		ib1 = READ_ONCE(hwe->ib1);
-+		if (!hwe)
-+			continue;
- 
-+		ib1 = READ_ONCE(hwe->ib1);
- 		state = FIELD_GET(AIROHA_FOE_IB1_BIND_STATE, ib1);
- 		if (state != AIROHA_FOE_STATE_BIND) {
- 			iter->hash = 0xffff;
+On 6/13/2025 12:48 AM, Markus Elfring wrote:
+> …
+>> ---
+>>   scripts/coccinelle/misc/field_modify.cocci | 61 ++++++++++++++++++++++++++++++
+> …
+> 
+> Did you overlook the addition of patch version descriptions?
+> https://lore.kernel.org/all/?q=%22This+looks+like+a+new+version+of+a+previously+submitted+patch%22
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v6.15#n310
 
----
-base-commit: 8909f5f4ecd551c2299b28e05254b77424c8c7dc
-change-id: 20250616-check-ret-from-airoha_ppe_foe_get_entry-285677102dfa
+Thank you for highlighting this, and for the references. A brief
+description of the differences in this script patch compared to
+the previous (v3) version were included in the cover letter, so
+a changelog was not added to the individual patch's commit message.
+Hope this approach is acceptable.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+I will ensure to include the reviewer in the CC list for future
+submissions, as recommended in the documentation.
+
+> 
+> 
+> …
+>> +@ depends on context && !patch && !org && !report@
+> …
+> 
+> I imagine that the condition selections can be simplified.
+> 
+
+I agree that the condition selections can be simplified, I will
+update it to "@ depends on context@". Hope it is fine.
+
+> 
+> …
+>> +@script:python depends on report@
+>> +p << r.p;
+>> +x << r.reg;
+>> +@@
+>> +
+>> +msg="WARNING: Consider using FIELD_MODIFY helper on %s" % (x)
+>> +coccilib.report.print_report(p[0], msg)
+> Do you know that a string construction can also be directly passed
+> to such a function call?
+
+I appreciate the tip. I'll update the patch to pass the formatted
+string directly to the function call in the next revision.
+
+> 
+> Regards,
+> Markus
 
 
