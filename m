@@ -4,61 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98758C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 15:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3576EC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 15:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTAZuhWUbQsXYvwIsAfEyeveBwD1vPBag7TRB+mmpXA=; b=1LquIe/6cDQi5Rc9SiAiVdtovM
-	mDLqdnLwgYjGj1Mv3JyytmTYwf3zOPBxd4RYtFV4rEh0F1qd4lei0e1xW1B2q4cv4Qc4EtMdqHWFe
-	KOuei+vL1YdQzTQQzCdQdt66+qYnA2z3W/45U3MQTN/0BpDrX0O6YJcFYkERnXCiC07keh5Sf7nWy
-	KQMiScckdrHSTCC+vY67iqnd6b57vd6UvVjs0xHNmuej+gziAk0mmDPoOITPnK2kDB8Il01WdnkTM
-	j/f69nKZmFOG1qFbv2/enl05uEtAnySx2R1Wtpiyt7atGuf81D9jaPMm0tDMo90/VqziwQpDP1bp5
-	jYewKd4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=edsvNyPONjNcsEF/H93JUHN4et34ZSFlpbM7WDc7qjU=; b=RVcU02V3LF5oAqavzZh++Ay5px
+	W3bu5u+BkF0T25Fw/dX7+tdDgqDth5E8GN/aBOgS8/E18EzBlL+NjCqrDpFOuuxf2v8U/vTZzMq0P
+	Ln2YwH7tqipsWanj+HpHf2W6aUL4w0DdMGObzeKlnHRvmaMEj/rgZCz+NhziwTFiEeETCE+oKrMSQ
+	1rEbvRH7eDcFRuZoosMPmyZ18NMh7pkGTZmi5yBIiV7babUB7PEELQcpvwzxCVuFvLXi+3KqVHGaX
+	4lpqackNF5jLLDSsbm384iAsm+IOZZL/rEcunAU1D8/z6gY3xoKDf2FkFrz1esvvmLlB104KzPcu1
+	wjDSc72w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBig-00000004p2x-0qZV;
-	Mon, 16 Jun 2025 15:25:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uRBiX-00000004ovX-2HMz;
+	Mon, 16 Jun 2025 15:25:49 +0000
+Received: from mail-dm6nam11on20631.outbound.protection.outlook.com ([2a01:111:f403:2415::631] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR9Uy-00000004TOx-0cn8;
-	Mon, 16 Jun 2025 13:03:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91F3D4AC56;
-	Mon, 16 Jun 2025 13:03:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD64CC4CEEA;
-	Mon, 16 Jun 2025 13:03:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750079019;
-	bh=a7j27RQuAyvZnCvRGb4L4XPkG2jx93P21IQMnptuauU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qbCdWXICAoHbASkv2kppLcyRQQ6+aYqV7jEI2SspphRpmjFSXmRaAHbscPyOf27+p
-	 vib9dZYkbzP1B0oxXG4d3QbJkXWHo6aMXpOzbqRLfgG+BFVbh1goeHmihfmGw0cXan
-	 z+HD8WKupg2opOlUu+S+re67Q/s2Jv5tmCCHhxj70dvkKuzN4Py5VzF7j5/g710Vjh
-	 s7F4pove0fhUsgVqtZ17TrOJ+RtSr0qlblAQgTBNvRQDXiX97VrbgPOON2z+Po5zby
-	 Fnk29kIHu6BhwrRI6Gvk4YUturpgSMUOhORTkRTY0Oi+0axDDOveKR3/KPVKiObNzB
-	 YZERVv/rLzA5g==
-Date: Mon, 16 Jun 2025 15:03:36 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, 
-	Brian Norris <briannorris@chromium.org>, Boris Brezillon <bbrezillon@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, kernel@collabora.com, linux-pwm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pwm: rockchip: round period/duty down on apply, up on get
-Message-ID: <nf5bpi3sv5rrlvjg7q2ehyck6brmm3bzmzw4zclirwtiy7vrjp@yzsiao7krnt7>
-References: <20250522-rockchip-pwm-rounding-fix-v1-1-b516ad76a25a@collabora.com>
+	id 1uR8Ur-00000004HHU-12yh;
+	Mon, 16 Jun 2025 11:59:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fT9BlpXZloZbeEoFJMAZA8fulX0LCda2F3Fh2Bzp42Gr7atiNXrmSK8IbT8fAbHziAAw7+16PCYFSP8yfbeiL+iSop87A6Bo7kBsJPDuBR+Qzhubuu+DCJ7OV1TBpCxtQ3VtcOfhmKaIKZl55e7Ds0U7NlV2SnCjS2wLYxkSV2EmCmSqet/AOh20js6m4TLdqO2imxmftnllL1hT84Gj8brq/2QYvO5Ci/ywu3TPR/mxCefDx++7N8az9y68A06uYNKmUWQqd6J9NB41BlryDVrXjwQ32iWNSZSiI2xK+T3zzcQlcWHQKFA6PVr6MVfs3f6z+q5q73FBWUMNek2osg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=edsvNyPONjNcsEF/H93JUHN4et34ZSFlpbM7WDc7qjU=;
+ b=oORxGf7BKRmJMDLn3fcnZQ6kK6VtoHlpq+r25OWsI60w9uYmiRitZCAhcmEh3C+DjfdoBe6av1yerw3OAybyFSsswfaoDuvBfDyTQfRj5QdyGyedgp/3ISjf21JfYf1jHP3eKM9kjUiqrLtFNv6wCAQJAVY19XEuRYi/BSMVkdEuJ9GqwvPplh2wJPMXZ+yRpOb1Y1pjqb8AeDIB9+Gwam5jnhdbaNlnXKJnMmzD5OGG+fvnTpBiPNzYrqRf6Bgw70OT5D47p29DGOgR85lm8ZSk7GjkF5aQwRA6L1CoZEj9EmLPT6DoVZxk1lM2xfnyGBspiMcjsnBTOLEdvoPP/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=edsvNyPONjNcsEF/H93JUHN4et34ZSFlpbM7WDc7qjU=;
+ b=X+kN5gdILaFgl+IqWN8+V5KPtsilNTUASZr+UjIxLbSbOI4HbfNNDaz+RH9zpYDTovGBv2CcO1iKh4o8BgEnxggTV4+E0GAdPVXFoGGBBCtb0yXXOd36S58CDKkya5rIlYZog//NwbONWWj43O1n47x9buylalP9G2Xb5ctFkXDNB5WJIUdmcw+24vdX+RdvCJTdYeXIig2JVOnEyr9YEOaDZAq651lRgTm2J6gW7dYIYjDA1TRcTPPNuhT5NnS5TQMo5no4k4p3gGiAROy1LHTSK13CR59lzUFQ9s7sqFZ+KF1O1JuhmnF4W7PlklqcRovoTSCPFD8NLx4KMQbrog==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY8PR12MB7705.namprd12.prod.outlook.com (2603:10b6:930:84::9)
+ by SA3PR12MB7878.namprd12.prod.outlook.com (2603:10b6:806:31e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Mon, 16 Jun
+ 2025 11:59:26 +0000
+Received: from CY8PR12MB7705.namprd12.prod.outlook.com
+ ([fe80::4b06:5351:3db4:95f6]) by CY8PR12MB7705.namprd12.prod.outlook.com
+ ([fe80::4b06:5351:3db4:95f6%5]) with mapi id 15.20.8835.026; Mon, 16 Jun 2025
+ 11:59:26 +0000
+From: Alistair Popple <apopple@nvidia.com>
+To: akpm@linux-foundation.org
+Cc: linux-mm@kvack.org,
+	Alistair Popple <apopple@nvidia.com>,
+	gerald.schaefer@linux.ibm.com,
+	dan.j.williams@intel.com,
+	jgg@ziepe.ca,
+	willy@infradead.org,
+	david@redhat.com,
+	linux-kernel@vger.kernel.org,
+	nvdimm@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com,
+	hch@lst.de,
+	zhang.lyra@gmail.com,
+	debug@rivosinc.com,
+	bjorn@kernel.org,
+	balbirs@nvidia.com,
+	lorenzo.stoakes@oracle.com,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-cxl@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	John@Groves.net,
+	m.szyprowski@samsung.com
+Subject: [PATCH v2 10/14] fs/dax: Remove FS_DAX_LIMITED config option
+Date: Mon, 16 Jun 2025 21:58:12 +1000
+Message-ID: <bbade6a3154d14d958f5f9cf65fd6424897ec9c2.1750075065.git-series.apopple@nvidia.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
+References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SY6PR01CA0140.ausprd01.prod.outlook.com
+ (2603:10c6:10:1b9::15) To CY8PR12MB7705.namprd12.prod.outlook.com
+ (2603:10b6:930:84::9)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t53uq6jf7edocakw"
-Content-Disposition: inline
-In-Reply-To: <20250522-rockchip-pwm-rounding-fix-v1-1-b516ad76a25a@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB7705:EE_|SA3PR12MB7878:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90e69060-0b9d-4a6e-3622-08ddaccd3dcd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2/PJNohpKexGKZ87MfTulsAu5Gj96TK7Ean/7Zg2j5gfssEzNpovvVEJQ0Aq?=
+ =?us-ascii?Q?nWMHBbF1Z88POzX/W0rcu8mnCWzIhkXJdo1EjgevVajXepy0fRNcrqpF/e/J?=
+ =?us-ascii?Q?YjY/fT2n5dNn/lvWbC0zTtu34c0vTL/qLjRgCDvr5xEHryDgrA6DO8+6E2EF?=
+ =?us-ascii?Q?WVNXIZnAiz818JobCLlyRWzFsft/wB0gCLDtnIUAREN+By0Gto/IIsHMPjmK?=
+ =?us-ascii?Q?pc3N3nq+IOnksoIl5vEuc6XHuTN4CvgnJ4H3sv/jRNeV3m1/2VDcIZf6amBb?=
+ =?us-ascii?Q?KTDKFhAqY8x6GszYGP3Y6WHb+0BrOhqfTvEOmhX/Jc3Mnj9uCsUvyJzkgWiJ?=
+ =?us-ascii?Q?VkcKbhgPAcFixdVtdLVSp0adOlV11lw0nRP4Fq4aqPEUfhwSFnI0gdpJF9fk?=
+ =?us-ascii?Q?ylbZV+XGIEcVdAh6NFGag+sClhXTYZ2PuFgmZUM5O5nZEM5jXhqZANbtMXwZ?=
+ =?us-ascii?Q?jb+TFsetGBy+v79FYGMvp2sdgzfWIuqR7ZbwLeAngYlcwxjIH72YXCrr5Uei?=
+ =?us-ascii?Q?FmkQX7dSxIGS4rbcvP2Bdfp1k9ccbGPUILa48Cdqrhy/wI44GuAevGv/pR+f?=
+ =?us-ascii?Q?/HfCNRdIQmF7Stfheuzg16Gpt18GsHfUhlF5XjALZVq9uJsM9kO1WrtsmBTZ?=
+ =?us-ascii?Q?Hlo3YYqhU2oE4S5ThjVt02A1xzC+0XpN2iLmwJYWOsRC9UfAIIBdRCHAtk5h?=
+ =?us-ascii?Q?ougwxhGBMfRDVWsl77/N9SOz7+ia3R6gT78vUYOckdkUorYA+OajIDUccRBX?=
+ =?us-ascii?Q?x9eH5/Xg4TtFp+OXWE0r8NOMY/E4C5U5Kf4A54tB6OG0mfOMMEW6Jkx1xyVB?=
+ =?us-ascii?Q?1eHzdy/95GcnCgPzMUetLZWhnYRTITnvzzvTgG8uu9aQEWOH2cxh7Q3wPfXW?=
+ =?us-ascii?Q?OAp9f6UqvKbLKhskN2DYt5SQFGpRS0i3WygS2R2biEgwZc9vrUK8lu1Ug8L9?=
+ =?us-ascii?Q?MnrC1GrPW93yy0ijGQrWdotYyP313/7hq8LLqOZ8vdy+ovqCsYezrDaxTIqK?=
+ =?us-ascii?Q?2VIJPvzkrO6exk4tqv0YX8ezdi287RW7jZc76tdtX0n3ysxOkIkgftxkIS97?=
+ =?us-ascii?Q?ooO4z4TtEgMAgLuHR6LHio6tpP/NQ+by8M+7YHqz+taFOcy2yQkR44YByfyN?=
+ =?us-ascii?Q?lcR0iE+w/kJdZ6Qyp7ASXzCsuS2TewWDGR4QxBdzo4WF7kIUlU4B/Lr1OZgm?=
+ =?us-ascii?Q?tGKtIW6J3fREQKUjVDc7Ge3l96w2eX1iAxxNQVH4YeSLsSSwOmbTDVM6arK5?=
+ =?us-ascii?Q?vxW1Lyp6/ABbB0iYasaCfY6ha1pYBwdvQp/XabsechhhRzV1JyxXds9D+Mlf?=
+ =?us-ascii?Q?CQmuRs1T/OhbWQfXLwaZHbChD9Fa/2vCTVSwF7jH6bTOErTPSZvEE+5Zt3JK?=
+ =?us-ascii?Q?LBmf6zIB4Qr2hVTi6dytEDLjqUWqMKYdPZXBKLgTigS/ZfnPFA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB7705.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/codIgEq2ftPz8I33nwtaRKY2DxTt0HXyK35It4cOjCiK8dQWGepwznM8sbX?=
+ =?us-ascii?Q?/LOJQvP0+Y8Qy762h79AYG+mdZA2KG+mbAAxLt2yh0m1KbUkez2X2LhXtmiu?=
+ =?us-ascii?Q?Gjszsx3wzARKXn+Gc1+KhDiotvEd8kcGXvji4wJjbj/+BYGMyCGUzA9+eq+M?=
+ =?us-ascii?Q?EQ/Fv3X8vVe/4MhZnBQyyYzi3oozy7KHjAUB8Q+sYX2/jUV5KV5SDdsB8+TE?=
+ =?us-ascii?Q?a5A7IrAVcmdiEIWWGyzgNKZO+2naXPZYrlCNA25g96CBT0li+BbtUyVnjWy+?=
+ =?us-ascii?Q?bo3WBSnpL3oeTD/qLLtUQWwK7LrsAB5Udh3rTtrV2ZRH6gzf2YtzB11Rsf7o?=
+ =?us-ascii?Q?iVpF6owshqOiDAjOSSAXTe+d41/qClC/FAgd056pGYTxg1oOLFsFnh7XO43p?=
+ =?us-ascii?Q?8vjcNsvovRN+S4aXRgqTZ37Wx220H1MKY4NNoHdVeCKZBCfw8SBbDUf71fJ1?=
+ =?us-ascii?Q?0zvuP5dEXVtn4GnyAeeLz7KyswSeHyerbqTCLqzjbMr8xFmSG++NrikdIHcI?=
+ =?us-ascii?Q?zwwo2Asl7ElD6wIMIw7Zc4qSpErm3GY6PFva6UjJGJDfBppvS/+Ntilg4J1P?=
+ =?us-ascii?Q?1Lpd2yJm42ebuaCxLjDvSY9brhrDyr0YG5s4hBTVI2U1eOIHyDPy5MS+UVsh?=
+ =?us-ascii?Q?Kd+PlF/MOmGFISaws/igaqzbrSYXTfqcKw8gBXsfrGzoD2BLPKQL6K9MhTSi?=
+ =?us-ascii?Q?u405ttPneqXO+mmct//5mkvPQsdBf/9kgHsFovBvlaG/cwRXzyPD0Zsy2VQV?=
+ =?us-ascii?Q?PAVBKCMxcBX39k2w/9+e5tf9CTIPs76umrmKzNXHLx6DKUt5Oty+zFrXBTfC?=
+ =?us-ascii?Q?YNokK5pas2tcj/+TMgxhBts4TLfimc75xpBJkJHTjcOfuPADJ8Pf91cjrgjh?=
+ =?us-ascii?Q?IOMPxofQ4LGJqhpEHErCq8caNRre2dAEPpAVr13fYjL3xOiEmjTPa1SqgdvJ?=
+ =?us-ascii?Q?KIgE2Zj2XOYvCA2A1gAbcAfSdmxExhxx63Lu1oIYgAnJg2DNS1LpFvV2pk7N?=
+ =?us-ascii?Q?hicUdrSTuiCCkUx2QdgM+zsIEWYFy87eDhylBnFY07cEOUpjmTiRO5/fbczT?=
+ =?us-ascii?Q?jdf2ln+l1p0KHIlBPrLcOuVCx2m5hzfTXj2KZGH/nh0J8YSFkVCvuRKLydWz?=
+ =?us-ascii?Q?i1HXj4gzI6bHojFN3kCHnkTh3qz4FlRL5fbmWY5sQPswp0PCWBqaablyiZyZ?=
+ =?us-ascii?Q?jYgRH+a6iqOhyNBGjYqF9UdN+KNj5dZpGMLzlIwy2HTN4ulpYp53zCl/1ldp?=
+ =?us-ascii?Q?lqV5POSjNvoohgE+TkFUTBF9xQvzz5zfqYDYIk7vZ4buQMzqCp44fOvlhWkj?=
+ =?us-ascii?Q?9QeG7c48WMUYkgKXTyqYf/kaXCxl9N7WT0DyNckDw+DIDbK6DH/3aiTZeXJD?=
+ =?us-ascii?Q?ei7LmmT18Kvp46Zi+smb3qWsVFq5fFYD+GeTOuMu1S6daNxZosrAIpAb0C73?=
+ =?us-ascii?Q?yH35ci3MaJQeFHzGix1BSFcddncQTmusa4nNFb3ERrWR5KsRYz3NDPcFmDst?=
+ =?us-ascii?Q?FGEMKarTojdNnqIy+GABt3Aa7jItYFyXOBGRNhE0t4lUY0SGvB+pb58z9TMt?=
+ =?us-ascii?Q?HB85NkJiW3E47rQOBxjFfH+olOsZJZpVAFsbW78i?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90e69060-0b9d-4a6e-3622-08ddaccd3dcd
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB7705.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 11:59:26.5308
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +GCVo1TMssNi9Bvf/Ryd/0NWjJeQiIQzZTIXk90YSULt6C7ucTRQk8BaAEG59CzepWjkRLyaXJo8v5DYZEgKvw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7878
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_060340_229132_00E3ECEB 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20250616_045929_285939_2568C2CE 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,102 +180,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The dcssblk driver was the last user of FS_DAX_LIMITED. That was marked
+broken by 653d7825c149 ("dcssblk: mark DAX broken, remove FS_DAX_LIMITED
+support") to allow removal of PFN_SPECIAL. However the FS_DAX_LIMITED
+config option itself was not removed, so do that now.
 
---t53uq6jf7edocakw
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: rockchip: round period/duty down on apply, up on get
-MIME-Version: 1.0
+Signed-off-by: Alistair Popple <apopple@nvidia.com>
 
-Hello Nico,
+---
 
-On Thu, May 22, 2025 at 09:26:44PM +0200, Nicolas Frattaroli wrote:
-> With CONFIG_PWM_DEBUG=3Dy, the rockchip PWM driver produces warnings like
-> this:
->=20
->   rockchip-pwm fd8b0010.pwm: .apply is supposed to round down
->   duty_cycle (requested: 23529/50000, applied: 23542/50000)
->=20
-> This is because the driver chooses ROUND_CLOSEST for idempotency
-> reasons. However, it's possible to keep idempotency while always
-> rounding down in .apply.
+Changes since v1:
 
-Note that rounding nearest is difficult for idempotency. Consider a PWM
-can implement the following period lengths:
+ - New for v2.
+---
+ fs/Kconfig    |  9 +--------
+ fs/dax.c      | 12 ------------
+ mm/memremap.c |  4 ----
+ 3 files changed, 1 insertion(+), 24 deletions(-)
 
-	20.61, 21.4, 22.19
-
-First if you use round-nearest you cannot set 21.4 because if you
-request 21 you get 20.61 and if you request 22 you get 22.19. So if the
-hardware still runs at 21.4, obviously apply =E2=9A=AC get_state cannot be
-idempotent. If you round down in apply and up in get_state (or
-vice-versa) you get idempotency. So using ROUND_CLOSEST for idempotency
-is based on a wrong intuition.
-
-> Do this by making get_state always round up, and making apply always
-> round down. This is done with u64 maths, and setting both period and
-> duty to U32_MAX (the biggest the hardware can support) if they would
-> exceed their 32 bits confines.
->=20
-> Fixes: 12f9ce4a5198 ("pwm: rockchip: Fix period and duty cycle approximat=
-ion")
-> Fixes: 1ebb74cf3537 ("pwm: rockchip: Add support for hardware readout")
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
-> This fix may need some careful testing from others before definitely
-> being applied and backported. While I did test it myself of course,
-> making sure to try a combination of periods and duty cycles, I really
-> don't want to accidentally undo someone else's fix.
-
-I like it apart from a small nitpick, see below. I think the danger of
-breaking something is small and I tend to apply your patch.
-
-> Some of the u64 math is a bit overkill, but I don't want to assume
-> prescalers will never get larger than 4, which is where we start needing
-> the 64-bit prescaled NSECS_PER_SEC value. clk_rate could also
-> comfortably fit within u32 for any expected clock rate, but unsigned
-> long can fit more depending on architecture, even if nobody is running
-> the PWM hardware at 4.294967296 GHz.
-> ---
-> [...]
-> @@ -103,8 +106,9 @@ static void rockchip_pwm_config(struct pwm_chip *chip=
-, struct pwm_device *pwm,
->  			       const struct pwm_state *state)
->  {
->  	struct rockchip_pwm_chip *pc =3D to_rockchip_pwm_chip(chip);
-> -	unsigned long period, duty;
-> -	u64 clk_rate, div;
-> +	u64 prescaled_ns =3D (u64)pc->data->prescaler * NSEC_PER_SEC;
-> +	u64 clk_rate, tmp;
-> +	u32 period, duty;
-
-These hold the period and duty in ticks, so I'd call them period_ticks
-and duty_ticks respectively.
-
->  	u32 ctrl;
-> =20
->  	clk_rate =3D clk_get_rate(pc->clk);
-> @@ -114,12 +118,15 @@ static void rockchip_pwm_config(struct pwm_chip *ch=
-ip, struct pwm_device *pwm,
-
-Best regards
-Uwe
-
---t53uq6jf7edocakw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhQFiUACgkQj4D7WH0S
-/k6RIggAsLLr/RA5R0kZBQiL6qGYpa0dMKd4CntzFu4LMeuLZsSWcXFKnP5RdvO0
-2ysAsVZCJLejyUxDn9VjSDFwpSgw4LoP/hnKbGguh9h/zGozMq/A1E0dYPXqSfPD
-BePTzoZkw7qfzHVMrvR/dY2wTIOuzQHiBSi02eSiO0ye1CfuDIJ0CUQfT86SQ5ju
-VpBfoU63QPjF+o6Ewp/ewIomFgw3J+xytch2HT15kJcrwRibobH2j6ZyDriMt3jh
-ak0utCjLsxnJLXTlGTb0Z/DROUMXnHsCrSutyDFcAa057c0/zas+cwS+PErlW53s
-RdAGcmvcBnvbX+vNuqTSO5f11T0zfQ==
-=ljjR
------END PGP SIGNATURE-----
-
---t53uq6jf7edocakw--
+diff --git a/fs/Kconfig b/fs/Kconfig
+index 44b6cdd..ccdf371 100644
+--- a/fs/Kconfig
++++ b/fs/Kconfig
+@@ -59,7 +59,7 @@ endif # BLOCK
+ config FS_DAX
+ 	bool "File system based Direct Access (DAX) support"
+ 	depends on MMU
+-	depends on ZONE_DEVICE || FS_DAX_LIMITED
++	depends on ZONE_DEVICE
+ 	select FS_IOMAP
+ 	select DAX
+ 	help
+@@ -95,13 +95,6 @@ config FS_DAX_PMD
+ 	depends on ZONE_DEVICE
+ 	depends on TRANSPARENT_HUGEPAGE
+ 
+-# Selected by DAX drivers that do not expect filesystem DAX to support
+-# get_user_pages() of DAX mappings. I.e. "limited" indicates no support
+-# for fork() of processes with MAP_SHARED mappings or support for
+-# direct-I/O to a DAX mapping.
+-config FS_DAX_LIMITED
+-	bool
+-
+ # Posix ACL utility routines
+ #
+ # Note: Posix ACLs can be implemented without these helpers.  Never use
+diff --git a/fs/dax.c b/fs/dax.c
+index 7d4ecb9..f4ffb69 100644
+--- a/fs/dax.c
++++ b/fs/dax.c
+@@ -449,9 +449,6 @@ static void dax_associate_entry(void *entry, struct address_space *mapping,
+ 	if (dax_is_zero_entry(entry) || dax_is_empty_entry(entry))
+ 		return;
+ 
+-	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+-		return;
+-
+ 	index = linear_page_index(vma, address & ~(size - 1));
+ 	if (shared && (folio->mapping || dax_folio_is_shared(folio))) {
+ 		if (folio->mapping)
+@@ -474,9 +471,6 @@ static void dax_disassociate_entry(void *entry, struct address_space *mapping,
+ {
+ 	struct folio *folio = dax_to_folio(entry);
+ 
+-	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+-		return;
+-
+ 	if (dax_is_zero_entry(entry) || dax_is_empty_entry(entry))
+ 		return;
+ 
+@@ -768,12 +762,6 @@ struct page *dax_layout_busy_page_range(struct address_space *mapping,
+ 	pgoff_t end_idx;
+ 	XA_STATE(xas, &mapping->i_pages, start_idx);
+ 
+-	/*
+-	 * In the 'limited' case get_user_pages() for dax is disabled.
+-	 */
+-	if (IS_ENABLED(CONFIG_FS_DAX_LIMITED))
+-		return NULL;
+-
+ 	if (!dax_mapping(mapping))
+ 		return NULL;
+ 
+diff --git a/mm/memremap.c b/mm/memremap.c
+index c417c84..c17e0a6 100644
+--- a/mm/memremap.c
++++ b/mm/memremap.c
+@@ -332,10 +332,6 @@ void *memremap_pages(struct dev_pagemap *pgmap, int nid)
+ 		}
+ 		break;
+ 	case MEMORY_DEVICE_FS_DAX:
+-		if (IS_ENABLED(CONFIG_FS_DAX_LIMITED)) {
+-			WARN(1, "File system DAX not supported\n");
+-			return ERR_PTR(-EINVAL);
+-		}
+ 		params.pgprot = pgprot_decrypted(params.pgprot);
+ 		break;
+ 	case MEMORY_DEVICE_GENERIC:
+-- 
+git-series 0.9.1
 
