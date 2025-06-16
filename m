@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18942C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 09:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A00C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 09:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WquxTis/znwfTHWWzXSC1Y3Hxb2pPZAd4b+1AgQhyFg=; b=EJ5xqE9m5GVyWuXD8EL7UQSymT
-	OpUlKS+24YTjEWWW8+4QyMmkFo1ILQi/3cTELQcNtpJFk2mgxPkGAJd0jCyVYmywVMCDGQvSRAOgv
-	5mrCwvScI0yK53nt2cAFa9jRMMs4QOdjEBKSrjSHwUkEkcEvd++j66IVlGZShmls8M4Re7SfOde5T
-	O+9zpl2I+TwhkxJv8aovV/I65EuELNzJaM1oSCgoIahGKZL3vng5d6cRhzyof87XrRpir8HWulx0u
-	UajSMy4MZztNwMeTvke/cYozhK8iY7aexZppUij6+oC2TSRcPse0BwiKwyO/gULJyG+pHfTuk9qbf
-	u7GfdHmA==;
+	bh=j9gCtZXn8FCUpQCQz+XhhMFUE2JWeUNDp3ENgTfCvvI=; b=2FZLjawHdu6oviCQ2YlG+FOypj
+	H6AQieJQKGpvryfrBwhZOIoIeAmgFyjWp37/iGsnhP6ctszPB138hXptkVjVaY2OVRKiJh2N51fhW
+	p69JOJui4HGQehmIxEpyI8wmYSXi0JRJVNG7pCMCZHgziKMqp6neokG1A1/FNB+cAK4IS6/yUywhx
+	NF37CGRJrWMklyOkNxOLFrLeEGDJ+bawKS7LC0K+Fh9jNgOVf6Z9trbaDoYE+Xdxe/bw2aQs0XScU
+	CvoiTeiByhwAAYiKfISPLfgKOOXLBnZ7U5BaF26YwsyEd0akEN7ZBTgJ+TVzv7Vd+KwUDaCAUCio+
+	NgjfHxGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6KF-00000003wOo-2ePo;
-	Mon, 16 Jun 2025 09:40:23 +0000
+	id 1uR6MQ-00000003waZ-1M4f;
+	Mon, 16 Jun 2025 09:42:38 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR5f5-00000003rMx-17Vu
+	id 1uR5f8-00000003rMy-1nTT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 08:57:52 +0000
+	Mon, 16 Jun 2025 08:57:55 +0000
 Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8NuR8020887;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G5bVRv010526;
 	Mon, 16 Jun 2025 10:57:25 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	WquxTis/znwfTHWWzXSC1Y3Hxb2pPZAd4b+1AgQhyFg=; b=hBM20cEqlhrTlxG0
-	L6S6rqEhEZHrrLAjaPefqAoFWLvm3p8G56eapnyb6j14poXUkSMi+AUXKe3tQLzJ
-	nzgECmwiebWkeL18MqoktVNsUg8b/vSD6J9yHR1FjegmiViYnzpZQYVvGt35TV9/
-	zb+FdASVsOTA9V/G01JykyECrEU+9LOyaZVvoTrNH35UpwRDSgKg5DtGKrGxnHc4
-	jMm86FA9aeqZU4jDkms3XEEaLF8p7Di5KhzGN6ZybgGtEwFQFPzXpwFfdroVeX2l
-	w60dr+MnF3XRwW4Bh+P6/uL+BLU70P+ZnvujnQdVONBnqQJBIToyuSbR/QKbs8mo
-	rKypDA==
+	j9gCtZXn8FCUpQCQz+XhhMFUE2JWeUNDp3ENgTfCvvI=; b=8WpuCS/Cd0CRXgFF
+	tc4Z5nD2wMCzQa1jwQBrt/ngnDr7lQW0hvxGU8lW+x7DOH4oavFMAq2LON8YiBwv
+	kFx1OgFpFf26d4Ujf4Zj6FMfVQXlfOOtGhytaQL08Ius3hs6rhJpi6IPoxgrAFDt
+	UgEHGMQ8EiTDNEMbFL6/Ss/dw7m5HeAcQgtkQkB6QhAVN220aW5m3kEpncplIFzw
+	f7SYPa62woJbfRWC8EKv3pIu7zJb43+x7/UxKQoPQcDuQbjvWuE+39eseIDgpnSo
+	SPsWHHJoFzytm/YxV1iqWKZwirAef2RmDq6Q6ABhzTI49UV9nVyDY2B/yb+p9rRe
+	1LxQKw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 478x79qk3c-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 478x79qk3b-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 16 Jun 2025 10:57:25 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5C19540075;
-	Mon, 16 Jun 2025 10:56:07 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EA5DE40073;
+	Mon, 16 Jun 2025 10:56:06 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F16FD6CB27A;
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 100F95D5B26;
 	Mon, 16 Jun 2025 10:54:44 +0200 (CEST)
 Received: from localhost (10.252.14.42) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Jun
- 2025 10:54:44 +0200
+ 2025 10:54:43 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Mon, 16 Jun 2025 10:53:56 +0200
-Subject: [PATCH 3/3] i2c: stm32f7: support i2c_*_dma_safe_msg_buf APIs
+Date: Mon, 16 Jun 2025 10:53:55 +0200
+Subject: [PATCH 2/3] i2c: stm32f7: unmap DMA mapped buffer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250616-i2c-upstream-v1-3-42d3d5374e65@foss.st.com>
+Message-ID: <20250616-i2c-upstream-v1-2-42d3d5374e65@foss.st.com>
 References: <20250616-i2c-upstream-v1-0-42d3d5374e65@foss.st.com>
 In-Reply-To: <20250616-i2c-upstream-v1-0-42d3d5374e65@foss.st.com>
 To: Pierre-Yves MORDRET <pierre-yves.mordret@foss.st.com>,
@@ -92,8 +92,9 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-16_03,2025-06-13_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_015751_575871_DCFFE48F 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250616_015754_744349_7CB4523F 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,88 +109,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the i2c-core-base APIs to allocate a DMA safe buffer when needed.
+Fix an issue where the mapped DMA buffer was not unmapped.
 
+Fixes: 7ecc8cfde553 ("i2c: i2c-stm32f7: Add DMA support")
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- drivers/i2c/busses/i2c-stm32f7.c | 36 +++++++++++++++++++++++++-----------
- 1 file changed, 25 insertions(+), 11 deletions(-)
+ drivers/i2c/busses/i2c-stm32f7.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/i2c/busses/i2c-stm32f7.c b/drivers/i2c/busses/i2c-stm32f7.c
-index a05cac5ee9db..5be14c8a2af4 100644
+index 973a3a8c6d4a..a05cac5ee9db 100644
 --- a/drivers/i2c/busses/i2c-stm32f7.c
 +++ b/drivers/i2c/busses/i2c-stm32f7.c
-@@ -742,9 +742,12 @@ static void stm32f7_i2c_dma_callback(void *arg)
- 	struct stm32f7_i2c_dev *i2c_dev = (struct stm32f7_i2c_dev *)arg;
- 	struct stm32_i2c_dma *dma = i2c_dev->dma;
- 	struct device *dev = dma->chan_using->device->dev;
-+	struct stm32f7_i2c_msg *f7_msg = &i2c_dev->f7_msg;
- 
- 	stm32f7_i2c_disable_dma_req(i2c_dev);
- 	dma_unmap_single(dev, dma->dma_buf, dma->dma_len, dma->dma_data_dir);
-+	if (!f7_msg->smbus)
-+		i2c_put_dma_safe_msg_buf(f7_msg->buf, i2c_dev->msg, true);
- 	complete(&dma->dma_complete);
- }
- 
-@@ -880,6 +883,7 @@ static void stm32f7_i2c_xfer_msg(struct stm32f7_i2c_dev *i2c_dev,
- {
- 	struct stm32f7_i2c_msg *f7_msg = &i2c_dev->f7_msg;
- 	void __iomem *base = i2c_dev->base;
-+	u8 *dma_buf;
- 	u32 cr1, cr2;
- 	int ret;
- 
-@@ -929,17 +933,23 @@ static void stm32f7_i2c_xfer_msg(struct stm32f7_i2c_dev *i2c_dev,
- 
- 	/* Configure DMA or enable RX/TX interrupt */
- 	i2c_dev->use_dma = false;
--	if (i2c_dev->dma && f7_msg->count >= STM32F7_I2C_DMA_LEN_MIN
--	    && !i2c_dev->atomic) {
--		ret = stm32_i2c_prep_dma_xfer(i2c_dev->dev, i2c_dev->dma,
--					      msg->flags & I2C_M_RD,
--					      f7_msg->count, f7_msg->buf,
--					      stm32f7_i2c_dma_callback,
--					      i2c_dev);
--		if (!ret)
--			i2c_dev->use_dma = true;
--		else
--			dev_warn(i2c_dev->dev, "can't use DMA\n");
-+	if (i2c_dev->dma && !i2c_dev->atomic) {
-+		dma_buf = i2c_get_dma_safe_msg_buf(msg, STM32F7_I2C_DMA_LEN_MIN);
-+		if (dma_buf) {
-+			f7_msg->buf = dma_buf;
-+			ret = stm32_i2c_prep_dma_xfer(i2c_dev->dev, i2c_dev->dma,
-+						      msg->flags & I2C_M_RD,
-+						      f7_msg->count, f7_msg->buf,
-+						      stm32f7_i2c_dma_callback,
-+						      i2c_dev);
-+			if (ret) {
-+				dev_warn(i2c_dev->dev, "can't use DMA\n");
-+				i2c_put_dma_safe_msg_buf(f7_msg->buf, msg, false);
-+				f7_msg->buf = msg->buf;
-+			} else {
-+				i2c_dev->use_dma = true;
-+			}
-+		}
- 	}
- 
- 	if (!i2c_dev->use_dma) {
-@@ -1624,6 +1634,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+@@ -1622,6 +1622,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+ 		if (i2c_dev->use_dma) {
+ 			stm32f7_i2c_disable_dma_req(i2c_dev);
  			dmaengine_terminate_async(dma->chan_using);
- 			dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
- 					 dma->dma_data_dir);
-+			if (!f7_msg->smbus)
-+				i2c_put_dma_safe_msg_buf(f7_msg->buf, i2c_dev->msg, false);
++			dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
++					 dma->dma_data_dir);
  		}
  		f7_msg->result = -ENXIO;
  	}
-@@ -1646,6 +1658,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+@@ -1642,6 +1644,8 @@ static irqreturn_t stm32f7_i2c_isr_event_thread(int irq, void *data)
+ 				dev_dbg(i2c_dev->dev, "<%s>: Timed out\n", __func__);
+ 				stm32f7_i2c_disable_dma_req(i2c_dev);
  				dmaengine_terminate_async(dma->chan_using);
- 				dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
- 						 dma->dma_data_dir);
-+				if (!f7_msg->smbus)
-+					i2c_put_dma_safe_msg_buf(f7_msg->buf, i2c_dev->msg, false);
++				dma_unmap_single(i2c_dev->dev, dma->dma_buf, dma->dma_len,
++						 dma->dma_data_dir);
  				f7_msg->result = -ETIMEDOUT;
  			}
  		}
