@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AF0C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 15:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D745CC71155
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 15:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UQxngRC61Uvyaf7heid0CYRZb+2b06NqoHQ2sVEb88E=; b=eb4Ap/shMPRPtFX+okhIQIftf1
-	hXjjvNuQOre70s6dRObxKqB5EvSeCe1HrbjVyJtj3UPvMcAtbsNc6+Jbesiz1hB9Md+dfUEmPh4+S
-	B5WZpcjrotuu3ot60neYbLOgkA3mqjNYFhZFHrDM+73CagYatkt0MK0ktzSytfAvEtjkoRc/nKBZM
-	r4m95MtFgq5IZqiVv+ccqeNUZVgbpO0zyIbE7GGz627hpWO0qknbU31Q12AvJLfukZhkq5+/rwSui
-	uj+0+1041ruClEoYuesiXUjK2Cqhws23RbTfZDihDeJUs7k7Qq5TNJ5p+RCGQ7HX0UqtHpY9ekObM
-	8XVq660g==;
+	bh=/lpAFC+njrZ4FhM5FG8e1pUsSKmtZTOJbqXCRTKS2KA=; b=rFe/jZW0CvWDJXMunM7MUCGtLx
+	WREun9lz4pT4TyDniucNj5jOFLvnOxDK3sfNyYqO2ukoWN+zI924FMUxMcMD4LZBkr7BCQaMCArf7
+	JWPF44VypOadMtjgcNWaHLzerwr6VmKePHV3fWSxp1+rl5bN//n6bTaO8KDDzBK9mggsE/ge1g6qo
+	gm6V0UdlALO/Jh6LJ+MDTzDWpsgX6k0x0tRH3xPABgGEy0FV7vElzE4k6afmJSqqkO1uN4HUyo3CN
+	tH4RLCwTB2Z4vE9pL7yVn5B/31zxbgXROW5Q1NJD8Ep8vuIMZqiW64LqiTXMSnsupAbld0WSVOlW/
+	dU7Qg2TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBjR-00000004q6Y-49Kj;
-	Mon, 16 Jun 2025 15:26:45 +0000
+	id 1uRBjX-00000004qEW-2NEz;
+	Mon, 16 Jun 2025 15:26:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR9fJ-00000004VJH-0U5n
+	id 1uR9fK-00000004VJX-39Db
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Jun 2025 13:14:21 +0000
+	Mon, 16 Jun 2025 13:14:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=UQxngRC61Uvyaf7heid0CYRZb+2b06NqoHQ2sVEb88E=; b=TYYKq1udnXRpLlOBGKt8I4mT7G
-	LhnmUgUJ1J2f/SvQqNZZR4NJGUdaCqLUdvOC+tbPTM9EsUYnKkmiqJaIJTBCIQ868cCWrOVTrcs4Q
-	MZgDK6dH1AOjOvz9Kxf9jYmTwPDM96FnZaL96a0r9udOFEnsQBxYZCV39603G7f1K5zZP23QsS+FP
-	aBrKEgUaUE0L+TTNLxKoSOoxVRaYuj8qmOldTwZe1TmaBK/4K3PTlEn/V9FsaUbwfZKeo9nXZdBex
-	4cWNlG2ln5Kja9M/a9aidTU34/6scWu6mM7hL8sxtWx3gt6OZ+3LbxUYrJ/qxPuhcc1PQ7cEU8OUz
-	oruqAlQg==;
+	bh=/lpAFC+njrZ4FhM5FG8e1pUsSKmtZTOJbqXCRTKS2KA=; b=a96yFDko/DHazG4ZTvb4T2ccTQ
+	fnLAsoAdDj0YcpEB/Pxl/4adCjN5Ao0EFULepqopaBZdLkrzc9NX1zSk9yEQNAg/qEjhl3N0P7b+N
+	zjXmG63wKV2dSYeqVCKDyCkg8wFO4LU6JtkyzuaN64AYfUkPz7IflnV6aHs6tB14VRw++sVKeRh8c
+	87QdUrbrBZe0xRbjKy5D1WgekAa6CO0Y4hYv2HfEjP7HaZDpZ+mdbR9nDZLVQD1kmDQD0hTd9K8as
+	h1uw46oW9EPZGqLEJQ1rg8eQ6s+dEHYKZpi5crTtAed28HTs3OVlzjvvYB6NDtFoVX3hcZz9X+KUh
+	8ESSHU6A==;
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR9fG-00000003aRw-2WNi
+	id 1uR9fI-00000003aSA-0ft3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 13:14:20 +0000
+	Mon, 16 Jun 2025 13:14:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1750079642;
-	bh=UQxngRC61Uvyaf7heid0CYRZb+2b06NqoHQ2sVEb88E=;
+	d=codeconstruct.com.au; s=2022a; t=1750079644;
+	bh=/lpAFC+njrZ4FhM5FG8e1pUsSKmtZTOJbqXCRTKS2KA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=f8NMQNQrnjxle8pqFs7cP3pruGNT7ANeAxYczqs/3t27gTO+phkNSIU2OC8MHECcx
-	 o+Ibp4+Ga8sOvgeilUYQwizQ9godtzcqUGLNaj6TVH9KtiBdQlamPMe/vYtZXhVnwI
-	 niy0z1l+6N7/e9C91p4b6Frcp1LclqmnQ3GdWvNmtkQAoDiho0sK1gbC89enfwFcqx
-	 BZDonHrSyhchGOebClhm2/Z4dLxjSPjppmfNrj7xlpdEd5UfJma/3vrKkMyv3hOuVF
-	 +wtD5JGX5/uzmkxbTFVHfAKE92vqqH4da+Js03Ptp4cvqklgKDKQvux1PipWBT6AUk
-	 9EdaMrNh+i36A==
+	b=NET9XgRjDDQ6ddYttVxtQQdwpx+++CZ5MpuoMLb+RCxX1XQ2awHXdTmlIXAuvPoAJ
+	 Q8hrXFQaM3fRylKuxJ1Y3vD3W9p6YXg1/IJuY3am41P97IS6G7hXmT2/wdgVsZpEXM
+	 9lNsijfZ6XdryEQPDvWUA05rOX6aR0IFxoHHOiLY/SZslg3oXvo/uhMQ1eWc8U3hI8
+	 uEqX/NKjFlA9new7sR3d/wrbx9mqqJUSkLKb6rZovmV4dr5jFHMoYKYxS1KhQFW4UV
+	 Enpi2+O5gHKCG16JEitCnpEhaTs/6G+4gA4ufuv6czctTfU496CBJNy73ycsAMGJGt
+	 GYKBaiXjdZn7w==
 Received: from [127.0.1.1] (unknown [180.150.112.166])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id B6BB3686FF;
-	Mon, 16 Jun 2025 21:14:01 +0800 (AWST)
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 426156885C;
+	Mon, 16 Jun 2025 21:14:04 +0800 (AWST)
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Mon, 16 Jun 2025 22:43:43 +0930
-Subject: [PATCH v2 06/10] soc: aspeed: lpc-snoop: Rearrange channel paths
+Date: Mon, 16 Jun 2025 22:43:46 +0930
+Subject: [PATCH v2 09/10] soc: aspeed: lpc-snoop: Consolidate channel
+ initialisation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250616-aspeed-lpc-snoop-fixes-v2-6-3cdd59c934d3@codeconstruct.com.au>
+Message-Id: <20250616-aspeed-lpc-snoop-fixes-v2-9-3cdd59c934d3@codeconstruct.com.au>
 References: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
 In-Reply-To: <20250616-aspeed-lpc-snoop-fixes-v2-0-3cdd59c934d3@codeconstruct.com.au>
 To: linux-aspeed@lists.ozlabs.org
@@ -74,8 +75,8 @@ Cc: Joel Stanley <joel@jms.id.au>, Henry Martin <bsdhenrymartin@gmail.com>,
  linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_141419_030191_2E6FDDD9 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250616_141420_599569_9BE2B308 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,123 +91,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Order assignments such that tests for conditions not involving resource
-acquisition are ordered before those testing acquired resources, and
-order managed resource acquisition before unmanaged where possible. This
-way we minimise the amount of manual cleanup required.
+Previously, channel initialisation was a bit perilous with respect to
+resource cleanup in error paths. While the implementation had issues,
+it at least made an effort to eliminate some of its problems by first
+testing whether any channels were enabled, and bailing out if not.
 
-In the process, improve readability of the code by introducing a channel
-pointer that takes the place of the repeated object lookups.
+Having improved the robustness of resource handling in probe() we can
+now rearrange the initial channel test to be located with the subsequent
+test, and rework the unrolled conditional logic to use a loop for an
+improvement in readability.
 
-Acked-by: Jean Delvare <jdelvare@suse.de>
 Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 ---
- drivers/soc/aspeed/aspeed-lpc-snoop.c | 51 ++++++++++++++++++++---------------
- 1 file changed, 29 insertions(+), 22 deletions(-)
+ drivers/soc/aspeed/aspeed-lpc-snoop.c | 51 +++++++++++++++++------------------
+ 1 file changed, 24 insertions(+), 27 deletions(-)
 
 diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-index e9d17239163a8ae5145bd3652fcec572b70bd11c..9992212c789d4224edcc0ee1a3bb9c73f9fc661b 100644
+index 8dbc9d4158b89f23bda340f060d205a29bbb43c3..9f88c5471b1b6d85f6d9e1970240f3d1904d166c 100644
 --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
 +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-@@ -194,28 +194,30 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+@@ -294,12 +294,21 @@ static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
+ 	kfifo_free(&channel->fifo);
+ }
+ 
++static void aspeed_lpc_snoop_remove(struct platform_device *pdev)
++{
++	struct aspeed_lpc_snoop *lpc_snoop = dev_get_drvdata(&pdev->dev);
++
++	/* Disable both snoop channels */
++	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_0);
++	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_1);
++}
++
+ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
  {
- 	const struct aspeed_lpc_snoop_model_data *model_data;
- 	u32 hicr5_en, snpwadr_mask, snpwadr_shift, hicrb_en;
-+	struct aspeed_lpc_snoop_channel *channel;
- 	int rc = 0;
+ 	struct aspeed_lpc_snoop *lpc_snoop;
+-	struct device *dev;
+ 	struct device_node *np;
+-	u32 port;
++	struct device *dev;
++	int idx;
+ 	int rc;
  
--	if (WARN_ON(lpc_snoop->chan[index].enabled))
-+	channel = &lpc_snoop->chan[index];
-+
-+	if (WARN_ON(channel->enabled))
- 		return -EBUSY;
+ 	dev = &pdev->dev;
+@@ -322,12 +331,6 @@ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
  
--	init_waitqueue_head(&lpc_snoop->chan[index].wq);
--	/* Create FIFO datastructure */
--	rc = kfifo_alloc(&lpc_snoop->chan[index].fifo,
--			 SNOOP_FIFO_SIZE, GFP_KERNEL);
-+	init_waitqueue_head(&channel->wq);
-+
-+	channel->miscdev.minor = MISC_DYNAMIC_MINOR;
-+	channel->miscdev.fops = &snoop_fops;
-+	channel->miscdev.parent = dev;
-+
-+	channel->miscdev.name =
-+		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, index);
-+	if (!channel->miscdev.name)
-+		return -ENOMEM;
-+
-+	rc = kfifo_alloc(&channel->fifo, SNOOP_FIFO_SIZE, GFP_KERNEL);
+ 	dev_set_drvdata(&pdev->dev, lpc_snoop);
+ 
+-	rc = of_property_read_u32_index(dev->of_node, "snoop-ports", 0, &port);
+-	if (rc) {
+-		dev_err(dev, "no snoop ports configured\n");
+-		return -ENODEV;
+-	}
+-
+ 	lpc_snoop->clk = devm_clk_get_enabled(dev, NULL);
+ 	if (IS_ERR(lpc_snoop->clk))
+ 		return dev_err_probe(dev, PTR_ERR(lpc_snoop->clk), "couldn't get clock");
+@@ -336,30 +339,24 @@ static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
  	if (rc)
  		return rc;
  
--	lpc_snoop->chan[index].miscdev.minor = MISC_DYNAMIC_MINOR;
--	lpc_snoop->chan[index].miscdev.name =
--		devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, index);
--	if (!lpc_snoop->chan[index].miscdev.name) {
--		rc = -ENOMEM;
--		goto err_free_fifo;
--	}
--	lpc_snoop->chan[index].miscdev.fops = &snoop_fops;
--	lpc_snoop->chan[index].miscdev.parent = dev;
--	rc = misc_register(&lpc_snoop->chan[index].miscdev);
-+	rc = misc_register(&channel->miscdev);
- 	if (rc)
- 		goto err_free_fifo;
+-	rc = aspeed_lpc_enable_snoop(lpc_snoop, dev, ASPEED_LPC_SNOOP_INDEX_0, port);
+-	if (rc)
+-		return rc;
++	for (idx = ASPEED_LPC_SNOOP_INDEX_0; idx <= ASPEED_LPC_SNOOP_INDEX_MAX; idx++) {
++		u32 port;
  
-@@ -238,6 +240,7 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 		goto err_misc_deregister;
+-	/* Configuration of 2nd snoop channel port is optional */
+-	if (of_property_read_u32_index(dev->of_node, "snoop-ports",
+-				       1, &port) == 0) {
+-		rc = aspeed_lpc_enable_snoop(lpc_snoop, dev, ASPEED_LPC_SNOOP_INDEX_1, port);
+-		if (rc) {
+-			aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_0);
+-			return rc;
+-		}
++		rc = of_property_read_u32_index(dev->of_node, "snoop-ports", idx, &port);
++		if (rc)
++			break;
++
++		rc = aspeed_lpc_enable_snoop(lpc_snoop, dev, idx, port);
++		if (rc)
++			goto cleanup_channels;
  	}
  
-+	/* Enable LPC snoop channel at requested port */
- 	regmap_update_bits(lpc_snoop->regmap, HICR5, hicr5_en, hicr5_en);
- 	regmap_update_bits(lpc_snoop->regmap, SNPWADR, snpwadr_mask,
- 			   lpc_port << snpwadr_shift);
-@@ -246,14 +249,14 @@ static int aspeed_lpc_enable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 	if (model_data && model_data->has_hicrb_ensnp)
- 		regmap_update_bits(lpc_snoop->regmap, HICRB, hicrb_en, hicrb_en);
+-	return 0;
+-}
++	return idx == ASPEED_LPC_SNOOP_INDEX_0 ? -ENODEV : 0;
  
--	lpc_snoop->chan[index].enabled = true;
-+	channel->enabled = true;
+-static void aspeed_lpc_snoop_remove(struct platform_device *pdev)
+-{
+-	struct aspeed_lpc_snoop *lpc_snoop = dev_get_drvdata(&pdev->dev);
++cleanup_channels:
++	aspeed_lpc_snoop_remove(pdev);
  
- 	return 0;
- 
- err_misc_deregister:
--	misc_deregister(&lpc_snoop->chan[index].miscdev);
-+	misc_deregister(&channel->miscdev);
- err_free_fifo:
--	kfifo_free(&lpc_snoop->chan[index].fifo);
-+	kfifo_free(&channel->fifo);
- 	return rc;
+-	/* Disable both snoop channels */
+-	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_0);
+-	aspeed_lpc_disable_snoop(lpc_snoop, ASPEED_LPC_SNOOP_INDEX_1);
++	return rc;
  }
  
-@@ -261,7 +264,11 @@ __attribute__((nonnull))
- static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 				     enum aspeed_lpc_snoop_index index)
- {
--	if (!lpc_snoop->chan[index].enabled)
-+	struct aspeed_lpc_snoop_channel *channel;
-+
-+	channel = &lpc_snoop->chan[index];
-+
-+	if (!channel->enabled)
- 		return;
- 
- 	/* Disable interrupts along with the device */
-@@ -280,10 +287,10 @@ static void aspeed_lpc_disable_snoop(struct aspeed_lpc_snoop *lpc_snoop,
- 		return;
- 	}
- 
--	lpc_snoop->chan[index].enabled = false;
-+	channel->enabled = false;
- 	/* Consider improving safety wrt concurrent reader(s) */
--	misc_deregister(&lpc_snoop->chan[index].miscdev);
--	kfifo_free(&lpc_snoop->chan[index].fifo);
-+	misc_deregister(&channel->miscdev);
-+	kfifo_free(&channel->fifo);
- }
- 
- static int aspeed_lpc_snoop_probe(struct platform_device *pdev)
+ static const struct aspeed_lpc_snoop_model_data ast2400_model_data = {
 
 -- 
 2.39.5
