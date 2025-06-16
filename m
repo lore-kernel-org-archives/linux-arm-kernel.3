@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9B0C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 15:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E849C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 15:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=duYGcmi4EnfLmnSVWEuzIDTi/3dvghq/BtjYskrpPhY=; b=Evt3ZvSVQphz7Qmmj3Nq8QsvZe
-	dxxjQRbMhstaXGyMBErcWFExD+ZwDNA9cz54z0El4jtYyw1SVjHBHL0CCgNs7cRDJ/nkCaogWLQYL
-	rt7z1GfCJnNcvfp++Qrg5a1ZabMONK14a9ohdb+OAwWfoPR60bvgEW63HDx8yUcdv2sVj+8sW8XkS
-	jYmbH3kMJUP39O0AkJZWTSWpPKXk4WMZ2/f6YKl7eEWpbdKBd0UzdoBz1NxaKmgvbNSMFU99wDwoW
-	TToBhaUVas6i+i0J24Rz3Y42obX62duAevUSMxbdaCYD+FW7B+7LHcD1e0pia/Fe3e+hP9//RmkwU
-	N6eF2YuQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WSLUzLdMtQ1rJRPmapTdA2fV08QDe4Px3iAT5+2SWVI=; b=RlC5RF7PeNX3TK
+	iPVBuGNewgXdms+AC9OqeYqTC7tvPuZihjAtKFxQVML75fBOrkEJaoyNxDSlLDqTSfpcFiK1w+DxS
+	TwXdQ8MwWJkAqC+agKT/ZbD1gC9NN9xJjtlfTWXVF6gMz7ykfa0vVe60rFEIbvbqf/FXlhpMgX/Nr
+	gJQmkwlzm8siIEnIpnogPxrCMUS3Qo84uWuXEhisNwqZ+a/NZa124997Ehdg0FZ199c/lU/KZ4nE8
+	Gp+iPJ2+TSgGJSwFpWBDHnVvCe87iKEon5cFcyK2Da/0bjbwAMDClS061x+LJ1On1jMqFtZDo8wOv
+	kVRKzOOdV9sEsWpQ9K9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBjk-00000004qWI-40Lu;
-	Mon, 16 Jun 2025 15:27:04 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR9nT-00000004Wy6-2KZZ
+	id 1uRBjm-00000004qaJ-3zUR;
+	Mon, 16 Jun 2025 15:27:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uR9uG-00000004Y2d-1i3e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 13:22:48 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uR9n5-0003xV-Cd; Mon, 16 Jun 2025 15:22:23 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uR9n4-003oWd-0b;
-	Mon, 16 Jun 2025 15:22:22 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uR9n4-000VBo-0L;
-	Mon, 16 Jun 2025 15:22:22 +0200
-Message-ID: <6aeab5e5b616b1e690c2622d6599c5228a391e69.camel@pengutronix.de>
-Subject: Re: [PATCH 1/8] mmc: sdhci-of-aspeed: Fix sdhci software reset
- can't be cleared issue.
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Cool Lee <cool_lee@aspeedtech.com>, andrew@codeconstruct.com.au, 
-	adrian.hunter@intel.com, ulf.hansson@linaro.org, joel@jms.id.au, 
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 16 Jun 2025 15:22:21 +0200
-In-Reply-To: <20250615035803.3752235-2-cool_lee@aspeedtech.com>
-References: <20250615035803.3752235-1-cool_lee@aspeedtech.com>
-	 <20250615035803.3752235-2-cool_lee@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Mon, 16 Jun 2025 13:29:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA479150C;
+	Mon, 16 Jun 2025 06:29:23 -0700 (PDT)
+Received: from [10.1.26.178] (e137867.arm.com [10.1.26.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CDBBF3F673;
+	Mon, 16 Jun 2025 06:29:43 -0700 (PDT)
+Message-ID: <5e7afdfa-1f03-4914-a58e-1dcb05c26199@arm.com>
+Date: Mon, 16 Jun 2025 14:29:37 +0100
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 03/13] arm64: debug: call software break handlers
+ statically
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
+ <20250609173413.132168-4-ada.coupriediaz@arm.com>
+ <15c103f5-fd7a-4960-b984-4055a745aa5a@arm.com>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Content-Language: en-US
+Organization: Arm Ltd.
+In-Reply-To: <15c103f5-fd7a-4960-b984-4055a745aa5a@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_062247_592353_6CB1FDE5 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20250616_062948_486636_F4CE0829 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,91 +64,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On So, 2025-06-15 at 11:57 +0800, Cool Lee wrote:
-> Replace sdhci software reset by scu reset from top.
->=20
-> Signed-off-by: Cool Lee <cool_lee@aspeedtech.com>
-> ---
->  drivers/mmc/host/sdhci-of-aspeed.c | 55 +++++++++++++++++++++++++++++-
->  1 file changed, 54 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-=
-of-aspeed.c
-> index d6de010551b9..01bc574272eb 100644
-> --- a/drivers/mmc/host/sdhci-of-aspeed.c
-> +++ b/drivers/mmc/host/sdhci-of-aspeed.c
-> @@ -13,6 +13,7 @@
->  #include <linux/of.h>
->  #include <linux/of_platform.h>
->  #include <linux/platform_device.h>
-> +#include <linux/reset.h>
->  #include <linux/spinlock.h>
-> =20
->  #include "sdhci-pltfm.h"
-> @@ -39,6 +40,7 @@
->  struct aspeed_sdc {
->  	struct clk *clk;
->  	struct resource *res;
-> +	struct reset_control *rst;
-> =20
->  	spinlock_t lock;
->  	void __iomem *regs;
-> @@ -328,13 +330,58 @@ static u32 aspeed_sdhci_readl(struct sdhci_host *ho=
-st, int reg)
->  	return val;
->  }
-> =20
-> +static void aspeed_sdhci_reset(struct sdhci_host *host, u8 mask)
-> +{
-> +	struct sdhci_pltfm_host *pltfm_priv;
-> +	struct aspeed_sdhci *aspeed_sdhci;
-> +	struct aspeed_sdc *aspeed_sdc;
-> +	u32 save_array[7];
-> +	u32 reg_array[] =3D {SDHCI_DMA_ADDRESS,
-> +			SDHCI_BLOCK_SIZE,
-> +			SDHCI_ARGUMENT,
-> +			SDHCI_HOST_CONTROL,
-> +			SDHCI_CLOCK_CONTROL,
-> +			SDHCI_INT_ENABLE,
-> +			SDHCI_SIGNAL_ENABLE};
-> +	int i;
-> +	u16 tran_mode;
-> +	u32 mmc8_mode;
-> +
-> +	pltfm_priv =3D sdhci_priv(host);
-> +	aspeed_sdhci =3D sdhci_pltfm_priv(pltfm_priv);
-> +	aspeed_sdc =3D aspeed_sdhci->parent;
-> +
-> +	if (!IS_ERR(aspeed_sdc->rst)) {
-> +		for (i =3D 0; i < ARRAY_SIZE(reg_array); i++)
-> +			save_array[i] =3D sdhci_readl(host, reg_array[i]);
-> +
-> +		tran_mode =3D sdhci_readw(host, SDHCI_TRANSFER_MODE);
-> +		mmc8_mode =3D readl(aspeed_sdc->regs);
-> +
-> +		reset_control_assert(aspeed_sdc->rst);
-> +		mdelay(1);
-> +		reset_control_deassert(aspeed_sdc->rst);
-> +		mdelay(1);
+On 13/06/2025 07:11, Anshuman Khandual wrote:
 
-Why are there delays here ...
+> A small nit - s/break handlers/break point handlers/
+You are right, checking again I was using too small a character limit 
+for the summary line (55), which is not relevant. I will write 
+`breakpoint` in full, I wasn't happy about leaving it out !
+> On 09/06/25 11:04 PM, Ada Couprie Diaz wrote:
+>> [...]
+>>
+>> Unify the naming of the software breakpoint handlers to XXX_brk_handler(),
+>> making it clear they are related and to differentiate from the
+>> hardware breakpoints.
+> Unless absolutely necessary - could we please move these renames into a
+> separate patch in itself instead ? That will reduce the churn and help
+> the reviewers see the functional changes more clearly.
+Fair enough, I can move the renames to a later patch to avoid renaming 
+in all the places
+that get removed in this patch.
 
-[...]
-> @@ -535,6 +582,12 @@ static int aspeed_sdc_probe(struct platform_device *=
-pdev)
-> =20
->  	spin_lock_init(&sdc->lock);
-> =20
-> +	sdc->rst =3D devm_reset_control_get(&pdev->dev, NULL);
-> +	if (!IS_ERR(sdc->rst)) {
-> +		reset_control_assert(sdc->rst);
-> +		reset_control_deassert(sdc->rst);
+Would it make sense to combine it with the single step handler renames 
+in this case,
+or would it be better to have two independent commits ?
+>> [...]
+>>    
+>>   void __init trap_init(void)
+>>   {
+>> -	register_kernel_break_hook(&bug_break_hook);
+>> -#ifdef CONFIG_CFI_CLANG
+>> -	register_kernel_break_hook(&cfi_break_hook);
+>> -#endif
+>> -	register_kernel_break_hook(&fault_break_hook);
+>> -#ifdef CONFIG_KASAN_SW_TAGS
+>> -	register_kernel_break_hook(&kasan_break_hook);
+>> -#endif
+>> -#ifdef CONFIG_UBSAN_TRAP
+>> -	register_kernel_break_hook(&ubsan_break_hook);
+>> -#endif
+>>   	debug_traps_init();
+>>   }
+> debug_traps_init() can be renamed as trap_init() and just drop this
+> redundant indirection. All applicable comments can also be changed
+> as required there after.
+I understand what you mean, but I would be tempted to not change it,
+with the following reasons :
+  - `debug_traps_init()` gets removed entirely in the last commit,
+  - having `trap_init()` in `traps.c` makes more sense than 
+`debug-monitors.c` to me
+  - `trap_init()` ends up empty at the end of the series, it could make 
+sense to simply
+    remove it entirely, given there is an empty weak definition in 
+`init/main.c` already.
 
-... but not here?
+What do you think ?
 
-regards
-Philipp
+Thanks,
+Ada
 
