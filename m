@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBEBBC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542E9C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0arDJusu7bZwSnJW7CZnei76YgzUO+fOYAPl18jtmdY=; b=RN2Tzy+UjAwkK449OUXflGZjud
-	NOmjora2MfsPWThShIadgU4gHK4hoMIEdAXRhemMqt6ghvX7FLe27XeZo0ieegNhg7Nxcir22c/c2
-	Tcl5DmawZYLSHmrFmAtJfz7sq6U+75NoREduFeiZCjW44rYAx/TIaHSlEyH3e/PFoJs4jQfbC8QaX
-	ImFRGfhFYzAtAJ00xkVbtUzu7RNnZk5QKI6a/Rz3NVCokHldc5lOoelNMVUaJLNBqQzMtHBOKbWDO
-	c6qGLD08um68Xy25V1akt2RimBJEKCBYLqQe91EmBLFEfHAYkQC4IGzYwz7Nl7T2sI7YvTZqOAkHD
-	tvlS8mPw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5JX6OhmtEymLR0iP8xEfjrElMA3S9cpQsU2RL/tVpWE=; b=vqSZv1i7rKJXgGWLh95Qm3bR1y
+	agCEx9RWYJ/2YHjk1Q6vviIh8JguE4DmaM/uwatgJGx/nSCxAuJom51RnXPGMBb58NQ9uZpB4g3KX
+	7k5XiVTfEm+3h2inDkEs8RK4ZajlfdeN4XmTx76rVsTNvLZP5GAZEWghkuhgBiINQv3vU6q57eqo/
+	0kvEh1seDOU9bcsEHRev1XHbOj6L1uwmu9pRpVE+KlL+6iSB2ThDqFZj484mu5oDNHxkzk1aykqiN
+	oQDwZYSheFeomH6uEJVv+Uw0eeCZlYp0ij3pMoDzgLLP4jgIeVRui2r7DHX6slvsVarSw1Dmpz0jm
+	N21U5/FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3Z8-00000003XVm-20BO;
-	Mon, 16 Jun 2025 06:43:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uR3bL-00000003Y4M-0NNS;
+	Mon, 16 Jun 2025 06:45:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3Wn-00000003X7z-2gXV
+	id 1uR3Yj-00000003XQB-37cH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 06:41:09 +0000
+	Mon, 16 Jun 2025 06:43:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C5A2161155;
-	Mon, 16 Jun 2025 06:41:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22077C4CEEA;
-	Mon, 16 Jun 2025 06:41:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 808E95C5763;
+	Mon, 16 Jun 2025 06:40:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8437BC4CEEA;
+	Mon, 16 Jun 2025 06:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750056068;
-	bh=77cNH834RuMYRPSuv5Xy1FndSiZZJ1xqOWYX8MLSqnc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=glv5U2X8YAAE7wwMtqLtW1ofhSrDfNcd3Bg7rmB6C90fsrP0q6tUMjecYfl7XjNFD
-	 IPjUhpulAa51jJXqSjM7uveF1ozVsXjXZlrv0E1vyEPQ5fjl1GJOP+0E0jGW9XCR/t
-	 YkHNC+yCnKPPWBLPJ5a55z1SO1cg5BD90Mb/NdREFWsslNRbQ8x79kvqYk+/fSdn0K
-	 a3p7y6pNB59YJr1+CCUZoj7856CR4uNyL/Fcu+nbllWJyBLaI83pTDlmtchmQF3tYi
-	 ZedootY5L7ut9LaHMcfEazyMcsT5VaPkKFgOB5o34xbspyJ/AmKv+pIdMHyr4VC0vp
-	 0ayBoXCKCRMsQ==
-Message-ID: <1fced39f-1077-4af7-9294-affb99860984@kernel.org>
-Date: Mon, 16 Jun 2025 08:41:03 +0200
+	s=k20201202; t=1750056188;
+	bh=eOTADBZEYbv1U12BLhmN1jg0otaqgPU/5Sqwlul3Itg=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=uZGRFajBwjsdVkTQ1PpVHJfHX6odyK67jq+qcOmD8yMLynpyveLa41henstd/vpCl
+	 yLvEeN/YY3cK/2MXDQ5jEjyDxrRRUP3G+6Y5QMZc/MjLDjaFCNEfgLwfu4ItM01Pxa
+	 piBv2RJPwzdmR3v3/RwKEJ+c2XSJl5dn5VPSQBaMUl2iW6ntY9t446z836KYxBaMll
+	 UdnAw+yUvYLLS/1zTkXVO5NV8djZoG7c001DzQ+WuNlk0LqfEWuJhg2aDbqogqt7lw
+	 a8C9Id7WRQW/x3jSoS4fhlgKBigphF7KIMjmaFKN5AkqS8MC77APhGQRGY5PCqyEMQ
+	 ARCXWZklKgBag==
+Message-ID: <a2ca2f58-f648-43f9-8d23-4111e4eb1f1d@kernel.org>
+Date: Mon, 16 Jun 2025 08:43:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] dt-bindings: gpio: gpio-xilinx: Mark clocks as
- required property
-To: Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org,
- monstr@monstr.eu, michal.simek@xilinx.com, git@xilinx.com
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
- Srinivas Neeli <srinivas.neeli@amd.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
+Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
+ tree
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+ "nfraprado@collabora.com" <nfraprado@collabora.com>,
+ Taniya Das <quic_tdas@quicinc.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Eric Biggers <ebiggers@google.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
  <linux-arm-kernel@lists.infradead.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>
-References: <8407ef56b11632c1a7abfce8a4534ed8a8ed56cc.1749809570.git.michal.simek@amd.com>
- <cbde9b9e2b0f9d12fdd1ba24fddb1543159357aa.1749809570.git.michal.simek@amd.com>
- <2fb10aee-6610-43f4-9d12-88a97e0f66e5@kernel.org>
- <9dc04095-e397-4a51-a75c-8a5577be197e@amd.com>
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>, Mo Elbadry
+ <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>,
+ William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
+ "wthai@nvidia.com" <wthai@nvidia.com>, "leohu@nvidia.com"
+ <leohu@nvidia.com>, "dkodihalli@nvidia.com" <dkodihalli@nvidia.com>,
+ "spuranik@nvidia.com" <spuranik@nvidia.com>
+References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
+ <20250612100933.3007673-4-ryan_chen@aspeedtech.com>
+ <485749d4-b3c4-4965-9714-ad534d37e8c9@kernel.org>
+ <OS8PR06MB7541A100B918AAA84D1ABDCAF277A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <749c581e-cc00-428f-8eb9-222f9d574486@kernel.org>
+ <OS8PR06MB7541FFCA9E28E5767791D869F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <e39b5259-db92-4269-84c9-d51e8e4f327e@kernel.org>
+ <OS8PR06MB7541645F6A0638FC250B1272F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,9 +125,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <9dc04095-e397-4a51-a75c-8a5577be197e@amd.com>
+In-Reply-To: <OS8PR06MB7541645F6A0638FC250B1272F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250615_234309_900281_E414EEB1 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,23 +146,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/06/2025 13:26, Michal Simek wrote:
->>> Based on discussion at
->>> https://lore.kernel.org/lkml/20241002-revivable-crummy-f780adec538c@spud/
+On 16/06/2025 08:32, Ryan Chen wrote:
 >>>
->>> Actually this shouldn't be only targetting GPIO but also for example
->>> xlnx,xps-timebase-wdt-1.00.a but I would like to check it first on gpio
->>> before starting to check other bindings.
+>>> But I don't know your previous "NAK, never tested" mean.
+>>> I did make CHECK_DTBS=y arch/arm64/boot/dts/aspeed/ don't see the fail
+>>> with
+>>> intc0: interrupt-controller@12100000 {
+>>> 	compatible = "simple-mfd";
+>>>
+>>> So, could you point me more test instruction for this?
+>> See syscon.yaml. And writing bindings or talks on conferences:
+>> simple-mfd cannot be alone.
 >>
->> IIUC, patch #1 is a prerequisite, so you need to squash them. Otherwise
->> dt_binding_check is not bisectable and we want it to be bisectable.
 > 
-> No issue with squash if necessary. I sent it as series to be applied together 
-> which won't break bisectability of tree and no new error is going to be reported.
+>         intc0: interrupt-controller@12100000 {
+> Sorry, do you mean add by following? 
+> 				 compatible = "aspeed,intc-controller", "simple-mfd";
+>  					.....
+>                  intc0_11: interrupt-controller@1b00 {
+> 					compatible = "aspeed,ast2700-intc-ic";
+>  					......
+>                  };
+>          };
 
-You did not say anything about dependencies and merging strategy, to
-this would go via different trees. Sending something in one patchset
-does not mean that there is a dependency.
+Maybe, but you said this is base address, so how can it be some separate
+device?
+
+I mean really, don't add fake nodes just to satisfy some device
+instantiation. Describe what this really is. That is the job of DTS. Not
+some fake nodes.
 
 Best regards,
 Krzysztof
