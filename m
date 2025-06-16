@@ -4,88 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED95C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 07:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFA9C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 07:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/gtV1rZVMGwEdKZN2cNY4PElvgVuiPb0Q4ZvaOK51qQ=; b=AFSoT6rR21g24wf5CyMeMk95DA
-	cb+QS/tleixuawsZ2A0idqRnUc2ZBw4rB5M//XujuRB231rsUy7N1S3qpZU1YJak/24WoGFs+FR3i
-	BXZ7HzzZoVwgIF4bcpmYn2pviBamA7jN+a3ZZpLhsX6h8lbcJjUphdw7KWNBZvRff+LQ0PWj4moJS
-	PQzFvAXcgln4ci5p9KMewDgeUPDQojfRL3ULAhcBmSOPTSEB17JZ6zRUZaGA/V9WcMKsr++yO15D2
-	obLsr7g1hiF2yU/noU6tWWWl7AGtP4rMKYIXCXq8rIdH5fLX3itP/zD7tXyr6FtxPQOZT2FXEEY6a
-	8xZo0sEQ==;
+	bh=InuKAAGjHu/C7GD/p6y1dIS+oWspdPvUrz6/e8cjyKM=; b=i92vonLFd/RURQ2rSZCLU2HeqN
+	hSgZNJQ54B4meGB+R8cgf+vHFcGB3WWpUUz8NzEpNKuM0tgZ3Rm9yvVCAwYtSj42Tl9NS05rnpDVZ
+	DD9nmsZMExfGSIPZ45GxzcsVAO5wjrmyY1mVPYueTt8ylNjJA/nhvJ6krspy7DWp7Pg0k6iYakacR
+	gIBOF98INiP+O9tmHc/xE4eY29A+oSR2MAl+pTGJEd4IlEQBxpops7aQTAZMox9BNnTwEl9TbFGu4
+	QiEY0ijW3m9k/TQuvYXy9sfmNvIeNDcB/hjnAO8GWk+o7lbZihSbQzsTPPwEmR95HgXZbo2IMs+Hx
+	jTjMj0ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3uL-00000003abB-3jpy;
-	Mon, 16 Jun 2025 07:05:29 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1uR3wY-00000003azG-058M;
+	Mon, 16 Jun 2025 07:07:46 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3mk-00000003ZXF-1Hps
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 06:57:39 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-adb2bd27c7bso613676966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Jun 2025 23:57:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750057056; x=1750661856; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/gtV1rZVMGwEdKZN2cNY4PElvgVuiPb0Q4ZvaOK51qQ=;
-        b=Qi0DMvUlZfnsZerh3iVE1WMPgQfRceWWUnFspgINZM+K/T9AyaIDhw/mrmsPP3VMao
-         gh50Cs1NeGwvcH/h31vzyJ+KZ8NgGSR7H+iPS45LPnStSXrJgPXMaS0uKQkHmr8372Vt
-         biaE/L9TRWSO4/seJ7qSXb6zz5M48yepQ0Z2ZYbGkTW4Kjwtm8QDQcTaPrJzOdUDm5NR
-         VznkRi66kgOBcVPm3Pz4tZ7e7S2LB02S9eyvV8kz72bHqzvo+yZzvZzM5Y0zgLk1kc7f
-         Q6XzEZH15NNrClaAribiIbSPhoud2IiXjRnONUrRZmWsKVhgKu93i9J8TZtU2qo/vKR1
-         lTHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750057056; x=1750661856;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/gtV1rZVMGwEdKZN2cNY4PElvgVuiPb0Q4ZvaOK51qQ=;
-        b=o56cqyywDyLv+ixTfXwn2HiOjtJOyvSO0BloOVrEZTxTFARteYWZfkTHwwBzP8yOjS
-         BEGjcSW6jzhIyhNrPEB5r8ajwTWfxcfHg9pLd3tw0XfFGo9oHTIFlzln4rAO8Fiv+Hjg
-         sA5GbKEEByWid4sbekMSsmfzwGDVBEtHctpQOwowckcsa4KalUOr9NOkB+sYdn5OH7pW
-         YZdf2R0RWGFBDe+NLSYx/Mkg2R0BSbepvA0UVXhidoLTpAIzpQHQpPquOtqer6AZprkR
-         JXZzI5I7fQh6iOkCxXA55XlhGat7OLrSHZBRS9o2rChfTxTJzaxYhDfJozK3qbGv2SCs
-         xBGg==
-X-Forwarded-Encrypted: i=1; AJvYcCUiaZ/14qE/XHUdEwzdSuwmySu3qyXIH/QLVWN0eJH0tdg4zfe7CNyiXte3cPBsP1Dqwivd/gpv8uxww9kNFnCY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwweD33PrHs0wNYx6/06DdjubISveE5VrXKBr7pkj3WevPS9BIq
-	/wxDaiXlpnAD2vvALf85rz7ifsDLrM1tPZbK14F6Y3JmYLdV+phHpzrb7faIZcM3pAU=
-X-Gm-Gg: ASbGnct+g0oe+UaK2REx/1wySOXccGx1znwAIxSDEXeEzMyi1NuftdqykfEVnZo6N9H
-	TcSp45iDj7ddW5Eh8TnOAL9huu56pGc85mxE7dZqOObBTm/KfJcwb2dn/okC832l6l+yM0pa01T
-	MNSi6Nw0yWY3U0o8Y9OhVBrKsJpRtT5/Cq8kEfMbOVTfVOoNHoChSDaqEXgRe71t7hUjIf2X3K7
-	i7mBxOOcWkvdVeQfzLHbSjCnOk5oe6OiDAmmvqbg0Cki1ZD3QjsKJcxbSwuFwS35bus1bhiJXZm
-	An/oGPPwqTt7VkW4lBeQZh5CSDuvc8tZyx0B7ZqpM2hd5Q6Vtg1GLl4RTf/zjU4zKqFrWw==
-X-Google-Smtp-Source: AGHT+IHOPqpWs/bEljRavIVMEjqIgNiUcWesMvNiRC3Z2rgdIApjZ4oCO/f0xQlOdJfvEukvSCkvSw==
-X-Received: by 2002:a17:907:c25:b0:ade:470b:d5ac with SMTP id a640c23a62f3a-adfad4f6209mr738394066b.56.1750057056147;
-        Sun, 15 Jun 2025 23:57:36 -0700 (PDT)
-Received: from [192.168.0.33] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adec81c5bedsm602221266b.66.2025.06.15.23.57.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 15 Jun 2025 23:57:35 -0700 (PDT)
-Message-ID: <dd2bf2eb-d0a0-4bc4-b4be-a60a671222f9@linaro.org>
-Date: Mon, 16 Jun 2025 09:57:34 +0300
+	id 1uR3qZ-00000003Zyv-18KF;
+	Mon, 16 Jun 2025 07:01:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1750057280; x=1750662080; i=frank-w@public-files.de;
+	bh=InuKAAGjHu/C7GD/p6y1dIS+oWspdPvUrz6/e8cjyKM=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:In-Reply-To:References:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=s2UVLpUKJZyqePN0VoRDHjcH1kF2nvZKAqTZkzdJ3S1G1FhxLe/WJ7aonJgYwff1
+	 2O7pslpgw6AoB9xR1d+Lp2pQuxrpjw4e7vRRvzCQCJE9Le8pURc9y1BzdaDseApBW
+	 vGKi3V4o+j/N+t8sgHoYJlOfYH7EYq5jZ1g3AEaGpqqlIIfpajDNXPPYcaa6QNwtz
+	 HS5/BrZ1I/KpeER6QopNP6/0JUw9kUSZ6tF+9OJjWZ+JZ70abf1sefc9pPUhTNMWT
+	 Bs6vg9RrfIqyhdldZ0+XsproGILWz+1DSAmbEKySlpL5WDQzzQPV9G6OQp2f/k9ZN
+	 VbxjqO4BMB+mS72rWg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [100.67.37.206] ([100.67.37.206]) by
+ trinity-msg-rest-gmx-gmx-live-b647dc579-tr2th (via HTTP); Mon, 16 Jun 2025
+ 07:01:20 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: Add NULL check in lpc18xx_dmamux_reserve()
-To: Charles Han <hanchunchao@inspur.com>, vkoul@kernel.org, vz@mleia.com,
- manabian@gmail.com
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250616060212.1560-1-hanchunchao@inspur.com>
-Content-Language: en-US
-From: Eugen Hristev <eugen.hristev@linaro.org>
-In-Reply-To: <20250616060212.1560-1-hanchunchao@inspur.com>
+Message-ID: <trinity-e9eaf8fd-42f1-46d5-b1df-3bfefe02b2fe-1750057280436@trinity-msg-rest-gmx-gmx-live-b647dc579-tr2th>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: mason-cw.chang@mediatek.com, rafael@kernel.org,
+ daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+ angelogioacchino.delregno@collabora.com, nfraprado@collabora.com,
+ jpanis@baylibre.com, npitre@baylibre.com, colin.i.king@gmail.com,
+ u.kleine-koenig@baylibre.com, wenst@chromium.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, daniel@makrotopia.org,
+ steven.liu@mediatek.com, sam.shih@mediatek.com
+Cc: mason-cw.chang@mediatek.com
+Subject: Aw: [PATCH 0/3] thermal/drivers/mediatek/lvts_thermal: add mt7988
+ lvts commands
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Mon, 16 Jun 2025 07:01:20 +0000
+In-Reply-To: <20250526102659.30225-1-mason-cw.chang@mediatek.com>
+References: <20250526102659.30225-1-mason-cw.chang@mediatek.com>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:E53Jv9HXOWkrKn1ZmdCThVsKfrzyzuGZargrqRZrhq4Jf1N6adv3cJ2SO3q/CtWy8d1d/
+ QDM9voUlQrOto5dwjYfZWRz4yPGaMpj5j0PIhveWyIfGmukm4lJdw+qRF8g5xZigd97/80PljnoQ
+ H8ZrO1S5pA+KCV21QjyAF1d3rOVeZzzMO0CfDykQZKy1Pztvw0C+hv8rbqBrIxsegEJF5iyfSKP0
+ r4WZa67IPl1lKRtoLF3B1SdTESGO/2b3C5xJh94nV4fOA2mNfxuFfOgbRims31qA5sc6MRAMUNFf
+ lw41SniqEtVepmdTyGLN3TgvPEvq317HVyJqOzvxi5npkIetYQ1kamys4S/E8OxFUA=
+UI-OutboundReport: notjunk:1;M01:P0:PxlaLSE8vxo=;EPEHr1o7va+Z4JcCx7lU/6b8+Cc
+ 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
+ LFSEZB56NrtCrz7ufFA==
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_235738_356732_4C273D48 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20250616_000135_607988_4E259CA0 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +130,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+> Gesendet: Montag, 26. Mai 2025 um 12:26
+> Von: "Mason Chang" <mason-cw.chang@mediatek.com>
+> Betreff: [PATCH 0/3] thermal/drivers/mediatek/lvts_thermal: add mt7988 l=
+vts commands
+>
+> Add the LVTS commands for Mediatek Filogic 880/MT7988.
+>=20
+> This series fixes severely abnormal and inaccurate LVTS temperature
+> readings when using the default commands.
+>=20
+> Signed-off-by: Mason Chang <mason-cw.chang@mediatek.com>
 
-On 6/16/25 09:02, Charles Han wrote:
-> The function of_find_device_by_node() may return NULL if the device
-> node is not found or CONFIG_OF not defined.
-> Add  check whether the return value is NULL and set the error code
-> to be returned as -ENODEV.
-> 
-> Fixes: e5f4ae84be74 ("dmaengine: add driver for lpc18xx dmamux")
-> Signed-off-by: Charles Han <hanchunchao@inspur.com>
-> ---
->  drivers/dma/lpc18xx-dmamux.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/dma/lpc18xx-dmamux.c b/drivers/dma/lpc18xx-dmamux.c
-> index 2b6436f4b193..ef9aed4ba173 100644
-> --- a/drivers/dma/lpc18xx-dmamux.c
-> +++ b/drivers/dma/lpc18xx-dmamux.c
-> @@ -53,11 +53,16 @@ static void lpc18xx_dmamux_free(struct device *dev, void *route_data)
->  static void *lpc18xx_dmamux_reserve(struct of_phandle_args *dma_spec,
->  				    struct of_dma *ofdma)
->  {
-> -	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
-> -	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
->  	unsigned long flags;
->  	unsigned mux;
->  
-> +	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
-> +
-> +	if (!pdev)
-> +		return ERR_PTR(-ENODEV);
-> +
-> +	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
+Hi
 
-I believe you should still declare all the variables at the beginning of
-the function, even if you initialize them later.
+just a friedly reminder for maintainers, is the patch series ok or does it=
+ need any changes?
 
-> +
->  	if (dma_spec->args_count != 3) {
->  		dev_err(&pdev->dev, "invalid number of dma mux args\n");
->  		return ERR_PTR(-EINVAL);
-
+regards Frank
 
