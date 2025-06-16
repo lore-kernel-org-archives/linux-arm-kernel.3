@@ -4,94 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319E0C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72701C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GwJR4L4C5BNi8BSL4VDf9yl7ztEEHcvn8VOyGlQkwDc=; b=Ox1CuWlg8nAyhhne6ICjGAZsor
-	OoiV+JctoMH8o7jQGuP21Wmw0BhMR72rnT2awx0Ryr25eyPlg/KuaCs4/6cilmO8gVJIoNvx6Tr5w
-	i6xdqnjRIlMIG3hwvh5SoH83L7VeMYjr4gz/senCFw2/U0nb1Y/prsHZB1x49z7Oj1sJ4UleGUw/I
-	Y5ILHTppvZXN/rtsLJmnYgA2mGyoaFMNsULsSbGAXq2QKwDnhmSg3UtPKurJrQaDBd+MO5PUBVprC
-	vK0z+dluAj3aXVDFWQ+xAT/nTC+DlN6cmK5/fLWV2UenhECEoTIYb9OoJTnF2kgso9Zo4M7IoY8cN
-	sgzvIioA==;
+	bh=kwGcLft6rw4uMuBLKiidHxvv3eG5O6mTVnZqBOvMc3M=; b=UKDP8nOkSFLiC7DzkExTlDXUyj
+	vVJK1RI3XLyN/DCMAySNcK48ep3FmxE5uKOHeytDZhFoGdKoNjaw0lk7EBsepRnNTG7eA4IXm8tY2
+	sPOH4H622c83U/iQpmeVKPKVrMpzhuel+8Q1YooeUp5vt7HxYqitUjj+Q28gjPIgvWiioaPx92gB+
+	5jP2xP9UYzXtnuedoCR6uglR1M3xGfOmpSJIGoXK0GzJKAX7X1eNVbfaSPLW7u2SeMzZugH5iQi75
+	A/2LCV7HkvbbWZGfLh1l3pGx/vJtONd5gsk8A11QiZGZSlFPebbUeoH6MvwRcFIInBZblMfejrtFP
+	34utrLrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6r7-000000042m6-2l2d;
-	Mon, 16 Jun 2025 10:14:21 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uR6tI-000000042zm-3WmA;
+	Mon, 16 Jun 2025 10:16:36 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR64I-00000003uVt-32xz
+	id 1uR6A4-00000003vN3-1Ywq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 09:23:56 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8tIwf030344;
-	Mon, 16 Jun 2025 11:23:43 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	GwJR4L4C5BNi8BSL4VDf9yl7ztEEHcvn8VOyGlQkwDc=; b=bSznlfWzf8JS1yut
-	xodDKNY6JZ0mK216iHwfRMnfrTXP+RL6V9Qsn6T2dY1wQEIrptU2ngmaUFoEpzkW
-	xs12kvgu3T9d64fmqoOWbzluYzFb3IM7p44C3ZniALjxhLOHThYlVo1JBBa1w4RJ
-	L+8XQbTIiwEghZ6GyRfe6G2dRTWwXmz9V9HW0uRtMkxPjUOOGJS6IghQj/BARp7x
-	zVTTwN1xjZa608Jtmhyq5Wsxmg+CGwdEQCheSXt87mwl4mgbN//g0bPF+6sXGMwn
-	cdaDRMx5PXgmSMS+Sm1aMcmHo0y64JFVFzF9thJtFcv/Vw3/uNMRfwvSugZZMd2I
-	ffX3uA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4790e1ywha-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 11:23:42 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0DB8440047;
-	Mon, 16 Jun 2025 11:22:24 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 83E60A7D80E;
-	Mon, 16 Jun 2025 11:21:07 +0200 (CEST)
-Received: from localhost (10.252.14.42) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Jun
- 2025 11:21:07 +0200
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Mon, 16 Jun 2025 11:21:02 +0200
-Subject: [PATCH 1/6] spi: stm32: Add SPI_READY mode to spi controller
+	Mon, 16 Jun 2025 09:29:53 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so35477185e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 02:29:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750066190; x=1750670990; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kwGcLft6rw4uMuBLKiidHxvv3eG5O6mTVnZqBOvMc3M=;
+        b=LHYNEKeNZ17jwpIIigNFz27A0SELwxkD41rSVEwKHpEVSUzRURI8ojnphGiZCHka0L
+         h86P1MVM8KGOMKNoaR8gu85SLobUS2AjyC+Fvc6rAwTP2w76TbZ5S7vLIX7+JsUnShVy
+         Qfz36Q44RyO2N6lFC/ImCq3vIlDEXBCuOhflaoHlpNXpv1Xn+fPQkBHPbFCfhQScvNWT
+         3moa1u+b4h57/ATgBDR/S4jM5s23jinBmolxWb8dydoEeEYGpKgimRf1V3acrlnyvvQY
+         vTTRYuxgTVtL9iRmqaVn7VYcY1RBFET1y5xLb53IPs6m+yyvjXsJ7AOtXr/MpYtvQa6Y
+         0wDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750066190; x=1750670990;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kwGcLft6rw4uMuBLKiidHxvv3eG5O6mTVnZqBOvMc3M=;
+        b=iT+Xsr/sJTWDAMHlaBFtOMFQJ2Gr+urQOfZXdfnQGg8+/5qn2HAEkOj8mQdzDBwW3S
+         OOGfNqjSLdPyAGqcPUTX4t43N9pYyCFlTXLOFA5d5AwigL9cghPOsDo7Gundw9MKDIgZ
+         BesotDWGBPOSVLAX5nUuwc8G+CPdAcL1baJaQ/wyslPJiWSBKOJxBAZtR0LvhnQKik9Z
+         W4X5tfwlfhs3OPVWMC9FxcDB+1a6PFx3wOEMKigfTb6o6Dq2QgdAIDtHlNBtokKWL9Wy
+         +QEB5TnzSaFnQ6WStM8yAmvXJCCDnpawwSvXTVUw87S09mlvhQHiptChdfP2kbeN2vvr
+         2ohA==
+X-Forwarded-Encrypted: i=1; AJvYcCVsDfdRiZzDY+jmPCnwCxkwXbtAeC6KojwDbPRfS/+JBErHGqPhqW/kakWcExLqD5SLFCgkbJZf4CTbhQGr/aZC@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKUi8olieqfiEQUTsvyDdQatFpza6MdvmvHlpWXgsWt9WfZu1q
+	wNYiGeyqD4yNDlnZwgZz6ZrHYOcpR0aBAEni02z95naV9VwwdnzHCQfBfdTF8WoLJ4A=
+X-Gm-Gg: ASbGncsTkgCv6OALmXJtXOn1Bi96gIAPCS0etDoL/wkWPscYusCosA2Cs6X/Sht9qJz
+	TALp+oTL+a39vMk3BRZ3919cV6zlRJYoeffWTva8VZoAWXc8pFmFPCjbPEXn4S9sR2NhWORPQn4
+	iaTFRb4dnc3cl7xQ3TDmhzFOiJ9fShGjcY9OaE9L2A9wZrbxxDSyrXVw5E5i2PHBw7861tnQrtU
+	e237wgPvESAzi4XV1p52fD/2mO/3Xclxdag4CGCEiA5CuJd2x7Bjdwjca1/lVTSI/lz0oVTiZWd
+	LT0z+RB9aDnMdPNztB/7jsoJws1gp4xSxDStkhPQ6IcuVyZFz2OaEu50bK6wA5LfRfU=
+X-Google-Smtp-Source: AGHT+IHOWfnPFzpHtRF/W2IbEp3fvdHVUeMVNujL1Q/an8stjFUG/mRNeySqS3CZ4AjxpSGguvlPXQ==
+X-Received: by 2002:a05:600c:528e:b0:450:d37d:7c with SMTP id 5b1f17b1804b1-4533cad3ca8mr65943535e9.21.1750066190358;
+        Mon, 16 Jun 2025 02:29:50 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.136.128])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea15b0sm140616455e9.11.2025.06.16.02.29.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Jun 2025 02:29:49 -0700 (PDT)
+Message-ID: <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
+Date: Mon, 16 Jun 2025 10:29:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
+To: Yicong Yang <yangyicong@huawei.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: Ali Saidi <alisaidi@amazon.com>, Leo Yan <leo.yan@linaro.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Jinqian Yang <yangjinqian1@huawei.com>,
+ Douglas Anderson <dianders@chromium.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Adrian Hunter <adrian.hunter@intel.com>, Ian Rogers <irogers@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Kan Liang <kan.liang@linux.intel.com>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+ Yicong Yang <yangyicong@hisilicon.com>
+References: <aEyGg98z-MkcClXY@x1>
+ <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250616-spi-upstream-v1-1-7e8593f3f75d@foss.st.com>
-References: <20250616-spi-upstream-v1-0-7e8593f3f75d@foss.st.com>
-In-Reply-To: <20250616-spi-upstream-v1-0-7e8593f3f75d@foss.st.com>
-To: Alain Volmat <alain.volmat@foss.st.com>, Mark Brown <broonie@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Valentin Caron <valentin.caron@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Erwan Leray <erwan.leray@foss.st.com>,
-        Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-        Sumit Semwal
-	<sumit.semwal@linaro.org>,
-        =?utf-8?q?Christian_K=C3=B6nig?=
-	<christian.koenig@amd.com>
-CC: <linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-media@vger.kernel.org>,
-        <dri-devel@lists.freedesktop.org>, <linaro-mm-sig@lists.linaro.org>,
-        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Originating-IP: [10.252.14.42]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-16_04,2025-06-13_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_022355_056600_60F04986 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20250616_022952_427298_2C7733D5 
+X-CRM114-Status: GOOD (  42.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,105 +112,363 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The spi ready functionality is supported by our peripheral in host and
-target modes on STM32MP2x SoCs.
-Update our spi controller driver to allow devices to use this
-functionality.
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
----
- drivers/spi/spi-stm32.c | 28 ++++++++++++++++++++++++----
- 1 file changed, 24 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
-index da3517d7102d..2bcd4a43676d 100644
---- a/drivers/spi/spi-stm32.c
-+++ b/drivers/spi/spi-stm32.c
-@@ -154,6 +154,9 @@
- /* STM32H7_SPI_I2SCFGR bit fields */
- #define STM32H7_SPI_I2SCFGR_I2SMOD	BIT(0)
- 
-+/* STM32MP25_SPICFG2 bit fields */
-+#define STM32MP25_SPI_CFG2_RDIOM	BIT(13)
-+
- /* STM32MP25 SPI registers bit fields */
- #define STM32MP25_SPI_HWCFGR1			0x3F0
- 
-@@ -222,6 +225,7 @@ struct stm32_spi_reg {
-  * @rx: SPI RX data register
-  * @tx: SPI TX data register
-  * @fullcfg: SPI full or limited feature set register
-+ * @rdy_en: SPI ready feature register
-  */
- struct stm32_spi_regspec {
- 	const struct stm32_spi_reg en;
-@@ -235,6 +239,7 @@ struct stm32_spi_regspec {
- 	const struct stm32_spi_reg rx;
- 	const struct stm32_spi_reg tx;
- 	const struct stm32_spi_reg fullcfg;
-+	const struct stm32_spi_reg rdy_en;
- };
- 
- struct stm32_spi;
-@@ -415,6 +420,8 @@ static const struct stm32_spi_regspec stm32mp25_spi_regspec = {
- 	.tx = { STM32H7_SPI_TXDR },
- 
- 	.fullcfg = { STM32MP25_SPI_HWCFGR1, STM32MP25_SPI_HWCFGR1_FULLCFG },
-+
-+	.rdy_en = { STM32H7_SPI_CFG2, STM32MP25_SPI_CFG2_RDIOM },
- };
- 
- static inline void stm32_spi_set_bits(struct stm32_spi *spi,
-@@ -1172,15 +1179,21 @@ static int stm32_spi_prepare_msg(struct spi_controller *ctrl,
- 	else
- 		clrb |= spi->cfg->regs->cs_high.mask;
- 
--	dev_dbg(spi->dev, "cpol=%d cpha=%d lsb_first=%d cs_high=%d\n",
-+	if (spi_dev->mode & SPI_READY)
-+		setb |= spi->cfg->regs->rdy_en.mask;
-+	else
-+		clrb |= spi->cfg->regs->rdy_en.mask;
-+
-+	dev_dbg(spi->dev, "cpol=%d cpha=%d lsb_first=%d cs_high=%d rdy=%d\n",
- 		!!(spi_dev->mode & SPI_CPOL),
- 		!!(spi_dev->mode & SPI_CPHA),
- 		!!(spi_dev->mode & SPI_LSB_FIRST),
--		!!(spi_dev->mode & SPI_CS_HIGH));
-+		!!(spi_dev->mode & SPI_CS_HIGH),
-+		!!(spi_dev->mode & SPI_READY));
- 
- 	spin_lock_irqsave(&spi->lock, flags);
- 
--	/* CPOL, CPHA and LSB FIRST bits have common register */
-+	/* CPOL, CPHA, LSB FIRST, CS_HIGH and RDY_EN bits have common register */
- 	if (clrb || setb)
- 		writel_relaxed(
- 			(readl_relaxed(spi->base + spi->cfg->regs->cpol.reg) &
-@@ -1768,6 +1781,13 @@ static int stm32_spi_transfer_one_setup(struct stm32_spi *spi,
- 	spi->cur_bpw = transfer->bits_per_word;
- 	spi->cfg->set_bpw(spi);
- 
-+	if (spi_dev->mode & SPI_READY && spi->cur_bpw < 8) {
-+		writel_relaxed(readl_relaxed(spi->base + spi->cfg->regs->rdy_en.reg) &
-+				~spi->cfg->regs->rdy_en.mask,
-+					spi->base + spi->cfg->regs->rdy_en.reg);
-+		dev_dbg(spi->dev, "RDY logic disabled as bits per word < 8\n");
-+	}
-+
- 	/* Update spi->cur_speed with real clock speed */
- 	if (STM32_SPI_HOST_MODE(spi)) {
- 		mbr = stm32_spi_prepare_mbr(spi, transfer->speed_hz,
-@@ -2179,7 +2199,7 @@ static int stm32_spi_probe(struct platform_device *pdev)
- 	ctrl->auto_runtime_pm = true;
- 	ctrl->bus_num = pdev->id;
- 	ctrl->mode_bits = SPI_CPHA | SPI_CPOL | SPI_CS_HIGH | SPI_LSB_FIRST |
--			  SPI_3WIRE;
-+			  SPI_3WIRE | SPI_READY;
- 	ctrl->bits_per_word_mask = spi->cfg->get_bpw_mask(spi);
- 	ctrl->max_speed_hz = spi->clk_rate / spi->cfg->baud_rate_div_min;
- 	ctrl->min_speed_hz = spi->clk_rate / spi->cfg->baud_rate_div_max;
+On 16/06/2025 8:56 am, Yicong Yang wrote:
+> + linux-arm-kernel
+> 
+> On 2025/6/14 4:13, Arnaldo Carvalho de Melo wrote:
+>> Hi,
+>>
+>> tools/perf (and other tools/ living code) uses a file from the kernel, a
+>> copy, so that we don't break its build when something changes in the
+>> kernel that tooling uses.
+>>
+>> There is this tools/perf/check-headers.sh that does the "copy coherency
+>> check", while trying to act on such a warning I stumbled on the report
+>> below.
+>>
+>> More details at:
+>>
+>>    https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/include/uapi/README
+>>
+>>
+>> If you could please take a look at this that would be great, the initial
+>> copy was made at:
+>>
+>> commit 1314376d495f2d79cc58753ff3034ccc503c43c9
+>> Author: Ali Saidi <alisaidi@amazon.com>
+>> Date:   Thu Mar 24 18:33:20 2022 +0000
+>>
+>>      tools arm64: Import cputype.h
+>>      
+>>      Bring-in the kernel's arch/arm64/include/asm/cputype.h into tools/
+>>      for arm64 to make use of all the core-type definitions in perf.
+>>      
+>>      Replace sysreg.h with the version already imported into tools/.
+>>      
+>>      Committer notes:
+>>      
+>>      Added an entry to tools/perf/check-headers.sh, so that we get notified
+>>      when the original file in the kernel sources gets modified.
+>>      
+>>      Tester notes:
+>>      
+>>      LGTM. I did the testing on both my x86 and Arm64 platforms, thanks for
+>>      the fixing up.
+>>      
+>>      Signed-off-by: Ali Saidi <alisaidi@amazon.com>
+>>      Tested-by: Leo Yan <leo.yan@linaro.org>
+>>
+>> - Arnaldo
+>>
+>> ⬢ [acme@toolbx perf-tools]$ m
+>> rm: cannot remove '/home/acme/libexec/perf-core/scripts/python/Perf-Trace-Util/lib/Perf/Trace/__pycache__/Core.cpython-313.pyc': Permission denied
+>> make: Entering directory '/home/acme/git/perf-tools/tools/perf'
+>>    BUILD:   Doing 'make -j32' parallel build
+>> Warning: Kernel ABI header differences:
+>>    diff -u tools/arch/x86/include/asm/cpufeatures.h arch/x86/include/asm/cpufeatures.h
+>>    diff -u tools/arch/arm64/include/asm/cputype.h arch/arm64/include/asm/cputype.h
+>>
+>> Auto-detecting system features:
+>> ...                                   libdw: [ on  ]
+>> ...                                   glibc: [ on  ]
+>> ...                                  libelf: [ on  ]
+>> ...                                 libnuma: [ on  ]
+>> ...                  numa_num_possible_cpus: [ on  ]
+>> ...                                 libperl: [ on  ]
+>> ...                               libpython: [ on  ]
+>> ...                               libcrypto: [ on  ]
+>> ...                             libcapstone: [ on  ]
+>> ...                               llvm-perf: [ on  ]
+>> ...                                    zlib: [ on  ]
+>> ...                                    lzma: [ on  ]
+>> ...                               get_cpuid: [ on  ]
+>> ...                                     bpf: [ on  ]
+>> ...                                  libaio: [ on  ]
+>> ...                                 libzstd: [ on  ]
+>>
+>>    INSTALL libsubcmd_headers
+>>    INSTALL libperf_headers
+>>    INSTALL libapi_headers
+>>    INSTALL libsymbol_headers
+>>    INSTALL libbpf_headers
+>>    INSTALL binaries
+>>    INSTALL tests
+>>    INSTALL libperf-jvmti.so
+>>    INSTALL libexec
+>>    INSTALL perf-archive
+>>    INSTALL perf-iostat
+>>    INSTALL perl-scripts
+>>    INSTALL python-scripts
+>>    INSTALL dlfilters
+>>    INSTALL perf_completion-script
+>>    INSTALL perf-tip
+>> make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+>>   18: 'import perf' in python                                         : Ok
+>> ⬢ [acme@toolbx perf-tools]$ cp arch/arm64/include/asm/cputype.h tools/arch/arm64/include/asm/cputype.h
+>> ⬢ [acme@toolbx perf-tools]$ m
+>> rm: cannot remove '/home/acme/libexec/perf-core/scripts/python/Perf-Trace-Util/lib/Perf/Trace/__pycache__/Core.cpython-313.pyc': Permission denied
+>> make: Entering directory '/home/acme/git/perf-tools/tools/perf'
+>>    BUILD:   Doing 'make -j32' parallel build
+>> Warning: Kernel ABI header differences:
+>>    diff -u tools/arch/x86/include/asm/cpufeatures.h arch/x86/include/asm/cpufeatures.h
+>>
+>> Auto-detecting system features:
+>> ...                                   libdw: [ on  ]
+>> ...                                   glibc: [ on  ]
+>> ...                                  libelf: [ on  ]
+>> ...                                 libnuma: [ on  ]
+>> ...                  numa_num_possible_cpus: [ on  ]
+>> ...                                 libperl: [ on  ]
+>> ...                               libpython: [ on  ]
+>> ...                               libcrypto: [ on  ]
+>> ...                             libcapstone: [ on  ]
+>> ...                               llvm-perf: [ on  ]
+>> ...                                    zlib: [ on  ]
+>> ...                                    lzma: [ on  ]
+>> ...                               get_cpuid: [ on  ]
+>> ...                                     bpf: [ on  ]
+>> ...                                  libaio: [ on  ]
+>> ...                                 libzstd: [ on  ]
+>>
+>>    INSTALL libsubcmd_headers
+>>    INSTALL libperf_headers
+>>    INSTALL libapi_headers
+>>    INSTALL libsymbol_headers
+>>    INSTALL libbpf_headers
+>>    CC      /tmp/build/perf-tools/util/arm-spe.o
+>> util/arm-spe.c: In function ‘arm_spe__synth_ds’:
+>> util/arm-spe.c:885:43: error: passing argument 1 of ‘is_midr_in_range_list’ makes pointer from integer without a cast [-Wint-conversion]
+>>    885 |                 if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
+>>        |                                           ^~~~
+>>        |                                           |
+>>        |                                           u64 {aka long unsigned int}
+>> In file included from util/arm-spe.c:37:
+>> util/../../arch/arm64/include/asm/cputype.h:306:53: note: expected ‘const struct midr_range *’ but argument is of type ‘u64’ {aka ‘long unsigned int’}
+>>    306 | bool is_midr_in_range_list(struct midr_range const *ranges);
+>>        |                            ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+>> util/arm-spe.c:885:21: error: too many arguments to function ‘is_midr_in_range_list’; expected 1, have 2
+>>    885 |                 if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
+>>        |                     ^~~~~~~~~~~~~~~~~~~~~       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> util/../../arch/arm64/include/asm/cputype.h:306:6: note: declared here
+>>    306 | bool is_midr_in_range_list(struct midr_range const *ranges);
+>>        |      ^~~~~~~~~~~~~~~~~~~~~
+>> make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:85: /tmp/build/perf-tools/util/arm-spe.o] Error 1
+>> make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:142: util] Error 2
+>> make[2]: *** [Makefile.perf:798: /tmp/build/perf-tools/perf-util-in.o] Error 2
+>> make[1]: *** [Makefile.perf:290: sub-make] Error 2
+>> make: *** [Makefile:119: install-bin] Error 2
+>> make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
+>> ⬢ [acme@toolbx perf-tools]$
+>>
+>>
+> 
+> The changes should be introduced by arm64's errata management on live migration[1], specifically:
+> - commit e3121298c7fc ("arm64: Modify _midr_range() functions to read MIDR/REVIDR internally")
+>    which changed the implementation of is_midr_in_range() that the MIDR to
+>    test is always read on the current CPU. This isn't true in perf since
+>    the MIDR is acquired from the perf.data.
+> - commit c8c2647e69be ("arm64: Make  _midr_in_range_list() an exported function")
+>    which moves the implementation out of the header file.
+> 
+> Below patch should keep the copy coherency of cputype.h to implement the _midr_in_range_list()
+> as before.
+> 
+> [1] https://lore.kernel.org/all/20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com/
+> 
+> Thanks.
+> 
+>  From 44900e7d3d9fa34c817396275f55a2aab611cd32 Mon Sep 17 00:00:00 2001
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> Date: Mon, 16 Jun 2025 15:18:11 +0800
+> Subject: [PATCH] arm64: cputype: Allow copy coherency on cputype.h between
+>   tools/ and arch/
+> MIME-Version: 1.0
+> Content-Type: text/plain; charset=UTF-8
+> Content-Transfer-Encoding: 8bit
+> 
+> arch/arm64/include/asm/cputype.h is copied from arch/arm64 and used
+> by perf to parsing vendor specific SPE packets according to the MIDR.
+> The header diverge after errata management handling for VM live
+> migration merged [1]:
+> - commit e3121298c7fc ("arm64: Modify _midr_range() functions to read MIDR/REVIDR internally")
+>    which changed the implementation of is_midr_in_range() that the MIDR to
+>    test is always read on the current CPU. This isn't true in perf since
+>    the MIDR is acquired from the perf.data.
+> - commit c8c2647e69be ("arm64: Make  _midr_in_range_list() an exported function")
+>    which moves the implementation out of the header file.
+> 
+> In order to allow copy coherency on cputype.h [2], implement
+> is_midr_in_range_list() as before [1]. Introduce is_cpuid_in_range_list()
+> for kernel space to test the MIDR of current running CPU is within the
+> target MIDR ranges. Move cpu_errata_set_target_impl() and
+> is_cpuid_in_range_list() to cpufeature.h since they're only used by
+> errata management in the kernel space and don't needed by tools/.
+> 
+> No funtional changes intended.
+> 
+> [1] https://lore.kernel.org/all/20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com/
+> [2] https://lore.kernel.org/lkml/aEyGg98z-MkcClXY@x1/#t
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>   arch/arm64/include/asm/cpufeature.h           | 11 +++++
+>   arch/arm64/include/asm/cputype.h              | 40 +++++++++++--------
+>   arch/arm64/kernel/cpu_errata.c                | 30 +++++---------
+>   arch/arm64/kernel/cpufeature.c                |  6 +--
+>   arch/arm64/kernel/proton-pack.c               | 20 +++++-----
+>   arch/arm64/kvm/vgic/vgic-v3.c                 |  2 +-
+>   drivers/clocksource/arm_arch_timer.c          |  2 +-
+>   .../coresight/coresight-etm4x-core.c          |  2 +-
+>   8 files changed, 60 insertions(+), 53 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index c4326f1cb917..ba2d474fb393 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -1048,6 +1048,17 @@ static inline bool cpu_has_lpa2(void)
+>   #endif
+>   }
+> 
+> +struct target_impl_cpu {
+> +	u64 midr;
+> +	u64 revidr;
+> +	u64 aidr;
+> +};
+> +
+> +bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
+> +
+> +/* Different from is_midr_in_range() on using the MIDR of current CPU */
+> +bool is_cpuid_in_range_list(struct midr_range const *ranges);
+> +
+>   #endif /* __ASSEMBLY__ */
+> 
+>   #endif
+> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+> index 661735616787..89fd197e2f03 100644
+> --- a/arch/arm64/include/asm/cputype.h
+> +++ b/arch/arm64/include/asm/cputype.h
+> @@ -251,16 +251,6 @@
+> 
+>   #define read_cpuid(reg)			read_sysreg_s(SYS_ ## reg)
+> 
+> -/*
+> - * The CPU ID never changes at run time, so we might as well tell the
+> - * compiler that it's constant.  Use this function to read the CPU ID
+> - * rather than directly reading processor_id or read_cpuid() directly.
+> - */
+> -static inline u32 __attribute_const__ read_cpuid_id(void)
+> -{
+> -	return read_cpuid(MIDR_EL1);
+> -}
+> -
+>   /*
+>    * Represent a range of MIDR values for a given CPU model and a
+>    * range of variant/revision values.
+> @@ -296,14 +286,30 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
+>   	return _model == model && rv >= rv_min && rv <= rv_max;
+>   }
+> 
+> -struct target_impl_cpu {
+> -	u64 midr;
+> -	u64 revidr;
+> -	u64 aidr;
+> -};
+> +static inline bool is_midr_in_range(u32 midr, struct midr_range const *range)
+> +{
+> +	return midr_is_cpu_model_range(midr, range->model,
+> +				       range->rv_min, range->rv_max);
+> +}
+> 
+> -bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
+> -bool is_midr_in_range_list(struct midr_range const *ranges);
+> +static inline bool
+> +is_midr_in_range_list(u32 midr, struct midr_range const *ranges)
+> +{
+> +	while (ranges->model)
+> +		if (is_midr_in_range(midr, ranges++))
+> +			return true;
+> +	return false;
+> +}
+> +
+> +/*
+> + * The CPU ID never changes at run time, so we might as well tell the
+> + * compiler that it's constant.  Use this function to read the CPU ID
+> + * rather than directly reading processor_id or read_cpuid() directly.
+> + */
+> +static inline u32 __attribute_const__ read_cpuid_id(void)
+> +{
+> +	return read_cpuid(MIDR_EL1);
+> +}
+> 
+>   static inline u64 __attribute_const__ read_cpuid_mpidr(void)
+>   {
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 59d723c9ab8f..531ae67c7086 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -27,38 +27,28 @@ bool cpu_errata_set_target_impl(u64 num, void *impl_cpus)
+>   	return true;
+>   }
+> 
+> -static inline bool is_midr_in_range(struct midr_range const *range)
+> +bool is_cpuid_in_range_list(struct midr_range const *ranges)
+>   {
+> +	u32 midr = read_cpuid_id();
+>   	int i;
+> 
+>   	if (!target_impl_cpu_num)
+> -		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+> -					       range->rv_min, range->rv_max);
+> +		return is_midr_in_range_list(midr, ranges);
+> 
+> -	for (i = 0; i < target_impl_cpu_num; i++) {
+> -		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
+> -					    range->model,
+> -					    range->rv_min, range->rv_max))
+> +	for (i = 0; i < target_impl_cpu_num; i++)
+> +		if (is_midr_in_range_list(midr, ranges))
+>   			return true;
+> -	}
+> -	return false;
+> -}
+> 
+> -bool is_midr_in_range_list(struct midr_range const *ranges)
+> -{
+> -	while (ranges->model)
+> -		if (is_midr_in_range(ranges++))
+> -			return true;
+>   	return false;
+>   }
+> -EXPORT_SYMBOL_GPL(is_midr_in_range_list);
+> +EXPORT_SYMBOL_GPL(is_cpuid_in_range_list);
+> 
+>   static bool __maybe_unused
+>   __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
+>   			 u32 midr, u32 revidr)
+>   {
+>   	const struct arm64_midr_revidr *fix;
+> -	if (!is_midr_in_range(&entry->midr_range))
+> +	if (!is_midr_in_range(midr, &entry->midr_range))
+>   		return false;
+> 
+>   	midr &= MIDR_REVISION_MASK | MIDR_VARIANT_MASK;
+> @@ -92,7 +82,7 @@ is_affected_midr_range_list(const struct arm64_cpu_capabilities *entry,
+>   			    int scope)
+>   {
+>   	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+> -	return is_midr_in_range_list(entry->midr_range_list);
+> +	return is_cpuid_in_range_list(entry->midr_range_list);
 
--- 
-2.43.0
+Looks ok to me.
+
+You could do it with slightly less churn on the kernel side if you keep 
+the function name and arguments the same there. There's only one usage 
+in Perf so that one could be renamed and have the midr argument added 
+back in.
+
+I was also wondering if we could just diverge on the tools side, but in 
+reality it also has to stay compatible with the definitions of all the 
+MIDRs so might as well keep the whole thing identical.
 
 
