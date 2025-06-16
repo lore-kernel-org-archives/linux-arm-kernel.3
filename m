@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60169C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616D5C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndhDy8t8Vqb14/BRGhTagux2Vyu0xrthJAkwAjdEqmU=; b=FChMySkDZGRmkBfehizglBgG7z
-	E4ANKLJH7wz3Y3vAoOMALFchH582sh3AUfYiFwJbEFnif3qvwAOVHeEj05R93/+taYmBg2AyZbf3o
-	kGUL0tNz+3StHVAX5RKRQBYEJnmNUElW7oyVbJN0WVSDFfqe/4G49DamrV2rIgS7xduKaBuE8XqIy
-	7AGoCObYceeFboqGy2GYvSqccxC3JitNcfprvRXsgRSJDLlkMfKd8Cx3ZPorgDyrHHDWVA9S7poTA
-	6ClKrOrVQ/qqUkiNLNT/OArbZIvghF3PGY7HLrIIKr4H7NX5lQIiZLLszJw6Vv4AOUbV6597HoZhG
-	4j+TISlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7cILgw7jh0mrvewNLFWEizuxV/iOA66tlT6a6wOh74A=; b=vh1tU4Ov86nmT/AbRpUHRjTF47
+	tSHhbEg3lfHibRIN08cuWfgDZIM9pfh5DJHxCS0ninAweydIJRzwy+hSCYemJSuM6rV6q5/jTJxHL
+	RIC/R3rFDUObhLWyA6uaLA9rbNNjpvvKHICBfZ6A+tQdox76hqTSTTHKD7dZGMDkt7tEzeh7xw8QQ
+	W3BGJEzdfNZf2HXGj4uFhAwyizxQmYYNzep7clbbdi38b9SITfZB5HuBpC0wrvHMQlSegzeTbIVN5
+	nHW8taLVjxeKg/8aCBhcss80+kCWCLSzuyVSW240HA1KxK2r5Q+9ttSmRrz5jGuHp9jdU70BnTsXp
+	Zy3WnQkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR78d-000000044uu-0zmX;
-	Mon, 16 Jun 2025 10:32:27 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uR7Ap-000000045Du-0wwS;
+	Mon, 16 Jun 2025 10:34:43 +0000
+Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6bE-00000003zUD-10dT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 09:57:57 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uR6b4-0002wJ-5K; Mon, 16 Jun 2025 11:57:46 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uR6b3-003mk9-2d;
-	Mon, 16 Jun 2025 11:57:45 +0200
-Received: from pengutronix.de (p5b1645f7.dip0.t-ipconnect.de [91.22.69.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 7498F428696;
-	Mon, 16 Jun 2025 09:57:45 +0000 (UTC)
-Date: Mon, 16 Jun 2025 11:57:45 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>, 
-	Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v2 4/5] net: can: mcp251x: use new GPIO line value setter
- callbacks
-Message-ID: <20250616-quick-blazing-dogfish-1d73c3-mkl@pengutronix.de>
-References: <20250616-gpiochip-set-rv-net-v2-0-cae0b182a552@linaro.org>
- <20250616-gpiochip-set-rv-net-v2-4-cae0b182a552@linaro.org>
+	id 1uR6bz-00000003zwl-46jn;
+	Mon, 16 Jun 2025 09:58:45 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout4.routing.net (Postfix) with ESMTP id 41863100941;
+	Mon, 16 Jun 2025 09:58:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1750067920;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7cILgw7jh0mrvewNLFWEizuxV/iOA66tlT6a6wOh74A=;
+	b=w9j266aPJj0lkFKIFfXlekWZwIlt41cm+yjRslDnO6Q9fEepo9gnTTvb+Tjpv/hm+hMvca
+	yd0zNcbE2hIkj0govm4MboQezqO7FZpbCvfwOPeeeX5vUvnabPthZf83HdmSAuB6MTFNl6
+	sJekymiy6KtNMLayS4TjaHW5H1UGKAs=
+Received: from frank-u24.. (fttx-pool-194.15.87.210.bambit.de [194.15.87.210])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id D7892122704;
+	Mon, 16 Jun 2025 09:58:39 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Georgi Djakov <djakov@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	Jia-Wei Chang <jia-wei.chang@mediatek.com>,
+	Johnson Wang <johnson.wang@mediatek.com>,
+	=?UTF-8?q?Ar=C4=B1n=C3=A7=20=C3=9CNAL?= <arinc.unal@arinc9.com>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v4 01/13] dt-bindings: net: mediatek,net: update for mt7988
+Date: Mon, 16 Jun 2025 11:58:11 +0200
+Message-ID: <20250616095828.160900-2-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250616095828.160900-1-linux@fw-web.de>
+References: <20250616095828.160900-1-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cgo7ltpow6ehzxso"
-Content-Disposition: inline
-In-Reply-To: <20250616-gpiochip-set-rv-net-v2-4-cae0b182a552@linaro.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_025756_295206_88ADE1E0 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250616_025844_189641_25D5C5AD 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,48 +100,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Frank Wunderlich <frank-w@public-files.de>
 
---cgo7ltpow6ehzxso
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 4/5] net: can: mcp251x: use new GPIO line value setter
- callbacks
-MIME-Version: 1.0
+Update binding for mt7988 which has 3 gmac and 2 reg items.
 
-On 16.06.2025 09:24:07, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->=20
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->=20
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+With RSS-IRQs the interrupt max-items is now 6. Add interrupt-names
+to make them accessible by name.
 
-Reviewed-by: Marc Kleine-Budde <mkl@pengutronix.de>
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+v4:
+- increase max interrupts to 8 because of RSS/LRO interrupts
+- dropped Robs RB due to this change
+- allow interrupt names
+- add interrupt-names without reserved IRQs on mt7988
+  this requires mtk driver patch:
+  https://patchwork.kernel.org/project/netdevbpf/patch/20250616080738.117993-2-linux@fw-web.de/
 
-Marc
+v2:
+- change reg to list of items
+---
+ .../devicetree/bindings/net/mediatek,net.yaml | 28 ++++++++++++++++---
+ 1 file changed, 24 insertions(+), 4 deletions(-)
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+index 9e02fd80af83..f8025f73b1cb 100644
+--- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
++++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+@@ -28,7 +28,10 @@ properties:
+       - ralink,rt5350-eth
+ 
+   reg:
+-    maxItems: 1
++    items:
++      - description: Register for accessing the MACs.
++      - description: SoC internal SRAM used for DMA operations.
++    minItems: 1
+ 
+   clocks:
+     minItems: 2
+@@ -40,7 +43,11 @@ properties:
+ 
+   interrupts:
+     minItems: 1
+-    maxItems: 4
++    maxItems: 6
++
++  interrupt-names:
++    minItems: 1
++    maxItems: 6
+ 
+   power-domains:
+     maxItems: 1
+@@ -348,7 +355,17 @@ allOf:
+     then:
+       properties:
+         interrupts:
+-          minItems: 4
++          minItems: 2
++
++        interrupt-names:
++          minItems: 2
++          items:
++            - const: tx
++            - const: rx
++            - const: rx-ring0
++            - const: rx-ring1
++            - const: rx-ring2
++            - const: rx-ring3
+ 
+         clocks:
+           minItems: 24
+@@ -381,8 +398,11 @@ allOf:
+             - const: xgp2
+             - const: xgp3
+ 
++        reg:
++          minItems: 2
++
+ patternProperties:
+-  "^mac@[0-1]$":
++  "^mac@[0-2]$":
+     type: object
+     unevaluatedProperties: false
+     allOf:
+-- 
+2.43.0
 
---cgo7ltpow6ehzxso
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmhP6pYACgkQDHRl3/mQ
-kZwhTgf/Rdvldz+sfHV1GPN68aLAO5qzKJUWpvJ05B1WZ62FpeQ32yATbOX4Gdza
-PXxXP4fcb4CI/tchuSLijWxILlaHeH3XmLKr6dbISHa+3fITiyTfrT8aIVrbXad7
-B7Lk/k3xCSpFeIy59IYjx3x/JuVeAlOnId9AnKiv2eXJAJbxta5HNL9XcwpJ59kl
-68PO//pu7LDxwyyuxtoMT2xkhBV72NEQPBnK/vzYuw0sVvTxpRi4LuJtW0Twth3G
-qSspMeG2q8te19InHtEwF/hvgGE5wPwMf+pH9DBwVdFH0R5yuu4O4mzKTt2Cg6Qv
-mNLmJthXx+uFjegch384egz7Aw7oyg==
-=8T2d
------END PGP SIGNATURE-----
-
---cgo7ltpow6ehzxso--
 
