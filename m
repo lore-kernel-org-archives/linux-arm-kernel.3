@@ -4,78 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE648C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E518C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NG0s7LXs8xpG+zN85TUhl64WxXr/gRibp/pDyto5zv0=; b=jR/ZNJNYvT48hiDgEhRcYypJiy
-	3zEGqrcEoXIJF2ogiurnU/E/szjKIhwqXYL0Kx8Lu5nFib/pPSqrAEDfcuFlQofQtYdJ+P90sl83I
-	Mv2y2S82HQqSjluYOhqreOezqemGDnS4BRO8SMbWx3mGaGUyciogP58wN6PmqsCnioiqCoFzPUNu/
-	LGh/kRGBJpSStNE/sy3hSSH/C9bO5Jk106NxpoEKzaiFPXXavoI5K7lk/w4YAkKuyUn7WPOU2YhpV
-	AddoxsR0jfO1yiv+fjolRJXSwKC/qErDWE2e1F/wN5F29rirVt2VUjGqf+U0Z1IAtB/ZtW1Aev0Lr
-	+GlNZX2w==;
+	bh=KjwCIT4/G6OsPqKKNi7etA9BwyZ290LnHAyZ+vvEmLE=; b=m9L9wtS4XSKZO5kfP7PhLxooNO
+	zc0ILnoMxT4Q4k9P5NRcvSzJ3Uz6HD5bSlfq3aYrOHNDuxUllEw25qcYhIcUckZiZ3L5rbLNx57se
+	NNpTE2td6EnEe6RDu8i5BcH1kT469ORS0PiY17ZD6l6t3uU3NAsSOTXlbbuXZ0bWBOtq0mLrLOJnz
+	WYK7OslCJHHnzMcfaK3MCXa5Z6X2FslAfr/3UKtUkCvJQD/KMawobUX7BgSU1qSP5LoLghhlctEEI
+	saK1cH6EyPZTM3g1LgWug6h0ILqtfQ9jmHZE2cyQSn8cRKNQX04JA4RwlJFHDAR+EBylLvrGglZtF
+	/S3jgPNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0vq-00000003IeL-0JDi;
-	Mon, 16 Jun 2025 03:54:50 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1uR0yY-00000003Ir4-1A9M;
+	Mon, 16 Jun 2025 03:57:38 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0W3-00000003G5K-279c
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 03:28:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750044492; x=1781580492;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=OBHrIbSL+kVLYZcNrGsRVOq3vlVKlEr4ATmlpyHec4g=;
-  b=G9VMAHgoSU+lLFWqfHvhHVxDNqc0gjHJQKSqM9JC15Do6PeGPWVDJNL5
-   NCeD/2tLz/H24cq9mHe17PjtwWVQmAomTf3Tb1ZqAdgSMvJU35IcEUhcR
-   3qI0nPrQYM/8R9OFmpW5Fgf/aMGpx/g98EP69RoNJ62UVsgyqwpnwLtIn
-   vvKhVFP86aLmZkXiAkBHMPD5hiWxM98G5mnzMci638nW+JF1RpnoSrdki
-   XdIjg2BGmdXXbo9UaFRo0xhOD0leevLJdkYn42Lnsr+Ie+x1sXIaPrIH2
-   W6ehERVfTnXG9XS9a3Y5VDlS11DB8NnlsGmVKy27ZRezuNB94roK+CHRg
-   g==;
-X-CSE-ConnectionGUID: ijqBhiHmR0ult4CamvBLUw==
-X-CSE-MsgGUID: s8IOn0J/RO+/DZvXka1Afg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="52269826"
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="52269826"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:28:12 -0700
-X-CSE-ConnectionGUID: a8uc1QaeSDizUFA//+SP+A==
-X-CSE-MsgGUID: 7aN3AdV0RMqe4irRZ+9pzQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="149262538"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:28:07 -0700
-Message-ID: <8df501e1-73e0-4668-8ebb-880d4b70c53f@linux.intel.com>
-Date: Mon, 16 Jun 2025 11:27:08 +0800
+	id 1uR0ik-00000003HK7-0O6K;
+	Mon, 16 Jun 2025 03:41:19 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7399a2dc13fso4360052b3a.2;
+        Sun, 15 Jun 2025 20:41:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750045277; x=1750650077; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KjwCIT4/G6OsPqKKNi7etA9BwyZ290LnHAyZ+vvEmLE=;
+        b=m7kHl5ruwwKGESdgYQt4Ut1iNcs5h9oRLta84fE+eNs1Z2F7348VguVIplxOUsNGU3
+         A5e2OLgIDXLQNam2BXHWdsAONwf4vaXJ8vm8iMT5KUbiriDQmoO4Juokne2ucphFZtR1
+         YZYxWysO5cI1CgUykAI84Ok566Sv6KR0gS1TW94opAgjulim7sCzS+UjT5YyUjpOaflE
+         rUX4x4Y3R/drfHK6yfpUIGn4msMEU9gXJCyUtNDFmYGtxDb6NEe4szZGf5EfBomyIRcO
+         7oA43UhQx2Bd3RRiL6yhxsd1akla49gv3KVodYsy2roVv8op1wOla64KY++/2O7gfd+8
+         GqCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750045277; x=1750650077;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KjwCIT4/G6OsPqKKNi7etA9BwyZ290LnHAyZ+vvEmLE=;
+        b=kbS0yoHXd22Xi8jnxp0jt0QECeha94YZbe/5IxMitiwI3fcc3kMDC4FWVCavmGHDjK
+         3cHAD7d53Ajon2aXli/BtIjtfMSojZ1eWpy9cko6/wdNHt4jwwJuvFFt4ipn/dNlOQdx
+         iQ/2E78irldvXcFzJZZaScd/wNHKLKxsrq1g9CM1JbzLhl29VaWIyHeEyHAmPJ8EiLWi
+         5FayTQgUtE8n/BUC6ddzglejZ3ck85AETmVT6nBJ+ozVXoa/jlFVSxRQhjdhY9F6fP35
+         HlMpKTZ5PoHCnt546DlO+0qPPp3ytOXz+BQ8Sa4TNb+/SpBkDUaeTzLxhWGcfU4vnkSb
+         FjEA==
+X-Forwarded-Encrypted: i=1; AJvYcCUqlcEm6RklbfHrnBqSbdTE2i7/TgNBTbSiBI1XaCc5GeXppTfXJXNzgveGfwxIbLSywTd/IO49Ri3xzpS33v4=@lists.infradead.org, AJvYcCVg+lD1Kzg6P6CKudTOE3k0Boac4o/g0nmNVUukHPxr9xbosPn8ubNYyMDwoAI1X77ySHvygyXveWIdZGDJAvhT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAdA5qbmpAIW8EJVjmczfPZzJjKyNwOdUub8AzFzU9Av4FdONG
+	29EtHjhsuy3ziEF7iCH9gsJyD1029vUfe6nbSHeqQGFpf0zKRJYzJ2f4
+X-Gm-Gg: ASbGncvxA02M62cFdA5dUUiHp2OAEb22IiZ1gyrzjPC9/5dnN+EbrUhHsVAofcclYpe
+	9nqw2ETacbO2rEt4JC7bNxQwKOoeT5l3FhpwUGp/TV70PqWAc6oTEGp7UpncqoN9g+lf44pMzgB
+	WsBBImZcd7g/gTnbYmEkMh9TlR1SX0k7f6feGl0B/5AfnCDZNPX6u2zszAg2nCOHp3RQ9l08QwH
+	DMA9gWJNn0r0GlhZckUKNqKYbLB0jqCeL3gCfXzniYQhIcQ8b9cb0Qw9+vpgMJR1p6UOLIkG3w+
+	HqYIMPkYY+GnjjaALfWy3NImBsOc8fGXWDeAmuj65xG4txFCZ4Ckr6Zm6mqjNOWYm4jibI1gwcB
+	Zkyu3
+X-Google-Smtp-Source: AGHT+IFoXXdADq54s1YJVoHHCyU6912PkQq0oVs1W/N3IeK6HcDSKJErbEsGyC7KzvI7wyF0q8jdCg==
+X-Received: by 2002:a05:6a00:2286:b0:736:2a73:6756 with SMTP id d2e1a72fcca58-7489d1999famr11297185b3a.21.1750045276897;
+        Sun, 15 Jun 2025 20:41:16 -0700 (PDT)
+Received: from Barrys-MBP.hub ([118.92.145.159])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-748900b37ddsm5809347b3a.134.2025.06.15.20.41.10
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 15 Jun 2025 20:41:16 -0700 (PDT)
+From: Barry Song <21cnbao@gmail.com>
+To: nphamcs@gmail.com,
+	hannes@cmpxchg.org
+Cc: 21cnbao@gmail.com,
+	akpm@linux-foundation.org,
+	andrew.yang@mediatek.com,
+	angelogioacchino.delregno@collabora.com,
+	casper.li@mediatek.com,
+	chinwen.chang@mediatek.com,
+	james.hsu@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-mm@kvack.org,
+	matthias.bgg@gmail.com,
+	minchan@kernel.org,
+	qun-wei.lin@mediatek.com,
+	rppt@kernel.org,
+	senozhatsky@chromium.org
+Subject: Re: [PATCH] mm: Add Kcompressd for accelerated memory compression
+Date: Mon, 16 Jun 2025 15:41:06 +1200
+Message-Id: <20250616034106.1978-1-21cnbao@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <CAKEwX=MsP6LGjMRNyaHnO5MkE_ne-u-cKLbGfVQcSR-ALoxBwA@mail.gmail.com>
+References: <CAKEwX=MsP6LGjMRNyaHnO5MkE_ne-u-cKLbGfVQcSR-ALoxBwA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/14] iommufd: Introduce iommufd_object_alloc_ucmd
- helper
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
- yi.l.liu@intel.com, peterz@infradead.org, jsnitsel@redhat.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, patches@lists.linux.dev
-References: <cover.1749882255.git.nicolinc@nvidia.com>
- <e7206d4227844887cc8dbf0cc7b0242580fafd9d.1749882255.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <e7206d4227844887cc8dbf0cc7b0242580fafd9d.1749882255.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_202811_610546_3CC32EF6 
-X-CRM114-Status: UNSURE (   6.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250615_204118_147658_4B62D8FA 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,21 +113,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/14/25 14:35, Nicolin Chen wrote:
-> An object allocator needs to call either iommufd_object_finalize() upon a
-> success or iommufd_object_abort_and_destroy() upon an error code.
-> 
-> To reduce duplication, store a new_obj in the struct iommufd_ucmd and call
-> iommufd_object_finalize/iommufd_object_abort_and_destroy() accordingly in
-> the main function.
-> 
-> Similar to iommufd_object_alloc() and __iommufd_object_alloc(), add a pair
-> of helpers: __iommufd_object_alloc_ucmd() and iommufd_object_alloc_ucmd().
-> 
-> Suggested-by: Jason Gunthorpe<jgg@nvidia.com>
-> Reviewed-by: Kevin Tian<kevin.tian@intel.com>
-> Reviewed-by: Jason Gunthorpe<jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+Hi Nhat, Johannes,
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+>> The way you implemented this adds time-and-space overhead even on
+>> systems that don't have any sort of swap compression enabled.
+
+I agree — we can eliminate the time and space overhead by refining the  
+code to hook kcompressed only when zswap or zram is enabled.
+
+>>
+>> That seems unnecessary. There is an existing method for asynchronous
+>> writeback, and pageout() is naturally fully set up to handle this.
+>>
+>> IMO the better way to do this is to make zswap_store() (and
+>> zram_bio_write()?) asynchronous. Make those functions queue the work
+>> and wake the compression daemon, and then have the daemon call
+>> folio_end_writeback() / bio_endio() when it's done with it.
+
+> +1.
+
+
+But,
+How could this be possible for zswap? zswap_store() is only a frontend —  
+we still need its return value to determine whether __swap_writepage()  
+is required. Waiting for the result of zswap_store() is inherently a  
+synchronous step.
+
+My point is that folio_end_writeback() and bio_endio() can only be  
+called after the entire zswap_store() → __swap_writepage() sequence is  
+completed. That’s why both are placed in the new kcompressed.
+
+The use of folio_end_writeback() and bio_endio() was the case for zRAM  
+in Qun-Wei's RFC.
+
+https://lore.kernel.org/linux-mm/20250307120141.1566673-3-qun-wei.lin@mediatek.com/
+
+However, the implementation tightly coupled zRAM with reclamation logic.  
+For example, zRAM needed to know whether it was running in the kswapd  
+context, which is not ideal for a generic block device — the role zRAM  
+is supposed to play. Additionally, the code was not shared between zswap  
+and zRAM.
+
+Thanks
+Barry
 
