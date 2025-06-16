@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F23C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E14C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ygj9TjOfjQ/NdzUcUqlBJpH8gb+mnv4/bas08gkNg/g=; b=gFfjEEyVP4PLr/
-	2EknjD1vC/j2jmGplkUknz0QihOC34LAmEffwecC2ipLwD+jLWkubdZV4mtc4zh3/7D0L5Tp9VbbT
-	HqLZGGxgeRMPxNqOXy2IJ0LAkiIcExtJmi5kzLYbmxqkDp6IWAg2TGpMAjWaw1b0mbl6v8STLu2Kl
-	3NbH5j4oHX5hvEMia9GkWd7LH2NYWdwZ7fkK12hv++ZswOkeTcd5b/riUdETh5k3zzy9fN9YDElDd
-	tkhWh5Xs2tgV8M9BF3zRE/kS2OelhDfrWWe0Cbvmode1QKeKfJVSnZmEMn/49Fz+ZaF/KUiEJQnd8
-	P5UOOmQTijz89+vYDQBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Acj1EGAFTyohMKuswlv6NYSLXITq3gI/r2mqlq2rlDo=; b=TzZK+6W3ohybGaU679E1IPaV4C
+	Dvv32bBreXxYhOT1JknxlaQvGbqwnnb2xojBs/TPaDfxXxg9XECoGxfnRAS45m2o/aWW23G93EbPl
+	8kFktYfbtdoow2KJAE2yWpIsTDq68J+WwZXIr1jIEyrv6siYnRP3P7PhCVpnvs+urrUtrcb1g2fbt
+	KWQFdHFv1C2y1oxUdE6wf45MZ3TjQAIYYfBt+vpr3nug8/ZVi5NtKArXq3eKikw80xp1BWHUaxrGJ
+	qN0FrxIlEKXND3NULJ5JUif+a36SpLmIi2RbCT0p6aunroN3ohSKu0uykn8RFLOP6mRysyx/2ixHe
+	/6mBpsbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLZ-000000055A2-2pOo;
-	Mon, 16 Jun 2025 17:10:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uRDLi-000000055Oj-2WaX;
+	Mon, 16 Jun 2025 17:10:22 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRA9n-00000004aZB-1yz6;
-	Mon, 16 Jun 2025 13:45:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 737C961139;
-	Mon, 16 Jun 2025 13:45:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB234C4CEEA;
-	Mon, 16 Jun 2025 13:45:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750081550;
-	bh=RTUvtWJIHeJfRXaRZvoP7GhruXdkJkNjDL2jCXJOtRE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=EmWNsdkctCoADDzcTZHXywQyCBFhSrqhSKZJpPBH5SxlROx3RB2/NViPa/2ENnRKI
-	 utQKiSm5ix1t8G4Azb+NNH7SmhHq0oae2q/kA7O/OqEUtqHKQcd/hmvwa10ZHIuw4F
-	 09njSbYfB+rAm3/1VXZZhkfdcoU5iwdTkw+FhNzLlDvYIqy6gwl1/zU50Mn5KhWQOW
-	 ZUTWtskPkTzJLG3ghhw6u25wm2jnqu1lP0cAFO9oqxSPg5MekIi3+Wx4pJ8QSK59Rm
-	 cRLIVNOl6DZaVH2C1HFToKgtkLeO/lbmuOcFVX7qa6CQ1T9tX69Wf1lzjCkl/Fq/Og
-	 OWpKq0cqnp1WA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next v2 0/2] net: airoha: Improve hwfd
- buffer/descriptor queues setup
-Date: Mon, 16 Jun 2025 15:45:39 +0200
-Message-Id: <20250616-airoha-hw-num-desc-v2-0-bb328c0b8603@kernel.org>
+	id 1uRBG1-00000004lti-1E3O;
+	Mon, 16 Jun 2025 14:56:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1750085776;
+	bh=iAx8mzEEjM64kl3dReqUnCAxjjZTtPCO99ShqsJi2Qk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=moaFefQzNAqyMxNFZCgYN7/ZIY2A3LlHEqJJ6rErfkLEiDIJsEQi2Yfp4kotwQcp+
+	 QvwQJhKsC0De+iTa8FzHuGsLuCo9iVCVy8zseEFKbLpMHGKnXnFqOb4VIrgacktzBt
+	 YdcvTsIGhQDxeGRnX541dW7kq/zej4dnrlxJmP4rWM99R2yOoG8D+pRJz037kxiKsh
+	 XxSv/pMzunbcGctCR8K0iel2dQx8KbVN2Ibb5az8oVSKt1o87jFrb1tCrH1NadgkZh
+	 J37uGjNXVr6h/gJhfRexk9Rw/1Ml8LtGSxlhbixd6H1eljmOvBa7WRflgvCQxkwVkm
+	 avMTF2ntxanxg==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:4811:e81c:4b33:730c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D829717E35D9;
+	Mon, 16 Jun 2025 16:56:15 +0200 (CEST)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-media@vger.kernel.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH 5/5] media: verisilicon: Flush IOMMU before decoding a frame
+Date: Mon, 16 Jun 2025 16:55:53 +0200
+Message-ID: <20250616145607.116639-6-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
+References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAMgUGgC/22NwQrCMBBEf0X27EoSWls9+R/SQ0y2zaImstGql
- P67seDN45th3kyQSZgy7FcTCI2cOcUCZr0CF2wcCNkXBqNMrba6QsuSgsXwxPi4oqfsUOmdU01
- pXWWgDG9CPb8W6bErHDjfk7yXj1F/05+u/qcbNSps+7b11lb25JvDmSTSZZNkgG6e5w+OKBOIt
- QAAAA==
-X-Change-ID: 20250614-airoha-hw-num-desc-019c07061c42
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250616_075621_473167_E7A57D59 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Compute the number of hwfd buffers/descriptors according to the reserved
-memory size if provided via DTS.
-Reduce the required hwfd buffers queue size for QDMA1.
+Flush the IOMMU mapping before decoding a frame to ensure that all memory
+translations are properly applied.
 
+Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 ---
-Changes in v2:
-- Rely on div_u64 to compute number of hw descriptors
-- Link to v1: https://lore.kernel.org/r/20250615-airoha-hw-num-desc-v1-0-8f88daa4abd7@kernel.org
+ drivers/media/platform/verisilicon/hantro_drv.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
----
-Lorenzo Bianconi (2):
-      net: airoha: Compute number of descriptors according to reserved memory size
-      net: airoha: Differentiate hwfd buffer size for QDMA0 and QDMA1
-
- drivers/net/ethernet/airoha/airoha_eth.c | 27 ++++++++++++++++-----------
- 1 file changed, 16 insertions(+), 11 deletions(-)
----
-base-commit: 8909f5f4ecd551c2299b28e05254b77424c8c7dc
-change-id: 20250614-airoha-hw-num-desc-019c07061c42
-
-Best regards,
+diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+index 8542238e0fb1..5a672467d83f 100644
+--- a/drivers/media/platform/verisilicon/hantro_drv.c
++++ b/drivers/media/platform/verisilicon/hantro_drv.c
+@@ -11,6 +11,9 @@
+  */
+ 
+ #include <linux/clk.h>
++#include <linux/dma-map-ops.h>
++#include <linux/iommu.h>
++#include <linux/iommu-dma.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+@@ -186,6 +189,14 @@ static void device_run(void *priv)
+ 
+ 	v4l2_m2m_buf_copy_metadata(src, dst, true);
+ 
++	if (use_dma_iommu(ctx->dev->v4l2_dev.dev)) {
++		struct iommu_domain *mmu_dom;
++
++		mmu_dom = iommu_get_domain_for_dev(ctx->dev->v4l2_dev.dev);
++		if (mmu_dom)
++			iommu_flush_iotlb_all(mmu_dom);
++	}
++
+ 	if (ctx->codec_ops->run(ctx))
+ 		goto err_cancel_job;
+ 
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.43.0
 
 
