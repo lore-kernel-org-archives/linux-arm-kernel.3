@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2385BC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 02:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7446C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 02:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mZWWYnFBPyJudWQm2pS3MobDt1cZSh8Cvsz5N3L4NLA=; b=JDw0Jk03l7zt2fNRXfCrtgBC3m
-	M+gGdERmPV3EesINaNMlLokExqsrxWzBzFC+JV+2wU1TlhmtSDZsMXquRoE/s9SviN0A+E+T7uW9y
-	27DDZIn9ROqeiqZKOJ3BZaMBqqDvgBtnfDPLHpheW3AHhTcVlKCNxh4Gan+E1701gNUgg7dwsgy9Y
-	VlEMwIR1RxstXL7ouneRwf11/T7Yzj7YxZQFA9DbFfasqSAaccMw3fVCGdsA1wpaXx+7uS2VwPhAO
-	fVGvwf1pkEYucWOostChceiUNRMEzXIPzrnz2j1DuO3KjfOYqQrVgC+pgvGyATyKXR8Wx1meGqQqR
-	pkHUhNQQ==;
+	bh=ofl6Xvs+SZI+IcwhjXPcJ9qRy25z7+9SkGFo0+urxZM=; b=jzFg/4kjcKJFFVATIkyLkWKLnQ
+	wbBgLeXntYwBxl/SElvxEQ8vaE7V3s/1OGdZpsYG1Cs/gSJi3RP+MD4ZkZMuuY7QHbO3Gw+D4T5pJ
+	fMspZDrTZT/8prS0JMyTQNJEggzwKr0MLvlN2MLD+I+fkPRk3MaqjV0sml4iRcxeYlopB5BDqZ12r
+	3g+YZihV59klZd5Fg7e4mq76V/anSPA18NASl2Lt45s45YX+Bs1/XfZ0m0mKjkgr5qaJ/4b8IPonW
+	TDt5opcqGWEfOKTyzi9slM1rMTSjLhbBT6ycLxln8eVahbPd2vXLe4GGfrnEr1uHuegj90BrpHR/P
+	6fVn4dng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQzlO-00000003B65-2Vxv;
-	Mon, 16 Jun 2025 02:39:58 +0000
+	id 1uQznZ-00000003BJt-47P6;
+	Mon, 16 Jun 2025 02:42:13 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uQyrF-000000035dN-3ZwC;
-	Mon, 16 Jun 2025 01:41:57 +0000
+	id 1uQyrH-000000035eU-0Igo;
+	Mon, 16 Jun 2025 01:41:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 400CA61155;
+	by tor.source.kernel.org (Postfix) with ESMTP id 81D6A61155;
+	Mon, 16 Jun 2025 01:41:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E196AC4CEF5;
 	Mon, 16 Jun 2025 01:41:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88D81C4CEF5;
-	Mon, 16 Jun 2025 01:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750038116;
-	bh=UT3F63GhPfuN8dwm7ZZEQWDXVa1RJDqASWr59Op8UtU=;
+	s=k20201202; t=1750038118;
+	bh=/OUBebx8cR5O9HN1vrTP7fR+8DbcCfZAKgQbXYsaEr0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=r8XR/DR/zNKcRCabaDN0YDhDtUAzk2t0BSYHybIqrhpWgOMy7c+ipYWtq8lvKoxM3
-	 NVSEplCh9dnzb46ryLAdrl/LFQydRCSw7C+tdhLNRZ5KFe5WX6cIWPLWmDEo15tfp5
-	 JKP3vT+ETTEbtIIUm16r4V9s3V9O7lAS6tsNEkYLpK/x1IYMWAoCOgKU1EbzrichHG
-	 O8oacmgZeGIq9UdflKNJ4hYka29HKQfbZT6z0NogYS1HOyJy8Lr6VhyUvGB+JJ80p+
-	 T4FYX9rUjIZi2gWeW/Izrp0SUIY9wtU/xzivgFB9uu9BsNYLLZaEfOZkfeVOiCdrlp
-	 2EEQWrZ6i5lZg==
+	b=aqiXmBrAwvo++zUC0AbPG0JOVgYhBgrunpGmDYtJECvE7XRPuLb3FBKSKMfhWUj3c
+	 1y1GZIgLVACfZkZNZaFg4t4LXbVB+lXsnHSqznQI53o8IF/xu3emEl+50Q1L8vCHge
+	 hvx5243UCiq5zPWhEtkov4qVzMCX8fqHmYIENQlHHu2MyOj/2hfnxxKxk+Xuz8JKno
+	 c8gBEX4acW1gIY3jASt5OEaHzhWH1E31Esk3j2VhT1CSXIPwBX0TdKht7xJvHqEoBZ
+	 Ibw/4+eIEkipFB1KPKOHjGUSKyJzBWX9a+tRgmN38G8vD4Ch/xGnezKv0Qopj3dpw1
+	 dwKvCIARJ+Ncw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,9 +53,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH v2 08/17] crypto: sha512 - use same state format as legacy drivers
-Date: Sun, 15 Jun 2025 18:40:10 -0700
-Message-ID: <20250616014019.415791-9-ebiggers@kernel.org>
+Subject: [PATCH v2 11/17] mips: cavium-octeon: move octeon-crypto.h into asm directory
+Date: Sun, 15 Jun 2025 18:40:13 -0700
+Message-ID: <20250616014019.415791-12-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250616014019.415791-1-ebiggers@kernel.org>
 References: <20250616014019.415791-1-ebiggers@kernel.org>
@@ -77,206 +77,148 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Make the export and import functions for the sha384, sha512,
-hmac(sha384), and hmac(sha512) shash algorithms use the same format as
-the padlock-sha and nx-sha512 drivers, as required by Herbert.
+Since arch/mips/cavium-octeon/crypto/octeon-crypto.h is now needed
+outside of its directory, move it to
+arch/mips/include/asm/octeon/crypto.h so that it can be included as
+<asm/octeon/crypto.h>.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- crypto/sha512.c | 84 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 84 insertions(+)
+ arch/mips/cavium-octeon/crypto/octeon-crypto.c                 | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-md5.c                    | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-sha1.c                   | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-sha256.c                 | 3 +--
+ arch/mips/cavium-octeon/crypto/octeon-sha512.c                 | 3 +--
+ .../crypto/octeon-crypto.h => include/asm/octeon/crypto.h}     | 0
+ 6 files changed, 5 insertions(+), 10 deletions(-)
+ rename arch/mips/{cavium-octeon/crypto/octeon-crypto.h => include/asm/octeon/crypto.h} (100%)
 
-diff --git a/crypto/sha512.c b/crypto/sha512.c
-index ad9c8b2ddb129..0eed801346018 100644
---- a/crypto/sha512.c
-+++ b/crypto/sha512.c
-@@ -10,10 +10,36 @@
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-crypto.c b/arch/mips/cavium-octeon/crypto/octeon-crypto.c
+index cfb4a146cf178..0ff8559391f5b 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-crypto.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-crypto.c
+@@ -5,16 +5,15 @@
+  *
+  * Copyright (C) 2004-2012 Cavium Networks
+  */
+ 
+ #include <asm/cop2.h>
++#include <asm/octeon/crypto.h>
+ #include <linux/export.h>
+ #include <linux/interrupt.h>
+ #include <linux/sched/task_stack.h>
+ 
+-#include "octeon-crypto.h"
+-
+ /**
+  * Enable access to Octeon's COP2 crypto hardware for kernel use. Wrap any
+  * crypto operations in calls to octeon_crypto_enable/disable in order to make
+  * sure the state of COP2 isn't corrupted if userspace is also performing
+  * hardware crypto operations. Allocate the state parameter on the stack.
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-md5.c b/arch/mips/cavium-octeon/crypto/octeon-md5.c
+index fbc84eb7fedf5..a8ce831e2cebd 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-md5.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-md5.c
+@@ -17,20 +17,19 @@
+  * under the terms of the GNU General Public License as published by the Free
+  * Software Foundation; either version 2 of the License, or (at your option)
+  * any later version.
+  */
+ 
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
  #include <crypto/internal/hash.h>
- #include <crypto/sha2.h>
+ #include <crypto/md5.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/string.h>
+ #include <linux/unaligned.h>
+ 
+-#include "octeon-crypto.h"
+-
+ struct octeon_md5_state {
+ 	__le32 hash[MD5_HASH_WORDS];
+ 	u64 byte_count;
+ };
+ 
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha1.c b/arch/mips/cavium-octeon/crypto/octeon-sha1.c
+index e70f21a473daf..e4a369a7764fb 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha1.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-sha1.c
+@@ -11,20 +11,19 @@
+  * Copyright (c) Alan Smithee.
+  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+  * Copyright (c) Jean-Francois Dive <jef@linuxbe.org>
+  */
+ 
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha1.h>
+ #include <crypto/sha1_base.h>
+ #include <linux/errno.h>
  #include <linux/kernel.h>
  #include <linux/module.h>
  
-+/*
-+ * Export and import functions.  crypto_shash wants a particular format that
-+ * matches that used by some legacy drivers.  It currently is the same as the
-+ * library SHA context but with the partial block length as a u8 appended to it.
-+ */
-+
-+#define SHA512_SHASH_STATE_SIZE 209
-+static_assert(offsetof(struct __sha512_ctx, state) == 0);
-+static_assert(offsetof(struct __sha512_ctx, bytecount_lo) == 64);
-+static_assert(offsetof(struct __sha512_ctx, bytecount_hi) == 72);
-+static_assert(offsetof(struct __sha512_ctx, buf) == 80);
-+static_assert(sizeof(struct __sha512_ctx) + 1 == SHA512_SHASH_STATE_SIZE);
-+
-+static int __crypto_sha512_export(const struct __sha512_ctx *ctx, void *out)
-+{
-+	memcpy(out, ctx, sizeof(*ctx));
-+	*((u8 *)out + sizeof(*ctx)) = ctx->bytecount_lo % SHA512_BLOCK_SIZE;
-+	return 0;
-+}
-+
-+static int __crypto_sha512_import(struct __sha512_ctx *ctx, const void *in)
-+{
-+	memcpy(ctx, in, sizeof(*ctx));
-+	return 0;
-+}
-+
- /* SHA-384 */
+-#include "octeon-crypto.h"
+-
+ /*
+  * We pass everything as 64-bit. OCTEON can handle misaligned data.
+  */
  
- const u8 sha384_zero_message_hash[SHA384_DIGEST_SIZE] = {
- 	0x38, 0xb0, 0x60, 0xa7, 0x51, 0xac, 0x96, 0x38,
- 	0x4c, 0xd9, 0x32, 0x7e, 0xb1, 0xb1, 0xe3, 0x6a,
-@@ -50,10 +76,20 @@ static int crypto_sha384_digest(struct shash_desc *desc,
- {
- 	sha384(data, len, out);
- 	return 0;
- }
+ static void octeon_sha1_store_hash(struct sha1_state *sctx)
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha256.c b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
+index f93faaf1f4af6..c20038239cb6b 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha256.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
+@@ -10,17 +10,16 @@
+  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+  * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
+  * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
+  */
  
-+static int crypto_sha384_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha512_export(&SHA384_CTX(desc)->ctx, out);
-+}
-+
-+static int crypto_sha384_import(struct shash_desc *desc, const void *in)
-+{
-+	return __crypto_sha512_import(&SHA384_CTX(desc)->ctx, in);
-+}
-+
- /* SHA-512 */
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
+ #include <crypto/internal/sha2.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
  
- const u8 sha512_zero_message_hash[SHA512_DIGEST_SIZE] = {
- 	0xcf, 0x83, 0xe1, 0x35, 0x7e, 0xef, 0xb8, 0xbd,
- 	0xf1, 0x54, 0x28, 0x50, 0xd6, 0x6d, 0x80, 0x07,
-@@ -92,10 +128,20 @@ static int crypto_sha512_digest(struct shash_desc *desc,
- {
- 	sha512(data, len, out);
- 	return 0;
- }
+-#include "octeon-crypto.h"
+-
+ /*
+  * We pass everything as 64-bit. OCTEON can handle misaligned data.
+  */
  
-+static int crypto_sha512_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha512_export(&SHA512_CTX(desc)->ctx, out);
-+}
-+
-+static int crypto_sha512_import(struct shash_desc *desc, const void *in)
-+{
-+	return __crypto_sha512_import(&SHA512_CTX(desc)->ctx, in);
-+}
-+
- /* HMAC-SHA384 */
+ void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha512.c b/arch/mips/cavium-octeon/crypto/octeon-sha512.c
+index 215311053db3c..53de74f642db0 100644
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha512.c
++++ b/arch/mips/cavium-octeon/crypto/octeon-sha512.c
+@@ -11,19 +11,18 @@
+  * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
+  * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+  * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
+  */
  
- #define HMAC_SHA384_KEY(tfm) ((struct hmac_sha384_key *)crypto_shash_ctx(tfm))
- #define HMAC_SHA384_CTX(desc) ((struct hmac_sha384_ctx *)shash_desc_ctx(desc))
++#include <asm/octeon/crypto.h>
+ #include <asm/octeon/octeon.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha2.h>
+ #include <crypto/sha512_base.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
  
-@@ -131,10 +177,23 @@ static int crypto_hmac_sha384_digest(struct shash_desc *desc,
- {
- 	hmac_sha384(HMAC_SHA384_KEY(desc->tfm), data, len, out);
- 	return 0;
- }
+-#include "octeon-crypto.h"
+-
+ /*
+  * We pass everything as 64-bit. OCTEON can handle misaligned data.
+  */
  
-+static int crypto_hmac_sha384_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha512_export(&HMAC_SHA384_CTX(desc)->ctx.sha_ctx, out);
-+}
-+
-+static int crypto_hmac_sha384_import(struct shash_desc *desc, const void *in)
-+{
-+	struct hmac_sha384_ctx *ctx = HMAC_SHA384_CTX(desc);
-+
-+	ctx->ctx.ostate = HMAC_SHA384_KEY(desc->tfm)->key.ostate;
-+	return __crypto_sha512_import(&ctx->ctx.sha_ctx, in);
-+}
-+
- /* HMAC-SHA512 */
- 
- #define HMAC_SHA512_KEY(tfm) ((struct hmac_sha512_key *)crypto_shash_ctx(tfm))
- #define HMAC_SHA512_CTX(desc) ((struct hmac_sha512_ctx *)shash_desc_ctx(desc))
- 
-@@ -170,10 +229,23 @@ static int crypto_hmac_sha512_digest(struct shash_desc *desc,
- {
- 	hmac_sha512(HMAC_SHA512_KEY(desc->tfm), data, len, out);
- 	return 0;
- }
- 
-+static int crypto_hmac_sha512_export(struct shash_desc *desc, void *out)
-+{
-+	return __crypto_sha512_export(&HMAC_SHA512_CTX(desc)->ctx.sha_ctx, out);
-+}
-+
-+static int crypto_hmac_sha512_import(struct shash_desc *desc, const void *in)
-+{
-+	struct hmac_sha512_ctx *ctx = HMAC_SHA512_CTX(desc);
-+
-+	ctx->ctx.ostate = HMAC_SHA512_KEY(desc->tfm)->key.ostate;
-+	return __crypto_sha512_import(&ctx->ctx.sha_ctx, in);
-+}
-+
- /* Algorithm definitions */
- 
- static struct shash_alg algs[] = {
- 	{
- 		.base.cra_name		= "sha384",
-@@ -184,11 +256,14 @@ static struct shash_alg algs[] = {
- 		.digestsize		= SHA384_DIGEST_SIZE,
- 		.init			= crypto_sha384_init,
- 		.update			= crypto_sha384_update,
- 		.final			= crypto_sha384_final,
- 		.digest			= crypto_sha384_digest,
-+		.export			= crypto_sha384_export,
-+		.import			= crypto_sha384_import,
- 		.descsize		= sizeof(struct sha384_ctx),
-+		.statesize		= SHA512_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "sha512",
- 		.base.cra_driver_name	= "sha512-lib",
- 		.base.cra_priority	= 100,
-@@ -197,11 +272,14 @@ static struct shash_alg algs[] = {
- 		.digestsize		= SHA512_DIGEST_SIZE,
- 		.init			= crypto_sha512_init,
- 		.update			= crypto_sha512_update,
- 		.final			= crypto_sha512_final,
- 		.digest			= crypto_sha512_digest,
-+		.export			= crypto_sha512_export,
-+		.import			= crypto_sha512_import,
- 		.descsize		= sizeof(struct sha512_ctx),
-+		.statesize		= SHA512_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "hmac(sha384)",
- 		.base.cra_driver_name	= "hmac-sha384-lib",
- 		.base.cra_priority	= 100,
-@@ -212,11 +290,14 @@ static struct shash_alg algs[] = {
- 		.setkey			= crypto_hmac_sha384_setkey,
- 		.init			= crypto_hmac_sha384_init,
- 		.update			= crypto_hmac_sha384_update,
- 		.final			= crypto_hmac_sha384_final,
- 		.digest			= crypto_hmac_sha384_digest,
-+		.export			= crypto_hmac_sha384_export,
-+		.import			= crypto_hmac_sha384_import,
- 		.descsize		= sizeof(struct hmac_sha384_ctx),
-+		.statesize		= SHA512_SHASH_STATE_SIZE,
- 	},
- 	{
- 		.base.cra_name		= "hmac(sha512)",
- 		.base.cra_driver_name	= "hmac-sha512-lib",
- 		.base.cra_priority	= 100,
-@@ -227,11 +308,14 @@ static struct shash_alg algs[] = {
- 		.setkey			= crypto_hmac_sha512_setkey,
- 		.init			= crypto_hmac_sha512_init,
- 		.update			= crypto_hmac_sha512_update,
- 		.final			= crypto_hmac_sha512_final,
- 		.digest			= crypto_hmac_sha512_digest,
-+		.export			= crypto_hmac_sha512_export,
-+		.import			= crypto_hmac_sha512_import,
- 		.descsize		= sizeof(struct hmac_sha512_ctx),
-+		.statesize		= SHA512_SHASH_STATE_SIZE,
- 	},
- };
- 
- static int __init crypto_sha512_mod_init(void)
- {
+ static void octeon_sha512_store_hash(struct sha512_state *sctx)
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-crypto.h b/arch/mips/include/asm/octeon/crypto.h
+similarity index 100%
+rename from arch/mips/cavium-octeon/crypto/octeon-crypto.h
+rename to arch/mips/include/asm/octeon/crypto.h
 -- 
 2.49.0
 
