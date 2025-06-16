@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8140CC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DC7C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 04:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYsgdfYPwkFFfUZER4aa8Gaph1uOV+oqsaz1eP+b7aY=; b=iGsb8WTyCn+Ooa6jsY0gwh9a61
-	NW+X0x5qeWp+/CrgiHa7kP4nScOvYUUE/OUnkFE6dsQufZlm+n1p69OxwRVaCF1EA5K2hwi88bGht
-	fXYkoR2pGWJfpicUIHQ/SgGdhptpPOps3OE0fxIhrWgUx2KnMAHweKhRUxCc74LJEzb3+bc8A4En0
-	bDixIHehZJhlrirHoTUvOkeTtILon08oNEQMN6DwvZZ3/RRYJrlCA3evb9FSleZLQ0uh5bAILlTe+
-	V77Y4/UGUtIRzGhHXpdZsskrHs3TjDTR5gPGuTbShZ5HeXvp5XC33Z2yzoZOAX62Wu/FnlMfg1B3A
-	zF66JOWA==;
+	bh=R2XP3LvxSkKgAmuf1scfer2ffZFr0Q7mTzip4JPrPok=; b=MQtsTr5lx5NrsCs7zs73QrI7ek
+	hYSEADJMAyk8sy5rukl5QCiWaQkfeYtAZA5k7Q0q+gSsxsq1n3jx8EGBw1ikTOJ/y5W9QAFMuxdr0
+	JkXeKVGLQ2F5aDp4LgQrjpkhdT28NeWeQZYzaslvPpxdqEAYIAk3+yDWtyJJ+KOqcFygq9xTrH/wB
+	RPAFE9bcPupSfE64TNxfwf239cQi8ONcyJQnV5HV3g3w0ffIRmiME0HHm5GRvLkJ+Xq/IAWDce8i3
+	j1fxdmOb53dLKb+K54ZFae1Y3UDfPqgbSOvdVTp7z++DZOhbjCLDpIS2aOnuj+utRumhOc6j8as0a
+	wrvDdJEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR10j-00000003J0C-1gJC;
-	Mon, 16 Jun 2025 03:59:53 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1uR129-00000003J94-1KCr;
+	Mon, 16 Jun 2025 04:01:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0WJ-00000003GBm-2Iu9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 03:28:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750044508; x=1781580508;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=3crnHZWWyc6HQi2ObquKyXrIRR65iwUXK5eb9xDLGyE=;
-  b=EW9NooF9pmxgluspd83m3qHhL1VOyrOei5pTHRpEfLJZ5XsU5KO+lfBR
-   Vh9pyF3JQKs702uPJ1p7//Nm5S60aTg5SOmOukrIFNW7bAe0+4FZqllDB
-   rFKAB8xUECVgUrbi/cmt+ZXUT6WKzpdYAe6yjso7VWcMztRtEghk+Kexm
-   ZQKUGVOOWhEMj9vDUNjDL1u5bblEvkCMjUgpEr9YTFEufyPnma9U1eOIb
-   EUM3O8tPCG8XgNCYkuUTVGmTq7bUHopucpXwfDoEWiXFej7nPO+C4rx4V
-   +bBf3cMY4SWNE8suN4D3LMXu4rgSJimiV8+q67zNVP6HOPKAcRreVwBQF
-   w==;
-X-CSE-ConnectionGUID: P9htaIH2TVeEyKA/sF1fNg==
-X-CSE-MsgGUID: KQlkbpBdQ4Kfb1pOcfeTrA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="69621979"
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="69621979"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:28:27 -0700
-X-CSE-ConnectionGUID: U7O3D45sRme+/EgWHKETWw==
-X-CSE-MsgGUID: aL3V/0EgTX2OJibq0nW3Sw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="152177197"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:28:24 -0700
-Message-ID: <e27acc05-3d31-42c3-8674-4891122ba833@linux.intel.com>
-Date: Mon, 16 Jun 2025 11:27:24 +0800
+	id 1uQyrH-000000035es-34D3;
+	Mon, 16 Jun 2025 01:42:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0130FA50F7D;
+	Mon, 16 Jun 2025 01:41:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BDD1C4CEF2;
+	Mon, 16 Jun 2025 01:41:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750038118;
+	bh=P2mMfNErO5nkNYOYFjEtva6kSijOG66ku6hmr1KqcYI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fg+ZZkSaeZzex6n29uHAj32lNOblxEBhQ+6AFRPmEAwhMjrjptDA8NHkW8n08BmD4
+	 EJ9/U9PIstpkwTEwXGm1B4h/3bGoBDgZW+Bdc+OURg7YFyYLjyYveSoXVLD9jBpXtd
+	 FqZ1wXXxxmImthBRipEZ6kxMMdfKLfesH4gVCJWVmQV9wJJhuieVT7mnqv9TFJbEfV
+	 YeE/xs6D8g3UwnSgb6mkWXYqKaWstN4YIRkBHGGsPNOHPeWGt+2L8aOBQXlW205rc1
+	 crXM4SahCBVdejXfadqdatjrMGDpdh7LuwvZsfNPygpUDqMxuUhv0Jzo8MhcMeFNci
+	 Eo3ujrfYgKHDQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH v2 12/17] lib/crypto/sha512: migrate mips-optimized SHA-512 code to library
+Date: Sun, 15 Jun 2025 18:40:14 -0700
+Message-ID: <20250616014019.415791-13-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250616014019.415791-1-ebiggers@kernel.org>
+References: <20250616014019.415791-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 14/14] iommufd: Apply the new iommufd_object_alloc_ucmd
- helper
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
- yi.l.liu@intel.com, peterz@infradead.org, jsnitsel@redhat.com,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, patches@lists.linux.dev
-References: <cover.1749882255.git.nicolinc@nvidia.com>
- <107b24a3b791091bb09c92ffb0081c56c413b26d.1749882255.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <107b24a3b791091bb09c92ffb0081c56c413b26d.1749882255.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_202827_652262_5F27D6AE 
-X-CRM114-Status: UNSURE (   5.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250615_184159_939494_9E7BD753 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,19 +78,349 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/14/25 14:35, Nicolin Chen wrote:
-> Now the new ucmd-based object allocator eases the finalize/abort routine,
-> apply this to all existing allocators that aren't protected by any lock.
-> 
-> Upgrade the for-driver vIOMMU alloctor too, and pass down to all existing
-> viommu_alloc op accordingly.
-> 
-> Note that __iommufd_object_alloc_ucmd() builds in some static tests that
-> cover both static_asserts in the iommufd_viommu_alloc(). Thus drop them.
-> 
-> Suggested-by: Jason Gunthorpe<jgg@nvidia.com>
-> Reviewed-by: Jason Gunthorpe<jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+From: Eric Biggers <ebiggers@google.com>
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Instead of exposing the mips-optimized SHA-512 code via mips-specific
+crypto_shash algorithms, instead just implement the sha512_blocks()
+library function.  This is much simpler, it makes the SHA-512 (and
+SHA-384) library functions be mips-optimized, and it fixes the
+longstanding issue where the mips-optimized SHA-512 code was disabled by
+default.  SHA-512 still remains available through crypto_shash, but
+individual architectures no longer need to handle it.
+
+Note: to see the diff from
+arch/mips/cavium-octeon/crypto/octeon-sha512.c to
+lib/crypto/mips/sha512.h, view this commit with 'git show -M10'.
+
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/mips/cavium-octeon/crypto/Makefile       |   1 -
+ .../mips/cavium-octeon/crypto/octeon-sha512.c | 166 ------------------
+ arch/mips/configs/cavium_octeon_defconfig     |   1 -
+ arch/mips/crypto/Kconfig                      |  10 --
+ lib/crypto/Kconfig                            |   1 +
+ lib/crypto/mips/sha512.h                      |  74 ++++++++
+ 6 files changed, 75 insertions(+), 178 deletions(-)
+ delete mode 100644 arch/mips/cavium-octeon/crypto/octeon-sha512.c
+ create mode 100644 lib/crypto/mips/sha512.h
+
+diff --git a/arch/mips/cavium-octeon/crypto/Makefile b/arch/mips/cavium-octeon/crypto/Makefile
+index db26c73fa0eda..168b19ef7ce89 100644
+--- a/arch/mips/cavium-octeon/crypto/Makefile
++++ b/arch/mips/cavium-octeon/crypto/Makefile
+@@ -6,6 +6,5 @@
+ obj-y += octeon-crypto.o
+ 
+ obj-$(CONFIG_CRYPTO_MD5_OCTEON)		+= octeon-md5.o
+ obj-$(CONFIG_CRYPTO_SHA1_OCTEON)	+= octeon-sha1.o
+ obj-$(CONFIG_CRYPTO_SHA256_OCTEON)	+= octeon-sha256.o
+-obj-$(CONFIG_CRYPTO_SHA512_OCTEON)	+= octeon-sha512.o
+diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha512.c b/arch/mips/cavium-octeon/crypto/octeon-sha512.c
+deleted file mode 100644
+index 53de74f642db0..0000000000000
+--- a/arch/mips/cavium-octeon/crypto/octeon-sha512.c
++++ /dev/null
+@@ -1,166 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * Cryptographic API.
+- *
+- * SHA-512 and SHA-384 Secure Hash Algorithm.
+- *
+- * Adapted for OCTEON by Aaro Koskinen <aaro.koskinen@iki.fi>.
+- *
+- * Based on crypto/sha512_generic.c, which is:
+- *
+- * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
+- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+- * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
+- */
+-
+-#include <asm/octeon/crypto.h>
+-#include <asm/octeon/octeon.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/sha2.h>
+-#include <crypto/sha512_base.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-/*
+- * We pass everything as 64-bit. OCTEON can handle misaligned data.
+- */
+-
+-static void octeon_sha512_store_hash(struct sha512_state *sctx)
+-{
+-	write_octeon_64bit_hash_sha512(sctx->state[0], 0);
+-	write_octeon_64bit_hash_sha512(sctx->state[1], 1);
+-	write_octeon_64bit_hash_sha512(sctx->state[2], 2);
+-	write_octeon_64bit_hash_sha512(sctx->state[3], 3);
+-	write_octeon_64bit_hash_sha512(sctx->state[4], 4);
+-	write_octeon_64bit_hash_sha512(sctx->state[5], 5);
+-	write_octeon_64bit_hash_sha512(sctx->state[6], 6);
+-	write_octeon_64bit_hash_sha512(sctx->state[7], 7);
+-}
+-
+-static void octeon_sha512_read_hash(struct sha512_state *sctx)
+-{
+-	sctx->state[0] = read_octeon_64bit_hash_sha512(0);
+-	sctx->state[1] = read_octeon_64bit_hash_sha512(1);
+-	sctx->state[2] = read_octeon_64bit_hash_sha512(2);
+-	sctx->state[3] = read_octeon_64bit_hash_sha512(3);
+-	sctx->state[4] = read_octeon_64bit_hash_sha512(4);
+-	sctx->state[5] = read_octeon_64bit_hash_sha512(5);
+-	sctx->state[6] = read_octeon_64bit_hash_sha512(6);
+-	sctx->state[7] = read_octeon_64bit_hash_sha512(7);
+-}
+-
+-static void octeon_sha512_transform(struct sha512_state *sctx,
+-				    const u8 *src, int blocks)
+-{
+-	do {
+-		const u64 *block = (const u64 *)src;
+-
+-		write_octeon_64bit_block_sha512(block[0], 0);
+-		write_octeon_64bit_block_sha512(block[1], 1);
+-		write_octeon_64bit_block_sha512(block[2], 2);
+-		write_octeon_64bit_block_sha512(block[3], 3);
+-		write_octeon_64bit_block_sha512(block[4], 4);
+-		write_octeon_64bit_block_sha512(block[5], 5);
+-		write_octeon_64bit_block_sha512(block[6], 6);
+-		write_octeon_64bit_block_sha512(block[7], 7);
+-		write_octeon_64bit_block_sha512(block[8], 8);
+-		write_octeon_64bit_block_sha512(block[9], 9);
+-		write_octeon_64bit_block_sha512(block[10], 10);
+-		write_octeon_64bit_block_sha512(block[11], 11);
+-		write_octeon_64bit_block_sha512(block[12], 12);
+-		write_octeon_64bit_block_sha512(block[13], 13);
+-		write_octeon_64bit_block_sha512(block[14], 14);
+-		octeon_sha512_start(block[15]);
+-
+-		src += SHA512_BLOCK_SIZE;
+-	} while (--blocks);
+-}
+-
+-static int octeon_sha512_update(struct shash_desc *desc, const u8 *data,
+-				unsigned int len)
+-{
+-	struct sha512_state *sctx = shash_desc_ctx(desc);
+-	struct octeon_cop2_state state;
+-	unsigned long flags;
+-	int remain;
+-
+-	flags = octeon_crypto_enable(&state);
+-	octeon_sha512_store_hash(sctx);
+-
+-	remain = sha512_base_do_update_blocks(desc, data, len,
+-					      octeon_sha512_transform);
+-
+-	octeon_sha512_read_hash(sctx);
+-	octeon_crypto_disable(&state, flags);
+-	return remain;
+-}
+-
+-static int octeon_sha512_finup(struct shash_desc *desc, const u8 *src,
+-			       unsigned int len, u8 *hash)
+-{
+-	struct sha512_state *sctx = shash_desc_ctx(desc);
+-	struct octeon_cop2_state state;
+-	unsigned long flags;
+-
+-	flags = octeon_crypto_enable(&state);
+-	octeon_sha512_store_hash(sctx);
+-
+-	sha512_base_do_finup(desc, src, len, octeon_sha512_transform);
+-
+-	octeon_sha512_read_hash(sctx);
+-	octeon_crypto_disable(&state, flags);
+-	return sha512_base_finish(desc, hash);
+-}
+-
+-static struct shash_alg octeon_sha512_algs[2] = { {
+-	.digestsize	=	SHA512_DIGEST_SIZE,
+-	.init		=	sha512_base_init,
+-	.update		=	octeon_sha512_update,
+-	.finup		=	octeon_sha512_finup,
+-	.descsize	=	SHA512_STATE_SIZE,
+-	.base		=	{
+-		.cra_name	=	"sha512",
+-		.cra_driver_name=	"octeon-sha512",
+-		.cra_priority	=	OCTEON_CR_OPCODE_PRIORITY,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA512_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-}, {
+-	.digestsize	=	SHA384_DIGEST_SIZE,
+-	.init		=	sha384_base_init,
+-	.update		=	octeon_sha512_update,
+-	.finup		=	octeon_sha512_finup,
+-	.descsize	=	SHA512_STATE_SIZE,
+-	.base		=	{
+-		.cra_name	=	"sha384",
+-		.cra_driver_name=	"octeon-sha384",
+-		.cra_priority	=	OCTEON_CR_OPCODE_PRIORITY,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA384_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-} };
+-
+-static int __init octeon_sha512_mod_init(void)
+-{
+-	if (!octeon_has_crypto())
+-		return -ENOTSUPP;
+-	return crypto_register_shashes(octeon_sha512_algs,
+-				       ARRAY_SIZE(octeon_sha512_algs));
+-}
+-
+-static void __exit octeon_sha512_mod_fini(void)
+-{
+-	crypto_unregister_shashes(octeon_sha512_algs,
+-				  ARRAY_SIZE(octeon_sha512_algs));
+-}
+-
+-module_init(octeon_sha512_mod_init);
+-module_exit(octeon_sha512_mod_fini);
+-
+-MODULE_LICENSE("GPL");
+-MODULE_DESCRIPTION("SHA-512 and SHA-384 Secure Hash Algorithms (OCTEON)");
+-MODULE_AUTHOR("Aaro Koskinen <aaro.koskinen@iki.fi>");
+diff --git a/arch/mips/configs/cavium_octeon_defconfig b/arch/mips/configs/cavium_octeon_defconfig
+index 88ae0aa85364b..effdfb2bb738b 100644
+--- a/arch/mips/configs/cavium_octeon_defconfig
++++ b/arch/mips/configs/cavium_octeon_defconfig
+@@ -155,11 +155,10 @@ CONFIG_SECURITY=y
+ CONFIG_SECURITY_NETWORK=y
+ CONFIG_CRYPTO_CBC=y
+ CONFIG_CRYPTO_HMAC=y
+ CONFIG_CRYPTO_MD5_OCTEON=y
+ CONFIG_CRYPTO_SHA1_OCTEON=m
+-CONFIG_CRYPTO_SHA512_OCTEON=m
+ CONFIG_CRYPTO_DES=y
+ CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+ CONFIG_DEBUG_FS=y
+ CONFIG_MAGIC_SYSRQ=y
+ # CONFIG_SCHED_DEBUG is not set
+diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
+index 6bf073ae7613f..51a76a5ee3b16 100644
+--- a/arch/mips/crypto/Kconfig
++++ b/arch/mips/crypto/Kconfig
+@@ -20,16 +20,6 @@ config CRYPTO_SHA1_OCTEON
+ 	help
+ 	  SHA-1 secure hash algorithm (FIPS 180)
+ 
+ 	  Architecture: mips OCTEON
+ 
+-config CRYPTO_SHA512_OCTEON
+-	tristate "Hash functions: SHA-384 and SHA-512 (OCTEON)"
+-	depends on CPU_CAVIUM_OCTEON
+-	select CRYPTO_SHA512
+-	select CRYPTO_HASH
+-	help
+-	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
+-
+-	  Architecture: mips OCTEON using crypto instructions, when available
+-
+ endmenu
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 607cc38dfc808..e32b5d279dbce 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -179,10 +179,11 @@ config CRYPTO_LIB_SHA512
+ config CRYPTO_LIB_SHA512_ARCH
+ 	bool
+ 	depends on CRYPTO_LIB_SHA512 && !UML
+ 	default y if ARM && !CPU_V7M
+ 	default y if ARM64
++	default y if MIPS && CPU_CAVIUM_OCTEON
+ 
+ config CRYPTO_LIB_SM3
+ 	tristate
+ 
+ if !KMSAN # avoid false positives from assembly
+diff --git a/lib/crypto/mips/sha512.h b/lib/crypto/mips/sha512.h
+new file mode 100644
+index 0000000000000..b3ffbc1e8ca8e
+--- /dev/null
++++ b/lib/crypto/mips/sha512.h
+@@ -0,0 +1,74 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Cryptographic API.
++ *
++ * SHA-512 and SHA-384 Secure Hash Algorithm.
++ *
++ * Adapted for OCTEON by Aaro Koskinen <aaro.koskinen@iki.fi>.
++ *
++ * Based on crypto/sha512_generic.c, which is:
++ *
++ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
++ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
++ * Copyright (c) 2003 Kyle McMartin <kyle@debian.org>
++ */
++
++#include <asm/octeon/crypto.h>
++#include <asm/octeon/octeon.h>
++
++/*
++ * We pass everything as 64-bit. OCTEON can handle misaligned data.
++ */
++
++static void sha512_blocks(struct sha512_block_state *state,
++			  const u8 *data, size_t nblocks)
++{
++	struct octeon_cop2_state cop2_state;
++	unsigned long flags;
++
++	if (!octeon_has_crypto())
++		return sha512_blocks_generic(state, data, nblocks);
++
++	flags = octeon_crypto_enable(&cop2_state);
++	write_octeon_64bit_hash_sha512(state->h[0], 0);
++	write_octeon_64bit_hash_sha512(state->h[1], 1);
++	write_octeon_64bit_hash_sha512(state->h[2], 2);
++	write_octeon_64bit_hash_sha512(state->h[3], 3);
++	write_octeon_64bit_hash_sha512(state->h[4], 4);
++	write_octeon_64bit_hash_sha512(state->h[5], 5);
++	write_octeon_64bit_hash_sha512(state->h[6], 6);
++	write_octeon_64bit_hash_sha512(state->h[7], 7);
++
++	do {
++		const u64 *block = (const u64 *)data;
++
++		write_octeon_64bit_block_sha512(block[0], 0);
++		write_octeon_64bit_block_sha512(block[1], 1);
++		write_octeon_64bit_block_sha512(block[2], 2);
++		write_octeon_64bit_block_sha512(block[3], 3);
++		write_octeon_64bit_block_sha512(block[4], 4);
++		write_octeon_64bit_block_sha512(block[5], 5);
++		write_octeon_64bit_block_sha512(block[6], 6);
++		write_octeon_64bit_block_sha512(block[7], 7);
++		write_octeon_64bit_block_sha512(block[8], 8);
++		write_octeon_64bit_block_sha512(block[9], 9);
++		write_octeon_64bit_block_sha512(block[10], 10);
++		write_octeon_64bit_block_sha512(block[11], 11);
++		write_octeon_64bit_block_sha512(block[12], 12);
++		write_octeon_64bit_block_sha512(block[13], 13);
++		write_octeon_64bit_block_sha512(block[14], 14);
++		octeon_sha512_start(block[15]);
++
++		data += SHA512_BLOCK_SIZE;
++	} while (--nblocks);
++
++	state->h[0] = read_octeon_64bit_hash_sha512(0);
++	state->h[1] = read_octeon_64bit_hash_sha512(1);
++	state->h[2] = read_octeon_64bit_hash_sha512(2);
++	state->h[3] = read_octeon_64bit_hash_sha512(3);
++	state->h[4] = read_octeon_64bit_hash_sha512(4);
++	state->h[5] = read_octeon_64bit_hash_sha512(5);
++	state->h[6] = read_octeon_64bit_hash_sha512(6);
++	state->h[7] = read_octeon_64bit_hash_sha512(7);
++	octeon_crypto_disable(&cop2_state, flags);
++}
+-- 
+2.49.0
+
 
