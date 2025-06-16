@@ -4,58 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE60C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 05:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C8BFC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 05:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R5GJYlkXT0vSw2Kc0ay2ukzCBmnnFXXk54xXv2Y6mic=; b=UGnQ2jacTZnQxXbsRTBT/YAg5p
-	4bHNKMPt/Rr3IpmfePfBcAakfSQMsNOBpcTpj4Kj29TXLcXlSzNT3vXWogCTO6e3F+tSpuuEoM0Oe
-	O4/u4atyewwsw5U4UAZQeovNhwrX3IZz58lGQ3hwPcDsCuIN+yy0WWreWiW85u9cW5bPI2zaQRSgd
-	dEYrvBhuuRnXh1oj1ko78E37rXK5opEKK/e/05DRHJxP2DHk6sS0xvzGJ5ITwpZHpSURj21dJFYqy
-	6vBynt2o4MXV6yVU0cCcYA2/qZVfUtfUp+3qfAa9CGwIlQgzKT896/Ldt7zDnDmDRdb9IVxIMfu+F
-	kkM6xK6Q==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LG1DruV5us004oEXjXeEWd09Q+FV9MdQYIAAnTRm6ao=; b=AsCz6iXVcwxLQtCgBL7SwIj/pD
+	1ehFB1atqEUY1ro2Kf0NCzJzFwW1m6GKeZW95OxBoZIDjWSonyCE/6WZZJ+gYFXNi9UIGdVIP5/vX
+	/Hv2I0zbg52WMy355y+D2aME6ueKdr6UIg0NCnp/Q8JhM+szRv4KMq2bMsjMRa4d9taTXtctJ1zHT
+	2NBpkeq4SmwR3CyBMM2HXiaqAIHeRnc4dWbY5TsHS3ePUlGO9lELS4/zNlDHMeHzYJnU1vEsD6iRh
+	Dd/RrV14Mh5eAFqfCK5AepyTjLBZHVixR+YIu2SApxyHziByRKacHsVQqXZ6NYvYxYdoDtS0G6xhM
+	FXcFTkTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR25r-00000003OVN-30r2;
-	Mon, 16 Jun 2025 05:09:15 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1uR283-00000003Oem-1u0P;
+	Mon, 16 Jun 2025 05:11:31 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR23d-00000003OKk-2qCU
+	id 1uR24S-00000003OQN-1YfF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 05:06:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1750050412; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=R5GJYlkXT0vSw2Kc0ay2ukzCBmnnFXXk54xXv2Y6mic=;
-	b=E54Xvh5bPibJbZr36U49mxPDNz6nLF34J3so4uYYyQPR81nu/ZOOYpl+J4K5/849bYnhWmTzfZ6qXkTobPCi0E+Si0j+RdUR4yXcF99DySPu9WpP1XEvse8lzpwfBTkgD4v5f7P7KVUeEmM7z9v4FO6zWCIZW4GxDWvsR2UPTKE=
-Received: from localhost.localdomain(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WdrrnGW_1750050408 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 16 Jun 2025 13:06:49 +0800
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-To: brauner@kernel.org,
-	shuah@kernel.org,
-	will@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: baolin.wang@linux.alibaba.com,
-	tianruidong@linux.alibaba.com,
-	xueshuai@linux.alibaba.com,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com
-Subject: [RESEND PATCH] selftests/pidfd: align stack to fix SP alignment exception
-Date: Mon, 16 Jun 2025 13:06:48 +0800
-Message-ID: <20250616050648.58716-1-xueshuai@linux.alibaba.com>
-X-Mailer: git-send-email 2.44.0
+	Mon, 16 Jun 2025 05:07:50 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55FNH7lU003033;
+	Mon, 16 Jun 2025 05:07:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LG1DruV5us004oEXjXeEWd09Q+FV9MdQYIAAnTRm6ao=; b=NsrY6JIMbu523Umh
+	ZfT7NUFJ5xZtJRD4p2pw3WYI/YqptavI+g0VEdarYY3Q9Ahiyx6+H4mf3V5R5PFK
+	//pVxDbkeuBeAvsTeKWnqotFjDN5K5iogcqHyKHFfDWDIv2TVYy2cU9c0XY2KXYm
+	hfQZI5fzHOXzVAZu+1dr4EO8wgaX99H1v6M/bcub24oF/oSndBYuZWMEUpfC/5ra
+	TJdZyGQJUZVQgsa6KDMY8+Sakr8fHWNvRHBGzaEoaCYSClWKsvJvq5YGACBQlyth
+	Ena5lhgbpDJGtq63YntEoK5JcDCOI7rSQYAY+B2q5SWirARArhNRM9SrnZ77NWWT
+	kaZecA==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4791crk2qy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 05:07:21 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55G57KGj003709
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 05:07:20 GMT
+Received: from [10.216.9.13] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 15 Jun
+ 2025 22:07:13 -0700
+Message-ID: <4143e209-7701-44d2-b9f0-dbe646542376@quicinc.com>
+Date: Mon, 16 Jun 2025 10:37:09 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] Support for Adreno X1-45 GPU
+To: <rob.clark@oss.qualcomm.com>, Akhil P Oommen <akhilpo@oss.qualcomm.com>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+        "Dmitry
+ Baryshkov" <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>,
+        Bjorn Andersson <andersson@kernel.org>, Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>
+References: <20250607-x1p-adreno-v1-0-a8ea80f3b18b@oss.qualcomm.com>
+ <CACSVV01A8aqyoM4KYuUYVXTHnM1egn5-4UxqPrQVVjuvxxbC6g@mail.gmail.com>
+From: Akhil P Oommen <quic_akhilpo@quicinc.com>
+Content-Language: en-US
+In-Reply-To: <CACSVV01A8aqyoM4KYuUYVXTHnM1egn5-4UxqPrQVVjuvxxbC6g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: p20DTFGx5sjMNBbGJteEwPmMiXWb8CjM
+X-Authority-Analysis: v=2.4 cv=BoedwZX5 c=1 sm=1 tr=0 ts=684fa689 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=e5mUnYsNAAAA:8
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=aVaGKPbtQoTzMs4lowsA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=Vxmtnl_E_bksehYqCbjh:22
+X-Proofpoint-GUID: p20DTFGx5sjMNBbGJteEwPmMiXWb8CjM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDAzMiBTYWx0ZWRfX8Bh76SsUtogs
+ mfGW/AwkRHGK+2P8cfAgzoD0TMtKJfz2AlGZO7oeySnyM+ymbhQFWQWpDoMUJG5c0VNBj4dF4FJ
+ qYkmh4znPXd/uIuKNYv117/4oLVnmxoemloFlNas/Sbv/B5yT20dD8SMTxmoSw+VW96IVwewU4l
+ ofGuWwK2gXGdzwo8rGq80VX8qYMMRlp99R2PW4/o41QYOyTV3Tqxr4hOAypKJjlpId8vrVW71ue
+ yJ7wUgX3ThYXMGrxP4Gp7bkmvEtQUI5ITYT0tH9+2ES+WcN0nyuuaDoxtFEVMyYHZGj0QVOT0HT
+ GW6Htbhvy/0MwZWaEm3GM1I11DuDHEbCpb1HekTpOCQdTNgUJ8WNMi9IQ+UapzTRX8sJfz2a0Ys
+ h5qqfhAk1T9ln0ZTfg4G69JrUTmURnqu4JU0Enw2hO9Snkkgp4ovVyCJmYUsXAqBqxvVEQst
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-16_02,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 mlxscore=0 adultscore=0 phishscore=0 lowpriorityscore=0
+ mlxlogscore=949 bulkscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
+ spamscore=0 suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506160032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_220658_383273_06865CBD 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250615_220748_535675_19D0E019 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,59 +128,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pidfd_test fails on the ARM64 platform with the following error:
+On 6/8/2025 8:51 PM, Rob Clark wrote:
+> On Sat, Jun 7, 2025 at 7:15 AM Akhil P Oommen <akhilpo@oss.qualcomm.com> wrote:
+>>
+>> Add support for X1-45 GPU found in X1P41200 chipset (8 cpu core
+>> version). X1-45 is a smaller version of X1-85 with lower core count and
+>> smaller memories. From UMD perspective, this is similar to "FD735"
+>> present in Mesa.
+>>
+>> Tested Glmark & Vkmark on Debian Gnome desktop.
+>>
+>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> 
+> fyi, mesa part: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/35404
 
-    Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
+fyi, gpu firmwares: https://lore.kernel.org/linux-firmware/e036373e-0356-4fa1-b39b-78eaf02179d6@oss.qualcomm.com/T/#u
 
-When exception-trace is enabled, the kernel logs the details:
+-Akhil
 
-    #echo 1 > /proc/sys/debug/exception-trace
-    #dmesg | tail -n 20
-    [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
-    [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
-    [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
-    [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
-    [48628.713055] pc : 0000000000402100
-    [48628.713056] lr : 0000ffff98288f9c
-    [48628.713056] sp : 0000ffffde49daa8
-    [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
-    [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
-    [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
-    [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
-    [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
-    [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-    [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
-    [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
-    [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
-    [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
-
-According to ARM ARM D1.3.10.2 SP alignment checking:
-
-> When the SP is used as the base address of a calculation, regardless of
-> any offset applied by the instruction, if bits [3:0] of the SP are not
-> 0b0000, there is a misaligned SP.
-
-To fix it, align the stack with 16 bytes.
-
-Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
----
- tools/testing/selftests/pidfd/pidfd_test.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
-index c081ae91313a..ec161a7c3ff9 100644
---- a/tools/testing/selftests/pidfd/pidfd_test.c
-+++ b/tools/testing/selftests/pidfd/pidfd_test.c
-@@ -33,7 +33,7 @@ static bool have_pidfd_send_signal;
- static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
- {
- 	size_t stack_size = 1024;
--	char *stack[1024] = { 0 };
-+	char *stack[1024] __attribute__((aligned(16))) = {0};
- 
- #ifdef __ia64__
- 	return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
--- 
-2.39.3
+> 
+> BR,
+> -R
+> 
+>> ---
+>> Akhil P Oommen (3):
+>>       arm64: defconfig: Enable X1P42100_GPUCC driver
+>>       drm/msm/adreno: Add Adreno X1-45 support
+>>       arm64: dts: qcom: Add GPU support to X1P42100 SoC
+>>
+>>  arch/arm64/boot/dts/qcom/x1e80100.dtsi    |   7 ++
+>>  arch/arm64/boot/dts/qcom/x1p42100-crd.dts |   4 +
+>>  arch/arm64/boot/dts/qcom/x1p42100.dtsi    | 121 +++++++++++++++++++++++++++++-
+>>  arch/arm64/configs/defconfig              |   1 +
+>>  drivers/gpu/drm/msm/adreno/a6xx_catalog.c |  38 ++++++++++
+>>  5 files changed, 170 insertions(+), 1 deletion(-)
+>> ---
+>> base-commit: b3bded85d838336326ce78e394e7818445e11f20
+>> change-id: 20250603-x1p-adreno-219da2fd4ca4
+>>
+>> Best regards,
+>> --
+>> Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>>
 
 
