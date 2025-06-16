@@ -4,120 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBDEBC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 07:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B76CC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 07:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oS9W40Kxi3jCDLjbplhmNHApFzpmxWBjEyHqggrd0A=; b=xg1KxUpoRiBePxcFFNGAG48QTD
-	IpBSC/+SqqDQu6jkXpE3pwzbShYxoq/TtyukmL3mLypeo5J4Dmuf+sWfNp6VQXFQrKH2ormjaOyle
-	U5GsSHsDTHGwuLHIv3Bz15P0SKI2tgTObGJVZh9ukFP28IqgwwGN7fj9RsE2rgJR6/jzCc7UkvXBZ
-	U6ebsteC33pKxllQRI7Lv7Lg3BDJTgv5WRFxZw6PmlqJ+3oYds1thJVSxkbGm4tOQELH2gk80W2ti
-	pK5X/d2jzwOM2DL1+OSfsJ1w4hi0cBbOROhPUJayNO4q9Dn9xmeQwqZ24bqzoPmp2Gi3zTcEFX5Hs
-	24B1nFWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vFu6VBmeq/w4W0+U2cqQ9ftqsZ6qKfNlKR84sMlRxPs=; b=rcC5pP8+xFvosM
+	yXMSfCnt7XgBHcPZQdSl3F0unH5VTrxo4ipPYYR3XVDh2L/jwV9zdxAUX1LOPIC92xI0NRcbnmLOE
+	L2xwkQWEGpafQcClgyZApALJbarsiyd+xy1PViI92dIzlt5ND4FwsIDcbMtsHXgkDzw4VSG7YZ1f/
+	K1mSJrk9y4+6K1BmLtLJXEO0RsRtzAQkxf+Xrfo1K+pxaak50ED9k+ezoQ/Kao+HhzuTdDHULm10L
+	KCU955raeD9QLub3Ij6fL0jeJu1PwtR2JnmO1zHkgyIvWo0kndSReOFGabeQvrVnAeInktYxBq6BX
+	e/Dgi4Xr727Wcbp+d9QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR4JB-00000003eRB-1aIJ;
-	Mon, 16 Jun 2025 07:31:09 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uR4LN-00000003ejY-1wo2;
+	Mon, 16 Jun 2025 07:33:25 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR44m-00000003bv9-2tmV;
-	Mon, 16 Jun 2025 07:16:17 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55FLRHHr025161;
-	Mon, 16 Jun 2025 07:15:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=8oS9W40Kxi3jCDLjbplhmNHApFzpmx
-	WBjEyHqggrd0A=; b=qAY4VVpinI2Rbjtg6/cTxb0ByK9Dpzpf/aO3yY9XM5UF4d
-	fU78j65QpJ3TapkNS/xL3vWbPV5/pklD1FE7kjijxU/XLyukt6XZ3WfcR4gFH81+
-	UFdauXXxcaqtHqvoucUPRYWnY4bL4ogy5OumG75AWe2BeYdsMVMYJOpOVg665ANi
-	VWvgBCKH/JyZisb5vUa4CL8qgECUwjCm3TRR4ZUf58M9gln0exc5pR4IRrjSC6+f
-	ZkrajO9adrWRsa38pwUBB5r4ztMCHddjRWJusLpI5uP3qlP55wkLVB/N8+UcqUCc
-	LCE/mDDOWLEmLtUGpgpcmyaSwGoUdK3hRWsyQEfA==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4790r1qypc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 07:15:36 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 55G6uksv023490;
-	Mon, 16 Jun 2025 07:15:36 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4790r1qyp8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 07:15:36 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55G3BxpK011236;
-	Mon, 16 Jun 2025 07:15:35 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 479kdt56ah-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 07:15:35 +0000
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55G7FVZd43385168
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 16 Jun 2025 07:15:31 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EB3CA2004D;
-	Mon, 16 Jun 2025 07:15:30 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6B03A2004E;
-	Mon, 16 Jun 2025 07:15:26 +0000 (GMT)
-Received: from li-c6426e4c-27cf-11b2-a85c-95d65bc0de0e.ibm.com (unknown [9.204.206.66])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 16 Jun 2025 07:15:26 +0000 (GMT)
-Date: Mon, 16 Jun 2025 12:45:22 +0530
-From: Gautam Menghani <gautam@linux.ibm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Anup Patel <anup@brainfault.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Anish Ghulati <aghulati@google.com>,
-        Colton Lewis <coltonlewis@google.com>, Thomas Huth <thuth@redhat.com>
-Subject: Re: [PATCH 6/8] KVM: PPC: Stop adding virt/kvm to the arch include
- path
-Message-ID: <etqfg3dvpr4tabk3lysnvelpb5k3pyuuhhkfxsd4oyxlmgwnit@rducsforanaj>
-References: <20250611001042.170501-1-seanjc@google.com>
- <20250611001042.170501-7-seanjc@google.com>
+	id 1uR4CT-00000003dCX-0h6f
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 07:24:14 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a57c8e247cso825141f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 00:24:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750058651; x=1750663451; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vFu6VBmeq/w4W0+U2cqQ9ftqsZ6qKfNlKR84sMlRxPs=;
+        b=QoOSUsVGHpPsKHBhBIwRbcso2rZwLz2rmidU5dkc9XHqsUZO2rCXWr9d3mWmdbOOp2
+         AMhR17ZE6XB7dz9NkXfaysDOH40DPh7OfC7OD3T6fnR8NprvwBHNf0IKbq6pbvRCJQya
+         F5ugJa9gCxx3Uqlvf8WflLt0prY/gCkSmtotejym4vr5cyZErvhGSJtyFIojeOufDYCV
+         h89j2A0Qm03Ur/n3L9AljQThUlzEUIsaTmA2LjTBPu5de+Gk6JIM8BPoK3JKbwO+GZRt
+         Z3RXkM9IgThbLhXGDXFC5wIqo6sgQl3f+Vwya/Ve5DcF/qZ1ZE+2Jp9QmaXgzwUcyF6d
+         wadQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750058651; x=1750663451;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vFu6VBmeq/w4W0+U2cqQ9ftqsZ6qKfNlKR84sMlRxPs=;
+        b=ERE4eOMcCaI0tZ4mxwRz3E1ZsBNVLReT82urahzO/D6J5/dJ9k2qLFXvO+ojQUYlNc
+         eJ9Gl8HQZW+m7o2KNXDV4AC0u6aYeHmo6tTvsU0cW4K2aAG7T9qydXMgKl/Y1a1MJpeE
+         paabcOdgY5gZLTacpB31GW+Qz+eB0CawI9zqcXk6ogj6mvaPbbRyXnOmRVPVDlepR3oz
+         XyQbdHLEeUb29PfaB92wIRHLhYmlDz5OIX/SZPdvgi8/sYUMYEZloRvcDylWRh82D7cD
+         yFIBsqZaBxg6WmgJ/IX7iZNTbOXnssoSDGWJx/OYICTCVT8+bM98CgGyzJYGwkIe8fMz
+         aawA==
+X-Forwarded-Encrypted: i=1; AJvYcCX/XVgo2eWDLThSmzBIBt+ASyxPgms7+bnPN34Fqalf624/+7kAqoOcRYScbtzp0dUmlJ12lBKdUERjtdWSUKlu@lists.infradead.org
+X-Gm-Message-State: AOJu0YybuKCXL4SDVxfxtaGkh3bnwOoKagWnLL48nqhCwzeYq37ptYrx
+	OXjLatyIX9oucR5koLgM4s7C+H8b6YsgvfkPOmOpizNMqmrNjXUHOi2HJuSVHM+bkC4=
+X-Gm-Gg: ASbGncsfwgL/uRBonptqwzBbioIMAFHhc6Ee0xFQdQ9rpB80PnLbpKg6lyCmr4hY6l/
+	+dYhDw3EfC7xNLwiSn73Iu7LVcwPnhBCENl7wi1H2fVEMiO2698rDb5tRwrLuHI1h7pMDsVcARh
+	Xsj9vwFIhzVqcyQh9AEa/ot61x5aXhW4CPrScneU9s9irwplGm4jrlXlPCjxSqFjP4XjaACKwl3
+	xv+Sa552etHtLNQNe4PjYDfydpKCtSbCPGwF6rg8W918ns5yhol068s42kNZRLZnYBQVo1YH/BU
+	4DKA8+eQ+2hvOiaHSTOc2nBvxGuPw2oedvBOHW8bPC7XSc/a9KPKl5sy7oeVz4RUOeA=
+X-Google-Smtp-Source: AGHT+IGOQ/05R6rCvIZwn3dIA2Nugc/IsmfEl2HAgh9BK3DzCi3R0HMyStiSUVCIGzVyM4FshOI6yQ==
+X-Received: by 2002:a05:6000:2507:b0:3a4:efc0:c90b with SMTP id ffacd0b85a97d-3a5723974e2mr7184735f8f.15.1750058651143;
+        Mon, 16 Jun 2025 00:24:11 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4238:f8a4:c034:8590])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b08c99sm10312334f8f.63.2025.06.16.00.24.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 00:24:10 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH v2 0/5] net: use new GPIO line value setter callbacks
+Date: Mon, 16 Jun 2025 09:24:03 +0200
+Message-Id: <20250616-gpiochip-set-rv-net-v2-0-cae0b182a552@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250611001042.170501-7-seanjc@google.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: pA27UQdSoFi7fENYAbcClrvtInowwnUB
-X-Proofpoint-ORIG-GUID: TmHFGtZ04KPLB6esid1G6CYOB7tVt6Vr
-X-Authority-Analysis: v=2.4 cv=AqTu3P9P c=1 sm=1 tr=0 ts=684fc498 cx=c_pps a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=VnNF1IyMAAAA:8 a=90UzZmcSQ78tuVnzBuAA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDA0NCBTYWx0ZWRfX7cOmaIrOSqpw SXLMPZuCWSZBCBLE3FL1xYcVW8X8KK0s74UvFuWZnCI71S5bsha1iy0u8LbyZa/+82oTUgv81jB 8/dlb4z7C/9S1qOfR7ocu1ICPZlI2cR3jyDHY3OeqfHz4UFQa3Rmzgnyh3GV1P+TxeqAcXYuNcf
- QEN1U+QFmMf+lloYVcQjizKufdVGBS01u2hgxtp3bvDWMeYFm65yaoSob0KnI8NZ2r/UggduiwU ZI3aZ9HSz+pCtgy2G1LIxS18dF8Y3fx6iFj5NS4G1C1cP4XiHgt73JfFH9LrR8JcXlRfTcEju3e eeU8dw7b1BrKJERMYaXJKC8cF2yDollkevHHuOIz2ofPC4iO7YXWdRjLohoPeN5pLWHoOr65LX/
- hSQl2MRrPAQ08Y2Uc3A15BdBi0qU/CKs2ILqAsxRoOrQErs71PyFk7tko/eh6IYJbN/lDZCI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-16_02,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011
- lowpriorityscore=0 suspectscore=0 adultscore=0 impostorscore=0
- priorityscore=1501 phishscore=0 mlxlogscore=478 mlxscore=0 spamscore=0
- bulkscore=0 malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506160044
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJPGT2gC/22NwQrCMBBEf6Xs2ZUk2sR68j+kh5pu2wVJyqYEp
+ fTfjfXqaXgD82aFRMKU4FqtIJQ5cQwFzKECP3VhJOS+MBhlalUbh+PM0U88Y6IFJWMo0ZB7NLo
+ 7m8F5KMtZaODXbr23hSdOS5T3fpL1t/35rFZ/fVmjwlNt7aXvtXd2uD05dBKPUUZot237AKUyb
+ PG3AAAA
+X-Change-ID: 20250527-gpiochip-set-rv-net-9e7b91a42f7c
+To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-can@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1610;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=uR2GGIFJoNUWja26+eqtvHQqGtdircsCPqOzrEceufw=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoT8aYW4MUwvKOocqHKQFcXvihCO599Xx46HuuP
+ BdHcdXSED+JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaE/GmAAKCRARpy6gFHHX
+ cvZBD/0aIizVMfAcrRGn+eGFgxroefc64UEncpO5XRYZr4fpLreEOW/l/6kJdsUC3ln+H5m7qyd
+ afXzJbi7dzgzaaakQc0F1Yl+Xk3ybyaO9jL9EijyiRnrThzoYCuJEn2/uLHV+NK8n+mMWa6/vmU
+ 4iKlPXYrPpKMMp4vF5r6UBKlFKQd68CXKBqaUvLQlq5NK4K8hFyMVxGngeVomNZJEOs8Xb/RNae
+ CY2grMseA4NDMv0+JNPAEoFFPvYDyhLjm9jSZdwXItdJJJ9Hxs4SoAo+hrS9mI1nFETaXK95JII
+ K5lzvRb8Gaciin93TS4nnmpboRPiyKHjjNjG3f6G9bMD9N4O1ZhsJdidluXfoYINmbuECVCmhBo
+ oI8F4ba9fca7wCeBSvTpopmVe055GxvDiUoX1Pf4BrEEqXdIU1O3d2yadpQcrNqc8M2NJmnuVwe
+ HcEjM/EZiESaur6u6pva7RjUNFK0AyVWHaRy1BQO66SK7Z867KEhTyFW4Ktc05qPpzXJY+nUvV/
+ 8RMUio65JmAVSUOsG1GzV48Zh1dlS46nqyItSAiEje8/saGqMuCqVyyMK1jZT/wYP576NtkqcXf
+ +iiCZPwC1n6roZHDTuirFnU5fInYX3zemFdlV9BGW4VaG3RuwHRHuDuP0FlLi4HraM9oJSfXHh8
+ Ez87K2sH4EmaVOQ==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_001616_848759_270B7CEE 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250616_002413_223600_112B9933 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,5 +133,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Gautam Menghani <gautam@linux.ibm.com>
+Commit 98ce1eb1fd87e ("gpiolib: introduce gpio_chip setters that return
+values") added new line setter callbacks to struct gpio_chip. They allow
+to indicate failures to callers. We're in the process of converting all
+GPIO controllers to using them before removing the old ones. This series
+converts all GPIO chips implemented under drivers/net/.
+
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Changes in v2:
+- propagate the return value of mcp251x_spi_write() in the mcp251x
+  driver up to the new GPIO callbacks (and the old request() too)
+- check the return value of phy_read_mmd() as well in qca807x
+- Link to v1: https://lore.kernel.org/r/20250610-gpiochip-set-rv-net-v1-0-35668dd1c76f@linaro.org
+
+---
+Bartosz Golaszewski (5):
+      net: dsa: vsc73xx: use new GPIO line value setter callbacks
+      net: dsa: mt7530: use new GPIO line value setter callbacks
+      net: can: mcp251x: propagate the return value of mcp251x_spi_write()
+      net: can: mcp251x: use new GPIO line value setter callbacks
+      net: phy: qca807x: use new GPIO line value setter callbacks
+
+ drivers/net/can/spi/mcp251x.c          | 37 +++++++++++++++++++++++-----------
+ drivers/net/dsa/mt7530.c               |  6 ++++--
+ drivers/net/dsa/vitesse-vsc73xx-core.c | 10 ++++-----
+ drivers/net/phy/qcom/qca807x.c         | 13 ++++++------
+ 4 files changed, 41 insertions(+), 25 deletions(-)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250527-gpiochip-set-rv-net-9e7b91a42f7c
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
 
