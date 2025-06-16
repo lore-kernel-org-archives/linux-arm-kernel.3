@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E2AC71155
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB398C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqwMMmS2ONWo8fZ8IfMKARbxAzw2PB3gfUh1zxe+ZRw=; b=FGCKYh8O2KONTjdg3NT+K/jVN1
-	6VC7JWXc30wf9loe5wuqa6lLYSXIPPi9uy44aYRNqAuX5nM0svzY+mOioFKu+SUIEkdNDCRG9aQh9
-	MAoWaJTCAHVvsjOZQ004x9roQVjH8HxAHSzxCSrQLInPY9s+/6O4hrlu4x/BFqT/KJlK6boK987KP
-	hyYwZy6LduWkjDIpGmMcZDPGmI8Tw/++ekHhbWu2UJ7Dta/47W/3tbVHkEQIBHGq529/8/35xgZKC
-	xvJZ4Kv6eMIiUutEWiEG0X+sHFuKrvyVzmNdxxQfOETMJf5R1FHWzHHLxFAsiohXLr9/vdrJVzdur
-	d6nSgpWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Qa12pQLxpuPnhIr2gx1R5p04XKvqht+MKZhRvRLpwc0=; b=fKkQtVXsx7E9bQSkYHATn41CQ+
+	089TJ5iPjbjAJ8R6sbmAUONwbhGk8gVYDg/BYpAk7i7o5TXVndxieA7VbJrX+RiIWX9ymFpgNoMZQ
+	yg/Id/GwHm8JElQIGC31yL7/Rj/4E74j3KzBlgog32sfs7DKCJ1qjTe0PYKAIw7drJinGPBgD5uI6
+	YCbXxqtuxoHmy2Vz5jvL1hC4iHtJa8KOfXsq4aO8bURqD0tTkdbjUvlXz04twxUhstzSWfKehFWPd
+	wQlz7GBETE4aRsZY+GA7Zs6vq5CMdt7umEh5eUFouk+L5MWWTS8v3bfM+fpNkz2D2qVJYwPr57HJt
+	RxILYYYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7z4-00000004CG9-3wZ2;
-	Mon, 16 Jun 2025 11:26:39 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1uR81F-00000004Ca9-3abF;
+	Mon, 16 Jun 2025 11:28:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6xq-000000043SP-34VO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 10:21:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1750069278; x=1781605278;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NbJoM5LfG3qBcRohRdPVhQO3z/elUf1FtTUs4Rnoxr0=;
-  b=h19CefhfdfWVr2b052T4xa0BogZfmikdaZYYRFJfuiNy+CtTIJqsrDBD
-   eRzFqO5H9rt7DMpS3bJ5daE8SUb0CteTl8nYRNa8UTCRdyPweZMMV2Woz
-   /zwfJi5hTY0ApxbfXeBKuF3pludY16Q9ROTSkoPK9c/kSw6zcj3wkTOo0
-   fo/KLHcWNj/cwdsaODJROeR12ukVZuWgeqcMYZ0aCWh/cJKu3eInremIC
-   7hBPjcEnOi72U/fQn0dSFdHd3ZkP16op7T627PkFSUxFGosF69ya3kMHI
-   e7/+MlMpayQJJpJEd9Ac4FeO157UmPKSCqD0RNzmY7CDp+u2AB52mQPEP
-   w==;
-X-CSE-ConnectionGUID: NkMxLeT9QaGXvpWNNipztw==
-X-CSE-MsgGUID: 7tHYdufdSRiWVAqsQ/5L5Q==
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="42842138"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Jun 2025 03:21:17 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 16 Jun 2025 03:21:07 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Mon, 16 Jun 2025 03:21:04 -0700
-Date: Mon, 16 Jun 2025 10:21:03 +0000
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Robert Marko <robert.marko@sartura.hr>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <olivia@selenic.com>,
-	<herbert@gondor.apana.org.au>, <davem@davemloft.net>, <vkoul@kernel.org>,
-	<andi.shyti@kernel.org>, <broonie@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-crypto@vger.kernel.org>, <dmaengine@vger.kernel.org>,
-	<linux-i2c@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-	<kernel@pengutronix.de>, <ore@pengutronix.de>, <luka.perkov@sartura.hr>,
-	<arnd@arndb.de>
-Subject: Re: [PATCH v7 1/6] arm64: lan969x: Add support for Microchip LAN969x
- SoC
-Message-ID: <20250616102103.faoc5tqp22we67zl@DEN-DL-M70577>
-References: <20250613114148.1943267-1-robert.marko@sartura.hr>
- <20250613114148.1943267-2-robert.marko@sartura.hr>
+	id 1uR73e-0000000449u-3zfB;
+	Mon, 16 Jun 2025 10:27:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B7579A5189C;
+	Mon, 16 Jun 2025 10:27:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1806CC4CEEA;
+	Mon, 16 Jun 2025 10:27:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750069637;
+	bh=Rse1XPrFQM8gbRQ9n75PNuNKPkjS6jSQ0wCaAW+iRNM=;
+	h=From:Date:Subject:To:Cc:From;
+	b=KAAd/DRo0OmWZZI5v2URno/X6HitKTcgiKTw4c/LOp3EkMgvk+imqnxTszK/uIS2v
+	 6u2e/aCFu+4SALH3jXGh96ihmbWGJuKUTfxTadTd0jeuedL8DaMYWMgQKag34Chypl
+	 f6uMO5wGfatE8IW/x3LgSdih76upC3A4eN9VP/PGB2iFLqtdV4pFBLuYG+7vKFSsf6
+	 betuBIdV8wEzsQjJ0WqxRDcF7X5Sl1XLGX9AOAiCVmGKDZ/RY1v6P6xiEkCzpo+UWC
+	 ONbVcLh0djWkY66657y5F99ygHecPphlLyfLNayPJAE+I+UrAxXigSiiiuQW83n50h
+	 WuXg3WNnSuTmQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 16 Jun 2025 12:27:06 +0200
+Subject: [PATCH net-next] net: airoha: Always check return value from
+ airoha_ppe_foe_get_entry()
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250613114148.1943267-2-robert.marko@sartura.hr>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250616-check-ret-from-airoha_ppe_foe_get_entry-v1-1-1acae5d677f7@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAHnxT2gC/x3NQQrDIBBA0auEWXdAhZjQq5QiYsY4lKqMUlpC7
+ l7J8m3+P6CRMDW4TwcIfbhxyQP6NkFIPu+EvA2DUWZWVlsMicILhTpGKW/0LCV5Vyu5WMjt1B3
+ lLj8062yXRSuzRQ+jVoUif6/T43mef+f0SjR5AAAA
+X-Change-ID: 20250616-check-ret-from-airoha_ppe_foe_get_entry-285677102dfa
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_032118_900869_0EED9520 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250616_032719_061116_FDED424C 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,48 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> This adds support for the Microchip LAN969x ARMv8-based SoC switch family.
-> 
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> Acked-by: Daniel Machon <daniel.machon@microchip.com>
-> ---
->  arch/arm64/Kconfig.platforms | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index a541bb029aa4..834910f11864 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -133,6 +133,20 @@ config ARCH_SPARX5
->           security through TCAM-based frame processing using versatile
->           content aware processor (VCAP).
-> 
-> +config ARCH_LAN969X
-> +       bool "Microchip LAN969X SoC family"
-> +       select PINCTRL
-> +       select DW_APB_TIMER_OF
+airoha_ppe_foe_get_entry routine can return NULL, so check the returned
+pointer is not NULL in airoha_ppe_foe_flow_l2_entry_update()
 
-The lan969x SoC uses the clk-lan966x driver. Would it not make sense to select
-it here?
+Fixes: b81e0f2b58be3 ("net: airoha: Add FLOW_CLS_STATS callback support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_ppe.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-  +       select COMMON_CLK_LAN966X
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 50d816344b1f8c1ed639de357f62e761ede92f05..c354d536bc66e97ab853792e4ab4273283d2fb91 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -819,8 +819,10 @@ airoha_ppe_foe_flow_l2_entry_update(struct airoha_ppe *ppe,
+ 		int idle;
+ 
+ 		hwe = airoha_ppe_foe_get_entry(ppe, iter->hash);
+-		ib1 = READ_ONCE(hwe->ib1);
++		if (!hwe)
++			continue;
+ 
++		ib1 = READ_ONCE(hwe->ib1);
+ 		state = FIELD_GET(AIROHA_FOE_IB1_BIND_STATE, ib1);
+ 		if (state != AIROHA_FOE_STATE_BIND) {
+ 			iter->hash = 0xffff;
 
-> +       help
-> +         This enables support for the Microchip LAN969X ARMv8-based
-> +         SoC family of TSN-capable gigabit switches.
-> +
-> +         The LAN969X Ethernet switch family provides a rich set of
-> +         switching features such as advanced TCAM-based VLAN and QoS
-> +         processing enabling delivery of differentiated services, and
-> +         security through TCAM-based frame processing using versatile
-> +         content aware processor (VCAP).
-> +
->  config ARCH_K3
->         bool "Texas Instruments Inc. K3 multicore SoC architecture"
->         select PM_GENERIC_DOMAINS if PM
-> --
-> 2.49.0
-> 
+---
+base-commit: 8909f5f4ecd551c2299b28e05254b77424c8c7dc
+change-id: 20250616-check-ret-from-airoha_ppe_foe_get_entry-285677102dfa
 
-/Daniel
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
