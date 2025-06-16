@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6738CC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 04:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD93FC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 04:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9EXkjrp0W9SWrd3TKQSTVrYxj7+y+riyDawKW9WulU=; b=jUsX5hRlQyRuy6ljLU8Pl2WGFi
-	pa/5dGbr6glXvtY9Kwsza3NL4LY20MLVwKZZmB66Mzg46F2pUcQ14QxhznAAZ+XqpdSeMgra6rSG4
-	gImcQ6OqvzVzOo0yP6OHw3kbNE0NdEEu0TSK+3a1GjesDZKC5UfOPAQ4UJbhDZyEM0M+/sfO9kZYg
-	OqPUJQlrmO4dtoN7MXkYANFKZMQJj3agR0bbxSC+V4ZmQmjj1w8An0JHATSGQ0kDk1qa+AxvesBPK
-	Ltd+wuqIV8RiTwP854u4VfhDwrCnlXPU/I6uht4zcgwYZfhBqeQORfVebBnn0uiV2JXhEEFLzOE07
-	iq6Qq2kg==;
+	bh=I38ai5ionxBMkBimwgLTi73TMk2JcKNFvw44Vez0IHg=; b=wjpfxNZsqOVx9KctHaSbDLKk5+
+	QOOoBboTa9Kdqw1qCiz3TlEkxp8SFNp5msQ1uIlc1N3LHrnmEgPJ+v7IYp2BWBTVBsD1eclqp9yil
+	su+3IqyjawE2VtpMSsz7lQsE1ivjhRj0N2FxizN6JmyXY0/xmxiMiIEtw6xbfC482u9jPa5tffCWD
+	MwzMHOhoW2kvw/kiRLtIpxK384IgGysehboRWWy+1LZofQU0zzgt5jiaa3dlFAjUxx7Qz3A3oeze4
+	VDGZtqVSXRRKA5Th0L0O2sOf0hGHIiVzJRVArFy8Dwm4WI1ujJTH3Rt35ywX53J9tsk8acKW4MStW
+	yRoa7wIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR146-00000003Je8-1Bbh;
-	Mon, 16 Jun 2025 04:03:22 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uR1C6-00000003Jza-2IRe;
+	Mon, 16 Jun 2025 04:11:38 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR11a-00000003J5P-3V2t
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 04:00:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 300C65C42BE;
-	Mon, 16 Jun 2025 03:58:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AFA7C4CEEA;
-	Mon, 16 Jun 2025 04:00:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750046445;
-	bh=DNjwjD8hhxbYC5MpkZvfw4zJE0EdrDcAW1zA+Ae08dk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hJ1peQkDLOiv4Y+i8Uj6JDkRJBClMNSdzYWuoRgA7dIVv+UAlVomCsCTtYUBZtyva
-	 4MNPrL/3n8vaoFc5U8hEBPhOQb4sUKuGKtLVUqI4VgD1TblmpuTE/AEQn+B93J0kzO
-	 kfbw39TmzO/6Xl+JgG+CnP0OXYwDCBKI4r/f7WmyGchHF4WIB47S46tzh6gPrBr6Ji
-	 mifNCMklUd5rQniJfvFb8wCXYq0one4WJKHd3w7peLeZ98ULoBpl1ZNfm64PjbtHiy
-	 9HeUVguZMLVXO55sKzo0n7kQOBiMy3YdWE+JQm0T2Z5BdcTAqVuX+7hgpiO8w3OeeT
-	 wBJfc/6yd39Ng==
-Date: Sun, 15 Jun 2025 21:00:16 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
+	id 1uR19t-00000003JtI-0njE;
+	Mon, 16 Jun 2025 04:09:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=I38ai5ionxBMkBimwgLTi73TMk2JcKNFvw44Vez0IHg=; b=Dkr31hJxvLQnMX0CfUojD5ZoE7
+	MusiFgiCS4vFeeOt6FIPojpyxxSZVMUfETa4aO4WEzxp0Mjc4uOXbiK6zlntrb0LOL3eEZ//QO29I
+	1QPx96pD1ghlO3yPOzExTtEJ5KpKXOeEsJUbu9oED8EkTc2ABJC59nNNWQkr7t49qgLqu0Lo/4O/P
+	N0MTEVx+OkOxgm2Y6507kpc/JUHsMWiIi16uANk6vdK8E/qCV5C7q+Vr8nWeOmcYUJU5QmOg1pypW
+	TRIDx0faC1zS86z9Bm8sHbovNm2tMcfNbZQLNicr/kkjQ66KlAP2x2YVqG2HcJI6DnWoKnUoeXe+8
+	BToQgXOw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1uR0uf-000JCI-2h;
+	Mon, 16 Jun 2025 12:09:18 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 16 Jun 2025 12:09:17 +0800
+Date: Mon, 16 Jun 2025 12:09:17 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
 Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Jason@zx2c4.com,
-	ardb@kernel.org, kent.overstreet@linux.dev
-Subject: Re: [PATCH] lib/crypto/poly1305: Fix arm64's poly1305_blocks_arch()
-Message-ID: <20250616040016.GA749462@sol>
-References: <20250616010654.367302-1-ebiggers@kernel.org>
- <aE-PDfmowagPegen@gondor.apana.org.au>
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
+	Jason@zx2c4.com, torvalds@linux-foundation.org
+Subject: [PATCH] crypto: ahash - Fix infinite recursion in ahash_def_finup
+Message-ID: <aE-Y7VzdJTDJHsy_@gondor.apana.org.au>
+References: <20250611020923.1482701-8-ebiggers@kernel.org>
+ <aEjo6YZn59m5FnZ_@gondor.apana.org.au>
+ <20250611033957.GA1484147@sol>
+ <aEj8J3ZIYEFp_XT4@gondor.apana.org.au>
+ <20250611035842.GB1484147@sol>
+ <20250613053624.GA163131@sol>
+ <aEu5cyDOMcKteW_b@gondor.apana.org.au>
+ <20250613055439.GB163131@sol>
+ <aEvmmr0huGGd2Psv@gondor.apana.org.au>
+ <20250615031807.GA81869@sol>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aE-PDfmowagPegen@gondor.apana.org.au>
+In-Reply-To: <20250615031807.GA81869@sol>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_210046_999657_74A4EBC1 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20250615_210921_285861_775C3D91 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +84,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 11:27:09AM +0800, Herbert Xu wrote:
-> Eric Biggers <ebiggers@kernel.org> wrote:
-> > From: Eric Biggers <ebiggers@google.com>
-> > 
-> > For some reason arm64's Poly1305 code got changed to ignore the padbit
-> > argument.  As a result, the output is incorrect when the message length
-> > is not a multiple of 16 (which is not reached with the standard
-> > ChaCha20Poly1305, but bcachefs could reach this).  Fix this.
-> 
-> Sorry, it was a cut-n-paste error since I copy the code from
-> the update function where the padbit is always 1.
-> 
-> > diff --git a/arch/arm64/lib/crypto/poly1305-glue.c b/arch/arm64/lib/crypto/poly1305-glue.c
-> > index 6a661cf048213..c9a74766785bd 100644
-> > --- a/arch/arm64/lib/crypto/poly1305-glue.c
-> > +++ b/arch/arm64/lib/crypto/poly1305-glue.c
-> > @@ -36,18 +36,18 @@ void poly1305_blocks_arch(struct poly1305_block_state *state, const u8 *src,
-> >        if (static_branch_likely(&have_neon)) {
-> >                do {
-> >                        unsigned int todo = min_t(unsigned int, len, SZ_4K);
-> > 
-> >                        kernel_neon_begin();
-> > -                       poly1305_blocks_neon(state, src, todo, 1);
-> > +                       poly1305_blocks_neon(state, src, todo, padbit);
-> 
-> This would do the wrong thing if someone ever tried to pad a
-> message more than 4K and called the block function with padbit == 0.
-> Fortunately it can't happen today as there is no digest interface
-> to poly1305.
+On Sat, Jun 14, 2025 at 08:18:07PM -0700, Eric Biggers wrote:
+>
+> Even with your patch applied, it overflows the stack when running the crypto
+> self-tests, apparently due to crypto/ahash.c calling into itself recursively:
 
-The final partial block is (and needs to be) processed with its own call to
-poly1305_blocks().
+Thanks for the report.  This driver doesn't provide a finup function
+which triggered a bug in the default finup implementation:
 
-> Looking around it seems that this pattern is replicated across
-> all of our poly1305 implementations so it isn't a big deal.
-> 
-> I presume you will be picking this up via the lib/crypto tree?
+---8<---
+Invoke the final function directly in the default finup implementation
+since crypto_ahash_final is now just a wrapper around finup.
 
-Yes.
+Reported-by: Eric Biggers <ebiggers@kernel.org>
+Fixes: 9d7a0ab1c753 ("crypto: ahash - Handle partial blocks in API")
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 
-- Eric
+diff --git a/crypto/ahash.c b/crypto/ahash.c
+index bd9e49950201..3878b4da3cfd 100644
+--- a/crypto/ahash.c
++++ b/crypto/ahash.c
+@@ -603,12 +603,14 @@ static void ahash_def_finup_done2(void *data, int err)
+ 
+ static int ahash_def_finup_finish1(struct ahash_request *req, int err)
+ {
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(req);
++
+ 	if (err)
+ 		goto out;
+ 
+ 	req->base.complete = ahash_def_finup_done2;
+ 
+-	err = crypto_ahash_final(req);
++	err = crypto_ahash_alg(tfm)->final(req);
+ 	if (err == -EINPROGRESS || err == -EBUSY)
+ 		return err;
+ 
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
