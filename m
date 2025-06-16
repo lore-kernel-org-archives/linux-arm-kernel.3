@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16705C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 23:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC83EC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 23:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BePOfiT7npLQIY5e20eiRynStUObeSDrh0xh71pFI4w=; b=JJMJLWrqBL/R99jRSGqETkxfQS
-	ZyCeZuZFB0lNx5was8c0ov2Rlq7MZVGGC/yzS7WD/Kt0H+0TQMpkIKsIWONouGfZ7LMrgiIRXCKQv
-	RyUPghecrFOq6/+4037XF8cyQyF27tVxsRzKX5/HkKj6scoK+uxQEIeTv9ae+0QfU9PMGhyPbVxT6
-	2OHkJ4mYGEURJJfT/2TDhpywomEDbMbP4MK6zqaWX+ENPo/FLzaZrmoxHgLXHddPMgDAiGYQPAN9Q
-	aR4QVIvrB7xnFjIUiVokpGSQB983hfNjA2ut74A+tvsdLlPzVzzMU/B5t5Sd57I4pu5EoLVbid2mO
-	D2D2JrCw==;
+	bh=3Un0+1ftM5WRDevFf0RglkkUzK/GEGJ7mZMlQpvr5d4=; b=oB0UqrCXqkS0SxsKvniH5lu5Ln
+	I9YwSUsLCwPjdEkVtnucuMBZAQanigm+6FQKJc6v0X5/ki6iEh2fOcJqImoIeZk27i5pPaiwwq6Zm
+	noZmdo3OxmNUt2IUjVbU/iigcOqJxIuIxjA9mSoNbGxhdONUy1DaQUHI2ksEfvkbQlNWM4AdSXXXy
+	Nqj3BOw+omqobp0yDh5ufzeWwSnPTxKMHrFqgvLD/YJss8pFKqyqZFm/kvUX02BiuBSnx2cUpwqkk
+	YUOqyHUPQJH6/fE+dN4W8VkjcomUaNumaTzefMSCfL6B38uLp4lR0g4xwSpdtWc8v1A3m3p2/s1jU
+	GsUJzgag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRJNR-00000005pgp-0Uwh;
-	Mon, 16 Jun 2025 23:36:33 +0000
+	id 1uRJPb-00000005ppZ-3deO;
+	Mon, 16 Jun 2025 23:38:47 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRJLC-00000005pKr-0oKM
+	id 1uRJLv-00000005pQD-2Uy5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 23:34:15 +0000
+	Mon, 16 Jun 2025 23:35:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=BePOfiT7npLQIY5e20eiRynStUObeSDrh0xh71pFI4w=; b=4K/Qv6b1b3GEbTeV2sQRtrnU2V
-	eEsya342v4+qD6FVDHNiwm0z4u8w3j8k5VDSO4wK4gTr7WJDqas1z9HDgeeM21RJS3BrKJTbs9xzw
-	CZevoSDzGj6ja+r01OJXsEu3vU82AI+5/2sZZQLnMfQfzyB2rxS18K+hqnGrRsyT0IeY=;
+	bh=3Un0+1ftM5WRDevFf0RglkkUzK/GEGJ7mZMlQpvr5d4=; b=shsnZ0gblK/6NNim4BRE3Qat8l
+	S+foVhF9x2p5hrnudDOu3/47ZX/MyR8FIwM6uUA+Pp6IMvxWcBrDRHH3u0FpBAms1i7z/6hqv/PuZ
+	DP/cFv2nC13B3z4ZyexETRX8zFLwZDmdeQ0Qnt6C0g09DHZrdYGxqPldFkXtNE0+425I=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1uRJL6-00G6SN-VL; Tue, 17 Jun 2025 01:34:08 +0200
-Date: Tue, 17 Jun 2025 01:34:08 +0200
+	id 1uRJLq-00G6Ta-7Y; Tue, 17 Jun 2025 01:34:54 +0200
+Date: Tue, 17 Jun 2025 01:34:54 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -52,18 +52,18 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 2/4] net: stmmac: visconti: reorganise
- visconti_eth_set_clk_tx_rate()
-Message-ID: <48941356-d75a-4fca-88c9-c5925d79a993@lunn.ch>
+Subject: Re: [PATCH net-next 3/4] net: stmmac: visconti: clean up code
+ formatting
+Message-ID: <eb9cf1c9-e03e-4fe0-886f-08fcb349b003@lunn.ch>
 References: <aFCHJWXSLbUoogi6@shell.armlinux.org.uk>
- <E1uRH26-004UyM-9G@rmk-PC.armlinux.org.uk>
+ <E1uRH2B-004UyS-Ch@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1uRH26-004UyM-9G@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1uRH2B-004UyS-Ch@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_163414_237272_DD8E1BAA 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20250616_163459_630570_D3BD2744 
+X-CRM114-Status: UNSURE (   6.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,13 +79,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 10:06:22PM +0100, Russell King (Oracle) wrote:
-> Rather than testing dwmac->phy_intf_sel several times for the same
-> values in this function, group the code together. The only part
-> which was common was stopping the internal clock before programming
-> the clock setting.
-> 
-> This further improves the readability of this function.
+On Mon, Jun 16, 2025 at 10:06:27PM +0100, Russell King (Oracle) wrote:
+> Ensure that code is wrapped prior to column 80, and shorten the
+> needlessly long "clk_sel_val" to just "clk_sel".
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
