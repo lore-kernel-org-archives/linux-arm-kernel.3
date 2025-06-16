@@ -4,54 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84474C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27E8C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7CzbWc6Ry9TfjfmIybP+HE1g05hb2+vLUH61hwb39IU=; b=IOJIrjYsdVnoGCiQsR08ABQHdc
-	KNvfVjtqM0aho4KC4a3qe09wNbTJJE79mPZyigmC0dZvpJ6/QRIER7SDRwarl54jhUnpgAL42ytSm
-	R0PFJYSocJ3v32o9e3gv6+hCPJOuU2VW44mZz4pVJPfbFhD9D1x//FxTH5GJzk21XZNwVZMvwBWTg
-	OfTRgS9BI60T8IHvJY+38oZ7FozUIwr992I3Jb6l7pGFeh9LWAI+WWoWEe+KCW1bdTKF92kT7wtpA
-	5g82zjx1AvZMBFXmr6MFbsv5/zo/LvYqi80hZlNt0BHuhk4nmRvyPUZTWKR+lARfYBbcuRrY9inkz
-	/MtJlMnw==;
+	bh=wCWWyy01m7LrKjK3j7uZB/+gMWrOZR99Vxi4wLD73NE=; b=lyTqXobBIA9Q7iSIYBtLuy/gLW
+	wPrj9PAZlDzpjEsYIRGPtptxxDBuqcNYbV/Mgwj6pUtFoksh1r8HCzKm4nLlqgFtvtIAx+cMmETT2
+	hSogoXjW5BssKMcl6TUoQoPMJ89ns1pBz/Q9UnDEDI+w27HZa6a5BNNAMJ2dsVxhUwqVpag/2s0Mh
+	++P3wAG9W52IVNPYFXF3Dy+P9AxwRwxXCykme6aRMtYVjCJwZuVxiWA9wGDVF/jxpCNLoFcBGFMAv
+	Es+I85bD6g0qJ4jyEHuGRUrpHEaz30nTRIVMtMLmC98AnfGXrlx0yEY7tSFt3I8ICnKyDi4QtHeu0
+	N/n6k0+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREat-00000005FIJ-36Hg;
-	Mon, 16 Jun 2025 18:30:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREFM-00000005Bcl-1FNz
+	id 1uREay-00000005FQG-23aY;
+	Mon, 16 Jun 2025 18:30:12 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRENu-00000005CZ3-35CF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 18:07:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBABE150C;
-	Mon, 16 Jun 2025 11:07:29 -0700 (PDT)
-Received: from [10.57.84.117] (unknown [10.57.84.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D5613F673;
-	Mon, 16 Jun 2025 11:07:49 -0700 (PDT)
-Message-ID: <d0b17ac1-32e1-4086-97ec-1d70c1ac62e6@arm.com>
-Date: Mon, 16 Jun 2025 19:07:47 +0100
+	Mon, 16 Jun 2025 18:16:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gHjsWlqzhM5XQlsOrUBgNefwg/UariflqnGh3lRiIOJamqL/cyxyAIzdpE44ZWeEgIDloxAj2REd/zJDpMxxKoXVIST/F/l1R5oPTQ2ETuuSwAgl73ndhcyS88tgQzbuzX0gFMjC4isLQ7QFui/vOHdvone1+E0nwWEjFI0e/5ThufhaI3rF72tDEBLDzn7SEVIN0aAYbNa7WFfOtE1Prcv8Dk2z02AtyOa+NNE56BLlkR37mN0nb6VYQ/ZaN2dZixFPFXI8bDiiLwVAXiH5MGO8fLYxQlkWWaX+V2vc7Cqc+hb4Xm50K4YqYGMvih38xEoyf9r6oI/bVjVMIxWMGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QV7r0zhromraftUohQXkVkTPVwHgCQxQFNuI3G3rGwQ=;
+ b=Uz14L9mxAihrIRCSbmDBxePX1TCp9iEsyEp6L9RMJl4CEHAGo0gDgXRnLnorv474tVSQkN1xN/zPAsLpW4CGDvebv6M2dLQ8sfMrFTySmuRWRiVKKFVRmKsW3BrcQ1BO6VPWZLkRnqc9hUE0rBE1Guw4ZpK1WliKzIIG+NEWngGjMmZ/NkmQJOwRnwwu+Q0JRRGnbL8OB/rsh+sJk20xFug5GNe6SnzpEIZhNV3DTCF3JxLwMisk9qlh+ac3PEv4vjFRLVtQ/Rx195/KO4Qz38buocXdBdYqbhDKPZRwZQ/tb6FQ2PBqFLmF4BhwdOQ1Zy7KiJLk2xS/S25fBV/NqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QV7r0zhromraftUohQXkVkTPVwHgCQxQFNuI3G3rGwQ=;
+ b=IYPl9JjMpiMGVxhWc0h6M3dH6Lsju8hYmdeDQQ3RugsJQwyt0ts1gj3BW9qCfqLVi1hT189PtDRAsQ53XVifDFIaf0Zcly1d2l9l1swWPi2iKUOvMq4Ik3kHV06PHqKK5YxEn8+yNbeIrZdKsma3+ArNHvO8h3H7OaFhaJrxY73mgrzJOs2Q20e5gOreQfNw/RzF5xqmLxYB/ucfVGIWn/cjNKG9lzvetfe1CojXKMaMcxNj1CFpoldgQ6AjBqPimW7vZQzSTM9VUXOIiMz+IgBnRj1pYRFkHEJBWFsZnRInA3Fy/tc9uFUPLeUEKTNnYn75xX03uZt5A+g9cCKWpQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS4PR04MB9691.eurprd04.prod.outlook.com (2603:10a6:20b:4f4::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.27; Mon, 16 Jun
+ 2025 18:16:38 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.026; Mon, 16 Jun 2025
+ 18:16:38 +0000
+Date: Mon, 16 Jun 2025 14:16:30 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/1] dt-bindings: media: convert fsl-vdoa.txt to yaml
+ format
+Message-ID: <aFBffjCXqA/dMn4Z@lizhi-Precision-Tower-5810>
+References: <20250411213601.3273670-1-Frank.Li@nxp.com>
+ <174448105342.1415739.9619142538994119426.robh@kernel.org>
+ <aC9xv08a5k5Pz1t+@lizhi-Precision-Tower-5810>
+ <b97c254c5169acb32b9f65f71b363a3eb1cfc8a2.camel@ndufresne.ca>
+ <8b18533170e7ba395c574de69768dcc27f718767.camel@ndufresne.ca>
+ <aC93vDMFM7LsoDD4@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aC93vDMFM7LsoDD4@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: PH8PR15CA0011.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::28) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: Enable vmalloc-huge with ptdump
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- david@redhat.com
-References: <20250616103310.17625-1-dev.jain@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250616103310.17625-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS4PR04MB9691:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75200bee-8455-4507-d223-08ddad01efd2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?NY+tIrLspy0ROrlwg0x2TJjzIOlqDtBy5WPM6qvtvhoJwFMp/mfljGCNRS?=
+ =?iso-8859-1?Q?sm2YBtTaHYzzO/3JSayx8k57PG/65aDWrbkFiYoF1EGKpfVaQ2gAPHpx5x?=
+ =?iso-8859-1?Q?jfZYb91XA+wlk8LetmEh0q7OgYCOMHm0QAmTDJqqJR5Mrc/ZCtHEdWfDmI?=
+ =?iso-8859-1?Q?fjoA5jHVL1rGeZdz86h/UYQwAJAlECjVc65W8sQ4A0OKp2L1WzrsdPYhuS?=
+ =?iso-8859-1?Q?YMHalt7tYuf1/2+wIxSIK8wSGxXBpxM7U4aM/2obXG2wp6gPSjProKBgZ9?=
+ =?iso-8859-1?Q?ZwG2QSVhoNO49wXXXyQ75L+YfXJWDEOxsx6ZnsbS6bB54ef3ZvYuu0Rm4b?=
+ =?iso-8859-1?Q?FZmORBXbxx0kar2XvOEPa1+hPjoUYHLczZIDng3Xvxp5Z6sgyLEfpd17JO?=
+ =?iso-8859-1?Q?LEJWY/eO4G9KbYl/ArWkslPypCTZSgPHY6mU8J1a4SbQkEHz/pr49Xuwm0?=
+ =?iso-8859-1?Q?q//nsItV1qFGgKBljx3m7cG6rOTXthxEIEMmcRbRd2t0OZeRE7w6xIQY0h?=
+ =?iso-8859-1?Q?+QntVWVZn3B4ZONBSSnWAloBPDC/G6P8sY+M/3q8yQiyElTPJHZfBjK8t6?=
+ =?iso-8859-1?Q?o4ZWnpXzHk7xPw3VOFHcN5EKrSofOyVQwvfTf3Tm2/79N3/xwUKcz4EdiG?=
+ =?iso-8859-1?Q?qZuDb6B0xjl/rGIBr8L2m7UlfwjXsssYXQUkCCts2hehzHRnrLRO5lEFQR?=
+ =?iso-8859-1?Q?nxobmOdmdfuXbX0+yY1GXI3YLr3HvUGbGohJI8L7LmPw1E32yhnQYIDsYx?=
+ =?iso-8859-1?Q?gPBd1p9FdQ58YtEoWnZNqjjDws+0oVzB94ishEBf1s7dGHH98vuMgJbVCY?=
+ =?iso-8859-1?Q?1+KZYX2//ikyiGINq6M9HIxBEmXGOa7R6oS80LUyIQviwTxpiOWLvpLkFd?=
+ =?iso-8859-1?Q?dk57Yj2fLXCz1THW9/JTbOieywxV0sNmRN5dU/bVZ6jMM+x7LlLe4fKYSh?=
+ =?iso-8859-1?Q?X2UwddFZuJdSMHos9cRmwm1wWotPrWXL1YQWMIfuM0Zfh9i1Pdp+zPaWBH?=
+ =?iso-8859-1?Q?cfkbzrbsvv+Rv8cUDYcp2tQDs/y24vtGTU1hW19bk0qoVf1w2ZYzNmRkqQ?=
+ =?iso-8859-1?Q?ZTMWzin/xheRrkmGVexwqLCl0l4IsKcF+YKhIExuwQwcYGMv+x8+9ufW1U?=
+ =?iso-8859-1?Q?nmt64ax22eaw/OUsj3YrGiXsiO/3OeK4niFygXcP/sveAMKiRtv8EGhsqU?=
+ =?iso-8859-1?Q?PEv5+no8HwqjjXG1dyKBKX9Na5xJuSEgbluCU5OvRT55dUHPdBfR38NCkr?=
+ =?iso-8859-1?Q?Wz6L0DJqWgdS0FcMrmUXZ7aXNJmKDzfT/qVzDeqvqapFZdNsN1gq8Wt6J0?=
+ =?iso-8859-1?Q?aY4sBEMnc5JZmVf1yJsDIyzMkmuz19/v2ISftwdQfWJFFvhsjUMG9PFn/s?=
+ =?iso-8859-1?Q?080uhu30vLSJAZra6LFWb1UWmaquTxq1qX+mrApV085DFmJE29yUbeg/1Y?=
+ =?iso-8859-1?Q?xY7TYj5kqwUAEYCOm6sQcb2g+jAdTrTfYdZKYqIjZhJSXhJE11ni2rh2i7?=
+ =?iso-8859-1?Q?weEFu3bHIPlD3MJw8nV/8Q/uaTxNWSYkrIZMvCnGp1Gw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?PSD5OdjPDThNrKvYLqsQSibHyBy95dTMXiqlIgAt2Im61qEY+LRAJLa2is?=
+ =?iso-8859-1?Q?gLMWjN9IGlN0ZgUlXqXdJ2dCvk/At0VqIGxzo5IH0p5Y78DDE2W2y0Pa/U?=
+ =?iso-8859-1?Q?sLKNzGNWE9RN2xkLQMAcY98coSHv8Tf3vXqnuV4gC3tl1IC0gOyVge+KFm?=
+ =?iso-8859-1?Q?tepvL7Sq3cNo98p+jjjAH8kXK9OiuSpfWIiJnrmjwV4jdgBCQv6staRjrC?=
+ =?iso-8859-1?Q?nh7yXWSdOs7gyI99OifVG8z09zCcGdMAdRoio+LJx4xtLn7Cx9+UHtxxGs?=
+ =?iso-8859-1?Q?TV8o1p3cPs11E7NVX5mSAZa00GuoyEpGSQeUiHalbdTTVLh75NgQvBEc59?=
+ =?iso-8859-1?Q?ew8sLCgM1Vc0XKdLnUi7SXuMT4NQ4z6SH80pDSZV3X4e8ToJyy6WBrh9NO?=
+ =?iso-8859-1?Q?QRTJRKhQjf0ALw/8TfT1/ktqNA8dWTbfEQwNjbuotL522ilNhxJj2unIl7?=
+ =?iso-8859-1?Q?9aLzSVJKK0dakelEWRFCBX+ZhKvIljUUThO/SH+xFzMR270Aff55rDQB2N?=
+ =?iso-8859-1?Q?K7TtUvIceBaBCf1pI8Oek3HhTSDnIOBuhAZ5673Y03tZyymAd4YjJoXycR?=
+ =?iso-8859-1?Q?DdK1G/yMBdftJTLG3evG1A5NHkCZ/Bo+BDpnod/9ge1mvDOP2Axk3IMaip?=
+ =?iso-8859-1?Q?drbkY5JrC2jS1ikqLZG9cyMLvfw9MwLPX1qoZmUxFJIuofnC3d6tk4lAfH?=
+ =?iso-8859-1?Q?VQkGX1iXgYTbxn7z8hskkLlcYrzlbsBS0k19wu78JR/mKjabdNo+zk9V/V?=
+ =?iso-8859-1?Q?ncXqrlR2o3ay/TtpIma3m2tQKnZTj3NJpuUw5Vq9bO7rkAH6B84Ia7PHAx?=
+ =?iso-8859-1?Q?6IPq7tBPRF69kE59g4IGcV4Y88cAoNeujQlF5TITvq+spluHeQn4HD/a1R?=
+ =?iso-8859-1?Q?oVMnycd4RWsnDweCfyUAIpnmoOapQDOAXP7gbYMhKHcH9go8ErnXJb0uFl?=
+ =?iso-8859-1?Q?iILRS2kY2EQAsfpKwt7Wcym+GiMoXp/yvrQYR47sQVH2xwV4mPsOAbz7DL?=
+ =?iso-8859-1?Q?usJMixaGeFnQU/6decgiSDlPdeW7Sd/Ffp7a/5yC55RB+UiP8jWWKTdqNv?=
+ =?iso-8859-1?Q?UMv16rgEi0lHjMYaxq/SJyEr7SDUsknHaA5ckqcdySbJ1Q0Sqv93N32fv9?=
+ =?iso-8859-1?Q?D7CGxPOC2eTuvApf9QxVhprxdcuDq33zf/k2PCvc16ZCQ4Nt22yWUmOqck?=
+ =?iso-8859-1?Q?hyUG4ezjqf2j+0569t1IY+WiZicnBFWIWL1IHyziuEgM5quOx7RIIfBXKZ?=
+ =?iso-8859-1?Q?nqcoUnFKqTX0TfOg6cpxKIMIOkSORPTSNX5cbf7Hw4FD8X+j3a+weur4M2?=
+ =?iso-8859-1?Q?TDKsdYIA/8iWHH0N6eiODV6i5KnxRCZk6BtfNV4EomODxm9euA1SgE/IsJ?=
+ =?iso-8859-1?Q?HTowdKY9tqcsSniCgz849ZCRsy96FxbFfa0sLXorA9sEKwO88uey/25Ibe?=
+ =?iso-8859-1?Q?F92I7DAHPrxxS2iMyIKtO/e31+N1WDzD/NCCD5ps1+JNI+/NAaT3wk24EK?=
+ =?iso-8859-1?Q?bkC1MATU02XCbQqs0+bO2TfUhFBjrZMmGFIp6m2NBeAqWbyIOL13lJyCWa?=
+ =?iso-8859-1?Q?xAfULBbKK1mfwhHj21fr22firj4GOKvL8jvdq9+ek0xIFWBTLZ/GKlOuL8?=
+ =?iso-8859-1?Q?LpI7zbebnn5Ls=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75200bee-8455-4507-d223-08ddad01efd2
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 18:16:38.8582
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uPLzF5K4kvG6vzoBmeGZWZ96OqwNiARsqzZDXcuGPRVCfqc0AS6QGN1PHzTnUSd6reen4po/r3SsSPcudoFQyg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9691
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_110752_431929_BDAC664C 
-X-CRM114-Status: GOOD (  40.75  )
+X-CRM114-CacheID: sfid-20250616_111642_775066_A949E020 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,259 +171,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/06/2025 11:33, Dev Jain wrote:
-> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
-> because an intermediate table may be removed, potentially causing the
-> ptdump code to dereference an invalid address. We want to be able to
-> analyze block vs page mappings for kernel mappings with ptdump, so to
-> enable vmalloc-huge with ptdump, synchronize between page table removal in
-> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
-> use mmap_read_lock and not write lock because we don't need to synchronize
-> between two different vm_structs; two vmalloc objects running this same
-> code path will point to different page tables, hence there is no race.
-> 
-> For pud_free_pmd_page(), we isolate the PMD table to avoid taking the lock
-> 512 times again via pmd_free_pte_page().
-> 
-> We implement the locking mechanism using static keys, since the chance
-> of a race is very small. Observe that the synchronization is needed
-> to avoid the following race:
-> 
-> CPU1							CPU2
-> 						take reference of PMD table
-> pud_clear()
-> pte_free_kernel()
-> 						walk freed PMD table
-> 
-> and similar race between pmd_free_pte_page and ptdump_walk_pgd.
-> 
-> Therefore, there are two cases: if ptdump sees the cleared PUD, then
-> we are safe. If not, then the patched-in read and write locks help us
-> avoid the race.
-> 
-> To implement the mechanism, we need the static key access from mmu.c and
-> ptdump.c. Note that in case !CONFIG_PTDUMP_DEBUGFS, ptdump.o won't be a
-> target in the Makefile, therefore we cannot initialize the key there, as
-> is being done, for example, in the static key implementation of
-> hugetlb-vmemmap. Therefore, include asm/cpufeature.h, which includes
-> the jump_label mechanism. Declare the key there and define the key to false
-> in mmu.c.
-> 
-> No issues were observed with mm-selftests. No issues were observed while
-> parallelly running test_vmalloc.sh and dumping the kernel pagetable through
-> sysfs in a loop.
-> 
-> v2->v3:
->  - Use static key mechanism
-> 
-> v1->v2:
->  - Take lock only when CONFIG_PTDUMP_DEBUGFS is on
->  - In case of pud_free_pmd_page(), isolate the PMD table to avoid taking
->    the lock 512 times again via pmd_free_pte_page()
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
->  arch/arm64/include/asm/cpufeature.h |  1 +
->  arch/arm64/mm/mmu.c                 | 51 ++++++++++++++++++++++++++---
->  arch/arm64/mm/ptdump.c              |  5 +++
->  3 files changed, 53 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index c4326f1cb917..3e386563b587 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -26,6 +26,7 @@
->  #include <linux/kernel.h>
->  #include <linux/cpumask.h>
->  
-> +DECLARE_STATIC_KEY_FALSE(ptdump_lock_key);
->  /*
->   * CPU feature register tracking
->   *
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 8fcf59ba39db..e242ba428820 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -41,11 +41,14 @@
->  #include <asm/tlbflush.h>
->  #include <asm/pgalloc.h>
->  #include <asm/kfence.h>
-> +#include <asm/cpufeature.h>
->  
->  #define NO_BLOCK_MAPPINGS	BIT(0)
->  #define NO_CONT_MAPPINGS	BIT(1)
->  #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
->  
-> +DEFINE_STATIC_KEY_FALSE(ptdump_lock_key);
-> +
->  enum pgtable_type {
->  	TABLE_PTE,
->  	TABLE_PMD,
-> @@ -1267,8 +1270,9 @@ int pmd_clear_huge(pmd_t *pmdp)
->  	return 1;
->  }
->  
-> -int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-> +static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr, bool lock)
->  {
-> +	bool lock_taken = false;
->  	pte_t *table;
->  	pmd_t pmd;
->  
-> @@ -1279,15 +1283,29 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
->  		return 1;
->  	}
->  
-> +	/* See comment in pud_free_pmd_page for static key logic */
->  	table = pte_offset_kernel(pmdp, addr);
->  	pmd_clear(pmdp);
->  	__flush_tlb_kernel_pgtable(addr);
-> +	if (static_branch_unlikely(&ptdump_lock_key) && lock) {
-> +		mmap_read_lock(&init_mm);
-> +		lock_taken = true;
-> +	}
-> +	if (unlikely(lock_taken))
-> +		mmap_read_unlock(&init_mm);
-> +
->  	pte_free_kernel(NULL, table);
->  	return 1;
->  }
->  
-> +int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
-> +{
-> +	return __pmd_free_pte_page(pmdp, addr, true);
-> +}
-> +
->  int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  {
-> +	bool lock_taken = false;
->  	pmd_t *table;
->  	pmd_t *pmdp;
->  	pud_t pud;
-> @@ -1301,15 +1319,40 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
->  	}
->  
->  	table = pmd_offset(pudp, addr);
-> +	/*
-> +	 * Isolate the PMD table; in case of race with ptdump, this helps
-> +	 * us to avoid taking the lock in __pmd_free_pte_page().
-> +	 *
-> +	 * Static key logic:
-> +	 *
-> +	 * Case 1: If ptdump does static_branch_enable(), and after that we
-> +	 * execute the if block, then this patches in the read lock, ptdump has
-> +	 * the write lock patched in, therefore ptdump will never read from
-> +	 * a potentially freed PMD table.
-> +	 *
-> +	 * Case 2: If the if block starts executing before ptdump's
-> +	 * static_branch_enable(), then no locking synchronization
-> +	 * will be done. However, pud_clear() + the dsb() in
-> +	 * __flush_tlb_kernel_pgtable will ensure that ptdump observes an
-> +	 * empty PUD. Thus, it will never walk over a potentially freed
-> +	 * PMD table.
-> +	 */
-> +	pud_clear(pudp);
+On Thu, May 22, 2025 at 03:15:08PM -0400, Frank Li wrote:
+> On Thu, May 22, 2025 at 03:06:01PM -0400, Nicolas Dufresne wrote:
+> > Hi again,
+> >
+> > Le jeudi 22 mai 2025 à 14:57 -0400, Nicolas Dufresne a écrit :
+> > > Hi Frank,
+> > >
+> > > Le jeudi 22 mai 2025 à 14:49 -0400, Frank Li a écrit :
+> > > > On Sat, Apr 12, 2025 at 01:04:14PM -0500, Rob Herring (Arm) wrote:
+> > > > >
+> > > > > On Fri, 11 Apr 2025 17:36:00 -0400, Frank Li wrote:
+> > > > > > Convert fsl-vdoa.txt to yaml format.
+> > > > > >
+> > > > > > Additional changes:
+> > > > > > - Add irq.h and imx6qdl-clock.h in example.
+> > > > > >
+> > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > > > > > ---
+> > > > > >  .../bindings/media/fsl,imx6q-vdoa.yaml        | 42 +++++++++++++++++++
+> > > > > >  .../devicetree/bindings/media/fsl-vdoa.txt    | 21 ----------
+> > > > > >  2 files changed, 42 insertions(+), 21 deletions(-)
+> > > > > >  create mode 100644 Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+> > > > > >  delete mode 100644 Documentation/devicetree/bindings/media/fsl-vdoa.txt
+> > > > > >
+> > > > >
+> > > > > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > > >
+> > > > All:
+> > > > 	Anyone pick this patch?
+> > >
+> > > Thanks for the highlight, this is stuff from before my time and I had not associated it
+> > > with CODA initially. I've picked it now.
+> >
+> > Actually, before I do so, any of the following warnings should be addressed ? I effectively don't
+> > see a clear entry for that bindings, but could have miss-read and there is a second warning,
+> > which based on having Rb is likely false positive ?
+>
+> The second warning is false alarm. When convert txt to yaml, only need update
+> MAINTAINS only when old txt entry already in MAINTAINERS.
+>
+> >
+> > ---
+> > [[ATTACHMENT|junit/./0001-dt-bindings-media-convert-fsl-vdoa.txt-to-yaml-forma.patch checkpatch.err.txt]]
+> > WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
+> > #21:
+> > new file mode 100644
+> >
+> > WARNING: DT binding docs and includes should be a separate patch. See: Documentation/devicetree/bindings/submitting-
+> > patches.rst
+>
+> This one is check patch script issue. I met many similar issues at convert
+> txt to yaml.
 
-How can this possibly be correct; you're clearing the pud without any
-synchronisation. So you could have this situation:
+Nicolas Dufresne:
 
-CPU1 (vmalloc)			CPU2 (ptdump)
+	Do you have still concern to pick up this patch?
 
-				static_branch_enable()
-				  mmap_write_lock()
-				    pud = pudp_get()
-pud_free_pmd_page()
-  pud_clear()
-				    access the table pointed to by pud
-				    BANG!
+Frank Li
 
-Surely the logic needs to be:
-
-	if (static_branch_unlikely(&ptdump_lock_key)) {
-		mmap_read_lock(&init_mm);
-		lock_taken = true;
-	}
-	pud_clear(pudp);
-	if (unlikely(lock_taken))
-		mmap_read_unlock(&init_mm);
-
-That fixes your first case, I think? But doesn't fix your second case. You could
-still have:
-
-CPU1 (vmalloc)			CPU2 (ptdump)
-
-pud_free_pmd_page()
-  <ptdump_lock_key=FALSE>
-				static_branch_enable()
-				  mmap_write_lock()
-				    pud = pudp_get()
-  pud_clear()
-				    access the table pointed to by pud
-				    BANG!
-
-I think what you need is some sort of RCU read-size critical section in the
-vmalloc side that you can then synchonize on in the ptdump side. But you would
-need to be in the read side critical section when you sample the static key, but
-you can't sleep waiting for the mmap lock while in the critical section. This
-feels solvable, and there is almost certainly a well-used pattern, but I'm not
-quite sure what the answer is. Perhaps others can help...
-
-Thanks,
-Ryan
-
-
-> +	__flush_tlb_kernel_pgtable(addr);
-> +	if (static_branch_unlikely(&ptdump_lock_key)) {
-> +		mmap_read_lock(&init_mm);
-> +		lock_taken = true;
-> +	}
-> +	if (unlikely(lock_taken))
-> +		mmap_read_unlock(&init_mm);
-> +
->  	pmdp = table;
->  	next = addr;
->  	end = addr + PUD_SIZE;
->  	do {
-> -		pmd_free_pte_page(pmdp, next);
-> +		__pmd_free_pte_page(pmdp, next, false);
->  	} while (pmdp++, next += PMD_SIZE, next != end);
->  
-> -	pud_clear(pudp);
-> -	__flush_tlb_kernel_pgtable(addr);
->  	pmd_free(NULL, table);
->  	return 1;
->  }
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index 421a5de806c6..f75e12a1d068 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -25,6 +25,7 @@
->  #include <asm/pgtable-hwdef.h>
->  #include <asm/ptdump.h>
->  
-> +#include <asm/cpufeature.h>
->  
->  #define pt_dump_seq_printf(m, fmt, args...)	\
->  ({						\
-> @@ -311,7 +312,9 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
->  		}
->  	};
->  
-> +	static_branch_enable(&ptdump_lock_key);
->  	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
-> +	static_branch_disable(&ptdump_lock_key);
->  }
->  
->  static void __init ptdump_initialize(void)
-> @@ -353,7 +356,9 @@ bool ptdump_check_wx(void)
->  		}
->  	};
->  
-> +	static_branch_enable(&ptdump_lock_key);
->  	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
-> +	static_branch_disable(&ptdump_lock_key);
->  
->  	if (st.wx_pages || st.uxn_pages) {
->  		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
-
+>
+> Frank
+>
+> >
+> > total: 0 errors, 2 warnings, 0 checks, 42 lines checked
+> > ---
+> >
+> > Nicolas
+> >
+> > >
+> > > regards,
+> > > Nicolas
+> > >
+> > > >
+> > > > Frank
+> > > > >
 
