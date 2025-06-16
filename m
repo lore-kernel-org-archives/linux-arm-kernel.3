@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E58C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D871C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/zmDs8MrQsoMriWP9sJhRyhyF6eQLwTINrjtCe+Uil4=; b=PqqQFqiqGjJslxjz+kpwtidGxb
-	rpVneOBIi21lCnxVZgnrXPuaivnYG4r4H5uK+64CmMRixmo4CH1U3IMvAMFxhqB9PZ/MvCQ3UAoF4
-	qYakRb8GA7spO+ep4xd8R6YgS0UlodRVUKMfLZ3cRQxfKlzg4fcoNYSTGZ1xYu6dIev+j4jjtPpgQ
-	tygl+ELmCZdIWBEWcDglNbAjdZbNiFZVNl9WA9bNDnAU6cxw6H8YysqiFCYSfqOIYU6v49ldBSZ/3
-	XWVxwzbu/P+e96bfNrCdDu3KZwmmnOKfa/c9WewpyarvyEd60FQfy6Ha7wCJVUkKqnUZ7pe8HYmSc
-	wZPmWuBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JaHLf9KfRo2VVBm/L+KWAkPFYYQXJ1K4MSPWDgFDkGw=; b=PkvKB5PdPUqHi0rkHnsJFyUqiS
+	/xeQ/o+5SRCouFIx9U02xt8UbXW1UYLOnlK0r//LMRMS7U2JKsVVi81/K8kRG7Nhi0AduaPaiWInk
+	vj5bVmDpJZpNgB6nMtWFHl11VSt+5Cd8av0omMPVqLB0qJdfawkrCyricDBb5z7wpxG5xJjiby1rT
+	FQtdHhT8Fbxr13ZEklCRnFoYLPI9SfditeJ35dZJSop+QxHKUFu1b7SNn4WF0w4V4kY/iO1xi6AW/
+	NYm1sNSl4BEvyDGQFRgHfyiUj7waFDs/JdDrb4ZHluW/WYG3fXerlUJkoO6HRPvfvl090/s3kYXlR
+	+XdU0+5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR2uJ-00000003T6L-2uGZ;
-	Mon, 16 Jun 2025 06:01:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uR2xp-00000003TSI-00jw;
+	Mon, 16 Jun 2025 06:05:01 +0000
+Received: from ssh247.corpemail.net ([210.51.61.247])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR1eH-00000003MVU-1m7e;
-	Mon, 16 Jun 2025 04:40:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F289CA50CC0;
-	Mon, 16 Jun 2025 04:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C9C1C4CEEA;
-	Mon, 16 Jun 2025 04:40:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750048843;
-	bh=TGHN5IjJzRSodYVswQbkuM8G3fZj/gxhvozJyWYCAMw=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=KeNuXSA6uKkfHRPo9/0yzTwWwVbqXmUIEmb+pj3q9uPRXbbw7346x1/GG3vvNKl/l
-	 aq8jkTvyH+g7m3oEgl71QVRighbGsfy78v8wJiaFq6HZVC5evfEYXuX0mFWGahOaYU
-	 e/mAfnVayKsomZFWjzpTbP9BfTeNzdXBpnynhFTGRl3Iz11mFocQbS4rsJvY48+owE
-	 IEg+VI1VKPtDdJovr9XyOihFQI0/ofEoipkgqjiA2N7ZeJReLu8JfvfFLytY8vEEwJ
-	 eoRlxtj3uG/Lw6MoTKFojv46sC69BjIhFBsNC85llDRCvb2kJBbI4M+S/xbkc4VaCA
-	 GfNJVfqGWtOhg==
-Date: Sun, 15 Jun 2025 23:40:42 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uR2vb-00000003THu-3Esp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 06:02:45 +0000
+Received: from jtjnmail201611.home.langchao.com
+        by ssh247.corpemail.net ((D)) with ASMTP (SSL) id 202506161402218282;
+        Mon, 16 Jun 2025 14:02:21 +0800
+Received: from locahost.localdomain.com (10.94.7.110) by
+ jtjnmail201611.home.langchao.com (10.100.2.11) with Microsoft SMTP Server id
+ 15.1.2507.57; Mon, 16 Jun 2025 14:02:20 +0800
+From: Charles Han <hanchunchao@inspur.com>
+To: <vkoul@kernel.org>, <vz@mleia.com>, <manabian@gmail.com>
+CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Charles Han <hanchunchao@inspur.com>
+Subject: [PATCH] dmaengine: Add NULL check in lpc18xx_dmamux_reserve()
+Date: Mon, 16 Jun 2025 14:02:12 +0800
+Message-ID: <20250616060212.1560-1-hanchunchao@inspur.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Yong Wu <yong.wu@mediatek.com>, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Will Deacon <will@kernel.org>, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, iommu@lists.linux.dev, 
- devicetree@vger.kernel.org, Ning li <ning.li@mediatek.com>
-To: Xueqi Zhang <xueqi.zhang@mediatek.com>
-In-Reply-To: <20250616025628.25454-2-xueqi.zhang@mediatek.com>
-References: <20250616025628.25454-1-xueqi.zhang@mediatek.com>
- <20250616025628.25454-2-xueqi.zhang@mediatek.com>
-Message-Id: <175004884234.2151629.17180852934991161132.robh@kernel.org>
-Subject: Re: [RFC PATCH 1/8] dt-bindings: iommu: mediatek: Add mt8196
- support
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.94.7.110]
+tUid: 2025616140221cf4a46ee16339d92f0bdbd1e77ac196c
+X-Abuse-Reports-To: service@corp-email.com
+Abuse-Reports-To: service@corp-email.com
+X-Complaints-To: service@corp-email.com
+X-Report-Abuse-To: service@corp-email.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_214045_631341_CFA183DB 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250615_230244_056309_A7AB272A 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +67,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The function of_find_device_by_node() may return NULL if the device
+node is not found or CONFIG_OF not defined.
+Add  check whether the return value is NULL and set the error code
+to be returned as -ENODEV.
 
-On Mon, 16 Jun 2025 10:56:07 +0800, Xueqi Zhang wrote:
-> 1. Mediatek has its own implementation for wrapper interrupts and
-> power management. Add the SoC specific compatible for MT8196
-> implementing arm,smmu-v3.
-> 2. APU SMMU need wait until its power is ready, thus add a phandle
-> smmu-mediatek-parents to its power node.
-> 
-> Signed-off-by: Xueqi Zhang <xueqi.zhang@mediatek.com>
-> ---
->  .../bindings/iommu/arm,smmu-v3.yaml           | 24 ++++++++++++++++++-
->  1 file changed, 23 insertions(+), 1 deletion(-)
-> 
+Fixes: e5f4ae84be74 ("dmaengine: add driver for lpc18xx dmamux")
+Signed-off-by: Charles Han <hanchunchao@inspur.com>
+---
+ drivers/dma/lpc18xx-dmamux.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml: ignoring, error in schema: properties: compatible
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml: properties:compatible: [{'description': 'MediaTek SoCs implementing "arm,smmu-v3"', 'items': [{'enum': ['mediatek,mt8196-apu-smmu', 'mediatek,mt8196-mm-smmu']}, {'const': 'arm,smmu-v3'}]}] is not of type 'object', 'boolean'
-	from schema $id: http://json-schema.org/draft-07/schema#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml: properties:compatible: [{'description': 'MediaTek SoCs implementing "arm,smmu-v3"', 'items': [{'enum': ['mediatek,mt8196-apu-smmu', 'mediatek,mt8196-mm-smmu']}, {'const': 'arm,smmu-v3'}]}] is not of type 'object', 'boolean'
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
-Documentation/devicetree/bindings/iommu/arm,smmu-v3.example.dtb: /example-0/iommu@2b400000: failed to match any schema with compatible: ['arm,smmu-v3']
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250616025628.25454-2-xueqi.zhang@mediatek.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/drivers/dma/lpc18xx-dmamux.c b/drivers/dma/lpc18xx-dmamux.c
+index 2b6436f4b193..ef9aed4ba173 100644
+--- a/drivers/dma/lpc18xx-dmamux.c
++++ b/drivers/dma/lpc18xx-dmamux.c
+@@ -53,11 +53,16 @@ static void lpc18xx_dmamux_free(struct device *dev, void *route_data)
+ static void *lpc18xx_dmamux_reserve(struct of_phandle_args *dma_spec,
+ 				    struct of_dma *ofdma)
+ {
+-	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
+-	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
+ 	unsigned long flags;
+ 	unsigned mux;
+ 
++	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
++
++	if (!pdev)
++		return ERR_PTR(-ENODEV);
++
++	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
++
+ 	if (dma_spec->args_count != 3) {
+ 		dev_err(&pdev->dev, "invalid number of dma mux args\n");
+ 		return ERR_PTR(-EINVAL);
+-- 
+2.43.0
 
 
