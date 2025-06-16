@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D09C7115A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20A4C7115B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VpVHF9b+TYLO9CyHvJ3z28yz3dh71Y+srhHA13+SNnY=; b=J9eZxUrE6RPf6MVfq6Jr2Q34cn
-	9xdsS5ROlCTGUbE9LSaMqYGEUENR0UmKYKseV1OV6q4fPqMPEz4ZKM7XTDR4DojOeBLgHuhQ6yMTX
-	RrfRLF7SzHZi+OVnq1xP60lFdV3QhaId5UakcoCvpxmjTVjYgZkqIYJPSLWfKjsRc8oGFcdtCXxEs
-	CqSntLu/OKmvyEro4bhVYKQakm9LEkCXQYbO8pxMuZCi6D/gFLz4J7bKU2YSMSEWsn1wCpPXA/enB
-	WgVubb6tj3WV/glkREosmzNjnCPGJc4KCPYkrK3FvOZ4S35Ttcqvc4sgBjNkdw7WlgdatI7pS/7FI
-	3YAXmalg==;
+	bh=NENnjXNt0wBvePMagFMwcD8o+YQQgij7ItxOPmmF1pQ=; b=ZVETgS3JL1Jwzt0+VZEjbIpuNe
+	10hTgyGavsUM3RJf68Pl4X+RYn9wfHT9ZrdRRyD5ZfrAALHZ5HwT3f6WN2lP2Y8xSv9TcbhZxhOE6
+	khBErkLxLsY6hmUUnea8+t4FR0sI5XHVMwFI9wfmyWwmsoCE+8Dx9LQwHV130vx2j6nmJEZFAZexe
+	0IyP7oHSyp34ir8Xq6BBPqoduehLWD+tGsO+QJB3K4M6nOhRbhyf8ZWdIchsF6ANDfHbZ7Dkgmx0m
+	OHWAHq3T757vxeb2Uz0GRFGPsXSYeGvmFw631QFQ/eM/0KX0D4ykwbHAp+dfByyYw4xafqFFgsCI4
+	PNYP2A8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREaN-00000005EG4-2Uzd;
-	Mon, 16 Jun 2025 18:29:35 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1uREaO-00000005EHr-2TZK;
+	Mon, 16 Jun 2025 18:29:36 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRCrN-0000000520h-3AN0
+	id 1uRCrW-0000000523z-1jYg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 16:39:02 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b0db0b6a677so4346280a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 09:39:01 -0700 (PDT)
+	Mon, 16 Jun 2025 16:39:11 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b1fd59851baso3081518a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 09:39:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750091941; x=1750696741; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1750091949; x=1750696749; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VpVHF9b+TYLO9CyHvJ3z28yz3dh71Y+srhHA13+SNnY=;
-        b=MoG9pk4h0CdvnMUPFDPoqbKWG1sviuYHFrSD/VcF8FciHcoU5h6FZNcNUJbVLgi8FM
-         Gej0GJhqqYMjIipTmYxftF9mnKrfTA0g+w07/MlwHXdB1Lc0Bjt/EtBY89PPyyEkxvsY
-         BuHNTnjef+OcIOmWdU36wNVpok3aDK9YXFRgVbqKlGFZV4IEvcRVXlgyAm7S/O8vtOH8
-         Z/LXLAw3Emde0q4KFKY99ttjvCK/0ytz/OIEl/QDFbgME8/ZIIcbVceFvvOgC8KxUn69
-         cJXT8bougQQrNPpTZKgBb90OETwge6wLtk2MjVjVBULrr62PGZ+a97XnJSwnyPB7Tryi
-         z5gA==
+        bh=NENnjXNt0wBvePMagFMwcD8o+YQQgij7ItxOPmmF1pQ=;
+        b=eTlzb4kMMcfEpRBfInfXFHNUBZDZXbG6g9B1EzHrCBknOJCY9u41z1335Rv8ECUgNB
+         xVFdiyXF7fwxSlF3lTq3ii62+qS4hwVFXK2zBRqZg40VaH5VcyYRJai6m1G5L1kRBF8v
+         HM4x0J4B3uaqt4b1zRL7U9IxR5nu8dmXZ2EIBiWXuAZjT/MIwYzj7xqTcgMlgbLAo2mm
+         YJTgc9655izceKlRnM8v03vpCX1+VJCFclMvuKTAsXoK3ghJO15BNmHIjr1wDEySrc4C
+         2UwGVLqSISDWTr9D0vHVftRaLPGTSbl3rUHeM+kI/vSO5r+hwFn35yrvjVWA9/nH10RC
+         AtfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750091941; x=1750696741;
+        d=1e100.net; s=20230601; t=1750091949; x=1750696749;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VpVHF9b+TYLO9CyHvJ3z28yz3dh71Y+srhHA13+SNnY=;
-        b=B2gapAF65K4hTVigXwiKIBkpgBrH5w5lPIPKrdfsj2SsDs4Jd1MZMZ4BBoRDcc9lEn
-         EpQO9wNy/qWzNpWbhl/bc6FFxD4AKcW6+gc118+99nHFZFZ9eFZy61R6LQIYsJQpmzHs
-         vN74nPoEBy4zWb8hc1y7n9aULCmHmYHL+A1D+AXuqhPb8KKOUVYHUpOG4DkhDKJVnZMY
-         NSljEVtnEFRp+fj+uTp8mZ9hbe9uE6KvpLGytoeW5QWOqNHS5qmCPRQUDDx46j1prCUp
-         q55Lsu5CofXkSCop9AWu+ijMC4yImqbg0asFXeINjevGStRrQzWivJWOZ2RdRLIDBew2
-         LguA==
-X-Forwarded-Encrypted: i=1; AJvYcCXbILKFVwtkNQeEft5xfHYq35IzMqd+sgr61/up/Pm3UBpcw/rkJy//JiVhnHQ/oaCggb5KcydhyHkqIPoE6Qc3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5UDZlhTDNDLuVoUMnL8OoEiWnlCmNY9EHNButTDaM2LSWPV6Q
-	FuV3nqfOU2R/Q7WY426BlF86i/GHfAqU92JQ1zroiOAuStcEoTIrNmAY
-X-Gm-Gg: ASbGncvjCx6VBv6waqn/RsADmeWBlARKh9+XuHPw6qx/yzFP/IEMU75IBKmVrtTns/U
-	O5sjOWygg99Afh29ul8c7D1S+T9HBOG3+ij4PE9TRNXPqEaKuAgYvDljln7ltcG2Hbjr2dkBCD7
-	7ig4mlz8uC6tVxCMPPNOVa1IzSiDjLPg4FiQCAXTlbl45NJpAAdmKGWbtbFbCcusV4CzVxNc3/Y
-	uQ6tZXFlNBbeHHFDmd+VyxE3gx6ibMDyT5Y2fPmaeNvUZ02pl9cBKzwmFKINVBlLvgFKRlIPri9
-	iymWDzQb+W2GWyhrjTTATH7h+J+h+3fgkZgCHYSFImS1/qmZwkDy4hoQLJxKsgjpij7NtA41x15
-	ynqK0B1hUJQ==
-X-Google-Smtp-Source: AGHT+IHksnpc6Nrc2cLyvfXLBdusiyK6+4cw/aWIy5ueWnJxdLHpYjX6PbGSrX/CQnj0tbplZYI92Q==
-X-Received: by 2002:a05:6a20:a115:b0:218:c01:ddce with SMTP id adf61e73a8af0-21fbd5d90aemr16898139637.40.1750091940932;
-        Mon, 16 Jun 2025 09:39:00 -0700 (PDT)
+        bh=NENnjXNt0wBvePMagFMwcD8o+YQQgij7ItxOPmmF1pQ=;
+        b=vyaLu7J9We/fGZaRqIvbAVqrCxIVRLyMt080ZIKnAuVyi/v1RZ7KqoCoW25u0k2eH3
+         7COCE+L8NmLlXCQ6CtVFMqvZkLLZSsqHWOzJrIcHX79O/rxRUYV87LzAt5iWLd0Zcfhc
+         jLcSDoz+zylPTJBVCj5C1WHqNAnKwLkLlRhUbKo5zDZgm/isErBuksuJ6nzrI5QBBeWT
+         rR7bLBvA12OxIqDb3DwdBS+7/iV20rKIPOlR7h1kc2wHD2E52nnkFgNadr2UBp/YNPhH
+         GIgK0+CYgE8Qz7EAMIatOGFSscE0ziNQX8rrexLlurjowENs5QiEEKZ3HBrc/rHIGqRc
+         y/WA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIriqco5tKF9JhX6Asy6YF1NUrALmXsVZUqeLU8253Kf7a7Dmz7D6dqFIqMUpu2LdcJrNOVEpVA53AoZdLpVHQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfxOBWcLwNAtEJmV4hk1kcUc7W1ked3B81vM3S3zJQ3BIvfzZ3
+	aFkVQKsQElUr9kRhycPRk7mt8yJXro0NrwnI+UVE6jAjiAoTN9bvGH0q
+X-Gm-Gg: ASbGncvqBD9XsRReOpiQc6O377/Qft2C+AroJfU9p429Kx974a3LfIDHfIPac1C9m3K
+	pPMkR8cwj7oevAV4i0lVwB8ZkkPI0JjLW5v0exhPp1iQoiIMsNzA2NGd30iQwz0f13uBbYwB2TK
+	RJDp06O2ifpHsh7RIlVn0tXx78fM2ZqO+V72daSHRRHLBmPFww8KNL3DQQmlFghms+OrYN3el8g
+	3wmsDAt4zIY8HPmNBQ/mG3Syw/Y04CLj8BC9js2XhCZdtLwBWPhubD+MCJ7568kqd9oWTCK7/yr
+	wsyp9YmjS7nHTwTyZwPI4DubM64sfqJGFKzTL6P0InfVwFTKeblVDwZFYJzNT4W9ur8iYK7Zl28
+	JauV4TwrFEA==
+X-Google-Smtp-Source: AGHT+IEzKLhcWIZ3LDLciV8dMwLIe97BcGEGz6hip97KqxdgaXHo5SkRpJ0h473Us9HRL34KZAj9pQ==
+X-Received: by 2002:a05:6a21:4612:b0:215:db66:2a33 with SMTP id adf61e73a8af0-21fbd4ddb8emr14603050637.16.1750091949552;
+        Mon, 16 Jun 2025 09:39:09 -0700 (PDT)
 Received: from localhost.localdomain ([45.112.0.181])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe1680c6asm6067882a12.42.2025.06.16.09.38.54
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe1680c6asm6067882a12.42.2025.06.16.09.39.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Jun 2025 09:39:00 -0700 (PDT)
+        Mon, 16 Jun 2025 09:39:08 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -82,17 +82,17 @@ To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
 	linux-kernel@vger.kernel.org (open list)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [RRC v1 1/3] thermal/drivers/exynos: Remove unused base_second mapping and references
-Date: Mon, 16 Jun 2025 22:08:22 +0530
-Message-ID: <20250616163831.8138-2-linux.amoon@gmail.com>
+Subject: [RRC v1 2/3] thermal/drivers/exynos: Handle temperature threshold interrupts and clear corresponding IRQs
+Date: Mon, 16 Jun 2025 22:08:23 +0530
+Message-ID: <20250616163831.8138-3-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250616163831.8138-1-linux.amoon@gmail.com>
 References: <20250616163831.8138-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_093901_808908_4DD57DF0 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20250616_093910_462330_ECCA8D6E 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,76 +107,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Following change removes the base_second field eliminates its mapping
-in exynos_map_dt_data(), and updates the TRIMINFO access logic in
-exynos4412_tmu_initialize() to use base for both Exynos5420 and
-Exynos5420_TRIMINFO SoCs, as base_second is not used further in
-in this code.
-This cleanup simplifies the code and reduces unnecessary
-memory mapping.
+As per the Exynos TMU user manual the interrupt status register, maps the
+active rising and falling edges of interrupt to the appropriate clear bit,
+and writes it to the interrupt clear register to acknowledge and
+clear the interrupt. This ensures that only the relevant interrupt
+is cleared and allows the system to respond appropriately to thermal
+events. As per the comment Exynos4210 doesn't support FALL IRQs at all.
+So add the check accordingly.
 
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- drivers/thermal/samsung/exynos_tmu.c | 20 +++++---------------
- 1 file changed, 5 insertions(+), 15 deletions(-)
+ drivers/thermal/samsung/exynos_tmu.c | 48 ++++++++++++++++++++++------
+ 1 file changed, 38 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index 47a99b3c5395..c625eddcb9f3 100644
+index c625eddcb9f3..b7522b7b1230 100644
 --- a/drivers/thermal/samsung/exynos_tmu.c
 +++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -139,12 +139,11 @@ enum soc_type {
-  * struct exynos_tmu_data : A structure to hold the private data of the TMU
-  *			    driver
-  * @base: base address of the single instance of the TMU controller.
-- * @base_second: base address of the common registers of the TMU controller.
-  * @irq: irq number of the TMU controller.
-  * @soc: id of the SOC type.
-  * @lock: lock to implement synchronization.
-  * @clk: pointer to the clock structure.
-- * @clk_sec: pointer to the clock structure for accessing the base_second.
-+ * @clk_sec: pointer to the clock structure for accessing the gpu clk.
-  * @sclk: pointer to the clock structure for accessing the tmu special clk.
-  * @cal_type: calibration type for temperature
-  * @efuse_value: SoC defined fuse value
-@@ -172,7 +171,6 @@ enum soc_type {
-  */
- struct exynos_tmu_data {
- 	void __iomem *base;
--	void __iomem *base_second;
- 	int irq;
- 	enum soc_type soc;
- 	struct mutex lock;
-@@ -460,12 +458,11 @@ static void exynos4412_tmu_initialize(struct platform_device *pdev)
+@@ -70,6 +70,20 @@
+ #define EXYNOS_EMUL_DATA_MASK	0xFF
+ #define EXYNOS_EMUL_ENABLE	0x1
+ 
++#define INTSTAT_FALL2	BIT(24)
++#define INTSTAT_FALL1	BIT(20)
++#define INTSTAT_FALL0	BIT(16)
++#define INTSTAT_RISE2	BIT(8)
++#define INTSTAT_RISE1	BIT(4)
++#define INTSTAT_RISE0	BIT(0)
++
++#define INTCLEAR_FALL2	BIT(24)
++#define INTCLEAR_FALL1	BIT(20)
++#define INTCLEAR_FALL0	BIT(16)
++#define INTCLEAR_RISE2	BIT(8)
++#define INTCLEAR_RISE1	BIT(4)
++#define INTCLEAR_RISE0	BIT(0)
++
+ /* Exynos5260 specific */
+ #define EXYNOS5260_TMU_REG_INTEN		0xC0
+ #define EXYNOS5260_TMU_REG_INTSTAT		0xC4
+@@ -773,7 +787,7 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
+ 
+ static void exynos4210_tmu_clear_irqs(struct exynos_tmu_data *data)
+ {
+-	unsigned int val_irq;
++	unsigned int val_irq, clearirq = 0;
+ 	u32 tmu_intstat, tmu_intclear;
+ 
+ 	if (data->soc == SOC_ARCH_EXYNOS5260) {
+@@ -791,15 +805,29 @@ static void exynos4210_tmu_clear_irqs(struct exynos_tmu_data *data)
  	}
  
- 	/* On exynos5420 the triminfo register is in the shared space */
--	if (data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO)
--		trim_info = readl(data->base_second + EXYNOS_TMU_REG_TRIMINFO);
--	else
-+	if (data->soc == SOC_ARCH_EXYNOS5420 ||
-+			data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO) {
- 		trim_info = readl(data->base + EXYNOS_TMU_REG_TRIMINFO);
--
--	sanitize_temp_error(data, trim_info);
-+		sanitize_temp_error(data, trim_info);
+ 	val_irq = readl(data->base + tmu_intstat);
+-	/*
+-	 * Clear the interrupts.  Please note that the documentation for
+-	 * Exynos3250, Exynos4412, Exynos5250 and Exynos5260 incorrectly
+-	 * states that INTCLEAR register has a different placing of bits
+-	 * responsible for FALL IRQs than INTSTAT register.  Exynos5420
+-	 * and Exynos5440 documentation is correct (Exynos4210 doesn't
+-	 * support FALL IRQs at all).
+-	 */
+-	writel(val_irq, data->base + tmu_intclear);
++
++	if (data->soc == SOC_ARCH_EXYNOS4210) {
++		writel(val_irq, data->base + tmu_intclear);
++		return;
 +	}
++
++	/* Map INTSTAT bits to INTCLEAR bits */
++	if (val_irq & INTSTAT_FALL2)
++		clearirq |= INTCLEAR_FALL2;
++	else if (val_irq & INTSTAT_FALL1)
++		clearirq |= INTCLEAR_FALL1;
++	else if (val_irq & INTSTAT_FALL0)
++		clearirq |= INTCLEAR_FALL0;
++	else if (val_irq & INTSTAT_RISE2)
++		clearirq |= INTCLEAR_RISE2;
++	else if (val_irq & INTSTAT_RISE1)
++		clearirq |= INTCLEAR_RISE1;
++	else if (val_irq & INTSTAT_RISE0)
++		clearirq |= INTCLEAR_RISE0;
++
++	/* Perform proper task for decrease temperature */
++	if (clearirq)
++		writel(clearirq, data->base + tmu_intclear);
  }
  
- static void exynos5433_tmu_set_low_temp(struct exynos_tmu_data *data, u8 temp)
-@@ -964,13 +961,6 @@ static int exynos_map_dt_data(struct platform_device *pdev)
- 		return -ENODEV;
- 	}
- 
--	data->base_second = devm_ioremap(&pdev->dev, res.start,
--					resource_size(&res));
--	if (!data->base_second) {
--		dev_err(&pdev->dev, "Failed to ioremap memory\n");
--		return -ENOMEM;
--	}
--
- 	return 0;
- }
- 
+ static const struct of_device_id exynos_tmu_match[] = {
 -- 
 2.49.0
 
