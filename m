@@ -4,125 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C781CC71159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B311C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T9tIP/nA/ojXJcuyJ7abvo5FqmtLH8FMyCSjTHFOwIo=; b=unzri0MD00jGkcMXgWoirjXzJ8
-	uqziw/uLBEAcUh8QWXIPf6ETVzw2jGSXw5X74SYa+ptXIwX05P6B2zJA+UP8ukUAxFoVO+8/lNWD4
-	zAxa1DRd+dqnUn7YIZYR7uLQWFhhtbrGAirO/nLX+hCNrOPAyXEsrJeBeuj92XEXmWrdLYKwXnnF4
-	+f21OoPl2uPB5KfHRtaiVg+CcXa/QZqCgj2Qam/bCJp1epuDHjiJV09OoB1ztcbsi6LxpJEXYMWcY
-	r8ZqiN1d1/nY+hcDhc6+CxBCZoWVeIPV5Kigw98dUbGnARi34y5PhES9Ty9wAQPOwYjiV2tQtGFtQ
-	7iHswv0Q==;
+	bh=g//RjhSoXItXHLLuz1FPQ8PBTL6LhGzURl5mDmu1U+s=; b=1UqB1l5i4qy+OCCD2dTF+T6v+N
+	l10RApgJACKUhXt510AgKowjvwjOMsilA47Kc7DHdF3BeaO/U8kFogXRax53y9eRH5yZWv5fhFCAh
+	2yejyVGNwaiFsvko2koRUVw5vDvI/cSBt+MRpODE8ncYhNn5dI2Js9oEh/Z4oy0gsSzT8GVYsPD3w
+	B60ML2vRDHvKj699N7o6UVEOdTIiqxlXJScApDgm9iaEXPheJ7BUK730FjvKEe/N4sSXWH7YhcrZy
+	cMkZGsl/R+Ov6KrfkAnKf8rgHHuNunLegvnkoeRJsCMkgUrds9OfwTLSLQ4eAJCz1ORCfTCzUvDP5
+	5T/6Gsdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREa9-00000005DrB-3t4o;
-	Mon, 16 Jun 2025 18:29:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uREaC-00000005Dwv-3Ahx;
+	Mon, 16 Jun 2025 18:29:24 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRCZc-00000004z0e-2J0I
+	id 1uRCge-000000050Fy-3Rch
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 16:20:42 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8knX0003269;
-	Mon, 16 Jun 2025 16:19:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	T9tIP/nA/ojXJcuyJ7abvo5FqmtLH8FMyCSjTHFOwIo=; b=oz+rVnvay4RqXGaS
-	su8jq0wu9WXgxbf9OoseSyuYta6ZWUAJSPlLeM58oqxumqdhqscJ0Pv8gVNkoOKe
-	Q2FbHkEUSELviRgZd8coHNHpuClo6vXzerTWu2drelH23T+C5eZNlHYjELedcVd6
-	wLVBSMSYaBFBtmOPn4D25VoQ0gf3wYNHKMpg2LjrMw6wqlrzh04FWZfNA0w/vIuA
-	1v6J1VpHHDrMPYsdS5H33Ac4eVhRxi+5czLsoIb14u2lbXp704FdKraw3XNcV8gC
-	hvlrrYlMFQio/KiaLUbC9FUiw4L+rlmVJsTKIkYAWOxOg8KXf5oW2fiXUgCSZUEo
-	oh+Mkg==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ag231bbb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 16:19:19 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55GGJI4h019496
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 16:19:18 GMT
-Received: from [10.253.36.28] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Jun
- 2025 09:19:13 -0700
-Message-ID: <79355a26-c901-40a4-8a90-096da1380d9f@quicinc.com>
-Date: Tue, 17 Jun 2025 00:19:11 +0800
+	Mon, 16 Jun 2025 16:27:59 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a5096158dcso4099674f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 09:27:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1750091274; x=1750696074; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g//RjhSoXItXHLLuz1FPQ8PBTL6LhGzURl5mDmu1U+s=;
+        b=avmBJAYXUVjMU1OoUyImypCoPjwK5UvjF2T1OccAqR8BIZMNCLVyzLgiwaJCAs69fS
+         JJhcuUxWq+ocw12qXTwcV6dfupINciQCpUgvYQErP8bRZo1z3WLXTyzN0r92X5aRhzUB
+         9Or8IjoEI/FIb+fQNLHIIFzRpMUGLgpPiOKQ4gGXH79gNxVFWRB78vNJQMfL6x4N+PXC
+         WyuY/ElQWG9fNOMOLkD0qIevT6rZZWdoycPs6EC5JkGx0p5SQHAoCYZFvcHvWDDVVSQt
+         55Frjx/dUEhyijA5KkYA/aBCQFNXu2QR3t2M3qS4jVt1tQcaeuYxVrv/L+sk3tsMIvR2
+         IGqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750091274; x=1750696074;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=g//RjhSoXItXHLLuz1FPQ8PBTL6LhGzURl5mDmu1U+s=;
+        b=XlWhDjiSx59ZLeMH85f6HA8wrM7ZBImR6CZ6ceT2IuZPfW6lu+Ew8qInAjQQit9X/q
+         3oFHr+vJlpNc/xABLJQ+c8L9qAmd7gcVZPxpav09XqFmcTbMnIpcLaAvAGkb+sfynF9O
+         Ji20YTlGPXY0B+6D+Q/DF+PLGssy/MgpmhZD+6G4ItstdPA6rZYiJEcPFr7Ihv28Lfhe
+         s3T49C4sIpoGOGNPMD8IBHm+NE3ZMjJ3JgBszvNfS1U/DHFi3u2lHeE7dIXh7e/FLQ5b
+         7CFBZks3bPjucjXR8pQM2Ti/8Uzc3z2BJ+x6VTsh4ZWWNmG/1EVDQJJAat4cuFbUKmOs
+         K9uQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWl/85hlR85x8+oKjy5ahh1VcWy56yIFKb093NASCy+TYwmbmr/hXmAcnpTtlyb5DSA/DWhOVKyHuvvsx894JCl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yye3GLRWugSfDaz8jkL2Up4cwW48/1uSRLSO57WNQbv93e4NJEE
+	yrqxasVrPur/IRQ58Gd58vwAHBpxLSIf5zKDdQhBWqxmv2i0fuQKQTZgGRDjEZWksiQ=
+X-Gm-Gg: ASbGncs59+sJQHfMmoCCDJWeWjBTuxoKROD/DH86KY898oM5YJvjddcziR60P99F/I4
+	JsmiP5d/H7gStFdBG4GgyAkCkJKbS0+MFhPoNQK2YGGh3oGgLuvXPBn9Xpg7MxC7I1/cufkQZtZ
+	oBTEdPv1pZEPLACRRswg/6mSPQHAVkH2Ri4/F4Kokkvl7PbJUFMHuiRHCC1FrKMhHR1zM8ANTVJ
+	mJe2ojUaPHrK0bwiJnXbNqcXXOOm7NjJdhe7CiCcBU8QX8BVs+xWfSvTEKzBKOAHDJRdVO9zuJd
+	Jw9rEZ5EBbMLIGQhX6CsX4wuJzO7kArHEgB/yVyhMSVcRsEOlxbvMB5YM0F4Lg==
+X-Google-Smtp-Source: AGHT+IErBlsaj2oMz4KGG0U/n1iHZhnbyvR7L71f4kcmN+NZni2stWVZL4S2bu1UJwMFwQlCqMCesg==
+X-Received: by 2002:a05:6000:240e:b0:3a4:eec8:c9b3 with SMTP id ffacd0b85a97d-3a57237dc17mr8397766f8f.23.1750091274515;
+        Mon, 16 Jun 2025 09:27:54 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:1866:9357:88b6:f1b2])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3a568b089b5sm11356238f8f.48.2025.06.16.09.27.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 09:27:53 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Xianwei Zhao <xianwei.zhao@amlogic.com>,  Chuan Liu
+ <chuan.liu@amlogic.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  Kevin Hilman <khilman@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
+  Michael Turquette <mturquette@baylibre.com>,  Dmitry Rokosov
+ <ddrokosov@sberdevices.ru>,  robh+dt <robh+dt@kernel.org>,  Rob Herring
+ <robh@kernel.org>,  devicetree <devicetree@vger.kernel.org>,  linux-clk
+ <linux-clk@vger.kernel.org>,  linux-amlogic
+ <linux-amlogic@lists.infradead.org>,  linux-kernel
+ <linux-kernel@vger.kernel.org>,  linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 4/6] clk: meson: t7: add support for the T7 SoC PLL
+ clock
+In-Reply-To: <4dd25114-212d-44d6-938a-63871750c292@amlogic.com> (Jian Hu's
+	message of "Thu, 12 Jun 2025 21:02:00 +0800")
+References: <20250509074825.1933254-1-jian.hu@amlogic.com>
+	<20250509074825.1933254-5-jian.hu@amlogic.com>
+	<1jtt5ny6gq.fsf@starbuckisacylon.baylibre.com>
+	<4dd25114-212d-44d6-938a-63871750c292@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Mon, 16 Jun 2025 18:27:53 +0200
+Message-ID: <1jh60fd52u.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [cocci] [PATCH v4 2/5] arm64: tlb: Convert the opencoded field
- modify
-To: Will Deacon <will@kernel.org>
-CC: Markus Elfring <Markus.Elfring@web.de>, <cocci@inria.fr>,
-        LKML
-	<linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        Andrew Lunn <andrew@lunn.ch>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Joey Gouly <joey.gouly@arm.com>, Julia Lawall
-	<Julia.Lawall@inria.fr>,
-        Kiran Kumar C.S.K <quic_kkumarcs@quicinc.com>,
-        "Lei
- Wei" <quic_leiwei@quicinc.com>, Marc Zyngier <maz@kernel.org>,
-        Nicolas Palix
-	<nicolas.palix@imag.fr>,
-        Oliver Upton <oliver.upton@linux.dev>,
-        Pavithra R
-	<quic_pavir@quicinc.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Suruchi Agarwal <quic_suruchia@quicinc.com>,
-        Suzuki Poulose
-	<suzuki.poulose@arm.com>,
-        Yury Norov <yury.norov@gmail.com>, Zenghui Yu
-	<yuzenghui@huawei.com>,
-        <quic_linchen@quicinc.com>
-References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
- <20250612-field_modify-v4-2-ae4f74da45a6@quicinc.com>
- <3537a4ce-b5e8-44d5-a884-70a81562068d@web.de>
- <94b40ff2-9e9e-4eea-8a66-87d8976aeb70@quicinc.com>
- <20250616104109.GA17500@willie-the-truck>
-Content-Language: en-US
-From: Luo Jie <quic_luoj@quicinc.com>
-In-Reply-To: <20250616104109.GA17500@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: WwhEiw-vE7EU9ByCs0vSwvvuPqtNiw5R
-X-Authority-Analysis: v=2.4 cv=edY9f6EH c=1 sm=1 tr=0 ts=68504407 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=YgwN3AOMAAAA:8
- a=GpepFeYYm93ioQPZbdsA:9 a=QEXdDO2ut3YA:10 a=ztR1XV6QG-NWxUt1dNgd:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDEwNiBTYWx0ZWRfX2SsQ7Egy1Lgq
- 3PaG3WWwqmwPWB7U2f/+vnv3tUT+SKiRLHYsRcjVhI4b8LiBO6MvmBJcjUH8ZJxHEb+gBAvI+s6
- iY4lCjthHgCoKlh2shbP4SevA2I8VNDkzN4s6TCFRYT6Zf04af2/ZM/RYTYT+fmFdEZBeJjrbGE
- qPRY7tX8guFGIL01aSHti2m0PxdfXLkVVYbqttNmJtQnqLPfP3i3YLdhP+AfCpc6vFSB6Q6dxws
- acstCiAVOYJ9Rcrx71lJeMui+AzbWvo7frgc0ARX5S8m0n2RIsLgzpAzBhWVLXdxf36WV9QpvCE
- Xjg8+4BoWsbJREsDLPgDjgqIDv4Lu0ObzneNCJ9zE6GSW8iYQw7U5kAnYpbbSXVKalp6bb36L9o
- ZpF3FCgP2wA2hpyqxf3/Nou54p4aGFtvzl26R/UmPXs7u0dApb+bmPdUQU/iFvK58rJGdGZr
-X-Proofpoint-GUID: WwhEiw-vE7EU9ByCs0vSwvvuPqtNiw5R
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-16_08,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0
- impostorscore=0 mlxscore=0 clxscore=1015 mlxlogscore=859 malwarescore=0
- phishscore=0 adultscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2506160106
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_092040_714295_0E856E73 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250616_092757_106095_989F13E5 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,73 +111,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu 12 Jun 2025 at 21:02, Jian Hu <jian.hu@amlogic.com> wrote:
 
+>>> +
+>>> +static struct clk_regmap t7_pcie_pll_od =3D {
+>>> +     .data =3D &(struct clk_regmap_div_data){
+>>> +             .offset =3D ANACTRL_PCIEPLL_CTRL0,
+>>> +             .shift =3D 16,
+>>> +             .width =3D 5,
+>>> +             .flags =3D CLK_DIVIDER_ONE_BASED |
+>>> +                      CLK_DIVIDER_ALLOW_ZERO,
+>> What's the behaviour of the divider on zero then ?
+>
+>
+> If there is no CLK_DIVDER_ALLOW_ZERO, there is a warning when registering
+> t7_pcie_pll_od.
+>
+> like this:
+>
+> =C2=A0 ------------[ cut here ]------------
+> =C2=A0 WARNING: CPU: 1 PID: 1 at drivers/clk/clk-divider.c:140
+> divider_recalc_rate+0xfc/0x100
+> =C2=A0 pcie_pll_od: Zero divisor and CLK_DIVIDER_ALLOW_ZERO not set
+> =C2=A0 Modules linked in:
+> =C2=A0CPU: 1 PID: 1 Comm: swapper/0 Not tainted
+> 5.4.283-09976-ga803e94eed88-dirty #91
+> =C2=A0 Hardware name: tm2_t962e2_ab311 (DT)
+> =C2=A0Call trace:
+> =C2=A0 [ffffffc020003750+=C2=A0 64][<ffffffc0100e3e3c>] dump_backtrace+0x=
+0/0x1e4
+> =C2=A0 [ffffffc020003790+=C2=A0 32][<ffffffc0100e4044>] show_stack+0x24/0=
+x34
+> =C2=A0 [ffffffc0200037b0+=C2=A0 96][<ffffffc01130a2e8>] dump_stack+0xbc/0=
+x108
+> =C2=A0[ffffffc020003810+ 144][<ffffffc01010c484>] __warn+0xf4/0x1b8
+> =C2=A0 [ffffffc0200038a0+=C2=A0 64][<ffffffc01010c5f4>] warn_slowpath_fmt=
++0xac/0xc8
+> =C2=A0[ffffffc0200038e0+=C2=A0 64][<ffffffc01061d364>] divider_recalc_rat=
+e+0xfc/0x100
+> =C2=A0[ffffffc020003920+=C2=A0 80][<ffffffc010624e84>]
+> clk_regmap_div_recalc_rate+0x74/0x88
+> =C2=A0 [ffffffc020003970+=C2=A0 96][<ffffffc010616a54>] __clk_register+0x=
+62c/0xb78
+>
+> so add it to avoid the warning.
 
-On 6/16/2025 6:41 PM, Will Deacon wrote:
-> On Mon, Jun 16, 2025 at 06:37:41PM +0800, Luo Jie wrote:
->>
->>
->> On 6/13/2025 4:15 AM, Markus Elfring wrote:
->>> I see further refinement possibilities for such a change description.
->>>
->>>
->>>> Replace below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
->>>> - reg &= ~MASK;
->>>> - reg |= FIELD_PREP(MASK, val);
->>>
->>> * How do you think about to omit leading minus characters?
->>>
->>> * Subsequent blank line?
->>>
->>>
->>>> More information about semantic patching is available at
->>>> http://coccinelle.lip6.fr/
->>>
->>> I suggest to omit this information here (and in similar patches).
->>>
->>> Regards,
->>> Markus
->>
->> Thank you for your suggestions. The current commit message was generated
->> by the following patch mode command:
->> ```
->> make coccicheck MODE=patch COCCI=scripts/coccinelle/misc/field_modify.cocci
->> V=1
->> ```
->> However, as I understand, the discussion on the ARM patches (between
->> Russel/Marc/Yury) has concluded that the ARM arch changes may not be
->> adding value over the current code, so I will drop the ARM patches
->> in the next version.
-> 
-> Well, hang on a second. From what I can tell, the objections haven't
-> been specific to arch/arm{,64}/. You haven't really explained why this
-> new helper is needed and what value it brings over the existing set of
-> functionality.
-> 
-> So maybe start there, rather than dropping the parts that attracted the
-> comments to start with?
-> 
-> Will
-
-FIELD_MODIFY is similar to uxx_replace_bits() for in-memory bit field
-modification, but with the added advantage of strict parameter type
-checking at compile time.
-
-Previous discussions (in patch series v3) among Russell, Marc, and Yury
-focused on whether there is any added advantage of using FIELD_MODIFY()
-(possibility of size overflow checking) for the specific cases being
-modified by the patch series inside arm64. For the one case where enum
-was being used, it was originally thought that there may be a
-possibility of size overflow due to 32bit size used by the compiler for
-the enum. However it was identified that the kernel's compiler already
-uses 64bit types for enum if the number of bits used with the enum is
-more than 32 (the code in this case used more than 32 bits).So, it seems
-that there is no additional benefit of using FIELD_MODIFY() in the
-specific cases in arm64/.
-
-Please note that the current ARM64 code using FIELD_PREP() also supports
-strict parameter checking at compile time. Both FIELD_PREP and
-FIELD_MODIFY utilize `__BF_FIELD_CHECK()` to support this compile-time
-parameter validation.
-
+That does not really answer my question
 
