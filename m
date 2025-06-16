@@ -4,99 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A0AC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 05:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6D2C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 05:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P80b7O3kBzCHZeyPaqEFw3rG2WMhfBLYf+jpLfD2cC0=; b=G17fpuxIWyUj4AvW3N2IHzcE2J
-	YBG735Xa4IwOHtctUrVpfXLW1oi2c6YIqUOiwcWY7IcRDskfqMoEdaFWWJuHI6qMCDq7dUiGDPJMH
-	1AlqofRjXEMab3RhsqN2mRLe1/uXEVDzUhXrpytubHMbFxIlygpsAMidxfFUfUUfrik7sGImtc7sM
-	YiviwE8nectDdXJq+ts16YPYWrWxO5A2iMHxEjDYHOWETq6OJTkgghTbZQN30cdnLXYsqvZ73Ndju
-	vjY+BcNF95tDpfdZNrzvfSsshzv6jlsYtVa40X508hIgJJZIhBPSI0Sbm+FXlNlFImytjpggJhbXK
-	RbfWNMQg==;
+	bh=9H3iMIVw76XdEFkS0pIFzApQRXQlkWuRuscTZnf8wLw=; b=D2UEr9m3/of+B7JiJADHSvvmzS
+	t1UgNCe3eIdWbsYfJNqywBQwZLTrEP6o2q8o4Dj/gr8E1Fp4bAizD5WHrRVjn3ZbJop/AVQ8bkhhI
+	XuX9TOqGUBrPpURKMVkcqORNfGAB4WIdPaOHxVnMrYSPvUpoY4xmavOuv9hjUQauDdziKaKuw7W1m
+	Vx4/a5rSQsy2gsZaSHAiIj2lWqvQPNQHW5RiUYjascrp79icETQdbsEPq4FIbG2pmyNmh6Yt9UaRK
+	tA9cOEMiLE38xaIQk75VzeoTyhClnarbyaHSbmEofnrUhWtWKIeOwCbXbPjM0hDw1CTp+ZR3BVtJQ
+	ETnzmJ7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR2Ck-00000003PBy-3hcg;
-	Mon, 16 Jun 2025 05:16:22 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1uR2fm-00000003SHj-36UX;
+	Mon, 16 Jun 2025 05:46:22 +0000
+Received: from mail-mw2nam12on2072e.outbound.protection.outlook.com ([2a01:111:f403:200a::72e] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR1EK-00000003KCk-1M3M
+	id 1uR1Vk-00000003LqJ-11cB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 04:13:57 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-742c7a52e97so3316203b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Jun 2025 21:13:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750047235; x=1750652035; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=P80b7O3kBzCHZeyPaqEFw3rG2WMhfBLYf+jpLfD2cC0=;
-        b=kc+l45zmeV2tnukMb+AJNHoJlzhkMUqKJ6/UwAOXY1UHX0jAXDQxhfTPxZADwaHWgQ
-         PyP5O/PpGIGA1YtWEv7+muupfRZtAUJyhVyaJv0emLr08HIOuLY7D+MeKdTI3WQZxrpB
-         nU9CWeIoLS7WNZB//wrqFywwkfqOMmle6ZUev3jw/fiw7MzFXHTlxNlxiwGEWqtX/PpT
-         1amrg98j+k86ILZSttKQCOlJZczx2djlyo79r2OzbvodGWSkMVepB1l/yjSEU+RnmfC7
-         RAwy5PNIxu4XCJime693QeIUuoV0d7FPr5uYF9N7muFn8hF+cKsyIXnd/r0EXUaZhQ74
-         +LEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750047235; x=1750652035;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P80b7O3kBzCHZeyPaqEFw3rG2WMhfBLYf+jpLfD2cC0=;
-        b=wMUXnwctmLpGNGA55K6AfczPT6UhDtFNmcPy0LHiHi451PUB2FodHZMvexXiu5ETA7
-         ZMdrQ+dHW3ZZQNUGoi2ry21N+8CtojBYG6cu3D0XfsyxtHyHrdoyAy/Wvfkeysw5kdjI
-         mMA8ZebcpclKymdJOOxEIQ5IKqnnsANEWU0o6Jq8+ijUCmG2tVJFfUfbtsWsNtDYyJIv
-         w8brvaEt/8ZC8RLLlfniPlBHvYG4111CscAVpECEI853b/td6qLdsKC5/a8gaDlHmRsW
-         41nBexhiuOSDGRyfxjrhKBlWN67v5A7KC1B7+q9Y00CYpOAosnAbK5PqJz4kIiPVYwEc
-         QZwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUZrU9F5PRN7eIgLahMUMPB4GhcYa39oAmuT0pkOBxdKokOzRXO/GhKmNjYDEZ1xXcFitNxQFdVREqc7p8UjtQQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlEAzqOodvZmDhls7REkOV1p1mtWC0KFbYZOwMYGWvPNK5qIB9
-	aPHPvOVnoSsx+kHlPp71DY7haXMw0qU1tClGU0PFnhUH2Q0GuejaRPh6
-X-Gm-Gg: ASbGnctBbTgWFyMcLkoNm2hGKnzNWFSeOziAB2moAoTl3J3Y2vvVegQs3GvSJCiuXXw
-	Set9Oy38AF5RCpq/DzGV7f52PAW7wOVsBoKkdd/BynKazCZOl/g/PSyCXARqWWUZisi3AqRDQKS
-	8I5h3lEBfpjRt86hTeYLeQvM83bdDcbQDYn9GnFFAhaQvGKvCO2KP38okOMJGYtFsJ2dM9xeGuq
-	GwNi8bAzvAgLh3pETFjciO7Ek+ykwf+TnZryYH56TswNViA0CsGiJeXr/8jZSNoqUK0M2fBTPab
-	Q91fOYYgBDy8+XBMA5AWp1UnnvwZDUWZUaUdk7pm9rkX9pU0eHiNUSJMm+LxZ3drytns0yxat0A
-	1laDwJVMh
-X-Google-Smtp-Source: AGHT+IGj8afwiQBWMnNFiO8CZX12Uzqm0farJp4iABQXPdiIhq7hSOMuLQDUrIeTYhq1s+E7XXHTwA==
-X-Received: by 2002:a05:6a00:21c1:b0:748:323f:ba21 with SMTP id d2e1a72fcca58-7489cf5c8c2mr11015493b3a.1.1750047235481;
-        Sun, 15 Jun 2025 21:13:55 -0700 (PDT)
-Received: from [10.89.152.134] (wf121-134.ust.hk. [175.159.121.134])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74890006059sm5937252b3a.55.2025.06.15.21.13.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 15 Jun 2025 21:13:55 -0700 (PDT)
-Message-ID: <7297d4b1-84a2-4bb1-8a33-29c827247df7@gmail.com>
-Date: Mon, 16 Jun 2025 12:13:50 +0800
+	Mon, 16 Jun 2025 04:31:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sQcgY4CCC0U8syu3WD0PLGB8zsTPjE+ybruIzJvv+QGUqDtDH97qmWYNrXdaCjwHAgaIfUwZMWwAcdMlc+TyTbr8Ldk3lH3kssngmz3MIiGPSF1Ky0tSLQsdUSvVpTaxEcXYAys4gXnWEuZLmT1QcTTStQGdewWAlxAiyBfmd0/hpijXmnapWR5MOvIjmdK1sdGWitGuGoB/iyUV3p9gSoyxNg8HfaZpbn6ERVob7zYUKukIKJ3h3snFM5hE8za2BFGs1x7YlvLbGVlLruRWGr6fZkt2+lFqhE0yW+qtyEidwqZQ0a1+pDGn4RF5Atk5/9x4pHnAfl+c6kZAQpSjGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9H3iMIVw76XdEFkS0pIFzApQRXQlkWuRuscTZnf8wLw=;
+ b=T2s5wBsGizVaIBHK2FFauxUt1Th56eSw5RMnaf831Gb/ukKQFjVK1M07/VaeQIjgPsvwNfZOzVdhWntB2uCzAOjvCSgzEau09MN/Ml+kVXhN+TXOrYWIB+GoKKTJPW3EZH4XqORHEENeKY9fQ2hwVLFtpkbnRbBM84wQ0cKj1nUKzB0+TwKFRSM29FOOevWrRtKTpCewMENi90cqxPvkDL0fJXm2EMYN9YGnGav7mNvujFwwlGla88gZosAsMr85ieCGqZtaOyMUhNTRfHmuP6pJVh/j3hFqnuSnH2c6umbWvP8gXj3035zAp+WKDo6cU5hbcWoAmCWns8xlr1iJhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 50.233.182.194) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9H3iMIVw76XdEFkS0pIFzApQRXQlkWuRuscTZnf8wLw=;
+ b=W1bhSgVt0FbfxpRa55xyM2jUCHjjIV22MRmw2IywXPvbym+8SiNUKJq65i0NnM7rM2lwOYB+N//ZmP1oGpdYefJ/HaI57Jy1izqT7wnYUd+E2MApxCXJbKYeomAf36RaGdSGw1TIJ+vg5XvUlYGnHw1Rp/t8B+HDy93BUALJ1qVO6DsKdUYZI0imRoK0ooTC4SxwOmPWiaqrpMVKsZWpqQfzuMmOrBAXRuyJMOmB9kYgk6mKqPDbOOCMBjvD/Hakla88xmQgkfojGPC5Z6N8PqHr+cy2yiZkfzAgsgyjgZ+bTQ5fqITevdLTQBitXpERq/lmjOdACI5tDV2nhqVs4A==
+Received: from MW4PR03CA0064.namprd03.prod.outlook.com (2603:10b6:303:b6::9)
+ by CO1PR18MB4617.namprd18.prod.outlook.com (2603:10b6:303:e0::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Mon, 16 Jun
+ 2025 04:31:50 +0000
+Received: from SJ1PEPF00002327.namprd03.prod.outlook.com
+ (2603:10b6:303:b6:cafe::1b) by MW4PR03CA0064.outlook.office365.com
+ (2603:10b6:303:b6::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Mon,
+ 16 Jun 2025 04:31:50 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 50.233.182.194 as permitted sender)
+ receiver=protection.outlook.com; client-ip=50.233.182.194; helo=[127.0.0.1];
+Received: from [127.0.0.1] (50.233.182.194) by
+ SJ1PEPF00002327.mail.protection.outlook.com (10.167.242.90) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
+ via Frontend Transport; Mon, 16 Jun 2025 04:31:49 +0000
+From: Harshit Shah <hshah@axiado.com>
+Date: Sun, 15 Jun 2025 21:31:36 -0700
+Subject: [PATCH v2 3/6] dt-bindings: gpio: gpio-cdns: convert to YAML
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 07/10] power: reset: macsmc-reboot: Add driver for
- rebooting via Apple SMC
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
- Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>,
- Lee Jones <lee@kernel.org>, Marc Zyngier <maz@kernel.org>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
- <20250610-smc-6-15-v7-7-556cafd771d3@kernel.org>
-Content-Language: en-MW
-From: Nick Chan <towinchenmi@gmail.com>
-In-Reply-To: <20250610-smc-6-15-v7-7-556cafd771d3@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-3-341502d38618@axiado.com>
+References: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
+In-Reply-To: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ soc@lists.linux.dev, Harshit Shah <hshah@axiado.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4491; i=hshah@axiado.com;
+ h=from:subject:message-id; bh=/vBIx0PvaTFGH1SIpT+R3QSDPnyJ6rpvlbvJSic5q1k=;
+ b=owEB7QES/pANAwAKAfFYcxGhMtX7AcsmYgBoT54wW9p2n848NY0SxfvKKWAgml738gKNqTFxh
+ nwLPjEUNWCJAbMEAAEKAB0WIQRO3pC/7SkLS2viWOvxWHMRoTLV+wUCaE+eMAAKCRDxWHMRoTLV
+ ++4nC/oDMAIsqqvCvKnPOnivoVxRBrD7Ews9mDw1ypV/l25o4W7aXHfh3WO7TOLM2b5GxCe6vAq
+ ZYQNspz0lb+zzU6mb37waGxSKIJk1adb4YdQFAP8Er/dlgUJhM7mkuZGGsZkHORywdwbmFrz4s6
+ x9TBFoqHf2F9Mn4s9WGI9u54mZNVf6RTaH9uRJlnhAVIrT+8js5HqY1NodQxH4sxQEUsu2e/0AP
+ S4ZjbEqAJRbim4RJ8ZDBuCOogtOcCuCmxivpEy50gtik7zW219vEy8rrboOyHsRrQQtVfSrjUyL
+ ptMRb0eo2HWAzV1JFI/JVdfwOduKXfXOrLZbfMXQ2MTVvR/oWpyecXMswu926jlrlonJOt01TBS
+ iLzMdq8h2LYdTkwL/9RsFXzHO/OxLNazeN3kYWRaFoHWrQy7hjee+WAdUb5thzZkMysXS4Ri2I5
+ BDz7ynhEtq0Os4LPPHsblnvKdwz8Xqc02Cu/v0Bb5bjAaTXC1UoQVJToltYN2qp7zBT+w=
+X-Developer-Key: i=hshah@axiado.com; a=openpgp;
+ fpr=4EDE90BFED290B4B6BE258EBF1587311A132D5FB
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002327:EE_|CO1PR18MB4617:EE_
+X-MS-Office365-Filtering-Correlation-Id: 57bcd786-8e7d-448c-760d-08ddac8eb645
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|7416014|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bVI1cFkxNDBtYWt2YjlLZVdlV3FnZ3puNWZDcU4yV3ZlclpBaFY3dG8vSTFx?=
+ =?utf-8?B?eU1jVmVLdEM4MExvakJYT0pYdXVLU2FzaHhQdnI3UTlla1RDdGsxcExReWZ1?=
+ =?utf-8?B?NW1ZT2U2dHp0NG9ZbVhFY09iVFQzcW5PMFd4dFJ1enI0OHZNZGpqQ0lMR01t?=
+ =?utf-8?B?WWZLdjcyWDZNWk5KUHF1VFBCcTZKbHZqN2lKOUVKZEFzcEd2bnhzelM3dVdT?=
+ =?utf-8?B?RC96eCtKeVZRdUJ4UERkOE9ZdHJwNEljdTRNNTBoRDdqS3g2bC93aU92MnU2?=
+ =?utf-8?B?MFJ2QUIzYXJyV21La29UMTRSNnZLTkFMdjRObFB6ekpyVjFUdkZkUHFXT0lJ?=
+ =?utf-8?B?V3FLZTVoek16NzErVUpkRkVaaUQ5VWN0aXdubDFIcTN6czFVWVQzbFQ2OWc1?=
+ =?utf-8?B?ZEhpVDJ6ekJBVXBqcTcxb3JLVW9Hbndhd2NKekpXNFJsT3UyZXBXbERmc3BS?=
+ =?utf-8?B?WkFobWg5bkpnZ0tySHNDMUgvMWJRR0tDVjNVSHJSS0hHSHNFTUxJRTZPR3VQ?=
+ =?utf-8?B?YzN6Y2l5eURJcHVtNlU3UFlCMmVwMWRCcGRWZXV0OHlGSDNsdUJSbkdvZXFr?=
+ =?utf-8?B?REN4cU4vOGlMYndVcjFTWVBKd2NPcWF4Q0tFOWdVNTNxMVZmRzJmcFBjVmpy?=
+ =?utf-8?B?eWsyeUMxajgrWEVkS3o4ek5SdmxLUTZMTkFLRDR1UFZQZHFYdVl4QTRpYVpC?=
+ =?utf-8?B?NGVyR1RpN0hPRTJUdGVwRWtIOGFWNXZXZDNrMGFBQ1pHK2dTbHM4ajVXUFha?=
+ =?utf-8?B?V1EzTXREOUtLOFFodkRZaW55RG9ZQ1FrZGRMVGJlTnZnSG45bHI4VlZOUGg1?=
+ =?utf-8?B?NW1lNDJLL0hCcDllMmtMUVBXRXNaM0NqYms1empoQlVSMWRoRmpTaStHU1Iv?=
+ =?utf-8?B?ZUI2cXVCU3FoamNrNHRHNU5BQ0x3NFMyejJDQjhMNVoxSjRkKy9LM1BsTWgr?=
+ =?utf-8?B?RkNxSDg0OXRndU81bk5ZbjYvTzc3bUkwRUl0amE5VnBBclRwZkNNU2FvQXpM?=
+ =?utf-8?B?VGVVYXpObzBvTGd2Nk52TWNzY21uKzJvR3U3bjFGTGNaSWJKQ3VkZWtGOERq?=
+ =?utf-8?B?NjVLMkZDS2JHMG9TY3lyczZKSXJoUjkyaEJXYUJwRTVTdkpITm5GWTBIakFo?=
+ =?utf-8?B?c29PR2NMbzliSHRZbTdvakZ5eGFOS1lnUkdxZUhDYk5LOTFDRXRzODhWa1o2?=
+ =?utf-8?B?cnVHQzBwY1Z0Q2h1RUNBN0lwSjBrM0MvbHBnWmY4OHFPbUpIek9mMklTOURJ?=
+ =?utf-8?B?eFRCM283cFBSeGxrWVU5RDFOdGV1aEpuQkgraU9uOUFMTlFKYzJyUVFvcWN0?=
+ =?utf-8?B?cENvWkhhN25PRkp2NGpnV3F3ZEdsMDVNRDRYVXBHWDNsWkNDSE84UkJjak9y?=
+ =?utf-8?B?bTdDSXFvQ0xXM044aEtWQjhJaE83TXU0aDJZNTVPalNxdVNydFB3d1EwVTRk?=
+ =?utf-8?B?V0ppNzhNNmFwNlJuVEgveWJqamQ2QlR5dlVNQVEreHY1SldGWkJrdTg5VUln?=
+ =?utf-8?B?TTVCMmNadnlHV2d0azkvSkRsU0tZRk1BeXZmTmdyRmVnS1VrSnhaWVl4MHI0?=
+ =?utf-8?B?dXBPTHp6cHhqZi85cm5jWDQ2MnA0ejF3bmZ5enZ2ckZaQ2wwTkJPbGdYYUU3?=
+ =?utf-8?B?djRGK3V4QmhpUWtKRDU3QmRNMWlyRm8yVVFHM3J6Y2dVcXRRSmFjekZuNElq?=
+ =?utf-8?B?UHRPQklPYnBMUmdSRE9YazZxbVBHd0JuQXBIR0gyQVIyQ1ljQk5zUm1MV0Ft?=
+ =?utf-8?B?b0xVOUhSNTRMblRrYmR1Y2F2aWhibjZTZmxRdDlQWU4xY3JXcldtYlNLdGsr?=
+ =?utf-8?B?ZVEzRkxCMHllSHZXZS9mMlpwUDllSjUyeFFzV0dBL0xyMDZxSEpRTGtvMUw3?=
+ =?utf-8?B?L0xFRktWTFYrSEdia1JTMGtjdTlNNVdMcjBmcUkvRmdoZmppdko2emU5N2la?=
+ =?utf-8?B?VmxZN3FHa0J3bEljNkZ4ZEpUNmRieDhodG9yb2FMTXR6bmNCNWVCSU4vajhV?=
+ =?utf-8?B?M29rMm13aTNBPT0=?=
+X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:[127.0.0.1];PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(7416014)(82310400026)(13003099007);DIR:OUT;SFP:1102;
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 04:31:49.9278
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57bcd786-8e7d-448c-760d-08ddac8eb645
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[[127.0.0.1]]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002327.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR18MB4617
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_211356_373376_DCCC4B8F 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20250615_213156_280592_B9F329C3 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,40 +163,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert Cadence family GPIO controller bindings to DT schema.
 
+Changes during conversion:
+   - update the naming as per the other files.
+   - add gpio maintainers
 
-On 10/6/2025 23:29, Sven Peter wrote:
-> From: Hector Martin <marcan@marcan.st>
-> 
-> This driver implements the reboot/shutdown support exposed by the SMC
-> on Apple Silicon machines, such as Apple M1 Macs.
-> 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> Reviewed-by: Neal Gompa <neal@gompa.dev>
-> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
->  MAINTAINERS                         |   1 +
->  drivers/power/reset/Kconfig         |   9 ++
->  drivers/power/reset/Makefile        |   1 +
->  drivers/power/reset/macsmc-reboot.c | 290 ++++++++++++++++++++++++++++++++++++
->  4 files changed, 301 insertions(+)
-[...]
+Signed-off-by: Harshit Shah <hshah@axiado.com>
+---
+ .../devicetree/bindings/gpio/cdns,gpio.txt         | 43 ------------
+ .../devicetree/bindings/gpio/gpio-cdns.yaml        | 81 ++++++++++++++++++++++
+ 2 files changed, 81 insertions(+), 43 deletions(-)
 
-It seems that the reboot driver still probes even without the smc_reboot node in the smc node:
+diff --git a/Documentation/devicetree/bindings/gpio/cdns,gpio.txt b/Documentation/devicetree/bindings/gpio/cdns,gpio.txt
+deleted file mode 100644
+index 706ef00f5c64951bb29c79a5541db4397e8b2733..0000000000000000000000000000000000000000
+--- a/Documentation/devicetree/bindings/gpio/cdns,gpio.txt
++++ /dev/null
+@@ -1,43 +0,0 @@
+-Cadence GPIO controller bindings
+-
+-Required properties:
+-- compatible: should be "cdns,gpio-r1p02".
+-- reg: the register base address and size.
+-- #gpio-cells: should be 2.
+-	* first cell is the GPIO number.
+-	* second cell specifies the GPIO flags, as defined in
+-		<dt-bindings/gpio/gpio.h>. Only the GPIO_ACTIVE_HIGH
+-		and GPIO_ACTIVE_LOW flags are supported.
+-- gpio-controller: marks the device as a GPIO controller.
+-- clocks: should contain one entry referencing the peripheral clock driving
+-	the GPIO controller.
+-
+-Optional properties:
+-- ngpios: integer number of gpio lines supported by this controller, up to 32.
+-- interrupts: interrupt specifier for the controllers interrupt.
+-- interrupt-controller: marks the device as an interrupt controller. When
+-	defined, interrupts, interrupt-parent and #interrupt-cells
+-	are required.
+-- interrupt-cells: should be 2.
+-	* first cell is the GPIO number you want to use as an IRQ source.
+-	* second cell specifies the IRQ type, as defined in
+-		<dt-bindings/interrupt-controller/irq.h>.
+-		Currently only level sensitive IRQs are supported.
+-
+-
+-Example:
+-	gpio0: gpio-controller@fd060000 {
+-		compatible = "cdns,gpio-r1p02";
+-		reg =<0xfd060000 0x1000>;
+-
+-		clocks = <&gpio_clk>;
+-
+-		interrupt-parent = <&gic>;
+-		interrupts = <0 5 IRQ_TYPE_LEVEL_HIGH>;
+-
+-		gpio-controller;
+-		#gpio-cells = <2>;
+-
+-		interrupt-controller;
+-		#interrupt-cells = <2>;
+-	};
+diff --git a/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml b/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..e71f0137912f88e69fb3fa20f096e1572211591c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpio/gpio-cdns.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cadence GPIO Controller
++
++maintainers:
++  - Linus Walleij <linus.walleij@linaro.org>
++  - Bartosz Golaszewski <brgl@bgdev.pl>
++
++properties:
++  compatible:
++    const: cdns,gpio-r1p02
++
++  reg:
++    minItems: 1
++
++  clocks:
++    maxItems: 1
++
++  ngpios:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: Number of GPIO lines supported, maximum 32.
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 2
++    description: |
++      - First cell is the GPIO line number.
++      - Second cell is flags as defined in <dt-bindings/gpio/gpio.h>,
++        only GPIO_ACTIVE_HIGH and GPIO_ACTIVE_LOW supported.
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 2
++    description: |
++      - First cell is the GPIO line number used as IRQ.
++      - Second cell is the trigger type, as defined in
++        <dt-bindings/interrupt-controller/irq.h>.
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - gpio-controller
++  - "#gpio-cells"
++
++if:
++  required: [interrupt-controller]
++then:
++  required:
++    - interrupts
++    - "#interrupt-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    gpio0: gpio-controller@fd060000 {
++        compatible = "cdns,gpio-r1p02";
++        reg = <0xfd060000 0x1000>;
++        clocks = <&gpio_clk>;
++
++        interrupt-parent = <&gic>;
++        interrupts = <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
++
++        gpio-controller;
++        #gpio-cells = <2>;
++
++        interrupt-controller;
++        #interrupt-cells = <2>;
++    };
 
-[    0.994942] macsmc 236000100.smc: RTKit: Initializing (protocol version 12)
-[    1.002862] macsmc-gpio macsmc-gpio: First GPIO key: gP01 (0x67503031)
-[    1.013156] macsmc-reboot: Failed to locate of_node [id: -1]
-[    1.048188] macsmc-reboot macsmc-reboot: Missing NVMEM cell shutdown_flag (-2)
-[    1.055359] macsmc-reboot macsmc-reboot: Missing NVMEM cell boot_stage (-2)
-[    1.062332] macsmc-reboot macsmc-reboot: Missing NVMEM cell boot_error_count (-2)
-[    1.069799] macsmc-reboot macsmc-reboot: Missing NVMEM cell panic_count (-2)
-[    1.076902] macsmc-reboot macsmc-reboot: Handling reboot and poweroff requests via SMC
-
-Best regards,
-Nick Chan
-
+-- 
+2.25.1
 
 
