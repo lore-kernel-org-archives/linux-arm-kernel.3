@@ -4,114 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB339C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DEB8C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWZKq+facjiaX5VfIZfoLXvS21EBNXNgcqPrsZk1JJM=; b=FVnJycXQVTTvrODQCCt4gJS/Rw
-	e61IBrnvZ9EIb4wzAiOg7qevPNYvfdIoVF15HxH7U2428uDoFmQcz94ArobZG+uo98ePBZybNUqrT
-	V5LXskVfWNuldKjGC7kwivkNlaA1a3bZA27gifijnxb0wBxb+5cVHPKIuzt4nLsHVCmcClHECgjwT
-	AfADBndfROxsQttTE5LGK8YYwPkcgLeoic+zSu099k0hOURIHmHK/eg0NI1q7GIp2ZLIUJr4vgMcy
-	C0P6pZpEvXdVjn+0rTlWs1XmxLU+21mXollERbbcuNrRYxCFOGO1gBP58AgmarSYuaZV3cHB+wR25
-	4UamQ1Aw==;
+	bh=cdiI/smVJOY0cX4ZuH0mmdvKWwyCh8vEN4C+U7z3NJo=; b=QDpBHbWtjpepZAQQYW/eBE2g4N
+	CA4Ybfx+6kHBI9awn/4gbtu6s7TRpEpIcSRmQXROjqwQXVAoCLARpPUdSGq8RK0bLAAhJG91k3AC1
+	wttCHxC0yW4tfGvEW2GEHDNKKKVTIYl6cDYNoCZWKk2miwZHjwBYnwPnxY88H6SG36CFD0Pvnz+GK
+	PT+YLjVZL3+arwVZtwjpAMuNFE9ebMW1iJ8xjfwZhK0seX9Bk7TVfUDgPT0L677iO13pGbApPXNpo
+	TgdTFJXKxKlQlfkX5+Lxj4WWFvcVaLA+3wMgy649W3nlowmRKdGFPDW1h5B4vz6I/EKYakigzNlR2
+	Ca9Sxv9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7ly-00000004AKs-3lqI;
-	Mon, 16 Jun 2025 11:13:06 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uR7oA-00000004Adw-2stm;
+	Mon, 16 Jun 2025 11:15:22 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6kD-000000041yi-0BKd
+	id 1uR6pp-000000042ds-08cR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 10:07:14 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8RdQC011453;
-	Mon, 16 Jun 2025 10:06:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	UWZKq+facjiaX5VfIZfoLXvS21EBNXNgcqPrsZk1JJM=; b=AoX6/ShezdTds7wN
-	yxpRHPu32orf1q3lL+KUAAiRIBWKh1zpp6fok/TRhDb0pja9VsVyQ9RBNUrZY+rV
-	EvuGGSc5maMpBIF3X2pZyoe3p4PaihhJArw+0ykn6kHjXHnX+12DDbibTc1S+vSY
-	eyl1uFFJJSxa6MzUpiaX32KQQAoSZsL09vNPpE5XsGeZ/gkrRl7B8rKKgUbTXRxy
-	q10OaE90DHdyrsY7sQXohkxVC5AnRrfbYyDl2pA02M9Qayb0UK1jEFmh6Bn9KhjX
-	8AmNt9UnLESAPGeU0OudDKXm8uCC5QlzOIzOsDRLUWtWzf5W9HrNEI3yuhZ/XwFz
-	yDaGzQ==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 479qp5jnbg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 10:06:44 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55GA6itq030847
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 10:06:44 GMT
-Received: from [10.253.8.97] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Jun
- 2025 03:06:39 -0700
-Message-ID: <0c0a9c7a-f36e-4500-bbea-3a22a04431b3@quicinc.com>
-Date: Mon, 16 Jun 2025 18:06:36 +0800
+	Mon, 16 Jun 2025 10:13:02 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-addda47ebeaso861056966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 03:13:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750068779; x=1750673579; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=cdiI/smVJOY0cX4ZuH0mmdvKWwyCh8vEN4C+U7z3NJo=;
+        b=BZo+D1VqjkZtpLRiLTuV9MmfKVdb97mI5ngTz4/QuRg+QzeqmgltBPmsC90Stc2meR
+         4qpZR9iGm2iAmXuGMHNAfU6TnO96Zb/qKKd2ZbWpnBFwVMF5no3SX/DdE6ckol0wXzFL
+         F+Avhneiu1cE4P9ZaoU87a0ojf3MxEqtOh5ARZZ3v8zsEUlqLM0fkR3OaMYc7xmAQRg1
+         g7eV8HcCArtMnhyjpdKgRauSY+rOdN3LywDvg5rtnHZo8A6bMm/p88ImAfDuIv85v1iv
+         pQc11BIdtITfora28Mq3K7F4RFOOTJd4h1LKixw+kZYME3MnR2KFA/L8atwaEV99yDB2
+         HqMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750068779; x=1750673579;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cdiI/smVJOY0cX4ZuH0mmdvKWwyCh8vEN4C+U7z3NJo=;
+        b=oQy+DWC2ihebNnbFMroP7esOCcHJYKDk43d5rzdw5Xn7Hko148rqDkAfR3/s0AnGX9
+         QXTCmRiAUJbbDCg106CtiRCjKOQCkYEQPb81UYQhLpoDWhubO7l7axc9nu3cQYb7vlN7
+         cSvM3c0uuIpyCenUdvuHaGTaBAwPZJAmDNfyFQTB+AegceLSfSnVpCRxuRcDOUMlP70F
+         GRQCwZW2HUumSC8RYqs4gh2UxAIj5A2RJbRRtR5wEV2gnFVAO6lgRVPq7zRBexJQ3VwO
+         Pq4KDD18KUqYCm3dyUiSqf378KBNa497giJy0h0ZrM8uC9SPxxpOujXKfGrmmZgFCFLZ
+         I32Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWr9IAOvjhweLRHIcUuGoHpVQRcmLTA5WgRMbr/HDdGP2/R9wTB1v32IjueTzvn5oFgNJj2UqxKBfxsIyq0O6Hb@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywx83PvjkywEqmYUoTkcdNZcnlO7U/HsvWJ4QHsk8/fiiMzqDLr
+	P6Y+xFGJymrM15d2NrGS1XwAYpoiADGTGffwjNxZ/XJ2aVHkmS3EfyNENzxjjGWiwzE=
+X-Gm-Gg: ASbGncs4nV9w4JjW9rG3/Rz7KfqxcpE4TA331mi/2kHvuMt/eE5C2Jn1YUVzXCsd7U6
+	do0vCZjn+mZhxQ7x4C3APBqZXxD8B4XG8nJ0a20JWMNpVvvWw0ZydZF0zR/+28O44KqrcZvs313
+	2EXdJK0XzZq2AjsnEWDTvXIr5k9nCInN6V6jYO8ENKiHRso8F5/djN4AgxNclBG0aGYbx7s1TKm
+	ZfVZhmw/kDLcUGAssWmjXtf3WcFoe2Q8T0RdKmU9gzbRj43+0YWFLth7bBgKL5eRULHx5UZZyoz
+	6WgINH7qwMHjeW0USFKWYX/nMX3AG210kctlCTI3/DF15a84++WPHthhwi21BsBAQud6x5vIJ2/
+	eW85p
+X-Google-Smtp-Source: AGHT+IGarxBcmQbjxtZfqg39/812dZL7oJLKKdvVC7LLX0AVrEROcYWKaHBGWjIfiBnmq6KNQDjrVw==
+X-Received: by 2002:a17:907:db15:b0:ad5:8594:652e with SMTP id a640c23a62f3a-adfad469cf2mr788992566b.35.1750068779409;
+        Mon, 16 Jun 2025 03:12:59 -0700 (PDT)
+Received: from [192.168.0.33] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adec897ac3dsm626980266b.155.2025.06.16.03.12.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Jun 2025 03:12:59 -0700 (PDT)
+Message-ID: <6a493968-744a-4fa2-803c-3f64a8e7225e@linaro.org>
+Date: Mon, 16 Jun 2025 13:12:58 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/5] Add FIELD_MODIFY() helper
-To: Marc Zyngier <maz@kernel.org>
-CC: Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes
-	<linux@rasmusvillemoes.dk>,
-        Julia Lawall <Julia.Lawall@inria.fr>,
-        "Nicolas
- Palix" <nicolas.palix@imag.fr>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-        "Joey
- Gouly" <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>, <linux-kernel@vger.kernel.org>,
-        <cocci@inria.fr>, <linux-arm-kernel@lists.infradead.org>,
-        <kvmarm@lists.linux.dev>, <andrew@lunn.ch>,
-        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
-        <quic_leiwei@quicinc.com>, <quic_suruchia@quicinc.com>,
-        <quic_pavir@quicinc.com>
-References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
- <86sek5cane.wl-maz@kernel.org>
+Subject: Re: [RFC][PATCH 09/14] genirq: add irq_kmemdump_register
+To: Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+Cc: linux-doc@vger.kernel.org, corbet@lwn.net, mingo@redhat.com,
+ rostedt@goodmis.org, john.ogness@linutronix.de, senozhatsky@chromium.org,
+ pmladek@suse.com, peterz@infradead.org, mojha@qti.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, vincent.guittot@linaro.org,
+ konradybcio@kernel.org, dietmar.eggemann@arm.com, juri.lelli@redhat.com,
+ andersson@kernel.org
+References: <20250422113156.575971-1-eugen.hristev@linaro.org>
+ <20250422113156.575971-10-eugen.hristev@linaro.org> <87h61wn2qq.ffs@tglx>
+ <1331aa82-fee9-4788-abd9-ef741d00909e@linaro.org>
+ <f916cf7f-6d0d-4d31-8e4b-24fc7da13f4d@linaro.org> <87ikkzpcup.ffs@tglx>
+From: Eugen Hristev <eugen.hristev@linaro.org>
 Content-Language: en-US
-From: Luo Jie <quic_luoj@quicinc.com>
-In-Reply-To: <86sek5cane.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+In-Reply-To: <87ikkzpcup.ffs@tglx>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 9SYfzjF3RGzccne1WkjDRTBZRqXR4qMQ
-X-Proofpoint-ORIG-GUID: 9SYfzjF3RGzccne1WkjDRTBZRqXR4qMQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDA2NCBTYWx0ZWRfX7UrecK1eCq0L
- 8jXrAGXhthDm1V6AVytgr3qliiXHjBZaL76sRZ3phJrAmJasaSNIHGzGBFhBFi9o5IyFk+xr73/
- IhE0N4gFcbqzn7S0S7Y52KjoBgJTd6vDBFJ3S0u8Ezjm7BywP5onFsmIJfz5KtGQHVhXmdvLKDh
- HhVLEaxXzBMod9Q38nM1Mu16s4l1HX+23Cpf2phN6fdQqmVOmOQE77cCrvquRNryXNGm2E0cfrJ
- YsohgekeAGt6tReiCse3CCm8omb3spIjoUQVI38+9g6ghiU4z1+Vb7SKKDrKHKR/oxWt1t89JMq
- Y7xkqAqi8zKGKRpOOG+X+UF8egA/sye8lBvBpkwGGcAPhX1Ivjfo7H2hFERpSSFfMKN+oAUW6CB
- cjdJ4ljTU/jmgXd3d51GgsVlOh8j6vcM2f64dVA3ksVJFgMn0VPWdcBpNXSVQsIQoxGFMit0
-X-Authority-Analysis: v=2.4 cv=fMc53Yae c=1 sm=1 tr=0 ts=684fecb4 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=r701-TsZq3b5Q2E7mLQA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-16_04,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 bulkscore=0 clxscore=1015 malwarescore=0
- mlxlogscore=999 spamscore=0 lowpriorityscore=0 impostorscore=0 mlxscore=0
- priorityscore=1501 suspectscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506160064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_030713_113336_DE0A6957 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20250616_031301_104237_54B806D9 
+X-CRM114-Status: GOOD (  40.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,34 +110,168 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 6/12/2025 10:11 PM, Marc Zyngier wrote:
-> On Thu, 12 Jun 2025 14:46:07 +0100,
-> Luo Jie <quic_luoj@quicinc.com> wrote:
+On 6/14/25 00:10, Thomas Gleixner wrote:
+> On Fri, Jun 13 2025 at 17:33, Eugen Hristev wrote:
+>> On 5/7/25 13:27, Eugen Hristev wrote:
+>>>> Let KMEMDUMP_VAR() store the size and the address of 'nr_irqs' in a
+>>>> kmemdump specific section and then kmemdump can just walk that section
+>>>> and dump stuff. No magic register functions and no extra storage
+>>>> management for static/global variables.
+>>>>
+>>>> No?
+>>>
+>>> Thank you very much for your review ! I will try it out.
 >>
->> Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
->> macros. It is functionally similar as xxx_replace_bits(), but adds
->> the compile time checking to catch incorrect parameter type errors.
->>
->> This series also converts the four instances of opencoded FIELD_MODIFY()
->> that are found in the core kernel files, to instead use the new
->> FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
->> the script field_modify.cocci.
->>
->> The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
->>
->> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
+>> I have tried this way and it's much cleaner ! thanks for the
+>> suggestion.
 > 
-> I already indicated that the *pre-existing* set of helpers are enough
-> for what we want to do, that we *already* use them for KVM/arm64, and
-> that I didn't need nor want two ways to do the same thing in the same
-> code base.
+> Welcome.
 > 
-> My opinion hasn't changed on that front, and I don't see a point in
-> these patches.
+>> The thing that I am trying to figure out now is how to do something
+>> similar for a dynamically allocated memory, e.g.
+>> void *p = kmalloc(...);
+>> and then I can annotate `p` itself, it's address and size, but what I
+>> would also want to so dump the whole memory region pointed out by p. and
+>> that area address and size cannot be figured out at compile time hence I
+>> can't instantiate a struct inside the dedicated section for it.
+>> Any suggestion on how to make that better ? Or just keep the function
+>> call to register the area into kmemdump ?
 > 
-> 	M.
+> Right. For dynamically allocated memory there is obviously no compile
+> time magic possible.
+> 
+> But I think you can simplify the registration for dynamically allocated
+> memory significantly.
+> 
+> struct kmemdump_entry {
+> 	void			*ptr;
+>         size_t			size;
+>         enum kmemdump_uids	uid;
+> };
+> 
+> You use that layout for the compile time table and the runtime
+> registrations.
+> 
+> I intentionally used an UID as that avoids string allocation and all of
+> the related nonsense. Mapping UID to a string is a post processing
+> problem and really does not need to be done in the kernel. The 8
+> character strings are horribly limited and a simple 4 byte unique id is
+> achieving the same and saving space.
+> 
+> Just stick the IDs into include/linux/kmemdump_ids.h and expose the
+> content for the post processing machinery.
+> 
+> So you want KMEMDUMP_VAR() for the compile time created table to either
+> automatically create that ID derived from the variable name or you add
+> an extra argument with the ID.
+
+First of all, thank you very much for taking the time to think about this !
+
+In KMEMDUMP_VAR, I can use __UNIQUE_ID to derive something unique from
+the variable name for the table entry.
+
+The only problem with having something like
+
+#define KMEMDUMP_VAR(sym) \
+	 static struct entry __UNIQUE_ID(kmemdump_entry_##sym) ...
+
+is when calling it with e.g. `init_mm.pgd` which will make the `.`
+inside the name and that can't happen.
+So I have to figure a way to remove unwanted chars or pass a name to the
+macro.
+
+I cannot do something like
+static  void * ptr = &init_mm.pgd;
+and then
+KMEMDUMP_VAR(ptr)
+because ptr's dereferencing can't happen at compile time to add it's
+value into the table entry.
+
+> 
+> kmemdump_init()
+>         // Use a simple fixed size array to manage this
+>         // as it avoids all the memory allocation nonsense
+>         // This stuff is neither performance critical nor does allocating
+>         // a few hundred entries create a memory consumption problem
+>         // It consumes probably way less memory than the whole IDR/XARRAY allocation
+>         // string duplication logic consumes text and data space.
+> 	kmemdump_entries = kcalloc(NR_ENTRIES, sizeof(*kmemdump_entries), GFP_KERNEL);
+> 
+> kmemdump_register(void *ptr, size_t size, enum kmemdump_uids uid)
+> {
+>         guard(entry_mutex);
+> 
+> 	entry = kmemdump_find_empty_slot();
+>         if (!entry)
+>         	return;
+> 
+>         entry->ptr = ptr;
+>         entry->size = size;
+>         entry->uid = uid;
+> 
+>         // Make this unconditional by providing a dummy backend
+>         // implementation. If the backend changes re-register all
+>         // entries with the new backend and be done with it.
+>         backend->register(entry);
+> }
+> 
+> kmemdump_unregister(void *ptr)
+> {
+>         guard(entry_mutex);
+>         entry = find_entry(ptr);
+>         if (entry) {
+>                 backend->unregister(entry);
+>         	memset(entry, 0, sizeof(*entry);
+>         }
+> }
+> 
+> You get the idea.
+> 
+> Coming back to the registration at the call site itself.
+> 
+>        struct foo = kmalloc(....);
+> 
+>        if (!foo)
+>        		return;
+> 
+>        kmemdump_register(foo, sizeof(*foo), KMEMDUMP_ID_FOO);
+> 
+> That's a code duplication shitshow. You can wrap that into:
+> 
+>        struct foo *foo = kmemdump_alloc(foo, KMEMDUMP_ID_FOO, kmalloc, ...);
+> 
+> #define kmemdump_alloc(var, id, fn, ...)				\
+> 	({								\
+>         	void *__p = fn(##__VA_ARGS__);				\
+> 									\
+>                 if (__p)						\
+>                 	kmemdump_register(__p, sizeof(*var), id);	\
+> 		__p;
+>         })
 > 
 
-OK. I will drop the ARM64 patches and only keep the coccinelle script
-patch in the next version.
+I was thinking into a new variant of kmalloc, like e.g. kdmalloc() which
+would be a wrapper over kmalloc and also register the region into
+kmemdump like you are suggesting.
+It would be like a `dumpable` kmalloc'ed memory.
+And it could take an optional ID , if missing, it could generate one.
+
+However this would mean yet another k*malloc friend, and it would
+default to usual kmalloc if CONFIG_KMEMDUMP=n .
+I am unsure whether this would be welcome by the community
+
+Let me know what you think.
+
+Thanks again !
+Eugen
+
+> or something daft like that. And provide the matching magic for the free
+> side.
+> 
+> Thoughts?
+> 
+> Thanks,
+> 
+>         tglx
+
 
