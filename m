@@ -4,100 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72701C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6B5C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kwGcLft6rw4uMuBLKiidHxvv3eG5O6mTVnZqBOvMc3M=; b=UKDP8nOkSFLiC7DzkExTlDXUyj
-	vVJK1RI3XLyN/DCMAySNcK48ep3FmxE5uKOHeytDZhFoGdKoNjaw0lk7EBsepRnNTG7eA4IXm8tY2
-	sPOH4H622c83U/iQpmeVKPKVrMpzhuel+8Q1YooeUp5vt7HxYqitUjj+Q28gjPIgvWiioaPx92gB+
-	5jP2xP9UYzXtnuedoCR6uglR1M3xGfOmpSJIGoXK0GzJKAX7X1eNVbfaSPLW7u2SeMzZugH5iQi75
-	A/2LCV7HkvbbWZGfLh1l3pGx/vJtONd5gsk8A11QiZGZSlFPebbUeoH6MvwRcFIInBZblMfejrtFP
-	34utrLrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b9YGj9zZUw7hXSoE/sqWqGMQU6YymliAdwRZI/+I+qo=; b=nfAjEW2IUagSPf
+	oQweZKvx+Lq4uvGRtRRryZghcb9tlq7l1704T+/Wsp0suwZg6e/R5q9HhDvcerUHdNZfzBlez3Nz1
+	7ouoDq0tcf1yR/IpksITvKOeF5ybvpJwfU07OKmdNWMCK2FPSJ8ovumpLLHjJMPDcbSbOwtTINSrk
+	IOiFOZE7BqZqv0baqyMs3L9i35VP9DuNAH67K8gh0LkGlgeI5La9c8UyOM3IJCSPmETcvpuvaHB9Y
+	jmYE6dvhA+icYp0IU9FrWJ7W26XMMRAi7zTD8YiW1/Hy1tCsEx/0v8HV6Xas6JX2J7ekh7zEK3c59
+	ZKbxh2+zvwDIp5pKZYGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6tI-000000042zm-3WmA;
-	Mon, 16 Jun 2025 10:16:36 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uR6vT-000000043Hd-2FgT;
+	Mon, 16 Jun 2025 10:18:51 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6A4-00000003vN3-1Ywq
+	id 1uR6Fl-00000003vuQ-0G65
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 09:29:53 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so35477185e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 02:29:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1750066190; x=1750670990; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kwGcLft6rw4uMuBLKiidHxvv3eG5O6mTVnZqBOvMc3M=;
-        b=LHYNEKeNZ17jwpIIigNFz27A0SELwxkD41rSVEwKHpEVSUzRURI8ojnphGiZCHka0L
-         h86P1MVM8KGOMKNoaR8gu85SLobUS2AjyC+Fvc6rAwTP2w76TbZ5S7vLIX7+JsUnShVy
-         Qfz36Q44RyO2N6lFC/ImCq3vIlDEXBCuOhflaoHlpNXpv1Xn+fPQkBHPbFCfhQScvNWT
-         3moa1u+b4h57/ATgBDR/S4jM5s23jinBmolxWb8dydoEeEYGpKgimRf1V3acrlnyvvQY
-         vTTRYuxgTVtL9iRmqaVn7VYcY1RBFET1y5xLb53IPs6m+yyvjXsJ7AOtXr/MpYtvQa6Y
-         0wDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750066190; x=1750670990;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kwGcLft6rw4uMuBLKiidHxvv3eG5O6mTVnZqBOvMc3M=;
-        b=iT+Xsr/sJTWDAMHlaBFtOMFQJ2Gr+urQOfZXdfnQGg8+/5qn2HAEkOj8mQdzDBwW3S
-         OOGfNqjSLdPyAGqcPUTX4t43N9pYyCFlTXLOFA5d5AwigL9cghPOsDo7Gundw9MKDIgZ
-         BesotDWGBPOSVLAX5nUuwc8G+CPdAcL1baJaQ/wyslPJiWSBKOJxBAZtR0LvhnQKik9Z
-         W4X5tfwlfhs3OPVWMC9FxcDB+1a6PFx3wOEMKigfTb6o6Dq2QgdAIDtHlNBtokKWL9Wy
-         +QEB5TnzSaFnQ6WStM8yAmvXJCCDnpawwSvXTVUw87S09mlvhQHiptChdfP2kbeN2vvr
-         2ohA==
-X-Forwarded-Encrypted: i=1; AJvYcCVsDfdRiZzDY+jmPCnwCxkwXbtAeC6KojwDbPRfS/+JBErHGqPhqW/kakWcExLqD5SLFCgkbJZf4CTbhQGr/aZC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKUi8olieqfiEQUTsvyDdQatFpza6MdvmvHlpWXgsWt9WfZu1q
-	wNYiGeyqD4yNDlnZwgZz6ZrHYOcpR0aBAEni02z95naV9VwwdnzHCQfBfdTF8WoLJ4A=
-X-Gm-Gg: ASbGncsTkgCv6OALmXJtXOn1Bi96gIAPCS0etDoL/wkWPscYusCosA2Cs6X/Sht9qJz
-	TALp+oTL+a39vMk3BRZ3919cV6zlRJYoeffWTva8VZoAWXc8pFmFPCjbPEXn4S9sR2NhWORPQn4
-	iaTFRb4dnc3cl7xQ3TDmhzFOiJ9fShGjcY9OaE9L2A9wZrbxxDSyrXVw5E5i2PHBw7861tnQrtU
-	e237wgPvESAzi4XV1p52fD/2mO/3Xclxdag4CGCEiA5CuJd2x7Bjdwjca1/lVTSI/lz0oVTiZWd
-	LT0z+RB9aDnMdPNztB/7jsoJws1gp4xSxDStkhPQ6IcuVyZFz2OaEu50bK6wA5LfRfU=
-X-Google-Smtp-Source: AGHT+IHOWfnPFzpHtRF/W2IbEp3fvdHVUeMVNujL1Q/an8stjFUG/mRNeySqS3CZ4AjxpSGguvlPXQ==
-X-Received: by 2002:a05:600c:528e:b0:450:d37d:7c with SMTP id 5b1f17b1804b1-4533cad3ca8mr65943535e9.21.1750066190358;
-        Mon, 16 Jun 2025 02:29:50 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.136.128])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532dea15b0sm140616455e9.11.2025.06.16.02.29.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Jun 2025 02:29:49 -0700 (PDT)
-Message-ID: <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
-Date: Mon, 16 Jun 2025 10:29:48 +0100
+	Mon, 16 Jun 2025 09:35:46 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bLPvM1mTnz6L5LJ;
+	Mon, 16 Jun 2025 17:33:35 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1D73614050C;
+	Mon, 16 Jun 2025 17:35:42 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 16 Jun
+ 2025 11:35:41 +0200
+Date: Mon, 16 Jun 2025 10:35:40 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Jie Zhan <zhanjie9@hisilicon.com>, <linuxarm@huawei.com>
+Subject: Re: [PATCH v4 2/2] PM / devfreq: Add HiSilicon uncore frequency
+ scaling driver
+Message-ID: <20250616103447.000024dd@huawei.com>
+In-Reply-To: <20250530081722.280776-3-zhanjie9@hisilicon.com>
+References: <20250530081722.280776-1-zhanjie9@hisilicon.com>
+	<20250530081722.280776-3-zhanjie9@hisilicon.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
-To: Yicong Yang <yangyicong@huawei.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Cc: Ali Saidi <alisaidi@amazon.com>, Leo Yan <leo.yan@linaro.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Jinqian Yang <yangjinqian1@huawei.com>,
- Douglas Anderson <dianders@chromium.org>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Adrian Hunter <adrian.hunter@intel.com>, Ian Rogers <irogers@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Kan Liang <kan.liang@linux.intel.com>,
- Namhyung Kim <namhyung@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- Yicong Yang <yangyicong@hisilicon.com>
-References: <aEyGg98z-MkcClXY@x1>
- <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_022952_427298_2C7733D5 
-X-CRM114-Status: GOOD (  42.21  )
+X-CRM114-CacheID: sfid-20250616_023545_396705_53081948 
+X-CRM114-Status: GOOD (  48.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,366 +67,393 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: yubowen8@huawei.com, linux-pm@vger.kernel.org, zhenglifeng1@huawei.com, liwei728@huawei.com, cw00.choi@samsung.com, kyungmin.park@samsung.com, myungjoo.ham@samsung.com, lihuisong@huawei.com, prime.zeng@hisilicon.com, jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 30 May 2025 16:17:22 +0800
+Jie Zhan <zhanjie9@hisilicon.com> wrote:
+
+> Add the HiSilicon uncore frequency scaling driver for Kunpeng SoCs based on
+> the devfreq framework.  The uncore domain contains shared computing
+> resources, including system interconnects and L3 cache.  The uncore
+> frequency significantly impacts the system-wide performance as well as
+> power consumption.  This driver adds support for runtime management of
+> uncore frequency from kernel and userspace.  The main function includes
+> setting and getting frequencies, changing frequency scaling policies, and
+> querying the list of CPUs whose performance is significantly related to
+> this uncore frequency domain, etc.  The driver communicates with a platform
+> controller through an ACPI PCC mailbox to take the actual actions of
+> frequency scaling.
+> 
+> Co-developed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+Hi Zhanjie,
+
+A few comments inline.  In general nice and clean.
+
+I think only one that really needs a change it the one around the
+CPU association firmware handling.
+
+Jonathan
 
 
-On 16/06/2025 8:56 am, Yicong Yang wrote:
-> + linux-arm-kernel
-> 
-> On 2025/6/14 4:13, Arnaldo Carvalho de Melo wrote:
->> Hi,
->>
->> tools/perf (and other tools/ living code) uses a file from the kernel, a
->> copy, so that we don't break its build when something changes in the
->> kernel that tooling uses.
->>
->> There is this tools/perf/check-headers.sh that does the "copy coherency
->> check", while trying to act on such a warning I stumbled on the report
->> below.
->>
->> More details at:
->>
->>    https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/include/uapi/README
->>
->>
->> If you could please take a look at this that would be great, the initial
->> copy was made at:
->>
->> commit 1314376d495f2d79cc58753ff3034ccc503c43c9
->> Author: Ali Saidi <alisaidi@amazon.com>
->> Date:   Thu Mar 24 18:33:20 2022 +0000
->>
->>      tools arm64: Import cputype.h
->>      
->>      Bring-in the kernel's arch/arm64/include/asm/cputype.h into tools/
->>      for arm64 to make use of all the core-type definitions in perf.
->>      
->>      Replace sysreg.h with the version already imported into tools/.
->>      
->>      Committer notes:
->>      
->>      Added an entry to tools/perf/check-headers.sh, so that we get notified
->>      when the original file in the kernel sources gets modified.
->>      
->>      Tester notes:
->>      
->>      LGTM. I did the testing on both my x86 and Arm64 platforms, thanks for
->>      the fixing up.
->>      
->>      Signed-off-by: Ali Saidi <alisaidi@amazon.com>
->>      Tested-by: Leo Yan <leo.yan@linaro.org>
->>
->> - Arnaldo
->>
->> ⬢ [acme@toolbx perf-tools]$ m
->> rm: cannot remove '/home/acme/libexec/perf-core/scripts/python/Perf-Trace-Util/lib/Perf/Trace/__pycache__/Core.cpython-313.pyc': Permission denied
->> make: Entering directory '/home/acme/git/perf-tools/tools/perf'
->>    BUILD:   Doing 'make -j32' parallel build
->> Warning: Kernel ABI header differences:
->>    diff -u tools/arch/x86/include/asm/cpufeatures.h arch/x86/include/asm/cpufeatures.h
->>    diff -u tools/arch/arm64/include/asm/cputype.h arch/arm64/include/asm/cputype.h
->>
->> Auto-detecting system features:
->> ...                                   libdw: [ on  ]
->> ...                                   glibc: [ on  ]
->> ...                                  libelf: [ on  ]
->> ...                                 libnuma: [ on  ]
->> ...                  numa_num_possible_cpus: [ on  ]
->> ...                                 libperl: [ on  ]
->> ...                               libpython: [ on  ]
->> ...                               libcrypto: [ on  ]
->> ...                             libcapstone: [ on  ]
->> ...                               llvm-perf: [ on  ]
->> ...                                    zlib: [ on  ]
->> ...                                    lzma: [ on  ]
->> ...                               get_cpuid: [ on  ]
->> ...                                     bpf: [ on  ]
->> ...                                  libaio: [ on  ]
->> ...                                 libzstd: [ on  ]
->>
->>    INSTALL libsubcmd_headers
->>    INSTALL libperf_headers
->>    INSTALL libapi_headers
->>    INSTALL libsymbol_headers
->>    INSTALL libbpf_headers
->>    INSTALL binaries
->>    INSTALL tests
->>    INSTALL libperf-jvmti.so
->>    INSTALL libexec
->>    INSTALL perf-archive
->>    INSTALL perf-iostat
->>    INSTALL perl-scripts
->>    INSTALL python-scripts
->>    INSTALL dlfilters
->>    INSTALL perf_completion-script
->>    INSTALL perf-tip
->> make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
->>   18: 'import perf' in python                                         : Ok
->> ⬢ [acme@toolbx perf-tools]$ cp arch/arm64/include/asm/cputype.h tools/arch/arm64/include/asm/cputype.h
->> ⬢ [acme@toolbx perf-tools]$ m
->> rm: cannot remove '/home/acme/libexec/perf-core/scripts/python/Perf-Trace-Util/lib/Perf/Trace/__pycache__/Core.cpython-313.pyc': Permission denied
->> make: Entering directory '/home/acme/git/perf-tools/tools/perf'
->>    BUILD:   Doing 'make -j32' parallel build
->> Warning: Kernel ABI header differences:
->>    diff -u tools/arch/x86/include/asm/cpufeatures.h arch/x86/include/asm/cpufeatures.h
->>
->> Auto-detecting system features:
->> ...                                   libdw: [ on  ]
->> ...                                   glibc: [ on  ]
->> ...                                  libelf: [ on  ]
->> ...                                 libnuma: [ on  ]
->> ...                  numa_num_possible_cpus: [ on  ]
->> ...                                 libperl: [ on  ]
->> ...                               libpython: [ on  ]
->> ...                               libcrypto: [ on  ]
->> ...                             libcapstone: [ on  ]
->> ...                               llvm-perf: [ on  ]
->> ...                                    zlib: [ on  ]
->> ...                                    lzma: [ on  ]
->> ...                               get_cpuid: [ on  ]
->> ...                                     bpf: [ on  ]
->> ...                                  libaio: [ on  ]
->> ...                                 libzstd: [ on  ]
->>
->>    INSTALL libsubcmd_headers
->>    INSTALL libperf_headers
->>    INSTALL libapi_headers
->>    INSTALL libsymbol_headers
->>    INSTALL libbpf_headers
->>    CC      /tmp/build/perf-tools/util/arm-spe.o
->> util/arm-spe.c: In function ‘arm_spe__synth_ds’:
->> util/arm-spe.c:885:43: error: passing argument 1 of ‘is_midr_in_range_list’ makes pointer from integer without a cast [-Wint-conversion]
->>    885 |                 if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
->>        |                                           ^~~~
->>        |                                           |
->>        |                                           u64 {aka long unsigned int}
->> In file included from util/arm-spe.c:37:
->> util/../../arch/arm64/include/asm/cputype.h:306:53: note: expected ‘const struct midr_range *’ but argument is of type ‘u64’ {aka ‘long unsigned int’}
->>    306 | bool is_midr_in_range_list(struct midr_range const *ranges);
->>        |                            ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
->> util/arm-spe.c:885:21: error: too many arguments to function ‘is_midr_in_range_list’; expected 1, have 2
->>    885 |                 if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
->>        |                     ^~~~~~~~~~~~~~~~~~~~~       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> util/../../arch/arm64/include/asm/cputype.h:306:6: note: declared here
->>    306 | bool is_midr_in_range_list(struct midr_range const *ranges);
->>        |      ^~~~~~~~~~~~~~~~~~~~~
->> make[4]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:85: /tmp/build/perf-tools/util/arm-spe.o] Error 1
->> make[3]: *** [/home/acme/git/perf-tools/tools/build/Makefile.build:142: util] Error 2
->> make[2]: *** [Makefile.perf:798: /tmp/build/perf-tools/perf-util-in.o] Error 2
->> make[1]: *** [Makefile.perf:290: sub-make] Error 2
->> make: *** [Makefile:119: install-bin] Error 2
->> make: Leaving directory '/home/acme/git/perf-tools/tools/perf'
->> ⬢ [acme@toolbx perf-tools]$
->>
->>
-> 
-> The changes should be introduced by arm64's errata management on live migration[1], specifically:
-> - commit e3121298c7fc ("arm64: Modify _midr_range() functions to read MIDR/REVIDR internally")
->    which changed the implementation of is_midr_in_range() that the MIDR to
->    test is always read on the current CPU. This isn't true in perf since
->    the MIDR is acquired from the perf.data.
-> - commit c8c2647e69be ("arm64: Make  _midr_in_range_list() an exported function")
->    which moves the implementation out of the header file.
-> 
-> Below patch should keep the copy coherency of cputype.h to implement the _midr_in_range_list()
-> as before.
-> 
-> [1] https://lore.kernel.org/all/20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com/
-> 
-> Thanks.
-> 
->  From 44900e7d3d9fa34c817396275f55a2aab611cd32 Mon Sep 17 00:00:00 2001
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> Date: Mon, 16 Jun 2025 15:18:11 +0800
-> Subject: [PATCH] arm64: cputype: Allow copy coherency on cputype.h between
->   tools/ and arch/
-> MIME-Version: 1.0
-> Content-Type: text/plain; charset=UTF-8
-> Content-Transfer-Encoding: 8bit
-> 
-> arch/arm64/include/asm/cputype.h is copied from arch/arm64 and used
-> by perf to parsing vendor specific SPE packets according to the MIDR.
-> The header diverge after errata management handling for VM live
-> migration merged [1]:
-> - commit e3121298c7fc ("arm64: Modify _midr_range() functions to read MIDR/REVIDR internally")
->    which changed the implementation of is_midr_in_range() that the MIDR to
->    test is always read on the current CPU. This isn't true in perf since
->    the MIDR is acquired from the perf.data.
-> - commit c8c2647e69be ("arm64: Make  _midr_in_range_list() an exported function")
->    which moves the implementation out of the header file.
-> 
-> In order to allow copy coherency on cputype.h [2], implement
-> is_midr_in_range_list() as before [1]. Introduce is_cpuid_in_range_list()
-> for kernel space to test the MIDR of current running CPU is within the
-> target MIDR ranges. Move cpu_errata_set_target_impl() and
-> is_cpuid_in_range_list() to cpufeature.h since they're only used by
-> errata management in the kernel space and don't needed by tools/.
-> 
-> No funtional changes intended.
-> 
-> [1] https://lore.kernel.org/all/20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com/
-> [2] https://lore.kernel.org/lkml/aEyGg98z-MkcClXY@x1/#t
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 > ---
->   arch/arm64/include/asm/cpufeature.h           | 11 +++++
->   arch/arm64/include/asm/cputype.h              | 40 +++++++++++--------
->   arch/arm64/kernel/cpu_errata.c                | 30 +++++---------
->   arch/arm64/kernel/cpufeature.c                |  6 +--
->   arch/arm64/kernel/proton-pack.c               | 20 +++++-----
->   arch/arm64/kvm/vgic/vgic-v3.c                 |  2 +-
->   drivers/clocksource/arm_arch_timer.c          |  2 +-
->   .../coresight/coresight-etm4x-core.c          |  2 +-
->   8 files changed, 60 insertions(+), 53 deletions(-)
+>  Documentation/ABI/testing/sysfs-class-devfreq |   9 +
+>  drivers/devfreq/Kconfig                       |  11 +
+>  drivers/devfreq/Makefile                      |   1 +
+>  drivers/devfreq/hisi_uncore_freq.c            | 656 ++++++++++++++++++
+>  4 files changed, 677 insertions(+)
+>  create mode 100644 drivers/devfreq/hisi_uncore_freq.c
 > 
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index c4326f1cb917..ba2d474fb393 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -1048,6 +1048,17 @@ static inline bool cpu_has_lpa2(void)
->   #endif
->   }
-> 
-> +struct target_impl_cpu {
-> +	u64 midr;
-> +	u64 revidr;
-> +	u64 aidr;
+> diff --git a/Documentation/ABI/testing/sysfs-class-devfreq b/Documentation/ABI/testing/sysfs-class-devfreq
+> index 1e7e0bb4c14e..fed95bb0bb6d 100644
+> --- a/Documentation/ABI/testing/sysfs-class-devfreq
+> +++ b/Documentation/ABI/testing/sysfs-class-devfreq
+> @@ -132,3 +132,12 @@ Description:
+>  
+>  		A list of governors that support the node:
+>  		- simple_ondemand
+> +
+> +What:		/sys/class/devfreq/.../related_cpus
+> +Date:		June 2025
+> +Contact:	Linux power management list <linux-pm@vger.kernel.org>
+> +Description:	The list of CPUs whose performance is closely related to the
+> +		frequency of this devfreq domain.
+> +
+> +		This file is only present if the hisi_uncore_freq driver is in
+> +		use.
+
+Unless this last statement was requested by another reviewer, I'd change it for
+something more generic to allow it to be used by other drivers.  Something like
+
+		This file is only present if a specific device has a close association
+		with a subset of the CPUs.
+
+
+> diff --git a/drivers/devfreq/hisi_uncore_freq.c b/drivers/devfreq/hisi_uncore_freq.c
+> new file mode 100644
+> index 000000000000..7e1b7f48d0f4
+> --- /dev/null
+> +++ b/drivers/devfreq/hisi_uncore_freq.c
+
+
+> +enum hisi_uncore_freq_mode {
+> +	HUCF_MODE_PLATFORM = 0,
+> +	HUCF_MODE_OS,
+> +	HUCF_MODE_MAX,
+
+I assume these max entries are terminators?  I.e. nothing should ever
+come after them?  If so you could drop the commas to make that explicit.
+
 > +};
 > +
-> +bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
-> +
-> +/* Different from is_midr_in_range() on using the MIDR of current CPU */
-> +bool is_cpuid_in_range_list(struct midr_range const *ranges);
-> +
->   #endif /* __ASSEMBLY__ */
-> 
->   #endif
-> diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-> index 661735616787..89fd197e2f03 100644
-> --- a/arch/arm64/include/asm/cputype.h
-> +++ b/arch/arm64/include/asm/cputype.h
-> @@ -251,16 +251,6 @@
-> 
->   #define read_cpuid(reg)			read_sysreg_s(SYS_ ## reg)
-> 
-> -/*
-> - * The CPU ID never changes at run time, so we might as well tell the
-> - * compiler that it's constant.  Use this function to read the CPU ID
-> - * rather than directly reading processor_id or read_cpuid() directly.
-> - */
-> -static inline u32 __attribute_const__ read_cpuid_id(void)
-> -{
-> -	return read_cpuid(MIDR_EL1);
-> -}
-> -
->   /*
->    * Represent a range of MIDR values for a given CPU model and a
->    * range of variant/revision values.
-> @@ -296,14 +286,30 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
->   	return _model == model && rv >= rv_min && rv <= rv_max;
->   }
-> 
-> -struct target_impl_cpu {
-> -	u64 midr;
-> -	u64 revidr;
-> -	u64 aidr;
-> -};
-> +static inline bool is_midr_in_range(u32 midr, struct midr_range const *range)
-> +{
-> +	return midr_is_cpu_model_range(midr, range->model,
-> +				       range->rv_min, range->rv_max);
-> +}
-> 
-> -bool cpu_errata_set_target_impl(u64 num, void *impl_cpus);
-> -bool is_midr_in_range_list(struct midr_range const *ranges);
-> +static inline bool
-> +is_midr_in_range_list(u32 midr, struct midr_range const *ranges)
-> +{
-> +	while (ranges->model)
-> +		if (is_midr_in_range(midr, ranges++))
-> +			return true;
-> +	return false;
-> +}
-> +
-> +/*
-> + * The CPU ID never changes at run time, so we might as well tell the
-> + * compiler that it's constant.  Use this function to read the CPU ID
-> + * rather than directly reading processor_id or read_cpuid() directly.
-> + */
-> +static inline u32 __attribute_const__ read_cpuid_id(void)
-> +{
-> +	return read_cpuid(MIDR_EL1);
-> +}
-> 
->   static inline u64 __attribute_const__ read_cpuid_mpidr(void)
->   {
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index 59d723c9ab8f..531ae67c7086 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -27,38 +27,28 @@ bool cpu_errata_set_target_impl(u64 num, void *impl_cpus)
->   	return true;
->   }
-> 
-> -static inline bool is_midr_in_range(struct midr_range const *range)
-> +bool is_cpuid_in_range_list(struct midr_range const *ranges)
->   {
-> +	u32 midr = read_cpuid_id();
->   	int i;
-> 
->   	if (!target_impl_cpu_num)
-> -		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
-> -					       range->rv_min, range->rv_max);
-> +		return is_midr_in_range_list(midr, ranges);
-> 
-> -	for (i = 0; i < target_impl_cpu_num; i++) {
-> -		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
-> -					    range->model,
-> -					    range->rv_min, range->rv_max))
-> +	for (i = 0; i < target_impl_cpu_num; i++)
-> +		if (is_midr_in_range_list(midr, ranges))
->   			return true;
-> -	}
-> -	return false;
-> -}
-> 
-> -bool is_midr_in_range_list(struct midr_range const *ranges)
-> -{
-> -	while (ranges->model)
-> -		if (is_midr_in_range(ranges++))
-> -			return true;
->   	return false;
->   }
-> -EXPORT_SYMBOL_GPL(is_midr_in_range_list);
-> +EXPORT_SYMBOL_GPL(is_cpuid_in_range_list);
-> 
->   static bool __maybe_unused
->   __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
->   			 u32 midr, u32 revidr)
->   {
->   	const struct arm64_midr_revidr *fix;
-> -	if (!is_midr_in_range(&entry->midr_range))
-> +	if (!is_midr_in_range(midr, &entry->midr_range))
->   		return false;
-> 
->   	midr &= MIDR_REVISION_MASK | MIDR_VARIANT_MASK;
-> @@ -92,7 +82,7 @@ is_affected_midr_range_list(const struct arm64_cpu_capabilities *entry,
->   			    int scope)
->   {
->   	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
-> -	return is_midr_in_range_list(entry->midr_range_list);
-> +	return is_cpuid_in_range_list(entry->midr_range_list);
+> +#define HUCF_CAP_PLATFORM_CTRL	BIT(0)
 
-Looks ok to me.
+> +static int hisi_uncore_cmd_send(struct hisi_uncore_freq *uncore,
+> +				u8 cmd, u32 *data)
+> +{
+> +	struct hisi_uncore_pcc_shmem __iomem *addr;
+> +	struct hisi_uncore_pcc_shmem shmem;
+> +	struct pcc_mbox_chan *pchan;
+> +	unsigned int mrtt;
+> +	s64 time_delta;
+> +	u16 status;
+> +	int rc;
+> +
+> +	guard(mutex)(&uncore->pcc_lock);
+> +
+> +	pchan = uncore->pchan;
+> +	if (!pchan)
+> +		return -ENODEV;
+> +
+> +	addr = (struct hisi_uncore_pcc_shmem __iomem *)pchan->shmem;
+> +	if (!addr)
+> +		return -EINVAL;
+> +
+> +	/* Handle the Minimum Request Turnaround Time (MRTT) */
+> +	mrtt = pchan->min_turnaround_time;
+> +	time_delta = ktime_us_delta(ktime_get(),
+> +				    uncore->last_cmd_cmpl_time);
 
-You could do it with slightly less churn on the kernel side if you keep 
-the function name and arguments the same there. There's only one usage 
-in Perf so that one could be renamed and have the midr argument added 
-back in.
+Fits on one line under 80 chars.
 
-I was also wondering if we could just diverge on the tools side, but in 
-reality it also has to stay compatible with the definitions of all the 
-MIDRs so might as well keep the whole thing identical.
+> +	if (mrtt > time_delta)
+> +		udelay(mrtt - time_delta);
+
+
+> +
+> +static int hisi_uncore_init_opp(struct hisi_uncore_freq *uncore)
+> +{
+> +	struct device *dev = uncore->dev;
+> +	u32 data = 0, num, index;
+
+Trivial personal preference. Don't mix assignment and no
+assignment declarations.  It's every so slightly harder to read.
+
+> +	unsigned long freq_mhz;
+> +	int rc;
+> +
+> +	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_PLAT_FREQ_NUM,
+> +				  &data);
+> +	if (rc)
+> +		return dev_err_probe(dev, rc, "Failed to get plat freq num\n");
+> +
+> +	num = data;
+> +
+> +	for (index = 0; index < num; index++) {
+> +		data = index;
+> +		rc = hisi_uncore_cmd_send(uncore,
+> +					  HUCF_PCC_CMD_GET_PLAT_FREQ_BY_IDX,
+> +					  &data);
+> +		if (rc) {
+> +			dev_pm_opp_remove_all_dynamic(dev);
+> +			return dev_err_probe(dev, rc,
+> +				"Failed to get plat freq at index %u\n", index);
+> +		}
+> +		freq_mhz = data;
+> +
+> +		/* Don't care OPP votlage, take 1V as default */
+voltage
+
+Spell check in case I missed others.  A W=1 build tends to catch the simple ones
+like this.
+
+> +		rc = dev_pm_opp_add(dev, freq_mhz * HZ_PER_MHZ, 1000000);
+> +		if (rc) {
+> +			dev_pm_opp_remove_all_dynamic(dev);
+> +			return dev_err_probe(dev, rc,
+> +				"Add OPP %lu failed\n", freq_mhz);
+> +		}
+> +	}
+> +
+> +	return devm_add_action_or_reset(dev, devm_hisi_uncore_remove_opp, uncore);
+Hmm. I'm normally a fan of registering these after the calls, but this is one
+of the rare cases where pushing it before (with a comment) cleans up the code.
+
+If you do that, then all the error cases in the loop just need to return and not
+call the cleanup manually.
+
+> +}
+
+> +
+> +static int hisi_platform_gov_handler(struct devfreq *df, unsigned int event,
+> +				     void *val)
+> +{
+> +	struct hisi_uncore_freq *uncore = dev_get_drvdata(df->dev.parent);
+> +	int rc = 0;
+> +	u32 data;
+> +
+> +	if (WARN_ON(!uncore || !uncore->pchan))
+> +		return -ENODEV;
+> +
+> +	switch (event) {
+> +	case DEVFREQ_GOV_START:
+> +		data = HUCF_MODE_PLATFORM;
+> +		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
+> +		break;
+> +	case DEVFREQ_GOV_STOP:
+> +		data = HUCF_MODE_OS;
+> +		rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_SET_MODE, &data);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	if (rc)
+> +		dev_err(uncore->dev, "Failed to set operate mode (%d)\n", rc);
+
+Trivial: I'd push this up into the two case statements (with early returns) as then
+you can also report what mode you were trying to set in the string.
+
+> +
+> +	return rc;
+> +}
+
+> +
+> +static int hisi_uncore_add_platform_gov(struct hisi_uncore_freq *uncore)
+> +{
+> +	int rc = 0;
+
+Initialized in only path where it's used.  Maybe push this
+declaration down to if (hisi_platform_gov_usage() block 
+
+> +
+> +	if (!(uncore->cap & HUCF_CAP_PLATFORM_CTRL))
+> +		return 0;
+> +
+> +	guard(mutex)(&hisi_platform_gov_usage_lock);
+> +
+> +	if (hisi_platform_gov_usage == 0) {
+> +		rc = devfreq_add_governor(&hisi_platform_governor);
+
+		int rc = devfreq....
+
+> +		if (rc)
+> +			return rc;
+> +	}
+> +	hisi_platform_gov_usage++;
+> +
+> +	return devm_add_action_or_reset(uncore->dev,
+> +					devm_hisi_uncore_remove_platform_gov,
+> +					uncore);
+> +}
+> +
+> +static int hisi_uncore_mark_related_cpus(struct hisi_uncore_freq *uncore,
+> +				 char *property, int (*get_topo_id)(int cpu),
+> +				 const struct cpumask *(*get_cpumask)(int cpu))
+> +{
+> +	unsigned int i, cpu;
+> +	size_t len;
+> +	int rc;
+> +
+> +	rc = device_property_count_u32(uncore->dev, property);
+> +	if (rc < 0)
+> +		return rc;
+Most of the errors here don't reflect it not being found and are things
+were we should probably fail the driver probe (so someone can fix whatever
+is wrong with the firmware.)  I think only -EINVAL means not here
+(technically arguments are not valid)
+
+> +	if (rc == 0)
+> +		return -EINVAL;
+> +
+> +	len = rc;
+> +	u32 *num __free(kfree) = kcalloc(len, sizeof(*num), GFP_KERNEL);
+> +	if (!num)
+> +		return -ENOMEM;
+
+On this failure path, falling over the other route below doesn't make much sense.
+
+> +
+> +	rc = device_property_read_u32_array(uncore->dev, property, num, len);
+> +	if (rc)
+> +		return rc;
+> +
+> +	for (i = 0; i < len; i++) {
+> +		for_each_possible_cpu(cpu) {
+> +			if (get_topo_id(cpu) == num[i]) {
+
+You could flip to reduce indent.  Marginal though so up to you and definitely
+not worth another spin.
+
+			if (get_topo_id(cpu) != num[i])
+				continue;
+
+			cpumask_or(&uncore->related_cpus, &uncore->related_cpus,
+				   get_cpumask(cpu));
+			break;
+
+> +				cpumask_or(&uncore->related_cpus,
+> +					   &uncore->related_cpus,
+> +					   get_cpumask(cpu));
+> +				break;
+> +			}
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int get_package_id(int cpu)
+> +{
+> +	return topology_physical_package_id(cpu);
+> +}
+> +
+> +static const struct cpumask *get_package_cpumask(int cpu)
+> +{
+> +	return topology_core_cpumask(cpu);
+> +}
+> +
+> +static int get_cluster_id(int cpu)
+> +{
+> +	return topology_cluster_id(cpu);
+> +}
+> +
+> +static const struct cpumask *get_cluster_cpumask(int cpu)
+> +{
+> +	return topology_cluster_cpumask(cpu);
+> +}
+> +
+> +static int hisi_uncore_mark_related_cpus_wrap(struct hisi_uncore_freq *uncore)
+> +{
+> +	int rc;
+> +
+> +	cpumask_clear(&uncore->related_cpus);
+> +
+> +	rc = hisi_uncore_mark_related_cpus(uncore, "related-package",
+> +					   get_package_id,
+> +					   get_package_cpumask);
+> +	if (rc == 0)
+> +		return rc;
+
+return 0;  might make it a tiny bit more explicit that this is a good path.
+Maybe a comment in here on why that is a good path.
+I think this is trying one then the other and only one is expected to be
+present?  Perhaps be a little more paranoid here and check what was seen was
+-EINVAL.
+
+	if (rc != -EINVAL)
+		return rc; /* May be 0 or another error code */
+
+Perhaps with an ACPI snippet in the patch description to illustrate what
+is going on here.
+
+
+> +
+> +	return hisi_uncore_mark_related_cpus(uncore, "related-cluster",
+> +					     get_cluster_id,
+> +					     get_cluster_cpumask);
+> +}
+
+> +static int hisi_uncore_devfreq_register(struct hisi_uncore_freq *uncore)
+> +{
+> +	struct devfreq_dev_profile *profile;
+> +	struct device *dev = uncore->dev;
+> +	unsigned long freq;
+> +	u32 data;
+> +	int rc;
+> +
+> +	rc = hisi_uncore_get_cur_freq(dev, &freq);
+One for another day:
+Whilst we do indeed need to do this, it seems like a small optimization to
+devfreq would be to check for initial_freq == 0 and if it is try get_cur_freq()
+after registration. Mind you I checked and this only seems to apply to
+the imx drivers and this one.
+
+> +	if (rc)
+> +		return dev_err_probe(dev, rc, "Failed to get plat init freq\n");
+> +
+> +	profile = devm_kzalloc(dev, sizeof(*profile), GFP_KERNEL);
+> +	if (!profile)
+> +		return -ENOMEM;
+> +
+> +	*profile = (struct devfreq_dev_profile) {
+> +		.initial_freq = freq,
+> +		.polling_ms = HUCF_DEFAULT_POLLING_MS,
+> +		.timer = DEVFREQ_TIMER_DELAYED,
+> +		.target = hisi_uncore_target,
+> +		.get_dev_status = hisi_uncore_get_dev_status,
+> +		.get_cur_freq = hisi_uncore_get_cur_freq,
+> +		.dev_groups = hisi_uncore_freq_groups,
+> +	};
+> +
+> +	rc = hisi_uncore_cmd_send(uncore, HUCF_PCC_CMD_GET_MODE, &data);
+> +	if (rc)
+> +		return dev_err_probe(dev, rc, "Failed to get operate mode\n");
+> +
+> +	if (data == HUCF_MODE_PLATFORM)
+> +		uncore->devfreq = devm_devfreq_add_device(dev, profile,
+> +					  hisi_platform_governor.name, NULL);
+> +	else
+> +		uncore->devfreq = devm_devfreq_add_device(dev, profile,
+> +					  DEVFREQ_GOV_PERFORMANCE, NULL);
+> +	if (IS_ERR(uncore->devfreq))
+> +		return dev_err_probe(dev, PTR_ERR(uncore->devfreq),
+> +			"Failed to add devfreq device\n");
+> +
+> +	return 0;
+> +}
 
 
