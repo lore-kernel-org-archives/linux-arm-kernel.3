@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69176C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 07:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED95C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 07:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9b1ToOszkThj2uAeoNsrFy9AJprJXsX3EVBOlIQS4LM=; b=urM2IPnhg4dPODmwXcfSsqc8pL
-	5KGceAaMNUXcV0G2oPs8VRb+kbuFhXLcLEOtB21bBiHFucgII0hoVYpzzd1Io2lcnmsbY5CMGJEXb
-	6KNt7rvSlUA/zFkrC9k61bMVZBYNa2SD25N5LEIqQpXEloW9PMSpQWF7JvOQCvvnXhd6lR7BoG2ho
-	79PtAUeEHV6NLVlE1HJx9RWcYWiJ+2yLXar2jnGSuBgeyS6vYqyxNIKcKnqty+VeVCfYYgkZBVvha
-	3dE6Svg23/BcxLrU1gBuXhmGNXhdxH2KMQh3B0QdF4/Ki5tqawWfdrYm0XYzPpzjbD8cZxn2QEezD
-	r11tjXyw==;
+	bh=/gtV1rZVMGwEdKZN2cNY4PElvgVuiPb0Q4ZvaOK51qQ=; b=AFSoT6rR21g24wf5CyMeMk95DA
+	cb+QS/tleixuawsZ2A0idqRnUc2ZBw4rB5M//XujuRB231rsUy7N1S3qpZU1YJak/24WoGFs+FR3i
+	BXZ7HzzZoVwgIF4bcpmYn2pviBamA7jN+a3ZZpLhsX6h8lbcJjUphdw7KWNBZvRff+LQ0PWj4moJS
+	PQzFvAXcgln4ci5p9KMewDgeUPDQojfRL3ULAhcBmSOPTSEB17JZ6zRUZaGA/V9WcMKsr++yO15D2
+	obLsr7g1hiF2yU/noU6tWWWl7AGtP4rMKYIXCXq8rIdH5fLX3itP/zD7tXyr6FtxPQOZT2FXEEY6a
+	8xZo0sEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3sA-00000003aEK-0Y3B;
-	Mon, 16 Jun 2025 07:03:14 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uR3uL-00000003abB-3jpy;
+	Mon, 16 Jun 2025 07:05:29 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3kU-00000003ZL0-0GOG
+	id 1uR3mk-00000003ZXF-1Hps
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 06:55:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750056918; x=1781592918;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=JzhPaAJq3SE1ySzHxtViTC3KuZDIosj/LQ8YKkF7X1Q=;
-  b=WiPLRl0NqgbcrHZJpY5RpWoMzSjjaRyLbG9RGcdR3QqwC32Hg6Z6SXqk
-   NFpZS4quy09i0kjLfVcv8QcUlJ8XIPeZ3i3CVw5A4DFkjin1Rtq7SKeWE
-   RQoLmkSFe12WBRGB7uD8owFl4hmujcDx8gubMYIua8SWHagpOBDHzoxUi
-   H1xTWrsVqcz22GG8xtO0g7zi18KQg3ThIy8ucIcXbKH4VrPvS6kLmIfDT
-   zuCP9KrXH04TWDmpfRFTMXQmNwuRhrzDuFRcJb8rMiEai4ZD++Il7LbFv
-   rH8nljM4ds35lQpgAbYYufCWVa8+14jGTFGHlvgkzLVquDnWZW1zjYiXJ
-   A==;
-X-CSE-ConnectionGUID: oJGcCgKmSsyziYFHe/V77w==
-X-CSE-MsgGUID: bt5DTJm7QBulDawCaeq37w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="74720818"
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="74720818"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 23:55:15 -0700
-X-CSE-ConnectionGUID: eWT5UpgTTxO6CbYgUZWzxg==
-X-CSE-MsgGUID: xOYLWIvfQEeVOE3EP2VS3g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="149298915"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 23:55:09 -0700
-Message-ID: <b9a7ae65-edc6-46e9-bea0-163a51459884@linux.intel.com>
-Date: Mon, 16 Jun 2025 14:54:10 +0800
+	Mon, 16 Jun 2025 06:57:39 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-adb2bd27c7bso613676966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 15 Jun 2025 23:57:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1750057056; x=1750661856; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/gtV1rZVMGwEdKZN2cNY4PElvgVuiPb0Q4ZvaOK51qQ=;
+        b=Qi0DMvUlZfnsZerh3iVE1WMPgQfRceWWUnFspgINZM+K/T9AyaIDhw/mrmsPP3VMao
+         gh50Cs1NeGwvcH/h31vzyJ+KZ8NgGSR7H+iPS45LPnStSXrJgPXMaS0uKQkHmr8372Vt
+         biaE/L9TRWSO4/seJ7qSXb6zz5M48yepQ0Z2ZYbGkTW4Kjwtm8QDQcTaPrJzOdUDm5NR
+         VznkRi66kgOBcVPm3Pz4tZ7e7S2LB02S9eyvV8kz72bHqzvo+yZzvZzM5Y0zgLk1kc7f
+         Q6XzEZH15NNrClaAribiIbSPhoud2IiXjRnONUrRZmWsKVhgKu93i9J8TZtU2qo/vKR1
+         lTHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750057056; x=1750661856;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/gtV1rZVMGwEdKZN2cNY4PElvgVuiPb0Q4ZvaOK51qQ=;
+        b=o56cqyywDyLv+ixTfXwn2HiOjtJOyvSO0BloOVrEZTxTFARteYWZfkTHwwBzP8yOjS
+         BEGjcSW6jzhIyhNrPEB5r8ajwTWfxcfHg9pLd3tw0XfFGo9oHTIFlzln4rAO8Fiv+Hjg
+         sA5GbKEEByWid4sbekMSsmfzwGDVBEtHctpQOwowckcsa4KalUOr9NOkB+sYdn5OH7pW
+         YZdf2R0RWGFBDe+NLSYx/Mkg2R0BSbepvA0UVXhidoLTpAIzpQHQpPquOtqer6AZprkR
+         JXZzI5I7fQh6iOkCxXA55XlhGat7OLrSHZBRS9o2rChfTxTJzaxYhDfJozK3qbGv2SCs
+         xBGg==
+X-Forwarded-Encrypted: i=1; AJvYcCUiaZ/14qE/XHUdEwzdSuwmySu3qyXIH/QLVWN0eJH0tdg4zfe7CNyiXte3cPBsP1Dqwivd/gpv8uxww9kNFnCY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwweD33PrHs0wNYx6/06DdjubISveE5VrXKBr7pkj3WevPS9BIq
+	/wxDaiXlpnAD2vvALf85rz7ifsDLrM1tPZbK14F6Y3JmYLdV+phHpzrb7faIZcM3pAU=
+X-Gm-Gg: ASbGnct+g0oe+UaK2REx/1wySOXccGx1znwAIxSDEXeEzMyi1NuftdqykfEVnZo6N9H
+	TcSp45iDj7ddW5Eh8TnOAL9huu56pGc85mxE7dZqOObBTm/KfJcwb2dn/okC832l6l+yM0pa01T
+	MNSi6Nw0yWY3U0o8Y9OhVBrKsJpRtT5/Cq8kEfMbOVTfVOoNHoChSDaqEXgRe71t7hUjIf2X3K7
+	i7mBxOOcWkvdVeQfzLHbSjCnOk5oe6OiDAmmvqbg0Cki1ZD3QjsKJcxbSwuFwS35bus1bhiJXZm
+	An/oGPPwqTt7VkW4lBeQZh5CSDuvc8tZyx0B7ZqpM2hd5Q6Vtg1GLl4RTf/zjU4zKqFrWw==
+X-Google-Smtp-Source: AGHT+IHOPqpWs/bEljRavIVMEjqIgNiUcWesMvNiRC3Z2rgdIApjZ4oCO/f0xQlOdJfvEukvSCkvSw==
+X-Received: by 2002:a17:907:c25:b0:ade:470b:d5ac with SMTP id a640c23a62f3a-adfad4f6209mr738394066b.56.1750057056147;
+        Sun, 15 Jun 2025 23:57:36 -0700 (PDT)
+Received: from [192.168.0.33] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adec81c5bedsm602221266b.66.2025.06.15.23.57.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 15 Jun 2025 23:57:35 -0700 (PDT)
+Message-ID: <dd2bf2eb-d0a0-4bc4-b4be-a60a671222f9@linaro.org>
+Date: Mon, 16 Jun 2025 09:57:34 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 10/25] iommufd/viommu: Add IOMMUFD_CMD_HW_QUEUE_ALLOC
- ioctl
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
- bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
- thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
- shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
- peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
- praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
- alok.a.tiwari@oracle.com, vasant.hegde@amd.com, dwmw2@infradead.org
-References: <cover.1749884998.git.nicolinc@nvidia.com>
- <7dfb002613f224f57a069d27e7bf2b306b0a5ba0.1749884998.git.nicolinc@nvidia.com>
- <1ab8030b-8d2f-4ebe-a280-6d0e4e1d17c7@linux.intel.com>
- <aE+976F9zPsjtfry@nvidia.com>
+Subject: Re: [PATCH] dmaengine: Add NULL check in lpc18xx_dmamux_reserve()
+To: Charles Han <hanchunchao@inspur.com>, vkoul@kernel.org, vz@mleia.com,
+ manabian@gmail.com
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250616060212.1560-1-hanchunchao@inspur.com>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <aE+976F9zPsjtfry@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Eugen Hristev <eugen.hristev@linaro.org>
+In-Reply-To: <20250616060212.1560-1-hanchunchao@inspur.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_235518_144852_DD515607 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250615_235738_356732_4C273D48 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,52 +100,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/16/25 14:47, Nicolin Chen wrote:
-> On Mon, Jun 16, 2025 at 02:12:04PM +0800, Baolu Lu wrote:
->> On 6/14/25 15:14, Nicolin Chen wrote:
->>> +	if (!viommu->ops || !viommu->ops->get_hw_queue_size ||
->>> +	    !viommu->ops->hw_queue_init_phys) {
->>> +		rc = -EOPNOTSUPP;
->>> +		goto out_put_viommu;
->>> +	}
-> Hmm, here it does abort when !viommu->ops->hw_queue_init_phys ..
-> 
->>> +	/*
->>> +	 * FIXME once ops->hw_queue_init is introduced, this should check "if
->>> +	 * ops->hw_queue_init_phys". And "access" should be initialized to NULL.
->>> +	 */
->> I just don't follow here. Up until now, only viommu->ops->
->> hw_queue_init_phys has been added, which means the current code only
->> supports hardware queues that access guest memory using physical
->> addresses. The access object is not needed for the other type of
->> hardware queue that uses guest IOVA.
->>
->> So, why not just abort here if ops->hw_queue_init_phys is not supported
->> by the IOMMU driver?
-> .. so, it already does.
-> 
->> Leave other logics to the patches that introduce
->> ops->hw_queue_init? I guess that would make this patch more readible.
-> The patch is doing in the way to support the hw_queue_init_phys
-> case only. It is just adding some extra FIXMEs as the guideline
-> for the future patch adding hw_queue_init op.
-> 
-> I personally don't feel these are confusing. Maybe you can help
-> point out what specific wording feels odd here? Maybe "FIXME"s
-> should be "TODO"s?
 
-Oh, I probably misunderstood the logic here. For both hw_queue_init and
-hw_queue_init_phys, using an access object to pin the pages for hardware
-access is necessary, right? My understanding was that pinning pages is
-only required for hw_queue_init_phys.
 
+On 6/16/25 09:02, Charles Han wrote:
+> The function of_find_device_by_node() may return NULL if the device
+> node is not found or CONFIG_OF not defined.
+> Add  check whether the return value is NULL and set the error code
+> to be returned as -ENODEV.
 > 
-> I could also drop all of these guideline if they are considered
-> very unnecessary.
+> Fixes: e5f4ae84be74 ("dmaengine: add driver for lpc18xx dmamux")
+> Signed-off-by: Charles Han <hanchunchao@inspur.com>
+> ---
+>  drivers/dma/lpc18xx-dmamux.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
 > 
-> Thanks
-> Nicolin
+> diff --git a/drivers/dma/lpc18xx-dmamux.c b/drivers/dma/lpc18xx-dmamux.c
+> index 2b6436f4b193..ef9aed4ba173 100644
+> --- a/drivers/dma/lpc18xx-dmamux.c
+> +++ b/drivers/dma/lpc18xx-dmamux.c
+> @@ -53,11 +53,16 @@ static void lpc18xx_dmamux_free(struct device *dev, void *route_data)
+>  static void *lpc18xx_dmamux_reserve(struct of_phandle_args *dma_spec,
+>  				    struct of_dma *ofdma)
+>  {
+> -	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
+> -	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
+>  	unsigned long flags;
+>  	unsigned mux;
+>  
+> +	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
+> +
+> +	if (!pdev)
+> +		return ERR_PTR(-ENODEV);
+> +
+> +	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
 
-Thanks,
-baolu
+I believe you should still declare all the variables at the beginning of
+the function, even if you initialize them later.
+
+> +
+>  	if (dma_spec->args_count != 3) {
+>  		dev_err(&pdev->dev, "invalid number of dma mux args\n");
+>  		return ERR_PTR(-EINVAL);
+
 
