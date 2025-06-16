@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616D5C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04C6C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7cILgw7jh0mrvewNLFWEizuxV/iOA66tlT6a6wOh74A=; b=vh1tU4Ov86nmT/AbRpUHRjTF47
-	tSHhbEg3lfHibRIN08cuWfgDZIM9pfh5DJHxCS0ninAweydIJRzwy+hSCYemJSuM6rV6q5/jTJxHL
-	RIC/R3rFDUObhLWyA6uaLA9rbNNjpvvKHICBfZ6A+tQdox76hqTSTTHKD7dZGMDkt7tEzeh7xw8QQ
-	W3BGJEzdfNZf2HXGj4uFhAwyizxQmYYNzep7clbbdi38b9SITfZB5HuBpC0wrvHMQlSegzeTbIVN5
-	nHW8taLVjxeKg/8aCBhcss80+kCWCLSzuyVSW240HA1KxK2r5Q+9ttSmRrz5jGuHp9jdU70BnTsXp
-	Zy3WnQkQ==;
+	bh=YWGa+NZ5Jq1T+ZAcsp9vpV8h57UNEkpbrj+QyOwJwlI=; b=D10jv6fdV5pAariGh26bpnR1et
+	12fupvIcoBXfevfOMqbXKlZ8OFEpmguBlVwZV48lom70dwfVc3lrRlTC/gSWcPVQxudlpSlPF4GTr
+	t3NuvPqH0DAj8DYbCXnMqdfHlR+IW7ufEVS0ArddTXFyaG2WJ+9T4UYl7bHAad3GwKfdTzJmVtjt7
+	btoifP0L8WljsUPeTIdko1AC5Y3Mdo0HXKwgx8hN+YC/Dt2zHndIi6QShn+jMWpOZAv7d0B35W2dL
+	2u7AzupVi1eYxjgTNJcy2ANiNbStMgqHs3NurOFunrNJQTfttMFbTYKgWRKHClW0m89AmKZjH2YLC
+	lTuD3P8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7Ap-000000045Du-0wwS;
-	Mon, 16 Jun 2025 10:34:43 +0000
+	id 1uR7D0-000000045WB-1CFl;
+	Mon, 16 Jun 2025 10:36:58 +0000
 Received: from mxout4.routing.net ([2a03:2900:1:a::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6bz-00000003zwl-46jn;
+	id 1uR6c0-00000003zxV-0i2I;
 	Mon, 16 Jun 2025 09:58:45 +0000
 Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout4.routing.net (Postfix) with ESMTP id 41863100941;
-	Mon, 16 Jun 2025 09:58:40 +0000 (UTC)
+	by mxout4.routing.net (Postfix) with ESMTP id 0BCD3100896;
+	Mon, 16 Jun 2025 09:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=20200217; t=1750067920;
+	s=20200217; t=1750067921;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7cILgw7jh0mrvewNLFWEizuxV/iOA66tlT6a6wOh74A=;
-	b=w9j266aPJj0lkFKIFfXlekWZwIlt41cm+yjRslDnO6Q9fEepo9gnTTvb+Tjpv/hm+hMvca
-	yd0zNcbE2hIkj0govm4MboQezqO7FZpbCvfwOPeeeX5vUvnabPthZf83HdmSAuB6MTFNl6
-	sJekymiy6KtNMLayS4TjaHW5H1UGKAs=
+	bh=YWGa+NZ5Jq1T+ZAcsp9vpV8h57UNEkpbrj+QyOwJwlI=;
+	b=kUhhH/JnPp4gH5wMQGxUzYkGnDxumqHZSZR19GpTqe/QAjLvzfZY92nr75ZLREcyXJy+s3
+	uDxTOcHgE68tTh0SJWVyowl5eQmfJueLw8NhOHjNz1PWHR2Oh6R27ALjTm7vKGJFxQmDxn
+	D5vYQcxKk10+nOCialtrebm+6VVpWqc=
 Received: from frank-u24.. (fttx-pool-194.15.87.210.bambit.de [194.15.87.210])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id D7892122704;
-	Mon, 16 Jun 2025 09:58:39 +0000 (UTC)
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id A6526122732;
+	Mon, 16 Jun 2025 09:58:40 +0000 (UTC)
 From: Frank Wunderlich <linux@fw-web.de>
 To: MyungJoo Ham <myungjoo.ham@samsung.com>,
 	Kyungmin Park <kyungmin.park@samsung.com>,
@@ -74,17 +74,17 @@ Cc: Frank Wunderlich <frank-w@public-files.de>,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v4 01/13] dt-bindings: net: mediatek,net: update for mt7988
-Date: Mon, 16 Jun 2025 11:58:11 +0200
-Message-ID: <20250616095828.160900-2-linux@fw-web.de>
+Subject: [PATCH v4 03/13] dt-bindings: net: dsa: mediatek,mt7530: add internal mdio bus
+Date: Mon, 16 Jun 2025 11:58:13 +0200
+Message-ID: <20250616095828.160900-4-linux@fw-web.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250616095828.160900-1-linux@fw-web.de>
 References: <20250616095828.160900-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_025844_189641_25D5C5AD 
-X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-CacheID: sfid-20250616_025844_364308_B6427298 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,88 +102,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Wunderlich <frank-w@public-files.de>
 
-Update binding for mt7988 which has 3 gmac and 2 reg items.
-
-With RSS-IRQs the interrupt max-items is now 6. Add interrupt-names
-to make them accessible by name.
+Mt7988 buildin switch has own mdio bus where ge-phys are connected.
+Add related property for this.
 
 Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-v4:
-- increase max interrupts to 8 because of RSS/LRO interrupts
-- dropped Robs RB due to this change
-- allow interrupt names
-- add interrupt-names without reserved IRQs on mt7988
-  this requires mtk driver patch:
-  https://patchwork.kernel.org/project/netdevbpf/patch/20250616080738.117993-2-linux@fw-web.de/
-
 v2:
-- change reg to list of items
+- change from patternproperty to property
+- add unevaluatedProperties and mediatek,pio subproperty
 ---
- .../devicetree/bindings/net/mediatek,net.yaml | 28 ++++++++++++++++---
- 1 file changed, 24 insertions(+), 4 deletions(-)
+ .../devicetree/bindings/net/dsa/mediatek,mt7530.yaml   | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-index 9e02fd80af83..f8025f73b1cb 100644
---- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
-+++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-@@ -28,7 +28,10 @@ properties:
-       - ralink,rt5350-eth
+diff --git a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+index 9b983fdbf3c7..815a90808901 100644
+--- a/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
++++ b/Documentation/devicetree/bindings/net/dsa/mediatek,mt7530.yaml
+@@ -136,6 +136,16 @@ properties:
+       See Documentation/devicetree/bindings/regulator/mt6323-regulator.txt for
+       details for the regulator setup on these boards.
  
-   reg:
--    maxItems: 1
-+    items:
-+      - description: Register for accessing the MACs.
-+      - description: SoC internal SRAM used for DMA operations.
-+    minItems: 1
- 
-   clocks:
-     minItems: 2
-@@ -40,7 +43,11 @@ properties:
- 
-   interrupts:
-     minItems: 1
--    maxItems: 4
-+    maxItems: 6
++  mdio:
++    $ref: /schemas/net/mdio.yaml#
++    unevaluatedProperties: false
 +
-+  interrupt-names:
-+    minItems: 1
-+    maxItems: 6
- 
-   power-domains:
-     maxItems: 1
-@@ -348,7 +355,17 @@ allOf:
-     then:
-       properties:
-         interrupts:
--          minItems: 4
-+          minItems: 2
++    properties:
++      mediatek,pio:
++        $ref: /schemas/types.yaml#/definitions/phandle
++        description:
++          Phandle pointing to the mediatek pinctrl node.
 +
-+        interrupt-names:
-+          minItems: 2
-+          items:
-+            - const: tx
-+            - const: rx
-+            - const: rx-ring0
-+            - const: rx-ring1
-+            - const: rx-ring2
-+            - const: rx-ring3
- 
-         clocks:
-           minItems: 24
-@@ -381,8 +398,11 @@ allOf:
-             - const: xgp2
-             - const: xgp3
- 
-+        reg:
-+          minItems: 2
-+
- patternProperties:
--  "^mac@[0-1]$":
-+  "^mac@[0-2]$":
-     type: object
-     unevaluatedProperties: false
-     allOf:
+   mediatek,mcm:
+     type: boolean
+     description:
 -- 
 2.43.0
 
