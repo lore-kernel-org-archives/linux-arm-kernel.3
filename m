@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC04DC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3778C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tq3fOb2/zQ4KGKiD/a8WTArlrpSioLkKuhukzmVoabc=; b=4iFElcaTkkxO6lYjdtoYoZYR3i
-	4VOSTbZiag8zUdtaVomqJ3dWb8VpUT6dT33k5cgNsy9j63fSXTAw3EL+WPaV73dMX/MgZDQFwRURj
-	vJQeVspfuXF6teq/3w0dH2uYnNPV4VJ7mPDV98K0owABxq45wP2Re3fM3NN2jP2+ZN4pSnrL9Exaq
-	u3qO8TA7gAiH2Pit3Vo80roHg4DX3PV3WntZHXx5RRNMvsj0b6gIoui+wlpEwuQF5gv3p1ak5IXuV
-	G2U2UwIzxLZZuNsqOGfFygF4JlZpxkbHe823tb8g37090MOWpKb9pAwpBX0XafsVN0Gi/k2an1nXx
-	9LvgosWA==;
+	bh=uq/F7fX1Vq5PRLlQCPgoAeteNuN8QqCFU37Slblol/s=; b=VNpPZgOgjcz5YqdwVBSqlJbWiB
+	6Qv1HrodkO8tlvSYl9fg2O6YuUfOZ2BRTGM6UStde/Ik+CO6GlF/Ij8vtEhArTxfKkx7m21NGMbVT
+	bJxNqiT5yeDS4k0csFmT1j142aki5LDmnnS922BouVSwU/bjC7MJB6qdJ5qkmrML2Gxhn4Hg0w7a3
+	o6QZv6e67TOP81Il3IDutYIz0M8pu9jAU9f5f9l5MQvOgrkRqlmVGTI2XTePqO5UTbS1U7mcao1Rn
+	vq4OgmlaiMUlJwZDBVbQVBtvOhvnYOPFO5PvMyiLjcz0rOmMt+drDSVoVZTUN0K6qSDxa3jd30PJv
+	eyYrs5uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR34d-00000003U9w-0Dy4;
-	Mon, 16 Jun 2025 06:12:03 +0000
+	id 1uR36n-00000003UMu-3Plx;
+	Mon, 16 Jun 2025 06:14:17 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR32M-00000003TtG-3hkS
+	id 1uR32y-00000003U1g-30bT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 06:09:42 +0000
+	Mon, 16 Jun 2025 06:10:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F95060008;
-	Mon, 16 Jun 2025 06:09:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 958E4C4CEEA;
-	Mon, 16 Jun 2025 06:09:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 20C1C60008;
+	Mon, 16 Jun 2025 06:10:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A19C4CEEA;
+	Mon, 16 Jun 2025 06:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750054181;
-	bh=/hnA6GerLfYA5cJiCIVLxg5aZwLx+2Jz17zeqylDbQM=;
+	s=k20201202; t=1750054219;
+	bh=WoKvY44/sBycM6T+cfZ/BhpGMVbnWEl4zS0vYhUdZAM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ml/wFPZXHhIC6PSmaM5Z89Qg5qHFTxO22d0IAO13f9FZHI11EseRvXhO8GU0RebIq
-	 1fTaUkfaqxFKngufnOgNAt/PRaHg3S5Nwzk6VFhRKaqGS8fSCsKTc8LfYFSUSHrGql
-	 6opYeJWZg3N02OTvwoP919neHD0IxYpZh/XuC+rT3fkOAMV68ymT0OsP81v4PVoikI
-	 LZ/I2yWbS8gl6y4+267Yg7ocaPbfVt2oQ5jmNNmn8PGzfi7embRi9XAW5qiDMIAwXZ
-	 NNsoSfN/qpK+guK9MCKh9/DMH0gKIppWxFwsKt2EPl3YG1gITKBF8xHlZ1Fu4Upnia
-	 TfsGhIayBo3hw==
-Message-ID: <6ef92d1a-39cc-409f-8ebe-d28ad2006988@kernel.org>
-Date: Mon, 16 Jun 2025 08:09:36 +0200
+	b=asCnOmItavZQncepQ+66nUWOCERc1QUXXLDRvxV98SslL0ir/b4wyUD2Fjj/V2Zdd
+	 jLA6ex33KGata6dXfmATHkyWhyAUnpY3vu5soT0kdSoltXMS02KKd1xhiCQLtsm3nc
+	 INb3YpzWPQovdm6I9of12RC8KYxxBDUZrKZfqCvwnmRweQWSXOmlIb2MOEbHET1K0v
+	 kcom4NSKErkSL27tw3nIGF6O7VvIpJo0yY3Sph8d8EpCVvaFb9p30pmgX7KnGf+oTr
+	 D/6BQxcWYxb71cvcByIYSbN2iBpvSEvDGw/pZFuBuW4w0yaLDwNa2oBNhNv/3mekmo
+	 qJvPt/o3UTzBg==
+Message-ID: <bf91eaf1-4b70-4acd-bd1d-2246a12eb269@kernel.org>
+Date: Mon, 16 Jun 2025 08:10:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 4/6] arm64: dts: axiado: Add initial support for AX3000
@@ -105,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
 In-Reply-To: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-4-341502d38618@axiado.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,21 +121,6 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 16/06/2025 06:31, Harshit Shah wrote:
-> Add initial device tree support for the AX3000 SoC and its evaluation
-> platform. The AX3000 is a multi-core SoC featuring 4 Cortex-A53 cores,
-> Secure Vault, AI Engine and Firewall.
-> 
-> This commit adds support for Cortex-A53 CPUs, timer, UARTs, and I3C
-> controllers on the AX3000 evaluation board.
-> 
-> Signed-off-by: Harshit Shah <hshah@axiado.com>
-> ---
->  arch/arm64/boot/dts/Makefile              |   1 +
->  arch/arm64/boot/dts/axiado/Makefile       |   2 +
->  arch/arm64/boot/dts/axiado/ax3000.dtsi    | 584 ++++++++++++++++++++++++++++++
->  arch/arm64/boot/dts/axiado/ax3000_evk.dts |  72 ++++
->  4 files changed, 659 insertions(+)
-> 
 > diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
 > index 79b73a21ddc22b17308554e502f8207392935b45..47dd8a1a7960d179ee28969a1d6750bfa0d73da1 100644
 > --- a/arch/arm64/boot/dts/Makefile
@@ -156,374 +141,7 @@ On 16/06/2025 06:31, Harshit Shah wrote:
 > @@ -0,0 +1,2 @@
 > +# SPDX-License-Identifier: GPL-2.0
 > +dtb-$(CONFIG_ARCH_AXIADO) += ax3000_evk.dtb
-> diff --git a/arch/arm64/boot/dts/axiado/ax3000.dtsi b/arch/arm64/boot/dts/axiado/ax3000.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d5d84986d18efe9dfbb446ceee42fc4e4dbf95d0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axiado/ax3000.dtsi
-> @@ -0,0 +1,584 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (c) 2021-25 Axiado Corporation (or its affiliates). All rights reserved.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/memreserve/ 0x3c0013a0 0x00000008;	/* cpu-release-addr */
-> +/ {
-> +	compatible = "axiado,ax3000";
-> +	interrupt-parent = <&gic500>;
-> +
-> +	aliases {
-> +		i3c0 = &i3c0;
-> +		i3c1 = &i3c1;
-> +		i3c2 = &i3c2;
-> +		i3c3 = &i3c3;
-> +		i3c4 = &i3c4;
-> +		i3c5 = &i3c5;
-> +		i3c6 = &i3c6;
-> +		i3c7 = &i3c7;
-> +		i3c8 = &i3c8;
-> +		i3c9 = &i3c9;
-> +		i3c10 = &i3c10;
-> +		i3c11 = &i3c11;
-> +		i3c12 = &i3c12;
-> +		i3c13 = &i3c13;
-> +		i3c14 = &i3c14;
-> +		i3c15 = &i3c15;
-> +		i3c16 = &i3c16;
-> +		serial0 = &uart0;
-> +		serial1 = &uart1;
-> +		serial2 = &uart2;
-> +		serial3 = &uart3;
-
-None of these are properties of SoC, but board. Move respective aliases
-to the board files.
-
-> +	};
-> +
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x0>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-> +
-> +		cpu1: cpu@1 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x1>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-> +
-> +		cpu2: cpu@2 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x2>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-> +
-> +		cpu3: cpu@3 {
-> +			device_type = "cpu";
-> +			compatible = "arm,cortex-a53";
-> +			reg = <0x0 0x3>;
-> +			enable-method = "spin-table";
-> +			cpu-release-addr = <0x0 0x3c0013a0>;
-> +			d-cache-size = <0x8000>;
-> +			d-cache-line-size = <64>;
-> +			d-cache-sets = <128>;
-> +			i-cache-size = <0x8000>;
-> +			i-cache-line-size = <64>;
-> +			i-cache-sets = <256>;
-> +			next-level-cache = <&l2>;
-> +		};
-> +
-> +		l2: l2-cache0 {
-> +			compatible = "cache";
-> +			cache-size = <0x100000>;
-> +			cache-unified;
-> +			cache-line-size = <64>;
-> +			cache-sets = <1024>;
-> +			cache-level = <2>;
-> +		};
-> +	};
-> +
-> +	timer:timer {
-
-Missing space before node name, but anyway label is unused.
-
-> +		compatible = "arm,armv8-timer";
-> +		interrupt-parent = <&gic500>;
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
-> +			   <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
-> +			   <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
-> +			   <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
-> +		arm,cpu-registers-not-fw-configured;
-> +	};
-> +
-> +	clocks {
-
-Keep proper sorting of nodes, see DTS coding style.
-
-> +		refclk: refclk {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <125000000>;
-> +		};
-> +
-> +		ref_clk: ref_clk {
-
-This makes no sense. You have refclk and ref_clk. These ARE THE SAME.
-Please use name for all fixed clocks which matches current format
-recommendation: 'clock-<freq>' (see also the pattern in the binding for
-any other options).
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml?h=v6.11-rc1
-
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <1>;
-> +		};
-> +
-> +		clk_ahb: clk_ahb {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <200000000>;
-> +			clock-output-names = "clk_ahb";
-> +		};
-> +
-> +		clk_xin: clk_xin {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <200000000>;
-> +			clock-output-names = "clk_xin";
-> +		};
-> +
-> +		clk_mali: clk_mali {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <500000000>;
-> +			clock-output-names = "clk_mali";
-> +		};
-> +
-> +		clk_pclk: clk_pclk {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <74250000>;
-> +			clock-output-names = "clk_pclk";
-> +		};
-> +
-> +		spi_clk: spi_clk {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <25000000>;
-> +		};
-> +
-> +		apb_pclk: apb_pclk {
-
-No underscores in node names, but all these look incorrect - don't you
-have clock controller?
-
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <25000000>;
-> +		};
-> +	};
-> +
-> +	soc {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		interrupt-parent = <&gic500>;
-> +		ranges;
-> +
-> +		gic500: interrupt-controller@80300000 {
-> +			compatible = "arm,gic-v3";
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			ranges;
-> +			#interrupt-cells = <3>;
-> +			interrupt-controller;
-> +			#redistributor-regions = <1>;
-> +			reg = <0x00 0x80300000 0x00 0x10000>,
-> +				  <0x00 0x80380000 0x00 0x80000>;
-
-DTS coding style, incorrect order.
-
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +		};
-> +
-> +		uart0: serial@80520000 {
-> +			compatible = "xlnx,zynqmp-uart", "cdns,uart-r1p12";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg = <0x00 0x80520000 0x00 0x100>;
-
-DTS coding style.
-
-> +			clock-names = "uart_clk", "pclk";
-> +			clocks = <&refclk &refclk>;
-> +			status = "disabled";
-> +		};
-> +
-> +		uart1: serial@805a0000 {
-> +			compatible = "xlnx,zynqmp-uart", "cdns,uart-r1p12";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg = <0x00 0x805A0000 0x00 0x100>;
-> +			clock-names = "uart_clk", "pclk";
-> +			clocks = <&refclk &refclk>;
-> +			status = "disabled";
-> +		};
-> +
-> +		uart2: serial@80620000 {
-> +			compatible = "xlnx,zynqmp-uart", "cdns,uart-r1p12";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg = <0x00 0x80620000 0x00 0x100>;
-> +			clock-names = "uart_clk", "pclk";
-> +			clocks = <&refclk &refclk>;
-> +			status = "disabled";
-> +		};
-> +
-> +		uart3: serial@80520800 {
-> +			compatible = "xlnx,zynqmp-uart", "cdns,uart-r1p12";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg = <0x00 0x80520800 0x00 0x100>;
-> +			clock-names = "uart_clk", "pclk";
-> +			clocks = <&refclk &refclk>;
-> +			status = "disabled";
-> +		};
-> +
-> +		/* GPIO Controller banks 0 - 7 */
-> +		gpio0: gpio-controller@80500000 {
-> +			compatible = "cdns,gpio-r1p02";
-> +			clocks = <&refclk>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 183 IRQ_TYPE_LEVEL_HIGH>;
-> +			reg = <0x00 0x80500000 0x00  0x400>;
-
-DTS coding style.
-
-
-> +			interrupt-controller;
-> +			#interrupt-cells = <2>;
-> +			status = "disabled";
-> +		};
-> +
-
-
-...
-
-> +		i3c14: i3c@80880400 {
-> +			compatible = "cdns,i3c-master";
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			reg = <0x00 0x80880400 0x00 0x400>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
-> +		i3c15: i3c@80880800 {
-> +			compatible = "cdns,i3c-master";
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			reg = <0x00 0x80880800 0x00 0x400>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
-> +		i3c16: i3c@80620400 {
-> +			compatible = "cdns,i3c-master";
-> +			clocks = <&refclk &clk_xin>;
-> +			clock-names = "pclk", "sysclk";
-> +			interrupt-parent = <&gic500>;
-> +			interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-> +			i2c-scl-hz = <100000>;
-> +			i3c-scl-hz = <400000>;
-> +			reg = <0x00 0x80620400 0x00 0x400>;
-> +			#address-cells = <3>;
-> +			#size-cells = <0>;
-> +			status = "disabled";
-> +		};
-> +
-
-Drop stray blank lines.
-
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/axiado/ax3000_evk.dts b/arch/arm64/boot/dts/axiado/ax3000_evk.dts
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..0a183695e857a3a1e722ea6b7bee388bf650f0a3
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axiado/ax3000_evk.dts
-> @@ -0,0 +1,72 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (c) 2021-25 Axiado Corporation (or its affiliates). All rights reserved.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "ax3000.dtsi"
-> +
-> +/ {
-> +	model = "Axiado AX3000 EVK";
-> +	compatible = "axiado,ax3000_evk", "axiado,ax3000";
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	chosen {
-> +		bootargs = "console=ttyPS3,115200 earlyprintk nr_cpus=4 earlycon";
-
-Drop bootargs. Not needed and not suitable for mainline. earlycon (not
-earlyprintk!) is debugging tool, not wide mainline usage.
-
+There is no such CONFIG symbol.
 
 Best regards,
 Krzysztof
