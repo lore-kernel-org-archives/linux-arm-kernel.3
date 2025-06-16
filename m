@@ -4,122 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E6FC71155
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D075C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HJFxoydqfNwms4ix0SU8lhL5DJUXnQE0mckHnpvWwJY=; b=xIFNvbTpD6g2+Asz3hVau8a/hG
-	Pyx9o4Tj4KeATX8dA4/KYXKpP1qvenruFiEg+bUsLGMvWH9APAnVcTeORGY7eTyY4jVhpcBo/UXxM
-	QAYg7W/WzYwMlsF8/EctBjhEZRg6inFQfm66MZbZ+hBGXaeYzya8IfMN1hbyRjgfTZrMY0EvKfguF
-	TPv+5p1UflQ3Hm1A2BkPYfosD6+HtTDw1/ZOFqz41roFfSRjNyP3cbhgQgIic2gBn6Idjk9Zp96V3
-	3wREfIWxmuGIFPQsJYwJBzYyZ5ltqTL/3vScy1epFnINIXwwUDe8QYWxlxpGqwbAUR7MNHjxE0A/k
-	2CH4/Upg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BiP3cuSBQcj/o8kWrRZR6Ho7eQmxXHtkC3wZXd0whew=; b=G3gpT2TIjou4BjV1HDjVD0Xqvh
+	I+tgi/AIgFn6GWnp7GmscDd86fpwxKjW9thDld1qJiBWoY/QNOExbs7hPRH67GXld5aSdQ5v9Pgxf
+	vSGqZ95wg3AsmyTsMzl3/YuLZdAaQnvzSiSMxHP/Kt2ULPib/PQ9ysjo5QAMoAGM9CbT4Ruv9ESu7
+	08W4GQJNMxzu7D5j2ZOpQ8QPyWo5NNtPBSDZDPbREW6w7thAqox0YQUHvX9dPldZnSvAgMFmfOfqh
+	q0a33kztrDXJ0y6GBlHfbxqsw8VhNogffROKiQCwPB+SS01ub4kMErKx1aMnvYTVcs7ixRCe5ULyp
+	gq+7nU/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR83Q-00000004CuH-3o7P;
-	Mon, 16 Jun 2025 11:31:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uR85c-00000004DDY-2dO1;
+	Mon, 16 Jun 2025 11:33:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR75G-000000044MC-1RVo
+	id 1uR763-000000044UI-3Vpd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 10:28:59 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8fFBq022895;
-	Mon, 16 Jun 2025 10:28:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HJFxoydqfNwms4ix0SU8lhL5DJUXnQE0mckHnpvWwJY=; b=nY4rYel9ClCwW1No
-	X1pl+QvuihnmFS7Bwbtej22gCEu2w+4blJuVxDh/vmPmCt42KjChFqcpSd63+VTe
-	N3amWaUQ6qCxIyoKzITJVrufnzVErMMKZjRS++dXPOlYZwDcOIpwci2AMtE6jm8h
-	Lr3CLH88p9CJ09F0s2kK1n449eSW4m5aUuSWFRwO0416rRZG57hm8PLi7bOqIzbE
-	ffsoTrVnQdoYEmDxNteBQ+jtsd37WaHLbYu8wwoKVp6nzE9f2pvxARlR+i5jbOql
-	XkMA5G0Vb2Dzq42krXnEUsqv5YBW65+6uW3Q7zDBkicombJyPg4aWRLPU643iYTL
-	ZU6TdQ==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4791hcv4eh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 10:28:35 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55GASZqU015512
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 10:28:35 GMT
-Received: from [10.253.8.97] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Jun
- 2025 03:28:28 -0700
-Message-ID: <3fe9e742-48ec-4b6e-9819-8e0f3e3dad0e@quicinc.com>
-Date: Mon, 16 Jun 2025 18:28:25 +0800
+	Mon, 16 Jun 2025 10:29:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6C7465C5D60;
+	Mon, 16 Jun 2025 10:27:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82E9BC4CEEA;
+	Mon, 16 Jun 2025 10:29:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750069786;
+	bh=S+LifadTGthAmCCjRwrc0cxTJlh7M1pbwmsA1BOiIlI=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=uddyuec+cranzqbmYGkHlHD7EtAJhyPXnfPNCG5PStUAXj6qO3ta+CxTniEpaJ+/K
+	 tLu7ZM1OnqrXmMkfC4dPSnjhcEk4moPsbCjCCKFallqzgBAbx/+RaXpx/JDdgZFSiY
+	 KdIt8Ok9pZeLbSvKX/xuaA4/RO59JATDLF501Sm7AdjyT1aRWCDQI7fBPFlV4G7QBF
+	 rV3fOH3/paUfPH1VvDFifXqH817CF6zqVZTIOb/Z24w2Rxk8TihV9LVwRkIgRsvRxZ
+	 +mFZbguENHhVcauTy+VAW2AJ/7+9t3j8TD8kobg783zGc2Fef2yfRW0ohLAzD9iU0X
+	 0c8iyHYhpmyrw==
+Message-ID: <ce3044aa-2b62-4516-99ff-88dcb56b128b@kernel.org>
+Date: Mon, 16 Jun 2025 12:29:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [cocci] [PATCH v4 1/5] coccinelle: misc: Add field_modify script
-To: Markus Elfring <Markus.Elfring@web.de>, <cocci@inria.fr>
-CC: LKML <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-        Andrew Lunn
-	<andrew@lunn.ch>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Joey Gouly
-	<joey.gouly@arm.com>, Julia Lawall <Julia.Lawall@inria.fr>,
-        Kiran Kumar C.S.K
-	<quic_kkumarcs@quicinc.com>,
-        Lei Wei <quic_leiwei@quicinc.com>, Marc Zyngier
-	<maz@kernel.org>,
-        Nicolas Palix <nicolas.palix@imag.fr>,
-        Oliver Upton
-	<oliver.upton@linux.dev>,
-        Pavithra R <quic_pavir@quicinc.com>,
-        "Rasmus
- Villemoes" <linux@rasmusvillemoes.dk>,
-        Suruchi Agarwal
-	<quic_suruchia@quicinc.com>,
-        Suzuki Poulose <suzuki.poulose@arm.com>,
-        "Will
- Deacon" <will@kernel.org>, Yury Norov <yury.norov@gmail.com>,
-        Zenghui Yu
-	<yuzenghui@huawei.com>, <quic_linchen@quicinc.com>
-References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
- <20250612-field_modify-v4-1-ae4f74da45a6@quicinc.com>
- <77406d43-230f-4690-b306-4d698449c01b@web.de>
+Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
+ tree
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+ "nfraprado@collabora.com" <nfraprado@collabora.com>,
+ Taniya Das <quic_tdas@quicinc.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Eric Biggers <ebiggers@google.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>, Mo Elbadry
+ <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>,
+ William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
+ "wthai@nvidia.com" <wthai@nvidia.com>, "leohu@nvidia.com"
+ <leohu@nvidia.com>, "dkodihalli@nvidia.com" <dkodihalli@nvidia.com>,
+ "spuranik@nvidia.com" <spuranik@nvidia.com>
+References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
+ <20250612100933.3007673-4-ryan_chen@aspeedtech.com>
+ <485749d4-b3c4-4965-9714-ad534d37e8c9@kernel.org>
+ <OS8PR06MB7541A100B918AAA84D1ABDCAF277A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <749c581e-cc00-428f-8eb9-222f9d574486@kernel.org>
+ <OS8PR06MB7541FFCA9E28E5767791D869F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <e39b5259-db92-4269-84c9-d51e8e4f327e@kernel.org>
+ <OS8PR06MB7541645F6A0638FC250B1272F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <a2ca2f58-f648-43f9-8d23-4111e4eb1f1d@kernel.org>
+ <OS8PR06MB75412D391E7D10958E70C100F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <e623aad6-726b-405e-be94-25f188749349@kernel.org>
+ <OS8PR06MB754181823BC03DADBF0A9B82F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Luo Jie <quic_luoj@quicinc.com>
-In-Reply-To: <77406d43-230f-4690-b306-4d698449c01b@web.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDA2NSBTYWx0ZWRfX0trSX0jUlmbl
- 6/Kiw2eqMZ+BaTUN2QnDoVU6PmcQoECUdQU/nJ0Rd2nbupFMdM8KE/vfTcoi6S/ezP8CF4fMOmu
- nAbdpUJwGCI8QXx+ejCbePe7SbtLchEX6GY4DQPisKkvTkzD471AK6Z98T0ZN+XfCaaWPoOxvNv
- 7DSZG+Dl7/vDooXk9b070/1QEG8CKbTNcJXzvfo8/rVO9Pwctb8E1h4yZGvaILsWyrv44QjmEaA
- lBxRVfKemoD1a0I6TqeBob35qYuwSg/I6n8hJbupx28VRiuRYwBE1X70QteRfWvdloExMD6fDrf
- irkVboxpxihvVQUNFfwYQWncbL1nKp0w3f1P3b37Yw3UBxWvENx9YgL9G0vnCESWwpxA9CUXgct
- tEasvGlSEjadoj8S3qlBBg1nZGnTpeSodP2a1y8+jtOe0Qk31qhbXeSX5BPvfct07rQt7R8r
-X-Authority-Analysis: v=2.4 cv=PtaTbxM3 c=1 sm=1 tr=0 ts=684ff1d3 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VwQbUJbxAAAA:8
- a=AhEd9QK3q4IM9PeCSbkA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: R63nRGutN0gsMd22foqEZFrLFmuWrZDi
-X-Proofpoint-GUID: R63nRGutN0gsMd22foqEZFrLFmuWrZDi
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-16_04,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 mlxlogscore=999 suspectscore=0 malwarescore=0
- lowpriorityscore=0 impostorscore=0 adultscore=0 spamscore=0
- priorityscore=1501 phishscore=0 mlxscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506160065
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <OS8PR06MB754181823BC03DADBF0A9B82F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_032858_387044_4FE65C97 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20250616_032947_980135_853EB0E8 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,56 +149,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/13/2025 12:48 AM, Markus Elfring wrote:
-> …
->> ---
->>   scripts/coccinelle/misc/field_modify.cocci | 61 ++++++++++++++++++++++++++++++
-> …
+On 16/06/2025 09:52, Ryan Chen wrote:
 > 
-> Did you overlook the addition of patch version descriptions?
-> https://lore.kernel.org/all/?q=%22This+looks+like+a+new+version+of+a+previously+submitted+patch%22
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v6.15#n310
-
-Thank you for highlighting this, and for the references. A brief
-description of the differences in this script patch compared to
-the previous (v3) version were included in the cover letter, so
-a changelog was not added to the individual patch's commit message.
-Hope this approach is acceptable.
-
-I will ensure to include the reviewer in the CC list for future
-submissions, as recommended in the documentation.
-
+>> Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
+>> tree
+>>
+>> On 16/06/2025 08:54, Ryan Chen wrote:
+>>>> Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700
+>>>> SoC device tree
+>>>>
+>>>> On 16/06/2025 08:32, Ryan Chen wrote:
+>>>>>>>
+>>>>>>> But I don't know your previous "NAK, never tested" mean.
+>>>>>>> I did make CHECK_DTBS=y arch/arm64/boot/dts/aspeed/ don't see the
+>>>>>>> fail with
+>>>>>>> intc0: interrupt-controller@12100000 {
+>>>>>>> 	compatible = "simple-mfd";
+>>>>>>>
+>>>>>>> So, could you point me more test instruction for this?
+>>>>>> See syscon.yaml. And writing bindings or talks on conferences:
+>>>>>> simple-mfd cannot be alone.
+>>>>>>
+>>>>>
+>>>>>         intc0: interrupt-controller@12100000 { Sorry, do you mean
+>>>>> add by following?
+>>>>> 				 compatible = "aspeed,intc-controller", "simple-mfd";
+>>>>>  					.....
+>>>>>                  intc0_11: interrupt-controller@1b00 {
+>>>>> 					compatible = "aspeed,ast2700-intc-ic";
+>>>>>  					......
+>>>>>                  };
+>>>>>          };
+>>>>
+>>>> Maybe, but you said this is base address, so how can it be some
+>>>> separate device?
+>>>>
+>>>> I mean really, don't add fake nodes just to satisfy some device instantiation.
+>>>> Describe what this really is. That is the job of DTS. Not some fake nodes.
+>>>
+>>>
+>>> Understood. Let me explain more about the hardware layout.
+>>> The interrupt controller space is decoded starting from 0x12100000,
+>>> which includes both a set of global configuration registers and
+>>> individual interrupt controller instances.
+>>>
+>>> The region at 0x12100000 contains global interrupt control registers
+>>> (e.g., protect config, interrupt routing etc.).
+>>
+>> This does not explain me why global controller registers are a BUS or MFD as
+>> you claimed here.
+>>>
+>>> The actual interrupt controller logic starts at 0x12101b00, where each
+>>> sub-controller instance (e.g., intc0_11, intc0_12, etc.) has its own set of
+>> registers.
+>>
+>> I don't know what is a "global controller register" and "own set of registers". If
+>> you have device spanning over multiple memory blocks, device takes multiple
+>> 'reg' entries for example. There are many other configurations, depending on
+>> real hardware and relationships. Just look at other DTS.
 > 
 > 
-> …
->> +@ depends on context && !patch && !org && !report@
-> …
+> Here are two possible representations of the interrupt controller layout for the AST2700 platform:
+> Please advise which approach would be more appropriate or preferred? 
 > 
-> I imagine that the condition selections can be simplified.
+> Option 1: Hierarchical representation with a parent node
+> This models the entire interrupt controller registers space (start from 0x12100000), 
+> where the parent node includes the global register area and acts as a container for per-instance sub-controllers:
+> 
+>     intc0: interrupt-controller@12100000 {
+>         compatible = "aspeed,intc-controller";
+>         reg = <0 0x12100000 0x4000>;
+> 		...................
+>         intc0_11: interrupt-controller@1b00 {
+>             compatible = "aspeed,ast2700-intc-ic";
+>             reg = <0x1b00 0x100>;
+> 			...................        };
+>     };
+> And I find the others dtsi have global register use syscon ex.
+> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/sprd/ums512.dtsi#L177-L192
+> 
+> Option 2: Flat representation with only the per-domain node
+> This focuses on just the interrupt controller logic at 0x12101b00, skipping the global register modeling:
+> 
+>     intc0_11: interrupt-controller@12101b00 {
+>         compatible = "aspeed,ast2700-intc-ic";
+>         reg = <0 0x12101b00 0x100>;
+> 		...................
+>     };
 > 
 
-I agree that the condition selections can be simplified, I will
-update it to "@ depends on context@". Hope it is fine.
 
-> 
-> …
->> +@script:python depends on report@
->> +p << r.p;
->> +x << r.reg;
->> +@@
->> +
->> +msg="WARNING: Consider using FIELD_MODIFY helper on %s" % (x)
->> +coccilib.report.print_report(p[0], msg)
-> Do you know that a string construction can also be directly passed
-> to such a function call?
+I don't understand this: you already have a binding for this, you
+already described the device, so why now this is being changed?
 
-I appreciate the tip. I'll update the patch to pass the formatted
-string directly to the function call in the next revision.
+You are supposed to send complete bindings for your device (see writing
+bindings). Not some half-baked parts and then half year later different
+DTS which points that your bindings were just incomplete.
 
-> 
-> Regards,
-> Markus
+Look how a completely new SoC is supposed to be upstreamed, on the day
+of public announcement of the hardware:
 
+https://lore.kernel.org/all/20231121-topic-sm8650-upstream-dt-v3-0-db9d0507ffd3@linaro.org/
+
+Are all or most bindings posted? Yes
+Is DTS for all devices from above bindings posted? Yes
+Do we see complete picture? Yes
+
+I still have no clue what is global interrupt registers. I already said
+it, but you keep repeating the same. I have no clue.
+
+Why this would be a parent?
+
+Why this would not be a parent?
+
+Best regards,
+Krzysztof
 
