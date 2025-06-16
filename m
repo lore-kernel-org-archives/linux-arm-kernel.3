@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED58C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6599C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WvvyqjF+a0/2/PxBVrWV5GFfIaKYznnmPBrtlcNM1us=; b=LFmCgs3zsvyuwSOWC+Y0YD4QVt
-	jHeq9Oa5lMmAtvHAXzfh9l4A7pRbrQ/SLKYEtbe6YHsGifWICVu73B0XVUvZ19XilSysxn3KR8r74
-	v5ph08bnWvXDA55d8rv9rMR05qKC8Ayb/h1+RAUW5VJzfyq+arIw4ulZ0BRSip0h0q2j7glTYC3qj
-	YemcgQfsWkmuhdtPJAhRic6P+TOn/clQ7xFi8PNezVwUdo9Y3dfYYHQZx6oysB7dB/xsrXrAPqcUs
-	u1RuGybPWlfPTA5RgoR8ZrG5XUa8e4YtcsuLWj6qEjb+rOOv0wPtV+rHFL/21SliEBd2Ywo5fy+JX
-	2P2VPVoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zMy+y5c/8mfi8FAA89LQATnBS6oZZIjVu32K5ipEiDQ=; b=szLYqffrHSLb1iba6c+PEBKDgc
+	ufVF+DXAu06XKFI2GDpC+0ZwS/O7mfFh7MNL9CBk4n7PxN4f/1T7j/tN3Rlsxq1wt31p7pGYTY8Yg
+	/JWGyMwt8BL8OF+MtypEkUM9tWJBBplUAKsU35a3lEwIzh0d5K+P5PJVYgIh8ZFlMqo0t6XFO7xOR
+	Oa4HRIoYJ9U1XvrvQJwfza+s94KR0oHt4zg/USsr8FSXHCRT31HtbDe8MF8xaHusomPUnLZYUIv2f
+	JvK5VZS1y0K5jwkc0Ev+COBTnHvPX51yb/aWNNumVct3IIajQKTVZaCkFT4HB+kMELKyQf19LOWZW
+	xsDkxdxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLt-000000055hS-1MLe;
-	Mon, 16 Jun 2025 17:10:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uREZz-00000005DdU-3cKG;
+	Mon, 16 Jun 2025 18:29:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBhN-00000004okT-3kTd
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Jun 2025 15:24:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WvvyqjF+a0/2/PxBVrWV5GFfIaKYznnmPBrtlcNM1us=; b=NaEVfohpKI6lwx6Nley0Ve1Fas
-	oecP6hcjKpBkbUdCwN+5nSLtqerJv7KvaE2Ws3Xv8hBbxP6u3fUUPgq7/X/zqoRC1Ds2OrC9uplkF
-	9JoGv2v+CjxhepdJoUkAqI8Zhd0slijwVqdseP2izpc3N3bNQ+l52eDR0+gz8K1DmI3gSRUdwHonX
-	ly+gHgF5FBlhY2dPJ0rgeo8fdEe0GLpxRhKJ1MgGsARPmPoJOy0n8HUwvWiZ0Sr6SfUfWMOx5jXWC
-	rRSE7SfbwZO3Priu91Fea71kgmKaDXzOluIiwUMVevqjAaDgx/ISptLYUU1L0q/u2KF1guWxe6ZCk
-	C5pUbL+g==;
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBhK-00000003cZi-43af
+	id 1uRC0X-00000004v00-0Yp1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 15:24:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1750087439; bh=L36apx6YOkPsOESPZl+PN5JV6EhSIQk7MGDOTD2LIn0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AKLj9123NMxLszeoYR6I6PlazpsTSs7ZuytuhKzTYO9PmXqJ8qPY5w9foRHVqdyg9
-	 rc/zvKVsGus8EPwITYAuMrq/3S08T7A2Ly27QJhEzOXyUYGfI8LrhMPdaVH2w+T1FN
-	 fqvCybkYPZHEJvkP2nUNdQ9ktqDBoCmhZeyW7OjfEpC0QNpLYohTlvIF103EiGDirP
-	 r6agla+tn0FhwKJPIl6BU2kuqkapWiVVCzGdJWguj+QOEvgYOeAreIqqnxiZmOyiRQ
-	 lasGynJtjeDMMbENbqtKmdY8t/v84iwdtBXtH4AgpbWy9zUwkM4CeU3TWQuY72Ordw
-	 wXpoURDNrRPqw==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 76B103C2957;
-	Mon, 16 Jun 2025 15:23:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1750087439; bh=L36apx6YOkPsOESPZl+PN5JV6EhSIQk7MGDOTD2LIn0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AKLj9123NMxLszeoYR6I6PlazpsTSs7ZuytuhKzTYO9PmXqJ8qPY5w9foRHVqdyg9
-	 rc/zvKVsGus8EPwITYAuMrq/3S08T7A2Ly27QJhEzOXyUYGfI8LrhMPdaVH2w+T1FN
-	 fqvCybkYPZHEJvkP2nUNdQ9ktqDBoCmhZeyW7OjfEpC0QNpLYohTlvIF103EiGDirP
-	 r6agla+tn0FhwKJPIl6BU2kuqkapWiVVCzGdJWguj+QOEvgYOeAreIqqnxiZmOyiRQ
-	 lasGynJtjeDMMbENbqtKmdY8t/v84iwdtBXtH4AgpbWy9zUwkM4CeU3TWQuY72Ordw
-	 wXpoURDNrRPqw==
-Message-ID: <3ed9f3bc-60f5-4c40-97b5-53d6af4d78c9@mleia.com>
-Date: Mon, 16 Jun 2025 18:23:58 +0300
+	Mon, 16 Jun 2025 15:44:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A33DF43BFF;
+	Mon, 16 Jun 2025 15:44:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1237C4CEEA;
+	Mon, 16 Jun 2025 15:44:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750088663;
+	bh=zMy+y5c/8mfi8FAA89LQATnBS6oZZIjVu32K5ipEiDQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pNxQ978VmTyHAQQ9sM1UZUhVQbkOiaADT141E3DfFXEwOcwu4qEMxMTh1IVstEQGt
+	 3PAOJqTKVY8HfvN8cTN+fK2oxDoJ5AkhIlaCRGObXvujSzMrFcaJcYwLfG+Trvg6w4
+	 j921Hfcu+9Nad7s08+IUQFyT3vv1PWMl9FhwEnuqJUBBkMYATf9ppHtqBITbPsM6GW
+	 GeYE5rVpfhm4iainanvkEnHIJwvNF5wE41xpDPrJNfogRb8E6LNirFmNMK9YjpYFnn
+	 p4RkLzn4dxmNQis5Lpyt2r5WaU8IX0y2FEu0CFHx0mShhxY9FLCXOesN5eMnYGP5KQ
+	 EpOZ60DvuS6BQ==
+Date: Mon, 16 Jun 2025 17:44:20 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: lee@kernel.org, alexandre.torgue@foss.st.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, wbg@kernel.org, jic23@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	olivier.moysan@foss.st.com
+Subject: Re: [PATCH v3 4/8] pwm: stm32: add support for stm32mp25
+Message-ID: <hsmkc6ydsyjgyq7dkhvcytqrn6uu7ezngknetshkf4kj4mjt3i@3hgg42aq3sd5>
+References: <20250110091922.980627-1-fabrice.gasnier@foss.st.com>
+ <20250110091922.980627-5-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] dmaengine: Add NULL check in lpc18xx_dmamux_reserve()
-Content-Language: ru-RU
-To: Charles Han <hanchunchao@inspur.com>, eugen.hristev@linaro.org,
- vkoul@kernel.org, manabian@gmail.com
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250616104420.1720-1-hanchunchao@inspur.com>
-From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <20250616104420.1720-1-hanchunchao@inspur.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20250616_152359_501906_5283B328 
-X-CRM114-Status: GOOD (  21.31  )
-/bin/ln: failed to access 'reaver_cache/texts/20250616_152359_501906_5283B328': No such file or directory
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ezyzxvlev7k4prvr"
+Content-Disposition: inline
+In-Reply-To: <20250110091922.980627-5-fabrice.gasnier@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_152359_501906_5283B328 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20250616_084425_192136_5954C9F0 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +77,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/16/25 13:44, Charles Han wrote:
-> The function of_find_device_by_node() may return NULL if the device
-> node is not found or CONFIG_OF not defined.
 
-DMA_OF depends on OF, and the driver depends on OF as it's stated
-in the drivers/dma/Kconfig, so this is not an issue.
+--ezyzxvlev7k4prvr
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 4/8] pwm: stm32: add support for stm32mp25
+MIME-Version: 1.0
 
-Next, is it possible here to get of_find_device_by_node() returning
-NULL? I don't think so, and then it's unclear which problem is supposed
-to be fixed by this change, and therefore the change should be dropped.
+Hello Fabrice,
 
-> Add  check whether the return value is NULL and set the error code
-> to be returned as -ENODEV.
-> 
-> Fixes: e5f4ae84be74 ("dmaengine: add driver for lpc18xx dmamux")
-> Signed-off-by: Charles Han <hanchunchao@inspur.com>
-> ---
->   drivers/dma/lpc18xx-dmamux.c | 10 ++++++++--
->   1 file changed, 8 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/dma/lpc18xx-dmamux.c b/drivers/dma/lpc18xx-dmamux.c
-> index 2b6436f4b193..f61183a1d0ba 100644
-> --- a/drivers/dma/lpc18xx-dmamux.c
-> +++ b/drivers/dma/lpc18xx-dmamux.c
-> @@ -53,11 +53,17 @@ static void lpc18xx_dmamux_free(struct device *dev, void *route_data)
->   static void *lpc18xx_dmamux_reserve(struct of_phandle_args *dma_spec,
->   				    struct of_dma *ofdma)
->   {
-> -	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
-> -	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
-> +	struct platform_device *pdev;
-> +	struct lpc18xx_dmamux_data *dmamux;
+On Fri, Jan 10, 2025 at 10:19:18AM +0100, Fabrice Gasnier wrote:
+> Add support for STM32MP25 SoC. Use newly introduced compatible to handle
+> new features along with registers and bits diversity.
+> The MFD part of the driver fills in ipidr, so it is used to check the
+> hardware configuration register, when available to gather the number
+> of PWM channels and complementary outputs.
+>=20
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 
-The list of declared/initialized local variables is deliberately sorted
-in so called reverse Christmas tree order, please keep the sorting order.
+Applied to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+=2E
 
->   	unsigned long flags;
->   	unsigned mux;
->   
-> +	pdev = of_find_device_by_node(ofdma->of_node);
-> +	if (!pdev)
-> +		return ERR_PTR(-ENODEV);
-> +
-> +	dmamux = platform_get_drvdata(pdev);
-> +
->   	if (dma_spec->args_count != 3) {
->   		dev_err(&pdev->dev, "invalid number of dma mux args\n");
->   		return ERR_PTR(-EINVAL);
+Thanks for your patience
+Uwe
 
---
-Best wishes,
-Vladimir
+--ezyzxvlev7k4prvr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhQO9IACgkQj4D7WH0S
+/k5Gygf9Gy+dDmATpLY1NSgEaVsqseEX8U1OK8Qr0hXVS6DWdx1yiKu/usPB/Ns8
+KlFNa+c0Yd/lDEYjkvaLr0FmmGazj3yReZB7iuTBjo42rR4ZMg70Ch92UmhZL4JQ
+jWYv+ZLzvdDvyEN1mtPizoYrwazqtK+9ajkbSgIWORogLWD2ieG12tfwpE0FjPjB
+IkdnMX9NbFB777pXHx8JZTux0YzwmZ9Y6grswoV2Rdlor2xxm/atUWqAE0g8qRzM
+QFCOVen4t50xS6ptchwAsDwMRIrDfmVaiMg3T8tC55Fpix5GOkkzFfunE33BqDhi
+kt5RKeBIclzLIGFvx72daCwUDZqidg==
+=4Cak
+-----END PGP SIGNATURE-----
+
+--ezyzxvlev7k4prvr--
 
