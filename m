@@ -4,131 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42313C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0406EC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hzbg8x38U3PxSvT15BaFTL7Q6hbAuyxYzQJN3oLKcDs=; b=s9+xoC7wtHYty+1pNqvWCq9/RJ
-	d0UnTXP00G4O56PI2BvVLCcKiMYFD69LnsHsUzUuBjJ+Sx4s3MzJSlGO3iWPDzagsXQwXymLloNNZ
-	CWfUSVPVOilTCY1iYoiP22mtebd8NDrqtR3dek6I6iRtLmhE7FaZ8w5ZgpM+i4ab82xWxlCegi4eb
-	bi1VWWLreKHzVXzQ/sBuc2aR3hiO7914k5gZxBzNXBrnPSjQNGH3vf6ic7u74eSs9vm2Z+xqmsWqm
-	55w9acv9z47QPsWd9HqH18sCOg3T4xjcbEcTYX+9bqB8c0vPwLwnv23tOh5QJ+lLKGmh91k03PuwJ
-	izOWO0+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2NrHHsiCFl09VeD6KVgs7NnrjZ8O25hI7HRClT9kbiQ=; b=y7P0f3NAQNHy/AYGB2TrSLvcKm
+	e3NfYM8eIROLLOavF5YVFMcJ0SDvneJ9Djhg6Y3shAcoAdXuP95C3cvlGCcc+7GIbLlJjtSoYlR0z
+	XlVyRZvusIryrgighm+hyL3E1w59fe79nU1KYo1nRbTT5zPmRitgiIW/eojuCatTXRLF0D56NJhlS
+	x/7SpsYMvLx1aR6YLK9TGk6wh9JzhEG8TKs598yfmBSaECyjkRZAa7yoKfbrJujXbYSf6I24DF7CR
+	Q/OybQw2nCcdootBViObV3T5tzG6dl/kCa6YcJ5loiJe8BfB9uAgRAu4J/3s/LReGXmw2w4VjyR+v
+	AnoDqaNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3DK-00000003Uzf-3lRP;
-	Mon, 16 Jun 2025 06:21:02 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uR3FU-00000003VBV-3iaJ;
+	Mon, 16 Jun 2025 06:23:16 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR37m-00000003UUP-1278
+	id 1uR3BU-00000003UmW-0QUk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 06:15:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 19597A5122D;
-	Mon, 16 Jun 2025 06:15:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1883BC4CEEA;
-	Mon, 16 Jun 2025 06:15:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750054516;
-	bh=TA8S3CxxR962TjxUcIfFBwyF2MLXElpNJFCjY8feYi8=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=QT9UkGPhAf95tGrD8BkqGk/F7ZREw4AiEVFwfKly5D0jG/N/qVEZ4tpy4Ji8SOEB7
-	 m7NffmQL6bxk+4YqZdtOjN2EYEQWpvVGNq2wI1RTGaoFM+bGKQSsel7FTjV7FGJ0a/
-	 IfBhbuyBnyUW/iP4AENTUWL7FwIy5+XZ0p0z1qym1iCY8BcA2RXcVE+2GufBR8uB2H
-	 bzzVRlEInT5ajVVDXrm1vd+QJOYK5tMt54XRn6njItU7Y3LlDY85UyPOMMzVVHqjZL
-	 ka0eBwysrJLaDORW1bBpqa4mydLSyet3YkRWT5S8/SHYTeWQltYP0IpzcOEZDV3oNm
-	 VE8VT/20O1Taw==
-Message-ID: <e39b5259-db92-4269-84c9-d51e8e4f327e@kernel.org>
-Date: Mon, 16 Jun 2025 08:15:08 +0200
+	Mon, 16 Jun 2025 06:19:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1750054747; x=1781590747;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Yf7CYDWOszU1weAxe35FQgpofMbkBbfHlDIiXDmtfwk=;
+  b=ZDVj52/KLDvNXVydiL6ZA/DQ0iZnjXBYIldaZ+C1X5Y7lGV2oV610SyJ
+   0ekTHp70/ul8TtU81eXArUXGjJm/eEO6G/VadvPXpdwqWpJI5o2yd9uJ/
+   5wjMWHgJleQddC7rrrcHqffXOvvOebsF8PD5FJ9kWbv+rJFPV2ZG5h0Dl
+   Ir1XP2nY7CnGU+30Y1MRIuMQNFCEUj1tqkCrPQ8vNtuOQxp+kRAimzggD
+   A0iZW6X9ZPnLn7ngGS4rlkgMaK+iIYcM7zQwqV+df6yJLmAhVp38b4M/M
+   ptAuklU+2iiMI+KlACUIKlC5yoj4UChHbhJjTQ2X7nBpXVUjyqDQmygI9
+   g==;
+X-CSE-ConnectionGUID: lpnJe+SITWGM2Ln9dodNAw==
+X-CSE-MsgGUID: 5eStiWdKR6izcsMfXw90LA==
+X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
+   d="scan'208";a="47833217"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Jun 2025 23:19:04 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Sun, 15 Jun 2025 23:18:34 -0700
+Received: from archlinux.mchp-main.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Sun, 15 Jun 2025 23:18:32 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <stern@rowland.harvard.edu>, <gregkh@linuxfoundation.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <linux-usb@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH v2] usb: ohci-at91: Use dynamic device name for OHCI HCD creation
+Date: Mon, 16 Jun 2025 09:18:00 +0300
+Message-ID: <20250616061759.3384-2-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
- tree
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
- "nfraprado@collabora.com" <nfraprado@collabora.com>,
- Taniya Das <quic_tdas@quicinc.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Eric Biggers <ebiggers@google.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "soc@lists.linux.dev" <soc@lists.linux.dev>, Mo Elbadry
- <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>,
- William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
- "wthai@nvidia.com" <wthai@nvidia.com>, "leohu@nvidia.com"
- <leohu@nvidia.com>, "dkodihalli@nvidia.com" <dkodihalli@nvidia.com>,
- "spuranik@nvidia.com" <spuranik@nvidia.com>
-References: <20250612100933.3007673-1-ryan_chen@aspeedtech.com>
- <20250612100933.3007673-4-ryan_chen@aspeedtech.com>
- <485749d4-b3c4-4965-9714-ad534d37e8c9@kernel.org>
- <OS8PR06MB7541A100B918AAA84D1ABDCAF277A@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <749c581e-cc00-428f-8eb9-222f9d574486@kernel.org>
- <OS8PR06MB7541FFCA9E28E5767791D869F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <OS8PR06MB7541FFCA9E28E5767791D869F270A@OS8PR06MB7541.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_231518_458498_383EFF87 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20250615_231908_329272_59C0F030 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,284 +84,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/06/2025 04:24, Ryan Chen wrote:
->> Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700 SoC device
->> tree
->>
->> On 13/06/2025 04:29, Ryan Chen wrote:
->>>> Subject: Re: [PATCH v0 3/5] arm64: dts: aspeed: Add initial AST2700
->>>> SoC device tree
->>>>
->>>> On 12/06/2025 12:09, Ryan Chen wrote:
->>>>> This add the initial device tree support for the ASPEED AST2700 SoC.
->>>>>
->>>>> - Add top-level compatible string "aspeed,ast2700" and set up
->>>>> address-cells/size-cells for 64-bit address space.
->>>>> - Describe a quad-core ARM Cortex-A35 CPU cluster with L2 cache,
->>>>> including cache properties and PSCI enable-method.
->>>>> - Add PMU and ARMv8 timer nodes with correct PPI interrupt wiring.
->>>>> - Model the dual-SoC architecture with two simple-bus nodes:
->>>>> soc0 (@0x10000000) and soc1 (@0x14000000).
->>>>> - Add syscon nodes for both SoCs (syscon0, syscon1) with clock/reset
->>>>> cell definitions and address mapping.
->>>>> - Add GICv3 interrupt controller node under soc0, with full register
->>>>> mapping and interrupt properties.
->>>>> - Hierarchical interrupt controller structure:
->>>>>   - intc0 under soc0, with child intc0_11 node.
->>>>>   - intc1 under soc1, with child intc1_0~intc1_5 nodes.
->>>>> - Add serial4 node under soc0, others serial node under soc1.
->>>>>
->>>>> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
->>>>> ---
->>>>>  arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi | 380
->>>>> ++++++++++++++++++++++
->>>>>  1 file changed, 380 insertions(+)
->>>>>  create mode 100644 arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
->>>>> b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
->>>>> new file mode 100644
->>>>> index 000000000000..d197187bcf9f
->>>>> --- /dev/null
->>>>> +++ b/arch/arm64/boot/dts/aspeed/aspeed-g7.dtsi
->>>>> @@ -0,0 +1,380 @@
->>>>> +// SPDX-License-Identifier: GPL-2.0-or-later #include
->>>>> +<dt-bindings/clock/aspeed,ast2700-scu.h>
->>>>> +#include <dt-bindings/reset/aspeed,ast2700-scu.h>
->>>>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
->>>>> +
->>>>> +/ {
->>>>> +	#address-cells = <2>;
->>>>> +	#size-cells = <1>;
->>>>> +	interrupt-parent = <&gic>;
->>>>> +
->>>>> +	cpus {
->>>>> +		#address-cells = <2>;
->>>>> +		#size-cells = <0>;
->>>>> +
->>>>> +		cpu0: cpu@0 {
->>>>> +			device_type = "cpu";
->>>>> +			compatible = "arm,cortex-a35";
->>>>> +			reg = <0x0 0x0>;
->>>>> +			enable-method = "psci";
->>>>> +			i-cache-size = <0x8000>;
->>>>> +			i-cache-line-size = <64>;
->>>>> +			i-cache-sets = <256>;
->>>>> +			d-cache-size = <0x8000>;
->>>>> +			d-cache-line-size = <64>;
->>>>> +			d-cache-sets = <128>;
->>>>> +			next-level-cache = <&l2>;
->>>>> +		};
->>>>> +
->>>>> +		cpu1: cpu@1 {
->>>>> +			device_type = "cpu";
->>>>> +			compatible = "arm,cortex-a35";
->>>>> +			enable-method = "psci";
->>>>> +			reg = <0x0 0x1>;
->>>>> +			i-cache-size = <0x8000>;
->>>>> +			i-cache-line-size = <64>;
->>>>> +			i-cache-sets = <256>;
->>>>> +			d-cache-size = <0x8000>;
->>>>> +			d-cache-line-size = <64>;
->>>>> +			d-cache-sets = <128>;
->>>>> +			next-level-cache = <&l2>;
->>>>> +		};
->>>>> +
->>>>> +		cpu2: cpu@2 {
->>>>> +			device_type = "cpu";
->>>>> +			compatible = "arm,cortex-a35";
->>>>> +			enable-method = "psci";
->>>>> +			reg = <0x0 0x2>;
->>>>> +			i-cache-size = <0x8000>;
->>>>> +			i-cache-line-size = <64>;
->>>>> +			i-cache-sets = <256>;
->>>>> +			d-cache-size = <0x8000>;
->>>>> +			d-cache-line-size = <64>;
->>>>> +			d-cache-sets = <128>;
->>>>> +			next-level-cache = <&l2>;
->>>>> +		};
->>>>> +
->>>>> +		cpu3: cpu@3 {
->>>>> +			device_type = "cpu";
->>>>> +			compatible = "arm,cortex-a35";
->>>>> +			enable-method = "psci";
->>>>> +			reg = <0x0 0x3>;
->>>>> +			i-cache-size = <0x8000>;
->>>>> +			i-cache-line-size = <64>;
->>>>> +			i-cache-sets = <256>;
->>>>> +			d-cache-size = <0x8000>;
->>>>> +			d-cache-line-size = <64>;
->>>>> +			d-cache-sets = <128>;
->>>>> +			next-level-cache = <&l2>;
->>>>> +		};
->>>>> +
->>>>> +		l2: l2-cache0 {
->>>>> +			compatible = "cache";
->>>>> +			cache-level = <2>;
->>>>> +			cache-unified;
->>>>> +			cache-size = <0x80000>;
->>>>> +			cache-line-size = <64>;
->>>>> +			cache-sets = <1024>;
->>>>> +		};
->>>>> +	};
->>>>> +
->>>>> +	arm-pmu {
->>>>> +		compatible = "arm,cortex-a35-pmu";
->>>>> +		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(4) |
->>>> IRQ_TYPE_LEVEL_HIGH)>;
->>>>> +	};
->>>>> +
->>>>> +	psci {
->>>>> +		compatible = "arm,psci-1.0";
->>>>> +		method = "smc";
->>>>> +	};
->>>>> +
->>>>> +	timer {
->>>>> +		compatible = "arm,armv8-timer";
->>>>> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) |
->>>> IRQ_TYPE_LEVEL_LOW)>,
->>>>> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) |
->>>> IRQ_TYPE_LEVEL_LOW)>,
->>>>> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) |
->>>> IRQ_TYPE_LEVEL_LOW)>,
->>>>> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) |
->>>> IRQ_TYPE_LEVEL_LOW)>;
->>>>> +		arm,cpu-registers-not-fw-configured;
->>>>> +		always-on;
->>>>> +	};
->>>>> +
->>>>> +	soc0: soc@10000000 {
->>>>> +		compatible = "simple-bus";
->>>>> +		reg = <0x0 0x10000000 0x10000000>;
->>>>> +		#address-cells = <2>;
->>>>> +		#size-cells = <1>;
->>>>> +		ranges;
->>>>> +
->>>>> +		syscon0: syscon@12c02000 {
->>>>> +			compatible = "aspeed,ast2700-scu0", "syscon",
->> "simple-mfd";
->>>>> +			reg = <0x0 0x12c02000 0x1000>;
->>>>> +			ranges = <0x0 0x0 0 0x12c02000 0x1000>;
->>>>> +			#address-cells = <2>;
->>>>> +			#size-cells = <1>;
->>>>> +			#clock-cells = <1>;
->>>>> +			#reset-cells = <1>;
->>>>> +		};
->>>>> +
->>>>> +		gic: interrupt-controller@12200000 {
->>>>> +			compatible = "arm,gic-v3";
->>>>> +			reg = <0 0x12200000 0x10000>, /* GICD */
->>>>> +			      <0 0x12280000 0x80000>, /* GICR */
->>>>> +			      <0 0x40440000 0x1000>;  /* GICC */
->>>>> +			#interrupt-cells = <3>;
->>>>> +			interrupt-controller;
->>>>> +			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(4) |
->>>> IRQ_TYPE_LEVEL_HIGH)>;
->>>>> +			interrupt-parent = <&gic>;
->>>>> +		};
->>>>> +
->>>>> +		serial4: serial@12c1a000 {
->>>>> +			compatible = "ns16550a";
->>>>> +			reg = <0x0 0x12c1a000 0x1000>;
->>>>> +			clocks = <&syscon0 SCU0_CLK_GATE_UART4CLK>;
->>>>> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
->>>>> +			reg-shift = <2>;
->>>>> +			status = "disabled";
->>>>> +		};
->>>>> +	};
->>>>> +
->>>>> +	soc1: soc@14000000 {
->>>>> +		compatible = "simple-bus";
->>>>> +		reg = <0x0 0x14000000 0x10000000>;
->>>>> +		#address-cells = <2>;
->>>>> +		#size-cells = <1>;
->>>>> +		ranges;
->>>>> +
->>>>> +		syscon1: syscon@14c02000 {
->>>>> +			compatible = "aspeed,ast2700-scu1", "syscon",
->> "simple-mfd";
->>>>> +			reg = <0x0 0x14c02000 0x1000>;
->>>>> +			ranges = <0x0 0x0 0x0 0x14c02000 0x1000>;
->>>>> +			#address-cells = <2>;
->>>>> +			#size-cells = <1>;
->>>>> +			#clock-cells = <1>;
->>>>> +			#reset-cells = <1>;
->>>>> +		};
->>>>> +
->>>>> +		serial12: serial@14c33b00 {
->>>>> +			compatible = "ns16550a";
->>>>> +			reg = <0x0 0x14c33b00 0x100>;
->>>>> +			clocks = <&syscon1 SCU1_CLK_GATE_UART12CLK>;
->>>>> +			interrupts-extended =
->>>>> +				<&intc1_4 18 (GIC_CPU_MASK_SIMPLE(4) |
->>>> IRQ_TYPE_LEVEL_HIGH)>;
->>>>> +			reg-shift = <2>;
->>>>> +			status = "disabled";
->>>>> +		};
->>>>> +	};
->>>>> +};
->>>>> +
->>>>> +&soc0 {
->>>>
->>>> This is the base DTSI, there is no existing node to override. Just
->>>> define complete SoC node in one place like every other vendor.
->>>
->>> My original is use this way, but when I do checkpatch, get
->>> CHECK: line length of 106 exceeds 100 columns.
->>> interrupts = <GIC_SPI 192 (GIC_CPU_MASK_SIMPLE(4) |
->>> IRQ_TYPE_LEVEL_HIGH)>, That the reason modify by this way.
->>
->> Look how other recent, most developed platforms do it and learn from them
->> instead of coming with own, confusing style.
-> 
-> Thanks, I will refer this to modify.
-> https://github.com/torvalds/linux/blob/master/arch/arm64/boot/dts/broadcom/bcm2712.dtsi#L580-L589
->>
->>>
->>>>
->>>>
->>>>> +	intc0: interrupt-controller@12100000 {
->>>>> +		compatible = "simple-mfd";
->>>>
->>>> NAK, never tested.
->>>>
->>>> Not allowed, see bindings. And test it next time.
->>>
->>> Got it, will update by following.
->>> Intc0: bus@12100000 {
->>>         compatible = "simple-bus";
->>>         #address-cells = <2>;
->>>         #size-cells = <1>;
->>>         reg = <0 0x12100000 0x4000>;
->>> 		ranges = <0x0 0x0 0x0 0x12100000 0x4000>;
->>> 		#address-cells = <2>;
->>
->> Does not follow DTS coding style and anyway, what sort of bus is this?
-> 
-> Sorry, for miss-lead. intc0 is like the global base for inte0_11 interrupt-controller. 
+Use the dynamic device name instead of the hardcoded string "at91"
+when creating the OHCI host controller driver.
+This ensures that the device name is more flexible
+and correctly reflects the actual device in the system.
+This will be in sync with ehci at91 driver.
 
-So that's not a bus, thus do not use simple-bus for that. Define
-bindings for your device.
+Before this patch:
 
-> So, I use simple-mfd. 
->        intc0: interrupt-controller@12100000 {
->                 compatible = "simple-mfd";
-> 					.....
->                 intc0_11: interrupt-controller@1b00 {
-> 					......
->                 };
->         };
-> 
-> But I don't know your previous "NAK, never tested" mean.
-> I did make CHECK_DTBS=y arch/arm64/boot/dts/aspeed/ don't see the fail with
-> intc0: interrupt-controller@12100000 {
-> 	compatible = "simple-mfd";
-> 
-> So, could you point me more test instruction for this? 
-See syscon.yaml. And writing bindings or talks on conferences:
-simple-mfd cannot be alone.
+[root@sam9x75eb ~]$ dmesg | grep usb
+[    1.464487] usb usb1: Manufacturer: Linux 6.16.0-rc2 ehci_hcd
+[    1.470210] usb usb1: SerialNumber: 700000.usb-ehci
+[    1.595683] usb usb2: Manufacturer: Linux 6.16.0-rc2 ohci_hcd
+[    1.601406] usb usb2: SerialNumber: at91
 
+After this patch:
 
-Best regards,
-Krzysztof
+[root@sam9x75eb ~]$ dmesg | grep usb
+[    1.464487] usb usb1: Manufacturer: Linux 6.16.0-rc2 ehci_hcd
+[    1.470210] usb usb1: SerialNumber: 700000.usb-ehci
+[    1.595683] usb usb2: Manufacturer: Linux 6.16.0-rc2 ohci_hcd
+[    1.601406] usb usb2: SerialNumber: 600000.usb-ohci
+
+Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
+---
+ drivers/usb/host/ohci-at91.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/usb/host/ohci-at91.c b/drivers/usb/host/ohci-at91.c
+index 5df793dcb25d..12fdb18934cf 100644
+--- a/drivers/usb/host/ohci-at91.c
++++ b/drivers/usb/host/ohci-at91.c
+@@ -193,7 +193,7 @@ static int usb_hcd_at91_probe(const struct hc_driver *driver,
+ 	if (irq < 0)
+ 		return irq;
+ 
+-	hcd = usb_create_hcd(driver, dev, "at91");
++	hcd = usb_create_hcd(driver, dev, dev_name(dev));
+ 	if (!hcd)
+ 		return -ENOMEM;
+ 	ohci_at91 = hcd_to_ohci_at91_priv(hcd);
+
+base-commit: e04c78d86a9699d136910cfc0bdcf01087e3267e
+-- 
+2.49.0
+
 
