@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895BBC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDC8C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5EJDBLjh9k/qTBxVDOPHanym/KSNIq8AGLX1oOv6gAI=; b=TMmWNxkuy1oYwgFw9g0/Ken0Ta
-	7mOPH1VinlS30Ni7butuE64NCqdvv3E2ucOyTlOm1KsNI7rXwjxn6nh/4nNU03i4VejzVzftKcf0A
-	da9h/DyYFSF52byIBR0vg465SkYq0DKhaPmzMMhFf6+Mr7gJvfZdgDdl4xdBBLZo/+o89ngC3OUH8
-	3eyoE5jM44f6rV3+ebIG7sV304wxPpPVSd5W2cnQO3N5eMwc2qTisz6b1CY3hkzhZBsoBihL36zR6
-	0W9O2sm0okNgfYrZEDN+D/jMVzs4lo8W6f2qOJo+TEuNCvCZyuNDue8lp5i/+1KoYJyuFkuHWhON/
-	AuKQf7nA==;
+	bh=iAyMBo36j0x78o2+E3q7sU4e8s++FwCVRfI6VgYXeMk=; b=jJuII9s57+dK6R5z6+wVRZB95z
+	d0mJkSIhlGEuc6D9pQE2Z9y7BKZa8l18gxxCWSyYd0Ikod0uD/A0CqpdCQAoXMvR6BmXUc9WUoZVI
+	+3S6bDIg6NKAeC0q0RnNMT6yD+rJRLA+d2O01Wgb0PouGbd9VeSQEkwsn3kuxdg2/c5WhGMPTiwwP
+	LnPq9pI8ZrB6gT2xsAZbbjpazedmYxm6lwj6i5O8iB/Z/PCl3of96mNK/VaGVEy7E+ERe/aeuZLlm
+	XICa04Le7wqQ6HjFdgIv5vYJJfqyVc5PBiJw6VgX9eqCdVhwbPqktkxAL794PJdj/K+OMknuaEEKT
+	uB9sr6zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLL-000000054sC-3n2N;
-	Mon, 16 Jun 2025 17:09:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uRDLO-000000054wu-2kai;
+	Mon, 16 Jun 2025 17:10:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBXK-00000004o20-08zN;
-	Mon, 16 Jun 2025 15:14:14 +0000
+	id 1uRBgF-00000004ofH-08Vf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 15:23:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7565A6115E;
-	Mon, 16 Jun 2025 15:14:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2D51C4CEED;
-	Mon, 16 Jun 2025 15:14:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7982649D3A;
+	Mon, 16 Jun 2025 15:23:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AC8BC4CEED;
+	Mon, 16 Jun 2025 15:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750086853;
-	bh=oVNq1HKgH5AsdLLp2/oc3d/YzPzDQJprNg0ypJQvF5g=;
+	s=k20201202; t=1750087406;
+	bh=DzAYX/OSHec4aneSP3rKdKZMDvBVK1lYEdX+ohzC8Z8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PX/3X52xu3kaMjy4O0uJXkY0H6d569uWQLxiivcPb8otZdkmozLr37/eGCZohQ17T
-	 oFoOccSPG+bsR4FgnAe+PubjvwayN/Ks4Bxez77C+J1E9sArCYo02bUlZY1f3Ak2lI
-	 MZZQctzQzyq9iMWROBGPEXG6ffe2ekqloegWqLh6gd2ThRxY40gocWRFxoBwo0eIPA
-	 CAubRuQxNHcH2O1rCBpaj2oZ62ToeHGbFpmKzN66ez/+r1KVb1HvKKdA+GZbtjte3b
-	 JiDdx7JsZI6Ly49Sr/bsk1R9Dujl1wNEAHvF+wMs9s4uEV5apub+euT2LSRC8SW//l
-	 O9mX5WdLzDAsg==
-Date: Mon, 16 Jun 2025 16:14:07 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
-	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
-	mchehab@kernel.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI
- IOMMU
-Message-ID: <20250616-winter-strict-db98f85db22d@spud>
-References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
- <20250616145607.116639-3-benjamin.gaignard@collabora.com>
+	b=p4bSIrFatcQ42d88MaNSql4q5Dcs587b0VzQUEpNUgOZlHk+NN8C1yA1R7fPrwy+C
+	 78egzc9WK0QVzESvoMXRWSr0heoUW+1Cfc7Wqe4zx6sAym65yTvUPGQXZcvJ40NapN
+	 XenE3xQPdDEEliVJItbTX4Q6tmazd2OK2OtpkZfd7ZgVskQL1cuqSPWNm3em/l9Pf9
+	 sK5qZHWclWBSvkQo5B8tr8c0b3JtZVj36rX6tMEp5Ai9D/o/e2RRIcnMRPO8w6yWTa
+	 17dwO7u1Fs358bBpZcN8RxasCUeYIrfZDjv8V8GXoz2uS+ga3f6qDn9kCdkshrKQEu
+	 n7ytYrKkWv0IA==
+Date: Mon, 16 Jun 2025 16:23:21 +0100
+From: Simon Horman <horms@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: add
+ ethqos_pcs_set_inband()
+Message-ID: <20250616152321.GD6918@horms.kernel.org>
+References: <E1uPkbO-004EyA-EU@rmk-PC.armlinux.org.uk>
+ <20250614153512.GQ414686@horms.kernel.org>
+ <aE29zFKp5PLAM5pP@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9fJcQZWqMIbTgGsZ"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250616145607.116639-3-benjamin.gaignard@collabora.com>
+In-Reply-To: <aE29zFKp5PLAM5pP@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250616_082327_122450_AD8686D8 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,132 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jun 14, 2025 at 07:22:04PM +0100, Russell King (Oracle) wrote:
+> On Sat, Jun 14, 2025 at 04:35:12PM +0100, Simon Horman wrote:
+> > On Thu, Jun 12, 2025 at 05:16:30PM +0100, Russell King (Oracle) wrote:
+> > > Add ethqos_pcs_set_inband() to improve readability, and to allow future
+> > > changes when phylink PCS support is properly merged.
+> > > 
+> > > Reviewed-by: Andrew Halaney <ahalaney@redhat.com>
+> > > Tested-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org> # sa8775p-ride-r3
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > 
+> > Thanks Russell,
+> > 
+> > The nit below notwithstanding this looks good to me.
+> > 
+> > Reviewed-by: Simon Horman <horms@kernel.org>
+> > 
+> > > ---
+> > >  .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 13 +++++++++----
+> > >  1 file changed, 9 insertions(+), 4 deletions(-)
+> > > 
+> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> > > index e30bdf72331a..2e398574c7a7 100644
+> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> > > @@ -622,6 +622,11 @@ static void ethqos_set_serdes_speed(struct qcom_ethqos *ethqos, int speed)
+> > >  	}
+> > >  }
+> > >  
+> > > +static void ethqos_pcs_set_inband(struct stmmac_priv *priv, bool enable)
+> > > +{
+> > > +	stmmac_pcs_ctrl_ane(priv, priv->ioaddr, enable, 0, 0);
+> > 
+> > FWIIW, I would have gone for the following, as all the type of
+> > three of the trailing parameters is bool.
+> > 
+> > 	stmmac_pcs_ctrl_ane(priv, priv->ioaddr, enable, false, false);
+> 
+> So the original code:
+> 
+>             stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 0, 0, 0);
+>             stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 1, 0, 0);
+>             stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 1, 0, 0);
+>             stmmac_pcs_ctrl_ane(priv, priv->ioaddr, 1, 0, 0);
+> 
+> While one could convert the last two arguments to true/false, I'd prefer
+> leaving them as is, as less change means less chance to introduce a bug.
 
---9fJcQZWqMIbTgGsZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, Jun 16, 2025 at 04:55:50PM +0200, Benjamin Gaignard wrote:
-> Add a device tree binding for the Verisilicon (VSI) IOMMU. This IOMMU sits
-> in front of hardware encoder and decoder blocks on SoCs using Verisilicon=
- IP,
-> such as the Rockchip RK3588.
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> ---
->  .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
->  1 file changed, 71 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,i=
-ommu.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.ya=
-ml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-> new file mode 100644
-> index 000000000000..acef855fc61d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-> @@ -0,0 +1,71 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Verisilicon IOMMU
-> +
-> +maintainers:
-> +  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> +
-> +description: |+
-> +  A Versilicon iommu translates io virtual addresses to physical address=
-es for
-> +  its associated video decoder.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - const: verisilicon,iommu
-
-You're missing a soc-specific compatible at the very least here, but is
-there really no versioning on the IP at all? I'd be surprised if
-verisilicon only produced exactly one version of an iommu IP.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Core clock
-> +      - description: Interface clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: aclk
-> +      - const: iface
-
-Why "aclk" rather than core, to match the description?
-
-> +
-> +  "#iommu-cells":
-> +    const: 0
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - clocks
-> +  - clock-names
-> +  - "#iommu-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    bus {
-> +      #address-cells =3D <2>;
-> +      #size-cells =3D <2>;
-> +
-> +      vsi_mmu: iommu@fdca0000 {
-
-The "vsi_mmu" label can be dropped here, it has no users.
-
-Cheers,
-Conor.
-
-> +        compatible =3D "verisilicon,iommu";
-> +        reg =3D <0x0 0xfdca0000 0x0 0x600>;
-> +        interrupts =3D <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
-> +        clocks =3D <&cru ACLK_AV1>, <&cru PCLK_AV1>;
-> +        clock-names =3D "aclk", "iface";
-> +        #iommu-cells =3D <0>;
-> +      };
-> +    };
-> --=20
-> 2.43.0
->=20
-
---9fJcQZWqMIbTgGsZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFA0vwAKCRB4tDGHoIJi
-0vT6AQC6scfk381tN82ARmoQ+PHZMrSLuYi9ck4P/3vTospnlgEA8JzI7GkSRolM
-exwAAerU1ffK1uHS3p3k6fwqqJumHgY=
-=9xSJ
------END PGP SIGNATURE-----
-
---9fJcQZWqMIbTgGsZ--
+Sure. No objections on my side.
 
