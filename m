@@ -4,71 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0173DC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C781CC71159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z5zQ5jNX0LK7CcArZm38pdfH5DH0Uw2Db/qDMJbNIBk=; b=MDFFe54EYmjqb0xRcGuiYHsavk
-	dhmqarQcSFwKPR0OYbysny9yMQbls0AVk17sedc0jvCbCPSe8Dif0vzGrNbZC9/ncWhWVL9t1DX6l
-	TadZ1Zwv3NzVjmLlOcM+zDz0TENYjW3zkIlDgdqWqOfixe1g7lJB5Exv+8cfAXgv6n1uhJMxf1flc
-	oOFEiSrh32rm4EP4r6p3gXk+QZojYNUeDYQfn9tyey52T/YFbNPrkePby26GHDFyrtilETc5k02w8
-	osQGYiCoYN8m07n2Yi5gaIYnXIeVCLlL9wvlEc9KQ2Nl63+IekELfR9vGjWvdBrkYDnkhlfea6pW6
-	g/1RKFDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9tIP/nA/ojXJcuyJ7abvo5FqmtLH8FMyCSjTHFOwIo=; b=unzri0MD00jGkcMXgWoirjXzJ8
+	uqziw/uLBEAcUh8QWXIPf6ETVzw2jGSXw5X74SYa+ptXIwX05P6B2zJA+UP8ukUAxFoVO+8/lNWD4
+	zAxa1DRd+dqnUn7YIZYR7uLQWFhhtbrGAirO/nLX+hCNrOPAyXEsrJeBeuj92XEXmWrdLYKwXnnF4
+	+f21OoPl2uPB5KfHRtaiVg+CcXa/QZqCgj2Qam/bCJp1epuDHjiJV09OoB1ztcbsi6LxpJEXYMWcY
+	r8ZqiN1d1/nY+hcDhc6+CxBCZoWVeIPV5Kigw98dUbGnARi34y5PhES9Ty9wAQPOwYjiV2tQtGFtQ
+	7iHswv0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREa1-00000005Dfn-3qaX;
-	Mon, 16 Jun 2025 18:29:13 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uREa9-00000005DrB-3t4o;
+	Mon, 16 Jun 2025 18:29:21 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRCDy-00000004wh6-0vVC;
-	Mon, 16 Jun 2025 15:58:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0DA845C63C3;
-	Mon, 16 Jun 2025 15:56:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E588C4CEEA;
-	Mon, 16 Jun 2025 15:58:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750089497;
-	bh=LuhQSb+DK+8zQUn35OeyQUEtiFm17Yx6iJkF9jT6jAg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qXuopUs8dZg+nW4ulZ3NCybN4E/fYmTKA3fG5vdNipDSwoMSw9v0GNdk9sHuMTgk8
-	 7zEkBsHS609cRj2ocvQqoaRYiQYrkQqFHmnc4IyoA5nUX0U5GEfLt4DpQV7lGSALSx
-	 IEbxO+EC/PWMviGLSOjSkMPCccA6CPwTwZNp5FJra76eEtwT0itnitLfln/5tAKCEx
-	 O0B8v020LKb+AAm1AuMcyyi1pqEJevNe+RnC+VSDE/IjdV6Og84wboQlUun8Ipw+79
-	 NE7txRrswhZNSLPD1I0SeYZPZOWoimaKVXGCMWKY/0QTIb1RAAW2TP/0XCT1JeD8Pd
-	 oNTZIZ69riAiQ==
-Date: Mon, 16 Jun 2025 16:58:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
-	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
-	mchehab@kernel.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI
- IOMMU
-Message-ID: <20250616-capped-rehab-6e7fd24d23ae@spud>
-References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
- <20250616145607.116639-3-benjamin.gaignard@collabora.com>
- <20250616-winter-strict-db98f85db22d@spud>
- <5c971c09-c398-40a3-9ed5-ec38b6645e1d@collabora.com>
- <20250616-contempt-remix-5af2b7281cbd@spud>
- <2d251d7c-7906-4a66-9791-7f71e7a4b54d@collabora.com>
+	id 1uRCZc-00000004z0e-2J0I
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 16:20:42 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8knX0003269;
+	Mon, 16 Jun 2025 16:19:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	T9tIP/nA/ojXJcuyJ7abvo5FqmtLH8FMyCSjTHFOwIo=; b=oz+rVnvay4RqXGaS
+	su8jq0wu9WXgxbf9OoseSyuYta6ZWUAJSPlLeM58oqxumqdhqscJ0Pv8gVNkoOKe
+	Q2FbHkEUSELviRgZd8coHNHpuClo6vXzerTWu2drelH23T+C5eZNlHYjELedcVd6
+	wLVBSMSYaBFBtmOPn4D25VoQ0gf3wYNHKMpg2LjrMw6wqlrzh04FWZfNA0w/vIuA
+	1v6J1VpHHDrMPYsdS5H33Ac4eVhRxi+5czLsoIb14u2lbXp704FdKraw3XNcV8gC
+	hvlrrYlMFQio/KiaLUbC9FUiw4L+rlmVJsTKIkYAWOxOg8KXf5oW2fiXUgCSZUEo
+	oh+Mkg==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 47ag231bbb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 16:19:19 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55GGJI4h019496
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 16:19:18 GMT
+Received: from [10.253.36.28] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Jun
+ 2025 09:19:13 -0700
+Message-ID: <79355a26-c901-40a4-8a90-096da1380d9f@quicinc.com>
+Date: Tue, 17 Jun 2025 00:19:11 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="seyiFdYL5UYYiB4P"
-Content-Disposition: inline
-In-Reply-To: <2d251d7c-7906-4a66-9791-7f71e7a4b54d@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [cocci] [PATCH v4 2/5] arm64: tlb: Convert the opencoded field
+ modify
+To: Will Deacon <will@kernel.org>
+CC: Markus Elfring <Markus.Elfring@web.de>, <cocci@inria.fr>,
+        LKML
+	<linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+        Andrew Lunn <andrew@lunn.ch>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Joey Gouly <joey.gouly@arm.com>, Julia Lawall
+	<Julia.Lawall@inria.fr>,
+        Kiran Kumar C.S.K <quic_kkumarcs@quicinc.com>,
+        "Lei
+ Wei" <quic_leiwei@quicinc.com>, Marc Zyngier <maz@kernel.org>,
+        Nicolas Palix
+	<nicolas.palix@imag.fr>,
+        Oliver Upton <oliver.upton@linux.dev>,
+        Pavithra R
+	<quic_pavir@quicinc.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Suruchi Agarwal <quic_suruchia@quicinc.com>,
+        Suzuki Poulose
+	<suzuki.poulose@arm.com>,
+        Yury Norov <yury.norov@gmail.com>, Zenghui Yu
+	<yuzenghui@huawei.com>,
+        <quic_linchen@quicinc.com>
+References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+ <20250612-field_modify-v4-2-ae4f74da45a6@quicinc.com>
+ <3537a4ce-b5e8-44d5-a884-70a81562068d@web.de>
+ <94b40ff2-9e9e-4eea-8a66-87d8976aeb70@quicinc.com>
+ <20250616104109.GA17500@willie-the-truck>
+Content-Language: en-US
+From: Luo Jie <quic_luoj@quicinc.com>
+In-Reply-To: <20250616104109.GA17500@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: WwhEiw-vE7EU9ByCs0vSwvvuPqtNiw5R
+X-Authority-Analysis: v=2.4 cv=edY9f6EH c=1 sm=1 tr=0 ts=68504407 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=YgwN3AOMAAAA:8
+ a=GpepFeYYm93ioQPZbdsA:9 a=QEXdDO2ut3YA:10 a=ztR1XV6QG-NWxUt1dNgd:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDEwNiBTYWx0ZWRfX2SsQ7Egy1Lgq
+ 3PaG3WWwqmwPWB7U2f/+vnv3tUT+SKiRLHYsRcjVhI4b8LiBO6MvmBJcjUH8ZJxHEb+gBAvI+s6
+ iY4lCjthHgCoKlh2shbP4SevA2I8VNDkzN4s6TCFRYT6Zf04af2/ZM/RYTYT+fmFdEZBeJjrbGE
+ qPRY7tX8guFGIL01aSHti2m0PxdfXLkVVYbqttNmJtQnqLPfP3i3YLdhP+AfCpc6vFSB6Q6dxws
+ acstCiAVOYJ9Rcrx71lJeMui+AzbWvo7frgc0ARX5S8m0n2RIsLgzpAzBhWVLXdxf36WV9QpvCE
+ Xjg8+4BoWsbJREsDLPgDjgqIDv4Lu0ObzneNCJ9zE6GSW8iYQw7U5kAnYpbbSXVKalp6bb36L9o
+ ZpF3FCgP2wA2hpyqxf3/Nou54p4aGFtvzl26R/UmPXs7u0dApb+bmPdUQU/iFvK58rJGdGZr
+X-Proofpoint-GUID: WwhEiw-vE7EU9ByCs0vSwvvuPqtNiw5R
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-16_08,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0
+ impostorscore=0 mlxscore=0 clxscore=1015 mlxlogscore=859 malwarescore=0
+ phishscore=0 adultscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506160106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_085818_342622_40676D60 
-X-CRM114-Status: GOOD (  29.35  )
+X-CRM114-CacheID: sfid-20250616_092040_714295_0E856E73 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,92 +138,72 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---seyiFdYL5UYYiB4P
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jun 16, 2025 at 05:50:50PM +0200, Benjamin Gaignard wrote:
->=20
-> Le 16/06/2025 =E0 17:42, Conor Dooley a =E9crit=A0:
-> > On Mon, Jun 16, 2025 at 05:30:44PM +0200, Benjamin Gaignard wrote:
-> > > Le 16/06/2025 =E0 17:14, Conor Dooley a =E9crit=A0:
-> > > > On Mon, Jun 16, 2025 at 04:55:50PM +0200, Benjamin Gaignard wrote:
-> > > > > Add a device tree binding for the Verisilicon (VSI) IOMMU. This I=
-OMMU sits
-> > > > > in front of hardware encoder and decoder blocks on SoCs using Ver=
-isilicon IP,
-> > > > > such as the Rockchip RK3588.
-> > > > >=20
-> > > > > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> > > > > ---
-> > > > >    .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++=
-++++++++
-> > > > >    1 file changed, 71 insertions(+)
-> > > > >    create mode 100644 Documentation/devicetree/bindings/iommu/ver=
-isilicon,iommu.yaml
-> > > > >=20
-> > > > > diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,=
-iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-> > > > > new file mode 100644
-> > > > > index 000000000000..acef855fc61d
-> > > > > --- /dev/null
-> > > > > +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.y=
-aml
-> > > > > @@ -0,0 +1,71 @@
-> > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > +%YAML 1.2
-> > > > > +---
-> > > > > +$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
-> > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > +
-> > > > > +title: Verisilicon IOMMU
-> > > > > +
-> > > > > +maintainers:
-> > > > > +  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> > > > > +
-> > > > > +description: |+
-> > > > > +  A Versilicon iommu translates io virtual addresses to physical=
- addresses for
-> > > > > +  its associated video decoder.
-> > > > > +
-> > > > > +properties:
-> > > > > +  compatible:
-> > > > > +    oneOf:
-> > > > > +      - items:
-> > > > > +          - const: verisilicon,iommu
-> > > > You're missing a soc-specific compatible at the very least here, bu=
-t is
-> > > > there really no versioning on the IP at all? I'd be surprised if
-> > > > verisilicon only produced exactly one version of an iommu IP.
-> > > I only aware this version of the iommu for the moment.
-> > "for the moment", yeah. Is there any information that could be used to
-> > version this available?
->=20
-> The hardware block isn't documented in the TRM so I don't know if there i=
-s a version
-> field or something like that.
->=20
-> >=20
-> > > Does adding verisilicon,rk3588-iommu sound good for you ?
-> > It'd be "rockchip,rk3588-iommu", but sure.
->=20
-> "rockchip,rk3588-iommu" is already use for other MMUs in rk3588.
+On 6/16/2025 6:41 PM, Will Deacon wrote:
+> On Mon, Jun 16, 2025 at 06:37:41PM +0800, Luo Jie wrote:
+>>
+>>
+>> On 6/13/2025 4:15 AM, Markus Elfring wrote:
+>>> I see further refinement possibilities for such a change description.
+>>>
+>>>
+>>>> Replace below code with the wrapper FIELD_MODIFY(MASK, &reg, val)
+>>>> - reg &= ~MASK;
+>>>> - reg |= FIELD_PREP(MASK, val);
+>>>
+>>> * How do you think about to omit leading minus characters?
+>>>
+>>> * Subsequent blank line?
+>>>
+>>>
+>>>> More information about semantic patching is available at
+>>>> http://coccinelle.lip6.fr/
+>>>
+>>> I suggest to omit this information here (and in similar patches).
+>>>
+>>> Regards,
+>>> Markus
+>>
+>> Thank you for your suggestions. The current commit message was generated
+>> by the following patch mode command:
+>> ```
+>> make coccicheck MODE=patch COCCI=scripts/coccinelle/misc/field_modify.cocci
+>> V=1
+>> ```
+>> However, as I understand, the discussion on the ARM patches (between
+>> Russel/Marc/Yury) has concluded that the ARM arch changes may not be
+>> adding value over the current code, so I will drop the ARM patches
+>> in the next version.
+> 
+> Well, hang on a second. From what I can tell, the objections haven't
+> been specific to arch/arm{,64}/. You haven't really explained why this
+> new helper is needed and what value it brings over the existing set of
+> functionality.
+> 
+> So maybe start there, rather than dropping the parts that attracted the
+> comments to start with?
+> 
+> Will
 
-"rockchip,rk3588-video-iommu" then? Instances of an IP in an SoC get a
-specific compatible with the SoC vendor's prefix, so having verisilicon
-there isn't suitable unless they made the SoC.
+FIELD_MODIFY is similar to uxx_replace_bits() for in-memory bit field
+modification, but with the added advantage of strict parameter type
+checking at compile time.
 
---seyiFdYL5UYYiB4P
-Content-Type: application/pgp-signature; name="signature.asc"
+Previous discussions (in patch series v3) among Russell, Marc, and Yury
+focused on whether there is any added advantage of using FIELD_MODIFY()
+(possibility of size overflow checking) for the specific cases being
+modified by the patch series inside arm64. For the one case where enum
+was being used, it was originally thought that there may be a
+possibility of size overflow due to 32bit size used by the compiler for
+the enum. However it was identified that the kernel's compiler already
+uses 64bit types for enum if the number of bits used with the enum is
+more than 32 (the code in this case used more than 32 bits).So, it seems
+that there is no additional benefit of using FIELD_MODIFY() in the
+specific cases in arm64/.
 
------BEGIN PGP SIGNATURE-----
+Please note that the current ARM64 code using FIELD_PREP() also supports
+strict parameter checking at compile time. Both FIELD_PREP and
+FIELD_MODIFY utilize `__BF_FIELD_CHECK()` to support this compile-time
+parameter validation.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFA/EwAKCRB4tDGHoIJi
-0kI2AP9KzlLbf7P4rTL1jmXCfJUvvM/YIgPfj9+baZXHSXGhrAEAjEfA2e8F23cf
-LiiZ9+IgE8h/RFOqP0RqrYnEJHimugI=
-=bE0w
------END PGP SIGNATURE-----
-
---seyiFdYL5UYYiB4P--
 
