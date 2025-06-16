@@ -4,161 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB20C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 21:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC270C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 21:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sG/aPL6jdlpOQAc6p0QRAs184i+CdOpIiDhb1jloNo8=; b=DPYXTb8jstpfruqxu1Te2xBnJE
-	xwTp+Yc1vcmjpdELzqalVrgIUa1xk+V/vI5S7eIWEf+rxsjZgFAwAhzgNK1QgiHR/cwo0qH7xOa6f
-	rVRVf17aV0s2/TscEilLShrmu8XIAfmXKs+YStZ2g8irI4sjXNVgZbvCOxypk8bBbirzZubn+kXTE
-	0BGex1JsGTPu0kT52FY8Gy9avIN9zjS32RJui58PnzBVh2/RP3Ur1d1SYHa76h4Uc+uK14JIG6QB4
-	w4kYoklM2cQa4MQWsZjSOBhjFdVAO5p3ofeywAqt+kIbHfuG5qvGwu67IRVVEQUTGu1zGUWE5H5lJ
-	me6mwlPg==;
+	bh=8Dte9S5IWAzLh8eHyVjwryVoXkQBlEWABWLNFJpRbeA=; b=xBuP2IxGbGegkWb7pb81xmkXz9
+	u76kDv01xMlv/3VVIoEXRs/NJO+t+8taYmuNTvoOrFpLZ2SXnE7xL1TF2GQH6dJukxiZbPfBQv90+
+	3uyG+P0COfH1ZIfnKkNiKYD2wlNu7mX/IkTU++084dPXbZeEkx9GesjTWTNGxUxdQct7OIKHxhX/6
+	Ob/FOitS61Ej07SJEEYI5iD2o9wBSm+lM3R8yzDCqYd/ocb6ysBolz9MPUgXm5l4MDYMWwRQc1g84
+	WH1Gkxh66FqoPn+K7W8Y9iSyrsGTaTTeByGT/gCajx73x3ZT7IK/GT+7+CczptR6SyeZgc6Yqka6h
+	QxLM2Z6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRHEt-00000005YSc-042c;
-	Mon, 16 Jun 2025 21:19:35 +0000
-Received: from mail-dm3nam02on20718.outbound.protection.outlook.com ([2a01:111:f403:2405::718] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1uRHH5-00000005Yms-1aM0;
+	Mon, 16 Jun 2025 21:21:51 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRH92-00000005XdP-0tZU
+	id 1uRHDD-00000005YIC-1KZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 21:13:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qKxxQQm6f1i0ShfqZAyRxdSCPYqgo9ClbVdqumwTXPI+T4x9Fxz1TjC00iOhV/7up5uVOemor56NLi9hOYhwxQ9zlbbuqezA1/qatFyfc7Cv3GGZ3Xd65jI9Ivv5/HilwV/dqAY33uC9gLtB5eqsu3nnxsKI99jA9VyXPWL6aBBj8pHN60cPxkY23usfQLheBQdGnMshE0BqePeaGKBP6tGQ48yUuo2E7NvyW4cCo2QHdRfdyanOazVnAu6verKuDpCA6+O5Rh0C/rGDEexa06uV9KsRdq6Lm09rJl1ZyXbwM4jFCV0WfFFvS1EIxk3mGBPZjZKa2dGsTtWsTQIPyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sG/aPL6jdlpOQAc6p0QRAs184i+CdOpIiDhb1jloNo8=;
- b=t51332bIGcJ3qlSOUYCHsS43fqvK1jEu8fj1uZtGvRaLmAJsB0ZqYzfRmJ/qLvpmvDknc0YsqmumcDstOuvA1sCfzQvI3o/nDxgh+0WTFkJkfjCvESPu0CYV6Rl+GbYSed4VjDTwfwv3RxGIyzpXXpdi0X2gce7yOjv25mgPq3mSi0OhpW5yLtu0HRpiKyXgtuYy1AYeRmVeNlfu0m/0WggWV679O3vVtI4gZEwroz+ZagMONrSAyaP3+vmWwnJ7FTXP2UVn2jmD0FtIrYpFyuc0kwynNkEcjzZTH3Mju4M6QFrie+QpSicNcToaTYRPGEPphzi9DnnhqHIIrzIy6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sG/aPL6jdlpOQAc6p0QRAs184i+CdOpIiDhb1jloNo8=;
- b=q/Yo+xdChgl+YY0AhZjojIElQCWPVDmcO34Bum6SPQeebugNwRS1zvC16NKDPtHMobojcp2iVhthyFVvmrM4SrXPEQN9SP/pBkzgXWLVdbQTOELuEmmw4yuluqBWzbpubmKHFnSAS/tq5duPnXDXCMV16JuUGOut+RTf5A6P4x3C/fA6ZOmCo1LpZYEt2Re/DHGmnq6qK6cEjqUKJWnlMQOdDlX+Y66SaAazp4Py7p2odkpfb+SMtG6M1032c8vzK+Szk7b/W5CAi78TvGMAWO14Xb9LYSf+AZSHv1CrqJknFtcKWdTZf/tjoqrUlYRkW1zkUYZENf8JYwC2V25n7g==
-Received: from IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- (2603:10b6:20f:fc04::c3d) by CO6PR18MB4098.namprd18.prod.outlook.com
- (2603:10b6:5:34b::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.30; Mon, 16 Jun
- 2025 21:13:25 +0000
-Received: from IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- ([fe80::ca34:e235:13d9:3f5d]) by IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
- ([fe80::ca34:e235:13d9:3f5d%5]) with mapi id 15.20.8769.031; Mon, 16 Jun 2025
- 21:13:24 +0000
-From: Harshit Shah <hshah@axiado.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
-	<brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "soc@lists.linux.dev" <soc@lists.linux.dev>
-Subject: Re: [PATCH v2 2/6] dt-bindings: arm: axiado: add AX3000 EVK
- compatible strings
-Thread-Topic: [PATCH v2 2/6] dt-bindings: arm: axiado: add AX3000 EVK
- compatible strings
-Thread-Index: AQHb3neVSyePKWzOg0ODy12vIh3RFbQFTH2AgAD9AI8=
-Date: Mon, 16 Jun 2025 21:13:24 +0000
-Message-ID: <IA0PPFBEC4B1F8E5727945AD33204C3AB18D570A@IA0PPFBEC4B1F8E.namprd18.prod.outlook.com>
-References: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
- <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-2-341502d38618@axiado.com>
- <f4430b9a-3275-405e-becf-ff62ae16f23c@kernel.org>
-In-Reply-To: <f4430b9a-3275-405e-becf-ff62ae16f23c@kernel.org>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA0PPFBEC4B1F8E:EE_|CO6PR18MB4098:EE_
-x-ms-office365-filtering-correlation-id: 399ffac8-c25f-4677-23bc-08ddad1aa19a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?ZrsQk4Q7BsmpXCVxocCkxAuIRgiLKKfyjBHsKMJ2E1LcJTg/cl7uw5OFfP?=
- =?iso-8859-1?Q?tDUb2btqnT42I+zIfY7PAj+VAeDYQbzrw084JCBr/slx7rwXcoz5H7SKkB?=
- =?iso-8859-1?Q?AzO2CB8HFGM8Wre6xCPzBOMLe0B72quc3QotRl45odzlIb54cthOWOA9e5?=
- =?iso-8859-1?Q?lv6EIcdxEdd/KrsDbhy0vfVgo6JDn18pEJAgqkfEI1gbBehax3xoikkFIt?=
- =?iso-8859-1?Q?pMUItm+CU94u7i+gkQwSDp2OUd8VpZbN/9HHJ0AG/hlhLgakIkuZguS8Sq?=
- =?iso-8859-1?Q?tffnhOFDnuxSBuaCFeNX3G6HlWvJpOF0kd2IqvafukaoXs2HiPCDtr8RJd?=
- =?iso-8859-1?Q?VntKAM95L8b3ifGCNZn13J9me79HCzAwBC1zQQg3Qglc56fx0NI/jZ4h3Q?=
- =?iso-8859-1?Q?D1HLFHgEiOcn+rX4keYhCiWP+gyHJjTmc6xorLigDEW6Z+H25KsPscHSYj?=
- =?iso-8859-1?Q?vgi9kbnHTGDuiTXakdUwe7rPM5wZzj80U5TGB5AUUBsCwhjNwWLLyrHdi0?=
- =?iso-8859-1?Q?XJURO4dHjO7D7XyMT1qvFU9zd5lq0p1X4SfiZn7SnjIjsjTMEFyEl1KMty?=
- =?iso-8859-1?Q?VpL1hon6EleMJE4b0aTT6Q7aFFjgs2bXeP761HfmqQsp+YCTIoXvbGbOt7?=
- =?iso-8859-1?Q?GUdx35uZxUP2QlbAjG0Wl8BT2ed61D69Qamuvdd6NobeOCswAJNFm9N9N8?=
- =?iso-8859-1?Q?TqF1udHe7XYM98inCWhOp5TobDHtk7B1uW6CQ+1gpCU8YduGmcQgwHgB4p?=
- =?iso-8859-1?Q?SDP6fKdcpDMp7UDU0GiMxyoub5HwokkkX58wwn52qb5vO2xws2HUx6jovh?=
- =?iso-8859-1?Q?JQgbu1xkxN0RX2HaGdbsawykblHgVqOlElf12FBgIroFTpiC8hINJmVKaS?=
- =?iso-8859-1?Q?tQpVy1+iqNLNItwTZtnqKjxqn6YYebkGrpQfsRJy7nKiXcigMpBTBI2XJ2?=
- =?iso-8859-1?Q?g0/rEznCtLZXQGjj/4CqgffP+hO7oR9RgQ5cTHIn+EKE0FbOzcaCcn5z7t?=
- =?iso-8859-1?Q?lsuM5VQsMHqJ68zHZR/MTPG7epJXiYdnR+/cbI7vOLhDYVMJ2qpgJUU1gg?=
- =?iso-8859-1?Q?J9I+OmtKWQKr2JA03AsdSNFQoRXpwo+TttS7ewhwOrlCcAI+ihNKrStVsa?=
- =?iso-8859-1?Q?hq3+e3ctW8X1j5RWjZleABA8LwfDtwyhnU3Q3KD3YcZxCbPjwVAjXv8Jl2?=
- =?iso-8859-1?Q?fi9ELSVhg4NruYi/qqq6h0KVfxpCxfENWIiP3T7KLZmZAlckLcziSUxyRb?=
- =?iso-8859-1?Q?+KfFyw3DJuQPhI2DRwNsGAixVnS4vtTGYHxgezKr0Utq80CDRa8eNOAUMz?=
- =?iso-8859-1?Q?Y96214ZYPD+32ybncpcNz6IUayyrty8YDSAUCaxk/JRMEXdjqkkiKKb2xX?=
- =?iso-8859-1?Q?c+01VeMdrUouQ3NQ3C1kdNeF/jr9O99itGsTilAw6DCvgyqhKSVYLIqowD?=
- =?iso-8859-1?Q?UClV9e19Ww/o0FLiGIioYyG+92dIhwbH/COooNZy4GP8Ro0MBRHYz3XkAz?=
- =?iso-8859-1?Q?Y=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PPFBEC4B1F8E.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?G3OW/RfNvX0sXDuhQ0Eah4Nvkh7Ef7FvJhqPq8/muoXM4VyADLOUURswhb?=
- =?iso-8859-1?Q?K3vMP7OIa8IM/GZYFmoJ7CcfqHVo1HOyds0pagGxWivA+H5t5CWHX1y6eZ?=
- =?iso-8859-1?Q?Fl1dAHXwxAghWQbWfBQDBpDTrEaAzrNo4qdk6WcIcAjjTzHb5Z5UrOQVWi?=
- =?iso-8859-1?Q?dYSp45lpEGL+GKS5ns8G0kywoUmhj0rrwOmajVGHXY///oZK8k0rH79/oD?=
- =?iso-8859-1?Q?H97PT4Hx1YWAvIJTtLE7PJHtq6X+XcKPguWm0riO3wey1zHsOpfJMt4fed?=
- =?iso-8859-1?Q?/l0YMlb/8HREQl03VbKEqX3IbpkzLNpMuzyATr8e6b26UJ3lC70qTqQzl3?=
- =?iso-8859-1?Q?rzUFklXaVdkJQPacpVHCE9zOth2jP3aR/0nLS53fgnK41HYzewyG/CCXnd?=
- =?iso-8859-1?Q?aGfwZJETJCKGXUkJndWWWe6vtGdabQbXHPCFgBqxwTdZY6fbN4cdunX7KW?=
- =?iso-8859-1?Q?0IJ8Aogqz3WW/YLPejycs19r8ZsegObp4MgvLZBUnY1+1278wlifwsS/X4?=
- =?iso-8859-1?Q?avqD+GoBkMNc3am6xI4sqtad3tLZPOU3MZ5y1OpTmm+3rM1MmQxIbqCnnQ?=
- =?iso-8859-1?Q?84ItaWIYffwzCbRCoS1iu0uQiNjylGGzNJS8a8sWgU2acjSg2QusehIckM?=
- =?iso-8859-1?Q?xz+JFoeiq48K8tpLaCVMceXaiuHnrwo9WlXgoix42zGXitPw5D1IhrkqwG?=
- =?iso-8859-1?Q?nt8lFkeVlxa9QD+d1k70eSTJiXTk/7WXwwZA0pSol+K+HmlsymbbTcxK+v?=
- =?iso-8859-1?Q?Vgez/Wkl6osYNOVfnuA+TyAjJ4snvnRbGLHj844I4zxUT/vRnOrXpl3rBB?=
- =?iso-8859-1?Q?pJbNbZotMApLNPnKD6bqkBpqNvMNpQLpFaD0PaXuYqM9LuLLlXpO6KT/IH?=
- =?iso-8859-1?Q?wVGtsnsGAcCQQ7Turcxq/Q8e1vpGV6QW71hIW48wqPR+5h9KW0z/CGekhl?=
- =?iso-8859-1?Q?Q74YikTRrDrVGyo12c9bqSK9EWYQu6b4JtI7dN3Y9xHVRe4CKXNyhgKgSG?=
- =?iso-8859-1?Q?Tbl5l0mN2akwOMgldPz2z/9i1PBxlkm8uALQww4H0pQD8OzLJdZS+ExcJQ?=
- =?iso-8859-1?Q?agEZla1bjEwgt707e/UN1vPmhMj7rBnN+0H/WRFwvPXyFOtA3jpRsjB6Zg?=
- =?iso-8859-1?Q?3NFnwG+qTHWOHPHIODj2sCOr8gENvANq5jJ95ImTX8eks+jkEG/L1bzgPf?=
- =?iso-8859-1?Q?JQjPL4kmo30FO6i2Mxw0/ASvMgeuNmLht1NFJ2jjE2kfEvlariShukqjEO?=
- =?iso-8859-1?Q?yc9mnLM0VPRqTukexbfshTF5e5pmvokHTV0F5AnP+lT5verOqq0VQyfbDw?=
- =?iso-8859-1?Q?YqcoTnE0MsYVadNxOjmo6D6DaFRhqDBURIIraWuJqXuzQzgTeLkIugoJJu?=
- =?iso-8859-1?Q?9WHz2p07SReDHft17irWSrlShpxKRcZdwkEinkxrTb2WhLVgG0ILBn+tfD?=
- =?iso-8859-1?Q?yZQziNL53oZRU2yAsXGZQRQjeedJUkfYMdkaeBTj7qyypYIwGkpkzpUNa2?=
- =?iso-8859-1?Q?V98AiQrwwaLGiUApWdth+g9PaeOHhJBaZ83cZjeYZpKY3VSD0XeUbDXe1t?=
- =?iso-8859-1?Q?kQbtfpahwlyltVR3R23crPJkcCFkv0FwSM7a2yr331BWBQxaEhhYnaXB/P?=
- =?iso-8859-1?Q?V/z09tkRrslfA=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 16 Jun 2025 21:17:52 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-235ca5eba8cso53335ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 14:17:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1750108670; x=1750713470; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8Dte9S5IWAzLh8eHyVjwryVoXkQBlEWABWLNFJpRbeA=;
+        b=GvRnlKbuVfsziN4q+H2DDNmF6GRoNU12k5gUQxLJYP0INKCHnig6jJ79FMCWC+rAXm
+         o7XaNSWOuUwBRAKH9ZZ1o2WdGsu3D1sgPWsAsmGl/xTeQW8McXYBvAXjVERgrWcNRmW8
+         NFyDAzsuOo/6PPwD8MjnZc4E68Zswr3Sf6yiw4P9NbaFsqKWPQk4Iu9K62wmBRJCI8NP
+         Llnol4utx2NIEqdxFydWYHmqTOyneGOs3wXBT3sH+WJo7ysp7LMv2K4I+xI4FhC/SEIj
+         mY/1VYrRi8+hGyCDqXmSsSj8vrgPciAVNie4sYva50N/IZti96guHqcEB1H+AYZwNjwR
+         4MDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750108670; x=1750713470;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8Dte9S5IWAzLh8eHyVjwryVoXkQBlEWABWLNFJpRbeA=;
+        b=xE1UwEVMu0AaaoZVJoq7iSPsxhHme0OBeUbsuoI8A5N653bLo+bkOmNXL6wUR/H5NL
+         UquVdQMa9ZHl8b5ANFjwQzvvN8e7ZBMz1z/8JXKB6heMA3ZtNjnXzJYSY5fEqMLOhXdQ
+         sNx9aJWpjCvuDHBjws4KnkKFaLZ8aoTX/QSdx6dZ3WmonTnv9BntDT5WWJmO/NlDZx3/
+         1a6JVoo+LusBMwPCE1oLZbfYBtXiClAQeo1igjIB6kawYQ4ri1ZuNpa2Wfh9N6vO9lMm
+         jMn4T/3mgqsWxqyTvL4rx/b3eQuG6d6/NGUx+9z9devp2rt4SmV56qRA/0KD+KBAQVJz
+         PHmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW+NOkWihGAeVNsGocA6T0Gwws/8N8FXz6CMci054ULSassBpIi+0lsZKX8IEtGN672VPBJn7vRVb3HduZhMj38@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxued/yu/mH+46P9QYDNGO/1I3jWwLIzlvYmLP+hLg2Sqv7bvQc
+	DyhHNH1AX7medE9AYaLUoFT3hQhpNFMxs/d50h2aYil5mF2quVJJP//kXtqoJ104XA==
+X-Gm-Gg: ASbGnct5dSrdi1Z8bY+O0QS0ef5u2o/9fmgmtQBbgBWomYoOBn8vvZj3HZZCgNRL1BC
+	Td2Ba9FC/wN4oMRGE6DSKJZZ5wWo/Seu7c/9rgi1SthTeJg53bztLoRXCmPCOpHi7/Ve5eE6hRM
+	Kfoco927EkHVEY9C0YT7cAOaRdPCf26q3zYztvFytjUngdZeshr2Hc3H3bZdCurGMLk0rVTnDPg
+	XkehuYH3iZNsknj8Nxj0xox59fNAQ3giI5fTAvA5lsEwqV0nKVL37ZcK4lrPPS9PczLJhvnhIV8
+	vL/VaQIcqv3rJs4KNmgsKi3o9HJLKkFbK9rSQgH5V9TQje+xVJ/ROWpcwZ7VoSuFSl5xAeooUZ0
+	ry+08X0fyfXVIfIxigYyO
+X-Google-Smtp-Source: AGHT+IGAzwl1QJPvA++EDqwFMKyBsCjjEWjJhBE98c+aEAA11TrriZ5qleZr0s+YLMW9x0aRwxpKcQ==
+X-Received: by 2002:a17:902:f54c:b0:234:48b2:fd63 with SMTP id d9443c01a7336-2366f0099e0mr5348025ad.21.1750108670083;
+        Mon, 16 Jun 2025 14:17:50 -0700 (PDT)
+Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-748900cc047sm7614113b3a.147.2025.06.16.14.17.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 14:17:49 -0700 (PDT)
+Date: Mon, 16 Jun 2025 21:17:40 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Xueqi Zhang <xueqi.zhang@mediatek.com>
+Cc: Yong Wu <yong.wu@mediatek.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	Ning li <ning.li@mediatek.com>, linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, iommu@lists.linux.dev
+Subject: Re: [RFC PATCH 2/8] iommu/arm-smmu-v3: Add SMMU implementation
+Message-ID: <aFCJ9IuzC1Rx2atk@google.com>
+References: <20250616025628.25454-1-xueqi.zhang@mediatek.com>
+ <20250616025628.25454-3-xueqi.zhang@mediatek.com>
 MIME-Version: 1.0
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA0PPFBEC4B1F8E.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 399ffac8-c25f-4677-23bc-08ddad1aa19a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jun 2025 21:13:24.8338
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rXU+PzbiLQO3elREf0mmnAowYtV5CmDK3XgtN6gD+UplPKCBmmI+k4HVs75Bb3W0Ao+Ao6Gye0d3P65RKlibIw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR18MB4098
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250616025628.25454-3-xueqi.zhang@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_141332_272838_5A500307 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250616_141751_350382_6E1F96D6 
+X-CRM114-Status: GOOD (  28.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,78 +107,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=0A=
-________________________________________=0A=
-From:=A0Krzysztof Kozlowski <krzk@kernel.org>=0A=
-Sent:=A015 June 2025 23:05=0A=
-To:=A0Harshit Shah <hshah@axiado.com>; Rob Herring <robh@kernel.org>; Krzys=
-ztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Li=
-nus Walleij <linus.walleij@linaro.org>; Bartosz Golaszewski <brgl@bgdev.pl>=
-; Arnd Bergmann <arnd@arndb.de>; Catalin Marinas <catalin.marinas@arm.com>;=
- Will Deacon <will@kernel.org>=0A=
-Cc:=A0devicetree@vger.kernel.org <devicetree@vger.kernel.org>; linux-kernel=
-@vger.kernel.org <linux-kernel@vger.kernel.org>; linux-arm-kernel@lists.inf=
-radead.org <linux-arm-kernel@lists.infradead.org>; linux-gpio@vger.kernel.o=
-rg <linux-gpio@vger.kernel.org>; soc@lists.linux.dev <soc@lists.linux.dev>=
-=0A=
-Subject:=A0Re: [PATCH v2 2/6] dt-bindings: arm: axiado: add AX3000 EVK comp=
-atible strings=0A=
-=A0=0A=
-CAUTION: This email originated from outside of the organization. Do not cli=
-ck links or open attachments unless you recognize the sender and know the c=
-ontent is safe.=0A=
-=0A=
-=0A=
-On 16/06/2025 06:31, Harshit Shah wrote:=0A=
-> Add device tree binding schema for Axiado platforms, specifically the=0A=
-> AX3000 SoC and its associated evaluation board. This binding will be=0A=
-> used for the board-level DTS files that support the AX3000 platforms.=0A=
->=0A=
-> Signed-off-by: Harshit Shah <hshah@axiado.com>=0A=
-> ---=0A=
->=A0 .../devicetree/bindings/arm/axiado/axiado.yaml=A0=A0=A0=A0 | 23 ++++++=
-++++++++++++++++=0A=
-=0A=
-Just arm/axiado.yaml=0A=
-=0A=
-Noted. I will update the same in v3.=0A=
-=0A=
->=A0 1 file changed, 23 insertions(+)=0A=
->=0A=
-> diff --git a/Documentation/devicetree/bindings/arm/axiado/axiado.yaml b/D=
-ocumentation/devicetree/bindings/arm/axiado/axiado.yaml=0A=
-> new file mode 100644=0A=
-> index 0000000000000000000000000000000000000000..f323162b7c3cf973754a3539b=
-94a7534111886cf=0A=
-> --- /dev/null=0A=
-> +++ b/Documentation/devicetree/bindings/arm/axiado/axiado.yaml=0A=
-> @@ -0,0 +1,23 @@=0A=
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause=0A=
-> +%YAML 1.2=0A=
-> +---=0A=
-> +$id: http://devicetree.org/schemas/arm/axiado/axiado.yaml#=0A=
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#=0A=
-> +=0A=
-> +title: Axiado Platforms=0A=
-> +=0A=
-> +maintainers:=0A=
-> +=A0 - Harshit Shah <hshah@axiado.com>=0A=
-> +=0A=
-> +properties:=0A=
-> +=A0 $nodename:=0A=
-> +=A0=A0=A0 const: '/'=0A=
-> +=A0 compatible:=0A=
-> +=A0=A0=A0 oneOf:=0A=
-> +=A0=A0=A0=A0=A0 - description: AX3000 based boards=0A=
-> +=A0=A0=A0=A0=A0=A0=A0 items:=0A=
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - enum:=0A=
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - axiado,ax3000_evk=A0=A0=A0=A0=
-=A0=A0 # Axiado AX3000 Evaluation Board=0A=
-=0A=
-No underscores in compatibles (just look at any other example).=0A=
-=0A=
-Noted. I will update the same in v3.=0A=
-=0A=
-Best regards,=0A=
-Krzysztof=
+On Mon, Jun 16, 2025 at 10:56:08AM +0800, Xueqi Zhang wrote:
+> Mediatek has its own implementation for wrapper interrupts and
+> power management.So add SMMU implementation when smmu device probe.
+> 
+> Signed-off-by: Xueqi Zhang <xueqi.zhang@mediatek.com>
+> ---
+>  drivers/iommu/arm/Kconfig                        |  7 +++++++
+>  drivers/iommu/arm/arm-smmu-v3/Makefile           |  3 ++-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-impl.c | 16 ++++++++++++++++
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c | 13 +++++++++++++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c      |  3 +++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h      |  4 ++++
+>  6 files changed, 45 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-impl.c
+>  create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c
+> 
+> diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+> index ef42bbe07dbe..a7f98fd0f2bf 100644
+> --- a/drivers/iommu/arm/Kconfig
+> +++ b/drivers/iommu/arm/Kconfig
+> @@ -88,6 +88,13 @@ config ARM_SMMU_V3
+>  	  the ARM SMMUv3 architecture.
+>  
+>  if ARM_SMMU_V3
+> +config ARM_SMMU_V3_MEDIATEK
+> +	bool "ARM Ltd. System MMU Version 3 (SMMUv3) MediaTek Support"
+> +	depends on ARM_SMMU_V3 && ARCH_MEDIATEK
+> +	help
+> +	  When running on a MediaTek platform that has the custom variant
+> +	  of the ARM SMMUv3, this needs to be built into the SMMU driver.
+> +
+>  config ARM_SMMU_V3_SVA
+>  	bool "Shared Virtual Addressing support for the ARM SMMUv3"
+>  	select IOMMU_SVA
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
+> index 493a659cc66b..0670065d6e9a 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
+> +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
+> @@ -1,7 +1,8 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
+> -arm_smmu_v3-y := arm-smmu-v3.o
+> +arm_smmu_v3-y := arm-smmu-v3.o arm-smmu-v3-impl.o
+>  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
+> +arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_MEDIATEK) += arm-smmu-v3-mediatek.o
+>  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
+>  arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
+>  
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-impl.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-impl.c
+> new file mode 100644
+> index 000000000000..d39587b965ef
+> --- /dev/null
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-impl.c
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + * Author: Ning li <ning.li@mediatek.com>
+> + * Author: Xueqi Zhang <xueqi.zhang@mediatek.com>
+> + */
+> +
+> +#include "arm-smmu-v3.h"
+> +
+> +struct arm_smmu_device *arm_smmu_v3_impl_init(struct arm_smmu_device *smmu)
+> +{
+> +#if IS_ENABLED(CONFIG_ARM_SMMU_V3_MEDIATEK)
+> +	smmu = arm_smmu_v3_impl_mtk_init(smmu);
+> +#endif
+> +	return smmu;
+> +}
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c
+> new file mode 100644
+> index 000000000000..381268968185
+> --- /dev/null
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-mediatek.c
+> @@ -0,0 +1,13 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + * Author: Ning li <ning.li@mediatek.com>
+> + * Author: Xueqi Zhang <xueqi.zhang@mediatek.com>
+> + */
+> +
+> +#include "arm-smmu-v3.h"
+> +
+> +struct arm_smmu_device *arm_smmu_v3_impl_mtk_init(struct arm_smmu_device *smmu)
+> +{
+> +	return NULL;
+> +}
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 10cc6dc26b7b..d36124a6bb54 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4754,6 +4754,9 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
+>  	}
+>  	ioaddr = res->start;
+>  
+> +	smmu = arm_smmu_v3_impl_init(smmu);
+> +	if (IS_ERR(smmu))
+> +		return PTR_ERR(smmu);
+
+I'd suggest adding ops to struct arm_smmu_impl_ops and use them. Please
+see how Nvidia's implementation makes use of `arm_smmu_impl_probe`,
+maybe we could improve that function to handle mtk smmu as well.
+
+>  	/*
+>  	 * Don't map the IMPLEMENTATION DEFINED regions, since they may contain
+>  	 * the PMCG registers which are reserved by the PMU driver.
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index ea41d790463e..99eeb6143c49 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -998,6 +998,10 @@ int arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
+>  				struct arm_smmu_cmdq *cmdq, u64 *cmds, int n,
+>  				bool sync);
+>  
+> +struct arm_smmu_device *arm_smmu_v3_impl_init(struct arm_smmu_device *smmu);
+> +#if IS_ENABLED(CONFIG_ARM_SMMU_V3_MEDIATEK)
+> +struct arm_smmu_device *arm_smmu_v3_impl_mtk_init(struct arm_smmu_device *smmu);
+> +#endif
+
+We'd prefer to avoid implementation-specific #if CONFIG_* across the
+driver as much as possible.
+
+>  #ifdef CONFIG_ARM_SMMU_V3_SVA
+>  bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
+>  void arm_smmu_sva_notifier_synchronize(void);
+> -- 
+> 2.46.0
+
+Thanks,
+Praan
 
