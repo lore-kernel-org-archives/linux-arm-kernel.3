@@ -4,151 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6D2C71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 05:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D56C71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 05:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9H3iMIVw76XdEFkS0pIFzApQRXQlkWuRuscTZnf8wLw=; b=D2UEr9m3/of+B7JiJADHSvvmzS
-	t1UgNCe3eIdWbsYfJNqywBQwZLTrEP6o2q8o4Dj/gr8E1Fp4bAizD5WHrRVjn3ZbJop/AVQ8bkhhI
-	XuX9TOqGUBrPpURKMVkcqORNfGAB4WIdPaOHxVnMrYSPvUpoY4xmavOuv9hjUQauDdziKaKuw7W1m
-	Vx4/a5rSQsy2gsZaSHAiIj2lWqvQPNQHW5RiUYjascrp79icETQdbsEPq4FIbG2pmyNmh6Yt9UaRK
-	tA9cOEMiLE38xaIQk75VzeoTyhClnarbyaHSbmEofnrUhWtWKIeOwCbXbPjM0hDw1CTp+ZR3BVtJQ
-	ETnzmJ7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+kz97nTQZlnksCETF2OO3FxTKc75UDfdQVAlEutLyMk=; b=J2uo10jF42wCYSLNhTE2up1KYv
+	xCB0m6DGJoq6zDEmK85FmBKSGp+tGfp6kdK0LtEKAmDXiYxpwiTsKdaS1itX8aky31Qj/OVmo051P
+	kNXYQkAf4iQL87rc2mp9BYVZIK0Se4Glt+ac/HzP9ynC/6OLFkiwVGl8jyDLotiHspTBoTauZd1py
+	sT+xE86oObDsMVD2WHgFgruwdGdcWhM40f6myritSx0iehAuNllub17fr6gWhOaQvGB8DUfPtyMxS
+	opeuT+LAFy3Usa3/ZxZBqLtjpr/XeGgeaOHuZ82iwbl6zzUToAMAcB5l+vcwESvHdZ1121X4Pyv1U
+	fXCt8f8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR2fm-00000003SHj-36UX;
-	Mon, 16 Jun 2025 05:46:22 +0000
-Received: from mail-mw2nam12on2072e.outbound.protection.outlook.com ([2a01:111:f403:200a::72e] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uR2qt-00000003SrS-0eNP;
+	Mon, 16 Jun 2025 05:57:51 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR1Vk-00000003LqJ-11cB
+	id 1uR2of-00000003SjT-1Vh8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 04:31:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sQcgY4CCC0U8syu3WD0PLGB8zsTPjE+ybruIzJvv+QGUqDtDH97qmWYNrXdaCjwHAgaIfUwZMWwAcdMlc+TyTbr8Ldk3lH3kssngmz3MIiGPSF1Ky0tSLQsdUSvVpTaxEcXYAys4gXnWEuZLmT1QcTTStQGdewWAlxAiyBfmd0/hpijXmnapWR5MOvIjmdK1sdGWitGuGoB/iyUV3p9gSoyxNg8HfaZpbn6ERVob7zYUKukIKJ3h3snFM5hE8za2BFGs1x7YlvLbGVlLruRWGr6fZkt2+lFqhE0yW+qtyEidwqZQ0a1+pDGn4RF5Atk5/9x4pHnAfl+c6kZAQpSjGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9H3iMIVw76XdEFkS0pIFzApQRXQlkWuRuscTZnf8wLw=;
- b=T2s5wBsGizVaIBHK2FFauxUt1Th56eSw5RMnaf831Gb/ukKQFjVK1M07/VaeQIjgPsvwNfZOzVdhWntB2uCzAOjvCSgzEau09MN/Ml+kVXhN+TXOrYWIB+GoKKTJPW3EZH4XqORHEENeKY9fQ2hwVLFtpkbnRbBM84wQ0cKj1nUKzB0+TwKFRSM29FOOevWrRtKTpCewMENi90cqxPvkDL0fJXm2EMYN9YGnGav7mNvujFwwlGla88gZosAsMr85ieCGqZtaOyMUhNTRfHmuP6pJVh/j3hFqnuSnH2c6umbWvP8gXj3035zAp+WKDo6cU5hbcWoAmCWns8xlr1iJhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 50.233.182.194) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9H3iMIVw76XdEFkS0pIFzApQRXQlkWuRuscTZnf8wLw=;
- b=W1bhSgVt0FbfxpRa55xyM2jUCHjjIV22MRmw2IywXPvbym+8SiNUKJq65i0NnM7rM2lwOYB+N//ZmP1oGpdYefJ/HaI57Jy1izqT7wnYUd+E2MApxCXJbKYeomAf36RaGdSGw1TIJ+vg5XvUlYGnHw1Rp/t8B+HDy93BUALJ1qVO6DsKdUYZI0imRoK0ooTC4SxwOmPWiaqrpMVKsZWpqQfzuMmOrBAXRuyJMOmB9kYgk6mKqPDbOOCMBjvD/Hakla88xmQgkfojGPC5Z6N8PqHr+cy2yiZkfzAgsgyjgZ+bTQ5fqITevdLTQBitXpERq/lmjOdACI5tDV2nhqVs4A==
-Received: from MW4PR03CA0064.namprd03.prod.outlook.com (2603:10b6:303:b6::9)
- by CO1PR18MB4617.namprd18.prod.outlook.com (2603:10b6:303:e0::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Mon, 16 Jun
- 2025 04:31:50 +0000
-Received: from SJ1PEPF00002327.namprd03.prod.outlook.com
- (2603:10b6:303:b6:cafe::1b) by MW4PR03CA0064.outlook.office365.com
- (2603:10b6:303:b6::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.35 via Frontend Transport; Mon,
- 16 Jun 2025 04:31:50 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 50.233.182.194 as permitted sender)
- receiver=protection.outlook.com; client-ip=50.233.182.194; helo=[127.0.0.1];
-Received: from [127.0.0.1] (50.233.182.194) by
- SJ1PEPF00002327.mail.protection.outlook.com (10.167.242.90) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15
- via Frontend Transport; Mon, 16 Jun 2025 04:31:49 +0000
-From: Harshit Shah <hshah@axiado.com>
-Date: Sun, 15 Jun 2025 21:31:36 -0700
-Subject: [PATCH v2 3/6] dt-bindings: gpio: gpio-cdns: convert to YAML
+	Mon, 16 Jun 2025 05:55:35 +0000
+Date: Sun, 15 Jun 2025 22:55:20 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1750053329;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+kz97nTQZlnksCETF2OO3FxTKc75UDfdQVAlEutLyMk=;
+	b=ZWVWV3p4mOCIZ6vd1VtWMmbvFOZ/gc24FpyWZDUAQ7axxp1+7BwXiIHMiyV/URDGODXbgC
+	YopKxt2lnCASWFo3uAQN0bAllHo7N1ZdWaB+xZZswK5kpTtpPcId3bWYvqYk95ILqv/mBX
+	YxvQVQczSf7I6VeKWacsG0us+Mx5H+c=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jintack Lim <jintack@cs.columbia.edu>,
+	Christoffer Dall <christoffer.dall@arm.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Fix s_cpu_if->vgic_lr[] indexing in
+ vgic_v3_put_nested()
+Message-ID: <aE-xyGGpHXdJ_pcF@linux.dev>
+References: <20250614145721.2504524-1-r09922117@csie.ntu.edu.tw>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-3-341502d38618@axiado.com>
-References: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
-In-Reply-To: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
- soc@lists.linux.dev, Harshit Shah <hshah@axiado.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4491; i=hshah@axiado.com;
- h=from:subject:message-id; bh=/vBIx0PvaTFGH1SIpT+R3QSDPnyJ6rpvlbvJSic5q1k=;
- b=owEB7QES/pANAwAKAfFYcxGhMtX7AcsmYgBoT54wW9p2n848NY0SxfvKKWAgml738gKNqTFxh
- nwLPjEUNWCJAbMEAAEKAB0WIQRO3pC/7SkLS2viWOvxWHMRoTLV+wUCaE+eMAAKCRDxWHMRoTLV
- ++4nC/oDMAIsqqvCvKnPOnivoVxRBrD7Ews9mDw1ypV/l25o4W7aXHfh3WO7TOLM2b5GxCe6vAq
- ZYQNspz0lb+zzU6mb37waGxSKIJk1adb4YdQFAP8Er/dlgUJhM7mkuZGGsZkHORywdwbmFrz4s6
- x9TBFoqHf2F9Mn4s9WGI9u54mZNVf6RTaH9uRJlnhAVIrT+8js5HqY1NodQxH4sxQEUsu2e/0AP
- S4ZjbEqAJRbim4RJ8ZDBuCOogtOcCuCmxivpEy50gtik7zW219vEy8rrboOyHsRrQQtVfSrjUyL
- ptMRb0eo2HWAzV1JFI/JVdfwOduKXfXOrLZbfMXQ2MTVvR/oWpyecXMswu926jlrlonJOt01TBS
- iLzMdq8h2LYdTkwL/9RsFXzHO/OxLNazeN3kYWRaFoHWrQy7hjee+WAdUb5thzZkMysXS4Ri2I5
- BDz7ynhEtq0Os4LPPHsblnvKdwz8Xqc02Cu/v0Bb5bjAaTXC1UoQVJToltYN2qp7zBT+w=
-X-Developer-Key: i=hshah@axiado.com; a=openpgp;
- fpr=4EDE90BFED290B4B6BE258EBF1587311A132D5FB
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002327:EE_|CO1PR18MB4617:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57bcd786-8e7d-448c-760d-08ddac8eb645
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|7416014|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bVI1cFkxNDBtYWt2YjlLZVdlV3FnZ3puNWZDcU4yV3ZlclpBaFY3dG8vSTFx?=
- =?utf-8?B?eU1jVmVLdEM4MExvakJYT0pYdXVLU2FzaHhQdnI3UTlla1RDdGsxcExReWZ1?=
- =?utf-8?B?NW1ZT2U2dHp0NG9ZbVhFY09iVFQzcW5PMFd4dFJ1enI0OHZNZGpqQ0lMR01t?=
- =?utf-8?B?WWZLdjcyWDZNWk5KUHF1VFBCcTZKbHZqN2lKOUVKZEFzcEd2bnhzelM3dVdT?=
- =?utf-8?B?RC96eCtKeVZRdUJ4UERkOE9ZdHJwNEljdTRNNTBoRDdqS3g2bC93aU92MnU2?=
- =?utf-8?B?MFJ2QUIzYXJyV21La29UMTRSNnZLTkFMdjRObFB6ekpyVjFUdkZkUHFXT0lJ?=
- =?utf-8?B?V3FLZTVoek16NzErVUpkRkVaaUQ5VWN0aXdubDFIcTN6czFVWVQzbFQ2OWc1?=
- =?utf-8?B?ZEhpVDJ6ekJBVXBqcTcxb3JLVW9Hbndhd2NKekpXNFJsT3UyZXBXbERmc3BS?=
- =?utf-8?B?WkFobWg5bkpnZ0tySHNDMUgvMWJRR0tDVjNVSHJSS0hHSHNFTUxJRTZPR3VQ?=
- =?utf-8?B?YzN6Y2l5eURJcHVtNlU3UFlCMmVwMWRCcGRWZXV0OHlGSDNsdUJSbkdvZXFr?=
- =?utf-8?B?REN4cU4vOGlMYndVcjFTWVBKd2NPcWF4Q0tFOWdVNTNxMVZmRzJmcFBjVmpy?=
- =?utf-8?B?eWsyeUMxajgrWEVkS3o4ek5SdmxLUTZMTkFLRDR1UFZQZHFYdVl4QTRpYVpC?=
- =?utf-8?B?NGVyR1RpN0hPRTJUdGVwRWtIOGFWNXZXZDNrMGFBQ1pHK2dTbHM4ajVXUFha?=
- =?utf-8?B?V1EzTXREOUtLOFFodkRZaW55RG9ZQ1FrZGRMVGJlTnZnSG45bHI4VlZOUGg1?=
- =?utf-8?B?NW1lNDJLL0hCcDllMmtMUVBXRXNaM0NqYms1empoQlVSMWRoRmpTaStHU1Iv?=
- =?utf-8?B?ZUI2cXVCU3FoamNrNHRHNU5BQ0x3NFMyejJDQjhMNVoxSjRkKy9LM1BsTWgr?=
- =?utf-8?B?RkNxSDg0OXRndU81bk5ZbjYvTzc3bUkwRUl0amE5VnBBclRwZkNNU2FvQXpM?=
- =?utf-8?B?VGVVYXpObzBvTGd2Nk52TWNzY21uKzJvR3U3bjFGTGNaSWJKQ3VkZWtGOERq?=
- =?utf-8?B?NjVLMkZDS2JHMG9TY3lyczZKSXJoUjkyaEJXYUJwRTVTdkpITm5GWTBIakFo?=
- =?utf-8?B?c29PR2NMbzliSHRZbTdvakZ5eGFOS1lnUkdxZUhDYk5LOTFDRXRzODhWa1o2?=
- =?utf-8?B?cnVHQzBwY1Z0Q2h1RUNBN0lwSjBrM0MvbHBnWmY4OHFPbUpIek9mMklTOURJ?=
- =?utf-8?B?eFRCM283cFBSeGxrWVU5RDFOdGV1aEpuQkgraU9uOUFMTlFKYzJyUVFvcWN0?=
- =?utf-8?B?cENvWkhhN25PRkp2NGpnV3F3ZEdsMDVNRDRYVXBHWDNsWkNDSE84UkJjak9y?=
- =?utf-8?B?bTdDSXFvQ0xXM044aEtWQjhJaE83TXU0aDJZNTVPalNxdVNydFB3d1EwVTRk?=
- =?utf-8?B?V0ppNzhNNmFwNlJuVEgveWJqamQ2QlR5dlVNQVEreHY1SldGWkJrdTg5VUln?=
- =?utf-8?B?TTVCMmNadnlHV2d0azkvSkRsU0tZRk1BeXZmTmdyRmVnS1VrSnhaWVl4MHI0?=
- =?utf-8?B?dXBPTHp6cHhqZi85cm5jWDQ2MnA0ejF3bmZ5enZ2ckZaQ2wwTkJPbGdYYUU3?=
- =?utf-8?B?djRGK3V4QmhpUWtKRDU3QmRNMWlyRm8yVVFHM3J6Y2dVcXRRSmFjekZuNElq?=
- =?utf-8?B?UHRPQklPYnBMUmdSRE9YazZxbVBHd0JuQXBIR0gyQVIyQ1ljQk5zUm1MV0Ft?=
- =?utf-8?B?b0xVOUhSNTRMblRrYmR1Y2F2aWhibjZTZmxRdDlQWU4xY3JXcldtYlNLdGsr?=
- =?utf-8?B?ZVEzRkxCMHllSHZXZS9mMlpwUDllSjUyeFFzV0dBL0xyMDZxSEpRTGtvMUw3?=
- =?utf-8?B?L0xFRktWTFYrSEdia1JTMGtjdTlNNVdMcjBmcUkvRmdoZmppdko2emU5N2la?=
- =?utf-8?B?VmxZN3FHa0J3bEljNkZ4ZEpUNmRieDhodG9yb2FMTXR6bmNCNWVCSU4vajhV?=
- =?utf-8?B?M29rMm13aTNBPT0=?=
-X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:[127.0.0.1];PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(7416014)(82310400026)(13003099007);DIR:OUT;SFP:1102;
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 04:31:49.9278
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57bcd786-8e7d-448c-760d-08ddac8eb645
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[[127.0.0.1]]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002327.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR18MB4617
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250614145721.2504524-1-r09922117@csie.ntu.edu.tw>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_213156_280592_B9F329C3 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250615_225534_113463_F713779E 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,156 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Cadence family GPIO controller bindings to DT schema.
+On Sat, Jun 14, 2025 at 10:57:21PM +0800, Wei-Lin Chang wrote:
+> s_cpu_if->vgic_lr[] is filled continuously from index 0 to
+> s_cpu_if->used_lrs - 1, but vgic_v3_put_nested() is indexing it using
+> the positions of the set bits in shadow_if->lr_map. So correct it.
 
-Changes during conversion:
-   - update the naming as per the other files.
-   - add gpio maintainers
+The changelog is a bit too mechanical and doesn't actually add anything
+to the diff. Maybe:
 
-Signed-off-by: Harshit Shah <hshah@axiado.com>
----
- .../devicetree/bindings/gpio/cdns,gpio.txt         | 43 ------------
- .../devicetree/bindings/gpio/gpio-cdns.yaml        | 81 ++++++++++++++++++++++
- 2 files changed, 81 insertions(+), 43 deletions(-)
+  Shadow LRs may exist at different indices from the corresponding LRs
+  in the guest hypervisor's vgic, as the shadow LRs are populated
+  contiguously in vgic_v3_create_shadow_lr().
 
-diff --git a/Documentation/devicetree/bindings/gpio/cdns,gpio.txt b/Documentation/devicetree/bindings/gpio/cdns,gpio.txt
-deleted file mode 100644
-index 706ef00f5c64951bb29c79a5541db4397e8b2733..0000000000000000000000000000000000000000
---- a/Documentation/devicetree/bindings/gpio/cdns,gpio.txt
-+++ /dev/null
-@@ -1,43 +0,0 @@
--Cadence GPIO controller bindings
--
--Required properties:
--- compatible: should be "cdns,gpio-r1p02".
--- reg: the register base address and size.
--- #gpio-cells: should be 2.
--	* first cell is the GPIO number.
--	* second cell specifies the GPIO flags, as defined in
--		<dt-bindings/gpio/gpio.h>. Only the GPIO_ACTIVE_HIGH
--		and GPIO_ACTIVE_LOW flags are supported.
--- gpio-controller: marks the device as a GPIO controller.
--- clocks: should contain one entry referencing the peripheral clock driving
--	the GPIO controller.
--
--Optional properties:
--- ngpios: integer number of gpio lines supported by this controller, up to 32.
--- interrupts: interrupt specifier for the controllers interrupt.
--- interrupt-controller: marks the device as an interrupt controller. When
--	defined, interrupts, interrupt-parent and #interrupt-cells
--	are required.
--- interrupt-cells: should be 2.
--	* first cell is the GPIO number you want to use as an IRQ source.
--	* second cell specifies the IRQ type, as defined in
--		<dt-bindings/interrupt-controller/irq.h>.
--		Currently only level sensitive IRQs are supported.
--
--
--Example:
--	gpio0: gpio-controller@fd060000 {
--		compatible = "cdns,gpio-r1p02";
--		reg =<0xfd060000 0x1000>;
--
--		clocks = <&gpio_clk>;
--
--		interrupt-parent = <&gic>;
--		interrupts = <0 5 IRQ_TYPE_LEVEL_HIGH>;
--
--		gpio-controller;
--		#gpio-cells = <2>;
--
--		interrupt-controller;
--		#interrupt-cells = <2>;
--	};
-diff --git a/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml b/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..e71f0137912f88e69fb3fa20f096e1572211591c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml
-@@ -0,0 +1,81 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/gpio/gpio-cdns.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cadence GPIO Controller
-+
-+maintainers:
-+  - Linus Walleij <linus.walleij@linaro.org>
-+  - Bartosz Golaszewski <brgl@bgdev.pl>
-+
-+properties:
-+  compatible:
-+    const: cdns,gpio-r1p02
-+
-+  reg:
-+    minItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  ngpios:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: Number of GPIO lines supported, maximum 32.
-+
-+  gpio-controller: true
-+
-+  "#gpio-cells":
-+    const: 2
-+    description: |
-+      - First cell is the GPIO line number.
-+      - Second cell is flags as defined in <dt-bindings/gpio/gpio.h>,
-+        only GPIO_ACTIVE_HIGH and GPIO_ACTIVE_LOW supported.
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 2
-+    description: |
-+      - First cell is the GPIO line number used as IRQ.
-+      - Second cell is the trigger type, as defined in
-+        <dt-bindings/interrupt-controller/irq.h>.
-+
-+  interrupts:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - gpio-controller
-+  - "#gpio-cells"
-+
-+if:
-+  required: [interrupt-controller]
-+then:
-+  required:
-+    - interrupts
-+    - "#interrupt-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    gpio0: gpio-controller@fd060000 {
-+        compatible = "cdns,gpio-r1p02";
-+        reg = <0xfd060000 0x1000>;
-+        clocks = <&gpio_clk>;
-+
-+        interrupt-parent = <&gic>;
-+        interrupts = <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
-+
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+
-+        interrupt-controller;
-+        #interrupt-cells = <2>;
-+    };
+  Use the correct shadow LR index when forwarding vIRQ state back to the
+  guest hypervisor's vgic in vgic_v3_put_nested().
 
--- 
-2.25.1
+Diff itself LGTM.
 
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+
+Thanks,
+Oliver
 
