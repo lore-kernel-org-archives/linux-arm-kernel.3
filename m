@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5F5C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FFCC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGNtNy2mPDq77ipXkh2hkzKSZSvgcRFWOPBw8jfndmc=; b=mzNJV5kuRtBlagsfiL0qE+u/oS
-	s5uPMz/Zcs35PtKP0/PCKxcs2Rf2Afj4AaS/Lvj/w8oj/OjVgMw6/kmFerHwc+/oLBoLR25SGOAI0
-	qeu3V0mDz/bGXyw+xkQz6OGUqXH/yt21J3r6TbphYbEq22XOxqoAHgoK+gD2l2Npj19hmPArSx07/
-	SA/pM7p5Y4rfBc9fbWdXJ+O8ZmqNYgZIecWnSsteVDkES8z8anYGg2eto0MZlkWwmGbWFlGCA/vN2
-	iDpgaasyZ6ZMnc/rOt8LEVud1PsrPpQzay+/JljwAf9x6Ny5szkTocYbJNPMzwDoM8CKbnbdWXNFy
-	Rb+oSHew==;
+	bh=O65L2t9W8ZXWygRCA4KnSeEpTHiZlvT4O3mUer1lJck=; b=KIj4z8oKyii0tB52X5NFtnbQE+
+	P9r8GKi6btS34wwvSBT60PZbBvld/9fVuWc0n4UmEPz1zbmT3NL5CYqlxhTM4LEpyIdvMSnso7/6Z
+	bZaQAuap5mK5xRTR+K+fr5k76QZsTwF5z48RtS43stCljcMLsDH6zXgY0r+chlzDz8kxPqMprv25U
+	ztgaMJ1apeVzDpZZy2jsaW/Z5vTeQ8bjfUGTmiE2OoI/BVuCj/rgfqYDNRXdnZ/GopwUB13fMX1v2
+	VgMeA7TacVctpwWveOwJWPIPTys5vqlyphAsgE+y4xwJ3h5pmV4vIN2WMUmpdDihlv8ZiPn73yk++
+	aPzTAtiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR5RV-00000003pLh-48BC;
-	Mon, 16 Jun 2025 08:43:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uR5Th-00000003pe6-2ubF;
+	Mon, 16 Jun 2025 08:46:05 +0000
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR4sa-00000003kCk-24c9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 08:07:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A1B35C5831;
-	Mon, 16 Jun 2025 08:05:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BDA5C4CEEE;
-	Mon, 16 Jun 2025 08:07:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750061263;
-	bh=TSsNADkDpkgz40HJTk8QPhRJ7cMeoAcVN2GUyJjB80U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iZNJaXv/ZMif7/Gm8k72eSukzHgYo7X3yFrmLLb5J4WF7iS4ej5feBfBezjdww4Pu
-	 nS92XxL+gGkthtfeJievUSrRC2w+zj8HlhMgVC/k9u07NiO4m0zFVs9OfjPPvCq8IQ
-	 HQ5O3se7Ir1O9J5zQEzzk3Jl689onhGSb5KSUK4+U7CZa02MtczaZpGA6eFoDEWx3Z
-	 waabFDZH39b0ILDLEiFLqmjnu89780jHAhiXXEsHohMciIRO6+m+9WU2AdLW5RXD4Y
-	 U0LjhMBi3G04xafT9XSkAuQ2ipEQhW7AlgDmfGztiSN3MHIxcK3L1oDBdfF9wFaxLO
-	 o5zksxeNB8QPw==
-Message-ID: <b9457391-9c09-4055-9daa-ee40c3648679@kernel.org>
-Date: Mon, 16 Jun 2025 10:07:37 +0200
+	id 1uR4se-00000003kDY-0gM8;
+	Mon, 16 Jun 2025 08:07:49 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout1.routing.net (Postfix) with ESMTP id 737353FDD4;
+	Mon, 16 Jun 2025 08:07:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1750061266;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=O65L2t9W8ZXWygRCA4KnSeEpTHiZlvT4O3mUer1lJck=;
+	b=iRrvfIMXUMPEHmbttE1A3Q194fTpN00corjw0Y4kfRKOuOm+YbRSKyCK9SQgb+ShY+dusM
+	txJ00iOENvqSrJGwASwgSJrUjX4bwYQ8BVwqw43oh3XY7DBZew/pNvjyFuFgip2RposViz
+	geXtErzbL1IUpnn6FnYDvgkwSjjiVK8=
+Received: from frank-u24.. (fttx-pool-194.15.87.210.bambit.de [194.15.87.210])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 39BB8122704;
+	Mon, 16 Jun 2025 08:07:46 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Simon Horman <horms@kernel.org>,
+	Daniel Golle <daniel@makrotopia.org>,
+	arinc.unal@arinc9.com
+Subject: [net-next v4 1/3] net: ethernet: mtk_eth_soc: support named IRQs
+Date: Mon, 16 Jun 2025 10:07:34 +0200
+Message-ID: <20250616080738.117993-2-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250616080738.117993-1-linux@fw-web.de>
+References: <20250616080738.117993-1-linux@fw-web.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] dt-bindings: gpio: gpio-xilinx: Mark clocks as
- required property
-To: Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org,
- monstr@monstr.eu, michal.simek@xilinx.com, git@xilinx.com
-Cc: Xu Yilun <yilun.xu@intel.com>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Moritz Fischer <mdf@kernel.org>, Rob Herring <robh@kernel.org>,
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
- Srinivas Neeli <srinivas.neeli@amd.com>, Tom Rix <trix@redhat.com>,
- Wu Hao <hao.wu@intel.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:FPGA MANAGER FRAMEWORK" <linux-fpga@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>
-References: <94151cfbcff5e4ae05894981c7e398b605d4b00a.1750059796.git.michal.simek@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <94151cfbcff5e4ae05894981c7e398b605d4b00a.1750059796.git.michal.simek@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_010744_633007_E8A2692D 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250616_010748_372836_7116FE96 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,27 +86,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/06/2025 09:43, Michal Simek wrote:
-> On Microblaze platforms there is no need to handle clocks because the
-> system is starting with clocks enabled (can be described via fixed clock
-> node or clock-frequency property or not described at all).
-> With using soft IPs with SOC platforms there is mandatory to handle clocks
-> as is explained in commit 60dbdc6e08d6 ("dt-bindings: net: emaclite: Add
-> clock support").
-> That's why make clock as required in dt binding because it is present in
-> both configurations and should be described even there is no way how to
-> handle it on Microblaze systems.
-> 
-> There is also need to describe missing axi gpio clock in fpga-region.yaml
-> not to introduce new error when make dt_binding_check runs.
-> 
-> Signed-off-by: Michal Simek <michal.simek@amd.com>
-> Reviewed-by: Xu Yilun <yilun.xu@intel.com> # fpga
-> ---
-> 
+From: Frank Wunderlich <frank-w@public-files.de>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Add named interrupts and keep index based fallback for exiting devicetrees.
 
-Best regards,
-Krzysztof
+Currently only rx and tx IRQs are defined to be used with mt7988, but
+later extended with RSS/LRO support.
+
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Reviewed-by: Simon Horman <horms@kernel.org>
+---
+v2:
+- move irqs loading part into own helper function
+- reduce indentation
+- place mtk_get_irqs helper before the irq_handler (note for simon)
+---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 39 +++++++++++++++------
+ 1 file changed, 28 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index b76d35069887..81ae8a6fe838 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3337,6 +3337,30 @@ static void mtk_tx_timeout(struct net_device *dev, unsigned int txqueue)
+ 	schedule_work(&eth->pending_work);
+ }
+ 
++static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
++{
++	int i;
++
++	eth->irq[1] = platform_get_irq_byname(pdev, "tx");
++	eth->irq[2] = platform_get_irq_byname(pdev, "rx");
++	if (eth->irq[1] >= 0 && eth->irq[2] >= 0)
++		return 0;
++
++	for (i = 0; i < 3; i++) {
++		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
++			eth->irq[i] = eth->irq[0];
++		else
++			eth->irq[i] = platform_get_irq(pdev, i);
++
++		if (eth->irq[i] < 0) {
++			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
++			return -ENXIO;
++		}
++	}
++
++	return 0;
++}
++
+ static irqreturn_t mtk_handle_irq_rx(int irq, void *_eth)
+ {
+ 	struct mtk_eth *eth = _eth;
+@@ -5106,17 +5130,10 @@ static int mtk_probe(struct platform_device *pdev)
+ 		}
+ 	}
+ 
+-	for (i = 0; i < 3; i++) {
+-		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
+-			eth->irq[i] = eth->irq[0];
+-		else
+-			eth->irq[i] = platform_get_irq(pdev, i);
+-		if (eth->irq[i] < 0) {
+-			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
+-			err = -ENXIO;
+-			goto err_wed_exit;
+-		}
+-	}
++	err = mtk_get_irqs(pdev, eth);
++	if (err)
++		goto err_wed_exit;
++
+ 	for (i = 0; i < ARRAY_SIZE(eth->clks); i++) {
+ 		eth->clks[i] = devm_clk_get(eth->dev,
+ 					    mtk_clks_source_name[i]);
+-- 
+2.43.0
+
 
