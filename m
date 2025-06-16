@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A5EC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED58C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OagoMfnHr9bjR9psIALHO3rss8Lz3ES2XX8Z2M0Bllg=; b=wSVjpz545oktQhx1WxikVxvCi8
-	IGZKQ94iNHruS0eFL2IfZrxV3JWrhi9cJh4wbqLrDtqyX9APz33v+2oPoJMQu5AFk1Gf82PiVFuYQ
-	i7/IpdbChBS7SoBPVZRO20WAjDPTcdDYwgD8P0SJMA78Ue8DOps9W3QAa66emnZuxvCACWId3juPw
-	I5OQ1ijLdoit0J5VCo1loniJIuY5PW82KGrjmAl2DOAdI3lHUtjkVHPCZFOy++mEabft3mKpRv/eW
-	zVBsgsdml7fg6IT5eUHMBx8EbMDiVMG0fgEBYcj2oCw9FPWsWfyg7EwvYivtyS8kpkYCGe78O0a6h
-	JK8uugWg==;
+	bh=WvvyqjF+a0/2/PxBVrWV5GFfIaKYznnmPBrtlcNM1us=; b=LFmCgs3zsvyuwSOWC+Y0YD4QVt
+	jHeq9Oa5lMmAtvHAXzfh9l4A7pRbrQ/SLKYEtbe6YHsGifWICVu73B0XVUvZ19XilSysxn3KR8r74
+	v5ph08bnWvXDA55d8rv9rMR05qKC8Ayb/h1+RAUW5VJzfyq+arIw4ulZ0BRSip0h0q2j7glTYC3qj
+	YemcgQfsWkmuhdtPJAhRic6P+TOn/clQ7xFi8PNezVwUdo9Y3dfYYHQZx6oysB7dB/xsrXrAPqcUs
+	u1RuGybPWlfPTA5RgoR8ZrG5XUa8e4YtcsuLWj6qEjb+rOOv0wPtV+rHFL/21SliEBd2Ywo5fy+JX
+	2P2VPVoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLu-000000055jg-2W5T;
-	Mon, 16 Jun 2025 17:10:34 +0000
+	id 1uRDLt-000000055hS-1MLe;
+	Mon, 16 Jun 2025 17:10:33 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBjH-00000004prt-214n
+	id 1uRBhN-00000004okT-3kTd
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 16 Jun 2025 15:26:35 +0000
+	Mon, 16 Jun 2025 15:24:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OagoMfnHr9bjR9psIALHO3rss8Lz3ES2XX8Z2M0Bllg=; b=jFYjKeXyQGGy/RCUClBEhXixmW
-	GQARlOoiJ1OEe2HTYOK+pefkvZnjHaKUQB5ObrnKzoaMuEL4h00kZsfccXoj6sp6o1KAllJtW7p76
-	nF70Pa98ymbKdtG5KMyNV6HmUIEeigO1zbN4H1ivTDvTHnC7tZnn1wSx695U583Xdi6JCP/ykwe02
-	/KW8c0Zwldhr0P0FOdYpx/Jn76O8D4GDK+3rrtxkTeptsAY+Mi5izh0KOBOcHas0zzlVEeOKv1iuW
-	/5Z9pObYALWADyiIXsuPb2Iq9I4EQPD2WPUgOYvOGaaSqEF88cNe+OeY3nla3kl0lmahu5ur6AZCk
-	H3Plg/yg==;
+	bh=WvvyqjF+a0/2/PxBVrWV5GFfIaKYznnmPBrtlcNM1us=; b=NaEVfohpKI6lwx6Nley0Ve1Fas
+	oecP6hcjKpBkbUdCwN+5nSLtqerJv7KvaE2Ws3Xv8hBbxP6u3fUUPgq7/X/zqoRC1Ds2OrC9uplkF
+	9JoGv2v+CjxhepdJoUkAqI8Zhd0slijwVqdseP2izpc3N3bNQ+l52eDR0+gz8K1DmI3gSRUdwHonX
+	ly+gHgF5FBlhY2dPJ0rgeo8fdEe0GLpxRhKJ1MgGsARPmPoJOy0n8HUwvWiZ0Sr6SfUfWMOx5jXWC
+	rRSE7SfbwZO3Priu91Fea71kgmKaDXzOluIiwUMVevqjAaDgx/ISptLYUU1L0q/u2KF1guWxe6ZCk
+	C5pUbL+g==;
 Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBjE-00000003cat-3Izv
+	id 1uRBhK-00000003cZi-43af
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 15:26:34 +0000
+	Mon, 16 Jun 2025 15:24:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1750087561; bh=8492Hh9sftwBn41V1sCx1kh7fJYDsSQj3M1IUOmjNxw=;
+	t=1750087439; bh=L36apx6YOkPsOESPZl+PN5JV6EhSIQk7MGDOTD2LIn0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZB4DEg1iyhX9hHcPY36NlJhyw7YR8EH+7MAMpzHLuVSr2OfkuimqdG96O2zlGiO1I
-	 ddMWdM22PFvOHxF63O9ocYlBpzk8QFX6JC3H1qJbHJa9smFSjJ4gZyATUzoJCqTIrd
-	 DmHVO8juXi5FKBQwVrpmmqxOrMbKYP5/wtFa2pwDLA+09AstzWNUrQyN9HvMKeWx0x
-	 6MIkNUHjDgQYXGbwm3yNi9nM1HpsjTyHu7jXT011RKaW1kvJmTZEwcyBwvCve/2Rjz
-	 9Gdjj2jiIBjC2gqD+iyATnMahCbd+nqvrpFRFgb6CU4/leFEC+BzcQG7ekvry4tt33
-	 qFRTTMJQI3l9A==
+	b=AKLj9123NMxLszeoYR6I6PlazpsTSs7ZuytuhKzTYO9PmXqJ8qPY5w9foRHVqdyg9
+	 rc/zvKVsGus8EPwITYAuMrq/3S08T7A2Ly27QJhEzOXyUYGfI8LrhMPdaVH2w+T1FN
+	 fqvCybkYPZHEJvkP2nUNdQ9ktqDBoCmhZeyW7OjfEpC0QNpLYohTlvIF103EiGDirP
+	 r6agla+tn0FhwKJPIl6BU2kuqkapWiVVCzGdJWguj+QOEvgYOeAreIqqnxiZmOyiRQ
+	 lasGynJtjeDMMbENbqtKmdY8t/v84iwdtBXtH4AgpbWy9zUwkM4CeU3TWQuY72Ordw
+	 wXpoURDNrRPqw==
 Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 9CDB93C2957;
-	Mon, 16 Jun 2025 15:26:01 +0000 (UTC)
+	by mail.mleia.com (Postfix) with ESMTP id 76B103C2957;
+	Mon, 16 Jun 2025 15:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1750087561; bh=8492Hh9sftwBn41V1sCx1kh7fJYDsSQj3M1IUOmjNxw=;
+	t=1750087439; bh=L36apx6YOkPsOESPZl+PN5JV6EhSIQk7MGDOTD2LIn0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZB4DEg1iyhX9hHcPY36NlJhyw7YR8EH+7MAMpzHLuVSr2OfkuimqdG96O2zlGiO1I
-	 ddMWdM22PFvOHxF63O9ocYlBpzk8QFX6JC3H1qJbHJa9smFSjJ4gZyATUzoJCqTIrd
-	 DmHVO8juXi5FKBQwVrpmmqxOrMbKYP5/wtFa2pwDLA+09AstzWNUrQyN9HvMKeWx0x
-	 6MIkNUHjDgQYXGbwm3yNi9nM1HpsjTyHu7jXT011RKaW1kvJmTZEwcyBwvCve/2Rjz
-	 9Gdjj2jiIBjC2gqD+iyATnMahCbd+nqvrpFRFgb6CU4/leFEC+BzcQG7ekvry4tt33
-	 qFRTTMJQI3l9A==
-Message-ID: <335bf854-1a73-4370-93f4-77e9fd3febca@mleia.com>
-Date: Mon, 16 Jun 2025 18:26:00 +0300
+	b=AKLj9123NMxLszeoYR6I6PlazpsTSs7ZuytuhKzTYO9PmXqJ8qPY5w9foRHVqdyg9
+	 rc/zvKVsGus8EPwITYAuMrq/3S08T7A2Ly27QJhEzOXyUYGfI8LrhMPdaVH2w+T1FN
+	 fqvCybkYPZHEJvkP2nUNdQ9ktqDBoCmhZeyW7OjfEpC0QNpLYohTlvIF103EiGDirP
+	 r6agla+tn0FhwKJPIl6BU2kuqkapWiVVCzGdJWguj+QOEvgYOeAreIqqnxiZmOyiRQ
+	 lasGynJtjeDMMbENbqtKmdY8t/v84iwdtBXtH4AgpbWy9zUwkM4CeU3TWQuY72Ordw
+	 wXpoURDNrRPqw==
+Message-ID: <3ed9f3bc-60f5-4c40-97b5-53d6af4d78c9@mleia.com>
+Date: Mon, 16 Jun 2025 18:23:58 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: Add NULL check in lpc32xx_dmamux_reserve()
+Subject: Re: [PATCH V2] dmaengine: Add NULL check in lpc18xx_dmamux_reserve()
 Content-Language: ru-RU
-To: Charles Han <hanchunchao@inspur.com>, vkoul@kernel.org,
- piotr.wojtaszczyk@timesys.com
+To: Charles Han <hanchunchao@inspur.com>, eugen.hristev@linaro.org,
+ vkoul@kernel.org, manabian@gmail.com
 Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20250616104639.1935-1-hanchunchao@inspur.com>
+References: <20250616104420.1720-1-hanchunchao@inspur.com>
 From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <20250616104639.1935-1-hanchunchao@inspur.com>
+In-Reply-To: <20250616104420.1720-1-hanchunchao@inspur.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20250616_152601_656558_A4BAA7A1 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message. 
+X-CRM114-CacheID: sfid-20250616_152359_501906_5283B328 
+X-CRM114-Status: GOOD (  21.31  )
+/bin/ln: failed to access 'reaver_cache/texts/20250616_152359_501906_5283B328': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_152601_656558_A4BAA7A1 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250616_152359_501906_5283B328 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,23 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Charles,
-
-On 6/16/25 13:46, Charles Han wrote:
+On 6/16/25 13:44, Charles Han wrote:
 > The function of_find_device_by_node() may return NULL if the device
-> node cannot be found or if CONFIG_OF is not defined, dereferencing
+> node is not found or CONFIG_OF not defined.
 
-please see my comments provided for lpc18xx-dmamux.c driver, all of
-them are applicable here as well.
+DMA_OF depends on OF, and the driver depends on OF as it's stated
+in the drivers/dma/Kconfig, so this is not an issue.
 
-There is no problem to be fixed, the change also shall be dropped
-in my opinion.
+Next, is it possible here to get of_find_device_by_node() returning
+NULL? I don't think so, and then it's unclear which problem is supposed
+to be fixed by this change, and therefore the change should be dropped.
 
-> it without NULL check may lead to NULL dereference.
-> Add a check to verify whether the return value is NULL.
+> Add  check whether the return value is NULL and set the error code
+> to be returned as -ENODEV.
 > 
-> Fixes: 5d318b595982 ("dmaengine: Add dma router for pl08x in LPC32XX SoC")
+> Fixes: e5f4ae84be74 ("dmaengine: add driver for lpc18xx dmamux")
 > Signed-off-by: Charles Han <hanchunchao@inspur.com>
+> ---
+>   drivers/dma/lpc18xx-dmamux.c | 10 ++++++++--
+>   1 file changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/dma/lpc18xx-dmamux.c b/drivers/dma/lpc18xx-dmamux.c
+> index 2b6436f4b193..f61183a1d0ba 100644
+> --- a/drivers/dma/lpc18xx-dmamux.c
+> +++ b/drivers/dma/lpc18xx-dmamux.c
+> @@ -53,11 +53,17 @@ static void lpc18xx_dmamux_free(struct device *dev, void *route_data)
+>   static void *lpc18xx_dmamux_reserve(struct of_phandle_args *dma_spec,
+>   				    struct of_dma *ofdma)
+>   {
+> -	struct platform_device *pdev = of_find_device_by_node(ofdma->of_node);
+> -	struct lpc18xx_dmamux_data *dmamux = platform_get_drvdata(pdev);
+> +	struct platform_device *pdev;
+> +	struct lpc18xx_dmamux_data *dmamux;
+
+The list of declared/initialized local variables is deliberately sorted
+in so called reverse Christmas tree order, please keep the sorting order.
+
+>   	unsigned long flags;
+>   	unsigned mux;
+>   
+> +	pdev = of_find_device_by_node(ofdma->of_node);
+> +	if (!pdev)
+> +		return ERR_PTR(-ENODEV);
+> +
+> +	dmamux = platform_get_drvdata(pdev);
+> +
+>   	if (dma_spec->args_count != 3) {
+>   		dev_err(&pdev->dev, "invalid number of dma mux args\n");
+>   		return ERR_PTR(-EINVAL);
 
 --
 Best wishes,
