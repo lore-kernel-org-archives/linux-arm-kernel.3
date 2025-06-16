@@ -4,76 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34205C71159
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB7BC7115B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bPuvx70ZOohoMirTtBhIdmAQVlAZJUxM/oDnk3mWn5M=; b=BYfo4NkHbUwgqvM7KVxyZHNx+c
-	/dTVaxuoEsHWYDjU7htVqLd0e4tcnwg1QQ0NzUto5OMdpxE6/F0oi/ea6LslsEjpXoKu8UlnX11Mo
-	07YEJEcKYRYXWZeF5G2n9BU5FIE27oqJpJjoIY4gZqK8Lx3m/8T3unCw7oFU2toEhkFkv2mboz/SP
-	cVeRT5feQu7nXgu7P3kXcuygwXQKKgRLUXpVvBjlK7Y68g52QC0gYbGM7M+UfiyP0fsskGuBHe/gL
-	nWphr1cTQeT9B/8cZ/vGT/8fNYMdtGv8Ts6+MaW5I4ttznTL2+s96V0SMI0nncZ9tff3nccu/LfrX
-	f6ZXsSjQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=K0uYI/Yt9kTpet11sTd2e5MM0JBZfWAXMdid3EX/Ftw=; b=T9K/Mq8cJtmi22
+	m64SZHeBc4Qre1KqLbcXylYjZr1WI+Gw9rGEymCjx2eVTLHvwig4TvVOVIU7c5RKw32kdPvmGo09C
+	kCoZ1GgYcP9JGp7nl4LykgmK1tVIfLoeyX5XcQaY9SAudwwWGunI1SGckkKyZUQkTNxUoD3zEsVC5
+	IfT3xeXnJE9z95BXyrjG/wVPJ5nIdhw+r/T0tV9YcNuNW8CCQtY3biGRsMk6IWVLpk80lSATccYu6
+	OgRkC4jGxgpsjmJOEefM/rndYK0YijEnnI3EcuoJGoLYyYVAP6GEiqMkAYvhPtgampjy1TjMWrw4b
+	sAimWtzEAXH+WX3f4pfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLI-000000054nd-3lgV;
-	Mon, 16 Jun 2025 17:09:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBCF-00000004lQI-3jjG
+	id 1uRDLL-000000054qm-0V7P;
+	Mon, 16 Jun 2025 17:09:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRBQf-00000004nZF-0FuW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 14:52:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 215E2443FB;
-	Mon, 16 Jun 2025 14:52:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A616C4CEEA;
-	Mon, 16 Jun 2025 14:52:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750085547;
-	bh=bPuvx70ZOohoMirTtBhIdmAQVlAZJUxM/oDnk3mWn5M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AviViFz8EDSu4pci4/s35SA1EqiENbj+hMVxRmOPRm70Az5musdKvmu9A76JmREBN
-	 lqQVDakjXqlhAIkWJp9ABAW4/s5Led2bkjbdMB4FEDiYrdTH/U6abDbfSI6xaLtwhz
-	 V762DmpOqOrEs9gpSu8bLgLPnCqRXf67JzcKF7EwByyiSrBE2Ixn6TZ0zkVRmiPzlu
-	 cBTXzeuatxpRD+D/ljoBdyEmczJe0grP7mkQHUkRIw+5Tjs5XpNjpmmgh2T+5P79Y1
-	 x6UZbY/qPahUUjKXdMSQv/lP2nTTHYIAjTulak70ZXln6pW/68GWC1HxrAy4PmCMBd
-	 98szxgsNLrYUQ==
-Date: Mon, 16 Jun 2025 15:52:20 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Paul Barker <paul.barker@sancloud.com>,
-	Marc Murphy <marc.murphy@sancloud.com>,
-	Jason Kridner <jkridner@gmail.com>, Andrew Davis <afd@ti.com>,
-	Bajjuri Praneeth <praneeth@ti.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 4/7] dt-bindings: omap: Add Seeed BeagleBone Green Eco
-Message-ID: <20250616-scientist-displease-7fba3321aa8f@spud>
-References: <20250613-bbg-v3-0-514cdc768448@bootlin.com>
- <20250613-bbg-v3-4-514cdc768448@bootlin.com>
+	Mon, 16 Jun 2025 15:07:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D41C150C;
+	Mon, 16 Jun 2025 08:06:56 -0700 (PDT)
+Received: from [10.1.26.178] (e137867.arm.com [10.1.26.178])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40E3D3F673;
+	Mon, 16 Jun 2025 08:07:16 -0700 (PDT)
+Message-ID: <faff5bb7-522c-467f-8e3a-c58f3439de8b@arm.com>
+Date: Mon, 16 Jun 2025 16:07:14 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="NffML9ZiH2lsh2fO"
-Content-Disposition: inline
-In-Reply-To: <20250613-bbg-v3-4-514cdc768448@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/13] arm64: debug: remove hook registration, split
+ exception entry
+To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+References: <20250609173413.132168-1-ada.coupriediaz@arm.com>
+ <aEsZ6pwRcoI_wUqe@uudg.org>
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Content-Language: en-US
+Organization: Arm Ltd.
+In-Reply-To: <aEsZ6pwRcoI_wUqe@uudg.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_075227_946967_A5C677FC 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250616_080721_172700_F2FD6AC4 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,33 +62,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 12/06/2025 19:18, Luis Claudio R. Goncalves wrote:
 
---NffML9ZiH2lsh2fO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> On Mon, Jun 09, 2025 at 06:34:00PM +0100, Ada Couprie Diaz wrote:
+>> [...]
+>>
+>> PREEMPT_RT
+>> ===
+>>
+>> Of note, this allows us to make the single exception handling mostly
+>> preemptible coming from EL0 in patch 9, fixing an issue with PREEMPT_RT[0].
+>> The commit message details the reasoning on why this should be safe.
+>> It is *definitely* not preemptible at EL1 in the current state, given
+>> that the EL1 software step exception is handled by KGDB.
+>>
+>> CC-ing Luis as he did a lot of testing on v2 and originally
+>> reported the issue.
+>>
+>> Cc: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+>>
+>> We can do the same for the software break exception coming from EL0,
+>> which works in a very similar way.
+>>
+>> However, the hardware breakpoint and watchpoint exceptions also have
+>> a sleeping while non-preemptible issue with PREEMPT_RT, but this is
+>> much trickier to fix, so this won't be fixed in this series.
+>> A bit more details in [1].
+>>
+>> I hesitated to add comments within the BRK64 and single-step handlers,
+>> on the EL0 paths, to highlight that they would be preemptible and to be
+>> wary if modifying or adding to them, but I opted not to in the end.
+>> (Partly as I didn't find a satisfactory way to do it !)
+>> I would be happy to add some if anyone finds it would be beneficial.
+> Tested-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+>
+> Works as advertised, fixes the reported RT problem, fails on the specific
+> case Ada described above. :)
+>
+> Best regards,
+> Luis
+>
+Thanks again Luis for the thorough testing and reports !
 
-On Fri, Jun 13, 2025 at 05:49:47PM +0200, Kory Maincent wrote:
-> Document the seed,am335x-bone-green-eco compatible string in the
-> appropriate place within the omap family binding file.
->=20
-> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+Best regards,
+Ada
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---NffML9ZiH2lsh2fO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFAvpAAKCRB4tDGHoIJi
-0nSjAP0QTnkfbkMNtybseo1N8W/Zu0dXYmt/Zvr8lhBp4dvehAD7BpcL4CUzvHX9
-ruQ7cqsF7o2eAFOxPej8RZ+ayyl54gU=
-=zZQH
------END PGP SIGNATURE-----
-
---NffML9ZiH2lsh2fO--
 
