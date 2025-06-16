@@ -4,75 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02442C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62788C7115B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=170kxITiahI0WLlzh73GbaAad8nEI7X1qHMVlhx8xgg=; b=Lgifc4xJF7tPl2NC/BGUAN1KL3
-	Psd+qScBQwTTSHrycr5Xu1VXKrJwffMzeOc+U4sG3SS2FCCR2GzF7bWPWf7OoBCSy7VY879CtArmi
-	EpCyDucxFIY5byUAsUjDtZQa4jG5Fu7m/GXgE/tx+DSj2PI1oxx3GolJ4b6BDWUCM8BvqlABfz8Xi
-	+iPpklJxDfjm1ePLbofCmuqLqyVCvSXc/v20UgNCc7OB+ERP5P8B2JOqh4ug3U99pUhSKa4J7ceVV
-	AjrpLxWpdDGfgKnbGhUaBk8XiI/GO8kKHcwCY+/KxD56hKdwcCUCUQ+RxhSLGu15ZL7qmZxkK9jtM
-	2EOwcD3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ytwUtg8g0nbFsNGvDxEPl5sooHYsGxyhLMvJ50JFIQs=; b=OjxWoMgPFC12k9Oom7BJrRSrvh
+	yUC2shLzm2PCf/nmUmkKitQWRDnVQA3SKyWJgLo/2EgAkDX0f11n8JDVWYbX4tUf+RSl3/mLY6ZFB
+	cYhj7uvZUlsj6qOA4NS0iLclvsok/TZvPsH+9f4/8NlD7LwlLr1YeBsKqgPY06eCDHnJ7BruTM1u/
+	CFQqZyqlexi5YdcAzAizgQ4i1RAEXghBbS51bkLD8er/G04nAi3NwypkBatksOVSHzQ4JEOKbE7hh
+	RbR1PDkcBdPwRsPK1S6fQIes1wbT2WnKAIBhB8PFq3k2x1K1VnQ+zApBWiDlNk7xvwFOgx/y+7Vkj
+	2jqoItgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREa0-00000005De1-45nU;
-	Mon, 16 Jun 2025 18:29:12 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uREa3-00000005Dgu-0zqg;
+	Mon, 16 Jun 2025 18:29:15 +0000
+Received: from mail-dm6nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2413::60a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRC74-00000004w06-1x8R;
-	Mon, 16 Jun 2025 15:51:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750089056; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=CuDhxF78VIhhVcLLbtIDA2g0A3JRBwHgpImUgZeiW4qRpCpfJhMRtz9J7W9/puxsWBKS2acfafaaOewvv4xu4LVPozJ7XRFtOezMnAxj7ClBNDEEwJCQ0Ch+NjBHNxVysZS/2VczSP1P0vTDsE1lkxK3KyTiMGvcAXj1zlViM6s=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750089056; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=170kxITiahI0WLlzh73GbaAad8nEI7X1qHMVlhx8xgg=; 
-	b=hqKte0ENBFTvga3/nAdinwK6t+q6u3A5RAWGBNgVnX9QLBqT7VaAzL89uiBQzxJAVtYrpwnloyQGdNg2Q8Y7D9rjI8S+WLMgjmpLaxvUpGj7zar4BLkP56KNdtAIMcT6ldRRpJpG39V4tRI6nyjYBkdpmVyXS+zNiE6bsIpk8MA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750089056;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=170kxITiahI0WLlzh73GbaAad8nEI7X1qHMVlhx8xgg=;
-	b=O00Z0MngrOahDkUAGWl2DFdJ+tJUMdAR2SM/vqPLM48emFpW6jWhyqfnh5pCpf1s
-	+pT89k0SmwDB8LXI6AlbYd/0BdXSFRVUsz2T9jedNf4PMpibuiRBBn1r7LsFbMYe/qY
-	+RmeU2GonGGrlMu9bQz7IfqYznSwDPBkLtiZwUeQ=
-Received: by mx.zohomail.com with SMTPS id 1750089054716172.7304639178068;
-	Mon, 16 Jun 2025 08:50:54 -0700 (PDT)
-Message-ID: <2d251d7c-7906-4a66-9791-7f71e7a4b54d@collabora.com>
-Date: Mon, 16 Jun 2025 17:50:50 +0200
+	id 1uRCJb-00000004x3p-3D5p
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 16:04:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sZc+Q8Q4YY1OJ97w8M+Qo5NkGrLlCqaslivWK4Fh9CfpcfMwoxYVrze0QGkxWpSwWhX+OkuCMPu69fU6IzyhX5C9bIRuE3rm1jKRwyg74ttMWiyYLvXT+gCLPWpMh7XoNpxgRofjSXowIFqFgIqBrQd1j0wx9U8HQwNVwJe/c4sCi+a4fzKFSVdLObeRP71Hwu797tRLcMXyA4fQgU3LSHMDUvlM23lCagyi2YKDrXYx9bekK9VY1C+n0fwVj67w3Pf596XHkuQkP8AojMFeyQlFFuYGV7LkB7lgHlXhKmvR0eUamNwWPhNVRAHE9IUDsEfvhP2uGSQx+j8f2ro9VQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ytwUtg8g0nbFsNGvDxEPl5sooHYsGxyhLMvJ50JFIQs=;
+ b=nW78EImf62hhVBpsOddPvrMBAtGQ3x8hPI4z/9c//TresOguPPWCfkIwolGmDtZ/Bg8sn6yVLUtQvsMkbzM4c4Qzz6JBsWMg+EcSMTS/8TZac1Fn1Rawc+wq0wF+tP3j5TPEWSsg8UKZEfNQpOrq+MDI4UaZHyhJNjk+I/ZXZrL+NowkWLVE747Iqy4hbIGQUkvBpIA1HStgOVDbE6Ava767BuH8lxFZPWQcARQbqPn92wg2JcJQZMZirSnrmVlCX+EqDhluHbLf/iV75VFs03SMMID2FyH9cyY97kfQBwrG4tx06vz4zBAn7lVekGyZUGx9bRtJ8tr+wQthf1Xo+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ytwUtg8g0nbFsNGvDxEPl5sooHYsGxyhLMvJ50JFIQs=;
+ b=cayNwywZE5BVaq4SzQZN8BvcsB9yPYBeqbr/sze2MdgCXuqbZ1hHegX9uaV5Ku4ZTIBxaMCiygllf0NzL7N4zFyHw9SWa/+94GzJAepVUGicKKlF7lWKJGaU77eDHodlZPqomfUiUNoHwwXDserl2XMuz8+USz+Q8n0y/+tAVw5dlt4R7T7zleuh+3Vw8ID+Sb6JVJ091QM3ZbVbAHD7nq9bF2Sk8nLvxiXgbuKcnkprL0s02tv5khhIDv7u+5p0+81FSbeJD/tt4rBORFVi8W+LSKufUYayl4BIh1y/nwv3kMplOmDQjHhumz4RdW7dVHdnErvF6hWa0czVm3jzdA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS0PR12MB7727.namprd12.prod.outlook.com (2603:10b6:8:135::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.30; Mon, 16 Jun
+ 2025 16:04:01 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8835.023; Mon, 16 Jun 2025
+ 16:04:01 +0000
+Date: Mon, 16 Jun 2025 13:03:59 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com
+Subject: Re: [PATCH v6 24/25] iommu/tegra241-cmdqv: Add user-space use support
+Message-ID: <20250616160359.GM1174925@nvidia.com>
+References: <cover.1749884998.git.nicolinc@nvidia.com>
+ <f13ad49a67774edd3578b8dccb9f363faa2f1df8.1749884998.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f13ad49a67774edd3578b8dccb9f363faa2f1df8.1749884998.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: YT3PR01CA0108.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:85::25) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI
- IOMMU
-To: Conor Dooley <conor@kernel.org>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
- <20250616145607.116639-3-benjamin.gaignard@collabora.com>
- <20250616-winter-strict-db98f85db22d@spud>
- <5c971c09-c398-40a3-9ed5-ec38b6645e1d@collabora.com>
- <20250616-contempt-remix-5af2b7281cbd@spud>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20250616-contempt-remix-5af2b7281cbd@spud>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS0PR12MB7727:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3a673fb0-4114-45bc-e48e-08ddacef6866
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HEuS+oqUBwKQRCtKj18xNaCYXMg8QaQ1PetN6Axaixk1gq81eZYE3i8RsZ5y?=
+ =?us-ascii?Q?NC7BkEV2BbZPnETtmIp1NfAG/EMjrLXVCniYqROIDhL3Fv7TQX20IrYqXZff?=
+ =?us-ascii?Q?8ZXYDWKWwetFiqueK49idZkPz/PK2dBtJ6v8T24ByTqriwNY1z7aOuWOlju0?=
+ =?us-ascii?Q?xzpHrN3cwk3pgqxQGsYjM9bIK6Zu9GtbibRKJMyiMQpPUAmA5QnT/2fIQ2pl?=
+ =?us-ascii?Q?SHKyLLmttK4n1EQAxHXwbtMUf+ddZOZEmm74gatEMDOIiHRZk7Kt2GlCXPNp?=
+ =?us-ascii?Q?rkTG2PxnE7ecKxNTr9OzQpL4aQPoXvcUJgGBe8HhEGSLXrs107nsOPecfUwI?=
+ =?us-ascii?Q?fhawUJ7ueYJ7sX7ybj5jWACOwlW4WqF8t0HPCoMpEZ272TYqPB7Z5RiHWgvn?=
+ =?us-ascii?Q?BkDkKhD2BjGwGQRCJX8wVri5h1z1RLHhr6T8/a0aJ/UZ+UcC7W/7g/jNzoyp?=
+ =?us-ascii?Q?eWVTZn3CH1MKxEynrx6SmrJzru+JpISs+ZSWwQRjkaqqLlP+tNEorVbmXZMY?=
+ =?us-ascii?Q?1Rg1ybyRp77f5Io1JnoJBqEve3AkJnrvpSeoMNtTozBJ5kH595cBefrWOtnD?=
+ =?us-ascii?Q?vO60+W9tsvNK3ypZWZgq3OgMLPYPDxs0Etlsj9qGOqJXuEN20GS/6IXHKdkL?=
+ =?us-ascii?Q?XdNzQgZ1YZJq+v87MNCVo57w3SwMSCZX5cNKVpgD77uoSi37ASarhhGlwQlt?=
+ =?us-ascii?Q?Brrd7+03GDDqqz95+3bcA1evG9G8mUJVWKbTdYT3tJId3RMwyJai4HuWeADs?=
+ =?us-ascii?Q?vl7jyAWt5Lz46ItC1Z2ZzaGLBpUVyzVGbHAqHf+5M7X9ZP/zW4ftQVO0IzAp?=
+ =?us-ascii?Q?8ygaFikQNgnTqfFjLe8ardMaiAs6YRIa//h7mWA/a+jqf+R7ZB1ifckCE2Ve?=
+ =?us-ascii?Q?0GKdvAyR+yJw6kN+pGlr4PrCN87KzDO1S3xMZjFtWnxd2c7NQLIAuFV3TDZz?=
+ =?us-ascii?Q?tCK+8A9+wSky2FPTng5K2yZZr39rYKyYaF/Q1QhSwauLvFtQ4279h8rtE4zJ?=
+ =?us-ascii?Q?Yt0kLLvdX1OsYHt3nezg508ZTjFqAANuNlnWaYcjmI9sFchcI0ngubQLOvYf?=
+ =?us-ascii?Q?Uw9OGk2DFLP95dDFthcqrSjnL+Pkt0pDFIp+i4oMAW+YQ6g4HXw4By/wRf6r?=
+ =?us-ascii?Q?2Idb+9kMaFlP2CCRz7hDGr0Zw3oIzIaq6bUiqlZnq3CFpMEcbvP1un9A9ae8?=
+ =?us-ascii?Q?zxerJHvOEs6NmbBRxQIhyB42JSE6KPuJPvk6ZKmL2WB6xxmxwpGOrc1/4YV1?=
+ =?us-ascii?Q?wX4gexJ0RbTzIo5lttkeIYk0K6XlEEtiOClycGQGg6bsSg3gXe7yxXNxkTdP?=
+ =?us-ascii?Q?M64pO2xNEoCBC67eL/rwhkbYdC4bo72nRoxAO6ia5+7oFzcht3xgwjMBXakg?=
+ =?us-ascii?Q?NppfIDlzpqcv7FGZjzpgWx9CGKDAdTbaXcUj1Mt5poqlXbrWMzCdJzBCpUbn?=
+ =?us-ascii?Q?xqA1Ufz9BlA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WYTT9n4JDsZ1sQgWH+07u0I7dHR7XGJuqTKyMrRPzshGAygjRh6E1Kin+Ii5?=
+ =?us-ascii?Q?lvSvHZNMrFKiVkYY+1mOwGfUoCdBSeV7aySZ/Bu7Bnni9c+bcorVULaGT7Ur?=
+ =?us-ascii?Q?iRCd7SvBMWOoezr5N/EyyeX4bEoP4JliISZbu726NcKMFf0KsM+ldt7uZW3o?=
+ =?us-ascii?Q?8AbmyoNKSaOgU12nhgSmfSfr6Wz4PWHraG6bMcZLDsdq7nFN6baSxYfDeo+P?=
+ =?us-ascii?Q?qin00BOp8IQ2wuRj38a9PyVpupHQNdGi8jVuLyi9r+RWlUsWASqla9IUvJ2i?=
+ =?us-ascii?Q?bQqbm1hIjCrKYPOeRpD8DbntTYOH1ADTHWeK9d9X8bm+YUJ8gKHtriibvudv?=
+ =?us-ascii?Q?Mqe7nYxLvPs6dRP+XKT8mM5Ngp1dhWiAuWI7p4nzh9K7W8G5E8dWJNrvEfL/?=
+ =?us-ascii?Q?ZnIlAK4s3Cff+95olXB6/R8+xYYqrGjv6S50jf7EInCpjqrhzanYou4/ocHM?=
+ =?us-ascii?Q?1Xf8e2/TK7r5TxVIChjm5zD7pYdwDHNlq4cdOk79K3HtRGpwu7OYhprlTtTk?=
+ =?us-ascii?Q?swvxydqKBzgLjrJ5jXdMvttgiLZO0wP6ClpcHQSYnhqKZUGOV8tsM9zB64MR?=
+ =?us-ascii?Q?dyHOga8f0L6cN8+dS8zCTDZqKEhtFpi5FO7RI67QQXdt9sM+ute7tp8TUpcT?=
+ =?us-ascii?Q?+Eh00psu9kg1YEIsRnT24T5h45jV3ccg1M50SwMyC7e+jdfyRhUNpuWIVAdy?=
+ =?us-ascii?Q?8V3LtzK+WSUK6+MqYaya+sTmN44veBQ4GWLrpo6x+ZGIX970q2kh4IptiXtn?=
+ =?us-ascii?Q?HXq9pSok1xywkJJfvDyQbHAHzkYWfuYIb4njTy4r3Ph2cGbYI3Q0x+kvBAe4?=
+ =?us-ascii?Q?aOHR1bRBdkDfTWIKQK4NoqpsTXQGeHYNfD3HHcm/NocLXs7taOjEeE6a/OVF?=
+ =?us-ascii?Q?AySSIBYUseAvifNWSMVy40APm17KTAN1fjFIRmdMoctGmOnwg5I6YCvKtdDT?=
+ =?us-ascii?Q?WlKp84SW65hCjqjOR2wy7NjNOQtvwRYQ0UcAL3WCBbEQHGkcVh0SKEDbEuh/?=
+ =?us-ascii?Q?zOnkoSX3wOqXOZho3CvuutD1xNQJ8IvTC2Tss+i0VyTQHFxtS7lHj/N69Gdi?=
+ =?us-ascii?Q?ucXGNFL6dTz0A0ySuqcUM9DUCbb6yCJuIOHSeUw9WlVvYGocYNiBeOqoBW1o?=
+ =?us-ascii?Q?W2K6I5HMRb/DLTf1MJar/ZjHmAnNJkXEnjhnsBAL+a5ckocPlN493cCDAz7y?=
+ =?us-ascii?Q?IK6qScgzCYRtmvymWltO/6aeiytBMVoFYD6WiBs42EJfiHgtdZVgFjZxDBuY?=
+ =?us-ascii?Q?eR0fsXGadq+xgAv259vgLhuOe3m7bqaqNPeyraPBxEFDxyn8bsSm29Hes2nS?=
+ =?us-ascii?Q?kn4k/axUIxGZXhPBGQSy45PL784YdxyXfLS4iNUz7p8RwulSX+hfgnl5Id+b?=
+ =?us-ascii?Q?+2ZCSbRkigQsLY0hB3Eb4dansZcagMAoHp4ynMu8b6wZvE1qyPYNrPVTB7Zz?=
+ =?us-ascii?Q?ARN38OhaHQtiFaFenu0UHStGJXxnnfm1Tvc7Rb/2dd/Rwl8EPdMguz5TT2H8?=
+ =?us-ascii?Q?rVpMS0/ruN3ZtjPyo5J+WlTO4/aSktlsPwbuPVbld/rA12t8R3bW3qqWnZ0B?=
+ =?us-ascii?Q?M2wA+m2iCBp/ssOG7OAc6Si3wWIAsQ0+AwEqPaON?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3a673fb0-4114-45bc-e48e-08ddacef6866
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 16:04:00.9518
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /5suvA2nrvwqenwWH3gSto4WFl0verP9e06HFA0SXPau6v+sNgMdZtIMiUOrYXi0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7727
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_085110_567125_CAB2D381 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250616_090407_807512_39E0A4CF 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +167,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jun 14, 2025 at 12:14:49AM -0700, Nicolin Chen wrote:
+> @@ -671,7 +752,13 @@ static void tegra241_cmdqv_remove_vintf(struct tegra241_cmdqv *cmdqv, u16 idx)
+>  
+>  	dev_dbg(cmdqv->dev, "VINTF%u: deallocated\n", vintf->idx);
+>  	tegra241_cmdqv_deinit_vintf(cmdqv, idx);
+> -	kfree(vintf);
+> +	if (!vintf->hyp_own) {
+> +		mutex_destroy(&vintf->lvcmdq_mutex);
+> +		ida_destroy(&vintf->sids);
+> +	}
+> +	/* Guest-owned VINTF is free-ed with viommu by iommufd core */
+> +	if (vintf->hyp_own)
+> +		kfree(vintf);
 
-Le 16/06/2025 à 17:42, Conor Dooley a écrit :
-> On Mon, Jun 16, 2025 at 05:30:44PM +0200, Benjamin Gaignard wrote:
->> Le 16/06/2025 à 17:14, Conor Dooley a écrit :
->>> On Mon, Jun 16, 2025 at 04:55:50PM +0200, Benjamin Gaignard wrote:
->>>> Add a device tree binding for the Verisilicon (VSI) IOMMU. This IOMMU sits
->>>> in front of hardware encoder and decoder blocks on SoCs using Verisilicon IP,
->>>> such as the Rockchip RK3588.
->>>>
->>>> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
->>>> ---
->>>>    .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
->>>>    1 file changed, 71 insertions(+)
->>>>    create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
->>>> new file mode 100644
->>>> index 000000000000..acef855fc61d
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
->>>> @@ -0,0 +1,71 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
->>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>> +
->>>> +title: Verisilicon IOMMU
->>>> +
->>>> +maintainers:
->>>> +  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
->>>> +
->>>> +description: |+
->>>> +  A Versilicon iommu translates io virtual addresses to physical addresses for
->>>> +  its associated video decoder.
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    oneOf:
->>>> +      - items:
->>>> +          - const: verisilicon,iommu
->>> You're missing a soc-specific compatible at the very least here, but is
->>> there really no versioning on the IP at all? I'd be surprised if
->>> verisilicon only produced exactly one version of an iommu IP.
->> I only aware this version of the iommu for the moment.
-> "for the moment", yeah. Is there any information that could be used to
-> version this available?
+else ?
 
-The hardware block isn't documented in the TRM so I don't know if there is a version
-field or something like that.
 
->
->> Does adding verisilicon,rk3588-iommu sound good for you ?
-> It'd be "rockchip,rk3588-iommu", but sure.
+Otherwise looks OK to me
 
-"rockchip,rk3588-iommu" is already use for other MMUs in rk3588.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
+Jason
 
