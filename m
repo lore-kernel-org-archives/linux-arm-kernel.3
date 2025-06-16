@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB0DC71135
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903EEC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 08:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jeq5JI4lCT6ZEy/eg01EjyjLaJrHnzpFREfAtoOf8ec=; b=fREDesYT52wNlj/1FvNalHyUaz
-	7Lbu/X8F62Cm6uIbvrOdEx10GGWD8BqzwRkCkm6wOVGtFnTZFL+6OiqSU9vjjYITU4IU7tZYrMJ8J
-	rjQBJv5VErNYVzCox7XJiBxd5XfJxauSNAaPFj8acCnhxuvXUq6k48SWN1jhrgcdTzeP/85LKRDny
-	dQOMDzEI3hFsDwxs9j4+n4aiQFLivewBFv9sfTRdFW5sFXrRAaUOCRMDilROdq8fvYtezTKvgFcQN
-	Nk84L5Yh91ilmxhJbtzQ7IwUSmw6Wq9eFg8pBC1UFfDF/tODFM+Ff5YMfYsrtClvzs271xJaJM/eh
-	i778LDHg==;
+	bh=XnJtiwxef0NlsIA0iJK2TmfZ9WiB+Rmg7cFo4i5Ph/o=; b=pV37Spa6VPrwfv3mfKiCyxouRl
+	gHxcTHv7VU6aMITh/lhw+YpefKYiY2nxV2fqVHBht2ooe20Lorr2L/iyhidfOTAzdl4Zn4u+UcdES
+	iRzm5zLoyJZ41+TVDAWhd7PBT5E67mzVnR5o+cC0Y67ST6gntQF/vFgDi0yarqFq8BFs7uKgLwyIk
+	4iPBkRKWCmq23yFKHFLpDIjCmrNuMQuANWVJwQ/H2MndOnuPWTAV5Ysp+/RVBFNntIg0lSmh6c6Mc
+	JnXC3Se3sDPvuDiaTGmxAL/eL9QRDH98ncGRwwwRObypKW2955+b2WrRMnewYZSCHgeO8c8V3ZvvK
+	59eiHsxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR5Kw-00000003oSb-2liA;
-	Mon, 16 Jun 2025 08:37:02 +0000
+	id 1uR5N8-00000003oi0-1fdN;
+	Mon, 16 Jun 2025 08:39:18 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR4jh-00000003iuX-2Cfr
+	id 1uR4jh-00000003iug-3lyV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 07:58:34 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G7Xpxd029583;
+	Mon, 16 Jun 2025 07:58:35 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G6VltD029998;
 	Mon, 16 Jun 2025 09:58:27 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Jeq5JI4lCT6ZEy/eg01EjyjLaJrHnzpFREfAtoOf8ec=; b=zr82XDFIJemNGefZ
-	scZbCyNeYiLbmKJZFI+0cN+rkV3vdE7GyMh46T6kpU2FR920zOYl5NOnNF2AW6pl
-	iwSWlSTBv+4yGgwxBn1GeQp0z093MumsJqCPgVGoguEZQWsfKAid6ULOpFNcYZGo
-	5gjQ84JGzJ2u9Bw8gojcnv3ep3huhkl8fjVr6eqAegap482t/aaB/c5j7ycM3f2J
-	xbh/suHmB/7pojzHBc1Q1kLnuGMt81mMa0s6eDH1hjesIF2cgRVuGurH87+sLxve
-	Nj6YBx6802mwBlQHf5wE+Ks6toHo3Qci9vlU7Bxd+R6N0vBs/XesoSR850CMifxx
-	kOQ9IQ==
+	XnJtiwxef0NlsIA0iJK2TmfZ9WiB+Rmg7cFo4i5Ph/o=; b=tvb1wGB0lVwOwiRr
+	Z7bMY1fiIFQ9Ji1hnw5hcBxVKjKd4vYwI8tg3zEXrirjw3VSxkYVLtEqUgQaItk/
+	YIAkI3/DsnUCHDUNPCcIFom519v8Ne+uUdjfjSHXVr3cw2xEjyDvPQQkMwV25xWk
+	VvjqBe7k6Ojnt1BbaGygHYfsxhvzOQZet0mf5BTlFiDd58e5fyp94lQ5Qplyru5o
+	cCWqq5dmK2MXRkuOrcetm3ANimlt+TiVxJxTGJcxhk9711KGQvJ7jHqPlzvjjg9Y
+	0bNojv/bQW7aEkrYYQ0UJX7JWXC+qg/fUVZNZPweKXUVW6YS2xd8zjApRFqKWc7w
+	FiFVUg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4790e1yc80-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 479jn4m31q-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 16 Jun 2025 09:58:27 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2E91640046;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7076C40047;
 	Mon, 16 Jun 2025 09:57:12 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 95EBF4CB033;
-	Mon, 16 Jun 2025 09:56:22 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1754E4CB020;
+	Mon, 16 Jun 2025 09:56:24 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Jun
- 2025 09:56:22 +0200
+ 2025 09:56:23 +0200
 Received: from localhost (10.48.86.121) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Jun
- 2025 09:56:22 +0200
+ 2025 09:56:23 +0200
 From: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Mathieu Poirier
@@ -71,9 +71,9 @@ CC: <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <op-tee@lists.trustedfirmware.org>, <devicetree@vger.kernel.org>,
         Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Subject: [PATCH v18 4/6] dt-bindings: remoteproc: Add compatibility for TEE support
-Date: Mon, 16 Jun 2025 09:55:28 +0200
-Message-ID: <20250616075530.4106090-5-arnaud.pouliquen@foss.st.com>
+Subject: [PATCH v18 6/6] remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
+Date: Mon, 16 Jun 2025 09:55:30 +0200
+Message-ID: <20250616075530.4106090-7-arnaud.pouliquen@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250616075530.4106090-1-arnaud.pouliquen@foss.st.com>
 References: <20250616075530.4106090-1-arnaud.pouliquen@foss.st.com>
@@ -87,8 +87,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-16_03,2025-06-13_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_005833_842944_1C09D129 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20250616_005834_243962_67552153 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,132 +103,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "st,stm32mp1-m4-tee" compatible is utilized in a system configuration
-where the Cortex-M4 firmware is loaded by the Trusted Execution Environment
-(TEE).
-
-For instance, this compatible is used in both the Linux and OP-TEE device
-trees:
-- In OP-TEE, a node is defined in the device tree with the
-  "st,stm32mp1-m4-tee" compatible to support signed remoteproc firmware.
-  Based on DT properties, the OP-TEE remoteproc framework is initiated to
-  expose a trusted application service to authenticate and load the remote
-  processor firmware provided by the Linux remoteproc framework, as well
-  as to start and stop the remote processor.
-- In Linux, when the compatibility is set, the Cortex-M resets should not
-  be declared in the device tree. In such a configuration, the reset is
-  managed by the OP-TEE remoteproc driver and is no longer accessible from
-  the Linux kernel.
-
-Associated with this new compatible, add the "st,proc-id" property to
-identify the remote processor. This ID is used to define a unique ID,
-common between Linux, U-Boot, and OP-TEE, to identify a coprocessor.
-This ID will be used in requests to the OP-TEE remoteproc Trusted
-Application to specify the remote processor.
+The new TEE remoteproc driver is used to manage remote firmware in a
+secure, trusted context. The 'st,stm32mp1-m4-tee' compatibility is
+introduced to delegate the loading of the firmware to the trusted
+execution context. In such cases, the firmware should be signed and
+adhere to the image format defined by the TEE.
 
 Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/remoteproc/st,stm32-rproc.yaml   | 58 ++++++++++++++++---
- 1 file changed, 50 insertions(+), 8 deletions(-)
+ drivers/remoteproc/stm32_rproc.c | 57 ++++++++++++++++++++++++++++++--
+ 1 file changed, 54 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
-index 843679c557e7..58da07e536fc 100644
---- a/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
-@@ -16,7 +16,12 @@ maintainers:
+diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+index db82d4308376..a3613c337264 100644
+--- a/drivers/remoteproc/stm32_rproc.c
++++ b/drivers/remoteproc/stm32_rproc.c
+@@ -18,6 +18,7 @@
+ #include <linux/pm_wakeirq.h>
+ #include <linux/regmap.h>
+ #include <linux/remoteproc.h>
++#include <linux/remoteproc_tee.h>
+ #include <linux/reset.h>
+ #include <linux/slab.h>
+ #include <linux/workqueue.h>
+@@ -255,6 +256,19 @@ static int stm32_rproc_release(struct rproc *rproc)
+ 	return 0;
+ }
  
- properties:
-   compatible:
--    const: st,stm32mp1-m4
-+    enum:
-+      - st,stm32mp1-m4
-+      - st,stm32mp1-m4-tee
-+    description:
-+      Use "st,stm32mp1-m4" for the Cortex-M4 coprocessor management by non-secure context
-+      Use "st,stm32mp1-m4-tee" for the Cortex-M4 coprocessor management by secure context
- 
-   reg:
-     description:
-@@ -43,6 +48,10 @@ properties:
-           - description: The offset of the hold boot setting register
-           - description: The field mask of the hold boot
- 
-+  st,proc-id:
-+    description: remote processor identifier
-+    $ref: /schemas/types.yaml#/definitions/uint32
++static int stm32_rproc_tee_stop(struct rproc *rproc)
++{
++	int err;
 +
-   st,syscfg-tz:
-     deprecated: true
-     description:
-@@ -146,21 +155,43 @@ properties:
- required:
-   - compatible
-   - reg
--  - resets
- 
- allOf:
-   - if:
-       properties:
--        reset-names:
--          not:
--            contains:
--              const: hold_boot
-+        compatible:
-+          contains:
-+            const: st,stm32mp1-m4
-     then:
-+      if:
-+        properties:
-+          reset-names:
-+            not:
-+              contains:
-+                const: hold_boot
-+      then:
-+        required:
-+          - st,syscfg-holdboot
-+      else:
-+        properties:
-+          st,syscfg-holdboot: false
-+        required:
-+          - reset-names
-       required:
--        - st,syscfg-holdboot
--    else:
-+        - resets
++	stm32_rproc_request_shutdown(rproc);
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: st,stm32mp1-m4-tee
-+    then:
-       properties:
-         st,syscfg-holdboot: false
-+        reset-names: false
-+        resets: false
-+      required:
-+        - st,proc-id
++	err = rproc_tee_stop(rproc);
++	if (err)
++		return err;
++
++	return stm32_rproc_release(rproc);
++}
++
+ static int stm32_rproc_prepare(struct rproc *rproc)
+ {
+ 	struct device *dev = rproc->dev.parent;
+@@ -691,8 +705,20 @@ static const struct rproc_ops st_rproc_ops = {
+ 	.get_boot_addr	= rproc_elf_get_boot_addr,
+ };
  
- additionalProperties: false
++static const struct rproc_ops st_rproc_tee_ops = {
++	.prepare	= stm32_rproc_prepare,
++	.start		= rproc_tee_start,
++	.stop		= stm32_rproc_tee_stop,
++	.kick		= stm32_rproc_kick,
++	.load		= rproc_tee_load_fw,
++	.parse_fw	= rproc_tee_parse_fw,
++	.find_loaded_rsc_table = rproc_tee_find_loaded_rsc_table,
++	.release_fw	= rproc_tee_release_fw,
++};
++
+ static const struct of_device_id stm32_rproc_match[] = {
+ 	{ .compatible = "st,stm32mp1-m4" },
++	{ .compatible = "st,stm32mp1-m4-tee" },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, stm32_rproc_match);
+@@ -854,6 +880,7 @@ static int stm32_rproc_probe(struct platform_device *pdev)
+ 	const char *fw_name;
+ 	struct rproc *rproc;
+ 	unsigned int state;
++	u32 proc_id;
+ 	int ret;
  
-@@ -192,5 +223,16 @@ examples:
-       st,syscfg-rsc-tbl = <&tamp 0x144 0xFFFFFFFF>;
-       st,syscfg-m4-state = <&tamp 0x148 0xFFFFFFFF>;
-     };
-+  - |
-+    #include <dt-bindings/reset/stm32mp1-resets.h>
-+    m4@10000000 {
-+      compatible = "st,stm32mp1-m4-tee";
-+      reg = <0x10000000 0x40000>,
-+            <0x30000000 0x40000>,
-+            <0x38000000 0x10000>;
-+      st,proc-id = <0>;
-+      st,syscfg-rsc-tbl = <&tamp 0x144 0xFFFFFFFF>;
-+      st,syscfg-m4-state = <&tamp 0x148 0xFFFFFFFF>;
-+    };
+ 	ret = dma_coerce_mask_and_coherent(dev, DMA_BIT_MASK(32));
+@@ -865,9 +892,29 @@ static int stm32_rproc_probe(struct platform_device *pdev)
+ 	if (ret < 0 && ret != -EINVAL)
+ 		return ret;
  
- ...
+-	rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, fw_name, sizeof(*ddata));
+-	if (!rproc)
+-		return -ENOMEM;
++	if (of_device_is_compatible(np, "st,stm32mp1-m4-tee")) {
++		/*
++		 * Delegate the firmware management to the secure context.
++		 * The firmware loaded has to be signed.
++		 */
++		ret = of_property_read_u32(np, "st,proc-id", &proc_id);
++		if (ret) {
++			dev_err(dev, "failed to read st,rproc-id property\n");
++			return ret;
++		}
++
++		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_tee_ops, fw_name, sizeof(*ddata));
++		if (!rproc)
++			return -ENOMEM;
++
++		ret = rproc_tee_register(dev, rproc, proc_id);
++		if (ret)
++			return dev_err_probe(dev, ret,  "signed firmware not supported by TEE\n");
++	} else {
++		rproc = devm_rproc_alloc(dev, np->name, &st_rproc_ops, fw_name, sizeof(*ddata));
++		if (!rproc)
++			return -ENOMEM;
++	}
+ 
+ 	ddata = rproc->priv;
+ 
+@@ -919,6 +966,8 @@ static int stm32_rproc_probe(struct platform_device *pdev)
+ 		dev_pm_clear_wake_irq(dev);
+ 		device_init_wakeup(dev, false);
+ 	}
++	rproc_tee_unregister(dev, rproc);
++
+ 	return ret;
+ }
+ 
+@@ -939,6 +988,8 @@ static void stm32_rproc_remove(struct platform_device *pdev)
+ 		dev_pm_clear_wake_irq(dev);
+ 		device_init_wakeup(dev, false);
+ 	}
++
++	rproc_tee_unregister(dev, rproc);
+ }
+ 
+ static int stm32_rproc_suspend(struct device *dev)
 -- 
 2.25.1
 
