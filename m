@@ -4,73 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F326C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04032C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T6JZFjPqT1RzNfVV3TzFIG74pIbhA09vMpjakh/h3kM=; b=B94M+OEOqgAfjUbTWcIhG1htK4
-	HmFTrUys6j7aMxZJEJslIpDLJ5UaRo01h5mPckBAn9vFT7dZMpQK/4z8diEKUhr1m29fggL4K4AyU
-	LSr22mm2yMyiMmDuc+lqKPY5Y6rc/ra+B0vR6zTjB7uv97huHAlt2GFvmCqRBYfmuPyh3ZW2Qklhl
-	WK129dxFzWcMHTeXie+alcLrEm5uwiBACAbanzO79aD33jCNqSbWn5iXIBxoCZBrg5fuuYUZ97+uP
-	galbqBGK1IR5/Aj7Kf2vh7t06Lrf7T+6bPXbde5FzbMwzdERBgRiyquXUTQItuWKGSagYjUmSLU3z
-	g+A/gd1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zbYNG3njVAtH1dEsJCylZZ7mhn29KltrlG0PxCAQEX4=; b=qcVBkX2sG2iLzy3igVGfFl8J89
+	E7W9L7KUdfAx3eDD/Yy5Z6TGXIOlam9ckceHPGaXF9c7yL4GHZ5sfjlOwjl2TrXvkPQpVXqM3BJqA
+	xupAcvn3SxBaEpZWosiT+dKkJmhBcbfvbmappGEN3EpA+13fPLyFCDt0x3Y6wMMZoRZSCavsIsAui
+	KxRFXWZCc1KjZTHuiRpYrtTw/4VSb+rtKcYnRmp1cwFNrj8+U/DEIMnqw4kvxoMLMRw71rLTgVoLl
+	Ij7tjWVgc0xEVQd6TjFaxukp8G8ji5OEjgSMlofIjey2fSu022DMlR7l5bxhqe6t8yntTyrSW28nd
+	uHRb3evg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR87p-00000004Ddj-1lX0;
-	Mon, 16 Jun 2025 11:35:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uR89z-00000004DuV-2xWX;
+	Mon, 16 Jun 2025 11:37:55 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR768-000000044W7-3Jro
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 10:29:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 465D44ACA5;
-	Mon, 16 Jun 2025 10:29:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C15CC4CEEA;
-	Mon, 16 Jun 2025 10:29:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750069792;
-	bh=qCjn4b3dsxaZ0m4CPz/s3LvG4e9wRnwEuVYtfzCD6X0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UjMUBDw+/Ua2rbyhJ54OcZlayTfHW5nD/Vam8begoOIVspIuvQJ/613VosV+A9Tac
-	 WmtrssHkU1lDpRU3M3Y/ORM5fAObZ+0g6Pz/dIBH59L9G8PGAqC4rCMkxx4Ku+BA5J
-	 EtPvpkDnhEWzRcIaqrrW503SyWf+84eLrIHP6yvVbFGJZp9udfRNSX3jOSmJm7sy04
-	 K4V4c1p6LxNnI0leyQqrZqPi4Z6sZ0MnrrkPZb+i0vJA2noWvfayvLK+Haa8sAwSHI
-	 impnIP+dCQkSbCOIg0NuPpa9DtiCJDIMVtc6Us32PMfVhs9fVwJfpJ93dBZe9Ne/pB
-	 gI60azjGBU7aA==
-Date: Mon, 16 Jun 2025 11:29:45 +0100
-From: Will Deacon <will@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Nick Chan <towinchenmi@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
-	asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH RESEND v7 00/21] drivers/perf: apple_m1: Add Apple
- A7-A11, T2 SoC support
-Message-ID: <20250616102945.GA17431@willie-the-truck>
-References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
- <CAP-5=fXSwgxMc+uh=PBAFh4Zm96tL5RDyKPOJ8Q40O4s=EaArA@mail.gmail.com>
+	id 1uR78z-000000044yP-3APF;
+	Mon, 16 Jun 2025 10:32:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1750069959; x=1750674759; i=frank-w@public-files.de;
+	bh=zbYNG3njVAtH1dEsJCylZZ7mhn29KltrlG0PxCAQEX4=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:In-Reply-To:References:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=hZEMnAZW/7mUOevdHKb5DW58hT1pv0jATDArPLJLr/bMpiQlhBtjWGcggVguBZIC
+	 8bKreWfebe4JKxHucnkEJoHb+Y+f6VZhokMOi9bBfdoqkArsxnUOBoepBMfhBMAIN
+	 EG0cAY68KIUipno2njp79/5AK70PJR5dirqfuaRVQ9sMMgiv1NMTtbjstL54iSyDE
+	 uxJZabGCkQFe/wgkELZRA/iN4TYTUskglFymhOXcifousmL3UUH1QPR0h0pnEd6EF
+	 jzcK7WaWDOv0syCGlM9sCAMY3moi4+LKX0SSA8rU/3TH4ie8gZO2NEMi1/juKlcLy
+	 KDbTwkE+LB4dExakkg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [100.67.37.206] ([100.67.37.206]) by
+ trinity-msg-rest-gmx-gmx-live-b647dc579-4qvpp (via HTTP); Mon, 16 Jun 2025
+ 10:32:39 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fXSwgxMc+uh=PBAFh4Zm96tL5RDyKPOJ8Q40O4s=EaArA@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Message-ID: <trinity-137d83ca-9fe9-4bc3-8482-ddaac9077b0d-1750069959310@trinity-msg-rest-gmx-gmx-live-b647dc579-4qvpp>
+From: Frank Wunderlich <frank-w@public-files.de>
+To: robh@kernel.org, krzk+dt@kernel.org, lorenzo@kernel.org
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ angelogioacchino.delregno@collabora.com, linux@fw-web.de,
+ frank-w@public-files.de
+Subject: Aw: [PATCH v4 01/13] dt-bindings: net: mediatek,net: update for
+ mt7988
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 16 Jun 2025 10:32:39 +0000
+In-Reply-To: <20250616095828.160900-2-linux@fw-web.de>
+References: <20250616095828.160900-1-linux@fw-web.de>
+ <20250616095828.160900-2-linux@fw-web.de>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:+PsAnRdYyRCcfuZ2aEIpeS3SraFNWACiWUPVZYdvuwi0fRlgjDTUG7NvRhmFPpU/PlGQH
+ dNyNcklHMTkuXYr8XJh8tnSgdBzJJxsP97ipbekVAmzMHwLit/DoXqHvswlgmM8vY68NDpsdRFnz
+ JZ43nEv+mjbp9r8pzElylUKBIayKmn7DDvtZFUEkBUUiOpmGzVc+xz6i6dCatSZhG8ngMqhptyCv
+ PwzVg8qBXpdER0VlWJGyLWCd32Mx5/UN0VZD7/oMg/Ds52L9LDgEzwQRPYYu/dQJ9Tdzl9qoZCl4
+ JuDd5aCHCZjc8rdsPA5ReRt77vgnj1w9JUjnQG9WDxxyjrrEpLDoZvti9XhWeRPwHw=
+UI-OutboundReport: notjunk:1;M01:P0:tTrr5nZYwHw=;IXSYPgh53TyZcIkZciMzpWDlETX
+ XDbgrl4F6/GNdUsFHTye20btGWMo6SM9EryMNtUkrrLKhc8ckOYGNvSLFQ7FesII39XlSljpi
+ WJAYo5R2XHU+oA0YHO5PvQrv9TawTYBKL2ujmkfG3r7TTL/YbD0lGxNEEamC+EIW7wMvEJzmh
+ LEr76FSgO38RRDE+7iD9uWfGCLEd9zAPH3dLTEAVguc+Yf00xuYUKf4kmBOdczH9G/FrYrsUU
+ MkX+Cy5hT3C8B5z6yDCrfG87zsMe2XsJ9y5c+UNnW0RERqCYO2m7eBFsb7oSOmeyjdixZ9AAN
+ F2GgL/cEcVWkWLpoqq7t2iBuI2QBz7yMx19N2Wwx73Q2XIO6C4JON7H5uvwEwFagNmaNqvqvc
+ Yp21RUDNaatstw5CEKbJaNMBcm7lLSf4yDOJR50LzD2mMLMiWMIbVIHVksW+NDFoUUUQdO7eI
+ bZStCdpeJXuS/n7ZwOkXzvw46R5v39Ibj7k9FWCMa1UWeHUn6/dcyZ8Gni9cRGsNC3LfYv9RJ
+ lLzGCYaDb7o1HNkaXvtdvhvUUStUyfCvlb1AQ4q7Cvq9XwdzIax/ooqd0RCIIsPaGF7pASbsw
+ pMf0ROo/AP+HizyE6ajdoWu1I8l3jwG8G3XDCa65gu7ghiIIhA0PAe+Qj9JD10YleNAZ0QuWJ
+ C5+yc7wBHXoJCiqFfX6BxenJyZMn0HrnvB1wWRVfLHDAcNmrTzual2xWED0NIm9FhAHh/4lkU
+ hZXOk79/gkvbGZU/zVhBuvK2kRFFhX9XS34GhNMICC2U+tve4uVzYr3vzHdU83yNhMvYqK2rE
+ BxHTxhFEi/1QjMuZLJptpjDAgb4ievjZ7dDGG2vIH04cY2S58aXMiDL5xzc4ZI22dqGfvEl3Q
+ Hl5Ua6cpuuFpQnzvzv/GKKNPPdMUzB2GO+KH+ddzQ2tjR4CTDl+tmcuRxsfbAod325xxvrVLt
+ J7JNu2Cw200QLNF52/DHFqilC65wjh/aQDWwlHzim71g6Ly7YjW8atZLSpCxX9rotHTyKwwKY
+ 4scDK+WOdoN5dVmDzG+W7U6VCZUZDNnt3k34JpAmbM3PKobtyhkICId906Uxs1lXjH8V9JAWn
+ YGE3853qslQlXYH0TRmmmR7joK3780oLCeMIPrxhw0Z+QgBy4yoaLaZ/19jPxlhv3CgCEp47Z
+ dH3Qr07JfEwaFiGGkcEfBP/tMhnB0RrN5cHGQbgg2opkFvVPjUBELg8DgdWk6H3xTIJOdRAvP
+ OTH5qndN+cs5U8LYWVIU3DG8oTkx7ggcjYnLoVTULFDY1kEPARmD9Lhotone+AKyOXCf7tCck
+ LgBqp1oOQjZrTVh46aqAnrVjCIYVymHy2yemOegnOseDqmPZm7b6cDvSxIqxfexBMX5uzIH3Z
+ +hgrsT4dUwRpkb9W6z6b42rgIoA0PYiwVpqGAwgZcMJZeGWHE1vxEwgQvr2MPcn5Gfww5+rjX
+ EkdR0QP4R5xcQo+pEH+EgS0myRIPtv+6K+JpYyuLqjX1NDEusazdCYFYXclE6d57/U9W/BcqN
+ lRr4eRJB1c29IQe23TWMmSWDAuTmDoHrNcP8+XMusqjbL8luw2AieIcDZgqN8AsMPlU/JiRVX
+ prHIms1CFVdiazjuKjtyz3HKLvkulalZz6i0fOm4EDaWzVOXFPUnYC9jpUwPRwe1uvaZ+VE9n
+ gT54Kt2zFO40brGggh54ksmGPbq1HSmlABXcSw8KQgHVs9K0ivuo7rEeBBv7920RoBd0pYDpl
+ QXK6KF7dwQAeWTX1qgmhuWAACivs1wOQerGYw7kyrCH5WSqEPRvbulxCJ4z25TrxpW71lvmpq
+ PLsULW6pQAX11b6SznSbDLp4ezlu2R8bIu+yyKaiYElJc6vvSchH83YuQSbAGWj+fvtIMty9D
+ 81gAbXJbg1CNKPmCuNvV7TH3Y5BSVj3XfF7JA3h0/s63FIj8kFBYNWOd9DFyk7IRPcaJKKO1e
+ Wx7/aK+jLZg7Pc0CKJDT2f1CSpqY0b9SdhVzhCM3XLu3ixvRZb9Xao3godpW7Pka8xieOj19g
+ yXhx3HLFEucmxCjxIZ3LKi+q2AIsAn8kVlmTF5pCT8C/+KAZ38+slLdnHIzLG4zg92GyUWhy7
+ PrfRvefItFFy3gGAmoF91DB2341jXmjpoh8rALzgQdbrKG9GxvedTx2Yq6N7FxTIRKfq0SKHE
+ ZNOkVGlo5h27SjoYFF1ivOfkIprUbsPe5oSzpFu4N/tmyf1TFapx9IuVmdtmYDJutKiae+BC/
+ sGpWYVbUVPe3JIMWj0l7zpgIzl7Hy/1yBXY0ixVnTyT2tsLzxqOllX64pugVGNtzg9xc31dKS
+ eFm+Pu9dBVbL5eJB8XBD4uSswKNe+BJ0Tl9enATCRuUwCieobiCdDctD5exQymDCXVZ5MVOf5
+ zsOlq9FtgfZfWC6aw/LV6Ldy94GNIuWgByafb59kDBdA/Ncg+zHtNsbX5p5+zlFl8+S+yOSGK
+ EEy0F+MMW7kkg0tCdnLmvbHiKQ8b2bwk8OcMoZ0eZqZVfMVNA13y17eXpswUOHH/UFo8wHW4M
+ qgcnbIMp7TTTEt2Gzhf4iGl7g+lgzBIz1gVORKmEiozwwwrKUZ9WBEFHWL/4jZkiKt6nW8akc
+ iJeIIMDCGjtGjRqjrOJeJYEM+A3P6whZWVfPbQMkVXhy08surX3fEDkZWDDoZkSM9ljRola/C
+ s2fu3N3sRGVZNK57y/1Rw6ZcsiGdtzYOO8SYElrRrb1FpmlLWsnwunTyxhCnMtSMSZF9Uhfkp
+ AiPGfgye32jiPhUpDH8dzQrKCHOtaK/aJq1gCnyn7Is+h0wGttX2efnqNcGjVY4qdEEape9X4
+ nlSOZp
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_032952_848639_B4A6182E 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20250616_033250_090085_7D08095C 
+X-CRM114-Status: UNSURE (   5.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,36 +126,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 02:36:18AM -0700, Ian Rogers wrote:
-> On Sun, Jun 15, 2025 at 6:32 PM Nick Chan <towinchenmi@gmail.com> wrote:
-> >
-> > This series adds support for the CPU PMU in the older Apple A7-A11, T2
-> > SoCs. These PMUs may have a different event layout, less counters, or
-> > deliver their interrupts via IRQ instead of a FIQ. Since some of those
-> > older SoCs support 32-bit EL0, counting for 32-bit EL0 also need to
-> > be enabled by the driver where applicable.
-> >
-> > Patch 1 adds the DT bindings.
-> > Patch 2-7 prepares the driver to allow adding support for those
-> > older SoCs.
-> > Patch 8-12 adds support for the older SoCs.
-> > Patch 13-21 are the DT changes.
-> >
-> > Signed-off-by: Nick Chan <towinchenmi@gmail.com>
-> 
-> Hi Nick,
-> 
-> This is substantial work and it looks good to me. Do you know why
-> there's been little progress on landing these patches? Buggy Apple ARM
-> PMU support in the kernel has led to reworking the perf tool. It seems
-> best that we can have the best drivers possible.
+Hi Rob, Krzysztof and Lorenzo,
 
-You reworked the perf tool to support these things? Why? These changes
-are targetting chips in old iPhones afaict (as opposed to "Apple Silicon").
-I think that (a) most people don't particularly care about them and (b)
-they're not fully supported _anyway_ because of crazy stuff like [1].
+I got message from your mailserver, that my patch-mails are detected as Sp=
+am and blocked (to=20
+other address than i used - seems like forwarding from kernel.org to gmail=
+.com). I want to make
+sure, you get it...
 
-Will
+I see it in dt-bindings patchwork, so replacing the content with a link.
 
-[1] https://lore.kernel.org/r/20240909091425.16258-1-towinchenmi@gmail.com
+https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250616095=
+828.160900-2-linux@fw-web.de/
+
+only kept angelo, me and ML in this response to not spam people too much.
+
+regards Frank
 
