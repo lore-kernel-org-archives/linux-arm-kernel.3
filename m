@@ -4,163 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FABC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 09:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21D77C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 10:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lY4tRoNk/eY68a+Ymm8sqTpoYioW7Yn2xvhNPhPrCAE=; b=wkILpraeDqXiAPYZgdJ0XsKXpo
-	zUOTIKjoQejUlV3Vh62DGXPZDJobDdwbjqXEf9tCaXS8H7K6XggK0dofbt7Oz16shJiqrLb4tZ92g
-	oLQl02fx2HyCBNgB6Q67U3Yqjbvzu+uFZQU6L7R1+mnPrtl8OpeS2UXuSr9GB6w7Km1ZMxwrjSDai
-	AUqBGT3Pwrwb1dTPFX0+J3a8eGHySatQz0k1oHYg6GotNV/wXabpRRAMgPE76D4m6Q6sE6o3bwOJc
-	BYGm/T0UORV3/T3zoI1jlNVON1E3Y3Jz9Lw2EN+TgIdUc/EEHXFjX9Yc/1HJOacgT/7L1ga4Rm3/X
-	drriom4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A8c3iT0KfddidMrwAbOAq013mcyEvxOJGy/NzlCDttM=; b=eJpa8cmpIS0ztbJqG8JuvHwSH3
+	07TkD7JnrSMebqa1oLIQL72xQFNp6sJ6hQRpKWQRi67osUiP4bs1dXY9Rn2seJDHKjUX1zmNxyLNu
+	hgbHxJplB7zeCcsvvGAOwpxQRjUylsYjQtLiCra/z0u4LD+nHfM74DdGs5/C4I4j4AOe/7NZ9nNfL
+	DuC7JznUWSCoM403VG5HJmCwkX3yZxOqsrTYDllCVL/B+ucPKI5KV+cAsDB8bs+44cEmzrOQkmORx
+	Q7/cGGdvp+NSi2b9yyQYb604mU/UBinm8/P9zOdBFLE04RuQkmkoCMGFU4hyuKUUKBDyrfNuX6WRm
+	hEkr8tCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6bm-00000003znh-110u;
-	Mon, 16 Jun 2025 09:58:30 +0000
-Received: from mx0b-009a6c02.pphosted.com ([148.163.141.152])
+	id 1uR6dy-000000040fd-2w3H;
+	Mon, 16 Jun 2025 10:00:46 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR5wc-00000003tda-1der
+	id 1uR63V-00000003uIY-10Mc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 09:15:59 +0000
-Received: from pps.filterd (m0462408.ppops.net [127.0.0.1])
-	by mx0b-009a6c02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55FNA2vA029271;
-	Mon, 16 Jun 2025 17:15:07 +0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=20250420; bh=lY4tRoNk/eY68a+Ymm8sqTp
-	oYioW7Yn2xvhNPhPrCAE=; b=DONpaDgSQD1m5qHUhPNBheu76bNf9FvLsj8rF9m
-	FuDrshgt3aJBXOt53Wsq62CJLlmtFUCHNk3C9Z34jvBWRlgcCIUBOz++7QKQbkpO
-	dkTwDsqtUlqXAvVW4JwbOXh+UbyOkbnwUIh/L5EKFyNxJtO0k37vBWy1087h85T4
-	Lwp3FJoRCFNO3J8wwJHl6Q1nS4GsBUAuLT29PcSZQOMYEyuWkLfOR2fwLgI1eItJ
-	4UMV8B8PDSyJeTKAJcy8GV08UqOinrJToAQOM+QwcfSyAlkBopmZ1ZnjfGTTSFVF
-	o7A52lrUY5gMx8sUJwJrN5XnDeMHdA7yE7spPT/SbfYI3Zg==
-Received: from tydpr03cu002.outbound.protection.outlook.com (mail-japaneastazon11013045.outbound.protection.outlook.com [52.101.127.45])
-	by mx0b-009a6c02.pphosted.com (PPS) with ESMTPS id 479c8p9cwv-1
+	Mon, 16 Jun 2025 09:23:06 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G9J2ua011700;
+	Mon, 16 Jun 2025 11:22:53 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	A8c3iT0KfddidMrwAbOAq013mcyEvxOJGy/NzlCDttM=; b=7X66uCXHb0M4QGLu
+	wltqQjf+JVMDnOUS8ilmUsafq/Tdf3F78ouR6785034W9SZ96zdVSmmqwpWcl4L2
+	YPZ9C5Bx+RUVvJtwuH5Q9AIIXF0rSRKnhkSs/7TMQaczAYvQ8gZ/Am2Lm5cK/f/x
+	2B2QXf3tucWPQH3L4fs7Bsj3aKY3RFAh0gtjQ2gwAUnsyGKxgapIinkAfdothPFz
+	KudjAy+wWA7cYgexZpsx4sR1GeZFUKcFocMs0apzw049607b9VXJXq3wUJGPOctP
+	Sf16eSUJj3p/fuJa+32gX9U6MX2SVqjrYjHlTUhxWXWFcUS8uZ8paEqa+Yu1JM7D
+	lN9Frw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 479m1nvay3-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Jun 2025 17:15:06 +0800 (WST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YUyaKnP9zfwPIL6ZO4HFOIOQd5pTPW37etg2m77GBaw6vuVK1UD1g/tnQyujxCC2Kc9QXsfR8gYkohumks4rE4ycoWQ4MFZkpB0lwk9wsv8w8HPRMAE2KzlGUhPJytzqIh0ji0Xoqq/GErzo+Rwy6CLdlPSG/eJs6sswiiuC0IowioiGmZ4H7FA9fPTC8lqcs3oRTF3qk0JGM8+tA7dXuNAhlvi/4FycrFO6iFjijhKU/crhM5QO8aXm/GLkZka52eJtMWNY66C7Q4JqZXDxMf0E707ePO8uJ+gl6gKYXDrL/uDKmpqL1M1XrAfml5j4XMYTtk42fvRht89cWBweXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lY4tRoNk/eY68a+Ymm8sqTpoYioW7Yn2xvhNPhPrCAE=;
- b=TY6WIItIs1BrnXtoJdW6OBLGiND4GLJGgFvq5kxFBjqvqHH5TDj1NzeODnxBO1wVQdKcvpoNkMuH8HtRo7lR/e5x643qJ0n8w2tSn4A7OV3GgHR7amZMeAcxlai7iI7QYxRYzEMONL9v9N69h8dnHkkuEMS2e7+Vn7m4QjK06xpBRBxcunGtWjBxVXgIJaj1bSHg2XHzc7cDR00F7U5/On6KacuOPY+oHhR8ENeDiJwTtY9bvM2Gtravuw9S3McswgSiTNdxKtUFDra2g1yKzfDYR0goTA5Pl8Id34VgBO5wNXVX1zuYmS1g3pgcIipdf+RNTM9I1Q3jQ4N7ihyBbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lY4tRoNk/eY68a+Ymm8sqTpoYioW7Yn2xvhNPhPrCAE=;
- b=Dc3SFebG8wdfTNVF3wHdeaPB0jiZzHuVpTeq6rvotwmKw9kWyI63UVyeVqLMd49i6IwOknY4KDRqEm1DaHu4gG2f/KWABF45GZCkfq3jMerImSHLuZT6E6RJSTTjVIPwVaMptw3EsIPzsp6YvQmzfiNY95O1RGgD/GVoQpZU8bM90ZUE1cKi/crAb3W94i7AMG5JvlV5j28eV05vr3Gqh5huleLcrP4zmxI3grgY9oHVU3spvTEKsQQDCN8OEmes4ApHnoF36F4BO4MFPtVn51sNMXq0d4Y1hgJeCxc9u3QWFM5tZC/PW7U7ySQOcGmSupJfj+aoAArjcDXTLsqAwQ==
-Received: from TYCP286CA0110.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:29c::17)
- by TYZPR04MB7728.apcprd04.prod.outlook.com (2603:1096:405:77::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Mon, 16 Jun
- 2025 09:15:00 +0000
-Received: from TY2PEPF0000AB8A.apcprd03.prod.outlook.com
- (2603:1096:400:29c:cafe::48) by TYCP286CA0110.outlook.office365.com
- (2603:1096:400:29c::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.29 via Frontend Transport; Mon,
- 16 Jun 2025 09:14:59 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
- smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
-Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
- designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
- client-ip=211.20.1.79; helo=localhost.localdomain;
-Received: from localhost.localdomain (211.20.1.79) by
- TY2PEPF0000AB8A.mail.protection.outlook.com (10.167.253.8) with Microsoft
- SMTP Server id 15.20.8835.15 via Frontend Transport; Mon, 16 Jun 2025
- 09:14:58 +0000
-From: Marshall Zhan <Marshall_Zhan@wiwynn.com>
-To: patrick@stwcx.xyz, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Marshall Zhan <marshall_zhan@wiwynn.com>,
-        Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v3] arm: dts: aspeed: yosemite4: add gpio name for uart mux sel
-Date: Mon, 16 Jun 2025 17:14:55 +0800
-Message-Id: <20250616091456.360388-1-Marshall_Zhan@wiwynn.com>
-X-Mailer: git-send-email 2.25.1
+	Mon, 16 Jun 2025 11:22:52 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F0BEC40049;
+	Mon, 16 Jun 2025 11:21:33 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8A98A6CEC9E;
+	Mon, 16 Jun 2025 11:21:10 +0200 (CEST)
+Received: from localhost (10.252.14.42) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 16 Jun
+ 2025 11:21:09 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Mon, 16 Jun 2025 11:21:05 +0200
+Subject: [PATCH 4/6] spi: stm32: use STM32 DMA with STM32 MDMA to enhance
+ DDR use
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB8A:EE_|TYZPR04MB7728:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 884a3514-4189-4bb7-ffc4-08ddacb644b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?avmVhPjBM41LPKqd1SB27mc25gGMVZUObjijWsp62f6k3f0CQHKYtk7X589f?=
- =?us-ascii?Q?ONQn6YeDu03h7D2lzvRewOCAPW7GUnK2Ok3CcKBZj82UkBJei0IdFvA+tMr5?=
- =?us-ascii?Q?c6fM6AzQMFyA9WADGOHx7yadSHbQXLdNFve8wdCVua6NI1XGsH/mDY8jvmRH?=
- =?us-ascii?Q?HnPQ6aRceo4+1c0jp5PEiVP2EWppJ9APX9roPdDgxrSeSubvp3VHUKo9fQUj?=
- =?us-ascii?Q?wgEYGBDLAWEmpi2U6Wylga1/xyZZPzrpqmiKWPZB0x6bVM/zekjBBHpD53d9?=
- =?us-ascii?Q?nQfdfEtyQhh/HxozN6EouwDrTMYDDC+hCiiNwjs1EWL7zoW8N3ehZTPNzDdJ?=
- =?us-ascii?Q?Emg+dh3RfD6WtPYoaJRUV2CFoK8zKwNA+EynwPDE2o4SPeeE2XzFj5FjMJpQ?=
- =?us-ascii?Q?M+ATo1cBNvAK+wyVBrzw/RgNMIwJ5FapsKWl16uyP6IQIsePpJw5oac7+Rdr?=
- =?us-ascii?Q?a3uB7KEN3Udlb3w7LAI5UX0BwtdNMKBfmtOLov0ePr8bpRglyAf7U50Dmb9d?=
- =?us-ascii?Q?KEw/uChMzlx9e2PJBuXzBrkiMuzjOAuOtEsZWgis+kgrLIGx9cUh3iUMsgfQ?=
- =?us-ascii?Q?rqlWSD1hcHBj3JviC7aqTmeLJm8TuHc3W7s1vAZUlP7pWMdAxYYviGCrVy5h?=
- =?us-ascii?Q?3/QtahSTFI6Wn64J3wLUZc/2ymScgZK+BQUPQiHkGeo8J1jpWWNXtQGbEgVr?=
- =?us-ascii?Q?e+AgNIuxa/n925ltqfEH2QobmCnHAVGGKhm9hX77Bug/pK641DTRrISJqiHt?=
- =?us-ascii?Q?SQLpKBZkIELGdtE6crStmEZWEOXSJBiV0df4mWS5zU3/QC79qU+Yn8cE9raj?=
- =?us-ascii?Q?1ZGp3urJjtFlYC6mFgX1XPHo1pmR+eQlOwhqOR56piWxChgqjlcZRU5LnmIv?=
- =?us-ascii?Q?0i2/YXJNI4SIygMJMTAuTeeDbI1gOJCJxW70rzo01zjAgZePzZNmjloiI7Hf?=
- =?us-ascii?Q?EfTjrBmoXRyoogsAIhYMatokC2h+hd3xzP3c1jGKpTGdeVec9fdvR54k5tz+?=
- =?us-ascii?Q?TJlO7NUzsWyTPTiR0YRgQot4xUOVQls28rONLZoAOlm4UJPCpeIEjj9CL24q?=
- =?us-ascii?Q?wNCoq1Iv9FxcrEIs+9M/17gs5nT8eDv2mqabFMarzfkT5Y3tWweHxKQ1Fjgr?=
- =?us-ascii?Q?336WF08mVyNt4JqbTvmJHC/4yQh4aTOHmohxO5+8grw2dPLOZQQ2LiTJM6pz?=
- =?us-ascii?Q?RHN4hV7yBHtR0+lzYdd9DyfhmetvliaFHLJGq3LDXMuUMKjcMRxQLOFxeH1q?=
- =?us-ascii?Q?kal3K/d1y/CIGsnZ3DwDAWV1KRBZ5qXFCLU+UGnocZa3apmgv+2bm7fZCSWC?=
- =?us-ascii?Q?s3/Y49KDh/IZr0WCQoSG5dvyePahtuopP/WRlhaZPfF0UpbPWy/HZr/H4vXH?=
- =?us-ascii?Q?iRyAKrbaVRof6BppokBfeXG1OC17ZWkRK0oJOwUP7b3xZNmV0icUD4mzjuV6?=
- =?us-ascii?Q?pmfqOhy0jO164g3MVN74+gDbjuGbCQfKmESkZ1K7tIiLP7F1Z/kzEhJa3vmH?=
- =?us-ascii?Q?1N4Yg5LslkkFEdQaKyDgnmJsyZxx/GDzj5Ap?=
-X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: II/jeTvi59zmuYu5XCgvoogfLxb7nEFet4ShZA7i98XLWnsQ+IWtcT5mVyLjEiBoigWmtrAzgiQJi+oGwRXQ7jk8OqqHy4hYhmrt+vOIWYmXh37e2B6lvs5bi8eEQlFJfJa/iqUo9l8C74ZKTZv3/pknFoC7mcwtEJ/DY83yVFEmSx/S/3NJbcrH/uWtk0MJQzApLFaYTzpVhU0zHKDDaQboYv7xHQ8RLX/YCCVQApeOSlDEPCBVq6nsHz/KBhHuYdgzsurjwg4OkSXh6ii6BuXBTABrMyJn6VA584+tPKK755gu2mDGRS/wh9Ihyq1oNrcXeVnLwpxn+6JQXb+k1MPlwRMRS1z1bRu7REvwWakhR1eugHh07Tft/oM2GyBOSUOAKMDoenLhAv17Bl/J/W4vuFfSd4wNh9tDsK3YDcxAhnLe3BEBvsThJXxa60GlgjQj+SOl/CxB4wO/S8YypGy5dPqOwjen6gQ+TBBDKwcrr45jwNL8rD2gf0e7eop0H3gGYJCIh7qd0dY1melW5H2DeX+8OQJ+4E8NX93QP7nBAJcaf2qKVjOdLifx4UDcNdZgJjJRa1B4QkCrh191ssyxZWHKo0e38L9VV5H7T4O7UBRXBtUNC1L27Ee4ZDYO
-X-OriginatorOrg: wiwynn.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 09:14:58.8105
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 884a3514-4189-4bb7-ffc4-08ddacb644b1
-X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB8A.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR04MB7728
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDA2MCBTYWx0ZWRfX5TBu+/3lWU7z RLatCViGaRzuRIxQuRNsBJSDIwXxmQ9Q2hLnSxlg7eeZl3I8Y7dc8sljljGYzuWCKHx/P+NinFJ zErlKsnlxsRBPJpEbF95KFypomzd1ZZU+LZOesbcs5Cfels9hFRXGsLBF1hehdhXggUC5HduXRD
- RtpLocOEtB5TBUfRh2P/UQSTU8Ws8lSVlX+AnXLbO0kAPdvKqGMfv9Ho8uV8xN0bZ+4UtfgspsR 1fZoXWTsPMJ0rAcUPAKYh27A5lIGvWbTIIflZOcvPXVxs4s6nLpTy20zOPUXTp3jiz158vWFRqY wR8QlQESOpo9IJOa3QyitCjt1fTDa6OGbPT91CEx8Xj3tX/raGweFXPoGMKxoSOcmSCs6Qq7pgo
- y6pSVZio8V1cULbu7AQUtfkAlNQdwY/RRFsHLpfLJSAXn8us50ejdv4m0HlK+nVodFvwj4wb
-X-Proofpoint-GUID: ib88x8QJK4XdhIr5Q6t9LP24inT_YULf
-X-Proofpoint-ORIG-GUID: ib88x8QJK4XdhIr5Q6t9LP24inT_YULf
-X-Authority-Analysis: v=2.4 cv=f5tIBPyM c=1 sm=1 tr=0 ts=684fe09a cx=c_pps a=MMwkVYOn1OVg/tRQMohirg==:117 a=6rDDh2uRNVCE5HFPCIqeAA==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=6IFa9wvqVegA:10
- a=4AL28aEVfeMA:10 a=cPYzWk29AAAA:8 a=wO5IlNbkM71fJ84Eo3gA:9 a=oSR2DF9YFqZEN4IGatwP:22
+Message-ID: <20250616-spi-upstream-v1-4-7e8593f3f75d@foss.st.com>
+References: <20250616-spi-upstream-v1-0-7e8593f3f75d@foss.st.com>
+In-Reply-To: <20250616-spi-upstream-v1-0-7e8593f3f75d@foss.st.com>
+To: Alain Volmat <alain.volmat@foss.st.com>, Mark Brown <broonie@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Valentin Caron <valentin.caron@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Erwan Leray <erwan.leray@foss.st.com>,
+        Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+        Sumit Semwal
+	<sumit.semwal@linaro.org>,
+        =?utf-8?q?Christian_K=C3=B6nig?=
+	<christian.koenig@amd.com>
+CC: <linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-media@vger.kernel.org>,
+        <dri-devel@lists.freedesktop.org>, <linaro-mm-sig@lists.linaro.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-c25d1
+X-Originating-IP: [10.252.14.42]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-16_04,2025-06-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 suspectscore=0
- mlxscore=0 malwarescore=0 priorityscore=1501 spamscore=0 bulkscore=0
- impostorscore=0 mlxlogscore=923 phishscore=0 lowpriorityscore=0
- clxscore=1011 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.21.0-2505280000
- definitions=main-2506160060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_021558_565144_5A4BFF83 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250616_022305_562404_3DAC4128 
+X-CRM114-Status: GOOD (  26.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,117 +107,415 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marshall Zhan <marshall_zhan@wiwynn.com>
+The STM32 DMA doesn't have the ability to generate convenient burst
+transfer on the DDR, ensuring the best load of the AXI & DDR.
+To avoid this bad load of the AXI & DDR, STM32 MDMA can be used to transfer
+data to the DDR, being triggered by STM32 DMA channel transfer
+completion.
+An SRAM buffer is used between DMA and MDMA. So the MDMA always does
+MEM_TO_MEM transfers (from/to SRAM to/from DDR), and the DMA uses SRAM
+instead of DDR with DEV_TO_MEM transfers.
+SPI RX DMA (DEV_TO_MEM) becomes:
+SPI RX FIFO ==DMA==> SRAM ==MDMA==> DDR
 
-Add gpio line name to support multiplexed console
+In RX (DEV_TO_MEM), EOT interrupt is used to pause the DMA channel (which
+will raise a transfer complete) to trigger the MDMA to flush the SRAM (when
+transfer length is not aligned on SRAM period).
+TX remains on the former implementation.
 
-Signed-off-by: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
-Signed-off-by: Marshall Zhan <marshall_zhan@wiwynn.com>
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 40 +++++++++++++++++++
- 1 file changed, 40 insertions(+)
+ drivers/spi/spi-stm32.c | 251 +++++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 228 insertions(+), 23 deletions(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index 29f224bccd63..aae789854c52 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -189,6 +189,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT1_UART_SEL0","SLOT1_UART_SEL1",
-+				"SLOT1_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+diff --git a/drivers/spi/spi-stm32.c b/drivers/spi/spi-stm32.c
+index 8b61caf770a2..8581f24c111f 100644
+--- a/drivers/spi/spi-stm32.c
++++ b/drivers/spi/spi-stm32.c
+@@ -9,7 +9,9 @@
+ #include <linux/debugfs.h>
+ #include <linux/clk.h>
+ #include <linux/delay.h>
++#include <linux/dma-mapping.h>
+ #include <linux/dmaengine.h>
++#include <linux/genalloc.h>
+ #include <linux/interrupt.h>
+ #include <linux/iopoll.h>
+ #include <linux/module.h>
+@@ -328,6 +330,11 @@ struct stm32_spi_cfg {
+  * @dma_rx: dma channel for RX transfer
+  * @phys_addr: SPI registers physical base address
+  * @device_mode: the controller is configured as SPI device
++ * @sram_pool: SRAM pool for DMA transfers
++ * @sram_rx_buf_size: size of SRAM buffer for RX transfer
++ * @sram_rx_buf: SRAM buffer for RX transfer
++ * @sram_dma_rx_buf: SRAM buffer physical address for RX transfer
++ * @mdma_rx: MDMA channel for RX transfer
+  */
+ struct stm32_spi {
+ 	struct device *dev;
+@@ -362,6 +369,12 @@ struct stm32_spi {
+ 	dma_addr_t phys_addr;
  
- 	gpio@23 {
-@@ -235,6 +240,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT2_UART_SEL0","SLOT2_UART_SEL1",
-+				"SLOT2_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+ 	bool device_mode;
++
++	struct gen_pool *sram_pool;
++	size_t sram_rx_buf_size;
++	void *sram_rx_buf;
++	dma_addr_t sram_dma_rx_buf;
++	struct dma_chan *mdma_rx;
+ };
  
- 	gpio@23 {
-@@ -281,6 +291,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT3_UART_SEL0","SLOT3_UART_SEL1",
-+				"SLOT3_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+ static const struct stm32_spi_regspec stm32fx_spi_regspec = {
+@@ -885,8 +898,11 @@ static void stm32h7_spi_disable(struct stm32_spi *spi)
  
- 	gpio@23 {
-@@ -327,6 +342,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT4_UART_SEL0","SLOT4_UART_SEL1",
-+				"SLOT4_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+ 	if (spi->cur_usedma && spi->dma_tx)
+ 		dmaengine_terminate_async(spi->dma_tx);
+-	if (spi->cur_usedma && spi->dma_rx)
++	if (spi->cur_usedma && spi->dma_rx) {
+ 		dmaengine_terminate_async(spi->dma_rx);
++		if (spi->mdma_rx)
++			dmaengine_terminate_async(spi->mdma_rx);
++	}
  
- 	gpio@23 {
-@@ -373,6 +393,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT5_UART_SEL0","SLOT5_UART_SEL1",
-+				"SLOT5_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+ 	stm32_spi_clr_bits(spi, STM32H7_SPI_CR1, STM32H7_SPI_CR1_SPE);
  
- 	gpio@23 {
-@@ -419,6 +444,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT6_UART_SEL0","SLOT6_UART_SEL1",
-+				"SLOT6_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+@@ -1098,10 +1114,13 @@ static irqreturn_t stm32h7_spi_irq_thread(int irq, void *dev_id)
+ 	}
  
- 	gpio@23 {
-@@ -465,6 +495,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT7_UART_SEL0","SLOT7_UART_SEL1",
-+				"SLOT7_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+ 	if (sr & STM32H7_SPI_SR_EOT) {
++		dev_dbg(spi->dev, "End of transfer\n");
+ 		if (!spi->cur_usedma && (spi->rx_buf && (spi->rx_len > 0)))
+ 			stm32h7_spi_read_rxfifo(spi);
+ 		if (!spi->cur_usedma ||
+-		    (spi->cur_comm == SPI_SIMPLEX_TX || spi->cur_comm == SPI_3WIRE_TX))
++		    (spi->cur_comm == SPI_SIMPLEX_TX || spi->cur_comm == SPI_3WIRE_TX) ||
++		    (spi->mdma_rx && (spi->cur_comm == SPI_SIMPLEX_RX ||
++		     spi->cur_comm == SPI_FULL_DUPLEX)))
+ 			end = true;
+ 	}
  
- 	gpio@23 {
-@@ -511,6 +546,11 @@ gpio@22 {
- 		reg = <0x22>;
- 		gpio-controller;
- 		#gpio-cells = <2>;
-+		gpio-line-names = "SLOT8_UART_SEL0","SLOT8_UART_SEL1",
-+				"SLOT8_UART_SEL2","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","",
-+				"","","","","","","","";
- 	};
+@@ -1118,6 +1137,11 @@ static irqreturn_t stm32h7_spi_irq_thread(int irq, void *dev_id)
+ 	spin_unlock_irqrestore(&spi->lock, flags);
  
- 	gpio@23 {
+ 	if (end) {
++		if (spi->cur_usedma && spi->mdma_rx) {
++			dmaengine_pause(spi->dma_rx);
++			/* Wait for callback */
++			return IRQ_HANDLED;
++		}
+ 		stm32h7_spi_disable(spi);
+ 		spi_finalize_current_transfer(ctrl);
+ 	}
+@@ -1423,6 +1447,8 @@ static void stm32h7_spi_transfer_one_dma_start(struct stm32_spi *spi)
+ 	/* Enable the interrupts */
+ 	if (spi->cur_comm == SPI_SIMPLEX_TX || spi->cur_comm == SPI_3WIRE_TX)
+ 		ier |= STM32H7_SPI_IER_EOTIE | STM32H7_SPI_IER_TXTFIE;
++	if (spi->mdma_rx && (spi->cur_comm == SPI_SIMPLEX_RX || spi->cur_comm == SPI_FULL_DUPLEX))
++		ier |= STM32H7_SPI_IER_EOTIE;
+ 
+ 	stm32_spi_set_bits(spi, STM32H7_SPI_IER, ier);
+ 
+@@ -1432,6 +1458,119 @@ static void stm32h7_spi_transfer_one_dma_start(struct stm32_spi *spi)
+ 		stm32_spi_set_bits(spi, STM32H7_SPI_CR1, STM32H7_SPI_CR1_CSTART);
+ }
+ 
++/**
++ * stm32_spi_prepare_rx_dma_mdma_chaining - Prepare RX DMA and MDMA chaining
++ * @spi: pointer to the spi controller data structure
++ * @xfer: pointer to the spi transfer
++ * @rx_dma_conf: pointer to the DMA configuration for RX channel
++ * @rx_dma_desc: pointer to the RX DMA descriptor
++ * @rx_mdma_desc: pointer to the RX MDMA descriptor
++ *
++ * It must return 0 if the chaining is possible or an error code if not.
++ */
++static int stm32_spi_prepare_rx_dma_mdma_chaining(struct stm32_spi *spi,
++						  struct spi_transfer *xfer,
++						  struct dma_slave_config *rx_dma_conf,
++						  struct dma_async_tx_descriptor **rx_dma_desc,
++						  struct dma_async_tx_descriptor **rx_mdma_desc)
++{
++	struct dma_slave_config rx_mdma_conf = {0};
++	u32 sram_period, nents = 0, spi_s_len;
++	struct sg_table dma_sgt, mdma_sgt;
++	struct scatterlist *spi_s, *s;
++	dma_addr_t dma_buf;
++	int i, ret;
++
++	sram_period = spi->sram_rx_buf_size / 2;
++
++	/* Configure MDMA RX channel */
++	rx_mdma_conf.direction = rx_dma_conf->direction;
++	rx_mdma_conf.src_addr = spi->sram_dma_rx_buf;
++	rx_mdma_conf.peripheral_config = rx_dma_conf->peripheral_config;
++	rx_mdma_conf.peripheral_size = rx_dma_conf->peripheral_size;
++	dmaengine_slave_config(spi->mdma_rx, &rx_mdma_conf);
++
++	/* Count the number of entries needed */
++	for_each_sg(xfer->rx_sg.sgl, spi_s, xfer->rx_sg.nents, i)
++		if (sg_dma_len(spi_s) > sram_period)
++			nents += DIV_ROUND_UP(sg_dma_len(spi_s), sram_period);
++		else
++			nents++;
++
++	/* Prepare DMA slave_sg DBM transfer DEV_TO_MEM (RX>MEM=SRAM) */
++	ret = sg_alloc_table(&dma_sgt, nents, GFP_ATOMIC);
++	if (ret)
++		return ret;
++
++	spi_s = xfer->rx_sg.sgl;
++	spi_s_len = sg_dma_len(spi_s);
++	dma_buf = spi->sram_dma_rx_buf;
++	for_each_sg(dma_sgt.sgl, s, dma_sgt.nents, i) {
++		size_t bytes = min_t(size_t, spi_s_len, sram_period);
++
++		sg_dma_len(s) = bytes;
++		sg_dma_address(s) = dma_buf;
++		spi_s_len -= bytes;
++
++		if (!spi_s_len && sg_next(spi_s)) {
++			spi_s = sg_next(spi_s);
++			spi_s_len = sg_dma_len(spi_s);
++			dma_buf = spi->sram_dma_rx_buf;
++		} else { /* DMA configured in DBM: it will swap between the SRAM periods */
++			if (i & 1)
++				dma_buf += sram_period;
++			else
++				dma_buf = spi->sram_dma_rx_buf;
++		}
++	}
++
++	*rx_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, dma_sgt.sgl,
++					       dma_sgt.nents, rx_dma_conf->direction,
++					       DMA_PREP_INTERRUPT);
++	sg_free_table(&dma_sgt);
++
++	if (!rx_dma_desc)
++		return -EINVAL;
++
++	/* Prepare MDMA slave_sg transfer MEM_TO_MEM (SRAM>DDR) */
++	ret = sg_alloc_table(&mdma_sgt, nents, GFP_ATOMIC);
++	if (ret) {
++		rx_dma_desc = NULL;
++		return ret;
++	}
++
++	spi_s = xfer->rx_sg.sgl;
++	spi_s_len = sg_dma_len(spi_s);
++	dma_buf = sg_dma_address(spi_s);
++	for_each_sg(mdma_sgt.sgl, s, mdma_sgt.nents, i) {
++		size_t bytes = min_t(size_t, spi_s_len, sram_period);
++
++		sg_dma_len(s) = bytes;
++		sg_dma_address(s) = dma_buf;
++		spi_s_len -= bytes;
++
++		if (!spi_s_len && sg_next(spi_s)) {
++			spi_s = sg_next(spi_s);
++			spi_s_len = sg_dma_len(spi_s);
++			dma_buf = sg_dma_address(spi_s);
++		} else {
++			dma_buf += bytes;
++		}
++	}
++
++	*rx_mdma_desc = dmaengine_prep_slave_sg(spi->mdma_rx, mdma_sgt.sgl,
++						mdma_sgt.nents, rx_mdma_conf.direction,
++						DMA_PREP_INTERRUPT);
++	sg_free_table(&mdma_sgt);
++
++	if (!rx_mdma_desc) {
++		rx_dma_desc = NULL;
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ /**
+  * stm32_spi_transfer_one_dma - transfer a single spi_transfer using DMA
+  * @spi: pointer to the spi controller data structure
+@@ -1443,38 +1582,43 @@ static void stm32h7_spi_transfer_one_dma_start(struct stm32_spi *spi)
+ static int stm32_spi_transfer_one_dma(struct stm32_spi *spi,
+ 				      struct spi_transfer *xfer)
+ {
++	struct dma_async_tx_descriptor *rx_mdma_desc = NULL, *rx_dma_desc = NULL;
++	struct dma_async_tx_descriptor *tx_dma_desc = NULL;
+ 	struct dma_slave_config tx_dma_conf, rx_dma_conf;
+-	struct dma_async_tx_descriptor *tx_dma_desc, *rx_dma_desc;
+ 	unsigned long flags;
++	int ret = 0;
+ 
+ 	spin_lock_irqsave(&spi->lock, flags);
+ 
+-	rx_dma_desc = NULL;
+ 	if (spi->rx_buf && spi->dma_rx) {
+ 		stm32_spi_dma_config(spi, spi->dma_rx, &rx_dma_conf, DMA_DEV_TO_MEM);
+-		dmaengine_slave_config(spi->dma_rx, &rx_dma_conf);
++		if (spi->mdma_rx) {
++			rx_dma_conf.peripheral_size = 1;
++			dmaengine_slave_config(spi->dma_rx, &rx_dma_conf);
+ 
+-		/* Enable Rx DMA request */
+-		stm32_spi_set_bits(spi, spi->cfg->regs->dma_rx_en.reg,
+-				   spi->cfg->regs->dma_rx_en.mask);
+-
+-		rx_dma_desc = dmaengine_prep_slave_sg(
+-					spi->dma_rx, xfer->rx_sg.sgl,
+-					xfer->rx_sg.nents,
+-					rx_dma_conf.direction,
+-					DMA_PREP_INTERRUPT);
++			ret = stm32_spi_prepare_rx_dma_mdma_chaining(spi, xfer, &rx_dma_conf,
++								     &rx_dma_desc, &rx_mdma_desc);
++			if (ret) { /* RX DMA MDMA chaining not possible, fallback to DMA only */
++				rx_dma_conf.peripheral_config = 0;
++				rx_dma_desc = NULL;
++			}
++		}
++		if (!rx_dma_desc) {
++			dmaengine_slave_config(spi->dma_rx, &rx_dma_conf);
++			rx_dma_desc = dmaengine_prep_slave_sg(spi->dma_rx, xfer->rx_sg.sgl,
++							      xfer->rx_sg.nents,
++							      rx_dma_conf.direction,
++							      DMA_PREP_INTERRUPT);
++		}
+ 	}
+ 
+-	tx_dma_desc = NULL;
+ 	if (spi->tx_buf && spi->dma_tx) {
+ 		stm32_spi_dma_config(spi, spi->dma_tx, &tx_dma_conf, DMA_MEM_TO_DEV);
+ 		dmaengine_slave_config(spi->dma_tx, &tx_dma_conf);
+-
+-		tx_dma_desc = dmaengine_prep_slave_sg(
+-					spi->dma_tx, xfer->tx_sg.sgl,
+-					xfer->tx_sg.nents,
+-					tx_dma_conf.direction,
+-					DMA_PREP_INTERRUPT);
++		tx_dma_desc = dmaengine_prep_slave_sg(spi->dma_tx, xfer->tx_sg.sgl,
++						      xfer->tx_sg.nents,
++						      tx_dma_conf.direction,
++						      DMA_PREP_INTERRUPT);
+ 	}
+ 
+ 	if ((spi->tx_buf && spi->dma_tx && !tx_dma_desc) ||
+@@ -1485,9 +1629,25 @@ static int stm32_spi_transfer_one_dma(struct stm32_spi *spi,
+ 		goto dma_desc_error;
+ 
+ 	if (rx_dma_desc) {
+-		rx_dma_desc->callback = spi->cfg->dma_rx_cb;
+-		rx_dma_desc->callback_param = spi;
++		if (rx_mdma_desc) {
++			rx_mdma_desc->callback = spi->cfg->dma_rx_cb;
++			rx_mdma_desc->callback_param = spi;
++		} else {
++			rx_dma_desc->callback = spi->cfg->dma_rx_cb;
++			rx_dma_desc->callback_param = spi;
++		}
+ 
++		/* Enable Rx DMA request */
++		stm32_spi_set_bits(spi, spi->cfg->regs->dma_rx_en.reg,
++				   spi->cfg->regs->dma_rx_en.mask);
++		if (rx_mdma_desc) {
++			if (dma_submit_error(dmaengine_submit(rx_mdma_desc))) {
++				dev_err(spi->dev, "Rx MDMA submit failed\n");
++				goto dma_desc_error;
++			}
++			/* Enable Rx MDMA channel */
++			dma_async_issue_pending(spi->mdma_rx);
++		}
+ 		if (dma_submit_error(dmaengine_submit(rx_dma_desc))) {
+ 			dev_err(spi->dev, "Rx DMA submit failed\n");
+ 			goto dma_desc_error;
+@@ -1522,6 +1682,8 @@ static int stm32_spi_transfer_one_dma(struct stm32_spi *spi,
+ 	return 1;
+ 
+ dma_submit_error:
++	if (spi->mdma_rx)
++		dmaengine_terminate_sync(spi->mdma_rx);
+ 	if (spi->dma_rx)
+ 		dmaengine_terminate_sync(spi->dma_rx);
+ 
+@@ -1533,6 +1695,9 @@ static int stm32_spi_transfer_one_dma(struct stm32_spi *spi,
+ 
+ 	dev_info(spi->dev, "DMA issue: fall back to irq transfer\n");
+ 
++	if (spi->sram_rx_buf)
++		memset(spi->sram_rx_buf, 0, spi->sram_rx_buf_size);
++
+ 	spi->cur_usedma = false;
+ 	return spi->cfg->transfer_one_irq(spi);
+ }
+@@ -1891,6 +2056,9 @@ static int stm32_spi_unprepare_msg(struct spi_controller *ctrl,
+ 
+ 	spi->cfg->disable(spi);
+ 
++	if (spi->sram_rx_buf)
++		memset(spi->sram_rx_buf, 0, spi->sram_rx_buf_size);
++
+ 	return 0;
+ }
+ 
+@@ -2245,6 +2413,33 @@ static int stm32_spi_probe(struct platform_device *pdev)
+ 	if (spi->dma_tx || spi->dma_rx)
+ 		ctrl->can_dma = stm32_spi_can_dma;
+ 
++	spi->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
++	if (spi->sram_pool) {
++		spi->sram_rx_buf_size = gen_pool_size(spi->sram_pool);
++		dev_info(&pdev->dev, "SRAM pool: %zu KiB for RX DMA/MDMA chaining\n",
++			 spi->sram_rx_buf_size / 1024);
++		spi->sram_rx_buf = gen_pool_dma_zalloc(spi->sram_pool, spi->sram_rx_buf_size,
++						       &spi->sram_dma_rx_buf);
++		if (!spi->sram_rx_buf) {
++			dev_err(&pdev->dev, "failed to allocate SRAM buffer\n");
++		} else {
++			spi->mdma_rx = dma_request_chan(spi->dev, "rxm2m");
++			if (IS_ERR(spi->mdma_rx)) {
++				ret = PTR_ERR(spi->mdma_rx);
++				spi->mdma_rx = NULL;
++				if (ret == -EPROBE_DEFER) {
++					goto err_pool_free;
++				} else {
++					gen_pool_free(spi->sram_pool,
++						      (unsigned long)spi->sram_rx_buf,
++						      spi->sram_rx_buf_size);
++					dev_warn(&pdev->dev,
++						 "failed to request rx mdma channel, DMA only\n");
++				}
++			}
++		}
++	}
++
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev,
+ 					 STM32_SPI_AUTOSUSPEND_DELAY);
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+@@ -2272,6 +2467,11 @@ static int stm32_spi_probe(struct platform_device *pdev)
+ 	pm_runtime_put_noidle(&pdev->dev);
+ 	pm_runtime_set_suspended(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
++
++	if (spi->mdma_rx)
++		dma_release_channel(spi->mdma_rx);
++err_pool_free:
++	gen_pool_free(spi->sram_pool, (unsigned long)spi->sram_rx_buf, spi->sram_rx_buf_size);
+ err_dma_release:
+ 	if (spi->dma_tx)
+ 		dma_release_channel(spi->dma_tx);
+@@ -2302,6 +2502,11 @@ static void stm32_spi_remove(struct platform_device *pdev)
+ 		dma_release_channel(ctrl->dma_tx);
+ 	if (ctrl->dma_rx)
+ 		dma_release_channel(ctrl->dma_rx);
++	if (spi->mdma_rx)
++		dma_release_channel(spi->mdma_rx);
++	if (spi->sram_rx_buf)
++		gen_pool_free(spi->sram_pool, (unsigned long)spi->sram_rx_buf,
++			      spi->sram_rx_buf_size);
+ 
+ 	clk_disable_unprepare(spi->clk);
+ 
+
 -- 
-2.25.1
+2.43.0
 
 
