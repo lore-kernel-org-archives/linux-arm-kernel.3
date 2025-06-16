@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AEDC71159
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F23C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/mfhpuZOsEfWvVkq0qyPw8WFRq13VDIyMd7/o1FJDzQ=; b=nZp3U5fDZ8KI1Q94eUvWumD34Q
-	Qt3ib0cQtWbs8FhkPDW+HsG9rKKdX0b1nZRU9PpTKxepIVxLJ94lvQS6WecUQQ8wzadqnVSYglmNM
-	/PMw8d6FlGF9UcYDBJ++LxBiRnX5lJoyt13/KQdYOrZA5qGqk0w3JNml+kd+lmLXo+LDLGLpcmmIP
-	EGcZYA2KQkRT/TpY1NdMSmYPUDSguuEgBzrsL7Xq81L4rvOyssOydn8NEm592MUS7oH94N4UoGrKq
-	RcBxE1jZLnHrmwrF5+lWkVl/VfFLj/lLV6wmbm4oBvZME07ExoyMRdAAcDVvqfUYEVWEStdSv2St2
-	Fz6/Qzww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ygj9TjOfjQ/NdzUcUqlBJpH8gb+mnv4/bas08gkNg/g=; b=gFfjEEyVP4PLr/
+	2EknjD1vC/j2jmGplkUknz0QihOC34LAmEffwecC2ipLwD+jLWkubdZV4mtc4zh3/7D0L5Tp9VbbT
+	HqLZGGxgeRMPxNqOXy2IJ0LAkiIcExtJmi5kzLYbmxqkDp6IWAg2TGpMAjWaw1b0mbl6v8STLu2Kl
+	3NbH5j4oHX5hvEMia9GkWd7LH2NYWdwZ7fkK12hv++ZswOkeTcd5b/riUdETh5k3zzy9fN9YDElDd
+	tkhWh5Xs2tgV8M9BF3zRE/kS2OelhDfrWWe0Cbvmode1QKeKfJVSnZmEMn/49Fz+ZaF/KUiEJQnd8
+	P5UOOmQTijz89+vYDQBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLf-000000055Ij-1dLN;
-	Mon, 16 Jun 2025 17:10:19 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uRDLZ-000000055A2-2pOo;
+	Mon, 16 Jun 2025 17:10:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBFw-00000004lsH-2B9C;
-	Mon, 16 Jun 2025 14:56:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750085774;
-	bh=1qAxktOKxTbmW0PiEUnD73TVhfHHyVm3g/YRGIvKoo0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=D/48o0hS+VOof0kZmubcLZBx8xyM7t61KMrnaKhdbnGOiRafcJqLF7/sGQtmXfeq4
-	 HIP9h9bHDfyXRmpAU+JfzXsFu3LneN2/SbH8sC1qeN23JpRjCefjhOutT4xYeEcr5R
-	 Ivn4z3126pRTla7dgZXQ6oBgEWcSPvp+hL7ozlablOpdJ5o6uWOVn3jlcqAyCMFtVi
-	 d+PjvWUzktDO/wPj/2g0WDENEus0XNvoyvEkjJTRJ3Q8qT2V+BAhbccnUVwTuoWIWU
-	 4sIwoMgQc1mkxHUGBZThb98dPEJ33amd1kshhEXEGEEt6jCxAOCDVPXr7Vd5Yr1aKx
-	 arraEZebs9ADw==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:4811:e81c:4b33:730c])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 06DC417E10C7;
-	Mon, 16 Jun 2025 16:56:14 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-media@vger.kernel.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
-Date: Mon, 16 Jun 2025 16:55:50 +0200
-Message-ID: <20250616145607.116639-3-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
-References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
+	id 1uRA9n-00000004aZB-1yz6;
+	Mon, 16 Jun 2025 13:45:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 737C961139;
+	Mon, 16 Jun 2025 13:45:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB234C4CEEA;
+	Mon, 16 Jun 2025 13:45:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750081550;
+	bh=RTUvtWJIHeJfRXaRZvoP7GhruXdkJkNjDL2jCXJOtRE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=EmWNsdkctCoADDzcTZHXywQyCBFhSrqhSKZJpPBH5SxlROx3RB2/NViPa/2ENnRKI
+	 utQKiSm5ix1t8G4Azb+NNH7SmhHq0oae2q/kA7O/OqEUtqHKQcd/hmvwa10ZHIuw4F
+	 09njSbYfB+rAm3/1VXZZhkfdcoU5iwdTkw+FhNzLlDvYIqy6gwl1/zU50Mn5KhWQOW
+	 ZUTWtskPkTzJLG3ghhw6u25wm2jnqu1lP0cAFO9oqxSPg5MekIi3+Wx4pJ8QSK59Rm
+	 cRLIVNOl6DZaVH2C1HFToKgtkLeO/lbmuOcFVX7qa6CQ1T9tX69Wf1lzjCkl/Fq/Og
+	 OWpKq0cqnp1WA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v2 0/2] net: airoha: Improve hwfd
+ buffer/descriptor queues setup
+Date: Mon, 16 Jun 2025 15:45:39 +0200
+Message-Id: <20250616-airoha-hw-num-desc-v2-0-bb328c0b8603@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_075616_741109_7BCF103B 
-X-CRM114-Status: GOOD (  11.89  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAMgUGgC/22NwQrCMBBEf0X27EoSWls9+R/SQ0y2zaImstGql
+ P67seDN45th3kyQSZgy7FcTCI2cOcUCZr0CF2wcCNkXBqNMrba6QsuSgsXwxPi4oqfsUOmdU01
+ pXWWgDG9CPb8W6bErHDjfk7yXj1F/05+u/qcbNSps+7b11lb25JvDmSTSZZNkgG6e5w+OKBOIt
+ QAAAA==
+X-Change-ID: 20250614-airoha-hw-num-desc-019c07061c42
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,94 +75,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a device tree binding for the Verisilicon (VSI) IOMMU. This IOMMU sits
-in front of hardware encoder and decoder blocks on SoCs using Verisilicon IP,
-such as the Rockchip RK3588.
+Compute the number of hwfd buffers/descriptors according to the reserved
+memory size if provided via DTS.
+Reduce the required hwfd buffers queue size for QDMA1.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
 ---
- .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
- 1 file changed, 71 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+Changes in v2:
+- Rely on div_u64 to compute number of hw descriptors
+- Link to v1: https://lore.kernel.org/r/20250615-airoha-hw-num-desc-v1-0-8f88daa4abd7@kernel.org
 
-diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-new file mode 100644
-index 000000000000..acef855fc61d
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-@@ -0,0 +1,71 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Verisilicon IOMMU
-+
-+maintainers:
-+  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
-+
-+description: |+
-+  A Versilicon iommu translates io virtual addresses to physical addresses for
-+  its associated video decoder.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - const: verisilicon,iommu
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Core clock
-+      - description: Interface clock
-+
-+  clock-names:
-+    items:
-+      - const: aclk
-+      - const: iface
-+
-+  "#iommu-cells":
-+    const: 0
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - "#iommu-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    bus {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      vsi_mmu: iommu@fdca0000 {
-+        compatible = "verisilicon,iommu";
-+        reg = <0x0 0xfdca0000 0x0 0x600>;
-+        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
-+        clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
-+        clock-names = "aclk", "iface";
-+        #iommu-cells = <0>;
-+      };
-+    };
+---
+Lorenzo Bianconi (2):
+      net: airoha: Compute number of descriptors according to reserved memory size
+      net: airoha: Differentiate hwfd buffer size for QDMA0 and QDMA1
+
+ drivers/net/ethernet/airoha/airoha_eth.c | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
+---
+base-commit: 8909f5f4ecd551c2299b28e05254b77424c8c7dc
+change-id: 20250614-airoha-hw-num-desc-019c07061c42
+
+Best regards,
 -- 
-2.43.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
