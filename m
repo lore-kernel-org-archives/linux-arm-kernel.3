@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F68EC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56964C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=JhRGK4jXnVQ6+DekEGOh8HvxWAfgHU9rMzaDKfUDnRk=; b=i3z3qS9knsBaDO
-	SSAhz4PHxB3GHmo7xbvS8zUmWuldqv6lcG/Ed2AdULx4lkIKqxbxI3W/DzLA9ePD5pPe7wuMRwi6l
-	pXDfQJK+M1REGgpswy6KNfl7pbMhgvS3SNJui2qUwqymUR2LxRcmFjj2ymCdSiJZp3hcx4zP4v7iB
-	sauyE38B+i1hpCIYBYozf4UqOU6M1+u1ecTakb10qt+PxVajivsL2TaMW0I7ffQZefO73FiLjVjD/
-	rEhZ5BG2exqir67nlrCQJPUQ8IJcjriZIxvwTokbg9X/ROGUuB5oLYjdSoR33/dc9ApGtf0T+nlhG
-	cPWd7w0p2Q+E6L3uUXJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y3+C3aGBDM4ZiCGi3OPRPCrJ99TfIZsadVB6b7jLTpQ=; b=bmttR5kuV0ZhAEphOuZYPJrqmc
+	oXpeM0Dz30Dz3iHx2R3dTtbUzlieRs6uPaU4ZjVPjjvYrFFOBGOocVehsvgrUuCagNxPs/PG3j4hC
+	cCaWbLwytTZQPWZlWQJeaiNAqe2NGdplUMGICNYz4U6IYld8ONJq2QvfnF+PIamsMcZP/0PCZXHOY
+	QahED53I9rFqTIKwDTeS5P4mYFQO1pLFDTHFNX+qXmLQsmaAv2H4phvUzPxAZKKxiX9SkbjQJF+L5
+	8yO9qG8G69xox6fxYbdqgy+u1IK4IUOFTBQbCuSrUI0snBEJor/dtu5j8tZ+vBSYckiTbA++v+7XQ
+	x5OIjM3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0pI-00000003I4M-2CD1;
-	Mon, 16 Jun 2025 03:48:04 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1uR0rT-00000003IIB-1nAJ;
+	Mon, 16 Jun 2025 03:50:19 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0VA-00000003Fhh-0rXJ
+	id 1uR0VR-00000003FmM-2Yza
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 03:27:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=JhRGK4jXnVQ6+DekEGOh8HvxWAfgHU9rMzaDKfUDnRk=; b=OdgbtJr9jj783tzS1GGx7gt/BG
-	3NWVVg3wKvybuNw4Xv0qkLx/l8Wfe+R8+FYvEkH/5kA+oaNXbkxzL4Rcl9MpumeCBgOp/qt3eilXf
-	cI+oxD5ALq9JHLMk1SLHbgapBxlrleT0KGZFnq9hvsVNc1hkjPTwoFEMRcCLU4bJjFghQLbyMnlol
-	/lFxRxlA1Y9dg5BNsbPR5zEdKI84X4oax/ANWBdBTD137lFxJCtO+bf98lMAOi8y0qZ7rKw4A5ygz
-	T7fK8KIBwuKpdKm/xwCcqpRCtLBcrSI2Z3O3euJ5g2bdF8FvTsPAfN39LA8g0JP4y6E2vjqaXHBrj
-	Rkqlsamw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1uR0Ft-000Iud-1C;
-	Mon, 16 Jun 2025 11:27:10 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 16 Jun 2025 11:27:09 +0800
-Date: Mon, 16 Jun 2025 11:27:09 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Jason@zx2c4.com,
-	ardb@kernel.org, kent.overstreet@linux.dev
-Subject: Re: [PATCH] lib/crypto/poly1305: Fix arm64's poly1305_blocks_arch()
-Message-ID: <aE-PDfmowagPegen@gondor.apana.org.au>
+	Mon, 16 Jun 2025 03:27:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750044454; x=1781580454;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=uxMcnxSah9aMa+8ILzcDP7SuWEBEsRK+BQxyFazc45c=;
+  b=HTxSnDObrO2b97s2B+tpqDNxzpKWI2bA6LNZDkQX0sdaiMuQM8IOQtG+
+   9lG3Tev+J7cSDkKGMc9lkVAQtayE7m4uqIRgsSkj7umy7VmjwkU13MQUl
+   Wk29LeQLKEqT6ENPZOwmsjxLubhq/OYtcneiaNtruXf+URQs0MY75Ic3S
+   0BBr6gPV71CBaisyab0wCSn/6yKUHON64P42LqzkdtpoqVGDxFTRVekcx
+   snko8d3OftpmYfu3IU2WL1opbYE9o4IwU2pRLROXNvyc37Rt6DcSD0GY7
+   MQKH5LsOn6raFgGlGeYk484pvZMqaIFdIKsNZNJOlB6/e0cIBLNeUcwKg
+   w==;
+X-CSE-ConnectionGUID: 9V3oLMRLSjy9QzOqD3tjgQ==
+X-CSE-MsgGUID: qmlFmFjkRUCzCXvHEP6T+Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="52269779"
+X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
+   d="scan'208";a="52269779"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:27:34 -0700
+X-CSE-ConnectionGUID: JpviFFLOTQCsk9oYDhWIPA==
+X-CSE-MsgGUID: keVs2t7JTn6iHxc8oobEZg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
+   d="scan'208";a="149262496"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:27:30 -0700
+Message-ID: <8471eefd-bb69-4734-a1ba-772788d07d96@linux.intel.com>
+Date: Mon, 16 Jun 2025 11:26:30 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250616010654.367302-1-ebiggers@kernel.org>
-X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/14] iommu: Deprecate viommu_alloc op
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
+ yi.l.liu@intel.com, peterz@infradead.org, jsnitsel@redhat.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, patches@lists.linux.dev
+References: <cover.1749882255.git.nicolinc@nvidia.com>
+ <5b32d4499d7ed02a63e57a293c11b642d226ef8d.1749882255.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <5b32d4499d7ed02a63e57a293c11b642d226ef8d.1749882255.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_202716_261900_3D2B5F13 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250615_202733_691790_D1D029B3 
+X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,43 +89,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Eric Biggers <ebiggers@kernel.org> wrote:
-> From: Eric Biggers <ebiggers@google.com>
+On 6/14/25 14:35, Nicolin Chen wrote:
+> To ease the for-driver iommufd APIs, get_viommu_size and viommu_init ops
+> are introduced. Now, those existing vIOMMU supported drivers implemented
+> these two ops, replacing the viommu_alloc one. So, there is no use of it.
 > 
-> For some reason arm64's Poly1305 code got changed to ignore the padbit
-> argument.  As a result, the output is incorrect when the message length
-> is not a multiple of 16 (which is not reached with the standard
-> ChaCha20Poly1305, but bcachefs could reach this).  Fix this.
-
-Sorry, it was a cut-n-paste error since I copy the code from
-the update function where the padbit is always 1.
-
-> diff --git a/arch/arm64/lib/crypto/poly1305-glue.c b/arch/arm64/lib/crypto/poly1305-glue.c
-> index 6a661cf048213..c9a74766785bd 100644
-> --- a/arch/arm64/lib/crypto/poly1305-glue.c
-> +++ b/arch/arm64/lib/crypto/poly1305-glue.c
-> @@ -36,18 +36,18 @@ void poly1305_blocks_arch(struct poly1305_block_state *state, const u8 *src,
->        if (static_branch_likely(&have_neon)) {
->                do {
->                        unsigned int todo = min_t(unsigned int, len, SZ_4K);
+> Remove it from the headers and the viommu core.
 > 
->                        kernel_neon_begin();
-> -                       poly1305_blocks_neon(state, src, todo, 1);
-> +                       poly1305_blocks_neon(state, src, todo, padbit);
+> Suggested-by: Jason Gunthorpe<jgg@nvidia.com>
+> Reviewed-by: Kevin Tian<kevin.tian@intel.com>
+> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
 
-This would do the wrong thing if someone ever tried to pad a
-message more than 4K and called the block function with padbit == 0.
-Fortunately it can't happen today as there is no digest interface
-to poly1305.
-
-Looking around it seems that this pattern is replicated across
-all of our poly1305 implementations so it isn't a big deal.
-
-I presume you will be picking this up via the lib/crypto tree?
-
-Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
