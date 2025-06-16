@@ -4,82 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37530C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5BCC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vEkUmAlrU3Ij75G0J4YK0UFr/TZuGkykmvlXbTuEixU=; b=371eqtqLj52ZFXJMMWDsQs4jUX
-	dVfaaHmwjHBeRD9bnkkAtTEAjBBY8TmUFZJ7by/4R9lPToM57N8awV9pGfpE6MYr+l71ZusMZNcHZ
-	48T0WrFWVKRR8mm2Mvim3tywvDGMipemUJJ/fxglhDDOlvPua1+wHqkCI2CC2tt/UdCB9ckW/sZA3
-	qDuf35kLd7bkkCwAnt8LkK8ZADMUslNcXra6fgOPLSKfvWytAnN5tRxmwguL7UDJqDjDr7AFMzxDx
-	hVJSPl0YDdRZWXECQkMak2nwlkBZBExJ0ICAsyRrAMmbJikEQDBYxyoKwoEpvVJwI69MZ1swN6iS0
-	5Qm8eqdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aDKhAHJ0Q6dMj5R/J4V8icjG0N0qJ6GWqicOsmYCniI=; b=LrE6TBZI54NYWAakkBIVp3bZ4f
+	JFK0iHcqDDlOR2P3VKwvWCUQ8TPkot+QYpGnqKlZ6bCl+lNIoJNE+W5NV235oM/kSmwHGL1b+LcZa
+	7uf1nOyOyumWloXl0lvqovughYAbPROV0DVnRZBealfVn+2TaT2JFunAu21ST8r/4QYXLyQ90dzhv
+	lOP4MeFGOsjZjIaEI/YROBwnVNcheMvT2BIELLHK9ZXhqBX8g935UCgDVMVuMlEIUppEXL5dVfWOt
+	lxlTMqBbOdCMAW2o700k302WR0CTijDnFlQo9jWMPvkMu8p5PL+YLP0O0SlAdXvN0yCmNMpKoqXHn
+	QlZ+G9PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3Hf-00000003VIg-2VXL;
-	Mon, 16 Jun 2025 06:25:31 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1uR3Jq-00000003Vfj-3UCf;
+	Mon, 16 Jun 2025 06:27:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3Bp-00000003Uqo-3ikH;
-	Mon, 16 Jun 2025 06:19:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750054769; x=1781590769;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=K8IQ3inhhwcVlDH/GVeLQStlboqAYJS91qtzQftORFk=;
-  b=GRxhQkRDVZy7qoMPNR1xqKnn3fDtCNfyOssBMp9fs/zQ57KESdjGD6Fa
-   hUTLKDR24lGHqzizJGZGIoDqbqbQCpY7CfujIt1/pof1868/N5jQZnSTq
-   r6dWFm7cf4QtY0KFpMoCpFaeqdr44DdM0iqsVV+MTJq3dhAc4jE4SAwqh
-   6sqy6OfaQAJfo702WnBpn2Qd5+ew3YstsSNkurPu2Ze/RG8hqezyfRZHa
-   LVYnOVVknVT+OLSWrgYDJ6Vwkv2o9nuYNkzT/l4aUsAgGCEEEG2XMUGyl
-   5Gp3j+GtDfz7JVUN0LNDCzGizxKUWu65+Ak9JI3nclaNjbLoUzizKr3F4
-   w==;
-X-CSE-ConnectionGUID: TB7FlmrlRGu57JpyPdCUDA==
-X-CSE-MsgGUID: NOfhrtRTTzanZDb9fNRp6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="62461099"
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="62461099"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 23:19:26 -0700
-X-CSE-ConnectionGUID: utMW0UdyTROqSUp873fbVg==
-X-CSE-MsgGUID: vM9rNMYRQLeQ2OCKX13K5w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="148372684"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 15 Jun 2025 23:19:23 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uR3Bh-000Emu-15;
-	Mon, 16 Jun 2025 06:19:21 +0000
-Date: Mon, 16 Jun 2025 14:19:21 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: Re: [PATCH net-next 2/2] net: airoha: Differentiate hwfd buffer size
- for QDMA0 and QDMA1
-Message-ID: <202506161459.ENhGD33a-lkp@intel.com>
-References: <20250615-airoha-hw-num-desc-v1-2-8f88daa4abd7@kernel.org>
+	id 1uR3DM-00000003V02-30a1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 06:21:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C1D25C5694;
+	Mon, 16 Jun 2025 06:18:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88777C4CEEA;
+	Mon, 16 Jun 2025 06:21:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750054863;
+	bh=jQP/VVFrbSlaThOTIbCx/+TZc3Bnhiy9wJwypkdvUOk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ENOBMc/dw+e8iF82G1p/SYXDNqeQz7rkCzeAEte3/MVood5I0CtEHbHmjYk4nGs+7
+	 Y1sbE/m76hDIGwjjKbys3lOxkwfW4/BEEzU59e/qYbdaRDA1j32/l8FP9GUDRtXg3o
+	 OpquBLjLTIsZl6DudcczMVV7U0Tjs1bLhKgomn5Yp/dyvQTxpbDe2MRIu8WVYkBoAX
+	 ZTHqz3+aCwUPa3GFK5Z3LsEkHFc1N9PuZmRaSAgQyl1XtXFwJXh6vU5VAn7y59TZ5P
+	 fjEVaP10Eymjwm4+KpHNtTprHh2QDz1dA1Aw5zh8YS1o9TC7P1cTpmJ5wznzFnPHDp
+	 8MCfpcW1682zA==
+Message-ID: <92c723c3-81ab-422c-ae5f-7c2d64c117f9@kernel.org>
+Date: Mon, 16 Jun 2025 08:20:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250615-airoha-hw-num-desc-v1-2-8f88daa4abd7@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: add description for solidrun imx8mp
+ hummingboard variants
+To: Josua Mayer <josua@solid-run.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Yazan Shhady <yazan.shhady@solid-run.com>,
+ Mikhail Anikin <mikhail.anikin@solid-run.com>,
+ Jon Nettleton <jon@solid-run.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20250614-imx8mp-sr-som-v1-0-3ca3269883c4@solid-run.com>
+ <20250614-imx8mp-sr-som-v1-3-3ca3269883c4@solid-run.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250614-imx8mp-sr-som-v1-3-3ca3269883c4@solid-run.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_231929_971128_A90737DF 
-X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-CacheID: sfid-20250615_232104_869244_D208EE9C 
+X-CRM114-Status: UNSURE (   7.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,30 +127,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+On 14/06/2025 16:20, Josua Mayer wrote:
+> +
+> +/* mikrobus spi */
+> +&ecspi2 {
+> +	num-cs = <1>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&mikro_spi_pins>;
+> +	status = "okay";
+> +
+> +	spi@0 {
+> +		reg = <0>;
+> +		compatible = "rohm,dh2228fv";
 
-kernel test robot noticed the following build errors:
+NAK, such device DOES NOT EXIST. It is impossible to obtain dh2228fv, so
+your engineers were able to find it from Rohm?
 
-[auto build test ERROR on 8909f5f4ecd551c2299b28e05254b77424c8c7dc]
+Drop entire node.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Bianconi/net-airoha-Compute-number-of-descriptors-according-to-reserved-memory-size/20250615-163827
-base:   8909f5f4ecd551c2299b28e05254b77424c8c7dc
-patch link:    https://lore.kernel.org/r/20250615-airoha-hw-num-desc-v1-2-8f88daa4abd7%40kernel.org
-patch subject: [PATCH net-next 2/2] net: airoha: Differentiate hwfd buffer size for QDMA0 and QDMA1
-config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20250616/202506161459.ENhGD33a-lkp@intel.com/config)
-compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250616/202506161459.ENhGD33a-lkp@intel.com/reproduce)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506161459.ENhGD33a-lkp@intel.com/
+> +		spi-max-frequency = <500000>;
+> +	};
+> +};
+> +
 
-All errors (new ones prefixed by >>, old ones prefixed by <<):
 
->> ERROR: modpost: "__udivdi3" [drivers/net/ethernet/airoha/airoha-eth.ko] undefined!
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
