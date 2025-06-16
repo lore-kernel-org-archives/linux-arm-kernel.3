@@ -4,74 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C407C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 12:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D30AC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 12:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gZItC2basXtuPKHHTklRpTxUFJMNSX2lb78hHL2M/jA=; b=yMWZmexXZ6QDNcSaKvfIh73zCh
-	DfIvlDBxJ623+VqvMLEXJSjWhSNk7AjesKMNeYDM43Ih+8L9QXAwY3RtfwUqKxhXnDeY35uRh3nSt
-	+orIAQ+G/jH+t7jaJbLvjSXASEiDUn4KxRK5i3peuISGbArsi8ESZaenZPJKVY6f7WyLeLLIk/fqS
-	eZAvR8JZWbaqzBejXa1YIe9cGp1UbiN4vpUTkOSdT1MnpcSaN6/5629JCjGn3kp6V5lsPl1v37zc4
-	l1pipwMxueP+LKGpgH9JFdZl1JSQEdcW3+z7pu45ksYn87uN948YoETtoU3A7S85qO15n1I3cjnyl
-	KsIu+EHA==;
+	bh=fanFXWsUztsJ2NJhb2Z8QNHyJkVcz0wrb3Qo5YXkw+0=; b=bnU3PXj5wwxoMGOItwktSEvKZm
+	Zklhau5Kq0wJj9ssijT2HTgE42LgV+qaiTFTlCOtn3nzftS4nOfawvD3EazzMRalrjx8TT11uGSm4
+	Not1EIC43wGDWBJmwTOJUTaYpTPbOLgFmuyyUSG85rITOsH7yLqpUYPUATbsNYTHpJyT+w23O36FL
+	rg1hVvww57Yp8upmI9TRoVTRo4Pg5sbi8EAFJdUOKrNb0HkgJJBTnLNIFUvAIO4arQM4ZNi2p3y+S
+	fa8wTkR7f/47NkI2Fp6KCw2esFpUTQas6jcj0oaKqCuNiw0P2k9Mf0U+7zivSRmrw15mKiyM6lrza
+	E/PAxJ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR8em-00000004JmV-1IMj;
-	Mon, 16 Jun 2025 12:09:44 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7jF-00000004A23-2SXm;
-	Mon, 16 Jun 2025 11:10:19 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bLRzy28PLz1V43x;
-	Mon, 16 Jun 2025 19:07:42 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 287C3180044;
-	Mon, 16 Jun 2025 19:10:06 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 16 Jun 2025 19:10:04 +0800
-Subject: Re: [PATCH 3/8] KVM: arm64: Move ARM specific headers in include/kvm
- to arch directory
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
-	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Anish Ghulati <aghulati@google.com>, Colton
- Lewis <coltonlewis@google.com>, Thomas Huth <thuth@redhat.com>
-References: <20250611001042.170501-1-seanjc@google.com>
- <20250611001042.170501-4-seanjc@google.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <a5032f01-9f54-eff9-ee72-b159ed56ca70@huawei.com>
-Date: Mon, 16 Jun 2025 19:10:04 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	id 1uR8gx-00000004KEn-2Vf6;
+	Mon, 16 Jun 2025 12:11:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uR7oY-00000004AjQ-1gh8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 11:15:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7087E150C;
+	Mon, 16 Jun 2025 04:15:14 -0700 (PDT)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 102C73F673;
+	Mon, 16 Jun 2025 04:15:34 -0700 (PDT)
+Message-ID: <55346820-fbca-4b23-824e-89483601bf61@arm.com>
+Date: Mon, 16 Jun 2025 12:15:33 +0100
 MIME-Version: 1.0
-In-Reply-To: <20250611001042.170501-4-seanjc@google.com>
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] arm64: realm: Add support for encrypted data from
+ firmware
+To: linux-arm-kernel@lists.infradead.org
+Cc: will@kernel.org, catalin.marinas@arm.com, sami.mujawar@arm.com,
+ aneesh.kumar@kernel.org, steven.price@arm.com, linux-kernel@vger.kernel.org,
+ sudeep.holla@arm.com
+References: <20250613111153.1548928-1-suzuki.poulose@arm.com>
 Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250613111153.1548928-1-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_041017_947874_FB9A2C6F 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250616_041546_499663_4F1359F5 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +66,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/6/11 8:10, Sean Christopherson wrote:
-> Move kvm/arm_{arch_timer,pmu,vgic}.h to arch/arm64/include/asm and drop
-> the "arm" prefix from all file names.  Now that KVM no longer supports
-> 32-bit ARM, there is no reason to expose ARM specific headers to other
-> architectures beyond arm64.
+On 13/06/2025 12:11, Suzuki K Poulose wrote:
+> Confidential compute firmware may provide secret data via reserved memory regions
+> (e.g., ACPI CCEL, EFI Coco secret area). These must be ioremap'ed() as encrypted.
+> As of now, realm only maps "trusted devices" (RIPAS = RSI_RIPAS_DEV) as encrypted.
+> This series adds support for mapping areas that are protected
+> (i.e., RIPAS = RSI_RIPAS_RAM) as encrypted. Also, extrapolating that, we can map
+> anything that is not RIPAS_EMPTY as protected, as it is guaranteed to be "protected".
 > 
-> Cc: Colton Lewis <coltonlewis@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../arm64/include/asm/kvm_arch_timer.h                     | 0
->  arch/arm64/include/asm/kvm_host.h                          | 7 +++----
->  include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h  | 0
->  .../kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h    | 0
->  arch/arm64/kvm/arch_timer.c                                | 5 ++---
->  arch/arm64/kvm/arm.c                                       | 3 +--
->  arch/arm64/kvm/pmu-emul.c                                  | 4 ++--
->  arch/arm64/kvm/reset.c                                     | 3 +--
->  arch/arm64/kvm/trace_arm.h                                 | 2 +-
->  arch/arm64/kvm/vgic/vgic-debug.c                           | 2 +-
->  arch/arm64/kvm/vgic/vgic-init.c                            | 2 +-
->  arch/arm64/kvm/vgic/vgic-irqfd.c                           | 2 +-
->  arch/arm64/kvm/vgic/vgic-kvm-device.c                      | 2 +-
->  arch/arm64/kvm/vgic/vgic-mmio-v2.c                         | 2 +-
->  arch/arm64/kvm/vgic/vgic-mmio-v3.c                         | 2 +-
->  arch/arm64/kvm/vgic/vgic-mmio.c                            | 4 ++--
->  arch/arm64/kvm/vgic/vgic-v2.c                              | 2 +-
->  arch/arm64/kvm/vgic/vgic-v3-nested.c                       | 3 +--
->  arch/arm64/kvm/vgic/vgic-v3.c                              | 2 +-
->  19 files changed, 21 insertions(+), 26 deletions(-)
->  rename include/kvm/arm_arch_timer.h => arch/arm64/include/asm/kvm_arch_timer.h (100%)
->  rename include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h (100%)
->  rename include/kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h (100%)
+> With this in place, we can naturally map any firmware provided area based on the
+> RIPAS value. If the firmware provides a shared region (not trusted), it must have
+> set the RIPAS accordingly, before placing the data, as the transition is always
+> destructive.
+> 
+> Also enables the EFI Coco secret area support and Confidential Compute Event
+> Log (CCEL) for arm64.
+> 
 
-Nitpick:
+A branch with the patches is also available here:
 
-|F:	include/kvm/arm_*
+git@git.gitlab.arm.com:linux-arm/linux-cca.git  cca-guest/coco-secret/v1
 
-can be deleted from the KVM/arm64 MAINTAINERS entry now.
 
-Thanks,
-Zenghui
+Suzuki
+
+
+> 
+> Suzuki K Poulose (3):
+>    arm64: realm: ioremap: Allow mapping memory as encrypted
+>    arm64: Enable EFI secret area Securityfs support
+>    arm64: acpi: Enable ACPI CCEL support
+> 
+>   arch/arm64/include/asm/io.h          |  6 +++++-
+>   arch/arm64/include/asm/rsi.h         |  2 +-
+>   arch/arm64/kernel/acpi.c             |  5 +++++
+>   arch/arm64/kernel/rsi.c              | 26 ++++++++++++++++++++++----
+>   drivers/virt/coco/efi_secret/Kconfig |  2 +-
+>   5 files changed, 34 insertions(+), 7 deletions(-)
+> 
+
 
