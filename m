@@ -4,109 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E88C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 12:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7E4C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 12:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQ5aUH7zfhXOCP2tutXlMeFvigXdIeN/ybAKmivyPd0=; b=vddYPypG22bnFKrBP4H3RanyiR
-	d10A/sb5WGON6uJjD4wdOrP7Qj6thICGT2Jk2SPgVJwqsCxli5g+GfTfBTZe7YaI/s2LmlyrT9JKJ
-	Vj28e9D1yqkUgUXrDKHcwsO11syhMFawF/QXD9hmET5Q0iCi3gV0anCOAOCp2llElHdDPsebWr2XF
-	fxryOvQBVciem9LhzM2bT459hNkZj9YVG05nkbaX4Hdb5LOwMF0I2A4VnovA+RAhKOcyioaO0ZJC9
-	EdHCZySmyK/4+MqQiwZP8x1NAm+nr3xwTlLuMSOKBfZkteDO/tgUCee/y/2QoW9noLWQUI3tNYJzw
-	SS1y37TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JdVcfJET7Dxtcjmwndr0ZscFzeUpQrIvRpTqWodsqTM=; b=YK3cMPjnXkmT4MJk2pkGoIgzWz
+	Hl5lv8OKM4dv3T22cLGCPkI6bbZuopOiP7wrClQdC5FEjTTifrAJQVIhI/i3z9JbaD2OFoCuOz0yH
+	cU6SLLdzkMoz1vojyfC4x8asSM06JRhMUNCHmzcfM/tkx8xxWtcjXsiLCMKjk846vomMt2O2E10Ht
+	QyZvf2d2s4omuBDVo023oxq6gEiOoDiXWcxJDR5sPAf6iCc1MH4gswYCj0lHj1H8MToagJxNtgVEz
+	/ep1EL0nCyLrZ2DX3EL2jpUZCzT82GbRYy2odMMuVQODaCt1+CM8OYCdnOJxkPVwwWGg0xnR2T5gT
+	0xKS1m2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR9GB-00000004QDf-2beX;
-	Mon, 16 Jun 2025 12:48:23 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([81.169.146.169])
+	id 1uR9IO-00000004Qe8-2iMa;
+	Mon, 16 Jun 2025 12:50:40 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR8BE-00000004E7G-2cDj
+	id 1uR8Bu-00000004ED1-2zG2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 11:39:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750073947; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=F9RTtV/6F2OkIl8BeaUyhAktRiwZQ00InbFBWyfnaCw6onw9mTIqmf0UlGV/QSDHg9
-    9kddPwBkAy8MKk8DyZ5NF7Ldlf/RLgFzhu2s48GTM2fvS5uVbnTur9Abm98m72LcH6L0
-    0Tlep/85UQyEze4CIOWwlAS9HlAQhxAwxkBtHraBMQc/FBfDWE84M0jBymbuPsFaMtw9
-    hJ7hTZIzZWi7SfCsiUjpyAyKCl9FbHly5mbEXjKwimWqj6nOQKbHQLlXhDJvqds6Puo5
-    vaJQ0kJjYsuQIFdCAlcDgrpXcUQfsm/JjAqvkOo3GfwFsR3jJ33x2yohEN05eYthh/46
-    /Ehw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1750073947;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=YQ5aUH7zfhXOCP2tutXlMeFvigXdIeN/ybAKmivyPd0=;
-    b=ru7uZ7Suplu5qdTNB98Cyf8drcyfuJIAY9Mru6PLW5Xc6DwOGPEGVAaTXEeQNdgwiH
-    4yzgIosobXzMaoZJCljEPSLqdMkZO4XiWANJTgjHqlZyfUT15pAQjus5ede/2QQoFGES
-    W9d86jivVEQ7Zr2Rlkb+sNjHkYSY/NudTIU7GU6jrFa85K5YWw/hn52vc6iMJszvLY18
-    6MoCqXVrrZhuubAyimn8OAOgRxSHGTvZYeVwH9bETbFBeFQ+l7WFrGFNOn6Wkyq8LBaQ
-    sROoPqceeYC4TRjtXI18jCGem1T8QkqzF6vr+yPZdra74um/JlbS2vTHGUi6QUi+GCBD
-    JPag==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1750073947;
-    s=strato-dkim-0002; d=jm0.eu;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=YQ5aUH7zfhXOCP2tutXlMeFvigXdIeN/ybAKmivyPd0=;
-    b=HWemglRppNKZ1QHsrbVcMdKipm0cRSRDqE49HPoVg0lOmnT87CU8lC2Je7ukL5r31D
-    0BBscAoiGNOZIbyPKtibfdAkIj8FF7V2+GIue5mF0L2AaviyiWZ4+z8RvXN0ybpx+Ew5
-    uMmtaPj1Mux1Wv4xb49wIyU9eK87NBdfxXqib9p5BBrU8LVXqKW4LqHvvTDpyGqnxsX1
-    xYdGhGIo0svxwFMWxI/f1RGwsneToFL0xSsfygcYRz0IOT32yq5xHsj3c3EDL+DBkcSZ
-    A31gigFm5NR7f+lLZF42Ni3XmMR7NUyW62+zGKEX5lfc2Nc/3z810ssemzIgT2M9Om4G
-    krJQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1750073947;
-    s=strato-dkim-0003; d=jm0.eu;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=YQ5aUH7zfhXOCP2tutXlMeFvigXdIeN/ybAKmivyPd0=;
-    b=Ve7bFb6T+npQJDnr7+7YXB5MuWFGZBn58mFWWVRbrGPo5SUeV8BHgHTXOg6jdXzl4i
-    2ef7EzOPLS6kNzs7KeAQ==
-X-RZG-AUTH: ":JmMXYEHmdv4HaV2cbPh7iS0wbr/uKIfGM0EPTeoCaRth8YQl85wlaBlpkx4CWttlFZIgbULbhEgjs89efw=="
-Received: from [IPV6:2a00:a041:265b:4200::1001]
-    by smtp.strato.de (RZmta 51.3.0 AUTH)
-    with ESMTPSA id z292ee15GBd4Qh9
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Mon, 16 Jun 2025 13:39:04 +0200 (CEST)
-Message-ID: <7e854232-f02f-4ad6-b65e-22c18d1d9fe5@jm0.eu>
-Date: Mon, 16 Jun 2025 14:39:03 +0300
+	Mon, 16 Jun 2025 11:39:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750073994; x=1781609994;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Ma9+AWd3cIZf5Lwt4Vp92HukPMmMYh/Kb6RRViodh+0=;
+  b=RQl8sq20vMv3fxNKRmqNp0Sc2ODwBAjvN3nctJYJHKywa+mCheKwKWzj
+   yjXZm+nALaiXK/vxd1O1mdFC5kkGwKE14y+t4KPPVxpGBpsKSZY1clikA
+   UiMfruklXMBkVmGsCV+c9sgOIFKxNabHPypyCMFI5sy4pXdnS/SPNKC6T
+   QAr2iHiZX4HbRa8PGIv4wn8tjqVC/ZyaSrZGhHcC4Z19WqtYjtnpTJLK8
+   KPenbezXJosXM9G+6ZqvtMl8bZgVURMiWiQ73BdidB8LXJYXi11IS6g+d
+   TDGUrVvjI+kF/p8qYh55h+3AWP67xLWku1g5aJl4wfjL5e/GdmunDXpyj
+   g==;
+X-CSE-ConnectionGUID: tgoarVttRDO298zkPJM6WA==
+X-CSE-MsgGUID: R+am/AETQgurEHM4H+AjKw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="52303592"
+X-IronPort-AV: E=Sophos;i="6.16,241,1744095600"; 
+   d="scan'208";a="52303592"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2025 04:39:54 -0700
+X-CSE-ConnectionGUID: 4QcUPl3STGqo4EMxHH73Ew==
+X-CSE-MsgGUID: hF5ltUg9SAaHsRMrX3NVog==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,241,1744095600"; 
+   d="scan'208";a="148282666"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2025 04:39:43 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uR8Be-000000073pQ-0wKC;
+	Mon, 16 Jun 2025 14:39:38 +0300
+Date: Mon, 16 Jun 2025 14:39:38 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Peter Rosin <peda@axentia.se>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Mark Brown <broonie@kernel.org>, Len Brown <lenb@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-cxl@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v3 07/28] drivers: core: Use fw_devlink_set_device()
+Message-ID: <aFACeiO9ysybUwtv@smile.fi.intel.com>
+References: <20250613134817.681832-1-herve.codina@bootlin.com>
+ <20250613134817.681832-8-herve.codina@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/7] ARM: dts: omap: Remove incorrect compatible
- strings from device trees
-To: Kory Maincent <kory.maincent@bootlin.com>,
- Jason Kridner <jkridner@gmail.com>
-Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>,
- Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
- Roger Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Paul Barker <paul.barker@sancloud.com>,
- Marc Murphy <marc.murphy@sancloud.com>, Andrew Davis <afd@ti.com>,
- Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-omap@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250613-bbg-v3-0-514cdc768448@bootlin.com>
- <20250613-bbg-v3-2-514cdc768448@bootlin.com>
- <CA+T6QPnaCFZyRsv9q3bcOrTc22nA0AOXy0tR_SpAkGVVPQqfLg@mail.gmail.com>
- <20250616103919.2d678c1a@kmaincent-XPS-13-7390>
-Content-Language: en-US
-From: Josua Mayer <josua.mayer@jm0.eu>
-In-Reply-To: <20250616103919.2d678c1a@kmaincent-XPS-13-7390>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613134817.681832-8-herve.codina@bootlin.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_043912_920864_2F295C86 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250616_043954_794903_7FD22660 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,92 +127,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kory,
+On Fri, Jun 13, 2025 at 03:47:47PM +0200, Herve Codina wrote:
+> The code set directly fwnode->dev field.
+> 
+> Use the dedicated fw_devlink_set_device() helper to perform this
+> operation.
 
-Am 16.06.25 um 11:39 schrieb Kory Maincent:
-> Le Fri, 13 Jun 2025 13:52:23 -0500,
-> Jason Kridner <jkridner@gmail.com> a écrit :
->
->> On Fri, Jun 13, 2025 at 10:49 AM Kory Maincent <kory.maincent@bootlin.com>
->> wrote:
->>
->>> Several device trees incorrectly included extraneous compatible strings
->>> in their compatible property lists. The policy is to only describe the
->>> specific board name and SoC name to avoid confusion.
->>>
->>> Remove these incorrect compatible strings to fix the inconsistency.
->>>
->>> Also fix board vendor prefixes for BeagleBoard variants that were
->>> incorrectly using "ti" instead of "beagle" or "seeed".
->>>
->>> Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
->>> ---
->>>
->>> Changes in v3:
->>> - Remove extraneous compatible strings.
->>> - Replace BeagleBone board name vendor.
->>>
->>> Changes in v2:
->>> - New patch
->>> ---
->>>   arch/arm/boot/dts/ti/omap/am335x-base0033.dts                   | 2 +-
->>>   arch/arm/boot/dts/ti/omap/am335x-bone.dts                       | 4 ++--
->>>   arch/arm/boot/dts/ti/omap/am335x-boneblack-wireless.dts         | 4 ++--
->>>   arch/arm/boot/dts/ti/omap/am335x-boneblack.dts                  | 4 ++--
->>>   arch/arm/boot/dts/ti/omap/am335x-boneblue.dts                   | 4 ++--
->>>   arch/arm/boot/dts/ti/omap/am335x-bonegreen-wireless.dts         | 4 ++--
->>>   arch/arm/boot/dts/ti/omap/am335x-bonegreen.dts                  | 4 ++--
->>>   arch/arm/boot/dts/ti/omap/am335x-chiliboard.dts                 | 3 +--
->>>   arch/arm/boot/dts/ti/omap/am335x-myirtech-myd.dts               | 2 +-
->>>   arch/arm/boot/dts/ti/omap/am335x-osd3358-sm-red.dts             | 2 +-
->>>   arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts               | 4 ++--
->>>   arch/arm/boot/dts/ti/omap/am335x-sancloud-bbe-extended-wifi.dts | 5 +----
->>>   arch/arm/boot/dts/ti/omap/am335x-sancloud-bbe-lite.dts          | 5 +----
->>>   arch/arm/boot/dts/ti/omap/am335x-sancloud-bbe.dts               | 2 +-
->>>   arch/arm/boot/dts/ti/omap/am335x-shc.dts                        | 2 +-
->>>   15 files changed, 22 insertions(+), 29 deletions(-)
->>>
->>> diff --git a/arch/arm/boot/dts/ti/omap/am335x-base0033.dts
->>> b/arch/arm/boot/dts/ti/omap/am335x-base0033.dts
->>> index 46078af4b7a3..176de29de2a6 100644
->>> --- a/arch/arm/boot/dts/ti/omap/am335x-base0033.dts
->>> +++ b/arch/arm/boot/dts/ti/omap/am335x-base0033.dts
->>> @@ -9,7 +9,7 @@
->>>
->>>   / {
->>>          model = "IGEP COM AM335x on AQUILA Expansion";
->>> -       compatible = "isee,am335x-base0033", "isee,am335x-igep0033",
->>> "ti,am33xx";
->>> +       compatible = "isee,am335x-base0033", "ti,am33xx";
->>>
->>>          hdmi {
->>>                  compatible = "ti,tilcdc,slave";
->>> diff --git a/arch/arm/boot/dts/ti/omap/am335x-bone.dts
->>> b/arch/arm/boot/dts/ti/omap/am335x-bone.dts
->>> index b5d85ef51a02..2790c0c5a473 100644
->>> --- a/arch/arm/boot/dts/ti/omap/am335x-bone.dts
->>> +++ b/arch/arm/boot/dts/ti/omap/am335x-bone.dts
->>> @@ -8,8 +8,8 @@
->>>   #include "am335x-bone-common.dtsi"
->>>
->>>   / {
->>> -       model = "TI AM335x BeagleBone";
->>> -       compatible = "ti,am335x-bone", "ti,am33xx";
->>> +       model = "AM335x BeagleBone";
->>
->> We have software that looks at these in running systems, so I’d be ok not
->> to change. If changing, why not “BeagleBoard.org BeagleBone”? Not sure of
->> the convention to mention the SoC, but AM335x is not part of the product
->> name.
-> Is it ok to change it or not then? Ok to move on to BeagleBoard.org.
-The Debian project most notably uses the "model" string:
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-https://salsa.debian.org/installer-team/flash-kernel/-/blob/master/db/all.db?ref_type=heads#L2191
+-- 
+With Best Regards,
+Andy Shevchenko
 
-When that changes inside a dtb by kernel update, users may be unable to 
-boot.
-Therefore I would recommend against changing "model" values.
 
-sincerely
-Josua Mayer
 
