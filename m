@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8DFDC7115F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B41A7C7115E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DVSh6W1jvU4SZ0KbskCYR2QuANoghn7xy6q8bzsz+AA=; b=pWHbb9FoBuVK8OurSqO6BWe69S
-	4E9bUO/htWZRAlmfkjMN9WcVNbNGcCz+KO9bVwqIGaCIbyo7dlu2TEuzjsOL+BPxiUGzbcFG913cN
-	rF9PFRqVo9n3L7daKysePORjLtTN/BTb2oBMZTN+2Of3AoZDbXP/tYbMT2/FFmhFy9AksRcfKeNvs
-	zF760H7P6fDwdQLlKc8uH54dEYeXcZ9xl0JqQk9lvIAjk2M3UA04qglHu/0ivbGSHZIvuPEOKCZZg
-	2B2gTl2N/Fc+xKDvEVqh3GphR7U4RwvkobwgdaPTHFc0LGxwHpllrOU+Indhh6qm1blIo69FKQPo5
-	mSCBS5cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AkrvKj4WRhOO8zn50L5JIugDkJwYWJauK6qeewS2paw=; b=Fb5Jvf/KcwC+qbloXZy85jj5NX
+	dcZ6eKCTwjT29F4EXnkCHAfXAvtDDRl+qywo4ZYZwS5OaszPRspnwK2WtXQ6DaPw558ebiGlUbA2X
+	r1RWAo52HJ2Y+r7YjFwsaKOkl8BjF7EIhWV6BvzAPDJrn+Fb8hzTwBFl1QUjDJmPcq6nsUPq/dUUb
+	gs59ybDNJar0wNR6AC1Mo0nD6uWZDU3xFoVnTOwsi35ikatY1DX33rmYSnC7XOZcAEv/Duk553uKq
+	6/nA9WvQ7+VdxyT98eYILTyzAv3k9fmMzAJ9jno+/VmoFlQFV4mOp0kp+K6q9WOl5/S9g/V3WbCBK
+	AHY3J/lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLJ-000000054oF-2LmE;
-	Mon, 16 Jun 2025 17:09:57 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uRDLG-000000054kS-1YPM;
+	Mon, 16 Jun 2025 17:09:54 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBFw-00000004lsC-2A22;
-	Mon, 16 Jun 2025 14:56:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750085773;
-	bh=IPS5pyYgHpxPgbxv/IHzWa6tUPv1UYhANfe/623koZ8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=BxVRxFhVDcNmrDeC1P7uctqpOqyITQjUmL2LbGMF+iJg8NMWcE3x08UyLK1IYq8Xz
-	 9dcQrJltVxmVug43XszNFWEAHtwAm+hhX44hB0teZVItmBmKhG58IJ/K2yPCSB0PBs
-	 jt9KA4RjtPoUcF/w3CAWGVGW5uv49wFMF+YzpC3xQQP8CQgVD+KokYwALEAHpZN4Us
-	 mRWFOv6TQxj7Vw+KgWfHtxP48Xh2kMN7modxcVvNbYXQSpCVMwtyOHhLybmEsqN8nY
-	 PQHep9xrChhiclR2SMiAN1LHp5GDgCu7SdZv0hTY2ZwuCbFWHQpzGlBPAZGWSM14XP
-	 UefVISx0bXPnw==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:4811:e81c:4b33:730c])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE19517E088C;
-	Mon, 16 Jun 2025 16:56:12 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-media@vger.kernel.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH 0/5] Add support for Verisilicon IOMMU used by media codec blocks
-Date: Mon, 16 Jun 2025 16:55:48 +0200
-Message-ID: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uRAxn-00000004j2g-3gWT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 14:37:34 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b2fc93728b2so3687001a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 07:37:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1750084651; x=1750689451; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AkrvKj4WRhOO8zn50L5JIugDkJwYWJauK6qeewS2paw=;
+        b=LWpGsR8+TLCqU7bUADD3msbTYlRBh0fYMtqIPeMdoyaIjTO6wB/2alUzIh5zxBVYam
+         vtkzJVOcClRNmZB5brBzhKfxzqlFCHnTGPASK/d1DU/V88t6eULJisFYrca+zA7lYO0g
+         m78vheUGHmgv9Fs3KP6vRQ+eoShkZeR2l7bbCEEJWF8UEGWwZn/fgWLkkFQm0yRm9h/A
+         3PiJb6xB+D9SKmnny4NZsaIW1SYhfYnzrs1UFRlGctaWogIHY9JbyWU13PqpSZ6Xn7Nu
+         idqyGdlcOJkum/7608F+v5dzCM4Xhv/jV22e/gmLxUDlMLqpuhagIDsG8guz/FrBfEhb
+         7WXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750084651; x=1750689451;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AkrvKj4WRhOO8zn50L5JIugDkJwYWJauK6qeewS2paw=;
+        b=jez+TlAnhSCdvdUEXlqIzPO78YbKQm2nYCMkFkoFvKpTrnCelKXSWlQNgTidPTtZP4
+         QNIsCQdnNzM84NYB2Hecp4sbwDy5z0CMQudaMr6n7gpI+YOny8UUmA38roum/fvaIJSB
+         PaEaw3xYtKoihiLkX3SzDU4jjb9WgLTv801KkA9LQueY1ITaogZpcBtM/zwDbVAFs0ZN
+         9VKxKY9GEcZtw6kL9ynxDaJ+zgzvTj+dOSeBjbi2eXK0AsuoOgiBSZPi5ef9HegSkZ+c
+         MCF7se2/VMkpZJWY5ZXwmb24vpO5/XFo7kPSDpvrriWe7/+O2uzCckDKM7X+/SOIKn1v
+         cVUw==
+X-Gm-Message-State: AOJu0YxkMDHC1eTG2HoCDasTXGzryLTJ4OWiIgU/pb3sZew8jYbQQ4OT
+	GyT2H6xsbbJ190rUID0YO8BKGAN0bCB7jbJmmGC8ex++2uCryjQa6Dvqv7zLTpi42lSMKVMrUYz
+	UC63KjOySHQ6aZi9SIVT5IPKqFlbJk5d8GBwJqysnBuBGdzLKGgTR9Krox0BWax1AdeQ2lw==
+X-Gm-Gg: ASbGncugG9qT3sLewakRv1mELudWlVRGIwbFgVGh0/DsPauOp3ttaDTLjbu7U+WVPuA
+	STN8FY5S1dW77fdw9OrOSsKJoOiRPgRAkOUYyDxZy/5KyYcqCHEQYVJFJbifD59Fe+zLXhqMmUD
+	R5o9il4WOc/Cy3rMMMMGlgufVV8DNs+4F43xod2Eq/wmWVyQeJj8mhJKIrZLUHxcnxglyFwvprP
+	rxJbfVDkD7dfjldzZ6y5XV8sWALXLun3xZH/YR1qwIJbo73j4rZk1YDBeXV6tUEgdRLC7fasc4G
+	KOIXn4zYl/Bs7EuL32A+C7XFfZ+GBqIk3KxdMnKuQa36Ub055DibjGWl9I/eW+KbhS597RCl983
+	fcOcrlM663PU6Q0xjZNMymnUllV6z8iGblhM=
+X-Google-Smtp-Source: AGHT+IHiHWhPvC3rzDccVIiloYznB+/CDW0xPfXegwCPoIernL0gBJI4EEGAaNyjQ6pQCOBf+YUk3g==
+X-Received: by 2002:a05:6a21:600b:b0:218:76dd:a66 with SMTP id adf61e73a8af0-21fbd527f54mr16043044637.13.1750084651197;
+        Mon, 16 Jun 2025 07:37:31 -0700 (PDT)
+Received: from zenbook (36-228-20-239.dynamic-ip.hinet.net. [36.228.20.239])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe168a4b2sm6996769a12.61.2025.06.16.07.37.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 07:37:30 -0700 (PDT)
+Date: Mon, 16 Jun 2025 22:40:03 +0800
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Jintack Lim <jintack@cs.columbia.edu>, Christoffer Dall <christoffer.dall@arm.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Fix s_cpu_if->vgic_lr[] indexing in
+ vgic_v3_put_nested()
+Message-ID: <b5jwzhkkg2ensclxfj4uozpbibo5sgbcdm7tngharnjmqxswqc@ktywljdle6of>
+References: <20250614145721.2504524-1-r09922117@csie.ntu.edu.tw>
+ <aE-xyGGpHXdJ_pcF@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=y
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aE-xyGGpHXdJ_pcF@linux.dev>
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_075616_712316_00F32C4C 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250616_073731_914499_B242AFEE 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +104,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Sun, Jun 15, 2025 at 10:55:20PM -0700, Oliver Upton wrote:
+> On Sat, Jun 14, 2025 at 10:57:21PM +0800, Wei-Lin Chang wrote:
+> > s_cpu_if->vgic_lr[] is filled continuously from index 0 to
+> > s_cpu_if->used_lrs - 1, but vgic_v3_put_nested() is indexing it using
+> > the positions of the set bits in shadow_if->lr_map. So correct it.
+> 
+> The changelog is a bit too mechanical and doesn't actually add anything
+> to the diff. Maybe:
+> 
+>   Shadow LRs may exist at different indices from the corresponding LRs
+>   in the guest hypervisor's vgic, as the shadow LRs are populated
+>   contiguously in vgic_v3_create_shadow_lr().
+> 
+>   Use the correct shadow LR index when forwarding vIRQ state back to the
+>   guest hypervisor's vgic in vgic_v3_put_nested().
+> 
 
-This patch series adds support for the Verisilicon IOMMU, which is found in front
-of hardware encoder and decoder blocks in several SoCs using Verisilicon IP. 
-A first implementation of this IOMMU is available on the Rockchip RK3588 SoC.
+Hi Oliver,
 
-Rockchip provides a driver for this hardware in their 6.1 kernel branch:
-https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
-
-This series includes:
-- a new binding for the Verisilicon IOMMU
-- a basic driver implementation
-- DT updates for RK3588
-- integration with the Verisilicon VPU driver.
-
-The driver was forward-ported from Rockchip’s 6.1 implementation, 
-the prefix was renamed to vsi for generality, and several fixes were applied.
-
-AV1 decoding was tested using the stateless VPU driver and Fluster.
-The test results show a score of 205/239, which confirms that no regressions
-were introduced by this series.
-
-Feedback and testing welcome.
+Although we're not taking this, I still appreciate your help on the
+commit message.
 
 Thanks,
-Benjamin
+Wei-Lin Chang
 
-Benjamin Gaignard (5):
-  dt-bindings: vendor-prefixes: Add Verisilicon
-  dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
-  iommu: Add verisilicon IOMMU driver
-  arm64: dts: rockchip: Add verisilicon IOMMU node on RK3588
-  media: verisilicon: Flush IOMMU before decoding a frame
-
- .../bindings/iommu/verisilicon,iommu.yaml     |  71 ++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  11 +
- drivers/iommu/Kconfig                         |   8 +
- drivers/iommu/Makefile                        |   1 +
- drivers/iommu/vsi-iommu.c                     | 900 ++++++++++++++++++
- .../media/platform/verisilicon/hantro_drv.c   |  11 +
- 7 files changed, 1004 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
- create mode 100644 drivers/iommu/vsi-iommu.c
-
--- 
-2.43.0
-
+> Diff itself LGTM.
+> 
+> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+> 
+> Thanks,
+> Oliver
 
