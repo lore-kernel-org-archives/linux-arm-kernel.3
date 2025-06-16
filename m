@@ -4,65 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F9BC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB339C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 11:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gebr3x5cFjIyCpTF84QP5T9DzSmcTlWVArnM0v5gIds=; b=n1EK9nkg/ujusDdPodSXyNM8wX
-	oX3g5AdvrJFeao0pwl7Pouz8XF+Csi2Wy11CWpzYvXOEAY3e6mJ0bPeKLeSnqdczq+Qt0saa0uQfa
-	5eLSiJvEdC97EWmBtWaOzTmNo3GEXWIvv420WVSyWRS8Z1rnU4I7T9/Knp/525RbwYOVI2iEMgxOl
-	mnwSfJ7GPDWrCIl0pUwJpuCHz9LtaYPWO//Z946GDv8aOSLfYPcjOk7GDoIELarVqHfC9zoAny2RE
-	NxCFKaHQoKEI51kZ1akhO+hW3sc0vSq6HtQGwqbX3HBHWnDmEt2o2XpnQzjdxil7h5Lo/rxnJDuRV
-	c+JrF/qw==;
+	bh=UWZKq+facjiaX5VfIZfoLXvS21EBNXNgcqPrsZk1JJM=; b=FVnJycXQVTTvrODQCCt4gJS/Rw
+	e61IBrnvZ9EIb4wzAiOg7qevPNYvfdIoVF15HxH7U2428uDoFmQcz94ArobZG+uo98ePBZybNUqrT
+	V5LXskVfWNuldKjGC7kwivkNlaA1a3bZA27gifijnxb0wBxb+5cVHPKIuzt4nLsHVCmcClHECgjwT
+	AfADBndfROxsQttTE5LGK8YYwPkcgLeoic+zSu099k0hOURIHmHK/eg0NI1q7GIp2ZLIUJr4vgMcy
+	C0P6pZpEvXdVjn+0rTlWs1XmxLU+21mXollERbbcuNrRYxCFOGO1gBP58AgmarSYuaZV3cHB+wR25
+	4UamQ1Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR7jo-00000004A8u-0hVD;
-	Mon, 16 Jun 2025 11:10:52 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1uR7ly-00000004AKs-3lqI;
+	Mon, 16 Jun 2025 11:13:06 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR6hc-000000041Oc-49Hc
+	id 1uR6kD-000000041yi-0BKd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 10:04:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Gebr3x5cFjIyCpTF84QP5T9DzSmcTlWVArnM0v5gIds=; b=Y6qj1fNlPUCcGLc2S2OKITAYfD
-	t8Vq9th3zdfOzL0wLypb1BZLPdnCf98+I0dEfsr0Gg321OLl15OxRBjiAHKl08oDh6wupQwlUXmBb
-	jtAuTtuci6wK/o3NrcxNunay6KfgKF61x0YUa9ddxGzMFHqoxbdKbtsP60wc+jmvF/SpFQjophpmB
-	lPf9nHz3TxunhONX8dsrSjl4jsVJiweY9gunoo2Yva7vFNVdjhwtXfEv7B+CUK1821LD8YopzFFTr
-	mk7oCd1CLBqjiollkRyrd/FM7Jm8NDI+Xcf5TzfmXVCWn1yioMccMvQxgfdWauq6Q6j1inSzj0WjG
-	nA4OYb0g==;
-Date: Mon, 16 Jun 2025 12:03:51 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Andrew Davis <afd@ti.com>
-Cc: Kory Maincent <kory.maincent@bootlin.com>, Tony Lindgren
- <tony@atomide.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen
- <aaro.koskinen@iki.fi>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
- <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, Bajjuri Praneeth
- <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
- <broonie@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- <linux-omap@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 2/5] binding: omap: Add lots of missing omap AM33
- compatibles
-Message-ID: <20250616120351.3479442f@akair>
-In-Reply-To: <53b48816-37e6-49e8-a5cf-adcca04c57a7@ti.com>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
-	<20250609-bbg-v2-2-5278026b7498@bootlin.com>
-	<53b48816-37e6-49e8-a5cf-adcca04c57a7@ti.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
+	Mon, 16 Jun 2025 10:07:14 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55G8RdQC011453;
+	Mon, 16 Jun 2025 10:06:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UWZKq+facjiaX5VfIZfoLXvS21EBNXNgcqPrsZk1JJM=; b=AoX6/ShezdTds7wN
+	yxpRHPu32orf1q3lL+KUAAiRIBWKh1zpp6fok/TRhDb0pja9VsVyQ9RBNUrZY+rV
+	EvuGGSc5maMpBIF3X2pZyoe3p4PaihhJArw+0ykn6kHjXHnX+12DDbibTc1S+vSY
+	eyl1uFFJJSxa6MzUpiaX32KQQAoSZsL09vNPpE5XsGeZ/gkrRl7B8rKKgUbTXRxy
+	q10OaE90DHdyrsY7sQXohkxVC5AnRrfbYyDl2pA02M9Qayb0UK1jEFmh6Bn9KhjX
+	8AmNt9UnLESAPGeU0OudDKXm8uCC5QlzOIzOsDRLUWtWzf5W9HrNEI3yuhZ/XwFz
+	yDaGzQ==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 479qp5jnbg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 10:06:44 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55GA6itq030847
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 10:06:44 GMT
+Received: from [10.253.8.97] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 16 Jun
+ 2025 03:06:39 -0700
+Message-ID: <0c0a9c7a-f36e-4500-bbea-3a22a04431b3@quicinc.com>
+Date: Mon, 16 Jun 2025 18:06:36 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/5] Add FIELD_MODIFY() helper
+To: Marc Zyngier <maz@kernel.org>
+CC: Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes
+	<linux@rasmusvillemoes.dk>,
+        Julia Lawall <Julia.Lawall@inria.fr>,
+        "Nicolas
+ Palix" <nicolas.palix@imag.fr>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+        "Joey
+ Gouly" <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>, <linux-kernel@vger.kernel.org>,
+        <cocci@inria.fr>, <linux-arm-kernel@lists.infradead.org>,
+        <kvmarm@lists.linux.dev>, <andrew@lunn.ch>,
+        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
+        <quic_leiwei@quicinc.com>, <quic_suruchia@quicinc.com>,
+        <quic_pavir@quicinc.com>
+References: <20250612-field_modify-v4-0-ae4f74da45a6@quicinc.com>
+ <86sek5cane.wl-maz@kernel.org>
+Content-Language: en-US
+From: Luo Jie <quic_luoj@quicinc.com>
+In-Reply-To: <86sek5cane.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 9SYfzjF3RGzccne1WkjDRTBZRqXR4qMQ
+X-Proofpoint-ORIG-GUID: 9SYfzjF3RGzccne1WkjDRTBZRqXR4qMQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE2MDA2NCBTYWx0ZWRfX7UrecK1eCq0L
+ 8jXrAGXhthDm1V6AVytgr3qliiXHjBZaL76sRZ3phJrAmJasaSNIHGzGBFhBFi9o5IyFk+xr73/
+ IhE0N4gFcbqzn7S0S7Y52KjoBgJTd6vDBFJ3S0u8Ezjm7BywP5onFsmIJfz5KtGQHVhXmdvLKDh
+ HhVLEaxXzBMod9Q38nM1Mu16s4l1HX+23Cpf2phN6fdQqmVOmOQE77cCrvquRNryXNGm2E0cfrJ
+ YsohgekeAGt6tReiCse3CCm8omb3spIjoUQVI38+9g6ghiU4z1+Vb7SKKDrKHKR/oxWt1t89JMq
+ Y7xkqAqi8zKGKRpOOG+X+UF8egA/sye8lBvBpkwGGcAPhX1Ivjfo7H2hFERpSSFfMKN+oAUW6CB
+ cjdJ4ljTU/jmgXd3d51GgsVlOh8j6vcM2f64dVA3ksVJFgMn0VPWdcBpNXSVQsIQoxGFMit0
+X-Authority-Analysis: v=2.4 cv=fMc53Yae c=1 sm=1 tr=0 ts=684fecb4 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
+ a=r701-TsZq3b5Q2E7mLQA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-16_04,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 bulkscore=0 clxscore=1015 malwarescore=0
+ mlxlogscore=999 spamscore=0 lowpriorityscore=0 impostorscore=0 mlxscore=0
+ priorityscore=1501 suspectscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2506160064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_030433_034729_610AC80B 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250616_030713_113336_DE0A6957 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +126,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mon, 9 Jun 2025 18:34:10 -0500
-schrieb Andrew Davis <afd@ti.com>:
 
-> On 6/9/25 10:43 AM, Kory Maincent wrote:
-> > Add several compatible strings that were missing from the binding
-> > documentation. Add description for Bone, BoneBlack and BoneGreen
-> > variants.
-> > 
-> > Add several compatible that were missing from the binding.
-> > 
-> > Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
-> > ---
-> > 
-> > Change in v2:
-> > - New patch
-> > ---
-> >   Documentation/devicetree/bindings/arm/ti/omap.yaml | 38 ++++++++++++++++++++++
-> >   1 file changed, 38 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml b/Documentation/devicetree/bindings/arm/ti/omap.yaml
-> > index 3603edd7361d..c43fa4f4af81 100644
-> > --- a/Documentation/devicetree/bindings/arm/ti/omap.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/ti/omap.yaml
-> > @@ -104,12 +104,50 @@ properties:
-> >         - description: TI AM33 based platform
-> >           items:
-> >             - enum:
-> > +              - bosch,am335x-guardian
-> >                 - compulab,cm-t335
-> > +              - grinn,am335x-chilisom
-> > +              - gumstix,am335x-pepper
-> > +              - moxa,uc-2101
-> >                 - moxa,uc-8100-me-t
-> > +              - myir,myc-am335x
-> > +              - myir,myd-am335x
-> >                 - novatech,am335x-lxm
-> > +              - oct,osd3358-sm-refdesign
-> > +              - tcl,am335x-sl50
-> >                 - ti,am335x-bone
-> >                 - ti,am335x-evm
-> > +              - ti,am335x-evmsk
-> > +              - ti,am335x-pocketbeagle
-> > +              - ti,am335x-shc
-> >                 - ti,am3359-icev2
-> > +              - vscom,onrisc
-> > +          - const: ti,am33xx
-> > +
-> > +      - description: TI bone variants based on TI AM335  
+
+On 6/12/2025 10:11 PM, Marc Zyngier wrote:
+> On Thu, 12 Jun 2025 14:46:07 +0100,
+> Luo Jie <quic_luoj@quicinc.com> wrote:
+>>
+>> Add the helper FIELD_MODIFY() to the FIELD_XXX family of bitfield
+>> macros. It is functionally similar as xxx_replace_bits(), but adds
+>> the compile time checking to catch incorrect parameter type errors.
+>>
+>> This series also converts the four instances of opencoded FIELD_MODIFY()
+>> that are found in the core kernel files, to instead use the new
+>> FIELD_MODIFY() macro. This is achieved with Coccinelle, by adding
+>> the script field_modify.cocci.
+>>
+>> The changes are validated on IPQ9574 SoC which uses ARM64 architecture.
+>>
+>> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 > 
-> Do we really need these "bone variants" split out from the above
-> list of TI AM33 based boards? We don't do that for any of the other
-> boards, you get a SoC and a Board compatible, every classification
-> in-between is just unneeded.
+> I already indicated that the *pre-existing* set of helpers are enough
+> for what we want to do, that we *already* use them for KVM/arm64, and
+> that I didn't need nor want two ways to do the same thing in the same
+> code base.
+> 
+> My opinion hasn't changed on that front, and I don't see a point in
+> these patches.
+> 
+> 	M.
 > 
 
-We have something like this for the Pandaboards models. But
-e.g. the i.MX Udoo Neo stuff which just differs in what is populated
-does not have this. So I do not see a clear pattern. It could be useful
-for userspace to store some board-specific configurations which might be
-the same for a family of boards. So if people shout out loud that these
-are needs, lets kep them.
-
-Regards,
-Andreas
-
-
+OK. I will drop the ARM64 patches and only keep the coccinelle script
+patch in the next version.
 
