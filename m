@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0406EC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37530C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2NrHHsiCFl09VeD6KVgs7NnrjZ8O25hI7HRClT9kbiQ=; b=y7P0f3NAQNHy/AYGB2TrSLvcKm
-	e3NfYM8eIROLLOavF5YVFMcJ0SDvneJ9Djhg6Y3shAcoAdXuP95C3cvlGCcc+7GIbLlJjtSoYlR0z
-	XlVyRZvusIryrgighm+hyL3E1w59fe79nU1KYo1nRbTT5zPmRitgiIW/eojuCatTXRLF0D56NJhlS
-	x/7SpsYMvLx1aR6YLK9TGk6wh9JzhEG8TKs598yfmBSaECyjkRZAa7yoKfbrJujXbYSf6I24DF7CR
-	Q/OybQw2nCcdootBViObV3T5tzG6dl/kCa6YcJ5loiJe8BfB9uAgRAu4J/3s/LReGXmw2w4VjyR+v
-	AnoDqaNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vEkUmAlrU3Ij75G0J4YK0UFr/TZuGkykmvlXbTuEixU=; b=371eqtqLj52ZFXJMMWDsQs4jUX
+	dVfaaHmwjHBeRD9bnkkAtTEAjBBY8TmUFZJ7by/4R9lPToM57N8awV9pGfpE6MYr+l71ZusMZNcHZ
+	48T0WrFWVKRR8mm2Mvim3tywvDGMipemUJJ/fxglhDDOlvPua1+wHqkCI2CC2tt/UdCB9ckW/sZA3
+	qDuf35kLd7bkkCwAnt8LkK8ZADMUslNcXra6fgOPLSKfvWytAnN5tRxmwguL7UDJqDjDr7AFMzxDx
+	hVJSPl0YDdRZWXECQkMak2nwlkBZBExJ0ICAsyRrAMmbJikEQDBYxyoKwoEpvVJwI69MZ1swN6iS0
+	5Qm8eqdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3FU-00000003VBV-3iaJ;
-	Mon, 16 Jun 2025 06:23:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1uR3Hf-00000003VIg-2VXL;
+	Mon, 16 Jun 2025 06:25:31 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR3BU-00000003UmW-0QUk
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 06:19:10 +0000
+	id 1uR3Bp-00000003Uqo-3ikH;
+	Mon, 16 Jun 2025 06:19:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1750054747; x=1781590747;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Yf7CYDWOszU1weAxe35FQgpofMbkBbfHlDIiXDmtfwk=;
-  b=ZDVj52/KLDvNXVydiL6ZA/DQ0iZnjXBYIldaZ+C1X5Y7lGV2oV610SyJ
-   0ekTHp70/ul8TtU81eXArUXGjJm/eEO6G/VadvPXpdwqWpJI5o2yd9uJ/
-   5wjMWHgJleQddC7rrrcHqffXOvvOebsF8PD5FJ9kWbv+rJFPV2ZG5h0Dl
-   Ir1XP2nY7CnGU+30Y1MRIuMQNFCEUj1tqkCrPQ8vNtuOQxp+kRAimzggD
-   A0iZW6X9ZPnLn7ngGS4rlkgMaK+iIYcM7zQwqV+df6yJLmAhVp38b4M/M
-   ptAuklU+2iiMI+KlACUIKlC5yoj4UChHbhJjTQ2X7nBpXVUjyqDQmygI9
-   g==;
-X-CSE-ConnectionGUID: lpnJe+SITWGM2Ln9dodNAw==
-X-CSE-MsgGUID: 5eStiWdKR6izcsMfXw90LA==
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1750054769; x=1781590769;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=K8IQ3inhhwcVlDH/GVeLQStlboqAYJS91qtzQftORFk=;
+  b=GRxhQkRDVZy7qoMPNR1xqKnn3fDtCNfyOssBMp9fs/zQ57KESdjGD6Fa
+   hUTLKDR24lGHqzizJGZGIoDqbqbQCpY7CfujIt1/pof1868/N5jQZnSTq
+   r6dWFm7cf4QtY0KFpMoCpFaeqdr44DdM0iqsVV+MTJq3dhAc4jE4SAwqh
+   6sqy6OfaQAJfo702WnBpn2Qd5+ew3YstsSNkurPu2Ze/RG8hqezyfRZHa
+   LVYnOVVknVT+OLSWrgYDJ6Vwkv2o9nuYNkzT/l4aUsAgGCEEEG2XMUGyl
+   5Gp3j+GtDfz7JVUN0LNDCzGizxKUWu65+Ak9JI3nclaNjbLoUzizKr3F4
+   w==;
+X-CSE-ConnectionGUID: TB7FlmrlRGu57JpyPdCUDA==
+X-CSE-MsgGUID: NOfhrtRTTzanZDb9fNRp6g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="62461099"
 X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="47833217"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Jun 2025 23:19:04 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Sun, 15 Jun 2025 23:18:34 -0700
-Received: from archlinux.mchp-main.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Sun, 15 Jun 2025 23:18:32 -0700
-From: Mihai Sain <mihai.sain@microchip.com>
-To: <stern@rowland.harvard.edu>, <gregkh@linuxfoundation.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <linux-usb@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: Mihai Sain <mihai.sain@microchip.com>
-Subject: [PATCH v2] usb: ohci-at91: Use dynamic device name for OHCI HCD creation
-Date: Mon, 16 Jun 2025 09:18:00 +0300
-Message-ID: <20250616061759.3384-2-mihai.sain@microchip.com>
-X-Mailer: git-send-email 2.49.0
+   d="scan'208";a="62461099"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 23:19:26 -0700
+X-CSE-ConnectionGUID: utMW0UdyTROqSUp873fbVg==
+X-CSE-MsgGUID: vM9rNMYRQLeQ2OCKX13K5w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
+   d="scan'208";a="148372684"
+Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 15 Jun 2025 23:19:23 -0700
+Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uR3Bh-000Emu-15;
+	Mon, 16 Jun 2025 06:19:21 +0000
+Date: Mon, 16 Jun 2025 14:19:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: Re: [PATCH net-next 2/2] net: airoha: Differentiate hwfd buffer size
+ for QDMA0 and QDMA1
+Message-ID: <202506161459.ENhGD33a-lkp@intel.com>
+References: <20250615-airoha-hw-num-desc-v1-2-8f88daa4abd7@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250615-airoha-hw-num-desc-v1-2-8f88daa4abd7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_231908_329272_59C0F030 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250615_231929_971128_A90737DF 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the dynamic device name instead of the hardcoded string "at91"
-when creating the OHCI host controller driver.
-This ensures that the device name is more flexible
-and correctly reflects the actual device in the system.
-This will be in sync with ehci at91 driver.
+Hi Lorenzo,
 
-Before this patch:
+kernel test robot noticed the following build errors:
 
-[root@sam9x75eb ~]$ dmesg | grep usb
-[    1.464487] usb usb1: Manufacturer: Linux 6.16.0-rc2 ehci_hcd
-[    1.470210] usb usb1: SerialNumber: 700000.usb-ehci
-[    1.595683] usb usb2: Manufacturer: Linux 6.16.0-rc2 ohci_hcd
-[    1.601406] usb usb2: SerialNumber: at91
+[auto build test ERROR on 8909f5f4ecd551c2299b28e05254b77424c8c7dc]
 
-After this patch:
+url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Bianconi/net-airoha-Compute-number-of-descriptors-according-to-reserved-memory-size/20250615-163827
+base:   8909f5f4ecd551c2299b28e05254b77424c8c7dc
+patch link:    https://lore.kernel.org/r/20250615-airoha-hw-num-desc-v1-2-8f88daa4abd7%40kernel.org
+patch subject: [PATCH net-next 2/2] net: airoha: Differentiate hwfd buffer size for QDMA0 and QDMA1
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20250616/202506161459.ENhGD33a-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250616/202506161459.ENhGD33a-lkp@intel.com/reproduce)
 
-[root@sam9x75eb ~]$ dmesg | grep usb
-[    1.464487] usb usb1: Manufacturer: Linux 6.16.0-rc2 ehci_hcd
-[    1.470210] usb usb1: SerialNumber: 700000.usb-ehci
-[    1.595683] usb usb2: Manufacturer: Linux 6.16.0-rc2 ohci_hcd
-[    1.601406] usb usb2: SerialNumber: 600000.usb-ohci
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202506161459.ENhGD33a-lkp@intel.com/
 
-Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
----
- drivers/usb/host/ohci-at91.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+All errors (new ones prefixed by >>, old ones prefixed by <<):
 
-diff --git a/drivers/usb/host/ohci-at91.c b/drivers/usb/host/ohci-at91.c
-index 5df793dcb25d..12fdb18934cf 100644
---- a/drivers/usb/host/ohci-at91.c
-+++ b/drivers/usb/host/ohci-at91.c
-@@ -193,7 +193,7 @@ static int usb_hcd_at91_probe(const struct hc_driver *driver,
- 	if (irq < 0)
- 		return irq;
- 
--	hcd = usb_create_hcd(driver, dev, "at91");
-+	hcd = usb_create_hcd(driver, dev, dev_name(dev));
- 	if (!hcd)
- 		return -ENOMEM;
- 	ohci_at91 = hcd_to_ohci_at91_priv(hcd);
+>> ERROR: modpost: "__udivdi3" [drivers/net/ethernet/airoha/airoha-eth.ko] undefined!
 
-base-commit: e04c78d86a9699d136910cfc0bdcf01087e3267e
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
