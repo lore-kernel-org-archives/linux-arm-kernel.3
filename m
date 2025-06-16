@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F306AC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F432C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 06:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fh/2/5w577DIt02PJvlZYjBNPAOai0VFhAnOJy794CY=; b=sdZF8w375QfuO8keaOqEUGF3bF
-	CV5f06KWf0M+91Sqv4Ns14d98nLKzNZ7xza79CXS97AVWiEVVa8vqTt4+gd/IFozPNIB6hgJwQtrm
-	mnA7hT4S18El85lBU/bqWVkg6Cdwzd04QSUk1DY2S7ZpcVzoJECtalqvrnKcuNR/YS8bI8f/nKWGc
-	Oxl39IZo7jlRBqbDFPL/NcUqhcoYvDNjiIoGaeh/ttzRFFVV5WxKTi406ZiKPTgQbvMwqDmm63VZ+
-	6Db+iRiP18V0nQsVdjHfF29mzjN91Yb0LxjhBafiwllApV9o/QfFUt4J4VUOcOZlhZvkBE/0fEAUQ
-	mGf3KgBA==;
+	bh=aiRPM5+K3t1gc3VKTBvgdMQ0fS4OqUae01O0rFocQ1k=; b=EgpqgxsIF9PIiQXmZqnrnbi4BM
+	QQs2ouqTmoDLCWpOL8Q6U6IT1OUns4Bw3LZ73N3eyxorew7hCQfCrfJQG4aGfl8QQIj1RWjhil/I3
+	PPWqQSsvfTfdq7KkKtfJLa8L0GoUPwzri/+o2/94Ydu52/dW9cOW9PCTClKRXVfTWAg3davNUVyhG
+	FLNEOvU9ZCQOo+L1vVjzm/CUJKibZr0Zlu9/8OKH8TiiwgJ7lqOalhg4McFHES70R8WFeX7rSI0+r
+	A479QQcpeHI7Wz9kPUUBC4AZweDtutNEOe4C3SszrMOMl8sdkFWq1PZra9It5v73FpHSMfe6DJUvJ
+	PTPPmbNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR30A-00000003TiN-39Ja;
-	Mon, 16 Jun 2025 06:07:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uR32M-00000003TtF-2Dmp;
+	Mon, 16 Jun 2025 06:09:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR2xz-00000003TTm-32mo
+	id 1uR2yj-00000003Taa-2UW6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 06:05:11 +0000
+	Mon, 16 Jun 2025 06:05:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B483660008;
-	Mon, 16 Jun 2025 06:05:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3643FC4CEEA;
-	Mon, 16 Jun 2025 06:05:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C3A9A4A450;
+	Mon, 16 Jun 2025 06:05:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84D44C4CEEA;
+	Mon, 16 Jun 2025 06:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750053910;
-	bh=5BWz9FwN7V7x8vxN27g1twvyHPy+fK9jsrn1dGHbs8E=;
+	s=k20201202; t=1750053956;
+	bh=TzpmtX/vUICVRU32l59Sc0Qk3sBx7l2J4vSns0iJ/Lo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KzUuj5ELcLWrhCKWYAXP63RPq7giIHUlOjkVIxjpKX9+l7+dP1O4hROiNXWW+Z5l/
-	 dUXydJt+tW23f+r+SAljsgDRLc1qOF90aPNZ8+sM6s+2Z4apAVl0n+YV4nhGWX50vC
-	 Vit5Ium2lvwX5LsRrNgJTbowkU/oPaRzGcX/6rtQ5ek6sOAQzc3c1LIhD7S4BXxVoD
-	 vHohpvzI62G17mR43joZLiZmkR2Jd9vahCC56U4Iq4Oz3BxPOEdipgrgOfsbZ8g+IZ
-	 qxMv+yO0+GzNfz3d2P6c1bb/tIwwtujwGDXttUQ9tn/DAM1/yJ0nRd7ZkzdWZXze5n
-	 XFgUI78WZp7vQ==
-Message-ID: <67b1a8d3-e695-4ea6-8405-1a8563cbf5f2@kernel.org>
-Date: Mon, 16 Jun 2025 08:05:05 +0200
+	b=SSEJ/cIWWt8cawrwMkBQSkK05+pWBeBtXPg4a0NRoAIkecAIiL+P90ytHza2oX1sM
+	 KdQsXwMgmUKrGk2dHYyeC/0cy8RJPRDsHhKgcjRC4GiAEXlchVaeJq5ujEUyM5ZRI2
+	 MSeTkvrqpuEQVk4VSgqqtVY6g8re+iwXamKxHp9NJToVzTTiXusmxLy6epRQ67ydgA
+	 P2jTgB7ayPVxUgOADNly30Z1j/nBW7N41Ibcu24ljHQx+mN91MFp0mV1jtdEr1tLKq
+	 9c8W/VXZkm5njtgXHwbodNPAQxx9D4foQcr6hpJmRbgB47Bkea9M80MWizFb12nmGH
+	 CvqECjFZZoXiA==
+Message-ID: <f4430b9a-3275-405e-becf-ff62ae16f23c@kernel.org>
+Date: Mon, 16 Jun 2025 08:05:51 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] dt-bindings: gpio: gpio-cdns: convert to YAML
+Subject: Re: [PATCH v2 2/6] dt-bindings: arm: axiado: add AX3000 EVK
+ compatible strings
 To: Harshit Shah <hshah@axiado.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
@@ -56,7 +57,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
  soc@lists.linux.dev
 References: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
- <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-3-341502d38618@axiado.com>
+ <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-2-341502d38618@axiado.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-3-341502d38618@axiado.com>
+In-Reply-To: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-2-341502d38618@axiado.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250615_230558_068990_6C9BBBBE 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,117 +124,47 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 16/06/2025 06:31, Harshit Shah wrote:
-> Convert Cadence family GPIO controller bindings to DT schema.
-> 
-> Changes during conversion:
->    - update the naming as per the other files.
-
-You made it entirely different than every other file and review.
-
->    - add gpio maintainers
-
-Not really, you need to find someone interested in that hardware, not
-subsystem maintainers.
-
+> Add device tree binding schema for Axiado platforms, specifically the
+> AX3000 SoC and its associated evaluation board. This binding will be
+> used for the board-level DTS files that support the AX3000 platforms.
 > 
 > Signed-off-by: Harshit Shah <hshah@axiado.com>
 > ---
->  .../devicetree/bindings/gpio/cdns,gpio.txt         | 43 ------------
->  .../devicetree/bindings/gpio/gpio-cdns.yaml        | 81 ++++++++++++++++++++++
+>  .../devicetree/bindings/arm/axiado/axiado.yaml     | 23 ++++++++++++++++++++++
 
-Previous filename was correct.
+Just arm/axiado.yaml
 
->  2 files changed, 81 insertions(+), 43 deletions(-)
+>  1 file changed, 23 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/gpio/cdns,gpio.txt b/Documentation/devicetree/bindings/gpio/cdns,gpio.txt
-> deleted file mode 100644
-> index 706ef00f5c64951bb29c79a5541db4397e8b2733..0000000000000000000000000000000000000000
-> --- a/Documentation/devicetree/bindings/gpio/cdns,gpio.txt
-> +++ /dev/null
-> @@ -1,43 +0,0 @@
-> -Cadence GPIO controller bindings
-> -
-
-
-...
-
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml b/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml
+> diff --git a/Documentation/devicetree/bindings/arm/axiado/axiado.yaml b/Documentation/devicetree/bindings/arm/axiado/axiado.yaml
 > new file mode 100644
-> index 0000000000000000000000000000000000000000..e71f0137912f88e69fb3fa20f096e1572211591c
+> index 0000000000000000000000000000000000000000..f323162b7c3cf973754a3539b94a7534111886cf
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-cdns.yaml
-> @@ -0,0 +1,81 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +++ b/Documentation/devicetree/bindings/arm/axiado/axiado.yaml
+> @@ -0,0 +1,23 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/gpio/gpio-cdns.yaml#
+> +$id: http://devicetree.org/schemas/arm/axiado/axiado.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Cadence GPIO Controller
+> +title: Axiado Platforms
 > +
 > +maintainers:
-> +  - Linus Walleij <linus.walleij@linaro.org>
-> +  - Bartosz Golaszewski <brgl@bgdev.pl>
+> +  - Harshit Shah <hshah@axiado.com>
 > +
 > +properties:
+> +  $nodename:
+> +    const: '/'
 > +  compatible:
-> +    const: cdns,gpio-r1p02
-> +
-> +  reg:
-> +    minItems: 1
+> +    oneOf:
+> +      - description: AX3000 based boards
+> +        items:
+> +          - enum:
+> +              - axiado,ax3000_evk       # Axiado AX3000 Evaluation Board
 
-Why this is min and unconstrained...
+No underscores in compatibles (just look at any other example).
 
-> +
-> +  clocks:
-> +    maxItems: 1
-
-But this is max?
-
-maxItems: 1 in both cases (so clocks are correct, but why writing
-similar things entirely different?).
-
-> +
-> +  ngpios:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Number of GPIO lines supported, maximum 32.
-> +
-> +  gpio-controller: true
-> +
-> +  "#gpio-cells":
-> +    const: 2
-> +    description: |
-> +      - First cell is the GPIO line number.
-> +      - Second cell is flags as defined in <dt-bindings/gpio/gpio.h>,
-> +        only GPIO_ACTIVE_HIGH and GPIO_ACTIVE_LOW supported.
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +    description: |
-> +      - First cell is the GPIO line number used as IRQ.
-> +      - Second cell is the trigger type, as defined in
-> +        <dt-bindings/interrupt-controller/irq.h>.
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - gpio-controller
-> +  - "#gpio-cells"
-> +
-> +if:
-> +  required: [interrupt-controller]
-> +then:
-> +  required:
-> +    - interrupts
-> +    - "#interrupt-cells"
-
-Drop last one, core schema requires it.
 
 
 Best regards,
