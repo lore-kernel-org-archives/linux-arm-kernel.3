@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245C1C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A070DC71135
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 03:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b28MWKZYitQfUKk0aXxJSeOGNoYpjTeZblSBvXUxFD4=; b=nD+rhelNbP4HS06fZdrFXQReiJ
-	GdU7cj0p3RQS2AXFM53z84ssvdf2VU7IkTgpnWmqKWR3tvIdaV/SYZ4JVgIKYg0WihrZLpnPxgJya
-	T4oj6XtgFfgJpbFqkykAj49RdYC7Mc3ze12rApoDUFY1/fGtWVwbVGW04MeEN7gLhq9xL8xbiUzg1
-	HDjHsMNnTrvPVz4p3fjGFy+sY5j4Zb97xfMT0ea0nVvgk6RxthvgSsDlx4S8ydi+ZYHN8GWFvODVD
-	5kdlqUYIFBaLD5ub4HMVqZ/BsCXvigpn4PoCY8OAy6y1mIkbGyANDJ9EYier5E76L7q8vaKAGSr5/
-	y70tvs/A==;
+	bh=KVcfn3UF/rYqT8xPNtGs0uC8KV9nnG6u+I9Adx1RxA8=; b=UsoLL14pLXR1aEqkPtkicJibWp
+	KFlKWWyxHTqsLpG9uNl7EU/DAcswc4BaB836J8LozrnDx0OdGyYykNwC/Xpv2isg3HJpGX2FyV23n
+	dbdt368gY8oqngB468QqqRt+b0vaww2JP+TvEAwCkU/DlzKNES67Tg/Bs7awAmOhDuEu7rSIi/Noc
+	b18u/1xLBhm5zMaKFGfL3MQWqgja2cHvQtW4Cis0n/TjDOgsVr4yrXHSEmD7Zit38TFr9c+vnZOky
+	i16eOeukfWWhJ2MJDzTj9JtnsCLZW1axJAjRXJuWpfMrJN7FMLDp2H3VX/qrNdeqntv5znlTCCNxU
+	6mmsXb0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0kw-00000003HTz-31VU;
-	Mon, 16 Jun 2025 03:43:34 +0000
+	id 1uR0n6-00000003HeB-2QMH;
+	Mon, 16 Jun 2025 03:45:48 +0000
 Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uR0Uc-00000003FdI-1ifs
+	id 1uR0V0-00000003FgY-3FxS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 03:26:43 +0000
+	Mon, 16 Jun 2025 03:27:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1750044403; x=1781580403;
+  t=1750044427; x=1781580427;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=OdSR+LnU8m8mt5Z/YXaqvXjCQ0b6HSOJ3zep8WRESSs=;
-  b=f+Lo9Q7ZzmW3356mSAcTdg/egpm/czq7YymEvd4CmrxSh5ZR/+4CnhqT
-   aJZSOvRgwshjZHnwATKC70DEr/tdPK2x7F32+HXe1POf4bP6rYxjMPBka
-   X4QXSLK1PkvHyV1706cW6gJcK0iH6VfnEMj1ZR60W2j6bu9IbCyEHnngX
-   O1PToKf7CLQdsgCbFI2R2RijVB2NYuQgObB8QW3k2VoA+Kp9Z6eCC8sHn
-   G0dNK1tmoivse15/Rly6NxDe5MxATAF2x9+p6+/t0bVKZ9XBbP1vaFQyr
-   myHb5kIwVObWHM942XQ4zEPM9q2z6H8lKcru0oHzZJjSpOkXtt60RJGsl
+  bh=1isUaEkxKU+8NxNIgj+a8p6XetQvHlnDJA/2nRl2Hr0=;
+  b=DVZF7ygTYgVcLI9SPesP4S2lA6mnLleoS0dWRC8/hUrA6AxEpfvXRbsQ
+   wRrWsy6MzwhpAX9tp43sAvj9PXqilHXwBstpa9e/CCffsCgc5x0VREQ7v
+   n8Hhn9nb3I2AR59EsSudcEterSWewnFWfb3ASzCgjPSKfuwRoQ5USTb8O
+   F4CKXWNRN0jZypt1OGudFBlWwLmOM6V6dhZHYOapjqk3i3qxnfTm2WQOo
+   NAhmgKcCAXhky/Nuxf6pdjiqUFcAUx1tZfOclmlFU6rCM9sgoaW0iNDDG
+   cLnkS79w2D07zF0Vrie6o1loxoPlJRAhAy1VKRXkCHbEyCbG6YZVC8tvU
    A==;
-X-CSE-ConnectionGUID: 2mgyDjWmRqqE9vNP8Y3S1Q==
-X-CSE-MsgGUID: MSkbGKHETkmIpj9F8crKvw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="51889559"
+X-CSE-ConnectionGUID: sT5F10B9TACqjlVFohEmqQ==
+X-CSE-MsgGUID: Dga/9LMeRH2ENOwEDYLXfg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="51889586"
 X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="51889559"
+   d="scan'208";a="51889586"
 Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:26:42 -0700
-X-CSE-ConnectionGUID: PVYnN9jsR3+8VkdpFkfBvg==
-X-CSE-MsgGUID: yh81fqcOQcOBJqZhwK9EVg==
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:27:07 -0700
+X-CSE-ConnectionGUID: 7R/1QlLuSl2G/90d2tiIow==
+X-CSE-MsgGUID: 4y/8BpBJQVO/uJ9JS7qrfw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.16,240,1744095600"; 
-   d="scan'208";a="149229856"
+   d="scan'208";a="149229879"
 Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:26:38 -0700
-Message-ID: <fba6404b-62a2-4556-ab49-abffbfc66f8d@linux.intel.com>
-Date: Mon, 16 Jun 2025 11:25:39 +0800
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2025 20:27:02 -0700
+Message-ID: <8ed1d728-084b-42f7-9c15-8c97f565b555@linux.intel.com>
+Date: Mon, 16 Jun 2025 11:26:03 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/14] iommu: Introduce get_viommu_size and viommu_init
- ops
+Subject: Re: [PATCH v2 07/14] iommufd/viommu: Support get_viommu_size and
+ viommu_init ops
 To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com
 Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, praan@google.com,
  yi.l.liu@intel.com, peterz@infradead.org, jsnitsel@redhat.com,
  linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
  linux-kernel@vger.kernel.org, patches@lists.linux.dev
 References: <cover.1749882255.git.nicolinc@nvidia.com>
- <3ab52c5b622dad476c43b1b1f1636c8b902f1692.1749882255.git.nicolinc@nvidia.com>
+ <35c5fa5926be45bda82f5fc87545cd3180ad4c9c.1749882255.git.nicolinc@nvidia.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <3ab52c5b622dad476c43b1b1f1636c8b902f1692.1749882255.git.nicolinc@nvidia.com>
+In-Reply-To: <35c5fa5926be45bda82f5fc87545cd3180ad4c9c.1749882255.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250615_202642_502905_BC4AC527 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20250615_202706_905236_2ADAC168 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +91,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 6/14/25 14:35, Nicolin Chen wrote:
-> So far, a vIOMMU object has been allocated by IOMMU driver and initialized
-> with the driver-level structure, before it returns to the iommufd core for
-> core-level structure initialization. It has been requiring iommufd core to
-> expose some core structure/helpers in its driver.c file, which result in a
-> size increase of this driver module.
+> To ease the for-driver iommufd APIs, get_viommu_size and viommu_init ops
+> are introduced to replace the viommu_init op.
 > 
-> Meanwhile, IOMMU drivers are now requiring more vIOMMU-base structures for
-> some advanced feature, such as the existing vDEVICE and a future HW_QUEUE.
-> Initializing a core-structure later than driver-structure gives for-driver
-> helpers some trouble, when they are used by IOMMU driver assuming that the
-> new structure (including core) are fully initialized, for example:
+> Let the new viommu_init pathway coexist with the old viommu_alloc one.
 > 
-> core:	viommu = ops->viommu_alloc();
-> driver:	// my_viommu is successfully allocated
-> driver:	my_viommu = iommufd_viommu_alloc(...);
-> driver:	// This may crash if it reads viommu->ictx
-> driver:	new = iommufd_new_viommu_helper(my_viommu->core ...);
-> core:	viommu->ictx = ucmd->ictx;
-> core:	...
+> Since the viommu_alloc op and its pathway will be soon deprecated, try to
+> minimize the code difference between them by adding a tentative jump tag.
 > 
-> To ease such a condition, allow the IOMMU driver to report the size of its
-> vIOMMU structure, let the core allocate a vIOMMU object and initialize the
-> core-level structure first, and then hand it over the driver to initialize
-> its driver-level structure.
-> 
-> Thus, this requires two new iommu ops, get_viommu_size and viommu_init, so
-> iommufd core can communicate with drivers to replace the viommu_alloc op:
-> 
-> core:	viommu = ops->get_viommu_size();
-> driver:	return VIOMMU_STRUCT_SIZE();
-> core:	viommu->ictx = ucmd->ictx; // and others
-> core:	rc = ops->viommu_init();
-> driver:	// This is safe now as viommu->ictx is inited
-> driver:	new = iommufd_new_viommu_helper(my_viommu->core ...);
-> core:	...
-> 
-> This also adds a VIOMMU_STRUCT_SIZE macro, for drivers to use, which would
-> statically sanitize the driver structure.
+> Note that this fails a !viommu->ops case from now on with a WARN_ON_ONCE
+> since a vIOMMU is expected to support an alloc_domain_nested op for now,
+> or some sort of a viommu op in the foreseeable future. This WARN_ON_ONCE
+> can be lifted, if some day there is a use case wanting !viommu->ops.
 > 
 > Suggested-by: Jason Gunthorpe<jgg@nvidia.com>
 > Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
