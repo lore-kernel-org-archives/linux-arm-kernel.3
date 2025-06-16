@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD1EC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C639C71159
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 18:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0BL+aG/UNNGLP1x4xgnCt14zsxQCcrfboSBpn0n95Mc=; b=1TGL687bsSgi4uXaxTV/jPzOAk
-	su/6zbeRPcS7jaQIU/TT9iynaOSHYm34FWDHyso7if1bc9TRJDXh1gySJu73vcOMoNG/DhSv2mDAi
-	ZAw1io9cfDbc+pOjVQwaskwSKnAIYW8bXplyKSostoFHnu7n4Fg9jBIuTPaE6PUjjgPoqcR4pjtoF
-	KnpVFQEWTueMmrg0Ht9bBfs7MmGNq5DCGdL5CEmFuboQ4oZIWhDGmUpvNXiMxObhr1ykizI5duqVv
-	e/DRA6xnOOVmO28MKB8v13iqwWHCEnvEfPsqjd3H4qeTh9gEEfTUEz/zqaPlh+/3+usXB0ez8yHM8
-	zBcjtDjQ==;
+	bh=NgaiOiiIv8UyT/OK2no2aphPsCtckyR44JUNKUXKM+Y=; b=GgTlNSmZFJY6OPREhESDYs2mcT
+	BTPNvpdpeDxm8oIzYaNqiyTYF15YPEgq0v9/JrF58dFZHuFoem3JOfIXLy4AIpaWltwoIWmPH5VwR
+	pZRMujEKQuEs+W/ljMpFutWRNLa1K29eXFkuUqasS26Kk9ujBOrEcju8f1wgfciap4aAp+RYpCCXv
+	kUQBvpB2A+FlJSNsOSOl3qztLN2OLdA99VoVJOqveH6tDEUaeP7kGg+ALAzS8X7bSpayBffcOyyf7
+	LiBiErUf9GGBi/RbSGEQNnGqvw6+Ec2Q17QnS25ABmGvvTHRMqkGFGCwwquPOvVpY4Qs8EWBW7Gra
+	Hz4n8/6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uREZx-00000005Dbl-0uC1;
-	Mon, 16 Jun 2025 18:29:09 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uREaP-00000005EJh-26R3;
+	Mon, 16 Jun 2025 18:29:37 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBng-00000004tMs-2tkO;
-	Mon, 16 Jun 2025 15:31:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750087851; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Cgga3I8jF2zVzJLMOxq+Vn/77I5PkLmkTEtFZ7zNvJouifQS8tbvClE2MYxzRvqgv5KVzPwkMsKX2c8dbRw5aHEE/3p6BawvJT7ELQd2A/dXTwS/Q232zAh7k72IfEqxMWj/wct0nfysdOtrsy6wmTBOQ1YWREv9UelFbSUtMMk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750087851; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=0BL+aG/UNNGLP1x4xgnCt14zsxQCcrfboSBpn0n95Mc=; 
-	b=dNmPhDbLjmWo3vNDqZAV9EaDNH0C+Nd6EWaKjh/gurcELJAgpGBk3PZFA3qlTTe9rbCGWjQHk9g5ZmMoK1gP/8stAwxj+jZv7f9YjMebrb1NxZXxPxGUcya6gQHqL98FvYUFoIJOBgFVMeycR6esHS9i3XNPYNIsO5Bha0wQpgI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750087851;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=0BL+aG/UNNGLP1x4xgnCt14zsxQCcrfboSBpn0n95Mc=;
-	b=SWU8ZoOVqPfce4bWTOatjItj8sFTpIKwVX2258AwFPU8OkUv2qfeu9ySMT7l9ZJU
-	hOApFkMODZXMLbz4r7F2gtSRAFjq/z0WgTx1z/VEEVumTMuhTO23GeTEzAmQRhghH5a
-	DDVTRNOSby77h75bM5LvF0eCcqcswZ36jcaAHcnw=
-Received: by mx.zohomail.com with SMTPS id 1750087849499697.6715293869444;
-	Mon, 16 Jun 2025 08:30:49 -0700 (PDT)
-Message-ID: <5c971c09-c398-40a3-9ed5-ec38b6645e1d@collabora.com>
-Date: Mon, 16 Jun 2025 17:30:44 +0200
+	id 1uRCrd-0000000526P-21BW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 16 Jun 2025 16:39:18 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b2fc93728b2so3835446a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 09:39:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750091957; x=1750696757; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NgaiOiiIv8UyT/OK2no2aphPsCtckyR44JUNKUXKM+Y=;
+        b=FRuIGXQDhqPKXZUYEK2rt/r0SopFZ3aNfZN9lcforB1MkwKNBuoqoXLYzwF3kYL7si
+         dVM2tRiHwqMSl7SVBNUjRvdBv31I03tqfNL1JuwYRDq4zqRcxTLcS7KYGKcL0wwi8XnR
+         Njn34OAx3R18bfUCN9OUkxJJsGyEZf4DnQkZZ6jyutclO3F+Azt6huWAJF6VtPADP3W6
+         jTVXtRx4l+PhgVL3EvzOkMYfhGIGnGMV/QpVoTHZ4vEFjcPf1+U3F+/9PZApsAEw4ucy
+         HLD2V1yo1ZG9GAnv2iXuyDzMJRii6pzZViYebxNm5sgXWwwCN3vDBvRb3gS45irANeyI
+         /OaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750091957; x=1750696757;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NgaiOiiIv8UyT/OK2no2aphPsCtckyR44JUNKUXKM+Y=;
+        b=ZFTCt3ij5AFJDkVShWJsveM7p7XN4QhmtIyl3m2uK+Ga6vE3X63+rzs4c1igDfYY0F
+         CGFlX8MiTO2/l7nmvzvwfgNuRvjz1uOYkK//FW7nPQIaBNnMHqp7eIwgfN93tHbXc5k4
+         3zLKMs0sbEmairapVAZ6797A6hViABqN8EwUD6DNp7JQeh+6NCIle1QtCBUtd9OwZBUz
+         qw1pdLJU/CBrtCsiMHiIDsas9ncX/dpwWP6xbXI3g+rqnBmjCFx6JGwmUe/Q59tVucBc
+         HY/dwEKAJZll9ATpMg+45C5D5AzdQqiz1qKv+SNI1ukMIXAXo6g0ftzMtxBleDqW3vT7
+         pxHw==
+X-Forwarded-Encrypted: i=1; AJvYcCWCf/oaFgs/vtN8Lj9+Y8c6lvHnJJ+WHpaTQid0OtGrQdZ9DWzmJxZs5Kf+87t4YrjMjZgk7+ZgC97fhQKGQrMR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3dYCwIySOh1PPlRQVv1AvhDFEsgQAxqn5CnHsHDIJNMIWBw51
+	L7s+ck9Wn/4tsoVe8MLL5IumlUwD3CDjGAAxVyDsfaDXQMh+ulWhxysm
+X-Gm-Gg: ASbGncv7Fz6O1nplDLvRyPJZiomiTptmgWqNNuRr9HylHmpZ0o6h83Ibcvx39aiYW1H
+	Dzo+Vt30MK2ANNbrJemS6rI3qdO66lkInXR2TNe5XntjtD4rqUzQyyDBcuzzma3x8nisy68/fOv
+	q/VLr1GwmRhAiryMsfJk2MHJ4IGzEP+cAmWkFYQkK7Tg6zMPxw2wouqZH3tAEXel5EwCN2Q1vCD
+	FNKtN+efd34FKhf6+fOJ2ftnDCYnGqZtKnDCHfZK73MvktnEoqlBwNugg0xXRF2RfMMjr1uVd59
+	/OBKxnFVupJ3QBZ+Bf7DVqy3Vvh7Cf/VGCGvva1SQn/mvX9vMVbxNGgb9/ltBwLjlws2AqDUd+x
+	kmpgrplO7mw==
+X-Google-Smtp-Source: AGHT+IHsD566uR2iJmA1x5dTinmhbSc92nzu4ptM9O+HZPszU2hE5Hk8Ch3KBvp7WkOFDhYtt71tSA==
+X-Received: by 2002:a05:6a21:4a41:b0:218:75de:d924 with SMTP id adf61e73a8af0-21fbd631648mr13177925637.19.1750091956904;
+        Mon, 16 Jun 2025 09:39:16 -0700 (PDT)
+Received: from localhost.localdomain ([45.112.0.181])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe1680c6asm6067882a12.42.2025.06.16.09.39.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Jun 2025 09:39:16 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [RRC v1 3/3] thermal/drivers/exynos: Refactor IRQ clear logic using SoC-specific config
+Date: Mon, 16 Jun 2025 22:08:24 +0530
+Message-ID: <20250616163831.8138-4-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250616163831.8138-1-linux.amoon@gmail.com>
+References: <20250616163831.8138-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI
- IOMMU
-To: Conor Dooley <conor@kernel.org>
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
- <20250616145607.116639-3-benjamin.gaignard@collabora.com>
- <20250616-winter-strict-db98f85db22d@spud>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20250616-winter-strict-db98f85db22d@spud>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_083108_795012_AA0D2406 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250616_093917_568653_50F1D4F0 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,121 +107,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Refactors the IRQ clear logic in the Exynos TMU driver to eliminate
+redundant code and enhance maintainability. Previously, the driver
+relied on multiple SoC-specific functions or conditional branching
+based on data->soc to handle differences in IRQ register behavior.
 
-Le 16/06/2025 à 17:14, Conor Dooley a écrit :
-> On Mon, Jun 16, 2025 at 04:55:50PM +0200, Benjamin Gaignard wrote:
->> Add a device tree binding for the Verisilicon (VSI) IOMMU. This IOMMU sits
->> in front of hardware encoder and decoder blocks on SoCs using Verisilicon IP,
->> such as the Rockchip RK3588.
->>
->> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
->> ---
->>   .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
->>   1 file changed, 71 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
->> new file mode 100644
->> index 000000000000..acef855fc61d
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
->> @@ -0,0 +1,71 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Verisilicon IOMMU
->> +
->> +maintainers:
->> +  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
->> +
->> +description: |+
->> +  A Versilicon iommu translates io virtual addresses to physical addresses for
->> +  its associated video decoder.
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - items:
->> +          - const: verisilicon,iommu
-> You're missing a soc-specific compatible at the very least here, but is
-> there really no versioning on the IP at all? I'd be surprised if
-> verisilicon only produced exactly one version of an iommu IP.
+Change introduces a unified exynos_tmu_clear_irqs() function
+that adapts its behavior using SoC-specific configuration fields
+(tmu_intstat, tmu_intclear, and irq_clear_direct) defined in the
+exynos_tmu_data structure. These fields are initialized per SoC
+during device setup.
 
-I only aware this version of the iommu for the moment.
-Does adding verisilicon,rk3588-iommu sound good for you ?
+This refactor reduces code duplication, simplifies the addition of
+new SoC support, and improves overall code clarity.
 
->
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    items:
->> +      - description: Core clock
->> +      - description: Interface clock
->> +
->> +  clock-names:
->> +    items:
->> +      - const: aclk
->> +      - const: iface
-> Why "aclk" rather than core, to match the description?
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+ drivers/thermal/samsung/exynos_tmu.c | 52 +++++++++++++++++-----------
+ 1 file changed, 31 insertions(+), 21 deletions(-)
 
-I will change that, the driver doesn't care of the clock name anyway
+diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
+index b7522b7b1230..cd21b36674c3 100644
+--- a/drivers/thermal/samsung/exynos_tmu.c
++++ b/drivers/thermal/samsung/exynos_tmu.c
+@@ -172,6 +172,9 @@ enum soc_type {
+  *	0 < reference_voltage <= 31
+  * @tzd: pointer to thermal_zone_device structure
+  * @enabled: current status of TMU device
++ * @tmu_intstat: interrupt status register
++ * @tmu_intclear: interrupt clear register
++ * @irq_clear_support: SoC supports clear IRQ
+  * @tmu_set_low_temp: SoC specific method to set trip (falling threshold)
+  * @tmu_set_high_temp: SoC specific method to set trip (rising threshold)
+  * @tmu_set_crit_temp: SoC specific method to set critical temperature
+@@ -198,6 +201,9 @@ struct exynos_tmu_data {
+ 	u8 reference_voltage;
+ 	struct thermal_zone_device *tzd;
+ 	bool enabled;
++	u32 tmu_intstat;
++	u32 tmu_intclear;
++	bool irq_clear_support;
+ 
+ 	void (*tmu_set_low_temp)(struct exynos_tmu_data *data, u8 temp);
+ 	void (*tmu_set_high_temp)(struct exynos_tmu_data *data, u8 temp);
+@@ -785,28 +791,15 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static void exynos4210_tmu_clear_irqs(struct exynos_tmu_data *data)
++static void exynos_tmu_clear_irqs(struct exynos_tmu_data *data)
+ {
+ 	unsigned int val_irq, clearirq = 0;
+-	u32 tmu_intstat, tmu_intclear;
+-
+-	if (data->soc == SOC_ARCH_EXYNOS5260) {
+-		tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
+-		tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
+-	} else if (data->soc == SOC_ARCH_EXYNOS7) {
+-		tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
+-		tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
+-	} else if (data->soc == SOC_ARCH_EXYNOS5433) {
+-		tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
+-		tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
+-	} else {
+-		tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
+-		tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
+-	}
++	u32 tmu_intstat = data->tmu_intstat;
++	u32 tmu_intclear = data->tmu_intclear;
+ 
+ 	val_irq = readl(data->base + tmu_intstat);
+ 
+-	if (data->soc == SOC_ARCH_EXYNOS4210) {
++	if (!data->irq_clear_support) {
+ 		writel(val_irq, data->base + tmu_intclear);
+ 		return;
+ 	}
+@@ -900,12 +893,15 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_initialize = exynos4210_tmu_initialize;
+ 		data->tmu_control = exynos4210_tmu_control;
+ 		data->tmu_read = exynos4210_tmu_read;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos_tmu_clear_irqs;
+ 		data->gain = 15;
+ 		data->reference_voltage = 7;
+ 		data->efuse_value = 55;
+ 		data->min_efuse_value = 40;
+ 		data->max_efuse_value = 100;
++		data->tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
++		data->tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
++		data->irq_clear_support = false;
+ 		break;
+ 	case SOC_ARCH_EXYNOS3250:
+ 	case SOC_ARCH_EXYNOS4412:
+@@ -922,7 +918,7 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos4210_tmu_control;
+ 		data->tmu_read = exynos4412_tmu_read;
+ 		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos_tmu_clear_irqs;
+ 		data->gain = 8;
+ 		data->reference_voltage = 16;
+ 		data->efuse_value = 55;
+@@ -932,6 +928,14 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		else
+ 			data->min_efuse_value = 0;
+ 		data->max_efuse_value = 100;
++		data->irq_clear_support = true;
++		if (data->soc == SOC_ARCH_EXYNOS5260) {
++			data->tmu_intstat = EXYNOS5260_TMU_REG_INTSTAT;
++			data->tmu_intclear = EXYNOS5260_TMU_REG_INTCLEAR;
++		} else {
++			data->tmu_intstat = EXYNOS_TMU_REG_INTSTAT;
++			data->tmu_intclear = EXYNOS_TMU_REG_INTCLEAR;
++		}
+ 		break;
+ 	case SOC_ARCH_EXYNOS5433:
+ 		data->tmu_set_low_temp = exynos5433_tmu_set_low_temp;
+@@ -943,7 +947,7 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos5433_tmu_control;
+ 		data->tmu_read = exynos4412_tmu_read;
+ 		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos_tmu_clear_irqs;
+ 		data->gain = 8;
+ 		if (res.start == EXYNOS5433_G3D_BASE)
+ 			data->reference_voltage = 23;
+@@ -952,6 +956,9 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->efuse_value = 75;
+ 		data->min_efuse_value = 40;
+ 		data->max_efuse_value = 150;
++		data->tmu_intstat = EXYNOS5433_TMU_REG_INTPEND;
++		data->tmu_intclear = EXYNOS5433_TMU_REG_INTPEND;
++		data->irq_clear_support = true;
+ 		break;
+ 	case SOC_ARCH_EXYNOS7:
+ 		data->tmu_set_low_temp = exynos7_tmu_set_low_temp;
+@@ -963,12 +970,15 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->tmu_control = exynos7_tmu_control;
+ 		data->tmu_read = exynos7_tmu_read;
+ 		data->tmu_set_emulation = exynos4412_tmu_set_emulation;
+-		data->tmu_clear_irqs = exynos4210_tmu_clear_irqs;
++		data->tmu_clear_irqs = exynos_tmu_clear_irqs;
+ 		data->gain = 9;
+ 		data->reference_voltage = 17;
+ 		data->efuse_value = 75;
+ 		data->min_efuse_value = 15;
+ 		data->max_efuse_value = 100;
++		data->tmu_intstat = EXYNOS7_TMU_REG_INTPEND;
++		data->tmu_intclear = EXYNOS7_TMU_REG_INTPEND;
++		data->irq_clear_support = true;
+ 		break;
+ 	default:
+ 		dev_err(&pdev->dev, "Platform not supported\n");
+-- 
+2.49.0
 
->
->> +
->> +  "#iommu-cells":
->> +    const: 0
->> +
->> +  power-domains:
->> +    maxItems: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - clocks
->> +  - clock-names
->> +  - "#iommu-cells"
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +    bus {
->> +      #address-cells = <2>;
->> +      #size-cells = <2>;
->> +
->> +      vsi_mmu: iommu@fdca0000 {
-> The "vsi_mmu" label can be dropped here, it has no users.
-
-ok.
-
-Thanks,
-Benjamin
-
->
-> Cheers,
-> Conor.
->
->> +        compatible = "verisilicon,iommu";
->> +        reg = <0x0 0xfdca0000 0x0 0x600>;
->> +        interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
->> +        clocks = <&cru ACLK_AV1>, <&cru PCLK_AV1>;
->> +        clock-names = "aclk", "iface";
->> +        #iommu-cells = <0>;
->> +      };
->> +    };
->> -- 
->> 2.43.0
->>
 
