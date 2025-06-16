@@ -4,76 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5774C71159
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A49C7115A
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 16:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qh/bPhgYB8BGBR2+jcW0IGtLNhZSnLlYIiYH5iijHGI=; b=1Lu3wYGiJ7bmoMxNJsEW1tb+cT
-	paiVXovDXC6wwEftFHivkJFwGln+/z0n2q8a/w7itQ3TkdBoTOATv3jc2tR7dxPjEIuw8W8KEz9OG
-	ClK/eA4ZWANJ7lEXXvPlZpSSfhS0qOCpq5uqXpgsy4UGQMH8HqLTg1jYuInwI/GUNyL30uQBkFffP
-	xDplAIpu8xWlc0ACgYsET/8kZLc8R03W+HULHhQWHLsEC44cC5qsxTjWVasnlGWkqB3iGUyPQ+foq
-	FcTLZqu0IvL/7xmCBhM+/PTZatz13xz987ZVBZSsvz5pEvCNtteRECq5TJPFOKqM7efz8X+QEpexF
-	QhYMV8GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N0c4QBC7WWkttZj1LFgU6+xpW1qRJsbxIqlk+okrSyU=; b=fnAlsqLMB67oWmPU4MKVBSBndt
+	lJ25aVskkMjan+iNNkgNd+Yg4XX/hADcylE70olFyjMsvwrJE4AzfbrPXUl0fVcCqVSc+9VcfPGTq
+	Dv643e4zIuiL6rqf5C/5xWqEigWPAa4zK3gcEW8GUoY4zy+keUc0hihNGArHwnU6yKK1bJxm8p29Z
+	yStiG2rT6AK61+3BIP0zZiQMo1blhlFeT1gwVODrALXEpS9rB/PHlEh7UiMfsuvOSN3uWgtAgjKfW
+	jm6IXnt+li5OMdAP4kYDI2Bw5YqHODDx8wnnh8MhfqGRsJB2A4ovDt+gjfJATCK2Qg+iHrczYmcnL
+	5i92pRtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRCqH-000000051cx-3D4O;
-	Mon, 16 Jun 2025 16:37:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uRCqJ-000000051dl-42QQ;
+	Mon, 16 Jun 2025 16:37:55 +0000
+Received: from mail-bn8nam12on2060a.outbound.protection.outlook.com ([2a01:111:f403:2418::60a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRALE-00000004cbv-3K00
+	id 1uRATa-00000004eBv-3Y1Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 16 Jun 2025 13:57:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54B1343E30
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 13:57:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32FE5C4CEF6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 13:57:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750082260;
-	bh=NyizBTDfDWXK6sw8uHD082UVWglR8ES2/VkYsuwaR4w=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=H8ULzQPh/xdtTiMfI3eihUsGI91soNyJ6AwSVhjKDO4IOJN3V4MbJf8Fy4Hjq/oPp
-	 2Nz2B/U4yIFMJwmnbkUKrRHPQlmnGxkQzpjpiCeObGnKgdgWNzsVdGM/wnAIfKzp77
-	 OsClgdjfqK9hC7ntKJziHbTNlOcBTkzZtkxBTl+MoNrw4Prth4u5dv8z+GPcY3x8+Z
-	 U2k1ZLAOc0Hf27lZEchtd7fnehD5vtVw0ubzu82UT3OAUYvJ2sHBVW6ZPHM2SMa5/b
-	 3BkA+Ysg02RQ/8M/W2p7dGMiij+LRkAAw0f9T5daEgcrGL2oTSRbJk3qI+xDTglt9P
-	 Rxa8e8y8zLkiw==
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-adb4e36904bso897930566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 16 Jun 2025 06:57:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUff5I2vItFM0a7uDpw8TTObIbFujKGeonpY9Gxj0GEzqBNY++rLkGmA8coTJjZNaHulHF9iDPFWuqFI1XSOOiO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDugyHrL2aGbubrHrF0MdzC/DNSJbDI3OVLqrL3/imRzrAek+D
-	kl/jtRs3nI3D1SSePhECF78qb6jSUIKxkzym+emfBFuFJ6N6mU3n4ElXFU+B2qEKmejEoCAw2VA
-	Q3bEl0TURIslU0oOmFZFUEt7yc6DmMg==
-X-Google-Smtp-Source: AGHT+IHpdF6x/V/pazyqhO2sJpaXwkib8ZBd2w1M4Ij3Nkk6Wn/WfgezoqePwqWHQsTrHmBU64Y1n8FFZazVHIrz33o=
-X-Received: by 2002:a17:907:7241:b0:ad2:3f9a:649f with SMTP id
- a640c23a62f3a-adfad60d405mr821849566b.42.1750082258737; Mon, 16 Jun 2025
- 06:57:38 -0700 (PDT)
+	Mon, 16 Jun 2025 14:06:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o21WgiSP38ukUIxJKNwdyyyq8/EYRxqAfGOZ1W+eFiYMTkmahIK3BoyxJUbtgm/NvOTLMu24DTqheomJjQGG6GEQoxpxAEmDnbq3MqEw5b9uMtVYcXOOKPG2HnHaOg9DubtDUZAyO0RFHGRnekA1e1/yq1bhH1ddMRac+Czn8H4G/SyEccYLdRwrvwu1XN2TF6cuogQrQBU4vxY99PQEQFwjU1bEUPPJoNu1OYet4YfjpkqHVWSX+/a1S2YSs0uDX56BZ3jiaiSBtHGc2JpIIzwwX+NX6IQ82IUrs/Y+XS5/qHrt4F3xkPFokV6ckwxqG2B5Jr6NR6SU6xILL2cJjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N0c4QBC7WWkttZj1LFgU6+xpW1qRJsbxIqlk+okrSyU=;
+ b=VZEGmk86kWDoxE9Jf9XUj4UxuXo3f3Qro1F7vsZ8iG0lhu41X8qrEA466dlozJVmdZAXNBDvaJhshd7AruM/2/MDQTCbx3IUzR4P5SisBEBcvnjV1LQg9RwYOF3qCsCDfxOi1RFbMEfoonHuKYs9594BEDcAMqiku22L5Oi+ms3Gw7gwoV08eRTfDHgcS7ehhrz/266tDsSXK8+DQRLdS2TpQdoY9NtiGoQCTXc5TjaVaEJEsHRLKNXuo+VsjeBddLDB3/5mXyqIw00/6rMlEh7RDNAJv53uu/53A/JHHbf0Iz+CtXfknwyo+M5jTuQt0FxSYOtttVTNcA7Osyo3ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N0c4QBC7WWkttZj1LFgU6+xpW1qRJsbxIqlk+okrSyU=;
+ b=kEHvATcuCqX+g2qa3ovtzEvZEinwl7UL9P1pMd680MkdRhdfFDkPgmeAUsGbQDj5D2bL+F0zd8r6aFTeXGemd3GMNDw90Oa9xhHDs4lDmFR0+PZcUXs8Gf5kblhlSS7U56V+dZYHY/5oExB3l28n758moyj/8U2Fx2wWU2+b3FgG0FB0qF9lgouQ56zs82f6JUIS+1sdJ+FN1VJGCiedNdloyCi1RRah1B8oFRwafr8iYDCfuraqxzbC1JPOi6LU9LiMxtwnNEMECAcKro34Ow55D+dpcXBX5PnBf8Slcwdrdt9weMl5qsOawEEoJ+k9rDcs6aDeu73s28qu7rUG+w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by IA0PR12MB7508.namprd12.prod.outlook.com (2603:10b6:208:440::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Mon, 16 Jun
+ 2025 14:06:10 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%7]) with mapi id 15.20.8835.023; Mon, 16 Jun 2025
+ 14:06:09 +0000
+Date: Mon, 16 Jun 2025 11:06:08 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com
+Subject: Re: [PATCH v6 11/25] iommufd/driver: Add
+ iommufd_hw_queue_depend/undepend() helpers
+Message-ID: <20250616140608.GF1174925@nvidia.com>
+References: <cover.1749884998.git.nicolinc@nvidia.com>
+ <e3b195d74539d065397f6b1382127438fc256ec4.1749884998.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e3b195d74539d065397f6b1382127438fc256ec4.1749884998.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: YT4P288CA0042.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d3::23) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-References: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-0-341502d38618@axiado.com>
- <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-4-341502d38618@axiado.com>
-In-Reply-To: <20250615-axiado-ax3000-soc-and-evaluation-board-support-v2-4-341502d38618@axiado.com>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 16 Jun 2025 08:57:26 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJpb7wFw3DqX504LyS2PGbQxQfbBKh9VfCY8j7G9YKXiw@mail.gmail.com>
-X-Gm-Features: AX0GCFuQPys5Thxu-nqBA43dpX9szemYIEtdKd5xHzL7MleeMvIzogZHZdn5g7w
-Message-ID: <CAL_JsqJpb7wFw3DqX504LyS2PGbQxQfbBKh9VfCY8j7G9YKXiw@mail.gmail.com>
-Subject: Re: [PATCH v2 4/6] arm64: dts: axiado: Add initial support for AX3000
- SoC and eval board
-To: Harshit Shah <hshah@axiado.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, soc@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA0PR12MB7508:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0eadb799-ad11-4f65-f238-08ddacdef194
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NhZ3RxYToSthjcuRbwGt/qSLF7pPnD56pHdAlvga3SAp9GOKOm9VzkDKxCkP?=
+ =?us-ascii?Q?lKXweyQUh+7DwMVvbqO6mG/XCjiH9Qv04u6ExgTp309QdUYS6VoE0sUjBJMY?=
+ =?us-ascii?Q?A+2qINiR/rga23DHIInUPiAIUXN/lnfjyHrs/DtZ7VWWbMynXJGp1wwfezJ9?=
+ =?us-ascii?Q?3xjlGuTw+gK+aT4OSvXomEydDUUzlKzGg36Z7oP2apn2JLoHsj5m/VmKTV79?=
+ =?us-ascii?Q?m58gT7FmCHqKRbfZd1LJPrC5/wXsRR/ZicNIDCFnKolI7wCQnthgjnYuoFG2?=
+ =?us-ascii?Q?UA7jT2sb4MqNKl4xEyDbeVzeFI1sNimlgf1l95mJIzDsvehiqdORd32MmvEj?=
+ =?us-ascii?Q?aL0nRdAX8Gc/nvtpPdaZ0S/c1/uJg/CSqwufMqqXj1uAcPmGs2z0GflmXqEL?=
+ =?us-ascii?Q?Hsvc6qExLuw4fVl/qsOAz1Ev49m8TcWG2enKW2BPwkoOqlHUVQvtyvNxhLK6?=
+ =?us-ascii?Q?v6gnfRJ5dhA7ljXD1/+U5eLXbIi2D5hKsOncgwpr5RxdbjX4uvDPLRqJaQVx?=
+ =?us-ascii?Q?g00mzrQm5zramVwI+A7TiCZFHHsFasyvFsf6K8zpFguJkjv4Xyx5G6jrQBbW?=
+ =?us-ascii?Q?c/FVkfT4N5ADHuYuhFneugt2+B6WMcqkXAsMQomxfCIx0xRElR/WpnCACVJM?=
+ =?us-ascii?Q?OgMMGJSp7HSbFxyMzlEaoozE6rmvFsikzAvB4ISdfNUueM5EdTPr4LJDUQkg?=
+ =?us-ascii?Q?pSbfMeGeDT0ds/FWnXKv47KKMN6efnQafA7kXe5oI5IZQ91cu2XDVl5xHswm?=
+ =?us-ascii?Q?x057orLrxMUuHArBuWsPhq1MPcrB4uROgeZYDEh53dEwAU22VDeYQSMbVFhj?=
+ =?us-ascii?Q?Fw47mPVFDBLrjLEceaSrFULOmLY+jfe3nsquRa/sSUP9vPkREpNkGGbEVZvT?=
+ =?us-ascii?Q?EyiQ2HQqPKxQ3OWfEBG8l8ghMaqHd/FPyqxIBLdD2r6w6Woo6E9fsJWhRFFJ?=
+ =?us-ascii?Q?7IjiQX87wVMIMA8vOTzwEpGa0RQxAah4nitlulIGqWa7o+SWQGyW98qIyZL8?=
+ =?us-ascii?Q?VxDnjXgxXJJsRGwXgm5dqmKbdvMPbuxgxzm4yb8L4YcjoHUd18XDV4HebQPq?=
+ =?us-ascii?Q?jNkZ8ssoV/bwQ81Zla23X0bPvQhDdrJEnLlc2XQNzWXTaG3ZSwqRZz2GIsa8?=
+ =?us-ascii?Q?AuDJcv+D2ChSRaJ6z7TRxPCxZiwaWcqHQF4ziXIXjKHScy/OT98g2uEYGaIH?=
+ =?us-ascii?Q?6NFUlSulUJW9vmwNde7XYK+z2TNBmUeSqst15v3MznXzgae0fIURDg9a7/aQ?=
+ =?us-ascii?Q?wMFn1ZOFRcnhgAcAVN18JdBxGgtoG9zTWS0qiQThBY4P7Z1qMSHBctItr7Lp?=
+ =?us-ascii?Q?Ubut8ovuFUmrDGs/5W68h6eOC7btEj8GuxvyjGni3rbPksFK7MeLDb1iNwQU?=
+ =?us-ascii?Q?kM2Egqjvl4rM2mxhE3b7PzTxx3C8V36L6aoIAp291GtB2cB3DYDkv85furks?=
+ =?us-ascii?Q?VNA7k8EnDYQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+zfS9lYsFdfaUbQsgE5iFTFjgX51u/WHYlURYAIhkEuQKyInYVet+MnSLJM0?=
+ =?us-ascii?Q?J7D7aNlf/feXR9Dc9MUBABLIRnyM8Ar2akp2pXgHOGd8ZTSSsXa3bgLXbksK?=
+ =?us-ascii?Q?2Ioi1vmVflC5+BX2dqgBxbhtVE9595GP++lIEDWqYT3lfv//+9dHr1w85dm0?=
+ =?us-ascii?Q?57CueBDmwgi9Ni04dt2sI/1o1XGPPyLiG+TTQXpQM9lcBoVUBtoq1ZcysCnS?=
+ =?us-ascii?Q?R+jqwXByRsCrZahfwAkBepAoJQlv7uX8pXcnuvTLXlwP5BHgkYLa6IFpXogi?=
+ =?us-ascii?Q?KAIej/bbGLRIlrFQjmsjRQaRso+49llZo2vT7fDkOzD+odTVYd0gxBvtXS1/?=
+ =?us-ascii?Q?gzZN6tEIseM9U337gRXzbjczuH5PSFtUmMm/GHjfacTy4GrGE7y659EhE34Z?=
+ =?us-ascii?Q?ujKAquFLbTniMFmRWB2va+UmqvazMxOg8FKwxxoyTxXH1X4kqTk3+42Mcdux?=
+ =?us-ascii?Q?mcn+THJmON0xvrCOJTrad401MPFciRZR8L9Ac4ajFivQZE1iIie7KcTevuPB?=
+ =?us-ascii?Q?dcd84A8FIJYag9mxwFf26XxObEn/q8VnVsF2Irv2T/AbSREWySnOin7ngpch?=
+ =?us-ascii?Q?+vtIR7O9rjNlrh14BAFOoFvEnpJu2JO9BMV1aMcTNgxGOFI9e4GC7EdLri1/?=
+ =?us-ascii?Q?/Xu1RZoSBsHPDnfs4tPV9lHmrtax6bg34aopyVIuwQONm/OW6SfDcUeR2eNZ?=
+ =?us-ascii?Q?jt9ZrKQ+sut3yeD4DBPbl6Pvg+eDStQHFPj3W61MTZvLS2gPoEPCD6nTA7C7?=
+ =?us-ascii?Q?56cYp98yQM5hBj/Wzpao4x3FSuceMdFanZ2KsLZNbf/RLQfG8elogU6JY0dI?=
+ =?us-ascii?Q?5N5CW6m2hl0ONC6wKVC+V0AxmBYm5YeYFUM/hevv7VXcrFUFXIxmhkbOWGsi?=
+ =?us-ascii?Q?0p+VKT7JIocUPgQ/xoOG+27Pxn0eIlvRhnyajRdhu8e0Ynmqt5Nf0MTxvPVV?=
+ =?us-ascii?Q?h3YXEdpuTqTqJAyPOwNnhyx55QAFUrN6nO0m9Sdlbb5aKh5+KKsXpz1dApkJ?=
+ =?us-ascii?Q?PJP98B+JogmtULm8SbFeI3f4hz0XkqJ3YsR0MlWYyoqOl5LjF2Gdd0qidMVb?=
+ =?us-ascii?Q?N8s3tNW7e5mDyJ5ci0nKPUsbOChM6aUpeO9R6FK61EiSZcEQ1fDSHK11urKA?=
+ =?us-ascii?Q?57v2OukFgG6ZmYQFNDzT7esK8ph4xajhG3LqdyY40D9djf0k0kv1di1cF1GC?=
+ =?us-ascii?Q?NtpYILFotgxNt082KmiOGccnhdBdNSMzkRQUse8+mCb59GCgoeEKCewk05g0?=
+ =?us-ascii?Q?fTiEuSKLkMPcc1HYyN0p/vX23mUqyssdDtUjdgyPaU6vY0OxK8f6QuOrqlrk?=
+ =?us-ascii?Q?e+BuPtANczO2wrF1Bn+RPOA9HBijuj7a2/SBZ0mR18iWEGZVsweKs+NmSlQM?=
+ =?us-ascii?Q?iINfZVthErH8SjtZOfHbzYs00FjnqptJ40WwpTb/EuF/PCsYV+Fkpzp5TG86?=
+ =?us-ascii?Q?q/Px8VObqcHE4rxYRR8HpCQRlG4uPdajMYwaDhB5b8jvEWb/O/maF7dg6cI4?=
+ =?us-ascii?Q?bcZjlpEowAigcklN9pY+xa7zozyxeuJPHtdGzD+5m7myHavkcF6w2y1XBKV3?=
+ =?us-ascii?Q?3ei0RL+rCKOXhrucIXn6+J99gbkGtnt11ROJQxf+?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0eadb799-ad11-4f65-f238-08ddacdef194
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jun 2025 14:06:09.5990
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fnK0h2mWHkoTGiZSOIP/c1waG0HRRAW2ilaWo35hq7Y0nUwlXZKPNmUlSlhnWe7s
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7508
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_065740_899952_CD22298B 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250616_070618_905897_BB1DAE70 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,184 +167,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 15, 2025 at 11:32=E2=80=AFPM Harshit Shah <hshah@axiado.com> wr=
-ote:
->
-> Add initial device tree support for the AX3000 SoC and its evaluation
-> platform. The AX3000 is a multi-core SoC featuring 4 Cortex-A53 cores,
-> Secure Vault, AI Engine and Firewall.
->
-> This commit adds support for Cortex-A53 CPUs, timer, UARTs, and I3C
-> controllers on the AX3000 evaluation board.
->
-> Signed-off-by: Harshit Shah <hshah@axiado.com>
+On Sat, Jun 14, 2025 at 12:14:36AM -0700, Nicolin Chen wrote:
+> NVIDIA Virtual Command Queue is one of the iommufd users exposing vIOMMU
+> features to user space VMs. Its hardware has a strict rule when mapping
+> and unmapping multiple global CMDQVs to/from a VM-owned VINTF, requiring
+> mappings in ascending order and unmappings in descending order.
+> 
+> The tegra241-cmdqv driver can apply the rule for a mapping in the LVCMDQ
+> allocation handler. However, it can't do the same for an unmapping since
+> user space could start random destroy calls breaking the rule, while the
+> destroy op in the driver level can't reject a destroy call as it returns
+> void.
+> 
+> Add iommufd_hw_queue_depend/undepend for-driver helpers, allowing LVCMDQ
+> allocator to refcount_inc() a sibling LVCMDQ object and LVCMDQ destroyer
+> to refcount_dec(), so that iommufd core will help block a random destroy
+> call that breaks the rule.
+> 
+> This is a bit of compromise, because a driver might end up with abusing
+> the API that deadlocks the objects. So restrict the API to a dependency
+> between two driver-allocated objects of the same type, as iommufd would
+> unlikely build any core-level dependency in this case. And encourage to
+> use the macro version that currently supports the HW QUEUE objects only.
+> 
+> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+> Reviewed-by: Pranjal Shrivastava <praan@google.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
->  arch/arm64/boot/dts/Makefile              |   1 +
->  arch/arm64/boot/dts/axiado/Makefile       |   2 +
->  arch/arm64/boot/dts/axiado/ax3000.dtsi    | 584 ++++++++++++++++++++++++=
-++++++
->  arch/arm64/boot/dts/axiado/ax3000_evk.dts |  72 ++++
->  4 files changed, 659 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index 79b73a21ddc22b17308554e502f8207392935b45..47dd8a1a7960d179ee28969a1=
-d6750bfa0d73da1 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -9,6 +9,7 @@ subdir-y +=3D amlogic
->  subdir-y +=3D apm
->  subdir-y +=3D apple
->  subdir-y +=3D arm
-> +subdir-y +=3D axiado
->  subdir-y +=3D bitmain
->  subdir-y +=3D blaize
->  subdir-y +=3D broadcom
-> diff --git a/arch/arm64/boot/dts/axiado/Makefile b/arch/arm64/boot/dts/ax=
-iado/Makefile
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..eb5e08ba0f39c32cdbfd586d9=
-82849a80da30160
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axiado/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_AXIADO) +=3D ax3000_evk.dtb
-> diff --git a/arch/arm64/boot/dts/axiado/ax3000.dtsi b/arch/arm64/boot/dts=
-/axiado/ax3000.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d5d84986d18efe9dfbb446cee=
-e42fc4e4dbf95d0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/axiado/ax3000.dtsi
-> @@ -0,0 +1,584 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (c) 2021-25 Axiado Corporation (or its affiliates). All rig=
-hts reserved.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/memreserve/ 0x3c0013a0 0x00000008;    /* cpu-release-addr */
-> +/ {
-> +       compatible =3D "axiado,ax3000";
+>  include/linux/iommufd.h        | 44 ++++++++++++++++++++++++++++++++++
+>  drivers/iommu/iommufd/driver.c | 28 ++++++++++++++++++++++
+>  2 files changed, 72 insertions(+)
 
-Drop. As this is not valid and overridden anyways.
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-> +       interrupt-parent =3D <&gic500>;
-> +
-> +       aliases {
-> +               i3c0 =3D &i3c0;
-> +               i3c1 =3D &i3c1;
-> +               i3c2 =3D &i3c2;
-> +               i3c3 =3D &i3c3;
-> +               i3c4 =3D &i3c4;
-> +               i3c5 =3D &i3c5;
-> +               i3c6 =3D &i3c6;
-> +               i3c7 =3D &i3c7;
-> +               i3c8 =3D &i3c8;
-> +               i3c9 =3D &i3c9;
-> +               i3c10 =3D &i3c10;
-> +               i3c11 =3D &i3c11;
-> +               i3c12 =3D &i3c12;
-> +               i3c13 =3D &i3c13;
-> +               i3c14 =3D &i3c14;
-> +               i3c15 =3D &i3c15;
-> +               i3c16 =3D &i3c16;
-> +               serial0 =3D &uart0;
-> +               serial1 =3D &uart1;
-> +               serial2 =3D &uart2;
-> +               serial3 =3D &uart3;
-> +       };
-> +
-> +       cpus {
-> +               #address-cells =3D <2>;
-> +               #size-cells =3D <0>;
-> +
-> +               cpu0: cpu@0 {
-> +                       device_type =3D "cpu";
-> +                       compatible =3D "arm,cortex-a53";
-> +                       reg =3D <0x0 0x0>;
-> +                       enable-method =3D "spin-table";
-> +                       cpu-release-addr =3D <0x0 0x3c0013a0>;
-> +                       d-cache-size =3D <0x8000>;
-> +                       d-cache-line-size =3D <64>;
-> +                       d-cache-sets =3D <128>;
-> +                       i-cache-size =3D <0x8000>;
-> +                       i-cache-line-size =3D <64>;
-> +                       i-cache-sets =3D <256>;
-> +                       next-level-cache =3D <&l2>;
-> +               };
-> +
-> +               cpu1: cpu@1 {
-> +                       device_type =3D "cpu";
-> +                       compatible =3D "arm,cortex-a53";
-> +                       reg =3D <0x0 0x1>;
-> +                       enable-method =3D "spin-table";
-> +                       cpu-release-addr =3D <0x0 0x3c0013a0>;
-> +                       d-cache-size =3D <0x8000>;
-> +                       d-cache-line-size =3D <64>;
-> +                       d-cache-sets =3D <128>;
-> +                       i-cache-size =3D <0x8000>;
-> +                       i-cache-line-size =3D <64>;
-> +                       i-cache-sets =3D <256>;
-> +                       next-level-cache =3D <&l2>;
-> +               };
-> +
-> +               cpu2: cpu@2 {
-> +                       device_type =3D "cpu";
-> +                       compatible =3D "arm,cortex-a53";
-> +                       reg =3D <0x0 0x2>;
-> +                       enable-method =3D "spin-table";
-> +                       cpu-release-addr =3D <0x0 0x3c0013a0>;
-> +                       d-cache-size =3D <0x8000>;
-> +                       d-cache-line-size =3D <64>;
-> +                       d-cache-sets =3D <128>;
-> +                       i-cache-size =3D <0x8000>;
-> +                       i-cache-line-size =3D <64>;
-> +                       i-cache-sets =3D <256>;
-> +                       next-level-cache =3D <&l2>;
-> +               };
-> +
-> +               cpu3: cpu@3 {
-> +                       device_type =3D "cpu";
-> +                       compatible =3D "arm,cortex-a53";
-> +                       reg =3D <0x0 0x3>;
-> +                       enable-method =3D "spin-table";
-> +                       cpu-release-addr =3D <0x0 0x3c0013a0>;
-> +                       d-cache-size =3D <0x8000>;
-> +                       d-cache-line-size =3D <64>;
-> +                       d-cache-sets =3D <128>;
-> +                       i-cache-size =3D <0x8000>;
-> +                       i-cache-line-size =3D <64>;
-> +                       i-cache-sets =3D <256>;
-> +                       next-level-cache =3D <&l2>;
-> +               };
-> +
-> +               l2: l2-cache0 {
-> +                       compatible =3D "cache";
-> +                       cache-size =3D <0x100000>;
-> +                       cache-unified;
-> +                       cache-line-size =3D <64>;
-> +                       cache-sets =3D <1024>;
-> +                       cache-level =3D <2>;
-> +               };
-> +       };
-> +
-> +       timer:timer {
-> +               compatible =3D "arm,armv8-timer";
-> +               interrupt-parent =3D <&gic500>;
-> +               interrupts =3D <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
-> +                          <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
-> +                          <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
-> +                          <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
-> +               arm,cpu-registers-not-fw-configured;
-
-Drop. Not valid for arm64. And new platforms should fix the firmware anyway=
-s.
-
-Rob
+Jason
 
