@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D7BC71159
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 895BBC7115B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 16 Jun 2025 17:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tQv5+pAc4L4C91UEGWLn8BUX0WiW4pl4M8ey8WEjjO4=; b=U2LOGW80dKcggHCw5eN/yfNvad
-	cyDFXVFRjUQxiTS4s40TH00swhCVZ+dcQjU4YQ0ad/DXhpScsxax8oYz8hfPKtIj2RnPSvUc7A10X
-	n+wXfY2Z3Ob47mjrZhhJEmMuXaqobD3dBRyDJsiqihpiIfzSFtcEbH7pYZQWDDf8wlEfVD7zpL6uU
-	RdrGWrad4oc8XX1IZ37V+UZGiCzdk+FzEruP/SZJUXHJhvHUTqAe41WNmX4OwRAze2NRaV24WsGp0
-	k4F0a064e8Aei/eUCBcDiqe7K4mWnCoA+TR0WgeZ96HFgvnec7rBvdA01FBXcsM0nV8ToSwo8SJV0
-	aHfN8SgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5EJDBLjh9k/qTBxVDOPHanym/KSNIq8AGLX1oOv6gAI=; b=TMmWNxkuy1oYwgFw9g0/Ken0Ta
+	7mOPH1VinlS30Ni7butuE64NCqdvv3E2ucOyTlOm1KsNI7rXwjxn6nh/4nNU03i4VejzVzftKcf0A
+	da9h/DyYFSF52byIBR0vg465SkYq0DKhaPmzMMhFf6+Mr7gJvfZdgDdl4xdBBLZo/+o89ngC3OUH8
+	3eyoE5jM44f6rV3+ebIG7sV304wxPpPVSd5W2cnQO3N5eMwc2qTisz6b1CY3hkzhZBsoBihL36zR6
+	0W9O2sm0okNgfYrZEDN+D/jMVzs4lo8W6f2qOJo+TEuNCvCZyuNDue8lp5i/+1KoYJyuFkuHWhON/
+	AuKQf7nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRDLM-000000054tV-331L;
-	Mon, 16 Jun 2025 17:10:00 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uRDLL-000000054sC-3n2N;
+	Mon, 16 Jun 2025 17:09:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRBXn-00000004o7V-496S;
-	Mon, 16 Jun 2025 15:14:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1750086872; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EvU5d9TIxEm+JTfOsqIQGCWFN48GYRO4qI9vxqtfzku9NXfP+NJQtipldDMLMRyyrI6hB2BIn/BZst5A5A8V34I6mkRqneV8vqnfDEacGvrgzJnfy+ZKPz1yVvjdYocOGtA+QnmdURRPLn3/kNqf3nFi7XFubUzf5/Jvzdlqfk0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1750086872; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=tQv5+pAc4L4C91UEGWLn8BUX0WiW4pl4M8ey8WEjjO4=; 
-	b=hdesGNgliCkoICR0FlF/XaOZd31CUpqr1r95kW5mgm6GFIWKJM4fUwNpz8faMJ8ZoR8GFwW3BskHe7BlXkHy9wqAHPLdRrfi1skB+dh2eBDwLWILqbqlJbyC4zv+hcboJOrKAYQMhWSpAGX1txVHYYrOi7Dk4lA6Las2nLBmsdQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1750086872;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
-	bh=tQv5+pAc4L4C91UEGWLn8BUX0WiW4pl4M8ey8WEjjO4=;
-	b=cWd0mtWm0NDl0awihGP9/lf5IfA27beVvuEe1KbSF2KWuz3wAqFAAswkp39qcSH2
-	O1Ul+PJqaxw7nUp4ITeWFuhLguGOqoSjiek89cQLU3uBfQ1keYeqS6X8o4MvTQljcCP
-	vtgC+Zx7pTbksuz25YjuXWe3ekTL42GN1aIbFKDY=
-Received: by mx.zohomail.com with SMTPS id 1750086870650857.0304431538276;
-	Mon, 16 Jun 2025 08:14:30 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 16 Jun 2025 17:14:17 +0200
-Subject: [PATCH v2] pwm: rockchip: round period/duty down on apply, up on
- get
+	id 1uRBXK-00000004o20-08zN;
+	Mon, 16 Jun 2025 15:14:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7565A6115E;
+	Mon, 16 Jun 2025 15:14:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2D51C4CEED;
+	Mon, 16 Jun 2025 15:14:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750086853;
+	bh=oVNq1HKgH5AsdLLp2/oc3d/YzPzDQJprNg0ypJQvF5g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PX/3X52xu3kaMjy4O0uJXkY0H6d569uWQLxiivcPb8otZdkmozLr37/eGCZohQ17T
+	 oFoOccSPG+bsR4FgnAe+PubjvwayN/Ks4Bxez77C+J1E9sArCYo02bUlZY1f3Ak2lI
+	 MZZQctzQzyq9iMWROBGPEXG6ffe2ekqloegWqLh6gd2ThRxY40gocWRFxoBwo0eIPA
+	 CAubRuQxNHcH2O1rCBpaj2oZ62ToeHGbFpmKzN66ez/+r1KVb1HvKKdA+GZbtjte3b
+	 JiDdx7JsZI6Ly49Sr/bsk1R9Dujl1wNEAHvF+wMs9s4uEV5apub+euT2LSRC8SW//l
+	 O9mX5WdLzDAsg==
+Date: Mon, 16 Jun 2025 16:14:07 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH 2/5] dt-bindings: iommu: verisilicon: Add binding for VSI
+ IOMMU
+Message-ID: <20250616-winter-strict-db98f85db22d@spud>
+References: <20250616145607.116639-1-benjamin.gaignard@collabora.com>
+ <20250616145607.116639-3-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250616-rockchip-pwm-rounding-fix-v2-1-a9c65acad7b6@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAMg0UGgC/42OTQ6CMBCFr0Jm7Zi2pvVn5T2Mi1JGmCgttogYw
- t2tcAGX30ve+94EiSJTglMxQaSBEwefQW0KcI31NSFXmUEJpYVWCmNwd9dwh927zfDyFfsabzz
- i8WB3RrijoIOE3O8i5XjZvlxXjvR8ZUW/hlDaROhC23J/KjyNPS4aIw38Cg2nPsTP8m2QS+OPG
- 4NEiaWWxlZ7Y5W2ZxceD1uGaLfZBdd5nr9jf1WW9wAAAA==
-X-Change-ID: 20250522-rockchip-pwm-rounding-fix-98a360c90e81
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Brian Norris <briannorris@chromium.org>, 
- Boris Brezillon <bbrezillon@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>
-Cc: kernel@collabora.com, linux-pwm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_081444_104390_AFDF2874 
-X-CRM114-Status: GOOD (  18.07  )
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="9fJcQZWqMIbTgGsZ"
+Content-Disposition: inline
+In-Reply-To: <20250616145607.116639-3-benjamin.gaignard@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,137 +76,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_PWM_DEBUG=y, the rockchip PWM driver produces warnings like
-this:
 
-  rockchip-pwm fd8b0010.pwm: .apply is supposed to round down
-  duty_cycle (requested: 23529/50000, applied: 23542/50000)
+--9fJcQZWqMIbTgGsZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is because the driver chooses ROUND_CLOSEST for purported
-idempotency reasons. However, it's possible to keep idempotency while
-always rounding down in .apply.
+On Mon, Jun 16, 2025 at 04:55:50PM +0200, Benjamin Gaignard wrote:
+> Add a device tree binding for the Verisilicon (VSI) IOMMU. This IOMMU sits
+> in front of hardware encoder and decoder blocks on SoCs using Verisilicon=
+ IP,
+> such as the Rockchip RK3588.
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> ---
+>  .../bindings/iommu/verisilicon,iommu.yaml     | 71 +++++++++++++++++++
+>  1 file changed, 71 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,i=
+ommu.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/iommu/verisilicon,iommu.ya=
+ml b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+> new file mode 100644
+> index 000000000000..acef855fc61d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+> @@ -0,0 +1,71 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iommu/verisilicon,iommu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Verisilicon IOMMU
+> +
+> +maintainers:
+> +  - Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> +
+> +description: |+
+> +  A Versilicon iommu translates io virtual addresses to physical address=
+es for
+> +  its associated video decoder.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: verisilicon,iommu
 
-Do this by making get_state always round up, and making apply always
-round down. This is done with u64 maths, and setting both period and
-duty to U32_MAX (the biggest the hardware can support) if they would
-exceed their 32 bits confines.
+You're missing a soc-specific compatible at the very least here, but is
+there really no versioning on the IP at all? I'd be surprised if
+verisilicon only produced exactly one version of an iommu IP.
 
-Fixes: 12f9ce4a5198 ("pwm: rockchip: Fix period and duty cycle approximation")
-Fixes: 1ebb74cf3537 ("pwm: rockchip: Add support for hardware readout")
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
-This fix may need some careful testing from others before definitely
-being applied and backported. While I did test it myself of course,
-making sure to try a combination of periods and duty cycles, I really
-don't want to accidentally undo someone else's fix.
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Core clock
+> +      - description: Interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: aclk
+> +      - const: iface
 
-Some of the u64 math is a bit overkill, but I don't want to assume
-prescalers will never get larger than 4, which is where we start needing
-the 64-bit prescaled NSECS_PER_SEC value. clk_rate could also
-comfortably fit within u32 for any expected clock rate, but unsigned
-long can fit more depending on architecture, even if nobody is running
-the PWM hardware at 4.294967296 GHz.
----
-Changes in v2:
-- rename "period" and "duty" to "period_ticks" and "duty_ticks" as per
-  ukleinek's review
-- slightly modify commit message to add "purported", in order to make it
-  clearer that ROUND_CLOSEST and idempotency are orthogonal things and
-  that it worked out in this case was happenstance
-- Link to v1: https://lore.kernel.org/r/20250522-rockchip-pwm-rounding-fix-v1-1-b516ad76a25a@collabora.com
----
- drivers/pwm/pwm-rockchip.c | 33 ++++++++++++++++++++-------------
- 1 file changed, 20 insertions(+), 13 deletions(-)
+Why "aclk" rather than core, to match the description?
 
-diff --git a/drivers/pwm/pwm-rockchip.c b/drivers/pwm/pwm-rockchip.c
-index c5f50e5eaf41ac7539f59fa03f427eee6263ca90..67b85bdb491b13cedb67c52de614f4ad9be427c5 100644
---- a/drivers/pwm/pwm-rockchip.c
-+++ b/drivers/pwm/pwm-rockchip.c
-@@ -8,6 +8,8 @@
- 
- #include <linux/clk.h>
- #include <linux/io.h>
-+#include <linux/limits.h>
-+#include <linux/math64.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-@@ -61,6 +63,7 @@ static int rockchip_pwm_get_state(struct pwm_chip *chip,
- 				  struct pwm_state *state)
- {
- 	struct rockchip_pwm_chip *pc = to_rockchip_pwm_chip(chip);
-+	u64 prescaled_ns = (u64)pc->data->prescaler * NSEC_PER_SEC;
- 	u32 enable_conf = pc->data->enable_conf;
- 	unsigned long clk_rate;
- 	u64 tmp;
-@@ -78,12 +81,12 @@ static int rockchip_pwm_get_state(struct pwm_chip *chip,
- 	clk_rate = clk_get_rate(pc->clk);
- 
- 	tmp = readl_relaxed(pc->base + pc->data->regs.period);
--	tmp *= pc->data->prescaler * NSEC_PER_SEC;
--	state->period = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
-+	tmp *= prescaled_ns;
-+	state->period = DIV_U64_ROUND_UP(tmp, clk_rate);
- 
- 	tmp = readl_relaxed(pc->base + pc->data->regs.duty);
--	tmp *= pc->data->prescaler * NSEC_PER_SEC;
--	state->duty_cycle =  DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
-+	tmp *= prescaled_ns;
-+	state->duty_cycle =  DIV_U64_ROUND_UP(tmp, clk_rate);
- 
- 	val = readl_relaxed(pc->base + pc->data->regs.ctrl);
- 	state->enabled = (val & enable_conf) == enable_conf;
-@@ -103,8 +106,9 @@ static void rockchip_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
- 			       const struct pwm_state *state)
- {
- 	struct rockchip_pwm_chip *pc = to_rockchip_pwm_chip(chip);
--	unsigned long period, duty;
--	u64 clk_rate, div;
-+	u64 prescaled_ns = (u64)pc->data->prescaler * NSEC_PER_SEC;
-+	u64 clk_rate, tmp;
-+	u32 period_ticks, duty_ticks;
- 	u32 ctrl;
- 
- 	clk_rate = clk_get_rate(pc->clk);
-@@ -114,12 +118,15 @@ static void rockchip_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
- 	 * bits, every possible input period can be obtained using the
- 	 * default prescaler value for all practical clock rate values.
- 	 */
--	div = clk_rate * state->period;
--	period = DIV_ROUND_CLOSEST_ULL(div,
--				       pc->data->prescaler * NSEC_PER_SEC);
-+	tmp = mul_u64_u64_div_u64(clk_rate, state->period, prescaled_ns);
-+	if (tmp > U32_MAX)
-+		tmp = U32_MAX;
-+	period_ticks = tmp;
- 
--	div = clk_rate * state->duty_cycle;
--	duty = DIV_ROUND_CLOSEST_ULL(div, pc->data->prescaler * NSEC_PER_SEC);
-+	tmp = mul_u64_u64_div_u64(clk_rate, state->duty_cycle, prescaled_ns);
-+	if (tmp > U32_MAX)
-+		tmp = U32_MAX;
-+	duty_ticks = tmp;
- 
- 	/*
- 	 * Lock the period and duty of previous configuration, then
-@@ -131,8 +138,8 @@ static void rockchip_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
- 		writel_relaxed(ctrl, pc->base + pc->data->regs.ctrl);
- 	}
- 
--	writel(period, pc->base + pc->data->regs.period);
--	writel(duty, pc->base + pc->data->regs.duty);
-+	writel(period_ticks, pc->base + pc->data->regs.period);
-+	writel(duty_ticks, pc->base + pc->data->regs.duty);
- 
- 	if (pc->data->supports_polarity) {
- 		ctrl &= ~PWM_POLARITY_MASK;
+> +
+> +  "#iommu-cells":
+> +    const: 0
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - "#iommu-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    bus {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      vsi_mmu: iommu@fdca0000 {
 
----
-base-commit: 67a08d8299798b4748f0194002566abc14c0cb23
-change-id: 20250522-rockchip-pwm-rounding-fix-98a360c90e81
+The "vsi_mmu" label can be dropped here, it has no users.
 
-Best regards,
--- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cheers,
+Conor.
 
+> +        compatible =3D "verisilicon,iommu";
+> +        reg =3D <0x0 0xfdca0000 0x0 0x600>;
+> +        interrupts =3D <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
+> +        clocks =3D <&cru ACLK_AV1>, <&cru PCLK_AV1>;
+> +        clock-names =3D "aclk", "iface";
+> +        #iommu-cells =3D <0>;
+> +      };
+> +    };
+> --=20
+> 2.43.0
+>=20
+
+--9fJcQZWqMIbTgGsZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFA0vwAKCRB4tDGHoIJi
+0vT6AQC6scfk381tN82ARmoQ+PHZMrSLuYi9ck4P/3vTospnlgEA8JzI7GkSRolM
+exwAAerU1ffK1uHS3p3k6fwqqJumHgY=
+=9xSJ
+-----END PGP SIGNATURE-----
+
+--9fJcQZWqMIbTgGsZ--
 
