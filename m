@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BBAC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 07:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F65C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=snpa4M8wvjI3Jt75dD0dm1cl3ZvZlE8jLqCZvwug+5E=; b=3p7YFyvhvytJqoYKfoLlfxXBo0
-	RSOmwJKxRTb2k0ugZmse/IDZX289QoK12myIwb1DPDl4d4zHNukGzVzme0GXevTeQfOlvXZ2QjpDj
-	UKexabz2D19SV4ulsC5glJd2UWbBNuuzo5jJYCSxs/82nJnpDU0HSUZivJqmDKeQdvXVI3YpPkNbw
-	DDcw8jceSidEwKa5WVGk2n+p+LZIU3ECu10uTFo1GEfO0m1Y7Fi8K2FzLxfbMKwrPdXHClKwoJSe5
-	2BJpc7+CqzCH0WHN+pg48wtkJ/5r4YWDejL1rJUCBvIubCi9Gl8CkObktIjf5PfJr8i9ErFgnxJFe
-	qdnNe7ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8W8WrTRfzWBsfl+y7aEIZadGVsHJg4ok96aNaLcWilM=; b=K1vOUnf6AgZuRdEAfY9ljCQIGI
+	vWazWCOU7z8HI33m86pepi+XgfX6me/l8R2yFVTvrQVLs3e7U5RpjTjdhH0JsEcBHl96OMnj9LyL5
+	T0RnohA0BsVk3av9oX3UE8dV7gCBAnwQQCSh5+fjFc5btYB3nDPZlK1hYnsIuHUMtn1qWHlGJet5B
+	STJG5N/9fYq+I42KWaK7VU+DVqFVOkSbBcpspMpvUznm6XAaG/oNFaMDKNM7TwPDCS4qSXP+Oath0
+	sx+bBhaBCfr1s+gEdN5V0xKrd2Omf2XrUQe9O+NM3mrRlIx1MfhdJOdhsuQhNS4bvLDPN7HYi+6x5
+	hVT26TKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRBx-00000006W5N-0lK3;
-	Tue, 17 Jun 2025 07:57:13 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uRROy-00000006YNh-2hmp;
+	Tue, 17 Jun 2025 08:10:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRR9e-00000006VqL-1Ts8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 07:54:51 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ade750971f2so695110366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 00:54:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750146888; x=1750751688; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:date:cc:to:from
-         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=snpa4M8wvjI3Jt75dD0dm1cl3ZvZlE8jLqCZvwug+5E=;
-        b=lfVKLiI+blf20Yt/Yf1vsm68xUNT9nMP1KRPY5c6hJAAjfOxO1M3J0KfwMOTRBA7zw
-         RpwaLewcfG6AC8BecVt5Eg1t7ANTAIYUjlGU90vxQlHk8iOxju/iv33+ofHsmxdlKDmt
-         uQYvJ2s2hMdwe+vRYRM4koWbCdq0NEpJwWngE+gv7KqHXEb1tQXablXheIi7duLZFbwu
-         0+RiCyvHmf4OyZ0m9Bpv2ziq+EMsDTfPpVtqc3fDygGo5w+3C/R8kBty/d66IT43MtFX
-         5oXO2GLmFZTAYgGdkFghLQFCgzFDRK6TeLD/BZR1L9aDv0RQfk7I15l+eQlnRGuPqhXI
-         tiBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750146888; x=1750751688;
-        h=mime-version:user-agent:content-transfer-encoding:date:cc:to:from
-         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=snpa4M8wvjI3Jt75dD0dm1cl3ZvZlE8jLqCZvwug+5E=;
-        b=r+EeSxc4vSc7bc0+cmUhRt2njUO/nLQH5HPbSumQ2knQw+8oMNVaEF5zb/T7uV4Kip
-         HTqZtrAuxLcUMWamHPhaK5hKe68uP4fFjSgVaOp0Q90Zk8QAbBPAa33r3cuTI5Tt5A4u
-         5nAJeAPociVagn12YJ9nuiFMsRiAdNwcHlub6woG2lHtTFsNbgzoJUg5I+sg7beh/qBu
-         2qid/0oSp/yo+tvAeaTnkx6KqXVpqLcJAHrIMoyu5i32ATHubb9LsltKZWT/IMav03RH
-         W8cH6STAmbw1n9dcTBx1lBKqpCSiMbEeHVycgzOyrm7mx/nNKUhzRCicZ94WdKX3fJY0
-         /ZMA==
-X-Gm-Message-State: AOJu0YwGcqFtmRoSYxUROy2AP6+HGXTWWyA5Cl2kbQJXFhxVBiDz6vyE
-	D+JMYiX+fYsn4QRJ6VzUG3aFZ6a09EzLBbv3rbibqauSo9+V4yySHWPIEavvpFSO
-X-Gm-Gg: ASbGnctkULJ1JY3wX2QVSzCq2HoG/fBLP8RHHe5RATEFFdTcNU69cC7Ri5LSGoDSNLi
-	fNvtwikljoRIkbR2G9QEV9O0FpEg2arqof/9s3pqhFV6P47je1d1/kIQ0QPmYTOsd1S6l77s/z9
-	O0wEG8TQG76EYCrFH5zLFCKN9WK8/pY+5/7qDZzoKJw5ybdxEO4neDaG9voYLlMt/UvyQsvFBtg
-	r6sazPuSScgXf5UbTwnm8afDDZnaUXtUKDkKG9U834lgg2V4eY/GSrhiX0PWGoekQD8aeScIt1R
-	Wjf/KauAAYwk0lp41LJwbqQq5Sp5nvgZDT7Tac9a9INmDueBpAoP7O+hpQh3RUIwONKIvJ0=
-X-Google-Smtp-Source: AGHT+IF0cbDvyG9t5QpTq27y/7w+0VC3HoZnhZqn97hCN4lYvqiTDzZEXF27gVaRsT2gnTXMxW0ZoA==
-X-Received: by 2002:a17:907:2da9:b0:ade:4121:8d3f with SMTP id a640c23a62f3a-adfad29dd50mr988779666b.8.1750146887636;
-        Tue, 17 Jun 2025 00:54:47 -0700 (PDT)
-Received: from [10.3.15.29] ([217.19.38.130])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-adec81bb9cesm807842966b.49.2025.06.17.00.54.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 00:54:47 -0700 (PDT)
-Message-ID: <43a834c8f871f8719368b3f3239f27ee4f6c6286.camel@gmail.com>
-Subject: [PATCH] ARM/dma-mapping: invalidate caches on arch_dma_prep_coherent
-From: Christian Meissl <meissl.christian@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Russell King <linux@armlinux.org.uk>, Christoph Hellwig <hch@lst.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org
-Date: Tue, 17 Jun 2025 09:54:46 +0200
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1uRRMe-00000006Y5U-2TQE;
+	Tue, 17 Jun 2025 08:08:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 567FC5C629E;
+	Tue, 17 Jun 2025 08:05:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F24C4CEE3;
+	Tue, 17 Jun 2025 08:08:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750147695;
+	bh=xSp6YzXqyFFcF2Z2Zs5t0bWps7VV8UD7jYJkKHZXM/o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jO8swg8tV7STz2bUcJ9YCtQWUWoTKiqQrzOUzXza+nsU39hVu0EUGgliDvYKP2rLc
+	 6cGmSR3DT+tJa/rJcLN3NLYGKTdJ5ciOR1gUi/KmFmKUQ9qnkTa+M2U/n6uEOvRiki
+	 TJ9FY3IHIzksbh2K0E/JyENQQkM0irvxW4JwPveiVplqxnC7C70NHE9b9V42ilWYrL
+	 fHJei7Fs+MtBSZsyYo4ryVAWpFdvgfDT8kau8rHY9sLfuJUJzwOkQNs/NCCjgQFMn+
+	 eWm482swAZI18VzqH+AMY9SC1N5VG/wZcxuv3t/0MhEWQKatRhVCfWaM3H7yY8s5h1
+	 VNVR9j4o8uKEg==
+Date: Tue, 17 Jun 2025 10:08:12 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Quentin Schulz <foss+kernel@0leil.net>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, Daniel Semkowicz <dse@thaumatec.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Quentin Schulz <quentin.schulz@cherry.de>
+Subject: Re: [PATCH v2 1/4] dt-bindings: mfd: rk806: allow to customize PMIC
+ reset mode
+Message-ID: <20250617-small-vivacious-labrador-7f0eb0@kuoka>
+References: <20250605-rk8xx-rst-fun-v2-0-143d190596dd@cherry.de>
+ <20250605-rk8xx-rst-fun-v2-1-143d190596dd@cherry.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250605-rk8xx-rst-fun-v2-1-143d190596dd@cherry.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_005450_393072_AC250C39 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20250617_010816_710421_E33EB795 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,53 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-since switching to dma-direct, memory using DMA_ATTR_NO_KERNEL_MAPPING
-is no longer allocated using the arch specific handlers and instead
-will use dma_direct_alloc_no_mapping. While the arm specific allocation
-handlers implicitly clear the allocated dma buffers and will flush any cach=
-es
-dma-direct relies on ARCH_HAS_DMA_PREP_COHERENT to flush the caches.
+On Thu, Jun 05, 2025 at 05:41:06PM GMT, Quentin Schulz wrote:
+> +  rockchip,reset-mode:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [0, 1, 2]
+> +    description:
+> +      Mode to use when a reset of the PMIC is triggered.
+> +
+> +      The reset can be triggered either programmatically, via one of
+> +      the PWRCTRL pins (provided additional configuration) or
+> +      asserting RESETB pin low.
+> +
+> +      The following modes are supported (see also
+> +      include/dt-bindings/mfd/rockchip,rk8xx.h)
+> +
+> +      - 0 (RK806_RESTART) restart PMU,
+> +      - 1 (RK806_RESET) reset all power off reset registers and force
+> +        state to switch to ACTIVE mode,
+> +      - 2 (RK806_RESET_NOTIFY) same as RK806_RESET and also pull
+> +        RESETB pin down for 5ms,
+> +
+> +      For example, some hardware may require a full restart
+> +      (RK806_RESTART mode) in order to function properly as regulators
+> +      are shortly interrupted in this mode.
+> +
 
-Without this flush video frame corruption can occur in drivers
-like the coda v4l2 driver which explicitly sets the DMA_ATTR_NO_KERNEL_MAPP=
-ING flag.
+This is fine, although now points to missing restart-handler schema and
+maybe this should be once made common property. But that's just
+digression, nothing needed here.
 
-Fixes: ae626eb97376 ("ARM/dma-mapping: use dma-direct unconditionally")
-Signed-off-by: Christian Meissl <meissl.christian@gmail.com>
----
- arch/arm/Kconfig          | 1 +
- arch/arm/mm/dma-mapping.c | 8 ++++++++
- 2 files changed, 9 insertions(+)
+>    vcc1-supply:
+>      description:
+>        The input supply for dcdc-reg1.
+> diff --git a/include/dt-bindings/mfd/rockchip,rk8xx.h b/include/dt-bindings/mfd/rockchip,rk8xx.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..f058ed1ca661185f79738a358aa2d4f04539c590
+> --- /dev/null
+> +++ b/include/dt-bindings/mfd/rockchip,rk8xx.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Device Tree defines for Rockchip RK8xx PMICs
+> + *
+> + * Copyright 2025 Cherry Embedded Solutions GmbH
+> + *
+> + * Author: Quentin Schulz <quentin.schulz@cherry.de>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
+> +#define _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
+> +
+> +#define RK806_RESTART		0
+> +#define RK806_RESET		1
+> +#define RK806_RESET_NOTIFY	2
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 3072731fe09c..7a3aaf3a490b 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -14,6 +14,7 @@ config ARM
-        select ARCH_HAS_DEBUG_VIRTUAL if MMU
-        select ARCH_HAS_DMA_ALLOC if MMU
-        select ARCH_HAS_DMA_OPS
-+       select ARCH_HAS_DMA_PREP_COHERENT
-        select ARCH_HAS_DMA_WRITE_COMBINE if !ARM_DMA_MEM_BUFFERABLE
-        select ARCH_HAS_ELF_RANDOMIZE
-        select ARCH_HAS_FORTIFY_SOURCE
-diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
-index 88c2d68a69c9..bde7ae4ba31a 100644
---- a/arch/arm/mm/dma-mapping.c
-+++ b/arch/arm/mm/dma-mapping.c
-@@ -1821,3 +1821,11 @@ void arch_dma_free(struct device *dev, size_t size, =
-void *cpu_addr,
- {
-        __arm_dma_free(dev, size, cpu_addr, dma_handle, attrs, false);
- }
-+
-+void arch_dma_prep_coherent(struct page *page, size_t size)
-+{
-+       void *ptr =3D page_address(page);
-+
-+       dmac_flush_range(ptr, ptr + size);
-+       outer_flush_range(__pa(ptr), __pa(ptr) + size);
-+}
---=20
-2.49.0
+I do not see how this is a binding. Where do you use this in the driver
+(to be a binding because otherwise you just add unused ABI)?
+
+Best regards,
+Krzysztof
+
 
