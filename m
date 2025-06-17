@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EAD0C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 20:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5003C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 20:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytge0DvQREpsX3FPr8UiIpU+73HOBfPpUENAsXp5RGw=; b=kV7eTQKoCxGSWY9MetCBLsW7nZ
-	NOTzef3TFcyliOLq9GhVEyGbspH7+lgFG2UgwCXRtEisee1i7XCDIRBdnftOZPHoIZ+u3H9kWDoAo
-	qTvY0JFTPvyy0pM87anrLrU57fPmtWX9W1CCugyr/Mt82/e/CFCDR4zaGE8Pzixsho4izxLHowVRx
-	2vuW7f8y0seL4vSxpC6se/rDzZ9xSqE2BPWUPQhTBtDJRRawQjhCwFx7mz2F7b03CUz3FdQs4qrc1
-	grPnJcKgzYTUMz+WRKKxzeFKlLJJmhYMB7UvDx9lYCFvI2fjwQbXOtZkDnCo8/zomjBCqdhy8oB4Q
-	GH791zEA==;
+	bh=rMr9ZYNZ75aGV3m8AtJQKVvUSuGfWDjLSKhbNsIOQZE=; b=pooDFxVBs/JY/mAWqTbIhxLJSG
+	rLpmdGxAljjAluHHUPO1Eo+iSPglv20TRQ0vhIJVfeexiMs3xdU0c724djHR7MSZImLS+DYMXLtz5
+	YOUN6JO4Na8HZUefkM397u4JNtavkKY6xSsh1gz0t5JiAxiJSh8g10a7v+k4ogtfVsDyki1rGdzsT
+	592JNXMww77UwKHiwdCQ2dUlBM/EF2txOeB1PGTvOdHoKBDVwbjznIVg+u5rGvfp2PxaDdo0dXCTv
+	mAeZ/m1JYHw9zNjB8fx2kh1T5CHfOSTCq3QO9lYFMSGJwsBq1Y1HbXwxm6XKTPiG83Jm1prcGpPqm
+	3FsKd1ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRczU-00000008Lyd-0wUk;
-	Tue, 17 Jun 2025 20:33:08 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1uRd6P-00000008MTO-2Rzd;
+	Tue, 17 Jun 2025 20:40:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRcxJ-00000008LqH-06sS;
-	Tue, 17 Jun 2025 20:30:54 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-23526264386so61134605ad.2;
-        Tue, 17 Jun 2025 13:30:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750192252; x=1750797052; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ytge0DvQREpsX3FPr8UiIpU+73HOBfPpUENAsXp5RGw=;
-        b=iW0maKkM9urvr2+piZVaq3vVC0Q8PUwAwschA4WJvjsWYkAUAkFEc3oKqgTL7I6VtN
-         +yknvySUQv5tL4HXtxuQk5XJjBTY5RSXjQcQ04tTl0fiFEZeHUHfs2YICJ/3Kmlg8lth
-         Wu4m7oLL1jc188NKcl5zwXcAOQaZITUh74txm6ZOPqehWU6fKYuQjNC4jZNHdeikPlkb
-         6Lb/u3OdtQnirS+Au/bIJ9xoE5diOn+hVEHja8biFZjg1lViJIOFKk51Yk+S7twjiH7h
-         DsHoFgii6C85NE/zgvfd147jaJYv68CkHLVRukL7eqWy0z1wmAw7A8ZYhelopByxet4L
-         6lQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750192252; x=1750797052;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ytge0DvQREpsX3FPr8UiIpU+73HOBfPpUENAsXp5RGw=;
-        b=hm74tm26WJ1uDdwmIt4MUbqeCFIvmDz53unleWJ+c1ioHUwkxQiczXkOzG3fPyZw+e
-         25B07JypCEUHExjoc2tL2B27RFyEimCrXfFoT6OmENilIkYXidGje3Q27r2L/k6dHzhd
-         E9OJYKNSEYlYxAxHYwndCWwAkoUqRXwjYEtO4e2wo0w+4CgR4TQ9r3WrMtcKLrlRBS7b
-         7EHjgFBlpmxMiNOlLhsRF+PKQE4N+4y8BefA5ps5vKVkXJUbolzVRWwdbppfGBacD+xA
-         57ZEhKmrj6LgAcFhuWwE/S8+fcxyAviSWtOqExQDCzVUub+3HAcUiXt+MNwuT1FscwFS
-         WeXw==
-X-Forwarded-Encrypted: i=1; AJvYcCV5LuzEoy1gaMnT77FXb5fki3Rmb3hrvb9rcLP93ZIZxfprkRsYFw5NmGFzdqzvJ7Q5spjM1zq0t71lfw1ZW+0u@lists.infradead.org, AJvYcCW/jXakIZiNdOQ8/j6bOT5Cnfiy+vHlgYKGjhqSd9gi8k8RgOYTc9NkYURJPX3mKgHuz2iei4Zvd3mFmrygPKw=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1HTHrplTLgR1La/4ibYMtVIPklCUgAmyhMWpp4sxIkLxZTL+s
-	5X8LbI+DHXSghGnLhQkFMv8Deg4c72PkjynjFWUivOlQZzhLwha9P2mn
-X-Gm-Gg: ASbGncupP+PHf1UkXUO0S+3PJyoDumEaaHdwyAHkvocOMofzhRjlTLVuPQQeSCX2e0A
-	3BV6pszZ1IeQRp42yAhgBf+CveyzK4kqLs/PPLfEhv0DZXgpQIbNntFU7NXPqnoWn+5xgjEI8Jw
-	bMj4Facj4VFSgKsluSnx43A/csHhUHlIf8JXCzC0ZOWefxQ0iLd7WjlyJcay9OxSDr2VH5VuPgd
-	dBMQjcEsgr0lKKCl7EVGZkMuauGp/P++vWzdkfNoxA7Ocb5c16SguG+5b8F1NVuZB56lAOdRW83
-	Wzt+OeQ/gzDdX3lCT2mnnOW4WuyZHtEunq5ItcsWn2tfdWystTk2DO1LM+HSy3A=
-X-Google-Smtp-Source: AGHT+IEl1LF76euKDmEK2b2BXIXslDp9/iHoV2XPh1E20bcvG0JJxY9n8fjrWmH0V9E0TDySKBwOcA==
-X-Received: by 2002:a17:903:b88:b0:234:9094:3fb1 with SMTP id d9443c01a7336-2366b3c2d82mr257503495ad.35.1750192249605;
-        Tue, 17 Jun 2025 13:30:49 -0700 (PDT)
-Received: from google.com ([2620:15c:9d:2:8d7d:9cdc:2836:83cb])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe1642e0asm9364972a12.17.2025.06.17.13.30.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 13:30:49 -0700 (PDT)
-Date: Tue, 17 Jun 2025 13:30:45 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-input@vger.kernel.org, 
-	Douglas Anderson <dianders@chromium.org>, "Rob Herring (Arm)" <robh@kernel.org>
-Subject: Re: [PATCH v3 1/6] dt-bindings: HID: i2c-hid: elan: Introduce Elan
- eKTH8D18
-Message-ID: <zcdks6nwmnahlgp6vvbxmmlbfbafzluuxgb52byiisuoy7ewzu@kao7yhx2u3qt>
-References: <20250617082004.1653492-1-wenst@chromium.org>
- <20250617082004.1653492-2-wenst@chromium.org>
+	id 1uRd4A-00000008MLl-2qN3;
+	Tue, 17 Jun 2025 20:38:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 604355C5E08;
+	Tue, 17 Jun 2025 20:35:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4624FC4CEE3;
+	Tue, 17 Jun 2025 20:37:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750192676;
+	bh=54r4znE4BXFv6bRlHG9/gifwZs8TUeyRhVX7bDrc6rU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V+b+de44XCuqsbVM2gPSQqPVm0WdGNUlqRBkLtWrdV+FwOXF3ttT9tRQ3SrjU8XjP
+	 xAajZnol+FMY0k3u6Y/eoNT/xYM8iQ/rfrgq7EinZfzqW4axMOLb+xGQ1YLf4HCIiq
+	 ntSlhcaR2Xl4jESgQFTDTdge2fxELUCsCpW+VVXBO3n4Dhkqishg81CcIOzoVqEmbp
+	 HKwdl3VT77uNQnla0VuHiSdpOBVzK0266GlFGLHUZrFy0BMkM4ZceHOWsZPWu8kmro
+	 HcjgwItg8W6ReZyV9qTGTU2VLTOCjf2zCJleOsH7TCyushCz/0yplJ0tLSz8MvemOL
+	 3bSdC0WwjC0fQ==
+Date: Tue, 17 Jun 2025 13:37:26 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>
+Subject: Re: [PATCH v2 00/17] SHA-512 library functions
+Message-ID: <20250617203726.GC1288@sol>
+References: <20250616014019.415791-1-ebiggers@kernel.org>
+ <20250617060523.GH8289@sol>
+ <CAHk-=wi5d4K+sF2L=tuRW6AopVxO1DDXzstMQaECmU2QHN13KA@mail.gmail.com>
+ <20250617192212.GA1365424@google.com>
+ <CAHk-=wiB6XYBt81zpebysAoya4T-YiiZEmW_7+TtoA=FSCA4XQ@mail.gmail.com>
+ <20250617195858.GA1288@sol>
+ <CAHk-=whJjS_wfxCDhkj2fNp1XPAbxDDdNwF1iqZbamZumBmZPg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250617082004.1653492-2-wenst@chromium.org>
+In-Reply-To: <CAHk-=whJjS_wfxCDhkj2fNp1XPAbxDDdNwF1iqZbamZumBmZPg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_133053_063948_B87EA17F 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250617_133758_787899_8DCF6538 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,30 +80,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 04:19:58PM +0800, Chen-Yu Tsai wrote:
-> The Elan eKTH8D18 touchscreen controller is an I2C HID device with a
-> longer boot-up time. Power sequence timing wise it is compatible with
-> the eKTH6A12NAY, with a power-on delay of at least 5ms, 20ms
-> out-of-reset for I2C ack response, and 150ms out-of-reset for I2C HID
-> enumeration, both shorter than what the eKTH6A12NAY requires.
-> Enumeration and subsequent operation follows the I2C HID standard.
+On Tue, Jun 17, 2025 at 01:08:14PM -0700, Linus Torvalds wrote:
+> On Tue, 17 Jun 2025 at 12:59, Eric Biggers <ebiggers@kernel.org> wrote:
+> >
+> > Again, the tests depend on the code they test being added first.
 > 
-> Add a compatible string for it with the ekth6a12nay one as a fallback.
-> No enum was used as it is rare to actually add new entries. These
-> chips are commonly completely backward compatible, and unless the
-> power sequencing delays change, there is no real effort being made to
-> keep track of new parts, which come out constantly.
+> Sure, and that's fine. We have lots of "this depends on that".
 > 
-> Also drop the constraints on the I2C address since it's not really
-> part of the binding.
+> > I could do two pull requests, the first with all non-test code and the second
+> > with all test code, where the second depends on the first, i.e. it will have the
+> > last commit of the first as its base commit.  Is that what you want?
 > 
-> Reviewed-by: Douglas Anderson <dianders@chromium.org>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> Yes.
+> 
+> Or if one single pull request, split out the diffstat with the
+> explanation (that's the "Or at the very least spell things out *very*
+> clearly" option). But two separate pull requests would actually be my
+> preference.
+> 
+>           Linus
 
-Applied, thank you.
+Okay.  For now I'll keep the test commits last and plan for a separate pull
+request with them, based on the first.  I fear I'll quickly run into
+interdependencies, in which case I'll need to fall back to "one pull request and
+spell things out very clearly".  But I'll try it.
 
--- 
-Dmitry
+Just so it's clear, this is the diffstat of this patchset broken down by
+non-test code (patches 1-3 and 6-17) and tests (4-5):
+
+    Non-test:
+         arch/arm/configs/exynos_defconfig                  |   1 -
+         arch/arm/configs/milbeaut_m10v_defconfig           |   1 -
+         arch/arm/configs/multi_v7_defconfig                |   1 -
+         arch/arm/configs/omap2plus_defconfig               |   1 -
+         arch/arm/configs/pxa_defconfig                     |   1 -
+         arch/arm/crypto/Kconfig                            |  10 -
+         arch/arm/crypto/Makefile                           |  15 -
+         arch/arm/crypto/sha512-glue.c                      | 110 ------
+         arch/arm/crypto/sha512-neon-glue.c                 |  75 ----
+         arch/arm/crypto/sha512.h                           |   3 -
+         arch/arm64/configs/defconfig                       |   1 -
+         arch/arm64/crypto/Kconfig                          |  19 -
+         arch/arm64/crypto/Makefile                         |  14 -
+         arch/arm64/crypto/sha512-ce-glue.c                 |  96 -----
+         arch/arm64/crypto/sha512-glue.c                    |  83 -----
+         arch/mips/cavium-octeon/crypto/Makefile            |   1 -
+         arch/mips/cavium-octeon/crypto/octeon-crypto.c     |   3 +-
+         arch/mips/cavium-octeon/crypto/octeon-md5.c        |   3 +-
+         arch/mips/cavium-octeon/crypto/octeon-sha1.c       |   3 +-
+         arch/mips/cavium-octeon/crypto/octeon-sha256.c     |   3 +-
+         arch/mips/cavium-octeon/crypto/octeon-sha512.c     | 167 ---------
+         arch/mips/configs/cavium_octeon_defconfig          |   1 -
+         arch/mips/crypto/Kconfig                           |  10 -
+         .../asm/octeon/crypto.h}                           |   0
+         arch/riscv/crypto/Kconfig                          |  11 -
+         arch/riscv/crypto/Makefile                         |   3 -
+         arch/riscv/crypto/sha512-riscv64-glue.c            | 124 -------
+         arch/s390/configs/debug_defconfig                  |   1 -
+         arch/s390/configs/defconfig                        |   1 -
+         arch/s390/crypto/Kconfig                           |  10 -
+         arch/s390/crypto/Makefile                          |   1 -
+         arch/s390/crypto/sha512_s390.c                     | 151 --------
+         arch/sparc/crypto/Kconfig                          |  10 -
+         arch/sparc/crypto/Makefile                         |   2 -
+         arch/sparc/crypto/sha512_glue.c                    | 122 -------
+         arch/x86/crypto/Kconfig                            |  13 -
+         arch/x86/crypto/Makefile                           |   3 -
+         arch/x86/crypto/sha512_ssse3_glue.c                | 322 -----------------
+         crypto/Kconfig                                     |   4 +-
+         crypto/Makefile                                    |   2 +-
+         crypto/sha512.c                                    | 338 +++++++++++++++++
+         crypto/sha512_generic.c                            | 217 -----------
+         crypto/testmgr.c                                   |  16 +
+         drivers/crypto/starfive/jh7110-hash.c              |   8 +-
+         include/crypto/sha2.h                              | 350 ++++++++++++++++++
+         include/crypto/sha512_base.h                       | 120 -------
+         lib/crypto/Kconfig                                 |  18 +
+         lib/crypto/Makefile                                |  36 ++
+         lib/crypto/arm/.gitignore                          |   2 +
+         .../arm/crypto => lib/crypto/arm}/sha512-armv4.pl  |   0
+         lib/crypto/arm/sha512.h                            |  38 ++
+         lib/crypto/arm64/.gitignore                        |   2 +
+         .../crypto => lib/crypto/arm64}/sha512-ce-core.S   |  10 +-
+         lib/crypto/arm64/sha512.h                          |  46 +++
+         lib/crypto/mips/sha512.h                           |  74 ++++
+         .../crypto/riscv}/sha512-riscv64-zvknhb-zvkb.S     |   4 +-
+         lib/crypto/riscv/sha512.h                          |  41 +++
+         lib/crypto/s390/sha512.h                           |  28 ++
+         lib/crypto/sha512.c                                | 400 +++++++++++++++++++++
+         lib/crypto/sparc/sha512.h                          |  42 +++
+         .../sparc/crypto => lib/crypto/sparc}/sha512_asm.S |   0
+         .../x86/crypto => lib/crypto/x86}/sha512-avx-asm.S |  11 +-
+         .../crypto => lib/crypto/x86}/sha512-avx2-asm.S    |  11 +-
+         .../crypto => lib/crypto/x86}/sha512-ssse3-asm.S   |  12 +-
+         lib/crypto/x86/sha512.h                            |  54 +++
+         65 files changed, 1524 insertions(+), 1756 deletions(-)
+
+    Test:
+         lib/crypto/Kconfig                    |   2 +
+         lib/crypto/Makefile                   |   2 +
+         lib/crypto/tests/Kconfig              |  24 ++
+         lib/crypto/tests/Makefile             |   6 +
+         lib/crypto/tests/hash-test-template.h | 512 ++++++++++++++++++++++++++
+         lib/crypto/tests/sha224-testvecs.h    | 223 ++++++++++++
+         lib/crypto/tests/sha224_kunit.c       |  50 +++
+         lib/crypto/tests/sha256-testvecs.h    | 223 ++++++++++++
+         lib/crypto/tests/sha256_kunit.c       |  39 ++
+         lib/crypto/tests/sha384-testvecs.h    | 566 +++++++++++++++++++++++++++++
+         lib/crypto/tests/sha384_kunit.c       |  48 +++
+         lib/crypto/tests/sha512-testvecs.h    | 662 ++++++++++++++++++++++++++++++++++
+         lib/crypto/tests/sha512_kunit.c       |  48 +++
+         scripts/crypto/gen-hash-testvecs.py   |  83 +++++
+         14 files changed, 2488 insertions(+)
+
+Note that the non-test part includes kerneldoc comments.  I'll assume you aren't
+going to insist on those being in a separate "documentation" pull request...
+
+If I need to resend this patchset for another reason, I'll also split it into
+two patchsets, one depending on the other.  But I'm not planning to resend it
+purely to do that split and with no other changes, as that seems a bit silly.
+
+- Eric
 
