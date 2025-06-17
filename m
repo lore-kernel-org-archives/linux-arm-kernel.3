@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26C9C7115E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D8A5C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m5Zyre//7L5S9K+V+4OPyWpG1CcHuDNKjA2A/jB3Ga8=; b=wgjwvMmg9G0SWxTASvBTsDf6yT
-	uickEU9XHHnLnkeDJk2JSDm57Z9RB9Wn84dz+tgxLGudhPFfhe/SXlzkY+vN3MAXgh2c+RrG2xYWq
-	V9gVAICtIbTBRH0RcbR/7kCh7PzczF+/saew7aD7pQ16gU+kqN5yMYYuk5rjUBvW2AW7RlPnJ8d7T
-	s6z7FKIIMI0Ej21jEP1GeGWUiquNc+ngGjJUm7hv+I5wiClHgW8W1HTZnIbQiauwunESrVsDYrK2U
-	om8wKB6pBS2ZbAi+any58yYhedtCcilxfm4/qLpAz0eHxfPVcRcHINJ8Su8cboXF9lX0w+c3PBzOV
-	Nvt9OsyA==;
+	bh=D7dfNAqHAMhQ1OFXBNUVVaIUCT2T67QAOx3p3dGghhM=; b=NV0fW8egv1osAexU5rJ4siTbw/
+	UsZ/yVA/xhFEt8u8D7HLiNpUPg25vZPuW0+bnEcjR7miypP/8FciWMNsZNG/JHsKXovtmVNYUJ6R8
+	R9g3qjP4xRAxT9mHogaxXFdn3Jp4o1sqAzlxm6lAfCy7ipp3BnvV6VW3WNGDcDn1YuTR6wUwtvM8+
+	SywuEcQjv9PrJ5sZ6g2+LEPFGYHjiNKOpeD1kiPndmyOtzvlW99Q6ETx3WbJ5iu0/urBrR/d8PoHt
+	QeQuqTOZJnu5ATBw4Yi7j0kh1+rsu0z4A7gdPBuuic+50iBjPLUrfiYxZ8f4z3k/AkCfC4K3l7ep1
+	VqNxOb7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZrn-000000080cX-0b86;
-	Tue, 17 Jun 2025 17:12:59 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1uRZs0-0000000810S-2waa;
+	Tue, 17 Jun 2025 17:13:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZFT-00000007t5Q-1KZ6
+	id 1uRZTW-00000007vDI-2hEE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 16:33:24 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7377139d8b1so5467322b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 09:33:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750178002; x=1750782802; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m5Zyre//7L5S9K+V+4OPyWpG1CcHuDNKjA2A/jB3Ga8=;
-        b=mDPByK3Ea4L2UnXXXfc7tSXtwVkI3ZtBHaDJUVW4wODM0Rom2eggNIUSHA1WThzsQ6
-         B/gX9BuV47m5e+sEuDygZtUEDu6CTaV8tpVWIhHOKPPphGjP0oxnZJo5HrvlgkTvysFN
-         XAQjhQc6p0j244QVPhT09+57BGc4dvZdhc0Ez1QLIYpflTHxZ8Unw6A767gYFN4AkOy0
-         qMQBvOiVmaCyBI8gtv1hNl+KqD7KboBf6yd8/ziS+OKhgi064WDFRcBkjHgl54cz6u6E
-         MHB85a6JQWzXIvueX7OtxsqsYLHYZb28w+E0/sNqHdqsKLcmAL2oD3s577hNaekB8cjB
-         rawA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750178002; x=1750782802;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=m5Zyre//7L5S9K+V+4OPyWpG1CcHuDNKjA2A/jB3Ga8=;
-        b=exnRLXuYRdzY9pnRIM7AdAMZAwxJNUmKF2HFcYcCovyXOBX0euTMIeypwtzSIGAa2d
-         EqkBrxijM72kaT1dBw9DM+HlaK9CIuRTvTls2BspJhb/DordvhPYfLVkmR8XeoMZPKQx
-         NLUTJ5vlPlC/QqikeQeRDCXh44uoNePFyxFJAh3mqVa3/83ER1Ch9xuQS+s2cYtCS5R8
-         0ku+BF4BYtlmFsUKTF+JQvjtJt1sKlT5LgZ7jE+YC6w83yE5lFe1tbZgrHGkZj7fXeZ3
-         82bDc/nM1ayVEPwhORUeDilE8J66txTmQ23KJ5TYdXgIYKfv+wixfBZ82vgzagde1bWd
-         oq2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUTP124Nsld+w5yXbmS3+UhYOQXA099Gc+sR27d5yVHnIrzs6xCBhnt/tJRjd8EX6vnW6LAcKUalFYqb4QfhdiN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcFoKk+TuvW0RVpKmzAhaCIp1GlTfLtLQn8gjkeEm4xh+w/KWQ
-	azXlpl9/mgWGhmrVfb/yvuFB4p541uLaGch/88iyFBBFlrqR4/Yj9WqnXtdJzJdGZQCRwfNGS9p
-	5psUDDw==
-X-Google-Smtp-Source: AGHT+IGznCbVopLyCbJY+8Q1ZM+hTyrpfcDqYdoxZ7oVyP5z618lCsgFgNDzhTDn4xHf3X8k9i95X2JuvoQ=
-X-Received: from pgbdh21.prod.google.com ([2002:a05:6a02:b95:b0:b2e:b370:6975])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:3298:b0:1f5:5a0b:4768
- with SMTP id adf61e73a8af0-21fbd558b04mr20200215637.21.1750178001731; Tue, 17
- Jun 2025 09:33:21 -0700 (PDT)
-Date: Tue, 17 Jun 2025 09:33:20 -0700
-In-Reply-To: <qusmkqqsvc7hyuemddv66mooach7mdq66mxbk7qbr6if6spguj@k57k5lqmvt5u>
-Mime-Version: 1.0
-References: <20250611224604.313496-2-seanjc@google.com> <20250611224604.313496-15-seanjc@google.com>
- <qusmkqqsvc7hyuemddv66mooach7mdq66mxbk7qbr6if6spguj@k57k5lqmvt5u>
-Message-ID: <aFGY0KVUksf1a6xB@google.com>
-Subject: Re: [PATCH v3 13/62] KVM: SVM: Drop redundant check in AVIC code on
- ID during vCPU creation
-From: Sean Christopherson <seanjc@google.com>
-To: Naveen N Rao <naveen@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
-	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Sairaj Kodilkar <sarunkod@amd.com>, Vasant Hegde <vasant.hegde@amd.com>, 
-	Maxim Levitsky <mlevitsk@redhat.com>, Joao Martins <joao.m.martins@oracle.com>, 
-	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>
-Content-Type: text/plain; charset="utf-8"
+	Tue, 17 Jun 2025 16:47:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D98F629C5;
+	Tue, 17 Jun 2025 16:47:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A59C4CEF1;
+	Tue, 17 Jun 2025 16:47:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750178873;
+	bh=bv8Bxsp+wqUnaImph/LN5QBdG6peA6A2txdgC3zX1MM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZNMyLSTPok0plXtSQRVeR35mIMWYttQFoRsg7101Exfaxx1j63e8bHq3iq0fCYdA6
+	 OH7chKtVrGN5wyiqnbwzMjJ51fAUeVh0HD/d9BtnX7Tdda6qRUyLCtQnMQe3l3+WCL
+	 RdmE8gciBbPjRV3a+FqVrSNKq4SNPlPma+bcbVvKvRGlLybuQvDg8gp9sespTNU+FV
+	 P1a/thpRNVyfkRhuXXyY5SDGaduXEKPM/7zuD8QnyxuOP6RzVrJBllDZX9DS8IcGH/
+	 XnfDZGefPxk6LQcSEzhksczVblQuPZ+Is8ABsU8bgj5RWP0o+5pgpeeUbUKoRrofPD
+	 04cq6am1mjGUw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uRZTT-007eVr-5s;
+	Tue, 17 Jun 2025 17:47:51 +0100
+Date: Tue, 17 Jun 2025 17:47:50 +0100
+Message-ID: <86msa6co21.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Ian Rogers <irogers@google.com>,
+	Nick Chan <towinchenmi@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>,
+	Sven Peter <sven@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	asahi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH RESEND v7 00/21] drivers/perf: apple_m1: Add Apple A7-A11, T2 SoC support
+In-Reply-To: <20250617141649.GA19021@willie-the-truck>
+References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
+	<CAP-5=fXSwgxMc+uh=PBAFh4Zm96tL5RDyKPOJ8Q40O4s=EaArA@mail.gmail.com>
+	<20250616102945.GA17431@willie-the-truck>
+	<CAP-5=fVjJyV2eA1aDnk6cqAhJGc9FZVyHhP7-f=1OyWmzxjN8w@mail.gmail.com>
+	<20250617141649.GA19021@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_093323_364163_E298377D 
-X-CRM114-Status: GOOD (  21.26  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, irogers@google.com, towinchenmi@gmail.com, mark.rutland@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev, sven@kernel.org, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, asahi@lists.linux.dev, linux-kernel@vger.kernel.org, krzysztof.kozlowski@linaro.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +100,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025, Naveen N Rao wrote:
-> On Wed, Jun 11, 2025 at 03:45:16PM -0700, Sean Christopherson wrote:
-> >  static int avic_init_backing_page(struct kvm_vcpu *vcpu)
-> >  {
-> > -	u64 *entry, new_entry;
-> > -	int id =3D vcpu->vcpu_id;
-> > +	struct kvm_svm *kvm_svm =3D to_kvm_svm(vcpu->kvm);
-> >  	struct vcpu_svm *svm =3D to_svm(vcpu);
-> > +	u32 id =3D vcpu->vcpu_id;
-> > +	u64 *table, new_entry;
-> > =20
-> >  	/*
-> >  	 * Inhibit AVIC if the vCPU ID is bigger than what is supported by AV=
-IC
-> > @@ -291,6 +277,9 @@ static int avic_init_backing_page(struct kvm_vcpu *=
-vcpu)
-> >  		return 0;
-> >  	}
-> > =20
-> > +	BUILD_BUG_ON((AVIC_MAX_PHYSICAL_ID + 1) * sizeof(*table) > PAGE_SIZE =
-||
-> > +		     (X2AVIC_MAX_PHYSICAL_ID + 1) * sizeof(*table) > PAGE_SIZE);
-> 						    ^^^^^^^^^^^^^^
-> Renaming new_entry to just 'entry' and using sizeof(entry) makes this=20
-> more readable for me.
-
-Good call, though I think it makes sense to do that on top so as to minimiz=
-e the
-churn in this patch.  I'll post a patch, unless you want the honors?
-
-> Otherwise, for this patch:
-> Reviewed-by: Naveen N Rao (AMD) <naveen@kernel.org>
+On Tue, 17 Jun 2025 15:16:50 +0100,
+Will Deacon <will@kernel.org> wrote:
 >=20
-> As an aside, there are a few static asserts to validate some of the=20
-> related macros. Can this also be a static_assert(), or is there is=20
-> reason to prefer BUILD_BUG_ON()?
+> On Mon, Jun 16, 2025 at 03:44:49AM -0700, Ian Rogers wrote:
+> > On Mon, Jun 16, 2025 at 3:29=E2=80=AFAM Will Deacon <will@kernel.org> w=
+rote:
+> > >
+> > > On Mon, Jun 16, 2025 at 02:36:18AM -0700, Ian Rogers wrote:
+> > > > On Sun, Jun 15, 2025 at 6:32=E2=80=AFPM Nick Chan <towinchenmi@gmai=
+l.com> wrote:
+> > > > >
+> > > > > This series adds support for the CPU PMU in the older Apple A7-A1=
+1, T2
+> > > > > SoCs. These PMUs may have a different event layout, less counters=
+, or
+> > > > > deliver their interrupts via IRQ instead of a FIQ. Since some of =
+those
+> > > > > older SoCs support 32-bit EL0, counting for 32-bit EL0 also need =
+to
+> > > > > be enabled by the driver where applicable.
+> > > > >
+> > > > > Patch 1 adds the DT bindings.
+> > > > > Patch 2-7 prepares the driver to allow adding support for those
+> > > > > older SoCs.
+> > > > > Patch 8-12 adds support for the older SoCs.
+> > > > > Patch 13-21 are the DT changes.
+> > > > >
+> > > > > Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> > > >
+> > > > Hi Nick,
+> > > >
+> > > > This is substantial work and it looks good to me. Do you know why
+> > > > there's been little progress on landing these patches? Buggy Apple =
+ARM
+> > > > PMU support in the kernel has led to reworking the perf tool. It se=
+ems
+> > > > best that we can have the best drivers possible.
+> > >
+> > > You reworked the perf tool to support these things? Why? These changes
+> > > are targetting chips in old iPhones afaict (as opposed to "Apple Sili=
+con").
+> > > I think that (a) most people don't particularly care about them and (=
+b)
+> > > they're not fully supported _anyway_ because of crazy stuff like [1].
+> >=20
+> > I was meaning that we reworked the perf tool to work around the Apple
+> > ARM PMU driver expecting to work as if it were an uncore rather than a
+> > core PMU driver. More context here:
+> > "[REGRESSION] Perf (userspace) broken on big.LITTLE systems since v6.5"
+> > https://lore.kernel.org/lkml/08f1f185-e259-4014-9ca4-6411d5c1bc65@marca=
+n.st/
+> > But in general it would be nice Apple ARM PMU support were well loved.
+> > I think we went 2 or 3 minor releases with the perf tool not working,
+> > threats of substantial reverts to avoid the PMU driver bug being
+> > exposed, etc.
+>=20
+> It's unfortunate that you've had a torrid time with the Apple PMU driver,
+> but I think it's important to realise that it's both unmaintained (it
+> ends up with me via the catch-all for drivers/perf/) and was written
+> based off whatever reverse-engineering people could be bothered to do in
+> their spare time. It's frankly remarkable that it works as well as it
+> does.
 
-For this particular assertion, static_assert() would be fine.  That said,
-BUILD_BUG_ON() is slightly preferred in this context.
+Also, the "broken" driver actually works as expected. Ian blames the
+userspace breakage on that driver, but that's only because the way we
+deal with PMUs on ARM doesn't match his mental model. Oh well.
 
-The advantage of BUILD_BUG_ON() is that it works so long as the condition i=
-s
-compile-time constant, whereas static_assert() requires the condition to an
-integer constant expression.  E.g. BUILD_BUG_ON() can be used so long as th=
-e
-condition is eventually resolved to a constant, whereas static_assert() has
-stricter requirements.
+	M.
 
-E.g. the fls64() assert below is fully resolved at compile time, but isn't =
-a
-purely constant expression, i.e. that one *needs* to be BUILD_BUG_ON().
-
---
-arch/x86/kvm/svm/avic.c: In function =E2=80=98avic_init_backing_page=E2=80=
-=99:
-arch/x86/kvm/svm/avic.c:293:45: error: expression in static assertion is no=
-t constant
-  293 |         static_assert(__PHYSICAL_MASK_SHIFT <=3D
-include/linux/build_bug.h:78:56: note: in definition of macro =E2=80=98__st=
-atic_assert=E2=80=99
-   78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
-      |                                                        ^~~~
-arch/x86/kvm/svm/avic.c:293:9: note: in expansion of macro =E2=80=98static_=
-assert=E2=80=99
-  293 |         static_assert(__PHYSICAL_MASK_SHIFT <=3D
-      |         ^~~~~~~~~~~~~
-make[5]: *** [scripts/Makefile.build:203: arch/x86/kvm/svm/avic.o] Error 1
---
-
-The downside of BUILD_BUG_ON() is that it can't be used at global scope, i.=
-e.
-needs to be called from a function.
-
-As a result, when adding an assertion in a function, using BUILD_BUG_ON() i=
-s
-slightly preferred, because it's less likely to break in the future.  E.g. =
-if
-X2AVIC_MAX_PHYSICAL_ID were changed to something that is a compile-time con=
-stant,
-but for whatever reason isn't a pure integer constant.
+--=20
+Without deviation from the norm, progress is not possible.
 
