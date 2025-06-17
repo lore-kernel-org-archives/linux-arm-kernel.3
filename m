@@ -4,174 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8828C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851AFC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jAFiq+IcaVjsCwE466dANBMynLCsi9sNek5qz+5MMFQ=; b=YCfRKpFfr+q2e0V/MqNZqv+H5x
-	YIwY+zSSUkMnnXu65YeGlYrFG3aOa9qc/Oe4GCvMp+wTSbMsnDNUz0Gynq+yn4a1NQce5fOJaEv1O
-	kgtbOk5DYtsMx3zJ2sb9gV6vx/E4L5rLDUXwjn57iree+OmYG21tKEW8By2jeKC9egeSjIDhlBQwC
-	CS37yCih2hz5nWiCk9/+G1RW5SeQ2Fs52UK22VP1XB8AkSIcDL8hj+1W8njDBKeDZFbiZdUiCCoFX
-	DxgmxIjUzTDA2lrbnUQR0FeeqD+7hDVd0L8QAfqaa2nRIU7GCIR0BGRXs2esM7aJ7P8t28245uvQE
-	/3+KLwdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wo4mg5uf2kBxyfACTDHeiWOzvexFDUIWO7u3W357C7Y=; b=SpvFnoJEyPVxLL1rOJM3RZl7Im
+	9H2ZL+WFPHrDtXalpPDeq3fMsvW9lMYS4LmOgatT6V3bd64Z91APotPpO1fW3yi4MEFG32TPqVIMO
+	6ZteRXBsyYWN4DiN1moAVrV36wtWq/73GCLzus4lQcd3X02NcKRxW2JtS+yKmakmLv+oPyYs8fwo8
+	7aVHj4uOq8Rmt3V2EihsNFduyPD1OUAN6Y2bbOs2+SYYXzU8au2O9LZ/2DVNLLoQiK6gRrwSVUh/e
+	tG7hg9ItBn7jfiDLzK/CFxIOh+bnWbscI23swFEC6zl57ATU6QIeZzbCjp/2hxFNrIjXx/pGHaBje
+	kT5bsXTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRT8K-00000006rNI-0h3B;
-	Tue, 17 Jun 2025 10:01:36 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uRTF7-00000006sHR-1LRp;
+	Tue, 17 Jun 2025 10:08:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSmH-00000006mx4-15n2;
-	Tue, 17 Jun 2025 09:38:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F3Z45xj5F9pgiTgEMA49CqhsJ3aLsLsowQpcP5FpHUC8fXqEXRyul4l+faD1ErlHuCYGppTYz4TkruQNSYEKW5mNIP7tUIVDRF4go5Ml7AZ+jf5MxKP2brL0YEiUGD/ZBv3QFtLBeuOjE69e5Hy2iyRKhiS6Mc95YWfA53z5ut0JNhZGGWexpJ9nU+tZ79U0pc+Rob7TFsM7IM6yrOX1C+npoxqQTFWlu0fHYRY+QGsuFpovXmsQPIkrxvTgHSUzmSCpdHttXDbTl0ZMiwYNIJkrDYJZxHaUhVGvGt+ACtDrIXToao+eVEv8fhjTU3NGJ2+L0v/aVfo1L5/OY/9a8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jAFiq+IcaVjsCwE466dANBMynLCsi9sNek5qz+5MMFQ=;
- b=yLFUhCbFy1QiaaplXxvpoXi2vBG8Dr5qDZaYP83D2Io3S1E/rZkZpBWooP2TqkvkKno9QMm/aUI8KKCY3Dr0n3rpgjVZgpTb/xHOxHY+yv2IbRZj6F2cZ8JQW2JfAe6XciKvxgeNJO++9rd1YWPQCz24h0zx9sdGBLrzftPit2sgW/PMZzNbE/GJJcZzLsbrMv56On08dMpjRNrdLE0fJv2alaNNX3r1l++cUKCXjdK1clLVKPkTMO4kKviBZ1F0mjNb2HpHyUHRYbrftdlCYXsLSd0KLknITZ6zDpLCuVfoI02gQUQxBVWsBzrO4UEiOeVS80I/bjkczMZxbJm+lw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jAFiq+IcaVjsCwE466dANBMynLCsi9sNek5qz+5MMFQ=;
- b=e0a/5ojXplhSkVVg9W8vV9GYBvCAhbPkoxQRe8MevefpnpFc9/SUnJAU+UVYp/+EKI49dwTp+qP619taGuMQf1B5PSF5hrbEkp4w0JtVyNLPVXKpSOyI8EYGeZiRv8r/oj8+BKs10VwdEj9kwtBetGA913nak6LFFCqoZHZIMpU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by AS4PR04MB9484.eurprd04.prod.outlook.com (2603:10a6:20b:4ed::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.26; Tue, 17 Jun
- 2025 09:38:35 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8835.027; Tue, 17 Jun 2025
- 09:38:35 +0000
-Message-ID: <b079fc14-8692-4521-bd81-fe2fca713f2f@cherry.de>
-Date: Tue, 17 Jun 2025 11:38:33 +0200
+	id 1uRSwJ-00000006ob5-3EJs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Jun 2025 09:49:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750153750;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=wo4mg5uf2kBxyfACTDHeiWOzvexFDUIWO7u3W357C7Y=;
+	b=Aw0oJ5IMUf/8VXu43MmPXDJWCYADeyfej+HaSj3b3LHRJxn1cXjneWpwMevsaN29FsYv0O
+	mt5rlwCJahFToKtONnpwaXLy5giHEeMRtwBe21dzZOJqm4vOsnBFbWuvHIpfNedxMMkz+F
+	B/tF868qKk44WhvaAiZL6jLvxso2vbc=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-13-vBxJRLLNOEGYAhPRi9eLyQ-1; Tue, 17 Jun 2025 05:49:07 -0400
+X-MC-Unique: vBxJRLLNOEGYAhPRi9eLyQ-1
+X-Mimecast-MFC-AGG-ID: vBxJRLLNOEGYAhPRi9eLyQ_1750153746
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-450d290d542so33365295e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 02:49:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750153746; x=1750758546;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=wo4mg5uf2kBxyfACTDHeiWOzvexFDUIWO7u3W357C7Y=;
+        b=vpKEfag5LgDq7UM+EweZRhBAEvhlC+Y0DoJjVzrxZbgGCQjO+2dkdO0KOshfRvk0UX
+         I34rgajWZAOsdIhnwaZfZlE7yrKFG+7DekREir5bzKwve9xuPM+V9ui53g6egLfcjpOz
+         iQmqRElKCCRvI6be8UbHwoBhV0d1weF0QtngiDWoG3slbz79g2Dg1CN5rUrWDZTGLgme
+         UMJtzLSu0G923j9R8yTHqrMgc/pCW+j9NDp5EAgsrUJTvraQvQrQNMqFTXYEVRazfwn0
+         vCQgrAQG9Ph7jqSd2xEySgZpltqfFAaLFEN8iOmZl5rikWg559Lyz2f3uCev8BvFAZnG
+         WXCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVKHokKgpBZnGWicZogWuImYxjA+si8Zx8o27HAtfYtHK9D68juCPQQAzEkBqO2J+zLAZj3KJQgIhnGlMOy75Ty@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkYEwaniNoQX6wq94oqqA1doYRtQUZ05uZlw2cY4m4XzFraYGR
+	0263tzJOTCb0OzRM/KTGzHrGMMg+F3mgmVTyFBBG0N5tzErhCyO0xPeu/bbDY5Iy9t9Qx+8NZPQ
+	FKk+0vJzx1Vdg3FNBhNi27adnRLhYt3yap1RZetExQwaC3aP0EfvK/Ph3wCSJUppnrp3yGqSVsK
+	qO
+X-Gm-Gg: ASbGncvwZB/YQUCUDJCbfYLvm69Jg6pHQBcSCWUGF2qxAIQWzNL4Ol6h1TilknaCinm
+	0RudpfodTRlzn47eDMD93a1OAVyu5WlT7HYwzaQDs/w80CJM+8mjuOC4GFdZFSnh6seYXOe3X+8
+	dSKpDrBSbDYMaF2LRGg8yp7DMWo1oi+dbyh75WUgxDyZH4zOh8UTIq5q4YxjPPE7ifXkyy2IMC4
+	7TlR5Haq/Rcvr+b49IGVCYlNlDd+2j2SmhDNBXI7SOkJ8NYWIAhoxfSFKN/GSuqCfwJnQdHnsjS
+	iAJGV1ToK2kEDnD88TBU20uFOjlA9if9S61pKpXKI2XIXvl1Q9yKIfOnZDGJDnzJBpltOo+uaLn
+	qLtsCO6WXEGGI4FRtOzvm6XMPN83kARfs9o+2wbNBLXM9zH4=
+X-Received: by 2002:a05:600c:35cc:b0:43c:fe90:1282 with SMTP id 5b1f17b1804b1-4533ca43db6mr106722075e9.7.1750153746164;
+        Tue, 17 Jun 2025 02:49:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHE+D/FkOgiBhmxEbiFOFBAH4xfqIHPd1NQKrE2y3oU4SHrJ3VSm38IyeaGpYOf5l0zRgg59A==
+X-Received: by 2002:a05:600c:35cc:b0:43c:fe90:1282 with SMTP id 5b1f17b1804b1-4533ca43db6mr106721675e9.7.1750153745732;
+        Tue, 17 Jun 2025 02:49:05 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f31:700:3851:c66a:b6b9:3490? (p200300d82f3107003851c66ab6b93490.dip0.t-ipconnect.de. [2003:d8:2f31:700:3851:c66a:b6b9:3490])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e13d014sm171119765e9.24.2025.06.17.02.49.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Jun 2025 02:49:05 -0700 (PDT)
+Message-ID: <1709a271-273b-4668-b813-648e5785e4e8@redhat.com>
+Date: Tue, 17 Jun 2025 11:49:03 +0200
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: mfd: rk806: allow to customize PMIC
- reset mode
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Quentin Schulz <foss+kernel@0leil.net>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
- Daniel Semkowicz <dse@thaumatec.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250605-rk8xx-rst-fun-v2-0-143d190596dd@cherry.de>
- <20250605-rk8xx-rst-fun-v2-1-143d190596dd@cherry.de>
- <20250617-small-vivacious-labrador-7f0eb0@kuoka>
+Subject: Re: [PATCH v2 03/14] mm: Convert vmf_insert_mixed() from using
+ pte_devmap to pte_special
+To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org
+Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
+ dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
+ linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
+ balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net,
+ m.szyprowski@samsung.com, Jason Gunthorpe <jgg@nvidia.com>
+References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
+ <5c03174d2ea76f579e4675f5fab6277f5dd91be2.1750075065.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <5c03174d2ea76f579e4675f5fab6277f5dd91be2.1750075065.git-series.apopple@nvidia.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: PlWGD4ZJeUZOPsIRvPEZ0gLHm1eGMgH07s-LehZvNRQ_1750153746
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250617-small-vivacious-labrador-7f0eb0@kuoka>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DU6P191CA0005.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:10:540::18) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS4PR04MB9484:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb5f9890-82df-434e-2e83-08ddad82bb29
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V3BIOVF1VVBHRmo4MGp0YkM0WmlKN3ZZVVZvejlFMmRWWlhLS1JSWXI4KzZP?=
- =?utf-8?B?YzJwU2szSHpYR2Q1WXllZDJrcEhtcTM2U2lvRUZVa2RtMU9DRkNQSTk4eEd0?=
- =?utf-8?B?cWZaMEdsVXpyNWRacXJpbkpsZUo2aCtBUWZVa2EvVk0xL1pmSXZhY3BYZ0N6?=
- =?utf-8?B?MVVPM3c1OGQ4TzVKaXJZNnBUM05SemhvYjhCREJNc3dBTGljUExDYjlGQlJH?=
- =?utf-8?B?cjdOR0lOMlRwVFFVdFNyYTZWZkt3RWhGak42eS9xeUVqbmkveVEvcXVSMkt1?=
- =?utf-8?B?ejdCQjRxUUdwdTdEQWVKa0xHcmppdW9nbThnVk9NMGNsS1ZVb0ltVkI5d1F5?=
- =?utf-8?B?TkQ3QjhncmZLVzZ1c2hmWHU3VmVJbjU2RXpvTWRNNGRQQXl3bThIeHlSdFJu?=
- =?utf-8?B?OTdGa2Q1S3Y5ZFM3WllNUWZtUndEZW9BbjRCOU9EYU0rNVJXVDEyMzR3VFJs?=
- =?utf-8?B?SUtrNlZhbnZKZ3JtajhzTEZ4UHFoN2NaNWFxMFV5NUlWeVc2dHB6RlYybUo4?=
- =?utf-8?B?NzZRR2ZOeEN3TG1ZOEJWYnhxRyt2dlV5YnVmS2tOWHhzZGxQU05GcW85UktE?=
- =?utf-8?B?aHJ3aUhBSnQzeUdNbjk4NWwxakUxRGxSSDd4RXYrRE5NbFhBeEYxNzhrWi9S?=
- =?utf-8?B?Z29YaUZXLy85bmVpenZSRGVQcm5maTJNZmhwMU91WURoSU5GV2pUYzU1V3BW?=
- =?utf-8?B?NXJWNW1yVUpUWmlGS3I3eU1LNm5VeUxnZGlrWFd6ZURkM1BQTkJHUk9UbEJv?=
- =?utf-8?B?RnV0UEYvOVkwRmRSMmFRRThOSzFvY0JUeFdaejlNbWxTY3YyUFl3dEd0OWVh?=
- =?utf-8?B?TVpoeTlWUnNMTVFjUHJCRGE2d01JWUFZbnUyTFhEUXpJYkN2ckpVNVozQm1m?=
- =?utf-8?B?VURxU0lrblZzbGp6M28zMkhFUTNvWVpFVnJXaU5BWWZGZW9YYmhwUDl4K2lt?=
- =?utf-8?B?V3g2aHBla1lINlF5VWxpeGhtWm9FaHVzRFFjVjZhWENNSFNPQWpIamU5VlFT?=
- =?utf-8?B?TzdMMC9tVUFSTDVyRTN3Q0I4NFFCNWIvRm5jYkxYdjRYcWRWOUZHby9Kbis3?=
- =?utf-8?B?aXZTWkN3bTJORUpRSGR0WWhDdytnbStmRUZEckc1WlNhZFpMOTVQTEFEQ2Zn?=
- =?utf-8?B?R2JycVFkVDRneWFQVU1EUVpqcmQrcG5UZGpZZHprN01mMDByejBVNVROR2xp?=
- =?utf-8?B?R0F3MFNOeTViMDdOUFVRblNMeWNhRm95WllibHRyMFl0NGp2bXM0Z2JEMWpm?=
- =?utf-8?B?TWhBRTBueGRWcGtLanNGN01yamR2R2szMS8vMmZyRTFJZGRKVnk1emhBQTNG?=
- =?utf-8?B?aGR2WGZvMGplSkEyc1dhbEFFZEJFWjFjQnJJZm5YcGljcGRPVFl3STNkNkh6?=
- =?utf-8?B?MkhEenBwRmFmL3dIQ3NPVDFiTFpqbUFZbzVLWlA5cWpuOTdmQmlUMHBqQkti?=
- =?utf-8?B?K0JJaS9VSjcrOXk1RWdVV0dIQzlYWWlHUGJpeVNnZVBPczZJeFZ6M0gxNEJI?=
- =?utf-8?B?bmFaZDFkRnhOK0NFd2x4alRWM2xKZ2h5anpuYXhFaENIcEdLZmVpdGxsOE9t?=
- =?utf-8?B?aTlEZ21JKzROdE9Md0FxZzdyNlZaRVZ2SjRTL3RyV21zWkNoUmlGeG5jZXNZ?=
- =?utf-8?B?MmpNaUhaMTJXVjBNMk5jYS8wN0J4QTM5b0x2a3IrWWFBSDRORGM4dG1LMkxW?=
- =?utf-8?B?emZxNnVWc2dXV2V6WEczaExXK0VZNWYzRit3akJHaHFZVWdBaEgzMk5XN29P?=
- =?utf-8?B?RTcweHFNTVZhKzJJSWJQaG1HMitETGd0b0k0eVQ2eUVMZzRVM0Z2UkxWWDZJ?=
- =?utf-8?B?RzNMazlDSmsvTVp3ejQ2OXNhbW1xQWEvMmYrTU4zZWRNUlduajFnNzhmVGZH?=
- =?utf-8?B?ekZmYS9wMWNCb0RYVEFzejlSc2YvdHpTNHluYkwrdEtZUWcvY2ZyVUVvSHBD?=
- =?utf-8?Q?NlHlmvXu3GQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N09UemR6TmZ4QUVUUHdFdnAzalFZdmZxbjdsdkd4dmFhL3VjQXh2UkRQN21x?=
- =?utf-8?B?ZUh5MkxPTGl6cXRnRDZXYTQ3WWdVU2pBT2FvaHlJMjkxeEx2YUttUUVPRUQy?=
- =?utf-8?B?b2kwT0xEZjlweFRyeXVnN1BRSUdnbXg3bHJwclNTMUFVQzZ2UExtamhyNCtX?=
- =?utf-8?B?VS8rdDV6aGc2SmkvM2JaV2hkWmJOU1puRnZwQkpCWmJKeHByUjNmVjVZalpn?=
- =?utf-8?B?bnZoeEJ5V0YwZkFtMHR0ZnZHV2lMMTd3V1N6enBJTng5TGt2OEpLQ05TSGs5?=
- =?utf-8?B?VDRWbVA5cjQrelJZZitaWEZGTXdnSVQ3Q3B2TkNYelBuL1NiZkxTcFpXZjBl?=
- =?utf-8?B?c2hEU0dvMWRPTkhhaHZHK0RaejYyblFEbXZwSUpJTktvOTBDOXlQTE40RllC?=
- =?utf-8?B?RmlrbCtVQ3gxQXZoZ3g1WFE3MjNOZkJOZ3pQeWd1VFhjbFl2UUFuc2s5Vzh4?=
- =?utf-8?B?WGNFbUFYVXVVbS92R09BbEJuaVB4SjJNN3NpKzc5ZnMrV0tCclpIQ2NOdC9D?=
- =?utf-8?B?ZzJLQWNBWEllUkdaZWFkV3FYWHRaK1ZXdk4ydWE3Z1hLN21FYjJpb2NSZS93?=
- =?utf-8?B?eHhXYWViczdLTnhhVWMxalVyS3pZZDZ6UndkMUZpMUpuYTM2RnpEZDFUVlQ0?=
- =?utf-8?B?UjdRekFpd0VXL2IwMnpoMkZLVVFlNm0rZnBWQWN5ZXlqdlQ4TTF3S0NtT3Vn?=
- =?utf-8?B?R0M2VmxTSDVDNGJFYTVYdjVWMFRtVXFEVUtvKzFybkpIYS9JM09FMDJXOXpS?=
- =?utf-8?B?L1JVbEcyL2F3djliTWZKNHdzNldMWko3Y1QxSEFLWGpvVXJ6Q2pDdy9IaUdq?=
- =?utf-8?B?cU4zd3ZlN2pZbnlTcm1waWtPRnRHVGYxRlQ3ellRYnV5aGRHMHhkSkhraVVI?=
- =?utf-8?B?aEZJeUVVSVBPY3NtU1hqbStsbllKR2VPZFY5UGZkai9vNXRGbmpqamthTU5u?=
- =?utf-8?B?cFg0UFgyRWlXU3FzTk5MdmdxTTNxYlo0N2xRTUJ2L1psQXQxS0sxc2tCWjhE?=
- =?utf-8?B?NFRKN3pNZlNFWCs4VWp5bklsbDlvU0tyeE0wa1lmM1FodlhRZlJndXczTmda?=
- =?utf-8?B?TFJMVnpFVTBuRnRWN1NVUGNYdEsvcE9WN2UyWldPZXBDaGNFYjAwOWRTSVQ2?=
- =?utf-8?B?MG92NUhJSVFDVGZRSFhxcDlHaGVFTERIbWZEZWwya2lqc2RQV3NEejJRM2RB?=
- =?utf-8?B?Ym5tczVGWEE5MzUxVldRdlU5bmg1cVBoalJYS3RSVWZBVmx1dCs1UW1MNmpm?=
- =?utf-8?B?M0gzcGU2T1I2cWRGUGRzbFp3NHh1anZJQlNpWnR0YStONlMwWTRVNjViSmhr?=
- =?utf-8?B?TjkrL01uZERlZFBUUW8ra2RDWEUyTnM3YU0zMFVxbzRQM25ZRmdSbmFCQlk0?=
- =?utf-8?B?bXZNQkJaQm9PekJkeHV6UC93RVRuSHBOQ3hNcFZaVU5oNmFsaVgxa2FLOG1H?=
- =?utf-8?B?WmM0bGpGVHIrdk1sRTBVSER2Mnp1d09jSUNmYW5UVXMzazFreFRXekZaUE9Q?=
- =?utf-8?B?MTc1OW9tTERaM1BSUUIxTHBYVjZOY0FVLzdnNFlURFkwT0IwakMrT2FTUGE1?=
- =?utf-8?B?ak16dktnRG9yaXQ2WjIyMUtMUk1ZeXJNVUVzdFdXRllHUkJnbGxQeEpYanMv?=
- =?utf-8?B?eFZqcWN4VFZBT0N5bklRVEZ2WTZtNXdWRnJmeFhadElKVS8xK2FPOERiUGgx?=
- =?utf-8?B?RTVRaGpNaTgrV1FWVnVPTE10UmFqSFRFZE0wSGFacmsyVzFtcnNJdHY0V0Iz?=
- =?utf-8?B?Z2lDSnNvZXNFOTFWandDTXdpYlQyQnJxajA5d1l0MnJwZzAzbEFwVStmaGpt?=
- =?utf-8?B?d3RoelJNTEMxeFJJWCtxQmhpMGUvazdESEpFQ0xQNU9NeitmbTlwZWd0N1Yv?=
- =?utf-8?B?aHZWb25LRjdpVHIzR1NsbkoxT256NXRkSDU5bVBVRExsVWE4OHVRcEtPNDEw?=
- =?utf-8?B?WkNHK3h5L1lkb1pzTkpKZXVBcHljdXpkOS80R0Q4MUs4WXNtVFhLa3VtczZI?=
- =?utf-8?B?c0FGT1BaUEdtOGdqTEUyMmZNMjhiOXdVbzI2b2paVVdHWDNtdDRUK0drWmdB?=
- =?utf-8?B?Sm5yRFZXaTVkZG1uT3ZRVWlmcklUUTYxV0dwL2V5WW9TWG9TbUZsd1ZsMGwy?=
- =?utf-8?B?N0gxc2RsdTVlSnI5Sld1b0V6Q29kOTN1RFFOb2w5Vm5YVzZPeVlKUGZRWjBQ?=
- =?utf-8?B?dEE9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb5f9890-82df-434e-2e83-08ddad82bb29
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2025 09:38:35.6699
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mtM8NkmESV08kgYkq6B6u6rdcVlc/MXgUa8wn1Bjy1ixvlcxRR9vqvlRul+cf4AGjbjoeJgX2FgzRwkOxcQJZswR+fjbucrSHdExG+0FG7U=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9484
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_023849_305212_48D7A1A6 
-X-CRM114-Status: GOOD (  25.02  )
+X-CRM114-CacheID: sfid-20250617_024911_882926_2870F929 
+X-CRM114-Status: GOOD (  28.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,83 +168,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On 6/17/25 10:08 AM, Krzysztof Kozlowski wrote:
-> On Thu, Jun 05, 2025 at 05:41:06PM GMT, Quentin Schulz wrote:
->> +  rockchip,reset-mode:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    enum: [0, 1, 2]
->> +    description:
->> +      Mode to use when a reset of the PMIC is triggered.
->> +
->> +      The reset can be triggered either programmatically, via one of
->> +      the PWRCTRL pins (provided additional configuration) or
->> +      asserting RESETB pin low.
->> +
->> +      The following modes are supported (see also
->> +      include/dt-bindings/mfd/rockchip,rk8xx.h)
->> +
->> +      - 0 (RK806_RESTART) restart PMU,
->> +      - 1 (RK806_RESET) reset all power off reset registers and force
->> +        state to switch to ACTIVE mode,
->> +      - 2 (RK806_RESET_NOTIFY) same as RK806_RESET and also pull
->> +        RESETB pin down for 5ms,
->> +
->> +      For example, some hardware may require a full restart
->> +      (RK806_RESTART mode) in order to function properly as regulators
->> +      are shortly interrupted in this mode.
->> +
+On 16.06.25 13:58, Alistair Popple wrote:
+> DAX no longer requires device PTEs as it always has a ZONE_DEVICE page
+> associated with the PTE that can be reference counted normally. Other users
+> of pte_devmap are drivers that set PFN_DEV when calling vmf_insert_mixed()
+> which ensures vm_normal_page() returns NULL for these entries.
 > 
-> This is fine, although now points to missing restart-handler schema and
-> maybe this should be once made common property. But that's just
-> digression, nothing needed here.
+> There is no reason to distinguish these pte_devmap users so in order to
+> free up a PTE bit use pte_special instead for entries created with
+> vmf_insert_mixed(). This will ensure vm_normal_page() will continue to
+> return NULL for these pages.
 > 
->>     vcc1-supply:
->>       description:
->>         The input supply for dcdc-reg1.
->> diff --git a/include/dt-bindings/mfd/rockchip,rk8xx.h b/include/dt-bindings/mfd/rockchip,rk8xx.h
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..f058ed1ca661185f79738a358aa2d4f04539c590
->> --- /dev/null
->> +++ b/include/dt-bindings/mfd/rockchip,rk8xx.h
->> @@ -0,0 +1,17 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
->> +/*
->> + * Device Tree defines for Rockchip RK8xx PMICs
->> + *
->> + * Copyright 2025 Cherry Embedded Solutions GmbH
->> + *
->> + * Author: Quentin Schulz <quentin.schulz@cherry.de>
->> + */
->> +
->> +#ifndef _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
->> +#define _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
->> +
->> +#define RK806_RESTART		0
->> +#define RK806_RESET		1
->> +#define RK806_RESET_NOTIFY	2
+> Architectures that don't support pte_special also don't support pte_devmap
+> so those will continue to rely on pfn_valid() to determine if the page can
+> be mapped.
 > 
-> I do not see how this is a binding. Where do you use this in the driver
-> (to be a binding because otherwise you just add unused ABI)?
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Dan Williams <dan.j.williams@intel.com>
+> ---
+>   mm/hmm.c    |  3 ---
+>   mm/memory.c | 20 ++------------------
+>   mm/vmscan.c |  2 +-
+>   3 files changed, 3 insertions(+), 22 deletions(-)
 > 
+> diff --git a/mm/hmm.c b/mm/hmm.c
+> index 5311753..1a3489f 100644
+> --- a/mm/hmm.c
+> +++ b/mm/hmm.c
+> @@ -302,13 +302,10 @@ static int hmm_vma_handle_pte(struct mm_walk *walk, unsigned long addr,
+>   		goto fault;
+>   
+>   	/*
+> -	 * Bypass devmap pte such as DAX page when all pfn requested
+> -	 * flags(pfn_req_flags) are fulfilled.
+>   	 * Since each architecture defines a struct page for the zero page, just
+>   	 * fall through and treat it like a normal page.
+>   	 */
+>   	if (!vm_normal_page(walk->vma, addr, pte) &&
+> -	    !pte_devmap(pte) &&
+>   	    !is_zero_pfn(pte_pfn(pte))) {
+>   		if (hmm_pte_need_fault(hmm_vma_walk, pfn_req_flags, 0)) {
+>   			pte_unmap(ptep);
+> diff --git a/mm/memory.c b/mm/memory.c
+> index b0cda5a..2c6eda1 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -598,16 +598,6 @@ struct page *vm_normal_page(struct vm_area_struct *vma, unsigned long addr,
+>   			return NULL;
+>   		if (is_zero_pfn(pfn))
+>   			return NULL;
+> -		if (pte_devmap(pte))
+> -		/*
+> -		 * NOTE: New users of ZONE_DEVICE will not set pte_devmap()
+> -		 * and will have refcounts incremented on their struct pages
+> -		 * when they are inserted into PTEs, thus they are safe to
+> -		 * return here. Legacy ZONE_DEVICE pages that set pte_devmap()
+> -		 * do not have refcounts. Example of legacy ZONE_DEVICE is
+> -		 * MEMORY_DEVICE_FS_DAX type in pmem or virtio_fs drivers.
+> -		 */
+> -			return NULL;
+>   
+>   		print_bad_pte(vma, addr, pte, NULL);
+>   		return NULL;
+> @@ -2483,10 +2473,7 @@ static vm_fault_t insert_pfn(struct vm_area_struct *vma, unsigned long addr,
+>   	}
+>   
+>   	/* Ok, finally just insert the thing.. */
+> -	if (pfn_t_devmap(pfn))
+> -		entry = pte_mkdevmap(pfn_t_pte(pfn, prot));
+> -	else
+> -		entry = pte_mkspecial(pfn_t_pte(pfn, prot));
+> +	entry = pte_mkspecial(pfn_t_pte(pfn, prot));
+>   
+>   	if (mkwrite) {
+>   		entry = pte_mkyoung(entry);
+> @@ -2597,8 +2584,6 @@ static bool vm_mixed_ok(struct vm_area_struct *vma, pfn_t pfn, bool mkwrite)
+>   	/* these checks mirror the abort conditions in vm_normal_page */
+>   	if (vma->vm_flags & VM_MIXEDMAP)
+>   		return true;
+> -	if (pfn_t_devmap(pfn))
+> -		return true;
+>   	if (pfn_t_special(pfn))
+>   		return true;
+>   	if (is_zero_pfn(pfn_t_to_pfn(pfn)))
+> @@ -2630,8 +2615,7 @@ static vm_fault_t __vm_insert_mixed(struct vm_area_struct *vma,
+>   	 * than insert_pfn).  If a zero_pfn were inserted into a VM_MIXEDMAP
+>   	 * without pte special, it would there be refcounted as a normal page.
+>   	 */
+> -	if (!IS_ENABLED(CONFIG_ARCH_HAS_PTE_SPECIAL) &&
+> -	    !pfn_t_devmap(pfn) && pfn_t_valid(pfn)) {
+> +	if (!IS_ENABLED(CONFIG_ARCH_HAS_PTE_SPECIAL) && pfn_t_valid(pfn)) {
+>   		struct page *page;
+>   
+>   		/*
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index a93a1ba..85bf782 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -3424,7 +3424,7 @@ static unsigned long get_pte_pfn(pte_t pte, struct vm_area_struct *vma, unsigned
+>   	if (!pte_present(pte) || is_zero_pfn(pfn))
+>   		return -1;
+>   
+> -	if (WARN_ON_ONCE(pte_devmap(pte) || pte_special(pte)))
+> +	if (WARN_ON_ONCE(pte_special(pte)))
+>   		return -1;
+>   
+>   	if (!pte_young(pte) && !mm_has_notifiers(vma->vm_mm))
 
-Explained in the commit log of the driver patch:
 
-"""
-This adds the appropriate logic in the driver to parse the new
-rockchip,reset-mode DT property to pass this information. It just
-happens that the values in the binding match the values to write in the
-bitfield so no mapping is necessary.
-"""
-
-I can add useless mapping in the driver if it's preferred. I had the 
-impression that simply using a hardcoded value in the DT binding and 
-then writing it to the register was not desired, so the constant is now 
-here to make this less obscure from DT perspective though I'm still 
-writing the value directly in the register. If hardcoded values are ok 
-in the binding, then I can remove that header file.
-
+-- 
 Cheers,
-Quentin
+
+David / dhildenb
+
 
