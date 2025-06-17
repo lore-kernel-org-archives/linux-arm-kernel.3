@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E06C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20006C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aaE2hWQu9326rZk3Yfx6EAOukTWYc/yWzyPuwYJ97XA=; b=b5xYlLxZwRJzELrxfybtiJ44nu
-	WHEnJQGiAyGYwJLemSk1MvPt2BJWaIfN0cMmDDAFbDQyKCU7m026OaN2KlTX5RXwOhRGbqaZ+0qi4
-	+IDl8clFCIvlbD+/fpvw0pWkFZHsP1ddAdEp/k0uu9R4O7uQ15GOy15cA0JPkJcB40Ubak0Cey4Ii
-	2mjut1E7uJw//WJuTaJhunhv7Nhpk8Hufhb7Vbjq7Aqe8AYGlT47BIKskM8sayezwog7xIsy6VDCe
-	z9f1/lNaAhlE0PkuQ0RRSZ9Comf/MhjgYfJ4YsDX9k5I2M7x05k3V3Mm/uOSlvxy/ez6GPu0QqWtc
-	tPOfu0qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=coH03vPFT2rsdcf33PRUsXpuL1g7ZkrTHF5F6QDpPTw=; b=g3037BBL2oLag7ZFKz1xiaQeGf
+	GI7JN8295EFPkw9/G8DcbK3PMMI3r/U6rK1/lI1QkQ4DSuQzgCmdUJfAwjgoasBYVzgPhbnQ4pAmi
+	tSH4HPp51csJDdgiJrCTC6a6GTN/0TE2RslGovkdDv7c2rJAXSI0F2ebqaY9+zpvK7EU+hLlOBBVW
+	r0fDuAA/FaVUhJrpn6rWIDOaqRk6fw1KEY1EaiZYQRDCm1Om+ww3ZWcaBHfCXNpBjyyM/gzZzKhyA
+	fT+jCaok81usMX3IeeChZMg9OH0+vPeRRLp3tPGMKVo7BLYmtdockALOgn9K7rS9qmMjDY5y/K5I7
+	OY/xU8Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTrd-00000006xqQ-0xqZ;
-	Tue, 17 Jun 2025 10:48:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uRTtx-00000006yEF-0Q8y;
+	Tue, 17 Jun 2025 10:50:49 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTf6-00000006wGR-0A5Q
+	id 1uRTg5-00000006wQT-1MxQ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 17 Jun 2025 10:35:28 +0000
+	Tue, 17 Jun 2025 10:36:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=aaE2hWQu9326rZk3Yfx6EAOukTWYc/yWzyPuwYJ97XA=; b=oSG0jSpu9kuoMT5PU/YwK8x5rC
-	h3aepqQS5JuANsKz2feaFh2mDogIL5abvtJhTR4+GxIby+F4uGD9PPL6Fe2hpCiqy2uzm4dadbSU2
-	WzGYqITBqhQYxuY4+XjroOyu9MlXFzYC6AZ2HLTKvvQ5iiTS0n4flJkHaTG+W4N3Nk3oukWe+Cqz3
-	QAaSS9EiheqMgHJK1+IcfZDIElyAWatxQ6QtRr6yr0SxjAsMDAvb5pKzW1fLRImgvb83mHLa8p5V0
-	dHzgsyTFwhd2jO++uXwxWE0JKFnQ1dhjK5380nYL0S/IRXDPd4OXLvwmgX1sYJ9ITVTWnl39Xw/94
-	XCRxeW3A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTf3-00000003mJc-1r9i
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 10:35:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0810C1596;
-	Tue, 17 Jun 2025 03:35:01 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62CF73F58B;
-	Tue, 17 Jun 2025 03:35:19 -0700 (PDT)
-Message-ID: <f9cf869a-7f86-4600-a2d1-b9092551105f@arm.com>
-Date: Tue, 17 Jun 2025 11:35:18 +0100
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=coH03vPFT2rsdcf33PRUsXpuL1g7ZkrTHF5F6QDpPTw=; b=j6UCKw5+yqg03P3VhjtZ9xHG8P
+	e4cSe5GL2d0JRvRqNrvswgi6bodPQzOEVUO5+zrI4dSd94fYfRq81jJ68n3ymYKF3kgnqk1w7PlQD
+	2rs0P1TaU43pNhvwf8LQj0XqJwyn/ztplssurZC7V2hUpBegF42QbnoqQ4qKCFRDc8vBV5jpcsLKm
+	fYB9/KUDmQJpBm1HuRUzFUIWtp1HTUjk6gitVpAulJxDtYup8LIzJTEbrlS/wy1njjaew/4jiN6sq
+	Pj03UWhF7nhi3p0cn7WieeXViPmoo4yWwK3V+nl+/JQqU9jQcTOADPV3/FKrc6GyLg8jeH2AB7Rkt
+	svxY6k8w==;
+Received: from 2001-1c00-8d82-d000-266e-96ff-fe07-7dcc.cable.dynamic.v6.ziggo.nl ([2001:1c00:8d82:d000:266e:96ff:fe07:7dcc] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRTfv-0000000H0cK-2kRJ;
+	Tue, 17 Jun 2025 10:36:19 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 02E7A30BDAD; Tue, 17 Jun 2025 12:36:19 +0200 (CEST)
+Date: Tue, 17 Jun 2025 12:36:18 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Koichi Okuno <fj2767dz@fujitsu.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <quic_bjorande@quicinc.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
+Message-ID: <20250617103618.GT1613376@noisy.programming.kicks-ass.net>
+References: <20250617102819.3685543-1-fj2767dz@fujitsu.com>
+ <20250617102819.3685543-3-fj2767dz@fujitsu.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/4] arm64: Add BBM Level 2 cpu feature
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- ryan.roberts@arm.com, yang@os.amperecomputing.com, catalin.marinas@arm.com,
- will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com,
- joro@8bytes.org, maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
- james.morse@arm.com, broonie@kernel.org, ardb@kernel.org, baohua@kernel.org,
- david@redhat.com, jgg@ziepe.ca, nicolinc@nvidia.com, jsnitsel@redhat.com,
- mshavit@google.com, kevin.tian@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev
-References: <20250617095104.6772-1-miko.lenczewski@arm.com>
- <20250617095104.6772-3-miko.lenczewski@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250617095104.6772-3-miko.lenczewski@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_113525_718232_46486120 
-X-CRM114-Status: GOOD (  10.14  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250617102819.3685543-3-fj2767dz@fujitsu.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +83,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/06/2025 10:51, Mikołaj Lenczewski wrote:
-> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-> and this commit adds a dedicated BBML2 cpufeature to test against
-> support for.
-> 
-> To support BBML2 in as wide a range of contexts as we can, we want not
-> only the architectural guarantees that BBML2 makes, but additionally
-> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
-> us having to prove that no recursive faults can be induced in any path
-> that uses BBML2, allowing its use for arbitrary kernel mappings.
-> 
-> This feature builds on the previous ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-> as all early cpus must support BBML2 for us to enable it (and any later
-> cpus must also support it to be onlined).
-> 
-> Not onlining late cpus that do not support BBML2 is unavoidable, as we
-> might currently be using BBML2 semantics for kernel memory regions. This
-> could cause faults in the late cpus, and would be difficult to unwind,
-> so let us avoid the case altogether.
-> 
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+On Tue, Jun 17, 2025 at 07:27:50PM +0900, Koichi Okuno wrote:
+> +	pcipmu->pmu = (struct pmu) {
+> +		.parent		= dev,
+> +		.task_ctx_nr	= perf_invalid_context,
+> +
+> +		.pmu_enable	= fujitsu_pci__pmu_enable,
+> +		.pmu_disable	= fujitsu_pci__pmu_disable,
+> +		.event_init	= fujitsu_pci__event_init,
+> +		.add		= fujitsu_pci__event_add,
+> +		.del		= fujitsu_pci__event_del,
+> +		.start		= fujitsu_pci__event_start,
+> +		.stop		= fujitsu_pci__event_stop,
+> +		.read		= fujitsu_pci__event_read,
+> +
+> +		.attr_groups	= fujitsu_pci_pmu_attr_grps,
+> +		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Should these drivers not also have PERF_PMU_CAP_NO_INTERRUPT ? Per them
+being uncore they cannot generate samples.
+
+> +	};
+
 
 
