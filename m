@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F65C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DDFC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vLfwvnKqf7flG1w1FJwQLt+8yXkZ/9IUG75s/1+ddU0=; b=XvLjNXRx6dPiprqHpocVYNApPj
-	grLqw6dNIoIcKRnWUNABh/iThHEcC8RhU289DuB3wUJheWGsPi/zjXV7q9JmvzxB0G2O50B5xbsR6
-	idnkzS+ApkSONI430EV4/WLGYqhVcFemEVx07Gow5aTFe3oW4RDV+a1V9+4/0mhoJ+6Dsotcvbxnk
-	lm8mcrhtTNcnXxy4VesKqAYiA2Yo+6t8KZ6PY2XOHg6R0OIBAMfOaYMrptd7pe9SCL3XAv/dbgYlY
-	Y8UbA7mcRteW71j1W/0QjnSl/YPY+7G2le5Iqpwy1zG73mSLbtJ8D72iOiw40ukH429YF+48v1ZuI
-	MOdnWPsQ==;
+	bh=D8FRIhQ2Woh3xq2iizepqRwoAErGxOnhjCQDU9AZzIY=; b=tAArtDhavb7rmy8y1JO260vslR
+	wXM8+jgCQKtEFJJZjOveX+6jnH6CZMSkMWcwt4sHLNsG6z8t67msPiYA12bZ8ptW8ZaY90Y990KoQ
+	zOlL8NGQ8DOmF26rhaoKn0PNM4tL2rdfNqvjL/5Dg+nxih3DXzTitwcMfTV2nHE/n45nJUHzHbsIp
+	By5XWsUtvgcLHrRQnhEEcBHPH9ks35aEkoYCquC6QWCcpy61zf5o7ZNxFYxKv6kjNWSx1O7SobSYX
+	SSLkRez83GJE/K6lljP/48jkVtsUhOVY44ozdT8AAC5gD0XVkPM6UdDbQ+V+V3cm7Gbnx4gscFrMX
+	aOKJz63Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRjX-00000006bpL-3brr;
-	Tue, 17 Jun 2025 08:31:55 +0000
+	id 1uRRlq-00000006c4t-2VGk;
+	Tue, 17 Jun 2025 08:34:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRYV-00000006a1T-2XoU
+	id 1uRRYW-00000006a1a-3DRa
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 17 Jun 2025 08:20:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=vLfwvnKqf7flG1w1FJwQLt+8yXkZ/9IUG75s/1+ddU0=; b=cHt/dI7A6JR8ajDrLKy3WM0X0X
-	AIzvSmw+S/3CARmVUxsVqTDmchIXQ3T1o+u+fuzYkmBOzUOSUDZYPSwbhd2fteVtlw7yqSHwFwmRR
-	FcIoYLYCRhJzJYondoLb5ubof/sz7ZpdvHGhDNoWDVP8NB/Vn2viXDMz6eNOCfiTw3mbilOYARhA9
-	lOmPjQ9lZpUSvZVVwVwv2YlLgq0x77PKQv2odYVSVbHRim+7uqtoUyRWh3wU/BqQV9026Le7jL0ES
-	KrUwUk3xqW4zh/E7EeXOaog/Y8rE8NVzNzq3akoKbYgIuP0lhxktDZZ9l31VenbvhdjzyG4IvMCNd
-	MLLw8Blg==;
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	bh=D8FRIhQ2Woh3xq2iizepqRwoAErGxOnhjCQDU9AZzIY=; b=gwLo5Qxy17T2F1eg0oO4F8wwtl
+	uRHI3eKV/WCtogMF5ciUhPyD/B25tjPT3kkVoBh5gFUX6rxfSd1cyQfWCNuKBRc7sWxN2wEh+PvnB
+	0RyfDSZ6VKYOtC8ru4nlU0bPKR0ioELnX7nNZgv2gZWeIacn+mD187QGKYlfSN8fx49Qjw2NwRRGF
+	KhdJxZyjsTioCq2kmRKtOmL9F3CcbykHOpjB2xklysA4OWfyaJBC0/XARojFbu3rUghcqsVsttxaw
+	h9q+EQdCLbOLk9f36HzhOv0uAQVXadmxr2+S9Do26Cc7B3kIk+qVP2Flx0P7ia+reWT6dpKnok1DW
+	6mgBub9g==;
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRYN-00000003k6P-2T5D
+	id 1uRRYN-00000003k5U-15oE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 08:20:31 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2363e973db1so50572655ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 01:20:20 -0700 (PDT)
+	Tue, 17 Jun 2025 08:20:32 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-313eeb77b1fso2982058a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 01:20:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1750148419; x=1750753219; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1750148412; x=1750753212; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vLfwvnKqf7flG1w1FJwQLt+8yXkZ/9IUG75s/1+ddU0=;
-        b=Gxf7Di3odYNSrFE5tyxiZdX5cyVvlPMXbyVdnBG/IrULRuc+1Un3ZsmX1i+7FDR4Gq
-         j7t3lPGRad9BJ22lLPnK/H7M5VkLrfuUdQT+Iaux7y5bhTTXSfjnh4GsxbwUc8we4FZY
-         UxFgPXUlqJW2PtO4mabDx4WAUTyZv+B0+Am20=
+        bh=D8FRIhQ2Woh3xq2iizepqRwoAErGxOnhjCQDU9AZzIY=;
+        b=CVXvHnngawOMl0X0jp8KakFgokNc1f3IUHRtbVV62v0/cRP63bE74o8MXhYXQPBplz
+         o6vrySTbpFy2ddocIjATi6M95iYdDv2PXWiz12rgUe0i0vFNSlFG9QIt+3eYzSQuqnc4
+         tK6SwWRmb+Q2Jq4O/zGBbrcOe5rxslWmin5bs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750148419; x=1750753219;
+        d=1e100.net; s=20230601; t=1750148412; x=1750753212;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vLfwvnKqf7flG1w1FJwQLt+8yXkZ/9IUG75s/1+ddU0=;
-        b=QLjYcaQcdtiMCh6UG3eWnDF1rNRtcAk/6Yb1D4cmjMTjJdpSAjg7P0SzkG4lHPO3OY
-         wtWu3IBla8QNC8kUrMsLlpr62LxDnLEVojsBCIv1o0OunO69GLWOwi050sIOEOkoBwUI
-         dIJv1MEtryp3f7OTAQotJAWdsDdGsv65fVPDzCFPjxxBNMT7hOH1YQGWSQ6awh61ZrhA
-         vjQR2KuW2hTcvOHZJVZonnDtp3N3K3PQiKdhUUoaydciaFASfK4+j9jF+hatmxOvXbTH
-         AHGZ5JB1f50kG7wyeI/f5VFvoLJqwRJxGHiqcVbAd+/jS7Nv/EHIuOUK3oUlDH9w6D5a
-         +Vqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUpJjxy7gtzy6OqQaIhRcp+aWQPtoIlX2/ZCR55A1sIlkl8OvykUOX2J4Z2Lk4eOy0c16MEcW5QoRfLTQ4v4wxq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPRcdJ6M4xbxNwxKyQeJPkDUdG+E52qOXetYt+swmtznR7Qe7A
-	J7OFDi0k4Lp3U2bLdraFjnWo9vRKvTzBVhDZQsDqaJFpW3YK4HIP64cFOrwv8foWWw==
-X-Gm-Gg: ASbGncsrVo6LpbnXbawiBMCoYlor6C7X/HeVzzHcye1oToAWhIPtEKGm7lrIUx/g0KH
-	9/QAqkkVDpc0q8f9EbExDy6jFGsSZ7hCAD8jQeRpstfjQERs270XyCFbBsrcYxtgc9+aX8nOQnB
-	lSXul4EHmMdBz9i1TT4aV+BcZgo5/5Vp/nGH0XqAjG3DTyq3CtqmiZusgXfxoEGeqUlE3LTkWsT
-	5Coeb7IVTl4gLlJF7NbhJxvC5zkqolC8QLMefILnIS7s7cXFdwaDlGT36qeqV/NiqZ6X/5Y0AI2
-	Oxd/PnAi5nbnZKR9iLU72VBvwpLmM0ozFOnWGZJuzxr4aYT/v7wr6miiMXy/AaANKi/ZygGEpor
-	FfDIC
-X-Google-Smtp-Source: AGHT+IEdEae9jR3M9Ile50GhlK5a+mZddJwAjCXfQi04qoA/3oENN3QsRc5nWKd11gVEcOZh5+alGQ==
-X-Received: by 2002:a17:902:d4d0:b0:236:15b7:62e3 with SMTP id d9443c01a7336-2366ae00e3fmr181507135ad.9.1750148418807;
-        Tue, 17 Jun 2025 01:20:18 -0700 (PDT)
+        bh=D8FRIhQ2Woh3xq2iizepqRwoAErGxOnhjCQDU9AZzIY=;
+        b=LGsCoZJUr+ZS3d43Ic+47i2F/RXoqczNeQIiHztK2/AKNHkprlClqDXOrb3f0G/GU1
+         Pi+bAMa0UDy57tGgo7qiEidWmtl61xBZu4IAR31H/a/pldYcsSuJ5iY7v5yS88aAzsSZ
+         RbqEb/0I1h2PBSqzO6E+vzY2WtdP/NdShMq9R4m9jRGCuj+xJk9xp3HdjtYw439NIZ+u
+         Irb4Cfr7WiyptOg1n4T9fQl94DYGmRHS4v9mZJ1GXHBOYrNQhLiuOC5pogCJYQ9LodGe
+         3nYSmmtxMbSyvV69Qt3vVle+5Sj4bfH147aJoZi1JFsadXMnhBm6vHZxrV3KhFpSNrsg
+         m+tA==
+X-Forwarded-Encrypted: i=1; AJvYcCVC232fMOLcCB01XOJXtNiPjLcinl0+licQQ1eORh/Vg+a9oweobAeBvmYwAJhxFQup7KfYYA49dzsKCPGkUAws@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRxNgT+bQt5QOQnhmLLg9DWul2VisSWpEB4C0kroZ0Gfrt4rDQ
+	y0zzaA6CWrJ5KeTk9Tv6aNWtNcxZtIo+7qZ34SwXS6QI6GwCLIRZeCN3rqOO6fr4kw==
+X-Gm-Gg: ASbGncvAlVKZ75TuzbL18Q+Z5zc8Y9TVmX/rQ2SV9WXKEWL0pE/qR5CKzOMPWvvhDBy
+	o9vqFL479JaiT4RLLNEPQXkuC74aC5tC3U1jys2jvtrpK4jvD6pzEyhJHcVczGBj3S8AWPCGjLs
+	327FH6cGv9QcsugBoi3mhuoJyFCvaIeT/u2egz9YKpCdrOltxwE3scbLJpXb7i3PDG/lgJnVUwx
+	XhuUM9M6vg86xxcM6dqaHt1oS0TTJU+lBkY7/vlalfSALGryiFYm/wQX9VDo1T9jHKaDXiSeQeP
+	KgYeQuKXpvUupvD4V9bCg2u1ELVNNS7iwQT56z0580HFQesNOhXx7TNSOjQ2XFzIxxSeI675ME2
+	vKZ9x
+X-Google-Smtp-Source: AGHT+IG3KNV6ixPiJvUtBGaYxn8qmkk4lCQcaXYtEk6THCxE8V+YIcx+EzSCVTlQvmABQC9D1Nc91Q==
+X-Received: by 2002:a17:90b:4e84:b0:313:dcf4:37bc with SMTP id 98e67ed59e1d1-313f1dd74acmr15712251a91.34.1750148411484;
+        Tue, 17 Jun 2025 01:20:11 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:24a1:2596:1651:13d8])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365de781f7sm74598885ad.110.2025.06.17.01.20.16
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365de781f7sm74598885ad.110.2025.06.17.01.20.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 01:20:18 -0700 (PDT)
+        Tue, 17 Jun 2025 01:20:11 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -91,18 +91,19 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	linux-input@vger.kernel.org,
-	stable+noautosel@kernel.org
-Subject: [PATCH v3 4/6] arm64: dts: mediatek: mt8186-steelix: Mark second source components for probing
-Date: Tue, 17 Jun 2025 16:20:01 +0800
-Message-ID: <20250617082004.1653492-5-wenst@chromium.org>
+	Douglas Anderson <dianders@chromium.org>,
+	"Rob Herring (Arm)" <robh@kernel.org>
+Subject: [PATCH v3 1/6] dt-bindings: HID: i2c-hid: elan: Introduce Elan eKTH8D18
+Date: Tue, 17 Jun 2025 16:19:58 +0800
+Message-ID: <20250617082004.1653492-2-wenst@chromium.org>
 X-Mailer: git-send-email 2.50.0.rc2.692.g299adb8693-goog
 In-Reply-To: <20250617082004.1653492-1-wenst@chromium.org>
 References: <20250617082004.1653492-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_092023_729634_7944058C 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250617_092023_490576_6DF2957A 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,104 +118,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Steelix design has two possible trackpad component sources. Currently
-they are all marked as available, along with having workarounds for
-shared pinctrl muxing and GPIOs.
+The Elan eKTH8D18 touchscreen controller is an I2C HID device with a
+longer boot-up time. Power sequence timing wise it is compatible with
+the eKTH6A12NAY, with a power-on delay of at least 5ms, 20ms
+out-of-reset for I2C ack response, and 150ms out-of-reset for I2C HID
+enumeration, both shorter than what the eKTH6A12NAY requires.
+Enumeration and subsequent operation follows the I2C HID standard.
 
-Instead, mark them all as "fail-needs-probe" and have the implementation
-try to probe which one is present.
+Add a compatible string for it with the ekth6a12nay one as a fallback.
+No enum was used as it is rare to actually add new entries. These
+chips are commonly completely backward compatible, and unless the
+power sequencing delays change, there is no real effort being made to
+keep track of new parts, which come out constantly.
 
-Also remove the shared resource workaround by moving the pinctrl entry
-for the trackpad interrupt line back into the individual trackpad nodes.
+Also drop the constraints on the I2C address since it's not really
+part of the binding.
 
-Cc: stable+noautosel@kernel.org # Needs accompanying new driver to work
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- .../boot/dts/mediatek/mt8186-corsola-steelix.dtsi      |  7 +++++++
- .../mediatek/mt8186-corsola-tentacool-sku327683.dts    |  2 ++
- .../mediatek/mt8186-corsola-tentacruel-sku262148.dts   |  2 ++
- arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi       | 10 ++++------
- 4 files changed, 15 insertions(+), 6 deletions(-)
+Changes since v1:
+- Reworded commit message
+- Dropped the enum for the new compatible string entry
+- Dropped constraint on I2C address completely
+---
+ .../devicetree/bindings/input/elan,ekth6915.yaml     | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi b/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi
-index e74e886a00cb..822a177e7c19 100644
---- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi
-@@ -123,8 +123,11 @@ trackpad@2c {
- 		reg = <0x2c>;
- 		hid-descr-addr = <0x20>;
- 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&trackpad_pin>;
- 		vdd-supply = <&pp3300_s3>;
- 		wakeup-source;
-+		status = "fail-needs-probe";
- 	};
- };
+diff --git a/Documentation/devicetree/bindings/input/elan,ekth6915.yaml b/Documentation/devicetree/bindings/input/elan,ekth6915.yaml
+index cb3e1801b0d3..0840e4ab28b7 100644
+--- a/Documentation/devicetree/bindings/input/elan,ekth6915.yaml
++++ b/Documentation/devicetree/bindings/input/elan,ekth6915.yaml
+@@ -4,14 +4,14 @@
+ $id: http://devicetree.org/schemas/input/elan,ekth6915.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
  
-@@ -197,3 +200,7 @@ pins-vreg-en {
- 		};
- 	};
- };
-+
-+&trackpad {
-+	status = "fail-needs-probe";
-+};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts
-index c3ae6f9616c8..4dbf2cb73a81 100644
---- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts
-@@ -17,6 +17,8 @@ trackpad@15 {
- 		compatible = "hid-over-i2c";
- 		reg = <0x15>;
- 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&trackpad_pin>;
- 		hid-descr-addr = <0x0001>;
- 		vdd-supply = <&pp3300_s3>;
- 		wakeup-source;
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts
-index 447b57b12b41..ee5bc2cd9e9f 100644
---- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts
-@@ -19,6 +19,8 @@ trackpad@15 {
- 		compatible = "hid-over-i2c";
- 		reg = <0x15>;
- 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&trackpad_pin>;
- 		hid-descr-addr = <0x0001>;
- 		vdd-supply = <&pp3300_s3>;
- 		wakeup-source;
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi b/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
-index 18cfc99cfa3c..ff20376a44d7 100644
---- a/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
-@@ -398,19 +398,17 @@ &i2c1 {
+-title: Elan eKTH6915 touchscreen controller
++title: Elan I2C-HID touchscreen controllers
  
- &i2c2 {
- 	pinctrl-names = "default";
--	/*
--	 * Trackpad pin put here to work around second source components
--	 * sharing the pinmux in steelix designs.
--	 */
--	pinctrl-0 = <&i2c2_pins>, <&trackpad_pin>;
-+	pinctrl-0 = <&i2c2_pins>;
- 	clock-frequency = <400000>;
- 	i2c-scl-internal-delay-ns = <10000>;
- 	status = "okay";
+ maintainers:
+   - Douglas Anderson <dianders@chromium.org>
  
--	trackpad@15 {
-+	trackpad: trackpad@15 {
- 		compatible = "elan,ekth3000";
- 		reg = <0x15>;
- 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&trackpad_pin>;
- 		vcc-supply = <&pp3300_s3>;
- 		wakeup-source;
- 	};
+ description:
+-  Supports the Elan eKTH6915 touchscreen controller.
+-  This touchscreen controller uses the i2c-hid protocol with a reset GPIO.
++  Supports the Elan eKTH6915 and other I2C-HID touchscreen controllers.
++  These touchscreen controller use the i2c-hid protocol with a reset GPIO.
+ 
+ allOf:
+   - $ref: /schemas/input/touchscreen/touchscreen.yaml#
+@@ -23,12 +23,14 @@ properties:
+           - enum:
+               - elan,ekth5015m
+           - const: elan,ekth6915
++      - items:
++          - const: elan,ekth8d18
++          - const: elan,ekth6a12nay
+       - enum:
+           - elan,ekth6915
+           - elan,ekth6a12nay
+ 
+-  reg:
+-    const: 0x10
++  reg: true
+ 
+   interrupts:
+     maxItems: 1
 -- 
 2.50.0.rc2.692.g299adb8693-goog
 
