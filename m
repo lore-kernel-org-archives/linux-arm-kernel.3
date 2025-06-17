@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 612CFC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC10C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fM8Ztj0WNgxkUzsl19NDzLnsVejYkQJiIVQdlZc8OI0=; b=LkdzONVlBc6gnO9yneoKzw6/WM
-	Ilt7bEH4y64qrj0wLbj15xSsPAJxWVvI8lQpxFqqpeu48OLVusxSi30HMed+R0H8DcZXYbGIwfunC
-	Gol9f0n+gKLyJK+qhsP5R8JkGR7/5wa0mInaOsgHd9ifbsoHRuNLaps9HSK+lpZjMxZSWJN2Anp9v
-	9mbxR5paCLW/dBvMf6ebSniLDdSZMPya+MxJAEL4pDRl1IDDC7IoXiEn7vnbIils+uGzuGVSR0doI
-	7s7rbER9+UUR/EXA1LBvXHVOsivQiupmuZ1PsR1Xuu7vBdgk/mRcmu0Z4jrudbbWEbdaJyEPG+LLt
-	Ge/4dkgQ==;
+	bh=zrZPx0STfRRus6zvHgDdFyqAJdk67cYWcmtLJpHw4IU=; b=rZb8l/RsAvybi/qp2eWiGV2KQz
+	6C+Dj7ejx9xzA6hlzpipHJ5J3QTFOBPdGx2IvEskVsqcjf1wTkm2WaXGn9PgG/juBIw5IJzJzRsgL
+	MrTng91O5rA9WZMs5FWqVtLqSTLry7ba4MmY825Y0F3OTIomX4xVyEQN0WMpxTG9KABpOOjttb7/O
+	4zz61MNLoA1RiC01H0G0h1FKtcKXF8P/7NHpBrY4o6QsB1wMn6WzsjLF6IcGl9DSY++/rwNgDm+Bc
+	h/m7Sm87Cabo8gFcNJDDctzl18+ekMnfwPsJhYfGhNoDsKuS0+Z4PqBzo4f6CQTVYdVza7SB5MExF
+	leB3PKwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRzr-00000006e72-10wq;
-	Tue, 17 Jun 2025 08:48:47 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uRS9E-00000006fbU-25Sg;
+	Tue, 17 Jun 2025 08:58:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRlI-00000006byj-2j8e
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 08:33:46 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1750149219;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fM8Ztj0WNgxkUzsl19NDzLnsVejYkQJiIVQdlZc8OI0=;
-	b=IbNiTkPof//hfDswjM3UX2HjcxjB219ulL79IxtMk2Surwa52FLITsHiIGdSPG8S8Gsk9B
-	vLw+Vy56yeJQZ2CRRB/RCm+QbFGa3zainhEqBBiPrTezwUW3PHMjhAdifdGI2+S1EZyaXs
-	8RSy32gZJtQCmeCgaqJnX8iRp9S4wTShk0L70h6ba11fJXoKf8M0MUPAGOpUg7J2D2lnU/
-	lC+VF+rl8YCFZHsFyIZXXvlQc4UATj/1l5oe0wSu54ytgsn/7R3Ycz/Pi8RO8uVjHJjojk
-	UeQ0zueK4/eI86dw8200fEYtRWMlrscr6O/yh+PSBJbzmEPHMOiIqOaRKo5P5A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1750149219;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fM8Ztj0WNgxkUzsl19NDzLnsVejYkQJiIVQdlZc8OI0=;
-	b=qEiPmGt/KG74R8s1cTauPdSKufrbj0ktaax/krGPrsd9BNNZSi6RX15w3NkLphktH5Tr+T
-	5QwafYnTNKQcifCg==
-To: Eugen Hristev <eugen.hristev@linaro.org>, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-Cc: linux-doc@vger.kernel.org, corbet@lwn.net, mingo@redhat.com,
- rostedt@goodmis.org, john.ogness@linutronix.de, senozhatsky@chromium.org,
- pmladek@suse.com, peterz@infradead.org, mojha@qti.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, vincent.guittot@linaro.org,
- konradybcio@kernel.org, dietmar.eggemann@arm.com, juri.lelli@redhat.com,
- andersson@kernel.org
-Subject: Re: [RFC][PATCH 09/14] genirq: add irq_kmemdump_register
-In-Reply-To: <6a493968-744a-4fa2-803c-3f64a8e7225e@linaro.org>
-References: <20250422113156.575971-1-eugen.hristev@linaro.org>
- <20250422113156.575971-10-eugen.hristev@linaro.org> <87h61wn2qq.ffs@tglx>
- <1331aa82-fee9-4788-abd9-ef741d00909e@linaro.org>
- <f916cf7f-6d0d-4d31-8e4b-24fc7da13f4d@linaro.org> <87ikkzpcup.ffs@tglx>
- <6a493968-744a-4fa2-803c-3f64a8e7225e@linaro.org>
-Date: Tue, 17 Jun 2025 10:33:38 +0200
-Message-ID: <87jz5aojh9.ffs@tglx>
+	id 1uRS6u-00000006fK9-2ntk;
+	Tue, 17 Jun 2025 08:56:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=zrZPx0STfRRus6zvHgDdFyqAJdk67cYWcmtLJpHw4IU=; b=eNZLq3iK9iEUMstyXFzvy5k331
+	OHkm3FQ2xTdgVZLc8VHxtufFGI874492yiXGzSeaZSAJBxpVxWdRA5f9tw+MItWmlaEEuBTV6p20V
+	vQSNE9FczSKiR6my/nr5qm88gpbGw/tW+t+Y9GtSSjncJVVVB2pG5uh6NdpvGGx29JkCDZI/fz/IG
+	5MvW6xm9MjfkaajvADUpp0h2AC+IRtSCM/Y8Fky660xzw6h/ToTrjZOA+7GQ88uoUeSRivc+ErY4Q
+	gc4NNyAd8m0iEbd1dl+JJCZbu6uOgxjjjHEDqxXdU2staLV6I7XP9/ObeD3d56fDIJq7miHaNCXCX
+	/NbJAFPA==;
+Received: from 2001-1c00-8d82-d000-266e-96ff-fe07-7dcc.cable.dynamic.v6.ziggo.nl ([2001:1c00:8d82:d000:266e:96ff:fe07:7dcc] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRS6q-00000003kd2-0y9V;
+	Tue, 17 Jun 2025 08:56:00 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id EA703308523; Tue, 17 Jun 2025 10:55:58 +0200 (CEST)
+Date: Tue, 17 Jun 2025 10:55:58 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Kuyo Chang <kuyo.chang@mediatek.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	jstultz <jstultz@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/1] sched/deadline: Fix fair_server runtime calculation
+ formula
+Message-ID: <20250617085558.GN1613376@noisy.programming.kicks-ass.net>
+References: <20250614020524.631521-1-kuyo.chang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_013344_840177_53671A6B 
-X-CRM114-Status: GOOD (  15.70  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250614020524.631521-1-kuyo.chang@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16 2025 at 13:12, Eugen Hristev wrote:
-> On 6/14/25 00:10, Thomas Gleixner wrote:
-> #define KMEMDUMP_VAR(sym) \
-> 	 static struct entry __UNIQUE_ID(kmemdump_entry_##sym) ...
->
-> is when calling it with e.g. `init_mm.pgd` which will make the `.`
-> inside the name and that can't happen.
-> So I have to figure a way to remove unwanted chars or pass a name to the
-> macro.
+On Sat, Jun 14, 2025 at 10:04:55AM +0800, Kuyo Chang wrote:
+> From: kuyo chang <kuyo.chang@mediatek.com>
+> 
+> [Symptom]
+> The calculation formula for fair_server runtime is based on
+> Frequency/CPU scale-invariance.
+> This will cause excessive RT latency (expect absolute time).
+> 
+> [Analysis]
+> Consider the following case under a Big.LITTLE architecture:
+> 
+> Assume the runtime is : 50,000,000 ns, and FIE/CIE as below
+> FIE: 100
+> CIE:50
+> First by FIE, the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
+> Then by CIE, it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
 
-You can do:
-
-KMEMDUMP_VAR_MEMBER(init_mm, pgd);
-
-and concatenate with a '.' for the symbol
-and a '_' for the ID.
-
-or simply
-
-KMEMDUMP_VAR_ID(init_mm.pgg, INIT_MM_PGD);
-
->> #define kmemdump_alloc(var, id, fn, ...)				\
->> 	({								\
->>         	void *__p = fn(##__VA_ARGS__);				\
->> 									\
->>                 if (__p)						\
->>                 	kmemdump_register(__p, sizeof(*var), id);	\
->> 		__p;
->>         })
->> 
->
-> I was thinking into a new variant of kmalloc, like e.g. kdmalloc() which
-> would be a wrapper over kmalloc and also register the region into
-> kmemdump like you are suggesting.
-> It would be like a `dumpable` kmalloc'ed memory.
-> And it could take an optional ID , if missing, it could generate one.
->
-> However this would mean yet another k*malloc friend, and it would
-> default to usual kmalloc if CONFIG_KMEMDUMP=n .
-> I am unsure whether this would be welcome by the community
-
-That's definitely more welcome than copying boilerplate code all over
-the place. And if you do it the way I suggested, then you only have
-_one_ macro for alloc and _one_ for free because you hand in the
-allocation function with all of its arguments instead of creating an
-ever increasing zoo of dedicated variants. But the MM people might have
-different opinions.
-
-Thanks,
-
-        tglx
+What's this FIE/CIE stuff? Is that some ARM lingo?
 
 
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index ad45a8fea245..8bfa846cf0dc 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+> @@ -1504,7 +1504,10 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
+>  	if (dl_entity_is_special(dl_se))
+>  		return;
+>  
+> -	scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+> +	if (dl_se == &rq->fair_server)
+> +		scaled_delta_exec = delta_exec;
+> +	else
+> +		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+
+Juri, the point it a bit moot atm, but is this something specific to the
+fair_server in particular, or all servers?
+
+Because if this is something all servers require then the above is
+ofcourse wrong.
 
