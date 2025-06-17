@@ -4,64 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704A3C7114A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 04:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E79C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 05:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfQt0Dij5bdaK/Ln/2PNF4m7CbwXt4vuxElA2oz6HGE=; b=XFxq2dqEUMwYUFQ0Nvq+fldWUH
-	rmuTf01GOaLCUrMv/x56xnLx5i8RU1DGPF7od8A7KMpW8AZUmuhIT/jlK8EoCaM4QOcneQF1b3Rin
-	E8tApXMEER9/tN2YisfxScLAZFDsCPuPFKorJkY0wYJHkUf1oWVao+nplnEE5Ir66kMNeFOAEjdHe
-	dGXuk2ueyNF8oN0UxaVd9vnmsLA4nw7QTnH7cJOzRKOLLYjFgO+ETx2o8W9MgMAqg3WcesblrJ4G0
-	6gHMZKpMNOPUNWHUtzxlnTjOWFXsRaZfCpWHPYIRLMqBjjOrobroIXXCD08iosbWbhqB5KHeYibwO
-	bAz7IxZg==;
+	bh=0N829LcjPXKY2iBB6ACPys8lWS/nO2Z3vPEEoP118ZI=; b=j5uQ0rJy4dFAIdh6Rq+PiIt2Fl
+	IHAH1VoLxx2FY/BEcFUPHV0BCZ7w1F+N529Pz72XpqLbNz1/RXJzLlS/VsFeaDuW2xy4szb0oHJce
+	YkQbObPDlgP9QmL5olhKhq4Jbxk2EPgGIzhUG4oArCo6FkOJe/vlwvwFLsO6u24ujfQ5/mH1R5ej2
+	/LtPbWCYossu3XJhi6ACppA2+c+K5TzyhDOp4f9qUpXwtP3aAjPklArrzc5Hf47y30lvoqDCo9F3y
+	QVzJvBeTAyjiCnH+rLtM2Aj933Qu5YIdIrDcPLrscO8jrBePYCOYkQwUqdPbsY/2sNVJNJTVXJ4Ov
+	zoTbn1pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uROMb-00000006Cvb-0Uny;
-	Tue, 17 Jun 2025 04:56:01 +0000
-Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
+	id 1uROz2-00000006Gx2-0LDT;
+	Tue, 17 Jun 2025 05:35:44 +0000
+Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uROKF-00000006CXD-0zhD
+	id 1uROq6-00000006FyS-3gpE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 04:53:37 +0000
-Date: Mon, 16 Jun 2025 21:53:20 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1750136012;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jfQt0Dij5bdaK/Ln/2PNF4m7CbwXt4vuxElA2oz6HGE=;
-	b=GdWv6waq8gMoqhYgz1Ox/03WCWiGI51+/Ufw5GcNEbiisvJWm8mRugwaxcDZounToMDDPO
-	yRTK/Iq9nqK78oyXKeFWMAwyFt9CV5twVoyjraVwgBOP8nK5rMbD8WWLq/1Va/y3ETkJzg
-	2vmmdVlb9wF9ptv8EwI9Rhl6liwRyRs=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jintack Lim <jintack@cs.columbia.edu>,
-	Christoffer Dall <christoffer.dall@arm.com>
-Subject: Re: [PATCH] KVM: arm64: nv: Fix s_cpu_if->vgic_lr[] indexing in
- vgic_v3_put_nested()
-Message-ID: <aFD0wHqZ-8CRWIW-@linux.dev>
-References: <20250614145721.2504524-1-r09922117@csie.ntu.edu.tw>
- <86qzzkc5xa.wl-maz@kernel.org>
+	Tue, 17 Jun 2025 05:26:32 +0000
+Received: from pps.filterd (m0250809.ppops.net [127.0.0.1])
+	by mx0a-0064b401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55H4x5Je027482;
+	Mon, 16 Jun 2025 22:26:25 -0700
+Received: from nam11-bn8-obe.outbound.protection.outlook.com (mail-bn8nam11on2065.outbound.protection.outlook.com [40.107.236.65])
+	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4798kkjcgs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 16 Jun 2025 22:26:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tJWhXFiBeOF+3OMBKALXZlypI4MANs3gWf9ilt5NCRxjXgURBhx9WEgHRXgVwlc8bDHbqek9VOKTJscbbsc2pwP3Vg1FLvVdeKOxkyiBgdAZYglWY/7OW5N1fVGlqSiaAFa7N08Bhjtfrlal39cMY1FkjfxjEC6FUQAe2KrC0SWOdasE7faYUhB9VOPbbV6laDMTOS2J0lOuyk65X1bIKRLapZd8PYx7J+fu625L0JwmXdAbvysCtXxrtyogMNNCWGHsrgpwPwW62n0uYRtGlUM1fii+Y9PkcxTOPPzS4F4+QnxJ1FLtRCS07TEpS1NxFmp9/G2Qo/KpfAtALLubDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0N829LcjPXKY2iBB6ACPys8lWS/nO2Z3vPEEoP118ZI=;
+ b=Si4CBZK+ch7NfXYRF441UJi2YyEo7sGADPB7MB+SdQmn5HXBYV1+BmCK+fW4CqMv1rEP+9DMeSiylJXB9y95Uz+wwUiN7BmoEsZK5yzmuQsDw8xOtVL2+8lNamN6kfWen8uxyUaRCXlEIZ5VNE9qbJCNk7kyy5IVRWsxk3vT/21yQG+dsGu1dxsL7cwHvMQmh06y34BBEEK917bSkVt2to2XRzrQMrFASYBNnQA8rN9m+HR88wpBc7bW/c4i3vcG5wwLXjrd2zRepI1CVBxvxsKd576IdH8VEcqoXLT5MstDkHoohjgZwki5troqAXpNconuclPVfa2b45x2UEOUyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=windriver.com; dmarc=pass action=none
+ header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::53) by CO1PR11MB5153.namprd11.prod.outlook.com
+ (2603:10b6:303:95::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Tue, 17 Jun
+ 2025 05:26:21 +0000
+Received: from DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::18de:be50:513:1a84]) by DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ ([fe80::18de:be50:513:1a84%2]) with mapi id 15.20.8835.018; Tue, 17 Jun 2025
+ 05:26:21 +0000
+Message-ID: <3923f285-f347-4e59-907d-ff61d7678f4f@windriver.com>
+Date: Tue, 17 Jun 2025 13:26:14 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: imx: Fix an out-of-bounds access in
+ dispmix_csr_clk_dev_data
+To: Frank Li <Frank.li@nxp.com>
+Cc: abelvesa@kernel.org, peng.fan@nxp.com, mturquette@baylibre.com,
+        sboyd@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+        kernel@pengutronix.de, festevam@gmail.com, linux-clk@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20250614112255.2838154-1-xiaolei.wang@windriver.com>
+ <aFBvZUhCENuRoUtq@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Xiaolei Wang <xiaolei.wang@windriver.com>
+In-Reply-To: <aFBvZUhCENuRoUtq@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR03CA0159.namprd03.prod.outlook.com
+ (2603:10b6:a03:338::14) To DS4PPFD667CEBB6.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::53)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86qzzkc5xa.wl-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PPFD667CEBB6:EE_|CO1PR11MB5153:EE_
+X-MS-Office365-Filtering-Correlation-Id: aed8eb0b-b578-4c73-a419-08ddad5f7e40
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WWcwMCtiSHZadkp4U0ZzdDBXR3doSHFaNjlLRUpQb0N4VXA3dXlVWVBQLzUx?=
+ =?utf-8?B?aWN0VTFjUlFPZnVxN3l0UmRTSythODRyRlM0VmpiQ2hXT1hrZGJJQkU2V3U5?=
+ =?utf-8?B?YXZZQlF6YjZJWDZ3bHdzODF0eWpEMmxZWEZPUnJxdnk5WXRUUm5zaVh3S2xq?=
+ =?utf-8?B?RTRKU0ROTGZqbHVNWlZvS0lrNTR0bXJsM3FuaGtZYzRvTTV5VXQwQ3VRSjZJ?=
+ =?utf-8?B?Tlhpb05sVzM3cXMyQjFwWVc1THZJOVRRQnYrSkdIUnk4Z2tGdlhFTTIzWUEz?=
+ =?utf-8?B?T2JjZFJqU3dEZzdNWFBQaVBEdVFrenA2cDEyanJLU0RmdmdYOGxjdXhNR1FT?=
+ =?utf-8?B?MXkzT056SlZvalZwb1k3aEU4cU0veWphaU54VWVyUDFLdnRtWEdYc0lQSjFw?=
+ =?utf-8?B?YURzem9yN0FjT2V4cVRhY2dJWHFXK3hVODRMekI5NmZkVTFlOUdSbWVOZytq?=
+ =?utf-8?B?MTMyV2VSbjdjRXoyVkN4RTQvOC8wZ3E1eEROQkpmdVZpdGJtZ1FPWmNmNHNs?=
+ =?utf-8?B?ZFRpblpqTkd6YmxFeWExb21MdjJpNjVtdUFFc08rWHRDc3l1Z2dSRHBHSkMx?=
+ =?utf-8?B?ODd2ZDRVUUhyc2ZtcEpZRnJTZ2lkbm82em4vU1YyV3FQSzV5bGVqTDAzTlZr?=
+ =?utf-8?B?SitubUc0djNoU2o2T1B2MmJwSjhGZlFLV3pPcEI2cWtnOUxSbkF1OUdyemtw?=
+ =?utf-8?B?Vyt5TjBVM1h0UUkxdnRndDdPZ2dDVm02ci9Ud004ejBlcVZLN2syejVsejlZ?=
+ =?utf-8?B?L3dxU1d0MWFVNVZqSkhsVmVJRjVjL2FvZDlFWUEweGR1bFlhS0VzbnJLVFZC?=
+ =?utf-8?B?WXNrRlRpajMrWGl6d09mTU1VYzZzQmRqdlZjaHVRdi9GblhaWnJuMmExeldK?=
+ =?utf-8?B?OFVTc3pDcHNvS0QwVFFiM1p5bGp1djF0R3RJU3pxQ2JJZGxNQWJUa21YUUM4?=
+ =?utf-8?B?b1JBVGRRaHJ3NUk2R3hCeFc3aHZza2Y1djRETVhBdWFETXJBZmk0cVFSSVdE?=
+ =?utf-8?B?RW5WZHN2N0FWaUM3OW5Ed0J3bGJHRHFjamVDbE4vQ1YreloxTDBEeW1JTE5j?=
+ =?utf-8?B?QnY5MVFKNjRTb3B2Nm1LdUZkZG9pb2t5SmZIQ3dPZ0VlTENld0U2RUNUUTY4?=
+ =?utf-8?B?eW04S3c1d3V6RU9XTTdGanNxYS9mYmtVSXh2SjdCOTRhb0doWk1ocjM2ckpF?=
+ =?utf-8?B?LzBQWHJwdEliZFo0RmtZUlBRQUM2Mlc2dWh3VUMyYnE5TFVhODNRV3l0cHZS?=
+ =?utf-8?B?bCtEUTVPdDVONXk5Qkt6TFlEM0ZiWlM5aVowcEtyZTVkdjByT05aM1E3SStX?=
+ =?utf-8?B?TUgyendwRWVXYWxTUnNzcnhqUTRtNDFDNUo2RXBNNUVtdlFoeHJPM2ErZ3J5?=
+ =?utf-8?B?ZkJlVWZQWVA5andmcnpJOTJTeTNkdTZGdWFLSWJXN1ZHNmk2QVpka1A4RjM1?=
+ =?utf-8?B?UjNwSkNGaW50YUU0SjZVTVNZSXVFOU44VlpHVmEyK3NiZlQ3SUFlaDk2SURB?=
+ =?utf-8?B?clIvN054ankvenptOWlsL1FKNFFMVTQ0ZVk2MGdXaGwrYm9XV0pFeW5nV2VJ?=
+ =?utf-8?B?K0RSaE1oZXJ6SytCUVUxOUI1VW13UVBIL2tJYWtweEJBbHNSQTlBVmtZeDBK?=
+ =?utf-8?B?VEM4VC9aTWpCRGtyeWxSaWlYeVFvbGRidmtVQmxrQnRzVVoxWjJXNG5LL3Fr?=
+ =?utf-8?B?cENFWDZuQWEzaTBnRExqRnRzeE9SVzhRWGRpdEFINHh4YzhsWURSb08yUDdH?=
+ =?utf-8?B?ZFhFd1BJbGRvdDNjdjVNekhKY3F6aWZHY1RmOUtIbmxId3BNalQ2ZlIybnNh?=
+ =?utf-8?B?ZFhnd1JZR0RnaDJ1UStuWU1Ud2N5UjdoNWJVTXBEaXlGeE4xUzJudkIzc3Ny?=
+ =?utf-8?B?U3QrTkpEV0grcnUzQklsOWRNRzJTMFJTaFBJQjR0MnhBci8wZmRBa1U3NlJP?=
+ =?utf-8?Q?AcMGT2TU+H0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPFD667CEBB6.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWpkWnV3KzZPQ1pKNFh1OUYrb09WMU43UW8zQUIySThydWt6ZkxENlljMkI5?=
+ =?utf-8?B?UlBvazc2U00xbVdwWERUK3R6VnoxN0lRUWZvNXZKZC9uV0NwYlRKMUhGcXhQ?=
+ =?utf-8?B?MUJQamZsWDg3VU1RV2g1NGd5Zk5KVTZETjN6emVXUDQ5dTRFRkhiMEhRQTRr?=
+ =?utf-8?B?VVFxNzIrZDJ2cG1pRDdld0NyY0d0d0hJTzRGVEZpY1hiVThpMDNvYkF6VVNC?=
+ =?utf-8?B?Z3hMcmNUNmFsVHhqVmhtbUVjRUl0YVRZUDNwYTV4Tk1RMzRKM0RLNDBST3ZE?=
+ =?utf-8?B?TGxtclJCRGRrLytJVkhRRVBCN1l6OGU5QUVoMUN5NC9zYzQ3WHhzbXR4aldY?=
+ =?utf-8?B?VnUvdjNja0ovZmNKK3JnMWIxMzh0MWF1Z0VUMGRwMXpBMXNSbGJuQUxxcjF5?=
+ =?utf-8?B?QURyekVNSW14d2RJRVlUMS9jZG5abHdUMmVwK3hLbEVyb1VOb1JPUVNPMDFi?=
+ =?utf-8?B?bDNFWWR3di9jS2tRdWJBMkZhcGhlOVN3eUZOZDFjSWJHS3pRYzRNZmlpRkp3?=
+ =?utf-8?B?THRzdU9kanpPRUpQNW1vOE9RV05FSTlEWFhWdTR4QkJ2dzZ0V3Z6OVYzZm1U?=
+ =?utf-8?B?ZDIyRmxndDhKQy84akJLNDBoN0FBNHJWaTV6N1lnelNTNHZwTjlRb2hzTEdz?=
+ =?utf-8?B?SHZ2UjhhbEdyYU5Lck9LYnppSUFGa29lUGZmSG10TFo0LzdmS1owTWUxak5y?=
+ =?utf-8?B?TE5qNkZlZ3B0a0VWYnBaY0hnS1UxMTRiZlduVmZGbDJkdFJZSm1aRTIvNnpv?=
+ =?utf-8?B?Yi8vSXBSZC9hTU0xQWl0YllQWDM2ZCtTNzRxWGxKSmRKaVVkdmRNWHZUazNz?=
+ =?utf-8?B?V0hhbWswaHZxZWlXNTM3eVVSOFJTQmx4T2ZxejF1Vm5WSkUxQ2Q5RG44WmVv?=
+ =?utf-8?B?NEpZM0NYaDk4dmdkV0xKa2lTenZ5QU93ZHpTdzVQaUN4RmRZRnF0MnFFNlA4?=
+ =?utf-8?B?SnE4N1BQNkhGWWtqU216aVIrSUFhKzljZDYyWTdjUHVrL29hVGVUaXVTNktz?=
+ =?utf-8?B?SEd5T2ZVbDJHUGRaYkkyaEsxQnNIVlZQT3ljVjlJbWU3R1BpQ0NJbHEwNFVa?=
+ =?utf-8?B?eWhKYm9xL3RnazYzVkprY2ltK3VsMUxLUkFQeUNZOEkveXc4QUttYzRkTDRS?=
+ =?utf-8?B?Q1dvalRFN2ZMV2NmdGFPSDlWSzVSMzg2dTJoT1lUeUpwVTdlTUtZdmZpK21J?=
+ =?utf-8?B?T1QyVC9FWFFjbGJ5VkJBeHpickhPYUlBNlAwSC9aa3BnQmI5L3llNXRxeCtR?=
+ =?utf-8?B?OUtyS3FzT3N2SlduRW1meW5VY0RzVG5sN1lOUjloa0V0VjRYTTNTSWJpWlFa?=
+ =?utf-8?B?OE5QOFBzTWF1a0lJSFZINmwxVDhUL2VDMnhaZS8xN1BkRlZjZ1dvYkRWdmps?=
+ =?utf-8?B?WjlRVm9pNGVNWlVxRnlDQWIyTm1Zb0pEWmYyMnpleGh6clhkdWk2T0hTYmhk?=
+ =?utf-8?B?eFVvVTBHZVowaWpJZGZ3MEFLTjhVMXh4RlJiS1k0WEpBWFpqNFU5eEptSzFX?=
+ =?utf-8?B?VDlZODlTa05zOHJ0b2djdkRFRWNEQjRKa3c5QzcwMW1nSnl4ZDh1cFFzR3NX?=
+ =?utf-8?B?Uk1WY20zTWRaMGtYZ0FJMG1hMkp2T05GakRvVVhKQW1NL3pSNnpkVXlmOGVt?=
+ =?utf-8?B?eHVaUENMbHBpSTROTG9xTXNEU1hsdGdHeWtuVjE5V1Q5blk5M3JxWmUxNjdt?=
+ =?utf-8?B?MnhIMy9FT0ZmeFlDQVQyNGFvbjROZzFraEV0czZ6aGhza21ob09NcFlqQ0Yy?=
+ =?utf-8?B?U1NxdzZzU1ZyeHBHZUJNanZLSUNXbkhKV01FOG9WZzZoa0VpMDBpK1JCbVNi?=
+ =?utf-8?B?dVBnSmFrSEJORjk5SlNKTFQ3RThVUnQrcFRIT2VSUE1RL3pGdUNJZjhjTkFH?=
+ =?utf-8?B?L1pmV3EyUkVlRmtFVHpyVzVEdkV6dWRnY0VsclkrVHBvMlZXZTJFOGduU29o?=
+ =?utf-8?B?c081YktseERSVUxTUjJJUENBaE9NRUUwTUM5NUUrNXJFMEcyZ3AwaGhIb2RN?=
+ =?utf-8?B?dDBhL2MzcTFUZ1EyMXN0Q3RGcHE0SFk2NlBBSEQ0cFhZUUxLWTBZaEtDY2Rk?=
+ =?utf-8?B?ZzFPNDlvV3phWi9raEtxcGdHdll0YW1QQzZQSWFUMDhHUUNldndLcWw3SkFo?=
+ =?utf-8?B?RmFnekFZTGE2TW01b2NGWERnb1lsY1E1NGJwZTZQUWFpdDJMRFBNazR5ckNP?=
+ =?utf-8?B?SWc9PQ==?=
+X-OriginatorOrg: windriver.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aed8eb0b-b578-4c73-a419-08ddad5f7e40
+X-MS-Exchange-CrossTenant-AuthSource: DS4PPFD667CEBB6.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2025 05:26:20.9645
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4c8/DGLk5MRG8fLkBdZZ6g1wHaK906sJI4qa1ygWhOVexdF0FpRzNbV31IrzCZ1cGD4AsiyoBvOcqDTEzb8KR85k7rCPFu6sMTsBxMf94es=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB5153
+X-Proofpoint-GUID: 1gqQTgP5yAe_GDPV6ZoHTs70eEdjKrC5
+X-Proofpoint-ORIG-GUID: 1gqQTgP5yAe_GDPV6ZoHTs70eEdjKrC5
+X-Authority-Analysis: v=2.4 cv=MaFsu4/f c=1 sm=1 tr=0 ts=6850fc81 cx=c_pps a=x/nlEq/fV5t0dl3uOxNKNQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=t7CeM3EgAAAA:8 a=msQzVtyQblvKDVZA-toA:9 a=QEXdDO2ut3YA:10 a=FdTzh2GWekK77mhwV6Dw:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE3MDA0MiBTYWx0ZWRfX+SRweOA7Tgwc ouagqqOLRVzcZUheRxuJrwoOAqs0JGvOoTyidugyJsnFpJOi/URrV/wzdj+nFyhLyz+nEJr8uR9 XSxPPfS2B7xefAInAbTC3bqbvRNzW1t2oYWrDGZNOh+JcRJdZkziebEr3BI3JrsBuuiHNI1ePpm
+ 0JTz5cKnl6eViHPY/oYIqHw8iN4a0VJVL3UXuEVwKJf/RtlMdmbeA3X3wl0W0bmypnzx4Yngv/L QcqD3M4C3tbponQsUt/TniqySeTdNSw9To0UxsvWaJxv/uKI6UO00mt0JWfnWgb9Iha4VprSSdG lAjcKvT0jek7RNvvX/qye8jAsUe/2s4xERoKofwGxA7odFiYE+vq4rig44GAsEPQLxcOm9Bvn0f
+ sg5jF3ARO3CmVl4jxMZhlYrblPFYW2xIPagd4F206D9O6ThvPkP/ZvKBuhnfXewB9u9wLgHr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-17_02,2025-06-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ spamscore=0 clxscore=1011 bulkscore=0 priorityscore=1501 malwarescore=0
+ mlxlogscore=999 phishscore=0 adultscore=0 suspectscore=0 impostorscore=0
+ mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.21.0-2505280000
+ definitions=main-2506170042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_215335_816911_4571C46C 
-X-CRM114-Status: GOOD (  32.05  )
+X-CRM114-CacheID: sfid-20250616_222630_927607_62D6BCED 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,95 +197,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 11:54:57AM +0100, Marc Zyngier wrote:
-> On Sat, 14 Jun 2025 15:57:21 +0100,
-> Wei-Lin Chang <r09922117@csie.ntu.edu.tw> wrote:
-> > 
-> > s_cpu_if->vgic_lr[] is filled continuously from index 0 to
-> > s_cpu_if->used_lrs - 1, but vgic_v3_put_nested() is indexing it using
-> > the positions of the set bits in shadow_if->lr_map. So correct it.
-> > 
-> > Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-> > ---
-> >  arch/arm64/kvm/vgic/vgic-v3-nested.c | 7 ++++---
-> >  1 file changed, 4 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> > index 4f6954c30674..29741e3f077b 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-> > @@ -343,7 +343,7 @@ void vgic_v3_put_nested(struct kvm_vcpu *vcpu)
-> >  	struct shadow_if *shadow_if = get_shadow_if();
-> >  	struct vgic_v3_cpu_if *s_cpu_if = &shadow_if->cpuif;
-> >  	u64 val;
-> > -	int i;
-> > +	int i, index = 0;
-> >  
-> >  	__vgic_v3_save_vmcr_aprs(s_cpu_if);
-> >  	__vgic_v3_deactivate_traps(s_cpu_if);
-> > @@ -368,10 +368,11 @@ void vgic_v3_put_nested(struct kvm_vcpu *vcpu)
-> >  		val = __vcpu_sys_reg(vcpu, ICH_LRN(i));
-> >  
-> >  		val &= ~ICH_LR_STATE;
-> > -		val |= s_cpu_if->vgic_lr[i] & ICH_LR_STATE;
-> > +		val |= s_cpu_if->vgic_lr[index] & ICH_LR_STATE;
-> >  
-> >  		__vcpu_sys_reg(vcpu, ICH_LRN(i)) = val;
-> > -		s_cpu_if->vgic_lr[i] = 0;
-> > +		s_cpu_if->vgic_lr[index] = 0;
-> > +		index++;
-> >  	}
-> >  
-> >  	shadow_if->lr_map = 0;
-> 
-> Nice catch, thanks a lot for tracking it down.
-> 
-> However, I think we should get rid of this double-indexing altogether,
-> or at least make it less error-prone. This thing is extremely fragile,
-> and it isn't the first time we are getting bitten with it.
-> 
-> Looking at the code, it becomes pretty obvious that the shadow index
-> is always the number of bits set in lr_map, and that we could
-> completely drop the 'index' thing if we simply counted these bits
-> (which isn't that expensive).
-> 
-> I came up with the (admittedly much bigger) following fix.
-> 
-> Thoughts?
-> 
-> 	M.
-> 
-> From 2484950b8fc3b36cca32bf5e86ffe7975a43e0e7 Mon Sep 17 00:00:00 2001
-> From: Marc Zyngier <maz@kernel.org>
-> Date: Sun, 15 Jun 2025 16:11:38 +0100
-> Subject: [PATCH] KVM: arm64: nv: Fix tracking of shadow list registers
-> 
-> Wei-Lin reports that the tracking of shadow list registers is
-> majorly broken when resync'ing the L2 state after a run, as
-> we confuse the guest's LR index with the host's, potentially
-> losing the interrupt state.
-> 
-> While this could be fixed by adding yet another side index to
-> track it (Wei-Lin's fix), it may be better to refactor this
-> code to avoid having a side index altogether, limiting the
-> risk to introduce this class of bugs.
-> 
-> A key observation is that the shadow index is always the number
-> of bits in the lr_map bitmap. With that, the parallel indexing
-> scheme can be completely dropped.
-> 
-> While doing this, introduce a couple of helpers that abstract
-> the index conversion and some of the LR repainting, making the
-> whole exercise much simpler.
-> 
-> Reported-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Link: https://lore.kernel.org/r/20250614145721.2504524-1-r09922117@csie.ntu.edu.tw
 
-Besides Wei-Lin's comments, LGTM.
+On 6/17/25 03:24, Frank Li wrote:
+> CAUTION: This email comes from a non Wind River email account!
+> Do not click links or open attachments unless you recognize the sender and know the content is safe.
+>
+> On Sat, Jun 14, 2025 at 07:22:55PM +0800, Xiaolei Wang wrote:
+>> When num_parents is 4, __clk_register() occurs an out-of-bounds
+>> when accessing parent_names member.
+>>
+>>   BUG: KASAN: global-out-of-bounds in __clk_register+0x1844/0x20d8
+>>   Read of size 8 at addr ffff800086988e78 by task kworker/u24:3/59
+>>    Hardware name: NXP i.MX95 19X19 board (DT)
+>>    Workqueue: events_unbound deferred_probe_work_func
+>>    Call trace:
+>>      dump_backtrace+0x94/0xec
+>>      show_stack+0x18/0x24
+>>      dump_stack_lvl+0x8c/0xcc
+>>      print_report+0x398/0x5fc
+>>      kasan_report+0xd4/0x114
+>>      __asan_report_load8_noabort+0x20/0x2c
+>>      __clk_register+0x1844/0x20d8
+>>      clk_hw_register+0x44/0x110
+>>      __clk_hw_register_mux+0x284/0x3a8
+>>      imx95_bc_probe+0x4f4/0xa70
+>>
+>> Fixes: 5224b189462f ("clk: imx: add i.MX95 BLK CTL clk driver")
+>> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+>> ---
+>>   drivers/clk/imx/clk-imx95-blk-ctl.c | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
+>> index 25974947ad0c..fd11932b12b3 100644
+>> --- a/drivers/clk/imx/clk-imx95-blk-ctl.c
+>> +++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
+>> @@ -223,7 +223,7 @@ static const struct imx95_blk_ctl_clk_dev_data dispmix_csr_clk_dev_data[] = {
+>>        [IMX95_CLK_DISPMIX_ENG0_SEL] = {
+>>                .name = "disp_engine0_sel",
+>>                .parent_names = (const char *[]){"videopll1", "dsi_pll", "ldb_pll_div7", },
+>> -             .num_parents = 4,
+>> +             .num_parents = 3,
+> Although this is simple fix, is it possible to change to
+>
+> const char *parent[] = {"videopll1", "dsi_pll", "ldb_pll_div7"}
+> num_parents = ARRAY_SIZE(parent);
+>
+> to avoid hardcode number here.
 
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+Thanks for the suggestion frank, I will send a v2 version
 
-Thanks,
-Oliver
+thanks
+
+xiaolei
+
+>
+> Frank
+>
+>>                .reg = 0,
+>>                .bit_idx = 0,
+>>                .bit_width = 2,
+>> @@ -233,7 +233,7 @@ static const struct imx95_blk_ctl_clk_dev_data dispmix_csr_clk_dev_data[] = {
+>>        [IMX95_CLK_DISPMIX_ENG1_SEL] = {
+>>                .name = "disp_engine1_sel",
+>>                .parent_names = (const char *[]){"videopll1", "dsi_pll", "ldb_pll_div7", },
+>> -             .num_parents = 4,
+>> +             .num_parents = 3,
+>>                .reg = 0,
+>>                .bit_idx = 2,
+>>                .bit_width = 2,
+>> --
+>> 2.43.0
+>>
 
