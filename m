@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CB1C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2E3C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dt1rw9057d/QPx0Kir3KGsl1sTLxjW/+IGbP0gLyrl4=; b=rWpi5B4HpqUjp2z5gwGXVVTrK6
-	TNwWXkOiV2cseDkKU44bEls9lOSZZRW6WiwXB1qxM3zPRWpd3QoGEq+c6tVcRPic1Ba8zTWFOExjv
-	3gXvv3FMWd9cSTdjGjE8qbjaVItnIx8w6I9mQq0wlto4+m0iwUKB5Wc1hYBiZsjkuwBGNBweiLv+H
-	u9p4oq9NTfURC/cVlepHZf2osPI05nDEN89rMb1Ji4XUaBqkK2trfa9TCirRDKVSJWQZJUEJdhCHE
-	TkxuFLqMKYUU4SL2xxzoe4zvoDMy7Du1aJXGrXOY/LAWxLBIVQpeEt/BPj3Gar6yme9o6KEE8+9cH
-	uWHB828w==;
+	bh=XcDnn7sOOkOLxR4qwzDfjUxXe2RbPThH0+gsj2ptS5Q=; b=AJQ8yHLx6y7mTfTlp9w4vByUOH
+	EqyJ7lsSlYcR/ibJeUTJB2q1fmqnO5lqxkevfDDw2oIvQaPJljVV/0OZthpFSjERcLkTvhW+B6Y3y
+	hD3uxNcpmWy2lm8o7Klkl4Rqifdmt/mQd/k4xLFnWOIvcEyMIjJTbkJZBxFaOj73390VqQq6dgANF
+	TAOMm8NFfH7RapKNZX9UtwedsFEu6ujbIatKJ8JEsikDpgOQYqaqv7LXhE4/K3AlYHPaNspry9arK
+	GkVJRefag/RVatzUwJ7JuaWpURdLWCxOghT72cxTx/KHvdovZndTf2Pal08p4G/31cQniogPZhx6D
+	rr9xBpuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRYPb-00000007kmt-2Za1;
-	Tue, 17 Jun 2025 15:39:48 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uRYRm-00000007l0R-3O4O;
+	Tue, 17 Jun 2025 15:42:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXJe-00000007YmH-0PPx
+	id 1uRXKN-00000007Z13-29oP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 14:29:35 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 78AFF7E1;
-	Tue, 17 Jun 2025 16:29:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750170556;
-	bh=6uTWAt2KSetlw4KyfOPztl6CboQRTXwdcr6yCnOKtKc=;
+	Tue, 17 Jun 2025 14:30:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 95E2F43BD1;
+	Tue, 17 Jun 2025 14:30:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9838C4CEE7;
+	Tue, 17 Jun 2025 14:30:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750170618;
+	bh=fr2XMAsOts3e2z91VRBihiSkUtLYOX60usFN8g0EWAQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YkTc7U6MN/3MVBRQ8hkw1iU4btFV0Ee/Tm/D4vpiXi1OhANWh9M/iOBCPq6QW9XPu
-	 P0XDSVQFYwg8Opwly8JywbLY5V8e8QqOEC0wUjf2yA0vx7S787jbcM2FXNEFa/UPSW
-	 yGaCxI7kkzWjwdbIr96i91T/g5Gsaf7jV59lkqWU=
-Date: Tue, 17 Jun 2025 17:29:12 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Frank Li <Frank.li@nxp.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Robert Chiras <robert.chiras@nxp.com>,
-	"Guoniu.zhou" <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v4 04/13] media: nxp: imx8-isi: Use
- devm_clk_bulk_get_all() to fetch clocks
-Message-ID: <20250617142912.GF10006@pendragon.ideasonboard.com>
-References: <20250408-8qxp_camera-v4-0-ef695f1b47c4@nxp.com>
- <20250408-8qxp_camera-v4-4-ef695f1b47c4@nxp.com>
- <20250421211438.GN17813@pendragon.ideasonboard.com>
- <aBQZjFsExJh2uRfK@lizhi-Precision-Tower-5810>
- <20250502155747.GB20093@pendragon.ideasonboard.com>
- <aBylKcZyFInlKQAR@lizhi-Precision-Tower-5810>
- <20250611141449.GA24607@pendragon.ideasonboard.com>
- <20250617141112.GA2051217-robh@kernel.org>
+	b=QDe3FgWKdRYt+BIzMKBQF3t5wcdsgovRo8kcvLAZPRvtxyXl1IvJ1uNlEJh8U4szk
+	 WfnBWWcVDZzqXI61sDtZK990vZVY38xyHXdM8ZsdmGlYrWlwx9hSAd5jzQh+JAMcXz
+	 4UEuHs04KEVpn53uSj9FF9SyIfJ2TnYQ0oGXkwZw7S2c7eR/8u3FrqK1UJ/EVyn7J2
+	 FFrE/9UrKWA1xYiEFfIF+1CF254i3hvfP53fi2s9JlXyyKs/yG9t+uET8HDMiY7EM9
+	 lWYelt+tdc7MIPGZhMbltC42Afg6OnmSi0RmZVMPObkuYfe1NmfQf1XhBBxdk4SbUw
+	 0Rrk2MzTfwCJA==
+Date: Tue, 17 Jun 2025 19:55:01 +0530
+From: Naveen N Rao <naveen@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
+	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
+	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
+	David Matlack <dmatlack@google.com>
+Subject: Re: [PATCH v3 12/62] KVM: SVM: Inhibit AVIC if ID is too big instead
+ of rejecting vCPU creation
+Message-ID: <bmx43lru6mwdyun3ktcmoeezqw6baih7vgtykolsrmu5q2x7vu@xp5jrbbqwzej>
+References: <20250611224604.313496-2-seanjc@google.com>
+ <20250611224604.313496-14-seanjc@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250617141112.GA2051217-robh@kernel.org>
+In-Reply-To: <20250611224604.313496-14-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_072934_274175_B92B983B 
-X-CRM114-Status: GOOD (  38.67  )
+X-CRM114-CacheID: sfid-20250617_073019_591680_9B226643 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,159 +79,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-On Tue, Jun 17, 2025 at 09:11:12AM -0500, Rob Herring wrote:
-> On Wed, Jun 11, 2025 at 05:14:49PM +0300, Laurent Pinchart wrote:
-> > On Thu, May 08, 2025 at 08:35:53AM -0400, Frank Li wrote:
-> > > On Fri, May 02, 2025 at 06:57:47PM +0300, Laurent Pinchart wrote:
-> > > > On Thu, May 01, 2025 at 09:02:04PM -0400, Frank Li wrote:
-> > > > > On Tue, Apr 22, 2025 at 12:14:38AM +0300, Laurent Pinchart wrote:
-> > > > > > On Tue, Apr 08, 2025 at 05:53:02PM -0400, Frank Li wrote:
-> > > > > > > Use devm_clk_bulk_get_all() helper to simplify clock handle code.
-> > > > > > >
-> > > > > > > No functional changes intended.
-> > > > > > >
-> > > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > > > ---
-> > > > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 46 +++-------------------
-> > > > > > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  3 +-
-> > > > > > >  2 files changed, 6 insertions(+), 43 deletions(-)
-> > > > > > >
-> > > > > > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > > > > index ecfc95882f903..015350c6f2784 100644
-> > > > > > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > > > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> > > > > > > @@ -275,11 +275,6 @@ static const struct mxc_isi_set_thd mxc_imx8_isi_thd_v1 = {
-> > > > > > >  	.panic_set_thd_v = { .mask = 0xf0000, .offset = 16, .threshold = 0x7 },
-> > > > > > >  };
-> > > > > > >
-> > > > > > > -static const struct clk_bulk_data mxc_imx8mn_clks[] = {
-> > > > > > > -	{ .id = "axi" },
-> > > > > > > -	{ .id = "apb" },
-> > > > > > > -};
-> > > > > > > -
-> > > > > > >  static const struct mxc_isi_plat_data mxc_imx8mn_data = {
-> > > > > > >  	.model			= MXC_ISI_IMX8MN,
-> > > > > > >  	.num_ports		= 1,
-> > > > > > > @@ -287,8 +282,6 @@ static const struct mxc_isi_plat_data mxc_imx8mn_data = {
-> > > > > > >  	.reg_offset		= 0,
-> > > > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v1,
-> > > > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > > > > -	.clks			= mxc_imx8mn_clks,
-> > > > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > > > > >  	.buf_active_reverse	= false,
-> > > > > > >  	.gasket_ops		= &mxc_imx8_gasket_ops,
-> > > > > > >  	.has_36bit_dma		= false,
-> > > > > > > @@ -301,8 +294,6 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
-> > > > > > >  	.reg_offset		= 0x2000,
-> > > > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> > > > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > > > > -	.clks			= mxc_imx8mn_clks,
-> > > > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > > > > >  	.buf_active_reverse	= true,
-> > > > > > >  	.gasket_ops		= &mxc_imx8_gasket_ops,
-> > > > > > >  	.has_36bit_dma		= true,
-> > > > > > > @@ -315,8 +306,6 @@ static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
-> > > > > > >  	.reg_offset		= 0x0,
-> > > > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> > > > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > > > > -	.clks			= mxc_imx8mn_clks,
-> > > > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > > > > >  	.buf_active_reverse	= true,
-> > > > > > >  	.has_36bit_dma		= false,
-> > > > > > >  };
-> > > > > > > @@ -328,8 +317,6 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
-> > > > > > >  	.reg_offset		= 0,
-> > > > > > >  	.ier_reg		= &mxc_imx8_isi_ier_v2,
-> > > > > > >  	.set_thd		= &mxc_imx8_isi_thd_v1,
-> > > > > > > -	.clks			= mxc_imx8mn_clks,
-> > > > > > > -	.num_clks		= ARRAY_SIZE(mxc_imx8mn_clks),
-> > > > > > >  	.buf_active_reverse	= true,
-> > > > > > >  	.gasket_ops		= &mxc_imx93_gasket_ops,
-> > > > > > >  	.has_36bit_dma		= false,
-> > > > > > > @@ -386,7 +373,7 @@ static int mxc_isi_runtime_suspend(struct device *dev)
-> > > > > > >  {
-> > > > > > >  	struct mxc_isi_dev *isi = dev_get_drvdata(dev);
-> > > > > > >
-> > > > > > > -	clk_bulk_disable_unprepare(isi->pdata->num_clks, isi->clks);
-> > > > > > > +	clk_bulk_disable_unprepare(isi->num_clks, isi->clks);
-> > > > > > >
-> > > > > > >  	return 0;
-> > > > > > >  }
-> > > > > > > @@ -396,7 +383,7 @@ static int mxc_isi_runtime_resume(struct device *dev)
-> > > > > > >  	struct mxc_isi_dev *isi = dev_get_drvdata(dev);
-> > > > > > >  	int ret;
-> > > > > > >
-> > > > > > > -	ret = clk_bulk_prepare_enable(isi->pdata->num_clks, isi->clks);
-> > > > > > > +	ret = clk_bulk_prepare_enable(isi->num_clks, isi->clks);
-> > > > > > >  	if (ret) {
-> > > > > > >  		dev_err(dev, "Failed to enable clocks (%d)\n", ret);
-> > > > > > >  		return ret;
-> > > > > > > @@ -414,27 +401,6 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
-> > > > > > >   * Probe, remove & driver
-> > > > > > >   */
-> > > > > > >
-> > > > > > > -static int mxc_isi_clk_get(struct mxc_isi_dev *isi)
-> > > > > > > -{
-> > > > > > > -	unsigned int size = isi->pdata->num_clks
-> > > > > > > -			  * sizeof(*isi->clks);
-> > > > > > > -	int ret;
-> > > > > > > -
-> > > > > > > -	isi->clks = devm_kmemdup(isi->dev, isi->pdata->clks, size, GFP_KERNEL);
-> > > > > > > -	if (!isi->clks)
-> > > > > > > -		return -ENOMEM;
-> > > > > > > -
-> > > > > > > -	ret = devm_clk_bulk_get(isi->dev, isi->pdata->num_clks,
-> > > > > > > -				isi->clks);
-> > > > > > > -	if (ret < 0) {
-> > > > > > > -		dev_err(isi->dev, "Failed to acquire clocks: %d\n",
-> > > > > > > -			ret);
-> > > > > > > -		return ret;
-> > > > > > > -	}
-> > > > > > > -
-> > > > > > > -	return 0;
-> > > > > > > -}
-> > > > > > > -
-> > > > > > >  static int mxc_isi_probe(struct platform_device *pdev)
-> > > > > > >  {
-> > > > > > >  	struct device *dev = &pdev->dev;
-> > > > > > > @@ -457,11 +423,9 @@ static int mxc_isi_probe(struct platform_device *pdev)
-> > > > > > >  	if (!isi->pipes)
-> > > > > > >  		return -ENOMEM;
-> > > > > > >
-> > > > > > > -	ret = mxc_isi_clk_get(isi);
-> > > > > > > -	if (ret < 0) {
-> > > > > > > -		dev_err(dev, "Failed to get clocks\n");
-> > > > > > > -		return ret;
-> > > > > > > -	}
-> > > > > > > +	isi->num_clks = devm_clk_bulk_get_all(dev, &isi->clks);
-> > > > > >
-> > > > > > This prevents validating that the DT contains the expected clocks, which
-> > > > > > could cause hard to debug issues. Isn't it a problem ?
-> > > > >
-> > > > > It is checked by dt-binding. Now no warning by DTB_CHECK under arm64 freecale.
-> > > > > CHECK_DTB should be enough to find expected clocks.
-> > > >
-> > > > Yes, the DTB check will catch issues at build time, but the driver will
-> > > > not enforce that. I'm not sure if there's a clear policy here, and if
-> > > > ensuring at runtime in drivers that the expected clocks are present is
-> > > > considered as a good practice by the DT maintainers. Rob, Krzysztof,
-> > > > Conor, do you have an opinion ?
-> > > 
-> > > Rob:
-> > > 	can you comment this?
-> > 
-> > Rob, any comment on this ?
+On Wed, Jun 11, 2025 at 03:45:15PM -0700, Sean Christopherson wrote:
+> Inhibit AVIC with a new "ID too big" flag if userspace creates a vCPU with
+> an ID that is too big, but otherwise allow vCPU creation to succeed.
+> Rejecting KVM_CREATE_VCPU with EINVAL violates KVM's ABI as KVM advertises
+> that the max vCPU ID is 4095, but disallows creating vCPUs with IDs bigger
+> than 254 (AVIC) or 511 (x2AVIC).
 > 
-> My preference is to not do validation of the DT in the kernel. Unless 
-> you need greater control of the clocks, I would use 
-> devm_clk_bulk_get_all(). 
+> Alternatively, KVM could advertise an accurate value depending on which
+> AVIC mode is in use, but that wouldn't really solve the underlying problem,
+> e.g. would be a breaking change if KVM were to ever try and enable AVIC or
+> x2AVIC by default.
+> 
+> Cc: Maxim Levitsky <mlevitsk@redhat.com>
+> Tested-by: Sairaj Kodilkar <sarunkod@amd.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/include/asm/kvm_host.h |  9 ++++++++-
+>  arch/x86/kvm/svm/avic.c         | 14 ++++++++++++--
+>  arch/x86/kvm/svm/svm.h          |  3 ++-
+>  3 files changed, 22 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+> index 2a6ef1398da7..a9b709db7c59 100644
+> --- a/arch/x86/include/asm/kvm_host.h
+> +++ b/arch/x86/include/asm/kvm_host.h
+> @@ -1314,6 +1314,12 @@ enum kvm_apicv_inhibit {
+>  	 */
+>  	APICV_INHIBIT_REASON_LOGICAL_ID_ALIASED,
+>  
+> +	/*
+> +	 * AVIC is disabled because the vCPU's APIC ID is beyond the max
+> +	 * supported by AVIC/x2AVIC, i.e. the vCPU is unaddressable.
+> +	 */
+> +	APICV_INHIBIT_REASON_PHYSICAL_ID_TOO_BIG,
+> +
+>  	NR_APICV_INHIBIT_REASONS,
+>  };
+>  
+> @@ -1332,7 +1338,8 @@ enum kvm_apicv_inhibit {
+>  	__APICV_INHIBIT_REASON(IRQWIN),			\
+>  	__APICV_INHIBIT_REASON(PIT_REINJ),		\
+>  	__APICV_INHIBIT_REASON(SEV),			\
+> -	__APICV_INHIBIT_REASON(LOGICAL_ID_ALIASED)
+> +	__APICV_INHIBIT_REASON(LOGICAL_ID_ALIASED),	\
+> +	__APICV_INHIBIT_REASON(PHYSICAL_ID_TOO_BIG)
+>  
+>  struct kvm_arch {
+>  	unsigned long n_used_mmu_pages;
+> diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
+> index ab228872a19b..f0a74b102c57 100644
+> --- a/arch/x86/kvm/svm/avic.c
+> +++ b/arch/x86/kvm/svm/avic.c
+> @@ -277,9 +277,19 @@ static int avic_init_backing_page(struct kvm_vcpu *vcpu)
+>  	int id = vcpu->vcpu_id;
+>  	struct vcpu_svm *svm = to_svm(vcpu);
+>  
+> +	/*
+> +	 * Inhibit AVIC if the vCPU ID is bigger than what is supported by AVIC
+> +	 * hardware.  Immediately clear apicv_active, i.e. don't wait until the
+> +	 * KVM_REQ_APICV_UPDATE request is processed on the first KVM_RUN, as
+> +	 * avic_vcpu_load() expects to be called if and only if the vCPU has
+> +	 * fully initialized AVIC.
+> +	 */
+>  	if ((!x2avic_enabled && id > AVIC_MAX_PHYSICAL_ID) ||
+> -	    (id > X2AVIC_MAX_PHYSICAL_ID))
+> -		return -EINVAL;
+> +	    (id > X2AVIC_MAX_PHYSICAL_ID)) {
+> +		kvm_set_apicv_inhibit(vcpu->kvm, APICV_INHIBIT_REASON_PHYSICAL_ID_TOO_BIG);
+> +		vcpu->arch.apic->apicv_active = false;
 
-Thank you for your feedback. We'll go forward with this patch then.
+This bothers me a bit. kvm_create_lapic() does this:
+          if (enable_apicv) {
+                  apic->apicv_active = true;
+                  kvm_make_request(KVM_REQ_APICV_UPDATE, vcpu);
+	  }
 
--- 
-Regards,
+But, setting apic->apicv_active to false here means KVM_REQ_APICV_UPDATE 
+is going to be a no-op.
 
-Laurent Pinchart
+This does not look to be a big deal given that kvm_create_lapic() itself 
+is called just a bit before svm_vcpu_create() (which calls the above 
+function through avic_init_vcpu()) in kvm_arch_vcpu_create(), so there 
+isn't that much done before apicv_active is toggled.
+
+But, this made me wonder if introducing a kvm_x86_op to check and 
+enable/disable apic->apicv_active in kvm_create_lapic() might be cleaner 
+overall. Maybe even have it be the initialization point for APICv: 
+apicv_init(), so we can invoke avic_init_vcpu() right away?
+
+
+- Naveen
+
 
