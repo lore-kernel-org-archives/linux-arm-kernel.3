@@ -4,148 +4,208 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C56C71159
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 02:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8AA2C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 02:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6jA5v6fRgHsmHCVLx78rPaYT/+hVNg38KhUJYbMBBU=; b=vRXh2Zj8gGHjnNP9ftg8FBRJXP
-	eoRTiK2eGurCiYxsmcQE9beFh3fHXp0u9GGY3/eTFXvQ3gOzzlFMTbWNc4a/cL+EMy/NUIUeMcVet
-	7CvXZzu8uOfnXIiiudpABO6V+uYZBs6YUZNS1GCZJFQPk5O/hQnqmDbAuBgxl5mkcnWsx9Q74CbiA
-	nUCi1l7MV1zPWIwjF+2kLAxKGtYp8CDTkcE7FyA9R9iWS+BXGlHv+XN2H1xkl28F88RljHBCXzW5o
-	3oedlgHqbm0hWANgaUUEIYmEtoQ7+9G1XQ4dSvwHRO6RWNnjzX6W00UEOhtzEQn6mWiwNLUzkhpQY
-	4nWo7G4g==;
+	bh=AlqwgEzkYL4CQVqbvxkeA6fjP6rmZF3lT21ttocoQ5E=; b=Z9jJ2iGMGcEf9FoBedKk9Pj8jP
+	L9zgicErGVhNWs67CyrR8ryjnHxEgFJlVLKY1+4E+cvF1tNQ/+vmz31RghgnZeorjv7gpUSt6Zz2s
+	bKizGjtoun5rdZ1GAQZPxU6S7cFuPZC8eJxiN7sZ7aYoqKqnCo+EKh7fKd1yjaPjrI4I6KF/AW8UC
+	4Eetv8ta/PPKKHsRzlnPt61RDJRsJAZrF8gRr6aLm/6L00V6CouJw69HW8iGKKNkle8AapRVqIzsx
+	G3ytkngtg4PqGTSl8L1II0+en9idzUJqwzWk9tLxzUuTCHD7/daNbBKGL7yJgkL+6bLeQWjxwiCYZ
+	sRWIVtFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRMFr-000000063Qt-26eW;
-	Tue, 17 Jun 2025 02:40:55 +0000
-Received: from mail-dm6nam10on20608.outbound.protection.outlook.com ([2a01:111:f403:2413::608] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uRMW8-000000064Xm-3ffG;
+	Tue, 17 Jun 2025 02:57:44 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRMDS-000000063Cy-027J
+	id 1uRMTn-000000064SC-3INl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 02:38:27 +0000
+	Tue, 17 Jun 2025 02:55:22 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=HWZRYRDVAPnmiTf/hSGUcVDRqRbutRz14OES7tWDIM/h3Z4x6kNfvVl0WmGpBsEVc7tkqeko+1UrkVgWyQLDo8mJSlc1S0l/9PuNGWBlGHQE+N275VsVxQst+/Y3EMG0/NsLf7NKir5sG33xeMvnXKmLRjt2/NeSgRXJxG8Zcw53IwbZQhebSF2qSM1+0QyRMMVbCED7KZfPgzOyWfiaIcWkTqLSvfHX0OyXSAa0mH3I7WgYPM4qorAlGeE3ai6P+qNjbvt6f8KlZ1TWr3Oi52ok3Fau2xR4PtNngg2GC4imYnklSAye0JCCwsCjWAw5Wpxh0dNSfmBpNZl47Rox1w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AlqwgEzkYL4CQVqbvxkeA6fjP6rmZF3lT21ttocoQ5E=;
+ b=Yka+fEdk+DRjmZyM229R0wrOteAW1ukQOKnOwMy9+7y8SYSROkTozP8Ye4RFL48R7KjnCTZJ+zEbYt2X3UDTJCuZvq//ip+WdxtHhTETrmygWckveFx3xl/6fsP928ujfP+0OWlqotmalrK3unnC8hUqGl+gXwCPC2iksTk81+FJj/xxfcQ0TPEpySVBQhPjgiaTa97bi9z/xDVUUA1LUMshg0Jc7OgOcrXg277EGi7KP8/+wGfjqSVM4fx0TLWyTT8cHyEAPxITa5CrfoRe5ueDrzqXWoXcFZZUAguMj9j2kY2qsr0H1+KDdTrGMCcP42PdLWWDHA5nXoBRKUpU9Q==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AlqwgEzkYL4CQVqbvxkeA6fjP6rmZF3lT21ttocoQ5E=;
+ b=NP3Ui0cUAUk/vj7fptnCkipOwdibUCyG2KdmrB+bOkoAMofSzc1gRODOzIzduHexn+P/vwYDdGvP42eXpNncDRiZE3zXbqU1lA/fSjSFXPwQ0hbIqILzVMRuzbzKhrsZfhoLqrIHb+ue+MdhvAaXuezDuTcmXaenvqmY2dqDEKo=
+Received: from DU7P251CA0012.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:551::18)
+ by GVXPR08MB10431.eurprd08.prod.outlook.com (2603:10a6:150:15c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.28; Tue, 17 Jun
+ 2025 02:55:04 +0000
+Received: from DU6PEPF0000A7E1.eurprd02.prod.outlook.com
+ (2603:10a6:10:551:cafe::21) by DU7P251CA0012.outlook.office365.com
+ (2603:10a6:10:551::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.17 via Frontend Transport; Tue,
+ 17 Jun 2025 02:55:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000A7E1.mail.protection.outlook.com (10.167.8.40) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8835.15 via
+ Frontend Transport; Tue, 17 Jun 2025 02:55:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DO3hXwpF4WpmpuFVvc8yoQ4KFKjz73MjfoegLua0kPPqbWnd1S9B7oEWyIz5R3cAMsd90Z2Y9XFk9mpb9qCUJfV9S0VIiEepn9F82rvYj2ucm3KghsgGZ+N6HtGvN1v3bQDKHXpL8CyNCoViXkvY6g/U8jeAJFmmeeePuxUEZ4czKEJ4qSjJgVDfltdmIfnqm58DUH+3JcqdhLgnIkLPAA4r6jEVWseca75WVNqfMWN64cBAPMwV+7K5DgSNuiA45DO10C7mrXS8KkQaF1Odcu8NQUPCqGkzQV9+8NgG4EvCdRuopCFxeV0AyAHX+8q0zrqhL0YvUj1bXIXLspMtEw==
+ b=r5CiO1vwvAYZNdFXShN4WRuNhm5FUZw6DKr88+YNvszldd/jAgDzlIlcSCabMPkr5IDI0UbxLfyrrvma1rOWbKaSbyIxlRTogalQcstVVdLUQr1+bKGHmJp/iutgw+rz1Fr6GvjNQEOPNgwy4uYBiH5IFoAuUo3hcKHkk0h/+tSZX8dAj2qAbGWDP28LGlebPrxbANWo35e7vtUfO6yLIJr03RM49wkV0V66EFVX7B6NkXR96RxVP648muBHMDGGEpilWMIyjYMpfGdb1zSlvs2J+ZaqH1lu4NTm9rvpICZ0s1hUzfWLhdbdukbSFGarufIF/OgYAQKY+KWwT29p3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n6jA5v6fRgHsmHCVLx78rPaYT/+hVNg38KhUJYbMBBU=;
- b=dEDeNIQbnwtApIxw1q5FNFnqwxS1FBzGp/85JiJDefz+8oh9Y3G9xq8xAi10A5zh8y48+C7kvh1mjDqhHblaFhzHfp0PmAROf8URQVzg+mN5uVLcDdQkpQwRTvV2YFTtgj8JcpempuC9WXbCrbZBVHYPYC+1ds4o9sGiFiXqOB6Odgn/BvQ2yVDrPuCXEG9poVJaNln3/QuL/rReYBKTxAgARUvogAOptkNkLnKs59I+QGbj9wndXmdcz/TzczR14FPP9FvVpzEY7WkWXwTT+vNhQSK+PUceNEp4rGuBhkzCqvyrAp8dbxHjXT3vwS0a2LI3UNsTKlvJAub0BtWXQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=AlqwgEzkYL4CQVqbvxkeA6fjP6rmZF3lT21ttocoQ5E=;
+ b=n4IthJjTFZeZLOW0tfRC++ZZtXr40WxjMIUPvCvIY0MsAyu5GcRDa34SltQXuD/IMvzFJQ789NhKzk1l7O+J5jk98iRnhfHKI4gmT3/sqzU3iFsKlkXCLhvIp7vjldub4BsQV4lDNN2DGrmpsiSrPLmFrPzLCa+jMC5J+jESbRw7qisqyQb9qpm4YPVeLJLZaMRUnm8RbDlcS0Z7txkFx2YkxH2+RlhUwsQgc6ymyd4Os3O8t2RWwbUgXpzbng3dXIBhi8qF6G9Qb8y8QxoJ2m1cdByLlIp72gCjPttWAooExA1V3gIf8jDAPVpZemODFI9ufhNvKI5PPEsC5OpgGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n6jA5v6fRgHsmHCVLx78rPaYT/+hVNg38KhUJYbMBBU=;
- b=Kf8cq3ad/IzcCJHexDG5DFiNrkXZQmZrWAvN/lyagP/K3Ce//T/GGephP3UcMFtnmUFNq8tvxsPzgxEE+/Bj38nLbqGSd9O+RJdV9XKA4/4TsZ/4Sib1Gv8a6zIozXuXazelOOIcefJgZB2A5MBqPvSbDUG3AK+7RQyGCQ3P8OvXEnHNxlIlm+C13i0/7x3seW1i8QHElM1H0OktJAUQCBsYHJ3ZO4G8aU4LKfzYxFJYOpsUooqCtjDT2djN0lN7c19kznt/drjaUUDb4OXuiEnBCR2SPOAMEJ4eIXoKzLVn1nXbMmjjsVbO0UKhldae3E+Cf/yMnQGEyJIsollqoA==
-Received: from BN9PR03CA0296.namprd03.prod.outlook.com (2603:10b6:408:f5::31)
- by PH8PR12MB7448.namprd12.prod.outlook.com (2603:10b6:510:214::11) with
+ bh=AlqwgEzkYL4CQVqbvxkeA6fjP6rmZF3lT21ttocoQ5E=;
+ b=NP3Ui0cUAUk/vj7fptnCkipOwdibUCyG2KdmrB+bOkoAMofSzc1gRODOzIzduHexn+P/vwYDdGvP42eXpNncDRiZE3zXbqU1lA/fSjSFXPwQ0hbIqILzVMRuzbzKhrsZfhoLqrIHb+ue+MdhvAaXuezDuTcmXaenvqmY2dqDEKo=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
+ by AS8PR08MB5893.eurprd08.prod.outlook.com (2603:10a6:20b:23e::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Tue, 17 Jun
- 2025 02:38:21 +0000
-Received: from BN2PEPF000044A5.namprd04.prod.outlook.com
- (2603:10b6:408:f5:cafe::90) by BN9PR03CA0296.outlook.office365.com
- (2603:10b6:408:f5::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8769.18 via Frontend Transport; Tue,
- 17 Jun 2025 02:38:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BN2PEPF000044A5.mail.protection.outlook.com (10.167.243.104) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8835.15 via Frontend Transport; Tue, 17 Jun 2025 02:38:21 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 16 Jun
- 2025 19:37:58 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 16 Jun
- 2025 19:37:58 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 16 Jun 2025 19:37:34 -0700
-Date: Mon, 16 Jun 2025 19:37:26 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<thierry.reding@gmail.com>, <vdumpa@nvidia.com>, <jonathanh@nvidia.com>,
-	<shuah@kernel.org>, <jsnitsel@redhat.com>, <nathan@kernel.org>,
-	<peterz@infradead.org>, <yi.l.liu@intel.com>, <mshavit@google.com>,
-	<praan@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>
-Subject: Re: [PATCH v6 13/25] iommufd: Add mmap interface
-Message-ID: <aFDU5kf9lQmvNDdd@nvidia.com>
-References: <cover.1749884998.git.nicolinc@nvidia.com>
- <c9929e0c9ec6f3f6348cd0c399d6fdfa9f35f973.1749884998.git.nicolinc@nvidia.com>
- <20250616141319.GG1174925@nvidia.com>
+ 2025 02:54:29 +0000
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e%4]) with mapi id 15.20.8835.027; Tue, 17 Jun 2025
+ 02:54:28 +0000
+Message-ID: <5f7b0a4d-fb3f-43bc-9f2a-3951222cfff2@arm.com>
+Date: Tue, 17 Jun 2025 08:24:23 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: Enable vmalloc-huge with ptdump
+To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+ kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ david@redhat.com
+References: <20250616103310.17625-1-dev.jain@arm.com>
+ <d0b17ac1-32e1-4086-97ec-1d70c1ac62e6@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <d0b17ac1-32e1-4086-97ec-1d70c1ac62e6@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0107.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::15) To AM9PR08MB7120.eurprd08.prod.outlook.com
+ (2603:10a6:20b:3dc::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250616141319.GG1174925@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A5:EE_|PH8PR12MB7448:EE_
-X-MS-Office365-Filtering-Correlation-Id: db24ea9f-4fd0-4e51-07ac-08ddad480659
+X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|AS8PR08MB5893:EE_|DU6PEPF0000A7E1:EE_|GVXPR08MB10431:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18a3f270-0421-4140-20cb-08ddad4a5b2f
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eVo3y3IywqA2qy5sUtc5/ApbYNneVTL2QJw4J/r/WwBRU/rwpx+pGqDWqcAZ?=
- =?us-ascii?Q?9myyWn6f38Zk5M/he6itX3uu0Q7Eyu1fXiZ3QonyTUQLnTD4OeovnR4ZncAi?=
- =?us-ascii?Q?VP7bl5JHXM4sEL1VGiL6lDWbfgWH7LvfdfLjlEjYy6jP26ueW5Wb0M0ThOtw?=
- =?us-ascii?Q?OBaAaVAtl1KQNRxYIEucNMIfsy0wpYc3tSSnh6Ez4kZsfnqksec6laIPUvHV?=
- =?us-ascii?Q?ZssUWTOlkvAx4cyZkriWFlyZdyWGodcikPWn+N5wVnNeE4LvqNSGzTg2VM8U?=
- =?us-ascii?Q?Y0ZFgQDOX+StmciKe4BWCwBFHI094cPWmsCLGwmjojYUYQYnm2oQDI/upDD0?=
- =?us-ascii?Q?7I7g7Pnr7zG2dA2hYMhRSTDJVAa+2hUlAvTFRPg0meCw0GuJkBM/8VSp+y4E?=
- =?us-ascii?Q?evl6SihIQiIDl/p/MHnH8EStxG3DWDk3C4dnjDVABnkcuE7gWtT9PjldzuMJ?=
- =?us-ascii?Q?F7mL4FnsNi19IKxrFMsiFYVmIhNIXsO0Fsox2+2g/AI9AbojXWWfQO9QGKZz?=
- =?us-ascii?Q?dx0wUUKVjeY3uLgbrU8qr/vGNWQpBbLWsEjZfU5Do1Rwx3BZlmxFyGkgeCYr?=
- =?us-ascii?Q?dwLNy3ckiReq2G+PtDfmpGk7jk97dZrpgWx15hoepYgwskt4kBQmPx0Kyy8g?=
- =?us-ascii?Q?4Kdvi3uORnFgAOVgOdujPyqU8IV7O52FZ2P8tSbcvj0Gc9renprPq2aXjTXp?=
- =?us-ascii?Q?ydsECE77R82p80wJ0BP+cy4i8f21Zv35cnp4YYfXnTcbFqF8hIF8zlFy1JHU?=
- =?us-ascii?Q?w2jmQPAbwP2ig7IgcdANlhiWC/A31gp07l925ZUTifIjLsp5/sm+K8TygMib?=
- =?us-ascii?Q?ZvAsh4cx8S1EypGf5jUvb17vTdwMIjxQPn9vWmxRcQEn76PaTbOJVnigXzAF?=
- =?us-ascii?Q?vaS//o8CGNARMjNjKf3XAhdOqHPO61OET5Opo/jB3rIRoyYdgQD7jBpYP0ZM?=
- =?us-ascii?Q?8QYcFLZcuc8fBVzB+yrd0EV3+clLnBaaTr+LwZ5+wj54gLo8wtfTGqg9jndk?=
- =?us-ascii?Q?M5wO7WHrx6XkbUBe5Z0NhULi3NruhC4DJkIBnRAmX+NmqVckcGyv8aKHZTZ7?=
- =?us-ascii?Q?SCpzMUT0ARd+k78QmCno9aYOPIz/YkNWQWPIy4QTiwdvhM5DfW+9H3vn54zn?=
- =?us-ascii?Q?5tV3+EgYsX/PHUQTZJ+ll5xTtXmCm9NBYetyLQCBUWN4yeIPoXx01hOb8i+R?=
- =?us-ascii?Q?KApKXgblityMsy2+sbdNUQD0cjcn1d4IejWXhpYMBdLX/8x//t/cvNpeEwMK?=
- =?us-ascii?Q?a3amAY7FyCo3je+VOMtNxfSXYEn/A6OdUbd5jrYZ8wvzIWWInGA5T9GGbLrh?=
- =?us-ascii?Q?7EfPrcOLoNEdhold2GaMQ+1XwgKbyCUVpkYWIJxiIUrgSPHNAs3i5mcJMQor?=
- =?us-ascii?Q?qjpCjJgOCe7rHSf9+RpI7gGhKij+KolrFYRY8f+Ddm0Qew0T+PwPm96dNq8d?=
- =?us-ascii?Q?NEUX/oixoUdbM8xfKKvH3FNMr4gT4hl/UWT/tgr3LIZFfpDGSBrC5ADzBxoG?=
- =?us-ascii?Q?0R2Is7eRiEx9Vulg/0gupFGAEQ63U4vOA3yU?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2025 02:38:21.0304
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?MW1GSW1vZmcwdUV1RXY3ejJqc1hrOVVEK3RyelJpSDgrSlNKNW96N0xPVVlJ?=
+ =?utf-8?B?SjRpamZLbTRoSGFJM0VtRXIwTzByVVJHcDkyVHlSVFZBSWhYL1RLZW9YL0pC?=
+ =?utf-8?B?bDVMTTBoNk5ZOE1OZjd3NThJaUQ2RUZ3ZzB5MGFBV0ZyQlRDTmxEN25DYnkw?=
+ =?utf-8?B?MEw3OXYzSmtGUVQ1RzZHVGRpVCtnWnZaZTlSeGFvVlhSL2pmU0dVWThQTVpj?=
+ =?utf-8?B?QzB2UStnZW55cFJUMStlTG9vdkxDZWtRaXBUM0o4MjhFbmM1UE16N1kxWWkx?=
+ =?utf-8?B?djN1eFhXMi84aUNpdm1SR2djQUZDYys1ZGZid2YxWWgwL0NPVm5aMzhXS1ph?=
+ =?utf-8?B?SWs0VitwT21QTEpReHQxa003cERKWWRkbHpaTEJ4VkI3ZDZsbXFGV3BIbWxN?=
+ =?utf-8?B?UnFYUTJramlVSnZMaFQzYzJKN2RLM2lvUnZCcEMxTHUweFZXTXcxWURIakhT?=
+ =?utf-8?B?YUhtVVZVb0FxRnIxVXArZ2Z5UG1NbVk4OEtCV0FGY3prbnVkcWRxc2dNRFhs?=
+ =?utf-8?B?YkhpVDV3OTRSMkd5eVRlRzdFUHZ5R2d4OVZMQmZVSStXeDdrdEZ0SUNNNC9R?=
+ =?utf-8?B?TVQ4QjFta2crc2tkUXdGTmZSOUlaYkhFREVFdlV3THBCRG1CUVNUZG9KMFMr?=
+ =?utf-8?B?ZWlIbFNUSnl0K1VQZEZVQ3lpU1JjNXhld3lRSTAwMHdnS2hieTJPOW1KVWtN?=
+ =?utf-8?B?RStzamIza1NHbnJ3R2Fhc2Zab3JBdDlvZ01TeFVXcjRkWnRnd3FDYzJ3T2xX?=
+ =?utf-8?B?dUwxS0J0a3VNUkMrK1lQMVR4TnRWcUgreEtwWEZRci9GODROWWVLeWdWandw?=
+ =?utf-8?B?TWIwOGczTWwzQTRTQkVpL1hWUWN4M1hiV3M4WFJKdWJTYXZKTTZaM201Uk4w?=
+ =?utf-8?B?N3pWQStVTXk1R0oxSDRNaVRKOVAxRTRJMEhaRzFIcE4rWkEyUmZ3WWJYSHhs?=
+ =?utf-8?B?VTcrTnQwbzgwYmx0WVdhQWVVdWIxTFhqVGxFQUhSYXJVbm5aNEpuSWJ1V3lq?=
+ =?utf-8?B?WUNYQ1EwR0RNN0FaemNWa0JkdXZlSVJUbDFyOU1UcGdLdXZLd0sxQ0RneklY?=
+ =?utf-8?B?aitsUmJIcDd4V0FVUkVHV0NRNXRJZDZzWTl2WlNEeDBNU042SzUzWlcwL3di?=
+ =?utf-8?B?MmNqNXZ1OFNnNFRrM0xZcUtwdGI2YUlmZkZCcTBMSWJ4OHZKazRVdUZwcFhx?=
+ =?utf-8?B?WkYwWVA1NlE1QVQ4UFQrWkFCWHI2TUljNWR0bVYzaWhrWFRxZFhzYmdDcUFL?=
+ =?utf-8?B?MTBnZ1h5T2QyQVVzYktibUwwQlBiQkthUlI2VHpZZzNiSGtjR1hYdGJtNW56?=
+ =?utf-8?B?NnkyaVhONHBaZGY4Z3hBV0JVYVhEMm5BYXYxdUV6RkFGRURFZjJwSTR6c28z?=
+ =?utf-8?B?VmY2YzNQNHY3TlRiMXliQTNDT016NEdnOHJyNlplTjBYSk1GeTVuaVpKQ2cx?=
+ =?utf-8?B?enZ1UkhqL0dSL0Zva3BHNWtveE8ydXJKdDVOcENUc0FWQkFRVUpoZmlyVWp6?=
+ =?utf-8?B?N3RhK09WY0N2TDZsR3NqMFJPMmNpQVRDTXNmMmFLTWJKelpJbXFTKysrZjVX?=
+ =?utf-8?B?VFpVVXZ4MUt0ZkJIZXZVNmxwcHI3UXQxcmJ2Mk96QkdtOUhHV2NTYlo5YkIr?=
+ =?utf-8?B?emgrQWtjQTV1N0pXaDh0U2QvLzU2eUtZdVZPKzlrbVRWaWcrQ25pamk1RjUw?=
+ =?utf-8?B?eWlTazZZSkRHWE1BTjJzZ1hvZEo3NW5Iem9TRTRFRzNHTXNlODlvVlB4QTZz?=
+ =?utf-8?B?dmp4S3dPTk5aRm85MTdVczhUb1hzTDRmaWJoY2Zhd3FnVGNFRmMxd0Jvczla?=
+ =?utf-8?B?UExHNW12RXJwNG9xOHowMU0xOXZkM2h6U1J1Z2FvbVJNYmhSbkhLcmxlOThs?=
+ =?utf-8?B?R1dRTmpBaFF3T05lYXZGdit1TkQ0V1haMnRCSUhvZ2VXbjlaNU9xZzBSSTNu?=
+ =?utf-8?Q?m9W8TFUUdrs=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB5893
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7E1.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: e0fbf80a-9491-4d66-35c3-08ddad4a46c5
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|376014|30052699003|35042699022|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cm16d1lHWTBRSUtnRkpqdkw3MnpZeFB5L3RjVmxuWWRURGJ1N2pyajdJN29l?=
+ =?utf-8?B?VS9OYTdRSnhGeWxhc3hoMjNPT3VrS2x4YlBDNmVkVVV6SnRDK1lxeGZBRG9V?=
+ =?utf-8?B?YWJJUEV3eHVWOUlSWFJLOFFlN2tEbWxPTHhUMTErQlRxbXJIaWJDYmZwSzA2?=
+ =?utf-8?B?Rm8ydTg4Q0lpSTRjVUY3a2dPbDJ6YmlvdnBVaU1oS255OE5ybGp5Mm9HMWE2?=
+ =?utf-8?B?cFJwWGRIRE5OcnZNNy9xM3F4bCtRL1orT3ovS0loaHljQTRHUXpGeVNDbEtm?=
+ =?utf-8?B?ZTVwaUFnV2lMc3hMTlBoSDAza3NTQXRBL0Vkbk02SHBweDFVdW5JS1J4bDF3?=
+ =?utf-8?B?SWljdjQxdENmY0wyQ1BSZk1KTXZuTDhLMXRGOWpnTWMyQkpONkV1cDZsVFNJ?=
+ =?utf-8?B?dzhTSUMrUEZnTHBtVlhvdURVODUyaHpvWklEb1JhZm9DRFJ4c3ZFUFlRenU4?=
+ =?utf-8?B?a2JEdHZlRmQyYjFpdFBhSlRiTE5UZGNZSkx4ZDdnQTgrWEdiN0VWYlpkeDBm?=
+ =?utf-8?B?SkpwTVIxYmZsRlBzR3pmMFdObmVFSkdIZXEwOFRZVThGZEJuZko3Mk5xdDFN?=
+ =?utf-8?B?ckV5ZlpIQmp3Z3Fja3NNN1V6VU54K1lsRWlURGJMbjA0dWVDUGJWMFYvRWpI?=
+ =?utf-8?B?dDFqeWRNaWFxMjVYSkpXSHZzQlRRWTNHM1MxWjNpZS9iVVRMTkp5SU1IRjRl?=
+ =?utf-8?B?UTlRU3FScGlSV1lTUU9pODlINGhRcVJkSVRJMTNSN2EycDcxTDJPMWpkSlEy?=
+ =?utf-8?B?U0dQc05PbXVXbnVzYktNZVkrVnc3cmJPTExYZ2l6Zkc2bi9yL2dkMk1nNjJW?=
+ =?utf-8?B?QUUwcW1KckpodGtzbit6TWkwVzgzODhjYUJLYzZxSlRIckU3RWVZb21IOE5U?=
+ =?utf-8?B?RHJxSjNab2ZLdHByeFFLZ25temVYNFk0dWJtdlFmaHVyaVRyanp6enF3OUUr?=
+ =?utf-8?B?NXhmNGVYb0NzazhvY1NXQS8wcWsxU1l2SGFlK00xb2RuTHpKempCZzc3WjNo?=
+ =?utf-8?B?L3ArQ3pCWExJWjVIUmU5MCtxcmw2NEQ2cU1hU005SGFaMkdPRXlyRlNKNGgv?=
+ =?utf-8?B?Uktmd3ZXWFMzQjFoaGU4dDVDMEpBNDlGdXlCOUdkMkdNUVNMMUZGblRnSkpz?=
+ =?utf-8?B?TVE0ZEpEYWJ3VWdPNklVUitKL1RYaFQrblVFd2lxSGtYZEVWZVJRZ0laTSt3?=
+ =?utf-8?B?THcyM1MrUmlzb3ZQSFluOXVUeldpd3J1YUFzWEJ2SC9zaDFGZ3Zid2RDdEpo?=
+ =?utf-8?B?VlR6SWJ4cVpMTklmSnJaYytCZzE0RUhWTXV2bjJVa2lkYit0YkRrYzlhTk9j?=
+ =?utf-8?B?M2NObnNwa09wMHRKd0dNT2x5bWtVV1h1VWszVmpzeHJtcU5xNFYzY2kxNndR?=
+ =?utf-8?B?RzNKWGIzZk1mWE12WnQwb3F4emR4YWZ3akdzQng5ank5K1dBcnE1QVl0VFVE?=
+ =?utf-8?B?V1czQ3gyWTNTeDBSaEpXRjdra2srMUJRUUQ5YXlWWTRyM0U4aDU3U0pVRXcz?=
+ =?utf-8?B?VXhQZlJyVDlWZFg0SHIwTGhDUitRODRLMkc5ZzJQNnlKYzhURzRqcHV1aDBj?=
+ =?utf-8?B?WGNqRjJ0eGtvdGoxd2liMDJJbFNVdjhJNkdhM2VUUW1WS3pERk1BUi9jQ3o3?=
+ =?utf-8?B?MnpkY2V4MTRMbzNsMHJGaXYrRURaRHlhMENERWMvMUdqdUpUTUR6NUkvSE43?=
+ =?utf-8?B?VXlHT0ZGSE9UR25HeUpZR3FrMURxWGg2dkRuK09TM281TlY4RWFFcmhMQTRJ?=
+ =?utf-8?B?QktZWUVqNUp6WXN4bFpoVHlxRC9nWVhpVHFXdFAxVDhSTm9VSldycC91T1Ur?=
+ =?utf-8?B?MW8zMmFvRVZ4ZE5jTnUrMFRyOWpSUHpxYUhwZkpZL3FWS3N4NmR6ekt1S3hU?=
+ =?utf-8?B?bitKckNKMk96dXFlZlB6MTVXOUpuVFV6WTNObVlnZHJJZ2JxZ1IvamJJSDNW?=
+ =?utf-8?B?eE54bUdNNGlaVXBjQlVpN2E3eXBZSm5kNDd0V3A0WmlGeEhWZU1EVG9CZm1G?=
+ =?utf-8?B?UGFmNHZrWm82TldyUE55SDBJWi8yaUJzVFlqVnhoNW5FVC94T0hoZFlCMUw4?=
+ =?utf-8?Q?yiQ13b?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(376014)(30052699003)(35042699022)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2025 02:55:02.4360
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: db24ea9f-4fd0-4e51-07ac-08ddad480659
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18a3f270-0421-4140-20cb-08ddad4a5b2f
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E1.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7448
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR08MB10431
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250616_193826_047881_15D21654 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250616_195520_081849_861CB993 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,31 +220,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 16, 2025 at 11:13:19AM -0300, Jason Gunthorpe wrote:
-> On Sat, Jun 14, 2025 at 12:14:38AM -0700, Nicolin Chen wrote:
-> 
-> > +/* Entry for iommufd_ctx::mt_mmap */
-> > +struct iommufd_mmap {
-> > +	struct iommufd_object *owner;
-> > +
-> > +	/* Allocated start position in mt_mmap tree */
-> > +	unsigned long startp;
-> 
-> pgoff_t, looks like this is already in PAGE_SIZE units.
-> 
-> > +	/* Physical range for io_remap_pfn_range() */
-> > +	unsigned long mmio_pfn;
-> 
-> physaddr_t and maybe don't use pfn?
-> 
-> > +	unsigned long num_pfns;
-> 
-> size_t
 
-The mtree stores in pfn units. Looks like you prefer doing in
-PAGE_SIZE units? I can give that a try and update them as you
-suggested.
+On 16/06/25 11:37 pm, Ryan Roberts wrote:
+> On 16/06/2025 11:33, Dev Jain wrote:
+>> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
+>> because an intermediate table may be removed, potentially causing the
+>> ptdump code to dereference an invalid address. We want to be able to
+>> analyze block vs page mappings for kernel mappings with ptdump, so to
+>> enable vmalloc-huge with ptdump, synchronize between page table removal in
+>> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
+>> use mmap_read_lock and not write lock because we don't need to synchronize
+>> between two different vm_structs; two vmalloc objects running this same
+>> code path will point to different page tables, hence there is no race.
+>>
+>> For pud_free_pmd_page(), we isolate the PMD table to avoid taking the lock
+>> 512 times again via pmd_free_pte_page().
+>>
+>> We implement the locking mechanism using static keys, since the chance
+>> of a race is very small. Observe that the synchronization is needed
+>> to avoid the following race:
+>>
+>> CPU1							CPU2
+>> 						take reference of PMD table
+>> pud_clear()
+>> pte_free_kernel()
+>> 						walk freed PMD table
+>>
+>> and similar race between pmd_free_pte_page and ptdump_walk_pgd.
+>>
+>> Therefore, there are two cases: if ptdump sees the cleared PUD, then
+>> we are safe. If not, then the patched-in read and write locks help us
+>> avoid the race.
+>>
+>> To implement the mechanism, we need the static key access from mmu.c and
+>> ptdump.c. Note that in case !CONFIG_PTDUMP_DEBUGFS, ptdump.o won't be a
+>> target in the Makefile, therefore we cannot initialize the key there, as
+>> is being done, for example, in the static key implementation of
+>> hugetlb-vmemmap. Therefore, include asm/cpufeature.h, which includes
+>> the jump_label mechanism. Declare the key there and define the key to false
+>> in mmu.c.
+>>
+>> No issues were observed with mm-selftests. No issues were observed while
+>> parallelly running test_vmalloc.sh and dumping the kernel pagetable through
+>> sysfs in a loop.
+>>
+>> v2->v3:
+>>   - Use static key mechanism
+>>
+>> v1->v2:
+>>   - Take lock only when CONFIG_PTDUMP_DEBUGFS is on
+>>   - In case of pud_free_pmd_page(), isolate the PMD table to avoid taking
+>>     the lock 512 times again via pmd_free_pte_page()
+>>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>>   arch/arm64/include/asm/cpufeature.h |  1 +
+>>   arch/arm64/mm/mmu.c                 | 51 ++++++++++++++++++++++++++---
+>>   arch/arm64/mm/ptdump.c              |  5 +++
+>>   3 files changed, 53 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+>> index c4326f1cb917..3e386563b587 100644
+>> --- a/arch/arm64/include/asm/cpufeature.h
+>> +++ b/arch/arm64/include/asm/cpufeature.h
+>> @@ -26,6 +26,7 @@
+>>   #include <linux/kernel.h>
+>>   #include <linux/cpumask.h>
+>>   
+>> +DECLARE_STATIC_KEY_FALSE(ptdump_lock_key);
+>>   /*
+>>    * CPU feature register tracking
+>>    *
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index 8fcf59ba39db..e242ba428820 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -41,11 +41,14 @@
+>>   #include <asm/tlbflush.h>
+>>   #include <asm/pgalloc.h>
+>>   #include <asm/kfence.h>
+>> +#include <asm/cpufeature.h>
+>>   
+>>   #define NO_BLOCK_MAPPINGS	BIT(0)
+>>   #define NO_CONT_MAPPINGS	BIT(1)
+>>   #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
+>>   
+>> +DEFINE_STATIC_KEY_FALSE(ptdump_lock_key);
+>> +
+>>   enum pgtable_type {
+>>   	TABLE_PTE,
+>>   	TABLE_PMD,
+>> @@ -1267,8 +1270,9 @@ int pmd_clear_huge(pmd_t *pmdp)
+>>   	return 1;
+>>   }
+>>   
+>> -int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>> +static int __pmd_free_pte_page(pmd_t *pmdp, unsigned long addr, bool lock)
+>>   {
+>> +	bool lock_taken = false;
+>>   	pte_t *table;
+>>   	pmd_t pmd;
+>>   
+>> @@ -1279,15 +1283,29 @@ int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>>   		return 1;
+>>   	}
+>>   
+>> +	/* See comment in pud_free_pmd_page for static key logic */
+>>   	table = pte_offset_kernel(pmdp, addr);
+>>   	pmd_clear(pmdp);
+>>   	__flush_tlb_kernel_pgtable(addr);
+>> +	if (static_branch_unlikely(&ptdump_lock_key) && lock) {
+>> +		mmap_read_lock(&init_mm);
+>> +		lock_taken = true;
+>> +	}
+>> +	if (unlikely(lock_taken))
+>> +		mmap_read_unlock(&init_mm);
+>> +
+>>   	pte_free_kernel(NULL, table);
+>>   	return 1;
+>>   }
+>>   
+>> +int pmd_free_pte_page(pmd_t *pmdp, unsigned long addr)
+>> +{
+>> +	return __pmd_free_pte_page(pmdp, addr, true);
+>> +}
+>> +
+>>   int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>>   {
+>> +	bool lock_taken = false;
+>>   	pmd_t *table;
+>>   	pmd_t *pmdp;
+>>   	pud_t pud;
+>> @@ -1301,15 +1319,40 @@ int pud_free_pmd_page(pud_t *pudp, unsigned long addr)
+>>   	}
+>>   
+>>   	table = pmd_offset(pudp, addr);
+>> +	/*
+>> +	 * Isolate the PMD table; in case of race with ptdump, this helps
+>> +	 * us to avoid taking the lock in __pmd_free_pte_page().
+>> +	 *
+>> +	 * Static key logic:
+>> +	 *
+>> +	 * Case 1: If ptdump does static_branch_enable(), and after that we
+>> +	 * execute the if block, then this patches in the read lock, ptdump has
+>> +	 * the write lock patched in, therefore ptdump will never read from
+>> +	 * a potentially freed PMD table.
+>> +	 *
+>> +	 * Case 2: If the if block starts executing before ptdump's
+>> +	 * static_branch_enable(), then no locking synchronization
+>> +	 * will be done. However, pud_clear() + the dsb() in
+>> +	 * __flush_tlb_kernel_pgtable will ensure that ptdump observes an
+>> +	 * empty PUD. Thus, it will never walk over a potentially freed
+>> +	 * PMD table.
+>> +	 */
+>> +	pud_clear(pudp);
+> How can this possibly be correct; you're clearing the pud without any
+> synchronisation. So you could have this situation:
+>
+> CPU1 (vmalloc)			CPU2 (ptdump)
+>
+> 				static_branch_enable()
+> 				  mmap_write_lock()
+> 				    pud = pudp_get()
 
-Thanks
-Nicolin
+When you do pudp_get(), you won't be dereferencing a NULL pointer.
+pud_clear() will nullify the pud entry. So pudp_get() will boil
+down to retrieving a NULL entry. Or, pudp_get() will retrieve an
+entry pointing to the now isolated PMD table. Correct me if I am
+wrong.
+
+> pud_free_pmd_page()
+>    pud_clear()
+> 				    access the table pointed to by pud
+> 				    BANG!
+>
+> Surely the logic needs to be:
+>
+> 	if (static_branch_unlikely(&ptdump_lock_key)) {
+> 		mmap_read_lock(&init_mm);
+> 		lock_taken = true;
+> 	}
+> 	pud_clear(pudp);
+> 	if (unlikely(lock_taken))
+> 		mmap_read_unlock(&init_mm);
+>
+> That fixes your first case, I think? But doesn't fix your second case. You could
+> still have:
+>
+> CPU1 (vmalloc)			CPU2 (ptdump)
+>
+> pud_free_pmd_page()
+>    <ptdump_lock_key=FALSE>
+> 				static_branch_enable()
+> 				  mmap_write_lock()
+> 				    pud = pudp_get()
+>    pud_clear()
+> 				    access the table pointed to by pud
+> 				    BANG!
+>
+> I think what you need is some sort of RCU read-size critical section in the
+> vmalloc side that you can then synchonize on in the ptdump side. But you would
+> need to be in the read side critical section when you sample the static key, but
+> you can't sleep waiting for the mmap lock while in the critical section. This
+> feels solvable, and there is almost certainly a well-used pattern, but I'm not
+> quite sure what the answer is. Perhaps others can help...
+>
+> Thanks,
+> Ryan
+>
+>
+>> +	__flush_tlb_kernel_pgtable(addr);
+>> +	if (static_branch_unlikely(&ptdump_lock_key)) {
+>> +		mmap_read_lock(&init_mm);
+>> +		lock_taken = true;
+>> +	}
+>> +	if (unlikely(lock_taken))
+>> +		mmap_read_unlock(&init_mm);
+>> +
+>>   	pmdp = table;
+>>   	next = addr;
+>>   	end = addr + PUD_SIZE;
+>>   	do {
+>> -		pmd_free_pte_page(pmdp, next);
+>> +		__pmd_free_pte_page(pmdp, next, false);
+>>   	} while (pmdp++, next += PMD_SIZE, next != end);
+>>   
+>> -	pud_clear(pudp);
+>> -	__flush_tlb_kernel_pgtable(addr);
+>>   	pmd_free(NULL, table);
+>>   	return 1;
+>>   }
+>> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+>> index 421a5de806c6..f75e12a1d068 100644
+>> --- a/arch/arm64/mm/ptdump.c
+>> +++ b/arch/arm64/mm/ptdump.c
+>> @@ -25,6 +25,7 @@
+>>   #include <asm/pgtable-hwdef.h>
+>>   #include <asm/ptdump.h>
+>>   
+>> +#include <asm/cpufeature.h>
+>>   
+>>   #define pt_dump_seq_printf(m, fmt, args...)	\
+>>   ({						\
+>> @@ -311,7 +312,9 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+>>   		}
+>>   	};
+>>   
+>> +	static_branch_enable(&ptdump_lock_key);
+>>   	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
+>> +	static_branch_disable(&ptdump_lock_key);
+>>   }
+>>   
+>>   static void __init ptdump_initialize(void)
+>> @@ -353,7 +356,9 @@ bool ptdump_check_wx(void)
+>>   		}
+>>   	};
+>>   
+>> +	static_branch_enable(&ptdump_lock_key);
+>>   	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
+>> +	static_branch_disable(&ptdump_lock_key);
+>>   
+>>   	if (st.wx_pages || st.uxn_pages) {
+>>   		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
 
