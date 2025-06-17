@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC561C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 13:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871D2C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 13:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EzVpkSNmjPwkm0JFluNOfNDp70jzD7FzLrawMbpg6d0=; b=njLqnXyjrWupoiLF94rBLdW14Z
-	Ra5OWez82amymlKjmUeYtZ5uRshnfkDmd+R+EsAmT43rfX7/M/7YwQpbroq8o+VF/nIJmC3dzRcVq
-	TeqheF+53KCNreXzED2e4o5FBnuu2g0ybRSR5mCO41jJOhgLBa37wVchHhSLc5Wwbn4Bmy9H0b1fZ
-	r4CKHW8snyXG31GoCm22VIAIdFGpAJykzQ0mzEK+SM+bBu0jypUxMCgV95zWfwEFPRv1AEUOQ5E2v
-	4x5gZ+Wg8kpKDXxj6WfqCZneymrdR7bf5M2/TmwFb/C1OL3vic+6pLub1wxC/UTUqNBmU9ei6w6Dq
-	9CZW5QaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eNIRDFituUaSKMhxaVCgJ7CeNXKHRrwDx+MjgFsRJgM=; b=pj+JhIyCXDYG3TFj1G67yT+BR7
+	eoxTbiWXUAqS9vcsYiqAOdeLifTKtY7aHThJiwK+GJo4BkELoCR1/FIB1Hi3ZStqnpDOWH3JX9roP
+	7iKtjuslWggISAvFP0kOGOtVeGmKWUmp4vY6QOwQBKjmOk5qdK7YOWikp6GdDy3UTNyvp5Wi8lB+n
+	Okp908THyFS+KNP6IBQ5jkoM+dIolL2EB4l29nef8BpUIKLgXl7MAsFKPyhGWnsHsuWaodB4eifBC
+	glK2uH1WMi7C7kqJLQnvYr39p1cVRvly8d3hguA+6hTz2vX6Lt4wJJGR4jC1ZXFblcwUrVjpwYHgd
+	5HksC9Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRW9e-00000007JKe-3InK;
-	Tue, 17 Jun 2025 13:15:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1uRWBr-00000007JjJ-2tM2;
+	Tue, 17 Jun 2025 13:17:27 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRVUE-00000007CPm-2McV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 12:32:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1750163542; x=1781699542;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=O110FrdcInpzBMuMy6Lt2c3gYwH5SZpoT2eQ/FzXveQ=;
-  b=xFqMpgWN+9M0vBTDGhcZGZBmlzSW/ojSX2ZI4ojWlHU9fLOBDVIvJ7L3
-   DM/902xhAC4dcFsgRymqKFIt+8ITDAZqoeoUSl1UvtysCTWyuck2u30bn
-   VBSKjoyCCHbM9p2p/sEtElviXcNxwkF1Rj9bA6XshEhFPkQN1iGWdl5Oa
-   Zfg0nv+xu3Y6Qc5lV9tM+ac2nVrmYrDqfHBo5g3+0tk1MhUWLqxwuXyRP
-   xlNwH2/gHKsiRJUB550QjFXILqqH7Ehw7mQPuU5gkh+A7z460e3B8rfk6
-   i9bCti0mxbzxpXoYu7FI5gXGq2uDyaDrMZhOG/S5zscQAAv/GezCGaSEZ
-   w==;
-X-CSE-ConnectionGUID: ko567VBqSpWsKe4i2Dg+zQ==
-X-CSE-MsgGUID: EObWo+FlRVO7IFxEzXwz2Q==
-X-IronPort-AV: E=Sophos;i="6.16,243,1744095600"; 
-   d="scan'208";a="210375829"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Jun 2025 05:32:19 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 17 Jun 2025 05:31:40 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Tue, 17 Jun 2025 05:31:38 -0700
-Message-ID: <cb110632-435f-4126-bd4b-5b914004fdc0@microchip.com>
-Date: Tue, 17 Jun 2025 14:31:38 +0200
+	id 1uRVUL-00000007CQi-3HFE;
+	Tue, 17 Jun 2025 12:32:31 +0000
+Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E79347E1;
+	Tue, 17 Jun 2025 14:32:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1750163530;
+	bh=ig5rteClH3vLeIe325g8gO95JuDFf5pkGezIw9thkQU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cWVWua1w/O9dklxQnNYN0kdbwG6V2nVlxOnrCrCUi6B6pty2LoqgCZxP9DFD/QYC4
+	 gqfozpaDYp+bPfik3fs5/LPMWPKHOf2N4TVbRbK3a5k3bSXYgCp8dc9RNJEToTZ4K9
+	 HSVT0nRjF0thi0wza+7XxvIajtv8fGXCJ9DCY9zE=
+Date: Tue, 17 Jun 2025 14:32:19 +0200
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Naushir Patuck <naush@raspberrypi.com>, Nick Hollinghurst <nick.hollinghurst@raspberrypi.com>, 
+	David Plowman <david.plowman@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Hans Verkuil <hverkuil@xs4all.nl>, linux-media@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 3/4] media: pisp_be: Split jobs creation and scheduling
+Message-ID: <bhvhvjr7ks3yokkaoexuhduxqtxpx6voow6govxtvvs5o4sbwi@crrbxkit3vli>
+References: <20250606-pispbe-mainline-split-jobs-handling-v6-v7-0-46169f0622b7@ideasonboard.com>
+ <20250606-pispbe-mainline-split-jobs-handling-v6-v7-3-46169f0622b7@ideasonboard.com>
+ <20250616144009.GD32454@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] ARM: dts: microchip: sama7d65: Add cache
- configuration for cpu node
-To: Mihai Sain <mihai.sain@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-References: <20250617104703.45395-1-mihai.sain@microchip.com>
- <20250617104703.45395-2-mihai.sain@microchip.com>
-Content-Language: en-US, fr
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Organization: microchip
-In-Reply-To: <20250617104703.45395-2-mihai.sain@microchip.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250616144009.GD32454@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_053222_797345_5E4C64FA 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250617_053230_109482_9E660FEC 
+X-CRM114-Status: GOOD (  49.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,76 +74,426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mihai,
+Hi Laurent
 
-On 17/06/2025 at 12:47, Mihai Sain wrote:
-> Describe the cache memories according with datasheet chapter 15.2:
-> - L1 cache configuration with 32KB for both data and instruction cache.
-> - L2 cache configuration with 256KB unified cache.
-> 
-> Before this patch:
-> [    0.161955] cacheinfo: Unable to detect cache hierarchy for CPU 0
-> 
-> After this patch:
-> [root@sama7d65eb ~]$ ll -h /sys/bus/cpu/devices/cpu0/of_node/l1-cache
-> -r--r--r-- 1 root root 4 Jun 17 11:39 cache-level
-> -r--r--r-- 1 root root 0 Jun 17 11:39 cache-unified
+On Mon, Jun 16, 2025 at 05:40:09PM +0300, Laurent Pinchart wrote:
+> Hi Jacopo,
+>
+> On Fri, Jun 06, 2025 at 12:29:23PM +0200, Jacopo Mondi wrote:
+> > Currently the 'pispbe_schedule()' function does two things:
+> >
+> > 1) Tries to assemble a job by inspecting all the video node queues
+> >    to make sure all the required buffers are available
+> > 2) Submit the job to the hardware
+> >
+> > The pispbe_schedule() function is called at:
+> >
+> > - video device start_streaming() time
+> > - video device qbuf() time
+> > - irq handler
+> >
+> > As assembling a job requires inspecting all queues, it is a rather
+> > time consuming operation which is better not run in IRQ context.
+> >
+> > To avoid the executing the time consuming job creation in interrupt
+>
+> s/the executing/executing/
+>
+> > context split the job creation and job scheduling in two distinct
+> > operations. When a well-formed job is created, append it to the
+> > newly introduced 'pispbe->job_queue' where it will be dequeued from
+> > by the scheduling routine.
+> >
+> > As the per-node 'ready_queue' buffer list is only accessed in vb2
+> > ops callbacks, protected by a mutex, it is not necessary to guard it
+>
+> "by the node->queue_lock mutex"
+>
+> > with a dedicated spinlock so drop it. Also use the spin_lock_irq()
+> > variant in all functions not called from an IRQ context where the
+> > spin_lock_irqsave() version was used.
+> >
+> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> > ---
+> >  .../media/platform/raspberrypi/pisp_be/pisp_be.c   | 152 +++++++++++----------
+> >  1 file changed, 79 insertions(+), 73 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> > index 92c452891d6c..c25f7d9b404c 100644
+> > --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> > +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> > @@ -161,8 +161,6 @@ struct pispbe_node {
+> >  	struct mutex node_lock;
+> >  	/* vb2_queue lock */
+> >  	struct mutex queue_lock;
+> > -	/* Protect pispbe_node->ready_queue and pispbe_buffer->ready_list */
+> > -	spinlock_t ready_lock;
+> >  	struct list_head ready_queue;
+> >  	struct vb2_queue queue;
+> >  	struct v4l2_format format;
+> > @@ -190,6 +188,8 @@ struct pispbe_hw_enables {
+> >
+> >  /* Records a job configuration and memory addresses. */
+> >  struct pispbe_job_descriptor {
+> > +	struct list_head queue;
+> > +	struct pispbe_buffer *buffers[PISPBE_NUM_NODES];
+> >  	dma_addr_t hw_dma_addrs[N_HW_ADDRESSES];
+> >  	struct pisp_be_tiles_config *config;
+> >  	struct pispbe_hw_enables hw_enables;
+> > @@ -215,8 +215,10 @@ struct pispbe_dev {
+> >  	unsigned int sequence;
+> >  	u32 streaming_map;
+> >  	struct pispbe_job queued_job, running_job;
+> > -	spinlock_t hw_lock; /* protects "hw_busy" flag and streaming_map */
+> > +	/* protects "hw_busy" flag, streaming_map and job_queue */
+> > +	spinlock_t hw_lock;
+> >  	bool hw_busy; /* non-zero if a job is queued or is being started */
+> > +	struct list_head job_queue;
+> >  	int irq;
+> >  	u32 hw_version;
+> >  	u8 done, started;
+> > @@ -440,41 +442,47 @@ static void pispbe_xlate_addrs(struct pispbe_dev *pispbe,
+> >   * For Output0, Output1, Tdn and Stitch, a buffer only needs to be
+> >   * available if the blocks are enabled in the config.
+> >   *
+> > - * Needs to be called with hw_lock held.
+> > + * If all the buffers required to form a job are available, append the
+> > + * job descriptor to the job queue to be later queued to the HW.
+> >   *
+> >   * Returns 0 if a job has been successfully prepared, < 0 otherwise.
+> >   */
+> > -static int pispbe_prepare_job(struct pispbe_dev *pispbe,
+> > -			      struct pispbe_job_descriptor *job)
+> > +static int pispbe_prepare_job(struct pispbe_dev *pispbe)
+> >  {
+> >  	struct pispbe_buffer *buf[PISPBE_NUM_NODES] = {};
+> > +	struct pispbe_job_descriptor *job;
+>
+> You could use
+>
+> 	struct pispbe_job_descriptor __free(kfree) *job = NULL;
+>
+> and drop the kfree() in the error paths to simplify error handling and
+> make it more robust. Don't forget to set job to NULL just after adding
+> it to the job_queue.
+>
 
-Nope.
+Only if I
 
-> -r--r--r-- 1 root root 6 Jun 17 11:39 compatible
-> -r--r--r-- 1 root root 4 Jun 17 11:39 d-cache-size
-> -r--r--r-- 1 root root 4 Jun 17 11:39 i-cache-size
-> -r--r--r-- 1 root root 9 Jun 17 11:39 name
-> -r--r--r-- 1 root root 4 Jun 17 11:39 next-level-cache
-> -r--r--r-- 1 root root 4 Jun 17 11:39 phandle
-> 
-> [root@sama7d65eb ~]$ ll -h /sys/bus/cpu/devices/cpu0/of_node/l2-cache
-> -r--r--r-- 1 root root 4 Jun 17 11:39 cache-level
-> -r--r--r-- 1 root root 4 Jun 17 11:39 cache-size
-> -r--r--r-- 1 root root 0 Jun 17 11:39 cache-unified
-> -r--r--r-- 1 root root 6 Jun 17 11:39 compatible
-> -r--r--r-- 1 root root 9 Jun 17 11:39 name
-> -r--r--r-- 1 root root 4 Jun 17 11:39 phandle
-> 
-> Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
-> ---
->   arch/arm/boot/dts/microchip/sama7d65.dtsi | 17 +++++++++++++++++
->   1 file changed, 17 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> index d08d773b1cc5..951d7af3ad1c 100644
-> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> @@ -32,6 +32,23 @@ cpu0: cpu@0 {
->   			device_type = "cpu";
->   			clocks = <&pmc PMC_TYPE_CORE PMC_CPUPLL>;
->   			clock-names = "cpu";
-> +			next-level-cache = <&L1>;
-> +
-> +			L1: l1-cache {
-> +				compatible = "cache";
-> +				cache-level = <1>;
-> +				d-cache-size = <32768>;
-> +				i-cache-size = <32768>;
-> +				cache-unified;
+	no_free_ptr(job);
 
-I don't think unified applied to L1 cache for C-A7.
+before returning as job as to stay valid until it gets consumed.
 
-Regards,
-   Nicolas
+I'm not sure it's worth it just to save two "kfree(job);" in error
+paths
 
-> +				next-level-cache = <&L2>;
-> +			};
-> +
-> +			L2: l2-cache {
-> +				compatible = "cache";
-> +				cache-level = <2>;
-> +				cache-size = <262144>;
-> +				cache-unified;
-> +			};
->   		};
->   	};
->   
-
+> > +	unsigned int streaming_map;
+> >  	unsigned int config_index;
+> >  	struct pispbe_node *node;
+> > -	unsigned long flags;
+> >
+> > -	lockdep_assert_held(&pispbe->hw_lock);
+>
+> You could replace this with
+>
+> 	lockdep_assert_irqs_enabled();
+>
+> Up to you.
+>
+> > +	scoped_guard(spinlock_irq, &pispbe->hw_lock) {
+> > +		static const u32 mask = BIT(CONFIG_NODE) | BIT(MAIN_INPUT_NODE);
+> >
+> > -	memset(job, 0, sizeof(struct pispbe_job_descriptor));
+> > +		if ((pispbe->streaming_map & mask) != mask)
+> > +			return -ENODEV;
+> >
+> > -	if (((BIT(CONFIG_NODE) | BIT(MAIN_INPUT_NODE)) &
+> > -		pispbe->streaming_map) !=
+> > -			(BIT(CONFIG_NODE) | BIT(MAIN_INPUT_NODE)))
+> > -		return -ENODEV;
+> > +		/*
+> > +		 * Take a copy of streaming_map: nodes activated after this
+> > +		 * point are ignored when preparing this job.
+> > +		 */
+> > +		streaming_map = pispbe->streaming_map;
+> > +	}
+> > +
+> > +	job = kzalloc(sizeof(*job), GFP_KERNEL);
+> > +	if (!job)
+> > +		return -ENOMEM;
+> >
+> >  	node = &pispbe->node[CONFIG_NODE];
+> > -	spin_lock_irqsave(&node->ready_lock, flags);
+> >  	buf[CONFIG_NODE] = list_first_entry_or_null(&node->ready_queue,
+> >  						    struct pispbe_buffer,
+> >  						    ready_list);
+> > -	if (buf[CONFIG_NODE]) {
+> > -		list_del(&buf[CONFIG_NODE]->ready_list);
+> > -		pispbe->queued_job.buf[CONFIG_NODE] = buf[CONFIG_NODE];
+> > +	if (!buf[CONFIG_NODE]) {
+> > +		kfree(job);
+> > +		return -ENODEV;
+> >  	}
+> > -	spin_unlock_irqrestore(&node->ready_lock, flags);
+> >
+> > -	/* Exit early if no config buffer has been queued. */
+> > -	if (!buf[CONFIG_NODE])
+> > -		return -ENODEV;
+> > +	list_del(&buf[CONFIG_NODE]->ready_list);
+> > +	job->buffers[CONFIG_NODE] = buf[CONFIG_NODE];
+> >
+> >  	config_index = buf[CONFIG_NODE]->vb.vb2_buf.index;
+> >  	job->config = &pispbe->config[config_index];
+> > @@ -495,7 +503,7 @@ static int pispbe_prepare_job(struct pispbe_dev *pispbe,
+> >  			continue;
+> >
+> >  		buf[i] = NULL;
+> > -		if (!(pispbe->streaming_map & BIT(i)))
+> > +		if (!(streaming_map & BIT(i)))
+> >  			continue;
+> >
+> >  		if ((!(rgb_en & PISP_BE_RGB_ENABLE_OUTPUT0) &&
+> > @@ -522,25 +530,25 @@ static int pispbe_prepare_job(struct pispbe_dev *pispbe,
+> >  		node = &pispbe->node[i];
+> >
+> >  		/* Pull a buffer from each V4L2 queue to form the queued job */
+> > -		spin_lock_irqsave(&node->ready_lock, flags);
+> >  		buf[i] = list_first_entry_or_null(&node->ready_queue,
+> >  						  struct pispbe_buffer,
+> >  						  ready_list);
+> >  		if (buf[i]) {
+> >  			list_del(&buf[i]->ready_list);
+> > -			pispbe->queued_job.buf[i] = buf[i];
+> > +			job->buffers[i] = buf[i];
+> >  		}
+> > -		spin_unlock_irqrestore(&node->ready_lock, flags);
+> >
+> >  		if (!buf[i] && !ignore_buffers)
+> >  			goto err_return_buffers;
+> >  	}
+> >
+> > -	pispbe->queued_job.valid = true;
+> > -
+> >  	/* Convert buffers to DMA addresses for the hardware */
+> >  	pispbe_xlate_addrs(pispbe, job, buf);
+> >
+> > +	scoped_guard(spinlock_irq, &pispbe->hw_lock) {
+> > +		list_add_tail(&job->queue, &pispbe->job_queue);
+> > +	}
+> > +
+> >  	return 0;
+> >
+> >  err_return_buffers:
+> > @@ -551,33 +559,39 @@ static int pispbe_prepare_job(struct pispbe_dev *pispbe,
+> >  			continue;
+> >
+> >  		/* Return the buffer to the ready_list queue */
+> > -		spin_lock_irqsave(&n->ready_lock, flags);
+> >  		list_add(&buf[i]->ready_list, &n->ready_queue);
+> > -		spin_unlock_irqrestore(&n->ready_lock, flags);
+> >  	}
+> >
+> > -	memset(&pispbe->queued_job, 0, sizeof(pispbe->queued_job));
+> > +	kfree(job);
+> >
+> >  	return -ENODEV;
+> >  }
+> >
+> >  static void pispbe_schedule(struct pispbe_dev *pispbe, bool clear_hw_busy)
+> >  {
+> > -	struct pispbe_job_descriptor job;
+> > -	unsigned long flags;
+> > -	int ret;
+> > +	struct pispbe_job_descriptor *job;
+> > +
+> > +	scoped_guard(spinlock_irqsave, &pispbe->hw_lock) {
+> > +		if (clear_hw_busy)
+> > +			pispbe->hw_busy = false;
+> > +
+> > +		if (pispbe->hw_busy)
+> > +			return;
+> >
+> > -	spin_lock_irqsave(&pispbe->hw_lock, flags);
+> > +		job = list_first_entry_or_null(&pispbe->job_queue,
+> > +					       struct pispbe_job_descriptor,
+> > +					       queue);
+> > +		if (!job)
+> > +			return;
+> >
+> > -	if (clear_hw_busy)
+> > -		pispbe->hw_busy = false;
+> > +		list_del(&job->queue);
+> >
+> > -	if (pispbe->hw_busy)
+> > -		goto unlock_and_return;
+> > +		for (unsigned int i = 0; i < PISPBE_NUM_NODES; i++)
+> > +			pispbe->queued_job.buf[i] = job->buffers[i];
+> > +		pispbe->queued_job.valid = true;
+> >
+> > -	ret = pispbe_prepare_job(pispbe, &job);
+> > -	if (ret)
+> > -		goto unlock_and_return;
+> > +		pispbe->hw_busy = true;
+> > +	}
+> >
+> >  	/*
+> >  	 * We can kick the job off without the hw_lock, as this can
+> > @@ -585,16 +599,8 @@ static void pispbe_schedule(struct pispbe_dev *pispbe, bool clear_hw_busy)
+> >  	 * only when the following job has been queued and an interrupt
+> >  	 * is rised.
+> >  	 */
+> > -	pispbe->hw_busy = true;
+> > -	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+> > -
+> > -	pispbe_queue_job(pispbe, &job);
+> > -
+> > -	return;
+> > -
+> > -unlock_and_return:
+> > -	/* No job has been queued, just release the lock and return. */
+> > -	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+> > +	pispbe_queue_job(pispbe, job);
+> > +	kfree(job);
+> >  }
+> >
+> >  static void pispbe_isr_jobdone(struct pispbe_dev *pispbe,
+> > @@ -846,18 +852,16 @@ static void pispbe_node_buffer_queue(struct vb2_buffer *buf)
+> >  		container_of(vbuf, struct pispbe_buffer, vb);
+> >  	struct pispbe_node *node = vb2_get_drv_priv(buf->vb2_queue);
+> >  	struct pispbe_dev *pispbe = node->pispbe;
+> > -	unsigned long flags;
+> >
+> >  	dev_dbg(pispbe->dev, "%s: for node %s\n", __func__, NODE_NAME(node));
+> > -	spin_lock_irqsave(&node->ready_lock, flags);
+> >  	list_add_tail(&buffer->ready_list, &node->ready_queue);
+> > -	spin_unlock_irqrestore(&node->ready_lock, flags);
+> >
+> >  	/*
+> >  	 * Every time we add a buffer, check if there's now some work for the hw
+> >  	 * to do.
+> >  	 */
+> > -	pispbe_schedule(pispbe, false);
+> > +	if (!pispbe_prepare_job(pispbe))
+> > +		pispbe_schedule(pispbe, false);
+> >  }
+> >
+> >  static int pispbe_node_start_streaming(struct vb2_queue *q, unsigned int count)
+> > @@ -865,17 +869,16 @@ static int pispbe_node_start_streaming(struct vb2_queue *q, unsigned int count)
+> >  	struct pispbe_node *node = vb2_get_drv_priv(q);
+> >  	struct pispbe_dev *pispbe = node->pispbe;
+> >  	struct pispbe_buffer *buf, *tmp;
+> > -	unsigned long flags;
+> >  	int ret;
+> >
+> >  	ret = pm_runtime_resume_and_get(pispbe->dev);
+> >  	if (ret < 0)
+> >  		goto err_return_buffers;
+> >
+> > -	spin_lock_irqsave(&pispbe->hw_lock, flags);
+> > -	node->pispbe->streaming_map |=  BIT(node->id);
+> > -	node->pispbe->sequence = 0;
+> > -	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+> > +	scoped_guard(spinlock_irq, &pispbe->hw_lock) {
+> > +		node->pispbe->streaming_map |=  BIT(node->id);
+> > +		node->pispbe->sequence = 0;
+> > +	}
+> >
+> >  	dev_dbg(pispbe->dev, "%s: for node %s (count %u)\n",
+> >  		__func__, NODE_NAME(node), count);
+> > @@ -883,17 +886,16 @@ static int pispbe_node_start_streaming(struct vb2_queue *q, unsigned int count)
+> >  		node->pispbe->streaming_map);
+> >
+> >  	/* Maybe we're ready to run. */
+> > -	pispbe_schedule(pispbe, false);
+> > +	if (!pispbe_prepare_job(pispbe))
+> > +		pispbe_schedule(pispbe, false);
+> >
+> >  	return 0;
+> >
+> >  err_return_buffers:
+> > -	spin_lock_irqsave(&pispbe->hw_lock, flags);
+> >  	list_for_each_entry_safe(buf, tmp, &node->ready_queue, ready_list) {
+> >  		list_del(&buf->ready_list);
+> >  		vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_QUEUED);
+> >  	}
+> > -	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+> >
+> >  	return ret;
+> >  }
+> > @@ -903,7 +905,6 @@ static void pispbe_node_stop_streaming(struct vb2_queue *q)
+> >  	struct pispbe_node *node = vb2_get_drv_priv(q);
+> >  	struct pispbe_dev *pispbe = node->pispbe;
+> >  	struct pispbe_buffer *buf;
+> > -	unsigned long flags;
+> >
+> >  	/*
+> >  	 * Now this is a bit awkward. In a simple M2M device we could just wait
+> > @@ -915,11 +916,7 @@ static void pispbe_node_stop_streaming(struct vb2_queue *q)
+> >  	 * This may return buffers out of order.
+> >  	 */
+> >  	dev_dbg(pispbe->dev, "%s: for node %s\n", __func__, NODE_NAME(node));
+> > -	spin_lock_irqsave(&pispbe->hw_lock, flags);
+> >  	do {
+> > -		unsigned long flags1;
+> > -
+> > -		spin_lock_irqsave(&node->ready_lock, flags1);
+> >  		buf = list_first_entry_or_null(&node->ready_queue,
+> >  					       struct pispbe_buffer,
+> >  					       ready_list);
+> > @@ -927,15 +924,23 @@ static void pispbe_node_stop_streaming(struct vb2_queue *q)
+> >  			list_del(&buf->ready_list);
+> >  			vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_ERROR);
+> >  		}
+> > -		spin_unlock_irqrestore(&node->ready_lock, flags1);
+> >  	} while (buf);
+> > -	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+> >
+> >  	vb2_wait_for_all_buffers(&node->queue);
+> >
+> > -	spin_lock_irqsave(&pispbe->hw_lock, flags);
+> > +	spin_lock_irq(&pispbe->hw_lock);
+> >  	pispbe->streaming_map &= ~BIT(node->id);
+> > -	spin_unlock_irqrestore(&pispbe->hw_lock, flags);
+> > +
+> > +	/* Release all jobs once all nodes have stopped streaming. */
+> > +	if (pispbe->streaming_map == 0) {
+> > +		struct pispbe_job_descriptor *job, *temp;
+> > +
+> > +		list_for_each_entry_safe(job, temp, &pispbe->job_queue, queue) {
+> > +			list_del(&job->queue);
+> > +			kfree(job);
+> > +		}
+> > +	}
+>
+> Please splice pispbe->job_queue to a local list with the lock held, and
+> then iterate over the local list without the lock held to free the jobs.
+>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+>
+> > +	spin_unlock_irq(&pispbe->hw_lock);
+> >
+> >  	pm_runtime_mark_last_busy(pispbe->dev);
+> >  	pm_runtime_put_autosuspend(pispbe->dev);
+> > @@ -1393,7 +1398,6 @@ static int pispbe_init_node(struct pispbe_dev *pispbe, unsigned int id)
+> >  	mutex_init(&node->node_lock);
+> >  	mutex_init(&node->queue_lock);
+> >  	INIT_LIST_HEAD(&node->ready_queue);
+> > -	spin_lock_init(&node->ready_lock);
+> >
+> >  	node->format.type = node->buf_type;
+> >  	pispbe_node_def_fmt(node);
+> > @@ -1677,6 +1681,8 @@ static int pispbe_probe(struct platform_device *pdev)
+> >  	if (!pispbe)
+> >  		return -ENOMEM;
+> >
+> > +	INIT_LIST_HEAD(&pispbe->job_queue);
+> > +
+> >  	dev_set_drvdata(&pdev->dev, pispbe);
+> >  	pispbe->dev = &pdev->dev;
+> >  	platform_set_drvdata(pdev, pispbe);
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
