@@ -4,59 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1270FC71157
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A04C761AE
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQgfd5GhWHik5LEPpZz+D67J5gQafIKVTwFAoFjZtcM=; b=IBLEBYrqDsbOZe+Rztf9uiBAtS
-	y8CwFSxHoVXLYt6JaZf6x8eGzuOmSsPrDIgJV82bmjwKAlU+6M8Bc0X+EPrEeOq5efS5uki0ivWl2
-	2f7+68oKJplpnlAc9W8tu7amRtrXBMGt4RWsGaj/iJZ6JJrXQ4LGbKb+k7pnHc4s/t9dafug7RGGf
-	EJ8TEPvNVdFd7NNXUqwOojzCoGsjcXxLIGSjvcalip+M+t9YlZqJiRHmulSJpObEm2V7xKlCnV9RT
-	O5qzB4TEwru8c4Z5E7s9qM9ZuPi5RUbG3lF4z705J8Coj3JAI2SkkCpR4jIPQ57nDVdA+Kq49yYGh
-	JA7p2E1g==;
+	bh=8nZJ22rsS0RPWxh3ZE7aCZVwueQlyLoqt+SFU6IEEhY=; b=coq/ZYFlTY9v8tfje/QvNHRzNm
+	q3CMxpjIAD1o96uK5Xzi8G9riUEq6l6UxwS2FPQnVsPzb8tmaS5Bta3pExzBNKAtT2zHTQFsF50mn
+	lgZU/C9/OMLBJcn/kNDtZ9+HNMzdJIPG+R/WyME5K72Q4XHzW62zN1+7jRtvq2ce9uMPRBK4DtJuE
+	t+eZ4XoO/nMAAlw6ShaZND1Vh5gmw/vF7BalhwwejttHa8GcwO5Rbm+7wA0HiXflSwsRh3tn2StCR
+	AP1YPEhjhX+ILUgngnXJ56LG+5aF2k+AX+QCqXOxEcmWHRPcFAXKNqi7y2NHHYvkoJvBJrKXGX0RD
+	dFUx2LdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZpV-00000007xav-1YEX;
-	Tue, 17 Jun 2025 17:10:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uRZpW-00000007xbd-13Hs;
+	Tue, 17 Jun 2025 17:10:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXBR-00000007WmK-0tJp;
-	Tue, 17 Jun 2025 14:21:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98A4662A1F;
-	Tue, 17 Jun 2025 14:21:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D519C4CEF0;
-	Tue, 17 Jun 2025 14:21:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750170064;
-	bh=c3Nwx6dBlajp+mjGLZ90FuNsLBoLj4+/vuSLqUu/Gg0=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=S1A3/Uu4p3W0fyPToYzwbJK8xmeoi4lI2f7v10F+6c5I3VuE2InNtwV8+aRpLCORP
-	 HYVbC28DcbAEoErCJ9jtUKsPOvO5XREMnWksIl3/Op25wbOj4VrxbVfHCvKJLakgOA
-	 gt7lHEw1UB54zDBoSBs8mJQ/99xTbz0zJRMz1jes7yemNA29kE96Wa1YuAfMemSNLm
-	 wL/zJzgGg61kIWWtI4qAStmfxtP7OUixmScoFO6KOkrN9kmPZrELV0CNQdC6XiQ10H
-	 m4H7AMgl8i1K22wAizWXkC/JrNHtO3sNOq04uUiCgjY7UxV/72tQYN8KBl83RJ5LDM
-	 o8uTCnOHPShkA==
-Date: Tue, 17 Jun 2025 09:20:58 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1uRXES-00000007Xa8-1RWy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Jun 2025 14:24:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750170250;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8nZJ22rsS0RPWxh3ZE7aCZVwueQlyLoqt+SFU6IEEhY=;
+	b=Gxu3VfwwWKKXvn4nujvVAp99zjeMscmLtbZ2uaqDj0qvILfuZ8lMEr1sPPwea7MYbbT6ZI
+	y2oZnjghm2ElesmXtpvS3enKndTOS/LqAb+X/t2qFHUWmKc+7xFJe7hCsEKONNjLaxnBcY
+	+V2PCWuzMXhOcvwCVfpTu+IF7Xnprac=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-279-MSxMOJUkPPqhC_Oa3_gyJw-1; Tue, 17 Jun 2025 10:23:57 -0400
+X-MC-Unique: MSxMOJUkPPqhC_Oa3_gyJw-1
+X-Mimecast-MFC-AGG-ID: MSxMOJUkPPqhC_Oa3_gyJw_1750170236
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-451d3f03b74so38184805e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 07:23:57 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750170236; x=1750775036;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8nZJ22rsS0RPWxh3ZE7aCZVwueQlyLoqt+SFU6IEEhY=;
+        b=bJFZ+2M/WFbYQghQxWMNmgbfV06lqnwVcDnqUDvYKehnxtxpMd1OUaNN6xLingsJZW
+         zVu6h8AhGOs7ybLGShaMmSBkLEVRsFdD7qMzp/P7q4mBNUD0/gZK0/NtyvdsenuRWy1i
+         thPwxP5Lmy/CDhBBOYg+3TXBA4YO7Vs+Js+6wzb1FfAAbvmHhq1ycyX19kAuoBppbUIr
+         8P5oJqgVmazG4Vnlh/mF2D/Gr+zGaSdGqCDXvTCkuNsEZKVneC8Q9oI0VtaHZnf0FQaR
+         eNqOTAA1K021d6WSbgxKj+Se4DBlQGAg3ftcn+hzH4MKwsG0pCfamZvL/gdVdRxzh8cF
+         6hTw==
+X-Forwarded-Encrypted: i=1; AJvYcCWwSoVkejPenYZz7gZ2E+RNsPsYoaWmC10Lbffo16rypTKS0GLrdaEDyW3BW5ZS5NLJR7Z760IwhpnTJ+xHkbmG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0cnzgrgGCia3u97cyrTBw90T8T1ry8UMe9Z8ESWj7eDljv4YQ
+	94SdUhd1XmH79JZY+k1+ekfNC0lgoMoJKS1lzWpYSie/zX5DWBr+2sY44pp7Pe7PlYHRB1m/wvF
+	XOvgsHMs4jLFhl0T1P1UuFkJ0IJ9jetHHM2xdVqR0Bp7N5VSA8Sfb4x+mx3e/oX1Mf8R1uJQCgx
+	Rv
+X-Gm-Gg: ASbGncuOceO8lrDYwPyAd6xCE/pJt0LYzVx1xJoAvBAHVN2KDYFIjTCS+tkMby6/tMZ
+	s7n+UL09cA0ujq0wFJzRSqAiA22l6yGq5BdXhHkuOhbIi4gKM+7/RINtf3L8BIB/hdDAUbfRbTa
+	wp831+nv4wvyqg6uT1lgqOGzH5fjvL4YNSLQ6ssM+WLTFtu6+kgIIw4SQsVmHHM5zII9FG1/8rP
+	uecj53aEUqnJUiDvaN4fflCYAVTsH1/wJEvbDXv8rCm0c9AzQx3epf3eY4PoQZqJwHM1P6dtunD
+	7mTvxa/dY7J9PFxqUZpL0tn+/n+EY6JysmJ4BaAI6kNRjZgnivrjPw==
+X-Received: by 2002:a05:600c:5396:b0:43d:172:50b1 with SMTP id 5b1f17b1804b1-4533cac8fdbmr122013195e9.29.1750170236074;
+        Tue, 17 Jun 2025 07:23:56 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGFXdSBOaD0bkiX6RgDIIItmoJz66Z98LumAPn/RVxW5in7JWmC1em46bTnPvZqEArSrV/R5Q==
+X-Received: by 2002:a05:600c:5396:b0:43d:172:50b1 with SMTP id 5b1f17b1804b1-4533cac8fdbmr122013005e9.29.1750170235702;
+        Tue, 17 Jun 2025 07:23:55 -0700 (PDT)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.151.199])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532e25302dsm171997755e9.26.2025.06.17.07.23.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Jun 2025 07:23:55 -0700 (PDT)
+Date: Tue, 17 Jun 2025 16:23:53 +0200
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Kuyo Chang <kuyo.chang@mediatek.com>, Ingo Molnar <mingo@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	jstultz <jstultz@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/1] sched/deadline: Fix fair_server runtime calculation
+ formula
+Message-ID: <aFF6eYzMahzQ9sxE@jlelli-thinkpadt14gen4.remote.csb>
+References: <20250614020524.631521-1-kuyo.chang@mediatek.com>
+ <20250617085558.GN1613376@noisy.programming.kicks-ass.net>
+ <aFFgi_9yxLN-auBE@jlelli-thinkpadt14gen4.remote.csb>
+ <20250617141437.GW1613376@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-To: Chen-Yu Tsai <wenst@chromium.org>
-In-Reply-To: <20250617082004.1653492-1-wenst@chromium.org>
-References: <20250617082004.1653492-1-wenst@chromium.org>
-Message-Id: <175016979717.2093508.10482380045650208426.robh@kernel.org>
-Subject: Re: [PATCH v3 0/6] arm64: mediatek: mt8186-corsola: Consolidate
- and add new devices
+In-Reply-To: <20250617141437.GW1613376@noisy.programming.kicks-ass.net>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Xk9gMTv69tMKKNZI5qk2N0QOGmVlPxWGpAk1f0DPdwk_1750170236
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250617_072412_460460_590F6412 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,118 +120,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 17/06/25 16:14, Peter Zijlstra wrote:
+> On Tue, Jun 17, 2025 at 02:33:15PM +0200, Juri Lelli wrote:
 
-On Tue, 17 Jun 2025 16:19:57 +0800, Chen-Yu Tsai wrote:
-> Hi everyone,
-> 
-> This is v3 of my "component probe for Corsola devices" series.
-> 
-> Changes since v2:
-> - Rebased onto next-20250616
-> - Collected reviewed-by tags
-> - Dropped driver changes that are already in v6.16-rc1
-> 
-> Changes since v1:
-> - Reworded commit message for Elan I2C-HID binding change
-> - Dropped I2C address constraint from Elan I2C-HID binding completely
-> - Dropped enum from new compatible string entry in Elan I2C-HID binding
-> - Picked up Rob's ack on two binding changes
-> - Rebased onto next-20250417, resolving conflicts with "spherion
->   component prober" changes
-> - Link to v1:
->   https://lore.kernel.org/all/20250312104344.3084425-1-wenst@chromium.org/
-> 
-> Here's a follow up series of the I2C component probers for Chromebooks.
-> This series enables the component prober for the Corsola series of
-> devices, combines the two existing Voltorb SKUs, and adds a new
-> device, codename Squirtle.
-> 
-> Patch 1 adds a new entry for the Squirtle device to the bindings.
-> 
-> Patch 2 fixes up the existing device trees for the component prober to
-> be active.
-> 
-> Patch 3 merges the device trees for the Voltorb device.
-> 
-> Patch 4 adds a device tree file for the Squirtle device, with I2C
-> components ready to be probed by the prober.
-> 
-> Patch 5 enables the prober to probe trackpads on some devices in the
-> Corsola family.
-> 
-> Patch 6 enables the prober to probe touchscreens on Squirtle.
-> 
-> 
-> Everything has been reviewed. Dmitry, please give an Ack so we can merge
-> everything through the soc tree.
-> 
-> 
-> Thanks
-> ChenYu
-> 
-> Chen-Yu Tsai (6):
->   dt-bindings: HID: i2c-hid: elan: Introduce Elan eKTH8D18
->   dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
->   dt-bindings: arm: mediatek: Add MT8186 Squirtle Chromebooks
->   arm64: dts: mediatek: mt8186-steelix: Mark second source components
->     for probing
->   arm64: dts: mediatek: mt8186: Merge Voltorb device trees
->   arm64: dts: mediatek: mt8186: Add Squirtle Chromebooks
-> 
->  .../devicetree/bindings/arm/mediatek.yaml     |   7 +-
->  .../bindings/input/elan,ekth6915.yaml         |  12 +-
->  arch/arm64/boot/dts/mediatek/Makefile         |   4 +-
->  .../dts/mediatek/mt8186-corsola-squirtle.dts  | 107 ++++++++++++++++++
->  .../dts/mediatek/mt8186-corsola-steelix.dtsi  |   9 +-
->  .../mt8186-corsola-tentacool-sku327683.dts    |   2 +
->  .../mt8186-corsola-tentacruel-sku262148.dts   |   2 +
->  .../mt8186-corsola-voltorb-sku589824.dts      |  13 ---
->  ...u589825.dts => mt8186-corsola-voltorb.dts} |   5 +-
->  .../boot/dts/mediatek/mt8186-corsola.dtsi     |  10 +-
->  10 files changed, 138 insertions(+), 33 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-squirtle.dts
->  delete mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb-sku589824.dts
->  rename arch/arm64/boot/dts/mediatek/{mt8186-corsola-voltorb-sku589825.dts => mt8186-corsola-voltorb.dts} (76%)
-> 
-> --
-> 2.50.0.rc2.692.g299adb8693-goog
-> 
-> 
-> 
+...
 
+> > To me it looks like we want this (no scaling) for fair_server (and
+> > possibly scx_server?) as for them we are only looking into a 'fixed
+> > time' type of isolation. Full fledged servers (hierarchical scheduling)
+> > maybe have it configurable, or enabled by default as a start (as we have
+> > it today).
+> 
+> Right. Then we should write the above like:
+> 
+> 	scaled_delta_exec = delta_exec;
+> 	if (!dl_se->dl_server)
+> 		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+> 
+> and let any later server users add bits on if they want more options.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Works for me. Looks cleaner also.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Kuyo, can you please update your patch then?
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250617 (best guess, 8/9 blobs matched)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250617082004.1653492-1-wenst@chromium.org:
-
-arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb.dtb: spmi@10015000 (mediatek,mt8186-spmi): Unevaluated properties are not allowed ('interrupts' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spmi/mtk,spmi-mtk-pmif.yaml#
-arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb.dtb: sound (mediatek,mt8186-mt6366-rt5682s-max98360-sound): 'model' is a required property
-	from schema $id: http://devicetree.org/schemas/sound/mt8186-mt6366-rt1019-rt5682s.yaml#
-arch/arm64/boot/dts/mediatek/mt8186-corsola-squirtle.dtb: spmi@10015000 (mediatek,mt8186-spmi): Unevaluated properties are not allowed ('interrupts' was unexpected)
-	from schema $id: http://devicetree.org/schemas/spmi/mtk,spmi-mtk-pmif.yaml#
-
-
-
-
+Thanks,
+Juri
 
 
