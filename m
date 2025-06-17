@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BE10C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63382C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aZlEK75K9WQhYz2x3M19iYyZj+5jfTWERyBRejvq9Ko=; b=Fqmx0iqXEV0UW58faZzYIHK3xa
-	a76Er3azrmsIKB3J6zFSGs7iWE+EK85OXJc/qgAm+nGbLS/wBVqkVGSVxYeR5eubDLsOIV4ki3gdq
-	VitAnFKludimJd2/1VvbKGux/ecUdZnZgwy6TUfwMTa80YAz3JG0rM6SynfXx+oJfpHJpGHCS11iV
-	u4J19ZyelfXpmUhHzJmzrLl+urjSPafvYs8QQU/cp1+FZsJS6GhOMUiIGxhnTy2u2imT5DV6y81Vv
-	s0cGJWzmV9aiP9FFffhwWD4doTXRUNAIh0H1jV3Zyehtictz6GlMDZQpUtA1bm7nE9qlLl7O/L+Oe
-	4O0eAY0g==;
+	bh=6bKVC5hCy0bNsFKWNhgR1dY0hHGoH2qbSKw0ik3WL+E=; b=j2dDap0j79LJk/mGIxWz2AGVQ5
+	1mJYvvpxIudYI9XjGYbawbiz08Qu7X7pF6QH96SxY0TH3gBqL09kDjD4PqUpQTFnM7hGV+RHvuvaO
+	/I4x69W/Is87q/ALKYbaNYDLRrH4DMrps28WynvgZnr2jQ0Bydtum4XbXeewCMIOKCnF3fn5yR/Dq
+	nNT2atuMd3nt+tCir7YNRr+6VkV3zBpODKP9iNxkmyVpd4jNrcNjDYbrVLGZ37UonXl1iAR+XAJNc
+	+fJr5+IrFZAFtG+i/eyaz1BPxC0B9PcIAs4MW2S7lUw5EBBeLF7v8a46ASap+Q69RlOPG7dWdV72S
+	gg2mo7IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRaX-00000006aSt-2VGS;
-	Tue, 17 Jun 2025 08:22:37 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uRRcn-00000006arC-1qkw;
+	Tue, 17 Jun 2025 08:24:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRWB-00000006Zcr-0BCm
+	id 1uRRXv-00000006Zrc-3u0Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 08:18:08 +0000
+	Tue, 17 Jun 2025 08:19:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 379CDA49E6C;
-	Tue, 17 Jun 2025 08:18:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52636C4CEE3;
-	Tue, 17 Jun 2025 08:18:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 310E3629E1;
+	Tue, 17 Jun 2025 08:19:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 379C4C4CEE3;
+	Tue, 17 Jun 2025 08:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750148285;
-	bh=MZSo/B8Ueewbot0Zq1gP0vpAO0AFWWY0WjE6mYewrUU=;
+	s=k20201202; t=1750148394;
+	bh=gxwg5xziIv+aRfRJLFFmItst7LG95nO7HUIdm7RqaTc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ntI+UmjbdXl+CUqRVIrx5ytxcPaeqqksAqWWehytGvsOdDFnNV4QeCLk/h6aqMztQ
-	 uq3h+7hl7OQxKR1c2ePzoA3so2p3lggM+/l96ZAapytKZ+PaZcORVibq1WKH0e8ip5
-	 kUefxhTQf8a+4kvckopwj1vUyU1ZQgt0edTbiBkx2hvjzdyuaR8MztDBCkYP1I3oTJ
-	 nBo0ksWTh4vUzTEWdV/tNjunHO8iaNSBHCLTqgMfCn12avLzfVwRNJ3L5KE0gB4giu
-	 yxcB4lydVduiSywwJl0ztpPa3PaH+sVCqLqHBSfudEDFML/g9prmblmJleUSjGdlhu
-	 iw94oQeG9st7Q==
-Date: Tue, 17 Jun 2025 10:18:03 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Conor Dooley <conor@kernel.org>, Tony Lindgren <tony@atomide.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
-	Roger Quadros <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Bajjuri Praneeth <praneeth@ti.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	linux-omap@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	b=KOkIy1gbpvSM6i19tbNNAQUpDWergsLLSwb06WEOfpdQ3xN3afJyk2bVaXArfuXMk
+	 dxSekLxizTylM2saFYQITnJV/SbPUcGJM95+iVX2sYT04S1R3Zj1LS3IvTP3ACQ/Bb
+	 oiePt/x5k26XSTJxCmrjeGH9QEF2wsFYlyH2VeozUkQjQw9b8wUmdZ72IR/rePLs1C
+	 Ng65cp3eFaPsOLoCJenyzYpOvOdTtJqfTkgRU+r24d4Ss8xWXNQMs7XMUZUqGlX9M7
+	 ebCy9OVysIwsHPlJ4IquqynnuXicv/08g8zIkf+QQz9e/GN+hlamihKkQxbVBNN/FZ
+	 82fZA/zlaN43Q==
+Date: Tue, 17 Jun 2025 16:19:45 +0800
+From: "Peter Chen (CIX)" <peter.chen@kernel.org>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: gregkh@linuxfoundation.org, shawnguo@kernel.org, s.hauer@pengutronix.d,
+	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com,
+	linux-usb@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 4/5] arm: dts: omap: Add support for BeagleBone Green
- Eco board
-Message-ID: <20250617-manipulative-discerning-fennec-bbd829@kuoka>
-References: <20250609-bbg-v2-0-5278026b7498@bootlin.com>
- <20250609-bbg-v2-4-5278026b7498@bootlin.com>
- <20250609-helpful-immodest-0f195cdbcbf2@spud>
- <20250609224502.1fce742c@kmaincent-XPS-13-7390>
+Subject: Re: [PATCH 0/3] implement workaround for ERR051725
+Message-ID: <20250617081945.GA1716298@nchen-desktop>
+References: <20250614125645.207732-1-xu.yang_2@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250609224502.1fce742c@kmaincent-XPS-13-7390>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_011807_146997_99DDA32A 
-X-CRM114-Status: GOOD (  13.43  )
+In-Reply-To: <20250614125645.207732-1-xu.yang_2@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +70,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 09, 2025 at 10:45:02PM GMT, Kory Maincent wrote:
-> > > diff --git a/Documentation/devicetree/bindings/arm/ti/omap.yaml
-> > > b/Documentation/devicetree/bindings/arm/ti/omap.yaml index
-> > > c43fa4f4af81..774c13157caa 100644 ---
-> > > a/Documentation/devicetree/bindings/arm/ti/omap.yaml +++
-> > > b/Documentation/devicetree/bindings/arm/ti/omap.yaml @@ -145,6 +145,7 @@
-> > > properties:
-> > >        - description: TI bone green variants based on TI AM335
-> > >          items:
-> > >            - enum:
-> > > +              - ti,am335x-bone-green-eco
-> > >                - ti,am335x-bone-green-wireless
-> > >            - const: ti,am335x-bone-green
-> > >            - const: ti,am335x-bone  
-> > 
-> > Why is this hunk here?
+On 25-06-14 20:56:42, Xu Yang wrote:
+> Currently, the USB2.0 phy on some imx7d compliant Soc has below issue.
 > 
-> Do you mean that the binding change should be in another patch?
+> ERR051725:
+> USB: With the USB controller configured as device mode, Clearing the RS
+> bit of USBCMD register fails to cause USB device to be detached
+> 
+> Description
+> 1. USB controller working as high speed device mode with USB gadget
+>    function enabled
+> 2. Cable plugged into USB host
+> 3. Use case is software-controlled detach from USB device side
+> 
+> The expected result is device side terminations removed, increase in USB
+> signal amplitude, USB host detect device is detached. But the issue is
+> that the clear RS bit of USBCMD register cannot cause device detach event.
+> 
+> Workaround
+>   - Use the below steps to detach from the host:
+>       write USBCMD.RS = 0b
+>       write CTRL2[7:6] = 01b
+>       write CTRL2[8] = 1b
+>   - As CTRL2[8] is set at detach case, so attach the steps should add clear
+>     CTRL2[8]:
+>       write USBCMD.RS = 1b
+>       write CTRL2[8] = 0b
+> 
+> This will add workaround for it.
 
-Yes, as requested by checkpatch and documented in DT submitting patches.
-Your question above, suggests you did not run checkpatch, so please
-confirm you run it before posting new versions.
+Is it imx7d specific PHY issue, since other i.mx SoCs which use chipidea
+IP don't have such issue?
+
+Peter
+> 
+> Xu Yang (3):
+>   usb: chipidea: udc: add CI_HDRC_CONTROLLER_PULLUP_EVENT event
+>   usb: chipidea: imx: add imx_usbmisc_pullup() hook
+>   usb: chipidea: imx: implement workaround for ERR051725
+> 
+>  drivers/usb/chipidea/ci_hdrc_imx.c |  5 ++++
+>  drivers/usb/chipidea/ci_hdrc_imx.h |  1 +
+>  drivers/usb/chipidea/udc.c         |  5 ++++
+>  drivers/usb/chipidea/usbmisc_imx.c | 39 ++++++++++++++++++++++++++++++
+>  include/linux/usb/chipidea.h       |  1 +
+>  5 files changed, 51 insertions(+)
+> 
+> -- 
+> 2.34.1
+> 
+
+-- 
 
 Best regards,
-Krzysztof
-
+Peter
 
