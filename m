@@ -4,156 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498C8C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89681C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lg0mFUm80r9X0igLB1pMrSxygF5fgmEE/5oZN4jlRBc=; b=xDwv1YoSgh+iPwJ0TxggqZDGME
-	B/kfz2rGUYqCX4mq//PdhZFCaZ8j5YVzEXscNCuypueWOnCNP9abNK5tPOIekNeotqZs/hxCoMI8Q
-	lxdKJiu4EUzQF+ylwnYDdV/2MXP7MQ2EdQCx1hkCQElLR3qjfY/627fQ5FxemlNAhlJqVMjKlkqwM
-	axLhJYMkUMycvYaovpFQF7TiPzfu22jDcvn7V18kAhbki7UxOcDwF1ui1yybER08f7JvvAW5zQLlk
-	Zp3HeNU2hXB3w1khmgICVwiBMwybLcLLohWVKibNggwUKBAn1zQ+bVFgky0GX6mdEhYZzlYCRw+OP
-	s1WUD0Qw==;
+	bh=6lgDYXlSOK17HiJktKGHQ+MtBkXZpBrEpYBPjJekGmM=; b=DqsafnE4m68UTihnLrTTbEyJEJ
+	Un/nxXIeLDbT+UHhZ0sShUiazSrG2o1iFzesnJ2IAy63u/E5U10BwNokr6pWDwYjNI4tEyt1/fiBi
+	78B0yLsN9LUv4i3tfS/0GSCWfSlX/7qn2KB21BfusUrPCJM3kcRnmL+Kpsi81Tf54JrJfD1nq/lRE
+	lRwnin5Yi1wqGKdHvOE0fX/b5e6FYcrzpVLOAyQWoKRUgpSH6AmdSYM+lHZPcsywxYIdT/ggw+nv7
+	oSlSqhkIIcLqfEdR6yR9c9ldg7zAB7+A1e9WRq7rWzi/jtZuG4vghY247rEsyB6bKB7Y+ppHiumb4
+	xQJeG2yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTHO-00000006sZ0-2oJC;
-	Tue, 17 Jun 2025 10:10:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSwa-00000006ohZ-2pgJ
+	id 1uRTLx-00000006tLf-0k1r;
+	Tue, 17 Jun 2025 10:15:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRSyP-00000006pOM-1Wbx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 09:49:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750153767;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=lg0mFUm80r9X0igLB1pMrSxygF5fgmEE/5oZN4jlRBc=;
-	b=HmKjjMs/VIYl3mPRFW5JOVuhfBBOmt63R/T8ygMLbzWxk8lZNFxM3Zy34kgYZjF4Yd4KNk
-	LgMuDo79a6JMHxkNdgBp3eFFhAIu1NCWm25E5hc8ZAO39RK8qPIMdVgvD7/7aB30lwkeLj
-	SuVHGNaIrKI6qr7fDU9M94Lty1VeB44=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-231-cib1_I1INGqksTTlUo2zvQ-1; Tue, 17 Jun 2025 05:49:24 -0400
-X-MC-Unique: cib1_I1INGqksTTlUo2zvQ-1
-X-Mimecast-MFC-AGG-ID: cib1_I1INGqksTTlUo2zvQ_1750153763
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4535011d48eso9257535e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 02:49:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750153763; x=1750758563;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=lg0mFUm80r9X0igLB1pMrSxygF5fgmEE/5oZN4jlRBc=;
-        b=r++mI5FjC1ANd9o8IJUNijyiu6fIF19gK7X0gQ+gC2y5/E+G6j7HHbmSfW/WvPQBI3
-         qPVlER2eZdrLkw4UG9zeMuLYYzIXSOPYrRj00LpCixeva/t4F9WFozRmc4/CIJN6eDSn
-         N1v93tS+HnOa5nF5nqV3bCt98RZJboQCcCaFP8V/sxgLQgbiTYPu+NEY95LyX0zyfOaa
-         kgjQ460GNpcUvTwLuyDoMT1gafi11veVvjAvpKq/Z4bczIv0FSglX77Sn+06xEWnVFin
-         ZNN6RJfiKm97MfK+9WeABD8x3+f/b+8b3rN9rb2CM3unOwtm8Xvsdtw0ThQvbktpidUE
-         4Phw==
-X-Forwarded-Encrypted: i=1; AJvYcCXuDhMaxN6bXRTkxAPN/rQEh8kFFyAoe6/QfBqvXwAXN6syOWf9caev+DQAOcnh/WzV/W6oyA/dNgUZhHmO1Zri@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3cbyiNPYTx0j5Qcwh5QmHoypRlCd13Clug6cIChKsQtn9a9iv
-	u58nrVffpXwFnC8DtmWbxUH46uApS5lc1pzU2Lv7DNqYssyAraQZNgmpPrRxocsDNpf4jrr9/EP
-	6JISkszBjIBOJM9N9st2PsPgDZq3sKmA10zIczR15PI5RS9Z1StHHUBvTAjxk1O2AIUlQN7k9vv
-	9E
-X-Gm-Gg: ASbGncva4iS6vNf0mykRlT1lPM+GdzD6PFB60QWkXABeajUsJlccCF8iX3LdJpCvkoG
-	VeVUzdjtbqQGjlitwu2ia9y0yW93+mn2iMsiaq3gJfgH0z446idt9kcxGKk3PUbc6KpDmqV3uD3
-	Gw1gEj+XnRRkCqvIKOXzK25wUY/GRWdippXxQIoV57NpYM1D8LV2lM18Ka/a+AGoFillcakC/jl
-	Lf0ceYVChDrQ6JqK7Zv3CDRg72ZB0gKuhJovA8fviw23YsgTTAKg2VXtVeSOakig1y2eZkEazaX
-	BYuJEkso1elftBPnKYrMf+lfkJnfyJxJHwK5Y1TbvSlL9EN713x6aPBEmrYdWO8tcBbj7QF5iGF
-	1OKENSSVPKGhkW7QjRJzl+QLN9eeyFX9DMh9dqnYd+ZBfCHE=
-X-Received: by 2002:a05:600c:8b66:b0:43d:1b74:e89a with SMTP id 5b1f17b1804b1-4533ca71c4cmr120176405e9.9.1750153763456;
-        Tue, 17 Jun 2025 02:49:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFXZNQ8PD9qufR5L3UGiEianFrRGislf+YnSmpb1KcTqInns51iN3qzkWWM7hMwKXRBlIkEGg==
-X-Received: by 2002:a05:600c:8b66:b0:43d:1b74:e89a with SMTP id 5b1f17b1804b1-4533ca71c4cmr120175955e9.9.1750153763021;
-        Tue, 17 Jun 2025 02:49:23 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f31:700:3851:c66a:b6b9:3490? (p200300d82f3107003851c66ab6b93490.dip0.t-ipconnect.de. [2003:d8:2f31:700:3851:c66a:b6b9:3490])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a578510edcsm9430995f8f.8.2025.06.17.02.49.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Jun 2025 02:49:22 -0700 (PDT)
-Message-ID: <6bb233ef-5e56-4546-b571-6a5f052d8b45@redhat.com>
-Date: Tue, 17 Jun 2025 11:49:20 +0200
+	Tue, 17 Jun 2025 09:51:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB83A15A1;
+	Tue, 17 Jun 2025 02:50:59 -0700 (PDT)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F7A13F58B;
+	Tue, 17 Jun 2025 02:51:17 -0700 (PDT)
+From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+To: ryan.roberts@arm.com,
+	yang@os.amperecomputing.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	jean-philippe@linaro.org,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	james.morse@arm.com,
+	broonie@kernel.org,
+	ardb@kernel.org,
+	baohua@kernel.org,
+	suzuki.poulose@arm.com,
+	david@redhat.com,
+	jgg@ziepe.ca,
+	nicolinc@nvidia.com,
+	jsnitsel@redhat.com,
+	mshavit@google.com,
+	kevin.tian@intel.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: [PATCH v7 1/4] arm64: cpufeature: Introduce MATCH_ALL_EARLY_CPUS capability type
+Date: Tue, 17 Jun 2025 09:51:01 +0000
+Message-ID: <20250617095104.6772-2-miko.lenczewski@arm.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250617095104.6772-1-miko.lenczewski@arm.com>
+References: <20250617095104.6772-1-miko.lenczewski@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/14] mm/huge_memory: Remove pXd_devmap usage from
- insert_pXd_pfn()
-To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org
-Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
- dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
- linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
- linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
- zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
- balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net,
- m.szyprowski@samsung.com
-References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
- <67bc382c49ed8b165cfbd927886372272c35f508.1750075065.git-series.apopple@nvidia.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <67bc382c49ed8b165cfbd927886372272c35f508.1750075065.git-series.apopple@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: IfoYS7FdEwii_6mUG1JNYDEvit2SOx6CRfMYj7Nb4QM_1750153763
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_024928_782899_313C23EF 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20250617_025121_491002_511C5AB3 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,77 +86,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16.06.25 13:58, Alistair Popple wrote:
-> Nothing uses PFN_DEV anymore so no need to create devmap pXd's when
-> mapping a PFN. Instead special mappings will be created which ensures
-> vm_normal_page_pXd() will not return pages which don't have an
-> associated page. This could change behaviour slightly on architectures
-> where pXd_devmap() does not imply pXd_special() as the normal page
-> checks would have fallen through to checking VM_PFNMAP/MIXEDMAP instead,
-> which in theory at least could have returned a page.
-> 
-> However vm_normal_page_pXd() should never have been returning pages for
-> pXd_devmap() entries anyway, so anything relying on that would have been
-> a bug.
-> 
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> 
-> ---
-> 
-> Changes since v1:
-> 
->   - New for v2
-> ---
->   mm/huge_memory.c | 12 ++----------
->   1 file changed, 2 insertions(+), 10 deletions(-)
-> 
-> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> index b096240..6514e25 100644
-> --- a/mm/huge_memory.c
-> +++ b/mm/huge_memory.c
-> @@ -1415,11 +1415,7 @@ static int insert_pmd(struct vm_area_struct *vma, unsigned long addr,
->   		add_mm_counter(mm, mm_counter_file(fop.folio), HPAGE_PMD_NR);
->   	} else {
->   		entry = pmd_mkhuge(pfn_t_pmd(fop.pfn, prot));
-> -
-> -		if (pfn_t_devmap(fop.pfn))
-> -			entry = pmd_mkdevmap(entry);
-> -		else
-> -			entry = pmd_mkspecial(entry);
-> +		entry = pmd_mkspecial(entry);
->   	}
->   	if (write) {
->   		entry = pmd_mkyoung(pmd_mkdirty(entry));
-> @@ -1565,11 +1561,7 @@ static void insert_pud(struct vm_area_struct *vma, unsigned long addr,
->   		add_mm_counter(mm, mm_counter_file(fop.folio), HPAGE_PUD_NR);
->   	} else {
->   		entry = pud_mkhuge(pfn_t_pud(fop.pfn, prot));
-> -
-> -		if (pfn_t_devmap(fop.pfn))
-> -			entry = pud_mkdevmap(entry);
-> -		else
-> -			entry = pud_mkspecial(entry);
-> +		entry = pud_mkspecial(entry);
->   	}
->   	if (write) {
->   		entry = pud_mkyoung(pud_mkdirty(entry));
+From: Catalin Marinas <catalin.marinas@arm.com>
 
+For system-wide capabilities, the kernel has the SCOPE_SYSTEM type. Such
+capabilities are checked once the SMP boot has completed using the
+sanitised ID registers. However, there is a need for a new capability
+type similar in scope to the system one but with checking performed
+locally on each CPU during boot (e.g. based on MIDR_EL1 which is not a
+sanitised register).
 
-Why not squash this patch into #3, and remove the pmd_special() check 
-from vm_normal_page_pmd() in the same go? Seems wrong to handle the 
-PMD/PUD case separately.
+Introduce ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS which, together with
+ARM64_CPUCAP_SCOPE_LOCAL_CPU, ensures that such capability is enabled
+only if all early CPUs have it. For ease of use, define
+ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE which combines SCOPE_LOCAL_CPU,
+PERMITTED_FOR_LATE_CPUS and MATCH_ALL_EARLY_CPUS.
 
-But now I am confused why some pte_devmap() checks are removed in patch 
-#3, while others are removed in #7.
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
+---
+ arch/arm64/include/asm/cpufeature.h | 23 +++++++++++
+ arch/arm64/kernel/cpufeature.c      | 60 +++++++++++++++++++++++------
+ 2 files changed, 72 insertions(+), 11 deletions(-)
 
-Why not split it up into (a) stop setting p*_devmap() and (b) remove 
-p*_devmap().
-
-Logically makes more sense to me ... :)
-
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index c4326f1cb917..155ebd040c55 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -275,6 +275,14 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
+ #define ARM64_CPUCAP_OPTIONAL_FOR_LATE_CPU	((u16)BIT(5))
+ /* Panic when a conflict is detected */
+ #define ARM64_CPUCAP_PANIC_ON_CONFLICT		((u16)BIT(6))
++/*
++ * When paired with SCOPE_LOCAL_CPU, all early CPUs must satisfy the
++ * condition. This is different from SCOPE_SYSTEM where the check is performed
++ * only once at the end of the SMP boot on the sanitised ID registers.
++ * SCOPE_SYSTEM is not suitable for cases where the capability depends on
++ * properties local to a CPU like MIDR_EL1.
++ */
++#define ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS	((u16)BIT(7))
+ 
+ /*
+  * CPU errata workarounds that need to be enabled at boot time if one or
+@@ -304,6 +312,16 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
+ 	(ARM64_CPUCAP_SCOPE_LOCAL_CPU		|	\
+ 	 ARM64_CPUCAP_OPTIONAL_FOR_LATE_CPU	|	\
+ 	 ARM64_CPUCAP_PERMITTED_FOR_LATE_CPU)
++/*
++ * CPU feature detected at boot time and present on all early CPUs. Late CPUs
++ * are permitted to have the feature even if it hasn't been enabled, although
++ * the feature will not be used by Linux in this case. If all early CPUs have
++ * the feature, then every late CPU must have it.
++ */
++#define ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE		\
++	 (ARM64_CPUCAP_SCOPE_LOCAL_CPU		|	\
++	  ARM64_CPUCAP_PERMITTED_FOR_LATE_CPU	|	\
++	  ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS)
+ 
+ /*
+  * CPU feature detected at boot time, on one or more CPUs. A late CPU
+@@ -391,6 +409,11 @@ static inline int cpucap_default_scope(const struct arm64_cpu_capabilities *cap)
+ 	return cap->type & ARM64_CPUCAP_SCOPE_MASK;
+ }
+ 
++static inline bool cpucap_match_all_early_cpus(const struct arm64_cpu_capabilities *cap)
++{
++	return cap->type & ARM64_CPUCAP_MATCH_ALL_EARLY_CPUS;
++}
++
+ /*
+  * Generic helper for handling capabilities with multiple (match,enable) pairs
+  * of call backs, sharing the same capability bit.
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index b34044e20128..f9c947166322 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -3370,18 +3370,49 @@ static void update_cpu_capabilities(u16 scope_mask)
+ 
+ 	scope_mask &= ARM64_CPUCAP_SCOPE_MASK;
+ 	for (i = 0; i < ARM64_NCAPS; i++) {
++		bool match_all = false;
++		bool caps_set = false;
++		bool boot_cpu = false;
++
+ 		caps = cpucap_ptrs[i];
+-		if (!caps || !(caps->type & scope_mask) ||
+-		    cpus_have_cap(caps->capability) ||
+-		    !caps->matches(caps, cpucap_default_scope(caps)))
++		if (!caps || !(caps->type & scope_mask))
+ 			continue;
+ 
+-		if (caps->desc && !caps->cpus)
++		match_all = cpucap_match_all_early_cpus(caps);
++		caps_set = cpus_have_cap(caps->capability);
++		boot_cpu = scope_mask & SCOPE_BOOT_CPU;
++
++		/*
++		 * Unless it's a match-all CPUs feature, avoid probing if
++		 * already detected.
++		 */
++		if (!match_all && caps_set)
++			continue;
++
++		/*
++		 * A match-all CPUs capability is only set when probing the
++		 * boot CPU. It may be cleared subsequently if not detected on
++		 * secondary ones.
++		 */
++		if (match_all && !caps_set && !boot_cpu)
++			continue;
++
++		if (!caps->matches(caps, cpucap_default_scope(caps))) {
++			if (match_all)
++				__clear_bit(caps->capability, system_cpucaps);
++			continue;
++		}
++
++		/*
++		 * Match-all CPUs capabilities are logged later when the
++		 * system capabilities are finalised.
++		 */
++		if (!match_all && caps->desc && !caps->cpus)
+ 			pr_info("detected: %s\n", caps->desc);
+ 
+ 		__set_bit(caps->capability, system_cpucaps);
+ 
+-		if ((scope_mask & SCOPE_BOOT_CPU) && (caps->type & SCOPE_BOOT_CPU))
++		if (boot_cpu && (caps->type & SCOPE_BOOT_CPU))
+ 			set_bit(caps->capability, boot_cpucaps);
+ 	}
+ }
+@@ -3782,17 +3813,24 @@ static void __init setup_system_capabilities(void)
+ 	enable_cpu_capabilities(SCOPE_ALL & ~SCOPE_BOOT_CPU);
+ 	apply_alternatives_all();
+ 
+-	/*
+-	 * Log any cpucaps with a cpumask as these aren't logged by
+-	 * update_cpu_capabilities().
+-	 */
+ 	for (int i = 0; i < ARM64_NCAPS; i++) {
+ 		const struct arm64_cpu_capabilities *caps = cpucap_ptrs[i];
+ 
+-		if (caps && caps->cpus && caps->desc &&
+-			cpumask_any(caps->cpus) < nr_cpu_ids)
++		if (!caps || !caps->desc)
++			continue;
++
++		/*
++		 * Log any cpucaps with a cpumask as these aren't logged by
++		 * update_cpu_capabilities().
++		 */
++		if (caps->cpus && cpumask_any(caps->cpus) < nr_cpu_ids)
+ 			pr_info("detected: %s on CPU%*pbl\n",
+ 				caps->desc, cpumask_pr_args(caps->cpus));
++
++		/* Log match-all CPUs capabilities */
++		if (cpucap_match_all_early_cpus(caps) &&
++		    cpus_have_cap(caps->capability))
++			pr_info("detected: %s\n", caps->desc);
+ 	}
+ 
+ 	/*
 -- 
-Cheers,
-
-David / dhildenb
+2.49.0
 
 
