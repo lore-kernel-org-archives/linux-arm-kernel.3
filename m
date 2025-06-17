@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77F8C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F9FC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EU6wYxxis5OVyKQeXPeKsMgd/+hFjCLFtAdHnU0fngg=; b=bRHhXUDyF4ceTmcp/O+Gfoq66y
-	rrOfdalnlVy6KRfA6UlyEtrBO5aIUJ/lw050LRPaGIBdR4tmyyq3UkDZfXGLDJMTWBhtx5dI0CfMX
-	vzsncjWPzy3hNIz97TE0r1mo0NoYmBm21GJNljoTQfCy2RvaqOVnBIBqEPv73hF6ebKxI0QQ10srk
-	MPZsVqhNF0BPos9XovlAKdJtVR+Fk/bvFSYtf2nciBoq36Kbn2PFErgtAsLvFQcMJXvfbPIHuLebC
-	1cgXXRvwHbte17YIDDw73fbvQC9MxZQW1AfiWeFeyZVldN+bejlbgvvPprlud53Q4VFKuJOEzf55i
-	tz9Le/Eg==;
+	bh=8Pr6ll5voZhLjn+Xwm/o8sJ2c2ByYGiOdquP16WwGvo=; b=PTbqSUkYTpj78oYpZ01xcqFV3k
+	EKf4Gm/8gHz45eq11nfd9WUIKpOQuWJBmRh15H3rpCmwYg24aCupiGY/sAJsU428GVdwh74vmaNKk
+	X1vYkRg5L1sC4HN3XNsLlau3XKjIS+3FBwPUI3Q50Gcq+WuSJAkw+5YVzSKjin1m9eo5r4nFtqd2U
+	2V3phYppdjb8532Pkwi6iZkXfIxEW+N0wfeYmrMSM/v6/mKmuLFNlYuBgUdfXC1pbM2jVNSlxugjk
+	IQDqo6rvpB4Ku+qoI5YDcBzwLP/0KI4eUo8s+Cyu1LeSjImzlxT0hY2khG+y927IW/5R3EFHk3Ky7
+	rbnGLRMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXu5-00000007hMe-0Z9q;
-	Tue, 17 Jun 2025 15:07:13 +0000
-Received: from out-174.mta1.migadu.com ([2001:41d0:203:375::ae])
+	id 1uRXwI-00000007hmg-2Xmf;
+	Tue, 17 Jun 2025 15:09:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRX3G-00000007VDk-32XL
+	id 1uRX43-00000007VLr-0bIb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 14:12:40 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1750169555;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EU6wYxxis5OVyKQeXPeKsMgd/+hFjCLFtAdHnU0fngg=;
-	b=csKXF/NLXzJ1s3RyHE5JxoPiKYUNxWkDu+UfyYwZ3JsUfASSP3vLk3Zsb6mNCI3RBcEF7w
-	nhncl6wMcDAQSbqNOE0tAH/CrmjlrlE7J4robyP6OJajpgPPGjnpG7F2T26uMfR39Pd5/Z
-	Rpk/XjD5wJHpJIS9avPxV1sIPR9SubcSzccGWeKvOFGRzskyqBy0ua51kmVZrB3yRzKkqO
-	XTsBvHplABC7+GGbHWrBsSc3wuHflwWEFnZBciaKvapVA5QJ64cSs4UCqloJ8Bm9BYTxJI
-	9iDDoRMPsupSFLiXbWzNPHvvU3PvaelbsXcGJ6i+5Xh6hJtuD9PjKxrMA/8xUQ==
-Content-Type: multipart/signed;
- boundary=cdab7635ac7d132188f79799f8586cac554d0abe4ed63d598f1e12607abe;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Tue, 17 Jun 2025 16:12:23 +0200
-Message-Id: <DAOVBOKLXLS2.S9MXDD29X68J@cknow.org>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-phy@lists.infradead.org>
-Subject: Re: [PATCH 2/5] dt-bindings: phy: rockchip-inno-csi-dphy: add
- rk3588 variant
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: <michael.riesch@collabora.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Vinod Koul"
- <vkoul@kernel.org>, "Kishon Vijay Abraham I" <kishon@kernel.org>, "Philipp
- Zabel" <p.zabel@pengutronix.de>, "Jagan Teki" <jagan@amarulasolutions.com>,
- "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Collabora Kernel
- Team" <kernel@collabora.com>
-References: <20250616-rk3588-csi-dphy-v1-0-84eb3b2a736c@collabora.com>
- <20250616-rk3588-csi-dphy-v1-2-84eb3b2a736c@collabora.com>
-In-Reply-To: <20250616-rk3588-csi-dphy-v1-2-84eb3b2a736c@collabora.com>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 17 Jun 2025 14:13:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 890745C67CA;
+	Tue, 17 Jun 2025 14:11:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C8F4C4CEE3;
+	Tue, 17 Jun 2025 14:13:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750169605;
+	bh=vKnygp1/WzyFb3kw0C5XvcSsBQYMHQDcupKgqgQkAAA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aRI6NNKEtHJJGdCo+cm9nDFKQIi5q6pmsJonTJi/DYzHxthlpMn8Isnyd7nO7oSNH
+	 bLFu9bQEenp+c/Wx7g5NhEeNqfytG7mKV3MWSUMJgQKGLlcnXcrjdwcPNWn8bADYHf
+	 egA9S+Bq3QlLP+PkcOAolsL7MqiFzOH54RjEacrG7l9WJEmtWjyn2NSHi3bsc+JZYh
+	 VwSZV+BehRZI6Q6fxPUeWNu6+BIB4P+7d/fewX3n4gRsrgWYTjILE9FvVdKM5K0rP7
+	 yFEJaAxurQ3OaQMtTn+7qeBbQ+jbPB9UoZYelVxlDbep1UAfwjraykLiPExIp//RXx
+	 2wySecRNsImpA==
+Date: Tue, 17 Jun 2025 16:13:23 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	linux-arm-kernel@lists.infradead.org, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
+Message-ID: <pb5gr65kbkokb7ybx3smqaa6vve4rkpg6qks2hdibwgrwmdzfu@6s5msb3k2p6y>
+References: <20250617005059.614993-1-marek.vasut+renesas@mailbox.org>
+ <jgafc7te2zotqwvetudo6c4o4nit6zi3yp4ecg4gka53hrypk5@7ypb5asrc2ct>
+ <b464bc12-e921-4d98-9462-ec9d13ccb5ce@mailbox.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5y2dy2ra4mpn6e7a"
+Content-Disposition: inline
+In-Reply-To: <b464bc12-e921-4d98-9462-ec9d13ccb5ce@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_071239_395945_7EE4115A 
-X-CRM114-Status: GOOD (  17.31  )
+X-CRM114-CacheID: sfid-20250617_071327_264946_1AEC04F4 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,154 +75,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---cdab7635ac7d132188f79799f8586cac554d0abe4ed63d598f1e12607abe
+
+--5y2dy2ra4mpn6e7a
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
+MIME-Version: 1.0
 
-Hi,
+Hello Marek,
 
-I'm (unfortunately) not seeing any @rock-chips.com recipients ...
+On Tue, Jun 17, 2025 at 11:38:50AM +0200, Marek Vasut wrote:
+> On 6/17/25 10:14 AM, Uwe Kleine-K=F6nig wrote:
+>=20
+> Hi,
+>=20
+> [...]
+>=20
+> > /* The actual value isn't known, so this is made up. */
+> > #define RPI_PANEL_V2_FIXED_PERIOD_NS 100000
+> >=20
+> >=20
+> > static int rpi_panel_v2_pwm_round_waveform_tohw(...)
+> > {
+> > 	...
+> >=20
+> > 	if (wf->duty_length_ns > RPI_PANEL_V2_FIXED_PERIOD_NS)
+> > 		*wfhw =3D 100;
+> > 	else
+> > 		*wfhw =3D mul_u64_u64_div_u64(wf->duty_length_ns * 100, RPI_PANEL_V2_=
+FIXED_PERIOD_NS);
+> >=20
+> > 	return 0;
+> > }
+>=20
+> This fixed period specified in driver has one problem -- what if the peri=
+od
+> is also specified in DT by the consumer, e.g. pwm-backlight pwms property,
+> and it does not match RPI_PANEL_V2_FIXED_PERIOD_NS ?
 
-On Tue Jun 17, 2025 at 10:54 AM CEST, Michael Riesch via B4 Relay wrote:
-> From: Michael Riesch <michael.riesch@collabora.com>
->
-> The Rockchip RK3588 variant of the CSI-2 DPHY features two reset lines.
-> Add the variant and allow for the additional reset.
->
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->  .../bindings/phy/rockchip-inno-csi-dphy.yaml       | 60 ++++++++++++++++=
-++++--
->  1 file changed, 55 insertions(+), 5 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy=
-.yaml b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> index 5ac994b3c0aa..6755738b13ee 100644
-> --- a/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml
-> @@ -21,6 +21,7 @@ properties:
->        - rockchip,rk3326-csi-dphy
->        - rockchip,rk3368-csi-dphy
->        - rockchip,rk3568-csi-dphy
-> +      - rockchip,rk3588-csi-dphy
-> =20
->    reg:
->      maxItems: 1
-> @@ -39,18 +40,49 @@ properties:
->      maxItems: 1
-> =20
->    resets:
-> -    items:
-> -      - description: exclusive PHY reset line
-> +    minItems: 1
-> +    maxItems: 2
-> =20
->    reset-names:
-> -    items:
-> -      - const: apb
-> +    minItems: 1
-> +    maxItems: 2
-> =20
->    rockchip,grf:
->      $ref: /schemas/types.yaml#/definitions/phandle
->      description:
->        Some additional phy settings are access through GRF regs.
-> =20
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,px30-csi-dphy
-> +              - rockchip,rk1808-csi-dphy
-> +              - rockchip,rk3326-csi-dphy
-> +              - rockchip,rk3368-csi-dphy
-> +              - rockchip,rk3568-csi-dphy
-> +    then:
-> +      properties:
-> +        resets:
-> +          items:
-> +            - description: exclusive PHY reset line
-> +
-> +        reset-names:
-> +          items:
-> +            - const: apb
-> +
-> +      required:
-> +        - reset-names
-> +    else:
-> +      properties:
-> +        resets:
-> +          minItems: 2
-> +
-> +        reset-names:
-> +          minItems: 2
-> +
->  required:
->    - compatible
->    - reg
-> @@ -59,7 +91,6 @@ required:
->    - '#phy-cells'
->    - power-domains
->    - resets
-> -  - reset-names
->    - rockchip,grf
-> =20
->  additionalProperties: false
-> @@ -78,3 +109,22 @@ examples:
->          reset-names =3D "apb";
->          rockchip,grf =3D <&grf>;
->      };
-> +  - |
-> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> +
-> +    soc {
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +
-> +        csi_dphy0: phy@fedc0000 {
-> +            compatible =3D "rockchip,rk3588-csi-dphy";
-> +            reg =3D <0x0 0xfedc0000 0x0 0x8000>;
-> +            clocks =3D <&cru PCLK_CSIPHY0>;
-> +            clock-names =3D "pclk";
-> +            #phy-cells =3D <0>;
-> +            resets =3D <&cru SRST_CSIPHY0>, <&cru SRST_P_CSIPHY0>;
-> +            rockchip,grf =3D <&csidphy0_grf>;
-> +            status =3D "disabled";
-> +        };
-> +    };
+If it's off by only a little amount you will hardly notice. If it's
+further off that's less optimal. I don't think this is a problem. If the
+device tree is wrong, the machine doesn't work optimally. That's quite
+expected.
 
-... which could hopefully tell us what the value is/should be for the
-*required* 'power-domains' property, which is missing in this example.
-IOW: the binding example is invalid according to its own binding.
-(btw: you can drop the 'csi_dphy0' label)
+> This is easy to solve for this tohw function, but what about the fromhw
+> which assigns period_ns ?
 
-And hopefully also for rk3568 so we can add it to rk356x-base.dtsi and
-you can add it in patch 5 where it's also missing.
+If you only write waveforms to the hardware (probably using
+pwm_apply_might_sleep()), the fromhw callback isn't involved (apart from
+debugging). And all fromhw callbacks are supposed to assign
+period_length_ns. I suspect we don't have the same understanding of the
+PWM abstraction.
 
-Grepping for "csi-dphy" in arch/arm*/boot/dts/rockchip returns:
-- px30.dtsi
-- rk356x-base.dtsi
+> > > +static int rpi_panel_v2_pwm_write_waveform(struct pwm_chip *chip,
+> > > +					   struct pwm_device *pwm,
+> > > +					   const void *_wfhw)
+> > > +{
+> > > +	struct regmap *regmap =3D pwmchip_get_drvdata(chip);
+> > > +	const u8 *wfhw =3D _wfhw;
+> > > -	duty =3D pwm_get_relative_duty_cycle(state, PWM_BL_MASK);
+> > > -	return regmap_write(regmap, REG_PWM, duty | PWM_BL_ENABLE);
+> > > +	return regmap_write(regmap, REG_PWM, *wfhw | (*wfhw ? PWM_BL_ENABLE=
+ : 0));
+> >=20
+> > How does the PWM behave without PWM_BL_ENABLE set?
+> The display stays dark.
 
-With this patch set applied, we'd have a 3rd result: rk3588-base.dtsi
+So you cannot distinguish writing `0` (or any other value) and
+`PWM_BL_ENABLE | 0` I guess?
 
-For all the listed compatibles, it's only actually defined in px30.dtsi.
+I ask because for some hardware's it makes a difference, the output
+might e.g go High-Z on disable.
 
-Cheers (and sorry),
-  Diederik
+Best regards
+Uwe
 
---cdab7635ac7d132188f79799f8586cac554d0abe4ed63d598f1e12607abe
+--5y2dy2ra4mpn6e7a
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaFF3zAAKCRDXblvOeH7b
-bhpEAPwJIALkzS4QIOY/nXMwYzCnZR2In2099ChPU4fsvOLbagEAnx8/aQHAXAqa
-LU1To43ksWlQApoJuHYhWu28pXyU/wo=
-=w/02
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhReAAACgkQj4D7WH0S
+/k4ofAf8DlMzidViLV6S86hDrE1Q/7wbG82YZOcIYzhJPeJT4JPtU0ya7uA2/uMA
+0bnUtEzH4i8bOd3HWXYvEcFgTLoOduz2RCsiam4/BVwJIHdtsrzpiB419awnL4SB
+75dkcesGC1cgMNTRKW3j1s6c3GdKYxSTUrHVeuUaPECI77wi0GV1e6BRP6bH6LX0
+wGvEv1IEicMiHtmj8TleVjGQkwnRxsKbV6pYYhVkB2yKZncQaN9xO0Qt/GafqSj1
+gnPi1sTDP51tiztcN0suNKgYwB7GaBG8wnvdM/zN9JLiMRSU370vn3enfJtrYb0Q
+aTfbBry4wgY9wE4y/eEC30e6Xa80zg==
+=65+J
 -----END PGP SIGNATURE-----
 
---cdab7635ac7d132188f79799f8586cac554d0abe4ed63d598f1e12607abe--
+--5y2dy2ra4mpn6e7a--
 
