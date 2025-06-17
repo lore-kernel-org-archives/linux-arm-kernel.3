@@ -4,129 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D26C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE87EC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGkgFjKkiVrSJKm5JgSkg1YSBxlYKQdt2nuUWNPynVc=; b=uuon9g0m20/MOwZFjZ1roZsDC6
-	6U1U1+N/YcH9b2MDqSprLc9hKHVYXORa/MxaEcMykBbvTu9FAIyHtAf+XKb76cDzmzQ86WihC+V+W
-	uoxNJE/GgYx8FXspnKTRt7C9XTZjEWtFOuqH/h1YAWVVi+whvx5olUxgK0HTOf1Zs37A3hL+++QCX
-	coQHWAgHTVxKASd7fTN1IsYhwLaOQyMZyS6D36T6xPEWFdOjN8QbPgB2vWpOMgRLWBERcIFkw6i6H
-	LZFrSSuuJwBLL+ePEicWiWtfOaQUjWUQoneAlQN3XKUQ7hvbIel2TLipQ7t8nW7Xct3EsLdetLaCo
-	LQrxloaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4jSe01HJ/Ao23WetE90MshWeaxMUSxiR54K1exSUTAw=; b=ummTnj+T26lGk/y0ehqVtqVwez
+	qYHqkiDXCoXMNHi6LUDEJLetNGdckb8v/fbM9D8lnC8ul0RWTVwNr38dOoTTDFfMZKpUYW8qyL3nH
+	xz4Qu9uU2GG8LSfrkJccNNYEaIEZ7B/2Xg/xOydnv5Kz/ogePi11kkeNqdqrQpAACcsIodD2vnW9X
+	8KV/e3C8uZ0Ry9egRJutWImHglRXTUZJgKFABWBQa2xwmaAFURXFgVaALPutq+/B3qVMlkDKLcT1E
+	wTzKdNrWoJT1QShoKGPlE2ukyWoUZ97uAdE3eGkPpi1DKZZCpB/BDdsEhFnvLdhJ4rke467FCiTpe
+	LA7PEfBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTe4-00000006vyu-2r0W;
-	Tue, 17 Jun 2025 10:34:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uRTgK-00000006wU0-3HtX;
+	Tue, 17 Jun 2025 10:36:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTS9-00000006tqY-2JNB;
-	Tue, 17 Jun 2025 10:22:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=dGkgFjKkiVrSJKm5JgSkg1YSBxlYKQdt2nuUWNPynVc=; b=UlWxWXkPBIG29iI+85cBu4qJar
-	ZBpNgWKSkgpzLjG5PspgEbdWLcXLOPvfOA5ZUutt7t0n5eIy5cDC0hacmCUevKv6SHSJTZaee35f3
-	xyh4Vy3YDdW5JBSfNbA77ssAm9NZf/ia0ghYrDWiDm/2e7JM3C95z5fh8hOeCEAA/Zjwr7sCXpA9c
-	YTi4KRcYLwdWe8OCR9WKS/nOAWFg1OL72sAuaXEY8V/IrURdqRB55EwpBexhwOxO/8XH4H9WH4c/x
-	liCqi0Hh2XDThp67xrq5pcAKAHEuthD0yugl1luHAdIM9yiJvch6Gw+9qgzPk56vjml0rbW2SU4gS
-	eaLrC+Ow==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTS6-00000003m4I-39vz;
-	Tue, 17 Jun 2025 10:22:05 +0000
+	id 1uRTWP-00000006upr-3p1H;
+	Tue, 17 Jun 2025 10:26:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F0356440D5;
-	Tue, 17 Jun 2025 10:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EC44C4CEE3;
-	Tue, 17 Jun 2025 10:21:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BD2895C6368;
+	Tue, 17 Jun 2025 10:24:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F16ABC4CEE3;
+	Tue, 17 Jun 2025 10:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750155717;
-	bh=vHcf4VFbrCSFj347QsP8KTvvWwno+mCruZnJ7njeA4M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lHAq2dRxzfPR/f4Y/bT3gv50k7gbevCTDpCjdFaZah/itIoTTzs0NrQfljos3bGU6
-	 rqUvwhe1ml6wJI7K9G0RoZ2VF9kCG/HZpO/fsw4gtAMJVRWX9ngSDJO+eNiFxIOfrY
-	 XAVcVUXz0AnaUA7N78TM2/FQ08lQEUML7rLyOGRaOvRKWzYJCgBhF3oNKO/8K7Rx9x
-	 V175pq8Txvg54WKgdcK2sLJEXHe4q/kDYXIOOF5Bv2eFOILfKILRZtMhAhypR4aQVQ
-	 mFE0UO5IOZgL1dQW78ZHYcJ1HeSM3omvp0ANomXwdhE2xAwSy+fUzd3zDim1IRPGPd
-	 vokZv3tsCGdDg==
-Message-ID: <704d75df-a484-4da3-9bcb-85b480e2ecf0@kernel.org>
-Date: Tue, 17 Jun 2025 12:21:52 +0200
+	s=k20201202; t=1750155989;
+	bh=7I8alF2ILUvUHx+QjI3iVi8WpDwqkJW3CHPDKoHRIV0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j15v7lxKclzCiL2kWBBMhwCLbNxZHB9h1DwKXVFYW2bf20nEnJj23/Nxu9Nrarp+X
+	 Vt503sC1Q0RU3twD2EnRj+FIiuyS/L1rC3HT7We7ZdmkEH++lhjBEWhKNKkfm8Sdb+
+	 ptdvNaUStMXEAbofOxa5W5nN56HUNsq4oajsWy9sv9IoLhZE8cCZz2RbxxhSMK10on
+	 sI/9SRINHVq9V4dFBCoZ8/DyuHrJaJsSIVIIh5jHqXrEZsNtFJ9jxFq/FLRPYIWrPl
+	 N+s0w79Om5DGl+f8PnjsX79EqSdK/DpEZayo3NfKIfGC6lSGCf7D22nm9uTc7KMaIt
+	 rOHmdRyQWeTGg==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1uRTWM-000000005Wb-3JzH;
+	Tue, 17 Jun 2025 12:26:26 +0200
+Date: Tue, 17 Jun 2025 12:26:26 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
+	will@kernel.org, linux-arm-kernel@lists.infradead.org,
+	andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, vkoul@kernel.org, kishon@kernel.org,
+	sfr@canb.auug.org.au, linux-phy@lists.infradead.org,
+	krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
+	quic_mrana@quicinc.com, quic_cang@quicinc.com,
+	qiang.yu@oss.qualcomm.com, Johan Hovold <johan+linaro@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>
+Subject: Re: [PATCH v4 5/5] phy: qcom: qmp-pcie: add x1e80100 qref supplies
+Message-ID: <aFFC0pngCDIYkDvD@hovoldconsulting.com>
+References: <20250604080237.494014-1-quic_wenbyao@quicinc.com>
+ <20250604080237.494014-6-quic_wenbyao@quicinc.com>
+ <aEBh2xHu3QDtUrxe@hovoldconsulting.com>
+ <296a9ab8-04e3-4623-8246-c8fd3fca8d98@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: mfd: rk806: allow to customize PMIC
- reset mode
-To: Quentin Schulz <quentin.schulz@cherry.de>,
- Quentin Schulz <foss+kernel@0leil.net>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Lukasz Czechowski <lukasz.czechowski@thaumatec.com>,
- Daniel Semkowicz <dse@thaumatec.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250605-rk8xx-rst-fun-v2-0-143d190596dd@cherry.de>
- <20250605-rk8xx-rst-fun-v2-1-143d190596dd@cherry.de>
- <20250617-small-vivacious-labrador-7f0eb0@kuoka>
- <b079fc14-8692-4521-bd81-fe2fca713f2f@cherry.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <b079fc14-8692-4521-bd81-fe2fca713f2f@cherry.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <296a9ab8-04e3-4623-8246-c8fd3fca8d98@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_112203_236017_4227F688 
-X-CRM114-Status: GOOD (  28.32  )
+X-CRM114-CacheID: sfid-20250617_032630_037023_68E6E077 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,99 +86,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/06/2025 11:38, Quentin Schulz wrote:
-> Hi Krzysztof,
+On Sat, Jun 14, 2025 at 09:59:13PM +0200, Konrad Dybcio wrote:
+> On 6/4/25 5:10 PM, Johan Hovold wrote:
+> > On Wed, Jun 04, 2025 at 04:02:37PM +0800, Wenbin Yao wrote:
+> >> From: Qiang Yu <qiang.yu@oss.qualcomm.com>
+> >>
+> >> All PCIe PHYs on the X1E80100 SOC require the vdda-qref, which feeds QREF
+> >> clocks provided by the TCSR device.
+> > 
+> > As I just mentioned in the thread where this is still being discussed:
+> > 
+> > 	https://lore.kernel.org/all/aEBfV2M-ZqDF7aRz@hovoldconsulting.com
+> > 
+> > you need to provide a lot more detail on why you think modelling these
+> > supplies as PHY supplies (which they are not) is the right thing to do.
+> > 
+> > Also please answer the question I've asked three times now on how the
+> > QREF supplies map to PHY supplies on X1E as no one will be able to use
+> > this binding unless this is documented somewhere (and similar for other
+> > SoCs).
+> > 
+> > The fact that you so far have not been able to provide an answer
+> > seems to suggest that these supplies need to be managed by the TCSR
+> > clock driver which can handle the mapping.
 > 
-> On 6/17/25 10:08 AM, Krzysztof Kozlowski wrote:
->> On Thu, Jun 05, 2025 at 05:41:06PM GMT, Quentin Schulz wrote:
->>> +  rockchip,reset-mode:
->>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> +    enum: [0, 1, 2]
->>> +    description:
->>> +      Mode to use when a reset of the PMIC is triggered.
->>> +
->>> +      The reset can be triggered either programmatically, via one of
->>> +      the PWRCTRL pins (provided additional configuration) or
->>> +      asserting RESETB pin low.
->>> +
->>> +      The following modes are supported (see also
->>> +      include/dt-bindings/mfd/rockchip,rk8xx.h)
->>> +
->>> +      - 0 (RK806_RESTART) restart PMU,
->>> +      - 1 (RK806_RESET) reset all power off reset registers and force
->>> +        state to switch to ACTIVE mode,
->>> +      - 2 (RK806_RESET_NOTIFY) same as RK806_RESET and also pull
->>> +        RESETB pin down for 5ms,
->>> +
->>> +      For example, some hardware may require a full restart
->>> +      (RK806_RESTART mode) in order to function properly as regulators
->>> +      are shortly interrupted in this mode.
->>> +
->>
->> This is fine, although now points to missing restart-handler schema and
->> maybe this should be once made common property. But that's just
->> digression, nothing needed here.
->>
->>>     vcc1-supply:
->>>       description:
->>>         The input supply for dcdc-reg1.
->>> diff --git a/include/dt-bindings/mfd/rockchip,rk8xx.h b/include/dt-bindings/mfd/rockchip,rk8xx.h
->>> new file mode 100644
->>> index 0000000000000000000000000000000000000000..f058ed1ca661185f79738a358aa2d4f04539c590
->>> --- /dev/null
->>> +++ b/include/dt-bindings/mfd/rockchip,rk8xx.h
->>> @@ -0,0 +1,17 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
->>> +/*
->>> + * Device Tree defines for Rockchip RK8xx PMICs
->>> + *
->>> + * Copyright 2025 Cherry Embedded Solutions GmbH
->>> + *
->>> + * Author: Quentin Schulz <quentin.schulz@cherry.de>
->>> + */
->>> +
->>> +#ifndef _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
->>> +#define _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
->>> +
->>> +#define RK806_RESTART		0
->>> +#define RK806_RESET		1
->>> +#define RK806_RESET_NOTIFY	2
->>
->> I do not see how this is a binding. Where do you use this in the driver
->> (to be a binding because otherwise you just add unused ABI)?
->>
-> 
-> Explained in the commit log of the driver patch:
-> 
-> """
-> This adds the appropriate logic in the driver to parse the new
-> rockchip,reset-mode DT property to pass this information. It just
-> happens that the values in the binding match the values to write in the
-> bitfield so no mapping is necessary.
-> """
-> 
-> I can add useless mapping in the driver if it's preferred. I had the 
+> To emphasize, we apparently can't do it, because there exist IPs
+> where the QREF *ref clock* is not expressed through a bit in TCSR
+> (which we interpret as TCSR_CC), but the *supply* for that clock must
+> still be described somehow, as it obviously needs power.
 
-No, I comment and raise questions when you add ABI which is neither ABI
-or should not be ABI.
+Are you saying that the refclock cannot be gated? Doesn't that mean that
+the corresponding supply needs to be kept always on as well?
 
-> impression that simply using a hardcoded value in the DT binding and 
-> then writing it to the register was not desired, so the constant is now 
-> here to make this less obscure from DT perspective though I'm still 
-> writing the value directly in the register. If hardcoded values are ok 
-> in the binding, then I can remove that header file.
+> To add to the mess, it may be that there is more than one supply
+> per reference clock required (which is not necessarily an issue
+> when the driver takes care of it, but something to keep in mind).
 
-If you want something user readable, make it an enum string or keep the
-header within DTS.
+For PCIe on X1E it seems there are two or three qref supplies, and since
+these additional supplies correspond to the supplies currently managed
+by the PHY driver it happens to work, but I'm not sure if that's
+guaranteed to always be the case.
 
-If I review it like that, it will be brought to me next time for some
-other patch saying that commit was reviewed so I can do the same. [1]
-Therefore since I object against unused binding headers in general
-(there is no user here technically), I need to object here as well. :(
-
-
-https://lore.kernel.org/all/0d381ad0-85d4-43de-a050-3b9ed03bf5d8@kernel.org/
-
-Best regards,
-Krzysztof
+Johan
 
