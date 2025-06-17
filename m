@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511EEC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F2CC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9h6Blzh7jXPiN7IvTSUmNOHLwahbPeps/J5XPKclM/s=; b=EMECHRgmBl7/e0scPbtGxTqvwS
-	5WGSUtmTlr48jshADSptjppqYIhdk2mBL5KTVvRpnvt6istPo/84rjFLc2S6guaq58XCFOFV+O+TS
-	O/fSRlQsW7W/9jWbh4phxYxKOwmNh37NUJJtLz5mubcw5vH2qzfHPh/pBO8cZCyaUa1w23jo4Nm0Q
-	zt0QQNXknYkr2r5JydD57xd8OO12TGJq8aGSaq3V10yG9uTmgQ8RHmOhmcQvfR5dO2uqlmiuyiioS
-	vdgLHx5J++oO2GYRaiiMDIepJKP1Z/I7T3yV+/xY0NhEb/lu48hPsscHM81AvqhTSVOn5aYlxyrC/
-	GhG548Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H5JYcPxPvOm/wQvlylxZSm+Bf6z0WAAFiSnAvpWknfg=; b=KqI2Wv9i+TrMc2gRR3wVdVk85V
+	C6VrZ/gb5MtOfU8R2TExLxv7V/NTy0ZGJZz5uy/8xYAUjiA7B8+nMp6c5GPRftMOd5rE9xpVCUQDf
+	4/GF0VIEZa/VSyVH7s8UgulET07cASiN+kpRm3PfTA0vuClpCrHOAIAqmWIMndaXPQ977Of4pJXhn
+	0hRQB2yRC8joH9W+eFlg0pRhtjQv2QvsaDtS7/AyZFEE8eTb5HPDzmJNbm/iCS1aYmOyEIn2FbgEN
+	UOF2j90Ksy/THEbcMaiE4xfwDwQ0yrmgsVHYKctzCnnZd/Ie5QAcGFI81bilnhFi3acz6MuWKChvC
+	BRpC/Q0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTSj-00000006tt3-3lNP;
-	Tue, 17 Jun 2025 10:22:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSyb-00000006pS7-0Prt
+	id 1uRTXG-00000006uxs-0bed;
+	Tue, 17 Jun 2025 10:27:22 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRTP2-00000006tWs-3dl9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 09:51:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0171A22EE;
-	Tue, 17 Jun 2025 02:51:11 -0700 (PDT)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8D463F58B;
-	Tue, 17 Jun 2025 02:51:28 -0700 (PDT)
-From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-To: ryan.roberts@arm.com,
-	yang@os.amperecomputing.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	jean-philippe@linaro.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	broonie@kernel.org,
-	ardb@kernel.org,
-	baohua@kernel.org,
-	suzuki.poulose@arm.com,
-	david@redhat.com,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	jsnitsel@redhat.com,
-	mshavit@google.com,
-	kevin.tian@intel.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v7 4/4] arm64/mm: Elide tlbi in contpte_convert() under BBML2
-Date: Tue, 17 Jun 2025 09:51:04 +0000
-Message-ID: <20250617095104.6772-5-miko.lenczewski@arm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250617095104.6772-1-miko.lenczewski@arm.com>
-References: <20250617095104.6772-1-miko.lenczewski@arm.com>
+	Tue, 17 Jun 2025 10:18:54 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 55HAId552851641;
+	Tue, 17 Jun 2025 05:18:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1750155519;
+	bh=H5JYcPxPvOm/wQvlylxZSm+Bf6z0WAAFiSnAvpWknfg=;
+	h=From:To:CC:Subject:Date;
+	b=DInoz4Q8qwcy235WKiiEeVQ7+yWTB9Sd9QZPsMXp3wip8Kq0PzBC72IK9eIL1BZAO
+	 fsIg1Ak6nA6z/3KtXfjGw5ZSBDZgO7qy6RcfxhfLDCM1mIlxPkEPRbrbW9r4X0nIQE
+	 p0fN5f2X6ocbMJUOi5+M6FxmZW1g80fz2JMpEsOQ=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 55HAId4Q3522504
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 17 Jun 2025 05:18:39 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 17
+ Jun 2025 05:18:38 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 17 Jun 2025 05:18:38 -0500
+Received: from localhost (akira.dhcp.ti.com [10.24.69.4])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 55HAIb9A1511897;
+	Tue, 17 Jun 2025 05:18:38 -0500
+From: Himanshu Mittal <h-mittal1@ti.com>
+To: <h-mittal1@ti.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
+        <m-malladi@ti.com>, <pratheesh@ti.com>, <prajith@ti.com>
+Subject: [PATCH net-next v2] net: ti: icssg-prueth: Add prp offload support to ICSSG driver
+Date: Tue, 17 Jun 2025 15:48:37 +0530
+Message-ID: <20250617101837.381217-1-h-mittal1@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_025133_233989_D888332B 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20250617_031853_069084_663186DF 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,193 +86,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When converting a region via contpte_convert() to use mTHP, we have two
-different goals. We have to mark each entry as contiguous, and we would
-like to smear the dirty and young (access) bits across all entries in
-the contiguous block. Currently, we do this by first accumulating the
-dirty and young bits in the block, using an atomic
-__ptep_get_and_clear() and the relevant pte_{dirty,young}() calls,
-performing a tlbi, and finally smearing the correct bits across the
-block using __set_ptes().
+Add support for ICSSG PRP mode which supports offloading of:
+ - Packet duplication and PRP trailer insertion
+ - Packet duplicate discard and PRP trailer removal
 
-This approach works fine for BBM level 0, but with support for BBM level
-2 we are allowed to reorder the tlbi to after setting the pagetable
-entries. We expect the time cost of a tlbi to be much greater than the
-cost of clearing and resetting the PTEs. As such, this reordering of the
-tlbi outside the window where our PTEs are invalid greatly reduces the
-duration the PTE are visibly invalid for other threads. This reduces the
-likelyhood of a concurrent page walk finding an invalid PTE, reducing
-the likelyhood of a fault in other threads, and improving performance
-(more so when there are more threads).
-
-Because we support via allowlist only bbml2 implementations that never
-raise conflict aborts and instead invalidate the tlb entries
-automatically in hardware, we can avoid the final flush altogether.
-
-However, avoiding the intermediate tlbi+dsb must be carefully considered
-to ensure that we remain both correct and performant. We document our
-reasoning and the expected interactions further in the contpte_convert()
-source. To do so we rely on the aarch64 spec (DDI 0487L.a D8.7.1.1)
-requirements RNGLXZ and RJQQTC to provide guarantees that the elision is
-correct.
-
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Himanshu Mittal <h-mittal1@ti.com>
 ---
- arch/arm64/mm/contpte.c | 139 +++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 138 insertions(+), 1 deletion(-)
+v2-v1:
+- Align with recent firmware name handling updates made in:
+ https://lore.kernel.org/all/20250613064547.44394-1-danishanwar@ti.com/
 
-diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-index bcac4f55f9c1..203357061d0a 100644
---- a/arch/arm64/mm/contpte.c
-+++ b/arch/arm64/mm/contpte.c
-@@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
- 			pte = pte_mkyoung(pte);
- 	}
+v1: https://lore.kernel.org/all/42ac0736-cb5a-4d99-a11c-6f861adbdb5f@ti.com/
+
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 12 +++++++++++-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |  4 ++++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index a1e013b0a0eb..2aa812cbab92 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -148,8 +148,10 @@ static int prueth_emac_start(struct prueth *prueth)
  
--	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
-+	/*
-+	 * On eliding the __tlb_flush_range() under BBML2+noabort:
-+	 *
-+	 * NOTE: Instead of using N=16 as the contiguous block length, we use
-+	 *       N=4 for clarity.
-+	 *
-+	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
-+	 *       unset and set, respectively.
-+	 *
-+	 * We worry about two cases where contiguous bit is used:
-+	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
-+	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
-+	 *
-+	 * Currently, the BBML0 folding case looks as follows:
-+	 *
-+	 *  0) Initial page-table layout:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
-+	 *   +----+----+----+----+
-+	 *
-+	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |  0 |  0 |  0 |  0 |
-+	 *   +----+----+----+----+
-+	 *
-+	 *  2) __flush_tlb_range():
-+	 *
-+	 *   |____ tlbi + dsb ____|
-+	 *
-+	 *  3) __set_ptes() to repaint contiguous block:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RO,c|RO,c|RO,c|RO,c|
-+	 *   +----+----+----+----+
-+	 *
-+	 *  4) The kernel will eventually __flush_tlb() for changed page:
-+	 *
-+	 *                  |____| <--- tlbi + dsb
-+	 *
-+	 * As expected, the intermediate tlbi+dsb ensures that other PEs
-+	 * only ever see an invalid (0) entry, or the new contiguous TLB entry.
-+	 * The final tlbi+dsb will always throw away the newly installed
-+	 * contiguous TLB entry, which is a micro-optimisation opportunity,
-+	 * but does not affect correctness.
-+	 *
-+	 * In the BBML2 case, the change is avoiding the intermediate tlbi+dsb.
-+	 * This means a few things, but notably other PEs will still "see" any
-+	 * stale cached TLB entries. This could lead to a "contiguous bit
-+	 * misprogramming" issue until the final tlbi+dsb of the changed page,
-+	 * which would clear out both the stale (RW,n) entry and the new (RO,c)
-+	 * contiguous entry installed in its place.
-+	 *
-+	 * What this is saying, is the following:
-+	 *
-+	 *  +----+----+----+----+
-+	 *  |RO,n|RO,n|RO,n|RW,n| <--- old page tables, all non-contiguous
-+	 *  +----+----+----+----+
-+	 *
-+	 *  +----+----+----+----+
-+	 *  |RO,c|RO,c|RO,c|RO,c| <--- new page tables, all contiguous
-+	 *  +----+----+----+----+
-+	 *   /\
-+	 *   ||
-+	 *
-+	 *  If both the old single (RW,n) and new contiguous (RO,c) TLB entries
-+	 *  are present, and a write is made to this address, do we fault or
-+	 *  is the write permitted (via amalgamation)?
-+	 *
-+	 * The relevant Arm ARM DDI 0487L.a requirements are RNGLXZ and RJQQTC,
-+	 * and together state that when BBML1 or BBML2 are implemented, either
-+	 * a TLB conflict abort is raised (which we expressly forbid), or will
-+	 * "produce an OA, access permissions, and memory attributes that are
-+	 * consistent with any of the programmed translation table values".
-+	 *
-+	 * That is to say, will either raise a TLB conflict, or produce one of
-+	 * the cached TLB entries, but never amalgamate.
-+	 *
-+	 * Thus, as the page tables are only considered "consistent" after
-+	 * the final tlbi+dsb (which evicts both the single stale (RW,n) TLB
-+	 * entry as well as the new contiguous (RO,c) TLB entry), omitting the
-+	 * initial tlbi+dsb is correct.
-+	 *
-+	 * It is also important to note that at the end of the BBML2 folding
-+	 * case, we are still left with potentially all N TLB entries still
-+	 * cached (the N-1 non-contiguous ptes, and the single contiguous
-+	 * block). However, over time, natural TLB pressure will cause the
-+	 * non-contiguous pte TLB entries to be flushed, leaving only the
-+	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
-+	 * not only correct, but also keeps our eventual performance benefits.
-+	 *
-+	 * For the unfolding case, BBML0 looks as follows:
-+	 *
-+	 *  0) Initial page-table layout:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RW,c|RW,c|RW,c|RW,c| <--- last page being set as RO
-+	 *   +----+----+----+----+
-+	 *
-+	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |  0 |  0 |  0 |  0 |
-+	 *   +----+----+----+----+
-+	 *
-+	 *  2) __flush_tlb_range():
-+	 *
-+	 *   |____ tlbi + dsb ____|
-+	 *
-+	 *  3) __set_ptes() to repaint as non-contiguous:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RW,n|RW,n|RW,n|RW,n|
-+	 *   +----+----+----+----+
-+	 *
-+	 *  4) Update changed page permissions:
-+	 *
-+	 *   +----+----+----+----+
-+	 *   |RW,n|RW,n|RW,n|RO,n| <--- last page permissions set
-+	 *   +----+----+----+----+
-+	 *
-+	 *  5) The kernel will eventually __flush_tlb() for changed page:
-+	 *
-+	 *                  |____| <--- tlbi + dsb
-+	 *
-+	 * For BBML2, we again remove the intermediate tlbi+dsb. Here, there
-+	 * are no issues, as the final tlbi+dsb covering the changed page is
-+	 * guaranteed to remove the original large contiguous (RW,c) TLB entry,
-+	 * as well as the intermediate (RW,n) TLB entry; the next access will
-+	 * install the new (RO,n) TLB entry and the page tables are only
-+	 * considered "consistent" after the final tlbi+dsb, so software must
-+	 * be prepared for this inconsistency prior to finishing the mm dance
-+	 * regardless.
-+	 */
+ 	if (prueth->is_switch_mode)
+ 		firmwares = prueth->icssg_switch_firmwares;
+-	else if (prueth->is_hsr_offload_mode)
++	else if (prueth->is_hsr_offload_mode && HSR_V1 == prueth->hsr_prp_version)
+ 		firmwares = prueth->icssg_hsr_firmwares;
++	else if (prueth->is_hsr_offload_mode && PRP_V1 == prueth->hsr_prp_version)
++		firmwares = prueth->icssg_prp_firmwares;
+ 	else
+ 		firmwares = prueth->icssg_emac_firmwares;
+ 
+@@ -1527,6 +1529,7 @@ static int prueth_netdevice_event(struct notifier_block *unused,
+ 	struct netdev_notifier_changeupper_info *info;
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+ 	struct prueth *prueth = emac->prueth;
++	enum hsr_version hsr_ndev_version;
+ 	int ret = NOTIFY_DONE;
+ 
+ 	if (ndev->netdev_ops != &emac_netdev_ops)
+@@ -1538,6 +1541,11 @@ static int prueth_netdevice_event(struct notifier_block *unused,
+ 
+ 		if ((ndev->features & NETIF_PRUETH_HSR_OFFLOAD_FEATURES) &&
+ 		    is_hsr_master(info->upper_dev)) {
++			hsr_get_version(info->upper_dev, &hsr_ndev_version);
++			if (hsr_ndev_version != HSR_V1 && hsr_ndev_version != PRP_V1)
++				return -EOPNOTSUPP;
++			prueth->hsr_prp_version = hsr_ndev_version;
 +
-+	if (!system_supports_bbml2_noabort())
-+		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+ 			if (info->linking) {
+ 				if (!prueth->hsr_dev) {
+ 					prueth->hsr_dev = info->upper_dev;
+@@ -1858,6 +1866,8 @@ static int prueth_probe(struct platform_device *pdev)
+ 				  prueth->icssg_switch_firmwares, "eth", "sw");
+ 	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
+ 				  prueth->icssg_hsr_firmwares, "eth", "hsr");
++	icssg_mode_firmware_names(dev, prueth->icssg_emac_firmwares,
++				  prueth->icssg_prp_firmwares, "eth", "prp");
  
- 	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
- }
+ 	spin_lock_init(&prueth->vtbl_lock);
+ 	spin_lock_init(&prueth->stats_lock);
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index c03e3b3626c1..4a9940b12e47 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -13,6 +13,7 @@
+ #include <linux/etherdevice.h>
+ #include <linux/genalloc.h>
+ #include <linux/if_vlan.h>
++#include <linux/if_hsr.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
+ #include <linux/mfd/syscon.h>
+@@ -290,6 +291,7 @@ struct icssg_firmwares {
+  * @vlan_tbl: VLAN-FID table pointer
+  * @hw_bridge_dev: pointer to HW bridge net device
+  * @hsr_dev: pointer to the HSR net device
++ * @hsr_prp_version: enum to store the protocol version of hsr master
+  * @br_members: bitmask of bridge member ports
+  * @hsr_members: bitmask of hsr member ports
+  * @prueth_netdevice_nb: netdevice notifier block
+@@ -332,6 +334,7 @@ struct prueth {
+ 
+ 	struct net_device *hw_bridge_dev;
+ 	struct net_device *hsr_dev;
++	enum hsr_version hsr_prp_version;
+ 	u8 br_members;
+ 	u8 hsr_members;
+ 	struct notifier_block prueth_netdevice_nb;
+@@ -349,6 +352,7 @@ struct prueth {
+ 	struct icssg_firmwares icssg_emac_firmwares[PRUETH_NUM_MACS];
+ 	struct icssg_firmwares icssg_switch_firmwares[PRUETH_NUM_MACS];
+ 	struct icssg_firmwares icssg_hsr_firmwares[PRUETH_NUM_MACS];
++	struct icssg_firmwares icssg_prp_firmwares[PRUETH_NUM_MACS];
+ };
+ 
+ struct emac_tx_ts_response {
 -- 
-2.49.0
+2.34.1
 
 
