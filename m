@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E38C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED88C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0aFrSRyUeb/75jdUmrqfqndWIf0rk5Wfmjw+p/zHH9g=; b=AseXHnmVCMvKP8v65VceWdnkOg
-	DFbuSRXOgxeQJViy4drGY60naYxWOf0jwYDBbNoMpKxklndJX4/H7NsJnzdRwAZ720uyNi3sTD1WU
-	IjsiNLnmFtOJYMhIJIlKM8SW5Cg7bvxW8Mf/EqdrYO3QymyQyWbbqUNlEgf34E0UnsTzCbQx5KjZz
-	ukDLFENfCN9D3Qr609NEOKr0kpQDBB6uNJ32GnxKqgDHKpyxXNEtEh/G+HSHESeQSEHXBd2dNWUnO
-	00TH5hQfjWFAJ8B8yTrIFvZERs3fiCHtS2vBMfMUNY8C0bDaFnbF+wwIZZ9a9cZqtdKUcuv+76+R9
-	DZto8cRw==;
+	bh=lNCQl7rcuff3KZPCZ9rhA0Ol0h+pXTYbt/EeOCFpQ8A=; b=P1zd4gNpb8dkx5a/TTcML1qMrA
+	40DJAGJVeazX2zq25PCKJ2Yh6Qkjm+RC+4p7eq+AKuX1rYKRPzQDM9i/Y43LihkZBUJAPD6QHVMkM
+	6nvRRs2XA5wn97VqvTgM/jlDxRUglJmkB+itwdbgOh0hKkLMPnBIQIb2D608eUFebeTQLw46QCzPW
+	e0OPACtN5sU2Lwr1J2A4YFfOu0HQgb1YLTxEsYeb3walhKQ+nnRmopfdRFlk8MY6TRZdz4Sskqz9Z
+	BFGoaTUTzJ7/5X/x1AVJRsjjKh3NUTHQM8efUK9oCDJHSd3Pl2bBLxU6+qXjLG3Hr1sINNCaqHV/E
+	YHLtMKng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRVu-00000006ZZw-2DlJ;
-	Tue, 17 Jun 2025 08:17:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uRRYE-00000006Zva-1GBV;
+	Tue, 17 Jun 2025 08:20:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRT5-00000006ZCI-090W
+	id 1uRRU1-00000006ZL6-3ka5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 08:14:56 +0000
+	Tue, 17 Jun 2025 08:15:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 966F242B92;
-	Tue, 17 Jun 2025 08:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B63C4CEED;
-	Tue, 17 Jun 2025 08:14:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 54AD8614B1;
+	Tue, 17 Jun 2025 08:15:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C0BEC4CEE3;
+	Tue, 17 Jun 2025 08:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750148094;
-	bh=jWaMeV6lumqYjKja81bLRDGauLViAHSmy9zCTQ+CdzE=;
+	s=k20201202; t=1750148153;
+	bh=fk7f/dwAlQZgX1NDAdsyqWiKhDe3Ny7ZLAxMuT9Ey1U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aiebFnPt5mNFmtfZPVPr3tv89nAL3Z60/172Cv8w6KcCbQmGha03+sQUGpCuQ7Ay4
-	 nuLzFvtw96yTUsk0rvyyrzOWJbQ/oj85LbmUvfw3/m2u1/xPombwmTmUgyjs1Iv3f/
-	 0jCBehmywpaAfhoJnA6dJijINmu5zhijtCIk39W4xp2pUzHroqJOexa1Kcwy9pGYcQ
-	 HLL93RzJOZ4HgC2V8ctmssdoonuGz4qHyb5k8eES4I4WbI4jF/a+CDWPpvqwuHDoH1
-	 3UcrA/N01WaO45sxaOImTjdTfUNV5MlvpZyadWA5z6E7h4JCbjv1uFqqCa1KHCjeDs
-	 7bQUcca6RczqA==
-Date: Tue, 17 Jun 2025 10:14:52 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
-Message-ID: <jgafc7te2zotqwvetudo6c4o4nit6zi3yp4ecg4gka53hrypk5@7ypb5asrc2ct>
-References: <20250617005059.614993-1-marek.vasut+renesas@mailbox.org>
+	b=qcBYmil9r5O3EBpoJ0BbQRjvlMSqAA5PHa5Y+GYe0aRbvCiXSCPO6owyXOPrccGs5
+	 VIkwFIqZ55cM1NZJ5xLZYgXDxGu3ZqXG5PGYhaeC6LW0cK6kvD+Qoa75RXddYQfqIm
+	 +hdGavwnArcWcrwwrfPrzNW6djgn7BjYZyoFBWn05WbXiDcrMkEpFeMgR0BwO+rzwz
+	 OZp+mvnVEKB7CrWw8PNFZ2euCjEOao2ZL7imO+gwOis+2ImQhQuqB6jGhnvfIHtZ7e
+	 /Of9iN5HSskErlb3m5rrkopt3VCletE4ojlET9r9s8A10ISlHBwgKbg8/04nQq3XdS
+	 DhOqBiulVt5ow==
+Date: Tue, 17 Jun 2025 10:15:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+	Roland Stigge <stigge@antcom.de>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/LPC32XX SOC SUPPORT" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev
+Subject: Re: [PATCH v2 1/1] dt-bindings: arm: lpc: add missed lpc43xx board
+Message-ID: <20250617-hound-of-improbable-intensity-e7c3c9@kuoka>
+References: <20250606164012.1363896-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iymm4l7lewpewlx2"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250617005059.614993-1-marek.vasut+renesas@mailbox.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_011455_115620_60128C9F 
-X-CRM114-Status: GOOD (  25.68  )
+In-Reply-To: <20250606164012.1363896-1-Frank.Li@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,148 +72,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---iymm4l7lewpewlx2
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
-MIME-Version: 1.0
-
-Hello Marek,
-
-[Cc: +=3D linux-pwm@vger.kernel.org]
-
-On Tue, Jun 17, 2025 at 02:50:25AM +0200, Marek Vasut wrote:
-> Convert the driver from legacy PWM apply ops to modern waveform ops.
-> There is no functional change.
->=20
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On Fri, Jun 06, 2025 at 12:40:11PM GMT, Frank Li wrote:
+> Add missed legancy lpc43xx board compatible string to fix below CHECK_DTB
+> warnings:
+> arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dtb: /: failed to match any schema with compatible: ['ciaa,lpc4337', 'nxp,lpc4337', 'nxp,lpc4350']
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> Cc: "Uwe Kleine-K=F6nig" <ukleinek@kernel.org>
-> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Cc: Liam Girdwood <lgirdwood@gmail.com>
-> Cc: Mark Brown <broonie@kernel.org>
-> Cc: linux-renesas-soc@vger.kernel.org
+> change in v2
+> - move to nxp lpc32xx.yaml
+> - fix ea,lpc4357-developers-kit include lpc4337
 > ---
->  drivers/regulator/rpi-panel-v2-regulator.c | 50 +++++++++++++++++-----
->  1 file changed, 39 insertions(+), 11 deletions(-)
->=20
-> diff --git a/drivers/regulator/rpi-panel-v2-regulator.c b/drivers/regulat=
-or/rpi-panel-v2-regulator.c
-> index 30b78aa75ee3..be42afc81d72 100644
-> --- a/drivers/regulator/rpi-panel-v2-regulator.c
-> +++ b/drivers/regulator/rpi-panel-v2-regulator.c
-> @@ -35,24 +35,52 @@ static const struct regmap_config rpi_panel_regmap_co=
-nfig =3D {
->  	.can_sleep =3D true,
->  };
-> =20
-> -static int rpi_panel_v2_pwm_apply(struct pwm_chip *chip, struct pwm_devi=
-ce *pwm,
-> -				  const struct pwm_state *state)
-> +static int rpi_panel_v2_pwm_round_waveform_tohw(struct pwm_chip *chip,
-> +						struct pwm_device *pwm,
-> +						const struct pwm_waveform *wf,
-> +						void *_wfhw)
->  {
-> -	struct regmap *regmap =3D pwmchip_get_drvdata(chip);
-> -	unsigned int duty;
-> +	u8 *wfhw =3D _wfhw;
-> +
-> +	*wfhw =3D DIV_ROUND_CLOSEST_ULL(wf->duty_length_ns * PWM_BL_MASK, wf->p=
-eriod_length_ns);
+>  .../devicetree/bindings/arm/nxp/lpc32xx.yaml  | 22 +++++++++++++++++++
+>  1 file changed, 22 insertions(+)
 
-To have this consistent with rpi_panel_v2_pwm_round_waveform_fromhw()
-and not suffer from potential overflow this should be:
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-/* The actual value isn't known, so this is made up. */
-#define RPI_PANEL_V2_FIXED_PERIOD_NS 100000
+Best regards,
+Krzysztof
 
-
-static int rpi_panel_v2_pwm_round_waveform_tohw(...)
-{
-	...
-
-	if (wf->duty_length_ns > RPI_PANEL_V2_FIXED_PERIOD_NS)
-		*wfhw =3D 100;
-	else
-		*wfhw =3D mul_u64_u64_div_u64(wf->duty_length_ns * 100, RPI_PANEL_V2_FIXE=
-D_PERIOD_NS);
-
-	return 0;
-}
-
-> +
-> +	return 0;
-> +}
-> =20
-> -	if (state->polarity !=3D PWM_POLARITY_NORMAL)
-> -		return -EINVAL;
-> +static int rpi_panel_v2_pwm_round_waveform_fromhw(struct pwm_chip *chip,
-> +						  struct pwm_device *pwm,
-> +						  const void *_wfhw,
-> +						  struct pwm_waveform *wf)
-> +{
-> +	const u8 *wfhw =3D _wfhw;
-> +
-> +	/*
-> +	 * These numbers here are utter fabrications, the device is sealed
-> +	 * in metal casing and difficult to take apart and measure, so we
-> +	 * pick some arbitrary values here, values which fit nicely.
-> +	 */
-> +	wf->period_length_ns =3D 100 * 1000;	/* 100 us ~=3D 10 kHz */
-> +	wf->duty_length_ns =3D *wfhw * 1000;	/* 0..100us */
-> +	wf->duty_offset_ns =3D 0;
-> +
-> +	return 0;
-> +}
-> =20
-> -	if (!state->enabled)
-> -		return regmap_write(regmap, REG_PWM, 0);
-> +static int rpi_panel_v2_pwm_write_waveform(struct pwm_chip *chip,
-> +					   struct pwm_device *pwm,
-> +					   const void *_wfhw)
-> +{
-> +	struct regmap *regmap =3D pwmchip_get_drvdata(chip);
-> +	const u8 *wfhw =3D _wfhw;
-> =20
-> -	duty =3D pwm_get_relative_duty_cycle(state, PWM_BL_MASK);
-> -	return regmap_write(regmap, REG_PWM, duty | PWM_BL_ENABLE);
-> +	return regmap_write(regmap, REG_PWM, *wfhw | (*wfhw ? PWM_BL_ENABLE : 0=
-));
-
-How does the PWM behave without PWM_BL_ENABLE set?
-
->  }
-> =20
->  static const struct pwm_ops rpi_panel_v2_pwm_ops =3D {
-> -	.apply =3D rpi_panel_v2_pwm_apply,
-> +	.sizeof_wfhw		=3D sizeof(u8),
-> +	.round_waveform_fromhw	=3D rpi_panel_v2_pwm_round_waveform_fromhw,
-> +	.round_waveform_tohw	=3D rpi_panel_v2_pwm_round_waveform_tohw,
-> +	.write_waveform		=3D rpi_panel_v2_pwm_write_waveform,
-
-Personally I don't like aligning the =3D. If this was a driver in
-drivers/pwm I'd ask you to use a single space before the =3D.
-
-Best regards
-Uwe
-
---iymm4l7lewpewlx2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhRI/kACgkQj4D7WH0S
-/k5KGwgAq3zbHE241ePsg/glbAEk6En81ieCwymmjsOuPNS25XRL8cSrRR7UNklH
-zeVLeFTyS2gfXTg/QDGynx8PmGDJ3TW/1uG9gu7RHSXtnPdZ8gjs6n3Lj+mFFarV
-cSxBB1JT1jjBTI+f9rnL5MBu1bVQK9lifCU07eyxUpivCvLIkNxx0OvBQa3KBEW5
-a9tIWMUWMb1aiDya9YFaOGWC05t9BFV3tPYJQ1PGgM+NYiuHYOEM2klstfpFkONP
-3EYh9sHpRWzddiLCH+WxIqraDCZusBU9I2ikAxTXV+U6dMZ9S6dE95bbnP3QUCmT
-g+JfWsbLAZHzC/lGvoakrbJQc9/G9g==
-=SHh+
------END PGP SIGNATURE-----
-
---iymm4l7lewpewlx2--
 
