@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F64C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71095C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5CV2QSi8U9knIHqChlSrYvj24SpGCRqyRTYUoGi00e0=; b=YHcW/fH2ImdA6XcKytDfc2C34k
-	Sb6Xr0baqyA0E0TGBLlNlUqrxSZVO3OcRLOwuxeB+vOeRT7nA1oAL02CQPLNT3Z/zz8u/jYTjsfnf
-	h2sk3harkVDf1Xi5GCczkr6D8tpb8FpsB66nxwpAUXKurW/bdsRfPwZH6tLTwyb/VDfD/HqwPkcBa
-	x3J3+nayGnsauapnmeESrmIdU5eKpgnzco/+h2uByTaYBxQzWRKfB5U894i7HGVFzzGqrYOwJ0f+Q
-	SSGLsHXy/8vPxLAvGYGxptSa37bRtjpEOHj4bSXHji+kEL+vgce62t9+RXqoa84otq19CjHje/joh
-	LC+Q5Zmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ux7JJQ3evden8hI4iHg2VbSrtviiGf6Ivbk8QcbJNMU=; b=fh19zO3QQyJmbKwiEaMyZeRV45
+	vzQGGTvCe99U5p5wwveMwYqgku4/Qtr7zvgKkBfIQUuPZOPvapLfGKEBRgPxfl0PXXoiXgsCwOUEo
+	ejWwmpWLWAISaXhqstGNMadimLopjoiIQmCcW+SqZoXYR0IFoSDoAa3JrqebS/Mji/S0Th2RgttEo
+	iAND+W5zIyLdDUrkVWMsN5K9suiRMUrtP2LV7UHa5qHpLjv0Ozk8ewQcpa/QEOtXCeHSiCGVkmK23
+	8nu0mS2JEVZ/eZnrerACr7tqQh1kIJ1bVkXAiwgrL4OrMERhvX+v0qP9nBtJtc2CRIIiiVvz+1CH+
+	0t5/XVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTn5-00000006xAJ-10jk;
-	Tue, 17 Jun 2025 10:43:43 +0000
-Received: from esa9.hc1455-7.c3s2.iphmx.com ([139.138.36.223])
+	id 1uRTpL-00000006xLy-41Su;
+	Tue, 17 Jun 2025 10:46:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTZ5-00000006vKz-2xBZ
+	id 1uRTdX-00000006vu7-2Yhn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 10:29:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1750156155; x=1781692155;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=8c0JbVbQKFNd8lk0HuJzK6Df9tcOCVq82qApK/vYu24=;
-  b=cUlrMPwhp9bv+WCDUHQ8l8525UTm0uUjBsIZHahhdyEFiNU91hLZGSdw
-   S5seIIEeutm+sj5Bj5HfqJMfW/BDt0lIfsG7TNTkIK0EnYeCy3z7pM3gQ
-   7rwiKj5udHML8zhpauI19VcrmhU+QRZ17aVsQhqNfE7mJ/+yifaOutKV+
-   tUMVezLX4nFmlvkUu5QJjKRMJR1briJVpKQvKcW8AZn2rvE2ERhfoF3qe
-   CFNdwR45oIy6MotpQKto7BiMYjtgdYOsavdZTEvnhYrQFx/c8OVMDLsyg
-   p9ZvMDPwVgBhbiqXuzru7o5ThypOYP6nItoJxppI5LvoqvkMehXPq27ni
-   Q==;
-X-CSE-ConnectionGUID: CEBXTwX0Q3aSlvqXKce0LQ==
-X-CSE-MsgGUID: klwBJkfKRRW4h6W3qb5LCw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11465"; a="191451084"
-X-IronPort-AV: E=Sophos;i="6.16,243,1744038000"; 
-   d="scan'208";a="191451084"
-Received: from unknown (HELO yto-r1.gw.nic.fujitsu.com) ([218.44.52.217])
-  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jun 2025 19:29:12 +0900
-Received: from yto-m4.gw.nic.fujitsu.com (yto-nat-yto-m4.gw.nic.fujitsu.com [192.168.83.67])
-	by yto-r1.gw.nic.fujitsu.com (Postfix) with ESMTP id 16A95D9450
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 19:29:10 +0900 (JST)
-Received: from oym-om2.fujitsu.com (oym-om2.o.css.fujitsu.com [10.85.58.162])
-	by yto-m4.gw.nic.fujitsu.com (Postfix) with ESMTP id C758BD4F6E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 19:29:09 +0900 (JST)
-Received: from sm-arm-grace07.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	by oym-om2.fujitsu.com (Postfix) with ESMTP id 128E340045BEB;
-	Tue, 17 Jun 2025 19:29:09 +0900 (JST)
-From: Koichi Okuno <fj2767dz@fujitsu.com>
-To: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Tue, 17 Jun 2025 10:33:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D6E50629F8;
+	Tue, 17 Jun 2025 10:33:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B448EC4CEED;
+	Tue, 17 Jun 2025 10:33:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750156430;
+	bh=GibPsIlevxOfBKYBxrjjiAzIV3pxJcH/cpEFN0tFDJw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eVZDOWhSrzsOO+Q6iLrPDPzXqzUKdvp6D+1evTRfwD9bG9b9hfLa3qXtKO2OnlqNW
+	 rrUfXlPuzqCxeP71ZfC73NjxK/IvTqa4aLQACNktsIYsu9soE+WvQlXlQwloynuY0v
+	 pmt5FfeD9+pKmbC2SCEswA5yf0QI3SeXBnDhCDdyMeKP8bHHmtjvMktBL2VGI0Xbmc
+	 GVTddYEeY9NI9LuW27LxxdLZRiiJnTwpN9Tkiw7kSqERHEACHzDzytOb8AqeoPScmV
+	 wruoFg7o3n7HkFu0FfPGjmrfmaKmLEYpENG9j+VgYrD6dn98JeH/3IM2zvb7jD8/oj
+	 RuTnSS9EQUNBw==
+Date: Tue, 17 Jun 2025 16:03:40 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
 	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Koichi Okuno <fj2767dz@fujitsu.com>
-Subject: [PATCH v5 2/2] perf: Fujitsu: Add the Uncore PCI PMU driver
-Date: Tue, 17 Jun 2025 19:27:50 +0900
-Message-ID: <20250617102819.3685543-3-fj2767dz@fujitsu.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250617102819.3685543-1-fj2767dz@fujitsu.com>
-References: <20250617102819.3685543-1-fj2767dz@fujitsu.com>
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+	robin.murphy@arm.com
+Subject: Re: [PATCH v10 3/9] tee: implement protected DMA-heap
+Message-ID: <aFFEhOe_pvZ5P2cL@sumit-X1>
+References: <20250610131600.2972232-1-jens.wiklander@linaro.org>
+ <20250610131600.2972232-4-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_032916_207575_A74A8BF7 
-X-CRM114-Status: GOOD (  32.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610131600.2972232-4-jens.wiklander@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,688 +86,679 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds two new dynamic PMUs to the Perf Events framework to program
-and control the Uncore PCI PMUs in Fujitsu chips.
+On Tue, Jun 10, 2025 at 03:13:47PM +0200, Jens Wiklander wrote:
+> Implement DMA heap for protected DMA-buf allocation in the TEE
+> subsystem.
+> 
+> Protected memory refers to memory buffers behind a hardware enforced
+> firewall. It is not accessible to the kernel during normal circumstances
+> but rather only accessible to certain hardware IPs or CPUs executing in
+> higher or differently privileged mode than the kernel itself. This
+> interface allows to allocate and manage such protected memory buffers
+> via interaction with a TEE implementation.
+> 
+> The protected memory is allocated for a specific use-case, like Secure
+> Video Playback, Trusted UI, or Secure Video Recording where certain
+> hardware devices can access the memory.
+> 
+> The DMA-heaps are enabled explicitly by the TEE backend driver. The TEE
+> backend drivers needs to implement protected memory pool to manage the
+> protected memory.
+> 
+> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> ---
+>  drivers/tee/Kconfig       |   5 +
+>  drivers/tee/Makefile      |   1 +
+>  drivers/tee/tee_heap.c    | 472 ++++++++++++++++++++++++++++++++++++++
+>  drivers/tee/tee_private.h |   6 +
+>  include/linux/tee_core.h  |  65 ++++++
+>  5 files changed, 549 insertions(+)
+>  create mode 100644 drivers/tee/tee_heap.c
+> 
+> diff --git a/drivers/tee/Kconfig b/drivers/tee/Kconfig
+> index 61b507c18780..90600607a9d8 100644
+> --- a/drivers/tee/Kconfig
+> +++ b/drivers/tee/Kconfig
+> @@ -13,6 +13,11 @@ menuconfig TEE
+>  
+>  if TEE
+>  
+> +config TEE_DMABUF_HEAPS
+> +	bool
+> +	depends on HAS_DMA && DMABUF_HEAPS
+> +	default y
+> +
+>  source "drivers/tee/optee/Kconfig"
+>  source "drivers/tee/amdtee/Kconfig"
+>  source "drivers/tee/tstee/Kconfig"
+> diff --git a/drivers/tee/Makefile b/drivers/tee/Makefile
+> index 5488cba30bd2..949a6a79fb06 100644
+> --- a/drivers/tee/Makefile
+> +++ b/drivers/tee/Makefile
+> @@ -1,6 +1,7 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-$(CONFIG_TEE) += tee.o
+>  tee-objs += tee_core.o
+> +tee-objs += tee_heap.o
+>  tee-objs += tee_shm.o
+>  tee-objs += tee_shm_pool.o
+>  obj-$(CONFIG_OPTEE) += optee/
+> diff --git a/drivers/tee/tee_heap.c b/drivers/tee/tee_heap.c
+> new file mode 100644
+> index 000000000000..7788381a76cb
+> --- /dev/null
+> +++ b/drivers/tee/tee_heap.c
+> @@ -0,0 +1,472 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025, Linaro Limited
+> + */
+> +
+> +#include <linux/dma-buf.h>
+> +#include <linux/dma-heap.h>
+> +#include <linux/genalloc.h>
+> +#include <linux/module.h>
+> +#include <linux/scatterlist.h>
+> +#include <linux/slab.h>
+> +#include <linux/tee_core.h>
+> +#include <linux/xarray.h>
+> +
+> +#include "tee_private.h"
+> +
+> +struct tee_dma_heap {
+> +	struct dma_heap *heap;
+> +	enum tee_dma_heap_id id;
+> +	struct tee_protmem_pool *pool;
+> +	struct tee_device *teedev;
+> +	/* Protects pool and teedev above */
+> +	struct mutex mu;
+> +};
+> +
+> +struct tee_heap_buffer {
+> +	struct tee_protmem_pool *pool;
+> +	struct tee_device *teedev;
+> +	size_t size;
+> +	size_t offs;
+> +	struct sg_table table;
+> +};
+> +
+> +struct tee_heap_attachment {
+> +	struct sg_table table;
+> +	struct device *dev;
+> +};
+> +
+> +struct tee_protmem_static_pool {
+> +	struct tee_protmem_pool pool;
+> +	struct gen_pool *gen_pool;
+> +	phys_addr_t pa_base;
+> +};
+> +
+> +#if IS_ENABLED(CONFIG_TEE_DMABUF_HEAPS)
+> +static DEFINE_XARRAY_ALLOC(tee_dma_heap);
+> +
+> +static int copy_sg_table(struct sg_table *dst, struct sg_table *src)
+> +{
+> +	struct scatterlist *dst_sg;
+> +	struct scatterlist *src_sg;
+> +	int ret;
+> +	int i;
+> +
+> +	ret = sg_alloc_table(dst, src->orig_nents, GFP_KERNEL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dst_sg = dst->sgl;
+> +	for_each_sgtable_sg(src, src_sg, i) {
+> +		sg_set_page(dst_sg, sg_page(src_sg), src_sg->length,
+> +			    src_sg->offset);
+> +		dst_sg = sg_next(dst_sg);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int tee_heap_attach(struct dma_buf *dmabuf,
+> +			   struct dma_buf_attachment *attachment)
+> +{
+> +	struct tee_heap_buffer *buf = dmabuf->priv;
+> +	struct tee_heap_attachment *a;
+> +	int ret;
+> +
+> +	a = kzalloc(sizeof(*a), GFP_KERNEL);
+> +	if (!a)
+> +		return -ENOMEM;
+> +
+> +	ret = copy_sg_table(&a->table, &buf->table);
+> +	if (ret) {
+> +		kfree(a);
+> +		return ret;
+> +	}
+> +
+> +	a->dev = attachment->dev;
+> +	attachment->priv = a;
+> +
+> +	return 0;
+> +}
+> +
+> +static void tee_heap_detach(struct dma_buf *dmabuf,
+> +			    struct dma_buf_attachment *attachment)
+> +{
+> +	struct tee_heap_attachment *a = attachment->priv;
+> +
+> +	sg_free_table(&a->table);
+> +	kfree(a);
+> +}
+> +
+> +static struct sg_table *
+> +tee_heap_map_dma_buf(struct dma_buf_attachment *attachment,
+> +		     enum dma_data_direction direction)
+> +{
+> +	struct tee_heap_attachment *a = attachment->priv;
+> +	int ret;
+> +
+> +	ret = dma_map_sgtable(attachment->dev, &a->table, direction,
+> +			      DMA_ATTR_SKIP_CPU_SYNC);
+> +	if (ret)
+> +		return ERR_PTR(ret);
+> +
+> +	return &a->table;
+> +}
+> +
+> +static void tee_heap_unmap_dma_buf(struct dma_buf_attachment *attachment,
+> +				   struct sg_table *table,
+> +				   enum dma_data_direction direction)
+> +{
+> +	struct tee_heap_attachment *a = attachment->priv;
+> +
+> +	WARN_ON(&a->table != table);
+> +
+> +	dma_unmap_sgtable(attachment->dev, table, direction,
+> +			  DMA_ATTR_SKIP_CPU_SYNC);
+> +}
+> +
+> +static void tee_heap_buf_free(struct dma_buf *dmabuf)
+> +{
+> +	struct tee_heap_buffer *buf = dmabuf->priv;
+> +	struct tee_device *teedev = buf->teedev;
+> +
+> +	buf->pool->ops->free(buf->pool, &buf->table);
+> +	tee_device_put(teedev);
+> +}
+> +
+> +static const struct dma_buf_ops tee_heap_buf_ops = {
+> +	.attach = tee_heap_attach,
+> +	.detach = tee_heap_detach,
+> +	.map_dma_buf = tee_heap_map_dma_buf,
+> +	.unmap_dma_buf = tee_heap_unmap_dma_buf,
+> +	.release = tee_heap_buf_free,
+> +};
+> +
+> +static struct dma_buf *tee_dma_heap_alloc(struct dma_heap *heap,
+> +					  unsigned long len, u32 fd_flags,
+> +					  u64 heap_flags)
+> +{
+> +	struct tee_dma_heap *h = dma_heap_get_drvdata(heap);
+> +	DEFINE_DMA_BUF_EXPORT_INFO(exp_info);
+> +	struct tee_device *teedev = NULL;
+> +	struct tee_heap_buffer *buf;
+> +	struct tee_protmem_pool *pool;
+> +	struct dma_buf *dmabuf;
+> +	int rc;
+> +
+> +	mutex_lock(&h->mu);
+> +	if (tee_device_get(h->teedev)) {
+> +		teedev = h->teedev;
+> +		pool = h->pool;
+> +	}
+> +	mutex_unlock(&h->mu);
+> +
+> +	if (!teedev)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	buf = kzalloc(sizeof(*buf), GFP_KERNEL);
+> +	if (!buf) {
+> +		dmabuf = ERR_PTR(-ENOMEM);
+> +		goto err;
+> +	}
+> +	buf->size = len;
+> +	buf->pool = pool;
+> +	buf->teedev = teedev;
+> +
+> +	rc = pool->ops->alloc(pool, &buf->table, len, &buf->offs);
+> +	if (rc) {
+> +		dmabuf = ERR_PTR(rc);
+> +		goto err_kfree;
+> +	}
+> +
+> +	exp_info.ops = &tee_heap_buf_ops;
+> +	exp_info.size = len;
+> +	exp_info.priv = buf;
+> +	exp_info.flags = fd_flags;
+> +	dmabuf = dma_buf_export(&exp_info);
+> +	if (IS_ERR(dmabuf))
+> +		goto err_protmem_free;
+> +
+> +	return dmabuf;
+> +
+> +err_protmem_free:
+> +	pool->ops->free(pool, &buf->table);
+> +err_kfree:
+> +	kfree(buf);
+> +err:
+> +	tee_device_put(h->teedev);
+> +	return dmabuf;
+> +}
+> +
+> +static const struct dma_heap_ops tee_dma_heap_ops = {
+> +	.allocate = tee_dma_heap_alloc,
+> +};
+> +
+> +static const char *heap_id_2_name(enum tee_dma_heap_id id)
+> +{
+> +	switch (id) {
+> +	case TEE_DMA_HEAP_SECURE_VIDEO_PLAY:
+> +		return "protected,secure-video";
+> +	case TEE_DMA_HEAP_TRUSTED_UI:
+> +		return "protected,trusted-ui";
+> +	case TEE_DMA_HEAP_SECURE_VIDEO_RECORD:
+> +		return "protected,secure-video-record";
+> +	default:
+> +		return NULL;
+> +	}
+> +}
+> +
+> +static int alloc_dma_heap(struct tee_device *teedev, enum tee_dma_heap_id id,
+> +			  struct tee_protmem_pool *pool)
+> +{
+> +	struct dma_heap_export_info exp_info = {
+> +		.ops = &tee_dma_heap_ops,
+> +		.name = heap_id_2_name(id),
+> +	};
+> +	struct tee_dma_heap *h;
+> +	int rc;
+> +
+> +	if (!exp_info.name)
+> +		return -EINVAL;
+> +
+> +	if (xa_reserve(&tee_dma_heap, id, GFP_KERNEL)) {
+> +		if (!xa_load(&tee_dma_heap, id))
+> +			return -EEXIST;
+> +		return -ENOMEM;
+> +	}
+> +
+> +	h = kzalloc(sizeof(*h), GFP_KERNEL);
+> +	if (!h)
+> +		return -ENOMEM;
+> +	h->id = id;
+> +	h->teedev = teedev;
+> +	h->pool = pool;
+> +	mutex_init(&h->mu);
+> +
+> +	exp_info.priv = h;
+> +	h->heap = dma_heap_add(&exp_info);
+> +	if (IS_ERR(h->heap)) {
+> +		rc = PTR_ERR(h->heap);
+> +		kfree(h);
+> +
+> +		return rc;
+> +	}
+> +
+> +	/* "can't fail" due to the call to xa_reserve() above */
+> +	return WARN_ON(xa_is_err(xa_store(&tee_dma_heap, id, h, GFP_KERNEL)));
+> +}
+> +
+> +int tee_device_register_dma_heap(struct tee_device *teedev,
+> +				 enum tee_dma_heap_id id,
+> +				 struct tee_protmem_pool *pool)
+> +{
+> +	struct tee_dma_heap *h;
+> +	int rc;
+> +
+> +	h = xa_load(&tee_dma_heap, id);
+> +	if (h) {
+> +		mutex_lock(&h->mu);
+> +		if (h->teedev) {
+> +			rc = -EBUSY;
+> +		} else {
+> +			h->teedev = teedev;
+> +			h->pool = pool;
+> +			rc = 0;
+> +		}
+> +		mutex_unlock(&h->mu);
+> +	} else {
+> +		rc = alloc_dma_heap(teedev, id, pool);
+> +	}
+> +
+> +	if (rc)
+> +		dev_err(&teedev->dev, "can't register DMA heap id %d (%s)\n",
+> +			id, heap_id_2_name(id));
+> +
+> +	return rc;
+> +}
+> +EXPORT_SYMBOL_GPL(tee_device_register_dma_heap);
+> +
+> +void tee_device_unregister_all_dma_heaps(struct tee_device *teedev)
+> +{
+> +	struct tee_protmem_pool *pool;
+> +	struct tee_dma_heap *h;
+> +	u_long i;
+> +
+> +	xa_for_each(&tee_dma_heap, i, h) {
+> +		if (h) {
+> +			pool = NULL;
+> +			mutex_lock(&h->mu);
+> +			if (h->teedev == teedev) {
+> +				pool = h->pool;
+> +				h->teedev = NULL;
+> +				h->pool = NULL;
+> +			}
+> +			mutex_unlock(&h->mu);
+> +			if (pool)
+> +				pool->ops->destroy_pool(pool);
+> +		}
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(tee_device_unregister_all_dma_heaps);
+> +
+> +int tee_heap_update_from_dma_buf(struct tee_device *teedev,
+> +				 struct dma_buf *dmabuf, size_t *offset,
+> +				 struct tee_shm *shm,
+> +				 struct tee_shm **parent_shm)
+> +{
+> +	struct tee_heap_buffer *buf;
+> +	int rc;
+> +
+> +	/* The DMA-buf must be from our heap */
+> +	if (dmabuf->ops != &tee_heap_buf_ops)
+> +		return -EINVAL;
+> +
+> +	buf = dmabuf->priv;
+> +	/* The buffer must be from the same teedev */
+> +	if (buf->teedev != teedev)
+> +		return -EINVAL;
+> +
+> +	shm->size = buf->size;
+> +
+> +	rc = buf->pool->ops->update_shm(buf->pool, &buf->table, buf->offs, shm,
+> +					parent_shm);
+> +	if (!rc && *parent_shm)
+> +		*offset = buf->offs;
+> +
+> +	return rc;
+> +}
+> +#else
+> +int tee_device_register_dma_heap(struct tee_device *teedev __always_unused,
+> +				 enum tee_dma_heap_id id __always_unused,
+> +				 struct tee_protmem_pool *pool __always_unused)
+> +{
+> +	return -EINVAL;
+> +}
+> +EXPORT_SYMBOL_GPL(tee_device_register_dma_heap);
+> +
+> +void
+> +tee_device_unregister_all_dma_heaps(struct tee_device *teedev __always_unused)
+> +{
+> +}
+> +EXPORT_SYMBOL_GPL(tee_device_unregister_all_dma_heaps);
+> +
+> +int tee_heap_update_from_dma_buf(struct tee_device *teedev __always_unused,
+> +				 struct dma_buf *dmabuf __always_unused,
+> +				 size_t *offset __always_unused,
+> +				 struct tee_shm *shm __always_unused,
+> +				 struct tee_shm **parent_shm __always_unused)
+> +{
+> +	return -EINVAL;
+> +}
+> +#endif
+> +
+> +static struct tee_protmem_static_pool *
+> +to_protmem_static_pool(struct tee_protmem_pool *pool)
+> +{
+> +	return container_of(pool, struct tee_protmem_static_pool, pool);
+> +}
+> +
+> +static int protmem_pool_op_static_alloc(struct tee_protmem_pool *pool,
+> +					struct sg_table *sgt, size_t size,
+> +					size_t *offs)
+> +{
+> +	struct tee_protmem_static_pool *stp = to_protmem_static_pool(pool);
+> +	phys_addr_t pa;
+> +	int ret;
+> +
+> +	pa = gen_pool_alloc(stp->gen_pool, size);
+> +	if (!pa)
+> +		return -ENOMEM;
+> +
+> +	ret = sg_alloc_table(sgt, 1, GFP_KERNEL);
+> +	if (ret) {
+> +		gen_pool_free(stp->gen_pool, pa, size);
+> +		return ret;
+> +	}
+> +
+> +	sg_set_page(sgt->sgl, phys_to_page(pa), size, 0);
+> +	*offs = pa - stp->pa_base;
+> +
+> +	return 0;
+> +}
+> +
+> +static void protmem_pool_op_static_free(struct tee_protmem_pool *pool,
+> +					struct sg_table *sgt)
+> +{
+> +	struct tee_protmem_static_pool *stp = to_protmem_static_pool(pool);
+> +	struct scatterlist *sg;
+> +	int i;
+> +
+> +	for_each_sgtable_sg(sgt, sg, i)
+> +		gen_pool_free(stp->gen_pool, sg_phys(sg), sg->length);
+> +	sg_free_table(sgt);
+> +}
+> +
+> +static int protmem_pool_op_static_update_shm(struct tee_protmem_pool *pool,
+> +					     struct sg_table *sgt, size_t offs,
+> +					     struct tee_shm *shm,
+> +					     struct tee_shm **parent_shm)
+> +{
+> +	struct tee_protmem_static_pool *stp = to_protmem_static_pool(pool);
+> +
+> +	shm->paddr = stp->pa_base + offs;
+> +	*parent_shm = NULL;
+> +
+> +	return 0;
+> +}
+> +
+> +static void protmem_pool_op_static_destroy_pool(struct tee_protmem_pool *pool)
+> +{
+> +	struct tee_protmem_static_pool *stp = to_protmem_static_pool(pool);
+> +
+> +	gen_pool_destroy(stp->gen_pool);
+> +	kfree(stp);
+> +}
+> +
+> +static struct tee_protmem_pool_ops protmem_pool_ops_static = {
+> +	.alloc = protmem_pool_op_static_alloc,
+> +	.free = protmem_pool_op_static_free,
+> +	.update_shm = protmem_pool_op_static_update_shm,
+> +	.destroy_pool = protmem_pool_op_static_destroy_pool,
+> +};
+> +
+> +struct tee_protmem_pool *tee_protmem_static_pool_alloc(phys_addr_t paddr,
+> +						       size_t size)
+> +{
+> +	const size_t page_mask = PAGE_SIZE - 1;
+> +	struct tee_protmem_static_pool *stp;
+> +	int rc;
+> +
+> +	/* Check it's page aligned */
+> +	if ((paddr | size) & page_mask)
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	if (!pfn_valid(PHYS_PFN(paddr)))
+> +		return ERR_PTR(-EINVAL);
+> +
+> +	stp = kzalloc(sizeof(*stp), GFP_KERNEL);
+> +	if (!stp)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	stp->gen_pool = gen_pool_create(PAGE_SHIFT, -1);
+> +	if (!stp->gen_pool) {
+> +		rc = -ENOMEM;
+> +		goto err_free;
+> +	}
+> +
+> +	rc = gen_pool_add(stp->gen_pool, paddr, size, -1);
+> +	if (rc)
+> +		goto err_free_pool;
+> +
+> +	stp->pool.ops = &protmem_pool_ops_static;
+> +	stp->pa_base = paddr;
+> +	return &stp->pool;
+> +
+> +err_free_pool:
+> +	gen_pool_destroy(stp->gen_pool);
+> +err_free:
+> +	kfree(stp);
+> +
+> +	return ERR_PTR(rc);
+> +}
+> +EXPORT_SYMBOL_GPL(tee_protmem_static_pool_alloc);
+> diff --git a/drivers/tee/tee_private.h b/drivers/tee/tee_private.h
+> index 9bc50605227c..6c6ff5d5eed2 100644
+> --- a/drivers/tee/tee_private.h
+> +++ b/drivers/tee/tee_private.h
+> @@ -8,6 +8,7 @@
+>  #include <linux/cdev.h>
+>  #include <linux/completion.h>
+>  #include <linux/device.h>
+> +#include <linux/dma-buf.h>
+>  #include <linux/kref.h>
+>  #include <linux/mutex.h>
+>  #include <linux/types.h>
+> @@ -24,4 +25,9 @@ struct tee_shm *tee_shm_alloc_user_buf(struct tee_context *ctx, size_t size);
+>  struct tee_shm *tee_shm_register_user_buf(struct tee_context *ctx,
+>  					  unsigned long addr, size_t length);
+>  
+> +int tee_heap_update_from_dma_buf(struct tee_device *teedev,
+> +				 struct dma_buf *dmabuf, size_t *offset,
+> +				 struct tee_shm *shm,
+> +				 struct tee_shm **parent_shm);
+> +
+>  #endif /*TEE_PRIVATE_H*/
+> diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
+> index a38494d6b5f4..22e03d897dc3 100644
+> --- a/include/linux/tee_core.h
+> +++ b/include/linux/tee_core.h
+> @@ -8,9 +8,11 @@
+>  
+>  #include <linux/cdev.h>
+>  #include <linux/device.h>
+> +#include <linux/dma-buf.h>
+>  #include <linux/idr.h>
+>  #include <linux/kref.h>
+>  #include <linux/list.h>
+> +#include <linux/scatterlist.h>
+>  #include <linux/tee.h>
+>  #include <linux/tee_drv.h>
+>  #include <linux/types.h>
+> @@ -30,6 +32,12 @@
+>  #define TEE_DEVICE_FLAG_REGISTERED	0x1
+>  #define TEE_MAX_DEV_NAME_LEN		32
+>  
+> +enum tee_dma_heap_id {
+> +	TEE_DMA_HEAP_SECURE_VIDEO_PLAY = 1,
+> +	TEE_DMA_HEAP_TRUSTED_UI,
+> +	TEE_DMA_HEAP_SECURE_VIDEO_RECORD,
+> +};
+> +
+>  /**
+>   * struct tee_device - TEE Device representation
+>   * @name:	name of device
+> @@ -116,6 +124,36 @@ struct tee_desc {
+>  	u32 flags;
+>  };
+>  
+> +/**
+> + * struct tee_protmem_pool - protected memory pool
+> + * @ops:		operations
+> + *
+> + * This is an abstract interface where this struct is expected to be
+> + * embedded in another struct specific to the implementation.
+> + */
+> +struct tee_protmem_pool {
+> +	const struct tee_protmem_pool_ops *ops;
+> +};
+> +
+> +/**
+> + * struct tee_protmem_pool_ops - protected memory pool operations
+> + * @alloc:		called when allocating protected memory
+> + * @free:		called when freeing protected memory
+> + * @update_shm:		called when registering a dma-buf to update the @shm
+> + *			with physical address of the buffer or to return the
+> + *			@parent_shm of the memory pool
+> + * @destroy_pool:	called when destroying the pool
+> + */
+> +struct tee_protmem_pool_ops {
+> +	int (*alloc)(struct tee_protmem_pool *pool, struct sg_table *sgt,
+> +		     size_t size, size_t *offs);
+> +	void (*free)(struct tee_protmem_pool *pool, struct sg_table *sgt);
+> +	int (*update_shm)(struct tee_protmem_pool *pool, struct sg_table *sgt,
+> +			  size_t offs, struct tee_shm *shm,
+> +			  struct tee_shm **parent_shm);
+> +	void (*destroy_pool)(struct tee_protmem_pool *pool);
+> +};
+> +
+>  /**
+>   * tee_device_alloc() - Allocate a new struct tee_device instance
+>   * @teedesc:	Descriptor for this driver
+> @@ -154,6 +192,11 @@ int tee_device_register(struct tee_device *teedev);
+>   */
+>  void tee_device_unregister(struct tee_device *teedev);
+>  
+> +int tee_device_register_dma_heap(struct tee_device *teedev,
+> +				 enum tee_dma_heap_id id,
+> +				 struct tee_protmem_pool *pool);
+> +void tee_device_unregister_all_dma_heaps(struct tee_device *teedev);
+> +
+>  /**
+>   * tee_device_set_dev_groups() - Set device attribute groups
+>   * @teedev:	Device to register
+> @@ -229,6 +272,28 @@ static inline void tee_shm_pool_free(struct tee_shm_pool *pool)
+>  	pool->ops->destroy_pool(pool);
+>  }
+>  
+> +/**
+> + * tee_protmem_static_pool_alloc() - Create a protected memory manager
+> + * @paddr:	Physical address of start of pool
+> + * @size:	Size in bytes of the pool
+> + *
+> + * @returns pointer to a 'struct tee_protmem_pool' or an ERR_PTR on failure.
+> + */
+> +struct tee_protmem_pool *tee_protmem_static_pool_alloc(phys_addr_t paddr,
+> +						       size_t size);
+> +
+> +/**
+> + * tee_protmem_pool_free() - Free a protected memory pool
+> + * @pool:	The protected memory pool to free
+> + *
+> + * There must be no remaining protected memory allocated from this pool
+> + * when this function is called.
+> + */
+> +static inline void tee_protmem_pool_free(struct tee_protmem_pool *pool)
+> +{
+> +	pool->ops->destroy_pool(pool);
+> +}
 
-These drivers were created with reference to drivers/perf/qcom_l3_pmu.c.
+I don't see this API being used anywhere, with this dropped feel free to
+add:
 
-These drivers export formatting and event information to sysfs so they can
-be used by the perf user space tools with the syntaxes:
+Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 
-perf stat -e pci_iod0_pci0/ea-pci/ ls
-perf stat -e pci_iod0_pci0/event=0x80/ ls
+-Sumit
 
-FUJITSU-MONAKA PMU Events Specification v1.1 URL:
-https://github.com/fujitsu/FUJITSU-MONAKA
-
-Signed-off-by: Koichi Okuno <fj2767dz@fujitsu.com>
----
- .../admin-guide/perf/fujitsu_pci_pmu.rst      |  50 ++
- Documentation/admin-guide/perf/index.rst      |   1 +
- drivers/perf/Kconfig                          |   9 +
- drivers/perf/Makefile                         |   1 +
- drivers/perf/fujitsu_pci_pmu.c                | 553 ++++++++++++++++++
- 5 files changed, 614 insertions(+)
- create mode 100644 Documentation/admin-guide/perf/fujitsu_pci_pmu.rst
- create mode 100644 drivers/perf/fujitsu_pci_pmu.c
-
-diff --git a/Documentation/admin-guide/perf/fujitsu_pci_pmu.rst b/Documentation/admin-guide/perf/fujitsu_pci_pmu.rst
-new file mode 100644
-index 000000000000..117cefc4d185
---- /dev/null
-+++ b/Documentation/admin-guide/perf/fujitsu_pci_pmu.rst
-@@ -0,0 +1,50 @@
-+====================================================
-+Fujitsu Uncore PCI Performance Monitoring Unit (PMU)
-+====================================================
-+
-+This driver supports the Uncore PCI PMUs found in Fujitsu chips.
-+Each PCI PMU on these chips is exposed as a uncore perf PMU with device name
-+pci_iod<iod>_pci<pci>.
-+
-+The driver provides a description of its available events and configuration
-+options in sysfs, see /sys/bus/event_sources/devices/pci_iod<iod>_pci<pci>/.
-+This driver exports:
-+- formats, used by perf user space and other tools to configure events
-+- events, used by perf user space and other tools to create events
-+  symbolically, e.g.:
-+    perf stat -a -e pci_iod0_pci0/event=0x24/ ls
-+- cpumask, used by perf user space and other tools to know on which CPUs
-+  to open the events
-+
-+This driver supports the following events:
-+- pci-port0-cycles
-+  This event counts PCI cycles at PCI frequency in port0.
-+- pci-port0-read-count
-+  This event counts read transactions for data transfer in port0.
-+- pci-port0-read-count-bus
-+  This event counts read transactions for bus usage in port0.
-+- pci-port0-write-count
-+  This event counts write transactions for data transfer in port0.
-+- pci-port0-write-count-bus
-+  This event counts write transactions for bus usage in port0.
-+- pci-port1-cycles
-+  This event counts PCI cycles at PCI frequency in port1.
-+- pci-port1-read-count
-+  This event counts read transactions for data transfer in port1.
-+- pci-port1-read-count-bus
-+  This event counts read transactions for bus usage in port1.
-+- pci-port1-write-count
-+  This event counts write transactions for data transfer in port1.
-+- pci-port1-write-count-bus
-+  This event counts write transactions for bus usage in port1.
-+- ea-pci
-+  This event counts energy consumption of PCI.
-+
-+  'ea' is the abbreviation for 'Energy Analyzer'.
-+
-+Examples for use with perf::
-+
-+  perf stat -e pci_iod0_pci0/ea-pci/ ls
-+
-+Given that these are uncore PMUs the driver does not support sampling, therefore
-+"perf record" will not work. Per-task perf sessions are not supported.
-diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
-index e0262060db17..50cc039ad702 100644
---- a/Documentation/admin-guide/perf/index.rst
-+++ b/Documentation/admin-guide/perf/index.rst
-@@ -30,3 +30,4 @@ Performance monitor support
-    ampere_cspmu
-    mrvl-pem-pmu
-    fujitsu_mac_pmu
-+   fujitsu_pci_pmu
-diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index 269bf72a512a..f8084fe2ccaf 100644
---- a/drivers/perf/Kconfig
-+++ b/drivers/perf/Kconfig
-@@ -187,6 +187,15 @@ config FUJITSU_MAC_PMU
- 	 Adds the Uncore MAC PMU into the perf events subsystem for
- 	 monitoring Uncore MAC events.
- 
-+config FUJITSU_PCI_PMU
-+	bool "Fujitsu Uncore PCI PMU"
-+	depends on (ARM64 && (ACPI || COMPILE_TEST))
-+	help
-+	 Provides support for the Uncore PCI performance monitor unit (PMU)
-+	 in Fujitsu processors.
-+	 Adds the Uncore PCI PMU into the perf events subsystem for
-+	 monitoring Uncore PCI events.
-+
- config QCOM_L2_PMU
- 	bool "Qualcomm Technologies L2-cache PMU"
- 	depends on ARCH_QCOM && ARM64 && ACPI
-diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
-index c9a2ba78d34f..30717ebb4801 100644
---- a/drivers/perf/Makefile
-+++ b/drivers/perf/Makefile
-@@ -15,6 +15,7 @@ obj-$(CONFIG_FSL_IMX8_DDR_PMU) += fsl_imx8_ddr_perf.o
- obj-$(CONFIG_FSL_IMX9_DDR_PMU) += fsl_imx9_ddr_perf.o
- obj-$(CONFIG_HISI_PMU) += hisilicon/
- obj-$(CONFIG_FUJITSU_MAC_PMU) += fujitsu_mac_pmu.o
-+obj-$(CONFIG_FUJITSU_PCI_PMU) += fujitsu_pci_pmu.o
- obj-$(CONFIG_QCOM_L2_PMU)	+= qcom_l2_pmu.o
- obj-$(CONFIG_QCOM_L3_PMU) += qcom_l3_pmu.o
- obj-$(CONFIG_RISCV_PMU) += riscv_pmu.o
-diff --git a/drivers/perf/fujitsu_pci_pmu.c b/drivers/perf/fujitsu_pci_pmu.c
-new file mode 100644
-index 000000000000..4bb2cfbde10c
---- /dev/null
-+++ b/drivers/perf/fujitsu_pci_pmu.c
-@@ -0,0 +1,553 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Driver for the Uncore PCI PMUs in Fujitsu chips.
-+ *
-+ * See Documentation/admin-guide/perf/fujitsu_pci_pmu.rst for more details.
-+ *
-+ * This driver is based on drivers/perf/qcom_l3_pmu.c
-+ * Copyright (c) 2015-2017, The Linux Foundation. All rights reserved.
-+ * Copyright (c) 2024 Fujitsu. All rights reserved.
-+ */
-+
-+#include <linux/acpi.h>
-+#include <linux/bitops.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/list.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/perf_event.h>
-+#include <linux/platform_device.h>
-+
-+/* Number of counters on each PMU */
-+#define PCI_NUM_COUNTERS  8
-+/* Mask for the event type field within perf_event_attr.config and EVTYPE reg */
-+#define PCI_EVTYPE_MASK   0xFF
-+
-+/* Perfmon registers */
-+#define PCI_PM_EVCNTR(__cntr) (0x000 + (__cntr) * 8)
-+#define PCI_PM_CNTCTL(__cntr) (0x100 + (__cntr) * 8)
-+#define PCI_PM_EVTYPE(__cntr) (0x200 + (__cntr) * 8)
-+#define PCI_PM_CR         0x400
-+#define PCI_PM_CNTENSET   0x410
-+#define PCI_PM_CNTENCLR   0x418
-+#define PCI_PM_INTENSET   0x420
-+#define PCI_PM_INTENCLR   0x428
-+#define PCI_PM_OVSR       0x440
-+
-+/* PCI_PM_CNTCTLx */
-+#define PMCNT_RESET           0
-+
-+/* PCI_PM_EVTYPEx */
-+#define EVSEL(__val)          FIELD_GET(PCI_EVTYPE_MASK, __val)
-+
-+/* PCI_PM_CR */
-+#define PM_RESET              BIT(1)
-+#define PM_ENABLE             BIT(0)
-+
-+/* PCI_PM_CNTENSET */
-+#define PMCNTENSET(__cntr)    BIT(__cntr)
-+
-+/* PCI_PM_CNTENCLR */
-+#define PMCNTENCLR(__cntr)    BIT(__cntr)
-+#define PM_CNTENCLR_RESET     0xFF
-+
-+/* PCI_PM_INTENSET */
-+#define PMINTENSET(__cntr)    BIT(__cntr)
-+
-+/* PCI_PM_INTENCLR */
-+#define PMINTENCLR(__cntr)    BIT(__cntr)
-+#define PM_INTENCLR_RESET     0xFF
-+
-+/* PCI_PM_OVSR */
-+#define PMOVSRCLR(__cntr)     BIT(__cntr)
-+#define PMOVSRCLR_RESET       0xFF
-+
-+#define PCI_EVENT_PORT0_CYCLES		0x000
-+#define PCI_EVENT_PORT0_READ_COUNT	0x010
-+#define PCI_EVENT_PORT0_READ_COUNT_BUS	0x014
-+#define PCI_EVENT_PORT0_WRITE_COUNT	0x020
-+#define PCI_EVENT_PORT0_WRITE_COUNT_BUS	0x024
-+#define PCI_EVENT_PORT1_CYCLES		0x040
-+#define PCI_EVENT_PORT1_READ_COUNT	0x050
-+#define PCI_EVENT_PORT1_READ_COUNT_BUS	0x054
-+#define PCI_EVENT_PORT1_WRITE_COUNT	0x060
-+#define PCI_EVENT_PORT1_WRITE_COUNT_BUS	0x064
-+#define PCI_EVENT_EA_PCI		0x080
-+
-+struct pci_pmu {
-+	struct pmu		pmu;
-+	struct hlist_node	node;
-+	void __iomem		*regs;
-+	struct perf_event	*events[PCI_NUM_COUNTERS];
-+	unsigned long		used_mask[BITS_TO_LONGS(PCI_NUM_COUNTERS)];
-+	cpumask_t		cpumask;
-+};
-+
-+static int pci_pmu_cpuhp_state;
-+
-+#define to_pci_pmu(p) (container_of(p, struct pci_pmu, pmu))
-+
-+static void fujitsu_pci_counter_start(struct perf_event *event)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(event->pmu);
-+	int idx = event->hw.idx;
-+
-+	/* Initialize the hardware counter and reset prev_count*/
-+	local64_set(&event->hw.prev_count, 0);
-+	writeq_relaxed(0, pcipmu->regs + PCI_PM_EVCNTR(idx));
-+
-+	/* Set the event type */
-+	writeq_relaxed(EVSEL(event->attr.config), pcipmu->regs + PCI_PM_EVTYPE(idx));
-+
-+	/* Enable interrupt generation by this counter */
-+	writeq_relaxed(PMINTENSET(idx), pcipmu->regs + PCI_PM_INTENSET);
-+
-+	/* Finally, enable the counter */
-+	writeq_relaxed(PMCNT_RESET, pcipmu->regs + PCI_PM_CNTCTL(idx));
-+	writeq_relaxed(PMCNTENSET(idx), pcipmu->regs + PCI_PM_CNTENSET);
-+}
-+
-+static void fujitsu_pci_counter_stop(struct perf_event *event,
-+					      int flags)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(event->pmu);
-+	int idx = event->hw.idx;
-+
-+	/* Disable the counter */
-+	writeq_relaxed(PMCNTENCLR(idx), pcipmu->regs + PCI_PM_CNTENCLR);
-+
-+	/* Disable interrupt generation by this counter */
-+	writeq_relaxed(PMINTENCLR(idx), pcipmu->regs + PCI_PM_INTENCLR);
-+}
-+
-+static void fujitsu_pci_counter_update(struct perf_event *event)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(event->pmu);
-+	int idx = event->hw.idx;
-+	u64 prev, new;
-+
-+	do {
-+		prev = local64_read(&event->hw.prev_count);
-+		new = readq_relaxed(pcipmu->regs + PCI_PM_EVCNTR(idx));
-+	} while (local64_cmpxchg(&event->hw.prev_count, prev, new) != prev);
-+
-+	local64_add(new - prev, &event->count);
-+}
-+
-+static inline void fujitsu_pci__init(struct pci_pmu *pcipmu)
-+{
-+	int i;
-+
-+	writeq_relaxed(PM_RESET, pcipmu->regs + PCI_PM_CR);
-+
-+	writeq_relaxed(PM_CNTENCLR_RESET, pcipmu->regs + PCI_PM_CNTENCLR);
-+	writeq_relaxed(PM_INTENCLR_RESET, pcipmu->regs + PCI_PM_INTENCLR);
-+	writeq_relaxed(PMOVSRCLR_RESET, pcipmu->regs + PCI_PM_OVSR);
-+
-+	for (i = 0; i < PCI_NUM_COUNTERS; ++i) {
-+		writeq_relaxed(PMCNT_RESET, pcipmu->regs + PCI_PM_CNTCTL(i));
-+		writeq_relaxed(EVSEL(0), pcipmu->regs + PCI_PM_EVTYPE(i));
-+	}
-+
-+	/*
-+	 * Use writeq here to ensure all programming commands are done
-+	 * before proceeding
-+	 */
-+	writeq(PM_ENABLE, pcipmu->regs + PCI_PM_CR);
-+}
-+
-+static irqreturn_t fujitsu_pci__handle_irq(int irq_num, void *data)
-+{
-+	struct pci_pmu *pcipmu = data;
-+	/* Read the overflow status register */
-+	long status = readq_relaxed(pcipmu->regs + PCI_PM_OVSR);
-+	int idx;
-+
-+	if (status == 0)
-+		return IRQ_NONE;
-+
-+	/* Clear the bits we read on the overflow status register */
-+	writeq_relaxed(status, pcipmu->regs + PCI_PM_OVSR);
-+
-+	for_each_set_bit(idx, &status, PCI_NUM_COUNTERS) {
-+		struct perf_event *event;
-+
-+		event = pcipmu->events[idx];
-+		if (!event)
-+			continue;
-+
-+		fujitsu_pci_counter_update(event);
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static void fujitsu_pci__pmu_enable(struct pmu *pmu)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(pmu);
-+
-+	/* Ensure the other programming commands are observed before enabling */
-+	wmb();
-+
-+	writeq_relaxed(PM_ENABLE, pcipmu->regs + PCI_PM_CR);
-+}
-+
-+static void fujitsu_pci__pmu_disable(struct pmu *pmu)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(pmu);
-+
-+	writeq_relaxed(0, pcipmu->regs + PCI_PM_CR);
-+
-+	/* Ensure the basic counter unit is stopped before proceeding */
-+	wmb();
-+}
-+
-+/*
-+ * We must NOT create groups containing events from multiple hardware PMUs,
-+ * although mixing different software and hardware PMUs is allowed.
-+ */
-+static bool fujitsu_pci__validate_event_group(struct perf_event *event)
-+{
-+	struct perf_event *leader = event->group_leader;
-+	struct perf_event *sibling;
-+	int counters = 0;
-+
-+	if (leader->pmu != event->pmu && !is_software_event(leader))
-+		return false;
-+
-+	/* The sum of the counters used by the event and its leader event */
-+	counters = 2;
-+
-+	for_each_sibling_event(sibling, leader) {
-+		if (is_software_event(sibling))
-+			continue;
-+		if (sibling->pmu != event->pmu)
-+			return false;
-+		counters++;
-+	}
-+
-+	/*
-+	 * If the group requires more counters than the HW has, it
-+	 * cannot ever be scheduled.
-+	 */
-+	return counters <= PCI_NUM_COUNTERS;
-+}
-+
-+static int fujitsu_pci__event_init(struct perf_event *event)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+
-+	/* Is the event for this PMU? */
-+	if (event->attr.type != event->pmu->type)
-+		return -ENOENT;
-+
-+	/*
-+	 * Sampling not supported since these events are not
-+	 * core-attributable.
-+	 */
-+	if (hwc->sample_period)
-+		return -EINVAL;
-+
-+	/*
-+	 * Task mode not available, we run the counters as socket counters,
-+	 * not attributable to any CPU and therefore cannot attribute per-task.
-+	 */
-+	if (event->cpu < 0)
-+		return -EINVAL;
-+
-+	/* Validate the group */
-+	if (!fujitsu_pci__validate_event_group(event))
-+		return -EINVAL;
-+
-+	hwc->idx = -1;
-+
-+	/*
-+	 * Many perf core operations (eg. events rotation) operate on a
-+	 * single CPU context. This is obvious for CPU PMUs, where one
-+	 * expects the same sets of events being observed on all CPUs,
-+	 * but can lead to issues for off-core PMUs, like this one, where
-+	 * each event could be theoretically assigned to a different CPU.
-+	 * To mitigate this, we enforce CPU assignment to one designated
-+	 * processor (the one described in the "cpumask" attribute exported
-+	 * by the PMU device). perf user space tools honor this and avoid
-+	 * opening more than one copy of the events.
-+	 */
-+	event->cpu = cpumask_first(&pcipmu->cpumask);
-+
-+	return 0;
-+}
-+
-+static void fujitsu_pci__event_start(struct perf_event *event, int flags)
-+{
-+	struct hw_perf_event *hwc = &event->hw;
-+
-+	hwc->state = 0;
-+	fujitsu_pci_counter_start(event);
-+}
-+
-+static void fujitsu_pci__event_stop(struct perf_event *event, int flags)
-+{
-+	struct hw_perf_event *hwc = &event->hw;
-+
-+	if (hwc->state & PERF_HES_STOPPED)
-+		return;
-+
-+	fujitsu_pci_counter_stop(event, flags);
-+	if (flags & PERF_EF_UPDATE)
-+		fujitsu_pci_counter_update(event);
-+	hwc->state |= PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+}
-+
-+static int fujitsu_pci__event_add(struct perf_event *event, int flags)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+	int idx;
-+
-+	/* Try to allocate a counter. */
-+	idx = bitmap_find_free_region(pcipmu->used_mask, PCI_NUM_COUNTERS, 0);
-+	if (idx < 0)
-+		/* The counters are all in use. */
-+		return -EAGAIN;
-+
-+	hwc->idx = idx;
-+	hwc->state = PERF_HES_STOPPED | PERF_HES_UPTODATE;
-+	pcipmu->events[idx] = event;
-+
-+	if (flags & PERF_EF_START)
-+		fujitsu_pci__event_start(event, 0);
-+
-+	/* Propagate changes to the userspace mapping. */
-+	perf_event_update_userpage(event);
-+
-+	return 0;
-+}
-+
-+static void fujitsu_pci__event_del(struct perf_event *event, int flags)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+
-+	/* Stop and clean up */
-+	fujitsu_pci__event_stop(event, flags | PERF_EF_UPDATE);
-+	pcipmu->events[hwc->idx] = NULL;
-+	bitmap_release_region(pcipmu->used_mask, hwc->idx, 0);
-+
-+	/* Propagate changes to the userspace mapping. */
-+	perf_event_update_userpage(event);
-+}
-+
-+static void fujitsu_pci__event_read(struct perf_event *event)
-+{
-+	fujitsu_pci_counter_update(event);
-+}
-+
-+#define PCI_PMU_FORMAT_ATTR(_name, _config)				      \
-+	(&((struct dev_ext_attribute[]) {				      \
-+		{ .attr = __ATTR(_name, 0444, device_show_string, NULL),      \
-+		  .var = (void *) _config, }				      \
-+	})[0].attr.attr)
-+
-+static struct attribute *fujitsu_pci_pmu_formats[] = {
-+	PCI_PMU_FORMAT_ATTR(event, "config:0-7"),
-+	NULL
-+};
-+
-+static const struct attribute_group fujitsu_pci_pmu_format_group = {
-+	.name = "format",
-+	.attrs = fujitsu_pci_pmu_formats,
-+};
-+
-+static ssize_t pci_pmu_event_show(struct device *dev,
-+				     struct device_attribute *attr, char *page)
-+{
-+	struct perf_pmu_events_attr *pmu_attr;
-+
-+	pmu_attr = container_of(attr, struct perf_pmu_events_attr, attr);
-+	return sysfs_emit(page, "event=0x%02llx\n", pmu_attr->id);
-+}
-+
-+#define PCI_EVENT_ATTR(_name, _id)					     \
-+	PMU_EVENT_ATTR_ID(_name, pci_pmu_event_show, _id)
-+
-+static struct attribute *fujitsu_pci_pmu_events[] = {
-+	PCI_EVENT_ATTR(pci-port0-cycles, PCI_EVENT_PORT0_CYCLES),
-+	PCI_EVENT_ATTR(pci-port0-read-count, PCI_EVENT_PORT0_READ_COUNT),
-+	PCI_EVENT_ATTR(pci-port0-read-count-bus, PCI_EVENT_PORT0_READ_COUNT_BUS),
-+	PCI_EVENT_ATTR(pci-port0-write-count, PCI_EVENT_PORT0_WRITE_COUNT),
-+	PCI_EVENT_ATTR(pci-port0-write-count-bus, PCI_EVENT_PORT0_WRITE_COUNT_BUS),
-+	PCI_EVENT_ATTR(pci-port1-cycles, PCI_EVENT_PORT1_CYCLES),
-+	PCI_EVENT_ATTR(pci-port1-read-count, PCI_EVENT_PORT1_READ_COUNT),
-+	PCI_EVENT_ATTR(pci-port1-read-count-bus, PCI_EVENT_PORT1_READ_COUNT_BUS),
-+	PCI_EVENT_ATTR(pci-port1-write-count, PCI_EVENT_PORT1_WRITE_COUNT),
-+	PCI_EVENT_ATTR(pci-port1-write-count-bus, PCI_EVENT_PORT1_WRITE_COUNT_BUS),
-+	PCI_EVENT_ATTR(ea-pci, PCI_EVENT_EA_PCI),
-+	NULL
-+};
-+
-+static const struct attribute_group fujitsu_pci_pmu_events_group = {
-+	.name = "events",
-+	.attrs = fujitsu_pci_pmu_events,
-+};
-+
-+static ssize_t cpumask_show(struct device *dev,
-+			    struct device_attribute *attr, char *buf)
-+{
-+	struct pci_pmu *pcipmu = to_pci_pmu(dev_get_drvdata(dev));
-+
-+	return cpumap_print_to_pagebuf(true, buf, &pcipmu->cpumask);
-+}
-+static DEVICE_ATTR_RO(cpumask);
-+
-+static struct attribute *fujitsu_pci_pmu_cpumask_attrs[] = {
-+	&dev_attr_cpumask.attr,
-+	NULL
-+};
-+
-+static const struct attribute_group fujitsu_pci_pmu_cpumask_attr_group = {
-+	.attrs = fujitsu_pci_pmu_cpumask_attrs,
-+};
-+
-+static const struct attribute_group *fujitsu_pci_pmu_attr_grps[] = {
-+	&fujitsu_pci_pmu_format_group,
-+	&fujitsu_pci_pmu_events_group,
-+	&fujitsu_pci_pmu_cpumask_attr_group,
-+	NULL
-+};
-+
-+static int fujitsu_pci_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
-+{
-+	struct pci_pmu *pcipmu = hlist_entry_safe(node, struct pci_pmu, node);
-+
-+	/* If there is not a CPU/PMU association pick this CPU */
-+	if (cpumask_empty(&pcipmu->cpumask))
-+		cpumask_set_cpu(cpu, &pcipmu->cpumask);
-+
-+	return 0;
-+}
-+
-+static int fujitsu_pci_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
-+{
-+	struct pci_pmu *pcipmu = hlist_entry_safe(node, struct pci_pmu, node);
-+	unsigned int target;
-+
-+	if (!cpumask_test_and_clear_cpu(cpu, &pcipmu->cpumask))
-+		return 0;
-+
-+	target = cpumask_any_but(cpu_online_mask, cpu);
-+	if (target >= nr_cpu_ids)
-+		return 0;
-+
-+	perf_pmu_migrate_context(&pcipmu->pmu, cpu, target);
-+	cpumask_set_cpu(target, &pcipmu->cpumask);
-+
-+	return 0;
-+}
-+
-+static int fujitsu_pci_pmu_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct acpi_device *acpi_dev;
-+	struct pci_pmu *pcipmu;
-+	struct resource *memrc;
-+	char *name;
-+	int ret;
-+	u64 uid;
-+
-+	acpi_dev = ACPI_COMPANION(dev);
-+	if (!acpi_dev)
-+		return -ENODEV;
-+
-+	ret = acpi_dev_uid_to_integer(acpi_dev, &uid);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "unable to read ACPI uid\n");
-+
-+	pcipmu = devm_kzalloc(dev, sizeof(*pcipmu), GFP_KERNEL);
-+	if (!pcipmu)
-+		return -ENOMEM;
-+
-+	name = devm_kasprintf(dev, GFP_KERNEL, "pci_iod%llu_pci%llu",
-+			  (uid >> 4) & 0xF, uid & 0xF);
-+	if (!name)
-+		return -ENOMEM;
-+
-+	pcipmu->pmu = (struct pmu) {
-+		.parent		= dev,
-+		.task_ctx_nr	= perf_invalid_context,
-+
-+		.pmu_enable	= fujitsu_pci__pmu_enable,
-+		.pmu_disable	= fujitsu_pci__pmu_disable,
-+		.event_init	= fujitsu_pci__event_init,
-+		.add		= fujitsu_pci__event_add,
-+		.del		= fujitsu_pci__event_del,
-+		.start		= fujitsu_pci__event_start,
-+		.stop		= fujitsu_pci__event_stop,
-+		.read		= fujitsu_pci__event_read,
-+
-+		.attr_groups	= fujitsu_pci_pmu_attr_grps,
-+		.capabilities	= PERF_PMU_CAP_NO_EXCLUDE,
-+	};
-+
-+	pcipmu->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &memrc);
-+	if (IS_ERR(pcipmu->regs))
-+		return PTR_ERR(pcipmu->regs);
-+
-+	fujitsu_pci__init(pcipmu);
-+
-+	ret = platform_get_irq(pdev, 0);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = devm_request_irq(dev, ret, fujitsu_pci__handle_irq, 0,
-+						   name, pcipmu);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Request for IRQ failed for slice @%pa\n",
-+							 &memrc->start);
-+
-+	/* Add this instance to the list used by the offline callback */
-+	ret = cpuhp_state_add_instance(pci_pmu_cpuhp_state, &pcipmu->node);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Error registering hotplug");
-+
-+	ret = perf_pmu_register(&pcipmu->pmu, name, -1);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "Failed to register PCI PMU\n");
-+
-+	dev_dbg(dev, "Registered %s, type: %d\n", name, pcipmu->pmu.type);
-+
-+	return 0;
-+}
-+
-+static const struct acpi_device_id fujitsu_pci_pmu_acpi_match[] = {
-+	{ "FUJI200D", },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(acpi, fujitsu_pci_pmu_acpi_match);
-+
-+static struct platform_driver fujitsu_pci_pmu_driver = {
-+	.driver = {
-+		.name = "fujitsu-pci-pmu",
-+		.acpi_match_table = fujitsu_pci_pmu_acpi_match,
-+		.suppress_bind_attrs = true,
-+	},
-+	.probe = fujitsu_pci_pmu_probe,
-+};
-+
-+static int __init register_fujitsu_pci_pmu_driver(void)
-+{
-+	int ret;
-+
-+	/* Install a hook to update the reader CPU in case it goes offline */
-+	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
-+				      "perf/fujitsu/pci:online",
-+				      fujitsu_pci_pmu_online_cpu,
-+				      fujitsu_pci_pmu_offline_cpu);
-+	if (ret < 0)
-+		return ret;
-+
-+	pci_pmu_cpuhp_state = ret;
-+	return platform_driver_register(&fujitsu_pci_pmu_driver);
-+}
-+device_initcall(register_fujitsu_pci_pmu_driver);
--- 
-2.43.0
-
+> +
+>  /**
+>   * tee_get_drvdata() - Return driver_data pointer
+>   * @returns the driver_data pointer supplied to tee_register().
+> -- 
+> 2.43.0
+> 
 
