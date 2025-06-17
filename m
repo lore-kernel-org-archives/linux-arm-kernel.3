@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D35C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACEB8C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m5H3llY72enjkEdNIToGWJYvPuL2qq4dnT9xlwtzu20=; b=SoQheIqAyVXMtMjdq7OKVHfqX1
-	/rogVseTkvilfUtWo5RGS4+BlkRkSZ7eVkOn1cMk+wDdqTvSXc8Ij5UFuhkzFr6T21cNgZF8K6eHh
-	hDYQdcDeILMgYm7BhIxD7icgFxMgUnBxcUHHrcKB4KwjOTBFhdimqBYHu1kHk8oZqJBSuGxXGYTFc
-	+jx+7NF6fga/YcuSz7W2zGEQdrOfgt8vsA+CrUz5Odtc4Z2nQ2a2qXITNsVLrtR0rFmns8y/x8dpq
-	QSnDmE6gCbOZtHapUx5OSLs1figrFMm77bkNmU7tN4fYVvY7TmCFX8bCVANW9tyIssjOhI2o8M05M
-	rmBjfqgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YpOAwhaaQKzA9a+hLMz4Fdbv7o6Lk/Fl/Twzh3KUUnM=; b=1OZC7XLJbgudJtcNq2hqRdmpFj
+	UxJ2pJc3R7oYb7/swN+WACEzBa90yzrLQMFITDrBlJDQ8NZO1okn0iaKDEDACg5qcS9MBAp8lmmT5
+	v6x7XrDkXwh0GwYSyHnX4lJvO3XvYAPO30lbj7yXyGTUThv72RaqRZ/8XsdZawNywV909vPtsm+qI
+	7ErqgpvJsyReLoohvDm1PF04P68oKvamP8HuMw7uI3zZHL9Li7TNmchWUCKv6ZTFfFWz+31gzEjHF
+	qjCGajbz+yznN0mnsevuxrs2ct2MBQ2I+WOJlQm2eQrUylaS/CPZcJltN6OzBLBHwR+G29lwG9Tro
+	PhQI0uzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRYDl-00000007jTt-3Gzd;
-	Tue, 17 Jun 2025 15:27:33 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1uRYI9-00000007jqT-0FnA;
+	Tue, 17 Jun 2025 15:32:05 +0000
+Received: from mail-vk1-xa30.google.com ([2607:f8b0:4864:20::a30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXCK-00000007Wyq-2PYe;
-	Tue, 17 Jun 2025 14:22:01 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7d3900f90f6so622950085a.1;
-        Tue, 17 Jun 2025 07:21:59 -0700 (PDT)
+	id 1uRXGe-00000007Y7H-1YlQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Jun 2025 14:26:29 +0000
+Received: by mail-vk1-xa30.google.com with SMTP id 71dfb90a1353d-52f28e83e13so225469e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 07:26:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750170119; x=1750774919; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m5H3llY72enjkEdNIToGWJYvPuL2qq4dnT9xlwtzu20=;
-        b=OPJCcfdzPYXycOaaR6rMRkg/jV4UdMttFpmBo1esr6vEPBql55Q0WNc1Io6akn8+zt
-         ihGnMadGrkXUCgRrzGFsksXHONsjrLui02bTZN/pP6OTKjuKjHTWKM5LIO1aQ9nbBp3d
-         zndfYOUQubBLRlZWWQ64jt/j+3LMt9i/gfCis0wtbUPmHyBpMzKH9B3IhIZEtj9obsFN
-         Qr9JL6zpf1P0n6ZLkxABHYf3oTN3f4EQaWqUFI91uT4iqUFsZRB12rUswWzizZrvLXro
-         ZsynRKLQhlKTw7Qcdx6qzT85LPm3hQk4gTgrHz3ZjPYdQhErSyg6sVAfA1Uz3IWwgYqo
-         j5+w==
+        d=raspberrypi.com; s=google; t=1750170386; x=1750775186; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YpOAwhaaQKzA9a+hLMz4Fdbv7o6Lk/Fl/Twzh3KUUnM=;
+        b=fL9HgE4iww95zsm3JE7MRHJdh2p//lz5Ads1sv0ceRhsNehxlsCHGl+VqUB9jbLt2Z
+         ZBC+TpctMghYzsL6mrCEC53hRL7M+qis2dqdlO8XLp7K6schPAk05aPj0JVA95oFlc7h
+         Qn2tKFIZezoRjyExGxJd/C8Wxxwr6o8qWMoCmneFvDSc2LyugbckELgPjtd3qzumjviO
+         M7oVUYRHp/ylkvPk0KPsRfzlJqACPPv8aaPnzlgs9bQkcaUp7bEJVqHlUyfWqbQjuoGI
+         RdNPeAqQnRb7QUOLjzSAxGoFkVec+bhFrE9arXojRn8b8bNlQwUGK9VqdqE295N7Sj37
+         Wahg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750170119; x=1750774919;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=m5H3llY72enjkEdNIToGWJYvPuL2qq4dnT9xlwtzu20=;
-        b=jLbkOud3mF/BBpV7NrhCphEn8oPcOx0fuWslNyLnZimLByi1JFpqQ/q3he92gZX9mY
-         FRDjzFBzWp6SyPcAWa8cl0I+mJgzoROfc/PJ7cZVPnIuzb04uMwFtPDsr3rhFqgazfoR
-         2k66ZJT4K5tD3ulZh8b111U810UiLCfv3SQKVXV3B6bryPKla6x9qCrN/+0QskWcFyAP
-         AeTSdthr0W6cUCekp0NyV8w/UZCqegZK18rdOEVeXTGHnJ+cG705V1kx2M1BOP9Wt5TM
-         fiRBh72QIIzZiQKDuHLuesXi+skENuPzvXVAo++8wuKmcwcKm+xeWELzp+ckHJ7fFsXZ
-         XwyA==
-X-Forwarded-Encrypted: i=1; AJvYcCUuTw7ayTg0hj49Wk6aGArWajE5S/wQo0XWxG9H0jmT3095ubzPNSUPzYCTqzqka7tw9jfhipibkKLZqP5OnUuW@lists.infradead.org, AJvYcCVUimBkD62knzkh8lwNWgPdvfzsQlOzt8SEMKLG7ktuwPCHgp7Y/eA+Zd+ffyyzyUoGNe56i4VLez6l8GSdRwI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAlBEfAtjnCIYPpBWDeKjkByGcIn66rgH1r7UJWqrfRKE9ZlHn
-	uDtYhVX3QkCONN4Dn/F7SSMAFKd9Sac5TNd5lbSA78KL5ID/dGDpVAEc96f7byYGR4UpUyUO9Ie
-	MRS2NY0NFaevGZ5WHzNqNaOG5t1d/W2c=
-X-Gm-Gg: ASbGncswm3yX/sRoj0VI83NlCl+PW4eENoK0jfcDS8Igltu63dmO+DvJN5EOkzWI55P
-	kC+satbfO5OOrvCNas/vfwXcs0NHtLQlA6oKk8aMGXuzrzjw1o2i86Fpac8xDATQDtCJ0ckWriR
-	lxE76HJ0OClTbFmj4qw/pPFWVvXQ3HXz64sv4WgUMA2w==
-X-Google-Smtp-Source: AGHT+IHYNkrCgtJHt2hFgEP+iYzHoZb39T53y/Gl2gXFOZbEhw0D+9micgfKOfZ2G95P3OgJvLkG2Kh/Ej/C/K4Aaj4=
-X-Received: by 2002:a05:6214:5b04:b0:6fa:fcb0:b88d with SMTP id
- 6a1803df08f44-6fb4777844amr254933506d6.28.1750170118787; Tue, 17 Jun 2025
- 07:21:58 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750170386; x=1750775186;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YpOAwhaaQKzA9a+hLMz4Fdbv7o6Lk/Fl/Twzh3KUUnM=;
+        b=fQY1PdFpAz/CK9txHfKponDyNf/rkg08YJ3QSQNrccNMi/r2PKL0duTGf35Thcffuv
+         yC64Soz2Yrx6FKRijj3g81+EkMpGV+wg/+I2cHS3mt9BR3wQ93PqysuE/A/kThPPZXEN
+         5patgpSG0eyk6JuJkDlIHaC5+bSbt9W/ypIS54nzr3gOanm9iIkZuda3PtpB4v6cVQ30
+         HOB4zbEzTKkJHbriQhw8aPp8inzMGP3Jg91h4cKWq0KHOL/AYhj/aK4uM7PI/JfJZK/B
+         Isq1M+WZi4x0C2aqrfTdQ9AfTlAuiLXQIvMCqI47xzu9PeI29G1sOMzQXb4kxr3rXTis
+         RF1A==
+X-Forwarded-Encrypted: i=1; AJvYcCXHkdBNzXU0SYGYERcOmdgCczJxWAnKlYMEjPgYVCTqDArbKGrCFEWaYeDai7WSVapmQSoEUeT2VXJalXsnKg7T@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVvf62Pa/d3LpLa3FdZRA0Vq7S3Wqg4gXHGfCk/v+ZySr153hz
+	5R0b3r8t2h37Df6yuu96KzuppVW/ZR+qS82Fx6lamZIB8Q4sM6nDEu4bOZi6HQcXFwzBmtnWBap
+	XmQtezndUD+62yN5Woi5tPszV6S0BRIqw3GgWLbs8ig==
+X-Gm-Gg: ASbGnctmOl1KeOie8XSPRaumAmQ7BbcUWtOUjPni1pZABBDBrIAZeuwrDh+GV4LYNm/
+	VViZHX22Twpuch8S0UBrVAlM8wX90KujesYyFKIofnD/7hFC9cKU3R5nqglsu/Sy+phXcJzBKnE
+	XQBruZ6pj0P94oDYeD/YfFTu4iNi2r7P88es4LlDvn
+X-Google-Smtp-Source: AGHT+IEvy629BwKiuNFR6pwMejlGO2WAZGwWZVOcmHQsFf0NqpfbXWmZwN4PhhADQC4Yr8/b+9IDSb34HzZ3UTA0+E8=
+X-Received: by 2002:a05:6122:4881:b0:530:2422:68a8 with SMTP id
+ 71dfb90a1353d-53172c40e8cmr906039e0c.1.1750170386532; Tue, 17 Jun 2025
+ 07:26:26 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAKEwX=MsP6LGjMRNyaHnO5MkE_ne-u-cKLbGfVQcSR-ALoxBwA@mail.gmail.com>
- <20250616034106.1978-1-21cnbao@gmail.com>
-In-Reply-To: <20250616034106.1978-1-21cnbao@gmail.com>
-From: Nhat Pham <nphamcs@gmail.com>
-Date: Tue, 17 Jun 2025 07:21:47 -0700
-X-Gm-Features: AX0GCFsLfKaP0pe5rAQXmN-MLD8Oy91foKqjJyGMkrVUvROAKlnJQR793e_ehyQ
-Message-ID: <CAKEwX=ObLVcbR9q7ZvR3WE2hhmxLpk1bSuvcbWZwo5o5vPCDRA@mail.gmail.com>
-Subject: Re: [PATCH] mm: Add Kcompressd for accelerated memory compression
-To: Barry Song <21cnbao@gmail.com>
-Cc: hannes@cmpxchg.org, akpm@linux-foundation.org, andrew.yang@mediatek.com, 
-	angelogioacchino.delregno@collabora.com, casper.li@mediatek.com, 
-	chinwen.chang@mediatek.com, james.hsu@mediatek.com, 
+References: <20250617-pispbe-mainline-split-jobs-handling-v6-v8-0-e58ae199c17d@ideasonboard.com>
+ <20250617-pispbe-mainline-split-jobs-handling-v6-v8-4-e58ae199c17d@ideasonboard.com>
+In-Reply-To: <20250617-pispbe-mainline-split-jobs-handling-v6-v8-4-e58ae199c17d@ideasonboard.com>
+From: Naushir Patuck <naush@raspberrypi.com>
+Date: Tue, 17 Jun 2025 15:25:52 +0100
+X-Gm-Features: Ac12FXxY2MjozgnKj7SQp4qGI8gl5dx5KqJMAcZDD_ubJWJD9OKIvfSseMEz2Tk
+Message-ID: <CAEmqJPoxHSgXBp+EH+MWQVHVwYL2N5CnOwC-7W+AFWt1k7Zv+Q@mail.gmail.com>
+Subject: Re: [PATCH v8 4/4] media: pisp_be: Fix pm_runtime underrun in probe
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Nick Hollinghurst <nick.hollinghurst@raspberrypi.com>, 
+	David Plowman <david.plowman@raspberrypi.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-mm@kvack.org, 
-	matthias.bgg@gmail.com, minchan@kernel.org, qun-wei.lin@mediatek.com, 
-	rppt@kernel.org, senozhatsky@chromium.org, SeongJae Park <sj@kernel.org>
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_072200_617639_3B3EAEB3 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20250617_072628_587864_014C463F 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,90 +102,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 15, 2025 at 8:41=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrot=
-e:
->
-> Hi Nhat, Johannes,
->
-> >> The way you implemented this adds time-and-space overhead even on
-> >> systems that don't have any sort of swap compression enabled.
->
-> I agree =E2=80=94 we can eliminate the time and space overhead by refinin=
-g the
-> code to hook kcompressed only when zswap or zram is enabled.
->
-> >>
-> >> That seems unnecessary. There is an existing method for asynchronous
-> >> writeback, and pageout() is naturally fully set up to handle this.
-> >>
-> >> IMO the better way to do this is to make zswap_store() (and
-> >> zram_bio_write()?) asynchronous. Make those functions queue the work
-> >> and wake the compression daemon, and then have the daemon call
-> >> folio_end_writeback() / bio_endio() when it's done with it.
->
-> > +1.
->
->
-> But,
-> How could this be possible for zswap? zswap_store() is only a frontend =
-=E2=80=94
-> we still need its return value to determine whether __swap_writepage()
-> is required. Waiting for the result of zswap_store() is inherently a
-> synchronous step.
+Hi Jacopo,
 
-Hmm, I might be misunderstanding either of you, but it sounds like
-what you're describing here does not contradict what Johannes is
-proposing?
+Thank you for this fix.
 
+On Tue, 17 Jun 2025 at 14:54, Jacopo Mondi
+<jacopo.mondi@ideasonboard.com> wrote:
 >
-> My point is that folio_end_writeback() and bio_endio() can only be
-> called after the entire zswap_store() =E2=86=92 __swap_writepage() sequen=
-ce is
-> completed. That=E2=80=99s why both are placed in the new kcompressed.
-
-Hmm, how about:
-
-1. Inside zswap_store(), we first obtain the obj_cgroup reference,
-check cgroup and pool limit, and grab a zswap pool reference (in
-effect, determining the slot allocator and compressor).
-
-2. Next, we try to queue the work to kcompressd, saving the folio and
-the zswap pool (and whatever else we need for the continuation). If
-this fails, we can proceed with the old synchronous path.
-
-3. In kcompressed daemon, we perform the continuation of
-zswap_store(): compression, slot allocation, storing, zswap's LRU
-modification, etc. If this fails, we check if the mem_cgroup enables
-writeback. If it's enabled, we can call __swap_writepage(). Ideally,
-if writeback is disabled, we should activate the page, but it might
-not be possible since shrink_folio_list() might already re-add the
-page to the inactive lru. Maybe some modification of pageout() and
-shrink_folio_list() can make this work, but I haven't thought too
-deeply about it :) If it's impossible, we can perform async
-compression only for cgroups that enable writeback for now. Once we
-fix zswap's handling of incompressible pages, we can revisit this
-decision (+ SJ).
-
-TLDR: move the work-queueing step forward a bit, into the middle of
-zswap_store().
-
-One benefit of this is we skip pages of cgroups that disable zswap, or
-when zswap pool is full.
-
+> During the probe() routine, the PiSP BE driver needs to power up the
+> interface in order to identify and initialize the hardware.
 >
-> The use of folio_end_writeback() and bio_endio() was the case for zRAM
-> in Qun-Wei's RFC.
+> The driver resumes the interface by calling the
+> pispbe_runtime_resume() function directly, without going
+> through the pm_runtime helpers, but later suspends it by calling
+> pm_runtime_put_autosuspend().
 >
-> https://lore.kernel.org/linux-mm/20250307120141.1566673-3-qun-wei.lin@med=
-iatek.com/
+> This causes a PM usage count imbalance at probe time, notified by the
+> runtime_pm framework with the below message in the system log:
 >
-> However, the implementation tightly coupled zRAM with reclamation logic.
-> For example, zRAM needed to know whether it was running in the kswapd
-> context, which is not ideal for a generic block device =E2=80=94 the role=
- zRAM
-> is supposed to play. Additionally, the code was not shared between zswap
-> and zRAM.
+>  pispbe 1000880000.pisp_be: Runtime PM usage count underflow!
 >
-> Thanks
-> Barry
+> Fix this by resuming the interface using the pm runtime helpers instead
+> of calling the resume function directly and use the pm_runtime framework
+> in the probe() error path. While at it, remove manual suspend of the
+> interface in the remove() function. The driver cannot be unloaded if in
+> use, so simply disable runtime pm.
+>
+> To simplify the implementation, make the driver depend on PM as the
+> RPI5 platform where the ISP is integrated in uses the PM framework by
+> default.
+>
+> Fixes: 12187bd5d4f8 ("media: raspberrypi: Add support for PiSP BE")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+
+Tested-by: Naushir Patuck <naush@raspberrypi.com>
+Reviewed-by: Naushir Patuck <naush@raspberrypi.com>
+
+
+> ---
+>  drivers/media/platform/raspberrypi/pisp_be/Kconfig   | 1 +
+>  drivers/media/platform/raspberrypi/pisp_be/pisp_be.c | 5 ++---
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/media/platform/raspberrypi/pisp_be/Kconfig b/drivers/media/platform/raspberrypi/pisp_be/Kconfig
+> index 46765a2e4c4d1573757ff842f208834216e582cb..a9e51fd94aadc6add70f883bfcea0c9fa91f0c4b 100644
+> --- a/drivers/media/platform/raspberrypi/pisp_be/Kconfig
+> +++ b/drivers/media/platform/raspberrypi/pisp_be/Kconfig
+> @@ -3,6 +3,7 @@ config VIDEO_RASPBERRYPI_PISP_BE
+>         depends on V4L_PLATFORM_DRIVERS
+>         depends on VIDEO_DEV
+>         depends on ARCH_BCM2835 || COMPILE_TEST
+> +       depends on PM
+>         select VIDEO_V4L2_SUBDEV_API
+>         select MEDIA_CONTROLLER
+>         select VIDEOBUF2_DMA_CONTIG
+> diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> index ccc6cb99868b842ac0d295f9ec28470303e60788..be794a12362020f42b3cf5bd291b4a1625543b5f 100644
+> --- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> +++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+> @@ -1725,7 +1725,7 @@ static int pispbe_probe(struct platform_device *pdev)
+>         pm_runtime_use_autosuspend(pispbe->dev);
+>         pm_runtime_enable(pispbe->dev);
+>
+> -       ret = pispbe_runtime_resume(pispbe->dev);
+> +       ret = pm_runtime_resume_and_get(pispbe->dev);
+>         if (ret)
+>                 goto pm_runtime_disable_err;
+>
+> @@ -1747,7 +1747,7 @@ static int pispbe_probe(struct platform_device *pdev)
+>  disable_devs_err:
+>         pispbe_destroy_devices(pispbe);
+>  pm_runtime_suspend_err:
+> -       pispbe_runtime_suspend(pispbe->dev);
+> +       pm_runtime_put(pispbe->dev);
+>  pm_runtime_disable_err:
+>         pm_runtime_dont_use_autosuspend(pispbe->dev);
+>         pm_runtime_disable(pispbe->dev);
+> @@ -1761,7 +1761,6 @@ static void pispbe_remove(struct platform_device *pdev)
+>
+>         pispbe_destroy_devices(pispbe);
+>
+> -       pispbe_runtime_suspend(pispbe->dev);
+>         pm_runtime_dont_use_autosuspend(pispbe->dev);
+>         pm_runtime_disable(pispbe->dev);
+>  }
+>
+> --
+> 2.49.0
+>
 
