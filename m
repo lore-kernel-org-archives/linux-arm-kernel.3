@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AD2C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15598C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VYJnE0bLpXfGXAhOdoPj9sjJfon5avZzMzwtb4GEZQ8=; b=p4rDk4q/gVsGX4ha/lOwW9/vmx
-	91US6L+6ChmcWfjlxCTiw5h5GocacjwAnzXTq9apMDJlQZelnhK0vlf+aarv8ShME2k+QJk0AClhH
-	/4CHCVuQo05rHK934HyPNAx8qUatCjdzz31DufzydpSoYUSidiDG29PJwctbsGYBhLSlP4wLHWkR4
-	RHywgN1TFm4HhSFmngOSet6V5jqiUc1xSLrBthqScCBrF4I6kdxBRMuwYrykHd7zy5v63Ax4+rqRF
-	gH1kyRDzkuErupZ9QRmRcHnkiGNEFM5UWUTnPhrkRAomvFnLw3z9dUkN9+RqV8tzKRsMgbElk96Jk
-	GN/PRnAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VGpfJbI9vuGBptLAuWMi7YNijWNKlTLHUNcrQEUm8mM=; b=P8iWOsopUFklBKMeiEfkeo8Flw
+	wFFrDOdz7i30oyokThndV5p+b62lcXma+K3xsmTruxhSh6LCXADJKv0WJrCAEhcb091N6WqUdaxw4
+	UM04AmfFSyw78NLeg4eP3wynctTAQ9ff6Ds4nmH8fU5gbV46D6uVNtpp2wCkp9OIiuHPS/eKFEIj+
+	5jkK519SiDYSF+1rkEFX0K4eE+/vzLg/Ft1/E6oGAa9zpqRWed37/yaoUNWL+8CefUhrP3M6IiZj2
+	TLGY2flWetMAoxj7axFBVYUYRKTAp7/56d9qIW3RKRMNK1JGsSIZN3+8+xP6UCR/QV1GUVVmD6Yws
+	ztVQK6CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZu5-000000081my-0KU5;
-	Tue, 17 Jun 2025 17:15:21 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1uRZwG-0000000823l-3fyn;
+	Tue, 17 Jun 2025 17:17:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZZM-00000007vt4-2C20
+	id 1uRZju-00000007wwF-1cmX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 16:53:57 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3de210e6076so3185ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 09:53:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750179236; x=1750784036; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VYJnE0bLpXfGXAhOdoPj9sjJfon5avZzMzwtb4GEZQ8=;
-        b=jo/qBEMW9Z4IT5LUTNjzrNenUToXpddK/YbUwQUdYiWSUe3ftSo1mTwmUVikiYhTJB
-         SQgOc+vvksEPX6O8Cqtb2YVfNquIIV69GvBmybzFX6+W0etV508qKw2L8sgaUe8Qvtm5
-         ugvoDPzbI/pQRQlj0/vQZ/HnBwDI9MFJgavS90dvpD9ELzcjFeIXoQ/1892oTKw/3BGd
-         giHWc4GVOEXI+LOEoEWRJr9R59dQMOlK4lD1ebfhK+78o1Hkx0GMlyC6tr1H5gPefbGx
-         jMgDBpZf9Yg+S7/QjkkxYkCZXKH+WBJZdFQkapTdjBfCem6NJxNkltxXuuXY+tHz5ZK3
-         chZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750179236; x=1750784036;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VYJnE0bLpXfGXAhOdoPj9sjJfon5avZzMzwtb4GEZQ8=;
-        b=tDV9BDG+gRVbLABPKAgk1e94uDxJtef/yDdgRiuG9lwg+VdQB5IAx9cC6qdM2AVGIm
-         4cd+ElK5g20pyuVuifwknQosTcx0rk+xtV28IEKPPFPNJlwsfbf+tWdmmEzhKUbmA2nu
-         GPTUUsCLgtal0iU8jFMVgOFikgXdfL924eihXkcm0d7CrFvukjyjZzusJdP3FEiahO9A
-         swF+slFdF3Y6LRhNoF0fUWGN980eMRBYnMnFNCBaomSCjZLdSsC4x/pzgpJm0L6RtXMB
-         AR/Hwf8bvdwwFji3w+PBy+b6CTGQXVnee+KfYRMC7rGNC7vhIWrWxoq5rhE2SAxnhxy+
-         6I0w==
-X-Forwarded-Encrypted: i=1; AJvYcCXOMCaaBMFF2waGGJkC6a6sTy55DctGOuQcDV0jAX8SNr7t5r3XpE/ioJgqDGmzS/mXXQStm+UoUtbW+907bRQJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywkht1Ps5/Lv+b3Q/ck0Wwsj89PTtyt2W3mHpECEFc5dPetEdiB
-	iNT0jrCymjsM9YqCXRzO7GO8ZCpl+MPMGCjGv7KsVDdXJKbN8KHYZQA8jzsEh41dBf1nJUgHgv5
-	4HkeQGneBarY8p37K//2VbT71hyOXB5OYEFSnsUtH
-X-Gm-Gg: ASbGncsur6XIn50PLUyCQPQS6aIK7WmAYBX/MA7TBMxK5OkCKb2Ql2ubQJHQ2I+FAfw
-	DULcK+zcT/HBgQo0z3R6vUtIaqot+w+vreDXJT7kbDAoa18XsGqD52Vl8Ii9FLPa/Qk1Lh5gARk
-	vvhBcmInRFQj9V1jhWMo5Mp7hdRHe52+aDj/kTjeyuLgGS+t1kW+mXY1Pv1JBwLw+2MLdunepd
-X-Google-Smtp-Source: AGHT+IFxzIYnRwPkTPGsw15J0FvFqBPucLmLVdUh15Kwq1Q2Op1ssWJY8RG0XKYKAwujDL/N2ht0/4WAcdskUuxdyGc=
-X-Received: by 2002:a05:6e02:4819:b0:3de:20ec:5c71 with SMTP id
- e9e14a558f8ab-3de20ec5f19mr5234075ab.6.1750179235473; Tue, 17 Jun 2025
- 09:53:55 -0700 (PDT)
+	Tue, 17 Jun 2025 17:04:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 96F5BA51801;
+	Tue, 17 Jun 2025 17:04:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98668C4CEE7;
+	Tue, 17 Jun 2025 17:04:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750179889;
+	bh=AZZ54kpbaOyDLy+/ubXOlw8lKqafcE1tTXmUjCQGWkw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MlC18b1vd0B4fVN9w5YHP3iWoS2zcaCPsljwmcoX3+nufojAu9ux9GD648NXkZ6Xu
+	 ykGAkZdR8/9deA/XSWZvkRsvZMHP9KSlCRFc7zhzxvC1bxom2VpbDB6SDUPtoY96rP
+	 reXO92NmQ1FCVKBDLdrlkPvGpNS9uvnANRnhC1oTjEULrVggTIxfBYqH2vfhL5uQ8e
+	 pzVR8TAqhfQYn1E6XZUb90/p15T5/SHj5DbMyDKjzRmLcX1sKORaVX5dd6DEcFuPJ6
+	 NF+3Kg1GhbDypYEuZpfgp/w9NoMbx8TQsMLeVMQneJK/QxM9q7T0G0FIqimZUm6Wx4
+	 LQSZLYLEBI/nw==
+Date: Tue, 17 Jun 2025 22:34:38 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Claudiu <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, 
+	manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	p.zabel@pengutronix.de, linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, john.madieu.xa@bp.renesas.com, 
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH v2 3/8] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
+ documentation for the PCIe IP on Renesas RZ/G3S
+Message-ID: <cmh64utcezpq6thnfrfm7z4dxm63fxzkidirtyjj53cbuzu5ef@v73majd6kepz>
+References: <20250530111917.1495023-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250530111917.1495023-4-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
-References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
- <CAP-5=fXSwgxMc+uh=PBAFh4Zm96tL5RDyKPOJ8Q40O4s=EaArA@mail.gmail.com>
- <20250616102945.GA17431@willie-the-truck> <CAP-5=fVjJyV2eA1aDnk6cqAhJGc9FZVyHhP7-f=1OyWmzxjN8w@mail.gmail.com>
- <20250617141649.GA19021@willie-the-truck> <86msa6co21.wl-maz@kernel.org>
-In-Reply-To: <86msa6co21.wl-maz@kernel.org>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 17 Jun 2025 09:53:44 -0700
-X-Gm-Features: AX0GCFugvPzuB-Difn5EDUPVkKbvplUqcVBXc7z721G-mrMOHZ8e5lOvCFsdSTo
-Message-ID: <CAP-5=fW51G0Wc227K1o0T==wF_3DN-UhBrU1VzncwmfPcWP3fw@mail.gmail.com>
-Subject: Re: [PATCH RESEND v7 00/21] drivers/perf: apple_m1: Add Apple A7-A11,
- T2 SoC support
-To: Marc Zyngier <maz@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Nick Chan <towinchenmi@gmail.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	devicetree@vger.kernel.org, asahi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250530111917.1495023-4-claudiu.beznea.uj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_095356_561919_C822A093 
-X-CRM114-Status: GOOD (  40.80  )
+X-CRM114-CacheID: sfid-20250617_100450_570272_236E9F42 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,99 +79,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 9:47=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> On Tue, 17 Jun 2025 15:16:50 +0100,
-> Will Deacon <will@kernel.org> wrote:
-> >
-> > On Mon, Jun 16, 2025 at 03:44:49AM -0700, Ian Rogers wrote:
-> > > On Mon, Jun 16, 2025 at 3:29=E2=80=AFAM Will Deacon <will@kernel.org>=
- wrote:
-> > > >
-> > > > On Mon, Jun 16, 2025 at 02:36:18AM -0700, Ian Rogers wrote:
-> > > > > On Sun, Jun 15, 2025 at 6:32=E2=80=AFPM Nick Chan <towinchenmi@gm=
-ail.com> wrote:
-> > > > > >
-> > > > > > This series adds support for the CPU PMU in the older Apple A7-=
-A11, T2
-> > > > > > SoCs. These PMUs may have a different event layout, less counte=
-rs, or
-> > > > > > deliver their interrupts via IRQ instead of a FIQ. Since some o=
-f those
-> > > > > > older SoCs support 32-bit EL0, counting for 32-bit EL0 also nee=
-d to
-> > > > > > be enabled by the driver where applicable.
-> > > > > >
-> > > > > > Patch 1 adds the DT bindings.
-> > > > > > Patch 2-7 prepares the driver to allow adding support for those
-> > > > > > older SoCs.
-> > > > > > Patch 8-12 adds support for the older SoCs.
-> > > > > > Patch 13-21 are the DT changes.
-> > > > > >
-> > > > > > Signed-off-by: Nick Chan <towinchenmi@gmail.com>
-> > > > >
-> > > > > Hi Nick,
-> > > > >
-> > > > > This is substantial work and it looks good to me. Do you know why
-> > > > > there's been little progress on landing these patches? Buggy Appl=
-e ARM
-> > > > > PMU support in the kernel has led to reworking the perf tool. It =
-seems
-> > > > > best that we can have the best drivers possible.
-> > > >
-> > > > You reworked the perf tool to support these things? Why? These chan=
-ges
-> > > > are targetting chips in old iPhones afaict (as opposed to "Apple Si=
-licon").
-> > > > I think that (a) most people don't particularly care about them and=
- (b)
-> > > > they're not fully supported _anyway_ because of crazy stuff like [1=
-].
-> > >
-> > > I was meaning that we reworked the perf tool to work around the Apple
-> > > ARM PMU driver expecting to work as if it were an uncore rather than =
-a
-> > > core PMU driver. More context here:
-> > > "[REGRESSION] Perf (userspace) broken on big.LITTLE systems since v6.=
-5"
-> > > https://lore.kernel.org/lkml/08f1f185-e259-4014-9ca4-6411d5c1bc65@mar=
-can.st/
-> > > But in general it would be nice Apple ARM PMU support were well loved=
-.
-> > > I think we went 2 or 3 minor releases with the perf tool not working,
-> > > threats of substantial reverts to avoid the PMU driver bug being
-> > > exposed, etc.
-> >
-> > It's unfortunate that you've had a torrid time with the Apple PMU drive=
-r,
-> > but I think it's important to realise that it's both unmaintained (it
-> > ends up with me via the catch-all for drivers/perf/) and was written
-> > based off whatever reverse-engineering people could be bothered to do i=
-n
-> > their spare time. It's frankly remarkable that it works as well as it
-> > does.
->
-> Also, the "broken" driver actually works as expected. Ian blames the
-> userspace breakage on that driver, but that's only because the way we
-> deal with PMUs on ARM doesn't match his mental model. Oh well.
+On Fri, May 30, 2025 at 02:19:12PM +0300, Claudiu wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
+> Base Specification 4.0. It is designed for root complex applications and
+> features a single-lane (x1) implementation. Add documentation for it.
+> 
+> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> ---
+> 
+> Changes in v2:
+> - update the interrupt names by dropping "int" and "rc" string; due
+>   to this the patch description was adjusted
+> - added "interrupt-controller" and made it mandatory
+> - s/clkl1pm/pm/g
+> - dropped the legacy-interrupt-controller node; with this the gic
+>   interrupt controller node was dropped as well as it is not needed
+>   anymore
+> - updated interrupt-map in example and added interrupt-controller
+> - added clock-names as required property as the pm clock is not
+>   handled though PM domains; this will allow the driver to have
+>   the option to request the pm clock by its name when implementation
+>   will be adjusted to used the pm clock
+> - adjusted the size of dma-ranges to reflect the usage on
+>   SMARC module board
+> - moved "renesas,sysc" at the end of the node in example to align
+>   with dts coding style
+> 
+>  .../pci/renesas,r9a08g045s33-pcie.yaml        | 202 ++++++++++++++++++
+>  1 file changed, 202 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
+> new file mode 100644
+> index 000000000000..8ba30c084d1b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
+> @@ -0,0 +1,202 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/renesas,r9a08g045s33-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 
-I'm not sure what this is in reference to or what you mean by my
-mental model. The linked patch was that legacy events didn't support
-the extended type bits added by Intel for hybrid. Prior to this legacy
-events were broken on ARM BIG.little PMUs and would select an
-arbitrary PMU - not good by anybody's mental model.
+[...]
 
-I'm happy to chat with whatever issues you think I'm creating. I think
-you are making reference to situations where I've cleaned up a mess
-with Intel hybrid and then cleaned up a mess on ARM. I continue to try
-to clean up a mess for RISC-V. Sorry this makes you think I'm a bad
-guy.
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/r9a08g045-cpg.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie@11e40000 {
+> +            compatible = "renesas,r9a08g045s33-pcie";
+> +            reg = <0 0x11e40000 0 0x10000>;
+> +            ranges = <0x03000000 0 0x30000000 0 0x30000000 0 0x8000000>;
 
-Ian
+This 'ranges' property looks bogus. The bitfield specifies that the memory is
+64 bit non-prefetchable, which can't be true.
 
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
