@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF924C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 09:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B356BC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 09:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QeaQyg08N2bK9CSAL6amctKGL4o8t+/yBMjOyZjIdjM=; b=0DW74Dh9yZ7Q36O3DG9kpeAwBX
-	qbXi1GFqsiLnLslgBIB2JWvNUvNESISWPq+PUJvQOWzF2xxsaU1ufPS163b3TQFD2r3XLUuPC98xz
-	tFd9deP3NKzvP1veT6f2qROhsBzOFIOc73kXnzz23mqGmGxirdRoohxO1GPoAK8VW2ZW8zkKL2UQT
-	oJa3Oo5nOBjHLzt3Yr1H+RFy3WmgF1fXeiKFMmO/nk7wjZ/Vd1uEX9r4ms2Gc05uiHBJqCuWwXeNh
-	zy5GhaW6jrh6RVYbTw7ZqjTlumjPrE2FFP6XwPk1gmkSzJBkYoh9uWZNnUM0pw7Km8gCJdQXaAgR0
-	SHwyGFHw==;
+	bh=0iZWBl/87jpgBtc7g8vCiBj8fMDtEnqMgq5VqeHe2b4=; b=spKP/J7+vzKER7BIW9z5UIrEiR
+	s70CAPMtbI5l0V+jOwio5eEDlanflk7eKUrhotmBkBOJ+jpcuQy1m56H2PyKQIxuEpMh1qNvK0DiA
+	/Zf9dZfo2vZlV3uUHKHdsydqTQ/6mZsSW4q2ir0NCodzXS4QQvsvEZA8UH/duNQnx6f/GRyXWi/LE
+	BcCM4VRQw7Fm/na+FpSTQsvvH/DtO+gkoKFS//CQJws5EmAQ1B3w5jYKJdDFr5i/I9wGADUdasS80
+	MTgW8yIwrulHXypdF38RV/4bJDMnLmtBDbwmyIYvmv2kvpXMujLDXGXR37SHmDy6PivoGBN6EYHkG
+	/BOCnnmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRT1S-00000006pzW-3jBc;
-	Tue, 17 Jun 2025 09:54:30 +0000
+	id 1uRT3j-00000006qZa-18vI;
+	Tue, 17 Jun 2025 09:56:51 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSkQ-00000006mRT-0FpF
+	id 1uRSku-00000006mbM-1MX8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 09:36:55 +0000
+	Tue, 17 Jun 2025 09:37:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750153012;
+	s=mimecast20190719; t=1750153043;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=QeaQyg08N2bK9CSAL6amctKGL4o8t+/yBMjOyZjIdjM=;
-	b=SUObzYDLvU/05hirX4C6KYkqMl9ls6c3aRL5GsfdXyz2oWamqKsGC7/Z0XYsFcmTSEA/WC
-	fO3DI0MrJpkKRYAGwmqobiEXPKrm0kr3EkJc6Xa1HOYl84o2ni/IeEJSNIZ2vhTTURRGGo
-	0pDW05tiMiTAvrwW1tmFGtSXoe7yOjw=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=0iZWBl/87jpgBtc7g8vCiBj8fMDtEnqMgq5VqeHe2b4=;
+	b=C6L44K+vYdCV4/wI/vb60z0usDouPyr6H6RyMXE22+hLj0+Z20o4ArXVc01cUuo3oSiysn
+	yEE+kq0JuCeJ+rg3D3KXhvrBHc0Vm9K6xDYzvtHl+TsJ5kdrJBXJzfDxVhizpXt24jhwb/
+	j5T8lwD46P9pQnB++RIDADmyzAH/NS8=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-212-ZB9avdh7NyqCF4Yz0Db8Gg-1; Tue, 17 Jun 2025 05:36:50 -0400
-X-MC-Unique: ZB9avdh7NyqCF4Yz0Db8Gg-1
-X-Mimecast-MFC-AGG-ID: ZB9avdh7NyqCF4Yz0Db8Gg_1750153009
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-450d9f96f61so43242495e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 02:36:49 -0700 (PDT)
+ us-mta-336-lvuWcqjbNTOSP2RSHLCn-Q-1; Tue, 17 Jun 2025 05:37:21 -0400
+X-MC-Unique: lvuWcqjbNTOSP2RSHLCn-Q-1
+X-Mimecast-MFC-AGG-ID: lvuWcqjbNTOSP2RSHLCn-Q_1750153040
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a58939191eso189876f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 02:37:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750153009; x=1750757809;
+        d=1e100.net; s=20230601; t=1750153039; x=1750757839;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=QeaQyg08N2bK9CSAL6amctKGL4o8t+/yBMjOyZjIdjM=;
-        b=kG6vV7FSlfruKrvUzYSW96t963TwUY8NmSpWhTxz4rJ+51SaEGh2vxFXWTGSEmmIO/
-         X/EndX70eit1NfEe9kLCBAW5b/xfovlOLEBTvulC0sKlEiMc7GNGfwMpc4FTMZ6TInai
-         m9QCZd/gimhG0/I6ZiOWo/FONM19j+mvlqyb4Jgq8FkGOn+ZN5clRtWp27yyF1EgXYAY
-         TWAu2EvjjcfPfaSC25G1kyF3Hsrv2sb9Hxw6ZknJbPIFJTqYhFgD3LqlhwI/LU4DIsvQ
-         WqmrLMLIerrQOQG3EGqlvkPrlLIzUdCLrBl4WypX43eKARHs7RRxAK7NpBMTX18VzXHw
-         SswQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVeNzneg9A0PpY5VQNrSmyGO70CrzuRTrMntdVUVJhdKGnr9MyLjXN6mys9veHYLV4AM3/vQMXFLwn5kVzs1vfy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxT2kT2Oqt9Zl6pvDhqaC3+m4NqwBGMOebH8+km6bGl0EbUpHWK
-	H7/Y39rrYpUVvLFtPsEXBZgz91MPBHi/SXiv0AcBhujR997tm2PgTUhwemV5vVYzHWCzYNnrhpY
-	udx0EzMYZfHWeS0kVD7XTdXWEKOfYGZ5xkr0H5/jWjPqJ+bFpFlKeSC3KJtT3/QP9+YnPyyMT8j
-	Rv
-X-Gm-Gg: ASbGncuXqVc0RWIqYb/5tFjF4xYwoZ4YSe5MqfidwcJCIS+o2py/jALvjzHgNURKxwe
-	jwA0LYPYS66nxqDCAqeIfFfPQojFoq4D+ZfFV8BAKfo49ciK9LPuM9+YjwLL4+qoPQ3Gm/bXuNC
-	NRcRrwDYCINfADHosEgf3O6BQ8a2L0xSH0j24AUJqRDbWK4hg7prolMgTC9HEPM7wpD97VLFcuK
-	HrdYLd5tCL2/U/6ZlGn0RsEXlvA2TlrgEl58xi/meln4aJJS7OiUAkum+ns/ZRRiMW+WaUUBRyg
-	ta8lH8YtDGfjPMjsOLfjoN9m2g8n4y67VqpDMUOycqoEbJDRVvN11bkjhmV5H+ID+s5QolyK/Ys
-	haJiqbzIqAfcnPt+HWlxoG4xqyno2fyI2+2aEy2Br5sFFOWI=
-X-Received: by 2002:a05:600c:6205:b0:441:a715:664a with SMTP id 5b1f17b1804b1-4533caa628fmr107487215e9.20.1750153008756;
-        Tue, 17 Jun 2025 02:36:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHiGU6rdJOxze5zntN178WfWP080iOaFrEHA392zHARPkcDs+AZMCwZ9uBzuwzj+r+ddywNSA==
-X-Received: by 2002:a05:600c:6205:b0:441:a715:664a with SMTP id 5b1f17b1804b1-4533caa628fmr107486885e9.20.1750153008407;
-        Tue, 17 Jun 2025 02:36:48 -0700 (PDT)
+        bh=0iZWBl/87jpgBtc7g8vCiBj8fMDtEnqMgq5VqeHe2b4=;
+        b=LQhwvTRF/mmHWWzHrx2amkaDpAdyKJNGfLFKT8fCPYFz5JPnpk/AVv6/GU8aV+AA3x
+         9tRW5J1NaAzUDqVGxWPfz04SZQGJGNMOb2xPNHRzfPhcVVv/U96rBAwmF6u8rbAA8Dy2
+         eJ29s0chkq82C5txaTJJCNQ+K4MdoI8eSsqfAxxruXtLa7ZrPiFMKn1LnE86FkgPaiW9
+         9heP/Lx+iD31kBfQ9YZbVlsDTdssXKGr/j0FRXMW0FDlKH/Imb6FSHc8MI+GH6IJTLfK
+         TUiJgSxpCguptV/OKHxsATQs/LnGe612imcFHLIQrCpBO3kLDDN/Uh7tJoPzWoobV40l
+         n+tA==
+X-Forwarded-Encrypted: i=1; AJvYcCU+WxOiVxBpnm16M8IQzvdIUoqeNzbn1XcrXD/IU/lrKTe6rAIXX3qQSZsMmxANf9bLAL72dKfkXXjwIWbpFaa5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2fgclZCUrrGaBITGH+UP9krkwgGMVTNF5hWiCU4MoEwSW0Opb
+	+VfJ007Gg56kdQZoPXZ1ZmjLMPVpTqPkIq6mu9zDdt4uAskvD7Y5o4A/ocvughC3MsCVwX2XIXC
+	kfw7admGWTTSRWDFPQK6SWEGq/InKmJMQAP4qZy5Fmqebol8lZSw5WMjCWQJOcZBVqjrBs271E/
+	cl
+X-Gm-Gg: ASbGnctIvjj/8omUKVGlMlP8VWbka6IMPDIWscQquu5WTE5pLCdB5ifY4/2Dq7HJEDK
+	BS80CrAabPsYgaOQrFEr6EZZkq6TRJ6xy/pNPWDi4HowmyFF4bwa/4lqNrSvnXlH625jcwsG6QT
+	D7VOfm0T7bkvLBXHXwtZpVDwOBB1+6APNc3f3LyCZNIhtAITDOinpqiF5uZSXdIZKnaONPFbdg7
+	R7Qcc7ER+50TR1eyAE+CcLIvJ++w6v4chtaQjav0rRWrxbtAtb9bXpJajDzNn0jtVgNQJDgYyOd
+	1RfLaqFvnlGaCoHYQfBKzz2d7T+YaRs3I4kyS1e0lKijnlgoHxm0zQOdr92ldXcPucqrSWlW7u4
+	PS38NSNq324F664ACOEIiCc6UG80N90lNoX51E7MZ6knpMqE=
+X-Received: by 2002:a05:6000:2089:b0:3a5:2ec5:35b8 with SMTP id ffacd0b85a97d-3a572398cecmr9501300f8f.11.1750153039523;
+        Tue, 17 Jun 2025 02:37:19 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGn0r2S94rVo2KuanbuIlCONOQLmf7OLS7ZUZs7agOAWDn3Sa7W8ftax638hwNbov3D5qaGyQ==
+X-Received: by 2002:a05:6000:2089:b0:3a5:2ec5:35b8 with SMTP id ffacd0b85a97d-3a572398cecmr9501261f8f.11.1750153038988;
+        Tue, 17 Jun 2025 02:37:18 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f31:700:3851:c66a:b6b9:3490? (p200300d82f3107003851c66ab6b93490.dip0.t-ipconnect.de. [2003:d8:2f31:700:3851:c66a:b6b9:3490])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54a36sm13644198f8f.15.2025.06.17.02.36.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4532de8c64esm175838425e9.7.2025.06.17.02.37.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Jun 2025 02:36:47 -0700 (PDT)
-Message-ID: <911e7b40-e30e-477f-a4e5-df34df1d0e14@redhat.com>
-Date: Tue, 17 Jun 2025 11:36:46 +0200
+        Tue, 17 Jun 2025 02:37:18 -0700 (PDT)
+Message-ID: <d9fc2e4f-3a4d-4bf2-9a45-b4d890f2b0d8@redhat.com>
+Date: Tue, 17 Jun 2025 11:37:16 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/14] mm: Remove devmap related functions and page
- table bits
+Subject: Re: [PATCH v2 10/14] fs/dax: Remove FS_DAX_LIMITED config option
 To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
@@ -95,11 +94,9 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net,
- m.szyprowski@samsung.com, Will Deacon <will@kernel.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Jason Gunthorpe <jgg@nvidia.com>
+ m.szyprowski@samsung.com
 References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
- <bf6221bf1e3a290845417a60c27cf301203fd99c.1750075065.git-series.apopple@nvidia.com>
+ <bbade6a3154d14d958f5f9cf65fd6424897ec9c2.1750075065.git-series.apopple@nvidia.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -146,16 +143,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <bf6221bf1e3a290845417a60c27cf301203fd99c.1750075065.git-series.apopple@nvidia.com>
+In-Reply-To: <bbade6a3154d14d958f5f9cf65fd6424897ec9c2.1750075065.git-series.apopple@nvidia.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: TIxCI4hBfJvJGfbux-QqjAhsXnvANENob__eNnlHvMQ_1750153009
+X-Mimecast-MFC-PROC-ID: EY21Rz5WdIO6CpvC3WRJcZfKSDOM1O0vT5Coh4dmgK8_1750153040
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_023654_176392_3ADFE531 
-X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-CacheID: sfid-20250617_023724_431447_DE3A35CE 
+X-CRM114-Status: UNSURE (   7.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -172,17 +169,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 16.06.25 13:58, Alistair Popple wrote:
-> Now that DAX and all other reference counts to ZONE_DEVICE pages are
-> managed normally there is no need for the special devmap PTE/PMD/PUD
-> page table bits. So drop all references to these, freeing up a
-> software defined page table bit on architectures supporting it.
+> The dcssblk driver was the last user of FS_DAX_LIMITED. That was marked
+> broken by 653d7825c149 ("dcssblk: mark DAX broken, remove FS_DAX_LIMITED
+> support") to allow removal of PFN_SPECIAL. However the FS_DAX_LIMITED
+> config option itself was not removed, so do that now.
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> Acked-by: Will Deacon <will@kernel.org> # arm64
-> Suggested-by: Chunyan Zhang <zhang.lyra@gmail.com>
-> Reviewed-by: Björn Töpel <bjorn@rivosinc.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
