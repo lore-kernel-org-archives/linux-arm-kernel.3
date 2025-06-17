@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1581C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 13:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D532BC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 13:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UBFNBWgCTQuMES7Fp6imyNNNcj31PARDzhx99qBmZmA=; b=UBZo5W6qk5Ea47nqw24LVrSz3q
-	9Mxkg1TB49a+MtaSMdLTKogxdH9odEUe/wxB/AEQQp/aWpyenxsHK+a9wfEy4lkLnS+ohGQqtS3dO
-	i5RnyySqhnx4K5z0+r/kRCnbPscNIIGfQc4LjbIGjc+cyaMKYm9PGB06Pm++qp7QPhQmIxxE80ADK
-	gvHP+/q6YCC/gYcg0k9fl5MVQ07oDt2a74w0Nvg+f6oMfDCFsCBf36E7WZ0aiwH6Bb3HXjDFadUzy
-	KvMJW2x5r2CpFHz9sLowh2shjYGYKo25K4yO7CtJXfm/085tV3pFKFWJf2oPwaUGzaSXSyZmdi+16
-	S4pDUAUw==;
+	bh=6kga7G3Y01CuQspvIaZUkRBEey32ORAMdulB8ZTspFI=; b=jj6E0ieTaiSWZRUO/EiISvxlSZ
+	FNRl9/XtjIMYa0lDvVqJ8ViOMt/8WM1FO6YKcAIjJIjSKCJ5cjMClRyjdwHZdDo2WxFb/u0zfa1wz
+	5Jn12KubXVyGHOYoWLsJBd3xzntDKoOEHLz/WDOgh3UHNVTPUPwNlP8mKyJrkSX32ZXBznDPxpRHE
+	0GVnnW7KYYo4ffvgeIObnKSOceRtqXpDrk638qHs6F8S31xQie6N4n4OcMYd3ocfzg8S5/8ytnQ++
+	67e0RpRPkXX4j5VTwFeAl/UjQWa/wyIK2P/ACRZa5qXv++1B30g+uJtFKk5tLdDpAuClS2GV24A3F
+	sjHEpJ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWkZ-00000007QzF-0KFq;
-	Tue, 17 Jun 2025 13:53:19 +0000
+	id 1uRWmk-00000007ROI-3LxO;
+	Tue, 17 Jun 2025 13:55:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWVP-00000007Nvz-1xh1
+	id 1uRWVQ-00000007NwM-1Tre
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 13:37:40 +0000
+	Tue, 17 Jun 2025 13:37:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C9D9150C;
-	Tue, 17 Jun 2025 06:37:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDE061595;
+	Tue, 17 Jun 2025 06:37:18 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A33363F673;
-	Tue, 17 Jun 2025 06:37:35 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2001B3F673;
+	Tue, 17 Jun 2025 06:37:37 -0700 (PDT)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -44,17 +44,17 @@ Cc: broonie@kernel.org,
 	stable@vger.kernel.org,
 	tabba@google.com,
 	will@kernel.org
-Subject: [PATCH 3/7] KVM: arm64: Reorganise CPTR trap manipulation
-Date: Tue, 17 Jun 2025 14:37:14 +0100
-Message-Id: <20250617133718.4014181-4-mark.rutland@arm.com>
+Subject: [PATCH 4/7] KVM: arm64: Remove ad-hoc CPTR manipulation from fpsimd_sve_sync()
+Date: Tue, 17 Jun 2025 14:37:15 +0100
+Message-Id: <20250617133718.4014181-5-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20250617133718.4014181-1-mark.rutland@arm.com>
 References: <20250617133718.4014181-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_063739_595643_5258D1BE 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20250617_063740_432267_5EB30A41 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,33 +69,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NVHE/HVHE and VHE modes have separate implementations of
-__activate_cptr_traps() and __deactivate_cptr_traps() in their
-respective switch.c files. There's some duplication of logic, and it's
-not currently possible to reuse this logic elsewhere.
+There's no need for fpsimd_sve_sync() to write to CPTR/CPACR. All
+relevant traps are always disabled earlier within __kvm_vcpu_run(), when
+__deactivate_cptr_traps() configures CPTR/CPACR.
 
-Move the logic into the common switch.h header so that it can be reused,
-and de-duplicate the common logic.
+With irrelevant details elided, the flow is:
 
-This rework changes the way SVE traps are deactivated in VHE mode,
-aligning it with NVHE/HVHE modes:
+handle___kvm_vcpu_run(...)
+{
+	flush_hyp_vcpu(...) {
+		fpsimd_sve_flush(...);
+	}
 
-* Before this patch, VHE's __deactivate_cptr_traps() would
-  unconditionally enable SVE for host EL2 (but not EL0), regardless of
-  whether the ARM64_SVE cpucap was set.
+	__kvm_vcpu_run(...) {
+		__activate_traps(...) {
+			__activate_cptr_traps(...);
+		}
 
-* After this patch, VHE's __deactivate_cptr_traps() will take the
-  ARM64_SVE cpucap into account. When ARM64_SVE is not set, SVE will be
-  trapped from EL2 and below.
+		do {
+			__guest_enter(...);
+		} while (...);
 
-The old and new behaviour are both benign:
+		__deactivate_traps(....) {
+			__deactivate_cptr_traps(...);
+		}
+	}
 
-* When ARM64_SVE is not set, the host will not touch SVE state, and will
-  not reconfigure SVE traps. Host EL0 access to SVE will be trapped as
-  expected.
+	sync_hyp_vcpu(...) {
+		fpsimd_sve_sync(...);
+	}
+}
 
-* When ARM64_SVE is set, the host will configure EL0 SVE traps before
-  returning to EL0 as part of reloading the EL0 FPSIMD/SVE/SME state.
+Remove the unnecessary write to CPTR/CPACR. An ISB is still necessary,
+so a comment is added to describe this requirement.
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
@@ -105,314 +111,25 @@ Cc: Mark Brown <broonie@kernel.org>
 Cc: Oliver Upton <oliver.upton@linux.dev>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 130 ++++++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/switch.c        |  59 -----------
- arch/arm64/kvm/hyp/vhe/switch.c         |  81 ---------------
- 3 files changed, 130 insertions(+), 140 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index aa5b561b92182..9b025276fcc8e 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -65,6 +65,136 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
- 	}
- }
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index e9198e56e784b..3206b2c07f82a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -69,7 +69,10 @@ static void fpsimd_sve_sync(struct kvm_vcpu *vcpu)
+ 	if (!guest_owns_fp_regs())
+ 		return;
  
-+static inline void __activate_cptr_traps_nvhe(struct kvm_vcpu *vcpu)
-+{
-+	u64 val = CPTR_NVHE_EL2_RES1 | CPTR_EL2_TAM | CPTR_EL2_TTA;
-+
+-	cpacr_clear_set(0, CPACR_EL1_FPEN | CPACR_EL1_ZEN);
 +	/*
-+	 * Always trap SME since it's not supported in KVM.
-+	 * TSM is RES1 if SME isn't implemented.
++	 * Traps have been disabled by __deactivate_cptr_traps(), but there
++	 * hasn't necessarily been a context synchronization event yet.
 +	 */
-+	val |= CPTR_EL2_TSM;
-+
-+	if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
-+		val |= CPTR_EL2_TZ;
-+
-+	if (!guest_owns_fp_regs())
-+		val |= CPTR_EL2_TFP;
-+
-+	write_sysreg(val, cptr_el2);
-+}
-+
-+static inline void __activate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
-+{
-+	/*
-+	 * With VHE (HCR.E2H == 1), accesses to CPACR_EL1 are routed to
-+	 * CPTR_EL2. In general, CPACR_EL1 has the same layout as CPTR_EL2,
-+	 * except for some missing controls, such as TAM.
-+	 * In this case, CPTR_EL2.TAM has the same position with or without
-+	 * VHE (HCR.E2H == 1) which allows us to use here the CPTR_EL2.TAM
-+	 * shift value for trapping the AMU accesses.
-+	 */
-+	u64 val = CPTR_EL2_TAM | CPACR_EL1_TTA;
-+	u64 cptr;
-+
-+	if (guest_owns_fp_regs()) {
-+		val |= CPACR_EL1_FPEN;
-+		if (vcpu_has_sve(vcpu))
-+			val |= CPACR_EL1_ZEN;
-+	}
-+
-+	if (!vcpu_has_nv(vcpu))
-+		goto write;
-+
-+	/*
-+	 * The architecture is a bit crap (what a surprise): an EL2 guest
-+	 * writing to CPTR_EL2 via CPACR_EL1 can't set any of TCPAC or TTA,
-+	 * as they are RES0 in the guest's view. To work around it, trap the
-+	 * sucker using the very same bit it can't set...
-+	 */
-+	if (vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
-+		val |= CPTR_EL2_TCPAC;
-+
-+	/*
-+	 * Layer the guest hypervisor's trap configuration on top of our own if
-+	 * we're in a nested context.
-+	 */
-+	if (is_hyp_ctxt(vcpu))
-+		goto write;
-+
-+	cptr = vcpu_sanitised_cptr_el2(vcpu);
-+
-+	/*
-+	 * Pay attention, there's some interesting detail here.
-+	 *
-+	 * The CPTR_EL2.xEN fields are 2 bits wide, although there are only two
-+	 * meaningful trap states when HCR_EL2.TGE = 0 (running a nested guest):
-+	 *
-+	 *  - CPTR_EL2.xEN = x0, traps are enabled
-+	 *  - CPTR_EL2.xEN = x1, traps are disabled
-+	 *
-+	 * In other words, bit[0] determines if guest accesses trap or not. In
-+	 * the interest of simplicity, clear the entire field if the guest
-+	 * hypervisor has traps enabled to dispel any illusion of something more
-+	 * complicated taking place.
-+	 */
-+	if (!(SYS_FIELD_GET(CPACR_EL1, FPEN, cptr) & BIT(0)))
-+		val &= ~CPACR_EL1_FPEN;
-+	if (!(SYS_FIELD_GET(CPACR_EL1, ZEN, cptr) & BIT(0)))
-+		val &= ~CPACR_EL1_ZEN;
-+
-+	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR3_EL1, S2POE, IMP))
-+		val |= cptr & CPACR_EL1_E0POE;
-+
-+	val |= cptr & CPTR_EL2_TCPAC;
-+
-+write:
-+	write_sysreg(val, cpacr_el1);
-+}
-+
-+static inline void __activate_cptr_traps(struct kvm_vcpu *vcpu)
-+{
-+	if (!guest_owns_fp_regs())
-+		__activate_traps_fpsimd32(vcpu);
-+
-+	if (has_vhe() || has_hvhe())
-+		__activate_cptr_traps_vhe(vcpu);
-+	else
-+		__activate_cptr_traps_nvhe(vcpu);
-+}
-+
-+static inline void __deactivate_cptr_traps_nvhe(struct kvm_vcpu *vcpu)
-+{
-+	u64 val = CPTR_NVHE_EL2_RES1;
-+
-+	if (!cpus_have_final_cap(ARM64_SVE))
-+		val |= CPTR_EL2_TZ;
-+	if (!cpus_have_final_cap(ARM64_SME))
-+		val |= CPTR_EL2_TSM;
-+
-+	write_sysreg(val, cptr_el2);
-+}
-+
-+static inline void __deactivate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
-+{
-+	u64 val = CPACR_EL1_FPEN;
-+
-+	if (cpus_have_final_cap(ARM64_SVE))
-+		val |= CPACR_EL1_ZEN;
-+	if (cpus_have_final_cap(ARM64_SME))
-+		val |= CPACR_EL1_SMEN;
-+
-+	write_sysreg(val, cpacr_el1);
-+}
-+
-+static inline void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
-+{
-+	if (has_vhe() || has_hvhe())
-+		__deactivate_cptr_traps_vhe(vcpu);
-+	else
-+		__deactivate_cptr_traps_nvhe(vcpu);
-+}
-+
- #define reg_to_fgt_masks(reg)						\
- 	({								\
- 		struct fgt_masks *m;					\
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index 73affe1333a49..0e752b515d0fd 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -47,65 +47,6 @@ struct fgt_masks hdfgwtr2_masks;
+ 	isb();
  
- extern void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
- 
--static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
--{
--	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
--
--	if (!guest_owns_fp_regs())
--		__activate_traps_fpsimd32(vcpu);
--
--	if (has_hvhe()) {
--		val |= CPACR_EL1_TTA;
--
--		if (guest_owns_fp_regs()) {
--			val |= CPACR_EL1_FPEN;
--			if (vcpu_has_sve(vcpu))
--				val |= CPACR_EL1_ZEN;
--		}
--
--		write_sysreg(val, cpacr_el1);
--	} else {
--		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
--
--		/*
--		 * Always trap SME since it's not supported in KVM.
--		 * TSM is RES1 if SME isn't implemented.
--		 */
--		val |= CPTR_EL2_TSM;
--
--		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
--			val |= CPTR_EL2_TZ;
--
--		if (!guest_owns_fp_regs())
--			val |= CPTR_EL2_TFP;
--
--		write_sysreg(val, cptr_el2);
--	}
--}
--
--static void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
--{
--	if (has_hvhe()) {
--		u64 val = CPACR_EL1_FPEN;
--
--		if (cpus_have_final_cap(ARM64_SVE))
--			val |= CPACR_EL1_ZEN;
--		if (cpus_have_final_cap(ARM64_SME))
--			val |= CPACR_EL1_SMEN;
--
--		write_sysreg(val, cpacr_el1);
--	} else {
--		u64 val = CPTR_NVHE_EL2_RES1;
--
--		if (!cpus_have_final_cap(ARM64_SVE))
--			val |= CPTR_EL2_TZ;
--		if (!cpus_have_final_cap(ARM64_SME))
--			val |= CPTR_EL2_TSM;
--
--		write_sysreg(val, cptr_el2);
--	}
--}
--
- static void __activate_traps(struct kvm_vcpu *vcpu)
- {
- 	___activate_traps(vcpu, vcpu->arch.hcr_el2);
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 20df44b49ceb8..32b4814eb2b7a 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -90,87 +90,6 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- 	return hcr | (guest_hcr & ~NV_HCR_GUEST_EXCLUDE);
- }
- 
--static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
--{
--	u64 cptr;
--
--	/*
--	 * With VHE (HCR.E2H == 1), accesses to CPACR_EL1 are routed to
--	 * CPTR_EL2. In general, CPACR_EL1 has the same layout as CPTR_EL2,
--	 * except for some missing controls, such as TAM.
--	 * In this case, CPTR_EL2.TAM has the same position with or without
--	 * VHE (HCR.E2H == 1) which allows us to use here the CPTR_EL2.TAM
--	 * shift value for trapping the AMU accesses.
--	 */
--	u64 val = CPACR_EL1_TTA | CPTR_EL2_TAM;
--
--	if (guest_owns_fp_regs()) {
--		val |= CPACR_EL1_FPEN;
--		if (vcpu_has_sve(vcpu))
--			val |= CPACR_EL1_ZEN;
--	} else {
--		__activate_traps_fpsimd32(vcpu);
--	}
--
--	if (!vcpu_has_nv(vcpu))
--		goto write;
--
--	/*
--	 * The architecture is a bit crap (what a surprise): an EL2 guest
--	 * writing to CPTR_EL2 via CPACR_EL1 can't set any of TCPAC or TTA,
--	 * as they are RES0 in the guest's view. To work around it, trap the
--	 * sucker using the very same bit it can't set...
--	 */
--	if (vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
--		val |= CPTR_EL2_TCPAC;
--
--	/*
--	 * Layer the guest hypervisor's trap configuration on top of our own if
--	 * we're in a nested context.
--	 */
--	if (is_hyp_ctxt(vcpu))
--		goto write;
--
--	cptr = vcpu_sanitised_cptr_el2(vcpu);
--
--	/*
--	 * Pay attention, there's some interesting detail here.
--	 *
--	 * The CPTR_EL2.xEN fields are 2 bits wide, although there are only two
--	 * meaningful trap states when HCR_EL2.TGE = 0 (running a nested guest):
--	 *
--	 *  - CPTR_EL2.xEN = x0, traps are enabled
--	 *  - CPTR_EL2.xEN = x1, traps are disabled
--	 *
--	 * In other words, bit[0] determines if guest accesses trap or not. In
--	 * the interest of simplicity, clear the entire field if the guest
--	 * hypervisor has traps enabled to dispel any illusion of something more
--	 * complicated taking place.
--	 */
--	if (!(SYS_FIELD_GET(CPACR_EL1, FPEN, cptr) & BIT(0)))
--		val &= ~CPACR_EL1_FPEN;
--	if (!(SYS_FIELD_GET(CPACR_EL1, ZEN, cptr) & BIT(0)))
--		val &= ~CPACR_EL1_ZEN;
--
--	if (kvm_has_feat(vcpu->kvm, ID_AA64MMFR3_EL1, S2POE, IMP))
--		val |= cptr & CPACR_EL1_E0POE;
--
--	val |= cptr & CPTR_EL2_TCPAC;
--
--write:
--	write_sysreg(val, cpacr_el1);
--}
--
--static void __deactivate_cptr_traps(struct kvm_vcpu *vcpu)
--{
--	u64 val = CPACR_EL1_FPEN | CPACR_EL1_ZEN_EL1EN;
--
--	if (cpus_have_final_cap(ARM64_SME))
--		val |= CPACR_EL1_SMEN_EL1EN;
--
--	write_sysreg(val, cpacr_el1);
--}
--
- static void __activate_traps(struct kvm_vcpu *vcpu)
- {
- 	u64 val;
+ 	if (vcpu_has_sve(vcpu))
 -- 
 2.30.2
 
