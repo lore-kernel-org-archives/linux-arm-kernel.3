@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B88C73C66
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1270FC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pBzzZbuJx8UJAQXI7NjK97wdQ09KSpZvJQqwljKQYGk=; b=TcTvNL/EVRNtrZHzcjqFGyp3m9
-	kZNZWQqfjVS24nSNw9TBpSvFGHNFIew5m+nslBf7ThMZClTDm1YzmwCk19h9RPls9WSZoLmcstlEC
-	5tzPsknoSO46lSY7xEn2RAjaT4eoU5gEJupNZXnPzbGI7kpGdk97N43fmzAahZ9ZUVm13l21Wezkl
-	kN2fyiZ/8GbVgQgmE/Z9Yqvgx/kyEl7f8SZZXEQjBVYUK7NRk9QkE7oyCNhZMGZrEo6X4lutjF3uX
-	m56kZ9Q06zINt0CKDtJeI+oRw8trCzDkIBz6j+x4bo10Ine4A2AsylZSCSL+blJa+GYStn4z+W2kS
-	TZij0HCQ==;
+	bh=cQgfd5GhWHik5LEPpZz+D67J5gQafIKVTwFAoFjZtcM=; b=IBLEBYrqDsbOZe+Rztf9uiBAtS
+	y8CwFSxHoVXLYt6JaZf6x8eGzuOmSsPrDIgJV82bmjwKAlU+6M8Bc0X+EPrEeOq5efS5uki0ivWl2
+	2f7+68oKJplpnlAc9W8tu7amRtrXBMGt4RWsGaj/iJZ6JJrXQ4LGbKb+k7pnHc4s/t9dafug7RGGf
+	EJ8TEPvNVdFd7NNXUqwOojzCoGsjcXxLIGSjvcalip+M+t9YlZqJiRHmulSJpObEm2V7xKlCnV9RT
+	O5qzB4TEwru8c4Z5E7s9qM9ZuPi5RUbG3lF4z705J8Coj3JAI2SkkCpR4jIPQ57nDVdA+Kq49yYGh
+	JA7p2E1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZpU-00000007xaQ-1pr3;
-	Tue, 17 Jun 2025 17:10:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uRZpV-00000007xav-1YEX;
+	Tue, 17 Jun 2025 17:10:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXBF-00000007Wja-48sq;
-	Tue, 17 Jun 2025 14:20:55 +0000
+	id 1uRXBR-00000007WmK-0tJp;
+	Tue, 17 Jun 2025 14:21:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDF005C4AC6;
-	Tue, 17 Jun 2025 14:18:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A976CC4CEE3;
-	Tue, 17 Jun 2025 14:20:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 98A4662A1F;
+	Tue, 17 Jun 2025 14:21:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D519C4CEF0;
+	Tue, 17 Jun 2025 14:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750170053;
-	bh=2InmuhCdbeF4xAg1utUzErMQdY9Y+3NdD/RkSD3RA6Y=;
+	s=k20201202; t=1750170064;
+	bh=c3Nwx6dBlajp+mjGLZ90FuNsLBoLj4+/vuSLqUu/Gg0=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Vx6BIclc/l3eryk97vgg5S/7dJzXIMmEm4Nt8OItskFEe+xsyWspT+K+fTJUZtZUg
-	 1/esRdpzKV7Tgh2ZbAM/vkn02AP5aeHlTC/+YyNrCvgtA8pt13PhMLa4CoCQixklNb
-	 FeNIYZQNbEEckySCKgKVLLsKgGK7XR9d44QBQazgIZyG422tQUn3zQ+9pgCyYD0TH0
-	 JjIeag5ygGr/ZFjI9ELdKsH1IqWoWsc/qcJSgMJ96pGtozAGP6Wu7ffhSApL8r/jtR
-	 A+uzQQlbSCIZrdrJBDlgy+Iv3uW04xy2NLN3G+Z1PFGT5eXC7k/KjwJhuucGPw11ab
-	 TsfP4fqo76Jpg==
-Date: Tue, 17 Jun 2025 09:20:47 -0500
+	b=S1A3/Uu4p3W0fyPToYzwbJK8xmeoi4lI2f7v10F+6c5I3VuE2InNtwV8+aRpLCORP
+	 HYVbC28DcbAEoErCJ9jtUKsPOvO5XREMnWksIl3/Op25wbOj4VrxbVfHCvKJLakgOA
+	 gt7lHEw1UB54zDBoSBs8mJQ/99xTbz0zJRMz1jes7yemNA29kE96Wa1YuAfMemSNLm
+	 wL/zJzgGg61kIWWtI4qAStmfxtP7OUixmScoFO6KOkrN9kmPZrELV0CNQdC6XiQ10H
+	 m4H7AMgl8i1K22wAizWXkC/JrNHtO3sNOq04uUiCgjY7UxV/72tQYN8KBl83RJ5LDM
+	 o8uTCnOHPShkA==
+Date: Tue, 17 Jun 2025 09:20:58 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-rockchip@lists.infradead.org, heiko@sntech.de, 
- conor+dt@kernel.org, krzk+dt@kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org
-To: John Clark <inindev@gmail.com>
-In-Reply-To: <20250616212214.139585-1-inindev@gmail.com>
-References: <20250616212214.139585-1-inindev@gmail.com>
-Message-Id: <175016979599.2093448.14784445392861076419.robh@kernel.org>
-Subject: Re: [PATCH v1 0/2] Add FriendlyElec NanoPi M5 support for Rockchip
- RK3576
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_072054_105910_2738CAF4 
-X-CRM114-Status: GOOD (  17.53  )
+Cc: devicetree@vger.kernel.org, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+To: Chen-Yu Tsai <wenst@chromium.org>
+In-Reply-To: <20250617082004.1653492-1-wenst@chromium.org>
+References: <20250617082004.1653492-1-wenst@chromium.org>
+Message-Id: <175016979717.2093508.10482380045650208426.robh@kernel.org>
+Subject: Re: [PATCH v3 0/6] arm64: mediatek: mt8186-corsola: Consolidate
+ and add new devices
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,34 +72,80 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 16 Jun 2025 17:22:12 -0400, John Clark wrote:
-> This series adds device tree support for the FriendlyElec NanoPi M5 board,
-> powered by the Rockchip RK3576 SoC (4x Cortex-A72, 4x Cortex-A53, Mali-G52
-> MC3 GPU, 6 TOPS NPU). The patches enable basic booting and connectivity,
-> including dual 1Gbps Ethernet, USB 3.2, microSD, M.2 PCIe NVMe, and HDMI.
+On Tue, 17 Jun 2025 16:19:57 +0800, Chen-Yu Tsai wrote:
+> Hi everyone,
 > 
-> Patch 1 updates the DT bindings in rockchip.yaml.
-> Patch 2 adds the NanoPi M5 device tree and Makefile entry.
+> This is v3 of my "component probe for Corsola devices" series.
 > 
-> No MAINTAINERS update is needed, as the new file is covered by the existing
-> ARM/Rockchip SoC entry.
+> Changes since v2:
+> - Rebased onto next-20250616
+> - Collected reviewed-by tags
+> - Dropped driver changes that are already in v6.16-rc1
 > 
-> Tested on NanoPi M5 with successful boot and feature validation.
+> Changes since v1:
+> - Reworded commit message for Elan I2C-HID binding change
+> - Dropped I2C address constraint from Elan I2C-HID binding completely
+> - Dropped enum from new compatible string entry in Elan I2C-HID binding
+> - Picked up Rob's ack on two binding changes
+> - Rebased onto next-20250417, resolving conflicts with "spherion
+>   component prober" changes
+> - Link to v1:
+>   https://lore.kernel.org/all/20250312104344.3084425-1-wenst@chromium.org/
 > 
-> Signed-off-by: John Clark <inindev@gmail.com>
-> ---
-> John Clark (2):
->   dt-bindings: arm: rockchip: add FriendlyElec NanoPi M5 board
->   arm64: dts: rockchip: Add FriendlyElec NanoPi M5 support
+> Here's a follow up series of the I2C component probers for Chromebooks.
+> This series enables the component prober for the Corsola series of
+> devices, combines the two existing Voltorb SKUs, and adds a new
+> device, codename Squirtle.
 > 
->  .../devicetree/bindings/arm/rockchip.yaml     |   6 +
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../boot/dts/rockchip/rk3576-nanopi-m5.dts    | 969 ++++++++++++++++++
->  3 files changed, 976 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
+> Patch 1 adds a new entry for the Squirtle device to the bindings.
+> 
+> Patch 2 fixes up the existing device trees for the component prober to
+> be active.
+> 
+> Patch 3 merges the device trees for the Voltorb device.
+> 
+> Patch 4 adds a device tree file for the Squirtle device, with I2C
+> components ready to be probed by the prober.
+> 
+> Patch 5 enables the prober to probe trackpads on some devices in the
+> Corsola family.
+> 
+> Patch 6 enables the prober to probe touchscreens on Squirtle.
+> 
+> 
+> Everything has been reviewed. Dmitry, please give an Ack so we can merge
+> everything through the soc tree.
+> 
+> 
+> Thanks
+> ChenYu
+> 
+> Chen-Yu Tsai (6):
+>   dt-bindings: HID: i2c-hid: elan: Introduce Elan eKTH8D18
+>   dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
+>   dt-bindings: arm: mediatek: Add MT8186 Squirtle Chromebooks
+>   arm64: dts: mediatek: mt8186-steelix: Mark second source components
+>     for probing
+>   arm64: dts: mediatek: mt8186: Merge Voltorb device trees
+>   arm64: dts: mediatek: mt8186: Add Squirtle Chromebooks
+> 
+>  .../devicetree/bindings/arm/mediatek.yaml     |   7 +-
+>  .../bindings/input/elan,ekth6915.yaml         |  12 +-
+>  arch/arm64/boot/dts/mediatek/Makefile         |   4 +-
+>  .../dts/mediatek/mt8186-corsola-squirtle.dts  | 107 ++++++++++++++++++
+>  .../dts/mediatek/mt8186-corsola-steelix.dtsi  |   9 +-
+>  .../mt8186-corsola-tentacool-sku327683.dts    |   2 +
+>  .../mt8186-corsola-tentacruel-sku262148.dts   |   2 +
+>  .../mt8186-corsola-voltorb-sku589824.dts      |  13 ---
+>  ...u589825.dts => mt8186-corsola-voltorb.dts} |   5 +-
+>  .../boot/dts/mediatek/mt8186-corsola.dtsi     |  10 +-
+>  10 files changed, 138 insertions(+), 33 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-squirtle.dts
+>  delete mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb-sku589824.dts
+>  rename arch/arm64/boot/dts/mediatek/{mt8186-corsola-voltorb-sku589825.dts => mt8186-corsola-voltorb.dts} (76%)
 > 
 > --
-> 2.39.5
+> 2.50.0.rc2.692.g299adb8693-goog
 > 
 > 
 > 
@@ -123,23 +167,19 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/v6.16-rc1-19-gd7ad90d22abe (exact match)
+ Base: tags/next-20250617 (best guess, 8/9 blobs matched)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250616212214.139585-1-inindev@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250617082004.1653492-1-wenst@chromium.org:
 
-arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dtb: spi-nor@0 (jedec,spi-nor): $nodename:0: 'spi-nor@0' does not match '^(flash|.*sram|nand)(@.*)?$'
-	from schema $id: http://devicetree.org/schemas/mtd/jedec,spi-nor.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dtb: pmic@23 (rockchip,rk806): Unevaluated properties are not allowed ('rk806_dvs1_null', 'rk806_dvs1_pwrdn', 'rk806_dvs1_rst', 'rk806_dvs1_slp', 'rk806_dvs2_dvs', 'rk806_dvs2_gpio', 'rk806_dvs2_null', 'rk806_dvs2_pwrdn', 'rk806_dvs2_rst', 'rk806_dvs2_slp', 'rk806_dvs3_dvs', 'rk806_dvs3_gpio', 'rk806_dvs3_null', 'rk806_dvs3_pwrdn', 'rk806_dvs3_rst', 'rk806_dvs3_slp' were unexpected)
-	from schema $id: http://devicetree.org/schemas/mfd/rockchip,rk806.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dtb: hym8563@51 (haoyu,hym8563): $nodename:0: 'hym8563@51' does not match '^rtc(@.*|-([0-9]|[1-9][0-9]+))?$'
-	from schema $id: http://devicetree.org/schemas/rtc/haoyu,hym8563.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dtb: hym8563@51 (haoyu,hym8563): Unevaluated properties are not allowed ('clock-frequency' was unexpected)
-	from schema $id: http://devicetree.org/schemas/rtc/haoyu,hym8563.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dtb: gpio-keys (gpio-keys): 'button@1' does not match any of the regexes: '^(button|event|key|switch|(button|event|key|switch)-[a-z0-9-]+|[a-z0-9-]+-(button|event|key|switch))$', '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/input/gpio-keys.yaml#
+arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb.dtb: spmi@10015000 (mediatek,mt8186-spmi): Unevaluated properties are not allowed ('interrupts' was unexpected)
+	from schema $id: http://devicetree.org/schemas/spmi/mtk,spmi-mtk-pmif.yaml#
+arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb.dtb: sound (mediatek,mt8186-mt6366-rt5682s-max98360-sound): 'model' is a required property
+	from schema $id: http://devicetree.org/schemas/sound/mt8186-mt6366-rt1019-rt5682s.yaml#
+arch/arm64/boot/dts/mediatek/mt8186-corsola-squirtle.dtb: spmi@10015000 (mediatek,mt8186-spmi): Unevaluated properties are not allowed ('interrupts' was unexpected)
+	from schema $id: http://devicetree.org/schemas/spmi/mtk,spmi-mtk-pmif.yaml#
 
 
 
