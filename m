@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB01C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0385C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJP0GPyMKswwkaA1sdEsRQYeektr28qBzPz6H5BQJ98=; b=fNnbfy9ISxucMCjGkzGXmlgx+I
-	A3Z+18Ci5aVt47Nvm6h2dsU8TztMK584OalSHSBPcqaQ9BRt29mdLK14y7GS9FHfIQuoO9Ecd6MYV
-	OSRCD4L4l7BHfi5znY9exkiNvf/rqNei3Kn+XV+epM6kIU1vE8Yy5QFxZHE15JqPTQUGrg02xRaku
-	UmJU/JnjU9YjdeRsRHyS99JkJk7IC+EeZyCaDJUMYbOP46O3wf0M+t1XdZQfxtuidNNkdTikohqTu
-	PKxzlAAFr8mIlLkdJTT/VPtfX/BBz/ZYEmH4TCm36vVhTWMm5GiLSRanZYPTRZPpEezDtUStfrJWM
-	u4UNv9Yw==;
+	bh=b4/P6JquiWXsuZD1VyesHfxeGLn1kYIl+Qx2icJaeEU=; b=D+Ks0rAeq0v8Mj0p4f5PIpHOln
+	VGRhdhBxHQXIk6SAY9/BV1KoFK8Yq+PMF1DGTGBCVY02py+uTWMTGA5/xQGgzlyTMvZO9x0PupkOV
+	lFIdguFEPAuaq8pArrnDYmsQkaWNLQivahayOUXeqcZ0oNe/QIbqEbBIa33NBI5eTAY97Tr3PsCVc
+	4m5bErGxSXDQ7WbMnTV9/IpfwjtyJ9680q9+A9B6Iojugd2hsUh3Mvz/1DMiE9peyA7m3OHTkoObM
+	B1a2YAGoulteOPERLYwMGJ5BbSjwyeNSTBUrGBD5nossE8hHw46TO1ydzeGkxYz2bdHCEUb0It6k5
+	uR+ROM9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXyT-00000007i2z-1SbV;
-	Tue, 17 Jun 2025 15:11:45 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRX5I-00000007VZl-0FMM;
-	Tue, 17 Jun 2025 14:14:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yJP0GPyMKswwkaA1sdEsRQYeektr28qBzPz6H5BQJ98=; b=C9+uYutBKalrTGmUZijIbg8NAD
-	QRCJan8vuyS1Kc3esAYZg7nZX9wEFsM7QoAZSimDwuR2aX3v5uYMLOSeJUslAXF4I9vSi5nCGThnu
-	xGVI4davWmEdbId93nms4ZYLxRBCswq5kOWfJediW7CvBJiIz5kjyWuDbrPPItoVHuVpqz5ei4Ry9
-	HSlMYHS5S0x34KLMqbCcwQzaJA2+AGhhdGDjv1X3LZEe969pdkGDDT/wkFeGdULFQnbyM5rWoW6em
-	R6mneQPxqV6rEBe53xNfwNI57Jws7ru1dutsziGhwKuMjkmn00l1MWZ4yppIvUXrQOxc80ZlK//wK
-	yoFSuUzw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRX5C-0000000HF1b-2N99;
-	Tue, 17 Jun 2025 14:14:38 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 5FA7630BDAD; Tue, 17 Jun 2025 16:14:37 +0200 (CEST)
-Date: Tue, 17 Jun 2025 16:14:37 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: Kuyo Chang <kuyo.chang@mediatek.com>, Ingo Molnar <mingo@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	jstultz <jstultz@google.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/1] sched/deadline: Fix fair_server runtime calculation
- formula
-Message-ID: <20250617141437.GW1613376@noisy.programming.kicks-ass.net>
-References: <20250614020524.631521-1-kuyo.chang@mediatek.com>
- <20250617085558.GN1613376@noisy.programming.kicks-ass.net>
- <aFFgi_9yxLN-auBE@jlelli-thinkpadt14gen4.remote.csb>
+	id 1uRY2q-00000007iTT-2P48;
+	Tue, 17 Jun 2025 15:16:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRX8h-00000007WEW-3kBy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Jun 2025 14:18:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20F3A150C;
+	Tue, 17 Jun 2025 07:17:52 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5BF73F58B;
+	Tue, 17 Jun 2025 07:18:12 -0700 (PDT)
+Date: Tue, 17 Jun 2025 15:18:10 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Yicong Yang <yangyicong@huawei.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	yangyicong@hisilicon.com, James Clark <james.clark@linaro.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Ali Saidi <alisaidi@amazon.com>, Leo Yan <leo.yan@linaro.org>,
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	yangjinqian <yangjinqian1@huawei.com>,
+	Douglas Anderson <dianders@chromium.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: perf usage of arch/arm64/include/asm/cputype.h
+Message-ID: <20250617141810.GB794930@e132581.arm.com>
+References: <aEyGg98z-MkcClXY@x1>
+ <1762acd6-df55-c10b-e396-2c6ed37d16c1@huawei.com>
+ <2abcf4ec-4725-4e79-b8d3-a4ddbc00caba@linaro.org>
+ <0b839ec1ae89439e95d7069adcbb95ab@huawei.com>
+ <20250616130736.GA788469@e132581.arm.com>
+ <2dc510b4-ff3d-edff-42be-f8260cd27840@huawei.com>
+ <20250616160811.GA794930@e132581.arm.com>
+ <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aFFgi_9yxLN-auBE@jlelli-thinkpadt14gen4.remote.csb>
+In-Reply-To: <aFBYrQgx2m8Nd-iG@J2N7QTR9R3>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250617_071816_015605_9C0D35B1 
+X-CRM114-Status: GOOD (  29.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,65 +83,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 02:33:15PM +0200, Juri Lelli wrote:
-> On 17/06/25 10:55, Peter Zijlstra wrote:
-> > On Sat, Jun 14, 2025 at 10:04:55AM +0800, Kuyo Chang wrote:
-> > > From: kuyo chang <kuyo.chang@mediatek.com>
-> > > 
-> > > [Symptom]
-> > > The calculation formula for fair_server runtime is based on
-> > > Frequency/CPU scale-invariance.
-> > > This will cause excessive RT latency (expect absolute time).
-> > > 
-> > > [Analysis]
-> > > Consider the following case under a Big.LITTLE architecture:
-> > > 
-> > > Assume the runtime is : 50,000,000 ns, and FIE/CIE as below
-> > > FIE: 100
-> > > CIE:50
-> > > First by FIE, the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
-> > > Then by CIE, it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
-> > 
-> > What's this FIE/CIE stuff? Is that some ARM lingo?
-> > 
-> > 
-> > > diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> > > index ad45a8fea245..8bfa846cf0dc 100644
-> > > --- a/kernel/sched/deadline.c
-> > > +++ b/kernel/sched/deadline.c
-> > > @@ -1504,7 +1504,10 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
-> > >  	if (dl_entity_is_special(dl_se))
-> > >  		return;
-> > >  
-> > > -	scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
-> > > +	if (dl_se == &rq->fair_server)
-> > > +		scaled_delta_exec = delta_exec;
-> > > +	else
-> > > +		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
-> > 
-> > Juri, the point it a bit moot atm, but is this something specific to the
-> > fair_server in particular, or all servers?
-> 
-> I believe for other servers (i.e., rt-server work from Yuri and Luca) it
-> might be useful to have it configurable somehow. I actually had a recent
-> discussion about this concerning single task entities (traditional
-> deadline servers) for which as well there might be cases where one might
-> want not to scale considering frequency and capacity.
-> 
-> > Because if this is something all servers require then the above is
-> > ofcourse wrong.
-> 
-> To me it looks like we want this (no scaling) for fair_server (and
-> possibly scx_server?) as for them we are only looking into a 'fixed
-> time' type of isolation. Full fledged servers (hierarchical scheduling)
-> maybe have it configurable, or enabled by default as a start (as we have
-> it today).
+On Mon, Jun 16, 2025 at 06:47:25PM +0100, Mark Rutland wrote:
 
-Right. Then we should write the above like:
+[...]
 
-	scaled_delta_exec = delta_exec;
-	if (!dl_se->dl_server)
-		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+> > > ok this sounds just like as before except rename the midr check function and modify the
+> > > users in perf. will do in below steps:
+> > > - move cpu_errata_set_target_impl()/is_midr_in_range_list() out of cputype.h
+> > >   since they're only used in the kernel with errata information
+> > > - introduce is_target_midr_in_range_list() in cputype.h to test certain MIDR
+> > >   is within the ranges. (is_perf_midr_in_range_list() only make sense in
+> > >   userspace and is a bit strange to me in a kernel header). maybe reimplement
+> > >   is_midr_in_range_list() with is_target_midr_in_range_list() otherwise there's
+> > >   no users in kernel
+> > > - copy cputype.h to userspace and make users use new is_target_midr_in_range_list()
+> > > 
+> > > this will avoid touching the kernel too much and userspace don't need to implement
+> > > a separate function.
+> > 
+> > My understanding is we don't need to touch anything in kernel side, we
+> > simply add a wrapper in perf tool to call midr_is_cpu_model_range().
+> > 
+> > When introduce is_target_midr_in_range_list() in kernel's cputype.h,
+> > if no consumers in kernel use it and only useful for perf tool, then
+> > it is unlikely to be accepted.
+> 
+> I think all of this is just working around the problem that
+> asm/cputype.h was never intended to be used in userspace. Likewise with
+> the other headers that we copy into tools/.
+> 
+> If there are bits that we *want* to share with tools/, let's factor that
+> out. The actual MIDR values are a good candidate for that -- we can
+> follow the same approach as with sysreg-defs.h.
 
-and let any later server users add bits on if they want more options.
+Thanks for suggestion, Mark.
+
+It makes sense to me for extracting MIDR and sharing between kernel and
+tools/. I have created a task for following up the refactoring.
+
+> Other than that, I think that userspace should just maintain its own
+> infrastructure, and only pull in things from kernel sources when there's
+> a specific reason to. Otherwise we're just creating busywork.
+
+I agree with the methodology.
+
+Since Arnaldo is facing build failure when sync headers between kernel
+and perf tool, to avoid long latency, let us split the refactoriing
+into separate steps.
+
+As a first step, I think my previous suggestion is valid, we can create a
+header tools/perf/arch/arm64/include/cputype.h with below code:
+
+  #include "../../../../arch/arm64/include/asm/cputype.h"
+
+  static bool is_perf_midr_in_range_list(u32 midr,
+                                         struct midr_range const *ranges)
+  {
+          while (ranges->model) {
+                  if (midr_is_cpu_model_range(midr, ranges->model,
+                                  ranges->rv_min, ranges->rv_max))
+                          return true;
+                  ranges++;
+          }
+
+          return false;
+  }
+
+Then, once we can generate a dynamic MIDR header file, we can use that
+header and define the midr_range structure specifically in the perf.
+In the end, perf can avoid to include kernel's cputype.h.
+
+If no objection, Yicong, do you mind preparing the patch mentioned
+above? Thanks!
+
+Leo
 
