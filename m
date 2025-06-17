@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F9FC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB01C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Pr6ll5voZhLjn+Xwm/o8sJ2c2ByYGiOdquP16WwGvo=; b=PTbqSUkYTpj78oYpZ01xcqFV3k
-	EKf4Gm/8gHz45eq11nfd9WUIKpOQuWJBmRh15H3rpCmwYg24aCupiGY/sAJsU428GVdwh74vmaNKk
-	X1vYkRg5L1sC4HN3XNsLlau3XKjIS+3FBwPUI3Q50Gcq+WuSJAkw+5YVzSKjin1m9eo5r4nFtqd2U
-	2V3phYppdjb8532Pkwi6iZkXfIxEW+N0wfeYmrMSM/v6/mKmuLFNlYuBgUdfXC1pbM2jVNSlxugjk
-	IQDqo6rvpB4Ku+qoI5YDcBzwLP/0KI4eUo8s+Cyu1LeSjImzlxT0hY2khG+y927IW/5R3EFHk3Ky7
-	rbnGLRMA==;
+	bh=yJP0GPyMKswwkaA1sdEsRQYeektr28qBzPz6H5BQJ98=; b=fNnbfy9ISxucMCjGkzGXmlgx+I
+	A3Z+18Ci5aVt47Nvm6h2dsU8TztMK584OalSHSBPcqaQ9BRt29mdLK14y7GS9FHfIQuoO9Ecd6MYV
+	OSRCD4L4l7BHfi5znY9exkiNvf/rqNei3Kn+XV+epM6kIU1vE8Yy5QFxZHE15JqPTQUGrg02xRaku
+	UmJU/JnjU9YjdeRsRHyS99JkJk7IC+EeZyCaDJUMYbOP46O3wf0M+t1XdZQfxtuidNNkdTikohqTu
+	PKxzlAAFr8mIlLkdJTT/VPtfX/BBz/ZYEmH4TCm36vVhTWMm5GiLSRanZYPTRZPpEezDtUStfrJWM
+	u4UNv9Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXwI-00000007hmg-2Xmf;
-	Tue, 17 Jun 2025 15:09:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uRXyT-00000007i2z-1SbV;
+	Tue, 17 Jun 2025 15:11:45 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRX43-00000007VLr-0bIb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 14:13:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 890745C67CA;
-	Tue, 17 Jun 2025 14:11:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C8F4C4CEE3;
-	Tue, 17 Jun 2025 14:13:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750169605;
-	bh=vKnygp1/WzyFb3kw0C5XvcSsBQYMHQDcupKgqgQkAAA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aRI6NNKEtHJJGdCo+cm9nDFKQIi5q6pmsJonTJi/DYzHxthlpMn8Isnyd7nO7oSNH
-	 bLFu9bQEenp+c/Wx7g5NhEeNqfytG7mKV3MWSUMJgQKGLlcnXcrjdwcPNWn8bADYHf
-	 egA9S+Bq3QlLP+PkcOAolsL7MqiFzOH54RjEacrG7l9WJEmtWjyn2NSHi3bsc+JZYh
-	 VwSZV+BehRZI6Q6fxPUeWNu6+BIB4P+7d/fewX3n4gRsrgWYTjILE9FvVdKM5K0rP7
-	 yFEJaAxurQ3OaQMtTn+7qeBbQ+jbPB9UoZYelVxlDbep1UAfwjraykLiPExIp//RXx
-	 2wySecRNsImpA==
-Date: Tue, 17 Jun 2025 16:13:23 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	linux-arm-kernel@lists.infradead.org, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
-Message-ID: <pb5gr65kbkokb7ybx3smqaa6vve4rkpg6qks2hdibwgrwmdzfu@6s5msb3k2p6y>
-References: <20250617005059.614993-1-marek.vasut+renesas@mailbox.org>
- <jgafc7te2zotqwvetudo6c4o4nit6zi3yp4ecg4gka53hrypk5@7ypb5asrc2ct>
- <b464bc12-e921-4d98-9462-ec9d13ccb5ce@mailbox.org>
+	id 1uRX5I-00000007VZl-0FMM;
+	Tue, 17 Jun 2025 14:14:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=yJP0GPyMKswwkaA1sdEsRQYeektr28qBzPz6H5BQJ98=; b=C9+uYutBKalrTGmUZijIbg8NAD
+	QRCJan8vuyS1Kc3esAYZg7nZX9wEFsM7QoAZSimDwuR2aX3v5uYMLOSeJUslAXF4I9vSi5nCGThnu
+	xGVI4davWmEdbId93nms4ZYLxRBCswq5kOWfJediW7CvBJiIz5kjyWuDbrPPItoVHuVpqz5ei4Ry9
+	HSlMYHS5S0x34KLMqbCcwQzaJA2+AGhhdGDjv1X3LZEe969pdkGDDT/wkFeGdULFQnbyM5rWoW6em
+	R6mneQPxqV6rEBe53xNfwNI57Jws7ru1dutsziGhwKuMjkmn00l1MWZ4yppIvUXrQOxc80ZlK//wK
+	yoFSuUzw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRX5C-0000000HF1b-2N99;
+	Tue, 17 Jun 2025 14:14:38 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 5FA7630BDAD; Tue, 17 Jun 2025 16:14:37 +0200 (CEST)
+Date: Tue, 17 Jun 2025 16:14:37 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Juri Lelli <juri.lelli@redhat.com>
+Cc: Kuyo Chang <kuyo.chang@mediatek.com>, Ingo Molnar <mingo@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	jstultz <jstultz@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/1] sched/deadline: Fix fair_server runtime calculation
+ formula
+Message-ID: <20250617141437.GW1613376@noisy.programming.kicks-ass.net>
+References: <20250614020524.631521-1-kuyo.chang@mediatek.com>
+ <20250617085558.GN1613376@noisy.programming.kicks-ass.net>
+ <aFFgi_9yxLN-auBE@jlelli-thinkpadt14gen4.remote.csb>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5y2dy2ra4mpn6e7a"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b464bc12-e921-4d98-9462-ec9d13ccb5ce@mailbox.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_071327_264946_1AEC04F4 
-X-CRM114-Status: GOOD (  23.41  )
+In-Reply-To: <aFFgi_9yxLN-auBE@jlelli-thinkpadt14gen4.remote.csb>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,96 +80,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 17, 2025 at 02:33:15PM +0200, Juri Lelli wrote:
+> On 17/06/25 10:55, Peter Zijlstra wrote:
+> > On Sat, Jun 14, 2025 at 10:04:55AM +0800, Kuyo Chang wrote:
+> > > From: kuyo chang <kuyo.chang@mediatek.com>
+> > > 
+> > > [Symptom]
+> > > The calculation formula for fair_server runtime is based on
+> > > Frequency/CPU scale-invariance.
+> > > This will cause excessive RT latency (expect absolute time).
+> > > 
+> > > [Analysis]
+> > > Consider the following case under a Big.LITTLE architecture:
+> > > 
+> > > Assume the runtime is : 50,000,000 ns, and FIE/CIE as below
+> > > FIE: 100
+> > > CIE:50
+> > > First by FIE, the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
+> > > Then by CIE, it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
+> > 
+> > What's this FIE/CIE stuff? Is that some ARM lingo?
+> > 
+> > 
+> > > diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> > > index ad45a8fea245..8bfa846cf0dc 100644
+> > > --- a/kernel/sched/deadline.c
+> > > +++ b/kernel/sched/deadline.c
+> > > @@ -1504,7 +1504,10 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
+> > >  	if (dl_entity_is_special(dl_se))
+> > >  		return;
+> > >  
+> > > -	scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+> > > +	if (dl_se == &rq->fair_server)
+> > > +		scaled_delta_exec = delta_exec;
+> > > +	else
+> > > +		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+> > 
+> > Juri, the point it a bit moot atm, but is this something specific to the
+> > fair_server in particular, or all servers?
+> 
+> I believe for other servers (i.e., rt-server work from Yuri and Luca) it
+> might be useful to have it configurable somehow. I actually had a recent
+> discussion about this concerning single task entities (traditional
+> deadline servers) for which as well there might be cases where one might
+> want not to scale considering frequency and capacity.
+> 
+> > Because if this is something all servers require then the above is
+> > ofcourse wrong.
+> 
+> To me it looks like we want this (no scaling) for fair_server (and
+> possibly scx_server?) as for them we are only looking into a 'fixed
+> time' type of isolation. Full fledged servers (hierarchical scheduling)
+> maybe have it configurable, or enabled by default as a start (as we have
+> it today).
 
---5y2dy2ra4mpn6e7a
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
-MIME-Version: 1.0
+Right. Then we should write the above like:
 
-Hello Marek,
+	scaled_delta_exec = delta_exec;
+	if (!dl_se->dl_server)
+		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
 
-On Tue, Jun 17, 2025 at 11:38:50AM +0200, Marek Vasut wrote:
-> On 6/17/25 10:14 AM, Uwe Kleine-K=F6nig wrote:
->=20
-> Hi,
->=20
-> [...]
->=20
-> > /* The actual value isn't known, so this is made up. */
-> > #define RPI_PANEL_V2_FIXED_PERIOD_NS 100000
-> >=20
-> >=20
-> > static int rpi_panel_v2_pwm_round_waveform_tohw(...)
-> > {
-> > 	...
-> >=20
-> > 	if (wf->duty_length_ns > RPI_PANEL_V2_FIXED_PERIOD_NS)
-> > 		*wfhw =3D 100;
-> > 	else
-> > 		*wfhw =3D mul_u64_u64_div_u64(wf->duty_length_ns * 100, RPI_PANEL_V2_=
-FIXED_PERIOD_NS);
-> >=20
-> > 	return 0;
-> > }
->=20
-> This fixed period specified in driver has one problem -- what if the peri=
-od
-> is also specified in DT by the consumer, e.g. pwm-backlight pwms property,
-> and it does not match RPI_PANEL_V2_FIXED_PERIOD_NS ?
-
-If it's off by only a little amount you will hardly notice. If it's
-further off that's less optimal. I don't think this is a problem. If the
-device tree is wrong, the machine doesn't work optimally. That's quite
-expected.
-
-> This is easy to solve for this tohw function, but what about the fromhw
-> which assigns period_ns ?
-
-If you only write waveforms to the hardware (probably using
-pwm_apply_might_sleep()), the fromhw callback isn't involved (apart from
-debugging). And all fromhw callbacks are supposed to assign
-period_length_ns. I suspect we don't have the same understanding of the
-PWM abstraction.
-
-> > > +static int rpi_panel_v2_pwm_write_waveform(struct pwm_chip *chip,
-> > > +					   struct pwm_device *pwm,
-> > > +					   const void *_wfhw)
-> > > +{
-> > > +	struct regmap *regmap =3D pwmchip_get_drvdata(chip);
-> > > +	const u8 *wfhw =3D _wfhw;
-> > > -	duty =3D pwm_get_relative_duty_cycle(state, PWM_BL_MASK);
-> > > -	return regmap_write(regmap, REG_PWM, duty | PWM_BL_ENABLE);
-> > > +	return regmap_write(regmap, REG_PWM, *wfhw | (*wfhw ? PWM_BL_ENABLE=
- : 0));
-> >=20
-> > How does the PWM behave without PWM_BL_ENABLE set?
-> The display stays dark.
-
-So you cannot distinguish writing `0` (or any other value) and
-`PWM_BL_ENABLE | 0` I guess?
-
-I ask because for some hardware's it makes a difference, the output
-might e.g go High-Z on disable.
-
-Best regards
-Uwe
-
---5y2dy2ra4mpn6e7a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhReAAACgkQj4D7WH0S
-/k4ofAf8DlMzidViLV6S86hDrE1Q/7wbG82YZOcIYzhJPeJT4JPtU0ya7uA2/uMA
-0bnUtEzH4i8bOd3HWXYvEcFgTLoOduz2RCsiam4/BVwJIHdtsrzpiB419awnL4SB
-75dkcesGC1cgMNTRKW3j1s6c3GdKYxSTUrHVeuUaPECI77wi0GV1e6BRP6bH6LX0
-wGvEv1IEicMiHtmj8TleVjGQkwnRxsKbV6pYYhVkB2yKZncQaN9xO0Qt/GafqSj1
-gnPi1sTDP51tiztcN0suNKgYwB7GaBG8wnvdM/zN9JLiMRSU370vn3enfJtrYb0Q
-aTfbBry4wgY9wE4y/eEC30e6Xa80zg==
-=65+J
------END PGP SIGNATURE-----
-
---5y2dy2ra4mpn6e7a--
+and let any later server users add bits on if they want more options.
 
