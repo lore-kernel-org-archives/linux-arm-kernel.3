@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3268C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 10:58:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDFCC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 11:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=suCMZrfiXdZFEhOaReX07ii158XOUWowiahTWT5l26A=; b=szd55EfOSKCn21J85z/UFUzO44
-	oEJXP07nrrPcyskp6kKd9tmqPUahBxJ3GpCwl8CQxA8aKuU1ATxy+MCnnZj6erZ0QGrteJLBaXzhP
-	e+2BY2HJf7LCHlKpGcg1c2k4KCbproVpwjPVzcWkZ6u15LoWZbokZg86arAEp53Z2z6a4V6uP3g5A
-	2PaEqLalHKhIry7pZi5DF65IC6ArJe4sTz4mRIErgv95GGKFe2YYTz+8BFKUlOt2iDaWUSo5rjsx8
-	MgoFCo74UamqeThr5S9PhwjnZNWDTByuADHy44kN9vuTcMTEETZJ8kbW9Ckxobac9cuzh63GHiyuZ
-	QAo9Chjw==;
+	bh=mQDaR9rQ8x/nIQ2KpUu/l8FcOMdxSD15RRP4IMwwito=; b=H5Ds6DoEbx+VZXIQ4nCnHepZf9
+	aR6fn0o8lZjaz2ZozGpnxMPf86d/0p4dvna7AXucrCtSY1n9VOFE25mUCcdRcMJbNU320lESrAnxF
+	VWFs84ovppcMb+8SJMnOBxcW427OWvuniL6ZJYRYxaJPpHv+SX5XTPxQ9RCNXABZsh72Z1xnTl1uf
+	C8EbBSZ3t5aBKdwA6ujVwntLHFIY24fDRzXSf0UPyVvHot1IEDVtsaaWxpxsUalpW8CUTFDdZPzr4
+	lk8jEu68+gnxEW213sPA305r6TnZ6gLRBQ28wfGG/V32jmT9Ya924XbKuz5rhRQncoLDfvZpOUNK0
+	mkogN0Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRU0p-00000006zaX-2EOo;
-	Tue, 17 Jun 2025 10:57:55 +0000
+	id 1uRU36-00000006zqK-1Fqb;
+	Tue, 17 Jun 2025 11:00:16 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRTqn-00000006xd7-1qgm
+	id 1uRTqn-00000006xdP-2ALn
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 17 Jun 2025 10:47:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
@@ -32,37 +32,37 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   t=1750157254; x=1781693254;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=bn+2RdarbdkdqJ5iP1Xz+5dOF0kfroLJGSTElDuyoMM=;
-  b=TvgoZFje+mYQymZ+2Hm7LXHWA6hEYKO37cqmSKNw2hHd+nCEl8M/a4NE
-   K0S2i58/lNJkdrtApWR8yjll4g2h72N29UA09C98x/nSPaPsldpHnmzHy
-   DbBaRBqr3HYq4exDcscQaCww6Nfvl7VRHoDksZ8vDIF3HCEI3OllYrtod
-   IfYBEoph0B3EHckgw79QzLnUux/R7rbOdyMutzwAIHbOw0WcUaB5tE9ht
-   2dpwbycKzAHPb9V/Z0bWJJ/PWhKbK683wQ9ii5nHNTQ6ju7MwrTsgyWwz
-   oA6UnG/7gCRtELajIMPfeG2uFSkSFlWHObDlheqKtB4DBZuDtjozYBk+I
-   Q==;
+  bh=yufdxM6CMyGLalI/7A+e1Bisy8ha1AoJNLv1GLw18bA=;
+  b=nRWvwJ1ZAZAsNKo4MnAbqruFSzw30EiH/XDuDHAaihs9qcWDoLjU1Q14
+   6E/5HW5rKfLUzD70U29PAeBdwh61YRGGqiQ61AajYjzH72F5sK0j0KlJ0
+   eFc0fq6Z8TJDvB/nDcTqwscLaCgyN1qYNM2AQn+0rOsP6wDJvXZEu/95V
+   rU63NL5p7BF1HURVXLZC5rtzzP33p7OFgclqdanqjKHsQm/fxksOfyp/5
+   W0W9D1kzSefBK49Vka4cg4d8GwTf3WwUCF89nc55EUWAM3xAnthVrd4rb
+   ZinAxE1fJPLrBSGsShTYyUP/e8KuW3ZTGRmBW8XrGHEg45Y0nHcTvqYr9
+   g==;
 X-CSE-ConnectionGUID: NlLJIgKaS1e8ItqRhu+KEg==
-X-CSE-MsgGUID: CL//+qZuS+emCwqcEVltoA==
+X-CSE-MsgGUID: aVM7kM2YQR2ta15yj2ds5Q==
 X-IronPort-AV: E=Sophos;i="6.16,243,1744095600"; 
-   d="scan'208";a="274279562"
+   d="scan'208";a="274279563"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Jun 2025 03:47:31 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Tue, 17 Jun 2025 03:47:12 -0700
+ 15.1.2507.44; Tue, 17 Jun 2025 03:47:14 -0700
 Received: from archlinux.mchp-main.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Tue, 17 Jun 2025 03:47:10 -0700
+ 15.1.2507.44 via Frontend Transport; Tue, 17 Jun 2025 03:47:12 -0700
 From: Mihai Sain <mihai.sain@microchip.com>
 To: <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
 	<claudiu.beznea@tuxon.dev>, <robh@kernel.org>, <krzk+dt@kernel.org>,
 	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 CC: Mihai Sain <mihai.sain@microchip.com>
-Subject: [PATCH 1/2] ARM: dts: microchip: sama7d65: Add cache configuration for cpu node
-Date: Tue, 17 Jun 2025 13:47:02 +0300
-Message-ID: <20250617104703.45395-2-mihai.sain@microchip.com>
+Subject: [PATCH 2/2] ARM: dts: microchip: sama7g5: Add cache configuration for cpu node
+Date: Tue, 17 Jun 2025 13:47:03 +0300
+Message-ID: <20250617104703.45395-3-mihai.sain@microchip.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250617104703.45395-1-mihai.sain@microchip.com>
 References: <20250617104703.45395-1-mihai.sain@microchip.com>
@@ -70,8 +70,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_034733_488027_DBA37AD7 
-X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-CacheID: sfid-20250617_034733_562763_A53735D7 
+X-CRM114-Status: UNSURE (   9.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,10 +92,10 @@ Describe the cache memories according with datasheet chapter 15.2:
 - L2 cache configuration with 256KB unified cache.
 
 Before this patch:
-[    0.161955] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.171425] cacheinfo: Unable to detect cache hierarchy for CPU 0
 
 After this patch:
-[root@sama7d65eb ~]$ ll -h /sys/bus/cpu/devices/cpu0/of_node/l1-cache
+[root@sama7g54eb ~]$ ll -h /sys/bus/cpu/devices/cpu0/of_node/l1-cache
 -r--r--r-- 1 root root 4 Jun 17 11:39 cache-level
 -r--r--r-- 1 root root 0 Jun 17 11:39 cache-unified
 -r--r--r-- 1 root root 6 Jun 17 11:39 compatible
@@ -105,7 +105,7 @@ After this patch:
 -r--r--r-- 1 root root 4 Jun 17 11:39 next-level-cache
 -r--r--r-- 1 root root 4 Jun 17 11:39 phandle
 
-[root@sama7d65eb ~]$ ll -h /sys/bus/cpu/devices/cpu0/of_node/l2-cache
+[root@sama7g54eb ~]$ ll -h /sys/bus/cpu/devices/cpu0/of_node/l2-cache
 -r--r--r-- 1 root root 4 Jun 17 11:39 cache-level
 -r--r--r-- 1 root root 4 Jun 17 11:39 cache-size
 -r--r--r-- 1 root root 0 Jun 17 11:39 cache-unified
@@ -115,17 +115,17 @@ After this patch:
 
 Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
 ---
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 17 +++++++++++++++++
+ arch/arm/boot/dts/microchip/sama7g5.dtsi | 17 +++++++++++++++++
  1 file changed, 17 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index d08d773b1cc5..951d7af3ad1c 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -32,6 +32,23 @@ cpu0: cpu@0 {
- 			device_type = "cpu";
- 			clocks = <&pmc PMC_TYPE_CORE PMC_CPUPLL>;
+diff --git a/arch/arm/boot/dts/microchip/sama7g5.dtsi b/arch/arm/boot/dts/microchip/sama7g5.dtsi
+index 17bcdcf0cf4a..70175a35dc3e 100644
+--- a/arch/arm/boot/dts/microchip/sama7g5.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7g5.dtsi
+@@ -38,6 +38,23 @@ cpu0: cpu@0 {
  			clock-names = "cpu";
+ 			operating-points-v2 = <&cpu_opp_table>;
+ 			#cooling-cells = <2>; /* min followed by max */
 +			next-level-cache = <&L1>;
 +
 +			L1: l1-cache {
