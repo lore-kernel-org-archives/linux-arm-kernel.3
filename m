@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50535C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 21:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5ECCC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 21:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jxjjjHrtAQnHI5BFkgc87LjWdlMiW2XFmZbt0j/xFEU=; b=xDSrEX4AIb/d1WJx5NJZW44rJJ
-	VdDSxN0OepozfRCIJWXjV0yD13ElzOidGv/0hBGVg+gqnsHmUCsURmbDUseNX0cijzPzBHcjZafYF
-	zUZLHKUc4/nkuz7orQNElVUcrq84HY2NpGdLZXbLg7sGikOIpB1SxjXx/PnzhqQcSTxk18mWoml1B
-	sobpb/3SlNWGz9Li1p9BZ+tbxkbG2IjmcgR/P67a/FM3IfSzX5CEcS7eHUfFBsS0lYAXCL2dK7j2N
-	FxyfUau1IrEb4u8cbp39wB9BUftdNuhELjjDISVVKVgtxptRu894YAM0z3JXe9nb3UxaZ6Dtbezoh
-	zqOoE2Ew==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VgfH+ldk2mEZbbatKJ3UFgLszYbnubnYiw4rmOFiwks=; b=DyvEwA6gRlZPHbgtlwDfbfsk7G
+	1bVov1KyGmgpFt7BAp7bewRz3rmXAtr0VVZxd5haUYAlzZJspK+6L41ushHyDjzrsRrL8KcFwSPWg
+	tICUEKuiZjV2Tk9o5oWO+y1HuD84/7IpfwvlJXV7I6UlCO5A90/np2Iaw5DdBpsFzfJ6fU0HVDtpX
+	MjNQQdUjsejlBrzQyodAlgrflOlG/8fshc63bc7PSzN+PdcGbvwNusfdXB+PeUEapxMo70q/UAqF1
+	hecl2O5FU4+oBNHnPYzvOLMIAZQlaLzjEnpj7Ojq7zNFeHiM90nn42aR5xGZ8rpXXYoVn9Dq6YRUn
+	m+q5NK1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRdoO-00000008Qf8-0GIC;
-	Tue, 17 Jun 2025 21:25:44 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1uRdvg-00000008RJZ-0nXU;
+	Tue, 17 Jun 2025 21:33:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRdmA-00000008QVQ-2O2y
+	id 1uRdtT-00000008R05-3SX0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 21:23:27 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4bMKbp4Yrtz9tCC;
-	Tue, 17 Jun 2025 23:23:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=listout.xyz; s=MBO0001;
-	t=1750195398;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jxjjjHrtAQnHI5BFkgc87LjWdlMiW2XFmZbt0j/xFEU=;
-	b=bDMvtzXXN0C5GyxFNxDNKnKtCdazj0QBrA/xYV+Okhn/iH7OirejIg6aVXsW1sndZQ8xQe
-	i28xlx/rort7RxGZJh4KIEqdt6NqKxevSxOwnxBLRwYL8KOsLbaV41k5mSN2+bb5HexxoO
-	x/YItNXqORLYyb6HzAeN2q8q9A/O4GMltao5nbl8isTlTPqJmS6saeHUco9ZgaLWZZQOps
-	B0NSMFrfeapixsNnRcoQpNg2LZMDAC1LEOwysWbtCdOV/1Mc2HzuqztIfwjQdlHOKtFHcc
-	5arLkohBt4aCBhK2Xcw7pP8RF33hpgolbv/sDnh6RfIGsxiZRa8v2mAdaQtH7w==
-Date: Wed, 18 Jun 2025 02:53:08 +0530
-From: Brahmajit Das <listout@listout.xyz>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, linux@armlinux.org.uk, arnd@arndb.de, 
-	akpm@linux-foundation.org
-Subject: Failing to build mainline kernel for arm
-Message-ID: <s6pt2qblbwmw5uz7u27ypyyercpm4fbd7qt7qaabceasxdtd3x@jucvfmzzcueg>
+	Tue, 17 Jun 2025 21:31:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6BDB24A7CE;
+	Tue, 17 Jun 2025 21:30:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCBF3C4CEEE;
+	Tue, 17 Jun 2025 21:30:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750195859;
+	bh=+AVJtkADX1ZsehTSMEkzz8csKFgS7fgQrxOyASGuj1o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mThStFc6jCikXs2uo6W+NF5YvEORiZDeUdOBUgkPD/A/3O+gudg3d+XCDTm99JtC4
+	 FeaGP7377as3P+D08h45he9kHwINuNuNzY7sk9jByZBkwd6LOqGdfcDwFBYL3szzPm
+	 J9q0Xb+WbJXdRnHWuBvUfxi3nZCvMwh/XTRMgTl+SvsAgggqMvYINARU+17BFaozh/
+	 h+z5r1/1InrCvfUrpG5iHnETApvHtPHCzqQ9G5x6TIzBVSK6H0R0jhafv5ByU8/XlX
+	 UKNF92qNbFaJCfwjA0gwVzPROq9Am2dcZUof+UDxZnfePW0vLmJNZ0WtN4lPRHfjNX
+	 iHXBhKK/ZbNHw==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: linux-remoteproc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] remoteproc: Don't use %pK through printk
+Date: Tue, 17 Jun 2025 16:30:52 -0500
+Message-ID: <175019584837.714789.5721540056396177513.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250611-restricted-pointers-remoteproc-v1-1-f059097ba663@linutronix.de>
+References: <20250611-restricted-pointers-remoteproc-v1-1-f059097ba663@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_142326_796672_A00F25A1 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20250617_143059_878994_E4863411 
+X-CRM114-Status: UNSURE (   9.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,57 +76,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello developers,
 
-I was trying to build the mainline kernel (top commit
-4663747812d1a272312d1b95cbd128f0cdb329f2) and came across a build
-failure with allyesconfig.
+On Wed, 11 Jun 2025 12:03:06 +0200, Thomas Weißschuh wrote:
+> In the past %pK was preferable to %p as it would not leak raw pointer
+> values into the kernel log.
+> Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+> the regular %p has been improved to avoid this issue.
+> Furthermore, restricted pointers ("%pK") were never meant to be used
+> through printk(). They can still unintentionally leak raw pointers or
+> acquire sleeping locks in atomic contexts.
+> 
+> [...]
 
-$ make ARCH=arm CROSS_COMPILE=arm-none-eabi-
-...
-  CC      kernel/fork.o
-In file included from kernel/fork.c:93:
-./include/linux/kcov.h:113:6: error: mismatch in argument 1 type of built-in function ‘__sanitizer_cov_trace_cmp4’; expected ‘long unsigned int’ [-Werror=builtin-declaration-mismatch]
-  113 | void __sanitizer_cov_trace_cmp4(u32 arg1, u32 arg2);
-      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~
-./include/linux/kcov.h:117:6: error: mismatch in argument 1 type of built-in function ‘__sanitizer_cov_trace_const_cmp4’; expected ‘long unsigned int’ [-Werror=builtin-declaration-misma
-tch]
-  117 | void __sanitizer_cov_trace_const_cmp4(u32 arg1, u32 arg2);
-      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-cc1: all warnings being treated as errors
-make[3]: *** [scripts/Makefile.build:287: kernel/fork.o] Error 1
-make[2]: *** [scripts/Makefile.build:554: kernel] Error 2
-make[1]: *** [/home/bdas/linux/Makefile:2003: .] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+Applied, thanks!
 
-I bisected it to commit e0ddec73fd4822d2ffe914d5ce3e2718f985276a
-"kcov: add prototypes for helper functions"
+[1/1] remoteproc: Don't use %pK through printk
+      commit: b0dc512ab7ba177442cfec4a65b2681355d7cb64
 
-While reverting the commit does help, but that would not be the correct
-approach I guess.
-
-Part of the commit modifies include/linux/kcov.h
-
-	#ifdef CONFIG_64BIT
-	+typedef unsigned long kcov_u64;
-	+#else
-	+typedef unsigned long long kcov_u64;
-	+#endif
-	+
-	+void __sanitizer_cov_trace_pc(void);
-	+void __sanitizer_cov_trace_cmp1(u8 arg1, u8 arg2);
-	+void __sanitizer_cov_trace_cmp2(u16 arg1, u16 arg2);
-	+void __sanitizer_cov_trace_cmp4(u32 arg1, u32 arg2);
-	+void __sanitizer_cov_trace_cmp8(kcov_u64 arg1, kcov_u64 arg2);
-	+void __sanitizer_cov_trace_const_cmp1(u8 arg1, u8 arg2);
-	+void __sanitizer_cov_trace_const_cmp2(u16 arg1, u16 arg2);
-	+void __sanitizer_cov_trace_const_cmp4(u32 arg1, u32 arg2);
-	+void __sanitizer_cov_trace_const_cmp8(kcov_u64 arg1, kcov_u64 arg2);
-	+void __sanitizer_cov_trace_switch(kcov_u64 val, void *cases);
-
-Maybe we can do something similar to kcov_u64, like kcov_u32? But I'm
-not sure.
+Best regards,
 -- 
-Regards,
-listout
+Bjorn Andersson <andersson@kernel.org>
 
