@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920B4C7115E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3848C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:12:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DB4r4vbaZoIdN72R7Ts9HATakBZk9JghjOMQJQbnr/I=; b=Kz7I4SfK1G/Yz63m8otW3PiveJ
-	C4wnHxcSIjvbmb8+rlwPc6ii+ZcYO1Nj2VuFlrK8RWUNWp0a2eUpjEOJfmaNiqtEzNLdPe8i4HORX
-	qU+pFGy51ltVj+Z5OCzCxfOb50I3T5+n5PUov1ZMQjqV6c1XKpUucSvYpn+eDZjmh6OyXR7Y+0npn
-	3m0pOmhsF2zWcw/NVRDGY+RtRDJ4VALPEZ+2xxPm5oWC/gpnn+Kae/wpet9fVRI0WGZpv5Hjurnl9
-	vSyUWEXyf284u1Whe2MNzQKgeVUuVWxYXwuZOwc6pVLXYjQjvpQdtGjPcHA+j8neuKQuffqMtpSNF
-	TbzYVAxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DM70jmBk+8+pNXMrSmDw0F0d1r4Q4LzFUoMuNsxPcH4=; b=Mt+Dp7lTe8pNwWP8HUTQ9lPpQC
+	wk6LRoQYTusVruDKLG5Ow19u8T2HIrXz1Lc6KnBpvJY1J6uHqhG7vZ8i45NMBYiwhemtud2Bo79vq
+	yJ1qO//2Ikl3jS93WbgMzkV1hho+468MGAqiBkceXYvVuRz6VLg3gIyb+2NNO8HMDhTxui5wrLItV
+	rq21/NX4/wBAv66vF5TiJmJkXnLvsQz/4CwGCpOgLw5sn1YpzPt0b5xU14AD+WPhj6GY12B5u7hNl
+	ETLv1GOgVVf3Juau4pq22ocKrhy70RpMfrc94uinYQsPpCZ7v4sF/4yu+CoTzFfNGXb4vJ8/03YDq
+	nERnKxzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZql-00000007zFB-2d1z;
-	Tue, 17 Jun 2025 17:11:55 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uRZqo-00000007zKC-1C4G;
+	Tue, 17 Jun 2025 17:11:58 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRYZo-00000007nJ5-2Ndc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 15:50:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B52C6A51050;
-	Tue, 17 Jun 2025 15:50:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B85CC4CEE3;
-	Tue, 17 Jun 2025 15:50:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750175419;
-	bh=LNC2w8LSdPeWSFo7aYqjVJu6bohSIps4pbr6GI4K0BA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g8ybcfpxWV2OtWW99thzTjWTfLwKsYYyaqcTvP7aHzalyqXMXPorjLvVi6xHimaHF
-	 eJsTaSqfWINmIeb2EWU2+/1+1jmxVvUKxnQVRhZUALS1HDkfjHe1OCSVKeKD6cMpT1
-	 jD8uwP4U1MtAJpojwUNjP8SJAr9bp+FteCTVASwSS77HmIqjK1cEtysYmef1wfU7Um
-	 EURHWiaOCN3HV7rbcHdsJDcgHHmGnmyc9SHUZ/5P92AhI2AZ2xt4gPLhtJUX1WHsCu
-	 TGiAuinoczfD8wisKatLD5XmFhJtiY/HaD0eXCqDoVmrX4+TYH5y5xXYeQNZ+BGEeO
-	 3mSt/BnDa6lwA==
-Date: Tue, 17 Jun 2025 21:12:58 +0530
-From: Naveen N Rao <naveen@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
-	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
-	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
-	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
-	David Matlack <dmatlack@google.com>
-Subject: Re: [PATCH v3 38/62] KVM: SVM: Take and hold ir_list_lock across
- IRTE updates in IOMMU
-Message-ID: <qhvns5twcxwzrz2fhp7njmyqb5x5icgiz4iszwvwmeoxhw7ycv@3we3xqqaqeib>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-40-seanjc@google.com>
+	id 1uRYdT-00000007nv3-06iw;
+	Tue, 17 Jun 2025 15:54:08 +0000
+X-UUID: 492ac1a44b9311f09f706fa2197c6ceb-20250617
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=DM70jmBk+8+pNXMrSmDw0F0d1r4Q4LzFUoMuNsxPcH4=;
+	b=Js1PFMfbr+Kni92Htg/UjrRVzwKN0SJuv+R9I0eBGAeZTW5YUG0Hb9xJYsGSMVqLNxO39RVkVAxTTOsdDTwrrlSRJYnkYNlT7qZlX+W6IFjbaTGraw0itmnfbN455gI1oEY0I0+WDtOFHxPN/uTwFEhcC35k33+CaEh7WSGoIwY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.3,REQID:2adb1122-74ed-4f2d-a68b-c597dfbf8dca,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:09905cf,CLOUDID:5e67c903-0d95-4f6b-a95f-3c560ebcf3ab,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 492ac1a44b9311f09f706fa2197c6ceb-20250617
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <kuyo.chang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1759085317; Tue, 17 Jun 2025 08:54:00 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Tue, 17 Jun 2025 23:53:57 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Tue, 17 Jun 2025 23:53:57 +0800
+From: Kuyo Chang <kuyo.chang@mediatek.com>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel
+ Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: John Stultz <jstultz@google.com>, kuyo chang <kuyo.chang@mediatek.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH v2 1/1] sched/deadline: Fix dl_server runtime calculation formula
+Date: Tue, 17 Jun 2025 23:52:49 +0800
+Message-ID: <20250617155355.1479777-1-kuyo.chang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250611224604.313496-40-seanjc@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_085020_742166_DF70444F 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20250617_085407_089634_44D21E93 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +90,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 03:45:41PM -0700, Sean Christopherson wrote:
-> Now that svm_ir_list_add() isn't overloaded with all manner of weird
-> things, fold it into avic_pi_update_irte(), and more importantly take
-> ir_list_lock across the irq_set_vcpu_affinity() calls to ensure the info
-> that's shoved into the IRTE is fresh.  While preemption (and IRQs) is
-> disabled on the task performing the IRTE update, thanks to irqfds.lock,
-> that task doesn't hold the vCPU's mutex, i.e. preemption being disabled
-> is irrelevant.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/svm/avic.c | 55 +++++++++++++++++------------------------
->  1 file changed, 22 insertions(+), 33 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-> index f1e9f0dd43e8..4747fb09aca4 100644
-> --- a/arch/x86/kvm/svm/avic.c
-> +++ b/arch/x86/kvm/svm/avic.c
-> @@ -769,32 +769,6 @@ static void svm_ir_list_del(struct kvm_kernel_irqfd *irqfd)
->  	spin_unlock_irqrestore(&to_svm(vcpu)->ir_list_lock, flags);
->  }
->  
-> -static void svm_ir_list_add(struct vcpu_svm *svm,
-> -			    struct kvm_kernel_irqfd *irqfd,
-> -			    struct amd_iommu_pi_data *pi)
-> -{
-> -	unsigned long flags;
-> -	u64 entry;
-> -
-> -	irqfd->irq_bypass_data = pi->ir_data;
-> -
-> -	spin_lock_irqsave(&svm->ir_list_lock, flags);
-> -
-> -	/*
-> -	 * Update the target pCPU for IOMMU doorbells if the vCPU is running.
-> -	 * If the vCPU is NOT running, i.e. is blocking or scheduled out, KVM
-> -	 * will update the pCPU info when the vCPU awkened and/or scheduled in.
-> -	 * See also avic_vcpu_load().
-> -	 */
-> -	entry = svm->avic_physical_id_entry;
-> -	if (entry & AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK)
-> -		amd_iommu_update_ga(entry & AVIC_PHYSICAL_ID_ENTRY_HOST_PHYSICAL_ID_MASK,
-> -				    true, pi->ir_data);
-> -
-> -	list_add(&irqfd->vcpu_list, &svm->ir_list);
-> -	spin_unlock_irqrestore(&svm->ir_list_lock, flags);
-> -}
-> -
+From: kuyo chang <kuyo.chang@mediatek.com>
 
-There are a few comments in avic_vcpu_load() and avic_vcpu_put() which 
-still refer to svm_ir_list_add(). Would be good to update those.
+[Symptom]
+The calculation formula for dl_server runtime is based on
+Frequency/capacity scale-invariance.
+This will cause excessive RT latency (expect absolute time).
 
-- Naveen
+[Analysis]
+Consider the following case under a Big.LITTLE architecture:
+
+Assume the runtime is: 50,000,000 ns, and Frequency/capacity
+scale-invariance defined as below:
+
+Frequency scale-invariance: 100
+Capacity scale-invariance: 50
+First by Frequency scale-invariance,
+the runtime is scaled to 50,000,000 * 100 >> 10 = 4,882,812
+Then by capacity scale-invariance,
+it is further scaled to 4,882,812 * 50 >> 10 = 238,418.
+
+So it will scaled to 238,418 ns.
+
+[Solution]
+The runtime for dl_server should be fixed time
+asis RT bandwidth control.
+Fix the runtime calculation formula for the dl_server.
+
+Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
+Acked-by: Juri Lelli <juri.lelli@redhat.com>
+Suggested-by: Peter Zijlstra <peterz@infradead.org>
+
+v1: https://lore.kernel.org/all/20250614020524.631521-1-kuyo.chang@mediatek.com/
+
+---
+ kernel/sched/deadline.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index ad45a8fea245..f68a158d01e9 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -1504,7 +1504,9 @@ static void update_curr_dl_se(struct rq *rq, struct sched_dl_entity *dl_se, s64
+ 	if (dl_entity_is_special(dl_se))
+ 		return;
+ 
+-	scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
++	scaled_delta_exec = delta_exec;
++	if (!dl_se->dl_server)
++		scaled_delta_exec = dl_scaled_delta_exec(rq, dl_se, delta_exec);
+ 
+ 	dl_se->runtime -= scaled_delta_exec;
+ 
+@@ -1624,7 +1626,9 @@ void dl_server_update_idle_time(struct rq *rq, struct task_struct *p)
+ 	if (delta_exec < 0)
+ 		return;
+ 
+-	scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
++	scaled_delta_exec = delta_exec;
++	if (!rq->fair_server.dl_server)
++		scaled_delta_exec = dl_scaled_delta_exec(rq, &rq->fair_server, delta_exec);
+ 
+ 	rq->fair_server.runtime -= scaled_delta_exec;
+ 
+-- 
+2.45.2
 
 
