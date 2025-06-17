@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0A4C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 12:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF26C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 12:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=99M35CN/UIeVzTNTGP/oni4W2zXbo6xaxFJdsienfjs=; b=fguMbwhWH+aaB9SRZA8oEMAWKf
-	Dhq4x5RwpW2wMIO1HXyezeFjlcmROxdQyu0VC1pSqZjPXa0NeOWwqw45DpZ5XdFQLAVApck9ltFlj
-	uR3ji3iQnlpM0bUBrpm0NWAD9dSBwv9RqrsuspXeHkJg4RfSxIIaPmwKDmPbR9Ph6GsxhIK8GFDLv
-	L7KZ/ayoHDA+oLYyo91FjkgLk4nkiku8te29ypmDDKdAeCXQE3QifDeH66vHLtJPiQ9gFpqREKik5
-	nxVmGe9DpJC7hLgbS0QvAM43ISavbh1am47l+hL0na+sRPfQr22BDCCHlfmp8KOmaNDPc4K9MagzD
-	4Rj2KShA==;
+	bh=52DetiHDy+EEyofP7eCcDOEDmNxtXnUpHp9Zmo4Im6Y=; b=wlAiMNEKyL2KlxGhBEUhDXEVUK
+	TheA06S1Mp5xNRj7VH24FX7dBKo+gnINiYE8zXLuB04PXOEw1pyOzQF0kE/MAJYtZX/ZgLwy5+dCJ
+	PGrCPrxpDcna7fMaKCM/Q1MPnEIUQOuZM2LgOH9FTw+V5pe30tCWYBG47XnktNSfcJrVJyRUqkk3Z
+	OLRZo8dFBq9RsM052OTmzcqoEmpASCoXiBj/U9ysR+uklAB7dvf9ZzPlwEh/XB0XosAJbc5KxuvWX
+	2q6kn5e0FUvSM1l/N3kTiudwOugzTpLbzXXfD32l+naT2VIetQas3Jpi7QyvDnsIK3aGr1jZR0MMH
+	T5OEaqVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRVOF-00000007BHV-2kp4;
-	Tue, 17 Jun 2025 12:26:11 +0000
+	id 1uRVQW-00000007BgO-1ufk;
+	Tue, 17 Jun 2025 12:28:32 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRV5p-000000077rv-1zOo
+	id 1uRV5u-000000077st-1Mto
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 12:07:10 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55H7hdgg006026;
-	Tue, 17 Jun 2025 12:07:02 GMT
+	Tue, 17 Jun 2025 12:07:16 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55H7IOoQ022048;
+	Tue, 17 Jun 2025 12:07:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	99M35CN/UIeVzTNTGP/oni4W2zXbo6xaxFJdsienfjs=; b=IEONQrzLvf+QGjsM
-	PQ9PXFfkyeVHEqLqgZKbj1R/kl87AKl+V5fXWlBxogoGzS0u0ViL6vAL35gdEfjk
-	XAMP3RkkoRbOHTFXoAbStsl/C63acaNFXMrc40V6TnR556Se2SWjLtgVEJ/yY1fY
-	m0V5HHxae+bdTNzZnGvFqHuAFxmOYcZU6V7XPaS2Th2ls1RHjfxWwaxt14n8/0JX
-	Gm4DLfVnNJTfzHv2geL2DCjJV1BVrCvyirROen1PujhUudlAI0sexfEF40r6xQCq
-	zJE3RTAaSNQSJfBONGoE65YKCuF7pMK/PlyB3s9rUvevmsp5xaGNkyqQgJCtiT7C
-	SIGhOw==
+	52DetiHDy+EEyofP7eCcDOEDmNxtXnUpHp9Zmo4Im6Y=; b=jkhD6iKiP4hJ3Ipe
+	OP99G+sokXV6z9ZdTmeM4lw6byTiYJQoYZlEgwiY25bdxUpTDdvgWKE8ABbV1toF
+	j6pZEjDLhf2Q6kXZari+hj9SCW5lEy+Il26SntCg2YH2vuhD5P+6uCzQzkftVN4n
+	YQ6+QnNvUVRrm66b/0ukCB4JsP9+b+b0Rao5lMfa7hMbSst/rKjNsvfIgJ+q/+z6
+	ljHpRNx1CnnyO411LQh7ufYH230ekiVgE/2ROkfyw6d5nmEAaZthw1doXCogLkNt
+	M4snTiJuNf63imnHWyyctji9GCGilwpSootYkZt+2z9A/iF249vJXJbPfA65cRvi
+	EuMbng==
 Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4791ft02e4-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4791eng55t-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Jun 2025 12:07:02 +0000 (GMT)
+	Tue, 17 Jun 2025 12:07:07 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55HC718h009860
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 55HC76Lc011556
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Jun 2025 12:07:01 GMT
+	Tue, 17 Jun 2025 12:07:06 GMT
 Received: from nsssdc-sh01-lnx.ap.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 17 Jun 2025 05:06:55 -0700
+ 15.2.1544.9; Tue, 17 Jun 2025 05:07:01 -0700
 From: Luo Jie <quic_luoj@quicinc.com>
-Date: Tue, 17 Jun 2025 20:06:34 +0800
-Subject: [PATCH 3/8] dt-bindings: clock: gcc-ipq5424: Add definition for
- GPLL0_OUT_AUX
+Date: Tue, 17 Jun 2025 20:06:35 +0800
+Subject: [PATCH 4/8] clock: qcom: gcc-ipq5424: Add gpll0_out_aux clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250617-qcom_ipq5424_nsscc-v1-3-4dc2d6b3cdfc@quicinc.com>
+Message-ID: <20250617-qcom_ipq5424_nsscc-v1-4-4dc2d6b3cdfc@quicinc.com>
 References: <20250617-qcom_ipq5424_nsscc-v1-0-4dc2d6b3cdfc@quicinc.com>
 In-Reply-To: <20250617-qcom_ipq5424_nsscc-v1-0-4dc2d6b3cdfc@quicinc.com>
 To: Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -86,11 +85,11 @@ CC: <linux-arm-msm@vger.kernel.org>, <linux-pm@vger.kernel.org>,
         Luo Jie
 	<quic_luoj@quicinc.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1750161999; l=1043;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1750161999; l=1324;
  i=quic_luoj@quicinc.com; s=20250209; h=from:subject:message-id;
- bh=LW9djbY5uvMpX/1C731IyN9Q2paEzsWyatCqe0dYowE=;
- b=/hc+Gf7DNU9p0wz9p/4Gmwv4YTzX5VtU+Df7BYqQVKP0mzDizjDbqBdkV0B5liKyUnWs236s9
- X16Cvy77laeA07YRxHaVEpGML5ne4a99a64ILp6KjoReiJcm1C53eKw
+ bh=rVxUYZt30JbUgTHiydiH4HS5PHlIBURdEyNy60h1YkY=;
+ b=eTmnGV1ItdAeCnt8BLu5cd7D6Z3D/cXvgVZSYEF29eqGF92rBq0B7al46uK2bpWjW5HBrSMzX
+ w9WlkKcfRQsDMgitkF6nanpq41yWWULCPi9ySs2qyKeXZXEpwcmqiCD
 X-Developer-Key: i=quic_luoj@quicinc.com; a=ed25519;
  pk=pzwy8bU5tJZ5UKGTv28n+QOuktaWuriznGmriA9Qkfc=
 X-Originating-IP: [10.80.80.8]
@@ -98,31 +97,31 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE3MDA5NiBTYWx0ZWRfX6gBy8piJ2bdU
- 0dY/21j+6DzWlasdsyZdQI7uQbzpPEV2MaJbAdmjBa4NOs7soOlm8HzEuISjDHK0OzdGTR2VL8z
- SMjVjBp4J7zkHlS+4WZDTpDwGOJYrwos49sT52yM1/pkCiTD4ojx2QgT6S3aF3XGsdlOxrr4jfx
- E57J6MSrMu9KEqU0p5fXngJh4Cj/Im9JOW4qRP3K793a43MlsCMkcOAWqKFLcyZRq2Xnwq3xPgt
- 7blD6/4MQQ5yANsIrf587CMgisI2P+s1jfDzY9YCm0aJGLxeLDIzM0N8r+9bGUbpkK8lKPFhny3
- 5PsYubHyUwytitKrehRTFjdBOb8JG75yt3zMQO+R/xl9/PT0JqkJP1R8AjZlB1UZH4LY7QfIPlq
- DFTuJDrzZVKmTpyDWv1uWqeIymrdm/xoWgpBU4iSPdpEUhkEQnHwF6f/P06kcszoOtiy2sTR
-X-Proofpoint-ORIG-GUID: RjN__AQ0K6AJWdJX2Di9oJ2E5dgiYcKg
-X-Authority-Analysis: v=2.4 cv=OLIn3TaB c=1 sm=1 tr=0 ts=68515a66 cx=c_pps
+X-Proofpoint-ORIG-GUID: rq7dwFXoby_aPxP_PrxZ_evQQ9KHBYtv
+X-Authority-Analysis: v=2.4 cv=D6RHKuRj c=1 sm=1 tr=0 ts=68515a6b cx=c_pps
  a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
  a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=COk6AnOGAAAA:8
- a=HyGcnaojGsed0H-j9tUA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: RjN__AQ0K6AJWdJX2Di9oJ2E5dgiYcKg
+ a=PgHBclK_Yek0rHWKhOgA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: rq7dwFXoby_aPxP_PrxZ_evQQ9KHBYtv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjE3MDA5NiBTYWx0ZWRfXzfcO3bvRDurB
+ pAlP+OGRSoogFTiQgNxUpXiCBZtu77aCnbGkS0N7FtaFnVbTj+fqm0oTPFGC3mdbSXSEweL1IVh
+ KzxDCpTUM3Qr8PMYM1Q9fltESJUWPhBdjWqI6Irfges7ZAjgH/oUPPW91GA0xB8PH8Pxe0vZMNp
+ tFIBGZ0ger24EwH2TJA1ATb976tdT7CEgZ8CVI9rpYFKbzjat0IYhKQMLRrrru6c2RWPKIa5vii
+ 5K7IOiBRdECaZpX4oGjDqPbNZqG+mw0cu9MY1Xec5JBYVkMIG+kfBVtJleg1RcBB1pbBfA29Zm8
+ BB8NtosuRXjAG2LmJ8IMPFS8qw/DOuD/MzvfE83XPVkL+J6zDG4sIZTEXmf/AjCPg+wNIW3ee65
+ LL5F1kQ018ssOTa/5AOTfujPVJkuI0OJ1QLBdwrkkATuO/9nUFokx3qJzmeUqOoUM0x2TeBG
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-06-17_05,2025-06-13_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=999 clxscore=1011 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 impostorscore=0 mlxscore=0 bulkscore=0 adultscore=0
- suspectscore=0 phishscore=0 spamscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2506170096
+ priorityscore=1501 malwarescore=0 impostorscore=0 phishscore=0 adultscore=0
+ suspectscore=0 mlxlogscore=999 clxscore=1015 mlxscore=0 lowpriorityscore=0
+ spamscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506170096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_050709_638367_1EE12FD6 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250617_050715_438892_2438292B 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,34 +136,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GCC clock GPLL0_OUT_AUX is one of source clocks for NSS clock
-controller.
+The clock gpll0_out_aux acts as the parent clock for some
+of the NSS (Network Subsystem) clocks.
 
 Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
 ---
- include/dt-bindings/clock/qcom,ipq5424-gcc.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/clk/qcom/gcc-ipq5424.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/include/dt-bindings/clock/qcom,ipq5424-gcc.h b/include/dt-bindings/clock/qcom,ipq5424-gcc.h
-index c15ad16923bd..ab23c6844a06 100644
---- a/include/dt-bindings/clock/qcom,ipq5424-gcc.h
-+++ b/include/dt-bindings/clock/qcom,ipq5424-gcc.h
-@@ -1,7 +1,7 @@
- /* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
- /*
-  * Copyright (c) 2018,2020 The Linux Foundation. All rights reserved.
-- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
-+ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
-  */
+diff --git a/drivers/clk/qcom/gcc-ipq5424.c b/drivers/clk/qcom/gcc-ipq5424.c
+index 3a01cb277cac..370e2e775044 100644
+--- a/drivers/clk/qcom/gcc-ipq5424.c
++++ b/drivers/clk/qcom/gcc-ipq5424.c
+@@ -79,6 +79,20 @@ static struct clk_fixed_factor gpll0_div2 = {
+ 	},
+ };
  
- #ifndef _DT_BINDINGS_CLOCK_IPQ_GCC_IPQ5424_H
-@@ -152,5 +152,6 @@
- #define GCC_PCIE3_RCHNG_CLK			143
- #define GCC_IM_SLEEP_CLK			144
- #define GCC_XO_CLK				145
-+#define GPLL0_OUT_AUX				146
++static struct clk_alpha_pll_postdiv gpll0_out_aux = {
++	.offset = 0x20000,
++	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_DEFAULT],
++	.width = 4,
++	.clkr.hw.init = &(const struct clk_init_data) {
++		.name = "gpll0_out_aux",
++		.parent_hws = (const struct clk_hw *[]) {
++			&gpll0.clkr.hw
++		},
++		.num_parents = 1,
++		.ops = &clk_alpha_pll_postdiv_ro_ops,
++	},
++};
++
+ static struct clk_alpha_pll gpll2 = {
+ 	.offset = 0x21000,
+ 	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_NSS_HUAYRA],
+@@ -2934,6 +2948,7 @@ static struct clk_regmap *gcc_ipq5424_clocks[] = {
+ 	[GPLL2] = &gpll2.clkr,
+ 	[GPLL2_OUT_MAIN] = &gpll2_out_main.clkr,
+ 	[GPLL4] = &gpll4.clkr,
++	[GPLL0_OUT_AUX] = &gpll0_out_aux.clkr,
+ };
  
- #endif
+ static const struct qcom_reset_map gcc_ipq5424_resets[] = {
 
 -- 
 2.34.1
