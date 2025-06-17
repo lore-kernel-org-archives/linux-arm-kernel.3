@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57BAC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E38C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sC2urmdi932bfVZW34Z6R4DXI4WJxCiZ6OdHegtaTBk=; b=yHcwIp65icvLqJSqDFjzAYazeT
-	X0KY9m04VM6m1c1W6YAcGwqKE+NttdOkn7LiIP2nHlPX3h9Q4Qjf6bRJ3LBV4YEo445ToTg3w8jcv
-	Mr5QyFUQ+VssiNzxZenvVO5lCFtGmScGf0cApV1+JQSpdS6OHlYQDpImWCGIWEjppp5BACOoZ0sfb
-	9RzlW8UtvTx2iGB7dAgebohEXcnxJYBRN4atU1xiJbRvrAEKViBLsJ4FsY7HvkI1etlowA6Gzs5Ku
-	EALu3TEvLGkdTWGh8W1aakaoYz0eGE58Qz1Q+upipv3cEY0d2OgIclupefwVOr+SwlKFCz2NclSve
-	iAz30lKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0aFrSRyUeb/75jdUmrqfqndWIf0rk5Wfmjw+p/zHH9g=; b=AseXHnmVCMvKP8v65VceWdnkOg
+	DFbuSRXOgxeQJViy4drGY60naYxWOf0jwYDBbNoMpKxklndJX4/H7NsJnzdRwAZ720uyNi3sTD1WU
+	IjsiNLnmFtOJYMhIJIlKM8SW5Cg7bvxW8Mf/EqdrYO3QymyQyWbbqUNlEgf34E0UnsTzCbQx5KjZz
+	ukDLFENfCN9D3Qr609NEOKr0kpQDBB6uNJ32GnxKqgDHKpyxXNEtEh/G+HSHESeQSEHXBd2dNWUnO
+	00TH5hQfjWFAJ8B8yTrIFvZERs3fiCHtS2vBMfMUNY8C0bDaFnbF+wwIZZ9a9cZqtdKUcuv+76+R9
+	DZto8cRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRTa-00000006ZGy-34Yr;
-	Tue, 17 Jun 2025 08:15:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRRE-00000006Yie-27E5
+	id 1uRRVu-00000006ZZw-2DlJ;
+	Tue, 17 Jun 2025 08:17:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRRT5-00000006ZCI-090W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 08:13:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D8DC15A1;
-	Tue, 17 Jun 2025 01:12:38 -0700 (PDT)
-Received: from [10.57.84.117] (unknown [10.57.84.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E31613F673;
-	Tue, 17 Jun 2025 01:12:57 -0700 (PDT)
-Message-ID: <f1876bc1-94f5-46d0-b51d-12537d979830@arm.com>
-Date: Tue, 17 Jun 2025 09:12:56 +0100
+	Tue, 17 Jun 2025 08:14:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 966F242B92;
+	Tue, 17 Jun 2025 08:14:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B63C4CEED;
+	Tue, 17 Jun 2025 08:14:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750148094;
+	bh=jWaMeV6lumqYjKja81bLRDGauLViAHSmy9zCTQ+CdzE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aiebFnPt5mNFmtfZPVPr3tv89nAL3Z60/172Cv8w6KcCbQmGha03+sQUGpCuQ7Ay4
+	 nuLzFvtw96yTUsk0rvyyrzOWJbQ/oj85LbmUvfw3/m2u1/xPombwmTmUgyjs1Iv3f/
+	 0jCBehmywpaAfhoJnA6dJijINmu5zhijtCIk39W4xp2pUzHroqJOexa1Kcwy9pGYcQ
+	 HLL93RzJOZ4HgC2V8ctmssdoonuGz4qHyb5k8eES4I4WbI4jF/a+CDWPpvqwuHDoH1
+	 3UcrA/N01WaO45sxaOImTjdTfUNV5MlvpZyadWA5z6E7h4JCbjv1uFqqCa1KHCjeDs
+	 7bQUcca6RczqA==
+Date: Tue, 17 Jun 2025 10:14:52 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
+Message-ID: <jgafc7te2zotqwvetudo6c4o4nit6zi3yp4ecg4gka53hrypk5@7ypb5asrc2ct>
+References: <20250617005059.614993-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: Enable vmalloc-huge with ptdump
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- david@redhat.com
-References: <20250616103310.17625-1-dev.jain@arm.com>
- <d0b17ac1-32e1-4086-97ec-1d70c1ac62e6@arm.com>
- <5f7b0a4d-fb3f-43bc-9f2a-3951222cfff2@arm.com>
- <ec8a398c-727c-420a-9110-5362ce35f786@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <ec8a398c-727c-420a-9110-5362ce35f786@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iymm4l7lewpewlx2"
+Content-Disposition: inline
+In-Reply-To: <20250617005059.614993-1-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_011300_630565_F7882621 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20250617_011455_115620_60128C9F 
+X-CRM114-Status: GOOD (  25.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,110 +73,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/06/2025 04:59, Dev Jain wrote:
-> 
-> On 17/06/25 8:24 am, Dev Jain wrote:
->>
->> On 16/06/25 11:37 pm, Ryan Roberts wrote:
->>> On 16/06/2025 11:33, Dev Jain wrote:
->>>> arm64 disables vmalloc-huge when kernel page table dumping is enabled,
->>>> because an intermediate table may be removed, potentially causing the
->>>> ptdump code to dereference an invalid address. We want to be able to
->>>> analyze block vs page mappings for kernel mappings with ptdump, so to
->>>> enable vmalloc-huge with ptdump, synchronize between page table removal in
->>>> pmd_free_pte_page()/pud_free_pmd_page() and ptdump pagetable walking. We
->>>> use mmap_read_lock and not write lock because we don't need to synchronize
->>>> between two different vm_structs; two vmalloc objects running this same
->>>> code path will point to different page tables, hence there is no race.
->>>>
->>>> For pud_free_pmd_page(), we isolate the PMD table to avoid taking the lock
->>>> 512 times again via pmd_free_pte_page().
->>>>
->>>> We implement the locking mechanism using static keys, since the chance
->>>> of a race is very small. Observe that the synchronization is needed
->>>> to avoid the following race:
->>>>
->>>> CPU1                            CPU2
->>>>                         take reference of PMD table
->>>> pud_clear()
->>>> pte_free_kernel()
->>>>                         walk freed PMD table
->>>>
->>>> and similar race between pmd_free_pte_page and ptdump_walk_pgd.
->>>>
->>>> Therefore, there are two cases: if ptdump sees the cleared PUD, then
->>>> we are safe. If not, then the patched-in read and write locks help us
->>>> avoid the race.
->>>>
->>>> To implement the mechanism, we need the static key access from mmu.c and
->>>> ptdump.c. Note that in case !CONFIG_PTDUMP_DEBUGFS, ptdump.o won't be a
->>>> target in the Makefile, therefore we cannot initialize the key there, as
->>>> is being done, for example, in the static key implementation of
->>>> hugetlb-vmemmap. Therefore, include asm/cpufeature.h, which includes
->>>> the jump_label mechanism. Declare the key there and define the key to false
->>>> in mmu.c.
->>>>
->>>> No issues were observed with mm-selftests. No issues were observed while
->>>> parallelly running test_vmalloc.sh and dumping the kernel pagetable through
->>>> sysfs in a loop.
->>>>
->>>> v2->v3:
->>>>   - Use static key mechanism
->>>>
->>>> v1->v2:
->>>>   - Take lock only when CONFIG_PTDUMP_DEBUGFS is on
->>>>   - In case of pud_free_pmd_page(), isolate the PMD table to avoid taking
->>>>     the lock 512 times again via pmd_free_pte_page()
->>>>
->>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>>> ---
->>>>   arch/arm64/include/asm/cpufeature.h |  1 +
->>>>   arch/arm64/mm/mmu.c                 | 51 ++++++++++++++++++++++++++---
->>>>   arch/arm64/mm/ptdump.c              |  5 +++
->>>>   3 files changed, 53 insertions(+), 4 deletions(-)
->>>>
 
-[...]
+--iymm4l7lewpewlx2
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] regulator: rpi-panel-v2: Convert to new PWM waveform ops
+MIME-Version: 1.0
 
->>>> +    pud_clear(pudp);
->>> How can this possibly be correct; you're clearing the pud without any
->>> synchronisation. So you could have this situation:
->>>
->>> CPU1 (vmalloc)            CPU2 (ptdump)
->>>
->>>                 static_branch_enable()
->>>                   mmap_write_lock()
->>>                     pud = pudp_get()
->>
->> When you do pudp_get(), you won't be dereferencing a NULL pointer.
->> pud_clear() will nullify the pud entry. So pudp_get() will boil
->> down to retrieving a NULL entry. Or, pudp_get() will retrieve an
->> entry pointing to the now isolated PMD table. Correct me if I am
->> wrong.
->>
->>> pud_free_pmd_page()
->>>    pud_clear()
->>>                     access the table pointed to by pud
->>>                     BANG!
-> 
-> I am also confused thoroughly now : ) This should not go bang as the
-> 
-> table pointed to by pud is still there, and our sequence guarantees that
-> 
-> if the ptdump walk is using the pmd table, then pud_free_pmd_page won't
-> 
-> free the PMD table yet.
+Hello Marek,
 
-You're right... I'm not sure what I was smoking last night. For some reason I
-read the pXd_clear() as "free". This approach looks good to me - very clever!
-And you even managed to ensure the WRITE_ONCE() in pXd_clear() doesn't get
-reordered after taking the lock via the existing dsb in the tlb maintenance
-operation - I like it!
+[Cc: +=3D linux-pwm@vger.kernel.org]
 
-I'll send a separate review with some nits, but I'm out today, so that might
-have to wait until tomorrow.
+On Tue, Jun 17, 2025 at 02:50:25AM +0200, Marek Vasut wrote:
+> Convert the driver from legacy PWM apply ops to modern waveform ops.
+> There is no functional change.
+>=20
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: "Uwe Kleine-K=F6nig" <ukleinek@kernel.org>
+> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Cc: Liam Girdwood <lgirdwood@gmail.com>
+> Cc: Mark Brown <broonie@kernel.org>
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+>  drivers/regulator/rpi-panel-v2-regulator.c | 50 +++++++++++++++++-----
+>  1 file changed, 39 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/drivers/regulator/rpi-panel-v2-regulator.c b/drivers/regulat=
+or/rpi-panel-v2-regulator.c
+> index 30b78aa75ee3..be42afc81d72 100644
+> --- a/drivers/regulator/rpi-panel-v2-regulator.c
+> +++ b/drivers/regulator/rpi-panel-v2-regulator.c
+> @@ -35,24 +35,52 @@ static const struct regmap_config rpi_panel_regmap_co=
+nfig =3D {
+>  	.can_sleep =3D true,
+>  };
+> =20
+> -static int rpi_panel_v2_pwm_apply(struct pwm_chip *chip, struct pwm_devi=
+ce *pwm,
+> -				  const struct pwm_state *state)
+> +static int rpi_panel_v2_pwm_round_waveform_tohw(struct pwm_chip *chip,
+> +						struct pwm_device *pwm,
+> +						const struct pwm_waveform *wf,
+> +						void *_wfhw)
+>  {
+> -	struct regmap *regmap =3D pwmchip_get_drvdata(chip);
+> -	unsigned int duty;
+> +	u8 *wfhw =3D _wfhw;
+> +
+> +	*wfhw =3D DIV_ROUND_CLOSEST_ULL(wf->duty_length_ns * PWM_BL_MASK, wf->p=
+eriod_length_ns);
 
-Thanks, and sorry again for the noise!
-Ryan
+To have this consistent with rpi_panel_v2_pwm_round_waveform_fromhw()
+and not suffer from potential overflow this should be:
 
+/* The actual value isn't known, so this is made up. */
+#define RPI_PANEL_V2_FIXED_PERIOD_NS 100000
+
+
+static int rpi_panel_v2_pwm_round_waveform_tohw(...)
+{
+	...
+
+	if (wf->duty_length_ns > RPI_PANEL_V2_FIXED_PERIOD_NS)
+		*wfhw =3D 100;
+	else
+		*wfhw =3D mul_u64_u64_div_u64(wf->duty_length_ns * 100, RPI_PANEL_V2_FIXE=
+D_PERIOD_NS);
+
+	return 0;
+}
+
+> +
+> +	return 0;
+> +}
+> =20
+> -	if (state->polarity !=3D PWM_POLARITY_NORMAL)
+> -		return -EINVAL;
+> +static int rpi_panel_v2_pwm_round_waveform_fromhw(struct pwm_chip *chip,
+> +						  struct pwm_device *pwm,
+> +						  const void *_wfhw,
+> +						  struct pwm_waveform *wf)
+> +{
+> +	const u8 *wfhw =3D _wfhw;
+> +
+> +	/*
+> +	 * These numbers here are utter fabrications, the device is sealed
+> +	 * in metal casing and difficult to take apart and measure, so we
+> +	 * pick some arbitrary values here, values which fit nicely.
+> +	 */
+> +	wf->period_length_ns =3D 100 * 1000;	/* 100 us ~=3D 10 kHz */
+> +	wf->duty_length_ns =3D *wfhw * 1000;	/* 0..100us */
+> +	wf->duty_offset_ns =3D 0;
+> +
+> +	return 0;
+> +}
+> =20
+> -	if (!state->enabled)
+> -		return regmap_write(regmap, REG_PWM, 0);
+> +static int rpi_panel_v2_pwm_write_waveform(struct pwm_chip *chip,
+> +					   struct pwm_device *pwm,
+> +					   const void *_wfhw)
+> +{
+> +	struct regmap *regmap =3D pwmchip_get_drvdata(chip);
+> +	const u8 *wfhw =3D _wfhw;
+> =20
+> -	duty =3D pwm_get_relative_duty_cycle(state, PWM_BL_MASK);
+> -	return regmap_write(regmap, REG_PWM, duty | PWM_BL_ENABLE);
+> +	return regmap_write(regmap, REG_PWM, *wfhw | (*wfhw ? PWM_BL_ENABLE : 0=
+));
+
+How does the PWM behave without PWM_BL_ENABLE set?
+
+>  }
+> =20
+>  static const struct pwm_ops rpi_panel_v2_pwm_ops =3D {
+> -	.apply =3D rpi_panel_v2_pwm_apply,
+> +	.sizeof_wfhw		=3D sizeof(u8),
+> +	.round_waveform_fromhw	=3D rpi_panel_v2_pwm_round_waveform_fromhw,
+> +	.round_waveform_tohw	=3D rpi_panel_v2_pwm_round_waveform_tohw,
+> +	.write_waveform		=3D rpi_panel_v2_pwm_write_waveform,
+
+Personally I don't like aligning the =3D. If this was a driver in
+drivers/pwm I'd ask you to use a single space before the =3D.
+
+Best regards
+Uwe
+
+--iymm4l7lewpewlx2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhRI/kACgkQj4D7WH0S
+/k5KGwgAq3zbHE241ePsg/glbAEk6En81ieCwymmjsOuPNS25XRL8cSrRR7UNklH
+zeVLeFTyS2gfXTg/QDGynx8PmGDJ3TW/1uG9gu7RHSXtnPdZ8gjs6n3Lj+mFFarV
+cSxBB1JT1jjBTI+f9rnL5MBu1bVQK9lifCU07eyxUpivCvLIkNxx0OvBQa3KBEW5
+a9tIWMUWMb1aiDya9YFaOGWC05t9BFV3tPYJQ1PGgM+NYiuHYOEM2klstfpFkONP
+3EYh9sHpRWzddiLCH+WxIqraDCZusBU9I2ikAxTXV+U6dMZ9S6dE95bbnP3QUCmT
+g+JfWsbLAZHzC/lGvoakrbJQc9/G9g==
+=SHh+
+-----END PGP SIGNATURE-----
+
+--iymm4l7lewpewlx2--
 
