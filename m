@@ -4,68 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5003C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 20:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EE2C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 21:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rMr9ZYNZ75aGV3m8AtJQKVvUSuGfWDjLSKhbNsIOQZE=; b=pooDFxVBs/JY/mAWqTbIhxLJSG
-	rLpmdGxAljjAluHHUPO1Eo+iSPglv20TRQ0vhIJVfeexiMs3xdU0c724djHR7MSZImLS+DYMXLtz5
-	YOUN6JO4Na8HZUefkM397u4JNtavkKY6xSsh1gz0t5JiAxiJSh8g10a7v+k4ogtfVsDyki1rGdzsT
-	592JNXMww77UwKHiwdCQ2dUlBM/EF2txOeB1PGTvOdHoKBDVwbjznIVg+u5rGvfp2PxaDdo0dXCTv
-	mAeZ/m1JYHw9zNjB8fx2kh1T5CHfOSTCq3QO9lYFMSGJwsBq1Y1HbXwxm6XKTPiG83Jm1prcGpPqm
-	3FsKd1ig==;
+	bh=1XkwDTjVuqhCyt4wKdxhsz8oSN6OtvjRWMKisi/vRjE=; b=lXdTjIhBBDPqSBgvYhrBOazBLu
+	CH32qGDHc7UZbPzyu4URL8eVtdOi1PT82FVXuvkg87o7l0lYO9mdrvZXDQefpGN+b2FzU5wMKrnS1
+	ac2+oMvnENoJxruO2WEs1lHwN+yiXP8M4schrgP/jgf+hAd4vEUm+fU73dc9ID+BjH1GOHRkEv7Wx
+	8Gz/mZIsQUI6m+NxHx8GrR4qZ3fvo6Kfbe5rK+HK1jtYnHzKLTMZ78mx07bHs4LL98vA9W/t4qqef
+	uX8rMJBRc3S3GjRucPfXZyf1J+WwfeG7tUV9SgkS9Q1uaHm82UGvR71HrxomFmkAzVKf0km3U9T5n
+	Hj1Gzpcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRd6P-00000008MTO-2Rzd;
-	Tue, 17 Jun 2025 20:40:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uRdPU-00000008OFK-0RO1;
+	Tue, 17 Jun 2025 21:00:00 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRd4A-00000008MLl-2qN3;
-	Tue, 17 Jun 2025 20:38:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 604355C5E08;
-	Tue, 17 Jun 2025 20:35:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4624FC4CEE3;
-	Tue, 17 Jun 2025 20:37:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750192676;
-	bh=54r4znE4BXFv6bRlHG9/gifwZs8TUeyRhVX7bDrc6rU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V+b+de44XCuqsbVM2gPSQqPVm0WdGNUlqRBkLtWrdV+FwOXF3ttT9tRQ3SrjU8XjP
-	 xAajZnol+FMY0k3u6Y/eoNT/xYM8iQ/rfrgq7EinZfzqW4axMOLb+xGQ1YLf4HCIiq
-	 ntSlhcaR2Xl4jESgQFTDTdge2fxELUCsCpW+VVXBO3n4Dhkqishg81CcIOzoVqEmbp
-	 HKwdl3VT77uNQnla0VuHiSdpOBVzK0266GlFGLHUZrFy0BMkM4ZceHOWsZPWu8kmro
-	 HcjgwItg8W6ReZyV9qTGTU2VLTOCjf2zCJleOsH7TCyushCz/0yplJ0tLSz8MvemOL
-	 3bSdC0WwjC0fQ==
-Date: Tue, 17 Jun 2025 13:37:26 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH v2 00/17] SHA-512 library functions
-Message-ID: <20250617203726.GC1288@sol>
-References: <20250616014019.415791-1-ebiggers@kernel.org>
- <20250617060523.GH8289@sol>
- <CAHk-=wi5d4K+sF2L=tuRW6AopVxO1DDXzstMQaECmU2QHN13KA@mail.gmail.com>
- <20250617192212.GA1365424@google.com>
- <CAHk-=wiB6XYBt81zpebysAoya4T-YiiZEmW_7+TtoA=FSCA4XQ@mail.gmail.com>
- <20250617195858.GA1288@sol>
- <CAHk-=whJjS_wfxCDhkj2fNp1XPAbxDDdNwF1iqZbamZumBmZPg@mail.gmail.com>
+	id 1uRdNG-00000008O7H-35Bh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Jun 2025 20:57:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iHtbFk2KAJLYOxuFJdZaymroTrJb34qOoYCqtiRYphjItdrNuPe4xXl+D2kLRPJAYpQDaYHWfxVT3H738Kb0ZJ5/PBfV4wMqx+T9bQtpt3+UQXZ+1uUUIrA+GIIZhsZ1m8eT2R6o75C1ZAYhaGvItnWF6SRg+dsIr6GraR7R0yTyRnqdPPrMcDMfPE5q/uDQdaXI33f5dIGFDw3tiO6x6PHby33Q2aalc6Y1FqTj++yc+O3qGPhYUrlPnhp8k+X74b6TiNY8bh5Y865qQt6j1Uc+hqtpGNpYkykpT+mYDy6vsXuQUOzPsecXheNfe32sX9qUeXjHfJyH8Ttvshk9ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1XkwDTjVuqhCyt4wKdxhsz8oSN6OtvjRWMKisi/vRjE=;
+ b=q5jjW+OEdqBc14FjiyTetDQm/lePyo+5Cn60yjckJe5zilcv1ueTEjKQPtC+/pAEm4gNbJMFvQ91E0E/J8iv1C3N7KKEM+FXrPq2zo2O8iwWtL0EcfMBfjwEeT85bYQvKgS58o8mZgZBkp1uOcseue1bAYHAYN+AJwLA8Nk0dQOt9F6NDDLDM9kt4pitfKj/fVWBl15Iz/X/L0u8z/AQlIUxR/FAKXTBjZ8+nTchV8wGpjoTM8ZLEKYWUFRUNR/TGEy4I52h6PoTzrnjwwcoH4J+gK13fIM8in7aXwT/EKDj+HFh2SywbycInVGkJhfnOgulBFVE8pGEzqthKGKZTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1XkwDTjVuqhCyt4wKdxhsz8oSN6OtvjRWMKisi/vRjE=;
+ b=gqle6n5EG8w5RcFa18pTA6AGa294ov0BUkdR/xr7LPB8IG4WjN51ajTpbGbsrwmbIcR8N6hvug5a7uoEQOmmc3GLta1bNcDBi7bqCwWrLVZPvjAuR1yu6l6uIFVtorC2GQtmuKc69tFUrmbJ9y2nERirE9XQRPrF09MOjse/Oyo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ BY3PR01MB6770.prod.exchangelabs.com (2603:10b6:a03:360::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8857.19; Tue, 17 Jun 2025 20:57:35 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8835.027; Tue, 17 Jun 2025
+ 20:57:35 +0000
+Message-ID: <2b816a20-a0ce-43b2-b76f-d9e175913b27@os.amperecomputing.com>
+Date: Tue, 17 Jun 2025 13:57:31 -0700
+User-Agent: Mozilla Thunderbird
+From: Yang Shi <yang@os.amperecomputing.com>
+Subject: Re: [v4 PATCH 0/4] arm64: support FEAT_BBM level 2 and large block
+ mapping when rodata=full
+To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
+ catalin.marinas@arm.com, Miko.Lenczewski@arm.com, dev.jain@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250531024545.1101304-1-yang@os.amperecomputing.com>
+ <47adeebf-9997-45fa-8607-67e219c2ed17@os.amperecomputing.com>
+ <5491098f-5508-4665-a8dc-b91a950bbc02@arm.com>
+Content-Language: en-US
+In-Reply-To: <5491098f-5508-4665-a8dc-b91a950bbc02@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CYZPR05CA0009.namprd05.prod.outlook.com
+ (2603:10b6:930:89::26) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=whJjS_wfxCDhkj2fNp1XPAbxDDdNwF1iqZbamZumBmZPg@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BY3PR01MB6770:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf908037-5a3c-4511-9382-08ddade19617
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eXhVN1AzZUV4cHdXd2F1dHN5NzY4L05Bc09qZTFPaGVkeTdaVlJxU1lFRjJR?=
+ =?utf-8?B?QVE2QXI1QWd6R05ObjBURkcra0dSSHhGaFBiQlNpc3hPUkx5Wk4xUzFzbklk?=
+ =?utf-8?B?RWZXWHUwaWtwSUE2S1NPVlg3UzhHMDNNLzZvVzJxMlRYdTg1ZjMwTVhnamFX?=
+ =?utf-8?B?Y0lVTUZsNUtheXdwSnJLTjNGVXlyNVphN0w0MytPNUYydDd1eXhIN0xoMWJC?=
+ =?utf-8?B?MkhxV2hEWGtPVU9wY2ZyL05BdUlWSEFVbXR5SEcvdjdSUGhwQ3MxL01pd2JZ?=
+ =?utf-8?B?ZERjUmlTOUhMMnoyZ3F4WHViR0pteTZaR1hkeUk2VlZ4TlUrbmd0MXNXTFph?=
+ =?utf-8?B?OG1TTFZVK1dsbXpoUWtQeVM3Q2N0ZDJHeWtUM0taeXRWZGlYOWJSQWhzeEVD?=
+ =?utf-8?B?M0xzcEc3UWFvaVIzdEd6T0hVMHp5eCt2dHpQQWxkZXoyYnZkaThOeHFsc3J2?=
+ =?utf-8?B?WGh2V21NSzVEOHFWR2hhU00zbitmSHlJVDFFU1EzZmtnYk1ydjFNMUVYb2tl?=
+ =?utf-8?B?SlNKNEJCYkdHa1hBNlJrUmdTa3NoK2dLRlJXMWhseG1mZ2t3V245UEdFS2Vu?=
+ =?utf-8?B?OEUyZTNZNUJWbCtWaDJYRUdGZCtZWFBXUW5QTjRmTzJJNWpUWDhIcDViTGVi?=
+ =?utf-8?B?aDlLZEtDOVpIV2xxOEFpNkFCZ25rUWllVGRoQ2lCR2dqdHNrNUFnZG03VkQy?=
+ =?utf-8?B?VmxkcG1KZHlrcnZBQktvQlJ5WEIyTUl4aUsrNjlOTXVEdUVjUkxLNGxIMGw0?=
+ =?utf-8?B?aDB2TmRtbGkrS1h2SlR2elo5N2ZSWmNWRTN1SmZaWkEwZ1hMVkpyT2NTbkE2?=
+ =?utf-8?B?VnNod0tzbnJjdWFuRWpCTXF1dXEwNEUzR05KOStGV1pGZWpiK292MWZmeWZi?=
+ =?utf-8?B?Q280ODFsWFZrUzQyUDB1b3FQaWN3eUE3VXQwTDMzYk9xQW93MDRMeFhjS0k0?=
+ =?utf-8?B?eTlNcVU2TFdhd1VkeFhwTDVlODV3ZW14QllscGZ1dE1YcFphc3NlcmdUVUNJ?=
+ =?utf-8?B?NTg4T1FPMHlKazg2OU1DelVaUUNYUmwyQ1YvOHZTRThzdExOZURSb2thdito?=
+ =?utf-8?B?L0xMZkg5UnBLL0RIeU5PQTV5S295eENCa2p4aXZ0ZWlUd05ONHRwcEl1Y2tM?=
+ =?utf-8?B?dG43L2R3a1Z6ckhJVTlvZmhLK2oxK3F6bkt5emhxbWlTcm1od2NVeGx5dkNy?=
+ =?utf-8?B?ckphWUJab05RT3RNcThRalg0aUkxZlRBMGtIUS9QMTRDZUsrTS8zR3Q4SWNY?=
+ =?utf-8?B?UXY2Z3drOW81V0d2akRPdUVUOHlnSzRhOFRvVWpTK2JiWTJIVnpFTnV0bENR?=
+ =?utf-8?B?bnpBbTl5QWs4aUtsczJXZE1QR2FQZ29iN1BOb1BMK05jRkJTSUc0dk56cEpG?=
+ =?utf-8?B?c2lRTnJWQVc2R1VnbnRtRytuYzFpODZpaW5JYnVHSERjNVh0YTI2UW83aFJ4?=
+ =?utf-8?B?cmpGRWlyYmI4NzJQdU9NYmtvU2NlaEY4bVBHNnFNZVJPZnExcjNSM0lNcmtD?=
+ =?utf-8?B?S1pLTnAxT3dZbGFqeHEvVFFPMVNxSk9ueWxidDFmR3N1aGFHcXZaUWhWbzBr?=
+ =?utf-8?B?OEhJU1VQWXN5SVJoZS9LTUtMVVorOVJybDYvMmJBS3hnNkJybndYSVZGUnRG?=
+ =?utf-8?B?L05INzYrc2VKVnBUOHY2U3FsRVZHOVJjck10OXU5SHJ4THA2RXpTL1crRFVw?=
+ =?utf-8?B?RDB6YmF3RUczcFlhbGhCejYvWUZtZ1ZRdFZrMWhieDcrcC9Ndk9kZWJ2Q1FV?=
+ =?utf-8?B?ZWJqWlpjRVpPSFVPLzJUYm5HZE4zVmo3NWRlOURNaVN1Rk8yRytvVDBISjFQ?=
+ =?utf-8?Q?e2KdjEdUttlVEvoiQxG3+J1s3gJDB8pHqQo5M=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(13003099007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?akFUT3JsOEVSUEJEYkhPRTZSQUdKVnpVRjJqL3R2U1JMb0oyYXc0WFlOSElj?=
+ =?utf-8?B?cE9CaGdnOGpMUUJtTUpyaUdUNlQwdUx2S1VVUmhIalVSZnltbG1oM0w0d3N6?=
+ =?utf-8?B?T1Y0WTA2bXRHZklQVm0vSFRORXFtOHdMTTFIc1R6VVM4Tkp0L1E3cEFDUkZz?=
+ =?utf-8?B?QU5yNzltSEdsd2k5Y1NJUUVMcU0zTEVuQ2xvSDlUdjI1QVgxOFdYK1R5UU1t?=
+ =?utf-8?B?OFdqUWM5eUhmeVN6ZVVSTExuWWFmQlMwcTJzbDI5SFFHNTZpWUtLT1owSUVW?=
+ =?utf-8?B?WWQ5OVVWYTFBRXdYZTBCeFJkTnB0Mlh0bE1oNXJPajNlU3ZQbE9YOWFUbGFQ?=
+ =?utf-8?B?Vm0vUi8wUmxwK0pndUNSOFM4V0VEQUlHVEp3VkkxdDhzVjQyWDlCTXVOUFVk?=
+ =?utf-8?B?bUROZXh0dmUzTGJ5dGFzNEtsS040R0tQejE5cW8rQ3VWUUxjN2pwVWliSis4?=
+ =?utf-8?B?Mjk1aU5aUUtBRzlUK0kxck9Cb3hicXhsd1lwTko0QWIwYW03OFd5K1JoWStN?=
+ =?utf-8?B?VWZZSlZHVUc1SUVJNGcxRnNQSzk2Q2svWnZlRXRSalJ4SGU3bGFCRVlDRTNJ?=
+ =?utf-8?B?dHQ0T2tQRWNuVTJGTlVLUmNRMUowbDlzOUJzRVBkb2RqYzhUS2gyNDBkcFZy?=
+ =?utf-8?B?b2xkY2c2clh2SWZiOGZKV2Vyb21LOURMUFV2Q0VaaEdDaXEyR2NzNnZmNGZL?=
+ =?utf-8?B?bHhFVmpDQk9pbnZoN2Vwd0xBWml6U0ZxaXkyRlRoTDAvdENRRHNiSnNaT09S?=
+ =?utf-8?B?c2JJMzhyWVp1SENDN0h5WXByUU1OdEJEYmtLNUxHRVlaVDF4UjdiNzVFbE82?=
+ =?utf-8?B?a3YzbGdYRHljL2tGMFJoQWM2ZXU0elpsWEorTGN1dzMxSHBmRkNPMjBDWTJN?=
+ =?utf-8?B?alBLc3Arc29MdXZ0clZaN0VpMVhUdmplcVBrYVdFMnJWWEtHa0ttSDRDQnIy?=
+ =?utf-8?B?MGpDdzROejM4eFRKbFpBVEUvNDBWZlovMzdaREpJdzZDY05lbngyS3k0TjBX?=
+ =?utf-8?B?K3AvSTZZMktLSkxObmNyTFVrcnJOSlpIUXRmWHVmUVc3bDUvcnI0bmlUZFlZ?=
+ =?utf-8?B?bWxyKzAvazZpTTRwK044VWxXaWc5QVg1T2pjRHV5VlJHVzNrMm1DQmo3Vzg4?=
+ =?utf-8?B?ZGhJR3BKS1R0UzJPR3p6WmJaazlnTGZHYXBZd05BMzJBVzYwRWZLNEE2ekRY?=
+ =?utf-8?B?YlFMMHA2Ym16eFV2Z25DN1NYcE9WQmxjNURJb09TWFViK1E1d29DSzdCalV3?=
+ =?utf-8?B?cFlkSEsxby9rWWZMd0cza3p3TkhPSVpURC9XWmwvejdvNHg3dlVITFVxdFBh?=
+ =?utf-8?B?ZHFyREpxL0FTVFJ6OWZvRWliTWhxRC9MeTlyRTI3VE1WaC9TR1VuNHNPeXJL?=
+ =?utf-8?B?NWNZZGpFSllzNjFSNCtRNktBNWswaGFyT3ZQQnJGdzdIUkMybCtVOEQ4L0xk?=
+ =?utf-8?B?QUc4b3lxWDZyRjhERmVrTVAzTk5vQ3k2QXNEREsvcCtCL3FRSlhydHZrbGo1?=
+ =?utf-8?B?MnhVZWJpMnZXd0Y0OFk4bkZtWVBxeUM1UzZMYnpWcFYxSVJIYVNvV01Ia0xF?=
+ =?utf-8?B?VDl6V2p4OXlkbWlYR1plK0ZEc1lnR1lPY0VpMmtsdUtITExMQ29OaDJZRmVw?=
+ =?utf-8?B?aks0UVQ3MyszNk4wckdqRXFWcGYybTRPOUxGaWU0MWNRSEo1ZHNNZ1IycHAx?=
+ =?utf-8?B?eU9oMm4xQitCM290SUh6RDJZMDgyVHlwM2lqczZWalNlREoyaWxYN2N0MHRJ?=
+ =?utf-8?B?elBRN0ZuQWQwOVluRGQ2V3BUd0dVdE85aWlMUGJFalNHWnpQQWxGQ3o2NThX?=
+ =?utf-8?B?UW9CTzg1V3ZnMGN4WC8wT2U4UjEwNSs2N2RjWlBFaHVjQ3M2eXJJUGczT012?=
+ =?utf-8?B?YmdFUDdpN0xDdDNhQnF0Q3NZbFp4UFRCOS9wS2crcThOVGN5MFVKWmdPbjc5?=
+ =?utf-8?B?bnZmK2hUSXA4VFNYQUM0SGpNUjNzc2pnN3pHZVBseVBVRERJVDV4Z1FlM3Zu?=
+ =?utf-8?B?OStGNi9aNGVKUzhhcW1idUxKNVluYm04QmR5cWJjRS8vaVNiU3Z2UG9ZYXhB?=
+ =?utf-8?B?Tk5FazYvSTRWZytUQkM4MnpPcmNOTU9tcHVlSkg3dWtYVHg2TkJLMGwvNzMw?=
+ =?utf-8?B?TURYV2c0MXFWcTJNTUlYZ1c2WUFwTkI4SGFjVk1TeU11dkZoYjNDZ1BleVB3?=
+ =?utf-8?Q?tFO5jFRpGBfDth/GgUDyjzk=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf908037-5a3c-4511-9382-08ddade19617
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jun 2025 20:57:35.5509
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: boOtBGJTlqsiS4YT+Al7IchY01qjPmvTv6wQBy7TJa9O3cl4fsVKKPAJfkkHS30NJU2MuP5LNvZLZlCC9g5zRkisS6kqyIEbc4HXZVfk08Q=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR01MB6770
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_133758_787899_8DCF6538 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20250617_135742_843642_9BB3F597 
+X-CRM114-Status: GOOD (  32.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,125 +178,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 01:08:14PM -0700, Linus Torvalds wrote:
-> On Tue, 17 Jun 2025 at 12:59, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > Again, the tests depend on the code they test being added first.
-> 
-> Sure, and that's fine. We have lots of "this depends on that".
-> 
-> > I could do two pull requests, the first with all non-test code and the second
-> > with all test code, where the second depends on the first, i.e. it will have the
-> > last commit of the first as its base commit.  Is that what you want?
-> 
-> Yes.
-> 
-> Or if one single pull request, split out the diffstat with the
-> explanation (that's the "Or at the very least spell things out *very*
-> clearly" option). But two separate pull requests would actually be my
-> preference.
-> 
->           Linus
 
-Okay.  For now I'll keep the test commits last and plan for a separate pull
-request with them, based on the first.  I fear I'll quickly run into
-interdependencies, in which case I'll need to fall back to "one pull request and
-spell things out very clearly".  But I'll try it.
 
-Just so it's clear, this is the diffstat of this patchset broken down by
-non-test code (patches 1-3 and 6-17) and tests (4-5):
+On 6/16/25 2:09 AM, Ryan Roberts wrote:
+> On 13/06/2025 18:21, Yang Shi wrote:
+>> Hi Ryan,
+>>
+>> Gently ping... any comments for this version?
+> Hi Yang, yes sorry for slow response - It's been in my queue. I'm going to start
+> looking at it now and plan to get you some feedback in the next couple of days.
+>
+>> It looks Dev's series is getting stable except some nits. I went through his
+>> patches and all the call sites for changing page permission. They are:
+>>    1. change_memory_common(): called by set_memory_{ro|rw|x|nx}. It iterates
+>> every single page mapped in the vm area then change permission on page basis. It
+>> depends on whether the vm area is block mapped or not if we want to change
+>>       permission on block mapping.
+>>    2. set_memory_valid(): it looks it assumes the [addr, addr + size) range is
+>> mapped contiguously, but it depends on the callers pass in block size (nr > 1).
+>> There are two sub cases:
+>>       2.a kfence and debugalloc just work for PTE mapping, so they pass in single
+>> page.
+>>       2.b The execmem passes in large page on x86, arm64 has not supported huge
+>> execmem cache yet, so it should still pass in singe page for the time being. But
+>> my series + Dev's series can handle both single page mapping and block mapping well
+>>           for this case. So changing permission for block mapping can be
+>> supported automatically once arm64 supports huge execmem cache.
+>>    3. set_direct_map_{invalid|default}_noflush(): it looks they are page basis.
+>> So Dev's series has no change to them.
+>>    4. realm: if I remember correctly, realm forces PTE mapping for linear address
+>> space all the time, so no impact.
+> Yes for realm, we currently force PTE mapping - that's because we need page
+> granularity for sharing certain portions back to the host. But with this work I
+> think we will be able to do the splitting on the fly and map using big blocks
+> even for realms.
 
-    Non-test:
-         arch/arm/configs/exynos_defconfig                  |   1 -
-         arch/arm/configs/milbeaut_m10v_defconfig           |   1 -
-         arch/arm/configs/multi_v7_defconfig                |   1 -
-         arch/arm/configs/omap2plus_defconfig               |   1 -
-         arch/arm/configs/pxa_defconfig                     |   1 -
-         arch/arm/crypto/Kconfig                            |  10 -
-         arch/arm/crypto/Makefile                           |  15 -
-         arch/arm/crypto/sha512-glue.c                      | 110 ------
-         arch/arm/crypto/sha512-neon-glue.c                 |  75 ----
-         arch/arm/crypto/sha512.h                           |   3 -
-         arch/arm64/configs/defconfig                       |   1 -
-         arch/arm64/crypto/Kconfig                          |  19 -
-         arch/arm64/crypto/Makefile                         |  14 -
-         arch/arm64/crypto/sha512-ce-glue.c                 |  96 -----
-         arch/arm64/crypto/sha512-glue.c                    |  83 -----
-         arch/mips/cavium-octeon/crypto/Makefile            |   1 -
-         arch/mips/cavium-octeon/crypto/octeon-crypto.c     |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-md5.c        |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-sha1.c       |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-sha256.c     |   3 +-
-         arch/mips/cavium-octeon/crypto/octeon-sha512.c     | 167 ---------
-         arch/mips/configs/cavium_octeon_defconfig          |   1 -
-         arch/mips/crypto/Kconfig                           |  10 -
-         .../asm/octeon/crypto.h}                           |   0
-         arch/riscv/crypto/Kconfig                          |  11 -
-         arch/riscv/crypto/Makefile                         |   3 -
-         arch/riscv/crypto/sha512-riscv64-glue.c            | 124 -------
-         arch/s390/configs/debug_defconfig                  |   1 -
-         arch/s390/configs/defconfig                        |   1 -
-         arch/s390/crypto/Kconfig                           |  10 -
-         arch/s390/crypto/Makefile                          |   1 -
-         arch/s390/crypto/sha512_s390.c                     | 151 --------
-         arch/sparc/crypto/Kconfig                          |  10 -
-         arch/sparc/crypto/Makefile                         |   2 -
-         arch/sparc/crypto/sha512_glue.c                    | 122 -------
-         arch/x86/crypto/Kconfig                            |  13 -
-         arch/x86/crypto/Makefile                           |   3 -
-         arch/x86/crypto/sha512_ssse3_glue.c                | 322 -----------------
-         crypto/Kconfig                                     |   4 +-
-         crypto/Makefile                                    |   2 +-
-         crypto/sha512.c                                    | 338 +++++++++++++++++
-         crypto/sha512_generic.c                            | 217 -----------
-         crypto/testmgr.c                                   |  16 +
-         drivers/crypto/starfive/jh7110-hash.c              |   8 +-
-         include/crypto/sha2.h                              | 350 ++++++++++++++++++
-         include/crypto/sha512_base.h                       | 120 -------
-         lib/crypto/Kconfig                                 |  18 +
-         lib/crypto/Makefile                                |  36 ++
-         lib/crypto/arm/.gitignore                          |   2 +
-         .../arm/crypto => lib/crypto/arm}/sha512-armv4.pl  |   0
-         lib/crypto/arm/sha512.h                            |  38 ++
-         lib/crypto/arm64/.gitignore                        |   2 +
-         .../crypto => lib/crypto/arm64}/sha512-ce-core.S   |  10 +-
-         lib/crypto/arm64/sha512.h                          |  46 +++
-         lib/crypto/mips/sha512.h                           |  74 ++++
-         .../crypto/riscv}/sha512-riscv64-zvknhb-zvkb.S     |   4 +-
-         lib/crypto/riscv/sha512.h                          |  41 +++
-         lib/crypto/s390/sha512.h                           |  28 ++
-         lib/crypto/sha512.c                                | 400 +++++++++++++++++++++
-         lib/crypto/sparc/sha512.h                          |  42 +++
-         .../sparc/crypto => lib/crypto/sparc}/sha512_asm.S |   0
-         .../x86/crypto => lib/crypto/x86}/sha512-avx-asm.S |  11 +-
-         .../crypto => lib/crypto/x86}/sha512-avx2-asm.S    |  11 +-
-         .../crypto => lib/crypto/x86}/sha512-ssse3-asm.S   |  12 +-
-         lib/crypto/x86/sha512.h                            |  54 +++
-         65 files changed, 1524 insertions(+), 1756 deletions(-)
+OK, it is good to support more usecase.
 
-    Test:
-         lib/crypto/Kconfig                    |   2 +
-         lib/crypto/Makefile                   |   2 +
-         lib/crypto/tests/Kconfig              |  24 ++
-         lib/crypto/tests/Makefile             |   6 +
-         lib/crypto/tests/hash-test-template.h | 512 ++++++++++++++++++++++++++
-         lib/crypto/tests/sha224-testvecs.h    | 223 ++++++++++++
-         lib/crypto/tests/sha224_kunit.c       |  50 +++
-         lib/crypto/tests/sha256-testvecs.h    | 223 ++++++++++++
-         lib/crypto/tests/sha256_kunit.c       |  39 ++
-         lib/crypto/tests/sha384-testvecs.h    | 566 +++++++++++++++++++++++++++++
-         lib/crypto/tests/sha384_kunit.c       |  48 +++
-         lib/crypto/tests/sha512-testvecs.h    | 662 ++++++++++++++++++++++++++++++++++
-         lib/crypto/tests/sha512_kunit.c       |  48 +++
-         scripts/crypto/gen-hash-testvecs.py   |  83 +++++
-         14 files changed, 2488 insertions(+)
+>> So it looks like just #1 may need some extra work. But it seems simple. I should
+>> just need advance the address range in (1 << vm's order) stride. So there should
+>> be just some minor changes when I rebase my patches on top of Dev's, mainly
+>> context changes. It has no impact to the split primitive and repainting linear
+>> mapping.
+> I haven't looked at your series yet, but I had assumed that the most convenient
+> (and only) integration point would be to call your split primitive from dev's
+> ___change_memory_common() (note 3 underscores at beginning). Something like this:
+>
+> ___change_memory_common(unsigned long start, unsigned long size, ...)
+> {
+> 	// This will need to return error for case where splitting would have
+> 	// been required but system does not support BBML2_NOABORT
+> 	ret = split_mapping_granularity(start, start + size)
+> 	if (ret)
+> 		return ret;
+>
+> 	...
+> }
 
-Note that the non-test part includes kerneldoc comments.  I'll assume you aren't
-going to insist on those being in a separate "documentation" pull request...
+Yeah, I agree. All callsites converge to ___change_memory_common() once 
+Dev's series is applied.
 
-If I need to resend this patchset for another reason, I'll also split it into
-two patchsets, one depending on the other.  But I'm not planning to resend it
-purely to do that split and with no other changes, as that seems a bit silly.
+Thanks,
+Yang
 
-- Eric
+>> Thanks,
+>> Yang
+>>
+>>
+>> On 5/30/25 7:41 PM, Yang Shi wrote:
+>>> Changelog
+>>> =========
+>>> v4:
+>>>     * Rebased to v6.15-rc4.
+>>>     * Based on Miko's latest BBML2 cpufeature patch (https://lore.kernel.org/
+>>> linux-arm-kernel/20250428153514.55772-4-miko.lenczewski@arm.com/).
+>>>     * Keep block mappings rather than splitting to PTEs if it is fully contained
+>>>       per Ryan.
+>>>     * Return -EINVAL if page table allocation failed instead of BUG_ON per Ryan.
+>>>     * When page table allocation failed, return -1 instead of 0 per Ryan.
+>>>     * Allocate page table with GFP_ATOMIC for repainting per Ryan.
+>>>     * Use idmap to wait for repainting is done per Ryan.
+>>>     * Some minor fixes per the discussion for v3.
+>>>     * Some clean up to reduce redundant code.
+>>>
+>>> v3:
+>>>     * Rebased to v6.14-rc4.
+>>>     * Based on Miko's BBML2 cpufeature patch (https://lore.kernel.org/linux-
+>>> arm-kernel/20250228182403.6269-3-miko.lenczewski@arm.com/).
+>>>       Also included in this series in order to have the complete patchset.
+>>>     * Enhanced __create_pgd_mapping() to handle split as well per Ryan.
+>>>     * Supported CONT mappings per Ryan.
+>>>     * Supported asymmetric system by splitting kernel linear mapping if such
+>>>       system is detected per Ryan. I don't have such system to test, so the
+>>>       testing is done by hacking kernel to call linear mapping repainting
+>>>       unconditionally. The linear mapping doesn't have any block and cont
+>>>       mappings after booting.
+>>>
+>>> RFC v2:
+>>>     * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
+>>>       conflict gracefully per Will Deacon
+>>>     * Rebased onto v6.13-rc5
+>>>     *https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-
+>>> yang@os.amperecomputing.com/
+>>>
+>>> v3:https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-1-
+>>> yang@os.amperecomputing.com/
+>>> RFC v2:https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-
+>>> yang@os.amperecomputing.com/
+>>> RFC v1:https://lore.kernel.org/lkml/20241118181711.962576-1-
+>>> yang@os.amperecomputing.com/
+>>>
+>>> Description
+>>> ===========
+>>> When rodata=full kernel linear mapping is mapped by PTE due to arm's
+>>> break-before-make rule.
+>>>
+>>> A number of performance issues arise when the kernel linear map is using
+>>> PTE entries due to arm's break-before-make rule:
+>>>     - performance degradation
+>>>     - more TLB pressure
+>>>     - memory waste for kernel page table
+>>>
+>>> These issues can be avoided by specifying rodata=on the kernel command
+>>> line but this disables the alias checks on page table permissions and
+>>> therefore compromises security somewhat.
+>>>
+>>> With FEAT_BBM level 2 support it is no longer necessary to invalidate the
+>>> page table entry when changing page sizes.  This allows the kernel to
+>>> split large mappings after boot is complete.
+>>>
+>>> This patch adds support for splitting large mappings when FEAT_BBM level 2
+>>> is available and rodata=full is used. This functionality will be used
+>>> when modifying page permissions for individual page frames.
+>>>
+>>> Without FEAT_BBM level 2 we will keep the kernel linear map using PTEs
+>>> only.
+>>>
+>>> If the system is asymmetric, the kernel linear mapping may be repainted once
+>>> the BBML2 capability is finalized on all CPUs.  See patch #4 for more details.
+>>>
+>>> We saw significant performance increases in some benchmarks with
+>>> rodata=full without compromising the security features of the kernel.
+>>>
+>>> Testing
+>>> =======
+>>> The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
+>>> 4K page size + 48 bit VA.
+>>>
+>>> Function test (4K/16K/64K page size)
+>>>     - Kernel boot.  Kernel needs change kernel linear mapping permission at
+>>>       boot stage, if the patch didn't work, kernel typically didn't boot.
+>>>     - Module stress from stress-ng. Kernel module load change permission for
+>>>       linear mapping.
+>>>     - A test kernel module which allocates 80% of total memory via vmalloc(),
+>>>       then change the vmalloc area permission to RO, this also change linear
+>>>       mapping permission to RO, then change it back before vfree(). Then launch
+>>>       a VM which consumes almost all physical memory.
+>>>     - VM with the patchset applied in guest kernel too.
+>>>     - Kernel build in VM with guest kernel which has this series applied.
+>>>     - rodata=on. Make sure other rodata mode is not broken.
+>>>     - Boot on the machine which doesn't support BBML2.
+>>>
+>>> Performance
+>>> ===========
+>>> Memory consumption
+>>> Before:
+>>> MemTotal:       258988984 kB
+>>> MemFree:        254821700 kB
+>>>
+>>> After:
+>>> MemTotal:       259505132 kB
+>>> MemFree:        255410264 kB
+>>>
+>>> Around 500MB more memory are free to use.  The larger the machine, the
+>>> more memory saved.
+>>>
+>>> Performance benchmarking
+>>> * Memcached
+>>> We saw performance degradation when running Memcached benchmark with
+>>> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+>>> With this patchset we saw ops/sec is increased by around 3.5%, P99
+>>> latency is reduced by around 9.6%.
+>>> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+>>> MPKI is reduced by 28.5%.
+>>>
+>>> The benchmark data is now on par with rodata=on too.
+>>>
+>>> * Disk encryption (dm-crypt) benchmark
+>>> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+>>> encryption (by dm-crypt with no read/write workqueue).
+>>> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+>>>       --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+>>>       --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+>>>       --name=iops-test-job --eta-newline=1 --size 100G
+>>>
+>>> The IOPS is increased by 90% - 150% (the variance is high, but the worst
+>>> number of good case is around 90% more than the best number of bad case).
+>>> The bandwidth is increased and the avg clat is reduced proportionally.
+>>>
+>>> * Sequential file read
+>>> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+>>> The bandwidth is increased by 150%.
+>>>
+>>>
+>>> Yang Shi (4):
+>>>         arm64: cpufeature: add AmpereOne to BBML2 allow list
+>>>         arm64: mm: make __create_pgd_mapping() and helpers non-void
+>>>         arm64: mm: support large block mapping when rodata=full
+>>>         arm64: mm: split linear mapping if BBML2 is not supported on secondary
+>>> CPUs
+>>>
+>>>    arch/arm64/include/asm/cpufeature.h |  26 +++++++
+>>>    arch/arm64/include/asm/mmu.h        |   4 +
+>>>    arch/arm64/include/asm/pgtable.h    |  12 ++-
+>>>    arch/arm64/kernel/cpufeature.c      |  30 ++++++--
+>>>    arch/arm64/mm/mmu.c                 | 505 ++++++++++++++++++++++++++++++++++
+>>> +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>>> +---------------
+>>>    arch/arm64/mm/pageattr.c            |  37 +++++++--
+>>>    arch/arm64/mm/proc.S                |  41 ++++++++++
+>>>    7 files changed, 585 insertions(+), 70 deletions(-)
+>>>
+
 
