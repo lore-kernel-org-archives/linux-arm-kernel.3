@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 214EFC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97062C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZwmGCWbfKlubtp052O6l8WeU2gS+TuLqlblbxpD0AY=; b=m5h/55XjcH+0wybdVqFYEjc/Aa
-	sQo8smEBI/i5lokBhG2pqsOdAdANagGBgSt2XXh1zwgp3CjDdoeUJBd4HqLSJMsCVnqYOrKKcMdXE
-	XCYoCT1fuNKZUtU8reiphKZzhcFRs/x+oW0257Jr3yN2SCdde2h2rbXZG4rQl2io/+Ao1XC6nu6r0
-	zqOg7Go2QrAGsNBc35GTDu8rBkO+Yd2XWxbjYly6jwBvvgsm8Oki7+XOEJ720M3Cn6lm0+MS73NHo
-	IDcHBTf4/sDUdVeJqbH0fIo4Ubq9F9Bugpva5lre08AKbD98cC9VuFTWnxyMN/9B2OG9FGhoxNqcT
-	tJrXS4mg==;
+	bh=9s2dyGPNLxaRzqeYJTVLCMecCVoqT9XB6FQqbhLwfD0=; b=tmwTqI+LtMmWJDNbxRI9CtuESi
+	hiFrqIfUo1D+x9/6g2B8b9aePWl61w5Ig7HxkNtSKPP5SSdS5x0Vq0SV477XW3A0241saM39C0yVv
+	yG7UVctfWn3ZVWp9u9DofSLXHWM/Pkz9zvujTvNQQb8AIC06CdfiX9HP5KKMh0CgN0bzdHcqgDjip
+	84otN0tC6dd51txjixIeJ3ggS0SSvk+JUL34Xgqessn1mL4X3ur2F9Y2D4JlNC1kgA7i9Q1iyINZc
+	4G9aQB+XzlTiB1LfLOAyO9PDv/QG1/Rpu1QQOSF/q7NraFUnylrnT3etNhUxeFCV8NY/MwlyEtFVD
+	7GCPJrKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZq5-00000007yQQ-38mR;
-	Tue, 17 Jun 2025 17:11:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uRZqB-00000007yXt-4AaJ;
+	Tue, 17 Jun 2025 17:11:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXx5-00000007hsq-1daD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 15:10:19 +0000
+	id 1uRY0f-00000007iJB-1A2d;
+	Tue, 17 Jun 2025 15:14:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C48E9611BD;
-	Tue, 17 Jun 2025 15:10:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB254C4CEE3;
-	Tue, 17 Jun 2025 15:10:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 57987A51498;
+	Tue, 17 Jun 2025 15:14:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8F4EC4CEE7;
+	Tue, 17 Jun 2025 15:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750173018;
-	bh=TZcOBjPsqZfGB1DMcUTuXivLLt+YrMUoZ3nRg9JcutA=;
+	s=k20201202; t=1750173240;
+	bh=VzacSK8CHt4963WLrZki0L0yVFovLxHcIRT7RHBkl5g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l1V8IgRlHTwSpqeHPfwcab6KJbWP4sgrPRjDiY5mVBfW1R1Ysf8BUTKEIPao3PYyQ
-	 lI3B1+Mj6q5O5kBypRlQzoI0+zeVg+I1fwkDRbujK5PcEnZUMljlB8yEQocCjbqlXl
-	 vSAD4DY6nXirSVMcaqOWWV5d61j6LRHxZvTg8UArFI6hBYa6KarYXR+JTOG3pMWy0Q
-	 ltpk+JEFpn0LUZuzNOniyP0LlW9VNrfuBZo8dxB8XEJHh8d8DFdgtkHUqCD/RXZq2Z
-	 BcjKScmmFE7bQHLs4S3AgeqqmssrlnkLDTG7lQ7nEMwFC1/4FwVhOyJn3+Gi8b0qI6
-	 q+AdRLx1gSiEA==
-Date: Tue, 17 Jun 2025 20:31:36 +0530
-From: Naveen N Rao <naveen@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, 
-	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, Sairaj Kodilkar <sarunkod@amd.com>, 
-	Vasant Hegde <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, 
-	Joao Martins <joao.m.martins@oracle.com>, Francesco Lavra <francescolavra.fl@gmail.com>, 
-	David Matlack <dmatlack@google.com>
-Subject: Re: [PATCH v3 14/62] KVM: SVM: Track AVIC tables as natively sized
- pointers, not "struct pages"
-Message-ID: <a7j5yllrxxzaqzjcmpfu3oxh775xgzx7h7nrkw53rmucnrbspy@zlwzwgfd7uke>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-16-seanjc@google.com>
+	b=h56s71rzs/udGDVL1EShezKp0igc+0Rne8OItAUMPt/V+imFOpByZva5b6rNSPCPz
+	 x10s7tra/R4mERRgf1U6LZdeQuS0OjGghdedHAzChpkjI4cmakcBFle+SkXx+xKxO3
+	 fQEQ6CsdJ0QtyeRFsfnzAkg34fORkchNKKRSmoBWH6E1VgFnVavZK75gAUYGoE0sms
+	 KN0t3zoB/6qZ2Qm+4xkeFhn8DBLPh4Y5NLk0NUNI2c5YktuwVjsmUFIaAoxRA9pFKF
+	 WMuWczHQy+H+fLL+0dnlFXqnt0zphLrMZa092gk7WuVwIhvxN7cNTHhHH/0/fPX3Xd
+	 jtgAQcoYn0Yhg==
+Date: Tue, 17 Jun 2025 10:13:54 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: MyungJoo Ham <myungjoo.ham@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Georgi Djakov <djakov@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Jia-Wei Chang <jia-wei.chang@mediatek.com>,
+	Johnson Wang <johnson.wang@mediatek.com>,
+	=?utf-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+	Landen Chao <Landen.Chao@mediatek.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v4 01/13] dt-bindings: net: mediatek,net: update for
+ mt7988
+Message-ID: <20250617151354.GA2392458-robh@kernel.org>
+References: <20250616095828.160900-1-linux@fw-web.de>
+ <20250616095828.160900-2-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250611224604.313496-16-seanjc@google.com>
+In-Reply-To: <20250616095828.160900-2-linux@fw-web.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250617_081401_444987_92ABCD69 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +95,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 03:45:17PM -0700, Sean Christopherson wrote:
-> @@ -277,8 +265,8 @@ static int avic_init_backing_page(struct kvm_vcpu 
-> *vcpu)
->  		return 0;
->  	}
+On Mon, Jun 16, 2025 at 11:58:11AM +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> Update binding for mt7988 which has 3 gmac and 2 reg items.
+> 
+> With RSS-IRQs the interrupt max-items is now 6. Add interrupt-names
+> to make them accessible by name.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+> ---
+> v4:
+> - increase max interrupts to 8 because of RSS/LRO interrupts
+
+But the schema says 6?
+
+> - dropped Robs RB due to this change
+> - allow interrupt names
+> - add interrupt-names without reserved IRQs on mt7988
+>   this requires mtk driver patch:
+>   https://patchwork.kernel.org/project/netdevbpf/patch/20250616080738.117993-2-linux@fw-web.de/
+> 
+> v2:
+> - change reg to list of items
+> ---
+>  .../devicetree/bindings/net/mediatek,net.yaml | 28 ++++++++++++++++---
+>  1 file changed, 24 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> index 9e02fd80af83..f8025f73b1cb 100644
+> --- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> +++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
+> @@ -28,7 +28,10 @@ properties:
+>        - ralink,rt5350-eth
 >  
-> -	BUILD_BUG_ON((AVIC_MAX_PHYSICAL_ID + 1) * sizeof(*table) > PAGE_SIZE ||
-> -		     (X2AVIC_MAX_PHYSICAL_ID + 1) * sizeof(*table) > PAGE_SIZE);
-> +	BUILD_BUG_ON((AVIC_MAX_PHYSICAL_ID + 1) * sizeof(new_entry) > PAGE_SIZE ||
-> +		     (X2AVIC_MAX_PHYSICAL_ID + 1) * sizeof(new_entry) > PAGE_SIZE);
-
-Ah, you change to 'new_entry' here. Would be good to rename it to just 
-'entry', but that's a minor nit. Ignore my comment on the previous 
-patch.
-
-For this patch:
-Acked-by: Naveen N Rao (AMD) <naveen@kernel.org>
-
-
-- Naveen
+>    reg:
+> -    maxItems: 1
+> +    items:
+> +      - description: Register for accessing the MACs.
+> +      - description: SoC internal SRAM used for DMA operations.
+> +    minItems: 1
+>  
+>    clocks:
+>      minItems: 2
+> @@ -40,7 +43,11 @@ properties:
+>  
+>    interrupts:
+>      minItems: 1
+> -    maxItems: 4
+> +    maxItems: 6
+> +
+> +  interrupt-names:
+> +    minItems: 1
+> +    maxItems: 6
+>  
+>    power-domains:
+>      maxItems: 1
+> @@ -348,7 +355,17 @@ allOf:
+>      then:
+>        properties:
+>          interrupts:
+> -          minItems: 4
+> +          minItems: 2
+> +
+> +        interrupt-names:
+> +          minItems: 2
+> +          items:
+> +            - const: tx
+> +            - const: rx
+> +            - const: rx-ring0
+> +            - const: rx-ring1
+> +            - const: rx-ring2
+> +            - const: rx-ring3
+>  
+>          clocks:
+>            minItems: 24
+> @@ -381,8 +398,11 @@ allOf:
+>              - const: xgp2
+>              - const: xgp3
+>  
+> +        reg:
+> +          minItems: 2
+> +
+>  patternProperties:
+> -  "^mac@[0-1]$":
+> +  "^mac@[0-2]$":
+>      type: object
+>      unevaluatedProperties: false
+>      allOf:
+> -- 
+> 2.43.0
+> 
 
