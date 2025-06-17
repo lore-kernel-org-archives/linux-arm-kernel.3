@@ -4,87 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19076C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 09:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 657B2C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 09:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AycC/SqlmFtbCkiK+UJFsVg8F5mY3OZuVJE4LIVGke0=; b=n07gVW1Ktw9RsirrKawguSY7Uk
-	tVWHiPBDKyRESVLGuT+6VmFWVyIplGrRiw60k15MBSplGDAhabscPieopV/3eRPLP8UqvrNWuCh+q
-	V1JcW3S62P8ncQCK5MCm7cEdGv61ZPpAuP3wXBn0caTUpxmc14K43T10u17enfqiEZpFhIAvqvKDH
-	TGmQ3yglBNeOft1UAg/NyThrq5LUWUVmoKvWB4Crk/6xWvxuKZeeJ5/x4sATEZgrtGGMsrunscTYj
-	6PtN0kYTx7V48u7ufiGWAHHwK8rnLD8VcFms+H+bG8z7owE/rx/1lHLh/4p01YKoLfoYVuALy4dGh
-	BhkYZ8vw==;
+	bh=UoO6Im3sdMj9qrKiZw97K0g1BjWI//UD+48kISxcxhU=; b=OB/424WjpggodpusyuWxRbTxXX
+	Z5MnOQ525RrnfGsXS3BzeCqHVkhsPbQsUhW6fjPWB0V0UYJunO66qCKvFe1PFGsxh+DD8zzfnKjNR
+	yQ6dSN/iOrg0me6/DJ/asYqQLWHpB4KRQFpjM+kvKX0klweYqWnSgQsNYaZSZhWjSshprmUsbRIAh
+	42+il41frMkbYtEUvHG09sL25FVc7YMLIJC71jX611ONOt7d9Ht0finbgiRlwxc3jODmosAxV6oBw
+	k3l8pWVEKf0j50IxUPTipe14PO7kdDr/sIQmGuOfdA6l/FumbjZb9zxA9DeSLGnSLXNUBfUJ++fKg
+	EnPVec5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSq3-00000006nUU-1EGX;
-	Tue, 17 Jun 2025 09:42:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uRSub-00000006oCK-3BWQ;
+	Tue, 17 Jun 2025 09:47:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSeC-00000006kxy-2prG
+	id 1uRSiB-00000006lrk-3yVo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 17 Jun 2025 09:34:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=UoO6Im3sdMj9qrKiZw97K0g1BjWI//UD+48kISxcxhU=; b=M3HSoVd5cryncQhcEDbLlnqUK6
+	pMQVop/C6NVEKv9Weqa5aDaoFTY4mdi1AX6RR6KJPvO22a4oDsiBYVrreYI8PAWWyJ8uFZOovql8N
+	4c5DbTf3HWbqL0+2pq21Vp2qnAGntUF8L1W2UAeB3k/lflIKYiizTrnthtBWCTZqXAH6O9atPoYqO
+	dSmejkYgvlYDsOs2retzdW5n4Txxqeb46YZ/PVNk15m6+Y55anGk51HIwbqTTtwleyV/bW8JD3s8B
+	S+u2r2P7Xs9bdoXEwDm5AHpkNSbfWmeM3XhMr9MBXFAjRdC79x5yBVAV2hOpj3hOxIbkkOLJXFBv0
+	0eMMW9uA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRSi9-00000003kvA-1shP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 09:30:30 +0000
+	Tue, 17 Jun 2025 09:34:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1750152627;
+	s=mimecast20190719; t=1750152870;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=AycC/SqlmFtbCkiK+UJFsVg8F5mY3OZuVJE4LIVGke0=;
-	b=aHO0C+WFb6uHd6wlRwlmpjQRnN3bUchx8cK+CikHZieAmJ+cwzzau2P6patOihesDZ8X+5
-	oHMAN/nuDo+2yeO0TWSYdDLOC0N1FozjEnuPItxH/XEaxG91l2hP7Z7z5W+3sdr2jyQoT/
-	2mPExggWvryZEgf9KnmEHjdQeNC3sWk=
+	bh=UoO6Im3sdMj9qrKiZw97K0g1BjWI//UD+48kISxcxhU=;
+	b=P0Hk6bD6wxQTca12pKKbgCBpYhsT1GlA4LXlIrZV1+bg98dExREgcdgGysP/4TUYq91jY+
+	DJ8WnQLCc2+F7bLUBKu4dPjkC4eTgqZkGqCpfnq32ngpVbS6fdOpp8eKBNxBY+WG6dmAi+
+	KmfAp/3LxdnaV8NvQKve/Qa+Dy27UKI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1750152870;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=UoO6Im3sdMj9qrKiZw97K0g1BjWI//UD+48kISxcxhU=;
+	b=P0Hk6bD6wxQTca12pKKbgCBpYhsT1GlA4LXlIrZV1+bg98dExREgcdgGysP/4TUYq91jY+
+	DJ8WnQLCc2+F7bLUBKu4dPjkC4eTgqZkGqCpfnq32ngpVbS6fdOpp8eKBNxBY+WG6dmAi+
+	KmfAp/3LxdnaV8NvQKve/Qa+Dy27UKI=
 Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
  [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-17-UafmLSfiOWmbSYv1DT11jw-1; Tue, 17 Jun 2025 05:30:24 -0400
-X-MC-Unique: UafmLSfiOWmbSYv1DT11jw-1
-X-Mimecast-MFC-AGG-ID: UafmLSfiOWmbSYv1DT11jw_1750152624
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3a4f55ea44dso2269486f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 02:30:24 -0700 (PDT)
+ us-mta-634-hmEGTeLrM9qiQqy0Z0numw-1; Tue, 17 Jun 2025 05:34:29 -0400
+X-MC-Unique: hmEGTeLrM9qiQqy0Z0numw-1
+X-Mimecast-MFC-AGG-ID: hmEGTeLrM9qiQqy0Z0numw_1750152868
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3a579058758so1009600f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 02:34:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750152623; x=1750757423;
+        d=1e100.net; s=20230601; t=1750152868; x=1750757668;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:from:subject:user-agent
+         :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=AycC/SqlmFtbCkiK+UJFsVg8F5mY3OZuVJE4LIVGke0=;
-        b=mkjA9gCFAnKXOsmo6DvhjSXIliXKQgG81MjT5yVuwgNPr2H6aueyHSe3WTvbAk5pGe
-         zw+RNUY2hH9lYK+8WXAz81yIhCFBDCfg1KaXPHEGC4frx4Qmlo2FqDp66ymOCAhJLkAm
-         1nCK0NHI9OCEtCd4IqU1VSlpSnPAj7q8hPc/nnCO2mfftsEDcCQJCDCJ7RRsjq6R0xud
-         UL0ariTRTruCT+rJHUrF0nadkMPobm7vwrqpoRLHs5UeT4FTRE5TOBXVQDhim/0GCScJ
-         n12GA+5TzXqzCHWvSZOsOjyiAEOATL0E9fOdkJWtkkj7fAcMtITijVTgyK6rEyXTOFG/
-         MbmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXcFhOPlheWQOiiVw4xjJUQJjyfTAYX7Sepjdxa8UxfuOurDWW4rGtvkAwGBjOm6/7pub73VtvE3ONx8gzzt8hL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyspKP/1AnkjUjPXROGe4yyZnH7FWnbva91uvy0BgUF3b9JBy3y
-	Zzb+jDXhd0XFgQvQ1NbVtzccTC8XNwIJ8oVOakTudgpDg0iu3Trs7cs007VmpbTYdnzZAvcfpRM
-	Ygg61BP0YpHUf3dCr2yJpkRh4t3+MGRFIP3lYC3bZGP0JzMmmk29DdiSg5PvelAu2wNoQC4/FEH
-	Mv
-X-Gm-Gg: ASbGncvelMsr8DIi4J1yoR4Tdu1dsjNzHS9Uf6gJTffKQMOVDJTA6sbIX2t56yXNo3L
-	g2wEDjzhOr1plK07c1oNHZpuyZCcEcHzRyOAo661H6x1YyXqZhrwEYmxxFITZEfvz217xfyzAcl
-	oGGJJ+0ogDOSy1ZBUjtYogYBf9ad5d1P/CFmlNvsgMiXLkBr1bUsoi6ZW1acVE7s1tUjL5yCD8k
-	TaZrTcDclWC3epdvgi7oJI8IJPF39BxVUjRTpnVYYHLtF/joZDzVrEU21QRen8NO5XT56HnFo1u
-	UxT5qctAJS2v8KN0iclQq2UGeXZeThj81lCDGpQON2L4YsyrmEXk2qbDWH+6UhLP4/jEfhSweH0
-	ARBxU5g5DUY7DzMFtZPlOkn6NdjjfNwOrtmuTKaTNsgX+Cgk=
-X-Received: by 2002:a05:6000:3109:b0:3a3:7387:3078 with SMTP id ffacd0b85a97d-3a572367b6bmr10595417f8f.4.1750152623479;
-        Tue, 17 Jun 2025 02:30:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHzIdOD1Y0VrtNcMDMGER4ExUmFNXEczyRtVtoCy/fV6z201YqQ8+qNgA+yjmzITUoW9nwVOw==
-X-Received: by 2002:a05:6000:3109:b0:3a3:7387:3078 with SMTP id ffacd0b85a97d-3a572367b6bmr10595381f8f.4.1750152622944;
-        Tue, 17 Jun 2025 02:30:22 -0700 (PDT)
+        bh=UoO6Im3sdMj9qrKiZw97K0g1BjWI//UD+48kISxcxhU=;
+        b=gviGU/fyJkjbHmP3VtoItpgKlZOQmsH7i1xUubCMzgrHM/j8v/I8Ec5sDPhIDycrz4
+         crSJnerkRzVrn/Al9ZD7CUsOMmp7IqCUsfyGy2WDbReiYA5VniT2pt97O9sPN1J9hNhk
+         pRNtt+x1d2wpIojbJKpKt7elkpxdiCUZhfeZtt+RfC3W2zzhd8EfO6MlaENkZ0Y+nx8G
+         fi4Bmxc9KaE/Pb7FkFgks131cxrZkzEij9bd8VE4DBl2959EyhyeglyhAhmq9l9OnyaJ
+         0Fb5cmFsDByfkODHgzhy1owA6pGYbo30qI0MytjLqCa/12sh6PcqyG2b0xn1WrnijeHf
+         VbiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX/fqEwPp8BoFODwmlK3JiO+5l2YnR8ZtSnOigPbal0lpA9tFA/RHdfcD2AGLLWDagTP+4ltzIf+IA6u/4okNsf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN8PkZW/Zeox+0Za3p0essHBHQgthzQdOIDrt32hTLjTyAsV6F
+	EMnlaFkce1kl8opHU8Z+y89jF8tf9dDVPyxv8LJZZ7IV/EypmYJ7aagrBkRCvkDPemtsJ50h18+
+	GTT+1m+Pn6cn2YLVM2Y3avkYLt6b1y70h1p62tkQBBgvz80TMctg5NLvwQx8mnzyVo0NPZS7Pd/
+	xu
+X-Gm-Gg: ASbGncvewqu3ip8f6cbb/m9qk8BFxeM9+/EwDfiINjzUvcMz1VzodhBDYLVuOjq7wl1
+	FSd7/PM2WinkpJyeEZ+kHpm21B6wAsFGXxUqNuci9hHLd2tmmyuvqiux0d8ZzHLHl/hHOQvSBDZ
+	P/a+TZv77X/mdkRzOkKA47TeMDTwqfIoaVUX6dSr5D6oB4YXad0L21/mlzRnv/+GKbarR6LhDgk
+	Q+2EODiUTLsjwMKD4K8RrQDoNXzC+yO99XqBPdU4LYUGiO3dHsEKuDbx/3CSr2XkQZBWY4x9ZdA
+	03CTbioJhkAEQZ3JErIwh6ZiKM+egt4EXsAAatbUoSMm9dF/SbOiJ58qBWLdSI5KL5JqzVn93GZ
+	IldZqqLl6tTXIyvMSz460bVPxw0DKvmM0psPgLkIxaF3wUMc=
+X-Received: by 2002:a05:6000:480d:b0:3a4:ed2f:e82d with SMTP id ffacd0b85a97d-3a5723a49e0mr9462634f8f.22.1750152867970;
+        Tue, 17 Jun 2025 02:34:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGAmkCmIe8r1op6vQb6TFjyJmDKs7yVrH6V8NRIzvLkSM/8ZQuEH09JTbMfp0YgKwsQ3nxlSg==
+X-Received: by 2002:a05:6000:480d:b0:3a4:ed2f:e82d with SMTP id ffacd0b85a97d-3a5723a49e0mr9462594f8f.22.1750152867607;
+        Tue, 17 Jun 2025 02:34:27 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f31:700:3851:c66a:b6b9:3490? (p200300d82f3107003851c66ab6b93490.dip0.t-ipconnect.de. [2003:d8:2f31:700:3851:c66a:b6b9:3490])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568b79f45sm13384674f8f.101.2025.06.17.02.30.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a7f8f9sm13367621f8f.42.2025.06.17.02.34.26
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Jun 2025 02:30:22 -0700 (PDT)
-Message-ID: <b67f8dea-dc22-4c83-a71f-f5a2ecc8a8d7@redhat.com>
-Date: Tue, 17 Jun 2025 11:30:20 +0200
+        Tue, 17 Jun 2025 02:34:27 -0700 (PDT)
+Message-ID: <b2640810-d528-4a3f-b69a-87847943dc2b@redhat.com>
+Date: Tue, 17 Jun 2025 11:34:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/14] mm: Filter zone device pages returned from
- folio_walk_start()
-From: David Hildenbrand <david@redhat.com>
+Subject: Re: [PATCH v2 14/14] mm/memremap: Remove unused devmap_managed_key
 To: Alistair Popple <apopple@nvidia.com>, akpm@linux-foundation.org
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
@@ -96,10 +119,10 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
  linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net,
- m.szyprowski@samsung.com
+ m.szyprowski@samsung.com, Jason Gunthorpe <jgg@nvidia.com>
 References: <cover.8d04615eb17b9e46fc0ae7402ca54b69e04b1043.1750075065.git-series.apopple@nvidia.com>
- <11dd5b70546ec67593a4bf79f087b113f15d6bb1.1750075065.git-series.apopple@nvidia.com>
- <6afc2e67-3ecb-41a5-9c8f-00ecd64f035a@redhat.com>
+ <51ccdbbc3d7b76a7f6e2aefb543eba52d653a230.1750075065.git-series.apopple@nvidia.com>
+From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
  dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
@@ -145,16 +168,17 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <6afc2e67-3ecb-41a5-9c8f-00ecd64f035a@redhat.com>
+In-Reply-To: <51ccdbbc3d7b76a7f6e2aefb543eba52d653a230.1750075065.git-series.apopple@nvidia.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7sXZREMYAnAqzDpCOYCob49O1dMmdC8tVE28eeRg59c_1750152624
+X-Mimecast-MFC-PROC-ID: eUDI_9MUmrjnmruDJHlqp_M4RpGMHXr_u3KDvBJ9RA8_1750152868
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_023028_790625_16367C8D 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20250617_103433_766207_A9CDF015 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,107 +193,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.06.25 11:25, David Hildenbrand wrote:
-> On 16.06.25 13:58, Alistair Popple wrote:
->> Previously dax pages were skipped by the pagewalk code as pud_special() or
->> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
->> refcounted normally that is no longer the case, so the pagewalk code will
->> start returning them.
->>
->> Most callers already explicitly filter for DAX or zone device pages so
->> don't need updating. However some don't, so add checks to those callers.
->>
->> Signed-off-by: Alistair Popple <apopple@nvidia.com>
->>
->> ---
->>
->> Changes since v1:
->>
->>    - Dropped "mm/pagewalk: Skip dax pages in pagewalk" and replaced it
->>      with this new patch for v2
->>
->>    - As suggested by David and Jason we can filter the folios in the
->>      callers instead of doing it in folio_start_walk(). Most callers
->>      already do this (see below).
->>
->> I audited all callers of folio_walk_start() and found the following:
->>
->> mm/ksm.c:
->>
->> break_ksm() - doesn't need to filter zone_device pages because the can
->> never be KSM pages.
->>
->> get_mergeable_page() - already filters out zone_device pages.
->> scan_get_next_rmap_iterm() - already filters out zone_device_pages.
->>
->> mm/huge_memory.c:
->>
->> split_huge_pages_pid() - already checks for DAX with
->> vma_not_suitable_for_thp_split()
->>
->> mm/rmap.c:
->>
->> make_device_exclusive() - only works on anonymous pages, although
->> there'd be no issue with finding a DAX page even if support was extended
->> to file-backed pages.
->>
->> mm/migrate.c:
->>
->> add_folio_for_migration() - already checks the vma with vma_migratable()
->> do_pages_stat_array() - explicitly checks for zone_device folios
->>
->> kernel/event/uprobes.c:
->>
->> uprobe_write_opcode() - only works on anonymous pages, not sure if
->> zone_device could ever work so add an explicit check
->>
->> arch/s390/mm/fault.c:
->>
->> do_secure_storage_access() - not sure so be conservative and add a check
->>
->> arch/s390/kernel/uv.c:
->>
->> make_hva_secure() - not sure so be conservative and add a check
->> ---
->>    arch/s390/kernel/uv.c   | 2 +-
->>    arch/s390/mm/fault.c    | 2 +-
->>    kernel/events/uprobes.c | 2 +-
->>    3 files changed, 3 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/s390/kernel/uv.c b/arch/s390/kernel/uv.c
->> index b99478e..55aa280 100644
->> --- a/arch/s390/kernel/uv.c
->> +++ b/arch/s390/kernel/uv.c
->> @@ -424,7 +424,7 @@ int make_hva_secure(struct mm_struct *mm, unsigned long hva, struct uv_cb_header
->>    		return -EFAULT;
->>    	}
->>    	folio = folio_walk_start(&fw, vma, hva, 0);
->> -	if (!folio) {
->> +	if (!folio || folio_is_zone_device(folio)) {
->>    		mmap_read_unlock(mm);
->>    		return -ENXIO;
->>    	}
->> diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
->> index e1ad05b..df1a067 100644
->> --- a/arch/s390/mm/fault.c
->> +++ b/arch/s390/mm/fault.c
->> @@ -449,7 +449,7 @@ void do_secure_storage_access(struct pt_regs *regs)
->>    		if (!vma)
->>    			return handle_fault_error(regs, SEGV_MAPERR);
->>    		folio = folio_walk_start(&fw, vma, addr, 0);
->> -		if (!folio) {
->> +		if (!folio || folio_is_zone_device(folio)) {
->>    			mmap_read_unlock(mm);
->>    			return;
->>    		}
+On 16.06.25 13:58, Alistair Popple wrote:
+> It's no longer used so remove it.
 > 
-> Curious, does s390 even support ZONE_DEVICE and could trigger this?
+> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
 
-Ah, I see you raised this above. Even if it could be triggered (which I 
-don't think), I wonder if there would actually be a problem with 
-zone_device folios in here?
-
-I think these two can be dropped for now
+Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
 Cheers,
