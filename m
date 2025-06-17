@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5970C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9CF1C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49FSPtlcKL0gc4JMv+U7rRPko4PCd0GRAj32NmJNos4=; b=xZltQxUb3IjOW+Bmlq1iunYA/p
-	bhswk9uW7fh3u/2Yp0hCk3Z+O9/PGc4xBzza6o+P2jWjl2LS8YINWgoUSmHMDRd+CP3B4YUsF8vfg
-	E9bZrjlvH9b5N//2tEqXoKIHIq1u1ar4jHD6WfkLIPQAytsdRcwunlrKSBMcASGRCBpsvl9ctFOEC
-	blpDtxvjii0CtOD6091kitcwaAswmlObZz/JN+6P4shiuq3zsnOsqb0MLTprDkNUxs6MDGrDwsg4w
-	mX+Yr8XNHuryLFkQfWBZEVF2nQKWKVuCHGVv5fdfIo2hDzPJe5Stj5ole1kJP0KbIkpL4JkPF4AtV
-	2qn7UhNw==;
+	bh=A8JJN4D88g5LZysAtEHW8oNqIwXChQoCpcV9xwGdAP4=; b=0D8MYscywELt+5ZCL2PqpZdplw
+	M18NF0+S/6OzxdzXVLuikPuu6GMoTluNxOYFFjj09+48jxK5tJoWo3gr97iqdhsjmFf/KUuj+zHOT
+	442EFb4XGKd9Sb1zwpjH+9JPxOxudLxtoeVSPr/sc4c4xa7sp0G9Khd/qjaiT2utJ8e0aBki7TCnl
+	LUwAoid2I19jeSvpEZBR9hHXOwugbolgUVB1+nrOMHrK6CtElKJ2d+jIOLrqij0hzd2VlqtHn1bfB
+	kpfFbZFdOinie+FrBTnC4t+VlB0jqr+mSXAHtAkq+VcehZCW1/+F8eoAilA0WqKt0swPiCxBptG7s
+	bGCxkb1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWzx-00000007UkB-44Pp;
-	Tue, 17 Jun 2025 14:09:13 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uRX29-00000007V2y-2mSA;
+	Tue, 17 Jun 2025 14:11:29 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWce-00000007P4C-2wIT
+	id 1uRWcg-00000007P4i-02TR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 13:45:10 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-453398e90e9so31043585e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 06:45:08 -0700 (PDT)
+	Tue, 17 Jun 2025 13:45:12 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a57ae5cb17so1740805f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 06:45:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750167907; x=1750772707; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1750167908; x=1750772708; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=49FSPtlcKL0gc4JMv+U7rRPko4PCd0GRAj32NmJNos4=;
-        b=I22APiJIK5xdWRhMllq69OVeEgm2XCbiuQvhCNjA7cJDxIsFbLgcrLw7M0m/qykt6T
-         +jx0YrGuFFh8oS4C/GcyXOllTxPf4j9SlMAJisRfRgJimxLrqowV31EOtjgsmhjypF1v
-         yEden3kYxSrKzGKC61vgydeKQ3BtA9Uq5Nu8SyLXpFp2nYRuGfbHNTtV8K8kM5xyB653
-         ZWm60TqPHYLfw+0WNt7Arz2rhnMIVd3B7LTMQMfiW+cSO2PdYIfDrTT/JTRqfSAhE48e
-         OoujBdM/lZb4/BCkblnxYSKzPNRMtcQIbOquPXwVYyZ2PkjCG2CqE/qHKYo/UScoow8p
-         ZICA==
+        bh=A8JJN4D88g5LZysAtEHW8oNqIwXChQoCpcV9xwGdAP4=;
+        b=IS/kFbuImCYS38PoeL/cfhAjELu26GAtkfCcCqIUQ/bjy0fYMVt0N2rZZBfY9Lhh8S
+         avY1BxNjTUUDbyGlNm1K3eTJ2k77PweKamUYOO5Q5aUleRkn+Md2uleDsYf2Cc89LCpq
+         UU3dETzJatZ31vSuvAXf4JU603xQ82aDI/3xwaxg13/DTxg6R3gShS7fRFpT0nHiMSlZ
+         ctdbRlpII4xIYx5wFtzlJo+jTNe2bhQoZFFnpMaOBaHIV1zAkMySTcS+z+KDgvhQQ8fi
+         NgcC3FrFqHfKANdpjwuf/2zvW7eRhAiKzMe3/tsE1FUifxQ/hq02U3EhWwYIlUBn0jIZ
+         M4Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750167907; x=1750772707;
+        d=1e100.net; s=20230601; t=1750167908; x=1750772708;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=49FSPtlcKL0gc4JMv+U7rRPko4PCd0GRAj32NmJNos4=;
-        b=o/cBIzC1PFtD2MAlQPazVs1NGzanTO11xUtvNtV7CSIYwZFOAPO8ALiPyNTBXuujP+
-         w52ZH27hpWEai93Kkt8ME8+sB4QRKgb8+nQChPoTIgWYIpfKOD/qTjxLe0uejHZJpkz6
-         FD9RdNQcF/k/kDHh3BKniZnif/KPr0vygqqk4qRNIrbSOPfN5KlFKzudXRbEGnFFig9R
-         2TJXfqQ9ODEvNwfkJGO9Uy87gJUStvHOAVKpQ0YRTQ6OjfDLolQpM0cRh7wsGoCDElMh
-         R0lk6z2TP6oR20zmkN2rbbDdNEd1pRAF0mQPWneE3kUy/LdKXPgCruVgjrNoAnn1jEZB
-         O6MA==
-X-Gm-Message-State: AOJu0YzYhvHV2Eh7WLW9M4YJm3ExZj1HXyvwlc6d+pUzKwdsUTGRGuSB
-	cBeYHbzI3mm177IEOHaHebJrNGhk2rIjtb4fNUPe5rjfnxcsSueKWIst
-X-Gm-Gg: ASbGncvcuJujkGXWk/JRlLMoViY/WjE+GEYCvLIc+Kw5nEfhMLZJ9pJV8zyxiTOXPE8
-	FhA1ICPmLfuvaHqwOfwkdtAf60kcwe9Inv4wbbJJyl7WP6/BCa4IfdaVJT82c1Y0+ezVvQpgghT
-	SOZuDPvuDQQFoWQqajCI8vgqCgHw5Liy8dx1nyenqiXc+w3QK6cndkJZBDTtW9nyJZPGant2dHT
-	RG/65YHoVFj1pmrqB5jluQjMHFLkK6Jcjiznyj10e3vRhqQ/ZaEaKKsmBXRUQUPWzZZXiWOGxFC
-	DRQZ4H+JI7SvL3J49yVnNa/+rWqDtO/3oj5opI/DSGlCKIJuhnfcEzYgdogbI5q3K4c/RzLjU4d
-	k9kvmGlkO7Hc=
-X-Google-Smtp-Source: AGHT+IGse8XFsoUh6fMQBcNMM9Sf+3vi5JtHZdT76YAwamnppyqyoyYz15avA1Klfl6ft5GN31V4DQ==
-X-Received: by 2002:a05:600c:620b:b0:450:d4a6:79ad with SMTP id 5b1f17b1804b1-4533cb4bea8mr118623195e9.23.1750167906835;
-        Tue, 17 Jun 2025 06:45:06 -0700 (PDT)
+        bh=A8JJN4D88g5LZysAtEHW8oNqIwXChQoCpcV9xwGdAP4=;
+        b=nDK3OXdYU8s7lWDmGPIGMSPJCHRj2s5CMSzl6T5Wuy/0bOKrfT/KAfJS8xee20J1VV
+         TEcPTdOF+TniUaayrMwsxAYnPusZhO3B3qB1eqqyNjry2DOrrOmlUC6ydDTVzCjEpIuk
+         U0YHoAVhIoxvNlBYJQ7kFVisFw3PTRVPbfXL0VxP23N/SLRVN4UI5PkzmG/amCw5DLYj
+         Hky+HZuZuJZZfB+0ZWmPeSuIB9yycmjRDcLR8optVHWd28L3ANkOZLU1HzTuyh/jN9y+
+         XnP4mwkvdmdVtV65viLrt3fL3213Y+FZj5HStfDu2oiH7en5jnTTCmB0HDDYhwW6l7lV
+         Z7Ew==
+X-Gm-Message-State: AOJu0Yx9h/jPigZ65OwIfIWgX+pBWO+ocn/rRFsX9Zeoa4ikHONJMw1l
+	CxIzErDnLSSCUqWz3sD2YJty3HCM3EjhXTwbxPtfdthGZyOY1DS2WX0yCnaLfZtICEA=
+X-Gm-Gg: ASbGncvuqOfGlJhCl4gwfQmbHHLGvdlXubIjIzdXj3rVXGxnnbUpMxPYuf2RrbC5Whm
+	QlrTQMrW4DvNktMExQSoUcx+feALoI9PcP/o25BXZ3fJUqzjah1dItI/Y4Hey5QsqgTujwQRiCJ
+	0BXSaC4QjQzTpe+qkx8EkHhQmZ93ZDEsRhtOZQNSAibC+7SNg1ruy+SbC/YI1qGdQ5AlVnCd1OB
+	vrttJ+z9YzBoDrqHqZg+lF8DBjj1Fn/+HZ96offcDXAG4z3MXsJnTwLNn0u/zKH97zqkinsYx91
+	a+pf+W14kIXv5YT94MhXZ19vPD9eH2yaygJjmjx6soQwcARIYpU9FIJC5DjrmQNoLadgT1WwVio
+	Uy9M12JNsvF7Bgj+DPkO7wA==
+X-Google-Smtp-Source: AGHT+IHx7+MxOtQIlo3hCXb9uKaWLaaMM9I4c7QG+YXyxr08bo4gUYk8w8HO7kGmwusFdh08dsgFpQ==
+X-Received: by 2002:a5d:5f4e:0:b0:3a4:f52d:8b05 with SMTP id ffacd0b85a97d-3a572e79d6amr11446870f8f.35.1750167908305;
+        Tue, 17 Jun 2025 06:45:08 -0700 (PDT)
 Received: from iku.Home ([2a06:5906:61b:2d00:a081:30f1:e1c7:6f28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54b7asm14239728f8f.16.2025.06.17.06.45.05
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54b7asm14239728f8f.16.2025.06.17.06.45.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 06:45:06 -0700 (PDT)
+        Tue, 17 Jun 2025 06:45:07 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -89,17 +89,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v12 1/7] dt-bindings: serial: Added secondary clock for RZ/T2H RSCI
-Date: Tue, 17 Jun 2025 14:44:58 +0100
-Message-ID: <20250617134504.126313-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v12 2/7] dt-bindings: serial: rsci: Update maintainer entry
+Date: Tue, 17 Jun 2025 14:44:59 +0100
+Message-ID: <20250617134504.126313-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250617134504.126313-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20250617134504.126313-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_064508_748958_B6E991E2 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250617_064510_054956_FC04A896 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,75 +114,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-At boot, the default clock is the PCLKM core clock (synchronous
-clock, which is enabled by the bootloader).
-For different baudrates, the asynchronous clock input must be used.
-Clock selection is made by an internal register of RCSI.
+Add myself as the maintainer for the Renesas RSCI device tree binding,
+as Thierry Bultel no longer works for Renesas.
 
-Add the optional "sck", external clock input.
-
-Also remove the unneeded serial0 alias from the dts example.
-
-Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
-Hi Rob,
-As mentioned in the thread [1] below there are no users of the RSCI binding
-hence this change doesn not break any ABI.
-
-[1] https://lore.kernel.org/all/CAMuHMdUThuWxxznhjvcn5cOFCWOkb5u-fRYwTOoenDRY=4H6FA@mail.gmail.com/
-
-Cheers, Prabhakar
----
- .../bindings/serial/renesas,rsci.yaml           | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+ Documentation/devicetree/bindings/serial/renesas,rsci.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/serial/renesas,rsci.yaml b/Documentation/devicetree/bindings/serial/renesas,rsci.yaml
-index ea879db5f485..1bf255407df0 100644
+index 1bf255407df0..548225e509e5 100644
 --- a/Documentation/devicetree/bindings/serial/renesas,rsci.yaml
 +++ b/Documentation/devicetree/bindings/serial/renesas,rsci.yaml
-@@ -35,10 +35,15 @@ properties:
-       - const: tei
+@@ -8,7 +8,7 @@ title: Renesas RSCI Serial Communication Interface
  
-   clocks:
--    maxItems: 1
-+    minItems: 2
-+    maxItems: 3
+ maintainers:
+   - Geert Uytterhoeven <geert+renesas@glider.be>
+-  - Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
++  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
  
-   clock-names:
--    const: fck # UART functional clock
-+    minItems: 2
-+    items:
-+      - const: operation
-+      - const: bus
-+      - const: sck # optional external clock input
- 
-   power-domains:
-     maxItems: 1
-@@ -60,10 +65,6 @@ examples:
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
-     #include <dt-bindings/clock/renesas-cpg-mssr.h>
- 
--    aliases {
--        serial0 = &sci0;
--    };
--
-     sci0: serial@80005000 {
-         compatible = "renesas,r9a09g077-rsci";
-         reg = <0x80005000 0x400>;
-@@ -72,7 +73,7 @@ examples:
-                      <GIC_SPI 592 IRQ_TYPE_EDGE_RISING>,
-                      <GIC_SPI 593 IRQ_TYPE_LEVEL_HIGH>;
-         interrupt-names = "eri", "rxi", "txi", "tei";
--        clocks = <&cpg CPG_MOD 108>;
--        clock-names = "fck";
-+        clocks = <&cpg CPG_MOD 8>, <&cpg CPG_CORE 13>;
-+        clock-names = "operation", "bus";
-         power-domains = <&cpg>;
-     };
+ allOf:
+   - $ref: serial.yaml#
 -- 
 2.49.0
 
