@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780B4C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5970C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pnlmn8Lzqxdh9sPxgTMxZddcdk8Ng+ng6Sm09cUpkbc=; b=I+uFLRprJJ7jvQ1tqSzoXo2FYW
-	922SUYIkg87bhP/v2Mu4IO2MKyqngUMoJcByzzycBYmO7cz4bH+mrAFU+yxm6z6MRpadmFV8jSqP3
-	aa7eXKs9hd3kOVKmN6RPU1rym+gBUbCXykKkfA6HZVpR9CpXUA/u+7Dwk3JABJTih3BU5/YKzQS5Y
-	xX1HDyRCgDP7iHoRAZU3ERFdjhO6TMw87uSmEYgMhIGzFAidmItYEFWUnKVc+M80jy1cChdy9yRRG
-	Ri+dfLK38qEWstEddC+H0DoEUoN9x7r3L41XRBHu4GsDT9RLl+D2fo4fHgPKyKJ2v1L6MDpENdRvq
-	lNklO9YQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=49FSPtlcKL0gc4JMv+U7rRPko4PCd0GRAj32NmJNos4=; b=xZltQxUb3IjOW+Bmlq1iunYA/p
+	bhswk9uW7fh3u/2Yp0hCk3Z+O9/PGc4xBzza6o+P2jWjl2LS8YINWgoUSmHMDRd+CP3B4YUsF8vfg
+	E9bZrjlvH9b5N//2tEqXoKIHIq1u1ar4jHD6WfkLIPQAytsdRcwunlrKSBMcASGRCBpsvl9ctFOEC
+	blpDtxvjii0CtOD6091kitcwaAswmlObZz/JN+6P4shiuq3zsnOsqb0MLTprDkNUxs6MDGrDwsg4w
+	mX+Yr8XNHuryLFkQfWBZEVF2nQKWKVuCHGVv5fdfIo2hDzPJe5Stj5ole1kJP0KbIkpL4JkPF4AtV
+	2qn7UhNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWxl-00000007UES-0sBr;
-	Tue, 17 Jun 2025 14:06:57 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1uRWzx-00000007UkB-44Pp;
+	Tue, 17 Jun 2025 14:09:13 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWcd-00000007P47-3js7
+	id 1uRWce-00000007P4C-2wIT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 13:45:09 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-450d668c2a1so45728405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 06:45:07 -0700 (PDT)
+	Tue, 17 Jun 2025 13:45:10 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-453398e90e9so31043585e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 06:45:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750167906; x=1750772706; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pnlmn8Lzqxdh9sPxgTMxZddcdk8Ng+ng6Sm09cUpkbc=;
-        b=ESGeYXrzQwzVVC5uUrGyQfwpTWaapSyF0ttow7Nr3TnKG3G0+u64z+Q1sN8W06Stop
-         6cbNxSUF4v2vffWyndypbTCmOkTtxHK+WrQC161sSlXrBStOkMQ/WvIY3EDvXfNC2LHC
-         9lTyCM9VYkIfq/YM+vcSrVxahl2eleNbdWs/1z0fQLvzwAHXOiMl1UqV4KoHuhmCU7uf
-         92xIu/+Fxe1jWlY1ly90ZL0XDeJ2ecrRfL0DavXAkOjWReOQw4YkQwcpWDICYIegU94l
-         V9t2Mdyf/s1oZ/NJrBjEttYY3Iwoby9TRNZ6ayUgWdqR+fk2KPDYHu6dQlDmcOEoKwx3
-         xxzg==
+        d=gmail.com; s=20230601; t=1750167907; x=1750772707; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=49FSPtlcKL0gc4JMv+U7rRPko4PCd0GRAj32NmJNos4=;
+        b=I22APiJIK5xdWRhMllq69OVeEgm2XCbiuQvhCNjA7cJDxIsFbLgcrLw7M0m/qykt6T
+         +jx0YrGuFFh8oS4C/GcyXOllTxPf4j9SlMAJisRfRgJimxLrqowV31EOtjgsmhjypF1v
+         yEden3kYxSrKzGKC61vgydeKQ3BtA9Uq5Nu8SyLXpFp2nYRuGfbHNTtV8K8kM5xyB653
+         ZWm60TqPHYLfw+0WNt7Arz2rhnMIVd3B7LTMQMfiW+cSO2PdYIfDrTT/JTRqfSAhE48e
+         OoujBdM/lZb4/BCkblnxYSKzPNRMtcQIbOquPXwVYyZ2PkjCG2CqE/qHKYo/UScoow8p
+         ZICA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750167906; x=1750772706;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Pnlmn8Lzqxdh9sPxgTMxZddcdk8Ng+ng6Sm09cUpkbc=;
-        b=INsTORVnmEnboHmN3FIji6pyzOUq74NBs0OBU4S5NvUUbhpey/68FAIPFml5NRBzfo
-         Rzx2LPPi5VP/nK0/+MVB4017gfAN9Vs0pNPLpgKPLGvSwglDks+eqXuQSp9O8DhvflY1
-         tyRt99b+/DGMa955zouQhWhyH4ygIofOBWU9AOCJ0KEu0LeKNc4j09kyXgq56RYroD8H
-         C8tSvPLyRDKezn8iq/2i+IGU24Z+q43bfxFj5Xxyt5P9i4VhFhKcQi7z0p/8xaQeib+5
-         shbqgruQkCrOznrgveLCWw0uY9pXWo49NOsI1pzWmYEXLo2dqBzqVPpIp2zmOO9k9l/H
-         z1MQ==
-X-Gm-Message-State: AOJu0Yzg0/Zd0/mn7Kcx7jdz/B02VA43noZkTKLwzhk9RKDq9fKcO6ZG
-	s46fxp/6oNYMbFE78rAbyqApTGAeB6FMRkBFectW4RJ1OYjt3fMlrIue29GcdXetb6Y=
-X-Gm-Gg: ASbGnctbPRQ/UnAso7N90hfBdYxEUyyeW99mgFVEtG6ICKConAFYVon8hyqIpWHvluT
-	rTE8F4kAatd9SV3LkOMLVi6jQ23KNEzsX1vu6Ba4AqAHejLni4Njbi9rnPr/a+KGYP59sOZed/Z
-	2gVk/ndOH5khKGHXoKK8ZK/sXmEZFgmN93q8WAqWvoLBSesPbkZ3xphhZ4DGqR4POd+2m2VzXNP
-	qvnERc1KO3Iy6v3VShO5E23TCJPBJmlp4RW7LcpZpiUGeFWZVRF94HyrgiGJTsNECVaCBK7vN8f
-	W5aNCkaaiO6nISHmOXmHa8LZWoGLBAlujTqsmrs/vZywWiMlf1GY436qmPZAbpAtRAE6SA4032m
-	Qa/v349YZ/YY=
-X-Google-Smtp-Source: AGHT+IHCtEFS8GzQ9Jzl6qP9zWaGOsHpYn8vtBkAqczxW1urVL0oMFvqxpp+QY6AejM1vZ2do47qRg==
-X-Received: by 2002:a05:600c:a01:b0:43b:c857:e9d7 with SMTP id 5b1f17b1804b1-4533c8ce774mr133642045e9.5.1750167905615;
-        Tue, 17 Jun 2025 06:45:05 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750167907; x=1750772707;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=49FSPtlcKL0gc4JMv+U7rRPko4PCd0GRAj32NmJNos4=;
+        b=o/cBIzC1PFtD2MAlQPazVs1NGzanTO11xUtvNtV7CSIYwZFOAPO8ALiPyNTBXuujP+
+         w52ZH27hpWEai93Kkt8ME8+sB4QRKgb8+nQChPoTIgWYIpfKOD/qTjxLe0uejHZJpkz6
+         FD9RdNQcF/k/kDHh3BKniZnif/KPr0vygqqk4qRNIrbSOPfN5KlFKzudXRbEGnFFig9R
+         2TJXfqQ9ODEvNwfkJGO9Uy87gJUStvHOAVKpQ0YRTQ6OjfDLolQpM0cRh7wsGoCDElMh
+         R0lk6z2TP6oR20zmkN2rbbDdNEd1pRAF0mQPWneE3kUy/LdKXPgCruVgjrNoAnn1jEZB
+         O6MA==
+X-Gm-Message-State: AOJu0YzYhvHV2Eh7WLW9M4YJm3ExZj1HXyvwlc6d+pUzKwdsUTGRGuSB
+	cBeYHbzI3mm177IEOHaHebJrNGhk2rIjtb4fNUPe5rjfnxcsSueKWIst
+X-Gm-Gg: ASbGncvcuJujkGXWk/JRlLMoViY/WjE+GEYCvLIc+Kw5nEfhMLZJ9pJV8zyxiTOXPE8
+	FhA1ICPmLfuvaHqwOfwkdtAf60kcwe9Inv4wbbJJyl7WP6/BCa4IfdaVJT82c1Y0+ezVvQpgghT
+	SOZuDPvuDQQFoWQqajCI8vgqCgHw5Liy8dx1nyenqiXc+w3QK6cndkJZBDTtW9nyJZPGant2dHT
+	RG/65YHoVFj1pmrqB5jluQjMHFLkK6Jcjiznyj10e3vRhqQ/ZaEaKKsmBXRUQUPWzZZXiWOGxFC
+	DRQZ4H+JI7SvL3J49yVnNa/+rWqDtO/3oj5opI/DSGlCKIJuhnfcEzYgdogbI5q3K4c/RzLjU4d
+	k9kvmGlkO7Hc=
+X-Google-Smtp-Source: AGHT+IGse8XFsoUh6fMQBcNMM9Sf+3vi5JtHZdT76YAwamnppyqyoyYz15avA1Klfl6ft5GN31V4DQ==
+X-Received: by 2002:a05:600c:620b:b0:450:d4a6:79ad with SMTP id 5b1f17b1804b1-4533cb4bea8mr118623195e9.23.1750167906835;
+        Tue, 17 Jun 2025 06:45:06 -0700 (PDT)
 Received: from iku.Home ([2a06:5906:61b:2d00:a081:30f1:e1c7:6f28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54b7asm14239728f8f.16.2025.06.17.06.45.04
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a568a54b7asm14239728f8f.16.2025.06.17.06.45.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 06:45:05 -0700 (PDT)
+        Tue, 17 Jun 2025 06:45:06 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -88,15 +89,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v12 0/7] Add support for RSCI driver
-Date: Tue, 17 Jun 2025 14:44:57 +0100
-Message-ID: <20250617134504.126313-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v12 1/7] dt-bindings: serial: Added secondary clock for RZ/T2H RSCI
+Date: Tue, 17 Jun 2025 14:44:58 +0100
+Message-ID: <20250617134504.126313-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250617134504.126313-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250617134504.126313-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_064507_929765_29D335A0 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20250617_064508_748958_B6E991E2 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,63 +114,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
 
-Hi All,
+At boot, the default clock is the PCLKM core clock (synchronous
+clock, which is enabled by the bootloader).
+For different baudrates, the asynchronous clock input must be used.
+Clock selection is made by an internal register of RCSI.
 
-This patch series adds support for Renesas RSCI driver for RZ/N2H and
-RZ/T2H SoCs.
+Add the optional "sck", external clock input.
 
-Note
-- This patch series is split up from the series [1] to make it
-  easier to review and test.
-- patch 03/12 was sent out individually [2] and is now merged
-  into the series for convenience.
-[1] https://lore.kernel.org/all/20250523142417.2840797-1-thierry.bultel.yh@bp.renesas.com/
-[2] https://lore.kernel.org/all/20250609192344.293317-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+Also remove the unneeded serial0 alias from the dts example.
 
-v11->v12:
-- Rebased on latest linux-next.
-- Added defconfig patch to enable RSCI driver.
-- Added RZ/N2H support to the dt-bindings
-- Used port ops callbacks in sci_shutdown() to allow RSCI driver
-  to reuse the core shutdown logic.
-- Added reviewed-by tags.
+Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+Hi Rob,
+As mentioned in the thread [1] below there are no users of the RSCI binding
+hence this change doesn not break any ABI.
 
-v10->v11:
-- Rebased on latest linux-next.
-- Added a new patch to update the dt-bindings maintainer entry.
-- Added a new patch to use port ops callbacks.
-- Implemented shutdown_complete callback
-- Added reviewed-by tags.
+[1] https://lore.kernel.org/all/CAMuHMdUThuWxxznhjvcn5cOFCWOkb5u-fRYwTOoenDRY=4H6FA@mail.gmail.com/
 
-Cheers,
-Prabhakar
+Cheers, Prabhakar
+---
+ .../bindings/serial/renesas,rsci.yaml           | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-Lad Prabhakar (3):
-  dt-bindings: serial: rsci: Update maintainer entry
-  dt-bindings: serial: renesas,rsci: Document RZ/N2H support
-  serial: sh-sci: Replace direct stop_rx/stop_tx calls with port ops in
-    sci_shutdown()
-
-Thierry Bultel (4):
-  dt-bindings: serial: Added secondary clock for RZ/T2H RSCI
-  serial: sh-sci: Use private port ID
-  serial: sh-sci: Add support for RZ/T2H SCI
-  arm64: defconfig: Enable Renesas RZ/T2H serial SCI
-
- .../bindings/serial/renesas,rsci.yaml         |  27 +-
- arch/arm64/configs/defconfig                  |   1 +
- drivers/tty/serial/Kconfig                    |   7 +
- drivers/tty/serial/Makefile                   |   1 +
- drivers/tty/serial/rsci.c                     | 477 ++++++++++++++++++
- drivers/tty/serial/rsci.h                     |  10 +
- drivers/tty/serial/sh-sci-common.h            |   8 +
- drivers/tty/serial/sh-sci.c                   | 210 +++++---
- 8 files changed, 652 insertions(+), 89 deletions(-)
- create mode 100644 drivers/tty/serial/rsci.c
- create mode 100644 drivers/tty/serial/rsci.h
-
+diff --git a/Documentation/devicetree/bindings/serial/renesas,rsci.yaml b/Documentation/devicetree/bindings/serial/renesas,rsci.yaml
+index ea879db5f485..1bf255407df0 100644
+--- a/Documentation/devicetree/bindings/serial/renesas,rsci.yaml
++++ b/Documentation/devicetree/bindings/serial/renesas,rsci.yaml
+@@ -35,10 +35,15 @@ properties:
+       - const: tei
+ 
+   clocks:
+-    maxItems: 1
++    minItems: 2
++    maxItems: 3
+ 
+   clock-names:
+-    const: fck # UART functional clock
++    minItems: 2
++    items:
++      - const: operation
++      - const: bus
++      - const: sck # optional external clock input
+ 
+   power-domains:
+     maxItems: 1
+@@ -60,10 +65,6 @@ examples:
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
+     #include <dt-bindings/clock/renesas-cpg-mssr.h>
+ 
+-    aliases {
+-        serial0 = &sci0;
+-    };
+-
+     sci0: serial@80005000 {
+         compatible = "renesas,r9a09g077-rsci";
+         reg = <0x80005000 0x400>;
+@@ -72,7 +73,7 @@ examples:
+                      <GIC_SPI 592 IRQ_TYPE_EDGE_RISING>,
+                      <GIC_SPI 593 IRQ_TYPE_LEVEL_HIGH>;
+         interrupt-names = "eri", "rxi", "txi", "tei";
+-        clocks = <&cpg CPG_MOD 108>;
+-        clock-names = "fck";
++        clocks = <&cpg CPG_MOD 8>, <&cpg CPG_CORE 13>;
++        clock-names = "operation", "bus";
+         power-domains = <&cpg>;
+     };
 -- 
 2.49.0
 
