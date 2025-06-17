@@ -4,110 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831E5C71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D27AC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aoNSIKbOdd485smFmBnHl/Mm0pNj2Y6zx1eXoO1wxPA=; b=hDPVCkMdAyXGU0HQEIjX1I1f+S
-	3REdq+rHSvRzPkwY2BL8O15rzTdA+6cKMf34i8eViP9zOu9c+qyFfM8lWmqeMvmdu0XxCPv8ML+Zx
-	Fj4OAYr3YCFJJhY5ldcDqdBszi+pALbLbKiBnAlaWbof50x7nOtGKBWp3Paicf/9v41VFdQm6Gdj0
-	Q8WRSWRvZ16/VE7dqmvZF5Z83rEHur+BE+OJlcnvSsSruqmq48QEhLB2NJjqnytnYqJUZv4fv4bs4
-	S1nuP13wOMDlFSbXQMaX9d9a0jgbAAJ3T9P5Ce3OJ4xKmoTmpGwpagzQJ7yIodNpUaekMocLrfbw8
-	M/gTQVIA==;
+	bh=2vGocA0NzmxAsML3Qid17hAMGJrIycCA470w0MqI028=; b=njO7YcRU2eRQNtaVwWNYe9b83Z
+	Bhp7eS+OVXQEpvPl01+Ai/8BuCSTncXhijnarnXtBIU6YoVX2hwPDTNnrjVG/DdclMDploL6Zfvn/
+	W2Bi3ewA+WW4ik+M8TR0egn6xOCLSUphDtFvaH8PzqLIH1WmPkehyXDIa05sjAAW/57O5qrRP4TAw
+	/iIfDxbRM8CYKwH2keQW6H+KDksya652QzyPflPSycxUpcthGXD/1l4AoEp30rm3Zuz1Wj2hVLwg/
+	9M7ijJq8QNsx9rZOE/xps1woZC24vdIIak9VJ6O0fNq1zFstSrVlQZRdkMButft94xgwi9/OrHaxN
+	1NdC5rVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWsY-00000007ScW-47qc;
-	Tue, 17 Jun 2025 14:01:35 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRVMr-00000007AwH-1z9o
+	id 1uRWtM-00000007Sr8-07iy;
+	Tue, 17 Jun 2025 14:02:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRWVX-00000007NzT-3XiS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 12:24:46 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-453066fad06so42495665e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 05:24:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1750163084; x=1750767884; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aoNSIKbOdd485smFmBnHl/Mm0pNj2Y6zx1eXoO1wxPA=;
-        b=DZhM6fsDT6Xv52ovSznKCXZjWJcDAdkY2M2IHlRJOOAE9tSxjJvunt52gb6mECBG5f
-         yABbj95cPCb+WuqF/lHWKRjCDY3X6HcNsPu6pc7Xer/bOoxe2Zs41FYwZK/ZaLqzk3Zr
-         y1Xu/omcSaPXOOP1NNyvrW/htqdS0InnGN2SHCVJveyla43MyRMPvGfKVDKvA9V4XOwH
-         DEoEA8RND4ItPNffv2XUJ0+AjZa8/pfYkgGKWoAPxtN+5W3MFhjx+sJMUpdc8s9m6BaN
-         yKzY85Cs8BPJWonfmTlTWX6hICpPpRmBv9P+pxsW2crwnpdDuScSfXjRvfzoMljbxBAJ
-         jalA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750163084; x=1750767884;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aoNSIKbOdd485smFmBnHl/Mm0pNj2Y6zx1eXoO1wxPA=;
-        b=dba5Nhl8IGlGKr+A4G9di/WBBqiXCU0umKQJtBhMn+ndP3VKb8MGpe5oYON5fIPY1M
-         xlp0fnXHazjVmQNhnKaLBxjBrkwJQjk3IE6/f5dh8H0BVfjo/unr2O3sBWcnUjixkqkl
-         SYWcTJN9iFgR1zpzDKSe22/fjy2oAejMVKjdwtHJF09o9TJ7YAWMau5wx5B6HZ8apIzN
-         jIKZ+rfWHX3su+1yBdjdnptCtHC7dfDJVQSgUR8i12xJWYoPeSjT/KxsqbyHeEBpIefx
-         t358meonWwCifD29Q24Y2hSAiE/6XkKZMz1CGu10DP83HxE8AY2Ef52yO6HIcTfof/Z2
-         wUZA==
-X-Forwarded-Encrypted: i=1; AJvYcCUUsBUKtsoEg7ThYNgD5wifvFwZ97VbNJnrw5Yrdve6+2OMJUgN2ADJjm+TIX0fTl9HqDDiH8E8vYbSN7CRmeAH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtdocR51m7ITdnAFGeaphrOXTQQl3VbT6lkLnfcsSRdsG4HD8c
-	qZuslkTqkDZyO1odpiM4RdXgcivz7Lk7lawoGzd2Ik5xxReslILRpkL01gGRPU87PFE=
-X-Gm-Gg: ASbGncsG1cVG2C7Uu7uS2YaMjA5B9ncDkRLK/6dk+Ek4/g7cS0ew40TU7g44WGF0CLz
-	QKDHvCihhnmZFhtYNcKqJlGHb7GcFx90vSA4wYb6Ip8q1yBzEkBAIX0ywYfV5zAnMZh/fHTPA+O
-	vHzTSoRh/OaixIfsf/GkE367gAHTkIHBzDxU7o2taFc9pmsuj2V4OCb8xkEsapSQGTCjS2Djd8d
-	24jEbsmMv5/F7Jl2vErVGqXCcayOtLjnzacCF0S2ehncTUXDm8I2UbtuCQMPh/a455bXVT5Tk9H
-	XWlVf6RknmYHkPbT/Kz+43UAcGg2Ddhe22WDWk3k3ieIxDfPgEutCbq6
-X-Google-Smtp-Source: AGHT+IFjGWRgGD99OMAPMoLYwAIsTODZ+U2Af+jbgXlHRtQDLpU4RqEiIpXtgD7kFvIv8VVNBRGMcQ==
-X-Received: by 2002:a05:600c:4e87:b0:442:d5dd:5b4b with SMTP id 5b1f17b1804b1-4533cac57efmr142885005e9.31.1750163083958;
-        Tue, 17 Jun 2025 05:24:43 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:90df:ded7:9cbf:4074])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45320562afbsm173816135e9.1.2025.06.17.05.24.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 05:24:43 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 17 Jun 2025 14:24:24 +0200
-Subject: [PATCH 02/12] gpio: pcf857x: use new GPIO line value setter
- callbacks
+	Tue, 17 Jun 2025 13:37:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E95F1596;
+	Tue, 17 Jun 2025 06:37:26 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 657653F673;
+	Tue, 17 Jun 2025 06:37:45 -0700 (PDT)
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: broonie@kernel.org,
+	catalin.marinas@arm.com,
+	kvmarm@lists.linux.dev,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	stable@vger.kernel.org,
+	tabba@google.com,
+	will@kernel.org
+Subject: [PATCH 7/7] KVM: arm64: VHE: Centralize ISBs when returning to host
+Date: Tue, 17 Jun 2025 14:37:18 +0100
+Message-Id: <20250617133718.4014181-8-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20250617133718.4014181-1-mark.rutland@arm.com>
+References: <20250617133718.4014181-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250617-gpiochip-set-rv-gpio-v1-2-903703881fa2@linaro.org>
-References: <20250617-gpiochip-set-rv-gpio-v1-0-903703881fa2@linaro.org>
-In-Reply-To: <20250617-gpiochip-set-rv-gpio-v1-0-903703881fa2@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Andy Shevchenko <andy@kernel.org>, 
- Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>, 
- Robert Jarzmik <robert.jarzmik@free.fr>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2108;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=UjdVhHBdj/MT105x/Q2pFxBb2AP6k98PFv96j+C3ycI=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoUV6GFFklv2v6R87MrAXNHZyNzFP4WjIs26eeM
- jaLuHbEIROJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaFFehgAKCRARpy6gFHHX
- cp0pD/4jqSNOj2xQtdCVE8aUY/oYvVBdI0smTuI1wV5vjnOYk/XOkXPxvKf8cxCKJepJiLLS75O
- 9uEpobTggd4GQR20kr2zy6RaQ1C/oR5/3lZ1XIMmdei4517WPUhe04bBOwP66+tx9x2+QCUOfxb
- OiDQPg7BqqU9Ze4mcCV6OzO2wd20MX85sbGuxWFYNnKNLPiJECCNX0MUGR6ktbXHJbtHmeoT+1S
- WeKPV3ZTVNqqeEpizUAc0KyDaquEVYil9JFsAr9MbXMwKtT/v95oJEaMoQe38czxMsnTmnhclZR
- PpVpK2jejmCrdCpG8IS55/a1qyLTuE3SNcfHnxBZeyEeHhStByjQ6V7xLyJlZGeyM20g+oojNAy
- d5Q9OHc7sWW19ebIZdW1MJtHbpv4FEQ+h4M2lyLVqVMs6G9YagQgkFrJgQI1VhVXqYJu4H5fjoe
- nBbzp8EnwzOoqu/qNJW8eL4Vov1WkldJYd7Rr0dHWxsESRABq9OEeqRL0MdnMEUJUmtQcsrG/kW
- f5aKK2U+oh9dXNTgl2ZydapCMP/mB8LSMlIwR4cxuFbdTE+W393h3xmAAcARFBX42BeiJszBJg8
- M4B52HDLRDWzhV7N9lrLgjf6FPQNmi4aM8vrs0vDtJLHo3t0dRpXziFICkKDKqTy+7NuyG8sBue
- U03dII3k8j0I+uA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_052445_519010_990B6E12 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250617_063748_170078_84BB9703 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,64 +69,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+The VHE hyp code has recently gained a few ISBs. Simplify this to one
+unconditional ISB in __kvm_vcpu_run_vhe(), and remove the unnecessary
+ISB from the kvm_call_hyp_ret() macro.
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+While kvm_call_hyp_ret() is also used to invoke
+__vgic_v3_get_gic_config(), but no ISB is necessary in that case either.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+For the moment, an ISB is left in kvm_call_hyp(), as there are many more
+users, and removign the ISB would require a more thorough audit.
+
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Cc: Will Deacon <will@kernel.org>
 ---
- drivers/gpio/gpio-pcf857x.c | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
+ arch/arm64/include/asm/kvm_host.h         |  6 ++----
+ arch/arm64/kvm/hyp/include/hyp/debug-sr.h |  3 ---
+ arch/arm64/kvm/hyp/vhe/switch.c           | 25 +++++++++++------------
+ 3 files changed, 14 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/gpio/gpio-pcf857x.c b/drivers/gpio/gpio-pcf857x.c
-index 2e5f5d7f886598318b753304e7e0efca54ff8b69..a042036803336439d8e164fcfbd0263b0e84f3a4 100644
---- a/drivers/gpio/gpio-pcf857x.c
-+++ b/drivers/gpio/gpio-pcf857x.c
-@@ -171,21 +171,24 @@ static int pcf857x_output(struct gpio_chip *chip, unsigned int offset, int value
- 	return status;
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 382b382d14dac..2e3c152668eb8 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1289,9 +1289,8 @@ void kvm_arm_resume_guest(struct kvm *kvm);
+ 	})
+ 
+ /*
+- * The couple of isb() below are there to guarantee the same behaviour
+- * on VHE as on !VHE, where the eret to EL1 acts as a context
+- * synchronization event.
++ * The isb() below is there to guarantee the same behaviour on VHE as on !VHE,
++ * where the eret to EL1 acts as a context synchronization event.
+  */
+ #define kvm_call_hyp(f, ...)						\
+ 	do {								\
+@@ -1309,7 +1308,6 @@ void kvm_arm_resume_guest(struct kvm *kvm);
+ 									\
+ 		if (has_vhe()) {					\
+ 			ret = f(__VA_ARGS__);				\
+-			isb();						\
+ 		} else {						\
+ 			ret = kvm_call_hyp_nvhe(f, ##__VA_ARGS__);	\
+ 		}							\
+diff --git a/arch/arm64/kvm/hyp/include/hyp/debug-sr.h b/arch/arm64/kvm/hyp/include/hyp/debug-sr.h
+index 73881e1dc2679..502a5b73ee70c 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/debug-sr.h
++++ b/arch/arm64/kvm/hyp/include/hyp/debug-sr.h
+@@ -167,9 +167,6 @@ static inline void __debug_switch_to_host_common(struct kvm_vcpu *vcpu)
+ 
+ 	__debug_save_state(guest_dbg, guest_ctxt);
+ 	__debug_restore_state(host_dbg, host_ctxt);
+-
+-	if (has_vhe())
+-		isb();
  }
  
--static void pcf857x_set(struct gpio_chip *chip, unsigned int offset, int value)
-+static int pcf857x_set(struct gpio_chip *chip, unsigned int offset, int value)
- {
--	pcf857x_output(chip, offset, value);
-+	return pcf857x_output(chip, offset, value);
- }
+ #endif /* __ARM64_KVM_HYP_DEBUG_SR_H__ */
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 32b4814eb2b7a..477f1580ffeaa 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -558,10 +558,10 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
+ 	host_ctxt = host_data_ptr(host_ctxt);
+ 	guest_ctxt = &vcpu->arch.ctxt;
  
--static void pcf857x_set_multiple(struct gpio_chip *chip, unsigned long *mask,
--				 unsigned long *bits)
-+static int pcf857x_set_multiple(struct gpio_chip *chip, unsigned long *mask,
-+				unsigned long *bits)
- {
- 	struct pcf857x *gpio = gpiochip_get_data(chip);
-+	int status;
+-	sysreg_save_host_state_vhe(host_ctxt);
+-
+ 	fpsimd_lazy_switch_to_guest(vcpu);
  
- 	mutex_lock(&gpio->lock);
- 	gpio->out &= ~*mask;
- 	gpio->out |= *bits & *mask;
--	gpio->write(gpio->client, gpio->out);
-+	status = gpio->write(gpio->client, gpio->out);
- 	mutex_unlock(&gpio->lock);
++	sysreg_save_host_state_vhe(host_ctxt);
 +
-+	return status;
+ 	/*
+ 	 * Note that ARM erratum 1165522 requires us to configure both stage 1
+ 	 * and stage 2 translation for the guest context before we clear
+@@ -586,18 +586,23 @@ static int __kvm_vcpu_run_vhe(struct kvm_vcpu *vcpu)
+ 
+ 	__deactivate_traps(vcpu);
+ 
+-	/* Ensure CPTR trap deactivation has taken effect */
++	sysreg_restore_host_state_vhe(host_ctxt);
++
++	__debug_switch_to_host(vcpu);
++
++	/*
++	 * Ensure that all system register writes above have taken effect
++	 * before returning to the host. In VHE mode, CPTR traps for
++	 * FPSIMD/SVE/SME also apply to EL2, so FPSIMD/SVE/SME state must be
++	 * manipulated after the ISB.
++	 */
+ 	isb();
+ 
+ 	fpsimd_lazy_switch_to_host(vcpu);
+ 
+-	sysreg_restore_host_state_vhe(host_ctxt);
+-
+ 	if (guest_owns_fp_regs())
+ 		__fpsimd_save_fpexc32(vcpu);
+ 
+-	__debug_switch_to_host(vcpu);
+-
+ 	return exit_code;
+ }
+ NOKPROBE_SYMBOL(__kvm_vcpu_run_vhe);
+@@ -627,12 +632,6 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	 */
+ 	local_daif_restore(DAIF_PROCCTX_NOIRQ);
+ 
+-	/*
+-	 * When we exit from the guest we change a number of CPU configuration
+-	 * parameters, such as traps.  We rely on the isb() in kvm_call_hyp*()
+-	 * to make sure these changes take effect before running the host or
+-	 * additional guests.
+-	 */
+ 	return ret;
  }
  
- /*-------------------------------------------------------------------------*/
-@@ -292,8 +295,8 @@ static int pcf857x_probe(struct i2c_client *client)
- 	gpio->chip.owner		= THIS_MODULE;
- 	gpio->chip.get			= pcf857x_get;
- 	gpio->chip.get_multiple		= pcf857x_get_multiple;
--	gpio->chip.set			= pcf857x_set;
--	gpio->chip.set_multiple		= pcf857x_set_multiple;
-+	gpio->chip.set_rv		= pcf857x_set;
-+	gpio->chip.set_multiple_rv	= pcf857x_set_multiple;
- 	gpio->chip.direction_input	= pcf857x_input;
- 	gpio->chip.direction_output	= pcf857x_output;
- 	gpio->chip.ngpio		= (uintptr_t)i2c_get_match_data(client);
-
 -- 
-2.48.1
+2.30.2
 
 
