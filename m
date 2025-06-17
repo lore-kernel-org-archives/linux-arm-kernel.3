@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F9DFC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9906BC71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fCgu0WUEcOwg7fCAIzSjiLXxg/4EglOh3d2upcp8Yto=; b=mankYg3OeWktJclVzGdKpiBH5p
-	Nj1Cf/IqG+dxZswq3rLin28F/rtr4YyFTEa6ZRxD85xMwzQqvrXehwhR80YtVp6CqCblrKP4adBDH
-	2X4kw30ch4Byr7TrJmyhMo74OeIiIfe4dZiGPmMQK1+Ur4ruuacnejy6a7S7fZjbZlS/+EfLubeED
-	VonOPvixs3Q0jmDS7M4dJSF+zyGt6BAMHZkqiijNsNJPrUfY39HL037xA2VL0L1m5HV9O3YpJKqWN
-	nHrxSMSd9VnCOlsdQVbHKd2ChzbdQuevDEc2A57kFmsWVMK9TUg0Y/nEJiCnN+wJGuoJo7pQGodm8
-	sWmap9TA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hJpSSWKODubMWDu6LS8hKhfIs2zxRW9+kSXB6f03nq8=; b=VVePFnk0gkL3NoLDzY2ZA8iIgS
+	5b5V6NPxTP6LI4LV1pnCwi1rwPGQm0oiFElP3M7y7yXgtlyRxhQejA5wJZCKoCem2f9bAjsw0Csqe
+	yRb0quxzEdHJJ4qWCkDkgJ4PCgO3A0ORFLL/zQKuU+2Fdw+wCx/gwJ06XzS5ryemCab0wKKfRJvKx
+	4Q2pwWrVQPjxHnkBEqABcnSaL4IabdzZykbjYNB7vpaL6E3NzE9m+vY3CUauRxTcN6JZ1IKdOhEie
+	E4DXNmelr8Gz7v9AdVvZVsVr2ndTxipdW6OyaHVuY7LOTPx4xbP1DxiP3Qb8QvQg6Wkf6k3Mh+k7X
+	Fz4WMFtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRf4-00000006bAo-0kfU;
-	Tue, 17 Jun 2025 08:27:18 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1uRRhK-00000006bYN-18GC;
+	Tue, 17 Jun 2025 08:29:38 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRYA-00000006Ztw-1IcP
+	id 1uRRYE-00000006Zvo-3HX4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 08:20:11 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-311bd8ce7e4so4470647a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 01:20:09 -0700 (PDT)
+	Tue, 17 Jun 2025 08:20:15 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2366e5e4dbaso22499425ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 01:20:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1750148409; x=1750753209; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fCgu0WUEcOwg7fCAIzSjiLXxg/4EglOh3d2upcp8Yto=;
-        b=VlfXOd1h/EeiNl2ZDig+lW5cQDJqVW2b36B3gZovof5455MqMm9fGeU0HiGsixOnU6
-         RS2VZHyWavVTZT0s8xvnZy21nSU+K6HaDg9zFf2yUXyDGbnSoPnkjOLDDBc/jU7UAEKo
-         d4Dp7QbZ1t6t0y5winE9/VhT5VIH/DrsYsDVg=
+        d=chromium.org; s=google; t=1750148414; x=1750753214; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hJpSSWKODubMWDu6LS8hKhfIs2zxRW9+kSXB6f03nq8=;
+        b=TilR68OSfe6QgY1xF8aNci5pe7ze7jh1O5UFUVH2R3g3bDCVm1cqEtPMzNwe4GUpP2
+         LBCMorYB6CIkyn7x1fOKiqMHlqZEJ0rfHoPN1lysHAFG3JX8I8f0GCWOjGsOjk5mlxBl
+         zZBK4fvUp6lKTWMkEj8SSp1Rhix6RUwtJpkqs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750148409; x=1750753209;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fCgu0WUEcOwg7fCAIzSjiLXxg/4EglOh3d2upcp8Yto=;
-        b=QYnLoHey07RzCXp9aFB+YbxSTWo/zPeOhRCEcpMYu+zCl0APCAaqG9cSpr/dr0tZKE
-         JMSGjBV8arDVslCcoMm1AP7x/yXSOhdEFoOEOmKPwT8tc+KispTDRO5sVUdTzFCrKWv1
-         OkxtZ9pPeBi2GGA4aRgA14bMnV/rz+YoRzNOpX5tKd4QLKP6uKOj5hZP2NLaqpJrlBnS
-         JOpAEW+10D48uKRYX1XBdN7eO7cV+LT1nUXHtnb3akULJs+THbaYdGTQjfjIpaqHLuPX
-         ellUKzbrXuMDva5/xQr344eKBHvrBU+9KYnaCF5Pnm43WASNDATaa64z8ukhansaNBM+
-         570g==
-X-Forwarded-Encrypted: i=1; AJvYcCVLC9rs2DLMaFZPkrwJTzZLMQm/E0OMtNzqQ7RODO8EiFwO5SNOOpyadloSRThU33vurB6O5lCB0Z+roacE7sx4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2JJGtst1cAzH/H4O1LUD1MmiMIxET2/YRhONtu1OFBw2eGvoB
-	k9698Rkibp48KVojiVn7x/tW41OhwX/2bjSY5JfXIU6mWifOw+ZorXJxs75q2NPqKQ==
-X-Gm-Gg: ASbGncv4s99DbxRUh9jxFu77eLhVAtfZhfUyUd7nUsPtOSQqk7sRIwIHTW56NtHPiPP
-	lCQbj2mlyVqOe65u4jvIRXygCCeCJHTAl5uNdiztUf++2lwUwVPQVq7xdSd1F7ZFcaJze8F/yW3
-	0tSYN8cp+hsz28vGqPBkC1pfvnAkgjaRsOTTA2skaxt75cyA5fVlglyytcITKTpeHNe/s2Sb0Iy
-	NKTYDZrfImtP1N6XUkZ+vxLHuGPXeTw0lOZFmZ6ANSMs0ou9o1u293JVxEbXWp3K3Ac3b5Pm94K
-	mli8XfrjJ6u30QF4E6t8WmYGcSMIEzYrPa4COwi166VQNHJT92HCFY3v3r5Ur3cOZ5T0A9SPK3w
-	XBmXi
-X-Google-Smtp-Source: AGHT+IGD8SOS4o5xDhrfWM54iSlJEPR1fjzyAoug43lUG4UEBLvt1iAqZCg4HuIsK4C60TSEQU1JaQ==
-X-Received: by 2002:a17:90b:5847:b0:312:1dc9:9f67 with SMTP id 98e67ed59e1d1-313f1c7c54amr19445589a91.2.1750148409049;
-        Tue, 17 Jun 2025 01:20:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750148414; x=1750753214;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hJpSSWKODubMWDu6LS8hKhfIs2zxRW9+kSXB6f03nq8=;
+        b=BM0/hhSQF8daFEYgFSHScsngHixcEp0eps59/dn+Ie2HI8AQfNsAbLsXLhmJ8jh1UX
+         kDQ4ZRIbropsRwXoN8L4G5X6NMv842ugqDpH4lycERVDbza/4mE3Lu5rc4e50BwCQtCb
+         NZjbsnOG7s5Em5IbS5u8n7J3R9rkXbWPnGKdS4ByUaOPKU1HqSs83jnrckROxTNjp2wh
+         mEhwh+bTw/9vXR3El3fR+aEdaGvzLIByiLhvi9P38PBPqMKpdKesL9C1ZnE+p/C72RHM
+         hWP7OoFT7jX+ToMwkl9ntr45tnd0LbAKqr0zUhn0/W0hoouJtGxm++rX7AxrOEmfbRi3
+         XKxw==
+X-Forwarded-Encrypted: i=1; AJvYcCVdKxhKFVr+WM7zd3efXDlzscNnmMSXoumR0YG/6Qs8aCc8bD2L9qluMpefQjzUPFgLZ64FRcWI4yyoB9xBEIxI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR7UcAQW5IGI/6YhpUXe4qQai7BvezVX2f07xSw45yW5MsAhbA
+	11Cf2ypX2KkFVZjkQ1c9mJ7WX3ZcNSlcnLv8BXQ8ySQnm+OZNCqZ1NGnMvKvWxEL1Q==
+X-Gm-Gg: ASbGncuMIoFw9aaeqlyHIRLHvqGF0btVwBXer2VUbeaT5mnSRGYVzfygfitmztswuOz
+	OKvXYMlwBSkCrUs4e+KeR8SAfI/4bslilQ6I2lCMFfYMqOn7Ctx0ANCz6WJBJBvpkX7KPOADuNP
+	HXsdXSaZZB3MIHlN7nYzULGYIWAX5LOPYVaq3Obu1lxZcD9zNYzi7IDgIBcMsskBe5SQf8EgvCG
+	B7STGaEKQJO4qTd0mwHI8EDIxyVxopC4/G+D/Ivpp69CFbm5PplgeF8mJF17EM2OtDQYUkP7ilx
+	peaPLK6GWs+L8pB4UrJ4Tg+pWvla1det4/HsBTXQOO3FPFqjVMjeAiald6jyu3fzxS3NeEm/rDT
+	4/UvSXY364HGrGDc=
+X-Google-Smtp-Source: AGHT+IFfpg2r7E+A3hwnVaD8XvFL8a9eXnDD2HrKdh1NTx8ZQ0KD0SKLHARkzMHejSWGfoyIg/Kiig==
+X-Received: by 2002:a17:903:4b07:b0:234:b3fb:8ed with SMTP id d9443c01a7336-23691bedec5mr30450435ad.1.1750148414061;
+        Tue, 17 Jun 2025 01:20:14 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:24a1:2596:1651:13d8])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365de781f7sm74598885ad.110.2025.06.17.01.20.06
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2365de781f7sm74598885ad.110.2025.06.17.01.20.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 01:20:08 -0700 (PDT)
+        Tue, 17 Jun 2025 01:20:13 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -74,16 +75,20 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	linux-input@vger.kernel.org
-Subject: [PATCH v3 0/6] arm64: mediatek: mt8186-corsola: Consolidate and add new devices
-Date: Tue, 17 Jun 2025 16:19:57 +0800
-Message-ID: <20250617082004.1653492-1-wenst@chromium.org>
+	linux-input@vger.kernel.org,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Benson Leung <bleung@chromium.org>
+Subject: [PATCH v3 2/6] dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
+Date: Tue, 17 Jun 2025 16:19:59 +0800
+Message-ID: <20250617082004.1653492-3-wenst@chromium.org>
 X-Mailer: git-send-email 2.50.0.rc2.692.g299adb8693-goog
+In-Reply-To: <20250617082004.1653492-1-wenst@chromium.org>
+References: <20250617082004.1653492-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_012010_375650_8E120136 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20250617_012014_824376_222A4ADC 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,77 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+There are only two different SKUs of Voltorb, and the only difference
+between them is whether a touchscreen is present or not. This can be
+detected by a simple I2C transfer to the address, instead of having
+separate compatible strings and device trees.
 
-This is v3 of my "component probe for Corsola devices" series.
+Drop the SKU-specific compatible strings and just keep the generic
+"google,voltorb" one.
 
-Changes since v2:
-- Rebased onto next-20250616
-- Collected reviewed-by tags
-- Dropped driver changes that are already in v6.16-rc1
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Benson Leung <bleung@chromium.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
 Changes since v1:
-- Reworded commit message for Elan I2C-HID binding change
-- Dropped I2C address constraint from Elan I2C-HID binding completely
-- Dropped enum from new compatible string entry in Elan I2C-HID binding
-- Picked up Rob's ack on two binding changes
-- Rebased onto next-20250417, resolving conflicts with "spherion
-  component prober" changes
-- Link to v1:
-  https://lore.kernel.org/all/20250312104344.3084425-1-wenst@chromium.org/
+- Added Rob's ack
+---
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 3 ---
+ 1 file changed, 3 deletions(-)
 
-Here's a follow up series of the I2C component probers for Chromebooks.
-This series enables the component prober for the Corsola series of
-devices, combines the two existing Voltorb SKUs, and adds a new
-device, codename Squirtle.
-
-Patch 1 adds a new entry for the Squirtle device to the bindings.
-
-Patch 2 fixes up the existing device trees for the component prober to
-be active.
-
-Patch 3 merges the device trees for the Voltorb device.
-
-Patch 4 adds a device tree file for the Squirtle device, with I2C
-components ready to be probed by the prober.
-
-Patch 5 enables the prober to probe trackpads on some devices in the
-Corsola family.
-
-Patch 6 enables the prober to probe touchscreens on Squirtle.
-
-
-Everything has been reviewed. Dmitry, please give an Ack so we can merge
-everything through the soc tree.
-
-
-Thanks
-ChenYu
-
-Chen-Yu Tsai (6):
-  dt-bindings: HID: i2c-hid: elan: Introduce Elan eKTH8D18
-  dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
-  dt-bindings: arm: mediatek: Add MT8186 Squirtle Chromebooks
-  arm64: dts: mediatek: mt8186-steelix: Mark second source components
-    for probing
-  arm64: dts: mediatek: mt8186: Merge Voltorb device trees
-  arm64: dts: mediatek: mt8186: Add Squirtle Chromebooks
-
- .../devicetree/bindings/arm/mediatek.yaml     |   7 +-
- .../bindings/input/elan,ekth6915.yaml         |  12 +-
- arch/arm64/boot/dts/mediatek/Makefile         |   4 +-
- .../dts/mediatek/mt8186-corsola-squirtle.dts  | 107 ++++++++++++++++++
- .../dts/mediatek/mt8186-corsola-steelix.dtsi  |   9 +-
- .../mt8186-corsola-tentacool-sku327683.dts    |   2 +
- .../mt8186-corsola-tentacruel-sku262148.dts   |   2 +
- .../mt8186-corsola-voltorb-sku589824.dts      |  13 ---
- ...u589825.dts => mt8186-corsola-voltorb.dts} |   5 +-
- .../boot/dts/mediatek/mt8186-corsola.dtsi     |  10 +-
- 10 files changed, 138 insertions(+), 33 deletions(-)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-squirtle.dts
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb-sku589824.dts
- rename arch/arm64/boot/dts/mediatek/{mt8186-corsola-voltorb-sku589825.dts => mt8186-corsola-voltorb.dts} (76%)
-
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index a7e0a72f6e4c..2032b0b64ba7 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -350,9 +350,6 @@ properties:
+           - const: mediatek,mt8186
+       - description: Google Voltorb (Acer Chromebook 311 C723/C732T)
+         items:
+-          - enum:
+-              - google,voltorb-sku589824
+-              - google,voltorb-sku589825
+           - const: google,voltorb
+           - const: mediatek,mt8186
+       - items:
 -- 
 2.50.0.rc2.692.g299adb8693-goog
 
