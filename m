@@ -4,54 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E267C71155
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 05:57:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A60C71155
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 06:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jlwuxoelNybUMeKX0l0CPsGCiLOMgwsVDiofmryLQBI=; b=MCrWWOy6ZyWB0g7tBGcIM10FcG
-	WepJSqWacriI79nCLl3aql6rTXLW1DknlEqcAsamxX2ExZxpKmMgj2WvKQMaRMoliH+fOTjeumiXb
-	yLg1GRG+M7Pkv1lqArMHkF824QUs4I2XRTk2uNAZdAamjPo8Y332AyrEcx7NKwVWluFPso3neBdFf
-	maYK8JDk0CqopE3L9XIzxd9cvVEkDnlJKopQOCNMcmbbNumvUEc3lpYOxCPz46uG+TjpnChocxJ+n
-	TJwLCURy/W6LscHyCuWujqAGhdRaSHGtLKNuAWw0XYZ+edF61n8O9XxBYDVWZ9Fdwr9ZumGbEdjD7
-	kBLs8mag==;
+	bh=58Qj1TQNenE9z1idMHH2y8oPGy6g4bYoAxyVvbFbn/4=; b=oRJ9gdb3hQCsK3ShTev0xh6tN7
+	IA0WCKwG0njDIYBnyrCt6nrcbo6B5qkltdRqsKKKUbpLZ/Yua8dmE8U9ZoQD1G772kvt5iayqzLOe
+	TyxCDcwaVPk1stmg9fo73GNNnZh5apqk7862tyHQm1mr/CoxYednwXjdw4adqK03FOTfIAwll2ntk
+	eG7fmQgMo2XJQzlE4yGkjtoC1iiTdL8wjL3q4nolv9Rh5B+kdusCpXvpL+tlvl0WwONW8a3gJXlSw
+	Y4pNutXO9a8J5gUHfUgEwMdm3sUiob2Ge5drr+bpnn17eMamurkPcX5ev0CIibY4z/hpFzsF32peK
+	hjL27cIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRPJV-00000006IxA-31lw;
-	Tue, 17 Jun 2025 05:56:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uRPUf-00000006Jvo-37wy;
+	Tue, 17 Jun 2025 06:08:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRPH1-00000006InS-37MN
+	id 1uRPSD-00000006Jh2-3Jpv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 05:54:20 +0000
+	Tue, 17 Jun 2025 06:05:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA010614B1;
-	Tue, 17 Jun 2025 05:54:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB0A5C4CEE3;
-	Tue, 17 Jun 2025 05:54:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86BD45C5D66;
+	Tue, 17 Jun 2025 06:03:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57ADDC4CEE3;
+	Tue, 17 Jun 2025 06:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750139658;
-	bh=jlwuxoelNybUMeKX0l0CPsGCiLOMgwsVDiofmryLQBI=;
+	s=k20201202; t=1750140352;
+	bh=6wUhUeVPTr7SOLxRIvWJOPbsU195e72G9vbKVpsiegM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dFcjRWsf6z3JisBf5uWCD2PySgmxgffpxpAKAXG2ooAYbaFNp8H1nPmh0+hQQVwS4
-	 myrF+BlAPTw+yYZY84dY6KHWemycAchEtPXFdRhvx+rAEdF0xqYiDlv3tEK+bYu0R4
-	 JXfO1rkcXg7OtUZmDW+Dcmz9yg7mXvZe96Ry4r71AD5hHEzFhpGZUjqOZ3CBvGhuks
-	 AaHsNTXFb3aiNmvsDACauMhFY9/EmAVSgyWvMN9X7WO5BIs/143A36IMUpvhSlT2Y8
-	 GXrTJ/8fMeZFv+Tqp187dQ6yhF8hIy7flOIboEM92q+YASWlD/5wALt1Z/DQIo4E5r
-	 jEF9LlTNQwg/A==
-Message-ID: <4f85a20c-bfe6-4b48-b4ef-121d5b33af90@kernel.org>
-Date: Tue, 17 Jun 2025 07:54:14 +0200
+	b=A2aul9gn8HaiBwh9iRqpYSLxwASbspLhiCMFpQdhJEo68atwwFoBOSVn2Tmh051I8
+	 93OVNF40KqtLPIgKkKFwJs1TazqaspoTe6+eZbScMxF6r6S8PtwnkLpSWEn2w4nZdm
+	 t45/ywQTLA4xHQdhUI4PQVcji+9Ka9r8nuIezvmOP0JwQOOe2ep1bmeIhF8hMflNHI
+	 wrFKJf/XmpStwheN0T6z0XqCmxfAeIwIsomgOPbmBCge8AzTpFe8TdZO0iX4hMoPH2
+	 +66F6YkrgfuqN+uynK+c2zR6APFDI2ypbjOIUuEjvjo5658utNm5lZsCMBKPWSbYDI
+	 XkqP/utm9rlog==
+Message-ID: <e541f1a9-1977-4f45-b82e-7e0a44f6eb88@kernel.org>
+Date: Tue, 17 Jun 2025 08:05:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm: s3c: use string choices helper
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>
-Cc: Andy Shevchenko <andy@kernel.org>, Kees Cook <kees@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-References: <87qzzjnsdu.wl-kuninori.morimoto.gx@renesas.com>
+Subject: Re: [PATCH v2 1/9] dt-bindings: spi: Add spi-buses property
+To: Sean Anderson <sean.anderson@linux.dev>, Mark Brown <broonie@kernel.org>,
+ Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Lechner <dlechner@baylibre.com>,
+ Amit Kumar Mahapatra <amit.kumar-mahapatra@amd.com>
+References: <20250616220054.3968946-1-sean.anderson@linux.dev>
+ <20250616220054.3968946-2-sean.anderson@linux.dev>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -97,9 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <87qzzjnsdu.wl-kuninori.morimoto.gx@renesas.com>
+In-Reply-To: <20250616220054.3968946-2-sean.anderson@linux.dev>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250616_230553_996650_9857265E 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,12 +121,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/06/2025 02:06, Kuninori Morimoto wrote:
-> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+On 17/06/2025 00:00, Sean Anderson wrote:
+> From: David Lechner <dlechner@baylibre.com>
+> 
+> Add a spi-buses property to the spi-peripheral-props binding to allow
+> specifying the SPI bus or buses that a peripheral is connected to in
+> cases where the SPI controller has more than one physical SPI bus.
+> 
+> Signed-off-by: David Lechner <dlechner@baylibre.com>
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> ---
+> 
+> Changes in v2:
+> - New
+> 
+>  .../devicetree/bindings/spi/spi-peripheral-props.yaml  | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 
-Missing commit msg (especially considering this is legacy code which
-soon might be completely removed).
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
+
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
 
 Best regards,
 Krzysztof
