@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BEEFC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 23:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B91DC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 23:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ksHpryQDs7ctPGFoqYhpw5T3GwV1LQ4G2Ed085k1s1w=; b=K6Mu5ChppjHGYMSD8LZrW3OysC
-	uOprQLzbfJsZqw92R7k1wej02LSejS/scJjWU67dcl08TmPXFkxIbEGqWkPiw2sU1Ew5uMquz0UA9
-	b3yUN6DX3m5CrvCk9LsB8kYiMvu0+2gswQvNaZQK9+PVtYkgw3i+Kn1KEzauDzB9m7rHxco0IejmD
-	BtVRGvJEWUsMWd6H+6hpRX5a6p/Ig7VI3HKzihqG1ZH2Lt44NFLYAX6r8XaZ6avvkxrnVHkL43huh
-	5seGm+R6Ftc4Jt+qFDHr0TKem7/ITfGcOyBmMbg3BCU0vtMGVQ5R6Vg6nykNz1GGt1lSQuzfmEgwX
-	Sg0WF7Rg==;
+	bh=WTND09Bsc5qA0HEByq6/8KDzq+eITUKYUeQCoUogxaI=; b=ED7vrasxLHA5G1vB8V3pPblMjL
+	78F6l9j3/8J3qMk9TdGUXUon1323EieGnC3S7dvWFVtUDSIj2RLaW/iQAWdgcqJUr21ytLNX3V4O3
+	keAKtJFoTBHVMUU5OlAs/UumeMz8b9OGcd2ANHiHkLBWazExIWvtZOWcMGvxEg0FcMtIl6myzJWuy
+	qJF2x8nR+Qg0MqKhCkIDk/wxtHf9Kj/xJQ3WNC5MJzo5M7AE5XAsRi7JpNe9qSy/RiCb0xwJay3YJ
+	Hej/U6slUykvE7mE3GHRx34sEZMfM8uJYvLdx4tR6btR4bsQla/r6m+wmz9AekF/7IjH/lEAW73K8
+	ZsPMVbEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRfTj-00000008bCQ-2Chu;
-	Tue, 17 Jun 2025 23:12:31 +0000
+	id 1uRfnG-00000008ckC-1jt1;
+	Tue, 17 Jun 2025 23:32:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRfRV-00000008azC-3EKk
+	id 1uRfl3-00000008cXp-0vj8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 23:10:15 +0000
+	Tue, 17 Jun 2025 23:30:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 55C01439B8;
-	Tue, 17 Jun 2025 23:10:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 328ACC4CEED;
-	Tue, 17 Jun 2025 23:10:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DDCBB4351C;
+	Tue, 17 Jun 2025 23:30:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF843C4CEE3;
+	Tue, 17 Jun 2025 23:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750201813;
-	bh=NLmZbAINQrKpTqQpqNfxPgtqEb0sB7XeT47yiorXI6w=;
+	s=k20201202; t=1750203024;
+	bh=tcMHWk4FkgjU/bW20uI6112m4lCsw+x2BSh1ZhtUv2w=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=MeY+/BRnKSJtQIpfkUgm5S90dpg8BaAd3E9/X4zxA9F3zdFVm0v82Low6gsBPBOHe
-	 iFFOjUJp1giTMHEe0SPayfjJOKYUIxYagHv0n+AAF2ilgYK90TtH9zlfBog6ugcEP4
-	 WGcwTuQGzAKLT2wW8gItRfMw2MulwZU5f0u1o+1KwDaGyGvmel+8JA6h0vXVDdI8gk
-	 l9MlsvBi9aRk9Ja+hujhrKFI28BcH+xjVLN2PqAHEsl+vVZhgrIub71qvkzsxR9Jo8
-	 O87Frd6uUIw9izt1Omd0Md27fdFbmaeiOWUrV/l5WX85U49iWn+A4vTD0mJzoCV/eV
-	 HsEiOX7K/5QfA==
+	b=lwGoNx2HcdoFIqXfNx2lyArccnRGQvr9Cbvt01sXr/oLXvauWbaCk71QzAFv9YQMz
+	 fbtEU3kqLl3nno0scsgd/MYZ+kqIEJei7DwVEl3y2jj2BCF+elOaPWF9OVtY2bWbdF
+	 eYHJu1VFJ3Z3EivQdMmBS9b0K9Ky+1yvhx6llYBuY009Jwhh/cDwkaDz8qOmDdEGJk
+	 LKsfeABU/tnIP0x0k2eNWjZQnPNYTgdh8y6RYevgF8MWavZrcAFy6utYFb90s1EJ/o
+	 NPW0I3dBICjMhLJZm9C1/CevHnSth/DGZuFbwl3oj/7G7SUFJRdZWUnScmMdda7RX0
+	 4FFDgoecp44/g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAEB638111DD;
-	Tue, 17 Jun 2025 23:10:42 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D2E38111DD;
+	Tue, 17 Jun 2025 23:30:54 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/3] net: stmmac: rk: more cleanups
+Subject: Re: [PATCH net-next 0/4] nte: stmmac: visconti: cleanups
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175020184173.3730251.3213755803607439009.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Jun 2025 23:10:41 +0000
-References: <aE_u8mCkUXEWTzJe@shell.armlinux.org.uk>
-In-Reply-To: <aE_u8mCkUXEWTzJe@shell.armlinux.org.uk>
+Message-Id: <175020305298.3735715.14567227448478806213.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Jun 2025 23:30:52 +0000
+References: <aFCHJWXSLbUoogi6@shell.armlinux.org.uk>
+In-Reply-To: <aFCHJWXSLbUoogi6@shell.armlinux.org.uk>
 To: Russell King (Oracle) <linux@armlinux.org.uk>
 Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
  andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
  kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com
+ netdev@vger.kernel.org, nobuhiro1.iwamatsu@toshiba.co.jp, pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_161013_827361_C468A469 
-X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-CacheID: sfid-20250617_163025_277176_71BB43E4 
+X-CRM114-Status: UNSURE (   8.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,21 +83,23 @@ Hello:
 This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Mon, 16 Jun 2025 11:16:18 +0100 you wrote:
+On Mon, 16 Jun 2025 22:05:41 +0100 you wrote:
 > Hi,
 > 
-> Another couple of cleanups removing pointless code.
+> A short series of cleanups to the visconti dwmac glue.
 > 
->  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 9 +--------
->  1 file changed, 1 insertion(+), 8 deletions(-)
+>  .../net/ethernet/stmicro/stmmac/dwmac-visconti.c   | 129 ++++++++++++---------
+>  1 file changed, 74 insertions(+), 55 deletions(-)
 
 Here is the summary with links:
-  - [net-next,1/3] net: stmmac: rk: fix code formmating issue
-    https://git.kernel.org/netdev/net-next/c/a44769c97e9a
-  - [net-next,2/3] net: stmmac: rk: use device rather than platform device in rk_priv_data
-    https://git.kernel.org/netdev/net-next/c/8f6503993911
-  - [net-next,3/3] net: stmmac: rk: remove unnecessary clk_mac
-    https://git.kernel.org/netdev/net-next/c/cf283fd6b8be
+  - [net-next,1/4] net: stmmac: visconti: re-arrange speed decode
+    https://git.kernel.org/netdev/net-next/c/7d7525876b5a
+  - [net-next,2/4] net: stmmac: visconti: reorganise visconti_eth_set_clk_tx_rate()
+    https://git.kernel.org/netdev/net-next/c/1923c6c3a8b7
+  - [net-next,3/4] net: stmmac: visconti: clean up code formatting
+    https://git.kernel.org/netdev/net-next/c/1a3a638d2d23
+  - [net-next,4/4] net: stmmac: visconti: make phy_intf_sel local
+    https://git.kernel.org/netdev/net-next/c/d54d42a41b65
 
 You are awesome, thank you!
 -- 
