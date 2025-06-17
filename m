@@ -4,65 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F65C71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4952CC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 08:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8W8WrTRfzWBsfl+y7aEIZadGVsHJg4ok96aNaLcWilM=; b=K1vOUnf6AgZuRdEAfY9ljCQIGI
-	vWazWCOU7z8HI33m86pepi+XgfX6me/l8R2yFVTvrQVLs3e7U5RpjTjdhH0JsEcBHl96OMnj9LyL5
-	T0RnohA0BsVk3av9oX3UE8dV7gCBAnwQQCSh5+fjFc5btYB3nDPZlK1hYnsIuHUMtn1qWHlGJet5B
-	STJG5N/9fYq+I42KWaK7VU+DVqFVOkSbBcpspMpvUznm6XAaG/oNFaMDKNM7TwPDCS4qSXP+Oath0
-	sx+bBhaBCfr1s+gEdN5V0xKrd2Omf2XrUQe9O+NM3mrRlIx1MfhdJOdhsuQhNS4bvLDPN7HYi+6x5
-	hVT26TKQ==;
+	bh=bSK5mj89dQXwlW+W5oHpKWxB7hIv9hboTnHU8IskhqA=; b=mAL41MyD3m1zwr55j8pbKOCRSM
+	04NtFD1AvcZbz2lbN+yPd3L6GMdCK8JMQm1IAw/gG8gZUXxHsVoeHAuW8XIEyHvVmxhe+o57P0HEU
+	wSCOMAW1r9vmo2+J35gGJmeF/bdrvvzy68mrSNuZ7S7JFK7hFXn5E1WONw4dB6RAzk4lHNbeGyJRM
+	/D2KMjj68xZkOYp1QwNnSYIdKsGyFJG3aEvIAoTumz1wyzBjPnJ61n/m0URBwx3sufsZdfkPKvEe6
+	dvE23RiD+RKke+OUe6hd+yhiISGHJQghM6CQq0fWwvSOKgGXNjrrUl/9Nbssdn7eNms7qshJTViF4
+	bTLy5ZpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRROy-00000006YNh-2hmp;
-	Tue, 17 Jun 2025 08:10:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uRRRG-00000006Yjz-47Jg;
+	Tue, 17 Jun 2025 08:13:02 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRRMe-00000006Y5U-2TQE;
-	Tue, 17 Jun 2025 08:08:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 567FC5C629E;
-	Tue, 17 Jun 2025 08:05:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F24C4CEE3;
-	Tue, 17 Jun 2025 08:08:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750147695;
-	bh=xSp6YzXqyFFcF2Z2Zs5t0bWps7VV8UD7jYJkKHZXM/o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jO8swg8tV7STz2bUcJ9YCtQWUWoTKiqQrzOUzXza+nsU39hVu0EUGgliDvYKP2rLc
-	 6cGmSR3DT+tJa/rJcLN3NLYGKTdJ5ciOR1gUi/KmFmKUQ9qnkTa+M2U/n6uEOvRiki
-	 TJ9FY3IHIzksbh2K0E/JyENQQkM0irvxW4JwPveiVplqxnC7C70NHE9b9V42ilWYrL
-	 fHJei7Fs+MtBSZsyYo4ryVAWpFdvgfDT8kau8rHY9sLfuJUJzwOkQNs/NCCjgQFMn+
-	 eWm482swAZI18VzqH+AMY9SC1N5VG/wZcxuv3t/0MhEWQKatRhVCfWaM3H7yY8s5h1
-	 VNVR9j4o8uKEg==
-Date: Tue, 17 Jun 2025 10:08:12 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Quentin Schulz <foss+kernel@0leil.net>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, Daniel Semkowicz <dse@thaumatec.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Quentin Schulz <quentin.schulz@cherry.de>
-Subject: Re: [PATCH v2 1/4] dt-bindings: mfd: rk806: allow to customize PMIC
- reset mode
-Message-ID: <20250617-small-vivacious-labrador-7f0eb0@kuoka>
-References: <20250605-rk8xx-rst-fun-v2-0-143d190596dd@cherry.de>
- <20250605-rk8xx-rst-fun-v2-1-143d190596dd@cherry.de>
+	id 1uRRNg-00000006YE3-1KYr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Jun 2025 08:09:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f/4sW4xgl2qO6Xm+qAm8d19pYMFiEhSEWN3vZETaQJC/7MPbuu6V8Wd2Lb+kqq2kKT6RkW2+p3qc9ul/BRt/fHrftvVT7qjox8+rLF3BG4b0+kkqWQoK+u5/+rJ4S3phIqZRkxAPZZSgsE6E0ozvg8VaAumJIZ+fjK8HdJZXMgM8y1g2sOfMWnfKBvR3BM9nn+NASkeHHcx/uEfKemshtR0J/Gp4MlOq+X9A5lvCkBXvhbKJpoLSisvYGBD6AGZ5parSIauWgS7DlyGMzoncFfEpiWGysifdtL+/BCobjg+SIyeW5h2urFGpCEhgMEY8f8WLj7Zc9G0NS4Wk1X4rxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bSK5mj89dQXwlW+W5oHpKWxB7hIv9hboTnHU8IskhqA=;
+ b=gA/981bvVZ9qftXou6cKeHByvMARQtTfZkeLWXUtdF8/smXsSZ/1Gpp+GtNSXE1ByVTuoAQzHN9SqPglV5ZaG0YhGTgh0HzYG4WQZV/0gAvBI9dhcgSkq+EXmSsGP2EPxnqUP9jwveExUihS4bafRjtHYlErXtGwrBL8pGM+P5EZEpTTIRKhNPVzVI2bnlTttvkYf5It1NoIRe9VVpFb2oqwP/cYCPS01b+6fvGHemgzAzFd01a5axTjHy280i3JKF9oiMllAir1PUGz1RQdvjTKi2oyLNfbCp3Y9lVKPEahttCUVUoR81jgmZKmbZ6+mSvHmZARrGtdAHLEpMAk3Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bSK5mj89dQXwlW+W5oHpKWxB7hIv9hboTnHU8IskhqA=;
+ b=NuRkwCfVxMSIceDA6PE7DoqN+Oh2S+VDKS0O+2vv6W5E8ejyjuQJthnWcO+kBxBztwF/j8vDvotWhAhRgW0e6Dvb2ydwpCqWpBHeYt7IfrhsnKHp0rgBcozXkAQMdBkRuRFwV4sTG6sQq1+k1s5F9rFWlTT+oTPS+RpZ2xkfT5Yn3TMrO4xsG8t58MoYF99m2ykjVRuQux7/aBdxsTkNkudJ2KNjNlL/ojl0EtkskH3W9AkwqhQEDqNIs5mVOTISBwfFUaUpfd7BnVs5V7/zHX2qvec5qRO3S/p3jb36+p3aLakl92sIMiTjyBNJtme5iRB8vcHqO5XyfQaJoLOAag==
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by AS8PR04MB8328.eurprd04.prod.outlook.com (2603:10a6:20b:3fc::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Tue, 17 Jun
+ 2025 08:09:10 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.8835.026; Tue, 17 Jun 2025
+ 08:09:10 +0000
+From: Joy Zou <joy.zou@nxp.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "edumazet@google.com" <edumazet@google.com>, Peng Fan
+	<peng.fan@nxp.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Jacky Bai <ping.bai@nxp.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, Ye Li <ye.li@nxp.com>,
+	"richardcochran@gmail.com" <richardcochran@gmail.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>, "festevam@gmail.com"
+	<festevam@gmail.com>, "kuba@kernel.org" <kuba@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>, "mcoquelin.stm32@gmail.com"
+	<mcoquelin.stm32@gmail.com>, "linux-stm32@st-md-mailman.stormreply.com"
+	<linux-stm32@st-md-mailman.stormreply.com>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Frank Li <frank.li@nxp.com>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"alexandre.torgue@foss.st.com" <alexandre.torgue@foss.st.com>,
+	"will@kernel.org" <will@kernel.org>, "ulf.hansson@linaro.org"
+	<ulf.hansson@linaro.org>, Aisheng Dong <aisheng.dong@nxp.com>, Clark Wang
+	<xiaoning.wang@nxp.com>
+Subject: RE: Re: [PATCH v5 0/9] Add i.MX91 platform support
+Thread-Topic: Re: [PATCH v5 0/9] Add i.MX91 platform support
+Thread-Index: AQHb318amoI2njSFi0289legb0w7BQ==
+Date: Tue, 17 Jun 2025 08:09:10 +0000
+Message-ID: <AS4PR04MB93863494863F595F74B12129E173A@AS4PR04MB9386.eurprd04.prod.outlook.com>
+References: <20250613100255.2131800-1-joy.zou@nxp.com>
+ <175011005057.2433615.9910599057752637741.robh@kernel.org>
+In-Reply-To: <175011005057.2433615.9910599057752637741.robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9386:EE_|AS8PR04MB8328:EE_
+x-ms-office365-filtering-correlation-id: cc859da0-94bd-4097-9c49-08ddad763d5e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?YNUrASlyyKBNyneCLmo1UGtsi3i9HfbKDbEO8awprK01pWuXeLCP3vHkXHUi?=
+ =?us-ascii?Q?1WjY5RQ7yZIo0mV4e52EtlxewfYesaGTszVs8lc9bYk3IzXj2kELN0C2Hr6p?=
+ =?us-ascii?Q?nYQ+xiUokHLfSyyIaSaKFx0HlJJZKj1IBjpCzlNShbU5hGSSBYmYhSQe7+/Q?=
+ =?us-ascii?Q?QO5g159rqLiHa4kEG8l8UEX/JIJ3oiRabe7qUHnBo/BOyefkIdIaQosuIUYe?=
+ =?us-ascii?Q?gqecq/kuc33ZrxbbJGWdY9rhH6yHkhJ+vmt6POCFPJs3TNJB/bS7lrNMH5ZO?=
+ =?us-ascii?Q?l1D2SMn80feFb/oj04YL2LVnigiJsg9GKezzUFM1ps0ZTWj9U5f79uCTcSvI?=
+ =?us-ascii?Q?Fr1ZEZxm8TS4gNPzRG7UamEpZLoPxQ1zZD8FNKRxwwdc08aKmS4nuDo3WJny?=
+ =?us-ascii?Q?D/wn//Syjg58AB4ZRpskIq6Liz46ephMa8mygkb3sW1FmolcO49Zio3XNsIg?=
+ =?us-ascii?Q?fqJ+/+UMpISbQPU4n9QWWG30G2u0pWlFKw06FmjbGsrKPo5fuNN/oUL5DQJX?=
+ =?us-ascii?Q?CK2zv+Avf7JZ/AqxsHfGWEIITVJA+IbhZ6TQW/8iVCMyH4TlVR7FQaHacmp+?=
+ =?us-ascii?Q?q2IwVwnFgk2ikOTwMpzVGAZH5atHFSzFmqddZ8AMSXgnmwoNXZA8vhcoKlWV?=
+ =?us-ascii?Q?Pg8+NB3FC1uENDls/heLHk/lZ6uyIKU9LsYSZEyuHOUxCP/W3GWPSFB7QTo7?=
+ =?us-ascii?Q?LDuKeFW8kAfL0UG9AhnHKqe2WDhgXyefLJmzvAnTu0arSrRW15YTQ+YqBWeU?=
+ =?us-ascii?Q?MXi8wqVX4UVWLM+t3taP2nk5sWNMnmyMMwZXKG+hCJznPUMXbVJDBLq4zLgL?=
+ =?us-ascii?Q?7MQP/ew9Xd3rqXfDAnxoZBk1bhCRk4YRk5Ukcxrdntgh3gdnoAM13B6QYZnX?=
+ =?us-ascii?Q?o5IeIV/IXQqrV5XxBzcsP4PMXkd1UR+bu36Y61cWg9+57ULpKH124YQ8wcCR?=
+ =?us-ascii?Q?+GjATQBHjDSLYQVRms01bYvm96ktfPVRNSGw5azEUKh8jLN51ffRT5EeEVgx?=
+ =?us-ascii?Q?IJpjb7AHFz6TshjnBKt2mv2aW6tllkuJV1pMBNqKKoRRGCnExvU6fY3ru2E4?=
+ =?us-ascii?Q?6ZaClaCbUL/2WBHO/JxijlGyKJKTmtX7a+UbVrKFOlU2eFcrTmdr2oxNGGT4?=
+ =?us-ascii?Q?jCfzrw82ZmC5lAvWZlMETyY1oWSYyLllSbiX+XAmatXdeeUXdH5A/d3oV0zt?=
+ =?us-ascii?Q?LgTGcyIllFNAtJVnYE5YzAJ/DVqYhIWddSLsQDmxZtJqLoMbi0xIE6gVkJ0o?=
+ =?us-ascii?Q?11SmjtFjKSkWFTQKB+SSz3gPABr+aTa9MIn3RWqtFzTC+Pp40SDy33CCW79V?=
+ =?us-ascii?Q?BLXWt411IPMrOEBXUE7hPHAd/S+JWMyvi09Nx57ehhL9wXBeoi7qUYpI8+MO?=
+ =?us-ascii?Q?hRu31HuUGDTDJ/2Doooddk9EJZZuXaG5BwzFHAxV848dMGjwtA+RkssXoG4S?=
+ =?us-ascii?Q?9pzzCPrTqhoFIzomk4xKRoGyxJQp4yxLinGKcb2GCkeLCo6tcGvhxIQXVu3f?=
+ =?us-ascii?Q?TLS/e5NexH24hLM=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?0lQ8uOV+eaUJX6NbCphYh1b/TqpIc57AtcLjVAj3vmz+uN7//B2Z0fGzJwnp?=
+ =?us-ascii?Q?1+bhIW9a8DexP4Mfz8J44kF3ABd0ZRyn8yYZd/KZs8xwbPZ+C5k9TWEGOSAf?=
+ =?us-ascii?Q?knlYn0F7RzVdu4GIsYeu69oabTsbIrznSOQ1woPTRC4w+sFtRtPYawRmPexk?=
+ =?us-ascii?Q?FyhORP+mxGapDEPpFnBZNFq3HBOrpB27zpgXp6OcoDX8MV58sKHbdtUyJO+b?=
+ =?us-ascii?Q?xpUP6oGv3lkcUnaO662KTc4wulUHXylYDXqRAGX2BnjjXHVcvDk3ycFtkQSY?=
+ =?us-ascii?Q?HFvUN1JFXeavt96CkkmYTAAJROajZE865bczx+ZaSOp4mHghIdBqkDlzpXCp?=
+ =?us-ascii?Q?qagXyIhAMSsuoYffZJI6nyyzQ6TVJT3Uxu6odroytTbxpVF6FTJPDC6WDmjs?=
+ =?us-ascii?Q?9vUT0QqBR5DSwjzEtIu0DbVMTmVGxhPm2gGLIt6pnzz+1iwzJQIkIBD70xQx?=
+ =?us-ascii?Q?g1EwRWmKMhCxBZvC3XPo8zdJPIUpRA+HY92uy9Lf8wKGqhJysw1kCjHjizQw?=
+ =?us-ascii?Q?4wGVeTgkyVu3l9ZvsgCabYlxWKFNIU/5dsAt5IPW0t3JueU0Qy7otiqySfU4?=
+ =?us-ascii?Q?bFDj8aMsOqvYtQQ6tggKfMo7cIIQE4KhpukqUIsivC1xSEm9j7pr+zTh9j7K?=
+ =?us-ascii?Q?HZsPfdD8Af8nO7FEnAq4KSvTXRbRrCX/V4pspafGRBoEE5L0hgHL0blkWkza?=
+ =?us-ascii?Q?SmhJZ+Kia3YhBpdAlPSXzmC5v8GWnzZlm2MswIPjeac1pVf/C9iYAyCj2FKU?=
+ =?us-ascii?Q?nRwDcSYVj/3KBNpfgmuW3ahCtIayrvwcf4UkKpYhmhwSLSMHntM+vqmFoUNz?=
+ =?us-ascii?Q?Y90Ux6JIiOcualRXW+fK43NB/kTLFsXiyvBjcPymy6X0sZLF/FSgg7ZrFluS?=
+ =?us-ascii?Q?BDdg1xJBY2juA3dYVEoj8BdOXHINQuLF+4MJd2AZxrJL5Y+Uj3pEJPWyubcH?=
+ =?us-ascii?Q?Mw2dvmSPuweTkDcpo6ggWcP1C8FhXEpSvHcUPwzdntjQ2NuPuCMx9/a3n1Ar?=
+ =?us-ascii?Q?WEC2qZRfokeLbxGwZZeEXrjirmdCWCd3e40GfjzTwmFHtTStyQUI4Mh+6L26?=
+ =?us-ascii?Q?QENOmKYYwxcfLyCS19pHb4TIFHu3duYebaqRMnMXuSS7Tfik8zrxZizjK0/4?=
+ =?us-ascii?Q?x82VaVQpquexIWHGUSsaVQu461QC0jQjm7gVFFCB8eRg4YFX+O7Plm0IV+G1?=
+ =?us-ascii?Q?xUHfcAKJObxQ9ixQu6psz7KOW0u5C+HWcdb/Lhk0nJakYVcwXv2reb+1x8Q6?=
+ =?us-ascii?Q?on6kitDId+uDqk7+FT72qo5azBfqhLcJ0/iSYLmqMa1rTBksT+/VFaP2Wocw?=
+ =?us-ascii?Q?1O6AjCu8o67XPYhdrVABABxI+3fh89KAWD/qbgxNxW0CKvgO393KsdOC+7Sl?=
+ =?us-ascii?Q?R5ADJRZTgbK9WdCrmjxV2/lAN/Il/5fdgGK0YpG0G42cHuaTtM2CPj4bVUJ5?=
+ =?us-ascii?Q?ilQWHvG+ruuDZYC8tBj0OZWLpgaloR2IGSFs45Atkbt65+safO4pPmc+ISBf?=
+ =?us-ascii?Q?jBnPBofQcyUZQBZ5PXC5Jos6sMwQxJI/tnsrerDZiCy/TpQKFm9p90Ar/B1G?=
+ =?us-ascii?Q?/X3Y071ct5RzT8R++nQ=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250605-rk8xx-rst-fun-v2-1-143d190596dd@cherry.de>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc859da0-94bd-4097-9c49-08ddad763d5e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jun 2025 08:09:10.3509
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rlRexoDHS48AvLrMgbBMdHmDf6+nGGrh9nEET6kS4I5+07cRWMf4+0eAoF83OrK0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8328
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_010816_710421_E33EB795 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20250617_010920_356571_23580F82 
+X-CRM114-Status: GOOD (  29.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,64 +180,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 05:41:06PM GMT, Quentin Schulz wrote:
-> +  rockchip,reset-mode:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1, 2]
-> +    description:
-> +      Mode to use when a reset of the PMIC is triggered.
-> +
-> +      The reset can be triggered either programmatically, via one of
-> +      the PWRCTRL pins (provided additional configuration) or
-> +      asserting RESETB pin low.
-> +
-> +      The following modes are supported (see also
-> +      include/dt-bindings/mfd/rockchip,rk8xx.h)
-> +
-> +      - 0 (RK806_RESTART) restart PMU,
-> +      - 1 (RK806_RESET) reset all power off reset registers and force
-> +        state to switch to ACTIVE mode,
-> +      - 2 (RK806_RESET_NOTIFY) same as RK806_RESET and also pull
-> +        RESETB pin down for 5ms,
-> +
-> +      For example, some hardware may require a full restart
-> +      (RK806_RESTART mode) in order to function properly as regulators
-> +      are shortly interrupted in this mode.
-> +
 
-This is fine, although now points to missing restart-handler schema and
-maybe this should be once made common property. But that's just
-digression, nothing needed here.
-
->    vcc1-supply:
->      description:
->        The input supply for dcdc-reg1.
-> diff --git a/include/dt-bindings/mfd/rockchip,rk8xx.h b/include/dt-bindings/mfd/rockchip,rk8xx.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..f058ed1ca661185f79738a358aa2d4f04539c590
-> --- /dev/null
-> +++ b/include/dt-bindings/mfd/rockchip,rk8xx.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * Device Tree defines for Rockchip RK8xx PMICs
-> + *
-> + * Copyright 2025 Cherry Embedded Solutions GmbH
-> + *
-> + * Author: Quentin Schulz <quentin.schulz@cherry.de>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
-> +#define _DT_BINDINGS_MFD_ROCKCHIP_RK8XX_H
-> +
-> +#define RK806_RESTART		0
-> +#define RK806_RESET		1
-> +#define RK806_RESET_NOTIFY	2
-
-I do not see how this is a binding. Where do you use this in the driver
-(to be a binding because otherwise you just add unused ABI)?
-
-Best regards,
-Krzysztof
+> -----Original Message-----
+>=20
+> On Fri, 13 Jun 2025 18:02:46 +0800, Joy Zou wrote:
+> > The design of i.MX91 platform is very similar to i.MX93.
+> > Extracts the common parts in order to reuse code.
+> >
+> > The mainly difference between i.MX91 and i.MX93 is as follows:
+> > - i.MX91 removed some clocks and modified the names of some clocks.
+> > - i.MX91 only has one A core.
+> > - i.MX91 has different pinmux.
+> > - i.MX91 has updated to new temperature sensor same with i.MX95.
+> >
+> > Joy Zou (8):
+> >   dt-bindings: soc: imx-blk-ctrl: add i.MX91 blk-ctrl compatible
+> >   arm64: dts: freescale: rename imx93.dtsi to imx91_93_common.dtsi
+> >   arm64: dts: imx93: move i.MX93 specific part from
+> imx91_93_common.dtsi
+> >     to imx93.dtsi
+> >   arm64: dts: imx91: add i.MX91 dtsi support
+> >   arm64: dts: freescale: add i.MX91 11x11 EVK basic support
+> >   arm64: defconfig: enable i.MX91 pinctrl
+> >   pmdomain: imx93-blk-ctrl: mask DSI and PXP PD domain register on
+> >     i.MX91
+> >   net: stmmac: imx: add i.MX91 support
+> >
+> > Pengfei Li (1):
+> >   dt-bindings: arm: fsl: add i.MX91 11x11 evk board
+> >
+> >  .../devicetree/bindings/arm/fsl.yaml          |    6 +
+> >  .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     |   55 +-
+> >  arch/arm64/boot/dts/freescale/Makefile        |    1 +
+> >  .../boot/dts/freescale/imx91-11x11-evk.dts    |  878 ++++++++++
+> >  arch/arm64/boot/dts/freescale/imx91-pinfunc.h |  770 +++++++++
+> >  arch/arm64/boot/dts/freescale/imx91.dtsi      |  124 ++
+> >  .../boot/dts/freescale/imx91_93_common.dtsi   | 1215 ++++++++++++++
+> >  arch/arm64/boot/dts/freescale/imx93.dtsi      | 1412 ++---------------
+> >  arch/arm64/configs/defconfig                  |    1 +
+> >  .../net/ethernet/stmicro/stmmac/dwmac-imx.c   |    2 +
+> >  drivers/pmdomain/imx/imx93-blk-ctrl.c         |   15 +
+> >  11 files changed, 3166 insertions(+), 1313 deletions(-)  create mode
+> > 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+> >  create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+> >  create mode 100644
+> arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+> >
+> > --
+> > 2.37.1
+> >
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+Thanks for your reminder!
+Have run DT checks and found this warning. The temperature bindings and dri=
+ver patch v6 is reviewing.
+So add note to the " [PATCH v5 5/9] arm64: dts: imx91: add i.MX91 dtsi supp=
+ort" patch.
+Refer to the link: https://patchwork.kernel.org/project/linux-arm-kernel/pa=
+tch/20250407-imx91tmu-v6-0-e48c2aa3ae44@nxp.com/
+BR
+Joy Zou
+>=20
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings =
+are
+> fixed by another series. Ultimately, it is up to the platform maintainer =
+whether
+> these warnings are acceptable or not. No need to reply unless the platfor=
+m
+> maintainer has comments.
+>=20
+> If you already ran DT checks and didn't see these error(s), then make sur=
+e
+> dt-schema is up to date:
+>=20
+>   pip3 install dtschema --upgrade
+>=20
+>=20
+> This patch series was applied (using b4) to base:
+>  Base: attempting to guess base-commit...
+>  Base: tags/v6.16-rc1-6-g8a22d9e79cf0 (best guess, 6/7 blobs matched)
+>=20
+> If this is not the correct base, please add 'base-commit' tag (or use b4 =
+which
+> does this automatically)
+>=20
+> New warnings running 'make CHECK_DTBS=3Dy for
+> arch/arm64/boot/dts/freescale/' for
+> 20250613100255.2131800-1-joy.zou@nxp.com:
+>=20
+> arch/arm64/boot/dts/freescale/imx91-11x11-evk.dtb:
+> /soc@0/bus@44000000/thermal-sensor@44482000: failed to match any
+> schema with compatible: ['fsl,imx91-tmu']
+>=20
+>=20
+>=20
+>=20
 
 
