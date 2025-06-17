@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E798DC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 11:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703F6C71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 11:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ofhZ+aZdoQiKZ1aSUpTYX29UICoylWQHq+sV9tww0fQ=; b=WbL2Pra58vqDs8rJ6SNS/RMpqA
-	oXuGUq/l4wTatS3KeHjh6/KAfBsydcgCjPF1+Nfi1uzL3KYQpJb8I35NHZTg02UurWdnY2qD5F4Kh
-	R4itDqWzUSdC7kV/bv96F1KmwTM8FmpzHDsTepMB/aFJuftR0F77+kkol347q1aF9ekdS7FzILXCl
-	oV0YDlNFY9DW7Rb00YLbwRUNS7gMUv3RMQG3Q7wbKrly32aP5d92qioIeEmFoSMpdVysMn/Gf8e7G
-	DHoLz8qMsJ/mot9wqYnaZWhmStH3pIKqvmPfjt0PtpjCqsEjjCGBgXcilbX2cbvqWHBCnph/L4BK+
-	t523jlZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I/XhDv9ax+wgI0lZNYoB96n/0fpk8hC2rG3TpAKBCwM=; b=fIqoBT7Y5kH0WSkVuAn3d+fI01
+	7cT0kHBWx7Ap5dVwdon8IVTjOorQ8kxBhQgV3XG3qFDj9Do9MFNQ3XY5hRjTprz7rvdlF/XbMFM6G
+	tikQcoHePXif1fcLwWkFeCAqzsAYAWHmg2AMso732lY8VtqgyEGYH0C8PFt1tZ+vFjNms6/Mpx2tB
+	dJTkMYAoqlVtobXmhtL5s8HM8jZ4Ry/6horYbsEGpsk1mvyucOS5/AAqpaDA2bWMjTLqWcgPOTNj6
+	+t/WcZgcOo0eftlk34FXxW9e3WcSwZifjgf+hgT6hPnqL/gvS5+tAyy+ch9e7IQA+qLfwlSn+5wmE
+	IadWRpiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRUXO-000000072SO-2Kyh;
-	Tue, 17 Jun 2025 11:31:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRSyT-00000006pP1-0QfW
+	id 1uRUXP-000000072SS-0L5V;
+	Tue, 17 Jun 2025 11:31:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uRTLE-00000006tFH-26Py
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 09:51:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D5B51688;
-	Tue, 17 Jun 2025 02:51:03 -0700 (PDT)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 50A113F58B;
-	Tue, 17 Jun 2025 02:51:21 -0700 (PDT)
-From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-To: ryan.roberts@arm.com,
-	yang@os.amperecomputing.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	jean-philippe@linaro.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	broonie@kernel.org,
-	ardb@kernel.org,
-	baohua@kernel.org,
-	suzuki.poulose@arm.com,
-	david@redhat.com,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	jsnitsel@redhat.com,
-	mshavit@google.com,
-	kevin.tian@intel.com,
+	Tue, 17 Jun 2025 10:14:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 714F949CAF;
+	Tue, 17 Jun 2025 10:14:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E694C4CEEE;
+	Tue, 17 Jun 2025 10:14:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750155295;
+	bh=TGiJ78OP12uHdMJQ3lJsjwAsNWLdhU7ATUP+OpaDnTM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o/1uzIR6BMhnlc2FAlYqUdmXvvuDtF8wPGOeNwLChQTgBUbfOFenjr3VK/V41Gvh9
+	 Jg5EIm+eukoiDcygWJPerWvg8K/Cl8DES8H+DLZCh0cCI7gGKklAVtLqfdl2wTGkPe
+	 DALKiNyxhk5j/1mBAnw+60bPHI/gS/amHDBeMwgEh3kU63Zi9JvteyDGx13Swwp8pv
+	 dWAEOIjVr/6vLeeB6RjIH5XrAdrKk0O6vO1ChEwwxpVZYCsjcCLM5uyROvgvzsjKRd
+	 5yd+RoYXU7iK8SpnT+BoBNJFGDv1K8JHAH/Z1+bq8ENUyHEYRPNs0FAY1N7KkAX6wL
+	 tV3Y6e4JkfMDQ==
+Date: Tue, 17 Jun 2025 15:44:45 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v7 2/4] arm64: Add BBM Level 2 cpu feature
-Date: Tue, 17 Jun 2025 09:51:02 +0000
-Message-ID: <20250617095104.6772-3-miko.lenczewski@arm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250617095104.6772-1-miko.lenczewski@arm.com>
-References: <20250617095104.6772-1-miko.lenczewski@arm.com>
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+	robin.murphy@arm.com
+Subject: Re: [PATCH v10 2/9] dma-buf: dma-heap: export declared functions
+Message-ID: <aFFAFcSNtMM7d38w@sumit-X1>
+References: <20250610131600.2972232-1-jens.wiklander@linaro.org>
+ <20250610131600.2972232-3-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250610131600.2972232-3-jens.wiklander@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_025125_230338_78917507 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250617_031456_558543_7F25E09F 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,119 +89,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-and this commit adds a dedicated BBML2 cpufeature to test against
-support for.
+On Tue, Jun 10, 2025 at 03:13:46PM +0200, Jens Wiklander wrote:
+> Export the dma-buf heap functions to allow them to be used by the OP-TEE
+> driver. The OP-TEE driver wants to register and manage specific secure
+> DMA heaps with it.
+> 
+> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> ---
+>  drivers/dma-buf/dma-heap.c | 3 +++
+>  1 file changed, 3 insertions(+)
 
-To support BBML2 in as wide a range of contexts as we can, we want not
-only the architectural guarantees that BBML2 makes, but additionally
-want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
-us having to prove that no recursive faults can be induced in any path
-that uses BBML2, allowing its use for arbitrary kernel mappings.
+Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 
-This feature builds on the previous ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-as all early cpus must support BBML2 for us to enable it (and any later
-cpus must also support it to be onlined).
+-Sumit
 
-Not onlining late cpus that do not support BBML2 is unavoidable, as we
-might currently be using BBML2 semantics for kernel memory regions. This
-could cause faults in the late cpus, and would be difficult to unwind,
-so let us avoid the case altogether.
-
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
----
- arch/arm64/include/asm/cpufeature.h |  5 ++++
- arch/arm64/kernel/cpufeature.c      | 40 +++++++++++++++++++++++++++++
- arch/arm64/tools/cpucaps            |  1 +
- 3 files changed, 46 insertions(+)
-
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 155ebd040c55..bf13d676aae2 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -871,6 +871,11 @@ static inline bool system_supports_pmuv3(void)
- 	return cpus_have_final_cap(ARM64_HAS_PMUV3);
- }
- 
-+static inline bool system_supports_bbml2_noabort(void)
-+{
-+	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
-+}
-+
- int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
- bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
- 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index f9c947166322..2e80ff237b96 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2213,6 +2213,41 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
- 	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
- }
- 
-+static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
-+{
-+	/*
-+	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
-+	 * as possible. This list is therefore an allow-list of known-good
-+	 * implementations that both support BBML2 and additionally, fulfill the
-+	 * extra constraint of never generating TLB conflict aborts when using
-+	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
-+	 * kernel contexts difficult to prove safe against recursive aborts).
-+	 *
-+	 * Note that implementations can only be considered "known-good" if their
-+	 * implementors attest to the fact that the implementation never raises
-+	 * TLBI conflict aborts for BBML2 mapping granularity changes.
-+	 */
-+	static const struct midr_range supports_bbml2_noabort_list[] = {
-+		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-+		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-+		{}
-+	};
-+
-+	/* Does our cpu guarantee to never raise TLB conflict aborts? */
-+	if (!is_midr_in_range_list(supports_bbml2_noabort_list))
-+		return false;
-+
-+	/*
-+	 * We currently ignore the AA64_ID_MMFR2 register, and only care about
-+	 * whether the MIDR check passes. This is because we specifically
-+	 * care only about a stricter form of BBML2 (one guaranteeing noabort),
-+	 * and so the MMFR2 check is pointless (all implementations passing the
-+	 * MIDR check should also pass the MMFR2 check).
-+	 */
-+
-+	return true;
-+}
-+
- #ifdef CONFIG_ARM64_PAN
- static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
- {
-@@ -2980,6 +3015,11 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
- 	},
-+	{
-+		.capability = ARM64_HAS_BBML2_NOABORT,
-+		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-+		.matches = has_bbml2_noabort,
-+	},
- 	{
- 		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
- 		.capability = ARM64_HAS_LPA2,
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 10effd4cff6b..2bd2bfaeddcd 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -45,6 +45,7 @@ HAS_LPA2
- HAS_LSE_ATOMICS
- HAS_MOPS
- HAS_NESTED_VIRT
-+HAS_BBML2_NOABORT
- HAS_PAN
- HAS_PMUV3
- HAS_S1PIE
--- 
-2.49.0
-
+> 
+> diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
+> index 3cbe87d4a464..cdddf0e24dce 100644
+> --- a/drivers/dma-buf/dma-heap.c
+> +++ b/drivers/dma-buf/dma-heap.c
+> @@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
+>  {
+>  	return heap->priv;
+>  }
+> +EXPORT_SYMBOL(dma_heap_get_drvdata);
+>  
+>  /**
+>   * dma_heap_get_name - get heap name
+> @@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap *heap)
+>  {
+>  	return heap->name;
+>  }
+> +EXPORT_SYMBOL(dma_heap_get_name);
+>  
+>  /**
+>   * dma_heap_add - adds a heap to dmabuf heaps
+> @@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dma_heap_export_info *exp_info)
+>  	kfree(heap);
+>  	return err_ret;
+>  }
+> +EXPORT_SYMBOL(dma_heap_add);
+>  
+>  static char *dma_heap_devnode(const struct device *dev, umode_t *mode)
+>  {
+> -- 
+> 2.43.0
+> 
 
