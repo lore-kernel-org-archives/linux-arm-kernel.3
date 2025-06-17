@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C1AC7115B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D2A0C7115E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+pGDmcxmLZmMS7/Xi7fQD5Ikq5ZrlRKHQMOKHSaycmM=; b=HyP/S1V4XzJqHGmafdrHtp5VJ+
-	a7xGPMy6CWCXGDKKL3CnMfxvo0bp3rXZN5RCcPzKaduJ3JITjjhflkayBG3yqKAKPtdqMV9wKPsXw
-	df0VQ8OzVtadMuuLW6MR/M3VN8PXaZgVOMVgNegdQAc9STpuImMmWVvXOrNaqJi93fYRRqrDk3K6j
-	wRjWZMplA71KirXg/1BBPCzQlF79jjehD6xtFc66z0ZTKy43Btwon0c+CwA1YL+QPFtk1IcLJR+Jm
-	KIHaCRug8yoy3XumB1LDhZFfsyQgsnZofoDmRI2/+xX4MAGc4/l2tpTf+H8jpR3ZeWtOx3RcjUvW9
-	t0E6fNNA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UO3OBg3KnqxOnhAqmgUrsRPAjHjoZWYMZcKfrgL11EY=; b=L+5X3l8U0TxuSO2aOBNCsPCMDu
+	5R618RS5o4ABFozQdPmsQUcBYBuc9Mdzl97uZ3Qeu02yzxeORYtbg8r/9wuQ0jzIn2iNz6TgkkKuC
+	eSm8KgycttfQs7ifAQyxI/cQDMrkOoOgO3UsDQxfQxw2OtUuO1KCwX5uT03sNDqSjKvPwbNQ9Rrg7
+	x9+vE8tIFCa00L5Wxa/x/ByOWPMEnUNOJatTnVMZMdL/C8NtQnm7wB4ui18SySXkn8bfe6uwcVxWX
+	n4P63NmpRatTKqQ7ZHm8/UQ1G5ttgxkz0Z83TMBtGr8KN0b6KK3anRM2Sfny9fvXEmkd7tu/acmIy
+	uBTIa1Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZrL-00000007zv4-1tpr;
-	Tue, 17 Jun 2025 17:12:31 +0000
+	id 1uRZrK-00000007ztU-1G75;
+	Tue, 17 Jun 2025 17:12:30 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRYrk-00000007py9-3iEB
+	id 1uRYrj-00000007py9-0aHl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 16:08:53 +0000
+	Tue, 17 Jun 2025 16:08:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1750176532; x=1781712532;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=4i2WXR/m+DKZimuqrflK/Htmu3/SzQoc8EbGnqOF56c=;
-  b=qchgfUm/ifJAUx1aNIZrxpKLkyji7u3TceBdX5YqXl534imitO91uFCA
-   wOYGMtB6PfUcw+5tJbk3i0s45vqcGUIo3v4zf/VS3Bg6GCtBy8mqIHsvT
-   sIvVaYFTjIupH2HsVGyBaMnrHLySNBfmvY8MbSCEhbYqOylOi4Cth2CUq
-   DhjjauyyMDQYudU7LXDm/lvZ8XQycJ6rI9vZg1uvIVyRUUcoxgTTd+/Q4
-   bfCrHOCKpUaqiHM3YuxkpEmQZw53vyX/Tp1de4DoSXiC+HCZcA7/9HOKI
-   f5rAxfVfNr8h2rkrskjIf/8iBT77p9mruwV+tKAjF3eP29CnZYckwwg8d
-   g==;
+  t=1750176530; x=1781712530;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=7PYbB5ciYDFQ/YiUR7wUJVLYeeg/6IgVHNbv1sYOFLg=;
+  b=T4ko4A4TxUo/4pvsVMF1U5vQqiCMQ36+lBd5qMDTPeaOirRakltTZCJ+
+   nJAoVBVOQbq1IFKw4zR913p+UQ1tpQjlTRhjNej2ZDiUaqJ1zWmlevHLm
+   bj43A+17D2pvvwEqc8HF3BFZ6N32RAbOSs8VcAoxWYvh7zsydJn6D0H0t
+   BYmsuQzwSqVeeYSDxHDlYK045oBCsoz0nPtbGUow4n4CWhXHZsZGx3PPy
+   sZZU4C6XUs4rrj8fqQW9yVPmfFmABmgh4K1c6N1CEDpLq5nttu1nZCxqO
+   4P9FdBRhUCVmdVOrexSJvBigYFxb9g1vivlbxlEvkOs4fxbufRUl153ta
+   w==;
 X-CSE-ConnectionGUID: nTbCTdliQ7eOQ0UC/OTqRA==
-X-CSE-MsgGUID: B0b4be4rQZaj37P5HU+uOw==
+X-CSE-MsgGUID: Zlp5949DT86pliXPpTbf+g==
 X-IronPort-AV: E=Sophos;i="6.16,243,1744095600"; 
-   d="scan'208";a="210388666"
+   d="scan'208";a="210388665"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Jun 2025 09:08:47 -0700
@@ -60,19 +60,16 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<claudiu.beznea@tuxon.dev>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH v5 1/3] ARM: dts: microchip: sama7g5: Adjust clock xtal phandle
-Date: Tue, 17 Jun 2025 09:08:40 -0700
-Message-ID: <8a9ece664958d07b1be73b4b6676a2a2ee397a94.1750175453.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v5 0/3] AT91 SAMA7 SoC Clock Adjustments
+Date: Tue, 17 Jun 2025 09:08:39 -0700
+Message-ID: <cover.1750175453.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1750175453.git.Ryan.Wanner@microchip.com>
-References: <cover.1750175453.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_090852_989009_AE173527 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250617_090851_418947_ED3FEF9A 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +86,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Adjust clock xtal phandles to match the new xtal phandle formatting.
+This set has clock system adjustments for the AT91 clock system for
+sama7 SoC family.
 
-Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
----
+The patch set updates the device tree phandle formatting for the
+sama7g54 SoC. This also adds names to the xtals so the driver can
+correclty find and name them in the clock tree.
+
+Changes v1 -> v2:
+- Add clk_hw struct to parent_data adjustment for the sama7g5.c driver.
+- Add correction to sama7g54 dtsi main xtal phandles.
+
+Changes v2 -> v3:
+- Removed the empty line after the fixes tag.
+- Correct commit messages to better explain the issue that this is
+  fixing.
+- Initialize parent_data index to 0.
+
+Changes v3 -> v4:
+- Add clock-output-names to the xtal nodes.
+- Remove the clock driver changes since those are not needed for this
+  set.
+- Adjust cover letter message to reflect the changes in the v4.
+
+Changes v4 -> v5:
+- Correct alphabetical issues.
+- Add adjustment USB_CLK name to fit the formatting.
+- Add clock names to SAM9X75 SoC.
+
+Ryan Wanner (3):
+  ARM: dts: microchip: sama7g5: Adjust clock xtal phandle
+  ARM: dts: microchip: sama7d65: Add clock name property
+  ARM: dts: microchip: sam9x7: Add clock name property
+
  arch/arm/boot/dts/microchip/at91-sama7g5ek.dts | 18 ++++++++----------
+ arch/arm/boot/dts/microchip/sam9x7.dtsi        |  2 ++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi      |  2 ++
  arch/arm/boot/dts/microchip/sama7g5.dtsi       |  9 ++++++---
- 2 files changed, 14 insertions(+), 13 deletions(-)
+ 4 files changed, 18 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-index 2543599013b1..3924f62ff0fb 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-@@ -35,16 +35,6 @@ aliases {
- 		i2c2 = &i2c9;
- 	};
- 
--	clocks {
--		slow_xtal {
--			clock-frequency = <32768>;
--		};
--
--		main_xtal {
--			clock-frequency = <24000000>;
--		};
--	};
--
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 
-@@ -556,6 +546,10 @@ &i2s0 {
- 	pinctrl-0 = <&pinctrl_i2s0_default>;
- };
- 
-+&main_xtal {
-+	clock-frequency = <24000000>;
-+};
-+
- &pdmc0 {
- 	#sound-dai-cells = <0>;
- 	microchip,mic-pos = <MCHP_PDMC_DS0 MCHP_PDMC_CLK_NEGATIVE>, /* MIC 1 */
-@@ -885,6 +879,10 @@ input@0 {
- 	};
- };
- 
-+&slow_xtal {
-+	clock-frequency = <32768>;
-+};
-+
- &spdifrx {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_spdifrx_default>;
-diff --git a/arch/arm/boot/dts/microchip/sama7g5.dtsi b/arch/arm/boot/dts/microchip/sama7g5.dtsi
-index 17bcdcf0cf4a..e128074137e0 100644
---- a/arch/arm/boot/dts/microchip/sama7g5.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7g5.dtsi
-@@ -117,19 +117,22 @@ map1 {
- 	};
- 
- 	clocks {
--		slow_xtal: slow_xtal {
-+		slow_xtal: clock-slowxtal {
- 			compatible = "fixed-clock";
-+			clock-output-names = "slow_xtal";
- 			#clock-cells = <0>;
- 		};
- 
--		main_xtal: main_xtal {
-+		main_xtal: clock-mainxtal {
- 			compatible = "fixed-clock";
-+			clock-output-names = "main_xtal";
- 			#clock-cells = <0>;
- 		};
- 
--		usb_clk: usb_clk {
-+		usb_clk: clock-usbclk {
- 			compatible = "fixed-clock";
- 			#clock-cells = <0>;
-+			clock-output-names = "usb_clk";
- 			clock-frequency = <48000000>;
- 		};
- 	};
 -- 
 2.43.0
 
