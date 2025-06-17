@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DAFC71136
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3BBC71157
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KYD6S8hPGQTHZufVd3WUoAkSmrJ1ECG4GZkVwsff6jo=; b=DfnxfHrc0JJiwJyDMu7BVW1jIC
-	JFpI5TobT6Fu4RemImWM3v1+4WPbS639riXUv7oRV6w4er2nRQhV/uWwKvDPuv3lpQ9MrgbqxWDOG
-	fUspt2ZLvO7b7Yw0FqwExTU/SHS0WXsYCtY/pRsfRVvF1MvqbQW7tMISBvvJfS8VhgvqhH4gCIYud
-	VFfSrMrSrwLLUG7R/UB0MKRNamIfz+Bw3v2Z7nDtCWL7LVqsKEw+H8hX3+ffUsOD65Gvk4JEiUaHR
-	HVHw5ZzP5Bu+sAJ2ooc5wVI38zVIJ9H3eGaTK5zle8qo6VwxScJPiphr52hibvTSzRYpSrIT2Xmvu
-	FWxBMmXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tk6I9EzaZ+W1EwXyeTL06fJaBXc6NaRZh1+FWMs/B84=; b=DM/WR+REWgwmnr4bk0oqcFNlp3
+	MQnsJ1XQlpPHFStPgwEqQNuHPl1h0g3oxoWndgvOxG3N+KLyNOc6qWDCqL4glUFma186J+9hvaXtD
+	I9GGGlSOWRlOkOxJ0Dv6q8+S8A0Pe5npkKQlDQP/3rJA5I4Xbc7om6ArvSntSoaOuXJACASSRHWHk
+	LjBlTedrdHSsPK9Lw06mXUAl4oaJlb9vn3zuTYZJ6CB75elBCP7HdeU3IfYyhzGyO/dSc7e25o0m3
+	Q9uXK39Ll2OjGXTer4NDXPQe6mVR7uXwIdI082nFUA88XBharTKY9A6kwjXlHuBfAhVdLaeKN0nJd
+	c/dVMdEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXj5-00000007ejy-2evQ;
-	Tue, 17 Jun 2025 14:55:51 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uRXlH-00000007f0T-1PJq;
+	Tue, 17 Jun 2025 14:58:07 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWsv-00000007Slo-2OEF;
-	Tue, 17 Jun 2025 14:01:58 +0000
-Received: from [192.168.1.102] (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BE7BA4371;
-	Tue, 17 Jun 2025 15:54:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1750168445;
-	bh=+zqqmKIUftUfrElMykNoEhWSaAdLvXt5iznvaoygcTU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HZx1zX53qc58axyY+buCnKjSNgBYyNb281iQ+d8JoeKYrFZZWX3+Uq7/tc9kqNKlx
-	 a1/Qcm2aoy5sOg+iSbY+pNP1HmmG87SmilEjPDO3A0IytziFsH+5ccIqEEf/s2TiPZ
-	 22rJvmVLKMOIunr402Td3u51fw2mZjU5VIXmY+WI=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Tue, 17 Jun 2025 15:54:02 +0200
-Subject: [PATCH v8 4/4] media: pisp_be: Fix pm_runtime underrun in probe
+	id 1uRWwG-00000007Tgo-3oyZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 17 Jun 2025 14:05:26 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b2fd091f826so4203400a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 07:05:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1750169123; x=1750773923; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tk6I9EzaZ+W1EwXyeTL06fJaBXc6NaRZh1+FWMs/B84=;
+        b=ByAB9kLdNJSkAAA2iqdEu4v/MKQGxGmcqjQ3NRQQ6sKf++9+coaza394jPifYdDYEs
+         g9wCAvWvR5Lo7p6uew03XidZGpDZ0ycv1PE0KJrzz8hZfemtysDYdpIuJ1WpsJQ4cQqK
+         aWjuGRoF8g/QfBbjbmzheD5UpbG5okK8CbxgszBLXfLNr9VJxBnLkTkhbspOpWtt9W7g
+         qepgx9swYNiY4mxOk3H5/4qKMb2s8LMy46DhodyuVlJfNkR6ogzvf9eWd99xgI1qceIh
+         tTa3Sh3hRBQVp/lLwjPkvgUZnS9IvZ6QLIu+X9Jdb8M0biNExFWLBF4Nne003DGj+qOy
+         w0yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1750169123; x=1750773923;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tk6I9EzaZ+W1EwXyeTL06fJaBXc6NaRZh1+FWMs/B84=;
+        b=lj56rNC4zRblleTq96DfCfSvptalUdrJOwlW34TktrvFYxf5olrACHckaGTXk+3mD8
+         Y5TZHSLcGRG8Q/KBkKK4B/AeUoeNr8f3esUAw+1qzHPUnyN7lmO1evvwJ8uTeZej9GHn
+         60voCXbweUzmockzxOMCu+3g1x4k4kVVH7fBS1LdTOBtgTfsV2fzPvEKOurhf44KS6z/
+         dkY9V0L0vUmsqwU2JrSDOuS/0ESpeDykx2Yyf6SRoluQ57YAdLYSQr6L0xGgEwKeSy3w
+         r7+M7KH1qyyGLwhUUPduWFXhRYVoA5naX8whxjIWcpt75hzoEqlcd8yNq8KSMP4Ze7tG
+         tY7w==
+X-Gm-Message-State: AOJu0YwGB3Jqn6UloyzvhQfy5GxrXRHYjT0ohC7zuHGaNwUFGxXihJ2L
+	0/JUYoYHb0DXi+jHHRuvPOj6o+azUdV0o4cex17qXr2pqA5PiYHAOYqylJRcBg==
+X-Gm-Gg: ASbGncu1zuqfXxshe7ixNvYmd2nz/LT4SzMWzdjO34G77C0W4BTd03FxxwKjjzTStQW
+	Y/iqpbo1WVOXd5jj1xdiJcd/CHRVvOSbByDIUZs3PixTWS8GBhcsyza6Aq+Gig261W4B+ggWVGu
+	fna3Ui2+yaGJYYAixInoHNEasgksbjwaJEGvqhUt6949w9VjeNPNZqNx1F5NREWNiDV+Jh26O2m
+	1pwhumkDxFEztX4CbZFAK6sUXc0B0Tw7Qkc/k+PXvb59UYyco1EWXmKsY1Ca6bv/8eabo8SoEL8
+	aiqjqEdQtLD0vtkc9cJUkZIahPkEy4uS3AZapeKv8HHeX9Kl44BiW2xcwg==
+X-Google-Smtp-Source: AGHT+IHbKZPSqfh1gqigaZX04x3z6UHxXKBdLiZMKpd9JFG5J7rZIOuFOAUM8RsuNLpgmb1IEIuIWw==
+X-Received: by 2002:a05:6a21:4006:b0:21d:98c:12c9 with SMTP id adf61e73a8af0-21fbc7fb787mr20507624637.21.1750169123256;
+        Tue, 17 Jun 2025 07:05:23 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61::1000])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe163a0e7sm8906127a12.16.2025.06.17.07.05.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Jun 2025 07:05:22 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: claudiu.beznea@tuxon.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	nicolas.ferre@microchip.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH v2 1/2] ARM: dts: at91-sama5d27_wlsom1: Improve the Wifi compatible
+Date: Tue, 17 Jun 2025 11:05:01 -0300
+Message-Id: <20250617140502.1042812-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250617-pispbe-mainline-split-jobs-handling-v6-v8-4-e58ae199c17d@ideasonboard.com>
-References: <20250617-pispbe-mainline-split-jobs-handling-v6-v8-0-e58ae199c17d@ideasonboard.com>
-In-Reply-To: <20250617-pispbe-mainline-split-jobs-handling-v6-v8-0-e58ae199c17d@ideasonboard.com>
-To: Naushir Patuck <naush@raspberrypi.com>, 
- Nick Hollinghurst <nick.hollinghurst@raspberrypi.com>, 
- David Plowman <david.plowman@raspberrypi.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Hans Verkuil <hverkuil@xs4all.nl>
-Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>, stable@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3265;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=+zqqmKIUftUfrElMykNoEhWSaAdLvXt5iznvaoygcTU=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBoUXOEbA+dXnVyiD4fxG8s5bJd//kD7Vj5ntMJc
- MB1aGNB5uSJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaFFzhAAKCRByNAaPFqFW
- PO2QD/9FWbjUfguHOEg9Va0TjkdMBLIiy4tT32D8DssRg/qq2p4rWJPSjE1Hjabozj8wAgpJ8Br
- puM+Lgw2lxhq1t5DSJvKQkkEirD3uedtCHet2vwU95CswdHsnqljKsytl67N623aNIgE9cVBEYF
- APlOPUuY81umvgcQeYmTVdvOHGXphD5IRSuJPDiXb+FcxZWozgMIkkM3Mc5muYq6RImez9DGOKT
- iT9C/A1isjiYMu3nYac3kMWods8nBeibf/nsrblNt3dvEo0mRqwUf/S+YunHLZMH1+8GZasW1SB
- H5Uh4zeUlPKLBChdkjBJDZBMCUAlPPcfMxb46pYfmw/iZvZ3yU16Q5o9r9uwVBztwBGkdOK2yGQ
- K2vmzZMSPFPzaxKPfXkb77G2QVOBxFId3FwBaXQwcviPRoEyPvonGhpb/Zs3BzsDr0RH0eo407D
- CjRtH6tQo/KXPI14oFJGBY4JczLbJjK6zxtTtVM4baqlfZxakT6zXDS7qsE6+iQJM3JqYTDR2sr
- PNY2qS9g8jZ5AkyURyU7s5FeHytuA8Qd/pJhqXaCFGQWiel6O2DR33bBjXww6HGkQ+WxWTo4ucL
- Fw0sAxJZyaETE+CFXpcjIrtDpwelnpBxtr2B90KZs4joHTNuCJcFaUgPDdrEZFBP8jr6XjzubjE
- 1rp2/O83LtcxvZw==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_070157_745304_56A797BC 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20250617_070524_958202_0A5FC090 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,82 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During the probe() routine, the PiSP BE driver needs to power up the
-interface in order to identify and initialize the hardware.
+From: Fabio Estevam <festevam@denx.de>
 
-The driver resumes the interface by calling the
-pispbe_runtime_resume() function directly, without going
-through the pm_runtime helpers, but later suspends it by calling
-pm_runtime_put_autosuspend().
+The at91-sama5d27_wlsom1 SoM has a WIL3000 Wifi SDIO device populated.
 
-This causes a PM usage count imbalance at probe time, notified by the
-runtime_pm framework with the below message in the system log:
+Improve the description of the Wifi compatible string by passing the
+more specific "microchip,wilc3000" string. 
 
- pispbe 1000880000.pisp_be: Runtime PM usage count underflow!
-
-Fix this by resuming the interface using the pm runtime helpers instead
-of calling the resume function directly and use the pm_runtime framework
-in the probe() error path. While at it, remove manual suspend of the
-interface in the remove() function. The driver cannot be unloaded if in
-use, so simply disable runtime pm.
-
-To simplify the implementation, make the driver depend on PM as the
-RPI5 platform where the ISP is integrated in uses the PM framework by
-default.
-
-Fixes: 12187bd5d4f8 ("media: raspberrypi: Add support for PiSP BE")
-Cc: stable@vger.kernel.org
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 ---
- drivers/media/platform/raspberrypi/pisp_be/Kconfig   | 1 +
- drivers/media/platform/raspberrypi/pisp_be/pisp_be.c | 5 ++---
- 2 files changed, 3 insertions(+), 3 deletions(-)
+Changes since v1:
+- Collected Reviewed-by tag.
 
-diff --git a/drivers/media/platform/raspberrypi/pisp_be/Kconfig b/drivers/media/platform/raspberrypi/pisp_be/Kconfig
-index 46765a2e4c4d1573757ff842f208834216e582cb..a9e51fd94aadc6add70f883bfcea0c9fa91f0c4b 100644
---- a/drivers/media/platform/raspberrypi/pisp_be/Kconfig
-+++ b/drivers/media/platform/raspberrypi/pisp_be/Kconfig
-@@ -3,6 +3,7 @@ config VIDEO_RASPBERRYPI_PISP_BE
- 	depends on V4L_PLATFORM_DRIVERS
- 	depends on VIDEO_DEV
- 	depends on ARCH_BCM2835 || COMPILE_TEST
-+	depends on PM
- 	select VIDEO_V4L2_SUBDEV_API
- 	select MEDIA_CONTROLLER
- 	select VIDEOBUF2_DMA_CONTIG
-diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-index ccc6cb99868b842ac0d295f9ec28470303e60788..be794a12362020f42b3cf5bd291b4a1625543b5f 100644
---- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-+++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
-@@ -1725,7 +1725,7 @@ static int pispbe_probe(struct platform_device *pdev)
- 	pm_runtime_use_autosuspend(pispbe->dev);
- 	pm_runtime_enable(pispbe->dev);
- 
--	ret = pispbe_runtime_resume(pispbe->dev);
-+	ret = pm_runtime_resume_and_get(pispbe->dev);
- 	if (ret)
- 		goto pm_runtime_disable_err;
- 
-@@ -1747,7 +1747,7 @@ static int pispbe_probe(struct platform_device *pdev)
- disable_devs_err:
- 	pispbe_destroy_devices(pispbe);
- pm_runtime_suspend_err:
--	pispbe_runtime_suspend(pispbe->dev);
-+	pm_runtime_put(pispbe->dev);
- pm_runtime_disable_err:
- 	pm_runtime_dont_use_autosuspend(pispbe->dev);
- 	pm_runtime_disable(pispbe->dev);
-@@ -1761,7 +1761,6 @@ static void pispbe_remove(struct platform_device *pdev)
- 
- 	pispbe_destroy_devices(pispbe);
- 
--	pispbe_runtime_suspend(pispbe->dev);
- 	pm_runtime_dont_use_autosuspend(pispbe->dev);
- 	pm_runtime_disable(pispbe->dev);
- }
+ arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+index ef11606a82b3..e35dd79beb16 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
++++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
+@@ -385,7 +385,7 @@ &sdmmc1 {
+ 
+ 	wilc: wifi@0 {
+ 		reg = <0>;
+-		compatible = "microchip,wilc1000";
++		compatible = "microchip,wilc3000", "microchip,wilc1000";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_wilc_default>;
+ 		clocks = <&pmc PMC_TYPE_SYSTEM 9>;
 -- 
-2.49.0
+2.34.1
 
 
