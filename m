@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3BBC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 14:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F21C71136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 15:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tk6I9EzaZ+W1EwXyeTL06fJaBXc6NaRZh1+FWMs/B84=; b=DM/WR+REWgwmnr4bk0oqcFNlp3
-	MQnsJ1XQlpPHFStPgwEqQNuHPl1h0g3oxoWndgvOxG3N+KLyNOc6qWDCqL4glUFma186J+9hvaXtD
-	I9GGGlSOWRlOkOxJ0Dv6q8+S8A0Pe5npkKQlDQP/3rJA5I4Xbc7om6ArvSntSoaOuXJACASSRHWHk
-	LjBlTedrdHSsPK9Lw06mXUAl4oaJlb9vn3zuTYZJ6CB75elBCP7HdeU3IfYyhzGyO/dSc7e25o0m3
-	Q9uXK39Ll2OjGXTer4NDXPQe6mVR7uXwIdI082nFUA88XBharTKY9A6kwjXlHuBfAhVdLaeKN0nJd
-	c/dVMdEg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xxX2EQ/ifCaF8Tj3G7wW7shR3P5CgH/KG2s1rdkQtN0=; b=dZ3C3YlTaGt4Hv5OjiefylXD5z
+	lYaIAtGSm5/XRWUlFGUWvE/C6qI2fYTwUkC26AuCzdTuHxGmNx8yPxjQVa+kHdT1oUnzlnhc9wnk/
+	QHGLJODnDq6q3vOSSuEd3PLlLg39TfVFcrbfIALINEj62pjswKjglB89+1UX46JJYr+5Qu41nkwvv
+	cVZTwjACwFCiD8jFa0lrz73N8Lri+W9nquRJyvaXR1HsSP2XZmXRPdnr6QkkiFrGsC+lmY2oQyzrG
+	mamjdN0BgdQ443YJYxWVLPb49cWHwZHJbWFATRbdervASBaHhruU89FITROve4OQw/8yX4ZAvfFyE
+	iQJQppxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRXlH-00000007f0T-1PJq;
-	Tue, 17 Jun 2025 14:58:07 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1uRXnS-00000007fOe-3t9D;
+	Tue, 17 Jun 2025 15:00:22 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRWwG-00000007Tgo-3oyZ
+	id 1uRWwJ-00000007TiC-1sU5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 14:05:26 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b2fd091f826so4203400a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 07:05:24 -0700 (PDT)
+	Tue, 17 Jun 2025 14:05:28 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-234fcadde3eso73868145ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 07:05:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1750169123; x=1750773923; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tk6I9EzaZ+W1EwXyeTL06fJaBXc6NaRZh1+FWMs/B84=;
-        b=ByAB9kLdNJSkAAA2iqdEu4v/MKQGxGmcqjQ3NRQQ6sKf++9+coaza394jPifYdDYEs
-         g9wCAvWvR5Lo7p6uew03XidZGpDZ0ycv1PE0KJrzz8hZfemtysDYdpIuJ1WpsJQ4cQqK
-         aWjuGRoF8g/QfBbjbmzheD5UpbG5okK8CbxgszBLXfLNr9VJxBnLkTkhbspOpWtt9W7g
-         qepgx9swYNiY4mxOk3H5/4qKMb2s8LMy46DhodyuVlJfNkR6ogzvf9eWd99xgI1qceIh
-         tTa3Sh3hRBQVp/lLwjPkvgUZnS9IvZ6QLIu+X9Jdb8M0biNExFWLBF4Nne003DGj+qOy
-         w0yQ==
+        d=gmail.com; s=20230601; t=1750169127; x=1750773927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xxX2EQ/ifCaF8Tj3G7wW7shR3P5CgH/KG2s1rdkQtN0=;
+        b=U11xR07O32oCXUvob3DRFTtfpocY/2p6yfqWhb9fo0O72Dk82dEkHYo9daaSPG+JuD
+         txJizbhXMR9AtX5uROR/p+yY13uNjJkBGf0dboYZBeaV0Oh8lZ7c9TvM1wVYVn65rwH+
+         I9nVmccpDpfJXwsmErPKNVEivuccIdqcPipE0e0VUttUhzZzcNfpsu3aLRIAvBbCQRdz
+         VUQ9AwO1Gn44qfMB0Shuy/qMy+G7vF3qLInQBs98MW0tcGJd7ig2nfLnw6dZ3fHL0U62
+         ghGOfI3PBuig3oKvgUjSoZg3L1WSAEHCVvmfNyqUYSovM2GNYoYMZQke87NI3WTJDIE9
+         K21Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750169123; x=1750773923;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tk6I9EzaZ+W1EwXyeTL06fJaBXc6NaRZh1+FWMs/B84=;
-        b=lj56rNC4zRblleTq96DfCfSvptalUdrJOwlW34TktrvFYxf5olrACHckaGTXk+3mD8
-         Y5TZHSLcGRG8Q/KBkKK4B/AeUoeNr8f3esUAw+1qzHPUnyN7lmO1evvwJ8uTeZej9GHn
-         60voCXbweUzmockzxOMCu+3g1x4k4kVVH7fBS1LdTOBtgTfsV2fzPvEKOurhf44KS6z/
-         dkY9V0L0vUmsqwU2JrSDOuS/0ESpeDykx2Yyf6SRoluQ57YAdLYSQr6L0xGgEwKeSy3w
-         r7+M7KH1qyyGLwhUUPduWFXhRYVoA5naX8whxjIWcpt75hzoEqlcd8yNq8KSMP4Ze7tG
-         tY7w==
-X-Gm-Message-State: AOJu0YwGB3Jqn6UloyzvhQfy5GxrXRHYjT0ohC7zuHGaNwUFGxXihJ2L
-	0/JUYoYHb0DXi+jHHRuvPOj6o+azUdV0o4cex17qXr2pqA5PiYHAOYqylJRcBg==
-X-Gm-Gg: ASbGncu1zuqfXxshe7ixNvYmd2nz/LT4SzMWzdjO34G77C0W4BTd03FxxwKjjzTStQW
-	Y/iqpbo1WVOXd5jj1xdiJcd/CHRVvOSbByDIUZs3PixTWS8GBhcsyza6Aq+Gig261W4B+ggWVGu
-	fna3Ui2+yaGJYYAixInoHNEasgksbjwaJEGvqhUt6949w9VjeNPNZqNx1F5NREWNiDV+Jh26O2m
-	1pwhumkDxFEztX4CbZFAK6sUXc0B0Tw7Qkc/k+PXvb59UYyco1EWXmKsY1Ca6bv/8eabo8SoEL8
-	aiqjqEdQtLD0vtkc9cJUkZIahPkEy4uS3AZapeKv8HHeX9Kl44BiW2xcwg==
-X-Google-Smtp-Source: AGHT+IHbKZPSqfh1gqigaZX04x3z6UHxXKBdLiZMKpd9JFG5J7rZIOuFOAUM8RsuNLpgmb1IEIuIWw==
-X-Received: by 2002:a05:6a21:4006:b0:21d:98c:12c9 with SMTP id adf61e73a8af0-21fbc7fb787mr20507624637.21.1750169123256;
-        Tue, 17 Jun 2025 07:05:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1750169127; x=1750773927;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xxX2EQ/ifCaF8Tj3G7wW7shR3P5CgH/KG2s1rdkQtN0=;
+        b=VY+1DKSgUcHHHb7wiEjq243j3umMS3nhCPa08GVKAmeX2y5HQXY4fvZieRFQVjN7bX
+         n3DirqgMUh03aXWbvc3On4S8sJ4C9hFDyZootFeqBdZiPWLBJLXSIMhI9MUCspB30iQG
+         oys21Dw299SxV2Nz1Ph50x3BKEwGS91FwTAlpJ85v36ioUxr87HDvMAP00UW8QYwouEl
+         b4jrlaV+HU+4qCJhOvWkXy+hNFOR4QOpuF47z9P3GvOL7ngftxw9RC87e4vohXgWhgBt
+         E2AXoO/wnBffWPvP7ttpJmMVbmLDkH6/NfxxUE4Zg/vcniAIKKh8nk+MAuwpSz18xiUf
+         AzYg==
+X-Gm-Message-State: AOJu0YwVAMns8fKwY84u7y23i7FZEi03FVa9PQFoJsXIHxsknlPbFssH
+	U6l55EwtWzI80GVQ0OqoITrXsRM8/ZjYjNsUNiNC2jSQoVH76RQbAdm7yb7hAw==
+X-Gm-Gg: ASbGnctxPB49/Cf//0Ezun77bbSNa8bwRO2fY3QyFbjD4LfL3fRYwEoel1pcrtSD4ah
+	ybWudLEfNN1uxvr5z/7B7BhEwCqN/qMBPP6tvHK8B71AOTCU3pP3D1fsvMjlqKl0N2oSoRH++Y8
+	9XjcjSQzgdCIP/nXiybStdcGSsZ64fpXpZLmCfVoYsErjhsrzRD8Sb04HSJyqN7DzegujUXl4y5
+	gez0kmYX82OjSQXjD85q0s5DdPWgPgnTW0G6P5MaUnlycnn9MB1ivatBY3XhDtJxuepZ6vXz6Dn
+	2MNhelkSZ/mBBXoPugrLHjaSg2wQxhyq9gqEzIOL7ll6A52OH3Qn9IwdxbyIUf7x5zJL
+X-Google-Smtp-Source: AGHT+IHajMzqisLRHtxmxLwgUDzyX4LzRsBt6Q8GnG2QttPXlJ6ExUGs+lD0ZpGbhIq4W0UNGTh+3A==
+X-Received: by 2002:a17:902:cec4:b0:235:e942:cb9d with SMTP id d9443c01a7336-2366b32a038mr184085865ad.17.1750169126612;
+        Tue, 17 Jun 2025 07:05:26 -0700 (PDT)
 Received: from fabio-Precision-3551.. ([2804:14c:485:4b61::1000])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe163a0e7sm8906127a12.16.2025.06.17.07.05.19
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fe163a0e7sm8906127a12.16.2025.06.17.07.05.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Jun 2025 07:05:22 -0700 (PDT)
+        Tue, 17 Jun 2025 07:05:26 -0700 (PDT)
 From: Fabio Estevam <festevam@gmail.com>
 To: claudiu.beznea@tuxon.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -75,15 +76,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	conor+dt@kernel.org,
 	devicetree@vger.kernel.org,
 	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH v2 1/2] ARM: dts: at91-sama5d27_wlsom1: Improve the Wifi compatible
-Date: Tue, 17 Jun 2025 11:05:01 -0300
-Message-Id: <20250617140502.1042812-1-festevam@gmail.com>
+Subject: [PATCH v2 2/2] ARM: configs: sama5_defconfig: Select CONFIG_WILC1000_SDIO
+Date: Tue, 17 Jun 2025 11:05:02 -0300
+Message-Id: <20250617140502.1042812-2-festevam@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250617140502.1042812-1-festevam@gmail.com>
+References: <20250617140502.1042812-1-festevam@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_070524_958202_0A5FC090 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250617_070527_485359_C49E53FA 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +104,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fabio Estevam <festevam@denx.de>
 
-The at91-sama5d27_wlsom1 SoM has a WIL3000 Wifi SDIO device populated.
-
-Improve the description of the Wifi compatible string by passing the
-more specific "microchip,wilc3000" string. 
+The at91-sama5d27_wlsom1 SoM has a WILC3000 Wifi chip populated, so select
+the CONFIG_WILC1000_SDIO by default.
 
 Signed-off-by: Fabio Estevam <festevam@denx.de>
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 ---
 Changes since v1:
-- Collected Reviewed-by tag.
+- Make the change in the correct defconfig. (Claudiu)
 
- arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/configs/sama5_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-index ef11606a82b3..e35dd79beb16 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi
-@@ -385,7 +385,7 @@ &sdmmc1 {
- 
- 	wilc: wifi@0 {
- 		reg = <0>;
--		compatible = "microchip,wilc1000";
-+		compatible = "microchip,wilc3000", "microchip,wilc1000";
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pinctrl_wilc_default>;
- 		clocks = <&pmc PMC_TYPE_SYSTEM 9>;
+diff --git a/arch/arm/configs/sama5_defconfig b/arch/arm/configs/sama5_defconfig
+index e447329398d5..2cad045e1d8d 100644
+--- a/arch/arm/configs/sama5_defconfig
++++ b/arch/arm/configs/sama5_defconfig
+@@ -95,6 +95,7 @@ CONFIG_LIBERTAS_THINFIRM_USB=m
+ CONFIG_MWIFIEX=m
+ CONFIG_MWIFIEX_SDIO=m
+ CONFIG_MWIFIEX_USB=m
++CONFIG_WILC1000_SDIO=m
+ CONFIG_RT2X00=m
+ CONFIG_RT2500USB=m
+ CONFIG_RT73USB=m
 -- 
 2.34.1
 
