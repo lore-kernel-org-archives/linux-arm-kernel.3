@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4436FC71157
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 290FBC7115E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 17 Jun 2025 17:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEFMnlX92eZmddj6ISOAz5HWpkBrZdvzNs6PETlF6C4=; b=fIIG7kNwytLNlmDsMDOCQjSKhh
-	vTQZIDOzJ3l2bVafkHPOCNmZ3Lamo4qveOVanTWV+Txemb7Y6LAB8l+lmDGdtDNNykR5hI0oTv4iH
-	S23ikMt0p4ML0ufS0mRL3L5ga280sqPtNOpYXfei6lIlxJELptdBTI8gNqkfx7wi0sfBS6H55WEqb
-	rj27M0AaGHY2VuP3IfIiQm1XGMjlYPSDs/Zdc+DJoxhBPrCHlT7EFdPENl0SM2TfuR9nzLUIch0u6
-	ad2NcLfKOXzRycfoHBtcWb9iapgGo8D8X6tGa5nveETNTVDUnnzrGkqeFwbFJSiQgMwNz4ANXzio2
-	ZuaNzKFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x5cJrF81YLt54hags74Fip5+p/V91wDTFTMUNw5O8cc=; b=DnYj4JWeasc6MNQVHRaykbJX7m
+	Dzat7+RLE4QISPI0MZXAIfISil+YFc31VVhi3sLqMCh6NzLNv1aJfn0RddxtMiLklv2aPY8mvMM+R
+	TcHxsxYhINTSrPmuqNLPowPY4ImN3R/WkQ62h3/52xNPgXsha7O1kJOyJGv5qYbGLf9YSggqxgL9I
+	yuIhNYvMmVhIp9GUfoPXoolrjfwAucvcYMV72duK7AxT7x8OqXCx4auEjLwMptPyMyUObFXLpjgnZ
+	Ru55t6PbUgKeVNM8KHFP+sunzRGh4Y8g9te6e7qOv59uTQfxS51pFuUUFqB/u1J3fArsK0peyXPD5
+	GCoLYYZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZrg-000000080RY-3y0K;
-	Tue, 17 Jun 2025 17:12:52 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1uRZri-000000080Tr-1dHC;
+	Tue, 17 Jun 2025 17:12:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRZBI-00000007sbO-2I5X
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 17 Jun 2025 16:29:05 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3ddc10f09easo1225ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 17 Jun 2025 09:29:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1750177744; x=1750782544; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NEFMnlX92eZmddj6ISOAz5HWpkBrZdvzNs6PETlF6C4=;
-        b=G6rdnHT9N90CUqCF30dWdnFUm+yc/hTQZ5mc19C06J+J8f+A4SxPnGfEw/j/NCY7oJ
-         IUu0lQXN5gur+XNvZw1SIbBwDeNV5FmCMnMOGNbPBU0r7SQujB3xYNf3GUaM5SyrhLOi
-         8MNE/HfNzdtDuDqJD1TxykPfgSMJXvrY+Nq3CBG2w0J6E03B/OKiv3s5qlSFGjowr1/f
-         OzctpsWzFmFJaNL+045s9Njq24Gy1195s7YULW+MEc2disnr4GRy61ZqAjAHFMp7C7U+
-         PeMWFPqyvfk8czg9iaQjmjR/qE1Md2Y4kCbiw8dWQiDk5UZyBQf660A6osUMvtjDTOMT
-         bbzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1750177744; x=1750782544;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NEFMnlX92eZmddj6ISOAz5HWpkBrZdvzNs6PETlF6C4=;
-        b=WcE7jYNVsOfQg09X8ZpEamczEuo7Oz+hhsHiJeEl7O5BfGGQDXwC03bP6KKXU3vHZ4
-         WPIMAlUJWKkTfuB+BH/n91//teeNwMGQ0z4MGgAqGw2/2hOQHLWn5J5WlwRnb8Cyacqi
-         a05KAylFDEWAq2i7HKP42R5U/jhz9kMJzGbRV9W9RFY7EgR5mpdbFJbBCNZMgkZFosN2
-         W8B97/tONrXORJKSPEkrVcyvZVpwyUcvLyQ+efBx8kNpWiZOxAPu824mrzrWrcfTx0NS
-         9nhB18aUZKzkIIEXch4dDIfdqMsplnm8M2CmnVICb9mrgnYbvQgR5qzPfCj1Xfiyl4Sb
-         fTxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUNw1KBnOxI5ZN+6NWx1RgWQbrKAe2hs/VX6W7Mf33vIqzqr9AHJvOjFiUfgcZnfSBEYM0Si8nM+I+KbDKxNrX2@lists.infradead.org
-X-Gm-Message-State: AOJu0YypU16ZSf45xUkqoW2zspX2tRQwchBPx3kQM3mHxtLrSjC9Gi5G
-	9U6/RH+7PpHQx3JCJxpjYpRD+rAXKJZb1+WDtlbgnxwhoS+A8dZZQUArLIfzE4QAjBN/Cm2WvvF
-	lv/qivw5ZnJ4OR3dMGHaLdair1UVHCxeUhjon+7mk
-X-Gm-Gg: ASbGnctAsmbn6+TYRJsY4cRpqCb74cMgMAUWd4dq1o9cFumoP4FFZEYh1dE8vhAE/9w
-	jsMhZA0oxLK7pB36nSWv0EHaKzShK5+nwBF6hfMZTgJeSsZMFkONJE22LHBlwy21Go2idchVO0z
-	QkhxUiZFvcrcby6YQQddTKKHh+98fO2XzNtGaKgEGR6JxhnLPfxHXXaLyrgTn/b0r9x+k7RIAJ
-X-Google-Smtp-Source: AGHT+IGuaQHH5RnvKvS2kE5LJtsJIfjqrig7FhB3Xp0nL8VkPKaJwzzxDGo5xtnO5/xq+BKzkzCl2ghHE6EtLjDojGk=
-X-Received: by 2002:a05:6e02:1aa5:b0:3da:7c33:5099 with SMTP id
- e9e14a558f8ab-3de09fa7317mr8962435ab.13.1750177743269; Tue, 17 Jun 2025
- 09:29:03 -0700 (PDT)
+	id 1uRZBr-00000007sfy-2J4H;
+	Tue, 17 Jun 2025 16:29:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EBC5D4458B;
+	Tue, 17 Jun 2025 16:29:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ABF6C4CEF0;
+	Tue, 17 Jun 2025 16:29:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1750177778;
+	bh=rShkEFiN3B4/lnFN+KTqYUr+N+x16Xl6MwINsbfyY/c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pr1FiKOSDtyZcoi1+CE6fklUnJXY2L6KqCsIJWxehcEJI7gk2wK/JOZvpSNq/DBu3
+	 kF33Azyo3G7f///u4lOdj8T5M22Qtd2JzSTdJiP5voW0pYAsUiwxeOI/n7yZigcNON
+	 f4B8vuv16p4Inr4SPdOFcUMYS7tRe6Ic6AGWYRKf0mdY9sxWIsKfeR4tpG1k/jXAxW
+	 41uPG/KhIU9o1OTN947LwA1ehEERmOxUlCQD6vp2yBIbEs9HsKIfWbgQfTqNICyg4P
+	 6ycyFzBZyJQUyZ7sOudYg6c7BTnv1gaHKmbPIjtivXJIUaeIr4CqOJGfdsJDQtb5II
+	 8UuDjclv1csLw==
+Date: Tue, 17 Jun 2025 17:29:34 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] dt-bindings: phy: airoha: Document support for
+ AN7583 PCIe PHY
+Message-ID: <20250617-thrower-syrup-05f1bdbee613@spud>
+References: <20250606192208.26465-1-ansuelsmth@gmail.com>
+ <20250606192208.26465-4-ansuelsmth@gmail.com>
+ <20250609-shifty-dingbat-31aa70d7d7b1@spud>
+ <68517436.050a0220.b9e1c.ed09@mx.google.com>
 MIME-Version: 1.0
-References: <20250616-apple-cpmu-v7-0-df2778a44d5c@gmail.com>
- <CAP-5=fXSwgxMc+uh=PBAFh4Zm96tL5RDyKPOJ8Q40O4s=EaArA@mail.gmail.com>
- <20250616102945.GA17431@willie-the-truck> <CAP-5=fVjJyV2eA1aDnk6cqAhJGc9FZVyHhP7-f=1OyWmzxjN8w@mail.gmail.com>
- <20250617141649.GA19021@willie-the-truck>
-In-Reply-To: <20250617141649.GA19021@willie-the-truck>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 17 Jun 2025 09:28:51 -0700
-X-Gm-Features: AX0GCFtUDjpPo9TijhacurqPBZmSpa7o8vMtplPwxsLKffdst7807Hbk9NO-1jU
-Message-ID: <CAP-5=fXn_mr4k=fTYEuK7cCty4n8sofQaz1jNsrTn8U2icm_pg@mail.gmail.com>
-Subject: Re: [PATCH RESEND v7 00/21] drivers/perf: apple_m1: Add Apple A7-A11,
- T2 SoC support
-To: Will Deacon <will@kernel.org>
-Cc: Nick Chan <towinchenmi@gmail.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
-	asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5cZ2bQ10tXXgpc4h"
+Content-Disposition: inline
+In-Reply-To: <68517436.050a0220.b9e1c.ed09@mx.google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250617_092904_585924_A3C96240 
-X-CRM114-Status: GOOD (  37.37  )
+X-CRM114-CacheID: sfid-20250617_092939_631089_5D86DBE4 
+X-CRM114-Status: GOOD (  31.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,90 +82,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 7:16=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Mon, Jun 16, 2025 at 03:44:49AM -0700, Ian Rogers wrote:
-> > On Mon, Jun 16, 2025 at 3:29=E2=80=AFAM Will Deacon <will@kernel.org> w=
-rote:
-> > >
-> > > On Mon, Jun 16, 2025 at 02:36:18AM -0700, Ian Rogers wrote:
-> > > > On Sun, Jun 15, 2025 at 6:32=E2=80=AFPM Nick Chan <towinchenmi@gmai=
-l.com> wrote:
-> > > > >
-> > > > > This series adds support for the CPU PMU in the older Apple A7-A1=
-1, T2
-> > > > > SoCs. These PMUs may have a different event layout, less counters=
-, or
-> > > > > deliver their interrupts via IRQ instead of a FIQ. Since some of =
-those
-> > > > > older SoCs support 32-bit EL0, counting for 32-bit EL0 also need =
-to
-> > > > > be enabled by the driver where applicable.
-> > > > >
-> > > > > Patch 1 adds the DT bindings.
-> > > > > Patch 2-7 prepares the driver to allow adding support for those
-> > > > > older SoCs.
-> > > > > Patch 8-12 adds support for the older SoCs.
-> > > > > Patch 13-21 are the DT changes.
-> > > > >
-> > > > > Signed-off-by: Nick Chan <towinchenmi@gmail.com>
-> > > >
-> > > > Hi Nick,
-> > > >
-> > > > This is substantial work and it looks good to me. Do you know why
-> > > > there's been little progress on landing these patches? Buggy Apple =
-ARM
-> > > > PMU support in the kernel has led to reworking the perf tool. It se=
-ems
-> > > > best that we can have the best drivers possible.
-> > >
-> > > You reworked the perf tool to support these things? Why? These change=
-s
-> > > are targetting chips in old iPhones afaict (as opposed to "Apple Sili=
-con").
-> > > I think that (a) most people don't particularly care about them and (=
-b)
-> > > they're not fully supported _anyway_ because of crazy stuff like [1].
+
+--5cZ2bQ10tXXgpc4h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Jun 17, 2025 at 03:57:09PM +0200, Christian Marangi wrote:
+> On Mon, Jun 09, 2025 at 05:51:10PM +0100, Conor Dooley wrote:
+> > On Fri, Jun 06, 2025 at 09:22:04PM +0200, Christian Marangi wrote:
+> > > Document support for AN7583 PCIe PHY used to make the Gen3 PCIe port
+> > > work. Add the rwquired register to configure the PCIe PHY and provide=
+ an
+> > > example for it.
+> > >=20
+> > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > > ---
+> > >  .../bindings/phy/airoha,an7583-pcie-phy.yaml  | 72 +++++++++++++++++=
+++
+> > >  1 file changed, 72 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/phy/airoha,an75=
+83-pcie-phy.yaml
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/phy/airoha,an7583-pcie=
+-phy.yaml b/Documentation/devicetree/bindings/phy/airoha,an7583-pcie-phy.ya=
+ml
+> > > new file mode 100644
+> > > index 000000000000..93252092c2e3
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/phy/airoha,an7583-pcie-phy.ya=
+ml
+> > > @@ -0,0 +1,72 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/phy/airoha,an7583-pcie-phy.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: Airoha AN7583 PCI-Express PHY
+> > > +
+> > > +maintainers:
+> > > +  - Christian Marangi <ansuelsmth@gmail.com>
+> > > +
+> > > +description:
+> > > +  The PCIe PHY supports physical layer functionality for PCIe Gen2/G=
+en3 port.
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    const: airoha,an7583-pcie-phy
+> > > +
+> > > +  reg:
+> > > +    items:
+> > > +      - description: PCIE G3 analog base address
+> > > +      - description: PCIE G3 PMA base address
+> > > +      - description: PCIE QPhy analog base address
+> > > +      - description: PCIE QPhy PMA base address
+> > > +      - description: PCIE QPhy diagnostic base address
+> > > +      - description: PCIE detection time base address
+> > > +      - description: PCIE Rx AEQ base address
+> > > +
+> > > +  reg-names:
+> > > +    items:
+> > > +      - const: g3-ana
+> > > +      - const: g3-pma
+> > > +      - const: qp-ana
+> > > +      - const: qp-pma
+> > > +      - const: qp-dig
+> > > +      - const: xr-dtime
+> > > +      - const: rx-aeq
+> > > +
+> > > +  "#phy-cells":
+> > > +    const: 0
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - reg
+> > > +  - reg-names
+> > > +  - "#phy-cells"
+> > > +
+> > > +additionalProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/phy/phy.h>
+> > > +
+> > > +    soc {
+> > > +        #address-cells =3D <2>;
+> > > +        #size-cells =3D <2>;
+> > > +
+> > > +        phy@11e80000 {
+
+Oh also, this address doesn't match the reg property below.
+
+> > > +            compatible =3D "airoha,an7583-pcie-phy";
+> > > +            #phy-cells =3D <0>;
+> > > +            reg =3D <0x0 0x1fc7f000 0x0 0xfff>,
+> > > +                  <0x0 0x1fc7e000 0x0 0xfff>,
+> > > +                  <0x0 0x1fa5f000 0x0 0xff>,
+> > > +                  <0x0 0x1fa5e000 0x0 0x8ff>,
+> > > +                  <0x0 0x1fa5a000 0x0 0x3ff>,
+> > > +                  <0x0 0x1fc30044 0x0 0x4>,
+> > > +                  <0x0 0x1fc35030 0x0 0x4>;
+> >=20
+> > Can you explain please why you have so many reg regions, some of which
+> > are directly beside one another? Why is one (or more) larger region(s)
+> > not viable here? Are some of these coming from a syscon that is not
+> > modelled or are there other devices sharing in between?
 > >
-> > I was meaning that we reworked the perf tool to work around the Apple
-> > ARM PMU driver expecting to work as if it were an uncore rather than a
-> > core PMU driver. More context here:
-> > "[REGRESSION] Perf (userspace) broken on big.LITTLE systems since v6.5"
-> > https://lore.kernel.org/lkml/08f1f185-e259-4014-9ca4-6411d5c1bc65@marca=
-n.st/
-> > But in general it would be nice Apple ARM PMU support were well loved.
-> > I think we went 2 or 3 minor releases with the perf tool not working,
-> > threats of substantial reverts to avoid the PMU driver bug being
-> > exposed, etc.
->
-> It's unfortunate that you've had a torrid time with the Apple PMU driver,
-> but I think it's important to realise that it's both unmaintained (it
-> ends up with me via the catch-all for drivers/perf/) and was written
-> based off whatever reverse-engineering people could be bothered to do in
-> their spare time. It's frankly remarkable that it works as well as it
-> does.
->
-> Despite all of that, I still don't think that your concerns apply to the
-> patches in _this_ series, which is about adding support for older Apple
-> chips.
->
-> > As for which Apple ARM devices should have perf support, it seems the
-> > more the merrier.
->
-> Easy to say when you don't have to maintain the driver!
+>=20
+> It's to keep consistency with the documentation and how stuff is
+> modelled in the SDK driver. The single region defined reflect real
+> register space. In the middle they are invalid register that might cause
+> system stall if read/written.
 
-Well I do send patches ([1] is based on a patch I sent and James
-reworked), but yeah. It is a bit strange in this case that we have
-something that is both unmaintained but not taking a patch series due
-to the cost of maintenance :-) Hopefully it can land.
+Some of the regions are directly bordering one another, with gaps of
+only one byte? e.g. The second region runs from 0x1fc7e000 to 0x1fc7effe
+and the next region starts at 0x1fc7ef000. One invalid byte in the
+range is not worth splitting it out for. Although, are you sure that
+there is exactly invalid byte and you're not propagating a mistake from
+the en7581 where 0xfff was used instead of 0x1000 as a misunderstanding
+of how to the size field worked?
 
-Thanks,
-Ian
+I would expect, at the very least, that the 0x1fc7xxxx and 0x1fc5xxxx bits
+should be grouped. The two 4-byte regions seem pretty suspect and really
+do look like some sort of syscon that you're trying to expose only one word
+=66rom. Are you sure that there is nothing at addresses 0x1fc30040 and
+0x1fc30048, for example? It seems odd to me to put single words at these
+addresses (and likewise on the en7581) with nothing at all around them.
+Do you have a regmap for this device, or are you mostly working
+backwards from some sdk?
 
-[1] https://lore.kernel.org/lkml/20230710122138.1450930-2-james.clark@arm.c=
-om/
+> Also this is to keep consistency with the en7581 pcie phy driver.
 
->
-> Will
+But your reg regions aren't even the same as with that phy?
+It has:
+      - description: PCIE analog base address
+      - description: PCIE lane0 base address
+      - description: PCIE lane1 base address
+      - description: PCIE lane0 detection time base address
+      - description: PCIE lane1 detection time base address
+      - description: PCIE Rx AEQ base address
+
+of which only 3 map 1:1 with yours?
+
+>=20
+> Is it really that bad ? :(
+>=20
+> > > +            reg-names =3D "g3-ana", "g3-pma",
+> > > +                        "qp-ana", "qp-pma", "qp-dig",
+> > > +                        "xr-dtime", "rx-aeq";
+> > > +        };
+> > > +    };
+> > > --=20
+> > > 2.48.1
+> > >=20
+>=20
+>=20
+>=20
+> --=20
+> 	Ansuel
+
+--5cZ2bQ10tXXgpc4h
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaFGX7gAKCRB4tDGHoIJi
+0i/1AP4l7cuShLhNKB3HPj7a/bggHv2B1//wt8nzpEJMDvOjLgD8DMBnBbyIkiGu
+mKY9KLVXFaIoaqSEszOXztcOZYKLPQY=
+=4xkD
+-----END PGP SIGNATURE-----
+
+--5cZ2bQ10tXXgpc4h--
 
