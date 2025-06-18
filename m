@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9F7C7115B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E70C7115D
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 17:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+BCLKEf2oOx2tVI9JbEmowwEMi82HX6Gm1IExPrNnGo=; b=rAv9ZXR51YCpMfScLv5icpAxLN
-	xrdSF6C+6QJDcEK667DZ0cH7ypZ+S8Hja8/te5+FCQBmZDQF20qtv5xNCPID13ZbaIy9FySMrIghl
-	OZQhCUWz48i2WaVAFhOP2dpuTDXD46VpHkCSVOkV4zCLB516X/AvrHQunucq15aoMhiHwlFDRmuTp
-	+Ug5qJhscDdZf/SPRHwbS3alSSnWqC0I5XIvHIgagLjWDA9dMInBZwFGXXVFr9QnzYppVyK8JUE0v
-	ESkQrT3H4J95euwQHs9cpapGkIvoeGpG5JlumyFC8ny0aC6LPs+LfadI7CUWK1PAsgN4x4ALeze1K
-	0oU2JgYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o4VTK3eCG8hx+8cOCHC03CRPEXFZEAFnEVMrfkQFbo4=; b=S2iXNf83YTCu7e91zTmmgAhWZc
+	m9QgiJWEHNNYC9e8khvZ7u3ZKJ58q0ScXzT9aE857tC3Itqt5fb2Tr6h0fp7UFwSpVhhP2Sdg7zt2
+	rgis33E/unyVLIpKzXY62jATFfi3pfYiuFvLgG+o3C15mnyHmYwhqKd8bcEV7zWUrHgelk3/1/AYH
+	XXtoe4s3/He0PnP5xC/+iBlE3TfM7VHikkVoLRlQNCcgmx1N17h/eaBQ8e+6XEYHq/DWPqGcW1VjG
+	1fxaKDvx86EYQVmfsyg1phJRZu53VLe0u/wab1f+WC81rkB53nogjjO6H8pQ9LvLtNModLfD+Ey6F
+	y2/iySqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRwP6-0000000ApAq-2I5c;
+	id 1uRwP6-0000000ApAa-00SS;
 	Wed, 18 Jun 2025 17:16:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRsPp-0000000ADOa-2q4q
+	id 1uRsOa-0000000AD8n-43gt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 13:01:21 +0000
+	Wed, 18 Jun 2025 13:00:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D49366112A;
-	Wed, 18 Jun 2025 13:01:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22E20C4CEE7;
-	Wed, 18 Jun 2025 13:01:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B405C6112A;
+	Wed, 18 Jun 2025 13:00:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F52EC4CEEE;
+	Wed, 18 Jun 2025 13:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750251680;
-	bh=u7wvhY7UzWw1Kiz3j8CRU+e4HYpWNK/WmjXrT+hmz1Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t9M5sjk9OMnqNmnD8XQpdhvdPF1id4DxIs9zMb2tisdrYNb2LRVjjwhXsr2PvHY8z
-	 +VC4KrTR+Ge2MPX0Qc8/aseWBZQH6tIQZ2W9zbpP3peoaYUc64PHH3/pTCdQz6p/rq
-	 GS4f3UAo/UdMi7mUvW1L3UHqPZRbX06+eTZSbIpmVLur0ch7XMXQZcH2irczT8jroM
-	 xP6ThLv5Ojq/Gi6WhUP8lv8ZfEnwE+Nvy+biotp3EiEGASoiU/0POC1BGey0SC+VYJ
-	 WszjFFf09BaB/QukhQ21YNnOqG5z/tvYEuepHd835awBrRJKTYb7EkYbE3PutlPBnY
-	 LIKIdO5Zaxbyg==
-Message-ID: <6f644654-c906-46f0-942e-ad50ba159786@kernel.org>
-Date: Wed, 18 Jun 2025 15:01:14 +0200
+	s=k20201202; t=1750251603;
+	bh=MRqEecx1OOYe0w2vHR29KSY1Ek3v/BZj9saNCAG+GcU=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=hYpXFz/fg2f586yRIe9vDvlYwHywwIg0QM6bbGgAQbSHP2zJ3LRwkbMPvxZZhnD4j
+	 5HML5apfyR7mLMacWrp0GHtla95F5QQ0Z8qAAImLDDNO8bcIOOXvT6EQo5ZWLsLvUo
+	 CNtU84SZCzK5IopukR/e2cuBlEbpeMOEjWySxTHbEDW69nBk8Ph9xfIaRYsClnmsAE
+	 0tvqhIhiYhigWID4OzVbfOoCLFZhp2rzX+Zwe2Y9Z8lKu9u4A7HgTDaWuhjy7IgFRH
+	 NVrAV08GT0/wxvz7swU4LLhBPpEnSrFxN4eewqX8N17G5xWyZCcjWi2RV2g/3zW16a
+	 MmUAKAPG6EkGQ==
+Date: Wed, 18 Jun 2025 08:00:02 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] platform/x86: dell-uart-backlight: Use blacklight
- power constant
-To: Thomas Zimmermann <tzimmermann@suse.de>, lee@kernel.org,
- danielt@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
- jessica.zhang@oss.qualcomm.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, airlied@gmail.com, simona@ffwll.ch,
- fnkl.kernel@gmail.com, j@jannau.net, ilpo.jarvinen@linux.intel.com,
- sven@kernel.org, alyssa@rosenzweig.io, neal@gompa.dev, deller@gmx.de,
- support.opensource@diasemi.com, duje.mihanovic@skole.hr
-Cc: dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
- platform-driver-x86@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fbdev@vger.kernel.org
-References: <20250618122436.379013-1-tzimmermann@suse.de>
- <20250618122436.379013-2-tzimmermann@suse.de>
-Content-Language: en-US, nl
-From: Hans de Goede <hansg@kernel.org>
-In-Reply-To: <20250618122436.379013-2-tzimmermann@suse.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Julien Massot <julien.massot@collabora.com>, 
+ Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, linux-staging@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Linus Walleij <linus.walleij@linaro.org>, devicetree@vger.kernel.org, 
+ =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
+ linux-kernel@vger.kernel.org, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ linux-media@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+In-Reply-To: <20250618095858.2145209-15-demonsingur@gmail.com>
+References: <20250618095858.2145209-1-demonsingur@gmail.com>
+ <20250618095858.2145209-15-demonsingur@gmail.com>
+Message-Id: <175025160249.1545873.9100402029038186913.robh@kernel.org>
+Subject: Re: [PATCH v4 14/19] dt-bindings: media: i2c: add MAX9296A,
+ MAX96716A, MAX96792A
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +79,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 18-Jun-25 2:16 PM, Thomas Zimmermann wrote:
-> The backlight subsystem has gotten its own power constants. Replace
-> FB_BLANK_UNBLANK with BACKLIGHT_POWER_ON.
+On Wed, 18 Jun 2025 12:58:50 +0300, Cosmin Tanislav wrote:
+> The MAX9296A deserializer converts single or dual serial inputs to MIPI
+> CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
+> in the forward direction and 187.5Mbps in the reverse direction.
+> In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
+> GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
+> GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
+> GMSL1 links. The serial inputs operate independently, allowing videos
+> with different timings and resolutions to be received on each input.
 > 
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-
-Thanks, patch looks good to me:
-
-Reviewed-by: Hans de Goede <hansg@kernel.org>
-
-Regards,
-
-Hans
-
-
-
-
+> MAX96716A supports both tunnel and pixel mode.
+> MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
+> 
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->  drivers/platform/x86/dell/dell-uart-backlight.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
+>  MAINTAINERS                                   |   6 +
+>  2 files changed, 248 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
 > 
-> diff --git a/drivers/platform/x86/dell/dell-uart-backlight.c b/drivers/platform/x86/dell/dell-uart-backlight.c
-> index 8f868f845350..f323a667dc2d 100644
-> --- a/drivers/platform/x86/dell/dell-uart-backlight.c
-> +++ b/drivers/platform/x86/dell/dell-uart-backlight.c
-> @@ -305,7 +305,7 @@ static int dell_uart_bl_serdev_probe(struct serdev_device *serdev)
->  	dev_dbg(dev, "Firmware version: %.*s\n", resp[RESP_LEN] - 3, resp + RESP_DATA);
->  
->  	/* Initialize bl_power to a known value */
-> -	ret = dell_uart_set_bl_power(dell_bl, FB_BLANK_UNBLANK);
-> +	ret = dell_uart_set_bl_power(dell_bl, BACKLIGHT_POWER_ON);
->  	if (ret)
->  		return ret;
->  
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
+	['maxim,max96717'] is too short
+	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
+	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.example.dtb: serializer@40 (maxim,max96717): compatible: 'oneOf' conditional failed, one must be fixed:
+	['maxim,max96717'] is too short
+	'maxim,max96717' is not one of ['maxim,max9295a', 'maxim,max96717f']
+	from schema $id: http://devicetree.org/schemas/media/i2c/maxim,max96717.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250618095858.2145209-15-demonsingur@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
