@@ -4,67 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F68C7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A5FC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvvAOFUGtBlRNFN5ga2i2bHg+X/ah94U7DI0PCwXwOk=; b=gwz+M29zstZ2onEgsijgFyvygL
-	L1qofjfTSGGsWwHrIxxng5fyRhDT2K+rUc+shWdsy/deVbwJYhylKCzjc0KtRcIQUWIuttVdB3jmY
-	I2FsItAemx4xxk9NzFoYvf/UsByfN2aT6aPBqv1wP9OAizz2jBQ2yCQNIyTkOlUeHfTZkREOrpaNw
-	0ojOGz+gXhLs/lqhKamx9lFLSvbdCoLQ3lvSvy4p0RmOnWs/MeH/udKWZeUJuM3Cpxy9FezCJv30c
-	zOr3lSSVk0WdPHYB09cmTBsqubXGmrLCG8KYzZhl+dmiuE5SPpppeA0auOlmNuMM5wJ6zsfEYfLeC
-	wGMxV9NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vXXYrjy6lKrDzzyL60yxuVBUSgBI0TuAEVwTlF/jxNU=; b=2EF0t8DQqtw49iKDzQQWlxxDYu
+	ADZjk15wCN7xkwkZEUHCPGRVQFadiGQJ1II/z+nP2PK3UrMRsC5ATJ/ffyuEb5qi8O9zrMXlNefd/
+	nXhY31eM1vZ9BfZwNhzO7YUbum9Axtp5s03+VryLtYgwn7Wn8L+vLMZTot0ZkuaOycEm8+0bS4aWa
+	xCBdmlrNJZqpcZHX4Izk0xqxk9CAXWd6E8dJZSQ/23gi2Q/v/GJWwgy4TAtEqAif0rnDzUI9t36us
+	W9PD1MCUVxfNtS8pQvwifOW/WE459v1wbREcWyeY8xbepKXjIApgBas9SQWNO+E5eL0tFVxEfRLQ0
+	+xVWNfBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvll-0000000Ak1M-1S0n;
-	Wed, 18 Jun 2025 16:36:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uRvnw-0000000Ak9S-39ML;
+	Wed, 18 Jun 2025 16:38:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtxZ-0000000ATKk-2veP;
-	Wed, 18 Jun 2025 14:40:18 +0000
+	id 1uRtyE-0000000ATSA-39cx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 18 Jun 2025 14:40:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9A8BFA5207E;
-	Wed, 18 Jun 2025 14:40:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03704C4AF09;
-	Wed, 18 Jun 2025 14:40:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC5736113B;
+	Wed, 18 Jun 2025 14:40:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B44C4CEE7;
+	Wed, 18 Jun 2025 14:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1750257616;
-	bh=NZxcboNj0nuhBZTiZGcW1Uoh9H3u/i+DdNNtMO2BCiw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fHAFPWY+bjZDxt88PVq4qICdy1RJi09dMFa8vOiWZGgCG0FvkQGsOWm1vvWeifh/y
-	 4GxoSjdkIvCB5pIF3Ssu3kLb597vzXRBLBFPIn8CrT0FWDHg3tW2EDGElcRK+7/Wdd
-	 D4f9blxctSSEh7VvHA0F391whCHN0kz+076R/CpLk0vzSCh75dLcJL86lRAv6ami0x
-	 onyqMfNhrLZYU8ODll/pBG33p2rhancEWnop2WSLAFpXg6+401K4KID/IzMx7ldRc1
-	 fgGQaQWRQK7zcnFkTJgFEVmGjXrC8JE4ReqzXpMSGF5UwMPIMHo5rn43VzGhK3KmFx
-	 k9DdIMJHMye6Q==
-Date: Wed, 18 Jun 2025 16:40:11 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Delay link training after hot reset
- in EP mode
-Message-ID: <aFLPyxZD5lkAtw6b@ryzen>
-References: <20250617220114.GA1156610@bhelgaas>
- <20250617220523.GA1157905@bhelgaas>
- <aFLL0vPFzxdVOR9a@ryzen>
+	s=k20201202; t=1750257657;
+	bh=MtBYd0YqvCToULpVWPvQ6YQNEEYqx1BJQAEVFsIlfCY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DXYqYQowBIk5OsSUlcIaYr9pUiMvHEBs3Pqac0Eb7Xk1iz4A/Locx3gCanl44crW2
+	 rLgFpvRMDRfmJlIDB9uK3eaDi9SHsGULMwVKw2InKZmXbDzY36iyh2/4LurVAR0jBB
+	 CL8duK28vZwzncDGaHzUXENGo1wyxTjtv4KUabC47CBxGe+ma9OCChFr5c24oTuWbw
+	 m5k6kuEOWCHZ2HA62OXgJncqbqU+VCtiEyC5Z5xQC57tySqEK6rFOzcksQdxxBf6V3
+	 IaZsSZ7H0WhgKZw3ULGDeQGhHVhpNheXj4z/8M7UYbbk+QGPtBldKmlhzMNrXsSE37
+	 qhFvjzwarPnKg==
+Message-ID: <c3eb842a-61ee-4884-9394-856bcee1a476@kernel.org>
+Date: Wed, 18 Jun 2025 16:40:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aFLL0vPFzxdVOR9a@ryzen>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_074017_860020_03D35EBF 
-X-CRM114-Status: GOOD (  23.94  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/12] dt-bindings: samsung,mipi-dsim: document exynos7870
+ DSIM compatible
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20250612-exynos7870-dsim-v1-0-1a330bca89df@disroot.org>
+ <20250612-exynos7870-dsim-v1-10-1a330bca89df@disroot.org>
+ <5672e2ee-a828-4555-bf78-9d75c58840bd@kernel.org>
+ <9e2f29d3763ea50b30e5a493551627cd@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <9e2f29d3763ea50b30e5a493551627cd@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +130,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 04:23:19PM +0200, Niklas Cassel wrote:
-> On Tue, Jun 17, 2025 at 05:05:23PM -0500, Bjorn Helgaas wrote:
-> > On Tue, Jun 17, 2025 at 05:01:16PM -0500, Bjorn Helgaas wrote:
-> > > On Fri, Jun 13, 2025 at 12:19:09PM +0200, Niklas Cassel wrote:
-> > 
-> > Oh, and this sets PCIE_LTSSM_ENABLE_ENHANCE | PCIE_LTSSM_APP_DLY2_EN
-> > once at probe-time, but what about after a link-down/link-up cycle?
-> > 
-> > Don't we need to set PCIE_LTSSM_ENABLE_ENHANCE |
-> > PCIE_LTSSM_APP_DLY2_EN again when the link comes up so we don't have
-> > the same race when the link goes down again?
+On 18/06/2025 16:27, Kaustabh Chakraborty wrote:
+> On 2025-06-18 10:00, Krzysztof Kozlowski wrote:
+>> On 12/06/2025 17:18, Kaustabh Chakraborty wrote:
+>>> Add compatible string for Exynos7870 DSIM bridge controller. The
+>>> devicetree node requires four clock sources, named:
+>>> - bus_clk
+>>> - phyclk_mipidphy0_bitclkdiv8
+>>> - phyclk_mipidphy0_rxclkesc0
+>>> - sclk_mipi
+>>>
+>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>>> ---
+>>>  .../bindings/display/bridge/samsung,mipi-dsim.yaml | 26 ++++++++++++++++++++++
+>>>  1 file changed, 26 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+>>> index 1acad99f396527192b6853f0096cfb8ae5669e6b..887f3ba1edd24a177a766b1b523d0c197ff1123a 100644
+>>> --- a/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+>>> +++ b/Documentation/devicetree/bindings/display/bridge/samsung,mipi-dsim.yaml
+>>> @@ -24,6 +24,7 @@ properties:
+>>>            - samsung,exynos5410-mipi-dsi
+>>>            - samsung,exynos5422-mipi-dsi
+>>>            - samsung,exynos5433-mipi-dsi
+>>> +          - samsung,exynos7870-mipi-dsi
+>>>            - fsl,imx8mm-mipi-dsim
+>>>            - fsl,imx8mp-mipi-dsim
+>>>        - items:
+>>> @@ -144,6 +145,31 @@ required:
+>>>  
+>>>  allOf:
+>>>    - $ref: ../dsi-controller.yaml#
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            const: samsung,exynos7870-mipi-dsi
+>>> +
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          minItems: 4
+>>
+>> maxItems: 4
 > 
-> Nope, we don't.
-> 
-> To verify I used this patch:
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index be239254aacd..e79add5412b8 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -506,6 +506,8 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
->         if (reg & PCIE_LINK_REQ_RST_NOT_INT) {
->                 dev_dbg(dev, "hot reset or link-down reset\n");
->                 dw_pcie_ep_linkdown(&pci->ep);
-> +               pr_info("PCIE_CLIENT_HOT_RESET_CTRL after reset: %#x\n",
-> +                       rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_HOT_RESET_CTRL));
->                 /* Stop delaying link training. */
->                 val = HIWORD_UPDATE_BIT(PCIE_LTSSM_APP_DLY2_DONE);
->                 rockchip_pcie_writel_apb(rockchip, val,
-> 
-> 
-> 
-> 
-> [   85.979567] rockchip-dw-pcie a40000000.pcie-ep: hot reset or link-down reset
-> [   85.980210] PCIE_CLIENT_HOT_RESET_CTRL after reset: 0x12
-> [   93.720413] rockchip-dw-pcie a40000000.pcie-ep: hot reset or link-down reset
-> [   93.721074] PCIE_CLIENT_HOT_RESET_CTRL after reset: 0x12
-> 
-> 0x12 == bit 1 and bit 4 are set.
-> 
-> bit 1: app_dly2_en
-> bit 4: app_ltssm_enable_enhance
+> Will replace. maxItems == minItems implicit if maxItems present and
+> minItems absent.
 
-Oh, and just to verify that the hardware does not clear the app_dly2_en bit
-when we write the app_dly2_done bit, I ran the same test, but with the
-prints in rockchip_pcie_ep_sys_irq_thread(), just after calling
-dw_pcie_ep_linkup(&pci->ep); and got the same result:
+No, you need both. Add maxItemsd. Look at all or most of Exynos bindings.
 
-[   57.176862] rockchip-dw-pcie a40000000.pcie-ep: link up
-[   57.177338] PCIE_CLIENT_HOT_RESET_CTRL after linkup: 0x12
-[   72.448052] rockchip-dw-pcie a40000000.pcie-ep: link up
-[   72.448527] PCIE_CLIENT_HOT_RESET_CTRL after linkup: 0x12
+> 
+>>
+>>> +
+>>> +        clock-names:
+>>> +          items:
+>>> +            - const: bus_clk
+>>> +            - const: phyclk_mipidphy0_bitclkdiv8
+>>> +            - const: phyclk_mipidphy0_rxclkesc0
+>>> +            - const: sclk_mipi
+>>
+>> Does any existing driver code actually depends on the names? If not, we
+>> switched in Samsung in general to names matching the input or the
+>> function, not the name of provider. bus, bit (or bitdiv?), rx or esc0, sclk 
+> 
+> Yeah, Exynos5433 uses it. Code is here [1].
 
-So I think this patch is good as is.
-(Except for the citation style in the commit message which you didn't like :))
+It is fine then.
+
+> 
+> Though, I could get around this if you would like to. Would need to add
+> a few more patches.
+
+If you want to work on this, then it would be useful - add clock names
+per variant/device and just clk_get_bulk() on supplied array. Up to you.
 
 
-Kind regards,
-Niklas
+Best regards,
+Krzysztof
 
