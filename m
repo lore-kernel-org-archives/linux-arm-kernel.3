@@ -4,162 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E6BC7115D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D947C7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 19:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpVql0OhYUmbJQjxeJu1rkz+1o6c6n+BgTHqk2b3Tpk=; b=r6PvnJTK0k9a6rkDUCMreRcwYW
-	eKNW6wmkdqIOGF/2IpXPoWQd/T1a1qiNsQkwjnMivDAxXKgo+to9Gy36pw6xSE1vhVx4TSIYIj8NV
-	31yFET69Bk0clRryzcoEEep7RIkZ/7iaSYx3Iv6qDZhH6HmCvPoLcQCo8WoqEJHCF2QQzQC8DC6G/
-	7+2C6fg5ytSPRwEIlFtYfxz6WB7/N0loA9KMIG4++PQL/l6jSR1G29T6W0B0C2lZqN40jKN2hYEtY
-	tjztmBtRmXmDlHRDn6TFrNF5lI7Whsk18w24z+rIX2ML9EAhx3CCsG5yc6pf4FwNI/lyALLSBUsni
-	EuixWktA==;
+	bh=eTsSA5tSG0BBeG/tO1836ylFVVkJ0QYKSkBxCV3iQpM=; b=qdcJNqsgCSME6EqveDGztBrcPW
+	pJ7TK/NpxQmb2JuvMf8v1snWooz61WwGEodAkr9LV0MjtPMRMKHYdzYvNP8Aup8E/y6RhIEmurE5D
+	DPc8QeIvtUo5tuoGr0Xq7YBOvCIdekr3F4vBYHvv7NvHEZjLGP6zZGAlU/L9A1eJqk4wdcYTCU0u4
+	DW/qkV6WC5ngUrBCv+c1hWcT26+cFtFw9PAyECd57oxKRGT+5Qt6pi53YPZ1LEmrDE7jZAOOSo1Nx
+	twrtvP67VTCHGBrfPk3c2amMHAHEVgwlbEv+pisfHIPcOVfg0pTqC30+bApdxJYlQFiDpWyUtKZ/2
+	IyfDJI1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRyCL-0000000B9xQ-0CF1;
-	Wed, 18 Jun 2025 19:11:49 +0000
+	id 1uRyCO-0000000BA3T-0xL1;
+	Wed, 18 Jun 2025 19:11:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRw0q-0000000Am7m-2Ck0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 18 Jun 2025 16:51:48 +0000
+	id 1uRwne-0000000Atc9-12Pl;
+	Wed, 18 Jun 2025 17:42:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=mpVql0OhYUmbJQjxeJu1rkz+1o6c6n+BgTHqk2b3Tpk=; b=mCrP5nD2wlgoBYEsZXeZcUw2Zx
-	S3i5oZ8ui/6TJYRHg2N9nOLHT7wcfmSrKU6MssFB3DgkBVPNW6Fb73dPeFyMBgpuHgtXoWPt7SEEr
-	r1CvyLmSWDa3H6etYm1syTKCzDYo4sRPpHtujcSqvgujs9+rNLjf0OA7QQRWcX0Kl7rLInosPC7SX
-	idPl7d7xkdbKUyOorkh9T1VeBpwd1n1M5dR436FNv2rUJuWciW/ttf70qDxz/tucHSag8VltaC2YI
-	r6OsMV7+IPS9UeaWBBZRZpM7ycyh7iURpJKcdTJoLSMiFQ79w3vfGr7H3Wlasyk+HKoMVd8vQ3cjv
-	NROMJwpg==;
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	bh=eTsSA5tSG0BBeG/tO1836ylFVVkJ0QYKSkBxCV3iQpM=; b=gqcyXCKAIjcERbqUt1Ljgjsk0p
+	3h6fxO0etkd70l/E21ZfcZ45FWeA/IFIuOtBqiyOIRE0/bKzDpMLSBQBFgsViCMjvoayPIaiyz4DN
+	kjkzLI8vgbewwVzsUDgP/+TCmo8KFLJyJddjOBNk+5+OVbrYVha1Co7eq3M0i3V8HSPHo4U7UHm1p
+	TcbWrtj9/mVSTxDaOtM67HZa56xrIy+GPxGYqNr1t5s4KEpax2D111d5ZlWO5Rv4hcC/wAvjQ9VsI
+	GUrjRAMsivP1e18oNpApsVVEsSuneLs8l3kOJSgoSDLioF/+6kcY1CF89IrH3gfQEwod6AamJO4ce
+	ZNa8lGYw==;
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRw0l-00000004Cfh-3cgv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 18 Jun 2025 16:51:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nFxnj7pB+cE8XXSfnL3Qj/R/gzkqjS9BAaO7c/MLwIXePaSwBt+6CNFhHOpK4p/IWKlmURy9hGIVIaiQLdDBYpP2Eq5VDhSWSNf+rMk1k3kPmVHJBfzfP4e12ehp5P/ak4pvav+MjGjxMGxun+OenjNAZAWGVHgC2eIa24wFrLBTvV4nGfVBZ6/XnlUmRc5p5phjwJPuyv8p4FEP7CeQiSfoD/pRxk7ZgZ1Spx0pINmoGgLYkuqs0QMW/TlVUrK85KnzaqgzFnmGaQbhYYqsToijhBy89Ke649CB6VthqgRDkHwNZKG6/2A5HKIpDJDBeaeyjYk5bGRGXP8esF1qEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mpVql0OhYUmbJQjxeJu1rkz+1o6c6n+BgTHqk2b3Tpk=;
- b=jfMyYJ/AJFX2Y3R0jMW1LaU5vWss32jwDEHlgon2RnglEsLVJwM61NMCDZvG5/N779DOxdBxSLEkLTYaDEqOzBcOjWQxRgsvLDc4KbBOL9QOkY51uQ3XYKTKolNBP9cKYpxnIdgPhCOM0FqbJQsDbihQgFUiid4NgyXHGeXUnbP+fpw9Tegw5PofvIvuO77uaeTlNUT6nLzir0zBYDUsQo2701mq85aBZCdDWk7X8+c0J4w1I7Qb8o3Z3xvMJUEtVxkMw+NcIHvIgIVfufhIvX8L4lzoALgJnxx/i1eQU6wK66+rYriWl4Q0qrVRR3nuhlcimvRLoc2/oj5K0/0B8g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mpVql0OhYUmbJQjxeJu1rkz+1o6c6n+BgTHqk2b3Tpk=;
- b=Hg24pkaJ1Re668lCq/2rTNgVMo1B72/a2tDc/SSGRwNuSiSXkMOILs9CxjRUyEKKaxByifrGsvNDJ8VYhzfeNEGsjLTga6fMJg/oDVO1HHPK+NTDbYkA1EuBbeySpQjKhEfMPydJ2PIuid/aulYeDVuRC+9ttFvjheW78IDqmerWRtf+/+d1ugU8COnjHn1+ly/Po+bdjJCeSZvWBH5yLGsVriPLo9WuczPOLPgLZI2VJ54M5qeeCR8sa93HXn1ZF5U9WX4WpUsCeVXEL4CqicitgkTBad84XSwMNN8vgKTdWe0wmu2yX9meDB4Vhib80FKGiWqLTlqptw7VTVJ94w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GVXPR04MB10134.eurprd04.prod.outlook.com (2603:10a6:150:1b1::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.29; Wed, 18 Jun
- 2025 16:51:36 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%7]) with mapi id 15.20.8835.027; Wed, 18 Jun 2025
- 16:51:36 +0000
-Date: Wed, 18 Jun 2025 12:51:28 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, lee@kernel.org, gregkh@linuxfoundation.org
-Subject: Re: [PATCH] dt-bindings: mfd: fsl,imx8qxp-csr: Remove binding
- documentation
-Message-ID: <aFLukN0TW3AxkNn9@lizhi-Precision-Tower-5810>
-References: <20250618091314.2754169-1-victor.liu@nxp.com>
+	id 1uRwnb-00000004Eax-3SdL;
+	Wed, 18 Jun 2025 17:42:13 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uRwez-000000004uy-0gef;
+	Wed, 18 Jun 2025 17:41:59 +0000
+Date: Wed, 18 Jun 2025 19:41:50 +0200
+From: Daniel Golle <daniel@makrotopia.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Frank Wunderlich <frank-w@public-files.de>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, Simon Horman <horms@kernel.org>,
+	arinc.unal@arinc9.com
+Subject: Re: [net-next v5 3/3] net: ethernet: mtk_eth_soc: skip first IRQ if
+ not used
+Message-ID: <aFL6XhghHobju0th@pidgin.makrotopia.org>
+References: <20250618130717.75839-1-linux@fw-web.de>
+ <20250618130717.75839-4-linux@fw-web.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250618091314.2754169-1-victor.liu@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0158.namprd03.prod.outlook.com
- (2603:10b6:a03:338::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GVXPR04MB10134:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c694fcf-fc85-4022-5cbe-08ddae88636c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iMVVWJt98kk2ra4DrFJFA4S4zX8Nhwsd0Xo/f96Z+SWwSiKOOVyDTC/Pow3z?=
- =?us-ascii?Q?LmlGhWZoL1E0x+v5F58rv48rh4ye/8V1tFg1xyQeKXoy47fe99mB/hdvxdFl?=
- =?us-ascii?Q?ofCUWCS2ZysviY4QGfkeIRIGT+R6sWF+RtAVRAoThH9T1aPUmDZJkB1bhWzD?=
- =?us-ascii?Q?qpmJ8sipqQoYU6SoeRRynkIXBPxqaLrXdPuXXDTr8zd9LEIFeJeGgWdKFPX1?=
- =?us-ascii?Q?3NK40eCH0DKvpCnSizaGA0DvrY1WA9fhFLeZfaYykAKbW7dGWazH34g+5ZU2?=
- =?us-ascii?Q?d74dj7V525Wj1R7f8bSZdOcDuNgXyNkD/dqi8C9UE3tg7pytZAI6s0O2Ghdf?=
- =?us-ascii?Q?Q3SEV2Vf0kHLfr725MU7d/sj84gMv93TzHwXzmT/0rRvpqZTT5DTUnAd44sv?=
- =?us-ascii?Q?vzORgult/02Sj/flrNW/wqS2yKs6iLZ3htH2qhzrc3yNiv0Tg+T9X+K3V26M?=
- =?us-ascii?Q?LGBd/rfeQtjwzVb7SjobUWaBTfwOjblihawdzPglwUtBB91tc3EIHXvEwLdu?=
- =?us-ascii?Q?INaQdsNLpY3Tyk8mCxXX0VAFPaIojfuEztPGyz6V8Czdxmx9vXB8nLNxLOps?=
- =?us-ascii?Q?NrvbBfr38xzARpUZfMowW085iJXQ0s27CoWJHkba9dV+m37QdbzZtRYwc6J+?=
- =?us-ascii?Q?1wudrZX7iHtleguyMCsbzEAUIWO+Dvk6SRGKiJlIKo1N7YRs+wOlmpxkD+3B?=
- =?us-ascii?Q?Xbiw3VLQWTF06+OAc65chC5q6WmILHnywkF6JQTiUuT/RrV5mMuz+MPFdhmV?=
- =?us-ascii?Q?cF+9VaMOq6Xmlnt/W6HKzVVbbUnPH6Y9aK7b1qNZq7YMgVyD23cwgaqOhwQB?=
- =?us-ascii?Q?rEyj1YprgU0jq2nWLhLIc91OvBBggPJNohVmF0kQMnRAqze8uAfhERUuHCi4?=
- =?us-ascii?Q?UcnJBCjz/TSJyWoMe1vtd9qkjGY32D2vcTMFZnfjC5bKDuY86JxUxfLgzRbi?=
- =?us-ascii?Q?K8WHxsMXOJogsGtk9fjJ0O6+2Ho9zOZ8bgrChyfZjQOEFCqejOcTwcqMjmxL?=
- =?us-ascii?Q?yqOqua57Whr0h4LvFtW2p2uvgb6hjhgiJk4Dj78KtMVYmJhfc7sH20NwH7cl?=
- =?us-ascii?Q?QvjEtBfrkvgSEAMUfDpTLwuMcSEQCdtHw32TC+OEtZr2Im1kxLbgnFdE6yki?=
- =?us-ascii?Q?xxkS12q0dshI6ZyYndMJ3Dn/EYmtL0jSmGf2GGX89mawUhrS+M82O1tfOYm5?=
- =?us-ascii?Q?Q3XVCxayzJLF33lrK9dbrTYIEbqbCc9Gp1ig0QvfwPkTOsH9gKeXp+nRziHn?=
- =?us-ascii?Q?HAGr7j/PVsjs6eWxQDHF4hmWPl00dj0NIMmU56obsO76zJKQbAdnyH3s/YgQ?=
- =?us-ascii?Q?uhblZIih9OrTvSnGWThEfkOTlpAOKzfqE99yLEdQjiBPobLUi4pNJFqB0VmO?=
- =?us-ascii?Q?rEnEsdlvlhtobqVLDq6Kea5PB3xZ6w3F04JG57ugs2ptbQOkzoR8VH/HAKSD?=
- =?us-ascii?Q?n15PayKUMGI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3bvGRX4KzEPpj3skWdW5l6aJ3HQrnQAaW/bChR2zNhLlHQM0mztId3WP0wjf?=
- =?us-ascii?Q?Y8S6IPCwMvDGmGFPogl5ltfgGt0qkF5uUP1oOLIRhMafmgyOnb8kuCOCxC2l?=
- =?us-ascii?Q?JCb8gqUZgrMZ46kf/jX6HKegdvsTtWvtafAFYX7j/uAIjWANrzq3r/q4X5m4?=
- =?us-ascii?Q?2Dnalp9PwirKbtyN55cPN7FXo1OHRtebb0DY/VK6gCzBkbst0zXqAwtNov3m?=
- =?us-ascii?Q?dWw+YqcfAwcU8a7n9xYczIcEh0AL2K7l40i1uGExTmjOuf2jGUGH93kYwgnn?=
- =?us-ascii?Q?Y68iHZ5sUUHnSpnO4CsM95NMTOs5p96ANZxxJVvw/hXo2fnQ6EtorOzA967t?=
- =?us-ascii?Q?I+0r3xRWQACA+kRJMunjutWkda6IRYH4WjnrcieeNqgTEWOBfZCdWkcC8DYw?=
- =?us-ascii?Q?mqgGGawcPZVc54I0d3eysjlJye4A5vAvROBfjVi8VENJFpcb99SM+gy50Yyi?=
- =?us-ascii?Q?N4YMMi3r8pO+KzQ75qMst+UHnYxFMMo3jiPZstB6loQbynO4KuRMIRvuJMtM?=
- =?us-ascii?Q?IFDezg4tKc7R9vetsjfQUgMXvOCVLYSR6jjdbc8fBhMlYpVu9mo4zuT653NV?=
- =?us-ascii?Q?hUOCqBeVhQ6QuF6n80R4bDDHFwP6rN5KOiph+y7Jdm+GanIDJOI2HeeqliLv?=
- =?us-ascii?Q?YC8skpUvH3Kx0s80mnTllNaDiaajuJ49OZxQLcOetuVDamZOvvnp2yW8y3ji?=
- =?us-ascii?Q?qZ8tbUqV+y5TWEd+PnQemtH/e4dRHnxY4LAj8JGhZfOwLFGaOJbT9LkWPeRL?=
- =?us-ascii?Q?VJ/yLzlqDdMaOhDnxL+FC/yEw3wI9+6OpHUHfKjuxtnhbpdVqtdfYhUZlxIz?=
- =?us-ascii?Q?ozl2yOvJpAlcVBzBjLYPr3E22G2lUJpHCm/Qc0WMEqTl/KURugTDEmIaDIiG?=
- =?us-ascii?Q?3AUf0XtFsT00ddHjLaDol2WSYWFgIZNz8TXoL9GXj2Ne8udL56K0kOPVmv7y?=
- =?us-ascii?Q?jv5weZ1LYr1aNIrYZsTgsCdaSxDw7Tm0aKy6PMheWrip6XjSU1/2BKYFuxq3?=
- =?us-ascii?Q?OIJLW5cIu3TfZCrMmQp0X/H6vp1msO22v/RpTT2OBgRI7ucXjkqe/Q+pPQyE?=
- =?us-ascii?Q?e822eR0EughrDNlBSqg/ohOsFXkr3s1fUujCGh8EjF7T6DWybrSQb15Rb7fZ?=
- =?us-ascii?Q?SRPzdC7Rpi3oLQEI/N2kU0YEpbk5NsL+z3S7PFiWbrVCmlU5SieKFj+Gah/j?=
- =?us-ascii?Q?6Nu0nZHi0MTD9XwTEnlbGcc1bnq9Pdz4YGrMiAAAEsuEI2Uj1uW/7l9uI45w?=
- =?us-ascii?Q?9lu5u0mC0dwJaQn7WbFCKfFlms9gVrfPM2rAZ/44+5LHuEXkXw0LjQmIkJqk?=
- =?us-ascii?Q?1UgHs8Uikp3Uj9664/tz5ysZTOLO4JUQdxd4MmGvjHOrfxBF0b2kDuwQy4kC?=
- =?us-ascii?Q?tPEaafbil/t97YUnHxS/UOadGrXto8nhCqGygVDg1pYRs6egEO2Plv+M2hyL?=
- =?us-ascii?Q?F1UiDszBMIZU9qYu3qoLXf+lt8OG4kP+RBx8nogKeRinwuZYJNAeGi8O5mze?=
- =?us-ascii?Q?kFbvmFzVzV5fTczq5k2TV0n/5xsklUpAu/5Gdyd0A6tFlTvn7FsQrbXW1Z6W?=
- =?us-ascii?Q?MP1hzrixJyxs/izuZzQ=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c694fcf-fc85-4022-5cbe-08ddae88636c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jun 2025 16:51:36.5114
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pRCPkNMPBiMZ8WxVsyg3CqtryiABrmCVJY7yD8+dO4D9g6zBtmJIviypwSuGGoFvybJfiLJBKtVE/tCEAkMnoQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10134
+In-Reply-To: <20250618130717.75839-4-linux@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_175143_992913_0493D322 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250618_184211_927639_B39001BF 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,248 +87,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 18, 2025 at 05:13:14PM +0800, Liu Ying wrote:
-> commit b0a5cde57cf1 ("dt-bindings: mfd: Explain lack of child dependency
-> in simple-mfd") pointed out that it's a mistake for a child device f
-> a simple MFD device to depend on the simple MFD device's clock resources.
-> fsl,imx8qxp-csr.yaml happens to make that mistake.  To fix that, remove
-> fsl,imx8qxp-csr.yaml and use "simple-pm-bus" and "syscon" as compatible
-> strings in the examples of fsl,imx8qxp-pixel-link-msi-bus.yaml.
+On Wed, Jun 18, 2025 at 03:07:14PM +0200, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
+> 
+> On SoCs without MTK_SHARED_INT capability (all except mt7621 and
+> mt7628) platform_get_irq() is called for the first IRQ (eth->irq[0])
+> but it is never used.
 
-Does anyone use fsl,imx8qxp-mipi-lvds-csr/fsl,imx8qm-lvds-csr? I suppose
-yes. It'd better said no one use these in dts and safe to remove.
+I know that technically MTK_SHARED_INT is a capability flag, but it's
+rather a non-capability. Hardware having dedicated interrupts for RX and
+TX is "more capable" than (older, legacy) hardware with just one shared
+interrupt for both...
 
-Frank
->
-> Fixes: 9b2c55b5403f ("dt-bindings: mfd: Add i.MX8qm/qxp Control and Status Registers module binding")
-> Fixes: c08645ea215c ("dt-bindings: bus: Add Freescale i.MX8qxp pixel link MSI bus binding")
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+So maybe better:
+"On SoCs with dedicated RX and TX interrupts (all except MT7621 and
+MT7628) ..."
+
+Reading the datasheet of some recent MediaTek SoC it is worth
+noting that there are 4 interrupts assigned to the frame engine and
+the FE_INT_GRP register can be used to assign functions to them.
+
+So technically, calling them RX and TX in DT is wrong, becaues they
+are fe_int0, fe_int1, fe_int2 and fe_int3, which are then assigned
+one or more functions by the driver using that FE_INT_GRP register.
+
+However, it's the driver then assigns QDMA TX to fe_int1 and RX to
+fe_int2 while leaving fe_int0 and fe_int3 unsued.
+
+That's what the magic value 0x21021000 which is written to FE_INT_GRP
+register does.
+
+On MT7988 and newer, in addition to those 4 frame engine interrupts
+there are **another 4** interrupts for PDMA, typically used to
+service 4 RX rings while one of the fe_int* is used to indicate
+TX done.
+
+> Skip the first IRQ and reduce the IRQ-count to 2.
+> 
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
->  .../bus/fsl,imx8qxp-pixel-link-msi-bus.yaml   |   7 +-
->  .../bindings/mfd/fsl,imx8qxp-csr.yaml         | 192 ------------------
->  2 files changed, 5 insertions(+), 194 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
->
-> diff --git a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
-> index 7e1ffc551046..4adbb7afa889 100644
-> --- a/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
-> +++ b/Documentation/devicetree/bindings/bus/fsl,imx8qxp-pixel-link-msi-bus.yaml
-> @@ -103,11 +103,14 @@ examples:
->          clock-names = "msi", "ahb";
->          power-domains = <&pd IMX_SC_R_DC_0>;
->
-> -        syscon@56221000 {
-> -            compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
-> +        bus@56221000 {
-> +            compatible = "simple-pm-bus", "syscon";
->              reg = <0x56221000 0x1000>;
->              clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
->              clock-names = "ipg";
-> +            #address-cells = <1>;
-> +            #size-cells = <1>;
-> +            ranges;
->
->              pxl2dpi {
->                  compatible = "fsl,imx8qxp-pxl2dpi";
-> diff --git a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml b/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
-> deleted file mode 100644
-> index 20067002cc4a..000000000000
-> --- a/Documentation/devicetree/bindings/mfd/fsl,imx8qxp-csr.yaml
-> +++ /dev/null
-> @@ -1,192 +0,0 @@
-> -# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> -%YAML 1.2
-> ----
-> -$id: http://devicetree.org/schemas/mfd/fsl,imx8qxp-csr.yaml#
-> -$schema: http://devicetree.org/meta-schemas/core.yaml#
-> -
-> -title: Freescale i.MX8qm/qxp Control and Status Registers Module
-> -
-> -maintainers:
-> -  - Liu Ying <victor.liu@nxp.com>
-> -
-> -description: |
-> -  As a system controller, the Freescale i.MX8qm/qxp Control and Status
-> -  Registers(CSR) module represents a set of miscellaneous registers of a
-> -  specific subsystem.  It may provide control and/or status report interfaces
-> -  to a mix of standalone hardware devices within that subsystem.  One typical
-> -  use-case is for some other nodes to acquire a reference to the syscon node
-> -  by phandle, and the other typical use-case is that the operating system
-> -  should consider all subnodes of the CSR module as separate child devices.
-> -
-> -properties:
-> -  $nodename:
-> -    pattern: "^syscon@[0-9a-f]+$"
-> -
-> -  compatible:
-> -    items:
-> -      - enum:
-> -          - fsl,imx8qxp-mipi-lvds-csr
-> -          - fsl,imx8qm-lvds-csr
-> -      - const: syscon
-> -      - const: simple-mfd
-> -
-> -  reg:
-> -    maxItems: 1
-> -
-> -  clocks:
-> -    maxItems: 1
-> -
-> -  clock-names:
-> -    const: ipg
-> -
-> -patternProperties:
-> -  "^(ldb|phy|pxl2dpi)$":
-> -    type: object
-> -    description: The possible child devices of the CSR module.
-> -
-> -required:
-> -  - compatible
-> -  - reg
-> -  - clocks
-> -  - clock-names
-> -
-> -allOf:
-> -  - if:
-> -      properties:
-> -        compatible:
-> -          contains:
-> -            const: fsl,imx8qxp-mipi-lvds-csr
-> -    then:
-> -      required:
-> -        - pxl2dpi
-> -        - ldb
-> -
-> -  - if:
-> -      properties:
-> -        compatible:
-> -          contains:
-> -            const: fsl,imx8qm-lvds-csr
-> -    then:
-> -      required:
-> -        - phy
-> -        - ldb
-> -
-> -additionalProperties: false
-> -
-> -examples:
-> -  - |
-> -    #include <dt-bindings/clock/imx8-lpcg.h>
-> -    #include <dt-bindings/firmware/imx/rsrc.h>
-> -    mipi_lvds_0_csr: syscon@56221000 {
-> -        compatible = "fsl,imx8qxp-mipi-lvds-csr", "syscon", "simple-mfd";
-> -        reg = <0x56221000 0x1000>;
-> -        clocks = <&mipi_lvds_0_di_mipi_lvds_regs_lpcg IMX_LPCG_CLK_4>;
-> -        clock-names = "ipg";
-> -
-> -        mipi_lvds_0_pxl2dpi: pxl2dpi {
-> -            compatible = "fsl,imx8qxp-pxl2dpi";
-> -            fsl,sc-resource = <IMX_SC_R_MIPI_0>;
-> -            power-domains = <&pd IMX_SC_R_MIPI_0>;
-> -
-> -            ports {
-> -                #address-cells = <1>;
-> -                #size-cells = <0>;
-> -
-> -                port@0 {
-> -                    #address-cells = <1>;
-> -                    #size-cells = <0>;
-> -                    reg = <0>;
-> -
-> -                    mipi_lvds_0_pxl2dpi_dc0_pixel_link0: endpoint@0 {
-> -                        reg = <0>;
-> -                        remote-endpoint = <&dc0_pixel_link0_mipi_lvds_0_pxl2dpi>;
-> -                    };
-> -
-> -                    mipi_lvds_0_pxl2dpi_dc0_pixel_link1: endpoint@1 {
-> -                        reg = <1>;
-> -                        remote-endpoint = <&dc0_pixel_link1_mipi_lvds_0_pxl2dpi>;
-> -                    };
-> -                };
-> -
-> -                port@1 {
-> -                    #address-cells = <1>;
-> -                    #size-cells = <0>;
-> -                    reg = <1>;
-> -
-> -                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0: endpoint@0 {
-> -                        reg = <0>;
-> -                        remote-endpoint = <&mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi>;
-> -                    };
-> -
-> -                    mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1: endpoint@1 {
-> -                        reg = <1>;
-> -                        remote-endpoint = <&mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi>;
-> -                    };
-> -                };
-> -            };
-> -        };
-> -
-> -        mipi_lvds_0_ldb: ldb {
-> -            #address-cells = <1>;
-> -            #size-cells = <0>;
-> -            compatible = "fsl,imx8qxp-ldb";
-> -            clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_MISC2>,
-> -                     <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_BYPASS>;
-> -            clock-names = "pixel", "bypass";
-> -            power-domains = <&pd IMX_SC_R_LVDS_0>;
-> -
-> -            channel@0 {
-> -                #address-cells = <1>;
-> -                #size-cells = <0>;
-> -                reg = <0>;
-> -                phys = <&mipi_lvds_0_phy>;
-> -                phy-names = "lvds_phy";
-> -
-> -                port@0 {
-> -                    reg = <0>;
-> -
-> -                    mipi_lvds_0_ldb_ch0_mipi_lvds_0_pxl2dpi: endpoint {
-> -                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch0>;
-> -                    };
-> -                };
-> -
-> -                port@1 {
-> -                    reg = <1>;
-> -
-> -                    /* ... */
-> -                };
-> -            };
-> -
-> -            channel@1 {
-> -                #address-cells = <1>;
-> -                #size-cells = <0>;
-> -                reg = <1>;
-> -                phys = <&mipi_lvds_0_phy>;
-> -                phy-names = "lvds_phy";
-> -
-> -                port@0 {
-> -                    reg = <0>;
-> -
-> -                    mipi_lvds_0_ldb_ch1_mipi_lvds_0_pxl2dpi: endpoint {
-> -                        remote-endpoint = <&mipi_lvds_0_pxl2dpi_mipi_lvds_0_ldb_ch1>;
-> -                    };
-> -                };
-> -
-> -                port@1 {
-> -                    reg = <1>;
-> -
-> -                    /* ... */
-> -                };
-> -            };
-> -        };
-> -    };
-> -
-> -    mipi_lvds_0_phy: phy@56228300 {
-> -        compatible = "fsl,imx8qxp-mipi-dphy";
-> -        reg = <0x56228300 0x100>;
-> -        clocks = <&clk IMX_SC_R_LVDS_0 IMX_SC_PM_CLK_PHY>;
-> -        clock-names = "phy_ref";
-> -        #phy-cells = <0>;
-> -        fsl,syscon = <&mipi_lvds_0_csr>;
-> -        power-domains = <&pd IMX_SC_R_MIPI_0>;
-> -    };
-> --
-> 2.34.1
->
+> v5:
+> - change commit title and description
+> v4:
+> - drop >2 condition as max is already 2 and drop the else continue
+> - update comment to explain which IRQs are taken in legacy way
+> ---
+>  drivers/net/ethernet/mediatek/mtk_eth_soc.c | 12 ++++++++----
+>  drivers/net/ethernet/mediatek/mtk_eth_soc.h |  4 ++--
+>  2 files changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> index 875e477a987b..7990c84b2b56 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> @@ -3354,10 +3354,14 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+>  	 * the second is for TX, and the third is for RX.
+>  	 */
+>  	for (i = 0; i < MTK_FE_IRQ_NUM; i++) {
+> -		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT) && i > 0)
+> -			eth->irq[i] = eth->irq[MTK_FE_IRQ_SHARED];
+> -		else
+> -			eth->irq[i] = platform_get_irq(pdev, i);
+> +		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SHARED_INT)) {
+> +			if (i == 0)
+
+This would make it even more readable:
+			if (i == MTK_FE_IRQ_SHARED)
+
+
+Other than that looks good to me:
+
+Reviewed-by: Daniel Golle <daniel@makrotopia.org>
+
+> +				eth->irq[MTK_FE_IRQ_SHARED] = platform_get_irq(pdev, i);
+> +			else
+> +				eth->irq[i] = eth->irq[MTK_FE_IRQ_SHARED];
+> +		} else {
+> +			eth->irq[i] = platform_get_irq(pdev, i + 1);
+> +		}
+>  
+>  		if (eth->irq[i] < 0) {
+>  			dev_err(&pdev->dev, "no IRQ%d resource found\n", i);
+> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+> index 8cdf1317dff5..9261c0e13b59 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+> @@ -643,8 +643,8 @@
+>  #define MTK_MAC_FSM(x)		(0x1010C + ((x) * 0x100))
+>  
+>  #define MTK_FE_IRQ_SHARED	0
+> -#define MTK_FE_IRQ_TX		1
+> -#define MTK_FE_IRQ_RX		2
+> +#define MTK_FE_IRQ_TX		0
+> +#define MTK_FE_IRQ_RX		1
+>  #define MTK_FE_IRQ_NUM		(MTK_FE_IRQ_RX + 1)
+>  
+>  struct mtk_rx_dma {
+> -- 
+> 2.43.0
+> 
+> 
 
