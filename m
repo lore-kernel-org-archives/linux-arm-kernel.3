@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCFBC7115A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AEEC7115A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 18 Jun 2025 16:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIZZF3VdONOHx+mNvJVopq4jcsPkXQDojBDvTCHofnw=; b=m1fsx/dKngVSYxk3DaB5F4Z1QC
-	EFUqruV0uCv6UBwZ3CYtCQyR0wYlS8kspV3ZYtfIXEun3j+H+sM4LbxKq2C0lcjMJwwSDP0FPmEBg
-	WqmQDfniKWGis3FpKV8kTBz/sWwhP+7zq6uJTqdm0PllEe2/spr7lEvxVh7InmUbMA2UK+wYulGSt
-	o0N2xsCg3lAAlnQ9CRKzqD3Fpnc9WMSj72CYRqjoA0Yj+SjVxWFrGQj8jJE6wJpPUCQgivmYAJqdZ
-	kTlEJ/g6aDerEfajMeciBsCYr8f58qQ1xy2Bgn7k61Z2YHC3ZqKy/6UVnNZgZcRdguIY3zi4c14S7
-	gbVLDLqg==;
+	bh=BR2Js8AYTA3uqJ+dhjRGvYCUNC9Z3XvtFngEWfHaNL4=; b=PmEzwzUYtzAuijGUqIcYansOzv
+	WOqLL6zHHrRmbM+aF7H3fTUXN0a+EnmRsFtdUj2yKMiBxGQjrlKvG1wfT12cld2Bg5d+i/ivr+ykA
+	yE0XxRe3ssY4hTKQJ3KAovBZzZtHc8tEAH4GkcYVpDpJKCu+hzB4hPvswjno8TwdRBR5ZIMr14Vpl
+	Et7Vy2TtLRFrWsC5vcS4q7WnfGqtKUP2wtudYKC63JMRyqBvIlynxNm73TPRj2E0g51pQioXJwfpe
+	2Tuxi6E6WpULCO0ll91GkJflJPZgDc82933dP6NkcIDuDV4HPe0NwOZtlDLHljcoB1Qxhy5mCWk0k
+	DcgdMZ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRvG7-0000000AgXI-2Tu5;
-	Wed, 18 Jun 2025 16:03:31 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uRvKa-0000000Agz3-3CkW;
+	Wed, 18 Jun 2025 16:08:09 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uRtTt-0000000AOT6-3OaV;
-	Wed, 18 Jun 2025 14:09:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1750255776;
-	bh=keF4qtNzrgMOTjYFNPm6e0DVoWKRm4eaIoCysbWwg0I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GOjyIbuKXih008ST9b1XsYdBxBz0K1uPl3kiY+oxxU6PHfh8w4xrLOCHpzxBkILTf
-	 Nx+5e8gYQZDa6YkHn1z2dWmULH2JHeVtllgoM0/S+27EDnyIj6o8qILOhU0VnuSGx9
-	 hyshYy4saA5/ak9Zcx5B7nCMIW7+hRf951YFEGCOAENenX4liiPl7hgTZPVmu5J4cK
-	 ll6jDan2SwjZ0+3Qhs1X7Vur04fjIt0S9NY5yIu4vR+yh6XKbj2R5BtSeVw0do0xEV
-	 FyDXIX8BeCFx9qymjJn4eW9j8QPxfuo9h8OZ7O08rUDlh6QXgDWHgwVYBQCjIO8CTm
-	 ygQPL3A+Lyd7A==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:45c6:994a:f902:5c74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE43417E1580;
-	Wed, 18 Jun 2025 16:09:35 +0200 (CEST)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	jgg@ziepe.ca
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v2 5/5] arm64: defconfig: enable Verisilicon IOMMU
-Date: Wed, 18 Jun 2025 16:09:14 +0200
-Message-ID: <20250618140923.97693-6-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250618140923.97693-1-benjamin.gaignard@collabora.com>
-References: <20250618140923.97693-1-benjamin.gaignard@collabora.com>
+	id 1uRtYv-0000000AP8y-2eem;
+	Wed, 18 Jun 2025 14:14:51 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 44DE743A29;
+	Wed, 18 Jun 2025 14:14:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1750256086;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BR2Js8AYTA3uqJ+dhjRGvYCUNC9Z3XvtFngEWfHaNL4=;
+	b=M3GMdsgxD6lk12yug3GZIA8tEeyFYbrlJgFxgmCaHKFUrC5JJagMIGi3UonPF93IgRsa0e
+	91VmMYNOWFqFjkgDwrtJCBNw0kqYZ78J7y/0GcpTTb5w9PScz8COG1ISoU+ymvY6deqwHU
+	eFa8aDov6g1X5Z0U7XvCaG3a2TC3vJx8Q58k96AcZsZcGLy0o+/s8AiHhvL/XRjHZQ57V+
+	t+oMgkfbyWN6LIZZE350GAwt4swQwwMRB8EIuQKKPAygPkzZQX4XpN0jddH+BhU7S55K1X
+	9XFLQ7bAdz5CemKbwN+ahVr+YigNdMg5BZoI32c8u593JeheOJHk+9jqWIv2BA==
+Message-ID: <3acaaf1c-b4ed-47ff-8de5-195a9cfc5338@bootlin.com>
+Date: Wed, 18 Jun 2025 16:14:44 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Fix the mipi port definition
+ for RK3399
+To: Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250618-dtb_fixes-v1-0-e54797ad2eba@bootlin.com>
+ <20250618-dtb_fixes-v1-2-e54797ad2eba@bootlin.com>
+ <DAPPHL6RPWWM.94C7P26AUCCN@cknow.org>
+Content-Language: en-US
+From: Olivier Benjamin <olivier.benjamin@bootlin.com>
+In-Reply-To: <DAPPHL6RPWWM.94C7P26AUCCN@cknow.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddvgddvkeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomhepqfhlihhvihgvrhcuuegvnhhjrghmihhnuceoohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedvheejtdeifeejvedvffdtuddtheehtdelvdehvefgjeetveejfeeiveduvdejteenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeipdhhvghloheplgfkrfggieemvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeingdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepughiughirdguvggsihgrnhestghknhhofidrohhrghdprhgtphhtthhop
+ ehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Sasl: olivier.benjamin@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250618_070937_991851_0E04DD84 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250618_071449_817417_BA98A4D3 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,26 +82,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable Verisilicon IOMMU used by RK3588 AV1 hardware codec.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 897fc686e6a9..ad1515f69b4f 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1451,6 +1451,7 @@ CONFIG_ARM_SMMU=y
- CONFIG_ARM_SMMU_V3=y
- CONFIG_MTK_IOMMU=y
- CONFIG_QCOM_IOMMU=y
-+CONFIG_VSI_IOMMU=y
- CONFIG_REMOTEPROC=y
- CONFIG_IMX_REMOTEPROC=y
- CONFIG_MTK_SCP=m
+On 6/18/25 15:50, Diederik de Haas wrote:
+> Hi (again),
+> 
+Hello again, I appreciate you taking the time!
+> On Wed Jun 18, 2025 at 12:32 AM CEST, Olivier Benjamin wrote:
+>> The RK3399's MIPI DSI has 2 ports: in an out. The definition of
+>> the port property necessitates the value of #address-cells to be 1.
+>>
+>> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>> index 5ebc380a24df86ba7172b0950b89cac56b61c507..5a7341fb6bcb0613af6f3ac31d99355a0f890e89 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+>> @@ -468,7 +468,7 @@ &mipi_dsi {
+>>   
+>>   	ports {
+>>   		mipi_out: port@1 {
+>> -			#address-cells = <0>;
+>> +			#address-cells = <1>;
+>>   			#size-cells = <0>;
+>>   			reg = <1>;
+>>   
+> 
+> In rk3399-base.dtsi there is already a definition for mipi-in and
+> mipi-out. AFAICT what this change does is require a reg property on the
+> endpoint and I don't think that's correct.
+> 
+Those definitions do indeed exist in the base DTSI.
+> It seems to me that all you need is a mipi_out_panel definition.
+> So what I came up with is this:
+> 
+> ```sh
+> $ git diff
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 04ba4c4565d0..b175aeed99e2 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -466,18 +466,6 @@ &mipi_dsi {
+>   	status = "okay";
+>   	clock-master;
+> 
+> -	ports {
+> -		mipi_out: port@1 {
+> -			#address-cells = <0>;
+> -			#size-cells = <0>;
+> -			reg = <1>;
+> -
+> -			mipi_out_panel: endpoint {
+> -				remote-endpoint = <&mipi_in_panel>;
+> -			};
+> -		};
+> -	};
+> -
+>   	panel@0 {
+>   		compatible = "hannstar,hsd060bhw4";
+>   		reg = <0>;
+> @@ -495,6 +483,12 @@ mipi_in_panel: endpoint {
+>   	};
+>   };
+> 
+> +&mipi_out {
+> +	mipi_out_panel: endpoint {
+> +		remote-endpoint = <&mipi_in_panel>;
+> +	};
+> +};
+> +
+>   &pmu_io_domains {
+>   	pmu1830-supply = <&vcc_1v8>;
+>   	status = "okay";
+> ```
+> 
+Thanks for the suggestion, that looks like it might actually solve the 
+issue.
+> I don't have a PPP so I can't verify it, but ``make CHECK_DTBS=y W=1
+> rockchip/rk3399-pinephone-pro.dtb`` no longer reports issues wrt
+> dsi@ff960000 (after I also fixed the panel compatible like in patch 1
+> and added a LCD1_RST pinctrl definition as indicated in my reply to
+> patch 3).
+> 
+I'll test on my PPP and report back in v2.
+> Cheers,
+>    Diederik
+
 -- 
-2.43.0
+Olivier Benjamin, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
